@@ -94,3 +94,50 @@ insert into public.secciones (id, numero, titulo, estado, responsable, notas) va
   ('s16','B','Anexo B — Plan de trabajo interno F1','interna',null,'Fuera de la versión cliente'),
   ('s17','—','Apartado interno — Alertas de identidad','interna',null,'Fuera de la versión cliente')
 on conflict (id) do nothing;
+
+-- ---------- 4. Entrevistas transcritas (crudos) ----------
+-- Insumo del módulo admin. Las transcripciones NO viven en el repo (material sensible).
+create table if not exists public.entrevistas (
+  id             uuid primary key default gen_random_uuid(),
+  codigo         text unique,                 -- 'E-01'… para cotejar con Anexo A
+  entrevistado   text not null,
+  cargo          text,
+  area           text,                        -- gobierno, estructura, talento, procesos, tecnología, cultura, operaciones
+  pais           text,                        -- Venezuela, Panamá, Colombia, Costa Rica, Guatemala, EE.UU.
+  fecha          date,
+  entrevistador  text,
+  duracion_min   integer,
+  estado         text not null default 'crudo'
+                 check (estado in ('crudo','revisado','procesado','descartado')),
+  transcripcion  text,
+  notas          text,
+  etiquetas      text[],
+  creado_en      timestamptz not null default now(),
+  actualizado_en timestamptz not null default now()
+);
+
+drop trigger if exists trg_entrevistas_touch on public.entrevistas;
+create trigger trg_entrevistas_touch
+  before update on public.entrevistas
+  for each row execute function public.touch_actualizado_en();
+
+alter table public.entrevistas enable row level security;
+
+drop policy if exists entrevistas_lectura   on public.entrevistas;
+drop policy if exists entrevistas_escritura on public.entrevistas;
+create policy entrevistas_lectura   on public.entrevistas for select using (true);
+create policy entrevistas_escritura on public.entrevistas for all to authenticated using (true) with check (true);
+
+-- TRANSITORIO ⚠️: escritura anónima mientras el panel admin no tenga login.
+-- CERRAR (drop policy) al activar Supabase Auth — con esta política, cualquiera con la
+-- clave publishable puede escribir/leer. No cargar transcripciones reales sensibles hasta entonces.
+drop policy if exists entrevistas_escritura_anon on public.entrevistas;
+create policy entrevistas_escritura_anon on public.entrevistas for all to anon using (true) with check (true);
+
+insert into public.entrevistas
+  (codigo, entrevistado, cargo, area, pais, entrevistador, estado, transcripcion, notas, etiquetas)
+values
+  ('E-DEMO','Ejemplo — reemplazar','Cargo de ejemplo','tecnología','Venezuela','Gabriel','crudo',
+   'Transcripción de ejemplo para validar el módulo. Reemplazar por contenido real solo cuando Auth esté activo.',
+   'Fila semilla de demostración. Puede borrarse.', array['demo','ejemplo'])
+on conflict (codigo) do nothing;

@@ -26,6 +26,9 @@ La configuración se hizo desde Claude Code usando el **conector MCP de Supabase
 | `secciones` | Estado vivo del informe, sección por sección (espejo operable de `gestion/ESTADO.md`). Incluye seed con el estado al 17-jul. |
 | `comentarios` | Comentarios/feedback de los consultores por sección, con marca de resuelto. |
 | `riesgos` | Registro de riesgos (severidad × probabilidad × área) — alimenta la futura matriz visual de la sección 9. |
+| `entrevistas` | Crudos de entrevistas transcritas. Alimenta el módulo `admin/` (listar/crear/editar). Las transcripciones viven aquí, **no en el repo**. |
+
+> ⚠️ **Escritura anónima transitoria en `entrevistas`.** Mientras el panel `admin/` no tenga login, la tabla `entrevistas` tiene una política `entrevistas_escritura_anon` que permite escribir con la clave publishable. Con ella, cualquiera que tenga esa clave (pública, está en el repo) puede leer/escribir. **No cargar transcripciones reales sensibles hasta activar Supabase Auth y borrar esa política.** La fila `E-DEMO` es solo semilla de demostración.
 
 ## Seguridad (RLS)
 

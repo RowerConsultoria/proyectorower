@@ -51,6 +51,9 @@
   }
   .b-activo{background:#e3efe4; color:var(--verde);}
   .b-prox{background:#fdf1de; color:var(--ambar);}
+  .b-admin{background:#e3eefb; color:var(--navy);}
+  a.card.admin{border-left-color:var(--navy);}
+  a.card.front{border-left-color:var(--verde);}
   .fechas{
     background:var(--gris); border:1px solid var(--borde); border-radius:8px;
     padding:16px 20px; margin-top:8px;
@@ -72,13 +75,22 @@
 </header>
 
 <main>
-  <h2>Entregables</h2>
+  <h2>El aplicativo</h2>
   <div class="grid">
-    <a class="card" href="informe/fase1/informe-diagnostico-fase1.html">
-      <span class="badge b-activo">Activo · ~85%</span>
+    <a class="card front" href="informe/fase1/informe-diagnostico-fase1.html">
+      <span class="badge b-activo">Front · Público</span>
       <h3>Informe Diagnóstico — Fase 1</h3>
-      <p>Sitio navegable autocontenido: 13 secciones, anexos y diagrama de arquitectura de IA embebido. El entregable maestro para la Junta Directiva del 24-jul.</p>
+      <p>El entregable maestro: sitio navegable autocontenido (13 secciones, anexos y diagrama de arquitectura de IA). La cara pública del proyecto para la Junta Directiva del 24-jul.</p>
     </a>
+    <a class="card admin" href="admin/">
+      <span class="badge b-admin">Admin · Interno</span>
+      <h3>Panel administrativo</h3>
+      <p>Módulos internos con sidebar para el equipo consultor. Primer módulo activo: <strong>entrevistas transcritas</strong>. Datos persistidos en Supabase (fuera del repositorio).</p>
+    </a>
+  </div>
+
+  <h2>Otros entregables</h2>
+  <div class="grid">
     <a class="card" href="presentaciones/">
       <span class="badge b-prox">Próximamente</span>
       <h3>Presentaciones</h3>
