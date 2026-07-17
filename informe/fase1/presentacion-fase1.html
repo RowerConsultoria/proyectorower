@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentación · Informe Diagnóstico Fase 1 · Proyecto Rower</title>
+<style>
+:root{
+  --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
+  --gris:#F4F6FA; --borde:#d9dee8; --txt:#26303f; --muted:#55627a; --celeste:#9dc3ee;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{height:100%;}
+body{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif; color:var(--txt); background:#101826; overflow:hidden;}
+
+/* ---------- láminas ---------- */
+.slide{position:absolute; inset:0 0 52px 0; display:none; flex-direction:column; background:#fff; padding:0;}
+.slide.on{display:flex;}
+.shead{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff; padding:20px 54px 16px;}
+.shead .kick{display:block; text-transform:uppercase; letter-spacing:.16em; font-size:13px; color:var(--celeste); font-weight:700; margin-bottom:4px;}
+.shead h2{font-size:30px; font-weight:700; letter-spacing:-.01em;}
+.sbody{flex:1; padding:26px 54px 22px; overflow:auto; display:flex; flex-direction:column; gap:16px;}
+.lead{font-size:19px; color:var(--txt); max-width:1080px;}
+.lead b{color:var(--navy);}
+.foot-note{font-size:13px; color:var(--muted); margin-top:auto; padding-top:10px; border-top:1px solid var(--borde);}
+
+/* utilidades visuales */
+.grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; align-content:start;}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-content:start;}
+.grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; align-content:start;}
+.card{border:1px solid var(--borde); border-left:5px solid var(--blue); border-radius:9px; padding:13px 15px; background:#fff;}
+.card h4{color:var(--navy); font-size:16.5px; margin-bottom:4px;}
+.card p{font-size:14px; color:var(--muted); line-height:1.4;}
+.card.rojo{border-left-color:var(--rojo);} .card.rojo h4{color:var(--rojo);}
+.card.verde{border-left-color:var(--verde);} .card.verde h4{color:var(--verde);}
+.card.ambar{border-left-color:var(--ambar);} .card.ambar h4{color:var(--ambar);}
+.card.navy{border-left-color:var(--navy);}
+.bigrow{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:8px 0;}
+.big{flex:1; min-width:170px; max-width:290px; text-align:center; background:var(--gris); border:1px solid var(--borde); border-radius:12px; padding:20px 14px;}
+.big .n{font-size:46px; font-weight:800; color:var(--navy); line-height:1.05;}
+.big .n.rojo{color:var(--rojo);} .big .n.verde{color:var(--verde);} .big .n.ambar{color:var(--ambar);} .big .n.blue{color:var(--blue);}
+.big .l{font-size:13.5px; color:var(--muted); margin-top:6px; line-height:1.3;}
+.flow{display:flex; align-items:stretch; gap:0; flex-wrap:wrap; justify-content:center;}
+.flow .st{background:var(--gris); border:1px solid var(--borde); border-radius:10px; padding:14px 16px; text-align:center; min-width:150px; max-width:230px; flex:1;}
+.flow .st b{display:block; color:var(--navy); font-size:15.5px; margin-bottom:3px;}
+.flow .st span{font-size:12.5px; color:var(--muted); line-height:1.3; display:block;}
+.flow .ar{align-self:center; font-size:26px; color:var(--blue); padding:0 10px; font-weight:700;}
+.stack{display:flex; flex-direction:column-reverse; gap:7px; max-width:860px; margin:0 auto; width:100%;}
+.layer{border-radius:9px; padding:11px 18px; display:flex; align-items:baseline; gap:14px; border:1px solid var(--borde);}
+.layer b{font-size:15.5px; min-width:250px;}
+.layer span{font-size:13px; color:var(--muted);}
+.quote{background:var(--gris); border-left:5px solid var(--ambar); border-radius:8px; padding:14px 20px; font-size:17px; font-style:italic; color:var(--txt); max-width:900px;}
+.quote small{display:block; font-style:normal; color:var(--muted); font-size:12.5px; margin-top:6px;}
+.tagline{display:flex; gap:10px; flex-wrap:wrap;}
+.tag{font-size:13px; font-weight:700; padding:4px 12px; border-radius:999px; background:var(--gris); border:1px solid var(--borde); color:var(--navy);}
+.tag.rojo{background:#fbeaea; color:var(--rojo); border-color:#eecccc;}
+.tag.ambar{background:#fdf1de; color:var(--ambar); border-color:#f0d9ad;}
+.tag.verde{background:#e3efe4; color:var(--verde); border-color:#cfe3d1;}
+ul.hits{list-style:none; display:flex; flex-direction:column; gap:9px; max-width:1080px;}
+ul.hits li{padding-left:26px; position:relative; font-size:16.5px; line-height:1.4;}
+ul.hits li::before{content:"▸"; position:absolute; left:4px; color:var(--blue); font-weight:700;}
+ul.hits li b{color:var(--navy);}
+ul.hits.rojo li::before{color:var(--rojo);}
+table.mini{border-collapse:collapse; width:100%; font-size:14px;}
+table.mini th{background:var(--navy); color:#fff; padding:7px 11px; text-align:left; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em;}
+table.mini td{border-bottom:1px solid var(--borde); padding:7px 11px; vertical-align:top;}
+.sev{font-weight:700; font-size:12px; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.sev.a{background:#fbeaea; color:var(--rojo);} .sev.ma{background:#fdf1de; color:var(--ambar);} .sev.m{background:#e8eef7; color:var(--blue);} .sev.op{background:#e3efe4; color:var(--verde);}
+
+/* portada / cierre */
+.slide.cover{background:linear-gradient(150deg,var(--navy) 0%,#2a4a80 70%,#33568f 100%); color:#fff; align-items:center; justify-content:center; text-align:center; padding:40px;}
+.slide.cover .kick{text-transform:uppercase; letter-spacing:.22em; font-size:14px; color:var(--celeste); font-weight:700;}
+.slide.cover h1{font-size:52px; font-weight:800; margin:14px 0 8px; letter-spacing:-.01em;}
+.slide.cover .sub{font-size:20px; color:#dbe6f5; max-width:860px; margin:0 auto 26px;}
+.slide.cover .conf{display:inline-block; margin-top:26px; padding:6px 18px; border-radius:999px; background:rgba(192,0,0,.28); border:1px solid rgba(255,255,255,.4); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;}
+.slide.cover .big{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2);}
+.slide.cover .big .n{color:#fff;} .slide.cover .big .l{color:#c9d8ee;}
+
+/* ---------- barra de control ---------- */
+#bar{position:fixed; left:0; right:0; bottom:0; height:52px; background:#101826; color:#cdd8ea; display:flex; align-items:center; gap:14px; padding:0 18px; z-index:10; font-size:13px;}
+#bar button{background:#1d2a42; color:#dbe6f5; border:1px solid #33456b; border-radius:7px; font:inherit; padding:5px 12px; cursor:pointer;}
+#bar button:hover{background:#2a3c61;}
+#prog{flex:1; height:5px; background:#22304d; border-radius:99px; overflow:hidden;}
+#prog i{display:block; height:100%; width:0; background:var(--celeste); border-radius:99px; transition:width .25s;}
+#sec-lbl{min-width:230px; font-weight:700; color:#fff;}
+#cnt{font-variant-numeric:tabular-nums; min-width:64px; text-align:right;}
+/* menú de secciones */
+#menu{position:fixed; inset:0 0 52px 0; background:rgba(16,24,38,.96); z-index:20; display:none; overflow:auto; padding:46px;}
+#menu.open{display:block;}
+#menu h3{color:#fff; font-size:22px; margin-bottom:18px; letter-spacing:.02em;}
+#menu .gr{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:10px;}
+#menu a{display:flex; gap:12px; align-items:baseline; background:#18254a; border:1px solid #2c3f68; color:#dbe6f5; border-radius:9px; padding:12px 16px; text-decoration:none; font-size:15px;}
+#menu a:hover{background:#22345f; border-color:var(--celeste);}
+#menu a .n{color:var(--celeste); font-weight:800; min-width:26px;}
+/* zonas de click */
+#zL,#zR{position:fixed; top:0; bottom:52px; width:18%; z-index:5; cursor:pointer;}
+#zL{left:0;} #zR{right:0;}
+@media print{#bar,#menu,#zL,#zR{display:none;} .slide{display:flex; position:static; page-break-after:always;}}
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<section class="slide cover on" data-sec="portada">
+  <div>
+    <div class="kick">UCAB Consultores · Proyecto Rower · Fase 1</div>
+    <h1>Informe Diagnóstico Organizativo</h1>
+    <div class="sub">Optimización organizativa de procesos y del talento ante el cambio tecnológico — Grupo Kenex · Presentación a la Junta Directiva · 24 de julio de 2026</div>
+    <div class="bigrow">
+      <div class="big"><div class="n">~400</div><div class="l">personas en el grupo<br>(VE ~230 · PA ~135 · CO · US)</div></div>
+      <div class="big"><div class="n">12</div><div class="l">dependencias críticas<br>de personas individuales</div></div>
+      <div class="big"><div class="n" style="font-size:33px;padding-top:8px;">22 / 104 / 260</div><div class="l">macroprocesos · procesos<br>· procedimientos mapeados</div></div>
+      <div class="big"><div class="n">52</div><div class="l">proyectos en cartera<br>con 3 gerentes de proyecto</div></div>
+    </div>
+    <div class="conf">Documento confidencial — uso exclusivo del destinatario</div>
+  </div>
+</section>
+
+<!-- ================= S2 · METODOLOGÍA (3) ================= -->
+<section class="slide" data-sec="s2">
+  <div class="shead"><span class="kick">2 · Metodología y fuentes</span><h2>Un diagnóstico macro-organizativo con triangulación de fuentes</h2></div>
+  <div class="sbody">
+    <p class="lead">El diagnóstico lee la organización completa — <b>el detalle de procesos corresponde a la Fase 2</b> — con un enfoque híbrido de tres pilares:</p>
+    <div class="grid3">
+      <div class="card"><h4>Sociotécnico</h4><p>Personas, estructura y tecnología como un solo sistema: ninguna pieza se evalúa aislada.</p></div>
+      <div class="card"><h4>Madurez digital y operativa</h4><p>Qué tan lejos está cada práctica de lo que la transformación exigirá.</p></div>
+      <div class="card"><h4>Triangulación</h4><p>Personas ↔ sistemas ↔ documentos: cada hallazgo relevante se verifica en más de una fuente.</p></div>
+    </div>
+    <div class="tagline"><span class="tag">Entrevistas a profundidad</span><span class="tag">Procesamiento asistido por IA (23 transcripciones)</span><span class="tag">11 sesiones de alineación</span><span class="tag">Revisión documental</span><span class="tag">Auditoría técnica de plataformas</span></div>
+    <p class="foot-note">Principios de rigor: doble fuente para lo relevante · discrepancias registradas como alertas abiertas · identidades validadas contra nómina oficial · confidencialidad.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s2">
+  <div class="shead"><span class="kick">2 · Metodología y fuentes</span><h2>Seis aspectos centrales organizan todo el informe</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card navy"><h4>1 · Gobierno y fundamentos</h4><p>Identidad, entidades, gobierno corporativo y estrategia → sección 3</p></div>
+      <div class="card navy"><h4>2 · Mapa de procesos</h4><p>Flujos del negocio y soporte corporativo → secciones 4.7 y 6</p></div>
+      <div class="card navy"><h4>3 · Estructura organizativa</h4><p>Formal vs. real, personas y dependencias → sección 4</p></div>
+      <div class="card navy"><h4>4 · Estructura del talento</h4><p>Función de RRHH y sus brechas → secciones 4.3 y 5</p></div>
+      <div class="card navy"><h4>5 · Gestión del cambio</h4><p>Cultura, disposición y formación → sección 8</p></div>
+      <div class="card navy"><h4>6 · Soporte técnico e IA</h4><p>Sistemas, datos y arquitectura → secciones 7, 11 y 12</p></div>
+    </div>
+    <p class="lead" style="margin-top:6px;">Cada hallazgo del diagnóstico se asocia a uno o más de estos factores; la síntesis (sección 9) muestra <b>dónde se concentran los desafíos</b>.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s2">
+  <div class="shead"><span class="kick">2 · Metodología y fuentes</span><h2>La evidencia: cobertura vertical y horizontal del grupo</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n">23</div><div class="l">sesiones de entrevista<br>24 personas · ≈27 h 24 min</div></div>
+      <div class="big"><div class="n">11</div><div class="l">reuniones de gobernanza<br>≈13 h 43 min</div></div>
+      <div class="big"><div class="n">6</div><div class="l">categorías de requisitos<br>documentales (A–F)</div></div>
+      <div class="big"><div class="n ambar">5+5</div><div class="l">consonancias y disonancias<br>entre discursos, registradas</div></div>
+    </div>
+    <ul class="hits">
+      <li>De la <b>Presidencia y la Junta</b> hasta roles operativos y socios locales (Colombia, Costa Rica) — cobertura vertical completa.</li>
+      <li>Las <b>disonancias</b> (plan estratégico no desplegado, cifras de plantilla, arquitectura de marcas, cargos vs. funciones) se convirtieron en verificaciones — no se ocultan, se gestionan.</li>
+      <li>El acceso administrativo a Odoo (requisito C#2) permanece <b>pendiente y bloqueante</b> para la auditoría técnica de acceso directo.</li>
+    </ul>
+    <p class="foot-note">La diversidad de formatos y las ausencias documentales son, en sí mismas, un hallazgo: la formalización documental es condición habilitante de la transformación.</p>
+  </div>
+</section>
+
+<!-- ================= S3 · FUNDAMENTOS (4) ================= -->
+<section class="slide" data-sec="s3">
+  <div class="shead"><span class="kick">3 · Fundamentos, gobierno y estrategia</span><h2>Un grupo familiar con perímetro societario sin inventario</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n">8</div><div class="l">entidades del negocio<br>operativo de distribución</div></div>
+      <div class="big"><div class="n ambar">~35–40</div><div class="l">sociedades del grupo familiar<br>— sin inventario formal</div></div>
+      <div class="big"><div class="n">13</div><div class="l">países con presencia<br>en 4 modelos distintos</div></div>
+    </div>
+    <p class="lead"><b>Kenex Trading (Panamá, Zona Libre de Colón) es la casa matriz</b> desde donde se gestiona Latinoamérica. El registro completo del perímetro societario está "en la cabeza" de dos personas; la frontera entre el grupo operativo y el family office es difusa — el almacén troncal incluso comparte espacio y costos con un negocio familiar externo sin acuerdo formalizado.</p>
+    <div class="quote">Las relaciones del grupo funcionan sobre la confianza personal y la trayectoria, no sobre instrumentos formales.<small>Patrón transversal de la sección 3 — fortalezas de décadas de relación; debilidades exactamente donde la confianza no basta.</small></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="s3">
+  <div class="shead"><span class="kick">3 · Fundamentos, gobierno y estrategia</span><h2>Cuatro modelos de presencia — cuatro grados de control y visibilidad</h2></div>
+  <div class="sbody">
+    <div class="grid4">
+      <div class="card verde"><h4>Operación propia</h4><p><b>Venezuela</b> (Rower, ~230) · <b>Panamá</b> (Trading + Casiolandia) · <b>Colombia</b> (Deltadir, razón social separada) · <b>EE.UU.</b> (Kenex USA, ~5)</p></div>
+      <div class="card ambar"><h4>Sociedad 50/50</h4><p><b>Costa Rica</b> (Importbel) — el socio gestiona de forma autónoma, compra como cliente, sin Odoo ni Lark.</p></div>
+      <div class="card ambar"><h4>Tercerizada</h4><p><b>Guatemala</b> (Ix Comercio, fee ~10%) — inventario en bodega del operador; comunicación por WhatsApp.</p></div>
+      <div class="card"><h4>Franquicia / distribuidor</h4><p><b>Honduras</b> (en internalización), <b>Rep. Dominicana</b>, resto LatAm como clientes mayoristas.</p></div>
+    </div>
+    <p class="lead">La heterogeneidad es un <b>hallazgo estructural central</b>: cada modelo implica un grado distinto de control, de visibilidad de datos y de estandarización — y la mercancía de todos transita físicamente por Panamá.</p>
+    <p class="foot-note">Flujo troncal: compras centralizadas (Casio desde Panamá · Cubitt desde Miami con producción en China) → consolidación en Zona Libre → despacho a filiales, socio, operador y mayoristas → venta local por canal.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s3">
+  <div class="shead"><span class="kick">3 · Fundamentos, gobierno y estrategia</span><h2>Gobierno: velocidad extraordinaria, registro inexistente</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card navy"><h4>Junta Directiva</h4><p>Los 5 accionistas + 2 directores externos (asesores de 3 y ~30 años de relación).</p></div>
+      <div class="card navy"><h4>Comité Directivo</h4><p>El "comité íntimo": los accionistas conectados 24/7 entre Caracas, Panamá y Miami.</p></div>
+      <div class="card navy"><h4>Comité de Finanzas</h4><p>El mismo grupo ampliado con contabilidad; protocolo familiar en actualización, aparte.</p></div>
+    </div>
+    <ul class="hits rojo">
+      <li>Las decisiones se toman <b>en una llamada</b> y llegan a la junta como <b>hechos consumados</b> — sin actas ni seguimiento formal de acuerdos.</li>
+      <li>La velocidad fue ventaja en Venezuela y costosa fuera: <b>Puerto Rico terminó en pérdida total</b>; México con socio generó problemas equivalentes.</li>
+      <li>Avances verificables: plan estratégico a 3 años, presupuesto y forecast, profesionalización contable — la brecha ya no es de instrumentos sino de <b>disciplina de seguimiento</b>.</li>
+    </ul>
+    <p class="foot-note">Implicación: formalizar el circuito decisión → registro → seguimiento, construyendo sobre los avances existentes — no en paralelo a ellos.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s3">
+  <div class="shead"><span class="kick">3 · Fundamentos, gobierno y estrategia</span><h2>Existe plan estratégico — conviven tres visiones sin reconciliar</h2></div>
+  <div class="sbody">
+    <p class="lead">Contra el supuesto inicial, <b>el grupo sí cuenta con un plan estratégico a tres años</b> (definido a inicios de 2026, revisión prevista julio/agosto). La brecha está en su <b>despliegue</b>: no aparece en el discurso de las gerencias medias.</p>
+    <div class="grid3">
+      <div class="card"><h4>Distribución y retail</h4><p>La visión de la generación fundadora: el negocio que construyó el grupo durante décadas.</p></div>
+      <div class="card"><h4>Software y suscripción</h4><p>La visión de la nueva generación: ecosistema digital sobre ~100 mil usuarios de la app Cubitt.</p></div>
+      <div class="card"><h4>80/20 hacia Cubitt</h4><p>Una tercera posición: volcar el esfuerzo al crecimiento de la marca propia.</p></div>
+    </div>
+    <div class="quote">Estructuras distintas sirven a estrategias distintas: reconciliar las visiones es condición para aprobar la estructura definitiva.<small>La revisión del plan de julio/agosto es la oportunidad natural (sección 9, banda Alta).</small></div>
+  </div>
+</section>
+
+<!-- ================= S4 · ESTRUCTURA (5) ================= -->
+<section class="slide" data-sec="s4">
+  <div class="shead"><span class="kick">4 · Estructura organizativa global</span><h2>Formalmente no hay organigrama consolidado — la estructura real opera en cuatro planos</h2></div>
+  <div class="sbody">
+    <div class="flow">
+      <div class="st"><b>Gobierno familiar</b><span>Junta, Comité Directivo y comités — decisión concentrada</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Dirección de facto</b><span>Cada accionista ejerce una dirección funcional que no existe en nómina</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Capa corporativa regional</b><span>Roles multi-país (finanzas, sistemas, marketing, CS, retail, BI…) invisibles en las nóminas</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Estructuras por país</b><span>15 departamentos en Panamá · 14 gerencias en Venezuela · equipos CO/US</span></div>
+    </div>
+    <p class="lead" style="margin-top:8px;">El organigrama interactivo del grupo (accesible desde este mismo informe) navega los cuatro planos con sus flujos funcionales y alertas.</p>
+    <p class="foot-note">Panamá: organigrama 2025 con 15 departamentos · Venezuela: 14 gerencias con bandas y niveles ajustados en abril 2026 — grados de madurez distintos.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s4">
+  <div class="shead"><span class="kick">4 · Estructura organizativa global</span><h2>Las personas del grupo, validadas contra la nómina oficial</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n">~230</div><div class="l">Venezuela (creció de 176<br>en dic-2025 · ~200 posiciones oficiales)</div></div>
+      <div class="big"><div class="n">~135</div><div class="l">Panamá (Trading + Casiolandia,<br>15 departamentos)</div></div>
+      <div class="big"><div class="n">18–38</div><div class="l">Colombia (Deltadir,<br>mayoría promotores)</div></div>
+      <div class="big"><div class="n">~5</div><div class="l">EE.UU. (Miami,<br>estructura mínima)</div></div>
+    </div>
+    <ul class="hits">
+      <li>La validación contra los archivos oficiales (4.3) <b>resolvió las identidades pendientes</b> y corrigió registros previos del propio diagnóstico.</li>
+      <li><b>Ola de ingresos 2026</b> en posiciones estructurales de Venezuela: la "recuperación" está en plena ejecución — la propuesta debe construir sobre esos nombramientos.</li>
+      <li>Brecha clave: <b>cargos formales que subrepresentan el rol real</b> — el CFO del grupo figura en nómina como "Planificador Financiero" de una gerencia país.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s4">
+  <div class="shead"><span class="kick">4 · Estructura organizativa global</span><h2>Una capa completa del grupo no existe en los papeles</h2></div>
+  <div class="sbody">
+    <p class="lead">Roles que <b>sostienen flujos troncales del negocio</b> y no aparecen en ninguna nómina o escala oficial recibida:</p>
+    <div class="grid3">
+      <div class="card ambar"><h4>Compras y reportería Casio</h4><p>Soporte multi-país operado desde el exterior, sin registro en nómina.</p></div>
+      <div class="card ambar"><h4>Célula de BI</h4><p>Modelos predictivos en producción — "Business Intelligence" figura como departamento; sus integrantes, no.</p></div>
+      <div class="card ambar"><h4>Retail regional</h4><p>Gerencia de todas las tiendas del grupo, sin registro en las nóminas recibidas.</p></div>
+      <div class="card ambar"><h4>Dirección de Marketing</h4><p>~50 personas a cargo; la posición directora no figura en el archivo de marketing.</p></div>
+      <div class="card ambar"><h4>Logística corporativa</h4><p>Rol corporativo del grupo operando la migración WMS.</p></div>
+      <div class="card ambar"><h4>Dirección del grupo</h4><p>Los accionistas ejercen direcciones funcionales completas sin cargo formal.</p></div>
+    </div>
+    <p class="foot-note">Quien sostiene el flujo no aparece en el organigrama que lo gobierna — la estructura patrón de cargos (Fase 3) debe partir de las funciones reales, no de los cargos registrados.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s4">
+  <div class="shead"><span class="kick">4 · Estructura organizativa global</span><h2>El principal riesgo de continuidad: conocimiento único en personas individuales</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card rojo"><h4>Compras y reportería Casio</h4><p>Los archivos de compra de 6 países y la reportería oficial al proveedor, en una sola persona.</p></div>
+      <div class="card rojo"><h4>Servicio técnico Casio</h4><p>Repuestos y criterio técnico de todos los países, desde Caracas — "nadie más sabe".</p></div>
+      <div class="card rojo"><h4>Experticia Lark</h4><p>Un único experto interno de la plataforma de colaboración del grupo.</p></div>
+      <div class="card rojo"><h4>IT regional</h4><p>Parametrización personal de Odoo en tres países.</p></div>
+      <div class="card rojo"><h4>Compras Cubitt</h4><p>Relación con ~10 proveedores en China y diseño de producto.</p></div>
+      <div class="card rojo"><h4>Banca y financiamiento</h4><p>Una sola persona con relación bancaria; cuadro de reemplazo en formación.</p></div>
+    </div>
+    <p class="lead">Matriz completa con severidad y mitigación en la sección 4.5 — <b>documentar esos procesos es prioridad inmediata de la Fase 2</b>, y su reducción se eleva a principio de diseño de la estructura propuesta.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s4">
+  <div class="shead"><span class="kick">4 · Estructura organizativa global</span><h2>Ocho flujos troncales reconstruidos — y los vicios que comparten</h2></div>
+  <div class="sbody">
+    <div class="tagline">
+      <span class="tag">F1 Compras Casio</span><span class="tag">F2 Compras Cubitt</span><span class="tag">F3 Logística e inventario</span><span class="tag">F4 Autorización comercial</span><span class="tag">F5 E-commerce</span><span class="tag">F6 Servicio técnico</span><span class="tag">F7 Datos y BI</span><span class="tag">F8 Finanzas</span>
+    </div>
+    <ul class="hits rojo">
+      <li><b>Consolidación artesanal:</b> proyecciones financieras en herramienta personal, sin sistema multi-entidad.</li>
+      <li><b>Conocimiento crítico en herramientas personales:</b> Excel de compras, heurísticas comerciales, repuestos.</li>
+      <li><b>Doble reporte jerárquico/funcional sin regla de desempate</b> en servicio técnico, marketing, IT y retail.</li>
+      <li><b>Decisiones fuera de los sistemas:</b> lo acordado no queda registrado donde se opera.</li>
+      <li><b>El dato se degrada al cruzar fronteras de sistemas</b> — puentes manuales entre plataformas.</li>
+      <li><b>Roles invisibles para la estructura formal</b> sosteniendo flujos completos.</li>
+    </ul>
+    <p class="foot-note">Cada flujo F1–F8 es unidad de documentación para la Fase 2, y los casos de uso de IA (sección 13) se mapean contra estos vicios. La PMO coordina 52 proyectos con 3 PM — sin gestión presupuestaria ni procurement.</p>
+  </div>
+</section>
+
+<!-- ================= S5 · TALENTO (4) ================= -->
+<section class="slide" data-sec="s5">
+  <div class="shead"><span class="kick">5 · Talento y función de RRHH</span><h2>La función que debe gobernar el activo humano administra sin instrumentos</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card"><h4>Panamá</h4><p>Ciclo de evaluación estructurado y encuesta de clima — pero una sola persona concentra RRHH, relaciones laborales, marca empleadora y servicios generales.</p></div>
+      <div class="card rojo"><h4>Venezuela</h4><p>La mayor operación del grupo <b>sin evaluación formal de desempeño</b> y con ingreso a nómina <b>sin contrato de trabajo firmado</b>.</p></div>
+    </div>
+    <ul class="hits">
+      <li>Dos gerencias país <b>sin instancia corporativa</b> que las articule — cada país gestiona con herramienta distinta (Odoo en construcción, software local, tercerización).</li>
+      <li>No existe diccionario de competencias ni marco compartido entre países.</li>
+      <li>Las gerentes de RRHH son <b>aliadas del proyecto</b> — y a la vez las personas a quienes más les cambia el cargo.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s5">
+  <div class="shead"><span class="kick">5 · Talento y función de RRHH</span><h2>Trece brechas examinadas proceso por proceso</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n rojo">8</div><div class="l">críticas</div></div>
+      <div class="big"><div class="n ambar">4</div><div class="l">altas</div></div>
+      <div class="big"><div class="n blue">1</div><div class="l">media</div></div>
+    </div>
+    <p class="lead">La severidad combina <b>riesgo actual para la operación</b> y <b>reto estratégico</b>: cuánto compromete cada brecha la capacidad de la función para acompañar la transformación. Las ocho críticas no bloquean un entregable puntual — <b>reflejan la debilidad de la función para sostener el cambio una vez cerrado el proyecto</b>.</p>
+    <div class="quote">La organización ya construyó una vez organigrama, descripciones, evaluaciones y planes de capacitación — y ese trabajo quedó congelado. La diferencia entre repetir esa historia y transformar la organización es la función que debe operarlos.<small>Advertencia final de la sección 5.</small></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="s5">
+  <div class="shead"><span class="kick">5 · Talento y función de RRHH</span><h2>Las ocho brechas críticas</h2></div>
+  <div class="sbody">
+    <div class="grid4">
+      <div class="card rojo"><h4>Planificación de plantilla</h4><p>"Se crea el cargo y luego se busca a alguien."</p></div>
+      <div class="card rojo"><h4>Descripciones y competencias</h4><p>Cobertura aparente sin profundidad; sin diccionario. Bloquea todo el frente.</p></div>
+      <div class="card rojo"><h4>Contratación formal</h4><p>Ingreso sin contrato firmado — riesgo laboral y patrimonial (PI del producto digital).</p></div>
+      <div class="card rojo"><h4>Evaluación del desempeño</h4><p>Inexistente en la mayor operación del grupo.</p></div>
+      <div class="card rojo"><h4>Formación y carrera</h4><p>Tres piezas descoordinadas: figura F&D por contratar, departamento "on hold", Universidad Cubitt subutilizada.</p></div>
+      <div class="card rojo"><h4>Nómina manual</h4><p>"El índice de error es muy alto" — y es el caso de uso de IA mejor patrocinado.</p></div>
+      <div class="card rojo"><h4>Datos de talento</h4><p>Tres esquemas incompatibles: imposible consolidar rotación, costo o brechas.</p></div>
+      <div class="card rojo"><h4>Continuidad del conocimiento</h4><p>Las dependencias críticas coinciden con los procesos menos documentados.</p></div>
+    </div>
+    <p class="foot-note">El modelo objetivo añade: capa base de competencias profesionales, propuesta de valor al empleado (EVP), y dueños para relaciones laborales, experiencia del empleado y gobierno de datos de talento.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s5">
+  <div class="shead"><span class="kick">5 · Talento y función de RRHH</span><h2>Cuatro decisiones elevadas a la dirección</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card navy"><h4>1 · Capa corporativa de RRHH</h4><p>Condición de viabilidad de la transformación completa: sin instancia de grupo, el rediseño no tiene quién lo opere.</p></div>
+      <div class="card navy"><h4>2 · Elevar RRHH a estratégico</h4><p>Con la estructura y los recursos que eso implica — ambas gerencias lo piden explícitamente.</p></div>
+      <div class="card navy"><h4>3 · Consolidar los datos de talento</h4><p>Capa mínima de consolidación definida con el frente técnico — prerrequisito de la evaluación masiva.</p></div>
+      <div class="card navy"><h4>4 · Capacidad de formación antes de necesitarla</h4><p>El upskilling masivo en IA llega en pocos meses y necesita un vehículo listo.</p></div>
+    </div>
+    <p class="foot-note">Riesgos de implantación advertidos: fatiga de cambio de las gerentes (rediseñan su propio puesto mientras operan la nómina del mes) · vacío de gobierno legal durante la transición · expectativas desalineadas sobre el ritmo.</p>
+  </div>
+</section>
+
+<!-- ================= S6 · PROCESOS (4) ================= -->
+<section class="slide" data-sec="s6">
+  <div class="shead"><span class="kick">6 · Procesos y operaciones</span><h2>La operación funciona — sobre la memoria y el criterio de personas concretas</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card"><h4>Cadena comercial y compras</h4><p>Compras Casio sobre archivos personales y aprobación individual; Cubitt sin ritualizar; dos canales con dos disciplinas de KPI.</p></div>
+      <div class="card"><h4>Logística y almacenes</h4><p>La bodega de Zona Libre como columna vertebral (conteo con doble/triple verificación) — frente a recepción "a dedo" en el e-commerce.</p></div>
+      <div class="card"><h4>Atención y postventa</h4><p>6.000 conversaciones/mes atendidas a mano; servicio técnico como el proceso menos estructurado.</p></div>
+    </div>
+    <ul class="hits">
+      <li>El punto de control comercial previo a bodega <b>ha demostrado prevenir errores</b> — el activo es el control; el vicio es que su criterio no está escrito.</li>
+      <li>La variabilidad sin estándar: <b>alistar un pedido equivalente toma de una semana a un mes</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s6">
+  <div class="shead"><span class="kick">6 · Procesos y operaciones</span><h2>El grupo ya contiene sus propios benchmarks: ocho prácticas replicables</h2></div>
+  <div class="sbody">
+    <div class="grid4">
+      <div class="card verde"><h4>Disciplina de KPI del retail Cubitt</h4><p>Indicadores diarios y estándares regionales únicos.</p></div>
+      <div class="card verde"><h4>Conteo con verificación (Zona Libre)</h4><p>El estándar a replicar en Colombia y Miami con el WMS.</p></div>
+      <div class="card verde"><h4>Autorización comercial previa</h4><p>Control simple que previene errores — replicable por canal.</p></div>
+      <div class="card verde"><h4>Ciclo de servicio Panamá</h4><p>El proceso de atención más estandarizado del grupo.</p></div>
+      <div class="card verde"><h4>Encuesta de clima (RRHH PA)</h4><p>Única del grupo, con planes de acción.</p></div>
+      <div class="card verde"><h4>Salud de inventario (BI)</h4><p>Plan de acción a 30 días por producto — subconsumido.</p></div>
+      <div class="card verde"><h4>Campañas planificadas con IA</h4><p>Dos temporadas altas "100% con IA" (e-commerce VE).</p></div>
+      <div class="card verde"><h4>Autonomía coordinada (CR)</h4><p>Modelo de relación con socios: comité, adopción voluntaria.</p></div>
+    </div>
+    <p class="lead"><b>La organización no necesita empezar de cero — necesita convertir en estándar lo que ya funciona en algunas partes.</b></p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s6">
+  <div class="shead"><span class="kick">6 · Procesos y operaciones</span><h2>El mapa de procesos del grupo, versión integrada</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n">22</div><div class="l">macroprocesos</div></div>
+      <div class="big"><div class="n">104</div><div class="l">procesos</div></div>
+      <div class="big"><div class="n">260</div><div class="l">procedimientos</div></div>
+    </div>
+    <div class="flow">
+      <div class="st"><b>Estratégicos</b><span>Dirección y gobierno · planificación · gestión del cambio</span></div>
+      <div class="ar">·</div>
+      <div class="st"><b>Operativos</b><span>La cadena de valor: compras → logística → comercial → postventa</span></div>
+      <div class="ar">·</div>
+      <div class="st"><b>De soporte</b><span>Finanzas · talento · sistemas · legal · marketing</span></div>
+    </div>
+    <p class="lead" style="margin-top:6px;">Es un <b>mapa vivo</b>: la arquitectura de referencia del <i>to-be</i> sobre la cual la Fase 2 levantará el As-Is formal flujo por flujo.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s6">
+  <div class="shead"><span class="kick">6 · Procesos y operaciones</span><h2>De la fotografía al levantamiento formal</h2></div>
+  <div class="sbody">
+    <div class="flow">
+      <div class="st"><b>Hoy (Fase 1)</b><span>Flujos troncales F1–F8 + fotografía por área + mapa 22/104/260</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Fase 2</b><span>As-Is formal por proceso, con dueños, entradas/salidas y SLA internos</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Automatización</b><span>Los casos de uso de IA se mapean contra los vicios documentados</span></div>
+    </div>
+    <p class="lead" style="margin-top:8px;">Los procesos deciden hoy <b>en Excel personales y WhatsApp</b> — el puente natural hacia el hallazgo técnico central del diagnóstico: el dato.</p>
+  </div>
+</section>
+
+<!-- ================= S7 · TECNOLOGÍA (7) ================= -->
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>El ecosistema: plataformas capaces, adopción desigual, dos capas sombra</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card navy"><h4>Troncales</h4><p><b>Odoo</b> (ERP: Panamá, Venezuela, Colombia) · <b>Lark</b> (colaboración) · <b>WMS/EBS</b> (Zona Libre) · Shopify (e-commerce).</p></div>
+      <div class="card"><h4>Especializados</h4><p>Stack de BI (Fabric, ML) · plataformas de marketing · Mercately/WhatsApp · QuickBooks+EDI (EE.UU., desconectados).</p></div>
+      <div class="card ambar"><h4>Las dos capas sombra</h4><p><b>Excel personales</b> para las decisiones de mayor impacto y <b>WhatsApp</b> como canal operativo real.</p></div>
+    </div>
+    <ul class="hits">
+      <li><b>Lo integrado funciona:</b> la cadena Odoo ↔ WMS ↔ Shopify de Panamá factura sin intervención manual; la triangulación intercompañía está automatizada.</li>
+      <li><b>Lo no integrado se puentea a mano</b> — y ahí se degrada el dato: 41 clientes mayoristas reportan por correo en 41 formatos que una sola ingeniera normaliza.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>La célula de BI: anticipo — y advertencia — de una IA bien adoptada</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card verde"><h4>Lo que ya existe</h4><p>Una arquitectura de datos real: pipelines ETL, almacén en la nube, <b>modelos predictivos y prescriptivos en producción</b> (salud de inventario con plan de acción a 30 días, usados por compras y comercial).</p></div>
+      <div class="card rojo"><h4>Por qué rinde bajo su potencial</h4><p>Opera <b>aislada y sin vínculo formal</b>: sus integrantes no están en nómina, su API es la única del grupo — y concentra el acceso en una sola persona.</p></div>
+    </div>
+    <div class="quote">El patrón "usuaria clave que empuja → el modelo llega a la decisión" debe convertirse en método: un modelo sin un usuario que lo consuma es trabajo perdido.<small>Lectura del caso hacia un futuro bien adaptado a la IA (7.4).</small></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Cuatro riesgos, del síntoma técnico a la raíz de gobierno</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card rojo"><h4>Riesgo 1 · El dato no certificado (7.5)</h4><p>La exportación a Excel como interfaz por defecto; IA generativa razonando sobre archivos sin fuente de verdad. <b>La certificación del dato es la primera obra.</b></p></div>
+      <div class="card rojo"><h4>Riesgo 2 · La ausencia de un eje (7.6)</h4><p>La gerencia de sistemas mira la IA desde afuera; sistemas, BI y desarrollo como islas. <b>Falta la función tecnológica transversal.</b></p></div>
+      <div class="card rojo"><h4>Riesgo 3 · El gobierno del dato (7.7)</h4><p>La data crítica del grupo en manos sin marco formal; quienes modifican el ERP son terceros remotos. <b>Gobernar el acceso es condición previa a la IA.</b></p></div>
+      <div class="card rojo"><h4>Riesgo 4 · Continuidad y escala (7.8)</h4><p>Migración de versión sin planificar, facturación electrónica como punto único de falla, partners sin transferencia de conocimiento.</p></div>
+    </div>
+    <p class="foot-note">El orden diagnóstico va del síntoma a la raíz; la arquitectura (sección 12) construye en el orden inverso — por eso el gobierno, Riesgo 3 aquí, es el Componente 1 allá.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>El reverso oportuno: procesos manuales de alto volumen como quick wins</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n">6.000</div><div class="l">conversaciones/mes<br>atendidas a mano (e-commerce VE)</div></div>
+      <div class="big"><div class="n">37 vs 30</div><div class="l">miles USD: WhatsApp superó<br>a la web en abril</div></div>
+      <div class="big"><div class="n">41</div><div class="l">formatos de reportería<br>normalizados a mano</div></div>
+    </div>
+    <ul class="hits">
+      <li>Son <b>quick wins y no proyectos mayores</b>: volumen que agobia, impacto directo en ventas y cliente, dueño convencido, ROI demostrable.</li>
+      <li>La preocupación: hoy <b>no existe la conexión</b> que los haría posibles — "en Odoo no puedo saber si un pedido salió".</li>
+    </ul>
+    <p class="foot-note">Del riesgo a la acción: identificar y priorizar los quick wins desde ya — alimentan la Ola 1 de la hoja de ruta (sección 13).</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Definición arquitectónica de fondo: Odoo nativo + capa propia por API</h2></div>
+  <div class="sbody">
+    <div class="stack">
+      <div class="layer" style="background:var(--gris);"><b>Odoo apegado al estándar</b><span>El núcleo transaccional, lo más cerca posible del estándar — para que las actualizaciones anuales sigan siendo gratuitas.</span></div>
+      <div class="layer" style="background:#e8eef7;"><b>API</b><span>La frontera: la capa propia consume el ERP desde afuera, sin invadir el core.</span></div>
+      <div class="layer" style="background:#dbe6f5;"><b>Capa propia del grupo</b><span>La lógica de negocio propia y la IA viven en la capa que el grupo sí controla.</span></div>
+    </div>
+    <ul class="hits">
+      <li>No una suma de apps que se rompe en cada juntura — <b>un núcleo estándar y una capa propia gobernada</b>.</li>
+      <li>Las plataformas de colaboración no pueden ser la base: "más de mil tiendas… esto no corre en una computadora normal".</li>
+      <li>Exige <b>capacidad de desarrollo interna gobernada</b> — no solo partners.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Síntesis: la secuencia correcta no es "instalar IA"</h2></div>
+  <div class="sbody">
+    <div class="flow">
+      <div class="st"><b>1 · Consolidar el dato</b><span>Certificación y catálogo maestro</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>2 · Integrar los troncales</b><span>Cerrar los puentes manuales</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>3 · Recuperar la capa sombra</b><span>De Excel/WhatsApp hacia los sistemas</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>4 · IA por olas</b><span>Empezando donde el dato ya es confiable y el patrocinio es alto</span></div>
+    </div>
+    <p class="lead" style="margin-top:8px;">Una IA sin bases sólidas de data estructurada no se sostiene: <b>se aísla en microprocesos o se pierde</b>. Sobre esta secuencia se construyen la arquitectura (12) y la hoja de ruta (13).</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s7">
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Lo estructural · lo subutilizado · lo que preocupa</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card verde"><h4>Estructural</h4><p>Odoo multi-empresa, WMS, Lark, el stack de BI — el sistema nervioso sobre el que hay que construir ya existe.</p></div>
+      <div class="card ambar"><h4>Subutilizado</h4><p>Capacidad instalada resolviendo cosas aisladas: modelos de BI subconsumidos, Universidad Cubitt ociosa, módulos de Odoo sin activar.</p></div>
+      <div class="card rojo"><h4>Preocupante</h4><p>Los cuatro riesgos: dato, eje transversal, gobierno, continuidad — condicionan la arquitectura de IA.</p></div>
+    </div>
+    <div class="quote">El grupo ha crecido tecnológicamente más rápido de lo que ha gobernado ese crecimiento.<small>Tesis central de la sección 7.</small></div>
+  </div>
+</section>
+
+<!-- ================= S8 · CULTURA (3) ================= -->
+<section class="slide" data-sec="s8">
+  <div class="shead"><span class="kick">8 · Cultura y adopción de IA</span><h2>La base humana: capacidad real, crecimiento desordenado</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card verde"><h4>El motor ya gira</h4><p>Focos de madurez genuinos por iniciativa individual: forecast con IA, campañas planificadas "100% con IA", análisis en marketing, uso experto en Colombia.</p></div>
+      <div class="card ambar"><h4>Pero a destiempo</h4><p>Crecimiento "caótico y arbitrario": sin política, sin dueño de presupuesto de herramientas, sin criterios de seguridad de la información.</p></div>
+    </div>
+    <ul class="hits">
+      <li><b>Lealtad alta, hábito arraigado:</b> personal de 20–40 años de arraigo; migraciones previas vividas como traumáticas alimentan la desconfianza — "en el sistema viejo yo lo hacía mejor".</li>
+      <li>La transformación cultural no consiste en encender un motor apagado, sino en <b>darle dirección a uno que ya gira a destiempo</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s8">
+  <div class="shead"><span class="kick">8 · Cultura y adopción de IA</span><h2>Dos ejes de formación en curso</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card navy"><h4>Maia · fundamentos de IA para todo el talento</h4><p>Plataforma de formación vía WhatsApp. Piloto en curso con ~30 líderes; despliegue masivo previsto del orden de 150 licencias. La Encuesta Baseline debe aplicarse <b>antes</b> del arranque masivo para preservar el comparativo.</p></div>
+      <div class="card navy"><h4>Claude · herramientas para dirección y gerencia</h4><p>Formación avanzada en el uso experto de IA para quienes toman decisiones — sobre las licencias que el grupo ya tiene y subutiliza.</p></div>
+    </div>
+    <p class="lead">La adopción llega <b>por los canales que la organización ya habita</b> — nadie aprende una herramienta nueva: WhatsApp, Lark y la Universidad Cubitt como vehículos.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s8">
+  <div class="shead"><span class="kick">8 · Cultura y adopción de IA</span><h2>La formación sola no ordena: dos cimientos documentales</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card"><h4>Política de Adopción de IA</h4><p>El documento rector: qué usos son aceptables, con qué criterios de seguridad y ética, sobre qué datos, con qué responsabilidades.</p></div>
+      <div class="card"><h4>Estructura de gobierno de IA</h4><p>La instancia acordada en el Comité del 01-jul — quién decide, quién ejecuta, quién es responsable. Su especificación técnica vive en la sección 12.</p></div>
+    </div>
+    <p class="lead">Con esta sección se completa el recorrido por los seis aspectos del marco — <b>la sección 9 consolida los hallazgos y cierra el diagnóstico</b>.</p>
+  </div>
+</section>
+
+<!-- ================= S9 · SÍNTESIS (4) ================= -->
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Síntesis de hallazgos críticos y riesgos</span><h2>Veintiún hallazgos consolidados, leídos a escala de grupo</h2></div>
+  <div class="sbody">
+    <div class="bigrow">
+      <div class="big"><div class="n rojo">10</div><div class="l">criticidad Alta</div></div>
+      <div class="big"><div class="n ambar">7</div><div class="l">Media-Alta</div></div>
+      <div class="big"><div class="n blue">3</div><div class="l">Media</div></div>
+      <div class="big"><div class="n verde">1</div><div class="l">Oportunidad</div></div>
+    </div>
+    <p class="lead">La criticidad se asigna <b>a escala de grupo</b> — cuánto compromete cada hallazgo la continuidad y la transformación del conjunto — y dentro de cada banda las filas siguen el recorrido del informe, de modo que la tabla se lee como resumen secuencial del diagnóstico.</p>
+    <p class="foot-note">Los hallazgos de la banda Alta se concentran en dos frentes: gobierno y estructura (factores 1·3) — y el dato sin certificar ni gobernar (factor 6).</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Síntesis de hallazgos críticos y riesgos</span><h2>La banda Alta: diez hallazgos que exigen decisión</h2></div>
+  <div class="sbody">
+    <table class="mini">
+      <tr><th style="width:70%">Hallazgo</th><th>Factores</th></tr>
+      <tr><td>Relación con Casio sin contrato de exclusividad</td><td>1</td></tr>
+      <tr><td>Gobernanza por hechos consumados — sin actas ni seguimiento</td><td>1 · 5</td></tr>
+      <tr><td>Perímetro societario sin inventario; frontera difusa con el family office</td><td>1 · 3</td></tr>
+      <tr><td>Tres visiones de futuro sin marco que las reconcilie</td><td>1</td></tr>
+      <tr><td>La app de Cubitt (y su data de ~100 mil usuarios) no es propiedad del grupo</td><td>1 · 6</td></tr>
+      <tr><td>La estructura formal no refleja la organización real</td><td>3 · 4</td></tr>
+      <tr><td>Dependencias críticas de conocimiento único en personas individuales</td><td>3 · 4 · 2</td></tr>
+      <tr><td>Unidad de mando rota y tramos de control desbordados</td><td>3 · 2</td></tr>
+      <tr><td>Inventario estancado (~1 MM USD) y almacén compartido sin acuerdo formal</td><td>2 · 6</td></tr>
+      <tr><td>El gobierno del dato: información crítica accesible sin marco formal</td><td>6 · 1</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Síntesis de hallazgos críticos y riesgos</span><h2>Los dos hilos que atraviesan todo el diagnóstico</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card navy"><h4>Hilo organizativo: el criterio personal sin procedimiento</h4><p>Relaciones sobre confianza (s3) → estructura sobre personas, no roles (s4) → función de talento sin instrumentos (s5) → procesos sobre memoria y criterio (s6).</p></div>
+      <div class="card navy"><h4>Hilo técnico: el dato sin certificar</h4><p>Capa sombra como respuesta racional al dato deficiente (7.5) → islas sin eje transversal (7.6) → información crítica sin gobierno (7.7).</p></div>
+    </div>
+    <div class="flow" style="margin-top:4px;">
+      <div class="st" style="border-color:var(--navy);"><b>Tesis 1</b><span>Estructura primero → Parte II</span></div>
+      <div class="ar">+</div>
+      <div class="st" style="border-color:var(--navy);"><b>Tesis 2</b><span>El dato antes que el agente → Parte III</span></div>
+    </div>
+    <p class="foot-note">La cultura (s8) es la condición de ambos hilos: energía y patrocinio existen; la formación y los cimientos documentales les darán dirección.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Síntesis de hallazgos críticos y riesgos</span><h2>El hallazgo positivo: los benchmarks ya están adentro</h2></div>
+  <div class="sbody">
+    <div class="grid4">
+      <div class="card verde"><h4>El socio de Costa Rica</h4><p>Comité de innovación, forecast con IA, reportería disciplinada.</p></div>
+      <div class="card verde"><h4>La célula de BI</h4><p>Modelos predictivos y prescriptivos en producción.</p></div>
+      <div class="card verde"><h4>Marketing</h4><p>Adopción ejemplar de Lark y pipeline de IA.</p></div>
+      <div class="card verde"><h4>La PMO</h4><p>Metodología en construcción con estándares propios.</p></div>
+    </div>
+    <div class="quote">"Esto ya funciona dentro de nuestra propia casa" — la referencia interna del cambio para la comunicación del proyecto.<small>Replicar sus prácticas es parte del despliegue de Fase 2.</small></div>
+  </div>
+</section>
+
+<!-- ================= S10 · PROPUESTA (3) ================= -->
+<section class="slide" data-sec="s10">
+  <div class="shead"><span class="kick">10 · Propuesta de estructura — Parte II</span><h2>Borradores para discusión, anclados en el diagnóstico</h2></div>
+  <div class="sbody">
+    <p class="lead">Lo que se presenta son <b>borradores de propuesta</b> construidos con la lectura amplia que permite la Fase 1 — sólidos en su lógica y principios, <b>deliberadamente preliminares en su detalle</b>: la estructura definitiva se afinará con los registros de procesos <i>to-be</i> de la Fase 2.</p>
+    <div class="flow">
+      <div class="st"><b>Hallazgos (s3–s9)</b><span>Los requisitos que la estructura debe satisfacer</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Siete principios (10.1)</b><span>La lente de diseño</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Tres modelos (10.2)</b><span>Alternativas para decisión de la dirección</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-sec="s10">
+  <div class="shead"><span class="kick">10 · Propuesta de estructura — Parte II</span><h2>Siete principios de diseño</h2></div>
+  <div class="sbody">
+    <div class="grid4">
+      <div class="card"><h4>Especialización</h4><p>División del trabajo clara.</p></div>
+      <div class="card"><h4>Homogeneidad operativa</h4><p>Agrupación por propósito o función.</p></div>
+      <div class="card"><h4>Unidad de mando</h4><p>Reglas de desempate para lo matricial.</p></div>
+      <div class="card"><h4>Autoridad ↔ responsabilidad</h4><p>Equilibrio en cada posición.</p></div>
+      <div class="card"><h4>Tramo de control</h4><p>4–7 reportes directos en niveles ejecutivos.</p></div>
+      <div class="card"><h4>Escalabilidad</h4><p>Canales de comunicación claros.</p></div>
+      <div class="card"><h4>Flexibilidad híbrida</h4><p>Equilibrio local–global, matricial donde aporta.</p></div>
+    </div>
+    <p class="foot-note">Los principios funcionan como lente de lectura de las disfunciones documentadas — cada uno responde a hallazgos concretos del diagnóstico (dobles reportes, saturación de supervisión, roles invisibles).</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s10">
+  <div class="shead"><span class="kick">10 · Propuesta de estructura — Parte II</span><h2>Tres modelos sobre restricciones inamovibles</h2></div>
+  <div class="sbody">
+    <ul class="hits">
+      <li><b>Tres modelos alternativos</b> de estructura por áreas y niveles, con sus matrices de funcionamiento — desarrollados en la presentación de trabajo (22 láminas) para la discusión con la dirección.</li>
+      <li><b>Restricciones inamovibles</b> en los tres: el rol de <b>Champion de Adopción de IA</b> y la <b>formalización de la célula BI/Data</b> — el diagnóstico las exige.</li>
+      <li>Las decisiones de la discusión se incorporarán hasta consolidar la estructura definitiva en la entrega final.</li>
+    </ul>
+    <p class="foot-note">Pendiente de esta sección: el bloque de talento que responda las cuatro decisiones de 5.4 — en particular, la capa corporativa de RRHH en los tres modelos.</p>
+  </div>
+</section>
+
+<!-- ================= S11 · AUDITORÍA (4) ================= -->
+<section class="slide" data-sec="s11">
+  <div class="shead"><span class="kick">11 · Auditoría técnica — Parte III</span><h2>Lark: plataforma correcta, expectativa incorrecta</h2></div>
+  <div class="sbody">
+    <div class="grid2">
+      <div class="card verde"><h4>Para lo que sirve</h4><p>Colaboración, formularios, flujos ligeros y comunicación — donde el grupo ya la adoptó con éxito (marketing como caso ejemplar).</p></div>
+      <div class="card rojo"><h4>Para lo que no</h4><p>Capa de datos del negocio: los techos oficiales de la plataforma confirman el límite que la operación ya siente — "más de mil tiendas… esto no corre en una computadora normal".</p></div>
+    </div>
+    <p class="lead">La auditoría de Fase 1 es <b>documental</b> — límites oficiales cruzados con el uso real observado. La verificación con acceso directo permanece bloqueada por el requisito C#2 (credenciales administrativas de Odoo).</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s11">
+  <div class="shead"><span class="kick">11 · Auditoría técnica — Parte III</span><h2>Odoo: el estándar es gratuito; el código propio, deuda</h2></div>
+  <div class="sbody">
+    <ul class="hits">
+      <li>Odoo se actualiza <b>gratis cada año solo en su parte estándar</b> — los módulos custom no migran solos: cada desarrollo propio es deuda que se paga en cada salto de versión.</li>
+      <li>La instancia multipaís única que se desea <b>no existe todavía</b> — de cómo se construya depende que las actualizaciones sean gratuitas.</li>
+      <li>Presión creciente de personalización sobre un modelo de desarrollo (freelance + partners) <b>sin marco de calidad, ambientes ni gobierno de cambios</b>.</li>
+      <li>Migración 17→19 comprometida — <b>planificarla como proyecto formal con ambientes de prueba</b>.</li>
+    </ul>
+    <p class="foot-note">Verificaciones pendientes al recibir C#2 (11.4): inventario de módulos, calidad del código custom, ambientes y despliegue, respaldos, matriz de accesos, endpoints API, módulos infrautilizados, alcance real de la migración.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s11">
+  <div class="shead"><span class="kick">11 · Auditoría técnica — Parte III</span><h2>El inventario de vacíos: dónde nace el sistema propio</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card ambar"><h4>Excel al lado del sistema</h4><p>Compras Casio, sábana comercial, consolidación financiera, nómina VE — procesos críticos corriendo en paralelo al ERP.</p></div>
+      <div class="card ambar"><h4>Sin sistema alguno</h4><p>Servicio técnico sin trazabilidad, difusión a tiendas por pendrive, verificación manual de facturas de importación.</p></div>
+      <div class="card ambar"><h4>Islas de IA generativa</h4><p>Uso individual real (compras, Colombia, Costa Rica, marketing, PMO) sin política ni acumulación institucional.</p></div>
+    </div>
+    <p class="lead">Este inventario es la <b>hoja de ruta del sistema propio</b>: nace precisamente ahí donde no compite con nada — evita el trauma de reemplazar lo que funciona y entrega valor donde hoy no hay nada.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s11">
+  <div class="shead"><span class="kick">11 · Auditoría técnica — Parte III</span><h2>La estrategia: no reemplazar — hacer nacer el sistema propio</h2></div>
+  <div class="sbody">
+    <div class="flow">
+      <div class="st"><b>1 · Normalizar el flujo</b><span>El dato certificado como servicio</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>2 · Nacer en los vacíos</b><span>Cubrir lo que hoy no tiene sistema</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>3 · Núcleo modular por API</b><span>Odoo estándar; la lógica propia, en la capa del grupo</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>4 · Absorción progresiva</b><span>El sistema propio se vuelve columna vertebral con el tiempo</span></div>
+    </div>
+    <p class="lead" style="margin-top:8px;">No se le pide a la organización que abandone lo que tiene ni que confíe su operación a un sistema nuevo de golpe: <b>nace desde los huecos, sin riesgo</b>, y termina siendo el corazón modular con IA en sus venas.</p>
+  </div>
+</section>
+
+<!-- ================= S12 · ARQUITECTURA (5) ================= -->
+<section class="slide" data-sec="s12">
+  <div class="shead"><span class="kick">12 · Arquitectura de IA — Parte III</span><h2>El esquema por capas: del registro a la experiencia</h2></div>
+  <div class="sbody">
+    <div class="stack">
+      <div class="layer" style="background:var(--gris);"><b>C1 · Sistemas de registro</b><span>Odoo, WMS, Shopify, Lark — donde nacen los hechos del negocio.</span></div>
+      <div class="layer" style="background:#e8eef7;"><b>C2 · Capa de datos certificada</b><span>Catálogo y diccionario maestro · API interna: el dato como servicio, no por descarga ni favor.</span></div>
+      <div class="layer" style="background:#dbe6f5;"><b>C3 · Integración MCP</b><span>La puerta única y gobernada entre la IA y los sistemas.</span></div>
+      <div class="layer" style="background:#cfe0f5;"><b>C4 · Motor de razonamiento</b><span>Los modelos de IA que razonan sobre el dato certificado.</span></div>
+      <div class="layer" style="background:#c2d8f2;"><b>C5 · Agentes y casos de uso</b><span>El valor visible: conversacional, nómina, reportería.</span></div>
+      <div class="layer" style="background:#b5d0ef;"><b>C6 · Experiencia</b><span>Lark, WhatsApp, Power BI — los canales que la organización ya habita.</span></div>
+    </div>
+    <p class="foot-note">Y atravesándolo todo, la capa C0: el gobierno de IA y del dato — la única pieza que no admite espera.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s12">
+  <div class="shead"><span class="kick">12 · Arquitectura de IA — Parte III</span><h2>Ocho componentes en tres carriles</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card navy"><h4>Carril institucional — día uno</h4><p><b>1 · Gobierno constituido</b> (la respuesta directa al Riesgo 3) y <b>7 · Equipo interno entrenado</b> — la decisión que convierte la arquitectura de un plan que se compra en una capacidad que se posee.</p></div>
+      <div class="card"><h4>Carril de construcción — secuencia estricta</h4><p><b>2</b> Capa de datos certificada → <b>3</b> Gateway MCP → <b>4</b> Servidores MCP por sistema (empezando por Odoo) → <b>5</b> Agentes de la Ola 1.</p></div>
+      <div class="card"><h4>Transversales continuos</h4><p><b>6</b> Estandarización del uso asistencial (de islas a flota) y <b>8</b> Observabilidad y evaluación — medir desde el día uno.</p></div>
+    </div>
+    <p class="foot-note">El diagnóstico presentó los riesgos del síntoma a la raíz; la arquitectura construye de la raíz al síntoma — por eso el gobierno va primero.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s12">
+  <div class="shead"><span class="kick">12 · Arquitectura de IA — Parte III</span><h2>La Ola 1: valor visible en semanas</h2></div>
+  <div class="sbody">
+    <div class="grid3">
+      <div class="card verde"><h4>Agente conversacional e-commerce VE</h4><p>Sobre las 6.000 conversaciones/mes — consulta de estado de pedido, disponibilidad y precio con MCP-Odoo en solo lectura.</p></div>
+      <div class="card verde"><h4>Asistente de nómina VE</h4><p>Sobre el proceso de mayor riesgo del área — alto impacto, dueño convencido, ROI demostrable.</p></div>
+      <div class="card verde"><h4>Normalizador de reportería</h4><p>Los 41 formatos de clientes convertidos automáticamente — libera a quien hoy los normaliza a mano.</p></div>
+    </div>
+    <p class="lead">Cada caso ataca un punto donde <b>el dolor es evidente y el dueño está convencido</b> — construyen el patrocinio que la transformación de fondo necesita.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s12">
+  <div class="shead"><span class="kick">12 · Arquitectura de IA — Parte III</span><h2>MCP-Odoo: el privilegio de escritura se gana con evidencia</h2></div>
+  <div class="sbody">
+    <div class="flow">
+      <div class="st"><b>Fase 1 · Solo lectura</b><span>Consultar estado, inventario, precio, saldo — un agente que solo lee no puede romper nada</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Fase 2 · Escritura propuesta</b><span>El agente prepara el borrador; la persona revisa y firma</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Fase 3 · Escritura gobernada</b><span>Automatización con auditoría completa, solo donde la precisión está demostrada</span></div>
+    </div>
+    <ul class="hits" style="margin-top:8px;">
+      <li>Todo sobre el patrón de 11.2: MCP consume el ERP <b>desde afuera, por API, sin modificar el core</b>.</li>
+      <li>Ambientes separados de prueba y producción como <b>condición innegociable</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="s12">
+  <div class="shead"><span class="kick">12 · Arquitectura de IA — Parte III</span><h2>Human-in-the-loop: la IA alimenta el criterio, no lo sustituye</h2></div>
+  <div class="sbody">
+    <ul class="hits">
+      <li>Tres niveles de autonomía — de la sugerencia al borrador a la acción gobernada — <b>siempre con la persona en el circuito</b> donde hay decisión económica.</li>
+      <li>Lo que este esquema deliberadamente <b>no</b> hace: no reemplaza a Odoo ni a Lark ni al stack de BI (los ordena y conecta) · no despliega agentes sobre datos no certificados · no deja ninguna acción fuera del gateway y su auditoría · no automatiza decisiones económicas sin aprobación humana.</li>
+      <li>El criterio de negocio — como la autorización comercial que ha demostrado prevenir errores — <b>se alimenta con mejores datos, no se sustituye</b>.</li>
+    </ul>
+    <p class="foot-note">El detalle de secuencia, responsables y casos priorizados corresponde a la hoja de ruta (sección 13).</p>
+  </div>
+</section>
+
+<!-- ================= S13 · HOJA DE RUTA (1) ================= -->
+<section class="slide" data-sec="s13">
+  <div class="shead"><span class="kick">13 · Hoja de ruta de automatización — Parte III</span><h2>En construcción: la ejecución por olas</h2></div>
+  <div class="sbody">
+    <div class="flow">
+      <div class="st"><b>Ola 1 · Semanas</b><span>Quick wins con MCP en solo lectura: conversacional VE, nómina, normalizador</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Ola 2 · Valor de fondo</b><span>Compras y rebalanceo, conciliación asistida, reportería viva — exigen la capa de datos completa</span></div>
+      <div class="ar">→</div>
+      <div class="st"><b>Ola 3 · Sistema propio</b><span>Agentes sobre los módulos que nazcan en los vacíos (servicio técnico, facturas, difusión)</span></div>
+    </div>
+    <p class="lead" style="margin-top:8px;">La sección se encuentra en desarrollo con su responsable técnico: criterios de priorización, matriz de dependencias contra los componentes de la arquitectura, responsables y métricas por caso, y las decisiones solicitadas a la Junta.</p>
+    <span class="tag ambar" style="align-self:flex-start;">Sección en construcción</span>
+  </div>
+</section>
+
+<!-- ================= CIERRE ================= -->
+<section class="slide cover" data-sec="cierre">
+  <div>
+    <div class="kick">Proyecto Rower · Fase 1 → Fase 2</div>
+    <h1 style="font-size:40px;">Dos tesis, un camino</h1>
+    <div class="sub"><b style="color:#fff;">Estructura primero</b> — los hallazgos de gobierno y estructura exigen decidir la organización antes que todo lo demás. <b style="color:#fff;">El dato antes que el agente</b> — ninguna automatización seria se despliega sobre un dato sin certificar ni gobernar.</div>
+    <div class="bigrow">
+      <div class="big"><div class="n">II</div><div class="l">Propuesta de estructura<br>— para discusión de la dirección</div></div>
+      <div class="big"><div class="n">III</div><div class="l">Arquitectura de IA y hoja de ruta<br>— gobierno, dato, agentes por olas</div></div>
+      <div class="big"><div class="n">F2</div><div class="l">Documentación de procesos<br>y prototipos de IA</div></div>
+    </div>
+    <div class="conf">UCAB Consultores · Informe Diagnóstico Fase 1 · Grupo Kenex</div>
+  </div>
+</section>
+
+<!-- ================= CONTROL ================= -->
+<div id="zL" title="Anterior"></div>
+<div id="zR" title="Siguiente"></div>
+<div id="bar">
+  <button id="b-prev">←</button>
+  <button id="b-next">→</button>
+  <span id="sec-lbl">Portada</span>
+  <div id="prog"><i></i></div>
+  <span id="cnt">1 / 1</span>
+  <button id="b-menu">☰ Secciones</button>
+  <button id="b-close" title="Volver al informe (Esc)">✕</button>
+</div>
+<div id="menu"><h3>Ir a la sección…</h3><div class="gr" id="menu-gr"></div></div>
+
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+const SEC_NAMES = {
+  portada:'Portada', s2:'2 · Metodología y fuentes', s3:'3 · Fundamentos y gobierno',
+  s4:'4 · Estructura organizativa', s5:'5 · Talento y RRHH', s6:'6 · Procesos y operaciones',
+  s7:'7 · Tecnología, sistemas y datos', s8:'8 · Cultura y adopción de IA', s9:'9 · Síntesis de riesgos',
+  s10:'10 · Propuesta de estructura', s11:'11 · Auditoría Lark y Odoo', s12:'12 · Arquitectura de IA',
+  s13:'13 · Hoja de ruta', cierre:'Cierre'
+};
+let cur = 0;
+function show(i){
+  cur = Math.max(0, Math.min(slides.length-1, i));
+  slides.forEach((s,k)=> s.classList.toggle('on', k===cur));
+  const sec = slides[cur].dataset.sec;
+  document.getElementById('sec-lbl').textContent = SEC_NAMES[sec] || sec;
+  document.getElementById('cnt').textContent = (cur+1)+' / '+slides.length;
+  document.querySelector('#prog i').style.width = ((cur+1)/slides.length*100)+'%';
+}
+function goSec(sec){
+  const k = slides.findIndex(s=> s.dataset.sec===sec);
+  if(k>=0) show(k);
+  document.getElementById('menu').classList.remove('open');
+}
+/* menú */
+const gr = document.getElementById('menu-gr');
+[...new Set(slides.map(s=>s.dataset.sec))].forEach(sec=>{
+  const n = slides.filter(s=>s.dataset.sec===sec).length;
+  const a = document.createElement('a');
+  a.href = 'javascript:void(0)';
+  a.innerHTML = '<span class="n">'+(sec==='portada'?'◈':sec==='cierre'?'■':sec.replace('s',''))+'</span>'+(SEC_NAMES[sec]||sec)+' <span style="margin-left:auto;color:#7d90b5;font-size:12px;">'+n+' lám.</span>';
+  a.onclick = ()=> goSec(sec);
+  gr.appendChild(a);
+});
+document.getElementById('b-menu').onclick = ()=> document.getElementById('menu').classList.toggle('open');
+document.getElementById('b-prev').onclick = ()=> show(cur-1);
+document.getElementById('b-next').onclick = ()=> show(cur+1);
+document.getElementById('zL').onclick = ()=> show(cur-1);
+document.getElementById('zR').onclick = ()=> show(cur+1);
+document.getElementById('b-close').onclick = cerrar;
+function cerrar(){
+  if(window.parent !== window){ window.parent.postMessage({rower:'cerrar-presentacion'}, '*'); }
+  document.getElementById('menu').classList.remove('open');
+}
+addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight' || e.key==='PageDown' || e.key===' ') show(cur+1);
+  else if(e.key==='ArrowLeft' || e.key==='PageUp') show(cur-1);
+  else if(e.key==='Home') show(0);
+  else if(e.key==='End') show(slides.length-1);
+  else if(e.key==='Escape'){
+    const m = document.getElementById('menu');
+    if(m.classList.contains('open')) m.classList.remove('open'); else cerrar();
+  }
+});
+/* hash routing: #s7 abre la primera lámina de esa sección */
+function fromHash(){
+  const h = (location.hash||'').replace('#','');
+  if(h) goSec(h); else show(0);
+}
+addEventListener('hashchange', fromHash);
+/* mensajes del informe (saltar sin recargar) */
+addEventListener('message', e=>{ if(e.data && e.data.rower==='goto'){ goSec(e.data.sec); } });
+fromHash();
+</script>
+</body>
+</html>

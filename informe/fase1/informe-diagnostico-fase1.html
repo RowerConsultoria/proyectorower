@@ -301,6 +301,7 @@
       <a href="#s13" data-sec="s13"><span class="n">13</span>Hoja de ruta</a>
     <div class="navlbl">Módulos</div>
       <a href="javascript:void(0)" onclick="orgOpen()"><span class="n">🏛</span>Organigrama interactivo</a>
+      <a href="javascript:void(0)" onclick="presOpen('portada')"><span class="n">▶</span>Modo presentación</a>
     <div class="navlbl">Anexos</div>
       <a href="#s15" class="anexo" data-sec="s15"><span class="n">A</span>Inventario de entrevistas</a>
       <a href="#s16" class="anexo" data-sec="s16"><span class="n">B</span>Plan de trabajo Fase 1</a>
@@ -2350,6 +2351,27 @@ function orgClose(){ document.getElementById('orgDrawer').classList.remove('open
 function orgWidth(){ var d=document.getElementById('orgDrawer'); d.classList.remove('full'); d.classList.toggle('half'); }
 function orgFull(){ var d=document.getElementById('orgDrawer'); d.classList.remove('half'); d.classList.toggle('full'); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ orgClose(); } });
+function presOpen(sec){
+  var o=document.getElementById('presOverlay'), f=document.getElementById('presFrame');
+  if(!f.src){ f.src=f.dataset.src+'#'+sec; }
+  else { try{ f.contentWindow.postMessage({rower:'goto', sec:sec}, '*'); }catch(err){ f.src=f.dataset.src+'#'+sec; } }
+  o.classList.add('open'); document.body.style.overflow='hidden';
+  setTimeout(function(){ try{ f.contentWindow.focus(); }catch(err){} }, 250);
+}
+function presClose(){ document.getElementById('presOverlay').classList.remove('open'); document.body.style.overflow=''; }
+window.addEventListener('message', function(e){ if(e.data && e.data.rower==='cerrar-presentacion'){ presClose(); } });
+/* Botones ▶ Presentar en cada título de sección */
+(function(){
+  var secs=['s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13'];
+  secs.forEach(function(id){
+    var h=document.getElementById(id); if(!h) return;
+    var b=document.createElement('button');
+    b.className='pres-btn'; b.textContent='▶ Presentar';
+    b.title='Presentar esta sección a pantalla completa';
+    b.onclick=function(ev){ ev.stopPropagation(); presOpen(id); };
+    h.appendChild(b);
+  });
+})();
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagram(); });
 </script>
 
@@ -2381,6 +2403,22 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   </div>
   <iframe id="orgFrame" data-src="organigrama-kenex.html" title="Organigrama interactivo del Grupo Kenex"></iframe>
 </aside>
+
+
+<style>
+  .pres-fab{position:fixed;top:14px;right:158px;z-index:900;background:#fff;color:#1F3864;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid #1F3864;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.18);font-family:inherit;}
+  .pres-fab:hover{background:#1F3864;color:#fff;}
+  .pres-overlay{position:fixed;inset:0;z-index:990;background:#101826;display:none;}
+  .pres-overlay.open{display:block;}
+  .pres-overlay iframe{width:100%;height:100%;border:0;}
+  .pres-btn{display:inline-block;vertical-align:middle;margin-left:12px;background:#fff;color:#1F3864;border:1.5px solid #1F3864;border-radius:999px;font-size:13px;font-weight:700;padding:3px 13px;cursor:pointer;font-family:inherit;letter-spacing:0;}
+  .pres-btn:hover{background:#1F3864;color:#fff;}
+  @media print{.pres-fab,.pres-overlay,.pres-btn{display:none!important;}}
+</style>
+<button class="pres-fab" onclick="presOpen('portada')" title="Modo presentación (láminas por sección)">▶ Presentación</button>
+<div class="pres-overlay" id="presOverlay">
+  <iframe id="presFrame" data-src="presentacion-fase1.html" title="Presentación del Informe Diagnóstico Fase 1"></iframe>
+</div>
 
 </body>
 </html>
