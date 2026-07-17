@@ -4,22 +4,20 @@ Base de datos persistente del Proyecto Rower. Da soporte a los módulos interact
 
 > ⚠️ **Nunca** guardar en este repositorio tokens de acceso (`sbp_...`), la clave `service_role`, ni la contraseña de la base de datos. La única credencial que puede vivir en el código es la clave **anon/publishable** (es pública por diseño y está protegida por RLS).
 
-## Estado actual
+## Estado actual ✅ configurado (17-jul-2026)
 
-- [ ] Proyecto Supabase creado
-- [ ] Esquema aplicado (`schema.sql`)
-- [ ] Credenciales públicas registradas en `cliente.ejemplo.js`
+- [x] Proyecto Supabase activo — **Rower Project** (org *Rower Org*), región `ca-central-1`, Postgres 17
+- [x] Esquema aplicado vía migración `esquema_inicial_proyecto_rower`
+- [x] Seed cargado: 17 secciones del informe (estado al 17-jul)
+- [x] Endurecimiento de seguridad aplicado (`endurecimiento_seguridad`)
+- [x] Credenciales públicas registradas en [`cliente.js`](cliente.js)
 
-**Nota (17-jul-2026):** la configuración automática desde Claude Code quedó bloqueada porque la política de red del entorno no permite `api.supabase.com`. Ver "Cómo completar la configuración" abajo.
+**Datos de conexión (públicos):**
+- Project URL: `https://kmhwqybqrcjhjeywjgxj.supabase.co`
+- Clave publishable: `sb_publishable_...` (ver `cliente.js`)
+- Dashboard: https://supabase.com/dashboard/project/kmhwqybqrcjhjeywjgxj
 
-## Cómo completar la configuración
-
-**Opción A — manual (5 minutos, recomendada):**
-1. En [supabase.com/dashboard](https://supabase.com/dashboard) crear un proyecto llamado `proyectorower` (región recomendada: `us-east-1`). Guardar la contraseña de BD en un gestor de contraseñas del equipo.
-2. Abrir **SQL Editor → New query**, pegar el contenido completo de [`schema.sql`](schema.sql) y ejecutar. Es idempotente (se puede re-ejecutar).
-3. En **Settings → API**, copiar la **Project URL** y la clave **anon/publishable**, y ponerlas en `cliente.ejemplo.js` (renombrar a `cliente.js`).
-
-**Opción B — desde Claude Code:** en la configuración del entorno de Claude Code on the web, permitir en la política de red los dominios `api.supabase.com` y `*.supabase.co`; en la siguiente sesión Claude puede crear el proyecto y aplicar el esquema vía Management API.
+La configuración se hizo desde Claude Code usando el **conector MCP de Supabase** (OAuth), que no pasa por el proxy de red del contenedor. Para re-crear el esquema en otro proyecto, `schema.sql` sigue siendo la fuente idempotente de referencia.
 
 ## Esquema
 
@@ -39,6 +37,10 @@ Base de datos persistente del Proyecto Rower. Da soporte a los módulos interact
     for insert to anon with check (true);
   ```
   …pero cerrarla en cuanto haya Auth (cualquiera con la URL podría escribir).
+
+### Nota sobre avisos del linter de seguridad
+
+`get_advisors` marca las políticas de escritura (`USING(true)` para `authenticated`) como "permisivas". **Es intencional**: en esta fase todo consultor autenticado es un miembro de confianza del equipo y puede editar. Cuando se afine el modelo de roles (p. ej. solo el dueño de una sección la edita), se restringen esas políticas. Los avisos de `search_path` y de la función `rls_auto_enable` (event trigger que auto-activa RLS en tablas nuevas) ya fueron resueltos en la migración `endurecimiento_seguridad`.
 
 ## Uso desde los módulos web
 
