@@ -11,6 +11,7 @@ Sección **interna** del aplicativo Rower: módulos de trabajo del equipo consul
 | Módulo | Estado | Fuente de datos |
 |---|---|---|
 | **Entrevistas transcritas** | ✅ Activo | Tabla `entrevistas` (listar, buscar, filtrar, crear, editar, eliminar) + **autocompletar con IA** al subir el crudo |
+| **Archivos (insumos)** | ✅ Activo | Bucket de Storage `insumos` + tabla `archivos` (subir varios Excel/PowerPoint/PDF, buscar, filtrar por categoría/tipo, descargar, eliminar) |
 | Estado del informe | 🚧 Próximamente | Tabla `secciones` |
 | Comentarios | 🚧 Próximamente | Tabla `comentarios` |
 | Matriz de riesgos | 🚧 Próximamente | Tabla `riesgos` |
@@ -26,11 +27,15 @@ En el formulario de entrevista puedes **subir el crudo** (`.md`, `.json`, `.txt`
 - Redeploy: `supabase functions deploy extraer-entrevista --no-verify-jwt --project-ref <ref>`. Rotar la clave: `supabase secrets set ANTHROPIC_API_KEY=... --project-ref <ref>`.
 - ⚠️ Está desplegada con `--no-verify-jwt` (sin login aún) — cualquiera con la URL podría invocarla y consumir cuota de Anthropic. Al activar Auth, exigir JWT o una comprobación de sesión.
 
+## Archivos (insumos)
+
+Repositorio de documentos de trabajo (Excel, PowerPoint, PDF, CSV, Word…). Los binarios viven en el **bucket de Supabase Storage `insumos`** (privado); los metadatos (nombre, descripción, categoría, tipo, tamaño, etiquetas) en la tabla `archivos`. El módulo permite subir varios a la vez, buscar, filtrar por categoría/tipo, descargar y eliminar. El bucket y las políticas están en [`../supabase/schema.sql`](../supabase/schema.sql).
+
 ## ⚠️ Seguridad — pendiente antes de datos reales
 
-El panel **aún no tiene autenticación** (decisión de arranque). La tabla `entrevistas` tiene una política de escritura anónima transitoria para que el panel funcione sin login. Por eso:
+El panel **aún no tiene autenticación** (decisión de arranque). Para que funcione sin login hay políticas de acceso anónimo transitorias en: la tabla `entrevistas` (`entrevistas_escritura_anon`), la tabla `archivos` (`archivos_escritura_anon`), el bucket de Storage `insumos` (`insumos_anon`) y la Edge Function `extraer-entrevista` (`--no-verify-jwt`). Por eso:
 
-- **No cargar transcripciones reales sensibles** hasta activar **Supabase Auth** y cerrar la política `entrevistas_escritura_anon`.
+- **No cargar contenido real sensible** (transcripciones, insumos confidenciales) hasta activar **Supabase Auth** y cerrar todas esas políticas anónimas.
 - La fila `E-DEMO` es solo semilla de demostración; puede borrarse.
 
 Siguiente paso previsto: login con Supabase Auth y restringir lectura/escritura a usuarios autenticados del equipo.

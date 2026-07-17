@@ -141,3 +141,40 @@ values
    'Transcripción de ejemplo para validar el módulo. Reemplazar por contenido real solo cuando Auth esté activo.',
    'Fila semilla de demostración. Puede borrarse.', array['demo','ejemplo'])
 on conflict (codigo) do nothing;
+
+-- ---------- 5. Archivos (insumos: Excel, PowerPoint, PDF, etc.) ----------
+-- Binarios en Storage (bucket 'insumos'); metadatos en public.archivos.
+insert into storage.buckets (id, name, public, file_size_limit)
+values ('insumos', 'insumos', false, 104857600)   -- 100 MB por archivo, bucket privado
+on conflict (id) do nothing;
+
+drop policy if exists insumos_anon on storage.objects;
+drop policy if exists insumos_auth on storage.objects;
+create policy insumos_anon on storage.objects
+  for all to anon using (bucket_id = 'insumos') with check (bucket_id = 'insumos');
+create policy insumos_auth on storage.objects
+  for all to authenticated using (bucket_id = 'insumos') with check (bucket_id = 'insumos');
+
+create table if not exists public.archivos (
+  id            uuid primary key default gen_random_uuid(),
+  nombre        text not null,
+  descripcion   text,
+  categoria     text,                          -- procesos, talento, tecnología, gobierno, financiero, operaciones, general
+  tipo          text,                          -- xlsx, pptx, pdf, otro
+  storage_path  text not null unique,
+  size_bytes    bigint,
+  mime          text,
+  subido_por    text,
+  etiquetas     text[],
+  creado_en     timestamptz not null default now()
+);
+
+alter table public.archivos enable row level security;
+
+drop policy if exists archivos_lectura        on public.archivos;
+drop policy if exists archivos_escritura       on public.archivos;
+drop policy if exists archivos_escritura_anon  on public.archivos;
+create policy archivos_lectura        on public.archivos for select using (true);
+create policy archivos_escritura      on public.archivos for all to authenticated using (true) with check (true);
+-- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
+create policy archivos_escritura_anon on public.archivos for all to anon using (true) with check (true);

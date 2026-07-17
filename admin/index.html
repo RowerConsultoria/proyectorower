@@ -104,6 +104,10 @@
   .b-revisado{background:#e3eefb; color:var(--blue);}
   .b-procesado{background:#e3efe4; color:var(--verde);}
   .b-descartado{background:#efe1e1; color:var(--rojo);}
+  .b-xlsx{background:#e3efe4; color:var(--verde);}
+  .b-pptx{background:#fdf1de; color:var(--ambar);}
+  .b-pdf{background:#efe1e1; color:var(--rojo);}
+  .b-otro{background:#eef1f6; color:var(--muted);}
   .tag{display:inline-block; background:var(--gris); border:1px solid var(--borde); color:var(--muted); font-size:.72rem; padding:2px 8px; border-radius:999px; margin:0 4px 4px 0;}
 
   .empty{padding:48px 24px; text-align:center; color:var(--muted);}
@@ -161,6 +165,7 @@
     <nav id="nav">
       <div class="group">Insumos</div>
       <a class="item" data-route="entrevistas" href="#entrevistas"><span class="ico">🎙️</span> Entrevistas transcritas</a>
+      <a class="item" data-route="archivos" href="#archivos"><span class="ico">📁</span> Archivos (insumos)</a>
       <div class="group">Informe (próximamente)</div>
       <a class="item" data-route="secciones" href="#secciones"><span class="ico">📄</span> Estado del informe <span class="soon">Pronto</span></a>
       <a class="item" data-route="comentarios" href="#comentarios"><span class="ico">💬</span> Comentarios <span class="soon">Pronto</span></a>
@@ -223,6 +228,7 @@ const FN_EXTRAER = FN_BASE + '/functions/v1/extraer-entrevista';
    ============================================================ */
 const routes = {
   entrevistas: renderEntrevistas,
+  archivos:    renderArchivos,
   secciones:   ()=> stub('Estado del informe','Espejo operable de la tabla <code>secciones</code> — próximamente.'),
   comentarios: ()=> stub('Comentarios','Feedback de los consultores por sección — próximamente.'),
   riesgos:     ()=> stub('Matriz de riesgos','Severidad × área × fuente (sección 9) — próximamente.'),
@@ -462,6 +468,144 @@ async function eliminar(id, etiqueta){
   const { error } = await db.from('entrevistas').delete().eq('id', id);
   if(error) return toast('Error al eliminar: '+error.message, true);
   toast('Entrevista eliminada'); cache = []; location.hash = 'entrevistas';
+}
+
+/* ============================================================
+   Módulo: Archivos (insumos) — Supabase Storage (bucket 'insumos')
+   ============================================================ */
+const BUCKET = 'insumos';
+const CATEGORIAS = ['procesos','talento','tecnología','gobierno','financiero','operaciones','general'];
+let cacheArch = [];
+
+const tipoDe = (nombre)=>{
+  const ext = (String(nombre).split('.').pop()||'').toLowerCase();
+  if(['xlsx','xls','csv'].includes(ext)) return 'xlsx';
+  if(['pptx','ppt'].includes(ext)) return 'pptx';
+  if(ext==='pdf') return 'pdf';
+  return 'otro';
+};
+const iconoTipo = (t)=> ({xlsx:'📊', pptx:'📽️', pdf:'📕', otro:'📄'}[t] || '📄');
+const fmtSize = (b)=>{ if(b==null) return '—'; if(b<1024) return b+' B'; if(b<1048576) return (b/1024).toFixed(0)+' KB'; return (b/1048576).toFixed(1)+' MB'; };
+const sanitizar = (n)=> String(n).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^\w.\- ]/g,'_');
+
+async function renderArchivos(){
+  view.innerHTML = `
+    <div class="page-head">
+      <div><h2>Archivos (insumos)</h2><p>Repositorio de insumos del proyecto: Excel, PowerPoint, PDF y otros documentos de trabajo.</p></div>
+    </div>
+    <div class="import-ia" style="border-left-color:var(--verde);">
+      <div class="row">
+        <div class="txt"><strong>⬆️ Subir archivos</strong><div class="muted" style="font-size:.85rem;">Excel, PowerPoint, PDF u otros. Puedes seleccionar <b>varios</b> a la vez.</div></div>
+        <select class="filter" id="upCat" title="Categoría para los archivos subidos">${CATEGORIAS.map(c=>`<option>${c}</option>`).join('')}</select>
+        <label class="btn primary" style="cursor:pointer; margin:0;">📤 Elegir archivos
+          <input id="fileUp" type="file" multiple style="display:none;" accept=".xlsx,.xls,.csv,.pptx,.ppt,.pdf,.doc,.docx">
+        </label>
+      </div>
+      <input id="upDesc" placeholder="Descripción opcional (se aplica a los archivos de esta subida)" style="width:100%; margin-top:10px; padding:8px 11px; border:1px solid var(--borde); border-radius:7px; font:inherit;">
+      <div id="upStatus" class="meta-line status"></div>
+    </div>
+    <div class="toolbar">
+      <div class="search"><input id="qa" type="search" placeholder="Buscar por nombre, descripción, categoría, etiqueta…"></div>
+      <select class="filter" id="faCat"><option value="">Todas las categorías</option>${CATEGORIAS.map(c=>`<option>${c}</option>`).join('')}</select>
+      <select class="filter" id="faTipo"><option value="">Todos los tipos</option><option value="xlsx">Excel</option><option value="pptx">PowerPoint</option><option value="pdf">PDF</option><option value="otro">Otro</option></select>
+    </div>
+    <div class="card" id="archCard"><div class="empty">Cargando…</div></div>`;
+
+  $('#fileUp').addEventListener('change', (e)=>{ subirArchivos([...e.target.files]); e.target.value=''; });
+  $('#qa').addEventListener('input', paintArch);
+  $('#faCat').addEventListener('change', paintArch);
+  $('#faTipo').addEventListener('change', paintArch);
+
+  if(!db){ $('#archCard').innerHTML = errBox('No hay conexión con la base de datos.'); return; }
+  await recargarArchivos();
+}
+
+async function recargarArchivos(){
+  const { data, error } = await db.from('archivos').select('*').order('creado_en',{ascending:false});
+  if(error){ setConn('err','Error de conexión'); const c=$('#archCard'); if(c) c.innerHTML = errBox(error.message); return; }
+  setConn('ok','Conectado · Supabase'); cacheArch = data || []; paintArch();
+}
+
+function paintArch(){
+  const q = ($('#qa')?.value||'').trim().toLowerCase();
+  const fc = $('#faCat')?.value||''; const ft = $('#faTipo')?.value||'';
+  const rows = cacheArch.filter(a=>{
+    if(fc && a.categoria!==fc) return false;
+    if(ft && a.tipo!==ft) return false;
+    if(!q) return true;
+    return [a.nombre,a.descripcion,a.categoria,(a.etiquetas||[]).join(' ')].join(' ').toLowerCase().includes(q);
+  });
+  const card = $('#archCard'); if(!card) return;
+  if(!rows.length){
+    card.innerHTML = `<div class="empty"><div class="big">📁</div>${cacheArch.length? 'Ningún archivo con esos filtros.' : 'Aún no hay archivos cargados. Usa «Elegir archivos» para subir el primero.'}</div>`;
+    return;
+  }
+  card.innerHTML = `<table class="data">
+    <thead><tr><th>Archivo</th><th>Categoría</th><th>Tipo</th><th>Tamaño</th><th>Fecha</th><th style="text-align:right">Acciones</th></tr></thead>
+    <tbody>${rows.map(a=>`
+      <tr data-id="${esc(a.id)}">
+        <td class="nombre"><b>${iconoTipo(a.tipo)} ${esc(a.nombre)}</b>${a.descripcion?`<div class="muted" style="font-size:.82rem; margin-top:2px">${esc(a.descripcion)}</div>`:''}${(a.etiquetas&&a.etiquetas.length)?`<div style="margin-top:4px">${a.etiquetas.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}</td>
+        <td>${esc(a.categoria||'—')}</td>
+        <td><span class="badge b-${esc(a.tipo||'otro')}">${esc(a.tipo||'otro')}</span></td>
+        <td class="muted">${fmtSize(a.size_bytes)}</td>
+        <td class="muted">${esc((a.creado_en||'').slice(0,10))}</td>
+        <td style="text-align:right; white-space:nowrap">
+          <button class="btn dl" data-id="${esc(a.id)}" style="padding:5px 10px">⬇️ Descargar</button>
+          <button class="btn danger del" data-id="${esc(a.id)}" style="padding:5px 10px">🗑</button>
+        </td>
+      </tr>`).join('')}
+    </tbody></table>`;
+  $$('#archCard .dl').forEach(b=> b.addEventListener('click', ()=> descargarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
+  $$('#archCard .del').forEach(b=> b.addEventListener('click', ()=> eliminarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
+}
+
+async function subirArchivos(files){
+  if(!files || !files.length) return;
+  if(!db) return toast('Sin conexión con la base de datos', true);
+  const st = $('#upStatus');
+  const show = (html, err)=>{ st.style.display='block'; st.className='meta-line status'+(err?' err-text':''); st.innerHTML = html; };
+  const categoria = $('#upCat')?.value || 'general';
+  const descripcion = ($('#upDesc')?.value||'').trim() || null;
+
+  let ok=0, fail=0;
+  for(let i=0;i<files.length;i++){
+    const file = files[i];
+    show(`<span class="spin"></span>Subiendo ${i+1}/${files.length}: <b>${esc(file.name)}</b>…`);
+    const path = `${crypto.randomUUID()}-${sanitizar(file.name)}`;
+    const up = await db.storage.from(BUCKET).upload(path, file, { contentType: file.type || 'application/octet-stream', upsert:false });
+    if(up.error){ fail++; continue; }
+    const ins = await db.from('archivos').insert({
+      nombre: file.name, descripcion, categoria,
+      tipo: tipoDe(file.name), storage_path: path,
+      size_bytes: file.size, mime: file.type || null,
+    });
+    if(ins.error){ // rollback del objeto si falla el metadato
+      await db.storage.from(BUCKET).remove([path]); fail++; continue;
+    }
+    ok++;
+  }
+  show(`${ok? '✅ '+ok+' archivo(s) subido(s).':''} ${fail? '⚠️ '+fail+' fallaron.':''}`.trim(), fail>0 && ok===0);
+  const d=$('#upDesc'); if(d) d.value='';
+  await recargarArchivos();
+}
+
+async function descargarArchivo(a){
+  if(!a || !db) return;
+  const { data, error } = await db.storage.from(BUCKET).download(a.storage_path);
+  if(error || !data) return toast('No se pudo descargar: '+(error?.message||'error'), true);
+  const url = URL.createObjectURL(data);
+  const link = document.createElement('a'); link.href = url; link.download = a.nombre; document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(()=> URL.revokeObjectURL(url), 4000);
+}
+
+async function eliminarArchivo(a){
+  if(!a || !db) return;
+  if(!confirm(`¿Eliminar el archivo "${a.nombre}"? Esta acción no se puede deshacer.`)) return;
+  const rm = await db.storage.from(BUCKET).remove([a.storage_path]);
+  if(rm.error) return toast('Error al eliminar del almacenamiento: '+rm.error.message, true);
+  const del = await db.from('archivos').delete().eq('id', a.id);
+  if(del.error) return toast('Error al eliminar metadatos: '+del.error.message, true);
+  toast('Archivo eliminado'); await recargarArchivos();
 }
 
 /* ---- arranque ---- */
