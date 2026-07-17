@@ -36,8 +36,6 @@ Abre **Git Bash** o **PowerShell** y ejecuta (ajusta la ruta si quieres otra):
 git clone https://github.com/RowerConsultoria/proyectorower.git "C:/Users/gabri/Escritorio/APPS Github/Rower"
 ```
 
-> ⚠️ **Sobre OneDrive:** la ruta propuesta está dentro de OneDrive (`...\OneDrive\Escritorio\...`). OneDrive y Git sincronizan por su cuenta y a veces chocan (OneDrive intenta subir archivos internos de `.git`, lo que corrompe el historial). **Recomendación:** clona fuera de OneDrive, p. ej. `C:\Repos\Rower` o `C:\Users\gabri\Rower`. Si prefieres mantenerlo en OneDrive, en los ajustes de OneDrive excluye de la sincronización la carpeta `.git` del proyecto.
-
 ### 2. Ver el sitio en local
 
 Doble clic en **`scripts/servidor-local.bat`** → abre `http://localhost:8080` en tu navegador. Este sí funciona porque corre en **tu** equipo (a diferencia del servidor de las sesiones de Claude, que vive en la nube y no es alcanzable desde fuera).
