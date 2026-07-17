@@ -1,7 +1,9 @@
 # Auditoría del hilo conductor — Informe Diagnóstico Fase 1
 
 **Fecha:** 17-jul-2026 · **Objeto:** `informe/fase1/informe-diagnostico-fase1.html` (2.336 líneas) · **Ocasión:** Junta Directiva 24-jul
-**Método:** 13 lectores expertos por sección + 3 lentes globales (arco narrativo · procesos/RRHH · tecnología/IA) + verificación adversarial independiente de cada recomendación alta/media (cada una intentó refutarse leyendo el texto real). Estados: ✅ CONFIRMADA · ✳️ MATIZADA (válida con ajuste) · ❌ REFUTADA · ◻️ sin verificación individual (pero con convergencia de 2+ analistas independientes donde se indica).
+**Método:** 13 lectores expertos por sección + 3 lentes globales (arco narrativo · procesos/RRHH · tecnología/IA) + verificación adversarial independiente de cada recomendación alta/media (cada una intentó refutarse leyendo el texto real) + crítico de completitud final (§9-§10). Estados: ✅ CONFIRMADA · ✳️ MATIZADA (válida con ajuste) · ❌ REFUTADA · ◻️ sin verificación individual (pero con convergencia de 2+ analistas independientes donde se indica).
+
+> ⚠️ **Antes de ejecutar cualquier renumeración, leer §10 (protocolo de ejecución):** aplicar las recomendaciones en orden arbitrario siembra fósiles nuevos — varias redactan texto con la numeración vieja que otras eliminan.
 
 ---
 
@@ -34,6 +36,8 @@ En orden de rendimiento/costo. Los ítems 1–3 son de **riesgo casi nulo y alto
 | 8 | **4.7 ↔ s6**: aplicar el "plan B" ya (anclas F1-F8 + desduplicación); el traslado completo, valorarlo para la versión de Fase 2 (§3.4) | Plan B: 2 h | Bajo |
 | 9 | **Reorden s3** (3.1a→3.3→3.1b→3.2→3.4) — solo si queda tiempo tras 1–8 | Media jornada | Medio |
 | 10 | **s1 al final**, con el mandato corregido (§7.1) — se redacta último, pero su mandato se corrige YA | 1 jornada | — |
+| 11 | **Portada** (N4): "Comité Directivo"→destinatario correcto, fechas 10/18-jul→corte real + 24-jul — decisión de Clemencia ya abierta en ESTADO.md, ahora confirmada como inconsistencia visible | 1 h | Nulo |
+| 12 | **Versión cliente**: además de amputar Anexo B y s17, purgar sus entradas del sidenav (l.286-307) y el bloque "Uso interno" del TOC (l.357-360) (N6); congelar/verificar permisos del enlace de Drive en modo `edit` de l.1746 (N7) | 1 h | Nulo |
 
 > Regla operativa del equipo: ediciones por `str.replace` con anclas largas y únicas; **nunca** anclar con tags genéricos (lección del incidente srcdoc); validar HTMLParser (stack `[]`) y verificar por DOM.
 
@@ -85,8 +89,14 @@ Problema verificado: la tabla evaluativa de 3.1 (l.560-567) **juzga entidades qu
 Hoy 11.5 construye el impulso hacia s12 ("la sección 12 y la 13 desarrollan este nacimiento") y **11.6 lo desinfla** interponiendo un checklist de pendientes.
 **Orden propuesto:** 11.1→11.2→11.3→11.6 (pendientes, renumerado 11.4)→11.4 (inventario, →11.5)→11.5 (estrategia, →11.6). Propagar ~8 referencias en s12 (l.1850, 1891, 1899, 1904, 1916-1917, 1935, 1938, 1952); las dos remisiones hoy fósiles de s11 (l.1753, l.1789) **vuelven a ser correctas solas**.
 
-### 3.7 · s10 — principios en secuencia de diseño ◻️ (media, pendiente de verificación)
-Reordenar los 7 principios de 10.1: **1→5→2→4→3→7→6** (división del trabajo → agrupación → línea de mando → autoridad → tramo → escalabilidad → flexibilidad). Cierra 10.1 en el eje exacto que diferencia los tres modelos de 10.2. *(Verificación individual pendiente; aplicar con criterio propio.)*
+### 3.7 · s10 — principios en secuencia de diseño ✅ (media, CONFIRMADA)
+Reordenar los 7 principios de 10.1: **1→5→2→4→3→7→6** (nuevo orden: 1 especialización · 2 homogeneidad operativa · 3 unidad de mando · 4 autoridad-responsabilidad · 5 tramo de control · 6 estructura plana/escalabilidad · 7 flexibilidad híbrida local-global). Verificado: la adyacencia tramo/plana refleja el trade-off real Modelo 1 (CEO con 12-14 reportes) vs Modelo 3 (capa COO), y el principio local-global es el eje que diferencia los tres modelos — cerrar con él como bisagra hacia 10.2. Única referencia numérica externa: l.1664 (s9). **⚠️ Ojo C1 (§10):** las recomendaciones 10-R1 (columna de lectura) y 10-R4 (anclajes de evidencia) citan la numeración VIEJA — redactarlas con la nueva. Propagar también l.428 (celda del factor 3 en 2.2, que enumera los principios en el orden actual).
+
+### 3.8 · s10 — octavo principio: continuidad y redundancia ✅ (media, CONFIRMADA)
+Elevar "reducción de dependencias individuales (4.4)" — hoy ítem suelto del placeholder l.1729 — a **octavo principio de diseño**: ninguna función crítica descansa en una sola persona sin respaldo formado ni proceso documentado. Repara una promesa hoy colgante: 4.4 cierra (l.806) afirmando que sus riesgos "alimentan directamente los principios de diseño (sección 10)" y ningún principio actual lo cumple; da sustento declarado al criterio con que 10.2 ya juzga sus modelos ("perpetúa la centralización" / "menor dependencia individual del CEO").
+
+### 3.9 · s10 — desagregar el placeholder de l.1729 ✳️ (media)
+Premisas de diseño (dependencias 4.4, estandarización multi-país, frontera grupo/family office) → 10.1; pronunciamientos estructurales (posición del perfil de la célula BI, soporte compartido) → 10.2. **Matiz verificado:** el placeholder dice "instancia de gobierno de IA", que NO equivale al Champion de Adopción de IA — la capa C0 de s12 (l.1868) la trata como órgano de gobierno de IA-y-dato más amplio; no dar por resuelta la instancia con la mención del Champion en l.1740.
 
 ---
 
@@ -130,7 +140,8 @@ Cerrar además el circuito **12.3 ↔ 10.2**: el equipo interno que 12.3 eleva c
 | 1912 | "Riesgo 3 (7.9)" (12.3) | "(7.7)" |
 | 1660 (s9 fila 10) | "(7.1, 7.2)" | "(7.5)" |
 | 1673 (s9) | "(8.1)" resistencia al cambio | "(8.2)" |
-**Control final:** grep por "7.9", "7.7", "3–14", "11.4" en s7-s13.
+| 1411 (7.1, fila Maia) | "documentado en 8.2" | "en 8.3" *(N1 — hallazgo del crítico; ídem Anexo B l.2276)* |
+**Control final:** grep por "7.9", "7.7", "3–14", "11.4", "8.2" en s7-s13. Nota del crítico: la cita "(7.9)" de l.1934 (caso Jesmir) SÍ es correcta — no tocarla.
 
 ### 5.2 · Contables y nominales (✅/✳️)
 a) **5.4 l.995**: "De las doce brechas, ocho son críticas" — la tabla de 5.3 tiene **trece** filas. ✅
@@ -192,9 +203,41 @@ Regla de deslinde: la 12 dice QUÉ son los agentes; la 13 dice CUÁNDO, QUIÉN, 
 
 ---
 
-## 8. Registro de verificación
+## 9. HALLAZGOS DEL CRÍTICO DE COMPLETITUD (no detectados por los 16 analistas)
 
-- 65 análisis ejecutados (13 secciones + 3 lentes + 48 verificaciones adversariales individuales + reintentos).
-- Recomendaciones alta/media de sección: 26 ✅ CONFIRMADAS · 16 ✳️ MATIZADAS (matices incorporados arriba) · 1 ❌ REFUTADA (mover/comprimir 7.10 — ver §2) · 5 ◻️ sin verificación individual (s9-R8 orden de filas; s10-R3/R4/R5/R6).
-- Recomendaciones de lentes globales marcadas ◻️: no pasaron verificación individual, pero los lentes verificaron sus afirmaciones contra el texto citando líneas, y varias convergen con hallazgos de sección independientes (señal fuerte).
-- Este documento reconcilia las dos tensiones detectadas entre analistas: (1) traslado de 4.7 → plan B ahora, traslado en Fase 2; (2) compresión del h4 de Lark en 7.10 → NO comprimir (la evidencia volumétrica es única), solo remisión.
+**Alta prioridad (antes del 24-jul):**
+- **N1 · Referencia errónea 7.1→8.2.** l.1411 (fila Maia): "su despliegue queda documentado en 8.2" — está en **8.3**; 8.2 es disposición al cambio. Mismo fósil en Anexo B l.2276. *(Ya añadido a la tabla §5.1.)*
+- **N2 · "Edumar" con dos resoluciones incompatibles.** 4.6 l.843: Edumar Escalona, Gerente de Ventas Mayor Internacional, Panamá ("superior local de Patrick") vs s17 l.2301: "miembro del equipo digital Venezuela". Reconciliar s17 contra 4.6 (la evidencia de nómina respalda a Escalona) — nadie había cotejado s17 contra el cuerpo.
+- **N3 · Cifras del programa Maia sin conciliar: 30/60/70/150.** 2.3 l.478 ("cerca de 70"), 7.1 l.1411 y 8.3 l.1639 ("~30 líderes" piloto, "~150 licencias" masivo), Anexo B l.2254 (tarea abierta "~30 vs 60"). Añadir una frase que las reconcilie (piloto vs alcance acordado vs despliegue) o corregir a la cifra oficial.
+- **N4 · Portada desalineada con la entrega real.** l.318-324: "V1 · corte 10-jul", "entrega 18-jul", destinatario "Comité Directivo" — mientras el cuerpo se dirige a la "Junta Directiva" (l.399, 1653). Especialmente delicado porque el propio informe documenta que Junta y Comité tienen composiciones no coincidentes (§5.2-e). *(Decisión de Clemencia ya abierta; ahora es inconsistencia verificada.)*
+
+**Durante la ejecución:**
+- **N5 ·** La lista de propagación de s4 omitía l.420, l.647 y l.880 (referencias a la antigua 4.3) — ya integradas en §3.3. La afirmación de l.420 ("alertas abiertas… secciones 3.3 y 4.3") es dudosa en sí: el registro de alertas vive en s17/4.6, no en 4.3.
+- **N6 ·** **Versión cliente — navegación:** purgar del sidenav (l.286-307) y del TOC (l.357-360) las entradas de Anexo B y s17 y el rótulo "Uso interno" — el plan de build solo contemplaba amputar el contenido.
+- **N7 ·** **Enlace de Drive en modo edición** (l.1746, `…/edit?usp=drivesdk`) dentro de un documento "CONFIDENCIAL": cambiar a vista, verificar permisos para la Junta, y congelar versión del deck al 24-jul.
+
+**Pulido final:** N8 Catherine (4.6 l.837, nómina) vs Katherine (Anexo A l.2222) Jiménez — resolver contra nómina al cerrar la entrevista pendiente · N9 s17 l.2302 "Reabierta" vs Anexo B l.2237 "resuelto" (base de Ricardo) · N10 s12 (l.1848) no acredita a s8 en su línea de base pese a que 8.5 le remite · N11 el TOC (l.344) añade "por áreas y niveles" que el h2 real de s10 no lleva · N12 tercera colisión de nomenclatura "F" (flujos F1-F8 vs código EDT "F1.3.2" l.518 vs "Fase 1/2/3").
+
+**Validaciones del crítico que blindan la auditoría:** confirmó por conteo directo las 13 filas de 5.3, las 3 apariciones de "Kennex", la fila duplicada de 6.5 (l.1173-1174; las de l.1175-1176 son legítimas), la integridad de todas las anclas `#s1`-`#s17`, y que no hay más fósiles "sección 14" que los ya detectados (l.393, 2251, 2275).
+
+---
+
+## 10. PROTOCOLO DE EJECUCIÓN — conflictos entre recomendaciones (C1-C6)
+
+Aplicar las recomendaciones en orden arbitrario **siembra fósiles nuevos**. Reglas:
+
+1. **Primero renumerar, luego redactar (C1, C2).** Construir UNA tabla de equivalencias única (s4: 4.6→4.3, 4.3→4.4, 4.4→4.5, 4.5→4.6 · s10: viejo 5→2, 2→3, 4→4, 3→5, 7→6, 6→7 · s11: 11.6→11.4, 11.4→11.5, 11.5→11.6 · si se trasladara 4.7: 6.x→6.x+1) y aplicar TODAS las renumeraciones antes de escribir texto nuevo. Toda frase nueva de las recomendaciones (columna de 10.2, anclajes de 10.1, puentes, filas de s9) se redacta con la numeración NUEVA — tal como fueron formuladas usan la vieja.
+2. **C3 ·** Las dos listas de propagación del reorden de s11 difieren: fundirlas en una sola (unión: l.1850, 1891, 1899, 1904, 1916-1917, 1935, 1938, 1952) antes de ejecutar. Ignorar la mención a "índice l.185" (es CSS; el índice solo lista h2).
+3. **C4 ·** La intro de 2.3 (l.444) la reescriben dos recomendaciones: redactarla UNA sola vez con el orden combinado: cobertura → registro de entrevistas → gobernanza → requisitos → caracterización/coherencia.
+4. **C5 ·** Línea de dependencias de s10 (l.1680), formulación canónica única: **"Depende de las secciones 3–7 y de la síntesis de la sección 9"** (citando expresamente la 5 en el cuerpo si se aplica §4.1).
+5. **C6 ·** h4 de Lark en 7.10: decisión ya tomada en este documento (§2) — **NO comprimir** (la evidencia volumétrica es única en l.1588); solo añadir remisión a 11.1. Desestimar la recomendación contraria del lente técnico.
+6. **s9-R8 (orden de filas) ✳️:** el criterio "seguir el recorrido del informe s3→s8" es correcto y seguro (nada externo depende de posiciones), pero la secuencia concreta propuesta por el analista se contradecía a sí misma — al aplicar, ordenar estrictamente por subsección de origen (3.1→3.2→3.3→3.4→4.x→5.x→6.x→7.x→8.x) y declarar el criterio en la intro.
+
+---
+
+## 11. Registro de verificación
+
+- **65 análisis ejecutados, 65 completados** (13 secciones + 3 lentes + 48 verificaciones adversariales + crítico de completitud).
+- Recomendaciones alta/media de sección: **28 ✅ CONFIRMADAS · 19 ✳️ MATIZADAS** (matices incorporados) · **1 ❌ REFUTADA** (mover/comprimir 7.10 — ver §2 y C6).
+- Recomendaciones de lentes globales marcadas ◻️: verificadas por los propios lentes contra el texto con líneas citadas; varias convergen con hallazgos de sección independientes (señal fuerte). El crítico validó por muestreo las afirmaciones clave de ambos niveles (§9).
+- Tensiones entre analistas: todas reconciliadas — (1) traslado de 4.7 → plan B ahora, traslado completo en Fase 2; (2) h4 de Lark en 7.10 → no comprimir (C6); (3) numeraciones → protocolo §10.
