@@ -1,0 +1,10 @@
+# Normalización de fin de línea
+* text=auto
+
+# Scripts de Windows: forzar CRLF para que funcionen al hacer doble clic
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# HTML/MD: LF (multiplataforma)
+*.html text eol=lf
+*.md   text eol=lf

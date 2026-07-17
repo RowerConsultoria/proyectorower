@@ -26,6 +26,30 @@ proyectorower/
     └── TRASPASO_...md          Documento de traspaso desde el chat de construcción
 ```
 
+## Trabajar en local (Windows)
+
+### 1. Clonar el repositorio
+
+Abre **Git Bash** o **PowerShell** y ejecuta (ajusta la ruta si quieres otra):
+
+```bash
+git clone https://github.com/RowerConsultoria/proyectorower.git "C:/Users/gabri/Escritorio/APPS Github/Rower"
+```
+
+> ⚠️ **Sobre OneDrive:** la ruta propuesta está dentro de OneDrive (`...\OneDrive\Escritorio\...`). OneDrive y Git sincronizan por su cuenta y a veces chocan (OneDrive intenta subir archivos internos de `.git`, lo que corrompe el historial). **Recomendación:** clona fuera de OneDrive, p. ej. `C:\Repos\Rower` o `C:\Users\gabri\Rower`. Si prefieres mantenerlo en OneDrive, en los ajustes de OneDrive excluye de la sincronización la carpeta `.git` del proyecto.
+
+### 2. Ver el sitio en local
+
+Doble clic en **`scripts/servidor-local.bat`** → abre `http://localhost:8080` en tu navegador. Este sí funciona porque corre en **tu** equipo (a diferencia del servidor de las sesiones de Claude, que vive en la nube y no es alcanzable desde fuera).
+
+### 3. Mantener local y GitHub al día
+
+- **Manual:** doble clic en `scripts/sincronizar.bat` cuando quieras ponerte al día (baja lo de GitHub y sube lo tuyo).
+- **Automático:** ejecuta `scripts/auto-sincronizar.ps1` (sincroniza cada 5 min mientras la ventana esté abierta).
+- Ver [`scripts/README.md`](scripts/README.md) para el detalle.
+
+**Cómo fluyen los cambios:** Claude Code (en la nube) hace *push* a GitHub → tú haces *pull* para recibirlos; tú haces *push* de tus cambios a GitHub → Claude hace *pull* en la siguiente sesión. GitHub es el punto de encuentro; no hay conexión directa entre tu equipo y las sesiones de Claude.
+
 ## Cómo contribuir (equipo consultor)
 
 1. **Fuente de verdad:** el HTML maestro en `informe/fase1/` es el documento vigente. No circular copias con sufijos de versión (`_v2`, `_final`); el historial de versiones lo lleva git.
