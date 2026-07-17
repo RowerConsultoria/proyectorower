@@ -19,6 +19,7 @@ proyectorower/
 ├── presentaciones/             Presentaciones web del proyecto (Junta, comités…)
 ├── modulos/                    Módulos web interactivos (matriz de riesgos, mapa de procesos…)
 ├── insumos/                    Insumos de trabajo de los consultores (xlsx, specs, borradores)
+├── supabase/                   Base de datos persistente: esquema SQL, guía y cliente de ejemplo
 └── gestion/                    Documentación interna del proyecto
     ├── ESTADO.md               Estado sección por sección y pendientes priorizados
     ├── CONVENCIONES.md         Convenciones obligatorias (nomenclatura, redacción, paleta)

@@ -10,3 +10,8 @@ backup_*.html
 
 # Node (si algún módulo llega a usar tooling)
 node_modules/
+
+# Credenciales — nunca al repositorio
+.env
+.env.*
+*.secret
