@@ -1,0 +1,898 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Organigrama As-Is · Grupo Kenex</title>
+<style>
+:root{
+  --ground:#F2F4F8; --panel:#FFFFFF; --panel2:#F7F9FC; --ink:#1C2536; --muted:#5C6478;
+  --line:#D5DBE6; --line2:#C3CAD8;
+  --formal:#1F3864; --formal-ink:#FFFFFF; --formal-edge:#16294B;
+  --defacto:#B26A00; --defacto-bg:#FDF4E3; --defacto-ink:#7A4A00;
+  --entity:#66738A; --entity-bg:#EDF0F5;
+  --partner:#2F7D51; --partner-bg:#EEF6F0;
+  --risk:#C2382D; --risk-bg:#FBEAE8;
+  --geo:#3A66A8; --geo-bg:#E9F0FA;
+  --accent:#1F3864; --flash:#FFD666;
+  --shadow:0 1px 2px rgba(23,32,54,.08),0 4px 14px rgba(23,32,54,.07);
+  --f-d:"Segoe UI Variable Display","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-b:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+  --f-m:"Cascadia Mono",Consolas,ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --ground:#0F131C; --panel:#161C29; --panel2:#1B2233; --ink:#E6EAF3; --muted:#95A0B6;
+  --line:#2A3347; --line2:#38425A;
+  --formal:#2C4A82; --formal-ink:#EAF0FB; --formal-edge:#4A6CAE;
+  --defacto:#DB9A3C; --defacto-bg:#2A2213; --defacto-ink:#EBBE7A;
+  --entity:#8A96AD; --entity-bg:#202839;
+  --partner:#4FA476; --partner-bg:#16281E;
+  --risk:#E06055; --risk-bg:#3A1D1A;
+  --geo:#7FA4DC; --geo-bg:#1C2A42;
+  --accent:#7FA4DC; --flash:#B98A1E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --ground:#0F131C; --panel:#161C29; --panel2:#1B2233; --ink:#E6EAF3; --muted:#95A0B6;
+  --line:#2A3347; --line2:#38425A;
+  --formal:#2C4A82; --formal-ink:#EAF0FB; --formal-edge:#4A6CAE;
+  --defacto:#DB9A3C; --defacto-bg:#2A2213; --defacto-ink:#EBBE7A;
+  --entity:#8A96AD; --entity-bg:#202839;
+  --partner:#4FA476; --partner-bg:#16281E;
+  --risk:#E06055; --risk-bg:#3A1D1A;
+  --geo:#7FA4DC; --geo-bg:#1C2A42;
+  --accent:#7FA4DC; --flash:#B98A1E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --ground:#F2F4F8; --panel:#FFFFFF; --panel2:#F7F9FC; --ink:#1C2536; --muted:#5C6478;
+  --line:#D5DBE6; --line2:#C3CAD8;
+  --formal:#1F3864; --formal-ink:#FFFFFF; --formal-edge:#16294B;
+  --defacto:#B26A00; --defacto-bg:#FDF4E3; --defacto-ink:#7A4A00;
+  --entity:#66738A; --entity-bg:#EDF0F5;
+  --partner:#2F7D51; --partner-bg:#EEF6F0;
+  --risk:#C2382D; --risk-bg:#FBEAE8;
+  --geo:#3A66A8; --geo-bg:#E9F0FA;
+  --accent:#1F3864; --flash:#FFD666;
+  --shadow:0 1px 2px rgba(23,32,54,.08),0 4px 14px rgba(23,32,54,.07);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+#app{position:fixed;inset:0;overflow:hidden;background:var(--ground);color:var(--ink);
+  font-family:var(--f-b);font-size:13px;line-height:1.35;
+  background-image:radial-gradient(color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px);
+  background-size:26px 26px}
+#viewport{position:absolute;inset:0;cursor:grab;touch-action:none}
+#viewport.panning{cursor:grabbing}
+#world{position:absolute;left:0;top:0;transform-origin:0 0;width:max-content}
+#world.anim{transition:transform .65s cubic-bezier(.22,.9,.3,1)}
+@media (prefers-reduced-motion: reduce){#world.anim{transition:none}}
+#wires{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:60}
+#wires path{fill:none;stroke-width:2.2;stroke-dasharray:7 5;vector-effect:non-scaling-stroke;opacity:.95}
+#wires circle{vector-effect:non-scaling-stroke}
+#wires text{font-family:var(--f-m);font-size:13px;paint-order:stroke;stroke:var(--ground);stroke-width:4px;fill:var(--ink)}
+
+/* ---------- canvas content ---------- */
+#canvas{padding:140px 160px 220px;display:flex;flex-direction:column;align-items:center}
+.band{display:flex;flex-direction:column;align-items:center;scroll-margin:40px}
+.eyebrow{font-family:var(--f-m);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.eyebrow::before,.eyebrow::after{content:'';width:64px;height:1px;background:var(--line2)}
+.spine{width:2px;height:64px;background:var(--line2);margin:6px auto}
+.row{display:flex;gap:22px;align-items:stretch;justify-content:center;flex-wrap:wrap}
+
+/* ---------- nodes ---------- */
+.node{position:relative;background:var(--panel);border:1.5px solid var(--line2);border-radius:8px;
+  padding:8px 12px;min-width:150px;max-width:270px;box-shadow:var(--shadow);cursor:default}
+.node .nm{font-family:var(--f-d);font-weight:650;font-size:13.5px;letter-spacing:-.005em;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.node .rl{font-size:12px;color:var(--muted);margin-top:1px}
+.node .mt{font-family:var(--f-m);font-size:10.5px;color:var(--muted);margin-top:3px}
+.node.f{background:var(--formal);border-color:var(--formal-edge);color:var(--formal-ink)}
+.node.f .rl{color:color-mix(in srgb,var(--formal-ink) 78%,transparent)}
+.node.f .mt{color:color-mix(in srgb,var(--formal-ink) 62%,transparent)}
+.node.d{background:var(--defacto-bg);border:2px dashed var(--defacto);color:var(--ink)}
+.node.d .rl{color:var(--defacto-ink);font-weight:600}
+.node.p{background:var(--partner-bg);border:2px solid var(--partner)}
+.node.hasnote{cursor:pointer}
+.node.hasnote:hover{outline:2px solid color-mix(in srgb,var(--accent) 45%,transparent);outline-offset:1px}
+.badge{font-size:11px;font-family:var(--f-m);border-radius:4px;padding:0 4px;line-height:1.5;white-space:nowrap}
+.badge.w{background:var(--risk-bg);color:var(--risk);border:1px solid color-mix(in srgb,var(--risk) 45%,transparent)}
+.badge.g{background:var(--geo-bg);color:var(--geo);border:1px solid color-mix(in srgb,var(--geo) 40%,transparent)}
+.node.f .badge.w{background:var(--risk);color:#fff;border-color:transparent}
+.node.f .badge.g{background:color-mix(in srgb,#fff 22%,transparent);color:var(--formal-ink);border-color:transparent}
+.cnt{font-family:var(--f-m);font-size:11.5px;color:var(--muted);background:var(--panel2);
+  border:1.5px dashed var(--line2);border-radius:6px;padding:4px 10px;width:max-content;max-width:250px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;max-width:290px}
+.chip{font-size:11px;background:var(--entity-bg);border:1px solid var(--line);border-radius:20px;padding:1px 8px;color:var(--ink)}
+.chips .lbl{font-family:var(--f-m);font-size:10.5px;color:var(--muted);width:100%;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:11.5px;color:var(--muted);font-style:italic;margin:6px 0 0;max-width:340px;padding-left:10px;
+  border-left:2px solid var(--line2)}
+
+/* ---------- trees ---------- */
+.kids{display:flex;flex-direction:column;gap:8px;margin:8px 0 0 16px}
+.branch{position:relative;padding-left:20px;display:flex;flex-direction:column;align-items:flex-start}
+.branch::before{content:'';position:absolute;left:5px;top:-8px;bottom:0;border-left:1.5px solid var(--line2)}
+.branch:last-child::before{height:24px;bottom:auto}
+.branch::after{content:'';position:absolute;left:5px;top:16px;width:13px;border-top:1.5px solid var(--line2)}
+
+/* ---------- departments & panels ---------- */
+.dept{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.dept>header{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:8px;
+  border-bottom:1px solid var(--line);padding-bottom:5px}
+.dept>header .un{font-family:var(--f-d);font-weight:650;font-size:12.5px;letter-spacing:.01em}
+.dept>header .hc{font-family:var(--f-m);font-size:11px;color:var(--muted);white-space:nowrap}
+.panel{background:var(--panel);border:1.5px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);
+  overflow:hidden;scroll-margin:40px}
+.panel.partner{border:2.5px solid var(--partner)}
+.panel>.ph{background:var(--entity-bg);border-bottom:1.5px solid var(--line2);padding:12px 16px;
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;cursor:pointer}
+.panel.partner>.ph{background:var(--partner-bg);border-bottom-color:var(--partner)}
+.ph .fl{font-size:17px}
+.ph .en{font-family:var(--f-d);font-weight:700;font-size:16px;letter-spacing:-.01em;text-wrap:balance}
+.ph .es{font-size:12px;color:var(--muted)}
+.ph .hcnt{font-family:var(--f-m);font-size:11.5px;color:var(--ink);background:var(--panel);
+  border:1px solid var(--line2);border-radius:20px;padding:1px 9px;margin-left:auto;white-space:nowrap}
+.ph .tag{font-family:var(--f-m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--partner);border:1px solid var(--partner);border-radius:4px;padding:1px 6px}
+.panel>.pb{padding:14px;display:grid;gap:12px;align-items:start}
+.panel.w1>.pb{grid-template-columns:1fr;max-width:460px}
+.panel.w2>.pb{grid-template-columns:repeat(2,minmax(320px,1fr))}
+.panel.w3>.pb{grid-template-columns:repeat(3,minmax(320px,1fr))}
+.panel .pnotes{grid-column:1/-1;display:flex;flex-direction:column;gap:4px}
+.fo-branch .panel{opacity:.62;filter:saturate(.6)}
+.fo-branch .panel:hover{opacity:1;filter:none}
+
+/* governance cards */
+.govbox{background:var(--panel);border:1.5px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px}
+.govbox>h3{margin:0 0 2px;font-family:var(--f-d);font-size:14px;font-weight:700;letter-spacing:-.01em}
+.govbox>.sub{font-size:11.5px;color:var(--muted);margin-bottom:12px}
+.defacto-card{background:var(--defacto-bg);border:2px dashed var(--defacto);border-radius:12px;padding:12px 14px;
+  width:250px;box-shadow:var(--shadow)}
+.defacto-card .nm{font-family:var(--f-d);font-weight:700;font-size:14px}
+.defacto-card .dr{color:var(--defacto-ink);font-weight:650;font-size:12.5px;margin:2px 0 6px}
+.defacto-card .al{font-size:11.5px;color:var(--muted)}
+.regional-card{width:265px;display:flex;flex-direction:column;gap:6px}
+.regional-card .team{font-size:11px;color:var(--muted);padding:0 2px}
+
+/* stats strip */
+.stats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.stat{background:var(--panel);border:1.5px solid var(--line2);border-radius:10px;padding:8px 16px;box-shadow:var(--shadow)}
+.stat .k{font-family:var(--f-m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-family:var(--f-d);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+
+/* ---------- chrome / UI ---------- */
+.bar{position:absolute;z-index:100;display:flex;align-items:center;gap:10px}
+#topbar{top:0;left:0;right:0;padding:10px 16px;background:color-mix(in srgb,var(--panel) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+#topbar .t1{font-family:var(--f-d);font-weight:700;font-size:15px;letter-spacing:-.01em}
+#topbar .t2{font-family:var(--f-m);font-size:10.5px;color:var(--muted);letter-spacing:.08em}
+#topbar .sp{flex:1}
+button{font-family:var(--f-b);font-size:12.5px;color:var(--ink);background:var(--panel);
+  border:1.5px solid var(--line2);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--formal-ink)}
+#search{font-family:var(--f-b);font-size:12.5px;background:var(--panel);color:var(--ink);
+  border:1.5px solid var(--line2);border-radius:8px;padding:6px 10px;width:210px}
+#scenebar{bottom:16px;left:50%;transform:translateX(-50%);background:color-mix(in srgb,var(--panel) 92%,transparent);
+  backdrop-filter:blur(8px);border:1.5px solid var(--line2);border-radius:12px;padding:8px 12px;box-shadow:var(--shadow)}
+#scenebar .sc-title{font-family:var(--f-d);font-weight:650;font-size:13px;min-width:230px;text-align:center}
+#scenebar .sc-n{font-family:var(--f-m);font-size:10.5px;color:var(--muted);text-align:center}
+#zoombar{bottom:16px;right:16px;flex-direction:column;gap:6px}
+#zoombar button{width:36px;height:34px;padding:0;font-size:15px}
+
+.drawer{position:absolute;top:64px;bottom:76px;width:320px;z-index:95;background:var(--panel);
+  border:1.5px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);display:none;
+  flex-direction:column;overflow:hidden}
+.drawer.open{display:flex}
+#flows-drawer{left:14px}
+#alerts-drawer{right:14px}
+.drawer>header{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:8px}
+.drawer>header h3{margin:0;font-family:var(--f-d);font-size:13.5px;font-weight:700}
+.drawer>header .x{margin-left:auto;border:none;background:none;font-size:15px;padding:2px 6px;color:var(--muted)}
+.drawer .body{overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.flow-it{display:flex;gap:9px;align-items:flex-start;padding:7px 9px;border-radius:8px;cursor:pointer;
+  border:1.5px solid transparent;font-size:12px}
+.flow-it:hover{background:var(--panel2)}
+.flow-it.on{border-color:var(--line2);background:var(--panel2)}
+.flow-it .sw{width:22px;height:0;border-top:3px dashed var(--muted);margin-top:8px;flex:none}
+.flow-it small{display:block;color:var(--muted);font-size:11px}
+.alert-it{display:flex;gap:8px;padding:8px 10px;border-radius:8px;background:var(--risk-bg);
+  border:1px solid color-mix(in srgb,var(--risk) 30%,transparent);font-size:12px;cursor:pointer}
+.alert-it:hover{border-color:var(--risk)}
+.alert-it .ic{color:var(--risk)}
+#legend{position:absolute;left:14px;bottom:16px;z-index:96;background:color-mix(in srgb,var(--panel) 94%,transparent);
+  border:1.5px solid var(--line2);border-radius:12px;box-shadow:var(--shadow);padding:10px 14px;display:none;
+  flex-direction:column;gap:7px;font-size:11.5px;max-width:280px}
+#legend.open{display:flex}
+#legend .li{display:flex;gap:9px;align-items:center}
+#legend .sw{width:26px;height:15px;border-radius:4px;flex:none}
+#legend h4{margin:0 0 2px;font-family:var(--f-d);font-size:12.5px}
+
+#popover{position:absolute;z-index:120;max-width:340px;background:var(--panel);color:var(--ink);
+  border:1.5px solid var(--line2);border-radius:10px;box-shadow:var(--shadow);padding:10px 13px;display:none;font-size:12.5px}
+#popover .pt{font-family:var(--f-d);font-weight:700;margin-bottom:3px}
+#popover .pr{color:var(--muted);font-size:11.5px;margin-bottom:6px}
+
+/* flow dim / highlight */
+#world.flows-on .node,#world.flows-on .cnt,#world.flows-on .chips,#world.flows-on .defacto-card,
+#world.flows-on .govbox,#world.flows-on .note,#world.flows-on .dept>header{opacity:.28}
+#world.flows-on .panel>.ph{opacity:.45}
+#world.flows-on .node.lit,#world.flows-on .defacto-card.lit{opacity:1!important;
+  outline:3px solid color-mix(in srgb,var(--flash) 80%,transparent);outline-offset:2px}
+#world.flows-on .panel.lit>.ph{opacity:1;outline:3px solid color-mix(in srgb,var(--flash) 80%,transparent);outline-offset:-3px}
+.node.flash,.defacto-card.flash{animation:flash 1.6s ease-out 2}
+@keyframes flash{0%{box-shadow:0 0 0 3px var(--flash),var(--shadow)}100%{box-shadow:0 0 0 14px transparent,var(--shadow)}}
+@media (prefers-reduced-motion: reduce){.node.flash{animation:none;outline:3px solid var(--flash)}}
+
+@media (max-width:760px){
+  #topbar .t2, #scenebar .sc-n{display:none}
+  #search{width:130px}
+  .drawer{width:min(86vw,320px)}
+  #scenebar .sc-title{min-width:120px;font-size:12px}
+}
+</style>
+
+<div id="app">
+  <div id="viewport"><div id="world"><svg id="wires"></svg><div id="canvas"></div></div></div>
+
+  <div class="bar" id="topbar">
+    <div>
+      <div class="t1">Grupo Kenex — Organigrama As-Is</div>
+      <div class="t2">CORTE 10-JUL-2026 · PROYECTO ROWER · UCAB CONSULTORES</div>
+    </div>
+    <div class="sp"></div>
+    <input id="search" list="names" placeholder="Buscar persona… (Enter)" aria-label="Buscar persona">
+    <datalist id="names"></datalist>
+    <button id="b-flows">Flujos funcionales</button>
+    <button id="b-alerts">Alertas <span id="alerts-n"></span></button>
+    <button id="b-legend">Leyenda</button>
+  </div>
+
+  <div class="bar" id="scenebar">
+    <button id="sc-prev" aria-label="Escena anterior">←</button>
+    <div>
+      <div class="sc-title" id="sc-title">Vista general</div>
+      <div class="sc-n" id="sc-n"></div>
+    </div>
+    <button id="sc-next" aria-label="Escena siguiente">→</button>
+  </div>
+
+  <div class="bar" id="zoombar">
+    <button id="z-in" aria-label="Acercar">+</button>
+    <button id="z-out" aria-label="Alejar">−</button>
+    <button id="z-fit" aria-label="Vista general" style="font-size:11px">⤢</button>
+  </div>
+
+  <aside class="drawer" id="flows-drawer" aria-label="Flujos funcionales">
+    <header><h3>Líneas funcionales cruzadas</h3><button class="x" data-close="flows-drawer" aria-label="Cerrar">✕</button></header>
+    <div class="body" id="flows-body">
+      <div style="display:flex;gap:8px"><button id="f-all" style="flex:1">Mostrar todas</button><button id="f-none" style="flex:1">Ninguna</button></div>
+      <p class="note" style="max-width:none;margin:2px 0 4px">Coordinación sin jerarquía formal — la capa crítica del As-Is. Selecciona una o varias.</p>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="alerts-drawer" aria-label="Alertas abiertas">
+    <header><h3>⚠ Alertas por confirmar</h3><button class="x" data-close="alerts-drawer" aria-label="Cerrar">✕</button></header>
+    <div class="body" id="alerts-body"></div>
+  </aside>
+
+  <div id="legend" role="note">
+    <h4>Leyenda</h4>
+    <div class="li"><span class="sw" style="background:var(--formal)"></span>Posición formal (nómina / escala oficial)</div>
+    <div class="li"><span class="sw" style="background:var(--defacto-bg);border:2px dashed var(--defacto)"></span>Rol de facto — sin posición formal</div>
+    <div class="li"><span class="sw" style="background:var(--panel);border:1.5px solid var(--line2)"></span>Persona / equipo (dentro de unidad)</div>
+    <div class="li"><span class="sw" style="background:var(--partner-bg);border:2px solid var(--partner)"></span>Socio / tercero (fuera del control directo)</div>
+    <div class="li"><span class="sw" style="border-top:3px dashed var(--muted);height:0;margin:6px 0"></span>Reporte funcional (punteada, sin jerarquía)</div>
+    <div class="li"><span class="badge w">⚠</span>Dependencia crítica / dato por confirmar</div>
+    <div class="li"><span class="badge g">🌐 país</span>Reside en país distinto a su entidad</div>
+  </div>
+
+  <div id="popover" role="dialog"></div>
+</div>
+
+<script>
+/* =================== DATOS =================== */
+const FO = { // 1.A Family office (fuera de alcance)
+  items:[
+    {n:'Coworking',r:'Varias sedes · edificio en construcción',t:'p',note:'Con socio Paul.'},
+    {n:'Restaurante',r:'Panamá',t:'u'},
+    {n:'Portafolio inmobiliario',r:'Real estate',t:'u'},
+    {n:'Sociedad Crocs',r:'Bernardo + otro socio',t:'p',id:'crocs',note:'Interfaz operativa: comparte bodega y costos del WMS con el grupo.',
+      kids:[{n:'Estefanía Quintal',r:'Country Manager Crocs',id:'quintal'}]},
+    {n:'Ricardo Roizental',r:'Desarrollo de negocios de facto',t:'d'},
+    {n:'Moisés Roizental',r:'"El doctor" · participa en decisiones',t:'d'},
+    {n:'Katsi López',r:'Abogados (Panamá) · asesor externo compartido',t:'p'},
+  ]
+};
+const GOV = {
+  comite:[
+    {n:'Bernardo Roizental',r:'Presidente / CEO',m:'Base: Venezuela + Miami',id:'bernardo'},
+    {n:'Roberto “Robbie” Roizental',r:'Accionista',m:'Base: Panamá',id:'roberto'},
+    {n:'Andrés Roizental',r:'Accionista',m:'Base: Panamá',id:'andres'},
+    {n:'Alejandro Roizental',r:'Accionista',m:'Base: Miami',id:'alejandro'},
+    {n:'Ricardo “Richie” Roizental',r:'Accionista',m:'Base: Panamá vs. Miami',id:'ricardo',w:'Conciliar base física: entrevista dice Panamá; estatus v5 dice Miami.'},
+  ],
+  junta:[
+    {n:'Máximo Dolman',r:'Miembro externo',m:'~3 años',id:'dolman'},
+    {n:'Alberto Bassan',r:'Asesor fiscal-contable externo',m:'~30 años',id:'bassan'},
+    {n:'Jaime González',r:'CFO · participa',w:'Posible “tercer externo” citado por Dolman — confirmar.',id:'jaime-junta'},
+  ],
+  comites:[
+    {n:'Comité de Finanzas',x:'Ricardo · Bernardo · Alberto Bassan · Jaime González'},
+    {n:'Comité Laboral',x:'Alberto Bassan + composición por confirmar ⚠'},
+    {n:'Comité de Compras (Cubitt)',x:'Alejandro · Roberto · otros'},
+    {n:'En construcción',x:'Protocolo familiar · consejo de familia · asambleas anuales (diseño simplificado por Dolman)'},
+  ],
+  soporte:[
+    {n:'Carmela Iribarren',r:'Asistente Ejecutiva del CEO',m:'Base Venezuela · nómina Dirección, sin banda',t:'f',id:'carmela',
+      note:'Funciones transversales: soporte a la junta completa, seguimiento semanal del comité de Colombia, coordinación con contadores de Costa Rica y Panamá.'},
+    {n:'“Doctor Bernardo”',r:'General Counsel (EE.UU.)',t:'d',id:'drbernardo',w:'Confirmar si es Moisés Roizental.'},
+  ]
+};
+const DEFACTO = [
+  {id:'d-bernardo',n:'Bernardo Roizental',dir:'Presidencia ejecutiva',al:'Todos los grupos · foco actual: recuperación de Venezuela · decisión final de contrataciones incluso no directivas'},
+  {id:'d-roberto',n:'Roberto Roizental',dir:'Dirección de Compras Casio + Comercial LatAm',al:'Aprueba compras de Kenex Trading, Casiolandia y Rower VE ⚠ · interlocutor de Casio (Brasil) · canal efectivo con el socio de Costa Rica'},
+  {id:'d-andres',n:'Andrés Roizental',dir:'Gerencia General Comercial de facto',al:'3 unidades comerciales (Internacional, Venezuela, Colombia) + Guatemala completa (salvo admin/finanzas) · único experto Lark ⚠ · decisiones RRHH Panamá · autoriza pedido a pedido'},
+  {id:'d-alejandro',n:'Alejandro Roizental',dir:'Dirección de Producto Cubitt + Kenex USA',al:'~10 proveedores China · diseño · comité de compras · toda la operación EE.UU. ⚠'},
+  {id:'d-ricardo',n:'Ricardo Roizental',dir:'Dirección de Finanzas corporativas / banca',al:'Único con relación bancaria ⚠ · deuda, líneas, activos fijos · desarrollo de negocios del family office · incorporando a Jaime como cuadro de reemplazo'},
+];
+const REGIONAL = [
+  {id:'jaime',n:'Jaime González Franchi',r:'CFO del grupo (holding)',m:'Venezuela · El Rosal',t:'d',
+    w:'En nómina figura solo como “Planificador Financiero” de la Gcia. de Planificación Financiera VE.',
+    team:'Equipo: Ali Carmona (tesorería VE) · Sabrina (enlace CO) — punteadas a Marcela (CO), Norman (PA), Ian (PA), Isabela (US)'},
+  {id:'mariela',n:'Mariela Castro',r:'Gerente Regional de Sistemas',m:'Panamá',t:'f',
+    team:'Jerárquico: César Rivodó, Rafael Tejada (PA) · funcional: José Herrera, Héctor Zapata, Miguel Yépez (VE), Edgar 🌐EE.UU.'},
+  {id:'natasha',n:'Natasha Betancourt',r:'Directora de Marketing del grupo',m:'Panamá · ~50 personas',t:'d',
+    w:'NO aparece en escala MKT Panamá — verificar nómina.',
+    team:'Directos: Kelly (Casio regional) · Sofiana (Cubitt PA) · Ivonne de la Guardia (cuentas clave MX·GT·NI·EC·HN, 4 pers.) · Mario Romero (producción) · Kevin (dir. creativo) · Macarena (social media) · Anabel Roizental 🌐Miami (contenido/PR)'},
+  {id:'patrick',n:'Patrick Corujo',r:'Gerente Customer Service multi-país',m:'Panamá',t:'f',
+    team:'Jerárquico PA: Arratia, Josmar, Reinaldo, Peroza, Morcillo · funcional: CS de VE, CO, EC, GT, NI, MX, US, partner RD'},
+  {id:'handani',n:'Handani',r:'Gerente de Retail del grupo',m:'Basado en Colombia · todas las tiendas',t:'d',
+    w:'Sin registro en nóminas recibidas.',team:'Punteadas: Blas García (PA) · Ma. Eugenia Villegas (VE) · country manager GT · tiendas CR (Importbel)'},
+  {id:'candanedo',n:'Ricardo Candanedo',r:'Director de PMO',m:'Panamá',t:'f',team:'PM de proyectos mayores (WMS, remodelaciones) · cartera: US·MX·GT·PA·CO·VE·EC'},
+  {id:'arani-reg',n:'Araní González Perdomo',r:'Gerente de Proyectos (PMO)',m:'Venezuela',t:'f',team:'Coordinadora del piloto Maia · Gcia. Proyectos VE (feb-2026)'},
+  {id:'estefr',n:'Estefanía Roizental',r:'Gerente de Proyectos — lanzamientos',m:'Panamá',t:'d',
+    w:'Por confirmar en nómina. ¿“Stephanie” de logística Colón es la misma persona?',team:'Doble función: PMO + seguimiento proveedores Cubitt (punteada a Alejandro)'},
+  {id:'fernando',n:'Fernando Alvarado',r:'Gerente de Logística corporativo (Kenex)',m:'Panamá corporativo',t:'f',g:'VE',
+    team:'Hoy: migración WMS Venezuela · réplica prevista CO y Miami'},
+  {id:'bi',n:'Célula BI — Alexis Mujica (líder)',r:'Business Intelligence y ciencia de datos del grupo',m:'Remoto · vía Panamá',t:'d',
+    w:'No existen en nóminas recibidas, aunque “Business Intelligence” sí figura como departamento oficial (DEPARTAMENTOS.xlsx).',
+    team:'Kenzie Pérez (ETL/Fabric) · Ali Aguilar (métricas) — punteadas a Roberto, Vera, Alejandro, tiendas, Baltodano'},
+  {id:'vera',n:'Vera Gavizon',r:'Soporte de compras y reportería Casio multi-país',m:'Israel',t:'d',g:'Israel',
+    w:'Sin registro en nóminas · contratada por razón social VE (confirmar) · cuñada de Roberto.',
+    team:'Prepara compras de PA·CR·GT·HN·SV·EC + reportería mensual oficial a Casio (8 países)'},
+  {id:'baltodano',n:'Ricardo Baltodano',r:'Gestor regional de brand managers (CA–México)',m:'Panamá ↔ México',t:'d',
+    w:'Cargo formal y entidad por confirmar.',team:'Seguimiento semanal a brand managers país (ej.: Ricardo Romero en CR)'},
+  {id:'edumar-reg',n:'Edumar Escalona',r:'Gerente de Ventas — Mayor Internacional',m:'Panamá · Kenex Trading',t:'f',
+    team:'Superior local de Patrick · canal de pedidos de clientes internacionales y del socio CR'},
+  {id:'jmateo',n:'José Mateo',r:'Coordinación de Visual regional',m:'Base por confirmar',t:'d',w:'Rol por confirmar.',
+    team:'Punteadas: Reina (CO) · Wander (GT) · Ana (NI) · José Rodolfo Medina (VE)'},
+];
+const ENTITIES = [
+ {id:'holding-panel',fl:'🇵🇦',n:'Kenex (Holding)',s:'Caja madre financiera',hc:'holding',w:1,
+  notes:['“La gallina de los huevos de oro”: endeudamiento concentrado que financió el crecimiento de todos. En transición a deuda por compañía.'],
+  depts:[]},
+ {id:'trading-panel',fl:'🇵🇦',n:'Kenex Trading',s:'Zona Libre de Colón · mayorista mundial',hc:'~40',w:1,
+  depts:[
+   {u:'Ventas Mayor Internacional',hc:4,kids:[{n:'Edumar Escalona',r:'Gerente de Ventas',t:'f',id:'edumar',
+     kids:[{n:'Roger Bocaranda',r:'Ejecutivo'},{n:'Roberto Zuleta',r:'Ejecutivo'},{n:'Armando García',r:'Ejecutivo'}]}]},
+   {u:'Logística y Tráfico',hc:5,kids:[{n:'Yanilka Martínez',r:'Jefa de Tráfico',t:'f',kids:[{c:'4 asistentes'}]}]},
+   {u:'Bodega Colón',hc:31,id:'bodega-colon',kids:[{n:'María Alejandra Mejías',r:'Gerente de Logística',t:'f',w:'20+ años · dependencia crítica individual.',
+     kids:[{n:'Ricardo Mayers',r:'Jefe de Bodega',kids:[{c:'2 power users'},{c:'2 conductores'},{c:'25 ayudantes'}]}]}]},
+  ],
+  notes:['Restricción: no puede vender dentro de Panamá → triangulación vía Basaida.']},
+ {id:'basaida-panel',fl:'🇵🇦',n:'Basaida(i)',s:'Intermediaria de triangulación',hc:'sin personal propio',w:1,
+  notes:['Kenex Trading → Basaida → Casiolandia. Automatizada en Odoo (intercompañía).'],depts:[]},
+ {id:'casio-panel',fl:'🇵🇦',n:'Casiolandia',s:'Ciudad de Panamá · retail + mayor local',hc:'~90 en archivos',w:3,
+  depts:[
+   {u:'Tiendas PTY',hc:28,kids:[{n:'Blas García',r:'Supervisor de Tiendas',t:'f',id:'blas',
+     kids:[{chips:{lbl:'8 encargados de tienda',items:['Albrook','Altaplaza','Los Andes','Metromall','Multiplaza','Westland','Tigre','Carrusel']}},
+       {c:'17 vendedores'},{c:'1 técnico de taller'}]}]},
+   {u:'Bodega Panamá ciudad',hc:9,kids:[{n:'Isabel Alvarado',r:'Coordinadora de Bodega',t:'f',
+     kids:[{n:'Edgar Claros',r:'Coordinador de Despachos'},{c:'equipo de bodega'}]}]},
+   {u:'Ventas Detal Zona Libre',hc:5,kids:[{n:'Oneal Callender',r:'Encargado',t:'f',kids:[{c:'equipo (incl. relojero)'}]}]},
+   {u:'Ventas al por Mayor PTY',hc:4,kids:[{n:'Jhony Wong',r:'Coordinador Ventas al Mayor',t:'f',id:'jwong',
+     w:'Probable “Johnny” / John Morgan — conciliar identidad.',note:'Wholesale local + reportería sellout que recibe de países.',
+     kids:[{c:'3 vendedores'}]}]},
+   {u:'Ventas Online y Customer Service',hc:6,kids:[{n:'Patrick Corujo',r:'Gerente',t:'f',id:'patrick-pa',
+     kids:[{n:'Jesús Arratia',r:'Coord. soporte técnico'},{n:'Josmar González',r:'Rotulación'},{n:'Reinaldo Méndez',r:'Ventas Cubitt'},
+       {n:'Luis Peroza',r:'Ventas Casio'},{n:'Eloy Morcillo',r:'Nómina: servicio técnico',w:'Función real: atención al cliente.'}]}]},
+   {u:'Contabilidad',hc:7,kids:[{n:'Ian Isa Chen',r:'Gerente de Contabilidad',t:'f',id:'ian',
+     kids:[{c:'2 contadores'},{c:'3 asistentes'},{c:'1 auxiliar'}]}]},
+   {u:'Tesorería',hc:5,kids:[{n:'Norman',r:'Gerente de Tesorería',t:'f',id:'norman',
+     kids:[{c:'Supervisor CxC'},{n:'Felipe Alain',r:'Asistente CxP / pagos',note:'“Felipe” aparece como aprobación de pagos en el flujo Casiolandia.'},
+       {n:'Víctor Ortega',r:'Asistente CxC'},{c:'1 asistente'}]}]},
+   {u:'RRHH',hc:4,kids:[{n:'Nuria Ashby',r:'Gerente de RRHH',t:'f',id:'nuria',m:'25 años en la casa',
+     kids:[{n:'Catherine Jiménez',r:'Coordinadora'},{n:'Karina Oliveros',r:'Asistente'},{n:'Farah Becerra',r:'Recepción'}]}]},
+   {u:'TI',hc:3,kids:[{n:'Mariela Castro',r:'Gerente Regional de Sistemas',t:'f',id:'mariela-pa',
+     kids:[{n:'César Rivodó',r:'Sistemas / seguridad'},{n:'Rafael Tejada',r:'Infraestructura'}]}]},
+   {u:'Marketing Panamá — 5 sub-áreas',hc:26,kids:[
+     {chips:{lbl:'sub-áreas',items:['Creativo/Producción (4)','Diseño (6)','KAM/Cubitt (4)','MKT Casio (5)','Marketing General (6)']}},
+     {n:'Sofiana',r:'Marketing Manager (Cubitt PA)',t:'f'}]},
+  ],
+  notes:['15 departamentos oficiales según DEPARTAMENTOS.xlsx — incluye Business Intelligence, R&D, Compras, Web, Visual y Planificación Comercial (algunos sin escala recibida).']},
+ {id:'rower-panel',fl:'🇻🇪',n:'Distribuidora Rower C.A.',s:'Venezuela · 14 gerencias oficiales (bandas 1–4, niveles A–C)',hc:'~230 (creció de 176 en dic-2025)',w:3,
+  depts:[
+   {u:'Operaciones y Logística',kids:[{n:'José Vladimir Castillo',r:'Gerente',t:'f',m:'desde 2001',
+     kids:[{n:'Jimena Sánchez',r:'Coord. Planificación de Compras',m:'mar-2026'},{n:'Elvis Badillo',r:'Gerente de Almacén',m:'jun-2026'},{c:'equipo de almacén / despacho'}]}]},
+   {u:'Ventas al Mayor',kids:[{n:'Henry Lucena',r:'Gerente',t:'f'},{n:'Andrés Márquez González',r:'Gerente',t:'f',m:'may-2026',
+     w:'Dos gerentes simultáneos — probable relevo.'},{c:'vendedores mayor'}]},
+   {u:'Ventas al Detal (tiendas)',id:'ve-detal',kids:[{n:'María Eugenia Villegas',r:'Gerente',t:'f',m:'desde 1999',id:'mariae',
+     kids:[{n:'Carlos Velásquez',r:'Supervisor Casio'},{n:'Carlos Eduardo Márquez',r:'Supervisor Cubitt'},{n:'Rosa Caraballo',r:'Supervisora de Inventario'},
+       {chips:{lbl:'≈12 tiendas Cubitt',items:['Sambil','La Candelaria 1','La Candelaria 2','Valencia 1','Valencia 2','Feria','Maracaibo','Boleita','Líder','CCCT','Recreo','Barquisimeto']}},
+       {chips:{lbl:'≈8 tiendas Casio',items:['Feria','Rower','Acuario','Líder','CCCT','Recreo','La Candelaria','Barquisimeto']}},
+       {c:'apertura Margarita en curso'},{c:'personal de tienda = mayoría de la plantilla'}]}]},
+   {u:'Ventas Web (e-commerce)',id:'ve-web',kids:[{n:'Jesmir Flores Contreras',r:'Gerente',t:'f',m:'ago-2025',id:'jesmir',
+     w:'Dependencia extrema · conciliar “Smith” vs. Jesmir.',
+     kids:[{n:'Johan Lucena',r:'Soporte web'},{c:'asesores web'},{c:'facturación'},{c:'almacén web'},
+       {chips:{lbl:'canales',items:['Webs','Cashea','Mercado Libre','WhatsApp']}}]}]},
+   {u:'Marketing',kids:[{n:'Valentina Abreu',r:'Gerente',t:'f',id:'vabreu',
+     kids:[{c:'coordinadores de marca Casio · Cubitt · deportivo'},{c:'editor'},{c:'diseñadores'}]}]},
+   {u:'Planificación Financiera',kids:[{n:'Jaime González Franchi',r:'Planificador Financiero (nómina)',t:'f',id:'jaime-ve',
+     w:'Rol real: CFO del grupo — la nómina no lo refleja.',kids:[{n:'Ali Carmona',r:'Coordinador de Tesorería',m:'jun-2026',id:'ali'}]}]},
+   {u:'Contabilidad',kids:[{n:'Víctor Padovani',r:'Gerente',t:'f',id:'padovani'}]},
+   {u:'Administración',kids:[{n:'Aida Mejías',r:'Gerente',t:'f',m:'desde 1985'}]},
+   {u:'Tesorería / CxC / CxP',kids:[{n:'Cortorreal',r:'Coordinadora CxC',m:'jun-2026'},{c:'coordinaciones nuevas jun-2026'}]},
+   {u:'RRHH',kids:[{n:'Evelia Manzo Hurtado',r:'Gerente',t:'f',id:'evelia',w:'Grafía Manso/Manzo por confirmar.',
+     kids:[{n:'Mayari Cizmania',r:'Coordinadora'},{n:'Heliany Montañez',r:'Analista'},{n:'Delanys Querecuto',r:'Analista · nómina jul-2026'}]}]},
+   {u:'Servicio Técnico',kids:[{n:'Juseth Félix González Larez',r:'Gerente',t:'f',m:'desde 2002',id:'juseth',
+     w:'El “Josep” — conocimiento único multi-país.',
+     kids:[{n:'Gilbert Vargas',r:'Subgerente',m:'desde 2000'},{n:'Jailis Medina',r:'Soporte técnico'},{n:'Gustavo Hernández',r:'Soporte técnico'}]}]},
+   {u:'Sistemas',kids:[{n:'José Rafael Herrera',r:'Coordinador',t:'f',id:'jherrera',
+     kids:[{n:'Héctor Zapata',r:'Técnico'},{n:'Miguel Yépez',r:'Auxiliar'},{c:'freelances'},
+       {n:'Edgar',r:'Soporte tiendas',g:'EE.UU.',id:'edgar',w:'Reside en EE.UU. y atiende las ~20 tiendas de VE.'}]}]},
+   {u:'Proyectos',kids:[{n:'Araní González Perdomo',r:'Gerente',t:'f',m:'feb-2026',id:'arani'}]},
+   {u:'Visual',kids:[{n:'José Rodolfo Medina',r:'Coordinador',t:'f',id:'jrmedina'}]},
+   {u:'Dirección',kids:[{n:'Carmela Iribarren',r:'Asistente Ejecutiva',t:'f',m:'sin banda',id:'carmela-ve'}]},
+   {u:'Otros',kids:[{n:'Anabel Roizental',r:'Contenido/PR marketing + correo BI',g:'Miami',w:'Rol en precisión.'}]},
+  ],notes:[]},
+ {id:'co-panel',fl:'🇨🇴',n:'Deltadir S.A.S.',s:'Colombia · 2 tiendas',hc:'~18–38',w:1,
+  depts:[
+   {u:'Equipo Colombia',kids:[
+     {n:'Joel Cohen',r:'Country Manager · representante legal',t:'f',id:'joel',g:'pagado vía PA',w:'Único que mueve dinero.',
+      kids:[
+       {n:'Santiago Ramírez',r:'Líder comercial / KAM',note:'Falabella, Éxito, Panamericana + planeación de compras + reportería sellout a PA.'},
+       {n:'Eibar',r:'Vendedor mayorista B2B'},
+       {n:'Gabriel(a) y Valentina',r:'Customer service',id:'cs-co'},
+       {n:'Marcela',r:'Finanzas',id:'marcela'},
+       {n:'Leslie',r:'Marketing',id:'leslie'},
+       {n:'Tatiana',r:'Marketplaces',id:'tatiana'},
+       {n:'Reina',r:'Visual',id:'reina'},
+       {n:'Valeria',r:'Apoyo a influenciadores / alianzas',note:'Hermana de Andrés, residente en Colombia.'},
+       {c:'promotores de venta en cadenas (mayoría de plantilla)'}]},
+     {n:'Handani',r:'Gerente de Retail del grupo (basado aquí, alcance global)',t:'d',id:'handani-co'},
+     {n:'RRHH y nómina',r:'Tercerizados — empresa externa',t:'p'}]},
+  ],notes:[]},
+ {id:'us-panel',fl:'🇺🇸',n:'Kenex USA',s:'Miami · estructura mínima',hc:'~5',w:1,
+  depts:[
+   {u:'Equipo EE.UU.',kids:[
+     {n:'Alejandro Roizental',r:'Dirección total',t:'d',id:'alejandro-us',w:'Toda la operación descansa en él.',
+      kids:[
+       {n:'Isabela',r:'Administradora (prima)',id:'isabela',note:'Listings, envíos, devoluciones, QuickBooks.'},
+       {n:'Apoyo administrativo',r:'Nueva contratación · asiste a Isabela',g:'Caracas'},
+       {n:'Andrés Mendoza',r:'Customer service freelance',g:'Venezuela',id:'amendoza',note:'Reside en Venezuela · punteada a Patrick.'},
+       {c:'2 personas de bodega'}]}]},
+  ],
+  notes:['Sistemas: QuickBooks + EDI, desconectados del grupo ⚠.']},
+ {id:'importbel-panel',fl:'🇨🇷',n:'Importbel S.A.',s:'Costa Rica · sociedad 50/50',hc:'3 puntos de venta',w:2,partner:true,
+  depts:[
+   {u:'Dirección del socio',kids:[{n:'Gil Porat',r:'Socio local · Gerente General (y comercial en funciones)',t:'p',id:'gil',
+     kids:[
+      {n:'Logística y Operaciones',r:'Gerente (mujer)'},
+      {n:'Hugo',r:'Financiero-contable / Administración',id:'hugo'},
+      {n:'Tiendas',r:'Gerente de tiendas',id:'cr-tiendas'},
+      {n:'B2B Casio',r:'Unidad comercial'},
+      {n:'Analista de negocios',r:'Reporta a Gil'},
+      {n:'E-commerce / bots',r:'Relanzándose'},
+      {n:'Itai',r:'Compras',note:'Forecast mensual con Claude.'},
+      {n:'Ricardo Romero',r:'Brand manager Cubitt',id:'rromero',note:'Seguimiento semanal con Ricardo Baltodano.'},
+      {n:'Andrea',r:'Contacto operativo / atención'}]}]},
+  ],
+  notes:['Comité de Innovación propio · sin Odoo · reportería semanal de 12 páginas.',
+   'Multimarca: ~90% producto Kenex (Casio, Cubitt, Q) + Seiko, Citizen, Bulova, Carabel.',
+   '3 puntos de venta (1 tienda + 2 kioscos · 1 kiosco → tienda Cubitt en sep).',
+   'Compra a Kenex Trading vía Edumar · canal efectivo: Roberto.']},
+ {id:'gt-panel',fl:'🇬🇹',n:'Guatemala',s:'Operación tercerizada',hc:'mínima propia',w:1,
+  depts:[
+   {u:'Estructura propia (“oficina de servicios”)',kids:[
+     {n:'Country Manager GT',r:'Del grupo',t:'f',id:'gt-cm'},
+     {n:'Wander',r:'Trade marketing · compartido con visual regional',id:'wander'}]},
+   {u:'Operador externo',kids:[{n:'Ix Comercio',r:'Fee ~10% · opera tiendas, logística y administración',t:'p',
+     note:'Inventario en su bodega. La responsabilidad de las tiendas sigue siendo del grupo.'}]},
+  ],
+  notes:['Comunicación fuera de Lark (WhatsApp) ⚠ · comercial gestionado directamente por Andrés Roizental.']},
+ {id:'minors-panel',fl:'🌎',n:'Presencias menores y terceros',s:'4 modelos de presencia',hc:'13 países en total',w:1,
+  depts:[
+   {u:'País por país',kids:[
+     {n:'Nicaragua — Ana',r:'CS + visual (compartida) · presencia mínima propia',id:'ana-ni'},
+     {n:'Ecuador — Fabián Jaimes',r:'CS local · ventas desde Panamá',id:'fabian'},
+     {n:'México',r:'Distribuidores · entrada gestionada desde Panamá (proyecto PMO)',id:'mx'},
+     {n:'Honduras',r:'Franquicias Casio (no operadas) → en internalización 2026',id:'hn',note:'Cuentas clave de Natasha (Ivonne) activando.'},
+     {n:'El Salvador',r:'Sin estructura propia · compras vía Vera',id:'sv'},
+     {n:'Rep. Dominicana — Jonathan Camejo',r:'Distribuidor externo + franquicias',t:'p',id:'jonathan'},
+     {c:'Chile · Argentina · Bolivia · Paraguay · resto LatAm: clientes mayoristas de Kenex Trading (sin estructura)'}]},
+  ],notes:[]},
+];
+const FLOWS = [
+ {id:'fin',c:'#2E6FD0',l:'1 · Finanzas — Jaime',d:'Tesorerías y contabilidades de TODAS las entidades',
+   pairs:[['jaime','norman'],['jaime','ian'],['jaime','ali'],['jaime','padovani'],['jaime','marcela'],['jaime','isabela']]},
+ {id:'sis',c:'#8A5BD6',l:'2 · Sistemas — Mariela',d:'IT de Venezuela y Colombia',pairs:[['mariela','jherrera'],['mariela','co-panel']]},
+ {id:'mkt',c:'#D6499B',l:'3 · Marketing — Natasha',d:'Marketing de VE y CO, cuentas clave, visual países',
+   pairs:[['natasha','vabreu'],['natasha','leslie'],['natasha','tatiana'],['natasha','reina'],['natasha','wander'],['natasha','ana-ni'],['natasha','hn']]},
+ {id:'cs',c:'#0E8FA8',l:'4 · Customer Service — Patrick',d:'CS de 9+ países + rotulación multi-país',
+   pairs:[['patrick','jesmir'],['patrick','cs-co'],['patrick','fabian'],['patrick','gt-cm'],['patrick','ana-ni'],['patrick','mx'],['patrick','amendoza'],['patrick','jonathan']]},
+ {id:'ret',c:'#7A9B2F',l:'5 · Retail — Handani',d:'Tiendas de PA, VE, GT y CR',
+   pairs:[['handani','blas'],['handani','mariae'],['handani','gt-cm'],['handani','cr-tiendas']]},
+ {id:'cmp',c:'#C77800',l:'6 · Compras — Roberto',d:'Aprueba compras de Trading, Casiolandia y Rower VE · canal con Importbel',
+   pairs:[['d-roberto','trading-panel'],['d-roberto','casio-panel'],['d-roberto','rower-panel'],['d-roberto','importbel-panel']]},
+ {id:'com',c:'#B5451D',l:'7 · Comercial — Andrés',d:'Internacional + VE + CO + Guatemala completa',
+   pairs:[['d-andres','edumar'],['d-andres','rower-panel'],['d-andres','co-panel'],['d-andres','gt-panel']]},
+ {id:'cub',c:'#7048C8',l:'8 · Cubitt — Alejandro ↔ Estefanía R.',d:'Seguimiento de proveedores Cubitt',pairs:[['d-alejandro','estefr']]},
+ {id:'bi2',c:'#0B7C6C',l:'9 · Célula BI',d:'Modelos de compra, métricas de tiendas, reportería',
+   pairs:[['bi','d-roberto'],['bi','vera'],['bi','d-alejandro'],['bi','blas'],['bi','baltodano']]},
+ {id:'ver',c:'#A83E68',l:'10 · Compras Casio — Vera',d:'Compras PA·CR·GT·HN·SV·EC + reportería oficial a Casio (8 países)',
+   pairs:[['vera','casio-panel'],['vera','importbel-panel'],['vera','gt-panel'],['vera','hn'],['vera','sv'],['vera','fabian']]},
+ {id:'wms',c:'#546A85',l:'11 · WMS — Fernando Alvarado',d:'Migración WMS en VE · réplica prevista CO y Miami',
+   pairs:[['fernando','rower-panel'],['fernando','co-panel'],['fernando','us-panel']]},
+ {id:'edg',c:'#B03A9C',l:'12 · Edgar (reside EE.UU.)',d:'Soporte IT a las ~20 tiendas de Venezuela',pairs:[['edgar','mariae']]},
+ {id:'amz',c:'#1F8FD0',l:'13 · Andrés Mendoza (reside VE)',d:'Customer service de EE.UU. desde Venezuela',pairs:[['amendoza','patrick']]},
+ {id:'bm',c:'#8C6D1F',l:'14 · Brand managers — Baltodano',d:'Seguimiento semanal CR·GT·NI·MX',
+   pairs:[['baltodano','rromero'],['baltodano','gt-cm'],['baltodano','ana-ni'],['baltodano','mx']]},
+ {id:'car',c:'#3E7CB1',l:'15 · Soporte a gobierno — Carmela',d:'Junta completa + comité CO + contadores CR/PA',
+   pairs:[['carmela','junta-box'],['carmela','co-panel'],['carmela','hugo'],['carmela','ian']]},
+ {id:'rh',c:'#C25E9A',l:'16 · RRHH — Nuria',d:'Reclutamiento GT/NI + estándares CO',
+   pairs:[['nuria','gt-panel'],['nuria','ana-ni'],['nuria','co-panel']]},
+ {id:'st',c:'#4E9B8F',l:'17 · Servicio técnico — Juseth',d:'Repuestos y servicio técnico Casio de TODOS los países',
+   pairs:[['juseth','casio-panel'],['juseth','importbel-panel'],['juseth','co-panel'],['juseth','gt-panel'],['juseth','us-panel']]},
+ {id:'crx',c:'#6B7F3A',l:'18 · Crocs ↔ bodega / WMS',d:'Sociedad Crocs comparte bodega y costos del WMS (Estefanía Quintal)',
+   pairs:[['quintal','bodega-colon']]},
+];
+const ALERTS = [
+ {t:'Base física de Ricardo Roizental: ¿Panamá o Miami?',pid:'ricardo'},
+ {t:'John Morgan vs. Jhony Wong — ¿misma persona?',pid:'jwong'},
+ {t:'Grafía Manzo / Manso (Evelia, RRHH VE)',pid:'evelia'},
+ {t:'“Doctor Bernardo” — ¿es Moisés Roizental?',pid:'drbernardo'},
+ {t:'Tercer miembro externo de junta (¿Jaime?)',pid:'jaime-junta'},
+ {t:'Smith vs. Jesmir (e-commerce VE)',pid:'jesmir'},
+ {t:'Stephanie (logística Colón) vs. Estefanía Roizental',pid:'estefr'},
+ {t:'Cargo formal y entidad de Ricardo Baltodano',pid:'baltodano'},
+ {t:'Posición de nómina: Natasha, Handani, Fernando, célula BI, Vera',pid:'natasha'},
+];
+const CIFRAS = [
+ {k:'Plantilla conocida',v:'~230 VE · ~137 PA · 18–38 CO · ~5 US'},
+ {k:'Facturación por origen',v:'PA ~60% · VE ~30% · resto ~10%'},
+ {k:'Perímetro',v:'8 entidades operativas / ~35–40 sociedades'},
+ {k:'Presencia',v:'13 países · 4 modelos de presencia'},
+];
+
+/* =================== RENDER =================== */
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function nodeHTML(o){
+  if(o.c) return `<div class="cnt">${esc(o.c)}</div>`;
+  if(o.chips) return `<div class="chips"><span class="lbl">${esc(o.chips.lbl)}</span>${o.chips.items.map(i=>`<span class="chip">${esc(i)}</span>`).join('')}</div>`;
+  const cls = ['node', o.t==='f'?'f':o.t==='d'?'d':o.t==='p'?'p':'', (o.note||o.w)?'hasnote':''].join(' ');
+  const idAttr = o.id?` data-pid="${o.id}"`:'';
+  const badges = (o.w?`<span class="badge w" title="${esc(o.w)}">⚠</span>`:'') + (o.g?`<span class="badge g">🌐 ${esc(o.g)}</span>`:'');
+  const noteAttr = (o.note||o.w)?` data-note="${esc((o.w?o.w+' ':'')+(o.note||''))}" data-nm="${esc(o.n)}" data-rl="${esc(o.r||'')}"`:'';
+  return `<div class="${cls}"${idAttr}${noteAttr} data-name="${esc(o.n)}" tabindex="0">
+    <div class="nm">${esc(o.n)} ${badges}</div>${o.r?`<div class="rl">${esc(o.r)}</div>`:''}${o.m?`<div class="mt">${esc(o.m)}</div>`:''}</div>`;
+}
+function treeHTML(o){ return `<div class="branch">${nodeHTML(o)}${o.kids?.length?`<div class="kids">${o.kids.map(treeHTML).join('')}</div>`:''}</div>`; }
+function deptHTML(d){
+  return `<section class="dept"${d.id?` data-pid="${d.id}"`:''}><header><span class="un">${esc(d.u)}</span>${d.hc?`<span class="hc">${esc(String(d.hc))} pers.</span>`:''}</header>
+    <div class="kids" style="margin-left:0">${(d.kids||[]).map(treeHTML).join('')}</div>
+    ${(d.notes||[]).map(n=>`<p class="note">${esc(n)}</p>`).join('')}</section>`;
+}
+function panelHTML(e){
+  return `<section class="panel w${e.w}${e.partner?' partner':''}" id="${e.id}" data-pid="${e.id}">
+    <header class="ph"><span class="fl">${e.fl}</span><span class="en">${esc(e.n)}</span><span class="es">${esc(e.s)}</span>
+      ${e.partner?'<span class="tag">socio / tercero</span>':''}<span class="hcnt">${esc(e.hc)}</span></header>
+    <div class="pb">${e.depts.map(deptHTML).join('')}
+      ${e.notes.length?`<div class="pnotes">${e.notes.map(n=>`<p class="note" style="max-width:none">${esc(n)}</p>`).join('')}</div>`:''}</div></section>`;
+}
+const canvas = document.getElementById('canvas');
+canvas.innerHTML = `
+<div class="band" id="band-family">
+  <div class="eyebrow">Nivel 0 · Perímetro societario familiar</div>
+  <div class="govbox" style="text-align:center;max-width:560px">
+    <h3>FAMILIA ROIZENTAL</h3>
+    <div class="sub">~35–40 sociedades · sin inventario formal — registro “en la cabeza” de Bernardo y Ricardo ⚠</div>
+  </div>
+  <div class="spine"></div>
+  <div class="row" style="align-items:flex-start">
+    <div class="fo-branch" style="max-width:640px">
+      <section class="panel w1" style="max-width:640px">
+        <header class="ph"><span class="en">Family Office / negocios no operativos</span><span class="es">fuera del alcance del proyecto</span></header>
+        <div class="pb"><div class="row" style="justify-content:flex-start">${FO.items.map(treeHTML).join('')}</div></div>
+      </section>
+    </div>
+    <div class="govbox" style="align-self:stretch;display:flex;flex-direction:column;justify-content:center;min-width:300px">
+      <h3>GRUPO OPERATIVO KENEX</h3>
+      <div class="sub">“Building Brands, Connecting Markets”<br>8 entidades · 13 países ↓</div>
+    </div>
+  </div>
+</div>
+<div class="spine"></div>
+
+<div class="band" id="band-gov">
+  <div class="eyebrow">Gobierno corporativo</div>
+  <div class="govbox">
+    <h3>Comité Directivo — “comité íntimo”</h3>
+    <div class="sub">Máxima instancia real de decisión · 5 accionistas conectados 24/7 (pantallas permanentes Caracas–Panamá–Miami)</div>
+    <div class="row">${GOV.comite.map(o=>nodeHTML({...o,t:'f'})).join('')}</div>
+  </div>
+  <div class="spine" style="height:34px"></div>
+  <div class="row" style="align-items:flex-start">
+    <div class="govbox" style="max-width:430px" data-pid="junta-box">
+      <h3>Junta Directiva ampliada</h3>
+      <div class="sub">Los 5 accionistas +</div>
+      <div class="row" style="justify-content:flex-start">${GOV.junta.map(o=>nodeHTML({...o,t:'f'})).join('')}</div>
+      <p class="note" style="max-width:none">As-Is: sin actas formales · decisiones del comité íntimo llegan como hechos consumados · plan estratégico a 3 años (2026) sin seguimiento institucionalizado.</p>
+    </div>
+    <div class="govbox" style="max-width:360px">
+      <h3>Comités</h3><div class="sub">&nbsp;</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${GOV.comites.map(c=>`<div class="node" style="max-width:none"><div class="nm">${esc(c.n)}</div><div class="rl">${esc(c.x)}</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="govbox" style="max-width:330px">
+      <h3>Soporte a gobierno</h3><div class="sub">&nbsp;</div>
+      <div style="display:flex;flex-direction:column;gap:8px">${GOV.soporte.map(nodeHTML).join('')}</div>
+    </div>
+  </div>
+</div>
+<div class="spine"></div>
+
+<div class="band" id="band-defacto">
+  <div class="eyebrow">Dirección ejecutiva de facto — capa sin cargos formales</div>
+  <div class="row">
+    ${DEFACTO.map(d=>`<div class="defacto-card" data-pid="${d.id}" data-name="${esc(d.n)}" tabindex="0">
+      <div class="nm">${esc(d.n)}</div><div class="dr">${esc(d.dir)}</div><div class="al">${esc(d.al)}</div></div>`).join('')}
+  </div>
+  <p class="note" style="max-width:760px;text-align:center;border:none">Cada accionista ejerce una dirección funcional que NO existe en nómina — hallazgo clave del diagnóstico.</p>
+</div>
+<div class="spine"></div>
+
+<div class="band" id="band-regional">
+  <div class="eyebrow">Capa corporativa regional — roles multi-país</div>
+  <div class="row" style="max-width:1560px">
+    ${REGIONAL.map(o=>`<div class="regional-card">${nodeHTML(o)}<div class="team">${esc(o.team||'')}</div></div>`).join('')}
+  </div>
+</div>
+<div class="spine"></div>
+
+<div class="band" id="band-entities">
+  <div class="eyebrow">Entidades jurídicas y sus estructuras</div>
+  <div style="display:flex;gap:36px;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:22px" id="pa-col">
+      ${panelHTML(ENTITIES[0])}${panelHTML(ENTITIES[1])}${panelHTML(ENTITIES[2])}
+    </div>
+    ${panelHTML(ENTITIES[3])}
+    ${panelHTML(ENTITIES[4])}
+    <div style="display:flex;flex-direction:column;gap:22px">
+      ${panelHTML(ENTITIES[5])}${panelHTML(ENTITIES[6])}
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      ${panelHTML(ENTITIES[7])}${panelHTML(ENTITIES[8])}${panelHTML(ENTITIES[9])}
+    </div>
+  </div>
+  <div class="stats">${CIFRAS.map(c=>`<div class="stat"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div></div>`).join('')}</div>
+</div>`;
+
+/* aliases: pids que apuntan al mismo actor en otra instancia */
+const ALIAS = {patrick:'patrick', mariela:'mariela', carmela:'carmela', handani:'handani', jaime:'jaime'};
+
+/* =================== CÁMARA =================== */
+const vp=document.getElementById('viewport'), world=document.getElementById('world'), wires=document.getElementById('wires');
+let cam={x:40,y:40,s:.5};
+function apply(){world.style.transform=`translate(${cam.x}px,${cam.y}px) scale(${cam.s})`;}
+function withAnim(fn){world.classList.add('anim');fn();setTimeout(()=>world.classList.remove('anim'),700);}
+function worldRectOf(el){
+  const r=el.getBoundingClientRect(), w=world.getBoundingClientRect();
+  return {x:(r.left-w.left)/cam.s, y:(r.top-w.top)/cam.s, w:r.width/cam.s, h:r.height/cam.s};
+}
+function fitRect(r,pad=70,maxS=1.35){
+  const vw=vp.clientWidth, vh=vp.clientHeight-70;
+  const s=Math.min((vw-pad*2)/r.w,(vh-pad*2)/r.h,maxS);
+  cam={s, x:(vw-r.w*s)/2-r.x*s, y:70+(vh-r.h*s)/2-r.y*s};
+  apply();
+}
+function fitEl(el,pad){withAnim(()=>fitRect(worldRectOf(el),pad));}
+function fitAll(){withAnim(()=>fitRect(worldRectOf(canvas),40));}
+/* pan & zoom */
+const pointers=new Map(); let lastMid=null,lastDist=0,moved=false;
+vp.addEventListener('pointerdown',e=>{
+  if(e.target.closest('.bar,.drawer,#legend,#popover,button,input'))return;
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY}); vp.setPointerCapture(e.pointerId);
+  vp.classList.add('panning'); moved=false; lastMid=null;
+});
+vp.addEventListener('pointermove',e=>{
+  if(!pointers.has(e.pointerId))return;
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  const pts=[...pointers.values()];
+  if(pts.length===1){
+    const p=pts[0];
+    if(lastMid){cam.x+=p.x-lastMid.x;cam.y+=p.y-lastMid.y;if(Math.hypot(p.x-lastMid.x,p.y-lastMid.y)>2)moved=true;apply();}
+    lastMid={x:p.x,y:p.y};
+  }else if(pts.length===2){
+    const mid={x:(pts[0].x+pts[1].x)/2,y:(pts[0].y+pts[1].y)/2};
+    const dist=Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y);
+    if(lastMid&&lastDist){zoomAt(mid.x,mid.y,dist/lastDist);cam.x+=mid.x-lastMid.x;cam.y+=mid.y-lastMid.y;apply();}
+    lastMid=mid;lastDist=dist;moved=true;
+  }
+});
+function endPtr(e){pointers.delete(e.pointerId);lastMid=null;lastDist=0;if(!pointers.size)vp.classList.remove('panning');}
+vp.addEventListener('pointerup',endPtr);vp.addEventListener('pointercancel',endPtr);
+function zoomAt(px,py,f){
+  const ns=Math.min(2.5,Math.max(.05,cam.s*f)); f=ns/cam.s;
+  cam.x=px-(px-cam.x)*f; cam.y=py-(py-cam.y)*f; cam.s=ns; apply();
+}
+vp.addEventListener('wheel',e=>{e.preventDefault();zoomAt(e.clientX,e.clientY,Math.pow(1.0016,-e.deltaY));},{passive:false});
+document.getElementById('z-in').onclick=()=>withAnim(()=>zoomAt(vp.clientWidth/2,vp.clientHeight/2,1.45));
+document.getElementById('z-out').onclick=()=>withAnim(()=>zoomAt(vp.clientWidth/2,vp.clientHeight/2,1/1.45));
+document.getElementById('z-fit').onclick=()=>{scene=0;showScene(0);};
+
+/* =================== ESCENAS =================== */
+const SCENES=[
+ {t:'Vista general',el:()=>canvas,pad:40},
+ {t:'Perímetro societario familiar',el:()=>document.getElementById('band-family')},
+ {t:'Gobierno corporativo',el:()=>document.getElementById('band-gov')},
+ {t:'Dirección ejecutiva de facto',el:()=>document.getElementById('band-defacto')},
+ {t:'Capa corporativa regional',el:()=>document.getElementById('band-regional')},
+ {t:'Panamá — Holding · Trading · Basaida',el:()=>document.getElementById('pa-col')},
+ {t:'Panamá — Casiolandia',el:()=>document.getElementById('casio-panel')},
+ {t:'Venezuela — Distribuidora Rower',el:()=>document.getElementById('rower-panel')},
+ {t:'Colombia — Deltadir',el:()=>document.getElementById('co-panel')},
+ {t:'EE.UU. — Kenex USA',el:()=>document.getElementById('us-panel')},
+ {t:'Costa Rica — Importbel (socio 50/50)',el:()=>document.getElementById('importbel-panel')},
+ {t:'Guatemala — tercerizada · Presencias menores',el:()=>document.getElementById('gt-panel').parentElement},
+ {t:'Flujos funcionales cruzados',el:()=>canvas,pad:40,flows:true},
+];
+let scene=0;
+function showScene(i){
+  scene=(i+SCENES.length)%SCENES.length;
+  const sc=SCENES[scene];
+  document.getElementById('sc-title').textContent=sc.t;
+  document.getElementById('sc-n').textContent=`${scene+1} / ${SCENES.length}`;
+  if(sc.flows){document.getElementById('flows-drawer').classList.add('open');if(!activeFlows.size)toggleFlow('fin',true);}
+  fitEl(sc.el(),sc.pad||70);
+}
+document.getElementById('sc-prev').onclick=()=>showScene(scene-1);
+document.getElementById('sc-next').onclick=()=>showScene(scene+1);
+addEventListener('keydown',e=>{
+  if(e.target.matches('input'))return;
+  if(e.key==='ArrowRight')showScene(scene+1);
+  else if(e.key==='ArrowLeft')showScene(scene-1);
+  else if(e.key==='0')showScene(0);
+  else if(e.key==='+'||e.key==='=')withAnim(()=>zoomAt(vp.clientWidth/2,vp.clientHeight/2,1.45));
+  else if(e.key==='-')withAnim(()=>zoomAt(vp.clientWidth/2,vp.clientHeight/2,1/1.45));
+  else if(e.key==='Escape'){document.querySelectorAll('.drawer.open').forEach(d=>d.classList.remove('open'));hidePop();}
+});
+/* dblclick sobre panel/depto = zoom */
+world.addEventListener('dblclick',e=>{
+  const t=e.target.closest('.panel,.dept,.govbox');
+  if(t)fitEl(t,60);
+});
+document.querySelectorAll('.panel>.ph').forEach(h=>h.addEventListener('click',()=>fitEl(h.parentElement,60)));
+
+/* =================== FLUJOS =================== */
+const pidEl={}; document.querySelectorAll('[data-pid]').forEach(el=>{const id=el.dataset.pid;if(!(id in pidEl))pidEl[id]=el;});
+const activeFlows=new Set();
+const fbody=document.getElementById('flows-body');
+FLOWS.forEach(f=>{
+  const div=document.createElement('div');div.className='flow-it';div.id='fi-'+f.id;div.tabIndex=0;
+  div.innerHTML=`<span class="sw" style="border-top-color:${f.c}"></span><span><strong>${esc(f.l)}</strong><small>${esc(f.d)}</small></span>`;
+  const tg=()=>toggleFlow(f.id);
+  div.onclick=tg; div.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}};
+  fbody.appendChild(div);
+});
+document.getElementById('f-all').onclick=()=>{FLOWS.forEach(f=>activeFlows.add(f.id));syncFlows();};
+document.getElementById('f-none').onclick=()=>{activeFlows.clear();syncFlows();};
+function toggleFlow(id,on){ if(on===true)activeFlows.add(id); else if(activeFlows.has(id))activeFlows.delete(id); else activeFlows.add(id); syncFlows(); }
+function syncFlows(){
+  FLOWS.forEach(f=>document.getElementById('fi-'+f.id).classList.toggle('on',activeFlows.has(f.id)));
+  drawWires();
+}
+function sizeWires(){
+  wires.setAttribute('width',canvas.scrollWidth);wires.setAttribute('height',canvas.scrollHeight);
+  wires.style.width=canvas.scrollWidth+'px';wires.style.height=canvas.scrollHeight+'px';
+}
+function drawWires(){
+  sizeWires(); wires.innerHTML='';
+  document.querySelectorAll('.lit').forEach(el=>el.classList.remove('lit'));
+  world.classList.toggle('flows-on',activeFlows.size>0);
+  if(!activeFlows.size)return;
+  const single=activeFlows.size<=2;
+  FLOWS.filter(f=>activeFlows.has(f.id)).forEach(f=>{
+    f.pairs.forEach(([a,b])=>{
+      const ea=pidEl[a],eb=pidEl[b]; if(!ea||!eb)return;
+      ea.classList.add('lit');eb.classList.add('lit');
+      const ra=worldRectOf(ea),rb=worldRectOf(eb);
+      const ca={x:ra.x+ra.w/2,y:ra.y+ra.h/2},cb={x:rb.x+rb.w/2,y:rb.y+rb.h/2};
+      let p1,p2,c1,c2;
+      if(Math.abs(cb.x-ca.x)>Math.abs(cb.y-ca.y)){
+        const dir=cb.x>ca.x?1:-1;
+        p1={x:dir>0?ra.x+ra.w:ra.x,y:ca.y};p2={x:dir>0?rb.x:rb.x+rb.w,y:cb.y};
+        const k=Math.min(240,Math.abs(p2.x-p1.x)/2+40);
+        c1={x:p1.x+dir*k,y:p1.y};c2={x:p2.x-dir*k,y:p2.y};
+      }else{
+        const dir=cb.y>ca.y?1:-1;
+        p1={x:ca.x,y:dir>0?ra.y+ra.h:ra.y};p2={x:cb.x,y:dir>0?rb.y:rb.y+rb.h};
+        const k=Math.min(240,Math.abs(p2.y-p1.y)/2+40);
+        c1={x:p1.x,y:p1.y+dir*k};c2={x:p2.x,y:p2.y-dir*k};
+      }
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',`M${p1.x},${p1.y} C${c1.x},${c1.y} ${c2.x},${c2.y} ${p2.x},${p2.y}`);
+      path.setAttribute('stroke',f.c); wires.appendChild(path);
+      [[p1,4],[p2,4]].forEach(([pt,r])=>{const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx',pt.x);c.setAttribute('cy',pt.y);c.setAttribute('r',r);c.setAttribute('fill',f.c);wires.appendChild(c);});
+      if(single){
+        const tx=document.createElementNS('http://www.w3.org/2000/svg','text');
+        tx.setAttribute('x',(p1.x+p2.x)/2);tx.setAttribute('y',(p1.y+p2.y)/2-8);tx.setAttribute('text-anchor','middle');
+        tx.textContent=f.l.replace(/^\d+ · /,'');wires.appendChild(tx);
+      }
+    });
+  });
+}
+
+/* =================== ALERTAS =================== */
+const abody=document.getElementById('alerts-body');
+document.getElementById('alerts-n').textContent=`(${ALERTS.length})`;
+ALERTS.forEach(a=>{
+  const d=document.createElement('div');d.className='alert-it';d.tabIndex=0;
+  d.innerHTML=`<span class="ic">⚠</span><span>${esc(a.t)}</span>`;
+  const go=()=>{const el=pidEl[a.pid];if(el){fitEl(el.closest('.panel,.govbox,.band')||el,90);flash(el);}};
+  d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go();};
+  abody.appendChild(d);
+});
+function flash(el){el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}
+
+/* =================== DRAWERS / LEYENDA =================== */
+function wireToggle(btnId,elId){
+  const b=document.getElementById(btnId),el=document.getElementById(elId);
+  b.onclick=()=>{el.classList.toggle('open');b.classList.toggle('on',el.classList.contains('open'));
+    if(elId==='flows-drawer'&&!el.classList.contains('open')){activeFlows.clear();syncFlows();}};
+}
+wireToggle('b-flows','flows-drawer');wireToggle('b-alerts','alerts-drawer');wireToggle('b-legend','legend');
+document.querySelectorAll('[data-close]').forEach(x=>x.onclick=()=>{
+  const el=document.getElementById(x.dataset.close);el.classList.remove('open');
+  const map={'flows-drawer':'b-flows','alerts-drawer':'b-alerts'};
+  if(map[x.dataset.close])document.getElementById(map[x.dataset.close]).classList.remove('on');
+  if(x.dataset.close==='flows-drawer'){activeFlows.clear();syncFlows();}
+});
+
+/* =================== BUSCADOR =================== */
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const named=[...document.querySelectorAll('[data-name]')];
+const dl=document.getElementById('names');
+[...new Set(named.map(el=>el.dataset.name))].sort().forEach(n=>{const o=document.createElement('option');o.value=n;dl.appendChild(o);});
+document.getElementById('search').addEventListener('keydown',e=>{
+  if(e.key!=='Enter')return;
+  const q=norm(e.target.value.trim());if(!q)return;
+  const hit=named.find(el=>norm(el.dataset.name).includes(q));
+  if(hit){fitEl(hit,180);flash(hit);}
+});
+document.getElementById('search').addEventListener('change',e=>{
+  const q=norm(e.target.value.trim());if(!q)return;
+  const hit=named.find(el=>norm(el.dataset.name)===q)||named.find(el=>norm(el.dataset.name).includes(q));
+  if(hit){fitEl(hit,180);flash(hit);}
+});
+
+/* =================== POPOVER NOTAS =================== */
+const pop=document.getElementById('popover');
+function hidePop(){pop.style.display='none';}
+world.addEventListener('click',e=>{
+  const n=e.target.closest('[data-note]');
+  if(!n||moved){if(!e.target.closest('#popover'))hidePop();return;}
+  const r=n.getBoundingClientRect();
+  pop.innerHTML=`<div class="pt">${esc(n.dataset.nm)}</div>${n.dataset.rl?`<div class="pr">${esc(n.dataset.rl)}</div>`:''}<div>${esc(n.dataset.note)}</div>`;
+  pop.style.display='block';
+  const px=Math.min(innerWidth-360,Math.max(10,r.left)), py=r.bottom+8>innerHeight-140?r.top-pop.offsetHeight-8:r.bottom+8;
+  pop.style.left=px+'px';pop.style.top=Math.max(60,py)+'px';
+  e.stopPropagation();
+});
+document.addEventListener('click',e=>{if(!e.target.closest('[data-note],#popover'))hidePop();});
+
+/* =================== INIT =================== */
+sizeWires();
+showScene(0);
+addEventListener('resize',()=>{if(!activeFlows.size)return;drawWires();});
+</script>
