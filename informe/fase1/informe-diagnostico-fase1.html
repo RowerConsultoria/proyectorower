@@ -2420,5 +2420,37 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   <iframe id="presFrame" data-src="presentacion-fase1.html" title="Presentación del Informe Diagnóstico Fase 1"></iframe>
 </div>
 
+<!-- ============ Ajustes responsive (móvil) ============ -->
+<style>
+  /* Tablas anchas: scroll horizontal dentro de su caja, preservando la alineación de columnas */
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;margin-bottom:6px;}
+  .tscroll table.data{margin-bottom:0;}
+  @media(max-width:820px){
+    /* los encabezados con white-space:nowrap fijan el ancho natural; la tabla scrollea sólo si no cabe */
+    .tscroll{border:1px solid var(--line);border-radius:8px;}
+    .tscroll::-webkit-scrollbar{height:7px;}
+    .tscroll::-webkit-scrollbar-thumb{background:#c3ccdb;border-radius:99px;}
+  }
+  /* FABs: apilar en pantallas estrechas para que no colisionen ni con la hamburguesa */
+  @media(max-width:560px){
+    .org-fab{top:12px;right:12px;font-size:12.5px;padding:8px 13px;}
+    .pres-fab{top:58px;right:12px;font-size:12.5px;padding:8px 13px;}
+    .navtoggle{top:12px;left:12px;}
+  }
+</style>
+<script>
+  /* Envuelve cada tabla de datos en un contenedor con scroll horizontal (idempotente) */
+  (function(){
+    document.querySelectorAll('table.data').forEach(function(t){
+      var p = t.parentElement;
+      if(p && p.classList.contains('tscroll')) return;
+      var w = document.createElement('div');
+      w.className = 'tscroll';
+      t.parentNode.insertBefore(w, t);
+      w.appendChild(t);
+    });
+  })();
+</script>
+
 </body>
 </html>

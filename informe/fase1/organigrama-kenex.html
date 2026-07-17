@@ -1,5 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Organigrama As-Is · Grupo Kenex</title>
 <style>
 :root{
@@ -224,9 +225,19 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 
 @media (max-width:760px){
   #topbar .t2, #scenebar .sc-n{display:none}
-  #search{width:130px}
-  .drawer{width:min(86vw,320px)}
-  #scenebar .sc-title{min-width:120px;font-size:12px}
+  #topbar{flex-wrap:wrap;gap:8px 8px;padding:8px 12px}
+  #topbar .sp{display:none}
+  #topbar .t1{width:100%;font-size:13.5px}
+  #search{flex:1;min-width:120px;width:auto}
+  #topbar button{padding:7px 11px}
+  .drawer{top:auto;bottom:0;left:0!important;right:0!important;width:100%!important;max-height:62vh;
+    border-radius:14px 14px 0 0;border-left:none;border-top:1px solid var(--line)}
+  #scenebar{bottom:12px;left:12px;right:64px;transform:none;justify-content:space-between}
+  #scenebar .sc-title{min-width:0;font-size:12px}
+  #zoombar{bottom:12px;right:12px}
+  #legend{max-width:80vw}
+  /* targets táctiles mínimos */
+  button{min-height:38px}
 }
 </style>
 
