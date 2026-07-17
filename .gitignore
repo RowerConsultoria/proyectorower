@@ -15,3 +15,6 @@ node_modules/
 .env
 .env.*
 *.secret
+
+# Supabase CLI (caché local)
+supabase/.temp/

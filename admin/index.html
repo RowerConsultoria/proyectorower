@@ -124,6 +124,16 @@
   .form-foot{display:flex; align-items:center; gap:10px; margin-top:20px; padding-top:16px; border-top:1px solid var(--borde);}
   .form-foot .spacer{flex:1;}
   .meta-line{font-size:.76rem; color:var(--muted); margin-top:4px;}
+  .meta-line.err-text{color:var(--rojo);}
+
+  /* Panel de importación con IA */
+  .import-ia{background:linear-gradient(180deg,#f2f7fd,#fff); border:1px solid var(--borde); border-left:4px solid var(--blue); border-radius:10px; padding:16px 18px; margin-bottom:16px;}
+  .import-ia .row{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+  .import-ia .txt{flex:1; min-width:220px;}
+  .import-ia .txt strong{color:var(--navy);}
+  .import-ia .status{margin-top:10px; display:none;}
+  .spin{display:inline-block; width:13px; height:13px; border:2px solid #cdd8ea; border-top-color:var(--blue); border-radius:50%; animation:sp .7s linear infinite; vertical-align:-2px; margin-right:6px;}
+  @keyframes sp{to{transform:rotate(360deg);}}
 
   .toast{position:fixed; right:20px; bottom:20px; background:var(--navy); color:#fff; padding:12px 18px; border-radius:8px; font-size:.88rem; box-shadow:0 8px 24px rgba(31,56,100,.25); opacity:0; transform:translateY(10px); transition:.2s; z-index:50;}
   .toast.show{opacity:1; transform:translateY(0);}
@@ -202,6 +212,11 @@ function badge(estado){ return `<span class="badge b-${esc(estado)}">${esc(estad
 /* ---- ¿tenemos cliente Supabase? (cliente.js define rowerDB) ---- */
 const db = (typeof rowerDB !== 'undefined') ? rowerDB : null;
 if(!db){ setConn('err','Sin cliente Supabase'); }
+
+/* ---- Edge Function de extracción con IA ---- */
+const FN_BASE   = (typeof SUPABASE_URL !== 'undefined') ? SUPABASE_URL : '';
+const FN_KEY    = (typeof SUPABASE_ANON_KEY !== 'undefined') ? SUPABASE_ANON_KEY : '';
+const FN_EXTRAER = FN_BASE + '/functions/v1/extraer-entrevista';
 
 /* ============================================================
    Router
@@ -307,8 +322,23 @@ async function renderDetalle(id){
     <a class="backlink" href="#entrevistas">← Volver al listado</a>
     <div class="page-head">
       <div><h2>${nueva?'Nueva entrevista':'Editar entrevista'}</h2>
-      <p>${nueva?'Carga un crudo de entrevista.':'Código '+esc(row.codigo||'—')}</p></div>
+      <p>${nueva?'Sube el crudo y deja que la IA rellene los campos.':'Código '+esc(row.codigo||'—')}</p></div>
     </div>
+
+    <div class="import-ia">
+      <div class="row">
+        <div class="txt">
+          <strong>✨ Autocompletar con IA</strong>
+          <div class="muted" style="font-size:.85rem;">Sube el crudo (<code>.md</code>, <code>.json</code> o <code>.txt</code>) y la IA rellena el formulario. Revisa antes de guardar.</div>
+        </div>
+        <label class="btn primary" style="cursor:pointer; margin:0;">
+          📄 Elegir archivo
+          <input id="fileImport" type="file" accept=".md,.markdown,.json,.txt,.text" style="display:none;">
+        </label>
+      </div>
+      <div id="importStatus" class="meta-line status"></div>
+    </div>
+
     <form class="detail" id="frm">
       <div class="grid2">
         <div class="field"><label>Código</label><input name="codigo" value="${esc(row.codigo||'')}" placeholder="E-01"></div>
@@ -335,6 +365,58 @@ async function renderDetalle(id){
 
   $('#frm').addEventListener('submit', (e)=>{ e.preventDefault(); guardar(nueva?null:row.id); });
   if(!nueva) $('#delBtn').addEventListener('click', ()=> eliminar(row.id, row.codigo||row.entrevistado));
+  const fi = $('#fileImport');
+  if(fi) fi.addEventListener('change', (e)=>{ importarArchivo(e.target.files[0]); e.target.value=''; });
+}
+
+/* ---------- Importar crudo y autocompletar con IA ---------- */
+async function importarArchivo(file){
+  if(!file) return;
+  const st = $('#importStatus');
+  const show = (html, err)=>{ st.style.display='block'; st.className='meta-line status'+(err?' err-text':''); st.innerHTML = html; };
+
+  let texto = '';
+  try { texto = await file.text(); } catch { return show('No se pudo leer el archivo.', true); }
+  if(!texto.trim()) return show('El archivo está vacío.', true);
+
+  // Volcar el crudo en el campo transcripción de una vez
+  const ta = $('#frm')?.elements['transcripcion'];
+  if(ta) ta.value = texto;
+
+  if(!FN_BASE){ return show('Sin configuración de Supabase para llamar a la IA.', true); }
+  show('<span class="spin"></span>Analizando <b>'+esc(file.name)+'</b> con IA…');
+
+  try{
+    const r = await fetch(FN_EXTRAER, {
+      method:'POST',
+      headers:{ 'content-type':'application/json', 'apikey': FN_KEY, 'Authorization':'Bearer '+FN_KEY },
+      body: JSON.stringify({ contenido: texto }),
+    });
+    let data = {};
+    try { data = await r.json(); } catch { /* respuesta no-JSON */ }
+    if(!r.ok || data.error){
+      return show('Error de la IA: '+esc(data.error || ('HTTP '+r.status)), true);
+    }
+    rellenarFormulario(data.metadatos || {});
+    show('✅ Campos autocompletados desde <b>'+esc(file.name)+'</b>. Revisa y guarda.');
+  }catch(e){
+    show('Fallo de conexión con la IA: '+esc(String(e)), true);
+  }
+}
+
+function rellenarFormulario(m){
+  const f = $('#frm'); if(!f) return;
+  const set = (n,v)=>{ const el=f.elements[n]; if(el && v!=null && v!=='') el.value = v; };
+  set('codigo', m.codigo);
+  set('entrevistado', m.entrevistado);
+  set('cargo', m.cargo);
+  set('area', m.area);
+  set('pais', m.pais);
+  set('fecha', m.fecha);
+  set('entrevistador', m.entrevistador);
+  set('duracion_min', m.duracion_min);
+  if(Array.isArray(m.etiquetas) && m.etiquetas.length) set('etiquetas', m.etiquetas.join(', '));
+  if(m.resumen) set('notas', m.resumen);
 }
 
 function formData(){

@@ -45,6 +45,16 @@ La configuración se hizo desde Claude Code usando el **conector MCP de Supabase
 
 `get_advisors` marca las políticas de escritura (`USING(true)` para `authenticated`) como "permisivas". **Es intencional**: en esta fase todo consultor autenticado es un miembro de confianza del equipo y puede editar. Cuando se afine el modelo de roles (p. ej. solo el dueño de una sección la edita), se restringen esas políticas. Los avisos de `search_path` y de la función `rls_auto_enable` (event trigger que auto-activa RLS en tablas nuevas) ya fueron resueltos en la migración `endurecimiento_seguridad`.
 
+## Edge Functions
+
+| Función | Propósito |
+|---|---|
+| [`extraer-entrevista`](functions/extraer-entrevista/index.ts) | Recibe el texto crudo de una entrevista y usa Claude (`claude-opus-4-8`) para extraer los metadatos del formulario del módulo admin. |
+
+- **Secreto requerido:** `ANTHROPIC_API_KEY` (token `sk-ant-…`). Se guarda en Supabase, **nunca** en el repo ni en el cliente: `supabase secrets set ANTHROPIC_API_KEY=... --project-ref <ref>`.
+- **Deploy:** `supabase functions deploy extraer-entrevista --no-verify-jwt --project-ref <ref>`.
+- ⚠️ Desplegada con `--no-verify-jwt` mientras el panel no tenga login. Al activar Auth, exigir JWT y cerrar la invocación anónima.
+
 ## Uso desde los módulos web
 
 Ver [`cliente.ejemplo.js`](cliente.ejemplo.js). Los módulos en `modulos/` cargan el cliente oficial `@supabase/supabase-js` desde CDN y usan la URL + clave anon del proyecto.
