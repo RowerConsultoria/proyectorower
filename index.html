@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto Rower — Portal del equipo consultor</title>
+<style>
+  :root{
+    --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
+    --gris:#F4F6FA; --borde:#d9dee8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;
+    color:#26303f; background:#fff; line-height:1.55;
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,#2a4a80 100%);
+    color:#fff; padding:56px 24px 48px; text-align:center;
+  }
+  header .kicker{
+    text-transform:uppercase; letter-spacing:.18em; font-size:.8rem;
+    color:#9dc3ee; margin-bottom:10px;
+  }
+  header h1{font-size:2.1rem; font-weight:700; margin-bottom:10px;}
+  header p{max-width:720px; margin:0 auto; color:#dbe6f5; font-size:1.02rem;}
+  .conf{
+    display:inline-block; margin-top:18px; padding:5px 14px; border-radius:999px;
+    background:rgba(192,0,0,.25); border:1px solid rgba(255,255,255,.35);
+    font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+  }
+  main{max-width:1040px; margin:0 auto; padding:40px 24px 64px;}
+  h2{
+    color:var(--navy); font-size:1.15rem; text-transform:uppercase;
+    letter-spacing:.08em; margin:36px 0 16px; padding-bottom:6px;
+    border-bottom:2px solid var(--borde);
+  }
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;}
+  a.card{
+    display:block; text-decoration:none; color:inherit;
+    border:1px solid var(--borde); border-left:5px solid var(--blue);
+    border-radius:8px; padding:20px 22px; background:#fff;
+    transition:box-shadow .15s, transform .15s;
+  }
+  a.card:hover{box-shadow:0 6px 18px rgba(31,56,100,.14); transform:translateY(-2px);}
+  a.card h3{color:var(--navy); font-size:1.05rem; margin-bottom:6px;}
+  a.card p{font-size:.92rem; color:#55627a;}
+  .badge{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em;
+    text-transform:uppercase; padding:2px 10px; border-radius:999px; margin-bottom:10px;
+  }
+  .b-activo{background:#e3efe4; color:var(--verde);}
+  .b-prox{background:#fdf1de; color:var(--ambar);}
+  .fechas{
+    background:var(--gris); border:1px solid var(--borde); border-radius:8px;
+    padding:16px 20px; margin-top:8px;
+  }
+  .fechas strong{color:var(--rojo);}
+  footer{
+    border-top:1px solid var(--borde); padding:22px 24px; text-align:center;
+    font-size:.85rem; color:#7a8496;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">UCAB Consultores · Grupo Kenex</div>
+  <h1>Proyecto Rower</h1>
+  <p>Portal del proyecto de Optimización Organizacional y Adopción de IA. Acceso al informe navegable, presentaciones y módulos interactivos del equipo consultor.</p>
+  <span class="conf">Confidencial — uso interno del equipo</span>
+</header>
+
+<main>
+  <h2>Entregables</h2>
+  <div class="grid">
+    <a class="card" href="informe/fase1/informe-diagnostico-fase1.html">
+      <span class="badge b-activo">Activo · ~85%</span>
+      <h3>Informe Diagnóstico — Fase 1</h3>
+      <p>Sitio navegable autocontenido: 13 secciones, anexos y diagrama de arquitectura de IA embebido. El entregable maestro para la Junta Directiva del 24-jul.</p>
+    </a>
+    <a class="card" href="presentaciones/">
+      <span class="badge b-prox">Próximamente</span>
+      <h3>Presentaciones</h3>
+      <p>Presentaciones web del proyecto: Junta Directiva, comités y sesiones de trabajo con el cliente.</p>
+    </a>
+    <a class="card" href="modulos/">
+      <span class="badge b-prox">Próximamente</span>
+      <h3>Módulos interactivos</h3>
+      <p>Piezas web navegables: matriz de riesgos, mapa de procesos explorable, hoja de ruta por olas.</p>
+    </a>
+  </div>
+
+  <h2>Gestión del proyecto</h2>
+  <div class="grid">
+    <a class="card" href="gestion/ESTADO.md">
+      <h3>Estado y pendientes</h3>
+      <p>Auditoría sección por sección del informe y pendientes priorizados antes de la Junta.</p>
+    </a>
+    <a class="card" href="gestion/CONVENCIONES.md">
+      <h3>Convenciones</h3>
+      <p>Nomenclatura, redacción cliente-facing, paleta institucional y técnica de edición del HTML.</p>
+    </a>
+    <a class="card" href="insumos/">
+      <h3>Insumos</h3>
+      <p>Archivos fuente de los consultores: mapa de procesos, diagnósticos de RRHH, specs.</p>
+    </a>
+  </div>
+
+  <h2>Fechas críticas</h2>
+  <div class="fechas">
+    Presentación formal a la <strong>Junta Directiva</strong> (vía Lark): <strong>viernes 24 de julio de 2026, 11:00 am</strong>.
+  </div>
+</main>
+
+<footer>
+  Proyecto Rower · UCAB Consultores para Grupo Kenex · Repositorio interno del equipo consultor
+</footer>
+
+</body>
+</html>

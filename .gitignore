@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Temporales de edición
+*.bak
+*.tmp
+backup_*.html
+~$*
+
+# Node (si algún módulo llega a usar tooling)
+node_modules/
