@@ -301,6 +301,7 @@
       <a href="#s13" data-sec="s13"><span class="n">13</span>Hoja de ruta</a>
     <div class="navlbl">Módulos</div>
       <a href="javascript:void(0)" onclick="orgOpen()"><span class="n">🏛</span>Organigrama interactivo</a>
+      <a href="javascript:void(0)" onclick="procOpen()"><span class="n">🔗</span>Mapa de procesos</a>
       <a href="javascript:void(0)" onclick="presOpen('portada')"><span class="n">▶</span>Modo presentación</a>
     <div class="navlbl">Anexos</div>
       <a href="#s15" class="anexo" data-sec="s15"><span class="n">A</span>Inventario de entrevistas</a>
@@ -1059,6 +1060,7 @@
   <p>El patrón que dejan estas prácticas es coherente con la tesis del diagnóstico: <b>la organización no necesita empezar de cero — necesita convertir en estándar lo que ya funciona en algunas partes</b>. La Fase 2 aterrizará cada replicación con procedimiento, dueño y cronograma; esta sección deja identificados los puntos de partida.</p>
 
     <h3>6.5 Mapa de Procesos del Grupo (versión integrada)</h3>
+    <p><a href="javascript:void(0)" onclick="procOpen()" style="display:inline-block;background:#2E8540;color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:9px 18px;border-radius:8px;">🔗 Ver el mapa de procesos interactivo</a> <span style="font-size:12.5px;color:#55627a;">— la cadena de valor navegable: 22 macroprocesos encadenados, cruces documentados entre procesos, fricciones y buenas prácticas, con el detalle de procesos y procedimientos al hacer clic. También accesible desde el sidenav «Módulos».</span></p>
   <p>Como cierre de esta sección, se incorpora el <b>Mapa de Procesos del Grupo Kenex</b> en su versión integrada, construido por el frente de procesos del proyecto a partir de las entrevistas de la Fase 1. Respecto de versiones anteriores, esta consolidación <b>desagrega cada proceso hasta el nivel de procedimiento específico (Nivel 2)</b>: donde antes un proceso figuraba sin desglose, ahora se detallan los procedimientos que lo componen. Una parte de esos procedimientos son propuestas del equipo consultor que completan procesos que no tenían desagregación —<b>quedan integrados en el lugar que les corresponde, listos para validarse con los dueños de proceso durante la Fase 2</b>—, de modo que el mapa funciona a la vez como retrato del <i>as-is</i> y como estructura ordenada sobre la que construir el <i>to-be</i>.</p>
   <p>El mapa conserva la estructura de tres niveles —<b>macroproceso (Nivel 0)</b>, <b>proceso (Nivel 1)</b> y <b>procedimiento específico (Nivel 2)</b>— y las tres categorías clásicas de la disciplina: <b>procesos estratégicos</b>, que orientan el rumbo del grupo; <b>procesos operativos o de cadena de valor</b>, que producen y entregan; y <b>procesos de soporte</b>, que sostienen a los dos anteriores. Los macroprocesos y procesos se mantienen combinados verticalmente para reflejar la jerarquía; solo el procedimiento varía fila a fila.</p>
 
@@ -2348,7 +2350,10 @@ function closeDiagram(){ document.getElementById('diagModal').classList.remove('
 function orgOpen(){ var d=document.getElementById('orgDrawer'), f=document.getElementById('orgFrame'); if(!f.src){ f.src=f.dataset.src; } d.classList.add('open'); }
 function orgClose(){ document.getElementById('orgDrawer').classList.remove('open'); }
 function orgWidth(){ document.getElementById('orgDrawer').classList.toggle('half'); }
-document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ orgClose(); } });
+function procOpen(){ var d=document.getElementById('procDrawer'), f=document.getElementById('procFrame'); if(!f.src){ f.src=f.dataset.src; } d.classList.add('open'); }
+function procClose(){ document.getElementById('procDrawer').classList.remove('open'); }
+function procWidth(){ document.getElementById('procDrawer').classList.toggle('half'); }
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ orgClose(); procClose(); } });
 function presOpen(sec){
   var o=document.getElementById('presOverlay'), f=document.getElementById('presFrame');
   if(!f.src){ f.src=f.dataset.src+'#'+sec; }
@@ -2398,6 +2403,16 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
     <button onclick="orgClose()" title="Cerrar (Esc)">✕ Cerrar</button>
   </div>
   <iframe id="orgFrame" data-src="organigrama-kenex.html" title="Organigrama interactivo del Grupo Kenex"></iframe>
+</aside>
+<aside class="org-drawer" id="procDrawer" aria-label="Mapa de procesos interactivo" style="border-left-color:#2E8540;">
+  <div class="org-head" style="background:#2E8540;">
+    <b>🔗 Mapa de Procesos · Grupo Kenex</b>
+    <span class="sp"></span>
+    <button onclick="procWidth()" title="Panel medio para leer el informe al lado">⇔ Panel medio</button>
+    <a href="mapa-procesos-kenex.html" target="_blank" title="Abrir en pestaña nueva">↗ Pestaña</a>
+    <button onclick="procClose()" title="Cerrar (Esc)">✕ Cerrar</button>
+  </div>
+  <iframe id="procFrame" data-src="mapa-procesos-kenex.html" title="Mapa de procesos interactivo del Grupo Kenex"></iframe>
 </aside>
 
 
