@@ -16,7 +16,7 @@ Dos secciones, ambas accesibles desde el portal raíz (`index.html`):
 
 ### 🟢 Front (público) — el informe
 `informe/fase1/informe-diagnostico-fase1.html` — **el entregable maestro**: sitio navegable autocontenido (sidenav con scroll-spy, 13 secciones + anexos, diagrama de arquitectura embebido vía `iframe srcdoc` en s12). Integra además:
-- **Organigrama interactivo** (`informe/fase1/organigrama-kenex.html`): app canvas con pan/zoom, 13 escenas, buscador, 18 flujos funcionales, 9 alertas. Se abre como **panel lateral derecho** (botón fijo "🏛 Organigrama", entrada del sidenav "Módulos", ancla en 4.1). Archivo hermano: se itera SIN tocar el maestro.
+- **Organigrama interactivo** (`informe/fase1/organigrama-kenex.html`): app canvas con pan/zoom, 13 escenas, buscador, 19 flujos funcionales, 13 alertas y **sistema de 3 capas** (📄 Declarado = solo papel · 👁 Real = con capa de facto y evidencia [E-xx] · 🧭 Propuesto = 3 modelos silueta "Fase 3, sin nombres") + toggle "Δ Diferencias" (badges 🎩🔀👻🕳⚡). Contenido corregido el 18-jul con la auditoría integral (`gestion/AUDITORIA_ORGANIGRAMA_18jul.md`). Se abre como **panel a pantalla completa** (botón fijo "🏛 Organigrama"; botón "⇔ Panel medio" para leer el informe al lado). Archivo hermano: se itera SIN tocar el maestro.
 - **Modo presentación** (`informe/fase1/presentacion-fase1.html`): deck de **49 láminas** que renderiza visualmente cada sección (s7 tiene 7 láminas por sus subpuntos). Botón "▶ Presentar" junto a cada h2 (decoración JS), FAB "▶ Presentación", overlay fullscreen, ←/→, menú de secciones, hash routing (`#s7`), Esc vuelve a la lectura. Cada lámina es un `<section class="slide" data-sec="sN">` autocontenido — añadir/editar láminas = editar ese archivo.
 
 ### 🔵 Admin (interno) — panel con sidebar

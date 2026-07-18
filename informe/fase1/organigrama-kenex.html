@@ -223,6 +223,36 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 @keyframes flash{0%{box-shadow:0 0 0 3px var(--flash),var(--shadow)}100%{box-shadow:0 0 0 14px transparent,var(--shadow)}}
 @media (prefers-reduced-motion: reduce){.node.flash{animation:none;outline:3px solid var(--flash)}}
 
+/* ---------- capas: Declarado · Real · Propuesto ---------- */
+#capas{display:flex;gap:0;border:1.5px solid var(--line2);border-radius:9px;overflow:hidden}
+#capas button{border:none;border-radius:0;padding:6px 12px;background:var(--panel)}
+#capas button+button{border-left:1.5px solid var(--line2)}
+#capas button.on{background:var(--formal);color:var(--formal-ink)}
+.badge.dl{background:var(--defacto-bg);color:var(--defacto-ink);border:1px solid color-mix(in srgb,var(--defacto) 45%,transparent)}
+.node.f .badge.dl{background:color-mix(in srgb,#fff 22%,transparent);color:var(--formal-ink);border-color:transparent}
+#app:not(.diffs) .badge.dl{display:none}
+#app.diffs .node.d,#app.diffs .defacto-card{outline:2.5px dashed var(--defacto);outline-offset:2px}
+#app.diffs .node:has(.badge.dl){outline:2.5px solid color-mix(in srgb,var(--defacto) 65%,transparent);outline-offset:2px}
+/* capa Declarado: solo lo que está en papel */
+#app.capa-declarado .node.d,#app.capa-declarado .defacto-card,#app.capa-declarado #band-defacto,
+#app.capa-declarado .regional-card:has(.node.d),#app.capa-declarado #b-flows,#app.capa-declarado #b-alerts,
+#app.capa-declarado .drawer{display:none}
+/* capa Propuesto: solo el band del to-be */
+#band-propuesto{display:none}
+#app.capa-propuesto #band-propuesto{display:flex}
+#app.capa-propuesto .band:not(#band-propuesto),#app.capa-propuesto #canvas>.spine,
+#app.capa-propuesto #b-flows,#app.capa-propuesto #b-alerts,#app.capa-propuesto #search,
+#app.capa-propuesto #scenebar,#app.capa-propuesto .drawer{display:none}
+.modelo{background:var(--panel);border:1.5px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);
+  padding:16px 18px;width:300px;display:flex;flex-direction:column;gap:10px}
+.modelo h4{margin:0;font-family:var(--f-d);font-size:14px}
+.modelo .mini{display:flex;flex-direction:column;align-items:center;gap:5px}
+.modelo .mini .mrow{display:flex;gap:5px}
+.modelo .mini i{display:block;width:34px;height:16px;border-radius:4px;background:var(--entity-bg);border:1px solid var(--line2)}
+.modelo .mini i.top{background:var(--formal);border-color:var(--formal-edge)}
+.modelo .mini i.corp{background:var(--defacto-bg);border:1.5px dashed var(--defacto)}
+.modelo p{margin:0;font-size:11.5px;color:var(--muted)}
+
 @media (max-width:760px){
   #topbar .t2, #scenebar .sc-n{display:none}
   #topbar{flex-wrap:wrap;gap:8px 8px;padding:8px 12px}
@@ -246,10 +276,16 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 
   <div class="bar" id="topbar">
     <div>
-      <div class="t1">Grupo Kenex — Organigrama As-Is</div>
-      <div class="t2">CORTE 10-JUL-2026 · PROYECTO ROWER · UCAB CONSULTORES</div>
+      <div class="t1" id="t-capa">Grupo Kenex — Organigrama · capa Real</div>
+      <div class="t2">CORTE 18-JUL-2026 · PROYECTO ROWER · UCAB CONSULTORES</div>
     </div>
     <div class="sp"></div>
+    <div id="capas" role="group" aria-label="Capa del organigrama">
+      <button data-capa="declarado">📄 Declarado</button>
+      <button data-capa="real" class="on">👁 Real</button>
+      <button data-capa="propuesto">🧭 Propuesto</button>
+    </div>
+    <button id="b-diffs" title="Resaltar lo que difiere del papel">Δ Diferencias</button>
     <input id="search" list="names" placeholder="Buscar persona… (Enter)" aria-label="Buscar persona">
     <datalist id="names"></datalist>
     <button id="b-flows">Flujos funcionales</button>
@@ -294,6 +330,12 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
     <div class="li"><span class="sw" style="border-top:3px dashed var(--muted);height:0;margin:6px 0"></span>Reporte funcional (punteada, sin jerarquía)</div>
     <div class="li"><span class="badge w">⚠</span>Dependencia crítica / dato por confirmar</div>
     <div class="li"><span class="badge g">🌐 país</span>Reside en país distinto a su entidad</div>
+    <h4 style="margin-top:6px">Deltas (con «Δ Diferencias»)</h4>
+    <div class="li"><span class="badge dl" style="display:inline">🎩</span>Doble sombrero (dos funciones)</div>
+    <div class="li"><span class="badge dl" style="display:inline">🔀</span>Doble reporte (país + regional)</div>
+    <div class="li"><span class="badge dl" style="display:inline">👻</span>Crítico fuera de nómina/estructura</div>
+    <div class="li"><span class="badge dl" style="display:inline">🕳</span>Vacante declarada en el papel</div>
+    <div class="li"><span class="badge dl" style="display:inline">⚡</span>Solape de responsabilidad</div>
   </div>
 
   <div id="popover" role="dialog"></div>
@@ -309,33 +351,41 @@ const FO = { // 1.A Family office (fuera de alcance)
     {n:'Sociedad Crocs',r:'Bernardo + otro socio',t:'p',id:'crocs',note:'Interfaz operativa: comparte bodega y costos del WMS con el grupo.',
       kids:[{n:'Estefanía Quintal',r:'Country Manager Crocs',id:'quintal'}]},
     {n:'Ricardo Roizental',r:'Desarrollo de negocios de facto',t:'d'},
-    {n:'Moisés Roizental',r:'"El doctor" · participa en decisiones',t:'d'},
-    {n:'Katsi López',r:'Abogados (Panamá) · asesor externo compartido',t:'p'},
+    {n:'Moisés Roizental',r:'Accionista no operativo · médico (Miami)',t:'d',
+      note:'Gemelo de Bernardo. No opera, pero se le invita a todas las decisiones de inversión y a la asamblea anual (E-17). Ver también Gobierno corporativo.'},
   ]
 };
 const GOV = {
   comite:[
-    {n:'Bernardo Roizental',r:'Presidente / CEO',m:'Base: Venezuela + Miami',id:'bernardo'},
-    {n:'Roberto “Robbie” Roizental',r:'Accionista',m:'Base: Panamá',id:'roberto'},
-    {n:'Andrés Roizental',r:'Accionista',m:'Base: Panamá',id:'andres'},
-    {n:'Alejandro Roizental',r:'Accionista',m:'Base: Miami',id:'alejandro'},
-    {n:'Ricardo “Richie” Roizental',r:'Accionista',m:'Base: Panamá vs. Miami',id:'ricardo',w:'Conciliar base física: entrevista dice Panamá; estatus v5 dice Miami.'},
+    {n:'Bernardo Roizental',r:'Presidente / CEO · Accionista',m:'Base: Venezuela + Miami',id:'bernardo'},
+    {n:'Roberto “Robbie” Roizental',r:'Accionista · Dir. Comercial y Compras Casio',m:'Base: Panamá',id:'roberto',dl:'🎩'},
+    {n:'Ricardo “Richie” Roizental',r:'Accionista · Finanzas corporativas / banca',m:'Base: Panamá (E-17)',id:'ricardo'},
+    {n:'Moisés Roizental',r:'Accionista no operativo · médico',m:'Base: Miami',id:'moises',
+      note:'Gemelo de Bernardo. No opera, pero se le invita a TODAS las decisiones de inversión y a la asamblea anual de Miami (E-17, E-20).'},
+    {n:'Andrés Roizental',r:'Gerente Comercial del grupo · 3G',m:'Base: Panamá',id:'andres',
+      note:'Integra el comité directivo. Su condición de accionista no está confirmada en el corpus.'},
+    {n:'Alejandro Roizental',r:'Director de Producto Cubitt · 3G',m:'Base: Miami',id:'alejandro',
+      note:'Integra el comité directivo. Su condición de accionista no está confirmada en el corpus.'},
   ],
   junta:[
     {n:'Máximo Dolman',r:'Miembro externo',m:'~3 años',id:'dolman'},
     {n:'Alberto Bassan',r:'Asesor fiscal-contable externo',m:'~30 años',id:'bassan'},
-    {n:'Jaime González',r:'CFO · participa',w:'Posible “tercer externo” citado por Dolman — confirmar.',id:'jaime-junta'},
+    {n:'Jaime González',r:'CFO — participa (no es director externo)',id:'jaime-junta',
+      note:'E-20: la junta son la familia + 2 externos, “a veces el abogado”. Jaime asiste en su rol de CFO.'},
   ],
   comites:[
-    {n:'Comité de Finanzas',x:'Ricardo · Bernardo · Alberto Bassan · Jaime González'},
+    {n:'Comité de Finanzas',x:'Ricardo · Bernardo · Dolman · Bassan · Jaime — y comités de finanzas por país: VE · PA · Miami (E-23)'},
     {n:'Comité Laboral',x:'Alberto Bassan + composición por confirmar ⚠'},
-    {n:'Comité de Compras (Cubitt)',x:'Alejandro · Roberto · otros'},
-    {n:'En construcción',x:'Protocolo familiar · consejo de familia · asambleas anuales (diseño simplificado por Dolman)'},
+    {n:'Compras Cubitt',x:'Grupo WhatsApp: Alejandro · Johnny Mordo · Andrés · Ricardo, valida Roberto (E-06) · comité formal reciente: Roberto · Alejandro · Baltodano (E-08)'},
+    {n:'Comité de Marketing',x:'Reporte mensual (E-01) · junta Colombia de los martes: Roberto · Bernardo · Andrés · Alejandro · Jaime · Máximo (E-11)'},
+    {n:'Asamblea anual',x:'YA se celebra: 1–2 días en Miami (ene–feb), junta + Moisés (E-08, E-17)'},
+    {n:'En construcción',x:'Protocolo familiar · consejo de familia · consejo directivo (diseño simplificado por Dolman)'},
   ],
   soporte:[
     {n:'Carmela Iribarren',r:'Asistente Ejecutiva del CEO',m:'Base Venezuela · nómina Dirección, sin banda',t:'f',id:'carmela',
       note:'Funciones transversales: soporte a la junta completa, seguimiento semanal del comité de Colombia, coordinación con contadores de Costa Rica y Panamá.'},
-    {n:'“Doctor Bernardo”',r:'General Counsel (EE.UU.)',t:'d',id:'drbernardo',w:'Confirmar si es Moisés Roizental.'},
+    {n:'Bernie — “Dr. Bernardo”',r:'General Counsel (EE.UU.) · abogado',t:'d',id:'drbernardo',
+      note:'Persona distinta de Moisés Roizental (E-12 vs E-17).'},
   ]
 };
 const DEFACTO = [
@@ -346,36 +396,47 @@ const DEFACTO = [
   {id:'d-ricardo',n:'Ricardo Roizental',dir:'Dirección de Finanzas corporativas / banca',al:'Único con relación bancaria ⚠ · deuda, líneas, activos fijos · desarrollo de negocios del family office · incorporando a Jaime como cuadro de reemplazo'},
 ];
 const REGIONAL = [
-  {id:'jaime',n:'Jaime González Franchi',r:'CFO del grupo (holding)',m:'Venezuela · El Rosal',t:'d',
+  {id:'jaime',n:'Jaime González Franchi',r:'CFO del grupo (holding)',m:'Venezuela · El Rosal',t:'d',dl:'👻',
     w:'En nómina figura solo como “Planificador Financiero” de la Gcia. de Planificación Financiera VE.',
-    team:'Equipo: Ali Carmona (tesorería VE) · Sabrina (enlace CO) — punteadas a Marcela (CO), Norman (PA), Ian (PA), Isabela (US)'},
-  {id:'mariela',n:'Mariela Castro',r:'Gerente Regional de Sistemas',m:'Panamá',t:'f',
-    team:'Jerárquico: César Rivodó, Rafael Tejada (PA) · funcional: José Herrera, Héctor Zapata, Miguel Yépez (VE), Edgar 🌐EE.UU.'},
-  {id:'natasha',n:'Natasha Betancourt',r:'Directora de Marketing del grupo',m:'Panamá · ~50 personas',t:'d',
-    w:'NO aparece en escala MKT Panamá — verificar nómina.',
-    team:'Directos: Kelly (Casio regional) · Sofiana (Cubitt PA) · Ivonne de la Guardia (cuentas clave MX·GT·NI·EC·HN, 4 pers.) · Mario Romero (producción) · Kevin (dir. creativo) · Macarena (social media) · Anabel Roizental 🌐Miami (contenido/PR)'},
-  {id:'patrick',n:'Patrick Corujo',r:'Gerente Customer Service multi-país',m:'Panamá',t:'f',
-    team:'Jerárquico PA: Arratia, Josmar, Reinaldo, Peroza, Morcillo · funcional: CS de VE, CO, EC, GT, NI, MX, US, partner RD'},
-  {id:'handani',n:'Handani',r:'Gerente de Retail del grupo',m:'Basado en Colombia · todas las tiendas',t:'d',
-    w:'Sin registro en nóminas recibidas.',team:'Punteadas: Blas García (PA) · Ma. Eugenia Villegas (VE) · country manager GT · tiendas CR (Importbel)'},
-  {id:'candanedo',n:'Ricardo Candanedo',r:'Director de PMO',m:'Panamá',t:'f',team:'PM de proyectos mayores (WMS, remodelaciones) · cartera: US·MX·GT·PA·CO·VE·EC'},
+    team:'Equipo: Ali Carmona (tesorería VE) — punteadas a Marcela Ramírez (CO), Norma(n) (PA), Ian (PA), Isabela (US)'},
+  {id:'mariela',n:'Mariela Castro',r:'Gerente Regional de Sistemas',m:'Panamá',t:'f',dl:'🎩',
+    w:'Punto único de falla: IT + presenta a junta + apoyo PMO + seguridad de la información.',
+    team:'Jerárquico: César Rivodó, Rafael Tejada (PA) · funcional: José Herrera, Héctor Zapata, Miguel Yépez (VE), Edgar 🌐EE.UU. · freelance devs: Enrique, Marlon, Pedro Pablo, Jorge (PE·PA·MX) · consultor externo de seguridad (ex-CICPC)'},
+  {id:'mordo',n:'John “Johnny” Mordo',r:'Regional Sales Manager Cubitt',m:'Panamá',t:'d',dl:'👻',
+    w:'Sin registro en nóminas recibidas (Código de cultura: “Jon Mordoch”, desde 2019).',
+    team:'Grupo de compras Cubitt · recibe la reportería sell-out de países (con Andrés) · asistente: Stephanie Aguilar (procesa pedidos CO→PA)'},
+  {id:'natasha',n:'Natasha Betancourt',r:'Directora de Marketing del grupo',m:'Panamá · ~50 personas',t:'d',dl:'👻',
+    w:'No aparece en los 16 archivos de nómina recibidos (sí como Marketing Director en el organigrama oficial 2025).',
+    team:'Directos: Kelly (Casio regional) · Sofiana (Cubitt PA) · Ivonne de la Guardia (cuentas clave MX·GT·NI·EC·HN, 4 pers.) · Mario Romero (arte/diseño 🌐España) · Kevin (dir. creativo) · Macarena (social media) · Anabel Roizental 🌐Miami (contenido/PR) · aprobación de creatividad: Ivonne Roizental (esposa de Andrés, E-22)'},
+  {id:'patrick',n:'Patrick Corujo',r:'Gerente Customer Service multi-país',m:'Panamá',t:'f',dl:'🎩',
+    w:'Triple sombrero: CS + e-commerce + web — separación en evaluación; Clara Arosemena candidata a E-comm Mgr Regional, movimiento congelado hasta la propuesta UCAB (E-24).',
+    team:'Jerárquico PA: Arratia, Josmar, Reinaldo, Peroza, Morcillo · funcional: CS de VE, CO, GT, NI, MX, US, partner RD · creó la Universidad Cubitt (~220 usuarios, sin dueño formal)'},
+  {id:'handani',n:'Handani Mora',r:'Gerente de Retail del grupo',m:'Base: Colombia vs. Panamá — conciliar',t:'d',dl:'👻',
+    w:'Sin registro en nóminas recibidas · no entrega información pese a seguimientos (constancia pedida por la directiva, E-24).',
+    team:'Punteadas: Blas García (PA) · Ma. Eugenia Villegas (VE) · country manager GT · tiendas CR (Importbel) · asumirá franquicias HN y RD (E-08)'},
+  {id:'candanedo',n:'Ricardo Candanedo',r:'Director de PMO + Gte. de Producto interino',m:'Panamá',t:'f',dl:'🎩',
+    w:'Sin registro en las nóminas recibidas (minuta 13-jul).',
+    team:'PM de proyectos mayores (WMS, remodelaciones) · cartera: US·MX·GT·PA·CO·VE·EC · gobernanza de la célula BI (reunión semanal con Alexis y Mariela)'},
   {id:'arani-reg',n:'Araní González Perdomo',r:'Gerente de Proyectos (PMO)',m:'Venezuela',t:'f',team:'Coordinadora del piloto Maia · Gcia. Proyectos VE (feb-2026)'},
   {id:'estefr',n:'Estefanía Roizental',r:'Gerente de Proyectos — lanzamientos',m:'Panamá',t:'d',
-    w:'Por confirmar en nómina. ¿“Stephanie” de logística Colón es la misma persona?',team:'Doble función: PMO + seguimiento proveedores Cubitt (punteada a Alejandro)'},
-  {id:'fernando',n:'Fernando Alvarado',r:'Gerente de Logística corporativo (Kenex)',m:'Panamá corporativo',t:'f',g:'VE',
-    team:'Hoy: migración WMS Venezuela · réplica prevista CO y Miami'},
-  {id:'bi',n:'Célula BI — Alexis Mujica (líder)',r:'Business Intelligence y ciencia de datos del grupo',m:'Remoto · vía Panamá',t:'d',
-    w:'No existen en nóminas recibidas, aunque “Business Intelligence” sí figura como departamento oficial (DEPARTAMENTOS.xlsx).',
-    team:'Kenzie Pérez (ETL/Fabric) · Ali Aguilar (métricas) — punteadas a Roberto, Vera, Alejandro, tiendas, Baltodano'},
-  {id:'vera',n:'Vera Gavizon',r:'Soporte de compras y reportería Casio multi-país',m:'Israel',t:'d',g:'Israel',
-    w:'Sin registro en nóminas · contratada por razón social VE (confirmar) · cuñada de Roberto.',
+    note:'Stephanie Aguilar (logística, asistente de Mordo) es OTRA persona (E-11).',
+    team:'Doble función: PMO + seguimiento proveedores Cubitt (punteada a Alejandro)'},
+  {id:'fernando',n:'Fernando Alvarado',r:'Gerente de Operaciones y Excelencia Logística',m:'Panamá · ~38 personas · reporta a Andrés',t:'f',dl:'⚡',
+    w:'Sin registro en nóminas recibidas · solape de inventarios con M. Alejandra Mejías (ella audita/reporta a Junta; él ejecuta) — roce documentado, tacto (E-03).',
+    team:'Migración WMS Venezuela · réplica prevista CO y Miami · ex-Samsung/Mars'},
+  {id:'bi',n:'Célula BI — Alexis Mujica (líder)',r:'Business Intelligence y ciencia de datos del grupo',m:'Remoto · vía Panamá',t:'d',dl:'👻',
+    w:'Externos sin nómina ni figura contractual clara (NDA firmado) · NO candidato a liderar IA (E-18, minutas 15/17-jul) · “Business Intelligence” sí es departamento oficial (DEPARTAMENTOS.xlsx).',
+    team:'Kenzie Pérez (ETL/Fabric) · Ali Aguilar (métricas) — punteadas a Roberto, Vera, data de ~150 tiendas (vía Baltodano) · gobernanza vía Candanedo/PMO'},
+  {id:'vera',n:'Vera Gavizon',r:'Soporte de compras y reportería Casio multi-país',m:'Israel',t:'d',g:'Israel',dl:'👻',
+    w:'Sin registro en nóminas · razón social en revisión (minuta 07-07 la refiere a CR) · cuñada de Roberto.',
     team:'Prepara compras de PA·CR·GT·HN·SV·EC + reportería mensual oficial a Casio (8 países)'},
-  {id:'baltodano',n:'Ricardo Baltodano',r:'Gestor regional de brand managers (CA–México)',m:'Panamá ↔ México',t:'d',
-    w:'Cargo formal y entidad por confirmar.',team:'Seguimiento semanal a brand managers país (ej.: Ricardo Romero en CR)'},
+  {id:'baltodano',n:'Ricardo Baltodano',r:'Gerente Comercial de Centroamérica (brand managers)',m:'Panamá ↔ México',t:'d',dl:'👻',
+    w:'Entidad y nómina por resolver.',
+    team:'Seguimiento semanal a brand managers país (documentado CR: Ricardo Romero) · pasa la data de ~150 tiendas a la célula BI (E-18)'},
   {id:'edumar-reg',n:'Edumar Escalona',r:'Gerente de Ventas — Mayor Internacional',m:'Panamá · Kenex Trading',t:'f',
-    team:'Superior local de Patrick · canal de pedidos de clientes internacionales y del socio CR'},
-  {id:'jmateo',n:'José Mateo',r:'Coordinación de Visual regional',m:'Base por confirmar',t:'d',w:'Rol por confirmar.',
-    team:'Punteadas: Reina (CO) · Wander (GT) · Ana (NI) · José Rodolfo Medina (VE)'},
+    team:'Canal de pedidos de clientes internacionales y del socio CR (compra vía Trading)'},
+  {id:'reyna',n:'Reyna Barraza',r:'Regional Visual Manager',m:'Panamá · ~12 países',t:'f',
+    team:'Coordinadoras: Sabrina Baroni · Adis Vega — equipo propio en 8+ países y distribuidores (Viastara MX · Motta NI · Imporbel CR · Motef RD · Primebrands Chile)'},
 ];
 const ENTITIES = [
  {id:'holding-panel',fl:'🇵🇦',n:'Kenex (Holding)',s:'Caja madre financiera',hc:'holding',w:1,
@@ -386,8 +447,9 @@ const ENTITIES = [
    {u:'Ventas Mayor Internacional',hc:4,kids:[{n:'Edumar Escalona',r:'Gerente de Ventas',t:'f',id:'edumar',
      kids:[{n:'Roger Bocaranda',r:'Ejecutivo'},{n:'Roberto Zuleta',r:'Ejecutivo'},{n:'Armando García',r:'Ejecutivo'}]}]},
    {u:'Logística y Tráfico',hc:5,kids:[{n:'Yanilka Martínez',r:'Jefa de Tráfico',t:'f',kids:[{c:'4 asistentes'}]}]},
-   {u:'Bodega Colón',hc:31,id:'bodega-colon',kids:[{n:'María Alejandra Mejías',r:'Gerente de Logística',t:'f',w:'20+ años · dependencia crítica individual.',
-     kids:[{n:'Ricardo Mayers',r:'Jefe de Bodega',kids:[{c:'2 power users'},{c:'2 conductores'},{c:'25 ayudantes'}]}]}]},
+   {u:'Bodega Colón',hc:31,id:'bodega-colon',kids:[{n:'María Alejandra Mejías',r:'Gerente de Inventarios (título de nómina: Logística)',t:'f',dl:'⚡',
+     w:'20+ años · dependencia crítica · audita inventarios y reporta a Roberto/Junta SIN equipo propio — la ejecución es de Fernando Alvarado (solape sensible, E-03).',
+     kids:[{n:'Ricardo Mayers',r:'Jefe de Bodega',w:'Nómina: Mayers · organigrama oficial PA: Ricardo Navas — conciliar identidad.',kids:[{c:'2 power users'},{c:'2 conductores'},{c:'25 ayudantes'}]}]}]},
   ],
   notes:['Restricción: no puede vender dentro de Panamá → triangulación vía Basaida.']},
  {id:'basaida-panel',fl:'🇵🇦',n:'Basaida(i)',s:'Intermediaria de triangulación',hc:'sin personal propio',w:1,
@@ -395,24 +457,26 @@ const ENTITIES = [
  {id:'casio-panel',fl:'🇵🇦',n:'Casiolandia',s:'Ciudad de Panamá · retail + mayor local',hc:'~90 en archivos',w:3,
   depts:[
    {u:'Tiendas PTY',hc:28,kids:[{n:'Blas García',r:'Supervisor de Tiendas',t:'f',id:'blas',
-     kids:[{chips:{lbl:'8 encargados de tienda',items:['Albrook','Altaplaza','Los Andes','Metromall','Multiplaza','Westland','Tigre','Carrusel']}},
+     kids:[{chips:{lbl:'9 tiendas según nómina (27 pers.) — 8 identificadas',items:['Albrook','Altaplaza','Los Andes','Metromall','Multiplaza','Westland','Tigre','Carrusel']}},
        {c:'17 vendedores'},{c:'1 técnico de taller'}]}]},
    {u:'Bodega Panamá ciudad',hc:9,kids:[{n:'Isabel Alvarado',r:'Coordinadora de Bodega',t:'f',
      kids:[{n:'Edgar Claros',r:'Coordinador de Despachos'},{c:'equipo de bodega'}]}]},
    {u:'Ventas Detal Zona Libre',hc:5,kids:[{n:'Oneal Callender',r:'Encargado',t:'f',kids:[{c:'equipo (incl. relojero)'}]}]},
    {u:'Ventas al por Mayor PTY',hc:4,kids:[{n:'Jhony Wong',r:'Coordinador Ventas al Mayor',t:'f',id:'jwong',
-     w:'Probable “Johnny” / John Morgan — conciliar identidad.',note:'Wholesale local + reportería sellout que recibe de países.',
+     w:'Equidad interna: gana menos que sus vendedores (nómina VENTAS_MAYOR_PTY).',
+     note:'Wholesale local. Persona DISTINTA de Johnny Mordo (regional Cubitt) y del brand manager Casio “Johnny” contratado jun-2026 (E-08).',
      kids:[{c:'3 vendedores'}]}]},
-   {u:'Ventas Online y Customer Service',hc:6,kids:[{n:'Patrick Corujo',r:'Gerente',t:'f',id:'patrick-pa',
+   {u:'Ventas Online y Customer Service',hc:6,kids:[{n:'Patrick Corujo',r:'Gerente',t:'f',id:'patrick-pa',w:'El organigrama oficial PA asigna Customer Service a “Fabiola” — conciliar.',
      kids:[{n:'Jesús Arratia',r:'Coord. soporte técnico'},{n:'Josmar González',r:'Rotulación'},{n:'Reinaldo Méndez',r:'Ventas Cubitt'},
        {n:'Luis Peroza',r:'Ventas Casio'},{n:'Eloy Morcillo',r:'Nómina: servicio técnico',w:'Función real: atención al cliente.'}]}]},
    {u:'Contabilidad',hc:7,kids:[{n:'Ian Isa Chen',r:'Gerente de Contabilidad',t:'f',id:'ian',
      kids:[{c:'2 contadores'},{c:'3 asistentes'},{c:'1 auxiliar'}]}]},
-   {u:'Tesorería',hc:5,kids:[{n:'Norman',r:'Gerente de Tesorería',t:'f',id:'norman',
+   {u:'Tesorería',hc:5,kids:[{n:'Norma(n)',r:'Gerente de Tesorería',t:'f',id:'norman',w:'Grafía Norma (E-15) vs. Norman (E-06) — conciliar.',
      kids:[{c:'Supervisor CxC'},{n:'Felipe Alain',r:'Asistente CxP / pagos',note:'“Felipe” aparece como aprobación de pagos en el flujo Casiolandia.'},
        {n:'Víctor Ortega',r:'Asistente CxC'},{c:'1 asistente'}]}]},
-   {u:'RRHH',hc:4,kids:[{n:'Nuria Ashby',r:'Gerente de RRHH',t:'f',id:'nuria',m:'25 años en la casa',
-     kids:[{n:'Catherine Jiménez',r:'Coordinadora'},{n:'Karina Oliveros',r:'Asistente'},{n:'Farah Becerra',r:'Recepción'}]}]},
+   {u:'RRHH',hc:4,kids:[{n:'Nuria Ashby',r:'Gerente de RRHH',t:'f',id:'nuria',m:'27 años en la casa (desde 1999)',
+     kids:[{n:'Katherine Jiménez',r:'Coordinadora'},{n:'Karina Oliveros',r:'Asistente'},{n:'Farah Becerra',r:'Recepción'},
+       {c:'nueva: Coord. de Capacitación y Desarrollo 🌐CO — sin Dirección de RRHH a la cual reportar 🕳'}]}]},
    {u:'TI',hc:3,kids:[{n:'Mariela Castro',r:'Gerente Regional de Sistemas',t:'f',id:'mariela-pa',
      kids:[{n:'César Rivodó',r:'Sistemas / seguridad'},{n:'Rafael Tejada',r:'Infraestructura'}]}]},
    {u:'Marketing Panamá — 5 sub-áreas',hc:26,kids:[
@@ -423,54 +487,61 @@ const ENTITIES = [
  {id:'rower-panel',fl:'🇻🇪',n:'Distribuidora Rower C.A.',s:'Venezuela · 14 gerencias oficiales (bandas 1–4, niveles A–C)',hc:'~230 (creció de 176 en dic-2025)',w:3,
   depts:[
    {u:'Operaciones y Logística',kids:[{n:'José Vladimir Castillo',r:'Gerente',t:'f',m:'desde 2001',
-     kids:[{n:'Jimena Sánchez',r:'Coord. Planificación de Compras',m:'mar-2026'},{n:'Elvis Badillo',r:'Gerente de Almacén',m:'jun-2026'},{c:'equipo de almacén / despacho'}]}]},
+     kids:[{n:'Jimena Sánchez',r:'Coord. Planificación de Compras',m:'mar-2026'},{n:'Elvis Badillo',r:'Gerente de Almacén',m:'jun-2026'},
+       {n:'Aznarez Rogelio',r:'Supervisor de Almacén',m:'72 años',id:'aznarez',w:'No maneja computadora · reasignación en curso sin desvincular — tratar con tacto (E-03).'},
+       {c:'equipo de almacén / despacho'}]}]},
    {u:'Ventas al Mayor',kids:[{n:'Henry Lucena',r:'Gerente',t:'f'},{n:'Andrés Márquez González',r:'Gerente',t:'f',m:'may-2026',
      w:'Dos gerentes simultáneos — probable relevo.'},{c:'vendedores mayor'}]},
    {u:'Ventas al Detal (tiendas)',id:'ve-detal',kids:[{n:'María Eugenia Villegas',r:'Gerente',t:'f',m:'desde 1999',id:'mariae',
      kids:[{n:'Carlos Velásquez',r:'Supervisor Casio'},{n:'Carlos Eduardo Márquez',r:'Supervisor Cubitt'},{n:'Rosa Caraballo',r:'Supervisora de Inventario'},
        {chips:{lbl:'≈12 tiendas Cubitt',items:['Sambil','La Candelaria 1','La Candelaria 2','Valencia 1','Valencia 2','Feria','Maracaibo','Boleita','Líder','CCCT','Recreo','Barquisimeto']}},
-       {chips:{lbl:'≈8 tiendas Casio',items:['Feria','Rower','Acuario','Líder','CCCT','Recreo','La Candelaria','Barquisimeto']}},
-       {c:'apertura Margarita en curso'},{c:'personal de tienda = mayoría de la plantilla'}]}]},
-   {u:'Ventas Web (e-commerce)',id:'ve-web',kids:[{n:'Jesmir Flores Contreras',r:'Gerente',t:'f',m:'ago-2025',id:'jesmir',
-     w:'Dependencia extrema · conciliar “Smith” vs. Jesmir.',
+       {chips:{lbl:'7 tiendas Casio — todas en Caracas (oficial)',items:['Feria','Rower','Acuario','Líder','CCCT','Recreo','La Candelaria']}},
+       {c:'vacante oficial: gte. tienda Cubitt La Candelaria 1 🕳'},
+       {c:'apertura Margarita en curso'},{c:'personal de tienda = mayoría de la plantilla (19 tiendas oficiales en total)'}]}]},
+   {u:'Ventas Web (e-commerce)',id:'ve-web',kids:[{n:'Jesmir Flores Contreras',r:'Gerente',t:'f',m:'ago-2025',id:'jesmir',dl:'🔀',
+     w:'Dependencia extrema.',note:'Doble rol: figura también como Especialista Marketplaces VZL en el organigrama Digital de Panamá (oficial).',
      kids:[{n:'Johan Lucena',r:'Soporte web'},{c:'asesores web'},{c:'facturación'},{c:'almacén web'},
        {chips:{lbl:'canales',items:['Webs','Cashea','Mercado Libre','WhatsApp']}}]}]},
    {u:'Marketing',kids:[{n:'Valentina Abreu',r:'Gerente',t:'f',id:'vabreu',
      kids:[{c:'coordinadores de marca Casio · Cubitt · deportivo'},{c:'editor'},{c:'diseñadores'}]}]},
    {u:'Planificación Financiera',kids:[{n:'Jaime González Franchi',r:'Planificador Financiero (nómina)',t:'f',id:'jaime-ve',
      w:'Rol real: CFO del grupo — la nómina no lo refleja.',kids:[{n:'Ali Carmona',r:'Coordinador de Tesorería',m:'jun-2026',id:'ali'}]}]},
-   {u:'Contabilidad',kids:[{n:'Víctor Padovani',r:'Gerente',t:'f',id:'padovani'}]},
-   {u:'Administración',kids:[{n:'Aida Mejías',r:'Gerente',t:'f',m:'desde 1985'}]},
+   {u:'Contabilidad',kids:[{n:'Víctor Padovani',r:'Gerente',t:'f',id:'padovani',kids:[{c:'Coordinador Quintero Maluin + 6 posiciones (oficial)'}]}]},
+   {u:'Administración',kids:[{n:'Josefina Mejías',r:'Gerente',t:'f',m:'desde 1985',
+     note:'Mano derecha histórica de Bernardo · valida la nómina VE (E-21) · madre de M. Alejandra Mejías (PA).'}]},
    {u:'Tesorería / CxC / CxP',kids:[{n:'Cortorreal',r:'Coordinadora CxC',m:'jun-2026'},{c:'coordinaciones nuevas jun-2026'}]},
-   {u:'RRHH',kids:[{n:'Evelia Manzo Hurtado',r:'Gerente',t:'f',id:'evelia',w:'Grafía Manso/Manzo por confirmar.',
+   {u:'RRHH',kids:[{n:'Evelia Manzo',r:'Gerente',t:'f',id:'evelia',
      kids:[{n:'Mayari Cizmania',r:'Coordinadora'},{n:'Heliany Montañez',r:'Analista'},{n:'Delanys Querecuto',r:'Analista · nómina jul-2026'}]}]},
    {u:'Servicio Técnico',kids:[{n:'Juseth Félix González Larez',r:'Gerente',t:'f',m:'desde 2002',id:'juseth',
      w:'El “Josep” — conocimiento único multi-país.',
      kids:[{n:'Gilbert Vargas',r:'Subgerente',m:'desde 2000'},{n:'Jailis Medina',r:'Soporte técnico'},{n:'Gustavo Hernández',r:'Soporte técnico'}]}]},
    {u:'Sistemas',kids:[{n:'José Rafael Herrera',r:'Coordinador',t:'f',id:'jherrera',
-     kids:[{n:'Héctor Zapata',r:'Técnico'},{n:'Miguel Yépez',r:'Auxiliar'},{c:'freelances'},
+     kids:[{n:'Héctor Zapata',r:'Técnico'},{n:'Miguel Yépez',r:'Auxiliar'},
        {n:'Edgar',r:'Soporte tiendas',g:'EE.UU.',id:'edgar',w:'Reside en EE.UU. y atiende las ~20 tiendas de VE.'}]}]},
    {u:'Proyectos',kids:[{n:'Araní González Perdomo',r:'Gerente',t:'f',m:'feb-2026',id:'arani'}]},
-   {u:'Visual',kids:[{n:'José Rodolfo Medina',r:'Coordinador',t:'f',id:'jrmedina'}]},
-   {u:'Dirección',kids:[{n:'Carmela Iribarren',r:'Asistente Ejecutiva',t:'f',m:'sin banda',id:'carmela-ve'}]},
+   {u:'Visual',kids:[{n:'José Rodolfo Medina',r:'Coordinador',t:'f',id:'jrmedina',dl:'🔀',
+     w:'Vacante oficial: Gerente de Visual VE 🕳.',
+     note:'Doble reporte: los asistentes Ángel Castillo y Viviana Molina figuran también bajo Sabrina Baroni (Visual regional) — oficial.'}]},
+   {u:'Dirección',kids:[{n:'Carmela Iribarren',r:'Asistente Ejecutiva',t:'f',m:'sin banda',id:'carmela-ve'},{c:'staff oficial: Auditoría · Asesoría Legal'}]},
    {u:'Otros',kids:[{n:'Anabel Roizental',r:'Contenido/PR marketing + correo BI',g:'Miami',w:'Rol en precisión.'}]},
   ],notes:[]},
- {id:'co-panel',fl:'🇨🇴',n:'Deltadir S.A.S.',s:'Colombia · 2 tiendas',hc:'~18–38',w:1,
+ {id:'co-panel',fl:'🇨🇴',n:'Deltadir S.A.S.',s:'Colombia · 2 tiendas · nómina vía outsourcing',hc:'39',w:1,
   depts:[
    {u:'Equipo Colombia',kids:[
      {n:'Joel Cohen',r:'Country Manager · representante legal',t:'f',id:'joel',g:'pagado vía PA',w:'Único que mueve dinero.',
       kids:[
        {n:'Santiago Ramírez',r:'Líder comercial / KAM',note:'Falabella, Éxito, Panamericana + planeación de compras + reportería sellout a PA.'},
        {n:'Eibar',r:'Vendedor mayorista B2B'},
+       {n:'Harvin Castiblanco',r:'Líder de promotoría',note:'19 impulsadores en cadenas — mayoría de la plantilla (nómina CO).'},
        {n:'Gabriel(a) y Valentina',r:'Customer service',id:'cs-co'},
-       {n:'Marcela',r:'Finanzas',id:'marcela'},
+       {n:'Marcela Ramírez',r:'Finanzas · enlace con Jaime',id:'marcela'},
        {n:'Leslie',r:'Marketing',id:'leslie'},
        {n:'Tatiana',r:'Marketplaces',id:'tatiana'},
-       {n:'Reina',r:'Visual',id:'reina'},
+       {n:'José López + Mateo Aguirre',r:'Visual local (coord. regional: Adis Vega)',id:'visual-co',dl:'🔀'},
        {n:'Valeria',r:'Apoyo a influenciadores / alianzas',note:'Hermana de Andrés, residente en Colombia.'},
-       {c:'promotores de venta en cadenas (mayoría de plantilla)'}]},
-     {n:'Handani',r:'Gerente de Retail del grupo (basado aquí, alcance global)',t:'d',id:'handani-co'},
-     {n:'RRHH y nómina',r:'Tercerizados — empresa externa',t:'p'}]},
+       {c:'planner de compras/importaciones en contratación (E-14)'}]},
+     {n:'Handani Mora',r:'Gerente de Retail del grupo (¿basado aquí? — conciliar)',t:'d',id:'handani-co'},
+     {n:'RRHH y nómina',r:'Tercerizados — los 39 contratados vía outsourcing local',t:'p'}]},
   ],notes:[]},
  {id:'us-panel',fl:'🇺🇸',n:'Kenex USA',s:'Miami · estructura mínima',hc:'~5',w:1,
   depts:[
@@ -483,23 +554,25 @@ const ENTITIES = [
        {c:'2 personas de bodega'}]}]},
   ],
   notes:['Sistemas: QuickBooks + EDI, desconectados del grupo ⚠.']},
- {id:'importbel-panel',fl:'🇨🇷',n:'Importbel S.A.',s:'Costa Rica · sociedad 50/50',hc:'3 puntos de venta',w:2,partner:true,
+ {id:'importbel-panel',fl:'🇨🇷',n:'Importbel S.A.',s:'Costa Rica · sociedad 50/50 · 8 tiendas Casio + Cubitt en expansión',hc:'~100 (34 en 2021)',w:2,partner:true,
   depts:[
-   {u:'Dirección del socio',kids:[{n:'Gil Porat',r:'Socio local · Gerente General (y comercial en funciones)',t:'p',id:'gil',
+   {u:'Dirección del socio',kids:[{n:'Gil Porat',r:'Socio local · Gerente General (y comercial en funciones)',t:'p',id:'gil',w:'12 reportes directos (E-19).',
      kids:[
       {n:'Logística y Operaciones',r:'Gerente (mujer)'},
       {n:'Hugo',r:'Financiero-contable / Administración',id:'hugo'},
-      {n:'Tiendas',r:'Gerente de tiendas',id:'cr-tiendas'},
-      {n:'B2B Casio',r:'Unidad comercial'},
+      {n:'Tiendas',r:'8 tiendas Casio + puntos Cubitt (kioscos → tiendas)',id:'cr-tiendas'},
+      {n:'B2B Casio',r:'Mayoreo ≈50% de la facturación'},
+      {n:'RRHH propio',r:'Departamento nuevo · 1 persona junior (E-19)'},
       {n:'Analista de negocios',r:'Reporta a Gil'},
-      {n:'E-commerce / bots',r:'Relanzándose'},
+      {n:'E-commerce / bots',r:'4 canales e-commerce · relanzándose'},
       {n:'Itai',r:'Compras',note:'Forecast mensual con Claude.'},
+      {n:'Hijo de Gil Porat',r:'Facilitador transversal · experto Claude',m:'ene-2026'},
       {n:'Ricardo Romero',r:'Brand manager Cubitt',id:'rromero',note:'Seguimiento semanal con Ricardo Baltodano.'},
       {n:'Andrea',r:'Contacto operativo / atención'}]}]},
   ],
   notes:['Comité de Innovación propio · sin Odoo · reportería semanal de 12 páginas.',
    'Multimarca: ~90% producto Kenex (Casio, Cubitt, Q) + Seiko, Citizen, Bulova, Carabel.',
-   '3 puntos de venta (1 tienda + 2 kioscos · 1 kiosco → tienda Cubitt en sep).',
+   'Kioscos Cubitt en conversión a tiendas (1 → tienda en sep).',
    'Compra a Kenex Trading vía Edumar · canal efectivo: Roberto.']},
  {id:'gt-panel',fl:'🇬🇹',n:'Guatemala',s:'Operación tercerizada',hc:'mínima propia',w:1,
   depts:[
@@ -513,63 +586,70 @@ const ENTITIES = [
  {id:'minors-panel',fl:'🌎',n:'Presencias menores y terceros',s:'4 modelos de presencia',hc:'13 países en total',w:1,
   depts:[
    {u:'País por país',kids:[
-     {n:'Nicaragua — Ana',r:'CS + visual (compartida) · presencia mínima propia',id:'ana-ni'},
-     {n:'Ecuador — Fabián Jaimes',r:'CS local · ventas desde Panamá',id:'fabian'},
+     {n:'Ecuador',r:'Visual: Fabián Jaimes + Verónica Méndez (bajo Baroni) · ventas desde Panamá',id:'ec'},
+     {n:'Nicaragua',r:'Visual vía distribuidor Motta · sin estructura propia documentada',id:'ni'},
      {n:'México',r:'Distribuidores · entrada gestionada desde Panamá (proyecto PMO)',id:'mx'},
-     {n:'Honduras',r:'Franquicias Casio (no operadas) → en internalización 2026',id:'hn',note:'Cuentas clave de Natasha (Ivonne) activando.'},
-     {n:'El Salvador',r:'Sin estructura propia · compras vía Vera',id:'sv'},
-     {n:'Rep. Dominicana — Jonathan Camejo',r:'Distribuidor externo + franquicias',t:'p',id:'jonathan'},
+     {n:'Honduras',r:'Franquicias Casio (no operadas) → internalización 2026 · supervisará Handani',id:'hn',note:'Cuentas clave de Natasha (Ivonne) activando.'},
+     {n:'El Salvador',r:'Jorge Mancia: comercial, visual y marketing (oficial) · compras vía Vera',id:'sv'},
+     {n:'Rep. Dominicana — Jonathan Camejo',r:'Distribuidor externo + franquicias · supervisará Handani',t:'p',id:'jonathan'},
+     {c:'Puerto Rico: operación histórica (Aileen Rodríguez) · entrada sin due diligence (E-20)'},
      {c:'Chile · Argentina · Bolivia · Paraguay · resto LatAm: clientes mayoristas de Kenex Trading (sin estructura)'}]},
   ],notes:[]},
 ];
 const FLOWS = [
- {id:'fin',c:'#2E6FD0',l:'1 · Finanzas — Jaime',d:'Tesorerías y contabilidades de TODAS las entidades',
+ {id:'fin',c:'#2E6FD0',l:'1 · Finanzas — Jaime',d:'Tesorerías y contabilidades de TODAS las entidades (línea a Isabela: plausible vía comité de finanzas Miami, E-23)',
    pairs:[['jaime','norman'],['jaime','ian'],['jaime','ali'],['jaime','padovani'],['jaime','marcela'],['jaime','isabela']]},
  {id:'sis',c:'#8A5BD6',l:'2 · Sistemas — Mariela',d:'IT de Venezuela y Colombia',pairs:[['mariela','jherrera'],['mariela','co-panel']]},
- {id:'mkt',c:'#D6499B',l:'3 · Marketing — Natasha',d:'Marketing de VE y CO, cuentas clave, visual países',
-   pairs:[['natasha','vabreu'],['natasha','leslie'],['natasha','tatiana'],['natasha','reina'],['natasha','wander'],['natasha','ana-ni'],['natasha','hn']]},
- {id:'cs',c:'#0E8FA8',l:'4 · Customer Service — Patrick',d:'CS de 9+ países + rotulación multi-país',
-   pairs:[['patrick','jesmir'],['patrick','cs-co'],['patrick','fabian'],['patrick','gt-cm'],['patrick','ana-ni'],['patrick','mx'],['patrick','amendoza'],['patrick','jonathan']]},
- {id:'ret',c:'#7A9B2F',l:'5 · Retail — Handani',d:'Tiendas de PA, VE, GT y CR',
+ {id:'mkt',c:'#D6499B',l:'3 · Marketing — Natasha',d:'Marketing de VE y CO, cuentas clave y trade GT',
+   pairs:[['natasha','vabreu'],['natasha','leslie'],['natasha','tatiana'],['natasha','wander'],['natasha','hn']]},
+ {id:'cs',c:'#0E8FA8',l:'4 · Customer Service — Patrick',d:'CS multi-país + rotulación',
+   pairs:[['patrick','jesmir'],['patrick','cs-co'],['patrick','gt-cm'],['patrick','mx'],['patrick','amendoza'],['patrick','jonathan']]},
+ {id:'ret',c:'#7A9B2F',l:'5 · Retail — Handani',d:'Tiendas de PA, VE, GT y CR · asumirá franquicias HN y RD (E-08)',
    pairs:[['handani','blas'],['handani','mariae'],['handani','gt-cm'],['handani','cr-tiendas']]},
  {id:'cmp',c:'#C77800',l:'6 · Compras — Roberto',d:'Aprueba compras de Trading, Casiolandia y Rower VE · canal con Importbel',
    pairs:[['d-roberto','trading-panel'],['d-roberto','casio-panel'],['d-roberto','rower-panel'],['d-roberto','importbel-panel']]},
  {id:'com',c:'#B5451D',l:'7 · Comercial — Andrés',d:'Internacional + VE + CO + Guatemala completa',
    pairs:[['d-andres','edumar'],['d-andres','rower-panel'],['d-andres','co-panel'],['d-andres','gt-panel']]},
  {id:'cub',c:'#7048C8',l:'8 · Cubitt — Alejandro ↔ Estefanía R.',d:'Seguimiento de proveedores Cubitt',pairs:[['d-alejandro','estefr']]},
- {id:'bi2',c:'#0B7C6C',l:'9 · Célula BI',d:'Modelos de compra, métricas de tiendas, reportería',
-   pairs:[['bi','d-roberto'],['bi','vera'],['bi','d-alejandro'],['bi','blas'],['bi','baltodano']]},
+ {id:'bi2',c:'#0B7C6C',l:'9 · Célula BI',d:'Modelos de compra Casio · data de ~150 tiendas (vía Baltodano) · gobernanza vía Candanedo/PMO (E-12, E-18)',
+   pairs:[['bi','d-roberto'],['bi','vera'],['bi','baltodano'],['bi','candanedo'],['bi','mariela']]},
  {id:'ver',c:'#A83E68',l:'10 · Compras Casio — Vera',d:'Compras PA·CR·GT·HN·SV·EC + reportería oficial a Casio (8 países)',
-   pairs:[['vera','casio-panel'],['vera','importbel-panel'],['vera','gt-panel'],['vera','hn'],['vera','sv'],['vera','fabian']]},
+   pairs:[['vera','casio-panel'],['vera','importbel-panel'],['vera','gt-panel'],['vera','hn'],['vera','sv'],['vera','ec']]},
  {id:'wms',c:'#546A85',l:'11 · WMS — Fernando Alvarado',d:'Migración WMS en VE · réplica prevista CO y Miami',
    pairs:[['fernando','rower-panel'],['fernando','co-panel'],['fernando','us-panel']]},
- {id:'edg',c:'#B03A9C',l:'12 · Edgar (reside EE.UU.)',d:'Soporte IT a las ~20 tiendas de Venezuela',pairs:[['edgar','mariae']]},
+ {id:'edg',c:'#B03A9C',l:'12 · Edgar (reside EE.UU.)',d:'Soporte IT a las tiendas de Venezuela',pairs:[['edgar','mariae']]},
  {id:'amz',c:'#1F8FD0',l:'13 · Andrés Mendoza (reside VE)',d:'Customer service de EE.UU. desde Venezuela',pairs:[['amendoza','patrick']]},
- {id:'bm',c:'#8C6D1F',l:'14 · Brand managers — Baltodano',d:'Seguimiento semanal CR·GT·NI·MX',
-   pairs:[['baltodano','rromero'],['baltodano','gt-cm'],['baltodano','ana-ni'],['baltodano','mx']]},
+ {id:'bm',c:'#8C6D1F',l:'14 · Brand managers — Baltodano',d:'Seguimiento semanal (documentado CR: R. Romero · GT/MX por confirmar)',
+   pairs:[['baltodano','rromero'],['baltodano','gt-cm'],['baltodano','mx']]},
  {id:'car',c:'#3E7CB1',l:'15 · Soporte a gobierno — Carmela',d:'Junta completa + comité CO + contadores CR/PA',
    pairs:[['carmela','junta-box'],['carmela','co-panel'],['carmela','hugo'],['carmela','ian']]},
- {id:'rh',c:'#C25E9A',l:'16 · RRHH — Nuria',d:'Reclutamiento GT/NI + estándares CO',
-   pairs:[['nuria','gt-panel'],['nuria','ana-ni'],['nuria','co-panel']]},
- {id:'st',c:'#4E9B8F',l:'17 · Servicio técnico — Juseth',d:'Repuestos y servicio técnico Casio de TODOS los países',
-   pairs:[['juseth','casio-panel'],['juseth','importbel-panel'],['juseth','co-panel'],['juseth','gt-panel'],['juseth','us-panel']]},
- {id:'crx',c:'#6B7F3A',l:'18 · Crocs ↔ bodega / WMS',d:'Sociedad Crocs comparte bodega y costos del WMS (Estefanía Quintal)',
+ {id:'rh',c:'#C25E9A',l:'16 · RRHH — Nuria',d:'Reclutamiento GT · contacto con Joel (CO, E-13)',
+   pairs:[['nuria','gt-panel'],['nuria','joel']]},
+ {id:'st',c:'#4E9B8F',l:'17 · Servicio técnico — Juseth',d:'Conocimiento único de repuestos/ST Casio · alcance multi-país por confirmar (CR atiende Patrick+Aaron, E-19)',
+   pairs:[['juseth','casio-panel'],['juseth','co-panel'],['juseth','gt-panel']]},
+ {id:'vis',c:'#7A5FB0',l:'18 · Visual — Reyna Barraza',d:'Red de visual en ~12 países (coord.: Sabrina Baroni · Adis Vega)',
+   pairs:[['reyna','jrmedina'],['reyna','visual-co'],['reyna','ec'],['reyna','wander'],['reyna','importbel-panel']]},
+ {id:'crx',c:'#6B7F3A',l:'19 · Crocs ↔ bodega / WMS',d:'Sociedad Crocs comparte bodega y costos del WMS (Estefanía Quintal)',
    pairs:[['quintal','bodega-colon']]},
 ];
 const ALERTS = [
- {t:'Base física de Ricardo Roizental: ¿Panamá o Miami?',pid:'ricardo'},
- {t:'John Morgan vs. Jhony Wong — ¿misma persona?',pid:'jwong'},
- {t:'Grafía Manzo / Manso (Evelia, RRHH VE)',pid:'evelia'},
- {t:'“Doctor Bernardo” — ¿es Moisés Roizental?',pid:'drbernardo'},
- {t:'Tercer miembro externo de junta (¿Jaime?)',pid:'jaime-junta'},
- {t:'Smith vs. Jesmir (e-commerce VE)',pid:'jesmir'},
- {t:'Stephanie (logística Colón) vs. Estefanía Roizental',pid:'estefr'},
- {t:'Cargo formal y entidad de Ricardo Baltodano',pid:'baltodano'},
- {t:'Posición de nómina: Natasha, Handani, Fernando, célula BI, Vera',pid:'natasha'},
+ {t:'Ingreso por origen: la cifra 60/30 (PA/VE) está contradicha por E-18 (VE ≈60%) — conciliar ANTES de la Junta',pid:'stats'},
+ {t:'Fuera de nómina (confirmado en los 16 archivos): Natasha · Handani · Fernando · célula BI · Vera · Candanedo · Mordo',pid:'natasha'},
+ {t:'Solape de inventarios PA: Fernando (ejecución) vs. M. Alejandra Mejías (auditoría) — tratar con tacto',pid:'bodega-colon'},
+ {t:'Tres “Johnny” distintos: Mordo (regional Cubitt) · Wong (mayor PTY) · brand manager Casio (jun-2026)',pid:'mordo'},
+ {t:'Mariela Castro: punto único de falla (IT + junta + PMO + seguridad)',pid:'mariela'},
+ {t:'Célula BI: externos con figura contractual ambigua manejando data crítica (NDA firmado)',pid:'bi'},
+ {t:'Handani: no entrega información pese a seguimientos · conciliar base (CO vs PA)',pid:'handani'},
+ {t:'Dobles sombreros: Candanedo (PMO + Producto) · Patrick (CS + e-comm + web, separación en evaluación)',pid:'candanedo'},
+ {t:'Baltodano: entidad y nómina por resolver',pid:'baltodano'},
+ {t:'Jefe de Bodega Colón: Mayers (nómina) vs. Navas (organigrama oficial PA)',pid:'bodega-colon'},
+ {t:'CS oficial de PA: “Fabiola” vs. Patrick — conciliar',pid:'patrick-pa'},
+ {t:'Tesorería PA: grafía Norma vs. Norman',pid:'norman'},
+ {t:'Aznarez (72 años, supervisor almacén VE): continuidad y reasignación en curso — sensible',pid:'aznarez'},
 ];
 const CIFRAS = [
- {k:'Plantilla conocida',v:'~230 VE · ~137 PA · 18–38 CO · ~5 US'},
- {k:'Facturación por origen',v:'PA ~60% · VE ~30% · resto ~10%'},
+ {k:'Plantilla conocida',v:'~230 VE · ~137 PA · 39 CO · ~5 US (+ ~100 CR socio)'},
+ {k:'Ingreso por origen',v:'En conciliación ⚠ — E-18: VE ≈60% vía tiendas'},
  {k:'Perímetro',v:'8 entidades operativas / ~35–40 sociedades'},
  {k:'Presencia',v:'13 países · 4 modelos de presencia'},
 ];
@@ -581,7 +661,7 @@ function nodeHTML(o){
   if(o.chips) return `<div class="chips"><span class="lbl">${esc(o.chips.lbl)}</span>${o.chips.items.map(i=>`<span class="chip">${esc(i)}</span>`).join('')}</div>`;
   const cls = ['node', o.t==='f'?'f':o.t==='d'?'d':o.t==='p'?'p':'', (o.note||o.w)?'hasnote':''].join(' ');
   const idAttr = o.id?` data-pid="${o.id}"`:'';
-  const badges = (o.w?`<span class="badge w" title="${esc(o.w)}">⚠</span>`:'') + (o.g?`<span class="badge g">🌐 ${esc(o.g)}</span>`:'');
+  const badges = (o.w?`<span class="badge w" title="${esc(o.w)}">⚠</span>`:'') + (o.g?`<span class="badge g">🌐 ${esc(o.g)}</span>`:'') + (o.dl?`<span class="badge dl" title="Delta vs. papel">${esc(o.dl)}</span>`:'');
   const noteAttr = (o.note||o.w)?` data-note="${esc((o.w?o.w+' ':'')+(o.note||''))}" data-nm="${esc(o.n)}" data-rl="${esc(o.r||'')}"`:'';
   return `<div class="${cls}"${idAttr}${noteAttr} data-name="${esc(o.n)}" tabindex="0">
     <div class="nm">${esc(o.n)} ${badges}</div>${o.r?`<div class="rl">${esc(o.r)}</div>`:''}${o.m?`<div class="mt">${esc(o.m)}</div>`:''}</div>`;
@@ -627,14 +707,14 @@ canvas.innerHTML = `
   <div class="eyebrow">Gobierno corporativo</div>
   <div class="govbox">
     <h3>Comité Directivo — “comité íntimo”</h3>
-    <div class="sub">Máxima instancia real de decisión · 5 accionistas conectados 24/7 (pantallas permanentes Caracas–Panamá–Miami)</div>
+    <div class="sub">Máxima instancia real de decisión · conectados 24/7 (pantallas Caracas–Panamá–Miami) · accionistas 2G: Bernardo, Roberto, Ricardo y Moisés (E-17)</div>
     <div class="row">${GOV.comite.map(o=>nodeHTML({...o,t:'f'})).join('')}</div>
   </div>
   <div class="spine" style="height:34px"></div>
   <div class="row" style="align-items:flex-start">
     <div class="govbox" style="max-width:430px" data-pid="junta-box">
       <h3>Junta Directiva ampliada</h3>
-      <div class="sub">Los 5 accionistas +</div>
+      <div class="sub">La familia + externos</div>
       <div class="row" style="justify-content:flex-start">${GOV.junta.map(o=>nodeHTML({...o,t:'f'})).join('')}</div>
       <p class="note" style="max-width:none">As-Is: sin actas formales · decisiones del comité íntimo llegan como hechos consumados · plan estratégico a 3 años (2026) sin seguimiento institucionalizado.</p>
     </div>
@@ -685,7 +765,30 @@ canvas.innerHTML = `
       ${panelHTML(ENTITIES[7])}${panelHTML(ENTITIES[8])}${panelHTML(ENTITIES[9])}
     </div>
   </div>
-  <div class="stats">${CIFRAS.map(c=>`<div class="stat"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div></div>`).join('')}</div>
+  <div class="stats" data-pid="stats">${CIFRAS.map(c=>`<div class="stat"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div></div>`).join('')}</div>
+</div>
+
+<div class="band" id="band-propuesto">
+  <div class="eyebrow">Capa propuesta — en construcción (Fase 3)</div>
+  <div class="govbox" style="max-width:780px;text-align:center">
+    <h3>El organigrama que debería ser</h3>
+    <div class="sub">Tres modelos borrador en evaluación — todos con una capa corporativa formal que absorba las direcciones de facto.
+    La estructura se decide con el Comité Directivo en Fase 3; la adecuación persona-cargo se evalúa después. Sin nombres, por diseño.</div>
+  </div>
+  <div class="spine"></div>
+  <div class="row">
+    <div class="modelo"><h4>Modelo A — Regional</h4>
+      <div class="mini"><div class="mrow"><i class="top"></i></div><div class="mrow"><i class="corp"></i><i class="corp"></i><i class="corp"></i></div><div class="mrow"><i></i><i></i><i></i><i></i></div></div>
+      <p>Capa corporativa + gerencias país con dueño único por geografía. Fortalece la cercanía al mercado.</p></div>
+    <div class="modelo"><h4>Modelo B — Centralizado</h4>
+      <div class="mini"><div class="mrow"><i class="top"></i></div><div class="mrow"><i class="corp"></i><i class="corp"></i><i class="corp"></i><i class="corp"></i></div><div class="mrow"><i></i><i></i><i></i></div></div>
+      <p>Direcciones funcionales globales (comercial, operaciones, finanzas, talento) sobre los países. Maximiza estandarización.</p></div>
+    <div class="modelo"><h4>Modelo C — Descentralizado</h4>
+      <div class="mini"><div class="mrow"><i class="top"></i></div><div class="mrow"><i></i><i></i></div><div class="mrow"><i></i><i></i><i></i><i></i></div></div>
+      <p>Unidades de negocio con autonomía (una variante separa Casio de Cubitt) y un corporativo liviano de gobierno.</p></div>
+  </div>
+  <p class="note" style="max-width:780px;text-align:center;border:none">Borradores del equipo consultor presentados internamente el 15-jul.
+  La capa Real de este mapa es el insumo: cada delta (🎩 🔀 👻 🕳 ⚡) es una decisión de diseño pendiente.</p>
 </div>`;
 
 /* aliases: pids que apuntan al mismo actor en otra instancia */
@@ -901,6 +1004,33 @@ world.addEventListener('click',e=>{
   e.stopPropagation();
 });
 document.addEventListener('click',e=>{if(!e.target.closest('[data-note],#popover'))hidePop();});
+
+/* =================== CAPAS: Declarado · Real · Propuesto =================== */
+const app=document.getElementById('app');
+const CAPA_TITULO={
+  declarado:'Grupo Kenex — Organigrama · capa Declarada (papel)',
+  real:'Grupo Kenex — Organigrama · capa Real',
+  propuesto:'Grupo Kenex — Organigrama · capa Propuesta (Fase 3)',
+};
+let capa='real';
+function setCapa(c){
+  capa=c;
+  app.classList.toggle('capa-declarado',c==='declarado');
+  app.classList.toggle('capa-propuesto',c==='propuesto');
+  document.querySelectorAll('#capas button').forEach(b=>b.classList.toggle('on',b.dataset.capa===c));
+  document.getElementById('t-capa').textContent=CAPA_TITULO[c];
+  activeFlows.clear();syncFlows();
+  document.querySelectorAll('.drawer.open').forEach(d=>d.classList.remove('open'));
+  ['b-flows','b-alerts'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  hidePop();
+  if(c==='propuesto'){fitEl(document.getElementById('band-propuesto'),80);}
+  else showScene(c==='declarado'?2:0);
+}
+document.querySelectorAll('#capas button').forEach(b=>b.onclick=()=>setCapa(b.dataset.capa));
+document.getElementById('b-diffs').onclick=function(){
+  app.classList.toggle('diffs');
+  this.classList.toggle('on',app.classList.contains('diffs'));
+};
 
 /* =================== INIT =================== */
 sizeWires();

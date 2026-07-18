@@ -2347,8 +2347,7 @@ function openDiagram(){ document.getElementById('diagModal').classList.add('open
 function closeDiagram(){ document.getElementById('diagModal').classList.remove('open'); document.body.style.overflow=''; }
 function orgOpen(){ var d=document.getElementById('orgDrawer'), f=document.getElementById('orgFrame'); if(!f.src){ f.src=f.dataset.src; } d.classList.add('open'); }
 function orgClose(){ document.getElementById('orgDrawer').classList.remove('open'); }
-function orgWidth(){ var d=document.getElementById('orgDrawer'); d.classList.remove('full'); d.classList.toggle('half'); }
-function orgFull(){ var d=document.getElementById('orgDrawer'); d.classList.remove('half'); d.classList.toggle('full'); }
+function orgWidth(){ document.getElementById('orgDrawer').classList.toggle('half'); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ orgClose(); } });
 function presOpen(sec){
   var o=document.getElementById('presOverlay'), f=document.getElementById('presFrame');
@@ -2377,9 +2376,8 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
 <style>
   .org-fab{position:fixed;top:14px;right:16px;z-index:900;background:linear-gradient(135deg,#1F3864,#2a4a80);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.3);font-family:inherit;}
   .org-fab:hover{background:#2E75B6;}
-  .org-drawer{position:fixed;top:0;right:0;bottom:0;width:70%;min-width:340px;z-index:950;background:#fff;border-left:4px solid #1F3864;box-shadow:-12px 0 34px rgba(23,32,54,.25);transform:translateX(102%);transition:transform .3s ease, width .25s ease;display:flex;flex-direction:column;}
+  .org-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;min-width:340px;z-index:950;background:#fff;border-left:4px solid #1F3864;box-shadow:-12px 0 34px rgba(23,32,54,.25);transform:translateX(102%);transition:transform .3s ease, width .25s ease;display:flex;flex-direction:column;}
   .org-drawer.open{transform:translateX(0);}
-  .org-drawer.full{width:100%;}
   .org-drawer.half{width:52%;}
   .org-head{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#1F3864;color:#fff;flex-wrap:wrap;}
   .org-head b{font-size:14px;}
@@ -2393,10 +2391,9 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
 <button class="org-fab" onclick="orgOpen()" title="Abrir el organigrama interactivo">🏛 Organigrama</button>
 <aside class="org-drawer" id="orgDrawer" aria-label="Organigrama interactivo">
   <div class="org-head">
-    <b>🏛 Organigrama As-Is · Grupo Kenex</b>
+    <b>🏛 Organigrama · Grupo Kenex</b>
     <span class="sp"></span>
-    <button onclick="orgWidth()" title="Alternar ancho medio">⇔ Ancho</button>
-    <button onclick="orgFull()" title="Pantalla completa">⤢ Completa</button>
+    <button onclick="orgWidth()" title="Panel medio para leer el informe al lado">⇔ Panel medio</button>
     <a href="organigrama-kenex.html" target="_blank" title="Abrir en pestaña nueva">↗ Pestaña</a>
     <button onclick="orgClose()" title="Cerrar (Esc)">✕ Cerrar</button>
   </div>
