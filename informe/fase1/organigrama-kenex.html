@@ -227,7 +227,7 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 #world.flows-on .node.lit,#world.flows-on .defacto-card.lit{opacity:1!important;
   outline:3px solid color-mix(in srgb,var(--flash) 80%,transparent);outline-offset:2px}
 #world.flows-on .panel.lit>.ph{opacity:1;outline:3px solid color-mix(in srgb,var(--flash) 80%,transparent);outline-offset:-3px}
-.node.flash,.defacto-card.flash{animation:flash 1.6s ease-out 2}
+.node.flash,.defacto-card.flash,.cnt.flash{animation:flash 1.6s ease-out 2}
 @keyframes flash{0%{box-shadow:0 0 0 3px var(--flash),var(--shadow)}100%{box-shadow:0 0 0 14px transparent,var(--shadow)}}
 @media (prefers-reduced-motion: reduce){.node.flash{animation:none;outline:3px solid var(--flash)}}
 
@@ -260,6 +260,20 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 .modelo .mini i.top{background:var(--formal);border-color:var(--formal-edge)}
 .modelo .mini i.corp{background:var(--defacto-bg);border:1.5px dashed var(--defacto)}
 .modelo p{margin:0;font-size:11.5px;color:var(--muted)}
+/* panel explicativo del modo diferencias */
+#diffs-info{position:absolute;top:64px;left:50%;transform:translateX(-50%);z-index:96;max-width:640px;
+  background:color-mix(in srgb,var(--panel) 96%,transparent);border:1.5px solid var(--defacto);border-radius:12px;
+  box-shadow:var(--shadow);padding:10px 16px;display:none;flex-direction:column;gap:8px;font-size:12px}
+#app.diffs #diffs-info{display:flex}
+#diffs-info h4{margin:0;font-family:var(--f-d);font-size:13px;color:var(--defacto-ink)}
+#diffs-info p{margin:0;color:var(--muted);line-height:1.45}
+.dtipos{display:flex;flex-wrap:wrap;gap:6px}
+.dtipo{font-size:11.5px;padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:5px}
+.dtipo b{font-variant-numeric:tabular-nums}
+.dtipo:hover{border-color:var(--defacto);color:var(--defacto-ink)}
+.sw-solo{display:inline-block;width:15px;height:10px;border:2px dashed var(--defacto);border-radius:3px;background:var(--defacto-bg)}
+#popover .pdl{color:var(--defacto-ink);font-weight:600;font-size:11.5px;margin-bottom:6px;background:var(--defacto-bg);
+  border:1px solid color-mix(in srgb,var(--defacto) 40%,transparent);border-radius:6px;padding:3px 8px;display:inline-block}
 
 @media (max-width:760px){
   #topbar .t2, #scenebar .sc-n{display:none}
@@ -352,6 +366,14 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
     <div class="li"><span class="badge dl" style="display:inline">👻</span>Crítico fuera de nómina/estructura</div>
     <div class="li"><span class="badge dl" style="display:inline">🕳</span>Vacante declarada en el papel</div>
     <div class="li"><span class="badge dl" style="display:inline">⚡</span>Solape de responsabilidad</div>
+  </div>
+
+  <div id="diffs-info" role="note">
+    <h4>Δ Modo diferencias — el papel vs. la realidad</h4>
+    <p>Resalta todo lo que la operación real cambia respecto al organigrama declarado. Los recuadros con
+    <b>borde punteado ámbar</b> existen solo en la realidad (no están en el papel); cada marca indica el tipo de
+    diferencia. <b>Clic en un tipo</b> para recorrer sus casos uno a uno · <b>clic en un recuadro marcado</b> para ver su detalle.</p>
+    <div class="dtipos" id="dtipos"></div>
   </div>
 
   <div id="popover" role="dialog"></div>
@@ -706,13 +728,20 @@ const CIFRAS = [
 
 /* =================== RENDER =================== */
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const TIPO_DELTA = {
+  '🎩':'Doble sombrero — la misma persona ejerce dos funciones a la vez',
+  '🔀':'Doble reporte — figura en dos estructuras (país y regional)',
+  '👻':'Fuera de estructura — rol crítico sin nómina o sin figura formal',
+  '🕳':'Vacante — el papel declara el cargo sin titular',
+  '⚡':'Solape — dos personas comparten o se disputan la misma función',
+};
 function nodeHTML(o){
   if(o.c) return `<div class="cnt">${esc(o.c)}</div>`;
   if(o.chips) return `<div class="chips"><span class="lbl">${esc(o.chips.lbl)}</span>${o.chips.items.map(i=>`<span class="chip">${esc(i)}</span>`).join('')}</div>`;
-  const cls = ['node', o.t==='f'?'f':o.t==='d'?'d':o.t==='p'?'p':'', (o.note||o.w)?'hasnote':''].join(' ');
+  const cls = ['node', o.t==='f'?'f':o.t==='d'?'d':o.t==='p'?'p':'', (o.note||o.w||o.dl)?'hasnote':''].join(' ');
   const idAttr = o.id?` data-pid="${o.id}"`:'';
-  const badges = (o.w?`<span class="badge w" title="${esc(o.w)}">⚠</span>`:'') + (o.g?`<span class="badge g">🌐 ${esc(o.g)}</span>`:'') + (o.dl?`<span class="badge dl" title="Delta vs. papel">${esc(o.dl)}</span>`:'');
-  const noteAttr = (o.note||o.w)?` data-note="${esc((o.w?o.w+' ':'')+(o.note||''))}" data-nm="${esc(o.n)}" data-rl="${esc(o.r||'')}"`:'';
+  const badges = (o.w?`<span class="badge w" title="${esc(o.w)}">⚠</span>`:'') + (o.g?`<span class="badge g">🌐 ${esc(o.g)}</span>`:'') + (o.dl?`<span class="badge dl" title="${esc(TIPO_DELTA[o.dl]||'Diferencia vs. papel')}">${esc(o.dl)}</span>`:'');
+  const noteAttr = (o.note||o.w||o.dl)?` data-note="${esc((o.w?o.w+' ':'')+(o.note||''))}"${o.dl?` data-dl="${esc(o.dl)}"`:''} data-nm="${esc(o.n)}" data-rl="${esc(o.r||'')}"`:'';
   return `<div class="${cls}"${idAttr}${noteAttr} data-name="${esc(o.n)}" tabindex="0">
     <div class="nm">${esc(o.n)} ${badges}</div>${o.r?`<div class="rl">${esc(o.r)}</div>`:''}${o.m?`<div class="mt">${esc(o.m)}</div>`:''}</div>`;
 }
@@ -865,8 +894,10 @@ function fitAll(){withAnim(()=>fitRect(worldRectOf(canvas),40));}
 const pointers=new Map(); let lastMid=null,lastDist=0,moved=false;
 vp.addEventListener('pointerdown',e=>{
   if(e.target.closest('.bar,.drawer,#legend,#popover,button,input'))return;
-  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY}); vp.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
   vp.classList.add('panning'); moved=false; lastMid=null;
+  // OJO: no capturar aquí — capturar en pointerdown redirige el click al viewport
+  // y los popovers de los nodos no se abren. Se captura al empezar a arrastrar.
 });
 vp.addEventListener('pointermove',e=>{
   if(!pointers.has(e.pointerId))return;
@@ -882,6 +913,7 @@ vp.addEventListener('pointermove',e=>{
     if(lastMid&&lastDist){zoomAt(mid.x,mid.y,dist/lastDist);cam.x+=mid.x-lastMid.x;cam.y+=mid.y-lastMid.y;apply();}
     lastMid=mid;lastDist=dist;moved=true;
   }
+  if(moved){ try{ if(!vp.hasPointerCapture(e.pointerId)) vp.setPointerCapture(e.pointerId); }catch(_){ /* puntero ya liberado */ } }
 });
 function endPtr(e){pointers.delete(e.pointerId);lastMid=null;lastDist=0;if(!pointers.size)vp.classList.remove('panning');}
 vp.addEventListener('pointerup',endPtr);vp.addEventListener('pointercancel',endPtr);
@@ -1084,7 +1116,7 @@ world.addEventListener('click',e=>{
   const n=e.target.closest('[data-note]');
   if(!n||moved){if(!e.target.closest('#popover'))hidePop();return;}
   const r=n.getBoundingClientRect();
-  pop.innerHTML=`<div class="pt">${esc(n.dataset.nm)}</div>${n.dataset.rl?`<div class="pr">${esc(n.dataset.rl)}</div>`:''}<div>${esc(n.dataset.note)}</div>`;
+  pop.innerHTML=`<div class="pt">${esc(n.dataset.nm)}</div>${n.dataset.rl?`<div class="pr">${esc(n.dataset.rl)}</div>`:''}${n.dataset.dl?`<div class="pdl">Δ ${esc(TIPO_DELTA[n.dataset.dl]||'Diferencia vs. papel')}</div>`:''}${n.dataset.note?`<div>${esc(n.dataset.note)}</div>`:''}`;
   pop.style.display='block';
   const px=Math.min(innerWidth-360,Math.max(10,r.left)), py=r.bottom+8>innerHeight-140?r.top-pop.offsetHeight-8:r.bottom+8;
   pop.style.left=px+'px';pop.style.top=Math.max(60,py)+'px';
@@ -1136,9 +1168,40 @@ function setCapa(c){
   else showScene(2);   // entrada ejecutiva: Gobierno corporativo (la vista general queda en ⤢ / escena 1)
 }
 document.querySelectorAll('#capas button').forEach(b=>b.onclick=()=>setCapa(b.dataset.capa));
+/* Modo diferencias: panel explicativo con conteo por tipo y navegación caso a caso */
+function nodosDelta(tipo){
+  if(tipo==='solo') return [...document.querySelectorAll('#canvas .node.d, #canvas .defacto-card')];
+  const marcados=[...document.querySelectorAll('#canvas .badge.dl')]
+    .filter(b=>b.textContent.trim()===tipo).map(b=>b.closest('.node,.defacto-card')).filter(Boolean);
+  if(tipo==='🕳'){
+    marcados.push(...[...document.querySelectorAll('#canvas .cnt')].filter(c=>c.textContent.includes('🕳')));
+    marcados.push(...[...document.querySelectorAll('#canvas .badge.w')].filter(b=>(b.title||'').includes('🕳')).map(b=>b.closest('.node')).filter(Boolean));
+  }
+  return [...new Set(marcados)];
+}
+const DELTA_TIPOS=[['🎩','Doble sombrero'],['🔀','Doble reporte'],['👻','Fuera de estructura'],['🕳','Vacante'],['⚡','Solape'],['solo','Solo en la realidad']];
+const deltaIdx={};
+function pintarDiffsInfo(){
+  const cont=document.getElementById('dtipos'); cont.innerHTML='';
+  DELTA_TIPOS.forEach(([t,nombre])=>{
+    const n=nodosDelta(t).length; if(!n) return;
+    const b=document.createElement('button'); b.className='dtipo';
+    b.innerHTML=`${t==='solo'?'<span class="sw-solo"></span>':t} ${nombre} <b>${n}</b>`;
+    b.title=t==='solo'?'Recuadros que existen solo en la operación real, no en el papel':(TIPO_DELTA[t]||'');
+    b.onclick=()=>{
+      const list=nodosDelta(t); if(!list.length)return;
+      deltaIdx[t]=((deltaIdx[t]??-1)+1)%list.length;
+      const el=list[deltaIdx[t]];
+      fitEl(el.closest('.dept,.govbox')||el,150); flash(el);
+    };
+    cont.appendChild(b);
+  });
+}
 document.getElementById('b-diffs').onclick=function(){
   app.classList.toggle('diffs');
-  this.classList.toggle('on',app.classList.contains('diffs'));
+  const activo=app.classList.contains('diffs');
+  this.classList.toggle('on',activo);
+  if(activo) pintarDiffsInfo();
 };
 
 /* =================== INIT =================== */
