@@ -54,6 +54,7 @@ La configuración se hizo desde Claude Code usando el **conector MCP de Supabase
 |---|---|
 | [`extraer-entrevista`](functions/extraer-entrevista/index.ts) | Recibe el texto crudo de una entrevista y usa Claude (`claude-opus-4-8`) para extraer los metadatos del formulario del módulo admin. |
 | [`asistente`](functions/asistente/index.ts) | Chat streaming (SSE) sobre el corpus para el módulo «Asistente IA»: Claude Opus 4.8 con la síntesis completa en contexto (prompt caching) + herramientas `buscar_pasajes`/`leer_entrevista`/`linea_tiempo`/`listar_archivos`. ⚠️ Desplegada con `--no-verify-jwt`: cualquiera con la URL consume la cuota de Anthropic — cerrar al activar Auth. |
+| [`indexar`](functions/indexar/index.ts) | Indexación automática del corpus (la disparan los triggers pg_net de schema §8 al cargar entrevistas/archivos): extrae texto (diálogo del transcriptor, xlsx vía SheetJS, pdf vía unpdf, docx/pptx vía JSZip), trocea a `fragmentos` y sintetiza con Claude hacia `conocimiento`. Acepta `{tipo,id}` o `{todo:true}` (backfill por lotes). |
 
 - **Secreto requerido:** `ANTHROPIC_API_KEY` (token `sk-ant-…`). Se guarda en Supabase, **nunca** en el repo ni en el cliente: `supabase secrets set ANTHROPIC_API_KEY=... --project-ref <ref>`.
 - **Deploy:** `supabase functions deploy extraer-entrevista --no-verify-jwt --project-ref <ref>`.

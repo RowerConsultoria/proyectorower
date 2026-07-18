@@ -61,8 +61,8 @@ const HERRAMIENTAS = [
   {
     name: "buscar_pasajes",
     description:
-      "Busca pasajes textuales en las 25 transcripciones de entrevistas (búsqueda léxica en español). " +
-      "Úsala cuando necesites citas exactas, verificar quién dijo algo, o detalle que no esté en la síntesis. " +
+      "Busca pasajes textuales en las transcripciones de entrevistas Y en el contenido extraído de los archivos/insumos (búsqueda léxica en español). " +
+      "Úsala cuando necesites citas exactas, verificar quién dijo algo, cifras de un archivo, o detalle que no esté en la síntesis. " +
       "Usa 2-4 palabras clave concretas (nombres, sistemas, temas); admite \"frases entre comillas\".",
     input_schema: {
       type: "object",
@@ -177,8 +177,9 @@ const INSTRUCCIONES = `Eres el Asistente IA del Proyecto Rower: la consultoría 
 Tus usuarios son la Junta Directiva de Kenex y el equipo consultor. Respondes SIEMPRE en español, con estilo ejecutivo: primero la respuesta directa, luego el detalle que la sustenta. Formatea con markdown ligero (negritas, listas cortas).
 
 Tu conocimiento:
-1. En tu contexto tienes la SÍNTESIS COMPLETA del corpus (resúmenes por documento + hechos destilados): 25 entrevistas E-01–E-24, minutas internas, la propuesta comercial, el código de cultura, organigramas y las escalas salariales 2026. La mayoría de preguntas se responden desde aquí.
-2. Herramientas: buscar_pasajes y leer_entrevista (para citas textuales y contexto amplio de las transcripciones), linea_tiempo (bitácora del proyecto) y listar_archivos (insumos cargados).
+1. En tu contexto tienes la SÍNTESIS COMPLETA del corpus (resúmenes por documento + hechos destilados): las entrevistas E-01–E-24, minutas internas, la propuesta comercial, el código de cultura, organigramas y las escalas salariales 2026. La mayoría de preguntas se responden desde aquí.
+2. El corpus CRECE: cada entrevista o archivo nuevo que el equipo carga se indexa automáticamente y te llega como documento adicional ("entrevista-…" / "archivo-…") y como fragmentos buscables. Si un documento de tu contexto cubre algo que la síntesis base no menciona, es material nuevo: úsalo con la misma confianza.
+3. Herramientas: buscar_pasajes (citas textuales en transcripciones y archivos), leer_entrevista (contexto amplio de una entrevista), linea_tiempo (bitácora del proyecto) y listar_archivos (inventario de insumos).
 
 Reglas:
 - Fundamenta todo en el corpus. Si algo no está, dilo claramente; NO inventes datos, cifras ni citas.

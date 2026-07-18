@@ -289,3 +289,57 @@ create policy fragmentos_lectura   on public.fragmentos for select using (true);
 create policy fragmentos_escritura on public.fragmentos for all to authenticated using (true) with check (true);
 -- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
 create policy fragmentos_escritura_anon on public.fragmentos for all to anon using (true) with check (true);
+
+-- ---------- 8. Indexación automática del corpus ----------
+-- Cada entrevista o archivo que se carga dispara (vía pg_net) la Edge Function
+-- "indexar", que: extrae el texto (diálogo limpio / contenido del xlsx-pdf-docx-pptx),
+-- lo trocea en fragmentos (FTS), y genera con Claude una síntesis que se guarda
+-- en "conocimiento" — con lo que entra AUTOMÁTICAMENTE al contexto del Asistente IA
+-- (su caché de conocimiento refresca cada 5 min).
+
+create extension if not exists pg_net;
+
+alter table public.entrevistas add column if not exists indexado_en timestamptz;
+alter table public.archivos    add column if not exists indexado_en timestamptz;
+
+create or replace function public.disparar_indexado()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  perform net.http_post(
+    url     := 'https://kmhwqybqrcjhjeywjgxj.supabase.co/functions/v1/indexar',
+    headers := jsonb_build_object(
+      'Content-Type', 'application/json',
+      'Authorization', 'Bearer sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1'
+    ),
+    body := jsonb_build_object('tipo', TG_ARGV[0], 'id', NEW.id::text)
+  );
+  return NEW;
+end;
+$$;
+
+-- Entrevistas: al crear con transcripción, o cuando la transcripción cambia.
+drop trigger if exists entrevistas_indexar_ins on public.entrevistas;
+create trigger entrevistas_indexar_ins
+  after insert on public.entrevistas
+  for each row
+  when (new.transcripcion is not null and length(new.transcripcion) > 50)
+  execute function public.disparar_indexado('entrevista');
+
+drop trigger if exists entrevistas_indexar_upd on public.entrevistas;
+create trigger entrevistas_indexar_upd
+  after update of transcripcion on public.entrevistas
+  for each row
+  when (old.transcripcion is distinct from new.transcripcion
+        and new.transcripcion is not null and length(new.transcripcion) > 50)
+  execute function public.disparar_indexado('entrevista');
+
+-- Archivos: al insertar la metadata (el binario ya está en Storage en ese punto).
+drop trigger if exists archivos_indexar_ins on public.archivos;
+create trigger archivos_indexar_ins
+  after insert on public.archivos
+  for each row
+  execute function public.disparar_indexado('archivo');
