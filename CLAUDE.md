@@ -23,10 +23,11 @@ Dos secciones, ambas accesibles desde el portal raíz (`index.html`):
 `admin/index.html` — SPA de un solo archivo, enrutado por hash. Módulos activos:
 - **Entrevistas transcritas**: tabla `entrevistas` en Supabase + **autocompletar con IA** (subes el crudo `.md/.json/.txt` y la Edge Function `extraer-entrevista` llama a Claude para rellenar los campos).
 - **Archivos (insumos)**: bucket de Storage `insumos` + tabla `archivos` (Excel/PPT/PDF: subir varios, buscar, filtrar, descargar, eliminar).
+- **Línea de tiempo**: bitácora cronológica del proyecto (tabla `eventos`): CRUD completo, filtros por tipo, buscador. Sembrada el 18-jul con 148 eventos extraídos del análisis exhaustivo del corpus (entrevistas + minutas + propuesta + Excel). Fechas solo-mes normalizadas al día 1.
 - Stubs pendientes: Estado del informe, Comentarios, Matriz de riesgos (las tablas ya existen en Supabase).
 
 ### 🗄️ Backend — Supabase (proyecto `kmhwqybqrcjhjeywjgxj`, "Rower Project")
-- Tablas: `secciones`, `comentarios`, `riesgos`, `entrevistas`, `archivos` · Bucket: `insumos` · Edge Function: `extraer-entrevista` (modelo `claude-opus-4-8`, forced tool use; la API key de Anthropic vive como secreto `ANTHROPIC_API_KEY` de Supabase — NUNCA en el repo ni en el cliente).
+- Tablas: `secciones`, `comentarios`, `riesgos`, `entrevistas`, `archivos`, `eventos` · Bucket: `insumos` · Edge Function: `extraer-entrevista` (modelo `claude-opus-4-8`, forced tool use; la API key de Anthropic vive como secreto `ANTHROPIC_API_KEY` de Supabase — NUNCA en el repo ni en el cliente).
 - `supabase/schema.sql` es la fuente idempotente de todo el esquema. `supabase/cliente.js` tiene la URL + clave publishable (pública por diseño).
 - **⚠️ SEGURIDAD PENDIENTE:** el admin corre **sin login**. Políticas anónimas transitorias en `entrevistas`, `archivos`, bucket `insumos`, y la función desplegada con `--no-verify-jwt`. **No cargar contenido real sensible hasta activar Supabase Auth** y cerrar todas esas políticas de una vez.
 

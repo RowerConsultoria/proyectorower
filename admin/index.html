@@ -145,6 +145,29 @@
 
   .backlink{font-size:.85rem; color:var(--muted); margin-bottom:12px; display:inline-block;}
 
+  /* ---------- Línea de tiempo ---------- */
+  .tl{position:relative; padding-left:26px;}
+  .tl::before{content:""; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:var(--borde);}
+  .tl-day{position:relative; margin-bottom:24px;}
+  .tl-date{position:relative; font-weight:700; color:var(--navy); margin-bottom:10px;}
+  .tl-date::first-letter{text-transform:uppercase;}
+  .tl-dot{position:absolute; left:-24px; top:5px; width:12px; height:12px; border-radius:50%; background:var(--blue); border:2px solid #fff; box-shadow:0 0 0 2px var(--blue);}
+  .tl-ev{background:#fff; border:1px solid var(--borde); border-left:4px solid var(--blue); border-radius:8px; padding:12px 14px 10px; margin-bottom:10px;}
+  .tl-ev-head{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .tl-ev-head b{color:var(--navy);}
+  .tl-ev-head .acts{margin-left:auto; white-space:nowrap;}
+  .tl-ev-head .acts button{background:none; border:none; cursor:pointer; font-size:.95rem; opacity:.55; padding:2px 4px;}
+  .tl-ev-head .acts button:hover{opacity:1;}
+  .tl-ev-desc{font-size:.88rem; color:var(--txt); margin-top:5px;}
+  .tl-ev-meta{font-size:.76rem; color:var(--muted); margin-top:7px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .t-entrevista{border-left-color:var(--blue);} .t-reunion_interna{border-left-color:var(--navy);}
+  .t-hito{border-left-color:var(--ambar);} .t-entregable{border-left-color:var(--verde);}
+  .t-analisis{border-left-color:#8494b0;} .t-decision{border-left-color:var(--rojo);} .t-visita{border-left-color:#0f6b74;}
+  .b-ev-entrevista{background:#e3eefb; color:var(--blue);} .b-ev-reunion_interna{background:#e6eaf3; color:var(--navy);}
+  .b-ev-hito{background:#fdf1de; color:var(--ambar);} .b-ev-entregable{background:#e3efe4; color:var(--verde);}
+  .b-ev-analisis{background:#eef1f6; color:#55627a;} .b-ev-decision{background:#efe1e1; color:var(--rojo);} .b-ev-visita{background:#e0eff0; color:#0f6b74;}
+  .tl-resumen{font-size:.82rem; color:var(--muted); margin:0 0 14px;}
+
   /* ---------- Móvil: hamburguesa + drawer off-canvas ---------- */
   .menu-toggle{display:none; background:none; border:none; color:var(--navy); font-size:22px; line-height:1; cursor:pointer; padding:2px 8px; margin-right:2px;}
   .scrim{display:none;}
@@ -186,6 +209,8 @@
       <div class="group">Insumos</div>
       <a class="item" data-route="entrevistas" href="#entrevistas"><span class="ico">🎙️</span> Entrevistas transcritas</a>
       <a class="item" data-route="archivos" href="#archivos"><span class="ico">📁</span> Archivos (insumos)</a>
+      <div class="group">Seguimiento</div>
+      <a class="item" data-route="timeline" href="#timeline"><span class="ico">🗓️</span> Línea de tiempo</a>
       <div class="group">Informe (próximamente)</div>
       <a class="item" data-route="secciones" href="#secciones"><span class="ico">📄</span> Estado del informe <span class="soon">Pronto</span></a>
       <a class="item" data-route="comentarios" href="#comentarios"><span class="ico">💬</span> Comentarios <span class="soon">Pronto</span></a>
@@ -250,6 +275,7 @@ const FN_EXTRAER = FN_BASE + '/functions/v1/extraer-entrevista';
 const routes = {
   entrevistas: renderEntrevistas,
   archivos:    renderArchivos,
+  timeline:    renderTimeline,
   secciones:   ()=> stub('Estado del informe','Espejo operable de la tabla <code>secciones</code> — próximamente.'),
   comentarios: ()=> stub('Comentarios','Feedback de los consultores por sección — próximamente.'),
   riesgos:     ()=> stub('Matriz de riesgos','Severidad × área × fuente (sección 9) — próximamente.'),
@@ -627,6 +653,169 @@ async function eliminarArchivo(a){
   const del = await db.from('archivos').delete().eq('id', a.id);
   if(del.error) return toast('Error al eliminar metadatos: '+del.error.message, true);
   toast('Archivo eliminado'); await recargarArchivos();
+}
+
+/* ============================================================
+   Módulo: Línea de tiempo — bitácora del proyecto (tabla public.eventos)
+   ============================================================ */
+const TIPOS_EVENTO = {
+  entrevista:      { ico:'🎙️', nombre:'Entrevista' },
+  reunion_interna: { ico:'🧭', nombre:'Reunión interna' },
+  hito:            { ico:'🚩', nombre:'Hito' },
+  entregable:      { ico:'📦', nombre:'Entregable' },
+  analisis:        { ico:'🔬', nombre:'Análisis' },
+  decision:        { ico:'⚖️', nombre:'Decisión' },
+  visita:          { ico:'✈️', nombre:'Visita' },
+};
+let cacheEv = [];
+let evEditId = null;
+
+function fechaLarga(iso){
+  const d = new Date(iso + 'T00:00:00');
+  return isNaN(d) ? iso : d.toLocaleDateString('es', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+}
+
+async function renderTimeline(){
+  view.innerHTML = `
+    <div class="page-head">
+      <div><h2>Línea de tiempo</h2><p>Bitácora día a día del proyecto: entrevistas, reuniones internas, hitos, entregables, análisis y decisiones.</p></div>
+      <div class="actions"><button class="btn primary" id="evNuevo">＋ Añadir evento</button></div>
+    </div>
+    <form class="detail" id="evForm" style="display:none; margin-bottom:16px;">
+      <div class="grid2">
+        <div class="field"><label>Fecha *</label><input type="date" name="fecha" required></div>
+        <div class="field"><label>Tipo</label><select name="tipo">${Object.entries(TIPOS_EVENTO).map(([k,v])=>`<option value="${k}">${v.ico} ${v.nombre}</option>`).join('')}</select></div>
+        <div class="field"><label>País</label><select name="pais"><option value="">—</option>${PAISES.map(p=>`<option>${p}</option>`).join('')}</select></div>
+        <div class="field"><label>Fuente</label><input name="fuente" placeholder="E-01, minuta 29-jun, propuesta…"></div>
+        <div class="field full"><label>Título *</label><input name="titulo" required></div>
+        <div class="field full"><label>Descripción</label><textarea name="descripcion"></textarea></div>
+        <div class="field full"><label>Actores (separados por coma)</label><input name="actores"></div>
+      </div>
+      <div class="form-foot">
+        <button type="submit" class="btn primary" id="evSave">💾 Guardar evento</button>
+        <button type="button" class="btn" id="evCancel">Cancelar</button>
+      </div>
+    </form>
+    <div class="toolbar">
+      <div class="search"><input id="qe" type="search" placeholder="Buscar por título, descripción, fuente, actor…"></div>
+      <select class="filter" id="feTipo"><option value="">Todos los tipos</option>${Object.entries(TIPOS_EVENTO).map(([k,v])=>`<option value="${k}">${v.nombre}</option>`).join('')}</select>
+      <select class="filter" id="feOrden"><option value="asc">Cronológico ↑</option><option value="desc">Reciente primero ↓</option></select>
+    </div>
+    <div id="tlWrap"><div class="card"><div class="empty">Cargando…</div></div></div>`;
+
+  $('#evNuevo').addEventListener('click', ()=> abrirFormEv());
+  $('#evCancel').addEventListener('click', ()=> cerrarFormEv());
+  $('#evForm').addEventListener('submit', (e)=>{ e.preventDefault(); guardarEvento(); });
+  $('#qe').addEventListener('input', paintTimeline);
+  $('#feTipo').addEventListener('change', paintTimeline);
+  $('#feOrden').addEventListener('change', paintTimeline);
+
+  if(!db){ $('#tlWrap').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
+  await recargarEventos();
+}
+
+async function recargarEventos(){
+  const { data, error } = await db.from('eventos').select('*').order('fecha').order('creado_en');
+  if(error){
+    setConn('err','Error de conexión');
+    const hint = /relation .*eventos.* does not exist|schema cache/i.test(error.message)
+      ? 'La tabla <code>eventos</code> aún no existe: ejecuta <code>supabase/schema.sql</code> en el SQL Editor del dashboard.' : esc(error.message);
+    const w = $('#tlWrap'); if(w) w.innerHTML = `<div class="card"><div class="empty"><div class="big">⚠️</div>${hint}</div></div>`;
+    return;
+  }
+  setConn('ok','Conectado · Supabase'); cacheEv = data || []; paintTimeline();
+}
+
+function paintTimeline(){
+  const q = ($('#qe')?.value||'').trim().toLowerCase();
+  const ft = $('#feTipo')?.value||'';
+  const orden = $('#feOrden')?.value||'asc';
+  let rows = cacheEv.filter(ev=>{
+    if(ft && ev.tipo!==ft) return false;
+    if(!q) return true;
+    return [ev.titulo,ev.descripcion,ev.fuente,ev.pais,(ev.actores||[]).join(' ')].join(' ').toLowerCase().includes(q);
+  });
+  if(orden==='desc') rows = [...rows].reverse();
+  const wrap = $('#tlWrap'); if(!wrap) return;
+  if(!rows.length){
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">🗓️</div>${cacheEv.length? 'Ningún evento con esos filtros.' : 'Aún no hay eventos en la bitácora. Añade el primero con «＋ Añadir evento».'}</div></div>`;
+    return;
+  }
+  const dias = [];
+  for(const ev of rows){
+    const ultimo = dias[dias.length-1];
+    if(ultimo && ultimo.fecha===ev.fecha) ultimo.evs.push(ev); else dias.push({ fecha:ev.fecha, evs:[ev] });
+  }
+  wrap.innerHTML = `
+    <p class="tl-resumen">${rows.length} evento(s) · ${esc(rows[0].fecha)} → ${esc(rows[rows.length-1].fecha)}</p>
+    <div class="tl">${dias.map(d=>`
+      <div class="tl-day">
+        <div class="tl-date"><span class="tl-dot"></span>${esc(fechaLarga(d.fecha))}</div>
+        ${d.evs.map(ev=>{
+          const t = TIPOS_EVENTO[ev.tipo] || TIPOS_EVENTO.hito;
+          return `<div class="tl-ev t-${esc(ev.tipo)}">
+            <div class="tl-ev-head">${t.ico} <b>${esc(ev.titulo)}</b>
+              <span class="badge b-ev-${esc(ev.tipo)}">${esc(t.nombre)}</span>
+              <span class="acts"><button type="button" title="Editar" data-id="${esc(ev.id)}" class="ev-edit">✏️</button><button type="button" title="Eliminar" data-id="${esc(ev.id)}" class="ev-del">🗑</button></span>
+            </div>
+            ${ev.descripcion? `<div class="tl-ev-desc">${esc(ev.descripcion)}</div>`:''}
+            <div class="tl-ev-meta">
+              ${ev.fuente? `<span>📎 ${esc(ev.fuente)}</span>`:''}
+              ${ev.pais? `<span>📍 ${esc(ev.pais)}</span>`:''}
+              ${(ev.actores&&ev.actores.length)? `<span>${ev.actores.map(a=>`<span class="tag">${esc(a)}</span>`).join('')}</span>`:''}
+            </div>
+          </div>`;
+        }).join('')}
+      </div>`).join('')}
+    </div>`;
+  $$('#tlWrap .ev-edit').forEach(b=> b.addEventListener('click', ()=> abrirFormEv(cacheEv.find(x=>String(x.id)===b.dataset.id))));
+  $$('#tlWrap .ev-del').forEach(b=> b.addEventListener('click', ()=> eliminarEvento(cacheEv.find(x=>String(x.id)===b.dataset.id))));
+}
+
+function abrirFormEv(ev){
+  const f = $('#evForm'); if(!f) return;
+  evEditId = ev? ev.id : null;
+  f.style.display = 'block';
+  f.elements['fecha'].value = ev?.fecha || '';
+  f.elements['tipo'].value = ev?.tipo || 'hito';
+  f.elements['pais'].value = ev?.pais || '';
+  f.elements['fuente'].value = ev?.fuente || '';
+  f.elements['titulo'].value = ev?.titulo || '';
+  f.elements['descripcion'].value = ev?.descripcion || '';
+  f.elements['actores'].value = (ev?.actores||[]).join(', ');
+  f.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+function cerrarFormEv(){ const f=$('#evForm'); if(f){ f.style.display='none'; f.reset(); } evEditId=null; }
+
+async function guardarEvento(){
+  if(!db) return toast('Sin conexión con la base de datos', true);
+  const f = $('#evForm');
+  const g = n => f.elements[n].value.trim();
+  const actores = g('actores').split(',').map(s=>s.trim()).filter(Boolean);
+  const payload = {
+    fecha: g('fecha'), titulo: g('titulo'), tipo: f.elements['tipo'].value,
+    descripcion: g('descripcion')||null, fuente: g('fuente')||null,
+    pais: g('pais')||null, actores: actores.length? actores : null,
+  };
+  if(!payload.fecha || !payload.titulo) return toast('Fecha y título son obligatorios', true);
+  const btn = $('#evSave'); btn.disabled = true;
+  let error;
+  if(evEditId){ ({ error } = await db.from('eventos').update(payload).eq('id', evEditId)); }
+  else        { ({ error } = await db.from('eventos').insert(payload)); }
+  btn.disabled = false;
+  if(error){
+    if(/duplicate key|unique/i.test(error.message)) return toast('Ya existe un evento con esa fecha y título', true);
+    return toast('Error al guardar: '+error.message, true);
+  }
+  toast(evEditId? 'Evento actualizado' : 'Evento añadido'); cerrarFormEv(); await recargarEventos();
+}
+
+async function eliminarEvento(ev){
+  if(!ev) return;
+  if(!confirm(`¿Eliminar el evento "${ev.titulo}" (${ev.fecha})? Esta acción no se puede deshacer.`)) return;
+  const { error } = await db.from('eventos').delete().eq('id', ev.id);
+  if(error) return toast('Error al eliminar: '+error.message, true);
+  toast('Evento eliminado'); await recargarEventos();
 }
 
 /* ---- arranque ---- */

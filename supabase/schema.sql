@@ -178,3 +178,31 @@ create policy archivos_lectura        on public.archivos for select using (true)
 create policy archivos_escritura      on public.archivos for all to authenticated using (true) with check (true);
 -- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
 create policy archivos_escritura_anon on public.archivos for all to anon using (true) with check (true);
+
+-- ---------- 6. Línea de tiempo (bitácora del proyecto) ----------
+-- Eventos día a día del proyecto consultor: entrevistas, reuniones internas,
+-- hitos, entregables, análisis, decisiones y visitas. Alimenta el módulo
+-- "Línea de tiempo" del admin. unique(fecha,titulo) hace idempotente la semilla.
+create table if not exists public.eventos (
+  id          uuid primary key default gen_random_uuid(),
+  fecha       date not null,
+  titulo      text not null,
+  descripcion text,
+  tipo        text not null default 'hito'
+              check (tipo in ('entrevista','reunion_interna','hito','entregable','analisis','decision','visita')),
+  fuente      text,                          -- E-01, minuta 29-jun, propuesta, estatus 30-jun…
+  pais        text,
+  actores     text[],
+  creado_en   timestamptz not null default now(),
+  unique (fecha, titulo)
+);
+
+alter table public.eventos enable row level security;
+
+drop policy if exists eventos_lectura        on public.eventos;
+drop policy if exists eventos_escritura      on public.eventos;
+drop policy if exists eventos_escritura_anon on public.eventos;
+create policy eventos_lectura   on public.eventos for select using (true);
+create policy eventos_escritura on public.eventos for all to authenticated using (true) with check (true);
+-- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
+create policy eventos_escritura_anon on public.eventos for all to anon using (true) with check (true);
