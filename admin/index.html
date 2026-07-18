@@ -190,6 +190,31 @@
   .sugerencias button{background:#fff; border:1px solid var(--borde); border-radius:999px; padding:6px 12px; font-size:.82rem; color:var(--navy); cursor:pointer;}
   .sugerencias button:hover{border-color:var(--blue); color:var(--blue);}
 
+  /* ---------- Vista previa de archivos (modal) ---------- */
+  .fila-arch{cursor:pointer;}
+  .fila-arch:hover td{background:#f4f7fb;}
+  .prev-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:200;display:none;align-items:center;justify-content:center;padding:18px;}
+  .prev-bg.open{display:flex;}
+  .prev-box{background:#fff;border-radius:14px;box-shadow:0 24px 70px rgba(15,23,42,.35);width:min(1100px,96vw);height:min(780px,92vh);display:flex;flex-direction:column;overflow:hidden;}
+  .prev-head{display:flex;align-items:center;gap:10px;padding:11px 16px;background:var(--navy);color:#fff;flex-wrap:wrap;}
+  .prev-head b{font-size:14px;max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .prev-head .meta{font-size:12px;opacity:.8;}
+  .prev-head .sp{flex:1;}
+  .prev-head button,.prev-head a{background:rgba(255,255,255,.14);border:none;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit;font-size:12.5px;text-decoration:none;}
+  .prev-head button:hover,.prev-head a:hover{background:rgba(255,255,255,.28);}
+  .prev-body{flex:1;overflow:auto;background:#f6f8fb;}
+  .prev-body iframe{width:100%;height:100%;border:0;display:block;}
+  .prev-body img{max-width:100%;display:block;margin:14px auto;border-radius:8px;box-shadow:0 4px 18px rgba(15,23,42,.15);}
+  .prev-pad{padding:14px 18px;}
+  .prev-body pre{white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--borde);border-radius:8px;padding:12px;margin:0 0 10px;}
+  .prev-hoja{font-weight:700;color:var(--navy);margin:14px 0 6px;font-size:13px;}
+  .prev-body table.hoja{border-collapse:collapse;background:#fff;font-size:11.5px;margin-bottom:8px;}
+  .prev-body table.hoja td{border:1px solid #e2e8f2;padding:3px 8px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;}
+  .prev-body table.hoja tr:first-child td{background:#eef2f8;font-weight:600;}
+  .prev-sintesis{background:#fdf6e7;border:1px solid #ecd9a8;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12.5px;}
+  .prev-sintesis summary{cursor:pointer;font-weight:700;color:#7a4a00;}
+  .prev-cargando{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:13px;gap:8px;}
+
   /* ---------- Móvil: hamburguesa + drawer off-canvas ---------- */
   .menu-toggle{display:none; background:none; border:none; color:var(--navy); font-size:22px; line-height:1; cursor:pointer; padding:2px 8px; margin-right:2px;}
   .scrim{display:none;}
@@ -615,7 +640,7 @@ function paintArch(){
   card.innerHTML = `<table class="data">
     <thead><tr><th>Archivo</th><th>Categoría</th><th>Tipo</th><th>Tamaño</th><th>Fecha</th><th style="text-align:right">Acciones</th></tr></thead>
     <tbody>${rows.map(a=>`
-      <tr data-id="${esc(a.id)}">
+      <tr data-id="${esc(a.id)}" class="fila-arch" title="Clic para ver la vista previa">
         <td class="nombre"><b>${iconoTipo(a.tipo)} ${esc(a.nombre)}</b>${a.descripcion?`<div class="muted" style="font-size:.82rem; margin-top:2px">${esc(a.descripcion)}</div>`:''}${(a.etiquetas&&a.etiquetas.length)?`<div style="margin-top:4px">${a.etiquetas.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}</td>
         <td>${esc(a.categoria||'—')}</td>
         <td><span class="badge b-${esc(a.tipo||'otro')}">${esc(a.tipo||'otro')}</span></td>
@@ -629,6 +654,10 @@ function paintArch(){
     </tbody></table>`;
   $$('#archCard .dl').forEach(b=> b.addEventListener('click', ()=> descargarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
   $$('#archCard .del').forEach(b=> b.addEventListener('click', ()=> eliminarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
+  $$('#archCard tbody tr').forEach(tr=> tr.addEventListener('click', (e)=>{
+    if(e.target.closest('button')) return;   // los botones de acción no abren el preview
+    abrirPreview(cacheArch.find(x=>String(x.id)===tr.dataset.id));
+  }));
 }
 
 async function subirArchivos(files){
@@ -668,6 +697,129 @@ async function descargarArchivo(a){
   const url = URL.createObjectURL(data);
   const link = document.createElement('a'); link.href = url; link.download = a.nombre; document.body.appendChild(link); link.click(); link.remove();
   setTimeout(()=> URL.revokeObjectURL(url), 4000);
+}
+
+/* ---- Vista previa de archivos (modal) ---- */
+let prevModal=null, prevURL=null, prevArchivoActual=null;
+
+function cargarLib(src){
+  return new Promise((res,rej)=>{
+    if(document.querySelector(`script[src="${src}"]`)) return res();
+    const s=document.createElement('script'); s.src=src;
+    s.onload=res; s.onerror=()=>rej(new Error('No se pudo cargar la librería de vista previa'));
+    document.head.appendChild(s);
+  });
+}
+
+function asegurarModal(){
+  if(prevModal) return;
+  const div=document.createElement('div'); div.className='prev-bg'; div.id='prevBg';
+  div.innerHTML=`<div class="prev-box" role="dialog" aria-modal="true" aria-label="Vista previa de archivo">
+    <div class="prev-head"><b id="prevTitulo"></b><span class="meta" id="prevMeta"></span><span class="sp"></span>
+      <a id="prevDescargar" href="javascript:void(0)">⬇️ Descargar</a><button id="prevCerrar">✕ Cerrar</button></div>
+    <div class="prev-body" id="prevBody"></div></div>`;
+  document.body.appendChild(div); prevModal=div;
+  div.addEventListener('click', e=>{ if(e.target===div) cerrarPreview(); });
+  $('#prevCerrar', div).addEventListener('click', cerrarPreview);
+  $('#prevDescargar', div).addEventListener('click', ()=>{ if(prevArchivoActual) descargarArchivo(prevArchivoActual); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && div.classList.contains('open')) cerrarPreview(); });
+}
+
+function cerrarPreview(){
+  if(prevURL){ URL.revokeObjectURL(prevURL); prevURL=null; }
+  if(prevModal){ prevModal.classList.remove('open'); $('#prevBody', prevModal).innerHTML=''; }
+}
+
+const limpiarXML = x => String(x||'')
+  .replace(/<a:br\s*\/>|<w:br\s*\/>|<\/a:p>|<\/w:p>/g,'\n').replace(/<[^>]+>/g,' ')
+  .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&apos;/g,"'")
+  .replace(/[ \t]{2,}/g,' ').replace(/\n{3,}/g,'\n\n').trim();
+
+function tablaHTML(filas){
+  return `<div style="overflow:auto"><table class="hoja">${
+    filas.map(f=>`<tr>${(f||[]).slice(0,40).map(c=>`<td>${esc(c==null?'':c)}</td>`).join('')}</tr>`).join('')
+  }</table></div>`;
+}
+
+async function renderPreview(a, blob){
+  const ext=(a.nombre.split('.').pop()||'').toLowerCase();
+  const mime=a.mime||blob.type||'';
+
+  if(ext==='pdf' || mime==='application/pdf'){
+    prevURL=URL.createObjectURL(blob);
+    return {tipo:'full', html:`<iframe src="${prevURL}" title="PDF"></iframe>`};
+  }
+  if(mime.startsWith('image/') || ['png','jpg','jpeg','gif','webp','svg'].includes(ext)){
+    prevURL=URL.createObjectURL(blob);
+    return {tipo:'full', html:`<img src="${prevURL}" alt="${esc(a.nombre)}">`};
+  }
+  if(['xlsx','xls'].includes(ext)){
+    await cargarLib('https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js');
+    const wb=XLSX.read(new Uint8Array(await blob.arrayBuffer()), {type:'array'});
+    let out='';
+    wb.SheetNames.slice(0,6).forEach(nombre=>{
+      const filas=XLSX.utils.sheet_to_json(wb.Sheets[nombre], {header:1, blankrows:false}).slice(0,300);
+      if(!filas.length) return;
+      out+=`<div class="prev-hoja">Hoja: ${esc(nombre)}${filas.length===300?' · primeras 300 filas':''}</div>${tablaHTML(filas)}`;
+    });
+    if(wb.SheetNames.length>6) out+=`<p class="muted">…y ${wb.SheetNames.length-6} hoja(s) más — descarga el archivo para verlas.</p>`;
+    return {tipo:'texto', html: out || '<p>El libro no tiene datos visibles.</p>'};
+  }
+  if(ext==='docx'){
+    await cargarLib('https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js');
+    const zip=await JSZip.loadAsync(await blob.arrayBuffer());
+    const xml=await zip.file('word/document.xml')?.async('string');
+    const texto=limpiarXML(xml);
+    return {tipo:'texto', html: texto ? `<pre>${esc(texto)}</pre>` : '<p>Sin texto extraíble.</p>'};
+  }
+  if(ext==='pptx'){
+    await cargarLib('https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js');
+    const zip=await JSZip.loadAsync(await blob.arrayBuffer());
+    const laminas=Object.keys(zip.files)
+      .filter(f=>/^ppt\/slides\/slide\d+\.xml$/.test(f))
+      .sort((x,y)=>Number(x.match(/\d+/)[0])-Number(y.match(/\d+/)[0]));
+    let out='';
+    for(const f of laminas.slice(0,40)){
+      const t=limpiarXML(await zip.file(f).async('string'));
+      if(t) out+=`<div class="prev-hoja">Lámina ${f.match(/\d+/)[0]}</div><pre>${esc(t)}</pre>`;
+    }
+    return {tipo:'texto', html: out || '<p>Sin texto extraíble (láminas compuestas solo por imágenes).</p>'};
+  }
+  if(['txt','md','csv','json','log'].includes(ext) || mime.startsWith('text/')){
+    const texto=await blob.text();
+    if(ext==='csv'){
+      const filas=texto.split(/\r?\n/).filter(Boolean).slice(0,300).map(l=>l.split(','));
+      return {tipo:'texto', html: tablaHTML(filas)};
+    }
+    return {tipo:'texto', html:`<pre>${esc(texto.slice(0,200000))}</pre>`};
+  }
+  return {tipo:'texto', html:'<p>Este tipo de archivo no tiene vista previa en el navegador — usa ⬇️ Descargar.</p>'};
+}
+
+async function abrirPreview(a){
+  if(!a || !db) return;
+  asegurarModal();
+  cerrarPreview();               // libera blob URL anterior si lo hubiera
+  prevArchivoActual=a;
+  $('#prevTitulo').textContent=`${iconoTipo(a.tipo)} ${a.nombre}`;
+  $('#prevMeta').textContent=`${a.categoria||'—'} · ${fmtSize(a.size_bytes)} · ${(a.creado_en||'').slice(0,10)}`;
+  const body=$('#prevBody');
+  body.innerHTML=`<div class="prev-cargando"><span class="spin"></span>Cargando vista previa…</div>`;
+  prevModal.classList.add('open');
+
+  const pSintesis=db.from('conocimiento').select('contenido').eq('clave',`archivo-${a.id}`).maybeSingle();
+  try{
+    const { data:blob, error } = await db.storage.from(BUCKET).download(a.storage_path);
+    if(error || !blob) throw new Error(error?.message || 'no se pudo descargar el archivo');
+    const r=await renderPreview(a, blob);
+    if(r.tipo==='full'){ body.innerHTML=r.html; return; }
+    const s=await pSintesis;
+    const sintesisHTML=s?.data?.contenido
+      ? `<details class="prev-sintesis" open><summary>🧠 Síntesis IA del archivo</summary>${mdLite(s.data.contenido)}</details>` : '';
+    body.innerHTML=`<div class="prev-pad">${sintesisHTML}${r.html}</div>`;
+  }catch(e){
+    body.innerHTML=`<div class="prev-pad">${errBox('No se pudo generar la vista previa: '+(e?.message||e))}</div>`;
+  }
 }
 
 async function eliminarArchivo(a){
