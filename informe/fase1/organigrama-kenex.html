@@ -185,7 +185,14 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
   flex-direction:column;overflow:hidden}
 .drawer.open{display:flex}
 #flows-drawer{left:14px}
+#overlaps-drawer{left:14px}
 #alerts-drawer{right:14px}
+.ov-it{display:flex;gap:8px;padding:8px 10px;border-radius:8px;background:var(--defacto-bg);
+  border:1.5px solid color-mix(in srgb,var(--defacto) 40%,transparent);font-size:12px;cursor:pointer}
+.ov-it:hover{border-color:var(--defacto)}
+.ov-it.on{border-color:var(--risk);background:var(--risk-bg)}
+.ov-it .ic{color:var(--defacto-ink)}
+.ov-it small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .drawer>header{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:8px}
 .drawer>header h3{margin:0;font-family:var(--f-d);font-size:13.5px;font-weight:700}
 .drawer>header .x{margin-left:auto;border:none;background:none;font-size:15px;padding:2px 6px;color:var(--muted)}
@@ -237,12 +244,12 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 /* capa Declarado: solo lo que está en papel */
 #app.capa-declarado .node.d,#app.capa-declarado .defacto-card,#app.capa-declarado #band-defacto,
 #app.capa-declarado .regional-card:has(.node.d),#app.capa-declarado #b-flows,#app.capa-declarado #b-alerts,
-#app.capa-declarado .drawer{display:none}
+#app.capa-declarado #b-overlaps,#app.capa-declarado .drawer{display:none}
 /* capa Propuesto: solo el band del to-be */
 #band-propuesto{display:none}
 #app.capa-propuesto #band-propuesto{display:flex}
 #app.capa-propuesto .band:not(#band-propuesto),#app.capa-propuesto #canvas>.spine,
-#app.capa-propuesto #b-flows,#app.capa-propuesto #b-alerts,#app.capa-propuesto #search,
+#app.capa-propuesto #b-flows,#app.capa-propuesto #b-alerts,#app.capa-propuesto #b-overlaps,#app.capa-propuesto #search,
 #app.capa-propuesto #scenebar,#app.capa-propuesto .drawer{display:none}
 .modelo{background:var(--panel);border:1.5px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);
   padding:16px 18px;width:300px;display:flex;flex-direction:column;gap:10px}
@@ -290,6 +297,7 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
     <input id="search" list="names" placeholder="Buscar persona… (Enter)" aria-label="Buscar persona">
     <datalist id="names"></datalist>
     <button id="b-flows">Flujos funcionales</button>
+    <button id="b-overlaps">⚡ Solapes <span id="overlaps-n"></span></button>
     <button id="b-alerts">Alertas <span id="alerts-n"></span></button>
     <button id="b-legend">Leyenda</button>
   </div>
@@ -312,8 +320,15 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
   <aside class="drawer" id="flows-drawer" aria-label="Flujos funcionales">
     <header><h3>Líneas funcionales cruzadas</h3><button class="x" data-close="flows-drawer" aria-label="Cerrar">✕</button></header>
     <div class="body" id="flows-body">
+      <p class="note" style="max-width:none;margin:2px 0 4px"><b>¿Qué son?</b> El grupo funciona en el día a día a través de coordinaciones que <b>cruzan entidades y países sin pasar por la jerarquía dibujada</b>: un gerente en Panamá dirige funcionalmente a personas de Venezuela, Colombia o EE.UU. que en el papel reportan a otro. Cada línea punteada une a quien coordina con quienes le responden funcionalmente, con su evidencia [E-xx]. Son la capa crítica del As-Is: si estas líneas fallan, la operación multi-país se detiene — y casi ninguna existe en el organigrama declarado.</p>
       <div style="display:flex;gap:8px"><button id="f-all" style="flex:1">Mostrar todas</button><button id="f-none" style="flex:1">Ninguna</button></div>
-      <p class="note" style="max-width:none;margin:2px 0 4px">Coordinación sin jerarquía formal — la capa crítica del As-Is. Selecciona una o varias.</p>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="overlaps-drawer" aria-label="Solapamientos de funciones">
+    <header><h3>⚡ Solapamientos de funciones</h3><button class="x" data-close="overlaps-drawer" aria-label="Cerrar">✕</button></header>
+    <div class="body" id="overlaps-body">
+      <p class="note" style="max-width:none;margin:2px 0 4px"><b>¿Qué son?</b> Funciones donde <b>dos personas o instancias comparten o se disputan la misma responsabilidad</b> — por diseño incompleto, relevos sin cerrar o estructuras duplicadas entre país y regional. Es fricción organizativa documentada en las entrevistas y los organigramas oficiales. Haz clic en uno para iluminar a las partes y trazar la línea del solape.</p>
     </div>
   </aside>
 
@@ -491,7 +506,7 @@ const ENTITIES = [
      kids:[{n:'Jimena Sánchez',r:'Coord. Planificación de Compras',m:'mar-2026'},{n:'Elvis Badillo',r:'Gerente de Almacén',m:'jun-2026'},
        {n:'Aznarez Rogelio',r:'Supervisor de Almacén',m:'72 años',id:'aznarez',w:'No maneja computadora · reasignación en curso sin desvincular — tratar con tacto (E-03).'},
        {c:'equipo de almacén / despacho'}]}]},
-   {u:'Ventas al Mayor',kids:[{n:'Henry Lucena',r:'Gerente',t:'f'},{n:'Andrés Márquez González',r:'Gerente',t:'f',m:'may-2026',
+   {u:'Ventas al Mayor',kids:[{n:'Henry Lucena',r:'Gerente',t:'f',id:'hlucena'},{n:'Andrés Márquez González',r:'Gerente',t:'f',m:'may-2026',id:'amarquez',
      w:'Dos gerentes simultáneos — probable relevo.'},{c:'vendedores mayor'}]},
    {u:'Ventas al Detal (tiendas)',id:'ve-detal',kids:[{n:'María Eugenia Villegas',r:'Gerente',t:'f',m:'desde 1999',id:'mariae',
      kids:[{n:'Carlos Velásquez',r:'Supervisor Casio'},{n:'Carlos Eduardo Márquez',r:'Supervisor Cubitt'},{n:'Rosa Caraballo',r:'Supervisora de Inventario'},
@@ -647,6 +662,26 @@ const ALERTS = [
  {t:'CS oficial de PA: “Fabiola” vs. Patrick — conciliar',pid:'patrick-pa'},
  {t:'Tesorería PA: grafía Norma vs. Norman',pid:'norman'},
  {t:'Aznarez (72 años, supervisor almacén VE): continuidad y reasignación en curso — sensible',pid:'aznarez'},
+];
+const OVERLAPS = [
+ {t:'Inventarios Panamá: ejecución vs. auditoría',pid:'bodega-colon',pairs:[['fernando','bodega-colon']],
+  d:'Fernando Alvarado ejecuta la operación (reporta a Andrés); M. Alejandra Mejías audita inventarios y reporta a Roberto/Junta sin equipo propio. Roce documentado — tratar con tacto (E-03).'},
+ {t:'Doble mando comercial del grupo',pid:'d-andres',pairs:[['d-andres','d-roberto']],
+  d:'Andrés concentra la gerencia comercial de facto (Internacional + VE + CO + GT); Roberto mantiene la dirección comercial formal junto a compras Casio (E-01, E-05).'},
+ {t:'Producto Cubitt: director + interino',pid:'candanedo',pairs:[['d-alejandro','candanedo']],
+  d:'Alejandro es Director de Producto Cubitt; Candanedo ejerce además como Gerente de Producto interino (E-06, E-09).'},
+ {t:'Ventas Mayor VE: dos gerentes simultáneos',pid:'hlucena',pairs:[['hlucena','amarquez']],
+  d:'Henry Lucena y Andrés Márquez figuran a la vez como gerentes de Ventas al Mayor — probable relevo sin cierre formal (nómina VE).'},
+ {t:'Marketing VE: estructura duplicada país/regional',pid:'vabreu',pairs:[['natasha','vabreu']],
+  d:'La gerencia de Marketing de Rower VE (Valentina Abreu) aparece también como rama Venezuela del Marketing regional de Panamá — el mismo equipo contado en dos organigramas (PDF oficial).'},
+ {t:'Visual VE: doble reporte y vacante',pid:'jrmedina',pairs:[['reyna','jrmedina']],
+  d:'Los asistentes del coordinador Medina figuran también bajo Sabrina Baroni (red regional) y la gerencia de Visual VE está vacante (PDF oficial).'},
+ {t:'Triple sombrero de Patrick',pid:'patrick',pairs:[],
+  d:'CS + e-commerce + web en una sola persona. La separación está en evaluación; Clara Arosemena es candidata a E-commerce Manager Regional, con el movimiento congelado hasta la propuesta UCAB (E-24).'},
+ {t:'CS Panamá: Patrick vs. “Fabiola” (oficial)',pid:'patrick-pa',pairs:[],
+  d:'Patrick dirige Customer Service en la práctica; el organigrama oficial PA lo asigna a “Fabiola” — identidad por conciliar.'},
+ {t:'Jesmir: web VE + marketplaces PA',pid:'jesmir',pairs:[],
+  d:'Gerente de Ventas Web de Rower VE y, a la vez, Especialista Marketplaces VZL en el organigrama Digital de Panamá (PDF oficial).'},
 ];
 const CIFRAS = [
  {k:'Plantilla conocida',v:'~230 VE · ~137 PA · 39 CO · ~5 US (+ ~100 CR socio)'},
@@ -899,9 +934,10 @@ FLOWS.forEach(f=>{
   div.onclick=tg; div.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}};
   fbody.appendChild(div);
 });
-document.getElementById('f-all').onclick=()=>{FLOWS.forEach(f=>activeFlows.add(f.id));syncFlows();};
-document.getElementById('f-none').onclick=()=>{activeFlows.clear();syncFlows();};
-function toggleFlow(id,on){ if(on===true)activeFlows.add(id); else if(activeFlows.has(id))activeFlows.delete(id); else activeFlows.add(id); syncFlows(); }
+function clearOverlay(){ overlayFlow=null; document.querySelectorAll('.ov-it.on').forEach(x=>x.classList.remove('on')); }
+document.getElementById('f-all').onclick=()=>{clearOverlay();FLOWS.forEach(f=>activeFlows.add(f.id));syncFlows();};
+document.getElementById('f-none').onclick=()=>{clearOverlay();activeFlows.clear();syncFlows();};
+function toggleFlow(id,on){ clearOverlay(); if(on===true)activeFlows.add(id); else if(activeFlows.has(id))activeFlows.delete(id); else activeFlows.add(id); syncFlows(); }
 function syncFlows(){
   FLOWS.forEach(f=>document.getElementById('fi-'+f.id).classList.toggle('on',activeFlows.has(f.id)));
   drawWires();
@@ -910,13 +946,17 @@ function sizeWires(){
   wires.setAttribute('width',canvas.scrollWidth);wires.setAttribute('height',canvas.scrollHeight);
   wires.style.width=canvas.scrollWidth+'px';wires.style.height=canvas.scrollHeight+'px';
 }
+let overlayFlow=null;   // solape activo — se dibuja como una línea roja exclusiva
 function drawWires(){
   sizeWires(); wires.innerHTML='';
   document.querySelectorAll('.lit').forEach(el=>el.classList.remove('lit'));
-  world.classList.toggle('flows-on',activeFlows.size>0);
-  if(!activeFlows.size)return;
-  const single=activeFlows.size<=2;
-  FLOWS.filter(f=>activeFlows.has(f.id)).forEach(f=>{
+  const dibujar=FLOWS.filter(f=>activeFlows.has(f.id));
+  if(overlayFlow)dibujar.push(overlayFlow);
+  world.classList.toggle('flows-on',dibujar.length>0);
+  if(!dibujar.length)return;
+  (overlayFlow?.lits||[]).forEach(id=>pidEl[id]?.classList.add('lit'));
+  const single=dibujar.length<=2;
+  dibujar.forEach(f=>{
     f.pairs.forEach(([a,b])=>{
       const ea=pidEl[a],eb=pidEl[b]; if(!ea||!eb)return;
       ea.classList.add('lit');eb.classList.add('lit');
@@ -960,18 +1000,50 @@ ALERTS.forEach(a=>{
 });
 function flash(el){el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}
 
+/* =================== SOLAPAMIENTOS =================== */
+const obody=document.getElementById('overlaps-body');
+document.getElementById('overlaps-n').textContent=`(${OVERLAPS.length})`;
+function setOverlay(o,el){
+  const mismo = el && el.classList.contains('on');
+  clearOverlay();
+  if(!o||mismo){drawWires();return;}
+  el.classList.add('on');
+  activeFlows.clear();
+  FLOWS.forEach(f=>document.getElementById('fi-'+f.id).classList.remove('on'));
+  overlayFlow={id:'ov',c:'#C2382D',l:'⚡ '+o.t,pairs:o.pairs||[],lits:[o.pid,...(o.pairs||[]).flat()]};
+  drawWires();
+  const p=pidEl[o.pid]; if(p){fitEl(p.closest('.panel,.govbox,.band')||p,120);flash(p);}
+}
+OVERLAPS.forEach(o=>{
+  const d=document.createElement('div');d.className='ov-it';d.tabIndex=0;
+  d.innerHTML=`<span class="ic">⚡</span><span><strong>${esc(o.t)}</strong><small>${esc(o.d)}</small></span>`;
+  const go=()=>setOverlay(o,d);
+  d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}};
+  obody.appendChild(d);
+});
+
 /* =================== DRAWERS / LEYENDA =================== */
 function wireToggle(btnId,elId){
   const b=document.getElementById(btnId),el=document.getElementById(elId);
   b.onclick=()=>{el.classList.toggle('open');b.classList.toggle('on',el.classList.contains('open'));
     if(elId==='flows-drawer'&&!el.classList.contains('open')){activeFlows.clear();syncFlows();}};
 }
-wireToggle('b-flows','flows-drawer');wireToggle('b-alerts','alerts-drawer');wireToggle('b-legend','legend');
+wireToggle('b-flows','flows-drawer');wireToggle('b-alerts','alerts-drawer');wireToggle('b-overlaps','overlaps-drawer');wireToggle('b-legend','legend');
+/* flujos y solapes comparten el lado izquierdo: abrir uno cierra el otro */
+document.getElementById('b-flows').addEventListener('click',()=>{
+  const o=document.getElementById('overlaps-drawer');
+  if(o.classList.contains('open')){o.classList.remove('open');document.getElementById('b-overlaps').classList.remove('on');clearOverlay();drawWires();}
+});
+document.getElementById('b-overlaps').addEventListener('click',()=>{
+  const f=document.getElementById('flows-drawer');
+  if(f.classList.contains('open')){f.classList.remove('open');document.getElementById('b-flows').classList.remove('on');activeFlows.clear();syncFlows();}
+});
 document.querySelectorAll('[data-close]').forEach(x=>x.onclick=()=>{
   const el=document.getElementById(x.dataset.close);el.classList.remove('open');
-  const map={'flows-drawer':'b-flows','alerts-drawer':'b-alerts'};
+  const map={'flows-drawer':'b-flows','alerts-drawer':'b-alerts','overlaps-drawer':'b-overlaps'};
   if(map[x.dataset.close])document.getElementById(map[x.dataset.close]).classList.remove('on');
   if(x.dataset.close==='flows-drawer'){activeFlows.clear();syncFlows();}
+  if(x.dataset.close==='overlaps-drawer'){clearOverlay();drawWires();}
 });
 
 /* =================== BUSCADOR =================== */
@@ -1020,9 +1092,9 @@ function setCapa(c){
   app.classList.toggle('capa-propuesto',c==='propuesto');
   document.querySelectorAll('#capas button').forEach(b=>b.classList.toggle('on',b.dataset.capa===c));
   document.getElementById('t-capa').textContent=CAPA_TITULO[c];
-  activeFlows.clear();syncFlows();
+  activeFlows.clear();clearOverlay();syncFlows();
   document.querySelectorAll('.drawer.open').forEach(d=>d.classList.remove('open'));
-  ['b-flows','b-alerts'].forEach(id=>document.getElementById(id).classList.remove('on'));
+  ['b-flows','b-alerts','b-overlaps'].forEach(id=>document.getElementById(id).classList.remove('on'));
   hidePop();
   if(c==='propuesto'){fitEl(document.getElementById('band-propuesto'),80);}
   else showScene(2);   // entrada ejecutiva: Gobierno corporativo (la vista general queda en ⤢ / escena 1)
