@@ -2381,6 +2381,8 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
 <style>
   .org-fab{position:fixed;top:14px;right:16px;z-index:900;background:linear-gradient(135deg,#1F3864,#2a4a80);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.3);font-family:inherit;}
   .org-fab:hover{background:#2E75B6;}
+  .proc-fab{position:fixed;top:14px;right:158px;z-index:900;background:linear-gradient(135deg,#2E8540,#3fa055);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(46,133,64,.3);font-family:inherit;}
+  .proc-fab:hover{background:#25913d;}
   .org-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;min-width:340px;z-index:950;background:#fff;border-left:4px solid #1F3864;box-shadow:-12px 0 34px rgba(23,32,54,.25);transform:translateX(102%);transition:transform .3s ease, width .25s ease;display:flex;flex-direction:column;}
   .org-drawer.open{transform:translateX(0);}
   .org-drawer.half{width:52%;}
@@ -2391,9 +2393,10 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   .org-head button:hover,.org-head a:hover{background:rgba(255,255,255,.25);}
   .org-drawer iframe{flex:1;border:0;width:100%;}
   @media (max-width:900px){.org-drawer{width:100%;}}
-  @media print{.org-fab,.org-drawer{display:none!important;}}
+  @media print{.org-fab,.proc-fab,.org-drawer{display:none!important;}}
 </style>
 <button class="org-fab" onclick="orgOpen()" title="Abrir el organigrama interactivo">🏛 Organigrama</button>
+<button class="proc-fab" onclick="procOpen()" title="Abrir el mapa de procesos interactivo">🔗 Procesos</button>
 <aside class="org-drawer" id="orgDrawer" aria-label="Organigrama interactivo">
   <div class="org-head">
     <b>🏛 Organigrama · Grupo Kenex</b>
@@ -2417,7 +2420,7 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
 
 
 <style>
-  .pres-fab{position:fixed;top:14px;right:158px;z-index:900;background:#fff;color:#1F3864;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid #1F3864;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.18);font-family:inherit;}
+  .pres-fab{position:fixed;top:14px;right:288px;z-index:900;background:#fff;color:#1F3864;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid #1F3864;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.18);font-family:inherit;}
   .pres-fab:hover{background:#1F3864;color:#fff;}
   .pres-overlay{position:fixed;inset:0;z-index:990;background:#101826;display:none;}
   .pres-overlay.open{display:block;}
@@ -2445,7 +2448,8 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   /* FABs: apilar en pantallas estrechas para que no colisionen ni con la hamburguesa */
   @media(max-width:560px){
     .org-fab{top:12px;right:12px;font-size:12.5px;padding:8px 13px;}
-    .pres-fab{top:58px;right:12px;font-size:12.5px;padding:8px 13px;}
+    .proc-fab{top:58px;right:12px;font-size:12.5px;padding:8px 13px;}
+    .pres-fab{top:104px;right:12px;font-size:12.5px;padding:8px 13px;}
     .navtoggle{top:12px;left:12px;}
   }
 </style>
