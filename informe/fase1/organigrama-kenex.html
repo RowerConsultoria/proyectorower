@@ -207,9 +207,9 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
   border:1px solid color-mix(in srgb,var(--risk) 30%,transparent);font-size:12px;cursor:pointer}
 .alert-it:hover{border-color:var(--risk)}
 .alert-it .ic{color:var(--risk)}
-#legend{position:absolute;left:14px;bottom:16px;z-index:96;background:color-mix(in srgb,var(--panel) 94%,transparent);
+#legend{position:absolute;right:64px;bottom:16px;z-index:96;background:color-mix(in srgb,var(--panel) 94%,transparent);
   border:1.5px solid var(--line2);border-radius:12px;box-shadow:var(--shadow);padding:10px 14px;display:none;
-  flex-direction:column;gap:7px;font-size:11.5px;max-width:280px}
+  flex-direction:column;gap:7px;font-size:11.5px;max-width:280px;cursor:move;touch-action:none}
 #legend.open{display:flex}
 #legend .li{display:flex;gap:9px;align-items:center}
 #legend .sw{width:26px;height:15px;border-radius:4px;flex:none}
@@ -337,8 +337,8 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
     <div class="body" id="alerts-body"></div>
   </aside>
 
-  <div id="legend" role="note">
-    <h4>Leyenda</h4>
+  <div id="legend" role="note" title="Arrástrame para moverme">
+    <h4>Leyenda <span style="font-weight:400;color:var(--muted);font-size:10px">· arrastra para mover</span></h4>
     <div class="li"><span class="sw" style="background:var(--formal)"></span>Posición formal (nómina / escala oficial)</div>
     <div class="li"><span class="sw" style="background:var(--defacto-bg);border:2px dashed var(--defacto)"></span>Rol de facto — sin posición formal</div>
     <div class="li"><span class="sw" style="background:var(--panel);border:1.5px solid var(--line2)"></span>Persona / equipo (dentro de unidad)</div>
@@ -463,8 +463,8 @@ const ENTITIES = [
    {u:'Ventas Mayor Internacional',hc:4,kids:[{n:'Edumar Escalona',r:'Gerente de Ventas',t:'f',id:'edumar',
      kids:[{n:'Roger Bocaranda',r:'Ejecutivo'},{n:'Roberto Zuleta',r:'Ejecutivo'},{n:'Armando García',r:'Ejecutivo'}]}]},
    {u:'Logística y Tráfico',hc:5,kids:[{n:'Yanilka Martínez',r:'Jefa de Tráfico',t:'f',kids:[{c:'4 asistentes'}]}]},
-   {u:'Bodega Colón',hc:31,id:'bodega-colon',kids:[{n:'María Alejandra Mejías',r:'Gerente de Inventarios (título de nómina: Logística)',t:'f',dl:'⚡',
-     w:'20+ años · dependencia crítica · audita inventarios y reporta a Roberto/Junta SIN equipo propio — la ejecución es de Fernando Alvarado (solape sensible, E-03).',
+   {u:'Bodega Colón',hc:31,id:'bodega-colon',kids:[{n:'María Alejandra Mejías',r:'Gerente de Inventarios (papel: Gte. de Ops y Logística)',t:'f',dl:'⚡',
+     w:'20+ años · dependencia crítica. El organigrama oficial PA y la nómina la declaran gerente de Ops y Logística, pero su cargo real desde ~may-2026 es Inventarios: audita y reporta a Roberto/Junta SIN equipo propio — la ejecución es de Fernando Alvarado (solape sensible, E-03).',
      kids:[{n:'Ricardo Mayers',r:'Jefe de Bodega',w:'Nómina: Mayers · organigrama oficial PA: Ricardo Navas — conciliar identidad.',kids:[{c:'2 power users'},{c:'2 conductores'},{c:'25 ayudantes'}]}]}]},
   ],
   notes:['Restricción: no puede vender dentro de Panamá → triangulación vía Basaida.']},
@@ -500,14 +500,16 @@ const ENTITIES = [
      {n:'Sofiana',r:'Marketing Manager (Cubitt PA)',t:'f'}]},
   ],
   notes:['15 departamentos oficiales según DEPARTAMENTOS.xlsx — incluye Business Intelligence, R&D, Compras, Web, Visual y Planificación Comercial (algunos sin escala recibida).']},
- {id:'rower-panel',fl:'🇻🇪',n:'Distribuidora Rower C.A.',s:'Venezuela · 14 gerencias oficiales (bandas 1–4, niveles A–C)',hc:'~230 (creció de 176 en dic-2025)',w:3,
+ {id:'rower-panel',fl:'🇻🇪',n:'Distribuidora Rower C.A.',s:'Venezuela · oficial: Junta → Dirección General + staff (Auditoría · Asesoría Legal) + 12 gerencias (bandas 1–4, niveles A–C)',hc:'~230 (creció de 176 en dic-2025)',w:3,
   depts:[
    {u:'Operaciones y Logística',kids:[{n:'José Vladimir Castillo',r:'Gerente',t:'f',m:'desde 2001',
      kids:[{n:'Jimena Sánchez',r:'Coord. Planificación de Compras',m:'mar-2026'},{n:'Elvis Badillo',r:'Gerente de Almacén',m:'jun-2026'},
        {n:'Aznarez Rogelio',r:'Supervisor de Almacén',m:'72 años',id:'aznarez',w:'No maneja computadora · reasignación en curso sin desvincular — tratar con tacto (E-03).'},
-       {c:'equipo de almacén / despacho'}]}]},
-   {u:'Ventas al Mayor',kids:[{n:'Henry Lucena',r:'Gerente',t:'f',id:'hlucena'},{n:'Andrés Márquez González',r:'Gerente',t:'f',m:'may-2026',id:'amarquez',
-     w:'Dos gerentes simultáneos — probable relevo.'},{c:'vendedores mayor'}]},
+       {c:'oficial: Jefe Serv. Generales (Porras Williams) · Jefe Seguridad y Despacho (Meza Richard) · 8 ayudantes · 2 choferes · analista (~16)'},
+       {c:'Jimena y Elvis no figuran en el organigrama oficial (ingresos 2026, posteriores al PDF)'}]}]},
+   {u:'Ventas al Mayor',kids:[{n:'Henry Lucena',r:'Gerente (oficial)',t:'f',id:'hlucena',note:'El organigrama oficial solo lo declara a él: 4 asesores mayor + 1 corporativo.'},
+     {n:'Andrés Márquez González',r:'Gerente',t:'f',m:'may-2026',id:'amarquez',dl:'⚡',
+     w:'Dos gerentes simultáneos — probable relevo. NO figura en el organigrama oficial (posterior al PDF).'},{c:'vendedores mayor'}]},
    {u:'Ventas al Detal (tiendas)',id:'ve-detal',kids:[{n:'María Eugenia Villegas',r:'Gerente',t:'f',m:'desde 1999',id:'mariae',
      kids:[{n:'Carlos Velásquez',r:'Supervisor Casio'},{n:'Carlos Eduardo Márquez',r:'Supervisor Cubitt'},{n:'Rosa Caraballo',r:'Supervisora de Inventario'},
        {chips:{lbl:'≈12 tiendas Cubitt',items:['Sambil','La Candelaria 1','La Candelaria 2','Valencia 1','Valencia 2','Feria','Maracaibo','Boleita','Líder','CCCT','Recreo','Barquisimeto']}},
@@ -518,13 +520,16 @@ const ENTITIES = [
      w:'Dependencia extrema.',note:'Doble rol: figura también como Especialista Marketplaces VZL en el organigrama Digital de Panamá (oficial).',
      kids:[{n:'Johan Lucena',r:'Soporte web'},{c:'asesores web'},{c:'facturación'},{c:'almacén web'},
        {chips:{lbl:'canales',items:['Webs','Cashea','Mercado Libre','WhatsApp']}}]}]},
-   {u:'Marketing',kids:[{n:'Valentina Abreu',r:'Gerente',t:'f',id:'vabreu',
-     kids:[{c:'coordinadores de marca Casio · Cubitt · deportivo'},{c:'editor'},{c:'diseñadores'}]}]},
+   {u:'Marketing',kids:[{n:'Valentina Abreu',r:'Gerente',t:'f',id:'vabreu',dl:'🔀',
+     kids:[{c:'oficial: 12 posiciones — marca Casio (Méndez W., Camacho J.) · Cubitt (Salazar C.) · marca (De Queiros D.) · deportivo (Azuaje Y.) · influencers (González Ana) · editor · contenido · analista digital · 2 asistentes'}]}]},
    {u:'Planificación Financiera',kids:[{n:'Jaime González Franchi',r:'Planificador Financiero (nómina)',t:'f',id:'jaime-ve',
-     w:'Rol real: CFO del grupo — la nómina no lo refleja.',kids:[{n:'Ali Carmona',r:'Coordinador de Tesorería',m:'jun-2026',id:'ali'}]}]},
+     w:'Rol real: CFO del grupo — la nómina no lo refleja.',
+     note:'Oficial: gerencia unipersonal que reporta directo a Dirección General.',
+     kids:[{n:'Ali Carmona',r:'Coordinador de Tesorería',m:'jun-2026',id:'ali'}]}]},
    {u:'Contabilidad',kids:[{n:'Víctor Padovani',r:'Gerente',t:'f',id:'padovani',kids:[{c:'Coordinador Quintero Maluin + 6 posiciones (oficial)'}]}]},
    {u:'Administración',kids:[{n:'Josefina Mejías',r:'Gerente',t:'f',m:'desde 1985',
-     note:'Mano derecha histórica de Bernardo · valida la nómina VE (E-21) · madre de M. Alejandra Mejías (PA).'}]},
+     note:'Mano derecha histórica de Bernardo · valida la nómina VE (E-21) · madre de M. Alejandra Mejías (PA).'},
+     {c:'oficial: ~12 posiciones — tesorero (Caraballo Marvis) · coord. tesorería (Martínez Fabiana) · CxP · cobranza · 3 asistentes · recepción · mensajero · chofer · 4 aprendices INCES'}]},
    {u:'Tesorería / CxC / CxP',kids:[{n:'Cortorreal',r:'Coordinadora CxC',m:'jun-2026'},{c:'coordinaciones nuevas jun-2026'}]},
    {u:'RRHH',kids:[{n:'Evelia Manzo',r:'Gerente',t:'f',id:'evelia',
      kids:[{n:'Mayari Cizmania',r:'Coordinadora'},{n:'Heliany Montañez',r:'Analista'},{n:'Delanys Querecuto',r:'Analista · nómina jul-2026'}]}]},
@@ -599,6 +604,15 @@ const ENTITIES = [
      note:'Inventario en su bodega. La responsabilidad de las tiendas sigue siendo del grupo.'}]},
   ],
   notes:['Comunicación fuera de Lark (WhatsApp) ⚠ · comercial gestionado directamente por Andrés Roizental.']},
+ {id:'oficial-pa-panel',fl:'📄',n:'Cubitt/Casio — organigrama oficial 2025',s:'lo que declara el papel (PDF + DEPARTAMENTOS.xlsx)',hc:'15 deptos',w:1,
+  depts:[
+   {u:'Cúpula declarada (papel)',kids:[
+     {chips:{lbl:'área → responsable oficial',items:['BI → Bernardo','R&D → Alejandro','Compras → Roberto','Comercial → Andrés','Proyectos → Ricardo (Candanedo)','CS → “Fabiola” ⚠','RRHH → Nuria Ashby','Ops y Logística → Alejandra Mejías','Finanzas → Jaime','Sistemas → “Marcela Cobos” ⚠','Marketing → Natasha','Visual → Reyna Barraza']}},
+     {c:'Comercial oficial en 4 canales: Ventas IoT · Retail (gte. regional + gte. PA) · Online / Web Cubitt · Mayor PA'},
+     {c:'Jefe de Bodega oficial: Ricardo Navas (la nómina dice Mayers ⚠)'},
+   ]},
+  ],
+  notes:['El papel concentra la cúpula en la familia (BI, R&D, Compras, Comercial) y declara responsables que la operación contradice: CS lo ejerce Patrick (no “Fabiola”), Sistemas es Mariela Castro (el PDF dice “Marcela Cobos” ⚠ — conciliar), y la logística la ejecuta Fernando Alvarado. Ver capa Real + Δ Diferencias.']},
  {id:'minors-panel',fl:'🌎',n:'Presencias menores y terceros',s:'4 modelos de presencia',hc:'13 países en total',w:1,
   depts:[
    {u:'País por país',kids:[
@@ -790,7 +804,7 @@ canvas.innerHTML = `
   <div class="eyebrow">Entidades jurídicas y sus estructuras</div>
   <div style="display:flex;gap:36px;align-items:flex-start">
     <div style="display:flex;flex-direction:column;gap:22px" id="pa-col">
-      ${panelHTML(ENTITIES[0])}${panelHTML(ENTITIES[1])}${panelHTML(ENTITIES[2])}
+      ${panelHTML(ENTITIES[9])}${panelHTML(ENTITIES[0])}${panelHTML(ENTITIES[1])}${panelHTML(ENTITIES[2])}
     </div>
     ${panelHTML(ENTITIES[3])}
     ${panelHTML(ENTITIES[4])}
@@ -798,7 +812,7 @@ canvas.innerHTML = `
       ${panelHTML(ENTITIES[5])}${panelHTML(ENTITIES[6])}
     </div>
     <div style="display:flex;flex-direction:column;gap:22px">
-      ${panelHTML(ENTITIES[7])}${panelHTML(ENTITIES[8])}${panelHTML(ENTITIES[9])}
+      ${panelHTML(ENTITIES[7])}${panelHTML(ENTITIES[8])}${panelHTML(ENTITIES[10])}
     </div>
   </div>
   <div class="stats" data-pid="stats">${CIFRAS.map(c=>`<div class="stat"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div></div>`).join('')}</div>
@@ -1077,6 +1091,28 @@ world.addEventListener('click',e=>{
   e.stopPropagation();
 });
 document.addEventListener('click',e=>{if(!e.target.closest('[data-note],#popover'))hidePop();});
+
+/* =================== LEYENDA: abierta por defecto y arrastrable =================== */
+(function(){
+  const lg=document.getElementById('legend');
+  lg.classList.add('open');
+  document.getElementById('b-legend').classList.add('on');
+  let drag=null;
+  lg.addEventListener('pointerdown',e=>{
+    if(e.target.closest('button'))return;
+    const r=lg.getBoundingClientRect();
+    lg.style.left=r.left+'px';lg.style.top=r.top+'px';lg.style.right='auto';lg.style.bottom='auto';
+    drag={dx:e.clientX-r.left,dy:e.clientY-r.top};
+    lg.setPointerCapture(e.pointerId);
+  });
+  lg.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    lg.style.left=Math.min(innerWidth-80,Math.max(4,e.clientX-drag.dx))+'px';
+    lg.style.top=Math.min(innerHeight-50,Math.max(54,e.clientY-drag.dy))+'px';
+  });
+  const fin=()=>{drag=null;};
+  lg.addEventListener('pointerup',fin);lg.addEventListener('pointercancel',fin);
+})();
 
 /* =================== CAPAS: Declarado · Real · Propuesto =================== */
 const app=document.getElementById('app');
