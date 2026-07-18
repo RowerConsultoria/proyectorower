@@ -57,6 +57,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 #app{position:fixed;inset:0;overflow:hidden;background:var(--ground);color:var(--ink);
+  user-select:none;-webkit-user-select:none;
   font-family:var(--f-b);font-size:13px;line-height:1.35;
   background-image:radial-gradient(color-mix(in srgb,var(--line) 55%,transparent) 1px,transparent 1px);
   background-size:26px 26px}
@@ -1024,7 +1025,7 @@ function setCapa(c){
   ['b-flows','b-alerts'].forEach(id=>document.getElementById(id).classList.remove('on'));
   hidePop();
   if(c==='propuesto'){fitEl(document.getElementById('band-propuesto'),80);}
-  else showScene(c==='declarado'?2:0);
+  else showScene(2);   // entrada ejecutiva: Gobierno corporativo (la vista general queda en ⤢ / escena 1)
 }
 document.querySelectorAll('#capas button').forEach(b=>b.onclick=()=>setCapa(b.dataset.capa));
 document.getElementById('b-diffs').onclick=function(){
@@ -1033,7 +1034,8 @@ document.getElementById('b-diffs').onclick=function(){
 };
 
 /* =================== INIT =================== */
+apply();        // aplica el transform inicial ANTES del primer encuadre — sin esto worldRectOf() mide mal y la cámara abre desencuadrada/lejana
 sizeWires();
-showScene(0);
+showScene(2);   // abre cerca: Gobierno corporativo (vista general en ⤢ o con ←)
 addEventListener('resize',()=>{if(!activeFlows.size)return;drawWires();});
 </script>
