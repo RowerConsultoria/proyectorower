@@ -28,6 +28,8 @@ La configuración se hizo desde Claude Code usando el **conector MCP de Supabase
 | `riesgos` | Registro de riesgos (severidad × probabilidad × área) — alimenta la futura matriz visual de la sección 9. |
 | `entrevistas` | Crudos de entrevistas transcritas. Alimenta el módulo `admin/` (listar/crear/editar). Las transcripciones viven aquí, **no en el repo**. |
 | `eventos` | Bitácora/línea de tiempo del proyecto (módulo admin «Línea de tiempo»). Sembrada el 18-jul-2026 con 148 eventos extraídos del corpus completo. `unique(fecha,titulo)` hace idempotente la siembra. |
+| `conocimiento` | Documentos de síntesis del corpus (`resumenes`, `memoria`) que el Asistente IA lleva SIEMPRE en su contexto (cacheado). El flag `activo` permite excluir fuentes sin borrarlas. |
+| `fragmentos` | Las 25 transcripciones troceadas (~1.090 chunks de diálogo limpio) con índice full-text en español. Se consulta vía RPC `buscar_fragmentos(consulta, cod, limite)` (AND estricto rankea primero, matching OR de respaldo). |
 
 > ⚠️ **Escritura anónima transitoria en `entrevistas`.** Mientras el panel `admin/` no tenga login, la tabla `entrevistas` tiene una política `entrevistas_escritura_anon` que permite escribir con la clave publishable. Con ella, cualquiera que tenga esa clave (pública, está en el repo) puede leer/escribir. **No cargar transcripciones reales sensibles hasta activar Supabase Auth y borrar esa política.** La fila `E-DEMO` es solo semilla de demostración.
 
@@ -51,6 +53,7 @@ La configuración se hizo desde Claude Code usando el **conector MCP de Supabase
 | Función | Propósito |
 |---|---|
 | [`extraer-entrevista`](functions/extraer-entrevista/index.ts) | Recibe el texto crudo de una entrevista y usa Claude (`claude-opus-4-8`) para extraer los metadatos del formulario del módulo admin. |
+| [`asistente`](functions/asistente/index.ts) | Chat streaming (SSE) sobre el corpus para el módulo «Asistente IA»: Claude Opus 4.8 con la síntesis completa en contexto (prompt caching) + herramientas `buscar_pasajes`/`leer_entrevista`/`linea_tiempo`/`listar_archivos`. ⚠️ Desplegada con `--no-verify-jwt`: cualquiera con la URL consume la cuota de Anthropic — cerrar al activar Auth. |
 
 - **Secreto requerido:** `ANTHROPIC_API_KEY` (token `sk-ant-…`). Se guarda en Supabase, **nunca** en el repo ni en el cliente: `supabase secrets set ANTHROPIC_API_KEY=... --project-ref <ref>`.
 - **Deploy:** `supabase functions deploy extraer-entrevista --no-verify-jwt --project-ref <ref>`.

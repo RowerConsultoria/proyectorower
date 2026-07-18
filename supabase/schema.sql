@@ -206,3 +206,86 @@ create policy eventos_lectura   on public.eventos for select using (true);
 create policy eventos_escritura on public.eventos for all to authenticated using (true) with check (true);
 -- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
 create policy eventos_escritura_anon on public.eventos for all to anon using (true) with check (true);
+
+-- ---------- 7. Asistente IA (conocimiento + fragmentos) ----------
+-- Base de conocimiento del asistente conversacional del admin:
+--  · conocimiento: documentos de síntesis del corpus (van SIEMPRE al contexto
+--    del modelo, cacheados). clave = 'resumenes' | 'memoria' | …
+--  · fragmentos: las transcripciones troceadas (~1.600 chars con solape) con
+--    índice full-text en español, para que el asistente cite pasajes textuales.
+-- El flag "activo" permite excluir una fuente del corpus sin borrarla
+-- (p. ej. si se decide curar el material visible para la Junta).
+
+create table if not exists public.conocimiento (
+  id             uuid primary key default gen_random_uuid(),
+  clave          text not null unique,
+  titulo         text not null,
+  contenido      text not null,
+  activo         boolean not null default true,
+  actualizado_en timestamptz not null default now()
+);
+
+-- Diálogo limpio de la entrevista (extraído del JSON/markdown del transcriptor:
+-- "S1: …" por turno de habla). Lo consume la herramienta leer_entrevista del
+-- asistente — leer el JSON crudo triplica los tokens.
+alter table public.entrevistas add column if not exists dialogo text;
+
+create table if not exists public.fragmentos (
+  id           bigint generated always as identity primary key,
+  codigo       text not null,          -- E-01 … E-24 (pt.1/pt.2)
+  entrevistado text,
+  orden        int not null,           -- posición del fragmento en la entrevista
+  contenido    text not null,
+  activo       boolean not null default true,
+  tsv          tsvector generated always as (to_tsvector('spanish', contenido)) stored,
+  unique (codigo, orden)
+);
+create index if not exists fragmentos_tsv_idx    on public.fragmentos using gin (tsv);
+create index if not exists fragmentos_codigo_idx on public.fragmentos (codigo);
+
+-- Búsqueda léxica en español. Primero intenta que aparezcan TODOS los términos
+-- (websearch, admite "frases entre comillas"); como las palabras raras dejan
+-- consultas AND sin resultados, el matching real es OR y los fragmentos que
+-- cumplen el AND estricto se rankean primero (+1 al rango).
+create or replace function public.buscar_fragmentos(consulta text, cod text default null, limite int default 8)
+returns table (codigo text, entrevistado text, orden int, contenido text, rango real)
+language sql stable
+set search_path = public
+as $$
+  with q as (
+    select websearch_to_tsquery('spanish', consulta) as estricta
+  ), qq as (
+    select estricta,
+           case when numnode(estricta) > 0
+                then to_tsquery('spanish', regexp_replace(estricta::text, '&', '|', 'g'))
+                else estricta end as amplia
+    from q
+  )
+  select f.codigo, f.entrevistado, f.orden, f.contenido,
+         (ts_rank(f.tsv, qq.amplia) + (f.tsv @@ qq.estricta)::int)::real as rango
+  from public.fragmentos f, qq
+  where f.activo
+    and f.tsv @@ qq.amplia
+    and (cod is null or f.codigo = cod)
+  order by rango desc
+  limit least(greatest(limite, 1), 20);
+$$;
+
+alter table public.conocimiento enable row level security;
+alter table public.fragmentos   enable row level security;
+
+drop policy if exists conocimiento_lectura        on public.conocimiento;
+drop policy if exists conocimiento_escritura      on public.conocimiento;
+drop policy if exists conocimiento_escritura_anon on public.conocimiento;
+create policy conocimiento_lectura   on public.conocimiento for select using (true);
+create policy conocimiento_escritura on public.conocimiento for all to authenticated using (true) with check (true);
+-- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
+create policy conocimiento_escritura_anon on public.conocimiento for all to anon using (true) with check (true);
+
+drop policy if exists fragmentos_lectura        on public.fragmentos;
+drop policy if exists fragmentos_escritura      on public.fragmentos;
+drop policy if exists fragmentos_escritura_anon on public.fragmentos;
+create policy fragmentos_lectura   on public.fragmentos for select using (true);
+create policy fragmentos_escritura on public.fragmentos for all to authenticated using (true) with check (true);
+-- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
+create policy fragmentos_escritura_anon on public.fragmentos for all to anon using (true) with check (true);
