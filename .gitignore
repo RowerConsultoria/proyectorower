@@ -18,3 +18,9 @@ node_modules/
 
 # Supabase CLI (caché local)
 supabase/.temp/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
