@@ -25,10 +25,8 @@
   .ln{width:30px; height:10px; flex:none;}
 
   .stage{padding:16px; overflow:auto;}
-  .board{position:relative; width:1560px; height:1095px; transform-origin:top left; margin:0 auto;}
-  svg.wires{position:absolute; inset:0; width:1560px; height:1095px; pointer-events:none;}
-  svg.wires text{font-family:"Cascadia Mono",Consolas,monospace; font-size:11px; fill:var(--blue);
-    paint-order:stroke; stroke:#eef1f6; stroke-width:4px;}
+  .board{position:relative; width:1680px; height:1250px; transform-origin:top left; margin:0 auto;}
+  svg.wires{position:absolute; inset:0; width:1680px; height:1250px; pointer-events:none;}
 
   .node{position:absolute; background:#fff; border:1px solid var(--borde); border-radius:10px;
     box-shadow:0 1px 2px rgba(23,32,54,.06),0 6px 16px rgba(23,32,54,.07);
@@ -47,6 +45,8 @@
   .hyb{border-left:5px solid var(--ambar); border-right:5px solid var(--verde);}
   .dir{background:var(--gris); border-left:4px solid var(--blue);}
   .dir .ttl{font-size:11.5px; font-weight:600;}
+  .marca{background:#eef4fb; border-left:4px solid var(--navy);}
+  .marca .ttl{font-size:12px; color:var(--navy);}
   .coe{background:#fff; border:1.5px dashed var(--blue);}
   .coe .ttl{font-size:11.5px; color:var(--blue); font-style:italic;}
 
@@ -67,17 +67,18 @@
 <header>
   <div class="kick">Consultores UCAB · Proyecto Rower · Fase 1 — Sección 4.8</div>
   <h1>Estructura organizativa propuesta — Grupo Kenex Trading</h1>
-  <p>Propuesta del equipo consultor, en tres niveles (Dirección Ejecutiva · Gerencias Generales · Direcciones), diseñada sobre los siete principios de estructura y sobre el diagnóstico de Fase 1. Borrador para discusión con la Alta Gerencia — las coordinaciones dentro de cada dirección se detallarán en una siguiente iteración.</p>
+  <p>Propuesta del equipo consultor, en tres niveles (Dirección Ejecutiva · Gerencias Regionales · Direcciones), diseñada sobre los siete principios de estructura y sobre el diagnóstico de Fase 1. Borrador para discusión con la Alta Gerencia — las coordinaciones dentro de cada dirección se detallarán en una siguiente iteración.</p>
   <span class="conf">Confidencial — documento de trabajo</span>
 </header>
 
 <div class="legend">
   <div class="li"><span class="sw" style="background:linear-gradient(135deg,#1F3864,#2a4a80);border-color:#1F3864;"></span>Dirección Ejecutiva</div>
   <div class="li"><span class="sw" style="background:#fff;border:2px dashed #1F3864;"></span>Gobierno (consulta)</div>
-  <div class="li"><span class="sw" style="border-left:5px solid #B26A00;"></span>G.G. soporte</div>
-  <div class="li"><span class="sw" style="border-left:5px solid #2E7D32;"></span>G.G. medular</div>
-  <div class="li"><span class="sw" style="border-left:5px solid #B26A00;border-right:5px solid #2E7D32;"></span>G.G. híbrida</div>
+  <div class="li"><span class="sw" style="border-left:5px solid #B26A00;"></span>G. Regional soporte</div>
+  <div class="li"><span class="sw" style="border-left:5px solid #2E7D32;"></span>G. Regional medular</div>
+  <div class="li"><span class="sw" style="border-left:5px solid #B26A00;border-right:5px solid #2E7D32;"></span>G. Regional híbrida</div>
   <div class="li"><span class="sw" style="background:#F4F6FA;border-left:4px solid #2E75B6;"></span>Dirección</div>
+  <div class="li"><span class="sw" style="background:#eef4fb;border-left:4px solid #1F3864;"></span>Dirección de marca</div>
   <div class="li"><span class="sw" style="border:1.5px dashed #2E75B6;"></span>Centro de excelencia (apoyo)</div>
   <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5"/></svg>Reporte (continua)</div>
   <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5" stroke-dasharray="3 4"/></svg>Consulta / apoyo (punteada)</div>
@@ -93,21 +94,21 @@
 <div class="notes">
   <h3>Notas de diseño</h3>
   <ul>
-    <li><b>Niveles diagramados:</b> Dirección Ejecutiva · Gerencias Generales (corporativas) · Direcciones asociadas. Las <b>coordinaciones</b> dentro de cada dirección se definirán en la siguiente iteración.</li>
+    <li><b>Niveles diagramados:</b> Dirección Ejecutiva · Gerencias Regionales (corporativas) · Direcciones asociadas. Las <b>coordinaciones</b> dentro de cada dirección se definirán en la siguiente iteración.</li>
     <li><b>Gobierno corporativo.</b> El Holding del grupo familiar y la Junta Directiva son instancias de <b>consulta y decisión</b> de la Dirección Ejecutiva (línea punteada), no niveles de línea de mando.</li>
     <li><b>Capa corporativa regional flexible.</b> Puede operar desde <b>Panamá o Venezuela</b> según conveniencia (disponibilidad de perfiles y facilidad de acción). Orienta el enfoque estratégico por marca (Casio / Cubitt) y por país.</li>
-    <li><b>Soporte a los costados, medulares en el flujo.</b> Las gerencias de soporte (Talento Humano, Transformación Tecnológica y Soporte, Finanzas) se conectan a los costados de la línea de reporte Dirección Ejecutiva → gerencias medulares (I+D, Comercial, Operaciones y Logística). <b>Experiencia de Marcas</b> es híbrida (soporte-medular).</li>
+    <li><b>Soporte a los costados, medulares en el flujo.</b> Las gerencias regionales de soporte (Talento Humano, Transformación Tecnológica y Soporte, Finanzas, PMO y la Dirección General de Servicio) se conectan a los costados de la línea de reporte Dirección Ejecutiva → gerencias regionales medulares (I+D, Comercial, Operaciones y Logística). <b>Experiencia de Marcas</b> es híbrida (soporte-medular).</li>
     <li><b>«Por país».</b> Las direcciones marcadas «por país» se despliegan en las operaciones con presencia propia (Venezuela, Colombia) mediante direcciones y coordinaciones locales.</li>
-    <li><b>Transformación Tecnológica y Soporte.</b> La gerencia lidera la <b>gobernanza y el desarrollo de IA</b> en las operaciones, apoyada por el <b>Centro de Excelencia en IA</b> —departamento transversal (línea punteada) que estandariza buenas prácticas y mide el impacto operacional— y por la <b>Dirección de Tecnologías de Información</b> (por país).</li>
-    <li><b>Gerencia General Comercial.</b> Con <b>Dirección Comercial CASIO</b> y <b>Dirección Comercial CUBITT</b>, que cuentan <b>en conjunto</b> con una Dirección de Ventas al Detal (tiendas), una Dirección de Ventas Web y una Dirección de Servicio Técnico, todas <b>por país</b>. Recibe <b>insumos directos de Experiencia de Marcas</b> (relación funcional punteada) que influyen sobre esas direcciones de ventas al detal, ventas web y servicio técnico.</li>
+    <li><b>Transformación Tecnológica y Soporte.</b> Lidera la <b>gobernanza y el desarrollo de IA</b> en las operaciones, apoyada por el <b>Centro de Excelencia en IA</b> —departamento transversal (línea punteada) que estandariza buenas prácticas y mide el impacto operacional— y por la <b>Dirección de Tecnologías de Información</b> (por país).</li>
+    <li><b>Gerencia Regional de PMO (soporte).</b> Reporta a la Dirección Ejecutiva; de ella depende una <b>Dirección de PMO</b> con dos alas de proyectos: desarrollo de producto y mejora y transformación organizacional (de cualquier proceso o área).</li>
+    <li><b>Dirección General de Servicio (soporte).</b> Reporta a la Dirección Ejecutiva; tiene vinculada una <b>Dirección de Mantenimiento y Servicios</b> (por país).</li>
+    <li><b>Gerencia Regional Comercial.</b> Las <b>Direcciones Comerciales CASIO y CUBITT</b> incluyen, cada una, <b>compras y ventas al mayor</b>. De ellas —no directamente de la gerencia— dependen las direcciones de <b>Ventas al Detal (tiendas)</b>, <b>Ventas Web</b> y <b>Servicio Técnico</b> (por país); a ese mismo nivel se incorpora una <b>Dirección de E-commerce (regional)</b>. Estas direcciones reciben <b>insumos directos de Experiencia de Marcas</b> (relación funcional punteada).</li>
     <li><b>Dirección de Mercadeo ↔ Talento Humano.</b> Relación funcional punteada: la Experiencia del Empleado se diseña en colaboración con Recursos Humanos (onboarding, clima y orgullo de pertenencia).</li>
-    <li><b>Dirección de PMO</b> (bajo I+D) gestiona dos alas de proyectos: <b>desarrollo de producto</b> y <b>mejora y transformación organizacional</b> (de cualquier proceso o área).</li>
   </ul>
 
   <div class="em-block">
-    <h3 style="margin-top:0">Gerencia General de Experiencia de Marcas — rol y direcciones</h3>
-    <p><b>Gerencia General de Experiencia de Marcas (híbrida, soporte-medular).</b> Rol ejecutivo clave para unificar la percepción, los valores y las vivencias que los públicos tienen de las distintas marcas del grupo. Su enfoque va más allá del diseño visual tradicional para gestionar conexiones emocionales en cada punto de contacto.</p>
-
+    <h3 style="margin-top:0">Gerencia Regional de Experiencia de Marcas — rol y direcciones</h3>
+    <p><b>Gerencia Regional de Experiencia de Marcas (híbrida, soporte-medular).</b> Rol ejecutivo clave para unificar la percepción, los valores y las vivencias que los públicos tienen de las distintas marcas del grupo. Su enfoque va más allá del diseño visual tradicional para gestionar conexiones emocionales en cada punto de contacto.</p>
     <div class="dcard"><b>Dirección de Experiencia del Cliente.</b>
       <ul class="sub">
         <li><b>Enfoque:</b> diseña el viaje completo del comprador (Customer Journey).</li>
@@ -115,7 +116,6 @@
         <li><b>Meta:</b> eliminar fricciones en la interacción directa con el usuario.</li>
       </ul>
     </div>
-
     <div class="dcard"><b>Dirección de Experiencia Digital.</b>
       <ul class="sub">
         <li><b>Enfoque:</b> gestiona los ecosistemas virtuales de todas las marcas.</li>
@@ -123,7 +123,6 @@
         <li><b>Meta:</b> garantizar interfaces intuitivas y un diseño de experiencia de usuario homogéneo.</li>
       </ul>
     </div>
-
     <div class="dcard"><b>Dirección de Mercadeo.</b> Integra cuatro frentes:
       <ul class="sub">
         <li><b>1 · Identidad y Expresión de Marca.</b> Enfoque: custodia los activos visuales, verbales y sensoriales del grupo. Función: define el tono de voz, el diseño gráfico, el interiorismo corporativo y el branding sónico. Meta: mantener la coherencia estética global en cualquier soporte o país.</li>
@@ -139,75 +138,93 @@
 
 <script>
 const NODES = {
-  holding:{x:448,y:40,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Holding — grupo familiar propietario'},
-  junta:{x:858,y:40,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Junta Directiva'},
-  exec:{x:615,y:150,w:330,h:62,cls:'exec',tag:'Nivel 1',ttl:'Dirección Ejecutiva del Grupo'},
+  holding:{x:468,y:36,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Holding — grupo familiar propietario'},
+  junta:{x:878,y:36,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Junta Directiva'},
+  exec:{x:635,y:150,w:330,h:62,cls:'exec',tag:'Nivel 1',ttl:'Dirección Ejecutiva del Grupo'},
 
-  gg_th:{x:95,y:286,w:250,h:58,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Talento Humano'},
-  dir_th:{x:120,y:372,w:200,h:52,cls:'dir',ttl:'Dirección de Talento Humano',note:'por país'},
+  // ---- costado izquierdo (soporte) ----
+  gg_th:{x:95,y:280,w:250,h:58,cls:'sop',tag:'Gerencia regional · Soporte',ttl:'Talento Humano'},
+  dir_th:{x:120,y:366,w:205,h:52,cls:'dir',ttl:'Dirección de Talento Humano',note:'por país'},
 
-  gg_tt:{x:70,y:474,w:290,h:62,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Transformación Tecnológica y Soporte'},
-  cex:{x:70,y:572,w:250,h:54,cls:'coe',ttl:'Centro de Excelencia en IA',note:'transversal · apoyo'},
-  dir_ti:{x:70,y:644,w:250,h:54,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
+  gg_tt:{x:70,y:458,w:290,h:62,cls:'sop',tag:'Gerencia regional · Soporte',ttl:'Transformación Tecnológica y Soporte'},
+  cex:{x:70,y:556,w:250,h:54,cls:'coe',ttl:'Centro de Excelencia en IA',note:'transversal · apoyo'},
+  dir_ti:{x:70,y:628,w:250,h:54,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
 
-  gg_fin:{x:1195,y:286,w:250,h:58,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Finanzas'},
-  dir_ac:{x:1210,y:372,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
+  gg_pmo:{x:95,y:722,w:250,h:58,cls:'sop',tag:'Gerencia regional · Soporte',ttl:'PMO'},
+  dir_pmo:{x:95,y:808,w:250,h:76,cls:'dir',ttl:'Dirección de PMO',note:'dos alas: desarrollo de producto · mejora y transformación organizacional'},
 
-  gg_em:{x:1180,y:474,w:290,h:62,cls:'hyb',tag:'Gerencia general · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
-  dir_exc:{x:1220,y:566,w:245,h:52,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
-  dir_mkt:{x:1220,y:628,w:245,h:48,cls:'dir',ttl:'Dirección de Mercadeo'},
-  dir_dig:{x:1220,y:684,w:245,h:52,cls:'dir',ttl:'Dirección de Experiencia Digital'},
+  // ---- costado derecho (soporte + híbrida) ----
+  gg_fin:{x:1215,y:280,w:250,h:58,cls:'sop',tag:'Gerencia regional · Soporte',ttl:'Finanzas'},
+  dir_ac:{x:1230,y:366,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
 
-  gg_id:{x:175,y:820,w:250,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Investigación y Desarrollo'},
-  dir_pmo:{x:175,y:906,w:250,h:78,cls:'dir',ttl:'Dirección de PMO',note:'dos alas: desarrollo de producto · mejora y transformación organizacional'},
+  gg_serv:{x:1195,y:458,w:270,h:62,cls:'sop',tag:'Dirección general · Soporte',ttl:'Servicio'},
+  dir_mant:{x:1213,y:556,w:235,h:54,cls:'dir',ttl:'Dirección de Mantenimiento y Servicios',note:'por país'},
 
-  gg_com:{x:655,y:820,w:250,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Comercial'},
-  dir_casio:{x:625,y:906,w:145,h:56,cls:'dir',ttl:'Dirección Comercial CASIO'},
-  dir_cubitt:{x:790,y:906,w:145,h:56,cls:'dir',ttl:'Dirección Comercial CUBITT'},
-  dir_detal:{x:545,y:1000,w:150,h:64,cls:'dir',ttl:'Dirección de Ventas al Detal',note:'tiendas · por país'},
-  dir_web:{x:705,y:1000,w:150,h:64,cls:'dir',ttl:'Dirección de Ventas Web',note:'por país'},
-  dir_stec:{x:865,y:1000,w:150,h:64,cls:'dir',ttl:'Dirección de Servicio Técnico',note:'por país'},
+  gg_em:{x:1180,y:642,w:290,h:64,cls:'hyb',tag:'Gerencia regional · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
+  dir_exc:{x:1220,y:740,w:245,h:50,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
+  dir_mkt:{x:1220,y:800,w:245,h:48,cls:'dir',ttl:'Dirección de Mercadeo'},
+  dir_dig:{x:1220,y:856,w:245,h:50,cls:'dir',ttl:'Dirección de Experiencia Digital'},
 
-  gg_ops:{x:1125,y:820,w:270,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Operaciones y Logística'},
-  dir_ops:{x:1130,y:906,w:130,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
-  dir_inv:{x:1270,y:906,w:130,h:56,cls:'dir',ttl:'Dirección de Inventario'},
+  // ---- flujo medular ----
+  gg_id:{x:195,y:960,w:250,h:60,cls:'med',tag:'Gerencia regional · Medular',ttl:'Investigación y Desarrollo'},
+
+  gg_com:{x:675,y:960,w:250,h:60,cls:'med',tag:'Gerencia regional · Medular',ttl:'Comercial'},
+  dir_casio:{x:630,y:1046,w:160,h:64,cls:'marca',ttl:'Dirección Comercial CASIO',note:'incluye compras y ventas al mayor'},
+  dir_cubitt:{x:810,y:1046,w:160,h:64,cls:'marca',ttl:'Dirección Comercial CUBITT',note:'incluye compras y ventas al mayor'},
+  dir_detal:{x:500,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas al Detal',note:'tiendas · por país'},
+  dir_web:{x:660,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas Web',note:'por país'},
+  dir_stec:{x:820,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Servicio Técnico',note:'por país'},
+  dir_ecom:{x:980,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de E-commerce',note:'regional'},
+
+  gg_ops:{x:1225,y:960,w:270,h:60,cls:'med',tag:'Gerencia regional · Medular',ttl:'Operaciones y Logística'},
+  dir_ops:{x:1230,y:1046,w:130,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
+  dir_inv:{x:1370,y:1046,w:130,h:56,cls:'dir',ttl:'Dirección de Inventario'},
 };
 
 const EDGES = [
-  {s:'dot', p:[[575,104],[575,132],[710,132],[710,150]]},   // holding -> exec
-  {s:'dot', p:[[985,104],[985,132],[850,132],[850,150]]},   // junta -> exec
-  {s:'sol', p:[[780,212],[780,790]]},                        // espina exec -> bus medular
-  {s:'sol', p:[[345,315],[1195,315]]},                       // barra soporte A
-  {s:'sol', p:[[360,505],[1180,505]]},                       // barra soporte B
-  {s:'sol', p:[[220,344],[220,372]]},                        // gg_th -> dir_th
-  {s:'sol', p:[[1320,344],[1320,372]]},                      // gg_fin -> dir_ac
-  {s:'sol', p:[[95,536],[48,536],[48,671]]},                 // riel gg_tt
-  {s:'dot', p:[[48,599],[70,599]]},                          // riel -> cex (punteada)
-  {s:'sol', p:[[48,671],[70,671]]},                          // riel -> dir_ti
-  {s:'sol', p:[[1470,536],[1492,536],[1492,710]]},           // riel gg_em
-  {s:'sol', p:[[1492,592],[1465,592]]},
-  {s:'sol', p:[[1492,652],[1465,652]]},
-  {s:'sol', p:[[1492,710],[1465,710]]},
-  {s:'sol', p:[[300,790],[1260,790]]},                       // bus medular
-  {s:'sol', p:[[300,790],[300,820]]},
-  {s:'sol', p:[[780,790],[780,820]]},
-  {s:'sol', p:[[1260,790],[1260,820]]},
-  {s:'sol', p:[[300,880],[300,906]]},                        // gg_id -> dir_pmo
-  {s:'sol', p:[[780,880],[780,894]]},                        // Comercial: fila marcas
-  {s:'sol', p:[[697,894],[862,894]]},
-  {s:'sol', p:[[697,894],[697,906]]},{s:'sol', p:[[862,894],[862,906]]},
-  {s:'sol', p:[[780,894],[780,988]]},                        // Comercial: baja a fila compartida
-  {s:'sol', p:[[620,988],[940,988]]},
-  {s:'sol', p:[[620,988],[620,1000]]},{s:'sol', p:[[780,988],[780,1000]]},{s:'sol', p:[[940,988],[940,1000]]},
-  {s:'sol', p:[[1260,880],[1260,894]]},                      // Operaciones
-  {s:'sol', p:[[1195,894],[1335,894]]},
-  {s:'sol', p:[[1195,894],[1195,906]]},{s:'sol', p:[[1335,894],[1335,906]]},
+  {s:'dot', p:[[595,100],[595,128],[720,128],[720,150]]},   // holding -> exec
+  {s:'dot', p:[[1005,100],[1005,128],[880,128],[880,150]]}, // junta -> exec
+  {s:'sol', p:[[800,212],[800,930]]},                        // espina
+  {s:'sol', p:[[345,309],[1215,309]]},                       // barra A (Talento H | Finanzas)
+  {s:'sol', p:[[360,489],[1195,489]]},                       // barra B (Transf.Tec | Servicio)
+  {s:'sol', p:[[345,751],[800,751]]},                        // PMO -> espina
+  {s:'sol', p:[[800,674],[1180,674]]},                       // espina -> Exp. Marcas
+  {s:'sol', p:[[222,338],[222,366]]},                        // gg_th -> dir_th
+  {s:'sol', p:[[95,520],[48,520],[48,655]]},                 // riel gg_tt
+  {s:'dot', p:[[48,583],[70,583]]},                          // -> cex
+  {s:'sol', p:[[48,655],[70,655]]},                          // -> dir_ti
+  {s:'sol', p:[[220,780],[220,808]]},                        // gg_pmo -> dir_pmo
+  {s:'sol', p:[[1342,338],[1342,366]]},                      // gg_fin -> dir_ac
+  {s:'sol', p:[[1330,520],[1330,556]]},                      // gg_serv -> dir_mant
+  {s:'sol', p:[[1470,706],[1490,706],[1490,881]]},           // riel gg_em
+  {s:'sol', p:[[1490,765],[1465,765]]},
+  {s:'sol', p:[[1490,824],[1465,824]]},
+  {s:'sol', p:[[1490,881],[1465,881]]},
+  {s:'sol', p:[[320,930],[1360,930]]},                       // bus medular
+  {s:'sol', p:[[320,930],[320,960]]},
+  {s:'sol', p:[[800,930],[800,960]]},
+  {s:'sol', p:[[1360,930],[1360,960]]},
+  // Comercial: gerencia -> marcas
+  {s:'sol', p:[[800,1020],[800,1034]]},
+  {s:'sol', p:[[710,1034],[890,1034]]},
+  {s:'sol', p:[[710,1034],[710,1046]]},{s:'sol', p:[[890,1034],[890,1046]]},
+  // marcas -> direcciones operativas (reportan a las marcas)
+  {s:'sol', p:[[710,1110],[710,1124]]},{s:'sol', p:[[890,1110],[890,1124]]},
+  {s:'sol', p:[[710,1124],[890,1124]]},
+  {s:'sol', p:[[800,1124],[800,1134]]},
+  {s:'sol', p:[[575,1134],[1055,1134]]},
+  {s:'sol', p:[[575,1134],[575,1150]]},{s:'sol', p:[[735,1134],[735,1150]]},
+  {s:'sol', p:[[895,1134],[895,1150]]},{s:'sol', p:[[1055,1134],[1055,1150]]},
+  // Operaciones
+  {s:'sol', p:[[1360,1020],[1360,1034]]},
+  {s:'sol', p:[[1295,1034],[1435,1034]]},
+  {s:'sol', p:[[1295,1034],[1295,1046]]},{s:'sol', p:[[1435,1034],[1435,1046]]},
 ];
 
 // Relaciones funcionales (curvas punteadas azules). Explicadas en las Notas de diseño.
 const RELS = [
-  {d:'M1200,540 C1055,690 1008,905 948,1000'},   // Exp. Marcas -> Comercial (ventas al detal / web / servicio técnico)
-  {d:'M1216,648 C1180,300 1120,110 345,322'},     // Dir. de Mercadeo -> G.G. Talento Humano (experiencia del empleado)
+  {d:'M1180,700 C1075,860 1010,1050 950,1150'},   // Exp. Marcas -> direcciones operativas de Comercial
+  {d:'M1218,824 C1120,700 1120,250 345,306'},     // Dir. de Mercadeo -> Talento Humano (experiencia del empleado)
 ];
 
 const board=document.getElementById('board'), wires=document.getElementById('wires');
@@ -227,9 +244,9 @@ wires.innerHTML=svg;
 
 function fit(){
   const stage=document.querySelector('.stage');
-  const s=Math.min(1,(stage.clientWidth-32)/1560);
+  const s=Math.min(1,(stage.clientWidth-32)/1680);
   board.style.transform=`scale(${s})`;
-  stage.style.height=(1095*s+32)+'px';
+  stage.style.height=(1250*s+32)+'px';
 }
 addEventListener('resize',fit); fit();
 </script>
