@@ -14,20 +14,21 @@
   header{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff; padding:22px 26px;}
   header .kick{text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; color:#9dc3ee;}
   header h1{font-size:1.4rem; margin-top:3px;}
-  header p{color:#dbe6f5; font-size:.9rem; margin-top:5px; max-width:1000px;}
+  header p{color:#dbe6f5; font-size:.9rem; margin-top:5px; max-width:1040px;}
   header .conf{display:inline-block; margin-top:12px; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
     background:rgba(192,0,0,.28); border:1px solid rgba(255,255,255,.35); padding:3px 11px; border-radius:999px;}
 
-  .legend{display:flex; flex-wrap:wrap; gap:16px 26px; align-items:center; padding:12px 26px; background:#fff;
+  .legend{display:flex; flex-wrap:wrap; gap:14px 24px; align-items:center; padding:12px 26px; background:#fff;
     border-bottom:1px solid var(--borde); font-size:.8rem;}
   .legend .li{display:flex; align-items:center; gap:7px;}
   .sw{width:24px; height:15px; border-radius:4px; flex:none; border:1px solid var(--borde);}
-  .ln{width:30px; height:0; flex:none;}
+  .ln{width:30px; height:10px; flex:none;}
 
   .stage{padding:16px; overflow:auto;}
-  .board{position:relative; width:1520px; height:1010px; transform-origin:top left; margin:0 auto;}
-
-  svg.wires{position:absolute; inset:0; width:1520px; height:1010px; pointer-events:none;}
+  .board{position:relative; width:1560px; height:1095px; transform-origin:top left; margin:0 auto;}
+  svg.wires{position:absolute; inset:0; width:1560px; height:1095px; pointer-events:none;}
+  svg.wires text{font-family:"Cascadia Mono",Consolas,monospace; font-size:11px; fill:var(--blue);
+    paint-order:stroke; stroke:#eef1f6; stroke-width:4px;}
 
   .node{position:absolute; background:#fff; border:1px solid var(--borde); border-radius:10px;
     box-shadow:0 1px 2px rgba(23,32,54,.06),0 6px 16px rgba(23,32,54,.07);
@@ -36,7 +37,6 @@
   .node .ttl{font-weight:650; font-size:12.5px; color:var(--navy); line-height:1.18;}
   .node .note{font-size:10px; font-style:italic; color:var(--muted); margin-top:2px;}
 
-  /* tipos */
   .exec{background:linear-gradient(135deg,var(--navy),#2a4a80); border-color:var(--navy); align-items:center; text-align:center;}
   .exec .ttl{color:#fff; font-size:16px; font-weight:700;}
   .exec .tag{color:#9dc3ee;}
@@ -47,15 +47,18 @@
   .hyb{border-left:5px solid var(--ambar); border-right:5px solid var(--verde);}
   .dir{background:var(--gris); border-left:4px solid var(--blue);}
   .dir .ttl{font-size:11.5px; font-weight:600;}
-  .gia{background:#eef4fb; border-left:4px solid var(--navy);}
-  .gia .ttl{font-size:11.5px; color:var(--navy);}
   .coe{background:#fff; border:1.5px dashed var(--blue);}
   .coe .ttl{font-size:11.5px; color:var(--blue); font-style:italic;}
 
   .notes{background:#fff; border-top:1px solid var(--borde); padding:16px 26px 30px; font-size:.83rem; color:#3c4657;}
-  .notes h3{font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; color:var(--navy); margin-bottom:8px;}
-  .notes ul{margin:0 0 0 18px;} .notes li{margin:5px 0; color:#3c4657;}
+  .notes h3{font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; color:var(--navy); margin:2px 0 8px;}
+  .notes ul{margin:0 0 0 18px;} .notes li{margin:5px 0;}
   .notes b{color:var(--navy);}
+  .em-block{margin-top:14px; padding:14px 18px; background:var(--gris); border-left:4px solid var(--ambar); border-radius:8px;}
+  .em-block .dcard{margin:10px 0;}
+  .em-block .dcard>b{color:var(--navy);}
+  .em-block .sub{margin:4px 0 4px 16px; font-size:.82rem;}
+  .em-block .sub li{margin:3px 0;}
   footer{padding:14px 26px 26px; text-align:center; font-size:.78rem; color:#7a8496;}
 </style>
 </head>
@@ -70,14 +73,15 @@
 
 <div class="legend">
   <div class="li"><span class="sw" style="background:linear-gradient(135deg,#1F3864,#2a4a80);border-color:#1F3864;"></span>Dirección Ejecutiva</div>
-  <div class="li"><span class="sw" style="background:#fff;border:2px dashed #1F3864;"></span>Gobierno corporativo (consulta)</div>
-  <div class="li"><span class="sw" style="border-left:5px solid #B26A00;"></span>G.G. de soporte</div>
+  <div class="li"><span class="sw" style="background:#fff;border:2px dashed #1F3864;"></span>Gobierno (consulta)</div>
+  <div class="li"><span class="sw" style="border-left:5px solid #B26A00;"></span>G.G. soporte</div>
   <div class="li"><span class="sw" style="border-left:5px solid #2E7D32;"></span>G.G. medular</div>
   <div class="li"><span class="sw" style="border-left:5px solid #B26A00;border-right:5px solid #2E7D32;"></span>G.G. híbrida</div>
   <div class="li"><span class="sw" style="background:#F4F6FA;border-left:4px solid #2E75B6;"></span>Dirección</div>
   <div class="li"><span class="sw" style="border:1.5px dashed #2E75B6;"></span>Centro de excelencia (apoyo)</div>
-  <div class="li"><svg class="ln" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5"/></svg>Línea continua · reporte</div>
-  <div class="li"><svg class="ln" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5" stroke-dasharray="3 4"/></svg>Línea punteada · consulta / apoyo transversal</div>
+  <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5"/></svg>Reporte (continua)</div>
+  <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5" stroke-dasharray="3 4"/></svg>Consulta / apoyo (punteada)</div>
+  <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#2E75B6" stroke-width="2.5" stroke-dasharray="2 4"/></svg>Relación funcional (insumos)</div>
 </div>
 
 <div class="stage">
@@ -90,79 +94,120 @@
   <h3>Notas de diseño</h3>
   <ul>
     <li><b>Niveles diagramados:</b> Dirección Ejecutiva · Gerencias Generales (corporativas) · Direcciones asociadas. Las <b>coordinaciones</b> dentro de cada dirección se definirán en la siguiente iteración.</li>
-    <li><b>Gobierno corporativo.</b> El Holding del grupo familiar y la Junta Directiva son instancias de <b>consulta y decisión</b> de la Dirección Ejecutiva (vínculo en línea punteada), no niveles de línea de mando.</li>
+    <li><b>Gobierno corporativo.</b> El Holding del grupo familiar y la Junta Directiva son instancias de <b>consulta y decisión</b> de la Dirección Ejecutiva (línea punteada), no niveles de línea de mando.</li>
     <li><b>Capa corporativa regional flexible.</b> Puede operar desde <b>Panamá o Venezuela</b> según conveniencia (disponibilidad de perfiles y facilidad de acción). Orienta el enfoque estratégico por marca (Casio / Cubitt) y por país.</li>
     <li><b>Soporte a los costados, medulares en el flujo.</b> Las gerencias de soporte (Talento Humano, Transformación Tecnológica y Soporte, Finanzas) se conectan a los costados de la línea de reporte Dirección Ejecutiva → gerencias medulares (I+D, Comercial, Operaciones y Logística). <b>Experiencia de Marcas</b> es híbrida (soporte-medular).</li>
     <li><b>«Por país».</b> Las direcciones marcadas «por país» se despliegan en las operaciones con presencia propia (Venezuela, Colombia) mediante direcciones y coordinaciones locales.</li>
-    <li><b>Transformación Tecnológica y Soporte.</b> La <b>Gerencia de Gobernanza de IA</b> dirige la estrategia global, la implantación y el uso ético de la tecnología (cumplimiento regulatorio, mitigación de sesgos, auditoría de modelos autónomos). El <b>Centro de Excelencia en IA</b> es un departamento transversal de apoyo (línea punteada) que estandariza buenas prácticas y mide el impacto operacional. La Dirección de TI opera por país.</li>
-    <li><b>Dirección de PMO</b> (bajo I+D) gestiona dos alas de proyectos: los de <b>desarrollo de producto</b> y los de <b>mejora y transformación organizacional</b> (que pueden originarse en cualquier proceso o área).</li>
+    <li><b>Transformación Tecnológica y Soporte.</b> La gerencia lidera la <b>gobernanza y el desarrollo de IA</b> en las operaciones, apoyada por el <b>Centro de Excelencia en IA</b> —departamento transversal (línea punteada) que estandariza buenas prácticas y mide el impacto operacional— y por la <b>Dirección de Tecnologías de Información</b> (por país).</li>
+    <li><b>Gerencia General Comercial.</b> Con <b>Dirección Comercial CASIO</b> y <b>Dirección Comercial CUBITT</b>, que cuentan <b>en conjunto</b> con una Dirección de Ventas al Detal (tiendas), una Dirección de Ventas Web y una Dirección de Servicio Técnico, todas <b>por país</b>. Recibe <b>insumos directos de Experiencia de Marcas</b> (relación funcional punteada) que influyen sobre esas direcciones de ventas al detal, ventas web y servicio técnico.</li>
+    <li><b>Dirección de Mercadeo ↔ Talento Humano.</b> Relación funcional punteada: la Experiencia del Empleado se diseña en colaboración con Recursos Humanos (onboarding, clima y orgullo de pertenencia).</li>
+    <li><b>Dirección de PMO</b> (bajo I+D) gestiona dos alas de proyectos: <b>desarrollo de producto</b> y <b>mejora y transformación organizacional</b> (de cualquier proceso o área).</li>
   </ul>
+
+  <div class="em-block">
+    <h3 style="margin-top:0">Gerencia General de Experiencia de Marcas — rol y direcciones</h3>
+    <p><b>Gerencia General de Experiencia de Marcas (híbrida, soporte-medular).</b> Rol ejecutivo clave para unificar la percepción, los valores y las vivencias que los públicos tienen de las distintas marcas del grupo. Su enfoque va más allá del diseño visual tradicional para gestionar conexiones emocionales en cada punto de contacto.</p>
+
+    <div class="dcard"><b>Dirección de Experiencia del Cliente.</b>
+      <ul class="sub">
+        <li><b>Enfoque:</b> diseña el viaje completo del comprador (Customer Journey).</li>
+        <li><b>Función:</b> optimiza los procesos de atención, postventa y soporte técnico.</li>
+        <li><b>Meta:</b> eliminar fricciones en la interacción directa con el usuario.</li>
+      </ul>
+    </div>
+
+    <div class="dcard"><b>Dirección de Experiencia Digital.</b>
+      <ul class="sub">
+        <li><b>Enfoque:</b> gestiona los ecosistemas virtuales de todas las marcas.</li>
+        <li><b>Función:</b> supervisa aplicaciones móviles, plataformas de comercio electrónico y páginas web.</li>
+        <li><b>Meta:</b> garantizar interfaces intuitivas y un diseño de experiencia de usuario homogéneo.</li>
+      </ul>
+    </div>
+
+    <div class="dcard"><b>Dirección de Mercadeo.</b> Integra cuatro frentes:
+      <ul class="sub">
+        <li><b>1 · Identidad y Expresión de Marca.</b> Enfoque: custodia los activos visuales, verbales y sensoriales del grupo. Función: define el tono de voz, el diseño gráfico, el interiorismo corporativo y el branding sónico. Meta: mantener la coherencia estética global en cualquier soporte o país.</li>
+        <li><b>2 · Activación y Eventos Globales.</b> Enfoque: conecta la marca con el público mediante vivencias en vivo. Función: organiza lanzamientos de productos, patrocinios, ferias comerciales y tiendas efímeras (pop-up stores). Meta: generar impacto emocional y cobertura mediática a gran escala.</li>
+        <li><b>3 · Experiencia del Empleado.</b> Enfoque: alinea la cultura interna con la promesa externa de la marca. Función: colabora con Recursos Humanos para diseñar el onboarding, el clima laboral y el orgullo de pertenencia. Meta: transformar a los trabajadores en los primeros embajadores de las marcas.</li>
+        <li><b>4 · Insights y Analítica de Experiencia.</b> Enfoque: sustenta las decisiones creativas en datos reales. Función: monitorea el índice de recomendación (NPS), la satisfacción (CSAT) y las tendencias del mercado. Meta: traducir el comportamiento del consumidor en mejoras continuas de la estrategia.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <footer>Proyecto Rower · UCAB Consultores para Grupo Kenex · Estructura propuesta (borrador) — corte 22-jul-2026</footer>
 
 <script>
 const NODES = {
-  holding:{x:415,y:40,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Holding — grupo familiar propietario'},
-  junta:{x:850,y:40,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Junta Directiva'},
-  exec:{x:595,y:150,w:330,h:62,cls:'exec',tag:'Nivel 1',ttl:'Dirección Ejecutiva del Grupo'},
+  holding:{x:448,y:40,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Holding — grupo familiar propietario'},
+  junta:{x:858,y:40,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Junta Directiva'},
+  exec:{x:615,y:150,w:330,h:62,cls:'exec',tag:'Nivel 1',ttl:'Dirección Ejecutiva del Grupo'},
 
   gg_th:{x:95,y:286,w:250,h:58,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Talento Humano'},
   dir_th:{x:120,y:372,w:200,h:52,cls:'dir',ttl:'Dirección de Talento Humano',note:'por país'},
 
   gg_tt:{x:70,y:474,w:290,h:62,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Transformación Tecnológica y Soporte'},
-  ger_gia:{x:70,y:566,w:250,h:54,cls:'gia',tag:'Gerencia',ttl:'Gobernanza de IA'},
-  cex:{x:70,y:636,w:250,h:52,cls:'coe',ttl:'Centro de Excelencia en IA',note:'transversal · apoyo'},
-  dir_ti:{x:70,y:702,w:250,h:54,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
+  cex:{x:70,y:572,w:250,h:54,cls:'coe',ttl:'Centro de Excelencia en IA',note:'transversal · apoyo'},
+  dir_ti:{x:70,y:644,w:250,h:54,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
 
-  gg_fin:{x:1175,y:286,w:250,h:58,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Finanzas'},
-  dir_ac:{x:1188,y:372,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
+  gg_fin:{x:1195,y:286,w:250,h:58,cls:'sop',tag:'Gerencia general · Soporte',ttl:'Finanzas'},
+  dir_ac:{x:1210,y:372,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
 
-  gg_em:{x:1160,y:474,w:290,h:62,cls:'hyb',tag:'Gerencia general · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
-  dir_exc:{x:1200,y:566,w:245,h:52,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
-  dir_mkt:{x:1200,y:628,w:245,h:48,cls:'dir',ttl:'Dirección de Mercadeo'},
-  dir_dig:{x:1200,y:684,w:245,h:52,cls:'dir',ttl:'Dirección de Experiencia Digital'},
+  gg_em:{x:1180,y:474,w:290,h:62,cls:'hyb',tag:'Gerencia general · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
+  dir_exc:{x:1220,y:566,w:245,h:52,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
+  dir_mkt:{x:1220,y:628,w:245,h:48,cls:'dir',ttl:'Dirección de Mercadeo'},
+  dir_dig:{x:1220,y:684,w:245,h:52,cls:'dir',ttl:'Dirección de Experiencia Digital'},
 
-  gg_id:{x:250,y:820,w:250,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Investigación y Desarrollo'},
-  dir_pmo:{x:250,y:906,w:250,h:78,cls:'dir',ttl:'Dirección de PMO',note:'dos alas: desarrollo de producto · mejora y transformación organizacional'},
+  gg_id:{x:175,y:820,w:250,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Investigación y Desarrollo'},
+  dir_pmo:{x:175,y:906,w:250,h:78,cls:'dir',ttl:'Dirección de PMO',note:'dos alas: desarrollo de producto · mejora y transformación organizacional'},
 
-  gg_com:{x:635,y:820,w:250,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Comercial'},
-  dir_casio:{x:560,y:906,w:185,h:56,cls:'dir',ttl:'Dirección Comercial CASIO',note:'locales por país'},
-  dir_cubitt:{x:755,y:906,w:185,h:56,cls:'dir',ttl:'Dirección Comercial CUBITT',note:'locales por país'},
+  gg_com:{x:655,y:820,w:250,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Comercial'},
+  dir_casio:{x:625,y:906,w:145,h:56,cls:'dir',ttl:'Dirección Comercial CASIO'},
+  dir_cubitt:{x:790,y:906,w:145,h:56,cls:'dir',ttl:'Dirección Comercial CUBITT'},
+  dir_detal:{x:545,y:1000,w:150,h:64,cls:'dir',ttl:'Dirección de Ventas al Detal',note:'tiendas · por país'},
+  dir_web:{x:705,y:1000,w:150,h:64,cls:'dir',ttl:'Dirección de Ventas Web',note:'por país'},
+  dir_stec:{x:865,y:1000,w:150,h:64,cls:'dir',ttl:'Dirección de Servicio Técnico',note:'por país'},
 
-  gg_ops:{x:1015,y:820,w:270,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Operaciones y Logística'},
-  dir_ops:{x:1015,y:906,w:132,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
-  dir_inv:{x:1155,y:906,w:132,h:56,cls:'dir',ttl:'Dirección de Inventario'},
+  gg_ops:{x:1125,y:820,w:270,h:60,cls:'med',tag:'Gerencia general · Medular',ttl:'Operaciones y Logística'},
+  dir_ops:{x:1130,y:906,w:130,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
+  dir_inv:{x:1270,y:906,w:130,h:56,cls:'dir',ttl:'Dirección de Inventario'},
 };
 
-// Aristas: cadenas de puntos [ [x,y], ... ] con estilo
 const EDGES = [
-  {s:'dot', p:[[542,104],[542,132],[690,132],[690,150]]},      // holding -> exec
-  {s:'dot', p:[[977,104],[977,132],[830,132],[830,150]]},      // junta -> exec
-  {s:'sol', p:[[760,212],[760,790]]},                          // espina exec -> bus medular
-  {s:'sol', p:[[345,315],[1175,315]]},                         // barra soporte A (th | fin)
-  {s:'sol', p:[[360,505],[1160,505]]},                         // barra soporte B (tt | em)
-  {s:'sol', p:[[220,344],[220,372]]},                          // gg_th -> dir_th
-  {s:'sol', p:[[1300,344],[1300,372]]},                        // gg_fin -> dir_ac
-  {s:'sol', p:[[95,536],[48,536],[48,729]]},                   // riel gg_tt
-  {s:'sol', p:[[48,593],[70,593]]},                            // riel -> ger_gia
-  {s:'dot', p:[[48,662],[70,662]]},                            // riel -> cex (punteada)
-  {s:'sol', p:[[48,729],[70,729]]},                            // riel -> dir_ti
-  {s:'sol', p:[[1450,536],[1472,536],[1472,710]]},             // riel gg_em
-  {s:'sol', p:[[1472,592],[1445,592]]},                        // riel -> dir_exc
-  {s:'sol', p:[[1472,652],[1445,652]]},                        // riel -> dir_mkt
-  {s:'sol', p:[[1472,710],[1445,710]]},                        // riel -> dir_dig
-  {s:'sol', p:[[375,790],[1150,790]]},                         // bus medular
-  {s:'sol', p:[[375,790],[375,820]]},                          // -> gg_id
-  {s:'sol', p:[[760,790],[760,820]]},                          // -> gg_com
-  {s:'sol', p:[[1150,790],[1150,820]]},                        // -> gg_ops
-  {s:'sol', p:[[375,880],[375,906]]},                          // gg_id -> dir_pmo
-  {s:'sol', p:[[760,880],[760,894]]},                          // gg_com drop
-  {s:'sol', p:[[652,894],[847,894]]},                          //   bus com
-  {s:'sol', p:[[652,894],[652,906]]},{s:'sol', p:[[847,894],[847,906]]},
-  {s:'sol', p:[[1150,880],[1150,894]]},                        // gg_ops drop
-  {s:'sol', p:[[1081,894],[1221,894]]},                        //   bus ops
-  {s:'sol', p:[[1081,894],[1081,906]]},{s:'sol', p:[[1221,894],[1221,906]]},
+  {s:'dot', p:[[575,104],[575,132],[710,132],[710,150]]},   // holding -> exec
+  {s:'dot', p:[[985,104],[985,132],[850,132],[850,150]]},   // junta -> exec
+  {s:'sol', p:[[780,212],[780,790]]},                        // espina exec -> bus medular
+  {s:'sol', p:[[345,315],[1195,315]]},                       // barra soporte A
+  {s:'sol', p:[[360,505],[1180,505]]},                       // barra soporte B
+  {s:'sol', p:[[220,344],[220,372]]},                        // gg_th -> dir_th
+  {s:'sol', p:[[1320,344],[1320,372]]},                      // gg_fin -> dir_ac
+  {s:'sol', p:[[95,536],[48,536],[48,671]]},                 // riel gg_tt
+  {s:'dot', p:[[48,599],[70,599]]},                          // riel -> cex (punteada)
+  {s:'sol', p:[[48,671],[70,671]]},                          // riel -> dir_ti
+  {s:'sol', p:[[1470,536],[1492,536],[1492,710]]},           // riel gg_em
+  {s:'sol', p:[[1492,592],[1465,592]]},
+  {s:'sol', p:[[1492,652],[1465,652]]},
+  {s:'sol', p:[[1492,710],[1465,710]]},
+  {s:'sol', p:[[300,790],[1260,790]]},                       // bus medular
+  {s:'sol', p:[[300,790],[300,820]]},
+  {s:'sol', p:[[780,790],[780,820]]},
+  {s:'sol', p:[[1260,790],[1260,820]]},
+  {s:'sol', p:[[300,880],[300,906]]},                        // gg_id -> dir_pmo
+  {s:'sol', p:[[780,880],[780,894]]},                        // Comercial: fila marcas
+  {s:'sol', p:[[697,894],[862,894]]},
+  {s:'sol', p:[[697,894],[697,906]]},{s:'sol', p:[[862,894],[862,906]]},
+  {s:'sol', p:[[780,894],[780,988]]},                        // Comercial: baja a fila compartida
+  {s:'sol', p:[[620,988],[940,988]]},
+  {s:'sol', p:[[620,988],[620,1000]]},{s:'sol', p:[[780,988],[780,1000]]},{s:'sol', p:[[940,988],[940,1000]]},
+  {s:'sol', p:[[1260,880],[1260,894]]},                      // Operaciones
+  {s:'sol', p:[[1195,894],[1335,894]]},
+  {s:'sol', p:[[1195,894],[1195,906]]},{s:'sol', p:[[1335,894],[1335,906]]},
+];
+
+// Relaciones funcionales (curvas punteadas azules). Explicadas en las Notas de diseño.
+const RELS = [
+  {d:'M1200,540 C1055,690 1008,905 948,1000'},   // Exp. Marcas -> Comercial (ventas al detal / web / servicio técnico)
+  {d:'M1216,648 C1180,300 1120,110 345,322'},     // Dir. de Mercadeo -> G.G. Talento Humano (experiencia del empleado)
 ];
 
 const board=document.getElementById('board'), wires=document.getElementById('wires');
@@ -173,17 +218,18 @@ for(const k in NODES){ const n=NODES[k];
   d.innerHTML=(n.tag?`<div class="tag">${esc(n.tag)}</div>`:'')+`<div class="ttl">${esc(n.ttl)}</div>`+(n.note?`<div class="note">${esc(n.note)}</div>`:'');
   board.appendChild(d);
 }
-wires.innerHTML=EDGES.map(e=>{
+let svg=EDGES.map(e=>{
   const d='M'+e.p.map(pt=>pt[0]+','+pt[1]).join(' L');
   return `<path d="${d}" fill="none" stroke="var(--line)" stroke-width="2.2"${e.s==='dot'?' stroke-dasharray="3 4"':''}/>`;
 }).join('');
+svg+=RELS.map(r=>`<path d="${r.d}" fill="none" stroke="var(--blue)" stroke-width="2" stroke-dasharray="2 4" opacity=".85"/>`).join('');
+wires.innerHTML=svg;
 
-// escalar para caber en el ancho del contenedor
 function fit(){
   const stage=document.querySelector('.stage');
-  const s=Math.min(1,(stage.clientWidth-32)/1520);
+  const s=Math.min(1,(stage.clientWidth-32)/1560);
   board.style.transform=`scale(${s})`;
-  stage.style.height=(1010*s+32)+'px';
+  stage.style.height=(1095*s+32)+'px';
 }
 addEventListener('resize',fit); fit();
 </script>
