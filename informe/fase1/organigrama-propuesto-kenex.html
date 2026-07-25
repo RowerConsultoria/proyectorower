@@ -79,7 +79,7 @@
   <div class="li"><span class="sw" style="border-left:5px solid #B26A00;border-right:5px solid #2E7D32;"></span>G. Corporativa híbrida</div>
   <div class="li"><span class="sw" style="background:#F4F6FA;border-left:4px solid #2E75B6;"></span>Dirección</div>
   <div class="li"><span class="sw" style="background:#eef4fb;border-left:4px solid #1F3864;"></span>Dirección de marca</div>
-  <div class="li"><span class="sw" style="border:1.5px dashed #2E75B6;"></span>Centro de excelencia (apoyo)</div>
+  <div class="li"><span class="sw" style="border:1.5px dashed #2E75B6;"></span>Comité de apoyo (consultivo)</div>
   <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5"/></svg>Reporte (continua)</div>
   <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#6b7a95" stroke-width="2.5" stroke-dasharray="3 4"/></svg>Consulta / apoyo (punteada)</div>
   <div class="li"><svg class="ln"><line x1="0" y1="5" x2="30" y2="5" stroke="#2E75B6" stroke-width="2.5" stroke-dasharray="2 4"/></svg>Relación funcional (insumos)</div>
@@ -97,12 +97,13 @@
     <li><b>Niveles diagramados:</b> Dirección Ejecutiva · Gerencias Corporativas · Direcciones asociadas. Las <b>coordinaciones</b> dentro de cada dirección se definirán en la siguiente iteración.</li>
     <li><b>Gobierno corporativo.</b> El Holding del grupo familiar y la Junta Directiva son instancias de <b>consulta y decisión</b> de la Dirección Ejecutiva (línea punteada), no niveles de línea de mando.</li>
     <li><b>Capa corporativa flexible.</b> Puede operar desde <b>Panamá o Venezuela</b> según conveniencia (disponibilidad de perfiles y facilidad de acción). Orienta el enfoque estratégico por marca (Casio / Cubitt) y por país.</li>
-    <li><b>Soporte a los costados, medulares en el flujo.</b> Las gerencias corporativas de soporte (Talento Humano, Transformación Tecnológica y Soporte, Finanzas, PMO y la Dirección General de Servicio) se conectan a los costados de la línea de reporte Dirección Ejecutiva → gerencias corporativas medulares (I+D, Comercial, Operaciones y Logística). <b>Experiencia de Marcas</b> es híbrida (soporte-medular).</li>
+    <li><b>Soporte a los costados, medulares en el flujo.</b> Las gerencias corporativas de soporte (Talento Humano, Transformación Tecnológica y Soporte, Finanzas y PMO), junto con la Dirección de Mantenimiento y Servicios, se conectan a los costados de la línea de reporte Dirección Ejecutiva → gerencias corporativas medulares (I+D, Comercial, Operaciones y Logística). <b>Experiencia de Marcas</b> es híbrida (soporte-medular).</li>
     <li><b>«Por país».</b> Las direcciones marcadas «por país» se despliegan en las operaciones con presencia propia (Venezuela, Colombia) mediante direcciones y coordinaciones locales.</li>
-    <li><b>Transformación Tecnológica y Soporte.</b> Lidera la <b>gobernanza y el desarrollo de IA</b> en las operaciones, apoyada por el <b>Centro de Excelencia en IA</b> —departamento transversal (línea punteada) que estandariza buenas prácticas y mide el impacto operacional— y por la <b>Dirección de Tecnologías de Información</b> (por país).</li>
+    <li><b>Transformación Tecnológica y Soporte.</b> Lidera la <b>gobernanza y el desarrollo de IA</b> en las operaciones, apoyada por el <b>Comité de Excelencia en Transformación Tecnológica e IA</b> —comité transversal (línea punteada) que estandariza buenas prácticas y mide el impacto operacional— y por la <b>Dirección de Tecnologías de Información</b> (por país).</li>
     <li><b>Gerencia Corporativa de PMO (soporte).</b> Reporta a la Dirección Ejecutiva; de ella depende una <b>Dirección de PMO</b> con dos alas de proyectos: desarrollo de producto y mejora y transformación organizacional (de cualquier proceso o área).</li>
-    <li><b>Dirección General de Servicio (soporte).</b> Reporta a la Dirección Ejecutiva; tiene vinculada una <b>Dirección de Mantenimiento y Servicios</b> (por país).</li>
+    <li><b>Dirección de Mantenimiento y Servicios (soporte · por país).</b> Reporta directamente a la línea ejecutiva y concentra el mantenimiento y los servicios de las operaciones.</li>
     <li><b>Gerencia Corporativa Comercial.</b> Las <b>Direcciones Comerciales CASIO y CUBITT</b> incluyen, cada una, <b>compras y ventas al mayor</b>. De ellas —no directamente de la gerencia— dependen las direcciones de <b>Ventas al Detal (tiendas)</b>, <b>Ventas Web</b> y <b>Servicio Técnico</b> (por país); a ese mismo nivel se incorpora una <b>Dirección de E-commerce (regional)</b>. Estas direcciones reciben <b>insumos directos de Experiencia de Marcas</b> (relación funcional punteada).</li>
+    <li><b>Comité Comercial.</b> Instancia consultiva vinculada a la Gerencia Corporativa Comercial (línea punteada) para alinear la estrategia comercial entre marcas (Casio · Cubitt) y países.</li>
     <li><b>Dirección de Mercadeo ↔ Talento Humano.</b> Relación funcional punteada: la Experiencia del Empleado se diseña en colaboración con Recursos Humanos (onboarding, clima y orgullo de pertenencia).</li>
   </ul>
 
@@ -147,7 +148,7 @@ const NODES = {
   dir_th:{x:120,y:366,w:205,h:52,cls:'dir',ttl:'Dirección de Talento Humano',note:'por país'},
 
   gg_tt:{x:70,y:458,w:290,h:62,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Transformación Tecnológica y Soporte'},
-  cex:{x:70,y:556,w:250,h:54,cls:'coe',ttl:'Centro de Excelencia en IA',note:'transversal · apoyo'},
+  cex:{x:70,y:552,w:290,h:66,cls:'coe',ttl:'Comité de Excelencia en Transformación Tecnológica e IA',note:'transversal · apoyo'},
   dir_ti:{x:70,y:628,w:250,h:54,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
 
   gg_pmo:{x:95,y:722,w:250,h:58,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'PMO'},
@@ -157,8 +158,7 @@ const NODES = {
   gg_fin:{x:1215,y:280,w:250,h:58,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Finanzas'},
   dir_ac:{x:1230,y:366,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
 
-  gg_serv:{x:1195,y:458,w:270,h:62,cls:'sop',tag:'Dirección general · Soporte',ttl:'Servicio'},
-  dir_mant:{x:1213,y:556,w:235,h:54,cls:'dir',ttl:'Dirección de Mantenimiento y Servicios',note:'por país'},
+  dir_mant:{x:1195,y:458,w:270,h:62,cls:'dir',ttl:'Dirección de Mantenimiento y Servicios',note:'por país'},
 
   gg_em:{x:1180,y:642,w:290,h:64,cls:'hyb',tag:'Gerencia corporativa · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
   dir_exc:{x:1220,y:740,w:245,h:50,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
@@ -175,6 +175,7 @@ const NODES = {
   dir_web:{x:660,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas Web',note:'por país'},
   dir_stec:{x:820,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Servicio Técnico',note:'por país'},
   dir_ecom:{x:980,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de E-commerce',note:'regional'},
+  com_comite:{x:455,y:960,w:200,h:64,cls:'coe',ttl:'Comité Comercial',note:'vinculado a la G. Corporativa Comercial'},
 
   gg_ops:{x:1225,y:960,w:270,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Operaciones y Logística'},
   dir_ops:{x:1230,y:1046,w:130,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
@@ -195,7 +196,6 @@ const EDGES = [
   {s:'sol', p:[[48,655],[70,655]]},                          // -> dir_ti
   {s:'sol', p:[[220,780],[220,808]]},                        // gg_pmo -> dir_pmo
   {s:'sol', p:[[1342,338],[1342,366]]},                      // gg_fin -> dir_ac
-  {s:'sol', p:[[1330,520],[1330,556]]},                      // gg_serv -> dir_mant
   {s:'sol', p:[[1470,706],[1490,706],[1490,881]]},           // riel gg_em
   {s:'sol', p:[[1490,765],[1465,765]]},
   {s:'sol', p:[[1490,824],[1465,824]]},
@@ -204,6 +204,7 @@ const EDGES = [
   {s:'sol', p:[[320,930],[320,960]]},
   {s:'sol', p:[[800,930],[800,960]]},
   {s:'sol', p:[[1360,930],[1360,960]]},
+  {s:'dot', p:[[655,992],[675,992]]},                        // Comité Comercial -> Comercial
   // Comercial: gerencia -> marcas
   {s:'sol', p:[[800,1020],[800,1034]]},
   {s:'sol', p:[[710,1034],[890,1034]]},
