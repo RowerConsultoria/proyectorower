@@ -35,6 +35,18 @@ const REGLAS = {
   minimoPorFrente:    { v: 0.5,  unidad: 'meses',    dueno: 'gerencia comercial',   desde: '2026-06-01', ver: 2 },
   presupuestoAlias:   { v: 40,   unidad: 'registros/día', dueno: 'administración de datos', desde: '2026-07-10', ver: 1 },
   presupuestoLiberar: { v: 300,  unidad: 'unidades/contenedor', dueno: 'operaciones', desde: '2026-07-01', ver: 1 },
+  /* Dónde empieza el sobrestock y dónde deja de serlo para ser inventario
+     parado. Son dos umbrales, no uno: lo primero se promociona, lo segundo se
+     mueve o se liquida, y confundirlos es lo que hace que una alerta no tenga
+     acción asociada.
+
+     Van como MÚLTIPLO del objetivo de cada sitio, no como meses fijos. Un
+     almacén con 4 meses de cobertura no tiene exceso si su objetivo es 3 más
+     1,7 de tránsito: marcarlo como sobrestock sería llamar problema a lo que
+     está bien, y esa es la forma más rápida de que nadie vuelva a mirar las
+     alertas. */
+  sobrestockDesde:    { v: 1.5,  unidad: '× el objetivo del sitio', dueno: 'operaciones', desde: '2026-06-15', ver: 2 },
+  paradoDesde:        { v: 2.5,  unidad: '× el objetivo del sitio', dueno: 'operaciones', desde: '2026-06-15', ver: 2 },
   /* El fabricante impone un tope de compra por razón social. Del mismo archivo
      salen dos pedidos, y ese reparto no lo decide la demanda: lo decide la
      cuota. Es además la restricción que después condiciona el reporte al
@@ -404,6 +416,101 @@ function reparte(sku, pretensiones, hay) {
   })).filter(x => x.cede > 0);
 
   return { dado, cede, sobra: resto, trazas };
+}
+
+/* ------------------------------------------------ salud del inventario ---- */
+
+/**
+ * Clasifica cada referencia en cada ubicación por su cobertura local.
+ *
+ * La clasificación no es decorativa: determina qué acción se prepara. Un
+ * producto parado en un frente y en quiebre en otro no es dos problemas, es
+ * un traslado — y ésa es exactamente la diferencia entre una alerta y una
+ * acción con destinatario.
+ */
+function claseInventario(u, mensual, objetivo) {
+  if (!mensual) return u > 0 ? 'parado' : 'sano';
+  const cob = u / mensual;
+  if (cob < 0.5) return 'quiebre';
+  if (cob > objetivo * REGLAS.paradoDesde.v) return 'parado';
+  if (cob > objetivo * REGLAS.sobrestockDesde.v) return 'sobrestock';
+  return 'sano';
+}
+
+function saludInventario() {
+  const ubic = [{ id: 'ZLC', nombre: 'Zona Libre de Colón', central: true }]
+    .concat(FRENTES.filter(f => f.tipo === 'propio').map(f => ({ id: f.id, nombre: f.almacen, frente: f.nombre })));
+
+  const filas = [];
+  for (const p of CATALOGO) {
+    const d = demandaSaneada(p.sku);
+    for (const l of ubic) {
+      const u = l.central ? (STOCK_HUB[p.sku] || 0) : ((STOCK_FRENTE[p.sku] || {})[l.id] || 0);
+      if (!u) continue;
+      /* la demanda del hub es la del grupo; la de un frente, la suya */
+      const mensual = l.central ? d.mensual : (d.porFrente[l.id] || 0);
+      const cob = mensual ? u / mensual : 99;
+      /* el objetivo del hub incluye el tránsito que tiene que cubrir; el de un
+         frente no, porque se repone desde el hub */
+      const objetivo = REGLAS.coberturaObjetivo.v + (l.central ? p.leadDias / 30 : 0);
+      /* Un producto sin una sola venta en los últimos meses está PARADO aunque
+         su cobertura parezca razonable: la cobertura se calcula contra una
+         media que ya no existe. Es el caso que la cobertura sola no ve. */
+      const serie = l.central
+        ? FRENTES.map(f => (VENTAS[p.sku] || {})[f.id] || []).reduce((a, s2) => s2.map((v, i) => v + (a[i] || 0)), [])
+        : ((VENTAS[p.sku] || {})[l.id] || []);
+      const quieto = serie.length >= REGLAS.mesesParaOcioso.v &&
+        serie.slice(-REGLAS.mesesParaOcioso.v).every(v => v === 0);
+      filas.push({
+        p, ubicacion: l, u, mensual, cobertura: cob, objetivo, quieto,
+        clase: quieto ? 'parado' : claseInventario(u, mensual, objetivo),
+        valor: u * p.pvp * 0.42,
+      });
+    }
+  }
+  const porClase = {};
+  for (const f of filas) {
+    const c = porClase[f.clase] = porClase[f.clase] || { u: 0, valor: 0, filas: 0 };
+    c.u += f.u; c.valor += f.valor; c.filas++;
+  }
+  return { filas, porClase, ubicaciones: ubic };
+}
+
+/**
+ * Traslados propuestos: una referencia parada en un sitio y escasa en otro.
+ * Cada propuesta trae lo que hace falta para decidirla — cuánto cuesta mover y
+ * cuánta venta desbloquea — porque una alerta sin esas dos cifras no se puede
+ * accionar, solo mirar.
+ */
+function propuestasRebalanceo() {
+  const s = saludInventario();
+  const porSku = {};
+  for (const f of s.filas) (porSku[f.p.sku] = porSku[f.p.sku] || []).push(f);
+
+  const props = [];
+  for (const [sku, filas] of Object.entries(porSku)) {
+    const origen = filas.filter(f => f.clase === 'parado' || f.clase === 'sobrestock')
+      .sort((a, b) => b.cobertura - a.cobertura)[0];
+    const destino = filas.filter(f => f.clase === 'quiebre')
+      .sort((a, b) => a.cobertura - b.cobertura)[0];
+    if (!origen || !destino || origen.ubicacion.id === destino.ubicacion.id) continue;
+
+    /* se mueve lo que le falta al destino para llegar al objetivo, sin dejar
+       al origen por debajo de su propia cobertura mínima */
+    const faltaDestino = Math.max(0, Math.round(destino.mensual * REGLAS.coberturaObjetivo.v - destino.u));
+    const sobraOrigen = Math.max(0, Math.round(origen.u - origen.mensual * origen.objetivo));
+    const mover = Math.min(faltaDestino, sobraOrigen || origen.u);
+    if (mover < 10) continue;
+
+    const p = filas[0].p;
+    props.push({
+      sku, p, origen, destino, mover,
+      costoTraslado: Math.round(mover * p.pvp * 0.03 + 120),
+      ventaDesbloqueada: Math.round(mover * p.pvp * 0.62),
+      diasSinMover: origen.clase === 'parado' ? REGLAS.mesesParaOcioso.v : null,
+    });
+  }
+  return props.sort((a, b) => b.ventaDesbloqueada - a.ventaDesbloqueada);
 }
 
 /* ------------------------------------------- desarrollo de producto ------- */
@@ -881,5 +988,5 @@ function resumenAgentes() {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
     calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
-    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, resumenAgentes, compensa, disponible };
+    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, reserva, saludInventario, propuestasRebalanceo, resumenAgentes, compensa, disponible };
 }

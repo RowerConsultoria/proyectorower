@@ -18,18 +18,33 @@ window.PANTALLAS = window.PANTALLAS || {};
 
 const _log = { liberadas: {}, abierta: null };
 
-/* Etapas por las que pasa una orden dentro de la bodega. */
-const ETAPAS_BODEGA = [
-  { k: 'recibo',  r: 'recibo',  n: 6 },
-  { k: 'piqueo',  r: 'piqueo',  n: 14 },
-  { k: 'packing', r: 'packing', n: 9 },
-  { k: 'stage',   r: 'stage',   n: 5 },
-  { k: 'despacho',r: 'despacho',n: 11 },
-];
+/* Etapas por las que pasa una línea dentro de la bodega. El conteo NO está
+   escrito a mano: sale de las líneas de los pedidos de los frentes, repartidas
+   de forma estable por su referencia y su destino. En un sistema donde nada
+   más está inventado, cinco cifras inventadas se notan. */
+const ETAPAS_BODEGA = ['recibo', 'piqueo', 'packing', 'stage', 'despacho'];
+
+function lineasPorEtapa() {
+  const cuenta = Object.fromEntries(ETAPAS_BODEGA.map(e => [e, 0]));
+  for (const ped of PEDIDOS) {
+    for (const l of ped.lineas) {
+      let h = 0;
+      for (const c of (l.sku + ped.frente)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+      cuenta[ETAPAS_BODEGA[h % ETAPAS_BODEGA.length]]++;
+    }
+  }
+  return cuenta;
+}
 
 window.PANTALLAS.logistica = function (lienzo) {
   const n = v => Math.round(v || 0).toLocaleString('es-VE');
   const r = RECEPCION;
+  if (!r || !r.lineas || !r.lineas.length) {
+    lienzo.innerHTML = `<div class="lienzo-cab"><div class="sobretitulo">operación</div>
+      <div class="titulo-seccion" style="margin-top:4px">logística e inventarios</div></div>
+      <div class="vacio"><div class="icono">◇</div>ningún contenedor en recepción ahora mismo</div>`;
+    return;
+  }
   const emb = TRANSITOS.find(t => t.id === r.embarque);
   const ubicadas = r.lineas.reduce((a, l) => a + l.ubicadas, 0);
   const avance = ubicadas / r.cajasTotal;
@@ -56,7 +71,10 @@ window.PANTALLAS.logistica = function (lienzo) {
         <div class="sobretitulo">operación</div>
         <div class="titulo-seccion" style="margin-top:4px">logística e inventarios</div>
       </div>
-      <span class="marca-estado e-neutro"><i class="punto"></i>Zona Libre de Colón</span>
+      <div class="fila gap-8">
+        <span class="marca-estado e-neutro"><i class="punto"></i>Zona Libre de Colón</span>
+        <button class="btn btn-suave btn-mini" id="ir-salud">salud de inventario →</button>
+      </div>
     </div>
 
     <div class="cinta" style="margin-bottom:20px">
@@ -122,18 +140,18 @@ window.PANTALLAS.logistica = function (lienzo) {
     <!-- la bodega, por etapa -->
     <div class="panel">
       <div class="fila-sep">
-        <div class="sobretitulo">órdenes en la bodega</div>
-        <span class="apunte tenue">tiempo medio por etapa</span>
+        <div class="sobretitulo">líneas en la bodega</div>
+        <span class="apunte tenue">de los pedidos de los frentes ya asignados</span>
       </div>
       <div class="fila gap-12 mt-16" style="align-items:stretch">
-        ${ETAPAS_BODEGA.map((e, i) => `
+        ${(() => { const c = lineasPorEtapa(); return ETAPAS_BODEGA.map((e, i) => `
           <div class="tarjeta crece" style="padding:14px 16px">
-            <div class="sobretitulo">${e.r}</div>
-            <div class="cifra-grande mt-8">${e.n}</div>
-            <div class="apunte tenue">órdenes</div>
+            <div class="sobretitulo">${e}</div>
+            <div class="cifra-grande mt-8">${c[e]}</div>
+            <div class="apunte tenue">líneas</div>
           </div>
           ${i < ETAPAS_BODEGA.length - 1 ? '<span class="apunte tenue" style="align-self:center">→</span>' : ''}
-        `).join('')}
+        `).join(''); })()}
       </div>
     </div>
 
@@ -173,7 +191,13 @@ window.PANTALLAS.logistica = function (lienzo) {
     cuerpo.querySelectorAll('[data-lib]').forEach(b => b.onclick = () => {
       const sku = b.dataset.lib;
       const x = lista.find(y => y.l.sku === sku);
+      /* Liberar no es marcar una casilla: las unidades ENTRAN a la existencia
+         del hub y desde ese momento se pueden vender y reparten. Sin esto la
+         acción decía «disponibles para la venta» y nada quedaba disponible. */
       _log.liberadas[sku] = true;
+      STOCK_HUB[sku] = (STOCK_HUB[sku] || 0) + x.libre;
+      if (x.l.preventa) reserva(sku, 'ZLC', x.l.preventa, 'preventa comprometida', 'amarrada antes de liberar');
+      _memoTransito = null;
       /* Liberar es escritura interna reversible, pero además ESCRIBE en los
          recolectores de los frentes: por eso lleva presupuesto y se degrada
          sola si se pasa del tope por contenedor. */
@@ -182,7 +206,7 @@ window.PANTALLAS.logistica = function (lienzo) {
         accion: 'L-01 · liberar una referencia sin cerrar el contenedor',
         agente: 'recepción', modulo: 'logistica',
         dispara: `se ubicó la última caja de ${x.p.nombre} en ${r.embarque}`,
-        salida: `${n(x.libre)} u de ${x.p.nombre} disponibles para la venta sin esperar al contenedor` +
+        salida: `${n(x.libre)} u de ${x.p.nombre} entran a la existencia del hub y quedan vendibles sin esperar al contenedor` +
                 (x.l.preventa ? ` · ${n(x.l.preventa)} u amarradas antes como preventa comprometida` : '') +
                 (supera ? ` · supera el presupuesto de ${REGLAS.presupuestoLiberar.v} u por contenedor: pide firma` : ''),
         ejes: {
@@ -197,6 +221,9 @@ window.PANTALLAS.logistica = function (lienzo) {
       setTimeout(() => window.PANTALLAS.logistica(lienzo), 700);
     });
   }
+
+  const bs = lienzo.querySelector('#ir-salud');
+  if (bs) bs.onclick = () => { location.hash = '#/logistica/inventario'; };
 
   pinta();
 };
