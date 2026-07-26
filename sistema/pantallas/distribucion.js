@@ -184,7 +184,7 @@ window.PANTALLAS.distribucion = function (lienzo) {
       <div class="dato"><span class="r">sin atender</span><span class="v" style="color:${totalPide - totalRecibe ? 'var(--n3)' : 'inherit'}">${n(totalPide - totalRecibe)} u</span></div>
       <div class="crece"></div>
       <span class="apunte tenue">lo que no se atiende queda registrado como demanda no atendida, no se borra</span>
-      <button class="btn btn-humano" id="firmar">firmar el reparto</button>
+      <button class="btn btn-humano" id="firmar" data-firma="reparto">firmar el reparto</button>
     </div>`;
 
   const caja = lienzo.querySelector('#escasos');

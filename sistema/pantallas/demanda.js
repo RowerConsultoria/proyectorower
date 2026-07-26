@@ -260,7 +260,7 @@ window.PANTALLAS['comercial/demanda'] = function (lienzo) {
           </div>
           <div class="fila gap-8">
             <span class="sello sello-externo">↗ sale de Kenex</span>
-            <button class="btn btn-humano" id="firmar-pub">revisar y enviar la tanda</button>
+            <button class="btn btn-humano" id="firmar-pub" data-firma="disponibilidad">revisar y enviar la tanda</button>
           </div>
         </div>
       </div>`;

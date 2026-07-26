@@ -162,8 +162,11 @@ window.PANTALLAS.compras = function (lienzo, estado) {
             const ext = e.perimetro === 'externo';
             const sello = ext ? '<span class="sello sello-externo">↗ sale de Kenex</span>'
                               : `<span class="sello ${NIVELES[e.nivel].clase}"><i></i>${e.verbo}</span>`;
-            const boton = ext ? '<button class="btn btn-humano btn-mini">revisar y enviar</button>'
-                              : '<button class="btn btn-marca btn-mini">revisar</button>';
+            /* El ámbito lo fija el módulo de la entrada: esta bandeja mezcla
+               compras con distribución, y no es lo mismo firmar una que otra. */
+            const amb = AMBITO_DE_MODULO[e.modulo] || 'compra';
+            const boton = ext ? `<button class="btn btn-humano btn-mini" data-firma="${amb}">revisar y enviar</button>`
+                              : `<button class="btn btn-marca btn-mini" data-firma="${amb}">revisar</button>`;
             return `<div class="firma ${ext ? '' : 'urge'}" data-id="${e.id}">
               <span class="orbe" style="margin-top:3px"></span>
               <div class="cuerpo">

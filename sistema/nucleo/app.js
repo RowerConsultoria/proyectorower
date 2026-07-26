@@ -13,43 +13,118 @@
    El selector de rol es, además, el recurso de demo más barato que existe:
    "esto es lo que ve compras el día 18". */
 
+/* Los ÁMBITOS DE FIRMA. Cada botón que compromete algo declara el suyo con
+   `data-firma`, y el rol activo decide si ese botón existe o está apagado.
+   Sin esta declaración el rol solo filtraba el menú: cualquiera podía firmar
+   cualquier cosa, que es justo lo que un ERP no puede permitirse.
+
+   Regla de higiene, la misma que con las reglas de negocio: aquí no se declara
+   un ámbito que ningún botón use. Un permiso que no gobierna nada es una
+   promesa incumplida —y la comprobación del final de la fase lo verifica—. */
+
+const AMBITOS = {
+  compra:         'la compra internacional al proveedor',
+  reparto:        'el reparto de mercancía a los frentes',
+  traslado:       'mover existencia entre ubicaciones',
+  recepcion:      'recepción en bodega y documentos del embarque',
+  pedidos:        'los pedidos de los clientes mayores',
+  disponibilidad: 'la disponibilidad que se publica a cada socio',
+  normalizacion:  'alias, excepciones y datos del cimiento',
+  graduacion:     'graduar un candidato al catálogo',
+  sistema:        'el freno, la reversión y las reglas',
+};
+
 const ROLES = {
   direccion: {
     nombre: 'dirección ejecutiva',
     ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'comercial', 'frentes', 'producto', 'cimiento', 'agentes'],
-    firma: 'todo, sin tope',
+    firma: ['todo'],
+    firmaDice: 'todo, sin tope',
   },
   compras: {
     nombre: 'dirección de compras',
     ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'comercial', 'frentes', 'cimiento', 'agentes'],
-    firma: 'compras, reparto y traslados',
+    firma: ['compra', 'reparto', 'traslado'],
+    firmaDice: 'compras, reparto y traslados',
   },
   analista: {
     nombre: 'analista de compras y datos',
     ve: ['compras', 'producto', 'fabricas', 'frentes', 'cimiento', 'agentes'],
-    firma: 'normalización y excepciones',
+    firma: ['normalizacion'],
+    firmaDice: 'normalización y excepciones',
   },
   producto: {
     nombre: 'desarrollo de producto',
     ve: ['producto', 'fabricas', 'compras', 'cimiento', 'agentes'],
-    firma: 'graduación de candidatos',
+    firma: ['graduacion'],
+    firmaDice: 'graduación de candidatos',
   },
   logistica: {
     nombre: 'operaciones y logística',
     ve: ['logistica', 'distribucion', 'compras', 'frentes', 'agentes'],
-    firma: 'recepción, traslados y despacho',
+    firma: ['recepcion', 'traslado'],
+    firmaDice: 'recepción y traslados',
   },
   comercial: {
     nombre: 'gerencia comercial',
     ve: ['comercial', 'distribucion', 'frentes', 'logistica', 'agentes'],
-    firma: 'pedidos y disponibilidad publicada',
+    firma: ['pedidos', 'disponibilidad'],
+    firmaDice: 'pedidos y disponibilidad publicada',
   },
   sistemas: {
     nombre: 'sistemas',
+    /* No firma compra: la regla de que sistemas no toca dinero deja de ser una
+       frase en un documento y pasa a ser un botón que no se puede pulsar. */
     ve: ['frentes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'comercial', 'producto'],
-    firma: 'reglas y conectores · no ve dinero',
+    firma: ['normalizacion', 'sistema'],
+    firmaDice: 'reglas y conectores · no firma dinero',
   },
 };
+
+/** ¿El rol activo puede firmar este ámbito? */
+function puedeFirmar(ambito) {
+  const f = (ROLES[ESTADO.rol] || {}).firma || [];
+  return f.includes('todo') || f.includes(ambito);
+}
+
+/* Qué ámbito gobierna cada módulo, para la bandeja de firma, que mezcla
+   entradas de varios. */
+const AMBITO_DE_MODULO = {
+  compras: 'compra', distribucion: 'reparto', logistica: 'recepcion',
+  comercial: 'pedidos', cimiento: 'normalizacion', frentes: 'normalizacion',
+  producto: 'graduacion', agentes: 'sistema', direccion: 'sistema',
+};
+
+/* El freno apaga todo lo que firma… menos el propio freno. Si el ámbito que
+   gobierna el freno se apagara con el freno puesto, detener el sistema sería
+   irreversible desde la interfaz — que es exactamente lo contrario de lo que
+   esta pantalla promete. */
+const AMBITO_DEL_FRENO = 'sistema';
+
+/** Por qué NO se puede firmar. Se dice en el botón: nunca se apaga en silencio. */
+function motivoNoFirma(ambito) {
+  if (ambito !== AMBITO_DEL_FRENO && typeof FRENO !== 'undefined' && FRENO.general) {
+    return 'El sistema está detenido. Ninguna firma se aplica con el freno puesto.';
+  }
+  const r = ROLES[ESTADO.rol];
+  return `${r.nombre} no firma ${AMBITOS[ambito] || ambito}. Firma: ${r.firmaDice}.`;
+}
+
+/* Recorre lo que se acaba de pintar y apaga lo que este rol no puede firmar,
+   o lo que el freno ha detenido. Un solo sitio para las dos cosas: hasta ahora
+   el freno vaciaba las bandejas pero dejaba botones de firma sueltos vivos.  */
+function aplicaPermisos(raiz = document.querySelector('.lienzo')) {
+  if (!raiz) return;
+  const frenado = typeof FRENO !== 'undefined' && FRENO.general;
+  for (const b of raiz.querySelectorAll('[data-firma]')) {
+    const ambito = b.dataset.firma;
+    const paradoPorFreno = frenado && ambito !== AMBITO_DEL_FRENO;
+    const puede = !paradoPorFreno && puedeFirmar(ambito);
+    b.disabled = !puede;
+    b.classList.toggle('sin-permiso', !puede);
+    b.title = puede ? `firma: ${AMBITOS[ambito] || ambito}` : motivoNoFirma(ambito);
+  }
+}
 
 /* ---------------------------------------------------------------- MÓDULOS */
 /* `fase` es la fase del plan que construye la pantalla real. Mientras tanto
@@ -288,6 +363,7 @@ function pintaLienzo() {
   if (elegida) {
     lienzo.innerHTML = '';
     elegida(lienzo, ESTADO);
+    aplicaPermisos(lienzo);
     return;
   }
 
@@ -379,10 +455,24 @@ function pintaHud() {
      esquina, y dos avisos flotantes discutiendo por el mismo sitio es ruido. */
   const enRecorrido = typeof recorridoActivo === 'function' && recorridoActivo();
   hud.style.display = (ESTADO.modulo === 'direccion' || enRecorrido) ? 'none' : '';
+  /* «TU firma» tiene que ser la de quien mira. Contar todo lo que espera firma
+     en el sistema y llamarlo tuyo es mentir al rol que solo puede firmar una
+     parte: se cuenta lo que este rol ve Y puede firmar. */
+  let mias = 0;
+  if (typeof bandejaDe === 'function') {
+    const vistas = new Set();
+    for (const m of ROLES[ESTADO.rol].ve) {
+      for (const e of bandejaDe(m)) {
+        if (vistas.has(e.id)) continue;
+        vistas.add(e.id);
+        if (puedeFirmar(AMBITO_DE_MODULO[e.modulo] || 'compra')) mias++;
+      }
+    }
+  }
   hud.innerHTML = `
     <span class="orbe orbe-grande actuando"></span>
     <div class="txt">
-      <b>${r.esperanFirma} esperan tu firma</b>
+      <b>${mias ? `${mias} ${mias === 1 ? 'espera' : 'esperan'} tu firma` : 'nada espera tu firma'}</b>
       <div class="sub">${r.preparadas + r.ejecutadas} acciones anoche · ${r.enviadasSinFirmaHumana} sin firma humana</div>
     </div>`;
 }
@@ -397,9 +487,12 @@ function arranca() {
   sel.innerHTML = Object.entries(ROLES)
     .map(([k, r]) => `<option value="${k}">${esc(r.nombre)}</option>`).join('');
   sel.value = ESTADO.rol;
+  const rotulaRol = () => { sel.title = 'Firma: ' + ROLES[ESTADO.rol].firmaDice; };
+  rotulaRol();
   sel.onchange = () => {
     ESTADO.rol = sel.value;
     localStorage.setItem('kx.rol', ESTADO.rol);
+    rotulaRol();
     ESTADO.pendientes = { direccion: 2, compras: 4, analista: 6, producto: 1, logistica: 3, comercial: 5, sistemas: 0 }[ESTADO.rol] ?? 0;
     navega(); pintaHud();
   };
@@ -428,6 +521,15 @@ function arranca() {
   /* el recorrido guiado de punta a punta (fase 21) — el mismo botón lo cierra,
      para que no reinicie por sorpresa a media demostración */
   $('#abre-recorrido').onclick = () => recorridoActivo() ? cierraRecorrido() : abreRecorrido();
+
+  /* Muchas pantallas se repintan solas al pulsar algo, sin pasar por
+     pintaLienzo. Si los permisos solo se aplicaran ahí, el primer clic
+     devolvería a la vida un botón que este rol no puede firmar. El observador
+     los vuelve a aplicar sobre cualquier repintado, venga de donde venga.
+     Solo escucha altas y bajas de nodos: apagar un botón cambia atributos, no
+     hijos, así que no puede realimentarse. */
+  new MutationObserver(() => aplicaPermisos())
+    .observe($('#lienzo'), { childList: true, subtree: true });
 
   addEventListener('hashchange', navega);
   arrancaMarquee();

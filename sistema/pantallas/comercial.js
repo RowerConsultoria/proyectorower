@@ -110,7 +110,7 @@ window.PANTALLAS.comercial = function (lienzo) {
       <div class="dato"><span class="r">excepciones</span><span class="v" style="color:${excep.length ? 'var(--n3)' : 'inherit'}">${excep.length}</span></div>
       <div class="crece"></div>
       <span class="apunte tenue">el criterio no se elimina: se deja de aplicar doscientas veces a lo que no tiene nada que mirar</span>
-      <button class="btn btn-humano" id="firmar-lote" ${verdes.length ? '' : 'disabled'}>
+      <button class="btn btn-humano" id="firmar-lote" data-firma="pedidos" ${verdes.length ? '' : 'disabled'}>
         firmar los ${verdes.length} en verde</button>
     </div>`;
 
@@ -185,7 +185,7 @@ window.PANTALLAS.comercial = function (lienzo) {
               mesa de compra. No se borran.</div>` : ''}
             <div class="fila gap-8 mt-24">
               ${aprob ? '<span class="sello sello-2"><i></i>hice</span>'
-                      : `<button class="btn btn-humano btn-mini" data-firma="${x.id}">firmar este pedido</button>
+                      : `<button class="btn btn-humano btn-mini" data-pedido="${x.id}" data-firma="pedidos">firmar este pedido</button>
                          <span class="sello sello-3"><i></i>tu firma</span>`}
             </div>
           </div>
@@ -197,9 +197,9 @@ window.PANTALLAS.comercial = function (lienzo) {
       _com.abierto = _com.abierto === el.dataset.t ? null : el.dataset.t;
       window.PANTALLAS.comercial(lienzo);
     });
-    caja.querySelectorAll('[data-firma]').forEach(b => b.onclick = e => {
+    caja.querySelectorAll('[data-pedido]').forEach(b => b.onclick = e => {
       e.stopPropagation();
-      firma([todos.find(x => x.id === b.dataset.firma)], 'firma individual');
+      firma([todos.find(x => x.id === b.dataset.pedido)], 'firma individual');
     });
   }
 

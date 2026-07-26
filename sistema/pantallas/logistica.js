@@ -184,7 +184,7 @@ window.PANTALLAS.logistica = function (lienzo) {
           ? '<span class="marca-estado e-alerta"><i class="punto"></i>lista, sin liberar</span>'
           : '<span class="marca-estado e-neutro"><i class="punto"></i>descargando</span>'}</td>
       <td>${x.completa && !x.liberada
-        ? `<button class="btn btn-marca btn-mini" data-lib="${x.l.sku}">liberar</button>`
+        ? `<button data-firma="recepcion" class="btn btn-marca btn-mini" data-lib="${x.l.sku}">liberar</button>`
         : x.liberada ? '<span class="sello sello-2"><i></i>hice</span>' : '<span class="tenue">—</span>'}</td>
     </tr>`).join('');
 

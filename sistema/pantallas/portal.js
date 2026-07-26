@@ -171,7 +171,7 @@ window.PANTALLAS.frentes = function (lienzo) {
       </div>`;
 
     if (_por.fase === 'crudo') { proc.innerHTML = crudo + `
-      <div class="fila gap-8"><button class="btn btn-marca" id="normalizar">normalizar contra el catálogo →</button>
+      <div class="fila gap-8"><button class="btn btn-marca" id="normalizar" data-firma="normalizacion">normalizar contra el catálogo →</button>
       <span class="apunte tenue">el sistema propone la equivalencia de cada nombre</span></div>`;
       const bn = proc.querySelector('#normalizar');
       if (bn) bn.onclick = () => { _por.fase = 'normalizado'; pintaProceso(); };
@@ -255,7 +255,7 @@ window.PANTALLAS.frentes = function (lienzo) {
         ${yaIncorporado
           ? `<span class="sello sello-2"><i></i>hice</span>
              <span class="apunte">este reporte ya está incorporado a la demanda</span>`
-          : `<button class="btn btn-humano" id="aplicar-rep">incorporar a la demanda</button>
+          : `<button class="btn btn-humano" id="aplicar-rep" data-firma="normalizacion">incorporar a la demanda</button>
              <span class="apunte tenue">las ${n(auto.reduce((a, x) => a + x.cant, 0))} unidades resueltas entran
                en la serie que alimenta el forecast de compra</span>`}
       </div>`;

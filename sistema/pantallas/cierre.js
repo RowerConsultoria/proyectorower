@@ -154,8 +154,8 @@ window.PANTALLAS['compras/cierre'] = function (lienzo) {
           ${enCola.length > 5 ? `<div class="apunte tenue" style="font-size:11.5px">· y ${enCola.length - 5} líneas más</div>` : ''}
         </div>
         <div class="fila gap-8 mt-16">
-          <button class="btn btn-suave btn-mini" id="recortar">recortar hasta el techo</button>
-          <button class="btn btn-suave btn-mini" id="ampliar">pedir ampliación a finanzas</button>
+          <button class="btn btn-suave btn-mini" id="recortar" data-firma="compra">recortar hasta el techo</button>
+          <button class="btn btn-suave btn-mini" id="ampliar" data-firma="compra">pedir ampliación a finanzas</button>
         </div>
       </div>` : `
       <div class="apunte tenue mt-16">La compra cabe dentro del techo, con ${n(techo - total)} USD de margen.</div>`}
@@ -245,7 +245,7 @@ window.PANTALLAS['compras/cierre'] = function (lienzo) {
         </div>
         <div class="fila gap-8">
           <button class="btn btn-suave" id="descargar">descargar el archivo</button>
-          <button class="btn btn-humano" id="enviar">enviar pedido a Casio</button>
+          <button class="btn btn-humano" id="enviar" data-firma="compra">enviar pedido a Casio</button>
         </div>
       </div>
     </div>

@@ -244,7 +244,7 @@ esto son **faltantes de alcance**.
 
 | # | Qué falta | Por qué importa | Detectado en |
 |---|---|---|---|
-| **P1** | **Permisos de firma por rol.** El selector filtra qué módulos ve cada rol, pero cualquiera puede firmar cualquier cosa. La arquitectura declara un ámbito de firma por rol y no está implementado. | Un ERP sin perfil no es creíble, y la demo del selector de rol pierde la mitad de su fuerza si el rol no cambia lo que se puede aprobar. | revisión de la fase 12 |
+| ~~**P1**~~ | ~~Permisos de firma por rol.~~ **Resuelto en la fase 23:** nueve ámbitos declarados, 17 botones marcados con `data-firma`, y cada rol firma exactamente lo que su descripción promete. | — | cerrado en la fase 23 |
 | **P2** | **Moneda y tasa.** La arquitectura fija que *no existe cifra sin moneda y sin tasa fechada*, y hoy todo se muestra en USD implícito. Los frentes ya declaran su moneda (Colombia en COP) y nada la usa. | Es la respuesta directa al episodio de bolívares y dólares mezclados. Un director financiero lo pregunta en el primer minuto. | revisión de la fase 12 |
 | ~~**P3**~~ | ~~La estela no es automática.~~ **Resuelto en la fase 22:** salta sola desde `anota()`, el único sitio por el que pasan todas las acciones. Se retiraron 7 llamadas manuales que habrían quedado duplicadas. | — | cerrado en la fase 22 |
 | **P4** | **Reversión desde la interfaz.** El núcleo tiene `compensa()` desde la fase 5 y ninguna pantalla lo usa. | «Se enseña cómo se apaga antes de enseñar cómo funciona» es un argumento central ante la Junta. Está previsto en la fase 20, pero conviene que exista antes por si se adelanta la demo. | revisión de la fase 12 |
@@ -252,7 +252,7 @@ esto son **faltantes de alcance**.
 | **P7** | **Acciones que solo avisan.** Varios botones (`preparar la orden`, `pedir ampliación a finanzas`, `enviar pedido`) muestran un aviso y no cambian el estado del sistema. | Es aceptable en un prototipo, pero conviene decidir cuáles deben producir un efecto visible antes del ensayo de la demo. | auditoría de las fases 6–11 |
 | **P5** | **Láminas del prototipo para el informe.** El deck de la presentación necesita capturas estáticas del sistema, en marco UCAB. | El prototipo no se presenta solo: vive dentro del informe de Fase 1, que ya tiene su modo presentación. | revisión de la fase 12 |
 | **P10** | **Las comprobaciones viven en el scratchpad, no en el repositorio.** El medidor de contraste WCAG, la regresión de rutas × roles × anchos y el cotejo de cifras del recorrido contra el núcleo se escribieron para cada fase y se pierden al cerrar la sesión. | Son las que han encontrado casi todos los defectos —incluidos los tres datos falsos del guion—. Si el prototipo se sigue tocando, tienen que poder relanzarse desde `scripts/`. | auditoría de la fase 22 |
-| **P9** | **El freno no desactiva los botones de firma sueltos.** Vacía las bandejas y lo anuncia en una banda global, pero en las pantallas siguen ofreciéndose botones con sello «tu firma» (alertas de compras, tarjetas de la mesa). Falta una convención —un `data-firma` en el botón que firma— para poder apagarlos todos de una vez. | Es la misma pieza que necesita el permiso de firma por rol: hasta que un botón declare que firma, ni el rol ni el freno pueden gobernarlo. Se resuelve junto con P1. | auditoría de la fase 20 |
+| ~~**P9**~~ | ~~El freno no desactiva los botones de firma sueltos.~~ **Resuelto en la fase 23:** el mismo `aplicaPermisos()` que gobierna el rol gobierna el freno. El ámbito `sistema` queda exento, o detener sería irreversible. | — | cerrado en la fase 23 |
 | ~~**P8**~~ | ~~Con qué rol arranca el recorrido.~~ **Resuelto en la fase 21:** el recorrido guiado entra por dirección y baja a la operación. | — | cerrado en la fase 21 |
 
 ---
@@ -299,4 +299,5 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **20 · Sala de agentes, bitácora y freno** | ✅ **hecha** — `pantallas/agentes.js` + `FRENO` en el núcleo · resuelve **P4** (reversión desde la interfaz) |
 | **21 · La cadena de la demo, de punta a punta** | ✅ **hecha** — `nucleo/recorrido.js` · 12 paradas, arranca en dirección · resuelve **P8** |
 | **22 · Pulido, responsive y ensayo** | ✅ **hecha** — contraste AA en ambos temas · resuelve **P3** (estela automática) |
-| 23–25 · Lo que salió de las auditorías | pendiente |
+| **23 · Permisos de firma por rol** | ✅ **hecha** — `AMBITOS` + `data-firma` + `aplicaPermisos()` · resuelve **P1** y **P9** |
+| 24–25 · Lo que queda de las auditorías | pendiente |

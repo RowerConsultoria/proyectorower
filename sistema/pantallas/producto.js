@@ -220,7 +220,7 @@ window.PANTALLAS.producto = function (lienzo) {
           haya un bloqueante. No se esconde: se dice por qué.</div>
       ` : `
         <div class="fila gap-8">
-          <button class="btn btn-marca btn-mini" id="graduar">graduar al catálogo</button>
+          <button class="btn btn-marca btn-mini" id="graduar" data-firma="graduacion">graduar al catálogo</button>
           <span class="sello sello-3"><i></i>tu firma</span>
         </div>
         <div class="apunte tenue mt-8" style="font-size:11.5px">Al graduar entra al catálogo canónico

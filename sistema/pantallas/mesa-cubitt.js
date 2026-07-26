@@ -163,7 +163,7 @@ window.PANTALLAS['compras/cubitt'] = function (lienzo) {
           </table>
         </div>
         <div class="fila gap-8 mt-16">
-          <button class="btn btn-humano btn-mini" data-orden="${b.fab.id}">preparar la orden</button>
+          <button data-firma="compra" class="btn btn-humano btn-mini" data-orden="${b.fab.id}">preparar la orden</button>
           <span class="sello sello-3"><i></i>tu firma</span>
           <span class="apunte tenue">anticipo del 30 % al colocar: ${n(usd * 0.30)} USD</span>
         </div>` : ''}

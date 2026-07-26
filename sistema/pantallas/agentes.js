@@ -82,7 +82,7 @@ window.PANTALLAS.agentes = function (lienzo) {
             pantalla, y lo que tenían esperando queda bloqueado.
           </div>
         </div>
-        <button class="btn ${FRENO.general ? 'btn-marca' : 'btn-humano'} btn-freno" id="freno-general">
+        <button class="btn ${FRENO.general ? 'btn-marca' : 'btn-humano'} btn-freno" id="freno-general" data-firma="sistema">
           ${FRENO.general ? '▶  reanudar el sistema' : '■  detener todos los agentes'}
         </button>
       </div>
@@ -119,6 +119,21 @@ window.PANTALLAS.agentes = function (lienzo) {
         manda el más restrictivo. Por eso un agente no puede ganar permiso portándose bien —para
         subirle el techo hay que cambiarle la naturaleza de lo que hace.
       </div>
+
+      <!-- qué firma quien está mirando: el otro lado del permiso -->
+      <div class="permiso-rol mt-16">
+        <div class="rotulo">quien mira ahora · ${esc(ROLES[ESTADO.rol].nombre)}</div>
+        <div class="apunte mt-8">
+          El techo del agente dice hasta dónde llega <b>la máquina</b>. Esto dice hasta dónde llega
+          <b>la persona</b>: un botón que este rol no puede firmar aparece apagado, nunca escondido.
+        </div>
+        <div class="fila gap-8 mt-12" style="flex-wrap:wrap">
+          ${Object.keys(AMBITOS).map(a => `
+            <span class="chip-ambito ${puedeFirmar(a) ? 'si' : 'no'}" title="${esc(AMBITOS[a])}">
+              ${puedeFirmar(a) ? '✓' : '⊘'} ${esc(a)}
+            </span>`).join('')}
+        </div>
+      </div>
       <div class="pila gap-8 mt-16">
         ${Object.entries(porModulo).map(([mod, lista]) => `
           <div class="grupo-agentes">
@@ -135,7 +150,7 @@ window.PANTALLAS.agentes = function (lienzo) {
                     <div class="ag-hace">${esc(a.hace)}</div>
                   </div>
                   <span class="sello ${NIVELES[a.nivel].clase}">${a.verbo}</span>
-                  <button class="btn btn-fantasma btn-mini bt-parar" data-a="${esc(a.nombre)}">
+                  <button class="btn btn-fantasma btn-mini bt-parar" data-firma="sistema" data-a="${esc(a.nombre)}">
                     ${a.parado ? 'reanudar' : 'detener'}
                   </button>
                 </div>
@@ -280,7 +295,7 @@ window.PANTALLAS.agentes = function (lienzo) {
           <span class="sello ${NIVELES[e.nivel].clase}">${e.verbo}</span>
           <div class="crece en-t">${esc(e.accion)}</div>
           <span class="apunte tenue">${esc(e.firmante || 'sin firmar')}</span>
-          ${puede ? `<button class="btn btn-fantasma btn-mini bt-revertir" data-id="${e.id}">deshacer</button>`
+          ${puede ? `<button class="btn btn-fantasma btn-mini bt-revertir" data-firma="sistema" data-id="${e.id}">deshacer</button>`
                   : `<span class="en-no" title="${esc(razonNo(e))}">${esc(etiquetaNo(e))}</span>`}
         </div>
         <div class="en-salida">${esc(e.salida)}</div>

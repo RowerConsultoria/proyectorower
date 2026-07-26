@@ -168,7 +168,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         <div class="fila gap-8">
           <span class="sello sello-3"><i></i>tu firma</span>
           ${hecha ? '<span class="sello sello-2"><i></i>hice</span>'
-                  : `<button class="btn btn-marca btn-mini" data-t="${clave}">aplicar el traslado</button>`}
+                  : `<button data-firma="traslado" class="btn btn-marca btn-mini" data-t="${clave}">aplicar el traslado</button>`}
         </div>
       </div>
     </div>`;

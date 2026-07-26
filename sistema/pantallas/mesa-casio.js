@@ -122,7 +122,7 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
           <span class="apunte tenue" id="aviso-techo">${totUSD > techo
             ? `excede el techo en ${Math.round(totUSD - techo).toLocaleString('es-VE')} USD`
             : `queda ${Math.round(techo - totUSD).toLocaleString('es-VE')} USD de margen`}</span>
-          <button class="btn btn-humano" id="revisar">revisar antes de enviar →</button>
+          <button class="btn btn-humano" id="revisar" data-firma="compra">revisar antes de enviar →</button>
         </div>
       </div>
 
@@ -221,7 +221,7 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
           la compra y evita <b>${f.sust.evita.toLocaleString('es-VE')} USD</b>.</div>
         <div class="apunte tenue mt-8">reserva ${f.sust.reserva} tomada sobre esas unidades concretas</div>
         <div class="fila gap-8 mt-16">
-          <button class="btn btn-marca btn-mini" id="aplicar-traslado">aplicar el traslado</button>
+          <button class="btn btn-marca btn-mini" id="aplicar-traslado" data-firma="traslado">aplicar el traslado</button>
           <button class="btn btn-fantasma btn-mini">comprar igual</button>
         </div>
       </div>` : ''}
@@ -234,7 +234,7 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
       </div>` : ''}
 
       <div class="fila gap-8 mt-24">
-        <button class="btn btn-marca btn-mini" id="aceptar">aceptar</button>
+        <button class="btn btn-marca btn-mini" id="aceptar" data-firma="compra">aceptar</button>
         <button class="btn btn-suave btn-mini" id="ajustar">ajustar</button>
       </div>
     </div>`;

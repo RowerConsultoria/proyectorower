@@ -91,7 +91,7 @@ window.PANTALLAS['compras/transitos'] = function (lienzo) {
         Kenex tiene techo de nivel 1 sin excepción posible.
       </div>
       <div class="fila gap-8 mt-16">
-        <button class="btn btn-humano btn-mini" id="ver-reclamo">revisar el reclamo y enviarlo</button>
+        <button class="btn btn-humano btn-mini" id="ver-reclamo" data-firma="recepcion">revisar el reclamo y enviarlo</button>
         <button class="btn btn-fantasma btn-mini" id="escalar">escalar internamente</button>
       </div>
     </div>` : ''}
@@ -198,7 +198,7 @@ window.PANTALLAS['compras/transitos'] = function (lienzo) {
           embarque y los días transcurridos. <b>Sale con el nombre de una persona.</b></div>
         <div class="fila gap-8 mt-16">
           <span class="sello sello-externo">↗ sale de Kenex</span>
-          <button class="btn btn-humano btn-mini" id="enviar-rec">revisar y enviar</button>
+          <button class="btn btn-humano btn-mini" id="enviar-rec" data-firma="recepcion">revisar y enviar</button>
         </div>
       </div>` : ''}
 

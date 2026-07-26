@@ -951,3 +951,30 @@ body.con-recorrido .lienzo{padding-bottom:190px}
   .rec-mandos{width:100%;justify-content:flex-end}
   body.con-recorrido .lienzo{padding-bottom:250px}
 }
+
+/* --------------------------------------- 27. FIRMA SIN PERMISO (fase 23)
+
+   Un botón que este rol no puede firmar no desaparece: se apaga y dice por
+   qué al pasar por encima. Esconderlo dejaría al que mira preguntándose si
+   la acción existe; apagarlo enseña que existe y que no le toca a él.       */
+
+.btn.sin-permiso{
+  cursor:not-allowed;
+  border-style:dashed;
+}
+.btn.sin-permiso::after{
+  content:'⊘';
+  margin-left:7px;font-size:11px;opacity:.75;
+}
+
+/* el permiso del rol, en la sala de agentes */
+.permiso-rol{
+  padding:14px 16px;border-radius:var(--r-tarjeta);
+  background:var(--panel-alto);border:1px solid var(--borde-tenue);
+}
+.chip-ambito{
+  font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:var(--r-pildora);
+  border:1px solid var(--borde);white-space:nowrap;
+}
+.chip-ambito.si{color:var(--ok);border-color:color-mix(in srgb, var(--ok) 40%, transparent)}
+.chip-ambito.no{color:var(--tinta-tenue);border-style:dashed}
