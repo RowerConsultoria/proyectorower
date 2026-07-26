@@ -7,7 +7,15 @@
 
 ## Qué se construye
 
-Una **página única** que explica cómo se alimenta el sistema: `informe/fase1/arquitectura-ia-kenex.html`.
+Dos vistas del **mismo modelo**, que por eso no pueden divergir:
+- `arquitectura-ia-kenex.html` — **la principal, en 3D**: rack de servidores en WebGL con el texto
+  en DOM (nítido, seleccionable, buscable). Escena clara, rack oscuro.
+- `arquitectura-ia-plana.html` — **el respaldo**: se ve si el equipo no tiene WebGL, se imprime, y
+  de ahí sale la lámina del deck.
+
+Las dos leen de `arquitectura-datos.js`. La librería (three.js, MIT) está **vendorizada** en
+`vendor/`: sin CDN, porque el informe se presenta desde un portátil y tiene que funcionar sin
+internet.
 Archivo hermano del organigrama y del mapa de procesos — se itera sin tocar el informe maestro,
 y **sustituye** al diagrama de 6 capas embebido hoy en la s12 vía `srcdoc`.
 
@@ -126,7 +134,10 @@ raíces que lo alimenten.
 | **3 · La corriente** | ✅ **hecha** — velocidad y continuidad atadas a la cadencia real · pausa · movimiento reducido |
 | **4 · El cedazo** | ✅ **hecha** — 4 criterios, la cola de excepciones con cifra, y el ramal ámbar que la alimenta |
 | **5 · Foco por raíz** | ✅ **hecha** — recorrido iluminado + ficha lateral con «qué se rompe» y «qué recibe de vuelta» |
-| 6 · Foco por nivel | pendiente |
+| **6a · El rack en 3D** | ✅ **hecha** — WebGL + texto en DOM · escena clara, rack oscuro · respaldo sin WebGL |
+| 6b · Rótulos que no chocan | pendiente |
+| 6c · Gavetas y burbujas | pendiente |
+| 6d · El cedazo como bandeja tamiz | ✅ hecha en la 6a |
 | 7 · La bajada | pendiente |
 | 8 · Hoy / propuesto | pendiente |
 | 9 · El recorrido guiado | pendiente |

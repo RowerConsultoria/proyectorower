@@ -6,17 +6,25 @@
 <title>La torre — Arquitectura de IA · Grupo Kenex</title>
 <!--
   ============================================================================
-  LA TORRE — Modelo interactivo de la arquitectura de IA   · Fase 2 del plan
+  LA TORRE — El rack de la arquitectura de IA            · Fase 6 del plan
   Proyecto Rower · UCAB Consultores para Grupo Kenex
 
-  Archivo hermano del organigrama y del mapa de procesos: se itera sin tocar
-  el informe maestro. TODO lo que se dibuja sale de `arquitectura-datos.js`;
-  aquí solo vive la presentación —posiciones, color y movimiento—.
+  Escena 3D real (WebGL) con el texto en DOM. La combinación es deliberada:
+  el rack necesita volumen, luz y sombra para leerse como equipo; el texto
+  necesita ser HTML para quedar nítido a cualquier zoom, poder seleccionarse,
+  buscarse con Ctrl+F y ser accesible. Meter el texto en texturas habría dado
+  una escena más "de videojuego" y un entregable peor.
 
-  El ancho del lienzo es fijo (1440) y se escala con transform, igual que el
-  organigrama propuesto: hace la geometría de los cables determinista. El ALTO
-  se calcula midiendo lo pintado — fijarlo a mano hacía que el texto de un
-  nivel se saliera por encima del siguiente en cuanto el modelo crecía.
+  ESCENA CLARA, RACK OSCURO — como una fotografía de producto sobre fondo de
+  estudio. Todo oscuro habría chocado con la identidad del informe.
+
+  TODO lo que se dibuja sale de `arquitectura-datos.js`, que es un script
+  clásico: sus `const` de nivel superior son visibles desde este módulo. La
+  versión plana (`arquitectura-ia-plana.html`) lee del mismo archivo, así que
+  las dos no pueden divergir.
+
+  Sin CDN: la librería está vendorizada en `vendor/` (three.js, MIT). El
+  informe se presenta desde un portátil y tiene que funcionar sin internet.
 
   ⚠️ Material interno del equipo consultor.
   ============================================================================
@@ -27,182 +35,38 @@
   --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
   --txt:#22304a; --tenue:#55627a; --borde:#d7dfeb; --papel:#f4f7fb;
 }
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
   font-family:Calibri,"Segoe UI",system-ui,sans-serif;
-  color:var(--txt); background:var(--papel);
-  -webkit-font-smoothing:antialiased;
+  color:var(--txt); background:var(--papel); -webkit-font-smoothing:antialiased;
 }
 
-/* ─────────────────────────────────────────────────────────── cabecera */
+/* ───────────────────────────────────────────────────────────── cabecera */
 header{
-  background:linear-gradient(135deg,var(--navy),#2a4a80);
-  color:#fff; padding:20px 34px 18px;
+  position:relative;
+  background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff;
+  padding:20px 34px 18px;
 }
 .kick{
   text-transform:uppercase; letter-spacing:.16em; font-size:12.5px;
   color:var(--celeste); font-weight:700; margin-bottom:5px;
 }
-h1{margin:0; font-size:29px; letter-spacing:-.01em;}
-.tesis{
-  margin:9px 0 0; font-size:16px; color:#dbe7f6; max-width:1020px; line-height:1.5;
-}
-.tesis b{color:#fff;}
+h1{margin:0; font-size:29px; letter-spacing:-.01em}
+.tesis{margin:9px 0 0; font-size:16px; color:#dbe7f6; max-width:1020px; line-height:1.5}
+.tesis b{color:#fff}
 .volver{
   position:absolute; top:20px; right:30px;
   background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.55);
   border-radius:999px; padding:5px 15px; font-size:13px; font-weight:700;
   cursor:pointer; font-family:inherit;
 }
-.volver:hover{background:#fff; color:var(--navy); border-color:#fff;}
-header{position:relative;}
+.volver:hover{background:#fff; color:var(--navy); border-color:#fff}
 
-/* ─────────────────────────────────────────────────────────── lienzo */
-.escenario{
-  padding:20px 0 8px; display:flex; justify-content:center;
-  overflow:hidden;
-}
-.lienzo{
-  position:relative; width:1440px;
-  transform-origin:top center; flex:none;
-}
-#cables{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
-
-/* ─────────────────────────────────────────────────────────── la torre */
-.nivel{
-  position:absolute; border-radius:12px; padding:15px 20px 14px;
-  background:#fff; border:2px solid var(--borde);
-  box-shadow:0 2px 5px rgba(31,56,100,.07), 0 14px 34px rgba(31,56,100,.09);
-  display:flex; flex-direction:column; gap:5px;
-}
-.nivel .num{
-  position:absolute; left:-17px; top:16px;
-  width:34px; height:34px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:15px; font-weight:800; color:#fff; background:var(--navy);
-  box-shadow:0 2px 7px rgba(31,56,100,.28);
-}
-.nivel .nom{font-size:19px; font-weight:800; color:var(--navy); letter-spacing:-.01em;}
-.nivel .capa{
-  font-size:11.5px; text-transform:uppercase; letter-spacing:.13em;
-  color:var(--blue); font-weight:700;
-}
-.nivel .lema{font-size:14px; color:var(--tenue); font-style:italic; margin-top:1px;}
-.nivel ul{margin:7px 0 0; padding-left:17px; font-size:13px; line-height:1.5; color:var(--txt);}
-.nivel ul li{margin-bottom:3px;}
-.nivel .nohace{
-  margin-top:auto; padding-top:8px; border-top:1px dashed var(--borde);
-  font-size:12px; color:var(--tenue); line-height:1.45;
-}
-.nivel .nohace b{color:var(--rojo);}
-
-/* cada nivel con su acento */
-.n-ingesta{border-color:#bcd6ef;}      .n-ingesta .num{background:var(--blue);}
-.n-cimiento{border-color:#bcdcc0;}     .n-cimiento .num{background:var(--verde);}
-.n-cimiento .capa{color:var(--verde);}
-.n-inteligencia{border-color:#c3cfe2;}
-.n-decision{
-  background:linear-gradient(135deg,var(--navy),#2a4a80); border-color:var(--navy);
-}
-.n-decision .nom{color:#fff;} .n-decision .capa{color:var(--celeste);}
-.n-decision .lema{color:#cfdff2;} .n-decision ul{color:#e6eefa;}
-.n-decision .num{background:var(--ambar);}
-.n-decision .nohace{color:#cfdff2; border-top-color:rgba(255,255,255,.28);}
-.n-decision .nohace b{color:#ffd7a1;}
-
-/* ───────────────────────────────────────────────────── el cedazo
-
-   La pieza que impide que la torre sea un tablero bonito. Una torre donde todo
-   sube es propaganda; que algo se quede abajo, con nombre y dueño, es lo que
-   la hace creíble.                                                          */
-.cedazo{
-  position:absolute; border-radius:9px; padding:12px 18px 13px;
-  background:repeating-linear-gradient(135deg,#fff5e6 0 9px,#ffeacc 9px 18px);
-  border:2px dashed var(--ambar);
-  color:#8a5310;
-}
-.cedazo .cab{
-  display:flex; align-items:baseline; justify-content:center; gap:11px; flex-wrap:wrap;
-  font-size:13.5px; font-weight:800;
-}
-.cedazo .lema{font-weight:400; font-style:italic; color:#a06a20;}
-.cedazo .criterios{
-  display:grid; grid-template-columns:1fr 1fr; gap:3px 18px;
-  margin-top:9px; padding-top:9px; border-top:1px dashed rgba(178,106,0,.4);
-  font-size:11.5px; font-weight:400; color:#8a5310; line-height:1.4;
-}
-.cedazo .criterios div::before{content:'▸ '; color:var(--ambar); font-weight:800;}
-
-/* la cola de excepciones: lo que no pasó, contado */
-.cola{
-  position:absolute; border-radius:10px; padding:12px 16px;
-  background:#fff; border:2px solid var(--ambar);
-  box-shadow:0 2px 5px rgba(178,106,0,.10), 0 12px 30px rgba(178,106,0,.13);
-  text-align:center;
-}
-.cola .tit{
-  font-size:11px; text-transform:uppercase; letter-spacing:.14em;
-  font-weight:800; color:var(--ambar);
-}
-.cola .de{font-size:11.5px; color:var(--tenue); margin-top:3px; line-height:1.4;}
-.cola .cifras{
-  display:flex; align-items:baseline; justify-content:center; gap:14px; margin-top:9px;
-}
-.cola .par{display:flex; flex-direction:column; align-items:center;}
-.cola .v{font-size:26px; font-weight:800; line-height:1;}
-.cola .v.sube{color:var(--verde);} .cola .v.para{color:var(--ambar);}
-.cola .r{font-size:10.5px; color:var(--tenue); margin-top:2px;}
-.cola .sep{font-size:18px; color:var(--borde); font-weight:300;}
-.cola .pie{font-size:11.5px; color:var(--tenue); margin-top:8px; line-height:1.45;}
-.cola .pie b{color:var(--navy);}
-
-/* ───────────────────────────────────────────────────── las raíces */
-.raiz{
-  position:absolute; border-radius:10px; padding:10px 13px;
-  background:#fff; border:1.5px solid var(--borde);
-  box-shadow:0 1px 3px rgba(31,56,100,.06), 0 8px 20px rgba(31,56,100,.07);
-  display:flex; flex-direction:column; gap:3px;
-}
-.raiz .cab{display:flex; align-items:center; gap:8px;}
-.raiz .nom{font-size:14px; font-weight:800; color:var(--navy); line-height:1.2;}
-.raiz .dato{font-size:11.5px; color:var(--tenue); line-height:1.4;}
-.raiz .pie{
-  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-  font-size:10.5px; color:var(--tenue); margin-top:2px;
-}
-.via{
-  font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.09em;
-  padding:2px 7px; border-radius:999px; white-space:nowrap;
-}
-.via-odoo{background:#e3efe4; color:var(--verde);}
-.via-portal{background:#e2eefa; color:var(--blue);}
-.via-sistema{background:#eceff5; color:var(--navy);}
-.via-externa{background:#fdf0dd; color:var(--ambar);}
-.cadencia{font-weight:700; color:var(--navy);}
-
-/* ─────────────────────────────────────────────── la corriente
-
-   La velocidad NO es decoración: sale de la cadencia real de cada fuente. Una
-   tienda con Odoo va seguida; un frente que reporta cada quince días se
-   arrastra y a tirones. Se ve la cadencia antes de leerla.                  */
-
-.flujo{
-  fill:none; stroke:var(--blue); stroke-linecap:round;
-  animation:corre var(--t,2s) linear infinite;
-}
-@keyframes corre{ to{ stroke-dashoffset:var(--salto,-52); } }
-
-/* Con el flujo en pausa, la corriente se queda quieta pero los cables siguen:
-   la lámina impresa y la captura del deck tienen que verse bien. */
-body.quieto .flujo{animation:none;}
-
-@media (prefers-reduced-motion:reduce){ .flujo{animation:none;} }
-
-/* ─────────────────────────────────────────────── la barra de mandos */
+/* ─────────────────────────────────────────────────────── barra de mandos */
 .mandos{
   display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
-  padding:11px 20px; background:#fff; border-bottom:1px solid var(--borde);
+  padding:10px 20px; background:#fff; border-bottom:1px solid var(--borde);
   font-size:12.5px; color:var(--tenue);
 }
 .mando{
@@ -210,105 +74,94 @@ body.quieto .flujo{animation:none;}
   border-radius:999px; padding:5px 14px; font-size:12.5px; font-weight:700;
   cursor:pointer; font-family:inherit;
 }
-.mando:hover{border-color:var(--blue); color:var(--blue);}
-.mando.on{background:var(--navy); color:#fff; border-color:var(--navy);}
-.leyenda-ritmo{display:flex; align-items:center; gap:9px;}
-.leyenda-ritmo .barra{
-  width:74px; height:7px; border-radius:99px;
-  background:linear-gradient(90deg,#dfe8f3,var(--blue));
-}
-.leyenda-ritmo b{color:var(--navy);}
+.mando:hover{border-color:var(--blue); color:var(--blue)}
+.mando.on{background:var(--navy); color:#fff; border-color:var(--navy)}
+.pista{color:var(--navy); font-weight:700}
+.leyenda-ritmo{display:flex; align-items:center; gap:9px}
+.leyenda-ritmo .barra{width:74px; height:7px; border-radius:99px;
+  background:linear-gradient(90deg,#dfe8f3,var(--blue))}
+.leyenda-ritmo b{color:var(--navy)}
 
-/* ─────────────────────────────────────────────── el foco
-
-   Clic en una fuente: se ilumina su recorrido y se apaga el resto. Atenuar en
-   vez de esconder — lo que se apaga sigue ahí, y se entiende que el foco es
-   una lente y no un filtro que borró la mitad del modelo.                  */
-
-.raiz{cursor:pointer; transition:opacity .28s, transform .18s, box-shadow .18s;}
-.raiz:hover{transform:translateY(-2px); box-shadow:0 3px 8px rgba(31,56,100,.10), 0 14px 30px rgba(31,56,100,.13);}
-.nivel, .cedazo, .cola{transition:opacity .28s;}
-.cable, .flujo{transition:opacity .28s;}
-
-body.enfocado .raiz:not(.on),
-body.enfocado .nivel:not(.on),
-body.enfocado .cedazo:not(.on),
-body.enfocado .cola:not(.on){opacity:.2;}
-body.enfocado .cable:not(.on),
-body.enfocado .flujo:not(.on){opacity:.07 !important;}
-
-.raiz.on{
-  border-color:var(--blue); border-width:2px;
-  box-shadow:0 0 0 4px rgba(46,117,182,.14), 0 14px 32px rgba(31,56,100,.16);
+/* ─────────────────────────────────────────────────────────────── escena */
+.escenario{position:relative; height:min(78vh,860px); min-height:520px; background:
+  radial-gradient(ellipse at 50% 34%, #ffffff 0%, #eef3f9 46%, #dfe7f1 100%);}
+#lienzo3d{position:absolute; inset:0}
+#rotulos{position:absolute; inset:0; pointer-events:none; overflow:hidden}
+.cargando{
+  position:absolute; inset:0; display:grid; place-items:center;
+  color:var(--tenue); font-size:14px; letter-spacing:.04em;
 }
-.nivel.on{border-color:var(--blue);}
-body.enfocado .flujo.on{opacity:1 !important; stroke:var(--navy);}
-body.enfocado .cable.on{opacity:.5 !important;}
 
-/* ─────────────────────────────────────────────── la ficha lateral
+/* ───────────────────────────────────────────── rótulos en DOM (CSS2D)
 
-   Fuera del lienzo escalado, a propósito: dentro, al 55 % de escala, el texto
-   se volvería ilegible justo cuando más falta hace leerlo.                 */
-.ficha{
-  position:fixed; top:0; right:0; bottom:0; width:392px; z-index:50;
-  background:#fff; border-left:1px solid var(--borde);
-  box-shadow:-14px 0 40px rgba(31,56,100,.16);
-  transform:translateX(100%); transition:transform .3s cubic-bezier(.22,.61,.36,1);
-  display:flex; flex-direction:column; overflow:auto;
-}
-.ficha.abierta{transform:none;}
-/* El lienzo cede el ancho de la ficha y se reescala. Sin esto, la tarjeta
-   que acabas de pulsar queda debajo del panel que la explica. */
-body.con-ficha .escenario{padding-right:392px; transition:padding-right .3s cubic-bezier(.22,.61,.36,1);}
-.escenario{transition:padding-right .3s cubic-bezier(.22,.61,.36,1);}
-.ficha .cabf{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff; padding:18px 22px 16px;}
-.ficha .cabf .via{margin-bottom:8px; display:inline-block;}
-.ficha .cabf h2{margin:0; font-size:21px; letter-spacing:-.01em;}
-.ficha .cabf .dato{font-size:13.5px; color:#dbe7f6; margin-top:6px; line-height:1.45;}
-.ficha .cuerpo{padding:18px 22px 26px; display:flex; flex-direction:column; gap:16px;}
-.bloque .r{
-  font-size:10.5px; text-transform:uppercase; letter-spacing:.14em;
-  font-weight:800; color:var(--blue); margin-bottom:5px;
-}
-.bloque p{margin:0; font-size:13.5px; line-height:1.55;}
-.bloque.rompe{
-  background:#fdf3f2; border-left:4px solid var(--rojo);
-  border-radius:0 8px 8px 0; padding:12px 14px;
-}
-.bloque.rompe .r{color:var(--rojo);}
-.bloque.hoy{background:#fdf8ef; border-left:4px solid var(--ambar); border-radius:0 8px 8px 0; padding:12px 14px;}
-.bloque.hoy .r{color:var(--ambar);}
-.datos-ficha{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
-.datos-ficha .celda{background:var(--papel); border-radius:8px; padding:10px 12px;}
-.datos-ficha .v{font-size:14px; font-weight:800; color:var(--navy); line-height:1.25;}
-.cerrar-ficha{
-  position:absolute; top:16px; right:18px; background:transparent; color:#fff;
-  border:1.5px solid rgba(255,255,255,.5); border-radius:999px;
-  width:28px; height:28px; cursor:pointer; font-size:13px; font-family:inherit;
-}
-.cerrar-ficha:hover{background:#fff; color:var(--navy);}
+   Van en HTML y no en textura: nítidos a cualquier zoom, seleccionables,
+   buscables con Ctrl+F y accesibles. Es la mitad DOM de la mezcla.       */
+.rot{pointer-events:auto; cursor:pointer; user-select:none}
 
-/* rótulo del suelo */
-.suelo{
-  position:absolute; left:0; right:0; text-align:center;
-  font-size:12px; text-transform:uppercase; letter-spacing:.18em;
-  color:var(--tenue); font-weight:700;
+/* la chapa de cada bandeja, como la de un equipo de rack */
+.chapa{
+  background:rgba(255,255,255,.97); border-radius:7px; padding:6px 11px 7px;
+  box-shadow:0 2px 5px rgba(15,25,45,.16), 0 10px 26px rgba(15,25,45,.22);
+  white-space:nowrap; border-left:4px solid var(--blue);
 }
-.suelo span{font-weight:400; text-transform:none; letter-spacing:0; font-style:italic;}
+.chapa .n{font-size:14px; font-weight:800; color:var(--navy); line-height:1.15}
+.chapa .c{font-size:9.5px; text-transform:uppercase; letter-spacing:.13em;
+  color:var(--blue); font-weight:700; display:block; margin-top:2px}
+.chapa .num{
+  display:inline-block; width:17px; height:17px; border-radius:50%;
+  background:var(--navy); color:#fff; font-size:10.5px; font-weight:800;
+  text-align:center; line-height:17px; margin-right:6px; vertical-align:1px;
+}
 
-/* ─────────────────────────────────────────────────────────── pie */
-footer{
-  border-top:1px solid var(--borde); background:#fff;
-  padding:16px 34px 22px; margin-top:6px;
+/* la etiqueta de cada raíz */
+/* Compacta por defecto —doce cajas grandes se pisan al girar— y se abre al
+   pasar por encima. El nombre siempre se ve; el detalle, cuando se pide. */
+.eti{
+  background:rgba(255,255,255,.96); border-radius:6px; padding:4px 9px 5px;
+  box-shadow:0 1px 3px rgba(15,25,45,.12), 0 6px 16px rgba(15,25,45,.14);
+  border:1px solid var(--borde); max-width:168px; transition:box-shadow .2s;
 }
-.numeros{display:flex; gap:34px; flex-wrap:wrap; justify-content:center;}
-.numeros div{text-align:center;}
-.numeros .v{font-size:25px; font-weight:800; color:var(--navy); line-height:1;}
-.numeros .r{font-size:12px; color:var(--tenue); margin-top:3px;}
-.nota-pie{
-  text-align:center; font-size:12.5px; color:var(--tenue);
-  max-width:900px; margin:14px auto 0; line-height:1.55;
+.eti .n{font-size:11.5px; font-weight:800; color:var(--navy); line-height:1.2}
+.eti .detalle{display:none}
+.eti:hover{max-width:210px; box-shadow:0 3px 8px rgba(15,25,45,.16), 0 14px 32px rgba(15,25,45,.2)}
+.eti:hover .detalle{display:block; margin-top:3px}
+.eti .c{font-size:10px; color:var(--tenue); margin-top:2px; display:block}
+.via{
+  font-size:8.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em;
+  padding:1px 6px; border-radius:999px; white-space:nowrap; display:inline-block;
+  margin-bottom:2px;
 }
+.via-odoo{background:#e3efe4; color:var(--verde)}
+.via-portal{background:#e2eefa; color:var(--blue)}
+.via-sistema{background:#eceff5; color:var(--navy)}
+.via-externa{background:#fdf0dd; color:var(--ambar)}
+
+/* la chapa del cedazo */
+.chapa.tamiz{border-left-color:var(--ambar); background:rgba(255,248,236,.97)}
+.chapa.tamiz .n{color:#8a5310} .chapa.tamiz .c{color:var(--ambar)}
+
+/* ────────────────────────────────────────────── sin WebGL: no se rompe */
+#sinwebgl{
+  position:absolute; inset:0; display:none; place-items:center; padding:40px;
+  text-align:center; background:var(--papel);
+}
+#sinwebgl .caja{max-width:560px}
+#sinwebgl h2{margin:0 0 8px; color:var(--navy); font-size:22px}
+#sinwebgl p{margin:0 0 16px; font-size:14.5px; line-height:1.6; color:var(--tenue)}
+#sinwebgl a{
+  display:inline-block; background:var(--navy); color:#fff; text-decoration:none;
+  border-radius:999px; padding:9px 20px; font-size:13.5px; font-weight:700;
+}
+
+/* ─────────────────────────────────────────────────────────────────── pie */
+footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20px}
+.numeros{display:flex; gap:34px; flex-wrap:wrap; justify-content:center}
+.numeros div{text-align:center}
+.numeros .v{font-size:24px; font-weight:800; color:var(--navy); line-height:1}
+.numeros .r{font-size:12px; color:var(--tenue); margin-top:3px}
+.nota-pie{text-align:center; font-size:12.5px; color:var(--tenue);
+  max-width:900px; margin:13px auto 0; line-height:1.55}
+.nota-pie a{color:var(--blue)}
 </style>
 </head>
 <body>
@@ -318,49 +171,35 @@ footer{
   <h1>La torre: de dónde viene el dato y en qué se convierte</h1>
   <p class="tesis">
     <b>Ninguna inteligencia es mejor que el dato que la alimenta.</b> El dato nace fuera —en la
-    tienda, en el portal del frente, en el muelle de Colón— y sube. Entre la entrada y la
-    inteligencia hay un <b>cedazo</b>: lo que no se puede certificar no sube. Y la torre también
-    baja: lo que se decide arriba vuelve a cada fuente convertido en orden.
+    tienda, en el portal del frente, en el muelle de Colón— y sube por el rack. Entre la entrada y
+    la inteligencia hay un <b>cedazo</b>: lo que no se puede certificar no sube.
   </p>
   <button class="volver" id="volver" title="Cerrar y volver al informe">✕ volver</button>
 </header>
 
 <div class="mandos">
   <button class="mando" id="pausa" title="Detener la corriente para leer o capturar">⏸ pausar el flujo</button>
-  <span style="color:var(--navy);font-weight:700">clic en una fuente para seguir su recorrido</span>
+  <span class="pista">arrastra para girar el rack · rueda para acercar</span>
   <span style="color:var(--borde)">|</span>
   <span class="leyenda-ritmo">
-    <span>la velocidad de cada cable es <b>la cadencia real</b> de esa fuente</span>
+    <span>la corriente de cada cable va a <b>la cadencia real</b> de su fuente</span>
     <span class="barra"></span>
     <span>de <b>cada quince días</b> a <b>en cuanto ocurre</b></span>
   </span>
 </div>
 
 <div class="escenario">
-  <div class="lienzo" id="lienzo">
-    <svg id="cables" viewBox="0 0 1440 1060" preserveAspectRatio="none" aria-hidden="true"></svg>
-  </div>
+  <div id="lienzo3d"></div>
+  <div id="rotulos"></div>
+  <div class="cargando" id="cargando">montando el rack…</div>
+  <div id="sinwebgl"><div class="caja">
+    <h2>Este equipo no puede dibujar en 3D</h2>
+    <p>El rack necesita WebGL y aquí no está disponible — suele pasar al compartir pantalla o en
+      equipos sin aceleración gráfica. <b>El modelo es exactamente el mismo</b>: se ve en la
+      versión plana, que además es la que se imprime.</p>
+    <a href="arquitectura-ia-plana.html">Ver la torre en versión plana →</a>
+  </div></div>
 </div>
-
-<aside class="ficha" id="ficha" aria-live="polite">
-  <div class="cabf">
-    <button class="cerrar-ficha" id="cerrar-ficha" title="Cerrar (Esc)">✕</button>
-    <span class="via" id="f-via"></span>
-    <h2 id="f-nombre"></h2>
-    <div class="dato" id="f-dato"></div>
-  </div>
-  <div class="cuerpo">
-    <div class="datos-ficha">
-      <div class="celda"><div class="r">cadencia</div><div class="v" id="f-cadencia"></div></div>
-      <div class="celda"><div class="r">responde por ella</div><div class="v" id="f-dueno"></div></div>
-    </div>
-    <div class="bloque"><div class="r">cómo entraría</div><p id="f-como"></p></div>
-    <div class="bloque hoy"><div class="r">cómo llega hoy</div><p id="f-hoy"></p></div>
-    <div class="bloque rompe"><div class="r">qué se rompe si falta</div><p id="f-rompe"></p></div>
-    <div class="bloque"><div class="r">dónde entra</div><p id="f-nivel"></p></div>
-    <div class="bloque" id="f-bloque-baja"><div class="r">y qué recibe de vuelta</div><p id="f-baja"></p></div>
-  </div>
-</aside>
 
 <footer>
   <div class="numeros" id="numeros"></div>
@@ -368,399 +207,392 @@ footer{
 </footer>
 
 <script src="arquitectura-datos.js"></script>
-<script>
-/* ═══════════════════════════════════════════════ LA GEOMETRÍA
 
-   El ancho del lienzo es fijo; **el alto se calcula**. Las cajas se pintan
-   primero, se miden, y solo entonces se colocan. Fijar las alturas a mano
-   parecía más simple hasta que el texto de un nivel creció y se salió por
-   encima del siguiente: el modelo es la fuente de la verdad y el dibujo tiene
-   que adaptarse a él, no al revés.                                          */
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from './vendor/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from './vendor/CSS2DRenderer.js';
+import { RoundedBoxGeometry } from './vendor/RoundedBoxGeometry.js';
 
-const W = 1440;
-let H = 1200;                       // se recalcula al colocar
+/* ═══════════════════════════════════════════════ EL PIE (no depende del 3D) */
+document.getElementById('numeros').innerHTML =
+  NUMEROS.map(n => `<div><div class="v">${n.v}</div><div class="r">${n.r}</div></div>`).join('');
+document.getElementById('nota-pie').innerHTML =
+  `<b>${CEDAZO.nota}</b> Las cifras de este pie son las del Informe Diagnóstico de Fase 1. ` +
+  `<a href="arquitectura-ia-plana.html">Ver en versión plana</a> — para imprimir o si el 3D no carga.`;
 
-const TORRE = { x:520, w:400 };
-const COL_IZQ = 62, COL_DER = 1044, ANCHO_R = 334;
-const ANCHO_FICHA = 392;   // el mismo de .ficha en el CSS
-const MARGEN_SUP = 34, GAP_NIVEL = 18, GAP_CEDAZO = 14, GAP_RAIZ = 16;
-
-/* De arriba abajo, como se mira. El cedazo va entre el dato certificado y la
-   ingesta: es lo último que atraviesa un dato antes de poder certificarse. */
-const ORDEN_VISUAL = ['decision', 'inteligencia', 'cimiento', '__cedazo__', 'ingesta'];
-
-/* La izquierda es lo que se vende y se mueve; la derecha, lo que se compra y
-   lo que gobierna. Las de gobierno entran directamente al dato certificado:
-   no son sucesos, son las definiciones contra las que se leen los sucesos. */
-const COLUMNA = {
-  'venta-tienda': 'izq', 'sell-out-portal': 'izq', 'pedido-mayor': 'izq',
-  'credito': 'izq', 'recepcion': 'izq', 'traslados': 'izq',
-  'reglas': 'der', 'tasas': 'der', 'fabricas': 'der', 'producto': 'der',
-  'compra-internacional': 'der', 'documentos': 'der',
+document.getElementById('volver').onclick = () => {
+  if (window.parent && window.parent !== window) window.parent.postMessage({ rower:'cerrar' }, '*');
+  else if (history.length > 1) history.back();
+  else location.href = 'informe-diagnostico-fase1.html';
 };
 
-/* Se rellena al colocar: es lo que después usan los cables. */
-const CAJA = {};
-const SITIO = {};
+/* ═══════════════════════════════════════════════ ¿HAY WEBGL?
+   Si no lo hay, la página no se rompe ni enseña un lienzo negro: manda a la
+   versión plana, que tiene el mismo modelo. */
+const sonda = document.createElement('canvas');
+if (!(sonda.getContext('webgl2') || sonda.getContext('webgl'))) {
+  document.getElementById('cargando').style.display = 'none';
+  document.getElementById('sinwebgl').style.display = 'grid';
+} else {
+  arranca();
+}
 
-const svg = document.getElementById('cables');
-const lienzo = document.getElementById('lienzo');
-const NS = 'http://www.w3.org/2000/svg';
+function arranca() {
 
-const el = (t, attrs = {}, txt) => {
-  const n = document.createElementNS(NS, t);
-  for (const k in attrs) n.setAttribute(k, attrs[k]);
-  if (txt != null) n.textContent = txt;
-  return n;
+/* ═══════════════════════════════════════════════ MEDIDAS DEL RACK */
+const ANCHO = 7.6, FONDO = 4.2;
+const ALTO_NIVEL = 1.42, ALTO_TAMIZ = 0.44, HUECO = 0.26;
+
+/* De abajo arriba, como se apila de verdad. El cedazo es una bandeja más:
+   fina, distinta, y en medio — que es exactamente lo que es. */
+const PILA = ['ingesta', '__cedazo__', 'cimiento', 'inteligencia', 'decision'];
+const TINTE = {
+  ingesta: '#2E75B6', cimiento: '#2E7D32',
+  inteligencia: '#5b7fb0', decision: '#B26A00', __cedazo__: '#B26A00',
 };
 
-/* ═══════════════════════════════════════════════ LA TORRE */
+const Y = {};
+{
+  let y = 0.92;
+  for (const id of PILA) {
+    const h = id === '__cedazo__' ? ALTO_TAMIZ : ALTO_NIVEL;
+    Y[id] = { y: y + h / 2, h };
+    y += h + HUECO;
+  }
+}
+const ALTO_RACK = Object.values(Y).reduce((a, v) => Math.max(a, v.y + v.h / 2), 0);
 
-function pintaTorre() {
-  for (const n of NIVELES) {
-    const d = document.createElement('div');
-    d.className = 'nivel n-' + n.id;
-    d.id = 'nivel-' + n.id;
-    d.dataset.nivel = n.id;
-    d.style.cssText = `left:${TORRE.x}px; top:0; width:${TORRE.w}px;`;
-    d.innerHTML = `
-      <div class="num">${n.n}</div>
-      <div class="nom">${n.nombre}</div>
-      <div class="capa">${n.capa}</div>
-      <div class="lema">${n.lema}</div>
-      <ul>${n.hace.map(h => `<li>${h}</li>`).join('')}</ul>
-      <div class="nohace"><b>No hace:</b> ${n.noHace}</div>`;
-    lienzo.appendChild(d);
+/* ═══════════════════════════════════════════════ ESCENA CLARA */
+const escena = new THREE.Scene();
+escena.background = null;                       // el degradado lo pone el CSS
+
+const lienzo = document.getElementById('lienzo3d');
+const camara = new THREE.PerspectiveCamera(40, lienzo.clientWidth / lienzo.clientHeight, 0.1, 300);
+
+const pintor = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+pintor.setSize(lienzo.clientWidth, lienzo.clientHeight);
+pintor.setPixelRatio(Math.min(2, devicePixelRatio));
+pintor.shadowMap.enabled = true;
+pintor.shadowMap.type = THREE.PCFSoftShadowMap;
+pintor.toneMapping = THREE.ACESFilmicToneMapping;
+pintor.toneMappingExposure = 1.18;
+lienzo.appendChild(pintor.domElement);
+
+const rotulos = new CSS2DRenderer();
+rotulos.setSize(lienzo.clientWidth, lienzo.clientHeight);
+rotulos.domElement.style.cssText = 'position:absolute;inset:0;pointer-events:none';
+document.getElementById('rotulos').appendChild(rotulos.domElement);
+
+const mando = new OrbitControls(camara, pintor.domElement);
+mando.enableDamping = true; mando.dampingFactor = 0.08;
+mando.target.set(0, ALTO_RACK * 0.46, 0);
+mando.minPolarAngle = 0.55; mando.maxPolarAngle = 1.42;
+mando.enablePan = false;
+
+/* Luz de estudio: cenital suave, relleno frío y contra cálido. Con el rack
+   oscuro sobre fondo claro, la clave está en el contraluz — es lo que dibuja
+   el canto metálico de cada bandeja. */
+escena.add(new THREE.HemisphereLight(0xffffff, 0xd6e0ec, 1.5));
+const clave = new THREE.DirectionalLight(0xffffff, 2.1);
+clave.position.set(7, 15, 11); clave.castShadow = true;
+clave.shadow.mapSize.set(2048, 2048);
+clave.shadow.camera.near = 1; clave.shadow.camera.far = 50;
+clave.shadow.camera.left = -16; clave.shadow.camera.right = 16;
+clave.shadow.camera.top = 16; clave.shadow.camera.bottom = -16;
+clave.shadow.bias = -0.0008; clave.shadow.normalBias = 0.02;
+escena.add(clave);
+const relleno = new THREE.DirectionalLight(0xdfe9f6, 0.85);
+relleno.position.set(-11, 6, 7); escena.add(relleno);
+const contra = new THREE.DirectionalLight(0xffffff, 1.25);
+contra.position.set(-6, 9, -12); escena.add(contra);
+
+/* Suelo de estudio: blanco, mate, solo para recibir la sombra. */
+const suelo = new THREE.Mesh(
+  new THREE.CircleGeometry(40, 72),
+  new THREE.MeshStandardMaterial({ color: 0xf7fafd, roughness: 1, metalness: 0 }));
+suelo.rotation.x = -Math.PI / 2; suelo.receiveShadow = true; escena.add(suelo);
+const rejilla = new THREE.GridHelper(60, 60, 0xcfdbe9, 0xe2eaf3);
+rejilla.position.y = 0.008; escena.add(rejilla);
+
+/* ═══════════════════════════════════════════════ TEXTURAS DEL FRONTAL
+
+   Las ranuras de ventilación se dibujan en un lienzo 2D en vez de modelarse:
+   dan el aspecto de equipo de rack sin cargar la escena con geometría que
+   nadie va a mirar de cerca. */
+function frontal(tinte, denso) {
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 192;
+  const g = c.getContext('2d');
+  g.fillStyle = '#1a2536'; g.fillRect(0, 0, 1024, 192);
+  g.fillStyle = '#0d1421';
+  const paso = denso ? 20 : 26;
+  for (let y = 34; y < 158; y += 20)
+    for (let x = 250; x < 990; x += paso) { g.beginPath(); g.roundRect(x, y, paso - 10, 11, 5); g.fill(); }
+  g.fillStyle = tinte; g.fillRect(0, 0, 13, 192);           // franja del nivel
+  g.fillStyle = '#33465f';                                   // tornillos del raíl
+  for (const y of [22, 170]) for (const x of [36, 988]) { g.beginPath(); g.arc(x, y, 6, 0, 7); g.fill(); }
+  const t = new THREE.CanvasTexture(c); t.anisotropy = 8; t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+/* El tamiz se ve distinto a propósito: malla, no ranuras. */
+function frontalTamiz() {
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 96;
+  const g = c.getContext('2d');
+  g.fillStyle = '#2a2013'; g.fillRect(0, 0, 1024, 96);
+  g.strokeStyle = '#B26A00'; g.lineWidth = 2; g.globalAlpha = .75;
+  for (let x = -96; x < 1024; x += 14) { g.beginPath(); g.moveTo(x, 96); g.lineTo(x + 96, 0); g.stroke(); }
+  for (let x = 0; x < 1120; x += 14) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x - 96, 96); g.stroke(); }
+  const t = new THREE.CanvasTexture(c); t.anisotropy = 8; t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+const CUERPO = () => new THREE.MeshStandardMaterial({ color: 0x1e2b3f, roughness: .5, metalness: .82 });
+const TAPA   = () => new THREE.MeshStandardMaterial({ color: 0x27364e, roughness: .38, metalness: .88 });
+
+/* ═══════════════════════════════════════════════ LAS BANDEJAS */
+const bandejas = {}, ledsVivos = [];
+
+for (const id of PILA) {
+  const esTamiz = id === '__cedazo__';
+  const N = esTamiz ? null : NIVELES.find(n => n.id === id);
+  const { y, h } = Y[id];
+
+  const caras = [
+    CUERPO(), CUERPO(), TAPA(),
+    new THREE.MeshStandardMaterial({ color: 0x16202f, roughness: .7, metalness: .6 }),
+    new THREE.MeshStandardMaterial({
+      map: esTamiz ? frontalTamiz() : frontal(TINTE[id], id === 'ingesta'),
+      roughness: esTamiz ? .8 : .6, metalness: esTamiz ? .3 : .55 }),
+    new THREE.MeshStandardMaterial({ color: 0x16202f, roughness: .7, metalness: .6 }),
+  ];
+  const malla = new THREE.Mesh(new RoundedBoxGeometry(ANCHO, h, FONDO, 4, 0.08), caras);
+  malla.position.y = y; malla.castShadow = true; malla.receiveShadow = true;
+  malla.userData.id = id;
+  escena.add(malla);
+  bandejas[id] = malla;
+
+  if (esTamiz) {
+    chapa(`<span class="n">▲ ${CEDAZO.titulo}</span><span class="c">${CEDAZO.lema}</span>`,
+          y, 'tamiz', id);
+    continue;
   }
 
-  const z = document.createElement('div');
-  z.className = 'cedazo';
-  z.id = 'el-cedazo';
-  z.style.cssText = `left:${TORRE.x}px; top:0; width:${TORRE.w}px;`;
-  z.innerHTML = `
-    <div class="cab"><span>▲ ${CEDAZO.titulo}</span><span class="lema">${CEDAZO.lema}</span></div>
-    <div class="criterios">${CEDAZO.criterios.map(c => `<div>${c}</div>`).join('')}</div>`;
-  lienzo.appendChild(z);
+  chapa(`<span class="n"><span class="num">${N.n}</span>${N.nombre}</span>
+         <span class="c">${N.capa}</span>`, y, '', id);
 
-  /* La cola de excepciones cuelga por debajo: lo que no se pudo certificar no
-     se pierde ni se adivina — se queda, contado y con dueño. */
-  const e = CEDAZO.ejemplo;
-  const q = document.createElement('div');
-  q.className = 'cola';
-  q.id = 'la-cola';
-  q.style.cssText = `left:${TORRE.x + 40}px; top:0; width:${TORRE.w - 80}px;`;
-  q.innerHTML = `
-    <div class="tit">una noche real</div>
-    <div class="de">${e.de}</div>
-    <div class="cifras">
-      <div class="par"><span class="v">${e.entran}</span><span class="r">entran</span></div>
-      <span class="sep">→</span>
-      <div class="par"><span class="v sube">${e.certifican}</span><span class="r">certifican y suben</span></div>
-      <span class="sep">·</span>
-      <div class="par"><span class="v para">${e.cola}</span><span class="r">se quedan</span></div>
-    </div>
-    <div class="pie">Se reconcilian por encima del ${e.umbral}. ${CEDAZO.destino}
-      <b>Lo que no se puede certificar no se adivina.</b></div>`;
-  lienzo.appendChild(q);
+  /* LEDs de estado: uno por cable que entra a este piso, parpadeando al ritmo
+     de esa fuente. No es adorno — el piso 1 titila deprisa porque le entra la
+     venta en vivo, y el 4 casi no titila. */
+  const suyas = RAICES.filter(r => r.nivel === id);
+  suyas.forEach((r, i) => {
+    const led = new THREE.Mesh(
+      new THREE.CircleGeometry(0.052, 14),
+      new THREE.MeshBasicMaterial({ color: new THREE.Color(TINTE[id]), transparent: true }));
+    led.position.set(-ANCHO / 2 + 0.62 + i * 0.2, y + h / 2 - 0.28, FONDO / 2 + 0.012);
+    escena.add(led);
+    ledsVivos.push({ led, fase: i * 1.1, vel: 0.7 + r.ritmo * 0.62 });
+  });
+}
+
+function chapa(html, y, extra, id) {
+  const d = document.createElement('div');
+  d.className = 'rot chapa ' + extra;
+  d.dataset.nivel = id;
+  d.innerHTML = html;
+  const o = new CSS2DObject(d);
+  /* Sobre la propia bandeja, como la chapa de un equipo: así doce rótulos
+     nunca se pelean por el mismo sitio al girar. */
+  o.position.set(-ANCHO / 2 + 0.4, y + 0.02, FONDO / 2 + 0.06);
+  escena.add(o);
+  return o;
+}
+
+/* ═══════════════════════════════════════════════ MONTANTES Y TRAVESAÑOS */
+const acero = new THREE.MeshStandardMaterial({ color: 0x33445c, roughness: .32, metalness: .95 });
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) {
+  const p = new THREE.Mesh(new THREE.BoxGeometry(0.17, ALTO_RACK + 0.75, 0.17), acero);
+  p.position.set(sx * (ANCHO / 2 + 0.12), (ALTO_RACK + 0.75) / 2, sz * (FONDO / 2 - 0.12));
+  p.castShadow = true; escena.add(p);
+}
+for (const y of [0.2, ALTO_RACK + 0.62]) for (const sz of [-1, 1]) {
+  const t = new THREE.Mesh(new THREE.BoxGeometry(ANCHO + 0.4, 0.14, 0.14), acero);
+  t.position.set(0, y, sz * (FONDO / 2 - 0.12)); t.castShadow = true; escena.add(t);
 }
 
 /* ═══════════════════════════════════════════════ LAS RAÍCES */
 
-function pintaRaices() {
-  for (const r of RAICES) {
-    const col = COLUMNA[r.id];
-    if (!col) { console.warn('raíz sin columna asignada:', r.id); continue; }
+/* Izquierda: lo que se vende y se mueve. Derecha: lo que se compra y lo que
+   gobierna. El mismo reparto que la versión plana, para que quien haya visto
+   una reconozca la otra. */
+const COLUMNA = {
+  'venta-tienda':'izq','sell-out-portal':'izq','pedido-mayor':'izq',
+  'credito':'izq','recepcion':'izq','traslados':'izq',
+  'reglas':'der','tasas':'der','fabricas':'der','producto':'der',
+  'compra-internacional':'der','documentos':'der',
+};
+const X_COL = 8.3, Z0 = 5.0, PASO_Z = 2.0;
+
+const sitio = {};
+for (const col of ['izq', 'der']) {
+  const suyas = RAICES.filter(r => COLUMNA[r.id] === col);
+  suyas.forEach((r, i) => {
+    const p = new THREE.Vector3((col === 'izq' ? -1 : 1) * X_COL, 0.24, Z0 - i * PASO_Z);
+    sitio[r.id] = p;
+    const base = new THREE.Mesh(
+      new RoundedBoxGeometry(1.9, 0.48, 1.3, 3, 0.07),
+      new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .78, metalness: .05 }));
+    base.position.copy(p); base.castShadow = true; base.receiveShadow = true;
+    base.userData.raiz = r.id; escena.add(base);
+
+    /* un canto del color de su vía, para leer de un vistazo cómo entra */
+    const canto = new THREE.Mesh(
+      new THREE.BoxGeometry(1.9, 0.07, 0.05),
+      new THREE.MeshBasicMaterial({ color: new THREE.Color(
+        r.via === 'odoo' ? '#2E7D32' : r.via === 'portal' ? '#2E75B6'
+        : r.via === 'externa' ? '#B26A00' : '#1F3864') }));
+    canto.position.set(p.x, p.y + 0.1, p.z + 0.66); escena.add(canto);
+
     const d = document.createElement('div');
-    d.className = 'raiz';
-    d.id = 'raiz-' + r.id;
-    d.dataset.raiz = r.id;
-    d.style.cssText = `left:${col === 'izq' ? COL_IZQ : COL_DER}px; top:0; width:${ANCHO_R}px;`;
-    d.innerHTML = `
-      <div class="cab">
-        <span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
-        <span class="nom">${r.nombre}</span>
-      </div>
-      <div class="dato">${r.dato}</div>
-      <div class="pie">
-        <span class="cadencia">${r.cadencia}</span>
-        <span>·</span>
-        <span>${r.dueno}</span>
-      </div>`;
-    lienzo.appendChild(d);
-  }
-
-  const suelo = document.createElement('div');
-  suelo.className = 'suelo';
-  suelo.id = 'suelo';
-  suelo.innerHTML = 'Las raíces · doce sitios donde nace el dato ' +
-                    '<span>— los sistemas de registro: lo que ya existe, no se reemplaza</span>';
-  lienzo.appendChild(suelo);
-}
-
-/* ═══════════════════════════════════════════════ COLOCAR
-
-   Se mide lo pintado y se coloca. La torre de arriba abajo; cada columna de
-   raíces con un ritmo uniforme, centrada en el alto de la torre — así doce
-   tarjetas de altura distinta no pueden solaparse jamás. */
-
-function coloca() {
-  let y = MARGEN_SUP;
-  for (const id of ORDEN_VISUAL) {
-    const esCedazo = id === '__cedazo__';
-    const d = document.getElementById(esCedazo ? 'el-cedazo' : 'nivel-' + id);
-    const h = d.offsetHeight;
-    d.style.top = y + 'px';
-    CAJA[esCedazo ? '__cedazo__' : id] = { x: TORRE.x, y, w: TORRE.w, h };
-    y += h + (esCedazo || id === 'cimiento' ? GAP_CEDAZO : GAP_NIVEL);
-  }
-  const altoTorre = y - MARGEN_SUP;
-  const centroTorre = MARGEN_SUP + altoTorre / 2;
-
-  for (const col of ['izq', 'der']) {
-    const cards = RAICES.filter(r => COLUMNA[r.id] === col)
-                        .map(r => ({ r, d: document.getElementById('raiz-' + r.id) }))
-                        .filter(x => x.d);
-    const alto = cards.reduce((a, x) => a + x.d.offsetHeight, 0) + GAP_RAIZ * (cards.length - 1);
-    let ry = Math.max(MARGEN_SUP, centroTorre - alto / 2);
-    for (const x of cards) {
-      x.d.style.top = ry + 'px';
-      SITIO[x.r.id] = { x: col === 'izq' ? COL_IZQ : COL_DER, y: ry, h: x.d.offsetHeight, col };
-      ry += x.d.offsetHeight + GAP_RAIZ;
-    }
-  }
-
-  /* La cola cuelga bajo la torre: lo que no pasa el cedazo se queda abajo, que
-     es literalmente lo que hay que ver. */
-  const q = document.getElementById('la-cola');
-  const yCola = y + 22;
-  q.style.top = yCola + 'px';
-  CAJA.__cola__ = { x: TORRE.x + 40, y: yCola, w: TORRE.w - 80, h: q.offsetHeight };
-
-  const suelo = document.getElementById('suelo');
-  const masBajo = Math.max(yCola + q.offsetHeight, ...Object.values(SITIO).map(s => s.y + s.h));
-  suelo.style.top = (masBajo + 26) + 'px';
-  H = masBajo + 26 + suelo.offsetHeight + 24;
-  lienzo.style.height = H + 'px';
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    d.className = 'rot eti'; d.dataset.raiz = r.id;
+    d.innerHTML = `<span class="n">${r.nombre}</span>
+                   <span class="detalle"><span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
+                   <span class="c">${r.cadencia} · ${r.dueno}</span></span>`;
+    const o = new CSS2DObject(d);
+    o.position.set(p.x, p.y + 0.62, p.z);
+    escena.add(o);
+  });
 }
 
 /* ═══════════════════════════════════════════════ LOS CABLES
 
-   Un cable por raíz, de su borde interior a la cara de la torre del nivel al
-   que entra. Curva de Bézier con el tirón horizontal, para que salga y entre
-   en perpendicular y no se lea como una flecha recta de PowerPoint. */
-
-function cableDe(r) {
-  const s = SITIO[r.id];
-  const izq = s.col === 'izq';
-  const c = CAJA[r.nivel];
-  const x1 = izq ? s.x + ANCHO_R : s.x;
-  const y1 = s.y + s.h / 2;
-  const x2 = izq ? c.x : c.x + c.w;
-  /* el punto de entrada se reparte a lo alto de la cara, para que varios
-     cables no se peguen todos en el mismo sitio */
-  const hermanas = RAICES.filter(o => o.nivel === r.nivel && SITIO[o.id] && SITIO[o.id].col === s.col);
-  const i = hermanas.findIndex(o => o.id === r.id);
-  const paso = c.h / (hermanas.length + 1);
-  const y2 = c.y + paso * (i + 1);
-  const tiron = Math.max(70, Math.abs(x2 - x1) * 0.45);
-  return `M ${x1} ${y1} C ${x1 + (izq ? tiron : -tiron)} ${y1}, ${x2 + (izq ? -tiron : tiron)} ${y2}, ${x2} ${y2}`;
+   Tubo sobre una curva, con una textura que se desplaza. Es el equivalente 3D
+   del stroke-dashoffset de la versión plana: se ve el paquete viajar. La
+   velocidad sale del `ritmo` del modelo, igual que allí. */
+function texturaCorriente(grado) {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 8;
+  const g = c.getContext('2d');
+  g.fillStyle = '#c8d8e9'; g.fillRect(0, 0, 128, 8);        // conducto, claro
+  const grad = g.createLinearGradient(0, 0, 44, 0);
+  grad.addColorStop(0,  'rgba(46,117,182,0)');
+  grad.addColorStop(.5, grado >= 3 ? '#12294a' : '#2E75B6'); // paquete, oscuro
+  grad.addColorStop(1,  'rgba(46,117,182,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, 44, 8);
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = THREE.RepeatWrapping; t.repeat.set(5, 1);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
 }
 
-/* Los cables internos de la torre: de un nivel al siguiente, por el centro. */
-function cablesInternos() {
-  const orden = ['ingesta', 'cimiento', 'inteligencia', 'decision'];
-  const out = [];
-  for (let i = 0; i < orden.length - 1; i++) {
-    const a = CAJA[orden[i]], b = CAJA[orden[i + 1]];
-    const x = a.x + a.w / 2;
-    out.push({ id: 'torre-' + orden[i] + '-' + orden[i + 1],
-               d: `M ${x} ${a.y} L ${x} ${b.y + b.h}` });
+const corrientes = [];
+for (const r of RAICES) {
+  const p = sitio[r.id]; if (!p) continue;
+  const izq = p.x < 0;
+  const destino = new THREE.Vector3(
+    (izq ? -1 : 1) * (ANCHO / 2 + 0.02), Y[r.nivel].y, FONDO / 2 - 0.9);
+  const medio = p.clone().lerp(destino, 0.52);
+  medio.y = Math.max(0.7, medio.y - 0.85);
+  medio.z += 1.1;
+  const curva = new THREE.CatmullRomCurve3([p.clone().setY(p.y + 0.22), medio, destino]);
+  const tex = texturaCorriente(r.grado);
+  const tubo = new THREE.Mesh(
+    new THREE.TubeGeometry(curva, 80, r.grado >= 3 ? 0.05 : 0.038, 10, false),
+    new THREE.MeshBasicMaterial({ map: tex }));
+  tubo.userData.raiz = r.id;
+  escena.add(tubo);
+  corrientes.push({ tex, v: 0.09 + r.ritmo * 0.052 });
+}
+
+/* Los cables internos: de una bandeja a la de arriba, por el centro y por
+   detrás, para no tapar los frontales. */
+for (let i = 0; i < PILA.length - 1; i++) {
+  const a = Y[PILA[i]], b = Y[PILA[i + 1]];
+  const y0 = a.y + a.h / 2, y1 = b.y - b.h / 2;
+  const curva = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(0, y0, -FONDO / 2 + 0.6),
+    new THREE.Vector3(0, (y0 + y1) / 2, -FONDO / 2 + 0.6),
+    new THREE.Vector3(0, y1, -FONDO / 2 + 0.6)]);
+  const tex = texturaCorriente(3); tex.repeat.set(2, 1);
+  const tubo = new THREE.Mesh(
+    new THREE.TubeGeometry(curva, 24, 0.075, 10, false),
+    new THREE.MeshBasicMaterial({ map: tex }));
+  escena.add(tubo);
+  corrientes.push({ tex, v: 0.42 });
+}
+
+/* ═══════════════════════════════════════════════ EL BUCLE */
+let quieto = false;
+const reloj = new THREE.Clock();
+
+function pinta() {
+  requestAnimationFrame(pinta);
+  const t = reloj.getElapsedTime(), d = Math.min(0.05, reloj.getDelta());
+  if (!quieto) {
+    for (const c of corrientes) c.tex.offset.x -= c.v * d * 6;
+    for (const l of ledsVivos) l.led.material.opacity = 0.3 + 0.7 * Math.abs(Math.sin(t * l.vel + l.fase));
   }
-  return out;
+  for (const l of ledsVivos) l.led.quaternion.copy(camara.quaternion);
+  mando.update();
+  pintor.render(escena, camara);
+  rotulos.render(escena, camara);
 }
 
-function pintaCables() {
-  const defs = el('defs');
-  const g = el('linearGradient', { id:'grad-cable', x1:'0', y1:'0', x2:'1', y2:'0' });
-  g.appendChild(el('stop', { offset:'0%',   'stop-color':'#c3d6ea' }));
-  g.appendChild(el('stop', { offset:'100%', 'stop-color':'#2E75B6' }));
-  defs.appendChild(g);
-  svg.appendChild(defs);
-
-  const capa = el('g', { id:'capa-cables' });
-
-  /* El cable y su corriente son dos trazos con la MISMA curva: el de abajo es
-     el conducto —quieto, pálido— y el de arriba la corriente que lo recorre.
-     Separarlos permite pausar una sin perder el otro. */
-  const tiende = (id, d, base, flujo) => {
-    capa.appendChild(el('path', Object.assign({ id: 'cable-' + id, class: 'cable', d,
-      fill:'none', 'stroke-linecap':'round' }, base)));
-    capa.appendChild(el('path', Object.assign({ id: 'flujo-' + id, class: 'flujo', d }, flujo)));
-  };
-
-  for (const r of RAICES) {
-    if (!SITIO[r.id]) continue;
-    /* grado 3 = sin esa raíz se cae algo crítico: cable más grueso. */
-    const grueso = r.grado >= 3 ? 3.2 : 2.2;
-    /* ritmo 5 va seguido y rápido; ritmo 1, a tirones y lento. El hueco entre
-       trazos crece al bajar el ritmo, que es lo que hace que se lea
-       «intermitente» y no solo «despacio». */
-    const dur = (4.6 - r.ritmo * 0.62).toFixed(2);
-    const trazo = 6 + r.ritmo * 2;
-    const hueco = 46 - r.ritmo * 6;
-    tiende(r.id, cableDe(r),
-      { stroke:'url(#grad-cable)', 'stroke-width':grueso, opacity:'.42', 'data-raiz':r.id },
-      { 'stroke-width':grueso, 'data-raiz':r.id, opacity: (0.45 + r.ritmo * 0.09).toFixed(2),
-        style:`--t:${dur}s; --salto:-${trazo + hueco}px; stroke-dasharray:${trazo} ${hueco}` });
-  }
-
-  /* El ramal del cedazo a la cola: sale por la derecha, rodea la ingesta por
-     fuera y baja. Es el único trazo que no sube — y va en ámbar, porque lo que
-     no pasa tampoco se pierde. */
-  const cz = CAJA.__cedazo__, co = CAJA.__cola__;
-  if (cz && co) {
-    /* Entra a la cola por su costado derecho, no por arriba: así el trazo
-       nunca vuelve a meterse dentro de la ingesta. Sale, baja por fuera, y
-       entra. */
-    const xs = cz.x + cz.w, ys = cz.y + cz.h / 2;
-    const xf = co.x + co.w, yf = co.y + co.h / 2;
-    const vuelta = Math.max(xs, xf) + 66;
-    const ramal = `M ${xs} ${ys} C ${vuelta} ${ys}, ${vuelta} ${yf}, ${xf} ${yf}`;
-    tiende('__cola__', ramal,
-      { stroke:'#B26A00', 'stroke-width':'2.6', opacity:'.4' },
-      { 'stroke-width':'2.6', opacity:'.85', stroke:'#B26A00',
-        style:'--t:3.4s; --salto:-42px; stroke-dasharray:8 34' });
-  }
-
-  /* Dentro de la torre la corriente es continua: una vez certificado, el dato
-     está siempre disponible para el piso de arriba. */
-  for (const c of cablesInternos()) {
-    tiende(c.id, c.d,
-      { stroke:'#2E75B6', 'stroke-width':'6', opacity:'.28' },
-      { 'stroke-width':'6', opacity:'.7',
-        style:'--t:1.5s; --salto:-40px; stroke-dasharray:16 24' });
-  }
-  svg.appendChild(capa);
-}
-
-/* ═══════════════════════════════════════════════ EL PIE */
-
-function pintaPie() {
-  document.getElementById('numeros').innerHTML =
-    NUMEROS.map(n => `<div><div class="v">${n.v}</div><div class="r">${n.r}</div></div>`).join('');
-  document.getElementById('nota-pie').innerHTML =
-    `<b>${CEDAZO.nota}</b> Las cifras de este pie son las del Informe Diagnóstico de Fase 1.`;
-}
-
-/* ═══════════════════════════════════════════════ ESCALA
-
-   El lienzo es fijo; se escala para caber en la ventana. Es lo mismo que hace
-   el organigrama propuesto, y deja la geometría de los cables determinista. */
-
-function escala() {
-  const esc = document.querySelector('.escenario');
-  /* Se descuenta el ancho de la ficha por CONSTANTE, no leyendo el relleno:
-     el relleno va en transición y, medido en el instante del clic, todavía
-     vale lo de antes — el lienzo se creía igual de ancho y quedaba debajo. */
-  const reserva = document.body.classList.contains('con-ficha') ? ANCHO_FICHA : 0;
-  const disp = esc.clientWidth - reserva - 24;
-  const k = Math.min(1, Math.max(0.18, disp / W));
-  lienzo.style.transform = `scale(${k})`;
-  esc.style.height = (H + 28) * k + 'px';
-}
-
-/* ═══════════════════════════════════════════════ ARRANQUE */
-
-pintaTorre();
-pintaRaices();
-coloca();          // medir y colocar ANTES de cablear: los cables salen de lo medido
-pintaCables();
-pintaPie();
-escala();
-addEventListener('resize', escala);
-
-/* ═══════════════════════════════════════════════ EL FOCO
-
-   Seguir una fuente de punta a punta. Se ilumina su cable y el nivel al que
-   entra, se atenúa lo demás, y la ficha lateral cuenta lo que el dibujo no
-   puede: cómo llega hoy, y qué se cae sin ella.                            */
-
-const $$ = s => [...document.querySelectorAll(s)];
-const txt = (id, t) => { document.getElementById(id).textContent = t; };
-
-let enfocada = null;
-
-function enfoca(id) {
-  if (enfocada === id) { limpia(); return; }
-  const r = RAICES.find(x => x.id === id);
-  if (!r) return;
-  enfocada = id;
-
-  document.body.classList.add('enfocado');
-  $$('.on').forEach(e => e.classList.remove('on'));
-  document.getElementById('raiz-' + id).classList.add('on');
-  document.getElementById('nivel-' + r.nivel).classList.add('on');
-  document.getElementById('cable-' + id).classList.add('on');
-  document.getElementById('flujo-' + id).classList.add('on');
-
-  const baja = BAJADAS.find(b => b.hacia === id);
-  const N = NIVELES.find(n => n.id === r.nivel);
-
-  txt('f-nombre', r.nombre);
-  txt('f-dato', r.dato);
-  txt('f-cadencia', r.cadencia);
-  txt('f-dueno', r.dueno);
-  txt('f-hoy', r.hoy);
-  txt('f-rompe', r.rompe);
-  txt('f-como', VIAS[r.via].detalle + '.');
-  txt('f-nivel', `Entra al nivel ${N.n}, «${N.nombre}» — ${N.lema}.`);
-  const via = document.getElementById('f-via');
-  via.className = 'via via-' + r.via;
-  via.textContent = VIAS[r.via].rotulo;
-
-  /* Que una raíz no reciba nada de vuelta también se dice: es la diferencia
-     entre una fuente que cierra el ciclo y una que solo alimenta. */
-  const cajaBaja = document.getElementById('f-bloque-baja');
-  cajaBaja.querySelector('.r').textContent = baja ? 'y qué recibe de vuelta' : 'no recibe nada de vuelta';
-  txt('f-baja', baja
-    ? `${baja.que}. ${baja.nota}`
-    : 'Esta fuente alimenta la torre y no recibe nada: el dato viene de fuera y no hay nada que devolverle.');
-
-  document.getElementById('ficha').classList.add('abierta');
-  document.body.classList.add('con-ficha');
-  escala();
-  /* y se centra en lo enfocado, que puede haber quedado fuera de la vista */
-  document.getElementById('raiz-' + id).scrollIntoView({ behavior:'smooth', block:'center' });
-}
-
-function limpia() {
-  enfocada = null;
-  document.body.classList.remove('enfocado');
-  $$('.on').forEach(e => e.classList.remove('on'));
-  document.getElementById('ficha').classList.remove('abierta');
-  document.body.classList.remove('con-ficha');
-  escala();
-}
-
-$$('.raiz').forEach(e => e.onclick = () => enfoca(e.dataset.raiz));
-document.getElementById('cerrar-ficha').onclick = limpia;
-addEventListener('keydown', e => { if (e.key === 'Escape') limpia(); });
-
-/* La pausa: para leer con calma, para capturar la lámina del deck, y para
-   quien la animación le moleste. El sistema respeta además la preferencia de
-   movimiento reducido del propio equipo. */
+/* ═══════════════════════════════════════════════ MANDOS Y MEDIDAS */
 const btPausa = document.getElementById('pausa');
 btPausa.onclick = () => {
-  const quieto = document.body.classList.toggle('quieto');
+  quieto = !quieto;
   btPausa.classList.toggle('on', quieto);
   btPausa.textContent = quieto ? '▶ reanudar el flujo' : '⏸ pausar el flujo';
 };
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) btPausa.click();
 
-document.getElementById('volver').onclick = () => {
-  if (window.parent && window.parent !== window) window.parent.postMessage({ rower:'cerrar' }, '*');
-  else history.length > 1 ? history.back() : location.href = 'informe-diagnostico-fase1.html';
-};
+/* El encuadre se CALCULA a partir de lo que ocupa el contenido —el rack más
+   las dos columnas de raíces—, no se fija a ojo: en una ventana estrecha, una
+   distancia escrita a mano deja media escena fuera del cuadro. */
+function encuadra(mover) {
+  /* Por EXTENSIONES, no por esfera envolvente: la esfera usa la diagonal del
+     rincón y deja la escena diminuta en medio del cuadro. */
+  const semiX = X_COL + 1.2, semiY = (ALTO_RACK + 0.9) / 2, semiZ = Z0 + 1.0;
+  const fov = camara.fov * Math.PI / 180, tg = Math.tan(fov / 2);
+  const dAncho = semiX / (tg * camara.aspect);
+  const dAlto  = semiY / tg;
+  const dist = Math.max(dAncho, dAlto) * 1.12 + semiZ * 0.55;
+  mando.minDistance = dist * 0.55; mando.maxDistance = dist * 2.1;
+  mando.target.set(0, semiY * 0.94, 0);
+  if (mover) {
+    const dir = new THREE.Vector3(0.36, 0.33, 1).normalize();
+    camara.position.copy(mando.target).addScaledVector(dir, dist);
+  } else {
+    const d = camara.position.distanceTo(mando.target);
+    if (d > mando.maxDistance || d < mando.minDistance) {
+      camara.position.copy(mando.target).addScaledVector(
+        camara.position.clone().sub(mando.target).normalize(),
+        Math.min(mando.maxDistance, Math.max(mando.minDistance, d)));
+    }
+  }
+  camara.updateProjectionMatrix();
+}
+
+function mide() {
+  const w = lienzo.clientWidth, h = lienzo.clientHeight;
+  camara.aspect = w / h; camara.updateProjectionMatrix();
+  pintor.setSize(w, h); rotulos.setSize(w, h);
+  encuadra(false);
+}
+addEventListener('resize', mide);
+camara.aspect = lienzo.clientWidth / lienzo.clientHeight;
+encuadra(true);
+mide();
+
+document.getElementById('cargando').style.display = 'none';
+pinta();
+
+/* para las comprobaciones */
+window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK };
+
+} /* fin arranca() */
 </script>
 </body>
 </html>
