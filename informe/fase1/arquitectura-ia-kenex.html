@@ -191,6 +191,43 @@ body.enfocado .chapa:not(.on){opacity:.42}
 .eti.on{border-color:var(--blue); box-shadow:0 0 0 3px rgba(46,117,182,.18), 0 10px 26px rgba(15,25,45,.22)}
 .eti.on .detalle{display:block; margin-top:3px}
 
+/* ─────────────────────────────────────────────── las burbujas de un nivel
+
+   Salen de la gaveta abierta, escalonadas. Son HTML —como todo el texto de
+   esta escena— para que se lean nítidas a cualquier zoom.                 */
+.burbuja{
+  background:rgba(255,255,255,.98); border-radius:10px; padding:9px 13px;
+  box-shadow:0 3px 8px rgba(15,25,45,.14), 0 14px 34px rgba(15,25,45,.2);
+  border:1px solid var(--borde); width:212px; font-size:12px; line-height:1.42;
+  color:var(--txt); pointer-events:auto;
+  /* ⚠️ La animación de entrada NO puede tocar `transform`: CSS2DRenderer
+     posiciona cada rótulo escribiendo su transform, y animarlo lo pisaba —
+     todas las burbujas acababan apiladas en la misma esquina. Solo opacidad. */
+  opacity:0; animation:brota .32s ease-out forwards;
+}
+@keyframes brota{from{opacity:0} to{opacity:1}}
+.burbuja .r{
+  font-size:9.5px; text-transform:uppercase; letter-spacing:.13em;
+  font-weight:800; color:var(--blue); display:block; margin-bottom:3px;
+}
+.burbuja.agente{border-left:4px solid var(--navy)}
+.burbuja.agente .nom{font-weight:800; color:var(--navy); display:block}
+.burbuja.agente .que{color:var(--tenue); font-size:11.5px; display:block; margin-top:2px}
+.sello{
+  display:inline-block; font-size:9px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; padding:2px 7px; border-radius:999px; margin-top:4px;
+}
+.sello-1{background:#eceff5; color:var(--navy)}
+.sello-2{background:#e3efe4; color:var(--verde)}
+.sello-3{background:#fdf0dd; color:var(--ambar)}
+.burbuja.nohace{border-left:4px solid var(--rojo); background:rgba(255,250,250,.98)}
+.burbuja.nohace .r{color:var(--rojo)}
+
+/* pista de que la bandeja se abre */
+.chapa{cursor:pointer}
+.chapa:hover{box-shadow:0 3px 8px rgba(15,25,45,.2), 0 14px 34px rgba(15,25,45,.28)}
+.chapa.abierta{border-left-width:6px}
+
 /* ────────────────────────────────────────────── sin WebGL: no se rompe */
 #sinwebgl{
   position:absolute; inset:0; display:none; place-items:center; padding:40px;
@@ -473,6 +510,8 @@ function chapa(html, y, extra, id) {
   d.className = 'rot chapa ' + extra;
   d.dataset.nivel = id;
   d.innerHTML = html;
+  /* al crear, no despues: CSS2DRenderer no lo mete en el DOM hasta el render */
+  if (id !== '__cedazo__') d.onclick = e => { e.stopPropagation(); abreNivel(id); };
   const o = new CSS2DObject(d);
   /* Sobre la propia bandeja, como la chapa de un equipo: así doce rótulos
      nunca se pelean por el mismo sitio al girar. */
@@ -632,9 +671,146 @@ function pinta() {
   }
   for (const l of ledsVivos) l.led.quaternion.copy(camara.quaternion);
 
+  /* Las gavetas persiguen su destino desde el bucle: dar a cada malla su
+     propia transicion las descoordina en cuanto una tarda mas que otra. */
+  for (const [id, m] of Object.entries(bandejas)) {
+    const dz = destinoZ.get(id), dy = destinoY.get(id);
+    if (Math.abs(m.position.z - dz) > 0.002) m.position.z += (dz - m.position.z) * 0.16;
+    if (Math.abs(m.position.y - dy) > 0.002) m.position.y += (dy - m.position.y) * 0.16;
+  }
+
   mando.update();
   pintor.render(escena, camara);
   rotulos.render(escena, camara);
+}
+
+/* ═══════════════════════════════════════════════ LAS GAVETAS
+
+   Pulsar un nivel lo saca como una gaveta —que es literalmente lo que hace un
+   rack— y levanta los de arriba para dejarle sitio. De la gaveta abierta
+   brotan las burbujas con lo que vive en ese piso y los agentes que actuan
+   ahi, cada uno con su nivel de autonomia.
+
+   Los destinos se guardan y el bucle los persigue: animar con transiciones
+   propias de cada malla se descoordina en cuanto una tarda mas que otra.   */
+
+const DESLIZA = 2.6, LEVANTA = 1.15;
+const destinoZ = new Map(), destinoY = new Map();
+for (const [id, m] of Object.entries(bandejas)) { destinoZ.set(id, 0); destinoY.set(id, m.position.y); }
+
+let nivelAbierto = null;
+const burbujas = [], hilos = [];
+
+function limpiaBurbujas() {
+  for (const b of burbujas) escena.remove(b);
+  for (const h of hilos) { escena.remove(h); h.geometry.dispose(); }
+  burbujas.length = 0; hilos.length = 0;
+}
+
+function abreNivel(id) {
+  if (nivelAbierto === id) { cierraNivel(); return; }
+  if (enfocada) limpia();
+  cierraNivel(true);
+  const N = NIVELES.find(n => n.id === id); if (!N) return;
+  nivelAbierto = id;
+
+  /* la gaveta sale; las de arriba suben */
+  const orden = PILA.indexOf(id);
+  PILA.forEach((otro, i) => {
+    destinoZ.set(otro, otro === id ? DESLIZA : 0);
+    destinoY.set(otro, Y[otro].y + (i > orden ? LEVANTA : 0));
+  });
+
+  /* lo demas se aparta de la mirada */
+  for (const [m] of opacidadBase) atenua(m, 0.12);
+  enciende(id);
+  document.body.classList.add('enfocado');
+  document.querySelectorAll('.rot.on, .chapa.abierta').forEach(e => e.classList.remove('on', 'abierta'));
+  const ch = document.querySelector('.chapa[data-nivel="' + id + '"]');
+  if (ch) { ch.classList.add('on', 'abierta'); }
+
+  /* las burbujas, en abanico delante de la gaveta */
+  /* Dos familias distintas, y por eso a lados distintos: a la izquierda LO QUE
+     HACE el nivel, a la derecha QUIÉN lo hace y con qué permiso. Mezclarlas en
+     una sola tanda obligaba a leer saltando. */
+  const loQueHace = N.hace.map(h => ({ clase: '', html: '<span class="r">' + N.capa + '</span>' + h }));
+  const losAgentes = N.agentes.map(a => ({ clase: 'agente', html:
+      '<span class="r">agente · ' + AUTONOMIA[a.nivel].que + '</span>' +
+      '<span class="nom">' + a.nombre + '</span>' +
+      '<span class="que">' + a.que + '</span>' +
+      '<span class="sello sello-' + a.nivel + '">' + AUTONOMIA[a.nivel].verbo + '</span>' }));
+  const elNoHace = { clase: 'nohace', html: '<span class="r">lo que NO hace</span>' + N.noHace };
+  const fichas = [...loQueHace, ...losAgentes, elNoHace];
+
+  /* En DOS COLUMNAS a los costados de la gaveta, no en abanico hacia delante:
+     colocarlas «delante» en el eje Z las metía entre la cámara y el rack, y
+     acababan fuera de cuadro o enormes. Así se quedan junto a la gaveta que
+     explican, dentro del encuadre y a los dos lados. */
+  const yTray = Y[id].y, zFrente = FONDO / 2 + DESLIZA + 0.6;
+  /* El paso sale del alto REAL de la tarjeta mas alta —las de agente llegan a
+     152 px—, no de un numero redondo: con 2,72 unidades daban 130 px de hueco
+     y las de agente se pisaban por abajo. */
+  const X_BURB = 8.6, PASO_Y = 3.42;
+  /* Las columnas se centran en el eje de la VISTA, no en la altura de la
+     gaveta: una gaveta alta empujaba su columna fuera del cuadro por arriba y
+     una baja la hundía bajo el suelo. El hilo es el que dice a quién
+     pertenece cada burbuja, así que se pueden colocar donde se leen. */
+  const yEje = mando.target.y + 1.7;
+  fichas.forEach((f, i) => { f.orden = i; });
+
+  const coloca = (lista, signo) => lista.forEach((f, k) => {
+    const medio = (lista.length - 1) / 2;
+    const pos = new THREE.Vector3(signo * X_BURB, yEje + (medio - k) * PASO_Y, zFrente);
+
+    const d = document.createElement('div');
+    d.className = 'rot burbuja ' + f.clase;
+    d.style.animationDelay = (f.orden * 0.055) + 's';
+    d.innerHTML = f.html;
+    const o = new CSS2DObject(d);
+    o.position.copy(pos);
+    escena.add(o); burbujas.push(o);
+
+    const desde = new THREE.Vector3(signo * (ANCHO / 2 - .2), yTray, FONDO / 2 + DESLIZA - .3);
+    const hilo = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([desde, pos]),
+      new THREE.LineBasicMaterial({ color: 0x8fb0d4, transparent: true, opacity: .5 }));
+    escena.add(hilo); hilos.push(hilo);
+  });
+
+  coloca(loQueHace, -1);
+  coloca(losAgentes, +1);
+
+  /* el «no hace» va ARRIBA y centrado: es de otra naturaleza, y abajo no hay
+     sitio —el suelo obliga a recortar y acababa pisando la última burbuja de
+     la columna—. Se cuelga del punto más alto que ocupen las columnas. */
+  {
+    /* Anclado sobre el rack, no a la columna: colgarlo de la burbuja mas alta
+       lo empujaba fuera del cuadro en el nivel con once. */
+    const pos = new THREE.Vector3(0, ALTO_RACK + LEVANTA + 1.5, zFrente + 1.4);
+    const d = document.createElement('div');
+    d.className = 'rot burbuja nohace';
+    d.style.animationDelay = (fichas.length * 0.055) + 's';
+    d.innerHTML = elNoHace.html;
+    const o = new CSS2DObject(d); o.position.copy(pos);
+    escena.add(o); burbujas.push(o);
+    const hilo = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints(
+        [new THREE.Vector3(0, yTray + Y[id].h / 2, FONDO / 2 + DESLIZA - .3), pos]),
+      new THREE.LineBasicMaterial({ color: 0xd8a48a, transparent: true, opacity: .5 }));
+    escena.add(hilo); hilos.push(hilo);
+  }
+}
+
+function cierraNivel(silencioso) {
+  if (!nivelAbierto && !silencioso) return;
+  nivelAbierto = null;
+  for (const id of PILA) { destinoZ.set(id, 0); destinoY.set(id, Y[id].y); }
+  limpiaBurbujas();
+  if (silencioso) return;
+  for (const [m] of opacidadBase) atenua(m, 1);
+  enciende(null);
+  document.body.classList.remove('enfocado');
+  document.querySelectorAll('.rot.on, .chapa.abierta').forEach(e => e.classList.remove('on', 'abierta'));
 }
 
 /* ═══════════════════════════════════════════════ EL FOCO Y LA FICHA
@@ -683,6 +859,7 @@ function atenua(m, v) {
 function enfoca(id) {
   if (enfocada === id) { limpia(); return; }
   const r = RAICES.find(x => x.id === id); if (!r) return;
+  cierraNivel();
   enfocada = id;
 
   /* Los tubos y los pedestales se apagan —son finos, aguantan bien la
@@ -734,7 +911,7 @@ function limpia() {
 }
 
 document.getElementById('cerrar-ficha').onclick = limpia;
-addEventListener('keydown', e => { if (e.key === 'Escape') limpia(); });
+addEventListener('keydown', e => { if (e.key === 'Escape') { limpia(); cierraNivel(); } });
 
 /* Clic en la escena: se lanza un rayo desde la cámara y se mira qué toca.
    Arrastrar para girar el rack no cuenta como pulsar. */
@@ -748,9 +925,12 @@ pintor.domElement.addEventListener('pointerup', e => {
   puntero.x = ((e.clientX - c.left) / c.width) * 2 - 1;
   puntero.y = -((e.clientY - c.top) / c.height) * 2 + 1;
   rayo.setFromCamera(puntero, camara);
-  const t = rayo.intersectObjects([...pedestales, ...Object.values(tubos)], false);
-  if (t.length && t[0].object.userData.raiz) enfoca(t[0].object.userData.raiz);
-  else limpia();
+  const t = rayo.intersectObjects(
+    [...pedestales, ...Object.values(tubos), ...Object.values(bandejas)], false);
+  const o = t.length ? t[0].object : null;
+  if (o && o.userData.raiz) enfoca(o.userData.raiz);
+  else if (o && o.userData.id && o.userData.id !== '__cedazo__') abreNivel(o.userData.id);
+  else { limpia(); cierraNivel(); }
 });
 pintor.domElement.style.cursor = 'grab';
 
@@ -812,7 +992,8 @@ document.getElementById('cargando').style.display = 'none';
 pinta();
 
 /* para las comprobaciones */
-window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK };
+window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK,
+                   PILA, tubos, pedestales, abreNivel, cierraNivel, enfoca, limpia };
 
 } /* fin arranca() */
 </script>

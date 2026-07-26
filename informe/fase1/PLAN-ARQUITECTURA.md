@@ -136,7 +136,7 @@ raíces que lo alimenten.
 | **5 · Foco por raíz** | ✅ **hecha** — recorrido iluminado + ficha lateral con «qué se rompe» y «qué recibe de vuelta» |
 | **6a · El rack en 3D** | ✅ **hecha** — WebGL + texto en DOM · escena clara, rack oscuro · respaldo sin WebGL |
 | **6b · Raíces en arco + ficha completa** | ✅ **hecha** — 12 raíces alrededor, 0 rótulos pisándose, ficha con todo lo de la plana |
-| 6c · Gavetas y burbujas | pendiente |
+| **6c · Gavetas y burbujas** | ✅ **hecha** — la bandeja sale, las de arriba suben, y brotan las burbujas con los agentes y su permiso |
 | 6d · El cedazo como bandeja tamiz | ✅ hecha en la 6a |
 | 7 · La bajada | pendiente |
 | 8 · Hoy / propuesto | pendiente |
