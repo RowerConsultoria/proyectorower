@@ -147,7 +147,9 @@ window.PANTALLAS['compras/cubitt'] = function (lienzo) {
                 return `<tr>
                   <td><div class="producto">
                     <img class="foto" src="img/${p.img}" alt="" loading="lazy">
-                    <div class="txt"><div class="nom">${p.nombre}</div><div class="sub">${p.sku}</div></div>
+                    <div class="txt"><div class="nom">${p.nombre}</div>
+                      <div class="sub">${p.sku}</div></div>
+                    ${p.recienGraduado ? '<span class="marca-estado e-ok" title="Recién graduado: la foto y la serie de venta son las de su equivalente hasta que tenga histórico propio"><i class="punto"></i>nuevo</span>' : ''}
                   </div></td>
                   <td class="num">${n(STOCK_HUB[p.sku])}</td>
                   <td class="num" style="color:${cob < 2 ? 'var(--n3)' : 'var(--tinta)'}">${cob.toFixed(1)} m</td>

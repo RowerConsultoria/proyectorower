@@ -347,6 +347,96 @@ function reparte(sku, pretensiones, hay) {
   return { dado, cede, sobra: resto, trazas };
 }
 
+/* ------------------------------------------- desarrollo de producto ------- */
+
+/**
+ * Proyección de un candidato a partir de su EQUIVALENTE ya en catálogo.
+ * No se inventa una demanda: se toma la del producto comparable y se corrige
+ * por lo que dijeron las pruebas. Es lo que permite discutir con evidencia en
+ * vez de con intuición.
+ */
+function proyeccionCandidato(c) {
+  const eq = CATALOGO.find(p => p.sku === c.equivalente);
+  const d = eq ? demandaSaneada(eq.sku) : { mensual: 0 };
+  const fab = FABRICAS.find(f => f.id === c.fabrica);
+
+  const fallas = c.pruebas.filter(p => p.resultado === 'falla').length;
+  const dudas  = c.pruebas.filter(p => p.resultado === 'duda').length;
+  const pend   = c.pruebas.filter(p => p.resultado === 'pendiente').length;
+  /* Cada falla descuenta un 30 % de la demanda esperada y cada duda un 10 %:
+     un producto con problemas abiertos no vende como su equivalente sano. */
+  const factor = Math.max(0.2, 1 - fallas * 0.30 - dudas * 0.10);
+
+  const mensual = Math.round((d.mensual || 0) * factor);
+  const margen = c.pvpPrevisto ? (c.pvpPrevisto - c.costoObjetivo / 0.38 * 0.38) : 0;
+  const margenPct = c.pvpPrevisto ? (c.pvpPrevisto - c.costoObjetivo) / c.pvpPrevisto : 0;
+  const margenEq = eq ? (eq.pvp - eq.pvp * 0.42) / eq.pvp : 0;
+
+  return {
+    eq, fab, mensual, factor, fallas, dudas, pendientes: pend,
+    margenPct, margenEq,
+    /* La primera compra no la fija la demanda: la fija el pedido mínimo. */
+    primeraCompra: fab ? Math.max(fab.moq, mensual * (REGLAS.coberturaObjetivo.v + (fab.leadDias / 30))) : mensual,
+    mesesQueDura: mensual && fab ? fab.moq / mensual : 0,
+    listo: fallas === 0 && pend === 0 && c.muestras.recibidas > 0,
+  };
+}
+
+/** Bloqueantes que impiden graduar. Si hay alguno, el botón no debe existir. */
+function bloqueantesDe(c) {
+  const p = proyeccionCandidato(c);
+  const b = [];
+  if (!c.muestras.recibidas) b.push('no han llegado las muestras');
+  if (p.fallas) b.push(`${p.fallas} prueba${p.fallas > 1 ? 's' : ''} con falla sin resolver`);
+  if (p.pendientes) b.push(`${p.pendientes} prueba${p.pendientes > 1 ? 's' : ''} sin terminar`);
+  if (p.margenPct < 0.45) b.push(`margen del ${(p.margenPct * 100).toFixed(0)} % por debajo del mínimo de la línea`);
+  return b;
+}
+
+/**
+ * Graduar: el candidato entra al catálogo canónico y SOLO ENTONCES puede
+ * aparecer en una mesa de compra. Es la regla que conecta este módulo con
+ * todo lo demás, y por eso la graduación siempre exige firma.
+ */
+function graduar(candId) {
+  const c = CANDIDATOS.find(x => x.id === candId);
+  if (!c || bloqueantesDe(c).length) return null;
+  const p = proyeccionCandidato(c);
+  const sku = 'CT-' + c.nombre.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+
+  c.etapa = 'graduado';
+  c.graduadoEl = HOY.anio + '-08-' + String(HOY.dia).padStart(2, '0');
+  c.skuCanonico = sku;
+
+  CATALOGO.push({
+    sku, ref: sku, marca: 'Cubitt', nombre: c.nombre,
+    linea: c.familia.toUpperCase(), familia: c.familia, pvp: c.pvpPrevisto,
+    img: p.eq ? p.eq.img : '', hex: '#14181C', color: 'Obsidian Black',
+    alias: [c.nombre, c.nombre.toUpperCase().replace(/\s/g, '')],
+    estado: 'nuevo', leadDias: p.fab ? p.fab.leadDias : 75,
+    moq: p.fab ? p.fab.moq : 3000, fabrica: c.fabrica, recienGraduado: true,
+  });
+
+  /* Sin histórico propio, hereda la serie de su equivalente corregida por el
+     factor de las pruebas. Queda dicho en pantalla: no es dato, es proyección. */
+  VENTAS[sku] = {};
+  for (const f of FRENTES) {
+    VENTAS[sku][f.id] = ((VENTAS[c.equivalente] || {})[f.id] || []).map(v => Math.round(v * p.factor));
+  }
+  STOCK_HUB[sku] = 0;
+  TRANSITO_SKU[sku] = { enJapon: 0, enMar: 0 };
+  delete _memoDemanda[sku];
+
+  return anota({
+    accion: 'P-01 · graduar un candidato al catálogo',
+    agente: 'registro de producto', modulo: 'producto',
+    dispara: 'el comité aprobó ' + c.nombre,
+    salida: `${c.nombre} entra al catálogo como ${sku} · queda comprable en la mesa de ${p.fab ? p.fab.nombre : 'su fábrica'} · primera compra estimada ${Math.round(p.primeraCompra).toLocaleString('es-VE')} u`,
+    ejes: { perimetro: 'interno', reversibilidad: 'humana', radio: 'sistema', dinero: 'ninguno', reloj: 'alcanza' },
+    cruza: 'compras',
+  });
+}
+
 /* ══════════════════════════════════════════ 6 · CATÁLOGO DE ACCIONES
 
    Cada acción declara sus cinco ejes, y el nivel sale de ahí. Ninguna acción
