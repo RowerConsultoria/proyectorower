@@ -241,7 +241,7 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **2 · Lenguaje visual** | ✅ **hecha** — `estilo/app.css` + `estilo.html` |
 | **3 · Armazón** | ✅ **hecha** — `index.html` + `nucleo/app.js` |
 | **4 · Datos semilla** | ✅ **hecha** — `datos/*.js` + 59 imágenes reales + pantalla `cimiento` |
-| 5 · Núcleo de agentes | pendiente |
+| **5 · Núcleo de agentes** | ✅ **hecha** — `nucleo/agentes.js` |
 | 6–11 · Compras y desarrollo de producto | pendiente |
 | 12–14 · Distribución y logística | pendiente |
 | 15–18 · Comercial y frentes | pendiente |
