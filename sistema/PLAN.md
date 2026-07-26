@@ -251,6 +251,7 @@ esto son **faltantes de alcance**.
 | **P6** | **Reglas de negocio huérfanas.** Una auditoría de las fases 6–11 encontró dos reglas declaradas con dueño y versión que ninguna acción usaba. Se corrigieron, pero hace falta una comprobación automática que impida que vuelva a pasar. | Una regla que nada usa es una promesa incumplida, y en este sistema las reglas son el argumento: «esto no lo decide un algoritmo, lo decide una política con dueño». | auditoría de las fases 6–11 |
 | **P7** | **Acciones que solo avisan.** Varios botones (`preparar la orden`, `pedir ampliación a finanzas`, `enviar pedido`) muestran un aviso y no cambian el estado del sistema. | Es aceptable en un prototipo, pero conviene decidir cuáles deben producir un efecto visible antes del ensayo de la demo. | auditoría de las fases 6–11 |
 | **P5** | **Láminas del prototipo para el informe.** El deck de la presentación necesita capturas estáticas del sistema, en marco UCAB. | El prototipo no se presenta solo: vive dentro del informe de Fase 1, que ya tiene su modo presentación. | revisión de la fase 12 |
+| **P9** | **El freno no desactiva los botones de firma sueltos.** Vacía las bandejas y lo anuncia en una banda global, pero en las pantallas siguen ofreciéndose botones con sello «tu firma» (alertas de compras, tarjetas de la mesa). Falta una convención —un `data-firma` en el botón que firma— para poder apagarlos todos de una vez. | Es la misma pieza que necesita el permiso de firma por rol: hasta que un botón declare que firma, ni el rol ni el freno pueden gobernarlo. Se resuelve junto con P1. | auditoría de la fase 20 |
 | **P8** | **Con qué rol arranca el recorrido.** Ya corregido el defecto —cada rol entra por su propia pantalla, no todos por compras—, queda la decisión de guion: el rol por defecto de un visitante nuevo sigue siendo *dirección de compras*. | Entrar por dirección y bajar a la operación cuenta mejor la historia que entrar por compras y subir. Se decide al montar el recorrido guiado. | auditoría de la fase 19 |
 
 ---
@@ -294,4 +295,5 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **17 · Portal de reporte** | ✅ **hecha** — `pantallas/portal.js` + `datos/reportes.js` |
 | **18 · Mapa de frentes y conectores** | ✅ **hecha** — `pantallas/conectores.js` · **cierra el bloque D** |
 | **19 · Dirección — la vista de la Junta** | ✅ **hecha** — `pantallas/direccion.js` · visible solo a *dirección ejecutiva* y *sistemas* |
-| 20–22 · Cierre | pendiente |
+| **20 · Sala de agentes, bitácora y freno** | ✅ **hecha** — `pantallas/agentes.js` + `FRENO` en el núcleo · resuelve **P4** (reversión desde la interfaz) |
+| 21–22 · Cierre | pendiente |

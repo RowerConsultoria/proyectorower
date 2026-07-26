@@ -245,6 +245,7 @@ function navega() {
   pintaMenu();
   pintaLienzo();
   pintaHud();
+  pintaFreno();
   $('.lienzo').scrollTop = 0;
 }
 
@@ -308,6 +309,33 @@ function pintaLienzo() {
         </p>
       </div>
     </div>`;
+}
+
+/* ---------------------------------------------------------- BANDA DEL FRENO
+
+   Vive fuera del lienzo a propósito. Una pantalla que se repinta a sí misma
+   no puede hacerla desaparecer, y ninguna puede decir «nada espera firma»
+   mientras el sistema está detenido. Un freno que solo se ve en la pantalla
+   del freno no es un freno: es un botón.                                    */
+
+function pintaFreno() {
+  const banda = $('#banda-freno');
+  if (!banda || typeof FRENO === 'undefined') return;
+
+  const parados = Object.keys(FRENO.agentes || {});
+  const hay = FRENO.general || parados.length > 0;
+  banda.hidden = !hay;
+  document.body.classList.toggle('con-freno', hay);
+  if (!hay) return;
+
+  const r = resumenAgentes();
+  const bloq = `${r.bloqueadas} ${r.bloqueadas === 1 ? 'acción bloqueada' : 'acciones bloqueadas'}`;
+  banda.innerHTML = FRENO.general
+    ? `<b>Sistema detenido.</b> Ningún agente está corriendo · ${bloq} · lo ya aplicado no se
+       deshizo. <span class="ir">ir a la sala de agentes →</span>`
+    : `<b>${parados.length} ${parados.length === 1 ? 'agente detenido' : 'agentes detenidos'}:</b>
+       ${parados.map(esc).join(' · ')} · ${bloq}. <span class="ir">ir a la sala de agentes →</span>`;
+  banda.onclick = () => { location.hash = '#/agentes'; };
 }
 
 /* -------------------------------------------------------------------- HUD */

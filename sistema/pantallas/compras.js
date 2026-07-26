@@ -172,7 +172,12 @@ window.PANTALLAS.compras = function (lienzo, estado) {
               </div>
               <div class="acciones">${sello}${boton}</div>
             </div>`;
-          }).join('') || '<div class="vacio"><div class="icono">◇</div>nada espera firma</div>'}
+          }).join('') || (resumenAgentes().bloqueadas
+            /* Una bandeja vacía por el freno NO es una bandeja limpia: decir
+               «nada espera firma» con el sistema detenido sería mentir. */
+            ? `<div class="vacio"><div class="icono">■</div>la bandeja está vacía porque el sistema
+                 está detenido — ${resumenAgentes().bloqueadas} acciones bloqueadas, no resueltas</div>`
+            : '<div class="vacio"><div class="icono">◇</div>nada espera firma</div>')}
         </div>
       </div>
 

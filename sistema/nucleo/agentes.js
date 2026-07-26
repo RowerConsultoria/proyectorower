@@ -123,8 +123,10 @@ function anota(e) {
     salida: e.salida,
     nivel: nivel.nivel, verbo: nivel.verbo, ejeQueFija: nivel.fijado, ejes: e.ejes,
     perimetro: e.ejes.perimetro,
-    firmante: nivel.nivel === 3 ? null : 'el sistema',
-    estado: nivel.nivel === 3 ? 'espera firma' : 'aplicada',
+    /* Una entrada que nace con firmante nace firmada: el clic de la persona
+       que la provocó ES la firma. Sin firmante, el nivel 3 espera a alguien. */
+    firmante: e.firmante || (nivel.nivel === 3 ? null : 'el sistema'),
+    estado: e.firmante ? 'aplicada' : (nivel.nivel === 3 ? 'espera firma' : 'aplicada'),
     reversible: e.ejes.reversibilidad,
     ventanaReversion: e.ventana || (e.ejes.reversibilidad === 'clic' ? '24 h' : 'requiere compensación'),
     reglas: e.reglas || [],
@@ -136,7 +138,7 @@ function anota(e) {
 }
 
 /** No borra: emite el movimiento inverso y enlaza los dos como un par. */
-function compensa(id, motivo) {
+function compensa(id, motivo, quien) {
   const o = BITACORA.find(x => x.id === id);
   if (!o) return null;
   if (o.estado === 'compensada') return null;
@@ -145,6 +147,7 @@ function compensa(id, motivo) {
     accion: 'compensación de ' + o.accion, agente: o.agente, modulo: o.modulo,
     dispara: 'una persona pidió deshacer ' + o.id,
     salida: motivo, ejes: o.ejes, reglas: [],
+    firmante: quien || 'una persona',   // deshacer lo pide alguien, y ese alguien firma
   });
   c.compensaA = o.id;
   return c;
@@ -998,9 +1001,23 @@ const BANDEJAS = {
   agentes:      [],
 };
 
+/** Lo que pide atención humana: espera firma, o toca fuera y hay que revisarlo. */
+function pendiente(e) {
+  return e.estado === 'espera firma' || (e.perimetro === 'externo' && e.estado !== 'compensada');
+}
+
 function bandejaDe(modulo) {
   const ambito = BANDEJAS[modulo] || [modulo];
-  return turno().filter(e => (e.nivel === 3 || e.perimetro === 'externo') && ambito.includes(e.modulo));
+  /* ⚠️ turno() devuelve COPIAS del momento en que corrió el turno. Firmar o
+     compensar muta la entrada viva de BITACORA, no la copia — así que el
+     estado se consulta siempre en el original, o la bandeja seguiría contando
+     como pendiente algo que ya se revirtió. */
+  return turno().filter(e => {
+    const vivo = BITACORA.find(x => x.id === e.id) || e;
+    /* Un agente detenido no llega a la bandeja de nadie: es lo que hace que el
+       freno se vea en todo el sistema y no solo en su propia pantalla. */
+    return pendiente(vivo) && ambito.includes(vivo.modulo) && !detenido(vivo.agente);
+  });
 }
 
 /** Firmar el reparto es una acción como cualquier otra y deja registro. */
@@ -1017,15 +1034,60 @@ function firmaReparto(r) {
   });
 }
 
+/* ══════════════════════════════════════════ 8 · EL FRENO
+   Antes de enseñar cómo funciona hay que poder enseñar cómo se apaga. El freno
+   no es un adorno de la pantalla: detiene de verdad. Un agente detenido deja
+   de llegar a las bandejas de firma, y lo que dejó esperando queda bloqueado.
+
+   Lo que el freno NO hace, y se dice con todas las letras porque es donde un
+   freno de mentira se delata:
+     · no borra lo que ya se calculó —eso ya está en la bitácora—;
+     · no deshace lo aplicado: para eso está la compensación, una por una;
+     · no suelta las reservas tomadas, que están sobre unidades concretas y
+       protegen a quien ya contaba con ellas.
+
+   Y el freno mismo deja rastro: quién lo accionó, cuándo y por qué.          */
+
+const FRENO = { general: false, agentes: {}, desde: null, motivo: null };
+
+/** ¿Está detenido este agente, por sí mismo o por el freno general? */
+function detenido(agente) { return FRENO.general || !!FRENO.agentes[agente]; }
+
+/** Acciona o suelta el freno. `agente` nulo = freno general. Deja bitácora. */
+function frena(agente, activar, quien, motivo) {
+  if (agente) { if (activar) FRENO.agentes[agente] = true; else delete FRENO.agentes[agente]; }
+  else { FRENO.general = activar; }
+  FRENO.desde = activar ? HOY.hora : null;
+  FRENO.motivo = activar ? motivo : null;
+  const quePara = agente ? `el agente «${agente}»` : 'todos los agentes';
+  return anota({
+    accion: (activar ? 'F-01 · accionar el freno sobre ' : 'F-02 · soltar el freno de ') + quePara,
+    agente: 'freno', modulo: 'agentes',
+    dispara: 'una persona accionó el freno desde la sala de agentes',
+    salida: `${activar ? 'detenido' : 'reanudado'}: ${quePara} · ${motivo || 'sin motivo declarado'}` +
+            (activar ? ' · lo ya aplicado no se deshace, se compensa una por una' : ''),
+    ejes: { perimetro: 'interno', reversibilidad: 'clic', radio: 'sistema', dinero: 'ninguno', reloj: 'alcanza' },
+    firmante: quien || 'una persona',
+    cruza: 'todos',
+  });
+}
+
 /** Resumen para el HUD y la sala de agentes. */
 function resumenAgentes() {
   const porNivel = { 1: 0, 2: 0, 3: 0 };
   BITACORA.forEach(e => porNivel[e.nivel]++);
+  /* Bloqueado = lo que deja de llegar a una bandeja, que es el mismo criterio
+     de bandejaDe(): nivel 3 o perímetro externo. Contar solo el nivel 3 haría
+     que la pantalla se quedara corta al describir su propio efecto. */
+  const frenadas = BITACORA.filter(e => pendiente(e) && detenido(e.agente)).length;
+  const esperando = BITACORA.filter(e => e.estado === 'espera firma' && !detenido(e.agente)).length;
   return {
     total: BITACORA.length,
+    detenidos: FRENO.general ? 'todos' : Object.keys(FRENO.agentes).length,
+    bloqueadas: frenadas,
     preparadas: porNivel[1],
     ejecutadas: porNivel[2],
-    esperanFirma: porNivel[3],
+    esperanFirma: esperando,   // lo frenado no espera: está bloqueado; lo firmado ya no espera
     externas: BITACORA.filter(e => e.perimetro === 'externo').length,
     enviadasSinFirmaHumana: 0,          // por construcción: el techo del perímetro externo es 1
     reservas: RESERVAS.length,
@@ -1034,7 +1096,7 @@ function resumenAgentes() {
 
 /* disponible para las pantallas y para la comprobación desde Node */
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
+  module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO, FRENO, detenido, frena,
     calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
     turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, reserva, saludInventario, propuestasRebalanceo, olvidaDemanda, resumenAgentes, compensa, disponible };
 }
