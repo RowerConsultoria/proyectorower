@@ -32,7 +32,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1014",
@@ -52,7 +53,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1021",
@@ -72,7 +74,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1028",
@@ -92,7 +95,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1035",
@@ -112,7 +116,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1042",
@@ -132,7 +137,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1049",
@@ -152,7 +158,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1056",
@@ -172,7 +179,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1063",
@@ -192,7 +200,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1070",
@@ -212,7 +221,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1077",
@@ -232,7 +242,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1084",
@@ -252,7 +263,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1091",
@@ -272,7 +284,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1098",
@@ -292,7 +305,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1105",
@@ -312,7 +326,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1112",
@@ -332,7 +347,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1119",
@@ -352,7 +368,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1126",
@@ -372,7 +389,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1133",
@@ -392,7 +410,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1140",
@@ -412,7 +431,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1147",
@@ -432,7 +452,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1154",
@@ -452,7 +473,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1161",
@@ -472,7 +494,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1168",
@@ -492,7 +515,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1175",
@@ -512,7 +536,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1182",
@@ -532,7 +557,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-REL-1189",
@@ -552,7 +578,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 12
  },
  {
   "sku": "KX-CAL-1007",
@@ -572,7 +599,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 20
  },
  {
   "sku": "KX-CAL-1014",
@@ -592,7 +620,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 20
  },
  {
   "sku": "KX-CAL-1021",
@@ -612,7 +641,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 20
  },
  {
   "sku": "KX-CAL-1028",
@@ -632,7 +662,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 20
  },
  {
   "sku": "KX-CAL-1035",
@@ -652,7 +683,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 20
  },
  {
   "sku": "KX-MUS-1007",
@@ -672,7 +704,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1014",
@@ -692,7 +725,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1021",
@@ -712,7 +746,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1028",
@@ -732,7 +767,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1035",
@@ -752,7 +788,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1042",
@@ -772,7 +809,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1049",
@@ -792,7 +830,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "KX-MUS-1056",
@@ -812,7 +851,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 52,
   "moq": 0,
-  "fabrica": null
+  "fabrica": null,
+  "uxc": 1
  },
  {
   "sku": "CT-TERRA1",
@@ -833,7 +873,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 5000,
-  "fabrica": "FAB-WEAR-01"
+  "fabrica": "FAB-WEAR-01",
+  "uxc": 10
  },
  {
   "sku": "CTHR-1",
@@ -854,7 +895,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 5000,
-  "fabrica": "FAB-WEAR-01"
+  "fabrica": "FAB-WEAR-01",
+  "uxc": 10
  },
  {
   "sku": "CT-AURAP2-1",
@@ -875,7 +917,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 5000,
-  "fabrica": "FAB-WEAR-01"
+  "fabrica": "FAB-WEAR-01",
+  "uxc": 10
  },
  {
   "sku": "CT-VIVAP2-1",
@@ -896,7 +939,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 5000,
-  "fabrica": "FAB-WEAR-01"
+  "fabrica": "FAB-WEAR-01",
+  "uxc": 10
  },
  {
   "sku": "CT-AURA2-1",
@@ -917,7 +961,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 5000,
-  "fabrica": "FAB-WEAR-02"
+  "fabrica": "FAB-WEAR-02",
+  "uxc": 10
  },
  {
   "sku": "CT-VIVA2-1",
@@ -938,7 +983,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 5000,
-  "fabrica": "FAB-WEAR-02"
+  "fabrica": "FAB-WEAR-02",
+  "uxc": 10
  },
  {
   "sku": "CTJR-1",
@@ -959,7 +1005,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-WEAR-02"
+  "fabrica": "FAB-WEAR-02",
+  "uxc": 10
  },
  {
   "sku": "CT-PWANC1",
@@ -980,7 +1027,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-AUDIO-01"
+  "fabrica": "FAB-AUDIO-01",
+  "uxc": 12
  },
  {
   "sku": "CT-PWANCL1",
@@ -1001,7 +1049,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-AUDIO-01"
+  "fabrica": "FAB-AUDIO-01",
+  "uxc": 12
  },
  {
   "sku": "CT-PWEP1",
@@ -1022,7 +1071,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-AUDIO-01"
+  "fabrica": "FAB-AUDIO-01",
+  "uxc": 12
  },
  {
   "sku": "CT-PWOE1",
@@ -1043,7 +1093,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-AUDIO-01"
+  "fabrica": "FAB-AUDIO-01",
+  "uxc": 12
  },
  {
   "sku": "CT-PWMINI1",
@@ -1064,7 +1115,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-AUDIO-02"
+  "fabrica": "FAB-AUDIO-02",
+  "uxc": 12
  },
  {
   "sku": "CT-SCALE-D-01",
@@ -1085,7 +1137,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-HOME-01"
+  "fabrica": "FAB-HOME-01",
+  "uxc": 4
  },
  {
   "sku": "CTHB24-1",
@@ -1106,7 +1159,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-DRINK-01"
+  "fabrica": "FAB-DRINK-01",
+  "uxc": 6
  },
  {
   "sku": "CT-MUG1-N",
@@ -1127,7 +1181,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-DRINK-01"
+  "fabrica": "FAB-DRINK-01",
+  "uxc": 6
  },
  {
   "sku": "CT-COF1",
@@ -1148,7 +1203,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-DRINK-01"
+  "fabrica": "FAB-DRINK-01",
+  "uxc": 6
  },
  {
   "sku": "CTBPK-1",
@@ -1169,7 +1225,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-BAG-01"
+  "fabrica": "FAB-BAG-01",
+  "uxc": 8
  },
  {
   "sku": "CTDUF-1",
@@ -1190,7 +1247,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-BAG-01"
+  "fabrica": "FAB-BAG-01",
+  "uxc": 8
  },
  {
   "sku": "CT-CAPRUN-1",
@@ -1211,7 +1269,8 @@ const CATALOGO = [
   "estado": "activo",
   "leadDias": 75,
   "moq": 3000,
-  "fabrica": "FAB-BAG-01"
+  "fabrica": "FAB-BAG-01",
+  "uxc": 8
  }
 ];
 

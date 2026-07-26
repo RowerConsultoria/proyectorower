@@ -254,7 +254,7 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **9 · Mesa de Cubitt por fábrica** | ✅ **hecha** — `pantallas/mesa-cubitt.js` |
 | **10 · Desarrollo de producto** | ✅ **hecha** — `pantallas/producto.js` + `datos/candidatos.js` |
 | **10b · Fábricas y proveedores** | ✅ **hecha** — `pantallas/fabricas.js` + `datos/proveedores.js` |
-| 11 · Torre de tránsitos | pendiente |
+| **11 · Torre de tránsitos** | ✅ **hecha** — `pantallas/transitos.js` · **cierra el bloque B** |
 | 12–14 · Distribución y logística | pendiente |
 | 15–18 · Comercial y frentes | pendiente |
 | 19–22 · Cierre | pendiente |

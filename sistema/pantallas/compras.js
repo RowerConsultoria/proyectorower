@@ -254,8 +254,7 @@ window.PANTALLAS.compras = function (lienzo, estado) {
   if (vt) vt.onclick = () => { location.hash = '#/agentes'; };
 
   lienzo.querySelectorAll('.tarjeta[data-va]').forEach(c => c.onclick = () => {
-    const destino = { mesa: '#/compras/casio', techo: '#/compras/casio', cubitt: '#/compras/cubitt', transitos: '#/logistica' }[c.dataset.va];
-    if (c.dataset.va === 'transitos') viajaEstela(['compras', 'logistica']);
-    setTimeout(() => { location.hash = destino; }, c.dataset.va === 'transitos' ? 700 : 0);
+    const destino = { mesa: '#/compras/casio', techo: '#/compras/casio', cubitt: '#/compras/cubitt', transitos: '#/compras/transitos' }[c.dataset.va];
+    location.hash = destino;
   });
 };
