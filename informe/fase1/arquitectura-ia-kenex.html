@@ -111,15 +111,51 @@ header{position:relative;}
 .n-decision .nohace{color:#cfdff2; border-top-color:rgba(255,255,255,.28);}
 .n-decision .nohace b{color:#ffd7a1;}
 
-/* ───────────────────────────────────────────────────── el cedazo */
+/* ───────────────────────────────────────────────────── el cedazo
+
+   La pieza que impide que la torre sea un tablero bonito. Una torre donde todo
+   sube es propaganda; que algo se quede abajo, con nombre y dueño, es lo que
+   la hace creíble.                                                          */
 .cedazo{
-  position:absolute; border-radius:9px; padding:12px 18px;
+  position:absolute; border-radius:9px; padding:12px 18px 13px;
   background:repeating-linear-gradient(135deg,#fff5e6 0 9px,#ffeacc 9px 18px);
   border:2px dashed var(--ambar);
-  display:flex; align-items:center; justify-content:center; gap:12px;
-  font-size:13.5px; font-weight:700; color:#8a5310;
+  color:#8a5310;
+}
+.cedazo .cab{
+  display:flex; align-items:baseline; justify-content:center; gap:11px; flex-wrap:wrap;
+  font-size:13.5px; font-weight:800;
 }
 .cedazo .lema{font-weight:400; font-style:italic; color:#a06a20;}
+.cedazo .criterios{
+  display:grid; grid-template-columns:1fr 1fr; gap:3px 18px;
+  margin-top:9px; padding-top:9px; border-top:1px dashed rgba(178,106,0,.4);
+  font-size:11.5px; font-weight:400; color:#8a5310; line-height:1.4;
+}
+.cedazo .criterios div::before{content:'▸ '; color:var(--ambar); font-weight:800;}
+
+/* la cola de excepciones: lo que no pasó, contado */
+.cola{
+  position:absolute; border-radius:10px; padding:12px 16px;
+  background:#fff; border:2px solid var(--ambar);
+  box-shadow:0 2px 5px rgba(178,106,0,.10), 0 12px 30px rgba(178,106,0,.13);
+  text-align:center;
+}
+.cola .tit{
+  font-size:11px; text-transform:uppercase; letter-spacing:.14em;
+  font-weight:800; color:var(--ambar);
+}
+.cola .de{font-size:11.5px; color:var(--tenue); margin-top:3px; line-height:1.4;}
+.cola .cifras{
+  display:flex; align-items:baseline; justify-content:center; gap:14px; margin-top:9px;
+}
+.cola .par{display:flex; flex-direction:column; align-items:center;}
+.cola .v{font-size:26px; font-weight:800; line-height:1;}
+.cola .v.sube{color:var(--verde);} .cola .v.para{color:var(--ambar);}
+.cola .r{font-size:10.5px; color:var(--tenue); margin-top:2px;}
+.cola .sep{font-size:18px; color:var(--borde); font-weight:300;}
+.cola .pie{font-size:11.5px; color:var(--tenue); margin-top:8px; line-height:1.45;}
+.cola .pie b{color:var(--navy);}
 
 /* ───────────────────────────────────────────────────── las raíces */
 .raiz{
@@ -309,8 +345,31 @@ function pintaTorre() {
   z.className = 'cedazo';
   z.id = 'el-cedazo';
   z.style.cssText = `left:${TORRE.x}px; top:0; width:${TORRE.w}px;`;
-  z.innerHTML = `<span>▲ ${CEDAZO.titulo}</span><span class="lema">${CEDAZO.lema}</span>`;
+  z.innerHTML = `
+    <div class="cab"><span>▲ ${CEDAZO.titulo}</span><span class="lema">${CEDAZO.lema}</span></div>
+    <div class="criterios">${CEDAZO.criterios.map(c => `<div>${c}</div>`).join('')}</div>`;
   lienzo.appendChild(z);
+
+  /* La cola de excepciones cuelga por debajo: lo que no se pudo certificar no
+     se pierde ni se adivina — se queda, contado y con dueño. */
+  const e = CEDAZO.ejemplo;
+  const q = document.createElement('div');
+  q.className = 'cola';
+  q.id = 'la-cola';
+  q.style.cssText = `left:${TORRE.x + 40}px; top:0; width:${TORRE.w - 80}px;`;
+  q.innerHTML = `
+    <div class="tit">una noche real</div>
+    <div class="de">${e.de}</div>
+    <div class="cifras">
+      <div class="par"><span class="v">${e.entran}</span><span class="r">entran</span></div>
+      <span class="sep">→</span>
+      <div class="par"><span class="v sube">${e.certifican}</span><span class="r">certifican y suben</span></div>
+      <span class="sep">·</span>
+      <div class="par"><span class="v para">${e.cola}</span><span class="r">se quedan</span></div>
+    </div>
+    <div class="pie">Se reconcilian por encima del ${e.umbral}. ${CEDAZO.destino}
+      <b>Lo que no se puede certificar no se adivina.</b></div>`;
+  lienzo.appendChild(q);
 }
 
 /* ═══════════════════════════════════════════════ LAS RAÍCES */
@@ -359,7 +418,7 @@ function coloca() {
     const d = document.getElementById(esCedazo ? 'el-cedazo' : 'nivel-' + id);
     const h = d.offsetHeight;
     d.style.top = y + 'px';
-    if (!esCedazo) CAJA[id] = { x: TORRE.x, y, w: TORRE.w, h };
+    CAJA[esCedazo ? '__cedazo__' : id] = { x: TORRE.x, y, w: TORRE.w, h };
     y += h + (esCedazo || id === 'cimiento' ? GAP_CEDAZO : GAP_NIVEL);
   }
   const altoTorre = y - MARGEN_SUP;
@@ -378,8 +437,15 @@ function coloca() {
     }
   }
 
+  /* La cola cuelga bajo la torre: lo que no pasa el cedazo se queda abajo, que
+     es literalmente lo que hay que ver. */
+  const q = document.getElementById('la-cola');
+  const yCola = y + 22;
+  q.style.top = yCola + 'px';
+  CAJA.__cola__ = { x: TORRE.x + 40, y: yCola, w: TORRE.w - 80, h: q.offsetHeight };
+
   const suelo = document.getElementById('suelo');
-  const masBajo = Math.max(y, ...Object.values(SITIO).map(s => s.y + s.h));
+  const masBajo = Math.max(yCola + q.offsetHeight, ...Object.values(SITIO).map(s => s.y + s.h));
   suelo.style.top = (masBajo + 26) + 'px';
   H = masBajo + 26 + suelo.offsetHeight + 24;
   lienzo.style.height = H + 'px';
@@ -455,6 +521,24 @@ function pintaCables() {
       { stroke:'url(#grad-cable)', 'stroke-width':grueso, opacity:'.42', 'data-raiz':r.id },
       { 'stroke-width':grueso, 'data-raiz':r.id, opacity: (0.45 + r.ritmo * 0.09).toFixed(2),
         style:`--t:${dur}s; --salto:-${trazo + hueco}px; stroke-dasharray:${trazo} ${hueco}` });
+  }
+
+  /* El ramal del cedazo a la cola: sale por la derecha, rodea la ingesta por
+     fuera y baja. Es el único trazo que no sube — y va en ámbar, porque lo que
+     no pasa tampoco se pierde. */
+  const cz = CAJA.__cedazo__, co = CAJA.__cola__;
+  if (cz && co) {
+    /* Entra a la cola por su costado derecho, no por arriba: así el trazo
+       nunca vuelve a meterse dentro de la ingesta. Sale, baja por fuera, y
+       entra. */
+    const xs = cz.x + cz.w, ys = cz.y + cz.h / 2;
+    const xf = co.x + co.w, yf = co.y + co.h / 2;
+    const vuelta = Math.max(xs, xf) + 66;
+    const ramal = `M ${xs} ${ys} C ${vuelta} ${ys}, ${vuelta} ${yf}, ${xf} ${yf}`;
+    tiende('__cola__', ramal,
+      { stroke:'#B26A00', 'stroke-width':'2.6', opacity:'.4' },
+      { 'stroke-width':'2.6', opacity:'.85', stroke:'#B26A00',
+        style:'--t:3.4s; --salto:-42px; stroke-dasharray:8 34' });
   }
 
   /* Dentro de la torre la corriente es continua: una vez certificado, el dato

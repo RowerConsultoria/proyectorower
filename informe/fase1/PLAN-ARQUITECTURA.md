@@ -124,7 +124,7 @@ raíces que lo alimenten.
 | **1 · El modelo** | ✅ **hecha** — `arquitectura-datos.js`: 4 niveles, 12 raíces, 6 bajadas, el cedazo |
 | **2 · Armazón y torre estática** | ✅ **hecha** — `arquitectura-ia-kenex.html`, identidad UCAB, medida y colocada |
 | **3 · La corriente** | ✅ **hecha** — velocidad y continuidad atadas a la cadencia real · pausa · movimiento reducido |
-| 4 · El cedazo | pendiente |
+| **4 · El cedazo** | ✅ **hecha** — 4 criterios, la cola de excepciones con cifra, y el ramal ámbar que la alimenta |
 | 5 · Foco por raíz | pendiente |
 | 6 · Foco por nivel | pendiente |
 | 7 · La bajada | pendiente |

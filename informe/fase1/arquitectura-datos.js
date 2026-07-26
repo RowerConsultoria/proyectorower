@@ -278,6 +278,13 @@ const CEDAZO = {
     'Un movimiento que pretende unidades ya reservadas por otro.',
   ],
   destino: 'Cola de excepciones, con sus tres mejores candidatas y un dueño que la resuelve.',
+  /* Un ejemplo real de una noche, para que el cedazo tenga cifra y no solo
+     concepto. Son los mismos números que enseña el prototipo. */
+  ejemplo: {
+    de: 'nombres de producto que llegaron anoche en los archivos de siete frentes',
+    entran: 28, certifican: 23, cola: 5,
+    umbral: '95 % de confianza contra el catálogo canónico',
+  },
   nota: 'Una torre donde todo sube es propaganda. Que algo se quede abajo, con nombre y dueño, es lo que la hace creíble.',
 };
 
