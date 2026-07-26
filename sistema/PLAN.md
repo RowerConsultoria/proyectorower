@@ -291,5 +291,5 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **15 · Pedidos y bandeja de aprobación** | ✅ **hecha** — `pantallas/comercial.js` |
 | **16 · Demanda no atendida y disponibilidad** | ✅ **hecha** — `pantallas/demanda.js` |
 | **17 · Portal de reporte** | ✅ **hecha** — `pantallas/portal.js` + `datos/reportes.js` |
-| 18 · Mapa de frentes y conectores | pendiente |
+| **18 · Mapa de frentes y conectores** | ✅ **hecha** — `pantallas/conectores.js` · **cierra el bloque D** |
 | 19–22 · Cierre | pendiente |

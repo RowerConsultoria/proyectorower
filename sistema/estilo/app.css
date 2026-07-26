@@ -696,7 +696,42 @@ td.propuesta .valor{display:inline-flex;align-items:center;gap:6px;font-weight:6
 .docs .doc.no i{background:var(--riesgo)}
 .docs .doc.no{color:var(--riesgo);font-weight:600}
 
-/* -------------------------------------------------------------- 22. UTILES */
+/* ------------------------------------------------- 22. MAPA DE CONECTORES */
+
+.mapa{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:start}
+.mapa-col{display:flex;flex-direction:column;gap:10px}
+.mapa-centro{display:flex;flex-direction:column;align-items:center;gap:16px;padding-top:34px}
+
+.nucleo{
+  width:200px;padding:22px 18px;text-align:center;
+  background:var(--gradiente-suave);
+  border:1.5px solid var(--menta);border-radius:var(--r-panel);
+  box-shadow:var(--sombra-menta);
+}
+.flechas{display:flex;flex-direction:column;gap:8px;width:200px}
+.flecha{
+  font-size:11px;font-weight:700;letter-spacing:.04em;text-align:center;
+  padding:6px 10px;border-radius:var(--r-pildora);border:1px solid var(--borde);
+}
+.flecha.sube{color:var(--n2);border-color:rgba(54,246,187,.32);background:rgba(54,246,187,.07)}
+.flecha.baja{color:var(--n1);border-color:rgba(50,198,244,.32);background:rgba(50,198,244,.07)}
+
+.nodo{
+  background:var(--panel);border:1px solid var(--borde);border-radius:14px;
+  padding:11px 13px;cursor:pointer;
+  transition:border-color var(--rapido) var(--curva),transform var(--rapido) var(--curva);
+}
+.nodo:hover{border-color:var(--tinta-tenue);transform:translateY(-1px)}
+.nodo.sel{border-color:var(--menta);box-shadow:var(--sombra-menta)}
+.nodo .corte{font-family:var(--mono);font-size:10.5px;color:var(--tinta-media)}
+
+@media (max-width:900px){
+  .mapa{grid-template-columns:1fr}
+  .mapa-centro{padding-top:0}
+  .nucleo,.flechas{width:100%}
+}
+
+/* -------------------------------------------------------------- 23. UTILES */
 
 .sep{height:1px;background:var(--borde-tenue);margin:18px 0;border:0}
 .pila{display:flex;flex-direction:column}

@@ -18,7 +18,9 @@
 
 window.PANTALLAS = window.PANTALLAS || {};
 
-const _por = { frente: null, fase: 'espera', resueltas: {}, cola: {} };
+/* `resueltas` guarda las filas que una persona resolvió a mano desde la cola;
+   `incorporados` impide sumar dos veces el mismo reporte. */
+const _por = { frente: null, fase: 'espera', resueltas: {}, incorporados: {} };
 
 /* Cuánta confianza hay en que un nombre del archivo sea una referencia nuestra.
    Es determinista y explicable: coincidencia exacta con el código, con la
@@ -44,7 +46,14 @@ window.PANTALLAS.frentes = function (lienzo) {
   const rep = REPORTES[f.id];
   const umbral = REGLAS.confianzaAlias.v;
 
-  const filas = (rep ? rep.filas : []).map(x => ({ ...x, conf: confianzaDe(x) }));
+  /* Las filas que una persona resolvió a mano desde la cola pasan a contar
+     igual que las que el sistema resolvió solo. */
+  const filas = (rep ? rep.filas : []).map((x, i) => {
+    const aMano = _por.resueltas[f.id + '|' + i];
+    const base = aMano ? { ...x, sku: aMano, resuelto: true } : x;
+    return { ...base, i, conf: aMano ? { pct: 1, via: 'resuelto por una persona' } : confianzaDe(x) };
+  });
+  const yaIncorporado = !!_por.incorporados[f.id];
   const auto = filas.filter(x => x.conf.pct >= umbral);
   const cola = filas.filter(x => x.conf.pct < umbral);
   const unidades = filas.reduce((a, x) => a + x.cant, 0);
@@ -56,7 +65,10 @@ window.PANTALLAS.frentes = function (lienzo) {
         <div class="sobretitulo">red de frentes</div>
         <div class="titulo-seccion" style="margin-top:4px">portal de reporte</div>
       </div>
-      <span class="marca-estado e-neutro"><i class="punto"></i>${porPortal.length} de ${FRENTES.length} frentes reportan por archivo</span>
+      <div class="fila gap-8">
+        <span class="marca-estado e-neutro"><i class="punto"></i>${porPortal.length} de ${FRENTES.length} frentes reportan por archivo</span>
+        <button class="btn btn-suave btn-mini" id="ir-mapa">mapa de conectores →</button>
+      </div>
     </div>
 
     <div class="cinta" style="margin-bottom:20px">
@@ -227,26 +239,48 @@ window.PANTALLAS.frentes = function (lienzo) {
           da un error visible, da un producto que desaparece del análisis.
         </div>
         <div class="pila gap-12 mt-16">
-          ${cola.map((x, i) => `<div class="fila gap-12" style="align-items:center;flex-wrap:wrap">
+          ${cola.map(x => `<div class="fila gap-12" style="align-items:center;flex-wrap:wrap">
             <span class="mono" style="min-width:150px;font-size:11.5px">${x.nombre}</span>
             <span class="apunte tenue">${x.cant} u ·</span>
             ${(x.candidatas || []).map(sk => {
               const p = CATALOGO.find(y => y.sku === sk);
-              return p ? `<button class="btn btn-suave btn-mini" data-res="${i}" data-sku="${sk}">${p.nombre}</button>` : '';
+              return p ? `<button class="btn btn-suave btn-mini" data-res="${x.i}" data-sku="${sk}">${p.nombre}</button>` : '';
             }).join('')}
-            <button class="btn btn-fantasma btn-mini">ninguna</button>
+            <button class="btn btn-fantasma btn-mini" data-res="${x.i}" data-sku="">ninguna</button>
           </div>`).join('')}
         </div>
       </div>` : ''}
 
       <div class="fila gap-8 mt-16">
-        <button class="btn btn-humano" id="aplicar-rep">incorporar a la demanda</button>
-        <span class="apunte tenue">las ${n(auto.reduce((a, x) => a + x.cant, 0))} unidades resueltas entran
-          en la serie que alimenta el forecast de compra</span>
+        ${yaIncorporado
+          ? `<span class="sello sello-2"><i></i>hice</span>
+             <span class="apunte">este reporte ya está incorporado a la demanda</span>`
+          : `<button class="btn btn-humano" id="aplicar-rep">incorporar a la demanda</button>
+             <span class="apunte tenue">las ${n(auto.reduce((a, x) => a + x.cant, 0))} unidades resueltas entran
+               en la serie que alimenta el forecast de compra</span>`}
       </div>`;
+
+    /* Resolver a mano desde la cola: la persona elige entre las candidatas y
+       esa elección vale igual que una resolución automática. Estos botones no
+       hacían nada. */
+    proc.querySelectorAll('[data-res]').forEach(b => b.onclick = () => {
+      if (b.dataset.sku) _por.resueltas[f.id + '|' + b.dataset.res] = b.dataset.sku;
+      else delete _por.resueltas[f.id + '|' + b.dataset.res];
+      window.PANTALLAS.frentes(lienzo);
+    });
 
     const ba = proc.querySelector('#aplicar-rep');
     if (ba) ba.onclick = () => {
+      /* La venta reportada ENTRA en la serie del frente. Si la pantalla dice
+         que alimenta el forecast, la demanda tiene que moverse — si no, es la
+         cuarta pantalla que promete un efecto que no ocurre. */
+      _por.incorporados[f.id] = true;
+      for (const x of auto) {
+        if (!x.sku || !VENTAS[x.sku] || !VENTAS[x.sku][f.id]) continue;
+        const s = VENTAS[x.sku][f.id];
+        s[s.length - 1] += x.cant;
+        olvidaDemanda(x.sku);
+      }
       anota({
         accion: 'N-03 · normalizar el reporte de un frente',
         agente: 'resolutor de alias', modulo: 'frentes',
@@ -259,7 +293,13 @@ window.PANTALLAS.frentes = function (lienzo) {
         reglas: ['confianzaAlias'],
       });
       viajaEstela(['frentes', 'cimiento', 'compras']);
-      setTimeout(() => alert(`Reporte de ${f.nombre} incorporado.\n\n${auto.length} filas normalizadas · ${n(auto.reduce((a, x) => a + x.cant, 0))} unidades\n${cola.length} en cola para revisión humana\n\nEsas unidades ya cuentan en la demanda real del grupo.`), 1200);
+      const u = auto.reduce((a, x) => a + x.cant, 0);
+      setTimeout(() => {
+        /* Repintar es lo que hace que el botón desaparezca: sin esto se podía
+           incorporar el mismo reporte dos veces y sumar la venta dos veces. */
+        window.PANTALLAS.frentes(lienzo);
+        alert(`Reporte de ${f.nombre} incorporado.\n\n${auto.length} filas normalizadas · ${n(u)} unidades\n${cola.length} en cola para revisión humana\n\nEsas unidades ya cuentan en la demanda real del grupo.`);
+      }, 1100);
     };
   }
 
@@ -267,6 +307,8 @@ window.PANTALLAS.frentes = function (lienzo) {
     _por.frente = el.dataset.f; _por.fase = 'espera';
     window.PANTALLAS.frentes(lienzo);
   });
+  const bm = lienzo.querySelector('#ir-mapa');
+  if (bm) bm.onclick = () => { location.hash = '#/frentes/conectores'; };
   const bc = lienzo.querySelector('#cargar');
   if (bc) bc.onclick = () => { _por.fase = 'crudo'; pintaProceso(); };
 

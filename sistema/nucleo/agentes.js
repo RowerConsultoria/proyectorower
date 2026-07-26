@@ -192,6 +192,12 @@ const media = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0;
    Se memoriza: los datos semilla no cambian durante la sesión. */
 const _memoDemanda = {};
 
+/** Invalida la demanda memorizada cuando entra venta nueva de un frente. */
+function olvidaDemanda(sku) {
+  if (sku) delete _memoDemanda[sku];
+  else for (const k in _memoDemanda) delete _memoDemanda[k];
+}
+
 function demandaSaneada(sku) {
   if (_memoDemanda[sku]) return _memoDemanda[sku];
   const quiebres = QUIEBRES[sku] || [];
@@ -1030,5 +1036,5 @@ function resumenAgentes() {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
     calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
-    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, reserva, saludInventario, propuestasRebalanceo, resumenAgentes, compensa, disponible };
+    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, reserva, saludInventario, propuestasRebalanceo, olvidaDemanda, resumenAgentes, compensa, disponible };
 }
