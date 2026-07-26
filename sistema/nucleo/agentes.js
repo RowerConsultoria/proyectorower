@@ -312,30 +312,46 @@ function reparte(sku, pretensiones, hay) {
   const prod = CATALOGO.find(x => x.sku === sku) || { pvp: 0 };
 
   for (const peldano of ESCALERA) {
-    /* Desempate dentro del mismo peldaño: gana el mayor margen en riesgo por
-       unidad. Sin esto el reparto dependería del orden de llegada, que no es
-       un criterio que nadie pueda defender ante un frente que se quedó corto. */
-    const grupo = pretensiones.filter(p => p.peldano === peldano.clave)
-      .sort((a, b) => (b.pide * prod.pvp) - (a.pide * prod.pvp));
-    if (!grupo.length) continue;
+    const grupo = pretensiones.filter(p => p.peldano === peldano.clave);
+    if (!grupo.length || resto <= 0) continue;
 
-    if (peldano.clave === 'proporcional') {
-      const base = grupo.reduce((a, p) => a + p.venta, 0) || 1;
+    const pideGrupo = grupo.reduce((a, p) => a + (p.pide - (dado[p.frente] || 0)), 0);
+
+    if (pideGrupo <= resto) {
+      /* Alcanza para todo el peldaño: nadie de este rango cede nada. */
       for (const p of grupo) {
-        const cuota = Math.min(p.pide - (dado[p.frente] || 0), Math.floor(resto * p.venta / base));
-        if (cuota > 0) { dado[p.frente] = (dado[p.frente] || 0) + cuota; trazas.push({ frente: p.frente, u: cuota, peldano: peldano.n }); }
-      }
-      resto -= Object.values(trazas.filter(t => t.peldano === peldano.n)).reduce((a, t) => a + t.u, 0);
-      resto = Math.max(0, resto);
-      continue;
-    }
-    for (const p of grupo) {
-      const cuota = Math.min(p.pide - (dado[p.frente] || 0), resto);
-      if (cuota > 0) {
+        const cuota = p.pide - (dado[p.frente] || 0);
+        if (cuota <= 0) continue;
         dado[p.frente] = (dado[p.frente] || 0) + cuota;
         resto -= cuota;
         trazas.push({ frente: p.frente, u: cuota, peldano: peldano.n });
       }
+      continue;
+    }
+
+    /* No alcanza, y todos los de este peldaño tienen EL MISMO derecho. Se
+       reparte a PRORRATA: todos ceden la misma proporción. Servir en orden
+       hasta agotar daría todo al primero y cero al segundo, y dos frentes con
+       el mismo compromiso cobrado no pueden terminar uno servido y otro a
+       cero — eso no hay forma de defenderlo ante el que se quedó fuera.
+       El margen en riesgo solo decide a quién le toca la unidad suelta que
+       deja el redondeo. */
+    const base = pideGrupo || 1;
+    const cuotas = grupo.map(p => {
+      const quiere = p.pide - (dado[p.frente] || 0);
+      return { p, quiere, exacta: resto * quiere / base };
+    });
+    cuotas.forEach(c => { c.entera = Math.floor(c.exacta); });
+    let sobra = resto - cuotas.reduce((a, c) => a + c.entera, 0);
+    cuotas.sort((a, b) => ((b.exacta - b.entera) - (a.exacta - a.entera))
+                       || ((b.quiere * prod.pvp) - (a.quiere * prod.pvp)));
+    for (const c of cuotas) { if (sobra <= 0) break; c.entera++; sobra--; }
+
+    for (const c of cuotas) {
+      if (c.entera <= 0) continue;
+      dado[c.p.frente] = (dado[c.p.frente] || 0) + c.entera;
+      resto -= c.entera;
+      trazas.push({ frente: c.p.frente, u: c.entera, peldano: peldano.n, prorrata: true });
     }
   }
 
@@ -577,6 +593,7 @@ const ACCIONES = {
         }
       }
       const escasos = [];
+      const porFrente = {};
       let repartido = 0;
       for (const [sku, pret] of Object.entries(porSku)) {
         const hay = disponible(sku, 'ZLC');
@@ -590,16 +607,28 @@ const ACCIONES = {
         }
         const r = reparte(sku, pret, hay);
         repartido += Object.values(r.dado).reduce((a, b) => a + b, 0);
+
+        /* desglose por frente, que es como se mira el reparto en la pantalla */
+        for (const pr of pret) {
+          const f = porFrente[pr.frente] = porFrente[pr.frente] || { pide: 0, recibe: 0, lineas: [] };
+          const recibe = r.dado[pr.frente] || 0;
+          f.pide += pr.pide; f.recibe += recibe;
+          f.lineas.push({ sku, pide: pr.pide, recibe, peldano: pr.peldano });
+        }
+
         if (pide > hay) {
           const p = CATALOGO.find(x => x.sku === sku);
-          escasos.push({ sku, nombre: p.nombre, pide, hay, cede: r.cede, trazas: r.trazas });
+          escasos.push({
+            sku, nombre: p.nombre, img: p.img, pide, hay, cede: r.cede, trazas: r.trazas,
+            pretensiones: pret.map(x => ({ ...x, recibe: r.dado[x.frente] || 0 })),
+          });
         }
       }
       return {
         salida: `${Object.keys(porSku).length} referencias repartidas entre ${PEDIDOS.length} pedidos · ` +
                 `${repartido.toLocaleString('es-VE')} u asignadas · ` +
                 `${escasos.length} referencias en escasez resueltas por la escalera`,
-        datos: { escasos, repartido, referencias: Object.keys(porSku).length },
+        datos: { escasos, repartido, porFrente, referencias: Object.keys(porSku).length },
       };
     },
   },

@@ -21,7 +21,7 @@ const VENTAS = {"KX-REL-1007": {"VE": [51, 64, 64, 82, 109, 39, 55, 49, 61, 59, 
 const QUIEBRES = {"KX-REL-1028": [{"frente": "CR", "desde": 8}], "KX-REL-1056": [{"frente": "DO", "desde": 3}], "KX-REL-1063": [{"frente": "VE", "desde": 8}], "KX-REL-1091": [{"frente": "GT", "desde": 7}], "KX-REL-1147": [{"frente": "VE", "desde": 6}], "KX-REL-1161": [{"frente": "DO", "desde": 7}], "KX-REL-1189": [{"frente": "EC", "desde": 7}], "CTJR-1": [{"frente": "SV", "desde": 9}], "CT-CAPRUN-1": [{"frente": "CO", "desde": 8}]};
 
 /* existencia en la central (Zona Libre de Colón) */
-const STOCK_HUB = {"KX-REL-1007": 455, "KX-REL-1014": 675, "KX-REL-1021": 684, "KX-REL-1028": 931, "KX-REL-1035": 1743, "KX-REL-1042": 816, "KX-REL-1049": 839, "KX-REL-1056": 987, "KX-REL-1063": 120, "KX-REL-1070": 1342, "KX-REL-1077": 2783, "KX-REL-1084": 1530, "KX-REL-1091": 1295, "KX-REL-1098": 1071, "KX-REL-1105": 1323, "KX-REL-1112": 691, "KX-REL-1119": 247, "KX-REL-1126": 295, "KX-REL-1133": 276, "KX-REL-1140": 1841, "KX-REL-1147": 393, "KX-REL-1154": 158, "KX-REL-1161": 2296, "KX-REL-1168": 3074, "KX-REL-1175": 2478, "KX-REL-1182": 3431, "KX-REL-1189": 4112, "KX-CAL-1007": 3427, "KX-CAL-1014": 1261, "KX-CAL-1021": 13164, "KX-CAL-1028": 4147, "KX-CAL-1035": 1900, "KX-MUS-1007": 208, "KX-MUS-1014": 373, "KX-MUS-1021": 81, "KX-MUS-1028": 347, "KX-MUS-1035": 390, "KX-MUS-1042": 17, "KX-MUS-1049": 214, "KX-MUS-1056": 548, "CT-TERRA1": 549, "CTHR-1": 1373, "CT-AURAP2-1": 2524, "CT-VIVAP2-1": 495, "CT-AURA2-1": 1829, "CT-VIVA2-1": 1962, "CTJR-1": 2241, "CT-PWANC1": 1459, "CT-PWANCL1": 3513, "CT-PWEP1": 868, "CT-PWOE1": 2965, "CT-PWMINI1": 4153, "CT-SCALE-D-01": 825, "CTHB24-1": 383, "CT-MUG1-N": 4461, "CT-COF1": 3488, "CTBPK-1": 2499, "CTDUF-1": 2629, "CT-CAPRUN-1": 4900};
+const STOCK_HUB = {"KX-REL-1007": 455, "KX-REL-1014": 675, "KX-REL-1021": 684, "KX-REL-1028": 931, "KX-REL-1035": 1743, "KX-REL-1042": 816, "KX-REL-1049": 839, "KX-REL-1056": 987, "KX-REL-1063": 120, "KX-REL-1070": 1342, "KX-REL-1077": 2783, "KX-REL-1084": 1530, "KX-REL-1091": 1295, "KX-REL-1098": 1071, "KX-REL-1105": 1323, "KX-REL-1112": 691, "KX-REL-1119": 247, "KX-REL-1126": 295, "KX-REL-1133": 276, "KX-REL-1140": 1841, "KX-REL-1147": 393, "KX-REL-1154": 158, "KX-REL-1161": 2296, "KX-REL-1168": 3074, "KX-REL-1175": 2478, "KX-REL-1182": 225, "KX-REL-1189": 4112, "KX-CAL-1007": 124, "KX-CAL-1014": 251, "KX-CAL-1021": 542, "KX-CAL-1028": 4147, "KX-CAL-1035": 1900, "KX-MUS-1007": 208, "KX-MUS-1014": 373, "KX-MUS-1021": 81, "KX-MUS-1028": 347, "KX-MUS-1035": 390, "KX-MUS-1042": 17, "KX-MUS-1049": 214, "KX-MUS-1056": 548, "CT-TERRA1": 549, "CTHR-1": 1373, "CT-AURAP2-1": 2524, "CT-VIVAP2-1": 495, "CT-AURA2-1": 1829, "CT-VIVA2-1": 1962, "CTJR-1": 2241, "CT-PWANC1": 1459, "CT-PWANCL1": 3513, "CT-PWEP1": 192, "CT-PWOE1": 2965, "CT-PWMINI1": 144, "CT-SCALE-D-01": 825, "CTHB24-1": 383, "CT-MUG1-N": 184, "CT-COF1": 137, "CTBPK-1": 2499, "CTDUF-1": 2629, "CT-CAPRUN-1": 4900};
 
 const TRANSITOS = [
  {
@@ -105,19 +105,27 @@ const PEDIDOS = [
  {
   "id": "PED-2026-200",
   "frente": "VE",
-  "fecha": "2026-07-24",
+  "fecha": "2026-08-17",
   "lineas": [
    {
-    "sku": "KX-MUS-1021",
-    "pide": 54
+    "sku": "CT-PWEP1",
+    "pide": 291
    },
    {
-    "sku": "KX-REL-1007",
-    "pide": 183
+    "sku": "CT-COF1",
+    "pide": 134
    },
    {
-    "sku": "KX-REL-1098",
-    "pide": 329
+    "sku": "KX-REL-1182",
+    "pide": 256
+   },
+   {
+    "sku": "KX-REL-1140",
+    "pide": 108
+   },
+   {
+    "sku": "KX-REL-1077",
+    "pide": 40
    }
   ],
   "cobrado": true,
@@ -127,79 +135,39 @@ const PEDIDOS = [
  {
   "id": "PED-2026-201",
   "frente": "CO",
-  "fecha": "2026-07-24",
+  "fecha": "2026-08-17",
   "lineas": [
-   {
-    "sku": "CTBPK-1",
-    "pide": 335
-   },
-   {
-    "sku": "KX-REL-1119",
-    "pide": 72
-   },
-   {
-    "sku": "KX-REL-1133",
-    "pide": 97
-   },
    {
     "sku": "CT-COF1",
-    "pide": 403
+    "pide": 128
    },
    {
-    "sku": "KX-MUS-1007",
-    "pide": 44
-   }
-  ],
-  "cobrado": true,
-  "reservaNominal": true,
-  "dentroDeCiclo": true
- },
- {
-  "id": "PED-2026-202",
-  "frente": "PA",
-  "fecha": "2026-07-24",
-  "lineas": [
-   {
-    "sku": "KX-MUS-1035",
-    "pide": 31
+    "sku": "CT-MUG1-N",
+    "pide": 129
    },
    {
-    "sku": "KX-REL-1112",
-    "pide": 108
+    "sku": "KX-REL-1182",
+    "pide": 41
    },
    {
-    "sku": "KX-MUS-1028",
-    "pide": 37
+    "sku": "KX-CAL-1014",
+    "pide": 158
    },
    {
-    "sku": "CT-VIVA2-1",
-    "pide": 133
+    "sku": "KX-CAL-1028",
+    "pide": 92
    },
    {
-    "sku": "KX-REL-1028",
-    "pide": 70
-   }
-  ],
-  "cobrado": false,
-  "reservaNominal": false,
-  "dentroDeCiclo": true
- },
- {
-  "id": "PED-2026-203",
-  "frente": "US",
-  "fecha": "2026-07-24",
-  "lineas": [
-   {
-    "sku": "KX-REL-1105",
-    "pide": 46
+    "sku": "CTHB24-1",
+    "pide": 58
    },
    {
-    "sku": "KX-REL-1007",
-    "pide": 16
+    "sku": "KX-REL-1147",
+    "pide": 14
    },
    {
-    "sku": "KX-REL-1042",
-    "pide": 46
+    "sku": "KX-REL-1077",
+    "pide": 52
    }
   ],
   "cobrado": false,
@@ -207,65 +175,143 @@ const PEDIDOS = [
   "dentroDeCiclo": false
  },
  {
-  "id": "PED-2026-204",
-  "frente": "CR",
-  "fecha": "2026-07-24",
+  "id": "PED-2026-202",
+  "frente": "PA",
+  "fecha": "2026-08-17",
   "lineas": [
    {
-    "sku": "CT-PWANC1",
-    "pide": 53
+    "sku": "KX-REL-1182",
+    "pide": 43
    },
    {
-    "sku": "KX-REL-1154",
-    "pide": 94
+    "sku": "KX-CAL-1021",
+    "pide": 138
+   },
+   {
+    "sku": "KX-CAL-1007",
+    "pide": 56
+   },
+   {
+    "sku": "CT-PWANC1",
+    "pide": 49
+   },
+   {
+    "sku": "CT-AURAP2-1",
+    "pide": 83
    }
   ],
   "cobrado": false,
-  "reservaNominal": true,
+  "reservaNominal": false,
+  "dentroDeCiclo": false
+ },
+ {
+  "id": "PED-2026-203",
+  "frente": "US",
+  "fecha": "2026-08-17",
+  "lineas": [
+   {
+    "sku": "CT-COF1",
+    "pide": 21
+   },
+   {
+    "sku": "CT-MUG1-N",
+    "pide": 40
+   },
+   {
+    "sku": "KX-REL-1182",
+    "pide": 20
+   },
+   {
+    "sku": "KX-CAL-1021",
+    "pide": 81
+   },
+   {
+    "sku": "CTHB24-1",
+    "pide": 22
+   },
+   {
+    "sku": "KX-CAL-1028",
+    "pide": 18
+   }
+  ],
+  "cobrado": false,
+  "reservaNominal": false,
+  "dentroDeCiclo": true
+ },
+ {
+  "id": "PED-2026-204",
+  "frente": "CR",
+  "fecha": "2026-08-17",
+  "lineas": [
+   {
+    "sku": "KX-CAL-1007",
+    "pide": 99
+   },
+   {
+    "sku": "CT-COF1",
+    "pide": 51
+   },
+   {
+    "sku": "CT-PWEP1",
+    "pide": 67
+   },
+   {
+    "sku": "KX-CAL-1014",
+    "pide": 53
+   },
+   {
+    "sku": "KX-REL-1182",
+    "pide": 90
+   },
+   {
+    "sku": "KX-REL-1147",
+    "pide": 17
+   },
+   {
+    "sku": "CT-SCALE-D-01",
+    "pide": 36
+   }
+  ],
+  "cobrado": false,
+  "reservaNominal": false,
   "dentroDeCiclo": false
  },
  {
   "id": "PED-2026-205",
   "frente": "GT",
-  "fecha": "2026-07-24",
-  "lineas": [
-   {
-    "sku": "KX-MUS-1056",
-    "pide": 16
-   },
-   {
-    "sku": "KX-REL-1140",
-    "pide": 91
-   }
-  ],
-  "cobrado": false,
-  "reservaNominal": false,
-  "dentroDeCiclo": false
- },
- {
-  "id": "PED-2026-206",
-  "frente": "HN",
-  "fecha": "2026-07-24",
+  "fecha": "2026-08-17",
   "lineas": [
    {
     "sku": "CT-COF1",
-    "pide": 125
+    "pide": 71
    },
    {
-    "sku": "KX-REL-1077",
-    "pide": 54
+    "sku": "KX-CAL-1021",
+    "pide": 120
    },
    {
-    "sku": "KX-MUS-1007",
-    "pide": 10
+    "sku": "CT-PWMINI1",
+    "pide": 27
    },
    {
-    "sku": "KX-REL-1182",
-    "pide": 127
+    "sku": "CT-MUG1-N",
+    "pide": 51
    },
    {
-    "sku": "KX-MUS-1042",
-    "pide": 6
+    "sku": "KX-CAL-1014",
+    "pide": 76
+   },
+   {
+    "sku": "KX-CAL-1028",
+    "pide": 38
+   },
+   {
+    "sku": "CT-SCALE-D-01",
+    "pide": 44
+   },
+   {
+    "sku": "KX-CAL-1035",
+    "pide": 36
    }
   ],
   "cobrado": false,
@@ -273,65 +319,171 @@ const PEDIDOS = [
   "dentroDeCiclo": true
  },
  {
-  "id": "PED-2026-207",
-  "frente": "SV",
-  "fecha": "2026-07-24",
+  "id": "PED-2026-206",
+  "frente": "HN",
+  "fecha": "2026-08-17",
   "lineas": [
    {
-    "sku": "KX-REL-1098",
-    "pide": 40
+    "sku": "CT-PWMINI1",
+    "pide": 15
    },
    {
-    "sku": "KX-MUS-1056",
-    "pide": 22
+    "sku": "KX-CAL-1014",
+    "pide": 38
    },
    {
-    "sku": "CT-AURAP2-1",
-    "pide": 85
+    "sku": "KX-CAL-1021",
+    "pide": 21
    },
    {
     "sku": "KX-REL-1182",
-    "pide": 145
+    "pide": 11
+   },
+   {
+    "sku": "CT-AURAP2-1",
+    "pide": 8
+   },
+   {
+    "sku": "CT-VIVAP2-1",
+    "pide": 19
+   },
+   {
+    "sku": "KX-REL-1168",
+    "pide": 8
+   },
+   {
+    "sku": "KX-REL-1189",
+    "pide": 9
    }
   ],
   "cobrado": false,
+  "reservaNominal": false,
+  "dentroDeCiclo": false
+ },
+ {
+  "id": "PED-2026-207",
+  "frente": "SV",
+  "fecha": "2026-08-17",
+  "lineas": [
+   {
+    "sku": "KX-CAL-1021",
+    "pide": 29
+   },
+   {
+    "sku": "KX-REL-1182",
+    "pide": 22
+   },
+   {
+    "sku": "CT-COF1",
+    "pide": 34
+   },
+   {
+    "sku": "CT-PWEP1",
+    "pide": 8
+   },
+   {
+    "sku": "CT-PWMINI1",
+    "pide": 8
+   },
+   {
+    "sku": "KX-CAL-1028",
+    "pide": 11
+   },
+   {
+    "sku": "KX-REL-1175",
+    "pide": 8
+   }
+  ],
+  "cobrado": true,
   "reservaNominal": false,
   "dentroDeCiclo": true
  },
  {
   "id": "PED-2026-208",
   "frente": "EC",
-  "fecha": "2026-07-24",
+  "fecha": "2026-08-17",
   "lineas": [
    {
-    "sku": "CT-TERRA1",
-    "pide": 50
+    "sku": "CT-PWEP1",
+    "pide": 13
    },
    {
-    "sku": "CT-VIVAP2-1",
-    "pide": 71
+    "sku": "CT-PWMINI1",
+    "pide": 29
    },
    {
-    "sku": "KX-REL-1091",
-    "pide": 34
+    "sku": "KX-CAL-1014",
+    "pide": 25
+   },
+   {
+    "sku": "KX-REL-1182",
+    "pide": 16
+   },
+   {
+    "sku": "KX-CAL-1021",
+    "pide": 91
+   },
+   {
+    "sku": "KX-REL-1147",
+    "pide": 11
+   },
+   {
+    "sku": "CT-CAPRUN-1",
+    "pide": 20
+   },
+   {
+    "sku": "CT-PWOE1",
+    "pide": 11
+   },
+   {
+    "sku": "KX-REL-1077",
+    "pide": 8
    }
   ],
-  "cobrado": true,
+  "cobrado": false,
   "reservaNominal": false,
   "dentroDeCiclo": true
  },
  {
   "id": "PED-2026-209",
   "frente": "DO",
-  "fecha": "2026-07-24",
+  "fecha": "2026-08-17",
   "lineas": [
    {
-    "sku": "KX-MUS-1042",
-    "pide": 14
+    "sku": "CT-COF1",
+    "pide": 30
+   },
+   {
+    "sku": "CT-PWEP1",
+    "pide": 27
+   },
+   {
+    "sku": "KX-CAL-1007",
+    "pide": 21
+   },
+   {
+    "sku": "KX-CAL-1021",
+    "pide": 54
    },
    {
     "sku": "KX-REL-1182",
-    "pide": 252
+    "pide": 57
+   },
+   {
+    "sku": "KX-REL-1140",
+    "pide": 10
+   },
+   {
+    "sku": "CT-PWANC1",
+    "pide": 18
+   },
+   {
+    "sku": "KX-REL-1077",
+    "pide": 8
+   },
+   {
+    "sku": "CT-VIVAP2-1",
+    "pide": 8
    }
   ],
   "cobrado": false,
@@ -343,3 +495,46 @@ const PEDIDOS = [
 /* lo que ya viene en camino por referencia: dos tránsitos simultáneos,
    uno preparándose en origen y otro embarcado. No hay que volver a comprarlo. */
 const TRANSITO_SKU = {"KX-REL-1007": {"enJapon": 0, "enMar": 0}, "KX-REL-1014": {"enJapon": 0, "enMar": 0}, "KX-REL-1021": {"enJapon": 108, "enMar": 0}, "KX-REL-1028": {"enJapon": 320, "enMar": 0}, "KX-REL-1035": {"enJapon": 416, "enMar": 530}, "KX-REL-1042": {"enJapon": 0, "enMar": 380}, "KX-REL-1049": {"enJapon": 0, "enMar": 0}, "KX-REL-1056": {"enJapon": 0, "enMar": 188}, "KX-REL-1063": {"enJapon": 0, "enMar": 241}, "KX-REL-1070": {"enJapon": 0, "enMar": 0}, "KX-REL-1077": {"enJapon": 0, "enMar": 749}, "KX-REL-1084": {"enJapon": 365, "enMar": 0}, "KX-REL-1091": {"enJapon": 0, "enMar": 0}, "KX-REL-1098": {"enJapon": 0, "enMar": 252}, "KX-REL-1105": {"enJapon": 0, "enMar": 0}, "KX-REL-1112": {"enJapon": 0, "enMar": 0}, "KX-REL-1119": {"enJapon": 0, "enMar": 0}, "KX-REL-1126": {"enJapon": 0, "enMar": 295}, "KX-REL-1133": {"enJapon": 379, "enMar": 276}, "KX-REL-1140": {"enJapon": 0, "enMar": 0}, "KX-REL-1147": {"enJapon": 0, "enMar": 0}, "KX-REL-1154": {"enJapon": 0, "enMar": 0}, "KX-REL-1161": {"enJapon": 0, "enMar": 0}, "KX-REL-1168": {"enJapon": 735, "enMar": 0}, "KX-REL-1175": {"enJapon": 464, "enMar": 0}, "KX-REL-1182": {"enJapon": 0, "enMar": 0}, "KX-REL-1189": {"enJapon": 0, "enMar": 715}, "KX-CAL-1007": {"enJapon": 0, "enMar": 913}, "KX-CAL-1014": {"enJapon": 0, "enMar": 0}, "KX-CAL-1021": {"enJapon": 0, "enMar": 0}, "KX-CAL-1028": {"enJapon": 0, "enMar": 638}, "KX-CAL-1035": {"enJapon": 0, "enMar": 0}, "KX-MUS-1007": {"enJapon": 0, "enMar": 0}, "KX-MUS-1014": {"enJapon": 0, "enMar": 0}, "KX-MUS-1021": {"enJapon": 0, "enMar": 0}, "KX-MUS-1028": {"enJapon": 112, "enMar": 143}, "KX-MUS-1035": {"enJapon": 0, "enMar": 0}, "KX-MUS-1042": {"enJapon": 0, "enMar": 0}, "KX-MUS-1049": {"enJapon": 0, "enMar": 0}, "KX-MUS-1056": {"enJapon": 131, "enMar": 95}, "CT-TERRA1": {"enJapon": 0, "enMar": 0}, "CTHR-1": {"enJapon": 0, "enMar": 0}, "CT-AURAP2-1": {"enJapon": 0, "enMar": 0}, "CT-VIVAP2-1": {"enJapon": 0, "enMar": 0}, "CT-AURA2-1": {"enJapon": 0, "enMar": 0}, "CT-VIVA2-1": {"enJapon": 0, "enMar": 0}, "CTJR-1": {"enJapon": 0, "enMar": 0}, "CT-PWANC1": {"enJapon": 291, "enMar": 0}, "CT-PWANCL1": {"enJapon": 0, "enMar": 0}, "CT-PWEP1": {"enJapon": 0, "enMar": 0}, "CT-PWOE1": {"enJapon": 0, "enMar": 0}, "CT-PWMINI1": {"enJapon": 0, "enMar": 0}, "CT-SCALE-D-01": {"enJapon": 0, "enMar": 0}, "CTHB24-1": {"enJapon": 0, "enMar": 0}, "CT-MUG1-N": {"enJapon": 1291, "enMar": 0}, "CT-COF1": {"enJapon": 0, "enMar": 0}, "CTBPK-1": {"enJapon": 0, "enMar": 0}, "CTDUF-1": {"enJapon": 0, "enMar": 0}, "CT-CAPRUN-1": {"enJapon": 1171, "enMar": 1491}};
+
+/* Por qué estas referencias están escasas. La causa NO es la misma en las dos
+   marcas: el proveedor representado asigna una fracción de lo pedido, mientras
+   que una fábrica propia no asigna nada — o sirvió corto, o el embarque se
+   retrasó. La escasez tiene causa, y la pantalla la explica. */
+const CAUSA_ESCASEZ = {
+ "KX-CAL-1021": {
+  "tipo": "asignacion",
+  "pct": 0.18,
+  "texto": "el proveedor asignó el 18 % de lo pedido en el último ciclo"
+ },
+ "KX-CAL-1014": {
+  "tipo": "asignacion",
+  "pct": 0.2,
+  "texto": "el proveedor asignó el 20 % de lo pedido en el último ciclo"
+ },
+ "CT-MUG1-N": {
+  "tipo": "embarque",
+  "texto": "el embarque que la traía se retrasó y llega en el próximo arribo"
+ },
+ "CT-COF1": {
+  "tipo": "produccion",
+  "texto": "la fábrica sirvió una producción corta y el resto entra en el próximo lote"
+ },
+ "KX-REL-1182": {
+  "tipo": "asignacion",
+  "pct": 0.24,
+  "texto": "el proveedor asignó el 24 % de lo pedido en el último ciclo"
+ },
+ "KX-CAL-1007": {
+  "tipo": "asignacion",
+  "pct": 0.26,
+  "texto": "el proveedor asignó el 26 % de lo pedido en el último ciclo"
+ },
+ "CT-PWMINI1": {
+  "tipo": "produccion",
+  "texto": "la fábrica sirvió una producción corta y el resto entra en el próximo lote"
+ },
+ "CT-PWEP1": {
+  "tipo": "produccion",
+  "texto": "la fábrica sirvió una producción corta y el resto entra en el próximo lote"
+ }
+};
