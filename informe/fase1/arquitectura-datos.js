@@ -25,6 +25,9 @@ const NIVELES = [
     nombre: 'Ingesta',
     capa: 'el sistema nervioso',
     lema: 'recibe, valida el formato, y sella hora y origen',
+    que: 'Es la puerta. Aquí llega el dato de las doce fuentes tal como nace, ' +
+         'por el camino que cada una tenga, y se le sella hora y origen. Nada más: ' +
+         'todavía no se sabe si es correcto.',
     hace: [
       'Recibe por conector en vivo, por portal o por captura en el sistema.',
       'Valida que el archivo tenga la forma declarada — no que el dato sea cierto: eso es del piso de arriba.',
@@ -42,6 +45,9 @@ const NIVELES = [
     nombre: 'El dato certificado',
     capa: 'la fuente de la verdad',
     lema: 'una sola verdad de qué producto es, cuánto se vendió y a qué tasa',
+    que: 'Es la base sobre la que calcula la IA. Aquí un producto tiene un solo ' +
+         'identificador, una cifra tiene una sola moneda con su tasa fechada, y una ' +
+         'regla tiene un dueño. Sin este piso, cada frente sigue teniendo su versión.',
     hace: [
       'Catálogo canónico: un producto, un identificador, y la lista de todos los nombres con que cada frente lo llama.',
       'Reglas de negocio con dueño, fecha y versión — esto no lo decide la máquina, lo decide una política.',
@@ -59,6 +65,9 @@ const NIVELES = [
     nombre: 'Inteligencia',
     capa: 'el valor visible',
     lema: 'comprar contra lo que se vendió, no contra lo que se recuerda',
+    que: 'Es donde la IA por fin calcula: pronostica, propone la compra, reparte ' +
+         'en escasez y avisa de lo que está parado. Puede hacerlo porque el piso de ' +
+         'abajo le entrega un dato certificado — y solo sobre eso.',
     hace: [
       'Reportería con una sola cifra por pregunta, y cada cifra con la pantalla donde se decide.',
       'Pronóstico de demanda por referencia y por frente, con la cobertura objetivo que fija compras.',
@@ -78,15 +87,20 @@ const NIVELES = [
   {
     id: 'decision', n: 4,
     nombre: 'La decisión',
-    capa: 'donde la gente lo vive',
-    lema: 'nada sale de Kenex sin que una persona firme',
+    capa: 'dónde para la IA y empieza la persona',
+    lema: 'la IA propone; una persona firma',
+    /* Sin adorno: este piso es el control humano de la arquitectura. Contesta
+       la primera pregunta que hace cualquier Junta — «¿esto va a hacer cosas
+       solo?» — y la contesta con un mecanismo, no con una promesa. */
+    que: 'Ningún cálculo de los pisos de abajo se convierte en un hecho por sí mismo. ' +
+         'Aquí cada propuesta de la IA llega a la bandeja de una persona, que la firma o la rechaza.',
     hace: [
-      'La bandeja de firma de cada rol, con lo que el agente dejó preparado y su porqué delante.',
-      'El ámbito de firma por rol: un botón que este rol no puede firmar aparece apagado, nunca escondido.',
-      'La bitácora, que se añade y no se corrige: deshacer emite el movimiento inverso y enlaza el par.',
-      'El freno, que detiene a todos los agentes de una vez y deja rastro de quién lo accionó.',
+      'Cada acción llega con su nivel escrito: <b>preparé</b> (aún no ha hecho nada), <b>hice</b> (escritura interna, reversible) o <b>tu firma</b> (no se aplica sin una persona).',
+      'Lo que espera firma llega a la bandeja del rol que corresponde, con la cifra y el porqué delante. Nadie firma a ciegas.',
+      'Todo queda en una bitácora que se añade y no se corrige: qué hizo, con qué regla y quién lo firmó.',
+      'Un freno detiene a todos los agentes de una vez — y también deja rastro.',
     ],
-    noHace: 'No hay excepción posible en el perímetro externo: escribir a un proveedor, a una naviera o a un cliente queda siempre redactado y nunca enviado solo.',
+    noHace: 'Nada que salga de Kenex —a un proveedor, a una naviera, a un cliente— se envía sin firma. Ese techo no tiene excepción: el agente redacta, la persona envía.',
     agentes: [
       { nombre: 'redactor de la orden', nivel: 1, que: 'redacta la orden al proveedor en la plantilla aprobada — redactada, nunca enviada' },
       { nombre: 'perseguidor de documentos', nivel: 1, que: 'redacta el reclamo de la factura de flete que falta' },
@@ -275,14 +289,23 @@ const BAJADAS = [
 
 const CEDAZO = {
   titulo: 'El cedazo',
-  lema: 'lo que no se puede certificar no sube',
+  lema: 'aquí se decide qué dato puede usar la IA',
+  /* Dicho sin adorno, porque es lo que más se pregunta. El cedazo es el filtro
+     de calidad del dato: se pone ENTRE la ingesta y el cimiento porque la IA
+     de los pisos de arriba solo puede calcular sobre lo que pasó por aquí. */
+  que: 'Todo lo que llega se compara contra el catálogo único antes de subir. ' +
+       'Lo que se reconoce con confianza suficiente pasa, y la IA lo puede usar. ' +
+       'Lo que no se reconoce se queda abajo: no se adivina, no se borra y no se cuela.',
+  porQue: 'Es lo que separa un pronóstico de una adivinanza. Sin este filtro, ' +
+          'la IA calcularía con la misma seguridad sobre un dato certificado que sobre uno sucio.',
+  cuando: 'Cuatro casos concretos hacen que un registro NO suba:',
   criterios: [
-    'Una referencia que no se reconoce contra el catálogo por encima del umbral de confianza.',
-    'Un archivo cuyo formato no coincide con el declarado por ese frente.',
-    'Una cifra en una moneda cuya tasa está vencida — sube, pero marcada.',
-    'Un movimiento que pretende unidades ya reservadas por otro.',
+    'La referencia no se reconoce contra el catálogo por encima del umbral de confianza.',
+    'El archivo no viene con el formato que ese frente declaró.',
+    'La tasa de la moneda está vencida — esa cifra sube, pero marcada.',
+    'El movimiento pretende unidades que ya están reservadas por otro.',
   ],
-  destino: 'Cola de excepciones, con sus tres mejores candidatas y un dueño que la resuelve.',
+  destino: 'Lo que no pasa cae en una cola de excepciones, con sus tres mejores candidatas y un dueño que la resuelve. No se pierde: espera.',
   /* Un ejemplo real de una noche, para que el cedazo tenga cifra y no solo
      concepto. Son los mismos números que enseña el prototipo. */
   ejemplo: {
@@ -290,7 +313,7 @@ const CEDAZO = {
     entran: 28, certifican: 23, cola: 5,
     umbral: '95 % de confianza contra el catálogo canónico',
   },
-  nota: 'Una torre donde todo sube es propaganda. Que algo se quede abajo, con nombre y dueño, es lo que la hace creíble.',
+  nota: 'Que la torre deje cosas abajo no es un fallo: es la prueba de que el filtro existe.',
 };
 
 /* ══════════════════════════════════════════ LOS CUATRO NÚMEROS

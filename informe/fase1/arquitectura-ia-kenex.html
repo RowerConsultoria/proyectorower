@@ -135,10 +135,15 @@ h1{margin:0; font-size:29px; letter-spacing:-.01em}
 .via-portal{background:#e2eefa; color:#215680}
 .via-sistema{background:#eceff5; color:var(--navy)}
 .via-externa{background:#fdf0dd; color:#7A4906}
+.via-nivel{background:#e2eefa; color:var(--navy)}
+.via-tamiz{background:#fdf0dd; color:#7A4906}
 
 /* la chapa del cedazo */
 .chapa.tamiz{border-left-color:var(--ambar); background:rgba(255,248,236,.97)}
-.chapa.tamiz .n{color:#8a5310} .chapa.tamiz .c{color:#7A4906}
+.chapa.tamiz .n{color:#8a5310}
+/* en LÍNEA con el título, no debajo: en dos líneas no cabe en el hueco */
+.chapa.tamiz .c{color:#7A4906; display:inline; margin-left:7px}
+.chapa.tamiz .c::before{content:'· '}
 
 /* ─────────────────────────────────────────────── la ficha lateral
 
@@ -155,6 +160,9 @@ h1{margin:0; font-size:29px; letter-spacing:-.01em}
 .ficha.abierta{transform:none}
 .ficha .cabf{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff;
   padding:18px 22px 16px; position:relative}
+/* el cedazo NO es un piso: es el filtro entre dos. La cabecera lo dice sola. */
+.ficha.tamiz .cabf{background:linear-gradient(135deg,#8a5310,#b26a00)}
+.ficha.tamiz .cabf .dato{color:#fbeeda}
 .ficha .cabf .via{margin-bottom:8px}
 .ficha .cabf h2{margin:0; font-size:21px; letter-spacing:-.01em}
 .ficha .cabf .dato{font-size:13.5px; color:#dbe7f6; margin-top:6px; line-height:1.45}
@@ -191,28 +199,59 @@ body.enfocado .chapa:not(.on){opacity:.42}
 .eti.on{border-color:var(--blue); box-shadow:0 0 0 3px rgba(46,117,182,.18), 0 10px 26px rgba(15,25,45,.22)}
 .eti.on .detalle{display:block; margin-top:3px}
 
-/* ─────────────────────────────────────────────── las burbujas de un nivel
+/* ────────────────────────────────────── lo que explica un piso, en UN panel
 
-   Salen de la gaveta abierta, escalonadas. Son HTML —como todo el texto de
-   esta escena— para que se lean nítidas a cualquier zoom.                 */
-.burbuja{
-  background:rgba(255,255,255,.98); border-radius:10px; padding:9px 13px;
-  box-shadow:0 3px 8px rgba(15,25,45,.14), 0 14px 34px rgba(15,25,45,.2);
-  border:1px solid var(--borde); width:212px; font-size:12px; line-height:1.42;
-  color:var(--txt); pointer-events:auto;
-  /* ⚠️ La animación de entrada NO puede tocar `transform`: CSS2DRenderer
-     posiciona cada rótulo escribiendo su transform, y animarlo lo pisaba —
-     todas las burbujas acababan apiladas en la misma esquina. Solo opacidad. */
-  opacity:0; animation:brota .32s ease-out forwards;
+   Antes cada piso soltaba hasta once burbujas alrededor del rack. Cada una era
+   correcta y el conjunto no se leía: no había orden de lectura y el hilo del
+   argumento se perdía entre cajitas. Ahora el piso se explica en el MISMO
+   panel lateral que ya explica una fuente — una sola cosa que leer, de arriba
+   abajo, y la gaveta sigue saliendo en la escena para decir de cuál se habla. */
+.pnl{display:flex; flex-direction:column; gap:0}
+.pnl .entrada{
+  font-size:14.5px; line-height:1.55; color:var(--txt);
+  background:var(--papel); border-left:4px solid var(--blue);
+  border-radius:0 8px 8px 0; padding:13px 15px; margin-bottom:18px;
 }
-@keyframes brota{from{opacity:0} to{opacity:1}}
-.burbuja .r{
-  font-size:9.5px; text-transform:uppercase; letter-spacing:.13em;
-  font-weight:800; color:var(--blue); display:block; margin-bottom:3px;
+.pnl h3{
+  font-size:10.5px; text-transform:uppercase; letter-spacing:.14em;
+  font-weight:800; color:var(--blue); margin:0 0 9px;
 }
-.burbuja.agente{border-left:4px solid var(--navy)}
-.burbuja.agente .nom{font-weight:800; color:var(--navy); display:block}
-.burbuja.agente .que{color:var(--tenue); font-size:11.5px; display:block; margin-top:2px}
+.pnl .lista{margin:0 0 18px; padding:0; list-style:none;
+  display:flex; flex-direction:column; gap:9px}
+.pnl .lista li{
+  font-size:13.5px; line-height:1.5; color:var(--txt);
+  padding-left:17px; position:relative;
+}
+.pnl .lista li::before{
+  content:''; position:absolute; left:0; top:.55em;
+  width:6px; height:6px; border-radius:2px; background:var(--celeste);
+}
+.pnl .lista li b{color:var(--navy); font-weight:800}
+.pnl .agente{
+  border:1px solid var(--borde); border-left:4px solid var(--navy);
+  border-radius:0 8px 8px 0; padding:11px 13px; margin-bottom:9px;
+}
+.pnl .agente .nom{font-weight:800; color:var(--navy); font-size:14px; display:block}
+.pnl .agente .que{color:var(--tenue); font-size:12.5px; display:block; margin-top:3px; line-height:1.45}
+.pnl .agente .ambito{font-size:10.5px; color:var(--tenue); display:block; margin-top:5px}
+.pnl .tope{
+  background:#fdf3f2; border-left:4px solid var(--rojo);
+  border-radius:0 8px 8px 0; padding:13px 15px; margin-top:9px;
+}
+.pnl .tope h3{color:var(--rojo); margin-bottom:6px}
+.pnl .tope p{margin:0; font-size:13.5px; line-height:1.55}
+.pnl .cuenta{
+  background:#fffaf2; border:1px solid #f0dcc0; border-radius:9px;
+  padding:13px 15px; margin-bottom:18px; text-align:center;
+}
+.pnl .cuenta .de{font-size:12px; color:var(--tenue); line-height:1.45}
+.pnl .cuenta .fila{display:flex; justify-content:center; align-items:baseline; gap:13px; margin:9px 0 4px}
+.pnl .cuenta .v{font-size:26px; font-weight:800; line-height:1; color:var(--navy)}
+.pnl .cuenta .v.sube{color:var(--verde)} .pnl .cuenta .v.para{color:#8a5310}
+.pnl .cuenta .rr{font-size:10px; color:var(--tenue); display:block; margin-top:2px}
+.pnl .cuenta .sep{color:var(--tenue); font-weight:700}
+.pnl .cuenta .umbral{font-size:11.5px; color:var(--tenue); margin-top:7px}
+.pnl .pie{font-size:12.5px; color:var(--tenue); line-height:1.5; font-style:italic; margin-top:4px}
 .sello{
   display:inline-block; font-size:9px; font-weight:800; letter-spacing:.08em;
   text-transform:uppercase; padding:2px 7px; border-radius:999px; margin-top:4px;
@@ -256,20 +295,17 @@ body.modo-hoy .aviso-hoy{display:block}
 body.con-bajada .eti .recibe{display:inline-block}
 body.con-bajada .eti.devuelve{border-color:var(--ambar)}
 
-/* la burbuja del cedazo, con su cuenta */
-.burbuja.cedazo{border-left:4px solid var(--ambar); background:rgba(255,250,242,.98)}
-.burbuja.cedazo .r{color:#7A4906}
-.burbuja.cuenta{text-align:center}
-.burbuja.cuenta .fila{display:flex; justify-content:center; align-items:baseline; gap:12px; margin:5px 0 3px}
-.burbuja.cuenta .v{font-size:23px; font-weight:800; line-height:1}
-.burbuja.cuenta .v.sube{color:var(--verde)} .burbuja.cuenta .v.para{color:var(--ambar)}
-.burbuja.cuenta .rr{font-size:9.5px; color:var(--tenue); display:block}
-.burbuja.cuenta .sep{color:var(--tinta-tenue)}
-
 /* pista de que la bandeja se abre */
 .chapa{cursor:pointer}
 .chapa:hover{box-shadow:0 3px 8px rgba(15,25,45,.2), 0 14px 34px rgba(15,25,45,.28)}
 .chapa.abierta{border-left-width:6px}
+/* Con algo abierto, TODAS las chapas pierden su subtítulo y se quedan en una
+   línea. No es cosmético: al ceder el ancho al panel la escena escala y ellas
+   no —son DOM de tamaño fijo—, así que a dos líneas se pisaban. Y tiene que
+   ser todas, también la abierta: dejarla a dos líneas la hacía chocar con la
+   del cedazo, que es fina por vivir en el hueco entre dos bandejas. El
+   subtítulo no se pierde: es el que encabeza el panel. */
+body.enfocado .chapa .c{display:none}
 
 /* ─────────────────────────────────────────────── el recorrido guiado
 
@@ -366,7 +402,7 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
   <button class="mando" id="modo" title="Comparar cómo llega hoy con cómo llegaría">◐ ver cómo es hoy</button>
   <button class="mando" id="bajada" title="Lo que vuelve a cada fuente convertido en orden">↓ la bajada</button>
   <span class="pista">arrastra para girar el rack · rueda para acercar</span>
-  <span style="color:var(--tinta-tenue)" aria-hidden="true">|</span>
+  <span style="color:var(--tenue)" aria-hidden="true">|</span>
   <span class="leyenda-ritmo">
     <span>la corriente de cada cable va a <b>la cadencia real</b> de su fuente</span>
     <span class="barra"></span>
@@ -403,17 +439,9 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
     <h2 id="f-nombre"></h2>
     <div class="dato" id="f-dato"></div>
   </div>
-  <div class="cuerpo">
-    <div class="datos-ficha">
-      <div class="celda"><div class="r">cadencia</div><div class="v" id="f-cadencia"></div></div>
-      <div class="celda"><div class="r">responde por ella</div><div class="v" id="f-dueno"></div></div>
-    </div>
-    <div class="bloque"><div class="r">cómo entraría</div><p id="f-como"></p></div>
-    <div class="bloque hoy"><div class="r">cómo llega hoy</div><p id="f-hoy"></p></div>
-    <div class="bloque rompe"><div class="r">qué se rompe si falta</div><p id="f-rompe"></p></div>
-    <div class="bloque"><div class="r">dónde entra</div><p id="f-nivel"></p></div>
-    <div class="bloque" id="f-bloque-baja"><div class="r">y qué recibe de vuelta</div><p id="f-baja"></p></div>
-  </div>
+  <!-- El cuerpo se pinta entero desde el modelo: el mismo panel sirve para una
+       fuente y para un piso de la torre, y son dos contenidos distintos. -->
+  <div class="cuerpo" id="f-cuerpo"></div>
 </aside>
 
 <footer>
@@ -590,8 +618,13 @@ for (const id of PILA) {
   bandejas[id] = malla;
 
   if (esTamiz) {
-    chapa(`<span class="n">▲ ${CEDAZO.titulo}</span><span class="c">${CEDAZO.lema}</span>`,
-          y, 'tamiz', id);
+    /* Una sola LÍNEA, y bajada al centro del hueco. El hueco entre bandejas
+       mide 39 px y una chapa de dos líneas ocupa 46: por eso se pisaba con la
+       de arriba. Apartarla a lo ancho no bastaba —ese desplazamiento se
+       comprime con la escena y volvía a solaparse en cuanto el panel
+       estrechaba el lienzo—. En una línea cabe, a cualquier escala. */
+    chapa(`<span class="n">▲ ${CEDAZO.titulo}</span><span class="c">el filtro entre dos pisos</span>`,
+          y - 0.34, 'tamiz', id);
     continue;
   }
 
@@ -621,8 +654,14 @@ function chapa(html, y, extra, id) {
   d.onclick = e => { e.stopPropagation(); abreNivel(id); };
   const o = new CSS2DObject(d);
   /* Sobre la propia bandeja, como la chapa de un equipo: así doce rótulos
-     nunca se pelean por el mismo sitio al girar. */
-  o.position.set(-ANCHO / 2 + 0.4, y + 0.02, FONDO / 2 + 0.06);
+     nunca se pelean por el mismo sitio al girar.
+     El cedazo va DESTACADO HACIA FUERA: su banda es fina —cabe entre dos
+     bandejas— y su chapa se pisaba con las dos vecinas, arriba y abajo. Y
+     además dice lo que hay que entender: no es un piso más, está entre dos. */
+  /* y algo apartada, para que se lea como lo que es: no una bandeja más de la
+     pila, sino el filtro que hay entre dos. */
+  const fuera = extra.indexOf('tamiz') >= 0 ? 2.6 : 0;
+  o.position.set(-ANCHO / 2 + 0.4 - fuera, y + 0.02, FONDO / 2 + 0.06);
   escena.add(o);
   return o;
 }
@@ -831,7 +870,11 @@ const reloj = new THREE.Clock();
 
 function pinta() {
   requestAnimationFrame(pinta);
-  const t = reloj.getElapsedTime(), d = Math.min(0.05, reloj.getDelta());
+  /* ⚠️ getDelta() PRIMERO. getElapsedTime() consume el delta por dentro, así
+     que llamarlo antes dejaba el getDelta() siguiente en ~0 y la corriente no
+     avanzaba: 16 de 16 cables congelados con la animación «funcionando». */
+  const d = Math.min(0.05, reloj.getDelta());
+  const t = reloj.elapsedTime;
   if (!quieto) {
     for (const c of corrientes) c.tex.offset.x -= c.v * d * 6;
     if (bajando) for (const x of bajadas) x.tex.offset.x -= 0.28 * d * 6;
@@ -867,18 +910,43 @@ const destinoZ = new Map(), destinoY = new Map();
 for (const [id, m] of Object.entries(bandejas)) { destinoZ.set(id, 0); destinoY.set(id, m.position.y); }
 
 let nivelAbierto = null;
-const burbujas = [], hilos = [];
 
-function limpiaBurbujas() {
-  for (const b of burbujas) escena.remove(b);
-  for (const h of hilos) { escena.remove(h); h.geometry.dispose(); }
-  burbujas.length = 0; hilos.length = 0;
+/* ── el panel lateral, uno solo ──────────────────────────────────────────
+   Lo comparten las fuentes y los pisos. Mostrarlo y ocultarlo va aparte
+   porque abrir un piso desde una fuente (y al revés) tiene que cambiar el
+   CONTENIDO sin que el panel se deslice fuera y vuelva a entrar. */
+const ficha = document.getElementById('ficha');
+const cuerpoFicha = document.getElementById('f-cuerpo');
+
+/* El lienzo cede su ancho al panel y se reencuadra, siempre: no hacerlo dejaba
+   la escena descentrada contra el panel y las raíces de abajo fuera del cuadro.
+   Lo que sí cambia al reencuadrar más estrecho es que las chapas —DOM de
+   tamaño fijo, mientras la escena sí escala— se pisaban entre sí; eso se
+   resuelve dejándolas en una línea mientras hay algo abierto (ver el CSS). */
+function muestraPanel(tamiz) {
+  ficha.classList.toggle('tamiz', !!tamiz);
+  document.body.classList.add('con-ficha');
+  ficha.classList.add('abierta');
+  mide('ajusta');
+}
+
+function ocultaPanel() {
+  document.body.classList.remove('con-ficha');
+  ficha.classList.remove('abierta', 'tamiz');
+  mide('ajusta');
+}
+
+/* la ✕ y el Esc cierran lo que haya abierto, sea una fuente o un piso */
+function cierraPanel() { cierraNivel(); limpia(); }
+
+function esc(t) {
+  return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function abreNivel(id) {
   if (modoHoy) return;          // no hay torre que abrir
   if (nivelAbierto === id) { cierraNivel(); return; }
-  if (enfocada) limpia();
+  if (enfocada) limpia(true);   // callado: el panel se queda y se repinta
   cierraNivel(true);
   const esCedazo = id === '__cedazo__';
   const N = esCedazo ? null : NIVELES.find(n => n.id === id);
@@ -900,101 +968,84 @@ function abreNivel(id) {
   const ch = document.querySelector('.chapa[data-nivel="' + id + '"]');
   if (ch) { ch.classList.add('on', 'abierta'); }
 
-  /* las burbujas, en abanico delante de la gaveta */
-  /* Dos familias distintas, y por eso a lados distintos: a la izquierda LO QUE
-     HACE el nivel, a la derecha QUIÉN lo hace y con qué permiso. Mezclarlas en
-     una sola tanda obligaba a leer saltando. */
-  /* El cedazo no tiene agentes ni capacidades: tiene CRITERIOS y una cuenta.
-     Se abre igual que un nivel porque para quien mira es una bandeja mas, pero
-     lo que brota es distinto — y esa diferencia es justo lo que hay que ver. */
-  const e = CEDAZO.ejemplo;
-  const loQueHace = esCedazo
-    ? CEDAZO.criterios.map(c => ({ clase: 'cedazo', html: '<span class="r">no pasa si…</span>' + c }))
-    : N.hace.map(h => ({ clase: '', html: '<span class="r">' + N.capa + '</span>' + h }));
-  const losAgentes = esCedazo
-    ? [{ clase: 'cedazo cuenta', html:
-        '<span class="r">una noche real</span>' + e.de +
-        '<div class="fila"><div><span class="v">' + e.entran + '</span><span class="rr">entran</span></div>' +
-        '<span class="sep">→</span>' +
-        '<div><span class="v sube">' + e.certifican + '</span><span class="rr">certifican y suben</span></div>' +
-        '<span class="sep">·</span>' +
-        '<div><span class="v para">' + e.cola + '</span><span class="rr">se quedan</span></div></div>' },
-       { clase: 'cedazo', html: '<span class="r">a dónde van las que no pasan</span>' + CEDAZO.destino }]
-    : N.agentes.map(a => ({ clase: 'agente', html:
-      '<span class="r">agente · ' + AUTONOMIA[a.nivel].que + '</span>' +
-      '<span class="nom">' + a.nombre + '</span>' +
-      '<span class="que">' + a.que + '</span>' +
-      '<span class="sello sello-' + a.nivel + '">' + AUTONOMIA[a.nivel].verbo + '</span>' }));
-  const elNoHace = esCedazo
-    ? { clase: 'nohace', html: '<span class="r">por qué existe</span>' + CEDAZO.nota }
-    : { clase: 'nohace', html: '<span class="r">lo que NO hace</span>' + N.noHace };
-  const fichas = [...loQueHace, ...losAgentes, elNoHace];
+  /* y el piso se explica ENTERO en el panel lateral, de arriba abajo:
+     qué es → qué hace → quién lo hace y con qué permiso → dónde está el tope.
+     Ese orden es el argumento; en burbujas sueltas alrededor del rack no
+     había orden de lectura y el argumento no llegaba. */
+  if (esCedazo) pintaCedazo(); else pintaNivel(N);
+  muestraPanel(esCedazo);
+}
 
-  /* En DOS COLUMNAS a los costados de la gaveta, no en abanico hacia delante:
-     colocarlas «delante» en el eje Z las metía entre la cámara y el rack, y
-     acababan fuera de cuadro o enormes. Así se quedan junto a la gaveta que
-     explican, dentro del encuadre y a los dos lados. */
-  const yTray = Y[id].y, zFrente = FONDO / 2 + DESLIZA + 0.6;
-  /* El paso sale del alto REAL de la tarjeta mas alta —las de agente llegan a
-     152 px—, no de un numero redondo: con 2,72 unidades daban 130 px de hueco
-     y las de agente se pisaban por abajo. */
-  const X_BURB = 8.6, PASO_Y = 3.42;
-  /* Las columnas se centran en el eje de la VISTA, no en la altura de la
-     gaveta: una gaveta alta empujaba su columna fuera del cuadro por arriba y
-     una baja la hundía bajo el suelo. El hilo es el que dice a quién
-     pertenece cada burbuja, así que se pueden colocar donde se leen. */
-  const yEje = mando.target.y + 1.7;
-  fichas.forEach((f, i) => { f.orden = i; });
+/* ── un piso ────────────────────────────────────────────────────────────── */
+function pintaNivel(N) {
+  document.getElementById('f-nombre').textContent = N.nombre;
+  document.getElementById('f-dato').textContent = N.lema;
+  const chip = document.getElementById('f-via');
+  chip.className = 'via via-nivel';
+  chip.textContent = 'piso ' + N.n + ' · ' + N.capa;
 
-  const coloca = (lista, signo) => lista.forEach((f, k) => {
-    const medio = (lista.length - 1) / 2;
-    const pos = new THREE.Vector3(signo * X_BURB, yEje + (medio - k) * PASO_Y, zFrente);
-
-    const d = document.createElement('div');
-    d.className = 'rot burbuja ' + f.clase;
-    d.style.animationDelay = (f.orden * 0.055) + 's';
-    d.innerHTML = f.html;
-    const o = new CSS2DObject(d);
-    o.position.copy(pos);
-    escena.add(o); burbujas.push(o);
-
-    const desde = new THREE.Vector3(signo * (ANCHO / 2 - .2), yTray, FONDO / 2 + DESLIZA - .3);
-    const hilo = new THREE.Line(
-      new THREE.BufferGeometry().setFromPoints([desde, pos]),
-      new THREE.LineBasicMaterial({ color: 0x8fb0d4, transparent: true, opacity: .5 }));
-    escena.add(hilo); hilos.push(hilo);
-  });
-
-  coloca(loQueHace, -1);
-  coloca(losAgentes, +1);
-
-  /* el «no hace» va ARRIBA y centrado: es de otra naturaleza, y abajo no hay
-     sitio —el suelo obliga a recortar y acababa pisando la última burbuja de
-     la columna—. Se cuelga del punto más alto que ocupen las columnas. */
-  {
-    /* Anclado sobre el rack, no a la columna: colgarlo de la burbuja mas alta
-       lo empujaba fuera del cuadro en el nivel con once. */
-    const pos = new THREE.Vector3(0, ALTO_RACK + LEVANTA + 1.5, zFrente + 1.4);
-    const d = document.createElement('div');
-    d.className = 'rot burbuja nohace';
-    d.style.animationDelay = (fichas.length * 0.055) + 's';
-    d.innerHTML = elNoHace.html;
-    const o = new CSS2DObject(d); o.position.copy(pos);
-    escena.add(o); burbujas.push(o);
-    const hilo = new THREE.Line(
-      new THREE.BufferGeometry().setFromPoints(
-        [new THREE.Vector3(0, yTray + Y[id].h / 2, FONDO / 2 + DESLIZA - .3), pos]),
-      new THREE.LineBasicMaterial({ color: 0xd8a48a, transparent: true, opacity: .5 }));
-    escena.add(hilo); hilos.push(hilo);
+  const h = [];
+  h.push('<div class="pnl">');
+  /* La frase de entrada dice qué ES el piso antes de enumerar qué hace. Los
+     pisos que aún no la declaran caen en su lema, que es la versión corta. */
+  h.push('<p class="entrada">' + (N.que || N.lema) + '</p>');
+  h.push('<h3>qué hace este piso</h3><ul class="lista">');
+  for (const x of N.hace) h.push('<li>' + x + '</li>');
+  h.push('</ul>');
+  h.push('<h3>quién lo hace, y hasta dónde puede llegar</h3>');
+  for (const a of N.agentes) {
+    const A = AUTONOMIA[a.nivel];
+    h.push('<div class="agente"><span class="nom">' + esc(a.nombre) + '</span>' +
+           '<span class="que">' + esc(a.que) + '</span>' +
+           '<span class="sello sello-' + a.nivel + '">' + esc(A.verbo) + '</span>' +
+           '<span class="ambito">' + esc(A.que) + '</span></div>');
   }
+  h.push('<div class="tope"><h3>lo que NO hace</h3><p>' + N.noHace + '</p></div>');
+  h.push('</div>');
+  cuerpoFicha.innerHTML = h.join('');
+}
+
+/* ── el cedazo: no es un piso, es el filtro entre dos ───────────────────── */
+function pintaCedazo() {
+  const e = CEDAZO.ejemplo;
+  document.getElementById('f-nombre').textContent = CEDAZO.titulo;
+  document.getElementById('f-dato').textContent = CEDAZO.lema;
+  const chip = document.getElementById('f-via');
+  chip.className = 'via via-tamiz';
+  chip.textContent = 'entre la ingesta y el cimiento';
+
+  const h = [];
+  h.push('<div class="pnl">');
+  h.push('<p class="entrada">' + CEDAZO.que + '</p>');
+  h.push('<h3>por qué está aquí</h3><ul class="lista"><li>' + CEDAZO.porQue + '</li></ul>');
+  h.push('<h3>' + CEDAZO.cuando + '</h3><ul class="lista">');
+  for (const c of CEDAZO.criterios) h.push('<li>' + c + '</li>');
+  h.push('</ul>');
+  h.push('<h3>una noche real</h3>' +
+    '<div class="cuenta"><div class="de">' + esc(e.de) + '</div>' +
+    '<div class="fila">' +
+      '<div><span class="v">' + e.entran + '</span><span class="rr">entran</span></div>' +
+      '<span class="sep">→</span>' +
+      '<div><span class="v sube">' + e.certifican + '</span><span class="rr">suben</span></div>' +
+      '<span class="sep">·</span>' +
+      '<div><span class="v para">' + e.cola + '</span><span class="rr">se quedan</span></div>' +
+    '</div><div class="umbral">umbral: ' + esc(e.umbral) + '</div></div>');
+  h.push('<div class="tope"><h3>lo que no pasa, ¿a dónde va?</h3><p>' +
+         CEDAZO.destino + '</p></div>');
+  h.push('<p class="pie">' + CEDAZO.nota + '</p>');
+  h.push('</div>');
+  cuerpoFicha.innerHTML = h.join('');
 }
 
 function cierraNivel(silencioso) {
   if (!nivelAbierto && !silencioso) return;
   nivelAbierto = null;
   for (const id of PILA) { destinoZ.set(id, 0); destinoY.set(id, Y[id].y); }
-  limpiaBurbujas();
+  /* «silencioso» = otro va a abrir enseguida. El panel NO se oculta: solo se
+     repinta. Ocultarlo aquí lo hacía deslizarse fuera y volver a entrar cada
+     vez que se saltaba de un piso a otro. */
   if (silencioso) return;
+  ocultaPanel();
   /* Se devuelve al estado del MODO, no a una opacidad plana: en «hoy» los
      pedestales tienen que quedar visibles —las fuentes sí existen hoy— y con
      un valor único se apagaban al cerrar la ficha. */
@@ -1053,7 +1104,7 @@ function atenua(m, v) {
 function enfoca(id) {
   if (enfocada === id) { limpia(); return; }
   const r = RAICES.find(x => x.id === id); if (!r) return;
-  cierraNivel();
+  cierraNivel(true);            // callado: el panel se queda y se repinta
   enfocada = id;
 
   /* Los tubos y los pedestales se apagan —son finos, aguantan bien la
@@ -1070,8 +1121,11 @@ function enfoca(id) {
   enciende(r.nivel);
   miraHacia(sitio[id]);
 
-  document.body.classList.add('enfocado', 'con-ficha');
-  document.querySelectorAll('.rot.on').forEach(e => e.classList.remove('on'));
+  document.body.classList.add('enfocado');
+  /* también «abierta»: veníamos quizá de una gaveta abierta y su chapa se
+     quedaba marcada como tal mientras el panel ya hablaba de otra cosa. */
+  document.querySelectorAll('.rot.on, .chapa.abierta')
+    .forEach(e => e.classList.remove('on', 'abierta'));
   const eti = document.querySelector('.eti[data-raiz="' + id + '"]');
   if (eti) eti.classList.add('on');
   const chapa = document.querySelector('.chapa[data-nivel="' + r.nivel + '"]');
@@ -1079,36 +1133,42 @@ function enfoca(id) {
 
   const baja = BAJADAS.find(b => b.hacia === id);
   const N = NIVELES.find(n => n.id === r.nivel);
-  const T = (k, t) => { document.getElementById(k).textContent = t; };
-  T('f-nombre', r.nombre); T('f-dato', r.dato);
-  T('f-cadencia', r.cadencia); T('f-dueno', r.dueno);
-  T('f-hoy', r.hoy); T('f-rompe', r.rompe);
-  T('f-como', VIAS[r.via].detalle + '.');
-  T('f-nivel', 'Entra al nivel ' + N.n + ', «' + N.nombre + '» — ' + N.lema + '.');
+  document.getElementById('f-nombre').textContent = r.nombre;
+  document.getElementById('f-dato').textContent = r.dato;
   const via = document.getElementById('f-via');
   via.className = 'via via-' + r.via; via.textContent = VIAS[r.via].rotulo;
 
-  const caja = document.getElementById('f-bloque-baja');
-  caja.querySelector('.r').textContent = baja ? 'y qué recibe de vuelta' : 'no recibe nada de vuelta';
-  T('f-baja', baja ? baja.que + '. ' + baja.nota
-    : 'Esta fuente alimenta la torre y no recibe nada: el dato viene de fuera y no hay nada que devolverle.');
+  cuerpoFicha.innerHTML =
+    '<div class="datos-ficha">' +
+      '<div class="celda"><div class="r">cadencia</div><div class="v" id="f-cadencia">' + esc(r.cadencia) + '</div></div>' +
+      '<div class="celda"><div class="r">responde por ella</div><div class="v" id="f-dueno">' + esc(r.dueno) + '</div></div>' +
+    '</div>' +
+    '<div class="bloque"><div class="r">cómo entraría</div><p id="f-como">' + esc(VIAS[r.via].detalle) + '.</p></div>' +
+    '<div class="bloque hoy"><div class="r">cómo llega hoy</div><p id="f-hoy">' + esc(r.hoy) + '</p></div>' +
+    '<div class="bloque rompe"><div class="r">qué se rompe si falta</div><p id="f-rompe">' + esc(r.rompe) + '</p></div>' +
+    '<div class="bloque"><div class="r">dónde entra</div><p id="f-nivel">Entra al piso ' + N.n +
+      ', «' + esc(N.nombre) + '» — ' + esc(N.lema) + '.</p></div>' +
+    '<div class="bloque" id="f-bloque-baja"><div class="r">' +
+      (baja ? 'y qué recibe de vuelta' : 'no recibe nada de vuelta') + '</div><p id="f-baja">' +
+      (baja ? esc(baja.que) + '. ' + esc(baja.nota)
+            : 'Esta fuente alimenta la torre y no recibe nada: el dato viene de fuera y no hay nada que devolverle.') +
+    '</p></div>';
 
-  document.getElementById('ficha').classList.add('abierta');
-  mide('ajusta');
+  muestraPanel(false);
 }
 
-function limpia() {
+function limpia(silencioso) {
   enfocada = null;
   for (const [m] of opacidadBase) atenua(m, 1);
   enciende(null);
-  document.body.classList.remove('enfocado', 'con-ficha');
+  document.body.classList.remove('enfocado');
   document.querySelectorAll('.rot.on').forEach(e => e.classList.remove('on'));
-  document.getElementById('ficha').classList.remove('abierta');
-  mide('ajusta');
+  if (silencioso) return;       // otro va a abrir el panel enseguida
+  ocultaPanel();
 }
 
-document.getElementById('cerrar-ficha').onclick = limpia;
-addEventListener('keydown', e => { if (e.key === 'Escape') { limpia(); cierraNivel(); cierraRecorrido(); } });
+document.getElementById('cerrar-ficha').onclick = cierraPanel;
+addEventListener('keydown', e => { if (e.key === 'Escape') { cierraPanel(); cierraRecorrido(); } });
 
 /* Clic en la escena: se lanza un rayo desde la cámara y se mira qué toca.
    Arrastrar para girar el rack no cuenta como pulsar. */
@@ -1427,6 +1487,7 @@ pinta();
 /* para las comprobaciones */
 window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK,
                    PILA, tubos, pedestales, armazon, bajadas, abreNivel, cierraNivel, enfoca, limpia,
+                   cierraPanel, pintaNivel, pintaCedazo,
                    PARADAS, _rec, vaAlPaso, abreRecorrido, cierraRecorrido };
 
 } /* fin arranca() */

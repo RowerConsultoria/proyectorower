@@ -136,13 +136,14 @@ raíces que lo alimenten.
 | **5 · Foco por raíz** | ✅ **hecha** — recorrido iluminado + ficha lateral con «qué se rompe» y «qué recibe de vuelta» |
 | **6a · El rack en 3D** | ✅ **hecha** — WebGL + texto en DOM · escena clara, rack oscuro · respaldo sin WebGL |
 | **6b · Raíces en arco + ficha completa** | ✅ **hecha** — 12 raíces alrededor, 0 rótulos pisándose, ficha con todo lo de la plana |
-| **6c · Gavetas y burbujas** | ✅ **hecha** — la bandeja sale, las de arriba suben, y brotan las burbujas con los agentes y su permiso |
+| **6c · Gavetas y panel** | ✅ **hecha** — la bandeja sale, las de arriba suben, y el piso se explica en **un solo panel** (antes eran hasta once burbujas alrededor del rack: cada una correcta, el conjunto sin orden de lectura) |
 | 6d · El cedazo como bandeja tamiz | ✅ hecha en la 6a |
 | **7 · La bajada** | ✅ **hecha** — 7 arcos ámbar desde la decisión · resuelve **A1** · y el cedazo ya se abre en 3D |
 | **8 · Hoy / propuesto** | ✅ **hecha** — el rack se desvanece, la corriente se apaga y cada fuente dice cómo llega hoy |
 | **9 · El recorrido guiado** | ✅ **hecha** — 8 paradas que dejan la escena en su estado, con teclado |
 | **10 · Sustituir el diagrama** | ✅ **hecha** — la torre entra en la s10 del informe maestro y en el deck |
 | **11 · Pulido y comprobaciones** | ✅ **hecha** — contraste AA, móvil, y `scripts/comprobar-torre.py` con 8 comprobaciones · cierra **A3** y **A4** |
+| **12 · Claridad y corriente** | ✅ **hecha** — el cedazo y la decisión dichos directo · un panel por piso en vez de once burbujas · **la corriente vuelve a correr** · 9ª comprobación (`corriente`) y las chapas no se pisan |
 
 ## Pendientes detectados durante la construcción
 
@@ -152,3 +153,37 @@ raíces que lo alimenten.
 | **A2** | **Los cuatro números del pie son los del informe de Fase 1** (~400 personas · 12 dependencias · 22/104/260 procesos · 52 proyectos). El de procesos sigue **en conciliación con Jesús** —el mapa dice 244 y el informe 260—. Si se concilia antes de presentar, cambiar en un solo sitio. | comprobación del modelo, fase 1 |
 | ~~**A3**~~ | ~~El rótulo del suelo queda descolgado.~~ **Resuelto en la fase 11:** ahora rotula las dos columnas — «A los lados · las 12 fuentes donde nace el dato». | — | cerrado en la fase 11 |
 | ~~**A4**~~ | ~~A 430 px la torre queda ilegible.~~ **Resuelto en la fase 11:** la vista plana no baja de escala 0,52 y se desplaza a lo ancho en vez de encogerse; la 3D da el ancho completo a la ficha y apila la barra del recorrido. | — | cerrado en la fase 11 |
+
+## Fase 12 · claridad y corriente (26-jul)
+
+Tres cosas que el equipo vio y las comprobaciones no:
+
+1. **El cedazo y la decisión no se entendían.** Decían su lema y saltaban al
+   detalle. Ahora cada uno abre con una frase que dice *qué es y por qué está
+   ahí*: el cedazo, «todo lo que llega se compara contra el catálogo único
+   antes de subir»; la decisión, «ningún cálculo de los pisos de abajo se
+   convierte en un hecho por sí mismo». Los cuatro pisos declaran esa frase en
+   el modelo (`que`) y `c_modelo` la exige con un mínimo de longitud, para que
+   no vuelva a degradarse a un lema.
+
+2. **Un piso abría hasta once burbujas** repartidas alrededor del rack. Cada
+   una era correcta y el conjunto no se leía: sin orden de lectura, el hilo se
+   perdía. Ahora el piso se explica en el **mismo panel lateral** que ya
+   explicaba una fuente, de arriba abajo: qué es → qué hace → quién lo hace y
+   con qué permiso → dónde está el tope.
+
+3. **La corriente no se movía.** Existía la animación, existían las 16 texturas
+   y el avance medido era 0,0 en las 16. `THREE.Clock.getElapsedTime()` llama a
+   `getDelta()` por dentro y actualiza `oldTime`, así que el `getDelta()` de la
+   misma línea devolvía ~0. Ninguna comprobación lo vio porque ninguna medía el
+   avance — solo que las corrientes *existieran*.
+
+De rebote salieron dos defectos que ya estaban antes: la chapa del cedazo se
+pisaba con sus dos vecinas (su banda es fina, y a dos líneas no cabe en el
+hueco), y el separador de la barra usaba `--tinta-tenue`, un token que este
+archivo **no define**.
+
+**Lección repetida, la de siempre:** la pantalla afirmaba un efecto que el
+código no producía, y la comprobación que debía cazarlo medía lo de al lado.
+Las dos nuevas —`corriente` y el solape de chapas— se rompieron a propósito
+antes de darlas por buenas.

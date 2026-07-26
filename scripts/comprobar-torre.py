@@ -10,7 +10,8 @@ construyéndola: **la escena afirma un estado que el código no produce**.
     1. modelo     coherencia interna, sin navegador (~0 s)
     2. plana      la versión de respaldo pinta, sin desbordes ni solapes
     3. rack       la escena 3D se monta y cuadra con el modelo
-    4. gavetas    cada nivel abre con sus burbujas, agentes y sellos
+    4. gavetas    cada piso abre en UN panel, con sus agentes y sellos
+    4b. corriente los cables se mueven de verdad, al ritmo declarado
     5. bajada     los arcos salen de la decisión y caen sobre su fuente
     6. modo       hoy / propuesto, y los textos salen del modelo
     7. recorrido  las 8 paradas en orden, AL REVÉS y saltando
@@ -177,9 +178,22 @@ for (const n of NIVELES.filter(n => RAICES.some(r => r.nivel === n.id) || n.n <=
 for (const n of NIVELES) {
   if (!n.hace || !n.hace.length) fallos.push('el nivel ' + n.id + ' no dice qué hace');
   if (!n.noHace) fallos.push('el nivel ' + n.id + ' no dice qué NO hace');
+  /* La frase con que ABRE el panel del piso. Sin ella el lector cae directo a
+     una lista de capacidades sin saber en qué piso está. 90 caracteres es el
+     suelo: por debajo es un lema, no una explicación. */
+  if (!n.que || n.que.length < 90)
+    fallos.push('el piso ' + n.id + ' no dice en una frase QUÉ es (tiene ' +
+                ((n.que || '').length) + ' caracteres)');
   for (const a of (n.agentes || []))
     if (!AUTONOMIA[a.nivel]) fallos.push('el agente ' + a.nombre + ' declara una autonomía inválida');
 }
+/* el cedazo es lo que más se pregunta: tiene que decir qué hace, por qué está
+   entre dos pisos, y cuándo algo NO pasa — antes de los cuatro casos */
+for (const c of ['que', 'porQue', 'cuando', 'destino', 'nota'])
+  if (!CEDAZO[c] || CEDAZO[c].length < 20)
+    fallos.push('el cedazo no declara «' + c + '»');
+if (!CEDAZO.criterios || CEDAZO.criterios.length < 3)
+  fallos.push('el cedazo no enumera los casos en que algo no pasa');
 /* una cadencia con dos ritmos distintos se lee como contradicción */
 const porCad = {};
 for (const r of RAICES) (porCad[r.cadencia] = porCad[r.cadencia] || new Set()).add(r.ritmo);
@@ -260,50 +274,118 @@ def c_rack(nav):
 # ── 4 · las gavetas ──────────────────────────────────────────────────────────
 
 def c_gavetas(nav):
-    """Cada nivel abre como una gaveta, brotan sus burbujas —lo que hace, sus
-    agentes con el sello correcto, y lo que NO hace—, ninguna se sale del
-    cuadro ni se pisa, y al cerrar todo vuelve a su sitio."""
+    """Cada piso abre como una gaveta y se explica en UN panel: su frase de
+    entrada, sus capacidades, sus agentes con el sello correcto y su tope.
+    Antes brotaban hasta once burbujas alrededor del rack; se cambió por un
+    solo panel porque el conjunto no tenía orden de lectura. La comprobación
+    sigue el mismo espíritu: que lo que se lee salga del modelo, y que la
+    gaveta de la escena sea la del piso del que habla el panel."""
     p = abre(nav, TORRE)
     fallos = []
     for nid in p.evaluate("()=>NIVELES.map(n=>n.id)"):
         p.evaluate("(id)=>window.__torre.abreNivel(id)", nid)
         p.wait_for_timeout(2600)
         d = p.evaluate(r"""(id)=>{const T=window.__torre, N=NIVELES.find(n=>n.id===id);
-          const orden=T.PILA.indexOf(id);
-          const b=[...document.querySelectorAll('.burbuja')].map(e=>e.getBoundingClientRect());
-          let pisan=0; for(let i=0;i<b.length;i++)for(let j=i+1;j<b.length;j++){const a=b[i],c=b[j];
-            if(!(a.right<=c.left||a.left>=c.right||a.bottom<=c.top||a.top>=c.bottom)) pisan++;}
-          const cv=document.querySelector('#lienzo3d canvas').getBoundingClientRect();
-          const fuera=b.filter(r=>r.left<cv.left-4||r.right>cv.right+4||r.top<cv.top-4||r.bottom>cv.bottom+4).length;
-          return {esperadas:N.hace.length+N.agentes.length+1,
-            burbujas:document.querySelectorAll('.burbuja').length,
-            agentes:document.querySelectorAll('.burbuja.agente').length,
+          const orden=T.PILA.indexOf(id), f=document.querySelector('#ficha');
+          const cuerpo=document.querySelector('#f-cuerpo');
+          const txt=cuerpo.innerText;
+          return {
+            abierto:f.classList.contains('abierta'),
+            titulo:document.querySelector('#f-nombre').textContent.trim(),
+            esperaTitulo:N.nombre,
+            lema:document.querySelector('#f-dato').textContent.trim(),
+            esperaLema:N.lema,
+            entrada:(cuerpo.querySelector('.entrada')||{}).innerText||'',
+            esperaEntrada:N.que||N.lema,
+            capacidades:cuerpo.querySelectorAll('.lista li').length,
+            esperaCapacidades:N.hace.length,
+            agentes:cuerpo.querySelectorAll('.agente').length,
             esperaAgentes:N.agentes.length,
-            noHace:document.querySelectorAll('.burbuja.nohace').length,
-            sellos:[...document.querySelectorAll('.burbuja.agente .sello')].map(e=>e.textContent),
+            nombres:[...cuerpo.querySelectorAll('.agente .nom')].map(e=>e.textContent),
+            esperaNombres:N.agentes.map(a=>a.nombre),
+            sellos:[...cuerpo.querySelectorAll('.agente .sello')].map(e=>e.textContent),
             verbos:N.agentes.map(a=>AUTONOMIA[a.nivel].verbo),
-            fuera, pisan,
+            tope:(cuerpo.querySelector('.tope p')||{}).innerText||'',
+            /* el tope se compara sin etiquetas: el modelo trae <b> dentro */
+            esperaTope:N.noHace.replace(/<[^>]+>/g,''),
+            paneles:document.querySelectorAll('.pnl').length,
+            /* Las chapas son DOM de tamaño fijo y la escena SÍ escala: al
+               reencuadrar más estrecho se pisaban entre sí. Se mide con el
+               panel abierto, que es el estado en que se descubrió. */
+            chocan:(()=>{const e=[...document.querySelectorAll('.chapa')].map(x=>(
+                {t:x.textContent.slice(0,14), r:x.getBoundingClientRect()})), o=[];
+              for(let i=0;i<e.length;i++)for(let j=i+1;j<e.length;j++){const a=e[i].r,b=e[j].r;
+                if(!(a.right<=b.left||a.left>=b.right||a.bottom<=b.top||a.top>=b.bottom))
+                  o.push(e[i].t+' / '+e[j].t);} return o;})(),
+            burbujas:document.querySelectorAll('.burbuja').length,
+            /* que quepa: un panel que se corta por abajo sin poder desplazarse
+               esconde justo el tope, que es lo que la Junta viene a leer */
+            recortado:f.scrollHeight>f.clientHeight+2 && getComputedStyle(f).overflowY==='visible',
             gaveta:T.bandejas[id].position.z>1.6,
             arribaSuben:T.PILA.filter((_,i)=>i>orden).every(o=>T.bandejas[o].position.y>T.Y[o].y+0.6),
             abajoQuietas:T.PILA.filter((_,i)=>i<orden).every(o=>Math.abs(T.bandejas[o].position.y-T.Y[o].y)<0.06)};}""", nid)
-        if d['burbujas'] != d['esperadas']:
-            fallos.append('%s: %d burbujas y el modelo pide %d' % (nid, d['burbujas'], d['esperadas']))
+        if not d['abierto']:
+            fallos.append('%s: el panel no se abrió' % nid)
+        if d['chocan']:
+            fallos.append('%s: las chapas se pisan (%s)' % (nid, '; '.join(d['chocan'])))
+        if d['paneles'] != 1:
+            fallos.append('%s: %d paneles en pantalla y debe haber exactamente 1' % (nid, d['paneles']))
+        if d['burbujas']:
+            fallos.append('%s: quedan %d burbujas sueltas' % (nid, d['burbujas']))
+        if d['titulo'] != d['esperaTitulo']:
+            fallos.append('%s: el panel se titula «%s» y el modelo dice «%s»'
+                          % (nid, d['titulo'], d['esperaTitulo']))
+        if d['lema'] != d['esperaLema']:
+            fallos.append('%s: el lema del panel no es el del modelo' % nid)
+        if d['esperaEntrada'][:40] not in d['entrada']:
+            fallos.append('%s: la frase de entrada no sale del modelo' % nid)
+        if d['capacidades'] != d['esperaCapacidades']:
+            fallos.append('%s: %d capacidades y el modelo declara %d'
+                          % (nid, d['capacidades'], d['esperaCapacidades']))
         if d['agentes'] != d['esperaAgentes']:
-            fallos.append('%s: %d burbujas de agente y el modelo declara %d' % (nid, d['agentes'], d['esperaAgentes']))
-        if d['noHace'] != 1:
-            fallos.append('%s: falta la burbuja de «lo que no hace»' % nid)
+            fallos.append('%s: %d agentes y el modelo declara %d'
+                          % (nid, d['agentes'], d['esperaAgentes']))
+        if d['nombres'] != d['esperaNombres']:
+            fallos.append('%s: los agentes %s no son los del modelo %s'
+                          % (nid, d['nombres'], d['esperaNombres']))
         if d['sellos'] != d['verbos']:
-            fallos.append('%s: los sellos %s no son los del modelo %s' % (nid, d['sellos'], d['verbos']))
+            fallos.append('%s: los sellos %s no son los del modelo %s'
+                          % (nid, d['sellos'], d['verbos']))
+        if d['esperaTope'][:40] not in d['tope']:
+            fallos.append('%s: el «lo que NO hace» no sale del modelo' % nid)
+        if d['recortado']:
+            fallos.append('%s: el panel se corta sin poder desplazarse' % nid)
         if not d['gaveta']:
             fallos.append('%s: la gaveta no salió' % nid)
         if not d['arribaSuben']:
             fallos.append('%s: las bandejas de arriba no se apartaron' % nid)
         if not d['abajoQuietas']:
             fallos.append('%s: las bandejas de abajo se movieron' % nid)
-        if d['fuera']:
-            fallos.append('%s: %d burbujas fuera del cuadro' % (nid, d['fuera']))
-        if d['pisan']:
-            fallos.append('%s: %d pares de burbujas se pisan' % (nid, d['pisan']))
+
+    # el cedazo se abre igual pero NO es un piso: su panel es otro
+    p.evaluate("()=>window.__torre.abreNivel('__cedazo__')")
+    p.wait_for_timeout(2400)
+    d = p.evaluate(r"""()=>{const c=document.querySelector('#f-cuerpo');
+      return {tamiz:document.querySelector('#ficha').classList.contains('tamiz'),
+        titulo:document.querySelector('#f-nombre').textContent.trim(),
+        criterios:c.querySelectorAll('.lista li').length,
+        entran:(c.querySelector('.cuenta .v')||{}).textContent,
+        agentes:c.querySelectorAll('.agente').length,
+        entrada:(c.querySelector('.entrada')||{}).innerText||''};}""")
+    if d['titulo'] != p.evaluate("()=>CEDAZO.titulo"):
+        fallos.append('cedazo: el panel no se titula como el modelo')
+    if not d['tamiz']:
+        fallos.append('cedazo: se presenta como un piso más, y no lo es')
+    if d['criterios'] != p.evaluate("()=>CEDAZO.criterios.length+1"):
+        fallos.append('cedazo: %d puntos y el modelo trae %s'
+                      % (d['criterios'], p.evaluate("()=>CEDAZO.criterios.length+1")))
+    if d['entran'] != str(p.evaluate("()=>CEDAZO.ejemplo.entran")):
+        fallos.append('cedazo: la cuenta no es la del modelo')
+    if d['agentes']:
+        fallos.append('cedazo: se le pintan agentes, y el cedazo no tiene')
+    if p.evaluate("()=>CEDAZO.que")[:40] not in d['entrada']:
+        fallos.append('cedazo: no dice qué hace antes de enumerar los casos')
+
     p.evaluate("()=>window.__torre.cierraNivel()")
     for _ in range(20):
         p.wait_for_timeout(400)
@@ -313,11 +395,58 @@ def c_gavetas(nav):
             break
     else:
         fallos.append('al cerrar, las bandejas no vuelven a su sitio')
-    if p.evaluate("()=>document.querySelectorAll('.burbuja').length"):
-        fallos.append('al cerrar quedan burbujas en pantalla')
+    if p.evaluate("()=>document.querySelector('#ficha').classList.contains('abierta')"):
+        fallos.append('al cerrar el piso, el panel se queda abierto')
     fallos += p.errores
     p.close()
-    return fallos, '4 niveles abiertos y cerrados'
+    return fallos, '4 pisos y el cedazo, un panel cada uno'
+
+
+# ── 4b · la corriente ────────────────────────────────────────────────────────
+
+def c_corriente(nav):
+    """Que los cables se MUEVAN. Existía la animación, existían las 16 texturas
+    y no avanzaba ninguna: getElapsedTime() consume el delta por dentro, así
+    que el getDelta() de la línea siguiente devolvía ~0. Ninguna comprobación
+    lo vio porque ninguna medía el avance — solo que las corrientes existieran.
+    Y de paso: que cada cable corra al ritmo que declara su fuente, y que el
+    botón de pausa pare de verdad."""
+    p = abre(nav, TORRE)
+    fallos = []
+    LEE = "()=>window.__torre.corrientes.map(c=>({x:c.tex.offset.x, v:c.v}))"
+
+    a = p.evaluate(LEE)
+    p.wait_for_timeout(2500)
+    b = p.evaluate(LEE)
+    quietas = [i for i, (x, y) in enumerate(zip(a, b)) if abs(y['x'] - x['x']) < 1e-4]
+    if quietas:
+        fallos.append('%d de %d corrientes no avanzan' % (len(quietas), len(a)))
+
+    # el avance tiene que ser proporcional a la velocidad declarada, o el
+    # ritmo de cada cadencia es decorativo
+    if not quietas and len(a) > 1:
+        razones = [abs(b[i]['x'] - a[i]['x']) / b[i]['v'] for i in range(len(a)) if b[i]['v']]
+        if razones and max(razones) / min(razones) > 1.25:
+            fallos.append('el avance no es proporcional a la velocidad declarada '
+                          '(entre %.2f y %.2f por unidad)' % (min(razones), max(razones)))
+
+    # la pausa
+    p.click('#pausa')
+    p.wait_for_timeout(700)
+    c = p.evaluate(LEE)
+    p.wait_for_timeout(1600)
+    d = p.evaluate(LEE)
+    if any(abs(d[i]['x'] - c[i]['x']) > 1e-4 for i in range(len(c))):
+        fallos.append('la pausa no detiene la corriente')
+    p.click('#pausa')
+    p.wait_for_timeout(1400)
+    e = p.evaluate(LEE)
+    if all(abs(e[i]['x'] - d[i]['x']) < 1e-4 for i in range(len(d))):
+        fallos.append('tras quitar la pausa la corriente no vuelve')
+
+    fallos += p.errores
+    p.close()
+    return fallos, '%d cables corriendo, y la pausa los para' % len(a)
 
 
 # ── 5 · la bajada ────────────────────────────────────────────────────────────
@@ -431,8 +560,15 @@ def c_recorrido(nav):
         8: lambda d: d['hoy'] and not d['baja'] and not d['b'],
     }
     EST = """()=>{const T=window.__torre;
-      return {n:T._rec.paso+1, b:document.querySelectorAll('.burbuja').length>0,
-        f:document.querySelector('#ficha').classList.contains('abierta'),
+      const f=document.querySelector('#ficha');
+      /* «b» era «hay burbujas»; ahora es «el panel habla de un piso»: el
+         contenido de un piso y el de una fuente van en el MISMO panel.
+         ⚠️ El panel cerrado CONSERVA su contenido a propósito —para no
+         vaciarse a la vista mientras se desliza fuera—, así que no basta con
+         buscar `.pnl`: hay que exigir que además esté abierto. */
+      const ab=f.classList.contains('abierta'), pnl=!!document.querySelector('#f-cuerpo .pnl');
+      return {n:T._rec.paso+1, b:ab && pnl,
+        f:ab && !pnl,
         baja:T.escena.children.filter(o=>o.userData&&o.userData.bajada&&o.visible).length>0,
         hoy:document.body.classList.contains('modo-hoy'),
         roto:document.querySelector('.rec-txt').innerText.indexOf('no pudo leer')>=0};}"""
@@ -472,6 +608,7 @@ def c_contraste(nav):
 
 CHEQUEOS = {
     'modelo': c_modelo, 'plana': c_plana, 'rack': c_rack, 'gavetas': c_gavetas,
+    'corriente': c_corriente,
     'bajada': c_bajada, 'modo': c_modo, 'recorrido': c_recorrido, 'contraste': c_contraste,
 }
 
