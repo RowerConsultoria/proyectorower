@@ -122,7 +122,7 @@ raíces que lo alimenten.
 | Fase | Estado |
 |---|---|
 | **1 · El modelo** | ✅ **hecha** — `arquitectura-datos.js`: 4 niveles, 12 raíces, 6 bajadas, el cedazo |
-| 2 · Armazón y torre estática | pendiente |
+| **2 · Armazón y torre estática** | ✅ **hecha** — `arquitectura-ia-kenex.html`, identidad UCAB, medida y colocada |
 | 3 · La corriente | pendiente |
 | 4 · El cedazo | pendiente |
 | 5 · Foco por raíz | pendiente |
@@ -139,3 +139,4 @@ raíces que lo alimenten.
 |---|---|---|
 | **A1** | **Cuatro raíces no cierran el ciclo.** Recepción, desarrollo de producto, fábricas y crédito alimentan la torre y no reciben nada de vuelta. En tres es correcto (el dato viene de fuera y no hay nada que devolver), pero **recepción sí debería recibir**: la orden de ubicación y el plan de descarga bajan del sistema. Decidir si se añade esa bajada o si se dice explícitamente por qué no la hay. | comprobación del modelo, fase 1 |
 | **A2** | **Los cuatro números del pie son los del informe de Fase 1** (~400 personas · 12 dependencias · 22/104/260 procesos · 52 proyectos). El de procesos sigue **en conciliación con Jesús** —el mapa dice 244 y el informe 260—. Si se concilia antes de presentar, cambiar en un solo sitio. | comprobación del modelo, fase 1 |
+| **A3** | **El rótulo del suelo queda descolgado.** Dice «las raíces · doce sitios donde nace el dato» al pie, pero las tarjetas de raíz están a los lados de la torre, no abajo. O se convierte en rótulo de las dos columnas, o se recompone la base. | fase 2 |

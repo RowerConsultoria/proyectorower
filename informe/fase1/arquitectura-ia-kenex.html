@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La torre — Arquitectura de IA · Grupo Kenex</title>
+<!--
+  ============================================================================
+  LA TORRE — Modelo interactivo de la arquitectura de IA   · Fase 2 del plan
+  Proyecto Rower · UCAB Consultores para Grupo Kenex
+
+  Archivo hermano del organigrama y del mapa de procesos: se itera sin tocar
+  el informe maestro. TODO lo que se dibuja sale de `arquitectura-datos.js`;
+  aquí solo vive la presentación —posiciones, color y movimiento—.
+
+  El ancho del lienzo es fijo (1440) y se escala con transform, igual que el
+  organigrama propuesto: hace la geometría de los cables determinista. El ALTO
+  se calcula midiendo lo pintado — fijarlo a mano hacía que el texto de un
+  nivel se saliera por encima del siguiente en cuanto el modelo crecía.
+
+  ⚠️ Material interno del equipo consultor.
+  ============================================================================
+-->
+<style>
+:root{
+  --navy:#1F3864; --blue:#2E75B6; --celeste:#9dc3ee;
+  --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
+  --txt:#22304a; --tenue:#55627a; --borde:#d7dfeb; --papel:#f4f7fb;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:Calibri,"Segoe UI",system-ui,sans-serif;
+  color:var(--txt); background:var(--papel);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─────────────────────────────────────────────────────────── cabecera */
+header{
+  background:linear-gradient(135deg,var(--navy),#2a4a80);
+  color:#fff; padding:20px 34px 18px;
+}
+.kick{
+  text-transform:uppercase; letter-spacing:.16em; font-size:12.5px;
+  color:var(--celeste); font-weight:700; margin-bottom:5px;
+}
+h1{margin:0; font-size:29px; letter-spacing:-.01em;}
+.tesis{
+  margin:9px 0 0; font-size:16px; color:#dbe7f6; max-width:1020px; line-height:1.5;
+}
+.tesis b{color:#fff;}
+.volver{
+  position:absolute; top:20px; right:30px;
+  background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.55);
+  border-radius:999px; padding:5px 15px; font-size:13px; font-weight:700;
+  cursor:pointer; font-family:inherit;
+}
+.volver:hover{background:#fff; color:var(--navy); border-color:#fff;}
+header{position:relative;}
+
+/* ─────────────────────────────────────────────────────────── lienzo */
+.escenario{
+  padding:20px 0 8px; display:flex; justify-content:center;
+  overflow:hidden;
+}
+.lienzo{
+  position:relative; width:1440px;
+  transform-origin:top center; flex:none;
+}
+#cables{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
+
+/* ─────────────────────────────────────────────────────────── la torre */
+.nivel{
+  position:absolute; border-radius:12px; padding:15px 20px 14px;
+  background:#fff; border:2px solid var(--borde);
+  box-shadow:0 2px 5px rgba(31,56,100,.07), 0 14px 34px rgba(31,56,100,.09);
+  display:flex; flex-direction:column; gap:5px;
+}
+.nivel .num{
+  position:absolute; left:-17px; top:16px;
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; font-weight:800; color:#fff; background:var(--navy);
+  box-shadow:0 2px 7px rgba(31,56,100,.28);
+}
+.nivel .nom{font-size:19px; font-weight:800; color:var(--navy); letter-spacing:-.01em;}
+.nivel .capa{
+  font-size:11.5px; text-transform:uppercase; letter-spacing:.13em;
+  color:var(--blue); font-weight:700;
+}
+.nivel .lema{font-size:14px; color:var(--tenue); font-style:italic; margin-top:1px;}
+.nivel ul{margin:7px 0 0; padding-left:17px; font-size:13px; line-height:1.5; color:var(--txt);}
+.nivel ul li{margin-bottom:3px;}
+.nivel .nohace{
+  margin-top:auto; padding-top:8px; border-top:1px dashed var(--borde);
+  font-size:12px; color:var(--tenue); line-height:1.45;
+}
+.nivel .nohace b{color:var(--rojo);}
+
+/* cada nivel con su acento */
+.n-ingesta{border-color:#bcd6ef;}      .n-ingesta .num{background:var(--blue);}
+.n-cimiento{border-color:#bcdcc0;}     .n-cimiento .num{background:var(--verde);}
+.n-cimiento .capa{color:var(--verde);}
+.n-inteligencia{border-color:#c3cfe2;}
+.n-decision{
+  background:linear-gradient(135deg,var(--navy),#2a4a80); border-color:var(--navy);
+}
+.n-decision .nom{color:#fff;} .n-decision .capa{color:var(--celeste);}
+.n-decision .lema{color:#cfdff2;} .n-decision ul{color:#e6eefa;}
+.n-decision .num{background:var(--ambar);}
+.n-decision .nohace{color:#cfdff2; border-top-color:rgba(255,255,255,.28);}
+.n-decision .nohace b{color:#ffd7a1;}
+
+/* ───────────────────────────────────────────────────── el cedazo */
+.cedazo{
+  position:absolute; border-radius:9px; padding:12px 18px;
+  background:repeating-linear-gradient(135deg,#fff5e6 0 9px,#ffeacc 9px 18px);
+  border:2px dashed var(--ambar);
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  font-size:13.5px; font-weight:700; color:#8a5310;
+}
+.cedazo .lema{font-weight:400; font-style:italic; color:#a06a20;}
+
+/* ───────────────────────────────────────────────────── las raíces */
+.raiz{
+  position:absolute; border-radius:10px; padding:10px 13px;
+  background:#fff; border:1.5px solid var(--borde);
+  box-shadow:0 1px 3px rgba(31,56,100,.06), 0 8px 20px rgba(31,56,100,.07);
+  display:flex; flex-direction:column; gap:3px;
+}
+.raiz .cab{display:flex; align-items:center; gap:8px;}
+.raiz .nom{font-size:14px; font-weight:800; color:var(--navy); line-height:1.2;}
+.raiz .dato{font-size:11.5px; color:var(--tenue); line-height:1.4;}
+.raiz .pie{
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  font-size:10.5px; color:var(--tenue); margin-top:2px;
+}
+.via{
+  font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.09em;
+  padding:2px 7px; border-radius:999px; white-space:nowrap;
+}
+.via-odoo{background:#e3efe4; color:var(--verde);}
+.via-portal{background:#e2eefa; color:var(--blue);}
+.via-sistema{background:#eceff5; color:var(--navy);}
+.via-externa{background:#fdf0dd; color:var(--ambar);}
+.cadencia{font-weight:700; color:var(--navy);}
+
+/* rótulo del suelo */
+.suelo{
+  position:absolute; left:0; right:0; text-align:center;
+  font-size:12px; text-transform:uppercase; letter-spacing:.18em;
+  color:var(--tenue); font-weight:700;
+}
+.suelo span{font-weight:400; text-transform:none; letter-spacing:0; font-style:italic;}
+
+/* ─────────────────────────────────────────────────────────── pie */
+footer{
+  border-top:1px solid var(--borde); background:#fff;
+  padding:16px 34px 22px; margin-top:6px;
+}
+.numeros{display:flex; gap:34px; flex-wrap:wrap; justify-content:center;}
+.numeros div{text-align:center;}
+.numeros .v{font-size:25px; font-weight:800; color:var(--navy); line-height:1;}
+.numeros .r{font-size:12px; color:var(--tenue); margin-top:3px;}
+.nota-pie{
+  text-align:center; font-size:12.5px; color:var(--tenue);
+  max-width:900px; margin:14px auto 0; line-height:1.55;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kick">Grupo Kenex · Arquitectura de IA</div>
+  <h1>La torre: de dónde viene el dato y en qué se convierte</h1>
+  <p class="tesis">
+    <b>Ninguna inteligencia es mejor que el dato que la alimenta.</b> El dato nace fuera —en la
+    tienda, en el portal del frente, en el muelle de Colón— y sube. Entre la entrada y la
+    inteligencia hay un <b>cedazo</b>: lo que no se puede certificar no sube. Y la torre también
+    baja: lo que se decide arriba vuelve a cada fuente convertido en orden.
+  </p>
+  <button class="volver" id="volver" title="Cerrar y volver al informe">✕ volver</button>
+</header>
+
+<div class="escenario">
+  <div class="lienzo" id="lienzo">
+    <svg id="cables" viewBox="0 0 1440 1060" preserveAspectRatio="none" aria-hidden="true"></svg>
+  </div>
+</div>
+
+<footer>
+  <div class="numeros" id="numeros"></div>
+  <p class="nota-pie" id="nota-pie"></p>
+</footer>
+
+<script src="arquitectura-datos.js"></script>
+<script>
+/* ═══════════════════════════════════════════════ LA GEOMETRÍA
+
+   El ancho del lienzo es fijo; **el alto se calcula**. Las cajas se pintan
+   primero, se miden, y solo entonces se colocan. Fijar las alturas a mano
+   parecía más simple hasta que el texto de un nivel creció y se salió por
+   encima del siguiente: el modelo es la fuente de la verdad y el dibujo tiene
+   que adaptarse a él, no al revés.                                          */
+
+const W = 1440;
+let H = 1200;                       // se recalcula al colocar
+
+const TORRE = { x:520, w:400 };
+const COL_IZQ = 62, COL_DER = 1044, ANCHO_R = 334;
+const MARGEN_SUP = 34, GAP_NIVEL = 18, GAP_CEDAZO = 14, GAP_RAIZ = 16;
+
+/* De arriba abajo, como se mira. El cedazo va entre el dato certificado y la
+   ingesta: es lo último que atraviesa un dato antes de poder certificarse. */
+const ORDEN_VISUAL = ['decision', 'inteligencia', 'cimiento', '__cedazo__', 'ingesta'];
+
+/* La izquierda es lo que se vende y se mueve; la derecha, lo que se compra y
+   lo que gobierna. Las de gobierno entran directamente al dato certificado:
+   no son sucesos, son las definiciones contra las que se leen los sucesos. */
+const COLUMNA = {
+  'venta-tienda': 'izq', 'sell-out-portal': 'izq', 'pedido-mayor': 'izq',
+  'credito': 'izq', 'recepcion': 'izq', 'traslados': 'izq',
+  'reglas': 'der', 'tasas': 'der', 'fabricas': 'der', 'producto': 'der',
+  'compra-internacional': 'der', 'documentos': 'der',
+};
+
+/* Se rellena al colocar: es lo que después usan los cables. */
+const CAJA = {};
+const SITIO = {};
+
+const svg = document.getElementById('cables');
+const lienzo = document.getElementById('lienzo');
+const NS = 'http://www.w3.org/2000/svg';
+
+const el = (t, attrs = {}, txt) => {
+  const n = document.createElementNS(NS, t);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (txt != null) n.textContent = txt;
+  return n;
+};
+
+/* ═══════════════════════════════════════════════ LA TORRE */
+
+function pintaTorre() {
+  for (const n of NIVELES) {
+    const d = document.createElement('div');
+    d.className = 'nivel n-' + n.id;
+    d.id = 'nivel-' + n.id;
+    d.dataset.nivel = n.id;
+    d.style.cssText = `left:${TORRE.x}px; top:0; width:${TORRE.w}px;`;
+    d.innerHTML = `
+      <div class="num">${n.n}</div>
+      <div class="nom">${n.nombre}</div>
+      <div class="capa">${n.capa}</div>
+      <div class="lema">${n.lema}</div>
+      <ul>${n.hace.map(h => `<li>${h}</li>`).join('')}</ul>
+      <div class="nohace"><b>No hace:</b> ${n.noHace}</div>`;
+    lienzo.appendChild(d);
+  }
+
+  const z = document.createElement('div');
+  z.className = 'cedazo';
+  z.id = 'el-cedazo';
+  z.style.cssText = `left:${TORRE.x}px; top:0; width:${TORRE.w}px;`;
+  z.innerHTML = `<span>▲ ${CEDAZO.titulo}</span><span class="lema">${CEDAZO.lema}</span>`;
+  lienzo.appendChild(z);
+}
+
+/* ═══════════════════════════════════════════════ LAS RAÍCES */
+
+function pintaRaices() {
+  for (const r of RAICES) {
+    const col = COLUMNA[r.id];
+    if (!col) { console.warn('raíz sin columna asignada:', r.id); continue; }
+    const d = document.createElement('div');
+    d.className = 'raiz';
+    d.id = 'raiz-' + r.id;
+    d.dataset.raiz = r.id;
+    d.style.cssText = `left:${col === 'izq' ? COL_IZQ : COL_DER}px; top:0; width:${ANCHO_R}px;`;
+    d.innerHTML = `
+      <div class="cab">
+        <span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
+        <span class="nom">${r.nombre}</span>
+      </div>
+      <div class="dato">${r.dato}</div>
+      <div class="pie">
+        <span class="cadencia">${r.cadencia}</span>
+        <span>·</span>
+        <span>${r.dueno}</span>
+      </div>`;
+    lienzo.appendChild(d);
+  }
+
+  const suelo = document.createElement('div');
+  suelo.className = 'suelo';
+  suelo.id = 'suelo';
+  suelo.innerHTML = 'Las raíces · doce sitios donde nace el dato ' +
+                    '<span>— los sistemas de registro: lo que ya existe, no se reemplaza</span>';
+  lienzo.appendChild(suelo);
+}
+
+/* ═══════════════════════════════════════════════ COLOCAR
+
+   Se mide lo pintado y se coloca. La torre de arriba abajo; cada columna de
+   raíces con un ritmo uniforme, centrada en el alto de la torre — así doce
+   tarjetas de altura distinta no pueden solaparse jamás. */
+
+function coloca() {
+  let y = MARGEN_SUP;
+  for (const id of ORDEN_VISUAL) {
+    const esCedazo = id === '__cedazo__';
+    const d = document.getElementById(esCedazo ? 'el-cedazo' : 'nivel-' + id);
+    const h = d.offsetHeight;
+    d.style.top = y + 'px';
+    if (!esCedazo) CAJA[id] = { x: TORRE.x, y, w: TORRE.w, h };
+    y += h + (esCedazo || id === 'cimiento' ? GAP_CEDAZO : GAP_NIVEL);
+  }
+  const altoTorre = y - MARGEN_SUP;
+  const centroTorre = MARGEN_SUP + altoTorre / 2;
+
+  for (const col of ['izq', 'der']) {
+    const cards = RAICES.filter(r => COLUMNA[r.id] === col)
+                        .map(r => ({ r, d: document.getElementById('raiz-' + r.id) }))
+                        .filter(x => x.d);
+    const alto = cards.reduce((a, x) => a + x.d.offsetHeight, 0) + GAP_RAIZ * (cards.length - 1);
+    let ry = Math.max(MARGEN_SUP, centroTorre - alto / 2);
+    for (const x of cards) {
+      x.d.style.top = ry + 'px';
+      SITIO[x.r.id] = { x: col === 'izq' ? COL_IZQ : COL_DER, y: ry, h: x.d.offsetHeight, col };
+      ry += x.d.offsetHeight + GAP_RAIZ;
+    }
+  }
+
+  const suelo = document.getElementById('suelo');
+  const masBajo = Math.max(y, ...Object.values(SITIO).map(s => s.y + s.h));
+  suelo.style.top = (masBajo + 26) + 'px';
+  H = masBajo + 26 + suelo.offsetHeight + 24;
+  lienzo.style.height = H + 'px';
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+}
+
+/* ═══════════════════════════════════════════════ LOS CABLES
+
+   Un cable por raíz, de su borde interior a la cara de la torre del nivel al
+   que entra. Curva de Bézier con el tirón horizontal, para que salga y entre
+   en perpendicular y no se lea como una flecha recta de PowerPoint. */
+
+function cableDe(r) {
+  const s = SITIO[r.id];
+  const izq = s.col === 'izq';
+  const c = CAJA[r.nivel];
+  const x1 = izq ? s.x + ANCHO_R : s.x;
+  const y1 = s.y + s.h / 2;
+  const x2 = izq ? c.x : c.x + c.w;
+  /* el punto de entrada se reparte a lo alto de la cara, para que varios
+     cables no se peguen todos en el mismo sitio */
+  const hermanas = RAICES.filter(o => o.nivel === r.nivel && SITIO[o.id] && SITIO[o.id].col === s.col);
+  const i = hermanas.findIndex(o => o.id === r.id);
+  const paso = c.h / (hermanas.length + 1);
+  const y2 = c.y + paso * (i + 1);
+  const tiron = Math.max(70, Math.abs(x2 - x1) * 0.45);
+  return `M ${x1} ${y1} C ${x1 + (izq ? tiron : -tiron)} ${y1}, ${x2 + (izq ? -tiron : tiron)} ${y2}, ${x2} ${y2}`;
+}
+
+/* Los cables internos de la torre: de un nivel al siguiente, por el centro. */
+function cablesInternos() {
+  const orden = ['ingesta', 'cimiento', 'inteligencia', 'decision'];
+  const out = [];
+  for (let i = 0; i < orden.length - 1; i++) {
+    const a = CAJA[orden[i]], b = CAJA[orden[i + 1]];
+    const x = a.x + a.w / 2;
+    out.push({ id: 'torre-' + orden[i] + '-' + orden[i + 1],
+               d: `M ${x} ${a.y} L ${x} ${b.y + b.h}` });
+  }
+  return out;
+}
+
+function pintaCables() {
+  const defs = el('defs');
+  const g = el('linearGradient', { id:'grad-cable', x1:'0', y1:'0', x2:'1', y2:'0' });
+  g.appendChild(el('stop', { offset:'0%',   'stop-color':'#c3d6ea' }));
+  g.appendChild(el('stop', { offset:'100%', 'stop-color':'#2E75B6' }));
+  defs.appendChild(g);
+  svg.appendChild(defs);
+
+  const capa = el('g', { id:'capa-cables' });
+  for (const r of RAICES) {
+    if (!SITIO[r.id]) continue;
+    capa.appendChild(el('path', {
+      id: 'cable-' + r.id, class: 'cable', 'data-raiz': r.id, d: cableDe(r),
+      fill:'none', stroke:'url(#grad-cable)', 'stroke-width':'2.4',
+      'stroke-linecap':'round', opacity:'.85',
+    }));
+  }
+  for (const c of cablesInternos()) {
+    capa.appendChild(el('path', {
+      id: 'cable-' + c.id, class: 'cable cable-torre', d: c.d,
+      fill:'none', stroke:'#2E75B6', 'stroke-width':'5',
+      'stroke-linecap':'round', opacity:'.5',
+    }));
+  }
+  svg.appendChild(capa);
+}
+
+/* ═══════════════════════════════════════════════ EL PIE */
+
+function pintaPie() {
+  document.getElementById('numeros').innerHTML =
+    NUMEROS.map(n => `<div><div class="v">${n.v}</div><div class="r">${n.r}</div></div>`).join('');
+  document.getElementById('nota-pie').innerHTML =
+    `<b>${CEDAZO.nota}</b> Las cifras de este pie son las del Informe Diagnóstico de Fase 1.`;
+}
+
+/* ═══════════════════════════════════════════════ ESCALA
+
+   El lienzo es fijo; se escala para caber en la ventana. Es lo mismo que hace
+   el organigrama propuesto, y deja la geometría de los cables determinista. */
+
+function escala() {
+  const disp = document.querySelector('.escenario').clientWidth - 24;
+  const k = Math.min(1, disp / W);
+  lienzo.style.transform = `scale(${k})`;
+  document.querySelector('.escenario').style.height = (H + 28) * k + 'px';
+}
+
+/* ═══════════════════════════════════════════════ ARRANQUE */
+
+pintaTorre();
+pintaRaices();
+coloca();          // medir y colocar ANTES de cablear: los cables salen de lo medido
+pintaCables();
+pintaPie();
+escala();
+addEventListener('resize', escala);
+
+document.getElementById('volver').onclick = () => {
+  if (window.parent && window.parent !== window) window.parent.postMessage({ rower:'cerrar' }, '*');
+  else history.length > 1 ? history.back() : location.href = 'informe-diagnostico-fase1.html';
+};
+</script>
+</body>
+</html>
