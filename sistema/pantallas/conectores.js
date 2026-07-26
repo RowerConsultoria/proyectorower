@@ -48,11 +48,17 @@ window.PANTALLAS['frentes/conectores'] = function (lienzo) {
   const n = v => Math.round(v || 0).toLocaleString('es-VE');
   const enVivo = FRENTES.filter(f => f.via === 'odoo');
   const porArchivo = FRENTES.filter(f => f.via === 'portal');
-  const retrasoMedio = FRENTES.reduce((a, f) => a + (DIAS_CADENCIA[f.cadencia] ?? 15), 0) / FRENTES.length;
+  const pesoTotal = FRENTES.reduce((a, f) => a + f.peso, 0);
+
+  /* PONDERADO por la venta de cada frente, que es lo que el rótulo promete.
+     La media simple daba 8,3 días contra 4,1 reales: el doble, y hacía ver la
+     situación peor de lo que es. Lo correcto pesa cada frente por lo que
+     vende — un cliente pequeño que reporta mensual no retrasa la señal del
+     grupo tanto como sugiere contarlo igual que Venezuela. */
+  const retrasoMedio = FRENTES.reduce((a, f) => a + (DIAS_CADENCIA[f.cadencia] ?? 15) * f.peso, 0) / pesoTotal;
 
   /* Cuánta venta del grupo llega con retraso, y de cuánto. Es la cifra que
      convierte la cadencia en una decisión económica. */
-  const pesoTotal = FRENTES.reduce((a, f) => a + f.peso, 0);
   const conRetraso = FRENTES.filter(f => (DIAS_CADENCIA[f.cadencia] ?? 15) >= 7);
   const pesoRetrasado = conRetraso.reduce((a, f) => a + f.peso, 0) / pesoTotal;
 

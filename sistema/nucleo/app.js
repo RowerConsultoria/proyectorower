@@ -217,7 +217,11 @@ function arrancaMarquee() {
    funciona igual servido por HTTP que abriendo el archivo con doble clic. */
 function ruta() {
   const partes = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean);
-  const mod = MODULOS[partes[0]] ? partes[0] : 'compras';
+  /* Sin hash, cada rol entra por su propia pantalla —no por compras—. Quien
+     dirige abre en dirección; quien vende, en comercial. El selector de rol
+     cambia el sistema, no solo el menú. */
+  const inicio = (ROLES[ESTADO.rol] || ROLES.compras).ve[0];
+  const mod = MODULOS[partes[0]] ? partes[0] : inicio;
   return { mod, sub: partes.slice(1).join('/'), llave: partes.slice(0, 2).join('/') };
 }
 
@@ -227,8 +231,20 @@ function navega() {
   ESTADO.modulo = visibles.includes(r.mod) ? r.mod : visibles[0];
   ESTADO.sub = ESTADO.modulo === r.mod ? r.sub : '';
   ESTADO.llave = ESTADO.sub ? ESTADO.modulo + '/' + ESTADO.sub : ESTADO.modulo;
+
+  /* Si el rol no podía ver lo pedido —o la sub-ruta no existe— se cae a la
+     pantalla del módulo. La URL no puede seguir afirmando lo que no se ve:
+     se corrige sin dejar rastro en el historial, para que atrás siga yendo
+     a la pantalla anterior de verdad. */
+  if (ESTADO.sub && !(window.PANTALLAS || {})[ESTADO.llave]) {
+    ESTADO.sub = ''; ESTADO.llave = ESTADO.modulo;
+  }
+  const deseada = '#/' + ESTADO.llave;
+  if (location.hash && location.hash !== deseada) history.replaceState(null, '', deseada);
+
   pintaMenu();
   pintaLienzo();
+  pintaHud();
   $('.lienzo').scrollTop = 0;
 }
 
@@ -301,7 +317,12 @@ function pintaHud() {
      negocio, el HUD cambia solo */
   const r = (typeof resumenAgentes === 'function') ? resumenAgentes()
           : { esperanFirma: 0, preparadas: 0, ejecutadas: 0, enviadasSinFirmaHumana: 0 };
-  $('#hud').innerHTML = `
+  /* En dirección no aparece: esa pantalla declara «solo lectura · aquí la IA
+     no actúa», y una píldora flotante que invita a firmar la contradice. Sus
+     mismas cifras están dentro, dichas con todas las letras. */
+  const hud = $('#hud');
+  hud.style.display = ESTADO.modulo === 'direccion' ? 'none' : '';
+  hud.innerHTML = `
     <span class="orbe orbe-grande actuando"></span>
     <div class="txt">
       <b>${r.esperanFirma} esperan tu firma</b>

@@ -731,7 +731,40 @@ td.propuesta .valor{display:inline-flex;align-items:center;gap:6px;font-weight:6
   .nucleo,.flechas{width:100%}
 }
 
-/* -------------------------------------------------------------- 23. UTILES */
+/* ------------------------------------------------ 23. EL CICLO DE DIRECCIÓN */
+
+.ciclo{display:flex;align-items:stretch;gap:0}
+.eslabon{
+  flex:1;min-width:0;padding:16px 12px;text-align:center;cursor:pointer;
+  background:var(--panel-alto);border:1px solid var(--borde);border-radius:var(--r-tarjeta);
+  transition:border-color var(--rapido) var(--curva),transform var(--rapido) var(--curva);
+}
+.eslabon:hover{border-color:var(--tinta-tenue);transform:translateY(-2px)}
+.eslabon.con-alerta{border-color:rgba(255,201,74,.42)}
+.eslabon .ico{font-size:17px;opacity:.75}
+.eslabon .tt{font-size:11.5px;font-weight:650;margin-top:8px;line-height:1.25}
+.eslabon .vv{font-size:11px;color:var(--tinta-media);margin-top:6px}
+.eslabon .al{font-size:10.5px;margin-top:8px;color:var(--n3);font-weight:600}
+.eslabon .al.ok{color:var(--tinta-tenue);font-weight:400}
+.ciclo .union{width:22px;flex:none;align-self:center;height:2px;background:var(--borde)}
+
+/* la barra de consulta: preguntas cerradas, no un cuadro de texto libre */
+.consulta{
+  padding:10px 14px;border-radius:var(--r-chip);
+  background:var(--panel-alto);border:1px solid var(--borde);
+  font-size:12.5px;color:var(--tinta-media);cursor:pointer;
+  transition:all var(--rapido) var(--curva);
+}
+.consulta:hover{border-color:var(--tinta-tenue);color:var(--tinta)}
+.consulta.on{background:var(--gradiente-suave);border-color:var(--menta);color:var(--tinta);font-weight:600}
+
+@media (max-width:1100px){
+  .ciclo{flex-wrap:wrap;gap:10px}
+  .ciclo .union{display:none}
+  .eslabon{flex:1 1 30%}
+}
+
+/* -------------------------------------------------------------- 24. UTILES */
 
 .sep{height:1px;background:var(--borde-tenue);margin:18px 0;border:0}
 .pila{display:flex;flex-direction:column}
