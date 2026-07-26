@@ -118,6 +118,14 @@ const VIAS = {
   externa: { rotulo: 'fuente externa', detalle: 'la produce un tercero y entra fechada' },
 };
 
+/* `grado`  · lo grave que es lo que se rompe sin esa raíz (2 · serio, 3 · crítico).
+             Da grosor al cable: se ve qué falta duele más.
+   `ritmo`  · con qué continuidad fluye ese dato, de 1 (a tirones, cada muchas
+             semanas) a 5 (continuo, en cuanto ocurre). Da VELOCIDAD al cable.
+             La animación no es decoración: la corriente de un frente que
+             reporta mensual se arrastra, y la de una tienda con Odoo va
+             seguida. Se ve la cadencia antes de leerla.                      */
+
 const RAICES = [
   {
     id: 'venta-tienda', nombre: 'Venta de tienda',
@@ -125,7 +133,7 @@ const RAICES = [
     via: 'odoo', cadencia: 'evento', dueno: 'operación de cada país', nivel: 'ingesta',
     hoy: 'cada país lo consolida por su cuenta y lo manda en una hoja distinta',
     rompe: 'sin ella la demanda del grupo es un recuerdo: se compra contra lo que alguien cree que se vendió',
-    grado: 2,
+    grado: 2, ritmo: 5,
   },
   {
     id: 'sell-out-portal', nombre: 'Sell-out de frentes sin Odoo',
@@ -133,7 +141,7 @@ const RAICES = [
     via: 'portal', cadencia: 'quincenal a mensual', dueno: 'gerencia comercial', nivel: 'ingesta',
     hoy: 'llega por correo, con un formato distinto por frente y nombres de producto que no coinciden',
     rompe: 'siete de cada diez frentes desaparecen de la demanda, y la compra se calcula sobre la mitad del negocio',
-    grado: 3,
+    grado: 3, ritmo: 1,
   },
   {
     id: 'pedido-mayor', nombre: 'Pedido de venta al mayor',
@@ -141,7 +149,7 @@ const RAICES = [
     via: 'sistema', cadencia: 'evento', dueno: 'gerencia comercial', nivel: 'ingesta',
     hoy: 'se toma por mensajería y se transcribe a una hoja de cálculo',
     rompe: 'la línea que no se puede atender se borra, y con ella el rastro de que alguien la quiso',
-    grado: 3,
+    grado: 3, ritmo: 5,
   },
   {
     id: 'compra-internacional', nombre: 'Compra internacional',
@@ -149,7 +157,7 @@ const RAICES = [
     via: 'sistema', cadencia: 'mensual · el ciclo de compra', dueno: 'dirección de compras', nivel: 'ingesta',
     hoy: 'una hoja de cálculo que viaja por correo y de la que existen varias versiones a la vez',
     rompe: 'no hay forma de comparar lo que se pidió con lo que se recibió ni con lo que se vendió',
-    grado: 3,
+    grado: 3, ritmo: 2,
   },
   {
     id: 'recepcion', nombre: 'Recepción en Colón',
@@ -157,7 +165,7 @@ const RAICES = [
     via: 'sistema', cadencia: 'evento · por contenedor', dueno: 'operaciones', nivel: 'ingesta',
     hoy: 'conteo en papel que después alguien pasa a un archivo',
     rompe: 'la existencia del hub no existe como dato, y todo el reparto se vuelve una negociación',
-    grado: 2,
+    grado: 2, ritmo: 4,
   },
   {
     id: 'documentos', nombre: 'Documentos del embarque',
@@ -165,23 +173,23 @@ const RAICES = [
     via: 'externa', cadencia: 'evento · con retraso', dueno: 'operaciones y finanzas', nivel: 'ingesta',
     hoy: 'llegan tarde y por correo; el costo se estima mientras tanto y casi nunca se corrige',
     rompe: 'el costo en destino no cierra — y sin costo cierto no hay margen cierto ni próxima compra defendible',
-    grado: 3,
+    grado: 3, ritmo: 2,
   },
   {
     id: 'traslados', nombre: 'Traslados y movimientos',
     dato: 'qué se movió entre almacenes, cuándo y por qué',
-    via: 'sistema', cadencia: 'evento', dueno: 'operaciones', nivel: 'ingesta',
+    via: 'sistema', cadencia: 'evento · a diario', dueno: 'operaciones', nivel: 'ingesta',
     hoy: 'se acuerda por teléfono y se registra después, si se registra',
     rompe: 'se compra afuera lo que ya se tiene parado adentro',
-    grado: 2,
+    grado: 2, ritmo: 4,
   },
   {
     id: 'producto', nombre: 'Desarrollo de producto',
     dato: 'candidatos, muestras, pruebas y la decisión de graduar al catálogo',
-    via: 'sistema', cadencia: 'evento', dueno: 'desarrollo de producto', nivel: 'cimiento',
+    via: 'sistema', cadencia: 'evento · esporádico', dueno: 'desarrollo de producto', nivel: 'cimiento',
     hoy: 'vive en conversaciones y en muestras físicas; no hay registro de cuánto lleva parado un candidato',
     rompe: 'el catálogo crece sin criterio, y se compra lo que nunca se probó',
-    grado: 3,
+    grado: 3, ritmo: 3,
   },
   {
     id: 'fabricas', nombre: 'Fábricas y proveedores',
@@ -189,7 +197,7 @@ const RAICES = [
     via: 'sistema', cadencia: 'mensual', dueno: 'dirección de compras', nivel: 'cimiento',
     hoy: 'está en la cabeza de quien negocia; el incumplimiento se recuerda, no se mide',
     rompe: 'se negocia con una queja recurrente en vez de con un historial',
-    grado: 2,
+    grado: 2, ritmo: 2,
   },
   {
     id: 'tasas', nombre: 'Tasas de cambio',
@@ -197,7 +205,7 @@ const RAICES = [
     via: 'externa', cadencia: 'diaria', dueno: 'finanzas', nivel: 'cimiento',
     hoy: 'se aplica la que cada quien tiene a mano, sin dejar constancia de cuál fue',
     rompe: 'ninguna cifra del grupo es comparable con otra, y nadie puede decir con qué tasa se calculó',
-    grado: 3,
+    grado: 3, ritmo: 4,
   },
   {
     id: 'credito', nombre: 'Crédito y saldo',
@@ -205,7 +213,7 @@ const RAICES = [
     via: 'odoo', cadencia: 'diaria', dueno: 'finanzas', nivel: 'cimiento',
     hoy: 'se consulta al momento de despachar, cuando ya se prometió',
     rompe: 'se despacha a quien no debería, y el examen de crédito llega tarde',
-    grado: 2,
+    grado: 2, ritmo: 4,
   },
   {
     id: 'reglas', nombre: 'Reglas de negocio',
@@ -213,7 +221,7 @@ const RAICES = [
     via: 'sistema', cadencia: 'cuando la cambia su dueño', dueno: 'cada función responsable', nivel: 'cimiento',
     hoy: 'no están escritas: son criterio personal, y cambian con quien esté ese día',
     rompe: 'las decisiones vuelven a depender de quién las tome, que es el hallazgo central del diagnóstico',
-    grado: 3,
+    grado: 3, ritmo: 1,
   },
 ];
 

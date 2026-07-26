@@ -145,6 +145,44 @@ header{position:relative;}
 .via-externa{background:#fdf0dd; color:var(--ambar);}
 .cadencia{font-weight:700; color:var(--navy);}
 
+/* ─────────────────────────────────────────────── la corriente
+
+   La velocidad NO es decoración: sale de la cadencia real de cada fuente. Una
+   tienda con Odoo va seguida; un frente que reporta cada quince días se
+   arrastra y a tirones. Se ve la cadencia antes de leerla.                  */
+
+.flujo{
+  fill:none; stroke:var(--blue); stroke-linecap:round;
+  animation:corre var(--t,2s) linear infinite;
+}
+@keyframes corre{ to{ stroke-dashoffset:var(--salto,-52); } }
+
+/* Con el flujo en pausa, la corriente se queda quieta pero los cables siguen:
+   la lámina impresa y la captura del deck tienen que verse bien. */
+body.quieto .flujo{animation:none;}
+
+@media (prefers-reduced-motion:reduce){ .flujo{animation:none;} }
+
+/* ─────────────────────────────────────────────── la barra de mandos */
+.mandos{
+  display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+  padding:11px 20px; background:#fff; border-bottom:1px solid var(--borde);
+  font-size:12.5px; color:var(--tenue);
+}
+.mando{
+  background:#fff; color:var(--navy); border:1.5px solid var(--borde);
+  border-radius:999px; padding:5px 14px; font-size:12.5px; font-weight:700;
+  cursor:pointer; font-family:inherit;
+}
+.mando:hover{border-color:var(--blue); color:var(--blue);}
+.mando.on{background:var(--navy); color:#fff; border-color:var(--navy);}
+.leyenda-ritmo{display:flex; align-items:center; gap:9px;}
+.leyenda-ritmo .barra{
+  width:74px; height:7px; border-radius:99px;
+  background:linear-gradient(90deg,#dfe8f3,var(--blue));
+}
+.leyenda-ritmo b{color:var(--navy);}
+
 /* rótulo del suelo */
 .suelo{
   position:absolute; left:0; right:0; text-align:center;
@@ -181,6 +219,15 @@ footer{
   </p>
   <button class="volver" id="volver" title="Cerrar y volver al informe">✕ volver</button>
 </header>
+
+<div class="mandos">
+  <button class="mando" id="pausa" title="Detener la corriente para leer o capturar">⏸ pausar el flujo</button>
+  <span class="leyenda-ritmo">
+    <span>la velocidad de cada cable es <b>la cadencia real</b> de esa fuente</span>
+    <span class="barra"></span>
+    <span>de <b>cada quince días</b> a <b>en cuanto ocurre</b></span>
+  </span>
+</div>
 
 <div class="escenario">
   <div class="lienzo" id="lienzo">
@@ -384,20 +431,39 @@ function pintaCables() {
   svg.appendChild(defs);
 
   const capa = el('g', { id:'capa-cables' });
+
+  /* El cable y su corriente son dos trazos con la MISMA curva: el de abajo es
+     el conducto —quieto, pálido— y el de arriba la corriente que lo recorre.
+     Separarlos permite pausar una sin perder el otro. */
+  const tiende = (id, d, base, flujo) => {
+    capa.appendChild(el('path', Object.assign({ id: 'cable-' + id, class: 'cable', d,
+      fill:'none', 'stroke-linecap':'round' }, base)));
+    capa.appendChild(el('path', Object.assign({ id: 'flujo-' + id, class: 'flujo', d }, flujo)));
+  };
+
   for (const r of RAICES) {
     if (!SITIO[r.id]) continue;
-    capa.appendChild(el('path', {
-      id: 'cable-' + r.id, class: 'cable', 'data-raiz': r.id, d: cableDe(r),
-      fill:'none', stroke:'url(#grad-cable)', 'stroke-width':'2.4',
-      'stroke-linecap':'round', opacity:'.85',
-    }));
+    /* grado 3 = sin esa raíz se cae algo crítico: cable más grueso. */
+    const grueso = r.grado >= 3 ? 3.2 : 2.2;
+    /* ritmo 5 va seguido y rápido; ritmo 1, a tirones y lento. El hueco entre
+       trazos crece al bajar el ritmo, que es lo que hace que se lea
+       «intermitente» y no solo «despacio». */
+    const dur = (4.6 - r.ritmo * 0.62).toFixed(2);
+    const trazo = 6 + r.ritmo * 2;
+    const hueco = 46 - r.ritmo * 6;
+    tiende(r.id, cableDe(r),
+      { stroke:'url(#grad-cable)', 'stroke-width':grueso, opacity:'.42', 'data-raiz':r.id },
+      { 'stroke-width':grueso, 'data-raiz':r.id, opacity: (0.45 + r.ritmo * 0.09).toFixed(2),
+        style:`--t:${dur}s; --salto:-${trazo + hueco}px; stroke-dasharray:${trazo} ${hueco}` });
   }
+
+  /* Dentro de la torre la corriente es continua: una vez certificado, el dato
+     está siempre disponible para el piso de arriba. */
   for (const c of cablesInternos()) {
-    capa.appendChild(el('path', {
-      id: 'cable-' + c.id, class: 'cable cable-torre', d: c.d,
-      fill:'none', stroke:'#2E75B6', 'stroke-width':'5',
-      'stroke-linecap':'round', opacity:'.5',
-    }));
+    tiende(c.id, c.d,
+      { stroke:'#2E75B6', 'stroke-width':'6', opacity:'.28' },
+      { 'stroke-width':'6', opacity:'.7',
+        style:'--t:1.5s; --salto:-40px; stroke-dasharray:16 24' });
   }
   svg.appendChild(capa);
 }
@@ -432,6 +498,16 @@ pintaCables();
 pintaPie();
 escala();
 addEventListener('resize', escala);
+
+/* La pausa: para leer con calma, para capturar la lámina del deck, y para
+   quien la animación le moleste. El sistema respeta además la preferencia de
+   movimiento reducido del propio equipo. */
+const btPausa = document.getElementById('pausa');
+btPausa.onclick = () => {
+  const quieto = document.body.classList.toggle('quieto');
+  btPausa.classList.toggle('on', quieto);
+  btPausa.textContent = quieto ? '▶ reanudar el flujo' : '⏸ pausar el flujo';
+};
 
 document.getElementById('volver').onclick = () => {
   if (window.parent && window.parent !== window) window.parent.postMessage({ rower:'cerrar' }, '*');
