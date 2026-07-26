@@ -175,7 +175,13 @@ const media = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0;
  * —eso hundiría la compra— y además se estima lo que se dejó de vender.
  * Es lo primero que ocurre cada noche, antes de calcular ninguna compra.
  */
+/* La demanda saneada se consulta muchísimo —cada fila de cada mesa, y el
+   llenado de MOQ la pide en bucle—, y recorre 10 frentes × 12 meses cada vez.
+   Se memoriza: los datos semilla no cambian durante la sesión. */
+const _memoDemanda = {};
+
 function demandaSaneada(sku) {
+  if (_memoDemanda[sku]) return _memoDemanda[sku];
   const quiebres = QUIEBRES[sku] || [];
   let mensual = 0, noAtendida = 0, mesesExcluidos = 0;
   const detalle = {};
@@ -193,11 +199,60 @@ function demandaSaneada(sku) {
     }
     detalle[f.id] = Math.round(m);
   }
-  return {
+  return (_memoDemanda[sku] = {
     mensual: Math.round(mensual),
     noAtendida,
     mesesExcluidos,
     porFrente: detalle,
+  });
+}
+
+/**
+ * Llenar el pedido mínimo de una fábrica sin sobrecomprar.
+ *
+ * El MOQ es POR FÁBRICA, no por producto: da igual que un reloj necesite 100
+ * unidades si la fábrica no produce por debajo de 5.000. Aquí está el cálculo
+ * que hoy no existe y que hace inservible cualquier sugerido automático.
+ *
+ * El reparto del faltante es goloso y por eso no sobrecompra: cada lote va a
+ * la referencia que en ese momento tenga la MENOR cobertura proyectada, así
+ * que nada se llena de más mientras algo esté por debajo.
+ */
+function completarMOQ(fabricaId, ajustes = {}) {
+  const fab = FABRICAS.find(f => f.id === fabricaId);
+  const skus = CATALOGO.filter(p => p.fabrica === fabricaId);
+  const base = {}, anadido = {};
+  let total = 0;
+
+  for (const p of skus) {
+    const n = ajustes[p.sku] ?? propuestaCompra(p.sku).necesidad;
+    base[p.sku] = n; total += n;
+  }
+
+  const LOTE = 50;
+  let falta = Math.max(0, fab.moq - total), guarda = 0;
+  while (falta > 0 && guarda++ < 400) {
+    let elegido = null, menor = Infinity;
+    for (const p of skus) {
+      const d = demandaSaneada(p.sku);
+      if (!d.mensual) continue;
+      const cob = ((STOCK_HUB[p.sku] || 0) + base[p.sku] + (anadido[p.sku] || 0)) / d.mensual;
+      if (cob < menor) { menor = cob; elegido = p.sku; }
+    }
+    if (!elegido) break;
+    const lote = Math.min(LOTE, falta);
+    anadido[elegido] = (anadido[elegido] || 0) + lote;
+    falta -= lote;
+  }
+
+  const sumaAnadido = Object.values(anadido).reduce((a, b) => a + b, 0);
+  return {
+    fab, skus, base, anadido,
+    propio: total,                       // lo que pide la necesidad real
+    completado: sumaAnadido,             // lo que hay que añadir para alcanzar el mínimo
+    total: total + sumaAnadido,
+    alcanza: total + sumaAnadido >= fab.moq,
+    hayNecesidad: total > 0,
   };
 }
 
@@ -641,6 +696,6 @@ function resumenAgentes() {
 /* disponible para las pantallas y para la comprobación desde Node */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
-    calculaNivel, demandaSaneada, propuestaCompra, existenciaOciosa, reparte,
+    calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
     turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, resumenAgentes, compensa, disponible };
 }
