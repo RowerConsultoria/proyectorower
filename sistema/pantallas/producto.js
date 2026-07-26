@@ -95,9 +95,20 @@ window.PANTALLAS.producto = function (lienzo) {
                    style="${_prod.abierto === c.id ? 'border-color:var(--menta)' : ''}">
         <div class="fila-sep">
           <div class="fila gap-12">
-            <div class="marcador" style="background:${grad ? 'var(--ok)' : desc ? 'var(--tinta-tenue)' : 'var(--panel-alto)'};
-                 width:40px;height:40px;border-radius:13px;color:${grad || desc ? '#0A0E13' : 'var(--tinta-media)'}">
-              ${grad ? '✓' : desc ? '×' : c.familia.slice(0, 2).toUpperCase()}</div>
+            <!-- Un candidato no tiene fotografía propia todavía: se muestra la de su
+                 equivalente, con borde punteado para que no se confunda con el producto real. -->
+            <div style="position:relative;flex:none">
+              ${p.eq ? `<img src="img/${p.eq.img}" alt="" loading="lazy"
+                   style="width:46px;height:46px;border-radius:14px;object-fit:cover;
+                          background:var(--panel-alto);border:1.5px dashed var(--borde);opacity:${desc ? '.4' : '.9'}">`
+                : `<div class="marcador" style="width:46px;height:46px;border-radius:14px">${c.familia.slice(0, 2).toUpperCase()}</div>`}
+              ${grad ? `<span style="position:absolute;right:-4px;bottom:-4px;width:19px;height:19px;border-radius:50%;
+                   background:var(--ok);color:#0A0E13;font-size:11px;font-weight:700;display:flex;
+                   align-items:center;justify-content:center;border:2px solid var(--fondo)">✓</span>` : ''}
+              ${desc ? `<span style="position:absolute;right:-4px;bottom:-4px;width:19px;height:19px;border-radius:50%;
+                   background:var(--tinta-tenue);color:#0A0E13;font-size:11px;font-weight:700;display:flex;
+                   align-items:center;justify-content:center;border:2px solid var(--fondo)">×</span>` : ''}
+            </div>
             <div>
               <div class="fila gap-8"><b style="font-size:14px">${c.nombre}</b>
                 <span class="marca-estado ${grad ? 'e-ok' : desc ? 'e-neutro' : bl.length ? 'e-alerta' : 'e-ok'}">

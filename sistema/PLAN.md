@@ -142,12 +142,18 @@ distinto de todo lo que hace el agente.
 Agrupada por fábrica porque el pedido mínimo es por fábrica: barra de llenado del MOQ, lead
 time, esquema de pago, y qué referencias añadir para alcanzar el mínimo sin sobrecomprar.
 
-### Fase 10 · Desarrollo de producto nuevo
+### Fase 10 · Desarrollo de producto nuevo · y el módulo de fábricas
 De dónde sale lo que se compra. El embudo del producto candidato: **idea → muestra pedida →
 muestra en prueba → decisión → graduado al catálogo → primera compra**. Ficha del candidato con
 su fábrica, su costo objetivo, su precio de venta previsto y su margen; comparación contra
 productos equivalentes ya en catálogo; y el comité que decide con la evidencia delante.
 **La regla que lo conecta todo: solo un producto graduado puede entrar en una mesa de compra.**
+
+Incluye el **módulo `fábricas`**, pedido por el cliente al ver la fase: el pedido mínimo, el plazo
+y el esquema de pago condicionan toda la compra de la marca propia y solo existían dentro de la
+mesa. Aquí tienen su sitio junto a lo único que permite negociarlos —el historial de cumplimiento—
+y junto al proveedor representado, cuya restricción no es el mínimo sino qué proporción de lo
+pedido termina asignando.
 **Revisas:** es el módulo que pediste añadir, y es el que convierte el catálogo en algo vivo.
 
 ### Fase 11 · Torre de tránsitos y costeo en destino
@@ -247,6 +253,7 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **8 · Cierre del pedido y techo** | ✅ **hecha** — `pantallas/cierre.js` |
 | **9 · Mesa de Cubitt por fábrica** | ✅ **hecha** — `pantallas/mesa-cubitt.js` |
 | **10 · Desarrollo de producto** | ✅ **hecha** — `pantallas/producto.js` + `datos/candidatos.js` |
+| **10b · Fábricas y proveedores** | ✅ **hecha** — `pantallas/fabricas.js` + `datos/proveedores.js` |
 | 11 · Torre de tránsitos | pendiente |
 | 12–14 · Distribución y logística | pendiente |
 | 15–18 · Comercial y frentes | pendiente |

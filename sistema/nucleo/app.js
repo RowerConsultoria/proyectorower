@@ -16,22 +16,22 @@
 const ROLES = {
   direccion: {
     nombre: 'dirección ejecutiva',
-    ve: ['direccion', 'compras', 'distribucion', 'logistica', 'comercial', 'frentes', 'producto', 'cimiento', 'agentes'],
+    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'comercial', 'frentes', 'producto', 'cimiento', 'agentes'],
     firma: 'todo, sin tope',
   },
   compras: {
     nombre: 'dirección de compras',
-    ve: ['compras', 'distribucion', 'producto', 'logistica', 'comercial', 'frentes', 'cimiento', 'agentes'],
+    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'comercial', 'frentes', 'cimiento', 'agentes'],
     firma: 'compras, reparto y traslados',
   },
   analista: {
     nombre: 'analista de compras y datos',
-    ve: ['compras', 'producto', 'frentes', 'cimiento', 'agentes'],
+    ve: ['compras', 'producto', 'fabricas', 'frentes', 'cimiento', 'agentes'],
     firma: 'normalización y excepciones',
   },
   producto: {
     nombre: 'desarrollo de producto',
-    ve: ['producto', 'compras', 'cimiento', 'agentes'],
+    ve: ['producto', 'fabricas', 'compras', 'cimiento', 'agentes'],
     firma: 'graduación de candidatos',
   },
   logistica: {
@@ -46,7 +46,7 @@ const ROLES = {
   },
   sistemas: {
     nombre: 'sistemas',
-    ve: ['frentes', 'cimiento', 'agentes', 'direccion', 'compras', 'distribucion', 'logistica', 'comercial', 'producto'],
+    ve: ['frentes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'comercial', 'producto'],
     firma: 'reglas y conectores · no ve dinero',
   },
 };
@@ -66,6 +66,11 @@ const MODULOS = {
     ico: '✦', nombre: 'desarrollo de producto', grupo: 'operación', fase: 10,
     para: 'I+D y producto de marca propia',
     resuelve: 'El embudo del candidato —muestra, prueba, decisión— hasta que gradúa al catálogo. Solo un producto graduado es comprable.',
+  },
+  fabricas: {
+    ico: '⌂', nombre: 'fábricas', grupo: 'operación', fase: 10,
+    para: 'compras y desarrollo de producto',
+    resuelve: 'El pedido mínimo, el plazo y el esquema de pago de cada fábrica, junto al historial de si cumple lo que promete. Es lo que convierte una queja recurrente en una negociación con argumentos.',
   },
   compras: {
     ico: '▤', nombre: 'compras', grupo: 'operación', fase: 6,
