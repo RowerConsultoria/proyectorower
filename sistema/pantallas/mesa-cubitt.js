@@ -105,11 +105,11 @@ window.PANTALLAS['compras/cubitt'] = function (lienzo) {
           </div>
           <div class="fila gap-16">
             ${b.hayNecesidad ? `<div class="dato" style="text-align:right">
-              <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">total</div>
+              <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">total · u</div>
               <div class="cifra-media">${n(b.total)} <span class="tenue" style="font-size:12px;font-weight:400">u</span></div>
             </div>
             <div class="dato" style="text-align:right">
-              <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">monto</div>
+              <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">monto · USD</div>
               <div class="cifra-media">${n(usd)}</div>
             </div>` : ''}
             <span class="apunte tenue">${abierta ? '▾' : '▸'}</span>

@@ -10,7 +10,9 @@ algo se ve distinta, y la lámina debe enseñar la que corresponde a su historia
 import io, sys, os
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 from playwright.sync_api import sync_playwright
-DEST = r'C:\Users\marke\Desktop\Github Projects\Rower\informe\fase1\img-sistema'
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DEST = os.path.join(RAIZ, 'informe', 'fase1', 'img-sistema')
+os.makedirs(DEST, exist_ok=True)
 TOMAS = [
   ('direccion',  'direccion',          'sistemas',  None),
   ('mesa',       'compras/casio',      'compras',   None),

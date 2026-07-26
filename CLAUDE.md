@@ -48,7 +48,8 @@ Dos secciones, ambas accesibles desde el portal raíz (`index.html`):
 
 ## Flujo de trabajo
 
-- **Servidor local:** `python -m http.server 8080` desde la raíz (o `scripts/servidor-local.bat`). El validador HTML del equipo vive en el scratchpad de sesión; recrearlo si hace falta (HTMLParser tolerante que excluye el contenido de `srcdoc`).
+- **Servidor local:** `python -m http.server 8080` desde la raíz (o `scripts/servidor-local.bat`).
+- **Comprobaciones antes de commitear** (ver `scripts/README.md`): `python scripts/validar-html.py` valida los 9 HTML del repo (HTMLParser tolerante que excluye el contenido de `srcdoc`); `python scripts/comprobar-sistema.py` corre las 7 del prototipo —rutas, contraste WCAG AA, cifras del recorrido contra la pantalla, ámbitos de firma, reglas huérfanas, moneda y freno—. Las dos salen con código 1 si algo falla. ⚠️ Si añades una comprobación, **rómpela a propósito primero** y confirma que la detecta.
 - **Git:** `main` es la default y se publica directo a ella (cuenta `gmontieltoro`, permiso Write — los cambios de settings del repo requieren un admin de la org). Commits atómicos por lote con mensaje descriptivo. Si el usuario pide "no push", commitear en local y esperar autorización.
 - **Numeración interna del informe:** tras la reestructuración de jul-2026, si se reordena cualquier sección: PRIMERO renumerar con tabla de equivalencias y propagar TODAS las referencias (grep de control al final), DESPUÉS redactar texto nuevo con la numeración nueva. Ver protocolo en `gestion/AUDITORIA_HILO_CONDUCTOR_17jul.md` §10. ⚠️ Desde el acordeón del sidenav, los `<h3>` llevan **id derivado de su número** (`sN-M`): al renumerar hay que propagar también esos ids y los `href="#sN-M"`/`data-sub` del menú, o los subpuntos apuntarán al sitio equivocado. Control: cada `data-sub` debe tener un `<h3>` con ese id.
 

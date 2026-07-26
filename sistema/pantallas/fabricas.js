@@ -138,7 +138,7 @@ window.PANTALLAS.fabricas = function (lienzo) {
               relación desde ${x.d.desde ?? '—'}</div>
           </div>
           <div class="fila gap-24" style="text-align:right">
-            <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">mínimo</div>
+            <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">mínimo · u</div>
               <div class="cifra-media">${n(x.f.moq)}</div></div>
             <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">plazo</div>
               <div class="cifra-media">${x.f.leadDias} d</div></div>

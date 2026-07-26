@@ -111,7 +111,7 @@ window.PANTALLAS.logistica = function (lienzo) {
             ${n(r.cajasTotal)} cajas · ${r.lineas.length} referencias</div>
         </div>
         <div style="text-align:right">
-          <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">avance</div>
+          <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">avance · cajas</div>
           <div class="cifra-media">${n(ubicadas)} / ${n(r.cajasTotal)}</div>
         </div>
       </div>

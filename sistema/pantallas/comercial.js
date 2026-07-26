@@ -161,7 +161,7 @@ window.PANTALLAS.comercial = function (lienzo) {
               ⚠ ${x.motivos.join(' · ')}</div>` : ''}
           </div>
           <div class="fila gap-20" style="text-align:right">
-            <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">valor</div>
+            <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">valor · USD</div>
               <div class="cifra-media">${n(x.valor)}</div></div>
             <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">margen</div>
               <div class="cifra-media" style="color:${x.margen < 0.28 ? 'var(--n3)' : 'var(--ok)'}">${(x.margen * 100).toFixed(0)} %</div></div>
