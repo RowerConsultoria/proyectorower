@@ -219,6 +219,75 @@ body.quieto .flujo{animation:none;}
 }
 .leyenda-ritmo b{color:var(--navy);}
 
+/* ─────────────────────────────────────────────── el foco
+
+   Clic en una fuente: se ilumina su recorrido y se apaga el resto. Atenuar en
+   vez de esconder — lo que se apaga sigue ahí, y se entiende que el foco es
+   una lente y no un filtro que borró la mitad del modelo.                  */
+
+.raiz{cursor:pointer; transition:opacity .28s, transform .18s, box-shadow .18s;}
+.raiz:hover{transform:translateY(-2px); box-shadow:0 3px 8px rgba(31,56,100,.10), 0 14px 30px rgba(31,56,100,.13);}
+.nivel, .cedazo, .cola{transition:opacity .28s;}
+.cable, .flujo{transition:opacity .28s;}
+
+body.enfocado .raiz:not(.on),
+body.enfocado .nivel:not(.on),
+body.enfocado .cedazo:not(.on),
+body.enfocado .cola:not(.on){opacity:.2;}
+body.enfocado .cable:not(.on),
+body.enfocado .flujo:not(.on){opacity:.07 !important;}
+
+.raiz.on{
+  border-color:var(--blue); border-width:2px;
+  box-shadow:0 0 0 4px rgba(46,117,182,.14), 0 14px 32px rgba(31,56,100,.16);
+}
+.nivel.on{border-color:var(--blue);}
+body.enfocado .flujo.on{opacity:1 !important; stroke:var(--navy);}
+body.enfocado .cable.on{opacity:.5 !important;}
+
+/* ─────────────────────────────────────────────── la ficha lateral
+
+   Fuera del lienzo escalado, a propósito: dentro, al 55 % de escala, el texto
+   se volvería ilegible justo cuando más falta hace leerlo.                 */
+.ficha{
+  position:fixed; top:0; right:0; bottom:0; width:392px; z-index:50;
+  background:#fff; border-left:1px solid var(--borde);
+  box-shadow:-14px 0 40px rgba(31,56,100,.16);
+  transform:translateX(100%); transition:transform .3s cubic-bezier(.22,.61,.36,1);
+  display:flex; flex-direction:column; overflow:auto;
+}
+.ficha.abierta{transform:none;}
+/* El lienzo cede el ancho de la ficha y se reescala. Sin esto, la tarjeta
+   que acabas de pulsar queda debajo del panel que la explica. */
+body.con-ficha .escenario{padding-right:392px; transition:padding-right .3s cubic-bezier(.22,.61,.36,1);}
+.escenario{transition:padding-right .3s cubic-bezier(.22,.61,.36,1);}
+.ficha .cabf{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff; padding:18px 22px 16px;}
+.ficha .cabf .via{margin-bottom:8px; display:inline-block;}
+.ficha .cabf h2{margin:0; font-size:21px; letter-spacing:-.01em;}
+.ficha .cabf .dato{font-size:13.5px; color:#dbe7f6; margin-top:6px; line-height:1.45;}
+.ficha .cuerpo{padding:18px 22px 26px; display:flex; flex-direction:column; gap:16px;}
+.bloque .r{
+  font-size:10.5px; text-transform:uppercase; letter-spacing:.14em;
+  font-weight:800; color:var(--blue); margin-bottom:5px;
+}
+.bloque p{margin:0; font-size:13.5px; line-height:1.55;}
+.bloque.rompe{
+  background:#fdf3f2; border-left:4px solid var(--rojo);
+  border-radius:0 8px 8px 0; padding:12px 14px;
+}
+.bloque.rompe .r{color:var(--rojo);}
+.bloque.hoy{background:#fdf8ef; border-left:4px solid var(--ambar); border-radius:0 8px 8px 0; padding:12px 14px;}
+.bloque.hoy .r{color:var(--ambar);}
+.datos-ficha{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.datos-ficha .celda{background:var(--papel); border-radius:8px; padding:10px 12px;}
+.datos-ficha .v{font-size:14px; font-weight:800; color:var(--navy); line-height:1.25;}
+.cerrar-ficha{
+  position:absolute; top:16px; right:18px; background:transparent; color:#fff;
+  border:1.5px solid rgba(255,255,255,.5); border-radius:999px;
+  width:28px; height:28px; cursor:pointer; font-size:13px; font-family:inherit;
+}
+.cerrar-ficha:hover{background:#fff; color:var(--navy);}
+
 /* rótulo del suelo */
 .suelo{
   position:absolute; left:0; right:0; text-align:center;
@@ -258,6 +327,8 @@ footer{
 
 <div class="mandos">
   <button class="mando" id="pausa" title="Detener la corriente para leer o capturar">⏸ pausar el flujo</button>
+  <span style="color:var(--navy);font-weight:700">clic en una fuente para seguir su recorrido</span>
+  <span style="color:var(--borde)">|</span>
   <span class="leyenda-ritmo">
     <span>la velocidad de cada cable es <b>la cadencia real</b> de esa fuente</span>
     <span class="barra"></span>
@@ -270,6 +341,26 @@ footer{
     <svg id="cables" viewBox="0 0 1440 1060" preserveAspectRatio="none" aria-hidden="true"></svg>
   </div>
 </div>
+
+<aside class="ficha" id="ficha" aria-live="polite">
+  <div class="cabf">
+    <button class="cerrar-ficha" id="cerrar-ficha" title="Cerrar (Esc)">✕</button>
+    <span class="via" id="f-via"></span>
+    <h2 id="f-nombre"></h2>
+    <div class="dato" id="f-dato"></div>
+  </div>
+  <div class="cuerpo">
+    <div class="datos-ficha">
+      <div class="celda"><div class="r">cadencia</div><div class="v" id="f-cadencia"></div></div>
+      <div class="celda"><div class="r">responde por ella</div><div class="v" id="f-dueno"></div></div>
+    </div>
+    <div class="bloque"><div class="r">cómo entraría</div><p id="f-como"></p></div>
+    <div class="bloque hoy"><div class="r">cómo llega hoy</div><p id="f-hoy"></p></div>
+    <div class="bloque rompe"><div class="r">qué se rompe si falta</div><p id="f-rompe"></p></div>
+    <div class="bloque"><div class="r">dónde entra</div><p id="f-nivel"></p></div>
+    <div class="bloque" id="f-bloque-baja"><div class="r">y qué recibe de vuelta</div><p id="f-baja"></p></div>
+  </div>
+</aside>
 
 <footer>
   <div class="numeros" id="numeros"></div>
@@ -291,6 +382,7 @@ let H = 1200;                       // se recalcula al colocar
 
 const TORRE = { x:520, w:400 };
 const COL_IZQ = 62, COL_DER = 1044, ANCHO_R = 334;
+const ANCHO_FICHA = 392;   // el mismo de .ficha en el CSS
 const MARGEN_SUP = 34, GAP_NIVEL = 18, GAP_CEDAZO = 14, GAP_RAIZ = 16;
 
 /* De arriba abajo, como se mira. El cedazo va entre el dato certificado y la
@@ -567,10 +659,15 @@ function pintaPie() {
    el organigrama propuesto, y deja la geometría de los cables determinista. */
 
 function escala() {
-  const disp = document.querySelector('.escenario').clientWidth - 24;
-  const k = Math.min(1, disp / W);
+  const esc = document.querySelector('.escenario');
+  /* Se descuenta el ancho de la ficha por CONSTANTE, no leyendo el relleno:
+     el relleno va en transición y, medido en el instante del clic, todavía
+     vale lo de antes — el lienzo se creía igual de ancho y quedaba debajo. */
+  const reserva = document.body.classList.contains('con-ficha') ? ANCHO_FICHA : 0;
+  const disp = esc.clientWidth - reserva - 24;
+  const k = Math.min(1, Math.max(0.18, disp / W));
   lienzo.style.transform = `scale(${k})`;
-  document.querySelector('.escenario').style.height = (H + 28) * k + 'px';
+  esc.style.height = (H + 28) * k + 'px';
 }
 
 /* ═══════════════════════════════════════════════ ARRANQUE */
@@ -582,6 +679,73 @@ pintaCables();
 pintaPie();
 escala();
 addEventListener('resize', escala);
+
+/* ═══════════════════════════════════════════════ EL FOCO
+
+   Seguir una fuente de punta a punta. Se ilumina su cable y el nivel al que
+   entra, se atenúa lo demás, y la ficha lateral cuenta lo que el dibujo no
+   puede: cómo llega hoy, y qué se cae sin ella.                            */
+
+const $$ = s => [...document.querySelectorAll(s)];
+const txt = (id, t) => { document.getElementById(id).textContent = t; };
+
+let enfocada = null;
+
+function enfoca(id) {
+  if (enfocada === id) { limpia(); return; }
+  const r = RAICES.find(x => x.id === id);
+  if (!r) return;
+  enfocada = id;
+
+  document.body.classList.add('enfocado');
+  $$('.on').forEach(e => e.classList.remove('on'));
+  document.getElementById('raiz-' + id).classList.add('on');
+  document.getElementById('nivel-' + r.nivel).classList.add('on');
+  document.getElementById('cable-' + id).classList.add('on');
+  document.getElementById('flujo-' + id).classList.add('on');
+
+  const baja = BAJADAS.find(b => b.hacia === id);
+  const N = NIVELES.find(n => n.id === r.nivel);
+
+  txt('f-nombre', r.nombre);
+  txt('f-dato', r.dato);
+  txt('f-cadencia', r.cadencia);
+  txt('f-dueno', r.dueno);
+  txt('f-hoy', r.hoy);
+  txt('f-rompe', r.rompe);
+  txt('f-como', VIAS[r.via].detalle + '.');
+  txt('f-nivel', `Entra al nivel ${N.n}, «${N.nombre}» — ${N.lema}.`);
+  const via = document.getElementById('f-via');
+  via.className = 'via via-' + r.via;
+  via.textContent = VIAS[r.via].rotulo;
+
+  /* Que una raíz no reciba nada de vuelta también se dice: es la diferencia
+     entre una fuente que cierra el ciclo y una que solo alimenta. */
+  const cajaBaja = document.getElementById('f-bloque-baja');
+  cajaBaja.querySelector('.r').textContent = baja ? 'y qué recibe de vuelta' : 'no recibe nada de vuelta';
+  txt('f-baja', baja
+    ? `${baja.que}. ${baja.nota}`
+    : 'Esta fuente alimenta la torre y no recibe nada: el dato viene de fuera y no hay nada que devolverle.');
+
+  document.getElementById('ficha').classList.add('abierta');
+  document.body.classList.add('con-ficha');
+  escala();
+  /* y se centra en lo enfocado, que puede haber quedado fuera de la vista */
+  document.getElementById('raiz-' + id).scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function limpia() {
+  enfocada = null;
+  document.body.classList.remove('enfocado');
+  $$('.on').forEach(e => e.classList.remove('on'));
+  document.getElementById('ficha').classList.remove('abierta');
+  document.body.classList.remove('con-ficha');
+  escala();
+}
+
+$$('.raiz').forEach(e => e.onclick = () => enfoca(e.dataset.raiz));
+document.getElementById('cerrar-ficha').onclick = limpia;
+addEventListener('keydown', e => { if (e.key === 'Escape') limpia(); });
 
 /* La pausa: para leer con calma, para capturar la lámina del deck, y para
    quien la animación le moleste. El sistema respeta además la preferencia de
