@@ -538,3 +538,39 @@ const CAUSA_ESCASEZ = {
   "texto": "la fábrica sirvió una producción corta y el resto entra en el próximo lote"
  }
 };
+
+/* Avance de la descarga del contenedor en recepción, referencia por referencia.
+   Es el dato que permite liberar a la venta lo que ya está ubicado sin esperar
+   a que baje la última caja del contenedor. */
+const RECEPCION = {
+ "embarque": "EMB-2026-117",
+ "prov": "Fábrica de termos · Yongkang",
+ "cajasTotal": 1210,
+ "lineas": [
+  {
+   "sku": "CTHB24-1",
+   "cajas": 352,
+   "ubicadas": 352,
+   "uxc": 6,
+   "preventa": 227,
+   "estado": "completa"
+  },
+  {
+   "sku": "CT-MUG1-N",
+   "cajas": 431,
+   "ubicadas": 293,
+   "uxc": 6,
+   "preventa": 0,
+   "estado": "avanzada"
+  },
+  {
+   "sku": "CT-COF1",
+   "cajas": 427,
+   "ubicadas": 72,
+   "uxc": 6,
+   "preventa": 411,
+   "estado": "apenas"
+  }
+ ],
+ "preventaTotal": 638
+};

@@ -28,14 +28,64 @@ const MOTIVOS_REPARTO = [
   'otro',
 ];
 
+/**
+ * El reparto efectivo = lo que calculó el motor MÁS los ajustes humanos.
+ *
+ * Con dos reglas que la primera versión no tenía y sin las cuales la pantalla
+ * miente: el total asignado de una referencia NUNCA puede pasar de las
+ * unidades que hay, y cualquier ajuste tiene que verse arriba en el acto.
+ * Un tope que solo está escrito en el texto no es un tope.
+ */
+function repartoEfectivo(d) {
+  const asig = {};          // asig[sku][frente] = unidades
+  const tope = {};          // tope[sku] = unidades disponibles
+  const pedido = {};        // pedido[frente][sku] = unidades pedidas
+
+  for (const [fid, x] of Object.entries(d.porFrente)) {
+    for (const l of x.lineas) {
+      (asig[l.sku] = asig[l.sku] || {})[fid] = l.recibe;
+      (pedido[fid] = pedido[fid] || {})[l.sku] = l.pide;
+      tope[l.sku] = (tope[l.sku] ?? 0) + l.recibe;   // lo servido por el motor
+    }
+  }
+  /* en las escasas el tope real es la existencia, no lo que el motor sirvió */
+  for (const e of d.escasos) tope[e.sku] = e.hay;
+
+  const recortes = [];
+  for (const [clave, valor] of Object.entries(_dist.ajustes)) {
+    const [sku, fid] = clave.split('|');
+    if (!asig[sku] || asig[sku][fid] === undefined) continue;
+    const otros = Object.entries(asig[sku]).reduce((a, [k, v]) => a + (k === fid ? 0 : v), 0);
+    const margen = Math.max(0, (tope[sku] ?? 0) - otros);
+    const pide = (pedido[fid] || {})[sku] ?? valor;
+    const final = Math.min(valor, margen, pide);
+    if (final !== valor) recortes.push({ sku, fid, pedido: valor, aplicado: final, margen, pide });
+    asig[sku][fid] = final;
+  }
+
+  const porFrente = {};
+  for (const [sku, porF] of Object.entries(asig)) {
+    for (const [fid, u] of Object.entries(porF)) {
+      const f = porFrente[fid] = porFrente[fid] || { pide: 0, recibe: 0 };
+      f.recibe += u;
+    }
+  }
+  for (const [fid, x] of Object.entries(d.porFrente)) {
+    (porFrente[fid] = porFrente[fid] || { pide: 0, recibe: 0 }).pide = x.pide;
+  }
+  return { asig, tope, porFrente, recortes };
+}
+
 window.PANTALLAS.distribucion = function (lienzo) {
   const n = v => Math.round(v || 0).toLocaleString('es-VE');
   const d = datosDe('X-01') || { escasos: [], porFrente: {}, repartido: 0, referencias: 0 };
   const entrada = entradaDe('X-01');
   const nom = id => (FRENTES.find(f => f.id === id) || {}).nombre || id;
 
+  const ef = repartoEfectivo(d);
+
   const frentes = FRENTES.map(f => {
-    const x = d.porFrente[f.id] || { pide: 0, recibe: 0, lineas: [] };
+    const x = ef.porFrente[f.id] || { pide: 0, recibe: 0 };
     return { f, ...x, cede: x.pide - x.recibe, servicio: x.pide ? x.recibe / x.pide : 1 };
   }).filter(x => x.pide > 0).sort((a, b) => a.servicio - b.servicio);
 
@@ -78,7 +128,9 @@ window.PANTALLAS.distribucion = function (lienzo) {
     <div class="panel" style="margin-bottom:22px">
       <div class="fila-sep">
         <div class="sobretitulo">la escalera de precedencia</div>
-        <span class="apunte tenue">política publicada · no la decide un algoritmo</span>
+        <span class="apunte tenue">política publicada · dueño: dirección de compras ·
+          versión ${REGLAS.cuotaRazonSocial.ver} · vigente desde ${REGLAS.cuotaRazonSocial.desde} ·
+          <b>no la decide un algoritmo</b></span>
       </div>
       <div class="apunte mt-8" style="max-width:840px">
         Cuando lo pedido supera lo que hay, <b>quién cede está decidido de antemano y por escrito</b>.
@@ -97,8 +149,7 @@ window.PANTALLAS.distribucion = function (lienzo) {
       </div>
     </div>
 
-    <div class="rejilla" style="grid-template-columns:minmax(0,1fr) ${_dist.abierto ? '400px' : '0'};gap:20px;align-items:start">
-      <div>
+    <div>
         <!-- servicio por frente -->
         <div class="sobretitulo" style="margin-bottom:12px">qué recibe cada frente</div>
         <div class="tabla-envoltura" style="max-height:none;margin-bottom:22px">
@@ -126,9 +177,6 @@ window.PANTALLAS.distribucion = function (lienzo) {
         <!-- la escasez, caso por caso -->
         <div class="sobretitulo" style="margin-bottom:12px">dónde falta, y quién cede</div>
         <div class="pila gap-12" id="escasos"></div>
-      </div>
-
-      <div id="det-rep"></div>
     </div>
 
     <div class="barra-mesa">
@@ -178,15 +226,17 @@ window.PANTALLAS.distribucion = function (lienzo) {
               }).map(pr => {
                 const pel = ESCALERA.find(p => p.clave === pr.peldano);
                 const clave = e.sku + '|' + pr.frente;
-                const rec = _dist.ajustes[clave] ?? pr.recibe;
+                const rec = (ef.asig[e.sku] || {})[pr.frente] ?? pr.recibe;
                 const cede = pr.pide - rec;
                 const cambiado = rec !== pr.recibe;
+                const recorte = ef.recortes.find(r => r.sku === e.sku && r.fid === pr.frente);
                 return `<tr>
                   <td><b>${nom(pr.frente)}</b></td>
                   <td><span class="chip" style="cursor:default"><b style="color:var(--menta)">${pel.n}</b> ${pel.t}</span></td>
                   <td class="num">${n(pr.pide)}</td>
                   <td class="num"><input class="entrada-humana" data-k="${clave}" value="${n(rec)}"></td>
-                  <td class="num ${cede ? 'delta-neg' : 'tenue'}">${cede ? '−' + n(cede) : '—'}</td>
+                  <td class="num ${cede ? 'delta-neg' : 'tenue'}">${cede ? '−' + n(cede) : '—'}
+                    ${recorte ? `<div class="apunte" style="font-size:10px;color:var(--n3)">pediste ${n(recorte.pedido)}, solo hay ${n(recorte.margen)}</div>` : ''}</td>
                   <td>${cambiado
                     ? `<select class="motivo-fila ${_dist.motivos[clave] ? '' : 'pide'}" data-m="${clave}">
                          <option value="">${_dist.motivos[clave] ? '—' : '⚠ indica el motivo'}</option>
@@ -245,6 +295,13 @@ window.PANTALLAS.distribucion = function (lienzo) {
       alert(`Faltan ${faltan.length} motivos por indicar.\n\nUn reparto sin motivo no se puede explicar al frente que cedió.`);
       return;
     }
+    /* Firmar es una acción y como tal queda en la bitácora, con quién la firmó
+       y cuántos ajustes humanos llevaba. */
+    firmaReparto({
+      frentes: frentes.length, asignado: totalRecibe, sinAtender: totalPide - totalRecibe,
+      ajustes: Object.keys(_dist.ajustes).length,
+      motivos: [...new Set(Object.values(_dist.motivos).filter(Boolean))],
+    });
     viajaEstela(['distribucion', 'logistica', 'comercial']);
     setTimeout(() => alert(`Reparto firmado.\n\n${n(totalRecibe)} u asignadas a ${frentes.length} frentes\n${n(totalPide - totalRecibe)} u quedan como demanda no atendida\n\nBaja a cada frente como asignación, y a los que tienen Odoo se les escribe la transferencia a su almacén.`), 1100);
   };

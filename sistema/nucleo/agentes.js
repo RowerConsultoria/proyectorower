@@ -797,6 +797,20 @@ function bandejaDe(modulo) {
   return turno().filter(e => (e.nivel === 3 || e.perimetro === 'externo') && ambito.includes(e.modulo));
 }
 
+/** Firmar el reparto es una acción como cualquier otra y deja registro. */
+function firmaReparto(r) {
+  return anota({
+    accion: 'X-02 · firmar el reparto a los frentes',
+    agente: 'repartidor', modulo: 'distribucion',
+    dispara: 'una persona firmó el reparto del corte',
+    salida: `${r.asignado.toLocaleString('es-VE')} u asignadas a ${r.frentes} frentes · ` +
+            `${r.sinAtender.toLocaleString('es-VE')} u quedan como demanda no atendida · ` +
+            (r.ajustes ? `${r.ajustes} ajustes humanos (${r.motivos.join(', ')})` : 'sin ajustes humanos'),
+    ejes: { perimetro: 'interno', reversibilidad: 'humana', radio: 'frente', dinero: 'ingreso', reloj: 'programada' },
+    cruza: 'logística y comercial',
+  });
+}
+
 /** Resumen para el HUD y la sala de agentes. */
 function resumenAgentes() {
   const porNivel = { 1: 0, 2: 0, 3: 0 };
@@ -816,5 +830,5 @@ function resumenAgentes() {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
     calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
-    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, resumenAgentes, compensa, disponible };
+    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, resumenAgentes, compensa, disponible };
 }
