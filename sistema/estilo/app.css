@@ -1,0 +1,526 @@
+/* ============================================================================
+   EL SISTEMA — Lenguaje visual
+   Proyecto Rower · UCAB Consultores para Grupo Kenex · Fase 2 del plan
+
+   Identidad CUBITT, no identidad UCAB: el informe es un documento de
+   consultoría; esto es el producto de Kenex y debe verse suyo.
+
+   Fundamentos tomados de la marca real (cubitt.com.ve):
+     · tipografía DM Sans
+     · gradiente de marca menta → cian
+     · vidrio oscuro con desenfoque
+     · radios generosos, nunca esquinas vivas
+     · títulos de sección en minúscula
+   ============================================================================ */
+
+/* ---------------------------------------------------------------- 1. TOKENS */
+
+:root{
+  /* --- marca --- */
+  --menta:#36F6BB;
+  --cian:#32C6F4;
+  --gradiente:linear-gradient(105deg,#36F6BB 0%,#32C6F4 100%);
+  --gradiente-suave:linear-gradient(105deg,rgba(54,246,187,.16),rgba(50,198,244,.16));
+  /* variante para TEXTO: la menta pura no tiene contraste suficiente sobre blanco */
+  --gradiente-texto:linear-gradient(105deg,#36F6BB 0%,#32C6F4 100%);
+
+  /* --- semántica --- */
+  --ok:#2ED47A;
+  --alerta:#FFC94A;
+  --riesgo:#FF6B5A;
+  --info:#32C6F4;
+
+  /* --- niveles de autonomía de la IA (gramática fija en todo el sistema) --- */
+  --n1:#32C6F4;   /* preparé      — borrador, efecto cero */
+  --n2:#36F6BB;   /* hice         — escritura interna reversible */
+  --n3:#FFC94A;   /* tu firma     — compromete algo */
+
+  /* --- superficie: oscuro por defecto, que es la identidad de la marca --- */
+  --fondo:#0A0E13;
+  --lienzo:#0D131A;
+  --panel:#141C25;
+  --panel-alto:#1A2530;
+  --panel-vidrio:rgba(20,28,37,.72);
+  --borde:#22303D;
+  --borde-tenue:#1A2632;
+  --realce:rgba(255,255,255,.04);
+
+  /* --- tinta --- */
+  --tinta:#E9EFF5;
+  --tinta-media:#9AAABA;
+  --tinta-tenue:#66788A;
+  --tinta-inversa:#0A0E13;
+
+  /* --- forma: lo que más separa a Cubitt de la identidad del informe --- */
+  --r-campo:8px;
+  --r-chip:18px;
+  --r-tarjeta:24px;
+  --r-panel:28px;
+  --r-pildora:999px;
+
+  /* --- profundidad --- */
+  --sombra:0 1px 2px rgba(0,0,0,.34), 0 8px 28px rgba(0,0,0,.30);
+  --sombra-alta:0 2px 6px rgba(0,0,0,.40), 0 24px 60px rgba(0,0,0,.44);
+  --sombra-menta:0 0 0 1px rgba(54,246,187,.28), 0 8px 32px rgba(54,246,187,.14);
+
+  /* --- movimiento: la única curva propia del sitio de la marca --- */
+  --curva:cubic-bezier(.22,.61,.36,1);
+  --rapido:150ms;
+  --medio:240ms;
+  --lento:380ms;
+  --coreografia:1100ms;
+
+  /* --- tipografía --- */
+  --fuente:"DM Sans","Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"Cascadia Mono",Consolas,ui-monospace,monospace;
+
+  /* --- métrica --- */
+  --menu:248px;
+  --chrome:60px;
+}
+
+:root[data-tema="claro"]{
+  --fondo:#EEF1F4;
+  --lienzo:#F5F7F9;
+  --panel:#FFFFFF;
+  --panel-alto:#F7F9FB;
+  --panel-vidrio:rgba(255,255,255,.78);
+  --borde:#DCE3EA;
+  --borde-tenue:#E8EDF2;
+  --realce:rgba(10,14,19,.03);
+
+  --tinta:#0F1720;
+  --tinta-media:#54646F;
+  --tinta-tenue:#7D8B97;
+  --tinta-inversa:#FFFFFF;
+
+  --menta:#00B586;      /* la menta pura no tiene contraste sobre blanco */
+  --cian:#0E96C8;
+  --gradiente-texto:linear-gradient(105deg,#009E74 0%,#0B7FA8 100%);
+  --n1:#0E96C8;
+  --n2:#00B586;
+  --n3:#B8791A;
+  --ok:#12A05B;
+  --alerta:#B8791A;
+  --riesgo:#D2402F;
+
+  --sombra:0 1px 2px rgba(15,23,32,.07), 0 8px 26px rgba(15,23,32,.07);
+  --sombra-alta:0 2px 6px rgba(15,23,32,.10), 0 24px 56px rgba(15,23,32,.12);
+  --sombra-menta:0 0 0 1px rgba(0,181,134,.30), 0 8px 30px rgba(0,181,134,.14);
+}
+
+/* ------------------------------------------------------------- 2. BASE */
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  font-family:var(--fuente);
+  font-size:14px;
+  line-height:1.45;
+  color:var(--tinta);
+  background:var(--fondo);
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"cv11","ss01";
+}
+
+/* números siempre tabulares: es un sistema de cifras */
+table,.cifra,.num,input[type="number"],.tabla{font-variant-numeric:tabular-nums}
+
+::selection{background:rgba(54,246,187,.28);color:var(--tinta)}
+
+:focus-visible{outline:2px solid var(--cian);outline-offset:2px;border-radius:4px}
+
+/* barra de desplazamiento discreta */
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--borde);border-radius:999px;border:3px solid transparent;background-clip:content-box}
+*::-webkit-scrollbar-thumb:hover{background:var(--tinta-tenue);background-clip:content-box}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* -------------------------------------------------------- 3. TIPOGRAFÍA */
+
+h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-.015em;line-height:1.2}
+h1{font-size:26px}
+h2{font-size:20px}
+h3{font-size:16px}
+h4{font-size:14px}
+p{margin:0 0 10px}
+
+/* tic deliberado de la marca: los títulos de sección van en minúscula */
+.titulo-seccion{
+  font-size:22px;font-weight:700;letter-spacing:-.02em;text-transform:lowercase;
+}
+
+.sobretitulo{
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--tinta-tenue);
+}
+
+.apunte{font-size:12px;color:var(--tinta-media);line-height:1.4}
+.tenue{color:var(--tinta-tenue)}
+.medio{color:var(--tinta-media)}
+
+.cifra-grande{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.cifra-media{font-size:20px;font-weight:650;letter-spacing:-.02em;line-height:1}
+
+.mono{font-family:var(--mono);font-size:12px}
+
+/* el gradiente se usa con hambre: casi solo aquí */
+.texto-marca{
+  background:var(--gradiente-texto);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* ------------------------------------------------------------ 4. PANELES */
+
+.panel{
+  background:var(--panel);
+  border:1px solid var(--borde);
+  border-radius:var(--r-panel);
+  box-shadow:var(--sombra);
+  padding:22px 24px;
+}
+
+.tarjeta{
+  background:var(--panel);
+  border:1px solid var(--borde);
+  border-radius:var(--r-tarjeta);
+  box-shadow:var(--sombra);
+  padding:18px 20px;
+  transition:border-color var(--rapido) var(--curva), transform var(--rapido) var(--curva),
+             box-shadow var(--rapido) var(--curva);
+}
+.tarjeta.pulsable{cursor:pointer}
+.tarjeta.pulsable:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta);border-color:var(--tinta-tenue)}
+
+.vidrio{
+  background:var(--panel-vidrio);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border:1px solid var(--borde);
+}
+
+.rejilla{display:grid;gap:16px}
+.rejilla-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.rejilla-4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+.fila{display:flex;align-items:center;gap:10px}
+.fila-sep{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.crece{flex:1;min-width:0}
+
+/* ------------------------------------------------------------ 5. BOTONES */
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.01em;
+  padding:9px 18px;border-radius:var(--r-pildora);
+  border:1px solid transparent;background:transparent;color:var(--tinta);
+  cursor:pointer;white-space:nowrap;
+  transition:background var(--rapido) var(--curva), border-color var(--rapido) var(--curva),
+             color var(--rapido) var(--curva), transform var(--rapido) var(--curva),
+             box-shadow var(--rapido) var(--curva);
+}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* Primario de MARCA: reservado para lo que hace el sistema */
+.btn-marca{background:var(--gradiente);color:#04212B;font-weight:700;box-shadow:var(--sombra-menta)}
+.btn-marca:hover{filter:brightness(1.07)}
+
+/* Primario HUMANO: la decisión que firma una persona NO lleva gradiente.
+   Visualmente es un botón humano, no un botón de agente. */
+.btn-humano{background:var(--panel-alto);color:var(--tinta);border-color:var(--tinta-tenue);font-weight:700}
+.btn-humano:hover{border-color:var(--tinta);background:var(--realce)}
+
+.btn-suave{background:var(--panel-alto);border-color:var(--borde);color:var(--tinta)}
+.btn-suave:hover{border-color:var(--tinta-tenue)}
+
+.btn-fantasma{color:var(--tinta-media)}
+.btn-fantasma:hover{background:var(--realce);color:var(--tinta)}
+
+.btn-riesgo{background:transparent;border-color:var(--riesgo);color:var(--riesgo)}
+.btn-riesgo:hover{background:rgba(255,107,90,.10)}
+
+.btn-mini{padding:5px 12px;font-size:12px}
+
+/* --------------------------------------------------------- 6. CHIPS Y SELLOS */
+
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 13px;border-radius:var(--r-chip);
+  font-size:12px;font-weight:600;
+  background:var(--panel-alto);border:1px solid var(--borde);color:var(--tinta-media);
+  cursor:pointer;user-select:none;
+  transition:all var(--rapido) var(--curva);
+}
+.chip:hover{border-color:var(--tinta-tenue);color:var(--tinta)}
+.chip.on{background:var(--gradiente-suave);border-color:var(--menta);color:var(--tinta)}
+.chip .n{font-variant-numeric:tabular-nums;opacity:.7}
+
+.marca-estado{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 10px;border-radius:var(--r-pildora);
+  font-size:11px;font-weight:700;letter-spacing:.03em;
+  border:1px solid transparent;
+}
+.e-ok{background:rgba(46,212,122,.13);color:var(--ok);border-color:rgba(46,212,122,.30)}
+.e-alerta{background:rgba(255,201,74,.13);color:var(--alerta);border-color:rgba(255,201,74,.30)}
+.e-riesgo{background:rgba(255,107,90,.13);color:var(--riesgo);border-color:rgba(255,107,90,.30)}
+.e-neutro{background:var(--panel-alto);color:var(--tinta-media);border-color:var(--borde)}
+
+.punto{width:7px;height:7px;border-radius:50%;flex:none;background:currentColor}
+
+/* ---------------------------------------- 7. GRAMÁTICA DE LA IA: EL ORBE */
+
+/* El orbe es la firma visual del agente. Aparece siempre que hay
+   trabajo hecho por el sistema, y en ningún otro sitio. */
+.orbe{
+  width:14px;height:14px;border-radius:50%;flex:none;
+  background:var(--gradiente);
+  box-shadow:0 0 0 3px rgba(54,246,187,.14);
+  position:relative;
+}
+.orbe-mini{width:9px;height:9px;box-shadow:0 0 0 2px rgba(54,246,187,.14)}
+.orbe-grande{width:22px;height:22px;box-shadow:0 0 0 5px rgba(54,246,187,.12)}
+
+/* «está actuando»: presente, con movimiento */
+.orbe.actuando::after{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1.5px solid var(--menta);
+  animation:latido 1800ms var(--curva) infinite;
+}
+@keyframes latido{
+  0%{transform:scale(.85);opacity:.9}
+  70%{transform:scale(1.5);opacity:0}
+  100%{transform:scale(1.5);opacity:0}
+}
+
+/* «ejecutó esto»: pasado, quieto, sólido */
+.orbe.hecho{background:var(--n2);box-shadow:none}
+
+/* Sello de nivel de autonomía. El usuario nunca lee la palabra «nivel»:
+   lee el verbo. */
+.sello{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 11px 3px 8px;border-radius:var(--r-pildora);
+  font-size:11px;font-weight:700;letter-spacing:.02em;
+  border:1px solid transparent;white-space:nowrap;
+}
+.sello i{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.sello-1{background:rgba(50,198,244,.12);color:var(--n1);border-color:rgba(50,198,244,.30)}
+.sello-2{background:rgba(54,246,187,.12);color:var(--n2);border-color:rgba(54,246,187,.30)}
+.sello-3{background:rgba(255,201,74,.12);color:var(--n3);border-color:rgba(255,201,74,.32)}
+
+/* Perímetro externo: se reconoce de lejos, y ésa es la intención. */
+.sello-externo{
+  border-style:dashed;border-width:1.5px;border-color:var(--tinta-tenue);
+  color:var(--tinta-media);background:transparent;
+}
+
+/* --------------------------------------------- 8. CINTA DEL TURNO Y ESTELA */
+
+/* Lo primero que se ve al abrir una mesa: qué se hizo mientras nadie miraba */
+.cinta{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 18px;border-radius:var(--r-tarjeta);
+  background:var(--gradiente-suave);
+  border:1px solid rgba(54,246,187,.24);
+  font-size:13px;
+}
+.cinta .hora{font-family:var(--mono);font-size:11px;color:var(--tinta-tenue)}
+.cinta b{font-weight:650}
+
+/* La estela: el rastro que recorre el menú cuando una acción salta de módulo */
+.estela{position:relative;overflow:hidden}
+.estela::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--gradiente);border-radius:0 3px 3px 0;
+  transform:translateY(-100%);
+}
+.estela.viaja::after{animation:estela var(--coreografia) var(--curva) forwards}
+@keyframes estela{
+  0%{transform:translateY(-100%);opacity:0}
+  15%{opacity:1}
+  85%{opacity:1}
+  100%{transform:translateY(100%);opacity:0}
+}
+
+/* ------------------------------------------------------- 9. TARJETA DE FIRMA */
+
+/* La bandeja del rol: lo que el agente dejó listo y espera una persona */
+.firma{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:15px 18px;border-radius:var(--r-tarjeta);
+  background:var(--panel);border:1px solid var(--borde);
+  transition:border-color var(--rapido) var(--curva),box-shadow var(--rapido) var(--curva);
+}
+.firma:hover{border-color:var(--tinta-tenue);box-shadow:var(--sombra)}
+.firma.urge{border-color:rgba(255,201,74,.42)}
+.firma .cuerpo{flex:1;min-width:0}
+.firma .verbo{font-weight:700}
+.firma .detalle{font-size:12.5px;color:var(--tinta-media);margin-top:3px}
+.firma .acciones{display:flex;gap:8px;align-items:center;flex:none}
+
+/* --------------------------------------------------------- 10. TABLA DENSA */
+
+.tabla-envoltura{
+  border:1px solid var(--borde);border-radius:var(--r-tarjeta);
+  overflow:auto;background:var(--panel);max-height:70vh;
+}
+table.tabla{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px}
+table.tabla thead th{
+  position:sticky;top:0;z-index:2;
+  background:var(--panel-alto);
+  padding:10px 12px;text-align:left;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--tinta-tenue);white-space:nowrap;
+  border-bottom:1px solid var(--borde);
+}
+table.tabla tbody td{
+  padding:9px 12px;border-bottom:1px solid var(--borde-tenue);
+  vertical-align:middle;
+}
+table.tabla tbody tr:last-child td{border-bottom:none}
+table.tabla tbody tr{transition:background var(--rapido) var(--curva)}
+table.tabla tbody tr:hover{background:var(--realce)}
+table.tabla tbody tr.marcada{background:var(--gradiente-suave)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.col-sku{font-family:var(--mono);font-size:11.5px;color:var(--tinta-media);white-space:nowrap}
+
+/* la columna que llenó el agente */
+td.propuesta{background:rgba(54,246,187,.05)}
+td.propuesta .valor{display:inline-flex;align-items:center;gap:6px;font-weight:650}
+
+/* la columna humana: siempre gana */
+.entrada-humana{
+  width:74px;padding:5px 8px;text-align:right;
+  font-family:inherit;font-size:12.5px;font-weight:650;font-variant-numeric:tabular-nums;
+  background:var(--panel-alto);color:var(--tinta);
+  border:1px solid var(--borde);border-radius:var(--r-campo);
+}
+.entrada-humana:focus{border-color:var(--cian);outline:none}
+.delta-pos{color:var(--ok);font-weight:650}
+.delta-neg{color:var(--riesgo);font-weight:650}
+
+/* -------------------------------------------------- 11. PANEL DE EXPLICACIÓN */
+
+/* El porqué de una propuesta. Panel lateral, nunca modal. */
+.explica{
+  width:380px;flex:none;
+  background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-panel);
+  box-shadow:var(--sombra-alta);padding:22px;
+}
+.explica h4{margin-bottom:4px}
+.explica .razones{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.explica .razones li{
+  font-size:12.5px;color:var(--tinta-media);line-height:1.45;
+  padding-left:14px;border-left:2px solid var(--borde);
+}
+.explica .razones li b{color:var(--tinta);font-weight:650}
+.explica .razones li.clave{border-left-color:var(--menta)}
+.explica .razones li.aviso{border-left-color:var(--alerta)}
+
+/* ------------------------------------------------------ 12. RELOJ DE CICLO */
+
+.reloj{display:flex;align-items:center;gap:0;padding:6px 0}
+.reloj .hito{display:flex;flex-direction:column;align-items:center;gap:7px;flex:none;min-width:74px}
+.reloj .hito .bolita{
+  width:11px;height:11px;border-radius:50%;
+  background:var(--panel-alto);border:2px solid var(--borde);
+}
+.reloj .hito.pasado .bolita{background:var(--tinta-tenue);border-color:var(--tinta-tenue)}
+.reloj .hito.hoy .bolita{background:var(--gradiente);border-color:transparent;box-shadow:0 0 0 4px rgba(54,246,187,.18)}
+.reloj .hito .dia{font-size:15px;font-weight:700;line-height:1}
+.reloj .hito .que{font-size:10px;color:var(--tinta-tenue);text-align:center;letter-spacing:.04em;text-transform:uppercase}
+.reloj .tramo{height:2px;background:var(--borde);flex:1;min-width:18px;margin-top:-26px}
+.reloj .tramo.pasado{background:var(--tinta-tenue)}
+
+/* -------------------------------------------------------- 13. BARRA / MOQ */
+
+.barra{height:8px;border-radius:999px;background:var(--panel-alto);overflow:hidden;border:1px solid var(--borde-tenue)}
+.barra > span{display:block;height:100%;background:var(--gradiente);border-radius:999px;
+  transition:width var(--lento) var(--curva)}
+.barra.parcial > span{background:var(--alerta)}
+
+/* --------------------------------------------------------- 14. PRODUCTO */
+
+.producto{display:flex;align-items:center;gap:11px;min-width:0}
+.producto .foto{
+  width:38px;height:38px;border-radius:12px;flex:none;object-fit:cover;
+  background:var(--panel-alto);border:1px solid var(--borde);
+}
+/* si la imagen no carga, el marcador lleva el color real de la variante */
+.producto .marcador{
+  width:38px;height:38px;border-radius:12px;flex:none;
+  border:1px solid var(--borde);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;color:rgba(255,255,255,.72);
+}
+.producto .txt{min-width:0}
+.producto .nom{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.producto .sub{font-size:11px;color:var(--tinta-tenue);font-family:var(--mono)}
+
+.swatch{width:16px;height:16px;border-radius:5px;border:1px solid var(--borde);flex:none;display:inline-block}
+
+/* ----------------------------------------------------------- 15. FRENTES */
+
+/* Cómo se conecta cada frente. La latencia es un reloj de corte, no un aviso. */
+.frente{display:flex;align-items:center;gap:10px}
+.frente .via{
+  font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 8px;border-radius:var(--r-pildora);border:1px solid var(--borde);
+}
+.via-odoo{color:var(--n2);border-color:rgba(54,246,187,.34);background:rgba(54,246,187,.09)}
+.via-portal{color:var(--n1);border-color:rgba(50,198,244,.34);background:rgba(50,198,244,.09)}
+.frente .corte{font-family:var(--mono);font-size:11px;color:var(--tinta-tenue)}
+
+/* -------------------------------------------------------------- 16. KPI */
+
+.kpi{display:flex;flex-direction:column;gap:5px}
+.kpi .rotulo{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-tenue)}
+.kpi .valor{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.kpi .pie{font-size:11.5px;color:var(--tinta-media)}
+
+/* ------------------------------------------------------- 17. VACÍO / CARGA */
+
+.vacio{
+  text-align:center;padding:44px 20px;color:var(--tinta-tenue);
+  border:1px dashed var(--borde);border-radius:var(--r-tarjeta);
+}
+.vacio .icono{font-size:26px;opacity:.55;margin-bottom:8px}
+
+.esqueleto{
+  background:linear-gradient(90deg,var(--panel-alto) 25%,var(--realce) 50%,var(--panel-alto) 75%);
+  background-size:200% 100%;animation:brillo 1400ms linear infinite;border-radius:var(--r-campo);
+}
+@keyframes brillo{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* -------------------------------------------------------------- 18. CAMPOS */
+
+.campo{
+  font-family:inherit;font-size:13px;
+  padding:9px 13px;border-radius:var(--r-campo);
+  background:var(--panel-alto);color:var(--tinta);
+  border:1px solid var(--borde);width:100%;
+  transition:border-color var(--rapido) var(--curva);
+}
+.campo::placeholder{color:var(--tinta-tenue)}
+.campo:focus{border-color:var(--cian);outline:none}
+.etiqueta{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta-tenue);margin-bottom:6px;display:block}
+
+/* -------------------------------------------------------------- 19. UTILES */
+
+.sep{height:1px;background:var(--borde-tenue);margin:18px 0;border:0}
+.pila{display:flex;flex-direction:column}
+.gap-4{gap:4px}.gap-8{gap:8px}.gap-12{gap:12px}.gap-16{gap:16px}.gap-24{gap:24px}
+.mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}
+.nowrap{white-space:nowrap}
+.oculto{display:none!important}

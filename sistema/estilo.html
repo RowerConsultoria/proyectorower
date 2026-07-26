@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Sistema · lenguaje visual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo/app.css">
+<style>
+  body{padding:0 0 80px}
+  .cab{
+    position:sticky;top:0;z-index:20;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px 32px;border-bottom:1px solid var(--borde);
+    background:var(--panel-vidrio);backdrop-filter:blur(14px) saturate(140%);
+  }
+  .marca{display:flex;align-items:center;gap:11px}
+  .marca .nom{font-size:17px;font-weight:700;letter-spacing:-.02em;text-transform:lowercase}
+  main{max-width:1180px;margin:0 auto;padding:32px}
+  section{margin-bottom:44px;scroll-margin-top:80px}
+  section > h2{
+    font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--tinta-tenue);padding-bottom:10px;margin-bottom:20px;
+    border-bottom:1px solid var(--borde-tenue);
+  }
+  .muestra{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .nota{font-size:12px;color:var(--tinta-tenue);margin-top:10px;line-height:1.5}
+  .ficha-color{display:flex;flex-direction:column;gap:7px}
+  .ficha-color .caja{height:56px;border-radius:14px;border:1px solid var(--borde)}
+  .ficha-color .txt{font-size:11px}
+  .ficha-color .hex{font-family:var(--mono);font-size:10.5px;color:var(--tinta-tenue)}
+  .indice{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+  .indice a{
+    font-size:12px;text-decoration:none;color:var(--tinta-media);
+    padding:5px 13px;border-radius:var(--r-chip);border:1px solid var(--borde);
+    background:var(--panel-alto);transition:all var(--rapido) var(--curva);
+  }
+  .indice a:hover{color:var(--tinta);border-color:var(--tinta-tenue)}
+  .dosc{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+  @media (max-width:900px){.dosc{grid-template-columns:1fr}.explica{width:auto}}
+</style>
+</head>
+<body>
+
+<div class="cab">
+  <div class="marca">
+    <span class="orbe orbe-grande actuando"></span>
+    <div>
+      <div class="nom">kenex <span class="tenue" style="font-weight:400">· el sistema</span></div>
+      <div class="sobretitulo" style="margin-top:2px">lenguaje visual · fase 2</div>
+    </div>
+  </div>
+  <div class="fila gap-8">
+    <span class="apunte tenue nowrap">identidad Cubitt</span>
+    <button class="btn btn-suave btn-mini" id="tema">☾ oscuro</button>
+  </div>
+</div>
+
+<main>
+
+  <p class="apunte" style="max-width:660px;margin-bottom:22px">
+    Catálogo vivo de los componentes con los que se construyen las veintitantas pantallas del
+    prototipo. Se aprueba <b>una vez, aquí</b>. Los fundamentos —DM&nbsp;Sans, el gradiente
+    menta&nbsp;→&nbsp;cian, el vidrio oscuro, los radios generosos y los títulos en minúscula—
+    salen de la tienda real de la marca.
+  </p>
+
+  <div class="indice">
+    <a href="#color">color</a><a href="#tipo">tipografía</a><a href="#botones">botones</a>
+    <a href="#estados">estados</a><a href="#ia">gramática de la IA</a><a href="#turno">cinta y estela</a>
+    <a href="#firma">bandeja de firma</a><a href="#tabla">tabla densa</a><a href="#reloj">reloj de ciclo</a>
+    <a href="#producto">producto</a><a href="#frentes">frentes</a><a href="#kpi">cifras</a>
+    <a href="#campos">campos y vacíos</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ COLOR -->
+  <section id="color">
+    <h2>Color</h2>
+    <div class="rejilla rejilla-4">
+      <div class="ficha-color"><div class="caja" style="background:var(--gradiente)"></div>
+        <div class="txt"><b>gradiente de marca</b><div class="hex">#36F6BB → #32C6F4</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--menta)"></div>
+        <div class="txt"><b>menta</b><div class="hex">#36F6BB</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--cian)"></div>
+        <div class="txt"><b>cian</b><div class="hex">#32C6F4</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--fondo)"></div>
+        <div class="txt"><b>fondo</b><div class="hex">#0A0E13</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--panel)"></div>
+        <div class="txt"><b>panel</b><div class="hex">#141C25</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--ok)"></div>
+        <div class="txt"><b>bien</b><div class="hex">#2ED47A</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--alerta)"></div>
+        <div class="txt"><b>atención</b><div class="hex">#FFC94A</div></div></div>
+      <div class="ficha-color"><div class="caja" style="background:var(--riesgo)"></div>
+        <div class="txt"><b>riesgo</b><div class="hex">#FF6B5A</div></div></div>
+    </div>
+    <p class="nota">
+      El gradiente <b>se usa con hambre</b>: solo en el orbe del agente, en el botón de marca y
+      en el hito de hoy del reloj. Si aparece en todas partes deja de significar nada.
+      El modo claro recalibra menta y cian, porque los tonos puros no tienen contraste sobre blanco.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ TIPOGRAFÍA -->
+  <section id="tipo">
+    <h2>Tipografía</h2>
+    <div class="panel">
+      <div class="sobretitulo">sobretítulo · 10px · tracking .18em</div>
+      <div class="titulo-seccion mt-8">mesa de compra casio</div>
+      <p class="apunte mt-8" style="max-width:560px">
+        Cuerpo de 14&nbsp;px en DM&nbsp;Sans. Los títulos de sección van <b>en minúscula</b>: es un
+        tic deliberado de la marca, que escribe así sus secciones. Los módulos se llaman
+        <i>compras</i>, <i>logística e inventarios</i>, <i>comercial</i>.
+      </p>
+      <hr class="sep">
+      <div class="fila gap-24">
+        <div><div class="cifra-grande">1.284</div><div class="apunte tenue">referencias</div></div>
+        <div><div class="cifra-grande texto-marca">312</div><div class="apunte tenue">con propuesta</div></div>
+        <div><div class="cifra-media">45–60</div><div class="apunte tenue">días de tránsito</div></div>
+        <div><span class="mono">CT-AURAP2-1 · GA-B2100DF-1A</span><div class="apunte tenue">monoespaciada para códigos</div></div>
+      </div>
+    </div>
+    <p class="nota">Todas las cifras van en <b>numeración tabular</b>: en un sistema de columnas de números, que no bailen es la mitad de la legibilidad.</p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ BOTONES -->
+  <section id="botones">
+    <h2>Botones</h2>
+    <div class="muestra">
+      <button class="btn btn-marca">⬤ aplicar propuesta</button>
+      <button class="btn btn-humano">enviar pedido a Casio</button>
+      <button class="btn btn-suave">revisar</button>
+      <button class="btn btn-fantasma">descartar</button>
+      <button class="btn btn-riesgo">congelar agente</button>
+      <button class="btn btn-suave btn-mini">ver detalle</button>
+      <button class="btn btn-marca" disabled>sin permiso</button>
+    </div>
+    <p class="nota">
+      <b>La distinción más importante de todo el sistema.</b> El botón de gradiente es lo que hace
+      el sistema. El botón de la decisión humana —enviar un pedido, firmar un reparto— <b>no lleva
+      gradiente</b>: es sólido y sobrio. Visualmente es un botón humano, no un botón de agente, y
+      esa diferencia se lee sin que nadie la explique.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ ESTADOS -->
+  <section id="estados">
+    <h2>Estados y filtros</h2>
+    <div class="muestra">
+      <span class="marca-estado e-ok"><i class="punto"></i>disponible</span>
+      <span class="marca-estado e-alerta"><i class="punto"></i>quiebre en 30 días</span>
+      <span class="marca-estado e-riesgo"><i class="punto"></i>sin factura de flete</span>
+      <span class="marca-estado e-neutro"><i class="punto"></i>en tránsito</span>
+    </div>
+    <div class="muestra mt-16">
+      <span class="chip on">todo <span class="n">1.284</span></span>
+      <span class="chip">propuesta ≠ tu cantidad <span class="n">47</span></span>
+      <span class="chip">quiebre proyectado <span class="n">18</span></span>
+      <span class="chip">sobrestock <span class="n">92</span></span>
+      <span class="chip">sin resolver <span class="n">4</span></span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ GRAMÁTICA IA -->
+  <section id="ia">
+    <h2>Gramática de la IA</h2>
+    <div class="rejilla" style="grid-template-columns:1fr 1fr">
+      <div class="tarjeta">
+        <div class="sobretitulo">está actuando</div>
+        <div class="fila gap-12 mt-16">
+          <span class="orbe orbe-grande actuando"></span>
+          <div><b>presente, con movimiento</b><div class="apunte">el orbe late mientras el agente trabaja</div></div>
+        </div>
+      </div>
+      <div class="tarjeta">
+        <div class="sobretitulo">ejecutó esto</div>
+        <div class="fila gap-12 mt-16">
+          <span class="orbe orbe-grande hecho"></span>
+          <div><b>pasado, quieto, sólido</b><div class="apunte">sin gradiente y sin animación</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel mt-16">
+      <div class="sobretitulo">los tres niveles · el usuario nunca lee la palabra «nivel», lee el verbo</div>
+      <div class="muestra mt-16">
+        <span class="sello sello-1"><i></i>preparé</span>
+        <span class="sello sello-2"><i></i>hice</span>
+        <span class="sello sello-3"><i></i>tu firma</span>
+        <span class="sello sello-externo">↗ sale de Kenex</span>
+      </div>
+      <div class="apunte mt-16" style="max-width:660px">
+        <b>preparé</b> — escribe solo en borrador, su efecto es cero hasta que alguien lo toma.
+        <b>hice</b> — escritura interna reversible con un clic, con presupuesto diario.
+        <b>tu firma</b> — compromete stock, mueve mercancía o cuesta dinero.
+        El <b>sello punteado</b> se superpone y no es un cuarto nivel: marca lo que sale de la
+        empresa, que <i>siempre</i> lo firma una persona con nombre.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ CINTA Y ESTELA -->
+  <section id="turno">
+    <h2>Cinta del turno y estela</h2>
+    <div class="cinta">
+      <span class="orbe"></span>
+      <span class="hora">03:12</span>
+      <div class="crece">armé la mesa de agosto — <b>1.284 referencias</b>, 312 con propuesta,
+        y aparté <b>118 unidades</b> sin rotación antes de calcular nada</div>
+      <button class="btn btn-fantasma btn-mini">ver el turno</button>
+    </div>
+    <p class="nota">Lo primero que se ve al abrir una mesa: qué se hizo mientras nadie miraba. Es la promesa del producto convertida en el primer elemento de la pantalla.</p>
+
+    <div class="panel mt-16">
+      <div class="sobretitulo">la estela — cuando una acción salta de módulo</div>
+      <div class="pila gap-4 mt-16" style="max-width:280px" id="menu-demo">
+        <div class="fila gap-8 estela" style="padding:9px 12px;border-radius:10px"><span>compras</span></div>
+        <div class="fila gap-8 estela" style="padding:9px 12px;border-radius:10px"><span>logística e inventarios</span></div>
+        <div class="fila gap-8 estela" style="padding:9px 12px;border-radius:10px"><span>comercial</span></div>
+      </div>
+      <button class="btn btn-suave btn-mini mt-16" id="lanzar-estela">lanzar la estela</button>
+      <p class="nota">La respuesta visual literal al encargo: <b>se ve la acción viajar de compras a comercial antes de que nadie abra el módulo destino.</b></p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ FIRMA -->
+  <section id="firma">
+    <h2>Bandeja de firma</h2>
+    <div class="pila gap-12">
+      <div class="firma urge">
+        <span class="orbe" style="margin-top:3px"></span>
+        <div class="cuerpo">
+          <div class="verbo">preparé el archivo de compra de agosto</div>
+          <div class="detalle">1.284 referencias · 312 con propuesta de cantidad · cierra en 2 días</div>
+        </div>
+        <div class="acciones">
+          <span class="sello sello-1"><i></i>preparé</span>
+          <button class="btn btn-suave btn-mini">revisar</button>
+        </div>
+      </div>
+      <div class="firma">
+        <span class="orbe" style="margin-top:3px"></span>
+        <div class="cuerpo">
+          <div class="verbo">ibas a comprar 92 unidades que ya tienes paradas</div>
+          <div class="detalle">118 sin rotación en tres ubicaciones · preparé el traslado que sustituye la compra</div>
+        </div>
+        <div class="acciones">
+          <span class="sello sello-3"><i></i>tu firma</span>
+          <button class="btn btn-marca btn-mini">aplicar</button>
+        </div>
+      </div>
+      <div class="firma">
+        <span class="orbe hecho" style="margin-top:3px"></span>
+        <div class="cuerpo">
+          <div class="verbo">resolví 23 nombres de producto del reporte de tres frentes</div>
+          <div class="detalle">quedan 4 en cola por debajo del umbral de confianza · reversible</div>
+        </div>
+        <div class="acciones">
+          <span class="sello sello-2"><i></i>hice</span>
+          <button class="btn btn-fantasma btn-mini">bitácora</button>
+        </div>
+      </div>
+      <div class="firma">
+        <span class="orbe" style="margin-top:3px"></span>
+        <div class="cuerpo">
+          <div class="verbo">redacté el reclamo de la factura de flete al agente aduanal</div>
+          <div class="detalle">embarque con 14 días sin documento · sale con tu nombre como remitente</div>
+        </div>
+        <div class="acciones">
+          <span class="sello sello-externo">↗ sale de Kenex</span>
+          <button class="btn btn-humano btn-mini">revisar y enviar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ TABLA -->
+  <section id="tabla">
+    <h2>Tabla densa · la mesa de compra</h2>
+    <div class="dosc">
+      <div class="tabla-envoltura">
+        <table class="tabla">
+          <thead><tr>
+            <th>producto</th><th>ref. fabricante</th><th class="num">disponible</th>
+            <th class="num">tránsito</th><th class="num">venta 12m</th><th class="num">cobertura</th>
+            <th class="num">propuesta</th><th class="num">tu cantidad</th><th class="num">Δ</th>
+          </tr></thead>
+          <tbody>
+            <tr class="marcada">
+              <td><div class="producto"><div class="marcador" style="background:#14181C">GS</div>
+                <div class="txt"><div class="nom">G-Shock resina</div><div class="sub">KX-GSH-2100</div></div></div></td>
+              <td class="col-sku">GA-B2100DF-1A</td>
+              <td class="num">146</td><td class="num">0</td><td class="num">1.152</td>
+              <td class="num">1,5 m</td>
+              <td class="num propuesta"><span class="valor">480 <span class="orbe orbe-mini"></span></span></td>
+              <td class="num"><input class="entrada-humana" value="480"></td>
+              <td class="num tenue">—</td>
+            </tr>
+            <tr>
+              <td><div class="producto"><div class="marcador" style="background:#1D2B3B">AP</div>
+                <div class="txt"><div class="nom">AURA Pro 2</div><div class="sub">CT-AURAP2-1</div></div></div></td>
+              <td class="col-sku">—</td>
+              <td class="num">1.240</td><td class="num">5.000</td><td class="num">8.940</td>
+              <td class="num">4,2 m</td>
+              <td class="num propuesta"><span class="valor">0 <span class="orbe orbe-mini"></span></span></td>
+              <td class="num"><input class="entrada-humana" value="0"></td>
+              <td class="num tenue">—</td>
+            </tr>
+            <tr>
+              <td><div class="producto"><div class="marcador" style="background:#4A5340">TE</div>
+                <div class="txt"><div class="nom">TERRA</div><div class="sub">CT-TERRA1</div></div></div></td>
+              <td class="col-sku">—</td>
+              <td class="num">92</td><td class="num">0</td><td class="num">2.310</td>
+              <td class="num">0,5 m</td>
+              <td class="num propuesta"><span class="valor">1.500 <span class="orbe orbe-mini"></span></span></td>
+              <td class="num"><input class="entrada-humana" value="2.000"></td>
+              <td class="num delta-pos">+500</td>
+            </tr>
+            <tr>
+              <td><div class="producto"><div class="marcador" style="background:#5A2230">PE</div>
+                <div class="txt"><div class="nom">Power Earbuds Pro</div><div class="sub">CT-PWEP1</div></div></div></td>
+              <td class="col-sku">—</td>
+              <td class="num">318</td><td class="num">2.000</td><td class="num">4.106</td>
+              <td class="num">2,8 m</td>
+              <td class="num propuesta"><span class="valor">0 <span class="orbe orbe-mini"></span></span></td>
+              <td class="num"><input class="entrada-humana" value="0"></td>
+              <td class="num tenue">—</td>
+            </tr>
+            <tr>
+              <td><div class="producto"><div class="marcador" style="background:#7C848C">BG</div>
+                <div class="txt"><div class="nom">G-Shock anillo</div><div class="sub">KX-GSH-5600N</div></div></div></td>
+              <td class="col-sku">DWN-5600-1</td>
+              <td class="num">24</td><td class="num">0</td><td class="num">386</td>
+              <td class="num">0,7 m</td>
+              <td class="num propuesta"><span class="valor">160 <span class="orbe orbe-mini"></span></span></td>
+              <td class="num"><input class="entrada-humana" value="120"></td>
+              <td class="num delta-neg">−40</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="explica">
+        <div class="sobretitulo">por qué propongo esto</div>
+        <h4 class="mt-8">TERRA · CT-TERRA1</h4>
+        <div class="fila gap-8 mt-8">
+          <span class="cifra-media texto-marca">1.500</span>
+          <span class="apunte tenue">unidades</span>
+        </div>
+        <ul class="razones">
+          <li>Venta media de <b>193 u/mes</b>, con tendencia <b>+14 %</b> en el último trimestre.</li>
+          <li>Cobertura actual <b>0,5 meses</b> contra el objetivo declarado de <b>3 meses</b>.</li>
+          <li class="clave">El pedido mínimo de esta fábrica es <b>1.500 unidades</b>. Pedir menos no es una opción, y por eso no propongo 1.180.</li>
+          <li class="aviso">Excluí <b>2 de los últimos 6 meses</b> del promedio: la venta fue cero por falta de existencia, no por falta de demanda.</li>
+          <li>Lead time marítimo <b>60–90 días</b>: hay que cubrir dos meses de venta antes de la próxima llegada.</li>
+        </ul>
+        <div class="fila gap-8 mt-24">
+          <button class="btn btn-marca btn-mini">aceptar</button>
+          <button class="btn btn-suave btn-mini">ajustar</button>
+          <button class="btn btn-fantasma btn-mini">descartar</button>
+        </div>
+      </div>
+    </div>
+    <p class="nota">
+      La columna de propuesta lleva el orbe; un clic abre el porqué en un panel lateral, nunca en
+      un modal. <b>La columna humana siempre gana</b>, y cuando difiere, el sistema pide el motivo:
+      ahí es donde el criterio tácito se convierte en algo que el sistema aprende.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ RELOJ -->
+  <section id="reloj">
+    <h2>Reloj de ciclo y llenado</h2>
+    <div class="panel">
+      <div class="sobretitulo">ciclo de compra · agosto</div>
+      <div class="reloj mt-16">
+        <div class="hito pasado"><span class="bolita"></span><span class="dia">15</span><span class="que">llega la hoja</span></div>
+        <div class="tramo pasado"></div>
+        <div class="hito hoy"><span class="bolita"></span><span class="dia">18</span><span class="que">se arma</span></div>
+        <div class="tramo"></div>
+        <div class="hito"><span class="bolita"></span><span class="dia">20</span><span class="que">se envía</span></div>
+        <div class="tramo"></div>
+        <div class="hito"><span class="bolita"></span><span class="dia">25</span><span class="que">se paga</span></div>
+        <div class="tramo"></div>
+        <div class="hito"><span class="bolita"></span><span class="dia">25</span><span class="que">llega · mes sig.</span></div>
+      </div>
+      <div class="sobretitulo mt-24" style="color:var(--alerta)">faltan 2 días para el cierre del pedido</div>
+
+      <hr class="sep">
+      <div class="fila-sep">
+        <div><b>Fábrica de audio</b> <span class="apunte tenue">· pedido mínimo 5.000 u</span></div>
+        <div class="apunte"><b>3.800</b> / 5.000 · faltan <b>1.200</b></div>
+      </div>
+      <div class="barra parcial mt-8"><span style="width:76%"></span></div>
+      <p class="nota">Debajo, el sistema propone qué referencias añadir para alcanzar el mínimo sin sobrecomprar.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ PRODUCTO -->
+  <section id="producto">
+    <h2>Producto y colores de marca</h2>
+    <div class="panel">
+      <div class="muestra">
+        <div class="producto"><div class="marcador" style="background:#14181C">TE</div>
+          <div class="txt"><div class="nom">TERRA</div><div class="sub">CT-TERRA1 · Obsidian Black</div></div></div>
+        <div class="producto"><div class="marcador" style="background:#4A5340">TE</div>
+          <div class="txt"><div class="nom">TERRA</div><div class="sub">CT-TERRA1 · Military Green</div></div></div>
+        <div class="producto"><div class="marcador" style="background:#C8AE8C;color:#2A2119">TE</div>
+          <div class="txt"><div class="nom">TERRA</div><div class="sub">CT-TERRA1 · Desert Sand</div></div></div>
+      </div>
+      <hr class="sep">
+      <div class="sobretitulo">nombres de color reales de la marca</div>
+      <div class="muestra mt-16">
+        <span class="fila gap-8"><i class="swatch" style="background:#14181C"></i><span class="apunte">Obsidian Black</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#1D2B3B"></i><span class="apunte">Deepest Blue</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#BFA197"></i><span class="apunte">Rose Gold</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#7C848C"></i><span class="apunte">Wolf Gray</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#6B5044"></i><span class="apunte">Mocha Brown</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#4A5340"></i><span class="apunte">Military Green</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#C8AE8C"></i><span class="apunte">Desert Sand</span></span>
+        <span class="fila gap-8"><i class="swatch" style="background:#EDEAE3"></i><span class="apunte">Off White</span></span>
+      </div>
+      <p class="nota">
+        Los nombres son los reales de la tienda; <b>los hex son interpretación mía</b> y se afinan en
+        la fase 4 contra las fotos de producto. Cuando la imagen no carga —la demo es en una sala y
+        puede no haber internet— el marcador degrada al color de la variante, no a un cuadro gris.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ FRENTES -->
+  <section id="frentes">
+    <h2>Frentes</h2>
+    <div class="rejilla rejilla-3">
+      <div class="tarjeta">
+        <div class="frente"><b>Venezuela</b><span class="via via-odoo">odoo</span></div>
+        <div class="apunte mt-8">operación propia · almacén y tiendas</div>
+        <div class="corte mt-8">en vivo · hace 40 s</div>
+      </div>
+      <div class="tarjeta">
+        <div class="frente"><b>Colombia</b><span class="via via-odoo">odoo</span></div>
+        <div class="apunte mt-8">operación propia</div>
+        <div class="corte mt-8">en vivo · hace 2 min</div>
+      </div>
+      <div class="tarjeta">
+        <div class="frente"><b>Frente C</b><span class="via via-portal">portal</span></div>
+        <div class="apunte mt-8">franquicia · reporta por archivo</div>
+        <div class="corte mt-8">último reporte · hace 3 días</div>
+      </div>
+      <div class="tarjeta">
+        <div class="frente"><b>Frente D</b><span class="via via-portal">portal</span></div>
+        <div class="apunte mt-8">cliente mayor directo</div>
+        <div class="corte mt-8">último reporte · hace 11 días</div>
+      </div>
+    </div>
+    <p class="nota">
+      <b>La latencia es un reloj de corte, nunca una advertencia.</b> Un frente que reporta cada
+      quince días no es un frente sospechoso: es un frente con otro reloj. Y eso convierte una
+      discusión técnica en una pregunta económica: <i>¿cuánto vale que este frente reporte semanal?</i>
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ KPI -->
+  <section id="kpi">
+    <h2>Cifras</h2>
+    <div class="rejilla rejilla-4">
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">demanda no atendida</div>
+        <div class="valor">4.180</div><div class="pie">unidades · 62 referencias · este mes</div></div></div>
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">cobertura del grupo</div>
+        <div class="valor">2,4 m</div><div class="pie">objetivo declarado: 3 meses</div></div></div>
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">frentes que reportaron</div>
+        <div class="valor">9 <span class="tenue" style="font-size:16px">/ 12</span></div>
+        <div class="pie">3 fuera de su ventana</div></div></div>
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">enviadas sin firma humana</div>
+        <div class="valor texto-marca">0</div><div class="pie">de 47 comunicaciones externas</div></div></div>
+    </div>
+    <p class="nota">
+      Ese último contador es el argumento más fuerte del modelo ante una Junta, y por eso está
+      redactado con precisión: <b>«sin firma humana»</b>, no «enviadas por el sistema». Lo segundo
+      sería falso y alguien lo cruzaría con la pantalla de perímetro externo.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ CAMPOS -->
+  <section id="campos">
+    <h2>Campos y estados vacíos</h2>
+    <div class="rejilla" style="grid-template-columns:1fr 1fr">
+      <div class="panel">
+        <label class="etiqueta">motivo del ajuste</label>
+        <select class="campo">
+          <option>compromiso con un frente</option>
+          <option>lanzamiento o campaña</option>
+          <option>estacionalidad conocida</option>
+          <option>restricción del proveedor</option>
+          <option>decisión de cobertura</option>
+          <option>otro (describir)</option>
+        </select>
+        <p class="nota">Lista corta y obligatoria. Sin el <i>porqué</i> no se aprende criterio: solo se cuenta una diferencia.</p>
+      </div>
+      <div class="panel">
+        <label class="etiqueta">buscar referencia</label>
+        <input class="campo" placeholder="SKU, nombre o alias del frente…">
+        <div class="vacio mt-16">
+          <div class="icono">◇</div>
+          <div>nada en la cola de excepciones</div>
+          <div class="apunte tenue mt-8">el turno de anoche resolvió las 23 pendientes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  /* tema */
+  const raiz = document.documentElement, bt = document.getElementById('tema');
+  bt.onclick = () => {
+    const oscuro = raiz.getAttribute('data-tema') === 'oscuro';
+    raiz.setAttribute('data-tema', oscuro ? 'claro' : 'oscuro');
+    bt.textContent = oscuro ? '☀ claro' : '☾ oscuro';
+  };
+
+  /* la estela recorre el menú, de compras a comercial */
+  document.getElementById('lanzar-estela').onclick = () => {
+    const filas = [...document.querySelectorAll('#menu-demo .estela')];
+    filas.forEach(f => f.classList.remove('viaja'));
+    filas.forEach((f, i) => setTimeout(() => {
+      f.classList.add('viaja');
+      setTimeout(() => f.classList.remove('viaja'), 1100);
+    }, i * 320));
+  };
+
+  /* el delta se pinta al editar la cantidad humana */
+  document.querySelectorAll('.entrada-humana').forEach(inp => {
+    const fila = inp.closest('tr');
+    const prop = parseInt((fila.querySelector('.propuesta .valor')?.textContent || '0').replace(/\D/g, ''), 10) || 0;
+    inp.addEventListener('input', () => {
+      const val = parseInt(inp.value.replace(/\D/g, ''), 10) || 0;
+      const d = val - prop, celda = fila.lastElementChild;
+      celda.className = 'num ' + (d > 0 ? 'delta-pos' : d < 0 ? 'delta-neg' : 'tenue');
+      celda.textContent = d === 0 ? '—' : (d > 0 ? '+' : '−') + Math.abs(d).toLocaleString('es');
+    });
+  });
+</script>
+</body>
+</html>
