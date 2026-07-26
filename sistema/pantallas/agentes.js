@@ -311,7 +311,7 @@ window.PANTALLAS.agentes = function (lienzo) {
 
   lienzo.querySelector('#freno-general').onclick = () => {
     frena(null, !FRENO.general, _quienFrena(), _MOTIVO);
-    repinta(); pintaMenu(); pintaHud();
+    repinta(); pintaMenu(); pintaHud(); pintaFreno();
     /* El freno se ve cruzar el menú entero: es un efecto de todo el sistema,
        no de esta pantalla. */
     viajaEstela(['agentes', 'cimiento', 'compras', 'distribucion', 'logistica', 'comercial']);
@@ -321,14 +321,14 @@ window.PANTALLAS.agentes = function (lienzo) {
     ev.stopPropagation();
     const a = b.dataset.a;
     frena(a, !detenido(a), _quienFrena(), _MOTIVO);
-    repinta(); pintaMenu(); pintaHud();
+    repinta(); pintaMenu(); pintaHud(); pintaFreno();
   });
 
   lienzo.querySelectorAll('.bt-revertir').forEach(b => b.onclick = () => {
     const orig = BITACORA.find(x => x.id === b.dataset.id);
     const c = compensa(b.dataset.id, 'revertido a mano desde la bitácora', _quienFrena());
     if (!c) return;
-    repinta(); pintaMenu(); pintaHud();
+    repinta(); pintaMenu(); pintaHud(); pintaFreno();
     /* La compensación viaja al módulo donde la acción original escribió. */
     if (orig && MODULOS[orig.modulo]) viajaEstela(['agentes', orig.modulo]);
   });

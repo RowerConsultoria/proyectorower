@@ -889,3 +889,65 @@ body.con-freno .lienzo{padding-top:64px}
 @media (max-width:900px){
   .banda-freno{left:0;padding:9px 16px}
 }
+
+/* ------------------------------------------------- 26. EL RECORRIDO
+
+   La barra del guion vive fuera del lienzo, como la banda del freno: una
+   pantalla que se repinta no puede tumbarla a media demostración.          */
+
+.recorrido{
+  position:fixed;left:calc(var(--menu) + 22px);right:22px;bottom:20px;z-index:41;
+  display:flex;align-items:center;gap:18px;
+  padding:14px 18px;border-radius:var(--r-panel);
+  background:var(--panel-vidrio);border:1px solid var(--tinta-tenue);
+  backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  box-shadow:var(--sombra-alta);
+  animation:sube-recorrido .34s var(--curva);
+}
+.recorrido[hidden]{display:none}
+@keyframes sube-recorrido{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.rec-puntos{display:flex;flex-direction:column;gap:5px;flex:none}
+.rec-puntos .pt{
+  width:7px;height:7px;border-radius:50%;cursor:pointer;
+  background:var(--borde);transition:all var(--curva) .18s;
+}
+.rec-puntos .pt.ya{background:var(--tinta-tenue)}
+.rec-puntos .pt.on{background:var(--menta);box-shadow:0 0 0 3px rgba(54,246,187,.18)}
+.rec-puntos .pt:hover{transform:scale(1.35)}
+
+.rec-cuerpo{flex:1;min-width:0}
+.rec-cab{display:flex;align-items:baseline;gap:11px;margin-bottom:5px}
+.rec-num{
+  font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--tinta-tenue);
+  font-variant-numeric:tabular-nums;flex:none;
+}
+.rec-tit{font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+.rec-txt{font-size:12.5px;line-height:1.55;color:var(--tinta-media);max-width:96ch}
+.rec-txt b{color:var(--tinta);font-weight:700}
+
+.rec-mandos{display:flex;align-items:center;gap:8px;flex:none}
+
+/* el lienzo se aparta para que la barra no tape la última fila */
+body.con-recorrido .lienzo{padding-bottom:190px}
+
+/* el ancla de cada parada: se señala, no se grita */
+.foco-recorrido{
+  outline:2px solid var(--menta);outline-offset:5px;
+  border-radius:var(--r-panel);
+  animation:late-foco 1.5s var(--curva);
+}
+@keyframes late-foco{
+  0%{outline-color:transparent}
+  35%{outline-color:var(--menta)}
+  70%{outline-color:rgba(54,246,187,.35)}
+  100%{outline-color:var(--menta)}
+}
+
+@media (max-width:900px){
+  .recorrido{left:14px;right:14px;bottom:14px;gap:12px;padding:12px 14px;flex-wrap:wrap}
+  .rec-puntos{flex-direction:row;order:3;width:100%;justify-content:center}
+  .rec-cuerpo{flex:1 1 100%}
+  .rec-mandos{width:100%;justify-content:flex-end}
+  body.con-recorrido .lienzo{padding-bottom:250px}
+}

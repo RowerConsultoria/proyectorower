@@ -349,7 +349,10 @@ function pintaHud() {
      no actúa», y una píldora flotante que invita a firmar la contradice. Sus
      mismas cifras están dentro, dichas con todas las letras. */
   const hud = $('#hud');
-  hud.style.display = ESTADO.modulo === 'direccion' ? 'none' : '';
+  /* Se aparta también durante el recorrido: la barra del guion ocupa esa
+     esquina, y dos avisos flotantes discutiendo por el mismo sitio es ruido. */
+  const enRecorrido = typeof recorridoActivo === 'function' && recorridoActivo();
+  hud.style.display = (ESTADO.modulo === 'direccion' || enRecorrido) ? 'none' : '';
   hud.innerHTML = `
     <span class="orbe orbe-grande actuando"></span>
     <div class="txt">
@@ -395,6 +398,9 @@ function arranca() {
 
   /* demostración de la estela: se ve la acción cruzar el menú */
   $('#probar-estela').onclick = () => viajaEstela(['compras', 'distribucion', 'logistica', 'comercial']);
+
+  /* el recorrido guiado de punta a punta (fase 21) */
+  $('#abre-recorrido').onclick = abreRecorrido;
 
   addEventListener('hashchange', navega);
   arrancaMarquee();

@@ -32,6 +32,10 @@
       ⇢ estela
     </button>
 
+    <button class="btn btn-suave btn-mini" id="abre-recorrido" title="Recorrido guiado de punta a punta">
+      ▶ recorrido
+    </button>
+
     <div class="selector-rol">
       <span class="sobretitulo" style="letter-spacing:.12em">rol</span>
       <select id="rol" aria-label="Rol activo"></select>
@@ -54,6 +58,9 @@
 
 <!-- ══════════════════════════════════════════════════════ HUD del agente -->
 <div class="hud" id="hud" role="button" tabindex="0" title="Ir a la sala de agentes"></div>
+
+<!-- ═══════════════════════════════════════ barra del recorrido (fase 21) -->
+<div class="recorrido" id="recorrido" hidden></div>
 
 <!-- datos semilla (fase 4) -->
 <script src="datos/catalogo.js"></script>
@@ -85,6 +92,7 @@
 <script src="pantallas/direccion.js"></script>
   <script src="pantallas/agentes.js"></script>
 
+<script src="nucleo/recorrido.js"></script>
 <script src="nucleo/app.js"></script>
 </body>
 </html>
