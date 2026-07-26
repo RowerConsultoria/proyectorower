@@ -131,14 +131,14 @@ h1{margin:0; font-size:29px; letter-spacing:-.01em}
   padding:1px 6px; border-radius:999px; white-space:nowrap; display:inline-block;
   margin-bottom:2px;
 }
-.via-odoo{background:#e3efe4; color:var(--verde)}
-.via-portal{background:#e2eefa; color:var(--blue)}
+.via-odoo{background:#e3efe4; color:#1E5C22}
+.via-portal{background:#e2eefa; color:#215680}
 .via-sistema{background:#eceff5; color:var(--navy)}
-.via-externa{background:#fdf0dd; color:var(--ambar)}
+.via-externa{background:#fdf0dd; color:#7A4906}
 
 /* la chapa del cedazo */
 .chapa.tamiz{border-left-color:var(--ambar); background:rgba(255,248,236,.97)}
-.chapa.tamiz .n{color:#8a5310} .chapa.tamiz .c{color:var(--ambar)}
+.chapa.tamiz .n{color:#8a5310} .chapa.tamiz .c{color:#7A4906}
 
 /* ─────────────────────────────────────────────── la ficha lateral
 
@@ -167,7 +167,7 @@ h1{margin:0; font-size:29px; letter-spacing:-.01em}
 .bloque.rompe .r{color:var(--rojo)}
 .bloque.hoy{background:#fdf8ef; border-left:4px solid var(--ambar);
   border-radius:0 8px 8px 0; padding:12px 14px}
-.bloque.hoy .r{color:var(--ambar)}
+.bloque.hoy .r{color:#7A4906}
 .datos-ficha{display:grid; grid-template-columns:1fr 1fr; gap:12px}
 .datos-ficha .celda{background:var(--papel); border-radius:8px; padding:10px 12px}
 .datos-ficha .v{font-size:14px; font-weight:800; color:var(--navy); line-height:1.25}
@@ -258,13 +258,13 @@ body.con-bajada .eti.devuelve{border-color:var(--ambar)}
 
 /* la burbuja del cedazo, con su cuenta */
 .burbuja.cedazo{border-left:4px solid var(--ambar); background:rgba(255,250,242,.98)}
-.burbuja.cedazo .r{color:var(--ambar)}
+.burbuja.cedazo .r{color:#7A4906}
 .burbuja.cuenta{text-align:center}
 .burbuja.cuenta .fila{display:flex; justify-content:center; align-items:baseline; gap:12px; margin:5px 0 3px}
 .burbuja.cuenta .v{font-size:23px; font-weight:800; line-height:1}
 .burbuja.cuenta .v.sube{color:var(--verde)} .burbuja.cuenta .v.para{color:var(--ambar)}
 .burbuja.cuenta .rr{font-size:9.5px; color:var(--tenue); display:block}
-.burbuja.cuenta .sep{color:var(--borde)}
+.burbuja.cuenta .sep{color:var(--tinta-tenue)}
 
 /* pista de que la bandeja se abre */
 .chapa{cursor:pointer}
@@ -344,7 +344,7 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
   <button class="mando" id="modo" title="Comparar cómo llega hoy con cómo llegaría">◐ ver cómo es hoy</button>
   <button class="mando" id="bajada" title="Lo que vuelve a cada fuente convertido en orden">↓ la bajada</button>
   <span class="pista">arrastra para girar el rack · rueda para acercar</span>
-  <span style="color:var(--borde)">|</span>
+  <span style="color:var(--tinta-tenue)" aria-hidden="true">|</span>
   <span class="leyenda-ritmo">
     <span>la corriente de cada cable va a <b>la cadencia real</b> de su fuente</span>
     <span class="barra"></span>

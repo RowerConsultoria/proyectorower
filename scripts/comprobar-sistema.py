@@ -106,9 +106,15 @@ JS_CONTRASTE = r"""
     return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});
     return .2126*r+.7152*g+.0722*b;};
   const rgb=s=>{const m=(s||'').match(/[\d.]+/g);return m?m.slice(0,3).map(Number):null;};
+  /* Devuelve null si por el camino hay un DEGRADADO: sobre un degradado no se
+     puede medir un contraste con un solo color, y darlo por el fondo del body
+     producía falsos positivos escandalosos —texto blanco sobre la cabecera
+     navy se contaba como blanco sobre papel—. */
   const fondoDe=e=>{let n=e;
     while(n&&n!==document.documentElement){
-      const st=getComputedStyle(n), c=st.backgroundColor, v=rgb(c);
+      const st=getComputedStyle(n);
+      if(st.backgroundImage&&st.backgroundImage!=='none') return null;
+      const c=st.backgroundColor, v=rgb(c);
       if(v&&c!=='transparent'){const a=(c.match(/[\d.]+/g)||[])[3];
         if(a===undefined||+a>.6) return v;}
       n=n.parentElement;}
@@ -123,7 +129,8 @@ JS_CONTRASTE = r"""
     const padre=e.parentElement;
     if(padre&&getComputedStyle(padre).backgroundImage!=='none') continue;
     const f=rgb(st.color); if(!f) continue;
-    const b=fondoDe(e), L1=lum(f), L2=lum(b);
+    const b=fondoDe(e); if(!b) continue;
+    const L1=lum(f), L2=lum(b);
     const r=(Math.max(L1,L2)+.05)/(Math.min(L1,L2)+.05);
     const px=parseFloat(st.fontSize);
     const grande=px>=24||(px>=18.66&&+st.fontWeight>=700);
