@@ -271,6 +271,36 @@ body.con-bajada .eti.devuelve{border-color:var(--ambar)}
 .chapa:hover{box-shadow:0 3px 8px rgba(15,25,45,.2), 0 14px 34px rgba(15,25,45,.28)}
 .chapa.abierta{border-left-width:6px}
 
+/* ─────────────────────────────────────────────── el recorrido guiado
+
+   La barra vive FUERA del lienzo, como la ficha: dentro competiría con el rack
+   y se deformaría al girar. Y se conduce con el teclado — en una sala, quien
+   presenta no quiere estar buscando un botón con el ratón.               */
+.recorrido{
+  position:fixed; left:24px; right:24px; bottom:18px; z-index:70;
+  display:flex; align-items:center; gap:18px;
+  padding:13px 18px; border-radius:14px;
+  background:rgba(255,255,255,.97); border:1px solid var(--navy);
+  box-shadow:0 3px 10px rgba(31,56,100,.14), 0 20px 50px rgba(31,56,100,.2);
+  animation:sube-rec .32s cubic-bezier(.22,.61,.36,1);
+}
+.recorrido[hidden]{display:none}
+@keyframes sube-rec{from{opacity:0} to{opacity:1}}
+body.con-ficha .recorrido{right:416px}
+
+.rec-puntos{display:flex; flex-direction:column; gap:5px; flex:none}
+.rec-puntos .pt{width:7px; height:7px; border-radius:50%; cursor:pointer;
+  background:var(--borde); transition:all .18s}
+.rec-puntos .pt.ya{background:var(--celeste)}
+.rec-puntos .pt.on{background:var(--navy); box-shadow:0 0 0 3px rgba(31,56,100,.16)}
+.rec-cuerpo{flex:1; min-width:0}
+.rec-cab{display:flex; align-items:baseline; gap:11px; margin-bottom:4px}
+.rec-num{font-size:10.5px; font-weight:700; letter-spacing:.1em; color:var(--tenue); flex:none}
+.rec-tit{font-size:15px; font-weight:800; color:var(--navy); letter-spacing:-.01em}
+.rec-txt{font-size:12.5px; line-height:1.5; color:var(--tenue); max-width:104ch}
+.rec-txt b{color:var(--navy); font-weight:700}
+.rec-mandos{display:flex; align-items:center; gap:8px; flex:none}
+
 /* ────────────────────────────────────────────── sin WebGL: no se rompe */
 #sinwebgl{
   position:absolute; inset:0; display:none; place-items:center; padding:40px;
@@ -310,6 +340,7 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
 
 <div class="mandos">
   <button class="mando" id="pausa" title="Detener la corriente para leer o capturar">⏸ pausar el flujo</button>
+  <button class="mando" id="abre-recorrido" title="Recorrido guiado de la torre">▶ recorrido</button>
   <button class="mando" id="modo" title="Comparar cómo llega hoy con cómo llegaría">◐ ver cómo es hoy</button>
   <button class="mando" id="bajada" title="Lo que vuelve a cada fuente convertido en orden">↓ la bajada</button>
   <span class="pista">arrastra para girar el rack · rueda para acercar</span>
@@ -340,6 +371,8 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
     <a href="arquitectura-ia-plana.html">Ver la torre en versión plana →</a>
   </div></div>
 </div>
+
+<div class="recorrido" id="recorrido" hidden></div>
 
 <aside class="ficha" id="ficha" aria-live="polite">
   <div class="cabf">
@@ -940,7 +973,10 @@ function cierraNivel(silencioso) {
   for (const id of PILA) { destinoZ.set(id, 0); destinoY.set(id, Y[id].y); }
   limpiaBurbujas();
   if (silencioso) return;
-  for (const [m] of opacidadBase) atenua(m, bando());
+  /* Se devuelve al estado del MODO, no a una opacidad plana: en «hoy» los
+     pedestales tienen que quedar visibles —las fuentes sí existen hoy— y con
+     un valor único se apagaban al cerrar la ficha. */
+  aplicaModo();
   enciende(null);
   document.body.classList.remove('enfocado');
   document.querySelectorAll('.rot.on, .chapa.abierta').forEach(e => e.classList.remove('on', 'abierta'));
@@ -1050,7 +1086,7 @@ function limpia() {
 }
 
 document.getElementById('cerrar-ficha').onclick = limpia;
-addEventListener('keydown', e => { if (e.key === 'Escape') { limpia(); cierraNivel(); } });
+addEventListener('keydown', e => { if (e.key === 'Escape') { limpia(); cierraNivel(); cierraRecorrido(); } });
 
 /* Clic en la escena: se lanza un rayo desde la cámara y se mira qué toca.
    Arrastrar para girar el rack no cuenta como pulsar. */
@@ -1072,6 +1108,161 @@ pintor.domElement.addEventListener('pointerup', e => {
   else { limpia(); cierraNivel(); }
 });
 pintor.domElement.style.cursor = 'grab';
+
+/* ═══════════════════════════════════════════════ EL RECORRIDO GUIADO
+
+   Ocho paradas que se siguen sin que nadie tenga que explicarlas. Cada una
+   deja la escena en un estado —abre una gaveta, enfoca una raíz, enciende la
+   bajada— y cuenta lo que hay que mirar.
+
+   Ningún texto lleva cifras escritas a mano: se piden al modelo al pintarse.
+   Si mañana cambia una raíz, el guion cambia con ella y no puede quedarse
+   diciendo lo que la torre ya no hace.                                    */
+
+const PARADAS = [
+  {
+    t: 'Una torre, y el dato que la alimenta',
+    d: () => `Cuatro niveles y <b>${RAICES.length} fuentes</b> alrededor. La corriente de cada cable
+      va a la cadencia real de su fuente: la venta de tienda entra en cuanto ocurre, el sell-out de
+      los frentes sin Odoo se arrastra cada quince días. <b>Ninguna inteligencia es mejor que el
+      dato que la alimenta.</b>`,
+    ir: () => { cierraNivel(); limpia(); },
+  },
+  {
+    t: 'Cada fuente sostiene algo, y sin ella se cae',
+    d: () => {
+      const r = RAICES.find(x => x.id === 'documentos');
+      return `Un diagrama que solo dice qué hay en cada caja es un dibujo. Este dice qué se cae sin
+        ella: sin los <b>documentos del embarque</b>, ${r.rompe}.`;
+    },
+    ir: () => { cierraNivel(); enfoca('documentos'); },
+  },
+  {
+    t: 'El cedazo: lo que no se certifica no sube',
+    d: () => {
+      const e = CEDAZO.ejemplo;
+      return `Anoche entraron <b>${e.entran} nombres</b> nuevos, se certificaron <b>${e.certifican}</b>
+        y <b>${e.cola} se quedaron</b> en cola con su dueño. Una torre donde todo sube es propaganda;
+        que algo se quede abajo es lo que la hace creíble.`;
+    },
+    ir: () => { limpia(); abreNivel('__cedazo__'); },
+  },
+  {
+    t: 'El dato certificado: una sola verdad',
+    d: () => {
+      const N = NIVELES.find(n => n.id === 'cimiento');
+      return `${N.lema}. Catálogo canónico con su lista de alias, reglas de negocio <b>con dueño,
+        fecha y versión</b>, y tasas de cambio fechadas. ${N.noHace}`;
+    },
+    ir: () => { limpia(); abreNivel('cimiento'); },
+  },
+  {
+    t: 'Los agentes, y hasta dónde llega cada uno',
+    d: () => {
+      const N = NIVELES.find(n => n.id === 'inteligencia');
+      const firma = N.agentes.filter(a => a.nivel === 3).length;
+      return `<b>${N.agentes.length} agentes</b> en este nivel, y ${firma} de ellos no aplican nada
+        sin que una persona firme. El permiso no se escribe a mano: se lee en el sello de cada uno
+        — <b>preparé</b>, <b>hice</b>, <b>tu firma</b>.`;
+    },
+    ir: () => { limpia(); abreNivel('inteligencia'); },
+  },
+  {
+    t: 'La decisión: nada sale sin una firma',
+    d: () => {
+      const N = NIVELES.find(n => n.id === 'decision');
+      return `${N.noHace} No es una calibración que salió bien: es una imposibilidad de
+        construcción.`;
+    },
+    ir: () => { limpia(); abreNivel('decision'); },
+  },
+  {
+    t: 'Y la torre baja',
+    d: () => `<b>${BAJADAS.length} órdenes</b> vuelven a su fuente: la orden al proveedor, la
+      asignación al almacén del país, la disponibilidad al socio, el plan de descarga al muelle.
+      Una torre que solo sube es un tablero — sube dato, salen gráficos, y nadie hace nada distinto
+      el lunes.`,
+    baja: true,
+    ir: () => { cierraNivel(); limpia(); },
+  },
+  {
+    t: 'Y así llega el dato hoy',
+    d: () => `Las ${RAICES.length} fuentes existen y el dato nace igual. Lo que no existe es la
+      torre: <b>ninguna corriente llega arriba</b>. Cada fuente dice cómo llega hoy — por correo,
+      por mensajería, por teléfono, en papel.`,
+    hoy: true,
+    ir: () => { cierraNivel(); limpia(); },
+  },
+];
+
+const _rec = { activo: false, paso: 0 };
+const cajaRec = document.getElementById('recorrido');
+
+function abreRecorrido() {
+  _rec.activo = true;
+  vaAlPaso(0);
+}
+function cierraRecorrido() {
+  _rec.activo = false;
+  cajaRec.hidden = true;
+  btRec.classList.remove('on');
+}
+function vaAlPaso(i) {
+  if (!_rec.activo) return;
+  _rec.paso = Math.max(0, Math.min(PARADAS.length - 1, i));
+  const p = PARADAS[_rec.paso];
+  /* Los conmutadores se IMPONEN según lo que la parada declara, en vez de
+     dejarlos como estuvieran: si no, volver atrás desde la última dejaba la
+     escena en modo «hoy» —el rack en fantasma— mientras la barra hablaba de
+     gavetas que no se abrían. */
+  if (!!p.hoy !== modoHoy) btModo.click();
+  if (!!p.baja !== bajando) ponBajada(!!p.baja);
+  try { p.ir(); } catch (err) { console.error('recorrido · parada ' + (_rec.paso + 1), err); }
+  pintaRecorrido();
+}
+function pintaRecorrido() {
+  cajaRec.hidden = !_rec.activo;
+  if (!_rec.activo) return;
+  const p = PARADAS[_rec.paso], ultimo = _rec.paso === PARADAS.length - 1;
+  let cuerpo;
+  /* Si una parada no puede leer sus cifras, se dice. Antes de blindarlo, la
+     barra se quedaba con el texto de la parada anterior mientras la escena ya
+     enseñaba otra cosa. */
+  try { cuerpo = p.d(); }
+  catch (err) { console.error(err); cuerpo = '<i>(esta parada no pudo leer sus cifras del modelo)</i>'; }
+
+  cajaRec.innerHTML = `
+    <div class="rec-puntos">
+      ${PARADAS.map((_, i) => `<span class="pt ${i === _rec.paso ? 'on' : ''} ${i < _rec.paso ? 'ya' : ''}"
+        data-paso="${i}" title="parada ${i + 1}"></span>`).join('')}
+    </div>
+    <div class="rec-cuerpo">
+      <div class="rec-cab"><span class="rec-num">${_rec.paso + 1} / ${PARADAS.length}</span>
+        <span class="rec-tit">${p.t}</span></div>
+      <div class="rec-txt">${cuerpo}</div>
+    </div>
+    <div class="rec-mandos">
+      <button class="mando" id="rec-atras" ${_rec.paso ? '' : 'disabled'}>←</button>
+      <button class="mando on" id="rec-sigue">${ultimo ? 'terminar' : 'siguiente →'}</button>
+      <button class="mando" id="rec-cierra" title="Salir (Esc)">✕</button>
+    </div>`;
+  cajaRec.querySelector('#rec-atras').onclick = () => vaAlPaso(_rec.paso - 1);
+  cajaRec.querySelector('#rec-sigue').onclick = () => ultimo ? cierraRecorrido() : vaAlPaso(_rec.paso + 1);
+  cajaRec.querySelector('#rec-cierra').onclick = cierraRecorrido;
+  cajaRec.querySelectorAll('.pt').forEach(e => e.onclick = () => vaAlPaso(+e.dataset.paso));
+}
+
+const btRec = document.getElementById('abre-recorrido');
+btRec.onclick = () => {
+  if (_rec.activo) { cierraRecorrido(); return; }
+  btRec.classList.add('on');
+  abreRecorrido();
+};
+addEventListener('keydown', e => {
+  if (!_rec.activo) return;
+  if (e.key === 'ArrowRight') { e.preventDefault(); vaAlPaso(_rec.paso + 1); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); vaAlPaso(_rec.paso - 1); }
+});
 
 /* ═══════════════════════════════════════════════ MANDOS Y MEDIDAS */
 /* ═══════════════════════════════════════════════ HOY / PROPUESTO
@@ -1122,9 +1313,10 @@ function aplicaModo() {
   }
 
   /* no hay nada que baje si no hay torre */
+  /* primero se apaga, y solo después se deshabilita */
+  if (modoHoy && bajando) ponBajada(false);
   btBajada.disabled = modoHoy;
   btBajada.style.opacity = modoHoy ? .4 : 1;
-  if (modoHoy && bajando) btBajada.click();
 
   btModo.classList.toggle('on', modoHoy);
   btModo.textContent = modoHoy ? '◑ ver lo propuesto' : '◐ ver cómo es hoy';
@@ -1141,12 +1333,18 @@ btModo.onclick = () => {
    principal, y encender las dos a la vez satura el dibujo. */
 let bajando = false;
 const btBajada = document.getElementById('bajada');
-btBajada.onclick = () => {
-  bajando = !bajando;
-  btBajada.classList.toggle('on', bajando);
-  document.body.classList.toggle('con-bajada', bajando);
-  for (const x of bajadas) { x.malla.visible = bajando; x.malla.material.opacity = bajando ? 1 : 0; }
-};
+
+/* El ESTADO se pone aquí, no en el manejador del botón. Antes `aplicaModo()`
+   apagaba la bajada llamando a `btBajada.click()` justo después de poner el
+   botón en `disabled` — y un botón deshabilitado se traga el clic en silencio,
+   así que al pasar a «hoy» los siete arcos se quedaban encendidos. */
+function ponBajada(v) {
+  bajando = v;
+  btBajada.classList.toggle('on', v);
+  document.body.classList.toggle('con-bajada', v);
+  for (const x of bajadas) { x.malla.visible = v; x.malla.material.opacity = v ? 1 : 0; }
+}
+btBajada.onclick = () => ponBajada(!bajando);
 
 const btPausa = document.getElementById('pausa');
 btPausa.onclick = () => {
@@ -1206,7 +1404,8 @@ pinta();
 
 /* para las comprobaciones */
 window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK,
-                   PILA, tubos, pedestales, armazon, bajadas, abreNivel, cierraNivel, enfoca, limpia };
+                   PILA, tubos, pedestales, armazon, bajadas, abreNivel, cierraNivel, enfoca, limpia,
+                   PARADAS, _rec, vaAlPaso, abreRecorrido, cierraRecorrido };
 
 } /* fin arranca() */
 </script>
