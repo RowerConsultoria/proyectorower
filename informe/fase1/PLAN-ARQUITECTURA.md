@@ -141,7 +141,7 @@ raíces que lo alimenten.
 | **7 · La bajada** | ✅ **hecha** — 7 arcos ámbar desde la decisión · resuelve **A1** · y el cedazo ya se abre en 3D |
 | **8 · Hoy / propuesto** | ✅ **hecha** — el rack se desvanece, la corriente se apaga y cada fuente dice cómo llega hoy |
 | **9 · El recorrido guiado** | ✅ **hecha** — 8 paradas que dejan la escena en su estado, con teclado |
-| 10 · Sustituir el diagrama de la s12 | pendiente |
+| **10 · Sustituir el diagrama** | ✅ **hecha** — la torre entra en la s10 del informe maestro y en el deck |
 | 11 · Pulido y comprobaciones | pendiente |
 
 ## Pendientes detectados durante la construcción

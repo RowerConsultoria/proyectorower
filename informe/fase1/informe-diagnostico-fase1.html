@@ -281,7 +281,7 @@
     z-index:100;padding:24px;overflow-y:auto;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
   }
   .modal-scrim.open{display:flex;align-items:flex-start;justify-content:center;}
-  .modal-box{background:#fff;border-radius:14px;max-width:1200px;width:100%;margin:auto;
+  .modal-box{background:#fff;border-radius:14px;max-width:1560px;width:100%;margin:auto;
     position:relative;box-shadow:0 24px 70px rgba(0,0,0,.4);overflow:hidden;}
   .modal-head{display:flex;align-items:center;justify-content:space-between;
     padding:14px 20px;border-bottom:1px solid var(--border);background:var(--light);}
@@ -289,7 +289,7 @@
   .modal-close{background:var(--navy);color:#fff;border:none;border-radius:8px;
     width:34px;height:34px;font-size:18px;cursor:pointer;line-height:1;}
   .modal-close:hover{background:var(--blue);}
-  .modal-frame{width:100%;height:78vh;border:none;display:block;}
+  .modal-frame{width:100%;height:86vh;min-height:560px;border:none;display:block;}
   .modal-actions{padding:12px 20px;border-top:1px solid var(--border);text-align:right;}
   .modal-actions a{font-size:13px;color:var(--blue);text-decoration:none;font-weight:600;}
   .modal-actions a:hover{text-decoration:underline;}
@@ -2094,9 +2094,11 @@
 
   <p>La arquitectura que se propone responde a una sola pregunta con disciplina: <b>¿cómo se construye una IA transversal — no una colección de islas — sobre los sistemas que el grupo ya tiene?</b> Hereda del diagnóstico sus cuatro principios: el dato certificado precede al agente (Riesgo 1); la integración es una capa gobernada, no favores puntuales (Riesgos 2 y 3); el sistema propio nace en los vacíos y absorbe con el tiempo (9.6); y Odoo permanece estándar mientras la inteligencia vive en la capa que el grupo controla (9.2). Se organiza en <b>seis capas</b>, de abajo hacia arriba:</p>
 
+  <p>El modelo interactivo que sigue enseña esa misma arquitectura <b>desde la otra punta</b>: no con qué se construye, sino <b>de dónde viene el dato y en qué se convierte</b>. Sus cuatro niveles son las capas de esta tabla agrupadas por lo que hacen con el dato — la ingesta es la capa de integración; el dato certificado, la capa C5; la inteligencia, los agentes; y la decisión, la experiencia—, con las doce fuentes que la alimentan alrededor y el <b>cedazo</b> que decide qué puede subir. <b>Ninguna inteligencia es mejor que el dato que la alimenta.</b></p>
+
   <button class="diagram-cta" onclick="openDiagram()">
     <span class="ico">◧</span>
-    <span class="txt"><b>Ver el diagrama de la arquitectura</b><span>Las seis capas, el eje de gobierno y el equipo interno, en una vista interactiva a pantalla completa</span></span>
+    <span class="txt"><b>Ver la torre — el modelo interactivo</b><span>Las doce fuentes donde nace el dato, el cedazo que decide qué sube, y lo que vuelve convertido en orden. En 3D, con un recorrido guiado.</span></span>
     <span class="open">Abrir ▸</span>
   </button>
 
@@ -2201,231 +2203,12 @@
   <div class="modal-scrim" id="diagModal" onclick="if(event.target===this)closeDiagram()">
     <div class="modal-box">
       <div class="modal-head">
-        <h4>Arquitectura de IA transversal — esquema preliminar</h4>
+        <h4>La torre — de dónde viene el dato y en qué se convierte</h4>
         <button class="modal-close" onclick="closeDiagram()" aria-label="Cerrar">×</button>
       </div>
-      <iframe class="modal-frame" srcdoc="<!DOCTYPE html>
-<html lang=&quot;es&quot;>
-<head>
-<meta charset=&quot;UTF-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
-<title>Arquitectura de IA — Proyecto Rower · Grupo Kenex</title>
-<style>
-  :root{
-    --navy:#1F3864; --blue:#2E75B6; --ink:#12233f; --paper:#F7F9FC;
-    --line:#D9E2EF; --muted:#5b6b82;
-    --c1:#8A94A6;      /* registro - gris acero */
-    --c2:#2E75B6;      /* datos - azul */
-    --c3:#7A4FB5;      /* integración MCP - violeta */
-    --c4:#C4622D;      /* motor Anthropic - clay */
-    --c5:#2E8B6B;      /* agentes - verde */
-    --c6:#3F6DB5;      /* experiencia - azul medio */
-    --gov:#B4402E;     /* gobierno - rojo */
-    --team:#0E2A47;    /* equipo - navy profundo */
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:&quot;Segoe UI&quot;,-apple-system,BlinkMacSystemFont,sans-serif;
-    background:
-      radial-gradient(circle at 12% 8%, #eef3fb 0%, transparent 45%),
-      radial-gradient(circle at 88% 92%, #f0ece8 0%, transparent 40%),
-      var(--paper);
-    color:var(--ink); line-height:1.5; padding:38px 20px 60px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1160px;margin:0 auto}
-
-  header{margin-bottom:30px;border-bottom:2px solid var(--navy);padding-bottom:18px}
-  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:700}
-  h1{font-size:30px;color:var(--navy);margin-top:8px;letter-spacing:-.01em;font-weight:800}
-  .sub{color:var(--muted);font-size:15px;margin-top:8px;max-width:760px}
-
-  .stage{display:grid;grid-template-columns:64px 1fr 200px;gap:16px;margin-top:26px;align-items:stretch}
-
-  /* Ejes verticales (equipo y gobierno) */
-  .axis{border-radius:14px;color:#fff;padding:18px 14px;display:flex;flex-direction:column;
-        position:relative;overflow:hidden}
-  .axis .vtitle{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:800;
-        letter-spacing:.14em;text-transform:uppercase;font-size:13px;margin:auto;text-align:center}
-  .axis.team{background:linear-gradient(180deg,var(--team),#1c3a5e)}
-  .axis.gov{background:linear-gradient(160deg,var(--gov),#8f2f20)}
-  .axis .cap{position:absolute;top:12px;left:0;right:0;text-align:center;font-size:10px;
-        letter-spacing:.16em;opacity:.72;text-transform:uppercase}
-  .axis .foot{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:10px;opacity:.72}
-
-  /* Columna central de capas */
-  .layers{display:flex;flex-direction:column;gap:12px}
-  .layer{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 18px;
-        display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;
-        box-shadow:0 1px 2px rgba(20,35,63,.04);transition:transform .16s ease,box-shadow .16s ease;
-        cursor:default;position:relative}
-  .layer:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(20,35,63,.10)}
-  .layer::before{content:&quot;&quot;;position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:12px 0 0 12px;background:var(--accent)}
-  .badge{width:52px;height:52px;border-radius:11px;display:flex;align-items:center;justify-content:center;
-        font-weight:800;font-size:17px;color:#fff;background:var(--accent);letter-spacing:-.02em;flex-shrink:0}
-  .lc h3{font-size:16px;color:var(--ink);display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-  .lc h3 .tag{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
-  .lc p{font-size:13px;color:var(--muted);margin-top:4px}
-  .lc .chips{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
-  .chip{font-size:11px;background:var(--chipbg);color:var(--accent);border:1px solid var(--chipbd);
-        padding:2px 8px;border-radius:20px;font-weight:600;white-space:nowrap}
-
-  .l1{--accent:var(--c1);--chipbg:#f3f4f7;--chipbd:#e2e5ea}
-  .l2{--accent:var(--c2);--chipbg:#eef5fc;--chipbd:#d7e7f7}
-  .l3{--accent:var(--c3);--chipbg:#f3eefa;--chipbd:#e4d7f3}
-  .l4{--accent:var(--c4);--chipbg:#faf0e9;--chipbd:#f2ddce}
-  .l5{--accent:var(--c5);--chipbg:#e9f5f0;--chipbd:#cfe9dd}
-  .l6{--accent:var(--c6);--chipbg:#eef3fb;--chipbd:#d8e4f5}
-
-  .flow{display:flex;justify-content:center;margin:-4px 0}
-  .flow span{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;
-        display:inline-flex;align-items:center;gap:7px}
-  .flow span::before,.flow span::after{content:&quot;&quot;;width:26px;height:1px;background:var(--line)}
-
-  /* leyenda + nota */
-  .footgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-  .card h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:10px}
-  .principle{display:flex;gap:10px;font-size:13px;color:var(--ink);margin-bottom:9px;align-items:flex-start}
-  .principle .dot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0;background:var(--blue)}
-  .thesis{margin-top:26px;background:linear-gradient(120deg,var(--navy),#16305a);color:#fff;
-        border-radius:14px;padding:24px 26px;font-size:16px;line-height:1.55}
-  .thesis b{color:#fff}
-  .thesis .k{color:#9dc3ee}
-
-  footer{margin-top:30px;text-align:center;color:var(--muted);font-size:12px;
-        border-top:1px solid var(--line);padding-top:16px}
-  .waves{font-size:12px}
-  @media(max-width:820px){
-    .stage{grid-template-columns:44px 1fr;gap:10px}
-    .axis.gov{grid-column:1/-1;flex-direction:row;padding:12px}
-    .axis.gov .vtitle{writing-mode:horizontal-tb;transform:none;margin:0 auto}
-    .axis.gov .cap,.axis.gov .foot{position:static;text-align:left;margin:0 8px}
-    .footgrid{grid-template-columns:1fr}
-    .layer{grid-template-columns:44px 1fr}
-  }
-</style>
-</head>
-<body>
-<div class=&quot;wrap&quot;>
-  <header>
-    <div class=&quot;eyebrow&quot;>Proyecto Rower · Grupo Kenex · Sección 12</div>
-    <h1>Arquitectura de IA transversal</h1>
-    <p class=&quot;sub&quot;>Seis capas sobre los sistemas que el grupo ya tiene, atravesadas por un eje humano interno y un eje de gobierno. La IA no se añade encima: se construye sobre dato certificado y accesos gobernados. <b>Esquema preliminar para evaluación.</b></p>
-  </header>
-
-  <div class=&quot;stage&quot;>
-    <!-- EJE GOBIERNO (izquierda) -->
-    <div class=&quot;axis gov&quot; title=&quot;Atraviesa todas las capas&quot;>
-      <div class=&quot;cap&quot;>C0</div>
-      <div class=&quot;vtitle&quot;>Gobierno · dato + IA</div>
-      <div class=&quot;foot&quot;>01-jul</div>
-    </div>
-
-    <!-- CAPAS -->
-    <div class=&quot;layers&quot;>
-      <div class=&quot;layer l6&quot;>
-        <div class=&quot;badge&quot;>C6</div>
-        <div class=&quot;lc&quot;>
-          <h3>Experiencia <span class=&quot;tag&quot;>donde la gente lo vive</span></h3>
-          <p>La IA llega por los canales que la organización ya habita — nadie aprende una herramienta nueva.</p>
-          <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Lark (interno)</span><span class=&quot;chip&quot;>WhatsApp / Maia</span><span class=&quot;chip&quot;>Power BI</span><span class=&quot;chip&quot;>Universidad Cubitt</span></div>
-        </div>
-      </div>
-
-      <div class=&quot;flow&quot;><span>los agentes se presentan aquí</span></div>
-
-      <div class=&quot;layer l5&quot;>
-        <div class=&quot;badge&quot;>C5</div>
-        <div class=&quot;lc&quot;>
-          <h3>Agentes y casos de uso <span class=&quot;tag&quot;>el valor visible</span></h3>
-          <p>Agentes de negocio desplegados por olas, con aprobación humana en toda decisión económica.</p>
-          <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Ola 1 · e-commerce VE · nómina · reportería</span><span class=&quot;chip&quot;>Ola 2 · compras · conciliación · dashboard vivo</span><span class=&quot;chip&quot;>Ola 3 · sistema propio</span></div>
-        </div>
-      </div>
-
-      <div class=&quot;flow&quot;><span>razonan con</span></div>
-
-      <div class=&quot;layer l4&quot;>
-        <div class=&quot;badge&quot;>C4</div>
-        <div class=&quot;lc&quot;>
-          <h3>Motor de razonamiento <span class=&quot;tag&quot;>Anthropic</span></h3>
-          <p>Claude como motor de los agentes. No parte de cero: es lo que el grupo ya adoptó, y MCP nació aquí.</p>
-          <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Claude API</span><span class=&quot;chip&quot;>Claude for Work</span><span class=&quot;chip&quot;>Claude Code</span></div>
-        </div>
-      </div>
-
-      <div class=&quot;flow&quot;><span>acceden por</span></div>
-
-      <div class=&quot;layer l3&quot;>
-        <div class=&quot;badge&quot;>C3</div>
-        <div class=&quot;lc&quot;>
-          <h3>Integración MCP <span class=&quot;tag&quot;>el sistema nervioso</span></h3>
-          <p>Puerta única y gobernada: cada sistema se conecta una vez, con permisos por rol y auditoría de cada acción.</p>
-          <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Gateway MCP · OAuth 2.1</span><span class=&quot;chip&quot;>MCP-Odoo</span><span class=&quot;chip&quot;>MCP-Datos</span><span class=&quot;chip&quot;>Modelos BI como herramientas</span></div>
-        </div>
-      </div>
-
-      <div class=&quot;flow&quot;><span>consumen solo de</span></div>
-
-      <div class=&quot;layer l2&quot;>
-        <div class=&quot;badge&quot;>C2</div>
-        <div class=&quot;lc&quot;>
-          <h3>Capa de datos certificada <span class=&quot;tag&quot;>la fuente de la verdad</span></h3>
-          <p>El dato servido como API, no por descarga. La obra fundacional: sin ella, la IA multiplica errores.</p>
-          <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Almacén analítico</span><span class=&quot;chip&quot;>Diccionario maestro</span><span class=&quot;chip&quot;>API interna de datos</span><span class=&quot;chip&quot;>Reglas de certificación</span></div>
-        </div>
-      </div>
-
-      <div class=&quot;flow&quot;><span>se alimenta de</span></div>
-
-      <div class=&quot;layer l1&quot;>
-        <div class=&quot;badge&quot;>C1</div>
-        <div class=&quot;lc&quot;>
-          <h3>Sistemas de registro <span class=&quot;tag&quot;>lo que ya existe · no se reemplaza</span></h3>
-          <p>Se mantienen y estabilizan. Su única obligación nueva: exponer su dato hacia arriba de forma estándar.</p>
-          <div class=&quot;chips&quot;><span class=&quot;chip&quot;>Odoo (estándar)</span><span class=&quot;chip&quot;>EBS / WMS</span><span class=&quot;chip&quot;>Shopify · Mercately · Cashea</span><span class=&quot;chip&quot;>Lark</span><span class=&quot;chip&quot;>Fuentes externas</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EJE EQUIPO (derecha) -->
-    <div class=&quot;axis team&quot; title=&quot;Construye, mantiene y gobierna todas las capas&quot;>
-      <div class=&quot;cap&quot;>Eje humano</div>
-      <div class=&quot;vtitle&quot;>Equipo interno · entrenado en Anthropic</div>
-      <div class=&quot;foot&quot;>construye · mantiene · gobierna</div>
-    </div>
-  </div>
-
-  <div class=&quot;thesis&quot;>
-    El grupo no compra esta arquitectura: la <b>posee</b>. Un <b class=&quot;k&quot;>equipo interno entrenado en el ecosistema de Anthropic</b> construye el sistema propio, es enlace con el desarrollador del núcleo, y mantiene el código — mientras el <b class=&quot;k&quot;>gobierno del dato y la IA</b> asegura que cada acción sea autenticada, permitida y trazable. Odoo permanece estándar para que sus versiones sean gratuitas; la inteligencia vive en la capa que el grupo controla.
-  </div>
-
-  <div class=&quot;footgrid&quot;>
-    <div class=&quot;card&quot;>
-      <h4>Cuatro principios heredados del diagnóstico</h4>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot;></span><span><b>El dato certificado precede al agente.</b> Una IA veloz sobre datos no validados acelera el error (Riesgo 1).</span></div>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot;></span><span><b>La integración es una capa gobernada</b>, no favores puntuales: puerta única con permisos y auditoría (Riesgos 2 y 3).</span></div>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot;></span><span><b>El sistema propio nace en los vacíos</b> y absorbe con el tiempo — no reemplaza de golpe (§9.6).</span></div>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot;></span><span><b>Odoo estándar, inteligencia en la capa propia</b> — para que las actualizaciones sean gratuitas (§9.2).</span></div>
-    </div>
-    <div class=&quot;card&quot;>
-      <h4>Human-in-the-loop · tres niveles de autonomía</h4>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot; style=&quot;background:var(--c5)&quot;></span><span><b>Informar</b> — el agente lee, calcula, resume. Autonomía plena.</span></div>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot; style=&quot;background:var(--c4)&quot;></span><span><b>Recomendar / preparar</b> — el agente deja la acción lista; el humano revisa y ejecuta. Aquí se captura el valor sin ceder control.</span></div>
-      <div class=&quot;principle&quot;><span class=&quot;dot&quot; style=&quot;background:var(--gov)&quot;></span><span><b>Decidir</b> — comprar, pagar, aprobar, contratar. Reservado al humano: el agente llega al borde, el clic es humano.</span></div>
-      <p style=&quot;font-size:11.5px;color:var(--muted);margin-top:12px;font-style:italic&quot;>No es la IA impactando los procesos, son las personas usando IA las que impactan los procesos.</p>
-    </div>
-  </div>
-
-  <footer>
-    Proyecto Rower · UCAB Consultores para Grupo Kenex · Arquitectura de IA preliminar (Sección 12) · Documento de uso interno · Esquema sujeto a validación técnica con acceso directo a sistemas
-  </footer>
-</div>
-</body>
-</html>
-"></iframe>
-      <div class="modal-actions"><a href="arquitectura_ia_diagrama.html" target="_blank">Abrir el diagrama en una pestaña nueva ↗</a></div>
+      <iframe class="modal-frame" id="diagFrame" title="La torre — arquitectura de IA"
+              data-src="arquitectura-ia-kenex.html"></iframe>
+      <div class="modal-actions"><a href="arquitectura-ia-plana.html" target="_blank" style="margin-right:16px;">Versión plana (para imprimir) ↗</a><a href="arquitectura-ia-kenex.html" target="_blank">Abrir la torre en una pestaña nueva ↗</a></div>
     </div>
   </div>
 
@@ -2722,7 +2505,11 @@
   pintar(); spy();
 })();
 // Modal del diagrama
-function openDiagram(){ document.getElementById('diagModal').classList.add('open'); document.body.style.overflow='hidden'; }
+function openDiagram(){ var f=document.getElementById('diagFrame');
+  /* se carga al abrir, no al cargar el informe: la escena 3D no puede
+     pesar en el arranque de un documento que se lee sin abrirla */
+  if(f && !f.src){ f.src = f.dataset.src; }
+  document.getElementById('diagModal').classList.add('open'); document.body.style.overflow='hidden'; }
 function closeDiagram(){ document.getElementById('diagModal').classList.remove('open'); document.body.style.overflow=''; }
 function orgOpen(){ var d=document.getElementById('orgDrawer'), f=document.getElementById('orgFrame'); if(!f.src){ f.src=f.dataset.src; } d.classList.add('open'); }
 function orgClose(){ document.getElementById('orgDrawer').classList.remove('open'); }
@@ -2739,7 +2526,9 @@ function presOpen(sec){
   setTimeout(function(){ try{ f.contentWindow.focus(); }catch(err){} }, 250);
 }
 function presClose(){ document.getElementById('presOverlay').classList.remove('open'); document.body.style.overflow=''; }
-window.addEventListener('message', function(e){ if(e.data && e.data.rower==='cerrar-presentacion'){ presClose(); } });
+window.addEventListener('message', function(e){ if(!e.data) return;
+  if(e.data.rower==='cerrar-presentacion'){ presClose(); }
+  if(e.data.rower==='cerrar'){ closeDiagram(); } });
 /* Botones ▶ Presentar en cada título de sección */
 (function(){
   var secs=['s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13'];
