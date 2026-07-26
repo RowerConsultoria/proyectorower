@@ -223,6 +223,30 @@ body.enfocado .chapa:not(.on){opacity:.42}
 .burbuja.nohace{border-left:4px solid var(--rojo); background:rgba(255,250,250,.98)}
 .burbuja.nohace .r{color:var(--rojo)}
 
+/* ─────────────────────────────────────────────── el modo «hoy»
+
+   No es un filtro decorativo: es el argumento. Hoy las doce fuentes EXISTEN
+   —el dato nace igual— pero no llegan a ninguna parte: viajan por correo, por
+   mensajería y por teléfono, y se consolidan a mano. Enseñarlo al lado de la
+   propuesta es lo que convierte el dibujo en una comparación.            */
+.eti .comoLlega{display:none; font-size:10.5px; color:#8a5310; line-height:1.4; margin-top:3px}
+body.modo-hoy .eti .comoLlega{display:block}
+body.modo-hoy .eti{border-color:var(--ambar); max-width:206px}
+body.modo-hoy .eti .detalle, body.modo-hoy .eti .recibe{display:none !important}
+body.modo-hoy .chapa{opacity:.2}
+body.modo-hoy .mandos .leyenda-ritmo{opacity:.35}
+
+.aviso-hoy{
+  position:absolute; left:50%; transform:translateX(-50%); top:18px; z-index:20;
+  background:#fff8ec; border:1.5px solid var(--ambar); border-radius:10px;
+  padding:11px 18px; max-width:640px; text-align:center; display:none;
+  box-shadow:0 3px 10px rgba(178,106,0,.12), 0 16px 40px rgba(178,106,0,.14);
+}
+body.modo-hoy .aviso-hoy{display:block}
+.aviso-hoy .t{font-size:14px; font-weight:800; color:#8a5310}
+.aviso-hoy .d{font-size:12.5px; color:var(--tenue); margin-top:4px; line-height:1.5}
+.aviso-hoy .d b{color:var(--navy)}
+
 /* la fuente que recibe algo de vuelta, cuando se enciende la bajada */
 .eti .recibe{
   display:none; font-size:9px; font-weight:800; letter-spacing:.08em;
@@ -286,6 +310,7 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
 
 <div class="mandos">
   <button class="mando" id="pausa" title="Detener la corriente para leer o capturar">⏸ pausar el flujo</button>
+  <button class="mando" id="modo" title="Comparar cómo llega hoy con cómo llegaría">◐ ver cómo es hoy</button>
   <button class="mando" id="bajada" title="Lo que vuelve a cada fuente convertido en orden">↓ la bajada</button>
   <span class="pista">arrastra para girar el rack · rueda para acercar</span>
   <span style="color:var(--borde)">|</span>
@@ -299,6 +324,13 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
 <div class="escenario">
   <div id="lienzo3d"></div>
   <div id="rotulos"></div>
+  <div class="aviso-hoy">
+    <div class="t">Así llega el dato hoy</div>
+    <div class="d">Las doce fuentes existen y el dato nace igual. Lo que no existe es
+      <b>la torre</b>: no hay ingesta, ni catálogo canónico, ni cedazo, ni una decisión con firma.
+      Los archivos viajan por correo y se consolidan a mano — <b>y por eso ninguna corriente
+      llega arriba</b>.</div>
+  </div>
   <div class="cargando" id="cargando">montando el rack…</div>
   <div id="sinwebgl"><div class="caja">
     <h2>Este equipo no puede dibujar en 3D</h2>
@@ -542,14 +574,19 @@ function chapa(html, y, extra, id) {
 
 /* ═══════════════════════════════════════════════ MONTANTES Y TRAVESAÑOS */
 const acero = new THREE.MeshStandardMaterial({ color: 0x33445c, roughness: .32, metalness: .95 });
+/* El armazon se guarda aparte para poder desvanecerlo en el modo «hoy»: hoy no
+   hay ni bandejas NI bastidor, y dejar los montantes solidos sugeria que la
+   estructura ya existe y solo faltan los equipos. */
+const armazon = [];
 for (const sx of [-1, 1]) for (const sz of [-1, 1]) {
-  const p = new THREE.Mesh(new THREE.BoxGeometry(0.17, ALTO_RACK + 0.75, 0.17), acero);
+  const p = new THREE.Mesh(new THREE.BoxGeometry(0.17, ALTO_RACK + 0.75, 0.17), acero.clone());
   p.position.set(sx * (ANCHO / 2 + 0.12), (ALTO_RACK + 0.75) / 2, sz * (FONDO / 2 - 0.12));
-  p.castShadow = true; escena.add(p);
+  p.castShadow = true; escena.add(p); armazon.push(p);
 }
 for (const y of [0.2, ALTO_RACK + 0.62]) for (const sz of [-1, 1]) {
-  const t = new THREE.Mesh(new THREE.BoxGeometry(ANCHO + 0.4, 0.14, 0.14), acero);
+  const t = new THREE.Mesh(new THREE.BoxGeometry(ANCHO + 0.4, 0.14, 0.14), acero.clone());
   t.position.set(0, y, sz * (FONDO / 2 - 0.12)); t.castShadow = true; escena.add(t);
+  armazon.push(t);
 }
 
 /* ═══════════════════════════════════════════════ LAS RAÍCES */
@@ -569,8 +606,11 @@ const COLUMNA = {
    propósito, para que la cara del rack se vea entera. */
 const RADIO = 13.2;
 const ARCO = { izq: [-108, -26], der: [26, 108] };   // grados; 0° mira al frente
+/* En «hoy» cada rótulo crece —enseña cómo llega el dato— y con la separación
+   de siempre tres de ellos se pisaban. Se apartan hacia fuera. */
+const EMPUJE_HOY = 4.8;
 
-const sitio = {}, pedestales = [];
+const sitio = {}, pedestales = [], rotulosRaiz = [];
 for (const col of ['izq', 'der']) {
   const suyas = RAICES.filter(r => COLUMNA[r.id] === col);
   const [a0, a1] = ARCO[col];
@@ -579,6 +619,7 @@ for (const col of ['izq', 'der']) {
     /* alternar el radio evita que dos vecinas se solapen en pantalla */
     const rad = RADIO + (i % 2 ? 1.5 : 0);
     const p = new THREE.Vector3(Math.sin(g) * rad, 0.24, Math.cos(g) * rad);
+    p.userData = { g, rad };
     sitio[r.id] = p;
     const base = new THREE.Mesh(
       new RoundedBoxGeometry(1.9, 0.48, 1.3, 3, 0.07),
@@ -604,12 +645,14 @@ for (const col of ['izq', 'der']) {
     if (devuelve) d.classList.add('devuelve');
     d.innerHTML = `<span class="n">${r.nombre}</span>` +
       (devuelve ? '<span class="recibe">↓ recibe</span>' : '') +
+      `<span class="comoLlega">${r.hoy}</span>` +
       `<span class="detalle"><span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
        <span class="c">${r.cadencia} · ${r.dueno}</span></span>`;
     d.onclick = () => enfoca(r.id);
     const o = new CSS2DObject(d);
     o.position.set(p.x, p.y + 0.62, p.z);
-    escena.add(o);
+    o.userData = { g, rad, par: i % 2, base: o.position.clone() };
+    escena.add(o); rotulosRaiz.push(o);
   });
 }
 
@@ -778,6 +821,7 @@ function limpiaBurbujas() {
 }
 
 function abreNivel(id) {
+  if (modoHoy) return;          // no hay torre que abrir
   if (nivelAbierto === id) { cierraNivel(); return; }
   if (enfocada) limpia();
   cierraNivel(true);
@@ -896,7 +940,7 @@ function cierraNivel(silencioso) {
   for (const id of PILA) { destinoZ.set(id, 0); destinoY.set(id, Y[id].y); }
   limpiaBurbujas();
   if (silencioso) return;
-  for (const [m] of opacidadBase) atenua(m, 1);
+  for (const [m] of opacidadBase) atenua(m, bando());
   enciende(null);
   document.body.classList.remove('enfocado');
   document.querySelectorAll('.rot.on, .chapa.abierta').forEach(e => e.classList.remove('on', 'abierta'));
@@ -915,6 +959,9 @@ function cierraNivel(silencioso) {
 const opacidadBase = new Map();
 for (const t of Object.values(tubos)) opacidadBase.set(t, 1);
 for (const b of pedestales) opacidadBase.set(b, 1);
+/* Las bajadas entran tambien: si no, al enfocar una raiz se quedaban a plena
+   luz mientras todo lo demas se apagaba, y parecian el asunto principal. */
+for (const x of bajadas) opacidadBase.set(x.malla, 1);
 
 let enfocada = null;
 
@@ -959,6 +1006,9 @@ function enfoca(id) {
   if (tubos[id]) atenua(tubos[id], 1);
   const ped = pedestales.find(b => b.userData.raiz === id);
   if (ped) atenua(ped, 1);
+  /* y su bajada, si la tiene: es parte de su historia */
+  const suBajada = bajadas.find(x => x.b.hacia === id);
+  if (suBajada && bajando) atenua(suBajada.malla, 1);
   enciende(r.nivel);
   miraHacia(sitio[id]);
 
@@ -1024,6 +1074,69 @@ pintor.domElement.addEventListener('pointerup', e => {
 pintor.domElement.style.cursor = 'grab';
 
 /* ═══════════════════════════════════════════════ MANDOS Y MEDIDAS */
+/* ═══════════════════════════════════════════════ HOY / PROPUESTO
+
+   En «hoy» el rack se vuelve fantasma —no existe todavia— y las corrientes se
+   apagan: el dato nace y no llega. Es literalmente el hallazgo del
+   diagnostico, dibujado.                                                  */
+
+function texturaApagada() {
+  const c = document.createElement('canvas'); c.width = 8; c.height = 8;
+  const g = c.getContext('2d');
+  g.fillStyle = '#cdd6e1'; g.fillRect(0, 0, 8, 8);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+const APAGADA = texturaApagada();
+const mapaVivo = new Map();
+for (const [id, t] of Object.entries(tubos)) mapaVivo.set(t, t.material.map);
+
+let modoHoy = false;
+/* opacidad de fondo segun el modo: en «hoy» todo queda mas apagado */
+const bando = () => (modoHoy ? 0.32 : 1);
+
+function aplicaModo() {
+  document.body.classList.toggle('modo-hoy', modoHoy);
+
+  /* el rack entero se vuelve fantasma: hoy no existe */
+  for (const b of Object.values(bandejas)) atenua(b, modoHoy ? 0.09 : 1);
+  for (const p of armazon) { atenua(p, modoHoy ? 0.14 : 1); p.castShadow = !modoHoy; }
+
+  /* las corrientes se apagan y el conducto queda gris: nace y no llega */
+  for (const [id, t] of Object.entries(tubos)) {
+    t.material.map = modoHoy ? APAGADA : mapaVivo.get(t);
+    t.material.needsUpdate = true;
+    atenua(t, modoHoy ? 0.3 : 1);
+  }
+  for (const b of pedestales) atenua(b, 1);   // las fuentes SI existen hoy
+
+  /* los rótulos se apartan hacia fuera: en «hoy» son más altos */
+  for (const o of rotulosRaiz) {
+    /* además del empuje general, las alternas se separan EN PROFUNDIDAD: dos
+       vecinas del mismo arco acababan pisándose por una esquina, y alejarlas a
+       las dos por igual no las separa en pantalla — hay que desencajarlas. */
+    const k = modoHoy ? EMPUJE_HOY + (o.userData.par ? 3.6 : 0) : 0;
+    o.position.set(Math.sin(o.userData.g) * (o.userData.rad + k), o.userData.base.y,
+                   Math.cos(o.userData.g) * (o.userData.rad + k));
+  }
+
+  /* no hay nada que baje si no hay torre */
+  btBajada.disabled = modoHoy;
+  btBajada.style.opacity = modoHoy ? .4 : 1;
+  if (modoHoy && bajando) btBajada.click();
+
+  btModo.classList.toggle('on', modoHoy);
+  btModo.textContent = modoHoy ? '◑ ver lo propuesto' : '◐ ver cómo es hoy';
+}
+
+const btModo = document.getElementById('modo');
+btModo.onclick = () => {
+  limpia(); cierraNivel();
+  modoHoy = !modoHoy;
+  aplicaModo();
+};
+
 /* El conmutador de la bajada. Apagado por defecto: la subida es la historia
    principal, y encender las dos a la vez satura el dibujo. */
 let bajando = false;
@@ -1093,7 +1206,7 @@ pinta();
 
 /* para las comprobaciones */
 window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK,
-                   PILA, tubos, pedestales, abreNivel, cierraNivel, enfoca, limpia };
+                   PILA, tubos, pedestales, armazon, bajadas, abreNivel, cierraNivel, enfoca, limpia };
 
 } /* fin arranca() */
 </script>

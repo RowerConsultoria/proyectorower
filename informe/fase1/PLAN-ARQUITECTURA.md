@@ -139,7 +139,7 @@ raíces que lo alimenten.
 | **6c · Gavetas y burbujas** | ✅ **hecha** — la bandeja sale, las de arriba suben, y brotan las burbujas con los agentes y su permiso |
 | 6d · El cedazo como bandeja tamiz | ✅ hecha en la 6a |
 | **7 · La bajada** | ✅ **hecha** — 7 arcos ámbar desde la decisión · resuelve **A1** · y el cedazo ya se abre en 3D |
-| 8 · Hoy / propuesto | pendiente |
+| **8 · Hoy / propuesto** | ✅ **hecha** — el rack se desvanece, la corriente se apaga y cada fuente dice cómo llega hoy |
 | 9 · El recorrido guiado | pendiente |
 | 10 · Sustituir el diagrama de la s12 | pendiente |
 | 11 · Pulido y comprobaciones | pendiente |
