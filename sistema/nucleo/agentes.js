@@ -418,6 +418,15 @@ function reparte(sku, pretensiones, hay) {
   return { dado, cede, sobra: resto, trazas };
 }
 
+/* V-02 corre dentro del mismo turno que X-01 y necesita su reparto. Se lee del
+   resultado ya calculado en vez de recalcularlo, que además tomaría reservas
+   por segunda vez sobre las mismas unidades. */
+function datosRepartoSeguro() {
+  const e = BITACORA.find(x => x.accion.startsWith('X-01'));
+  return (e && _resultados[e.id]) || { porFrente: {} };
+}
+const _resultados = {};
+
 /* ------------------------------------------------ salud del inventario ---- */
 
 /**
@@ -844,12 +853,44 @@ const ACCIONES = {
     ejes: { perimetro: 'interno', reversibilidad: 'humana', radio: 'frente', dinero: 'caja', reloj: 'alcanza' },
     corre() {
       const verde = [], excepcion = [];
+      const rep = datosRepartoSeguro();
+
       for (const ped of PEDIDOS) {
         const f = FRENTES.find(x => x.id === ped.frente);
         const motivos = [];
-        if (f.saldo > f.credito * 0.7) motivos.push(`saldo al ${Math.round(f.saldo / f.credito * 100)} % del cupo`);
-        if (f.atraso > 0) motivos.push(`${f.atraso} días de atraso`);
-        (motivos.length ? excepcion : verde).push({ id: ped.id, frente: f.nombre, motivos });
+
+        /* Los tres exámenes que hoy se hacen a ojo, uno por uno, en treinta
+           segundos por pedido: crédito, rotación del frente y margen. */
+        const usoCupo = f.credito ? f.saldo / f.credito : 0;
+        if (usoCupo > 0.7) motivos.push(`saldo al ${Math.round(usoCupo * 100)} % de su cupo`);
+        if (f.atraso > 0) motivos.push(`${f.atraso} días de atraso en sus pagos`);
+
+        let valor = 0, costo = 0, sobreRotacion = [];
+        for (const l of ped.lineas) {
+          const p = CATALOGO.find(x => x.sku === l.sku);
+          if (!p) continue;
+          valor += l.pide * p.pvp * 0.62;              // precio de venta al frente
+          costo += l.pide * p.pvp * 0.42;
+          const s = (VENTAS[l.sku] || {})[ped.frente] || [];
+          const m3 = s.slice(-3).reduce((a, b) => a + b, 0) / 3;
+          /* pedir más de dos meses de su propia rotación es sobre-stockear al
+             frente: el problema vuelve en dos meses convertido en devolución */
+          if (m3 > 0 && l.pide > m3 * 2) sobreRotacion.push({ sku: l.sku, nombre: p.nombre, pide: l.pide, rota: Math.round(m3) });
+        }
+        const margen = valor ? (valor - costo) / valor : 0;
+        if (margen < 0.28) motivos.push(`margen del ${Math.round(margen * 100)} %, por debajo del mínimo`);
+        if (sobreRotacion.length) motivos.push(`${sobreRotacion.length} línea${sobreRotacion.length > 1 ? 's' : ''} por encima de su rotación`);
+
+        const item = {
+          id: ped.id, frenteId: f.id, frente: f.nombre, tipo: f.tipo, via: f.via,
+          lineas: ped.lineas.length,
+          unidades: ped.lineas.reduce((a, l) => a + l.pide, 0),
+          asignado: (rep.porFrente[f.id] || {}).recibe || 0,
+          valor: Math.round(valor), margen, usoCupo, atraso: f.atraso,
+          sobreRotacion, motivos,
+          peldano: ped.cobrado ? 'cobrado' : ped.reservaNominal ? 'nominal' : ped.dentroDeCiclo ? 'ciclo' : 'proporcional',
+        };
+        (motivos.length ? excepcion : verde).push(item);
       }
       return {
         salida: `${verde.length} pedidos en verde, listos para firma en lote · ` +
@@ -919,6 +960,7 @@ function turnoDeNoche() {
       dispara: a.dispara, salida: r.salida, ejes: a.ejes, cruza: a.cruza,
       reglas: Object.keys(REGLAS).filter(k => a.corre.toString().includes('REGLAS.' + k)),
     });
+    _resultados[e.id] = r.datos;    // disponible para las acciones posteriores del turno
     resultados.push({ ...e, datos: r.datos });
   }
   return resultados;

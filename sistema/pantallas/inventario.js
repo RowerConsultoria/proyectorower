@@ -13,7 +13,12 @@
 
 window.PANTALLAS = window.PANTALLAS || {};
 
-const _inv = { clase: 'accionable', aplicadas: {} };
+const _inv = { clase: 'accionable', aplicadas: {}, preparadas: {}, verTodo: false };
+
+/* Una propuesta se identifica por lo que la hace única —referencia, origen y
+   destino—, nunca por su posición en la lista: en cuanto se aplica una, la
+   lista se recalcula y el índice pasa a señalar a otra propuesta distinta. */
+const claveProp = x => `${x.sku}|${x.origen.ubicacion.id}|${x.destino.ubicacion.id}`;
 
 const CLASES = {
   quiebre:    { r: 'quiebre',    color: 'var(--riesgo)', accion: 'reponer' },
@@ -130,8 +135,8 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
 
   const caja = lienzo.querySelector('#acciones');
 
-  function tarjetaTraslado(x, i) {
-    const clave = 'T' + i;
+  function tarjetaTraslado(x) {
+    const clave = claveProp(x);
     const hecha = _inv.aplicadas[clave];
     return `<div class="tarjeta">
       <div class="fila-sep">
@@ -163,7 +168,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         <div class="fila gap-8">
           <span class="sello sello-3"><i></i>tu firma</span>
           ${hecha ? '<span class="sello sello-2"><i></i>hice</span>'
-                  : `<button class="btn btn-marca btn-mini" data-t="${clave}" data-i="${i}">aplicar el traslado</button>`}
+                  : `<button class="btn btn-marca btn-mini" data-t="${clave}">aplicar el traslado</button>`}
         </div>
       </div>
     </div>`;
@@ -171,8 +176,10 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
 
   function tarjetaLinea(f, tipo) {
     const esParado = tipo === 'parado';
-    const accion = esParado ? 'liquidar o mover' : 'promocionar';
+    const accion = esParado ? 'preparar la liquidación' : 'preparar la promoción';
     const dest = esParado ? DESTINATARIO.liquidacion : DESTINATARIO.promocion;
+    const clave = `${tipo}|${f.p.sku}|${f.ubicacion.id}`;
+    const lista = _inv.preparadas[clave];
     return `<div class="tarjeta">
       <div class="fila-sep">
         <div class="fila gap-12">
@@ -192,10 +199,12 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         </div>
       </div>
       <div class="fila-sep mt-16">
-        <span class="apunte tenue">para <b>${dest}</b></span>
+        <span class="apunte tenue">para <b>${dest}</b>${lista ? ' · <b style="color:var(--ok)">en su bandeja</b>' : ''}</span>
         <div class="fila gap-8">
           <span class="sello sello-1"><i></i>preparé</span>
-          <button class="btn btn-suave btn-mini">${accion}</button>
+          ${lista ? '<span class="sello sello-2"><i></i>hice</span>'
+                  : `<button class="btn btn-suave btn-mini" data-prep="${clave}" data-tipo="${tipo}"
+                       data-sku="${f.p.sku}" data-ub="${f.ubicacion.id}">${accion}</button>`}
         </div>
       </div>
     </div>`;
@@ -235,12 +244,22 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
     } else if (_inv.clase === 'traslado') html = rebal.map(tarjetaTraslado).join('');
     else if (_inv.clase === 'parado') html = parados.map(f => tarjetaLinea(f, 'parado')).join('');
     else if (_inv.clase === 'sobrestock') html = sobre.map(f => tarjetaLinea(f, 'sobrestock')).join('');
-    else html = quiebres.slice(0, 12).map(tarjetaQuiebre).join('');
+    else {
+      /* Nada de cortes en silencio: si se muestran menos de los que hay, se
+         dice cuántos faltan y con qué criterio se eligieron los que se ven. */
+      const tope = _inv.verTodo ? quiebres.length : 12;
+      html = quiebres.slice(0, tope).map(tarjetaQuiebre).join('');
+      if (quiebres.length > tope) html += `<div class="vacio" style="padding:20px">
+        se muestran las <b>${tope} más urgentes</b> de ${quiebres.length}, ordenadas por cobertura
+        <div style="margin-top:12px"><button class="btn btn-suave btn-mini" id="ver-todo">ver las ${quiebres.length}</button></div>
+      </div>`;
+    }
 
     caja.innerHTML = html || '<div class="vacio"><div class="icono">◇</div>nada en esta categoría</div>';
 
     caja.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
-      const x = rebal[+b.dataset.i];
+      const x = rebal.find(y => claveProp(y) === b.dataset.t);
+      if (!x) return;
       _inv.aplicadas[b.dataset.t] = true;
       /* Un traslado mueve mercancía de verdad: sale de un sitio y entra en otro.
          Si la pantalla dice que desbloquea venta, la existencia tiene que
@@ -264,6 +283,34 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
       setTimeout(() => window.PANTALLAS['logistica/inventario'](lienzo), 800);
     });
     caja.querySelectorAll('[data-mesa]').forEach(b => b.onclick = () => { location.hash = '#/compras/casio'; });
+    const vt = caja.querySelector('#ver-todo');
+    if (vt) vt.onclick = () => { _inv.verTodo = true; pinta(); };
+
+    /* Preparar una promoción o una liquidación es una acción de nivel 1: deja
+       el trabajo listo en la bandeja de quien decide y no toca nada. Estos dos
+       botones no hacían absolutamente nada — peor que uno que solo avisa. */
+    caja.querySelectorAll('[data-prep]').forEach(b => b.onclick = () => {
+      const f = s.filas.find(y => y.p.sku === b.dataset.sku && y.ubicacion.id === b.dataset.ub);
+      if (!f) return;
+      const esParado = b.dataset.tipo === 'parado';
+      const dest = esParado ? DESTINATARIO.liquidacion : DESTINATARIO.promocion;
+      _inv.preparadas[b.dataset.prep] = true;
+      anota({
+        accion: esParado ? 'L-06 · preparar la liquidación de existencia parada'
+                         : 'L-07 · preparar una promoción para bajar el sobrestock',
+        agente: 'salud de inventario', modulo: 'logistica',
+        dispara: esParado
+          ? `${f.p.nombre} sin una venta en ${REGLAS.mesesParaOcioso.v} meses en ${nm(f.ubicacion)}`
+          : `${f.p.nombre} con ${f.cobertura.toFixed(1)} meses en ${nm(f.ubicacion)}, sobre un objetivo de ${f.objetivo.toFixed(1)}`,
+        salida: `propuesta preparada para ${dest}: ${n(f.u)} u por ${n(f.valor)} USD · ` +
+                'queda en su bandeja y no se aplica sin su firma',
+        ejes: { perimetro: 'interno', reversibilidad: 'clic', radio: 'borrador', dinero: 'ninguno', reloj: 'alcanza' },
+        cruza: 'comercial',
+        reglas: [esParado ? 'mesesParaOcioso' : 'sobrestockDesde'],
+      });
+      viajaEstela(['logistica', 'comercial']);
+      setTimeout(() => window.PANTALLAS['logistica/inventario'](lienzo), 700);
+    });
   }
 
   lienzo.querySelectorAll('#filtros-inv .chip').forEach(c => c.onclick = () => {

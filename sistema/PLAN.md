@@ -288,5 +288,6 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **12 · Reparto a los frentes** | ✅ **hecha** — `pantallas/distribucion.js` |
 | **13 · Torre de bodega y recepción** | ✅ **hecha** — `pantallas/logistica.js` |
 | **14 · Salud de inventario y rebalanceo** | ✅ **hecha** — `pantallas/inventario.js` · **cierra el bloque C** |
-| 15–18 · Comercial y frentes | pendiente |
+| **15 · Pedidos y bandeja de aprobación** | ✅ **hecha** — `pantallas/comercial.js` |
+| 16–18 · Demanda no atendida, portal, frentes | pendiente |
 | 19–22 · Cierre | pendiente |
