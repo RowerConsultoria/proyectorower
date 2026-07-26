@@ -251,15 +251,31 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
 #app.capa-propuesto .band:not(#band-propuesto),#app.capa-propuesto #canvas>.spine,
 #app.capa-propuesto #b-flows,#app.capa-propuesto #b-alerts,#app.capa-propuesto #b-overlaps,#app.capa-propuesto #search,
 #app.capa-propuesto #scenebar,#app.capa-propuesto .drawer{display:none}
-.modelo{background:var(--panel);border:1.5px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);
-  padding:16px 18px;width:300px;display:flex;flex-direction:column;gap:10px}
-.modelo h4{margin:0;font-family:var(--f-d);font-size:14px}
-.modelo .mini{display:flex;flex-direction:column;align-items:center;gap:5px}
-.modelo .mini .mrow{display:flex;gap:5px}
-.modelo .mini i{display:block;width:34px;height:16px;border-radius:4px;background:var(--entity-bg);border:1px solid var(--line2)}
-.modelo .mini i.top{background:var(--formal);border-color:var(--formal-edge)}
-.modelo .mini i.corp{background:var(--defacto-bg);border:1.5px dashed var(--defacto)}
-.modelo p{margin:0;font-size:11.5px;color:var(--muted)}
+/* La leyenda flotante describe los símbolos de la capa Real (formal / de facto /
+   deltas), que no aplican al to-be. La propuesta trae su propia leyenda dentro. */
+#app.capa-propuesto #legend,#app.capa-propuesto #b-legend,#app.capa-propuesto #b-diffs{display:none}
+/* La capa Propuesto muestra el organigrama de la sección 4.8. Nodos, líneas,
+   leyenda y notas salen de organigrama-propuesto-datos.js (fuente única). */
+#propuesta-host{display:flex;flex-direction:column;align-items:center;gap:18px}
+#propuesta-leyenda-box,#propuesta-notas-box{width:1240px;max-width:1240px}
+#propuesta-notas-box{padding:18px 22px}
+/* El lienzo trae su propio tamaño (1680×1250) desde el archivo de datos. */
+
+/* Tema oscuro para la propuesta: el archivo de datos define los valores claros
+   sobre :root, así que estos selectores llevan mayor especificidad a propósito
+   (el <style> compartido se inyecta después de esta hoja). */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --p-navy:#4A6CAE; --p-navy2:#2C4A82; --p-blue:#7FA4DC; --p-verde:#4FA476; --p-ambar:#DB9A3C;
+  --p-card:#161C29; --p-card-edge:#38425A; --p-ink:#E6EAF3; --p-muted:#95A0B6;
+  --p-line:#5A6580; --p-gris:#1B2233; --p-title:#9DC3EE; --p-marca-bg:#1C2A42;
+  --p-shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --p-navy:#4A6CAE; --p-navy2:#2C4A82; --p-blue:#7FA4DC; --p-verde:#4FA476; --p-ambar:#DB9A3C;
+  --p-card:#161C29; --p-card-edge:#38425A; --p-ink:#E6EAF3; --p-muted:#95A0B6;
+  --p-line:#5A6580; --p-gris:#1B2233; --p-title:#9DC3EE; --p-marca-bg:#1C2A42;
+  --p-shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.35);
+}
 /* panel explicativo del modo diferencias */
 #diffs-info{position:absolute;top:64px;left:50%;transform:translateX(-50%);z-index:96;max-width:640px;
   background:color-mix(in srgb,var(--panel) 96%,transparent);border:1.5px solid var(--defacto);border-radius:12px;
@@ -379,6 +395,9 @@ button.on{background:var(--formal);border-color:var(--formal-edge);color:var(--f
   <div id="popover" role="dialog"></div>
 </div>
 
+<!-- Fuente única de la estructura propuesta (sección 4.8). El MISMO archivo que
+     alimenta organigrama-propuesto-kenex.html, para que ambas vistas no diverjan. -->
+<script src="organigrama-propuesto-datos.js"></script>
 <script>
 /* =================== DATOS =================== */
 const FO = { // 1.A Family office (fuera de alcance)
@@ -848,27 +867,28 @@ canvas.innerHTML = `
 </div>
 
 <div class="band" id="band-propuesto">
-  <div class="eyebrow">Capa propuesta — en construcción (Fase 3)</div>
-  <div class="govbox" style="max-width:780px;text-align:center">
+  <div class="eyebrow">Capa propuesta — estructura organizativa (sección 4.8)</div>
+  <div class="govbox" style="max-width:900px;text-align:center">
     <h3>El organigrama que debería ser</h3>
-    <div class="sub">Tres modelos borrador en evaluación — todos con una capa corporativa formal que absorba las direcciones de facto.
-    La estructura se decide con el Comité Directivo en Fase 3; la adecuación persona-cargo se evalúa después. Sin nombres, por diseño.</div>
+    <div class="sub">Propuesta del equipo consultor en tres niveles —Dirección Ejecutiva · Gerencias Corporativas · Direcciones—
+    con una capa corporativa formal que absorbe las direcciones de facto. Borrador para discusión con la Alta Gerencia:
+    las coordinaciones dentro de cada dirección se detallarán en una siguiente iteración. Sin nombres, por diseño.</div>
   </div>
   <div class="spine"></div>
-  <div class="row">
-    <div class="modelo"><h4>Modelo A — Regional</h4>
-      <div class="mini"><div class="mrow"><i class="top"></i></div><div class="mrow"><i class="corp"></i><i class="corp"></i><i class="corp"></i></div><div class="mrow"><i></i><i></i><i></i><i></i></div></div>
-      <p>Capa corporativa + gerencias país con dueño único por geografía. Fortalece la cercanía al mercado.</p></div>
-    <div class="modelo"><h4>Modelo B — Centralizado</h4>
-      <div class="mini"><div class="mrow"><i class="top"></i></div><div class="mrow"><i class="corp"></i><i class="corp"></i><i class="corp"></i><i class="corp"></i></div><div class="mrow"><i></i><i></i><i></i></div></div>
-      <p>Direcciones funcionales globales (comercial, operaciones, finanzas, talento) sobre los países. Maximiza estandarización.</p></div>
-    <div class="modelo"><h4>Modelo C — Descentralizado</h4>
-      <div class="mini"><div class="mrow"><i class="top"></i></div><div class="mrow"><i></i><i></i></div><div class="mrow"><i></i><i></i><i></i><i></i></div></div>
-      <p>Unidades de negocio con autonomía (una variante separa Casio de Cubitt) y un corporativo liviano de gobierno.</p></div>
+  <div class="propuesta-wrap" id="propuesta-host">
+    <div class="govbox" id="propuesta-leyenda-box"><div id="propuesta-leyenda"></div></div>
+    <div id="propuesta-board"><svg id="propuesta-wires"></svg></div>
+    <div class="govbox" id="propuesta-notas-box"><div id="propuesta-notas"></div></div>
   </div>
-  <p class="note" style="max-width:780px;text-align:center;border:none">Borradores del equipo consultor presentados internamente el 15-jul.
-  La capa Real de este mapa es el insumo: cada delta (🎩 🔀 👻 🕳 ⚡) es una decisión de diseño pendiente.</p>
+  <p class="note" style="max-width:900px;text-align:center;border:none">Mismo origen que el organigrama propuesto de la sección 4.8 del informe,
+  que se abre a página completa desde ahí. La capa 👁 Real de este mapa es su insumo: cada delta (🎩 🔀 👻 🕳 ⚡) es una decisión de diseño
+  que la propuesta resuelve o deja planteada.</p>
 </div>`;
+
+/* Pinta la propuesta desde la fuente única compartida con la sección 4.8. */
+pintarOrgPropuesta(document.getElementById('propuesta-board'), document.getElementById('propuesta-wires'));
+pintarOrgPropuestaLeyenda(document.getElementById('propuesta-leyenda'));
+pintarOrgPropuestaNotas(document.getElementById('propuesta-notas'));
 
 /* aliases: pids que apuntan al mismo actor en otra instancia */
 const ALIAS = {patrick:'patrick', mariela:'mariela', carmela:'carmela', handani:'handani', jaime:'jaime'};
@@ -1151,7 +1171,7 @@ const app=document.getElementById('app');
 const CAPA_TITULO={
   declarado:'Grupo Kenex — Organigrama · capa Declarada (papel)',
   real:'Grupo Kenex — Organigrama · capa Real',
-  propuesto:'Grupo Kenex — Organigrama · capa Propuesta (Fase 3)',
+  propuesto:'Grupo Kenex — Organigrama · capa Propuesta (sección 4.8)',
 };
 let capa='real';
 function setCapa(c){
@@ -1164,7 +1184,9 @@ function setCapa(c){
   document.querySelectorAll('.drawer.open').forEach(d=>d.classList.remove('open'));
   ['b-flows','b-alerts','b-overlaps'].forEach(id=>document.getElementById(id).classList.remove('on'));
   hidePop();
-  if(c==='propuesto'){fitEl(document.getElementById('band-propuesto'),80);}
+  // encuadra el lienzo de la propuesta, no la banda entera (que además lleva
+  // leyenda y notas debajo: encuadrarla completa dejaría el organigrama diminuto)
+  if(c==='propuesto'){fitEl(document.getElementById('propuesta-board'),60);}
   else showScene(2);   // entrada ejecutiva: Gobierno corporativo (la vista general queda en ⤢ / escena 1)
 }
 document.querySelectorAll('#capas button').forEach(b=>b.onclick=()=>setCapa(b.dataset.capa));
