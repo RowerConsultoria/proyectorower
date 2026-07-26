@@ -223,6 +223,25 @@ body.enfocado .chapa:not(.on){opacity:.42}
 .burbuja.nohace{border-left:4px solid var(--rojo); background:rgba(255,250,250,.98)}
 .burbuja.nohace .r{color:var(--rojo)}
 
+/* la fuente que recibe algo de vuelta, cuando se enciende la bajada */
+.eti .recibe{
+  display:none; font-size:9px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; padding:1px 6px; border-radius:999px; margin-top:3px;
+  background:#fdf0dd; color:var(--ambar);
+}
+body.con-bajada .eti .recibe{display:inline-block}
+body.con-bajada .eti.devuelve{border-color:var(--ambar)}
+
+/* la burbuja del cedazo, con su cuenta */
+.burbuja.cedazo{border-left:4px solid var(--ambar); background:rgba(255,250,242,.98)}
+.burbuja.cedazo .r{color:var(--ambar)}
+.burbuja.cuenta{text-align:center}
+.burbuja.cuenta .fila{display:flex; justify-content:center; align-items:baseline; gap:12px; margin:5px 0 3px}
+.burbuja.cuenta .v{font-size:23px; font-weight:800; line-height:1}
+.burbuja.cuenta .v.sube{color:var(--verde)} .burbuja.cuenta .v.para{color:var(--ambar)}
+.burbuja.cuenta .rr{font-size:9.5px; color:var(--tenue); display:block}
+.burbuja.cuenta .sep{color:var(--borde)}
+
 /* pista de que la bandeja se abre */
 .chapa{cursor:pointer}
 .chapa:hover{box-shadow:0 3px 8px rgba(15,25,45,.2), 0 14px 34px rgba(15,25,45,.28)}
@@ -267,6 +286,7 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
 
 <div class="mandos">
   <button class="mando" id="pausa" title="Detener la corriente para leer o capturar">⏸ pausar el flujo</button>
+  <button class="mando" id="bajada" title="Lo que vuelve a cada fuente convertido en orden">↓ la bajada</button>
   <span class="pista">arrastra para girar el rack · rueda para acercar</span>
   <span style="color:var(--borde)">|</span>
   <span class="leyenda-ritmo">
@@ -511,7 +531,7 @@ function chapa(html, y, extra, id) {
   d.dataset.nivel = id;
   d.innerHTML = html;
   /* al crear, no despues: CSS2DRenderer no lo mete en el DOM hasta el render */
-  if (id !== '__cedazo__') d.onclick = e => { e.stopPropagation(); abreNivel(id); };
+  d.onclick = e => { e.stopPropagation(); abreNivel(id); };
   const o = new CSS2DObject(d);
   /* Sobre la propia bandeja, como la chapa de un equipo: así doce rótulos
      nunca se pelean por el mismo sitio al girar. */
@@ -580,9 +600,12 @@ for (const col of ['izq', 'der']) {
 
     const d = document.createElement('div');
     d.className = 'rot eti'; d.dataset.raiz = r.id;
-    d.innerHTML = `<span class="n">${r.nombre}</span>
-                   <span class="detalle"><span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
-                   <span class="c">${r.cadencia} · ${r.dueno}</span></span>`;
+    const devuelve = BAJADAS.find(b => b.hacia === r.id);
+    if (devuelve) d.classList.add('devuelve');
+    d.innerHTML = `<span class="n">${r.nombre}</span>` +
+      (devuelve ? '<span class="recibe">↓ recibe</span>' : '') +
+      `<span class="detalle"><span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
+       <span class="c">${r.cadencia} · ${r.dueno}</span></span>`;
     d.onclick = () => enfoca(r.id);
     const o = new CSS2DObject(d);
     o.position.set(p.x, p.y + 0.62, p.z);
@@ -641,6 +664,52 @@ for (const r of RAICES) {
   corrientes.push({ tex, v: 0.09 + r.ritmo * 0.052 });
 }
 
+/* ═══════════════════════════════════════════════ LA BAJADA
+
+   La mitad que convierte la torre en sistema operativo. Una torre que solo
+   sube es un tablero: sube dato, salen graficos, y nadie hace nada distinto el
+   lunes. Lo que baja son ORDENES, y por eso salen del nivel de la decision.
+
+   Se distinguen de un vistazo sin necesidad de leyenda: las de subida van
+   pegadas al suelo, las de bajada ARQUEAN POR ENCIMA y caen sobre la fuente.
+   Y van en ambar, el color de lo que sale.                                 */
+
+function texturaBajada() {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 8;
+  const g = c.getContext('2d');
+  g.fillStyle = '#f0e3cf'; g.fillRect(0, 0, 128, 8);
+  const grad = g.createLinearGradient(0, 0, 52, 0);
+  grad.addColorStop(0, 'rgba(178,106,0,0)');
+  grad.addColorStop(.5, '#8a5310');
+  grad.addColorStop(1, 'rgba(178,106,0,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, 52, 8);
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = THREE.RepeatWrapping; t.repeat.set(7, 1);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+const bajadas = [];
+for (const b of BAJADAS) {
+  const p = sitio[b.hacia]; if (!p) continue;
+  const yDec = Y[b.desde].y;
+  const haciaFuera = new THREE.Vector3(p.x, 0, p.z).normalize();
+  const salida = new THREE.Vector3(0, yDec, 0).addScaledVector(haciaFuera, ANCHO / 2 + 0.1);
+  salida.y = yDec;
+  const cima = salida.clone().lerp(p, .45); cima.y = yDec + 2.6;
+  const caida = p.clone().setY(p.y + 2.2);
+  const llegada = p.clone().setY(p.y + 0.3);
+  const curva = new THREE.CatmullRomCurve3([salida, cima, caida, llegada]);
+  const tex = texturaBajada();
+  const tubo = new THREE.Mesh(
+    new THREE.TubeGeometry(curva, 96, 0.062, 12, false),
+    new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0 }));
+  tubo.visible = false;
+  tubo.userData.bajada = b.id;
+  escena.add(tubo);
+  bajadas.push({ malla: tubo, tex, b });
+}
+
 /* Los cables internos: de una bandeja a la de arriba, por el centro y por
    detrás, para no tapar los frontales. */
 for (let i = 0; i < PILA.length - 1; i++) {
@@ -667,6 +736,7 @@ function pinta() {
   const t = reloj.getElapsedTime(), d = Math.min(0.05, reloj.getDelta());
   if (!quieto) {
     for (const c of corrientes) c.tex.offset.x -= c.v * d * 6;
+    if (bajando) for (const x of bajadas) x.tex.offset.x -= 0.28 * d * 6;
     for (const l of ledsVivos) l.led.material.opacity = 0.3 + 0.7 * Math.abs(Math.sin(t * l.vel + l.fase));
   }
   for (const l of ledsVivos) l.led.quaternion.copy(camara.quaternion);
@@ -711,7 +781,9 @@ function abreNivel(id) {
   if (nivelAbierto === id) { cierraNivel(); return; }
   if (enfocada) limpia();
   cierraNivel(true);
-  const N = NIVELES.find(n => n.id === id); if (!N) return;
+  const esCedazo = id === '__cedazo__';
+  const N = esCedazo ? null : NIVELES.find(n => n.id === id);
+  if (!esCedazo && !N) return;
   nivelAbierto = id;
 
   /* la gaveta sale; las de arriba suben */
@@ -733,13 +805,30 @@ function abreNivel(id) {
   /* Dos familias distintas, y por eso a lados distintos: a la izquierda LO QUE
      HACE el nivel, a la derecha QUIÉN lo hace y con qué permiso. Mezclarlas en
      una sola tanda obligaba a leer saltando. */
-  const loQueHace = N.hace.map(h => ({ clase: '', html: '<span class="r">' + N.capa + '</span>' + h }));
-  const losAgentes = N.agentes.map(a => ({ clase: 'agente', html:
+  /* El cedazo no tiene agentes ni capacidades: tiene CRITERIOS y una cuenta.
+     Se abre igual que un nivel porque para quien mira es una bandeja mas, pero
+     lo que brota es distinto — y esa diferencia es justo lo que hay que ver. */
+  const e = CEDAZO.ejemplo;
+  const loQueHace = esCedazo
+    ? CEDAZO.criterios.map(c => ({ clase: 'cedazo', html: '<span class="r">no pasa si…</span>' + c }))
+    : N.hace.map(h => ({ clase: '', html: '<span class="r">' + N.capa + '</span>' + h }));
+  const losAgentes = esCedazo
+    ? [{ clase: 'cedazo cuenta', html:
+        '<span class="r">una noche real</span>' + e.de +
+        '<div class="fila"><div><span class="v">' + e.entran + '</span><span class="rr">entran</span></div>' +
+        '<span class="sep">→</span>' +
+        '<div><span class="v sube">' + e.certifican + '</span><span class="rr">certifican y suben</span></div>' +
+        '<span class="sep">·</span>' +
+        '<div><span class="v para">' + e.cola + '</span><span class="rr">se quedan</span></div></div>' },
+       { clase: 'cedazo', html: '<span class="r">a dónde van las que no pasan</span>' + CEDAZO.destino }]
+    : N.agentes.map(a => ({ clase: 'agente', html:
       '<span class="r">agente · ' + AUTONOMIA[a.nivel].que + '</span>' +
       '<span class="nom">' + a.nombre + '</span>' +
       '<span class="que">' + a.que + '</span>' +
       '<span class="sello sello-' + a.nivel + '">' + AUTONOMIA[a.nivel].verbo + '</span>' }));
-  const elNoHace = { clase: 'nohace', html: '<span class="r">lo que NO hace</span>' + N.noHace };
+  const elNoHace = esCedazo
+    ? { clase: 'nohace', html: '<span class="r">por qué existe</span>' + CEDAZO.nota }
+    : { clase: 'nohace', html: '<span class="r">lo que NO hace</span>' + N.noHace };
   const fichas = [...loQueHace, ...losAgentes, elNoHace];
 
   /* En DOS COLUMNAS a los costados de la gaveta, no en abanico hacia delante:
@@ -929,12 +1018,23 @@ pintor.domElement.addEventListener('pointerup', e => {
     [...pedestales, ...Object.values(tubos), ...Object.values(bandejas)], false);
   const o = t.length ? t[0].object : null;
   if (o && o.userData.raiz) enfoca(o.userData.raiz);
-  else if (o && o.userData.id && o.userData.id !== '__cedazo__') abreNivel(o.userData.id);
+  else if (o && o.userData.id) abreNivel(o.userData.id);
   else { limpia(); cierraNivel(); }
 });
 pintor.domElement.style.cursor = 'grab';
 
 /* ═══════════════════════════════════════════════ MANDOS Y MEDIDAS */
+/* El conmutador de la bajada. Apagado por defecto: la subida es la historia
+   principal, y encender las dos a la vez satura el dibujo. */
+let bajando = false;
+const btBajada = document.getElementById('bajada');
+btBajada.onclick = () => {
+  bajando = !bajando;
+  btBajada.classList.toggle('on', bajando);
+  document.body.classList.toggle('con-bajada', bajando);
+  for (const x of bajadas) { x.malla.visible = bajando; x.malla.material.opacity = bajando ? 1 : 0; }
+};
+
 const btPausa = document.getElementById('pausa');
 btPausa.onclick = () => {
   quieto = !quieto;

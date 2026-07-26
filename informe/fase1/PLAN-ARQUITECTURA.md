@@ -138,7 +138,7 @@ raíces que lo alimenten.
 | **6b · Raíces en arco + ficha completa** | ✅ **hecha** — 12 raíces alrededor, 0 rótulos pisándose, ficha con todo lo de la plana |
 | **6c · Gavetas y burbujas** | ✅ **hecha** — la bandeja sale, las de arriba suben, y brotan las burbujas con los agentes y su permiso |
 | 6d · El cedazo como bandeja tamiz | ✅ hecha en la 6a |
-| 7 · La bajada | pendiente |
+| **7 · La bajada** | ✅ **hecha** — 7 arcos ámbar desde la decisión · resuelve **A1** · y el cedazo ya se abre en 3D |
 | 8 · Hoy / propuesto | pendiente |
 | 9 · El recorrido guiado | pendiente |
 | 10 · Sustituir el diagrama de la s12 | pendiente |
@@ -148,7 +148,7 @@ raíces que lo alimenten.
 
 | # | Qué falta | Detectado en |
 |---|---|---|
-| **A1** | **Cuatro raíces no cierran el ciclo.** Recepción, desarrollo de producto, fábricas y crédito alimentan la torre y no reciben nada de vuelta. En tres es correcto (el dato viene de fuera y no hay nada que devolver), pero **recepción sí debería recibir**: la orden de ubicación y el plan de descarga bajan del sistema. Decidir si se añade esa bajada o si se dice explícitamente por qué no la hay. | comprobación del modelo, fase 1 |
+| ~~**A1**~~ | ~~Cuatro raíces no cierran el ciclo.~~ **Resuelto en la fase 7:** recepción recibe el plan de descarga y la ubicación. Las cinco que siguen sin recibir es porque no procede —tasas las produce un tercero; producto, fábricas, crédito y reglas son definiciones, no sucesos— y la ficha lo dice con esas palabras. | — | cerrado en la fase 7 |
 | **A2** | **Los cuatro números del pie son los del informe de Fase 1** (~400 personas · 12 dependencias · 22/104/260 procesos · 52 proyectos). El de procesos sigue **en conciliación con Jesús** —el mapa dice 244 y el informe 260—. Si se concilia antes de presentar, cambiar en un solo sitio. | comprobación del modelo, fase 1 |
 | **A3** | **El rótulo del suelo queda descolgado.** Dice «las raíces · doce sitios donde nace el dato» al pie, pero las tarjetas de raíz están a los lados de la torre, no abajo. O se convierte en rótulo de las dos columnas, o se recompone la base. | fase 2 |
 | **A4** | **A 430 px la torre queda ilegible** (escala 0,28). El lienzo fijo la encoge en vez de reorganizarla. En móvil convendría scroll horizontal a escala legible, o una vista apilada. Le pasa lo mismo al organigrama, así que la solución debería servir para los dos. | fase 3 |

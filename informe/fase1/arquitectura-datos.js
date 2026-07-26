@@ -257,6 +257,11 @@ const BAJADAS = [
     nota: 'Redactado con el detalle del embarque. Sale con el nombre de una persona.',
   },
   {
+    id: 'plan-descarga', desde: 'decision', hacia: 'recepcion',
+    que: 'El plan de descarga y la ubicación de cada referencia del contenedor',
+    nota: 'Baja antes de que el contenedor abra, no después: es lo que evita que la ubicación se decida en el muelle.',
+  },
+  {
     id: 'traslado-firmado', desde: 'decision', hacia: 'traslados',
     que: 'La orden de traslado entre almacenes',
     nota: 'Con lo que cuesta moverlo y la venta que desbloquea, para poder decidir con las dos cifras.',
