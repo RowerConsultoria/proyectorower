@@ -148,7 +148,9 @@ window.PANTALLAS['comercial/demanda'] = function (lienzo) {
               <td class="num"><b>${n(g.u)}</b> <span class="tenue">u</span></td>
               <td class="num">${n(g.valor)}</td>
               <td class="apunte tenue" style="max-width:280px">${g.lineas[0].motivo}</td>
-              <td>${!_dem.porFrente ? '<button class="btn btn-suave btn-mini" data-mesa="1">a la mesa →</button>' : ''}</td>
+              <td>${!_dem.porFrente
+                ? `<button class="btn btn-suave btn-mini" data-mesa="${g.lineas[0].p.marca}">a la mesa →</button>`
+                : ''}</td>
             </tr>`).join('')}
           </tbody>
         </table>
@@ -164,7 +166,11 @@ window.PANTALLAS['comercial/demanda'] = function (lienzo) {
       _dem.porFrente = c.dataset.agr === 'frente';
       window.PANTALLAS['comercial/demanda'](lienzo);
     });
-    cuerpo.querySelectorAll('[data-mesa]').forEach(b => b.onclick = () => { location.hash = '#/compras/casio'; });
+    /* cada referencia va a la mesa de SU marca: la de la marca propia se compra
+       por fábrica y con pedido mínimo, no en la mesa del proveedor representado */
+    cuerpo.querySelectorAll('[data-mesa]').forEach(b => b.onclick = () => {
+      location.hash = b.dataset.mesa === 'Cubitt' ? '#/compras/cubitt' : '#/compras/casio';
+    });
   }
 
   function pintaPublicado() {
