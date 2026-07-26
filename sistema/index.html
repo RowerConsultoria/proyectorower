@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kenex · el sistema</title>
+<meta name="description" content="Prototipo del sistema central de mayoreo y distribución de Grupo Kenex — UCAB Consultores, Fase 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo/app.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ═══════════════════════════════════════════════════ chrome superior -->
+  <header class="chrome">
+    <button class="btn btn-fantasma btn-mini abre-menu" id="abre-menu" aria-label="Menú">☰</button>
+
+    <div class="logo">
+      <span class="orbe orbe-grande actuando" aria-hidden="true"></span>
+      <div>
+        <div class="nom">kenex</div>
+        <div class="sub">el sistema</div>
+      </div>
+    </div>
+
+    <div class="marquee" id="marquee" aria-live="polite"></div>
+
+    <button class="btn btn-fantasma btn-mini" id="probar-estela" title="Ver cómo una acción cruza los módulos">
+      ⇢ estela
+    </button>
+
+    <div class="selector-rol">
+      <span class="sobretitulo" style="letter-spacing:.12em">rol</span>
+      <select id="rol" aria-label="Rol activo"></select>
+    </div>
+
+    <button class="btn btn-suave btn-mini" id="tema" aria-label="Cambiar tema">☾</button>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════ menú -->
+  <nav class="menu" id="menu" aria-label="Módulos"></nav>
+
+  <!-- ═══════════════════════════════════════════════════════════ lienzo -->
+  <main class="lienzo" id="lienzo"></main>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ HUD del agente -->
+<div class="hud" id="hud" role="button" tabindex="0" title="Ir a la sala de agentes"></div>
+
+<script src="nucleo/app.js"></script>
+</body>
+</html>

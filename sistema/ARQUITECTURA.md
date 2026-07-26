@@ -96,7 +96,7 @@ formas de nombrarlo existan en la región.
 
 ## 4 · Los módulos
 
-Ocho. Nombres en minúscula.
+Nueve. Nombres en minúscula.
 
 | Módulo | Para quién | Qué resuelve |
 |---|---|---|
