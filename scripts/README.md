@@ -18,8 +18,9 @@ efecto que el código no produce*. Conviene correrlas antes de cualquier commit
 que toque el informe o `/sistema`.
 
 ```bash
-python scripts/validar-html.py        # los 9 HTML del repo · ~1 s, sin navegador
-python scripts/comprobar-sistema.py   # el prototipo entero · ~100 s
+python scripts/validar-html.py        # los HTML del repo · ~1 s, sin navegador
+python scripts/comprobar-sistema.py   # el prototipo /sistema · ~100 s
+python scripts/comprobar-torre.py     # la torre de arquitectura · ~105 s
 ```
 
 Las dos devuelven **código 1** si algo falla, para poder encadenarlas.
@@ -56,9 +57,31 @@ python scripts/comprobar-sistema.py rutas moneda    # solo esas dos
 detecta. Una comprobación que siempre pasa es peor que no tenerla: da una
 confianza que no ha ganado.
 
+### `comprobar-torre.py`
+
+La torre son **dos vistas del mismo modelo** (`informe/fase1/arquitectura-datos.js`): la 3D en
+WebGL y la plana de respaldo. Estas comprobaciones existen para que no puedan divergir.
+
+| | Qué verifica | Qué defecto real encontró |
+|---|---|---|
+| `modelo` | coherencia interna, sin navegador | bajadas a raíces inexistentes; una cadencia con dos ritmos |
+| `plana` | el respaldo pinta sin desbordes ni solapes | el texto de un nivel saliéndose por encima del siguiente |
+| `rack` | la escena 3D cuadra con el modelo | una raíz que se quedaba sin colocar |
+| `gavetas` | cada nivel abre con sus burbujas y **sellos** | las 11 burbujas apiladas en una esquina — la animación pisaba el `transform` de CSS2DRenderer |
+| `bajada` | los arcos salen de la decisión y **arquean** | rutas que se metían dentro de la caja del rack |
+| `modo` | hoy / propuesto, con los textos del modelo | el bastidor quedándose sólido con las bandejas en fantasma |
+| `recorrido` | 8 paradas **en orden, al revés y saltando** | volver atrás dejaba la escena en modo «hoy» · un botón `disabled` tragándose un `click()` |
+| `contraste` | WCAG AA sobre las dos vistas | texto pequeño en ámbar, verde y azul sobre fondos claros |
+
+> El orden del recorrido **importa**: comprobarlo solo hacia delante ocultaba que cada parada
+> heredaba el estado de la anterior. Los dos defectos peores salieron de recorrerlo al revés.
+
+⚠️ La escena es WebGL. El guion fuerza **SwiftShader** (render por software) para que corra
+también en un equipo sin GPU.
+
 ### Requisitos
 
-`comprobar-sistema.py` y `capturar-laminas-sistema.py` necesitan Playwright:
+Los comprobadores y los guiones de captura necesitan Playwright:
 
 ```bash
 pip install playwright

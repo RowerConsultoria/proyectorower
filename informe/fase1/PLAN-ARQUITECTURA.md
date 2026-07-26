@@ -142,7 +142,7 @@ raíces que lo alimenten.
 | **8 · Hoy / propuesto** | ✅ **hecha** — el rack se desvanece, la corriente se apaga y cada fuente dice cómo llega hoy |
 | **9 · El recorrido guiado** | ✅ **hecha** — 8 paradas que dejan la escena en su estado, con teclado |
 | **10 · Sustituir el diagrama** | ✅ **hecha** — la torre entra en la s10 del informe maestro y en el deck |
-| 11 · Pulido y comprobaciones | pendiente |
+| **11 · Pulido y comprobaciones** | ✅ **hecha** — contraste AA, móvil, y `scripts/comprobar-torre.py` con 8 comprobaciones · cierra **A3** y **A4** |
 
 ## Pendientes detectados durante la construcción
 
@@ -150,5 +150,5 @@ raíces que lo alimenten.
 |---|---|---|
 | ~~**A1**~~ | ~~Cuatro raíces no cierran el ciclo.~~ **Resuelto en la fase 7:** recepción recibe el plan de descarga y la ubicación. Las cinco que siguen sin recibir es porque no procede —tasas las produce un tercero; producto, fábricas, crédito y reglas son definiciones, no sucesos— y la ficha lo dice con esas palabras. | — | cerrado en la fase 7 |
 | **A2** | **Los cuatro números del pie son los del informe de Fase 1** (~400 personas · 12 dependencias · 22/104/260 procesos · 52 proyectos). El de procesos sigue **en conciliación con Jesús** —el mapa dice 244 y el informe 260—. Si se concilia antes de presentar, cambiar en un solo sitio. | comprobación del modelo, fase 1 |
-| **A3** | **El rótulo del suelo queda descolgado.** Dice «las raíces · doce sitios donde nace el dato» al pie, pero las tarjetas de raíz están a los lados de la torre, no abajo. O se convierte en rótulo de las dos columnas, o se recompone la base. | fase 2 |
-| **A4** | **A 430 px la torre queda ilegible** (escala 0,28). El lienzo fijo la encoge en vez de reorganizarla. En móvil convendría scroll horizontal a escala legible, o una vista apilada. Le pasa lo mismo al organigrama, así que la solución debería servir para los dos. | fase 3 |
+| ~~**A3**~~ | ~~El rótulo del suelo queda descolgado.~~ **Resuelto en la fase 11:** ahora rotula las dos columnas — «A los lados · las 12 fuentes donde nace el dato». | — | cerrado en la fase 11 |
+| ~~**A4**~~ | ~~A 430 px la torre queda ilegible.~~ **Resuelto en la fase 11:** la vista plana no baja de escala 0,52 y se desplaza a lo ancho en vez de encogerse; la 3D da el ancho completo a la ficha y apila la barra del recorrido. | — | cerrado en la fase 11 |

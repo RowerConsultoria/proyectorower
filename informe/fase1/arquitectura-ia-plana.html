@@ -66,7 +66,14 @@ header{position:relative;}
 /* ─────────────────────────────────────────────────────────── lienzo */
 .escenario{
   padding:20px 0 8px; display:flex; justify-content:center;
-  overflow:hidden;
+  overflow-x:auto; overflow-y:hidden;
+  /* En móvil NO se encoge hasta lo ilegible: se deja desplazar a lo ancho.
+     A 430 px la escala llegaba a 0,28 y no se leía ni un rótulo. */
+  -webkit-overflow-scrolling:touch;
+}
+@media (max-width:900px){
+  .escenario{justify-content:flex-start; padding-left:12px;}
+  .escenario::after{content:''; flex:0 0 12px;}
 }
 .lienzo{
   position:relative; width:1440px;
@@ -497,7 +504,9 @@ function pintaRaices() {
   const suelo = document.createElement('div');
   suelo.className = 'suelo';
   suelo.id = 'suelo';
-  suelo.innerHTML = 'Las raíces · doce sitios donde nace el dato ' +
+  /* Rotula LAS DOS COLUMNAS, que es donde están: antes decía «las raíces»
+     al pie, con las tarjetas a los lados, y quedaba descolgado. */
+  suelo.innerHTML = 'A los lados · las ' + RAICES.length + ' fuentes donde nace el dato ' +
                     '<span>— los sistemas de registro: lo que ya existe, no se reemplaza</span>';
   lienzo.appendChild(suelo);
 }
@@ -670,7 +679,9 @@ function escala() {
      vale lo de antes — el lienzo se creía igual de ancho y quedaba debajo. */
   const reserva = document.body.classList.contains('con-ficha') ? ANCHO_FICHA : 0;
   const disp = esc.clientWidth - reserva - 24;
-  const k = Math.min(1, Math.max(0.18, disp / W));
+  /* Nunca por debajo de 0,52: pasado ese punto el texto de las tarjetas deja
+     de leerse y el dibujo no informa de nada. Si no cabe, se desplaza. */
+  const k = Math.min(1, Math.max(0.52, disp / W));
   lienzo.style.transform = `scale(${k})`;
   esc.style.height = (H + 28) * k + 'px';
 }
