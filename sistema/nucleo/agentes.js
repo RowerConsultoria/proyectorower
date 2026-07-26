@@ -35,6 +35,12 @@ const REGLAS = {
   minimoPorFrente:    { v: 0.5,  unidad: 'meses',    dueno: 'gerencia comercial',   desde: '2026-06-01', ver: 2 },
   presupuestoAlias:   { v: 40,   unidad: 'registros/día', dueno: 'administración de datos', desde: '2026-07-10', ver: 1 },
   presupuestoLiberar: { v: 300,  unidad: 'unidades/contenedor', dueno: 'operaciones', desde: '2026-07-01', ver: 1 },
+  /* El fabricante impone un tope de compra por razón social. Del mismo archivo
+     salen dos pedidos, y ese reparto no lo decide la demanda: lo decide la
+     cuota. Es además la restricción que después condiciona el reporte al
+     fabricante, así que vive aquí y no dentro de una pantalla. */
+  cuotaRazonSocial:   { v: { 'Kenex Trading': 0.62, 'Distribuidora Rower': 0.38 },
+                        unidad: 'ratio del monto', dueno: 'dirección de compras', desde: '2026-05-01', ver: 2 },
 };
 
 /* ══════════════════════════════════════════ 2 · LOS CINCO EJES

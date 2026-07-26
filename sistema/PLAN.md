@@ -244,7 +244,8 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **5 · Núcleo de agentes** | ✅ **hecha** — `nucleo/agentes.js` |
 | **6 · Panel de compras** | ✅ **hecha** — `pantallas/compras.js` |
 | **7 · Mesa de compra Casio** | ✅ **hecha** — `pantallas/mesa-casio.js` |
-| 8–11 · Cierre, Cubitt, producto, tránsitos | pendiente |
+| **8 · Cierre del pedido y techo** | ✅ **hecha** — `pantallas/cierre.js` |
+| 9–11 · Cubitt, desarrollo de producto, tránsitos | pendiente |
 | 12–14 · Distribución y logística | pendiente |
 | 15–18 · Comercial y frentes | pendiente |
 | 19–22 · Cierre | pendiente |
