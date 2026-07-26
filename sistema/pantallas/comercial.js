@@ -63,8 +63,9 @@ window.PANTALLAS.comercial = function (lienzo) {
         <div class="valor">${todos.length}</div>
         <div class="pie">${n(todos.reduce((a, x) => a + x.unidades, 0))} unidades pedidas</div></div></div>
       <div class="tarjeta"><div class="kpi"><div class="rotulo">pasan en lote</div>
-        <div class="valor texto-marca">${verdes.length}</div>
-        <div class="pie">cumplen crédito, rotación y margen</div></div></div>
+        <div class="valor texto-marca">${d.verde.length}</div>
+        <div class="pie">cumplen crédito, rotación y margen${aprobados.length
+          ? ` · <b>${aprobados.length} ya firmados</b>` : ''}</div></div></div>
       <div class="tarjeta"><div class="kpi"><div class="rotulo">suben como excepción</div>
         <div class="valor" style="color:${excep.length ? 'var(--n3)' : 'inherit'}">${excep.length}</div>
         <div class="pie">con el motivo escrito, no en rojo a secas</div></div></div>
@@ -203,7 +204,14 @@ window.PANTALLAS.comercial = function (lienzo) {
   }
 
   function firma(lista, como) {
-    lista.forEach(x => { _com.aprobados[x.id] = true; });
+    lista.forEach(x => {
+      _com.aprobados[x.id] = true;
+      /* Firmar no es marcar: el pedido baja al frente como orden lista para
+         facturar y por tanto CONSUME su cupo de crédito. Sin esto la pantalla
+         volvía a prometer un efecto que no ocurría. */
+      const f = FRENTES.find(y => y.id === x.frenteId);
+      if (f) f.saldo += Math.round(x.valor * (x.unidades ? x.asignado / x.unidades : 1));
+    });
     const u = lista.reduce((a, x) => a + x.asignado, 0);
     const v = lista.reduce((a, x) => a + x.valor, 0);
     anota({
