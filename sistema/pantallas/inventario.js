@@ -155,9 +155,9 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
           </div>
         </div>
         <div class="fila gap-16" style="text-align:right">
-          <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">cuesta</div>
+          <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">cuesta · USD</div>
             <div class="cifra-media">${n(x.costoTraslado)}</div></div>
-          <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">desbloquea</div>
+          <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">desbloquea · USD</div>
             <div class="cifra-media texto-marca">${n(x.ventaDesbloqueada)}</div></div>
         </div>
       </div>
@@ -194,7 +194,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
           </div>
         </div>
         <div style="text-align:right">
-          <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">inmovilizado</div>
+          <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">inmovilizado · USD</div>
           <div class="cifra-media">${n(f.valor)}</div>
         </div>
       </div>
@@ -224,7 +224,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
           </div>
         </div>
         <div style="text-align:right">
-          <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">venta mensual</div>
+          <div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">venta mensual · u</div>
           <div class="cifra-media">${n(f.mensual)}</div>
         </div>
       </div>

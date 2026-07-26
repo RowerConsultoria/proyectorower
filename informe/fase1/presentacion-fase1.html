@@ -102,6 +102,12 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
 .w-rojo{background:var(--rojo);} .w-ambar{background:var(--ambar);} .w-blue{background:var(--blue);} .w-verde{background:var(--verde);} .w-gris{background:#d9dee8;}
 /* medidor de capacidad (subutilización) */
 .cap{display:grid; grid-template-columns:210px 1fr; gap:10px; align-items:center;}
+    /* marco de captura del prototipo (fase 25) */
+    .pantalla{border:1px solid var(--borde); border-radius:10px; overflow:hidden;
+      box-shadow:0 2px 6px rgba(31,56,100,.10), 0 18px 44px rgba(31,56,100,.13); background:#0D131A;}
+    .pantalla img{display:block; width:100%; height:auto;}
+    .proto-nota{font-size:14.5px; color:var(--txt); max-width:1080px;}
+    .cols2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
 .cap .l{font-size:13px; text-align:right; line-height:1.15;}
 .cap .l b{color:var(--navy); display:block;}
 .cap .l span{font-size:11.5px; color:var(--muted);}
@@ -1684,6 +1690,72 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
 </section>
 
 <!-- ================= CIERRE ================= -->
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>Una propuesta que se navega, no un piloto</h2></div>
+  <div class="sbody">
+    <p class="lead">Las láminas que siguen son <b>capturas reales</b> de un prototipo visual interactivo del sistema central de mayoreo y distribución que el grupo debería tener. Se navega, se hace clic, y las acciones cambian el estado delante de quien mira.</p>
+    <div class="cols2">
+      <div class="card"><b>Qué es</b><div class="proto-nota" style="margin-top:6px;">La propuesta de los consultores sobre <b>cómo debería ser</b>: Odoo queda como recolector de la venta en cada país, y este sistema central concentra la compra internacional, el inventario, el reparto a los frentes y el despacho. Todos los frentes —incluidos los países propios— son clientes mayores de la central y le pagan.</div></div>
+      <div class="card" style="border-left-color:#B26A00;"><b>Qué no es</b><div class="proto-nota" style="margin-top:6px;">No hay base de datos, integraciones reales ni backend. Los datos son <b>semilla</b> y el estado vive en el navegador. Los conectores con los Odoo se <b>representan</b>; no se construyen. Se juzga por una sola cosa: si un miembro de la Junta reconoce aquí su negocio.</div></div>
+    </div>
+    <p class="proto-nota"><b>La IA no aparece como un asistente al lado del sistema: aparece ejecutando dentro de él.</b> Cada acción declara su nivel de autonomía —lo que preparó, lo que hizo, y lo que espera una firma— y ninguna de las que salen del perímetro de Kenex se envía sin que una persona firme.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>La pantalla de la Junta</h2></div>
+  <div class="sbody">
+    <p class="lead">El ciclo completo en seis eslabones, cada uno con lo que tiene atascado, y los cuatro números del mes.</p>
+    <div class="pantalla"><img src="img-sistema/direccion.jpg" alt="La pantalla de la Junta — captura del prototipo"></div>
+    <p class="proto-nota">Cada cifra lleva a la pantalla donde se decide: es la diferencia entre un informe y un sistema. La barra de consulta es <b>estrictamente de lectura</b> — un cuadro de «pregúntame lo que quieras» encima de un tablero es una promesa que el sistema no puede cumplir, y es el primer sitio donde se rompe la credibilidad.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>La mesa de compra</h2></div>
+  <div class="sbody">
+    <p class="lead">Una fila por referencia, con su propuesta de cantidad y su explicación en lenguaje llano a un clic.</p>
+    <div class="pantalla"><img src="img-sistema/mesa.jpg" alt="La mesa de compra — captura del prototipo"></div>
+    <p class="proto-nota">Sustituye al Excel de la compra internacional. La columna humana siempre gana, y el ajuste queda registrado <b>con motivo</b>. Ninguna cantidad es una caja negra: se abre y dice de qué demanda sale, qué cobertura persigue y qué descontó de lo que ya viene en camino.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>El reparto cuando no alcanza</h2></div>
+  <div class="sbody">
+    <p class="lead">La escasez se resuelve por una escalera de precedencia publicada, no por teléfono.</p>
+    <div class="pantalla"><img src="img-sistema/reparto.jpg" alt="El reparto cuando no alcanza — captura del prototipo"></div>
+    <p class="proto-nota">Dentro de un mismo escalón el reparto va <b>a prorrata</b>, y quien ajusta a mano ve a quién se lo quita. Lo que no se atiende no se borra: queda archivado como demanda no atendida y vuelve a la mesa de compra del mes siguiente.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>El gobierno del dato</h2></div>
+  <div class="sbody">
+    <p class="lead">Las doce reglas del negocio y las seis tasas de cambio, cada una con dueño, fecha y versión.</p>
+    <div class="pantalla"><img src="img-sistema/cimiento.jpg" alt="El gobierno del dato — captura del prototipo"></div>
+    <p class="proto-nota">Ninguna cifra sale de un algoritmo opaco: sale de una regla que <b>alguien firma</b> y que se puede cambiar sin tocar el programa. Y no existe cifra sin moneda y sin tasa fechada — una tasa vencida no se oculta ni bloquea el número: <b>lo marca</b>, porque quien decide necesita el dato y el aviso, no uno de los dos.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>Cómo se apaga</h2></div>
+  <div class="sbody">
+    <p class="lead">La sala de agentes empieza por el freno, antes de explicar nada de lo que hacen.</p>
+    <div class="pantalla"><img src="img-sistema/agentes.jpg" alt="Cómo se apaga — captura del prototipo"></div>
+    <p class="proto-nota">Un agente detenido deja de llegar a las bandejas de firma de todo el sistema. Y se dice con todas las letras lo que el freno <b>no</b> hace: no borra lo calculado, no deshace lo aplicado —para eso está la compensación, una por una y con motivo— y no suelta las reservas ya tomadas sobre unidades concretas.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="proto">
+  <div class="shead"><span class="kick">Fase 2 · El prototipo del sistema</span><h2>Los dos modos de conexión</h2></div>
+  <div class="sbody">
+    <p class="lead">Países propios con su Odoo en vivo; los demás, cargando su propio Excel por el portal.</p>
+    <div class="pantalla"><img src="img-sistema/conectores.jpg" alt="Los dos modos de conexión — captura del prototipo"></div>
+    <p class="proto-nota">Un frente sin Odoo <b>no pierde una sola funcionalidad</b>: solo llega más tarde. Por eso la latencia de cada uno se muestra como <b>reloj de corte</b> —hasta cuándo se le espera— y nunca como una advertencia en rojo con la que nadie sabe qué hacer.</p>
+  </div>
+</section>
+
 <section class="slide cover" data-sec="cierre">
   <div>
     <div class="kick">Proyecto Rower · Fase 1 → Fase 2</div>
@@ -1727,7 +1799,7 @@ const SEC_NAMES = {
   s4:'4 · Estructura organizativa', s5:'5 · Talento y RRHH', s6:'6 · Procesos y operaciones',
   s7:'7 · Tecnología, sistemas y datos', s8:'8 · Cultura y adopción de IA', s9:'9 · Auditoría Lark y Odoo',
   s10:'10 · Arquitectura de IA', s11:'11 · Síntesis de hallazgos', s12:'12 · Próximos pasos y hoja de ruta',
-  cierre:'Cierre'
+  proto:'Fase 2 · El prototipo del sistema', cierre:'Cierre'
 };
 let cur = 0;
 function show(i){
@@ -1749,7 +1821,7 @@ const gr = document.getElementById('menu-gr');
   const n = slides.filter(s=>s.dataset.sec===sec).length;
   const a = document.createElement('a');
   a.href = 'javascript:void(0)';
-  a.innerHTML = '<span class="n">'+(sec==='portada'?'◈':sec==='cierre'?'■':sec.replace('s',''))+'</span>'+(SEC_NAMES[sec]||sec)+' <span style="margin-left:auto;color:#7d90b5;font-size:12px;">'+n+' lám.</span>';
+  a.innerHTML = '<span class="n">'+(sec==='portada'?'◈':sec==='cierre'?'■':sec==='proto'?'▶':sec.replace('s',''))+'</span>'+(SEC_NAMES[sec]||sec)+' <span style="margin-left:auto;color:#7d90b5;font-size:12px;">'+n+' lám.</span>';
   a.onclick = ()=> goSec(sec);
   gr.appendChild(a);
 });
