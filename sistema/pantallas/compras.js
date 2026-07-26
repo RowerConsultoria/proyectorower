@@ -30,13 +30,17 @@ function quiebreProyectado() {
 
 /* Referencias de la marca propia por debajo de su punto de reorden,
    agrupadas por fábrica: el pedido mínimo es POR FÁBRICA, no por producto. */
+/* Se mide con EL MISMO cálculo que usa su mesa —completarMOQ— y no con un
+   criterio propio del panel. Tener dos formas de contar lo mismo hacía que el
+   panel dijera 10 referencias en 6 fábricas y la mesa 7 fábricas: dos cifras
+   ciertas que nadie puede conciliar, y de las que en una sala se pregunta
+   siempre por la que no cuadra. */
 function cubittBajoReorden() {
   const porFab = {};
-  for (const p of CATALOGO.filter(x => x.marca === 'Cubitt')) {
-    const d = demandaSaneada(p.sku);
-    const cob = d.mensual ? (STOCK_HUB[p.sku] || 0) / d.mensual : 99;
-    if (cob >= p.leadDias / 30 + 1) continue;
-    (porFab[p.fabrica] = porFab[p.fabrica] || []).push({ p, cob, mensual: d.mensual });
+  for (const f of FABRICAS) {
+    const b = completarMOQ(f.id);
+    if (!b.hayNecesidad) continue;
+    porFab[f.id] = b.skus.filter(p => (b.base[p.sku] || 0) > 0);
   }
   return porFab;
 }

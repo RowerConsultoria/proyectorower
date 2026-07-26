@@ -27,24 +27,8 @@ const DOCS = [
   { k: 'costeo', r: 'costeo en destino' },
 ];
 
-/* Qué referencias trae cada embarque. Las CAJAS del embarque se reparten
-   entre las referencias de esa fábrica en proporción a su demanda, y se pasan
-   a unidades con las unidades por caja de cada producto. Así ningún embarque
-   queda vacío y las cifras cuadran con el manifiesto. */
-function lineasDe(t) {
-  const esCasio = t.prov.startsWith('Casio');
-  const fab = FABRICAS.find(f => f.nombre === t.prov);
-  const cand = CATALOGO.filter(p => esCasio ? p.marca === 'Casio' : (fab && p.fabrica === fab.id));
-  if (!cand.length) return [];
-
-  const pesos = cand.map(p => Math.max(1, demandaSaneada(p.sku).mensual));
-  const suma = pesos.reduce((a, b) => a + b, 0);
-
-  return cand.map((p, i) => {
-    const cajas = Math.round(t.cajas * pesos[i] / suma);
-    return { p, cajas, u: cajas * (p.uxc || 20) };
-  }).filter(x => x.u > 0).sort((a, b) => b.u - a.u);
-}
+/* Una sola verdad sobre el tránsito: la del núcleo. */
+const lineasDe = lineasEmbarque;
 
 function valorDe(t) {
   return lineasDe(t).reduce((a, x) => a + x.u * x.p.pvp * 0.40, 0);

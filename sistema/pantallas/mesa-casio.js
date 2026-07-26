@@ -29,7 +29,7 @@ const _mesa = { filtro: 'todo', abierta: null, ajustes: {}, motivos: {}, busca: 
 
 function _filaDatos(p) {
   const prop = propuestaCompra(p.sku);
-  const tr = TRANSITO_SKU[p.sku] || { enJapon: 0, enMar: 0 };
+  const tr = enCamino(p.sku);
   const serie = FRENTES.reduce((acc, f) => {
     ((VENTAS[p.sku] || {})[f.id] || []).forEach((v, i) => acc[i] = (acc[i] || 0) + v);
     return acc;
@@ -135,7 +135,7 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
     cuerpo.innerHTML = visibles.map(f => {
       const cobColor = f.prop.cobertura < f.prop.mesesTransito ? 'var(--n3)'
                      : f.prop.cobertura > REGLAS.coberturaObjetivo.v * 1.6 ? 'var(--tinta-tenue)' : 'var(--tinta)';
-      const enCamino = f.tr.enJapon + f.tr.enMar;
+      const uCamino = f.tr.u;
       const dcls = f.delta > 0 ? 'delta-pos' : f.delta < 0 ? 'delta-neg' : 'tenue';
       const motivoFalta = f.delta !== 0 && !_mesa.motivos[f.p.sku];
       return `<tr data-sku="${f.p.sku}" class="${_mesa.abierta === f.p.sku ? 'marcada' : ''}">
@@ -148,7 +148,7 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
         </td>
         <td class="col-sku">${f.p.ref}</td>
         <td class="num">${(STOCK_HUB[f.p.sku] || 0).toLocaleString('es-VE')}</td>
-        <td class="num ${enCamino ? '' : 'tenue'}">${enCamino ? enCamino.toLocaleString('es-VE') : '—'}</td>
+        <td class="num ${uCamino ? '' : 'tenue'}">${uCamino ? uCamino.toLocaleString('es-VE') : '—'}</td>
         <td>${chispa(f.serie, f.q ? f.q.desde : -1, 80, 22)}</td>
         <td class="num" style="color:${cobColor};font-weight:600">${f.prop.cobertura.toFixed(1)} m</td>
         <td class="num propuesta" data-abre="${f.p.sku}" style="cursor:pointer">
@@ -207,8 +207,9 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
 
       <ul class="razones">
         ${f.prop.razones.map((r, i) => `<li class="${i === 3 ? 'aviso' : i === 1 ? 'clave' : ''}">${r}</li>`).join('')}
-        ${(f.tr.enJapon + f.tr.enMar) ? `<li>Descontado lo que ya viene: <b>${f.tr.enJapon} u</b> preparándose en origen
-          y <b>${f.tr.enMar} u</b> embarcadas. No hay que volver a comprarlo.</li>` : ''}
+        ${f.tr.u ? `<li class="clave">Ya vienen <b>${f.tr.u.toLocaleString('es-VE')} u</b> en
+          ${f.tr.embarques.map(e => `<b>${e.id}</b> (${e.modo}, llega ${e.eta})`).join(' y ')}.
+          <b>Descontadas de la propuesta</b>: volver a comprarlas es el error que más caro sale.</li>` : ''}
       </ul>
 
       ${f.sust ? `

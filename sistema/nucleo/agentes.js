@@ -31,7 +31,7 @@ const REGLAS = {
      debajo de lo que la mesa propone a propósito: una compra que excede el
      techo NO se bloquea — entra en cola y muestra a qué desplazaría. Esa
      tensión es la única conexión real entre compras y finanzas. */
-  topeCompraMes:      { v: 1450000, unidad: 'USD',   dueno: 'finanzas',             desde: '2026-07-01', ver: 5 },
+  topeCompraMes:      { v: 820000, unidad: 'USD',   dueno: 'finanzas',             desde: '2026-07-01', ver: 5 },
   minimoPorFrente:    { v: 0.5,  unidad: 'meses',    dueno: 'gerencia comercial',   desde: '2026-06-01', ver: 2 },
   presupuestoAlias:   { v: 40,   unidad: 'registros/día', dueno: 'administración de datos', desde: '2026-07-10', ver: 1 },
   presupuestoLiberar: { v: 300,  unidad: 'unidades/contenedor', dueno: 'operaciones', desde: '2026-07-01', ver: 1 },
@@ -256,26 +256,69 @@ function completarMOQ(fabricaId, ajustes = {}) {
   };
 }
 
+/* ------------------------------------------------ lo que ya viene en camino
+   UNA sola verdad sobre el tránsito. Antes había dos —una lista por
+   referencia y otra derivada de las cajas de cada embarque— que daban cifras
+   distintas para lo mismo. Ahora se calcula en un único sitio, a partir del
+   manifiesto de cada embarque: las cajas se reparten entre las referencias de
+   ese proveedor según su demanda y se pasan a unidades con las unidades por
+   caja de cada producto. */
+
+let _memoTransito = null;
+
+function lineasEmbarque(t) {
+  const esRepresentada = t.prov.startsWith('Casio');
+  const fab = FABRICAS.find(f => f.nombre === t.prov);
+  const cand = CATALOGO.filter(p => esRepresentada ? p.marca === 'Casio' : (fab && p.fabrica === fab.id));
+  if (!cand.length) return [];
+  const pesos = cand.map(p => Math.max(1, demandaSaneada(p.sku).mensual));
+  const suma = pesos.reduce((a, b) => a + b, 0);
+  return cand.map((p, i) => {
+    const cajas = Math.round(t.cajas * pesos[i] / suma);
+    return { p, cajas, u: cajas * (p.uxc || 10) };
+  }).filter(x => x.u > 0).sort((a, b) => b.u - a.u);
+}
+
+/** Unidades de una referencia que ya vienen en camino, por embarque. */
+function enCamino(sku) {
+  if (!_memoTransito) {
+    _memoTransito = {};
+    for (const t of TRANSITOS) {
+      for (const l of lineasEmbarque(t)) {
+        const e = _memoTransito[l.p.sku] = _memoTransito[l.p.sku] || { u: 0, embarques: [] };
+        e.u += l.u;
+        e.embarques.push({ id: t.id, u: l.u, eta: t.eta, modo: t.modo });
+      }
+    }
+  }
+  return _memoTransito[sku] || { u: 0, embarques: [] };
+}
+
 /**
  * Propuesta de compra por referencia. Cubre la venta durante el tránsito más
- * la cobertura objetivo, descontando lo que ya hay y lo que ya viene en camino.
+ * la cobertura objetivo, descontando lo que ya hay Y LO QUE YA VIENE EN CAMINO.
+ *
+ * Ese descuento faltaba: la pantalla decía descontarlo y el cálculo lo fijaba
+ * en cero. Comprar otra vez lo que ya está embarcado es exactamente el error
+ * que esta parte del sistema existe para evitar.
  */
 function propuestaCompra(sku) {
   const p = CATALOGO.find(x => x.sku === sku);
   const d = demandaSaneada(sku);
-  const enCamino = 0;                       // los tránsitos de la semilla no van por SKU
+  const tr = enCamino(sku);
   const mesesTransito = p.leadDias / 30;
   const objetivo = d.mensual * (REGLAS.coberturaObjetivo.v + mesesTransito);
-  const bruto = objetivo - (STOCK_HUB[sku] || 0) - enCamino;
+  const bruto = objetivo - (STOCK_HUB[sku] || 0) - tr.u;
   const necesidad = Math.max(0, Math.round(bruto / 10) * 10);
   const cobertura = d.mensual ? (STOCK_HUB[sku] || 0) / d.mensual : 99;
   return {
-    sku, necesidad, demandaMensual: d.mensual, cobertura,
+    sku, necesidad, demandaMensual: d.mensual, cobertura, enCamino: tr.u, embarques: tr.embarques,
     mesesTransito, noAtendida: d.noAtendida, mesesExcluidos: d.mesesExcluidos,
     razones: [
       `venta mensual saneada de ${d.mensual} u en ${FRENTES.length} frentes`,
       `cobertura actual ${cobertura.toFixed(1)} meses contra el objetivo de ${REGLAS.coberturaObjetivo.v}`,
       `tránsito de ${p.leadDias} días: hay que cubrir ${mesesTransito.toFixed(1)} meses antes de la próxima llegada`,
+      ...(tr.u ? [`descontadas ${tr.u.toLocaleString('es-VE')} u que ya vienen en ${tr.embarques.map(e => e.id).join(', ')}: no hay que volver a comprarlas`] : []),
       ...(d.mesesExcluidos ? [`excluí ${d.mesesExcluidos} meses en cero por quiebre: fue falta de existencia, no de demanda`] : []),
     ],
   };
@@ -440,7 +483,7 @@ function graduar(candId) {
     VENTAS[sku][f.id] = ((VENTAS[c.equivalente] || {})[f.id] || []).map(v => Math.round(v * p.factor));
   }
   STOCK_HUB[sku] = 0;
-  TRANSITO_SKU[sku] = { enJapon: 0, enMar: 0 };
+  _memoTransito = null;   // el nuevo SKU entra en el reparto del tránsito
   delete _memoDemanda[sku];
 
   return anota({
@@ -537,6 +580,7 @@ const ACCIONES = {
     corre() {
       const casos = [];
       for (const o of OCIOSOS) {
+        if (o.mesesQuieto < REGLAS.mesesParaOcioso.v) continue;
         const prop = propuestaCompra(o.sku);
         if (prop.necesidad < REGLAS.umbralSustitucion.v) continue;
         const r = reserva(o.sku, o.frente, Math.min(o.u, prop.necesidad), 'sustitución por existencia', 'recorte de compra');
@@ -583,9 +627,16 @@ const ACCIONES = {
       const porSku = {};
       for (const ped of PEDIDOS) {
         for (const l of ped.lineas) {
-          const peldano = ped.cobrado ? 'cobrado' : ped.reservaNominal ? 'nominal'
-                        : ped.dentroDeCiclo ? 'ciclo' : 'proporcional';
           const s = (VENTAS[l.sku] || {})[ped.frente] || [];
+          /* El peldaño 3 —mínimo declarado por frente— no se disparaba nunca
+             porque nadie lo asignaba. Un frente cuya existencia no cubre ni su
+             mínimo entra por ahí: es lo que impide dejar un país en cero. */
+          const m3 = s.slice(-3).reduce((a, b) => a + b, 0) / 3;
+          const bajoMinimo = m3 > 0 &&
+            ((STOCK_FRENTE[l.sku] || {})[ped.frente] || 0) / m3 < REGLAS.minimoPorFrente.v;
+          const peldano = ped.cobrado ? 'cobrado' : ped.reservaNominal ? 'nominal'
+                        : bajoMinimo ? 'minimo'
+                        : ped.dentroDeCiclo ? 'ciclo' : 'proporcional';
           (porSku[l.sku] = porSku[l.sku] || []).push({
             frente: ped.frente, pide: l.pide, peldano,
             venta: s.slice(-3).reduce((a, b) => a + b, 0),
@@ -830,5 +881,5 @@ function resumenAgentes() {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
     calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
-    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, resumenAgentes, compensa, disponible };
+    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, resumenAgentes, compensa, disponible };
 }
