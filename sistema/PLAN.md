@@ -122,7 +122,7 @@ determinista real sobre los datos semilla. Todavía sin pantalla.
 
 # BLOQUE B · COMPRAS
 
-### Fase 6 · Panel de compras y el reloj del ciclo
+### Fase 6 · Panel de compras y el reloj del ciclo  ✅
 La entrada al módulo: el reloj del ciclo mensual, las tarjetas de estado, **la bandeja de firma**
 y las alertas que ya vienen con la acción preparada y con destinatario.
 **Revisas:** la primera pantalla real. Aquí se ve si el producto convence.
@@ -242,7 +242,8 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **3 · Armazón** | ✅ **hecha** — `index.html` + `nucleo/app.js` |
 | **4 · Datos semilla** | ✅ **hecha** — `datos/*.js` + 59 imágenes reales + pantalla `cimiento` |
 | **5 · Núcleo de agentes** | ✅ **hecha** — `nucleo/agentes.js` |
-| 6–11 · Compras y desarrollo de producto | pendiente |
+| **6 · Panel de compras** | ✅ **hecha** — `pantallas/compras.js` |
+| 7–11 · Mesa de compra, Cubitt, producto, tránsitos | pendiente |
 | 12–14 · Distribución y logística | pendiente |
 | 15–18 · Comercial y frentes | pendiente |
 | 19–22 · Cierre | pendiente |

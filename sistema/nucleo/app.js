@@ -153,7 +153,7 @@ function pintaMenu() {
     if (g.titulo) html += `<div class="menu-grupo">${esc(g.titulo)}</div>`;
     for (const [k, m] of items) {
       const activo = k === ESTADO.modulo;
-      const pend = k === 'compras' ? ESTADO.pendientes : 0;
+      const pend = (typeof bandejaDe === 'function') ? bandejaDe(k).length : 0;
       html += `<div class="menu-item estela ${activo ? 'on' : ''}" data-mod="${k}" role="button" tabindex="0">
         <span class="ico">${m.ico}</span><span>${esc(m.nombre)}</span>
         ${pend ? `<span class="contador">${pend}</span>` : ''}
@@ -187,7 +187,11 @@ window.viajaEstela = viajaEstela;
 
 function arrancaMarquee() {
   const caja = $('#marquee');
-  caja.innerHTML = EVENTOS.map((e, i) =>
+  /* si el núcleo está cargado, el marquee cuenta lo que de verdad pasó anoche */
+  const reales = (typeof turno === 'function')
+    ? turno().slice(0, 5).map(e => ({ n: e.nivel, t: e.salida.split(' · ').slice(0, 2).join(' · ') }))
+    : EVENTOS;
+  caja.innerHTML = reales.map((e, i) =>
     `<div class="ev ${i === 0 ? 'ver' : ''}">
        <span class="orbe orbe-mini ${e.n === 1 ? '' : 'hecho'}"></span>
        <span>${e.t}</span>
@@ -279,11 +283,15 @@ function pintaLienzo() {
 /* -------------------------------------------------------------------- HUD */
 
 function pintaHud() {
+  /* las cifras salen del núcleo, no de constantes: si cambia una regla de
+     negocio, el HUD cambia solo */
+  const r = (typeof resumenAgentes === 'function') ? resumenAgentes()
+          : { esperanFirma: 0, preparadas: 0, ejecutadas: 0, enviadasSinFirmaHumana: 0 };
   $('#hud').innerHTML = `
     <span class="orbe orbe-grande actuando"></span>
     <div class="txt">
-      <b>${ESTADO.pendientes} esperan tu firma</b>
-      <div class="sub">${ESTADO.preparadas} preparadas hoy · 0 sin firma humana</div>
+      <b>${r.esperanFirma} esperan tu firma</b>
+      <div class="sub">${r.preparadas + r.ejecutadas} acciones anoche · ${r.enviadasSinFirmaHumana} sin firma humana</div>
     </div>`;
 }
 

@@ -31,7 +31,7 @@ const REGLAS = {
      debajo de lo que la mesa propone a propósito: una compra que excede el
      techo NO se bloquea — entra en cola y muestra a qué desplazaría. Esa
      tensión es la única conexión real entre compras y finanzas. */
-  topeCompraMes:      { v: 2200000, unidad: 'USD',   dueno: 'finanzas',             desde: '2026-07-01', ver: 5 },
+  topeCompraMes:      { v: 1450000, unidad: 'USD',   dueno: 'finanzas',             desde: '2026-07-01', ver: 5 },
   minimoPorFrente:    { v: 0.5,  unidad: 'meses',    dueno: 'gerencia comercial',   desde: '2026-06-01', ver: 2 },
   presupuestoAlias:   { v: 40,   unidad: 'registros/día', dueno: 'administración de datos', desde: '2026-07-10', ver: 1 },
   presupuestoLiberar: { v: 300,  unidad: 'unidades/contenedor', dueno: 'operaciones', desde: '2026-07-01', ver: 1 },
@@ -553,6 +553,23 @@ const ACCIONES = {
 
 const ORDEN_TURNO = ['N-01', 'N-02', 'C-01', 'C-03', 'X-01', 'V-01', 'V-02', 'L-02', 'C-05', 'A-01'];
 
+/* Fecha de la demo, fija a propósito: el recorrido debe verse igual cada vez
+   que se presente. Día 18 — la mesa está armada y faltan dos días para el
+   corte del pedido, que es el momento con más tensión del ciclo. */
+const HOY = { dia: 18, mes: 'agosto', anio: 2026, hora: '03:12' };
+
+/* El ciclo mensual de compra al proveedor representado.
+   ⚠️ SECUENCIA PROPUESTA — pendiente de confirmar con la dirección de compras
+   antes de mostrarla al cliente. Se cambia en un solo sitio: aquí. */
+const CICLO = [
+  { dia: 15, que: 'llega la hoja' },
+  { dia: 18, que: 'se arma la mesa' },
+  { dia: 20, que: 'corte del pedido' },
+  { dia: 27, que: 'el proveedor confirma' },
+  { dia: 30, que: 'se paga lo confirmado' },
+  { dia: '+45-60 d', que: 'llega a Colón' },
+];
+
 function turnoDeNoche() {
   BITACORA.length = 0; RESERVAS.length = 0; _sec = 0;
   const resultados = [];
@@ -567,6 +584,37 @@ function turnoDeNoche() {
     resultados.push({ ...e, datos: r.datos });
   }
   return resultados;
+}
+
+/* El turno se ejecuta UNA vez y todas las pantallas leen de ahí. Así las
+   cifras que se ven no están escritas a mano: si cambia una regla de negocio,
+   cambian solas. */
+let _turno = null;
+function turno() { if (!_turno) _turno = turnoDeNoche(); return _turno; }
+function datosDe(id) {
+  const e = turno().find(x => x.accion.startsWith(id));
+  return e ? e.datos : null;
+}
+function entradaDe(id) { return turno().find(x => x.accion.startsWith(id)) || null; }
+
+/* Qué llega a la bandeja de firma de cada módulo. Se declara en un solo sitio
+   para que el contador del menú y la bandeja de la pantalla no puedan
+   discrepar — que es exactamente lo que pasaba antes. */
+const BANDEJAS = {
+  compras:      ['compras', 'distribucion'],
+  distribucion: ['distribucion'],
+  logistica:    ['logistica'],
+  comercial:    ['comercial'],
+  cimiento:     ['cimiento'],
+  producto:     ['producto'],
+  direccion:    [],
+  frentes:      [],
+  agentes:      [],
+};
+
+function bandejaDe(modulo) {
+  const ambito = BANDEJAS[modulo] || [modulo];
+  return turno().filter(e => (e.nivel === 3 || e.perimetro === 'externo') && ambito.includes(e.modulo));
 }
 
 /** Resumen para el HUD y la sala de agentes. */
@@ -586,7 +634,7 @@ function resumenAgentes() {
 
 /* disponible para las pantallas y para la comprobación desde Node */
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA,
+  module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO,
     calculaNivel, demandaSaneada, propuestaCompra, existenciaOciosa, reparte,
-    turnoDeNoche, resumenAgentes, compensa, disponible };
+    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, resumenAgentes, compensa, disponible };
 }
