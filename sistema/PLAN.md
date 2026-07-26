@@ -243,7 +243,8 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **4 · Datos semilla** | ✅ **hecha** — `datos/*.js` + 59 imágenes reales + pantalla `cimiento` |
 | **5 · Núcleo de agentes** | ✅ **hecha** — `nucleo/agentes.js` |
 | **6 · Panel de compras** | ✅ **hecha** — `pantallas/compras.js` |
-| 7–11 · Mesa de compra, Cubitt, producto, tránsitos | pendiente |
+| **7 · Mesa de compra Casio** | ✅ **hecha** — `pantallas/mesa-casio.js` |
+| 8–11 · Cierre, Cubitt, producto, tránsitos | pendiente |
 | 12–14 · Distribución y logística | pendiente |
 | 15–18 · Comercial y frentes | pendiente |
 | 19–22 · Cierre | pendiente |

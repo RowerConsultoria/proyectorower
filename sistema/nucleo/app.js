@@ -207,15 +207,21 @@ function arrancaMarquee() {
 
 /* ------------------------------------------------------------------ ROUTER */
 
+/* Enrutado por hash con sub-rutas: #/compras → módulo · #/compras/casio →
+   pantalla dentro del módulo. El hash nunca viaja al servidor, así que esto
+   funciona igual servido por HTTP que abriendo el archivo con doble clic. */
 function ruta() {
-  const h = (location.hash || '').replace(/^#\/?/, '').split('/')[0];
-  return MODULOS[h] ? h : 'compras';
+  const partes = (location.hash || '').replace(/^#\/?/, '').split('/').filter(Boolean);
+  const mod = MODULOS[partes[0]] ? partes[0] : 'compras';
+  return { mod, sub: partes.slice(1).join('/'), llave: partes.slice(0, 2).join('/') };
 }
 
 function navega() {
-  const m = ruta();
+  const r = ruta();
   const visibles = ROLES[ESTADO.rol].ve;
-  ESTADO.modulo = visibles.includes(m) ? m : visibles[0];
+  ESTADO.modulo = visibles.includes(r.mod) ? r.mod : visibles[0];
+  ESTADO.sub = ESTADO.modulo === r.mod ? r.sub : '';
+  ESTADO.llave = ESTADO.sub ? ESTADO.modulo + '/' + ESTADO.sub : ESTADO.modulo;
   pintaMenu();
   pintaLienzo();
   $('.lienzo').scrollTop = 0;
@@ -227,10 +233,13 @@ function pintaLienzo() {
   const k = ESTADO.modulo, m = MODULOS[k];
   const lienzo = $('#lienzo');
 
-  /* Cada fase posterior sustituye esto por la pantalla real del módulo. */
-  if (typeof window.PANTALLAS === 'object' && window.PANTALLAS[k]) {
+  /* Se busca primero la pantalla concreta (compras/casio) y si no existe, la
+     del módulo (compras). Cada fase posterior añade la suya. */
+  const P = window.PANTALLAS || {};
+  const elegida = P[ESTADO.llave] || P[k];
+  if (elegida) {
     lienzo.innerHTML = '';
-    window.PANTALLAS[k](lienzo, ESTADO);
+    elegida(lienzo, ESTADO);
     return;
   }
 
