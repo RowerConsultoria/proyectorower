@@ -135,7 +135,7 @@ raíces que lo alimenten.
 | **4 · El cedazo** | ✅ **hecha** — 4 criterios, la cola de excepciones con cifra, y el ramal ámbar que la alimenta |
 | **5 · Foco por raíz** | ✅ **hecha** — recorrido iluminado + ficha lateral con «qué se rompe» y «qué recibe de vuelta» |
 | **6a · El rack en 3D** | ✅ **hecha** — WebGL + texto en DOM · escena clara, rack oscuro · respaldo sin WebGL |
-| 6b · Rótulos que no chocan | pendiente |
+| **6b · Raíces en arco + ficha completa** | ✅ **hecha** — 12 raíces alrededor, 0 rótulos pisándose, ficha con todo lo de la plana |
 | 6c · Gavetas y burbujas | pendiente |
 | 6d · El cedazo como bandeja tamiz | ✅ hecha en la 6a |
 | 7 · La bajada | pendiente |

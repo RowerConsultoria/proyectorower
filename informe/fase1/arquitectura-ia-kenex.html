@@ -140,6 +140,57 @@ h1{margin:0; font-size:29px; letter-spacing:-.01em}
 .chapa.tamiz{border-left-color:var(--ambar); background:rgba(255,248,236,.97)}
 .chapa.tamiz .n{color:#8a5310} .chapa.tamiz .c{color:var(--ambar)}
 
+/* ─────────────────────────────────────────────── la ficha lateral
+
+   La misma información que la versión plana, y por la misma razón: fuera del
+   lienzo. Dentro de la escena, un panel de texto o compite con el rack o se
+   deforma al girar.                                                        */
+.ficha{
+  position:fixed; top:0; right:0; bottom:0; width:392px; z-index:60;
+  background:#fff; border-left:1px solid var(--borde);
+  box-shadow:-14px 0 40px rgba(31,56,100,.16);
+  transform:translateX(100%); transition:transform .3s cubic-bezier(.22,.61,.36,1);
+  display:flex; flex-direction:column; overflow:auto;
+}
+.ficha.abierta{transform:none}
+.ficha .cabf{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff;
+  padding:18px 22px 16px; position:relative}
+.ficha .cabf .via{margin-bottom:8px}
+.ficha .cabf h2{margin:0; font-size:21px; letter-spacing:-.01em}
+.ficha .cabf .dato{font-size:13.5px; color:#dbe7f6; margin-top:6px; line-height:1.45}
+.ficha .cuerpo{padding:18px 22px 26px; display:flex; flex-direction:column; gap:16px}
+.bloque .r{font-size:10.5px; text-transform:uppercase; letter-spacing:.14em;
+  font-weight:800; color:var(--blue); margin-bottom:5px}
+.bloque p{margin:0; font-size:13.5px; line-height:1.55}
+.bloque.rompe{background:#fdf3f2; border-left:4px solid var(--rojo);
+  border-radius:0 8px 8px 0; padding:12px 14px}
+.bloque.rompe .r{color:var(--rojo)}
+.bloque.hoy{background:#fdf8ef; border-left:4px solid var(--ambar);
+  border-radius:0 8px 8px 0; padding:12px 14px}
+.bloque.hoy .r{color:var(--ambar)}
+.datos-ficha{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.datos-ficha .celda{background:var(--papel); border-radius:8px; padding:10px 12px}
+.datos-ficha .v{font-size:14px; font-weight:800; color:var(--navy); line-height:1.25}
+.cerrar-ficha{
+  position:absolute; top:16px; right:18px; background:transparent; color:#fff;
+  border:1.5px solid rgba(255,255,255,.5); border-radius:999px;
+  width:28px; height:28px; cursor:pointer; font-size:13px; font-family:inherit;
+}
+.cerrar-ficha:hover{background:#fff; color:var(--navy)}
+
+/* con la ficha abierta el lienzo cede su ancho: la caja que acabas de pulsar
+   no puede quedar debajo del panel que la explica */
+/* Sin transicion a proposito: el lienzo se mide justo despues de cambiar la
+   clase, y un ancho a medio animar devuelve el valor de antes. La que se
+   desliza es la ficha. */
+body.con-ficha #lienzo3d, body.con-ficha #rotulos{right:392px}
+
+/* la etiqueta enfocada, y las demás apagadas */
+body.enfocado .eti:not(.on){opacity:.28}
+body.enfocado .chapa:not(.on){opacity:.42}
+.eti.on{border-color:var(--blue); box-shadow:0 0 0 3px rgba(46,117,182,.18), 0 10px 26px rgba(15,25,45,.22)}
+.eti.on .detalle{display:block; margin-top:3px}
+
 /* ────────────────────────────────────────────── sin WebGL: no se rompe */
 #sinwebgl{
   position:absolute; inset:0; display:none; place-items:center; padding:40px;
@@ -200,6 +251,26 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
     <a href="arquitectura-ia-plana.html">Ver la torre en versión plana →</a>
   </div></div>
 </div>
+
+<aside class="ficha" id="ficha" aria-live="polite">
+  <div class="cabf">
+    <button class="cerrar-ficha" id="cerrar-ficha" title="Cerrar (Esc)">✕</button>
+    <span class="via" id="f-via"></span>
+    <h2 id="f-nombre"></h2>
+    <div class="dato" id="f-dato"></div>
+  </div>
+  <div class="cuerpo">
+    <div class="datos-ficha">
+      <div class="celda"><div class="r">cadencia</div><div class="v" id="f-cadencia"></div></div>
+      <div class="celda"><div class="r">responde por ella</div><div class="v" id="f-dueno"></div></div>
+    </div>
+    <div class="bloque"><div class="r">cómo entraría</div><p id="f-como"></p></div>
+    <div class="bloque hoy"><div class="r">cómo llega hoy</div><p id="f-hoy"></p></div>
+    <div class="bloque rompe"><div class="r">qué se rompe si falta</div><p id="f-rompe"></p></div>
+    <div class="bloque"><div class="r">dónde entra</div><p id="f-nivel"></p></div>
+    <div class="bloque" id="f-bloque-baja"><div class="r">y qué recibe de vuelta</div><p id="f-baja"></p></div>
+  </div>
+</aside>
 
 <footer>
   <div class="numeros" id="numeros"></div>
@@ -433,19 +504,28 @@ const COLUMNA = {
   'reglas':'der','tasas':'der','fabricas':'der','producto':'der',
   'compra-internacional':'der','documentos':'der',
 };
-const X_COL = 8.3, Z0 = 5.0, PASO_Z = 2.0;
+/* En ARCO alrededor del rack, no en dos filas: repartidas ocupan el ancho de
+   la escena, sus rótulos dejan de pisarse, y los cables llegan desde todos los
+   costados en vez de amontonarse en dos haces. El frente queda despejado a
+   propósito, para que la cara del rack se vea entera. */
+const RADIO = 13.2;
+const ARCO = { izq: [-108, -26], der: [26, 108] };   // grados; 0° mira al frente
 
-const sitio = {};
+const sitio = {}, pedestales = [];
 for (const col of ['izq', 'der']) {
   const suyas = RAICES.filter(r => COLUMNA[r.id] === col);
+  const [a0, a1] = ARCO[col];
   suyas.forEach((r, i) => {
-    const p = new THREE.Vector3((col === 'izq' ? -1 : 1) * X_COL, 0.24, Z0 - i * PASO_Z);
+    const g = (a0 + (a1 - a0) * (suyas.length === 1 ? .5 : i / (suyas.length - 1))) * Math.PI / 180;
+    /* alternar el radio evita que dos vecinas se solapen en pantalla */
+    const rad = RADIO + (i % 2 ? 1.5 : 0);
+    const p = new THREE.Vector3(Math.sin(g) * rad, 0.24, Math.cos(g) * rad);
     sitio[r.id] = p;
     const base = new THREE.Mesh(
       new RoundedBoxGeometry(1.9, 0.48, 1.3, 3, 0.07),
       new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .78, metalness: .05 }));
     base.position.copy(p); base.castShadow = true; base.receiveShadow = true;
-    base.userData.raiz = r.id; escena.add(base);
+    base.userData.raiz = r.id; escena.add(base); pedestales.push(base);
 
     /* un canto del color de su vía, para leer de un vistazo cómo entra */
     const canto = new THREE.Mesh(
@@ -453,13 +533,18 @@ for (const col of ['izq', 'der']) {
       new THREE.MeshBasicMaterial({ color: new THREE.Color(
         r.via === 'odoo' ? '#2E7D32' : r.via === 'portal' ? '#2E75B6'
         : r.via === 'externa' ? '#B26A00' : '#1F3864') }));
-    canto.position.set(p.x, p.y + 0.1, p.z + 0.66); escena.add(canto);
+    canto.position.set(p.x, p.y + 0.1, p.z + 0.66);
+    base.lookAt(0, 0.24, 0); canto.lookAt(0, 0.1, 0);
+    canto.position.copy(p).add(new THREE.Vector3(0, 0.14, 0))
+         .addScaledVector(new THREE.Vector3(-p.x, 0, -p.z).normalize(), 0.68);
+    escena.add(canto);
 
     const d = document.createElement('div');
     d.className = 'rot eti'; d.dataset.raiz = r.id;
     d.innerHTML = `<span class="n">${r.nombre}</span>
                    <span class="detalle"><span class="via via-${r.via}">${VIAS[r.via].rotulo}</span>
                    <span class="c">${r.cadencia} · ${r.dueno}</span></span>`;
+    d.onclick = () => enfoca(r.id);
     const o = new CSS2DObject(d);
     o.position.set(p.x, p.y + 0.62, p.z);
     escena.add(o);
@@ -474,34 +559,46 @@ for (const col of ['izq', 'der']) {
 function texturaCorriente(grado) {
   const c = document.createElement('canvas'); c.width = 128; c.height = 8;
   const g = c.getContext('2d');
-  g.fillStyle = '#c8d8e9'; g.fillRect(0, 0, 128, 8);        // conducto, claro
-  const grad = g.createLinearGradient(0, 0, 44, 0);
-  grad.addColorStop(0,  'rgba(46,117,182,0)');
-  grad.addColorStop(.5, grado >= 3 ? '#12294a' : '#2E75B6'); // paquete, oscuro
-  grad.addColorStop(1,  'rgba(46,117,182,0)');
-  g.fillStyle = grad; g.fillRect(0, 0, 44, 8);
+  g.fillStyle = '#dbe6f2'; g.fillRect(0, 0, 128, 8);        // conducto, claro
+  const grad = g.createLinearGradient(0, 0, 52, 0);
+  grad.addColorStop(0,   'rgba(46,117,182,0)');
+  grad.addColorStop(.28, grado >= 3 ? '#1F3864' : '#2E75B6');
+  grad.addColorStop(.5,  grado >= 3 ? '#0d1f3a' : '#1F3864'); // paquete, oscuro
+  grad.addColorStop(.72, grado >= 3 ? '#1F3864' : '#2E75B6');
+  grad.addColorStop(1,   'rgba(46,117,182,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, 52, 8);
   const t = new THREE.CanvasTexture(c);
-  t.wrapS = THREE.RepeatWrapping; t.repeat.set(5, 1);
+  t.wrapS = THREE.RepeatWrapping; t.repeat.set(9, 1);
   t.colorSpace = THREE.SRGBColorSpace;
   return t;
 }
 
-const corrientes = [];
+const corrientes = [], tubos = {};
 for (const r of RAICES) {
   const p = sitio[r.id]; if (!p) continue;
-  const izq = p.x < 0;
-  const destino = new THREE.Vector3(
-    (izq ? -1 : 1) * (ANCHO / 2 + 0.02), Y[r.nivel].y, FONDO / 2 - 0.9);
-  const medio = p.clone().lerp(destino, 0.52);
-  medio.y = Math.max(0.7, medio.y - 0.85);
-  medio.z += 1.1;
-  const curva = new THREE.CatmullRomCurve3([p.clone().setY(p.y + 0.22), medio, destino]);
+
+  /* El cable entra por la cara del rack que le queda enfrente: se proyecta la
+     dirección raíz→centro sobre la caja. Mandarlos todos al costado, como
+     antes, hacía que los de delante dieran un rodeo absurdo. */
+  const k = 1.02 / Math.max(Math.abs(p.x) / (ANCHO / 2), Math.abs(p.z) / (FONDO / 2));
+  const destino = new THREE.Vector3(p.x * k, Y[r.nivel].y, p.z * k);
+
+  /* Baja, recorre el suelo y sube por la cara: se lee como cableado de sala,
+     no como una flecha de diapositiva. */
+  const haciaDentro = new THREE.Vector3(-p.x, 0, -p.z).normalize();
+  const salida = p.clone().setY(0.34).addScaledVector(haciaDentro, 0.9);
+  const pie = destino.clone().setY(0.30).addScaledVector(haciaDentro, -1.15);
+  const subida = destino.clone().addScaledVector(haciaDentro, -0.55).setY(destino.y - 0.55);
+  const curva = new THREE.CatmullRomCurve3([salida, pie, subida, destino]);
+
   const tex = texturaCorriente(r.grado);
+  const grueso = r.grado >= 3 ? 0.085 : 0.065;
   const tubo = new THREE.Mesh(
-    new THREE.TubeGeometry(curva, 80, r.grado >= 3 ? 0.05 : 0.038, 10, false),
+    new THREE.TubeGeometry(curva, 110, grueso, 12, false),
     new THREE.MeshBasicMaterial({ map: tex }));
   tubo.userData.raiz = r.id;
   escena.add(tubo);
+  tubos[r.id] = tubo;
   corrientes.push({ tex, v: 0.09 + r.ritmo * 0.052 });
 }
 
@@ -534,10 +631,128 @@ function pinta() {
     for (const l of ledsVivos) l.led.material.opacity = 0.3 + 0.7 * Math.abs(Math.sin(t * l.vel + l.fase));
   }
   for (const l of ledsVivos) l.led.quaternion.copy(camara.quaternion);
+
   mando.update();
   pintor.render(escena, camara);
   rotulos.render(escena, camara);
 }
+
+/* ═══════════════════════════════════════════════ EL FOCO Y LA FICHA
+
+   Se puede pulsar el pedestal en la escena o su rótulo: las dos cosas llevan
+   al mismo sitio. En 3D no basta con atenuar por CSS —los tubos y las cajas
+   son mallas—, así que se les baja la opacidad a mano y se devuelve al soltar.
+
+   ⚠️ El clic de cada rótulo se engancha AL CREARLO, no con un querySelectorAll
+   posterior: CSS2DRenderer no inserta los rótulos en el DOM hasta el primer
+   render, así que en este punto todavía no existe ninguno. */
+
+const opacidadBase = new Map();
+for (const t of Object.values(tubos)) opacidadBase.set(t, 1);
+for (const b of pedestales) opacidadBase.set(b, 1);
+
+let enfocada = null;
+
+/* Enciende por dentro la bandeja indicada y apaga las demas. Es lo que en
+   3D sustituye al atenuar de la version plana: la caja no pierde su volumen,
+   gana luz. */
+function enciende(nivel) {
+  for (const [id, b] of Object.entries(bandejas)) {
+    const on = id === nivel;
+    const mats = Array.isArray(b.material) ? b.material : [b.material];
+    for (const mat of mats) {
+      if (!mat.emissive) continue;
+      mat.emissive.set(on ? TINTE[id] || '#2E75B6' : '#000000');
+      mat.emissiveIntensity = on ? 0.32 : 0;
+      mat.needsUpdate = true;
+    }
+  }
+}
+
+/* Girar la cámara al enfocar se probó y se retiró: dejaba el rack de canto y
+   perdía las caras frontales, que es lo que lo hace leerse como equipo. Lo que
+   de verdad resolvía que la raíz quedara fuera de cuadro era REENCUADRAR al
+   estrecharse el lienzo — encuadra('ajusta') —, así que basta con eso. */
+function miraHacia() { /* a propósito, no hace nada */ }
+
+function atenua(m, v) {
+  const mats = Array.isArray(m.material) ? m.material : [m.material];
+  for (const mat of mats) { mat.transparent = v < 1; mat.opacity = v; mat.needsUpdate = true; }
+}
+
+function enfoca(id) {
+  if (enfocada === id) { limpia(); return; }
+  const r = RAICES.find(x => x.id === id); if (!r) return;
+  enfocada = id;
+
+  /* Los tubos y los pedestales se apagan —son finos, aguantan bien la
+     transparencia—. Las bandejas NO: transparentarlas dejaba el rack
+     fantasmal y sin volumen. En su lugar, la bandeja de destino se enciende
+     por dentro. */
+  for (const [m] of opacidadBase) atenua(m, 0.13);
+  if (tubos[id]) atenua(tubos[id], 1);
+  const ped = pedestales.find(b => b.userData.raiz === id);
+  if (ped) atenua(ped, 1);
+  enciende(r.nivel);
+  miraHacia(sitio[id]);
+
+  document.body.classList.add('enfocado', 'con-ficha');
+  document.querySelectorAll('.rot.on').forEach(e => e.classList.remove('on'));
+  const eti = document.querySelector('.eti[data-raiz="' + id + '"]');
+  if (eti) eti.classList.add('on');
+  const chapa = document.querySelector('.chapa[data-nivel="' + r.nivel + '"]');
+  if (chapa) chapa.classList.add('on');
+
+  const baja = BAJADAS.find(b => b.hacia === id);
+  const N = NIVELES.find(n => n.id === r.nivel);
+  const T = (k, t) => { document.getElementById(k).textContent = t; };
+  T('f-nombre', r.nombre); T('f-dato', r.dato);
+  T('f-cadencia', r.cadencia); T('f-dueno', r.dueno);
+  T('f-hoy', r.hoy); T('f-rompe', r.rompe);
+  T('f-como', VIAS[r.via].detalle + '.');
+  T('f-nivel', 'Entra al nivel ' + N.n + ', «' + N.nombre + '» — ' + N.lema + '.');
+  const via = document.getElementById('f-via');
+  via.className = 'via via-' + r.via; via.textContent = VIAS[r.via].rotulo;
+
+  const caja = document.getElementById('f-bloque-baja');
+  caja.querySelector('.r').textContent = baja ? 'y qué recibe de vuelta' : 'no recibe nada de vuelta';
+  T('f-baja', baja ? baja.que + '. ' + baja.nota
+    : 'Esta fuente alimenta la torre y no recibe nada: el dato viene de fuera y no hay nada que devolverle.');
+
+  document.getElementById('ficha').classList.add('abierta');
+  mide('ajusta');
+}
+
+function limpia() {
+  enfocada = null;
+  for (const [m] of opacidadBase) atenua(m, 1);
+  enciende(null);
+  document.body.classList.remove('enfocado', 'con-ficha');
+  document.querySelectorAll('.rot.on').forEach(e => e.classList.remove('on'));
+  document.getElementById('ficha').classList.remove('abierta');
+  mide('ajusta');
+}
+
+document.getElementById('cerrar-ficha').onclick = limpia;
+addEventListener('keydown', e => { if (e.key === 'Escape') limpia(); });
+
+/* Clic en la escena: se lanza un rayo desde la cámara y se mira qué toca.
+   Arrastrar para girar el rack no cuenta como pulsar. */
+const rayo = new THREE.Raycaster(), puntero = new THREE.Vector2();
+let arrastro = false;
+pintor.domElement.addEventListener('pointerdown', () => { arrastro = false; });
+pintor.domElement.addEventListener('pointermove', e => { if (e.buttons) arrastro = true; });
+pintor.domElement.addEventListener('pointerup', e => {
+  if (arrastro) return;
+  const c = pintor.domElement.getBoundingClientRect();
+  puntero.x = ((e.clientX - c.left) / c.width) * 2 - 1;
+  puntero.y = -((e.clientY - c.top) / c.height) * 2 + 1;
+  rayo.setFromCamera(puntero, camara);
+  const t = rayo.intersectObjects([...pedestales, ...Object.values(tubos)], false);
+  if (t.length && t[0].object.userData.raiz) enfoca(t[0].object.userData.raiz);
+  else limpia();
+});
+pintor.domElement.style.cursor = 'grab';
 
 /* ═══════════════════════════════════════════════ MANDOS Y MEDIDAS */
 const btPausa = document.getElementById('pausa');
@@ -554,15 +769,22 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) btPausa.click();
 function encuadra(mover) {
   /* Por EXTENSIONES, no por esfera envolvente: la esfera usa la diagonal del
      rincón y deja la escena diminuta en medio del cuadro. */
-  const semiX = X_COL + 1.2, semiY = (ALTO_RACK + 0.9) / 2, semiZ = Z0 + 1.0;
+  const semiX = RADIO + 3.0, semiY = (ALTO_RACK + 0.9) / 2, semiZ = RADIO * 0.55;
   const fov = camara.fov * Math.PI / 180, tg = Math.tan(fov / 2);
   const dAncho = semiX / (tg * camara.aspect);
   const dAlto  = semiY / tg;
   const dist = Math.max(dAncho, dAlto) * 1.12 + semiZ * 0.55;
   mando.minDistance = dist * 0.55; mando.maxDistance = dist * 2.1;
   mando.target.set(0, semiY * 0.94, 0);
-  if (mover) {
+
+  if (mover === 'inicial') {
     const dir = new THREE.Vector3(0.36, 0.33, 1).normalize();
+    camara.position.copy(mando.target).addScaledVector(dir, dist);
+  } else if (mover === 'ajusta') {
+    /* Al abrir la ficha el lienzo se estrecha: hay que RETIRAR la camara, no
+       solo limitar la distancia. Sin esto la mitad de las raices se quedaban
+       fuera del cuadro justo al pulsarlas. */
+    const dir = camara.position.clone().sub(mando.target).normalize();
     camara.position.copy(mando.target).addScaledVector(dir, dist);
   } else {
     const d = camara.position.distanceTo(mando.target);
@@ -575,15 +797,15 @@ function encuadra(mover) {
   camara.updateProjectionMatrix();
 }
 
-function mide() {
+function mide(modo) {
   const w = lienzo.clientWidth, h = lienzo.clientHeight;
   camara.aspect = w / h; camara.updateProjectionMatrix();
   pintor.setSize(w, h); rotulos.setSize(w, h);
-  encuadra(false);
+  encuadra(modo || false);
 }
-addEventListener('resize', mide);
+addEventListener('resize', () => mide(false));
 camara.aspect = lienzo.clientWidth / lienzo.clientHeight;
-encuadra(true);
+encuadra('inicial');
 mide();
 
 document.getElementById('cargando').style.display = 'none';
