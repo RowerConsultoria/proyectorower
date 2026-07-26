@@ -302,7 +302,7 @@ window.PANTALLAS.distribucion = function (lienzo) {
       ajustes: Object.keys(_dist.ajustes).length,
       motivos: [...new Set(Object.values(_dist.motivos).filter(Boolean))],
     });
-    viajaEstela(['distribucion', 'logistica', 'comercial']);
+    /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
     setTimeout(() => alert(`Reparto firmado.\n\n${n(totalRecibe)} u asignadas a ${frentes.length} frentes\n${n(totalPide - totalRecibe)} u quedan como demanda no atendida\n\nBaja a cada frente como asignación, y a los que tienen Odoo se les escribe la transferencia a su almacén.`), 1100);
   };
 

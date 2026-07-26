@@ -314,7 +314,7 @@ window.PANTALLAS.agentes = function (lienzo) {
     repinta(); pintaMenu(); pintaHud(); pintaFreno();
     /* El freno se ve cruzar el menú entero: es un efecto de todo el sistema,
        no de esta pantalla. */
-    viajaEstela(['agentes', 'cimiento', 'compras', 'distribucion', 'logistica', 'comercial']);
+    /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
   };
 
   lienzo.querySelectorAll('.bt-parar').forEach(b => b.onclick = ev => {
@@ -330,6 +330,6 @@ window.PANTALLAS.agentes = function (lienzo) {
     if (!c) return;
     repinta(); pintaMenu(); pintaHud(); pintaFreno();
     /* La compensación viaja al módulo donde la acción original escribió. */
-    if (orig && MODULOS[orig.modulo]) viajaEstela(['agentes', orig.modulo]);
+    /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
   });
 };

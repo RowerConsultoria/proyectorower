@@ -225,7 +225,7 @@ window.PANTALLAS.comercial = function (lienzo) {
       ejes: { perimetro: 'interno', reversibilidad: 'humana', radio: 'frente', dinero: 'caja', reloj: 'alcanza' },
       cruza: 'logística',
     });
-    viajaEstela(['comercial', 'logistica']);
+    /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
     setTimeout(() => window.PANTALLAS.comercial(lienzo), 800);
   }
 

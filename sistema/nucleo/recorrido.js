@@ -168,7 +168,7 @@ const RECORRIDO = [
   },
 ];
 
-const _rec = { activo: false, paso: 0 };
+const _rec = { activo: false, paso: 0, fuera: false };
 const miles = v => Math.round(v || 0).toLocaleString('es-VE');
 
 /** Lo consulta el HUD para apartarse mientras el recorrido está en marcha. */
@@ -200,8 +200,23 @@ function quitaFoco() {
   $$('.foco-recorrido').forEach(e => e.classList.remove('foco-recorrido'));
 }
 
+/* El recorrido no manda sobre la navegación: quien presenta puede irse por su
+   cuenta a cualquier pantalla, y hasta cambiar de rol. Lo que NO puede pasar
+   es que la barra siga narrando una parada mientras se enseña otra cosa. Lo
+   llama navega() en cada cambio de pantalla, y no navega —solo se entera—. */
+function sincronizaRecorrido() {
+  if (!_rec.activo) return;
+  const aqui = ESTADO.llave;
+  if (RECORRIDO[_rec.paso].ruta === aqui) { _rec.fuera = false; pintaRecorrido(); return; }
+  const i = RECORRIDO.findIndex(p => p.ruta === aqui);
+  if (i >= 0) { _rec.paso = i; _rec.fuera = false; }
+  else { _rec.fuera = true; }
+  pintaRecorrido();
+}
+
 function vaAlPaso(i) {
   if (!_rec.activo) return;
+  _rec.fuera = false;
   _rec.paso = Math.max(0, Math.min(RECORRIDO.length - 1, i));
   const p = RECORRIDO[_rec.paso];
   quitaFoco();
@@ -229,6 +244,28 @@ function pintaRecorrido() {
   caja.hidden = !_rec.activo;
   if (!_rec.activo) return;
   const p = RECORRIDO[_rec.paso], ultimo = _rec.paso === RECORRIDO.length - 1;
+
+  /* Fuera de guion: se dice, y se ofrece volver. Antes la barra se quedaba
+     narrando el paso 5 con «fábricas» en pantalla. */
+  if (_rec.fuera) {
+    caja.innerHTML = `
+      <div class="rec-cuerpo">
+        <div class="rec-cab">
+          <span class="rec-num">${_rec.paso + 1} / ${RECORRIDO.length}</span>
+          <span class="rec-tit">fuera del recorrido</span>
+        </div>
+        <div class="rec-txt">Esta pantalla no es una parada del guion. El recorrido sigue esperando
+          en <b>${esc(p.titulo)}</b>.</div>
+      </div>
+      <div class="rec-mandos">
+        <button class="btn btn-marca btn-mini" id="rec-vuelve">← volver al paso ${_rec.paso + 1}</button>
+        <button class="btn btn-fantasma btn-mini" id="rec-cierra" title="Salir (Esc)">✕</button>
+      </div>`;
+    $('#rec-vuelve', caja).onclick = () => vaAlPaso(_rec.paso);
+    $('#rec-cierra', caja).onclick = cierraRecorrido;
+    pintaHud();
+    return;
+  }
 
   /* Si el guion de una parada falla al pedir sus cifras, la barra NO puede
      quedarse con el texto de la parada anterior: diría una cosa mientras la

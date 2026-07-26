@@ -217,7 +217,7 @@ window.PANTALLAS.logistica = function (lienzo) {
         cruza: 'comercial',
         reglas: ['presupuestoLiberar'],
       });
-      viajaEstela(['logistica', 'comercial']);
+      /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
       setTimeout(() => window.PANTALLAS.logistica(lienzo), 700);
     });
   }

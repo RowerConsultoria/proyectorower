@@ -103,10 +103,10 @@ window.PANTALLAS.producto = function (lienzo) {
                           background:var(--panel-alto);border:1.5px dashed var(--borde);opacity:${desc ? '.4' : '.9'}">`
                 : `<div class="marcador" style="width:46px;height:46px;border-radius:14px">${c.familia.slice(0, 2).toUpperCase()}</div>`}
               ${grad ? `<span style="position:absolute;right:-4px;bottom:-4px;width:19px;height:19px;border-radius:50%;
-                   background:var(--ok);color:#0A0E13;font-size:11px;font-weight:700;display:flex;
+                   background:var(--ok);color:var(--tinta-inversa);font-size:11px;font-weight:700;display:flex;
                    align-items:center;justify-content:center;border:2px solid var(--fondo)">✓</span>` : ''}
               ${desc ? `<span style="position:absolute;right:-4px;bottom:-4px;width:19px;height:19px;border-radius:50%;
-                   background:var(--tinta-tenue);color:#0A0E13;font-size:11px;font-weight:700;display:flex;
+                   background:var(--tinta-tenue);color:var(--tinta-inversa);font-size:11px;font-weight:700;display:flex;
                    align-items:center;justify-content:center;border:2px solid var(--fondo)">×</span>` : ''}
             </div>
             <div>

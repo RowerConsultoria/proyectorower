@@ -292,7 +292,7 @@ window.PANTALLAS.frentes = function (lienzo) {
         cruza: 'compras',
         reglas: ['confianzaAlias'],
       });
-      viajaEstela(['frentes', 'cimiento', 'compras']);
+      /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
       const u = auto.reduce((a, x) => a + x.cant, 0);
       setTimeout(() => {
         /* Repintar es lo que hace que el botón desaparezca: sin esto se podía

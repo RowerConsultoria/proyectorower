@@ -48,7 +48,7 @@
   /* --- tinta --- */
   --tinta:#E9EFF5;
   --tinta-media:#9AAABA;
-  --tinta-tenue:#66788A;
+  --tinta-tenue:#7D8C9C;   /* AA sobre el panel más claro: el 10px se lee */
   --tinta-inversa:#0A0E13;
 
   /* --- forma: lo que más separa a Cubitt de la identidad del informe --- */
@@ -91,18 +91,18 @@
 
   --tinta:#0F1720;
   --tinta-media:#54646F;
-  --tinta-tenue:#7D8B97;
+  --tinta-tenue:#646F79;   /* AA sobre blanco: el 10px se lee */
   --tinta-inversa:#FFFFFF;
 
-  --menta:#00B586;      /* la menta pura no tiene contraste sobre blanco */
-  --cian:#0E96C8;
+  --menta:#007D5C;      /* AA sobre blanco tambien como texto pequeno */
+  --cian:#0B769E;
   --gradiente-texto:linear-gradient(105deg,#009E74 0%,#0B7FA8 100%);
-  --n1:#0E96C8;
-  --n2:#00B586;
-  --n3:#B8791A;
-  --ok:#12A05B;
-  --alerta:#B8791A;
-  --riesgo:#D2402F;
+  --n1:#0B769E;
+  --n2:#007D5C;
+  --n3:#976315;
+  --ok:#0E7E48;
+  --alerta:#976315;
+  --riesgo:#C53C2C;
 
   --sombra:0 1px 2px rgba(15,23,32,.07), 0 8px 26px rgba(15,23,32,.07);
   --sombra-alta:0 2px 6px rgba(15,23,32,.10), 0 24px 56px rgba(15,23,32,.12);

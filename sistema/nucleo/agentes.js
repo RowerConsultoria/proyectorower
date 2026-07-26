@@ -112,6 +112,7 @@ function calculaNivel(ejes) {
 
 const BITACORA = [];
 let _sec = 0;
+let _sembrando = false;   // true solo mientras corre el turno de noche
 
 function anota(e) {
   const nivel = calculaNivel(e.ejes);
@@ -134,6 +135,12 @@ function anota(e) {
     compensaA: null,
   };
   BITACORA.push(entrada);
+  /* Toda acción que cruza de módulo enseña su estela, sin que nadie pulse un
+     botón: es el encargo literal del cliente —ver la acción viajar—. Se avisa
+     desde aquí, en el único sitio por el que pasan todas, para que ninguna
+     pantalla pueda olvidarse. Durante el turno semilla no: serían diez a la vez
+     antes de que nadie esté mirando. */
+  if (!_sembrando && entrada.cruza && typeof alCruzar === 'function') alCruzar(entrada);
   return entrada;
 }
 
@@ -148,6 +155,10 @@ function compensa(id, motivo, quien) {
     dispara: 'una persona pidió deshacer ' + o.id,
     salida: motivo, ejes: o.ejes, reglas: [],
     firmante: quien || 'una persona',   // deshacer lo pide alguien, y ese alguien firma
+    /* Deshacer recorre el mismo camino que hizo lo deshecho: si la original
+       cruzó a logística y comercial, la compensación también se ve pasar por
+       ahí. Poner aquí `o.modulo` no serviría —sería el módulo consigo mismo—. */
+    cruza: o.cruza,
   });
   c.compensaA = o.id;
   return c;
@@ -960,6 +971,7 @@ const CICLO = [
 
 function turnoDeNoche() {
   BITACORA.length = 0; RESERVAS.length = 0; _sec = 0;
+  _sembrando = true;
   const resultados = [];
   for (const id of ORDEN_TURNO) {
     const a = ACCIONES[id];
@@ -972,6 +984,7 @@ function turnoDeNoche() {
     _resultados[e.id] = r.datos;    // disponible para las acciones posteriores del turno
     resultados.push({ ...e, datos: r.datos });
   }
+  _sembrando = false;
   return resultados;
 }
 

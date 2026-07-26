@@ -178,6 +178,30 @@ function pintaMenu() {
 /* La respuesta visual literal al encargo: se ve la acción viajar de un módulo
    a otro por el menú, antes de que nadie abra el módulo destino. */
 
+/* Los `cruza` de las acciones están escritos en castellano y con acentos
+   —«logística y comercial»—, no con la clave del módulo. Aquí se traducen. */
+const DESTINO_CRUCE = {
+  compras: 'compras', distribucion: 'distribucion', comercial: 'comercial',
+  logistica: 'logistica', cimiento: 'cimiento', producto: 'producto',
+  frentes: 'frentes', fabricas: 'fabricas', agentes: 'agentes', direccion: 'direccion',
+};
+const TODOS_LOS_MODULOS = ['cimiento', 'compras', 'distribucion', 'logistica', 'comercial', 'frentes'];
+
+function claveModulo(txt) {
+  const k = String(txt).normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
+  return DESTINO_CRUCE[k] || null;
+}
+
+/** Lo llama el núcleo cada vez que se anota una acción que cruza de módulo. */
+function alCruzar(e) {
+  const destinos = e.cruza === 'todos'
+    ? TODOS_LOS_MODULOS
+    : String(e.cruza).split(/\s+y\s+|,\s*/).map(claveModulo).filter(Boolean);
+  const ruta = [e.modulo, ...destinos].filter((m, i, a) => m && a.indexOf(m) === i);
+  if (ruta.length > 1) viajaEstela(ruta);
+}
+window.alCruzar = alCruzar;
+
 function viajaEstela(ruta, alTerminar) {
   const pasos = ruta.map(m => $(`.menu-item[data-mod="${m}"]`)).filter(Boolean);
   pasos.forEach((el, i) => setTimeout(() => {
@@ -246,6 +270,8 @@ function navega() {
   pintaLienzo();
   pintaHud();
   pintaFreno();
+  /* el recorrido se entera de dónde estamos, aunque se haya navegado a mano */
+  if (typeof sincronizaRecorrido === 'function') sincronizaRecorrido();
   $('.lienzo').scrollTop = 0;
 }
 
@@ -399,8 +425,9 @@ function arranca() {
   /* demostración de la estela: se ve la acción cruzar el menú */
   $('#probar-estela').onclick = () => viajaEstela(['compras', 'distribucion', 'logistica', 'comercial']);
 
-  /* el recorrido guiado de punta a punta (fase 21) */
-  $('#abre-recorrido').onclick = abreRecorrido;
+  /* el recorrido guiado de punta a punta (fase 21) — el mismo botón lo cierra,
+     para que no reinicie por sorpresa a media demostración */
+  $('#abre-recorrido').onclick = () => recorridoActivo() ? cierraRecorrido() : abreRecorrido();
 
   addEventListener('hashchange', navega);
   arrancaMarquee();

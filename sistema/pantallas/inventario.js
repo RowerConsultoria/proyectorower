@@ -279,7 +279,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         cruza: 'comercial',
         reglas: ['sobrestockDesde', 'paradoDesde', 'mesesParaOcioso'],
       });
-      viajaEstela(['logistica', 'comercial']);
+      /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
       setTimeout(() => window.PANTALLAS['logistica/inventario'](lienzo), 800);
     });
     caja.querySelectorAll('[data-mesa]').forEach(b => b.onclick = () => { location.hash = '#/compras/casio'; });
@@ -308,7 +308,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         cruza: 'comercial',
         reglas: [esParado ? 'mesesParaOcioso' : 'sobrestockDesde'],
       });
-      viajaEstela(['logistica', 'comercial']);
+      /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
       setTimeout(() => window.PANTALLAS['logistica/inventario'](lienzo), 700);
     });
   }
