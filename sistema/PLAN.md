@@ -226,8 +226,8 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 |---|---|---|---|
 | 1 | Nombre del sistema en pantalla | 2 | Neutro de grupo, no de marca de producto |
 | 2 | ¿Modo oscuro o claro para la sala? | 2 | Construir ambos; decidir proyectando |
-| 3 | Cuántos frentes se muestran con nombre real | 4 | Los propios sí; franquicias y clientes, despersonalizados |
-| 4 | Conteo de SKU activos (el informe y la operación no coinciden) | 4 | Hace falta un número antes de poblar |
+| 3 | ~~Frentes con nombre real~~ | 4 | ✅ resuelto: el cliente pidió nombre real en todo |
+| 4 | ~~Conteo de SKU activos~~ | 4 | ✅ resuelto: 40 Casio + 19 Cubitt, catálogo de prototipo |
 | 5 | ¿La pantalla del reporte al fabricante entra al recorrido narrado? | 21 | Existe, no se narra — decisión de Clemencia |
 | 6 | Coste, plazo y equipo del sistema real | fuera | No es del prototipo, pero la Junta lo pregunta en el minuto 10 |
 
@@ -238,9 +238,9 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | Fase | Estado |
 |---|---|
 | **1 · Arquitectura consolidada** | ✅ **hecha** — `sistema/ARQUITECTURA.md` |
-| 2 · Lenguaje visual | pendiente |
-| 3 · Armazón | pendiente |
-| 4 · Datos semilla | pendiente |
+| **2 · Lenguaje visual** | ✅ **hecha** — `estilo/app.css` + `estilo.html` |
+| **3 · Armazón** | ✅ **hecha** — `index.html` + `nucleo/app.js` |
+| **4 · Datos semilla** | ✅ **hecha** — `datos/*.js` + 59 imágenes reales + pantalla `cimiento` |
 | 5 · Núcleo de agentes | pendiente |
 | 6–11 · Compras y desarrollo de producto | pendiente |
 | 12–14 · Distribución y logística | pendiente |
