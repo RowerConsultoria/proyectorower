@@ -165,6 +165,23 @@ window.PANTALLAS['frentes/conectores'] = function (lienzo) {
       económica — <b>¿cuánto vale adelantar la señal de este frente?</b>
     </p>`;
 
+  /* La moneda en la que ese frente lee su propio negocio. El central le
+     factura en USD —es un cliente mayor de la central—, pero su gerente,
+     su Odoo y su Excel hablan en esto. Las dos cosas son ciertas a la vez. */
+  /* Declaradas como función, no como const: `tarjetaFrente` se invoca desde la
+     plantilla que está más arriba en el archivo, y una const aún no inicializada
+     revienta ahí mismo. */
+  function monedaDe(f) { return MONEDA_FRENTE[f.id] || 'USD'; }
+
+  /* Solo se anota la tasa cuando hay conversión que hacer. Sellar «USD» con
+     una tasa de 1 sería ruido con aire de rigor. */
+  function tasaFrente(f) {
+    const m = monedaDe(f);
+    if (m === 'USD') return '';
+    const t = tasaDe(m);
+    return ` · <span class="${t.vencida ? 'texto-alerta' : ''}" title="1 USD = ${t.tasa.toLocaleString('es-VE')} ${m}, del ${t.desde} (${t.fuente})">tasa ${t.edad} d${t.vencida ? ' ⚠' : ''}</span>`;
+  }
+
   function tarjetaFrente(f) {
     const dias = DIAS_CADENCIA[f.cadencia] ?? 15;
     const cuota = f.peso / pesoTotal;
@@ -174,7 +191,7 @@ window.PANTALLAS['frentes/conectores'] = function (lienzo) {
           <div class="fila gap-8"><b style="font-size:12.5px">${f.nombre}</b>
             <span class="via ${f.via === 'odoo' ? 'via-odoo' : 'via-portal'}">${f.via}</span></div>
           <div class="apunte tenue" style="font-size:10.5px;margin-top:3px">${f.pais} ·
-            ${TIPOS_FRENTE[f.tipo].rotulo}</div>
+            ${TIPOS_FRENTE[f.tipo].rotulo} · ${monedaDe(f)}${tasaFrente(f)}</div>
         </div>
         <div style="text-align:right;flex:none">
           <div class="corte">${f.corte}</div>

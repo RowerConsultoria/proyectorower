@@ -207,7 +207,7 @@ window.PANTALLAS.compras = function (lienzo, estado) {
               ${sust.casos.length > 3 ? `<div class="apunte tenue" style="font-size:11.5px">· y ${sust.casos.length - 3} más</div>` : ''}
             </div>
             <div class="fila gap-8 mt-16">
-              <button class="btn btn-marca btn-mini">ver el detalle</button>
+              <button class="btn btn-marca btn-mini" data-firma="compra">ver el detalle</button>
               <span class="sello sello-3"><i></i>tu firma</span>
             </div>
           </div>` : ''}
@@ -239,7 +239,7 @@ window.PANTALLAS.compras = function (lienzo, estado) {
               Sin ese documento, ni el valor del inventario ni el margen de la próxima compra valen.
             </div>
             <div class="fila gap-8 mt-16">
-              <button class="btn btn-humano btn-mini">revisar el reclamo</button>
+              <button class="btn btn-humano btn-mini" data-firma="recepcion">revisar el reclamo</button>
               <span class="sello sello-externo">↗ sale de Kenex</span>
             </div>
           </div>` : ''}

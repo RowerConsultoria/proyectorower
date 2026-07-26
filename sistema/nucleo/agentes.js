@@ -32,6 +32,11 @@ const REGLAS = {
      techo NO se bloquea — entra en cola y muestra a qué desplazaría. Esa
      tensión es la única conexión real entre compras y finanzas. */
   topeCompraMes:      { v: 820000, unidad: 'USD',   dueno: 'finanzas',             desde: '2026-07-01', ver: 5 },
+  /* Cuántos días puede tener una tasa antes de que la cifra que sale de ella
+     deje de ser confiable. No bloquea nada: marca. En una operación real se
+     sigue trabajando con la tasa que hay mientras se consigue la nueva —lo que
+     no se puede es no saber cuál se usó. */
+  antiguedadMaximaTasa: { v: 3, unidad: 'días',     dueno: 'finanzas',             desde: '2026-08-01', ver: 1 },
   minimoPorFrente:    { v: 0.5,  unidad: 'meses',    dueno: 'gerencia comercial',   desde: '2026-06-01', ver: 2 },
   presupuestoAlias:   { v: 40,   unidad: 'registros/día', dueno: 'administración de datos', desde: '2026-07-10', ver: 1 },
   presupuestoLiberar: { v: 300,  unidad: 'unidades/contenedor', dueno: 'operaciones', desde: '2026-07-01', ver: 1 },
@@ -52,7 +57,7 @@ const REGLAS = {
      cuota. Es además la restricción que después condiciona el reporte al
      fabricante, así que vive aquí y no dentro de una pantalla. */
   cuotaRazonSocial:   { v: { 'Kenex Trading': 0.62, 'Distribuidora Rower': 0.38 },
-                        unidad: 'ratio del monto', dueno: 'dirección de compras', desde: '2026-05-01', ver: 2 },
+                        unidad: 'del monto de la compra', dueno: 'dirección de compras', desde: '2026-05-01', ver: 2 },
 };
 
 /* ══════════════════════════════════════════ 2 · LOS CINCO EJES
@@ -1047,6 +1052,69 @@ function firmaReparto(r) {
   });
 }
 
+/* ══════════════════════════════════════════ 7 bis · MONEDA Y TASA
+   La regla de la arquitectura —«no existe cifra sin moneda y sin tasa
+   fechada»— vive aquí. Todas las pantallas piden la conversión a este sitio,
+   nunca la hacen a mano: una tasa aplicada en dos sitios distintos es la forma
+   más silenciosa de que dos pantallas ciertas no cuadren.                    */
+
+/* Fecha de corte de la demo, como número de días, para poder restar sin
+   depender del reloj de la máquina —que en un prototipo cambiaría cada día
+   que alguien lo abra y desbarataría el guion—. */
+const MESES_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+                  'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+function _dias(iso) {
+  const [a, m, d] = iso.split('-').map(Number);
+  return Math.floor(Date.UTC(a, m - 1, d) / 86400000);
+}
+function _hoyDias() {
+  return _dias(`${HOY.anio}-${String(MESES_ES.indexOf(HOY.mes) + 1).padStart(2, '0')}-${String(HOY.dia).padStart(2, '0')}`);
+}
+
+/** La tasa de una moneda, con su edad en días y si ha caducado. */
+function tasaDe(moneda) {
+  const t = TASAS[moneda];
+  if (!t) return null;
+  const edad = _hoyDias() - _dias(t.desde);
+  return { ...t, moneda, edad, vencida: edad > REGLAS.antiguedadMaximaTasa.v };
+}
+
+/** De moneda local a USD. Devuelve también con qué tasa se hizo. */
+function aUSD(monto, moneda) {
+  const t = tasaDe(moneda);
+  if (!t) return { valor: monto, tasa: null };
+  return { valor: monto / t.tasa, tasa: t };
+}
+
+/** De USD a moneda local. */
+function deUSD(monto, moneda) {
+  const t = tasaDe(moneda);
+  if (!t) return { valor: monto, tasa: null };
+  return { valor: monto * t.tasa, tasa: t };
+}
+
+/** Escribe un monto con su moneda. Nunca se muestra un número pelado. */
+function dinero(monto, moneda = 'USD') {
+  const m = MONEDAS[moneda] || { simbolo: moneda + ' ', dec: 0 };
+  const n = Number(monto || 0).toLocaleString('es-VE', {
+    minimumFractionDigits: m.dec, maximumFractionDigits: m.dec,
+  });
+  return moneda === 'USD' ? `${n} USD` : `${m.simbolo}${n}`;
+}
+
+/** Las monedas realmente en juego en la red, y si alguna tasa está vencida. */
+function monedasEnJuego() {
+  const usadas = [...new Set(FRENTES.map(f => MONEDA_FRENTE[f.id] || 'USD'))];
+  const tasas = usadas.map(tasaDe).filter(Boolean);
+  return {
+    monedas: usadas,
+    convertidas: usadas.filter(m => m !== 'USD'),
+    vencidas: tasas.filter(t => t.vencida),
+    masVieja: tasas.reduce((a, t) => (!a || t.edad > a.edad ? t : a), null),
+  };
+}
+
 /* ══════════════════════════════════════════ 8 · EL FRENO
    Antes de enseñar cómo funciona hay que poder enseñar cómo se apaga. El freno
    no es un adorno de la pantalla: detiene de verdad. Un agente detenido deja
@@ -1111,5 +1179,5 @@ function resumenAgentes() {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { REGLAS, EJES, NIVELES, ACCIONES, BITACORA, RESERVAS, ESCALERA, HOY, CICLO, FRENO, detenido, frena,
     calculaNivel, demandaSaneada, propuestaCompra, completarMOQ, existenciaOciosa, reparte,
-    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, enCamino, lineasEmbarque, reserva, saludInventario, propuestasRebalanceo, olvidaDemanda, resumenAgentes, compensa, disponible };
+    turnoDeNoche, turno, datosDe, entradaDe, bandejaDe, firmaReparto, anota, tasaDe, aUSD, deUSD, dinero, monedasEnJuego, enCamino, lineasEmbarque, reserva, saludInventario, propuestasRebalanceo, olvidaDemanda, resumenAgentes, compensa, disponible };
 }

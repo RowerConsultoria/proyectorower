@@ -978,3 +978,31 @@ body.con-recorrido .lienzo{padding-bottom:190px}
 }
 .chip-ambito.si{color:var(--ok);border-color:color-mix(in srgb, var(--ok) 40%, transparent)}
 .chip-ambito.no{color:var(--tinta-tenue);border-style:dashed}
+
+/* --------------------------------------------- 28. MONEDA Y TASA (fase 24)
+
+   Una tasa vencida no se esconde ni bloquea la cifra: se marca. Quien decide
+   necesita el número Y el aviso, no uno de los dos.                         */
+
+.fila-aviso{background:rgba(184,121,26,.09)}
+.texto-alerta{color:var(--alerta);font-weight:700}
+
+/* el sello que acompaña a toda cifra agregada: en qué moneda está y con qué
+   tasas se llegó a ella */
+.sello-moneda{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10.5px;font-weight:700;letter-spacing:.06em;
+  padding:3px 9px;border-radius:var(--r-pildora);
+  border:1px solid var(--borde);color:var(--tinta-tenue);white-space:nowrap;
+}
+.sello-moneda.mezcla{border-color:color-mix(in srgb, var(--alerta) 45%, transparent);color:var(--alerta)}
+.sello-moneda b{color:var(--tinta-media);font-weight:700}
+
+/* el monto de un frente en su propia moneda, bajo el de la central */
+.local{
+  font-size:11.5px;color:var(--tinta-tenue);
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+}
+.local .eq{font-weight:700;color:var(--tinta-media)}
+.local .cuando{font-size:10.5px}
+.local.vencida .eq{color:var(--alerta)}

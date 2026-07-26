@@ -42,11 +42,26 @@ function chispa(serie, quiebreDesde = -1, w = 96, h = 26) {
 
 const _cim = { marca: 'todo', familia: 'todo', busca: '', abierto: null };
 
+/* No toda regla es un número: la cuota por razón social es un reparto entre
+   dos entidades. Formatearla como número daba «[object Object]» en la tabla
+   —una regla ilegible es una regla que nadie puede discutir—. */
+function _valorRegla(v) {
+  if (typeof v === 'number') return v.toLocaleString('es-VE');
+  if (v && typeof v === 'object') {
+    return Object.entries(v)
+      .map(([k, x]) => `${k} ${(x * 100).toFixed(0)} %`).join(' · ');
+  }
+  return String(v);
+}
+
 /* ----------------------------------------------------------------- PINTADO */
 
 window.PANTALLAS.cimiento = function (lienzo) {
   const familias = [...new Set(CATALOGO.map(p => p.familia))];
   const alias = CATALOGO.reduce((a, p) => a + p.alias.length, 0);
+  const _juego = monedasEnJuego();
+  const _monedasUsadas = _juego.monedas;
+  const _tasasVencidas = _juego.vencidas;
 
   lienzo.innerHTML = `
     <div class="lienzo-cab fila-sep">
@@ -100,7 +115,83 @@ window.PANTALLAS.cimiento = function (lienzo) {
       exactamente el problema que el catálogo canónico y su lista de alias resuelven. En la marca
       propia, ambos coinciden. Los puntos rojos en la serie marcan <b>quiebre</b>: venta cero por
       falta de existencia, no por falta de demanda.
-    </p>`;
+    </p>
+
+    <!-- las otras dos cosas canónicas: las reglas y las tasas -->
+    <div class="rejilla mt-24" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;align-items:start">
+
+      <div class="panel">
+        <div class="fila-sep">
+          <div class="sobretitulo">las reglas del negocio · ${Object.keys(REGLAS).length}</div>
+          <span class="apunte tenue">cada una con dueño y versión</span>
+        </div>
+        <div class="apunte mt-8">
+          Ninguna cifra del sistema sale de un algoritmo opaco: sale de una regla que <b>alguien
+          firma</b> y que se puede cambiar sin tocar el programa. Por eso llevan dueño, fecha y
+          número de versión — <b>esto no lo decide la máquina, lo decide una política</b>.
+        </div>
+        <div class="tabla-envoltura mt-16">
+          <table class="tabla">
+            <thead><tr><th>regla</th><th class="num">valor</th><th>dueño</th><th class="num">desde</th><th class="num">v</th></tr></thead>
+            <tbody>
+              ${Object.entries(REGLAS).map(([k, r]) => `
+                <tr>
+                  <td><b>${k}</b></td>
+                  <td class="num">${_valorRegla(r.v)} <span class="tenue">${r.unidad}</span></td>
+                  <td class="apunte tenue">${r.dueno}</td>
+                  <td class="num apunte tenue">${r.desde}</td>
+                  <td class="num">${r.ver}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="fila-sep">
+          <div class="sobretitulo">monedas y tasas</div>
+          ${_tasasVencidas.length
+            ? `<span class="marca-estado e-alerta"><i class="punto"></i>${_tasasVencidas.length} vencida${_tasasVencidas.length > 1 ? 's' : ''}</span>`
+            : '<span class="marca-estado e-ok"><i class="punto"></i>al día</span>'}
+        </div>
+        <div class="apunte mt-8">
+          <b>No existe cifra sin moneda y sin tasa fechada.</b> Una tasa sin fecha no es un dato,
+          es una opinión. Pasados <b>${REGLAS.antiguedadMaximaTasa.v} días</b> —lo fija
+          ${REGLAS.antiguedadMaximaTasa.dueno}— la cifra no se bloquea: se marca. En la operación
+          se sigue trabajando con la tasa que hay mientras llega la nueva; lo que no puede pasar
+          es no saber cuál se usó.
+        </div>
+        <div class="tabla-envoltura mt-16">
+          <table class="tabla">
+            <thead><tr><th>moneda</th><th class="num">por 1 USD</th><th class="num">del</th><th class="num">edad</th><th>fuente</th></tr></thead>
+            <tbody>
+              ${Object.keys(TASAS).map(m => {
+                const t = tasaDe(m), usada = _monedasUsadas.includes(m);
+                return `
+                <tr class="${t.vencida ? 'fila-aviso' : ''}" style="${usada ? '' : 'opacity:.5'}">
+                  <td><b>${m}</b> <span class="tenue">${MONEDAS[m].nombre}</span></td>
+                  <td class="num">${m === 'USD' ? '—' : t.tasa.toLocaleString('es-VE')}</td>
+                  <td class="num apunte tenue">${t.desde}</td>
+                  <td class="num ${t.vencida ? 'texto-alerta' : ''}">${t.edad} d</td>
+                  <td class="apunte tenue">${t.fuente}</td>
+                </tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+        ${_tasasVencidas.length ? `
+          <div class="bloqueo mt-16">
+            <b>${_tasasVencidas.map(t => t.moneda).join(', ')}</b> supera${_tasasVencidas.length > 1 ? 'n' : ''}
+            los ${REGLAS.antiguedadMaximaTasa.v} días. Toda cifra convertida con
+            ${_tasasVencidas.length > 1 ? 'esas tasas' : 'esa tasa'} aparece marcada en el resto del
+            sistema, y sigue viéndose: ocultarla dejaría a quien decide sin el número y sin el aviso.
+          </div>` : ''}
+        <div class="apunte tenue mt-16" style="font-size:11.5px">
+          Las monedas atenuadas no están en juego en la red actual. Panamá, Ecuador y El Salvador
+          no aparecen porque su moneda de curso es el dólar: no hay conversión que hacer.
+        </div>
+      </div>
+    </div>`;
 
   const filas = lienzo.querySelector('#cim-filas');
 

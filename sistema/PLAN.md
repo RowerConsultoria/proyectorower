@@ -245,7 +245,7 @@ esto son **faltantes de alcance**.
 | # | Qué falta | Por qué importa | Detectado en |
 |---|---|---|---|
 | ~~**P1**~~ | ~~Permisos de firma por rol.~~ **Resuelto en la fase 23:** nueve ámbitos declarados, 17 botones marcados con `data-firma`, y cada rol firma exactamente lo que su descripción promete. | — | cerrado en la fase 23 |
-| **P2** | **Moneda y tasa.** La arquitectura fija que *no existe cifra sin moneda y sin tasa fechada*, y hoy todo se muestra en USD implícito. Los frentes ya declaran su moneda (Colombia en COP) y nada la usa. | Es la respuesta directa al episodio de bolívares y dólares mezclados. Un director financiero lo pregunta en el primer minuto. | revisión de la fase 12 |
+| ~~**P2**~~ | ~~Moneda y tasa.~~ **Resuelto en la fase 24:** seis monedas con tasa fechada y fuente, regla de caducidad con dueño, conversión visible donde el dinero tiene dueño, y el aviso de tasa vencida. | — | cerrado en la fase 24 |
 | ~~**P3**~~ | ~~La estela no es automática.~~ **Resuelto en la fase 22:** salta sola desde `anota()`, el único sitio por el que pasan todas las acciones. Se retiraron 7 llamadas manuales que habrían quedado duplicadas. | — | cerrado en la fase 22 |
 | **P4** | **Reversión desde la interfaz.** El núcleo tiene `compensa()` desde la fase 5 y ninguna pantalla lo usa. | «Se enseña cómo se apaga antes de enseñar cómo funciona» es un argumento central ante la Junta. Está previsto en la fase 20, pero conviene que exista antes por si se adelanta la demo. | revisión de la fase 12 |
 | **P6** | **Reglas de negocio huérfanas.** Una auditoría de las fases 6–11 encontró dos reglas declaradas con dueño y versión que ninguna acción usaba. Se corrigieron, pero hace falta una comprobación automática que impida que vuelva a pasar. | Una regla que nada usa es una promesa incumplida, y en este sistema las reglas son el argumento: «esto no lo decide un algoritmo, lo decide una política con dueño». | auditoría de las fases 6–11 |
@@ -300,4 +300,5 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **21 · La cadena de la demo, de punta a punta** | ✅ **hecha** — `nucleo/recorrido.js` · 12 paradas, arranca en dirección · resuelve **P8** |
 | **22 · Pulido, responsive y ensayo** | ✅ **hecha** — contraste AA en ambos temas · resuelve **P3** (estela automática) |
 | **23 · Permisos de firma por rol** | ✅ **hecha** — `AMBITOS` + `data-firma` + `aplicaPermisos()` · resuelve **P1** y **P9** |
-| 24–25 · Lo que queda de las auditorías | pendiente |
+| **24 · Moneda y tasa** | ✅ **hecha** — `datos/tasas.js` + conversión con tasa fechada · resuelve **P2** · añade la tabla de reglas que faltaba en cimiento |
+| 25 · Láminas del prototipo para el informe | pendiente *(P5)* |

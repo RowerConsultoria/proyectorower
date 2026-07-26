@@ -18,6 +18,27 @@ window.PANTALLAS = window.PANTALLAS || {};
 
 const _com = { abierto: null, aprobados: {}, vista: 'todo' };
 
+/* La central factura en USD —todos los frentes son clientes mayores suyos—,
+   pero el gerente del frente lee su negocio en su moneda. Se enseñan las dos,
+   con la tasa y su fecha: es la regla de la arquitectura, «no existe cifra sin
+   moneda y sin tasa fechada», aplicada donde el dinero tiene dueño. */
+function lineaMoneda(x) {
+  const m = MONEDA_FRENTE[x.frenteId] || 'USD';
+  if (m === 'USD') {
+    return `<li><b>Moneda:</b> se factura en <b>dólares</b> y su plaza opera en dólares:
+      no hay conversión, y por tanto no hay tasa que pueda quedarse vieja.</li>`;
+  }
+  const t = tasaDe(m);
+  const local = deUSD(x.valor, m).valor;
+  return `<li class="${t.vencida ? 'aviso' : ''}"><b>Moneda:</b> se factura
+    <b>${dinero(x.valor)}</b>; en su contabilidad son <b>${dinero(local, m)}</b>
+    a la tasa del ${t.desde}${t.vencida
+      ? ` — <span class="texto-alerta">${t.edad} días, por encima de los
+          ${REGLAS.antiguedadMaximaTasa.v} que fija ${REGLAS.antiguedadMaximaTasa.dueno}</span>.
+          La cifra se muestra igual: ocultarla dejaría a quien decide sin el número y sin el aviso.`
+      : ` (${t.edad} d, ${t.fuente})`}.</li>`;
+}
+
 window.PANTALLAS.comercial = function (lienzo) {
   const n = v => Math.round(v || 0).toLocaleString('es-VE');
   const d = datosDe('V-02') || { verde: [], excepcion: [] };
@@ -158,6 +179,7 @@ window.PANTALLAS.comercial = function (lienzo) {
                 <b>${(x.usoCupo * 100).toFixed(0)} %</b> de su cupo${x.atraso ? ` y lleva <b>${x.atraso} días</b> de atraso` : ' y está al día'}.</li>
               <li class="${x.margen < 0.28 ? 'aviso' : ''}"><b>Margen:</b> <b>${(x.margen * 100).toFixed(0)} %</b>
                 sobre ${n(x.valor)} USD${x.margen < 0.28 ? ', por debajo del mínimo de la línea' : ''}.</li>
+              ${lineaMoneda(x)}
               <li class="${x.sobreRotacion.length ? 'aviso' : ''}"><b>Rotación:</b>
                 ${x.sobreRotacion.length
                   ? `<b>${x.sobreRotacion.length} línea${x.sobreRotacion.length > 1 ? 's' : ''}</b> por encima de dos meses de su propia rotación`

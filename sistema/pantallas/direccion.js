@@ -164,6 +164,21 @@ window.PANTALLAS.direccion = function (lienzo) {
         <div class="pie">USD contra un techo de ${(REGLAS.topeCompraMes.v / 1e6).toFixed(2)} M</div></div></div>
     </div>
 
+    <!-- la pregunta del primer minuto de un director financiero -->
+    <div class="fila gap-8" style="flex-wrap:wrap;margin:-8px 0 22px">
+      <span class="sello-moneda"><b>USD</b> · las cuatro cifras de arriba</span>
+      <span class="apunte tenue" style="font-size:11.5px;line-height:1.5;max-width:760px">
+        No son una suma de monedas distintas: la compra internacional y la facturación a los
+        frentes son en dólares, así que <b>no hay conversión detrás de estos números</b>. Donde sí
+        la hay —lo que cada frente lee en su propia moneda— la tasa va con su fecha y su fuente
+        ${monedasEnJuego().vencidas.length
+          ? `, y <b class="texto-alerta">${monedasEnJuego().vencidas.map(t => t.moneda).join(', ')}</b>
+             está marcada por vencida`
+          : ''}.
+        <a href="#/cimiento" style="color:inherit">ver la tabla de tasas →</a>
+      </span>
+    </div>
+
     <div class="rejilla" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;align-items:start">
 
       <!-- la barra de consulta -->
