@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kenex · portal del vendedor</title>
+<meta name="description" content="Portal del vendedor de mayoreo de Grupo Kenex — disponible a prometer y reserva de mercancía en tránsito. Prototipo de UCAB Consultores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<!-- el MISMO sistema de diseño que el aplicativo interno: tokens, botones y
+     tablas idénticos. Lo que hace portal a esta página es su cromo, su
+     navegación reducida y su URL propia — no una identidad distinta. -->
+<link rel="stylesheet" href="../estilo/app.css">
+<link rel="stylesheet" href="portal.css">
+</head>
+<body class="portal">
+
+<header class="p-cab">
+  <div class="p-marca">
+    <span class="orbe orbe-grande actuando" aria-hidden="true"></span>
+    <div>
+      <div class="nom">kenex</div>
+      <div class="sub">portal del vendedor</div>
+    </div>
+  </div>
+
+  <div class="p-quien">
+    <span class="sobretitulo">vendiendo a</span>
+    <select id="cliente" aria-label="Cliente al que se le vende"></select>
+  </div>
+
+  <div class="crece"></div>
+
+  <div class="p-yo" id="p-yo"></div>
+  <a class="btn btn-fantasma btn-mini" href="../index.html">← el sistema</a>
+  <button class="btn btn-suave btn-mini" id="tema" aria-label="Cambiar tema">☾</button>
+</header>
+
+<nav class="p-pest" id="p-pest"></nav>
+
+<main class="p-lienzo" id="p-lienzo"></main>
+
+<footer class="p-pie">
+  Prototipo de propuesta · UCAB Consultores para Grupo Kenex ·
+  las existencias y los embarques son los mismos del sistema — los datos son de demostración
+</footer>
+
+<!-- los MISMOS datos y el MISMO núcleo que el aplicativo: fuente única -->
+<script src="../datos/catalogo.js"></script>
+<script src="../datos/red.js"></script>
+<script src="../datos/operacion.js"></script>
+<script src="../datos/candidatos.js"></script>
+<script src="../datos/proveedores.js"></script>
+<script src="../datos/reportes.js"></script>
+<script src="../datos/tasas.js"></script>
+<script src="../datos/almacenes.js"></script>
+<script src="../datos/clientes.js"></script>
+<script src="../nucleo/agentes.js"></script>
+
+<script src="portal.js"></script>
+</body>
+</html>

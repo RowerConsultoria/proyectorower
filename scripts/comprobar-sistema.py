@@ -784,11 +784,195 @@ def c_mapa(nav, rapido):
     return fallos, '%d puntos · filtro, popup y fallback sin red' % d['esperados']
 
 
+def c_portal_vendedor(nav, rapido):
+    """El portal de la fase 31. No se verifica que pinte, sino que su promesa
+    sea cierta:
+
+      · el ATP es libre(Colón) + libre(cada embarque), recomputado desde crudos
+      · amarrar de un EMBARQUE EN EL MAR aparta ese contenedor concreto — es la
+        pieza que da sentido a la fase, y la primera versión de esta
+        comprobación no la probaba: solo reservaba del hub, y por eso una
+        trampa sobre el ATP del mar salió ciega
+      · amarrar descuenta EN EL APLICATIVO INTERNO, que es otro documento
+      · por encima del tope la reserva pide firma, y lo dice en el botón
+      · soltar devuelve las unidades y deja el par en la bitácora
+    """
+    fallos = []
+    ctx = nav.new_context(viewport={'width': 1560, 'height': 1100})
+
+    def abre(url, espera=1400):
+        pg = ctx.new_page()
+        pg.errores = []
+        pg.on('pageerror', lambda e: pg.errores.append('excepción: ' + str(e)[:140]))
+        pg.on('console', lambda m: pg.errores.append('consola: ' + m.text[:140])
+              if m.type == 'error' else None)
+        pg.goto(url, wait_until='networkidle')
+        pg.wait_for_timeout(espera)
+        return pg
+
+    p = abre(BASE + 'portal-vendedor/')
+
+    # las referencias se ELIGEN por lo que hace falta probar, no a mano: una con
+    # holgura en el hub para el tope, y otra que venga en un embarque
+    elec = p.evaluate("""()=>{
+      const tope=REGLAS.topeReservaVendedor.v;
+      const hub=CATALOGO.map(q=>({sku:q.sku,...atp(q.sku)}))
+        .filter(x=>x.hub>tope+300).sort((a,b)=>b.hub-a.hub)[0];
+      let mar=null;
+      for(const q of CATALOGO){
+        for(const t of TRANSITOS){
+          const l=disponible(q.sku,t.id);
+          if(l>400){ mar={sku:q.sku, emb:t.id, libre:l}; break; }
+        }
+        if(mar) break;
+      }
+      return {tope, hub, mar};}""")
+    if not elec['hub'] or not elec['mar']:
+        ctx.close()
+        return ['no hay existencia suficiente para probar el portal (%s)' % elec], '—'
+    SKU, TOPE = elec['hub']['sku'], elec['tope']
+    SKU_MAR, EMB = elec['mar']['sku'], elec['mar']['emb']
+
+    sis = abre(BASE + '#/comercial/demanda')
+    antes_sis = sis.evaluate("(k)=>disponible(k,'ZLC')", SKU)
+
+    # ── 1 · los KPI contra los crudos ───────────────────────────────────────
+    d = p.evaluate("""()=>{
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      let hub=0, mar=0;
+      for(const q of CATALOGO){
+        hub+=disponible(q.sku,'ZLC');
+        for(const t of TRANSITOS) mar+=disponible(q.sku,t.id);
+      }
+      return {kAtp:document.querySelector('#k-atp').textContent.trim(),
+        kHub:document.querySelector('#k-hub').textContent.trim(),
+        kMar:document.querySelector('#k-mar').textContent.trim(),
+        nHub:n(hub), nMar:n(mar), nTot:n(hub+mar),
+        filas:document.querySelectorAll('[data-sku]').length, refs:CATALOGO.length};}""")
+    if d['kHub'] != d['nHub'] or d['kMar'] != d['nMar'] or d['kAtp'] != d['nTot']:
+        fallos.append('los KPI (%s = %s + %s) no cuadran con los crudos (%s = %s + %s)'
+                      % (d['kAtp'], d['kHub'], d['kMar'], d['nTot'], d['nHub'], d['nMar']))
+    if d['filas'] != d['refs']:
+        fallos.append('%d filas en el catálogo y %d referencias' % (d['filas'], d['refs']))
+
+    def amarra(sku, origen, cuanto):
+        """Abre el cajón de una referencia, elige origen y cantidad, y pulsa."""
+        p.evaluate("(k)=>{const b=document.querySelector('[data-abre=\"'+k+'\"]');"
+                   "if(b) b.click();}", sku)
+        p.wait_for_timeout(400)
+        if origen != 'ZLC':
+            p.evaluate("(o)=>{const r=document.querySelector('[name=\"origen\"][value=\"'+o+'\"]');"
+                       "if(r){r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));}}", origen)
+            p.wait_for_timeout(500)
+        p.fill('#cant', str(cuanto))
+        p.wait_for_timeout(400)
+        b = p.evaluate("()=>{const x=document.querySelector('#reservar');"
+                       "return x?{rot:x.textContent.trim(), off:x.disabled}:null;}")
+        if not b:
+            return None
+        if not b['off']:
+            p.click('#reservar')
+            p.wait_for_timeout(800)
+        return b
+
+    # ── 2 · amarrar de un EMBARQUE: la pieza que da sentido a la fase ───────
+    libre_emb = p.evaluate("([k,e])=>disponible(k,e)", [SKU_MAR, EMB])
+    cuanto_mar = min(200, libre_emb)
+    b = amarra(SKU_MAR, EMB, cuanto_mar)
+    if not b or b['off']:
+        fallos.append('no se pudo amarrar del embarque %s (%s)' % (EMB, b))
+    else:
+        ahora = p.evaluate("([k,e])=>disponible(k,e)", [SKU_MAR, EMB])
+        if libre_emb - ahora != cuanto_mar:
+            fallos.append('amarrar %d u del embarque %s no las apartó de ESE contenedor (%d → %d)'
+                          % (cuanto_mar, EMB, libre_emb, ahora))
+        guard = p.evaluate("(e)=>reservasDelPortal().some(r=>r.ubicacion===e)", EMB)
+        if not guard:
+            fallos.append('la reserva sobre un embarque no se guardó con su contenedor')
+
+    # ── 3 · amarrar del hub por debajo del tope, y que el aplicativo lo vea ──
+    cuanto = max(1, TOPE // 2)
+    b = amarra(SKU, 'ZLC', cuanto)
+    if not b:
+        fallos.append('no apareció el botón de reserva para %s' % SKU)
+    elif 'firma' in b['rot']:
+        fallos.append('por debajo del tope (%d de %d u) el botón ya pide firma: «%s»'
+                      % (cuanto, TOPE, b['rot']))
+    else:
+        sis.reload(wait_until='networkidle')
+        sis.wait_for_timeout(1600)
+        despues_sis = sis.evaluate("(k)=>disponible(k,'ZLC')", SKU)
+        if antes_sis - despues_sis != cuanto:
+            fallos.append('el aplicativo interno no vio la reserva: %d → %d (esperado −%d)'
+                          % (antes_sis, despues_sis, cuanto))
+        if not sis.evaluate("()=>BITACORA.some(e=>e.accion.startsWith('W-01'))"):
+            fallos.append('la reserva del portal no aparece en la bitácora del aplicativo')
+
+    # ── 4 · por encima del tope: pide firma ────────────────────────────────
+    hueco = p.evaluate("(k)=>atp(k).hub", SKU)
+    sobre = min(TOPE + 100, hueco)
+    if sobre <= TOPE:
+        fallos.append('no queda existencia para probar el tope (%d libres, tope %d)' % (hueco, TOPE))
+    else:
+        b = amarra(SKU, 'ZLC', sobre)
+        if not b:
+            fallos.append('no apareció el botón para la reserva por encima del tope')
+        elif 'firma' not in b['rot']:
+            fallos.append('por encima del tope (%d u de %d) el botón no pide firma: «%s»'
+                          % (sobre, TOPE, b['rot']))
+
+    # ── 5 · mis reservas, y soltar devuelve ────────────────────────────────
+    p.evaluate("()=>document.querySelector('[data-pest=\"reservas\"]').click()")
+    p.wait_for_timeout(700)
+    d2 = p.evaluate("""()=>({n:document.querySelectorAll('[data-res]').length,
+      espera:document.body.textContent.includes('espera firma'),
+      guardadas:reservasDelPortal().length})""")
+    if d2['guardadas'] != 3 or d2['n'] != 3:
+        fallos.append('mis reservas enseña %d y hay %d guardadas (esperadas 3: mar, hub, sobre-tope)'
+                      % (d2['n'], d2['guardadas']))
+    if not d2['espera']:
+        fallos.append('la reserva por encima del tope no se marca como «espera firma»')
+
+    if d2['n']:
+        antes_soltar = p.evaluate("(k)=>atp(k).total", SKU_MAR)
+        p.evaluate("""(e)=>{const f=[...document.querySelectorAll('[data-res]')]
+          .find(x=>x.textContent.includes(e)); if(f) f.querySelector('[data-suelta]').click();}""", EMB)
+        p.wait_for_timeout(800)
+        d3 = p.evaluate("([k,a])=>({n:reservasDelPortal().length, sube:atp(k).total>a,"
+                        " par:BITACORA.some(e=>e.accion.startsWith('W-02'))})", [SKU_MAR, antes_soltar])
+        if d3['n'] != 2:
+            fallos.append('soltar no quitó la reserva guardada (quedan %d de 3)' % d3['n'])
+        if not d3['sube']:
+            fallos.append('soltar no devolvió las unidades del embarque al disponible')
+        if not d3['par']:
+            fallos.append('soltar no dejó su W-02 en la bitácora')
+
+    # ── 6 · el portal en un móvil: ninguna pestaña puede desbordar ─────────
+    # (hueco real: el catálogo desbordaba a 430 px y nadie lo medía — el
+    #  aplicativo interno sí se mide en `rutas`, pero el portal es otra página)
+    if not rapido:
+        m = ctx.new_page()
+        m.set_viewport_size({'width': 430, 'height': 900})
+        m.goto(BASE + 'portal-vendedor/', wait_until='networkidle')
+        m.wait_for_timeout(1300)
+        for pest in ('catalogo', 'mar', 'reservas'):
+            m.evaluate("(k)=>{const b=document.querySelector('[data-pest=\"'+k+'\"]');"
+                       "if(b) b.click();}", pest)
+            m.wait_for_timeout(500)
+            if m.evaluate("()=>document.documentElement.scrollWidth>"
+                          "document.documentElement.clientWidth+2"):
+                fallos.append('la pestaña «%s» desborda la ventana a 430 px' % pest)
+
+    fallos += p.errores + sis.errores
+    ctx.close()
+    return fallos, 'ATP contra crudos · amarre de un embarque · cruce al aplicativo · tope, soltar y móvil'
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
     'portada': c_portada, 'inventarios': c_inventarios, 'distribuido': c_distribuido,
-    'clientes': c_clientes, 'mapa': c_mapa,
+    'clientes': c_clientes, 'mapa': c_mapa, 'portal-vendedor': c_portal_vendedor,
 }
 
 

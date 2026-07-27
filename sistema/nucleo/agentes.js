@@ -25,6 +25,12 @@
 const REGLAS = {
   coberturaObjetivo:  { v: 3,    unidad: 'meses',    dueno: 'dirección de compras', desde: '2026-07-01', ver: 3 },
   umbralSustitucion:  { v: 50,   unidad: 'unidades', dueno: 'dirección de compras', desde: '2026-07-01', ver: 1 },
+  /* Hasta dónde puede un vendedor amarrar mercancía por su cuenta. Por debajo
+     del tope confirma él —escritura interna, reversible, con su nombre—; por
+     encima, la reserva queda preparada y espera la firma de su gerencia. No es
+     un permiso de pantalla: es el eje «radio» de la gramática de autonomía
+     aplicado a la fuerza de ventas. */
+  topeReservaVendedor:{ v: 400,  unidad: 'u por reserva', dueno: 'gerencia comercial', desde: '2026-08-01', ver: 1 },
   mesesParaOcioso:    { v: 4,    unidad: 'meses',    dueno: 'operaciones',          desde: '2026-06-15', ver: 2 },
   confianzaAlias:     { v: 0.95, unidad: 'ratio',    dueno: 'administración de datos', desde: '2026-07-10', ver: 1 },
   /* El techo del mes lo fija finanzas contra la línea de crédito. Está por
@@ -189,11 +195,44 @@ function reserva(sku, ubicacion, unidades, dueno, motivo, horas = 24) {
   return r;
 }
 
+/** Unidades de una referencia dentro de un embarque concreto (fase 31). */
+function unidadesEnEmbarque(sku, embId) {
+  const t = TRANSITOS.find(x => x.id === embId);
+  if (!t) return 0;
+  const l = lineasEmbarque(t).find(x => x.p.sku === sku);
+  return l ? l.u : 0;
+}
+
+/* Una ubicación puede ser el hub, el almacén de un frente, o —desde la fase
+   31— un EMBARQUE en camino: el vendedor amarra unidades de un contenedor que
+   todavía está en el mar. Que pase por el MISMO libro de reservas no es un
+   detalle de implementación: es lo que impide que dos vendedores prometan el
+   mismo contenedor a dos clientes distintos. */
 function disponible(sku, ubicacion) {
-  const fisico = ubicacion === 'ZLC' ? (STOCK_HUB[sku] || 0) : ((STOCK_FRENTE[sku] || {})[ubicacion] || 0);
+  const fisico =
+    ubicacion === 'ZLC' ? (STOCK_HUB[sku] || 0) :
+    String(ubicacion).startsWith('EMB-') ? unidadesEnEmbarque(sku, ubicacion) :
+    ((STOCK_FRENTE[sku] || {})[ubicacion] || 0);
   const tomado = RESERVAS.filter(r => r.sku === sku && r.ubicacion === ubicacion)
     .reduce((a, r) => a + r.unidades, 0);
   return Math.max(0, fisico - tomado);
+}
+
+/**
+ * DISPONIBLE A PROMETER: lo que un vendedor puede comprometer hoy sin mentir.
+ * Es lo libre en el hub más lo libre de cada embarque en camino — descontando
+ * en ambos lo que ya está amarrado. Una sola función para las dos pantallas
+ * que lo enseñan (el portal y el catálogo), para que no puedan divergir.
+ */
+function atp(sku) {
+  let enMar = 0;
+  for (const t of TRANSITOS) enMar += disponible(sku, t.id);
+  return { hub: disponible(sku, 'ZLC'), enMar, total: disponible(sku, 'ZLC') + enMar };
+}
+
+/** Lo que ya está amarrado de una referencia, sumando hub y embarques. */
+function reservadoDe(sku) {
+  return RESERVAS.filter(r => r.sku === sku).reduce((a, r) => a + r.unidades, 0);
 }
 
 /* ══════════════════════════════════════════ 5 · LOS CÁLCULOS DEL NEGOCIO */
@@ -1130,8 +1169,55 @@ function turnoDeNoche() {
     _resultados[e.id] = r.datos;    // disponible para las acciones posteriores del turno
     resultados.push({ ...e, datos: r.datos });
   }
+  /* Las reservas del PORTAL DEL VENDEDOR viven entre páginas: el portal es un
+     documento aparte, y sin esto una reserva hecha allí desaparecía al abrir
+     el sistema — la pantalla prometería «descuenta en todas las vistas» y no
+     sería verdad. Se recuperan DESPUÉS del turno (el turno vacía el libro) y
+     todavía en modo semilla, para no disparar diez estelas en el arranque. */
+  recuperaReservasDelPortal();
   _sembrando = false;
   return resultados;
+}
+
+/* ── las reservas del portal, entre páginas ────────────────────────────────
+   Sin servidor, el único sitio compartido entre dos documentos del mismo
+   origen es localStorage. Se guarda lo mínimo para reconstruirlas. */
+const LLAVE_RESERVAS = 'kx.reservas';
+
+function reservasDelPortal() {
+  try { return JSON.parse(localStorage.getItem(LLAVE_RESERVAS) || '[]'); }
+  catch (e) { return []; }
+}
+
+function guardaReservaDelPortal(r) {
+  const todas = reservasDelPortal();
+  todas.push(r);
+  try { localStorage.setItem(LLAVE_RESERVAS, JSON.stringify(todas)); } catch (e) {}
+}
+
+function borraReservaDelPortal(ref) {
+  const todas = reservasDelPortal().filter(x => x.ref !== ref);
+  try { localStorage.setItem(LLAVE_RESERVAS, JSON.stringify(todas)); } catch (e) {}
+}
+
+function recuperaReservasDelPortal() {
+  if (typeof localStorage === 'undefined') return;
+  for (const g of reservasDelPortal()) {
+    const r = reserva(g.sku, g.ubicacion, g.unidades, g.dueno, g.motivo);
+    if (r) r.ref = g.ref;
+    const p = CATALOGO.find(x => x.sku === g.sku);
+    anota({
+      accion: 'W-01 · reserva del portal del vendedor',
+      agente: 'libro de reservas', modulo: 'comercial',
+      dispara: `el portal del vendedor amarró unidades para ${g.cliente}`,
+      salida: `${g.unidades} u de ${p ? p.nombre : g.sku} amarradas en ` +
+              `${g.ubicacion === 'ZLC' ? 'Colón' : g.ubicacion} para ${g.cliente} · ` +
+              (r ? 'siguen firmes' : 'YA NO HAY EXISTENCIA LIBRE: la reserva no se pudo rehacer'),
+      ejes: { perimetro: 'interno', reversibilidad: 'clic', radio: 'mercancia', dinero: 'ninguno', reloj: 'alcanza' },
+      firmante: g.firmante || 'el vendedor',
+      reglas: ['topeReservaVendedor'],
+    });
+  }
 }
 
 /* El turno se ejecuta UNA vez y todas las pantallas leen de ahí. Así las

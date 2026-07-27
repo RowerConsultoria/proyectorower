@@ -343,7 +343,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | 28 | Inventario global distribuido (almacenes teóricos de clientes) · ✅ **hecha** | 27 |
 | 29 | Módulo de clientes + torre de control IA · ✅ **hecha** | 28 |
 | 30 | Big Map ejecutivo (Mapbox) · ✅ **hecha** | 28, 29 |
-| 31 | Portal del vendedor | 27, 28 |
+| 31 | Portal del vendedor · ✅ **hecha** | 27, 28 |
 | 32 | Portal del cliente | 29 |
 | 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) | todas |
 | 34 | Comprobaciones, capturas del deck y cierre | 33 |
@@ -569,6 +569,39 @@ el **comercial de mayoreo de Kenex**. Consume los mismos `datos/*.js`.
 - **Pedido de venta** para un cliente de su cartera (clientes de la 29).
 - Comprobación `portal-vendedor`: ATP = stock + en-mar − reservado, cuadrando
   con tránsitos e inventarios; una reserva mueve el número en todas partes.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- `sistema/portal-vendedor/` — página aparte con cromo propio (cabecera con el
+  cliente al que se le vende, pestañas grandes, sin menú lateral ni sala de
+  agentes), que **hereda el sistema de diseño** de `estilo/app.css`: lo que la
+  hace portal es su cromo y su URL, no una identidad distinta.
+- Tres pestañas: **catálogo vendible** (ATP por referencia: 115.043 u = 70.035
+  libres en Colón + 45.008 en mar), **lo que viene en mar** (cada contenedor
+  con su ETA y su % amarrado) y **mis reservas**.
+- El núcleo creció con `atp()`, `unidadesEnEmbarque()` y un `disponible()` que
+  entiende ubicaciones tipo `EMB-…`: **reservar de un contenedor en el mar pasa
+  por el MISMO libro** que usan la mesa, el reparto y la IA. Por eso dos
+  vendedores no pueden prometer el mismo contenedor.
+- **Las reservas viven entre páginas** (localStorage + `recuperaReservasDelPortal()`
+  tras el turno): sin eso, «descuenta en todas las vistas» habría sido mentira —
+  el portal es otro documento. La comprobación lo prueba recargando el
+  aplicativo interno y midiendo el descuento.
+- Regla nueva `topeReservaVendedor` (400 u): por debajo la confirma el vendedor
+  (nivel 2, con su nombre); por encima queda amarrada y **espera firma de
+  gerencia comercial** — las unidades se apartan igual, para que nadie las tome
+  mientras se decide.
+- «Soltar todas» en mis reservas: salida de emergencia para la demo — unas
+  reservas olvidadas desplazan las cifras de TODO el sistema, incluidas las del
+  recorrido.
+- Comprobación `portal-vendedor` (13ª). **Su primera versión tenía un hueco
+  grave**: solo reservaba del hub, así que la funcionalidad estrella —amarrar de
+  un embarque— no se probaba, y una trampa sobre el ATP del mar salió ciega. Se
+  rehizo para reservar también de un contenedor, elegir las referencias por lo
+  que hace falta probar (no a mano), y medir el desborde en móvil — que también
+  faltaba, y destapó que el catálogo desbordaba a 430 px. Seis trampas
+  verificadas.
+- La portada del sistema (fase 26) cumple su promesa: ya enseña la tarjeta de
+  acceso al portal.
 
 ## Fase 32 · Portal del cliente — `sistema/portal-cliente/`
 
