@@ -35,7 +35,7 @@ const DESTINATARIO = {
   compra: 'dirección de compras',
 };
 
-window.PANTALLAS['logistica/inventario'] = function (lienzo) {
+window.PANTALLAS['inventarios/salud'] = function (lienzo) {
   const n = v => Math.round(v || 0).toLocaleString('es-VE');
   const s = saludInventario();
   const rebal = propuestasRebalanceo();
@@ -54,10 +54,13 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
   lienzo.innerHTML = `
     <div class="lienzo-cab fila-sep">
       <div>
-        <div class="sobretitulo">operación · logística e inventarios</div>
+        <div class="sobretitulo">operación · inventarios</div>
         <div class="titulo-seccion" style="margin-top:4px">salud de inventario</div>
       </div>
-      <button class="btn btn-fantasma btn-mini" id="ir-recepcion">← recepción</button>
+      <div class="fila gap-8">
+        ${pestInventarios('salud')}
+        <button class="btn btn-fantasma btn-mini" id="ir-recepcion">← recepción</button>
+      </div>
     </div>
 
     <div class="cinta" style="margin-bottom:20px">
@@ -280,7 +283,7 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         reglas: ['sobrestockDesde', 'paradoDesde', 'mesesParaOcioso'],
       });
       /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
-      setTimeout(() => window.PANTALLAS['logistica/inventario'](lienzo), 800);
+      setTimeout(() => window.PANTALLAS['inventarios/salud'](lienzo), 800);
     });
     caja.querySelectorAll('[data-mesa]').forEach(b => b.onclick = () => { location.hash = '#/compras/casio'; });
     const vt = caja.querySelector('#ver-todo');
@@ -309,14 +312,15 @@ window.PANTALLAS['logistica/inventario'] = function (lienzo) {
         reglas: [esParado ? 'mesesParaOcioso' : 'sobrestockDesde'],
       });
       /* la estela sale sola: la acción se anota con `cruza` (fase 22 · P3) */
-      setTimeout(() => window.PANTALLAS['logistica/inventario'](lienzo), 700);
+      setTimeout(() => window.PANTALLAS['inventarios/salud'](lienzo), 700);
     });
   }
 
   lienzo.querySelectorAll('#filtros-inv .chip').forEach(c => c.onclick = () => {
-    _inv.clase = c.dataset.c; window.PANTALLAS['logistica/inventario'](lienzo);
+    _inv.clase = c.dataset.c; window.PANTALLAS['inventarios/salud'](lienzo);
   });
   lienzo.querySelector('#ir-recepcion').onclick = () => { location.hash = '#/logistica'; };
+  wirePestInventarios(lienzo);
 
   pinta();
 };

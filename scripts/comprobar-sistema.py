@@ -37,7 +37,8 @@ PUERTO = 8080
 
 RUTAS = [
     'direccion', 'compras', 'compras/cierre', 'compras/casio', 'compras/cubitt',
-    'compras/transitos', 'producto', 'fabricas', 'logistica', 'logistica/inventario',
+    'compras/transitos', 'producto', 'fabricas', 'logistica',
+    'inventarios', 'inventarios/salud', 'inventarios/enmar',
     'distribucion', 'comercial', 'comercial/demanda', 'frentes', 'frentes/conectores',
     'cimiento', 'agentes',
 ]
@@ -388,8 +389,11 @@ def c_portada(nav, rapido):
     no la ve. La cifra de paradas sale del guion real, no de un texto."""
     fallos = []
 
+    # ⚠️ Se mide LO QUE SE VE (computed display), no el atributo `hidden`:
+    # el atributo decía «oculta» mientras el CSS la seguía pintando, y esta
+    # comprobación lo dio por bueno. Medir la propiedad era medir lo de al lado.
     p = nueva(nav)
-    d = p.evaluate("""()=>({vis:!document.querySelector('#portada').hidden,
+    d = p.evaluate("""()=>({vis:getComputedStyle(document.querySelector('#portada')).display!=='none',
       clase:document.body.classList.contains('en-portada'),
       hud:getComputedStyle(document.querySelector('#hud')).display,
       nota:document.querySelector('#portada-nota').textContent,
@@ -403,7 +407,7 @@ def c_portada(nav, rapido):
 
     p.click('#entrar')
     p.wait_for_timeout(1100)
-    d = p.evaluate("""()=>({fuera:document.querySelector('#portada').hidden,
+    d = p.evaluate("""()=>({fuera:getComputedStyle(document.querySelector('#portada')).display==='none',
       rec:!document.querySelector('#recorrido').hidden, rol:ESTADO.rol})""")
     if not d['fuera']:
         fallos.append('Entrar no quita la portada')
@@ -415,7 +419,7 @@ def c_portada(nav, rapido):
     p = nueva(nav)
     p.click('#entrar-directo')
     p.wait_for_timeout(700)
-    d = p.evaluate("""()=>({fuera:document.querySelector('#portada').hidden,
+    d = p.evaluate("""()=>({fuera:getComputedStyle(document.querySelector('#portada')).display==='none',
       rec:document.querySelector('#recorrido').hidden,
       pintado:document.querySelector('#lienzo').children.length>0})""")
     if not (d['fuera'] and d['rec'] and d['pintado']):
@@ -432,7 +436,7 @@ def c_portada(nav, rapido):
     p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
     p.goto(BASE + '#/compras', wait_until='networkidle')
     p.wait_for_timeout(700)
-    if not p.evaluate("()=>document.querySelector('#portada').hidden"):
+    if not p.evaluate("()=>getComputedStyle(document.querySelector('#portada')).display==='none'"):
         fallos.append('la portada tapa un enlace profundo')
     fallos += p.errores
     p.close()
@@ -449,10 +453,94 @@ def c_portada(nav, rapido):
     return fallos, 'portada, dos entradas y enlace profundo'
 
 
+def c_inventarios(nav, rapido):
+    """El módulo de la fase 27 no puede inventar cifras: cada tarjeta de
+    almacén debe sumar EXACTAMENTE lo que dice el modelo, cada almacén debe
+    tener dueño y ficha completa, el semáforo debe corresponder a su umbral, y
+    «en mar» debe decir el mismo número que la torre de tránsitos — dos
+    pantallas, un solo dato."""
+    fallos = []
+    p = nueva(nav)
+    rol(p, 'logistica')
+
+    # ── por almacén: la pantalla contra el modelo ───────────────────────────
+    va(p, 'inventarios', 700)
+    d = p.evaluate("""()=>{
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      const malos=[], semaforo=[], sinFicha=[];
+      /* el modelo, recalculado aquí mismo: ZLC = STOCK_HUB; cada frente
+         propio = su columna de STOCK_FRENTE */
+      const modelo={ZLC:Object.values(STOCK_HUB).reduce((a,b)=>a+b,0)};
+      for(const f of FRENTES.filter(f=>f.tipo==='propio')){
+        let t=0; for(const k in STOCK_FRENTE) t+=STOCK_FRENTE[k][f.id]||0;
+        modelo[f.id]=t;
+      }
+      let suma=0;
+      for(const card of document.querySelectorAll('[data-alm]')){
+        const id=card.dataset.alm, vis=card.querySelector('.alm-u').textContent.trim();
+        if(vis!==n(modelo[id])) malos.push(id+': pantalla '+vis+' y modelo '+n(modelo[id]));
+        suma+=modelo[id];
+        const ficha=fichaAlmacen(id);
+        if(!ficha||!ficha.dueno||!ficha.capacidadU||!ficha.lat||!ficha.lon) sinFicha.push(id);
+        else {
+          const pct=modelo[id]/ficha.capacidadU;
+          const dice=(card.textContent.match(/ocupación (holgada|ajustada|al límite)/)||[])[1];
+          const toca=pct>=0.90?'al límite':pct>=0.70?'ajustada':'holgada';
+          if(dice!==toca) semaforo.push(id+': dice «'+dice+'» y toca «'+toca+'» ('+Math.round(pct*100)+' %)');
+        }
+        if(!ficha||!card.textContent.includes(ficha.dueno)) sinFicha.push(id+' (dueño no visible)');
+      }
+      const kpi=document.querySelector('#inv-tot-u').textContent.trim();
+      const enMar=TRANSITOS.reduce((a,t)=>a+lineasEmbarque(t).reduce((x,y)=>x+y.u,0),0);
+      return {malos, semaforo, sinFicha,
+        tarjetas:document.querySelectorAll('[data-alm]').length,
+        ubic:saludInventario().ubicaciones.length,
+        kpiOk:kpi===n(suma),
+        marOk:document.querySelector('#inv-enmar-u').textContent.trim()===n(enMar),
+        rutaVieja:'logistica/inventario' in (window.PANTALLAS||{}),
+        salud:'inventarios/salud' in (window.PANTALLAS||{})};}""")
+    for x in d['malos']:
+        fallos.append('almacén ' + x)
+    for x in d['semaforo']:
+        fallos.append('semáforo de ' + x)
+    for x in d['sinFicha']:
+        fallos.append('almacén sin ficha completa o sin dueño visible: ' + x)
+    if d['tarjetas'] != d['ubic']:
+        fallos.append('%d tarjetas y %d ubicaciones en el modelo' % (d['tarjetas'], d['ubic']))
+    if not d['kpiOk']:
+        fallos.append('el KPI de unidades no es la suma de las tarjetas')
+    if not d['marOk']:
+        fallos.append('el KPI «en mar» no cuadra con los embarques del modelo')
+    if d['rutaVieja']:
+        fallos.append('la ruta vieja logistica/inventario sigue registrada')
+    if not d['salud']:
+        fallos.append('inventarios/salud no está registrada')
+
+    # ── en mar contra la torre de tránsitos: dos pantallas, un dato ─────────
+    va(p, 'inventarios/enmar', 600)
+    mar = p.evaluate("()=>document.querySelector('#mar-u').textContent.trim()")
+    ok = p.evaluate("""()=>{
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      return document.querySelector('#mar-u').textContent.trim()===
+        n(TRANSITOS.reduce((a,t)=>a+lineasEmbarque(t).reduce((x,y)=>x+y.u,0),0));}""")
+    if not ok:
+        fallos.append('«en mar» no cuadra con el modelo de embarques')
+    va(p, 'compras/transitos', 700)
+    torre = p.evaluate("""()=>{
+      const k=[...document.querySelectorAll('.kpi')].find(x=>x.textContent.includes('unidades en tránsito'));
+      return k?k.querySelector('.valor').textContent.trim():null;}""")
+    if torre != mar:
+        fallos.append('la torre dice %s unidades y «en mar» dice %s — dos pantallas, dos datos' % (torre, mar))
+
+    fallos += p.errores
+    p.close()
+    return fallos, '%d almacenes cuadrados y el mar contra la torre' % d['tarjetas']
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
-    'portada': c_portada,
+    'portada': c_portada, 'inventarios': c_inventarios,
 }
 
 

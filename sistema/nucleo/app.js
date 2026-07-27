@@ -37,13 +37,13 @@ const AMBITOS = {
 const ROLES = {
   direccion: {
     nombre: 'dirección ejecutiva',
-    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'comercial', 'frentes', 'producto', 'cimiento', 'agentes'],
+    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'frentes', 'producto', 'cimiento', 'agentes'],
     firma: ['todo'],
     firmaDice: 'todo, sin tope',
   },
   compras: {
     nombre: 'dirección de compras',
-    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'comercial', 'frentes', 'cimiento', 'agentes'],
+    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'inventarios', 'comercial', 'frentes', 'cimiento', 'agentes'],
     firma: ['compra', 'reparto', 'traslado'],
     firmaDice: 'compras, reparto y traslados',
   },
@@ -61,13 +61,13 @@ const ROLES = {
   },
   logistica: {
     nombre: 'operaciones y logística',
-    ve: ['logistica', 'distribucion', 'compras', 'frentes', 'agentes'],
+    ve: ['logistica', 'inventarios', 'distribucion', 'compras', 'frentes', 'agentes'],
     firma: ['recepcion', 'traslado'],
     firmaDice: 'recepción y traslados',
   },
   comercial: {
     nombre: 'gerencia comercial',
-    ve: ['comercial', 'distribucion', 'frentes', 'logistica', 'agentes'],
+    ve: ['comercial', 'distribucion', 'frentes', 'logistica', 'inventarios', 'agentes'],
     firma: ['pedidos', 'disponibilidad'],
     firmaDice: 'pedidos y disponibilidad publicada',
   },
@@ -75,7 +75,7 @@ const ROLES = {
     nombre: 'sistemas',
     /* No firma compra: la regla de que sistemas no toca dinero deja de ser una
        frase en un documento y pasa a ser un botón que no se puede pulsar. */
-    ve: ['frentes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'comercial', 'producto'],
+    ve: ['frentes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'producto'],
     firma: ['normalizacion', 'sistema'],
     firmaDice: 'reglas y conectores · no firma dinero',
   },
@@ -90,7 +90,7 @@ function puedeFirmar(ambito) {
 /* Qué ámbito gobierna cada módulo, para la bandeja de firma, que mezcla
    entradas de varios. */
 const AMBITO_DE_MODULO = {
-  compras: 'compra', distribucion: 'reparto', logistica: 'recepcion',
+  compras: 'compra', distribucion: 'reparto', logistica: 'recepcion', inventarios: 'traslado',
   comercial: 'pedidos', cimiento: 'normalizacion', frentes: 'normalizacion',
   producto: 'graduacion', agentes: 'sistema', direccion: 'sistema',
 };
@@ -153,9 +153,14 @@ const MODULOS = {
     resuelve: 'El forecast y la compra internacional a Casio y a Cubitt, con el ciclo del mes, la mesa de compra y la torre de tránsitos.',
   },
   logistica: {
-    ico: '▥', nombre: 'logística e inventarios', grupo: 'operación', fase: 13,
-    para: 'operaciones, inventarios y jefes de bodega',
-    resuelve: 'Recepción de contenedor, ubicación, salud del inventario y rebalanceo entre ubicaciones.',
+    ico: '▥', nombre: 'logística', grupo: 'operación', fase: 13,
+    para: 'operaciones y jefes de bodega',
+    resuelve: 'El flujo físico: recepción de contenedor contra su embarque, ubicación en bodega y despacho.',
+  },
+  inventarios: {
+    ico: '▦', nombre: 'inventarios', grupo: 'operación', fase: 27,
+    para: 'operaciones, compras y comercial',
+    resuelve: 'El estado de las existencias: cada almacén propio con su dueño y su ocupación, la salud con acciones preparadas, y lo que viene en mar.',
   },
   distribucion: {
     ico: '⇄', nombre: 'distribución', grupo: 'operación', fase: 12,

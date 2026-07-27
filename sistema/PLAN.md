@@ -339,7 +339,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | Fase | Qué | Depende de |
 |---|---|---|
 | 26 | Pantalla de inicio + accesos desde el informe · ✅ **hecha** | — |
-| 27 | Inventarios, módulo propio | — |
+| 27 | Inventarios, módulo propio · ✅ **hecha** | — |
 | 28 | Inventario global distribuido (almacenes teóricos de clientes) | 27 |
 | 29 | Módulo de clientes + torre de control IA | 28 |
 | 30 | Big Map ejecutivo (Mapbox) | 28, 29 |
@@ -405,6 +405,32 @@ convierte en el módulo con pestañas:
   mismos datos. Ninguna cifra nueva que no cuadre con las existentes.
 - Comprobación nueva `inventarios`: la suma por almacén = el global que enseñan
   las otras pantallas; en-mar cuadra con tránsitos; ningún almacén sin dueño.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- Módulo `inventarios` separado de `logistica` en el registro y en los cinco
+  roles que lo ven; la salud (fase 14) se mudó a `inventarios/salud` con sus
+  siete enlaces propagados. Tres pestañas compartidas: por almacén · salud ·
+  en mar.
+- `datos/almacenes.js` — SOLO metadatos (dueño por rol, capacidad, m²,
+  coordenadas para la fase 30): el stock sigue saliendo de `operacion.js` vía
+  `saludInventario()` y los nombres de `red.js`. Ni una cifra duplicada.
+- `valorEmbarque()` subió al núcleo: la torre de tránsitos y «en mar» usan la
+  MISMA fórmula — antes la torre tenía la suya local y una segunda pantalla la
+  habría copiado.
+- Comprobación `inventarios` (9ª): tarjetas contra el modelo, semáforo contra
+  su umbral, ficha completa con dueño visible, y «en mar» contra la torre de
+  tránsitos — dos pantallas, un dato. Cinco trampas verificadas.
+- La comprobación `moneda` cazó un KPI sin unidad en la pantalla nueva y se
+  corrigió como pide — las comprobaciones viejas cubren las pantallas nuevas
+  sin tocarse, que es exactamente para lo que están.
+- **Defecto serio destapado por la captura de pantalla:** `.portada{display:grid}`
+  le GANA al atributo `hidden` (regla de autor contra regla del navegador). En
+  un enlace profundo la portada quedaba visible PARA SIEMPRE — y el guard de
+  `cierraPortada` («ya está oculta») impedía cerrarla. La comprobación de la
+  fase 26 no lo vio porque medía el atributo, no lo que se ve. Arreglo:
+  `.portada[hidden]{display:none}` + la comprobación mide `computed display` +
+  trampa nueva que quita esa regla CSS y confirma que ahora sí se detecta.
+  Lección repetida: **medir lo visible, no la bandera que dice que es visible.**
 
 ## Fase 28 · Inventario global distribuido
 

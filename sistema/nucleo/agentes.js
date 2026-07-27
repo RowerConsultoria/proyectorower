@@ -316,6 +316,14 @@ function lineasEmbarque(t) {
   }).filter(x => x.u > 0).sort((a, b) => b.u - a.u);
 }
 
+/* El valor de un embarque al costo estimado (40 % del pvp). Vive AQUÍ y no en
+   una pantalla porque lo usan dos: la torre de tránsitos y el inventario en
+   mar (fase 27) — si cada una tuviera su fórmula, dos pantallas darían dos
+   valores del mismo contenedor. */
+function valorEmbarque(t) {
+  return lineasEmbarque(t).reduce((a, x) => a + x.u * x.p.pvp * 0.40, 0);
+}
+
 /** Unidades de una referencia que ya vienen en camino, por embarque. */
 function enCamino(sku) {
   if (!_memoTransito) {

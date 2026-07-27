@@ -30,9 +30,7 @@ const DOCS = [
 /* Una sola verdad sobre el tránsito: la del núcleo. */
 const lineasDe = lineasEmbarque;
 
-function valorDe(t) {
-  return lineasDe(t).reduce((a, x) => a + x.u * x.p.pvp * 0.40, 0);
-}
+const valorDe = valorEmbarque;
 
 window.PANTALLAS['compras/transitos'] = function (lienzo) {
   const n = v => Math.round(v || 0).toLocaleString('es-VE');

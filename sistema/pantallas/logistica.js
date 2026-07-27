@@ -223,7 +223,7 @@ window.PANTALLAS.logistica = function (lienzo) {
   }
 
   const bs = lienzo.querySelector('#ir-salud');
-  if (bs) bs.onclick = () => { location.hash = '#/logistica/inventario'; };
+  if (bs) bs.onclick = () => { location.hash = '#/inventarios/salud'; };
 
   pinta();
 };

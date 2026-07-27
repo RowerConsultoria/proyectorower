@@ -55,7 +55,7 @@ const CONSULTAS = [
              `${REGLAS.mesesParaOcioso.v} meses. Hay ${r.length} traslados preparados que desbloquean ` +
              `${Math.round(r.reduce((a, x) => a + x.ventaDesbloqueada, 0)).toLocaleString('es-VE')} USD de venta.`;
     },
-    ir: '#/logistica/inventario', dice: 'la salud del inventario',
+    ir: '#/inventarios/salud', dice: 'la salud del inventario',
   },
   {
     q: '¿qué frentes reportan tarde y cuánto nos cuesta?',
@@ -154,7 +154,7 @@ window.PANTALLAS.direccion = function (lienzo) {
         <div class="rotulo">nivel de servicio</div>
         <div class="valor" style="color:${servicio < 0.9 ? 'var(--n3)' : 'var(--ok)'}">${(servicio * 100).toFixed(0)} %</div>
         <div class="pie">${n(sinAtender)} u que no se pudieron atender</div></div></div>
-      <div class="tarjeta pulsable" data-ir="#/logistica/inventario"><div class="kpi">
+      <div class="tarjeta pulsable" data-ir="#/inventarios/salud"><div class="kpi">
         <div class="rotulo">inventario parado</div>
         <div class="valor" style="color:${parado ? 'var(--n3)' : 'inherit'}">${n(parado)}</div>
         <div class="pie">USD · ${rebal.length} traslados preparados</div></div></div>

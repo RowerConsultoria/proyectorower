@@ -1019,6 +1019,13 @@ body.con-recorrido .lienzo{padding-bottom:190px}
   opacity:1;transition:opacity .32s var(--curva);
 }
 .portada.fuera{opacity:0;pointer-events:none}
+/* ⚠️ IMPRESCINDIBLE: `display:grid` de arriba le GANA al atributo `hidden`
+   (regla de autor contra regla del navegador). Sin esto, llegar con un enlace
+   profundo dejaba la portada visible para siempre: el atributo decía oculta,
+   la pantalla la enseñaba, y el guard de cierraPortada —«ya está oculta»—
+   impedía cerrarla de verdad. La comprobación no lo vio porque medía el
+   atributo y no lo que se ve; ya mide lo que se ve. */
+.portada[hidden]{display:none}
 .portada-caja{max-width:640px;display:flex;flex-direction:column;align-items:center;gap:22px}
 .portada-marca{display:flex;flex-direction:column;align-items:center;gap:10px}
 .portada-nom{
