@@ -132,6 +132,33 @@
     /* remisión entre un hallazgo y la propuesta que de él se deriva */
     .remite{font-size:12.5px;color:#6a5a86;margin:-4px 0 14px;font-style:italic;}
     .remite a{color:#7A4FB5;}
+    /* ---- La escalera de adopción (efecto cascada) ------------------------
+       Cuatro planos de mando, cada uno desplazado bajo el anterior. Los colores
+       salen de la paleta del informe y sus contrastes están medidos: 11.6 · 4.8
+       · 5.4 · 9.3, todos por encima del 4.5 de WCAG AA. */
+    .esc{margin:16px 0 20px;padding:0;}
+    .esc-cab{margin:0 0 14px;padding:0;}
+    .esc-kick{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:3px;}
+    .esc-cab b{font-size:17px;color:var(--navy);}
+    .esc-cab span.sub{color:var(--muted);font-weight:400;font-size:14px;}
+    .esc-fila{display:flex;align-items:flex-start;gap:18px;margin-bottom:9px;}
+    .esc-caja{position:relative;flex:0 0 258px;padding:11px 16px;border-radius:3px;margin-left:calc(var(--n) * 30px);}
+    .esc-caja .plano{display:block;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:3px;}
+    .esc-caja b{font-size:15.5px;line-height:1.2;}
+    /* el escalón: une cada plano con el de abajo */
+    .esc-fila+.esc-fila .esc-caja::before{content:"";position:absolute;left:-16px;top:0;width:3px;height:calc(100% + 9px);background:var(--blue);opacity:.55;}
+    .esc-1{background:#1F3864;} .esc-1 .plano{color:#C9DCF0;} .esc-1 b{color:#fff;}
+    .esc-2{background:#2E75B6;} .esc-2 .plano{color:#fff;opacity:1;font-size:9.5px;} .esc-2 b{color:#fff;}
+    .esc-3{background:#8FB4D8;} .esc-3 .plano{color:#1F3864;} .esc-3 b{color:#1F3864;}
+    .esc-4{background:#DCE7F3;} .esc-4 .plano{color:#1F3864;} .esc-4 b{color:#1F3864;}
+    .esc-det{flex:1;margin:11px 0 0;font-size:13.5px;line-height:1.5;color:#26303f;}
+    .esc-pie{margin:14px 0 0;background:#EAF2FA;border-left:3px solid var(--blue);padding:10px 16px;border-radius:3px;font-size:13.5px;color:#26303f;}
+    @media (max-width:820px){
+      .esc-fila{flex-direction:column;gap:4px;margin-bottom:14px;}
+      .esc-caja{flex:none;width:auto;margin-left:calc(var(--n) * 14px);}
+      .esc-fila+.esc-fila .esc-caja::before{left:-8px;height:calc(100% + 14px);}
+      .esc-det{margin:0 0 0 calc(var(--n) * 14px);}
+    }
   /* ---------- Bloques de fuentes y placeholders ---------- */
   .fuentes{
     background:var(--light);
@@ -437,7 +464,7 @@
         <div class="navsub" id="nav-sub-s9" hidden>
           <a href="#s9-1" data-sub="s9-1"><span class="n">9.1</span>El punto de partida: capacidad real, crecimiento desordenado</a>
           <a href="#s9-2" data-sub="s9-2"><span class="n">9.2</span>Disposición al cambio: lealtad alta, hábito arraigado</a>
-          <a href="#s9-3" data-sub="s9-3"><span class="n">9.3</span>Preborrador de propuesta — la formación y los dos cimientos</a>
+          <a href="#s9-3" data-sub="s9-3"><span class="n">9.3</span>Preborrador de propuesta — la formación, los cimientos y la escalera de adopción</a>
         </div>
       </div>
       <div class="navitem">
@@ -2103,12 +2130,45 @@
   <p>El diagnóstico recoge dos matices importantes sobre esta disposición. Primero, <b>la resistencia no admite un porcentaje global</b>: varía por departamento y por persona, y pretender cuantificarla en un número único sería impreciso — debe leerse área por área. Segundo, hay una lección ya vivida por la organización que ilumina el camino: la migración de plataforma tecnológica (el ERP) generó rechazo, y ese rechazo se alimentó de una <b>formación incompleta</b> — cuando el sistema nuevo fallaba, el fallo se convertía en argumento para volver al método anterior ("en el sistema viejo yo lo hacía mejor"). La implicación es directa y estructura los dos ejes de formación que siguen: <b>cada cambio de herramienta necesita gestión del miedo, no solo instrucción técnica</b>, y la formación debe ser completa y contextualizada, no genérica.</p>
   <p>Sobre esta base, el patrocinio del liderazgo juega a favor. Además del respaldo del accionista, en el Comité de Dirección del 1 de julio se acordó la <b>propuesta de un rol interno de gobernanza de IA</b> encarnado en una de las cabezas de la tercera generación — un gesto que señala que el gobierno de la IA se reconoce como una función que la nueva estructura debe albergar, no como un proyecto pasajero.</p>
 
-  <h3 id="s9-3">9.3 Preborrador de propuesta — la formación y los dos cimientos <span class="badge b-prop">Preborrador de propuesta</span></h3>
+  <h3 id="s9-3">9.3 Preborrador de propuesta — la formación, los cimientos y la escalera de adopción <span class="badge b-prop">Preborrador de propuesta</span></h3>
   <div class="prop-nota"><b>Deslinde.</b> Lo que sigue no es un hallazgo del diagnóstico: es la propuesta del equipo consultor, derivada de los dos apartados anteriores. La formación en IA es un despliegue que nosotros conducimos —no una capacidad que el diagnóstico haya encontrado instalada— y por eso se presenta aquí, separada de la evidencia, como <b>preborrador</b>: dirección de solución para discutir con la dirección, no compromiso de alcance.</div>
-  <p>Los apartados 9.1 y 9.2 dejan un diagnóstico preciso: hay capacidad real y patrocinio, pero el crecimiento fue arbitrario; y hay lealtad alta con hábito arraigado, sobre una organización que ya aprendió —con la migración del ERP— que <b>una formación incompleta convierte cada fallo del sistema nuevo en argumento para volver atrás</b>. De ahí se derivan tres propuestas.</p>
-  <p><b>Primera — nivelar los fundamentos en todo el talento.</b> El principio rector es que no hay adopción de inteligencia artificial sin formación. La nivelación básica debe alcanzar a toda la organización por el canal que el personal ya habita, con acompañamiento individual y avance al ritmo de cada quien, y cerrar con un reconocimiento formal que la convierta en un logro y no en un trámite. Es la capa base sobre la que se apoya cualquier especialización posterior. El vehículo concreto de esta nivelación —plataforma, cobertura y calendario— se propone en la hoja de ruta (sección 12), donde es un entregable del proyecto y no un hallazgo de esta sección.</p>
-  <p><b>Segunda — formación en herramientas para dirección y gerencia.</b> De otra naturaleza y otro público: no fundamentos, sino aplicación avanzada sobre los datos y los problemas reales del negocio. Se focaliza en quienes toman las decisiones que la IA puede potenciar, deben modelar el uso para el resto y en varios casos ya tienen licencias que subutilizan. Un rasgo la hace especialmente valiosa: <b>no se apoya en datos genéricos, sino en la información propia del grupo</b> — la que este mismo proyecto ha levantado y organizado. Formar a un gerente para que interrogue sus propios procesos, su propia estructura y sus propios datos es cualitativamente distinto de una capacitación abstracta: convierte la formación en herramienta de trabajo inmediata. Se articula con los perfiles que ya muestran dominio y pueden actuar como multiplicadores internos — el modelo del <i>facilitador no coercitivo</i> que Costa Rica ya practica (9.1). Esta propuesta se concreta como uno de los dos quick wins de la arquitectura (10.7).</p>
-  <p><b>Tercera — los dos cimientos documentales.</b> La formación, por sí sola, no ordena el crecimiento caótico que caracteriza el punto de partida. Hacen falta dos piezas que el proyecto producirá como entregables máster. La primera es la <b>Política de Adopción de IA</b> — el documento rector que define qué usos son aceptables, con qué criterios de seguridad y ética, sobre qué datos y con qué responsabilidades: la respuesta directa al carácter arbitrario del crecimiento actual. La segunda es la <b>Estructura de IA</b> — quién gobierna la adopción: el rol interno de gobernanza acordado en el Comité del 01-jul, su ubicación en el organigrama y las funciones que sostienen la integración, el dato y la formación continua (desarrolladas en la sección 10). Política y estructura son las dos piezas que convierten un conjunto de iniciativas dispersas en una capacidad organizacional gobernada.</p>
+  <p>Los apartados 9.1 y 9.2 dejan un diagnóstico preciso: hay capacidad real y patrocinio, pero el crecimiento fue arbitrario; y hay lealtad alta con hábito arraigado, sobre una organización que ya aprendió —con la migración del ERP— que <b>una formación incompleta convierte cada fallo del sistema nuevo en argumento para volver atrás</b>. De ahí se derivan cuatro propuestas.</p>
+  <h4>Primera propuesta — nivelar los fundamentos en todo el talento</h4>
+  <p> El principio rector es que no hay adopción de inteligencia artificial sin formación. La nivelación básica debe alcanzar a toda la organización por el canal que el personal ya habita, con acompañamiento individual y avance al ritmo de cada quien, y cerrar con un reconocimiento formal que la convierta en un logro y no en un trámite. Es la capa base sobre la que se apoya cualquier especialización posterior. El vehículo concreto de esta nivelación —plataforma, cobertura y calendario— se propone en la hoja de ruta (sección 12), donde es un entregable del proyecto y no un hallazgo de esta sección.</p>
+  <h4>Segunda propuesta — formación en herramientas para dirección y gerencia</h4>
+  <p> De otra naturaleza y otro público: no fundamentos, sino aplicación avanzada sobre los datos y los problemas reales del negocio. Se focaliza en quienes toman las decisiones que la IA puede potenciar, deben modelar el uso para el resto y en varios casos ya tienen licencias que subutilizan. Un rasgo la hace especialmente valiosa: <b>no se apoya en datos genéricos, sino en la información propia del grupo</b> — la que este mismo proyecto ha levantado y organizado. Formar a un gerente para que interrogue sus propios procesos, su propia estructura y sus propios datos es cualitativamente distinto de una capacitación abstracta: convierte la formación en herramienta de trabajo inmediata. Se articula con los perfiles que ya muestran dominio y pueden actuar como multiplicadores internos — el modelo del <i>facilitador no coercitivo</i> que Costa Rica ya practica (9.1). Esta propuesta se concreta como uno de los dos quick wins de la arquitectura (10.7).</p>
+  <h4>Tercera propuesta — los dos cimientos documentales</h4>
+  <p> La formación, por sí sola, no ordena el crecimiento caótico que caracteriza el punto de partida. Hacen falta dos piezas que el proyecto producirá como entregables máster. La primera es la <b>Política de Adopción de IA</b> — el documento rector que define qué usos son aceptables, con qué criterios de seguridad y ética, sobre qué datos y con qué responsabilidades: la respuesta directa al carácter arbitrario del crecimiento actual. La segunda es la <b>Estructura de IA</b> — quién gobierna la adopción: el rol interno de gobernanza acordado en el Comité del 01-jul, su ubicación en el organigrama y las funciones que sostienen la integración, el dato y la formación continua (desarrolladas en la sección 10). Política y estructura son las dos piezas que convierten un conjunto de iniciativas dispersas en una capacidad organizacional gobernada.</p>
+  <h4>Cuarta propuesta — la escalera de adopción: quién sostiene qué para que esto ocurra</h4>
+  <p class="remite">↦ Responde al hallazgo de <a href="#s9-2">9.2</a>: la resistencia no es homogénea y se lee área por área, y la lección del ERP —la formación incompleta convierte cada fallo en argumento para volver atrás— obliga a que alguien sostenga el cambio en cada plano, no solo en el de arriba.</p>
+  <p>Las tres propuestas anteriores describen <b>qué</b> se despliega. Falta el <b>cómo llega</b>: una adopción de IA no se propaga sola por el organigrama. Desciende por planos de mando, y en cada uno alguien tiene una responsabilidad distinta e intransferible. Si un plano no asume la suya, el cambio se detiene ahí — y los de abajo no lo reciben. Es el patrón que el diagnóstico ya observó en la célula de BI: donde hubo una usuaria clave que empujó, el modelo llegó a la decisión; donde no la hubo, se detuvo (7.4).</p>
+
+  <figure class="esc">
+    <figcaption class="esc-cab">
+      <span class="esc-kick">Cómo fluye la transformación</span>
+      <b>El efecto cascada</b> <span class="sub">— los cuatro planos de mando de la adopción</span>
+    </figcaption>
+    <div class="esc-fila" style="--n:0">
+      <div class="esc-caja esc-1"><span class="plano">Plano dirigente</span><b>Comité Gerencial</b></div>
+      <p class="esc-det">Decide y diseña el camino · Define la política · Asigna roles de coordinación · Formula y comunica la hoja de ruta · Impulsa el entusiasmo</p>
+    </div>
+    <div class="esc-fila" style="--n:1">
+      <div class="esc-caja esc-2"><span class="plano">Coordinación de acciones</span><b>Líder interno del proceso</b></div>
+      <p class="esc-det">Implementación transversal de la hoja de ruta · Coordinación con la consultoría externa · Seguimiento del progreso · Flujo de información al Comité</p>
+    </div>
+    <div class="esc-fila" style="--n:2">
+      <div class="esc-caja esc-3"><span class="plano">Plano funcional</span><b>Gerencias</b></div>
+      <p class="esc-det">Aseguramiento de la ejecución en cada área · Sostenimiento del entusiasmo · Alerta temprana de inconvenientes · Retroalimentación continua</p>
+    </div>
+    <div class="esc-fila" style="--n:3">
+      <div class="esc-caja esc-4"><span class="plano">Plano operativo</span><b>El personal</b></div>
+      <p class="esc-det">Formarse · Incorporar los nuevos métodos al flujo de trabajo · Elevar inquietudes, observaciones y sugerencias</p>
+    </div>
+    <p class="esc-pie">Si la alta dirección no se alinea, nadie más lo hará. La dirigencia es el <b>motor</b> — no el espectador — de la transformación.</p>
+  </figure>
+
+  <p><b>Lo que esta escalera exige decidir.</b> Dos de los cuatro planos ya tienen respuesta en curso y dos no. El <b>plano dirigente</b> existe y ha dado la señal —el patrocinio del accionista y el acuerdo del Comité del 01-jul sobre un rol interno de gobernanza (9.2)—, pero le falta convertir esa señal en política y hoja de ruta comunicadas. El <b>líder interno del proceso</b> es precisamente ese rol acordado y aún no constituido: sin él, la coordinación con la consultoría y el flujo de información al Comité dependen de que alguien los canalice por su cuenta. El <b>plano funcional</b> —las gerencias— es donde el diagnóstico anticipa la mayor variación, porque la disposición al cambio se lee área por área (9.2); es ahí donde la formación debe ser por departamento y no genérica. Y el <b>plano operativo</b> no es pasivo: su parte del trato incluye elevar inquietudes, que es la única vía por la que los tres planos de arriba se enteran a tiempo de lo que no está funcionando.</p>
+
   <p>La lectura de conjunto es coherente con el resto del diagnóstico: el grupo tiene la voluntad, el patrocinio y la capacidad instalada para adoptar IA con seriedad; lo que le falta no es materia, sino <b>orden</b>. La transformación cultural no consiste en encender un motor que está apagado, sino en darle dirección a uno que ya gira a destiempo.</p>
 
   <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ Con esta sección se completa el recorrido por los seis aspectos del marco de la 2.2 — gobierno, procesos, estructura, talento, cambio y tecnología. La Parte I cierra con la arquitectura de IA preliminar (sección 10), que recoge la base técnica de las secciones 7 y 8 y la base humana de esta sección, y las traduce al plano de los sistemas bajo una sola tesis: el dato antes que el agente.</div>

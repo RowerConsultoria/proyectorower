@@ -86,7 +86,7 @@ En las secciones **7, 8, 9 y 10** se separó lo que la evidencia sostiene de lo 
 
 - **7.1–7.9 hallazgo · 7.10 síntesis de hallazgos · 7.11 preborrador** (cuatro propuestas: certificar el dato · la tecnología y la IA como función transversal · gobernar el acceso al dato · núcleo Odoo nativo + capa propia). La vieja 7.10 (definición arquitectónica) y los tres bloques «Implicación» de 7.5/7.6/7.7 se consolidaron ahí; la síntesis bajó de 7.11 a 7.10.
 - **8.1–8.5 hallazgo · 8.6 preborrador** (hacer nacer el sistema propio).
-- **9.1–9.2 hallazgo · 9.3 preborrador**. Las viejas 9.3/9.4/9.5 eran las tres propuesta.
+- **9.1–9.2 hallazgo · 9.3 preborrador**. Las viejas 9.3/9.4/9.5 eran las tres propuesta. La 9.3 incluye la **escalera de adopción** («el efecto cascada»): gráfico traído de otro proyecto del equipo y **recreado en HTML+CSS nativo** (clases `.esc-*`), no incrustado como imagen — así queda versionado, se imprime y reflota en móvil. Adopta la paleta del informe (navy→azul) en lugar del turquesa del deck de origen; sus cuatro contrastes están medidos contra WCAG AA (11.6 · 4.8 · 5.4 · 9.3).
 - **10 entera es propuesta** — la arquitectura de IA no existe en la organización. Nueva **10.7 = los dos quick wins** (el agente conversacional · la formación con licencia Claude Teams); el cierre pasó a 10.8.
 
 ⚠️ **Maia no es un hallazgo**: es despliegue del equipo consultor. Se retiró de 7.1 (era una fila de la tabla de sistemas del grupo), de 7.4, de toda la 9 y de la capa C6 de la 10. **Sigue** —legítimamente— en los anexos, la tabla de requisitos, la 3 y la hoja de ruta (12.3), que son registro del proyecto. No reintroducirlo como hallazgo.
