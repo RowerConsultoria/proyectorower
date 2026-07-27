@@ -1105,3 +1105,27 @@ body.en-portada .hud{display:none}
 /* la atribución de mapbox, legible sobre nuestros dos temas */
 .mapa-caja .mapboxgl-ctrl-attrib{background:var(--panel) !important;font-size:10px}
 .mapa-caja .mapboxgl-ctrl-attrib a{color:var(--tinta-media) !important}
+
+/* ------------------------------------------ 33. EL PANEL DE PORTAL */
+/* Un portal es otro documento, y aun así una parada del mismo recorrido: se
+   abre aquí dentro. Va por DEBAJO de la barra del recorrido (41) para que el
+   guion siga leyéndose, y por encima de todo lo demás. */
+.portal-panel{
+  /* el hueco de abajo lo MIDE el JS sobre la barra real del recorrido: fijarlo
+     a ojo dejaba una franja del sistema asomando cuando el guion ocupaba dos
+     líneas, o tapaba la barra cuando ocupaba una */
+  position:fixed;left:0;right:0;top:0;bottom:var(--hueco-recorrido,118px);z-index:38;
+  display:flex;flex-direction:column;background:var(--fondo);
+  border-bottom:1px solid var(--borde);
+}
+/* sin menú lateral a la vista, la barra del guion se centra en toda la ventana */
+body.con-portal .recorrido{left:22px}
+.portal-panel[hidden]{display:none}
+.pp-cab{
+  display:flex;align-items:center;gap:10px;padding:9px 18px;
+  background:var(--panel);border-bottom:1px solid var(--borde);font-size:13px;
+}
+.pp-cab b{font-size:13.5px}
+.portal-panel iframe{flex:1;border:0;width:100%}
+body.con-portal{overflow:hidden}
+@media (max-width:860px){ .pp-cab{padding:8px 12px} body.con-portal .recorrido{left:14px} }

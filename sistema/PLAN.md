@@ -345,7 +345,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | 30 | Big Map ejecutivo (Mapbox) · ✅ **hecha** | 28, 29 |
 | 31 | Portal del vendedor · ✅ **hecha** | 27, 28 |
 | 32 | Portal del cliente · ✅ **hecha** | 29 |
-| 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) | todas |
+| 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) · ✅ **hecha** | todas |
 | 34 | Comprobaciones, capturas del deck y cierre | 33 |
 
 ## Fase 26 · La entrada
@@ -671,7 +671,37 @@ Reescribir `nucleo/recorrido.js` con el arco del ciclo completo:
 - Repasar CADA cifra del guion contra la pantalla que la sostiene (la
   comprobación ya lo exige; el guion nuevo no hereda el viejo sin verificar).
 
-**Insumos pendientes del usuario para esta fase:** _(se van anotando aquí)_
+**Insumos pendientes del usuario para esta fase:** ninguno recibido antes de
+ejecutarla. Si llegan mejoras después, el guion se retoca parada a parada — la
+maquinaria ya admite paradas de pantalla y de portal.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- **18 paradas en cuatro actos**, en vez de las 12 de la fase 21:
+  · I *el dato antes que el agente* (dirección · conectores · cimiento ·
+    demanda no atendida) — **`frentes/conectores` se movió al principio**: es
+    el origen del dato, no el cierre;
+  · II *la compra* (producto · mesa · propuesta línea a línea · el techo);
+  · III *del mar al frente* (tránsitos · **portal del vendedor** · recepción ·
+    inventarios propios · reparto);
+  · IV *la red* (inventario distribuido · mapa · cartera con la IA · **portal
+    del cliente** · la sala de agentes).
+  El ciclo cierra donde debe: lo que el cliente sube en la parada 17 es lo que
+  alimenta la demanda de la parada 4.
+- **Los portales son paradas del mismo recorrido**, no un salto de pestaña:
+  una parada declara `portal:` en vez de `ruta:` y se abre en un panel con
+  iframe, con la barra del guion por encima. Saltar a otra pestaña en mitad de
+  una presentación pierde el hilo y no vuelve. Al cerrar el panel, `navega()`
+  repinta: una reserva hecha en el portal cambia lo que el sistema enseña.
+- El hueco que el panel deja para la barra se **mide**, no se fija a ojo: la
+  barra crece o mengua con el texto de cada parada.
+- `c_recorrido` entiende las dos clases de parada y, en las de portal, **busca
+  las cifras dentro del iframe**. Hacía falta: leyendo la pantalla de detrás,
+  el paso del portal del cliente pasaba porque sus números aparecían por
+  casualidad en la cartera que quedaba debajo.
+- Seis trampas verificadas. Una salió ciega y destapó un hueco de la propia
+  comprobación: cerraba el recorrido desde la última parada —que no es de
+  portal—, así que nunca probaba el único caso en que el panel puede quedarse
+  pegado. Ahora cierra desde dentro de un portal.
 
 ## Fase 34 · Comprobaciones, capturas y cierre
 

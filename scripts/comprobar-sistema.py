@@ -224,9 +224,16 @@ def c_contraste(nav, rapido):
 
 
 def c_recorrido(nav, rapido):
-    """Las 12 paradas llegan a su ruta, hallan su ancla, y CADA CIFRA del guion
+    """Las paradas llegan a su destino, hallan su ancla, y CADA CIFRA del guion
     aparece en la pantalla que la sostiene. Es la comprobación que descubrió que
-    el guion decía «5 frentes con Odoo» cuando eran 3."""
+    el guion decía «5 frentes con Odoo» cuando eran 3.
+
+    Desde la fase 33 hay dos clases de parada: las de PANTALLA, que navegan por
+    hash dentro del sistema, y las de PORTAL, que abren otro documento en un
+    panel. Para una parada de portal hay que mirar DENTRO del iframe: buscar
+    sus cifras en la pantalla de detrás daba falsos positivos —el paso del
+    portal del cliente pasaba porque sus números aparecían por casualidad en la
+    cartera que quedaba debajo—."""
     fallos = []
     p = nueva(nav)
     # desde la fase 26 la portada recibe primero: se entra por ella, como
@@ -237,23 +244,51 @@ def c_recorrido(nav, rapido):
     p.wait_for_timeout(800)
     total = p.evaluate('()=>RECORRIDO.length')
     num = re.compile(r'\d[\d.]*')
+    portales = 0
     for i in range(total):
         if i:
             p.click('#rec-sigue')
-            p.wait_for_timeout(720)
+            p.wait_for_timeout(760)
         d = p.evaluate("""()=>{const q=RECORRIDO[_rec.paso];
-            return {n:_rec.paso+1, pide:q.ruta, hash:location.hash.replace('#/',''),
+            const pan=document.querySelector('#portal-panel');
+            return {n:_rec.paso+1, pide:q.ruta||null, portal:q.portal||null,
+                    hash:location.hash.replace('#/',''),
                     ancla:q.foco||null,
                     hallada: q.foco? !!document.querySelector('.lienzo '+q.foco) : true,
+                    panel: pan? !pan.hidden : false,
+                    marco: pan? (document.querySelector('#pp-marco').dataset.clave||null) : null,
                     guion:document.querySelector('.rec-txt').innerText,
                     pantalla:document.querySelector('.lienzo').innerText};}""")
-        if d['hash'] != d['pide']:
-            fallos.append('paso %d: pide #/%s y quedó en #/%s' % (d['n'], d['pide'], d['hash']))
-        if not d['hallada']:
-            fallos.append('paso %d: no encuentra su ancla %s' % (d['n'], d['ancla']))
+
+        if d['portal']:
+            portales += 1
+            # el panel abierto, con SU portal cargado
+            if not d['panel'] or d['marco'] != d['portal']:
+                fallos.append('paso %d: la parada del portal «%s» no abrió su panel (panel=%s marco=%s)'
+                              % (d['n'], d['portal'], d['panel'], d['marco']))
+                continue
+            # y las cifras se buscan DENTRO del iframe, no en lo que quedó detrás
+            marco = p.frame_locator('#pp-marco')
+            try:
+                marco.locator('body').wait_for(timeout=8000)
+                pantalla = marco.locator('body').inner_text(timeout=8000)
+            except Exception as e:
+                fallos.append('paso %d: no se pudo leer el portal «%s» (%s)'
+                              % (d['n'], d['portal'], str(e)[:60]))
+                continue
+        else:
+            if d['hash'] != d['pide']:
+                fallos.append('paso %d: pide #/%s y quedó en #/%s' % (d['n'], d['pide'], d['hash']))
+            if not d['hallada']:
+                fallos.append('paso %d: no encuentra su ancla %s' % (d['n'], d['ancla']))
+            # con un portal abierto antes, el panel tiene que haberse cerrado
+            if d['panel']:
+                fallos.append('paso %d: el panel del portal sigue abierto sobre una pantalla' % d['n'])
+            pantalla = d['pantalla']
+
         if 'no pudo leer' in d['guion']:
             fallos.append('paso %d: el guion no pudo leer sus cifras del núcleo' % d['n'])
-        pantalla = d['pantalla'].replace(' ', ' ')
+        pantalla = pantalla.replace('\u00a0', ' ')
         for c in num.findall(d['guion']):
             c = c.rstrip('.')
             if len(c) < 3 or c in ('100',):
@@ -261,9 +296,30 @@ def c_recorrido(nav, rapido):
             if c not in pantalla:
                 fallos.append('paso %d: el guion dice «%s» y no está en la pantalla'
                               % (d['n'], c))
+
+    if portales != 2:
+        fallos.append('el recorrido tiene %d paradas de portal y la fase 33 pide 2' % portales)
+
+    # Salir del recorrido DESDE UNA PARADA DE PORTAL: es el único caso en que
+    # el panel puede quedarse pegado. Cerrar desde la última parada no probaba
+    # nada —esa no es de portal, así que el panel ya estaba cerrado— y la
+    # trampa correspondiente salió ciega.
+    i = p.evaluate("()=>RECORRIDO.findIndex(x=>x.portal)")
+    if i >= 0:
+        p.evaluate('(k)=>vaAlPaso(k)', i)
+        p.wait_for_timeout(1200)
+        if not p.evaluate("()=>{const x=document.querySelector('#portal-panel'); return x? !x.hidden : false;}"):
+            fallos.append('no se pudo volver a una parada de portal para probar la salida')
+        p.evaluate('()=>cierraRecorrido()')
+        p.wait_for_timeout(800)
+        if p.evaluate("()=>{const x=document.querySelector('#portal-panel'); return x? !x.hidden : false;}"):
+            fallos.append('salir del recorrido desde un portal deja el panel puesto')
+        if p.evaluate("()=>document.body.classList.contains('con-portal')"):
+            fallos.append('salir del recorrido desde un portal deja el cuerpo bloqueado')
+
     fallos += p.errores
     p.close()
-    return fallos, '%d paradas y sus cifras' % total
+    return fallos, '%d paradas (%d de portal) y sus cifras' % (total, portales)
 
 
 def c_permisos(nav, rapido):
