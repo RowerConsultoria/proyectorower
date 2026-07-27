@@ -28,7 +28,7 @@ window.PANTALLAS.fabricas = function (lienzo) {
     const pedido = completarMOQ(f.id);
     const emb = TRANSITOS.filter(t => t.prov === f.nombre);
     const usd = pedido.skus.reduce((x, p) =>
-      x + ((pedido.base[p.sku] || 0) + (pedido.anadido[p.sku] || 0)) * p.pvp * 0.38, 0);
+      x + costoDe(p, (pedido.base[p.sku] || 0) + (pedido.anadido[p.sku] || 0)), 0);
     return { f, d, refs, cands, pedido, emb, usd };
   });
 

@@ -24,7 +24,7 @@ window.PANTALLAS['compras/cubitt'] = function (lienzo) {
   const conPedido = bloques.filter(b => b.hayNecesidad);
   const totU = conPedido.reduce((a, b) => a + b.total, 0);
   const totUSD = conPedido.reduce((a, b) =>
-    a + b.skus.reduce((x, p) => x + ((b.base[p.sku] || 0) + (b.anadido[p.sku] || 0)) * p.pvp * 0.38, 0), 0);
+    a + b.skus.reduce((x, p) => x + costoDe(p, (b.base[p.sku] || 0) + (b.anadido[p.sku] || 0)), 0), 0);
   const anticipo = totUSD * 0.30;
   const forzadas = conPedido.filter(b => b.completado > b.propio * 0.5);
 
@@ -88,7 +88,7 @@ window.PANTALLAS['compras/cubitt'] = function (lienzo) {
       const abierta = _cub.abierta === b.fab.id;
       const pctNec = Math.min(100, b.propio / b.fab.moq * 100);
       const pctAdd = Math.min(100 - pctNec, b.completado / b.fab.moq * 100);
-      const usd = b.skus.reduce((x, p) => x + ((b.base[p.sku] || 0) + (b.anadido[p.sku] || 0)) * p.pvp * 0.38, 0);
+      const usd = b.skus.reduce((x, p) => x + costoDe(p, (b.base[p.sku] || 0) + (b.anadido[p.sku] || 0)), 0);
 
       return `<div class="panel" data-fab="${b.fab.id}">
         <div class="fila-sep" style="cursor:pointer" data-toggle="${b.fab.id}">

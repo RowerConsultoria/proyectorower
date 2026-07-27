@@ -39,7 +39,7 @@ function _lineasDelPedido() {
   const base = CATALOGO.filter(p => p.marca === 'Casio')
     .map(_filaDatos)
     .filter(f => f.humana > 0)
-    .map(f => ({ ...f, costo: f.humana * f.p.pvp * 0.42, urgencia: f.prop.cobertura }));
+    .map(f => ({ ...f, costo: costoDe(f.p, f.humana), urgencia: f.prop.cobertura }));
 
   const total = base.reduce((a, l) => a + l.costo, 0);
   const topeRower = total * REGLAS.cuotaRazonSocial.v['Distribuidora Rower'];

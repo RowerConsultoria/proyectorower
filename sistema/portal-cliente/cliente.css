@@ -1,0 +1,70 @@
+/* ============================================================================
+   PORTAL DEL CLIENTE — lo específico                    · Fase 32 del plan
+   Proyecto Rower · UCAB Consultores para Grupo Kenex
+
+   El cromo de portal vive compartido en ../estilo/portal.css. Aquí solo lo de
+   esta página: la fila de compra con su cantidad, el carrito, el semáforo del
+   crédito y la escalera de precedencia.
+   ============================================================================ */
+
+/* ── la fila de compra ── */
+.c-ref{display:flex;align-items:center;gap:14px}
+.c-ref img{width:44px;height:44px;object-fit:contain;border-radius:8px;background:var(--panel-alto);flex:none}
+.c-ref .n{font-size:13.5px;font-weight:600;line-height:1.25}
+.c-ref .s{font-size:10.5px;color:var(--tinta-tenue)}
+.c-cant{width:88px;padding:6px 9px;font-size:13px}
+.c-atp{font-variant-numeric:tabular-nums}
+.c-atp.cero{color:var(--tinta-tenue)}
+
+/* ── el carrito: pegado abajo, siempre a la vista mientras se compra ── */
+.c-carro{
+  position:sticky;bottom:0;z-index:12;margin-top:18px;
+  background:var(--panel-vidrio);border:1px solid var(--borde);
+  border-radius:var(--r-panel);padding:16px 20px;
+  backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  box-shadow:var(--sombra-alta);
+}
+.c-carro .lineas{display:flex;flex-direction:column;gap:5px;margin:10px 0;max-height:170px;overflow:auto}
+.c-carro .lin{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.c-carro .lin .q{font-variant-numeric:tabular-nums;color:var(--tinta-media);flex:none;width:66px;text-align:right}
+.c-carro .lin .x{color:var(--tinta-tenue);cursor:pointer;border:0;background:none;font-family:inherit;font-size:13px}
+.c-carro .lin .x:hover{color:var(--riesgo)}
+
+/* el bloqueo por crédito: nunca en silencio */
+.c-bloqueo{
+  background:#2a1418;border:1px solid rgba(255,107,90,.4);border-left:3px solid var(--riesgo);
+  border-radius:0 var(--r-campo) var(--r-campo) 0;padding:12px 15px;margin-top:12px;
+}
+:root[data-tema="claro"] .c-bloqueo{background:#fdf3f2}
+.c-bloqueo b{color:var(--riesgo)}
+
+/* ── la escalera de precedencia, publicada ── */
+.c-escalera{display:flex;flex-direction:column;gap:4px;margin-top:12px}
+.c-escalera .pel{
+  display:flex;align-items:center;gap:10px;font-size:12px;color:var(--tinta-tenue);
+  padding:6px 11px;border-radius:var(--r-campo);border:1px solid transparent;
+}
+.c-escalera .pel .n{font-variant-numeric:tabular-nums;font-weight:700;flex:none;width:16px}
+.c-escalera .pel.mio{
+  color:var(--tinta);background:var(--panel-alto);border-color:var(--menta);
+}
+
+/* ── el seguimiento de un despacho ── */
+.c-ruta{display:flex;align-items:center;gap:0;margin-top:12px}
+.c-ruta .pa{flex:1;text-align:center;font-size:10.5px;color:var(--tinta-tenue);position:relative}
+.c-ruta .pa::before{
+  content:'';display:block;height:3px;background:var(--panel-alto);margin-bottom:7px;
+}
+.c-ruta .pa.ya::before{background:var(--gradiente)}
+.c-ruta .pa.ya{color:var(--tinta-media)}
+.c-ruta .pa.aqui{color:var(--tinta);font-weight:700}
+
+/* ── el reporte: la barra de lo reconocido ── */
+.c-reco{display:flex;height:12px;border-radius:999px;overflow:hidden;border:1px solid var(--borde);margin:12px 0}
+.c-reco span{display:block;height:100%}
+.c-reco .ok{background:var(--gradiente)}
+.c-reco .cola{background:var(--alerta)}
+
+@media (max-width:860px){
+  .c-carro{padding:13px 15px}
+}

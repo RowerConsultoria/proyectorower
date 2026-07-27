@@ -344,7 +344,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | 29 | Módulo de clientes + torre de control IA · ✅ **hecha** | 28 |
 | 30 | Big Map ejecutivo (Mapbox) · ✅ **hecha** | 28, 29 |
 | 31 | Portal del vendedor · ✅ **hecha** | 27, 28 |
-| 32 | Portal del cliente | 29 |
+| 32 | Portal del cliente · ✅ **hecha** | 29 |
 | 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) | todas |
 | 34 | Comprobaciones, capturas del deck y cierre | 33 |
 
@@ -617,6 +617,41 @@ de lo que los clientes suben). El cliente:
 - **Línea de crédito** (consumo, vencimientos) y **promociones** activas.
 - Comprobación `portal-cliente`: el pedido respeta el crédito; el sell-out
   subido mueve el inventario estimado (28) y deja rastro.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- `sistema/portal-cliente/` con cinco pestañas: **comprar** (catálogo con
+  precio en su moneda, disponible y carrito), **preventa**, **mis pedidos**,
+  **reportar ventas** y **mi cuenta**.
+- Las tres promesas de la fase, visibles: el **crédito bloquea con motivo
+  escrito** («excede su línea en X · su límite es Y y tiene Z consumidos») y
+  apaga el botón — nunca en silencio ni aprobando; la **escalera de
+  precedencia se publica** con el peldaño del cliente resaltado (socio →
+  peldaño 2 «reserva nominal»; cliente → peldaño 4 «reposición dentro de su
+  ciclo»); y el **cedazo se explica a su dueño**: cuántas líneas se
+  reconocieron, cuántas van a cola, y **su banda de incertidumbre** de la fase
+  28 con la frase que la justifica.
+- Un frente con Odoo no ve el formulario de subida: ve por qué no le hace
+  falta y por qué su inventario se ve sin banda.
+- El pedido confirmado **entra en PEDIDOS**, no en una variable de pantalla:
+  lo ve la pestaña de pedidos y el módulo comercial del aplicativo, con su
+  Y-01 en la bitácora.
+- Refactor obligado por la segunda página de portal: el **cromo de portal**
+  pasó a `estilo/portal.css`, compartido — cien líneas duplicadas son cien
+  líneas que pueden divergir.
+- **`c_reglas` vigila ahora los factores de valoración escritos a mano**, y al
+  estrenarla destapó más de lo buscado: el 0,42 (costo Casio) y el 0,38 (costo
+  Cubitt) estaban copiados en cinco pantallas, y el núcleo tenía una expresión
+  que se cancelaba sola (`costoObjetivo / 0.38 * 0.38`). Todo unificado en
+  `costoDe(p, u)`, por marca. Es una comprobación ESTÁTICA a propósito: mover
+  la constante cambia los dos lados de cualquier comparación de pantalla, así
+  que una prueba en el navegador pasaría siempre.
+- Seis trampas verificadas; la del factor salió tautológica y por eso se
+  sustituyó por la estática. La comprobación cazó además un defecto real al
+  primer intento: un valor inventado en el eje `dinero` («compromete», que no
+  existe: son ninguno · caja · ingreso).
+- Colisión de nombres detectada al cargar: `ETAPAS` ya existía en los datos, y
+  dos scripts clásicos comparten el ámbito global — todo lo del portal va con
+  prefijo.
 
 ## Fase 33 · Recorrido 2.0 — se ejecuta al final, con todo dentro
 

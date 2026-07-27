@@ -61,7 +61,7 @@ window.PANTALLAS['compras/casio'] = function (lienzo) {
 
   const visibles = filas.filter(pasa);
   const totU = filas.reduce((a, f) => a + f.humana, 0);
-  const totUSD = filas.reduce((a, f) => a + f.humana * f.p.pvp * 0.42, 0);
+  const totUSD = filas.reduce((a, f) => a + costoDe(f.p, f.humana), 0);
   const nAjustes = Object.keys(_mesa.ajustes).length;
 
   lienzo.innerHTML = `

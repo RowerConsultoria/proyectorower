@@ -1,0 +1,90 @@
+/* ============================================================================
+   CROMO DE PORTAL — compartido por los portales externos
+   Proyecto Rower · UCAB Consultores para Grupo Kenex · Fase 31-32 del plan
+
+   Lo que hace que una página se lea como PORTAL y no como el aplicativo
+   interno: cabecera ancha con quién eres y a quién le vendes o compras,
+   pestañas grandes, y ni menú lateral ni sala de agentes.
+
+   Vive aquí y no dentro de cada portal porque son DOS —vendedor y cliente— y
+   cien líneas duplicadas son cien líneas que pueden divergir. Cada portal
+   añade encima solo lo suyo.
+
+   Hereda el sistema de diseño completo de app.css: tokens, botones, tablas y
+   chips son los mismos que en el aplicativo. La identidad no cambia; cambia
+   el marco.
+   ============================================================================ */
+
+body.portal{
+  min-height:100vh;display:flex;flex-direction:column;
+  background:
+    radial-gradient(720px 420px at 82% -10%,rgba(50,198,244,.10),transparent 65%),
+    radial-gradient(560px 380px at 4% 6%,rgba(54,246,187,.07),transparent 60%),
+    var(--fondo);
+}
+
+/* ── cabecera ── */
+.p-cab{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  padding:14px 26px;background:var(--panel-vidrio);
+  border-bottom:1px solid var(--borde);
+  backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  position:sticky;top:0;z-index:30;
+}
+.p-marca{display:flex;align-items:center;gap:10px}
+.p-marca .nom{font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.05;
+  background:var(--gradiente-texto);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.p-marca .sub{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-tenue)}
+
+.p-quien{display:flex;align-items:center;gap:9px;padding-left:18px;border-left:1px solid var(--borde)}
+.p-quien select{
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--tinta);
+  background:var(--panel-alto);border:1px solid var(--borde);
+  border-radius:var(--r-campo);padding:7px 11px;cursor:pointer;
+}
+.p-yo{font-size:11.5px;color:var(--tinta-tenue);text-align:right;line-height:1.35}
+.p-yo b{color:var(--tinta-media);display:block;font-size:12.5px}
+
+/* ── pestañas ── */
+.p-pest{display:flex;gap:4px;padding:0 26px;border-bottom:1px solid var(--borde);
+  background:var(--lienzo);overflow-x:auto}
+.p-pest button{
+  font-family:inherit;font-size:13.5px;font-weight:600;color:var(--tinta-tenue);
+  background:none;border:0;border-bottom:2px solid transparent;
+  padding:13px 16px;cursor:pointer;white-space:nowrap;
+}
+.p-pest button:hover{color:var(--tinta-media)}
+.p-pest button.on{color:var(--tinta);border-bottom-color:var(--menta)}
+.p-pest .cuenta{
+  display:inline-block;margin-left:6px;font-size:10.5px;font-weight:700;
+  background:var(--panel-alto);color:var(--tinta-media);
+  border-radius:999px;padding:1px 7px;
+}
+
+.p-lienzo{flex:1;padding:26px;max-width:1500px;width:100%;margin:0 auto}
+.p-pie{padding:18px 26px 26px;text-align:center;font-size:11.5px;color:var(--tinta-tenue)}
+
+/* Las tablas de un portal no caben en un móvil: se desplazan DENTRO de su caja
+   en vez de desbordar la página — el patrón del informe. La tabla conserva su
+   ancho natural para que las columnas de cifras no se aplasten. */
+.p-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border-radius:var(--r-tarjeta);border:1px solid var(--borde-tenue)}
+.p-scroll table.tabla{min-width:640px}
+.p-scroll::-webkit-scrollbar{height:7px}
+.p-scroll::-webkit-scrollbar-thumb{background:var(--borde);border-radius:99px}
+
+/* el campo numérico de los portales */
+.p-cant{
+  font-family:inherit;font-size:14px;font-weight:700;color:var(--tinta);width:110px;
+  background:var(--panel-alto);border:1px solid var(--borde);
+  border-radius:var(--r-campo);padding:9px 12px;text-align:right;
+}
+
+@media (max-width:860px){
+  .p-cab{padding:12px 16px;gap:12px}
+  .p-quien{padding-left:0;border-left:0;width:100%;order:3}
+  .p-quien select{flex:1}
+  .p-lienzo{padding:18px 14px}
+  .p-pest{padding:0 14px}
+}

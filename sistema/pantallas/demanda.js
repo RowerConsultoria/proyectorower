@@ -35,7 +35,7 @@ function demandaNoAtendida() {
       const causa = CAUSA_ESCASEZ[l.sku];
       filas.push({
         f, p, pide: l.pide, recibe: l.recibe, falta,
-        valor: Math.round(falta * p.pvp * 0.62),
+        valor: Math.round(valorMayoreo(p, falta)),
         peldano: l.peldano,
         motivo: causa ? causa.texto : 'lo pedido superó lo disponible en el corte',
       });

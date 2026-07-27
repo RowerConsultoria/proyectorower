@@ -313,7 +313,14 @@ def _ficheros_js():
 def c_reglas(nav, rapido):
     """Ninguna regla de negocio declarada con dueño y versión que después no use
     nadie. Una regla huérfana es una promesa incumplida, y en este sistema las
-    reglas son el argumento."""
+    reglas son el argumento.
+
+    Y ningún FACTOR de valoración escrito a mano fuera del núcleo. El 0,62 del
+    precio de mayoreo llegó a estar copiado en dos pantallas y el portal del
+    cliente iba a ser la tercera; ahora vive en `valorMayoreo()`. Esto no se
+    puede comprobar en el navegador —mover la constante cambia los dos lados de
+    la comparación y la prueba pasaría igual— así que se comprueba leyendo el
+    código."""
     fuente = os.path.join(RAIZ, 'sistema', 'nucleo', 'agentes.js')
     with open(fuente, encoding='utf-8') as f:
         nucleo = f.read()
@@ -327,6 +334,17 @@ def c_reglas(nav, rapido):
             todo += fh.read()
 
     fallos = []
+
+    # los factores de valoración, en un solo sitio
+    for f in _ficheros_js():
+        if f.endswith(os.path.join('nucleo', 'agentes.js')):
+            continue
+        with open(f, encoding='utf-8') as fh:
+            cuerpo = fh.read()
+        for m in re.findall(r'pvp\s*\*\s*0\.\d+', cuerpo):
+            fallos.append('%s escribe «%s» a mano: los factores de valoración '
+                          'viven en el núcleo' % (os.path.basename(f), m))
+
     for k in claves:
         # se descuenta la propia declaración
         usos = len(re.findall(r'REGLAS\.' + k + r'\b', todo))
@@ -968,11 +986,186 @@ def c_portal_vendedor(nav, rapido):
     return fallos, 'ATP contra crudos · amarre de un embarque · cruce al aplicativo · tope, soltar y móvil'
 
 
+def c_portal_cliente(nav, rapido):
+    """El portal de la fase 32. Sus tres promesas, verificadas:
+
+      · el crédito BLOQUEA con motivo escrito — no en silencio ni aprobando
+      · la escalera de precedencia se PUBLICA, y el peldaño que se resalta es
+        el que le toca a ese cliente por su tipo
+      · lo que sube el cliente pasa por el cedazo: reconocidas y en cola, con
+        las cifras del reporte real, y la banda de la fase 28 dicha a su dueño
+
+    Y lo de siempre: precio, crédito y disponible recomputados desde los
+    crudos, no desde la función que pinta.
+    """
+    fallos = []
+    ctx = nav.new_context(viewport={'width': 1560, 'height': 1200})
+    p = ctx.new_page()
+    p.errores = []
+    p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
+    p.on('console', lambda m: p.errores.append('consola: ' + m.text[:140])
+         if m.type == 'error' else None)
+    p.goto(BASE + 'portal-cliente/', wait_until='networkidle')
+    p.wait_for_timeout(1500)
+
+    # ── 1 · catálogo: precio y disponible contra los crudos ────────────────
+    d = p.evaluate("""()=>{
+      const f=FRENTES.find(x=>x.id===_c.cliente);
+      const mon=MONEDA_FRENTE[f.id]||'USD';
+      const fila=document.querySelector('[data-sku]');
+      const sku=fila?fila.dataset.sku:null;
+      const q=CATALOGO.find(x=>x.sku===sku);
+      const precioUSD=valorMayoreo(q);
+      const esperado=mon==='USD'?dinero(precioUSD):dinero(deUSD(precioUSD,mon).valor,mon);
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      return {sku, precio:fila.querySelector('.c-precio').textContent.trim(), esperado,
+        atp:fila.querySelector('.c-atp').textContent.trim(), atpEsp:n(atp(sku).total),
+        filas:document.querySelectorAll('[data-sku]').length,
+        conStock:CATALOGO.filter(x=>atp(x.sku).total>0).length,
+        credito:f.credito-f.saldo, moneda:mon, tipo:f.tipo};}""")
+    if d['precio'] != d['esperado']:
+        fallos.append('el precio de %s dice %s y el mayoreo da %s' % (d['sku'], d['precio'], d['esperado']))
+    if d['atp'] != d['atpEsp']:
+        fallos.append('el disponible de %s dice %s y el ATP da %s' % (d['sku'], d['atp'], d['atpEsp']))
+    if d['filas'] != d['conStock']:
+        fallos.append('%d filas y %d referencias con existencia' % (d['filas'], d['conStock']))
+
+    # ── 2 · un pedido que CABE se confirma y deja rastro ───────────────────
+    p.evaluate("""()=>{const i=document.querySelector('[data-pedir]');
+      i.value='30'; i.dispatchEvent(new Event('input',{bubbles:true}));}""")
+    p.wait_for_timeout(700)
+    d2 = p.evaluate("""()=>({bloqueo:!!document.querySelector('#c-bloqueo'),
+      off:document.querySelector('#confirmar').disabled,
+      total:document.querySelector('#c-total').textContent.trim()})""")
+    if d2['bloqueo'] or d2['off']:
+        fallos.append('un pedido dentro del crédito aparece bloqueado (%s)' % d2)
+    else:
+        antes = p.evaluate("()=>PEDIDOS.length")
+        p.click('#confirmar')
+        p.wait_for_timeout(900)
+        d3 = p.evaluate("(a)=>({nuevos:PEDIDOS.length-a,"
+                        " y01:BITACORA.some(e=>e.accion.startsWith('Y-01')),"
+                        " confirmado:document.body.textContent.includes('recibido'),"
+                        " carro:Object.keys(_c.carro).length})", antes)
+        if d3['nuevos'] != 1:
+            fallos.append('confirmar no creó el pedido en el modelo')
+        if not d3['y01']:
+            fallos.append('el pedido del portal no dejó su Y-01 en la bitácora')
+        if not d3['confirmado'] or d3['carro']:
+            fallos.append('tras confirmar, la pantalla no lo acusa o el carrito no se vacía')
+
+    # ── 3 · un pedido que NO cabe: bloqueo con motivo, nunca en silencio ───
+    p.evaluate("""()=>{document.querySelectorAll('[data-pedir]').forEach((i,k)=>{
+      if(k<3){ i.value='99999'; i.dispatchEvent(new Event('input',{bubbles:true})); }});}""")
+    p.wait_for_timeout(800)
+    d4 = p.evaluate("""()=>{const b=document.querySelector('#c-bloqueo');
+      const f=FRENTES.find(x=>x.id===_c.cliente);
+      return {hay:!!b, off:document.querySelector('#confirmar').disabled,
+        dice:b?b.textContent:'',
+        limite:dinero(f.credito), consumido:dinero(f.saldo)};}""")
+    if not d4['hay']:
+        fallos.append('un pedido que excede el crédito NO se bloquea')
+    else:
+        if not d4['off']:
+            fallos.append('el pedido excede el crédito y el botón de confirmar sigue vivo')
+        for trozo, que in [('excede su línea de crédito', 'no dice que excede'),
+                           (d4['limite'], 'no dice el límite'),
+                           (d4['consumido'], 'no dice lo consumido')]:
+            if trozo not in d4['dice']:
+                fallos.append('el bloqueo %s — «%s»' % (que, d4['dice'].strip()[:70]))
+    # se limpia el carrito para no arrastrarlo
+    p.evaluate("""()=>{document.querySelectorAll('[data-pedir]').forEach(i=>{
+      i.value=''; i.dispatchEvent(new Event('input',{bubbles:true}));});}""")
+    p.wait_for_timeout(600)
+
+    # ── 4 · la escalera publicada, con SU peldaño resaltado ────────────────
+    p.evaluate("()=>document.querySelector('[data-pest=\"preventa\"]').click()")
+    p.wait_for_timeout(700)
+    d5 = p.evaluate("""()=>{
+      const f=FRENTES.find(x=>x.id===_c.cliente);
+      const toca=(f.tipo==='propio'||f.tipo==='socio')?'nominal':'ciclo';
+      const esp=ESCALERA.find(e=>e.clave===toca);
+      const mios=[...document.querySelectorAll('.c-escalera .pel.mio')];
+      return {peldanos:document.querySelectorAll('.c-escalera .pel').length,
+        total:ESCALERA.length, mios:mios.length,
+        dice:mios.length?+mios[0].dataset.pel:null, esperado:esp.n};}""")
+    if d5['peldanos'] != d5['total']:
+        fallos.append('la escalera enseña %d peldaños y son %d' % (d5['peldanos'], d5['total']))
+    if d5['mios'] != 1 or d5['dice'] != d5['esperado']:
+        fallos.append('el peldaño resaltado es el %s y a este cliente le toca el %s'
+                      % (d5['dice'], d5['esperado']))
+
+    # ── 5 · el reporte pasa por el cedazo, con las cifras del reporte real ──
+    p.evaluate("()=>document.querySelector('[data-pest=\"reportar\"]').click()")
+    p.wait_for_timeout(700)
+    p.evaluate("()=>{const b=document.querySelector('#subir'); if(b) b.click();}")
+    p.wait_for_timeout(800)
+    d6 = p.evaluate("""()=>{
+      const r=REPORTES[_c.cliente];
+      const rec=r.filas.filter(x=>x.resuelto).length, cola=r.filas.length-rec;
+      const dist=inventarioDistribuido().clientes.find(c=>c.f.id===_c.cliente);
+      const t=document.body.textContent;
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      return {rec, cola, diceRec:t.includes(rec+' reconocidas'),
+        diceCola:!cola||t.includes(cola+' en cola'),
+        y02:BITACORA.some(e=>e.accion.startsWith('Y-02')),
+        banda:!dist||!dist.banda||t.includes(n(dist.banda)+' u')};}""")
+    if not d6['diceRec'] or not d6['diceCola']:
+        fallos.append('el reporte no dice %d reconocidas y %d en cola' % (d6['rec'], d6['cola']))
+    if not d6['y02']:
+        fallos.append('subir el reporte no dejó su Y-02 en la bitácora')
+    if not d6['banda']:
+        fallos.append('el portal no le dice al cliente su banda de incertidumbre (fase 28)')
+
+    # ── 6 · mi cuenta: el crédito contra los crudos ────────────────────────
+    p.evaluate("()=>document.querySelector('[data-pest=\"cuenta\"]').click()")
+    p.wait_for_timeout(700)
+    d7 = p.evaluate("""()=>{const f=FRENTES.find(x=>x.id===_c.cliente);
+      return {lim:document.querySelector('#c-limite').textContent.trim(),
+        limEsp:dinero(f.credito),
+        disp:document.querySelector('#c-disp').textContent.trim(),
+        dispEsp:dinero(f.credito-f.saldo),
+        promos:document.querySelectorAll('[data-promo]').length,
+        promosEsp:promosDe(f.id).length};}""")
+    if d7['lim'] != d7['limEsp'] or d7['disp'] != d7['dispEsp']:
+        fallos.append('mi cuenta dice límite %s / disponible %s y los crudos %s / %s'
+                      % (d7['lim'], d7['disp'], d7['limEsp'], d7['dispEsp']))
+    if d7['promos'] != d7['promosEsp']:
+        fallos.append('%d promociones en pantalla y %d en PROMOS' % (d7['promos'], d7['promosEsp']))
+
+    # ── 7 · un frente con Odoo no tiene que subir nada ─────────────────────
+    p.select_option('#cliente', 'VE')
+    p.wait_for_timeout(800)
+    p.evaluate("()=>document.querySelector('[data-pest=\"reportar\"]').click()")
+    p.wait_for_timeout(700)
+    if not p.evaluate("()=>document.body.textContent.includes('su sistema ya está conectado')"):
+        fallos.append('a un frente con Odoo se le sigue pidiendo subir un archivo')
+
+    # ── 8 · el portal en un móvil ──────────────────────────────────────────
+    if not rapido:
+        m = ctx.new_page()
+        m.set_viewport_size({'width': 430, 'height': 900})
+        m.goto(BASE + 'portal-cliente/', wait_until='networkidle')
+        m.wait_for_timeout(1400)
+        for pest in ('comprar', 'preventa', 'pedidos', 'reportar', 'cuenta'):
+            m.evaluate("(k)=>{const b=document.querySelector('[data-pest=\"'+k+'\"]');"
+                       "if(b) b.click();}", pest)
+            m.wait_for_timeout(500)
+            if m.evaluate("()=>document.documentElement.scrollWidth>"
+                          "document.documentElement.clientWidth+2"):
+                fallos.append('la pestaña «%s» desborda la ventana a 430 px' % pest)
+
+    fallos += p.errores
+    ctx.close()
+    return fallos, 'precio y crédito contra crudos · bloqueo con motivo · escalera · cedazo'
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
     'portada': c_portada, 'inventarios': c_inventarios, 'distribuido': c_distribuido,
     'clientes': c_clientes, 'mapa': c_mapa, 'portal-vendedor': c_portal_vendedor,
+    'portal-cliente': c_portal_cliente,
 }
 
 

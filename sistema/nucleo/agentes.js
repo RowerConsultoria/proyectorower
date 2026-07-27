@@ -195,6 +195,30 @@ function reserva(sku, ubicacion, unidades, dueno, motivo, horas = 24) {
   return r;
 }
 
+/**
+ * Lo que vale una venta de mayoreo: el 62 % del pvp.
+ *
+ * No es una regla de gobierno —no la revisa la Junta— sino la convención de
+ * valoración del prototipo. Pero estaba ESCRITA A MANO en dos sitios (la
+ * demanda no atendida y la venta que desbloquea un rebalanceo) y el portal del
+ * cliente iba a ser el tercero: tres copias del mismo 0,62 son tres sitios
+ * donde puede quedarse una desactualizada.
+ */
+const FACTOR_MAYOREO = 0.62;
+function valorMayoreo(p, unidades = 1) { return unidades * p.pvp * FACTOR_MAYOREO; }
+
+/**
+ * Lo que cuesta la mercancía, por marca: la representada se compra al
+ * fabricante y la propia se manda fabricar, y por eso no cuestan lo mismo.
+ *
+ * Estaban escritos a mano en CINCO sitios —el cierre del pedido, las dos
+ * mesas, la ficha de fábricas y tres puntos del propio núcleo— y los destapó
+ * la comprobación estática que se añadió al descubrir el tercer 0,62. Cinco
+ * copias del mismo número son cinco sitios donde puede quedarse una vieja.
+ */
+const COSTO = { Casio: 0.42, Cubitt: 0.38 };
+function costoDe(p, unidades = 1) { return unidades * p.pvp * (COSTO[p.marca] ?? 0.40); }
+
 /** Unidades de una referencia dentro de un embarque concreto (fase 31). */
 function unidadesEnEmbarque(sku, embId) {
   const t = TRANSITOS.find(x => x.id === embId);
@@ -360,7 +384,9 @@ function lineasEmbarque(t) {
    mar (fase 27) — si cada una tuviera su fórmula, dos pantallas darían dos
    valores del mismo contenedor. */
 function valorEmbarque(t) {
-  return lineasEmbarque(t).reduce((a, x) => a + x.u * x.p.pvp * 0.40, 0);
+  /* por línea y por marca: un contenedor mezcla Casio y Cubitt, y el 0,40
+     plano que había aquí era la media de esa mezcla escrita a ojo */
+  return lineasEmbarque(t).reduce((a, x) => a + costoDe(x.p, x.u), 0);
 }
 
 /* --------------------------------------- inventario distribuido (fase 28) */
@@ -656,7 +682,7 @@ function saludInventario() {
       filas.push({
         p, ubicacion: l, u, mensual, cobertura: cob, objetivo, quieto,
         clase: quieto ? 'parado' : claseInventario(u, mensual, objetivo),
-        valor: u * p.pvp * 0.42,
+        valor: costoDe(p, u),
       });
     }
   }
@@ -698,7 +724,7 @@ function propuestasRebalanceo() {
     props.push({
       sku, p, origen, destino, mover,
       costoTraslado: Math.round(mover * p.pvp * 0.03 + 120),
-      ventaDesbloqueada: Math.round(mover * p.pvp * 0.62),
+      ventaDesbloqueada: Math.round(valorMayoreo(p, mover)),
       diasSinMover: origen.clase === 'parado' ? REGLAS.mesesParaOcioso.v : null,
     });
   }
@@ -726,9 +752,11 @@ function proyeccionCandidato(c) {
   const factor = Math.max(0.2, 1 - fallas * 0.30 - dudas * 0.10);
 
   const mensual = Math.round((d.mensual || 0) * factor);
-  const margen = c.pvpPrevisto ? (c.pvpPrevisto - c.costoObjetivo / 0.38 * 0.38) : 0;
+  /* `costoObjetivo / 0.38 * 0.38` se cancelaba solo: aritmética muerta que
+     aparentaba convertir algo. El margen es la diferencia, sin más. */
+  const margen = c.pvpPrevisto ? (c.pvpPrevisto - c.costoObjetivo) : 0;
   const margenPct = c.pvpPrevisto ? (c.pvpPrevisto - c.costoObjetivo) / c.pvpPrevisto : 0;
-  const margenEq = eq ? (eq.pvp - eq.pvp * 0.42) / eq.pvp : 0;
+  const margenEq = eq ? (eq.pvp - costoDe(eq)) / eq.pvp : 0;
 
   return {
     eq, fab, mensual, factor, fallas, dudas, pendientes: pend,
@@ -859,7 +887,7 @@ const ACCIONES = {
       const conPropuesta = props.filter(x => x.necesidad > 0);
       const monto = conPropuesta.reduce((a, x) => {
         const p = CATALOGO.find(y => y.sku === x.sku);
-        return a + x.necesidad * p.pvp * 0.42;                  // costo estimado
+        return a + costoDe(p, x.necesidad);                     // costo estimado
       }, 0);
       return {
         salida: `mesa armada con ${casio.length} referencias · ${conPropuesta.length} con propuesta de cantidad · ` +
