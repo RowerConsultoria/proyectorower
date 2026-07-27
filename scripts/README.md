@@ -40,6 +40,14 @@ Levanta el servidor si hace falta y lo apaga al terminar. Siete comprobaciones:
 |---|---|---|
 | `rutas` | cada ruta pinta una pantalla **registrada**, la URL no miente, no hay desbordes | pantallas que caían en la ficha genérica sin que se notara |
 | `contraste` | WCAG AA sobre todo el texto, en los dos temas | 2.173 textos por debajo del mínimo — eran tres tokens |
+### `sincronizar-asistente.py` — el contexto del Asistente IA
+
+`python scripts/sincronizar-asistente.py` (o `--seco` para solo generar).
+
+El Asistente IA razona sobre la tabla `conocimiento` de Supabase, que se llena **sola** con lo que el equipo carga (entrevistas y archivos, vía la Edge Function `indexar`). Pero **el informe, la torre y el prototipo viven en el repositorio, no en Supabase** — el asistente no los conoce a menos que alguien se los cuente. Este guion genera tres síntesis *derivadas del repo* (`informe-fase1`, `arquitectura-ia`, `sistema-prototipo`), las sube a `conocimiento` y las trocea a `fragmentos`.
+
+> ⚠️ **Volver a correrlo tras cada cambio de fondo** en el informe, la torre o el prototipo. Si no, la síntesis envejece en silencio — peor que no tenerla, porque el asistente responde con seguridad sobre una versión vieja. Suma ~8k tokens a **cada** consulta. Reversible: borrar por clave y por código `DOC-*`.
+
 | `recorrido` | las 18 paradas llegan, hallan su ancla, y **cada cifra del guion está en la pantalla que la sostiene**; y el guion **se pliega sin perder el paso** y vuelve (botón y tecla `G`) | el guion decía «5 frentes con Odoo» cuando eran 3 |
 | `permisos` | ningún ámbito de firma huérfano; cada rol firma lo que promete | — |
 | `reglas` | ninguna regla de negocio declarada con dueño y sin usar | dos reglas huérfanas en las fases 6–11 |
