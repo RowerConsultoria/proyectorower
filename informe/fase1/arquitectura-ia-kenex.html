@@ -84,7 +84,31 @@ h1{margin:0; font-size:29px; letter-spacing:-.01em}
 
 /* ─────────────────────────────────────────────────────────────── escena */
 .escenario{position:relative; height:min(78vh,860px); min-height:520px; background:
-  radial-gradient(ellipse at 50% 34%, #ffffff 0%, #eef3f9 46%, #dfe7f1 100%);}
+  radial-gradient(ellipse at 50% 34%, #ffffff 0%, #eef3f9 46%, #dfe7f1 100%);
+  transition:height .3s cubic-bezier(.22,.61,.36,1);}
+
+/* ─────────────────────────────────────────────── el modo compacto
+
+   La cabecera y el pie se pliegan y todo el alto de la ventana se le da al
+   mapa. Se activa a mano con la flecha de la barra, y solo el recorrido lo
+   impone: presentando en una sala, la tesis ya se ha leído y lo que estorba
+   es todo lo que no sea el rack.
+
+   El alto lo pone JS en --alto-libre porque hay que descontar la barra de
+   mandos, que sí se queda —es por donde se sale de aquí—. */
+body.compacto header, body.compacto footer{
+  max-height:0; padding-top:0; padding-bottom:0; overflow:hidden;
+  opacity:0; border:0; pointer-events:none;
+}
+header, footer{transition:max-height .3s ease, padding .3s ease, opacity .22s ease;
+  max-height:60vh; overflow:hidden}
+body.compacto .escenario{height:var(--alto-libre, 82vh)}
+/* la ✕ vive en la cabecera: plegada, hace falta una salida en la barra */
+.solo-compacto{display:none}
+body.compacto .solo-compacto{display:inline-block}
+body.compacto .pista{display:none}
+#compacta{margin-left:auto}
+@media (max-width:900px){#compacta{margin-left:0}}
 #lienzo3d{position:absolute; inset:0}
 #rotulos{position:absolute; inset:0; pointer-events:none; overflow:hidden}
 .cargando{
@@ -273,6 +297,24 @@ body.modo-hoy .eti .comoLlega{display:block}
 body.modo-hoy .eti{border-color:var(--ambar); max-width:206px}
 body.modo-hoy .eti .detalle, body.modo-hoy .eti .recibe{display:none !important}
 body.modo-hoy .chapa{opacity:.2}
+
+/* En «hoy» las tarjetas se colocan por pantalla, no por proyección: ver
+   `rejillaHoy()`. El !important es obligado — CSS2DRenderer reescribe el
+   `transform` en línea en cada fotograma. */
+body.rejilla-hoy .eti{
+  transform:none !important;
+  width:292px; max-width:292px;
+  animation:asoma .34s ease-out both;
+}
+body.rejilla-hoy .eti .comoLlega{display:block}
+@keyframes asoma{from{opacity:0} to{opacity:1}}
+/* con las tarjetas en columna, el pedestal de cada una queda lejos: se apagan
+   un poco para que no compitan con lo que hay que leer */
+body.rejilla-hoy #lienzo3d{opacity:.55}
+/* y las chapas del rack no pintan nada en «hoy»: dan nombre a unas bandejas
+   que en «hoy» son un fantasma, y encima se cruzaban con la columna derecha de
+   la rejilla en pantallas de 1100 px */
+body.rejilla-hoy .chapa{display:none}
 body.modo-hoy .mandos .leyenda-ritmo{opacity:.35}
 
 .aviso-hoy{
@@ -282,6 +324,9 @@ body.modo-hoy .mandos .leyenda-ritmo{opacity:.35}
   box-shadow:0 3px 10px rgba(178,106,0,.12), 0 16px 40px rgba(178,106,0,.14);
 }
 body.modo-hoy .aviso-hoy{display:block}
+/* durante el recorrido no: la barra de abajo cuenta esa misma parada, y las
+   dos a la vez es la misma frase dicha dos veces tapando el mapa */
+body.presentando .aviso-hoy{display:none !important}
 .aviso-hoy .t{font-size:14px; font-weight:800; color:#8a5310}
 .aviso-hoy .d{font-size:12.5px; color:var(--tenue); margin-top:4px; line-height:1.5}
 .aviso-hoy .d b{color:var(--navy)}
@@ -299,13 +344,15 @@ body.con-bajada .eti.devuelve{border-color:var(--ambar)}
 .chapa{cursor:pointer}
 .chapa:hover{box-shadow:0 3px 8px rgba(15,25,45,.2), 0 14px 34px rgba(15,25,45,.28)}
 .chapa.abierta{border-left-width:6px}
-/* Con algo abierto, TODAS las chapas pierden su subtítulo y se quedan en una
-   línea. No es cosmético: al ceder el ancho al panel la escena escala y ellas
-   no —son DOM de tamaño fijo—, así que a dos líneas se pisaban. Y tiene que
-   ser todas, también la abierta: dejarla a dos líneas la hacía chocar con la
-   del cedazo, que es fina por vivir en el hueco entre dos bandejas. El
-   subtítulo no se pierde: es el que encabeza el panel. */
-body.enfocado .chapa .c{display:none}
+/* SIEMPRE en una línea, no solo con un panel abierto. Se midió: en reposo se
+   pisaban siete pares a 1600 px y nueve a 1280, chapas contra chapas y chapas
+   contra rótulos de fuente. Son DOM de tamaño fijo mientras la escena escala,
+   así que la segunda línea no cabe entre bandeja y bandeja a ninguna anchura
+   razonable. El subtítulo no se pierde: es el que encabeza el panel del piso,
+   y sigue estando aquí para quien pase el ratón. */
+.chapa .c{display:none}
+.chapa:hover .c{display:block}
+.chapa.tamiz:hover .c{display:inline}
 
 /* ─────────────────────────────────────────────── el recorrido guiado
 
@@ -401,8 +448,10 @@ footer{border-top:1px solid var(--borde); background:#fff; padding:15px 34px 20p
   <button class="mando" id="abre-recorrido" title="Recorrido guiado de la torre">▶ recorrido</button>
   <button class="mando" id="modo" title="Comparar cómo llega hoy con cómo llegaría">◐ ver cómo es hoy</button>
   <button class="mando" id="bajada" title="Lo que vuelve a cada fuente convertido en orden">↓ la bajada</button>
+  <button class="mando" id="compacta" title="Plegar la cabecera y el pie para ver más mapa">⤢ más mapa</button>
   <span class="pista">arrastra para girar el rack · rueda para acercar</span>
   <span style="color:var(--tenue)" aria-hidden="true">|</span>
+  <button class="mando solo-compacto" id="volver2" title="Cerrar y volver al informe">✕ volver</button>
   <span class="leyenda-ritmo">
     <span>la corriente de cada cable va a <b>la cadencia real</b> de su fuente</span>
     <span class="barra"></span>
@@ -597,6 +646,9 @@ const TAPA   = () => new THREE.MeshStandardMaterial({ color: 0x27364e, roughness
 
 /* ═══════════════════════════════════════════════ LAS BANDEJAS */
 const bandejas = {}, ledsVivos = [];
+/* Se guardan para poder ESCONDERLAS: el recorrido empieza sin torre y una
+   chapa flotando sin su bandeja debajo es justo lo que confunde. */
+const chapas = [];
 
 for (const id of PILA) {
   const esTamiz = id === '__cedazo__';
@@ -624,7 +676,10 @@ for (const id of PILA) {
        comprime con la escena y volvía a solaparse en cuanto el panel
        estrechaba el lienzo—. En una línea cabe, a cualquier escala. */
     chapa(`<span class="n">▲ ${CEDAZO.titulo}</span><span class="c">el filtro entre dos pisos</span>`,
-          y - 0.34, 'tamiz', id);
+          /* centrada en el HUECO entre ingesta y cimiento, no colgada de su
+             propia banda: a −0,34 quedaba a 25 px de la de arriba y a 60 de la
+             de abajo, y por eso se pisaba con la de arriba */
+          (Y['ingesta'].y + Y['cimiento'].y) / 2 - 0.1, 'tamiz', id);
     continue;
   }
 
@@ -653,15 +708,22 @@ function chapa(html, y, extra, id) {
   /* al crear, no despues: CSS2DRenderer no lo mete en el DOM hasta el render */
   d.onclick = e => { e.stopPropagation(); abreNivel(id); };
   const o = new CSS2DObject(d);
+  chapas.push(o);
   /* Sobre la propia bandeja, como la chapa de un equipo: así doce rótulos
      nunca se pelean por el mismo sitio al girar.
      El cedazo va DESTACADO HACIA FUERA: su banda es fina —cabe entre dos
      bandejas— y su chapa se pisaba con las dos vecinas, arriba y abajo. Y
      además dice lo que hay que entender: no es un piso más, está entre dos. */
-  /* y algo apartada, para que se lea como lo que es: no una bandeja más de la
-     pila, sino el filtro que hay entre dos. */
-  const fuera = extra.indexOf('tamiz') >= 0 ? 2.6 : 0;
-  o.position.set(-ANCHO / 2 + 0.4 - fuera, y + 0.02, FONDO / 2 + 0.06);
+  /* Las de los pisos van al costado IZQUIERDO, en columna. La del cedazo va al
+     DERECHO, sola: su banda es fina —vive en el hueco entre dos bandejas— y no
+     hay alto para una chapa más en esa columna a ninguna escala razonable. Se
+     probó estrecharla, bajarla al centro del hueco y apartarla a la izquierda,
+     y en las tres seguía pisándose con la de arriba y con la de abajo. Al otro
+     lado no compite con nadie, y además dice sola lo que hay que entender: no
+     es un piso más de la pila. */
+  const tamiz = extra.indexOf('tamiz') >= 0;
+  o.position.set(tamiz ? ANCHO / 2 + 2.2 : -ANCHO / 2 + 0.4,
+                 y + 0.02, FONDO / 2 + 0.06);
   escena.add(o);
   return o;
 }
@@ -700,9 +762,12 @@ const COLUMNA = {
    propósito, para que la cara del rack se vea entera. */
 const RADIO = 13.2;
 const ARCO = { izq: [-108, -26], der: [26, 108] };   // grados; 0° mira al frente
-/* En «hoy» cada rótulo crece —enseña cómo llega el dato— y con la separación
-   de siempre tres de ellos se pisaban. Se apartan hacia fuera. */
-const EMPUJE_HOY = 4.8;
+/* En «hoy» cada rótulo crece —enseña cómo llega el dato—. Se probó apartarlos
+   hacia fuera (4,8 unidades, y 3,6 más a las alternas) y el resultado era peor:
+   al alejarse crece la dispersión en perspectiva, las de delante se salían por
+   abajo del cuadro y las de atrás se amontonaban. Se quedan donde están; lo que
+   cambia es que TODAS van al mismo radio, que es lo que se lee como orden. */
+const EMPUJE_HOY = 0;
 
 const sitio = {}, pedestales = [], rotulosRaiz = [];
 for (const col of ['izq', 'der']) {
@@ -732,6 +797,9 @@ for (const col of ['izq', 'der']) {
     canto.position.copy(p).add(new THREE.Vector3(0, 0.14, 0))
          .addScaledVector(new THREE.Vector3(-p.x, 0, -p.z).normalize(), 0.68);
     escena.add(canto);
+    /* el canto se guarda con su pedestal: es parte de la misma fuente y tiene
+       que aparecer y desaparecer con ella */
+    base.userData.canto = canto;
 
     const d = document.createElement('div');
     d.className = 'rot eti'; d.dataset.raiz = r.id;
@@ -745,7 +813,7 @@ for (const col of ['izq', 'der']) {
     d.onclick = () => enfoca(r.id);
     const o = new CSS2DObject(d);
     o.position.set(p.x, p.y + 0.62, p.z);
-    o.userData = { g, rad, par: i % 2, base: o.position.clone() };
+    o.userData = { g, rad, par: i % 2, idx: i, col, base: o.position.clone() };
     escena.add(o); rotulosRaiz.push(o);
   });
 }
@@ -773,6 +841,11 @@ function texturaCorriente(grado) {
 }
 
 const corrientes = [], tubos = {};
+/* Los cables de dentro del rack —de una bandeja a la de arriba— van aparte
+   porque no pertenecen a ninguna fuente, pero SON alimentación: se encienden y
+   se apagan con ella. Estaban sueltos en la escena y por eso seguían corriendo
+   en azul en la parada de la bajada, donde no debía quedar más que lo que baja. */
+const tubosDentro = [];
 for (const r of RAICES) {
   const p = sitio[r.id]; if (!p) continue;
 
@@ -861,6 +934,7 @@ for (let i = 0; i < PILA.length - 1; i++) {
     new THREE.TubeGeometry(curva, 24, 0.075, 10, false),
     new THREE.MeshBasicMaterial({ map: tex }));
   escena.add(tubo);
+  tubosDentro.push(tubo);
   corrientes.push({ tex, v: 0.42 });
 }
 
@@ -881,6 +955,7 @@ function pinta() {
     for (const l of ledsVivos) l.led.material.opacity = 0.3 + 0.7 * Math.abs(Math.sin(t * l.vel + l.fase));
   }
   for (const l of ledsVivos) l.led.quaternion.copy(camara.quaternion);
+  pintaVetas(t);
 
   /* Las gavetas persiguen su destino desde el bucle: dar a cada malla su
      propia transicion las descoordina en cuanto una tarda mas que otra. */
@@ -893,7 +968,11 @@ function pinta() {
   mando.update();
   pintor.render(escena, camara);
   rotulos.render(escena, camara);
+  /* después de pintar los rótulos —antes no existen sus rectángulos— y no en
+     cada fotograma: doce medidas de caja por vuelta es trabajo tirado */
+  if ((cuadro++ % 6) === 0) apilaRotulos();
 }
+let cuadro = 0;
 
 /* ═══════════════════════════════════════════════ LAS GAVETAS
 
@@ -1077,16 +1156,33 @@ let enfocada = null;
 /* Enciende por dentro la bandeja indicada y apaga las demas. Es lo que en
    3D sustituye al atenuar de la version plana: la caja no pierde su volumen,
    gana luz. */
-function enciende(nivel) {
-  for (const [id, b] of Object.entries(bandejas)) {
-    const on = id === nivel;
-    const mats = Array.isArray(b.material) ? b.material : [b.material];
-    for (const mat of mats) {
-      if (!mat.emissive) continue;
-      mat.emissive.set(on ? TINTE[id] || '#2E75B6' : '#000000');
-      mat.emissiveIntensity = on ? 0.32 : 0;
-      mat.needsUpdate = true;
-    }
+/* ── el rack, con corriente por dentro ─────────────────────────────────────
+
+   El rack era negro y quieto mientras los cables corrían por fuera: parecía
+   apagado. Ahora cada bandeja late en su propio color —el mismo de su franja y
+   el de su cable— y el latido SUBE por la pila, con un desfase por altura. Es
+   la misma idea que la corriente de los tubos, dentro del equipo.
+
+   Se pinta desde el bucle y no aquí porque el resaltado del nivel abierto y el
+   latido comparten el mismo canal (`emissiveIntensity`): calcularlos en dos
+   sitios distintos los hacía pisarse, y ganaba el último que escribiera. */
+const vetas = Object.entries(bandejas).map(([id, b]) => ({
+  id,
+  mats: (Array.isArray(b.material) ? b.material : [b.material]).filter(m => m.emissive),
+  color: new THREE.Color(TINTE[id] || '#2E75B6'),
+  fase: PILA.indexOf(id) * 0.85,
+}));
+let nivelVivo = null;
+
+function enciende(nivel) { nivelVivo = nivel; }
+
+function pintaVetas(t) {
+  for (const v of vetas) {
+    const on = v.id === nivelVivo;
+    /* en «hoy» el rack no existe: no puede latir */
+    const onda = modoHoy || quieto ? 0 : 0.5 + 0.5 * Math.sin(t * 1.15 - v.fase);
+    const i = (on ? 0.3 : 0) + (modoHoy ? 0 : 0.05 + 0.085 * onda);
+    for (const m of v.mats) { m.emissive.copy(v.color); m.emissiveIntensity = i; }
   }
 }
 
@@ -1201,32 +1297,66 @@ pintor.domElement.style.cursor = 'grab';
    Si mañana cambia una raíz, el guion cambia con ella y no puede quedarse
    diciendo lo que la torre ya no hace.                                    */
 
+/* ═══════════════════════════════════════════════ EL RECORRIDO
+
+   Nueve paradas que CONSTRUYEN la escena en vez de enseñarla entera desde el
+   primer paso. El orden es el del argumento:
+
+     1   hoy — solo las doce fuentes. Ni rack, ni cables, ni chapas: el dato
+         nace y no va a ninguna parte, y eso se ve porque no hay a dónde ir.
+     2   aparece la torre y la corriente sube.
+     3-7 se va abriendo un piso cada vez, con su panel.
+     8   la torre baja: se apaga la alimentación y solo quedan los arcos, para
+         que se distinga cuál es cuál.
+     9   las dos corrientes a la vez, con la cámara retirada.
+
+   Cada parada declara `ver` y `vaAlPaso` lo IMPONE. Declararlo —en vez de
+   dejar la escena como estuviera— es lo que hace que el recorrido se pueda
+   andar al revés y saltando sin heredar el estado de la parada anterior. */
 const PARADAS = [
   {
-    t: 'Una torre, y el dato que la alimenta',
-    d: () => `Cuatro niveles y <b>${RAICES.length} fuentes</b> alrededor. La corriente de cada cable
-      va a la cadencia real de su fuente: la venta de tienda entra en cuanto ocurre, el sell-out de
-      los frentes sin Odoo se arrastra cada quince días. <b>Ninguna inteligencia es mejor que el
-      dato que la alimenta.</b>`,
+    t: 'Así llega el dato hoy',
+    d: () => `Las <b>${RAICES.length} fuentes</b> ya existen y el dato nace igual: en la tienda, en
+      el portal del frente, en el muelle de Colón. Lo que no existe es a dónde llevarlo. Cada
+      tarjeta dice cómo llega hoy — <b>por correo, por mensajería, por teléfono, en papel</b>.`,
+    hoy: true,
+    ver: { rack: false, sube: false },
     ir: () => { cierraNivel(); limpia(); },
   },
   {
-    t: 'Cada fuente sostiene algo, y sin ella se cae',
+    t: 'Una torre, y el dato que la alimenta',
+    d: () => `Esto es lo que falta. Cuatro pisos, y las mismas ${RAICES.length} fuentes conectadas:
+      la corriente de cada cable va a <b>la cadencia real</b> de su fuente — la venta de tienda
+      entra en cuanto ocurre, el sell-out de los frentes sin Odoo se arrastra cada quince días.`,
+    ver: { rack: true, sube: true },
+    ir: () => { cierraNivel(); limpia(); },
+  },
+  {
+    /* Se sube la torre piso a piso, de abajo arriba: ingesta → cedazo →
+       cimiento → inteligencia → decisión. Antes esta parada abría una FUENTE
+       («documentos del embarque») y el piso 1 se quedaba sin explicar: el
+       recorrido saltaba de la torre entera al cedazo. El argumento de la
+       fuente no se pierde — cabe aquí, que es justo donde llega. */
+    t: 'La ingesta: la puerta por donde entra todo',
     d: () => {
       const r = RAICES.find(x => x.id === 'documentos');
-      return `Un diagrama que solo dice qué hay en cada caja es un dibujo. Este dice qué se cae sin
-        ella: sin los <b>documentos del embarque</b>, ${r.rompe}.`;
+      return `Aquí llega el dato de las ${RAICES.length} fuentes tal como nace, por el camino que
+        cada una tenga, y se le sella <b>hora y origen</b>. Todavía no se sabe si es correcto — eso
+        es el filtro de arriba. Y cada fuente sostiene algo: sin los <b>documentos del embarque</b>,
+        ${r.rompe}.`;
     },
-    ir: () => { cierraNivel(); enfoca('documentos'); },
+    ver: { rack: true, sube: true },
+    ir: () => { limpia(); abreNivel('ingesta'); },
   },
   {
     t: 'El cedazo: lo que no se certifica no sube',
     d: () => {
       const e = CEDAZO.ejemplo;
-      return `Anoche entraron <b>${e.entran} nombres</b> nuevos, se certificaron <b>${e.certifican}</b>
-        y <b>${e.cola} se quedaron</b> en cola con su dueño. Una torre donde todo sube es propaganda;
-        que algo se quede abajo es lo que la hace creíble.`;
+      return `Aquí se decide qué dato puede usar la IA. Anoche entraron <b>${e.entran} nombres</b>
+        nuevos, se certificaron <b>${e.certifican}</b> y <b>${e.cola} se quedaron</b> en cola con su
+        dueño. Sin este filtro, la IA calcularía igual de segura sobre un dato sucio.`;
     },
+    ver: { rack: true, sube: true },
     ir: () => { limpia(); abreNivel('__cedazo__'); },
   },
   {
@@ -1236,6 +1366,7 @@ const PARADAS = [
       return `${N.lema}. Catálogo canónico con su lista de alias, reglas de negocio <b>con dueño,
         fecha y versión</b>, y tasas de cambio fechadas. ${N.noHace}`;
     },
+    ver: { rack: true, sube: true },
     ir: () => { limpia(); abreNivel('cimiento'); },
   },
   {
@@ -1243,51 +1374,109 @@ const PARADAS = [
     d: () => {
       const N = NIVELES.find(n => n.id === 'inteligencia');
       const firma = N.agentes.filter(a => a.nivel === 3).length;
-      return `<b>${N.agentes.length} agentes</b> en este nivel, y ${firma} de ellos no aplican nada
+      return `<b>${N.agentes.length} agentes</b> en este piso, y ${firma} de ellos no aplican nada
         sin que una persona firme. El permiso no se escribe a mano: se lee en el sello de cada uno
         — <b>preparé</b>, <b>hice</b>, <b>tu firma</b>.`;
     },
+    ver: { rack: true, sube: true },
     ir: () => { limpia(); abreNivel('inteligencia'); },
   },
   {
-    t: 'La decisión: nada sale sin una firma',
+    t: 'La decisión: la IA propone, una persona firma',
     d: () => {
       const N = NIVELES.find(n => n.id === 'decision');
       return `${N.noHace} No es una calibración que salió bien: es una imposibilidad de
         construcción.`;
     },
+    ver: { rack: true, sube: true },
     ir: () => { limpia(); abreNivel('decision'); },
   },
   {
     t: 'Y la torre baja',
     d: () => `<b>${BAJADAS.length} órdenes</b> vuelven a su fuente: la orden al proveedor, la
       asignación al almacén del país, la disponibilidad al socio, el plan de descarga al muelle.
-      Una torre que solo sube es un tablero — sube dato, salen gráficos, y nadie hace nada distinto
-      el lunes.`,
-    baja: true,
+      <i>La alimentación se apaga un momento para que se vea solo lo que baja.</i> Una torre que
+      solo sube es un tablero — sube dato, salen gráficos, y nadie hace nada distinto el lunes.`,
+    /* sin `sube`: con las dos corrientes a la vez no se distingue cuál baja */
+    ver: { rack: true, sube: false, baja: true, soloReciben: true },
     ir: () => { cierraNivel(); limpia(); },
   },
   {
-    t: 'Y así llega el dato hoy',
-    d: () => `Las ${RAICES.length} fuentes existen y el dato nace igual. Lo que no existe es la
-      torre: <b>ninguna corriente llega arriba</b>. Cada fuente dice cómo llega hoy — por correo,
-      por mensajería, por teléfono, en papel.`,
-    hoy: true,
+    t: 'El ciclo entero, subiendo y bajando',
+    d: () => `Las dos corrientes a la vez: <b>${RAICES.length} fuentes</b> alimentando la torre y
+      <b>${BAJADAS.length} órdenes</b> volviendo convertidas en algo que alguien hace. Eso es lo que
+      separa una arquitectura de dato de un tablero de indicadores.`,
+    ver: { rack: true, sube: true, baja: true, lejos: true },
     ir: () => { cierraNivel(); limpia(); },
   },
 ];
 
+/* ── las capas de la escena ────────────────────────────────────────────────
+
+   El recorrido no enseña la escena entera desde el primer paso: la va
+   construyendo. Cada parada DECLARA qué se ve, y esto lo impone. Sin ello, la
+   primera lámina —«así llega el dato hoy»— salía con el rack en fantasma
+   detrás y once chapas flotando: justo lo que hacía dudar de si la torre ya
+   existe o no. */
+/* Las siete fuentes que reciben algo de vuelta. Se calcula una vez: es lo que
+   distingue la parada de la bajada del resto. */
+const RECIBEN = new Set(BAJADAS.map(b => b.hacia));
+
+function ponCapas({ rack = true, sube = true, baja = false, lejosDe = false,
+                    soloReciben = false }) {
+  /* En la parada de la bajada no pinta nada enseñar las cinco fuentes que NO
+     reciben: la lámina dice «esto es lo que vuelve» y ahí estaban Desarrollo
+     de producto, Fábricas y proveedores, Tasas de cambio, Reglas de negocio y
+     Crédito y saldo, que no vuelven a ninguna parte. Se van con su pedestal y
+     su canto de color, no solo con la tarjeta. */
+  for (const o of rotulosRaiz) {
+    o.visible = !soloReciben || RECIBEN.has(o.element.dataset.raiz);
+  }
+  for (const b of pedestales) {
+    b.visible = !soloReciben || RECIBEN.has(b.userData.raiz);
+    if (b.userData.canto) b.userData.canto.visible = b.visible;
+  }
+  for (const b of Object.values(bandejas)) b.visible = rack;
+  for (const p of armazon) p.visible = rack;
+  for (const c of chapas) c.visible = rack;
+  /* los LED son mallas sueltas, no hijas de su bandeja: sin esto se quedaban
+     parpadeando en el aire donde antes estaba el rack */
+  for (const l of ledsVivos) l.led.visible = rack;
+  /* Los cables son la ALIMENTACIÓN. Se apagan enteros en la parada de la
+     bajada: con las dos corrientes a la vez no se distingue cuál baja. */
+  for (const t of Object.values(tubos)) t.visible = sube;
+  for (const t of tubosDentro) t.visible = sube;
+  if (baja !== bajando) ponBajada(baja);
+  if (lejosDe !== lejos) { lejos = lejosDe; encuadra('ajusta'); }
+}
+
 const _rec = { activo: false, paso: 0 };
 const cajaRec = document.getElementById('recorrido');
 
+/* Al entrar se pliega la página: presentando, la tesis de la cabecera ya se
+   leyó y lo que estorba es todo lo que no sea el rack. Al salir se devuelve el
+   estado que hubiera ANTES — si ya estaba plegada a mano, se queda así. */
+let plegadaAntes = false, bajabaAntes = false;
+
 function abreRecorrido() {
   _rec.activo = true;
+  plegadaAntes = document.body.classList.contains('compacto');
+  bajabaAntes = bajando;
+  document.body.classList.add('presentando');
+  ponCompacto(true);
   vaAlPaso(0);
 }
 function cierraRecorrido() {
   _rec.activo = false;
   cajaRec.hidden = true;
   btRec.classList.remove('on');
+  document.body.classList.remove('presentando');
+  ponCompacto(plegadaAntes);
+  /* y la escena vuelve entera: el recorrido esconde cosas, y salir de él a
+     medias dejaba la torre sin cables o sin bandejas sin decir por qué. */
+  /* `bajando` vale lo que dejó la última parada, no lo que había antes de
+     entrar: salir del recorrido dejaba los siete arcos encendidos. */
+  ponCapas({ rack: true, sube: true, baja: bajabaAntes, lejosDe: false });
 }
 function vaAlPaso(i) {
   if (!_rec.activo) return;
@@ -1298,7 +1487,11 @@ function vaAlPaso(i) {
      escena en modo «hoy» —el rack en fantasma— mientras la barra hablaba de
      gavetas que no se abrían. */
   if (!!p.hoy !== modoHoy) btModo.click();
-  if (!!p.baja !== bajando) ponBajada(!!p.baja);
+  /* Las CAPAS después del modo: `aplicaModo` recoloca las fuentes y apaga la
+     bajada, así que imponerlas antes las deshacía. */
+  const v = p.ver || {};
+  ponCapas({ rack: v.rack !== false, sube: v.sube !== false,
+             baja: !!v.baja, lejosDe: !!v.lejos, soloReciben: !!v.soloReciben });
   try { p.ir(); } catch (err) { console.error('recorrido · parada ' + (_rec.paso + 1), err); }
   pintaRecorrido();
 }
@@ -1333,6 +1526,33 @@ function pintaRecorrido() {
   cajaRec.querySelector('#rec-cierra').onclick = cierraRecorrido;
   cajaRec.querySelectorAll('.pt').forEach(e => e.onclick = () => vaAlPaso(+e.dataset.paso));
 }
+
+/* ── plegar la cabecera y el pie ───────────────────────────────────────────
+
+   El alto se calcula y se escribe en una variable CSS porque hay que descontar
+   la barra de mandos, que no se pliega: es por donde se sale de aquí. Ponerlo
+   en `vh` a ojo dejaba la barra del recorrido medio tapada por abajo. */
+const btCompacta = document.getElementById('compacta');
+
+function ponCompacto(v) {
+  document.body.classList.toggle('compacto', v);
+  btCompacta.classList.toggle('on', v);
+  btCompacta.textContent = v ? '⤡ mostrar todo' : '⤢ más mapa';
+  btCompacta.title = v ? 'Devolver la cabecera y el pie'
+                       : 'Plegar la cabecera y el pie para ver más mapa';
+  if (v) {
+    const barra = document.querySelector('.mandos').getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--alto-libre', (innerHeight - barra) + 'px');
+  }
+  /* la escena se mide DESPUÉS de la transición del alto: medirla a media
+     animación devuelve el alto de antes y el rack sale con el aspecto viejo */
+  setTimeout(() => mide('ajusta'), 340);
+}
+btCompacta.onclick = () => ponCompacto(!document.body.classList.contains('compacto'));
+addEventListener('resize', () => {
+  if (document.body.classList.contains('compacto')) ponCompacto(true);
+});
+document.getElementById('volver2').onclick = () => document.getElementById('volver').click();
 
 const btRec = document.getElementById('abre-recorrido');
 btRec.onclick = () => {
@@ -1369,6 +1589,205 @@ let modoHoy = false;
 /* opacidad de fondo segun el modo: en «hoy» todo queda mas apagado */
 const bando = () => (modoHoy ? 0.32 : 1);
 
+/* ── dónde se ponen las doce fuentes ────────────────────────────────────────
+
+   En «propuesto» van en dos arcos a los costados del rack, con el radio
+   alternado para que dos vecinas no se pisen.
+
+   En «hoy» NO hay rack: el centro queda libre y las tarjetas crecen —cada una
+   enseña cómo llega el dato hoy—. Antes se las empujaba hacia fuera y a las
+   alternas aún más, y el resultado era un desparramo: la mitad se salía del
+   cuadro porque la cámara seguía encuadrando el radio de siempre. Ahora van
+   TODAS al mismo radio y repartidas por igual —que es lo que se lee como
+   orden— y el encuadre sigue ese radio. */
+/* ── «hoy»: las doce fuentes en rejilla ────────────────────────────────────
+
+   En «propuesto» cada tarjeta lleva una línea —su nombre— y sobre el arco caben
+   holgadas. En «hoy» pasan a tres, porque cada una dice cómo llega el dato, y
+   sobre el mismo arco se pisaban catorce pares.
+
+   Separarlas EN LA ESCENA no arregla nada, y probarlo fue lo que lo enseñó: el
+   encuadre se ajusta al contenido, así que al apartarlas la cámara se retira y
+   la separación en píxeles se queda igual. Las tarjetas son DOM de tamaño fijo;
+   el problema es de pantalla y se resuelve en pantalla.
+
+   Así que en «hoy» se colocan en dos columnas —las de la izquierda a la
+   izquierda, las de la derecha a la derecha, como en el arco— y el centro
+   queda vacío a propósito: ahí es donde faltaría la torre.
+
+   El `transform` lleva `!important` porque CSS2DRenderer lo reescribe en cada
+   fotograma como estilo en línea, y una regla con !important le gana. */
+/* ── que no se pisen dos rótulos ───────────────────────────────────────────
+
+   En «propuesto» cada tarjeta lleva una línea y aun así se pisaban dos pares a
+   1600 px y seis a 1280: la proyección del arco las junta por abajo, donde los
+   ángulos se comprimen.
+
+   Apartarlas en la escena NO sirve —se probó con 1,5 · 2,4 · 3,2 unidades y
+   los solapes subieron de 2 a 4—, porque el encuadre se ajusta al contenido: al
+   separarlas la cámara se retira y la distancia en píxeles se queda igual. Son
+   DOM de tamaño fijo; hay que resolverlo en píxeles.
+
+   Esto es el apilado clásico: por columna, se ordenan por su altura en pantalla
+   y se empujan hacia abajo lo justo para respetar un hueco mínimo, con
+   `margin-top` — que es lo único que se puede tocar sin pelearse con el
+   `transform` que CSS2DRenderer reescribe cada fotograma. Si la columna se sale
+   por abajo, se sube entera. */
+const HUECO_ROT = 7;
+
+/* ── las chapas, cuando el rack se queda pequeño ───────────────────────────
+
+   Cinco chapas de 30 px piden unos 180 px de pila proyectada. Con la página
+   plegada la escena se aleja, el rack proyecta menos que eso, y se pisaban
+   hasta cinco pares a 1280 px. Así que se apilan igual que los rótulos, pero
+   con una diferencia: el grupo se RECENTRA sobre su sitio original, para que
+   la columna siga pegada a las bandejas a las que da nombre en vez de irse
+   toda hacia abajo. La del cedazo va al otro costado y forma grupo aparte. */
+function apilaChapas() {
+  const H = lienzo.clientHeight, W = lienzo.clientWidth, grupos = {};
+  for (const c of chapas) {
+    if (!c.visible) continue;
+    const v = c.position.clone().project(camara);
+    if (v.z > 1) continue;
+    const e = c.element, h = e.offsetHeight, w = e.offsetWidth;
+    const x = (v.x + 1) / 2 * W - w / 2;
+    const lado = x + w / 2 < W / 2 ? 'izq' : 'der';
+    (grupos[lado] = grupos[lado] || []).push(
+      { e, h, w, x, y: (1 - v.y) / 2 * H - h / 2 });
+  }
+  const obstaculos = [];
+  for (const g of Object.values(grupos)) {
+    g.sort((a, b) => a.y - b.y);
+    let tope = -1e9;
+    for (const it of g) { it.p = Math.max(it.y, tope + HUECO_ROT); tope = it.p + it.h; }
+    const antes = (g[0].y + g[g.length - 1].y + g[g.length - 1].h) / 2;
+    const ahora = (g[0].p + tope) / 2;
+    for (const it of g) {
+      const y = it.p - (ahora - antes);
+      it.e.style.marginTop = Math.round(y - it.y) + 'px';
+      it.puestoY = y;
+      obstaculos.push({ x0: it.x, w: it.w, y, h: it.h });
+    }
+  }
+  /* Y los dos grupos, separados a lo ancho. La del cedazo va al costado
+     derecho, pero la separación en unidades de mundo se comprime al alejarse
+     la cámara: con la página plegada a 1280 px las dos columnas volvían a
+     tocarse. Se apartan en PÍXELES, que es donde ocurre el problema. */
+  const iz = grupos.izq, de = grupos.der;
+  if (iz && de) {
+    const bordeIz = Math.max(...iz.map(t => t.x + t.w));
+    const bordeDe = Math.min(...de.map(t => t.x));
+    const dx = bordeIz + 16 - bordeDe;
+    if (dx > 0) for (const t of de) {
+      t.e.style.marginLeft = Math.round(dx) + 'px';
+      t.x += dx;
+    }
+    else for (const t of de) t.e.style.marginLeft = '';
+    obstaculos.length = 0;
+    for (const g of Object.values(grupos))
+      for (const t of g) obstaculos.push({ x0: t.x, w: t.w, y: t.puestoY, h: t.h });
+  }
+  return obstaculos;
+}
+
+function apilaRotulos() {
+  if (document.body.classList.contains('rejilla-hoy')) return;   // ya van en rejilla
+  const H = lienzo.clientHeight, W = lienzo.clientWidth;
+  const techo = 6, suelo = H - 6 - estorboAbajo();
+
+  /* Las chapas se colocan PRIMERO y entran aquí como obstáculos: pertenecen a
+     una bandeja concreta, así que mandan ellas y los rótulos de fuente las
+     esquivan, no al revés. */
+  const puestas = apilaChapas();
+  const cajas = [];
+  for (const o of rotulosRaiz) {
+    if (!o.visible) continue;
+    const v = o.position.clone().project(camara);
+    if (v.z > 1) continue;
+    const e = o.element, w = e.offsetWidth, h = e.offsetHeight;
+    /* ⚠️ CSS2DRenderer CENTRA el elemento en el punto proyectado —escribe un
+       `translate(-50%,-50%)` delante—, no lo ancla por la esquina. Suponer lo
+       contrario desplazaba la caja calculada media tarjeta a la derecha y
+       media hacia abajo: la comprobación de cruce a lo ancho miraba un sitio
+       donde el rótulo no estaba, y dos seguían pisándose. */
+    cajas.push({ o, w, h, y: (1 - v.y) / 2 * H - h / 2, x0: (v.x + 1) / 2 * W - w / 2 });
+  }
+  cajas.sort((a, b) => a.y - b.y);
+
+  const choca = (c, y) => puestas.some(q =>
+    !(c.x0 + c.w <= q.x0 || c.x0 >= q.x0 + q.w) &&
+    y < q.y + q.h + HUECO_ROT && y + c.h + HUECO_ROT > q.y);
+
+  for (const c of cajas) {
+    /* Sitios candidatos: el suyo, y justo encima o justo debajo de cada
+       estorbo — que son las únicas alturas donde un hueco empieza o acaba. Se
+       prueban por cercanía a su sitio natural, para que el rótulo no se aleje
+       de su fuente más de lo imprescindible.
+
+       Buscar SOLO hacia abajo era lo que fallaba: cuando no quedaba sitio
+       abajo, el conjunto se subía en bloque para no salirse del cuadro, y ese
+       empujón devolvía los rótulos encima de las chapas que acababan de
+       esquivar.
+
+       Aquí hubo además un barrido de toda la franja como último recurso. Se
+       retiró: no llegaba a ejecutarse nunca —romperlo a propósito no producía
+       un solo solape— y el fallo que lo motivó resultó ser una trampa del
+       guion de sabotaje que se había quedado aplicada, no un caso real. */
+    const sitios = [c.y];
+    for (const q of puestas) { sitios.push(q.y + q.h + HUECO_ROT, q.y - c.h - HUECO_ROT); }
+    sitios.sort((a, b) => Math.abs(a - c.y) - Math.abs(b - c.y));
+    let y = null;
+    for (const cand of sitios) {
+      const v = Math.min(suelo - c.h, Math.max(techo, cand));
+      if (!choca(c, v)) { y = v; break; }
+    }
+    if (y === null) y = Math.min(suelo - c.h, Math.max(techo, c.y));
+    c.o.element.style.marginTop = Math.round(y - c.y) + 'px';
+    puestas.push({ x0: c.x0, w: c.w, y, h: c.h });
+  }
+}
+
+function rejillaHoy(activa) {
+  document.body.classList.toggle('rejilla-hoy', activa);
+  if (!activa) {
+    for (const o of rotulosRaiz) { o.element.style.left = ''; o.element.style.top = ''; }
+    return;
+  }
+  for (const o of rotulosRaiz) o.element.style.marginTop = '';
+  const W = lienzo.clientWidth, H = lienzo.clientHeight;
+  const col = { izq: [], der: [] };
+  for (const o of rotulosRaiz) col[o.userData.col].push(o);
+
+  for (const [lado, lista] of Object.entries(col)) {
+    /* se mide DESPUÉS de fijar el ancho: las tarjetas tienen dos o tres líneas
+       según lo largo que sea su «cómo llega hoy», y repartir por un alto
+       supuesto dejaba huecos desiguales */
+    const altos = lista.map(o => o.element.getBoundingClientRect().height);
+    const total = altos.reduce((a, b) => a + b, 0) + (lista.length - 1) * HUECO_REJILLA;
+    let y = Math.max(14, (H - total) / 2);
+    const x = lado === 'izq' ? MARGEN_REJILLA : W - MARGEN_REJILLA - ANCHO_REJILLA;
+    lista.forEach((o, i) => {
+      o.element.style.left = Math.round(x) + 'px';
+      o.element.style.top = Math.round(y) + 'px';
+      y += altos[i] + HUECO_REJILLA;
+    });
+  }
+}
+const ANCHO_REJILLA = 292, MARGEN_REJILLA = 22, HUECO_REJILLA = 9;
+
+function colocaRaices() {
+  radioVista = modoHoy ? RADIO + EMPUJE_HOY : RADIO;
+  for (const o of rotulosRaiz) {
+    const u = o.userData;
+    /* mismo radio para todas en «hoy»: la alternancia existe para desencajar
+       vecinas junto al rack, y sin rack solo rompe la simetría */
+    const rad = modoHoy ? radioVista : u.rad;
+    o.position.set(Math.sin(u.g) * rad, u.base.y, Math.cos(u.g) * rad);
+  }
+  rejillaHoy(modoHoy);
+  encuadra('ajusta');
+}
+
 function aplicaModo() {
   document.body.classList.toggle('modo-hoy', modoHoy);
 
@@ -1384,15 +1803,7 @@ function aplicaModo() {
   }
   for (const b of pedestales) atenua(b, 1);   // las fuentes SI existen hoy
 
-  /* los rótulos se apartan hacia fuera: en «hoy» son más altos */
-  for (const o of rotulosRaiz) {
-    /* además del empuje general, las alternas se separan EN PROFUNDIDAD: dos
-       vecinas del mismo arco acababan pisándose por una esquina, y alejarlas a
-       las dos por igual no las separa en pantalla — hay que desencajarlas. */
-    const k = modoHoy ? EMPUJE_HOY + (o.userData.par ? 3.6 : 0) : 0;
-    o.position.set(Math.sin(o.userData.g) * (o.userData.rad + k), o.userData.base.y,
-                   Math.cos(o.userData.g) * (o.userData.rad + k));
-  }
+  colocaRaices();
 
   /* no hay nada que baje si no hay torre */
   /* primero se apaga, y solo después se deshabilita */
@@ -1439,14 +1850,21 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) btPausa.click();
 /* El encuadre se CALCULA a partir de lo que ocupa el contenido —el rack más
    las dos columnas de raíces—, no se fija a ojo: en una ventana estrecha, una
    distancia escrita a mano deja media escena fuera del cuadro. */
+let radioVista = RADIO, lejos = false;
+
 function encuadra(mover) {
   /* Por EXTENSIONES, no por esfera envolvente: la esfera usa la diagonal del
      rincón y deja la escena diminuta en medio del cuadro. */
-  const semiX = RADIO + 3.0, semiY = (ALTO_RACK + 0.9) / 2, semiZ = RADIO * 0.55;
+  /* El semieje X sale de dónde están AHORA las fuentes, no de una constante:
+     en «hoy» se apartan hacia fuera y con el valor fijo la mitad de ellas se
+     quedaba fuera de cuadro — la cámara nunca se reencuadraba. */
+  const semiX = radioVista + 3.0, semiY = (ALTO_RACK + 0.9) / 2, semiZ = RADIO * 0.55;
   const fov = camara.fov * Math.PI / 180, tg = Math.tan(fov / 2);
   const dAncho = semiX / (tg * camara.aspect);
   const dAlto  = semiY / tg;
-  const dist = Math.max(dAncho, dAlto) * 1.12 + semiZ * 0.55;
+  /* «lejos» es la última parada del recorrido: las dos corrientes a la vez
+     piden aire, y de cerca el rack tapa la mitad de los arcos. */
+  const dist = (Math.max(dAncho, dAlto) * 1.12 + semiZ * 0.55) * (lejos ? 1.26 : 1);
   mando.minDistance = dist * 0.55; mando.maxDistance = dist * 2.1;
   mando.target.set(0, semiY * 0.94, 0);
 
@@ -1462,10 +1880,83 @@ function encuadra(mover) {
   } else {
     const d = camara.position.distanceTo(mando.target);
     if (d > mando.maxDistance || d < mando.minDistance) {
+      /* ⚠️ La dirección se guarda ANTES. Esto estaba escrito como
+         `camara.position.copy(target).addScaledVector(camara.position.clone()…)`
+         y JavaScript evalúa el `copy()` primero: para cuando se calculaba la
+         dirección, la posición YA era la del objetivo, así que salía (0,0,0),
+         `normalize()` la dejaba en cero y la cámara se quedaba clavada EN el
+         objetivo. Cada arranque entraba por aquí: OrbitControls la rescataba a
+         un picado casi cenital y dos fuentes se quedaban fuera de cuadro. */
+      const dir = camara.position.clone().sub(mando.target).normalize();
       camara.position.copy(mando.target).addScaledVector(
-        camara.position.clone().sub(mando.target).normalize(),
-        Math.min(mando.maxDistance, Math.max(mando.minDistance, d)));
+        dir, Math.min(mando.maxDistance, Math.max(mando.minDistance, d)));
     }
+  }
+  camara.updateProjectionMatrix();
+  /* SIEMPRE, no solo al mover: la primera medida del arranque entra por la
+     rama que solo acota la distancia, y ahí se quedaban nueve de las doce
+     fuentes fuera del cuadro. Comprobar que cabe no es caro y no puede
+     depender de por qué rama se entró. */
+  cabeTodo();
+}
+
+/* ── ¿cabe todo? ───────────────────────────────────────────────────────────
+
+   La distancia de arriba sale de una fórmula, y una fórmula no sabe si el
+   resultado cabe: dos fuentes —las del frente del arco— se quedaban 130 px por
+   debajo del borde, recortadas por el `overflow:hidden` de la capa de rótulos.
+   Y el defecto se movía, porque en «hoy» las tarjetas son más altas.
+
+   Así que en vez de afinar la fórmula se COMPRUEBA: se proyectan los puntos
+   que tienen que verse —las doce fuentes y las cuatro esquinas del rack— y si
+   alguno se sale, se retira la cámara justo lo necesario. Dos pasadas bastan;
+   la segunda corrige el poco que cambia la perspectiva al alejarse. */
+const MARGEN_ROTULO = 62;   // px que cuelga la tarjeta por debajo de su ancla
+
+/* Lo que tapa el lienzo por abajo. La barra del recorrido va FIJA sobre la
+   escena, así que el alto útil no es el del lienzo: con ella puesta, dos
+   rótulos —los del frente del arco— quedaban detrás y no se leían. */
+function estorboAbajo() {
+  const c = document.getElementById('recorrido');
+  return c.hidden ? 0 : c.getBoundingClientRect().height + 26;
+}
+
+function cabeTodo() {
+  const h = lienzo.clientHeight || 1;
+  /* Los puntos salen de dónde están LOS RÓTULOS ahora, no de los pedestales:
+     en «hoy» van escalonados en altura y encuadrar por el suelo dejaba la
+     cima de la escalera fuera por arriba. */
+  /* Con la rejilla puesta los rótulos ya no siguen a la escena: se encuadra
+     por los pedestales, que son lo que sí queda en el mundo 3D. */
+  /* Solo lo VISIBLE: en la parada de la bajada se esconden cinco fuentes, y
+     seguir encuadrando por ellas dejaba la escena innecesariamente pequeña. */
+  const puntos = document.body.classList.contains('rejilla-hoy')
+    ? rotulosRaiz.filter(o => o.visible).map(o => sitio[o.element.dataset.raiz].clone())
+    : rotulosRaiz.filter(o => o.visible).map(o => o.position.clone());
+  if (!puntos.length) return;
+  for (const sx of [-1, 1]) for (const sz of [-1, 1])
+    puntos.push(new THREE.Vector3(sx * ANCHO / 2, ALTO_RACK + 0.9, sz * FONDO / 2));
+
+  for (let pasada = 0; pasada < 2; pasada++) {
+    /* Orientarla antes de proyectar: en el primer encuadre la cámara aún no
+       apunta al objetivo —eso lo hace OrbitControls en su `update()`— y
+       proyectar con la orientación por defecto daba un desvío enorme que
+       mandaba la cámara al tope de distancia. */
+    camara.lookAt(mando.target);
+    camara.updateMatrixWorld();
+    let k = 0;
+    for (const p of puntos) {
+      const v = p.clone().project(camara);
+      if (v.z > 1) continue;                       // detrás de la cámara
+      /* el alto se mide contando lo que la tarjeta cuelga por debajo */
+      k = Math.max(k, Math.abs(v.x), Math.abs(v.y),
+                   Math.abs(v.y - 2 * (MARGEN_ROTULO + estorboAbajo()) / h));
+    }
+    if (k <= 0.94) break;
+    const dir = camara.position.clone().sub(mando.target);
+    const d = Math.min(mando.maxDistance * 1.6, dir.length() * (k / 0.94));
+    camara.position.copy(mando.target).addScaledVector(dir.normalize(), d);
+    mando.maxDistance = Math.max(mando.maxDistance, d * 1.05);
   }
   camara.updateProjectionMatrix();
 }
@@ -1488,7 +1979,10 @@ pinta();
 window.__torre = { escena, camara, bandejas, sitio, corrientes, ledsVivos, Y, ALTO_RACK,
                    PILA, tubos, pedestales, armazon, bajadas, abreNivel, cierraNivel, enfoca, limpia,
                    cierraPanel, pintaNivel, pintaCedazo,
-                   PARADAS, _rec, vaAlPaso, abreRecorrido, cierraRecorrido };
+                   PARADAS, _rec, vaAlPaso, abreRecorrido, cierraRecorrido,
+                   chapas, ponCapas, ponCompacto, colocaRaices, rotulosRaiz, apilaRotulos,
+                   tubosDentro,
+                   estado: () => ({ lejos, radioVista, modoHoy, bajando, nivelVivo }) };
 
 } /* fin arranca() */
 </script>

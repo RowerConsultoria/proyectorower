@@ -20,7 +20,7 @@ que toque el informe o `/sistema`.
 ```bash
 python scripts/validar-html.py        # los HTML del repo · ~1 s, sin navegador
 python scripts/comprobar-sistema.py   # el prototipo /sistema · ~100 s
-python scripts/comprobar-torre.py     # la torre de arquitectura · ~130 s
+python scripts/comprobar-torre.py     # la torre de arquitectura · ~220 s
 ```
 
 Las dos devuelven **código 1** si algo falla, para poder encadenarlas.
@@ -79,11 +79,18 @@ WebGL y la plana de respaldo. Estas comprobaciones existen para que no puedan di
 | `corriente` | los cables **avanzan de verdad**, cada uno al ritmo de su cadencia, y la pausa los para | 16 de 16 congelados: `getElapsedTime()` consume el delta, así que el `getDelta()` siguiente daba ~0 |
 | `bajada` | los arcos salen de la decisión y **arquean** | rutas que se metían dentro de la caja del rack |
 | `modo` | hoy / propuesto, con los textos del modelo | el bastidor quedándose sólido con las bandejas en fantasma |
-| `recorrido` | 8 paradas **en orden, al revés y saltando** | volver atrás dejaba la escena en modo «hoy» · un botón `disabled` tragándose un `click()` |
+| `recorrido` | 9 paradas **en orden, al revés y saltando**, y las **capas** que cada una declara | volver atrás dejaba la escena en modo «hoy» · un botón `disabled` tragándose un `click()` · salir dejaba la bajada encendida |
+| `rotulos` | ningún rótulo ni chapa se pisa, se sale del lienzo o queda bajo la barra — 3 anchuras × (2 modos + 9 paradas) | hasta 14 pares pisándose en «hoy» · las chapas del rack pisándose entre sí a 1280 px |
+| `plegado` | la flecha pliega cabecera y pie, el mapa gana ese alto, y sigue habiendo salida | — |
 | `contraste` | WCAG AA sobre las dos vistas | texto pequeño en ámbar, verde y azul sobre fondos claros |
 
 > El orden del recorrido **importa**: comprobarlo solo hacia delante ocultaba que cada parada
 > heredaba el estado de la anterior. Los dos defectos peores salieron de recorrerlo al revés.
+
+> **Los rótulos no se separan apartándolos en la escena.** Se probó con 1,5 · 2,4 · 3,2 unidades
+> y los solapes subieron de 2 a 4: el encuadre se ajusta al contenido, así que al apartarlos la
+> cámara se retira otro tanto y la distancia en píxeles se queda igual. Son DOM de tamaño fijo
+> sobre una escena que sí escala — el problema es de pantalla y se resuelve en pantalla.
 
 ⚠️ La escena es WebGL. El guion fuerza **SwiftShader** (render por software) para que corra
 también en un equipo sin GPU.

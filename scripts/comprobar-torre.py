@@ -12,6 +12,8 @@ construyéndola: **la escena afirma un estado que el código no produce**.
     3. rack       la escena 3D se monta y cuadra con el modelo
     4. gavetas    cada piso abre en UN panel, con sus agentes y sellos
     4b. corriente los cables se mueven de verdad, al ritmo declarado
+    7b. rotulos   ningún rótulo se pisa, se sale ni queda bajo la barra
+    7c. plegado   la flecha pliega cabecera y pie y el mapa gana ese alto
     5. bajada     los arcos salen de la decisión y caen sobre su fuente
     6. modo       hoy / propuesto, y los textos salen del modelo
     7. recorrido  las 8 paradas en orden, AL REVÉS y saltando
@@ -520,6 +522,10 @@ def c_modo(nav):
           const r=RAICES.find(x=>x.id===e.dataset.raiz);
           return e.querySelector('.comoLlega').textContent===r.hoy;}),
         bajada:document.querySelector('#bajada').disabled,
+        rejilla:document.body.classList.contains('rejilla-hoy'),
+        columnas:(()=>{const c={};for(const e of document.querySelectorAll('.eti'))
+          (c[Math.round(e.getBoundingClientRect().left)] ||= []).push(1);
+          return Object.values(c).map(v=>v.length).sort();})(),
         pisan, total:RAICES.length};}""")
     fallos = list(p.errores)
     for cond, txt in [(d['clase'], 'el modo no se activa'), (d['aviso'], 'no sale el aviso de «hoy»'),
@@ -533,6 +539,10 @@ def c_modo(nav):
         fallos.append('%d textos de «hoy» y %d raíces' % (d['textos'], d['total']))
     if d['pisan']:
         fallos.append('%d pares de rótulos se pisan en modo «hoy»' % d['pisan'])
+    if not d['rejilla']:
+        fallos.append('las fuentes no se ordenan en rejilla en «hoy»')
+    if d['columnas'] != [6, 6]:
+        fallos.append('la rejilla de «hoy» no son dos columnas de seis: %s' % d['columnas'])
     p.click('#modo')
     p.wait_for_timeout(1200)
     if p.evaluate("()=>document.body.classList.contains('modo-hoy')"):
@@ -546,35 +556,62 @@ def c_modo(nav):
 def c_recorrido(nav):
     """Las paradas dejan la escena en el estado que anuncian — recorridas en
     orden, AL REVÉS y saltando. El orden importa: recorrer siempre hacia
-    delante ocultaba que las paradas heredaban el modo de la anterior."""
+    delante ocultaba que las paradas heredaban el modo de la anterior.
+
+    Desde que el recorrido CONSTRUYE la escena, lo que se comprueba no es solo
+    el modo: es qué capas están puestas en cada parada. La 1 no puede tener
+    torre, la 8 no puede tener alimentación, la 9 tiene las dos corrientes."""
     p = abre(nav, TORRE)
     total = p.evaluate("()=>window.__torre.PARADAS.length")
+    # b = el panel habla de un piso · f = el panel habla de una fuente
     espera = {
-        1: lambda d: not d['b'] and not d['f'] and not d['baja'] and not d['hoy'],
-        2: lambda d: d['f'] and not d['b'] and not d['hoy'],
-        3: lambda d: d['b'] and not d['f'] and not d['hoy'],
-        4: lambda d: d['b'] and not d['hoy'],
-        5: lambda d: d['b'] and not d['hoy'],
-        6: lambda d: d['b'] and not d['hoy'],
-        7: lambda d: d['baja'] and not d['b'] and not d['hoy'],
-        8: lambda d: d['hoy'] and not d['baja'] and not d['b'],
+        1: lambda d: d['hoy'] and not d['rack'] and not d['sube'] and not d['baja']
+                     and not d['b'] and not d['f'] and d['rejilla'],
+        2: lambda d: d['rack'] and d['sube'] and not d['baja'] and not d['hoy']
+                     and not d['b'] and not d['f'],
+        3: lambda d: d['b'] and not d['f'] and not d['hoy'] and d['rack'] and d['sube'],
+        4: lambda d: d['b'] and not d['f'] and not d['hoy'] and d['rack'],
+        5: lambda d: d['b'] and not d['hoy'] and d['rack'],
+        6: lambda d: d['b'] and not d['hoy'] and d['rack'],
+        7: lambda d: d['b'] and not d['hoy'] and d['rack'],
+        8: lambda d: d['baja'] and not d['sube'] and d['rack'] and not d['hoy']
+                     and not d['b'] and not d['f']
+                     and d['fuentes'] == d['reciben'] and d['pedestales'] == d['reciben'],
+        9: lambda d: d['baja'] and d['sube'] and d['lejos'] and not d['hoy']
+                     and d['fuentes'] == d['todas'],
     }
-    EST = """()=>{const T=window.__torre;
+    EST = """()=>{const T=window.__torre, e=T.estado();
       const f=document.querySelector('#ficha');
-      /* «b» era «hay burbujas»; ahora es «el panel habla de un piso»: el
-         contenido de un piso y el de una fuente van en el MISMO panel.
-         ⚠️ El panel cerrado CONSERVA su contenido a propósito —para no
-         vaciarse a la vista mientras se desliza fuera—, así que no basta con
-         buscar `.pnl`: hay que exigir que además esté abierto. */
+      /* El panel cerrado CONSERVA su contenido a propósito —para no vaciarse a
+         la vista mientras se desliza fuera—, así que no basta con buscar
+         `.pnl`: hay que exigir que además esté abierto. */
       const ab=f.classList.contains('abierta'), pnl=!!document.querySelector('#f-cuerpo .pnl');
-      return {n:T._rec.paso+1, b:ab && pnl,
-        f:ab && !pnl,
-        baja:T.escena.children.filter(o=>o.userData&&o.userData.bajada&&o.visible).length>0,
-        hoy:document.body.classList.contains('modo-hoy'),
+      return {n:T._rec.paso+1, b:ab && pnl, f:ab && !pnl,
+        rack:Object.values(T.bandejas).every(x=>x.visible),
+        armazon:T.armazon.every(x=>x.visible),
+        chapas:T.chapas.every(c=>c.visible),
+        leds:T.ledsVivos.every(l=>l.led.visible),
+        sube:Object.values(T.tubos).every(t=>t.visible),
+        /* los cables de DENTRO del rack son alimentación igual: se quedaban
+           corriendo en azul en la parada de la bajada */
+        subeDentro:T.tubosDentro.every(t=>t.visible),
+        algoSube:Object.values(T.tubos).some(t=>t.visible)||T.tubosDentro.some(t=>t.visible),
+        /* en la parada de la bajada solo deben quedar las fuentes que reciben:
+           las otras cinco no vuelven a ninguna parte y sobran en esa lámina */
+        fuentes:T.rotulosRaiz.filter(o=>o.visible).map(o=>o.element.dataset.raiz).sort(),
+        pedestales:T.pedestales.filter(b=>b.visible).map(b=>b.userData.raiz).sort(),
+        reciben:BAJADAS.map(b=>b.hacia).sort(),
+        todas:RAICES.map(r=>r.id).sort(),
+        baja:T.bajadas.some(x=>x.malla.visible),
+        lejos:e.lejos, hoy:document.body.classList.contains('modo-hoy'),
+        rejilla:document.body.classList.contains('rejilla-hoy'),
+        compacto:document.body.classList.contains('compacto'),
         roto:document.querySelector('.rec-txt').innerText.indexOf('no pudo leer')>=0};}"""
     fallos = []
     p.click('#abre-recorrido')
-    p.wait_for_timeout(1400)
+    p.wait_for_timeout(1600)
+    if not p.evaluate("()=>document.body.classList.contains('compacto')"):
+        fallos.append('el recorrido no pliega la cabecera')
     secuencias = [('en orden', list(range(1, total + 1))),
                   ('al revés', list(range(total, 0, -1))),
                   ('saltando', [total, 4, 1, total - 1, 3])]
@@ -585,11 +622,141 @@ def c_recorrido(nav):
             d = p.evaluate(EST)
             if d['roto']:
                 fallos.append('%s · parada %d: el guion no pudo leer sus cifras' % (etq, n))
+            if d['sube'] != d['subeDentro'] or (not d['sube'] and d['algoSube']):
+                fallos.append('%s · parada %d: la alimentación se apaga a medias '
+                              '(fuera %s, dentro %s)' % (etq, n, d['sube'], d['subeDentro']))
             if n in espera and not espera[n](d):
-                fallos.append('%s · parada %d deja %s' % (etq, n, {k: d[k] for k in ('b', 'f', 'baja', 'hoy')}))
+                fallos.append('%s · parada %d deja %s' % (etq, n, dict(
+                    {k: d[k] for k in ('rack', 'sube', 'baja', 'hoy', 'lejos', 'b', 'f')},
+                    fuentes=len(d['fuentes']), pedestales=len(d['pedestales']))))
+            if not d['rack'] and (d['armazon'] or d['chapas'] or d['leds']):
+                fallos.append('%s · parada %d: sin torre pero quedan %s en el aire' % (etq, n,
+                    ', '.join(x for x in ('bastidor', 'chapas', 'led')
+                              if d[{'bastidor': 'armazon', 'chapas': 'chapas', 'led': 'leds'}[x]])))
+
+    # al salir, la escena y la página vuelven enteras
+    p.evaluate("()=>window.__torre.cierraRecorrido()")
+    p.wait_for_timeout(1600)
+    d = p.evaluate(EST)
+    for cond, txt in [(d['rack'], 'al salir la torre no vuelve'),
+                      (d['sube'], 'al salir la alimentación no vuelve'),
+                      (not d['baja'], 'al salir se queda encendida la bajada'),
+                      (not d['lejos'], 'al salir la cámara se queda retirada'),
+                      (not d['compacto'], 'al salir la cabecera sigue plegada'),
+                      (d['fuentes'] == d['todas'], 'al salir faltan fuentes por volver'),
+                      (d['pedestales'] == d['todas'], 'al salir faltan pedestales por volver')]:
+        if not cond:
+            fallos.append(txt)
     fallos += p.errores
     p.close()
     return fallos, '%d paradas × 3 recorridos' % total
+
+
+# ── 7b · los rótulos ─────────────────────────────────────────────────────────
+
+def c_rotulos(nav):
+    """Ningún rótulo de fuente se pisa con otro, se sale del lienzo ni queda
+    detrás de la barra del recorrido — en tres anchuras y en los dos modos.
+
+    Es la comprobación que faltaba y que dejó pasar el defecto: separar los
+    rótulos EN LA ESCENA no los separa en pantalla, porque el encuadre se
+    ajusta al contenido y la cámara se retira otro tanto. Se midió con 1,5 ·
+    2,4 · 3,2 unidades de separación y los solapes fueron 2 · 3 · 4."""
+    MIDE = """()=>{const c=document.querySelector('#lienzo3d').getBoundingClientRect();
+      const barra=document.querySelector('#recorrido');
+      const bb=barra.hidden?null:barra.getBoundingClientRect();
+      /* TODOS los rótulos flotantes, no solo los de fuente: mirar solo `.eti`
+         dejó pasar que las chapas de las bandejas se pisaban entre sí —hasta
+         nueve pares a 1280 px— y que tapaban a los rótulos de fuente. */
+      const e=[...document.querySelectorAll('.eti,.chapa')]
+        .map(x=>({t:(x.classList.contains('chapa')?'chapa ':'')+
+                    (x.querySelector('.n')||x).textContent.slice(0,20).trim(),
+                  r:x.getBoundingClientRect()}))
+        .filter(x=>x.r.width>0);
+      const pisan=[]; for(let i=0;i<e.length;i++)for(let j=i+1;j<e.length;j++){
+        const a=e[i].r,b=e[j].r;
+        if(!(a.right<=b.left||a.left>=b.right||a.bottom<=b.top||a.top>=b.bottom))
+          pisan.push(e[i].t+' / '+e[j].t);}
+      return {n:e.length, pisan,
+        fuera:e.filter(x=>x.r.left<c.left-2||x.r.right>c.right+2
+                        ||x.r.top<c.top-2||x.r.bottom>c.bottom+2).map(x=>x.t),
+        tapados:!bb?[]:e.filter(x=>x.r.bottom>bb.top+2&&x.r.right>bb.left&&x.r.left<bb.right)
+                        .map(x=>x.t)};}"""
+    fallos = []
+    for w, h in [(1600, 950), (1280, 800), (1100, 780)]:
+        p = abre(nav, TORRE, ancho=w, alto=h)
+        for modo in ('propuesto', 'hoy'):
+            if modo == 'hoy':
+                p.click('#modo')
+                p.wait_for_timeout(1800)
+            d = p.evaluate(MIDE)
+            # las chapas se ocultan en «hoy» a propósito —el rack es un
+            # fantasma ahí—, así que se cuenta lo que de verdad se ve
+            espera = p.evaluate("""()=>RAICES.length + [...document.querySelectorAll('.chapa')]
+              .filter(x=>x.getBoundingClientRect().width>0).length""")
+            if d['n'] != espera:
+                fallos.append('%dx%d %s: %d rótulos y se esperaban %d' % (w, h, modo, d['n'], espera))
+            for lista, txt in [(d['pisan'], 'se pisan'), (d['fuera'], 'fuera del lienzo')]:
+                if lista:
+                    fallos.append('%dx%d %s: %s — %s' % (w, h, modo, txt, '; '.join(lista[:3])))
+        # y con la barra del recorrido puesta, que tapa por abajo
+        p.click('#modo')
+        p.wait_for_timeout(1200)
+        p.click('#abre-recorrido')
+        p.wait_for_timeout(1800)
+        for i in range(9):
+            p.evaluate("(i)=>window.__torre.vaAlPaso(i)", i)
+            p.wait_for_timeout(1400)
+            d = p.evaluate(MIDE)
+            if d['tapados']:
+                fallos.append('%dx%d parada %d: la barra tapa %s'
+                              % (w, h, i + 1, '; '.join(d['tapados'][:3])))
+            if d['pisan']:
+                fallos.append('%dx%d parada %d: se pisan %s' % (w, h, i + 1, d['pisan'][0]))
+        fallos += p.errores
+        p.close()
+    return fallos, 'sin solapes: 3 anchuras × (2 modos + 9 paradas)'
+
+
+# ── 7c · plegar la página ────────────────────────────────────────────────────
+
+def c_plegado(nav):
+    """La flecha pliega cabecera y pie, el mapa gana ese alto, y la salida
+    sigue existiendo con la cabecera plegada. Y al desplegar vuelve todo."""
+    p = abre(nav, TORRE)
+    fallos = []
+    LEE = """()=>({compacto:document.body.classList.contains('compacto'),
+      cab:document.querySelector('header').getBoundingClientRect().height,
+      pie:document.querySelector('footer').getBoundingClientRect().height,
+      esc:Math.round(document.querySelector('.escenario').getBoundingClientRect().height),
+      salida:getComputedStyle(document.getElementById('volver2')).display!=='none',
+      lienzo:Math.round(document.getElementById('lienzo3d').getBoundingClientRect().height)})"""
+    a = p.evaluate(LEE)
+    if a['compacto']:
+        fallos.append('arranca ya plegada')
+    if a['salida']:
+        fallos.append('la salida de la barra se ve sin estar plegada')
+    p.click('#compacta')
+    p.wait_for_timeout(1200)
+    b = p.evaluate(LEE)
+    if not b['compacto']:
+        fallos.append('la flecha no pliega')
+    if b['cab'] > 2 or b['pie'] > 2:
+        fallos.append('cabecera %dpx y pie %dpx siguen ocupando' % (b['cab'], b['pie']))
+    if b['esc'] <= a['esc'] + 40:
+        fallos.append('el mapa no gana alto: %d → %d' % (a['esc'], b['esc']))
+    if b['lienzo'] != b['esc']:
+        fallos.append('el lienzo 3D no siguió al alto nuevo (%d vs %d)' % (b['lienzo'], b['esc']))
+    if not b['salida']:
+        fallos.append('plegada, no queda por dónde volver')
+    p.click('#compacta')
+    p.wait_for_timeout(1200)
+    c = p.evaluate(LEE)
+    if c['compacto'] or c['cab'] < 40 or abs(c['esc'] - a['esc']) > 4:
+        fallos.append('desplegar no devuelve la página: %s' % c)
+    fallos += p.errores
+    p.close()
+    return fallos, 'plegado y devuelto'
 
 
 # ── 8 · contraste ────────────────────────────────────────────────────────────
@@ -609,7 +776,8 @@ def c_contraste(nav):
 CHEQUEOS = {
     'modelo': c_modelo, 'plana': c_plana, 'rack': c_rack, 'gavetas': c_gavetas,
     'corriente': c_corriente,
-    'bajada': c_bajada, 'modo': c_modo, 'recorrido': c_recorrido, 'contraste': c_contraste,
+    'bajada': c_bajada, 'modo': c_modo, 'recorrido': c_recorrido,
+    'rotulos': c_rotulos, 'plegado': c_plegado, 'contraste': c_contraste,
 }
 
 

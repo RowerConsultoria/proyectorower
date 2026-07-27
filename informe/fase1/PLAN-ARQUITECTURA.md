@@ -143,6 +143,7 @@ raíces que lo alimenten.
 | **9 · El recorrido guiado** | ✅ **hecha** — 8 paradas que dejan la escena en su estado, con teclado |
 | **10 · Sustituir el diagrama** | ✅ **hecha** — la torre entra en la s10 del informe maestro y en el deck |
 | **11 · Pulido y comprobaciones** | ✅ **hecha** — contraste AA, móvil, y `scripts/comprobar-torre.py` con 8 comprobaciones · cierra **A3** y **A4** |
+| **13 · El recorrido que construye la escena** | ✅ **hecha** — arranca en «hoy» y sin torre, revela por capas, la bajada sola, el ciclo entero alejado · matices de corriente en el rack · cabecera y pie plegables · 11 comprobaciones |
 | **12 · Claridad y corriente** | ✅ **hecha** — el cedazo y la decisión dichos directo · un panel por piso en vez de once burbujas · **la corriente vuelve a correr** · 9ª comprobación (`corriente`) y las chapas no se pisan |
 
 ## Pendientes detectados durante la construcción
@@ -187,3 +188,82 @@ archivo **no define**.
 código no producía, y la comprobación que debía cazarlo medía lo de al lado.
 Las dos nuevas —`corriente` y el solape de chapas— se rompieron a propósito
 antes de darlas por buenas.
+
+## Fase 13 · el recorrido que construye la escena (26-jul)
+
+El recorrido enseñaba la escena entera desde el primer paso y terminaba en
+«hoy». Ahora **empieza** ahí y va montando la torre:
+
+| | parada | qué se ve |
+|---|---|---|
+| 1 | Así llega el dato hoy | solo las 12 fuentes, **en dos columnas**. Sin rack, sin cables, sin chapas |
+| 2 | Una torre, y el dato que la alimenta | aparece el rack y la corriente sube |
+| 3-7 | los cinco pisos, de abajo arriba | ingesta → cedazo → dato certificado → inteligencia → decisión |
+| 8 | Y la torre baja | **se apaga la alimentación** —los 12 cables y los 4 de dentro del rack— y quedan **solo las 7 fuentes que reciben** |
+| 9 | El ciclo entero | las dos corrientes, con la cámara retirada |
+
+Cada parada **declara** sus capas y `vaAlPaso` las impone, que es lo que permite
+andarlo al revés y saltando sin heredar el estado de la anterior.
+
+Además: el rack **late en el color de cada piso**, con el pulso subiendo por la
+pila; y la cabecera y el pie se pliegan —con la flecha «⤢ más mapa», y solos
+durante el recorrido— para darle el alto de la ventana al mapa.
+
+### Lo que costó, y lo que enseñó
+
+**Los rótulos no se separan apartándolos en la escena.** Se probó con 1,5 · 2,4 ·
+3,2 unidades de separación y los solapes subieron de 2 a 4: el encuadre se ajusta
+al contenido, así que al apartarlos la cámara se retira otro tanto y la distancia
+en píxeles no cambia. Son DOM de tamaño fijo sobre una escena que sí escala. La
+solución es de pantalla: rejilla de dos columnas en «hoy», y apilado con búsqueda
+de hueco —arriba y abajo, dentro del cuadro— en «propuesto».
+
+**Tres defectos que ya estaban y salieron por el camino:**
+
+1. `camara.position.copy(destino).addScaledVector(camara.position.clone()…)` —
+   JavaScript evalúa el `copy()` **antes** que el argumento, así que la dirección
+   se calculaba sobre una posición ya machacada y salía cero. **Cada arranque de
+   la página** entraba por ahí: la cámara se quedaba clavada en el objetivo,
+   OrbitControls la rescataba a un picado casi cenital y nueve de las doce
+   fuentes quedaban fuera de cuadro.
+2. `CSS2DRenderer` **centra** el rótulo en el punto proyectado; el código de
+   colocación suponía que lo anclaba por la esquina.
+3. Las chapas de las bandejas se pisaban entre sí —hasta nueve pares a 1280 px—
+   porque llevaban dos líneas y cinco de ellas no caben en un rack proyectado
+   pequeño.
+
+**Y una comprobación que faltaba:** `rotulos`, que mide solapes, desbordes y
+tapados por la barra en 3 anchuras × (2 modos + 9 paradas). Ninguna comprobación
+medía eso, y por eso los tres defectos de arriba llevaban ahí desde el principio.
+
+### Tres correcciones sobre el recorrido (revisión del equipo)
+
+1. **La parada 3 abría una fuente, no un piso.** Y con ella el **piso 1 nunca se
+   explicaba**: se saltaba de la torre entera al cedazo. Ahora sube piso a piso
+   y el argumento de la fuente —«sin los documentos del embarque, X»— cabe
+   dentro de la ingesta, que es justo donde llega.
+
+2. **Los cables azules no se apagaban del todo en la bajada.** Los cuatro de
+   DENTRO del rack —de una bandeja a la de arriba, por detrás— se añadían a la
+   escena pero no al mapa `tubos`, así que `ponCapas` no los tocaba. Ahora van
+   en su propia lista y la comprobación exige que la alimentación no se apague
+   **a medias**.
+
+3. **La lámina de la bajada enseñaba fuentes que no reciben nada.** De las 12,
+   solo 7 reciben. Las otras cinco —Desarrollo de producto, Fábricas y
+   proveedores, Tasas de cambio, Reglas de negocio y Crédito y saldo— seguían
+   en pantalla en la lámina que dice «esto es lo que vuelve». Se esconden con su
+   pedestal y su canto de color, y el encuadre solo cuenta lo visible.
+
+### Sobre el guion de sabotaje
+
+De las 29 trampas, **27 muerden**. Las dos que no, no son comprobaciones ciegas:
+son trampas que dejaron de tener efecto medible porque un arreglo posterior las
+volvió innecesarias —el barrido de la franja cubre lo que resolvían los
+candidatos hacia arriba, y `apilaChapas` separa las chapas aunque midan el
+doble—. Se sustituyeron por dos que sí atacan el mecanismo vigente.
+
+⚠️ **Y si se corta el sabotaje a media carrera, su `finally` no restaura.** Pasó
+dos veces en esta sesión y las dos dejó un archivo saboteado, con la comprobación
+fallando por una razón que no era la real. `scratchpad/auditar.py --arregla`
+compara el árbol contra las trampas y deshace lo que quede aplicado.
