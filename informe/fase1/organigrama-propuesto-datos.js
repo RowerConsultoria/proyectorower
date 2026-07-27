@@ -15,101 +15,101 @@
 
 const ORG_PROPUESTA = {
   W: 1680,
-  H: 1250,
+  H: 1120,
 
   titulo: 'Estructura organizativa propuesta — Grupo Kenex Trading',
   bajada: 'Propuesta del equipo consultor, en tres niveles (Dirección Ejecutiva · Gerencias Corporativas · Direcciones), diseñada sobre los siete principios de estructura y sobre el diagnóstico de Fase 1. Borrador para discusión con la Alta Gerencia — las coordinaciones dentro de cada dirección se detallarán en una siguiente iteración.',
 
   /* ---------------------------------------------------------------- nodos */
   NODES: {
-    holding:{x:468,y:36,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Holding — grupo familiar propietario'},
-    junta:{x:878,y:36,w:255,h:64,cls:'gov',tag:'Gobierno · consulta',ttl:'Junta Directiva'},
-    exec:{x:635,y:150,w:330,h:62,cls:'exec',tag:'Nivel 1',ttl:'Dirección Ejecutiva del Grupo'},
+    exec:{x:635,y:40,w:330,h:62,cls:'exec',tag:'Nivel 1',ttl:'Dirección Ejecutiva del Grupo'},
+    holding:{x:500,y:138,w:250,h:54,cls:'gov',tag:'Gobierno · consulta',ttl:'Holding — grupo familiar propietario'},
+    junta:{x:850,y:138,w:250,h:54,cls:'gov',tag:'Gobierno · consulta',ttl:'Junta Directiva'},
 
     // ---- costado izquierdo (soporte) ----
-    gg_th:{x:95,y:280,w:250,h:58,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Talento Humano'},
-    dir_th:{x:120,y:366,w:205,h:52,cls:'dir',ttl:'Dirección de Talento Humano',note:'por país'},
+    gg_th:{x:95,y:250,w:250,h:56,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Talento Humano'},
+    dir_th:{x:120,y:316,w:205,h:50,cls:'dir',ttl:'Dirección de Talento Humano',note:'por país'},
 
-    gg_tt:{x:70,y:458,w:290,h:62,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Transformación Tecnológica y Soporte'},
-    cex:{x:70,y:552,w:290,h:66,cls:'coe',ttl:'Comité de Excelencia en Transformación Tecnológica e IA',note:'transversal · apoyo'},
-    dir_ti:{x:70,y:628,w:250,h:54,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
+    gg_tt:{x:70,y:388,w:290,h:58,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Transformación Tecnológica y Soporte'},
+    cex:{x:70,y:456,w:290,h:60,cls:'coe',ttl:'Comité de Excelencia en Transformación Tecnológica e IA',note:'transversal · apoyo'},
+    dir_ti:{x:70,y:526,w:250,h:52,cls:'dir',ttl:'Dirección de Tecnologías de Información',note:'por país'},
 
-    gg_pmo:{x:95,y:722,w:250,h:58,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'PMO'},
-    dir_pmo:{x:95,y:808,w:250,h:76,cls:'dir',ttl:'Dirección de PMO',note:'dos alas: desarrollo de producto · mejora y transformación organizacional'},
+    gg_pmo:{x:95,y:600,w:250,h:56,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'PMO'},
+    dir_pmo:{x:95,y:666,w:250,h:70,cls:'dir',ttl:'Dirección de PMO',note:'dos alas: desarrollo de producto · mejora y transformación organizacional'},
 
     // ---- costado derecho (soporte + híbrida) ----
-    gg_fin:{x:1215,y:280,w:250,h:58,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Finanzas'},
-    dir_ac:{x:1230,y:366,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
+    gg_fin:{x:1215,y:250,w:250,h:56,cls:'sop',tag:'Gerencia corporativa · Soporte',ttl:'Finanzas'},
+    dir_ac:{x:1230,y:316,w:225,h:52,cls:'dir',ttl:'Dirección de Administración y Contabilidad',note:'por país'},
 
-    dir_mant:{x:1195,y:458,w:270,h:62,cls:'dir',ttl:'Dirección de Mantenimiento y Servicios',note:'por país'},
+    dir_mant:{x:1195,y:388,w:270,h:58,cls:'dir',ttl:'Dirección de Mantenimiento y Servicios',note:'por país'},
 
-    gg_em:{x:1180,y:642,w:290,h:64,cls:'hyb',tag:'Gerencia corporativa · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
-    dir_exc:{x:1220,y:740,w:245,h:50,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
-    dir_mkt:{x:1220,y:800,w:245,h:48,cls:'dir',ttl:'Dirección de Mercadeo'},
-    dir_dig:{x:1220,y:856,w:245,h:50,cls:'dir',ttl:'Dirección de Experiencia Digital'},
+    gg_em:{x:1180,y:466,w:290,h:62,cls:'hyb',tag:'Gerencia corporativa · Híbrida (soporte-medular)',ttl:'Experiencia de Marcas'},
+    dir_exc:{x:1220,y:542,w:245,h:48,cls:'dir',ttl:'Dirección de Experiencia del Cliente'},
+    dir_mkt:{x:1220,y:598,w:245,h:48,cls:'dir',ttl:'Dirección de Mercadeo'},
+    dir_dig:{x:1220,y:654,w:245,h:48,cls:'dir',ttl:'Dirección de Experiencia Digital'},
 
     // ---- flujo medular ----
-    gg_id:{x:195,y:960,w:250,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Investigación y Desarrollo'},
+    gg_id:{x:195,y:800,w:250,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Investigación y Desarrollo'},
 
-    gg_com:{x:675,y:960,w:250,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Comercial'},
-    dir_casio:{x:630,y:1046,w:160,h:64,cls:'marca',ttl:'Dirección Comercial CASIO',note:'incluye compras y ventas al mayor'},
-    dir_cubitt:{x:810,y:1046,w:160,h:64,cls:'marca',ttl:'Dirección Comercial CUBITT',note:'incluye compras y ventas al mayor'},
-    dir_detal:{x:500,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas al Detal',note:'tiendas · por país'},
-    dir_web:{x:660,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas Web',note:'por país'},
-    dir_stec:{x:820,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de Servicio Técnico',note:'por país'},
-    dir_ecom:{x:980,y:1150,w:150,h:66,cls:'dir',ttl:'Dirección de E-commerce',note:'regional'},
-    com_comite:{x:455,y:960,w:200,h:64,cls:'coe',ttl:'Comité Comercial',note:'vinculado a la G. Corporativa Comercial'},
+    gg_com:{x:675,y:800,w:250,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Comercial'},
+    dir_casio:{x:630,y:886,w:160,h:64,cls:'marca',ttl:'Dirección Comercial CASIO',note:'incluye compras y ventas al mayor'},
+    dir_cubitt:{x:810,y:886,w:160,h:64,cls:'marca',ttl:'Dirección Comercial CUBITT',note:'incluye compras y ventas al mayor'},
+    dir_detal:{x:500,y:990,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas al Detal',note:'tiendas · por país'},
+    dir_web:{x:660,y:990,w:150,h:66,cls:'dir',ttl:'Dirección de Ventas Web',note:'por país'},
+    dir_stec:{x:820,y:990,w:150,h:66,cls:'dir',ttl:'Dirección de Servicio Técnico',note:'por país'},
+    dir_ecom:{x:980,y:990,w:150,h:66,cls:'dir',ttl:'Dirección de E-commerce',note:'regional'},
+    com_comite:{x:455,y:800,w:200,h:64,cls:'coe',ttl:'Comité Comercial',note:'vinculado a la G. Corporativa Comercial'},
 
-    gg_ops:{x:1225,y:960,w:270,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Operaciones y Logística'},
-    dir_ops:{x:1230,y:1046,w:130,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
-    dir_inv:{x:1370,y:1046,w:130,h:56,cls:'dir',ttl:'Dirección de Inventario'},
+    gg_ops:{x:1225,y:800,w:270,h:60,cls:'med',tag:'Gerencia corporativa · Medular',ttl:'Operaciones y Logística'},
+    dir_ops:{x:1230,y:886,w:130,h:56,cls:'dir',ttl:'Dirección de Operaciones'},
+    dir_inv:{x:1370,y:886,w:130,h:56,cls:'dir',ttl:'Dirección de Inventario'},
   },
 
   /* ------------------------------------------- líneas de reporte / consulta */
   EDGES: [
-    {s:'dot', p:[[595,100],[595,128],[720,128],[720,150]]},   // holding -> exec
-    {s:'dot', p:[[1005,100],[1005,128],[880,128],[880,150]]}, // junta -> exec
-    {s:'sol', p:[[800,212],[800,930]]},                        // espina
-    {s:'sol', p:[[345,309],[1215,309]]},                       // barra A (Talento H | Finanzas)
-    {s:'sol', p:[[360,489],[1195,489]]},                       // barra B (Transf.Tec | Servicio)
-    {s:'sol', p:[[345,751],[800,751]]},                        // PMO -> espina
-    {s:'sol', p:[[800,674],[1180,674]]},                       // espina -> Exp. Marcas
-    {s:'sol', p:[[222,338],[222,366]]},                        // gg_th -> dir_th
-    {s:'sol', p:[[95,520],[48,520],[48,655]]},                 // riel gg_tt
-    {s:'dot', p:[[48,583],[70,583]]},                          // -> cex
-    {s:'sol', p:[[48,655],[70,655]]},                          // -> dir_ti
-    {s:'sol', p:[[220,780],[220,808]]},                        // gg_pmo -> dir_pmo
-    {s:'sol', p:[[1342,338],[1342,366]]},                      // gg_fin -> dir_ac
-    {s:'sol', p:[[1470,706],[1490,706],[1490,881]]},           // riel gg_em
-    {s:'sol', p:[[1490,765],[1465,765]]},
-    {s:'sol', p:[[1490,824],[1465,824]]},
-    {s:'sol', p:[[1490,881],[1465,881]]},
-    {s:'sol', p:[[320,930],[1360,930]]},                       // bus medular
-    {s:'sol', p:[[320,930],[320,960]]},
-    {s:'sol', p:[[800,930],[800,960]]},
-    {s:'sol', p:[[1360,930],[1360,960]]},
-    {s:'dot', p:[[655,992],[675,992]]},                        // Comité Comercial -> Comercial
+    {s:'dot', p:[[720,102],[720,120],[625,120],[625,138]]},   // exec -> holding (consulta)
+    {s:'dot', p:[[880,102],[880,120],[975,120],[975,138]]},   // exec -> junta (consulta)
+    {s:'sol', p:[[800,102],[800,770]]},                        // espina
+    {s:'sol', p:[[345,278],[1215,278]]},                       // barra A (Talento H | Finanzas)
+    {s:'sol', p:[[360,417],[1195,417]]},                       // barra B (Transf.Tec | Mantenimiento)
+    {s:'sol', p:[[345,628],[800,628]]},                        // PMO -> espina
+    {s:'sol', p:[[800,497],[1180,497]]},                       // espina -> Exp. Marcas
+    {s:'sol', p:[[220,306],[220,316]]},                        // gg_th -> dir_th
+    {s:'sol', p:[[95,446],[48,446],[48,552]]},                 // riel gg_tt
+    {s:'dot', p:[[48,486],[70,486]]},                          // -> cex
+    {s:'sol', p:[[48,552],[70,552]]},                          // -> dir_ti
+    {s:'sol', p:[[220,656],[220,666]]},                        // gg_pmo -> dir_pmo
+    {s:'sol', p:[[1342,306],[1342,316]]},                      // gg_fin -> dir_ac
+    {s:'sol', p:[[1470,528],[1490,528],[1490,678]]},           // riel gg_em
+    {s:'sol', p:[[1490,566],[1465,566]]},
+    {s:'sol', p:[[1490,622],[1465,622]]},
+    {s:'sol', p:[[1490,678],[1465,678]]},
+    {s:'sol', p:[[320,770],[1360,770]]},                       // bus medular
+    {s:'sol', p:[[320,770],[320,800]]},
+    {s:'sol', p:[[800,770],[800,800]]},
+    {s:'sol', p:[[1360,770],[1360,800]]},
+    {s:'dot', p:[[655,832],[675,832]]},                        // Comité Comercial -> Comercial
     // Comercial: gerencia -> marcas
-    {s:'sol', p:[[800,1020],[800,1034]]},
-    {s:'sol', p:[[710,1034],[890,1034]]},
-    {s:'sol', p:[[710,1034],[710,1046]]},{s:'sol', p:[[890,1034],[890,1046]]},
+    {s:'sol', p:[[800,860],[800,872]]},
+    {s:'sol', p:[[710,872],[890,872]]},
+    {s:'sol', p:[[710,872],[710,886]]},{s:'sol', p:[[890,872],[890,886]]},
     // marcas -> direcciones operativas (reportan a las marcas)
-    {s:'sol', p:[[710,1110],[710,1124]]},{s:'sol', p:[[890,1110],[890,1124]]},
-    {s:'sol', p:[[710,1124],[890,1124]]},
-    {s:'sol', p:[[800,1124],[800,1134]]},
-    {s:'sol', p:[[575,1134],[1055,1134]]},
-    {s:'sol', p:[[575,1134],[575,1150]]},{s:'sol', p:[[735,1134],[735,1150]]},
-    {s:'sol', p:[[895,1134],[895,1150]]},{s:'sol', p:[[1055,1134],[1055,1150]]},
+    {s:'sol', p:[[710,950],[710,964]]},{s:'sol', p:[[890,950],[890,964]]},
+    {s:'sol', p:[[710,964],[890,964]]},
+    {s:'sol', p:[[800,964],[800,974]]},
+    {s:'sol', p:[[575,974],[1055,974]]},
+    {s:'sol', p:[[575,974],[575,990]]},{s:'sol', p:[[735,974],[735,990]]},
+    {s:'sol', p:[[895,974],[895,990]]},{s:'sol', p:[[1055,974],[1055,990]]},
     // Operaciones
-    {s:'sol', p:[[1360,1020],[1360,1034]]},
-    {s:'sol', p:[[1295,1034],[1435,1034]]},
-    {s:'sol', p:[[1295,1034],[1295,1046]]},{s:'sol', p:[[1435,1034],[1435,1046]]},
+    {s:'sol', p:[[1360,860],[1360,872]]},
+    {s:'sol', p:[[1295,872],[1435,872]]},
+    {s:'sol', p:[[1295,872],[1295,886]]},{s:'sol', p:[[1435,872],[1435,886]]},
   ],
 
   /* Relaciones funcionales (curvas punteadas azules). Explicadas en las Notas. */
   RELS: [
-    {d:'M1180,700 C1075,860 1010,1050 950,1150'},   // Exp. Marcas -> direcciones operativas de Comercial
-    {d:'M1218,824 C1120,700 1120,250 345,306'},     // Dir. de Mercadeo -> Talento Humano (experiencia del empleado)
+    {d:'M1180,520 C1080,690 1010,880 955,990'},   // Exp. Marcas -> direcciones operativas de Comercial
+    {d:'M1220,622 C1080,580 1080,278 345,278'},    // Dir. de Mercadeo -> Talento Humano (experiencia del empleado)
   ],
 
   /* ------------------------------------------------------------- leyenda */
