@@ -926,61 +926,6 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     </ul>
   </div>
 </section>
-
-<section class="slide" data-sec="s7">
-  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>La célula de BI: anticipo — y advertencia — de una IA bien adoptada</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:990px; margin:0 auto;">
-      <div class="vtitle">La cadena del dato que la célula ya opera — y sus cinco aislamientos</div>
-      <svg viewBox="0 0 960 240" role="img" aria-label="Pipeline de datos de la célula de BI con marcadores de aislamiento">
-        <defs><marker id="arrBI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <g fill="none" stroke="#2E75B6" stroke-width="2.2">
-          <line x1="178" y1="70" x2="200" y2="70" marker-end="url(#arrBI)"/>
-          <line x1="342" y1="70" x2="364" y2="70" marker-end="url(#arrBI)"/>
-          <line x1="536" y1="70" x2="558" y2="70" marker-end="url(#arrBI)"/>
-          <line x1="712" y1="70" x2="734" y2="70" marker-end="url(#arrBI)"/>
-        </g>
-        <rect x="14" y="24" width="164" height="96" rx="9" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="24" y="45" font-size="12.5" font-weight="700" fill="#1F3864">~1.000 orígenes</text>
-        <text x="24" y="63" font-size="10.5" fill="#55627a">Odoo (endpoints API)</text>
-        <text x="24" y="78" font-size="10.5" fill="#55627a">tiendas propias</text>
-        <text x="24" y="93" font-size="10.5" fill="#55627a">41 clientes · 41 formatos</text>
-        <text x="24" y="108" font-size="10.5" fill="#55627a">(uno con 150 tiendas)</text>
-        <rect x="202" y="24" width="140" height="96" rx="9" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="212" y="45" font-size="12.5" font-weight="700" fill="#1F3864">ETL · normaliza</text>
-        <text x="212" y="63" font-size="10.5" fill="#55627a">Fabric + Python</text>
-        <text x="212" y="78" font-size="10.5" fill="#55627a">equipo de 3 personas</text>
-        <text x="212" y="93" font-size="10.5" fill="#55627a">actualiza varias</text>
-        <text x="212" y="108" font-size="10.5" fill="#55627a">veces al día</text>
-        <rect x="366" y="24" width="170" height="96" rx="9" fill="#1F3864"/>
-        <text x="376" y="45" font-size="12.5" font-weight="700" fill="#fff">Tabla única</text>
-        <text x="376" y="63" font-size="10.5" fill="#9dc3ee">"la fuente de la verdad"</text>
-        <text x="376" y="78" font-size="10.5" fill="#9dc3ee">país · fecha · cliente · tienda</text>
-        <text x="376" y="93" font-size="10.5" fill="#9dc3ee">· SKU · venta/inventario</text>
-        <rect x="560" y="24" width="152" height="96" rx="9" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="570" y="45" font-size="12.5" font-weight="700" fill="#1F3864">Modelos ML</text>
-        <text x="570" y="63" font-size="10.5" fill="#55627a">Random Forest · 3 niveles</text>
-        <text x="570" y="78" font-size="10.5" fill="#55627a">rebalanceo · estancados</text>
-        <text x="570" y="93" font-size="10.5" fill="#55627a">predicción · smart pricing</text>
-        <text x="570" y="108" font-size="10.5" fill="#55627a">en producción</text>
-        <rect x="736" y="24" width="210" height="96" rx="9" fill="#e3efe4" stroke="#2E7D32"/>
-        <text x="746" y="45" font-size="12.5" font-weight="700" fill="#2E7D32">Decisiones reales</text>
-        <text x="746" y="63" font-size="10.5" fill="#3d5c40">salud de inventario: plan a 30 días</text>
-        <text x="746" y="78" font-size="10.5" fill="#3d5c40">workspaces Power BI de dirección,</text>
-        <text x="746" y="93" font-size="10.5" fill="#3d5c40">compras, comercial y tiendas</text>
-        <g font-size="11" font-weight="700" fill="#C00000">
-          <circle cx="96" cy="150" r="10" fill="#C00000"/><text x="96" y="154" text-anchor="middle" fill="#fff">2</text><text x="96" y="178" text-anchor="middle">aislamiento del dato</text><text x="96" y="192" text-anchor="middle" font-weight="400" fill="#a33">calidad de entrada</text>
-        <circle cx="272" cy="150" r="10" fill="#C00000"/><text x="272" y="154" text-anchor="middle" fill="#fff">1</text><text x="272" y="178" text-anchor="middle">aislamiento organizativo</text><text x="272" y="192" text-anchor="middle" font-weight="400" fill="#a33">sin lugar en la estructura</text>
-        <circle cx="451" cy="150" r="10" fill="#C00000"/><text x="451" y="154" text-anchor="middle" fill="#fff">4</text><text x="451" y="178" text-anchor="middle">aislamiento de gobierno</text><text x="451" y="192" text-anchor="middle" font-weight="400" fill="#a33">licencias y accesos en una persona</text>
-        <circle cx="636" cy="150" r="10" fill="#C00000"/><text x="636" y="154" text-anchor="middle" fill="#fff">3</text><text x="636" y="178" text-anchor="middle">aislamiento de adopción</text><text x="636" y="192" text-anchor="middle" font-weight="400" fill="#a33">"el modelo que nadie usó"</text>
-        <circle cx="841" cy="150" r="10" fill="#C00000"/><text x="841" y="154" text-anchor="middle" fill="#fff">5</text><text x="841" y="178" text-anchor="middle">aislamiento de alcance</text><text x="841" y="192" text-anchor="middle" font-weight="400" fill="#a33">"por ahora es comercial nada más"</text>
-        </g>
-      </svg>
-    </div>
-    <div class="quote">El patrón "usuaria clave que empuja → el modelo llega a la decisión" debe convertirse en método: un modelo sin un usuario que lo consuma es trabajo perdido.<small>Lectura del caso hacia un futuro bien adaptado a la IA (7.4). Sus integrantes no están en nómina; su API es la única del grupo.</small></div>
-  </div>
-</section>
-
 <section class="slide" data-sec="s7">
   <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Cuatro riesgos, del síntoma técnico a la raíz de gobierno</h2></div>
   <div class="sbody">
@@ -1006,38 +951,34 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
         <text x="480" y="58" font-size="11.5" fill="#55627a">por eso el gobierno — Riesgo 3 aquí — es el Componente 1 allá</text>
       </svg>
     </div>
-  </div>
+    <p class="foot-note"><b>De dónde salen.</b> Los cuatro se leen en la célula de BI (7.4), que ya opera
+      <b>~1.000 orígenes</b> normalizados a una tabla única y <b>modelos en producción</b> — con <b>3 personas sin
+      posición formal</b>, la <b>única API</b> del grupo contra Odoo y un modelo que se dejó de usar porque nadie
+      supo interpretarlo. El prototipo del modelo objetivo y, a la vez, el catálogo de lo que hay que resolver.</p>
+</div>
 </section>
-
 <section class="slide" data-sec="s7">
-  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>El reverso oportuno: procesos manuales de alto volumen como quick wins</h2></div>
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Lo estructural · lo subutilizado · lo que preocupa</h2></div>
   <div class="sbody">
-    <div class="vrow">
-      <div class="viz">
-        <div class="vtitle">Facturación e-commerce VE · abril (miles USD)</div>
-        <div class="hb" style="grid-template-columns:150px 1fr 60px;"><div class="l">WhatsApp<br><span style="font-size:11px; color:var(--muted);">canal manual</span></div><div class="t" style="height:34px;"><div class="f" style="width:100%"></div></div><div class="v">37</div></div>
-        <div class="hb" style="grid-template-columns:150px 1fr 60px;"><div class="l">Web Cubitt<br><span style="font-size:11px; color:var(--muted);">canal automatizado</span></div><div class="t" style="height:34px;"><div class="f f2" style="width:81%"></div></div><div class="v">30</div></div>
-        <p class="vnote">El canal conversacional atendido <b>a mano</b> ya vende más que el automatizado.</p>
-      </div>
-      <div class="viz">
-        <div class="vtitle">La carga manual, en personas</div>
-        <div style="display:flex; gap:16px; align-items:center;">
-          <div class="big" style="max-width:none; flex:1;"><div class="n">6.000</div><div class="l">conversaciones/mes<br>atendidas por <b>6 personas</b> = ~1.000 c/u</div></div>
-          <div class="big" style="max-width:none; flex:1;"><div class="n ambar">41</div><div class="l">formatos de reportería<br>normalizados a mano por <b>1 ingeniera</b></div></div>
-        </div>
-        <p class="vnote">"Si estoy teniendo 130 órdenes, son 130 personas que escriben."</p>
-      </div>
+    <div class="viz" style="max-width:920px; margin:0 auto; gap:8px;">
+      <div class="vtitle">Capacidad instalada vs. uso real — lo subutilizado (7.10)</div>
+      <div class="cap"><div class="l"><b>Lark</b><span>licenciamiento costoso del grupo</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:38%;"></div><div class="txt">adopción heterogénea · un solo experto</div></div></div>
+      <div class="cap"><div class="l"><b>Modelos de la célula BI</b><span>predictivos en producción</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:30%;"></div><div class="txt">usados efectivamente por 2 personas</div></div></div>
+      <div class="cap"><div class="l"><b>Módulos de Odoo</b><span>RRHH · CRM · reporting</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:25%;"></div><div class="txt">sin activar en gran parte</div></div></div>
+      <div class="cap"><div class="l"><b>Universidad Cubitt</b><span>plataforma e-learning propia</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:22%;"></div><div class="txt">~220 registrados · subutilizada</div></div></div>
+      <div class="cap"><div class="l"><b>IA generativa (Claude)</b><span>licencias ya existentes</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:33%;"></div><div class="txt">islas individuales, sin política común</div></div></div>
+      <div class="lg"><span><i style="background:var(--blue)"></i>uso real (ilustrativo — evidencia textual en 7.10)</span><span><i style="background:#e8eef7; border:1px solid var(--borde);"></i>capacidad instalada</span></div>
     </div>
-    <ul class="hits">
-      <li>Son <b>quick wins y no proyectos mayores</b>: volumen que agobia · impacto directo en ventas y cliente · dueño convencido · ROI demostrable — las 4 señales de victoria temprana.</li>
-      <li>La preocupación: hoy <b>no existe la conexión</b> que los haría posibles — "en Odoo no puedo saber si un pedido salió".</li>
-    </ul>
-    <p class="foot-note">Del riesgo a la acción: identificar y priorizar los quick wins desde ya — alimentan la Ola 1 de la hoja de ruta (sección 12).</p>
+    <div class="grid3" style="margin-top:2px;">
+      <div class="card verde"><h4>Estructural ✓</h4><p>Odoo multi-empresa, WMS, Lark, stack de BI — el sistema nervioso ya existe.</p></div>
+      <div class="card ambar"><h4>Subutilizado ◐</h4><p>Capacidad instalada resolviendo cosas aisladas (arriba).</p></div>
+      <div class="card rojo"><h4>Preocupante ✗</h4><p>Los cuatro riesgos: dato, eje, gobierno, continuidad — condicionan la arquitectura.</p></div>
+    </div>
+    <div class="quote">El grupo ha crecido tecnológicamente más rápido de lo que ha gobernado ese crecimiento.<small>Tesis central de la sección 7.</small></div>
   </div>
 </section>
-
 <section class="slide" data-sec="s7">
-  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Definición arquitectónica de fondo: Odoo nativo + capa propia por API</h2></div>
+  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos — propuesta</span><h2>Preborrador de propuesta: Odoo nativo + capa propia por API</h2></div>
   <div class="sbody">
     <div class="viz" style="max-width:980px; margin:0 auto;">
       <svg viewBox="0 0 960 290" role="img" aria-label="Contraste entre el collage de apps actual y el patrón núcleo más capa propia">
@@ -1076,59 +1017,11 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
         <text x="720" y="287" text-anchor="middle" font-size="11" fill="#2E7D32">"más de mil tiendas… no corre en una computadora normal"</text>
       </svg>
     </div>
-  </div>
-</section>
-
-<section class="slide" data-sec="s7">
-  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Síntesis: la secuencia correcta no es "instalar IA"</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:970px; margin:0 auto;">
-      <svg viewBox="0 0 950 300" role="img" aria-label="Rampa de cuatro peldaños: cada paso habilita el siguiente">
-        <rect x="20" y="212" width="215" height="66" rx="8" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="127" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#1F3864">1 · CONSOLIDAR EL DATO</text>
-        <text x="127" y="257" text-anchor="middle" font-size="11" fill="#55627a">certificación y catálogo maestro</text>
-        <rect x="253" y="162" width="215" height="116" rx="8" fill="#e8eef7" stroke="#d9dee8"/>
-        <text x="360" y="188" text-anchor="middle" font-size="13" font-weight="800" fill="#1F3864">2 · INTEGRAR TRONCALES</text>
-        <text x="360" y="207" text-anchor="middle" font-size="11" fill="#55627a">cerrar los puentes manuales</text>
-        <rect x="486" y="112" width="215" height="166" rx="8" fill="#dbe6f5" stroke="#d9dee8"/>
-        <text x="593" y="138" text-anchor="middle" font-size="13" font-weight="800" fill="#1F3864">3 · RECUPERAR LA SOMBRA</text>
-        <text x="593" y="157" text-anchor="middle" font-size="11" fill="#3d5170">de Excel/WhatsApp a los sistemas</text>
-        <rect x="719" y="62" width="215" height="216" rx="8" fill="#1F3864"/>
-        <text x="826" y="88" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">4 · IA POR OLAS</text>
-        <text x="826" y="107" text-anchor="middle" font-size="11" fill="#9dc3ee">donde el dato ya es confiable</text>
-        <text x="826" y="122" text-anchor="middle" font-size="11" fill="#9dc3ee">y el patrocinio es alto</text>
-        <g font-size="11.5" font-weight="700" fill="#2E75B6" text-anchor="middle">
-          <text x="244" y="200">habilita ▸</text>
-          <text x="477" y="150">habilita ▸</text>
-          <text x="710" y="100">habilita ▸</text>
-        </g>
-        <line x1="20" y1="34" x2="900" y2="34" stroke="#2E7D32" stroke-width="2" stroke-dasharray="7 5"/>
-        <text x="24" y="24" font-size="11.5" font-weight="700" fill="#2E7D32">carril paralelo: los quick wins (7.9) arrancan desde ya, con MCP en solo lectura — no esperan la obra completa</text>
-      </svg>
-    </div>
-    <p class="lead" style="margin-top:6px;">Una IA sin bases sólidas de data estructurada no se sostiene: <b>se aísla en microprocesos o se pierde</b>. Sobre esta secuencia se construyen la arquitectura (12) y la hoja de ruta (13).</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s7">
-  <div class="shead"><span class="kick">7 · Tecnología, sistemas y datos</span><h2>Lo estructural · lo subutilizado · lo que preocupa</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:920px; margin:0 auto; gap:8px;">
-      <div class="vtitle">Capacidad instalada vs. uso real — lo subutilizado (7.11)</div>
-      <div class="cap"><div class="l"><b>Lark</b><span>licenciamiento costoso del grupo</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:38%;"></div><div class="txt">adopción heterogénea · un solo experto</div></div></div>
-      <div class="cap"><div class="l"><b>Modelos de la célula BI</b><span>predictivos en producción</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:30%;"></div><div class="txt">usados efectivamente por 2 personas</div></div></div>
-      <div class="cap"><div class="l"><b>Módulos de Odoo</b><span>RRHH · CRM · reporting</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:25%;"></div><div class="txt">sin activar en gran parte</div></div></div>
-      <div class="cap"><div class="l"><b>Universidad Cubitt</b><span>plataforma e-learning propia</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:22%;"></div><div class="txt">~220 registrados · subutilizada</div></div></div>
-      <div class="cap"><div class="l"><b>IA generativa (Claude)</b><span>licencias ya existentes</span></div><div class="t"><div class="inst"></div><div class="uso" style="width:33%;"></div><div class="txt">islas individuales, sin política común</div></div></div>
-      <div class="lg"><span><i style="background:var(--blue)"></i>uso real (ilustrativo — evidencia textual en 7.11)</span><span><i style="background:#e8eef7; border:1px solid var(--borde);"></i>capacidad instalada</span></div>
-    </div>
-    <div class="grid3" style="margin-top:2px;">
-      <div class="card verde"><h4>Estructural ✓</h4><p>Odoo multi-empresa, WMS, Lark, stack de BI — el sistema nervioso ya existe.</p></div>
-      <div class="card ambar"><h4>Subutilizado ◐</h4><p>Capacidad instalada resolviendo cosas aisladas (arriba).</p></div>
-      <div class="card rojo"><h4>Preocupante ✗</h4><p>Los cuatro riesgos: dato, eje, gobierno, continuidad — condicionan la arquitectura.</p></div>
-    </div>
-    <div class="quote">El grupo ha crecido tecnológicamente más rápido de lo que ha gobernado ese crecimiento.<small>Tesis central de la sección 7.</small></div>
-  </div>
+    <p class="foot-note"><b>La secuencia, en un renglón:</b> consolidar el dato → integrar los sistemas troncales
+      → recuperar hacia los sistemas lo que vive en la capa sombra → y sobre esa base desplegar la IA por olas.
+      <b>Una IA sin datos estructurados no se sostiene: se aísla en microprocesos o se pierde.</b>
+      Sobre esta secuencia se construyen la arquitectura de IA (10) y la hoja de ruta (12).</p>
+</div>
 </section>
 
 <!-- ================= S8 · AUDITORÍA (4) ================= -->
@@ -1164,7 +1057,6 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     </div>
   </div>
 </section>
-
 <section class="slide" data-sec="s8">
   <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>Odoo: el estándar es gratuito; el código propio, deuda</h2></div>
   <div class="sbody">
@@ -1203,7 +1095,6 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <p class="foot-note">Verificaciones pendientes al recibir C#2 (8.4): inventario de módulos, calidad del código custom, ambientes y despliegue, respaldos, matriz de accesos, endpoints API, módulos infrautilizados, alcance real de la migración.</p>
   </div>
 </section>
-
 <section class="slide" data-sec="s8">
   <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>El inventario de vacíos: dónde nace el sistema propio</h2></div>
   <div class="sbody">
@@ -1228,44 +1119,12 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       </div>
     </div>
     <p class="lead">Este inventario de <b>23 procesos</b> es la <b>hoja de ruta del sistema propio</b>: nace precisamente ahí donde no compite con nada — evita el trauma de reemplazar lo que funciona y entrega valor donde hoy no hay nada.</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s8">
-  <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>La estrategia: no reemplazar — hacer nacer el sistema propio</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:990px; margin:0 auto;">
-      <svg viewBox="0 0 960 280" role="img" aria-label="Cuatro etapas de crecimiento: el sistema propio nace en los vacíos y absorbe progresivamente">
-        <defs><marker id="arrAb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <g fill="none" stroke="#2E75B6" stroke-width="2.2"><line x1="205" y1="120" x2="245" y2="120" marker-end="url(#arrAb)"/><line x1="450" y1="120" x2="490" y2="120" marker-end="url(#arrAb)"/><line x1="695" y1="120" x2="735" y2="120" marker-end="url(#arrAb)"/></g>
-        <circle cx="122" cy="120" r="30" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <text x="122" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#1F3864">dato</text>
-        <text x="122" y="180" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">1 · NORMALIZAR EL FLUJO</text>
-        <text x="122" y="198" text-anchor="middle" font-size="10.5" fill="#55627a">el dato certificado como servicio ·</text>
-        <text x="122" y="212" text-anchor="middle" font-size="10.5" fill="#55627a">cerrar integraciones a medias</text>
-        <circle cx="347" cy="120" r="42" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <g fill="#B26A00"><circle cx="315" cy="90" r="7"/><circle cx="380" cy="94" r="7"/><circle cx="312" cy="146" r="7"/><circle cx="382" cy="150" r="7"/></g>
-        <text x="347" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#1F3864">módulos</text>
-        <text x="347" y="180" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">2 · NACER EN LOS VACÍOS</text>
-        <text x="347" y="198" text-anchor="middle" font-size="10.5" fill="#55627a">cubrir los 23 procesos donde hoy</text>
-        <text x="347" y="212" text-anchor="middle" font-size="10.5" fill="#55627a">no hay sistema — sin competir con nada</text>
-        <circle cx="592" cy="120" r="54" fill="#dbe6f5" stroke="#2E75B6" stroke-width="2"/>
-        <circle cx="592" cy="120" r="24" fill="#F4F6FA" stroke="#1F3864" stroke-width="2"/>
-        <text x="592" y="125" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1F3864">Odoo</text>
-        <text x="592" y="186" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">3 · NÚCLEO MODULAR POR API</text>
-        <text x="592" y="204" text-anchor="middle" font-size="10.5" fill="#55627a">Odoo estándar intacto en el centro ·</text>
-        <text x="592" y="218" text-anchor="middle" font-size="10.5" fill="#55627a">la lógica propia en la capa del grupo</text>
-        <circle cx="845" cy="120" r="66" fill="#1F3864"/>
-        <circle cx="845" cy="120" r="26" fill="#F4F6FA"/>
-        <text x="845" y="125" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1F3864">Odoo</text>
-        <text x="845" y="90" text-anchor="middle" font-size="10" font-weight="700" fill="#9dc3ee">IA en sus venas</text>
-        <text x="845" y="203" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">4 · ABSORCIÓN PROGRESIVA</text>
-        <text x="845" y="221" text-anchor="middle" font-size="10.5" fill="#55627a">el sistema propio se vuelve</text>
-        <text x="845" y="235" text-anchor="middle" font-size="10.5" fill="#55627a">columna vertebral, gobernado en casa</text>
-        <text x="480" y="268" text-anchor="middle" font-size="12" fill="#55627a">no se le pide a la organización abandonar lo que tiene ni confiar su operación a un sistema nuevo de golpe: <tspan font-weight="700" fill="#1F3864">nace desde los huecos, sin riesgo</tspan></text>
-      </svg>
-    </div>
-  </div>
+    <p class="foot-note"><b>Preborrador de propuesta (8.6) — la estrategia en cuatro pasos:</b>
+      ① normalizar el flujo entre lo que ya existe (cerrar Lark→Odoo, Cashea, ACN, marketplaces; servir Odoo por API)
+      · ② cubrir los vacíos de arriba, donde el sistema propio no compite con nada
+      · ③ darle arquitectura de núcleo modular sobre la capa externa por API
+      · ④ dejar que absorba e integre con el tiempo. <b>No se reemplaza nada: se hace nacer.</b></p>
+</div>
 </section>
 
 <!-- ================= S9 · CULTURA (3) ================= -->
@@ -1312,68 +1171,41 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     </ul>
   </div>
 </section>
-
 <section class="slide" data-sec="s9">
-  <div class="shead"><span class="kick">9 · Cultura y adopción de IA — propuesta</span><h2>Preborrador: dos ejes de formación</h2></div>
+  <div class="shead"><span class="kick">9 · Cultura y adopción de IA — propuesta</span><h2>Preborrador: la escalera de adopción — el efecto cascada</h2></div>
   <div class="sbody">
-    <div class="viz" style="max-width:940px; margin:0 auto;">
-      <svg viewBox="0 0 920 250" role="img" aria-label="Pirámide de audiencia de los dos ejes de formación">
-        <polygon points="460,18 640,120 280,120" fill="#1F3864"/>
-        <text x="460" y="72" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">CLAUDE</text>
-        <text x="460" y="92" text-anchor="middle" font-size="10.5" fill="#9dc3ee">dirección y gerencia</text>
-        <text x="460" y="107" text-anchor="middle" font-size="10.5" fill="#9dc3ee">aplicación avanzada</text>
-        <polygon points="272,128 648,128 750,230 170,230" fill="#2E75B6"/>
-        <text x="460" y="164" text-anchor="middle" font-size="14.5" font-weight="800" fill="#fff">MAIA · fundamentos de IA para todo el talento</text>
-        <text x="460" y="187" text-anchor="middle" font-size="11.5" fill="#dbe6f5">vía WhatsApp · chatbot con método socrático · al ritmo de cada quien</text>
-        <text x="460" y="207" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">piloto: ~30 líderes (~3 semanas) → despliegue masivo: ~150 licencias</text>
-        <g font-size="11.5" fill="#55627a">
-          <text x="670" y="60" font-weight="700" fill="#1F3864">sobre las licencias que el</text>
-          <text x="670" y="76">grupo ya tiene y subutiliza —</text>
-          <text x="670" y="92">datos y problemas reales,</text>
-          <text x="670" y="108">no ejercicios genéricos</text>
-          <text x="30" y="150" font-weight="700" fill="#1F3864">certificación conjunta</text>
-          <text x="30" y="166">(universidad + organización</text>
-          <text x="30" y="182">+ plataforma creadora)</text>
-        </g>
-      </svg>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span class="tag">piloto ~30 líderes · en curso</span>
-        <span style="flex:1; border-top:2px solid var(--borde);"></span>
-        <span class="tag verde">despliegue masivo ~150 licencias</span>
+    <div class="viz" style="max-width:1080px; margin:0 auto; flex:1; justify-content:center;">
+      <div class="vtitle" style="text-align:center; font-size:14px;">Cómo fluye la transformación — los cuatro planos de mando</div>
+      <div style="display:flex; flex-direction:column; gap:11px; margin-top:16px;">
+        <div style="display:flex; align-items:center; gap:22px;">
+          <div style="flex:0 0 340px; margin-left:0px; background:#1F3864; border-radius:5px; padding:15px 20px;">
+            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#C9DCF0;">Plano dirigente</span>
+            <b style="font-size:19px; color:#fff;">Comité Gerencial</b></div>
+          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Decide y diseña el camino · Define la política · Asigna roles · Comunica la hoja de ruta</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:22px;">
+          <div style="flex:0 0 340px; margin-left:42px; background:#2E75B6; border-radius:5px; padding:15px 20px;">
+            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#fff;">Coordinación de acciones</span>
+            <b style="font-size:19px; color:#fff;">Líder interno del proceso</b></div>
+          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Implementación transversal · Enlace con la consultoría · Seguimiento · Flujo al Comité</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:22px;">
+          <div style="flex:0 0 340px; margin-left:84px; background:#8FB4D8; border-radius:5px; padding:15px 20px;">
+            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#1F3864;">Plano funcional</span>
+            <b style="font-size:19px; color:#1F3864;">Gerencias</b></div>
+          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Asegura la ejecución en su área · Sostiene el entusiasmo · Alerta temprana</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:22px;">
+          <div style="flex:0 0 340px; margin-left:126px; background:#DCE7F3; border-radius:5px; padding:15px 20px;">
+            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#1F3864;">Plano operativo</span>
+            <b style="font-size:19px; color:#1F3864;">El personal</b></div>
+          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Formarse · Incorporar los métodos al flujo · Elevar inquietudes y sugerencias</p>
+        </div>
       </div>
+      <p class="vnote" style="text-align:center; font-size:13px; margin-top:12px;"><b style="color:var(--navy);">Si la alta dirección no se alinea, nadie más lo hará. La dirigencia es el motor — no el espectador — de la transformación.</b></p>
     </div>
-    <p class="lead">La adopción llega <b>por los canales que la organización ya habita</b> — nadie aprende una herramienta nueva: WhatsApp, Lark y la Universidad Cubitt como vehículos.</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s9">
-  <div class="shead"><span class="kick">9 · Cultura y adopción de IA — propuesta</span><h2>Preborrador: la formación sola no ordena — dos cimientos</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:820px; margin:0 auto;">
-      <svg viewBox="0 0 800 300" role="img" aria-label="Pórtico: dos pilares documentales sostienen la adopción ordenada sobre la base de la formación">
-        <rect x="120" y="30" width="560" height="56" rx="8" fill="#1F3864"/>
-        <text x="400" y="55" text-anchor="middle" font-size="15.5" font-weight="800" fill="#fff">ADOPCIÓN ORDENADA DE IA</text>
-        <text x="400" y="75" text-anchor="middle" font-size="11.5" fill="#9dc3ee">dirección para un motor que ya gira</text>
-        <rect x="150" y="96" width="220" height="130" rx="8" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <text x="260" y="126" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">POLÍTICA DE</text>
-        <text x="260" y="144" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">ADOPCIÓN DE IA</text>
-        <text x="260" y="168" text-anchor="middle" font-size="10.5" fill="#3d5170">qué usos son aceptables ·</text>
-        <text x="260" y="183" text-anchor="middle" font-size="10.5" fill="#3d5170">seguridad y ética · sobre qué</text>
-        <text x="260" y="198" text-anchor="middle" font-size="10.5" fill="#3d5170">datos · con qué responsabilidades</text>
-        <text x="260" y="216" text-anchor="middle" font-size="10" font-weight="700" fill="#2E75B6">entregable de Fase 2</text>
-        <rect x="430" y="96" width="220" height="130" rx="8" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <text x="540" y="126" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">ESTRUCTURA DE</text>
-        <text x="540" y="144" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">GOBIERNO DE IA</text>
-        <text x="540" y="168" text-anchor="middle" font-size="10.5" fill="#3d5170">la instancia acordada en el</text>
-        <text x="540" y="183" text-anchor="middle" font-size="10.5" fill="#3d5170">Comité del 01-jul — quién decide,</text>
-        <text x="540" y="198" text-anchor="middle" font-size="10.5" fill="#3d5170">quién ejecuta, quién responde</text>
-        <text x="540" y="216" text-anchor="middle" font-size="10" font-weight="700" fill="#2E75B6">especificación técnica en s12</text>
-        <rect x="100" y="236" width="600" height="48" rx="8" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="400" y="257" text-anchor="middle" font-size="13" font-weight="700" fill="#1F3864">BASE: FORMACIÓN PROPUESTA — nivelación (todo el talento) + Claude (dirección)</text>
-        <text x="400" y="275" text-anchor="middle" font-size="11" fill="#55627a">la energía existe; los cimientos documentales le dan dirección</text>
-      </svg>
-    </div>
-    <p class="lead">Con esta sección se completa el recorrido por los seis aspectos del marco — <b>la Parte I cierra con su componente técnico: la auditoría de plataformas y la arquitectura de IA</b>.</p>
+    <div class="tagline" style="justify-content:center;"><span class="tag">① nivelar los fundamentos en todo el talento</span><span class="tag">② herramientas de IA para dirección y gerencia</span><span class="tag">③ política de IA + estructura de IA</span></div>
+    <p class="foot-note"><b>De los cuatro planos, dos están resueltos y dos no.</b> El dirigente ya dio la señal —patrocinio del accionista y acuerdo del Comité del 01-jul— pero le falta convertirla en política y hoja de ruta comunicadas. <b>El líder interno del proceso es el rol acordado y aún no constituido</b>: es el escalón que hoy falta. En las gerencias está la mayor variación, porque la disposición al cambio se lee área por área. Y el plano operativo no es pasivo: elevar inquietudes es la única vía por la que los de arriba se enteran a tiempo.</p>
   </div>
 </section>
 
@@ -1391,7 +1223,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
         <text transform="rotate(-90 930 199)" x="930" y="199" text-anchor="middle" font-size="10" fill="#d5ead6">construye · mantiene · gobierna</text>
         <rect x="104" y="24" width="752" height="50" rx="8" fill="#F4F6FA" stroke="#8A94A6"/>
         <text x="120" y="45" font-size="12.5" font-weight="800" fill="#1F3864">C6 · EXPERIENCIA</text>
-        <text x="120" y="63" font-size="11" fill="#55627a">Lark (interno) · WhatsApp/Maia · Power BI · Universidad Cubitt — los canales que la organización ya habita</text>
+        <text x="120" y="63" font-size="11" fill="#55627a">Lark (interno) · WhatsApp · Power BI · Universidad Cubitt — los canales que la organización ya habita</text>
         <text x="480" y="86" text-anchor="middle" font-size="10" font-style="italic" fill="#8A94A6">▲ los agentes se presentan aquí</text>
         <rect x="104" y="94" width="752" height="50" rx="8" fill="#e3efe4" stroke="#2E7D32"/>
         <text x="120" y="115" font-size="12.5" font-weight="800" fill="#2E7D32">C5 · AGENTES Y CASOS DE USO — el valor visible</text>
@@ -1415,145 +1247,39 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       </svg>
       <p class="vnote" style="text-align:center; font-size:13px;"><b style="color:var(--navy);">"El grupo no compra esta arquitectura: la posee."</b></p>
     </div>
+    <div class="tagline" style="justify-content:center;"><span class="tag">🗼 el detalle se recorre en la página de la Arquitectura de IA</span><span class="tag">las doce fuentes · el cedazo · lo que vuelve convertido en orden</span></div>
+    <p class="foot-note">Esta lámina deja la <b>estructura</b>: seis capas, del registro a la experiencia, con el gobierno atravesándolas. <b>El recorrido detallado no se hace aquí</b> — se hace en el modelo interactivo, que enseña la misma arquitectura desde la otra punta: de dónde viene el dato y en qué se convierte.</p>
   </div>
 </section>
-
 <section class="slide" data-sec="s10">
-  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>Ocho componentes en tres carriles</h2></div>
+  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>Los dos quick wins: por dónde empezar sin esperar a la arquitectura</h2></div>
   <div class="sbody">
-    <div class="viz" style="max-width:1000px; margin:0 auto;">
-      <svg viewBox="0 0 960 330" role="img" aria-label="Los ocho componentes organizados en tres carriles de ejecución">
-        <defs><marker id="arrSw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <g font-size="11" fill="#98a2b3"><text x="170" y="18">día uno</text><text x="470" y="18" text-anchor="middle">semanas</text><text x="880" y="18" text-anchor="end">meses</text></g>
-        <line x1="150" y1="24" x2="940" y2="24" stroke="#eef1f6" stroke-width="2"/>
-        <text x="20" y="60" font-size="11.5" font-weight="800" fill="#1F3864">CARRIL</text><text x="20" y="75" font-size="11.5" font-weight="800" fill="#1F3864">INSTITUCIONAL</text><text x="20" y="90" font-size="10" fill="#55627a">arranca el día uno</text>
-        <rect x="150" y="40" width="230" height="58" rx="8" fill="#1F3864"/>
-        <text x="165" y="62" font-size="12" font-weight="800" fill="#fff">1 · Gobierno constituido</text>
-        <text x="165" y="80" font-size="10" fill="#9dc3ee">la respuesta directa al Riesgo 3 · marco legal,</text>
-        <text x="165" y="92" font-size="10" fill="#9dc3ee">dueño del dato, política de IA</text>
-        <rect x="392" y="40" width="230" height="58" rx="8" fill="#1F3864"/>
-        <text x="407" y="62" font-size="12" font-weight="800" fill="#fff">7 · Equipo interno entrenado</text>
-        <text x="407" y="80" font-size="10" fill="#9dc3ee">de un plan que se compra a una</text>
-        <text x="407" y="92" font-size="10" fill="#9dc3ee">capacidad que se posee</text>
-        <rect x="634" y="60" width="306" height="18" rx="9" fill="#e8eef7"/><text x="787" y="73" text-anchor="middle" font-size="10" fill="#3d5170">continúa siempre — en paralelo a todo</text>
-        <text x="20" y="150" font-size="11.5" font-weight="800" fill="#2E75B6">CARRIL DE</text><text x="20" y="165" font-size="11.5" font-weight="800" fill="#2E75B6">CONSTRUCCIÓN</text><text x="20" y="180" font-size="10" fill="#55627a">secuencia estricta</text>
-        <g fill="none" stroke="#2E75B6" stroke-width="2.2"><line x1="330" y1="152" x2="352" y2="152" marker-end="url(#arrSw)"/><line x1="530" y1="152" x2="552" y2="152" marker-end="url(#arrSw)"/><line x1="730" y1="152" x2="752" y2="152" marker-end="url(#arrSw)"/></g>
-        <rect x="150" y="124" width="180" height="56" rx="8" fill="#dbe6f5" stroke="#2E75B6"/>
-        <text x="163" y="146" font-size="11.5" font-weight="800" fill="#1F3864">2 · Capa de datos</text>
-        <text x="163" y="162" font-size="9.5" fill="#3d5170">API interna + catálogo maestro —</text>
-        <text x="163" y="174" font-size="9.5" fill="#3d5170">mayor esfuerzo, mayor retorno</text>
-        <rect x="354" y="124" width="176" height="56" rx="8" fill="#ece5f7" stroke="#7A4FB5"/>
-        <text x="367" y="146" font-size="11.5" font-weight="800" fill="#7A4FB5">3 · Gateway MCP</text>
-        <text x="367" y="162" font-size="9.5" fill="#5a4680">la puerta única y gobernada —</text>
-        <text x="367" y="174" font-size="9.5" fill="#5a4680">OAuth 2.1 · roles · auditoría</text>
-        <rect x="554" y="124" width="176" height="56" rx="8" fill="#ece5f7" stroke="#7A4FB5"/>
-        <text x="567" y="146" font-size="11.5" font-weight="800" fill="#7A4FB5">4 · Servidores MCP</text>
-        <text x="567" y="162" font-size="9.5" fill="#5a4680">por sistema, empezando por</text>
-        <text x="567" y="174" font-size="9.5" fill="#5a4680">Odoo (solo lectura primero)</text>
-        <rect x="754" y="124" width="186" height="56" rx="8" fill="#e3efe4" stroke="#2E7D32"/>
-        <text x="767" y="146" font-size="11.5" font-weight="800" fill="#2E7D32">5 · Agentes Ola 1</text>
-        <text x="767" y="162" font-size="9.5" fill="#3d5c40">valor visible en semanas —</text>
-        <text x="767" y="174" font-size="9.5" fill="#3d5c40">e-comm · nómina · reportería</text>
-        <text x="20" y="235" font-size="11.5" font-weight="800" fill="#55627a">TRANSVERSALES</text><text x="20" y="250" font-size="11.5" font-weight="800" fill="#55627a">CONTINUOS</text>
-        <rect x="150" y="212" width="790" height="30" rx="8" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="165" y="232" font-size="11" font-weight="700" fill="#26303f">6 · Estandarización del uso asistencial — de islas a flota (licencias corporativas · prompts compartidos · datos certificados)</text>
-        <rect x="150" y="250" width="790" height="30" rx="8" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="165" y="270" font-size="11" font-weight="700" fill="#26303f">8 · Observabilidad y evaluación — medir desde el día uno: costo · uso · precisión · valor (por agente)</text>
-        <text x="480" y="312" text-anchor="middle" font-size="11.5" fill="#55627a">precedencias: el 5 depende del 2–4 · el 1 corre en paralelo a todo · el 8 se apoya en el 3 y alimenta al 1</text>
-      </svg>
-    </div>
-    <p class="foot-note">El diagnóstico presentó los riesgos del síntoma a la raíz; la arquitectura construye de la raíz al síntoma — por eso el gobierno va primero.</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s10">
-  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>La Ola 1: valor visible en semanas</h2></div>
-  <div class="sbody">
-    <div class="grid3">
-      <div class="card verde"><div style="font-size:34px; font-weight:800; color:var(--verde); line-height:1.1;">6.000</div><h4>Agente conversacional e-commerce VE</h4><p>Conversaciones/mes hoy a mano — consulta de estado, disponibilidad y precio con MCP-Odoo en solo lectura. WhatsApp ya vende más que la web (37 vs 30 mil USD).</p></div>
-      <div class="card verde"><div style="font-size:34px; font-weight:800; color:var(--verde); line-height:1.1;">"muy alto"</div><h4>Asistente de nómina VE</h4><p>El índice de error del proceso manual, en palabras de su dueña — alto impacto, dueño convencido, ROI demostrable.</p></div>
-      <div class="card verde"><div style="font-size:34px; font-weight:800; color:var(--verde); line-height:1.1;">41 → 1</div><h4>Normalizador de reportería</h4><p>Los 41 formatos de clientes convertidos automáticamente al formato maestro — libera a quien hoy los normaliza a mano.</p></div>
-    </div>
-    <div class="tagline" style="justify-content:center;"><span class="tag">prerrequisito común: MCP-Odoo en solo lectura (fase 1 de 12.5)</span><span class="tag">human-in-the-loop</span><span class="tag">sin decisión económica autónoma</span></div>
-    <p class="lead">Cada caso ataca un punto donde <b>el dolor es evidente y el dueño está convencido</b> — construyen el patrocinio que la transformación de fondo necesita.</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s10">
-  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>MCP-Odoo: el privilegio de escritura se gana con evidencia</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:980px; margin:0 auto;">
-      <svg viewBox="0 0 960 300" role="img" aria-label="Escalera de privilegio en tres fases con sus salvaguardas">
-        <rect x="30" y="170" width="280" height="100" rx="10" fill="#e3efe4" stroke="#2E7D32" stroke-width="2"/>
-        <text x="50" y="198" font-size="14" font-weight="800" fill="#2E7D32">🔒 FASE 1 · SOLO LECTURA</text>
-        <text x="50" y="220" font-size="11" fill="#3d5c40">consultar estado, inventario, precio, saldo</text>
-        <text x="50" y="236" font-size="11" fill="#3d5c40">— un agente que solo lee no puede romper nada</text>
-        <text x="50" y="258" font-size="10.5" font-weight="700" fill="#2E7D32">salvaguarda: ningún permiso de escritura</text>
-        <rect x="340" y="110" width="280" height="100" rx="10" fill="#fdf1de" stroke="#B26A00" stroke-width="2"/>
-        <text x="360" y="138" font-size="14" font-weight="800" fill="#B26A00">🔏 FASE 2 · BORRADOR</text>
-        <text x="360" y="160" font-size="11" fill="#8a6510">el agente prepara la acción (orden, ajuste,</text>
-        <text x="360" y="176" font-size="11" fill="#8a6510">conciliación) — pero no la confirma</text>
-        <text x="360" y="198" font-size="10.5" font-weight="700" fill="#B26A00">salvaguarda: el agente redacta; la persona firma</text>
-        <rect x="650" y="50" width="290" height="100" rx="10" fill="#fbeaea" stroke="#C00000" stroke-width="2"/>
-        <text x="670" y="78" font-size="14" font-weight="800" fill="#C00000">🔐 FASE 3 · ESCRITURA GOBERNADA</text>
-        <text x="670" y="100" font-size="11" fill="#8a3333">solo bajo riesgo + alto volumen + reglas claras,</text>
-        <text x="670" y="116" font-size="11" fill="#8a3333">tras demostrar precisión en fase 2</text>
-        <text x="670" y="138" font-size="10.5" font-weight="700" fill="#C00000">permisos mínimos · auditoría · nunca decisiones económicas</text>
-        <path d="M 310 200 L 340 180" stroke="#98a2b3" stroke-width="2.5"/>
-        <path d="M 620 140 L 650 120" stroke="#98a2b3" stroke-width="2.5"/>
-        <text x="480" y="292" text-anchor="middle" font-size="12.5" fill="#55627a">MCP consume el ERP <tspan font-weight="700">desde afuera, por API, sin modificar el core</tspan> (patrón 11.2) · ambientes separados de prueba y producción: <tspan font-weight="700">condición innegociable</tspan></text>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-sec="s10">
-  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>Human-in-the-loop: la IA alimenta el criterio, no lo sustituye</h2></div>
-  <div class="sbody">
-    <div class="vrow" style="max-width:1020px; margin:0 auto; width:100%;">
-      <div class="viz" style="flex:1.15;">
-        <div class="vtitle">Tres niveles de autonomía</div>
-        <div style="display:flex; gap:12px; align-items:center; border:1px solid var(--borde); border-radius:10px; padding:12px 16px;">
-          <div style="width:44px; height:44px; border-radius:50%; background:var(--verde); flex:0 0 auto; display:flex; align-items:center; justify-content:center; color:#fff; font-size:20px;">●</div>
-          <div><b style="color:var(--verde); font-size:15px;">1 · INFORMAR — autonomía plena</b><p style="font-size:12.5px; color:var(--muted); margin-top:2px;">lee, calcula, resume, presenta: "el cliente X está sobre-stockeado" · "estos 20 SKU no rotan hace 6 meses"</p></div>
-        </div>
-        <div style="display:flex; gap:12px; align-items:center; border:1px solid var(--borde); border-radius:10px; padding:12px 16px;">
-          <div style="width:44px; height:44px; border-radius:50%; background:var(--ambar); flex:0 0 auto; display:flex; align-items:center; justify-content:center; color:#fff; font-size:20px;">●</div>
-          <div><b style="color:var(--ambar); font-size:15px;">2 · RECOMENDAR / PREPARAR — el humano confirma</b><p style="font-size:12.5px; color:var(--muted); margin-top:2px;">propone y deja lista la acción (borrador de orden, novedades de nómina, conciliación armada); la persona revisa y ejecuta</p></div>
-        </div>
-        <div style="display:flex; gap:12px; align-items:center; border:1px solid var(--borde); border-radius:10px; padding:12px 16px;">
-          <div style="width:44px; height:44px; border-radius:50%; background:var(--rojo); flex:0 0 auto; display:flex; align-items:center; justify-content:center; color:#fff; font-size:20px;">●</div>
-          <div><b style="color:var(--rojo); font-size:15px;">3 · DECIDIR — reservado al humano, siempre</b><p style="font-size:12.5px; color:var(--muted); margin-top:2px;">comprar, pagar, aprobar precio, contratar, desvincular — "el agente llega al borde; el clic es humano"</p></div>
-        </div>
+    <div class="grid2" style="max-width:1080px; margin:0 auto; flex:1; align-content:stretch;">
+      <div class="card verde" style="display:flex; flex-direction:column; justify-content:center; font-size:15.5px; padding:20px 24px;">
+        <div style="font-size:54px; font-weight:800; color:var(--verde); line-height:1.02; margin-bottom:4px;">6.000</div>
+        <h4>1 · El agente de IA para las conversaciones</h4>
+        <p><b>conversaciones al mes</b> atendidas a mano por 6 personas. En abril el canal conversacional facturó
+        <b>37 mil USD</b> frente a <b>30 mil</b> de la web: el canal manual ya vende más que el automatizado, y cuando
+        se satura <b>se pierden ventas</b>.</p>
+        <p style="margin-top:8px;"><b>Qué hay que resolver antes:</b> exponer estado de pedido y disponibilidad por
+        MCP-Odoo <b>en solo lectura</b> — hoy «en Odoo no puedo saber si un pedido salió».</p>
       </div>
-      <div class="viz">
-        <div class="vtitle">Lo que este esquema deliberadamente NO hace</div>
-        <div class="card rojo"><h4>✗ No reemplaza</h4><p>ni a Odoo ni a Lark ni al stack de BI — los ordena y conecta.</p></div>
-        <div class="card rojo"><h4>✗ No despliega agentes sobre datos no certificados</h4><p>Riesgo 1: primero la fuente de la verdad.</p></div>
-        <div class="card rojo"><h4>✗ No deja acciones fuera del gateway</h4><p>Toda acción de agente pasa por su auditoría (Riesgo 3).</p></div>
-        <div class="card rojo"><h4>✗ No automatiza decisiones económicas</h4><p>Sin aprobación humana — nunca.</p></div>
+      <div class="card verde" style="display:flex; flex-direction:column; justify-content:center; font-size:15.5px; padding:20px 24px;">
+        <div style="font-size:54px; font-weight:800; color:var(--verde); line-height:1.02; margin-bottom:4px;">0 líneas</div>
+        <h4>2 · La formación en IA con licencia Claude Teams</h4>
+        <p><b>de código que construir.</b> La herramienta ya está adoptada sola: en compras «todos tienen Claude»,
+        Colombia la usa con soltura experta, Costa Rica modela su forecast mensual, marketing y PMO a diario —
+        <b>7 focos</b> sin política ni licencias con dueño.</p>
+        <p style="margin-top:8px;"><b>Qué hay que resolver antes:</b> nada técnico. Dos decisiones de dirección —
+        cobertura de licencias con dueño presupuestario, y la política de uso.</p>
       </div>
     </div>
-    <p class="foot-note">"No es la IA impactando los procesos: son las personas usando IA las que impactan los procesos." El detalle de secuencia y responsables corresponde a la hoja de ruta (sección 12).</p>
-  </div>
-</section>
-
-<!-- ================= S11 · SÍNTESIS (4) ================= -->
-<section class="slide" data-sec="s10">
-  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>La torre: de dónde viene el dato y en qué se convierte</h2></div>
-  <div class="sbody">
-    <p class="lead">La misma arquitectura, vista desde la otra punta: no con qué se construye, sino <b>qué la alimenta</b>. Doce fuentes alrededor, cuatro niveles, y un <b>cedazo</b> en medio.</p>
-    <div class="pantalla"><img src="img-arquitectura/torre.jpg" alt="La torre de la arquitectura de IA — modelo interactivo en 3D"></div>
-    <p class="proto-nota">La velocidad de cada cable es <b>la cadencia real</b> de su fuente: la venta de tienda entra en cuanto ocurre, el sell-out de los frentes sin Odoo se arrastra cada quince días. Entre la entrada y la inteligencia está el cedazo: de los <b>28 nombres</b> que llegaron anoche, <b>23 se certificaron y 5 se quedaron</b> en cola con su dueño. <b>Una torre donde todo sube es propaganda.</b></p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s10">
-  <div class="shead"><span class="kick">10 · Arquitectura de IA — propuesta</span><h2>Y así llega el dato hoy</h2></div>
-  <div class="sbody">
-    <p class="lead">Las doce fuentes existen y el dato nace igual. Lo que no existe es la torre — <b>y por eso ninguna corriente llega arriba</b>.</p>
-    <div class="pantalla"><img src="img-arquitectura/hoy.jpg" alt="El mismo modelo en modo hoy: el rack no existe y las corrientes están apagadas"></div>
-    <p class="proto-nota">Cada fuente dice cómo llega hoy, con las palabras del diagnóstico: la recepción en Colón es <b>un conteo en papel que después alguien pasa a un archivo</b>; los traslados <b>se acuerdan por teléfono y se registran después, si se registran</b>; las reglas de negocio <b>no están escritas: son criterio personal, y cambian con quien esté ese día</b>.</p>
+    <div class="tagline" style="justify-content:center;"><span class="tag">volumen que agobia</span><span class="tag">impacto medible</span><span class="tag">dueño convencido</span><span class="tag">dato ya accesible</span></div>
+    <p class="foot-note"><b>Dicho con franqueza: ninguno de los dos resuelve el Riesgo 1.</b> El agente lee dato
+    transaccional ya razonablemente fiable, y la formación mejora el criterio de quien usa la herramienta, no la
+    calidad del dato sobre el que la usa. Sirven para demostrar valor y construir patrocinio <b>mientras</b> se hace
+    la obra que sí lo resuelve: la capa de datos certificada. Presentarlos como la solución sería repetir, ahora con
+    IA, el patrón que este diagnóstico señala.</p>
   </div>
 </section>
 
