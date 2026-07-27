@@ -80,6 +80,17 @@ La **8 y la 9 se intercambiaron**: hoy va **7 Tecnología → 8 Auditoría técn
 
 ⚠️ Tres anclas que **parecen** secciones y no lo son — blindarlas en cualquier renumeración futura: el array `secs=['s2',…]` de los botones «▶ Presentar» (va en orden de documento, **no** se renumera), las filas «8. Gestión de…» / «9. Gestión de…» del mapa de procesos (macroprocesos), y los `font-size:9.5px` de los SVG del deck.
 
+## Deslinde hallazgo / propuesta (27-jul-2026)
+
+En las secciones **7, 8, 9 y 10** se separó lo que la evidencia sostiene de lo que proponemos nosotros. Cada una cierra con un **preborrador de propuesta** rotulado con el distintivo `badge b-prop` (violeta) y una `.prop-nota` de deslinde; los hallazgos que originan cada propuesta llevan una `.remite` que apunta a ella.
+
+- **7.1–7.9 hallazgo · 7.10 síntesis de hallazgos · 7.11 preborrador** (cuatro propuestas: certificar el dato · la tecnología y la IA como función transversal · gobernar el acceso al dato · núcleo Odoo nativo + capa propia). La vieja 7.10 (definición arquitectónica) y los tres bloques «Implicación» de 7.5/7.6/7.7 se consolidaron ahí; la síntesis bajó de 7.11 a 7.10.
+- **8.1–8.5 hallazgo · 8.6 preborrador** (hacer nacer el sistema propio).
+- **9.1–9.2 hallazgo · 9.3 preborrador**. Las viejas 9.3/9.4/9.5 eran las tres propuesta.
+- **10 entera es propuesta** — la arquitectura de IA no existe en la organización. Nueva **10.7 = los dos quick wins** (el agente conversacional · la formación con licencia Claude Teams); el cierre pasó a 10.8.
+
+⚠️ **Maia no es un hallazgo**: es despliegue del equipo consultor. Se retiró de 7.1 (era una fila de la tabla de sistemas del grupo), de 7.4, de toda la 9 y de la capa C6 de la 10. **Sigue** —legítimamente— en los anexos, la tabla de requisitos, la 3 y la hoja de ruta (12.3), que son registro del proyecto. No reintroducirlo como hallazgo.
+
 ## El hilo conductor del informe (protegerlo en toda edición)
 
 *Criterio personal sin procedimiento* (s3–s6) → *dato sin certificar* (s7) → **dos tesis**: *estructura primero* (Parte II) y *el dato antes que el agente* (Parte III, s11–s13). Los cuatro números que la Junta debe retener: **~400 personas · 12 dependencias críticas · 22/104/260 procesos · 52 proyectos con 3 PM**.
