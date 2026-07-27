@@ -346,7 +346,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | 31 | Portal del vendedor · ✅ **hecha** | 27, 28 |
 | 32 | Portal del cliente · ✅ **hecha** | 29 |
 | 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) · ✅ **hecha** | todas |
-| 34 | Comprobaciones, capturas del deck y cierre | 33 |
+| 34 | Comprobaciones, capturas del deck y cierre · ✅ **hecha** | 33 |
 
 ## Fase 26 · La entrada
 
@@ -711,3 +711,43 @@ maquinaria ya admite paradas de pantalla y de portal.
 - `validar-html.py` cubre las páginas nuevas.
 - Regenerar las láminas de la sección `proto` del deck si cambiaron pantallas.
 - Actualizar `ARQUITECTURA.md` y este plan.
+
+**✅ Hecha (27-jul). La serie 26–34 queda cerrada.**
+
+- **`contraste` y `moneda` alcanzan a los dos portales.** Era el hueco de la
+  serie: son documentos aparte, y las dos comprobaciones que barren todo el
+  texto y todas las cifras solo recorrían las rutas del aplicativo.
+- Y ahí salió **el hallazgo más caro de la serie, encadenado**: la extensión
+  pasó a la primera, y era falso. (1) El medidor recorría `.lienzo *` y los
+  portales tienen `.p-lienzo` — los barría midiendo **cero elementos**. (2) Con
+  el selector arreglado seguía sin morder: `fondoDe()` devolvía null ante
+  cualquier degradado, y el `body` del portal tiene uno, así que todo el texto
+  de tabla subía hasta él y se descartaba. Arreglado distinguiendo *degradado
+  sobre color sólido* (medible: es el fondo de los portales) de *degradado
+  solo* (no medible: sigue protegiendo el caso que motivó ese null, el texto
+  blanco sobre la cabecera navy del informe). **Tres trampas de contraste sobre
+  los portales, verificadas.**
+- El mismo medidor estaba **duplicado** en `comprobar-torre.py`: se portó la
+  corrección para que no diverjan. La torre sigue en verde.
+- `permisos` y `validar-html.py` ya cubrían las páginas nuevas sin tocarlas: el
+  primero escanea todos los `.js` del repo y el segundo hace glob.
+- **El deck del informe cuenta ahora el prototipo que existe**: cuatro láminas
+  nuevas en la sección `proto` —inventario distribuido con su banda · el mapa
+  global · el portal del vendedor · el portal del cliente— y el guion de
+  capturas ampliado a diez tomas, incluidas las de los portales, que son
+  documentos aparte y hay que abrir por URL. El deck pasa de 58 a 62 láminas.
+- `ARQUITECTURA.md` al día: los módulos pasan de 9 a 12 más los dos portales,
+  con la frase que los hace sistema y no maqueta —piden al mismo libro de
+  reservas—, y el modelo de datos gana el inventario estimado con su banda y la
+  reserva sobre un embarque en tránsito.
+
+**Estado al cierre de la serie:** 14 comprobaciones del sistema + 11 de la
+torre, todas en verde; HTML válido; láminas regeneradas.
+
+**Lo que queda abierto, y no es de esta serie:**
+- **A2** — el `22/104/260` del pie de la torre sigue en conciliación con Jesús
+  (el mapa de procesos dice 244).
+- Los rótulos del menú del deck (`SEC_NAMES`) siguen con la numeración anterior
+  a la reestructuración de julio.
+- **P7** — qué botones de solo aviso deberían producir un efecto real.
+- El token de Mapbox conviene **restringirlo por URL** en el panel de Mapbox.

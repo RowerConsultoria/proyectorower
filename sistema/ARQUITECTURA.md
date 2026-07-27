@@ -96,22 +96,42 @@ formas de nombrarlo existan en la región.
 
 ## 4 · Los módulos
 
-Nueve. Nombres en minúscula.
+Doce, más dos portales externos. Nombres en minúscula.
 
 | Módulo | Para quién | Qué resuelve |
 |---|---|---|
 | **`dirección`** | Junta, presidencia, accionistas | El estado del ciclo completo en una pantalla |
 | **`desarrollo de producto`** | I+D y producto de marca propia | El embudo del candidato hasta que gradúa al catálogo |
+| **`fábricas`** | Compras y desarrollo de producto | MOQ, plazo y esquema de pago de cada fábrica, con su historial de cumplimiento |
 | **`compras`** | Dirección de compras, analista, finanzas como invitada | El forecast y la compra a Casio y a Cubitt |
-| **`logística e inventarios`** | Operaciones, inventarios, jefes de bodega | Recepción, ubicación, salud del inventario y rebalanceo |
+| **`logística`** | Operaciones y jefes de bodega | El flujo físico: recepción contra manifiesto, ubicación y despacho |
+| **`inventarios`** | Operaciones, compras y comercial | El estado de las existencias: por almacén propio, salud y rebalanceo, lo que viene en mar, y el **inventario distribuido** de toda la red |
 | **`distribución`** | Compras y comercial | El reparto a los frentes, incluida la escasez |
 | **`comercial`** | Gerencia comercial, responsables de frente | Pedidos de clientes mayores, demanda no atendida, disponibilidad publicada |
+| **`clientes`** | Gerencia comercial, compras y dirección | La cartera por región con su crédito y su inventario, y la **torre de control de IA** |
+| **`mapa global`** | Dirección y quien presente la red | Toda la red sobre el mapa real, con filtro por marca y los flujos del reparto |
 | **`frentes`** | Sistemas, responsables de país, y la Junta | El portal de reporte y el estado de cada conexión |
 | **`cimiento`** | Administración de datos | Catálogo canónico, alias, reglas de negocio, cola de excepciones |
 | **`sala de agentes`** | Todos ven su parte; sistemas y Junta, el conjunto | Qué hace cada agente, con qué permiso y con qué registro |
 
-**Capa posterior, fuera de este alcance:** portales dentro de los países propios que resuelvan
-funcionalidades que su Odoo no tiene. Se nombra como horizonte; no se construye.
+### Los dos portales externos
+
+Son **documentos aparte** con su propio cromo y su propia URL, y consumen los mismos datos y el
+mismo núcleo que el aplicativo. Lo que los hace portal es el marco y la navegación reducida, no
+una identidad distinta.
+
+| Portal | Para quién | Qué resuelve |
+|---|---|---|
+| **`portal del vendedor`** | El comercial de mayoreo de Kenex | El **disponible a prometer** —lo libre en Colón más lo libre de cada contenedor en camino— y amarrar unidades de un embarque para un cliente |
+| **`portal del cliente`** | Cada frente, socio, operador y franquicia | Pedir con su crédito delante, la preventa de lo que viene, sus despachos, y subir su venta en su propio Excel |
+
+**La pieza que los hace sistema y no maqueta:** los dos piden al **mismo libro de reservas** que
+usan la mesa de compra, el reparto y la IA. Una reserva del portal descuenta el disponible en todas
+las vistas, incluido el aplicativo interno — y por eso dos vendedores no pueden prometer el mismo
+contenedor.
+
+**Sigue fuera de alcance:** portales dentro de los países propios que resuelvan funcionalidades que
+su Odoo no tiene. Se nombra como horizonte; no se construye.
 
 ---
 
@@ -130,6 +150,8 @@ arbitran — no llegan a existir.
 | Lista de precios de venta a los frentes | **Sistema** | Es política regional. |
 | Compra, embarque, tránsito, costeo en destino | **Sistema** | Hoy vive en un correo con un Excel. Aquí nace en el sistema. |
 | Inventario de la central y en tránsito | **Sistema** | La mercancía antes de repartirse. |
+| Inventario **estimado** en casa del cliente | **Sistema** (derivado) | Despachado − reportado, con su **banda de incertidumbre** según los días desde el corte de ese frente. No es un dato: es una estimación que declara su margen. |
+| Reserva sobre un embarque en tránsito | **Sistema** | Amarrada por el portal del vendedor sobre un contenedor concreto. Mismo libro que las reservas internas. |
 | Asignación y reparto a los frentes | **Sistema** | Incluido el criterio de escasez. Ver §7. |
 | Pedido de venta al frente | **Sistema** | **Nace aquí.** Por eso la demanda no atendida no se puede borrar. |
 | Despacho y factura al frente | **Sistema** | Es la venta de la central a su cliente. |

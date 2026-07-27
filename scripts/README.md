@@ -19,7 +19,7 @@ que toque el informe o `/sistema`.
 
 ```bash
 python scripts/validar-html.py        # los HTML del repo · ~1 s, sin navegador
-python scripts/comprobar-sistema.py   # el prototipo /sistema · ~100 s
+python scripts/comprobar-sistema.py   # el prototipo /sistema · ~280 s
 python scripts/comprobar-torre.py     # la torre de arquitectura · ~220 s
 ```
 
@@ -45,6 +45,13 @@ Levanta el servidor si hace falta y lo apaga al terminar. Siete comprobaciones:
 | `reglas` | ninguna regla de negocio declarada con dueño y sin usar | dos reglas huérfanas en las fases 6–11 |
 | `moneda` | ninguna cifra grande sin su unidad o su moneda | 25 columnas de dinero sin declararla |
 | `freno` | el freno detiene de verdad **y sigue siendo reversible** | el freno llegó a apagarse a sí mismo |
+| `portada` | la puerta del prototipo: Entrar arranca el recorrido, un enlace profundo no la ve | `display:grid` le ganaba al atributo `hidden`: la portada tapaba los enlaces profundos **para siempre** |
+| `inventarios` | cada almacén contra el modelo, su semáforo y su dueño; «en mar» contra la torre | — |
+| `distribuido` | despachado − reportado = estimado, con su banda, **recomputado desde los crudos** | — |
+| `clientes` | la cartera contra los crudos, la ficha, la torre de IA, y aplicar → bitácora | — |
+| `mapa` | los puntos contra el modelo, el filtro por marca, y **el fallback sin red de verdad** | — |
+| `portal-vendedor` | el ATP, amarrar de un embarque, y que la reserva **se vea en el aplicativo** | la primera versión solo reservaba del hub: la funcionalidad estrella no se probaba |
+| `portal-cliente` | el crédito bloquea con motivo, la escalera publicada, el cedazo del reporte | un valor inventado en el eje `dinero` |
 
 Opciones:
 
@@ -56,6 +63,15 @@ python scripts/comprobar-sistema.py rutas moneda    # solo esas dos
 **Si añades una comprobación, rómpela primero a propósito** y confirma que la
 detecta. Una comprobación que siempre pasa es peor que no tenerla: da una
 confianza que no ha ganado.
+
+> **El caso más caro de esta regla.** Al extender `contraste` a los dos
+> portales, pasó a la primera. Parecía una buena noticia y era lo contrario: el
+> medidor recorría `.lienzo *` y los portales tienen `.p-lienzo`, así que los
+> barría midiendo **cero elementos**. Con el selector arreglado seguía sin
+> morder, porque `fondoDe()` se rendía ante cualquier degradado y el `body` del
+> portal tiene uno — todo el texto de tabla subía hasta él y se descartaba. Dos
+> defectos encadenados, los dos invisibles desde el resultado verde. Solo
+> salieron al romper el estilo a propósito y ver que **nadie se quejaba**.
 
 Dos trampas al hacerlo, las dos vividas:
 

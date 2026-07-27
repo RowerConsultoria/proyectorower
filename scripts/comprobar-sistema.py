@@ -44,6 +44,15 @@ RUTAS = [
     'cimiento', 'agentes',
 ]
 ROLES = ['direccion', 'compras', 'analista', 'producto', 'logistica', 'comercial', 'sistemas']
+
+# Los portales son documentos aparte: no tienen hash y no salen en RUTAS. Se
+# listan aquí para que `contraste` y `moneda` —que barren todo el texto y todas
+# las cifras— los recorran también. Sin esto, dos páginas enteras quedaban sin
+# medir, que es justo donde nadie mira.
+PORTALES = [
+    ('portal-vendedor/', ['catalogo', 'mar', 'reservas']),
+    ('portal-cliente/', ['comprar', 'preventa', 'pedidos', 'reportar', 'cuenta']),
+]
 ANCHOS = [(1560, 1000), (1280, 800), (430, 900)]
 
 
@@ -100,6 +109,23 @@ def va(p, ruta, espera=330):
     p.wait_for_timeout(espera)
 
 
+def abre_portal(nav, url, ancho=1560, alto=1100):
+    p = nav.new_page(viewport={'width': ancho, 'height': alto})
+    p.errores = []
+    p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
+    p.on('console', lambda m: p.errores.append('consola: ' + m.text[:140])
+         if m.type == 'error' else None)
+    p.goto(BASE + url, wait_until='networkidle')
+    p.wait_for_timeout(1400)
+    return p
+
+
+def pest(p, clave, espera=600):
+    p.evaluate('(k)=>{const b=document.querySelector(\'[data-pest="\'+k+\'"]\'); if(b) b.click();}',
+               clave)
+    p.wait_for_timeout(espera)
+
+
 # ── el medidor de contraste ──────────────────────────────────────────────────
 
 JS_CONTRASTE = r"""
@@ -112,17 +138,35 @@ JS_CONTRASTE = r"""
      puede medir un contraste con un solo color, y darlo por el fondo del body
      producía falsos positivos escandalosos —texto blanco sobre la cabecera
      navy se contaba como blanco sobre papel—. */
+  const solido=st=>{const c=st.backgroundColor, v=rgb(c);
+    if(!v||c==='transparent') return null;
+    const a=(c.match(/[\d.]+/g)||[])[3];
+    return (a===undefined||+a>.6)? v : null;};
   const fondoDe=e=>{let n=e;
     while(n&&n!==document.documentElement){
       const st=getComputedStyle(n);
-      if(st.backgroundImage&&st.backgroundImage!=='none') return null;
-      const c=st.backgroundColor, v=rgb(c);
-      if(v&&c!=='transparent'){const a=(c.match(/[\d.]+/g)||[])[3];
-        if(a===undefined||+a>.6) return v;}
+      if(st.backgroundImage&&st.backgroundImage!=='none'){
+        /* Un degradado ENCIMA de un color sólido declarado sí tiene base contra
+           la que medir —así es el fondo de los portales—. Un degradado SIN color
+           debajo, no: ahí sigue devolviendo null, que es lo que impide contar
+           el texto blanco de la cabecera navy del informe como blanco sobre
+           papel. Sin esta distinción, los portales se recorrían enteros sin
+           medir una sola línea. */
+        return solido(st);
+      }
+      const v=solido(st);
+      if(v) return v;
       n=n.parentElement;}
     return rgb(getComputedStyle(document.body).backgroundColor)||[255,255,255];};
   const malos=[];
-  for(const e of document.querySelectorAll('.lienzo *')){
+  /* ⚠️ Antes esto miraba solo `.lienzo *`. Los portales de las fases 31-32 son
+     documentos aparte y su contenedor se llama `.p-lienzo`: al extender la
+     comprobación a los portales, los recorría midiendo CERO elementos y pasaba
+     siempre. Una comprobación que no mira nada es peor que no tenerla, porque
+     da una confianza que no ha ganado. Se cubren los dos lienzos y el cromo
+     del portal, que es donde vive el crédito del cliente. */
+  const AMBITO = '.lienzo *, .p-lienzo *, .p-cab *, .p-pest *';
+  for(const e of document.querySelectorAll(AMBITO)){
     if(!e.textContent.trim()||e.children.length) continue;
     const st=getComputedStyle(e);
     if(st.display==='none'||st.visibility==='hidden') continue;
@@ -220,7 +264,25 @@ def c_contraste(nav, rapido):
                               % ('claro' if tema else 'oscuro', r, m['r'], m['min'],
                                  m['px'], m['t'], m['cls']))
     p.close()
-    return fallos, 'texto medido en %d pantallas × %d tema(s)' % (len(RUTAS), 1 if rapido else 2)
+
+    # los portales, con sus pestañas, en los dos temas
+    for url, pestanas in PORTALES:
+        for tema in ((0,) if rapido else (0, 1)):
+            q = abre_portal(nav, url)
+            if tema:
+                q.click('#tema')
+                q.wait_for_timeout(500)
+            for k in pestanas:
+                pest(q, k)
+                for m in q.evaluate(JS_CONTRASTE):
+                    fallos.append('%s %s%s: %.2f (mín %.1f) · %spx · «%s» .%s'
+                                  % ('claro' if tema else 'oscuro', url, k, m['r'], m['min'],
+                                     m['px'], m['t'], m['cls']))
+            fallos += q.errores
+            q.close()
+
+    pantallas = len(RUTAS) + sum(len(x[1]) for x in PORTALES)
+    return fallos, 'texto medido en %d pantallas × %d tema(s)' % (pantallas, 1 if rapido else 2)
 
 
 def c_recorrido(nav, rapido):
@@ -421,7 +483,17 @@ def c_moneda(nav, rapido):
             fallos.append('%s: «%s» sin unidad ni moneda · %s' % (r, m['t'], m['ctx']))
     fallos += p.errores
     p.close()
-    return fallos, 'cifras de %d pantallas' % len(RUTAS)
+
+    for url, pestanas in PORTALES:
+        q = abre_portal(nav, url)
+        for k in pestanas:
+            pest(q, k)
+            for m in q.evaluate(JS_SIN_MONEDA):
+                fallos.append('%s%s: «%s» sin unidad ni moneda · %s' % (url, k, m['t'], m['ctx']))
+        fallos += q.errores
+        q.close()
+
+    return fallos, 'cifras de %d pantallas' % (len(RUTAS) + sum(len(x[1]) for x in PORTALES))
 
 
 def c_freno(nav, rapido):

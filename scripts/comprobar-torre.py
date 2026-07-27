@@ -102,13 +102,24 @@ JS_CONTRASTE = r"""
      puede medir un contraste con un solo color, y darlo por el fondo del body
      producía falsos positivos escandalosos —texto blanco sobre la cabecera
      navy se contaba como blanco sobre papel—. */
+  const solido=st=>{const c=st.backgroundColor, v=rgb(c);
+    if(!v||c==='transparent') return null;
+    const a=(c.match(/[\d.]+/g)||[])[3];
+    return (a===undefined||+a>.6)? v : null;};
   const fondoDe=e=>{let n=e;
     while(n&&n!==document.documentElement){
       const st=getComputedStyle(n);
-      if(st.backgroundImage&&st.backgroundImage!=='none') return null;
-      const c=st.backgroundColor, v=rgb(c);
-      if(v&&c!=='transparent'){const a=(c.match(/[\d.]+/g)||[])[3];
-        if(a===undefined||+a>.6) return v;}
+      if(st.backgroundImage&&st.backgroundImage!=='none'){
+        /* Un degradado ENCIMA de un color sólido declarado sí tiene base contra
+           la que medir —así es el fondo de los portales—. Un degradado SIN color
+           debajo, no: ahí sigue devolviendo null, que es lo que impide contar
+           el texto blanco de la cabecera navy del informe como blanco sobre
+           papel. Sin esta distinción, los portales se recorrían enteros sin
+           medir una sola línea. */
+        return solido(st);
+      }
+      const v=solido(st);
+      if(v) return v;
       n=n.parentElement;}
     return rgb(getComputedStyle(document.body).backgroundColor)||[255,255,255];};
   const malos=[];

@@ -20,6 +20,16 @@ TOMAS = [
   ('cimiento',   'cimiento',           'sistemas',  'tasas'),
   ('agentes',    'agentes',            'direccion', None),
   ('conectores', 'frentes/conectores', 'sistemas',  None),
+  # segunda serie (fases 27-32): los módulos y portales que el deck no contaba
+  ('distribuido', 'inventarios/distribuido', 'logistica', None),
+  ('mapa',        'mapa',                    'direccion', 'mapa'),
+]
+
+# Los portales son documentos aparte: no tienen hash y hay que abrirlos por URL.
+# (nombre, url, pestaña)
+TOMAS_PORTAL = [
+    ('portal-vendedor', 'sistema/portal-vendedor/', 'catalogo'),
+    ('portal-cliente',  'sistema/portal-cliente/',  'comprar'),
 ]
 with sync_playwright() as pw:
     b=pw.chromium.launch(); p=b.new_page(viewport={'width':1600,'height':900})
@@ -33,10 +43,28 @@ with sync_playwright() as pw:
             p.evaluate("""()=>{const t=[...document.querySelectorAll('.tabla')][1];
                 if(t) t.closest('.rejilla').scrollIntoView({block:'start'});}""")
             p.wait_for_timeout(700)
+        if ancla=='mapa':
+            # el mapa pide tiles a la red: se le da tiempo a pintarlos
+            p.wait_for_timeout(4200)
         f=os.path.join(DEST, nombre+'.jpg')
         p.screenshot(path=f, type='jpeg', quality=86)
         k=os.path.getsize(f)//1024; tot+=k
         print(f'  {nombre:12s} {ruta:20s} {k} KB')
+    for nombre, url, pestana in TOMAS_PORTAL:
+        q = b.new_page(viewport={'width': 1600, 'height': 900})
+        q.on('pageerror', lambda e: errs.append(str(e)[:120]))
+        q.goto('http://localhost:8080/' + url, wait_until='networkidle')
+        q.wait_for_timeout(1500)
+        q.evaluate('(k)=>{const x=document.querySelector(\'[data-pest="\'+k+\'"]\'); if(x) x.click();}',
+                   pestana)
+        q.wait_for_timeout(800)
+        f = os.path.join(DEST, nombre + '.jpg')
+        q.screenshot(path=f, type='jpeg', quality=86)
+        k = os.path.getsize(f) // 1024
+        tot += k
+        print(f'  {nombre:12s} {url:20s} {k} KB')
+        q.close()
+
     print(f'\n  total {tot} KB')
     print('errores:', errs or 'ninguno')
     b.close()
