@@ -67,8 +67,8 @@ const ORG_PROPUESTA = {
 
   /* ------------------------------------------- líneas de reporte / consulta */
   EDGES: [
-    {s:'dot', p:[[720,102],[720,120],[625,120],[625,138]]},   // exec -> holding (consulta)
-    {s:'dot', p:[[880,102],[880,120],[975,120],[975,138]]},   // exec -> junta (consulta)
+    {s:'dot', p:[[750,165],[800,165]]},                        // holding -> espina (consulta)
+    {s:'dot', p:[[850,165],[800,165]]},                        // junta -> espina (consulta)
     {s:'sol', p:[[800,102],[800,770]]},                        // espina
     {s:'sol', p:[[345,278],[1215,278]]},                       // barra A (Talento H | Finanzas)
     {s:'sol', p:[[360,417],[1195,417]]},                       // barra B (Transf.Tec | Mantenimiento)
