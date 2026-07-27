@@ -2669,8 +2669,6 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   @media (max-width:900px){.org-drawer{width:100%;}}
   @media print{.org-fab,.proc-fab,.org-drawer{display:none!important;}}
 </style>
-<button class="org-fab" onclick="orgOpen()" title="Abrir el organigrama interactivo">🏛 Organigrama</button>
-<button class="proc-fab" onclick="procOpen()" title="Abrir el mapa de procesos interactivo">🔗 Procesos</button>
 <aside class="org-drawer" id="orgDrawer" aria-label="Organigrama interactivo">
   <div class="org-head">
     <b>🏛 Organigrama · Grupo Kenex</b>
@@ -2703,7 +2701,6 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   .pres-btn:hover{background:#1F3864;color:#fff;}
   @media print{.pres-fab,.pres-overlay,.pres-btn{display:none!important;}}
 </style>
-<button class="pres-fab" onclick="presOpen('portada')" title="Modo presentación (láminas por sección)">▶ Presentación</button>
 
 <style>
   /* Fase 26 · los dos APLICATIVOS de la propuesta, en su propia fila: la
@@ -2723,9 +2720,104 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   /* con la torre abierta a pantalla completa, ninguna píldora flota encima */
   body.modal-abierto .org-fab, body.modal-abierto .proc-fab, body.modal-abierto .pres-fab,
   body.modal-abierto .sys-fab, body.modal-abierto .arq-fab{display:none!important;}
+  /* las cinco píldoras sueltas se sustituyeron por el raíl `.wgt`; si alguna
+     volviera a insertarse, no debe flotar por su cuenta sobre el texto */
+  .org-fab,.proc-fab,.pres-fab,.sys-fab,.arq-fab{display:none!important;}
 </style>
-<a class="sys-fab" href="../../sistema/index.html" target="_blank" rel="noopener" title="Abrir el prototipo del sistema en pestaña nueva">🖥 Sistema</a>
-<a class="arq-fab" href="arquitectura-ia-kenex.html" target="_blank" rel="noopener" title="Abrir la arquitectura de IA a pantalla completa, en una pestaña nueva">🗼 Arquitectura IA</a>
+<!-- Raíl de herramientas: los cinco accesos en vertical, dentro del margen
+     derecho, para que no crucen la columna de lectura al bajar. -->
+<aside class="wgt" id="wgtRail" aria-label="Herramientas del informe">
+  <button class="wgt-b w-pres" onclick="presOpen('portada')" title="Modo presentación (láminas por sección)">
+    <span class="i" aria-hidden="true">▶</span><span class="t">Presentación</span></button>
+  <button class="wgt-b w-org" onclick="orgOpen()" title="Abrir el organigrama interactivo">
+    <span class="i" aria-hidden="true">🏛</span><span class="t">Organigrama</span></button>
+  <button class="wgt-b w-proc" onclick="procOpen()" title="Abrir el mapa de procesos interactivo">
+    <span class="i" aria-hidden="true">🔗</span><span class="t">Procesos</span></button>
+  <a class="wgt-b w-sys" href="../../sistema/index.html" target="_blank" rel="noopener" title="Abrir el prototipo del sistema en pestaña nueva">
+    <span class="i" aria-hidden="true">🖥</span><span class="t">Sistema</span></a>
+  <a class="wgt-b w-arq" href="arquitectura-ia-kenex.html" target="_blank" rel="noopener" title="Abrir la arquitectura de IA a pantalla completa, en una pestaña nueva">
+    <span class="i" aria-hidden="true">🗼</span><span class="t">Arquitectura IA</span></a>
+</aside>
+<style>
+  /* ---------------------------------------- EL RAÍL DE HERRAMIENTAS ------
+     Antes eran cinco píldoras sueltas en dos filas sobre la cabecera: al bajar
+     por el informe cruzaban el texto. Ahora van apiladas en el margen derecho,
+     que mide ~140 px libres en pantalla ancha; el raíl ocupa 66 px, así que la
+     columna de lectura queda intacta. El rótulo se despliega al apuntar. */
+  .wgt{
+    position:fixed; right:14px; top:50%; transform:translateY(-50%);
+    z-index:900; display:flex; flex-direction:column; gap:7px;
+    padding:8px 7px; border-radius:16px;
+    background:rgba(255,255,255,.9); backdrop-filter:blur(7px);
+    border:1px solid #dbe4f0; box-shadow:0 6px 22px rgba(31,56,100,.13);
+  }
+  .wgt-b{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:3px; width:74px; min-height:48px; padding:6px 3px;
+    border:none; border-radius:11px; cursor:pointer;
+    font-family:inherit; text-decoration:none; text-align:center;
+    transition:transform .13s ease, box-shadow .13s ease, filter .13s ease;
+  }
+  .wgt-b .i{font-size:16px; line-height:1;}
+  .wgt-b .t{
+    font-size:8px; font-weight:700; letter-spacing:.01em; line-height:1.15;
+    text-transform:uppercase;
+    /* que parta por espacios y NUNCA a mitad de palabra: «ARQUI-TECTURA» se lee mal */
+    hyphens:none; overflow-wrap:normal; word-break:normal;
+  }
+  .wgt-b:hover,.wgt-b:focus-visible{transform:translateX(-3px); box-shadow:0 5px 14px rgba(31,56,100,.26); filter:brightness(1.04);}
+  .wgt-b:focus-visible{outline:2px solid #2E75B6; outline-offset:2px;}
+  /* cada acceso conserva su identidad de color */
+  .w-pres{background:#fff; color:#1F3864; border:2px solid #1F3864;}
+  .w-org {background:linear-gradient(135deg,#1F3864,#2a4a80); color:#fff;}
+  .w-proc{background:linear-gradient(135deg,#2E8540,#3fa055); color:#fff;}
+  .w-sys {background:linear-gradient(105deg,#36F6BB,#32C6F4); color:#04212B;}
+  .w-arq {background:#fff; color:#1F3864; border:2px solid #2E75B6;}
+
+  /* Pantallas sin margen derecho: el raíl se recuesta abajo a la derecha y se
+     encoge, en lugar de invadir el texto. */
+  @media(max-width:1180px){
+    .wgt{top:auto; bottom:14px; transform:none; flex-direction:row; padding:7px 8px; border-radius:14px;}
+    .wgt-b{width:66px; min-height:42px;}
+    .wgt-b .t{font-size:7.5px;}
+    .wgt-b:hover,.wgt-b:focus-visible{transform:translateY(-3px);}
+  }
+  @media(max-width:560px){
+    .wgt{right:10px; left:10px; bottom:10px; justify-content:space-between; gap:5px;}
+    .wgt-b{flex:1; width:auto; min-height:40px;}
+  }
+  /* En estrecho el raíl es una barra inferior y sí queda sobre el texto: se
+     aparta sola al bajar y vuelve al subir, que es justo lo que se pidió — que
+     no interrumpa la lectura. Y el documento gana holgura al final para que su
+     último párrafo no quede nunca debajo de la barra. */
+  @media(max-width:1180px){
+    .wgt{transition:transform .22s ease, opacity .22s ease;}
+    .wgt.oculto{transform:translateY(140%); opacity:0; pointer-events:none;}
+    .main{padding-bottom:96px;}
+  }
+  /* no flota sobre nada que se abra a pantalla completa, ni al imprimir */
+  body.modal-abierto .wgt{display:none!important;}
+  @media print{.wgt{display:none!important;}}
+</style>
+<script>
+/* La barra inferior (solo en pantallas estrechas) se retira mientras se baja y
+   reaparece al subir o al detenerse. En pantalla ancha el raíl vive en el margen
+   derecho y no estorba, así que ahí no se oculta nunca. */
+(function(){
+  var rail=document.getElementById('wgtRail'), y=window.scrollY||0, t=null;
+  if(!rail) return;
+  var estrecho=function(){ return window.matchMedia('(max-width:1180px)').matches; };
+  addEventListener('scroll', function(){
+    var n=window.scrollY||0;
+    if(estrecho() && n>y+6 && n>140) rail.classList.add('oculto');
+    else if(n<y-6) rail.classList.remove('oculto');
+    y=n;
+    clearTimeout(t);
+    t=setTimeout(function(){ rail.classList.remove('oculto'); }, 700);
+  }, {passive:true});
+  addEventListener('resize', function(){ if(!estrecho()) rail.classList.remove('oculto'); });
+})();
+</script>
 <div class="pres-overlay" id="presOverlay">
   <iframe id="presFrame" data-src="presentacion-fase1.html" title="Presentación del Informe Diagnóstico Fase 1"></iframe>
 </div>
