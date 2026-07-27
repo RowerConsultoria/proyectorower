@@ -340,7 +340,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 |---|---|---|
 | 26 | Pantalla de inicio + accesos desde el informe · ✅ **hecha** | — |
 | 27 | Inventarios, módulo propio · ✅ **hecha** | — |
-| 28 | Inventario global distribuido (almacenes teóricos de clientes) | 27 |
+| 28 | Inventario global distribuido (almacenes teóricos de clientes) · ✅ **hecha** | 27 |
 | 29 | Módulo de clientes + torre de control IA | 28 |
 | 30 | Big Map ejecutivo (Mapbox) | 28, 29 |
 | 31 | Portal del vendedor | 27, 28 |
@@ -448,6 +448,31 @@ nuestra pero sabemos dónde debería estar:
   — coherente con `reportes.js` y `red.js`); la fase 29 lo enriquece.
 - Comprobación: la ecuación despachado − reportado = estimado se verifica
   contra pantalla, cliente por cliente.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- Vive como **cuarta pestaña «distribuido»** del módulo inventarios — mundo =
+  lo propio (medido, fase 27) + lo de clientes (estimado con banda).
+- **Todo derivado, nada inventado**: estimado = Σ STOCK_FRENTE del cliente;
+  reportado = Σ VENTAS 12 m; despachado = estimado + reportado; banda = venta
+  diaria × días desde el corte, LEÍDOS del rótulo de red.js
+  (`diasDesdeCorte()`) — declarar el número aparte era invitar a divergir.
+  `datos/clientes.js` solo aporta región y coordenadas (para el Big Map).
+- El modelo (`inventarioDistribuido()`) vive en el núcleo junto a
+  `saludInventario()`, con las MISMAS reglas (coberturaObjetivo,
+  sobrestockDesde) para las señales: reposición anticipada · impulso de
+  paradas · promoción de sobrantes — como «la IA prepararía», porque las
+  recomendaciones accionables con firma son de la fase 29.
+- Confianza por cliente: firme / aceptable / con banda / borrosa según el peso
+  de la banda — EC reporta mensual y su banda es ± 999 u (37 %): la tesis del
+  informe hecha número.
+- Comprobación `distribuido` (10ª): la ecuación contra pantalla RECOMPUTADA
+  desde los crudos (STOCK_FRENTE, VENTAS, rótulo del corte), no contra la
+  función que pinta — «que sería darle la razón al acusado». Cinco trampas
+  verificadas.
+- Las comprobaciones viejas volvieron a cazar la pantalla nueva: `moneda`
+  exigió unidad en las tres columnas de la ecuación y `contraste` cazó el
+  primer enlace en texto corrido del sistema (azul de navegador sobre fondo
+  oscuro, 2,06:1) — ahora hay regla de estilo para enlaces en prosa.
 
 ## Fase 29 · Módulo de clientes
 

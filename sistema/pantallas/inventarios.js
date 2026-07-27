@@ -38,6 +38,7 @@ function pestInventarios(activa) {
     ['alm', '#/inventarios', 'por almacén'],
     ['salud', '#/inventarios/salud', 'salud y rebalanceo'],
     ['mar', '#/inventarios/enmar', 'en mar'],
+    ['dist', '#/inventarios/distribuido', 'distribuido'],
   ];
   return `<div class="fila gap-8" data-pest-inv>` + t.map(([k, h, r]) =>
     `<button class="btn btn-mini ${k === activa ? 'btn-suave' : 'btn-fantasma'}" data-ir="${h}">${r}</button>`
@@ -116,7 +117,7 @@ window.PANTALLAS['inventarios'] = function (lienzo) {
     <p class="apunte tenue mt-24" style="max-width:840px;line-height:1.55">
       Aquí solo lo <b>propio</b>: lo que está en casa del socio y de los clientes es de ellos.
       Su inventario se <b>estima</b> desde lo que se les despachó y lo que reportan vender —
-      esa visual global llega con el inventario distribuido (fase 28 del plan).
+      esa visual global vive en la pestaña <a href="#/inventarios/distribuido">distribuido</a>.
     </p>`;
 
   const caja = lienzo.querySelector('#lista-alm');
@@ -290,4 +291,129 @@ window.PANTALLAS['inventarios/enmar'] = function (lienzo) {
 
   wirePestInventarios(lienzo);
   lienzo.querySelector('#ir-torre').onclick = () => { location.hash = '#/compras/transitos'; };
+};
+
+/* --------------------------------------- pantalla: distribuido (fase 28) ---
+   Dónde está TODA la mercancía del grupo: lo propio, medido; lo del socio y
+   los clientes, ESTIMADO desde lo despachado y lo reportado, con su banda de
+   incertidumbre. La banda es la tesis del informe hecha número: la calidad
+   del reporte de cada quien determina qué tan bien vemos su almacén.       */
+
+window.PANTALLAS['inventarios/distribuido'] = function (lienzo) {
+  const n = v => Math.round(v || 0).toLocaleString('es-VE');
+  const dist = inventarioDistribuido();
+  const propioU = saludInventario().filas.reduce((a, f) => a + f.u, 0);
+  const t = dist.totales;
+  const senales = dist.clientes.reduce((a, c) =>
+    a + c.quiebres.length + c.sobrantes.length + c.paradas.length, 0);
+
+  const TIPO = { socio: 'socio', operador: 'operador', cliente: 'cliente mayor', franquicia: 'franquicia' };
+
+  lienzo.innerHTML = `
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">operación · inventarios</div>
+        <div class="titulo-seccion" style="margin-top:4px">distribuido — dónde está todo</div>
+      </div>
+      ${pestInventarios('dist')}
+    </div>
+
+    <div class="cinta" style="margin-bottom:20px">
+      <span class="orbe hecho"></span><span class="hora">${HOY.hora}</span>
+      <div class="crece">estimé el almacén de <b>${dist.clientes.length} frentes no propios</b> desde
+        lo despachado y lo reportado: <b>${n(t.estimado)} unidades</b> deberían estar en sus manos,
+        con <b>± ${n(t.banda)}</b> de incertidumbre por reportes atrasados</div>
+    </div>
+
+    <div class="rejilla rejilla-4" style="margin-bottom:22px">
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">unidades del grupo en el mundo</div>
+        <div class="valor" id="dist-mundo">${n(propioU + t.estimado)}</div>
+        <div class="pie">${n(propioU)} medidas + ${n(t.estimado)} estimadas</div></div></div>
+      <div class="tarjeta pulsable" data-ir-alm><div class="kpi"><div class="rotulo">unidades en almacenes propios</div>
+        <div class="valor">${n(propioU)}</div>
+        <div class="pie">medidas — ver por almacén →</div></div></div>
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">unidades en casa de clientes</div>
+        <div class="valor" id="dist-est">${n(t.estimado)}</div>
+        <div class="pie">estimadas · despachado − reportado</div></div></div>
+      <div class="tarjeta"><div class="kpi"><div class="rotulo">unidades de incertidumbre</div>
+        <div class="valor" id="dist-banda">± ${n(t.banda)}</div>
+        <div class="pie">vendidas desde su último corte, aún sin ver</div></div></div>
+    </div>
+
+    ${Object.entries(REGIONES).map(([rid, rnombre]) => {
+      const del = dist.clientes.filter(c => c.region === rid);
+      if (!del.length) return '';
+      return `<div class="sobretitulo" style="margin:26px 0 12px">${rnombre} ·
+          ${n(del.reduce((a, c) => a + c.estimado, 0))} u estimadas</div>
+        <div class="pila gap-12">
+        ${del.map(c => {
+          const f = c.f;
+          const pctBanda = c.estimado ? Math.round(c.banda / c.estimado * 100) : 0;
+          return `<div class="panel" data-cli="${f.id}">
+            <div class="fila-sep">
+              <div>
+                <div class="fila gap-8">
+                  <b style="font-size:14px">${f.nombre}</b>
+                  <span class="marca-estado e-neutro">${TIPO[f.tipo] || f.tipo}</span>
+                  <span class="marca-estado ${c.confianza.clase}"><i class="punto"></i>estimación ${c.confianza.r}</span>
+                </div>
+                <div class="apunte tenue mt-8">${f.pais} · almacén ${f.almacen} ·
+                  reporta ${f.cadencia} por ${f.via} · corte ${f.corte}</div>
+              </div>
+              <div class="fila gap-24" style="text-align:right">
+                <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">despachado 12 m · u</div>
+                  <div class="cifra-media d-desp">${n(c.despachado)}</div></div>
+                <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">reportan vendido · u</div>
+                  <div class="cifra-media d-rep">${n(c.reportado)}</div></div>
+                <div><div class="apunte tenue" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase">deberían tener · u</div>
+                  <div class="cifra-media d-est">${n(c.estimado)}</div></div>
+              </div>
+            </div>
+
+            <div class="fila gap-8 mt-16" style="align-items:center">
+              <div class="barra crece" title="cobertura estimada: ${c.cobertura.toFixed(1)} meses">
+                <span style="width:${Math.min(100, Math.round(c.cobertura / (REGLAS.coberturaObjetivo.v * REGLAS.sobrestockDesde.v) * 100))}%"></span>
+              </div>
+              <span class="apunte tenue" style="flex:none">cobertura ${c.cobertura.toFixed(1)} meses ·
+                banda <span class="d-banda">± ${n(c.banda)}</span> u${pctBanda ? ' (' + pctBanda + ' %)' : ''}</span>
+            </div>
+            ${c.banda ? `<div class="apunte tenue mt-8">pueden haber vendido hasta
+              <b>${n(c.banda)} u</b> desde su corte de hace ${c.corteDias} día${c.corteDias > 1 ? 's' : ''}:
+              su almacén real está entre <b>${n(c.estimado - c.banda)}</b> y <b>${n(c.estimado)}</b> u</div>` : ''}
+
+            ${(c.quiebres.length || c.paradas.length || c.sobrantes.length) ? `
+            <div class="fila gap-8 mt-16" style="flex-wrap:wrap;align-items:center">
+              <span class="apunte tenue">la IA prepararía:</span>
+              ${(() => {
+                /* dos referencias distintas comparten nombre de familia (los
+                   ClassWiz): sin el dedup salían dos chips idénticos seguidos
+                   y se leía como glitch */
+                const vistos = new Set();
+                const unicos = c.quiebres.filter(x =>
+                  vistos.has(x.p.nombre) ? false : (vistos.add(x.p.nombre), true)).slice(0, 2);
+                return unicos.map(x =>
+                  `<span class="marca-estado e-riesgo"><i class="punto"></i>reposición anticipada: ${x.p.nombre}</span>`).join('') +
+                  (c.quiebres.length > unicos.length
+                    ? `<span class="apunte tenue">+${c.quiebres.length - unicos.length} más en quiebre</span>` : '');
+              })()}
+              ${c.paradas.map(o =>
+                `<span class="marca-estado e-alerta">impulso: ${n(o.u)} u paradas ${o.mesesQuieto} meses</span>`).join('')}
+              ${c.sobrantes.slice(0, 1).map(x =>
+                `<span class="marca-estado e-alerta">promoción: ${x.p.nombre} sobrado (${n(x.u)} u)</span>`).join('')}
+            </div>` : ''}
+          </div>`;
+        }).join('')}
+        </div>`;
+    }).join('')}
+
+    <p class="apunte tenue mt-24" style="max-width:860px;line-height:1.55">
+      <b>La banda es la tesis del sistema hecha número.</b> Con conexión en vivo la banda es cero:
+      su almacén se ve como el propio. Con un Excel cada tres semanas, la banda es lo vendido desde
+      el corte — y decidir sobre ese frente es decidir a ciegas ese porcentaje. Las recomendaciones
+      accionables, con su firma, llegan con el módulo de clientes (fase 29).
+    </p>`;
+
+  wirePestInventarios(lienzo);
+  const alm = lienzo.querySelector('[data-ir-alm]');
+  if (alm) alm.onclick = () => { location.hash = '#/inventarios'; };
 };

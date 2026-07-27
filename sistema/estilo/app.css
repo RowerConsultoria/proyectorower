@@ -1026,6 +1026,12 @@ body.con-recorrido .lienzo{padding-bottom:190px}
    impedía cerrarla de verdad. La comprobación no lo vio porque medía el
    atributo y no lo que se ve; ya mide lo que se ve. */
 .portada[hidden]{display:none}
+
+/* Los enlaces dentro de texto corrido. Sin esto, un <a> heredaba el azul del
+   navegador: 2,06:1 sobre el fondo oscuro — lo cazó la comprobación de
+   contraste en cuanto una nota al pie llevó su primer enlace. */
+.apunte a, .lienzo p a{color:var(--cian);text-decoration:none}
+.apunte a:hover, .lienzo p a:hover{text-decoration:underline}
 .portada-caja{max-width:640px;display:flex;flex-direction:column;align-items:center;gap:22px}
 .portada-marca{display:flex;flex-direction:column;align-items:center;gap:10px}
 .portada-nom{

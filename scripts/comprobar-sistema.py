@@ -38,7 +38,7 @@ PUERTO = 8080
 RUTAS = [
     'direccion', 'compras', 'compras/cierre', 'compras/casio', 'compras/cubitt',
     'compras/transitos', 'producto', 'fabricas', 'logistica',
-    'inventarios', 'inventarios/salud', 'inventarios/enmar',
+    'inventarios', 'inventarios/salud', 'inventarios/enmar', 'inventarios/distribuido',
     'distribucion', 'comercial', 'comercial/demanda', 'frentes', 'frentes/conectores',
     'cimiento', 'agentes',
 ]
@@ -537,10 +537,73 @@ def c_inventarios(nav, rapido):
     return fallos, '%d almacenes cuadrados y el mar contra la torre' % d['tarjetas']
 
 
+def c_distribuido(nav, rapido):
+    """La fase 28 vive de una ecuación: despachado − reportado = estimado, con
+    su banda = venta diaria × días desde el corte. Se verifica CONTRA PANTALLA,
+    cliente por cliente, recomputando desde los datos crudos (STOCK_FRENTE,
+    VENTAS y el rótulo del corte) — no contra la función que pinta, que sería
+    darle la razón al acusado."""
+    fallos = []
+    p = nueva(nav)
+    rol(p, 'logistica')
+    va(p, 'inventarios/distribuido', 700)
+
+    d = p.evaluate(r"""()=>{
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      const malos=[], conf=[];
+      const noPropios=FRENTES.filter(f=>f.tipo!=='propio');
+      let sumEst=0, sumBanda=0;
+      for(const f of noPropios){
+        /* el modelo, DESDE LOS CRUDOS */
+        let est=0, rep=0;
+        for(const sku in STOCK_FRENTE) est+=STOCK_FRENTE[sku][f.id]||0;
+        for(const sku in VENTAS) rep+=((VENTAS[sku]||{})[f.id]||[]).reduce((a,b)=>a+b,0);
+        const m=String(f.corte).match(/(\d+)\s*día/);
+        const dias=m?+m[1]:(/ayer/.test(f.corte)?1:0);
+        const banda=Math.round(rep/365*dias);
+        sumEst+=est; sumBanda+=banda;
+
+        const card=document.querySelector('[data-cli="'+f.id+'"]');
+        if(!card){ malos.push(f.id+': sin tarjeta'); continue; }
+        const lee=c=>card.querySelector(c).textContent.trim();
+        if(lee('.d-est')!==n(est)) malos.push(f.id+': estimado '+lee('.d-est')+' y crudo '+n(est));
+        if(lee('.d-rep')!==n(rep)) malos.push(f.id+': reportado '+lee('.d-rep')+' y crudo '+n(rep));
+        if(lee('.d-desp')!==n(est+rep)) malos.push(f.id+': despachado '+lee('.d-desp')+' ≠ estimado+reportado');
+        if(lee('.d-banda')!=='± '+n(banda)) malos.push(f.id+': banda '+lee('.d-banda')+' y cruda ± '+n(banda));
+
+        /* la confianza pintada, contra el criterio recomputado */
+        const rel=est?banda/est:0;
+        const toca=dias===0?'firme':rel<0.05?'aceptable':rel<0.15?'con banda':'borrosa';
+        const dice=(card.textContent.match(/estimación (firme|aceptable|con banda|borrosa)/)||[])[1];
+        if(dice!==toca) conf.push(f.id+': dice «'+dice+'» y toca «'+toca+'»');
+      }
+      const tarjetas=document.querySelectorAll('[data-cli]').length;
+      const propio=saludInventario().filas.reduce((a,f)=>a+f.u,0);
+      return {malos, conf, tarjetas, esperadas:noPropios.length,
+        kpiMundo:document.querySelector('#dist-mundo').textContent.trim()===n(propio+sumEst),
+        kpiEst:document.querySelector('#dist-est').textContent.trim()===n(sumEst),
+        kpiBanda:document.querySelector('#dist-banda').textContent.trim()==='± '+n(sumBanda)};}""")
+
+    fallos += ['cliente ' + x for x in d['malos']]
+    fallos += ['confianza de ' + x for x in d['conf']]
+    if d['tarjetas'] != d['esperadas']:
+        fallos.append('%d tarjetas y %d frentes no propios' % (d['tarjetas'], d['esperadas']))
+    if not d['kpiMundo']:
+        fallos.append('el KPI del mundo no es lo medido + lo estimado')
+    if not d['kpiEst']:
+        fallos.append('el KPI estimado no es la suma de los clientes')
+    if not d['kpiBanda']:
+        fallos.append('el KPI de incertidumbre no es la suma de las bandas')
+
+    fallos += p.errores
+    p.close()
+    return fallos, '%d clientes con su ecuación contra pantalla' % d['tarjetas']
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
-    'portada': c_portada, 'inventarios': c_inventarios,
+    'portada': c_portada, 'inventarios': c_inventarios, 'distribuido': c_distribuido,
 }
 
 

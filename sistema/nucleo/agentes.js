@@ -324,6 +324,77 @@ function valorEmbarque(t) {
   return lineasEmbarque(t).reduce((a, x) => a + x.u * x.p.pvp * 0.40, 0);
 }
 
+/* --------------------------------------- inventario distribuido (fase 28) */
+
+/** Días desde el último corte de un frente, leídos de su rótulo en red.js.
+    UN solo origen: si el rótulo dice «hace 9 días», la banda usa 9 — declarar
+    el número aparte era invitar a que rótulo y banda divergieran. */
+function diasDesdeCorte(txt) {
+  const m = String(txt).match(/(\d+)\s*día/);
+  if (m) return +m[1];
+  if (/ayer/.test(txt)) return 1;
+  return 0;   /* segundos, minutos u horas: el corte es de hoy */
+}
+
+/**
+ * El almacén TEÓRICO de cada frente no propio: lo que deberían tener según lo
+ * que se les despachó y lo que reportan haber vendido.
+ *
+ *   estimado   = Σ despachado − Σ vendido reportado
+ *   banda      = venta diaria × días desde su último corte — lo que pueden
+ *                haber vendido y todavía no hemos visto
+ *
+ * La banda es la tesis del informe hecha número: la CALIDAD del reporte del
+ * cliente determina qué tan bien vemos su almacén. Con conexión en vivo la
+ * banda es cero; con un Excel cada tres semanas, la banda es enorme.
+ *
+ * Las señales usan las MISMAS reglas del inventario propio (coberturaObjetivo
+ * y sobrestockDesde): un criterio para todo el mundo, no uno por pantalla.
+ */
+function inventarioDistribuido() {
+  const clientes = FRENTES.filter(f => f.tipo !== 'propio').map(f => {
+    let estimado = 0, reportado = 0;
+    const refs = [];
+    for (const p of CATALOGO) {
+      const u = (STOCK_FRENTE[p.sku] || {})[f.id] || 0;
+      const serie = (VENTAS[p.sku] || {})[f.id] || [];
+      const vendido = serie.reduce((a, b) => a + b, 0);
+      estimado += u; reportado += vendido;
+      refs.push({ p, u, mensual: vendido / 12 });
+    }
+    const corteDias = diasDesdeCorte(f.corte);
+    const banda = Math.round(reportado / 365 * corteDias);
+    const mensual = reportado / 12;
+
+    /* señales por referencia, con las reglas del inventario propio */
+    const tope = REGLAS.coberturaObjetivo.v * REGLAS.sobrestockDesde.v;
+    const quiebres = refs.filter(x => x.mensual > 0.5 && x.u / x.mensual < 0.5)
+      .sort((a, b) => b.mensual - a.mensual);
+    const sobrantes = refs.filter(x => x.mensual > 0.5 && x.u >= 24 && x.u / x.mensual > tope)
+      .sort((a, b) => b.u - a.u);
+    const paradas = OCIOSOS.filter(o => o.frente === f.id);
+
+    /* la confianza: al día = firme; si no, según cuánto pesa la banda */
+    const rel = estimado ? banda / estimado : 0;
+    const confianza =
+      corteDias === 0 ? { r: 'firme', clase: 'e-ok' } :
+      rel < 0.05 ? { r: 'aceptable', clase: 'e-ok' } :
+      rel < 0.15 ? { r: 'con banda', clase: 'e-alerta' } :
+      { r: 'borrosa', clase: 'e-riesgo' };
+
+    return { f, estimado, reportado, despachado: estimado + reportado,
+             banda, corteDias, mensual, cobertura: mensual ? estimado / mensual : 99,
+             quiebres, sobrantes, paradas, confianza,
+             region: (fichaCliente(f.id) || {}).region || 'sin región' };
+  });
+
+  return { clientes,
+    totales: clientes.reduce((a, c) => ({ estimado: a.estimado + c.estimado,
+      banda: a.banda + c.banda, reportado: a.reportado + c.reportado,
+      despachado: a.despachado + c.despachado }),
+      { estimado: 0, banda: 0, reportado: 0, despachado: 0 }) };
+}
+
 /** Unidades de una referencia que ya vienen en camino, por embarque. */
 function enCamino(sku) {
   if (!_memoTransito) {
