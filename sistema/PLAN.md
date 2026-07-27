@@ -302,3 +302,197 @@ Ninguna bloquea el arranque. Se resuelven cuando toque su fase:
 | **23 · Permisos de firma por rol** | ✅ **hecha** — `AMBITOS` + `data-firma` + `aplicaPermisos()` · resuelve **P1** y **P9** |
 | **24 · Moneda y tasa** | ✅ **hecha** — `datos/tasas.js` + conversión con tasa fechada · resuelve **P2** · añade la tabla de reglas que faltaba en cimiento |
 | **25 · Láminas del prototipo para el informe** | ✅ **hecha** — 7 láminas en el deck de Fase 1 · resuelve **P5** |
+
+
+---
+
+# Segunda serie — de aplicativo de compras a plataforma comercial (fases 26–34)
+
+La primera serie (1–25) dejó el ciclo de la compra internacional completo. Esta
+serie lo convierte en la plataforma comercial entera: inventario distribuido
+global, clientes, mapa ejecutivo y los dos portales externos.
+
+**Decisiones ya tomadas con el usuario (26-jul):**
+- Los portales del vendedor y del cliente son **páginas aparte** con estética
+  de portal propia (`sistema/portal-vendedor/`, `sistema/portal-cliente/`),
+  pero consumen los MISMOS `datos/*.js` — fuente única, nada de cifras
+  duplicadas.
+- El Big Map va sobre **Mapbox GL JS vendorizado** con token público del
+  proyecto (ver fase 30). ⚠️ Es un token `pk.*` publicable por diseño, no un
+  secreto — pero conviene **restringirlo por URL** en el panel de Mapbox
+  (localhost + el dominio donde se publique).
+- El vendedor del portal es el **comercial de Kenex (mayoreo)**: vende a los
+  clientes/distribuidores por país y reserva unidades de lo que está en mar.
+- La torre de control de IA del módulo de clientes es **global + pestaña por
+  cliente**: vista de cartera entera y detalle en cada ficha, con la misma
+  gramática preparé / hice / tu firma del resto del sistema.
+
+**Reglas de la serie** (heredadas de la primera):
+- Al comenzar cada fase, repasar la anterior, apuntar lo que falte y convertirlo
+  en fase o sub-fase si tiene sentido.
+- Toda comprobación nueva se **rompe a propósito** antes de darla por buena; si
+  el sabotaje se interrumpe, `auditar.py --arregla` antes de diagnosticar nada.
+- Las mejoras que el usuario pase durante la serie se registran aquí como
+  insumos y se ejecutan ANTES de la fase 33 (el recorrido se reescribe una sola
+  vez, con todo dentro).
+
+| Fase | Qué | Depende de |
+|---|---|---|
+| 26 | Pantalla de inicio + accesos desde el informe | — |
+| 27 | Inventarios, módulo propio | — |
+| 28 | Inventario global distribuido (almacenes teóricos de clientes) | 27 |
+| 29 | Módulo de clientes + torre de control IA | 28 |
+| 30 | Big Map ejecutivo (Mapbox) | 28, 29 |
+| 31 | Portal del vendedor | 27, 28 |
+| 32 | Portal del cliente | 29 |
+| 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) | todas |
+| 34 | Comprobaciones, capturas del deck y cierre | 33 |
+
+## Fase 26 · La entrada
+
+**26a — pantalla de inicio de `/sistema`.** Hero con la identidad Cubitt
+(DM Sans, gradiente #36F6BB→#32C6F4): nombre del sistema, una frase de tesis y
+el botón **Entrar**, que arranca directamente el recorrido (así lo pidió el
+usuario: entrar = empezar el recorrido). Enlace secundario discreto «entrar
+directo» para el uso diario. Cuando existan los portales (31–32), esta pantalla
+enseña también sus dos tarjetas de acceso.
+- Técnica: la pantalla es el estado sin hash (`#/inicio`); `ruta()` hoy manda
+  al primer módulo visible del rol — pasa a mandar al inicio. Revisar
+  `history.replaceState` y que la comprobación `rutas` siga midiendo bien.
+
+**26b — accesos desde el informe.** Dos botones flotantes junto a los
+existentes (🏛 Organigrama · Módulos · ▶ Presentación):
+- **«Sistema»** → abre `/sistema` en pestaña nueva (es una SPA con su propio
+  hash routing; en iframe se rompería).
+- **«Arquitectura IA»** → abre el MISMO modal de la s10 (el iframe con la torre
+  ya existe; el botón solo lo invoca desde cualquier punto del informe).
+- Cuidado con la acumulación de botones flotantes: agruparlos en una pila
+  coherente, responsive incluido.
+
+## Fase 27 · Inventarios, módulo propio
+
+Separar «logística e inventarios» en dos módulos del sidebar: **Logística**
+(recepción, bodega, tránsitos — el flujo físico) e **Inventarios** (las
+existencias). `pantallas/inventario.js` (hoy «salud de inventario») se
+convierte en el módulo con pestañas:
+- **Por almacén** — los almacenes PROPIOS (nuevo `datos/almacenes.js`: nombre,
+  país, tipo, coordenadas —que reutiliza la fase 30—, capacidad, stock por
+  referencia coherente con `operacion.js`). Visual de almacenes: tarjetas con
+  ocupación, valor, top referencias y semáforos.
+- **Salud y rebalanceo** — lo ya construido en la fase 14, intacto.
+- **En mar** — lo que viene, por embarque, cuadrando con `transitos.js`.
+- ⚠️ Fuente única: el stock que ya enseñan logística y salud debe salir de los
+  mismos datos. Ninguna cifra nueva que no cuadre con las existentes.
+- Comprobación nueva `inventarios`: la suma por almacén = el global que enseñan
+  las otras pantallas; en-mar cuadra con tránsitos; ningún almacén sin dueño.
+
+## Fase 28 · Inventario global distribuido
+
+La visual de dónde está TODA la mercancía del grupo, incluida la que ya no es
+nuestra pero sabemos dónde debería estar:
+- **Almacén teórico de cada cliente** = Σ despachado − Σ sell-out reportado.
+  Con **confianza del dato**: reporte al día → estimación firme; reporte
+  quincenal por Excel → banda de incertidumbre. Es la tesis del informe («el
+  dato antes que el agente») hecha pantalla: la calidad del reporte del cliente
+  determina qué tan bien lo vemos.
+- Vista global: región → país → cliente, con sobre-stock y quiebre inminente
+  destacados y la recomendación de la IA al lado (impulso, promoción,
+  reposición anticipada).
+- Datos: nace `datos/clientes.js` con lo mínimo (clientes, despachos, reportes
+  — coherente con `reportes.js` y `red.js`); la fase 29 lo enriquece.
+- Comprobación: la ecuación despachado − reportado = estimado se verifica
+  contra pantalla, cliente por cliente.
+
+## Fase 29 · Módulo de clientes
+
+- **Registro**: regiones → países → clientes. Propios (frentes de países
+  propios) · socio (Costa Rica) · terceros. Sin nombres de personas reales.
+- **Ficha de cliente**: canal, línea de crédito (límite, consumido,
+  vencimientos), historial de compras, despachos en curso, sell-out reportado y
+  su cadencia, inventario estimado (28), promociones activas, pronóstico.
+- **Recomendaciones IA de impulso**: agentes con sello preparé/hice/tu firma —
+  promoción por rotación baja, reposición anticipada por quiebre proyectado,
+  alerta de crédito. Registrados en el núcleo de agentes, con ámbito de firma.
+- **Torre de control IA** (global + por cliente): vista de cartera —qué
+  preparó, hizo y espera firma la IA por cliente, alertas por urgencia— y una
+  pestaña de detalle en cada ficha. Integrada con la sala de agentes y la
+  bitácora existentes: son los MISMOS agentes, no un mundo aparte.
+- Comprobación `clientes`: toda recomendación tiene agente y ámbito declarados;
+  toda cifra de dinero lleva moneda (la regla `moneda` se extiende sola).
+
+## Fase 30 · Big Map ejecutivo
+
+- **Mapbox GL JS vendorizado** en `sistema/vendor/mapbox-gl/` (sin CDN, como
+  three.js). Token público del proyecto (pk, publicable por diseño):
+  «el token vive en `sistema/datos/mapa-config.js`, único sitio»
+  en un único `datos/mapa-config.js`. ⚠️ Pedir a quien administre la cuenta de
+  Mapbox restringirlo por URL.
+- Contenido: almacenes propios ◆ y clientes ● con color por marca; filtros
+  **Cubitt / Casio / ambas**; búsqueda; clustering donde se amontonen; clic →
+  tarjeta con cifras clave + pronóstico + enlace a la ficha (29).
+- Capas con valor: flujos de despacho (arcos puerto→país, el lenguaje de la
+  corriente de la torre) y semáforo de inventario estimado (28).
+- Estilo oscuro/claro siguiendo el tema del sistema.
+- **Fallback declarado** sin red o sin token: mensaje + lista por país (el
+  patrón del «sin WebGL» de la torre). El mapa es la única pieza del prototipo
+  que depende de la red: decirlo, no esconderlo.
+- Comprobación `mapa`: puntos pintados = clientes+almacenes del modelo; los
+  filtros filtran de verdad; sin token no revienta.
+
+## Fase 31 · Portal del vendedor — `sistema/portal-vendedor/`
+
+Página aparte con estética de portal (misma familia visual, cromo propio), para
+el **comercial de mayoreo de Kenex**. Consume los mismos `datos/*.js`.
+- **Catálogo vendible** con disponible-a-prometer: stock en almacén + lo que
+  viene en mar (por contenedor, con ETA y % ya reservado).
+- **Reservas** — la estrella: reservar unidades de un embarque en tránsito para
+  un cliente. La reserva descuenta el ATP en TODAS las vistas que lo muestran,
+  queda en bitácora, y firma según ámbito (el vendedor prepara; según monto,
+  firma un supervisor).
+- **Pedido de venta** para un cliente de su cartera (clientes de la 29).
+- Comprobación `portal-vendedor`: ATP = stock + en-mar − reservado, cuadrando
+  con tránsitos e inventarios; una reserva mueve el número en todas partes.
+
+## Fase 32 · Portal del cliente — `sistema/portal-cliente/`
+
+La otra cara del portal de reporte de la fase 17 (que queda como vista interna
+de lo que los clientes suben). El cliente:
+- **Pide** (pedido con ATP visible y crédito disponible; si excede, bloqueo con
+  motivo — nunca silencio).
+- **Preventa**: ve lo anticipado —lo que viene en mar— y aparta según su nivel.
+- **Historial de compras** y **despachos** con seguimiento simulado.
+- **Reporta sus ventas** subiendo el Excel (el flujo simulado existente,
+  contado aquí desde su lado — y conectado con el cedazo: «esto que subes es lo
+  que certifica tu inventario estimado»).
+- **Línea de crédito** (consumo, vencimientos) y **promociones** activas.
+- Comprobación `portal-cliente`: el pedido respeta el crédito; el sell-out
+  subido mueve el inventario estimado (28) y deja rastro.
+
+## Fase 33 · Recorrido 2.0 — se ejecuta al final, con todo dentro
+
+Reescribir `nucleo/recorrido.js` con el arco del ciclo completo:
+
+> Dirección (la visión) → la compra (mesa) → en mar (tránsitos + la reserva del
+> vendedor) → llegada y bodega → **inventarios propios** → distribución →
+> **clientes** (módulo + mapa) → **portal del cliente** (pide y reporta) → el
+> sell-out vuelve a la demanda → cierre en la **torre de control IA**.
+
+- Cada parada DECLARA su estado (lección de la torre: por eso se puede andar al
+  revés y saltando).
+- El recorrido arranca desde la pantalla de inicio (26) — Entrar = recorrido.
+- Cruce de páginas: el recorrido tiene que pasar de `/sistema` a los portales y
+  volver. Técnica a decidir en ejecución (hash de continuación o recorridos
+  encadenados con «continuar en el portal →»).
+- Repasar CADA cifra del guion contra la pantalla que la sostiene (la
+  comprobación ya lo exige; el guion nuevo no hereda el viejo sin verificar).
+
+**Insumos pendientes del usuario para esta fase:** _(se van anotando aquí)_
+
+## Fase 34 · Comprobaciones, capturas y cierre
+
+- Comprobaciones nuevas de la serie (`inventarios`, `clientes`, `mapa`,
+  `portal-vendedor`, `portal-cliente`) — cada una rota a propósito primero.
+- Ampliar `rutas`, `moneda`, `permisos` y `contraste` a las páginas nuevas.
+- `validar-html.py` cubre las páginas nuevas.
+- Regenerar las láminas de la sección `proto` del deck si cambiaron pantallas.
+- Actualizar `ARQUITECTURA.md` y este plan.
