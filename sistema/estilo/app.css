@@ -1056,3 +1056,41 @@ body.en-portada .hud{display:none}
   .portada-tesis{font-size:14px}
   .portada-entrar{width:100%;max-width:340px}
 }
+
+/* ------------------------------------------------- 30. EL MAPA GLOBAL */
+.mapa-caja{position:relative;height:min(64vh,720px);min-height:420px;
+  border-radius:var(--r-panel);overflow:hidden;border:1px solid var(--borde);background:var(--panel)}
+#mapa-lienzo{position:absolute;inset:0}
+.mapa-fallback{position:absolute;inset:0;overflow:auto;padding:26px;background:var(--lienzo)}
+.mapa-fallback-caja{max-width:780px;margin:0 auto}
+
+/* los marcadores: chips de vidrio con el semáforo en el borde */
+.mk{display:flex;align-items:center;gap:6px;background:var(--panel-vidrio);
+  border:1.5px solid var(--borde);border-radius:999px;padding:4px 10px 4px 8px;
+  cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 2px 10px rgba(0,0,0,.35);white-space:nowrap}
+.mk:hover{border-color:var(--tinta-tenue)}
+.mk .mk-punto{font-size:12px;line-height:1}
+.mk-almacen .mk-punto{color:var(--menta)}
+.mk-cliente .mk-punto{color:var(--cian)}
+.mk .mk-rotulo{font-size:11px;color:var(--tinta-media)}
+.mk .mk-rotulo b{color:var(--tinta);font-variant-numeric:tabular-nums}
+.mk.e-ok{border-color:rgba(46,212,122,.55)}
+.mk.e-alerta{border-color:rgba(255,201,74,.6)}
+.mk.e-riesgo{border-color:rgba(255,107,90,.65)}
+
+/* la tarjeta del punto (popup de mapbox, vestido de sistema) */
+.mapa-pop .mapboxgl-popup-content{background:var(--panel);color:var(--tinta);
+  border:1px solid var(--borde);border-radius:14px;padding:14px 16px;
+  box-shadow:var(--sombra-alta);font-family:inherit}
+.mapa-pop .mapboxgl-popup-tip{border-top-color:var(--panel) !important;
+  border-bottom-color:var(--panel) !important}
+.mapa-pop .mapboxgl-popup-close-button{color:var(--tinta-media);font-size:16px;right:6px;top:4px}
+.pop-cab{display:flex;align-items:center;gap:8px;font-size:13px}
+.pop-cifras{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:12px;margin-top:6px}
+.pop-cifras .r{display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-tenue)}
+.pop-cifras b{font-variant-numeric:tabular-nums}
+
+/* la atribución de mapbox, legible sobre nuestros dos temas */
+.mapa-caja .mapboxgl-ctrl-attrib{background:var(--panel) !important;font-size:10px}
+.mapa-caja .mapboxgl-ctrl-attrib a{color:var(--tinta-media) !important}

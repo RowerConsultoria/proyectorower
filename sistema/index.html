@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilo/app.css">
+<link rel="stylesheet" href="vendor/mapbox-gl/mapbox-gl.css">
 </head>
 <body>
 
@@ -89,6 +90,7 @@
 <script src="datos/red.js"></script>
 <script src="datos/almacenes.js"></script>
 <script src="datos/clientes.js"></script>
+<script src="datos/mapa-config.js"></script>
 <script src="datos/operacion.js"></script>
 <script src="datos/candidatos.js"></script>
 <script src="datos/proveedores.js"></script>
@@ -97,6 +99,9 @@
 <!-- núcleo de agentes (fase 5): lógica determinista sobre los datos semilla -->
   <script src="datos/tasas.js"></script>
   <script src="nucleo/agentes.js"></script>
+
+<!-- mapbox, vendorizado (fase 30): el mapa vive de la red; la librería, no -->
+<script src="vendor/mapbox-gl/mapbox-gl.js"></script>
 
 <!-- pantallas de los módulos; cada fase añade la suya -->
 <script src="pantallas/cimiento.js"></script>
@@ -112,6 +117,7 @@
 <script src="pantallas/inventarios.js"></script>
 <script src="pantallas/inventario.js"></script>
 <script src="pantallas/clientes.js"></script>
+<script src="pantallas/mapa.js"></script>
 <script src="pantallas/comercial.js"></script>
 <script src="pantallas/demanda.js"></script>
 <script src="pantallas/portal.js"></script>

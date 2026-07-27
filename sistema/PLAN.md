@@ -342,7 +342,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | 27 | Inventarios, módulo propio · ✅ **hecha** | — |
 | 28 | Inventario global distribuido (almacenes teóricos de clientes) · ✅ **hecha** | 27 |
 | 29 | Módulo de clientes + torre de control IA · ✅ **hecha** | 28 |
-| 30 | Big Map ejecutivo (Mapbox) | 28, 29 |
+| 30 | Big Map ejecutivo (Mapbox) · ✅ **hecha** | 28, 29 |
 | 31 | Portal del vendedor | 27, 28 |
 | 32 | Portal del cliente | 29 |
 | 33 | Recorrido 2.0 (absorbe también las mejoras que lleguen) | todas |
@@ -535,6 +535,26 @@ nuestra pero sabemos dónde debería estar:
   que depende de la red: decirlo, no esconderlo.
 - Comprobación `mapa`: puntos pintados = clientes+almacenes del modelo; los
   filtros filtran de verdad; sin token no revienta.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- **Mapbox GL JS v3.8.0 vendorizado** (1,4 MB + css + licencia) en
+  `sistema/vendor/mapbox-gl/`; token público en `datos/mapa-config.js` — sigue
+  pendiente restringirlo por URL en el panel de Mapbox.
+- Módulo `mapa` («mapa global», grupo red) con: 11 puntos como chips de vidrio
+  (◆ almacenes menta · ● clientes cian) cuyo **borde es su semáforo** —
+  ocupación (27) en almacenes, confianza de la estimación (28) en clientes;
+  filtro por marca que **recalcula cada cifra desde el stock crudo**; popup con
+  desglose Casio/Cubitt, pronóstico, crédito y el camino a su ficha; y los
+  **flujos del reparto de anoche** (X-01) como arcos con corriente — el
+  lenguaje de la bajada de la torre. Estilo oscuro/claro siguiendo el tema.
+- Sin clustering a propósito: son 11 puntos y el encuadre por `fitBounds` los
+  separa; volverá a evaluarse si la red crece.
+- **Fallback declarado**: sin red, sin token o sin WebGL cae a la lista por
+  país con las mismas cifras — «el mapa vive de la red, los datos no».
+- Comprobación `mapa` (12ª): marcadores contra el modelo, popup y filtro
+  contra crudos, semáforo de EC, y la prueba SIN RED de verdad (se cortan las
+  rutas a api.mapbox.com y tiene que aparecer la lista completa sin ninguna
+  excepción). Cinco trampas verificadas.
 
 ## Fase 31 · Portal del vendedor — `sistema/portal-vendedor/`
 

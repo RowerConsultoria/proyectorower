@@ -38,13 +38,13 @@ const AMBITOS = {
 const ROLES = {
   direccion: {
     nombre: 'dirección ejecutiva',
-    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'clientes', 'frentes', 'producto', 'cimiento', 'agentes'],
+    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'clientes', 'mapa', 'frentes', 'producto', 'cimiento', 'agentes'],
     firma: ['todo'],
     firmaDice: 'todo, sin tope',
   },
   compras: {
     nombre: 'dirección de compras',
-    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'inventarios', 'comercial', 'clientes', 'frentes', 'cimiento', 'agentes'],
+    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'inventarios', 'comercial', 'clientes', 'mapa', 'frentes', 'cimiento', 'agentes'],
     firma: ['compra', 'reparto', 'traslado'],
     firmaDice: 'compras, reparto y traslados',
   },
@@ -62,13 +62,13 @@ const ROLES = {
   },
   logistica: {
     nombre: 'operaciones y logística',
-    ve: ['logistica', 'inventarios', 'distribucion', 'compras', 'frentes', 'agentes'],
+    ve: ['logistica', 'inventarios', 'distribucion', 'compras', 'mapa', 'frentes', 'agentes'],
     firma: ['recepcion', 'traslado'],
     firmaDice: 'recepción y traslados',
   },
   comercial: {
     nombre: 'gerencia comercial',
-    ve: ['comercial', 'clientes', 'distribucion', 'frentes', 'logistica', 'inventarios', 'agentes'],
+    ve: ['comercial', 'clientes', 'mapa', 'distribucion', 'frentes', 'logistica', 'inventarios', 'agentes'],
     firma: ['pedidos', 'disponibilidad', 'promocion'],
     firmaDice: 'pedidos, disponibilidad y promociones',
   },
@@ -76,7 +76,7 @@ const ROLES = {
     nombre: 'sistemas',
     /* No firma compra: la regla de que sistemas no toca dinero deja de ser una
        frase en un documento y pasa a ser un botón que no se puede pulsar. */
-    ve: ['frentes', 'clientes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'producto'],
+    ve: ['frentes', 'clientes', 'mapa', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'producto'],
     firma: ['normalizacion', 'sistema'],
     firmaDice: 'reglas y conectores · no firma dinero',
   },
@@ -178,6 +178,11 @@ const MODULOS = {
     ico: '◎', nombre: 'clientes', grupo: 'red', fase: 29,
     para: 'gerencia comercial, compras y la dirección',
     resuelve: 'La cartera completa por región: crédito, venta, inventario estimado, promociones y las recomendaciones de impulso de la IA con su torre de control.',
+  },
+  mapa: {
+    ico: '◐', nombre: 'mapa global', grupo: 'red', fase: 30,
+    para: 'la dirección y quien presente la red',
+    resuelve: 'Toda la red sobre el mapa real: almacenes y clientes con su semáforo, filtro por marca, y los flujos del reparto de anoche como corriente.',
   },
   frentes: {
     ico: '◈', nombre: 'frentes', grupo: 'red', fase: 17,

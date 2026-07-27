@@ -40,7 +40,7 @@ RUTAS = [
     'compras/transitos', 'producto', 'fabricas', 'logistica',
     'inventarios', 'inventarios/salud', 'inventarios/enmar', 'inventarios/distribuido',
     'distribucion', 'comercial', 'comercial/demanda', 'clientes', 'clientes/torre',
-    'frentes', 'frentes/conectores',
+    'mapa', 'frentes', 'frentes/conectores',
     'cimiento', 'agentes',
 ]
 ROLES = ['direccion', 'compras', 'analista', 'producto', 'logistica', 'comercial', 'sistemas']
@@ -709,11 +709,86 @@ def c_clientes(nav, rapido):
     return fallos, '%d frentes en cartera · ficha, torre y bitácora' % d.get('frentes', 10) if False else '10 frentes · ficha, torre y bitácora'
 
 
+def c_mapa(nav, rapido):
+    """El mapa de la fase 30 no puede inventar: tantos puntos como
+    almacenes + clientes, cada cifra desde el stock crudo, el filtro por marca
+    filtrando de verdad, el semáforo de la fase 28 en el borde — y sin red cae
+    a la lista declarada en vez de reventar."""
+    fallos = []
+    p = nueva(nav)
+    rol(p, 'direccion')
+    va(p, 'mapa', 2600)
+
+    d = p.evaluate(r"""()=>{
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      let cub=0, tot=0;
+      for(const q of CATALOGO){const u=STOCK_HUB[q.sku]||0; tot+=u; if(q.marca==='Cubitt') cub+=u;}
+      return {esperados:ALMACENES.length+CLIENTES.length,
+        fallback:!document.querySelector('#mapa-fallback').hidden,
+        mks:document.querySelectorAll('.mk').length,
+        filas:document.querySelectorAll('[data-fb]').length,
+        nTot:n(tot), nCub:n(cub),
+        ec:(document.querySelector('[data-mk="EC"]')||{className:''}).className};}""")
+
+    if d['fallback']:
+        if d['filas'] != d['esperados']:
+            fallos.append('fallback con %d filas y %d puntos en el modelo' % (d['filas'], d['esperados']))
+        fallos.append('el mapa cayó a la lista con la red presente — no se pudo probar el mapa vivo')
+    else:
+        if d['mks'] != d['esperados']:
+            fallos.append('%d marcadores y %d puntos en el modelo' % (d['mks'], d['esperados']))
+        if 'e-riesgo' not in d['ec']:
+            fallos.append('EC (estimación borrosa) sin su semáforo de riesgo en el borde')
+
+        # el popup de la central dice lo que dice el stock crudo
+        p.evaluate("()=>document.querySelector('[data-mk=\"ZLC\"]').click()")
+        p.wait_for_timeout(700)
+        pop = p.evaluate("()=>{const e=document.querySelector('.mapa-pop .pop-u');return e?e.textContent.trim():null}")
+        if pop != d['nTot']:
+            fallos.append('el popup de la central dice %s y el stock crudo %s' % (pop, d['nTot']))
+
+        # el filtro por marca recalcula desde el inventario real
+        p.evaluate("()=>document.querySelector('[data-marca=\"Cubitt\"]').click()")
+        p.wait_for_timeout(1800)
+        zlc = p.evaluate("()=>{const e=document.querySelector('[data-mk=\"ZLC\"] .mk-u');return e?e.textContent.trim():null}")
+        if zlc != d['nCub']:
+            fallos.append('con el filtro Cubitt la central dice %s y el crudo %s' % (zlc, d['nCub']))
+        p.evaluate("()=>document.querySelector('[data-marca=\"ambas\"]').click()")
+        p.wait_for_timeout(900)
+
+    fallos += p.errores
+    p.close()
+
+    # ── sin red no revienta: se corta Mapbox y tiene que caer a la lista ────
+    if not rapido:
+        p = nav.new_page(viewport={'width': 1560, 'height': 1000})
+        p.errores = []
+        p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
+        p.route('**://api.mapbox.com/**', lambda r: r.abort())
+        p.route('**://events.mapbox.com/**', lambda r: r.abort())
+        p.goto(BASE, wait_until='domcontentloaded')
+        p.wait_for_timeout(900)
+        rol(p, 'direccion')
+        va(p, 'mapa', 600)
+        p.wait_for_timeout(9000)   # la vigía del mapa son 8 s
+        d = p.evaluate("""()=>({fallback:!document.querySelector('#mapa-fallback').hidden,
+          filas:document.querySelectorAll('[data-fb]').length,
+          esperados:ALMACENES.length+CLIENTES.length})""")
+        if not d['fallback']:
+            fallos.append('sin red, el mapa no cae a la lista declarada')
+        elif d['filas'] != d['esperados']:
+            fallos.append('sin red, la lista trae %d filas y el modelo %d' % (d['filas'], d['esperados']))
+        fallos += p.errores
+        p.close()
+
+    return fallos, '%d puntos · filtro, popup y fallback sin red' % d['esperados']
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
     'portada': c_portada, 'inventarios': c_inventarios, 'distribuido': c_distribuido,
-    'clientes': c_clientes,
+    'clientes': c_clientes, 'mapa': c_mapa,
 }
 
 

@@ -253,6 +253,7 @@ window.PANTALLAS['clientes'] = function (lienzo) {
         del sell-out reportado; el inventario, de la fase 28. Lo que la IA recomienda lo dejó
         preparado el <b>impulsor de cartera</b> en el turno — está en la
         <a href="#/clientes/torre">torre de control</a> y en la <a href="#/agentes">sala de agentes</a>.
+        La vista geográfica de esta misma red vive en el <a href="#/mapa">mapa global</a>.
       </p>`;
 
     lienzo.querySelectorAll('[data-abre-cli]').forEach(e => {
