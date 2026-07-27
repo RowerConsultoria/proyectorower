@@ -278,7 +278,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
           <text x="706" y="71" font-size="11.5" font-weight="400" fill="#55627a">RRHH y brechas → secciones 4.3 y 5 · Fase 3</text>
           <rect x="690" y="135" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
           <text x="706" y="157">5 · Gestión del cambio</text>
-          <text x="706" y="176" font-size="11.5" font-weight="400" fill="#55627a">cultura y formación → sección 8 · Maia</text>
+          <text x="706" y="176" font-size="11.5" font-weight="400" fill="#55627a">cultura y formación → sección 9 · Maia</text>
           <rect x="690" y="240" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
           <text x="706" y="262">6 · Soporte técnico e IA</text>
           <text x="706" y="281" font-size="11.5" font-weight="400" fill="#55627a">sistemas y datos → secciones 7, 11 y 12</text>
@@ -311,7 +311,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
           <div style="flex:1; background:var(--blue);"></div>
         </div>
         <div class="lg"><span><i style="background:var(--verde)"></i>Entregados (17)</span><span><i style="background:var(--ambar)"></i>Pendientes (8)</span><span><i style="background:#98a2b3"></i>Sin información (4)</span><span><i style="background:var(--blue)"></i>Acordado (1)</span></div>
-        <div class="card rojo" style="margin-top:8px;"><h4>C#2 · Acceso administrativo a Odoo</h4><p><b>Pendiente y bloqueante</b>: sin él, la auditoría técnica de acceso directo (sección 9) permanece en fase documental.</p></div>
+        <div class="card rojo" style="margin-top:8px;"><h4>C#2 · Acceso administrativo a Odoo</h4><p><b>Pendiente y bloqueante</b>: sin él, la auditoría técnica de acceso directo (sección 8) permanece en fase documental.</p></div>
       </div>
     </div>
     <ul class="hits">
@@ -892,7 +892,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
         <text x="686" y="81" font-size="11.5" fill="#55627a">contra los vicios documentados</text>
         <rect x="280" y="152" width="400" height="58" rx="9" fill="#fdf1de" stroke="#f0d9ad"/>
         <text x="480" y="175" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B26A00">Prerrequisito de la Fase 2: conciliar los 3 inventarios del mismo universo</text>
-        <text x="480" y="194" text-anchor="middle" font-size="11.5" fill="#8a6510">flujos F1–F8 (4.7) ↔ mapa 22/104/260 (6.5) ↔ inventario de vacíos (9.5)</text>
+        <text x="480" y="194" text-anchor="middle" font-size="11.5" fill="#8a6510">flujos F1–F8 (4.7) ↔ mapa 22/104/260 (6.5) ↔ inventario de vacíos (8.5)</text>
       </svg>
     </div>
     <p class="lead" style="margin-top:6px;">Los procesos deciden hoy <b>en Excel personales y WhatsApp</b> — el puente natural hacia el hallazgo técnico central del diagnóstico: el dato.</p>
@@ -1131,9 +1131,146 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   </div>
 </section>
 
-<!-- ================= S8 · CULTURA (3) ================= -->
+<!-- ================= S8 · AUDITORÍA (4) ================= -->
 <section class="slide" data-sec="s8">
-  <div class="shead"><span class="kick">8 · Cultura y adopción de IA</span><h2>La base humana: capacidad real, crecimiento desordenado</h2></div>
+  <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>Lark: plataforma correcta, expectativa incorrecta</h2></div>
+  <div class="sbody">
+    <div class="viz" style="max-width:990px; margin:0 auto;">
+      <div class="vtitle">Techos oficiales de Lark Base vs. el volumen real del negocio — escala logarítmica (cada división ×10)</div>
+      <svg viewBox="0 0 960 250" role="img" aria-label="Barras en escala logarítmica: los techos de Lark quedan dos o tres órdenes de magnitud por debajo del volumen real">
+        <g stroke="#eef1f6" stroke-width="1.5">
+          <line x1="200" y1="20" x2="200" y2="196"/><line x1="370" y1="20" x2="370" y2="196"/><line x1="540" y1="20" x2="540" y2="196"/><line x1="710" y1="20" x2="710" y2="196"/><line x1="880" y1="20" x2="880" y2="196"/>
+        </g>
+        <g font-size="10.5" fill="#98a2b3" text-anchor="middle">
+          <text x="200" y="212">mil</text><text x="370" y="212">10 mil</text><text x="540" y="212">100 mil</text><text x="710" y="212">1 millón</text><text x="880" y="212">10 millones</text>
+        </g>
+        <text x="14" y="42" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Starter</text>
+        <rect x="200" y="30" width="51" height="18" rx="4" fill="#2E75B6"/><text x="258" y="44" font-size="11.5" font-weight="700" fill="#1F3864">2.000</text>
+        <text x="14" y="74" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Pro</text>
+        <rect x="200" y="62" width="221" height="18" rx="4" fill="#2E75B6"/><text x="428" y="76" font-size="11.5" font-weight="700" fill="#1F3864">20.000</text>
+        <text x="14" y="106" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Enterprise</text>
+        <rect x="200" y="94" width="289" height="18" rx="4" fill="#2E75B6"/><text x="496" y="108" font-size="11.5" font-weight="700" fill="#1F3864">50.000</text>
+        <text x="14" y="138" font-size="12" font-weight="700" fill="#26303f">API · registros por llamada</text>
+        <rect x="149" y="126" width="51" height="18" rx="4" fill="#6a9fd8"/><text x="207" y="140" font-size="11.5" font-weight="700" fill="#1F3864">500 ("todo o nada")</text>
+        <text x="14" y="178" font-size="12" font-weight="800" fill="#C00000">El volumen real del negocio</text>
+        <rect x="200" y="164" width="591" height="20" rx="4" fill="#C00000"/>
+        <text x="799" y="179" font-size="11.5" font-weight="800" fill="#C00000">▸ millones de líneas</text>
+        <text x="204" y="240" font-size="11.5" fill="#55627a">más de <tspan font-weight="700">1.000 tiendas</tspan> (41 clientes de terceros, uno con 150 tiendas) actualizando <tspan font-weight="700">varias veces al día</tspan> — "esto no corre en una computadora normal"</text>
+      </svg>
+    </div>
+    <div class="grid2">
+      <div class="card verde"><h4>Para lo que sirve ✓</h4><p>Colaboración, formularios, flujos ligeros y comunicación — donde el grupo ya la adoptó con éxito (marketing como caso ejemplar).</p></div>
+      <div class="card rojo"><h4>Para lo que no ✗</h4><p>Capa de datos del negocio: ningún dato maestro o transaccional en Lark Base. La auditoría de Fase 1 es documental; el acceso directo sigue bloqueado por C#2.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-sec="s8">
+  <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>Odoo: el estándar es gratuito; el código propio, deuda</h2></div>
+  <div class="sbody">
+    <div class="viz" style="max-width:980px; margin:0 auto;">
+      <svg viewBox="0 0 960 235" role="img" aria-label="Línea de versiones de Odoo: el salto 17 a 19 son dos migraciones y el código custom se adapta a mano en cada una">
+        <line x1="60" y1="150" x2="900" y2="150" stroke="#d9dee8" stroke-width="3"/>
+        <circle cx="150" cy="150" r="16" fill="#1F3864"/><text x="150" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">17</text>
+        <text x="150" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">HOY · Panamá y Venezuela</text>
+        <text x="150" y="202" text-anchor="middle" font-size="10.5" fill="#55627a">implementaciones separadas —</text>
+        <text x="150" y="216" text-anchor="middle" font-size="10.5" fill="#55627a">la instancia multipaís única no existe aún</text>
+        <circle cx="480" cy="150" r="16" fill="#fff" stroke="#2E75B6" stroke-width="3"/><text x="480" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#2E75B6">18</text>
+        <text x="480" y="186" text-anchor="middle" font-size="10.5" fill="#55627a">el upgrade oficial procede una versión a la vez</text>
+        <circle cx="810" cy="150" r="16" fill="#2E7D32"/><text x="810" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">19</text>
+        <text x="810" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E7D32">objetivo: el próximo año</text>
+        <text x="810" y="202" text-anchor="middle" font-size="10.5" fill="#C00000">"aún no se ha empezado a planear"</text>
+        <path d="M 170 138 Q 315 60 462 136" fill="none" stroke="#C00000" stroke-width="2.5"/>
+        <text x="315" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#C00000">MIGRACIÓN 1</text>
+        <text x="315" y="72" text-anchor="middle" font-size="10.5" fill="#C00000">los módulos custom no migran solos:</text>
+        <text x="315" y="86" text-anchor="middle" font-size="10.5" fill="#C00000">se adaptan a mano</text>
+        <path d="M 500 136 Q 645 60 792 136" fill="none" stroke="#C00000" stroke-width="2.5"/>
+        <text x="645" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#C00000">MIGRACIÓN 2</text>
+        <text x="645" y="72" text-anchor="middle" font-size="10.5" fill="#C00000">…y se vuelven a adaptar:</text>
+        <text x="645" y="86" text-anchor="middle" font-size="10.5" fill="#C00000">cada custom es costo recurrente</text>
+        <g font-size="11" font-weight="700">
+          <rect x="60" y="14" width="180" height="26" rx="13" fill="#fbeaea"/><text x="150" y="31" text-anchor="middle" fill="#C00000">~5× el costo de migrar</text>
+          <rect x="250" y="14" width="170" height="26" rx="13" fill="#fbeaea"/><text x="335" y="31" text-anchor="middle" fill="#C00000">hasta 3× el tiempo</text>
+          <rect x="430" y="14" width="230" height="26" rx="13" fill="#fbeaea"/><text x="545" y="31" text-anchor="middle" fill="#C00000">miles USD por módulo mayor</text>
+          <rect x="670" y="14" width="230" height="26" rx="13" fill="#e3efe4"/><text x="785" y="31" text-anchor="middle" fill="#2E7D32">regla sana: ~80% estándar · ~20% config</text>
+        </g>
+      </svg>
+    </div>
+    <ul class="hits" style="margin-top:2px;">
+      <li>El estándar se actualiza <b>gratis cada año</b>; la presión de personalización corre sobre un modelo de desarrollo (freelance + partners) <b>sin marco de calidad, ambientes ni gobierno de cambios</b>.</li>
+      <li>Filtro por brecha funcional: ¿existe en el estándar? → ¿configuración? → ¿capa externa por API? → <b>solo entonces</b>, módulo heredado propio.</li>
+    </ul>
+    <p class="foot-note">Verificaciones pendientes al recibir C#2 (8.4): inventario de módulos, calidad del código custom, ambientes y despliegue, respaldos, matriz de accesos, endpoints API, módulos infrautilizados, alcance real de la migración.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s8">
+  <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>El inventario de vacíos: dónde nace el sistema propio</h2></div>
+  <div class="sbody">
+    <div class="viz" style="max-width:1010px; margin:0 auto; gap:8px;">
+      <div>
+        <div class="vtitle" style="color:var(--ambar);">⬛ Excel al lado del sistema — 8 procesos críticos en paralelo al ERP</div>
+        <div class="heat" style="grid-template-columns:repeat(8,1fr);">
+          <div class="c c-par">Compra estratégica Casio</div><div class="c c-par">"Sábana" de mayoristas</div><div class="c c-par">Reportería a la junta</div><div class="c c-par">Nómina VE</div><div class="c c-par">Tesorería del holding</div><div class="c c-par">Conciliación Cashea</div><div class="c c-par">Planeación CO</div><div class="c c-par">Forecast CR</div>
+        </div>
+      </div>
+      <div>
+        <div class="vtitle" style="color:var(--rojo);">⬛ Sin sistema alguno — 8 procesos donde el sistema propio no compite con nada</div>
+        <div class="heat" style="grid-template-columns:repeat(8,1fr);">
+          <div class="c c-rj">Servicio técnico VE (Syscore aislado)</div><div class="c c-rj">Recepción e-comm "a dedo"</div><div class="c c-rj">Contenedores: 1.800 cajas a mano</div><div class="c c-rj">Marketplaces US sin EDI</div><div class="c c-rj">Marketplaces CO manuales</div><div class="c c-rj">Difusión a tiendas por pendrive</div><div class="c c-rj">Activos de marca sin repositorio</div><div class="c c-rj">Facturas de importación a mano</div>
+        </div>
+      </div>
+      <div>
+        <div class="vtitle" style="color:var(--blue);">⬛ Islas de IA generativa individual — 7 focos sin política ni acumulación institucional</div>
+        <div class="heat" style="grid-template-columns:repeat(7,1fr);">
+          <div class="c c-bl">Compras: "todos tienen Claude"</div><div class="c c-bl">Comercial CO: informes con IA</div><div class="c c-bl">Forecast CR con Claude</div><div class="c c-bl">Marketing: brief → diseño</div><div class="c c-bl">Temporadas e-comm "100% IA"</div><div class="c c-bl">PMO: metodología y cronogramas</div><div class="c c-si">Célula BI — la excepción estructurada ✓</div>
+        </div>
+      </div>
+    </div>
+    <p class="lead">Este inventario de <b>23 procesos</b> es la <b>hoja de ruta del sistema propio</b>: nace precisamente ahí donde no compite con nada — evita el trauma de reemplazar lo que funciona y entrega valor donde hoy no hay nada.</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="s8">
+  <div class="shead"><span class="kick">8 · Auditoría técnica de Lark y Odoo</span><h2>La estrategia: no reemplazar — hacer nacer el sistema propio</h2></div>
+  <div class="sbody">
+    <div class="viz" style="max-width:990px; margin:0 auto;">
+      <svg viewBox="0 0 960 280" role="img" aria-label="Cuatro etapas de crecimiento: el sistema propio nace en los vacíos y absorbe progresivamente">
+        <defs><marker id="arrAb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
+        <g fill="none" stroke="#2E75B6" stroke-width="2.2"><line x1="205" y1="120" x2="245" y2="120" marker-end="url(#arrAb)"/><line x1="450" y1="120" x2="490" y2="120" marker-end="url(#arrAb)"/><line x1="695" y1="120" x2="735" y2="120" marker-end="url(#arrAb)"/></g>
+        <circle cx="122" cy="120" r="30" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
+        <text x="122" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#1F3864">dato</text>
+        <text x="122" y="180" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">1 · NORMALIZAR EL FLUJO</text>
+        <text x="122" y="198" text-anchor="middle" font-size="10.5" fill="#55627a">el dato certificado como servicio ·</text>
+        <text x="122" y="212" text-anchor="middle" font-size="10.5" fill="#55627a">cerrar integraciones a medias</text>
+        <circle cx="347" cy="120" r="42" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
+        <g fill="#B26A00"><circle cx="315" cy="90" r="7"/><circle cx="380" cy="94" r="7"/><circle cx="312" cy="146" r="7"/><circle cx="382" cy="150" r="7"/></g>
+        <text x="347" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#1F3864">módulos</text>
+        <text x="347" y="180" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">2 · NACER EN LOS VACÍOS</text>
+        <text x="347" y="198" text-anchor="middle" font-size="10.5" fill="#55627a">cubrir los 23 procesos donde hoy</text>
+        <text x="347" y="212" text-anchor="middle" font-size="10.5" fill="#55627a">no hay sistema — sin competir con nada</text>
+        <circle cx="592" cy="120" r="54" fill="#dbe6f5" stroke="#2E75B6" stroke-width="2"/>
+        <circle cx="592" cy="120" r="24" fill="#F4F6FA" stroke="#1F3864" stroke-width="2"/>
+        <text x="592" y="125" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1F3864">Odoo</text>
+        <text x="592" y="186" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">3 · NÚCLEO MODULAR POR API</text>
+        <text x="592" y="204" text-anchor="middle" font-size="10.5" fill="#55627a">Odoo estándar intacto en el centro ·</text>
+        <text x="592" y="218" text-anchor="middle" font-size="10.5" fill="#55627a">la lógica propia en la capa del grupo</text>
+        <circle cx="845" cy="120" r="66" fill="#1F3864"/>
+        <circle cx="845" cy="120" r="26" fill="#F4F6FA"/>
+        <text x="845" y="125" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1F3864">Odoo</text>
+        <text x="845" y="90" text-anchor="middle" font-size="10" font-weight="700" fill="#9dc3ee">IA en sus venas</text>
+        <text x="845" y="203" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">4 · ABSORCIÓN PROGRESIVA</text>
+        <text x="845" y="221" text-anchor="middle" font-size="10.5" fill="#55627a">el sistema propio se vuelve</text>
+        <text x="845" y="235" text-anchor="middle" font-size="10.5" fill="#55627a">columna vertebral, gobernado en casa</text>
+        <text x="480" y="268" text-anchor="middle" font-size="12" fill="#55627a">no se le pide a la organización abandonar lo que tiene ni confiar su operación a un sistema nuevo de golpe: <tspan font-weight="700" fill="#1F3864">nace desde los huecos, sin riesgo</tspan></text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= S9 · CULTURA (3) ================= -->
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Cultura y adopción de IA</span><h2>La base humana: capacidad real, crecimiento desordenado</h2></div>
   <div class="sbody">
     <div class="viz" style="max-width:960px; margin:0 auto;">
       <svg viewBox="0 0 940 265" role="img" aria-label="Focos de madurez de IA dentro de un marco de gobierno ausente">
@@ -1176,8 +1313,8 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   </div>
 </section>
 
-<section class="slide" data-sec="s8">
-  <div class="shead"><span class="kick">8 · Cultura y adopción de IA</span><h2>Dos ejes de formación en curso</h2></div>
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Cultura y adopción de IA</span><h2>Dos ejes de formación en curso</h2></div>
   <div class="sbody">
     <div class="viz" style="max-width:940px; margin:0 auto;">
       <svg viewBox="0 0 920 250" role="img" aria-label="Pirámide de audiencia de los dos ejes de formación">
@@ -1209,8 +1346,8 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   </div>
 </section>
 
-<section class="slide" data-sec="s8">
-  <div class="shead"><span class="kick">8 · Cultura y adopción de IA</span><h2>La formación sola no ordena: dos cimientos documentales</h2></div>
+<section class="slide" data-sec="s9">
+  <div class="shead"><span class="kick">9 · Cultura y adopción de IA</span><h2>La formación sola no ordena: dos cimientos documentales</h2></div>
   <div class="sbody">
     <div class="viz" style="max-width:820px; margin:0 auto;">
       <svg viewBox="0 0 800 300" role="img" aria-label="Pórtico: dos pilares documentales sostienen la adopción ordenada sobre la base de la formación">
@@ -1237,143 +1374,6 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       </svg>
     </div>
     <p class="lead">Con esta sección se completa el recorrido por los seis aspectos del marco — <b>la Parte I cierra con su componente técnico: la auditoría de plataformas y la arquitectura de IA</b>.</p>
-  </div>
-</section>
-
-<!-- ================= S9 · AUDITORÍA (4) ================= -->
-<section class="slide" data-sec="s9">
-  <div class="shead"><span class="kick">9 · Auditoría técnica de Lark y Odoo</span><h2>Lark: plataforma correcta, expectativa incorrecta</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:990px; margin:0 auto;">
-      <div class="vtitle">Techos oficiales de Lark Base vs. el volumen real del negocio — escala logarítmica (cada división ×10)</div>
-      <svg viewBox="0 0 960 250" role="img" aria-label="Barras en escala logarítmica: los techos de Lark quedan dos o tres órdenes de magnitud por debajo del volumen real">
-        <g stroke="#eef1f6" stroke-width="1.5">
-          <line x1="200" y1="20" x2="200" y2="196"/><line x1="370" y1="20" x2="370" y2="196"/><line x1="540" y1="20" x2="540" y2="196"/><line x1="710" y1="20" x2="710" y2="196"/><line x1="880" y1="20" x2="880" y2="196"/>
-        </g>
-        <g font-size="10.5" fill="#98a2b3" text-anchor="middle">
-          <text x="200" y="212">mil</text><text x="370" y="212">10 mil</text><text x="540" y="212">100 mil</text><text x="710" y="212">1 millón</text><text x="880" y="212">10 millones</text>
-        </g>
-        <text x="14" y="42" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Starter</text>
-        <rect x="200" y="30" width="51" height="18" rx="4" fill="#2E75B6"/><text x="258" y="44" font-size="11.5" font-weight="700" fill="#1F3864">2.000</text>
-        <text x="14" y="74" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Pro</text>
-        <rect x="200" y="62" width="221" height="18" rx="4" fill="#2E75B6"/><text x="428" y="76" font-size="11.5" font-weight="700" fill="#1F3864">20.000</text>
-        <text x="14" y="106" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Enterprise</text>
-        <rect x="200" y="94" width="289" height="18" rx="4" fill="#2E75B6"/><text x="496" y="108" font-size="11.5" font-weight="700" fill="#1F3864">50.000</text>
-        <text x="14" y="138" font-size="12" font-weight="700" fill="#26303f">API · registros por llamada</text>
-        <rect x="149" y="126" width="51" height="18" rx="4" fill="#6a9fd8"/><text x="207" y="140" font-size="11.5" font-weight="700" fill="#1F3864">500 ("todo o nada")</text>
-        <text x="14" y="178" font-size="12" font-weight="800" fill="#C00000">El volumen real del negocio</text>
-        <rect x="200" y="164" width="591" height="20" rx="4" fill="#C00000"/>
-        <text x="799" y="179" font-size="11.5" font-weight="800" fill="#C00000">▸ millones de líneas</text>
-        <text x="204" y="240" font-size="11.5" fill="#55627a">más de <tspan font-weight="700">1.000 tiendas</tspan> (41 clientes de terceros, uno con 150 tiendas) actualizando <tspan font-weight="700">varias veces al día</tspan> — "esto no corre en una computadora normal"</text>
-      </svg>
-    </div>
-    <div class="grid2">
-      <div class="card verde"><h4>Para lo que sirve ✓</h4><p>Colaboración, formularios, flujos ligeros y comunicación — donde el grupo ya la adoptó con éxito (marketing como caso ejemplar).</p></div>
-      <div class="card rojo"><h4>Para lo que no ✗</h4><p>Capa de datos del negocio: ningún dato maestro o transaccional en Lark Base. La auditoría de Fase 1 es documental; el acceso directo sigue bloqueado por C#2.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-sec="s9">
-  <div class="shead"><span class="kick">9 · Auditoría técnica de Lark y Odoo</span><h2>Odoo: el estándar es gratuito; el código propio, deuda</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:980px; margin:0 auto;">
-      <svg viewBox="0 0 960 235" role="img" aria-label="Línea de versiones de Odoo: el salto 17 a 19 son dos migraciones y el código custom se adapta a mano en cada una">
-        <line x1="60" y1="150" x2="900" y2="150" stroke="#d9dee8" stroke-width="3"/>
-        <circle cx="150" cy="150" r="16" fill="#1F3864"/><text x="150" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">17</text>
-        <text x="150" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">HOY · Panamá y Venezuela</text>
-        <text x="150" y="202" text-anchor="middle" font-size="10.5" fill="#55627a">implementaciones separadas —</text>
-        <text x="150" y="216" text-anchor="middle" font-size="10.5" fill="#55627a">la instancia multipaís única no existe aún</text>
-        <circle cx="480" cy="150" r="16" fill="#fff" stroke="#2E75B6" stroke-width="3"/><text x="480" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#2E75B6">18</text>
-        <text x="480" y="186" text-anchor="middle" font-size="10.5" fill="#55627a">el upgrade oficial procede una versión a la vez</text>
-        <circle cx="810" cy="150" r="16" fill="#2E7D32"/><text x="810" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">19</text>
-        <text x="810" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E7D32">objetivo: el próximo año</text>
-        <text x="810" y="202" text-anchor="middle" font-size="10.5" fill="#C00000">"aún no se ha empezado a planear"</text>
-        <path d="M 170 138 Q 315 60 462 136" fill="none" stroke="#C00000" stroke-width="2.5"/>
-        <text x="315" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#C00000">MIGRACIÓN 1</text>
-        <text x="315" y="72" text-anchor="middle" font-size="10.5" fill="#C00000">los módulos custom no migran solos:</text>
-        <text x="315" y="86" text-anchor="middle" font-size="10.5" fill="#C00000">se adaptan a mano</text>
-        <path d="M 500 136 Q 645 60 792 136" fill="none" stroke="#C00000" stroke-width="2.5"/>
-        <text x="645" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#C00000">MIGRACIÓN 2</text>
-        <text x="645" y="72" text-anchor="middle" font-size="10.5" fill="#C00000">…y se vuelven a adaptar:</text>
-        <text x="645" y="86" text-anchor="middle" font-size="10.5" fill="#C00000">cada custom es costo recurrente</text>
-        <g font-size="11" font-weight="700">
-          <rect x="60" y="14" width="180" height="26" rx="13" fill="#fbeaea"/><text x="150" y="31" text-anchor="middle" fill="#C00000">~5× el costo de migrar</text>
-          <rect x="250" y="14" width="170" height="26" rx="13" fill="#fbeaea"/><text x="335" y="31" text-anchor="middle" fill="#C00000">hasta 3× el tiempo</text>
-          <rect x="430" y="14" width="230" height="26" rx="13" fill="#fbeaea"/><text x="545" y="31" text-anchor="middle" fill="#C00000">miles USD por módulo mayor</text>
-          <rect x="670" y="14" width="230" height="26" rx="13" fill="#e3efe4"/><text x="785" y="31" text-anchor="middle" fill="#2E7D32">regla sana: ~80% estándar · ~20% config</text>
-        </g>
-      </svg>
-    </div>
-    <ul class="hits" style="margin-top:2px;">
-      <li>El estándar se actualiza <b>gratis cada año</b>; la presión de personalización corre sobre un modelo de desarrollo (freelance + partners) <b>sin marco de calidad, ambientes ni gobierno de cambios</b>.</li>
-      <li>Filtro por brecha funcional: ¿existe en el estándar? → ¿configuración? → ¿capa externa por API? → <b>solo entonces</b>, módulo heredado propio.</li>
-    </ul>
-    <p class="foot-note">Verificaciones pendientes al recibir C#2 (9.4): inventario de módulos, calidad del código custom, ambientes y despliegue, respaldos, matriz de accesos, endpoints API, módulos infrautilizados, alcance real de la migración.</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s9">
-  <div class="shead"><span class="kick">9 · Auditoría técnica de Lark y Odoo</span><h2>El inventario de vacíos: dónde nace el sistema propio</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:1010px; margin:0 auto; gap:8px;">
-      <div>
-        <div class="vtitle" style="color:var(--ambar);">⬛ Excel al lado del sistema — 8 procesos críticos en paralelo al ERP</div>
-        <div class="heat" style="grid-template-columns:repeat(8,1fr);">
-          <div class="c c-par">Compra estratégica Casio</div><div class="c c-par">"Sábana" de mayoristas</div><div class="c c-par">Reportería a la junta</div><div class="c c-par">Nómina VE</div><div class="c c-par">Tesorería del holding</div><div class="c c-par">Conciliación Cashea</div><div class="c c-par">Planeación CO</div><div class="c c-par">Forecast CR</div>
-        </div>
-      </div>
-      <div>
-        <div class="vtitle" style="color:var(--rojo);">⬛ Sin sistema alguno — 8 procesos donde el sistema propio no compite con nada</div>
-        <div class="heat" style="grid-template-columns:repeat(8,1fr);">
-          <div class="c c-rj">Servicio técnico VE (Syscore aislado)</div><div class="c c-rj">Recepción e-comm "a dedo"</div><div class="c c-rj">Contenedores: 1.800 cajas a mano</div><div class="c c-rj">Marketplaces US sin EDI</div><div class="c c-rj">Marketplaces CO manuales</div><div class="c c-rj">Difusión a tiendas por pendrive</div><div class="c c-rj">Activos de marca sin repositorio</div><div class="c c-rj">Facturas de importación a mano</div>
-        </div>
-      </div>
-      <div>
-        <div class="vtitle" style="color:var(--blue);">⬛ Islas de IA generativa individual — 7 focos sin política ni acumulación institucional</div>
-        <div class="heat" style="grid-template-columns:repeat(7,1fr);">
-          <div class="c c-bl">Compras: "todos tienen Claude"</div><div class="c c-bl">Comercial CO: informes con IA</div><div class="c c-bl">Forecast CR con Claude</div><div class="c c-bl">Marketing: brief → diseño</div><div class="c c-bl">Temporadas e-comm "100% IA"</div><div class="c c-bl">PMO: metodología y cronogramas</div><div class="c c-si">Célula BI — la excepción estructurada ✓</div>
-        </div>
-      </div>
-    </div>
-    <p class="lead">Este inventario de <b>23 procesos</b> es la <b>hoja de ruta del sistema propio</b>: nace precisamente ahí donde no compite con nada — evita el trauma de reemplazar lo que funciona y entrega valor donde hoy no hay nada.</p>
-  </div>
-</section>
-
-<section class="slide" data-sec="s9">
-  <div class="shead"><span class="kick">9 · Auditoría técnica de Lark y Odoo</span><h2>La estrategia: no reemplazar — hacer nacer el sistema propio</h2></div>
-  <div class="sbody">
-    <div class="viz" style="max-width:990px; margin:0 auto;">
-      <svg viewBox="0 0 960 280" role="img" aria-label="Cuatro etapas de crecimiento: el sistema propio nace en los vacíos y absorbe progresivamente">
-        <defs><marker id="arrAb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <g fill="none" stroke="#2E75B6" stroke-width="2.2"><line x1="205" y1="120" x2="245" y2="120" marker-end="url(#arrAb)"/><line x1="450" y1="120" x2="490" y2="120" marker-end="url(#arrAb)"/><line x1="695" y1="120" x2="735" y2="120" marker-end="url(#arrAb)"/></g>
-        <circle cx="122" cy="120" r="30" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <text x="122" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#1F3864">dato</text>
-        <text x="122" y="180" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">1 · NORMALIZAR EL FLUJO</text>
-        <text x="122" y="198" text-anchor="middle" font-size="10.5" fill="#55627a">el dato certificado como servicio ·</text>
-        <text x="122" y="212" text-anchor="middle" font-size="10.5" fill="#55627a">cerrar integraciones a medias</text>
-        <circle cx="347" cy="120" r="42" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <g fill="#B26A00"><circle cx="315" cy="90" r="7"/><circle cx="380" cy="94" r="7"/><circle cx="312" cy="146" r="7"/><circle cx="382" cy="150" r="7"/></g>
-        <text x="347" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#1F3864">módulos</text>
-        <text x="347" y="180" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">2 · NACER EN LOS VACÍOS</text>
-        <text x="347" y="198" text-anchor="middle" font-size="10.5" fill="#55627a">cubrir los 23 procesos donde hoy</text>
-        <text x="347" y="212" text-anchor="middle" font-size="10.5" fill="#55627a">no hay sistema — sin competir con nada</text>
-        <circle cx="592" cy="120" r="54" fill="#dbe6f5" stroke="#2E75B6" stroke-width="2"/>
-        <circle cx="592" cy="120" r="24" fill="#F4F6FA" stroke="#1F3864" stroke-width="2"/>
-        <text x="592" y="125" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1F3864">Odoo</text>
-        <text x="592" y="186" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">3 · NÚCLEO MODULAR POR API</text>
-        <text x="592" y="204" text-anchor="middle" font-size="10.5" fill="#55627a">Odoo estándar intacto en el centro ·</text>
-        <text x="592" y="218" text-anchor="middle" font-size="10.5" fill="#55627a">la lógica propia en la capa del grupo</text>
-        <circle cx="845" cy="120" r="66" fill="#1F3864"/>
-        <circle cx="845" cy="120" r="26" fill="#F4F6FA"/>
-        <text x="845" y="125" text-anchor="middle" font-size="9.5" font-weight="800" fill="#1F3864">Odoo</text>
-        <text x="845" y="90" text-anchor="middle" font-size="10" font-weight="700" fill="#9dc3ee">IA en sus venas</text>
-        <text x="845" y="203" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1F3864">4 · ABSORCIÓN PROGRESIVA</text>
-        <text x="845" y="221" text-anchor="middle" font-size="10.5" fill="#55627a">el sistema propio se vuelve</text>
-        <text x="845" y="235" text-anchor="middle" font-size="10.5" fill="#55627a">columna vertebral, gobernado en casa</text>
-        <text x="480" y="268" text-anchor="middle" font-size="12" fill="#55627a">no se le pide a la organización abandonar lo que tiene ni confiar su operación a un sistema nuevo de golpe: <tspan font-weight="700" fill="#1F3864">nace desde los huecos, sin riesgo</tspan></text>
-      </svg>
-    </div>
   </div>
 </section>
 
@@ -1649,7 +1649,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
         </g>
         <rect x="775" y="162" width="190" height="62" rx="10" fill="#2E75B6"/>
         <text x="870" y="187" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">TESIS 2</text>
-        <text x="870" y="205" text-anchor="middle" font-size="11" fill="#dbe6f5">el dato antes que el agente → secciones 9–10</text>
+        <text x="870" y="205" text-anchor="middle" font-size="11" fill="#dbe6f5">el dato antes que el agente → secciones 8 y 10</text>
         <rect x="40" y="258" width="925" height="52" rx="10" fill="#F4F6FA" stroke="#d9dee8"/>
         <text x="502" y="280" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1F3864">LA CULTURA (s8) ES LA CONDICIÓN DE AMBOS HILOS</text>
         <text x="502" y="299" text-anchor="middle" font-size="11.5" fill="#55627a">la energía y el patrocinio existen; la formación y los cimientos documentales les dan dirección</text>
@@ -1851,7 +1851,7 @@ const slides = [...document.querySelectorAll('.slide')];
 const SEC_NAMES = {
   portada:'Portada', s2:'2 · Metodología y fuentes', s3:'3 · Fundamentos y gobierno',
   s4:'4 · Estructura organizativa', s5:'5 · Talento y RRHH', s6:'6 · Procesos y operaciones',
-  s7:'7 · Tecnología, sistemas y datos', s8:'8 · Cultura y adopción de IA', s9:'9 · Auditoría Lark y Odoo',
+  s7:'7 · Tecnología, sistemas y datos', s8:'8 · Auditoría Lark y Odoo', s9:'9 · Cultura y adopción de IA',
   s10:'10 · Arquitectura de IA', s11:'11 · Síntesis de hallazgos', s12:'12 · Próximos pasos y hoja de ruta',
   proto:'Fase 2 · El prototipo del sistema', cierre:'Cierre'
 };
