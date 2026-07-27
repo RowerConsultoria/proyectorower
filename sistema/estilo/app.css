@@ -1129,3 +1129,27 @@ body.con-portal .recorrido{left:22px}
 .portal-panel iframe{flex:1;border:0;width:100%}
 body.con-portal{overflow:hidden}
 @media (max-width:860px){ .pp-cab{padding:8px 12px} body.con-portal .recorrido{left:14px} }
+
+/* ------------------------------------ 35. LA BARRA DEL RECORRIDO, PLEGADA */
+/* Reducida a lo mínimo para explicar la pantalla sin taparla: el paso, el
+   título y las flechas. Sigue siendo el mismo recorrido —el paso no se pierde—
+   y se despliega con el botón o con la tecla G. */
+.recorrido.plegada{
+  padding:7px 12px;gap:10px;
+  border-radius:var(--r-pildora);
+  /* no ocupa todo el ancho: se recoge a la izquierda y libera la pantalla */
+  right:auto;max-width:min(660px,calc(100% - 44px));
+}
+.recorrido.plegada .rec-num{
+  font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--tinta-tenue);
+  font-variant-numeric:tabular-nums;flex:none;
+}
+.recorrido.plegada .rec-tit{
+  font-size:12.5px;font-weight:600;color:var(--tinta);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.recorrido.plegada .rec-mandos{gap:5px}
+@media (max-width:860px){
+  .recorrido.plegada{max-width:calc(100% - 28px)}
+  .recorrido.plegada .rec-tit{display:none}
+}

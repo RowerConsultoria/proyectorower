@@ -20,6 +20,10 @@ window.PANTALLAS = window.PANTALLAS || {};
 
 const _mapa = { map: null, marca: 'ambas', flujos: true, obs: null };
 
+/* ⚠️ `esc()` NO se redeclara aquí: ya es global (nucleo/app.js) y los scripts
+   clásicos comparten ámbito — un `const` repetido tumba la página entera. Es
+   el mismo tropiezo que `ETAPAS` en el portal del cliente. Se usa el global. */
+
 /* ── el modelo de los puntos: 5 almacenes ◆ + 6 clientes ● ─────────────── */
 function puntosMapa() {
   const dist = inventarioDistribuido();
@@ -221,8 +225,12 @@ window.PANTALLAS['mapa'] = function (lienzo) {
       setTimeout(() => {
         const b = document.querySelector('.mapa-pop [data-ir-ficha]');
         if (b) b.onclick = () => {
+          /* Aterrizar EN el punto, no en su módulo: llevar a la lista genérica
+             obligaba a buscar a mano lo que se acababa de pulsar en el mapa.
+             Cada módulo ya sabe abrir una tarjeta concreta —`_cli.abierto` y
+             `_alm.abierto`—, así que basta con dejarla marcada antes de ir. */
           if (p.tipo === 'cliente') { _cli.abierto = p.id; location.hash = '#/clientes'; }
-          else { location.hash = '#/inventarios'; }
+          else { _alm.abierto = p.id; location.hash = '#/inventarios'; }
         };
       }, 60);
     };
@@ -301,5 +309,7 @@ function tarjetaPunto(p, n) {
       ${f && p.tipo === 'cliente' ? `<div><span class="r">crédito disp.</span><b>${n(f.credito - f.saldo)}</b> USD</div>` : ''}
     </div>
     <button class="btn btn-suave btn-mini" data-ir-ficha style="margin-top:10px">
-      ${p.tipo === 'cliente' ? 'abrir su ficha de cliente →' : 'ver en inventarios →'}</button>`;
+      ${p.tipo === 'cliente'
+        ? `abrir la ficha de ${esc(p.nombre)} →`
+        : `abrir el inventario de ${esc(p.nombre)} →`}</button>`;
 }

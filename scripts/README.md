@@ -40,7 +40,7 @@ Levanta el servidor si hace falta y lo apaga al terminar. Siete comprobaciones:
 |---|---|---|
 | `rutas` | cada ruta pinta una pantalla **registrada**, la URL no miente, no hay desbordes | pantallas que caían en la ficha genérica sin que se notara |
 | `contraste` | WCAG AA sobre todo el texto, en los dos temas | 2.173 textos por debajo del mínimo — eran tres tokens |
-| `recorrido` | las 12 paradas llegan, hallan su ancla, y **cada cifra del guion está en la pantalla que la sostiene** | el guion decía «5 frentes con Odoo» cuando eran 3 |
+| `recorrido` | las 18 paradas llegan, hallan su ancla, y **cada cifra del guion está en la pantalla que la sostiene**; y el guion **se pliega sin perder el paso** y vuelve (botón y tecla `G`) | el guion decía «5 frentes con Odoo» cuando eran 3 |
 | `permisos` | ningún ámbito de firma huérfano; cada rol firma lo que promete | — |
 | `reglas` | ninguna regla de negocio declarada con dueño y sin usar | dos reglas huérfanas en las fases 6–11 |
 | `moneda` | ninguna cifra grande sin su unidad o su moneda | 25 columnas de dinero sin declararla |
@@ -49,7 +49,7 @@ Levanta el servidor si hace falta y lo apaga al terminar. Siete comprobaciones:
 | `inventarios` | cada almacén contra el modelo, su semáforo y su dueño; «en mar» contra la torre | — |
 | `distribuido` | despachado − reportado = estimado, con su banda, **recomputado desde los crudos** | — |
 | `clientes` | la cartera contra los crudos, la ficha, la torre de IA, y aplicar → bitácora | — |
-| `mapa` | los puntos contra el modelo, el filtro por marca, y **el fallback sin red de verdad** | — |
+| `mapa` | los puntos contra el modelo, el filtro por marca, **el fallback sin red de verdad**, y que el popup **aterrice en el punto** —su tarjeta ya abierta— y no en la lista del módulo | — |
 | `portal-vendedor` | el ATP, amarrar de un embarque, y que la reserva **se vea en el aplicativo** | la primera versión solo reservaba del hub: la funcionalidad estrella no se probaba |
 | `portal-cliente` | el crédito bloquea con motivo, la escalera publicada, el cedazo del reporte | un valor inventado en el eje `dinero` |
 

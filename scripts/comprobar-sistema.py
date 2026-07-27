@@ -362,6 +362,60 @@ def c_recorrido(nav, rapido):
     if portales != 2:
         fallos.append('el recorrido tiene %d paradas de portal y la fase 33 pide 2' % portales)
 
+    # ── el guion se pliega para explicar la pantalla, y vuelve ─────────────
+    # Plegar NO es cerrar: el paso se conserva, se puede seguir avanzando, y al
+    # desplegar vuelve el texto. Si se perdiera el paso, quien presenta tendría
+    # que buscar dónde estaba delante de la Junta.
+    p.evaluate('()=>vaAlPaso(2)')
+    p.wait_for_timeout(900)
+    abierta = p.evaluate("""()=>({alto:Math.round(document.querySelector('#recorrido').getBoundingClientRect().height),
+      paso:_rec.paso, texto:!!document.querySelector('.rec-txt')})""")
+    p.click('#rec-pliega')
+    p.wait_for_timeout(700)
+    d = p.evaluate("""()=>{const c=document.querySelector('#recorrido');
+      const r=c.getBoundingClientRect();
+      return {plegada:c.classList.contains('plegada'), paso:_rec.paso,
+        alto:Math.round(r.height), ancho:Math.round(r.width),
+        texto:!!c.querySelector('.rec-txt'), titulo:!!c.querySelector('.rec-tit'),
+        sigue:!!c.querySelector('#rec-sigue'), atras:!!c.querySelector('#rec-atras')};}""")
+    if not d['plegada']:
+        fallos.append('el guion no se pliega')
+    if d['alto'] >= abierta['alto']:
+        fallos.append('plegado no reduce la barra: %d px abierta y %d px plegada'
+                      % (abierta['alto'], d['alto']))
+    if d['ancho'] >= p.evaluate('()=>innerWidth') - 40:
+        fallos.append('plegado sigue ocupando todo el ancho (%d px)' % d['ancho'])
+    if d['texto']:
+        fallos.append('plegado sigue enseñando el guion entero')
+    if not d['titulo'] or not d['sigue'] or not d['atras']:
+        fallos.append('plegado sin título o sin flechas: no se sabe dónde se está ni se puede seguir')
+    if d['paso'] != abierta['paso']:
+        fallos.append('plegar perdió el paso (%d → %d)' % (abierta['paso'], d['paso']))
+
+    p.click('#rec-sigue')
+    p.wait_for_timeout(1100)
+    if p.evaluate('()=>_rec.paso') != abierta['paso'] + 1 or not p.evaluate('()=>_rec.plegada'):
+        fallos.append('no se puede avanzar con el guion plegado sin que se despliegue solo')
+
+    p.click('#rec-despliega')
+    p.wait_for_timeout(700)
+    d = p.evaluate("""()=>({plegada:_rec.plegada, paso:_rec.paso,
+      texto:!!document.querySelector('.rec-txt')})""")
+    if d['plegada'] or not d['texto']:
+        fallos.append('desplegar no devuelve el guion')
+    if d['paso'] != abierta['paso'] + 1:
+        fallos.append('desplegar perdió el paso')
+
+    # la tecla, que es como se usa presentando
+    p.keyboard.press('g')
+    p.wait_for_timeout(500)
+    if not p.evaluate('()=>_rec.plegada'):
+        fallos.append('la tecla G no pliega el guion')
+    p.keyboard.press('g')
+    p.wait_for_timeout(500)
+    if p.evaluate('()=>_rec.plegada'):
+        fallos.append('la tecla G no lo despliega')
+
     # Salir del recorrido DESDE UNA PARADA DE PORTAL: es el único caso en que
     # el panel puede quedarse pegado. Cerrar desde la última parada no probaba
     # nada —esa no es de portal, así que el panel ya estaba cerrado— y la
@@ -901,6 +955,39 @@ def c_mapa(nav, rapido):
             fallos.append('con el filtro Cubitt la central dice %s y el crudo %s' % (zlc, d['nCub']))
         p.evaluate("()=>document.querySelector('[data-marca=\"ambas\"]').click()")
         p.wait_for_timeout(900)
+
+        # ── el clic en un punto aterriza EN ese punto, no en su módulo ─────
+        # Llevar a la lista genérica obligaba a buscar a mano lo que se acababa
+        # de pulsar en el mapa: es la queja que originó este cambio.
+        for punto, modulo, esAlm in (('VE', 'inventarios', True), ('CR', 'clientes', False)):
+            va(p, 'mapa', 2600)
+            p.evaluate("(k)=>{const m=document.querySelector('[data-mk=\"'+k+'\"]');"
+                       "if(m) m.click();}", punto)
+            p.wait_for_timeout(900)
+            rot = p.evaluate("()=>{const x=document.querySelector('.mapa-pop [data-ir-ficha]');"
+                             "return x?x.textContent.trim():null;}")
+            if not rot:
+                fallos.append('%s: el popup no ofrece llevar a su ficha' % punto)
+                continue
+            nombre = p.evaluate("(k)=>(puntosMapa().find(x=>x.id===k)||{}).nombre", punto)
+            if not nombre or nombre not in rot:
+                fallos.append('%s: el botón dice «%s» y no nombra su destino («%s»)'
+                              % (punto, rot, nombre))
+            p.evaluate("()=>document.querySelector('.mapa-pop [data-ir-ficha]').click()")
+            p.wait_for_timeout(1400)
+            a = 'alm' if esAlm else 'cli'
+            d2 = p.evaluate("([k,a])=>({hash:location.hash,"
+                            " abierto:(a==='alm'? _alm.abierto : _cli.abierto),"
+                            " desplegada: !!document.querySelector("
+                            "   '[data-'+a+'=\"'+k+'\"] table, [data-'+a+'=\"'+k+'\"] .rejilla')})",
+                            [punto, a])
+            if modulo not in d2['hash']:
+                fallos.append('%s: el botón llevó a %s y esperaba %s' % (punto, d2['hash'], modulo))
+            if d2['abierto'] != punto:
+                fallos.append('%s: llegó al módulo pero sin marcar su tarjeta (abierto=%s)'
+                              % (punto, d2['abierto']))
+            if not d2['desplegada']:
+                fallos.append('%s: su tarjeta no quedó desplegada al llegar' % punto)
 
     fallos += p.errores
     p.close()

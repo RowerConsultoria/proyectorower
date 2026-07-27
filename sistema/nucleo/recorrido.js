@@ -261,8 +261,19 @@ const RECORRIDO = [
   },
 ];
 
-const _rec = { activo: false, paso: 0, fuera: false };
+/* `plegada` = la barra reducida a su mínimo para poder explicar la pantalla
+   sin que el guion estorbe. NO es cerrar el recorrido: el paso se conserva y
+   se vuelve exactamente a donde se estaba. */
+const _rec = { activo: false, paso: 0, fuera: false, plegada: false };
 const miles = v => Math.round(v || 0).toLocaleString('es-VE');
+
+/** Plegar y desplegar el guion. El paso NO se pierde: solo deja de leerse. */
+function pliega(v) {
+  _rec.plegada = v;
+  pintaRecorrido();
+  /* con un portal abierto, el panel recupera el alto que la barra suelta */
+  if (typeof mideHuecoDelPortal === 'function') mideHuecoDelPortal();
+}
 
 /** Lo consulta el HUD para apartarse mientras el recorrido está en marcha. */
 function recorridoActivo() { return _rec.activo; }
@@ -415,6 +426,33 @@ function pintaRecorrido() {
   if (!_rec.activo) return;
   const p = RECORRIDO[_rec.paso], ultimo = _rec.paso === RECORRIDO.length - 1;
 
+  /* Plegada: lo mínimo para saber dónde se está y poder seguir — el paso, el
+     título, y las flechas. Quien presenta explica la pantalla sin que el guion
+     le tape media vista, y despliega cuando quiere seguir leyéndolo. */
+  if (_rec.plegada) {
+    caja.className = 'recorrido plegada';
+    caja.innerHTML = `
+      <button class="btn btn-fantasma btn-mini" id="rec-despliega"
+        title="Volver a abrir el guion (G)">▲</button>
+      <span class="rec-num">${_rec.paso + 1} / ${RECORRIDO.length}</span>
+      <span class="rec-tit">${esc(p.titulo)}</span>
+      <span class="crece"></span>
+      <div class="rec-mandos">
+        <button class="btn btn-fantasma btn-mini" id="rec-atras" ${_rec.paso ? '' : 'disabled'}>←</button>
+        <button class="btn ${ultimo ? 'btn-humano' : 'btn-marca'} btn-mini" id="rec-sigue">
+          ${ultimo ? 'terminar' : '→'}</button>
+        <button class="btn btn-fantasma btn-mini" id="rec-cierra" title="Salir (Esc)">✕</button>
+      </div>`;
+    $('#rec-despliega', caja).onclick = () => pliega(false);
+    $('#rec-atras', caja).onclick = () => vaAlPaso(_rec.paso - 1);
+    $('#rec-sigue', caja).onclick = () => ultimo ? cierraRecorrido() : vaAlPaso(_rec.paso + 1);
+    $('#rec-cierra', caja).onclick = cierraRecorrido;
+    pintaHud();
+    if (typeof mideHuecoDelPortal === 'function') mideHuecoDelPortal();
+    return;
+  }
+  caja.className = 'recorrido';
+
   /* Fuera de guion: se dice, y se ofrece volver. Antes la barra se quedaba
      narrando el paso 5 con «fábricas» en pantalla. */
   if (_rec.fuera) {
@@ -460,6 +498,8 @@ function pintaRecorrido() {
       <div class="rec-txt">${cuerpo}</div>
     </div>
     <div class="rec-mandos">
+      <button class="btn btn-fantasma btn-mini" id="rec-pliega"
+        title="Plegar el guion para explicar la pantalla (G)">▼</button>
       <button class="btn btn-fantasma btn-mini" id="rec-atras" ${_rec.paso ? '' : 'disabled'}>←</button>
       <button class="btn ${ultimo ? 'btn-humano' : 'btn-marca'} btn-mini" id="rec-sigue">
         ${ultimo ? 'terminar' : 'siguiente →'}
@@ -467,6 +507,7 @@ function pintaRecorrido() {
       <button class="btn btn-fantasma btn-mini" id="rec-cierra" title="Salir (Esc)">✕</button>
     </div>`;
 
+  $('#rec-pliega', caja).onclick = () => pliega(true);
   $('#rec-atras', caja).onclick = () => vaAlPaso(_rec.paso - 1);
   $('#rec-sigue', caja).onclick = () => ultimo ? cierraRecorrido() : vaAlPaso(_rec.paso + 1);
   $('#rec-cierra', caja).onclick = cierraRecorrido;
@@ -479,6 +520,11 @@ function pintaRecorrido() {
 document.addEventListener('keydown', e => {
   if (!_rec.activo) return;
   if (e.key === 'Escape') { cierraRecorrido(); }
+  /* La tecla que más se usa presentando: plegar para hablar de la pantalla y
+     desplegar para seguir. No se toma si se está escribiendo en un campo. */
+  else if ((e.key === 'g' || e.key === 'G') && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) {
+    e.preventDefault(); pliega(!_rec.plegada);
+  }
   else if (e.key === 'ArrowRight') { e.preventDefault(); vaAlPaso(_rec.paso + 1); }
   else if (e.key === 'ArrowLeft') { e.preventDefault(); vaAlPaso(_rec.paso - 1); }
 });
