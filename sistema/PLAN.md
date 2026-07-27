@@ -338,7 +338,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 
 | Fase | Qué | Depende de |
 |---|---|---|
-| 26 | Pantalla de inicio + accesos desde el informe | — |
+| 26 | Pantalla de inicio + accesos desde el informe · ✅ **hecha** | — |
 | 27 | Inventarios, módulo propio | — |
 | 28 | Inventario global distribuido (almacenes teóricos de clientes) | 27 |
 | 29 | Módulo de clientes + torre de control IA | 28 |
@@ -368,6 +368,26 @@ existentes (🏛 Organigrama · Módulos · ▶ Presentación):
   ya existe; el botón solo lo invoca desde cualquier punto del informe).
 - Cuidado con la acumulación de botones flotantes: agruparlos en una pila
   coherente, responsive incluido.
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- La pantalla de inicio se hizo como **overlay al cargar sin hash**, no como
+  ruta `#/inicio`: no toca `ruta()` ni el registro de módulos, y cualquier
+  navegación la cierra sola — un enlace profundo entra directo sin verla.
+  Entrar arranca el recorrido (y fija dirección); «entrar directo» no. La cifra
+  de paradas de la nota sale de `RECORRIDO.length`, nada escrito a mano.
+- Comprobación nueva **`portada`** (8ª de `comprobar-sistema.py`), con sus tres
+  trampas verificadas. Una salió ciega y destapó un defecto DE LA PRUEBA: se
+  «probaba» el enlace profundo navegando `BASE → BASE#/ruta` en la misma
+  página, que es un hashchange (cierra la portada por el camino legítimo), no
+  una primera carga con hash. Ahora se prueba en página nueva.
+- La comprobación `recorrido` ahora entra por la puerta (`#entrar-directo`)
+  antes de tocar el chrome, como cualquier usuario.
+- Heredado corregido en el informe: las píldoras flotantes (las 3 de antes y
+  las 2 nuevas) flotaban ENCIMA del modal de la torre abierto; ahora el modal
+  las esconde (`body.modal-abierto`).
+- Los botones nuevos van en segunda fila (los aplicativos de la propuesta,
+  debajo de las herramientas del informe), con pila vertical en ≤560 px, ocultos
+  al imprimir, y también como entradas del sidenav «Módulos».
 
 ## Fase 27 · Inventarios, módulo propio
 

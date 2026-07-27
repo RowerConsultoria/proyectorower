@@ -176,6 +176,9 @@ function recorridoActivo() { return _rec.activo; }
 window.recorridoActivo = recorridoActivo;
 
 function abreRecorrido() {
+  /* si el recorrido se abre por su botón o por una comprobación con la
+     portada aún puesta, la portada no puede quedarse tapando la escena */
+  if (typeof cierraPortada === 'function') cierraPortada();
   _rec.activo = true;
   /* Arranca por dirección: entrar por arriba y bajar cuenta mejor la historia
      que entrar por compras y subir. */

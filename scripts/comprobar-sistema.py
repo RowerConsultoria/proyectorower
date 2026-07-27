@@ -227,6 +227,10 @@ def c_recorrido(nav, rapido):
     el guion decía «5 frentes con Odoo» cuando eran 3."""
     fallos = []
     p = nueva(nav)
+    # desde la fase 26 la portada recibe primero: se entra por ella, como
+    # cualquier usuario, antes de poder tocar el chrome
+    p.click('#entrar-directo')
+    p.wait_for_timeout(600)
     p.click('#abre-recorrido')
     p.wait_for_timeout(800)
     total = p.evaluate('()=>RECORRIDO.length')
@@ -378,9 +382,77 @@ def c_freno(nav, rapido):
     return fallos, 'freno general, bandejas y reversibilidad'
 
 
+def c_portada(nav, rapido):
+    """La puerta del prototipo (fase 26): aparece solo al llegar sin hash,
+    Entrar arranca el recorrido, entrar directo no, y un enlace profundo
+    no la ve. La cifra de paradas sale del guion real, no de un texto."""
+    fallos = []
+
+    p = nueva(nav)
+    d = p.evaluate("""()=>({vis:!document.querySelector('#portada').hidden,
+      clase:document.body.classList.contains('en-portada'),
+      hud:getComputedStyle(document.querySelector('#hud')).display,
+      nota:document.querySelector('#portada-nota').textContent,
+      paradas:RECORRIDO.length})""")
+    if not d['vis'] or not d['clase']:
+        fallos.append('la portada no aparece al llegar sin hash')
+    if d['hud'] != 'none':
+        fallos.append('el HUD sigue visible con la portada puesta')
+    if str(d['paradas']) not in d['nota']:
+        fallos.append('la nota no dice las %s paradas del guion real' % d['paradas'])
+
+    p.click('#entrar')
+    p.wait_for_timeout(1100)
+    d = p.evaluate("""()=>({fuera:document.querySelector('#portada').hidden,
+      rec:!document.querySelector('#recorrido').hidden, rol:ESTADO.rol})""")
+    if not d['fuera']:
+        fallos.append('Entrar no quita la portada')
+    if not d['rec'] or d['rol'] != 'direccion':
+        fallos.append('Entrar no arranca el recorrido en dirección (%s)' % d)
+    fallos += p.errores
+    p.close()
+
+    p = nueva(nav)
+    p.click('#entrar-directo')
+    p.wait_for_timeout(700)
+    d = p.evaluate("""()=>({fuera:document.querySelector('#portada').hidden,
+      rec:document.querySelector('#recorrido').hidden,
+      pintado:document.querySelector('#lienzo').children.length>0})""")
+    if not (d['fuera'] and d['rec'] and d['pintado']):
+        fallos.append('entrar directo no deja el sistema listo sin recorrido (%s)' % d)
+    fallos += p.errores
+    p.close()
+
+    # ⚠️ El enlace profundo tiene que ser la PRIMERA carga de la página.
+    # `nueva()` ya navega a BASE, y de ahí a BASE#/compras solo cambia el hash:
+    # eso cierra la portada por el camino legítimo (hashchange) y la prueba
+    # pasaba aunque la carga-con-hash estuviera rota — se vio al sabotearla.
+    p = nav.new_page(viewport={'width': 1560, 'height': 1000})
+    p.errores = []
+    p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
+    p.goto(BASE + '#/compras', wait_until='networkidle')
+    p.wait_for_timeout(700)
+    if not p.evaluate("()=>document.querySelector('#portada').hidden"):
+        fallos.append('la portada tapa un enlace profundo')
+    fallos += p.errores
+    p.close()
+
+    if not rapido:
+        p = nueva(nav, 430, 900)
+        d = p.evaluate("""()=>({desborda:document.documentElement.scrollWidth>document.documentElement.clientWidth+2,
+          dentro:document.querySelector('.portada-caja').getBoundingClientRect().bottom<=innerHeight+2})""")
+        if d['desborda'] or not d['dentro']:
+            fallos.append('la portada desborda a 430 px (%s)' % d)
+        fallos += p.errores
+        p.close()
+
+    return fallos, 'portada, dos entradas y enlace profundo'
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
+    'portada': c_portada,
 }
 
 

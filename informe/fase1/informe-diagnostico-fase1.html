@@ -477,6 +477,8 @@
       <a href="javascript:void(0)" onclick="orgOpen()"><span class="n">🏛</span>Organigrama interactivo</a>
       <a href="javascript:void(0)" onclick="procOpen()"><span class="n">🔗</span>Mapa de procesos</a>
       <a href="javascript:void(0)" onclick="presOpen('portada')"><span class="n">▶</span>Modo presentación</a>
+      <a href="../../sistema/index.html" target="_blank" rel="noopener"><span class="n">🖥</span>El sistema (prototipo)</a>
+      <a href="javascript:void(0)" onclick="openDiagram()"><span class="n">🗼</span>Arquitectura de IA (la torre)</a>
     <div class="navlbl">Anexos</div>
       <a href="#s15" class="anexo" data-sec="s15"><span class="n">A</span>Inventario de entrevistas</a>
       <a href="#s16" class="anexo" data-sec="s16"><span class="n">B</span>Plan de trabajo Fase 1</a>
@@ -2509,8 +2511,13 @@ function openDiagram(){ var f=document.getElementById('diagFrame');
   /* se carga al abrir, no al cargar el informe: la escena 3D no puede
      pesar en el arranque de un documento que se lee sin abrirla */
   if(f && !f.src){ f.src = f.dataset.src; }
-  document.getElementById('diagModal').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeDiagram(){ document.getElementById('diagModal').classList.remove('open'); document.body.style.overflow=''; }
+  document.getElementById('diagModal').classList.add('open'); document.body.style.overflow='hidden';
+  /* las píldoras flotantes van a z 900 y el modal queda debajo: sin esto
+     seguían flotando ENCIMA de la torre abierta (pasaba ya con las tres
+     originales; con cinco era ruido de verdad) */
+  document.body.classList.add('modal-abierto'); }
+function closeDiagram(){ document.getElementById('diagModal').classList.remove('open'); document.body.style.overflow='';
+  document.body.classList.remove('modal-abierto'); }
 function orgOpen(){ var d=document.getElementById('orgDrawer'), f=document.getElementById('orgFrame'); if(!f.src){ f.src=f.dataset.src; } d.classList.add('open'); }
 function orgClose(){ document.getElementById('orgDrawer').classList.remove('open'); }
 function orgWidth(){ document.getElementById('orgDrawer').classList.toggle('half'); }
@@ -2596,6 +2603,25 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   @media print{.pres-fab,.pres-overlay,.pres-btn{display:none!important;}}
 </style>
 <button class="pres-fab" onclick="presOpen('portada')" title="Modo presentación (láminas por sección)">▶ Presentación</button>
+
+<style>
+  /* Fase 26 · los dos APLICATIVOS de la propuesta, en su propia fila: la
+     primera es de las herramientas del informe; esta, de lo que se propone. */
+  .sys-fab{position:fixed;top:58px;right:16px;z-index:900;background:linear-gradient(105deg,#36F6BB,#32C6F4);color:#04212B;font-weight:800;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(50,198,244,.35);font-family:inherit;text-decoration:none;display:inline-block;}
+  .sys-fab:hover{filter:brightness(1.08);}
+  .arq-fab{position:fixed;top:58px;right:150px;z-index:900;background:#fff;color:#1F3864;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid #2E75B6;cursor:pointer;box-shadow:0 4px 14px rgba(46,117,182,.2);font-family:inherit;}
+  .arq-fab:hover{background:#2E75B6;color:#fff;border-color:#2E75B6;}
+  @media(max-width:560px){
+    .sys-fab{top:150px;right:12px;font-size:11.5px;padding:8px 13px;}
+    .arq-fab{top:196px;right:12px;font-size:11.5px;padding:8px 13px;}
+  }
+  @media print{.sys-fab,.arq-fab{display:none!important;}}
+  /* con la torre abierta a pantalla completa, ninguna píldora flota encima */
+  body.modal-abierto .org-fab, body.modal-abierto .proc-fab, body.modal-abierto .pres-fab,
+  body.modal-abierto .sys-fab, body.modal-abierto .arq-fab{display:none!important;}
+</style>
+<a class="sys-fab" href="../../sistema/index.html" target="_blank" rel="noopener" title="Abrir el prototipo del sistema en pestaña nueva">🖥 Sistema</a>
+<button class="arq-fab" onclick="openDiagram()" title="Abrir el modelo 3D de la arquitectura de IA">🗼 Arquitectura IA</button>
 <div class="pres-overlay" id="presOverlay">
   <iframe id="presFrame" data-src="presentacion-fase1.html" title="Presentación del Informe Diagnóstico Fase 1"></iframe>
 </div>

@@ -531,6 +531,31 @@ function arranca() {
   new MutationObserver(() => aplicaPermisos())
     .observe($('#lienzo'), { childList: true, subtree: true });
 
+  /* -------------------------------------------------- la portada (fase 26)
+     Aparece solo al llegar SIN hash: quien trae un enlace profundo viene a una
+     pantalla concreta y la puerta le estorbaría. Cualquier navegación la
+     cierra — eso incluye a las comprobaciones, que navegan por hash. */
+  const portada = $('#portada');
+  const cierraPortada = () => {
+    if (!portada || portada.hidden) return;
+    portada.classList.add('fuera');
+    document.body.classList.remove('en-portada');
+    setTimeout(() => { portada.hidden = true; }, 340);
+  };
+  window.cierraPortada = cierraPortada;
+  if (location.hash) {
+    portada.hidden = true;
+  } else {
+    document.body.classList.add('en-portada');
+    /* la cifra sale del guion real: si el recorrido crece, esto cambia solo */
+    $('#portada-nota').textContent =
+      'arranca el recorrido guiado — ' + RECORRIDO.length + ' paradas por el ciclo completo';
+  }
+  $('#entrar').onclick = () => { cierraPortada(); abreRecorrido(); };
+  $('#entrar-directo').onclick = cierraPortada;
+  addEventListener('hashchange', cierraPortada);
+  addEventListener('keydown', e => { if (e.key === 'Escape') cierraPortada(); });
+
   addEventListener('hashchange', navega);
   arrancaMarquee();
   navega();
