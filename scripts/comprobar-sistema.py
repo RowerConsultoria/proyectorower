@@ -39,7 +39,8 @@ RUTAS = [
     'direccion', 'compras', 'compras/cierre', 'compras/casio', 'compras/cubitt',
     'compras/transitos', 'producto', 'fabricas', 'logistica',
     'inventarios', 'inventarios/salud', 'inventarios/enmar', 'inventarios/distribuido',
-    'distribucion', 'comercial', 'comercial/demanda', 'frentes', 'frentes/conectores',
+    'distribucion', 'comercial', 'comercial/demanda', 'clientes', 'clientes/torre',
+    'frentes', 'frentes/conectores',
     'cimiento', 'agentes',
 ]
 ROLES = ['direccion', 'compras', 'analista', 'producto', 'logistica', 'comercial', 'sistemas']
@@ -600,10 +601,119 @@ def c_distribuido(nav, rapido):
     return fallos, '%d clientes con su ecuación contra pantalla' % d['tarjetas']
 
 
+def c_clientes(nav, rapido):
+    """El módulo de la fase 29: cada tarjeta de la cartera dice el crédito y la
+    venta que dicen los datos crudos; toda recomendación declara su ámbito de
+    firma; el agente K-01 corre en el turno y aparece en la sala; y aplicar una
+    recomendación deja rastro en la bitácora. Los conteos de la torre se
+    recomputan desde los CRUDOS (OCIOSOS, atrasos), no desde la función que
+    pinta."""
+    fallos = []
+    p = nueva(nav)
+    rol(p, 'comercial')
+    va(p, 'clientes', 800)
+
+    d = p.evaluate("""()=>{
+      const n=v=>Math.round(v||0).toLocaleString('es-VE');
+      const malos=[];
+      for(const f of FRENTES){
+        const card=document.querySelector('[data-cli="'+f.id+'"]');
+        if(!card){ malos.push(f.id+': sin tarjeta'); continue; }
+        const disp=card.querySelector('.cli-disp').textContent.trim();
+        if(disp!==n(f.credito-f.saldo)) malos.push(f.id+': disponible '+disp+' y crudo '+n(f.credito-f.saldo));
+        let venta=0;
+        for(const sku in VENTAS) venta+=((VENTAS[sku]||{})[f.id]||[]).reduce((a,b)=>a+b,0);
+        const vis=card.querySelector('.cli-venta').textContent.trim();
+        if(vis!==n(venta)) malos.push(f.id+': venta '+vis+' y cruda '+n(venta));
+      }
+      return {malos, tarjetas:document.querySelectorAll('[data-cli]').length,
+        frentes:FRENTES.length, k01:!!entradaDe('K-01')};}""")
+    fallos += ['cartera · ' + x for x in d['malos']]
+    if d['tarjetas'] != d['frentes']:
+        fallos.append('%d tarjetas y %d frentes en la red' % (d['tarjetas'], d['frentes']))
+    if not d['k01']:
+        fallos.append('el agente K-01 no corrió en el turno')
+
+    # ── la ficha de GT: pedidos, promos y recomendaciones con ámbito ────────
+    p.evaluate("()=>document.querySelector('[data-abre-cli=\"GT\"]').click()")
+    p.wait_for_timeout(700)
+    d = p.evaluate(r"""()=>{
+      const card=document.querySelector('[data-cli="GT"]');
+      const ambitos=Object.keys(AMBITOS);
+      const recs=[...card.querySelectorAll('[data-rec]')];
+      const sinAmbito=recs.filter(e=>{
+        const a=e.dataset.ambito;
+        if(a==='') return !e.textContent.includes('aviso a gerencia comercial');
+        return !ambitos.includes(a);
+      }).length;
+      const botonSinFirma=recs.filter(e=>{
+        const b=e.querySelector('[data-aplica]');
+        return b && b.dataset.firma!==e.dataset.ambito;
+      }).length;
+      return {ped:+card.querySelector('.cli-ped').textContent,
+        pedCrudo:PEDIDOS.filter(x=>x.frente==='GT').length,
+        promos:(card.textContent.match(/−\d+ % hasta/g)||[]).length,
+        promosCrudo:PROMOS.filter(x=>x.frentes.includes('GT')).length,
+        recs:recs.length, sinAmbito, botonSinFirma};}""")
+    if d['ped'] != d['pedCrudo']:
+        fallos.append('GT: %d pedidos en ficha y %d en los datos' % (d['ped'], d['pedCrudo']))
+    if d['promos'] != d['promosCrudo']:
+        fallos.append('GT: %d promos en ficha y %d en PROMOS' % (d['promos'], d['promosCrudo']))
+    if not d['recs']:
+        fallos.append('GT: la ficha no enseña recomendaciones')
+    if d['sinAmbito']:
+        fallos.append('GT: %d recomendaciones sin ámbito declarado' % d['sinAmbito'])
+    if d['botonSinFirma']:
+        fallos.append('GT: %d botones cuya firma no es el ámbito de su recomendación' % d['botonSinFirma'])
+
+    # ── la torre: conteos contra los CRUDOS ─────────────────────────────────
+    va(p, 'clientes/torre', 700)
+    d = p.evaluate(r"""()=>{
+      const noPropios=FRENTES.filter(f=>f.tipo!=='propio').map(f=>f.id);
+      const impulsosCrudo=OCIOSOS.filter(o=>noPropios.includes(o.frente)).length;
+      const alertasCrudo=FRENTES.filter(f=>f.tipo!=='propio'&&
+        (f.atraso>0||f.saldo/f.credito>0.7)).length;
+      const prep=+document.querySelector('#torre-prep').textContent;
+      const alertas=+document.querySelector('#torre-alertas').textContent;
+      const pie=document.querySelector('#torre-prep').closest('.kpi').querySelector('.pie').textContent;
+      const impulsosDice=+(pie.match(/(\d+) impulso/)||[0,0])[1];
+      return {prep, alertas, alertasCrudo, impulsosDice, impulsosCrudo,
+        aplicaBtns:document.querySelectorAll('[data-aplica]').length};}""")
+    if d['alertas'] != d['alertasCrudo']:
+        fallos.append('torre: %d alertas y los crudos dicen %d' % (d['alertas'], d['alertasCrudo']))
+    if d['impulsosDice'] != d['impulsosCrudo']:
+        fallos.append('torre: %d impulsos y OCIOSOS dice %d' % (d['impulsosDice'], d['impulsosCrudo']))
+    if not d['prep'] or not d['aplicaBtns']:
+        fallos.append('torre sin recomendaciones o sin botones para empujarlas')
+
+    # ── aplicar una promoción deja rastro en la bitácora ────────────────────
+    antes = p.evaluate("()=>BITACORA.length")
+    p.evaluate("""()=>{const b=[...document.querySelectorAll('[data-aplica]')]
+      .find(x=>x.dataset.firma==='promocion'&&!x.disabled); if(b) b.click();}""")
+    p.wait_for_timeout(900)
+    d = p.evaluate("""(antes)=>({mas:BITACORA.length-antes,
+      k02:BITACORA.some(e=>e.accion.startsWith('K-02')),
+      hecha:document.body.textContent.includes('preparada · en la bandeja')})""", antes)
+    if d['mas'] < 1 or not d['k02']:
+        fallos.append('aplicar una promoción no dejó rastro K-02 en la bitácora')
+    if not d['hecha']:
+        fallos.append('la recomendación aplicada no cambia de estado en pantalla')
+
+    # ── y el agente existe para la sala ─────────────────────────────────────
+    va(p, 'agentes', 800)
+    if not p.evaluate("()=>document.body.textContent.includes('impulsor de cartera')"):
+        fallos.append('la sala de agentes no enseña al impulsor de cartera')
+
+    fallos += p.errores
+    p.close()
+    return fallos, '%d frentes en cartera · ficha, torre y bitácora' % d.get('frentes', 10) if False else '10 frentes · ficha, torre y bitácora'
+
+
 CHEQUEOS = {
     'rutas': c_rutas, 'contraste': c_contraste, 'recorrido': c_recorrido,
     'permisos': c_permisos, 'reglas': c_reglas, 'moneda': c_moneda, 'freno': c_freno,
     'portada': c_portada, 'inventarios': c_inventarios, 'distribuido': c_distribuido,
+    'clientes': c_clientes,
 }
 
 

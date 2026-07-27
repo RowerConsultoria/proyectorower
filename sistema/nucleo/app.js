@@ -30,6 +30,7 @@ const AMBITOS = {
   pedidos:        'los pedidos de los clientes mayores',
   disponibilidad: 'la disponibilidad que se publica a cada socio',
   normalizacion:  'alias, excepciones y datos del cimiento',
+  promocion:      'las promociones y el impulso comercial a la cartera',
   graduacion:     'graduar un candidato al catálogo',
   sistema:        'el freno, la reversión y las reglas',
 };
@@ -37,13 +38,13 @@ const AMBITOS = {
 const ROLES = {
   direccion: {
     nombre: 'dirección ejecutiva',
-    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'frentes', 'producto', 'cimiento', 'agentes'],
+    ve: ['direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'clientes', 'frentes', 'producto', 'cimiento', 'agentes'],
     firma: ['todo'],
     firmaDice: 'todo, sin tope',
   },
   compras: {
     nombre: 'dirección de compras',
-    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'inventarios', 'comercial', 'frentes', 'cimiento', 'agentes'],
+    ve: ['compras', 'fabricas', 'distribucion', 'producto', 'logistica', 'inventarios', 'comercial', 'clientes', 'frentes', 'cimiento', 'agentes'],
     firma: ['compra', 'reparto', 'traslado'],
     firmaDice: 'compras, reparto y traslados',
   },
@@ -67,15 +68,15 @@ const ROLES = {
   },
   comercial: {
     nombre: 'gerencia comercial',
-    ve: ['comercial', 'distribucion', 'frentes', 'logistica', 'inventarios', 'agentes'],
-    firma: ['pedidos', 'disponibilidad'],
-    firmaDice: 'pedidos y disponibilidad publicada',
+    ve: ['comercial', 'clientes', 'distribucion', 'frentes', 'logistica', 'inventarios', 'agentes'],
+    firma: ['pedidos', 'disponibilidad', 'promocion'],
+    firmaDice: 'pedidos, disponibilidad y promociones',
   },
   sistemas: {
     nombre: 'sistemas',
     /* No firma compra: la regla de que sistemas no toca dinero deja de ser una
        frase en un documento y pasa a ser un botón que no se puede pulsar. */
-    ve: ['frentes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'producto'],
+    ve: ['frentes', 'clientes', 'cimiento', 'agentes', 'direccion', 'compras', 'fabricas', 'distribucion', 'logistica', 'inventarios', 'comercial', 'producto'],
     firma: ['normalizacion', 'sistema'],
     firmaDice: 'reglas y conectores · no firma dinero',
   },
@@ -91,6 +92,7 @@ function puedeFirmar(ambito) {
    entradas de varios. */
 const AMBITO_DE_MODULO = {
   compras: 'compra', distribucion: 'reparto', logistica: 'recepcion', inventarios: 'traslado',
+  clientes: 'promocion',
   comercial: 'pedidos', cimiento: 'normalizacion', frentes: 'normalizacion',
   producto: 'graduacion', agentes: 'sistema', direccion: 'sistema',
 };
@@ -171,6 +173,11 @@ const MODULOS = {
     ico: '▧', nombre: 'comercial', grupo: 'operación', fase: 15,
     para: 'gerencia comercial y responsables de frente',
     resuelve: 'Los pedidos de los clientes mayores, la demanda no atendida y la disponibilidad publicada a cada socio.',
+  },
+  clientes: {
+    ico: '◎', nombre: 'clientes', grupo: 'red', fase: 29,
+    para: 'gerencia comercial, compras y la dirección',
+    resuelve: 'La cartera completa por región: crédito, venta, inventario estimado, promociones y las recomendaciones de impulso de la IA con su torre de control.',
   },
   frentes: {
     ico: '◈', nombre: 'frentes', grupo: 'red', fase: 17,
@@ -261,7 +268,7 @@ function pintaMenu() {
 /* Los `cruza` de las acciones están escritos en castellano y con acentos
    —«logística y comercial»—, no con la clave del módulo. Aquí se traducen. */
 const DESTINO_CRUCE = {
-  compras: 'compras', distribucion: 'distribucion', comercial: 'comercial',
+  compras: 'compras', distribucion: 'distribucion', comercial: 'comercial', clientes: 'clientes',
   logistica: 'logistica', cimiento: 'cimiento', producto: 'producto',
   frentes: 'frentes', fabricas: 'fabricas', agentes: 'agentes', direccion: 'direccion',
 };

@@ -410,7 +410,7 @@ window.PANTALLAS['inventarios/distribuido'] = function (lienzo) {
       <b>La banda es la tesis del sistema hecha número.</b> Con conexión en vivo la banda es cero:
       su almacén se ve como el propio. Con un Excel cada tres semanas, la banda es lo vendido desde
       el corte — y decidir sobre ese frente es decidir a ciegas ese porcentaje. Las recomendaciones
-      accionables, con su firma, llegan con el módulo de clientes (fase 29).
+      accionables, con su firma, viven en el <a href="#/clientes">módulo de clientes</a>.
     </p>`;
 
   wirePestInventarios(lienzo);

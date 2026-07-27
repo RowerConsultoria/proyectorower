@@ -351,6 +351,46 @@ function diasDesdeCorte(txt) {
  * Las señales usan las MISMAS reglas del inventario propio (coberturaObjetivo
  * y sobrestockDesde): un criterio para todo el mundo, no uno por pantalla.
  */
+/**
+ * Las recomendaciones de impulso de la cartera — las MISMAS que anota K-01 en
+ * el turno y las que pintan la ficha del cliente y la torre de control. Cada
+ * una declara su ÁMBITO de firma: sin ámbito no hay botón, y sin botón no es
+ * una recomendación sino un adorno.
+ */
+function recomendacionesCartera() {
+  const recs = [];
+  for (const c of inventarioDistribuido().clientes) {
+    const vistos = new Set();
+    for (const q of c.quiebres.filter(x =>
+        vistos.has(x.p.nombre) ? false : (vistos.add(x.p.nombre), true)).slice(0, 2)) {
+      recs.push({ tipo: 'reposicion', frente: c.f.id, p: q.p, ambito: 'reparto',
+        texto: `reposición anticipada: ${q.p.nombre}`,
+        motivo: `cobertura ${(q.u / q.mensual).toFixed(1)} meses contra su venta reportada` });
+    }
+    for (const o of c.paradas) {
+      const p = CATALOGO.find(x => x.sku === o.sku);
+      recs.push({ tipo: 'impulso', frente: c.f.id, p, ambito: 'promocion',
+        texto: `impulso: ${p ? p.nombre : o.sku}`,
+        motivo: `${o.u} u sin una venta en ${o.mesesQuieto} meses` });
+    }
+    for (const x of c.sobrantes.slice(0, 1)) {
+      recs.push({ tipo: 'promocion', frente: c.f.id, p: x.p, ambito: 'promocion',
+        texto: `promoción: ${x.p.nombre} sobrado`,
+        motivo: `${x.u} u contra una venta de ${Math.round(x.mensual)} u/mes` });
+    }
+    if (c.f.atraso > 0) {
+      recs.push({ tipo: 'credito', frente: c.f.id, alerta: true, ambito: null,
+        texto: `atraso de ${c.f.atraso} días`,
+        motivo: `consumido el ${Math.round(c.f.saldo / c.f.credito * 100)} % de su línea` });
+    } else if (c.f.saldo / c.f.credito > 0.7) {
+      recs.push({ tipo: 'credito', frente: c.f.id, alerta: true, ambito: null,
+        texto: `línea al ${Math.round(c.f.saldo / c.f.credito * 100)} %`,
+        motivo: 'sin atraso, pero con poco aire para el próximo pedido' });
+    }
+  }
+  return recs;
+}
+
 function inventarioDistribuido() {
   const clientes = FRENTES.filter(f => f.tipo !== 'propio').map(f => {
     let estimado = 0, reportado = 0;
@@ -1004,6 +1044,28 @@ const ACCIONES = {
     },
   },
 
+  /* ---------- clientes (fase 29) ---------- */
+  'K-01': {
+    modulo: 'clientes', agente: 'impulsor de cartera',
+    nombre: 'revisar la cartera y preparar el impulso comercial',
+    dispara: 'cierra la estimación del inventario distribuido de la noche',
+    cruza: 'comercial',
+    ejes: { perimetro: 'interno', reversibilidad: 'clic', radio: 'borrador', dinero: 'ninguno', reloj: 'alcanza' },
+    corre() {
+      const recs = recomendacionesCartera();
+      const cuenta = t => recs.filter(r => r.tipo === t).length;
+      const frentes = FRENTES.filter(f => f.tipo !== 'propio').length;
+      return {
+        salida: `revisé los ${frentes} frentes no propios de la cartera y dejé ` +
+                `${recs.filter(r => !r.alerta).length} recomendaciones preparadas — ` +
+                `${cuenta('reposicion')} reposiciones anticipadas, ${cuenta('impulso')} impulso${cuenta('impulso') === 1 ? '' : 's'} y ` +
+                `${cuenta('promocion')} promociones — más ${cuenta('credito')} alertas de crédito. ` +
+                'Ninguna toca nada sin una firma',
+        datos: { recs },
+      };
+    },
+  },
+
   /* ---------- el árbitro ---------- */
   'A-01': {
     modulo: 'agentes', agente: 'árbitro',
@@ -1034,7 +1096,7 @@ const ACCIONES = {
    Orden fijo, nunca en paralelo consigo mismo. Cuando el equipo llega por la
    mañana, la mesa está servida.                                              */
 
-const ORDEN_TURNO = ['N-01', 'N-02', 'C-01', 'C-03', 'X-01', 'V-01', 'V-02', 'L-02', 'C-05', 'A-01'];
+const ORDEN_TURNO = ['N-01', 'N-02', 'C-01', 'C-03', 'X-01', 'V-01', 'V-02', 'L-02', 'C-05', 'K-01', 'A-01'];
 
 /* Fecha de la demo, fija a propósito: el recorrido debe verse igual cada vez
    que se presente. Día 18 — la mesa está armada y faltan dos días para el

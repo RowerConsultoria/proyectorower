@@ -32,3 +32,24 @@ const CLIENTES = [
 function fichaCliente(id) {
   return CLIENTES.find(c => c.id === id) || null;
 }
+
+/* Promociones ACTIVAS: datos declarados —una promoción es una decisión
+   comercial, no se deriva—, pero atadas a señales reales del inventario: cada
+   una apunta a una referencia que de verdad está parada o sobrada en ese
+   frente. Los motivos van SIN cifras a propósito: la cifra vigente la calcula
+   la pantalla desde operacion.js, para que no puedan divergir. */
+const PROMOS = [
+  { id: 'PR-101', sku: 'KX-REL-1035', frentes: ['HN'], tipo: 'descuento', pct: 15,
+    desde: '01-ago', hasta: '31-ago', motivo: 'rotación baja sostenida en el frente' },
+  { id: 'PR-102', sku: 'CTHB24-1', frentes: ['EC'], tipo: 'descuento', pct: 10,
+    desde: '05-ago', hasta: '05-sep', motivo: 'existencia sin movimiento' },
+  { id: 'PR-103', sku: 'KX-CAL-1021', frentes: ['GT'], tipo: 'combo', pct: 12,
+    desde: '01-ago', hasta: '15-sep', motivo: 'sobre-stock del frente' },
+  { id: 'PR-104', sku: 'CT-MUG1-N', frentes: ['VE'], tipo: 'descuento', pct: 20,
+    desde: '10-ago', hasta: '31-ago', motivo: 'sobre-stock del frente' },
+];
+
+/** Las promociones activas de un frente. */
+function promosDe(id) {
+  return PROMOS.filter(p => p.frentes.includes(id));
+}

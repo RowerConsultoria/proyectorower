@@ -341,7 +341,7 @@ global, clientes, mapa ejecutivo y los dos portales externos.
 | 26 | Pantalla de inicio + accesos desde el informe · ✅ **hecha** | — |
 | 27 | Inventarios, módulo propio · ✅ **hecha** | — |
 | 28 | Inventario global distribuido (almacenes teóricos de clientes) · ✅ **hecha** | 27 |
-| 29 | Módulo de clientes + torre de control IA | 28 |
+| 29 | Módulo de clientes + torre de control IA · ✅ **hecha** | 28 |
 | 30 | Big Map ejecutivo (Mapbox) | 28, 29 |
 | 31 | Portal del vendedor | 27, 28 |
 | 32 | Portal del cliente | 29 |
@@ -490,6 +490,32 @@ nuestra pero sabemos dónde debería estar:
   bitácora existentes: son los MISMOS agentes, no un mundo aparte.
 - Comprobación `clientes`: toda recomendación tiene agente y ámbito declarados;
   toda cifra de dinero lleva moneda (la regla `moneda` se extiende sola).
+
+**✅ Hecha (26-jul).** Notas de ejecución:
+- Módulo `clientes` en el grupo «red», con dos pantallas: **la cartera**
+  (frentes propios + regiones, ficha completa al abrir: crédito con su
+  ecuación, pedidos, reparto de anoche, pronóstico, inventario
+  medido/estimado, promociones, y «la IA en este cliente») y **la torre de
+  control IA** (por urgencia: atraso primero, después quiebres).
+- **El agente K-01 «impulsor de cartera» corre en el turno de noche** como
+  los demás: sus recomendaciones salen de `recomendacionesCartera()` — la
+  MISMA función que pintan la ficha y la torre. Aplicar una deja rastro
+  K-02/K-03 en la bitácora, con estela hacia comercial o distribución.
+- **Ámbito de firma nuevo `promocion`** (10º), firmado por gerencia comercial:
+  los permisos salieron gratis — como comercial, «anticipar en el reparto»
+  aparece apagado con su motivo (es ámbito de compras) y «preparar promoción»
+  activo. Las alertas de crédito son aviso sin acción automática, dicho en
+  pantalla.
+- `PROMOS` en datos/clientes.js: declaradas (una promoción es una decisión,
+  no se deriva) pero atadas a referencias que DE VERDAD están paradas o
+  sobradas, con motivos sin cifras — la cifra vigente la calcula la pantalla.
+- Comprobación `clientes` (11ª): tarjetas contra crudos (crédito y venta),
+  ficha de GT (pedidos, promos, ámbitos), torre contra OCIOSOS y atrasos
+  crudos, y el flujo entero de aplicar → bitácora → estado en pantalla.
+  Cinco trampas verificadas.
+- Capturas revelaron tres defectos antes de commitear: un plural mal
+  acentuado, el estimado «± » sin banda, y un pie con conteos escritos a
+  mano — los tres contra las reglas de la casa.
 
 ## Fase 30 · Big Map ejecutivo
 
