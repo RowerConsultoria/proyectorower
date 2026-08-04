@@ -52,27 +52,28 @@ create trigger trg_secciones_touch
   for each row execute function public.touch_actualizado_en();
 
 -- ---------- Seguridad: RLS ----------
--- Lectura pública (clave anon); escritura solo con sesión autenticada.
--- Si el equipo aún no usa Supabase Auth, ver supabase/README.md para
--- la política transitoria de escritura.
+-- 🔒 Desde el 04-ago-2026 (activación de Supabase Auth) NADA es anónimo:
+-- lectura y escritura exigen sesión (rol `authenticated`). La clave publishable
+-- es pública y vive en el repositorio: con ella sola no se ve ni se escribe nada.
+-- Las Edge Functions usan la clave de servicio, que salta RLS por diseño.
 alter table public.secciones   enable row level security;
 alter table public.comentarios enable row level security;
 alter table public.riesgos     enable row level security;
 
 drop policy if exists secciones_lectura   on public.secciones;
 drop policy if exists secciones_escritura on public.secciones;
-create policy secciones_lectura   on public.secciones   for select using (true);
-create policy secciones_escritura on public.secciones   for all to authenticated using (true) with check (true);
+create policy secciones_lectura   on public.secciones   for select to authenticated using (true);
+create policy secciones_escritura on public.secciones   for all    to authenticated using (true) with check (true);
 
 drop policy if exists comentarios_lectura   on public.comentarios;
 drop policy if exists comentarios_escritura on public.comentarios;
-create policy comentarios_lectura   on public.comentarios for select using (true);
-create policy comentarios_escritura on public.comentarios for all to authenticated using (true) with check (true);
+create policy comentarios_lectura   on public.comentarios for select to authenticated using (true);
+create policy comentarios_escritura on public.comentarios for all    to authenticated using (true) with check (true);
 
 drop policy if exists riesgos_lectura   on public.riesgos;
 drop policy if exists riesgos_escritura on public.riesgos;
-create policy riesgos_lectura   on public.riesgos   for select using (true);
-create policy riesgos_escritura on public.riesgos   for all to authenticated using (true) with check (true);
+create policy riesgos_lectura   on public.riesgos   for select to authenticated using (true);
+create policy riesgos_escritura on public.riesgos   for all    to authenticated using (true) with check (true);
 
 -- ---------- Datos iniciales: estado del informe al 17-jul-2026 ----------
 insert into public.secciones (id, numero, titulo, estado, responsable, notas) values
@@ -125,20 +126,18 @@ alter table public.entrevistas enable row level security;
 
 drop policy if exists entrevistas_lectura   on public.entrevistas;
 drop policy if exists entrevistas_escritura on public.entrevistas;
-create policy entrevistas_lectura   on public.entrevistas for select using (true);
-create policy entrevistas_escritura on public.entrevistas for all to authenticated using (true) with check (true);
+create policy entrevistas_lectura   on public.entrevistas for select to authenticated using (true);
+create policy entrevistas_escritura on public.entrevistas for all    to authenticated using (true) with check (true);
 
--- TRANSITORIO ⚠️: escritura anónima mientras el panel admin no tenga login.
--- CERRAR (drop policy) al activar Supabase Auth — con esta política, cualquiera con la
--- clave publishable puede escribir/leer. No cargar transcripciones reales sensibles hasta entonces.
+-- La política anónima transitoria quedó CERRADA el 04-ago-2026 al activar Auth.
+-- No reabrirla: aquí viven las transcripciones íntegras del corpus.
 drop policy if exists entrevistas_escritura_anon on public.entrevistas;
-create policy entrevistas_escritura_anon on public.entrevistas for all to anon using (true) with check (true);
 
 insert into public.entrevistas
   (codigo, entrevistado, cargo, area, pais, entrevistador, estado, transcripcion, notas, etiquetas)
 values
   ('E-DEMO','Ejemplo — reemplazar','Cargo de ejemplo','tecnología','Venezuela','Gabriel','crudo',
-   'Transcripción de ejemplo para validar el módulo. Reemplazar por contenido real solo cuando Auth esté activo.',
+   'Transcripción de ejemplo para validar el módulo. Puede borrarse: el corpus real ya está cargado.',
    'Fila semilla de demostración. Puede borrarse.', array['demo','ejemplo'])
 on conflict (codigo) do nothing;
 
@@ -148,10 +147,10 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('insumos', 'insumos', false, 104857600)   -- 100 MB por archivo, bucket privado
 on conflict (id) do nothing;
 
+-- El bucket es privado y solo lo ve quien tenga sesión: aquí hay nóminas reales.
+-- insumos_anon quedó CERRADA el 04-ago-2026 al activar Auth — no reabrirla.
 drop policy if exists insumos_anon on storage.objects;
 drop policy if exists insumos_auth on storage.objects;
-create policy insumos_anon on storage.objects
-  for all to anon using (bucket_id = 'insumos') with check (bucket_id = 'insumos');
 create policy insumos_auth on storage.objects
   for all to authenticated using (bucket_id = 'insumos') with check (bucket_id = 'insumos');
 
@@ -173,11 +172,9 @@ alter table public.archivos enable row level security;
 
 drop policy if exists archivos_lectura        on public.archivos;
 drop policy if exists archivos_escritura       on public.archivos;
-drop policy if exists archivos_escritura_anon  on public.archivos;
-create policy archivos_lectura        on public.archivos for select using (true);
-create policy archivos_escritura      on public.archivos for all to authenticated using (true) with check (true);
--- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
-create policy archivos_escritura_anon on public.archivos for all to anon using (true) with check (true);
+drop policy if exists archivos_escritura_anon  on public.archivos;   -- cerrada el 04-ago-2026
+create policy archivos_lectura        on public.archivos for select to authenticated using (true);
+create policy archivos_escritura      on public.archivos for all    to authenticated using (true) with check (true);
 
 -- ---------- 6. Línea de tiempo (bitácora del proyecto) ----------
 -- Eventos día a día del proyecto consultor: entrevistas, reuniones internas,
@@ -201,11 +198,9 @@ alter table public.eventos enable row level security;
 
 drop policy if exists eventos_lectura        on public.eventos;
 drop policy if exists eventos_escritura      on public.eventos;
-drop policy if exists eventos_escritura_anon on public.eventos;
-create policy eventos_lectura   on public.eventos for select using (true);
-create policy eventos_escritura on public.eventos for all to authenticated using (true) with check (true);
--- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
-create policy eventos_escritura_anon on public.eventos for all to anon using (true) with check (true);
+drop policy if exists eventos_escritura_anon on public.eventos;      -- cerrada el 04-ago-2026
+create policy eventos_lectura   on public.eventos for select to authenticated using (true);
+create policy eventos_escritura on public.eventos for all    to authenticated using (true) with check (true);
 
 -- ---------- 7. Asistente IA (conocimiento + fragmentos) ----------
 -- Base de conocimiento del asistente conversacional del admin:
@@ -276,19 +271,15 @@ alter table public.fragmentos   enable row level security;
 
 drop policy if exists conocimiento_lectura        on public.conocimiento;
 drop policy if exists conocimiento_escritura      on public.conocimiento;
-drop policy if exists conocimiento_escritura_anon on public.conocimiento;
-create policy conocimiento_lectura   on public.conocimiento for select using (true);
-create policy conocimiento_escritura on public.conocimiento for all to authenticated using (true) with check (true);
--- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
-create policy conocimiento_escritura_anon on public.conocimiento for all to anon using (true) with check (true);
+drop policy if exists conocimiento_escritura_anon on public.conocimiento;   -- cerrada el 04-ago-2026
+create policy conocimiento_lectura   on public.conocimiento for select to authenticated using (true);
+create policy conocimiento_escritura on public.conocimiento for all    to authenticated using (true) with check (true);
 
 drop policy if exists fragmentos_lectura        on public.fragmentos;
 drop policy if exists fragmentos_escritura      on public.fragmentos;
-drop policy if exists fragmentos_escritura_anon on public.fragmentos;
-create policy fragmentos_lectura   on public.fragmentos for select using (true);
-create policy fragmentos_escritura on public.fragmentos for all to authenticated using (true) with check (true);
--- TRANSITORIO ⚠️: escritura anónima mientras el panel no tenga login. Cerrar al activar Auth.
-create policy fragmentos_escritura_anon on public.fragmentos for all to anon using (true) with check (true);
+drop policy if exists fragmentos_escritura_anon on public.fragmentos;       -- cerrada el 04-ago-2026
+create policy fragmentos_lectura   on public.fragmentos for select to authenticated using (true);
+create policy fragmentos_escritura on public.fragmentos for all    to authenticated using (true) with check (true);
 
 -- ---------- 8. Indexación automática del corpus ----------
 -- Cada entrevista o archivo que se carga dispara (vía pg_net) la Edge Function
@@ -298,22 +289,48 @@ create policy fragmentos_escritura_anon on public.fragmentos for all to anon usi
 -- (su caché de conocimiento refresca cada 5 min).
 
 create extension if not exists pg_net;
+create extension if not exists supabase_vault with schema vault;
 
 alter table public.entrevistas add column if not exists indexado_en timestamptz;
 alter table public.archivos    add column if not exists indexado_en timestamptz;
 
+-- 🔑 La credencial con que Postgres invoca la función NO vive en este archivo:
+-- se guarda cifrada en Supabase Vault bajo el nombre 'clave_servicio'. Sembrarla
+-- una vez por proyecto (SQL Editor, con el valor real de la clave de servicio):
+--
+--   select vault.create_secret(
+--     '<SUPABASE_SERVICE_ROLE_KEY>', 'clave_servicio',
+--     'Clave con que los triggers invocan la Edge Function indexar');
+--
+-- Para reponerla:  select vault.update_secret(
+--     (select id from vault.secrets where name = 'clave_servicio'), '<CLAVE>');
+-- Comprobar que está:  select name from vault.secrets where name = 'clave_servicio';
 create or replace function public.disparar_indexado()
 returns trigger
 language plpgsql
 security definer
 set search_path = public
 as $$
+declare
+  clave text;
 begin
+  select decrypted_secret into clave
+    from vault.decrypted_secrets
+   where name = 'clave_servicio';
+
+  if clave is null or clave = '' then
+    -- Sin credencial no se indexa, pero la carga del insumo NO debe fallar:
+    -- se avisa y queda pendiente para el backfill ({"todo":true}).
+    raise warning 'Rower: falta el secreto ''clave_servicio'' en Vault; % % queda sin indexar',
+                  TG_ARGV[0], NEW.id;
+    return NEW;
+  end if;
+
   perform net.http_post(
     url     := 'https://kmhwqybqrcjhjeywjgxj.supabase.co/functions/v1/indexar',
     headers := jsonb_build_object(
       'Content-Type', 'application/json',
-      'Authorization', 'Bearer sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1'
+      'Authorization', 'Bearer ' || clave
     ),
     body := jsonb_build_object('tipo', TG_ARGV[0], 'id', NEW.id::text)
   );
@@ -343,3 +360,35 @@ create trigger archivos_indexar_ins
   after insert on public.archivos
   for each row
   execute function public.disparar_indexado('archivo');
+
+-- ---------- 9. Acceso: Supabase Auth (activado el 04-ago-2026) ----------
+-- Todo el aplicativo vive detrás de /acceso/ (pantalla de login) y del guardia
+-- supabase/sesion.js. Las políticas de arriba solo reconocen `authenticated`,
+-- así que sin sesión no hay lectura ni escritura, ni desde el navegador ni con
+-- la clave publishable en la mano.
+--
+-- Las cuentas NO se crean con SQL: van por la API de administración de Auth,
+-- que exige la clave de servicio (nunca la publishable, nunca desde el repo).
+--
+--   POST https://<ref>.supabase.co/auth/v1/admin/users
+--   apikey: <SERVICE_ROLE>   Authorization: Bearer <SERVICE_ROLE>
+--   { "email": "...", "password": "...", "email_confirm": true,
+--     "user_metadata": { "nombre": "...", "rol": "admin" } }
+--
+-- …o desde el Dashboard → Authentication → Users → Add user (marcar
+-- "Auto Confirm User", porque el proyecto no tiene SMTP propio configurado).
+--
+-- El registro abierto está deshabilitado (Authentication → Providers → Email →
+-- "Allow new users to sign up" en off): las cuentas las da el equipo técnico.
+--
+-- Consultar quién tiene acceso:
+--   select email, raw_user_meta_data->>'nombre' as nombre,
+--          email_confirmed_at, last_sign_in_at
+--     from auth.users order by created_at;
+--
+-- Reponer una clave:
+--   PUT https://<ref>.supabase.co/auth/v1/admin/users/<id>  { "password": "..." }
+--
+-- Cuando haga falta separar perfiles (Junta = solo informe · equipo = admin),
+-- el sitio natural es user_metadata.rol + un chequeo en el guardia y políticas
+-- por rol; hoy toda cuenta autenticada ve todo.

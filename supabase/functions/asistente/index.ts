@@ -9,10 +9,13 @@
 // Salida:   SSE — data: {"t":"delta","x":"…"} | {"t":"tool","nombre","detalle"}
 //                 | {"t":"fin","uso":{…}} | {"t":"error","x":"…"}
 //
-// Deploy:  supabase functions deploy asistente --no-verify-jwt
+// Deploy:  supabase functions deploy asistente          (CON verify_jwt)
 // Secreto: ANTHROPIC_API_KEY (compartido con extraer-entrevista)
-// ⚠️ TRANSITORIO: --no-verify-jwt mientras el panel no tenga login.
+// 🔒 Exige sesión de Supabase Auth (ver _shared/acceso.ts): el corpus que
+//    consulta es material sensible y cada llamada gasta cuota de Anthropic.
 // ============================================================
+
+import { identificar, noAutorizado } from "../_shared/acceso.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -286,6 +289,8 @@ async function llamarClaude(
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   if (req.method !== "POST") return json({ error: "Método no permitido" }, 405);
+
+  if (!(await identificar(req))) return noAutorizado(CORS);
 
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) return json({ error: "ANTHROPIC_API_KEY no configurada" }, 500);

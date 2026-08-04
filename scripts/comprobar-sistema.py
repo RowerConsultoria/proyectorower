@@ -29,10 +29,13 @@ import subprocess
 import sys
 import time
 
+import sesion_prueba          # siembra la sesión: el aplicativo está detrás de /acceso/
+
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = 'http://localhost:8080/sistema/'
+SES = None                   # registro de sesión; lo llena main()
 PUERTO = 8080
 
 RUTAS = [
@@ -89,7 +92,7 @@ class Servidor:
 # ── utilidades de página ─────────────────────────────────────────────────────
 
 def nueva(nav, ancho=1560, alto=1000):
-    p = nav.new_page(viewport={'width': ancho, 'height': alto})
+    p = sesion_prueba.pagina(nav, SES, viewport={'width': ancho, 'height': alto})
     p.errores = []
     p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
     p.on('console', lambda m: p.errores.append('consola: ' + m.text[:140])
@@ -110,7 +113,7 @@ def va(p, ruta, espera=330):
 
 
 def abre_portal(nav, url, ancho=1560, alto=1100):
-    p = nav.new_page(viewport={'width': ancho, 'height': alto})
+    p = sesion_prueba.pagina(nav, SES, viewport={'width': ancho, 'height': alto})
     p.errores = []
     p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
     p.on('console', lambda m: p.errores.append('consola: ' + m.text[:140])
@@ -632,7 +635,7 @@ def c_portada(nav, rapido):
     # `nueva()` ya navega a BASE, y de ahí a BASE#/compras solo cambia el hash:
     # eso cierra la portada por el camino legítimo (hashchange) y la prueba
     # pasaba aunque la carga-con-hash estuviera rota — se vio al sabotearla.
-    p = nav.new_page(viewport={'width': 1560, 'height': 1000})
+    p = sesion_prueba.pagina(nav, SES, viewport={'width': 1560, 'height': 1000})
     p.errores = []
     p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
     p.goto(BASE + '#/compras', wait_until='networkidle')
@@ -994,7 +997,7 @@ def c_mapa(nav, rapido):
 
     # ── sin red no revienta: se corta Mapbox y tiene que caer a la lista ────
     if not rapido:
-        p = nav.new_page(viewport={'width': 1560, 'height': 1000})
+        p = sesion_prueba.pagina(nav, SES, viewport={'width': 1560, 'height': 1000})
         p.errores = []
         p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
         p.route('**://api.mapbox.com/**', lambda r: r.abort())
@@ -1031,7 +1034,7 @@ def c_portal_vendedor(nav, rapido):
       · soltar devuelve las unidades y deja el par en la bitácora
     """
     fallos = []
-    ctx = nav.new_context(viewport={'width': 1560, 'height': 1100})
+    ctx = sesion_prueba.sembrar(nav.new_context(viewport={'width': 1560, 'height': 1100}), SES)
 
     def abre(url, espera=1400):
         pg = ctx.new_page()
@@ -1214,7 +1217,7 @@ def c_portal_cliente(nav, rapido):
     crudos, no desde la función que pinta.
     """
     fallos = []
-    ctx = nav.new_context(viewport={'width': 1560, 'height': 1200})
+    ctx = sesion_prueba.sembrar(nav.new_context(viewport={'width': 1560, 'height': 1200}), SES)
     p = ctx.new_page()
     p.errores = []
     p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:140]))
@@ -1385,6 +1388,7 @@ CHEQUEOS = {
 
 
 def main():
+    global SES
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     rapido = '--rapido' in sys.argv
     pedidos = args or list(CHEQUEOS)
@@ -1401,6 +1405,7 @@ def main():
         return 2
 
     print('=== comprobaciones del prototipo%s ===' % (' · modo rápido' if rapido else ''))
+    SES = sesion_prueba.exigir()
     fallados = []
     t0 = time.time()
     with Servidor(), sync_playwright() as pw:

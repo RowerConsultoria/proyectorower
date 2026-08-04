@@ -8,6 +8,8 @@ Cada toma fija el ROL a propósito: la pantalla de un rol que no puede firmar
 algo se ve distinta, y la lámina debe enseñar la que corresponde a su historia.
 """
 import io, sys, os
+
+import sesion_prueba          # siembra la sesión: el aplicativo está detrás de /acceso/
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 from playwright.sync_api import sync_playwright
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +34,8 @@ TOMAS_PORTAL = [
     ('portal-cliente',  'sistema/portal-cliente/',  'comprar'),
 ]
 with sync_playwright() as pw:
-    b=pw.chromium.launch(); p=b.new_page(viewport={'width':1600,'height':900})
+    b=pw.chromium.launch(); SES=sesion_prueba.exigir()
+    p=sesion_prueba.pagina(b, SES, viewport={'width':1600,'height':900})
     errs=[]; p.on('pageerror', lambda e: errs.append(str(e)[:120]))
     p.goto('http://localhost:8080/sistema/', wait_until='networkidle'); p.wait_for_timeout(900)
     tot=0
@@ -51,7 +54,7 @@ with sync_playwright() as pw:
         k=os.path.getsize(f)//1024; tot+=k
         print(f'  {nombre:12s} {ruta:20s} {k} KB')
     for nombre, url, pestana in TOMAS_PORTAL:
-        q = b.new_page(viewport={'width': 1600, 'height': 900})
+        q = sesion_prueba.pagina(b, SES, viewport={'width': 1600, 'height': 900})
         q.on('pageerror', lambda e: errs.append(str(e)[:120]))
         q.goto('http://localhost:8080/' + url, wait_until='networkidle')
         q.wait_for_timeout(1500)

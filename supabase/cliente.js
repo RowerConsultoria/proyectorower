@@ -5,6 +5,12 @@
 // En un módulo HTML, cargar primero el cliente oficial:
 // <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 // <script src="../../supabase/cliente.js"></script>
+//
+// 🔒 Desde el 04-ago-2026 esta clave por sí sola NO lee ni escribe nada: todas
+// las políticas exigen `authenticated`. El cliente adjunta automáticamente el
+// JWT de la sesión que dejó la pantalla /acceso/ en localStorage.
+// El guardia de acceso vive aparte, en sesion.js — mantener URL y clave en
+// sintonía entre los dos archivos.
 
 const SUPABASE_URL = "https://kmhwqybqrcjhjeywjgxj.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1";

@@ -380,7 +380,23 @@ QUIEN = {'informe-fase1': 'documento del proyecto — informe Fase 1',
 
 c = io.open(os.path.join(RAIZ, 'supabase', 'cliente.js'), encoding='utf-8').read()
 URL = re.search(r'https://[\w-]+\.supabase\.co', c).group(0)
-KEY = re.search(r"['\"](sb_publishable_[\w-]+)['\"]", c).group(1)
+
+# Desde el cierre del acceso anónimo (04-ago-2026) la clave publishable ya NO
+# puede escribir en `conocimiento`/`fragmentos`: hace falta una credencial de
+# servicio, que nunca vive en el repositorio. Se toma del entorno:
+#
+#   PowerShell:  $env:SUPABASE_SERVICE_KEY = "<clave de servicio>"
+#   Git Bash:    export SUPABASE_SERVICE_KEY="<clave de servicio>"
+#
+# (Dashboard → Project Settings → API keys → service_role / secret key.)
+SERVICIO = (os.environ.get('SUPABASE_SERVICE_KEY')
+            or os.environ.get('SUPABASE_SERVICE_ROLE_KEY') or '').strip()
+if not SERVICIO:
+    print('\n  FALTA CREDENCIAL: define SUPABASE_SERVICE_KEY en el entorno.')
+    print('  Sin ella la subida a `conocimiento` responde 401/0 filas, porque el')
+    print('  proyecto ya no admite escritura anónima. Ver supabase/README.md.')
+    sys.exit(2)
+KEY = SERVICIO
 
 
 def pedir(path, metodo='GET', cuerpo=None, prefer=None):

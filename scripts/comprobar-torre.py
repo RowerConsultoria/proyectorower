@@ -37,10 +37,13 @@ import subprocess
 import sys
 import time
 
+import sesion_prueba          # siembra la sesión: el aplicativo está detrás de /acceso/
+
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUERTO = 8080
+SES = None                   # registro de sesión; lo llena main()
 BASE = 'http://localhost:%d/informe/fase1/' % PUERTO
 TORRE = BASE + 'arquitectura-ia-kenex.html'
 PLANA = BASE + 'arquitectura-ia-plana.html'
@@ -80,7 +83,7 @@ class Servidor:
 # ── utilidades ───────────────────────────────────────────────────────────────
 
 def abre(nav, url, espera=3800, ancho=1700, alto=1150):
-    p = nav.new_page(viewport={'width': ancho, 'height': alto})
+    p = sesion_prueba.pagina(nav, SES, viewport={'width': ancho, 'height': alto})
     p.errores = []
     p.on('pageerror', lambda e: p.errores.append('excepción: ' + str(e)[:150]))
     p.on('console', lambda m: p.errores.append('consola: ' + m.text[:150])
@@ -793,6 +796,7 @@ CHEQUEOS = {
 
 
 def main():
+    global SES
     pedidos = [a for a in sys.argv[1:] if not a.startswith('--')] or list(CHEQUEOS)
     malos = [a for a in pedidos if a not in CHEQUEOS]
     if malos:
@@ -806,6 +810,7 @@ def main():
         return 2
 
     print('=== comprobaciones de la torre ===')
+    SES = sesion_prueba.exigir()
     fallados, t0 = [], time.time()
     with Servidor(), sync_playwright() as pw:
         nav = pw.chromium.launch(args=ARGS)

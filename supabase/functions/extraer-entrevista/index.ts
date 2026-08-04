@@ -4,9 +4,13 @@
 // para extraer los metadatos del formulario. La clave de Anthropic vive
 // como secreto (ANTHROPIC_API_KEY) — NUNCA se expone al navegador.
 //
-// Deploy:  supabase functions deploy extraer-entrevista --no-verify-jwt
+// Deploy:  supabase functions deploy extraer-entrevista   (CON verify_jwt)
 // Secreto: supabase secrets set ANTHROPIC_API_KEY=sk-ant-...
+// 🔒 Exige sesión de Supabase Auth (ver _shared/acceso.ts). El panel admin
+//    manda el JWT del consultor; la clave publishable ya no alcanza.
 // ============================================================
+
+import { identificar, noAutorizado } from "../_shared/acceso.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -61,6 +65,8 @@ Deno.serve(async (req: Request) => {
   if (req.method !== "POST") {
     return json({ error: "Método no permitido" }, 405);
   }
+
+  if (!(await identificar(req))) return noAutorizado(CORS);
 
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) return json({ error: "ANTHROPIC_API_KEY no configurada en el servidor" }, 500);

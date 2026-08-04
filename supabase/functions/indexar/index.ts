@@ -12,11 +12,15 @@
 // Entrada:  POST { tipo: "entrevista"|"archivo", id }   ← desde los triggers
 //           POST { todo: true }                          ← backfill por lotes
 // Deploy:   supabase functions deploy indexar --no-verify-jwt
+// 🔒 --no-verify-jwt porque la invoca Postgres, no un navegador: la pasarela no
+//    puede validar ese llamante, así que el cierre lo hace la propia función
+//    (_shared/acceso.ts) exigiendo la clave de servicio o una sesión de usuario.
 // ============================================================
 
 import * as XLSX from "npm:xlsx@0.18.5";
 import JSZip from "npm:jszip@3.10.1";
 import { extractText, getDocumentProxy } from "npm:unpdf";
+import { identificar, noAutorizado } from "../_shared/acceso.ts";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -296,6 +300,10 @@ async function indexarArchivo(id: string): Promise<string> {
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   if (req.method !== "POST") return json({ error: "Método no permitido" }, 405);
+
+  // La llama el trigger de Postgres con la clave de servicio (guardada en Vault,
+  // ver schema §8) o un consultor con sesión para reprocesar a mano.
+  if (!(await identificar(req))) return noAutorizado(CORS);
 
   let body: { tipo?: string; id?: string; todo?: boolean };
   try { body = await req.json(); } catch { return json({ error: "Cuerpo inválido" }, 400); }

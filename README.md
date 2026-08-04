@@ -6,14 +6,18 @@ Repositorio central del **Proyecto Rower**: consultoría de Optimización Organi
 
 ## Cómo navegar
 
-- **[`index.html`](index.html)** — Portal de entrada: enlaza el informe y los demás módulos. Ábrelo en el navegador (o publica el repo con GitHub Pages para acceder por URL).
+- **[`index.html`](index.html)** — Portal de entrada: los dos caminos (el informe y el panel administrativo) pasan por la pantalla de acceso.
+- **[`acceso/index.html`](acceso/index.html)** — 🔑 **Inicio de sesión.** Desde el 04-ago-2026 el aplicativo pide correo y clave (Supabase Auth). Al entrar te devuelve al sitio al que ibas. Las cuentas las crea el equipo técnico: no hay registro abierto.
 - **[`informe/fase1/informe-diagnostico-fase1.html`](informe/fase1/informe-diagnostico-fase1.html)** — El entregable maestro: Informe Diagnóstico Fase 1, sitio navegable autocontenido (menú lateral, scroll-spy, diagrama de arquitectura embebido).
+
+> Si abres una página del informe o del panel sin sesión, te lleva al acceso y desde ahí continúa sola al destino. En local hay que servir el sitio (`scripts/servidor-local.bat`), no abrir los archivos con doble clic: el acceso necesita un origen http.
 
 ## Estructura del repositorio
 
 ```
 proyectorower/
 ├── index.html                  Portal de navegación del proyecto
+├── acceso/                     Inicio de sesión (Supabase Auth) — la única puerta
 ├── informe/
 │   └── fase1/                  Informe Diagnóstico Fase 1 (entregable maestro)
 ├── presentaciones/             Presentaciones web del proyecto (Junta, comités…)

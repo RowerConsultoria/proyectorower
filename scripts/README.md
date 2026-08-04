@@ -128,6 +128,25 @@ pip install playwright
 playwright install chromium
 ```
 
+…y **credenciales del aplicativo**, desde que hay login (04-ago-2026): las
+páginas rebotan a `/acceso/`, así que un navegador sin sesión solo ve la pantalla
+de acceso y todas las comprobaciones «revientan» a la vez.
+
+```powershell
+$env:ROWER_CORREO = "tu@correo"
+$env:ROWER_CLAVE  = "tu clave"
+```
+
+Lo resuelve [`sesion_prueba.py`](sesion_prueba.py): pide el token con esas
+credenciales y lo siembra en `localStorage` (`add_init_script`) antes de que la
+página corra su primer script — lo mismo que hace la pantalla de acceso. Los
+guiones usan `sesion_prueba.pagina(nav, SES, …)` en lugar de `nav.new_page(…)`.
+Sin credenciales cortan con **código 2** y un mensaje que lo dice, en vez de
+fallar de trece maneras distintas.
+
+`sincronizar-asistente.py` es aparte: escribe en `conocimiento`, así que necesita
+la clave de servicio en `$env:SUPABASE_SERVICE_KEY` (ver `supabase/README.md`).
+
 ## Primer arranque (una sola vez)
 
 1. **Clonar el repo** en la carpeta que quieras (ver README principal).

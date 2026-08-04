@@ -11,6 +11,10 @@ backup_*.html
 # Node (si algún módulo llega a usar tooling)
 node_modules/
 
+# Python (caché de los guiones de scripts/)
+__pycache__/
+*.pyc
+
 # Credenciales — nunca al repositorio
 .env
 .env.*

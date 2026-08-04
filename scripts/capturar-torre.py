@@ -15,6 +15,8 @@ import io
 import os
 import sys
 
+import sesion_prueba          # siembra la sesión: el aplicativo está detrás de /acceso/
+
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 from playwright.sync_api import sync_playwright
@@ -30,7 +32,7 @@ ARGS = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshade
 def main():
     with sync_playwright() as pw:
         b = pw.chromium.launch(args=ARGS)
-        p = b.new_page(viewport={'width': 1600, 'height': 900})
+        p = sesion_prueba.pagina(b, sesion_prueba.exigir(), viewport={'width': 1600, 'height': 900})
         errs = []
         p.on('pageerror', lambda e: errs.append(str(e)[:160]))
         p.goto(URL, wait_until='networkidle')

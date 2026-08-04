@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rower · Admin</title>
+<!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
+<script src="../supabase/sesion.js" data-proteger></script>
 <style>
   :root{
     --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
@@ -52,11 +54,18 @@
   .topbar .conn{display:flex; align-items:center; gap:7px; font-size:.82rem; color:var(--muted);}
   .dot{width:9px; height:9px; border-radius:50%; background:#c7ccd6;}
   .dot.ok{background:var(--verde);} .dot.err{background:var(--rojo);}
-  .warn-banner{
-    background:#fdf1de; color:#7a4d00; border:1px solid #f0d9ad; border-radius:7px;
-    padding:6px 12px; font-size:.78rem; margin-left:auto; max-width:640px;
+  /* Identidad de la sesión (sustituye al viejo aviso de "modo sin autenticación") */
+  .sesion{margin-left:auto; display:flex; align-items:center; gap:9px; font-size:.82rem; color:var(--muted);}
+  .sesion .ini{
+    width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; flex:0 0 auto;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.72rem;
   }
-  .warn-banner strong{color:var(--ambar);}
+  .sesion .quien{max-width:260px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .sesion .btn-salir{
+    border:1px solid var(--borde); background:#fff; color:var(--rojo); border-radius:6px;
+    padding:4px 10px; font:inherit; font-size:.78rem; cursor:pointer;
+  }
+  .sesion .btn-salir:hover{background:#fbeaea; border-color:var(--rojo);}
   .view{padding:26px 28px 60px; max-width:1180px;}
 
   /* ---------- Headings & bits ---------- */
@@ -228,7 +237,7 @@
     body.nav-open .sidebar{transform:translateX(0);}
     body.nav-open .scrim{display:block; position:fixed; inset:0; background:rgba(15,25,45,.5); z-index:55;}
     nav{display:block;}
-    .warn-banner{display:none;}
+    .sesion .quien{display:none;}
     .topbar{padding:8px 14px;}
     .view{padding:18px 15px 60px;}
     .page-head{flex-wrap:wrap;}
@@ -275,7 +284,11 @@
     <div class="topbar">
       <button class="menu-toggle" onclick="document.body.classList.toggle('nav-open')" aria-label="Menú">☰</button>
       <div class="conn"><span class="dot" id="connDot"></span> <span id="connTxt">Conectando…</span></div>
-      <div class="warn-banner"><strong>⚠ Modo sin autenticación.</strong> No cargues transcripciones reales sensibles hasta activar Auth (escritura anónima temporal).</div>
+      <div class="sesion" id="sesionBox">
+        <span class="ini" id="sesIni">·</span>
+        <span class="quien" id="sesQuien">Sesión activa</span>
+        <button class="btn-salir" id="sesSalir" type="button">Salir</button>
+      </div>
     </div>
     <div class="view" id="view"></div>
   </div>
@@ -317,6 +330,19 @@ if(!db){ setConn('err','Sin cliente Supabase'); }
 const FN_BASE   = (typeof SUPABASE_URL !== 'undefined') ? SUPABASE_URL : '';
 const FN_KEY    = (typeof SUPABASE_ANON_KEY !== 'undefined') ? SUPABASE_ANON_KEY : '';
 const FN_EXTRAER = FN_BASE + '/functions/v1/extraer-entrevista';
+
+/* Las Edge Functions exigen JWT desde el cierre del acceso anónimo: va la clave
+   publishable como apikey y el token del usuario (renovado si toca) como Bearer. */
+async function cabecerasFn(extra){
+  let token = null;
+  // El SDK es el dueño de la renovación en esta página (el guardia le cede el
+  // turno justo para no rotar el refresh_token a sus espaldas): se le pide a él.
+  if(db){ try { token = (await db.auth.getSession()).data.session?.access_token || null; } catch(e){ /* respaldo abajo */ } }
+  if(!token && window.rowerSesion){
+    try { token = await rowerSesion.tokenVivo(); } catch(e){ token = rowerSesion.token(); }
+  }
+  return Object.assign({ apikey: FN_KEY, Authorization: 'Bearer ' + (token || FN_KEY) }, extra || {});
+}
 
 /* ============================================================
    Router
@@ -492,7 +518,7 @@ async function importarArchivo(file){
   try{
     const r = await fetch(FN_EXTRAER, {
       method:'POST',
-      headers:{ 'content-type':'application/json', 'apikey': FN_KEY, 'Authorization':'Bearer '+FN_KEY },
+      headers: await cabecerasFn({ 'content-type':'application/json' }),
       body: JSON.stringify({ contenido: texto }),
     });
     let data = {};
@@ -1091,7 +1117,7 @@ async function enviarChat(){
   try {
     const r = await fetch(FN_ASISTENTE, {
       method: 'POST',
-      headers: { 'Content-Type':'application/json', apikey: FN_KEY, Authorization: `Bearer ${FN_KEY}` },
+      headers: await cabecerasFn({ 'Content-Type':'application/json' }),
       body: JSON.stringify({ mensajes }),
     });
     if(!r.ok || !r.body) throw new Error(`HTTP ${r.status}: ${await r.text()}`);
@@ -1134,6 +1160,20 @@ function actualizarUltimaBurbuja(m){
   el.innerHTML = burbujaAsistente(m);
   wrap.scrollTop = wrap.scrollHeight;
 }
+
+/* ---- identidad de la sesión en la barra superior ---- */
+(function pintarSesion(){
+  const u = window.rowerSesion ? rowerSesion.usuario() : null;
+  const correo = (u && u.email) || '';
+  const nombre = (u && u.user_metadata && u.user_metadata.nombre) || '';
+  $('#sesIni').textContent = (correo.charAt(0) || 'R').toUpperCase();
+  $('#sesQuien').textContent = nombre ? `${nombre} · ${correo}` : (correo || 'Sesión activa');
+  $('#sesQuien').title = correo;
+  $('#sesSalir').addEventListener('click', ()=>{
+    if(!confirm('¿Cerrar la sesión del panel?')) return;
+    if(window.rowerSesion) rowerSesion.salir(); else location.reload();
+  });
+})();
 
 /* ---- arranque ---- */
 router();

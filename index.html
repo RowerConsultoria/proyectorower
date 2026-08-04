@@ -54,6 +54,29 @@
   .b-admin{background:#e3eefb; color:var(--navy);}
   a.card.admin{border-left-color:var(--navy);}
   a.card.front{border-left-color:var(--verde);}
+  a.card .llave{
+    display:block; margin-top:10px; font-size:.8rem; color:var(--muted, #7a8496);
+    border-top:1px dashed var(--borde); padding-top:8px;
+  }
+  /* Estado de la sesión */
+  .sesion{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:var(--gris); border:1px solid var(--borde); border-left:4px solid var(--navy);
+    border-radius:8px; padding:10px 15px; font-size:.88rem; color:#55627a; margin-bottom:6px;
+  }
+  .sesion .ini{
+    width:28px; height:28px; border-radius:50%; background:var(--navy); color:#fff; flex:0 0 auto;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.78rem;
+  }
+  .sesion b{color:var(--navy);}
+  .sesion .acciones{margin-left:auto; display:flex; gap:9px;}
+  .sesion button, .sesion a.mini{
+    border:1px solid var(--borde); background:#fff; color:var(--navy); border-radius:6px;
+    padding:5px 11px; font:inherit; font-size:.8rem; cursor:pointer; text-decoration:none;
+  }
+  .sesion button:hover, .sesion a.mini:hover{border-color:var(--blue);}
+  .sesion button.salir{color:var(--rojo);}
+  .sesion button.salir:hover{background:#fbeaea; border-color:var(--rojo);}
   .fechas{
     background:var(--gris); border:1px solid var(--borde); border-radius:8px;
     padding:16px 20px; margin-top:8px;
@@ -83,16 +106,23 @@
 
 <main>
   <h2>El aplicativo</h2>
+  <div class="sesion" id="sesionBox" style="display:none">
+    <span class="ini" id="sesIni">·</span>
+    <span id="sesTexto">Comprobando el acceso…</span>
+    <span class="acciones" id="sesAcciones"></span>
+  </div>
   <div class="grid">
-    <a class="card front" href="informe/fase1/informe-diagnostico-fase1.html">
-      <span class="badge b-activo">Front · Público</span>
+    <a class="card front" id="cInforme" href="acceso/?destino=informe%2Ffase1%2Finforme-diagnostico-fase1.html">
+      <span class="badge b-activo">Front · el informe</span>
       <h3>Informe Diagnóstico — Fase 1</h3>
-      <p>El entregable maestro: sitio navegable autocontenido (13 secciones, anexos y diagrama de arquitectura de IA). La cara pública del proyecto para la Junta Directiva del 24-jul.</p>
+      <p>El entregable maestro: sitio navegable autocontenido (13 secciones, anexos y diagrama de arquitectura de IA). La cara del proyecto para la Junta Directiva del 24-jul.</p>
+      <span class="llave">🔒 Requiere iniciar sesión</span>
     </a>
-    <a class="card admin" href="admin/">
+    <a class="card admin" id="cAdmin" href="acceso/?destino=admin%2F">
       <span class="badge b-admin">Admin · Interno</span>
       <h3>Panel administrativo</h3>
-      <p>Módulos internos con sidebar para el equipo consultor. Primer módulo activo: <strong>entrevistas transcritas</strong>. Datos persistidos en Supabase (fuera del repositorio).</p>
+      <p>Módulos internos con sidebar para el equipo consultor: Asistente IA, entrevistas transcritas, insumos y línea de tiempo. Datos persistidos en Supabase (fuera del repositorio).</p>
+      <span class="llave">🔒 Requiere iniciar sesión</span>
     </a>
   </div>
 </main>
@@ -101,5 +131,41 @@
   Proyecto Rower · UCAB Consultores para Grupo Kenex · Repositorio interno del equipo consultor
 </footer>
 
+<!-- Sin data-proteger: el portal es la puerta, no una página protegida.
+     Solo se usa para saber si ya hay sesión y ahorrarle el login al que ya entró. -->
+<script src="supabase/sesion.js"></script>
+<script>
+(function(){
+  const $ = (s)=>document.querySelector(s);
+  const CAMINOS = {
+    cInforme: 'informe/fase1/informe-diagnostico-fase1.html',
+    cAdmin:   'admin/',
+  };
+  const caja = $('#sesionBox');
+  if(!window.rowerSesion) return;               // sin el guardia, las tarjetas ya van al login
+
+  if(!rowerSesion.viva()){
+    caja.style.display = 'flex';
+    $('#sesIni').textContent = '🔒';
+    $('#sesTexto').innerHTML = 'Acceso restringido al equipo del proyecto. Al elegir un camino se pide <b>correo y clave</b>.';
+    $('#sesAcciones').innerHTML = '<a class="mini" href="acceso/">Iniciar sesión</a>';
+    return;
+  }
+
+  // Ya hay sesión: las tarjetas van directas y se ofrece cerrar sesión.
+  const correo = rowerSesion.correo();
+  const u = rowerSesion.usuario() || {};
+  const nombre = (u.user_metadata && u.user_metadata.nombre) || '';
+  caja.style.display = 'flex';
+  $('#sesIni').textContent = (correo.charAt(0) || 'R').toUpperCase();
+  $('#sesTexto').innerHTML = 'Sesión activa como <b>' + (nombre ? nombre + '</b> (' + correo + ')' : correo + '</b>');
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'salir'; b.textContent = 'Cerrar sesión';
+  b.addEventListener('click', ()=> rowerSesion.salir(false));
+  $('#sesAcciones').appendChild(b);
+  Object.keys(CAMINOS).forEach(id => { const a = $('#'+id); if(a) a.href = CAMINOS[id]; });
+  document.querySelectorAll('a.card .llave').forEach(el => { el.textContent = '🔓 Acceso verificado — entra directo'; });
+})();
+</script>
 </body>
 </html>
