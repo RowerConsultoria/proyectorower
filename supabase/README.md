@@ -49,12 +49,44 @@ Todo el aplicativo vive detrás de la pantalla **[`/acceso/`](../acceso/index.ht
   …o Dashboard → **Authentication → Users → Add user**, marcando **Auto Confirm User** (el proyecto no tiene SMTP propio, así que sin autoconfirmar la cuenta no puede entrar).
 - **Reponer una clave:** `PUT /auth/v1/admin/users/<id>` con `{"password":"…"}`, o desde el Dashboard.
 - **Quién tiene acceso:** `select email, raw_user_meta_data->>'nombre', last_sign_in_at from auth.users order by created_at;`
-- **Perfiles:** hoy toda cuenta autenticada ve el informe *y* el panel. Para separar (Junta = solo informe) el sitio es `user_metadata.rol` + chequeo en el guardia + políticas por rol.
 - **Duración de sesión:** el token dura 1 h y el guardia lo renueva de fondo cuando falta poco; si venció del todo, pasa por `/acceso/`, que lo restaura sin pedir nada y reenvía al destino.
+
+> En la práctica no hace falta nada de lo de arriba: el panel tiene el módulo **Usuarios**, que hace las altas, las claves y los roles desde la pantalla. El `curl` queda como salida de emergencia si alguien se queda sin ningún administrador.
+
+## Roles y permisos
+
+Cuatro roles semilla y diez permisos (§10 de `schema.sql`). Se administran desde el panel: **Usuarios** y **Roles y permisos**.
+
+| Rol | Para qué es | Permisos |
+|---|---|---|
+| `admin` | Gobierna el aplicativo | los 10 |
+| `consultor` | Equipo de UCAB: informe y todos los módulos de trabajo | 8 (todo menos los dos del gobierno del acceso) |
+| `junta` | Lectura del informe, para la Junta de Kenex | 1 (`ver.informe`) |
+| `pendiente` | Donde cae toda cuenta nueva de origen desconocido | 0 |
+
+Los permisos: `ver.informe` · `ver.sistema` · `admin.entrar` · `admin.asistente` · `admin.entrevistas` · `admin.archivos` · `admin.timeline` · `admin.informe` · `admin.usuarios` · `admin.roles`.
+
+**Cómo se cumplen.** La misma clave se comprueba en tres capas, y solo la última manda:
+
+1. el **menú** del panel oculta lo que la cuenta no puede usar;
+2. el **guardia** (`sesion.js` con `data-permiso`) rebota la página al acceso;
+3. **`public.tiene_permiso(clave)`** dentro de cada política de RLS cierra el dato. Sin el permiso, la consulta vuelve vacía aunque alguien reescriba el JavaScript.
+
+**Piezas del modelo** (§10): `perfiles` (un perfil por cuenta, con `rol` y `activo`) · `roles` · `permisos` (catálogo, **acoplado al código**: añadir una fila no crea un permiso que nadie comprueba) · `roles_permisos` (la matriz) · `tiene_permiso(clave)` y `mi_acceso()` (ambas `security definer`, para que las políticas que las llaman no entren en recursión).
+
+**Cerrojos para no dejarse fuera:**
+- El rol `admin` no puede perder `admin.usuarios` ni `admin.roles` (trigger `proteger_gobierno`; en la matriz la casilla sale fija).
+- Los roles `es_sistema` no se borran (trigger `proteger_roles_sistema`); ninguno se borra si tiene cuentas (la FK lo impide).
+- La Edge Function `usuarios` rechaza desactivar, cambiar de rol o eliminar **la última** cuenta activa que gobierna el acceso, y nadie puede desactivarse o eliminarse a sí mismo.
+
+> ⚠️ **Dar de baja NO revoca el token de Auth**: Supabase no sabe de nuestro flag `activo`. Una cuenta de baja sigue recibiendo token, pero `tiene_permiso` exige `pf.activo`, así que no ve ni una fila, y el guardia la manda al acceso con «cuenta desactivada». Si hace falta cortar en seco, elimina la cuenta.
+
+**Cambiar el catálogo de permisos** (porque el código empieza a comprobar uno nuevo): añadir la fila en la §10 de `schema.sql`, ejecutarla, y concederlo en la matriz. Los `insert … on conflict do nothing` de la semilla hacen que re-ejecutar el archivo **no deshaga** los ajustes hechos desde la pantalla.
 
 ## Seguridad (RLS)
 
-- **Lectura y escritura: solo `authenticated`.** Con la clave publishable (pública, está en el repo) no se ve ni una fila: comprobado tabla por tabla y también contra el bucket `insumos`.
+- **Lectura y escritura: sesión + el permiso del módulo.** Con la clave publishable (pública, está en el repo) no se ve ni una fila: comprobado tabla por tabla y también contra el bucket `insumos`. Con sesión, cada tabla pide lo suyo — `entrevistas` → `admin.entrevistas`, `archivos` y el bucket → `admin.archivos`, `eventos` → `admin.timeline`, `conocimiento`/`fragmentos` → `admin.asistente`, `secciones`/`comentarios`/`riesgos` → `admin.informe`.
+- ⚠️ **Las políticas viven al final de `schema.sql`, no junto a su tabla:** necesitan `tiene_permiso()`, que nace en la §10. Si se mueven arriba, el archivo deja de poder ejecutarse de una pasada en un proyecto nuevo.
 - Las **políticas anónimas transitorias quedaron cerradas** el 04-ago-2026: `entrevistas_escritura_anon`, `archivos_escritura_anon`, `eventos_escritura_anon`, `conocimiento_escritura_anon`, `fragmentos_escritura_anon` e `insumos_anon`. **No reabrirlas** — aquí viven las transcripciones íntegras y el bucket con nóminas reales.
 - Las **Edge Functions** usan la clave de servicio para leer/escribir, así que saltan RLS por diseño; su puerta es `_shared/acceso.ts`.
 - **Escrituras desde guiones** (p. ej. `scripts/sincronizar-asistente.py`) necesitan la clave de servicio en el entorno: `$env:SUPABASE_SERVICE_KEY = "..."`. Nunca en el repositorio.
@@ -70,6 +102,7 @@ Todo el aplicativo vive detrás de la pantalla **[`/acceso/`](../acceso/index.ht
 | [`extraer-entrevista`](functions/extraer-entrevista/index.ts) | Recibe el texto crudo de una entrevista y usa Claude (`claude-opus-4-8`) para extraer los metadatos del formulario del módulo admin. |
 | [`asistente`](functions/asistente/index.ts) | Chat streaming (SSE) sobre el corpus para el módulo «Asistente IA»: Claude Opus 4.8 con la síntesis completa en contexto (prompt caching) + herramientas `buscar_pasajes`/`leer_entrevista`/`linea_tiempo`/`listar_archivos`. |
 | [`indexar`](functions/indexar/index.ts) | Indexación automática del corpus (la disparan los triggers pg_net de schema §8 al cargar entrevistas/archivos): extrae texto (diálogo del transcriptor, xlsx vía SheetJS, pdf vía unpdf, docx/pptx vía JSZip), trocea a `fragmentos` y sintetiza con Claude hacia `conocimiento`. Acepta `{tipo,id}` o `{todo:true}` (backfill por lotes). |
+| [`usuarios`](functions/usuarios/index.ts) | Administración de cuentas para el módulo «Usuarios»: `listar`, `crear`, `actualizar`, `clave`, `eliminar`. Crear una cuenta o reponer una clave exige la clave de servicio, que no puede estar en el navegador — por eso existe esta función, y por eso vuelve a comprobar `admin.usuarios` en el llamante (**403** si no lo tiene). |
 | [`_shared/acceso.ts`](functions/_shared/acceso.ts) | La puerta común: `identificar(req)` acepta la credencial interna (secreto `ROWER_CLAVE_INTERNA`, que usan los triggers) o un JWT de sesión validado contra `/auth/v1/user`. Con la clave publishable devuelve **401**. |
 
 - **Secretos requeridos:** `ANTHROPIC_API_KEY` (token `sk-ant-…`) y `ROWER_CLAVE_INTERNA` (credencial interna del proyecto). Se guardan en Supabase, **nunca** en el repo ni en el cliente: `supabase secrets set NOMBRE=... --project-ref <ref>`.

@@ -60,20 +60,7 @@ alter table public.secciones   enable row level security;
 alter table public.comentarios enable row level security;
 alter table public.riesgos     enable row level security;
 
-drop policy if exists secciones_lectura   on public.secciones;
-drop policy if exists secciones_escritura on public.secciones;
-create policy secciones_lectura   on public.secciones   for select to authenticated using (true);
-create policy secciones_escritura on public.secciones   for all    to authenticated using (true) with check (true);
-
-drop policy if exists comentarios_lectura   on public.comentarios;
-drop policy if exists comentarios_escritura on public.comentarios;
-create policy comentarios_lectura   on public.comentarios for select to authenticated using (true);
-create policy comentarios_escritura on public.comentarios for all    to authenticated using (true) with check (true);
-
-drop policy if exists riesgos_lectura   on public.riesgos;
-drop policy if exists riesgos_escritura on public.riesgos;
-create policy riesgos_lectura   on public.riesgos   for select to authenticated using (true);
-create policy riesgos_escritura on public.riesgos   for all    to authenticated using (true) with check (true);
+-- Las políticas viven en la §10 (necesitan public.tiene_permiso, que nace allí).
 
 -- ---------- Datos iniciales: estado del informe al 17-jul-2026 ----------
 insert into public.secciones (id, numero, titulo, estado, responsable, notas) values
@@ -124,11 +111,7 @@ create trigger trg_entrevistas_touch
 
 alter table public.entrevistas enable row level security;
 
-drop policy if exists entrevistas_lectura   on public.entrevistas;
-drop policy if exists entrevistas_escritura on public.entrevistas;
-create policy entrevistas_lectura   on public.entrevistas for select to authenticated using (true);
-create policy entrevistas_escritura on public.entrevistas for all    to authenticated using (true) with check (true);
-
+-- Las políticas viven en la §10 (necesitan public.tiene_permiso, que nace allí).
 -- La política anónima transitoria quedó CERRADA el 04-ago-2026 al activar Auth.
 -- No reabrirla: aquí viven las transcripciones íntegras del corpus.
 drop policy if exists entrevistas_escritura_anon on public.entrevistas;
@@ -147,12 +130,10 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('insumos', 'insumos', false, 104857600)   -- 100 MB por archivo, bucket privado
 on conflict (id) do nothing;
 
--- El bucket es privado y solo lo ve quien tenga sesión: aquí hay nóminas reales.
--- insumos_anon quedó CERRADA el 04-ago-2026 al activar Auth — no reabrirla.
+-- El bucket es privado y solo lo ve quien tenga el permiso admin.archivos: aquí
+-- hay nóminas reales. insumos_anon quedó CERRADA el 04-ago-2026 — no reabrirla.
+-- La política vive en la §10.
 drop policy if exists insumos_anon on storage.objects;
-drop policy if exists insumos_auth on storage.objects;
-create policy insumos_auth on storage.objects
-  for all to authenticated using (bucket_id = 'insumos') with check (bucket_id = 'insumos');
 
 create table if not exists public.archivos (
   id            uuid primary key default gen_random_uuid(),
@@ -170,11 +151,8 @@ create table if not exists public.archivos (
 
 alter table public.archivos enable row level security;
 
-drop policy if exists archivos_lectura        on public.archivos;
-drop policy if exists archivos_escritura       on public.archivos;
-drop policy if exists archivos_escritura_anon  on public.archivos;   -- cerrada el 04-ago-2026
-create policy archivos_lectura        on public.archivos for select to authenticated using (true);
-create policy archivos_escritura      on public.archivos for all    to authenticated using (true) with check (true);
+-- Las políticas viven en la §10 (necesitan public.tiene_permiso, que nace allí).
+drop policy if exists archivos_escritura_anon on public.archivos;   -- cerrada el 04-ago-2026
 
 -- ---------- 6. Línea de tiempo (bitácora del proyecto) ----------
 -- Eventos día a día del proyecto consultor: entrevistas, reuniones internas,
@@ -196,11 +174,8 @@ create table if not exists public.eventos (
 
 alter table public.eventos enable row level security;
 
-drop policy if exists eventos_lectura        on public.eventos;
-drop policy if exists eventos_escritura      on public.eventos;
+-- Las políticas viven en la §10 (necesitan public.tiene_permiso, que nace allí).
 drop policy if exists eventos_escritura_anon on public.eventos;      -- cerrada el 04-ago-2026
-create policy eventos_lectura   on public.eventos for select to authenticated using (true);
-create policy eventos_escritura on public.eventos for all    to authenticated using (true) with check (true);
 
 -- ---------- 7. Asistente IA (conocimiento + fragmentos) ----------
 -- Base de conocimiento del asistente conversacional del admin:
@@ -269,17 +244,9 @@ $$;
 alter table public.conocimiento enable row level security;
 alter table public.fragmentos   enable row level security;
 
-drop policy if exists conocimiento_lectura        on public.conocimiento;
-drop policy if exists conocimiento_escritura      on public.conocimiento;
+-- Las políticas viven en la §10 (necesitan public.tiene_permiso, que nace allí).
 drop policy if exists conocimiento_escritura_anon on public.conocimiento;   -- cerrada el 04-ago-2026
-create policy conocimiento_lectura   on public.conocimiento for select to authenticated using (true);
-create policy conocimiento_escritura on public.conocimiento for all    to authenticated using (true) with check (true);
-
-drop policy if exists fragmentos_lectura        on public.fragmentos;
-drop policy if exists fragmentos_escritura      on public.fragmentos;
-drop policy if exists fragmentos_escritura_anon on public.fragmentos;       -- cerrada el 04-ago-2026
-create policy fragmentos_lectura   on public.fragmentos for select to authenticated using (true);
-create policy fragmentos_escritura on public.fragmentos for all    to authenticated using (true) with check (true);
+drop policy if exists fragmentos_escritura_anon   on public.fragmentos;     -- cerrada el 04-ago-2026
 
 -- ---------- 8. Indexación automática del corpus ----------
 -- Cada entrevista o archivo que se carga dispara (vía pg_net) la Edge Function
@@ -392,3 +359,328 @@ create trigger archivos_indexar_ins
 -- Cuando haga falta separar perfiles (Junta = solo informe · equipo = admin),
 -- el sitio natural es user_metadata.rol + un chequeo en el guardia y políticas
 -- por rol; hoy toda cuenta autenticada ve todo.
+
+-- ---------- 10. Gobierno del acceso: usuarios, roles y permisos ----------
+-- Módulos «Usuarios» y «Roles y permisos» del panel admin.
+--
+-- El rol NO vive en user_metadata: eso lo puede editar el propio usuario con su
+-- sesión (se ascendería solo). Vive en public.perfiles, que solo escribe la
+-- Edge Function `usuarios` con la clave de servicio.
+--
+-- `permisos` es un CATÁLOGO acoplado al código: añadir una fila no crea un
+-- permiso nuevo si nadie lo comprueba. Se edita aquí, no desde la pantalla.
+
+create table if not exists public.permisos (
+  clave       text primary key,             -- 'admin.entrevistas'
+  nombre      text not null,
+  descripcion text,
+  grupo       text not null default 'Panel', -- 'Front' | 'Panel' | 'Gobierno del acceso'
+  orden       int  not null default 100
+);
+
+create table if not exists public.roles (
+  clave       text primary key,             -- 'admin', 'consultor', 'junta', 'pendiente'
+  nombre      text not null,
+  descripcion text,
+  es_sistema  boolean not null default false, -- no se puede borrar desde la pantalla
+  orden       int not null default 100,
+  creado_en   timestamptz not null default now()
+);
+
+create table if not exists public.roles_permisos (
+  rol     text not null references public.roles(clave)    on delete cascade,
+  permiso text not null references public.permisos(clave) on delete cascade,
+  primary key (rol, permiso)
+);
+
+-- Un perfil por cuenta de auth.users. Se crea solo (trigger de abajo), así que
+-- una cuenta dada de alta desde el Dashboard tampoco queda sin gobierno: cae en
+-- el rol 'pendiente', que no tiene ningún permiso.
+create table if not exists public.perfiles (
+  id             uuid primary key references auth.users(id) on delete cascade,
+  correo         text,
+  nombre         text,
+  rol            text not null default 'pendiente' references public.roles(clave),
+  activo         boolean not null default true,
+  notas          text,
+  creado_en      timestamptz not null default now(),
+  actualizado_en timestamptz not null default now()
+);
+create index if not exists perfiles_rol_idx on public.perfiles (rol);
+
+drop trigger if exists trg_perfiles_touch on public.perfiles;
+create trigger trg_perfiles_touch
+  before update on public.perfiles
+  for each row execute function public.touch_actualizado_en();
+
+-- ---------- Semilla: los cuatro roles y los diez permisos ----------
+insert into public.permisos (clave, nombre, descripcion, grupo, orden) values
+  ('ver.informe',     'Ver el informe',        'Informe Diagnóstico Fase 1 y sus módulos: organigramas, mapa de procesos, presentación y la torre de arquitectura de IA.', 'Front', 10),
+  ('ver.sistema',     'Ver el prototipo',      'Prototipo del sistema Kenex y sus dos portales (vendedor y cliente).', 'Front', 20),
+  ('admin.entrar',    'Entrar al panel',       'Abrir el panel administrativo. Sin este permiso no se ve ningún módulo interno.', 'Panel', 30),
+  ('admin.asistente', 'Asistente IA',          'Conversar con el corpus completo del proyecto: entrevistas crudas, síntesis y notas internas. Gasta cuota de Anthropic.', 'Panel', 40),
+  ('admin.entrevistas','Entrevistas transcritas','Leer, crear y editar las transcripciones íntegras de las entrevistas.', 'Panel', 50),
+  ('admin.archivos',  'Archivos (insumos)',    'Subir, descargar y borrar los insumos del bucket. Incluye material sensible como las escalas salariales.', 'Panel', 60),
+  ('admin.timeline',  'Línea de tiempo',       'Bitácora cronológica del proyecto.', 'Panel', 70),
+  ('admin.informe',   'Estado del informe',    'Estado por sección, comentarios de los consultores y matriz de riesgos.', 'Panel', 80),
+  ('admin.usuarios',  'Administrar usuarios',  'Crear cuentas, reponer claves, asignar roles y dar de baja. Permiso delicado.', 'Gobierno del acceso', 90),
+  ('admin.roles',     'Definir roles',         'Crear roles y decidir qué puede hacer cada uno. Permiso delicado.', 'Gobierno del acceso', 100)
+on conflict (clave) do update
+  set nombre = excluded.nombre, descripcion = excluded.descripcion,
+      grupo = excluded.grupo, orden = excluded.orden;
+
+insert into public.roles (clave, nombre, descripcion, es_sistema, orden) values
+  ('admin',     'Administrador', 'Gobierna el aplicativo: todos los módulos y la administración de accesos.', true, 10),
+  ('consultor', 'Consultor',     'Equipo de UCAB Consultores: el informe y todos los módulos de trabajo, sin tocar accesos.', true, 20),
+  ('junta',     'Junta',         'Lectura del informe. Pensado para la Junta Directiva de Kenex.', true, 30),
+  ('pendiente', 'Sin accesos',   'Cuenta creada pero sin permisos todavía. Es donde cae toda cuenta nueva de origen desconocido.', true, 90)
+on conflict (clave) do nothing;
+
+-- Matriz inicial. Solo se siembra lo que falte: si alguien ya ajustó un rol
+-- desde la pantalla, re-ejecutar este archivo no le deshace el trabajo.
+insert into public.roles_permisos (rol, permiso)
+select 'admin', clave from public.permisos
+on conflict do nothing;
+
+insert into public.roles_permisos (rol, permiso)
+select 'consultor', clave from public.permisos
+ where clave in ('ver.informe','ver.sistema','admin.entrar','admin.asistente',
+                 'admin.entrevistas','admin.archivos','admin.timeline','admin.informe')
+on conflict do nothing;
+
+insert into public.roles_permisos (rol, permiso) values ('junta','ver.informe')
+on conflict do nothing;
+-- 'pendiente' se queda a propósito sin ninguna fila.
+
+-- ---------- Perfil automático al crear una cuenta ----------
+create or replace function public.crear_perfil_auth()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.perfiles (id, correo, nombre, rol)
+  values (
+    new.id,
+    new.email,
+    nullif(trim(coalesce(new.raw_user_meta_data->>'nombre', '')), ''),
+    case when exists (select 1 from public.roles r
+                       where r.clave = coalesce(new.raw_user_meta_data->>'rol', ''))
+         then new.raw_user_meta_data->>'rol'
+         else 'pendiente' end
+  )
+  on conflict (id) do nothing;
+  return new;
+end;
+$$;
+
+drop trigger if exists auth_users_perfil on auth.users;
+create trigger auth_users_perfil
+  after insert on auth.users
+  for each row execute function public.crear_perfil_auth();
+
+-- Perfil para las cuentas que ya existían antes de este módulo.
+insert into public.perfiles (id, correo, nombre, rol)
+select u.id, u.email,
+       nullif(trim(coalesce(u.raw_user_meta_data->>'nombre','')), ''),
+       'pendiente'
+  from auth.users u
+ where not exists (select 1 from public.perfiles p where p.id = u.id)
+on conflict (id) do nothing;
+
+-- ---------- Los dos ayudantes que usan TODAS las políticas ----------
+-- security definer: leen perfiles/roles_permisos saltándose RLS, para que las
+-- políticas que los invocan no entren en recursión.
+create or replace function public.tiene_permiso(p text)
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+      from public.perfiles pf
+      join public.roles_permisos rp on rp.rol = pf.rol
+     where pf.id = auth.uid()
+       and pf.activo
+       and rp.permiso = p
+  );
+$$;
+
+-- Lo que el navegador necesita saber de sí mismo (RPC del guardia y del admin).
+create or replace function public.mi_acceso()
+returns jsonb
+language plpgsql
+stable
+security definer
+set search_path = public
+as $$
+declare
+  pf    record;
+  perms jsonb;
+begin
+  select p.id, p.correo, p.nombre, p.rol, p.activo, r.nombre as rol_nombre
+    into pf
+    from public.perfiles p
+    left join public.roles r on r.clave = p.rol
+   where p.id = auth.uid();
+
+  if pf.id is null then
+    return jsonb_build_object('existe', false, 'activo', false, 'permisos', '[]'::jsonb);
+  end if;
+
+  if pf.activo then
+    select coalesce(jsonb_agg(rp.permiso order by rp.permiso), '[]'::jsonb)
+      into perms
+      from public.roles_permisos rp
+     where rp.rol = pf.rol;
+  else
+    perms := '[]'::jsonb;
+  end if;
+
+  return jsonb_build_object(
+    'existe', true, 'id', pf.id, 'correo', pf.correo, 'nombre', pf.nombre,
+    'rol', pf.rol, 'rol_nombre', pf.rol_nombre, 'activo', pf.activo,
+    'permisos', perms);
+end;
+$$;
+
+revoke all on function public.mi_acceso() from anon;
+revoke all on function public.tiene_permiso(text) from anon;
+
+-- ---------- Que nadie se deje fuera ----------
+-- El rol 'admin' no puede perder el gobierno del acceso, ni por descuido ni por
+-- un clic en la matriz: sin admin.usuarios/admin.roles nadie podría reabrirlo.
+create or replace function public.proteger_gobierno()
+returns trigger
+language plpgsql
+as $$
+begin
+  if old.rol = 'admin' and old.permiso in ('admin.usuarios', 'admin.roles') then
+    raise exception 'El rol Administrador no puede quedarse sin «%»: nadie podría volver a repartir accesos', old.permiso;
+  end if;
+  return old;
+end;
+$$;
+
+drop trigger if exists trg_proteger_gobierno on public.roles_permisos;
+create trigger trg_proteger_gobierno
+  before delete on public.roles_permisos
+  for each row execute function public.proteger_gobierno();
+
+create or replace function public.proteger_roles_sistema()
+returns trigger
+language plpgsql
+as $$
+begin
+  if old.es_sistema then
+    raise exception 'El rol «%» es de sistema: se puede reasignar sus permisos, no borrarlo', old.nombre;
+  end if;
+  return old;
+end;
+$$;
+
+drop trigger if exists trg_proteger_roles_sistema on public.roles;
+create trigger trg_proteger_roles_sistema
+  before delete on public.roles
+  for each row execute function public.proteger_roles_sistema();
+
+-- ---------- RLS del gobierno del acceso ----------
+alter table public.permisos       enable row level security;
+alter table public.roles          enable row level security;
+alter table public.roles_permisos enable row level security;
+alter table public.perfiles       enable row level security;
+
+-- Catálogo de permisos: se lee (para pintar la matriz), no se escribe desde la app.
+drop policy if exists permisos_lectura on public.permisos;
+create policy permisos_lectura on public.permisos for select to authenticated using (true);
+
+-- Roles y matriz: los ve cualquier autenticado; los cambia quien tenga admin.roles.
+drop policy if exists roles_lectura   on public.roles;
+drop policy if exists roles_escritura on public.roles;
+create policy roles_lectura   on public.roles for select to authenticated using (true);
+create policy roles_escritura on public.roles for all    to authenticated
+  using (public.tiene_permiso('admin.roles')) with check (public.tiene_permiso('admin.roles'));
+
+drop policy if exists roles_permisos_lectura   on public.roles_permisos;
+drop policy if exists roles_permisos_escritura on public.roles_permisos;
+create policy roles_permisos_lectura   on public.roles_permisos for select to authenticated using (true);
+create policy roles_permisos_escritura on public.roles_permisos for all    to authenticated
+  using (public.tiene_permiso('admin.roles')) with check (public.tiene_permiso('admin.roles'));
+
+-- Perfiles: cada quien ve el suyo; la lista completa, solo con admin.usuarios.
+-- La ESCRITURA no tiene política: se hace por la Edge Function `usuarios`, que
+-- usa la clave de servicio y comprueba el permiso del llamante.
+drop policy if exists perfiles_lectura on public.perfiles;
+create policy perfiles_lectura on public.perfiles for select to authenticated
+  using (id = auth.uid() or public.tiene_permiso('admin.usuarios'));
+
+-- ---------- Las políticas de TODO el esquema, por permiso ----------
+-- Van al final a propósito: `tiene_permiso()` tiene que existir antes.
+-- Cada tabla pide el permiso de SU módulo, el mismo que comprueban el panel
+-- y las Edge Functions. Cambiar un permiso en el módulo «Roles y permisos»
+-- cambia lo que la base de datos deja ver, sin tocar este archivo.
+
+drop policy if exists secciones_lectura   on public.secciones;
+drop policy if exists secciones_escritura on public.secciones;
+create policy secciones_lectura   on public.secciones for select to authenticated
+  using (public.tiene_permiso('admin.informe'));
+create policy secciones_escritura on public.secciones for all to authenticated
+  using (public.tiene_permiso('admin.informe')) with check (public.tiene_permiso('admin.informe'));
+
+drop policy if exists comentarios_lectura   on public.comentarios;
+drop policy if exists comentarios_escritura on public.comentarios;
+create policy comentarios_lectura   on public.comentarios for select to authenticated
+  using (public.tiene_permiso('admin.informe'));
+create policy comentarios_escritura on public.comentarios for all to authenticated
+  using (public.tiene_permiso('admin.informe')) with check (public.tiene_permiso('admin.informe'));
+
+drop policy if exists riesgos_lectura   on public.riesgos;
+drop policy if exists riesgos_escritura on public.riesgos;
+create policy riesgos_lectura   on public.riesgos for select to authenticated
+  using (public.tiene_permiso('admin.informe'));
+create policy riesgos_escritura on public.riesgos for all to authenticated
+  using (public.tiene_permiso('admin.informe')) with check (public.tiene_permiso('admin.informe'));
+
+drop policy if exists entrevistas_lectura   on public.entrevistas;
+drop policy if exists entrevistas_escritura on public.entrevistas;
+create policy entrevistas_lectura   on public.entrevistas for select to authenticated
+  using (public.tiene_permiso('admin.entrevistas'));
+create policy entrevistas_escritura on public.entrevistas for all to authenticated
+  using (public.tiene_permiso('admin.entrevistas')) with check (public.tiene_permiso('admin.entrevistas'));
+
+drop policy if exists archivos_lectura   on public.archivos;
+drop policy if exists archivos_escritura on public.archivos;
+create policy archivos_lectura   on public.archivos for select to authenticated
+  using (public.tiene_permiso('admin.archivos'));
+create policy archivos_escritura on public.archivos for all to authenticated
+  using (public.tiene_permiso('admin.archivos')) with check (public.tiene_permiso('admin.archivos'));
+
+drop policy if exists eventos_lectura   on public.eventos;
+drop policy if exists eventos_escritura on public.eventos;
+create policy eventos_lectura   on public.eventos for select to authenticated
+  using (public.tiene_permiso('admin.timeline'));
+create policy eventos_escritura on public.eventos for all to authenticated
+  using (public.tiene_permiso('admin.timeline')) with check (public.tiene_permiso('admin.timeline'));
+
+drop policy if exists conocimiento_lectura   on public.conocimiento;
+drop policy if exists conocimiento_escritura on public.conocimiento;
+create policy conocimiento_lectura   on public.conocimiento for select to authenticated
+  using (public.tiene_permiso('admin.asistente'));
+create policy conocimiento_escritura on public.conocimiento for all to authenticated
+  using (public.tiene_permiso('admin.asistente')) with check (public.tiene_permiso('admin.asistente'));
+
+drop policy if exists fragmentos_lectura   on public.fragmentos;
+drop policy if exists fragmentos_escritura on public.fragmentos;
+create policy fragmentos_lectura   on public.fragmentos for select to authenticated
+  using (public.tiene_permiso('admin.asistente'));
+create policy fragmentos_escritura on public.fragmentos for all to authenticated
+  using (public.tiene_permiso('admin.asistente')) with check (public.tiene_permiso('admin.asistente'));
+
+drop policy if exists insumos_anon on storage.objects;
+drop policy if exists insumos_auth on storage.objects;
+create policy insumos_auth on storage.objects for all to authenticated
+  using (bucket_id = 'insumos' and public.tiene_permiso('admin.archivos'))
+  with check (bucket_id = 'insumos' and public.tiene_permiso('admin.archivos'));

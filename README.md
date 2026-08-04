@@ -7,7 +7,8 @@ Repositorio central del **Proyecto Rower**: consultoría de Optimización Organi
 ## Cómo navegar
 
 - **[`index.html`](index.html)** — Portal de entrada: los dos caminos (el informe y el panel administrativo) pasan por la pantalla de acceso.
-- **[`acceso/index.html`](acceso/index.html)** — 🔑 **Inicio de sesión.** Desde el 04-ago-2026 el aplicativo pide correo y clave (Supabase Auth). Al entrar te devuelve al sitio al que ibas. Las cuentas las crea el equipo técnico: no hay registro abierto.
+- **[`acceso/index.html`](acceso/index.html)** — 🔑 **Inicio de sesión.** Desde el 04-ago-2026 el aplicativo pide correo y clave (Supabase Auth). Al entrar te devuelve al sitio al que ibas. Las cuentas las crea el equipo técnico desde el panel: no hay registro abierto.
+- **Qué ve cada quien** lo decide su **rol**. Hay cuatro de partida — *Administrador · Consultor · Junta · Sin accesos* — y se administran en el panel (módulos **Usuarios** y **Roles y permisos**). Un rol `Junta` ve el informe y nada más. Detalle en [`supabase/README.md`](supabase/README.md#roles-y-permisos).
 - **[`informe/fase1/informe-diagnostico-fase1.html`](informe/fase1/informe-diagnostico-fase1.html)** — El entregable maestro: Informe Diagnóstico Fase 1, sitio navegable autocontenido (menú lateral, scroll-spy, diagrama de arquitectura embebido).
 
 > Si abres una página del informe o del panel sin sesión, te lleva al acceso y desde ahí continúa sola al destino. En local hay que servir el sitio (`scripts/servidor-local.bat`), no abrir los archivos con doble clic: el acceso necesita un origen http.

@@ -3,21 +3,31 @@
 Sección **interna** del aplicativo Rower: módulos de trabajo del equipo consultor, con navegación por *sidebar*. Es la contraparte del **Front** (el informe navegable en `informe/fase1/`, cara pública del proyecto).
 
 - **Entrada:** [`admin/index.html`](index.html) (enlazado desde el portal raíz **a través de `/acceso/`**).
-- **Acceso:** exige sesión de Supabase Auth. El guardia [`../supabase/sesion.js`](../supabase/sesion.js) va en el `<head>` con `data-proteger` y rebota a `/acceso/?destino=admin%2F` si no hay sesión viva. La barra superior muestra quién está dentro y el botón **Salir**.
+- **Acceso:** exige sesión de Supabase Auth **y el permiso `admin.entrar`**. El guardia [`../supabase/sesion.js`](../supabase/sesion.js) va en el `<head>` con `data-proteger data-permiso="admin.entrar"` y rebota a `/acceso/?destino=admin%2F` si falta cualquiera de los dos. La barra superior muestra quién está dentro, con su rol, y el botón **Salir**.
 - **Datos:** Supabase (`@supabase/supabase-js` desde CDN + `../supabase/cliente.js`). Ver [`../supabase/README.md`](../supabase/README.md).
 - **Paleta y tipografía:** las de `gestion/CONVENCIONES.md` (sidenav gradiente navy, ítem activo con borde `#9dc3ee`).
 
 ## Módulos
 
-| Módulo | Estado | Fuente de datos |
-|---|---|---|
-| **Entrevistas transcritas** | ✅ Activo | Tabla `entrevistas` (listar, buscar, filtrar, crear, editar, eliminar) + **autocompletar con IA** al subir el crudo |
-| **Archivos (insumos)** | ✅ Activo | Bucket de Storage `insumos` + tabla `archivos` (subir varios Excel/PowerPoint/PDF, buscar, filtrar por categoría/tipo, descargar, eliminar) |
-| Estado del informe | 🚧 Próximamente | Tabla `secciones` |
-| Comentarios | 🚧 Próximamente | Tabla `comentarios` |
-| Matriz de riesgos | 🚧 Próximamente | Tabla `riesgos` |
+| Módulo | Estado | Permiso | Fuente de datos |
+|---|---|---|---|
+| **Asistente IA** | ✅ Activo | `admin.asistente` | Edge Function `asistente` + `conocimiento`/`fragmentos` |
+| **Entrevistas transcritas** | ✅ Activo | `admin.entrevistas` | Tabla `entrevistas` + **autocompletar con IA** al subir el crudo |
+| **Archivos (insumos)** | ✅ Activo | `admin.archivos` | Bucket `insumos` + tabla `archivos` |
+| **Línea de tiempo** | ✅ Activo | `admin.timeline` | Tabla `eventos` |
+| **Usuarios** | ✅ Activo | `admin.usuarios` | Edge Function `usuarios` + tabla `perfiles` |
+| **Roles y permisos** | ✅ Activo | `admin.roles` | Tablas `roles`, `permisos`, `roles_permisos` |
+| Estado del informe | 🚧 Próximamente | `admin.informe` | Tabla `secciones` |
+| Comentarios | 🚧 Próximamente | `admin.informe` | Tabla `comentarios` |
+| Matriz de riesgos | 🚧 Próximamente | `admin.informe` | Tabla `riesgos` |
 
-El shell es una SPA de un solo archivo con enrutado por hash (`#entrevistas`, `#entrevistas/nueva`, `#entrevistas/<id>`). Para añadir un módulo: crear su vista en el objeto `routes` de `index.html` y su ítem en el `<nav>`.
+El shell es una SPA de un solo archivo con enrutado por hash (`#entrevistas`, `#entrevistas/nueva`, `#entrevistas/<id>`). Para añadir un módulo: crear su vista en el objeto `routes` de `index.html`, su ítem en el `<nav>`, y **su permiso en `PERMISO_RUTA`** — sin esa entrada el módulo queda abierto a cualquiera que entre al panel.
+
+## Usuarios y roles
+
+- **Usuarios**: da de alta con clave (hay generador: sílabas legibles al dictarla, sin `l/1/O/0`), asigna rol, repone claves, da de baja y elimina. La clave se muestra **una sola vez** al crearla — cópiala y pásala por un canal privado.
+- **Roles y permisos**: matriz rol × permiso. Cada casilla es una fila de `roles_permisos`; se guarda al tocarla y rige de inmediato, también en la base de datos. Las dos casillas del rol Administrador que gobiernan el acceso salen **fijas**: sin ellas nadie podría volver a repartir permisos.
+- Ocultar un módulo en el menú es cortesía; lo que cierra el dato es RLS. Ver [`../supabase/README.md`](../supabase/README.md#roles-y-permisos).
 
 ## Autocompletar con IA
 
@@ -41,4 +51,6 @@ El panel corre **con autenticación**. Lo que cambió respecto del arranque:
 - El **registro abierto está deshabilitado** en Supabase Auth: las cuentas las crea el equipo técnico (ver `../supabase/README.md`).
 - La fila `E-DEMO` es solo semilla de demostración; puede borrarse.
 
-Queda como mejora, no como agujero: **perfiles diferenciados**. Hoy toda cuenta autenticada ve el informe *y* el panel. Cuando entren cuentas de la Junta conviene separar con `user_metadata.rol` (un chequeo en el guardia y políticas por rol).
+- **Los perfiles diferenciados ya están** (04-ago-2026): cuatro roles y diez permisos, con RLS por permiso. Una cuenta `junta` ve el informe y nada más; una cuenta `pendiente` no ve nada. Ver arriba.
+
+Lo que sigue siendo cierto y conviene no olvidar: **el HTML se sirve estático**. Quien conozca la URL exacta de un archivo del informe puede descargarlo sin sesión. El login y los permisos cierran el dato, no los archivos.

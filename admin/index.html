@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rower · Admin</title>
 <!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
-<script src="../supabase/sesion.js" data-proteger></script>
+<script src="../supabase/sesion.js" data-proteger data-permiso="admin.entrar"></script>
 <style>
   :root{
     --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
@@ -224,6 +224,55 @@
   .prev-sintesis summary{cursor:pointer;font-weight:700;color:#7a4a00;}
   .prev-cargando{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:13px;gap:8px;}
 
+  /* ---------- Accesos: usuarios · roles y permisos ---------- */
+  .b-admin-rol{background:#e3eefb; color:var(--navy);}
+  .b-consultor{background:#e3efe4; color:var(--verde);}
+  .b-junta{background:#efeaf7; color:#5b3a8e;}
+  .b-pendiente{background:#fdf1de; color:var(--ambar);}
+  .b-baja{background:#efe1e1; color:var(--rojo);}
+  td.correo{font-family:Consolas,monospace; font-size:.83rem; color:var(--navy); white-space:nowrap;}
+  .yo{font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; background:var(--navy); color:#fff; border-radius:999px; padding:1px 7px; margin-left:6px;}
+  .acciones-fila{display:flex; gap:6px; justify-content:flex-end; white-space:nowrap;}
+  .acciones-fila .btn{padding:5px 9px; font-size:.8rem;}
+
+  /* generador de claves */
+  .clave-caja{display:flex; gap:8px; align-items:stretch;}
+  .clave-caja input{flex:1;}
+  .clave-caja .btn{white-space:nowrap;}
+  .pista{font-size:.78rem; color:var(--muted); margin-top:3px;}
+  .pista.mal{color:var(--rojo);}
+  .pista.bien{color:var(--verde);}
+
+  /* matriz rol × permiso */
+  .matriz-envoltura{overflow-x:auto;}
+  table.matriz{border-collapse:collapse; font-size:.86rem; width:100%; min-width:640px;}
+  table.matriz th, table.matriz td{border-bottom:1px solid #eef1f6; padding:9px 12px; text-align:center;}
+  table.matriz thead th{
+    background:var(--gris); color:var(--navy); font-size:.74rem; text-transform:uppercase;
+    letter-spacing:.04em; border-bottom:1px solid var(--borde); white-space:nowrap; vertical-align:bottom;
+  }
+  table.matriz thead th .cuenta{display:block; font-size:.66rem; font-weight:400; color:var(--muted); text-transform:none; letter-spacing:0;}
+  table.matriz th.permiso{text-align:left; max-width:430px; white-space:normal; position:sticky; left:0; background:#fff; z-index:1;}
+  table.matriz thead th.permiso{background:var(--gris); z-index:2;}
+  table.matriz th.permiso b{display:block; color:var(--navy); font-size:.88rem; font-weight:600;}
+  table.matriz th.permiso span{display:block; color:var(--muted); font-size:.78rem; font-weight:400; margin-top:2px;}
+  table.matriz tr.grupo td{
+    background:#f7f9fd; color:var(--navy); text-align:left; font-size:.72rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em; padding:8px 12px;
+  }
+  table.matriz td.celda{cursor:pointer; width:110px;}
+  table.matriz td.celda:hover{background:#f2f6fd;}
+  table.matriz td.celda.fijo{cursor:not-allowed;}
+  table.matriz td.celda.fijo:hover{background:transparent;}
+  .marca{
+    display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;
+    border-radius:6px; border:1px solid var(--borde); background:#fff; color:#c7ccd6; font-size:.9rem;
+  }
+  .marca.si{background:var(--verde); border-color:var(--verde); color:#fff;}
+  .marca.fijo{background:#dfe6ef; border-color:#cfd8e5; color:#8b97a8;}
+  .leyenda{display:flex; gap:16px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin-top:12px;}
+  .leyenda span{display:flex; align-items:center; gap:6px;}
+
   /* ---------- Móvil: hamburguesa + drawer off-canvas ---------- */
   .menu-toggle{display:none; background:none; border:none; color:var(--navy); font-size:22px; line-height:1; cursor:pointer; padding:2px 8px; margin-right:2px;}
   .scrim{display:none;}
@@ -269,6 +318,9 @@
       <a class="item" data-route="archivos" href="#archivos"><span class="ico">📁</span> Archivos (insumos)</a>
       <div class="group">Seguimiento</div>
       <a class="item" data-route="timeline" href="#timeline"><span class="ico">🗓️</span> Línea de tiempo</a>
+      <div class="group">Accesos</div>
+      <a class="item" data-route="usuarios" href="#usuarios"><span class="ico">👤</span> Usuarios</a>
+      <a class="item" data-route="roles" href="#roles"><span class="ico">🔑</span> Roles y permisos</a>
       <div class="group">Informe (próximamente)</div>
       <a class="item" data-route="secciones" href="#secciones"><span class="ico">📄</span> Estado del informe <span class="soon">Pronto</span></a>
       <a class="item" data-route="comentarios" href="#comentarios"><span class="ico">💬</span> Comentarios <span class="soon">Pronto</span></a>
@@ -345,6 +397,25 @@ async function cabecerasFn(extra){
 }
 
 /* ============================================================
+   Permisos de la sesión
+   ------------------------------------------------------------
+   El perfil (rol + permisos) lo entrega la RPC mi_acceso(). Aquí solo se usa
+   para NO ofrecer lo que la cuenta no puede hacer: quien manda de verdad son
+   las políticas de Postgres y las Edge Functions, que comprueban lo mismo del
+   lado del servidor. Ocultar un módulo es cortesía; cerrarlo es RLS.
+   ============================================================ */
+let PERFIL = (window.rowerSesion && rowerSesion.perfil()) || null;
+const puede = (p)=> !!(PERFIL && PERFIL.activo && (PERFIL.permisos||[]).indexOf(p) >= 0);
+
+async function refrescarPerfil(){
+  if(window.rowerSesion){
+    const p = await rowerSesion.refrescarPerfil();
+    if(p) PERFIL = p;
+  }
+  return PERFIL;
+}
+
+/* ============================================================
    Router
    ============================================================ */
 const routes = {
@@ -352,17 +423,69 @@ const routes = {
   entrevistas: renderEntrevistas,
   archivos:    renderArchivos,
   timeline:    renderTimeline,
+  usuarios:    renderUsuarios,
+  roles:       renderRoles,
   secciones:   ()=> stub('Estado del informe','Espejo operable de la tabla <code>secciones</code> — próximamente.'),
   comentarios: ()=> stub('Comentarios','Feedback de los consultores por sección — próximamente.'),
   riesgos:     ()=> stub('Matriz de riesgos','Severidad × área × fuente (sección 9) — próximamente.'),
 };
-function currentRoute(){ return (location.hash.replace('#','').split('/')[0]) || 'entrevistas'; }
+
+/* Qué permiso pide cada módulo (el mismo que comprueban las políticas). */
+const PERMISO_RUTA = {
+  asistente:'admin.asistente', entrevistas:'admin.entrevistas', archivos:'admin.archivos',
+  timeline:'admin.timeline', usuarios:'admin.usuarios', roles:'admin.roles',
+  secciones:'admin.informe', comentarios:'admin.informe', riesgos:'admin.informe',
+};
+const ORDEN_RUTAS = ['asistente','entrevistas','archivos','timeline','secciones','comentarios','riesgos','usuarios','roles'];
+
+/** La primera ruta que esta cuenta sí puede abrir. */
+function rutaInicial(){
+  return ORDEN_RUTAS.find(r => puede(PERMISO_RUTA[r])) || null;
+}
+
+function currentRoute(){ return (location.hash.replace('#','').split('/')[0]) || (rutaInicial() || 'entrevistas'); }
+
 function router(){
   const r = currentRoute();
   $$('#nav .item').forEach(a=> a.classList.toggle('active', a.dataset.route===r));
-  (routes[r] || routes.entrevistas)();
+  const necesita = PERMISO_RUTA[r];
+  if(necesita && !puede(necesita)) return sinPermiso(r, necesita);
+  (routes[r] || routes[rutaInicial() || 'entrevistas'] || (()=>sinPermiso(r,'admin.entrar')))();
 }
 window.addEventListener('hashchange', router);
+
+/** Ajusta el menú a lo que la cuenta puede usar. */
+function pintarNav(){
+  $$('#nav .item').forEach(a=>{
+    const p = PERMISO_RUTA[a.dataset.route];
+    a.style.display = (!p || puede(p)) ? '' : 'none';
+  });
+  $$('#nav .group').forEach(g=>{
+    // un rótulo de grupo sin ítems visibles detrás no pinta nada
+    let vivo = false;
+    for(let n = g.nextElementSibling; n && !n.classList.contains('group'); n = n.nextElementSibling){
+      if(n.classList.contains('item') && n.style.display !== 'none'){ vivo = true; break; }
+    }
+    g.style.display = vivo ? '' : 'none';
+  });
+}
+
+function sinPermiso(ruta, permiso){
+  const otra = rutaInicial();
+  const nombre = ({ 'admin.asistente':'el Asistente IA', 'admin.entrevistas':'las entrevistas transcritas',
+    'admin.archivos':'los archivos e insumos', 'admin.timeline':'la línea de tiempo',
+    'admin.usuarios':'la administración de usuarios', 'admin.roles':'la definición de roles',
+    'admin.informe':'el estado del informe' })[permiso] || 'este módulo';
+  view.innerHTML = `
+    <div class="page-head"><div><h2>Sin acceso a este módulo</h2>
+      <p>Tu rol <b>${esc((PERFIL && PERFIL.rol_nombre) || '—')}</b> no incluye ${esc(nombre)}.</p></div></div>
+    <div class="card"><div class="empty">
+      <div class="big">🔒</div>
+      <p>El permiso que hace falta es <code>${esc(permiso)}</code>.</p>
+      <p class="muted" style="margin-top:8px">Pídeselo a quien administre los accesos del proyecto.</p>
+      ${otra ? `<p style="margin-top:16px"><a class="btn" href="#${otra}">Ir a lo que sí puedes ver</a></p>` : ''}
+    </div></div>`;
+}
 
 function stub(title, html){
   view.innerHTML = `<div class="page-head"><div><h2>${esc(title)}</h2></div></div>
@@ -1161,22 +1284,503 @@ function actualizarUltimaBurbuja(m){
   wrap.scrollTop = wrap.scrollHeight;
 }
 
-/* ---- identidad de la sesión en la barra superior ---- */
-(function pintarSesion(){
-  const u = window.rowerSesion ? rowerSesion.usuario() : null;
-  const correo = (u && u.email) || '';
-  const nombre = (u && u.user_metadata && u.user_metadata.nombre) || '';
-  $('#sesIni').textContent = (correo.charAt(0) || 'R').toUpperCase();
-  $('#sesQuien').textContent = nombre ? `${nombre} · ${correo}` : (correo || 'Sesión activa');
-  $('#sesQuien').title = correo;
-  $('#sesSalir').addEventListener('click', ()=>{
-    if(!confirm('¿Cerrar la sesión del panel?')) return;
-    if(window.rowerSesion) rowerSesion.salir(); else location.reload();
-  });
-})();
+/* ============================================================
+   Módulo: Usuarios
+   ------------------------------------------------------------
+   Crear una cuenta o reponer una clave exige la clave de servicio de Supabase,
+   que no puede estar en el navegador: todo pasa por la Edge Function
+   `usuarios`, que vuelve a comprobar el permiso admin.usuarios del llamante.
+   ============================================================ */
+const FN_USUARIOS = FN_BASE + '/functions/v1/usuarios';
+let usuarios = [], rolesLista = [];
 
-/* ---- arranque ---- */
-router();
+async function pedirUsuarios(accion, extra){
+  const r = await fetch(FN_USUARIOS, {
+    method: 'POST',
+    headers: await cabecerasFn({ 'Content-Type':'application/json' }),
+    body: JSON.stringify(Object.assign({ accion }, extra || {})),
+  });
+  let data = {};
+  try { data = await r.json(); } catch(e){ /* respuesta no-JSON */ }
+  if(!r.ok || data.error) throw new Error(data.error || ('HTTP ' + r.status));
+  return data;
+}
+
+function claveSugerida(){
+  // legible al dictarla: sin l/1/O/0, y siempre con letras y números
+  const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+  const num = '23456789';
+  const al = (s,n)=> Array.from(crypto.getRandomValues(new Uint32Array(n))).map(x=>s[x % s.length]).join('');
+  return al(abc,4) + '-' + al(num,3) + '-' + al(abc,4);
+}
+
+function problemaClave(c){
+  if(!c || c.length < 10) return 'Necesita al menos 10 caracteres.';
+  if(!/[A-Za-z]/.test(c) || !/[0-9]/.test(c)) return 'Necesita al menos una letra y un número.';
+  return null;
+}
+
+function badgeRol(clave){
+  const r = rolesLista.find(x=>x.clave===clave);
+  const cls = ['admin','consultor','junta','pendiente'].indexOf(clave) >= 0 ? clave : 'admin-rol';
+  return `<span class="badge b-${clave==='admin'?'admin-rol':esc(cls)}">${esc((r&&r.nombre)||clave)}</span>`;
+}
+
+function cuando(iso){
+  if(!iso) return '<span class="muted">nunca</span>';
+  const d = new Date(iso);
+  const dias = Math.floor((Date.now() - d.getTime()) / 86400000);
+  const f = d.toLocaleDateString('es-VE', { day:'2-digit', month:'short', year:'numeric' });
+  return `${f} <span class="muted">${dias === 0 ? '· hoy' : dias === 1 ? '· ayer' : '· hace ' + dias + ' d'}</span>`;
+}
+
+async function renderUsuarios(){
+  view.innerHTML = `
+    <div class="page-head">
+      <div><h2>Usuarios</h2><p>Cuentas que pueden entrar al aplicativo. El rol decide qué ve cada una — se define en <a href="#roles">Roles y permisos</a>.</p></div>
+      <div class="actions"><button class="btn primary" id="usNuevo">＋ Nuevo usuario</button></div>
+    </div>
+
+    <form class="detail" id="usForm" style="display:none; margin-bottom:16px;">
+      <div class="grid2">
+        <div class="field"><label>Correo *</label><input name="correo" type="email" required placeholder="nombre@dominio.com" autocomplete="off"></div>
+        <div class="field"><label>Nombre y apellido</label><input name="nombre" placeholder="Nombre Apellido" autocomplete="off"></div>
+        <div class="field"><label>Rol *</label><select name="rol" id="usRol" required></select><div class="pista" id="usRolPista"></div></div>
+        <div class="field" id="usCampoClave">
+          <label>Clave *</label>
+          <div class="clave-caja">
+            <input name="clave" id="usClave" type="text" required autocomplete="new-password" placeholder="mínimo 10 caracteres">
+            <button type="button" class="btn" id="usGenerar">🎲 Generar</button>
+          </div>
+          <div class="pista" id="usClavePista">Al menos 10 caracteres, con letras y números.</div>
+        </div>
+        <div class="field full"><label>Notas</label><input name="notas" placeholder="Para qué es esta cuenta, quién la pidió…"></div>
+      </div>
+      <div class="form-foot">
+        <button type="submit" class="btn primary" id="usGuardar">💾 Crear usuario</button>
+        <button type="button" class="btn" id="usCancelar">Cancelar</button>
+        <span class="muted" id="usNota" style="margin-left:auto"></span>
+      </div>
+    </form>
+
+    <div class="toolbar">
+      <div class="search"><input id="qu" type="search" placeholder="Buscar por correo, nombre o rol…"></div>
+      <select class="filter" id="fuRol"><option value="">Todos los roles</option></select>
+      <select class="filter" id="fuEstado"><option value="">Activas y de baja</option><option value="1">Solo activas</option><option value="0">Solo de baja</option></select>
+    </div>
+    <div class="card" id="usCard"><div class="empty">Cargando…</div></div>`;
+
+  $('#usNuevo').addEventListener('click', ()=> abrirFormUsuario());
+  $('#usCancelar').addEventListener('click', ()=> cerrarFormUsuario());
+  $('#usGenerar').addEventListener('click', ()=>{ $('#usClave').value = claveSugerida(); revisarClave(); });
+  $('#usClave').addEventListener('input', revisarClave);
+  $('#usRol').addEventListener('change', pistaRol);
+  $('#usForm').addEventListener('submit', (e)=>{ e.preventDefault(); guardarUsuario(); });
+  $('#qu').addEventListener('input', pintarUsuarios);
+  $('#fuRol').addEventListener('change', pintarUsuarios);
+  $('#fuEstado').addEventListener('change', pintarUsuarios);
+
+  await recargarUsuarios();
+}
+
+async function recargarUsuarios(){
+  try{
+    const d = await pedirUsuarios('listar');
+    usuarios = d.usuarios || [];
+    rolesLista = d.roles || [];
+    setConn('ok','Conectado · Supabase');
+    const ops = rolesLista.map(r=>`<option value="${esc(r.clave)}">${esc(r.nombre)}</option>`).join('');
+    $('#usRol').innerHTML = ops;
+    $('#fuRol').innerHTML = '<option value="">Todos los roles</option>' + ops;
+    pintarUsuarios();
+  }catch(e){
+    $('#usCard').innerHTML = errBox('No pude traer los usuarios: ' + esc(String(e.message || e)));
+  }
+}
+
+function pintarUsuarios(){
+  const q = ($('#qu')?.value || '').trim().toLowerCase();
+  const fr = $('#fuRol')?.value || '';
+  const fe = $('#fuEstado')?.value || '';
+  const yo = (PERFIL && PERFIL.id) || '';
+
+  const filas = usuarios.filter(u=>{
+    if(fr && u.rol !== fr) return false;
+    if(fe === '1' && !u.activo) return false;
+    if(fe === '0' && u.activo) return false;
+    if(!q) return true;
+    const rn = (rolesLista.find(r=>r.clave===u.rol)||{}).nombre || '';
+    return [u.correo, u.nombre, u.rol, rn].filter(Boolean).join(' ').toLowerCase().includes(q);
+  });
+
+  if(!filas.length){
+    $('#usCard').innerHTML = `<div class="empty"><div class="big">👤</div>${
+      usuarios.length ? 'Ningún usuario cuadra con el filtro.' : 'Todavía no hay usuarios.'}</div>`;
+    return;
+  }
+
+  $('#usCard').innerHTML = `
+    <table class="data">
+      <thead><tr>
+        <th>Correo</th><th>Nombre</th><th>Rol</th><th>Estado</th><th>Último acceso</th><th></th>
+      </tr></thead>
+      <tbody>${filas.map(u=>`
+        <tr data-id="${esc(u.id)}">
+          <td class="correo">${esc(u.correo || '—')}${u.id === yo ? '<span class="yo">tú</span>' : ''}</td>
+          <td>${esc(u.nombre || '')}</td>
+          <td>${badgeRol(u.rol)}</td>
+          <td>${u.activo ? '<span class="badge b-procesado">activa</span>' : '<span class="badge b-baja">de baja</span>'}</td>
+          <td>${cuando(u.ultimo_acceso)}</td>
+          <td><div class="acciones-fila">
+            <button class="btn" data-accion="editar">✎ Editar</button>
+            <button class="btn" data-accion="clave">🔑 Clave</button>
+            <button class="btn danger" data-accion="eliminar"${u.id === yo ? ' disabled title="No puedes eliminar tu propia cuenta"' : ''}>🗑</button>
+          </div></td>
+        </tr>`).join('')}</tbody>
+    </table>`;
+
+  $$('#usCard button[data-accion]').forEach(b=>{
+    b.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const id = b.closest('tr').dataset.id;
+      const u = usuarios.find(x=>x.id===id); if(!u) return;
+      if(b.dataset.accion === 'editar')   abrirFormUsuario(u);
+      if(b.dataset.accion === 'clave')    reponerClave(u);
+      if(b.dataset.accion === 'eliminar') borrarUsuario(u);
+    });
+  });
+}
+
+let editandoUsuario = null;
+
+function abrirFormUsuario(u){
+  editandoUsuario = u || null;
+  const f = $('#usForm');
+  f.style.display = 'block';
+  f.elements['correo'].value = u ? (u.correo || '') : '';
+  f.elements['correo'].disabled = !!u;              // el correo es la identidad: no se cambia aquí
+  f.elements['nombre'].value = u ? (u.nombre || '') : '';
+  f.elements['notas'].value  = u ? (u.notas || '') : '';
+  f.elements['rol'].value    = u ? u.rol : (rolesLista.some(r=>r.clave==='junta') ? 'junta' : (rolesLista[0]||{}).clave || '');
+  $('#usCampoClave').style.display = u ? 'none' : '';
+  f.elements['clave'].required = !u;
+  if(!u) f.elements['clave'].value = claveSugerida();
+  $('#usGuardar').textContent = u ? '💾 Guardar cambios' : '💾 Crear usuario';
+  $('#usNota').textContent = u
+    ? (u.activo ? '' : 'Cuenta de baja: no puede entrar.')
+    : 'Se crea confirmada: puede entrar de inmediato con esta clave.';
+  if(u){
+    // dar de baja / reactivar, solo al editar
+    $('#usNota').innerHTML = `<label style="cursor:pointer"><input type="checkbox" id="usActivo" ${u.activo?'checked':''}> cuenta activa</label>`;
+  }
+  revisarClave(); pistaRol();
+  f.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  f.elements[u ? 'nombre' : 'correo'].focus();
+}
+
+function cerrarFormUsuario(){
+  editandoUsuario = null;
+  const f = $('#usForm');
+  f.style.display = 'none'; f.reset();
+  f.elements['correo'].disabled = false;
+}
+
+function revisarClave(){
+  const p = $('#usClavePista'); if(!p) return;
+  const v = $('#usClave').value;
+  if(!v){ p.className = 'pista'; p.textContent = 'Al menos 10 caracteres, con letras y números.'; return; }
+  const mal = problemaClave(v);
+  p.className = 'pista ' + (mal ? 'mal' : 'bien');
+  p.textContent = mal || 'Sirve. Cópiala antes de guardar: no se vuelve a mostrar.';
+}
+
+function pistaRol(){
+  const p = $('#usRolPista'); if(!p) return;
+  const r = rolesLista.find(x=>x.clave === $('#usRol').value);
+  p.className = 'pista';
+  p.textContent = (r && r.descripcion) ? r.descripcion : '';
+}
+
+async function guardarUsuario(){
+  const f = $('#usForm');
+  const btn = $('#usGuardar');
+  const datos = {
+    correo: f.elements['correo'].value.trim().toLowerCase(),
+    nombre: f.elements['nombre'].value.trim(),
+    rol:    f.elements['rol'].value,
+    notas:  f.elements['notas'].value.trim(),
+  };
+  if(!editandoUsuario){
+    datos.clave = f.elements['clave'].value;
+    const mal = problemaClave(datos.clave);
+    if(mal) return toast(mal, true);
+  }
+  btn.disabled = true; btn.textContent = 'Guardando…';
+  try{
+    if(editandoUsuario){
+      const activo = $('#usActivo') ? $('#usActivo').checked : editandoUsuario.activo;
+      await pedirUsuarios('actualizar', { id: editandoUsuario.id, nombre: datos.nombre, rol: datos.rol, notas: datos.notas, activo });
+      toast('Usuario actualizado');
+    }else{
+      await pedirUsuarios('crear', datos);
+      toast('Usuario creado');
+      alert('Cuenta creada.\n\nCorreo: ' + datos.correo + '\nClave:  ' + datos.clave +
+            '\n\nPásasela por un canal privado. Esta clave no se vuelve a mostrar.');
+    }
+    cerrarFormUsuario();
+    await recargarUsuarios();
+  }catch(e){
+    toast(String(e.message || e), true);
+  }finally{
+    btn.disabled = false;
+    btn.textContent = editandoUsuario ? '💾 Guardar cambios' : '💾 Crear usuario';
+  }
+}
+
+async function reponerClave(u){
+  const sug = claveSugerida();
+  const nueva = prompt('Nueva clave para ' + (u.correo || 'esta cuenta') +
+                       '\n(al menos 10 caracteres, con letras y números)', sug);
+  if(nueva === null) return;
+  const mal = problemaClave(nueva.trim());
+  if(mal) return toast(mal, true);
+  try{
+    await pedirUsuarios('clave', { id: u.id, clave: nueva.trim() });
+    toast('Clave repuesta');
+    alert('Clave nueva de ' + (u.correo || '') + ':\n\n' + nueva.trim() +
+          '\n\nPásasela por un canal privado. No se vuelve a mostrar.');
+  }catch(e){ toast(String(e.message || e), true); }
+}
+
+async function borrarUsuario(u){
+  if(!confirm('¿Eliminar la cuenta ' + (u.correo || '') + '?\n\nDeja de poder entrar de inmediato. ' +
+              'Si solo quieres suspenderla, edítala y desmarca «cuenta activa».')) return;
+  try{
+    await pedirUsuarios('eliminar', { id: u.id });
+    toast('Cuenta eliminada');
+    await recargarUsuarios();
+  }catch(e){ toast(String(e.message || e), true); }
+}
+
+/* ============================================================
+   Módulo: Roles y permisos
+   ------------------------------------------------------------
+   La matriz es la fuente: cada casilla es una fila de roles_permisos, y las
+   políticas de Postgres leen exactamente eso a través de tiene_permiso().
+   El catálogo de permisos NO se edita aquí: está acoplado al código (añadir
+   una fila no crearía un permiso que nadie comprueba). Vive en schema.sql.
+   ============================================================ */
+let permisosCat = [], rolesCat = [], matriz = new Set(), cuentaPorRol = {};
+
+async function renderRoles(){
+  view.innerHTML = `
+    <div class="page-head">
+      <div><h2>Roles y permisos</h2>
+        <p>Qué puede hacer cada rol. Toca una casilla para conceder o quitar; se guarda al instante y rige de inmediato — también en la base de datos.</p></div>
+      <div class="actions"><button class="btn primary" id="rolNuevo">＋ Nuevo rol</button></div>
+    </div>
+
+    <form class="detail" id="rolForm" style="display:none; margin-bottom:16px;">
+      <div class="grid2">
+        <div class="field"><label>Clave *</label><input name="clave" required placeholder="p. ej. auditor" pattern="[a-z0-9_.\\-]{2,30}" title="minúsculas, números, guiones; 2-30 caracteres"><div class="pista">Identificador interno, en minúsculas. No se puede cambiar después.</div></div>
+        <div class="field"><label>Nombre *</label><input name="nombre" required placeholder="Auditor"></div>
+        <div class="field full"><label>Para qué es</label><input name="descripcion" placeholder="Una línea: a quién se le da este rol y por qué."></div>
+      </div>
+      <div class="form-foot">
+        <button type="submit" class="btn primary" id="rolGuardar">💾 Crear rol</button>
+        <button type="button" class="btn" id="rolCancelar">Cancelar</button>
+      </div>
+    </form>
+
+    <div class="card"><div class="matriz-envoltura" id="matrizWrap"><div class="empty">Cargando…</div></div></div>
+    <div class="leyenda">
+      <span><i class="marca si">✓</i> concedido</span>
+      <span><i class="marca">·</i> no concedido</span>
+      <span><i class="marca fijo">✓</i> fijo: sin esto nadie podría repartir accesos</span>
+    </div>
+    <div id="rolesFichas" style="margin-top:22px"></div>`;
+
+  $('#rolNuevo').addEventListener('click', ()=>{
+    const f = $('#rolForm'); f.style.display = 'block'; f.reset(); f.elements['clave'].focus();
+  });
+  $('#rolCancelar').addEventListener('click', ()=>{ $('#rolForm').style.display='none'; });
+  $('#rolForm').addEventListener('submit', (e)=>{ e.preventDefault(); crearRol(); });
+
+  await recargarRoles();
+}
+
+async function recargarRoles(){
+  if(!db){ $('#matrizWrap').innerHTML = errBox('No hay conexión con la base de datos.'); return; }
+  const [p, r, rp, pf] = await Promise.all([
+    db.from('permisos').select('*').order('orden'),
+    db.from('roles').select('*').order('orden'),
+    db.from('roles_permisos').select('*'),
+    db.from('perfiles').select('rol'),
+  ]);
+  const err = p.error || r.error || rp.error || pf.error;
+  if(err){ $('#matrizWrap').innerHTML = errBox('No pude traer los roles: ' + esc(err.message)); return; }
+  setConn('ok','Conectado · Supabase');
+  permisosCat = p.data || [];
+  rolesCat = r.data || [];
+  matriz = new Set((rp.data || []).map(x=>x.rol + '|' + x.permiso));
+  cuentaPorRol = {};
+  (pf.data || []).forEach(x=>{ cuentaPorRol[x.rol] = (cuentaPorRol[x.rol] || 0) + 1; });
+  pintarMatriz(); pintarFichasRoles();
+}
+
+/* Las dos casillas que no se pueden apagar: si el rol que gobierna el acceso
+   pierde esto, nadie podría volver a repartir permisos. Postgres lo impide
+   igual con un trigger; aquí solo se muestra por qué. */
+function esFijo(rol, permiso){
+  return rol === 'admin' && (permiso === 'admin.usuarios' || permiso === 'admin.roles');
+}
+
+function pintarMatriz(){
+  if(!permisosCat.length){ $('#matrizWrap').innerHTML = errBox('El catálogo de permisos está vacío: ejecuta la sección 10 de <code>supabase/schema.sql</code>.'); return; }
+  let grupo = null;
+  const filas = permisosCat.map(pm=>{
+    let cabecera = '';
+    if(pm.grupo !== grupo){
+      grupo = pm.grupo;
+      cabecera = `<tr class="grupo"><td colspan="${rolesCat.length + 1}">${esc(grupo)}</td></tr>`;
+    }
+    const celdas = rolesCat.map(r=>{
+      const on = matriz.has(r.clave + '|' + pm.clave);
+      const fijo = esFijo(r.clave, pm.clave);
+      return `<td class="celda${fijo?' fijo':''}" data-rol="${esc(r.clave)}" data-permiso="${esc(pm.clave)}"
+                  title="${fijo?'Fijo: sin este permiso nadie podría repartir accesos':(on?'Quitar':'Conceder')}">
+                <i class="marca ${fijo?'fijo':(on?'si':'')}">${on?'✓':'·'}</i></td>`;
+    }).join('');
+    return cabecera + `<tr>
+      <th class="permiso"><b>${esc(pm.nombre)}</b><span>${esc(pm.descripcion || '')}</span><code class="muted" style="font-size:.72rem">${esc(pm.clave)}</code></th>
+      ${celdas}</tr>`;
+  }).join('');
+
+  $('#matrizWrap').innerHTML = `
+    <table class="matriz">
+      <thead><tr><th class="permiso">Permiso</th>
+        ${rolesCat.map(r=>`<th>${esc(r.nombre)}<span class="cuenta">${cuentaPorRol[r.clave]||0} ${(cuentaPorRol[r.clave]||0)===1?'cuenta':'cuentas'}</span></th>`).join('')}
+      </tr></thead>
+      <tbody>${filas}</tbody>
+    </table>`;
+
+  $$('#matrizWrap td.celda').forEach(td=>{
+    td.addEventListener('click', ()=> alternarPermiso(td));
+  });
+}
+
+async function alternarPermiso(td){
+  const rol = td.dataset.rol, permiso = td.dataset.permiso;
+  if(esFijo(rol, permiso)) return toast('Ese permiso del rol Administrador no se puede quitar: nadie podría volver a repartir accesos.', true);
+
+  const on = matriz.has(rol + '|' + permiso);
+  const marca = $('i', td);
+  marca.className = 'marca' + (on ? '' : ' si');       // respuesta inmediata
+  marca.textContent = on ? '·' : '✓';
+
+  const q = on
+    ? await db.from('roles_permisos').delete().eq('rol', rol).eq('permiso', permiso)
+    : await db.from('roles_permisos').insert({ rol, permiso });
+
+  if(q.error){
+    marca.className = 'marca' + (on ? ' si' : '');     // se deshace lo pintado
+    marca.textContent = on ? '✓' : '·';
+    return toast(q.error.message, true);
+  }
+  if(on) matriz.delete(rol + '|' + permiso); else matriz.add(rol + '|' + permiso);
+  toast((on ? 'Permiso quitado a ' : 'Permiso concedido a ') + rol);
+
+  // Si el cambio afecta a mi propio rol, mi menú tiene que reflejarlo ya.
+  if(PERFIL && PERFIL.rol === rol){
+    await refrescarPerfil(); pintarNav(); pintarSesion();
+  }
+}
+
+function pintarFichasRoles(){
+  $('#rolesFichas').innerHTML = `
+    <h2 style="color:var(--navy); font-size:1.05rem; margin-bottom:12px">Los roles</h2>
+    <div class="card"><table class="data">
+      <thead><tr><th>Rol</th><th>Para qué es</th><th>Permisos</th><th>Cuentas</th><th></th></tr></thead>
+      <tbody>${rolesCat.map(r=>{
+        const n = permisosCat.filter(p=>matriz.has(r.clave + '|' + p.clave)).length;
+        const usados = cuentaPorRol[r.clave] || 0;
+        return `<tr data-rol="${esc(r.clave)}">
+          <td class="nombre"><b>${esc(r.nombre)}</b><br><code class="muted" style="font-size:.74rem">${esc(r.clave)}</code></td>
+          <td class="muted">${esc(r.descripcion || '')}</td>
+          <td>${n} de ${permisosCat.length}</td>
+          <td>${usados}</td>
+          <td><div class="acciones-fila">
+            <button class="btn" data-accion="renombrar">✎ Renombrar</button>
+            <button class="btn danger" data-accion="borrar"${r.es_sistema ? ' disabled title="Rol de sistema: no se borra"' : (usados ? ' disabled title="Hay cuentas con este rol"' : '')}>🗑</button>
+          </div></td></tr>`;
+      }).join('')}</tbody>
+    </table></div>`;
+
+  $$('#rolesFichas button[data-accion]').forEach(b=>{
+    b.addEventListener('click', async ()=>{
+      const clave = b.closest('tr').dataset.rol;
+      const r = rolesCat.find(x=>x.clave===clave); if(!r) return;
+      if(b.dataset.accion === 'renombrar'){
+        const nombre = prompt('Nombre del rol «' + r.clave + '»:', r.nombre);
+        if(nombre === null || !nombre.trim()) return;
+        const descripcion = prompt('Para qué es este rol:', r.descripcion || '');
+        if(descripcion === null) return;
+        const q = await db.from('roles').update({ nombre: nombre.trim(), descripcion: descripcion.trim() || null }).eq('clave', clave);
+        if(q.error) return toast(q.error.message, true);
+        toast('Rol actualizado'); await recargarRoles();
+      }
+      if(b.dataset.accion === 'borrar'){
+        if(!confirm('¿Borrar el rol «' + r.nombre + '»?')) return;
+        const q = await db.from('roles').delete().eq('clave', clave);
+        if(q.error) return toast(q.error.message, true);
+        toast('Rol borrado'); await recargarRoles();
+      }
+    });
+  });
+}
+
+async function crearRol(){
+  const f = $('#rolForm');
+  const clave = f.elements['clave'].value.trim().toLowerCase();
+  const nombre = f.elements['nombre'].value.trim();
+  const descripcion = f.elements['descripcion'].value.trim();
+  if(!/^[a-z0-9_.\-]{2,30}$/.test(clave)) return toast('La clave admite minúsculas, números, punto, guion y guion bajo (2-30).', true);
+  const q = await db.from('roles').insert({ clave, nombre, descripcion: descripcion || null, orden: 50 });
+  if(q.error) return toast(/duplicate|unique/i.test(q.error.message) ? 'Ya existe un rol con esa clave.' : q.error.message, true);
+  toast('Rol creado — ahora dale permisos en la matriz');
+  f.style.display = 'none'; f.reset();
+  await recargarRoles();
+}
+
+/* ---- identidad de la sesión en la barra superior ---- */
+function pintarSesion(){
+  const u = window.rowerSesion ? rowerSesion.usuario() : null;
+  const correo = (PERFIL && PERFIL.correo) || (u && u.email) || '';
+  const nombre = (PERFIL && PERFIL.nombre) || (u && u.user_metadata && u.user_metadata.nombre) || '';
+  const rol    = (PERFIL && PERFIL.rol_nombre) || '';
+  $('#sesIni').textContent = ((nombre || correo).charAt(0) || 'R').toUpperCase();
+  $('#sesQuien').textContent = [nombre || correo, rol].filter(Boolean).join(' · ') || 'Sesión activa';
+  $('#sesQuien').title = correo + (rol ? ' · ' + rol : '');
+}
+$('#sesSalir').addEventListener('click', ()=>{
+  if(!confirm('¿Cerrar la sesión del panel?')) return;
+  if(window.rowerSesion) rowerSesion.salir(); else location.reload();
+});
+
+/* ---- arranque ----
+   El perfil cacheado pinta ya (sin parpadeo) y se revalida contra la base:
+   si un administrador cambió el rol mientras la pestaña estaba abierta, el
+   menú y la vista se rehacen solos. */
+pintarSesion(); pintarNav(); router();
+refrescarPerfil().then(()=>{
+  pintarSesion(); pintarNav();
+  const r = currentRoute();
+  const necesita = PERMISO_RUTA[r];
+  if(necesita && !puede(necesita)) router();                       // perdió el permiso: repinta
+  else if(PERFIL && PERFIL.existe && !PERFIL.activo) location.reload(); // cuenta desactivada: al acceso
+  // Si el perfil no llegó (red caída), se sigue con el cacheado: quien decide
+  // de verdad es Postgres, y sin permiso las consultas vuelven vacías.
+});
 
 /* Cerrar el drawer de navegación al elegir un módulo (móvil) */
 $$('#nav .item').forEach(a=> a.addEventListener('click', ()=> document.body.classList.remove('nav-open')));

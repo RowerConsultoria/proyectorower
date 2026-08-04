@@ -96,7 +96,18 @@
   .quien .datos{min-width:0;}
   .quien .datos b{color:var(--navy); display:block; font-size:.94rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .quien .datos span{font-size:.8rem; color:var(--muted);}
+  .quien .datos .rolchip{
+    display:inline-block; margin-left:7px; background:#e3eefb; color:var(--navy);
+    border-radius:999px; padding:1px 9px; font-size:.7rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.04em; vertical-align:1px;
+  }
   .rutas{display:flex; flex-direction:column; gap:10px;}
+  .sinNada{
+    background:#fdf1de; border:1px solid #f0d9ad; color:#7a4d00; border-radius:8px;
+    padding:12px 14px; font-size:.87rem;
+  }
+  a.ruta.no{opacity:.5; pointer-events:none; border-left-color:var(--borde);}
+  a.ruta.no b::after{content:" · sin permiso"; font-weight:400; color:var(--muted); font-size:.8rem;}
   a.ruta{
     display:block; text-decoration:none; color:inherit; border:1px solid var(--borde);
     border-left:5px solid var(--blue); border-radius:8px; padding:12px 15px; transition:.14s;
@@ -180,13 +191,14 @@
 
     <!-- 3. Sesión activa: elegir camino -->
     <div class="bloque" id="bSesion">
-      <h2>Sesión activa</h2>
-      <p class="sub">Ya estás dentro. Elige por dónde seguir.</p>
+      <h2 id="sesTitulo">Sesión activa</h2>
+      <p class="sub" id="sesSub">Ya estás dentro. Elige por dónde seguir.</p>
+      <div class="aviso" id="avisoSesion"></div>
       <div class="quien">
         <div class="ini" id="ini">R</div>
         <div class="datos"><b id="quienCorreo">—</b><span id="quienNota">Acceso verificado</span></div>
       </div>
-      <div class="rutas">
+      <div class="rutas" id="rutas">
         <a class="ruta front" id="rInforme" href="../informe/fase1/informe-diagnostico-fase1.html">
           <b>📘 Informe Diagnóstico — Fase 1</b>
           <span>El entregable maestro: 13 secciones, anexos y módulos interactivos.</span>
@@ -196,6 +208,10 @@
           <span>Asistente IA, entrevistas, insumos y línea de tiempo.</span>
         </a>
       </div>
+      <p class="sinNada" id="sinNada" style="display:none">
+        Tu cuenta está activa pero <b>todavía no tiene accesos asignados</b>.
+        Quien administre los accesos del proyecto tiene que darte un rol.
+      </p>
       <button type="button" class="salir" id="btnSalir">Cerrar sesión</button>
     </div>
   </main>
@@ -213,6 +229,21 @@ const $ = (s)=>document.querySelector(s);
 const params = new URLSearchParams(location.search);
 const DESTINO = rowerSesion.destinoSeguro(params.get('destino') || '');
 const MOTIVO  = params.get('motivo') || '';
+const PERMISO = (params.get('permiso') || '').replace(/[^\w.\-]/g, '');   // el que pedía el destino
+
+/* Los dos permisos que gobiernan los caminos del portal */
+const CAMINOS = [
+  { id:'rInforme', permiso:'ver.informe',  ruta:'informe/fase1/informe-diagnostico-fase1.html' },
+  { id:'rAdmin',   permiso:'admin.entrar', ruta:'admin/' },
+];
+const NOMBRE_PERMISO = {
+  'ver.informe':'el informe y sus módulos', 'ver.sistema':'el prototipo del sistema',
+  'admin.entrar':'el panel administrativo', 'admin.asistente':'el Asistente IA',
+  'admin.entrevistas':'las entrevistas transcritas', 'admin.archivos':'los archivos e insumos',
+  'admin.timeline':'la línea de tiempo', 'admin.informe':'el estado del informe',
+  'admin.usuarios':'la administración de usuarios', 'admin.roles':'la definición de roles',
+};
+let PERFIL = null;
 
 /* Rótulo humano de la ruta a la que iba el usuario */
 function rotulo(d){
@@ -256,11 +287,7 @@ function seguir(){
   let sesion = null;
   try { sesion = (await cli.auth.getSession()).data.session; } catch(e){ sesion = null; }
 
-  if(sesion && sesion.access_token){
-    if(DESTINO) return seguir();          // venía de una página protegida: pasa directo
-    pintarSesion(sesion);                 // entró al acceso por su cuenta: ofrece los caminos
-    return mostrar('bSesion');
-  }
+  if(sesion && sesion.access_token) return await yaDentro(sesion);
 
   // Sin sesión: formulario.
   mostrar('bForm');
@@ -272,14 +299,60 @@ function seguir(){
   $('#correo').focus();
 })();
 
+/* Con sesión viva: se trae el perfil (rol + permisos) y se decide.
+   Esta pantalla es el único sitio donde se resuelve el perfil de forma
+   asíncrona; el guardia de las páginas protegidas solo lee la caché. */
+async function yaDentro(sesion){
+  mostrar('bRestaurar');
+  PERFIL = await rowerSesion.refrescarPerfil();
+
+  const activa   = !!(PERFIL && PERFIL.existe && PERFIL.activo);
+  const permitido = !PERMISO || (activa && (PERFIL.permisos||[]).indexOf(PERMISO) >= 0);
+
+  if(DESTINO && activa && permitido) return seguir();   // vía libre: pasa sin ruido
+
+  pintarSesion(sesion);
+  mostrar('bSesion');
+
+  if(PERFIL && PERFIL.existe && !PERFIL.activo){
+    $('#sesTitulo').textContent = 'Cuenta desactivada';
+    $('#sesSub').textContent = 'Tu cuenta existe pero está dada de baja.';
+    avisoSesion('Un administrador desactivó este acceso. Escríbele si crees que es un error.', 'err');
+  } else if(PERMISO && !permitido){
+    $('#sesTitulo').textContent = 'Sin permiso para esa página';
+    $('#sesSub').textContent = 'Tu sesión es válida, pero tu rol no llega ahí.';
+    avisoSesion('Tu rol no incluye ' + (NOMBRE_PERMISO[PERMISO] || 'ese módulo') +
+                ' (permiso ' + PERMISO + '). Abajo está lo que sí puedes abrir.', 'info');
+  } else if(!PERFIL){
+    avisoSesion('No pude comprobar tus permisos ahora mismo. Si un módulo aparece vacío, recarga.', 'info');
+  }
+}
+
+function avisoSesion(texto, clase){
+  const a = $('#avisoSesion');
+  a.textContent = texto;
+  a.className = 'aviso ' + (clase || 'info') + (texto ? ' on' : '');
+}
+
 function pintarSesion(s){
-  const correo = (s.user && s.user.email) || '';
-  $('#quienCorreo').textContent = correo || 'Sesión verificada';
-  $('#ini').textContent = (correo.charAt(0) || 'R').toUpperCase();
-  const nombre = s.user && s.user.user_metadata && s.user.user_metadata.nombre;
+  const correo = (PERFIL && PERFIL.correo) || (s.user && s.user.email) || '';
+  const nombre = (PERFIL && PERFIL.nombre) || (s.user && s.user.user_metadata && s.user.user_metadata.nombre) || '';
+  const rol    = (PERFIL && PERFIL.rol_nombre) || '';
+  $('#quienCorreo').innerHTML = (correo || 'Sesión verificada').replace(/[<>&]/g,'') +
+    (rol ? '<span class="rolchip">' + rol.replace(/[<>&]/g,'') + '</span>' : '');
+  $('#ini').textContent = ((nombre || correo).charAt(0) || 'R').toUpperCase();
   $('#quienNota').textContent = nombre ? nombre + ' · acceso verificado' : 'Acceso verificado';
-  $('#rInforme').href = rowerSesion.raiz + 'informe/fase1/informe-diagnostico-fase1.html';
-  $('#rAdmin').href   = rowerSesion.raiz + 'admin/';
+
+  // Solo se ofrece lo que el rol alcanza; el resto queda atenuado.
+  let alguno = false;
+  CAMINOS.forEach(c=>{
+    const a = $('#' + c.id);
+    const ok = !!(PERFIL && PERFIL.activo && (PERFIL.permisos||[]).indexOf(c.permiso) >= 0);
+    a.href = rowerSesion.raiz + c.ruta;
+    a.classList.toggle('no', !ok);
+    if(ok) alguno = true;
+  });
+  $('#sinNada').style.display = alguno ? 'none' : 'block';
 }
 
 /* ---------- Entrar ---------- */
@@ -300,10 +373,9 @@ $('#form').addEventListener('submit', async (e)=>{
     $('#clave').select();
     return;
   }
-  if(DESTINO) return seguir();
-  aviso('Acceso verificado.', 'ok');
-  pintarSesion(data.session);
-  mostrar('bSesion');
+  // El perfil se resuelve aquí, una vez, y queda en caché para el guardia.
+  await yaDentro(data.session);
+  btn.disabled = false; btn.textContent = 'Entrar';
 });
 
 function traducir(m){
