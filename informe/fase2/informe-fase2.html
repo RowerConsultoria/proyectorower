@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Procesos — Fase 2 | Proyecto Rower</title>
+<!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
+<script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<style>
+  :root{
+    --navy:#1F3864; --blue:#2E75B6; --gray:#404040; --light:#F4F6FA;
+    --border:#D5DCE8; --red:#C00000; --green:#2E7D32; --amber:#B26A00;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:Calibri,'Segoe UI',Arial,sans-serif;color:var(--gray);background:#EDEFF3;line-height:1.55;font-size:15px;}
+  .layout{display:flex;align-items:flex-start;max-width:1280px;margin:0 auto;gap:0;}
+  .sidenav{
+    flex:0 0 280px;min-height:100vh;background:linear-gradient(180deg,#152a4d 0%,#1F3864 100%);
+    color:#fff;padding:26px 18px 40px;position:sticky;top:0;
+  }
+  .sidenav .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9dc3ee;font-weight:700;}
+  .sidenav .brand b{display:block;color:#fff;font-size:17px;letter-spacing:0;margin-top:6px;text-transform:none;font-weight:800;}
+  .fasesel{position:relative;margin-top:16px;}
+  .fasesel>button{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;
+    padding:9px 12px;border-radius:8px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  }
+  .fasesel>button:hover{background:rgba(255,255,255,.14);}
+  .fasesel .menu{
+    display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;
+    background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.22);overflow:hidden;
+  }
+  .fasesel.abierto .menu{display:block;}
+  .fasesel .menu a{display:block;padding:10px 13px;color:var(--navy);text-decoration:none;font-size:13.5px;font-weight:600;}
+  .fasesel .menu a.actual{background:var(--light);color:var(--navy);}
+  .fasesel .menu a:not(.actual):hover{background:var(--light);}
+  .fasesel .menu small{display:block;font-weight:400;color:#7a8496;font-size:11.5px;margin-top:2px;}
+  .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fa8d6;margin:26px 0 8px;padding:0 8px;}
+  .sidenav a.navitem{display:block;color:#dce6f4;text-decoration:none;font-size:13.5px;
+    padding:8px 10px;border-left:3px solid transparent;border-radius:0 6px 6px 0;}
+  .sidenav a.navitem:hover{background:rgba(255,255,255,.08);color:#fff;}
+  .sidenav a.navitem.active{background:rgba(157,195,238,.16);border-left-color:#9dc3ee;color:#fff;font-weight:600;}
+  .main{flex:1;min-width:0;}
+  .page{max-width:900px;margin:24px auto;background:#fff;box-shadow:0 2px 14px rgba(31,56,100,.12);padding:56px 64px;}
+  .cover{border-bottom:4px solid var(--navy);padding-bottom:28px;margin-bottom:32px;}
+  .cover .kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px;}
+  .cover h1{color:var(--navy);font-size:1.9rem;margin-bottom:10px;}
+  .cover .sub{color:#5a6478;font-size:1rem;}
+  .estado{display:inline-block;margin-top:14px;padding:4px 12px;border-radius:999px;background:#fdf1de;color:var(--amber);
+    font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+  h2{color:var(--navy);font-size:1.3rem;margin:34px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--border);}
+  h3{color:var(--navy);font-size:1.05rem;margin:22px 0 8px;}
+  p{margin-bottom:12px;}
+  .nota{background:var(--light);border:1px solid var(--border);border-left:4px solid var(--blue);
+    border-radius:6px;padding:14px 18px;margin:16px 0;font-size:.92rem;}
+  .nota b{color:var(--navy);}
+  .ficha{border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin:14px 0;background:var(--light);}
+  .ficha .meta{font-size:.8rem;color:#7a8496;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
+  .vacio{border:2px dashed var(--border);border-radius:8px;padding:26px 20px;text-align:center;color:#7a8496;font-size:.92rem;}
+  footer{max-width:900px;margin:0 auto 40px;padding:0 64px;color:#7a8496;font-size:.82rem;}
+  @media(max-width:980px){
+    .layout{flex-direction:column;}
+    .sidenav{position:static;width:100%;min-height:auto;}
+    .page{padding:40px 24px;margin:16px auto;}
+    footer{padding:0 24px;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidenav">
+    <div class="brand">Consultores UCAB · Proyecto Rower<b>Informe de Procesos · Fase 2</b></div>
+    <div class="fasesel" id="faseSel">
+      <button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 2 — Procesos <span>▾</span></button>
+      <div class="menu">
+        <a href="../fase1/informe-diagnostico-fase1.html">Fase 1 — Diagnóstico<small>Informe maestro (13 secciones + anexos)</small></a>
+        <a class="actual" href="informe-fase2.html">Fase 2 — Procesos<small>En construcción — aportes de los consultores</small></a>
+      </div>
+    </div>
+    <div class="navlbl">Contenido</div>
+    <a class="navitem" href="#intro" data-sec="intro">Introducción</a>
+    <a class="navitem" href="#fichas" data-sec="fichas">Fichas de proceso</a>
+  </nav>
+
+  <div class="main">
+    <div class="page">
+      <div class="cover">
+        <div class="kicker">UCAB Consultores · Grupo Kenex</div>
+        <h1>Informe de Procesos — Fase 2</h1>
+        <p class="sub">Documentación de procesos y prototipos de IA. Este documento se construye de forma incremental con los aportes de cada consultor a medida que avanza el levantamiento.</p>
+        <span class="estado">En construcción</span>
+      </div>
+
+      <section id="intro">
+        <h2>Introducción</h2>
+        <p>Esta página reúne, a lo largo de la Fase 2 del proyecto, la información que cada consultor va documentando sobre los procesos de Grupo Kenex: procedimientos detallados, hallazgos de campo, oportunidades de automatización y prototipos de IA asociados a cada proceso del <a href="../fase1/mapa-procesos-kenex.html">mapa de procesos</a> levantado en la Fase 1.</p>
+        <div class="nota"><b>Cómo se usa:</b> cada consultor agrega su aporte como una nueva «ficha de proceso» en la sección siguiente, indicando el proceso al que corresponde (código del mapa de procesos), su nombre y la fecha del aporte. No se sobrescribe el trabajo de otro consultor: se agrega una ficha nueva o se amplía la existente citando la fuente.</div>
+      </section>
+
+      <section id="fichas">
+        <h2>Fichas de proceso</h2>
+        <p>Aún no hay fichas cargadas. A medida que el equipo consultor documente procesos, aparecerán aquí como bloques individuales con el siguiente formato:</p>
+        <div class="ficha">
+          <div class="meta">Plantilla · proceso N-M · consultor · fecha</div>
+          <h3>Nombre del proceso</h3>
+          <p><b>Procedimiento actual:</b> descripción paso a paso de cómo se ejecuta hoy.</p>
+          <p><b>Hallazgos:</b> fricciones, riesgos o vacíos identificados en campo.</p>
+          <p><b>Oportunidad de IA / automatización:</b> qué prototipo o mejora se propone y su relación con la <a href="../fase1/arquitectura-ia-kenex.html">arquitectura de IA</a> de la Fase 1.</p>
+        </div>
+        <div class="vacio">La primera ficha real sustituye este marcador — no lo dejes junto a contenido cargado.</div>
+      </section>
+    </div>
+    <footer>Proyecto Rower · UCAB Consultores para Grupo Kenex · Documento interno del equipo consultor</footer>
+  </div>
+</div>
+
+<script>
+(function(){
+  var sel = document.getElementById('faseSel');
+  var btn = document.getElementById('faseBtn');
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    sel.classList.toggle('abierto');
+    btn.setAttribute('aria-expanded', sel.classList.contains('abierto'));
+  });
+  var actual = sel.querySelector('.menu a.actual');
+  if(actual) actual.addEventListener('click', function(e){ e.preventDefault(); sel.classList.remove('abierto'); });
+  document.addEventListener('click', function(){ sel.classList.remove('abierto'); });
+})();
+</script>
+</body>
+</html>

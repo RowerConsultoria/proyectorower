@@ -260,6 +260,22 @@
   }
   .sidenav .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9dc3ee;font-weight:700;}
   .sidenav .brand b{display:block;color:#fff;font-size:17px;letter-spacing:0;margin-top:6px;text-transform:none;font-weight:800;}
+  .fasesel{position:relative;margin-top:16px;}
+  .fasesel>button{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;
+    padding:9px 12px;border-radius:8px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  }
+  .fasesel>button:hover{background:rgba(255,255,255,.14);}
+  .fasesel .menu{
+    display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;
+    background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.22);overflow:hidden;
+  }
+  .fasesel.abierto .menu{display:block;}
+  .fasesel .menu a{display:block;padding:10px 13px;color:var(--navy);text-decoration:none;font-size:13.5px;font-weight:600;}
+  .fasesel .menu a.actual{background:var(--light);}
+  .fasesel .menu a:not(.actual):hover{background:var(--light);}
+  .fasesel .menu small{display:block;font-weight:400;color:#7a8496;font-size:11.5px;margin-top:2px;}
   .sidenav .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fa8d6;
     margin:20px 0 8px;padding-left:10px;font-weight:700;}
   .sidenav a{display:block;color:#dce6f4;text-decoration:none;font-size:13.5px;
@@ -347,6 +363,13 @@
   <div class="scrim" onclick="document.body.classList.remove('nav-open')"></div>
   <nav class="sidenav">
     <div class="brand">Consultores UCAB · Proyecto Rower<b>Informe Diagnóstico · Fase 1</b></div>
+    <div class="fasesel" id="faseSel">
+      <button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 1 — Diagnóstico <span>▾</span></button>
+      <div class="menu">
+        <a class="actual" href="#">Fase 1 — Diagnóstico<small>Informe maestro (13 secciones + anexos)</small></a>
+        <a href="../fase2/informe-fase2.html">Fase 2 — Procesos<small>En construcción — aportes de los consultores</small></a>
+      </div>
+    </div>
     <div class="navlbl">Contenido</div>
       <div class="navitem">
         <div class="navrow">
@@ -2561,6 +2584,20 @@
   </div><!-- /main -->
 </div><!-- /layout -->
 <script>
+(function(){
+  var sel = document.getElementById('faseSel');
+  var btn = document.getElementById('faseBtn');
+  if(sel && btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      sel.classList.toggle('abierto');
+      btn.setAttribute('aria-expanded', sel.classList.contains('abierto'));
+    });
+    var actual = sel.querySelector('.menu a.actual');
+    if(actual) actual.addEventListener('click', function(e){ e.preventDefault(); sel.classList.remove('abierto'); });
+    document.addEventListener('click', function(){ sel.classList.remove('abierto'); });
+  }
+})();
 (function(){
   var links=[].slice.call(document.querySelectorAll('.sidenav a[data-sec]'));
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('data-sec'));}).filter(Boolean);

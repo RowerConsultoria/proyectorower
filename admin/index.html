@@ -104,6 +104,10 @@
   table.data tr:last-child td{border-bottom:0;}
   table.data tbody tr{cursor:pointer;}
   table.data tbody tr:hover{background:#f7f9fd;}
+  table.data th.ord{cursor:pointer; user-select:none;}
+  table.data th.ord:hover{color:var(--blue);}
+  table.data th.ord .flecha{display:inline-block; margin-left:4px; opacity:.55;}
+  table.data th.ord.activo .flecha{opacity:1;}
   td.codigo{font-family:Consolas,monospace; color:var(--navy); font-weight:600; white-space:nowrap;}
   td.nombre b{color:var(--navy);}
   .muted{color:var(--muted);}
@@ -492,10 +496,41 @@ function stub(title, html){
     <div class="card"><div class="empty"><div class="big">🚧</div>${html}</div></div>`;
 }
 
+/* ---------- Orden de columnas (tablas «data») ---------- */
+function cmpCol(a,b){
+  if(a==null && b==null) return 0;
+  if(a==null) return -1;
+  if(b==null) return 1;
+  if(typeof a==='number' && typeof b==='number') return a-b;
+  return String(a).localeCompare(String(b), 'es', {sensitivity:'base', numeric:true});
+}
+function ordenarFilas(rows, estado){
+  if(!estado || !estado.col) return rows;
+  return rows.slice().sort((x,y)=> cmpCol(x[estado.col], y[estado.col]) * estado.dir);
+}
+function theadOrd(cols, estado){
+  return '<tr>' + cols.map(c=>{
+    if(!c.col) return `<th${c.right?' style="text-align:right"':''}>${c.label}</th>`;
+    const activo = estado.col===c.col;
+    const flecha = activo ? (estado.dir===1?'▲':'▼') : '';
+    return `<th class="ord${activo?' activo':''}" data-col="${c.col}">${c.label}<span class="flecha">${flecha}</span></th>`;
+  }).join('') + '</tr>';
+}
+function bindOrd(theadEl, estado, onChange){
+  theadEl.querySelectorAll('th.ord').forEach(th=>{
+    th.addEventListener('click', ()=>{
+      const col = th.dataset.col;
+      if(estado.col===col) estado.dir *= -1; else { estado.col = col; estado.dir = 1; }
+      onChange();
+    });
+  });
+}
+
 /* ============================================================
    Módulo: Entrevistas transcritas
    ============================================================ */
 let cache = [];   // filas cargadas
+let ordEntrevistas = { col:'codigo', dir:1 };
 
 async function renderEntrevistas(){
   // ¿detalle? #entrevistas/<id> o #entrevistas/nueva
@@ -534,13 +569,19 @@ function paint(){
     const hay = [r.codigo,r.entrevistado,r.cargo,r.area,r.pais,r.entrevistador,(r.etiquetas||[]).join(' ')].join(' ').toLowerCase();
     return hay.includes(q);
   });
+  rows = ordenarFilas(rows, ordEntrevistas);
   const card = $('#listCard');
   if(!rows.length){
     card.innerHTML = `<div class="empty"><div class="big">🗒️</div>${cache.length? 'Ningún resultado con esos filtros.' : 'Aún no hay entrevistas cargadas.'}<br><a class="btn primary" style="margin-top:14px" href="#entrevistas/nueva">＋ Cargar la primera</a></div>`;
     return;
   }
+  const cols = [
+    {col:'codigo', label:'Código'}, {col:'entrevistado', label:'Entrevistado'},
+    {col:'cargo', label:'Cargo'}, {col:'area', label:'Área'},
+    {col:'pais', label:'País'}, {col:'fecha', label:'Fecha'}, {col:'estado', label:'Estado'},
+  ];
   card.innerHTML = `<table class="data">
-    <thead><tr><th>Código</th><th>Entrevistado</th><th>Cargo</th><th>Área</th><th>País</th><th>Fecha</th><th>Estado</th></tr></thead>
+    <thead>${theadOrd(cols, ordEntrevistas)}</thead>
     <tbody>${rows.map(r=>`
       <tr data-id="${esc(r.id)}">
         <td class="codigo">${esc(r.codigo||'—')}</td>
@@ -552,6 +593,7 @@ function paint(){
         <td>${badge(r.estado)}</td>
       </tr>`).join('')}
     </tbody></table>`;
+  bindOrd($('#listCard thead'), ordEntrevistas, paint);
   $$('#listCard tbody tr').forEach(tr=> tr.addEventListener('click', ()=> location.hash = `entrevistas/${tr.dataset.id}`));
 }
 
@@ -719,6 +761,7 @@ async function eliminar(id, etiqueta){
 /* ============================================================
    Módulo: Archivos (insumos) — Supabase Storage (bucket 'insumos')
    ============================================================ */
+let ordArchivos = { col:'creado_en', dir:-1 };
 const BUCKET = 'insumos';
 const CATEGORIAS = ['procesos','talento','tecnología','gobierno','financiero','operaciones','general'];
 let cacheArch = [];
@@ -786,9 +829,15 @@ function paintArch(){
     card.innerHTML = `<div class="empty"><div class="big">📁</div>${cacheArch.length? 'Ningún archivo con esos filtros.' : 'Aún no hay archivos cargados. Usa «Elegir archivos» para subir el primero.'}</div>`;
     return;
   }
+  const rowsOrd = ordenarFilas(rows, ordArchivos);
+  const cols = [
+    {col:'nombre', label:'Archivo'}, {col:'categoria', label:'Categoría'},
+    {col:'tipo', label:'Tipo'}, {col:'size_bytes', label:'Tamaño'},
+    {col:'creado_en', label:'Fecha'}, {label:'Acciones', right:true},
+  ];
   card.innerHTML = `<table class="data">
-    <thead><tr><th>Archivo</th><th>Categoría</th><th>Tipo</th><th>Tamaño</th><th>Fecha</th><th style="text-align:right">Acciones</th></tr></thead>
-    <tbody>${rows.map(a=>`
+    <thead>${theadOrd(cols, ordArchivos)}</thead>
+    <tbody>${rowsOrd.map(a=>`
       <tr data-id="${esc(a.id)}" class="fila-arch" title="Clic para ver la vista previa">
         <td class="nombre"><b>${iconoTipo(a.tipo)} ${esc(a.nombre)}</b>${a.descripcion?`<div class="muted" style="font-size:.82rem; margin-top:2px">${esc(a.descripcion)}</div>`:''}${(a.etiquetas&&a.etiquetas.length)?`<div style="margin-top:4px">${a.etiquetas.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}</td>
         <td>${esc(a.categoria||'—')}</td>
@@ -801,6 +850,7 @@ function paintArch(){
         </td>
       </tr>`).join('')}
     </tbody></table>`;
+  bindOrd($('#archCard thead'), ordArchivos, paintArch);
   $$('#archCard .dl').forEach(b=> b.addEventListener('click', ()=> descargarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
   $$('#archCard .del').forEach(b=> b.addEventListener('click', ()=> eliminarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
   $$('#archCard tbody tr').forEach(tr=> tr.addEventListener('click', (e)=>{
