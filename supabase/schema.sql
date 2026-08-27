@@ -136,18 +136,30 @@ on conflict (id) do nothing;
 drop policy if exists insumos_anon on storage.objects;
 
 create table if not exists public.archivos (
-  id            uuid primary key default gen_random_uuid(),
-  nombre        text not null,
-  descripcion   text,
-  categoria     text,                          -- procesos, talento, tecnología, gobierno, financiero, operaciones, general
-  tipo          text,                          -- xlsx, pptx, pdf, otro
-  storage_path  text not null unique,
-  size_bytes    bigint,
-  mime          text,
-  subido_por    text,
-  etiquetas     text[],
-  creado_en     timestamptz not null default now()
+  id             uuid primary key default gen_random_uuid(),
+  nombre         text not null,
+  descripcion    text,
+  area           text,                          -- catálogo de áreas/departamentos de la compañía (no solo del proyecto)
+  tipo_documento text,                          -- política, contrato, presentación, hoja de cálculo, acta, informe…
+  tipo           text,                          -- xlsx, pptx, pdf, otro — formato, se infiere de la extensión
+  confidencial   boolean not null default false,-- visible/filtrable; hoy no cierra nada aparte (sigue siendo admin.archivos)
+  storage_path   text not null unique,
+  size_bytes     bigint,
+  mime           text,
+  subido_por     text,
+  etiquetas      text[],
+  creado_en      timestamptz not null default now()
 );
+
+-- Repositorio de TODA la compañía (no solo los insumos del proyecto de
+-- consultoría): "categoria" nació como una lista plana de 7 valores del
+-- propio proyecto; ahora es "area", el primero de tres ejes independientes
+-- (área · tipo de documento · etiquetas) que se cruzan al filtrar, no
+-- carpetas anidadas. Renombrar conserva los datos ya cargados — sus 7
+-- valores originales (procesos, talento…) quedan como áreas válidas más.
+alter table public.archivos rename column categoria to area;
+alter table public.archivos add column if not exists tipo_documento text;
+alter table public.archivos add column if not exists confidencial boolean not null default false;
 
 alter table public.archivos enable row level security;
 
@@ -328,6 +340,140 @@ create trigger archivos_indexar_ins
   for each row
   execute function public.disparar_indexado('archivo');
 
+-- ---------- 11. Personal: censo, jerarquía y fichas de actualización ----------
+-- Módulos «Censo y enlaces» y «Fichas recibidas» del panel admin: recolección
+-- de la ficha de actualización de perfil (Fase 3) por los ~426 colaboradores
+-- de Kenex, llenada por cada gerente para su equipo directo o por cada quien
+-- para sí mismo, según se decida caso por caso — de ahí que existan los dos
+-- tipos de enlace en fichas_tokens.
+--
+-- ⚠️ Datos personales de personas AJENAS al equipo consultor (documento de
+-- identidad, nivel educativo…). El acceso anónimo sigue cerrado igual que el
+-- resto del esquema; la única puerta sin sesión de Supabase Auth es la Edge
+-- Function `ficha`, que valida el token opaco con la clave de servicio y solo
+-- alcanza al ámbito de ESE token (ver supabase/functions/ficha/index.ts).
+
+create table if not exists public.personal (
+  id             uuid primary key default gen_random_uuid(),
+  nombre         text not null,
+  pais           text,
+  entidad        text,                        -- Rower · Casiolandia Panamá · Kenex Trading · Deltadir
+  area           text,
+  cargo          text,
+  correo         text,
+  fecha_ingreso  date,
+  identificacion text,
+  ubicacion      text,
+  condicion      text,
+  supervisor_txt text,                        -- valor crudo del Excel, para trazabilidad
+  gerente_id     uuid references public.personal(id) on delete set null,
+  origen         text,                        -- archivo/hoja de donde vino la fila
+  activo         boolean not null default true,
+  notas          text,
+  creado_en      timestamptz not null default now(),
+  actualizado_en timestamptz not null default now(),
+  unique (nombre, entidad)
+);
+create index if not exists personal_gerente_idx on public.personal (gerente_id);
+create index if not exists personal_entidad_idx on public.personal (entidad);
+create index if not exists personal_area_idx    on public.personal (area);
+
+drop trigger if exists trg_personal_touch on public.personal;
+create trigger trg_personal_touch
+  before update on public.personal
+  for each row execute function public.touch_actualizado_en();
+
+-- Nadie puede ser su propio gerente, ni de forma directa ni por cadena — el
+-- Excel de origen ya trae un caso real de auto-referencia.
+create or replace function public.evitar_ciclo_gerente()
+returns trigger
+language plpgsql
+as $$
+declare
+  actual uuid;
+  saltos int := 0;
+begin
+  if new.gerente_id is null then
+    return new;
+  end if;
+  if new.gerente_id = new.id then
+    raise exception 'Una persona no puede ser su propio gerente';
+  end if;
+  actual := new.gerente_id;
+  while actual is not null and saltos < 100 loop
+    if actual = new.id then
+      raise exception 'Esa asignación crea un ciclo en la jerarquía de gerentes';
+    end if;
+    select gerente_id into actual from public.personal where id = actual;
+    saltos := saltos + 1;
+  end loop;
+  return new;
+end;
+$$;
+
+drop trigger if exists trg_personal_evitar_ciclo on public.personal;
+create trigger trg_personal_evitar_ciclo
+  before insert or update of gerente_id on public.personal
+  for each row execute function public.evitar_ciclo_gerente();
+
+-- Una ficha por persona. Las tres listas (responsabilidades, posiciones
+-- previas, hard skills) van en jsonb: son de tamaño variable y no se
+-- consultan por campo interno, solo se leen/escriben enteras.
+create table if not exists public.fichas_perfil (
+  id                  uuid primary key default gen_random_uuid(),
+  persona_id          uuid not null unique references public.personal(id) on delete cascade,
+  documento           text,
+  antiguedad_org      text,
+  nivel_educativo     text check (nivel_educativo in
+                       ('bachiller_tecnico_medio','tsu_universitario_incompleto',
+                        'universitario_titulado','especializacion_maestria_doctorado')),
+  otras_formaciones   text,
+  titulo_obtenido     text,
+  institucion         text,
+  cargo_actual        text,
+  antiguedad_cargo    text,
+  area_sede           text,
+  responsabilidades   jsonb not null default '[]'::jsonb,   -- ["texto", …] hasta 4
+  posiciones_previas  jsonb not null default '[]'::jsonb,   -- [{cargo,area,desde,hasta}, …]
+  habilidades         jsonb not null default '{}'::jsonb,   -- {excel,odoo,lark,powerbi,ia,otra:{nombre,nivel}}
+  estado              text not null default 'pendiente'
+                      check (estado in ('pendiente','en_progreso','completada')),
+  llenada_por         text,                     -- nombre de quien llenó (el propio o su gerente)
+  enviada_en          timestamptz,
+  creado_en           timestamptz not null default now(),
+  actualizado_en      timestamptz not null default now()
+);
+
+drop trigger if exists trg_fichas_perfil_touch on public.fichas_perfil;
+create trigger trg_fichas_perfil_touch
+  before update on public.fichas_perfil
+  for each row execute function public.touch_actualizado_en();
+
+-- Enlaces de acceso público (sin sesión de Supabase Auth). El token es una
+-- cadena aleatoria opaca generada en el navegador del panel; no hace falta
+-- guardar solo su hash porque el propio panel necesita re-exportar la lista
+-- de enlaces para repartirlos, y el alcance de cada token es acotado (una
+-- ficha o el equipo directo de un gerente).
+create table if not exists public.fichas_tokens (
+  id          uuid primary key default gen_random_uuid(),
+  token       text not null unique,
+  tipo        text not null check (tipo in ('individual','gerente')),
+  persona_id  uuid not null references public.personal(id) on delete cascade,
+  expira_en   timestamptz not null default (now() + interval '45 days'),
+  revocado    boolean not null default false,
+  usos        int not null default 0,
+  ultimo_uso  timestamptz,
+  creado_por  text,
+  creado_en   timestamptz not null default now()
+);
+create index if not exists fichas_tokens_persona_idx on public.fichas_tokens (persona_id);
+
+alter table public.personal      enable row level security;
+alter table public.fichas_perfil enable row level security;
+alter table public.fichas_tokens enable row level security;
+
+-- Las políticas viven en el bloque final (necesitan public.tiene_permiso).
+
 -- ---------- 9. Acceso: Supabase Auth (activado el 04-ago-2026) ----------
 -- Todo el aplicativo vive detrás de /acceso/ (pantalla de login) y del guardia
 -- supabase/sesion.js. Las políticas de arriba solo reconocen `authenticated`,
@@ -424,7 +570,9 @@ insert into public.permisos (clave, nombre, descripcion, grupo, orden) values
   ('admin.timeline',  'Línea de tiempo',       'Bitácora cronológica del proyecto.', 'Panel', 70),
   ('admin.informe',   'Estado del informe',    'Estado por sección, comentarios de los consultores y matriz de riesgos.', 'Panel', 80),
   ('admin.usuarios',  'Administrar usuarios',  'Crear cuentas, reponer claves, asignar roles y dar de baja. Permiso delicado.', 'Gobierno del acceso', 90),
-  ('admin.roles',     'Definir roles',         'Crear roles y decidir qué puede hacer cada uno. Permiso delicado.', 'Gobierno del acceso', 100)
+  ('admin.roles',     'Definir roles',         'Crear roles y decidir qué puede hacer cada uno. Permiso delicado.', 'Gobierno del acceso', 100),
+  ('admin.personal',  'Censo y enlaces',       'Censo de personal de Kenex, su jerarquía y la generación de enlaces para la ficha de actualización de perfil.', 'Panel', 110),
+  ('admin.fichas',    'Fichas recibidas',      'Leer y exportar las fichas de actualización de perfil recibidas. Incluye documento de identidad y nivel educativo.', 'Panel', 120)
 on conflict (clave) do update
   set nombre = excluded.nombre, descripcion = excluded.descripcion,
       grupo = excluded.grupo, orden = excluded.orden;
@@ -445,7 +593,8 @@ on conflict do nothing;
 insert into public.roles_permisos (rol, permiso)
 select 'consultor', clave from public.permisos
  where clave in ('ver.informe','ver.sistema','admin.entrar','admin.asistente',
-                 'admin.entrevistas','admin.archivos','admin.timeline','admin.informe')
+                 'admin.entrevistas','admin.archivos','admin.timeline','admin.informe',
+                 'admin.personal','admin.fichas')
 on conflict do nothing;
 
 insert into public.roles_permisos (rol, permiso) values ('junta','ver.informe')
@@ -684,3 +833,26 @@ drop policy if exists insumos_auth on storage.objects;
 create policy insumos_auth on storage.objects for all to authenticated
   using (bucket_id = 'insumos' and public.tiene_permiso('admin.archivos'))
   with check (bucket_id = 'insumos' and public.tiene_permiso('admin.archivos'));
+
+drop policy if exists personal_lectura   on public.personal;
+drop policy if exists personal_escritura on public.personal;
+create policy personal_lectura   on public.personal for select to authenticated
+  using (public.tiene_permiso('admin.personal'));
+create policy personal_escritura on public.personal for all to authenticated
+  using (public.tiene_permiso('admin.personal')) with check (public.tiene_permiso('admin.personal'));
+
+drop policy if exists fichas_tokens_lectura   on public.fichas_tokens;
+drop policy if exists fichas_tokens_escritura on public.fichas_tokens;
+create policy fichas_tokens_lectura   on public.fichas_tokens for select to authenticated
+  using (public.tiene_permiso('admin.personal'));
+create policy fichas_tokens_escritura on public.fichas_tokens for all to authenticated
+  using (public.tiene_permiso('admin.personal')) with check (public.tiene_permiso('admin.personal'));
+
+-- fichas_perfil: la escribe también la Edge Function `ficha` con la clave de
+-- servicio (el llenado público no tiene sesión); el panel solo lee/exporta.
+drop policy if exists fichas_perfil_lectura   on public.fichas_perfil;
+drop policy if exists fichas_perfil_escritura on public.fichas_perfil;
+create policy fichas_perfil_lectura   on public.fichas_perfil for select to authenticated
+  using (public.tiene_permiso('admin.fichas'));
+create policy fichas_perfil_escritura on public.fichas_perfil for all to authenticated
+  using (public.tiene_permiso('admin.fichas')) with check (public.tiene_permiso('admin.fichas'));

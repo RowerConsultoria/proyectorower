@@ -1,90 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proyecto Rower — Portal del equipo consultor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo/app.css">
 <style>
-  :root{
-    --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
-    --gris:#F4F6FA; --borde:#d9dee8;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{
-    font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;
-    color:#26303f; background:#fff; line-height:1.55;
-  }
+  body{background:var(--fondo);}
   header{
-    background:linear-gradient(135deg,var(--navy) 0%,#2a4a80 100%);
-    color:#fff; padding:56px 24px 48px; text-align:center;
+    --fondo:#0A0E13; --panel:#141C25; --panel-alto:#1A2530; --borde:#22303D;
+    --tinta:#E9EFF5; --tinta-media:#9AAABA; --tinta-tenue:#7D8C9C;
+    background:var(--fondo); color:var(--tinta);
+    padding:56px 24px 48px; text-align:center;
   }
   header .kicker{
     text-transform:uppercase; letter-spacing:.18em; font-size:.8rem;
-    color:#9dc3ee; margin-bottom:10px;
+    color:var(--tinta-tenue); margin-bottom:12px;
   }
-  header h1{font-size:2.1rem; font-weight:700; margin-bottom:10px;}
-  header p{max-width:720px; margin:0 auto; color:#dbe6f5; font-size:1.02rem;}
+  header .logo{display:flex; align-items:center; justify-content:center; gap:12px;}
+  header h1{font-size:2.1rem; font-weight:700; letter-spacing:-.02em; text-transform:lowercase;}
+  header p{max-width:720px; margin:14px auto 0; color:var(--tinta-media); font-size:1.02rem;}
   .conf{
-    display:inline-block; margin-top:18px; padding:5px 14px; border-radius:999px;
-    background:rgba(192,0,0,.25); border:1px solid rgba(255,255,255,.35);
-    font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+    display:inline-flex; align-items:center; gap:6px; margin-top:18px;
+    padding:5px 14px; border-radius:var(--r-pildora);
+    background:rgba(255,107,90,.13); color:var(--riesgo); border:1px solid rgba(255,107,90,.30);
+    font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
   }
   main{max-width:1040px; margin:0 auto; padding:40px 24px 64px;}
-  h2{
-    color:var(--navy); font-size:1.15rem; text-transform:uppercase;
-    letter-spacing:.08em; margin:36px 0 16px; padding-bottom:6px;
-    border-bottom:2px solid var(--borde);
+  h2.titulo-portal{
+    color:var(--tinta); font-size:1rem; text-transform:lowercase;
+    letter-spacing:.02em; margin:36px 0 16px; padding-bottom:8px;
+    border-bottom:1px solid var(--borde); font-weight:700;
   }
   .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;}
-  a.card{
-    display:block; text-decoration:none; color:inherit;
-    border:1px solid var(--borde); border-left:5px solid var(--blue);
-    border-radius:8px; padding:20px 22px; background:#fff;
-    transition:box-shadow .15s, transform .15s;
-  }
-  a.card:hover{box-shadow:0 6px 18px rgba(31,56,100,.14); transform:translateY(-2px);}
-  a.card h3{color:var(--navy); font-size:1.05rem; margin-bottom:6px;}
-  a.card p{font-size:.92rem; color:#55627a;}
-  .badge{
-    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em;
-    text-transform:uppercase; padding:2px 10px; border-radius:999px; margin-bottom:10px;
-  }
-  .b-activo{background:#e3efe4; color:var(--verde);}
-  .b-prox{background:#fdf1de; color:var(--ambar);}
-  .b-admin{background:#e3eefb; color:var(--navy);}
-  a.card.admin{border-left-color:var(--navy);}
-  a.card.front{border-left-color:var(--verde);}
+  a.card.tarjeta.pulsable{display:block; text-decoration:none; color:inherit; border-left:4px solid var(--borde);}
+  a.card h3{color:var(--tinta); font-size:1.05rem; margin-bottom:6px; font-weight:650;}
+  a.card p{font-size:.92rem; color:var(--tinta-media);}
+  a.card.admin{border-left-color:var(--cian);}
+  a.card.front{border-left-color:var(--ok);}
   a.card .llave{
-    display:block; margin-top:10px; font-size:.8rem; color:var(--muted, #7a8496);
+    display:block; margin-top:10px; font-size:.8rem; color:var(--tinta-tenue);
     border-top:1px dashed var(--borde); padding-top:8px;
   }
   /* Estado de la sesión */
   .sesion{
     display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-    background:var(--gris); border:1px solid var(--borde); border-left:4px solid var(--navy);
-    border-radius:8px; padding:10px 15px; font-size:.88rem; color:#55627a; margin-bottom:6px;
+    background:var(--panel-alto); border:1px solid var(--borde); border-left:3px solid var(--cian);
+    border-radius:var(--r-tarjeta); padding:10px 15px; font-size:.88rem; color:var(--tinta-media); margin-bottom:6px;
   }
   .sesion .ini{
-    width:28px; height:28px; border-radius:50%; background:var(--navy); color:#fff; flex:0 0 auto;
+    width:28px; height:28px; border-radius:50%; background:var(--gradiente); color:#04212B; flex:0 0 auto;
     display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.78rem;
   }
-  .sesion b{color:var(--navy);}
+  .sesion b{color:var(--tinta);}
   .sesion .acciones{margin-left:auto; display:flex; gap:9px;}
-  .sesion button, .sesion a.mini{
-    border:1px solid var(--borde); background:#fff; color:var(--navy); border-radius:6px;
-    padding:5px 11px; font:inherit; font-size:.8rem; cursor:pointer; text-decoration:none;
+  .sesion .acciones a.mini, .sesion .acciones button.salir{
+    display:inline-flex; align-items:center; border:1px solid var(--borde); background:var(--panel);
+    color:var(--tinta); border-radius:var(--r-pildora);
+    padding:5px 13px; font:inherit; font-size:.8rem; font-weight:600; cursor:pointer; text-decoration:none;
+    transition:border-color var(--rapido) var(--curva);
   }
-  .sesion button:hover, .sesion a.mini:hover{border-color:var(--blue);}
-  .sesion button.salir{color:var(--rojo);}
-  .sesion button.salir:hover{background:#fbeaea; border-color:var(--rojo);}
-  .fechas{
-    background:var(--gris); border:1px solid var(--borde); border-radius:8px;
-    padding:16px 20px; margin-top:8px;
-  }
-  .fechas strong{color:var(--rojo);}
+  .sesion .acciones a.mini:hover, .sesion .acciones button.salir:hover{border-color:var(--tinta-tenue);}
+  .sesion .acciones button.salir{color:var(--riesgo); border-color:rgba(255,107,90,.32);}
+  .sesion .acciones button.salir:hover{background:rgba(255,107,90,.08);}
   footer{
     border-top:1px solid var(--borde); padding:22px 24px; text-align:center;
-    font-size:.85rem; color:#7a8496;
+    font-size:.85rem; color:var(--tinta-tenue);
   }
   @media (max-width:520px){
     header{padding:38px 18px 32px;}
@@ -99,27 +83,27 @@
 
 <header>
   <div class="kicker">UCAB Consultores · Grupo Kenex</div>
-  <h1>Proyecto Rower</h1>
+  <div class="logo"><span class="orbe orbe-grande" aria-hidden="true"></span><h1>Proyecto Rower</h1></div>
   <p>Portal del proyecto de Optimización Organizacional y Adopción de IA. Acceso al informe navegable, presentaciones y módulos interactivos del equipo consultor.</p>
   <span class="conf">Confidencial — uso interno del equipo</span>
 </header>
 
 <main>
-  <h2>El aplicativo</h2>
+  <h2 class="titulo-portal">el aplicativo</h2>
   <div class="sesion" id="sesionBox" style="display:none">
     <span class="ini" id="sesIni">·</span>
     <span id="sesTexto">Comprobando el acceso…</span>
     <span class="acciones" id="sesAcciones"></span>
   </div>
   <div class="grid">
-    <a class="card front" id="cInforme" href="acceso/?destino=informe%2Ffase1%2Finforme-diagnostico-fase1.html">
-      <span class="badge b-activo">Front · el informe</span>
+    <a class="card front tarjeta pulsable" id="cInforme" href="acceso/?destino=informe%2Ffase1%2Finforme-diagnostico-fase1.html">
+      <span class="marca-estado e-ok">Front · el informe</span>
       <h3>Informe Diagnóstico — Fase 1</h3>
       <p>El entregable maestro: sitio navegable autocontenido (13 secciones, anexos y diagrama de arquitectura de IA). La cara del proyecto para la Junta Directiva del 24-jul.</p>
       <span class="llave">🔒 Requiere iniciar sesión</span>
     </a>
-    <a class="card admin" id="cAdmin" href="acceso/?destino=admin%2F">
-      <span class="badge b-admin">Admin · Interno</span>
+    <a class="card admin tarjeta pulsable" id="cAdmin" href="acceso/?destino=admin%2F">
+      <span class="marca-estado e-neutro">Admin · Interno</span>
       <h3>Panel administrativo</h3>
       <p>Módulos internos con sidebar para el equipo consultor: Asistente IA, entrevistas transcritas, insumos y línea de tiempo. Datos persistidos en Supabase (fuera del repositorio).</p>
       <span class="llave">🔒 Requiere iniciar sesión</span>

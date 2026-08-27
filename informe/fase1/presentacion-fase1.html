@@ -1,24 +1,29 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Presentación · Informe Diagnóstico Fase 1 · Proyecto Rower</title>
 <!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilo/app.css">
 <style>
 :root{
-  --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
-  --gris:#F4F6FA; --borde:#d9dee8; --txt:#26303f; --muted:#55627a; --celeste:#9dc3ee;
+  /* --borde ya existe con el mismo sentido en el archivo compartido: no se alía. */
+  --navy:var(--tinta); --blue:var(--cian); --rojo:var(--riesgo); --verde:var(--ok); --ambar:var(--alerta);
+  --gris:var(--panel-alto); --txt:var(--tinta); --muted:var(--tinta-media); --celeste:var(--cian);
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html,body{height:100%;}
-body{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif; color:var(--txt); background:#101826; overflow:hidden;}
+body{font-family:var(--fuente); color:var(--txt); background:#0A0E13; overflow:hidden;}
 
 /* ---------- láminas ---------- */
 .slide{position:absolute; inset:0 0 52px 0; display:none; flex-direction:column; background:#fff; padding:0;}
 .slide.on{display:flex;}
-.shead{background:linear-gradient(135deg,var(--navy),#2a4a80); color:#fff; padding:20px 54px 16px;}
+.shead{background:linear-gradient(135deg,#0A0E13,#1A2530); color:#fff; padding:20px 54px 16px;}
 .shead .kick{display:block; text-transform:uppercase; letter-spacing:.16em; font-size:13px; color:var(--celeste); font-weight:700; margin-bottom:4px;}
 .shead h2{font-size:30px; font-weight:700; letter-spacing:-.01em;}
 .sbody{flex:1; padding:26px 54px 22px; overflow:auto; display:flex; flex-direction:column; gap:16px;}
@@ -55,9 +60,9 @@ body{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif; color:var(--txt); ba
 .quote small{display:block; font-style:normal; color:var(--muted); font-size:12.5px; margin-top:6px;}
 .tagline{display:flex; gap:10px; flex-wrap:wrap;}
 .tag{font-size:13px; font-weight:700; padding:4px 12px; border-radius:999px; background:var(--gris); border:1px solid var(--borde); color:var(--navy);}
-.tag.rojo{background:#fbeaea; color:var(--rojo); border-color:#eecccc;}
-.tag.ambar{background:#fdf1de; color:var(--ambar); border-color:#f0d9ad;}
-.tag.verde{background:#e3efe4; color:var(--verde); border-color:#cfe3d1;}
+.tag.rojo{background:rgba(255,107,90,.13); color:var(--rojo); border-color:rgba(255,107,90,.3);}
+.tag.ambar{background:rgba(255,201,74,.13); color:var(--ambar); border-color:rgba(255,201,74,.3);}
+.tag.verde{background:rgba(46,212,122,.13); color:var(--verde); border-color:rgba(46,212,122,.3);}
 ul.hits{list-style:none; display:flex; flex-direction:column; gap:9px; max-width:1080px;}
 ul.hits li{padding-left:26px; position:relative; font-size:16.5px; line-height:1.4;}
 ul.hits li::before{content:"▸"; position:absolute; left:4px; color:var(--blue); font-weight:700;}
@@ -67,7 +72,7 @@ table.mini{border-collapse:collapse; width:100%; font-size:14px;}
 table.mini th{background:var(--navy); color:#fff; padding:7px 11px; text-align:left; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em;}
 table.mini td{border-bottom:1px solid var(--borde); padding:7px 11px; vertical-align:top;}
 .sev{font-weight:700; font-size:12px; padding:2px 9px; border-radius:999px; white-space:nowrap;}
-.sev.a{background:#fbeaea; color:var(--rojo);} .sev.ma{background:#fdf1de; color:var(--ambar);} .sev.m{background:#e8eef7; color:var(--blue);} .sev.op{background:#e3efe4; color:var(--verde);}
+.sev.a{background:rgba(255,107,90,.13); color:var(--rojo);} .sev.ma{background:rgba(255,201,74,.13); color:var(--ambar);} .sev.m{background:rgba(50,198,244,.13); color:var(--blue);} .sev.op{background:rgba(46,212,122,.13); color:var(--verde);}
 
 /* ---------- utilidades de visualización ---------- */
 .viz{display:flex; flex-direction:column; gap:6px; width:100%;}
@@ -83,25 +88,25 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
 .hb .l{font-size:13px; color:var(--txt); text-align:right; line-height:1.12;}
 .hb .t{background:var(--gris); border:1px solid var(--borde); border-radius:5px; height:24px; position:relative; overflow:hidden;}
 .hb .f{position:absolute; top:0; bottom:0; left:0; border-radius:4px; background:var(--blue); min-width:3px;}
-.hb .f.f2{background:#6a9fd8;} .hb .f.f3{background:#9dc3ee;} .hb .f.frojo{background:var(--rojo);} .hb .f.fambar{background:var(--ambar);}
+.hb .f.f2{background:var(--menta);} .hb .f.f3{background:var(--cian);} .hb .f.frojo{background:var(--rojo);} .hb .f.fambar{background:var(--ambar);}
 .hb .v{font-size:13.5px; font-weight:700; color:var(--navy); font-variant-numeric:tabular-nums; line-height:1.1;}
 /* matrices y heatmaps en grid */
 .heat{display:grid; gap:3px; font-size:12px; align-content:start;}
 .heat .hh{font-weight:700; color:var(--navy); font-size:11px; text-transform:uppercase; letter-spacing:.02em; display:flex; align-items:flex-end; justify-content:center; text-align:center; padding:3px 2px; line-height:1.1;}
 .heat .hl{font-weight:700; color:var(--txt); font-size:12.5px; display:flex; align-items:center; padding:2px 7px; line-height:1.1;}
 .heat .c{border-radius:5px; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:700; font-size:11px; padding:4px 3px; line-height:1.1; min-height:28px;}
-.c-si{background:#e3efe4; color:var(--verde);}
-.c-par{background:#fdf1de; color:var(--ambar);}
-.c-no{background:#eef1f6; color:#98a2b3;}
-.c-rj{background:#fbeaea; color:var(--rojo);}
-.c-bl{background:#e8eef7; color:var(--blue);}
+.c-si{background:rgba(46,212,122,.13); color:var(--verde);}
+.c-par{background:rgba(255,201,74,.13); color:var(--ambar);}
+.c-no{background:var(--panel-alto); color:var(--tinta-tenue);}
+.c-rj{background:rgba(255,107,90,.13); color:var(--rojo);}
+.c-bl{background:rgba(50,198,244,.13); color:var(--blue);}
 .c-nv{background:var(--navy); color:#fff;}
 .c-void{background:transparent;}
-.c-dot{background:#fff; border:1px dashed var(--borde); color:#b6bfcc;}
+.c-dot{background:#fff; border:1px dashed var(--borde); color:var(--tinta-tenue);}
 /* waffle */
 .waffle{display:flex; gap:4px; flex-wrap:wrap; max-width:420px;}
 .waffle i{width:24px; height:24px; border-radius:6px; display:block;}
-.w-rojo{background:var(--rojo);} .w-ambar{background:var(--ambar);} .w-blue{background:var(--blue);} .w-verde{background:var(--verde);} .w-gris{background:#d9dee8;}
+.w-rojo{background:var(--rojo);} .w-ambar{background:var(--ambar);} .w-blue{background:var(--blue);} .w-verde{background:var(--verde);} .w-gris{background:var(--borde);}
 /* medidor de capacidad (subutilización) */
 .cap{display:grid; grid-template-columns:210px 1fr; gap:10px; align-items:center;}
     /* marco de captura del prototipo (fase 25) */
@@ -118,30 +123,30 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
 .cap .uso{position:absolute; top:0; bottom:0; left:0; background:var(--blue); border-radius:5px;}
 .cap .txt{position:absolute; inset:0; display:flex; align-items:center; justify-content:flex-end; padding:0 10px; font-size:11.5px; font-weight:700; color:var(--navy);}
 /* portada / cierre */
-.slide.cover{background:linear-gradient(150deg,var(--navy) 0%,#2a4a80 70%,#33568f 100%); color:#fff; align-items:center; justify-content:center; text-align:center; padding:40px;}
-.slide.cover .kick{text-transform:uppercase; letter-spacing:.22em; font-size:14px; color:var(--celeste); font-weight:700;}
-.slide.cover h1{font-size:52px; font-weight:800; margin:14px 0 8px; letter-spacing:-.01em;}
-.slide.cover .sub{font-size:20px; color:#dbe6f5; max-width:860px; margin:0 auto 26px;}
-.slide.cover .conf{display:inline-block; margin-top:26px; padding:6px 18px; border-radius:999px; background:rgba(192,0,0,.28); border:1px solid rgba(255,255,255,.4); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;}
-.slide.cover .big{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2);}
-.slide.cover .big .n{color:#fff;} .slide.cover .big .l{color:#c9d8ee;}
+.slide.cover{background:#0A0E13; color:#fff; align-items:center; justify-content:center; text-align:center; padding:40px;}
+.slide.cover .kick{text-transform:uppercase; letter-spacing:.22em; font-size:14px; color:var(--menta); font-weight:700;}
+.slide.cover h1{font-size:52px; font-weight:800; margin:14px 0 8px; letter-spacing:-.02em; text-transform:lowercase;}
+.slide.cover .sub{font-size:20px; color:#9AAABA; max-width:860px; margin:0 auto 26px;}
+.slide.cover .conf{display:inline-block; margin-top:26px; padding:6px 18px; border-radius:999px; background:rgba(255,107,90,.16); border:1px solid rgba(255,107,90,.4); color:#FF6B5A; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;}
+.slide.cover .big{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);}
+.slide.cover .big .n{color:#fff;} .slide.cover .big .l{color:#9AAABA;}
 
 /* ---------- barra de control ---------- */
-#bar{position:fixed; left:0; right:0; bottom:0; height:52px; background:#101826; color:#cdd8ea; display:flex; align-items:center; gap:14px; padding:0 18px; z-index:10; font-size:13px;}
-#bar button{background:#1d2a42; color:#dbe6f5; border:1px solid #33456b; border-radius:7px; font:inherit; padding:5px 12px; cursor:pointer;}
-#bar button:hover{background:#2a3c61;}
-#prog{flex:1; height:5px; background:#22304d; border-radius:99px; overflow:hidden;}
-#prog i{display:block; height:100%; width:0; background:var(--celeste); border-radius:99px; transition:width .25s;}
+#bar{position:fixed; left:0; right:0; bottom:0; height:52px; background:#0A0E13; color:#9AAABA; display:flex; align-items:center; gap:14px; padding:0 18px; z-index:10; font-size:13px; border-top:1px solid #22303D;}
+#bar button{background:#1A2530; color:#E9EFF5; border:1px solid #22303D; border-radius:999px; font:inherit; padding:5px 14px; cursor:pointer; transition:border-color .15s;}
+#bar button:hover{border-color:#7D8C9C;}
+#prog{flex:1; height:5px; background:#1A2530; border-radius:99px; overflow:hidden;}
+#prog i{display:block; height:100%; width:0; background:linear-gradient(105deg,#36F6BB,#32C6F4); border-radius:99px; transition:width .25s;}
 #sec-lbl{min-width:230px; font-weight:700; color:#fff;}
 #cnt{font-variant-numeric:tabular-nums; min-width:64px; text-align:right;}
 /* menú de secciones */
-#menu{position:fixed; inset:0 0 52px 0; background:rgba(16,24,38,.96); z-index:20; display:none; overflow:auto; padding:46px;}
+#menu{position:fixed; inset:0 0 52px 0; background:rgba(10,14,19,.97); z-index:20; display:none; overflow:auto; padding:46px;}
 #menu.open{display:block;}
-#menu h3{color:#fff; font-size:22px; margin-bottom:18px; letter-spacing:.02em;}
+#menu h3{color:#fff; font-size:22px; margin-bottom:18px; letter-spacing:.02em; text-transform:lowercase;}
 #menu .gr{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:10px;}
-#menu a{display:flex; gap:12px; align-items:baseline; background:#18254a; border:1px solid #2c3f68; color:#dbe6f5; border-radius:9px; padding:12px 16px; text-decoration:none; font-size:15px;}
-#menu a:hover{background:#22345f; border-color:var(--celeste);}
-#menu a .n{color:var(--celeste); font-weight:800; min-width:26px;}
+#menu a{display:flex; gap:12px; align-items:baseline; background:#141C25; border:1px solid #22303D; color:#E9EFF5; border-radius:14px; padding:12px 16px; text-decoration:none; font-size:15px; transition:border-color .15s;}
+#menu a:hover{border-color:#36F6BB;}
+#menu a .n{color:#36F6BB; font-weight:800; min-width:26px;}
 /* zonas de click */
 #zL,#zR{position:fixed; top:0; bottom:52px; width:18%; z-index:5; cursor:pointer;}
 #zL{left:0;} #zR{right:0;}
@@ -199,17 +204,17 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <h1>Informe Diagnóstico Organizativo</h1>
     <div class="sub">Optimización organizativa de procesos y del talento ante el cambio tecnológico — Grupo Kenex · Presentación a la Junta Directiva · 27 de julio de 2026</div>
     <svg viewBox="0 0 700 100" style="max-width:560px; margin:0 auto 6px; display:block;" role="img" aria-label="Presencia del grupo en las Américas">
-      <g fill="none" stroke="#9dc3ee" stroke-width="1.2" stroke-dasharray="4 4" opacity=".55">
+      <g fill="none" stroke="var(--celeste)" stroke-width="1.2" stroke-dasharray="4 4" opacity=".55">
         <path d="M 218 22 Q 260 40 296 64"/><path d="M 176 44 Q 240 58 296 66"/><path d="M 254 58 L 294 66"/><path d="M 306 70 L 396 62"/><path d="M 304 74 L 336 84"/>
       </g>
       <g>
         <circle cx="214" cy="18" r="6" fill="#fff"/><text x="228" y="22" font-size="11" fill="#c9d8ee">EE.UU.</text>
         <circle cx="170" cy="42" r="5" fill="#fff" opacity=".8"/><text x="130" y="46" font-size="11" fill="#c9d8ee">GT</text>
         <circle cx="250" cy="56" r="5" fill="#fff" opacity=".8"/><text x="238" y="44" font-size="11" fill="#c9d8ee">CR</text>
-        <circle cx="300" cy="68" r="9" fill="#9dc3ee"/><text x="314" y="72" font-size="11.5" font-weight="700" fill="#fff">PANAMÁ · hub</text>
+        <circle cx="300" cy="68" r="9" fill="var(--celeste)"/><text x="314" y="72" font-size="11.5" font-weight="700" fill="#fff">PANAMÁ · hub</text>
         <circle cx="402" cy="60" r="7" fill="#fff"/><text x="416" y="64" font-size="11" fill="#c9d8ee">VENEZUELA</text>
         <circle cx="340" cy="88" r="6" fill="#fff"/><text x="354" y="92" font-size="11" fill="#c9d8ee">COLOMBIA</text>
-        <text x="530" y="88" font-size="10.5" fill="#9dc3ee">13 países · 4 modelos de presencia</text>
+        <text x="530" y="88" font-size="10.5" fill="var(--celeste)">13 países · 4 modelos de presencia</text>
       </g>
     </svg>
     <div class="bigrow">
@@ -231,8 +236,8 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       <div class="card navy"><h4>Hilo organizativo — el criterio personal sin procedimiento</h4><p>Relaciones, estructura, talento y procesos descansan en personas, no en roles y registros formales. Su forma más aguda: <b>12 dependencias críticas individuales</b>, seis de severidad alta (secciones 3–6).</p></div>
       <div class="card rojo"><h4>Hilo técnico — el dato sin certificar</h4><p>Las decisiones de mayor impacto viven en una capa sombra de Excel y WhatsApp; las buenas capacidades operan como islas. <b>Ninguna automatización seria puede desplegarse sobre ese dato sin multiplicar el error</b> (sección 7).</p></div>
     </div>
-    <div style="background:linear-gradient(135deg,#1F3864,#2a4a80);color:#fff;border-radius:10px;padding:14px 20px;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;">
-      <div style="text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#9dc3ee;font-weight:700;">Dos tesis</div>
+    <div style="background:linear-gradient(135deg,#0A0E13,#1A2530);color:#fff;border-radius:10px;padding:14px 20px;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;">
+      <div style="text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--celeste);font-weight:700;">Dos tesis</div>
       <div style="font-size:14.5px;"><b style="color:#fff;">1 · Estructura primero</b> — capa corporativa formalizada (4.8)</div>
       <div style="font-size:14.5px;"><b style="color:#fff;">2 · El dato antes que el agente</b> — certificar y gobernar el dato antes de desplegar IA (secciones 8 y 10)</div>
     </div>
@@ -268,21 +273,21 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <p class="lead">El diagnóstico lee la organización completa — <b>el detalle de procesos corresponde a la Fase 2</b> — con un enfoque sociotécnico y de madurez digital. Su regla central es la <b>triangulación</b>:</p>
     <div class="viz" style="max-width:940px; margin:0 auto;">
       <svg viewBox="0 0 900 300" role="img" aria-label="Triángulo de triangulación de fuentes">
-        <line x1="392" y1="74" x2="176" y2="220" stroke="#2E75B6" stroke-width="2" stroke-dasharray="6 5"/>
-        <line x1="508" y1="74" x2="724" y2="220" stroke="#2E75B6" stroke-width="2" stroke-dasharray="6 5"/>
-        <line x1="290" y1="252" x2="610" y2="252" stroke="#2E75B6" stroke-width="2" stroke-dasharray="6 5"/>
-        <rect x="325" y="12" width="250" height="62" rx="9" fill="#fff" stroke="#2E75B6" stroke-width="1.6"/>
-        <text x="450" y="37" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F3864">PERSONAS</text>
-        <text x="450" y="56" text-anchor="middle" font-size="12" fill="#55627a">23 entrevistas · 24 personas · ≈27 h 24 min</text>
-        <rect x="30" y="222" width="250" height="62" rx="9" fill="#fff" stroke="#2E75B6" stroke-width="1.6"/>
-        <text x="155" y="247" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F3864">SISTEMAS</text>
-        <text x="155" y="266" text-anchor="middle" font-size="12" fill="#55627a">auditoría técnica de Lark y Odoo</text>
-        <rect x="620" y="222" width="250" height="62" rx="9" fill="#fff" stroke="#2E75B6" stroke-width="1.6"/>
-        <text x="745" y="247" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1F3864">DOCUMENTOS</text>
-        <text x="745" y="266" text-anchor="middle" font-size="12" fill="#55627a">30 requisitos en 6 categorías (A–F)</text>
-        <rect x="330" y="152" width="240" height="52" rx="26" fill="#1F3864"/>
+        <line x1="392" y1="74" x2="176" y2="220" stroke="var(--blue)" stroke-width="2" stroke-dasharray="6 5"/>
+        <line x1="508" y1="74" x2="724" y2="220" stroke="var(--blue)" stroke-width="2" stroke-dasharray="6 5"/>
+        <line x1="290" y1="252" x2="610" y2="252" stroke="var(--blue)" stroke-width="2" stroke-dasharray="6 5"/>
+        <rect x="325" y="12" width="250" height="62" rx="9" fill="#fff" stroke="var(--blue)" stroke-width="1.6"/>
+        <text x="450" y="37" text-anchor="middle" font-size="15.5" font-weight="700" fill="var(--navy)">PERSONAS</text>
+        <text x="450" y="56" text-anchor="middle" font-size="12" fill="var(--muted)">23 entrevistas · 24 personas · ≈27 h 24 min</text>
+        <rect x="30" y="222" width="250" height="62" rx="9" fill="#fff" stroke="var(--blue)" stroke-width="1.6"/>
+        <text x="155" y="247" text-anchor="middle" font-size="15.5" font-weight="700" fill="var(--navy)">SISTEMAS</text>
+        <text x="155" y="266" text-anchor="middle" font-size="12" fill="var(--muted)">auditoría técnica de Lark y Odoo</text>
+        <rect x="620" y="222" width="250" height="62" rx="9" fill="#fff" stroke="var(--blue)" stroke-width="1.6"/>
+        <text x="745" y="247" text-anchor="middle" font-size="15.5" font-weight="700" fill="var(--navy)">DOCUMENTOS</text>
+        <text x="745" y="266" text-anchor="middle" font-size="12" fill="var(--muted)">30 requisitos en 6 categorías (A–F)</text>
+        <rect x="330" y="152" width="240" height="52" rx="26" fill="var(--navy)"/>
         <text x="450" y="174" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Todo hallazgo crítico</text>
-        <text x="450" y="192" text-anchor="middle" font-size="12" fill="#9dc3ee">verificado en ≥ 2 fuentes independientes</text>
+        <text x="450" y="192" text-anchor="middle" font-size="12" fill="var(--celeste)">verificado en ≥ 2 fuentes independientes</text>
       </svg>
     </div>
     <div class="tagline"><span class="tag">Entrevistas a profundidad</span><span class="tag">Procesamiento asistido por IA (23 transcripciones)</span><span class="tag">11 sesiones de alineación</span><span class="tag">Revisión documental</span><span class="tag">Auditoría técnica de plataformas</span></div>
@@ -295,34 +300,34 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:1000px; margin:0 auto;">
       <svg viewBox="0 0 980 330" role="img" aria-label="Los seis aspectos del marco y las secciones donde se desarrollan">
-        <line x1="429" y1="130" x2="290" y2="56" stroke="#d9dee8" stroke-width="2"/>
-        <line x1="422" y1="165" x2="290" y2="161" stroke="#d9dee8" stroke-width="2"/>
-        <line x1="429" y1="200" x2="290" y2="266" stroke="#d9dee8" stroke-width="2"/>
-        <line x1="551" y1="130" x2="690" y2="56" stroke="#d9dee8" stroke-width="2"/>
-        <line x1="558" y1="165" x2="690" y2="161" stroke="#d9dee8" stroke-width="2"/>
-        <line x1="551" y1="200" x2="690" y2="266" stroke="#d9dee8" stroke-width="2"/>
-        <polygon points="490,95 550.6,130 550.6,200 490,235 429.4,200 429.4,130" fill="#1F3864"/>
+        <line x1="429" y1="130" x2="290" y2="56" stroke="var(--borde)" stroke-width="2"/>
+        <line x1="422" y1="165" x2="290" y2="161" stroke="var(--borde)" stroke-width="2"/>
+        <line x1="429" y1="200" x2="290" y2="266" stroke="var(--borde)" stroke-width="2"/>
+        <line x1="551" y1="130" x2="690" y2="56" stroke="var(--borde)" stroke-width="2"/>
+        <line x1="558" y1="165" x2="690" y2="161" stroke="var(--borde)" stroke-width="2"/>
+        <line x1="551" y1="200" x2="690" y2="266" stroke="var(--borde)" stroke-width="2"/>
+        <polygon points="490,95 550.6,130 550.6,200 490,235 429.4,200 429.4,130" fill="var(--navy)"/>
         <text x="490" y="158" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">Marco 2.2</text>
-        <text x="490" y="177" text-anchor="middle" font-size="11.5" fill="#9dc3ee">seis aspectos</text>
-        <g font-size="14" font-weight="700" fill="#1F3864">
-          <rect x="30" y="30" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
+        <text x="490" y="177" text-anchor="middle" font-size="11.5" fill="var(--celeste)">seis aspectos</text>
+        <g font-size="14" font-weight="700" fill="var(--navy)">
+          <rect x="30" y="30" width="260" height="52" rx="8" fill="#fff" stroke="var(--borde)"/>
           <text x="46" y="52">1 · Gobierno y fundamentos</text>
-          <text x="46" y="71" font-size="11.5" font-weight="400" fill="#55627a">identidad, entidades, estrategia → sección 3</text>
-          <rect x="30" y="135" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
+          <text x="46" y="71" font-size="11.5" font-weight="400" fill="var(--muted)">identidad, entidades, estrategia → sección 3</text>
+          <rect x="30" y="135" width="260" height="52" rx="8" fill="#fff" stroke="var(--borde)"/>
           <text x="46" y="157">2 · Mapa de procesos</text>
-          <text x="46" y="176" font-size="11.5" font-weight="400" fill="#55627a">negocio y soporte → secciones 4.7 y 6 · Fase 2</text>
-          <rect x="30" y="240" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
+          <text x="46" y="176" font-size="11.5" font-weight="400" fill="var(--muted)">negocio y soporte → secciones 4.7 y 6 · Fase 2</text>
+          <rect x="30" y="240" width="260" height="52" rx="8" fill="#fff" stroke="var(--borde)"/>
           <text x="46" y="262">3 · Estructura organizativa</text>
-          <text x="46" y="281" font-size="11.5" font-weight="400" fill="#55627a">formal vs. real → sección 4 · propuesta 10</text>
-          <rect x="690" y="30" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
+          <text x="46" y="281" font-size="11.5" font-weight="400" fill="var(--muted)">formal vs. real → sección 4 · propuesta 10</text>
+          <rect x="690" y="30" width="260" height="52" rx="8" fill="#fff" stroke="var(--borde)"/>
           <text x="706" y="52">4 · Estructura del talento</text>
-          <text x="706" y="71" font-size="11.5" font-weight="400" fill="#55627a">RRHH y brechas → secciones 4.3 y 5 · Fase 3</text>
-          <rect x="690" y="135" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
+          <text x="706" y="71" font-size="11.5" font-weight="400" fill="var(--muted)">RRHH y brechas → secciones 4.3 y 5 · Fase 3</text>
+          <rect x="690" y="135" width="260" height="52" rx="8" fill="#fff" stroke="var(--borde)"/>
           <text x="706" y="157">5 · Gestión del cambio</text>
-          <text x="706" y="176" font-size="11.5" font-weight="400" fill="#55627a">cultura y formación → sección 9 · Maia</text>
-          <rect x="690" y="240" width="260" height="52" rx="8" fill="#fff" stroke="#d9dee8"/>
+          <text x="706" y="176" font-size="11.5" font-weight="400" fill="var(--muted)">cultura y formación → sección 9 · Maia</text>
+          <rect x="690" y="240" width="260" height="52" rx="8" fill="#fff" stroke="var(--borde)"/>
           <text x="706" y="262">6 · Soporte técnico e IA</text>
-          <text x="706" y="281" font-size="11.5" font-weight="400" fill="#55627a">sistemas y datos → secciones 7, 11 y 12</text>
+          <text x="706" y="281" font-size="11.5" font-weight="400" fill="var(--muted)">sistemas y datos → secciones 7, 11 y 12</text>
         </g>
       </svg>
     </div>
@@ -368,35 +373,35 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:960px; margin:0 auto;">
       <svg viewBox="0 0 940 330" role="img" aria-label="Perímetro societario: 8 entidades operativas dentro de ~35-40 sociedades sin inventario">
-        <ellipse cx="440" cy="165" rx="425" ry="152" fill="none" stroke="#B26A00" stroke-width="2" stroke-dasharray="8 7"/>
-        <text x="440" y="30" text-anchor="middle" font-size="13.5" font-weight="700" fill="#B26A00">~35–40 sociedades del grupo familiar — sin inventario formal</text>
-        <g fill="none" stroke="#B26A00" stroke-dasharray="3 4" opacity=".55">
+        <ellipse cx="440" cy="165" rx="425" ry="152" fill="none" stroke="var(--ambar)" stroke-width="2" stroke-dasharray="8 7"/>
+        <text x="440" y="30" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--ambar)">~35–40 sociedades del grupo familiar — sin inventario formal</text>
+        <g fill="none" stroke="var(--ambar)" stroke-dasharray="3 4" opacity=".55">
           <circle cx="95" cy="110" r="10"/><circle cx="70" cy="185" r="8"/><circle cx="130" cy="255" r="9"/>
           <circle cx="255" cy="292" r="8"/><circle cx="640" cy="292" r="9"/><circle cx="800" cy="240" r="8"/>
           <circle cx="825" cy="120" r="9"/><circle cx="700" cy="62" r="8"/><circle cx="205" cy="60" r="8"/>
         </g>
-        <g font-size="12" fill="#B26A00" opacity=".8" text-anchor="middle"><text x="95" y="115">?</text><text x="130" y="260">?</text><text x="825" y="125">?</text><text x="640" y="297">?</text></g>
-        <rect x="165" y="58" width="430" height="230" rx="12" fill="#fff" stroke="#1F3864" stroke-width="2"/>
-        <text x="380" y="82" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1F3864">NEGOCIO OPERATIVO — 8 ENTIDADES</text>
-        <g font-size="12" font-weight="700" fill="#1F3864">
-          <rect x="185" y="96" width="195" height="40" rx="6" fill="#F4F6FA" stroke="#d9dee8"/><text x="195" y="113">Kenex Trading · holding</text><text x="195" y="129" font-weight="400" font-size="11" fill="#55627a">casa matriz — Ciudad de Panamá</text>
-          <rect x="390" y="96" width="185" height="40" rx="6" fill="#e8eef7" stroke="#2E75B6"/><text x="400" y="113">Kenex · Zona Libre Colón</text><text x="400" y="129" font-weight="400" font-size="11" fill="#55627a">hub: recibe toda la mercancía</text>
-          <rect x="185" y="142" width="195" height="40" rx="6" fill="#F4F6FA" stroke="#d9dee8"/><text x="195" y="159">Casiolandia · Panamá</text><text x="195" y="175" font-weight="400" font-size="11" fill="#55627a">9 tiendas + mayor local</text>
-          <rect x="390" y="142" width="185" height="40" rx="6" fill="#F4F6FA" stroke="#d9dee8"/><text x="400" y="159">Basaida · Panamá</text><text x="400" y="175" font-weight="400" font-size="11" fill="#55627a">triangulación fiscal (Odoo)</text>
-          <rect x="185" y="188" width="195" height="40" rx="6" fill="#F4F6FA" stroke="#d9dee8"/><text x="195" y="205">Distribuidora Rower · VE</text><text x="195" y="221" font-weight="400" font-size="11" fill="#55627a">~230 personas · ~20 tiendas · 40 años</text>
-          <rect x="390" y="188" width="185" height="40" rx="6" fill="#F4F6FA" stroke="#d9dee8"/><text x="400" y="205">Deltadir SAS · Colombia</text><text x="400" y="221" font-weight="400" font-size="11" fill="#55627a">razón social propia · 2 tiendas</text>
-          <rect x="185" y="234" width="195" height="40" rx="6" fill="#F4F6FA" stroke="#d9dee8"/><text x="195" y="251">Kenex USA · Miami</text><text x="195" y="267" font-weight="400" font-size="11" fill="#55627a">e-commerce · estructura mínima</text>
-          <rect x="390" y="234" width="185" height="40" rx="6" fill="#fff" stroke="#B26A00" stroke-dasharray="5 4"/><text x="400" y="251">Importbel · Costa Rica</text><text x="400" y="267" font-weight="400" font-size="11" fill="#55627a">sociedad 50/50 — gestión del socio</text>
+        <g font-size="12" fill="var(--ambar)" opacity=".8" text-anchor="middle"><text x="95" y="115">?</text><text x="130" y="260">?</text><text x="825" y="125">?</text><text x="640" y="297">?</text></g>
+        <rect x="165" y="58" width="430" height="230" rx="12" fill="#fff" stroke="var(--navy)" stroke-width="2"/>
+        <text x="380" y="82" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--navy)">NEGOCIO OPERATIVO — 8 ENTIDADES</text>
+        <g font-size="12" font-weight="700" fill="var(--navy)">
+          <rect x="185" y="96" width="195" height="40" rx="6" fill="var(--gris)" stroke="var(--borde)"/><text x="195" y="113">Kenex Trading · holding</text><text x="195" y="129" font-weight="400" font-size="11" fill="var(--muted)">casa matriz — Ciudad de Panamá</text>
+          <rect x="390" y="96" width="185" height="40" rx="6" fill="#e8eef7" stroke="var(--blue)"/><text x="400" y="113">Kenex · Zona Libre Colón</text><text x="400" y="129" font-weight="400" font-size="11" fill="var(--muted)">hub: recibe toda la mercancía</text>
+          <rect x="185" y="142" width="195" height="40" rx="6" fill="var(--gris)" stroke="var(--borde)"/><text x="195" y="159">Casiolandia · Panamá</text><text x="195" y="175" font-weight="400" font-size="11" fill="var(--muted)">9 tiendas + mayor local</text>
+          <rect x="390" y="142" width="185" height="40" rx="6" fill="var(--gris)" stroke="var(--borde)"/><text x="400" y="159">Basaida · Panamá</text><text x="400" y="175" font-weight="400" font-size="11" fill="var(--muted)">triangulación fiscal (Odoo)</text>
+          <rect x="185" y="188" width="195" height="40" rx="6" fill="var(--gris)" stroke="var(--borde)"/><text x="195" y="205">Distribuidora Rower · VE</text><text x="195" y="221" font-weight="400" font-size="11" fill="var(--muted)">~230 personas · ~20 tiendas · 40 años</text>
+          <rect x="390" y="188" width="185" height="40" rx="6" fill="var(--gris)" stroke="var(--borde)"/><text x="400" y="205">Deltadir SAS · Colombia</text><text x="400" y="221" font-weight="400" font-size="11" fill="var(--muted)">razón social propia · 2 tiendas</text>
+          <rect x="185" y="234" width="195" height="40" rx="6" fill="var(--gris)" stroke="var(--borde)"/><text x="195" y="251">Kenex USA · Miami</text><text x="195" y="267" font-weight="400" font-size="11" fill="var(--muted)">e-commerce · estructura mínima</text>
+          <rect x="390" y="234" width="185" height="40" rx="6" fill="#fff" stroke="var(--ambar)" stroke-dasharray="5 4"/><text x="400" y="251">Importbel · Costa Rica</text><text x="400" y="267" font-weight="400" font-size="11" fill="var(--muted)">sociedad 50/50 — gestión del socio</text>
         </g>
         <rect x="655" y="105" width="210" height="120" rx="12" fill="none" stroke="#98a2b3" stroke-width="2" stroke-dasharray="7 6"/>
-        <text x="760" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#55627a">FAMILY OFFICE</text>
-        <text x="760" y="149" text-anchor="middle" font-size="11.5" fill="#55627a">negocios familiares externos</text>
-        <text x="760" y="166" text-anchor="middle" font-size="11.5" fill="#55627a">frontera difusa con el grupo</text>
-        <path d="M 655 190 L 597 205" stroke="#C00000" stroke-width="2.5"/>
-        <circle cx="597" cy="205" r="7" fill="#C00000"/>
-        <text x="760" y="205" text-anchor="middle" font-size="11.5" font-weight="700" fill="#C00000">almacén compartido</text>
-        <text x="760" y="220" text-anchor="middle" font-size="11.5" fill="#C00000">sin acuerdo formalizado</text>
-        <text x="440" y="328" text-anchor="middle" font-size="12.5" fill="#55627a">13 países de presencia · 4 modelos de operación · el registro completo del perímetro está "en la cabeza" de dos personas</text>
+        <text x="760" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="var(--muted)">FAMILY OFFICE</text>
+        <text x="760" y="149" text-anchor="middle" font-size="11.5" fill="var(--muted)">negocios familiares externos</text>
+        <text x="760" y="166" text-anchor="middle" font-size="11.5" fill="var(--muted)">frontera difusa con el grupo</text>
+        <path d="M 655 190 L 597 205" stroke="var(--rojo)" stroke-width="2.5"/>
+        <circle cx="597" cy="205" r="7" fill="var(--rojo)"/>
+        <text x="760" y="205" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--rojo)">almacén compartido</text>
+        <text x="760" y="220" text-anchor="middle" font-size="11.5" fill="var(--rojo)">sin acuerdo formalizado</text>
+        <text x="440" y="328" text-anchor="middle" font-size="12.5" fill="var(--muted)">13 países de presencia · 4 modelos de operación · el registro completo del perímetro está "en la cabeza" de dos personas</text>
       </svg>
     </div>
     <div class="quote" style="margin:0 auto;">Las relaciones del grupo funcionan sobre la confianza personal y la trayectoria, no sobre instrumentos formales.<small>Patrón transversal de la sección 3 — fortalezas de décadas de relación; debilidades exactamente donde la confianza no basta.</small></div>
@@ -410,11 +415,11 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       <svg viewBox="0 0 940 400" role="img" aria-label="Mapa esquemático de presencia por país y flujo troncal de mercancía">
         <defs>
           <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8A94A6"/></marker>
-          <marker id="arrN" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F3864"/></marker>
+          <marker id="arrN" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--navy)"/></marker>
         </defs>
-        <path d="M 118 66 Q 200 40 278 52" fill="none" stroke="#1F3864" stroke-width="2.5" marker-end="url(#arrN)"/>
-        <path d="M 122 262 Q 265 325 424 285" fill="none" stroke="#1F3864" stroke-width="2.5" marker-end="url(#arrN)"/>
-        <path d="M 305 68 Q 400 130 436 258" fill="none" stroke="#1F3864" stroke-width="2.5" marker-end="url(#arrN)"/>
+        <path d="M 118 66 Q 200 40 278 52" fill="none" stroke="var(--navy)" stroke-width="2.5" marker-end="url(#arrN)"/>
+        <path d="M 122 262 Q 265 325 424 285" fill="none" stroke="var(--navy)" stroke-width="2.5" marker-end="url(#arrN)"/>
+        <path d="M 305 68 Q 400 130 436 258" fill="none" stroke="var(--navy)" stroke-width="2.5" marker-end="url(#arrN)"/>
         <g fill="none" stroke="#8A94A6" stroke-width="1.8" stroke-dasharray="6 5">
           <path d="M 458 262 Q 470 150 320 62" marker-end="url(#arrG)"/>
           <path d="M 432 267 Q 320 235 240 185" marker-end="url(#arrG)"/>
@@ -424,27 +429,27 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
           <path d="M 460 264 Q 510 175 546 108" marker-end="url(#arrG)"/>
           <path d="M 463 285 Q 560 350 628 372" marker-end="url(#arrG)"/>
         </g>
-        <text x="60" y="38" font-size="12.5" font-weight="700" fill="#1F3864">CUBITT</text>
-        <text x="60" y="53" font-size="11" fill="#55627a">producción China</text>
-        <text x="60" y="238" font-size="12.5" font-weight="700" fill="#1F3864">CASIO</text>
-        <text x="60" y="253" font-size="11" fill="#55627a">proveedor Japón</text>
-        <circle cx="300" cy="58" r="13" fill="#2E7D32"/><text x="320" y="55" font-size="12.5" font-weight="700" fill="#1F3864">EE.UU. · Kenex USA</text><text x="320" y="70" font-size="11" fill="#55627a">Miami · ~5 pers. · e-commerce</text>
-        <circle cx="145" cy="130" r="10" fill="#fff" stroke="#2E75B6" stroke-width="2.5"/><text x="162" y="127" font-size="12.5" font-weight="700" fill="#1F3864">México</text><text x="162" y="142" font-size="11" fill="#55627a">distribuidores</text>
-        <circle cx="546" cy="95" r="10" fill="#fff" stroke="#2E75B6" stroke-width="2.5"/><text x="563" y="92" font-size="12.5" font-weight="700" fill="#1F3864">R. Dominicana</text><text x="563" y="107" font-size="11" fill="#55627a">cliente + franquicia</text>
-        <g opacity=".75"><circle cx="700" cy="70" r="8" fill="#98a2b3"/><text x="714" y="67" font-size="11.5" font-weight="700" fill="#55627a">Puerto Rico ✕</text><text x="714" y="81" font-size="10.5" fill="#C00000">antecedente: pérdida total</text></g>
-        <circle cx="228" cy="180" r="11" fill="#fff" stroke="#B26A00" stroke-width="2.5"/><text x="245" y="177" font-size="12.5" font-weight="700" fill="#1F3864">Guatemala</text><text x="245" y="192" font-size="11" fill="#55627a">tercerizada (fee ~10%) · WhatsApp</text>
-        <circle cx="310" cy="222" r="9" fill="#fff" stroke="#2E75B6" stroke-width="2.5"/><text x="294" y="219" font-size="12" font-weight="700" fill="#1F3864" text-anchor="end">Honduras</text><text x="294" y="233" font-size="11" fill="#55627a" text-anchor="end">en internalización</text>
-        <circle cx="380" cy="248" r="11" fill="#B26A00"/><text x="366" y="240" font-size="12.5" font-weight="700" fill="#1F3864" text-anchor="end">Costa Rica</text><text x="366" y="255" font-size="11" fill="#55627a" text-anchor="end">Importbel 50/50</text><text x="366" y="269" font-size="11" fill="#55627a" text-anchor="end">sin Odoo ni Lark</text>
-        <circle cx="447" cy="275" r="19" fill="#2E7D32"/><text x="447" y="280" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">HQ</text>
-        <text x="472" y="262" font-size="13.5" font-weight="800" fill="#1F3864">PANAMÁ</text>
-        <text x="472" y="277" font-size="11" fill="#55627a">Zona Libre de Colón — hub troncal</text>
-        <text x="472" y="291" font-size="11" font-weight="700" fill="#2E7D32">~60% facturación · ~135 pers.</text>
-        <circle cx="640" cy="310" r="14" fill="#2E7D32"/><text x="661" y="307" font-size="13" font-weight="700" fill="#1F3864">Venezuela · Rower</text><text x="661" y="322" font-size="11" fill="#55627a">~230 pers. · ~30% fact. · ~20 tiendas</text>
-        <circle cx="478" cy="340" r="12" fill="#2E7D32"/><text x="497" y="337" font-size="12.5" font-weight="700" fill="#1F3864">Colombia · Deltadir</text><text x="497" y="352" font-size="11" fill="#55627a">18–38 pers. · relanzada</text>
-        <circle cx="415" cy="382" r="7" fill="#98a2b3"/><text x="428" y="386" font-size="11" fill="#55627a">Ecuador · Nicaragua: presencia mínima (1–2)</text>
-        <circle cx="642" cy="376" r="9" fill="#fff" stroke="#2E75B6" stroke-width="2.5"/><text x="658" y="380" font-size="11.5" fill="#55627a"><tspan font-weight="700" fill="#1F3864">Resto LatAm</tspan> · clientes al mayor</text>
+        <text x="60" y="38" font-size="12.5" font-weight="700" fill="var(--navy)">CUBITT</text>
+        <text x="60" y="53" font-size="11" fill="var(--muted)">producción China</text>
+        <text x="60" y="238" font-size="12.5" font-weight="700" fill="var(--navy)">CASIO</text>
+        <text x="60" y="253" font-size="11" fill="var(--muted)">proveedor Japón</text>
+        <circle cx="300" cy="58" r="13" fill="var(--verde)"/><text x="320" y="55" font-size="12.5" font-weight="700" fill="var(--navy)">EE.UU. · Kenex USA</text><text x="320" y="70" font-size="11" fill="var(--muted)">Miami · ~5 pers. · e-commerce</text>
+        <circle cx="145" cy="130" r="10" fill="#fff" stroke="var(--blue)" stroke-width="2.5"/><text x="162" y="127" font-size="12.5" font-weight="700" fill="var(--navy)">México</text><text x="162" y="142" font-size="11" fill="var(--muted)">distribuidores</text>
+        <circle cx="546" cy="95" r="10" fill="#fff" stroke="var(--blue)" stroke-width="2.5"/><text x="563" y="92" font-size="12.5" font-weight="700" fill="var(--navy)">R. Dominicana</text><text x="563" y="107" font-size="11" fill="var(--muted)">cliente + franquicia</text>
+        <g opacity=".75"><circle cx="700" cy="70" r="8" fill="#98a2b3"/><text x="714" y="67" font-size="11.5" font-weight="700" fill="var(--muted)">Puerto Rico ✕</text><text x="714" y="81" font-size="10.5" fill="var(--rojo)">antecedente: pérdida total</text></g>
+        <circle cx="228" cy="180" r="11" fill="#fff" stroke="var(--ambar)" stroke-width="2.5"/><text x="245" y="177" font-size="12.5" font-weight="700" fill="var(--navy)">Guatemala</text><text x="245" y="192" font-size="11" fill="var(--muted)">tercerizada (fee ~10%) · WhatsApp</text>
+        <circle cx="310" cy="222" r="9" fill="#fff" stroke="var(--blue)" stroke-width="2.5"/><text x="294" y="219" font-size="12" font-weight="700" fill="var(--navy)" text-anchor="end">Honduras</text><text x="294" y="233" font-size="11" fill="var(--muted)" text-anchor="end">en internalización</text>
+        <circle cx="380" cy="248" r="11" fill="var(--ambar)"/><text x="366" y="240" font-size="12.5" font-weight="700" fill="var(--navy)" text-anchor="end">Costa Rica</text><text x="366" y="255" font-size="11" fill="var(--muted)" text-anchor="end">Importbel 50/50</text><text x="366" y="269" font-size="11" fill="var(--muted)" text-anchor="end">sin Odoo ni Lark</text>
+        <circle cx="447" cy="275" r="19" fill="var(--verde)"/><text x="447" y="280" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">HQ</text>
+        <text x="472" y="262" font-size="13.5" font-weight="800" fill="var(--navy)">PANAMÁ</text>
+        <text x="472" y="277" font-size="11" fill="var(--muted)">Zona Libre de Colón — hub troncal</text>
+        <text x="472" y="291" font-size="11" font-weight="700" fill="var(--verde)">~60% facturación · ~135 pers.</text>
+        <circle cx="640" cy="310" r="14" fill="var(--verde)"/><text x="661" y="307" font-size="13" font-weight="700" fill="var(--navy)">Venezuela · Rower</text><text x="661" y="322" font-size="11" fill="var(--muted)">~230 pers. · ~30% fact. · ~20 tiendas</text>
+        <circle cx="478" cy="340" r="12" fill="var(--verde)"/><text x="497" y="337" font-size="12.5" font-weight="700" fill="var(--navy)">Colombia · Deltadir</text><text x="497" y="352" font-size="11" fill="var(--muted)">18–38 pers. · relanzada</text>
+        <circle cx="415" cy="382" r="7" fill="#98a2b3"/><text x="428" y="386" font-size="11" fill="var(--muted)">Ecuador · Nicaragua: presencia mínima (1–2)</text>
+        <circle cx="642" cy="376" r="9" fill="#fff" stroke="var(--blue)" stroke-width="2.5"/><text x="658" y="380" font-size="11.5" fill="var(--muted)"><tspan font-weight="700" fill="var(--navy)">Resto LatAm</tspan> · clientes al mayor</text>
       </svg>
-      <div class="lg"><span><i style="background:#2E7D32"></i>Operación propia</span><span><i style="background:#B26A00"></i>Sociedad 50/50</span><span><i style="background:#fff; border:2px solid #B26A00"></i>Tercerizada</span><span><i style="background:#fff; border:2px solid #2E75B6"></i>Franquicia / distribuidor</span><span><i style="background:#98a2b3"></i>Presencia mínima</span><span>— <b style="color:var(--navy)">flechas</b>: flujo troncal de mercancía</span></div>
+      <div class="lg"><span><i style="background:var(--verde)"></i>Operación propia</span><span><i style="background:var(--ambar)"></i>Sociedad 50/50</span><span><i style="background:#fff; border:2px solid var(--ambar)"></i>Tercerizada</span><span><i style="background:#fff; border:2px solid var(--blue)"></i>Franquicia / distribuidor</span><span><i style="background:#98a2b3"></i>Presencia mínima</span><span>— <b style="color:var(--navy)">flechas</b>: flujo troncal de mercancía</span></div>
     </div>
     <p class="foot-note">La heterogeneidad es un hallazgo estructural central: <b>13 países, 4 modelos</b> — cada uno con un grado distinto de control, visibilidad de datos y estandarización; la mercancía de todos transita físicamente por Panamá.</p>
   </div>
@@ -457,20 +462,20 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       <div class="viz" style="flex:1.05;">
         <div class="vtitle">Anatomía de las instancias</div>
         <svg viewBox="0 0 440 290" role="img" aria-label="Anillos concéntricos del gobierno corporativo">
-          <rect x="20" y="20" width="360" height="250" rx="16" fill="#F4F6FA" stroke="#d9dee8"/>
-          <text x="150" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#1F3864">COMITÉ DE FINANZAS</text>
-          <text x="150" y="61" text-anchor="middle" font-size="11" fill="#55627a">el grupo ampliado + contabilidad</text>
-          <rect x="50" y="72" width="300" height="180" rx="13" fill="#e8eef7" stroke="#2E75B6"/>
-          <text x="200" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#1F3864">JUNTA DIRECTIVA</text>
-          <text x="200" y="112" text-anchor="middle" font-size="11" fill="#55627a">+ 2 directores externos (3 y ~30 años de relación)</text>
-          <rect x="85" y="124" width="230" height="110" rx="11" fill="#1F3864"/>
+          <rect x="20" y="20" width="360" height="250" rx="16" fill="var(--gris)" stroke="var(--borde)"/>
+          <text x="150" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="var(--navy)">COMITÉ DE FINANZAS</text>
+          <text x="150" y="61" text-anchor="middle" font-size="11" fill="var(--muted)">el grupo ampliado + contabilidad</text>
+          <rect x="50" y="72" width="300" height="180" rx="13" fill="#e8eef7" stroke="var(--blue)"/>
+          <text x="200" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="var(--navy)">JUNTA DIRECTIVA</text>
+          <text x="200" y="112" text-anchor="middle" font-size="11" fill="var(--muted)">+ 2 directores externos (3 y ~30 años de relación)</text>
+          <rect x="85" y="124" width="230" height="110" rx="11" fill="var(--navy)"/>
           <text x="200" y="152" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">COMITÉ "ÍNTIMO"</text>
-          <text x="200" y="172" text-anchor="middle" font-size="12" fill="#9dc3ee">5 accionistas</text>
-          <text x="200" y="190" text-anchor="middle" font-size="11.5" fill="#9dc3ee">conectados 24/7</text>
-          <text x="200" y="207" text-anchor="middle" font-size="11.5" fill="#9dc3ee">Caracas · Panamá · Miami</text>
+          <text x="200" y="172" text-anchor="middle" font-size="12" fill="var(--celeste)">5 accionistas</text>
+          <text x="200" y="190" text-anchor="middle" font-size="11.5" fill="var(--celeste)">conectados 24/7</text>
+          <text x="200" y="207" text-anchor="middle" font-size="11.5" fill="var(--celeste)">Caracas · Panamá · Miami</text>
           <rect x="272" y="14" width="160" height="44" rx="9" fill="#fff" stroke="#98a2b3" stroke-dasharray="5 4"/>
-          <text x="352" y="32" text-anchor="middle" font-size="11.5" font-weight="700" fill="#55627a">Protocolo familiar</text>
-          <text x="352" y="47" text-anchor="middle" font-size="10.5" fill="#55627a">en actualización — aparte</text>
+          <text x="352" y="32" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--muted)">Protocolo familiar</text>
+          <text x="352" y="47" text-anchor="middle" font-size="10.5" fill="var(--muted)">en actualización — aparte</text>
         </svg>
       </div>
       <div class="viz">
@@ -499,28 +504,28 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <div class="viz" style="max-width:940px; margin:0 auto;">
       <svg viewBox="0 0 900 250" role="img" aria-label="Tres visiones en tensión sobre el plan estratégico">
         <defs>
-          <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker>
+          <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--blue)"/></marker>
           <marker id="arrT2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#98a2b3"/></marker>
         </defs>
-        <line x1="373" y1="120" x2="163" y2="70" stroke="#2E75B6" stroke-width="2.5" marker-end="url(#arrT)"/>
-        <line x1="527" y1="120" x2="737" y2="70" stroke="#2E75B6" stroke-width="2.5" marker-end="url(#arrT)"/>
-        <line x1="450" y1="162" x2="450" y2="196" stroke="#2E75B6" stroke-width="2.5" marker-end="url(#arrT)"/>
+        <line x1="373" y1="120" x2="163" y2="70" stroke="var(--blue)" stroke-width="2.5" marker-end="url(#arrT)"/>
+        <line x1="527" y1="120" x2="737" y2="70" stroke="var(--blue)" stroke-width="2.5" marker-end="url(#arrT)"/>
+        <line x1="450" y1="162" x2="450" y2="196" stroke="var(--blue)" stroke-width="2.5" marker-end="url(#arrT)"/>
         <line x1="540" y1="145" x2="742" y2="188" stroke="#98a2b3" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrT2)"/>
-        <rect x="330" y="98" width="240" height="64" rx="12" fill="#1F3864"/>
+        <rect x="330" y="98" width="240" height="64" rx="12" fill="var(--navy)"/>
         <text x="450" y="124" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">PLAN ESTRATÉGICO · 3 AÑOS</text>
-        <text x="450" y="143" text-anchor="middle" font-size="11.5" fill="#9dc3ee">definido inicios 2026 · sin despliegue aguas abajo</text>
-        <rect x="20" y="20" width="250" height="58" rx="9" fill="#fff" stroke="#d9dee8"/>
-        <text x="36" y="43" font-size="13.5" font-weight="700" fill="#1F3864">Distribución y retail</text>
-        <text x="36" y="62" font-size="11.5" fill="#55627a">generación fundadora — más tiendas, países, producto</text>
-        <rect x="630" y="20" width="250" height="58" rx="9" fill="#fff" stroke="#d9dee8"/>
-        <text x="646" y="43" font-size="13.5" font-weight="700" fill="#1F3864">Software y suscripción</text>
-        <text x="646" y="62" font-size="11.5" fill="#55627a">nueva generación — app con ~100 mil usuarios</text>
-        <rect x="325" y="200" width="250" height="44" rx="9" fill="#fff" stroke="#d9dee8"/>
-        <text x="341" y="220" font-size="13.5" font-weight="700" fill="#1F3864">80/20 hacia Cubitt</text>
-        <text x="341" y="237" font-size="11.5" fill="#55627a">volcar el esfuerzo a la marca propia</text>
+        <text x="450" y="143" text-anchor="middle" font-size="11.5" fill="var(--celeste)">definido inicios 2026 · sin despliegue aguas abajo</text>
+        <rect x="20" y="20" width="250" height="58" rx="9" fill="#fff" stroke="var(--borde)"/>
+        <text x="36" y="43" font-size="13.5" font-weight="700" fill="var(--navy)">Distribución y retail</text>
+        <text x="36" y="62" font-size="11.5" fill="var(--muted)">generación fundadora — más tiendas, países, producto</text>
+        <rect x="630" y="20" width="250" height="58" rx="9" fill="#fff" stroke="var(--borde)"/>
+        <text x="646" y="43" font-size="13.5" font-weight="700" fill="var(--navy)">Software y suscripción</text>
+        <text x="646" y="62" font-size="11.5" fill="var(--muted)">nueva generación — app con ~100 mil usuarios</text>
+        <rect x="325" y="200" width="250" height="44" rx="9" fill="#fff" stroke="var(--borde)"/>
+        <text x="341" y="220" font-size="13.5" font-weight="700" fill="var(--navy)">80/20 hacia Cubitt</text>
+        <text x="341" y="237" font-size="11.5" fill="var(--muted)">volcar el esfuerzo a la marca propia</text>
         <rect x="655" y="182" width="225" height="44" rx="9" fill="#fff" stroke="#98a2b3" stroke-dasharray="5 4"/>
-        <text x="669" y="202" font-size="12" font-weight="700" fill="#55627a">+ la visión del socio (CR)</text>
-        <text x="669" y="219" font-size="11" fill="#55627a">formato multimarca "On Time"</text>
+        <text x="669" y="202" font-size="12" font-weight="700" fill="var(--muted)">+ la visión del socio (CR)</text>
+        <text x="669" y="219" font-size="11" fill="var(--muted)">formato multimarca "On Time"</text>
       </svg>
       <div style="display:flex; align-items:center; gap:0; margin-top:4px;">
         <div style="flex:0 0 auto; font-size:12px; color:var(--muted); padding-right:10px;">Línea de tiempo</div>
@@ -529,7 +534,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
           <span style="flex:1; border-top:2px solid var(--borde); margin:0 6px;"></span>
           <span class="tag ambar">jul/ago · revisión = ventana para reconciliar</span>
           <span style="flex:1; border-top:2px solid var(--borde); margin:0 6px;"></span>
-          <span class="tag" style="background:#1F3864; color:#fff; border-color:#1F3864;">24-jul · Junta</span>
+          <span class="tag" style="background:var(--navy); color:#fff; border-color:var(--navy);">24-jul · Junta</span>
         </div>
       </div>
     </div>
@@ -543,25 +548,25 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:960px; margin:0 auto;">
       <svg viewBox="0 0 940 350" role="img" aria-label="Los cuatro planos de la estructura real; solo el cuarto existe en los papeles">
-        <rect x="20" y="14" width="820" height="72" rx="10" fill="#1F3864"/>
+        <rect x="20" y="14" width="820" height="72" rx="10" fill="var(--navy)"/>
         <text x="40" y="44" font-size="14.5" font-weight="800" fill="#fff">1 · GOBIERNO FAMILIAR</text>
-        <text x="40" y="66" font-size="12" fill="#9dc3ee">Junta Directiva · Comité "íntimo" (5 accionistas) · Comité de Finanzas — decisión concentrada, sin actas</text>
-        <rect x="20" y="94" width="820" height="72" rx="10" fill="#fff" stroke="#B26A00" stroke-width="2" stroke-dasharray="8 6"/>
-        <text x="40" y="122" font-size="14.5" font-weight="800" fill="#B26A00">2 · DIRECCIÓN EJECUTIVA DE FACTO</text>
-        <text x="40" y="144" font-size="12" fill="#55627a">Presidencia+VE · Compras Casio+Comercial · Comercial regional+Lark · Producto Cubitt+EE.UU. · Finanzas+banca — <tspan font-weight="700" fill="#B26A00">ninguna existe en nómina</tspan></text>
-        <rect x="20" y="174" width="820" height="72" rx="10" fill="#fff" stroke="#B26A00" stroke-width="2" stroke-dasharray="8 6"/>
-        <text x="40" y="202" font-size="14.5" font-weight="800" fill="#B26A00">3 · CAPA CORPORATIVA REGIONAL</text>
-        <text x="40" y="224" font-size="12" fill="#55627a">CFO grupo · Sistemas 3 países · Marketing ~50 pers. · CS 9+ países · Retail regional · PMO · célula BI · Logística — <tspan font-weight="700" fill="#B26A00">invisible en las nóminas</tspan></text>
-        <rect x="20" y="254" width="820" height="72" rx="10" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <text x="40" y="282" font-size="14.5" font-weight="800" fill="#1F3864">4 · OPERACIÓN POR PAÍS</text>
-        <text x="40" y="304" font-size="12" fill="#55627a">Panamá: 15 departamentos (2025) · Venezuela: 14 gerencias con bandas (abr-2026) · Colombia: listado plano · EE.UU.: unipersonal</text>
+        <text x="40" y="66" font-size="12" fill="var(--celeste)">Junta Directiva · Comité "íntimo" (5 accionistas) · Comité de Finanzas — decisión concentrada, sin actas</text>
+        <rect x="20" y="94" width="820" height="72" rx="10" fill="#fff" stroke="var(--ambar)" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="40" y="122" font-size="14.5" font-weight="800" fill="var(--ambar)">2 · DIRECCIÓN EJECUTIVA DE FACTO</text>
+        <text x="40" y="144" font-size="12" fill="var(--muted)">Presidencia+VE · Compras Casio+Comercial · Comercial regional+Lark · Producto Cubitt+EE.UU. · Finanzas+banca — <tspan font-weight="700" fill="var(--ambar)">ninguna existe en nómina</tspan></text>
+        <rect x="20" y="174" width="820" height="72" rx="10" fill="#fff" stroke="var(--ambar)" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="40" y="202" font-size="14.5" font-weight="800" fill="var(--ambar)">3 · CAPA CORPORATIVA REGIONAL</text>
+        <text x="40" y="224" font-size="12" fill="var(--muted)">CFO grupo · Sistemas 3 países · Marketing ~50 pers. · CS 9+ países · Retail regional · PMO · célula BI · Logística — <tspan font-weight="700" fill="var(--ambar)">invisible en las nóminas</tspan></text>
+        <rect x="20" y="254" width="820" height="72" rx="10" fill="#e8eef7" stroke="var(--blue)" stroke-width="2"/>
+        <text x="40" y="282" font-size="14.5" font-weight="800" fill="var(--navy)">4 · OPERACIÓN POR PAÍS</text>
+        <text x="40" y="304" font-size="12" fill="var(--muted)">Panamá: 15 departamentos (2025) · Venezuela: 14 gerencias con bandas (abr-2026) · Colombia: listado plano · EE.UU.: unipersonal</text>
         <g font-size="11.5" font-weight="700">
           <text x="858" y="54" fill="#98a2b3">SIN</text><text x="858" y="68" fill="#98a2b3">PAPELES</text>
-          <text x="858" y="132" fill="#B26A00">SIN</text><text x="858" y="146" fill="#B26A00">PAPELES</text>
-          <text x="858" y="212" fill="#B26A00">SIN</text><text x="858" y="226" fill="#B26A00">PAPELES</text>
-          <text x="858" y="292" fill="#2E75B6">LO ÚNICO</text><text x="858" y="306" fill="#2E75B6">FORMAL</text>
+          <text x="858" y="132" fill="var(--ambar)">SIN</text><text x="858" y="146" fill="var(--ambar)">PAPELES</text>
+          <text x="858" y="212" fill="var(--ambar)">SIN</text><text x="858" y="226" fill="var(--ambar)">PAPELES</text>
+          <text x="858" y="292" fill="var(--blue)">LO ÚNICO</text><text x="858" y="306" fill="var(--blue)">FORMAL</text>
         </g>
-        <text x="430" y="342" text-anchor="middle" font-size="12" fill="#55627a">— borde punteado = plano sin existencia formal · el organigrama interactivo del informe navega los cuatro planos con flujos y alertas —</text>
+        <text x="430" y="342" text-anchor="middle" font-size="12" fill="var(--muted)">— borde punteado = plano sin existencia formal · el organigrama interactivo del informe navega los cuatro planos con flujos y alertas —</text>
       </svg>
     </div>
     <p class="foot-note">Panamá: organigrama 2025 con 15 departamentos · Venezuela: 14 gerencias con bandas y niveles ajustados en abril 2026 — grados de madurez distintos.</p>
@@ -581,7 +586,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       <div class="vtitle" style="margin-top:8px;">Venezuela: la recuperación, en plena ejecución</div>
       <div style="display:flex; align-items:center; gap:12px;">
         <span class="tag">dic-2025 · 176 personas</span>
-        <svg viewBox="0 0 220 30" style="flex:1; max-width:340px; height:30px;"><defs><marker id="arrCr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E7D32"/></marker></defs><line x1="6" y1="15" x2="205" y2="15" stroke="#2E7D32" stroke-width="3" marker-end="url(#arrCr)"/><text x="105" y="10" text-anchor="middle" font-size="13" font-weight="700" fill="#2E7D32">+30% en 6 meses</text></svg>
+        <svg viewBox="0 0 220 30" style="flex:1; max-width:340px; height:30px;"><defs><marker id="arrCr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--verde)"/></marker></defs><line x1="6" y1="15" x2="205" y2="15" stroke="var(--verde)" stroke-width="3" marker-end="url(#arrCr)"/><text x="105" y="10" text-anchor="middle" font-size="13" font-weight="700" fill="var(--verde)">+30% en 6 meses</text></svg>
         <span class="tag verde">jul-2026 · 230+ personas</span>
       </div>
     </div>
@@ -672,14 +677,14 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <div class="viz" style="max-width:880px; margin:0 auto;">
       <svg viewBox="0 0 860 250" role="img" aria-label="Embudo: de los 21 hallazgos, por la lente de los principios, a los tres modelos">
         <polygon points="30,20 830,20 620,105 240,105" fill="#fbeaea" stroke="#eecccc"/>
-        <text x="430" y="52" text-anchor="middle" font-size="14.5" font-weight="800" fill="#C00000">21 HALLAZGOS CONSOLIDADOS (s3–s8)</text>
+        <text x="430" y="52" text-anchor="middle" font-size="14.5" font-weight="800" fill="var(--rojo)">21 HALLAZGOS CONSOLIDADOS (s3–s8)</text>
         <text x="430" y="74" text-anchor="middle" font-size="11.5" fill="#8a3333">los requisitos que la estructura debe satisfacer — 10 de banda Alta</text>
         <polygon points="240,113 620,113 540,178 320,178" fill="#e8eef7" stroke="#c6d5ea"/>
-        <text x="430" y="141" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">LA LENTE: SIETE PRINCIPIOS DE DISEÑO (4.8)</text>
+        <text x="430" y="141" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--navy)">LA LENTE: SIETE PRINCIPIOS DE DISEÑO (4.8)</text>
         <text x="430" y="161" text-anchor="middle" font-size="11" fill="#3d5170">criterio central: la eficiencia</text>
-        <polygon points="320,186 540,186 500,242 360,242" fill="#1F3864"/>
+        <polygon points="320,186 540,186 500,242 360,242" fill="var(--navy)"/>
         <text x="430" y="212" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">ORGANIGRAMA PROPUESTO (4.8)</text>
-        <text x="430" y="231" text-anchor="middle" font-size="10.5" fill="#9dc3ee">para decisión de la dirección</text>
+        <text x="430" y="231" text-anchor="middle" font-size="10.5" fill="var(--celeste)">para decisión de la dirección</text>
       </svg>
     </div>
   </div>
@@ -707,14 +712,14 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <p class="lead">La propuesta se concreta en un <b>organigrama en tres niveles</b> —Dirección Ejecutiva · Gerencias Corporativas · Direcciones— que <b>formaliza la capa corporativa</b> hoy invisible en las nóminas, con flexibilidad para operar desde Panamá o Venezuela.</p>
     <div class="viz" style="max-width:1010px;margin:2px auto 0;">
       <div style="display:flex;justify-content:center;gap:12px;align-items:center;margin-bottom:8px;">
-        <div style="background:#1F3864;color:#fff;font-weight:800;font-size:13px;padding:9px 22px;border-radius:8px;">DIRECCIÓN EJECUTIVA</div>
-        <div style="border:1.5px dashed #98a2b3;color:#55627a;font-size:10.5px;padding:6px 12px;border-radius:8px;text-align:center;">Holding familiar · Junta Directiva<br><span style="font-size:9.5px;">consulta y decisión — línea punteada</span></div>
+        <div style="background:var(--navy);color:#fff;font-weight:800;font-size:13px;padding:9px 22px;border-radius:8px;">DIRECCIÓN EJECUTIVA</div>
+        <div style="border:1.5px dashed #98a2b3;color:var(--muted);font-size:10.5px;padding:6px 12px;border-radius:8px;text-align:center;">Holding familiar · Junta Directiva<br><span style="font-size:9.5px;">consulta y decisión — línea punteada</span></div>
       </div>
-      <div style="text-align:center;font-size:10px;letter-spacing:.12em;color:#55627a;font-weight:700;text-transform:uppercase;margin:8px 0 4px;">Gerencias Corporativas · soporte</div>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:8px;"><div style="background:#e8eef7;border:1px solid #c6d5ea;color:#1F3864;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Talento Humano</div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:#1F3864;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Transformación Tecnológica y Soporte<br><span style="font-weight:400;font-size:10px;">Comité de Excelencia en Transformación Tecnológica e IA</span></div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:#1F3864;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Finanzas</div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:#1F3864;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">PMO</div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:#1F3864;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Mantenimiento y Servicios</div></div>
-      <div style="text-align:center;font-size:10px;letter-spacing:.12em;color:#55627a;font-weight:700;text-transform:uppercase;margin:2px 0 4px;">Gerencias Corporativas · medulares &nbsp;+&nbsp; función híbrida</div>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;"><div style="background:#eaf3ec;border:1px solid #bcdcc4;color:#2E7D32;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Investigación y Desarrollo</div> <div style="background:#eaf3ec;border:1px solid #bcdcc4;color:#2E7D32;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Comercial<br><span style="font-weight:400;font-size:10px;">Casio · Cubitt</span></div> <div style="background:#eaf3ec;border:1px solid #bcdcc4;color:#2E7D32;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Operaciones y Logística</div> <div style="background:#fdf1de;border:1px solid #e5c48a;color:#B26A00;font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Experiencia de Marcas<br><span style="font-weight:400;font-size:10px;">híbrida soporte–medular</span></div></div>
-      <div style="text-align:center;margin-top:12px;background:#F4F6FA;border:1px solid #d9dee8;border-radius:8px;padding:8px 14px;font-size:11px;color:#55627a;"><b>Direcciones</b> (nivel 3) — varias por país, cuelgan de cada gerencia regional; las coordinaciones se detallarán en la Fase 2.</div>
+      <div style="text-align:center;font-size:10px;letter-spacing:.12em;color:var(--muted);font-weight:700;text-transform:uppercase;margin:8px 0 4px;">Gerencias Corporativas · soporte</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:8px;"><div style="background:#e8eef7;border:1px solid #c6d5ea;color:var(--navy);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Talento Humano</div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:var(--navy);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Transformación Tecnológica y Soporte<br><span style="font-weight:400;font-size:10px;">Comité de Excelencia en Transformación Tecnológica e IA</span></div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:var(--navy);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Finanzas</div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:var(--navy);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">PMO</div> <div style="background:#e8eef7;border:1px solid #c6d5ea;color:var(--navy);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Mantenimiento y Servicios</div></div>
+      <div style="text-align:center;font-size:10px;letter-spacing:.12em;color:var(--muted);font-weight:700;text-transform:uppercase;margin:2px 0 4px;">Gerencias Corporativas · medulares &nbsp;+&nbsp; función híbrida</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;"><div style="background:#eaf3ec;border:1px solid #bcdcc4;color:var(--verde);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Investigación y Desarrollo</div> <div style="background:#eaf3ec;border:1px solid #bcdcc4;color:var(--verde);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Comercial<br><span style="font-weight:400;font-size:10px;">Casio · Cubitt</span></div> <div style="background:#eaf3ec;border:1px solid #bcdcc4;color:var(--verde);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Operaciones y Logística</div> <div style="background:#fdf1de;border:1px solid #e5c48a;color:var(--ambar);font-size:11px;font-weight:700;padding:7px 9px;border-radius:7px;line-height:1.25;">Experiencia de Marcas<br><span style="font-weight:400;font-size:10px;">híbrida soporte–medular</span></div></div>
+      <div style="text-align:center;margin-top:12px;background:var(--gris);border:1px solid var(--borde);border-radius:8px;padding:8px 14px;font-size:11px;color:var(--muted);"><b>Direcciones</b> (nivel 3) — varias por país, cuelgan de cada gerencia regional; las coordinaciones se detallarán en la Fase 2.</div>
     </div>
     <p class="foot-note">El <b>organigrama interactivo</b> completo —con las direcciones por país y las relaciones funcionales entre áreas— vive en el informe (subsección 4.8) y en su diagrama navegable.</p>
   </div>
@@ -727,23 +732,23 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <div class="viz" style="max-width:960px; margin:0 auto;">
       <div class="vtitle">Mapa de madurez de la función de RRHH — dónde está cada país, dónde exige estar la transformación</div>
       <svg viewBox="0 0 940 280" role="img" aria-label="Escalera de madurez de RRHH en cuatro estadios">
-        <rect x="20" y="196" width="215" height="70" rx="8" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="127" y="224" text-anchor="middle" font-size="13.5" font-weight="700" fill="#26303f">1 · ADMINISTRATIVO</text>
-        <text x="127" y="243" text-anchor="middle" font-size="11" fill="#55627a">nómina · cumplimiento · expedientes</text>
-        <rect x="245" y="146" width="215" height="120" rx="8" fill="#e8eef7" stroke="#d9dee8"/>
-        <text x="352" y="174" text-anchor="middle" font-size="13.5" font-weight="700" fill="#26303f">2 · FUNCIONAL</text>
-        <text x="352" y="193" text-anchor="middle" font-size="11" fill="#55627a">procesos documentados en silos</text>
-        <rect x="470" y="96" width="215" height="170" rx="8" fill="#1F3864"/>
+        <rect x="20" y="196" width="215" height="70" rx="8" fill="var(--gris)" stroke="var(--borde)"/>
+        <text x="127" y="224" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--txt)">1 · ADMINISTRATIVO</text>
+        <text x="127" y="243" text-anchor="middle" font-size="11" fill="var(--muted)">nómina · cumplimiento · expedientes</text>
+        <rect x="245" y="146" width="215" height="120" rx="8" fill="#e8eef7" stroke="var(--borde)"/>
+        <text x="352" y="174" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--txt)">2 · FUNCIONAL</text>
+        <text x="352" y="193" text-anchor="middle" font-size="11" fill="var(--muted)">procesos documentados en silos</text>
+        <rect x="470" y="96" width="215" height="170" rx="8" fill="var(--navy)"/>
         <text x="577" y="126" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">3 · SOCIO DE NEGOCIO</text>
-        <text x="577" y="145" text-anchor="middle" font-size="11" fill="#9dc3ee">instrumentos unificados ligados a estrategia</text>
+        <text x="577" y="145" text-anchor="middle" font-size="11" fill="var(--celeste)">instrumentos unificados ligados a estrategia</text>
         <rect x="695" y="46" width="215" height="220" rx="8" fill="#fff" stroke="#98a2b3" stroke-dasharray="7 5"/>
-        <text x="802" y="76" text-anchor="middle" font-size="13.5" font-weight="700" fill="#55627a">4 · PREDICTIVO / DIGITAL</text>
-        <text x="802" y="95" text-anchor="middle" font-size="11" fill="#55627a">analítica de personas e IA integrada</text>
+        <text x="802" y="76" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--muted)">4 · PREDICTIVO / DIGITAL</text>
+        <text x="802" y="95" text-anchor="middle" font-size="11" fill="var(--muted)">analítica de personas e IA integrada</text>
         <g font-size="11.5" font-weight="800">
-          <rect x="47" y="168" width="160" height="24" rx="12" fill="#C00000"/><text x="127" y="184" text-anchor="middle" fill="#fff">VENEZUELA · HOY</text>
-          <rect x="262" y="118" width="180" height="24" rx="12" fill="#B26A00"/><text x="352" y="134" text-anchor="middle" fill="#fff">PANAMÁ · HOY (frágil)</text>
-          <rect x="477" y="68" width="200" height="24" rx="12" fill="#2E7D32"/><text x="577" y="84" text-anchor="middle" fill="#fff">OBJETIVO DEL PROYECTO</text>
-          <rect x="722" y="18" width="160" height="24" rx="12" fill="#F4F6FA" stroke="#98a2b3"/><text x="802" y="34" text-anchor="middle" fill="#55627a">META FUTURA</text>
+          <rect x="47" y="168" width="160" height="24" rx="12" fill="var(--rojo)"/><text x="127" y="184" text-anchor="middle" fill="#fff">VENEZUELA · HOY</text>
+          <rect x="262" y="118" width="180" height="24" rx="12" fill="var(--ambar)"/><text x="352" y="134" text-anchor="middle" fill="#fff">PANAMÁ · HOY (frágil)</text>
+          <rect x="477" y="68" width="200" height="24" rx="12" fill="var(--verde)"/><text x="577" y="84" text-anchor="middle" fill="#fff">OBJETIVO DEL PROYECTO</text>
+          <rect x="722" y="18" width="160" height="24" rx="12" fill="var(--gris)" stroke="#98a2b3"/><text x="802" y="34" text-anchor="middle" fill="var(--muted)">META FUTURA</text>
         </g>
       </svg>
       <div class="lg" style="justify-content:center;"><span>Colombia: función <b>tercerizada</b> (fuera de la escalera)</span><span>·</span><span>EE.UU., Costa Rica y Guatemala: <b>sin función de RRHH del grupo</b></span></div>
@@ -814,7 +819,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <div class="viz" style="margin-top:4px;">
       <div class="vtitle">Dónde aterriza cada decisión en el contrato</div>
       <div style="display:flex; align-items:center; gap:6px;">
-        <span class="tag" style="background:#1F3864; color:#fff; border-color:#1F3864;">F1 · Diagnóstico (hoy)</span>
+        <span class="tag" style="background:var(--navy); color:#fff; border-color:var(--navy);">F1 · Diagnóstico (hoy)</span>
         <span style="flex:1; border-top:2px solid var(--borde); position:relative;"><span style="position:absolute; top:-24px; left:10%; font-size:11.5px; font-weight:700; color:var(--navy);">D3 · datos ↓</span><span style="position:absolute; top:-24px; left:55%; font-size:11.5px; font-weight:700; color:var(--navy);">D4 · formación ↓</span></span>
         <span class="tag">F2 · Procesos + prototipos IA</span>
         <span style="flex:1; border-top:2px solid var(--borde); position:relative;"><span style="position:absolute; top:-24px; left:20%; font-size:11.5px; font-weight:700; color:var(--navy);">D1 · capa corporativa ↓&nbsp;&nbsp; D2 · rol estratégico ↓</span></span>
@@ -834,33 +839,33 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <div class="viz" style="max-width:980px; margin:0 auto;">
       <div class="vtitle">El proceso de mayor volumen del grupo — la compra mensual a Casio, tal como opera hoy</div>
       <svg viewBox="0 0 940 210" role="img" aria-label="Flujo real de la compra Casio con sus tres puntos de fricción">
-        <defs><marker id="arrF6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <line x1="290" y1="70" x2="330" y2="70" stroke="#2E75B6" stroke-width="2.5" marker-end="url(#arrF6)"/>
-        <line x1="600" y1="70" x2="640" y2="70" stroke="#2E75B6" stroke-width="2.5" marker-end="url(#arrF6)"/>
-        <rect x="20" y="24" width="270" height="92" rx="10" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="36" y="48" font-size="13.5" font-weight="700" fill="#1F3864">Día 18 · Excel maestro</text>
-        <text x="36" y="67" font-size="11.5" fill="#55627a">venta mes a mes + inventario disponible</text>
-        <text x="36" y="83" font-size="11.5" fill="#55627a">+ tránsito (Casio tarda 45–60 días)</text>
-        <text x="36" y="99" font-size="11.5" fill="#55627a">+ sugerencia del modelo de BI ("orientadora")</text>
-        <rect x="332" y="24" width="270" height="92" rx="10" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="348" y="48" font-size="13.5" font-weight="700" fill="#1F3864">Decisión en hoja personal</text>
-        <text x="348" y="67" font-size="11.5" fill="#55627a">se exportan reportes de Odoo, se abren</text>
-        <text x="348" y="83" font-size="11.5" fill="#55627a">columnas y se "mete cantidad a cada</text>
-        <text x="348" y="99" font-size="11.5" fill="#55627a">producto" — fuera del sistema</text>
-        <rect x="642" y="24" width="278" height="92" rx="10" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="658" y="48" font-size="13.5" font-weight="700" fill="#1F3864">Seguimiento en "la sábana"</text>
-        <text x="658" y="67" font-size="11.5" fill="#55627a">archivo paralelo de ventas mayoristas</text>
-        <text x="658" y="83" font-size="11.5" fill="#55627a">"una gran sábana que se revisa</text>
-        <text x="658" y="99" font-size="11.5" fill="#55627a">todos los días" — también fuera del sistema</text>
-        <g font-size="11.5" font-weight="700" fill="#C00000">
-          <circle cx="155" cy="140" r="11" fill="#C00000"/><text x="155" y="144" text-anchor="middle" fill="#fff">1</text>
-          <text x="175" y="144" fill="#C00000">dependencia individual extrema (una persona, desde Israel)</text>
-          <circle cx="155" cy="170" r="11" fill="#C00000"/><text x="155" y="174" text-anchor="middle" fill="#fff">2</text>
+        <defs><marker id="arrF6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--blue)"/></marker></defs>
+        <line x1="290" y1="70" x2="330" y2="70" stroke="var(--blue)" stroke-width="2.5" marker-end="url(#arrF6)"/>
+        <line x1="600" y1="70" x2="640" y2="70" stroke="var(--blue)" stroke-width="2.5" marker-end="url(#arrF6)"/>
+        <rect x="20" y="24" width="270" height="92" rx="10" fill="var(--gris)" stroke="var(--borde)"/>
+        <text x="36" y="48" font-size="13.5" font-weight="700" fill="var(--navy)">Día 18 · Excel maestro</text>
+        <text x="36" y="67" font-size="11.5" fill="var(--muted)">venta mes a mes + inventario disponible</text>
+        <text x="36" y="83" font-size="11.5" fill="var(--muted)">+ tránsito (Casio tarda 45–60 días)</text>
+        <text x="36" y="99" font-size="11.5" fill="var(--muted)">+ sugerencia del modelo de BI ("orientadora")</text>
+        <rect x="332" y="24" width="270" height="92" rx="10" fill="var(--gris)" stroke="var(--borde)"/>
+        <text x="348" y="48" font-size="13.5" font-weight="700" fill="var(--navy)">Decisión en hoja personal</text>
+        <text x="348" y="67" font-size="11.5" fill="var(--muted)">se exportan reportes de Odoo, se abren</text>
+        <text x="348" y="83" font-size="11.5" fill="var(--muted)">columnas y se "mete cantidad a cada</text>
+        <text x="348" y="99" font-size="11.5" fill="var(--muted)">producto" — fuera del sistema</text>
+        <rect x="642" y="24" width="278" height="92" rx="10" fill="var(--gris)" stroke="var(--borde)"/>
+        <text x="658" y="48" font-size="13.5" font-weight="700" fill="var(--navy)">Seguimiento en "la sábana"</text>
+        <text x="658" y="67" font-size="11.5" fill="var(--muted)">archivo paralelo de ventas mayoristas</text>
+        <text x="658" y="83" font-size="11.5" fill="var(--muted)">"una gran sábana que se revisa</text>
+        <text x="658" y="99" font-size="11.5" fill="var(--muted)">todos los días" — también fuera del sistema</text>
+        <g font-size="11.5" font-weight="700" fill="var(--rojo)">
+          <circle cx="155" cy="140" r="11" fill="var(--rojo)"/><text x="155" y="144" text-anchor="middle" fill="#fff">1</text>
+          <text x="175" y="144" fill="var(--rojo)">dependencia individual extrema (una persona, desde Israel)</text>
+          <circle cx="155" cy="170" r="11" fill="var(--rojo)"/><text x="155" y="174" text-anchor="middle" fill="#fff">2</text>
           <text x="175" y="174">trazabilidad en herramienta personal</text>
-          <circle cx="467" cy="170" r="11" fill="#C00000"/><text x="467" y="174" text-anchor="middle" fill="#fff">3</text>
+          <circle cx="467" cy="170" r="11" fill="var(--rojo)"/><text x="467" y="174" text-anchor="middle" fill="#fff">3</text>
           <text x="487" y="174">uso parcial del modelo de BI</text>
         </g>
-        <text x="20" y="203" font-size="12" fill="#55627a">El punto de control comercial previo a bodega <tspan font-weight="700">ha demostrado prevenir errores</tspan> — el activo es el control; el vicio es que su criterio no está escrito.</text>
+        <text x="20" y="203" font-size="12" fill="var(--muted)">El punto de control comercial previo a bodega <tspan font-weight="700">ha demostrado prevenir errores</tspan> — el activo es el control; el vicio es que su criterio no está escrito.</text>
       </svg>
       <div class="vtitle" style="margin-top:6px;">La variabilidad sin estándar</div>
       <div style="display:flex; align-items:center; gap:12px; max-width:760px;">
@@ -894,13 +899,13 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:980px; margin:0 auto; gap:4px;">
       <div class="vtitle">22 macroprocesos · 104 procesos · 260 procedimientos — por categoría y nivel</div>
-      <div class="hb" style="grid-template-columns:150px 1fr 190px;"><div class="l"><b style="color:var(--navy);">Estratégicos</b></div><div style="display:flex; flex-direction:column; gap:2px;"><div class="t" style="height:14px;"><div class="f" style="width:3.8%; background:#1F3864;"></div></div><div class="t" style="height:14px;"><div class="f" style="width:15.4%;"></div></div><div class="t" style="height:14px;"><div class="f f3" style="width:41.5%;"></div></div></div><div class="v" style="font-size:12px;">5 · 20 · 54</div></div>
-      <div class="hb" style="grid-template-columns:150px 1fr 190px;"><div class="l"><b style="color:var(--navy);">Operativos</b><br><span style="font-size:11px; color:var(--muted);">la cadena de valor</span></div><div style="display:flex; flex-direction:column; gap:2px;"><div class="t" style="height:14px;"><div class="f" style="width:6.2%; background:#1F3864;"></div></div><div class="t" style="height:14px;"><div class="f" style="width:23.8%;"></div></div><div class="t" style="height:14px;"><div class="f f3" style="width:58.5%;"></div></div></div><div class="v" style="font-size:12px;">8 · 31 · 76</div></div>
-      <div class="hb" style="grid-template-columns:150px 1fr 190px;"><div class="l"><b style="color:var(--navy);">De soporte</b></div><div style="display:flex; flex-direction:column; gap:2px;"><div class="t" style="height:14px;"><div class="f" style="width:6.9%; background:#1F3864;"></div></div><div class="t" style="height:14px;"><div class="f" style="width:40.8%;"></div></div><div class="t" style="height:14px;"><div class="f f3" style="width:100%;"></div></div></div><div class="v" style="font-size:12px;">9 · 53 · 130</div></div>
-      <div class="lg"><span><i style="background:#1F3864"></i>Macroprocesos (N0)</span><span><i style="background:var(--blue)"></i>Procesos (N1)</span><span><i style="background:#9dc3ee"></i>Procedimientos (N2)</span></div>
+      <div class="hb" style="grid-template-columns:150px 1fr 190px;"><div class="l"><b style="color:var(--navy);">Estratégicos</b></div><div style="display:flex; flex-direction:column; gap:2px;"><div class="t" style="height:14px;"><div class="f" style="width:3.8%; background:var(--navy);"></div></div><div class="t" style="height:14px;"><div class="f" style="width:15.4%;"></div></div><div class="t" style="height:14px;"><div class="f f3" style="width:41.5%;"></div></div></div><div class="v" style="font-size:12px;">5 · 20 · 54</div></div>
+      <div class="hb" style="grid-template-columns:150px 1fr 190px;"><div class="l"><b style="color:var(--navy);">Operativos</b><br><span style="font-size:11px; color:var(--muted);">la cadena de valor</span></div><div style="display:flex; flex-direction:column; gap:2px;"><div class="t" style="height:14px;"><div class="f" style="width:6.2%; background:var(--navy);"></div></div><div class="t" style="height:14px;"><div class="f" style="width:23.8%;"></div></div><div class="t" style="height:14px;"><div class="f f3" style="width:58.5%;"></div></div></div><div class="v" style="font-size:12px;">8 · 31 · 76</div></div>
+      <div class="hb" style="grid-template-columns:150px 1fr 190px;"><div class="l"><b style="color:var(--navy);">De soporte</b></div><div style="display:flex; flex-direction:column; gap:2px;"><div class="t" style="height:14px;"><div class="f" style="width:6.9%; background:var(--navy);"></div></div><div class="t" style="height:14px;"><div class="f" style="width:40.8%;"></div></div><div class="t" style="height:14px;"><div class="f f3" style="width:100%;"></div></div></div><div class="v" style="font-size:12px;">9 · 53 · 130</div></div>
+      <div class="lg"><span><i style="background:var(--navy)"></i>Macroprocesos (N0)</span><span><i style="background:var(--blue)"></i>Procesos (N1)</span><span><i style="background:var(--celeste)"></i>Procedimientos (N2)</span></div>
       <div class="vtitle" style="margin-top:6px;">Los 22 macroprocesos</div>
       <div class="tagline" style="gap:5px;">
-        <span class="tag" style="font-size:11px; background:#1F3864; color:#fff; border-color:#1F3864;">Dirección y Gobierno</span><span class="tag" style="font-size:11px; background:#1F3864; color:#fff; border-color:#1F3864;">Planeación Comercial</span><span class="tag" style="font-size:11px; background:#1F3864; color:#fff; border-color:#1F3864;">R&D Cubitt</span><span class="tag" style="font-size:11px; background:#1F3864; color:#fff; border-color:#1F3864;">PMO</span><span class="tag" style="font-size:11px; background:#1F3864; color:#fff; border-color:#1F3864;">Adopción de IA</span>
+        <span class="tag" style="font-size:11px; background:var(--navy); color:#fff; border-color:var(--navy);">Dirección y Gobierno</span><span class="tag" style="font-size:11px; background:var(--navy); color:#fff; border-color:var(--navy);">Planeación Comercial</span><span class="tag" style="font-size:11px; background:var(--navy); color:#fff; border-color:var(--navy);">R&D Cubitt</span><span class="tag" style="font-size:11px; background:var(--navy); color:#fff; border-color:var(--navy);">PMO</span><span class="tag" style="font-size:11px; background:var(--navy); color:#fff; border-color:var(--navy);">Adopción de IA</span>
         <span class="tag" style="font-size:11px;">Compras</span><span class="tag" style="font-size:11px;">Logística Inbound</span><span class="tag" style="font-size:11px;">Distribución Regional</span><span class="tag" style="font-size:11px;">Mayoreo B2B</span><span class="tag" style="font-size:11px;">Retail</span><span class="tag" style="font-size:11px;">E-commerce</span><span class="tag" style="font-size:11px;">Logística Outbound</span><span class="tag" style="font-size:11px;">Postventa</span>
         <span class="tag" style="font-size:11px; background:var(--gris);">Finanzas</span><span class="tag" style="font-size:11px; background:var(--gris);">Procurement</span><span class="tag" style="font-size:11px; background:var(--gris);">TI</span><span class="tag" style="font-size:11px; background:var(--gris);">Datos y BI</span><span class="tag" style="font-size:11px; background:var(--gris);">Mercadeo</span><span class="tag" style="font-size:11px; background:var(--gris);">Talento</span><span class="tag" style="font-size:11px; background:var(--gris);">Legal</span><span class="tag" style="font-size:11px; background:var(--gris);">Servicios Generales</span><span class="tag" style="font-size:11px; background:var(--gris);">Mejora Continua</span>
       </div>
@@ -914,25 +919,25 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:960px; margin:0 auto;">
       <svg viewBox="0 0 940 235" role="img" aria-label="Línea de tiempo del levantamiento de procesos">
-        <defs><marker id="arrTl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <line x1="40" y1="118" x2="905" y2="118" stroke="#2E75B6" stroke-width="3" marker-end="url(#arrTl)"/>
-        <circle cx="120" cy="118" r="10" fill="#1F3864"/>
-        <circle cx="460" cy="118" r="10" fill="#2E75B6"/>
-        <circle cx="780" cy="118" r="10" fill="#fff" stroke="#2E75B6" stroke-width="3"/>
-        <rect x="20" y="24" width="230" height="72" rx="9" fill="#e8eef7" stroke="#2E75B6"/>
-        <text x="36" y="47" font-size="13.5" font-weight="700" fill="#1F3864">HOY · Fase 1</text>
-        <text x="36" y="65" font-size="11.5" fill="#55627a">Flujos troncales F1–F8 · fotografía</text>
-        <text x="36" y="81" font-size="11.5" fill="#55627a">por área · mapa 22/104/260</text>
-        <rect x="350" y="24" width="230" height="72" rx="9" fill="#fff" stroke="#d9dee8"/>
-        <text x="366" y="47" font-size="13.5" font-weight="700" fill="#1F3864">Fase 2 · As-Is formal</text>
-        <text x="366" y="65" font-size="11.5" fill="#55627a">proceso por proceso, con dueños,</text>
-        <text x="366" y="81" font-size="11.5" fill="#55627a">entradas/salidas y SLA internos</text>
-        <rect x="670" y="24" width="230" height="72" rx="9" fill="#fff" stroke="#d9dee8"/>
-        <text x="686" y="47" font-size="13.5" font-weight="700" fill="#1F3864">Automatización</text>
-        <text x="686" y="65" font-size="11.5" fill="#55627a">los casos de uso de IA se mapean</text>
-        <text x="686" y="81" font-size="11.5" fill="#55627a">contra los vicios documentados</text>
+        <defs><marker id="arrTl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--blue)"/></marker></defs>
+        <line x1="40" y1="118" x2="905" y2="118" stroke="var(--blue)" stroke-width="3" marker-end="url(#arrTl)"/>
+        <circle cx="120" cy="118" r="10" fill="var(--navy)"/>
+        <circle cx="460" cy="118" r="10" fill="var(--blue)"/>
+        <circle cx="780" cy="118" r="10" fill="#fff" stroke="var(--blue)" stroke-width="3"/>
+        <rect x="20" y="24" width="230" height="72" rx="9" fill="#e8eef7" stroke="var(--blue)"/>
+        <text x="36" y="47" font-size="13.5" font-weight="700" fill="var(--navy)">HOY · Fase 1</text>
+        <text x="36" y="65" font-size="11.5" fill="var(--muted)">Flujos troncales F1–F8 · fotografía</text>
+        <text x="36" y="81" font-size="11.5" fill="var(--muted)">por área · mapa 22/104/260</text>
+        <rect x="350" y="24" width="230" height="72" rx="9" fill="#fff" stroke="var(--borde)"/>
+        <text x="366" y="47" font-size="13.5" font-weight="700" fill="var(--navy)">Fase 2 · As-Is formal</text>
+        <text x="366" y="65" font-size="11.5" fill="var(--muted)">proceso por proceso, con dueños,</text>
+        <text x="366" y="81" font-size="11.5" fill="var(--muted)">entradas/salidas y SLA internos</text>
+        <rect x="670" y="24" width="230" height="72" rx="9" fill="#fff" stroke="var(--borde)"/>
+        <text x="686" y="47" font-size="13.5" font-weight="700" fill="var(--navy)">Automatización</text>
+        <text x="686" y="65" font-size="11.5" fill="var(--muted)">los casos de uso de IA se mapean</text>
+        <text x="686" y="81" font-size="11.5" fill="var(--muted)">contra los vicios documentados</text>
         <rect x="280" y="152" width="400" height="58" rx="9" fill="#fdf1de" stroke="#f0d9ad"/>
-        <text x="480" y="175" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B26A00">Prerrequisito de la Fase 2: conciliar los 3 inventarios del mismo universo</text>
+        <text x="480" y="175" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--ambar)">Prerrequisito de la Fase 2: conciliar los 3 inventarios del mismo universo</text>
         <text x="480" y="194" text-anchor="middle" font-size="11.5" fill="#8a6510">flujos F1–F8 (4.7) ↔ mapa 22/104/260 (6.5) ↔ inventario de vacíos (8.5)</text>
       </svg>
     </div>
@@ -979,17 +984,17 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <div class="viz" style="max-width:940px; margin:0 auto;">
       <svg viewBox="0 0 940 108" role="img" aria-label="Espejo entre el orden del diagnóstico y el de la arquitectura">
         <defs>
-          <marker id="arrE1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#C00000"/></marker>
-          <marker id="arrE2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E7D32"/></marker>
+          <marker id="arrE1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--rojo)"/></marker>
+          <marker id="arrE2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--verde)"/></marker>
         </defs>
-        <line x1="30" y1="30" x2="905" y2="30" stroke="#C00000" stroke-width="2.5" marker-end="url(#arrE1)"/>
-        <text x="40" y="20" font-size="12.5" font-weight="700" fill="#C00000">DIAGNÓSTICO (s7) · del síntoma a la raíz</text>
-        <text x="905" y="20" font-size="12" fill="#55627a" text-anchor="end">R1 dato → R2 eje → R3 gobierno → R4 continuidad</text>
-        <line x1="905" y1="78" x2="30" y2="78" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrE2)"/>
-        <text x="40" y="98" font-size="12.5" font-weight="700" fill="#2E7D32">ARQUITECTURA (s12) · de la raíz al síntoma</text>
-        <text x="905" y="98" font-size="12" fill="#55627a" text-anchor="end">C1 gobierno → C2 datos → C3–C4 integración → los agentes al final</text>
+        <line x1="30" y1="30" x2="905" y2="30" stroke="var(--rojo)" stroke-width="2.5" marker-end="url(#arrE1)"/>
+        <text x="40" y="20" font-size="12.5" font-weight="700" fill="var(--rojo)">DIAGNÓSTICO (s7) · del síntoma a la raíz</text>
+        <text x="905" y="20" font-size="12" fill="var(--muted)" text-anchor="end">R1 dato → R2 eje → R3 gobierno → R4 continuidad</text>
+        <line x1="905" y1="78" x2="30" y2="78" stroke="var(--verde)" stroke-width="2.5" marker-end="url(#arrE2)"/>
+        <text x="40" y="98" font-size="12.5" font-weight="700" fill="var(--verde)">ARQUITECTURA (s12) · de la raíz al síntoma</text>
+        <text x="905" y="98" font-size="12" fill="var(--muted)" text-anchor="end">C1 gobierno → C2 datos → C3–C4 integración → los agentes al final</text>
         <line x1="470" y1="38" x2="470" y2="70" stroke="#98a2b3" stroke-width="1.5" stroke-dasharray="4 4"/>
-        <text x="480" y="58" font-size="11.5" fill="#55627a">por eso el gobierno — Riesgo 3 aquí — es el Componente 1 allá</text>
+        <text x="480" y="58" font-size="11.5" fill="var(--muted)">por eso el gobierno — Riesgo 3 aquí — es el Componente 1 allá</text>
       </svg>
     </div>
     <p class="foot-note"><b>De dónde salen.</b> Los cuatro se leen en la célula de BI (7.4), que ya opera
@@ -1023,39 +1028,39 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:980px; margin:0 auto;">
       <svg viewBox="0 0 960 290" role="img" aria-label="Contraste entre el collage de apps actual y el patrón núcleo más capa propia">
-        <text x="240" y="26" text-anchor="middle" font-size="14" font-weight="800" fill="#C00000">✗ EL ANTI-PATRÓN · "collage de apps"</text>
-        <g font-size="11.5" font-weight="700" fill="#26303f">
-          <rect x="150" y="110" width="140" height="46" rx="8" fill="#F4F6FA" stroke="#d9dee8"/><text x="220" y="137" text-anchor="middle">Odoo custom</text>
-          <rect x="40" y="48" width="110" height="38" rx="8" fill="#fff" stroke="#d9dee8"/><text x="95" y="71" text-anchor="middle">Shopify</text>
-          <rect x="300" y="48" width="110" height="38" rx="8" fill="#fff" stroke="#d9dee8"/><text x="355" y="71" text-anchor="middle">Astrocell</text>
-          <rect x="30" y="180" width="110" height="38" rx="8" fill="#fff" stroke="#d9dee8"/><text x="85" y="203" text-anchor="middle">ACN</text>
-          <rect x="180" y="220" width="110" height="38" rx="8" fill="#fff" stroke="#d9dee8"/><text x="235" y="243" text-anchor="middle">Cashea</text>
-          <rect x="320" y="180" width="110" height="38" rx="8" fill="#fff" stroke="#d9dee8"/><text x="375" y="203" text-anchor="middle">Lark Base</text>
+        <text x="240" y="26" text-anchor="middle" font-size="14" font-weight="800" fill="var(--rojo)">✗ EL ANTI-PATRÓN · "collage de apps"</text>
+        <g font-size="11.5" font-weight="700" fill="var(--txt)">
+          <rect x="150" y="110" width="140" height="46" rx="8" fill="var(--gris)" stroke="var(--borde)"/><text x="220" y="137" text-anchor="middle">Odoo custom</text>
+          <rect x="40" y="48" width="110" height="38" rx="8" fill="#fff" stroke="var(--borde)"/><text x="95" y="71" text-anchor="middle">Shopify</text>
+          <rect x="300" y="48" width="110" height="38" rx="8" fill="#fff" stroke="var(--borde)"/><text x="355" y="71" text-anchor="middle">Astrocell</text>
+          <rect x="30" y="180" width="110" height="38" rx="8" fill="#fff" stroke="var(--borde)"/><text x="85" y="203" text-anchor="middle">ACN</text>
+          <rect x="180" y="220" width="110" height="38" rx="8" fill="#fff" stroke="var(--borde)"/><text x="235" y="243" text-anchor="middle">Cashea</text>
+          <rect x="320" y="180" width="110" height="38" rx="8" fill="#fff" stroke="var(--borde)"/><text x="375" y="203" text-anchor="middle">Lark Base</text>
         </g>
-        <g stroke="#C00000" stroke-width="2" fill="none">
+        <g stroke="var(--rojo)" stroke-width="2" fill="none">
           <path d="M 120 86 L 150 96 L 140 104 L 180 112"/>
           <path d="M 340 86 L 310 96 L 322 104 L 288 112"/>
           <path d="M 105 180 L 140 168 L 132 160 L 162 152"/>
           <path d="M 238 220 L 230 200 L 244 192 L 236 156"/>
           <path d="M 352 180 L 320 166 L 332 158 L 292 148"/>
         </g>
-        <g font-size="10.5" font-weight="700" fill="#C00000" text-anchor="middle">
+        <g font-size="10.5" font-weight="700" fill="var(--rojo)" text-anchor="middle">
           <text x="130" y="99">⚡</text><text x="318" y="99">⚡</text><text x="128" y="171">⚡</text><text x="248" y="205">⚡</text><text x="322" y="177">⚡</text>
         </g>
-        <text x="240" y="282" text-anchor="middle" font-size="11.5" fill="#C00000">cada conexión es un punto de fractura — y cada desarrollo custom, deuda en cada migración</text>
-        <line x1="480" y1="18" x2="480" y2="272" stroke="#d9dee8" stroke-width="1.5"/>
-        <text x="720" y="26" text-anchor="middle" font-size="14" font-weight="800" fill="#2E7D32">✓ EL PATRÓN · núcleo estándar + capa propia</text>
-        <rect x="530" y="196" width="380" height="62" rx="10" fill="#F4F6FA" stroke="#1F3864" stroke-width="2"/>
-        <text x="720" y="222" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">ODOO APEGADO AL ESTÁNDAR</text>
-        <text x="720" y="242" text-anchor="middle" font-size="11" fill="#55627a">núcleo transaccional intocado → las actualizaciones anuales siguen gratuitas</text>
-        <rect x="530" y="146" width="380" height="38" rx="8" fill="#e8eef7" stroke="#2E75B6" stroke-width="2" stroke-dasharray="8 5"/>
-        <text x="720" y="170" text-anchor="middle" font-size="12.5" font-weight="800" fill="#2E75B6">API — la frontera: consume el ERP desde afuera</text>
-        <rect x="530" y="46" width="380" height="88" rx="10" fill="#dbe6f5" stroke="#2E75B6"/>
-        <text x="720" y="74" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1F3864">CAPA PROPIA DEL GRUPO</text>
+        <text x="240" y="282" text-anchor="middle" font-size="11.5" fill="var(--rojo)">cada conexión es un punto de fractura — y cada desarrollo custom, deuda en cada migración</text>
+        <line x1="480" y1="18" x2="480" y2="272" stroke="var(--borde)" stroke-width="1.5"/>
+        <text x="720" y="26" text-anchor="middle" font-size="14" font-weight="800" fill="var(--verde)">✓ EL PATRÓN · núcleo estándar + capa propia</text>
+        <rect x="530" y="196" width="380" height="62" rx="10" fill="var(--gris)" stroke="var(--navy)" stroke-width="2"/>
+        <text x="720" y="222" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--navy)">ODOO APEGADO AL ESTÁNDAR</text>
+        <text x="720" y="242" text-anchor="middle" font-size="11" fill="var(--muted)">núcleo transaccional intocado → las actualizaciones anuales siguen gratuitas</text>
+        <rect x="530" y="146" width="380" height="38" rx="8" fill="#e8eef7" stroke="var(--blue)" stroke-width="2" stroke-dasharray="8 5"/>
+        <text x="720" y="170" text-anchor="middle" font-size="12.5" font-weight="800" fill="var(--blue)">API — la frontera: consume el ERP desde afuera</text>
+        <rect x="530" y="46" width="380" height="88" rx="10" fill="#dbe6f5" stroke="var(--blue)"/>
+        <text x="720" y="74" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--navy)">CAPA PROPIA DEL GRUPO</text>
         <text x="720" y="94" text-anchor="middle" font-size="11" fill="#3d5170">la lógica de negocio propia y la IA viven donde el grupo sí controla</text>
         <text x="720" y="112" text-anchor="middle" font-size="11" fill="#3d5170">exige capacidad de desarrollo interna gobernada — no solo partners</text>
-        <text x="720" y="272" text-anchor="middle" font-size="11" fill="#2E7D32">y la colaboración (Lark) no es la base de datos:</text>
-        <text x="720" y="287" text-anchor="middle" font-size="11" fill="#2E7D32">"más de mil tiendas… no corre en una computadora normal"</text>
+        <text x="720" y="272" text-anchor="middle" font-size="11" fill="var(--verde)">y la colaboración (Lark) no es la base de datos:</text>
+        <text x="720" y="287" text-anchor="middle" font-size="11" fill="var(--verde)">"más de mil tiendas… no corre en una computadora normal"</text>
       </svg>
     </div>
     <p class="foot-note"><b>La secuencia, en un renglón:</b> consolidar el dato → integrar los sistemas troncales
@@ -1078,18 +1083,18 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
         <g font-size="10.5" fill="#98a2b3" text-anchor="middle">
           <text x="200" y="212">mil</text><text x="370" y="212">10 mil</text><text x="540" y="212">100 mil</text><text x="710" y="212">1 millón</text><text x="880" y="212">10 millones</text>
         </g>
-        <text x="14" y="42" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Starter</text>
-        <rect x="200" y="30" width="51" height="18" rx="4" fill="#2E75B6"/><text x="258" y="44" font-size="11.5" font-weight="700" fill="#1F3864">2.000</text>
-        <text x="14" y="74" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Pro</text>
-        <rect x="200" y="62" width="221" height="18" rx="4" fill="#2E75B6"/><text x="428" y="76" font-size="11.5" font-weight="700" fill="#1F3864">20.000</text>
-        <text x="14" y="106" font-size="12" font-weight="700" fill="#26303f">Filas por tabla · Enterprise</text>
-        <rect x="200" y="94" width="289" height="18" rx="4" fill="#2E75B6"/><text x="496" y="108" font-size="11.5" font-weight="700" fill="#1F3864">50.000</text>
-        <text x="14" y="138" font-size="12" font-weight="700" fill="#26303f">API · registros por llamada</text>
-        <rect x="149" y="126" width="51" height="18" rx="4" fill="#6a9fd8"/><text x="207" y="140" font-size="11.5" font-weight="700" fill="#1F3864">500 ("todo o nada")</text>
-        <text x="14" y="178" font-size="12" font-weight="800" fill="#C00000">El volumen real del negocio</text>
-        <rect x="200" y="164" width="591" height="20" rx="4" fill="#C00000"/>
-        <text x="799" y="179" font-size="11.5" font-weight="800" fill="#C00000">▸ millones de líneas</text>
-        <text x="204" y="240" font-size="11.5" fill="#55627a">más de <tspan font-weight="700">1.000 tiendas</tspan> (41 clientes de terceros, uno con 150 tiendas) actualizando <tspan font-weight="700">varias veces al día</tspan> — "esto no corre en una computadora normal"</text>
+        <text x="14" y="42" font-size="12" font-weight="700" fill="var(--txt)">Filas por tabla · Starter</text>
+        <rect x="200" y="30" width="51" height="18" rx="4" fill="var(--blue)"/><text x="258" y="44" font-size="11.5" font-weight="700" fill="var(--navy)">2.000</text>
+        <text x="14" y="74" font-size="12" font-weight="700" fill="var(--txt)">Filas por tabla · Pro</text>
+        <rect x="200" y="62" width="221" height="18" rx="4" fill="var(--blue)"/><text x="428" y="76" font-size="11.5" font-weight="700" fill="var(--navy)">20.000</text>
+        <text x="14" y="106" font-size="12" font-weight="700" fill="var(--txt)">Filas por tabla · Enterprise</text>
+        <rect x="200" y="94" width="289" height="18" rx="4" fill="var(--blue)"/><text x="496" y="108" font-size="11.5" font-weight="700" fill="var(--navy)">50.000</text>
+        <text x="14" y="138" font-size="12" font-weight="700" fill="var(--txt)">API · registros por llamada</text>
+        <rect x="149" y="126" width="51" height="18" rx="4" fill="#6a9fd8"/><text x="207" y="140" font-size="11.5" font-weight="700" fill="var(--navy)">500 ("todo o nada")</text>
+        <text x="14" y="178" font-size="12" font-weight="800" fill="var(--rojo)">El volumen real del negocio</text>
+        <rect x="200" y="164" width="591" height="20" rx="4" fill="var(--rojo)"/>
+        <text x="799" y="179" font-size="11.5" font-weight="800" fill="var(--rojo)">▸ millones de líneas</text>
+        <text x="204" y="240" font-size="11.5" fill="var(--muted)">más de <tspan font-weight="700">1.000 tiendas</tspan> (41 clientes de terceros, uno con 150 tiendas) actualizando <tspan font-weight="700">varias veces al día</tspan> — "esto no corre en una computadora normal"</text>
       </svg>
     </div>
     <div class="grid2">
@@ -1103,29 +1108,29 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:980px; margin:0 auto;">
       <svg viewBox="0 0 960 235" role="img" aria-label="Línea de versiones de Odoo: el salto 17 a 19 son dos migraciones y el código custom se adapta a mano en cada una">
-        <line x1="60" y1="150" x2="900" y2="150" stroke="#d9dee8" stroke-width="3"/>
-        <circle cx="150" cy="150" r="16" fill="#1F3864"/><text x="150" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">17</text>
-        <text x="150" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">HOY · Panamá y Venezuela</text>
-        <text x="150" y="202" text-anchor="middle" font-size="10.5" fill="#55627a">implementaciones separadas —</text>
-        <text x="150" y="216" text-anchor="middle" font-size="10.5" fill="#55627a">la instancia multipaís única no existe aún</text>
-        <circle cx="480" cy="150" r="16" fill="#fff" stroke="#2E75B6" stroke-width="3"/><text x="480" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#2E75B6">18</text>
-        <text x="480" y="186" text-anchor="middle" font-size="10.5" fill="#55627a">el upgrade oficial procede una versión a la vez</text>
-        <circle cx="810" cy="150" r="16" fill="#2E7D32"/><text x="810" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">19</text>
-        <text x="810" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E7D32">objetivo: el próximo año</text>
-        <text x="810" y="202" text-anchor="middle" font-size="10.5" fill="#C00000">"aún no se ha empezado a planear"</text>
-        <path d="M 170 138 Q 315 60 462 136" fill="none" stroke="#C00000" stroke-width="2.5"/>
-        <text x="315" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#C00000">MIGRACIÓN 1</text>
-        <text x="315" y="72" text-anchor="middle" font-size="10.5" fill="#C00000">los módulos custom no migran solos:</text>
-        <text x="315" y="86" text-anchor="middle" font-size="10.5" fill="#C00000">se adaptan a mano</text>
-        <path d="M 500 136 Q 645 60 792 136" fill="none" stroke="#C00000" stroke-width="2.5"/>
-        <text x="645" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="#C00000">MIGRACIÓN 2</text>
-        <text x="645" y="72" text-anchor="middle" font-size="10.5" fill="#C00000">…y se vuelven a adaptar:</text>
-        <text x="645" y="86" text-anchor="middle" font-size="10.5" fill="#C00000">cada custom es costo recurrente</text>
+        <line x1="60" y1="150" x2="900" y2="150" stroke="var(--borde)" stroke-width="3"/>
+        <circle cx="150" cy="150" r="16" fill="var(--navy)"/><text x="150" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">17</text>
+        <text x="150" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--navy)">HOY · Panamá y Venezuela</text>
+        <text x="150" y="202" text-anchor="middle" font-size="10.5" fill="var(--muted)">implementaciones separadas —</text>
+        <text x="150" y="216" text-anchor="middle" font-size="10.5" fill="var(--muted)">la instancia multipaís única no existe aún</text>
+        <circle cx="480" cy="150" r="16" fill="#fff" stroke="var(--blue)" stroke-width="3"/><text x="480" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="var(--blue)">18</text>
+        <text x="480" y="186" text-anchor="middle" font-size="10.5" fill="var(--muted)">el upgrade oficial procede una versión a la vez</text>
+        <circle cx="810" cy="150" r="16" fill="var(--verde)"/><text x="810" y="155" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">19</text>
+        <text x="810" y="186" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--verde)">objetivo: el próximo año</text>
+        <text x="810" y="202" text-anchor="middle" font-size="10.5" fill="var(--rojo)">"aún no se ha empezado a planear"</text>
+        <path d="M 170 138 Q 315 60 462 136" fill="none" stroke="var(--rojo)" stroke-width="2.5"/>
+        <text x="315" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--rojo)">MIGRACIÓN 1</text>
+        <text x="315" y="72" text-anchor="middle" font-size="10.5" fill="var(--rojo)">los módulos custom no migran solos:</text>
+        <text x="315" y="86" text-anchor="middle" font-size="10.5" fill="var(--rojo)">se adaptan a mano</text>
+        <path d="M 500 136 Q 645 60 792 136" fill="none" stroke="var(--rojo)" stroke-width="2.5"/>
+        <text x="645" y="56" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--rojo)">MIGRACIÓN 2</text>
+        <text x="645" y="72" text-anchor="middle" font-size="10.5" fill="var(--rojo)">…y se vuelven a adaptar:</text>
+        <text x="645" y="86" text-anchor="middle" font-size="10.5" fill="var(--rojo)">cada custom es costo recurrente</text>
         <g font-size="11" font-weight="700">
-          <rect x="60" y="14" width="180" height="26" rx="13" fill="#fbeaea"/><text x="150" y="31" text-anchor="middle" fill="#C00000">~5× el costo de migrar</text>
-          <rect x="250" y="14" width="170" height="26" rx="13" fill="#fbeaea"/><text x="335" y="31" text-anchor="middle" fill="#C00000">hasta 3× el tiempo</text>
-          <rect x="430" y="14" width="230" height="26" rx="13" fill="#fbeaea"/><text x="545" y="31" text-anchor="middle" fill="#C00000">miles USD por módulo mayor</text>
-          <rect x="670" y="14" width="230" height="26" rx="13" fill="#e3efe4"/><text x="785" y="31" text-anchor="middle" fill="#2E7D32">regla sana: ~80% estándar · ~20% config</text>
+          <rect x="60" y="14" width="180" height="26" rx="13" fill="#fbeaea"/><text x="150" y="31" text-anchor="middle" fill="var(--rojo)">~5× el costo de migrar</text>
+          <rect x="250" y="14" width="170" height="26" rx="13" fill="#fbeaea"/><text x="335" y="31" text-anchor="middle" fill="var(--rojo)">hasta 3× el tiempo</text>
+          <rect x="430" y="14" width="230" height="26" rx="13" fill="#fbeaea"/><text x="545" y="31" text-anchor="middle" fill="var(--rojo)">miles USD por módulo mayor</text>
+          <rect x="670" y="14" width="230" height="26" rx="13" fill="#e3efe4"/><text x="785" y="31" text-anchor="middle" fill="var(--verde)">regla sana: ~80% estándar · ~20% config</text>
         </g>
       </svg>
     </div>
@@ -1174,36 +1179,36 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:960px; margin:0 auto;">
       <svg viewBox="0 0 940 265" role="img" aria-label="Focos de madurez de IA dentro de un marco de gobierno ausente">
-        <rect x="20" y="36" width="900" height="200" rx="14" fill="none" stroke="#B26A00" stroke-width="2.5" stroke-dasharray="10 8"/>
-        <text x="470" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="#B26A00">EL MARCO QUE FALTA · sin política de IA · sin dueño de presupuesto de herramientas · sin criterios de seguridad</text>
+        <rect x="20" y="36" width="900" height="200" rx="14" fill="none" stroke="var(--ambar)" stroke-width="2.5" stroke-dasharray="10 8"/>
+        <text x="470" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ambar)">EL MARCO QUE FALTA · sin política de IA · sin dueño de presupuesto de herramientas · sin criterios de seguridad</text>
         <g>
-          <circle cx="150" cy="115" r="34" fill="#e3efe4" stroke="#2E7D32" stroke-width="2.5"/>
-          <text x="150" y="112" text-anchor="middle" font-size="12" font-weight="800" fill="#2E7D32">Célula BI</text>
+          <circle cx="150" cy="115" r="34" fill="#e3efe4" stroke="var(--verde)" stroke-width="2.5"/>
+          <text x="150" y="112" text-anchor="middle" font-size="12" font-weight="800" fill="var(--verde)">Célula BI</text>
           <text x="150" y="127" text-anchor="middle" font-size="9.5" fill="#3d5c40">ML en producción</text>
-          <text x="150" y="176" text-anchor="middle" font-size="10.5" fill="#55627a">salud de inventario ·</text>
-          <text x="150" y="190" text-anchor="middle" font-size="10.5" fill="#55627a">rebalanceo · smart pricing</text>
-          <circle cx="330" cy="150" r="34" fill="#e3efe4" stroke="#2E7D32" stroke-width="2.5"/>
-          <text x="330" y="147" text-anchor="middle" font-size="12" font-weight="800" fill="#2E7D32">Colombia</text>
+          <text x="150" y="176" text-anchor="middle" font-size="10.5" fill="var(--muted)">salud de inventario ·</text>
+          <text x="150" y="190" text-anchor="middle" font-size="10.5" fill="var(--muted)">rebalanceo · smart pricing</text>
+          <circle cx="330" cy="150" r="34" fill="#e3efe4" stroke="var(--verde)" stroke-width="2.5"/>
+          <text x="330" y="147" text-anchor="middle" font-size="12" font-weight="800" fill="var(--verde)">Colombia</text>
           <text x="330" y="162" text-anchor="middle" font-size="9.5" fill="#3d5c40">uso experto</text>
-          <text x="330" y="211" text-anchor="middle" font-size="10.5" fill="#55627a">informes con IA</text>
-          <text x="330" y="225" text-anchor="middle" font-size="10.5" fill="#55627a">sobre queries de Odoo</text>
-          <circle cx="500" cy="110" r="34" fill="#e3efe4" stroke="#2E7D32" stroke-width="2.5"/>
-          <text x="500" y="107" text-anchor="middle" font-size="12" font-weight="800" fill="#2E7D32">Costa Rica</text>
+          <text x="330" y="211" text-anchor="middle" font-size="10.5" fill="var(--muted)">informes con IA</text>
+          <text x="330" y="225" text-anchor="middle" font-size="10.5" fill="var(--muted)">sobre queries de Odoo</text>
+          <circle cx="500" cy="110" r="34" fill="#e3efe4" stroke="var(--verde)" stroke-width="2.5"/>
+          <text x="500" y="107" text-anchor="middle" font-size="12" font-weight="800" fill="var(--verde)">Costa Rica</text>
           <text x="500" y="122" text-anchor="middle" font-size="9.5" fill="#3d5c40">comité de innovación</text>
-          <text x="500" y="171" text-anchor="middle" font-size="10.5" fill="#55627a">forecast mensual con Claude ·</text>
-          <text x="500" y="185" text-anchor="middle" font-size="10.5" fill="#55627a">facilitador no coercitivo</text>
-          <circle cx="670" cy="155" r="34" fill="#e3efe4" stroke="#2E7D32" stroke-width="2.5"/>
-          <text x="670" y="152" text-anchor="middle" font-size="12" font-weight="800" fill="#2E7D32">Marketing</text>
+          <text x="500" y="171" text-anchor="middle" font-size="10.5" fill="var(--muted)">forecast mensual con Claude ·</text>
+          <text x="500" y="185" text-anchor="middle" font-size="10.5" fill="var(--muted)">facilitador no coercitivo</text>
+          <circle cx="670" cy="155" r="34" fill="#e3efe4" stroke="var(--verde)" stroke-width="2.5"/>
+          <text x="670" y="152" text-anchor="middle" font-size="12" font-weight="800" fill="var(--verde)">Marketing</text>
           <text x="670" y="167" text-anchor="middle" font-size="9.5" fill="#3d5c40">disciplina digital</text>
-          <text x="670" y="216" text-anchor="middle" font-size="10.5" fill="#55627a">campañas "100% con IA"</text>
-          <text x="670" y="230" text-anchor="middle" font-size="10.5" fill="#55627a">(e-commerce VE)</text>
-          <circle cx="830" cy="110" r="34" fill="#e3efe4" stroke="#2E7D32" stroke-width="2.5"/>
-          <text x="830" y="107" text-anchor="middle" font-size="12" font-weight="800" fill="#2E7D32">Compras</text>
+          <text x="670" y="216" text-anchor="middle" font-size="10.5" fill="var(--muted)">campañas "100% con IA"</text>
+          <text x="670" y="230" text-anchor="middle" font-size="10.5" fill="var(--muted)">(e-commerce VE)</text>
+          <circle cx="830" cy="110" r="34" fill="#e3efe4" stroke="var(--verde)" stroke-width="2.5"/>
+          <text x="830" y="107" text-anchor="middle" font-size="12" font-weight="800" fill="var(--verde)">Compras</text>
           <text x="830" y="122" text-anchor="middle" font-size="9.5" fill="#3d5c40">"todos tienen Claude"</text>
-          <text x="830" y="171" text-anchor="middle" font-size="10.5" fill="#55627a">adopción individual</text>
-          <text x="830" y="185" text-anchor="middle" font-size="10.5" fill="#55627a">silenciosa</text>
+          <text x="830" y="171" text-anchor="middle" font-size="10.5" fill="var(--muted)">adopción individual</text>
+          <text x="830" y="185" text-anchor="middle" font-size="10.5" fill="var(--muted)">silenciosa</text>
         </g>
-        <text x="470" y="256" text-anchor="middle" font-size="12" font-weight="700" fill="#B26A00">crecimiento "caótico y arbitrario": los focos son reales — el marco que los ordene, no</text>
+        <text x="470" y="256" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ambar)">crecimiento "caótico y arbitrario": los focos son reales — el marco que los ordene, no</text>
       </svg>
     </div>
     <ul class="hits">
@@ -1219,28 +1224,28 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
       <div class="vtitle" style="text-align:center; font-size:14px;">Cómo fluye la transformación — los cuatro planos de mando</div>
       <div style="display:flex; flex-direction:column; gap:11px; margin-top:16px;">
         <div style="display:flex; align-items:center; gap:22px;">
-          <div style="flex:0 0 340px; margin-left:0px; background:#1F3864; border-radius:5px; padding:15px 20px;">
+          <div style="flex:0 0 340px; margin-left:0px; background:var(--navy); border-radius:5px; padding:15px 20px;">
             <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#C9DCF0;">Plano dirigente</span>
             <b style="font-size:19px; color:#fff;">Comité Gerencial</b></div>
-          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Decide y diseña el camino · Define la política · Asigna roles · Comunica la hoja de ruta</p>
+          <p style="margin:0; font-size:15px; color:var(--txt); line-height:1.5;">Decide y diseña el camino · Define la política · Asigna roles · Comunica la hoja de ruta</p>
         </div>
         <div style="display:flex; align-items:center; gap:22px;">
-          <div style="flex:0 0 340px; margin-left:42px; background:#2E75B6; border-radius:5px; padding:15px 20px;">
+          <div style="flex:0 0 340px; margin-left:42px; background:var(--blue); border-radius:5px; padding:15px 20px;">
             <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#fff;">Coordinación de acciones</span>
             <b style="font-size:19px; color:#fff;">Líder interno del proceso</b></div>
-          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Implementación transversal · Enlace con la consultoría · Seguimiento · Flujo al Comité</p>
+          <p style="margin:0; font-size:15px; color:var(--txt); line-height:1.5;">Implementación transversal · Enlace con la consultoría · Seguimiento · Flujo al Comité</p>
         </div>
         <div style="display:flex; align-items:center; gap:22px;">
           <div style="flex:0 0 340px; margin-left:84px; background:#8FB4D8; border-radius:5px; padding:15px 20px;">
-            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#1F3864;">Plano funcional</span>
-            <b style="font-size:19px; color:#1F3864;">Gerencias</b></div>
-          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Asegura la ejecución en su área · Sostiene el entusiasmo · Alerta temprana</p>
+            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--navy);">Plano funcional</span>
+            <b style="font-size:19px; color:var(--navy);">Gerencias</b></div>
+          <p style="margin:0; font-size:15px; color:var(--txt); line-height:1.5;">Asegura la ejecución en su área · Sostiene el entusiasmo · Alerta temprana</p>
         </div>
         <div style="display:flex; align-items:center; gap:22px;">
           <div style="flex:0 0 340px; margin-left:126px; background:#DCE7F3; border-radius:5px; padding:15px 20px;">
-            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:#1F3864;">Plano operativo</span>
-            <b style="font-size:19px; color:#1F3864;">El personal</b></div>
-          <p style="margin:0; font-size:15px; color:#26303f; line-height:1.5;">Formarse · Incorporar los métodos al flujo · Elevar inquietudes y sugerencias</p>
+            <span style="display:block; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--navy);">Plano operativo</span>
+            <b style="font-size:19px; color:var(--navy);">El personal</b></div>
+          <p style="margin:0; font-size:15px; color:var(--txt); line-height:1.5;">Formarse · Incorporar los métodos al flujo · Elevar inquietudes y sugerencias</p>
         </div>
       </div>
       <p class="vnote" style="text-align:center; font-size:13px; margin-top:12px;"><b style="color:var(--navy);">Si la alta dirección no se alinea, nadie más lo hará. La dirigencia es el motor — no el espectador — de la transformación.</b></p>
@@ -1256,35 +1261,35 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:1010px; margin:0 auto;">
       <svg viewBox="0 0 960 425" role="img" aria-label="Arquitectura de IA en seis capas con el eje de gobierno y el eje humano atravesándolas">
-        <rect x="18" y="24" width="72" height="350" rx="10" fill="#1F3864"/>
+        <rect x="18" y="24" width="72" height="350" rx="10" fill="var(--navy)"/>
         <text transform="rotate(-90 54 199)" x="54" y="199" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">C0 · GOBIERNO — dato + IA (acordado 01-jul)</text>
-        <text transform="rotate(-90 78 199)" x="78" y="199" text-anchor="middle" font-size="10" fill="#9dc3ee">atraviesa todas las capas — no admite espera</text>
-        <rect x="870" y="24" width="72" height="350" rx="10" fill="#2E7D32"/>
+        <text transform="rotate(-90 78 199)" x="78" y="199" text-anchor="middle" font-size="10" fill="var(--celeste)">atraviesa todas las capas — no admite espera</text>
+        <rect x="870" y="24" width="72" height="350" rx="10" fill="var(--verde)"/>
         <text transform="rotate(-90 906 199)" x="906" y="199" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">EJE HUMANO · equipo interno (Anthropic)</text>
         <text transform="rotate(-90 930 199)" x="930" y="199" text-anchor="middle" font-size="10" fill="#d5ead6">construye · mantiene · gobierna</text>
-        <rect x="104" y="24" width="752" height="50" rx="8" fill="#F4F6FA" stroke="#8A94A6"/>
-        <text x="120" y="45" font-size="12.5" font-weight="800" fill="#1F3864">C6 · EXPERIENCIA</text>
-        <text x="120" y="63" font-size="11" fill="#55627a">Lark (interno) · WhatsApp · Power BI · Universidad Cubitt — los canales que la organización ya habita</text>
+        <rect x="104" y="24" width="752" height="50" rx="8" fill="var(--gris)" stroke="#8A94A6"/>
+        <text x="120" y="45" font-size="12.5" font-weight="800" fill="var(--navy)">C6 · EXPERIENCIA</text>
+        <text x="120" y="63" font-size="11" fill="var(--muted)">Lark (interno) · WhatsApp · Power BI · Universidad Cubitt — los canales que la organización ya habita</text>
         <text x="480" y="86" text-anchor="middle" font-size="10" font-style="italic" fill="#8A94A6">▲ los agentes se presentan aquí</text>
-        <rect x="104" y="94" width="752" height="50" rx="8" fill="#e3efe4" stroke="#2E7D32"/>
-        <text x="120" y="115" font-size="12.5" font-weight="800" fill="#2E7D32">C5 · AGENTES Y CASOS DE USO — el valor visible</text>
+        <rect x="104" y="94" width="752" height="50" rx="8" fill="#e3efe4" stroke="var(--verde)"/>
+        <text x="120" y="115" font-size="12.5" font-weight="800" fill="var(--verde)">C5 · AGENTES Y CASOS DE USO — el valor visible</text>
         <text x="120" y="133" font-size="11" fill="#3d5c40">Ola 1: conversacional e-comm VE · nómina · reportería — Ola 2: compras · conciliación · dashboard vivo — Ola 3: sistema propio</text>
         <text x="480" y="156" text-anchor="middle" font-size="10" font-style="italic" fill="#8A94A6">▲ razonan con</text>
-        <rect x="104" y="164" width="752" height="50" rx="8" fill="#e8eef7" stroke="#1F3864"/>
-        <text x="120" y="185" font-size="12.5" font-weight="800" fill="#1F3864">C4 · MOTOR DE RAZONAMIENTO (Anthropic)</text>
+        <rect x="104" y="164" width="752" height="50" rx="8" fill="#e8eef7" stroke="var(--navy)"/>
+        <text x="120" y="185" font-size="12.5" font-weight="800" fill="var(--navy)">C4 · MOTOR DE RAZONAMIENTO (Anthropic)</text>
         <text x="120" y="203" font-size="11" fill="#3d5170">Claude API (motor de agentes) · Claude for Work (uso por área) · Claude Code (equipo de desarrollo)</text>
         <text x="480" y="226" text-anchor="middle" font-size="10" font-style="italic" fill="#8A94A6">▲ acceden por</text>
         <rect x="104" y="234" width="752" height="50" rx="8" fill="#ece5f7" stroke="#7A4FB5"/>
         <text x="120" y="255" font-size="12.5" font-weight="800" fill="#7A4FB5">C3 · INTEGRACIÓN MCP — el sistema nervioso</text>
         <text x="120" y="273" font-size="11" fill="#5a4680">Gateway MCP empresarial (OAuth 2.1 · permisos por rol · auditoría) · MCP-Odoo · MCP-Datos · modelos de BI como herramientas</text>
         <text x="480" y="296" text-anchor="middle" font-size="10" font-style="italic" fill="#8A94A6">▲ consumen solo de</text>
-        <rect x="104" y="304" width="752" height="50" rx="8" fill="#dbe6f5" stroke="#2E75B6"/>
-        <text x="120" y="325" font-size="12.5" font-weight="800" fill="#2E75B6">C2 · CAPA DE DATOS CERTIFICADA — la fuente de la verdad</text>
+        <rect x="104" y="304" width="752" height="50" rx="8" fill="#dbe6f5" stroke="var(--blue)"/>
+        <text x="120" y="325" font-size="12.5" font-weight="800" fill="var(--blue)">C2 · CAPA DE DATOS CERTIFICADA — la fuente de la verdad</text>
         <text x="120" y="343" font-size="11" fill="#3d5170">Almacén analítico · diccionario y catálogo maestro · API interna de datos · reglas de certificación — la obra fundacional (Riesgo 1)</text>
         <text x="480" y="366" text-anchor="middle" font-size="10" font-style="italic" fill="#8A94A6">▲ se alimenta de</text>
         <rect x="104" y="374" width="752" height="44" rx="8" fill="#fff" stroke="#8A94A6" stroke-dasharray="0"/>
-        <text x="120" y="392" font-size="12.5" font-weight="800" fill="#55627a">C1 · SISTEMAS DE REGISTRO — lo que ya existe</text>
-        <text x="120" y="409" font-size="11" fill="#55627a">Odoo (estándar) · EBS/WMS · Shopify · Mercately · Cashea · Lark · fuentes externas (41 clientes · Casio · Importbel)</text>
+        <text x="120" y="392" font-size="12.5" font-weight="800" fill="var(--muted)">C1 · SISTEMAS DE REGISTRO — lo que ya existe</text>
+        <text x="120" y="409" font-size="11" fill="var(--muted)">Odoo (estándar) · EBS/WMS · Shopify · Mercately · Cashea · Lark · fuentes externas (41 clientes · Casio · Importbel)</text>
       </svg>
       <p class="vnote" style="text-align:center; font-size:13px;"><b style="color:var(--navy);">"El grupo no compra esta arquitectura: la posee."</b></p>
     </div>
@@ -1396,30 +1401,30 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:1000px; margin:0 auto;">
       <svg viewBox="0 0 980 330" role="img" aria-label="Los dos hilos del diagnóstico confluyen en las dos tesis del informe">
-        <text x="20" y="28" font-size="13" font-weight="800" fill="#1F3864">HILO ORGANIZATIVO · el criterio personal sin procedimiento</text>
-        <path d="M 40 80 L 740 80 L 770 68" fill="none" stroke="#1F3864" stroke-width="3.5"/>
+        <text x="20" y="28" font-size="13" font-weight="800" fill="var(--navy)">HILO ORGANIZATIVO · el criterio personal sin procedimiento</text>
+        <path d="M 40 80 L 740 80 L 770 68" fill="none" stroke="var(--navy)" stroke-width="3.5"/>
         <g>
-          <circle cx="110" cy="80" r="9" fill="#1F3864"/><text x="110" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">s3</text><text x="110" y="104" text-anchor="middle" font-size="10.5" fill="#55627a">relaciones sobre confianza</text>
-          <circle cx="290" cy="80" r="9" fill="#1F3864"/><text x="290" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">s4</text><text x="290" y="104" text-anchor="middle" font-size="10.5" fill="#55627a">estructura sobre personas, no roles</text>
-          <circle cx="470" cy="80" r="9" fill="#1F3864"/><text x="470" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">s5</text><text x="470" y="104" text-anchor="middle" font-size="10.5" fill="#55627a">talento sin instrumentos</text>
-          <circle cx="650" cy="80" r="9" fill="#1F3864"/><text x="650" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1F3864">s6</text><text x="650" y="104" text-anchor="middle" font-size="10.5" fill="#55627a">procesos sobre memoria y criterio</text>
+          <circle cx="110" cy="80" r="9" fill="var(--navy)"/><text x="110" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--navy)">s3</text><text x="110" y="104" text-anchor="middle" font-size="10.5" fill="var(--muted)">relaciones sobre confianza</text>
+          <circle cx="290" cy="80" r="9" fill="var(--navy)"/><text x="290" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--navy)">s4</text><text x="290" y="104" text-anchor="middle" font-size="10.5" fill="var(--muted)">estructura sobre personas, no roles</text>
+          <circle cx="470" cy="80" r="9" fill="var(--navy)"/><text x="470" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--navy)">s5</text><text x="470" y="104" text-anchor="middle" font-size="10.5" fill="var(--muted)">talento sin instrumentos</text>
+          <circle cx="650" cy="80" r="9" fill="var(--navy)"/><text x="650" y="56" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--navy)">s6</text><text x="650" y="104" text-anchor="middle" font-size="10.5" fill="var(--muted)">procesos sobre memoria y criterio</text>
         </g>
-        <rect x="775" y="40" width="190" height="62" rx="10" fill="#1F3864"/>
+        <rect x="775" y="40" width="190" height="62" rx="10" fill="var(--navy)"/>
         <text x="870" y="65" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">TESIS 1</text>
-        <text x="870" y="83" text-anchor="middle" font-size="11" fill="#9dc3ee">estructura primero → sección 4.8</text>
-        <text x="20" y="150" font-size="13" font-weight="800" fill="#2E75B6">HILO TÉCNICO · el dato sin certificar</text>
-        <path d="M 40 200 L 740 200 L 770 190" fill="none" stroke="#2E75B6" stroke-width="3.5"/>
+        <text x="870" y="83" text-anchor="middle" font-size="11" fill="var(--celeste)">estructura primero → sección 4.8</text>
+        <text x="20" y="150" font-size="13" font-weight="800" fill="var(--blue)">HILO TÉCNICO · el dato sin certificar</text>
+        <path d="M 40 200 L 740 200 L 770 190" fill="none" stroke="var(--blue)" stroke-width="3.5"/>
         <g>
-          <circle cx="150" cy="200" r="9" fill="#2E75B6"/><text x="150" y="176" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E75B6">7.5</text><text x="150" y="224" text-anchor="middle" font-size="10.5" fill="#55627a">la capa sombra: respuesta racional al dato deficiente</text>
-          <circle cx="400" cy="200" r="9" fill="#2E75B6"/><text x="400" y="176" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E75B6">7.6</text><text x="400" y="224" text-anchor="middle" font-size="10.5" fill="#55627a">islas sin eje transversal</text>
-          <circle cx="620" cy="200" r="9" fill="#2E75B6"/><text x="620" y="176" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2E75B6">7.7</text><text x="620" y="224" text-anchor="middle" font-size="10.5" fill="#55627a">información crítica sin gobierno</text>
+          <circle cx="150" cy="200" r="9" fill="var(--blue)"/><text x="150" y="176" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--blue)">7.5</text><text x="150" y="224" text-anchor="middle" font-size="10.5" fill="var(--muted)">la capa sombra: respuesta racional al dato deficiente</text>
+          <circle cx="400" cy="200" r="9" fill="var(--blue)"/><text x="400" y="176" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--blue)">7.6</text><text x="400" y="224" text-anchor="middle" font-size="10.5" fill="var(--muted)">islas sin eje transversal</text>
+          <circle cx="620" cy="200" r="9" fill="var(--blue)"/><text x="620" y="176" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--blue)">7.7</text><text x="620" y="224" text-anchor="middle" font-size="10.5" fill="var(--muted)">información crítica sin gobierno</text>
         </g>
-        <rect x="775" y="162" width="190" height="62" rx="10" fill="#2E75B6"/>
+        <rect x="775" y="162" width="190" height="62" rx="10" fill="var(--blue)"/>
         <text x="870" y="187" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">TESIS 2</text>
         <text x="870" y="205" text-anchor="middle" font-size="11" fill="#dbe6f5">el dato antes que el agente → secciones 8 y 10</text>
-        <rect x="40" y="258" width="925" height="52" rx="10" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="502" y="280" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1F3864">LA CULTURA (s8) ES LA CONDICIÓN DE AMBOS HILOS</text>
-        <text x="502" y="299" text-anchor="middle" font-size="11.5" fill="#55627a">la energía y el patrocinio existen; la formación y los cimientos documentales les dan dirección</text>
+        <rect x="40" y="258" width="925" height="52" rx="10" fill="var(--gris)" stroke="var(--borde)"/>
+        <text x="502" y="280" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--navy)">LA CULTURA (s8) ES LA CONDICIÓN DE AMBOS HILOS</text>
+        <text x="502" y="299" text-anchor="middle" font-size="11.5" fill="var(--muted)">la energía y el patrocinio existen; la formación y los cimientos documentales les dan dirección</text>
       </svg>
     </div>
   </div>
@@ -1444,31 +1449,31 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
   <div class="sbody">
     <div class="viz" style="max-width:1000px; margin:0 auto;">
       <svg viewBox="0 0 960 280" role="img" aria-label="Roadmap por olas con sus dependencias hacia la arquitectura">
-        <defs><marker id="arrRm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2E75B6"/></marker></defs>
-        <line x1="30" y1="36" x2="930" y2="36" stroke="#2E75B6" stroke-width="3" marker-end="url(#arrRm)"/>
-        <g font-size="11.5" font-weight="700" fill="#55627a"><text x="150" y="22" text-anchor="middle">SEMANAS</text><text x="480" y="22" text-anchor="middle">MESES</text><text x="800" y="22" text-anchor="middle">TRIMESTRES</text></g>
-        <rect x="30" y="52" width="260" height="120" rx="10" fill="#e3efe4" stroke="#2E7D32" stroke-width="2"/>
-        <text x="46" y="78" font-size="13.5" font-weight="800" fill="#2E7D32">OLA 1 · quick wins</text>
+        <defs><marker id="arrRm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--blue)"/></marker></defs>
+        <line x1="30" y1="36" x2="930" y2="36" stroke="var(--blue)" stroke-width="3" marker-end="url(#arrRm)"/>
+        <g font-size="11.5" font-weight="700" fill="var(--muted)"><text x="150" y="22" text-anchor="middle">SEMANAS</text><text x="480" y="22" text-anchor="middle">MESES</text><text x="800" y="22" text-anchor="middle">TRIMESTRES</text></g>
+        <rect x="30" y="52" width="260" height="120" rx="10" fill="#e3efe4" stroke="var(--verde)" stroke-width="2"/>
+        <text x="46" y="78" font-size="13.5" font-weight="800" fill="var(--verde)">OLA 1 · quick wins</text>
         <text x="46" y="100" font-size="11" fill="#3d5c40">▸ agente conversacional e-comm VE</text>
         <text x="46" y="117" font-size="11" fill="#3d5c40">▸ asistente de nómina VE</text>
         <text x="46" y="134" font-size="11" fill="#3d5c40">▸ normalizador de reportería (41→1)</text>
-        <text x="46" y="158" font-size="10.5" font-weight="700" fill="#2E7D32">← exige: MCP-Odoo en solo lectura</text>
-        <rect x="350" y="52" width="260" height="120" rx="10" fill="#e8eef7" stroke="#2E75B6" stroke-width="2"/>
-        <text x="366" y="78" font-size="13.5" font-weight="800" fill="#1F3864">OLA 2 · valor de fondo</text>
+        <text x="46" y="158" font-size="10.5" font-weight="700" fill="var(--verde)">← exige: MCP-Odoo en solo lectura</text>
+        <rect x="350" y="52" width="260" height="120" rx="10" fill="#e8eef7" stroke="var(--blue)" stroke-width="2"/>
+        <text x="366" y="78" font-size="13.5" font-weight="800" fill="var(--navy)">OLA 2 · valor de fondo</text>
         <text x="366" y="100" font-size="11" fill="#3d5170">▸ agente de compras y rebalanceo</text>
         <text x="366" y="117" font-size="11" fill="#3d5170">▸ conciliación asistida (Cashea, bancos)</text>
         <text x="366" y="134" font-size="11" fill="#3d5170">▸ reportería viva — "dashboard del CEO"</text>
-        <text x="366" y="158" font-size="10.5" font-weight="700" fill="#2E75B6">← exige: capa de datos completa (C2)</text>
+        <text x="366" y="158" font-size="10.5" font-weight="700" fill="var(--blue)">← exige: capa de datos completa (C2)</text>
         <rect x="670" y="52" width="260" height="120" rx="10" fill="#fff" stroke="#98a2b3" stroke-width="2" stroke-dasharray="7 5"/>
-        <text x="686" y="78" font-size="13.5" font-weight="800" fill="#55627a">OLA 3 · sistema propio</text>
-        <text x="686" y="100" font-size="11" fill="#55627a">▸ agente de servicio técnico</text>
-        <text x="686" y="117" font-size="11" fill="#55627a">▸ facturas de importación</text>
-        <text x="686" y="134" font-size="11" fill="#55627a">▸ difusión a tiendas</text>
-        <text x="686" y="158" font-size="10.5" font-weight="700" fill="#55627a">← exige: módulos nacidos en los vacíos</text>
-        <rect x="30" y="190" width="900" height="56" rx="10" fill="#F4F6FA" stroke="#d9dee8"/>
-        <text x="46" y="212" font-size="11.5" font-weight="800" fill="#1F3864">BACKLOG ACTUAL — 4 casos candidatos identificados en el diagnóstico:</text>
-        <text x="46" y="232" font-size="11" fill="#55627a">replicación con IA del software de días de inventario (CO) · documentación/automatización de compras Casio · gestión de inventario estancado · escalamiento de los modelos Random Forest de la célula BI</text>
-        <text x="480" y="270" text-anchor="middle" font-size="11.5" fill="#55627a">en desarrollo con su responsable técnico: criterios de priorización · matriz de dependencias contra los componentes de 10.2 · responsables y métricas por caso · decisiones solicitadas a la Junta</text>
+        <text x="686" y="78" font-size="13.5" font-weight="800" fill="var(--muted)">OLA 3 · sistema propio</text>
+        <text x="686" y="100" font-size="11" fill="var(--muted)">▸ agente de servicio técnico</text>
+        <text x="686" y="117" font-size="11" fill="var(--muted)">▸ facturas de importación</text>
+        <text x="686" y="134" font-size="11" fill="var(--muted)">▸ difusión a tiendas</text>
+        <text x="686" y="158" font-size="10.5" font-weight="700" fill="var(--muted)">← exige: módulos nacidos en los vacíos</text>
+        <rect x="30" y="190" width="900" height="56" rx="10" fill="var(--gris)" stroke="var(--borde)"/>
+        <text x="46" y="212" font-size="11.5" font-weight="800" fill="var(--navy)">BACKLOG ACTUAL — 4 casos candidatos identificados en el diagnóstico:</text>
+        <text x="46" y="232" font-size="11" fill="var(--muted)">replicación con IA del software de días de inventario (CO) · documentación/automatización de compras Casio · gestión de inventario estancado · escalamiento de los modelos Random Forest de la célula BI</text>
+        <text x="480" y="270" text-anchor="middle" font-size="11.5" fill="var(--muted)">en desarrollo con su responsable técnico: criterios de priorización · matriz de dependencias contra los componentes de 10.2 · responsables y métricas por caso · decisiones solicitadas a la Junta</text>
       </svg>
     </div>
   </div>
@@ -1481,7 +1486,7 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <p class="lead">Las láminas que siguen son <b>capturas reales</b> de un prototipo visual interactivo del sistema central de mayoreo y distribución que el grupo debería tener. Se navega, se hace clic, y las acciones cambian el estado delante de quien mira.</p>
     <div class="cols2">
       <div class="card"><b>Qué es</b><div class="proto-nota" style="margin-top:6px;">La propuesta de los consultores sobre <b>cómo debería ser</b>: Odoo queda como recolector de la venta en cada país, y este sistema central concentra la compra internacional, el inventario, el reparto a los frentes y el despacho. Todos los frentes —incluidos los países propios— son clientes mayores de la central y le pagan.</div></div>
-      <div class="card" style="border-left-color:#B26A00;"><b>Qué no es</b><div class="proto-nota" style="margin-top:6px;">No hay base de datos, integraciones reales ni backend. Los datos son <b>semilla</b> y el estado vive en el navegador. Los conectores con los Odoo se <b>representan</b>; no se construyen. Se juzga por una sola cosa: si un miembro de la Junta reconoce aquí su negocio.</div></div>
+      <div class="card" style="border-left-color:var(--ambar);"><b>Qué no es</b><div class="proto-nota" style="margin-top:6px;">No hay base de datos, integraciones reales ni backend. Los datos son <b>semilla</b> y el estado vive en el navegador. Los conectores con los Odoo se <b>representan</b>; no se construyen. Se juzga por una sola cosa: si un miembro de la Junta reconoce aquí su negocio.</div></div>
     </div>
     <p class="proto-nota"><b>La IA no aparece como un asistente al lado del sistema: aparece ejecutando dentro de él.</b> Cada acción declara su nivel de autonomía —lo que preparó, lo que hizo, y lo que espera una firma— y ninguna de las que salen del perímetro de Kenex se envía sin que una persona firme.</p>
   </div>
@@ -1583,12 +1588,12 @@ svg text{font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;}
     <h1 style="font-size:40px;">Dos tesis, un camino</h1>
     <div class="sub"><b style="color:#fff;">Estructura primero</b> — los hallazgos de gobierno y estructura exigen decidir la organización antes que todo lo demás. <b style="color:#fff;">El dato antes que el agente</b> — ninguna automatización seria se despliega sobre un dato sin certificar ni gobernar.</div>
     <svg viewBox="0 0 700 74" style="max-width:560px; margin:0 auto 4px; display:block;" role="img" aria-label="Los dos hilos convergen en la Fase 2">
-      <path d="M 40 16 Q 360 14 562 33" fill="none" stroke="#9dc3ee" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 40 16 Q 360 14 562 33" fill="none" stroke="var(--celeste)" stroke-width="5" stroke-linecap="round"/>
       <path d="M 40 58 Q 360 60 562 41" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-      <text x="46" y="34" font-size="12" font-weight="700" fill="#9dc3ee">hilo organizativo · estructura primero</text>
+      <text x="46" y="34" font-size="12" font-weight="700" fill="var(--celeste)">hilo organizativo · estructura primero</text>
       <text x="46" y="50" font-size="12" font-weight="700" fill="#dbe6f5">hilo técnico · el dato antes que el agente</text>
       <circle cx="600" cy="37" r="26" fill="#fff"/>
-      <text x="600" y="44" text-anchor="middle" font-size="17" font-weight="800" fill="#1F3864">F2</text>
+      <text x="600" y="44" text-anchor="middle" font-size="17" font-weight="800" fill="var(--navy)">F2</text>
     </svg>
     <div class="bigrow">
       <div class="big"><div class="n">4.8</div><div class="l">Propuesta de estructura<br>— para discusión de la dirección</div></div>

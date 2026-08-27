@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Informe Diagnóstico Organizativo — Fase 1 | Proyecto Rower</title>
 <!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<!-- Tema: claro por defecto; misma clave que el admin, para que la preferencia sea del sitio. -->
+<script>(function(){try{if(localStorage.getItem('rower.tema')==='oscuro')document.documentElement.setAttribute('data-tema','oscuro');}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilo/app.css">
 <style>
   :root{
-    --navy:#1F3864;
-    --blue:#2E75B6;
-    --gray:#404040;
-    --light:#F4F6FA;
-    --border:#D5DCE8;
-    --red:#C00000;
-    --green:#2E7D32;
-    --amber:#B26A00;
+    /* --border ya existe con el mismo sentido en el archivo compartido: no se
+       alía (evita la referencia circular). --celeste/--txt/--muted no
+       estaban declaradas en el :root original pero sí se usaban sueltas en
+       el documento — quedan resueltas también. */
+    --navy:var(--tinta);
+    --blue:var(--cian);
+    --gray:var(--tinta-media);
+    --light:var(--panel-alto);
+    --red:var(--riesgo);
+    --green:var(--ok);
+    --amber:var(--alerta);
+    --celeste:var(--cian);
+    --txt:var(--tinta);
+    --muted:var(--tinta-media);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
-    font-family:Calibri,'Segoe UI',Arial,sans-serif;
+    font-family:var(--fuente);
     color:var(--gray);
-    background:#EDEFF3;
+    background:var(--fondo);
     line-height:1.55;
     font-size:15px;
   }
@@ -250,59 +262,61 @@
   }
 
   /* ============ SITIO NAVEGABLE: menú lateral fijo ============ */
-  body.site{background:#EDEFF3;}
+  body.site{background:var(--fondo);}
   .layout{display:flex;align-items:flex-start;max-width:1280px;margin:0 auto;gap:0;}
+  /* Sigue el tema del sitio, igual que el .menu de /sistema (var(--lienzo)
+     cambia solo entre claro/oscuro) — nada de "siempre oscuro" aquí. */
   .sidenav{
     position:sticky;top:0;align-self:flex-start;
     width:288px;flex-shrink:0;height:100vh;overflow-y:auto;
-    background:linear-gradient(180deg,#1F3864,#16305a);color:#fff;
+    background:var(--lienzo);color:var(--tinta);border-right:1px solid var(--borde);
     padding:26px 18px 40px;
   }
-  .sidenav .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9dc3ee;font-weight:700;}
-  .sidenav .brand b{display:block;color:#fff;font-size:17px;letter-spacing:0;margin-top:6px;text-transform:none;font-weight:800;}
+  .sidenav .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-tenue);font-weight:700;}
+  .sidenav .brand b{display:block;color:var(--tinta);font-size:17px;letter-spacing:0;margin-top:6px;text-transform:lowercase;font-weight:700;}
   .fasesel{position:relative;margin-top:16px;}
   .fasesel>button{
     width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;
-    padding:9px 12px;border-radius:8px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+    background:var(--panel-alto);border:1px solid var(--borde);color:var(--tinta);
+    padding:9px 14px;border-radius:999px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
   }
-  .fasesel>button:hover{background:rgba(255,255,255,.14);}
+  .fasesel>button:hover{border-color:var(--tinta-tenue);}
   .fasesel .menu{
     display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;
-    background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.22);overflow:hidden;
+    background:var(--panel);border:1px solid var(--borde);border-radius:14px;box-shadow:var(--sombra-alta);overflow:hidden;
   }
   .fasesel.abierto .menu{display:block;}
-  .fasesel .menu a{display:block;padding:10px 13px;color:var(--navy);text-decoration:none;font-size:13.5px;font-weight:600;}
-  .fasesel .menu a.actual{background:var(--light);}
-  .fasesel .menu a:not(.actual):hover{background:var(--light);}
-  .fasesel .menu small{display:block;font-weight:400;color:#7a8496;font-size:11.5px;margin-top:2px;}
-  .sidenav .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fa8d6;
+  .fasesel .menu a{display:block;padding:10px 13px;color:var(--tinta);text-decoration:none;font-size:13.5px;font-weight:600;}
+  .fasesel .menu a.actual{background:var(--panel-alto);}
+  .fasesel .menu a:not(.actual):hover{background:var(--realce);}
+  .fasesel .menu small{display:block;font-weight:400;color:var(--tinta-tenue);font-size:11.5px;margin-top:2px;}
+  .sidenav .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-tenue);
     margin:20px 0 8px;padding-left:10px;font-weight:700;}
-  .sidenav a{display:block;color:#dce6f4;text-decoration:none;font-size:13.5px;
-    padding:7px 10px 7px 12px;border-radius:6px;border-left:3px solid transparent;
+  .sidenav a{display:block;color:var(--tinta-media);text-decoration:none;font-size:13.5px;
+    padding:7px 10px 7px 12px;border-radius:10px;border-left:3px solid transparent;
     transition:background .14s,border-color .14s,color .14s;line-height:1.35;}
-  .sidenav a .n{color:#9dc3ee;font-weight:700;margin-right:7px;font-variant-numeric:tabular-nums;}
-  .sidenav a:hover{background:rgba(255,255,255,.08);color:#fff;}
-  .sidenav a.active{background:rgba(157,195,238,.16);border-left-color:#9dc3ee;color:#fff;font-weight:600;}
+  .sidenav a .n{color:var(--tinta-tenue);font-weight:700;margin-right:7px;font-variant-numeric:tabular-nums;}
+  .sidenav a:hover{background:var(--realce);color:var(--tinta);}
+  .sidenav a.active{background:var(--panel);border-left-color:var(--menta);color:var(--tinta);font-weight:600;}
   .sidenav a.anexo .n{color:#c9b68a;}
   /* --- acordeón de subpuntos en el menú lateral --- */
   .sidenav .navrow{display:flex;align-items:stretch;gap:2px;}
   .sidenav .navrow>a{flex:1;min-width:0;}
   .sidenav .navchev{flex:none;width:28px;display:flex;align-items:center;justify-content:center;
-    background:none;border:none;padding:0;margin:2px 0;color:#9dc3ee;cursor:pointer;border-radius:6px;
+    background:none;border:none;padding:0;margin:2px 0;color:var(--tinta-tenue);cursor:pointer;border-radius:6px;
     transition:background .14s,color .14s;}
   .sidenav .navchev svg{width:13px;height:13px;transition:transform .18s ease;}
-  .sidenav .navchev:hover{background:rgba(255,255,255,.12);color:#fff;}
-  .sidenav .navchev:focus-visible{outline:2px solid #9dc3ee;outline-offset:1px;}
+  .sidenav .navchev:hover{background:var(--realce);color:var(--tinta);}
+  .sidenav .navchev:focus-visible{outline:2px solid var(--tinta-tenue);outline-offset:1px;}
   .sidenav .navchev[aria-expanded="true"] svg{transform:rotate(90deg);}
   .sidenav .navsub{margin:1px 0 5px 13px;padding-left:9px;
-    border-left:1px solid rgba(157,195,238,.30);}
+    border-left:1px solid var(--borde);}
   .sidenav .navsub[hidden]{display:none;}
-  .sidenav .navsub a{font-size:12.2px;line-height:1.32;padding:5px 8px 5px 9px;color:#bed0e6;}
-  .sidenav .navsub a .n{font-size:11px;color:#7fa8d6;margin-right:6px;}
-  .sidenav .navsub a:hover{background:rgba(255,255,255,.07);color:#fff;}
-  .sidenav .navsub a.active{background:rgba(157,195,238,.13);border-left-color:#9dc3ee;
-    color:#fff;font-weight:600;}
+  .sidenav .navsub a{font-size:12.2px;line-height:1.32;padding:5px 8px 5px 9px;color:var(--tinta-media);}
+  .sidenav .navsub a .n{font-size:11px;color:var(--tinta-tenue);margin-right:6px;}
+  .sidenav .navsub a:hover{background:var(--realce);color:var(--tinta);}
+  .sidenav .navsub a.active{background:var(--panel-alto);border-left-color:var(--menta);
+    color:var(--tinta);font-weight:600;}
   .main{flex:1;min-width:0;}
   .main .page{margin:24px auto;max-width:900px;}
   html{scroll-behavior:smooth;}
@@ -313,11 +327,17 @@
     background:var(--navy);color:#fff;border:none;border-radius:8px;padding:10px 13px;
     font-size:16px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2);}
   .scrim{display:none;}
+  .temabtn{
+    position:fixed;top:14px;right:14px;z-index:60;
+    background:var(--panel);color:var(--tinta);border:1px solid var(--borde);border-radius:999px;
+    width:38px;height:38px;font-size:16px;cursor:pointer;box-shadow:var(--sombra);
+  }
+  .temabtn:hover{border-color:var(--tinta-tenue);}
 
   /* ============ Botón del diagrama + modal ============ */
   .diagram-cta{
     display:flex;align-items:center;gap:16px;width:100%;text-align:left;cursor:pointer;
-    background:linear-gradient(120deg,#1F3864,#2E75B6);color:#fff;border:none;
+    background:linear-gradient(120deg,#0A0E13,#1A2530);color:#fff;border:none;
     border-radius:12px;padding:20px 24px;margin:20px 0;
     box-shadow:0 4px 16px rgba(31,56,100,.18);transition:transform .16s,box-shadow .16s;
   }
@@ -360,6 +380,7 @@
 <body class="site">
 <div class="layout">
   <button class="navtoggle" onclick="document.body.classList.toggle('nav-open')" aria-label="Menú">☰</button>
+  <button class="temabtn" id="btnTema" type="button" title="Cambiar tema">🌙</button>
   <div class="scrim" onclick="document.body.classList.remove('nav-open')"></div>
   <nav class="sidenav">
     <div class="brand">Consultores UCAB · Proyecto Rower<b>Informe Diagnóstico · Fase 1</b></div>
@@ -598,9 +619,9 @@
 
   <!-- ============ PARTE I ============ -->
 
-  <div style="background:linear-gradient(135deg,#1F3864 0%,#2a4a80 100%);color:#fff;padding:18px 24px;margin:12px 0 24px;border-radius:8px;">
-    <div style="text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9dc3ee;font-weight:700;">Parte I — Diagnóstico organizativo</div>
-    <div style="color:#dbe6f5;font-size:14px;margin-top:6px;">La organización tal como opera hoy, recorrida a través de los seis aspectos del marco metodológico (sección 2). El hilo del diagnóstico: un grupo que ha crecido sobre el criterio y la memoria de personas concretas, más rápido de lo que ha documentado y gobernado ese crecimiento. Cierra con su componente técnico —la auditoría de plataformas y la arquitectura de IA— que traduce el diagnóstico al plano de los sistemas.</div>
+  <div style="background:linear-gradient(135deg,#0A0E13 0%,#1A2530 100%);color:#fff;padding:18px 24px;margin:12px 0 24px;border-radius:8px;">
+    <div style="text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--celeste);font-weight:700;">Parte I — Diagnóstico organizativo</div>
+    <div style="color:#9AAABA;font-size:14px;margin-top:6px;">La organización tal como opera hoy, recorrida a través de los seis aspectos del marco metodológico (sección 2). El hilo del diagnóstico: un grupo que ha crecido sobre el criterio y la memoria de personas concretas, más rápido de lo que ha documentado y gobernado ese crecimiento. Cierra con su componente técnico —la auditoría de plataformas y la arquitectura de IA— que traduce el diagnóstico al plano de los sistemas.</div>
   </div>
 
   <h2 id="s1">1. Resumen ejecutivo</h2>
@@ -608,24 +629,24 @@
 
   <p>Grupo Kenex es un holding familiar de distribución de electrónica de consumo con cuarenta años de trayectoria, que representa a <b>Casio</b> y desarrolla su marca propia <b>Cubitt</b>, con operaciones propias en Venezuela, Panamá y Colombia, un socio local en Costa Rica y presencias menores en Guatemala, EE.UU. y una decena de mercados de la región. La Fase 1 de este proyecto es un <b>diagnóstico macro-organizativo</b>: establece cómo está constituido y cómo funciona realmente el grupo —entidades, gobierno, estructura, talento, procesos, sistemas y cultura, los seis aspectos del marco de la sección 2— como base para la propuesta organizativa (que cierra la sección 4) y para el componente técnico y la hoja de ruta que completan el informe. El levantamiento trianguló tres fuentes independientes —lo que dicen las personas (entrevistas), lo que registran los sistemas (auditoría técnica) y lo que consta por escrito (revisión documental)— bajo el principio de que todo hallazgo crítico se sostiene en al menos dos fuentes o se marca explícitamente como "por verificar".</p>
 
-  <div style="background:linear-gradient(135deg,#1F3864 0%,#2a4a80 100%);border-radius:10px;padding:20px 20px 8px;margin:22px 0 26px;">
-    <div style="text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:#9dc3ee;font-weight:700;margin-bottom:14px;">Cuatro cifras que la Junta debe retener</div>
+  <div style="background:linear-gradient(135deg,#0A0E13 0%,#1A2530 100%);border-radius:10px;padding:20px 20px 8px;margin:22px 0 26px;">
+    <div style="text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--celeste);font-weight:700;margin-bottom:14px;">Cuatro cifras que la Junta debe retener</div>
     <div style="display:flex;flex-wrap:wrap;gap:14px;">
       <div style="flex:1;min-width:158px;background:rgba(255,255,255,.08);border:1px solid rgba(157,195,238,.3);border-radius:8px;padding:13px 16px;margin-bottom:12px;">
         <div style="font-size:30px;font-weight:700;color:#fff;line-height:1;">~400</div>
-        <div style="font-size:11.5px;color:#dbe6f5;margin-top:6px;">personas en las operaciones propias (Venezuela · Panamá · Colombia)</div>
+        <div style="font-size:11.5px;color:#9AAABA;margin-top:6px;">personas en las operaciones propias (Venezuela · Panamá · Colombia)</div>
       </div>
       <div style="flex:1;min-width:158px;background:rgba(255,255,255,.08);border:1px solid rgba(157,195,238,.3);border-radius:8px;padding:13px 16px;margin-bottom:12px;">
         <div style="font-size:30px;font-weight:700;color:#fff;line-height:1;">12</div>
-        <div style="font-size:11.5px;color:#dbe6f5;margin-top:6px;">dependencias críticas en personas individuales sin respaldo —seis de severidad alta— (4.5)</div>
+        <div style="font-size:11.5px;color:#9AAABA;margin-top:6px;">dependencias críticas en personas individuales sin respaldo —seis de severidad alta— (4.5)</div>
       </div>
       <div style="flex:1;min-width:158px;background:rgba(255,255,255,.08);border:1px solid rgba(157,195,238,.3);border-radius:8px;padding:13px 16px;margin-bottom:12px;">
         <div style="font-size:30px;font-weight:700;color:#fff;line-height:1;">22·104·260</div>
-        <div style="font-size:11.5px;color:#dbe6f5;margin-top:6px;">macroprocesos · procesos · procedimientos del mapa del grupo (6.5)</div>
+        <div style="font-size:11.5px;color:#9AAABA;margin-top:6px;">macroprocesos · procesos · procedimientos del mapa del grupo (6.5)</div>
       </div>
       <div style="flex:1;min-width:158px;background:rgba(255,255,255,.08);border:1px solid rgba(157,195,238,.3);border-radius:8px;padding:13px 16px;margin-bottom:12px;">
         <div style="font-size:30px;font-weight:700;color:#fff;line-height:1;">52</div>
-        <div style="font-size:11.5px;color:#dbe6f5;margin-top:6px;">proyectos en cartera (≈30 en curso) gestionados por solo 3 gerentes (4.6)</div>
+        <div style="font-size:11.5px;color:#9AAABA;margin-top:6px;">proyectos en cartera (≈30 en curso) gestionados por solo 3 gerentes (4.6)</div>
       </div>
     </div>
   </div>
@@ -646,17 +667,17 @@
   <p>El diagnóstico y las propuestas convergen en un conjunto acotado de decisiones que requieren pronunciamiento de la dirección. Se consolidan aquí para su lectura de una vez; el desarrollo de cada una vive en la sección indicada.</p>
   <table class="data">
     <tr><th style="width:32%">Ámbito</th><th>Decisión que este informe eleva a la Junta</th></tr>
-    <tr><td style="background:#F4F6FA;font-weight:700;color:#1F3864;" colspan="2">Gobierno y estrategia</td></tr>
+    <tr><td style="background:var(--light);font-weight:700;color:var(--navy);" colspan="2">Gobierno y estrategia</td></tr>
     <tr><td>Reconciliar la visión estratégica</td><td>Explicitar y reconciliar, en una sesión facilitada de Junta, las tres visiones de futuro que hoy conviven en la dirección, antes de aprobar la estructura definitiva —estructuras distintas sirven a estrategias distintas (3.4 · 11).</td></tr>
     <tr><td>Institucionalizar el gobierno corporativo</td><td>Formalizar la cadencia de junta con agenda, actas y seguimiento de acuerdos; completar el protocolo familiar en curso y levantar el inventario societario formal (3.2 · 3.3 · 11).</td></tr>
     <tr><td>Propiedad del activo digital de Cubitt</td><td>Decidir entre desarrollar la aplicación propia o adquirir el código actual, hoy en manos de un tercero: cualquier visión de negocio construida sobre la base de usuarios exige propiedad del activo (11).</td></tr>
     <tr><td>Relación con el proveedor principal</td><td>Evaluar, con asesoría legal, la conveniencia y viabilidad de formalizar la representación de Casio, mientras se reduce la exposición documentando esa operación (11).</td></tr>
-    <tr><td style="background:#F4F6FA;font-weight:700;color:#1F3864;" colspan="2">Estructura y talento</td></tr>
+    <tr><td style="background:var(--light);font-weight:700;color:var(--navy);" colspan="2">Estructura y talento</td></tr>
     <tr><td>Validar la estructura propuesta</td><td>Validar y afinar el organigrama de estructura propuesto (subsección 4.8) —capa corporativa formalizada, con gerencias corporativas de soporte y medulares y direcciones por país—: primera corrección estructural del rediseño, hoy invisible en las nóminas oficiales (4.8 · 4.1 · 11).</td></tr>
     <tr><td>Elevar la función de RRHH</td><td>Constituir una capa corporativa de RRHH y elevar la función de administrativa a estratégica, con la estructura y los recursos que eso implica: es condición de viabilidad de toda la transformación (5.4).</td></tr>
     <tr><td>Datos de talento y formación</td><td>Resolver la fragmentación de los sistemas de datos de talento y dotar la capacidad de formación antes de necesitarla (figura de F&amp;D, departamento de capacitación y Universidad Cubitt, hoy descoordinados) (5.4).</td></tr>
     <tr><td>Marco de contratación formal</td><td>Escalar con urgencia la regularización de contratos con cláusulas de confidencialidad y propiedad intelectual —riesgo laboral y patrimonial, en especial para quien construya el producto digital (5.3 · 11).</td></tr>
-    <tr><td style="background:#F4F6FA;font-weight:700;color:#1F3864;" colspan="2">Dato e inteligencia artificial</td></tr>
+    <tr><td style="background:var(--light);font-weight:700;color:var(--navy);" colspan="2">Dato e inteligencia artificial</td></tr>
     <tr><td>Constituir el gobierno de IA y dato</td><td>Poner en pie la instancia acordada en el Comité del 01-jul —marco legal de accesos, dueño del dato y política de uso de IA—: es la única pieza que no admite espera y avanza en paralelo, sin esperar ninguna construcción (10 · 11).</td></tr>
     <tr><td>Construir la capa de datos certificada</td><td>Aprobar la obra fundacional —catálogo y diccionario maestro más una API interna de datos— como prerrequisito de cualquier agente: es la diferencia entre IA que multiplica valor e IA que multiplica errores (7 · 10).</td></tr>
     <tr><td>Constituir el equipo interno</td><td>Formar un equipo interno entrenado como eje transversal de sistemas e IA y contraparte de los desarrolladores externos, para que el conocimiento y el control queden en la organización (10.3).</td></tr>
@@ -819,7 +840,7 @@
   <p><b>Consonancias iniciales en este conjunto de entrevistas</b> — donde los discursos convergen con solidez: (1) el patrón de decisión rápida familiar y hechos consumados es descrito en términos casi idénticos por tres fuentes de posiciones distintas; (2) el foco estratégico en Cubitt es unánime, con matices de grado pero no de dirección; (3) la profesionalización en curso (nuevos ingresos estructurales 2026) es visible simultáneamente en los testimonios y en los archivos oficiales de nómina; (4) las dependencias individuales críticas son reconocidas <i>por sus propios protagonistas</i> — Roberto y Alejandro se describen a sí mismos como cuellos de botella — lo que valida el hallazgo y facilita su abordaje; y (5) la necesidad de formación del talento como condición del cambio aparece de forma independiente, resaltando con ejemplos asociados a la migración de Odoo, la creación y uso de los modelos de machine learning, y el propio diseño del programa Maia.</p>
   <p><b>Disonancias iniciales en este conjunto de entrevistas</b> — donde la partitura desafina y el diagnóstico las registra como alertas: (1) la naturaleza de Costa Rica tenía tres versiones no conciliadas (sociedad 50/50 autónoma, "oficina propia con socio local", operación tercerizada) — la entrevista al propio socio la resuelve en lo esencial (sociedad 50/50 en Importbel S.A., gestión autónoma) pero deja abierta la formalización de la relación y su gobierno; (2) el plan estratégico a tres años existe y está documentado — el documento oficial «Propuesta Estratégica 2026» fue finalmente compartido con el equipo consultor y se sintetiza en 3.4 —, pero no aparece en el discurso de las gerencias medias: la estrategia se definió y no se ha desplegado "aguas abajo" del personal; (3) las cifras de plantilla difieren entre fuentes, y el alcance del despliegue de Maia se amplió respecto de lo inicialmente planteado — el equipo consultor propuso unas 30 personas y el cliente incluyó finalmente cerca de 70, lo cual se considera positivo; (4) la arquitectura de marcas divide las aguas: la generación fundadora piensa en distribución y retail, nueva generación en software y suscripción, y otra parte propone un 80/20 hacia Cubitt — sin un marco compartido que los reconcilie; y (5) los cargos formales contradicen sistemáticamente las funciones reales (el CFO del grupo figura como "Planificador Financiero" de una gerencia país). Ninguna de estas disonancias invalida el diagnóstico: están localizadas, documentadas con su fuente, y convertidas en verificaciones concretas que se gestionarán en la reunión de avance con la Presidencia.</p>
 
-  <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ Con este aparato de fuentes y sus alertas identificadas, las secciones 3 a 9 presentan la organización tal como es hoy, comenzando por sus fundamentos: qué es el grupo, cómo se gobierna y hacia dónde ha decidido ir (sección 3).</div>
+  <div style="background:var(--light);border-left:3px solid var(--blue);padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:var(--txt);border-radius:3px;">↳ Con este aparato de fuentes y sus alertas identificadas, las secciones 3 a 9 presentan la organización tal como es hoy, comenzando por sus fundamentos: qué es el grupo, cómo se gobierna y hacia dónde ha decidido ir (sección 3).</div>
 
   <h2 id="s3">3. Fundamentos organizacionales, gobierno y estrategia <span class="badge b-borr">Borrador</span></h2>
   <div class="fuentes"><b>Fuentes primarias:</b> entrevistas Bernardo, Roberto, Andrés, Alejandro y Ricardo Roizental · Máximo Dolman · Alberto Bassan · Gil Porat · Mariela Castro · Patrick Corujo · Joel Cohen · sesiones de kickoff · fundamentos organizacionales publicados en la web de Kenex Trading · presentación institucional «Kenex Group» · «Propuesta Estratégica 2026 · Objetivos Generales» de Kenex Trading · Código de Cultura Cubitt 2025 · archivos oficiales de nómina.</div>
@@ -928,7 +949,7 @@
   <div class="fuentes"><b>Fuentes primarias:</b> cruce de las 23 entrevistas y sesiones (todas las directivas, gerencias regionales y de país, PMO, sistemas, RRHH, finanzas, e-commerce y logística).</div>
   <h3 id="s4-1">4.1 Organigrama actual: estructura formal vs. estructura real</h3>
   <p><b>Formalmente, el grupo no tiene un organigrama consolidado.</b> Lo que existe son estructuras parciales por país con distinto grado de madurez: Panamá cuenta con un organigrama 2025 de 15 departamentos (sección 4.3); Venezuela con 14 gerencias con sistema de bandas y niveles recién ajustado (abril 2026); Colombia con un listado plano de personas sin organigrama; y Costa Rica sin información estructural alguna. No existe una capa corporativa formalizada: los roles de alcance regional (finanzas, sistemas, marketing, retail, customer service, PMO, logística corporativa) no cuelgan de ningún organigrama y reportan de facto a miembros de la familia.</p>
-  <p><a href="javascript:void(0)" onclick="orgOpen()" style="display:inline-block;background:#1F3864;color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:9px 18px;border-radius:8px;">🏛 Ver los niveles actuales de la estructura y flujos de trabajo</a> <span style="font-size:11.5px;color:#55627a;">— As-Is navegable: gobierno, dirección de facto, roles regionales y estructuras por entidad, con flujos funcionales y alertas. También accesible desde el botón fijo superior derecho.</span></p>
+  <p><a href="javascript:void(0)" onclick="orgOpen()" style="display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:9px 18px;border-radius:8px;">🏛 Ver los niveles actuales de la estructura y flujos de trabajo</a> <span style="font-size:11.5px;color:var(--muted);">— As-Is navegable: gobierno, dirección de facto, roles regionales y estructuras por entidad, con flujos funcionales y alertas. También accesible desde el botón fijo superior derecho.</span></p>
 
   <p><b>La estructura real opera en cuatro planos:</b></p>
   <table class="data">
@@ -1294,31 +1315,31 @@
   <p>La estructura se ordena en tres planos. En la cabeza, la <b>Dirección Ejecutiva</b> del grupo, con el gobierno corporativo —el holding familiar y la Junta Directiva— como instancias de <b>consulta y decisión</b> (vínculo en línea punteada), no como línea de mando. A los costados de la línea de reporte se ubican las <b>gerencias corporativas de soporte</b> —Talento Humano; Transformación Tecnológica y Soporte, con su Comité de Excelencia en Transformación Tecnológica e IA; Finanzas; y PMO—, junto con la <b>Dirección de Mantenimiento y Servicios</b> (por país), mientras las <b>gerencias corporativas medulares</b> —Investigación y Desarrollo, Comercial, y Operaciones y Logística— sostienen el flujo del negocio, con un <b>Comité Comercial</b> vinculado a la Gerencia Corporativa Comercial. <b>Experiencia de Marcas</b> se diseña como una función híbrida (soporte-medular) que aporta insumos de marca a las direcciones comerciales. Cada gerencia despliega sus direcciones —varias de ellas por país—; las <b>coordinaciones</b> dentro de cada dirección se detallarán en la Fase 2.</p>
 
   <div style="margin:20px 0 6px;border:1px solid #d9dee8;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(31,56,100,.08);">
-    <div style="background:#f0f4fa;padding:8px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#55627a;font-weight:700;border-bottom:1px solid #e3e8f0;">La estructura por niveles — vista de conjunto</div>
-    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:#1F3864;color:#fff;">
+    <div style="background:#f0f4fa;padding:8px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1px solid #e3e8f0;">La estructura por niveles — vista de conjunto</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:var(--navy);color:#fff;">
       <div style="flex:0 0 168px;font-weight:800;font-size:13px;line-height:1.2;">Gobernanza y dirección estratégica</div>
       <div style="font-size:12.5px;opacity:.92;">Dirección Ejecutiva del grupo, con el holding familiar y la Junta Directiva como instancias de consulta y decisión.</div>
     </div>
-    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:#2E75B6;color:#fff;">
+    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:var(--blue);color:#fff;">
       <div style="flex:0 0 168px;font-weight:800;font-size:13px;line-height:1.2;">Capa corporativa</div>
       <div style="font-size:12.5px;opacity:.95;">Gerencias corporativas de soporte y gerencias corporativas medulares; de ellas pueden depender algunas direcciones corporativas.</div>
     </div>
-    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:#e8eef7;color:#1F3864;border-top:2px dashed #98b7dd;">
-      <div style="flex:0 0 168px;font-weight:800;font-size:13px;line-height:1.2;">Capa regional <span style="display:block;font-weight:600;font-size:10.5px;color:#55627a;">no activa en la actualidad</span></div>
+    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:#e8eef7;color:var(--navy);border-top:2px dashed #98b7dd;">
+      <div style="flex:0 0 168px;font-weight:800;font-size:13px;line-height:1.2;">Capa regional <span style="display:block;font-weight:600;font-size:10.5px;color:var(--muted);">no activa en la actualidad</span></div>
       <div style="font-size:12.5px;color:#3d5170;">Gerencias regionales previstas para expansiones posibles o ajustes de gestión por crecimiento de operaciones en un mismo continente.</div>
     </div>
-    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:#f4f6fa;color:#26303f;">
+    <div style="display:flex;align-items:center;gap:16px;padding:13px 18px;background:var(--light);color:var(--txt);">
       <div style="flex:0 0 168px;font-weight:800;font-size:13px;line-height:1.2;">Capa nacional</div>
       <div style="font-size:12.5px;color:#3d5170;">Direcciones funcionales y coordinaciones funcionales por área que requieren ejecución por país.</div>
     </div>
   </div>
   <p style="font-size:12px;color:var(--muted);margin-top:2px;">Vista por niveles de la estructura, sin desagregar cada gerencia ni dirección. El detalle completo —con las áreas y las relaciones funcionales entre ellas— vive en el diagrama interactivo.</p>
 
-  <div style="background:linear-gradient(120deg,#1F3864,#2E75B6);color:#fff;border-radius:12px;padding:20px 24px;margin:20px 0;box-shadow:0 4px 16px rgba(31,56,100,.18);">
+  <div style="background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:12px;padding:20px 24px;margin:20px 0;box-shadow:0 4px 16px rgba(31,56,100,.18);">
     <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:6px;">Documento de trabajo · Diagrama interactivo</div>
     <div style="font-size:17px;font-weight:700;margin-bottom:6px;">Estructura organizativa propuesta — Grupo Kenex</div>
     <div style="font-size:13.5px;opacity:.9;margin-bottom:14px;">Organigrama de la propuesta: la capa de gobierno, las gerencias corporativas de soporte y medulares, sus direcciones asociadas y las relaciones funcionales entre áreas.</div>
-    <a href="organigrama-propuesto-kenex.html" target="_blank" style="display:inline-block;background:#fff;color:#1F3864;font-weight:700;font-size:14px;text-decoration:none;padding:10px 20px;border-radius:8px;">🏛 Abrir el organigrama propuesto ↗</a>
+    <a href="organigrama-propuesto-kenex.html" target="_blank" style="display:inline-block;background:#fff;color:var(--navy);font-weight:700;font-size:14px;text-decoration:none;padding:10px 20px;border-radius:8px;">🏛 Abrir el organigrama propuesto ↗</a>
   </div>
   <p style="font-size:13px;color:var(--muted);">El diagrama es el instrumento vivo de esta discusión: las reacciones del liderazgo y los registros de procesos que se levanten en la Fase 2 se irán incorporando hasta consolidar la estructura definitiva en la entrega final del proyecto.</p>
 
@@ -1333,7 +1354,7 @@
   </ul>
   <p>Así entendida, Mercadeo pasa de un servicio reactivo a una <b>función estratégica</b> que aporta insumos de marca directamente a las direcciones comerciales de Casio y Cubitt (relación funcional punteada en el organigrama). Es una transformación gradual —su despliegue se afinará en la Fase 3— que aquí se registra como una de las decisiones de diseño que la estructura propuesta introduce.</p>
 
-  <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ La estructura descrita descansa en personas concretas y no en roles definidos — lo confirman las dependencias críticas (4.5), los roles reales invisibles para la estructura formal (vicio transversal 6 de 4.7) y la validación contra la nómina oficial (4.3); sobre ese diagnóstico, la subsección 4.8 esboza un primer borrador de estructura objetivo. La sección siguiente examina la función llamada a gobernar ese activo humano: Recursos Humanos.</div>
+  <div style="background:var(--light);border-left:3px solid var(--blue);padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:var(--txt);border-radius:3px;">↳ La estructura descrita descansa en personas concretas y no en roles definidos — lo confirman las dependencias críticas (4.5), los roles reales invisibles para la estructura formal (vicio transversal 6 de 4.7) y la validación contra la nómina oficial (4.3); sobre ese diagnóstico, la subsección 4.8 esboza un primer borrador de estructura objetivo. La sección siguiente examina la función llamada a gobernar ese activo humano: Recursos Humanos.</div>
 
 
 
@@ -1484,7 +1505,7 @@
   <p>El patrón que dejan estas prácticas es coherente con la tesis del diagnóstico: <b>la organización no necesita empezar de cero — necesita convertir en estándar lo que ya funciona en algunas partes</b>. La Fase 2 aterrizará cada replicación con procedimiento, dueño y cronograma; esta sección deja identificados los puntos de partida.</p>
 
     <h3 id="s6-5">6.5 Mapa de Procesos del Grupo (versión integrada)</h3>
-    <p><a href="javascript:void(0)" onclick="procOpen()" style="display:inline-block;background:#2E8540;color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:9px 18px;border-radius:8px;">🔗 Ver el mapa de procesos interactivo</a> <span style="font-size:11.5px;color:#55627a;">— la cadena de valor navegable: 22 macroprocesos encadenados, cruces documentados entre procesos, fricciones y buenas prácticas, con el detalle de procesos y procedimientos al hacer clic. También accesible desde el sidenav «Módulos».</span></p>
+    <p><a href="javascript:void(0)" onclick="procOpen()" style="display:inline-block;background:#2E8540;color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:9px 18px;border-radius:8px;">🔗 Ver el mapa de procesos interactivo</a> <span style="font-size:11.5px;color:var(--muted);">— la cadena de valor navegable: 22 macroprocesos encadenados, cruces documentados entre procesos, fricciones y buenas prácticas, con el detalle de procesos y procedimientos al hacer clic. También accesible desde el sidenav «Módulos».</span></p>
   <p>Como cierre de esta sección, se incorpora el <b>Mapa de Procesos del Grupo Kenex</b> en su versión integrada, construido por el frente de procesos del proyecto a partir de las entrevistas de la Fase 1. Respecto de versiones anteriores, esta consolidación <b>desagrega cada proceso hasta el nivel de procedimiento específico (Nivel 2)</b>: donde antes un proceso figuraba sin desglose, ahora se detallan los procedimientos que lo componen. Una parte de esos procedimientos son propuestas del equipo consultor que completan procesos que no tenían desagregación —<b>quedan integrados en el lugar que les corresponde, listos para validarse con los dueños de proceso durante la Fase 2</b>—, de modo que el mapa funciona a la vez como retrato del <i>as-is</i> y como estructura ordenada sobre la que construir el <i>to-be</i>.</p>
   <p>El mapa conserva la estructura de tres niveles —<b>macroproceso (Nivel 0)</b>, <b>proceso (Nivel 1)</b> y <b>procedimiento específico (Nivel 2)</b>— y las tres categorías clásicas de la disciplina: <b>procesos estratégicos</b>, que orientan el rumbo del grupo; <b>procesos operativos o de cadena de valor</b>, que producen y entregan; y <b>procesos de soporte</b>, que sostienen a los dos anteriores. Los macroprocesos y procesos se mantienen combinados verticalmente para reflejar la jerarquía; solo el procedimiento varía fila a fila.</p>
 
@@ -1496,7 +1517,7 @@
   <p>Los procesos que orientan el rumbo del grupo — dirección y gobierno corporativo, planeación comercial, R&D y desarrollo de producto Cubitt, gobierno de portafolio (PMO) y adopción de IA.</p>
   <table class="data mapa-proc" id="mapa-estr">
 <tr><th style="width:26%">Macroproceso (Nivel 0)</th><th style="width:30%">Proceso (Nivel 1)</th><th style="width:44%">Procedimiento Específico (Nivel 2)</th></tr>
-<tr><td rowspan="9" style="vertical-align:top;font-weight:600;background:#F4F6FA;">1. Dirección y Gobierno Corporativo</td><td rowspan="3" style="vertical-align:top;">Gestión de Sesiones Directivas</td><td>Gestión de Sesiones Comité Directivo (accionistas Roizental)</td></tr>
+<tr><td rowspan="9" style="vertical-align:top;font-weight:600;background:var(--light);">1. Dirección y Gobierno Corporativo</td><td rowspan="3" style="vertical-align:top;">Gestión de Sesiones Directivas</td><td>Gestión de Sesiones Comité Directivo (accionistas Roizental)</td></tr>
 <tr><td>Gestión de Sesiones de Junta Directiva (bisemanal)</td></tr>
 <tr><td>Gestión de Sesiones de Junta Directiva por Región (semanal)</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Desarrollo del Plan Estratégico Anual</td><td>Recopilación de resultados y aprendizajes del año anterior</td></tr>
@@ -1505,7 +1526,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Comunicación Estratégica y Gestión del Cambio Cultural</td><td>Comunicación y cascada del plan a las áreas</td></tr>
 <tr><td>Comunicación corporativa interna</td></tr>
 <tr><td>Gestión del cambio ante transformaciones (proyectos, IA, sucesión)</td></tr>
-<tr><td rowspan="15" style="vertical-align:top;font-weight:600;background:#F4F6FA;">2. Planeación Comercial</td><td rowspan="3" style="vertical-align:top;">Investigación de Mercados y Tendencias</td><td>Monitoreo de tendencias de mercado y competencia (Casio y Cubitt)</td></tr>
+<tr><td rowspan="15" style="vertical-align:top;font-weight:600;background:var(--light);">2. Planeación Comercial</td><td rowspan="3" style="vertical-align:top;">Investigación de Mercados y Tendencias</td><td>Monitoreo de tendencias de mercado y competencia (Casio y Cubitt)</td></tr>
 <tr><td>Análisis de comportamiento del consumidor por país</td></tr>
 <tr><td>Elaboración de reportes de inteligencia comercial</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Pronóstico de la Demanda (Demand Forecasting)</td><td>Consolidación de data histórica de ventas por SKU / país / canal</td></tr>
@@ -1520,7 +1541,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Presupuestación y Objetivos de Venta</td><td>Definición de metas de venta por país, canal y marca</td></tr>
 <tr><td>Asignación de presupuesto comercial y de marketing</td></tr>
 <tr><td>Seguimiento mensual de cumplimiento vs. objetivo</td></tr>
-<tr><td rowspan="14" style="vertical-align:top;font-weight:600;background:#F4F6FA;">3. R&amp;D y Desarrollo de Producto - Cubitt</td><td rowspan="2" style="vertical-align:top;">Análisis de Mercados y Tendencias</td><td>Benchmarking de producto frente a la competencia (wearables, audio, wellness)</td></tr>
+<tr><td rowspan="14" style="vertical-align:top;font-weight:600;background:var(--light);">3. R&amp;D y Desarrollo de Producto - Cubitt</td><td rowspan="2" style="vertical-align:top;">Análisis de Mercados y Tendencias</td><td>Benchmarking de producto frente a la competencia (wearables, audio, wellness)</td></tr>
 <tr><td>Identificación de oportunidades de categoría (nuevas líneas)</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Ideación y Conceptualización de Nuevos Productos</td><td>Generación y filtro de ideas de producto</td></tr>
 <tr><td>Definición de concepto y especificaciones preliminares</td></tr>
@@ -1534,7 +1555,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Soft Launches / Fases de Testeo Controlado</td><td>Selección de mercado / canal piloto para lanzamiento controlado</td></tr>
 <tr><td>Recolección de retroalimentación de clientes y canal</td></tr>
 <tr><td>Ajustes previos al lanzamiento regional</td></tr>
-<tr><td rowspan="10" style="vertical-align:top;font-weight:600;background:#F4F6FA;">4. Gobierno de Portafolio (PMO)</td><td rowspan="1" style="vertical-align:top;">Recepción y clasificación de requerimientos</td><td>Priorización con criterios (impacto ventas / experiencia cliente / fortalecimiento)</td></tr>
+<tr><td rowspan="10" style="vertical-align:top;font-weight:600;background:var(--light);">4. Gobierno de Portafolio (PMO)</td><td rowspan="1" style="vertical-align:top;">Recepción y clasificación de requerimientos</td><td>Priorización con criterios (impacto ventas / experiencia cliente / fortalecimiento)</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Definición y Planificación de Proyectos</td><td>Elaboración de alcance, cronograma y presupuesto del proyecto</td></tr>
 <tr><td>Asignación de recursos y responsables (RACI)</td></tr>
 <tr><td>Identificación de riesgos iniciales</td></tr>
@@ -1544,7 +1565,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Cierre de Proyectos y Levantamiento de Aprendizajes</td><td>Validación de entregables y cierre formal con el sponsor</td></tr>
 <tr><td>Documentación de lecciones aprendidas</td></tr>
 <tr><td>Actualización de la metodología PMO con mejoras identificadas</td></tr>
-<tr><td rowspan="6" style="vertical-align:top;font-weight:600;background:#F4F6FA;">5. Adopción de IA y Transformación Digital</td><td rowspan="2" style="vertical-align:top;">Diagnóstico, Descubrimiento y Mapeo Tecnológico</td><td>Levantamiento de uso actual y Mapeo de Casos de Uso (Prompt Engineering / Workflows</td></tr>
+<tr><td rowspan="6" style="vertical-align:top;font-weight:600;background:var(--light);">5. Adopción de IA y Transformación Digital</td><td rowspan="2" style="vertical-align:top;">Diagnóstico, Descubrimiento y Mapeo Tecnológico</td><td>Levantamiento de uso actual y Mapeo de Casos de Uso (Prompt Engineering / Workflows</td></tr>
 <tr><td>Mapeo de Casos de Uso</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Gestión del Aprendizaje y Capacitación Continua</td><td>Diseño y Ejecución de Pilotos de Formación</td></tr>
 <tr><td>Creación del Repositorio de Aprendizaje</td></tr>
@@ -1558,7 +1579,7 @@
   <p>Los procesos que producen y entregan valor al cliente — compras y abastecimiento, logística de entrada, distribución regional inter-compañía, los canales comerciales (mayoreo, retail y e-commerce), logística de salida y postventa.</p>
   <table class="data mapa-proc" id="mapa-oper">
 <tr><th style="width:26%">Macroproceso (Nivel 0)</th><th style="width:30%">Proceso (Nivel 1)</th><th style="width:44%">Procedimiento Específico (Nivel 2)</th></tr>
-<tr><td rowspan="10" style="vertical-align:top;font-weight:600;background:#F4F6FA;">1. Gestión de Compras y Abastecimiento</td><td rowspan="3" style="vertical-align:top;">Planificación y Pronóstico de Compras</td><td>Planificación de Compras Casio (ciclo mensual)</td></tr>
+<tr><td rowspan="10" style="vertical-align:top;font-weight:600;background:var(--light);">1. Gestión de Compras y Abastecimiento</td><td rowspan="3" style="vertical-align:top;">Planificación y Pronóstico de Compras</td><td>Planificación de Compras Casio (ciclo mensual)</td></tr>
 <tr><td>Planificación de Compras Cubitt (fábricas China)</td></tr>
 <tr><td>Análisis de Demanda No Satisfecha (backorders)</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Colocación y Seguimiento de Órdenes de Compra</td><td>Colocación de PO a Casio Japón (día 20 del mes)</td></tr>
@@ -1568,14 +1589,14 @@
 <tr><td>Gestión de relación con fábricas Cubitt en China</td></tr>
 <tr><td>Evaluación periódica de desempeño de proveedores</td></tr>
 <tr><td rowspan="1" style="vertical-align:top;">Reportería a Casa Matriz de Marca Representada</td><td>Producción del Reporte PCI mensual a Casio Japón (asignación por país)</td></tr>
-<tr><td rowspan="7" style="vertical-align:top;font-weight:600;background:#F4F6FA;">2. Gestión Logística de Entrada (Inbound)</td><td rowspan="2" style="vertical-align:top;">Recepción y Verificación de Mercancía</td><td>Recepción de contenedores en Zona Libre (Colón, Panamá)</td></tr>
+<tr><td rowspan="7" style="vertical-align:top;font-weight:600;background:var(--light);">2. Gestión Logística de Entrada (Inbound)</td><td rowspan="2" style="vertical-align:top;">Recepción y Verificación de Mercancía</td><td>Recepción de contenedores en Zona Libre (Colón, Panamá)</td></tr>
 <tr><td>Verificación contra PO y documentación de discrepancias</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Almacenamiento y Ubicación</td><td>Paletizado y asignación de LPN (Licence Plate Number)</td></tr>
 <tr><td>Ubicación de mercancía y registro en EBS (WMS)</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Control de Inventario y Auditoría</td><td>Cycle Counting con clasificación ABC</td></tr>
 <tr><td>Reconciliación de datos entre EBS ↔ Odoo</td></tr>
 <tr><td>Gestión de merma, scrap y ajustes de inventario</td></tr>
-<tr><td rowspan="8" style="vertical-align:top;font-weight:600;background:#F4F6FA;">3. Gestión de Distribución Regional (Inter-Compañía)</td><td rowspan="3" style="vertical-align:top;">Planificación de Distribución a Países</td><td>Consolidación de necesidades de reposición por país</td></tr>
+<tr><td rowspan="8" style="vertical-align:top;font-weight:600;background:var(--light);">3. Gestión de Distribución Regional (Inter-Compañía)</td><td rowspan="3" style="vertical-align:top;">Planificación de Distribución a Países</td><td>Consolidación de necesidades de reposición por país</td></tr>
 <tr><td>Priorización de despachos según urgencia y disponibilidad</td></tr>
 <tr><td>Coordinación con transporte y documentación de exportación</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Ejecución de Traslados Inter-Compañía</td><td>Facturación inter-compañía Panamá → País destino</td></tr>
@@ -1583,7 +1604,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Recepción y Verificación en País Destino</td><td>Verificación de mercancía recibida contra guía de despacho</td></tr>
 <tr><td>Registro en sistema local (Odoo / ERP propio)</td></tr>
 <tr><td>Reporte de discrepancias o daños</td></tr>
-<tr><td rowspan="10" style="vertical-align:top;font-weight:600;background:#F4F6FA;">4. Gestión Comercial - Canal Mayoreo (B2B)</td><td rowspan="3" style="vertical-align:top;">Prospección y Gestión de Clientes B2B</td><td>Identificación y calificación de nuevos clientes mayoristas</td></tr>
+<tr><td rowspan="10" style="vertical-align:top;font-weight:600;background:var(--light);">4. Gestión Comercial - Canal Mayoreo (B2B)</td><td rowspan="3" style="vertical-align:top;">Prospección y Gestión de Clientes B2B</td><td>Identificación y calificación de nuevos clientes mayoristas</td></tr>
 <tr><td>Gestión de la cartera de clientes activos</td></tr>
 <tr><td>Evaluación periódica de línea de crédito y riesgo del cliente</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Ventas al Canal Mayor</td><td>Cotización, presupuesto y negociación</td></tr>
@@ -1593,7 +1614,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Monitoreo de Sell-In por Canal / Cliente</td><td>Registro de ventas por cliente / distribuidor</td></tr>
 <tr><td>Análisis de brecha Sell-In vs. Sell-Out</td></tr>
 <tr><td>Alertas de riesgo de sobre-stock en el canal</td></tr>
-<tr><td rowspan="8" style="vertical-align:top;font-weight:600;background:#F4F6FA;">5. Gestión Comercial - Canal Retail</td><td rowspan="5" style="vertical-align:top;">Operación de Tiendas Propias (Flagships) y Kioskos</td><td>Apertura y cierre de tienda</td></tr>
+<tr><td rowspan="8" style="vertical-align:top;font-weight:600;background:var(--light);">5. Gestión Comercial - Canal Retail</td><td rowspan="5" style="vertical-align:top;">Operación de Tiendas Propias (Flagships) y Kioskos</td><td>Apertura y cierre de tienda</td></tr>
 <tr><td>Atención al cliente y ejecución de venta</td></tr>
 <tr><td>Gestión de mercancía y reposición interna desde trastienda</td></tr>
 <tr><td>Toma física de inventario y control de merma</td></tr>
@@ -1601,7 +1622,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Monitoreo de Sell-Out por Tienda</td><td>Registro diario de ventas por tienda / SKU</td></tr>
 <tr><td>Cálculo de indicadores (ticket promedio, conversión, tráfico)</td></tr>
 <tr><td>Reporte periódico a Retail Regional</td></tr>
-<tr><td rowspan="8" style="vertical-align:top;font-weight:600;background:#F4F6FA;">6. Gestión Comercial - Canal E-commerce y Digital</td><td rowspan="2" style="vertical-align:top;">Gestión de Plataformas Web Propias (Shopify)</td><td>Gestión de tienda Casio online por país</td></tr>
+<tr><td rowspan="8" style="vertical-align:top;font-weight:600;background:var(--light);">6. Gestión Comercial - Canal E-commerce y Digital</td><td rowspan="2" style="vertical-align:top;">Gestión de Plataformas Web Propias (Shopify)</td><td>Gestión de tienda Casio online por país</td></tr>
 <tr><td>Gestión de tienda Cubitt online por país</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Gestión de Marketplaces</td><td>Gestión de MercadoLibre (VE y otros países)</td></tr>
 <tr><td>Gestión de Marketplaces USA (~12 plataformas)</td></tr>
@@ -1609,7 +1630,7 @@
 <tr><td rowspan="2" style="vertical-align:top;">Gestión de Ventas Conversacionales (Social Selling)</td><td>Ventas por WhatsApp</td></tr>
 <tr><td>Ventas por redes sociales (Instagram, Facebook)</td></tr>
 <tr><td rowspan="1" style="vertical-align:top;">Gestión de Financiamiento al Consumo</td><td>Gestión de Cachea (Venezuela)</td></tr>
-<tr><td rowspan="11" style="vertical-align:top;font-weight:600;background:#F4F6FA;">7. Gestión Logística de Salida (Outbound)</td><td rowspan="3" style="vertical-align:top;">Preparación de Pedidos (Picking y Packing)</td><td>Verificación de disponibilidad y separación de mercancía</td></tr>
+<tr><td rowspan="11" style="vertical-align:top;font-weight:600;background:var(--light);">7. Gestión Logística de Salida (Outbound)</td><td rowspan="3" style="vertical-align:top;">Preparación de Pedidos (Picking y Packing)</td><td>Verificación de disponibilidad y separación de mercancía</td></tr>
 <tr><td>Empaque según estándar de marca / canal</td></tr>
 <tr><td>Control de calidad previo al despacho</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Gestión de la Distribución (Downstream)</td><td>Coordinación con courier integrado (Entrego / Shopify)</td></tr>
@@ -1620,7 +1641,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Gestión de Devoluciones</td><td>Recepción y calificación del motivo de devolución</td></tr>
 <tr><td>Verificación del estado del producto devuelto</td></tr>
 <tr><td>Procesamiento de reintegro, cambio o nota de crédito</td></tr>
-<tr><td rowspan="14" style="vertical-align:top;font-weight:600;background:#F4F6FA;">8. Gestión de Postventa y Experiencia del Cliente</td><td rowspan="3" style="vertical-align:top;">Atención al Cliente</td><td>Atención por plataforma (Mercately)</td></tr>
+<tr><td rowspan="14" style="vertical-align:top;font-weight:600;background:var(--light);">8. Gestión de Postventa y Experiencia del Cliente</td><td rowspan="3" style="vertical-align:top;">Atención al Cliente</td><td>Atención por plataforma (Mercately)</td></tr>
 <tr><td>Atención por WhatsApp y redes sociales</td></tr>
 <tr><td>Atención presencial en punto de venta</td></tr>
 <tr><td rowspan="4" style="vertical-align:top;">Gestión de Garantías y RMA</td><td>Recepción y calificación de casos RMA</td></tr>
@@ -1642,7 +1663,7 @@
   <p>Los procesos que sostienen a los estratégicos y operativos — finanzas y contabilidad, compras administrativas / procurement, TI, datos e inteligencia de negocio, mercadeo y comunicaciones, talento humano, legal y cumplimiento, servicios generales, y la propia gestión de procesos y mejora continua.</p>
   <table class="data mapa-proc" id="mapa-sop">
 <tr><th style="width:26%">Macroproceso (Nivel 0)</th><th style="width:30%">Proceso (Nivel 1)</th><th style="width:44%">Procedimiento Específico (Nivel 2)</th></tr>
-<tr><td rowspan="21" style="vertical-align:top;font-weight:600;background:#F4F6FA;">1. Gestión Financiera y Contable</td><td rowspan="2" style="vertical-align:top;">Contabilidad y Cierre Contable Mensual</td><td>Registro contable operativo por país</td></tr>
+<tr><td rowspan="21" style="vertical-align:top;font-weight:600;background:var(--light);">1. Gestión Financiera y Contable</td><td rowspan="2" style="vertical-align:top;">Contabilidad y Cierre Contable Mensual</td><td>Registro contable operativo por país</td></tr>
 <tr><td>Cierre contable mensual (rezago VE 2-3 meses — brecha crítica)</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Gestión de Tesorería y Flujo de Caja</td><td>Proyección de flujo de caja regional</td></tr>
 <tr><td>Gestión de pagos programados (Casio, fábricas, nómina)</td></tr>
@@ -1663,7 +1684,7 @@
 <tr><td rowspan="1" style="vertical-align:top;">Reportería Financiera Consolidada Regional</td><td>Reportería a CFO y Junta Directiva</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Gestión Contable de Ingresos Diferidos (Financiamiento al Consumo)</td><td>Reportería fiscal a autoridades por país</td></tr>
 <tr><td>Gestión contable de Cachea (Venezuela)</td></tr>
-<tr><td rowspan="18" style="vertical-align:top;font-weight:600;background:#F4F6FA;">2. Gestión de Compras Administrativas y Procurement</td><td rowspan="3" style="vertical-align:top;">Levantamiento y Aprobación de Requisiciones</td><td>Solicitud de compra por parte del área usuaria</td></tr>
+<tr><td rowspan="18" style="vertical-align:top;font-weight:600;background:var(--light);">2. Gestión de Compras Administrativas y Procurement</td><td rowspan="3" style="vertical-align:top;">Levantamiento y Aprobación de Requisiciones</td><td>Solicitud de compra por parte del área usuaria</td></tr>
 <tr><td>Validación de presupuesto disponible</td></tr>
 <tr><td>Aprobación según nivel de autorización</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Selección y Homologación de Proveedores</td><td>Búsqueda y evaluación de proveedores potenciales</td></tr>
@@ -1681,7 +1702,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Auditoría y Cumplimiento del Proceso de Compras</td><td>Revisión periódica de cumplimiento de políticas de compra</td></tr>
 <tr><td>Verificación de segregación de funciones</td></tr>
 <tr><td>Reporte de hallazgos y plan de acción</td></tr>
-<tr><td rowspan="18" style="vertical-align:top;font-weight:600;background:#F4F6FA;">3. Gestión de Tecnología de Información (TI)</td><td rowspan="4" style="vertical-align:top;">Gestión de Aplicaciones Corporativas</td><td>Administración de Odoo (ERP multicompañía)</td></tr>
+<tr><td rowspan="18" style="vertical-align:top;font-weight:600;background:var(--light);">3. Gestión de Tecnología de Información (TI)</td><td rowspan="4" style="vertical-align:top;">Gestión de Aplicaciones Corporativas</td><td>Administración de Odoo (ERP multicompañía)</td></tr>
 <tr><td>Administración de Lark (colaboración y aprobaciones)</td></tr>
 <tr><td>Administración de EBS / WMS (almacén)</td></tr>
 <tr><td>Administración de Shopify y plataformas e-commerce</td></tr>
@@ -1699,7 +1720,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Gestión de Proyectos y Desarrollos a Medida</td><td>Levantamiento de requerimiento funcional</td></tr>
 <tr><td>Desarrollo y pruebas del cambio en Odoo / sistemas</td></tr>
 <tr><td>Despliegue y capacitación a usuarios</td></tr>
-<tr><td rowspan="11" style="vertical-align:top;font-weight:600;background:#F4F6FA;">4. Gestión de Datos e Inteligencia de Negocio</td><td rowspan="2" style="vertical-align:top;">Gobierno del Dato y Calidad</td><td>Definición de fuentes autoritativas y catálogo de datos</td></tr>
+<tr><td rowspan="11" style="vertical-align:top;font-weight:600;background:var(--light);">4. Gestión de Datos e Inteligencia de Negocio</td><td rowspan="2" style="vertical-align:top;">Gobierno del Dato y Calidad</td><td>Definición de fuentes autoritativas y catálogo de datos</td></tr>
 <tr><td>Gestión de calidad y limpieza de datos (data cleansing)</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">ETL y Dato Maestro Corporativo</td><td>Ingesta y normalización de fuentes internas (Odoo)</td></tr>
 <tr><td>Ingesta y normalización de fuentes externas (41 clientes / 1000+ tiendas)</td></tr>
@@ -1710,7 +1731,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Democratización de Datos (Self-Service BI)</td><td>Modelo de Detección de Oportunidades Comerciales</td></tr>
 <tr><td>Modelo de Rebalanceo de Tiendas (algoritmo greedy)</td></tr>
 <tr><td>Modelo de Smart Pricing (elasticidad precio)</td></tr>
-<tr><td rowspan="13" style="vertical-align:top;font-weight:600;background:#F4F6FA;">5. Gestión de Mercadeo y Comunicaciones</td><td rowspan="2" style="vertical-align:top;">Planificación Estratégica de Marca</td><td>Estrategia de marca Casio (marca representada)</td></tr>
+<tr><td rowspan="13" style="vertical-align:top;font-weight:600;background:var(--light);">5. Gestión de Mercadeo y Comunicaciones</td><td rowspan="2" style="vertical-align:top;">Planificación Estratégica de Marca</td><td>Estrategia de marca Casio (marca representada)</td></tr>
 <tr><td>Estrategia de marca Cubitt (marca propia)</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Gestión de Campañas y Activaciones</td><td>Diseño y ejecución de campañas regionales</td></tr>
 <tr><td>Adaptación y ejecución de campañas locales por país</td></tr>
@@ -1723,7 +1744,7 @@
 <tr><td rowspan="2" style="vertical-align:top;">Gestión de Visual Merchandising</td><td>Alianzas y colaboraciones (Ej: Reebok, Disney para Cubitt)</td></tr>
 <tr><td>Diseño de exhibición para punto de venta</td></tr>
 <tr><td rowspan="1" style="vertical-align:top;">Gestión de Eventos y Presencia en Ferias</td><td>Auditoría de cumplimiento de estándares visuales en tiendas</td></tr>
-<tr><td rowspan="16" style="vertical-align:top;font-weight:600;background:#F4F6FA;">6. Gestión del Talento Humano</td><td rowspan="2" style="vertical-align:top;">Atracción y Selección de Talento</td><td>Publicación y difusión de vacantes</td></tr>
+<tr><td rowspan="16" style="vertical-align:top;font-weight:600;background:var(--light);">6. Gestión del Talento Humano</td><td rowspan="2" style="vertical-align:top;">Atracción y Selección de Talento</td><td>Publicación y difusión de vacantes</td></tr>
 <tr><td>Reclutamiento y proceso de selección</td></tr>
 <tr><td rowspan="2" style="vertical-align:top;">Onboarding e Inducción</td><td>Inducción corporativa</td></tr>
 <tr><td>Formación de producto (Universidad Cubitt)</td></tr>
@@ -1739,7 +1760,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Desvinculación y Offboarding</td><td>Gestión administrativa de la salida (liquidación, documentos)</td></tr>
 <tr><td>Revocación de accesos a sistemas</td></tr>
 <tr><td>Entrevista de salida y retroalimentación</td></tr>
-<tr><td rowspan="9" style="vertical-align:top;font-weight:600;background:#F4F6FA;">7. Gestión Legal y Cumplimiento</td><td rowspan="2" style="vertical-align:top;">Gestión Contractual</td><td>Elaboración y revisión de contratos</td></tr>
+<tr><td rowspan="9" style="vertical-align:top;font-weight:600;background:var(--light);">7. Gestión Legal y Cumplimiento</td><td rowspan="2" style="vertical-align:top;">Gestión Contractual</td><td>Elaboración y revisión de contratos</td></tr>
 <tr><td>Gestión de NDAs con terceros y colaboradores</td></tr>
 <tr><td rowspan="1" style="vertical-align:top;">Cumplimiento Regulatorio y Fiscal</td><td>Cumplimiento fiscal por país</td></tr>
 <tr><td rowspan="1" style="vertical-align:top;">Gestión de Riesgos Legales</td><td>Cumplimiento laboral y regulatorio local</td></tr>
@@ -1748,7 +1769,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Manejo de Litigios y Contingencias</td><td>Identificación y registro de contingencias legales</td></tr>
 <tr><td>Gestión con asesoría externa</td></tr>
 <tr><td>Seguimiento y reporte a la Junta Directiva</td></tr>
-<tr><td rowspan="9" style="vertical-align:top;font-weight:600;background:#F4F6FA;">8. Gestión de Servicios Generales y Administración</td><td rowspan="3" style="vertical-align:top;">Servicios Generales, Mantenimiento y Facilities</td><td>Mantenimiento preventivo y correctivo de instalaciones</td></tr>
+<tr><td rowspan="9" style="vertical-align:top;font-weight:600;background:var(--light);">8. Gestión de Servicios Generales y Administración</td><td rowspan="3" style="vertical-align:top;">Servicios Generales, Mantenimiento y Facilities</td><td>Mantenimiento preventivo y correctivo de instalaciones</td></tr>
 <tr><td>Gestión de proveedores de servicios generales</td></tr>
 <tr><td>Control de activos fijos de oficina</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Mensajería y Correspondencia</td><td>Recepción y despacho de correspondencia</td></tr>
@@ -1757,7 +1778,7 @@
 <tr><td rowspan="3" style="vertical-align:top;">Gestión de Suministros de Oficina</td><td>Levantamiento de necesidades de suministros</td></tr>
 <tr><td>Compra y control de inventario de suministros</td></tr>
 <tr><td>Distribución a las áreas</td></tr>
-<tr><td rowspan="15" style="vertical-align:top;font-weight:600;background:#F4F6FA;">9. Gestión de Procesos y Mejora Continua</td><td rowspan="3" style="vertical-align:top;">Detección de Necesidades y Diagnóstico</td><td>Identificación de solicitudes de mejora o creación de procesos (por área, país o iniciativa directiva)</td></tr>
+<tr><td rowspan="15" style="vertical-align:top;font-weight:600;background:var(--light);">9. Gestión de Procesos y Mejora Continua</td><td rowspan="3" style="vertical-align:top;">Detección de Necesidades y Diagnóstico</td><td>Identificación de solicitudes de mejora o creación de procesos (por área, país o iniciativa directiva)</td></tr>
 <tr><td>Levantamiento preliminar de la situación actual (entrevistas, observación, documentación existente)</td></tr>
 <tr><td>Priorización de necesidades según impacto y urgencia</td></tr>
 <tr><td rowspan="3" style="vertical-align:top;">Diseño Estructural y Levantamiento</td><td>Mapeo del proceso As-Is (actores, flujo, entradas y salidas)</td></tr>
@@ -1844,7 +1865,7 @@
   <p>La función tecnológica formal es mínima para el alcance que soporta: <b>tres personas en Panamá</b> (Mariela — gerencia regional, César — seguridad, redes y dispositivos, Rafael — infraestructura), <b>tres en Venezuela</b> (José Herrera, Héctor Zapata, Miguel Yépez, más Edgar dando soporte a las 20 tiendas desde EE.UU.) y desarrollos a la medida gestionados personalmente por Mariela ("casi todo es a la medida... ven acá, explícame qué quieres y yo me voy imaginando lo que voy a crearte"). Los endpoints de API que alimentan a BI los desarrolla una persona del equipo por solicitud en Lark. No existe inventario formal de sistemas e integraciones (requisito C#4, pendiente), ni políticas de seguridad de la información documentadas (C#5, pendiente), ni un dueño designado del presupuesto de licencias — el origen de los cortes de acceso a los modelos de BI.</p>
   <p>Tres decisiones tecnológicas estructurales están hoy sin resolver y pertenecen a la agenda del Comité, no de TI: <b>(1)</b> la propiedad de la aplicación de Cubitt — el núcleo del ecosistema de la marca propia es desarrollado por un tercero en China, sin propiedad del código ni de la data (hallazgo crítico de la sección 11), con la decisión "app nueva vs. comprar el código" abierta y la ambición declarada de montar un departamento de desarrollo propio; <b>(2)</b> la estandarización del ecosistema frente a las entidades que operan fuera de él (EE.UU. en QuickBooks, Costa Rica en su ERP, Guatemala en el sistema del operador); y <b>(3)</b> la institucionalización del rol de IT interno como contraparte técnica (requisito C#6, pendiente) y de la instancia de gobierno de IA acordada en el Comité del 01-jul. La aspiración que ordena todo lo anterior la formuló el propio CEO: <i>"mi sueño es tener un dashboard... consultar cualquier tema de cualquier empresa que tenemos, en vivo... balances consolidados... y que los procesos de fabricación, diseño, precio y compras estén totalmente auditables"</i> — una definición espontánea y precisa del estado objetivo que la arquitectura IA (sección 10) debe hacer alcanzable por etapas.</p>
 
-    <div style="background:#F0F4FA;border-left:4px solid #2E75B6;padding:10px 14px;margin:18px 0;border-radius:3px;font-size:14px;">
+    <div style="background:#F0F4FA;border-left:4px solid var(--blue);padding:10px 14px;margin:18px 0;border-radius:3px;font-size:14px;">
     <b>De aquí en adelante, la lectura hacia la IA.</b> Los apartados 7.1–7.3 retrataron el ecosistema tal como opera hoy. Los siguientes lo leen con una sola pregunta: ¿sobre qué base va a operar la inteligencia artificial? Empezamos por el caso que ya existe dentro del grupo y que anticipa, en pequeño, tanto lo posible como lo que falta.</div>
 <h3 id="s7-4">7.4 Caso de estudio: la célula de BI como anticipo — y advertencia — de una IA bien adoptada</h3>
   <p>La entrevista al líder de la célula de datos merece tratamiento propio porque es, simultáneamente, <b>la mejor noticia y la advertencia más clara</b> del diagnóstico tecnológico. Muestra que el grupo ya tiene, funcionando y en producción, casi todos los ingredientes de una operación de IA madura — y muestra exactamente por qué esos ingredientes hoy no rinden lo que podrían. Leerla bien es leer, en pequeño, el futuro que la arquitectura de IA (sección 10) debe hacer posible en grande.</p>
@@ -2053,7 +2074,7 @@
   <p>La consecuencia organizativa es directa y conecta con la función transversal de 7.6: construir y mantener una capa propia sobre Odoo <b>requiere capacidad de desarrollo interna gobernada</b> — no puede descansar en partners cuyo alcance es la implementación estándar y las localizaciones fiscales, ni en desarrolladores freelance sin marco formal (7.7). Es coherente con la ambición ya expresada en el grupo de montar un departamento de desarrollo propio (mencionada a propósito de la app de Cubitt, sección 3.4), y con la designación pendiente de un rol de IT interno como contraparte técnica (requisito C#6). La decisión de fondo que este informe eleva a la dirección no es qué app comprar para tapar cada hueco, sino <b>si el grupo va a dotarse de la capacidad de construir su propio sistema sobre un núcleo estándar</b> — porque de esa decisión depende que la arquitectura de IA (sección 10) se apoye en una base coherente y no en un mosaico de aplicaciones que se rompe en cada juntura.</p>
   <p><i>Nota de alcance:</i> la validación técnica de esta dirección — hasta dónde llega lo nativo, qué se resuelve por API propia y qué justifica sí una app especializada — corresponde a la auditoría técnica de Odoo (sección 8), hoy pendiente del acceso administrativo (requisito C#2). Este apartado deja planteado el principio de diseño; la auditoría lo aterrizará en decisiones concretas por módulo.</p>
 
-  <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ Esta sección estableció el primer prerrequisito de esa arquitectura: la base técnica — el dato certificado. La sección siguiente somete a examen las dos plataformas sobre las que ese dato vive hoy, Lark y Odoo, para separar lo que cada una sostiene de lo que se le está pidiendo de más.</div>
+  <div style="background:var(--light);border-left:3px solid var(--blue);padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:var(--txt);border-radius:3px;">↳ Esta sección estableció el primer prerrequisito de esa arquitectura: la base técnica — el dato certificado. La sección siguiente somete a examen las dos plataformas sobre las que ese dato vive hoy, Lark y Odoo, para separar lo que cada una sostiene de lo que se le está pidiendo de más.</div>
 
 <h2 id="s8">8. Auditoría técnica de Lark y Odoo <span class="badge b-borr">Borrador — fase documental</span></h2>
   <div class="fuentes"><b>Fuentes:</b> documentación oficial de Lark (Help Center y Lark Developer/Open Platform) y de Odoo (documentación técnica 19.0, upgrade.odoo.com, foro oficial), consultadas en julio de 2026 · evidencia interna de las 23 entrevistas (en particular Mariela Castro, Alexis Mujica, Jaime González, Andrés Roizental, Jesmir Flores) · secciones 7.1–7.11 de este informe. <b>Alcance:</b> esta primera entrega es una auditoría documental — límites oficiales de las plataformas cruzados con el uso real observado. La verificación con acceso directo (módulos instalados, código de los desarrollos, ambientes, respaldos y accesos) permanece bloqueada por el requisito C#2 (credenciales administrativas de Odoo) y se incorporará al obtenerse; ver 8.4.</div>
@@ -2151,7 +2172,7 @@
   </ol>
   <p>Esta es la diferencia entre una transformación que perdura y una que se revierte. No se le pide a la organización que abandone lo que tiene ni que confíe su operación a un sistema nuevo de golpe — se le propone <b>hacer nacer, desde los huecos y sin riesgo, el sistema que en el tiempo se volverá su columna vertebral</b>. Odoo se mantiene apegado al estándar para que sus versiones sean gratuitas (8.2); la lógica propia y la IA viven en la capa que el grupo sí controla; y esa capa, que empieza tapando lo que hoy está suelto, termina siendo el corazón modular con IA en sus venas que el grupo necesita para competir. La arquitectura de IA (sección 10) y la hoja de ruta (sección 12) desarrollan este nacimiento por etapas.</p>
 
-  <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ Auditadas las plataformas, queda el segundo prerrequisito, indisociable del primero: la base humana — la cultura y las competencias con que la organización adoptará la IA. Ninguna arquitectura sostiene lo que la organización no está preparada para usar.</div>
+  <div style="background:var(--light);border-left:3px solid var(--blue);padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:var(--txt);border-radius:3px;">↳ Auditadas las plataformas, queda el segundo prerrequisito, indisociable del primero: la base humana — la cultura y las competencias con que la organización adoptará la IA. Ninguna arquitectura sostiene lo que la organización no está preparada para usar.</div>
 
 <h2 id="s9">9. Cultura organizacional y preparación para la adopción de IA <span class="badge b-borr">Borrador — primera versión</span></h2>
   <div class="fuentes"><b>Fuentes:</b> entrevistas y minutas del diagnóstico — con énfasis en las sesiones sobre disposición al cambio (Alberto Bassan, Máximo Dolman, Ricardo Roizental), los focos de madurez en IA (célula de BI, Colombia, Costa Rica, Marketing) y la evidencia de adopción individual de herramientas recogida en las entrevistas operativas. <b>Alcance de esta fase:</b> el diagnóstico cultural se aborda aquí en la profundidad que corresponde a la Fase 1; la caracterización completa de la cultura, la política de IA y la estructura de gobierno de IA se desarrollan como entregables de las fases siguientes. <b>Deslinde:</b> los apartados 9.1 y 9.2 son hallazgo — lo que las entrevistas sostienen sobre el punto de partida y la disposición al cambio. El 9.3 es propuesta del equipo consultor y se rotula como tal.</div>
@@ -2216,13 +2237,13 @@
     <li><b>Despliegue piloto</b> — en desarrollo al cerrar la Fase 1 e iniciar la Fase 2 del proyecto. Valida el modelo de acompañamiento, calibra el ritmo de avance y afina la base de conocimiento antes de escalar.</li>
     <li><b>Despliegue masivo</b> — con el objetivo de alcanzar un total de <b>200 licencias</b> entre el piloto y el alcance por departamentos, definido según la indicación del liderazgo de cada área sobre los perfiles que deberán cumplir la formación básica. Así la cobertura crece de forma ordenada, área por área, y no como un despliegue genérico.</li>
   </ul>
-  <div style="background:#F4F6FA;border:1px solid #dbe3ef;border-radius:10px;padding:14px 18px;margin:14px 0;">
+  <div style="background:var(--light);border:1px solid #dbe3ef;border-radius:10px;padding:14px 18px;margin:14px 0;">
     <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px;">Insumo del proyecto</div>
-    <a href="../../admin/index.html#archivos" target="_blank" style="display:inline-block;background:#1F3864;color:#fff;font-weight:700;font-size:13.5px;text-decoration:none;padding:9px 18px;border-radius:8px;">📄 Informe de impacto del piloto Maia ↗</a>
+    <a href="../../admin/index.html#archivos" target="_blank" style="display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:13.5px;text-decoration:none;padding:9px 18px;border-radius:8px;">📄 Informe de impacto del piloto Maia ↗</a>
     <span style="font-size:12.5px;color:var(--muted);margin-left:8px;">Documento <code style="font-size:12px;background:#e7edf6;padding:1px 6px;border-radius:5px;">Informe_Impacto_Piloto_Maia.docx</code>, disponible en los archivos del proyecto.</span>
   </div>
 
-  <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ Con esta sección se completa el recorrido por los seis aspectos del marco de la 2.2 — gobierno, procesos, estructura, talento, cambio y tecnología. La Parte I cierra con la arquitectura de IA preliminar (sección 10), que recoge la base técnica de las secciones 7 y 8 y la base humana de esta sección, y las traduce al plano de los sistemas bajo una sola tesis: el dato antes que el agente.</div>
+  <div style="background:var(--light);border-left:3px solid var(--blue);padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:var(--txt);border-radius:3px;">↳ Con esta sección se completa el recorrido por los seis aspectos del marco de la 2.2 — gobierno, procesos, estructura, talento, cambio y tecnología. La Parte I cierra con la arquitectura de IA preliminar (sección 10), que recoge la base técnica de las secciones 7 y 8 y la base humana de esta sección, y las traduce al plano de los sistemas bajo una sola tesis: el dato antes que el agente.</div>
 
 <h2 id="s10">10. Arquitectura de IA — preborrador de propuesta <span class="badge b-prop">Preborrador de propuesta</span></h2>
   <div class="fuentes"><b>Base:</b> este esquema se deriva íntegramente del diagnóstico: los cuatro riesgos y la definición arquitectónica de la sección 7, el inventario de vacíos y la estrategia del sistema propio de la sección 8, y la evidencia de adopción interna de IA. Referencias de plataforma: documentación oficial de Anthropic (Claude API, tool use, MCP) y del Model Context Protocol — estándar abierto creado por Anthropic (nov-2024) y donado en dic-2025 a la Agentic AI Foundation (Linux Foundation), hoy el estándar de facto de integración entre modelos de IA y sistemas empresariales, con autenticación OAuth 2.1 para servidores remotos.</div>
@@ -2368,9 +2389,9 @@
 
   <!-- ============ PARTE II ============ -->
 
-  <div style="background:linear-gradient(135deg,#1F3864 0%,#2a4a80 100%);color:#fff;padding:20px 24px;margin:36px 0 24px;border-radius:8px;">
-    <div style="text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9dc3ee;font-weight:700;margin-bottom:8px;">Parte II — Síntesis de hallazgos y próximos pasos</div>
-    <div style="color:#dbe6f5;font-size:14.5px;line-height:1.55;">Recorrida la organización y su sustrato técnico, esta parte cierra el informe con la mirada de conjunto: primero consolida en una sola tabla los hallazgos críticos y los riesgos del diagnóstico, ordenados por criticidad para la lectura de la Junta (sección 11); y luego traza los próximos pasos y la hoja de ruta que llevan del diagnóstico a la ejecución (sección 12).</div>
+  <div style="background:linear-gradient(135deg,#0A0E13 0%,#1A2530 100%);color:#fff;padding:20px 24px;margin:36px 0 24px;border-radius:8px;">
+    <div style="text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--celeste);font-weight:700;margin-bottom:8px;">Parte II — Síntesis de hallazgos y próximos pasos</div>
+    <div style="color:#9AAABA;font-size:14.5px;line-height:1.55;">Recorrida la organización y su sustrato técnico, esta parte cierra el informe con la mirada de conjunto: primero consolida en una sola tabla los hallazgos críticos y los riesgos del diagnóstico, ordenados por criticidad para la lectura de la Junta (sección 11); y luego traza los próximos pasos y la hoja de ruta que llevan del diagnóstico a la ejecución (sección 12).</div>
   </div>
 
   <h2 id="s11">11. Síntesis de hallazgos críticos y riesgos <span class="badge b-borr">Borrador consolidado — para revisión del equipo</span></h2>
@@ -2412,7 +2433,7 @@
   <p>El segundo hilo es técnico: <b>el dato sin certificar</b>. Las decisiones de mayor impacto se procesan en una capa sombra de Excel y WhatsApp que es la respuesta racional a un dato en el que no se confía (7.5); las capacidades tecnológicas operan como islas sin una función transversal que las conecte (7.6); y la información crítica circula sin marco formal de gobierno (7.7). Este hilo desemboca en la segunda decisión: certificar y gobernar el dato antes de desplegar agentes sobre él — el componente técnico (secciones 8 y 10).</p>
   <p>La cultura (sección 9) es la condición de ambos hilos: la organización tiene la energía, el patrocinio y los focos de madurez para adoptar la IA con seriedad; la formación en curso y los cimientos documentales le darán la dirección. Sobre esa base, la propuesta de estructura (4.8), el componente técnico (secciones 8 y 10) y la hoja de ruta (sección 12) traducen los hallazgos en arquitectura de IA y ruta de ejecución.</p>
 
-  <div style="background:#F4F6FA;border-left:3px solid #2E75B6;padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:#26303f;border-radius:3px;">↳ Consolidados los hallazgos y sus riesgos, la última sección traduce el diagnóstico en acción: la ruta de la Fase 2, las olas de automatización y las condiciones que sostienen la transformación cuando el acompañamiento consultor concluya.</div>
+  <div style="background:var(--light);border-left:3px solid var(--blue);padding:9px 15px;margin:18px 0 4px;font-size:13.5px;color:var(--txt);border-radius:3px;">↳ Consolidados los hallazgos y sus riesgos, la última sección traduce el diagnóstico en acción: la ruta de la Fase 2, las olas de automatización y las condiciones que sostienen la transformación cuando el acompañamiento consultor concluya.</div>
 
   <h2 id="s12">12. Próximos pasos y hoja de ruta <span class="badge b-borr">Borrador — para revisión del equipo</span></h2>
   <div class="fuentes"><b>Fuentes:</b> propuesta de servicio aprobada (alcance de las Fases 2 a 4) · sesiones de cierre de la Fase 1: presentación del borrador a la Presidencia (17-jul) y reuniones de transición con el equipo consultor y con la PMO del grupo (21-jul). Los casos de automatización se derivan del diagnóstico (secciones 6, 7 y 10).</div>
@@ -2718,14 +2739,14 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
 </script>
 
 <style>
-  .org-fab{position:fixed;top:14px;right:16px;z-index:900;background:linear-gradient(135deg,#1F3864,#2a4a80);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.3);font-family:inherit;}
-  .org-fab:hover{background:#2E75B6;}
+  .org-fab{position:fixed;top:14px;right:16px;z-index:900;background:linear-gradient(135deg,#0A0E13,#1A2530);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.3);font-family:inherit;}
+  .org-fab:hover{background:var(--blue);}
   .proc-fab{position:fixed;top:14px;right:158px;z-index:900;background:linear-gradient(135deg,#2E8540,#3fa055);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(46,133,64,.3);font-family:inherit;}
   .proc-fab:hover{background:#25913d;}
-  .org-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;min-width:340px;z-index:950;background:#fff;border-left:4px solid #1F3864;box-shadow:-12px 0 34px rgba(23,32,54,.25);transform:translateX(102%);transition:transform .3s ease, width .25s ease;display:flex;flex-direction:column;}
+  .org-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;min-width:340px;z-index:950;background:#fff;border-left:4px solid var(--navy);box-shadow:-12px 0 34px rgba(23,32,54,.25);transform:translateX(102%);transition:transform .3s ease, width .25s ease;display:flex;flex-direction:column;}
   .org-drawer.open{transform:translateX(0);}
   .org-drawer.half{width:52%;}
-  .org-head{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#1F3864;color:#fff;flex-wrap:wrap;}
+  .org-head{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--navy);color:#fff;flex-wrap:wrap;}
   .org-head b{font-size:14px;}
   .org-head .sp{flex:1;}
   .org-head button,.org-head a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:12px;padding:5px 10px;border-radius:6px;cursor:pointer;text-decoration:none;font-family:inherit;}
@@ -2757,13 +2778,13 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
 
 
 <style>
-  .pres-fab{position:fixed;top:14px;right:288px;z-index:900;background:#fff;color:#1F3864;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid #1F3864;cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.18);font-family:inherit;}
-  .pres-fab:hover{background:#1F3864;color:#fff;}
+  .pres-fab{position:fixed;top:14px;right:288px;z-index:900;background:#fff;color:var(--navy);font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid var(--navy);cursor:pointer;box-shadow:0 4px 14px rgba(31,56,100,.18);font-family:inherit;}
+  .pres-fab:hover{background:var(--navy);color:#fff;}
   .pres-overlay{position:fixed;inset:0;z-index:990;background:#101826;display:none;}
   .pres-overlay.open{display:block;}
   .pres-overlay iframe{width:100%;height:100%;border:0;}
-  .pres-btn{display:inline-block;vertical-align:middle;margin-left:12px;background:#fff;color:#1F3864;border:1.5px solid #1F3864;border-radius:999px;font-size:13px;font-weight:700;padding:3px 13px;cursor:pointer;font-family:inherit;letter-spacing:0;}
-  .pres-btn:hover{background:#1F3864;color:#fff;}
+  .pres-btn{display:inline-block;vertical-align:middle;margin-left:12px;background:#fff;color:var(--navy);border:1.5px solid var(--navy);border-radius:999px;font-size:13px;font-weight:700;padding:3px 13px;cursor:pointer;font-family:inherit;letter-spacing:0;}
+  .pres-btn:hover{background:var(--navy);color:#fff;}
   @media print{.pres-fab,.pres-overlay,.pres-btn{display:none!important;}}
 </style>
 
@@ -2775,8 +2796,8 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
   /* Es un <a> y no un <button>: la torre se abre a PANTALLA COMPLETA en una
      pestaña nueva, no en el modal. Dentro del modal la escena 3D compartía el
      alto con el informe y el recorrido guiado se presentaba estrecho. */
-  .arq-fab{position:fixed;top:58px;right:150px;z-index:900;background:#fff;color:#1F3864;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid #2E75B6;cursor:pointer;box-shadow:0 4px 14px rgba(46,117,182,.2);font-family:inherit;text-decoration:none;display:inline-block;line-height:1.25;}
-  .arq-fab:hover{background:#2E75B6;color:#fff;border-color:#2E75B6;}
+  .arq-fab{position:fixed;top:58px;right:150px;z-index:900;background:#fff;color:var(--navy);font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:999px;border:2px solid var(--blue);cursor:pointer;box-shadow:0 4px 14px rgba(46,117,182,.2);font-family:inherit;text-decoration:none;display:inline-block;line-height:1.25;}
+  .arq-fab:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
   @media(max-width:560px){
     .sys-fab{top:150px;right:12px;font-size:11.5px;padding:8px 13px;}
     .arq-fab{top:196px;right:12px;font-size:11.5px;padding:8px 13px;}
@@ -2831,13 +2852,13 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
     hyphens:none; overflow-wrap:normal; word-break:normal;
   }
   .wgt-b:hover,.wgt-b:focus-visible{transform:translateX(-3px); box-shadow:0 5px 14px rgba(31,56,100,.26); filter:brightness(1.04);}
-  .wgt-b:focus-visible{outline:2px solid #2E75B6; outline-offset:2px;}
+  .wgt-b:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
   /* cada acceso conserva su identidad de color */
-  .w-pres{background:#fff; color:#1F3864; border:2px solid #1F3864;}
-  .w-org {background:linear-gradient(135deg,#1F3864,#2a4a80); color:#fff;}
+  .w-pres{background:#fff; color:var(--navy); border:2px solid var(--navy);}
+  .w-org {background:linear-gradient(135deg,#0A0E13,#1A2530); color:#fff;}
   .w-proc{background:linear-gradient(135deg,#2E8540,#3fa055); color:#fff;}
   .w-sys {background:linear-gradient(105deg,#36F6BB,#32C6F4); color:#04212B;}
-  .w-arq {background:#fff; color:#1F3864; border:2px solid #2E75B6;}
+  .w-arq {background:#fff; color:var(--navy); border:2px solid var(--blue);}
 
   /* Pantallas sin margen derecho: el raíl se recuesta abajo a la derecha y se
      encoge, en lugar de invadir el texto. */
@@ -2916,6 +2937,20 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDiagr
       w.className = 'tscroll';
       t.parentNode.insertBefore(w, t);
       w.appendChild(t);
+    });
+  })();
+
+  /* ---- tema claro/oscuro (misma clave que el admin) ---- */
+  (function(){
+    var raiz = document.documentElement, btn = document.getElementById('btnTema');
+    if(!btn) return;
+    var rotula = function(){ btn.textContent = raiz.getAttribute('data-tema')==='oscuro' ? '☀️' : '🌙'; };
+    rotula();
+    btn.addEventListener('click', function(){
+      var oscuro = raiz.getAttribute('data-tema')==='oscuro';
+      raiz.setAttribute('data-tema', oscuro ? 'claro' : 'oscuro');
+      try{ localStorage.setItem('rower.tema', oscuro ? 'claro' : 'oscuro'); }catch(e){}
+      rotula();
     });
   })();
 </script>

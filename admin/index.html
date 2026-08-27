@@ -1,160 +1,199 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rower · Admin</title>
+<!-- Tema: claro por defecto en todo el sitio salvo /sistema; si la persona ya
+     eligió oscuro (aquí o en el informe, misma clave), se respeta antes del
+     primer pintado para no parpadear. -->
+<script>(function(){try{if(localStorage.getItem('rower.tema')==='oscuro')document.documentElement.setAttribute('data-tema','oscuro');}catch(e){}})();</script>
 <!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
 <script src="../supabase/sesion.js" data-proteger data-permiso="admin.entrar"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilo/app.css">
 <style>
+  /* Alias: los ~90 usos de --navy/--blue/--rojo/--verde/--ambar/--gris/--activo/--txt/--muted
+     de más abajo quedan intactos — solo se redirige cada uno al token compartido de
+     estilo/app.css, así el archivo entero migra sin tocar cada regla una por una.
+     --borde ya existe con el mismo nombre en el archivo compartido: no se alía. */
   :root{
-    --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
-    --gris:#F4F6FA; --borde:#d9dee8; --activo:#9dc3ee;
-    --txt:#26303f; --muted:#55627a;
+    --navy:var(--tinta); --blue:var(--cian); --rojo:var(--riesgo); --verde:var(--ok); --ambar:var(--alerta);
+    --gris:var(--panel-alto); --activo:var(--menta);
+    --txt:var(--tinta); --muted:var(--tinta-media);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{height:100%;}
   body{
-    font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif;
-    color:var(--txt); background:var(--gris); line-height:1.5;
+    font-family:var(--fuente);
+    color:var(--txt); background:var(--fondo); line-height:1.5;
   }
   a{color:var(--blue); text-decoration:none;}
   a:hover{text-decoration:underline;}
 
-  .app{display:grid; grid-template-columns:262px 1fr; min-height:100vh;}
+  /* Namespaced .app-panel (no ".app" a secas): esa clase la usa también el
+     armazón de /sistema en estilo/app.css (height:100vh;overflow:hidden),
+     y al compartir hoja de estilos chocaban — el panel quedaba fijo a la
+     altura del viewport y el contenido más largo que una pantalla no
+     hacía scroll. */
+  .app-panel{display:grid; grid-template-columns:262px 1fr; min-height:100vh;}
 
-  /* ---------- Sidebar ---------- */
+  /* ---------- Sidebar: siempre oscuro, sea cual sea el tema de la página ---------- */
+  /* Sigue el tema del sitio, igual que el .menu de /sistema (var(--lienzo)
+     cambia solo entre claro/oscuro) — nada de "siempre oscuro" aquí. */
   .sidebar{
-    background:linear-gradient(180deg,var(--navy) 0%,#2a4a80 100%);
-    color:#dbe6f5; display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+    background:var(--lienzo); color:var(--tinta-media);
+    display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+    border-right:1px solid var(--borde);
   }
-  .brand{padding:20px 20px 16px; border-bottom:1px solid rgba(255,255,255,.12);}
-  .brand .kicker{text-transform:uppercase; letter-spacing:.16em; font-size:.66rem; color:#9dc3ee;}
-  .brand h1{font-size:1.15rem; color:#fff; font-weight:700; margin-top:2px;}
-  .brand .sub{font-size:.74rem; color:#aac4e6; margin-top:2px;}
+  .brand{padding:20px 20px 16px; border-bottom:1px solid var(--borde); display:flex; align-items:center; gap:10px;}
+  .brand .textos{min-width:0;}
+  .brand .kicker{text-transform:uppercase; letter-spacing:.16em; font-size:.66rem; color:var(--tinta-tenue);}
+  .brand h1{font-size:1.1rem; color:var(--tinta); font-weight:700; margin-top:2px; text-transform:lowercase; letter-spacing:-.01em;}
+  .brand .sub{font-size:.74rem; color:var(--tinta-tenue); margin-top:2px;}
   nav{padding:12px 10px; flex:1; overflow-y:auto;}
-  nav .group{text-transform:uppercase; letter-spacing:.12em; font-size:.64rem; color:#7fa3ce; margin:14px 12px 6px;}
+  nav .group{text-transform:uppercase; letter-spacing:.16em; font-size:.59rem; font-weight:700; color:var(--tinta-tenue); padding:16px 12px 7px;}
+  /* Misma mecánica que .menu-item de /sistema: minúsculas, sin borde de
+     color en el activo (box-shadow como el resto de tarjetas), ícono
+     geométrico monocromo en vez de emoji. */
   nav a.item{
-    display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:7px;
-    color:#dbe6f5; font-size:.92rem; border-left:3px solid transparent; margin-bottom:2px;
+    display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:12px;
+    color:var(--tinta-media); font-size:.92rem; text-transform:lowercase; margin-bottom:2px;
+    transition:background .15s var(--curva), color .15s var(--curva);
   }
-  nav a.item:hover{background:rgba(255,255,255,.07); text-decoration:none;}
-  nav a.item.active{background:rgba(157,195,238,.18); border-left-color:var(--activo); color:#fff; font-weight:600;}
-  nav a.item .ico{width:18px; text-align:center; opacity:.9;}
-  nav a.item .soon{margin-left:auto; font-size:.6rem; text-transform:uppercase; letter-spacing:.06em; background:rgba(255,255,255,.13); padding:2px 6px; border-radius:999px; color:#cfe0f5;}
-  .side-foot{padding:14px 16px; border-top:1px solid rgba(255,255,255,.12); font-size:.8rem; display:flex; flex-direction:column; gap:6px;}
-  .side-foot a{color:#cfe0f5;}
+  nav a.item:hover{background:var(--realce); color:var(--tinta); text-decoration:none;}
+  nav a.item.active{background:var(--panel); color:var(--tinta); font-weight:650; box-shadow:var(--sombra);}
+  nav a.item .ico{width:16px; text-align:center; font-size:.82rem; opacity:.75; flex:none;}
+  nav a.item .soon{margin-left:auto; font-size:.6rem; text-transform:uppercase; letter-spacing:.06em; background:var(--panel-alto); padding:2px 6px; border-radius:999px; color:var(--tinta-tenue);}
+  .side-foot{padding:14px 16px; border-top:1px solid var(--borde); font-size:.8rem; display:flex; flex-direction:column; gap:6px;}
+  .side-foot a{color:var(--cian); text-transform:lowercase;}
 
   /* ---------- Content ---------- */
   .content{display:flex; flex-direction:column; min-width:0;}
+  /* Vidrio esmerilado, como el .chrome de /sistema — mismo blur+saturate. */
   .topbar{
-    background:#fff; border-bottom:1px solid var(--borde); padding:10px 24px;
+    background:var(--panel-vidrio); border-bottom:1px solid var(--borde); padding:10px 24px;
     display:flex; align-items:center; gap:14px; position:sticky; top:0; z-index:5;
+    backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
   }
   .topbar .conn{display:flex; align-items:center; gap:7px; font-size:.82rem; color:var(--muted);}
-  .dot{width:9px; height:9px; border-radius:50%; background:#c7ccd6;}
+  .dot{width:9px; height:9px; border-radius:50%; background:var(--borde);}
   .dot.ok{background:var(--verde);} .dot.err{background:var(--rojo);}
   /* Identidad de la sesión (sustituye al viejo aviso de "modo sin autenticación") */
   .sesion{margin-left:auto; display:flex; align-items:center; gap:9px; font-size:.82rem; color:var(--muted);}
   .sesion .ini{
-    width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; flex:0 0 auto;
+    width:26px; height:26px; border-radius:50%; background:var(--gradiente); color:#04212B; flex:0 0 auto;
     display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.72rem;
   }
   .sesion .quien{max-width:260px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .sesion .btn-salir{
-    border:1px solid var(--borde); background:#fff; color:var(--rojo); border-radius:6px;
-    padding:4px 10px; font:inherit; font-size:.78rem; cursor:pointer;
+    border:1px solid var(--borde); background:var(--panel); color:var(--rojo); border-radius:var(--r-pildora);
+    padding:4px 12px; font:inherit; font-size:.78rem; cursor:pointer; transition:border-color .15s var(--curva);
   }
-  .sesion .btn-salir:hover{background:#fbeaea; border-color:var(--rojo);}
-  .view{padding:26px 28px 60px; max-width:1180px;}
+  .sesion .btn-salir:hover{background:rgba(255,107,90,.08); border-color:var(--rojo);}
+  /* Sin max-width aquí: en /sistema el .lienzo llena el espacio disponible
+     (a diferencia de un "documento" con columna fija) y cada pieza decide su
+     propio ancho de lectura si lo necesita — no la vista entera. */
+  .view{padding:26px 28px 60px;}
 
   /* ---------- Headings & bits ---------- */
   .page-head{display:flex; align-items:flex-start; gap:16px; margin-bottom:18px;}
-  .page-head h2{color:var(--navy); font-size:1.4rem; font-weight:700;}
+  .page-head h2{color:var(--navy); font-size:1.4rem; font-weight:700; text-transform:lowercase; letter-spacing:-.01em;}
   .page-head p{color:var(--muted); font-size:.9rem; margin-top:2px;}
   .page-head .actions{margin-left:auto; display:flex; gap:10px; flex-wrap:wrap;}
 
   .btn{
     display:inline-flex; align-items:center; gap:7px; cursor:pointer; font:inherit;
-    border:1px solid var(--borde); background:#fff; color:var(--txt);
-    padding:8px 14px; border-radius:7px; font-size:.88rem; transition:.12s;
+    border:1px solid var(--borde); background:var(--panel); color:var(--txt);
+    padding:8px 16px; border-radius:var(--r-pildora); font-size:.88rem; font-weight:600;
+    transition:background .15s var(--curva), border-color .15s var(--curva), color .15s var(--curva), transform .15s var(--curva);
   }
-  .btn:hover{border-color:var(--blue); color:var(--navy);}
-  .btn.primary{background:var(--navy); border-color:var(--navy); color:#fff;}
-  .btn.primary:hover{background:#2a4a80;}
-  .btn.danger{color:var(--rojo); border-color:#eecccc;}
-  .btn.danger:hover{background:#fbeaea; border-color:var(--rojo);}
+  .btn:hover{border-color:var(--tinta-tenue); color:var(--navy);}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--gradiente); border-color:transparent; color:#04212B; box-shadow:var(--sombra-menta);}
+  .btn.primary:hover{filter:brightness(1.06); border-color:transparent; color:#04212B;}
+  .btn.danger{color:var(--rojo); border-color:rgba(255,107,90,.35); background:transparent;}
+  .btn.danger:hover{background:rgba(255,107,90,.08); border-color:var(--rojo); color:var(--rojo);}
   .btn:disabled{opacity:.5; cursor:not-allowed;}
 
   .toolbar{display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap;}
   .search{flex:1; min-width:220px; position:relative;}
-  .search input{width:100%; padding:9px 12px 9px 34px; border:1px solid var(--borde); border-radius:7px; font:inherit;}
-  .search::before{content:"🔎"; position:absolute; left:11px; top:8px; font-size:.9rem; opacity:.6;}
-  select.filter{padding:9px 12px; border:1px solid var(--borde); border-radius:7px; font:inherit; background:#fff;}
+  .search input{width:100%; padding:9px 12px 9px 34px; border:1px solid var(--borde); border-radius:var(--r-pildora); font:inherit; background:var(--panel-alto); color:var(--txt);}
+  .search input:focus{outline:none; border-color:var(--blue);}
+  .search::before{content:"⌕"; position:absolute; left:13px; top:50%; transform:translateY(-50%); font-size:1rem; color:var(--tinta-tenue);}
+  select.filter{padding:9px 14px; border:1px solid var(--borde); border-radius:var(--r-pildora); font:inherit; font-weight:600; font-size:.85rem; background:var(--panel-alto); color:var(--txt); cursor:pointer;}
 
   /* ---------- Card / table ---------- */
-  .card{background:#fff; border:1px solid var(--borde); border-radius:10px; overflow:hidden;}
+  .card{background:var(--panel); border:1px solid var(--borde); border-radius:var(--r-tarjeta); overflow:hidden; box-shadow:var(--sombra);}
   table.data{width:100%; border-collapse:collapse; font-size:.88rem;}
   table.data th{
-    text-align:left; background:var(--gris); color:var(--navy); font-weight:600;
+    text-align:left; background:var(--panel-alto); color:var(--tinta-tenue); font-weight:700;
     padding:11px 14px; border-bottom:1px solid var(--borde); white-space:nowrap;
-    text-transform:uppercase; letter-spacing:.04em; font-size:.72rem;
+    text-transform:uppercase; letter-spacing:.08em; font-size:.68rem;
   }
-  table.data td{padding:11px 14px; border-bottom:1px solid #eef1f6; vertical-align:middle;}
+  table.data td{padding:11px 14px; border-bottom:1px solid var(--borde-tenue); vertical-align:middle;}
   table.data tr:last-child td{border-bottom:0;}
-  table.data tbody tr{cursor:pointer;}
-  table.data tbody tr:hover{background:#f7f9fd;}
+  table.data tbody tr{cursor:pointer; transition:background .12s var(--curva);}
+  table.data tbody tr:hover{background:var(--realce);}
   table.data th.ord{cursor:pointer; user-select:none;}
-  table.data th.ord:hover{color:var(--blue);}
+  table.data th.ord:hover{color:var(--tinta);}
   table.data th.ord .flecha{display:inline-block; margin-left:4px; opacity:.55;}
-  table.data th.ord.activo .flecha{opacity:1;}
-  td.codigo{font-family:Consolas,monospace; color:var(--navy); font-weight:600; white-space:nowrap;}
+  table.data th.ord.activo .flecha{opacity:1; color:var(--menta);}
+  td.codigo{font-family:var(--mono); color:var(--navy); font-weight:600; white-space:nowrap;}
   td.nombre b{color:var(--navy);}
   .muted{color:var(--muted);}
 
-  .badge{display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; border-radius:999px; white-space:nowrap;}
-  .b-crudo{background:#fdf1de; color:var(--ambar);}
-  .b-revisado{background:#e3eefb; color:var(--blue);}
-  .b-procesado{background:#e3efe4; color:var(--verde);}
-  .b-descartado{background:#efe1e1; color:var(--rojo);}
-  .b-xlsx{background:#e3efe4; color:var(--verde);}
-  .b-pptx{background:#fdf1de; color:var(--ambar);}
-  .b-pdf{background:#efe1e1; color:var(--rojo);}
-  .b-otro{background:#eef1f6; color:var(--muted);}
-  .tag{display:inline-block; background:var(--gris); border:1px solid var(--borde); color:var(--muted); font-size:.72rem; padding:2px 8px; border-radius:999px; margin:0 4px 4px 0;}
+  .badge{display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:3px 10px; border-radius:var(--r-pildora); white-space:nowrap;}
+  .b-crudo{background:rgba(255,201,74,.13); color:var(--ambar);}
+  .b-revisado{background:rgba(50,198,244,.13); color:var(--blue);}
+  .b-procesado{background:rgba(46,212,122,.13); color:var(--verde);}
+  .b-descartado{background:rgba(255,107,90,.13); color:var(--rojo);}
+  .b-xlsx{background:rgba(46,212,122,.13); color:var(--verde);}
+  .b-pptx{background:rgba(255,201,74,.13); color:var(--ambar);}
+  .b-pdf{background:rgba(255,107,90,.13); color:var(--rojo);}
+  .b-otro{background:var(--panel-alto); color:var(--muted);}
+  .b-completada{background:rgba(46,212,122,.13); color:var(--verde);}
+  .b-en_progreso{background:rgba(255,201,74,.13); color:var(--ambar);}
+  .b-pendiente{background:var(--panel-alto); color:var(--muted);}
+  .tag{display:inline-block; background:var(--panel-alto); border:1px solid var(--borde); color:var(--muted); font-size:.72rem; padding:2px 9px; border-radius:var(--r-pildora); margin:0 4px 4px 0;}
+  .progreso{background:var(--panel-alto); border:1px solid var(--borde-tenue); border-radius:999px; height:8px; overflow:hidden; width:100%; max-width:260px;}
+  .progreso i{display:block; height:100%; background:var(--gradiente);}
+  .enlace-caja{display:flex; align-items:center; gap:8px; background:var(--panel-alto); border:1px solid var(--borde); border-radius:var(--r-campo); padding:8px 10px; font-size:.82rem; word-break:break-all;}
 
   .empty{padding:48px 24px; text-align:center; color:var(--muted);}
   .empty .big{font-size:2rem; margin-bottom:8px;}
 
   /* ---------- Form ---------- */
-  form.detail{background:#fff; border:1px solid var(--borde); border-radius:10px; padding:22px 24px;}
+  form.detail{background:var(--panel); border:1px solid var(--borde); border-radius:var(--r-tarjeta); padding:22px 24px; box-shadow:var(--sombra);}
   .grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px 18px;}
   .field{display:flex; flex-direction:column; gap:5px;}
   .field.full{grid-column:1/-1;}
   .field label{font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-weight:600;}
   .field input, .field select, .field textarea{
-    padding:9px 11px; border:1px solid var(--borde); border-radius:7px; font:inherit; color:var(--txt); background:#fff;
+    padding:9px 12px; border:1px solid var(--borde); border-radius:var(--r-campo); font:inherit; color:var(--txt); background:var(--panel-alto);
   }
-  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(46,117,182,.12);}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(50,198,244,.14);}
   .field textarea{resize:vertical; min-height:90px;}
-  .field textarea.big{min-height:280px; font-family:Consolas,"Segoe UI",monospace; font-size:.85rem; line-height:1.6;}
+  .field textarea.big{min-height:280px; font-family:var(--mono); font-size:.85rem; line-height:1.6;}
   .form-foot{display:flex; align-items:center; gap:10px; margin-top:20px; padding-top:16px; border-top:1px solid var(--borde);}
   .form-foot .spacer{flex:1;}
   .meta-line{font-size:.76rem; color:var(--muted); margin-top:4px;}
   .meta-line.err-text{color:var(--rojo);}
 
   /* Panel de importación con IA */
-  .import-ia{background:linear-gradient(180deg,#f2f7fd,#fff); border:1px solid var(--borde); border-left:4px solid var(--blue); border-radius:10px; padding:16px 18px; margin-bottom:16px;}
+  .import-ia{background:var(--gradiente-suave); border:1px solid var(--borde); border-left:4px solid var(--menta); border-radius:var(--r-tarjeta); padding:16px 18px; margin-bottom:16px;}
   .import-ia .row{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
   .import-ia .txt{flex:1; min-width:220px;}
   .import-ia .txt strong{color:var(--navy);}
   .import-ia .status{margin-top:10px; display:none;}
-  .spin{display:inline-block; width:13px; height:13px; border:2px solid #cdd8ea; border-top-color:var(--blue); border-radius:50%; animation:sp .7s linear infinite; vertical-align:-2px; margin-right:6px;}
+  .spin{display:inline-block; width:13px; height:13px; border:2px solid var(--borde); border-top-color:var(--blue); border-radius:50%; animation:sp .7s linear infinite; vertical-align:-2px; margin-right:6px;}
   @keyframes sp{to{transform:rotate(360deg);}}
 
-  .toast{position:fixed; right:20px; bottom:20px; background:var(--navy); color:#fff; padding:12px 18px; border-radius:8px; font-size:.88rem; box-shadow:0 8px 24px rgba(31,56,100,.25); opacity:0; transform:translateY(10px); transition:.2s; z-index:50;}
+  .toast{position:fixed; right:20px; bottom:20px; background:var(--panel); color:var(--tinta); border:1px solid var(--borde); padding:12px 18px; border-radius:var(--r-tarjeta); font-size:.88rem; font-weight:600; box-shadow:var(--sombra-alta); opacity:0; transform:translateY(10px); transition:opacity .2s var(--curva), transform .2s var(--curva); z-index:50;}
   .toast.show{opacity:1; transform:translateY(0);}
-  .toast.err{background:var(--rojo);}
+  .toast.err{border-color:rgba(255,107,90,.4); color:var(--riesgo);}
 
   .backlink{font-size:.85rem; color:var(--muted); margin-bottom:12px; display:inline-block;}
 
@@ -164,8 +203,8 @@
   .tl-day{position:relative; margin-bottom:24px;}
   .tl-date{position:relative; font-weight:700; color:var(--navy); margin-bottom:10px;}
   .tl-date::first-letter{text-transform:uppercase;}
-  .tl-dot{position:absolute; left:-24px; top:5px; width:12px; height:12px; border-radius:50%; background:var(--blue); border:2px solid #fff; box-shadow:0 0 0 2px var(--blue);}
-  .tl-ev{background:#fff; border:1px solid var(--borde); border-left:4px solid var(--blue); border-radius:8px; padding:12px 14px 10px; margin-bottom:10px;}
+  .tl-dot{position:absolute; left:-24px; top:5px; width:12px; height:12px; border-radius:50%; background:var(--gradiente); border:2px solid var(--fondo); box-shadow:0 0 0 2px var(--blue);}
+  .tl-ev{background:var(--panel); border:1px solid var(--borde); border-left:4px solid var(--blue); border-radius:var(--r-tarjeta); padding:12px 14px 10px; margin-bottom:10px;}
   .tl-ev-head{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
   .tl-ev-head b{color:var(--navy);}
   .tl-ev-head .acts{margin-left:auto; white-space:nowrap;}
@@ -175,69 +214,45 @@
   .tl-ev-meta{font-size:.76rem; color:var(--muted); margin-top:7px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
   .t-entrevista{border-left-color:var(--blue);} .t-reunion_interna{border-left-color:var(--navy);}
   .t-hito{border-left-color:var(--ambar);} .t-entregable{border-left-color:var(--verde);}
-  .t-analisis{border-left-color:#8494b0;} .t-decision{border-left-color:var(--rojo);} .t-visita{border-left-color:#0f6b74;}
-  .b-ev-entrevista{background:#e3eefb; color:var(--blue);} .b-ev-reunion_interna{background:#e6eaf3; color:var(--navy);}
-  .b-ev-hito{background:#fdf1de; color:var(--ambar);} .b-ev-entregable{background:#e3efe4; color:var(--verde);}
-  .b-ev-analisis{background:#eef1f6; color:#55627a;} .b-ev-decision{background:#efe1e1; color:var(--rojo);} .b-ev-visita{background:#e0eff0; color:#0f6b74;}
+  .t-analisis{border-left-color:var(--tinta-tenue);} .t-decision{border-left-color:var(--rojo);} .t-visita{border-left-color:var(--cian);}
+  .b-ev-entrevista{background:rgba(50,198,244,.13); color:var(--blue);} .b-ev-reunion_interna{background:var(--panel-alto); color:var(--navy);}
+  .b-ev-hito{background:rgba(255,201,74,.13); color:var(--ambar);} .b-ev-entregable{background:rgba(46,212,122,.13); color:var(--verde);}
+  .b-ev-analisis{background:var(--panel-alto); color:var(--tinta-media);} .b-ev-decision{background:rgba(255,107,90,.13); color:var(--rojo);} .b-ev-visita{background:rgba(50,198,244,.1); color:var(--cian);}
   .tl-resumen{font-size:.82rem; color:var(--muted); margin:0 0 14px;}
 
-  /* ---------- Asistente IA ---------- */
-  .chat{display:flex; flex-direction:column; height:calc(100vh - 165px); min-height:420px;}
-  .chat-msgs{flex:1; overflow-y:auto; padding:4px 2px 12px; display:flex; flex-direction:column; gap:14px;}
-  .msg{max-width:82%; border-radius:12px; padding:10px 14px; font-size:.92rem; line-height:1.5;}
-  .msg.u{align-self:flex-end; background:var(--navy); color:#fff; border-bottom-right-radius:4px; white-space:pre-wrap;}
-  .msg.a{align-self:flex-start; background:#fff; border:1px solid var(--borde); border-bottom-left-radius:4px; color:var(--txt);}
-  .msg.a p{margin:0 0 8px;} .msg.a p:last-child{margin-bottom:0;}
-  .msg.a h3,.msg.a h4{color:var(--navy); margin:10px 0 6px; font-size:1rem;} .msg.a h4{font-size:.92rem;}
-  .msg.a ul{margin:4px 0 8px 18px; padding:0;} .msg.a li{margin:2px 0;}
-  .msg.a blockquote{border-left:3px solid var(--blue); margin:6px 0; padding:2px 10px; color:#4a5a75; font-style:italic; background:#f4f7fb;}
-  .msg.a code{background:#eef1f6; border-radius:4px; padding:1px 5px; font-size:.85em;}
-  .msg.a .chip-tool{display:inline-flex; align-items:center; gap:6px; background:#eef4fb; color:var(--blue); border:1px solid #d6e4f5; border-radius:999px; padding:2px 10px; font-size:.78rem; margin:3px 4px 3px 0;}
-  .msg.a.err{border-left:4px solid var(--rojo);}
-  .pensando{display:inline-block; animation:pulso 1.2s infinite;}
-  @keyframes pulso{0%,100%{opacity:.35;}50%{opacity:.9;}}
-  .chat-form{display:flex; gap:8px; margin-top:12px; align-items:flex-end;}
-  .chat-form textarea{flex:1; resize:none; border:1px solid var(--borde); border-radius:10px; padding:10px 12px; font:inherit; font-size:.92rem; max-height:140px; background:#fff;}
-  .chat-form textarea:focus{outline:2px solid var(--blue); border-color:transparent;}
-  .sugerencias{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
-  .sugerencias button{background:#fff; border:1px solid var(--borde); border-radius:999px; padding:6px 12px; font-size:.82rem; color:var(--navy); cursor:pointer;}
-  .sugerencias button:hover{border-color:var(--blue); color:var(--blue);}
+  /* Asistente IA: el componente de chat vive en estilo/app.css §36.5
+     (.chat-lienzo/.hilo-chat/.turno/.burbuja) — compartido con el resto del
+     sitio, no se duplica aquí. */
+  .sugerencias{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 14px;}
 
   /* ---------- Vista previa de archivos (modal) ---------- */
   .fila-arch{cursor:pointer;}
-  .fila-arch:hover td{background:#f4f7fb;}
-  .prev-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:200;display:none;align-items:center;justify-content:center;padding:18px;}
-  .prev-bg.open{display:flex;}
-  .prev-box{background:#fff;border-radius:14px;box-shadow:0 24px 70px rgba(15,23,42,.35);width:min(1100px,96vw);height:min(780px,92vh);display:flex;flex-direction:column;overflow:hidden;}
-  .prev-head{display:flex;align-items:center;gap:10px;padding:11px 16px;background:var(--navy);color:#fff;flex-wrap:wrap;}
-  .prev-head b{font-size:14px;max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .prev-head .meta{font-size:12px;opacity:.8;}
-  .prev-head .sp{flex:1;}
-  .prev-head button,.prev-head a{background:rgba(255,255,255,.14);border:none;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit;font-size:12.5px;text-decoration:none;}
-  .prev-head button:hover,.prev-head a:hover{background:rgba(255,255,255,.28);}
-  .prev-body{flex:1;overflow:auto;background:#f6f8fb;}
-  .prev-body iframe{width:100%;height:100%;border:0;display:block;}
-  .prev-body img{max-width:100%;display:block;margin:14px auto;border-radius:8px;box-shadow:0 4px 18px rgba(15,23,42,.15);}
-  .prev-pad{padding:14px 18px;}
-  .prev-body pre{white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--borde);border-radius:8px;padding:12px;margin:0 0 10px;}
+  .fila-arch:hover td{background:var(--realce);}
+  /* Vista previa de archivos: vive DENTRO del modal compartido
+     (.modal-caja.grande) — ya no tiene su propio fondo/caja/cabecera. Solo
+     quedan las reglas del CONTENIDO de la vista previa. */
+  .prev-body{background:var(--fondo); border-radius:var(--r-tarjeta); padding:14px 16px;}
+  .prev-body iframe{width:100%;height:70vh;border:0;display:block;}
+  .prev-body img{max-width:100%;display:block;margin:0 auto;border-radius:var(--r-campo);box-shadow:var(--sombra);}
+  .prev-body pre{white-space:pre-wrap;font-size:12px;background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-campo);padding:12px;margin:0 0 10px;}
   .prev-hoja{font-weight:700;color:var(--navy);margin:14px 0 6px;font-size:13px;}
-  .prev-body table.hoja{border-collapse:collapse;background:#fff;font-size:11.5px;margin-bottom:8px;}
-  .prev-body table.hoja td{border:1px solid #e2e8f2;padding:3px 8px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;}
-  .prev-body table.hoja tr:first-child td{background:#eef2f8;font-weight:600;}
-  .prev-sintesis{background:#fdf6e7;border:1px solid #ecd9a8;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12.5px;}
-  .prev-sintesis summary{cursor:pointer;font-weight:700;color:#7a4a00;}
-  .prev-cargando{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:13px;gap:8px;}
+  .prev-body table.hoja{border-collapse:collapse;background:var(--panel);font-size:11.5px;margin-bottom:8px;}
+  .prev-body table.hoja td{border:1px solid var(--borde-tenue);padding:3px 8px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;}
+  .prev-body table.hoja tr:first-child td{background:var(--panel-alto);font-weight:600;}
+  .prev-sintesis{background:rgba(255,201,74,.09);border:1px solid rgba(255,201,74,.3);border-radius:var(--r-tarjeta);padding:10px 14px;margin-bottom:12px;font-size:12.5px;}
+  .prev-sintesis summary{cursor:pointer;font-weight:700;color:var(--ambar);}
+  .prev-cargando{display:flex;align-items:center;justify-content:center;padding:40px;color:var(--muted);font-size:13px;gap:8px;}
 
   /* ---------- Accesos: usuarios · roles y permisos ---------- */
-  .b-admin-rol{background:#e3eefb; color:var(--navy);}
-  .b-consultor{background:#e3efe4; color:var(--verde);}
-  .b-junta{background:#efeaf7; color:#5b3a8e;}
-  .b-pendiente{background:#fdf1de; color:var(--ambar);}
-  .b-baja{background:#efe1e1; color:var(--rojo);}
-  td.correo{font-family:Consolas,monospace; font-size:.83rem; color:var(--navy); white-space:nowrap;}
-  .yo{font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; background:var(--navy); color:#fff; border-radius:999px; padding:1px 7px; margin-left:6px;}
+  .b-admin-rol{background:rgba(50,198,244,.13); color:var(--navy);}
+  .b-consultor{background:rgba(46,212,122,.13); color:var(--verde);}
+  .b-junta{background:rgba(54,246,187,.13); color:#0B769E;}
+  .b-pendiente{background:rgba(255,201,74,.13); color:var(--ambar);}
+  .b-baja{background:rgba(255,107,90,.13); color:var(--rojo);}
+  td.correo{font-family:var(--mono); font-size:.83rem; color:var(--navy); white-space:nowrap;}
+  .yo{font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; background:var(--gradiente); color:#04212B; border-radius:999px; padding:1px 8px; margin-left:6px; font-weight:700;}
   .acciones-fila{display:flex; gap:6px; justify-content:flex-end; white-space:nowrap;}
-  .acciones-fila .btn{padding:5px 9px; font-size:.8rem;}
+  .acciones-fila .btn{padding:5px 11px; font-size:.8rem;}
 
   /* generador de claves */
   .clave-caja{display:flex; gap:8px; align-items:stretch;}
@@ -248,32 +263,32 @@
   .pista.bien{color:var(--verde);}
 
   /* matriz rol × permiso */
-  .matriz-envoltura{overflow-x:auto;}
+  .matriz-envoltura{overflow-x:auto; border:1px solid var(--borde); border-radius:var(--r-tarjeta); background:var(--panel);}
   table.matriz{border-collapse:collapse; font-size:.86rem; width:100%; min-width:640px;}
-  table.matriz th, table.matriz td{border-bottom:1px solid #eef1f6; padding:9px 12px; text-align:center;}
+  table.matriz th, table.matriz td{border-bottom:1px solid var(--borde-tenue); padding:9px 12px; text-align:center;}
   table.matriz thead th{
-    background:var(--gris); color:var(--navy); font-size:.74rem; text-transform:uppercase;
-    letter-spacing:.04em; border-bottom:1px solid var(--borde); white-space:nowrap; vertical-align:bottom;
+    background:var(--panel-alto); color:var(--tinta-tenue); font-size:.68rem; text-transform:uppercase;
+    letter-spacing:.08em; font-weight:700; border-bottom:1px solid var(--borde); white-space:nowrap; vertical-align:bottom;
   }
   table.matriz thead th .cuenta{display:block; font-size:.66rem; font-weight:400; color:var(--muted); text-transform:none; letter-spacing:0;}
-  table.matriz th.permiso{text-align:left; max-width:430px; white-space:normal; position:sticky; left:0; background:#fff; z-index:1;}
-  table.matriz thead th.permiso{background:var(--gris); z-index:2;}
+  table.matriz th.permiso{text-align:left; max-width:430px; white-space:normal; position:sticky; left:0; background:var(--panel); z-index:1;}
+  table.matriz thead th.permiso{background:var(--panel-alto); z-index:2;}
   table.matriz th.permiso b{display:block; color:var(--navy); font-size:.88rem; font-weight:600;}
   table.matriz th.permiso span{display:block; color:var(--muted); font-size:.78rem; font-weight:400; margin-top:2px;}
   table.matriz tr.grupo td{
-    background:#f7f9fd; color:var(--navy); text-align:left; font-size:.72rem; font-weight:700;
+    background:var(--panel-alto); color:var(--navy); text-align:left; font-size:.72rem; font-weight:700;
     text-transform:uppercase; letter-spacing:.1em; padding:8px 12px;
   }
-  table.matriz td.celda{cursor:pointer; width:110px;}
-  table.matriz td.celda:hover{background:#f2f6fd;}
+  table.matriz td.celda{cursor:pointer; width:110px; transition:background .12s var(--curva);}
+  table.matriz td.celda:hover{background:var(--realce);}
   table.matriz td.celda.fijo{cursor:not-allowed;}
   table.matriz td.celda.fijo:hover{background:transparent;}
   .marca{
-    display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;
-    border-radius:6px; border:1px solid var(--borde); background:#fff; color:#c7ccd6; font-size:.9rem;
+    display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px;
+    border-radius:50%; border:1px solid var(--borde); background:var(--panel); color:var(--tinta-tenue); font-size:.85rem;
   }
-  .marca.si{background:var(--verde); border-color:var(--verde); color:#fff;}
-  .marca.fijo{background:#dfe6ef; border-color:#cfd8e5; color:#8b97a8;}
+  .marca.si{background:var(--gradiente); border-color:transparent; color:#04212B; font-weight:700;}
+  .marca.fijo{background:var(--panel-alto); border-color:var(--tinta-tenue); color:var(--tinta-tenue);}
   .leyenda{display:flex; gap:16px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin-top:12px;}
   .leyenda span{display:flex; align-items:center; gap:6px;}
 
@@ -281,14 +296,14 @@
   .menu-toggle{display:none; background:none; border:none; color:var(--navy); font-size:22px; line-height:1; cursor:pointer; padding:2px 8px; margin-right:2px;}
   .scrim{display:none;}
   @media (max-width:820px){
-    .app{grid-template-columns:1fr;}
+    .app-panel{grid-template-columns:1fr;}
     .menu-toggle{display:inline-flex; align-items:center;}
     .sidebar{
       position:fixed; top:0; left:0; bottom:0; height:100vh; width:270px; max-width:84vw; z-index:60;
-      transform:translateX(-100%); transition:transform .25s ease; box-shadow:6px 0 26px rgba(23,32,54,.28);
+      transform:translateX(-100%); transition:transform .25s var(--curva); box-shadow:var(--sombra-alta);
     }
     body.nav-open .sidebar{transform:translateX(0);}
-    body.nav-open .scrim{display:block; position:fixed; inset:0; background:rgba(15,25,45,.5); z-index:55;}
+    body.nav-open .scrim{display:block; position:fixed; inset:0; background:rgba(6,9,13,.5); z-index:55;}
     nav{display:block;}
     .sesion .quien{display:none;}
     .topbar{padding:8px 14px;}
@@ -307,32 +322,39 @@
 </head>
 <body>
 <div class="scrim" onclick="document.body.classList.remove('nav-open')"></div>
-<div class="app">
+<div class="app-panel">
   <aside class="sidebar">
     <div class="brand">
-      <div class="kicker">UCAB Consultores · Kenex</div>
-      <h1>Proyecto Rower</h1>
-      <div class="sub">Panel administrativo</div>
+      <span class="orbe orbe-grande" aria-hidden="true"></span>
+      <div class="textos">
+        <div class="kicker">UCAB Consultores · Kenex</div>
+        <h1>proyecto rower</h1>
+        <div class="sub">Panel administrativo</div>
+      </div>
     </div>
     <nav id="nav">
       <div class="group">Asistente</div>
-      <a class="item" data-route="asistente" href="#asistente"><span class="ico">💬</span> Asistente IA</a>
+      <a class="item" data-route="asistente" href="#asistente"><span class="ico">✦</span> Asistente IA</a>
       <div class="group">Insumos</div>
-      <a class="item" data-route="entrevistas" href="#entrevistas"><span class="ico">🎙️</span> Entrevistas transcritas</a>
-      <a class="item" data-route="archivos" href="#archivos"><span class="ico">📁</span> Archivos (insumos)</a>
+      <a class="item" data-route="entrevistas" href="#entrevistas"><span class="ico">▤</span> Entrevistas transcritas</a>
+      <a class="item" data-route="archivos" href="#archivos"><span class="ico">▦</span> Archivos (insumos)</a>
       <div class="group">Seguimiento</div>
-      <a class="item" data-route="timeline" href="#timeline"><span class="ico">🗓️</span> Línea de tiempo</a>
+      <a class="item" data-route="timeline" href="#timeline"><span class="ico">⧖</span> Línea de tiempo</a>
+      <div class="group">Personal</div>
+      <a class="item" data-route="personal" href="#personal"><span class="ico">◎</span> Censo y enlaces</a>
+      <a class="item" data-route="fichas" href="#fichas"><span class="ico">◈</span> Fichas recibidas</a>
       <div class="group">Accesos</div>
-      <a class="item" data-route="usuarios" href="#usuarios"><span class="ico">👤</span> Usuarios</a>
-      <a class="item" data-route="roles" href="#roles"><span class="ico">🔑</span> Roles y permisos</a>
+      <a class="item" data-route="usuarios" href="#usuarios"><span class="ico">⬤</span> Usuarios</a>
+      <a class="item" data-route="roles" href="#roles"><span class="ico">◆</span> Roles y permisos</a>
       <div class="group">Informe (próximamente)</div>
-      <a class="item" data-route="secciones" href="#secciones"><span class="ico">📄</span> Estado del informe <span class="soon">Pronto</span></a>
-      <a class="item" data-route="comentarios" href="#comentarios"><span class="ico">💬</span> Comentarios <span class="soon">Pronto</span></a>
-      <a class="item" data-route="riesgos" href="#riesgos"><span class="ico">⚠️</span> Matriz de riesgos <span class="soon">Pronto</span></a>
+      <a class="item" data-route="secciones" href="#secciones"><span class="ico">◇</span> Estado del informe <span class="soon">Pronto</span></a>
+      <a class="item" data-route="comentarios" href="#comentarios"><span class="ico">✎</span> Comentarios <span class="soon">Pronto</span></a>
+      <a class="item" data-route="riesgos" href="#riesgos"><span class="ico">▲</span> Matriz de riesgos <span class="soon">Pronto</span></a>
     </nav>
     <div class="side-foot">
-      <a href="../index.html">← Volver al portal</a>
-      <a href="../informe/fase1/informe-diagnostico-fase1.html">📘 Ver informe (Front)</a>
+      <a href="../index.html">← volver al portal</a>
+      <a href="../informe/fase1/informe-diagnostico-fase1.html">◫ ver informe (front)</a>
+      <a href="../sistema/index.html">⬡ ver prototipo del sistema</a>
     </div>
   </aside>
 
@@ -340,6 +362,7 @@
     <div class="topbar">
       <button class="menu-toggle" onclick="document.body.classList.toggle('nav-open')" aria-label="Menú">☰</button>
       <div class="conn"><span class="dot" id="connDot"></span> <span id="connTxt">Conectando…</span></div>
+      <button class="btn" id="btnTema" type="button" title="Cambiar tema" style="margin-left:auto; padding:6px 10px;">🌙</button>
       <div class="sesion" id="sesionBox">
         <span class="ini" id="sesIni">·</span>
         <span class="quien" id="sesQuien">Sesión activa</span>
@@ -427,6 +450,8 @@ const routes = {
   entrevistas: renderEntrevistas,
   archivos:    renderArchivos,
   timeline:    renderTimeline,
+  personal:    renderPersonal,
+  fichas:      renderFichas,
   usuarios:    renderUsuarios,
   roles:       renderRoles,
   secciones:   ()=> stub('Estado del informe','Espejo operable de la tabla <code>secciones</code> — próximamente.'),
@@ -437,10 +462,11 @@ const routes = {
 /* Qué permiso pide cada módulo (el mismo que comprueban las políticas). */
 const PERMISO_RUTA = {
   asistente:'admin.asistente', entrevistas:'admin.entrevistas', archivos:'admin.archivos',
-  timeline:'admin.timeline', usuarios:'admin.usuarios', roles:'admin.roles',
+  timeline:'admin.timeline', personal:'admin.personal', fichas:'admin.fichas',
+  usuarios:'admin.usuarios', roles:'admin.roles',
   secciones:'admin.informe', comentarios:'admin.informe', riesgos:'admin.informe',
 };
-const ORDEN_RUTAS = ['asistente','entrevistas','archivos','timeline','secciones','comentarios','riesgos','usuarios','roles'];
+const ORDEN_RUTAS = ['asistente','entrevistas','archivos','timeline','personal','fichas','secciones','comentarios','riesgos','usuarios','roles'];
 
 /** La primera ruta que esta cuenta sí puede abrir. */
 function rutaInicial(){
@@ -478,13 +504,14 @@ function sinPermiso(ruta, permiso){
   const otra = rutaInicial();
   const nombre = ({ 'admin.asistente':'el Asistente IA', 'admin.entrevistas':'las entrevistas transcritas',
     'admin.archivos':'los archivos e insumos', 'admin.timeline':'la línea de tiempo',
+    'admin.personal':'el censo de personal y sus enlaces', 'admin.fichas':'las fichas de perfil recibidas',
     'admin.usuarios':'la administración de usuarios', 'admin.roles':'la definición de roles',
     'admin.informe':'el estado del informe' })[permiso] || 'este módulo';
   view.innerHTML = `
     <div class="page-head"><div><h2>Sin acceso a este módulo</h2>
       <p>Tu rol <b>${esc((PERFIL && PERFIL.rol_nombre) || '—')}</b> no incluye ${esc(nombre)}.</p></div></div>
     <div class="card"><div class="empty">
-      <div class="big">🔒</div>
+      <div class="big">▣</div>
       <p>El permiso que hace falta es <code>${esc(permiso)}</code>.</p>
       <p class="muted" style="margin-top:8px">Pídeselo a quien administre los accesos del proyecto.</p>
       ${otra ? `<p style="margin-top:16px"><a class="btn" href="#${otra}">Ir a lo que sí puedes ver</a></p>` : ''}
@@ -493,7 +520,7 @@ function sinPermiso(ruta, permiso){
 
 function stub(title, html){
   view.innerHTML = `<div class="page-head"><div><h2>${esc(title)}</h2></div></div>
-    <div class="card"><div class="empty"><div class="big">🚧</div>${html}</div></div>`;
+    <div class="card"><div class="empty"><div class="big">◇</div>${html}</div></div>`;
 }
 
 /* ---------- Orden de columnas (tablas «data») ---------- */
@@ -526,37 +553,150 @@ function bindOrd(theadEl, estado, onChange){
   });
 }
 
+/* ---------- Agrupación de tablas (patrón compartido) ----------
+   Regla global: cualquier tabla del panel puede agruparse por una de sus
+   columnas. Cada grupo sale como una fila cabecera clickeable —colapsa o
+   expande sus filas— con el conteo. Agrupar respeta el orden ya aplicado
+   (Map conserva el orden de inserción, y las filas ya vinieron ordenadas). */
+function agrupar(rows, campo){
+  const grupos = new Map();
+  rows.forEach(r=>{
+    const crudo = r[campo];
+    const clave = (crudo==null || crudo==='') ? '— sin asignar —' : String(crudo).trim();
+    if(!grupos.has(clave)) grupos.set(clave, []);
+    grupos.get(clave).push(r);
+  });
+  return [...grupos.entries()].sort((a,b)=>{
+    if(a[0]==='— sin asignar —') return 1;
+    if(b[0]==='— sin asignar —') return -1;
+    return a[0].localeCompare(b[0],'es');
+  });
+}
+/** rows ya ordenadas · campo agrupador (''=sin agrupar) · nº de columnas (colspan) · fn que pinta una fila */
+function filasAgrupadas(rows, campo, colspan, pintarFila){
+  if(!campo) return rows.map(pintarFila).join('');
+  return agrupar(rows, campo).map(([clave, filas])=> `
+    <tr class="fila-grupo" data-grupo="${esc(clave)}">
+      <td colspan="${colspan}"><span class="flecha-grupo">▸</span> ${esc(clave)} <span class="cuenta-grupo">${filas.length}</span></td>
+    </tr>
+    ${filas.map(pintarFila).join('')}`
+  ).join('');
+}
+/** cablea el clic de cada cabecera de grupo dentro de un contenedor ya pintado */
+function bindGrupos(contenedor){
+  $$('.fila-grupo', contenedor).forEach(cab=>{
+    cab.addEventListener('click', ()=>{
+      const colapsa = !cab.classList.contains('colapsado');
+      cab.classList.toggle('colapsado', colapsa);
+      let sib = cab.nextElementSibling;
+      while(sib && !sib.classList.contains('fila-grupo')){ sib.hidden = colapsa; sib = sib.nextElementSibling; }
+    });
+  });
+}
+/** construye el <select> "Agrupar por" a partir de {campo,label} — opción vacía = sin agrupar */
+function selectAgrupar(id, opciones, actual){
+  return `<select class="filtro" id="${id}"><option value="">Sin agrupar</option>${
+    opciones.map(o=>`<option value="${esc(o.campo)}"${o.campo===actual?' selected':''}>Agrupar por ${esc(o.label)}</option>`).join('')
+  }</select>`;
+}
+/** colapsa (o expande) TODOS los grupos ya pintados dentro de un contenedor */
+function colapsarTodosGrupos(contenedor, colapsar){
+  $$('.fila-grupo', contenedor).forEach(cab=>{
+    cab.classList.toggle('colapsado', colapsar);
+    let sib = cab.nextElementSibling;
+    while(sib && !sib.classList.contains('fila-grupo')){ sib.hidden = colapsar; sib = sib.nextElementSibling; }
+  });
+}
+/** botón "colapsar todo / expandir todo": léelo del primer grupo pintado, sin estado aparte */
+function botonColapsarTodo(id){
+  return `<button type="button" class="btn btn-fantasma btn-mini" id="${id}">⊟ colapsar todo</button>`;
+}
+function bindColapsarTodo(id, contenedor){
+  const btn = document.getElementById(id); if(!btn) return;
+  btn.addEventListener('click', ()=>{
+    const cabs = $$('.fila-grupo', contenedor);
+    if(!cabs.length) return;
+    const colapsar = !cabs[0].classList.contains('colapsado');
+    colapsarTodosGrupos(contenedor, colapsar);
+    btn.textContent = colapsar ? '⊞ expandir todo' : '⊟ colapsar todo';
+  });
+}
+
 /* ============================================================
    Módulo: Entrevistas transcritas
+   ------------------------------------------------------------
+   La lista es la pantalla — alta y detalle son SIEMPRE un modal
+   (`#entModalFondo`), nunca una subruta. Es la regla del módulo, no una
+   excepción: nada de navegar a #entrevistas/<id>.
    ============================================================ */
 let cache = [];   // filas cargadas
 let ordEntrevistas = { col:'codigo', dir:1 };
+let agrupEntrevistas = '';   // campo por el que se agrupa la tabla ('' = sin agrupar)
+let entEditId = null;   // id en edición, o null si el modal abrió para "nueva"
+const AGRUPADORES_ENTREVISTAS = [
+  {campo:'area', label:'área'}, {campo:'pais', label:'país'},
+  {campo:'estado', label:'estado'}, {campo:'entrevistador', label:'entrevistador'},
+];
 
 async function renderEntrevistas(){
-  // ¿detalle? #entrevistas/<id> o #entrevistas/nueva
-  const parts = location.hash.replace('#','').split('/');
-  if(parts[1]) return renderDetalle(parts[1]);
-
   view.innerHTML = `
-    <div class="page-head">
-      <div><h2>Entrevistas transcritas</h2><p>Repositorio de crudos de entrevistas del diagnóstico. Cotejar códigos con el Anexo A.</p></div>
-      <div class="actions"><a class="btn primary" href="#entrevistas/nueva">＋ Nueva entrevista</a></div>
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">insumos · corpus del proyecto</div>
+        <div class="titulo-seccion" style="margin-top:4px">entrevistas transcritas</div>
+      </div>
+      <button class="btn btn-marca" id="entNueva">＋ nueva entrevista</button>
     </div>
+    <div class="rejilla rejilla-4 gap-12" id="entKpis" style="margin-bottom:20px"></div>
     <div class="toolbar">
-      <div class="search"><input id="q" type="search" placeholder="Buscar por código, nombre, cargo, país, etiqueta…"></div>
-      <select class="filter" id="fEstado"><option value="">Todos los estados</option>${ESTADOS.map(e=>`<option>${e}</option>`).join('')}</select>
-      <select class="filter" id="fArea"><option value="">Todas las áreas</option>${AREAS.map(a=>`<option>${a}</option>`).join('')}</select>
+      <div class="buscador"><input class="campo" id="q" type="search" placeholder="Buscar por código, nombre, cargo, país, etiqueta…"></div>
+      <select class="filtro" id="fEstado"><option value="">Todos los estados</option>${ESTADOS.map(e=>`<option>${e}</option>`).join('')}</select>
+      <select class="filtro" id="fArea"><option value="">Todas las áreas</option>${AREAS.map(a=>`<option>${a}</option>`).join('')}</select>
+      ${selectAgrupar('agrupEnt', AGRUPADORES_ENTREVISTAS, agrupEntrevistas)}
+      ${botonColapsarTodo('entColapsarTodo')}
     </div>
-    <div class="card" id="listCard"><div class="empty">Cargando…</div></div>`;
+    <div id="listCard"><div class="card"><div class="empty">Cargando…</div></div></div>
+
+    <div class="modal-fondo" id="entModalFondo"><div class="modal-caja grande" id="entModalCaja"></div></div>`;
 
   $('#q').addEventListener('input', paint);
   $('#fEstado').addEventListener('change', paint);
   $('#fArea').addEventListener('change', paint);
+  $('#agrupEnt').addEventListener('change', (e)=>{ agrupEntrevistas = e.target.value; paint(); });
+  bindColapsarTodo('entColapsarTodo', document.getElementById('listCard'));
+  $('#entNueva').addEventListener('click', ()=> abrirModalEntrevista(null));
+  $('#entModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='entModalFondo') cerrarModalEntrevista(); });
+  document.addEventListener('keydown', escCierraModalEntrevistas);
 
-  if(!db){ $('#listCard').innerHTML = errBox('No hay conexión con la base de datos.'); return; }
+  if(!db){ $('#listCard').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
+  await recargarEntrevistas();
+}
+
+function escCierraModalEntrevistas(e){
+  if(e.key==='Escape' && $('#entModalFondo')?.classList.contains('on')) cerrarModalEntrevista();
+}
+
+async function recargarEntrevistas(){
   const { data, error } = await db.from('entrevistas').select('*').order('codigo',{nullsFirst:false}).order('creado_en');
-  if(error){ setConn('err','Error de conexión'); $('#listCard').innerHTML = errBox(error.message); return; }
-  setConn('ok','Conectado · Supabase'); cache = data || []; paint();
+  if(error){
+    setConn('err','Error de conexión');
+    const w = $('#listCard'); if(w) w.innerHTML = `<div class="card">${errBox(error.message)}</div>`;
+    return;
+  }
+  setConn('ok','Conectado · Supabase'); cache = data || []; pintarKpisEntrevistas(); paint();
+}
+
+function pintarKpisEntrevistas(){
+  const el = $('#entKpis'); if(!el) return;
+  const porEstado = {}; ESTADOS.forEach(e=> porEstado[e]=0);
+  cache.forEach(r=>{ if(porEstado[r.estado]!=null) porEstado[r.estado]++; });
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">total</span><span class="valor">${cache.length}</span><span class="pie">entrevistas cargadas</span></div></div>
+    ${ESTADOS.map(e=>`
+      <div class="tarjeta"><div class="kpi">
+        <span class="rotulo">${esc(e)}</span><span class="valor">${porEstado[e]}</span>
+        <span class="pie">${porEstado[e]===1?'entrevista':'entrevistas'}</span>
+      </div></div>`).join('')}`;
 }
 
 function paint(){
@@ -570,9 +710,10 @@ function paint(){
     return hay.includes(q);
   });
   rows = ordenarFilas(rows, ordEntrevistas);
-  const card = $('#listCard');
+  const wrap = $('#listCard'); if(!wrap) return;
   if(!rows.length){
-    card.innerHTML = `<div class="empty"><div class="big">🗒️</div>${cache.length? 'Ningún resultado con esos filtros.' : 'Aún no hay entrevistas cargadas.'}<br><a class="btn primary" style="margin-top:14px" href="#entrevistas/nueva">＋ Cargar la primera</a></div>`;
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">▤</div>${cache.length? 'Ningún resultado con esos filtros.' : 'Aún no hay entrevistas cargadas.'}<br><button class="btn btn-marca" style="margin-top:14px" id="entVacioNueva">＋ cargar la primera</button></div></div>`;
+    $('#entVacioNueva')?.addEventListener('click', ()=> abrirModalEntrevista(null));
     return;
   }
   const cols = [
@@ -580,87 +721,114 @@ function paint(){
     {col:'cargo', label:'Cargo'}, {col:'area', label:'Área'},
     {col:'pais', label:'País'}, {col:'fecha', label:'Fecha'}, {col:'estado', label:'Estado'},
   ];
-  card.innerHTML = `<table class="data">
-    <thead>${theadOrd(cols, ordEntrevistas)}</thead>
-    <tbody>${rows.map(r=>`
+  const pintarFilaEnt = r => `
       <tr data-id="${esc(r.id)}">
-        <td class="codigo">${esc(r.codigo||'—')}</td>
-        <td class="nombre"><b>${esc(r.entrevistado)}</b>${(r.etiquetas&&r.etiquetas.length)?`<div style="margin-top:4px">${r.etiquetas.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}</td>
-        <td class="muted">${esc(r.cargo||'—')}</td>
+        <td class="col-sku">${esc(r.codigo||'—')}</td>
+        <td><b>${esc(r.entrevistado)}</b>${(r.etiquetas&&r.etiquetas.length)?`<div style="margin-top:4px">${r.etiquetas.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>`:''}</td>
+        <td class="tenue">${esc(r.cargo||'—')}</td>
         <td>${esc(r.area||'—')}</td>
         <td>${esc(r.pais||'—')}</td>
-        <td class="muted">${esc(r.fecha||'—')}</td>
-        <td>${badge(r.estado)}</td>
-      </tr>`).join('')}
-    </tbody></table>`;
+        <td class="tenue">${esc(r.fecha||'—')}</td>
+        <td><span class="marca-estado ${claseEstado(r.estado)}"><i class="punto"></i>${esc(r.estado)}</span></td>
+      </tr>`;
+  wrap.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+    <thead>${theadOrd(cols, ordEntrevistas)}</thead>
+    <tbody>${filasAgrupadas(rows, agrupEntrevistas, cols.length, pintarFilaEnt)}</tbody>
+  </table></div>`;
   bindOrd($('#listCard thead'), ordEntrevistas, paint);
-  $$('#listCard tbody tr').forEach(tr=> tr.addEventListener('click', ()=> location.hash = `entrevistas/${tr.dataset.id}`));
+  bindGrupos($('#listCard'));
+  $$('#listCard tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalEntrevista(tr.dataset.id)));
+}
+
+function claseEstado(estado){
+  return { crudo:'e-alerta', revisado:'e-neutro', procesado:'e-ok', descartado:'e-riesgo' }[estado] || 'e-neutro';
 }
 
 function errBox(msg){ return `<div class="empty"><div class="big">⚠️</div>${esc(msg)}</div>`; }
 
-/* ---------- Detalle / edición / alta ---------- */
-async function renderDetalle(id){
-  const nueva = (id==='nueva');
+/* ---------- Modal: alta / detalle-edición ---------- */
+function abrirModalEntrevista(id){
+  const nueva = !id;
+  entEditId = nueva ? null : id;
   let row = { estado:'crudo', etiquetas:[] };
-  if(!nueva){
-    row = cache.find(r=> String(r.id)===String(id));
-    if(!row && db){
-      const { data } = await db.from('entrevistas').select('*').eq('id', id).single();
-      row = data || row;
-    }
-  }
+  if(!nueva) row = cache.find(r=> String(r.id)===String(id)) || row;
   const opt = (arr, val)=> arr.map(o=>`<option${o===val?' selected':''}>${esc(o)}</option>`).join('');
+  const chars = row.transcripcion ? row.transcripcion.length.toLocaleString('es') + ' caracteres' : 'vacía';
 
-  view.innerHTML = `
-    <a class="backlink" href="#entrevistas">← Volver al listado</a>
-    <div class="page-head">
-      <div><h2>${nueva?'Nueva entrevista':'Editar entrevista'}</h2>
-      <p>${nueva?'Sube el crudo y deja que la IA rellene los campos.':'Código '+esc(row.codigo||'—')}</p></div>
+  $('#entModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">${nueva ? 'nueva entrevista' : esc(row.codigo||'sin código')}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${nueva ? 'Sube el crudo y deja que la IA rellene los campos' : esc(row.entrevistado||'—')}</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="entCerrar" aria-label="Cerrar">✕ cerrar</button>
     </div>
-
-    <div class="import-ia">
-      <div class="row">
-        <div class="txt">
-          <strong>✨ Autocompletar con IA</strong>
-          <div class="muted" style="font-size:.85rem;">Sube el crudo (<code>.md</code>, <code>.json</code> o <code>.txt</code>) y la IA rellena el formulario. Revisa antes de guardar.</div>
+    <div class="modal-cuerpo">
+      <div class="import-ia" style="margin-bottom:20px;">
+        <div class="row">
+          <div class="txt">
+            <strong>✨ Autocompletar con IA</strong>
+            <div class="muted" style="font-size:.85rem;">Sube el crudo (<code>.md</code>, <code>.json</code> o <code>.txt</code>) y la IA rellena el formulario. Revisa antes de guardar.</div>
+          </div>
+          <label class="btn btn-humano" style="cursor:pointer; margin:0;">
+            ▥ elegir archivo
+            <input id="fileImport" type="file" accept=".md,.markdown,.json,.txt,.text" style="display:none;">
+          </label>
         </div>
-        <label class="btn primary" style="cursor:pointer; margin:0;">
-          📄 Elegir archivo
-          <input id="fileImport" type="file" accept=".md,.markdown,.json,.txt,.text" style="display:none;">
-        </label>
+        <div id="importStatus" class="meta-line status"></div>
       </div>
-      <div id="importStatus" class="meta-line status"></div>
+
+      <form id="frm">
+        <div class="sobretitulo" style="margin-bottom:10px;">identificación</div>
+        <div class="grid2">
+          <div class="field"><label>Código</label><input class="campo" name="codigo" value="${esc(row.codigo||'')}" placeholder="E-01"></div>
+          <div class="field"><label>Entrevistado *</label><input class="campo" name="entrevistado" required value="${esc(row.entrevistado||'')}"></div>
+          <div class="field"><label>Cargo</label><input class="campo" name="cargo" value="${esc(row.cargo||'')}"></div>
+          <div class="field"><label>Área</label><select class="campo" name="area"><option value="">—</option>${opt(AREAS,row.area)}</select></div>
+          <div class="field"><label>País</label><select class="campo" name="pais"><option value="">—</option>${opt(PAISES,row.pais)}</select></div>
+        </div>
+
+        <div class="sobretitulo" style="margin:20px 0 10px;">logística</div>
+        <div class="grid2">
+          <div class="field"><label>Fecha</label><input class="campo" type="date" name="fecha" value="${esc(row.fecha||'')}"></div>
+          <div class="field"><label>Entrevistador</label><input class="campo" name="entrevistador" value="${esc(row.entrevistador||'')}"></div>
+          <div class="field"><label>Duración (min)</label><input class="campo" type="number" name="duracion_min" min="0" value="${esc(row.duracion_min??'')}"></div>
+          <div class="field"><label>Estado</label><select class="campo" name="estado">${opt(ESTADOS,row.estado)}</select></div>
+          <div class="field full"><label>Etiquetas (separadas por coma)</label><input class="campo" name="etiquetas" value="${esc((row.etiquetas||[]).join(', '))}"></div>
+        </div>
+
+        <details class="disclosure" style="margin-top:20px;">
+          <summary>ver transcripción completa · ${chars}</summary>
+          <div class="disclosure-cuerpo">
+            <textarea class="campo big" name="transcripcion" rows="14" placeholder="Pega aquí el texto transcrito…">${esc(row.transcripcion||'')}</textarea>
+          </div>
+        </details>
+        <div class="field full" style="margin-top:14px;"><label class="etiqueta">Notas</label><textarea class="campo" name="notas">${esc(row.notas||'')}</textarea></div>
+
+        ${(!nueva && row.actualizado_en)? `<div class="meta-line" style="margin-top:14px;">Actualizado: ${esc(new Date(row.actualizado_en).toLocaleString('es'))} · Creado: ${esc(new Date(row.creado_en).toLocaleString('es'))}</div>`:''}
+      </form>
     </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="entGuardar">✓ guardar</button>
+      <button type="button" class="btn btn-suave" id="entCancelar">cancelar</button>
+      <span class="spacer"></span>
+      ${!nueva? `<button type="button" class="btn btn-riesgo" id="entEliminar">⌫ eliminar</button>`:''}
+    </div>`;
 
-    <form class="detail" id="frm">
-      <div class="grid2">
-        <div class="field"><label>Código</label><input name="codigo" value="${esc(row.codigo||'')}" placeholder="E-01"></div>
-        <div class="field"><label>Entrevistado *</label><input name="entrevistado" required value="${esc(row.entrevistado||'')}"></div>
-        <div class="field"><label>Cargo</label><input name="cargo" value="${esc(row.cargo||'')}"></div>
-        <div class="field"><label>Área</label><select name="area"><option value="">—</option>${opt(AREAS,row.area)}</select></div>
-        <div class="field"><label>País</label><select name="pais"><option value="">—</option>${opt(PAISES,row.pais)}</select></div>
-        <div class="field"><label>Fecha</label><input type="date" name="fecha" value="${esc(row.fecha||'')}"></div>
-        <div class="field"><label>Entrevistador</label><input name="entrevistador" value="${esc(row.entrevistador||'')}"></div>
-        <div class="field"><label>Duración (min)</label><input type="number" name="duracion_min" min="0" value="${esc(row.duracion_min??'')}"></div>
-        <div class="field"><label>Estado</label><select name="estado">${opt(ESTADOS,row.estado)}</select></div>
-        <div class="field"><label>Etiquetas (separadas por coma)</label><input name="etiquetas" value="${esc((row.etiquetas||[]).join(', '))}"></div>
-        <div class="field full"><label>Transcripción (crudo)</label><textarea class="big" name="transcripcion" placeholder="Pega aquí el texto transcrito…">${esc(row.transcripcion||'')}</textarea></div>
-        <div class="field full"><label>Notas</label><textarea name="notas">${esc(row.notas||'')}</textarea></div>
-      </div>
-      <div class="form-foot">
-        <button type="submit" class="btn primary" id="saveBtn">💾 Guardar</button>
-        <a class="btn" href="#entrevistas">Cancelar</a>
-        <span class="spacer"></span>
-        ${!nueva? `<button type="button" class="btn danger" id="delBtn">🗑 Eliminar</button>`:''}
-      </div>
-      ${(!nueva && row.actualizado_en)? `<div class="meta-line">Actualizado: ${esc(new Date(row.actualizado_en).toLocaleString('es'))} · Creado: ${esc(new Date(row.creado_en).toLocaleString('es'))}</div>`:''}
-    </form>`;
-
-  $('#frm').addEventListener('submit', (e)=>{ e.preventDefault(); guardar(nueva?null:row.id); });
-  if(!nueva) $('#delBtn').addEventListener('click', ()=> eliminar(row.id, row.codigo||row.entrevistado));
+  $('#entModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#entCerrar').addEventListener('click', cerrarModalEntrevista);
+  $('#entCancelar').addEventListener('click', cerrarModalEntrevista);
+  $('#entGuardar').addEventListener('click', ()=> guardar(entEditId));
+  if(!nueva) $('#entEliminar').addEventListener('click', ()=> eliminar(row.id, row.codigo||row.entrevistado));
   const fi = $('#fileImport');
   if(fi) fi.addEventListener('change', (e)=>{ importarArchivo(e.target.files[0]); e.target.value=''; });
+}
+
+function cerrarModalEntrevista(){
+  $('#entModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+  entEditId = null;
 }
 
 /* ---------- Importar crudo y autocompletar con IA ---------- */
@@ -738,134 +906,222 @@ async function guardar(id){
   if(!db) return toast('Sin conexión con la base de datos', true);
   const payload = formData();
   if(!payload.entrevistado) return toast('El nombre del entrevistado es obligatorio', true);
-  const btn = $('#saveBtn'); btn.disabled = true; btn.textContent = 'Guardando…';
+  const btn = $('#entGuardar'); btn.disabled = true; btn.textContent = 'guardando…';
   let error;
   if(id){ ({ error } = await db.from('entrevistas').update(payload).eq('id', id)); }
   else  { ({ error } = await db.from('entrevistas').insert(payload)); }
-  btn.disabled = false; btn.textContent = '💾 Guardar';
+  btn.disabled = false; btn.textContent = '✓ guardar';
   if(error){
     if(/duplicate key|unique/i.test(error.message)) return toast('Ese código ya existe — usa otro', true);
     return toast('Error al guardar: '+error.message, true);
   }
   toast(id?'Cambios guardados':'Entrevista creada');
-  cache = []; location.hash = 'entrevistas';
+  cerrarModalEntrevista();
+  await recargarEntrevistas();
 }
 
 async function eliminar(id, etiqueta){
   if(!confirm(`¿Eliminar la entrevista "${etiqueta}"? Esta acción no se puede deshacer.`)) return;
   const { error } = await db.from('entrevistas').delete().eq('id', id);
   if(error) return toast('Error al eliminar: '+error.message, true);
-  toast('Entrevista eliminada'); cache = []; location.hash = 'entrevistas';
+  toast('Entrevista eliminada');
+  cerrarModalEntrevista();
+  await recargarEntrevistas();
 }
 
 /* ============================================================
    Módulo: Archivos (insumos) — Supabase Storage (bucket 'insumos')
    ============================================================ */
 let ordArchivos = { col:'creado_en', dir:-1 };
+let agrupArchivos = '';
 const BUCKET = 'insumos';
-const CATEGORIAS = ['procesos','talento','tecnología','gobierno','financiero','operaciones','general'];
+// Catálogo de áreas de TODA la compañía (no solo del proyecto) — primer eje
+// de clasificación. Los 7 valores originales de "categoria" quedan como
+// áreas válidas más, para no perder la clasificación de lo ya cargado.
+const AREAS_EMPRESA = [
+  'dirección general','finanzas','talento humano','tecnología','operaciones',
+  'comercial','mercadeo','legal y cumplimiento','cadena de suministro','gobierno corporativo',
+  'procesos','talento','gobierno','financiero',
+];
+// Segundo eje: qué ES el documento, independiente de a quién pertenece.
+const TIPOS_DOCUMENTO = [
+  'política','procedimiento','contrato','presentación','hoja de cálculo',
+  'acta','informe','plantilla','manual','otro',
+];
+const AGRUPADORES_ARCHIVOS = [
+  {campo:'area', label:'área'}, {campo:'tipo_documento', label:'tipo de documento'},
+  {campo:'tipo', label:'formato'},
+];
 let cacheArch = [];
 
 const tipoDe = (nombre)=>{
   const ext = (String(nombre).split('.').pop()||'').toLowerCase();
   if(['xlsx','xls','csv'].includes(ext)) return 'xlsx';
   if(['pptx','ppt'].includes(ext)) return 'pptx';
+  if(['docx','doc'].includes(ext)) return 'docx';
   if(ext==='pdf') return 'pdf';
   return 'otro';
 };
-const iconoTipo = (t)=> ({xlsx:'📊', pptx:'📽️', pdf:'📕', otro:'📄'}[t] || '📄');
+const iconoTipo = (t)=> ({xlsx:'▦', pptx:'◫', docx:'▥', pdf:'◆', otro:'◇'}[t] || '◇');
 const fmtSize = (b)=>{ if(b==null) return '—'; if(b<1024) return b+' B'; if(b<1048576) return (b/1024).toFixed(0)+' KB'; return (b/1048576).toFixed(1)+' MB'; };
 const sanitizar = (n)=> String(n).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^\w.\- ]/g,'_');
 
 async function renderArchivos(){
   view.innerHTML = `
-    <div class="page-head">
-      <div><h2>Archivos (insumos)</h2><p>Repositorio de insumos del proyecto: Excel, PowerPoint, PDF y otros documentos de trabajo.</p></div>
-    </div>
-    <div class="import-ia" style="border-left-color:var(--verde);">
-      <div class="row">
-        <div class="txt"><strong>⬆️ Subir archivos</strong><div class="muted" style="font-size:.85rem;">Excel, PowerPoint, PDF u otros. Puedes seleccionar <b>varios</b> a la vez.</div></div>
-        <select class="filter" id="upCat" title="Categoría para los archivos subidos">${CATEGORIAS.map(c=>`<option>${c}</option>`).join('')}</select>
-        <label class="btn primary" style="cursor:pointer; margin:0;">📤 Elegir archivos
-          <input id="fileUp" type="file" multiple style="display:none;" accept=".xlsx,.xls,.csv,.pptx,.ppt,.pdf,.doc,.docx">
-        </label>
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">centro de archivos · repositorio de la compañía</div>
+        <div class="titulo-seccion" style="margin-top:4px">archivos</div>
       </div>
-      <input id="upDesc" placeholder="Descripción opcional (se aplica a los archivos de esta subida)" style="width:100%; margin-top:10px; padding:8px 11px; border:1px solid var(--borde); border-radius:7px; font:inherit;">
-      <div id="upStatus" class="meta-line status"></div>
+      <button class="btn btn-marca" id="archSubir">⬆ subir archivos</button>
     </div>
+    <div class="rejilla rejilla-4 gap-12" id="archKpis" style="margin-bottom:20px"></div>
     <div class="toolbar">
-      <div class="search"><input id="qa" type="search" placeholder="Buscar por nombre, descripción, categoría, etiqueta…"></div>
-      <select class="filter" id="faCat"><option value="">Todas las categorías</option>${CATEGORIAS.map(c=>`<option>${c}</option>`).join('')}</select>
-      <select class="filter" id="faTipo"><option value="">Todos los tipos</option><option value="xlsx">Excel</option><option value="pptx">PowerPoint</option><option value="pdf">PDF</option><option value="otro">Otro</option></select>
+      <div class="buscador"><input class="campo" id="qa" type="search" placeholder="Buscar por nombre, descripción, área, etiqueta…"></div>
+      <select class="filtro" id="faArea"><option value="">Todas las áreas</option>${AREAS_EMPRESA.map(a=>`<option>${a}</option>`).join('')}</select>
+      <select class="filtro" id="faTipoDoc"><option value="">Todo tipo de documento</option>${TIPOS_DOCUMENTO.map(t=>`<option>${t}</option>`).join('')}</select>
+      <select class="filtro" id="faConf"><option value="">Confidencial: todos</option><option value="si">Solo confidenciales</option><option value="no">Solo no confidenciales</option></select>
+      ${selectAgrupar('agrupArch', AGRUPADORES_ARCHIVOS, agrupArchivos)}
+      ${botonColapsarTodo('archColapsarTodo')}
     </div>
-    <div class="card" id="archCard"><div class="empty">Cargando…</div></div>`;
+    <div id="archCard"><div class="card"><div class="empty">Cargando…</div></div></div>
 
-  $('#fileUp').addEventListener('change', (e)=>{ subirArchivos([...e.target.files]); e.target.value=''; });
+    <div class="modal-fondo" id="archModalFondo"><div class="modal-caja grande" id="archModalCaja"></div></div>`;
+
+  $('#archSubir').addEventListener('click', abrirModalSubir);
   $('#qa').addEventListener('input', paintArch);
-  $('#faCat').addEventListener('change', paintArch);
-  $('#faTipo').addEventListener('change', paintArch);
+  $('#faArea').addEventListener('change', paintArch);
+  $('#faTipoDoc').addEventListener('change', paintArch);
+  $('#faConf').addEventListener('change', paintArch);
+  $('#agrupArch').addEventListener('change', (e)=>{ agrupArchivos = e.target.value; paintArch(); });
+  bindColapsarTodo('archColapsarTodo', document.getElementById('archCard'));
+  $('#archModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='archModalFondo') cerrarModalArchivo(); });
+  document.addEventListener('keydown', escCierraModalArchivo);
 
-  if(!db){ $('#archCard').innerHTML = errBox('No hay conexión con la base de datos.'); return; }
+  if(!db){ $('#archCard').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
   await recargarArchivos();
+}
+
+function escCierraModalArchivo(e){
+  if(e.key==='Escape' && $('#archModalFondo')?.classList.contains('on')) cerrarModalArchivo();
 }
 
 async function recargarArchivos(){
   const { data, error } = await db.from('archivos').select('*').order('creado_en',{ascending:false});
-  if(error){ setConn('err','Error de conexión'); const c=$('#archCard'); if(c) c.innerHTML = errBox(error.message); return; }
-  setConn('ok','Conectado · Supabase'); cacheArch = data || []; paintArch();
+  if(error){ setConn('err','Error de conexión'); const c=$('#archCard'); if(c) c.innerHTML = `<div class="card">${errBox(error.message)}</div>`; return; }
+  setConn('ok','Conectado · Supabase'); cacheArch = data || []; pintarKpisArchivos(); paintArch();
+}
+
+function pintarKpisArchivos(){
+  const el = $('#archKpis'); if(!el) return;
+  const espacio = cacheArch.reduce((s,a)=> s+(a.size_bytes||0), 0);
+  const confidenciales = cacheArch.filter(a=> a.confidencial).length;
+  const areas = new Set(cacheArch.map(a=> a.area).filter(Boolean)).size;
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">total</span><span class="valor">${cacheArch.length}</span><span class="pie">archivos cargados</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">espacio usado</span><span class="valor">${fmtSize(espacio)}</span><span class="pie">en el repositorio</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">confidenciales</span><span class="valor">${confidenciales}</span><span class="pie">${confidenciales===1?'archivo marcado':'archivos marcados'}</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">áreas activas</span><span class="valor">${areas}</span><span class="pie">con al menos un archivo</span></div></div>`;
 }
 
 function paintArch(){
   const q = ($('#qa')?.value||'').trim().toLowerCase();
-  const fc = $('#faCat')?.value||''; const ft = $('#faTipo')?.value||'';
+  const fa = $('#faArea')?.value||''; const ft = $('#faTipoDoc')?.value||''; const fc = $('#faConf')?.value||'';
   const rows = cacheArch.filter(a=>{
-    if(fc && a.categoria!==fc) return false;
-    if(ft && a.tipo!==ft) return false;
+    if(fa && a.area!==fa) return false;
+    if(ft && a.tipo_documento!==ft) return false;
+    if(fc==='si' && !a.confidencial) return false;
+    if(fc==='no' && a.confidencial) return false;
     if(!q) return true;
-    return [a.nombre,a.descripcion,a.categoria,(a.etiquetas||[]).join(' ')].join(' ').toLowerCase().includes(q);
+    return [a.nombre,a.descripcion,a.area,a.tipo_documento,(a.etiquetas||[]).join(' ')].join(' ').toLowerCase().includes(q);
   });
   const card = $('#archCard'); if(!card) return;
   if(!rows.length){
-    card.innerHTML = `<div class="empty"><div class="big">📁</div>${cacheArch.length? 'Ningún archivo con esos filtros.' : 'Aún no hay archivos cargados. Usa «Elegir archivos» para subir el primero.'}</div>`;
+    card.innerHTML = `<div class="card"><div class="empty"><div class="big">▦</div>${cacheArch.length? 'Ningún archivo con esos filtros.' : 'Aún no hay archivos cargados.'}<br><button class="btn btn-marca" style="margin-top:14px" id="archVacioSubir">⬆ subir el primero</button></div></div>`;
+    $('#archVacioSubir')?.addEventListener('click', abrirModalSubir);
     return;
   }
   const rowsOrd = ordenarFilas(rows, ordArchivos);
   const cols = [
-    {col:'nombre', label:'Archivo'}, {col:'categoria', label:'Categoría'},
-    {col:'tipo', label:'Tipo'}, {col:'size_bytes', label:'Tamaño'},
-    {col:'creado_en', label:'Fecha'}, {label:'Acciones', right:true},
+    {col:'nombre', label:'Archivo'}, {col:'area', label:'Área'}, {col:'tipo_documento', label:'Tipo de documento'},
+    {col:'tipo', label:'Formato'}, {col:'size_bytes', label:'Tamaño'}, {col:'creado_en', label:'Fecha'},
   ];
-  card.innerHTML = `<table class="data">
+  const pintarFilaArch = a => `
+      <tr data-id="${esc(a.id)}">
+        <td><b>${iconoTipo(a.tipo)} ${esc(a.nombre)}</b>${a.confidencial?' <span class="chip">▣ confidencial</span>':''}${a.descripcion?`<div class="tenue" style="font-size:12px;margin-top:2px">${esc(a.descripcion)}</div>`:''}${(a.etiquetas&&a.etiquetas.length)?`<div style="margin-top:4px">${a.etiquetas.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>`:''}</td>
+        <td>${esc(a.area||'—')}</td>
+        <td class="tenue">${esc(a.tipo_documento||'—')}</td>
+        <td><span class="marca-estado e-neutro"><i class="punto"></i>${esc(a.tipo||'otro')}</span></td>
+        <td class="tenue">${fmtSize(a.size_bytes)}</td>
+        <td class="tenue">${esc((a.creado_en||'').slice(0,10))}</td>
+      </tr>`;
+  card.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
     <thead>${theadOrd(cols, ordArchivos)}</thead>
-    <tbody>${rowsOrd.map(a=>`
-      <tr data-id="${esc(a.id)}" class="fila-arch" title="Clic para ver la vista previa">
-        <td class="nombre"><b>${iconoTipo(a.tipo)} ${esc(a.nombre)}</b>${a.descripcion?`<div class="muted" style="font-size:.82rem; margin-top:2px">${esc(a.descripcion)}</div>`:''}${(a.etiquetas&&a.etiquetas.length)?`<div style="margin-top:4px">${a.etiquetas.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}</td>
-        <td>${esc(a.categoria||'—')}</td>
-        <td><span class="badge b-${esc(a.tipo||'otro')}">${esc(a.tipo||'otro')}</span></td>
-        <td class="muted">${fmtSize(a.size_bytes)}</td>
-        <td class="muted">${esc((a.creado_en||'').slice(0,10))}</td>
-        <td style="text-align:right; white-space:nowrap">
-          <button class="btn dl" data-id="${esc(a.id)}" style="padding:5px 10px">⬇️ Descargar</button>
-          <button class="btn danger del" data-id="${esc(a.id)}" style="padding:5px 10px">🗑</button>
-        </td>
-      </tr>`).join('')}
-    </tbody></table>`;
+    <tbody>${filasAgrupadas(rowsOrd, agrupArchivos, cols.length, pintarFilaArch)}</tbody>
+  </table></div>`;
   bindOrd($('#archCard thead'), ordArchivos, paintArch);
-  $$('#archCard .dl').forEach(b=> b.addEventListener('click', ()=> descargarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
-  $$('#archCard .del').forEach(b=> b.addEventListener('click', ()=> eliminarArchivo(cacheArch.find(x=>String(x.id)===b.dataset.id))));
-  $$('#archCard tbody tr').forEach(tr=> tr.addEventListener('click', (e)=>{
-    if(e.target.closest('button')) return;   // los botones de acción no abren el preview
-    abrirPreview(cacheArch.find(x=>String(x.id)===tr.dataset.id));
-  }));
+  bindGrupos($('#archCard'));
+  $$('#archCard tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalArchivo(cacheArch.find(x=>String(x.id)===tr.dataset.id))));
+}
+
+/* ---------- Modal: subir archivos ---------- */
+function abrirModalSubir(){
+  $('#archModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">centro de archivos</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">Subir archivos</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="subCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <form id="frmSub">
+        <div class="grid2">
+          <div class="field"><label>Área *</label><select class="campo" name="area" required><option value="">—</option>${AREAS_EMPRESA.map(a=>`<option>${esc(a)}</option>`).join('')}</select></div>
+          <div class="field"><label>Tipo de documento</label><select class="campo" name="tipo_documento"><option value="">—</option>${TIPOS_DOCUMENTO.map(t=>`<option>${esc(t)}</option>`).join('')}</select></div>
+          <div class="field full"><label>Descripción</label><input class="campo" name="descripcion" placeholder="Opcional — se aplica a todos los archivos de esta subida"></div>
+          <div class="field full"><label>Etiquetas (separadas por coma)</label><input class="campo" name="etiquetas" placeholder="Opcional"></div>
+          <div class="field"><label style="display:flex;align-items:center;gap:8px;font-weight:600;color:var(--tinta);cursor:pointer;margin-top:22px;"><input type="checkbox" name="confidencial" style="width:16px;height:16px;"> Marcar como confidencial</label></div>
+        </div>
+        <div class="field full" style="margin-top:14px;">
+          <label>Archivos *</label>
+          <label class="btn btn-humano" style="cursor:pointer; display:inline-flex;">⬆ elegir archivos
+            <input id="fileUp" type="file" multiple style="display:none;" accept=".xlsx,.xls,.csv,.pptx,.ppt,.pdf,.doc,.docx">
+          </label>
+          <div id="upLista" class="meta-line" style="margin-top:8px"></div>
+        </div>
+        <div id="upStatus" class="meta-line status"></div>
+      </form>
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="subSubir">⬆ subir</button>
+      <button type="button" class="btn btn-suave" id="subCancelar">cancelar</button>
+    </div>`;
+
+  $('#archModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#subCerrar').addEventListener('click', cerrarModalArchivo);
+  $('#subCancelar').addEventListener('click', cerrarModalArchivo);
+  let elegidos = [];
+  $('#fileUp').addEventListener('change', (e)=>{
+    elegidos = [...e.target.files];
+    $('#upLista').textContent = elegidos.length ? `${elegidos.length} archivo(s): ${elegidos.map(f=>f.name).join(', ')}` : '';
+  });
+  $('#subSubir').addEventListener('click', ()=> subirArchivos(elegidos));
 }
 
 async function subirArchivos(files){
-  if(!files || !files.length) return;
+  if(!files || !files.length) return toast('Elige al menos un archivo', true);
   if(!db) return toast('Sin conexión con la base de datos', true);
+  const frm = $('#frmSub'); const fd = new FormData(frm);
+  const area = fd.get('area');
+  if(!area) return toast('El área es obligatoria', true);
+  const tipo_documento = fd.get('tipo_documento') || null;
+  const descripcion = (fd.get('descripcion')||'').trim() || null;
+  const etiquetas = (fd.get('etiquetas')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  const confidencial = frm.confidencial.checked;
   const st = $('#upStatus');
   const show = (html, err)=>{ st.style.display='block'; st.className='meta-line status'+(err?' err-text':''); st.innerHTML = html; };
-  const categoria = $('#upCat')?.value || 'general';
-  const descripcion = ($('#upDesc')?.value||'').trim() || null;
 
   let ok=0, fail=0;
   for(let i=0;i<files.length;i++){
@@ -875,7 +1131,7 @@ async function subirArchivos(files){
     const up = await db.storage.from(BUCKET).upload(path, file, { contentType: file.type || 'application/octet-stream', upsert:false });
     if(up.error){ fail++; continue; }
     const ins = await db.from('archivos').insert({
-      nombre: file.name, descripcion, categoria,
+      nombre: file.name, descripcion, area, tipo_documento, confidencial, etiquetas,
       tipo: tipoDe(file.name), storage_path: path,
       size_bytes: file.size, mime: file.type || null,
     });
@@ -885,8 +1141,8 @@ async function subirArchivos(files){
     ok++;
   }
   show(`${ok? '✅ '+ok+' archivo(s) subido(s).':''} ${fail? '⚠️ '+fail+' fallaron.':''}`.trim(), fail>0 && ok===0);
-  const d=$('#upDesc'); if(d) d.value='';
   await recargarArchivos();
+  if(fail===0) setTimeout(cerrarModalArchivo, 700);
 }
 
 async function descargarArchivo(a){
@@ -898,8 +1154,8 @@ async function descargarArchivo(a){
   setTimeout(()=> URL.revokeObjectURL(url), 4000);
 }
 
-/* ---- Vista previa de archivos (modal) ---- */
-let prevModal=null, prevURL=null, prevArchivoActual=null;
+/* ---------- Modal: ficha de archivo (metadatos + vista previa) ---------- */
+let prevURL=null, archEditId=null;
 
 function cargarLib(src){
   return new Promise((res,rej)=>{
@@ -908,25 +1164,6 @@ function cargarLib(src){
     s.onload=res; s.onerror=()=>rej(new Error('No se pudo cargar la librería de vista previa'));
     document.head.appendChild(s);
   });
-}
-
-function asegurarModal(){
-  if(prevModal) return;
-  const div=document.createElement('div'); div.className='prev-bg'; div.id='prevBg';
-  div.innerHTML=`<div class="prev-box" role="dialog" aria-modal="true" aria-label="Vista previa de archivo">
-    <div class="prev-head"><b id="prevTitulo"></b><span class="meta" id="prevMeta"></span><span class="sp"></span>
-      <a id="prevDescargar" href="javascript:void(0)">⬇️ Descargar</a><button id="prevCerrar">✕ Cerrar</button></div>
-    <div class="prev-body" id="prevBody"></div></div>`;
-  document.body.appendChild(div); prevModal=div;
-  div.addEventListener('click', e=>{ if(e.target===div) cerrarPreview(); });
-  $('#prevCerrar', div).addEventListener('click', cerrarPreview);
-  $('#prevDescargar', div).addEventListener('click', ()=>{ if(prevArchivoActual) descargarArchivo(prevArchivoActual); });
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && div.classList.contains('open')) cerrarPreview(); });
-}
-
-function cerrarPreview(){
-  if(prevURL){ URL.revokeObjectURL(prevURL); prevURL=null; }
-  if(prevModal){ prevModal.classList.remove('open'); $('#prevBody', prevModal).innerHTML=''; }
 }
 
 const limpiarXML = x => String(x||'')
@@ -992,33 +1229,88 @@ async function renderPreview(a, blob){
     }
     return {tipo:'texto', html:`<pre>${esc(texto.slice(0,200000))}</pre>`};
   }
-  return {tipo:'texto', html:'<p>Este tipo de archivo no tiene vista previa en el navegador — usa ⬇️ Descargar.</p>'};
+  return {tipo:'texto', html:'<p>Este tipo de archivo no tiene vista previa en el navegador — usa ⬇ Descargar.</p>'};
 }
 
-async function abrirPreview(a){
+async function abrirModalArchivo(a){
   if(!a || !db) return;
-  asegurarModal();
-  cerrarPreview();               // libera blob URL anterior si lo hubiera
-  prevArchivoActual=a;
-  $('#prevTitulo').textContent=`${iconoTipo(a.tipo)} ${a.nombre}`;
-  $('#prevMeta').textContent=`${a.categoria||'—'} · ${fmtSize(a.size_bytes)} · ${(a.creado_en||'').slice(0,10)}`;
-  const body=$('#prevBody');
-  body.innerHTML=`<div class="prev-cargando"><span class="spin"></span>Cargando vista previa…</div>`;
-  prevModal.classList.add('open');
+  archEditId = a.id;
+  if(prevURL){ URL.revokeObjectURL(prevURL); prevURL=null; }
+  const opt = (arr, val)=> arr.map(o=>`<option${o===val?' selected':''}>${esc(o)}</option>`).join('');
 
-  const pSintesis=db.from('conocimiento').select('contenido').eq('clave',`archivo-${a.id}`).maybeSingle();
+  $('#archModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">${esc(a.tipo_documento||a.tipo||'archivo')} · ${fmtSize(a.size_bytes)}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${iconoTipo(a.tipo)} ${esc(a.nombre)}</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="archCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <form id="frmArch">
+        <div class="sobretitulo" style="margin-bottom:10px;">clasificación</div>
+        <div class="grid2">
+          <div class="field"><label>Área *</label><select class="campo" name="area" required><option value="">—</option>${opt(AREAS_EMPRESA,a.area)}</select></div>
+          <div class="field"><label>Tipo de documento</label><select class="campo" name="tipo_documento"><option value="">—</option>${opt(TIPOS_DOCUMENTO,a.tipo_documento)}</select></div>
+          <div class="field full"><label>Descripción</label><input class="campo" name="descripcion" value="${esc(a.descripcion||'')}"></div>
+          <div class="field full"><label>Etiquetas (separadas por coma)</label><input class="campo" name="etiquetas" value="${esc((a.etiquetas||[]).join(', '))}"></div>
+          <div class="field"><label style="display:flex;align-items:center;gap:8px;font-weight:600;color:var(--tinta);cursor:pointer;margin-top:22px;"><input type="checkbox" name="confidencial"${a.confidencial?' checked':''} style="width:16px;height:16px;"> Marcar como confidencial</label></div>
+        </div>
+      </form>
+      <div class="sobretitulo" style="margin:20px 0 10px;">vista previa</div>
+      <div class="prev-body" id="archPrev"><div class="prev-cargando"><span class="spin"></span>Cargando vista previa…</div></div>
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="archGuardar">✓ guardar</button>
+      <button type="button" class="btn btn-humano" id="archDescargar">⬇ descargar</button>
+      <button type="button" class="btn btn-suave" id="archCancelar">cancelar</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn btn-riesgo" id="archEliminar">⌫ eliminar</button>
+    </div>`;
+
+  $('#archModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#archCerrar').addEventListener('click', cerrarModalArchivo);
+  $('#archCancelar').addEventListener('click', cerrarModalArchivo);
+  $('#archGuardar').addEventListener('click', ()=> guardarMetaArchivo(a));
+  $('#archDescargar').addEventListener('click', ()=> descargarArchivo(a));
+  $('#archEliminar').addEventListener('click', ()=> eliminarArchivo(a));
+
+  const body = $('#archPrev');
+  const pSintesis = db.from('conocimiento').select('contenido').eq('clave',`archivo-${a.id}`).maybeSingle();
   try{
     const { data:blob, error } = await db.storage.from(BUCKET).download(a.storage_path);
     if(error || !blob) throw new Error(error?.message || 'no se pudo descargar el archivo');
-    const r=await renderPreview(a, blob);
-    if(r.tipo==='full'){ body.innerHTML=r.html; return; }
-    const s=await pSintesis;
-    const sintesisHTML=s?.data?.contenido
-      ? `<details class="prev-sintesis" open><summary>🧠 Síntesis IA del archivo</summary>${mdLite(s.data.contenido)}</details>` : '';
-    body.innerHTML=`<div class="prev-pad">${sintesisHTML}${r.html}</div>`;
+    const r = await renderPreview(a, blob);
+    const s = await pSintesis;
+    const sintesisHTML = s?.data?.contenido
+      ? `<details class="prev-sintesis" open><summary>✦ Síntesis IA del archivo</summary>${mdLite(s.data.contenido)}</details>` : '';
+    body.innerHTML = sintesisHTML + r.html;
   }catch(e){
-    body.innerHTML=`<div class="prev-pad">${errBox('No se pudo generar la vista previa: '+(e?.message||e))}</div>`;
+    body.innerHTML = errBox('No se pudo generar la vista previa: '+(e?.message||e));
   }
+}
+
+async function guardarMetaArchivo(a){
+  const frm = $('#frmArch'); const fd = new FormData(frm);
+  const area = fd.get('area');
+  if(!area) return toast('El área es obligatoria', true);
+  const cambios = {
+    area, tipo_documento: fd.get('tipo_documento') || null,
+    descripcion: (fd.get('descripcion')||'').trim() || null,
+    etiquetas: (fd.get('etiquetas')||'').split(',').map(s=>s.trim()).filter(Boolean),
+    confidencial: frm.confidencial.checked,
+  };
+  const { error } = await db.from('archivos').update(cambios).eq('id', a.id);
+  if(error) return toast('Error al guardar: '+error.message, true);
+  toast('Cambios guardados'); cerrarModalArchivo(); await recargarArchivos();
+}
+
+function cerrarModalArchivo(){
+  $('#archModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+  if(prevURL){ URL.revokeObjectURL(prevURL); prevURL=null; }
+  archEditId = null;
 }
 
 async function eliminarArchivo(a){
@@ -1028,20 +1320,20 @@ async function eliminarArchivo(a){
   if(rm.error) return toast('Error al eliminar del almacenamiento: '+rm.error.message, true);
   const del = await db.from('archivos').delete().eq('id', a.id);
   if(del.error) return toast('Error al eliminar metadatos: '+del.error.message, true);
-  toast('Archivo eliminado'); await recargarArchivos();
+  toast('Archivo eliminado'); cerrarModalArchivo(); await recargarArchivos();
 }
 
 /* ============================================================
    Módulo: Línea de tiempo — bitácora del proyecto (tabla public.eventos)
    ============================================================ */
 const TIPOS_EVENTO = {
-  entrevista:      { ico:'🎙️', nombre:'Entrevista' },
-  reunion_interna: { ico:'🧭', nombre:'Reunión interna' },
-  hito:            { ico:'🚩', nombre:'Hito' },
-  entregable:      { ico:'📦', nombre:'Entregable' },
-  analisis:        { ico:'🔬', nombre:'Análisis' },
-  decision:        { ico:'⚖️', nombre:'Decisión' },
-  visita:          { ico:'✈️', nombre:'Visita' },
+  entrevista:      { ico:'▤', nombre:'Entrevista' },
+  reunion_interna: { ico:'◎', nombre:'Reunión interna' },
+  hito:            { ico:'◆', nombre:'Hito' },
+  entregable:      { ico:'▦', nombre:'Entregable' },
+  analisis:        { ico:'◐', nombre:'Análisis' },
+  decision:        { ico:'◈', nombre:'Decisión' },
+  visita:          { ico:'◇', nombre:'Visita' },
 };
 let cacheEv = [];
 let evEditId = null;
@@ -1068,7 +1360,7 @@ async function renderTimeline(){
         <div class="field full"><label>Actores (separados por coma)</label><input name="actores"></div>
       </div>
       <div class="form-foot">
-        <button type="submit" class="btn primary" id="evSave">💾 Guardar evento</button>
+        <button type="submit" class="btn primary" id="evSave">✓ Guardar evento</button>
         <button type="button" class="btn" id="evCancel">Cancelar</button>
       </div>
     </form>
@@ -1114,7 +1406,7 @@ function paintTimeline(){
   if(orden==='desc') rows = [...rows].reverse();
   const wrap = $('#tlWrap'); if(!wrap) return;
   if(!rows.length){
-    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">🗓️</div>${cacheEv.length? 'Ningún evento con esos filtros.' : 'Aún no hay eventos en la bitácora. Añade el primero con «＋ Añadir evento».'}</div></div>`;
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">⧖</div>${cacheEv.length? 'Ningún evento con esos filtros.' : 'Aún no hay eventos en la bitácora. Añade el primero con «＋ Añadir evento».'}</div></div>`;
     return;
   }
   const dias = [];
@@ -1132,12 +1424,12 @@ function paintTimeline(){
           return `<div class="tl-ev t-${esc(ev.tipo)}">
             <div class="tl-ev-head">${t.ico} <b>${esc(ev.titulo)}</b>
               <span class="badge b-ev-${esc(ev.tipo)}">${esc(t.nombre)}</span>
-              <span class="acts"><button type="button" title="Editar" data-id="${esc(ev.id)}" class="ev-edit">✏️</button><button type="button" title="Eliminar" data-id="${esc(ev.id)}" class="ev-del">🗑</button></span>
+              <span class="acts"><button type="button" title="Editar" data-id="${esc(ev.id)}" class="ev-edit">✎</button><button type="button" title="Eliminar" data-id="${esc(ev.id)}" class="ev-del">⌫</button></span>
             </div>
             ${ev.descripcion? `<div class="tl-ev-desc">${esc(ev.descripcion)}</div>`:''}
             <div class="tl-ev-meta">
-              ${ev.fuente? `<span>📎 ${esc(ev.fuente)}</span>`:''}
-              ${ev.pais? `<span>📍 ${esc(ev.pais)}</span>`:''}
+              ${ev.fuente? `<span>▥ ${esc(ev.fuente)}</span>`:''}
+              ${ev.pais? `<span>◎ ${esc(ev.pais)}</span>`:''}
               ${(ev.actores&&ev.actores.length)? `<span>${ev.actores.map(a=>`<span class="tag">${esc(a)}</span>`).join('')}</span>`:''}
             </div>
           </div>`;
@@ -1225,16 +1517,21 @@ function mdLite(t){
 
 function renderAsistente(){
   view.innerHTML = `
-    <div class="page-head">
-      <div><h2>Asistente IA</h2><p>Pregunta sobre todo el corpus: 25 entrevistas, síntesis del diagnóstico, línea de tiempo e insumos. Responde con citas a la fuente.</p></div>
-      <div class="actions"><button class="btn" id="chatNuevo">🗑 Nueva conversación</button></div>
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">panel · corpus del proyecto</div>
+        <div class="titulo-seccion" style="margin-top:4px">asistente ia</div>
+      </div>
+      <div class="fila gap-8">
+        <span class="marca-estado e-neutro" id="chatEstado"><i class="punto"></i>listo</span>
+        <button class="btn btn-suave btn-mini" id="chatNuevo">⌫ nueva conversación</button>
+      </div>
     </div>
-    <div class="chat">
-      <div class="chat-msgs" id="chatMsgs"></div>
-      <div class="sugerencias" id="chatSug"></div>
+    <div class="panel chat-lienzo">
+      <div class="hilo-chat" id="chatMsgs"></div>
       <form class="chat-form" id="chatForm">
-        <textarea id="chatTxt" rows="2" placeholder="Escribe tu pregunta… (Enter envía · Shift+Enter salto de línea)"></textarea>
-        <button class="btn primary" id="chatEnviar" type="submit">Enviar ➤</button>
+        <textarea class="campo" id="chatTxt" rows="2" placeholder="Escribe tu pregunta… (Enter envía · Shift+Enter salto de línea)"></textarea>
+        <button class="btn btn-marca" id="chatEnviar" type="submit">enviar ➤</button>
       </form>
     </div>`;
 
@@ -1251,21 +1548,39 @@ function renderAsistente(){
 
 function pintarChat(){
   const wrap = $('#chatMsgs'); if(!wrap) return;
-  wrap.innerHTML = chatHist.map(m => m.rol === 'user'
-    ? `<div class="msg u">${esc(m.contenido)}</div>`
-    : `<div class="msg a${m.error ? ' err' : ''}">${burbujaAsistente(m)}</div>`
-  ).join('');
-  const sug = $('#chatSug');
-  if(sug){
-    sug.innerHTML = chatHist.length ? '' :
-      SUGERENCIAS.map(s=>`<button type="button">${esc(s)}</button>`).join('');
-    $$('button', sug).forEach(b=> b.addEventListener('click', ()=>{ $('#chatTxt').value = b.textContent; enviarChat(); }));
+  if(!chatHist.length){
+    wrap.innerHTML = `
+      <div class="chat-vacio">
+        <span class="orbe orbe-grande" aria-hidden="true"></span>
+        <h3>pregúntale al corpus del proyecto</h3>
+        <p>25 entrevistas, la síntesis del diagnóstico, la línea de tiempo y los insumos cargados — con cita a la fuente.</p>
+        <div class="sugerencias" id="chatSug">
+          ${SUGERENCIAS.map(s=>`<button type="button" class="chip">${esc(s)}</button>`).join('')}
+        </div>
+      </div>`;
+    $$('#chatSug button').forEach(b=> b.addEventListener('click', ()=>{ $('#chatTxt').value = b.textContent; enviarChat(); }));
+    return;
   }
+  wrap.innerHTML = chatHist.map(m => m.rol === 'user'
+    ? `<div class="turno yo"><span class="avatar" title="Tú">${escIni()}</span><div class="burbuja">${esc(m.contenido)}</div></div>`
+    : `<div class="turno agente${m.error ? ' err' : ''}${!m.contenido && !m.error ? ' actuando' : ''}"><span class="avatar" title="Asistente"></span><div class="burbuja">${burbujaAsistente(m)}</div></div>`
+  ).join('');
   wrap.scrollTop = wrap.scrollHeight;
 }
 
+function marcaEstadoChat(pensando){
+  const el = $('#chatEstado'); if(!el) return;
+  el.className = 'marca-estado ' + (pensando ? 'e-alerta' : 'e-neutro');
+  el.innerHTML = '<i class="punto"></i>' + (pensando ? 'pensando…' : 'listo');
+}
+
+function escIni(){
+  const n = (PERFIL && PERFIL.nombre) || (PERFIL && PERFIL.correo) || 'Tú';
+  return esc(n.charAt(0).toUpperCase());
+}
+
 function burbujaAsistente(m){
-  const chips = (m.herramientas||[]).map(h=>`<span class="chip-tool">🔎 ${esc(h)}</span>`).join('');
+  const chips = (m.herramientas||[]).map(h=>`<span class="chip-tool">⌕ ${esc(h)}</span>`).join('');
   const cuerpo = m.contenido ? mdLite(m.contenido) : (m.error ? '' : '<span class="pensando">Pensando…</span>');
   return chips + cuerpo + (m.error ? `<p><b>⚠️ ${esc(m.error)}</b></p>` : '');
 }
@@ -1276,6 +1591,7 @@ async function enviarChat(){
   if(!pregunta) return;
   txt.value = '';
   chatOcupado = true; const btn = $('#chatEnviar'); if(btn) btn.disabled = true;
+  marcaEstadoChat(true);
 
   chatHist.push({ rol:'user', contenido: pregunta });
   const resp = { rol:'assistant', contenido:'', herramientas: [] };
@@ -1320,6 +1636,7 @@ async function enviarChat(){
     resp.error = String(e?.message || e);
   } finally {
     chatOcupado = false; if(btn) btn.disabled = false;
+    marcaEstadoChat(false);
     actualizarUltimaBurbuja(resp);
     try { sessionStorage.setItem('rower_chat', JSON.stringify(chatHist.map(m=>({rol:m.rol, contenido:m.contenido, herramientas:m.herramientas, error:m.error})))); } catch { /* cuota llena */ }
   }
@@ -1327,10 +1644,12 @@ async function enviarChat(){
 
 function actualizarUltimaBurbuja(m){
   const wrap = $('#chatMsgs'); if(!wrap) return;
-  const burbujas = $$('.msg.a', wrap);
-  const el = burbujas[burbujas.length - 1]; if(!el) return;
-  el.classList.toggle('err', !!m.error);
-  el.innerHTML = burbujaAsistente(m);
+  const turnos = $$('.turno.agente', wrap);
+  const turno = turnos[turnos.length - 1]; if(!turno) return;
+  turno.classList.toggle('err', !!m.error);
+  turno.classList.toggle('actuando', !m.contenido && !m.error);
+  const burbuja = $('.burbuja', turno);
+  if(burbuja) burbuja.innerHTML = burbujaAsistente(m);
   wrap.scrollTop = wrap.scrollHeight;
 }
 
@@ -1342,7 +1661,7 @@ function actualizarUltimaBurbuja(m){
    `usuarios`, que vuelve a comprobar el permiso admin.usuarios del llamante.
    ============================================================ */
 const FN_USUARIOS = FN_BASE + '/functions/v1/usuarios';
-let usuarios = [], rolesLista = [];
+let usuarios = [], rolesLista = [], editandoUsuario = null;
 
 async function pedirUsuarios(accion, extra){
   const r = await fetch(FN_USUARIOS, {
@@ -1370,67 +1689,53 @@ function problemaClave(c){
   return null;
 }
 
-function badgeRol(clave){
-  const r = rolesLista.find(x=>x.clave===clave);
-  const cls = ['admin','consultor','junta','pendiente'].indexOf(clave) >= 0 ? clave : 'admin-rol';
-  return `<span class="badge b-${clave==='admin'?'admin-rol':esc(cls)}">${esc((r&&r.nombre)||clave)}</span>`;
-}
-
 function cuando(iso){
-  if(!iso) return '<span class="muted">nunca</span>';
+  if(!iso) return '<span class="tenue">nunca</span>';
   const d = new Date(iso);
   const dias = Math.floor((Date.now() - d.getTime()) / 86400000);
   const f = d.toLocaleDateString('es-VE', { day:'2-digit', month:'short', year:'numeric' });
-  return `${f} <span class="muted">${dias === 0 ? '· hoy' : dias === 1 ? '· ayer' : '· hace ' + dias + ' d'}</span>`;
+  return `${f} <span class="tenue">${dias === 0 ? '· hoy' : dias === 1 ? '· ayer' : '· hace ' + dias + ' d'}</span>`;
 }
+
+const AGRUPADORES_USUARIOS = [{campo:'rol_nombre', label:'rol'}, {campo:'estado_txt', label:'estado'}];
+let ordUsuarios = { col:'correo', dir:1 };
+let agrupUsuarios = 'rol_nombre';
 
 async function renderUsuarios(){
   view.innerHTML = `
-    <div class="page-head">
-      <div><h2>Usuarios</h2><p>Cuentas que pueden entrar al aplicativo. El rol decide qué ve cada una — se define en <a href="#roles">Roles y permisos</a>.</p></div>
-      <div class="actions"><button class="btn primary" id="usNuevo">＋ Nuevo usuario</button></div>
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">accesos · quién entra al panel</div>
+        <div class="titulo-seccion" style="margin-top:4px">usuarios</div>
+      </div>
+      <button class="btn btn-marca" id="usNuevo">＋ nuevo usuario</button>
     </div>
-
-    <form class="detail" id="usForm" style="display:none; margin-bottom:16px;">
-      <div class="grid2">
-        <div class="field"><label>Correo *</label><input name="correo" type="email" required placeholder="nombre@dominio.com" autocomplete="off"></div>
-        <div class="field"><label>Nombre y apellido</label><input name="nombre" placeholder="Nombre Apellido" autocomplete="off"></div>
-        <div class="field"><label>Rol *</label><select name="rol" id="usRol" required></select><div class="pista" id="usRolPista"></div></div>
-        <div class="field" id="usCampoClave">
-          <label>Clave *</label>
-          <div class="clave-caja">
-            <input name="clave" id="usClave" type="text" required autocomplete="new-password" placeholder="mínimo 10 caracteres">
-            <button type="button" class="btn" id="usGenerar">🎲 Generar</button>
-          </div>
-          <div class="pista" id="usClavePista">Al menos 10 caracteres, con letras y números.</div>
-        </div>
-        <div class="field full"><label>Notas</label><input name="notas" placeholder="Para qué es esta cuenta, quién la pidió…"></div>
-      </div>
-      <div class="form-foot">
-        <button type="submit" class="btn primary" id="usGuardar">💾 Crear usuario</button>
-        <button type="button" class="btn" id="usCancelar">Cancelar</button>
-        <span class="muted" id="usNota" style="margin-left:auto"></span>
-      </div>
-    </form>
-
+    <div class="rejilla rejilla-4 gap-12" id="usKpis" style="margin-bottom:20px"></div>
     <div class="toolbar">
-      <div class="search"><input id="qu" type="search" placeholder="Buscar por correo, nombre o rol…"></div>
-      <select class="filter" id="fuRol"><option value="">Todos los roles</option></select>
-      <select class="filter" id="fuEstado"><option value="">Activas y de baja</option><option value="1">Solo activas</option><option value="0">Solo de baja</option></select>
+      <div class="buscador"><input class="campo" id="qu" type="search" placeholder="Buscar por correo, nombre o rol…"></div>
+      <select class="filtro" id="fuRol"><option value="">Todos los roles</option></select>
+      <select class="filtro" id="fuEstado"><option value="">Activas y de baja</option><option value="1">Solo activas</option><option value="0">Solo de baja</option></select>
+      ${selectAgrupar('agrupUs', AGRUPADORES_USUARIOS, agrupUsuarios)}
+      ${botonColapsarTodo('usColapsarTodo')}
     </div>
-    <div class="card" id="usCard"><div class="empty">Cargando…</div></div>`;
+    <div id="usWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
 
-  $('#usNuevo').addEventListener('click', ()=> abrirFormUsuario());
-  $('#usCancelar').addEventListener('click', ()=> cerrarFormUsuario());
-  $('#usGenerar').addEventListener('click', ()=>{ $('#usClave').value = claveSugerida(); revisarClave(); });
-  $('#usClave').addEventListener('input', revisarClave);
-  $('#usRol').addEventListener('change', pistaRol);
-  $('#usForm').addEventListener('submit', (e)=>{ e.preventDefault(); guardarUsuario(); });
+    <div class="modal-fondo" id="usModalFondo"><div class="modal-caja" id="usModalCaja"></div></div>`;
+
+  $('#usNuevo').addEventListener('click', ()=> abrirModalUsuario(null));
   $('#qu').addEventListener('input', pintarUsuarios);
   $('#fuRol').addEventListener('change', pintarUsuarios);
   $('#fuEstado').addEventListener('change', pintarUsuarios);
+  $('#agrupUs').addEventListener('change', (e)=>{ agrupUsuarios = e.target.value; pintarUsuarios(); });
+  bindColapsarTodo('usColapsarTodo', document.getElementById('usWrap'));
+  $('#usModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='usModalFondo') cerrarModalUsuario(); });
+  document.addEventListener('keydown', escCierraModalUsuario);
 
   await recargarUsuarios();
+}
+
+function escCierraModalUsuario(e){
+  if(e.key==='Escape' && $('#usModalFondo')?.classList.contains('on')) cerrarModalUsuario();
 }
 
 async function recargarUsuarios(){
@@ -1440,13 +1745,30 @@ async function recargarUsuarios(){
     rolesLista = d.roles || [];
     setConn('ok','Conectado · Supabase');
     const ops = rolesLista.map(r=>`<option value="${esc(r.clave)}">${esc(r.nombre)}</option>`).join('');
-    $('#usRol').innerHTML = ops;
     $('#fuRol').innerHTML = '<option value="">Todos los roles</option>' + ops;
+    pintarKpisUsuarios();
     pintarUsuarios();
   }catch(e){
-    $('#usCard').innerHTML = errBox('No pude traer los usuarios: ' + esc(String(e.message || e)));
+    $('#usWrap').innerHTML = `<div class="card">${errBox('No pude traer los usuarios: ' + esc(String(e.message || e)))}</div>`;
   }
 }
+
+function pintarKpisUsuarios(){
+  const el = $('#usKpis'); if(!el) return;
+  const activas = usuarios.filter(u=>u.activo).length;
+  const baja = usuarios.length - activas;
+  const roles = new Set(usuarios.map(u=>u.rol)).size;
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">total</span><span class="valor">${usuarios.length}</span><span class="pie">cuentas</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">activas</span><span class="valor">${activas}</span><span class="pie">pueden entrar hoy</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">de baja</span><span class="valor">${baja}</span><span class="pie">no pueden entrar</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">roles en uso</span><span class="valor">${roles}</span><span class="pie">de ${rolesLista.length} definidos</span></div></div>`;
+}
+
+const colsUsuarios = [
+  {col:'correo', label:'Correo'}, {col:'nombre', label:'Nombre'}, {label:'Rol'},
+  {label:'Estado'}, {label:'Último acceso'},
+];
 
 function pintarUsuarios(){
   const q = ($('#qu')?.value || '').trim().toLowerCase();
@@ -1454,7 +1776,7 @@ function pintarUsuarios(){
   const fe = $('#fuEstado')?.value || '';
   const yo = (PERFIL && PERFIL.id) || '';
 
-  const filas = usuarios.filter(u=>{
+  let filas = usuarios.filter(u=>{
     if(fr && u.rol !== fr) return false;
     if(fe === '1' && !u.activo) return false;
     if(fe === '0' && u.activo) return false;
@@ -1462,97 +1784,169 @@ function pintarUsuarios(){
     const rn = (rolesLista.find(r=>r.clave===u.rol)||{}).nombre || '';
     return [u.correo, u.nombre, u.rol, rn].filter(Boolean).join(' ').toLowerCase().includes(q);
   });
+  filas = filas.map(u=> ({ ...u, rol_nombre: (rolesLista.find(r=>r.clave===u.rol)||{}).nombre || u.rol, estado_txt: u.activo?'activa':'de baja' }));
+  filas = ordenarFilas(filas, ordUsuarios);
 
+  const wrap = $('#usWrap'); if(!wrap) return;
   if(!filas.length){
-    $('#usCard').innerHTML = `<div class="empty"><div class="big">👤</div>${
-      usuarios.length ? 'Ningún usuario cuadra con el filtro.' : 'Todavía no hay usuarios.'}</div>`;
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">⬤</div>${
+      usuarios.length ? 'Ningún usuario cuadra con el filtro.' : 'Todavía no hay usuarios.'}</div></div>`;
     return;
   }
 
-  $('#usCard').innerHTML = `
-    <table class="data">
-      <thead><tr>
-        <th>Correo</th><th>Nombre</th><th>Rol</th><th>Estado</th><th>Último acceso</th><th></th>
-      </tr></thead>
-      <tbody>${filas.map(u=>`
-        <tr data-id="${esc(u.id)}">
-          <td class="correo">${esc(u.correo || '—')}${u.id === yo ? '<span class="yo">tú</span>' : ''}</td>
-          <td>${esc(u.nombre || '')}</td>
-          <td>${badgeRol(u.rol)}</td>
-          <td>${u.activo ? '<span class="badge b-procesado">activa</span>' : '<span class="badge b-baja">de baja</span>'}</td>
-          <td>${cuando(u.ultimo_acceso)}</td>
-          <td><div class="acciones-fila">
-            <button class="btn" data-accion="editar">✎ Editar</button>
-            <button class="btn" data-accion="clave">🔑 Clave</button>
-            <button class="btn danger" data-accion="eliminar"${u.id === yo ? ' disabled title="No puedes eliminar tu propia cuenta"' : ''}>🗑</button>
-          </div></td>
-        </tr>`).join('')}</tbody>
-    </table>`;
+  const pintarFilaU = u => `
+    <tr data-id="${esc(u.id)}">
+      <td><b>${esc(u.correo || '—')}</b>${u.id === yo ? ' <span class="chip">tú</span>' : ''}</td>
+      <td class="tenue">${esc(u.nombre || '—')}</td>
+      <td><span class="chip">${esc(u.rol_nombre)}</span></td>
+      <td><span class="marca-estado ${u.activo?'e-ok':'e-riesgo'}"><i class="punto"></i>${u.activo?'activa':'de baja'}</span></td>
+      <td class="tenue">${cuando(u.ultimo_acceso)}</td>
+    </tr>`;
 
-  $$('#usCard button[data-accion]').forEach(b=>{
-    b.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      const id = b.closest('tr').dataset.id;
-      const u = usuarios.find(x=>x.id===id); if(!u) return;
-      if(b.dataset.accion === 'editar')   abrirFormUsuario(u);
-      if(b.dataset.accion === 'clave')    reponerClave(u);
-      if(b.dataset.accion === 'eliminar') borrarUsuario(u);
-    });
+  wrap.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+    <thead>${theadOrd(colsUsuarios, ordUsuarios)}</thead>
+    <tbody>${filasAgrupadas(filas, agrupUsuarios, colsUsuarios.length, pintarFilaU)}</tbody>
+  </table></div>`;
+  bindOrd($('#usWrap thead'), ordUsuarios, pintarUsuarios);
+  bindGrupos($('#usWrap'));
+  $$('#usWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalUsuario(usuarios.find(x=>x.id===tr.dataset.id))));
+}
+
+/* ---------- Modal: crear / editar usuario (+ reponer clave, sin prompt/alert) ---------- */
+function abrirModalUsuario(u){
+  editandoUsuario = u || null;
+  const yo = (PERFIL && PERFIL.id) || '';
+  const esYo = u && u.id === yo;
+  const opsRol = rolesLista.map(r=>`<option value="${esc(r.clave)}"${u&&u.rol===r.clave?' selected':(!u&&r.clave==='junta')?' selected':''}>${esc(r.nombre)}</option>`).join('');
+
+  $('#usModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">${u? 'editar cuenta' : 'nueva cuenta'}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${u? esc(u.correo||'—') : 'crear usuario'}</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="usCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <form id="frmUs">
+        <div class="grid2">
+          <div class="field"><label>Correo *</label><input class="campo" name="correo" type="email" required placeholder="nombre@dominio.com" autocomplete="off" value="${esc(u?u.correo||'':'')}" ${u?'disabled':''}></div>
+          <div class="field"><label>Nombre y apellido</label><input class="campo" name="nombre" placeholder="Nombre Apellido" autocomplete="off" value="${esc(u?u.nombre||'':'')}"></div>
+          <div class="field"><label>Rol *</label><select class="campo" name="rol" id="usRol" required>${opsRol}</select><div class="tenue" style="font-size:11.5px;margin-top:4px" id="usRolPista"></div></div>
+          ${u? `<div class="field"><label style="display:flex;align-items:center;gap:8px;font-weight:600;color:var(--tinta);cursor:pointer;margin-top:22px;"><input type="checkbox" id="usActivo" ${u.activo?'checked':''} style="width:16px;height:16px;"> cuenta activa</label></div>` : ''}
+          <div class="field full"><label>Notas</label><input class="campo" name="notas" placeholder="Para qué es esta cuenta, quién la pidió…" value="${esc(u?u.notas||'':'')}"></div>
+        </div>
+        ${!u? `
+        <div class="sobretitulo" style="margin:20px 0 10px;">clave inicial</div>
+        <div class="fila" style="gap:8px;">
+          <input class="campo" name="clave" id="usClave" type="text" required autocomplete="new-password" placeholder="mínimo 10 caracteres" style="flex:1" value="${esc(claveSugerida())}">
+          <button type="button" class="btn btn-humano btn-mini" id="usGenerar">↻ generar</button>
+        </div>
+        <div class="tenue" style="font-size:11.5px;margin-top:4px" id="usClavePista"></div>` : ''}
+      </form>
+      ${u? `
+      <div class="sobretitulo" style="margin:22px 0 10px;">seguridad</div>
+      <div id="usSeguridad"></div>` : ''}
+      <div id="usRevelar"></div>
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="usGuardar">✓ ${u?'guardar cambios':'crear usuario'}</button>
+      <button type="button" class="btn btn-suave" id="usCancelar">cerrar</button>
+      <span class="spacer"></span>
+      ${u? `<button type="button" class="btn btn-riesgo" id="usEliminar"${esYo?' disabled title="No puedes eliminar tu propia cuenta"':''}>⌫ eliminar</button>`:''}
+    </div>`;
+
+  $('#usModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#usCerrar').addEventListener('click', cerrarModalUsuario);
+  $('#usCancelar').addEventListener('click', cerrarModalUsuario);
+  $('#usGuardar').addEventListener('click', guardarUsuario);
+  $('#usRol').addEventListener('change', pistaRol);
+  pistaRol();
+  if(!u){
+    $('#usGenerar').addEventListener('click', ()=>{ $('#usClave').value = claveSugerida(); revisarClave(); });
+    $('#usClave').addEventListener('input', revisarClave);
+    revisarClave();
+  }else{
+    if(!esYo) $('#usEliminar').addEventListener('click', ()=> borrarUsuario(u));
+    pintarSeguridadUsuario(u);
+  }
+}
+
+function pintarSeguridadUsuario(u){
+  const cont = $('#usSeguridad'); if(!cont) return;
+  cont.innerHTML = `
+    <div class="disclosure" style="padding:14px 15px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+      <span class="tenue">Genera una clave nueva si el usuario la olvidó o hay que reponerla.</span>
+      <button type="button" class="btn btn-humano btn-mini" id="usPedirClave">↻ generar nueva clave</button>
+    </div>`;
+  $('#usPedirClave').addEventListener('click', ()=>{
+    cont.innerHTML = `
+      <div class="disclosure" style="padding:14px 15px;">
+        <div class="fila" style="gap:8px;">
+          <input class="campo" id="usClaveNueva" type="text" style="flex:1" value="${esc(claveSugerida())}">
+          <button type="button" class="btn btn-humano btn-mini" id="usClaveRegenerar">↻</button>
+        </div>
+        <div class="tenue" style="font-size:11.5px;margin-top:4px" id="usClaveNuevaPista"></div>
+        <div class="fila" style="margin-top:10px; gap:8px;">
+          <button type="button" class="btn btn-marca btn-mini" id="usClaveConfirmar">✓ reponer clave</button>
+          <button type="button" class="btn btn-suave btn-mini" id="usClaveCancelar">cancelar</button>
+        </div>
+      </div>`;
+    const revisar = ()=>{
+      const p = $('#usClaveNuevaPista'); const mal = problemaClave($('#usClaveNueva').value);
+      p.className = mal? 'err-text' : 'tenue'; p.style.fontSize='11.5px'; p.textContent = mal || 'Sirve.';
+    };
+    revisar();
+    $('#usClaveNueva').addEventListener('input', revisar);
+    $('#usClaveRegenerar').addEventListener('click', ()=>{ $('#usClaveNueva').value = claveSugerida(); revisar(); });
+    $('#usClaveCancelar').addEventListener('click', ()=> pintarSeguridadUsuario(u));
+    $('#usClaveConfirmar').addEventListener('click', ()=> reponerClave(u));
   });
 }
 
-let editandoUsuario = null;
-
-function abrirFormUsuario(u){
-  editandoUsuario = u || null;
-  const f = $('#usForm');
-  f.style.display = 'block';
-  f.elements['correo'].value = u ? (u.correo || '') : '';
-  f.elements['correo'].disabled = !!u;              // el correo es la identidad: no se cambia aquí
-  f.elements['nombre'].value = u ? (u.nombre || '') : '';
-  f.elements['notas'].value  = u ? (u.notas || '') : '';
-  f.elements['rol'].value    = u ? u.rol : (rolesLista.some(r=>r.clave==='junta') ? 'junta' : (rolesLista[0]||{}).clave || '');
-  $('#usCampoClave').style.display = u ? 'none' : '';
-  f.elements['clave'].required = !u;
-  if(!u) f.elements['clave'].value = claveSugerida();
-  $('#usGuardar').textContent = u ? '💾 Guardar cambios' : '💾 Crear usuario';
-  $('#usNota').textContent = u
-    ? (u.activo ? '' : 'Cuenta de baja: no puede entrar.')
-    : 'Se crea confirmada: puede entrar de inmediato con esta clave.';
-  if(u){
-    // dar de baja / reactivar, solo al editar
-    $('#usNota').innerHTML = `<label style="cursor:pointer"><input type="checkbox" id="usActivo" ${u.activo?'checked':''}> cuenta activa</label>`;
-  }
-  revisarClave(); pistaRol();
-  f.scrollIntoView({ behavior:'smooth', block:'nearest' });
-  f.elements[u ? 'nombre' : 'correo'].focus();
-}
-
-function cerrarFormUsuario(){
+function cerrarModalUsuario(){
+  $('#usModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
   editandoUsuario = null;
-  const f = $('#usForm');
-  f.style.display = 'none'; f.reset();
-  f.elements['correo'].disabled = false;
 }
 
 function revisarClave(){
   const p = $('#usClavePista'); if(!p) return;
   const v = $('#usClave').value;
-  if(!v){ p.className = 'pista'; p.textContent = 'Al menos 10 caracteres, con letras y números.'; return; }
+  if(!v){ p.className = 'tenue'; p.style.fontSize='11.5px'; p.textContent = 'Al menos 10 caracteres, con letras y números.'; return; }
   const mal = problemaClave(v);
-  p.className = 'pista ' + (mal ? 'mal' : 'bien');
-  p.textContent = mal || 'Sirve. Cópiala antes de guardar: no se vuelve a mostrar.';
+  p.className = mal ? 'err-text' : 'tenue'; p.style.fontSize='11.5px';
+  p.textContent = mal || 'Sirve.';
 }
 
 function pistaRol(){
   const p = $('#usRolPista'); if(!p) return;
   const r = rolesLista.find(x=>x.clave === $('#usRol').value);
-  p.className = 'pista';
   p.textContent = (r && r.descripcion) ? r.descripcion : '';
 }
 
+function credencialReveladaHTML(titulo, correo, clave){
+  return `
+    <div class="disclosure" style="padding:14px 15px; margin-top:16px;">
+      <div class="fila" style="justify-content:space-between; margin-bottom:8px;">
+        <b>${esc(titulo)}</b>
+        <span class="marca-estado e-alerta"><i class="punto"></i>solo se muestra una vez</span>
+      </div>
+      <div class="tenue" style="font-size:12px; margin-bottom:6px;">Pásasela por un canal privado — esta clave no se vuelve a mostrar.</div>
+      <div class="fila" style="gap:8px; margin-bottom:6px;">
+        <input class="campo" readonly value="${esc(correo)}" style="flex:1; font-size:12px;" onclick="this.select()">
+        <button type="button" class="btn btn-humano btn-mini" data-copiar="${esc(correo)}">⧉ copiar correo</button>
+      </div>
+      <div class="fila" style="gap:8px;">
+        <input class="campo" readonly value="${esc(clave)}" style="flex:1; font-size:12px;" onclick="this.select()">
+        <button type="button" class="btn btn-humano btn-mini" data-copiar="${esc(clave)}">⧉ copiar clave</button>
+      </div>
+    </div>`;
+}
+
 async function guardarUsuario(){
-  const f = $('#usForm');
+  const f = $('#frmUs');
   const btn = $('#usGuardar');
   const datos = {
     correo: f.elements['correo'].value.trim().toLowerCase(),
@@ -1565,40 +1959,39 @@ async function guardarUsuario(){
     const mal = problemaClave(datos.clave);
     if(mal) return toast(mal, true);
   }
-  btn.disabled = true; btn.textContent = 'Guardando…';
+  btn.disabled = true;
   try{
     if(editandoUsuario){
       const activo = $('#usActivo') ? $('#usActivo').checked : editandoUsuario.activo;
       await pedirUsuarios('actualizar', { id: editandoUsuario.id, nombre: datos.nombre, rol: datos.rol, notas: datos.notas, activo });
       toast('Usuario actualizado');
+      cerrarModalUsuario();
+      await recargarUsuarios();
     }else{
       await pedirUsuarios('crear', datos);
       toast('Usuario creado');
-      alert('Cuenta creada.\n\nCorreo: ' + datos.correo + '\nClave:  ' + datos.clave +
-            '\n\nPásasela por un canal privado. Esta clave no se vuelve a mostrar.');
+      f.querySelectorAll('input,select,button').forEach(el=> el.disabled = true);
+      $('#usRevelar').innerHTML = credencialReveladaHTML('Cuenta creada', datos.correo, datos.clave);
+      $$('#usRevelar [data-copiar]').forEach(b=> b.addEventListener('click', ()=> copiarTexto(b.dataset.copiar)));
+      await recargarUsuarios();
     }
-    cerrarFormUsuario();
-    await recargarUsuarios();
   }catch(e){
     toast(String(e.message || e), true);
   }finally{
     btn.disabled = false;
-    btn.textContent = editandoUsuario ? '💾 Guardar cambios' : '💾 Crear usuario';
   }
 }
 
 async function reponerClave(u){
-  const sug = claveSugerida();
-  const nueva = prompt('Nueva clave para ' + (u.correo || 'esta cuenta') +
-                       '\n(al menos 10 caracteres, con letras y números)', sug);
-  if(nueva === null) return;
-  const mal = problemaClave(nueva.trim());
+  const nueva = ($('#usClaveNueva')?.value || '').trim();
+  const mal = problemaClave(nueva);
   if(mal) return toast(mal, true);
   try{
-    await pedirUsuarios('clave', { id: u.id, clave: nueva.trim() });
+    await pedirUsuarios('clave', { id: u.id, clave: nueva });
     toast('Clave repuesta');
-    alert('Clave nueva de ' + (u.correo || '') + ':\n\n' + nueva.trim() +
-          '\n\nPásasela por un canal privado. No se vuelve a mostrar.');
+    $('#usSeguridad').innerHTML = '';
+    $('#usRevelar').innerHTML = credencialReveladaHTML('Clave repuesta', u.correo||'', nueva);
+    $$('#usRevelar [data-copiar]').forEach(b=> b.addEventListener('click', ()=> copiarTexto(b.dataset.copiar)));
   }catch(e){ toast(String(e.message || e), true); }
 }
 
@@ -1608,6 +2001,7 @@ async function borrarUsuario(u){
   try{
     await pedirUsuarios('eliminar', { id: u.id });
     toast('Cuenta eliminada');
+    cerrarModalUsuario();
     await recargarUsuarios();
   }catch(e){ toast(String(e.message || e), true); }
 }
@@ -1624,39 +2018,43 @@ let permisosCat = [], rolesCat = [], matriz = new Set(), cuentaPorRol = {};
 
 async function renderRoles(){
   view.innerHTML = `
-    <div class="page-head">
-      <div><h2>Roles y permisos</h2>
-        <p>Qué puede hacer cada rol. Toca una casilla para conceder o quitar; se guarda al instante y rige de inmediato — también en la base de datos.</p></div>
-      <div class="actions"><button class="btn primary" id="rolNuevo">＋ Nuevo rol</button></div>
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">accesos · gobierno del acceso</div>
+        <div class="titulo-seccion" style="margin-top:4px">roles y permisos</div>
+      </div>
+      <button class="btn btn-marca" id="rolNuevo">＋ nuevo rol</button>
+    </div>
+    <div class="rejilla rejilla-4 gap-12" id="rolKpis" style="margin-bottom:20px"></div>
+
+    <div class="lienzo-cab">
+      <p class="tenue" style="font-size:12.5px;">Toca una casilla para conceder o quitar un permiso — se guarda al instante y rige de inmediato, también en la base de datos.</p>
+    </div>
+    <div class="toolbar">
+      ${botonColapsarTodo('rolColapsarTodo')}
+    </div>
+    <div class="matriz-permisos" id="matrizWrap"><div class="empty">Cargando…</div></div>
+    <div class="fila" style="gap:18px; margin:14px 0 30px; flex-wrap:wrap; font-size:12px;" id="rolLeyenda">
+      <span class="fila" style="gap:6px"><span class="marca-estado e-ok"><i class="punto"></i></span> concedido</span>
+      <span class="fila" style="gap:6px"><span class="marca-estado e-neutro"><i class="punto"></i></span> no concedido</span>
+      <span class="fila" style="gap:6px"><span class="marca-estado e-alerta"><i class="punto"></i></span> fijo: sin esto nadie podría repartir accesos</span>
     </div>
 
-    <form class="detail" id="rolForm" style="display:none; margin-bottom:16px;">
-      <div class="grid2">
-        <div class="field"><label>Clave *</label><input name="clave" required placeholder="p. ej. auditor" pattern="[a-z0-9_.\\-]{2,30}" title="minúsculas, números, guiones; 2-30 caracteres"><div class="pista">Identificador interno, en minúsculas. No se puede cambiar después.</div></div>
-        <div class="field"><label>Nombre *</label><input name="nombre" required placeholder="Auditor"></div>
-        <div class="field full"><label>Para qué es</label><input name="descripcion" placeholder="Una línea: a quién se le da este rol y por qué."></div>
-      </div>
-      <div class="form-foot">
-        <button type="submit" class="btn primary" id="rolGuardar">💾 Crear rol</button>
-        <button type="button" class="btn" id="rolCancelar">Cancelar</button>
-      </div>
-    </form>
+    <div class="sobretitulo" style="margin-bottom:10px;">los roles</div>
+    <div id="rolesFichas"><div class="card"><div class="empty">Cargando…</div></div></div>
 
-    <div class="card"><div class="matriz-envoltura" id="matrizWrap"><div class="empty">Cargando…</div></div></div>
-    <div class="leyenda">
-      <span><i class="marca si">✓</i> concedido</span>
-      <span><i class="marca">·</i> no concedido</span>
-      <span><i class="marca fijo">✓</i> fijo: sin esto nadie podría repartir accesos</span>
-    </div>
-    <div id="rolesFichas" style="margin-top:22px"></div>`;
+    <div class="modal-fondo" id="rolModalFondo"><div class="modal-caja" id="rolModalCaja"></div></div>`;
 
-  $('#rolNuevo').addEventListener('click', ()=>{
-    const f = $('#rolForm'); f.style.display = 'block'; f.reset(); f.elements['clave'].focus();
-  });
-  $('#rolCancelar').addEventListener('click', ()=>{ $('#rolForm').style.display='none'; });
-  $('#rolForm').addEventListener('submit', (e)=>{ e.preventDefault(); crearRol(); });
+  $('#rolNuevo').addEventListener('click', ()=> abrirModalRol(null));
+  bindColapsarTodo('rolColapsarTodo', document.getElementById('matrizWrap'));
+  $('#rolModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='rolModalFondo') cerrarModalRol(); });
+  document.addEventListener('keydown', escCierraModalRol);
 
   await recargarRoles();
+}
+
+function escCierraModalRol(e){
+  if(e.key==='Escape' && $('#rolModalFondo')?.classList.contains('on')) cerrarModalRol();
 }
 
 async function recargarRoles(){
@@ -1675,7 +2073,18 @@ async function recargarRoles(){
   matriz = new Set((rp.data || []).map(x=>x.rol + '|' + x.permiso));
   cuentaPorRol = {};
   (pf.data || []).forEach(x=>{ cuentaPorRol[x.rol] = (cuentaPorRol[x.rol] || 0) + 1; });
-  pintarMatriz(); pintarFichasRoles();
+  pintarKpisRoles(); pintarMatriz(); pintarFichasRoles();
+}
+
+function pintarKpisRoles(){
+  const el = $('#rolKpis'); if(!el) return;
+  const totalCuentas = Object.values(cuentaPorRol).reduce((s,n)=>s+n, 0);
+  const sinCuentas = rolesCat.filter(r=> !cuentaPorRol[r.clave]).length;
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">roles</span><span class="valor">${rolesCat.length}</span><span class="pie">definidos</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">permisos</span><span class="valor">${permisosCat.length}</span><span class="pie">en el catálogo</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">cuentas</span><span class="valor">${totalCuentas}</span><span class="pie">con algún rol</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">roles sin uso</span><span class="valor">${sinCuentas}</span><span class="pie">sin ninguna cuenta</span></div></div>`;
 }
 
 /* Las dos casillas que no se pueden apagar: si el rol que gobierna el acceso
@@ -1692,31 +2101,32 @@ function pintarMatriz(){
     let cabecera = '';
     if(pm.grupo !== grupo){
       grupo = pm.grupo;
-      cabecera = `<tr class="grupo"><td colspan="${rolesCat.length + 1}">${esc(grupo)}</td></tr>`;
+      cabecera = `<tr class="fila-grupo" data-grupo="${esc(grupo)}"><td colspan="${rolesCat.length + 1}"><span class="flecha-grupo">▸</span> ${esc(grupo)}</td></tr>`;
     }
     const celdas = rolesCat.map(r=>{
       const on = matriz.has(r.clave + '|' + pm.clave);
       const fijo = esFijo(r.clave, pm.clave);
-      return `<td class="celda${fijo?' fijo':''}" data-rol="${esc(r.clave)}" data-permiso="${esc(pm.clave)}"
+      return `<td class="celda-permiso${fijo?' fijo':''}" data-rol="${esc(r.clave)}" data-permiso="${esc(pm.clave)}"
                   title="${fijo?'Fijo: sin este permiso nadie podría repartir accesos':(on?'Quitar':'Conceder')}">
-                <i class="marca ${fijo?'fijo':(on?'si':'')}">${on?'✓':'·'}</i></td>`;
+                <span class="marca${fijo?' si':(on?' si':'')}">${on?'✓':'·'}</span></td>`;
     }).join('');
     return cabecera + `<tr>
-      <th class="permiso"><b>${esc(pm.nombre)}</b><span>${esc(pm.descripcion || '')}</span><code class="muted" style="font-size:.72rem">${esc(pm.clave)}</code></th>
+      <td class="permiso"><b>${esc(pm.nombre)}</b><div class="tenue" style="font-size:11.5px;margin-top:2px">${esc(pm.descripcion || '')}</div><code class="tenue" style="font-size:10.5px">${esc(pm.clave)}</code></td>
       ${celdas}</tr>`;
   }).join('');
 
   $('#matrizWrap').innerHTML = `
-    <table class="matriz">
+    <table>
       <thead><tr><th class="permiso">Permiso</th>
-        ${rolesCat.map(r=>`<th>${esc(r.nombre)}<span class="cuenta">${cuentaPorRol[r.clave]||0} ${(cuentaPorRol[r.clave]||0)===1?'cuenta':'cuentas'}</span></th>`).join('')}
+        ${rolesCat.map(r=>`<th>${esc(r.nombre)}<div class="tenue" style="font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;margin-top:2px">${cuentaPorRol[r.clave]||0} ${(cuentaPorRol[r.clave]||0)===1?'cuenta':'cuentas'}</div></th>`).join('')}
       </tr></thead>
       <tbody>${filas}</tbody>
     </table>`;
 
-  $$('#matrizWrap td.celda').forEach(td=>{
+  $$('#matrizWrap td.celda-permiso').forEach(td=>{
     td.addEventListener('click', ()=> alternarPermiso(td));
   });
+  bindGrupos($('#matrizWrap'));
 }
 
 async function alternarPermiso(td){
@@ -1724,7 +2134,7 @@ async function alternarPermiso(td){
   if(esFijo(rol, permiso)) return toast('Ese permiso del rol Administrador no se puede quitar: nadie podría volver a repartir accesos.', true);
 
   const on = matriz.has(rol + '|' + permiso);
-  const marca = $('i', td);
+  const marca = $('span.marca', td);
   marca.className = 'marca' + (on ? '' : ' si');       // respuesta inmediata
   marca.textContent = on ? '·' : '✓';
 
@@ -1747,50 +2157,84 @@ async function alternarPermiso(td){
 }
 
 function pintarFichasRoles(){
-  $('#rolesFichas').innerHTML = `
-    <h2 style="color:var(--navy); font-size:1.05rem; margin-bottom:12px">Los roles</h2>
-    <div class="card"><table class="data">
-      <thead><tr><th>Rol</th><th>Para qué es</th><th>Permisos</th><th>Cuentas</th><th></th></tr></thead>
-      <tbody>${rolesCat.map(r=>{
-        const n = permisosCat.filter(p=>matriz.has(r.clave + '|' + p.clave)).length;
-        const usados = cuentaPorRol[r.clave] || 0;
-        return `<tr data-rol="${esc(r.clave)}">
-          <td class="nombre"><b>${esc(r.nombre)}</b><br><code class="muted" style="font-size:.74rem">${esc(r.clave)}</code></td>
-          <td class="muted">${esc(r.descripcion || '')}</td>
-          <td>${n} de ${permisosCat.length}</td>
-          <td>${usados}</td>
-          <td><div class="acciones-fila">
-            <button class="btn" data-accion="renombrar">✎ Renombrar</button>
-            <button class="btn danger" data-accion="borrar"${r.es_sistema ? ' disabled title="Rol de sistema: no se borra"' : (usados ? ' disabled title="Hay cuentas con este rol"' : '')}>🗑</button>
-          </div></td></tr>`;
-      }).join('')}</tbody>
-    </table></div>`;
+  const cont = $('#rolesFichas'); if(!cont) return;
+  const pintarFilaR = r=>{
+    const n = permisosCat.filter(p=>matriz.has(r.clave + '|' + p.clave)).length;
+    const usados = cuentaPorRol[r.clave] || 0;
+    return `<tr data-rol="${esc(r.clave)}">
+      <td><b>${esc(r.nombre)}</b><br><code class="tenue" style="font-size:11px">${esc(r.clave)}</code></td>
+      <td class="tenue">${esc(r.descripcion || '—')}</td>
+      <td>${n} de ${permisosCat.length}</td>
+      <td>${usados}</td>
+    </tr>`;
+  };
+  cont.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+    <thead><tr><th>Rol</th><th>Para qué es</th><th>Permisos</th><th>Cuentas</th></tr></thead>
+    <tbody>${rolesCat.map(pintarFilaR).join('')}</tbody>
+  </table></div>`;
+  $$('#rolesFichas tbody tr').forEach(tr=> tr.addEventListener('click', ()=> abrirModalRol(rolesCat.find(x=>x.clave===tr.dataset.rol))));
+}
 
-  $$('#rolesFichas button[data-accion]').forEach(b=>{
-    b.addEventListener('click', async ()=>{
-      const clave = b.closest('tr').dataset.rol;
-      const r = rolesCat.find(x=>x.clave===clave); if(!r) return;
-      if(b.dataset.accion === 'renombrar'){
-        const nombre = prompt('Nombre del rol «' + r.clave + '»:', r.nombre);
-        if(nombre === null || !nombre.trim()) return;
-        const descripcion = prompt('Para qué es este rol:', r.descripcion || '');
-        if(descripcion === null) return;
-        const q = await db.from('roles').update({ nombre: nombre.trim(), descripcion: descripcion.trim() || null }).eq('clave', clave);
-        if(q.error) return toast(q.error.message, true);
-        toast('Rol actualizado'); await recargarRoles();
-      }
-      if(b.dataset.accion === 'borrar'){
-        if(!confirm('¿Borrar el rol «' + r.nombre + '»?')) return;
-        const q = await db.from('roles').delete().eq('clave', clave);
-        if(q.error) return toast(q.error.message, true);
-        toast('Rol borrado'); await recargarRoles();
-      }
-    });
-  });
+/* ---------- Modal: crear / editar rol ---------- */
+function abrirModalRol(r){
+  const usados = r? (cuentaPorRol[r.clave]||0) : 0;
+  $('#rolModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">${r? 'editar rol' : 'nuevo rol'}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${r? esc(r.nombre) : 'crear rol'}</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="rolCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <form id="frmRol">
+        <div class="grid2">
+          <div class="field"><label>Clave *</label><input class="campo" name="clave" required placeholder="p. ej. auditor" pattern="[a-z0-9_.\\-]{2,30}" title="minúsculas, números, guiones; 2-30 caracteres" value="${esc(r?r.clave:'')}" ${r?'disabled':''}>
+            <div class="tenue" style="font-size:11.5px;margin-top:4px">Identificador interno, en minúsculas. No se puede cambiar después.</div></div>
+          <div class="field"><label>Nombre *</label><input class="campo" name="nombre" required placeholder="Auditor" value="${esc(r?r.nombre:'')}"></div>
+          <div class="field full"><label>Para qué es</label><input class="campo" name="descripcion" placeholder="Una línea: a quién se le da este rol y por qué." value="${esc(r?r.descripcion||'':'')}"></div>
+        </div>
+      </form>
+      ${r? `<div class="tenue" style="font-size:12.5px;margin-top:16px;">${(permisosCat.filter(p=>matriz.has(r.clave+'|'+p.clave))).length} de ${permisosCat.length} permisos concedidos · ${usados} cuenta${usados===1?'':'s'} con este rol. Los permisos se editan en la matriz.</div>` : ''}
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="rolGuardar">✓ ${r?'guardar cambios':'crear rol'}</button>
+      <button type="button" class="btn btn-suave" id="rolCancelar">cerrar</button>
+      <span class="spacer"></span>
+      ${r? `<button type="button" class="btn btn-riesgo" id="rolEliminar"${r.es_sistema?' disabled title="Rol de sistema: no se borra"':(usados?' disabled title="Hay cuentas con este rol"':'')}>⌫ eliminar</button>`:''}
+    </div>`;
+
+  $('#rolModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#rolCerrar').addEventListener('click', cerrarModalRol);
+  $('#rolCancelar').addEventListener('click', cerrarModalRol);
+  $('#rolGuardar').addEventListener('click', ()=> r? guardarRol(r) : crearRol());
+  if(r && !r.es_sistema && !usados) $('#rolEliminar').addEventListener('click', ()=> eliminarRol(r));
+}
+function cerrarModalRol(){
+  $('#rolModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+async function guardarRol(r){
+  const f = $('#frmRol');
+  const nombre = f.elements['nombre'].value.trim();
+  const descripcion = f.elements['descripcion'].value.trim();
+  if(!nombre) return toast('El nombre es obligatorio', true);
+  const q = await db.from('roles').update({ nombre, descripcion: descripcion || null }).eq('clave', r.clave);
+  if(q.error) return toast(q.error.message, true);
+  toast('Rol actualizado'); cerrarModalRol(); await recargarRoles();
+}
+
+async function eliminarRol(r){
+  if(!confirm('¿Borrar el rol «' + r.nombre + '»?')) return;
+  const q = await db.from('roles').delete().eq('clave', r.clave);
+  if(q.error) return toast(q.error.message, true);
+  toast('Rol borrado'); cerrarModalRol(); await recargarRoles();
 }
 
 async function crearRol(){
-  const f = $('#rolForm');
+  const f = $('#frmRol');
   const clave = f.elements['clave'].value.trim().toLowerCase();
   const nombre = f.elements['nombre'].value.trim();
   const descripcion = f.elements['descripcion'].value.trim();
@@ -1798,8 +2242,737 @@ async function crearRol(){
   const q = await db.from('roles').insert({ clave, nombre, descripcion: descripcion || null, orden: 50 });
   if(q.error) return toast(/duplicate|unique/i.test(q.error.message) ? 'Ya existe un rol con esa clave.' : q.error.message, true);
   toast('Rol creado — ahora dale permisos en la matriz');
-  f.style.display = 'none'; f.reset();
-  await recargarRoles();
+  cerrarModalRol(); await recargarRoles();
+}
+
+/* ============================================================
+   Módulo: Censo y enlaces — public.personal + public.fichas_tokens
+   ============================================================ */
+let cachePersonal = [];
+let cacheFichas   = {};   // persona_id -> {estado}
+let cacheTokens   = [];   // filas de fichas_tokens
+let ordPersonal   = { col:'nombre', dir:1 };
+let agrupPersonal = 'gerente_nombre';
+let vistaPersonal = 'tabla';   // 'tabla' | 'arbol'
+
+const AGRUPADORES_PERSONAL = [
+  {campo:'gerente_nombre', label:'gerente'}, {campo:'entidad', label:'entidad'},
+  {campo:'area', label:'área'}, {campo:'estado_ficha', label:'estado de la ficha'},
+];
+
+function tokenAleatorio(){
+  const arr = new Uint8Array(24);
+  crypto.getRandomValues(arr);
+  return btoa(String.fromCharCode(...arr)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+function enlaceUrl(token){
+  const raiz = (window.rowerSesion && rowerSesion.raiz) || (location.origin + '/');
+  return raiz + 'actualizacion-perfil/?t=' + token;
+}
+function estadoFicha(personaId){ return (cacheFichas[personaId] && cacheFichas[personaId].estado) || 'pendiente'; }
+function claseFicha(estado){ return { pendiente:'e-alerta', en_progreso:'e-neutro', completada:'e-ok' }[estado] || 'e-neutro'; }
+function tokensDe(personaId){ return cacheTokens.filter(t=> t.persona_id===personaId && !t.revocado); }
+function reportesDe(personaId){ return cachePersonal.filter(p=> p.gerente_id===personaId && p.activo); }
+
+function estadoEnlaces(personaId){
+  const tk = tokensDe(personaId);
+  if(!tk.length) return { clase:'sin', texto:'sin enlace' };
+  const usos = tk.reduce((s,t)=> s+(t.usos||0), 0);
+  if(!usos) return { clase:'e-alerta', texto:'sin abrir' };
+  const ultimo = tk.map(t=>t.ultimo_uso).filter(Boolean).sort().pop();
+  return { clase:'e-ok', texto:`abierto ${usos}×`+(ultimo? ' · '+new Date(ultimo).toLocaleDateString('es'):'') };
+}
+
+async function renderPersonal(){
+  view.innerHTML = `
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">personal · fase 3</div>
+        <div class="titulo-seccion" style="margin-top:4px">censo y enlaces</div>
+      </div>
+      <div class="fila">
+        <button class="btn btn-suave" id="perMasivoBtn">⚙ asignación masiva</button>
+        <button class="btn btn-suave" id="perLote">↗ generar enlaces pendientes</button>
+        <button class="btn btn-marca" id="perExport">⬇ exportar enlaces (CSV)</button>
+      </div>
+    </div>
+    <div class="rejilla rejilla-4 gap-12" id="perKpis" style="margin-bottom:20px"></div>
+    <div class="toolbar">
+      <div class="buscador"><input class="campo" id="qp" type="search" placeholder="Buscar por nombre, cargo, correo, área…"></div>
+      <select class="filtro" id="fpEntidad"><option value="">Todas las entidades</option></select>
+      <select class="filtro" id="fpArea"><option value="">Todas las áreas</option></select>
+      <select class="filtro" id="fpEstado"><option value="">Cualquier estado de ficha</option>
+        <option value="pendiente">Pendiente</option><option value="en_progreso">En progreso</option><option value="completada">Completada</option></select>
+      ${selectAgrupar('agrupPer', AGRUPADORES_PERSONAL, agrupPersonal)}
+      ${botonColapsarTodo('perColapsarTodo')}
+      <span class="chip on" id="vistaTabla" style="cursor:pointer">☰ tabla</span>
+      <span class="chip" id="vistaArbol" style="cursor:pointer">◫ árbol de jerarquía</span>
+    </div>
+    <div id="perWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
+
+    <div class="modal-fondo" id="perModalFondo"><div class="modal-caja grande" id="perModalCaja"></div></div>
+    <div class="modal-fondo" id="masModalFondo"><div class="modal-caja" id="masModalCaja"></div></div>`;
+
+  $('#qp').addEventListener('input', paintPersonal);
+  $('#fpEntidad').addEventListener('change', ()=>{ poblarAreasPersonal(); paintPersonal(); });
+  $('#fpArea').addEventListener('change', paintPersonal);
+  $('#fpEstado').addEventListener('change', paintPersonal);
+  $('#agrupPer').addEventListener('change', (e)=>{ agrupPersonal = e.target.value; paintPersonal(); });
+  bindColapsarTodo('perColapsarTodo', document.getElementById('perWrap'));
+  $('#vistaTabla').addEventListener('click', ()=>{ vistaPersonal='tabla'; actualizarVistaPersonal(); paintPersonal(); });
+  $('#vistaArbol').addEventListener('click', ()=>{ vistaPersonal='arbol'; actualizarVistaPersonal(); paintPersonal(); });
+  $('#perMasivoBtn').addEventListener('click', abrirModalMasivo);
+  $('#perLote').addEventListener('click', generarEnlacesLote);
+  $('#perExport').addEventListener('click', exportarEnlacesCSV);
+  $('#perModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='perModalFondo') cerrarModalPersona(); });
+  $('#masModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='masModalFondo') cerrarModalMasivo(); });
+  document.addEventListener('keydown', escCierraModalesPersonal);
+
+  if(!db){ $('#perWrap').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
+  await recargarPersonal();
+}
+
+function actualizarVistaPersonal(){
+  $('#vistaTabla')?.classList.toggle('on', vistaPersonal==='tabla');
+  $('#vistaArbol')?.classList.toggle('on', vistaPersonal==='arbol');
+  $('#fpArea')?.toggleAttribute('disabled', vistaPersonal==='arbol');
+  $('#fpEstado')?.toggleAttribute('disabled', vistaPersonal==='arbol');
+  $('#agrupPer')?.toggleAttribute('disabled', vistaPersonal==='arbol');
+  $('#perColapsarTodo')?.toggleAttribute('disabled', vistaPersonal==='arbol');
+}
+
+function escCierraModalesPersonal(e){
+  if(e.key!=='Escape') return;
+  if($('#perModalFondo')?.classList.contains('on')) cerrarModalPersona();
+  if($('#masModalFondo')?.classList.contains('on')) cerrarModalMasivo();
+}
+
+async function recargarPersonal(){
+  const [p, f, t] = await Promise.all([
+    db.from('personal').select('*').order('nombre'),
+    db.from('fichas_perfil').select('persona_id, estado'),
+    db.from('fichas_tokens').select('*'),
+  ]);
+  const error = p.error || f.error || t.error;
+  if(error){
+    setConn('err','Error de conexión');
+    const hint = /relation .*personal.* does not exist|schema cache/i.test(error.message)
+      ? 'Las tablas de personal aún no existen: ejecuta <code>supabase/schema.sql</code> en el SQL Editor del dashboard.' : esc(error.message);
+    const w = $('#perWrap'); if(w) w.innerHTML = `<div class="card"><div class="empty"><div class="big">⚠️</div>${hint}</div></div>`;
+    return;
+  }
+  setConn('ok','Conectado · Supabase');
+  cachePersonal = p.data || [];
+  cacheFichas = {}; (f.data||[]).forEach(x=> cacheFichas[x.persona_id]=x);
+  cacheTokens = t.data || [];
+  poblarFiltrosPersonal();
+  pintarKpisPersonal();
+  paintPersonal();
+}
+
+async function recargarTokensPersonal(){
+  const { data } = await db.from('fichas_tokens').select('*');
+  cacheTokens = data || [];
+}
+
+function poblarFiltrosPersonal(){
+  const entidades = [...new Set(cachePersonal.map(p=>p.entidad).filter(Boolean))].sort();
+  $('#fpEntidad').innerHTML = '<option value="">Todas las entidades</option>' + entidades.map(e=>`<option>${esc(e)}</option>`).join('');
+  poblarAreasPersonal();
+}
+function poblarAreasPersonal(){
+  const ent = $('#fpEntidad')?.value || '';
+  const areas = [...new Set(cachePersonal.filter(p=>!ent||p.entidad===ent).map(p=>p.area).filter(Boolean))].sort();
+  const sel = $('#fpArea'); if(sel) sel.innerHTML = '<option value="">Todas las áreas</option>' + areas.map(a=>`<option>${esc(a)}</option>`).join('');
+}
+
+function pintarKpisPersonal(){
+  const el = $('#perKpis'); if(!el) return;
+  const activos = cachePersonal.filter(p=>p.activo);
+  const total = activos.length;
+  const sinGerente = activos.filter(p=>!p.gerente_id).length;
+  const gerentesConEquipo = new Set(activos.filter(p=>p.gerente_id).map(p=>p.gerente_id)).size;
+  const completas = activos.filter(p=> estadoFicha(p.id)==='completada').length;
+  const pct = total? Math.round(completas/total*100) : 0;
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">personal activo</span><span class="valor">${total}</span><span class="pie">en el censo</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">sin gerente</span><span class="valor">${sinGerente}</span><span class="pie">pendientes de asignar</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">gerentes con equipo</span><span class="valor">${gerentesConEquipo}</span><span class="pie">con al menos un reporte</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">fichas completadas</span><span class="valor">${pct}%</span><span class="pie">${completas} de ${total}</span></div></div>`;
+}
+
+const colsPersonal = [
+  {col:'nombre', label:'Nombre'}, {col:'entidad', label:'Entidad'}, {col:'area', label:'Área'},
+  {col:'cargo', label:'Cargo'}, {label:'Gerente'}, {label:'Equipo'}, {label:'Ficha'}, {label:'Enlaces'},
+];
+
+function paintPersonal(){
+  vistaPersonal==='arbol' ? pintarArbolPersonal() : pintarTablaPersonal();
+}
+
+function pintarTablaPersonal(){
+  const q = ($('#qp')?.value||'').trim().toLowerCase();
+  const fe = $('#fpEntidad')?.value||'';
+  const fa = $('#fpArea')?.value||'';
+  const fs = $('#fpEstado')?.value||'';
+  let rows = cachePersonal.filter(p=>{
+    if(fe && p.entidad!==fe) return false;
+    if(fa && p.area!==fa) return false;
+    if(fs && estadoFicha(p.id)!==fs) return false;
+    if(!q) return true;
+    return [p.nombre,p.cargo,p.correo,p.area,p.entidad].join(' ').toLowerCase().includes(q);
+  });
+  rows = rows.map(p=>{
+    const ge = cachePersonal.find(x=>x.id===p.gerente_id);
+    return { ...p, gerente_nombre: ge? ge.nombre : '', estado_ficha: estadoFicha(p.id) };
+  });
+  rows = ordenarFilas(rows, ordPersonal);
+  const wrap = $('#perWrap'); if(!wrap) return;
+  if(!rows.length){
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">◎</div>${cachePersonal.length? 'Nadie con esos filtros.' : 'Aún no hay personal cargado. Corre <code>scripts/importar-personal.py</code>.'}</div></div>`;
+    return;
+  }
+  const pintarFilaP = p=>{
+    const reportes = reportesDe(p.id);
+    const enl = estadoEnlaces(p.id);
+    return `
+      <tr data-id="${esc(p.id)}">
+        <td><b>${esc(p.nombre)}</b>${p.activo? '' : ' <span class="chip">inactivo</span>'}<br><span class="tenue" style="font-size:12px">${esc(p.correo||'sin correo')}</span></td>
+        <td>${esc(p.entidad||'—')}</td>
+        <td>${esc(p.area||'—')}</td>
+        <td class="tenue">${esc(p.cargo||'—')}</td>
+        <td class="tenue">${p.gerente_nombre? esc(p.gerente_nombre) : '— sin asignar —'}</td>
+        <td>${reportes.length? `<span class="chip">◎ gerente de ${reportes.length}</span>` : '<span class="tenue">—</span>'}</td>
+        <td><span class="marca-estado ${claseFicha(p.estado_ficha)}"><i class="punto"></i>${esc(p.estado_ficha)}</span></td>
+        <td>${enl.clase==='sin'? '<span class="tenue">sin enlace</span>' : `<span class="marca-estado ${enl.clase}"><i class="punto"></i>${esc(enl.texto)}</span>`}</td>
+      </tr>`;
+  };
+  wrap.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+    <thead>${theadOrd(colsPersonal, ordPersonal)}</thead>
+    <tbody>${filasAgrupadas(rows, agrupPersonal, colsPersonal.length, pintarFilaP)}</tbody>
+  </table></div>`;
+  bindOrd($('#perWrap thead'), ordPersonal, pintarTablaPersonal);
+  bindGrupos($('#perWrap'));
+  $$('#perWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalPersona(tr.dataset.id)));
+  decorarGruposPersonal();
+}
+
+/* Cuando se agrupa por gerente, el título del grupo es su nombre — pero esa
+   fila solo sirve para colapsar/expandir. Sin esto no había forma de llegar
+   a la ficha del propio gerente desde su grupo (su fila real vive en OTRO
+   grupo, el de SU gerente). */
+function decorarGruposPersonal(){
+  if(agrupPersonal!=='gerente_nombre') return;
+  $$('#perWrap .fila-grupo').forEach(tr=>{
+    const nombre = tr.dataset.grupo;
+    if(!nombre || nombre==='— sin asignar —') return;
+    const p = cachePersonal.find(x=> x.nombre===nombre);
+    if(!p) return;
+    const td = tr.querySelector('td'); if(!td) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-fantasma btn-mini';
+    btn.style.cssText = 'margin-left:10px;text-transform:none;letter-spacing:normal;';
+    btn.textContent = '✎ ver ficha de ' + nombre;
+    btn.addEventListener('click', (e)=>{ e.stopPropagation(); abrirModalPersona(p.id); });
+    td.appendChild(btn);
+  });
+}
+
+/* ---------- Vista de árbol: quién reporta a quién ---------- */
+function construirMapaHijos(){
+  const mapa = new Map();
+  cachePersonal.forEach(p=>{
+    if(!p.gerente_id) return;
+    if(!mapa.has(p.gerente_id)) mapa.set(p.gerente_id, []);
+    mapa.get(p.gerente_id).push(p);
+  });
+  mapa.forEach(arr=> arr.sort((a,b)=> a.nombre.localeCompare(b.nombre,'es')));
+  return mapa;
+}
+function nodoCoincideORama(p, hijosMap, q){
+  if(!q) return true;
+  const propio = [p.nombre,p.cargo,p.area,p.correo].join(' ').toLowerCase().includes(q);
+  if(propio) return true;
+  return (hijosMap.get(p.id)||[]).some(h=> nodoCoincideORama(h, hijosMap, q));
+}
+function pintarNodoArbol(p, hijosMap, q){
+  const hijos = (hijosMap.get(p.id)||[]).filter(h=> nodoCoincideORama(h, hijosMap, q));
+  const propio = [p.nombre,p.cargo,p.area,p.correo].join(' ').toLowerCase().includes(q);
+  const est = estadoFicha(p.id);
+  const cabecera = `
+    <span class="nombre-org${q&&propio?' resaltado':''}" data-abrir="${esc(p.id)}">${esc(p.nombre)}</span>
+    <span class="tenue" style="font-size:12px">${esc(p.cargo||'—')}</span>
+    ${p.activo? '' : '<span class="chip">inactivo</span>'}
+    ${hijos.length? `<span class="chip">◎ ${hijos.length}</span>`:''}
+    <span class="marca-estado ${claseFicha(est)}" style="margin-left:auto"><i class="punto"></i>${esc(est)}</span>`;
+  if(!hijos.length){
+    return `<div class="fila-org-hoja" data-id="${esc(p.id)}">${cabecera}</div>`;
+  }
+  return `<details class="nodo-org"${q? ' open':''} data-id="${esc(p.id)}">
+    <summary><span class="flecha-org">▸</span>${cabecera}</summary>
+    <div class="hijos-org">${hijos.map(h=> pintarNodoArbol(h, hijosMap, q)).join('')}</div>
+  </details>`;
+}
+function pintarArbolPersonal(){
+  const wrap = $('#perWrap'); if(!wrap) return;
+  const q = ($('#qp')?.value||'').trim().toLowerCase();
+  const fe = $('#fpEntidad')?.value||'';
+  const hijosMap = construirMapaHijos();
+  const idsConocidos = new Set(cachePersonal.map(p=>p.id));
+  let roots = cachePersonal.filter(p=> !p.gerente_id || !idsConocidos.has(p.gerente_id));
+  if(fe) roots = roots.filter(p=> p.entidad===fe);
+  roots = roots.filter(p=> nodoCoincideORama(p, hijosMap, q));
+  if(!roots.length){ wrap.innerHTML = `<div class="card"><div class="empty">Nadie con esos filtros.</div></div>`; return; }
+  const porEntidad = agrupar(roots, 'entidad');
+  wrap.innerHTML = `<div class="card" style="padding:18px 20px">
+    <p class="tenue" style="font-size:12.5px;margin-bottom:14px;">El árbol respeta la búsqueda y el filtro de entidad; ordena por gerente directo, sin importar el área o el estado de la ficha.</p>
+    <div class="arbol-org">${porEntidad.map(([ent, rs])=> `
+      <div class="rama-entidad">
+        <div class="titulo-rama">${esc(ent)} · ${rs.length}</div>
+        ${rs.map(r=> pintarNodoArbol(r, hijosMap, q)).join('')}
+      </div>`).join('')}
+    </div></div>`;
+  $$('#perWrap .fila-org-hoja').forEach(el=> el.addEventListener('click', ()=> abrirModalPersona(el.dataset.id)));
+  $$('#perWrap [data-abrir]').forEach(el=> el.addEventListener('click', (e)=>{ e.preventDefault(); abrirModalPersona(e.currentTarget.dataset.abrir); }));
+}
+
+/* ---------- Modal: ficha de persona (datos + enlaces) ---------- */
+function abrirModalPersona(id){
+  const p = cachePersonal.find(x=> String(x.id)===String(id)); if(!p) return;
+  const opcionesGerente = '<option value="">— sin gerente —</option>' + [...cachePersonal]
+    .filter(x=>x.id!==p.id).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'))
+    .map(x=>`<option value="${esc(x.id)}"${x.id===p.gerente_id?' selected':''}>${esc(x.nombre)}${x.cargo?' — '+esc(x.cargo):''}</option>`).join('');
+
+  $('#perModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">${esc(p.entidad||'—')} · ${esc(p.area||'—')}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${esc(p.nombre)}</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="perCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <div class="sobretitulo" style="margin-bottom:10px;">datos</div>
+      <form id="frmPer">
+        <div class="grid2">
+          <div class="field"><label>Nombre *</label><input class="campo" name="nombre" required value="${esc(p.nombre)}"></div>
+          <div class="field"><label>Correo</label><input class="campo" type="email" name="correo" value="${esc(p.correo||'')}"></div>
+          <div class="field"><label>País</label><select class="campo" name="pais"><option value="">—</option>${PAISES.map(x=>`<option${x===p.pais?' selected':''}>${esc(x)}</option>`).join('')}</select></div>
+          <div class="field"><label>Entidad</label><input class="campo" name="entidad" value="${esc(p.entidad||'')}"></div>
+          <div class="field"><label>Área</label><input class="campo" name="area" value="${esc(p.area||'')}"></div>
+          <div class="field"><label>Cargo</label><input class="campo" name="cargo" value="${esc(p.cargo||'')}"></div>
+          <div class="field full"><label>Gerente / supervisor</label><select class="campo" name="gerente_id">${opcionesGerente}</select></div>
+          <div class="field"><label>Activo</label><select class="campo" name="activo"><option value="true"${p.activo!==false?' selected':''}>Sí</option><option value="false"${p.activo===false?' selected':''}>No</option></select></div>
+          <div class="field full"><label>Notas</label><textarea class="campo" name="notas">${esc(p.notas||'')}</textarea></div>
+        </div>
+      </form>
+
+      <div class="sobretitulo" style="margin:22px 0 10px;">ficha de actualización de perfil</div>
+      <span class="marca-estado ${claseFicha(estadoFicha(p.id))}"><i class="punto"></i>${esc(estadoFicha(p.id))}</span>
+
+      <div class="sobretitulo" style="margin:22px 0 10px;">enlaces</div>
+      <div id="perEnlaces"></div>
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="perGuardar">✓ guardar</button>
+      <button type="button" class="btn btn-suave" id="perCancelar">cerrar</button>
+    </div>`;
+
+  $('#perModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#perCerrar').addEventListener('click', cerrarModalPersona);
+  $('#perCancelar').addEventListener('click', cerrarModalPersona);
+  $('#perGuardar').addEventListener('click', ()=> guardarPersonal(p.id));
+  pintarEnlacesModal(p.id);
+}
+function cerrarModalPersona(){
+  $('#perModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+async function guardarPersonal(id){
+  if(!db || !id) return;
+  const f = $('#frmPer');
+  const g = n => f.elements[n].value.trim();
+  const payload = {
+    nombre: g('nombre'), correo: g('correo')||null, pais: g('pais')||null, entidad: g('entidad')||null,
+    area: g('area')||null, cargo: g('cargo')||null, gerente_id: f.elements['gerente_id'].value || null,
+    activo: f.elements['activo'].value === 'true', notas: g('notas')||null,
+  };
+  if(!payload.nombre) return toast('El nombre es obligatorio', true);
+  const btn = $('#perGuardar'); btn.disabled = true;
+  const { error } = await db.from('personal').update(payload).eq('id', id);
+  btn.disabled = false;
+  if(error){
+    if(/ciclo|propio gerente/i.test(error.message)) return toast(error.message, true);
+    if(/duplicate|unique/i.test(error.message)) return toast('Ya existe alguien con ese nombre en esa entidad', true);
+    return toast('Error al guardar: '+error.message, true);
+  }
+  toast('Persona actualizada'); cerrarModalPersona(); await recargarPersonal();
+}
+
+/* ---------- Enlaces: generar / copiar / revocar (dentro del modal) ---------- */
+function bloqueEnlace(p, tipo){
+  const disponible = tipo==='individual' || reportesDe(p.id).length>0;
+  const etiqueta = tipo==='gerente' ? `equipo (${reportesDe(p.id).length} persona${reportesDe(p.id).length===1?'':'s'})` : 'individual';
+  if(!disponible){
+    return `<div class="disclosure" style="padding:14px 15px;"><span class="tenue">Esta persona no tiene reportes directos activos — no aplica un enlace de equipo.</span></div>`;
+  }
+  const tk = cacheTokens.find(t=> t.persona_id===p.id && t.tipo===tipo && !t.revocado);
+  if(!tk){
+    return `
+      <div class="disclosure" style="padding:14px 15px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>Enlace <b>${etiqueta}</b> — aún no generado.</span>
+        <button type="button" class="btn btn-humano btn-mini" data-generar="${tipo}">↗ generar</button>
+      </div>`;
+  }
+  const url = enlaceUrl(tk.token);
+  const usos = tk.usos||0;
+  const ultimo = tk.ultimo_uso ? new Date(tk.ultimo_uso).toLocaleString('es') : null;
+  const vencido = new Date(tk.expira_en).getTime() < Date.now();
+  return `
+    <div class="disclosure" style="padding:14px 15px;">
+      <div class="fila" style="justify-content:space-between;">
+        <b>${etiqueta}</b>
+        <span class="marca-estado ${usos? 'e-ok':'e-alerta'}"><i class="punto"></i>${usos? 'abierto '+usos+'×' : 'sin abrir'}</span>
+      </div>
+      <div class="fila" style="gap:8px; margin-top:10px;">
+        <input class="campo" readonly value="${esc(url)}" style="flex:1; font-size:12px;" onclick="this.select()">
+        <button type="button" class="btn btn-humano btn-mini" data-copiar="${esc(url)}">⧉ copiar</button>
+      </div>
+      <div class="tenue" style="font-size:12px; margin-top:8px;">
+        ${ultimo? 'Último acceso: '+esc(ultimo) : 'Todavía no se ha abierto.'} · Expira: ${esc(new Date(tk.expira_en).toLocaleDateString('es'))}${vencido?' · <span class="marca-estado e-riesgo"><i class="punto"></i>vencido</span>':''}
+      </div>
+      <div class="fila" style="margin-top:10px;">
+        <button type="button" class="btn btn-riesgo btn-mini" data-revocar="${esc(tk.id)}">✕ revocar</button>
+      </div>
+    </div>`;
+}
+function pintarEnlacesModal(personaId){
+  const p = cachePersonal.find(x=>x.id===personaId); if(!p) return;
+  const cont = $('#perEnlaces'); if(!cont) return;
+  cont.innerHTML = `<div style="display:flex; flex-direction:column; gap:10px;">
+    ${bloqueEnlace(p,'individual')}
+    ${bloqueEnlace(p,'gerente')}
+  </div>`;
+  $$('#perEnlaces [data-generar]').forEach(b=> b.addEventListener('click', ()=> generarEnlaceModal(personaId, b.dataset.generar)));
+  $$('#perEnlaces [data-copiar]').forEach(b=> b.addEventListener('click', ()=> copiarTexto(b.dataset.copiar)));
+  $$('#perEnlaces [data-revocar]').forEach(b=> b.addEventListener('click', ()=> revocarEnlace(b.dataset.revocar, personaId)));
+}
+
+async function copiarTexto(txt){
+  try{ await navigator.clipboard.writeText(txt); toast('Enlace copiado'); }
+  catch(e){ toast('No se pudo copiar automáticamente — selecciona el texto y usa Ctrl+C', true); }
+}
+
+async function generarEnlaceModal(personaId, tipo){
+  if(!db) return;
+  if(tipo==='gerente' && !reportesDe(personaId).length) return toast('Esa persona no tiene reportes directos activos', true);
+  const token = tokenAleatorio();
+  const { error } = await db.from('fichas_tokens').insert({ token, tipo, persona_id: personaId, creado_por: (PERFIL && PERFIL.correo) || null });
+  if(error) return toast('Error al generar el enlace: '+error.message, true);
+  await recargarTokensPersonal();
+  toast('Enlace generado');
+  pintarEnlacesModal(personaId);
+  paintPersonal();
+}
+
+async function revocarEnlace(tokenId, personaId){
+  if(!confirm('¿Revocar este enlace? Quien lo tenga ya no podrá usarlo — puedes generar uno nuevo después.')) return;
+  const { error } = await db.from('fichas_tokens').update({ revocado:true }).eq('id', tokenId);
+  if(error) return toast('Error al revocar: '+error.message, true);
+  await recargarTokensPersonal();
+  toast('Enlace revocado');
+  pintarEnlacesModal(personaId);
+  paintPersonal();
+}
+
+async function generarEnlacesLote(){
+  if(!db) return;
+  if(!confirm('¿Generar el enlace individual de todas las personas activas que aún no lo tienen, y el enlace de equipo de todos los gerentes que aún no lo tienen?')) return;
+  const gerentesConEquipo = new Set(cachePersonal.filter(p=>p.gerente_id).map(p=>p.gerente_id));
+  const nuevos = [];
+  cachePersonal.filter(p=>p.activo).forEach(p=>{
+    if(!tokensDe(p.id).some(t=>t.tipo==='individual')){
+      nuevos.push({ token: tokenAleatorio(), tipo:'individual', persona_id:p.id, creado_por:(PERFIL&&PERFIL.correo)||null });
+    }
+    if(gerentesConEquipo.has(p.id) && !tokensDe(p.id).some(t=>t.tipo==='gerente')){
+      nuevos.push({ token: tokenAleatorio(), tipo:'gerente', persona_id:p.id, creado_por:(PERFIL&&PERFIL.correo)||null });
+    }
+  });
+  if(!nuevos.length) return toast('Ya todo el mundo tiene sus enlaces generados');
+  const { error } = await db.from('fichas_tokens').insert(nuevos);
+  if(error) return toast('Error al generar en lote: '+error.message, true);
+  toast(nuevos.length + ' enlace(s) generado(s)');
+  await recargarPersonal();
+}
+
+function exportarEnlacesCSV(){
+  const filas = [['nombre','entidad','area','correo','tipo','enlace','usos','ultimo_uso']];
+  cacheTokens.filter(t=>!t.revocado).forEach(t=>{
+    const p = cachePersonal.find(x=>x.id===t.persona_id); if(!p) return;
+    filas.push([p.nombre, p.entidad||'', p.area||'', p.correo||'', t.tipo, enlaceUrl(t.token), t.usos||0, t.ultimo_uso||'']);
+  });
+  if(filas.length===1) return toast('Todavía no hay enlaces generados', true);
+  const csv = filas.map(f=> f.map(v=> '"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const blob = new Blob(['﻿'+csv], { type:'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'enlaces-actualizacion-perfil.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+/* ---------- Modal: asignación masiva de gerente por área ---------- */
+function abrirModalMasivo(){
+  const entidades = [...new Set(cachePersonal.map(p=>p.entidad).filter(Boolean))].sort();
+  $('#masModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">censo y enlaces</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">Asignación masiva de gerente por área</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="masCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <p class="tenue" style="margin-bottom:14px;">Para el personal sin gerente cargado (sobre todo Panamá): elige entidad y área, y asígnales gerente a todos de una vez.</p>
+      <div class="grid2">
+        <div class="field"><label>Entidad</label><select class="campo" id="maEntidad"><option value="">—</option>${entidades.map(e=>`<option>${esc(e)}</option>`).join('')}</select></div>
+        <div class="field"><label>Área</label><select class="campo" id="maArea"><option value="">—</option></select></div>
+        <div class="field full"><label>Gerente a asignar</label><select class="campo" id="maGerente"><option value="">—</option>${[...cachePersonal].sort((a,b)=>a.nombre.localeCompare(b.nombre,'es')).map(p=>`<option value="${esc(p.id)}">${esc(p.nombre)}${p.cargo?' — '+esc(p.cargo):''}</option>`).join('')}</select></div>
+      </div>
+      <div id="maStatus" style="margin-top:12px;"></div>
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="maAplicar">asignar a todos en esa área</button>
+      <button type="button" class="btn btn-suave" id="masCancelar">cerrar</button>
+    </div>`;
+  $('#masModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#masCerrar').addEventListener('click', cerrarModalMasivo);
+  $('#masCancelar').addEventListener('click', cerrarModalMasivo);
+  $('#maEntidad').addEventListener('change', poblarAreasMasivo);
+  $('#maAplicar').addEventListener('click', aplicarAsignacionMasiva);
+}
+function cerrarModalMasivo(){
+  $('#masModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+}
+function poblarAreasMasivo(){
+  const ent = $('#maEntidad')?.value || '';
+  const areas = [...new Set(cachePersonal.filter(p=> p.entidad===ent).map(p=>p.area).filter(Boolean))].sort();
+  const sel = $('#maArea'); if(sel) sel.innerHTML = '<option value="">—</option>' + areas.map(a=>{
+    const n = cachePersonal.filter(p=>p.entidad===ent && p.area===a).length;
+    return `<option value="${esc(a)}">${esc(a)} (${n})</option>`;
+  }).join('');
+}
+async function aplicarAsignacionMasiva(){
+  if(!db) return;
+  const entidad = $('#maEntidad').value, area = $('#maArea').value, gerenteId = $('#maGerente').value;
+  const status = $('#maStatus');
+  if(!entidad || !area || !gerenteId){ status.innerHTML = '<span class="err-text">Elige entidad, área y gerente.</span>'; return; }
+  const n = cachePersonal.filter(p=>p.entidad===entidad && p.area===area && p.id!==gerenteId).length;
+  if(!n){ status.innerHTML = 'Nadie que asignar en esa área.'; return; }
+  if(!confirm(`¿Asignar a ${n} persona(s) de "${area}" (${entidad}) como gerente a ` + (cachePersonal.find(p=>p.id===gerenteId)||{}).nombre + '?')) return;
+  const { error } = await db.from('personal').update({ gerente_id: gerenteId })
+    .eq('entidad', entidad).eq('area', area).neq('id', gerenteId);
+  if(error){ status.innerHTML = `<span class="err-text">${esc(error.message)}</span>`; return; }
+  status.innerHTML = `✓ ${n} persona(s) asignada(s).`;
+  toast('Jerarquía actualizada'); cerrarModalMasivo(); await recargarPersonal();
+}
+
+/* ============================================================
+   Módulo: Fichas recibidas — public.fichas_perfil
+   ============================================================ */
+let cacheFichasDet = [];
+let ordFichas = { col:'nombre', dir:1 };
+let agrupFichas = 'entidad';
+
+const AGRUPADORES_FICHAS = [{campo:'entidad', label:'entidad'}, {campo:'area', label:'área'}, {campo:'estado', label:'estado'}];
+
+async function renderFichas(){
+  view.innerHTML = `
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">personal · fase 3</div>
+        <div class="titulo-seccion" style="margin-top:4px">fichas recibidas</div>
+      </div>
+      <button class="btn btn-marca" id="fiExport">⬇ exportar consolidado (CSV)</button>
+    </div>
+    <div class="rejilla rejilla-4 gap-12" id="fiKpis" style="margin-bottom:20px"></div>
+    <div class="toolbar">
+      <div class="buscador"><input class="campo" id="qf" type="search" placeholder="Buscar por nombre, cargo, documento…"></div>
+      <select class="filtro" id="ffEstado"><option value="">Cualquier estado</option>
+        <option value="pendiente">Pendiente</option><option value="en_progreso">En progreso</option><option value="completada">Completada</option></select>
+      ${selectAgrupar('agrupFi', AGRUPADORES_FICHAS, agrupFichas)}
+      ${botonColapsarTodo('fiColapsarTodo')}
+    </div>
+    <div id="fiWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
+
+    <div class="modal-fondo" id="fiModalFondo"><div class="modal-caja grande" id="fiModalCaja"></div></div>`;
+
+  $('#qf').addEventListener('input', paintFichas);
+  $('#ffEstado').addEventListener('change', paintFichas);
+  $('#agrupFi').addEventListener('change', (e)=>{ agrupFichas = e.target.value; paintFichas(); });
+  bindColapsarTodo('fiColapsarTodo', document.getElementById('fiWrap'));
+  $('#fiExport').addEventListener('click', exportarFichasCSV);
+  $('#fiModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='fiModalFondo') cerrarModalFicha(); });
+  document.addEventListener('keydown', escCierraModalFicha);
+
+  if(!db){ $('#fiWrap').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
+  await recargarFichas();
+}
+
+function escCierraModalFicha(e){
+  if(e.key==='Escape' && $('#fiModalFondo')?.classList.contains('on')) cerrarModalFicha();
+}
+
+async function recargarFichas(){
+  const [p, f] = await Promise.all([
+    db.from('personal').select('id,nombre,entidad,area,cargo'),
+    db.from('fichas_perfil').select('*'),
+  ]);
+  const error = p.error || f.error;
+  if(error){
+    setConn('err','Error de conexión');
+    $('#fiWrap').innerHTML = `<div class="card">${errBox(error.message)}</div>`;
+    return;
+  }
+  setConn('ok','Conectado · Supabase');
+  const personas = {}; (p.data||[]).forEach(x=> personas[x.id]=x);
+  cacheFichasDet = (f.data||[]).map(x=> ({ ...x, persona: personas[x.persona_id] || {nombre:'(persona eliminada)'} }));
+  pintarKpisFichas();
+  paintFichas();
+}
+
+function pintarKpisFichas(){
+  const el = $('#fiKpis'); if(!el) return;
+  const completadas = cacheFichasDet.filter(x=>x.estado==='completada').length;
+  const enProgreso = cacheFichasDet.filter(x=>x.estado==='en_progreso').length;
+  const pendientes = cacheFichasDet.filter(x=>x.estado==='pendiente').length;
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">recibidas</span><span class="valor">${cacheFichasDet.length}</span><span class="pie">fichas con al menos un guardado</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">completadas</span><span class="valor">${completadas}</span><span class="pie">listas para consolidar</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">en progreso</span><span class="valor">${enProgreso}</span><span class="pie">guardadas sin enviar</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">pendientes</span><span class="valor">${pendientes}</span><span class="pie">sin datos aún</span></div></div>`;
+}
+
+const colsFichas = [
+  {col:'nombre', label:'Nombre'}, {col:'entidad', label:'Entidad'}, {col:'area', label:'Área'},
+  {label:'Cargo'}, {label:'Estado'}, {label:'Enviada'},
+];
+
+function paintFichas(){
+  const q = ($('#qf')?.value||'').trim().toLowerCase();
+  const fe = $('#ffEstado')?.value||'';
+  let rows = cacheFichasDet.filter(x=>{
+    if(fe && x.estado!==fe) return false;
+    if(!q) return true;
+    return [x.persona.nombre, x.persona.cargo, x.documento].join(' ').toLowerCase().includes(q);
+  });
+  rows = rows.map(x=> ({...x, nombre:x.persona.nombre, entidad:x.persona.entidad, area:x.persona.area}));
+  rows = ordenarFilas(rows, ordFichas);
+  const wrap = $('#fiWrap'); if(!wrap) return;
+  if(!rows.length){
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">◈</div>${cacheFichasDet.length? 'Ninguna ficha con esos filtros.' : 'Todavía no ha llegado ninguna ficha.'}</div></div>`;
+    return;
+  }
+  const pintarFilaF = x => `
+    <tr data-id="${esc(x.persona_id)}">
+      <td><b>${esc(x.persona.nombre)}</b></td>
+      <td class="tenue">${esc(x.persona.entidad||'—')}</td>
+      <td class="tenue">${esc(x.persona.area||'—')}</td>
+      <td class="tenue">${esc(x.cargo_actual || x.persona.cargo || '—')}</td>
+      <td><span class="marca-estado ${claseFicha(x.estado)}"><i class="punto"></i>${esc(x.estado)}</span></td>
+      <td class="tenue">${x.enviada_en? new Date(x.enviada_en).toLocaleDateString('es') : '—'}</td>
+    </tr>`;
+  wrap.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+    <thead>${theadOrd(colsFichas, ordFichas)}</thead>
+    <tbody>${filasAgrupadas(rows, agrupFichas, colsFichas.length, pintarFilaF)}</tbody>
+  </table></div>`;
+  bindOrd($('#fiWrap thead'), ordFichas, paintFichas);
+  bindGrupos($('#fiWrap'));
+  $$('#fiWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalFicha(tr.dataset.id)));
+}
+
+function abrirModalFicha(personaId){
+  const x = cacheFichasDet.find(f=>f.persona_id===personaId); if(!x) return;
+  const resp = Array.isArray(x.responsabilidades)? x.responsabilidades : [];
+  const previas = Array.isArray(x.posiciones_previas)? x.posiciones_previas : [];
+  const hab = (x.habilidades && typeof x.habilidades==='object')? x.habilidades : {};
+  const NIVEL = { basico:'Básico', intermedio:'Intermedio', avanzado:'Avanzado', no_aplica:'No aplica' };
+  const NIVELEDU = { bachiller_tecnico_medio:'Bachiller / Técnico Medio', tsu_universitario_incompleto:'TSU / Universitario incompleto',
+    universitario_titulado:'Universitario titulado', especializacion_maestria_doctorado:'Especialización / Maestría / Doctorado' };
+
+  $('#fiModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">${esc(x.persona.entidad||'—')} · ${esc(x.persona.area||'—')}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${esc(x.persona.nombre)}</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="fiCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <span class="marca-estado ${claseFicha(x.estado)}" style="margin-bottom:16px;display:inline-flex;"><i class="punto"></i>${esc(x.estado)}</span>
+      <div class="grid2">
+        <div class="field"><label>Documento</label><input class="campo" value="${esc(x.documento||'')}" disabled></div>
+        <div class="field"><label>Antigüedad en la organización</label><input class="campo" value="${esc(x.antiguedad_org||'')}" disabled></div>
+        <div class="field"><label>Nivel educativo</label><input class="campo" value="${esc(NIVELEDU[x.nivel_educativo]||'')}" disabled></div>
+        <div class="field"><label>Título / especialidad</label><input class="campo" value="${esc(x.titulo_obtenido||'')}" disabled></div>
+        <div class="field"><label>Institución</label><input class="campo" value="${esc(x.institucion||'')}" disabled></div>
+        <div class="field"><label>Otras formaciones</label><input class="campo" value="${esc(x.otras_formaciones||'')}" disabled></div>
+        <div class="field"><label>Cargo actual</label><input class="campo" value="${esc(x.cargo_actual||'')}" disabled></div>
+        <div class="field"><label>Antigüedad en el cargo</label><input class="campo" value="${esc(x.antiguedad_cargo||'')}" disabled></div>
+        <div class="field full"><label>Área / sede</label><input class="campo" value="${esc(x.area_sede||'')}" disabled></div>
+        <div class="field full"><label>Responsabilidades</label><textarea class="campo" disabled>${esc(resp.join('\n'))}</textarea></div>
+        <div class="field full"><label>Posiciones anteriores</label><textarea class="campo" disabled>${esc(previas.map(p=>`${p.cargo||''} · ${p.area||''} · ${p.periodo||''}`).join('\n'))}</textarea></div>
+        <div class="field full"><label>Hard skills</label><textarea class="campo" disabled>${esc(
+          ['excel','odoo','lark','powerbi','ia'].map(k=>`${k}: ${NIVEL[hab[k]]||'—'}`).join(' · ') +
+          (hab.otra && hab.otra.nombre ? ` · ${hab.otra.nombre}: ${NIVEL[hab.otra.nivel]||'—'}` : '')
+        )}</textarea></div>
+      </div>
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-suave" id="fiCancelar">cerrar</button>
+      ${x.estado==='completada' ? `<button type="button" class="btn btn-humano" id="fiReabrir">↺ reabrir para editar</button>` : ''}
+    </div>`;
+
+  $('#fiModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#fiCerrar').addEventListener('click', cerrarModalFicha);
+  $('#fiCancelar').addEventListener('click', cerrarModalFicha);
+  if(x.estado==='completada'){
+    $('#fiReabrir').addEventListener('click', async ()=>{
+      const { error } = await db.from('fichas_perfil').update({ estado:'en_progreso' }).eq('persona_id', personaId);
+      if(error) return toast(error.message, true);
+      toast('Ficha reabierta'); cerrarModalFicha(); await recargarFichas();
+    });
+  }
+}
+function cerrarModalFicha(){
+  $('#fiModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function exportarFichasCSV(){
+  if(!cacheFichasDet.length) return toast('Todavía no ha llegado ninguna ficha', true);
+  const cab = ['nombre','entidad','area','cargo_actual','documento','antiguedad_org','nivel_educativo','titulo_obtenido',
+    'institucion','otras_formaciones','antiguedad_cargo','area_sede','responsabilidades','posiciones_previas','habilidades','estado','enviada_en'];
+  const filas = [cab];
+  cacheFichasDet.forEach(x=>{
+    filas.push([
+      x.persona.nombre, x.persona.entidad||'', x.persona.area||'', x.cargo_actual||'', x.documento||'',
+      x.antiguedad_org||'', x.nivel_educativo||'', x.titulo_obtenido||'', x.institucion||'', x.otras_formaciones||'',
+      x.antiguedad_cargo||'', x.area_sede||'', JSON.stringify(x.responsabilidades||[]),
+      JSON.stringify(x.posiciones_previas||[]), JSON.stringify(x.habilidades||{}), x.estado, x.enviada_en||'',
+    ]);
+  });
+  const csv = filas.map(f=> f.map(v=> '"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const blob = new Blob(['﻿'+csv], { type:'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fichas-perfil-consolidado.csv';
+  document.body.appendChild(a); a.click(); a.remove();
 }
 
 /* ---- identidad de la sesión en la barra superior ---- */
@@ -1816,6 +2989,19 @@ $('#sesSalir').addEventListener('click', ()=>{
   if(!confirm('¿Cerrar la sesión del panel?')) return;
   if(window.rowerSesion) rowerSesion.salir(); else location.reload();
 });
+
+/* ---- tema claro/oscuro (misma clave que el informe: la preferencia es del sitio, no del módulo) ---- */
+(function(){
+  const raiz = document.documentElement, btn = $('#btnTema');
+  const rotula = ()=> btn.textContent = raiz.getAttribute('data-tema')==='oscuro' ? '☀️' : '🌙';
+  rotula();
+  btn.addEventListener('click', ()=>{
+    const oscuro = raiz.getAttribute('data-tema')==='oscuro';
+    raiz.setAttribute('data-tema', oscuro ? 'claro' : 'oscuro');
+    try{ localStorage.setItem('rower.tema', oscuro ? 'claro' : 'oscuro'); }catch(e){}
+    rotula();
+  });
+})();
 
 /* ---- arranque ----
    El perfil cacheado pinta ya (sin parpadeo) y se revalida contra la base:

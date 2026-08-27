@@ -1,130 +1,110 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Acceso · Proyecto Rower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilo/app.css">
 <style>
-  :root{
-    --navy:#1F3864; --blue:#2E75B6; --rojo:#C00000; --verde:#2E7D32; --ambar:#B26A00;
-    --gris:#F4F6FA; --borde:#d9dee8; --txt:#26303f; --muted:#55627a;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
   html,body{height:100%;}
   body{
-    font-family:Calibri,"Segoe UI",Segoe,Arial,sans-serif; color:var(--txt);
-    line-height:1.55; background:var(--navy);
-    background-image:linear-gradient(135deg,#152747 0%,#1F3864 45%,#2a4a80 100%);
+    background:var(--fondo);
     display:flex; align-items:center; justify-content:center; padding:28px 18px;
   }
   .caja{
-    width:100%; max-width:940px; background:#fff; border-radius:14px; overflow:hidden;
-    box-shadow:0 22px 60px rgba(8,18,38,.42); display:grid; grid-template-columns:1fr 1fr;
+    width:100%; max-width:940px; background:var(--panel); border:1px solid var(--borde);
+    border-radius:var(--r-panel); overflow:hidden; box-shadow:var(--sombra-alta);
+    display:grid; grid-template-columns:1fr 1fr;
   }
 
-  /* ---------- Panel de identidad ---------- */
+  /* ---------- Panel de identidad: siempre oscuro, sea cual sea el tema de la página ---------- */
   .marca{
-    background:linear-gradient(160deg,var(--navy) 0%,#2a4a80 100%); color:#fff;
+    --fondo:#0A0E13; --panel:#141C25; --panel-alto:#1A2530; --borde:#22303D;
+    --tinta:#E9EFF5; --tinta-media:#9AAABA; --tinta-tenue:#7D8C9C;
+    background:var(--fondo); color:var(--tinta);
     padding:40px 36px; display:flex; flex-direction:column;
   }
-  .marca .kicker{
-    text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; color:#9dc3ee; margin-bottom:12px;
-  }
-  .marca h1{font-size:1.72rem; font-weight:700; line-height:1.2;}
-  .marca .lema{color:#dbe6f5; font-size:.94rem; margin-top:12px;}
-  .marca ul{list-style:none; margin-top:auto; padding-top:26px; display:flex; flex-direction:column; gap:9px;}
-  .marca li{font-size:.86rem; color:#cfe0f5; display:flex; gap:9px; align-items:flex-start;}
+  .marca .logo{display:flex; align-items:center; gap:11px; margin-bottom:14px;}
+  .marca h1{font-size:1.6rem; font-weight:700; letter-spacing:-.02em; line-height:1.2; text-transform:lowercase;}
+  .marca .lema{color:var(--tinta-media); font-size:.94rem; margin-top:2px;}
+  .marca ul{list-style:none; margin-top:auto; padding-top:26px; display:flex; flex-direction:column; gap:10px;}
+  .marca li{font-size:.86rem; color:var(--tinta-media); display:flex; gap:9px; align-items:flex-start;}
   .marca li span{opacity:.85;}
   .conf{
-    display:inline-block; margin-top:20px; padding:5px 13px; border-radius:999px; align-self:flex-start;
-    background:rgba(192,0,0,.28); border:1px solid rgba(255,255,255,.35);
-    font-size:.7rem; letter-spacing:.09em; text-transform:uppercase;
+    display:inline-flex; align-items:center; gap:6px; margin-top:20px; align-self:flex-start;
+    padding:4px 12px; border-radius:var(--r-pildora); font-size:.7rem; font-weight:700;
+    letter-spacing:.09em; text-transform:uppercase;
+    background:rgba(255,107,90,.13); color:var(--riesgo); border:1px solid rgba(255,107,90,.30);
   }
 
   /* ---------- Formulario ---------- */
-  .panel{padding:40px 38px; display:flex; flex-direction:column; justify-content:center;}
-  .panel h2{color:var(--navy); font-size:1.3rem; margin-bottom:4px;}
-  .panel .sub{color:var(--muted); font-size:.9rem; margin-bottom:22px;}
-  .campo{display:flex; flex-direction:column; gap:6px; margin-bottom:15px;}
-  .campo label{font-size:.8rem; font-weight:600; color:var(--navy); text-transform:uppercase; letter-spacing:.05em;}
-  .campo input{
-    width:100%; padding:11px 13px; border:1px solid var(--borde); border-radius:8px;
-    font:inherit; font-size:.98rem; background:#fff; transition:.12s;
-  }
-  .campo input:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(46,117,182,.16);}
-  .campo .conBoton{position:relative; display:flex;}
-  .campo .conBoton input{padding-right:74px;}
-  .ver{
-    position:absolute; right:5px; top:5px; bottom:5px; border:none; background:var(--gris);
-    color:var(--muted); border-radius:6px; padding:0 11px; cursor:pointer; font:inherit; font-size:.78rem;
-  }
-  .ver:hover{background:#e7ecf5; color:var(--navy);}
-  button.enviar{
-    width:100%; margin-top:8px; padding:12px 16px; border:none; border-radius:8px; cursor:pointer;
-    background:var(--navy); color:#fff; font:inherit; font-size:1rem; font-weight:600; transition:.12s;
-  }
-  button.enviar:hover:not(:disabled){background:#2a4a80;}
-  button.enviar:disabled{opacity:.6; cursor:progress;}
+  .panel-acceso{padding:40px 38px; display:flex; flex-direction:column; justify-content:center;}
+  .panel-acceso h2{color:var(--tinta); font-size:1.3rem; margin-bottom:4px; text-transform:lowercase;}
+  .panel-acceso .sub{color:var(--tinta-media); font-size:.9rem; margin-bottom:22px;}
+  .grupo-campo{display:flex; flex-direction:column; gap:6px; margin-bottom:15px;}
+  .conBoton{position:relative; display:flex;}
+  .conBoton .campo{padding-right:74px;}
+  .ver{position:absolute; right:5px; top:5px; bottom:5px;}
+  button.enviar{width:100%; margin-top:8px;}
+
   .aviso{
-    border-radius:8px; padding:10px 13px; font-size:.85rem; margin-bottom:16px; display:none;
+    border-radius:var(--r-campo); padding:10px 13px; font-size:.85rem; margin-bottom:16px; display:none;
   }
   .aviso.on{display:block;}
-  .aviso.err{background:#fbeaea; border:1px solid #eecccc; color:#8e1c1c;}
-  .aviso.info{background:#fdf1de; border:1px solid #f0d9ad; color:#7a4d00;}
-  .aviso.ok{background:#e8f2e9; border:1px solid #c3ddc6; color:#1f5d24;}
+  .aviso.err{background:rgba(255,107,90,.09); border:1px solid rgba(255,107,90,.28); color:var(--riesgo);}
+  .aviso.info{background:rgba(255,201,74,.10); border:1px solid rgba(255,201,74,.30); color:var(--alerta);}
+  .aviso.ok{background:rgba(46,212,122,.10); border:1px solid rgba(46,212,122,.28); color:var(--ok);}
   .destino{
-    background:var(--gris); border:1px solid var(--borde); border-left:4px solid var(--blue);
-    border-radius:8px; padding:9px 13px; font-size:.84rem; color:var(--muted); margin-bottom:18px;
+    background:var(--panel-alto); border:1px solid var(--borde); border-left:3px solid var(--cian);
+    border-radius:var(--r-campo); padding:9px 13px; font-size:.84rem; color:var(--tinta-media); margin-bottom:18px;
   }
-  .destino b{color:var(--navy);}
-  .pie{margin-top:20px; font-size:.8rem; color:var(--muted); border-top:1px solid var(--borde); padding-top:14px;}
-  .pie a{color:var(--blue); text-decoration:none;}
+  .destino b{color:var(--tinta);}
+  .pie{margin-top:20px; font-size:.8rem; color:var(--tinta-tenue); border-top:1px solid var(--borde); padding-top:14px;}
+  .pie a{color:var(--cian); text-decoration:none;}
   .pie a:hover{text-decoration:underline;}
 
   /* ---------- Estado: sesión activa / restaurando ---------- */
   .bloque{display:none;}
   .bloque.on{display:block;}
   .quien{
-    display:flex; align-items:center; gap:12px; background:var(--gris); border:1px solid var(--borde);
-    border-radius:9px; padding:13px 15px; margin-bottom:18px;
+    display:flex; align-items:center; gap:12px; background:var(--panel-alto); border:1px solid var(--borde);
+    border-radius:var(--r-tarjeta); padding:13px 15px; margin-bottom:18px;
   }
   .quien .ini{
-    width:40px; height:40px; border-radius:50%; background:var(--navy); color:#fff; flex:0 0 auto;
+    width:40px; height:40px; border-radius:50%; background:var(--gradiente); color:#04212B; flex:0 0 auto;
     display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.95rem;
   }
   .quien .datos{min-width:0;}
-  .quien .datos b{color:var(--navy); display:block; font-size:.94rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-  .quien .datos span{font-size:.8rem; color:var(--muted);}
+  .quien .datos b{color:var(--tinta); display:block; font-size:.94rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:650;}
+  .quien .datos span{font-size:.8rem; color:var(--tinta-tenue);}
   .quien .datos .rolchip{
-    display:inline-block; margin-left:7px; background:#e3eefb; color:var(--navy);
+    display:inline-block; margin-left:7px; background:var(--panel); color:var(--tinta-media);
+    border:1px solid var(--borde);
     border-radius:999px; padding:1px 9px; font-size:.7rem; font-weight:700;
     text-transform:uppercase; letter-spacing:.04em; vertical-align:1px;
   }
   .rutas{display:flex; flex-direction:column; gap:10px;}
   .sinNada{
-    background:#fdf1de; border:1px solid #f0d9ad; color:#7a4d00; border-radius:8px;
-    padding:12px 14px; font-size:.87rem;
+    background:rgba(255,201,74,.10); border:1px solid rgba(255,201,74,.30); color:var(--alerta);
+    border-radius:var(--r-campo); padding:12px 14px; font-size:.87rem;
   }
-  a.ruta.no{opacity:.5; pointer-events:none; border-left-color:var(--borde);}
-  a.ruta.no b::after{content:" · sin permiso"; font-weight:400; color:var(--muted); font-size:.8rem;}
+  a.ruta.no{opacity:.5; pointer-events:none; border-left-color:var(--borde) !important;}
+  a.ruta.no b::after{content:" · sin permiso"; font-weight:400; color:var(--tinta-tenue); font-size:.8rem;}
   a.ruta{
-    display:block; text-decoration:none; color:inherit; border:1px solid var(--borde);
-    border-left:5px solid var(--blue); border-radius:8px; padding:12px 15px; transition:.14s;
+    display:block; text-decoration:none; color:inherit;
+    border-left:4px solid var(--borde);
   }
-  a.ruta.admin{border-left-color:var(--navy);}
-  a.ruta.front{border-left-color:var(--verde);}
-  a.ruta:hover{box-shadow:0 6px 16px rgba(31,56,100,.13); transform:translateY(-1px);}
-  a.ruta b{color:var(--navy); display:block; font-size:.98rem;}
-  a.ruta span{font-size:.83rem; color:var(--muted);}
-  button.salir{
-    margin-top:16px; width:100%; padding:10px 14px; border:1px solid #eecccc; border-radius:8px;
-    background:#fff; color:var(--rojo); font:inherit; font-size:.9rem; cursor:pointer;
-  }
-  button.salir:hover{background:#fbeaea; border-color:var(--rojo);}
-  .cargando{display:flex; align-items:center; gap:11px; color:var(--muted); font-size:.92rem;}
+  a.ruta.admin{border-left-color:var(--cian);}
+  a.ruta.front{border-left-color:var(--ok);}
+  a.ruta b{color:var(--tinta); display:block; font-size:.98rem; font-weight:650;}
+  a.ruta span{font-size:.83rem; color:var(--tinta-media);}
+  .cargando{display:flex; align-items:center; gap:11px; color:var(--tinta-media); font-size:.92rem;}
   .aro{
-    width:19px; height:19px; border:2.5px solid #d5dded; border-top-color:var(--blue);
+    width:19px; height:19px; border:2.5px solid var(--borde); border-top-color:var(--cian);
     border-radius:50%; animation:gira .8s linear infinite; flex:0 0 auto;
   }
   @keyframes gira{to{transform:rotate(360deg);}}
@@ -132,9 +112,9 @@
   @media (max-width:760px){
     .caja{grid-template-columns:1fr; max-width:460px;}
     .marca{padding:30px 26px 26px;}
-    .marca h1{font-size:1.45rem;}
+    .marca h1{font-size:1.4rem;}
     .marca ul{display:none;}
-    .panel{padding:28px 24px 30px;}
+    .panel-acceso{padding:28px 24px 30px;}
   }
 </style>
 </head>
@@ -142,8 +122,11 @@
 
 <div class="caja">
   <aside class="marca">
-    <div class="kicker">UCAB Consultores · Grupo Kenex</div>
-    <h1>Proyecto Rower</h1>
+    <div class="sobretitulo">UCAB Consultores · Grupo Kenex</div>
+    <div class="logo">
+      <span class="orbe orbe-grande" aria-hidden="true"></span>
+      <h1>Proyecto Rower</h1>
+    </div>
     <p class="lema">Optimización Organizacional y Adopción de IA. El informe, las presentaciones y los módulos del proyecto viven detrás de este acceso.</p>
     <ul>
       <li><span>📘</span> Informe Diagnóstico Fase 1 y sus módulos interactivos</li>
@@ -153,7 +136,7 @@
     <span class="conf">Confidencial — acceso restringido</span>
   </aside>
 
-  <main class="panel">
+  <main class="panel-acceso">
     <!-- 1. Restaurando una sesión guardada -->
     <div class="bloque on" id="bRestaurar">
       <div class="cargando"><span class="aro"></span> Verificando el acceso…</div>
@@ -161,26 +144,26 @@
 
     <!-- 2. Formulario de acceso -->
     <div class="bloque" id="bForm">
-      <h2>Iniciar sesión</h2>
+      <h2>iniciar sesión</h2>
       <p class="sub">Entra con la cuenta que te asignó el equipo técnico del proyecto.</p>
 
       <div class="aviso" id="aviso"></div>
       <div class="destino" id="destinoCaja" style="display:none"></div>
 
       <form id="form" autocomplete="on">
-        <div class="campo">
-          <label for="correo">Correo</label>
-          <input type="email" id="correo" name="username" required autocomplete="username"
+        <div class="grupo-campo">
+          <label class="etiqueta" for="correo">Correo</label>
+          <input class="campo" type="email" id="correo" name="username" required autocomplete="username"
                  inputmode="email" placeholder="nombre@dominio.com" autofocus>
         </div>
-        <div class="campo">
-          <label for="clave">Clave</label>
+        <div class="grupo-campo">
+          <label class="etiqueta" for="clave">Clave</label>
           <div class="conBoton">
-            <input type="password" id="clave" name="password" required autocomplete="current-password" placeholder="••••••••">
-            <button type="button" class="ver" id="verClave" aria-label="Mostrar u ocultar la clave">Ver</button>
+            <input class="campo" type="password" id="clave" name="password" required autocomplete="current-password" placeholder="••••••••">
+            <button type="button" class="btn btn-fantasma btn-mini ver" id="verClave" aria-label="Mostrar u ocultar la clave">Ver</button>
           </div>
         </div>
-        <button type="submit" class="enviar" id="btn">Entrar</button>
+        <button type="submit" class="btn btn-marca enviar" id="btn">Entrar</button>
       </form>
 
       <div class="pie">
@@ -191,7 +174,7 @@
 
     <!-- 3. Sesión activa: elegir camino -->
     <div class="bloque" id="bSesion">
-      <h2 id="sesTitulo">Sesión activa</h2>
+      <h2 id="sesTitulo">sesión activa</h2>
       <p class="sub" id="sesSub">Ya estás dentro. Elige por dónde seguir.</p>
       <div class="aviso" id="avisoSesion"></div>
       <div class="quien">
@@ -199,11 +182,11 @@
         <div class="datos"><b id="quienCorreo">—</b><span id="quienNota">Acceso verificado</span></div>
       </div>
       <div class="rutas" id="rutas">
-        <a class="ruta front" id="rInforme" href="../informe/fase1/informe-diagnostico-fase1.html">
+        <a class="ruta front tarjeta pulsable" id="rInforme" href="../informe/fase1/informe-diagnostico-fase1.html">
           <b>📘 Informe Diagnóstico — Fase 1</b>
           <span>El entregable maestro: 13 secciones, anexos y módulos interactivos.</span>
         </a>
-        <a class="ruta admin" id="rAdmin" href="../admin/">
+        <a class="ruta admin tarjeta pulsable" id="rAdmin" href="../admin/">
           <b>🔵 Panel administrativo</b>
           <span>Asistente IA, entrevistas, insumos y línea de tiempo.</span>
         </a>
@@ -212,7 +195,7 @@
         Tu cuenta está activa pero <b>todavía no tiene accesos asignados</b>.
         Quien administre los accesos del proyecto tiene que darte un rol.
       </p>
-      <button type="button" class="salir" id="btnSalir">Cerrar sesión</button>
+      <button type="button" class="btn btn-riesgo salir" id="btnSalir" style="width:100%; margin-top:16px;">Cerrar sesión</button>
     </div>
   </main>
 </div>

@@ -1,22 +1,31 @@
 <!doctype html>
+<html lang="es" data-tema="claro">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mapa de Procesos · Grupo Kenex</title>
 <!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
 <script src="mapa-procesos-datos.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilo/app.css">
 <style>
 :root{
-  --ground:#F2F4F8; --panel:#FFFFFF; --panel2:#F7F9FC; --ink:#1C2536; --muted:#5C6478;
-  --line:#D5DBE6; --line2:#C3CAD8;
-  --estr:#1A3A5C; --oper:#2E8540; --sop:#C77C02;
-  --estr-bg:#E8EEF6; --oper-bg:#E8F4EA; --sop-bg:#FDF3E2;
-  --risk:#C2382D; --risk-bg:#FBEAE8; --ok:#2F7D51; --ok-bg:#EEF6F0;
-  --sug:#1565C0; --accent:#1F3864; --flash:#FFD666;
-  --shadow:0 1px 2px rgba(23,32,54,.08),0 5px 16px rgba(23,32,54,.09);
-  --f-d:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
-  --f-b:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
-  --f-m:"Cascadia Mono",Consolas,ui-monospace,monospace;
+  /* Alias: --panel y --ok ya existen con el mismo sentido en el archivo
+     compartido (superficie blanca · verde de éxito) — no se redefinen aquí,
+     redefinirlos sería una referencia circular. El resto sí se redirige. */
+  --ground:var(--fondo); --panel2:var(--panel-alto); --ink:var(--tinta); --muted:var(--tinta-media);
+  --line:var(--borde-tenue); --line2:var(--borde);
+  --estr:var(--cian); --oper:var(--menta); --sop:var(--alerta);
+  --estr-bg:color-mix(in srgb,var(--cian) 13%,var(--panel));
+  --oper-bg:color-mix(in srgb,var(--menta) 13%,var(--panel));
+  --sop-bg:color-mix(in srgb,var(--alerta) 13%,var(--panel));
+  --risk:var(--riesgo); --risk-bg:color-mix(in srgb,var(--riesgo) 12%,var(--panel));
+  --ok-bg:color-mix(in srgb,var(--ok) 12%,var(--panel));
+  --sug:var(--cian); --accent:var(--menta); --flash:var(--alerta);
+  --shadow:var(--sombra);
+  --f-d:var(--fuente); --f-b:var(--fuente); --f-m:var(--mono);
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -464,3 +473,4 @@ apply();          // transform inicial ANTES del primer encuadre (lección del o
 dibujar();
 irEscena('cadena');
 </script>
+</html>

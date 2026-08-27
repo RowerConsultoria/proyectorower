@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Actualización de perfil · Proyecto Rower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilo/app.css">
+<style>
+  body{background:var(--fondo); min-height:100vh;}
+  .topbar{
+    --fondo:#0A0E13; --tinta:#E9EFF5; --tinta-tenue:#7D8C9C;
+    background:var(--fondo); color:var(--tinta);
+    padding:18px 20px; display:flex; align-items:center; gap:11px;
+  }
+  .topbar .textos{min-width:0;}
+  .topbar .kicker{text-transform:uppercase; letter-spacing:.14em; font-size:.68rem; color:var(--tinta-tenue);}
+  .topbar h1{font-size:1.1rem; margin-top:2px; font-weight:700; text-transform:lowercase; letter-spacing:-.01em;}
+  .wrap{max-width:760px; margin:0 auto; padding:16px 14px 60px;}
+  .card{background:var(--panel); border:1px solid var(--borde); border-radius:var(--r-panel); box-shadow:var(--sombra); padding:20px; margin-top:14px;}
+  .empty{padding:40px 18px; text-align:center; color:var(--muted);}
+  .empty .big{font-size:2.2rem; margin-bottom:10px;}
+  .empty.err{color:var(--riesgo);}
+
+  /* ---------- Roster (enlace de gerente) ---------- */
+  .persona-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:13px 4px; border-bottom:1px solid var(--borde); cursor:pointer;
+    transition:background .12s var(--curva);
+  }
+  .persona-row:last-child{border-bottom:none;}
+  .persona-row:hover{background:var(--realce);}
+  .persona-row .nombre{font-weight:650; color:var(--navy);}
+  .persona-row .sub{font-size:.82rem; color:var(--muted);}
+  .barra{height:6px; border-radius:99px; background:var(--panel-alto); border:1px solid var(--borde-tenue); width:90px; overflow:hidden; margin-top:4px;}
+  .barra i{display:block; height:100%; background:var(--gradiente);}
+  .estado-chip{
+    font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:var(--r-pildora); white-space:nowrap;
+    background:var(--panel-alto); color:var(--tinta-media); border:1px solid var(--borde);
+  }
+  .estado-chip.completada{background:rgba(46,212,122,.13); color:var(--ok); border-color:rgba(46,212,122,.3);}
+
+  /* ---------- Formulario ---------- */
+  .backlink{display:inline-block; color:var(--blue); text-decoration:none; font-size:.88rem; margin-bottom:10px;}
+  .backlink:hover{text-decoration:underline;}
+  h2.titulo{color:var(--navy); font-size:1.15rem; text-transform:lowercase;}
+  .seccion{margin-top:18px;}
+  .seccion h3{color:var(--navy); font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; border-bottom:1px solid var(--borde); padding-bottom:8px; margin-bottom:12px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:560px){ .grid2{grid-template-columns:1fr;} }
+  .field{display:flex; flex-direction:column; gap:5px; margin-bottom:12px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:.78rem; font-weight:700; color:var(--navy);}
+  .field input, .field select, .field textarea{
+    padding:10px 12px; border:1px solid var(--borde); border-radius:var(--r-campo); font:inherit; font-size:.95rem; background:var(--panel-alto); color:var(--txt);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(50,198,244,.15);}
+  .field textarea{min-height:60px; resize:vertical;}
+  fieldset{border:1px solid var(--borde); border-radius:var(--r-campo); padding:10px 12px; margin-bottom:12px;}
+  fieldset legend{font-size:.78rem; font-weight:700; color:var(--navy); padding:0 6px;}
+  .radio-op{display:flex; align-items:center; gap:8px; padding:5px 0; font-size:.92rem;}
+
+  table.hard{width:100%; border-collapse:collapse; font-size:.85rem;}
+  table.hard th, table.hard td{padding:8px 6px; border-bottom:1px solid var(--borde-tenue); text-align:center;}
+  table.hard th:first-child, table.hard td:first-child{text-align:left;}
+  table.hard th{color:var(--tinta-tenue); font-weight:700; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;}
+  table.hard select{width:100%; padding:7px; border:1px solid var(--borde); border-radius:var(--r-campo); font:inherit; font-size:.82rem; background:var(--panel-alto); color:var(--txt);}
+
+  .previas-fila{display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:8px; margin-bottom:8px;}
+  @media (max-width:560px){ .previas-fila{grid-template-columns:1fr;} }
+  .previas-fila input{padding:8px 10px; border:1px solid var(--borde); border-radius:var(--r-campo); font:inherit; font-size:.88rem; background:var(--panel-alto); color:var(--txt);}
+  .btn-quitar{background:none; border:none; color:var(--riesgo); cursor:pointer; font-size:.85rem;}
+
+  .form-foot{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; align-items:center;}
+  .btn{padding:10px 20px; border-radius:var(--r-pildora); border:1px solid var(--borde); background:var(--panel); color:var(--txt); font:inherit; font-size:.92rem; font-weight:600; cursor:pointer; transition:background .15s var(--curva), border-color .15s var(--curva);}
+  .btn.primary{background:var(--gradiente); color:#04212B; border-color:transparent; box-shadow:var(--sombra-menta); font-weight:700;}
+  .btn.primary:hover{filter:brightness(1.06);}
+  .btn:disabled{opacity:.55; cursor:progress;}
+  .btn-mas{background:none; border:1px dashed var(--borde); color:var(--blue); padding:7px 14px; border-radius:var(--r-pildora); font:inherit; font-size:.85rem; cursor:pointer;}
+  .btn-mas:hover{border-color:var(--blue);}
+  .guardado{font-size:.8rem; color:var(--muted);}
+  .aviso{border-radius:var(--r-campo); padding:11px 13px; font-size:.86rem; margin-top:14px;}
+  .aviso.err{background:rgba(255,107,90,.09); border:1px solid rgba(255,107,90,.28); color:var(--riesgo);}
+  .aviso.ok{background:rgba(46,212,122,.1); border:1px solid rgba(46,212,122,.28); color:var(--ok);}
+  .aviso ul{margin:6px 0 0 18px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="orbe orbe-grande" aria-hidden="true"></span>
+  <div class="textos">
+    <div class="kicker">UCAB Consultores · Kenex</div>
+    <h1>actualización de perfil de personal</h1>
+  </div>
+</div>
+<div class="wrap" id="app">
+  <div class="card"><div class="empty">Cargando…</div></div>
+</div>
+
+<script>
+/* ============================================================
+   Actualización de perfil — página pública sin sesión de Supabase Auth.
+   Habla directo con la Edge Function `ficha` (token opaco de fichas_tokens).
+   No carga supabase-js ni supabase/sesion.js a propósito: este público no
+   tiene cuenta en el aplicativo. Mantener en sintonía con supabase/cliente.js.
+   ============================================================ */
+const SUPABASE_URL = "https://kmhwqybqrcjhjeywjgxj.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1";
+const FN_FICHA = SUPABASE_URL + "/functions/v1/ficha";
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (v) => (v == null ? "" : String(v)).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const app = $("#app");
+
+const TOKEN = new URLSearchParams(location.search).get("t") || "";
+
+const NIVELES_EDU = [
+  ["bachiller_tecnico_medio", "Bachiller / Técnico Medio"],
+  ["tsu_universitario_incompleto", "TSU / Universitario incompleto"],
+  ["universitario_titulado", "Universitario titulado"],
+  ["especializacion_maestria_doctorado", "Especialización / Maestría / Doctorado"],
+];
+const NIVELES_SKILL = ["", "basico", "intermedio", "avanzado", "no_aplica"];
+const NIVEL_SKILL_LABEL = { "": "—", basico: "Básico", intermedio: "Intermedio", avanzado: "Avanzado", no_aplica: "No aplica" };
+const HARD_SKILLS = [
+  ["excel", "Microsoft Excel (fórmulas, tablas dinámicas, dashboards)"],
+  ["odoo", "Odoo (ERP / módulos de gestión)"],
+  ["lark", "Lark (colaboración y gestión)"],
+  ["powerbi", "Power BI (visualización y análisis de datos)"],
+  ["ia", "Inteligencia Artificial (herramientas y prompting)"],
+];
+
+async function pedir(accion, extra) {
+  const r = await fetch(FN_FICHA, {
+    method: "POST",
+    headers: { apikey: SUPABASE_ANON_KEY, Authorization: "Bearer " + SUPABASE_ANON_KEY, "Content-Type": "application/json" },
+    body: JSON.stringify(Object.assign({ accion, token: TOKEN }, extra || {})),
+  });
+  let data = {};
+  try { data = await r.json(); } catch (e) { /* respuesta no-JSON */ }
+  if (!r.ok && !data.faltan) throw new Error(data.error || ("HTTP " + r.status));
+  return data;
+}
+
+function errBox(msg) {
+  return `<div class="empty err"><div class="big">⚠️</div>${esc(msg)}</div>`;
+}
+
+/* ---------------------------------------------------------------
+   Arranque
+   --------------------------------------------------------------- */
+async function iniciar() {
+  if (!TOKEN) {
+    app.innerHTML = `<div class="card">${errBox("Falta el enlace. Pide a quien te lo compartió que te reenvíe la dirección completa.")}</div>`;
+    return;
+  }
+  try {
+    const d = await pedir("abrir");
+    if (d.error) { app.innerHTML = `<div class="card">${errBox(d.error)}</div>`; return; }
+    if (d.tipo === "gerente") renderRoster(d);
+    else renderFormulario(d.persona, d.ficha, null);
+  } catch (e) {
+    app.innerHTML = `<div class="card">${errBox("No pude cargar tu enlace: " + e.message)}</div>`;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Roster (enlace de gerente)
+   --------------------------------------------------------------- */
+function renderRoster(d) {
+  const filas = [{ ...d.persona, estado: d.propia.estado, esUnoMismo: true }, ...d.equipo];
+  app.innerHTML = `
+    <div class="card">
+      <h2 class="titulo">Hola, ${esc(d.persona.nombre)}</h2>
+      <p style="color:var(--muted); font-size:.9rem; margin-top:4px;">
+        Actualiza tu ficha y la de las personas que te reportan directo. Puedes entrar y salir
+        cuantas veces necesites: lo que guardes queda ahí.
+      </p>
+    </div>
+    <div class="card" id="rosterCard">
+      ${filas.map(p => `
+        <div class="persona-row" data-id="${esc(p.id)}">
+          <div>
+            <div class="nombre">${esc(p.nombre)}${p.esUnoMismo ? " (tú)" : ""}</div>
+            <div class="sub">${esc(p.cargo || "—")}${p.area ? " · " + esc(p.area) : ""}</div>
+            ${!p.esUnoMismo ? `<div class="barra"><i style="width:${p.completitud || 0}%"></i></div>` : ""}
+          </div>
+          <span class="estado-chip ${p.estado === "completada" ? "completada" : ""}">${esc(rotuloEstado(p.estado))}</span>
+        </div>
+      `).join("")}
+    </div>`;
+  $$$("#rosterCard .persona-row").forEach(row => {
+    row.addEventListener("click", async () => {
+      const persona = filas.find(f => f.id === row.dataset.id);
+      app.innerHTML = `<div class="card"><div class="empty">Cargando…</div></div>`;
+      try {
+        const c = await pedir("cargar", { persona_id: persona.id });
+        if (c.error) { app.innerHTML = `<div class="card">${errBox(c.error)}</div>`; return; }
+        renderFormulario(c.persona, c.ficha, d);
+      } catch (e) {
+        app.innerHTML = `<div class="card">${errBox("No pude cargar esa ficha: " + e.message)}</div>`;
+      }
+    });
+  });
+}
+function $$$(s, el = document) { return [...el.querySelectorAll(s)]; }
+function rotuloEstado(e) {
+  return e === "completada" ? "Completada" : e === "en_progreso" ? "En progreso" : "Pendiente";
+}
+
+/* ---------------------------------------------------------------
+   Formulario de la ficha
+   --------------------------------------------------------------- */
+let ACTUAL_PERSONA_ID = null;
+let ACTUAL_ROSTER = null;
+
+function renderFormulario(persona, ficha, roster) {
+  ACTUAL_PERSONA_ID = persona.id;
+  ACTUAL_ROSTER = roster;
+  ficha = ficha || {};
+  const resp = (Array.isArray(ficha.responsabilidades) && ficha.responsabilidades.length ? ficha.responsabilidades : [""]);
+  const previas = Array.isArray(ficha.posiciones_previas) ? ficha.posiciones_previas : [];
+  const hab = (ficha.habilidades && typeof ficha.habilidades === "object") ? ficha.habilidades : {};
+
+  app.innerHTML = `
+    ${roster ? `<a class="backlink" href="javascript:void(0)" id="volver">← Volver a mi equipo</a>` : ""}
+    <div class="card">
+      <h2 class="titulo">${esc(persona.nombre)}</h2>
+      <p style="color:var(--muted); font-size:.88rem;">${esc(persona.cargo || "")}${persona.area ? " · " + esc(persona.area) : ""}${persona.entidad ? " · " + esc(persona.entidad) : ""}</p>
+
+      <form id="frm">
+        <div class="seccion">
+          <h3>1. Datos personales y de identificación</h3>
+          <div class="grid2">
+            <div class="field"><label>Nombres y apellidos</label><input name="nombre" value="${esc(persona.nombre)}" disabled></div>
+            <div class="field"><label>Documento de identidad (C.I. / DNI / Pasaporte)</label><input name="documento" value="${esc(ficha.documento)}"></div>
+            <div class="field"><label>Antigüedad en la organización (años/meses)</label><input name="antiguedad_org" value="${esc(ficha.antiguedad_org)}" placeholder="p. ej. 3 años 4 meses"></div>
+          </div>
+        </div>
+
+        <div class="seccion">
+          <h3>2. Nivel educativo</h3>
+          <fieldset>
+            <legend>Nivel máximo alcanzado</legend>
+            ${NIVELES_EDU.map(([v, l]) => `
+              <label class="radio-op">
+                <input type="radio" name="nivel_educativo" value="${v}" ${ficha.nivel_educativo === v ? "checked" : ""}> ${esc(l)}
+              </label>`).join("")}
+          </fieldset>
+          <div class="grid2">
+            <div class="field"><label>Título / especialidad obtenida</label><input name="titulo_obtenido" value="${esc(ficha.titulo_obtenido)}"></div>
+            <div class="field"><label>Institución educativa</label><input name="institucion" value="${esc(ficha.institucion)}"></div>
+            <div class="field full"><label>Otras formaciones</label><input name="otras_formaciones" value="${esc(ficha.otras_formaciones)}"></div>
+          </div>
+        </div>
+
+        <div class="seccion">
+          <h3>3. Cargo actual, responsabilidades y trayectoria</h3>
+          <div class="grid2">
+            <div class="field"><label>Nombre del cargo actual</label><input name="cargo_actual" value="${esc(ficha.cargo_actual ?? persona.cargo)}"></div>
+            <div class="field"><label>Antigüedad en el cargo actual (años/meses)</label><input name="antiguedad_cargo" value="${esc(ficha.antiguedad_cargo)}"></div>
+            <div class="field full"><label>Área / departamento / sede</label><input name="area_sede" value="${esc(ficha.area_sede ?? persona.area)}"></div>
+          </div>
+
+          <div class="field full">
+            <label>Principales responsabilidades del cargo actual (hasta 4)</label>
+            <div id="respWrap">
+              ${resp.map((r, i) => `<div style="display:flex; gap:6px; margin-bottom:6px;">
+                <input type="text" class="resp-input" value="${esc(r)}" placeholder="Responsabilidad ${i + 1}" style="flex:1; padding:9px 10px; border:1px solid var(--borde); border-radius:7px; font:inherit;">
+                <button type="button" class="btn-quitar resp-quitar">✕</button>
+              </div>`).join("")}
+            </div>
+            <button type="button" class="btn-mas" id="respMas">＋ Añadir responsabilidad</button>
+          </div>
+
+          <div class="field full">
+            <label>Otras posiciones ocupadas anteriormente en la organización</label>
+            <div id="previasWrap">
+              ${previas.map(p => filaPrevia(p)).join("")}
+            </div>
+            <button type="button" class="btn-mas" id="previasMas">＋ Añadir posición anterior</button>
+          </div>
+        </div>
+
+        <div class="seccion">
+          <h3>4. Habilidades técnicas y herramientas (hard skills)</h3>
+          <div style="overflow-x:auto;">
+            <table class="hard">
+              <thead><tr><th>Herramienta / conocimiento técnico</th><th>Nivel</th></tr></thead>
+              <tbody>
+                ${HARD_SKILLS.map(([k, l]) => `
+                  <tr><td>${esc(l)}</td><td>
+                    <select data-skill="${k}">
+                      ${NIVELES_SKILL.map(n => `<option value="${n}" ${(hab[k] || "") === n ? "selected" : ""}>${esc(NIVEL_SKILL_LABEL[n])}</option>`).join("")}
+                    </select>
+                  </td></tr>`).join("")}
+                <tr>
+                  <td><input type="text" id="otraSkillNombre" placeholder="Otra herramienta / software específico" value="${esc((hab.otra || {}).nombre)}" style="width:100%; padding:7px 8px; border:1px solid var(--borde); border-radius:6px; font:inherit; font-size:.85rem;"></td>
+                  <td>
+                    <select data-skill="otra">
+                      ${NIVELES_SKILL.map(n => `<option value="${n}" ${((hab.otra || {}).nivel || "") === n ? "selected" : ""}>${esc(NIVEL_SKILL_LABEL[n])}</option>`).join("")}
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="form-foot">
+          <button type="button" class="btn primary" id="btnGuardar">💾 Guardar y seguir después</button>
+          <button type="button" class="btn" id="btnCompletar">✅ Marcar como completada</button>
+          <span class="guardado" id="guardadoTxt"></span>
+        </div>
+        <div id="avisoWrap"></div>
+      </form>
+    </div>`;
+
+  if (roster) $("#volver").addEventListener("click", () => renderRoster(roster));
+  $("#respMas").addEventListener("click", () => agregarResp());
+  $("#previasMas").addEventListener("click", () => agregarPrevia());
+  cablearQuitarResp();
+  cablearQuitarPrevia();
+
+  $("#btnGuardar").addEventListener("click", () => enviar(persona.id, "guardar", roster));
+  $("#btnCompletar").addEventListener("click", () => enviar(persona.id, "completar", roster));
+}
+
+function filaPrevia(p) {
+  p = p || {};
+  return `<div class="previas-fila">
+    <input type="text" class="previa-cargo" placeholder="Cargo anterior" value="${esc(p.cargo)}">
+    <input type="text" class="previa-area" placeholder="Área / departamento" value="${esc(p.area)}">
+    <input type="text" class="previa-periodo" placeholder="Periodo (desde – hasta)" value="${esc(p.desde)}${p.desde || p.hasta ? " – " : ""}${esc(p.hasta)}">
+    <button type="button" class="btn-quitar previa-quitar">✕</button>
+  </div>`;
+}
+function agregarResp() {
+  if ($$$("#respWrap .resp-input").length >= 4) return;
+  const div = document.createElement("div");
+  div.style.cssText = "display:flex; gap:6px; margin-bottom:6px;";
+  div.innerHTML = `<input type="text" class="resp-input" placeholder="Responsabilidad" style="flex:1; padding:9px 10px; border:1px solid var(--borde); border-radius:7px; font:inherit;">
+    <button type="button" class="btn-quitar resp-quitar">✕</button>`;
+  $("#respWrap").appendChild(div);
+  cablearQuitarResp();
+}
+function agregarPrevia() {
+  const div = document.createElement("div");
+  div.innerHTML = filaPrevia({});
+  $("#previasWrap").appendChild(div.firstElementChild);
+  cablearQuitarPrevia();
+}
+function cablearQuitarResp() {
+  $$$(".resp-quitar").forEach(b => b.onclick = () => { if ($$$("#respWrap .resp-input").length > 1) b.closest("div").remove(); });
+}
+function cablearQuitarPrevia() {
+  $$$(".previa-quitar").forEach(b => b.onclick = () => b.closest(".previas-fila").remove());
+}
+
+function leerFicha() {
+  const f = $("#frm");
+  const g = n => (f.elements[n] ? f.elements[n].value.trim() : "");
+  const nivelEdu = f.querySelector('input[name="nivel_educativo"]:checked');
+  const responsabilidades = $$$("#respWrap .resp-input").map(i => i.value.trim()).filter(Boolean);
+  const posiciones_previas = $$$("#previasWrap .previas-fila").map(row => ({
+    cargo: row.querySelector(".previa-cargo").value.trim(),
+    area: row.querySelector(".previa-area").value.trim(),
+    periodo: row.querySelector(".previa-periodo").value.trim(),
+  })).filter(p => p.cargo || p.area || p.periodo);
+  const habilidades = {};
+  $$$("table.hard select[data-skill]").forEach(sel => {
+    const k = sel.dataset.skill;
+    if (k === "otra") return;
+    habilidades[k] = sel.value;
+  });
+  const otraSel = $('table.hard select[data-skill="otra"]');
+  habilidades.otra = { nombre: $("#otraSkillNombre").value.trim(), nivel: otraSel ? otraSel.value : "" };
+
+  return {
+    documento: g("documento"), antiguedad_org: g("antiguedad_org"),
+    nivel_educativo: nivelEdu ? nivelEdu.value : "",
+    otras_formaciones: g("otras_formaciones"), titulo_obtenido: g("titulo_obtenido"), institucion: g("institucion"),
+    cargo_actual: g("cargo_actual"), antiguedad_cargo: g("antiguedad_cargo"), area_sede: g("area_sede"),
+    responsabilidades, posiciones_previas, habilidades,
+  };
+}
+
+async function enviar(personaId, accion, roster) {
+  const btn = accion === "guardar" ? $("#btnGuardar") : $("#btnCompletar");
+  const aviso = $("#avisoWrap");
+  aviso.innerHTML = "";
+  btn.disabled = true;
+  const textoOriginal = btn.textContent;
+  btn.textContent = accion === "guardar" ? "Guardando…" : "Enviando…";
+  try {
+    const d = await pedir(accion, { persona_id: personaId, ficha: leerFicha() });
+    if (d.error) {
+      aviso.innerHTML = `<div class="aviso err">${esc(d.error)}${d.faltan ? "<ul>" + d.faltan.map(x => `<li>${esc(x)}</li>`).join("") + "</ul>" : ""}</div>`;
+    } else if (accion === "completar") {
+      aviso.innerHTML = `<div class="aviso ok">✅ Ficha marcada como completada. ¡Gracias!</div>`;
+    } else {
+      $("#guardadoTxt").textContent = "Guardado " + new Date().toLocaleTimeString("es");
+    }
+  } catch (e) {
+    aviso.innerHTML = `<div class="aviso err">No pude guardar: ${esc(e.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = textoOriginal;
+  }
+}
+
+/* Autoguardado silencioso: cada cambio dispara un guardado de fondo tras 2 s de inactividad. */
+let debTimer;
+document.addEventListener("input", (e) => {
+  if (!e.target.closest("#frm") || !ACTUAL_PERSONA_ID) return;
+  clearTimeout(debTimer);
+  debTimer = setTimeout(async () => {
+    try {
+      await pedir("guardar", { persona_id: ACTUAL_PERSONA_ID, ficha: leerFicha() });
+      const txt = $("#guardadoTxt");
+      if (txt) txt.textContent = "Guardado automático " + new Date().toLocaleTimeString("es");
+    } catch (e) { /* el botón "Guardar" sigue disponible si esto falla */ }
+  }, 2000);
+});
+
+iniciar();
+</script>
+</body>
+</html>

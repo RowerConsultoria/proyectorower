@@ -1,64 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="claro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Informe de Procesos — Fase 2 | Proyecto Rower</title>
 <!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../estilo/app.css">
 <style>
+  /* Alias: --navy/--blue/--gray/--light/--border/--red/--green/--amber quedan
+     intactos más abajo, solo redirigidos a los tokens compartidos. */
   :root{
-    --navy:#1F3864; --blue:#2E75B6; --gray:#404040; --light:#F4F6FA;
-    --border:#D5DCE8; --red:#C00000; --green:#2E7D32; --amber:#B26A00;
+    --navy:var(--tinta); --blue:var(--cian); --gray:var(--tinta-media); --light:var(--panel-alto);
+    --border:var(--borde); --red:var(--riesgo); --green:var(--ok); --amber:var(--alerta);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:Calibri,'Segoe UI',Arial,sans-serif;color:var(--gray);background:#EDEFF3;line-height:1.55;font-size:15px;}
+  body{font-family:var(--fuente);color:var(--gray);background:var(--fondo);line-height:1.55;font-size:15px;}
   .layout{display:flex;align-items:flex-start;max-width:1280px;margin:0 auto;gap:0;}
+  /* Sigue el tema del sitio, igual que el .menu de /sistema — nada de
+     "siempre oscuro" aquí. */
   .sidenav{
-    flex:0 0 280px;min-height:100vh;background:linear-gradient(180deg,#152a4d 0%,#1F3864 100%);
-    color:#fff;padding:26px 18px 40px;position:sticky;top:0;
+    flex:0 0 280px;min-height:100vh;background:var(--lienzo);
+    color:var(--tinta);padding:26px 18px 40px;position:sticky;top:0;border-right:1px solid var(--borde);
   }
-  .sidenav .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9dc3ee;font-weight:700;}
-  .sidenav .brand b{display:block;color:#fff;font-size:17px;letter-spacing:0;margin-top:6px;text-transform:none;font-weight:800;}
+  .sidenav .brand{display:flex;align-items:center;gap:10px;}
+  .sidenav .brand .textos{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-tenue);font-weight:700;}
+  .sidenav .brand b{display:block;color:var(--tinta);font-size:17px;letter-spacing:0;margin-top:6px;text-transform:lowercase;font-weight:700;}
   .fasesel{position:relative;margin-top:16px;}
   .fasesel>button{
     width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;
-    padding:9px 12px;border-radius:8px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+    background:var(--panel-alto);border:1px solid var(--borde);color:var(--tinta);
+    padding:9px 14px;border-radius:var(--r-pildora);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
   }
-  .fasesel>button:hover{background:rgba(255,255,255,.14);}
+  .fasesel>button:hover{border-color:var(--tinta-tenue);}
   .fasesel .menu{
     display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;
-    background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.22);overflow:hidden;
+    background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-tarjeta);box-shadow:var(--sombra-alta);overflow:hidden;
   }
   .fasesel.abierto .menu{display:block;}
-  .fasesel .menu a{display:block;padding:10px 13px;color:var(--navy);text-decoration:none;font-size:13.5px;font-weight:600;}
-  .fasesel .menu a.actual{background:var(--light);color:var(--navy);}
-  .fasesel .menu a:not(.actual):hover{background:var(--light);}
-  .fasesel .menu small{display:block;font-weight:400;color:#7a8496;font-size:11.5px;margin-top:2px;}
-  .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fa8d6;margin:26px 0 8px;padding:0 8px;}
-  .sidenav a.navitem{display:block;color:#dce6f4;text-decoration:none;font-size:13.5px;
-    padding:8px 10px;border-left:3px solid transparent;border-radius:0 6px 6px 0;}
-  .sidenav a.navitem:hover{background:rgba(255,255,255,.08);color:#fff;}
-  .sidenav a.navitem.active{background:rgba(157,195,238,.16);border-left-color:#9dc3ee;color:#fff;font-weight:600;}
+  .fasesel .menu a{display:block;padding:10px 13px;color:var(--tinta);text-decoration:none;font-size:13.5px;font-weight:600;}
+  .fasesel .menu a.actual{background:var(--panel-alto);color:var(--menta);}
+  .fasesel .menu a:not(.actual):hover{background:var(--realce);}
+  .fasesel .menu small{display:block;font-weight:400;color:var(--tinta-tenue);font-size:11.5px;margin-top:2px;}
+  .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-tenue);margin:26px 0 8px;padding:0 8px;}
+  .sidenav a.navitem{display:block;color:var(--tinta-media);text-decoration:none;font-size:13.5px;
+    padding:8px 12px;border-left:3px solid transparent;border-radius:0 10px 10px 0;transition:background .15s var(--curva);}
+  .sidenav a.navitem:hover{background:var(--realce);color:var(--tinta);}
+  .sidenav a.navitem.active{background:var(--panel);border-left-color:var(--menta);color:var(--tinta);font-weight:600;}
   .main{flex:1;min-width:0;}
-  .page{max-width:900px;margin:24px auto;background:#fff;box-shadow:0 2px 14px rgba(31,56,100,.12);padding:56px 64px;}
-  .cover{border-bottom:4px solid var(--navy);padding-bottom:28px;margin-bottom:32px;}
+  .page{max-width:900px;margin:24px auto;background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-panel);box-shadow:var(--sombra);padding:56px 64px;}
+  .cover{border-bottom:2px solid var(--navy);padding-bottom:28px;margin-bottom:32px;}
   .cover .kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px;}
-  .cover h1{color:var(--navy);font-size:1.9rem;margin-bottom:10px;}
-  .cover .sub{color:#5a6478;font-size:1rem;}
-  .estado{display:inline-block;margin-top:14px;padding:4px 12px;border-radius:999px;background:#fdf1de;color:var(--amber);
-    font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
-  h2{color:var(--navy);font-size:1.3rem;margin:34px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--border);}
+  .cover h1{color:var(--navy);font-size:1.9rem;margin-bottom:10px;text-transform:lowercase;letter-spacing:-.01em;}
+  .cover .sub{color:var(--tinta-media);font-size:1rem;}
+  .estado{display:inline-block;margin-top:14px;padding:4px 13px;border-radius:var(--r-pildora);background:rgba(255,201,74,.13);color:var(--amber);
+    font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,201,74,.3);}
+  h2{color:var(--navy);font-size:1.3rem;margin:34px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);text-transform:lowercase;}
   h3{color:var(--navy);font-size:1.05rem;margin:22px 0 8px;}
   p{margin-bottom:12px;}
-  .nota{background:var(--light);border:1px solid var(--border);border-left:4px solid var(--blue);
-    border-radius:6px;padding:14px 18px;margin:16px 0;font-size:.92rem;}
+  .nota{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--cian);
+    border-radius:var(--r-campo);padding:14px 18px;margin:16px 0;font-size:.92rem;}
   .nota b{color:var(--navy);}
-  .ficha{border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin:14px 0;background:var(--light);}
-  .ficha .meta{font-size:.8rem;color:#7a8496;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
-  .vacio{border:2px dashed var(--border);border-radius:8px;padding:26px 20px;text-align:center;color:#7a8496;font-size:.92rem;}
-  footer{max-width:900px;margin:0 auto 40px;padding:0 64px;color:#7a8496;font-size:.82rem;}
+  .ficha{border:1px solid var(--border);border-radius:var(--r-tarjeta);padding:18px 20px;margin:14px 0;background:var(--light);}
+  .ficha .meta{font-size:.8rem;color:var(--tinta-tenue);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
+  .vacio{border:1.5px dashed var(--border);border-radius:var(--r-tarjeta);padding:26px 20px;text-align:center;color:var(--tinta-tenue);font-size:.92rem;}
+  footer{max-width:900px;margin:0 auto 40px;padding:0 64px;color:var(--tinta-tenue);font-size:.82rem;}
   @media(max-width:980px){
     .layout{flex-direction:column;}
     .sidenav{position:static;width:100%;min-height:auto;}
@@ -70,7 +79,10 @@
 <body>
 <div class="layout">
   <nav class="sidenav">
-    <div class="brand">Consultores UCAB · Proyecto Rower<b>Informe de Procesos · Fase 2</b></div>
+    <div class="brand">
+      <span class="orbe orbe-grande" aria-hidden="true"></span>
+      <div class="textos">Consultores UCAB · Proyecto Rower<b>informe de procesos · fase 2</b></div>
+    </div>
     <div class="fasesel" id="faseSel">
       <button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 2 — Procesos <span>▾</span></button>
       <div class="menu">
