@@ -292,7 +292,12 @@ y no automatiza decisiones económicas sin aprobación humana.
 # ══════════════════════════════════════════════════════════════════════════
 #  3 · EL PROTOTIPO — módulos, reglas y agentes reales
 # ══════════════════════════════════════════════════════════════════════════
-AM = io.open('sistema/ARQUITECTURA.md', encoding='utf-8').read()
+# La arquitectura de /sistema ya no vive en un .md propio — se condensó dentro
+# de CLAUDE.md (sección "🟣 `/sistema`") tras el barrido de documentación del
+# 26-ago-2026. Se extrae esa sección sola, no el archivo entero.
+CM = io.open('CLAUDE.md', encoding='utf-8').read()
+m_sis = re.search(r"### 🟣 `/sistema`.*?(?=\n### |\Z)", CM, re.S)
+AM = m_sis.group(0) if m_sis else ''
 mods = sorted(x[:-3] for x in os.listdir('sistema/pantallas') if x.endswith('.js'))
 AG = io.open('sistema/nucleo/agentes.js', encoding='utf-8').read()
 # los agentes se declaran como CLAVES de un objeto — 'N-01': { modulo, agente, nombre… },
@@ -394,7 +399,7 @@ SERVICIO = (os.environ.get('SUPABASE_SERVICE_KEY')
 if not SERVICIO:
     print('\n  FALTA CREDENCIAL: define SUPABASE_SERVICE_KEY en el entorno.')
     print('  Sin ella la subida a `conocimiento` responde 401/0 filas, porque el')
-    print('  proyecto ya no admite escritura anónima. Ver supabase/README.md.')
+    print('  proyecto ya no admite escritura anónima. Ver CLAUDE.md (Backend — Supabase).')
     sys.exit(2)
 KEY = SERVICIO
 

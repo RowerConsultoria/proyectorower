@@ -19,6 +19,8 @@ __pycache__/
 .env
 .env.*
 *.secret
+scripts/.qa_creds
+_ses_temp.json
 
 # Supabase CLI (caché local)
 supabase/.temp/

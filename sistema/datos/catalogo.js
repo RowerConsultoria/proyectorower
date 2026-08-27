@@ -4,7 +4,7 @@
 
    ⚠️ DATOS DE PROTOTIPO. Referencias, nombres, líneas, precios de venta al
    público e imágenes provienen del catálogo PÚBLICO de las tiendas del grupo
-   (cubitt.com.ve y casiostore.rower.com.ve) — ver datos/FUENTE_CATALOGO.md.
+   (cubitt.com.ve y casiostore.rower.com.ve), extraído el 26-jul-2026.
    No hay aquí ningún costo, margen ni condición comercial reservada.
 
    El SKU interno de Casio (KX-…) es de prototipo y NO coincide con la
