@@ -856,3 +856,661 @@ create policy fichas_perfil_lectura   on public.fichas_perfil for select to auth
   using (public.tiene_permiso('admin.fichas'));
 create policy fichas_perfil_escritura on public.fichas_perfil for all to authenticated
   using (public.tiene_permiso('admin.fichas')) with check (public.tiene_permiso('admin.fichas'));
+
+
+-- ============================================================
+-- 12. El informe como DATO consultable (02-sep-2026)
+-- ============================================================
+-- Hasta hoy el informe solo existía en Supabase como PROSA: la síntesis de
+-- `conocimiento` más 23 chunks en `fragmentos` — el 0,7 % del índice de texto,
+-- contra el 95,6 % que ocupan las transcripciones crudas. Consecuencia medida:
+-- «¿cuáles son los cuellos de botella documentados?» no caía en el informe sino
+-- en el diálogo de las entrevistas, y devolvía además FALSOS POSITIVOS que
+-- invierten el sentido (en la 6.1 el «cuello de botella» es un control sano
+-- DELIBERADO; en la 4.6 es una práctica de gobierno de la PMO; en la T47 es el
+-- nombre de un procedimiento propuesto). Estas tablas exponen como dato lo que
+-- el informe ya tenía estructurado en sus 68 tablas, para que la respuesta se
+-- consulte en vez de adivinarse.
+--
+-- El repo sigue mandando; esto es su proyección a SQL. Fuentes:
+--   · informe/fase1/mapa-procesos-datos.js ......... árbol 22/104/244
+--   · informe/fase1/mapa-procesos-kenex.html ....... fricciones, prácticas, sistemas, cruces
+--   · informe/fase1/informe-diagnostico-fase1.html . hallazgos, dependencias, brechas, vicios
+-- Recargar todo con: python scripts/cargar-informe.py
+--
+-- RLS: LECTURA con `ver.informe` (el permiso que YA tiene el rol Junta) y
+-- ESCRITURA con `admin.informe`. No se añadió ningún permiso nuevo a propósito:
+-- el catálogo `permisos` está acoplado al código y una fila que nadie comprueba
+-- no es un permiso.
+
+-- ---------- 12.1 El mapa de procesos: árbol de tres niveles ----------
+create table if not exists public.macroprocesos (
+  id            text primary key,               -- e1…e5 · o1…o8 · s1…s9
+  categoria     text not null check (categoria in ('estrategico','operativo','soporte')),
+  nombre        text not null,
+  nombre_corto  text,
+  icono         text,
+  orden         int  not null
+);
+
+create table if not exists public.procesos (
+  id        text primary key,                   -- «o1.3»
+  macro_id  text not null references public.macroprocesos(id) on delete cascade,
+  orden     int  not null,
+  nombre    text not null
+);
+create index if not exists procesos_macro_idx on public.procesos (macro_id);
+
+create table if not exists public.procedimientos (
+  id          text primary key,                 -- «o1.3.2»
+  proceso_id  text not null references public.procesos(id) on delete cascade,
+  orden       int  not null,
+  texto       text not null,
+  -- El proyecto ya hace este deslinde editorialmente (cursiva azul en el mapa):
+  -- lo levantado en el diagnóstico vs. lo que UCAB propone. Perderlo aquí sería
+  -- un retroceso: haría pasar una propuesta nuestra por un hallazgo del cliente.
+  -- `sin_determinar` es honesto, no un descuido: los 15 procedimientos de s9
+  -- existen SOLO en el informe, y la 6.5 dice expresamente que «en esta versión
+  -- no se incluye la columna de estado». El flag hay que sacarlo del Excel v7
+  -- o decidirlo con Jesús; hasta entonces no se afirma ni una cosa ni la otra.
+  naturaleza  text not null
+              check (naturaleza in ('levantado','propuesta_ucab','sin_determinar')),
+  -- 244 del mapa v7 + los 15 de s9 Mejora Continua que solo lista el informe.
+  -- El informe cita 260: la diferencia son esos 15 más 1 duplicado que el mapa
+  -- v7 ya eliminó. Cifra EN CONCILIACIÓN con Jesús — ver public.catalogo_datos.
+  fuente      text not null check (fuente in ('mapa_v7','informe_s9'))
+);
+create index if not exists procedimientos_proceso_idx on public.procedimientos (proceso_id);
+
+-- ---------- 12.2 Fricciones y buenas prácticas por macroproceso ----------
+-- LA respuesta a «cuellos de botella». Cada fila trae su referencia de origen
+-- («6.2 · E-03») para que toda afirmación sea rastreable al informe o a la
+-- entrevista. Ojo: `practicas_buenas` es lo CONTRARIO — ahí vive el control
+-- sano que la búsqueda de texto confundía con una falla.
+create table if not exists public.fricciones (
+  id          bigserial primary key,
+  macro_id    text not null references public.macroprocesos(id) on delete cascade,
+  orden       int  not null,
+  texto       text not null,
+  referencia  text,
+  unique (macro_id, orden)
+);
+
+create table if not exists public.practicas_buenas (
+  id          bigserial primary key,
+  macro_id    text not null references public.macroprocesos(id) on delete cascade,
+  orden       int  not null,
+  texto       text not null,
+  referencia  text,
+  unique (macro_id, orden)
+);
+
+create table if not exists public.macroproceso_sistemas (
+  macro_id  text not null references public.macroprocesos(id) on delete cascade,
+  sistema   text not null,
+  primary key (macro_id, sistema)
+);
+
+-- Nodos que no son macroprocesos del grupo: Casio Japón, fábricas, clientes.
+create table if not exists public.nodos_externos (
+  id      text primary key,
+  nombre  text not null,
+  icono   text
+);
+
+-- Aristas del mapa. Sin clave foránea a propósito: origen/destino mezclan
+-- macroprocesos con nodos externos.
+create table if not exists public.cruces_procesos (
+  id        bigserial primary key,
+  orden     int  not null unique,
+  origen    text not null,
+  destino   text not null,
+  tipo      text not null check (tipo in ('troncal','cruce_documentado','externa')),
+  etiqueta  text
+);
+
+-- ---------- 12.3 Hallazgos consolidados y sus derivados ----------
+create table if not exists public.hallazgos (
+  id              bigserial primary key,
+  orden           int  not null unique,
+  titulo          text not null,
+  criticidad      text not null,          -- Alta · Media-Alta · Media · Oportunidad
+  seccion_origen  text,                   -- «7.7», «5.3»
+  implicacion     text
+);
+
+create table if not exists public.hallazgo_factores (
+  hallazgo_id  bigint not null references public.hallazgos(id) on delete cascade,
+  factor       text   not null,
+  primary key (hallazgo_id, factor)
+);
+
+create table if not exists public.dependencias_criticas (
+  id              bigserial primary key,
+  orden           int  not null unique,
+  persona_o_rol   text not null,
+  dependencia     text,
+  impacto         text,
+  mitigacion      text,
+  severidad       text,                   -- alta · media-alta (viene del h4, no de columna)
+  seccion_origen  text
+);
+
+create table if not exists public.brechas_rrhh (
+  id            bigserial primary key,
+  orden         int  not null unique,
+  proceso_rrhh  text not null,
+  severidad     text,                     -- Crítica · Alta · Media
+  hallazgo      text,
+  exigencia     text
+);
+
+create table if not exists public.procesos_sin_sistema (
+  id           bigserial primary key,
+  orden        int  not null unique,
+  proceso      text not null,
+  -- `bloque` es el enunciado del grupo (los tres vacíos de la 8.5: Excel como
+  -- sistema de decisión · sin captura sistematizada · IA individual sobre
+  -- Excel). `naturaleza` es la columna de la fila, con 11 valores distintos:
+  -- son cosas diferentes y agrupar por la segunda no da los tres bloques.
+  bloque       text,
+  naturaleza   text,
+  detalle      text,
+  area_o_pais  text                       -- solo cuando el país va en el nombre del proceso
+);
+
+create table if not exists public.sistemas_por_pais (
+  sistema  text not null,
+  pais     text not null,
+  estado   text,
+  -- Conclusión por sistema; se repite en las 6 filas del mismo sistema.
+  -- La fila «BI / analítica» es una sola celda con colspan=6 en el informe:
+  -- su literal se replicó por país porque no hay valor desagregado.
+  lectura  text,
+  primary key (sistema, pais)
+);
+
+-- Los vicios venían encapsulados como «(1)… (2)… (3)…» dentro de 8 celdas de
+-- la 4.7. Aquí van partidos: una fila por vicio, o la consulta devolvería
+-- 8 párrafos en vez de ~30 hallazgos.
+create table if not exists public.vicios_flujo (
+  id            bigserial primary key,
+  flujo_codigo  text not null,            -- F1…F8
+  flujo_nombre  text,
+  orden_vicio   int  not null,
+  texto         text not null,
+  unique (flujo_codigo, orden_vicio)
+);
+
+-- ---------- 12.4 Lo que el informe PROPONE (no es hallazgo) ----------
+-- Las 12 decisiones de la 1.3, en tres grupos de cuatro.
+create table if not exists public.decisiones_junta (
+  id              bigserial primary key,
+  orden           int  not null unique,
+  ambito          text,                   -- primera columna de la tabla
+  grupo           text,                   -- la fila-cabecera que agrupa de cuatro en cuatro
+  decision        text not null,
+  seccion_origen  text                    -- el paréntesis final literal, p. ej. «3.4 · 11»
+);
+
+create table if not exists public.quick_wins (
+  id                  bigserial primary key,
+  orden               int  not null unique,
+  nombre              text not null,
+  que_es              text,
+  por_que             text,
+  que_resolver_antes  text,
+  como_se_mide        text
+);
+
+-- ---------- 12.4b La estructura real y vigente del informe ----------
+-- No se toca `secciones`: esa es la tabla de SEGUIMIENTO EDITORIAL del panel
+-- (estado completa/parcial/borrador/pendiente/interna, más el responsable de
+-- cada sección), y su vocabulario es de proceso de trabajo, no de documento.
+-- Su contenido quedó con la numeración de julio —dice s9 = «Síntesis de
+-- hallazgos», s11 = «Auditoría Lark y Odoo»—, dos generaciones atrás; re-
+-- indexarla es decisión del equipo, no de este guion. Aquí va la estructura
+-- del documento tal como está HOY: 16 h2 + 66 h3 en orden de lectura.
+create table if not exists public.informe_estructura (
+  id              text primary key,        -- «s7», «s7-11»
+  numero          text,                    -- «7», «7.11»; null en índice y anexos
+  titulo          text not null,
+  nivel           int  not null check (nivel in (2, 3)),
+  orden_documento int  not null unique,
+  rotulo          text                     -- «Borrador», «Preborrador de propuesta», …
+);
+alter table public.informe_estructura enable row level security;
+comment on table public.informe_estructura is
+  'Estructura real y vigente del informe, en orden de lectura. El cuerpo termina en la sección 12: NO existen s13 ni s14, y los anexos conservan los ids fósiles s15/s16/s17. Las minutas y entrevistas del corpus citan numeraciones ANTIGUAS: manda esta tabla.';
+
+-- Columnas añadidas después de la primera creación de las tablas: los
+-- `create table if not exists` de arriba ya las traen para una instalación
+-- nueva, y estos `alter` las ponen donde las tablas ya existían.
+alter table public.procesos_sin_sistema add column if not exists bloque  text;
+alter table public.sistemas_por_pais    add column if not exists lectura text;
+alter table public.decisiones_junta     add column if not exists ambito  text;
+alter table public.decisiones_junta     add column if not exists grupo   text;
+
+-- ---------- 12.5 El catálogo: dónde mirar y qué NO confundir ----------
+-- Sin esto, un modelo que llega a la base por primera vez se zambulle en
+-- `fragmentos` (95,6 % del índice, transcripciones crudas) y responde con
+-- diálogo suelto. Esta tabla es el mapa de la base para quien la consulta.
+create table if not exists public.catalogo_datos (
+  tabla        text primary key,
+  descripcion  text not null,
+  cuando_usar  text,
+  advertencia  text,
+  filas_aprox  int
+);
+
+-- ---------- 12.6 La vista consolidada de cuellos de botella ----------
+-- La pregunta «dime los procesos cuello de botella documentados» no tiene UNA
+-- fuente en el informe: se construye uniendo fricciones de proceso, hallazgos
+-- consolidados de criticidad alta, brechas críticas de RRHH, vicios de flujo y
+-- procesos sin sistema. Esta vista hace esa unión explícita y trazable.
+-- security_invoker: sin él la vista saltaría la RLS de sus tablas.
+drop view if exists public.v_cuellos_de_botella;
+create view public.v_cuellos_de_botella
+  with (security_invoker = true) as
+select 'friccion de proceso'   as origen_tipo,
+       coalesce(m.nombre_corto, m.nombre) as ambito,
+       f.texto, null::text as severidad, f.referencia as origen
+  from public.fricciones f join public.macroprocesos m on m.id = f.macro_id
+union all
+select 'hallazgo consolidado', coalesce(h.seccion_origen, '11.2'),
+       h.titulo, h.criticidad, h.seccion_origen
+  from public.hallazgos h
+ where h.criticidad in ('Alta','Media-Alta')
+union all
+select 'brecha de RRHH', b.proceso_rrhh, b.hallazgo, b.severidad, '5.3'
+  from public.brechas_rrhh b
+ where b.severidad = 'Crítica'
+union all
+select 'vicio de flujo', coalesce(v.flujo_nombre, v.flujo_codigo),
+       v.texto, null, '4.7'
+  from public.vicios_flujo v
+union all
+select 'proceso sin sistema', s.proceso, coalesce(s.detalle, s.proceso),
+       s.naturaleza, '8.5'
+  from public.procesos_sin_sistema s;
+
+-- ---------- 12.7 Comentarios (los ve quien lista las tablas) ----------
+comment on table public.macroprocesos is
+  'Mapa de procesos, nivel 1: 22 macroprocesos (5 estratégicos, 8 operativos, 9 de soporte). Fuente: mapa-procesos-datos.js (Excel v7, corte 18-jul-2026).';
+comment on table public.procesos is 'Mapa de procesos, nivel 2: 104 procesos. Cuelgan de macroprocesos.';
+comment on table public.procedimientos is
+  'Mapa de procesos, nivel 3. 244 del mapa v7 + 15 de s9 que solo lista el informe. naturaleza distingue lo LEVANTADO en el diagnóstico de lo PROPUESTO por UCAB: no los mezcles al responder.';
+comment on table public.fricciones is
+  'Las fricciones documentadas por macroproceso: la respuesta a «cuellos de botella». 12 filas en 9 macroprocesos; los otros 13 macroprocesos no tienen fricción REGISTRADA, que no es lo mismo que no tener fricción.';
+comment on table public.practicas_buenas is
+  'Buenas prácticas replicables (6.4). CUIDADO: aquí vive el «control sano» que la búsqueda de texto confundía con un cuello de botella.';
+comment on table public.hallazgos is 'Los 21 hallazgos consolidados por criticidad de la sección 11.2. Es la sábana de hallazgos del informe.';
+comment on table public.dependencias_criticas is 'Las 12 dependencias críticas de personas individuales (4.5). Uno de los cuatro números que la Junta debe retener.';
+comment on table public.vicios_flujo is 'Vicios detectados en los flujos operativos F1-F8 (4.7), partidos uno por fila.';
+comment on view public.v_cuellos_de_botella is
+  'EMPIEZA AQUÍ para cualquier pregunta sobre cuellos de botella, fricciones, atascos o dolores de proceso. Une las cinco fuentes del informe con su trazabilidad. No busques esto en fragmentos: ahí solo hay diálogo crudo de entrevistas.';
+comment on table public.catalogo_datos is 'Guía de esta base de datos: qué hay en cada tabla, cuándo usarla y qué no confundir. Léela antes de consultar.';
+
+-- ---------- 12.8 RLS de la sección 12 ----------
+alter table public.macroprocesos         enable row level security;
+alter table public.procesos              enable row level security;
+alter table public.procedimientos        enable row level security;
+alter table public.fricciones            enable row level security;
+alter table public.practicas_buenas      enable row level security;
+alter table public.macroproceso_sistemas enable row level security;
+alter table public.nodos_externos        enable row level security;
+alter table public.cruces_procesos       enable row level security;
+alter table public.hallazgos             enable row level security;
+alter table public.hallazgo_factores     enable row level security;
+alter table public.dependencias_criticas enable row level security;
+alter table public.brechas_rrhh          enable row level security;
+alter table public.procesos_sin_sistema  enable row level security;
+alter table public.sistemas_por_pais     enable row level security;
+alter table public.vicios_flujo          enable row level security;
+alter table public.decisiones_junta      enable row level security;
+alter table public.quick_wins            enable row level security;
+alter table public.catalogo_datos        enable row level security;
+
+-- ============================================================
+-- 13. La arquitectura de IA (la torre) y el prototipo (02-sep-2026)
+-- ============================================================
+-- ⚠️ TODO lo de esta sección es PROPUESTA del equipo consultor, no hallazgo
+-- del diagnóstico: una arquitectura de IA transversal NO existe hoy en la
+-- organización, y `/sistema` es un prototipo. Al responder, no mezclar esto
+-- con las tablas de la sección 12, que son lo que la evidencia sostiene.
+--
+-- Fuentes (fuente única de las páginas que lo dibujan):
+--   · informe/fase1/arquitectura-datos.js .. niveles, raíces, bajadas, cedazo
+--   · sistema/nucleo/agentes.js ............ reglas de negocio, acciones, escalera
+-- Recargar con: python scripts/cargar-informe.py
+--
+-- ⚠️ Deliberadamente NO se cargan las cifras de sistema/datos/*.js (ventas,
+-- existencias, clientes): el propio archivo las rotula «CIFRAS DE PROTOTIPO».
+-- Son inventadas para que el prototipo se pueda enseñar, y sentarlas en la
+-- misma base que consulta la Junta invitaría a preguntar «¿cuánto vendimos?»
+-- y recibir un número falso con cara de dato.
+
+create table if not exists public.ia_niveles (
+  id       text primary key,               -- ingesta · cimiento · inteligencia · decision
+  n        int  not null unique,
+  nombre   text not null,
+  capa     text,                           -- «la fuente de la verdad»
+  lema     text,
+  que      text,
+  no_hace  text                            -- lo que ese piso NO hace, dicho a propósito
+);
+
+create table if not exists public.ia_nivel_hace (
+  nivel_id  text not null references public.ia_niveles(id) on delete cascade,
+  orden     int  not null,
+  texto     text not null,
+  primary key (nivel_id, orden)
+);
+
+create table if not exists public.ia_agentes (
+  id               bigserial primary key,
+  nivel_id         text not null references public.ia_niveles(id) on delete cascade,
+  orden            int  not null,
+  nombre           text not null,
+  autonomia        int,                    -- 1 preparé · 2 hice · 3 tu firma
+  autonomia_verbo  text,
+  que              text,
+  unique (nivel_id, orden)
+);
+
+-- Las doce raíces: dónde nace el dato. `rompe` es la columna que convierte el
+-- diagrama en argumento — qué se cae si esa fuente falta.
+create table if not exists public.ia_raices (
+  id          text primary key,
+  orden       int  not null unique,
+  nombre      text not null,
+  dato        text,
+  via         text,                        -- clave de ia_vias (sin FK: se declara más abajo)
+  via_rotulo  text,
+  cadencia    text,
+  dueno       text,
+  nivel       text,
+  hoy         text,                        -- cómo llega hoy, sin señalar a nadie
+  rompe       text,
+  grado       int,                          -- 2 serio · 3 crítico
+  ritmo       int                           -- 1 a tirones … 5 continuo
+);
+
+create table if not exists public.ia_bajadas (
+  id     text primary key,
+  orden  int  not null unique,
+  desde  text,
+  hacia  text,
+  que    text,
+  nota   text
+);
+
+create table if not exists public.ia_vias (
+  clave    text primary key,
+  rotulo   text not null,
+  detalle  text
+);
+
+create table if not exists public.ia_cedazo_criterios (
+  orden  int  primary key,
+  texto  text not null
+);
+
+-- ---------- El prototipo: las reglas con dueño, fecha y versión ----------
+-- Es la pieza más citable del prototipo: cada umbral tiene un responsable
+-- humano y un número de versión, que es justo lo que el informe reclama.
+create table if not exists public.proto_reglas (
+  clave    text primary key,
+  orden    int  not null,
+  valor    text not null,
+  unidad   text,
+  dueno    text,
+  desde    date,
+  version  int
+);
+
+create table if not exists public.proto_escalera (
+  n      int  primary key,
+  clave  text not null,
+  texto  text not null
+);
+
+create table if not exists public.proto_acciones (
+  clave               text primary key,    -- N-01, C-03, …
+  orden               int  not null,
+  modulo              text,
+  agente              text,
+  nombre              text,
+  dispara             text,
+  cruza               text,
+  eje_perimetro       text,
+  eje_reversibilidad  text,
+  eje_radio           text,
+  eje_dinero          text,
+  eje_reloj           text
+);
+
+comment on table public.ia_raices is
+  'Las 12 fuentes de dato de la arquitectura propuesta. La columna `rompe` dice qué se cae sin esa fuente, y `hoy` cómo llega actualmente. PROPUESTA, no hallazgo.';
+comment on table public.ia_niveles is
+  'Los 4 niveles de la torre de arquitectura de IA propuesta (sección 10). `no_hace` es explícito a propósito: dice dónde el diagrama NO promete.';
+comment on table public.proto_reglas is
+  'Las 13 reglas de negocio del prototipo, cada una con dueño, fecha de vigencia y versión. Es diseño PROPUESTO, no la política vigente de Kenex.';
+comment on table public.proto_acciones is
+  'Las 11 acciones de agente del prototipo, con su gramática de autonomía en cinco ejes (perímetro, reversibilidad, radio, dinero, reloj). Diseño propuesto.';
+
+-- ============================================================
+-- 14. El organigrama: declarado, real y propuesto (02-sep-2026)
+-- ============================================================
+-- Fuentes: informe/fase1/organigrama-kenex.html (los datos van hardcodeados en
+-- su <script>) y informe/fase1/organigrama-propuesto-datos.js (fuente única de
+-- la estructura propuesta de la 4.8, que consumen las dos vistas del sitio).
+--
+-- Lo que hace valioso a este conjunto es el sistema de tres capas: lo que el
+-- papel DECLARA, lo que la operación hace REALMENTE (con su evidencia [E-xx]),
+-- y lo que se PROPONE. `delta` es el badge de diferencia entre las dos
+-- primeras — el dato que no está en ningún organigrama oficial de Kenex.
+--
+-- ⚠️ Cuatro cosas que la extracción dejó claras y conviene no olvidar:
+--  · `org_personas` son NODOS NOMBRADOS, no personas únicas: 12 actores
+--    aparecen en más de un nodo porque operan en más de un país o entidad
+--    —que es justamente el hallazgo de la 4.4—. `org_mismo_actor` mapea esos
+--    casos. NO se deduplicó a propósito: colapsarlos borraría el hallazgo.
+--  · Tampoco son solo personas: hay unidades y terceros sin nombre propio
+--    (negocios del family office, «Tiendas», presencias menores por país).
+--  · `capa` es DERIVADO de la regla CSS del archivo, que oculta ciertos nodos
+--    en la vista «declarado». El archivo NO marca la capa nodo a nodo.
+--  · 60 de los 139 nodos no traen id en la fuente: llevan uno sintético con
+--    prefijo (`gen:`, `dep:`, `agr:`, `chp:`), y `id_origen` lo registra.
+
+create table if not exists public.org_personas (
+  id               text primary key,
+  id_origen        text,          -- «fuente» si el id es del archivo, «sintetico» si lo generamos
+  nombre           text,
+  rol              text,
+  tipo             text,
+  tipo_etiqueta    text,
+  capa             text,          -- derivado: «real» (18) · «declarado+real» (121)
+  padre_id         text,          -- sin FK: la capa real tiene nodos colgando de cajas de markup
+  meta             text,
+  advertencia      text,          -- 28 nodos la traen: lo que el papel no dice
+  nota             text,
+  delta            text,          -- badge de diferencia declarado vs. real
+  delta_etiqueta   text,
+  bloque           text,
+  entidad_id       text,
+  departamento_id  text,
+  reside_en        text,
+  equipo           text,
+  alcance          text
+);
+create index if not exists org_personas_padre_idx   on public.org_personas (padre_id);
+create index if not exists org_personas_entidad_idx on public.org_personas (entidad_id);
+
+-- 11 paneles, de los cuales dos no son entidades jurídicas: el organigrama
+-- oficial en papel y el panel de «presencias menores». `headcount` es texto
+-- porque la fuente escribe cosas como «holding», no solo cifras.
+create table if not exists public.org_entidades (
+  id          text primary key,
+  nombre      text not null,
+  pais        text,          -- derivado de la bandera; null en los dos paneles que no son país
+  bandera     text,
+  subtitulo   text,
+  tipo        text,
+  headcount   text,
+  socio       boolean,
+  nota        text,
+  notas       jsonb
+);
+
+create table if not exists public.org_departamentos (
+  id          text primary key,
+  id_origen   text,
+  nombre      text not null,
+  entidad_id  text,
+  pais        text,
+  headcount   text
+);
+
+-- Los 19 flujos funcionales. `tipo` no existe en la fuente y se omite.
+create table if not exists public.org_flujos (
+  id           text primary key,
+  nombre       text not null,
+  descripcion  text,
+  color        text
+);
+
+-- Un par es solo dos extremos: la fuente no rotula las aristas. Los extremos
+-- apuntan a nodos, a entidades, a un departamento y a presencias menores, así
+-- que no llevan clave foránea.
+create table if not exists public.org_flujo_pares (
+  id        bigserial primary key,
+  flujo_id  text not null references public.org_flujos(id) on delete cascade,
+  orden     int,
+  origen    text,
+  destino   text
+);
+
+-- La fuente da un solo texto por alerta: no hay título ni severidad separados.
+create table if not exists public.org_alertas (
+  id             text primary key,
+  orden          int,
+  texto          text,
+  nodo_o_ambito  text
+);
+
+create table if not exists public.org_solapes (
+  id       text primary key,
+  orden    int,
+  titulo   text,
+  ambitos  jsonb,
+  pares    jsonb,
+  nota     text
+);
+
+-- ⚠️ No existe un catálogo de evidencias en el repo: los 19 códigos [E-xx]
+-- solo aparecen incrustados dentro de los textos de otros campos. Aquí queda
+-- el código, cuántas veces se cita y en qué campo exacto — no su enunciado,
+-- que habría que redactar. Faltan además E-02, E-04, E-07, E-10 y E-16.
+create table if not exists public.org_evidencias (
+  codigo       text primary key,
+  citas        int,
+  referencias  jsonb          -- rutas «fila.campo» donde aparece el código
+);
+
+-- Recuadros sin nombre propio del organigrama (equipos contados en bloque).
+create table if not exists public.org_agregados (
+  id               text primary key,
+  padre_id         text,
+  bloque           text,
+  entidad_id       text,
+  departamento_id  text,
+  texto            text
+);
+
+create table if not exists public.org_comites (
+  id           text primary key,
+  nombre       text not null,
+  composicion  text
+);
+
+-- La leyenda de los badges de diferencia: sin esto, `delta` es un emoji suelto.
+-- La llave es `clave`, no `badge`: uno de los seis casos (🕳 vacante) no existe
+-- como dato en la fuente —se rastrea por el emoji dentro de otros textos—, así
+-- que su badge viene vacío.
+create table if not exists public.org_deltas_catalogo (
+  clave        text primary key,
+  badge        text,
+  nombre       text,
+  descripcion  text
+);
+
+-- Los 12 actores que aparecen en más de un nodo. Es la respuesta a «quién
+-- opera en varios grupos» y el modo correcto de contar personas únicas.
+create table if not exists public.org_mismo_actor (
+  nombre  text primary key,
+  ids     jsonb not null
+);
+
+create table if not exists public.org_escenas (
+  id            text primary key,
+  orden         int,
+  nombre        text not null,
+  elemento      text,
+  abre_flujos   boolean
+);
+
+-- La estructura propuesta de la 4.8. Se omiten a propósito las coordenadas de
+-- píxel: la geometría es del dibujo, y su fuente única sigue siendo el .js.
+create table if not exists public.estructura_propuesta (
+  clave     text primary key,
+  orden     int,
+  tipo      text,
+  titulo    text,
+  etiqueta  text,
+  nota      text
+);
+
+comment on table public.org_personas is
+  'Los 139 NODOS NOMBRADOS del organigrama (no personas únicas: 12 actores repiten nodo, ver org_mismo_actor) con su capa declarado/real. `advertencia` y `delta` son el hallazgo: la diferencia entre el papel y la operación no aparece en ningún organigrama oficial de Kenex. Incluye unidades y terceros sin persona.';
+comment on table public.org_mismo_actor is
+  'Los 12 actores que ocupan más de un nodo del organigrama, por operar en varios países o entidades. Es el hallazgo de la 4.4 y la forma correcta de contar personas únicas: org_personas tiene nodos, no personas.';
+comment on table public.org_evidencias is
+  'Los 19 códigos [E-xx] que sostienen la capa real, con su recuento de citas y dónde aparecen. NO existe un catálogo con su enunciado: los códigos solo viven incrustados en otros textos.';
+comment on table public.org_deltas_catalogo is
+  'Leyenda de los badges de diferencia entre el organigrama declarado y el real. Necesaria para interpretar org_personas.delta.';
+comment on table public.estructura_propuesta is
+  'La estructura organizativa PROPUESTA (sección 4.8), 29 nodos. Es propuesta del equipo consultor, no la estructura vigente: esa está en org_personas y en personal.';
+comment on table public.org_agregados is
+  'Recuadros del organigrama que cuentan equipos en bloque, sin nombrar a nadie. Complementan org_personas para totales de plantilla.';
+
+-- Un par de políticas por tabla, iguales para todas: ver con `ver.informe`,
+-- escribir con `admin.informe`.
+do $$
+declare t text;
+begin
+  foreach t in array array[
+    'macroprocesos','procesos','procedimientos','fricciones','practicas_buenas',
+    'macroproceso_sistemas','nodos_externos','cruces_procesos','hallazgos',
+    'hallazgo_factores','dependencias_criticas','brechas_rrhh',
+    'procesos_sin_sistema','sistemas_por_pais','vicios_flujo',
+    'decisiones_junta','quick_wins','catalogo_datos','informe_estructura',
+    'ia_niveles','ia_nivel_hace','ia_agentes','ia_raices','ia_bajadas',
+    'ia_vias','ia_cedazo_criterios','proto_reglas','proto_escalera',
+    'proto_acciones',
+    'org_personas','org_entidades','org_departamentos','org_flujos',
+    'org_flujo_pares','org_alertas','org_solapes','org_evidencias',
+    'org_agregados','org_comites','org_deltas_catalogo','org_mismo_actor',
+    'org_escenas','estructura_propuesta']
+  loop
+    execute format('alter table public.%I enable row level security', t);
+    execute format('drop policy if exists %I on public.%I', t || '_lectura', t);
+    execute format('drop policy if exists %I on public.%I', t || '_escritura', t);
+    execute format(
+      'create policy %I on public.%I for select to authenticated using (public.tiene_permiso(%L))',
+      t || '_lectura', t, 'ver.informe');
+    execute format(
+      'create policy %I on public.%I for all to authenticated using (public.tiene_permiso(%L)) with check (public.tiene_permiso(%L))',
+      t || '_escritura', t, 'admin.informe', 'admin.informe');
+  end loop;
+end $$;

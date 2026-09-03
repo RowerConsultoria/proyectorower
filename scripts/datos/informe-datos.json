@@ -1,0 +1,1935 @@
+{
+  "hallazgos": [
+    {
+      "orden": 1,
+      "titulo_o_texto": "Relación con Casio sin contrato de exclusividad: el negocio ancla del grupo opera sobre una relación de confianza de décadas con condiciones del fabricante, no sobre un contrato",
+      "criticidad": "Alta",
+      "seccion_origen": null,
+      "implicacion": "Evaluar en Junta, con asesoría legal, la conveniencia y viabilidad de formalizar la representación; mientras tanto, reducir la exposición documentando la operación Casio (hoy dependiente de una sola persona) y diversificando el peso relativo del portafolio — línea ya declarada en el plan estratégico.",
+      "factores": [
+        "1"
+      ]
+    },
+    {
+      "orden": 2,
+      "titulo_o_texto": "Gobernanza por hechos consumados: decisiones del núcleo directivo comunicadas sin deliberación formal, sin actas, y un plan estratégico definido pero no desplegado \"aguas abajo\" — sin seguimiento institucionalizado (3.2, 3.4)",
+      "criticidad": "Alta",
+      "seccion_origen": "3.2, 3.4",
+      "implicacion": "Institucionalizar la cadencia de junta con agenda, actas y seguimiento de acuerdos (propuesta ya formulada por los asesores externos y con instrumentos parcialmente diseñados); comunicar el plan estratégico a gerencias medias y socios como primer acto de gestión del cambio.",
+      "factores": [
+        "1",
+        "5"
+      ]
+    },
+    {
+      "orden": 3,
+      "titulo_o_texto": "Perímetro societario sin inventario formal: ~35–40 sociedades cuyo registro completo está \"en la cabeza\" de dos personas; frontera difusa entre grupo operativo y family office; 15+ personas operando en múltiples entidades simultáneamente (3.3, 4.4)",
+      "criticidad": "Alta",
+      "seccion_origen": "3.3, 4.4",
+      "implicacion": "Levantar el inventario societario formal (insumo del protocolo familiar en construcción); definir la frontera grupo operativo / family office en la estructura objetivo; regularizar las situaciones de multi-entidad con criterio registral país por país.",
+      "factores": [
+        "1",
+        "3"
+      ]
+    },
+    {
+      "orden": 4,
+      "titulo_o_texto": "Ausencia de marco estratégico compartido: tres visiones de futuro conviven en la dirección (distribución/retail, software/suscripción sobre ~100 mil usuarios, reparto 80/20 hacia la marca propia) más la visión multimarca del socio de Costa Rica — sin instancia que las reconcilie (3.4)",
+      "criticidad": "Alta",
+      "seccion_origen": "3.4",
+      "implicacion": "Sesión estratégica facilitada de la Junta para explicitar y reconciliar las visiones antes de aprobar la estructura definitiva: estructuras distintas sirven a estrategias distintas. La revisión del plan prevista para julio/agosto es la oportunidad natural.",
+      "factores": [
+        "1"
+      ]
+    },
+    {
+      "orden": 5,
+      "titulo_o_texto": "La aplicación de Cubitt — núcleo del ecosistema de la marca propia y de la visión de suscripción — es desarrollada por un tercero en China y no es propiedad del grupo (código fuente y data)",
+      "criticidad": "Alta",
+      "seccion_origen": null,
+      "implicacion": "Decisión de Junta pendiente y urgente: desarrollar app propia vs. adquirir el código actual. Cualquier visión de negocio construida sobre la base de usuarios exige propiedad del activo. El diseño del futuro departamento de desarrollo debe incorporarse a la estructura objetivo (sección 4.8).",
+      "factores": [
+        "1",
+        "6"
+      ]
+    },
+    {
+      "orden": 6,
+      "titulo_o_texto": "La estructura formal no refleja la organización real: cargos que no corresponden a las funciones ejercidas (el CFO del grupo figura como planificador de una gerencia país) y una capa completa de roles regionales invisible en las nóminas oficiales (4.1, 4.3)",
+      "criticidad": "Alta",
+      "seccion_origen": "4.1, 4.3",
+      "implicacion": "La estructura patrón de cargos (Fase 3) debe partir de las funciones reales documentadas en este diagnóstico, no de los cargos registrados; formalizar la capa corporativa es la primera corrección estructural de la propuesta (sección 4.8).",
+      "factores": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "orden": 7,
+      "titulo_o_texto": "Dependencias críticas de personas individuales: seis posiciones concentran conocimiento único sin respaldo (compras y reportería Casio, experticia Lark, servicio técnico multi-país, IT regional, compras Cubitt, banca) — matriz completa en 4.5",
+      "criticidad": "Alta",
+      "seccion_origen": "4.5",
+      "implicacion": "Documentar de inmediato los procesos que cada dependencia sostiene (Fase 2 los prioriza); diseñar en la estructura objetivo posiciones de respaldo y transferencia de conocimiento; los manuales generados alimentan la base de conocimiento de Maia para que el conocimiento quede en la organización, no en la persona.",
+      "factores": [
+        "3",
+        "4",
+        "2"
+      ]
+    },
+    {
+      "orden": 8,
+      "titulo_o_texto": "Unidad de mando rota y tramos de control desbordados: dobles reportes jerárquico/funcional sin regla de desempate (servicio técnico, marketing, IT, retail) y concentración de supervisión en la presidencia y la dirección comercial (4.x; principios 2 y 3 de 4.8)",
+      "criticidad": "Alta",
+      "seccion_origen": "4.x, 4.8",
+      "implicacion": "Aplicar en la estructura objetivo los principios de unidad de mando y tramo de control (4.8): definir reglas de desempate para los roles matriciales y redistribuir la supervisión con rangos de 4–7 reportes directos en niveles ejecutivos.",
+      "factores": [
+        "3",
+        "2"
+      ]
+    },
+    {
+      "orden": 9,
+      "titulo_o_texto": "Inventario estancado (~1 MM USD detectado por los modelos de BI) y almacén compartido con un negocio ajeno al grupo (interfaz Crocs) sin acuerdo formalizado",
+      "criticidad": "Alta",
+      "seccion_origen": null,
+      "implicacion": "Ejecutar el plan de liquidación que los modelos de rebalanceo ya sugieren; formalizar el acuerdo de costos compartidos de bodega/WMS; incorporar la salud de inventario como KPI de la estructura de operaciones propuesta.",
+      "factores": [
+        "2",
+        "6"
+      ]
+    },
+    {
+      "orden": 10,
+      "titulo_o_texto": "El gobierno del dato: la información crítica del grupo es accesible para personas sin marco formal — la célula de BI procesa la data completa del negocio sin vínculo registrado en nómina, los desarrollos de Odoo los ejecutan terceros remotos que la organización no conoce en persona, y buena parte del personal carece de contratos con cláusulas de confidencialidad y propiedad intelectual (7.7, 5.3)",
+      "criticidad": "Alta",
+      "seccion_origen": "7.7, 5.3",
+      "implicacion": "Condición previa — no posterior — a la arquitectura de IA: formalizar el vínculo y las cláusulas de quienes tocan la data crítica, dictar las políticas de seguridad de la información y de accesos (requisitos C#4/C#5) y designar un dueño del gobierno del dato; la instancia que lo gobierna se desarrolla en la arquitectura de IA (sección 10, Componente 1).",
+      "factores": [
+        "6",
+        "1"
+      ]
+    },
+    {
+      "orden": 11,
+      "titulo_o_texto": "Relaciones con socios sin gobierno formal: reuniones programadas con el socio de Costa Rica que no se concretan, comunicación efectiva por canal personal, y desinformación sobre iniciativas corporativas (el socio desconocía el alcance de este proyecto); estructura de propiedad de Colombia con pendientes registrales (3.3)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": "3.3",
+      "implicacion": "Establecer una rutina mínima de gobierno con cada socio (cadencia, agenda, canal institucional); incluir a los socios en la comunicación del plan estratégico y de los proyectos que los afectan; precisar la situación registral de Colombia.",
+      "factores": [
+        "1",
+        "3"
+      ]
+    },
+    {
+      "orden": 12,
+      "titulo_o_texto": "PMO saturada: cartera de 50+ proyectos sin visibilidad de capacidad ni criterios formales de priorización, recibiendo encargos por canales informales; sin gestión presupuestaria de proyectos ni proceso formal de procurement — ausencias que la propia PMO ya elevó a la dirección (4.6)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": "4.6",
+      "implicacion": "Dotar a la PMO de un marco de priorización aprobado por la Junta (los criterios ya esbozados por la propia PMO son la base), de visibilidad de capacidad y de la gestión presupuestaria y el procurement que ella misma reclama; canalizar todo encargo directivo por el registro único ya acordado con presidencia.",
+      "factores": [
+        "3",
+        "5"
+      ]
+    },
+    {
+      "orden": 13,
+      "titulo_o_texto": "Riesgo de factibilidad de la reestructuración por brecha de talento: más de dos meses sin cubrir una coordinación contable en Venezuela; marca empleadora y procesos de atracción débiles frente a los roles estratégicos que la nueva estructura requerirá (insumo sesión 14-jul)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": null,
+      "implicacion": "Anticipar el plan de atracción y transición de talento en paralelo al diseño de la estructura (no después): perfiles críticos identificados, estrategia de marca empleadora, y mecanismos de transición interna con períodos de prueba medidos por KPIs — práctica que la organización ya comenzó a aplicar.",
+      "factores": [
+        "4",
+        "3"
+      ]
+    },
+    {
+      "orden": 14,
+      "titulo_o_texto": "Ausencia de estándares de servicio interno: alistado de pedidos en Zona Libre de una semana a un mes para pedidos equivalentes; reportería financiera de Venezuela con meses de retraso; conciliación compleja del canal Cashea (6.x)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": "6.x",
+      "implicacion": "Definir acuerdos de nivel de servicio internos (SLA) por flujo troncal en la documentación de procesos de Fase 2, con dueños y medición — insumo directo de los KPIs solicitados en el requisito B#4.",
+      "factores": [
+        "2"
+      ]
+    },
+    {
+      "orden": 15,
+      "titulo_o_texto": "Confiabilidad del dato y capa sombra: inventarios de sistema que no cuadran con el físico, 41 clientes reportando en 41 formatos, y las decisiones de mayor impacto procesadas en Excel personales y WhatsApp — respuesta racional al dato deficiente (7.5)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": "7.5",
+      "implicacion": "Programa de calidad de dato en origen (conteos físicos, catálogo maestro, estandarización de reportes de clientes) como prerrequisito de la hoja de ruta de automatización (sección 12); la capa sombra se retira ganando confianza, no prohibiéndola.",
+      "factores": [
+        "6",
+        "2"
+      ]
+    },
+    {
+      "orden": 16,
+      "titulo_o_texto": "No existe una función tecnológica transversal con mandato sobre datos e IA: la gerencia de sistemas administra infraestructura mientras la estrategia de IA se decide fuera de ella; sistemas, BI y el desarrollo que se avecina operan como islas que se tocan por tareas puntuales (7.6)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": "7.6",
+      "implicacion": "Constituir la función tecnológica transversal en la estructura objetivo (sección 4.8) — sistemas, datos y desarrollo bajo un mismo eje — como condición organizativa de la arquitectura de IA; el equipo interno de 10.3 es su expresión operativa.",
+      "factores": [
+        "6",
+        "3"
+      ]
+    },
+    {
+      "orden": 17,
+      "titulo_o_texto": "Continuidad y escala tecnológica: la migración de versión de Odoo (17→19, con política declarada de actualización anual) aún no está planificada como proyecto sobre operaciones recién estabilizadas; la facturación electrónica multi-país depende de un integrador fiscal distinto por país (WEPOS→DGI en Panamá, HKA en Venezuela) como punto único de falla con impacto legal inmediato; y el conocimiento de configuración del ERP vive en partners externos sin transferencia documentada (7.8)",
+      "criticidad": "Media-Alta",
+      "seccion_origen": "7.8",
+      "implicacion": "Planificar la migración como proyecto formal con ambientes de prueba (verificaciones de 8.4); dotar de redundancia y monitoreo a los integradores fiscales; y exigir documentación y transferencia de conocimiento a los partners antes de que la ola de automatización aumente la carga sobre estos sistemas.",
+      "factores": [
+        "6",
+        "2"
+      ]
+    },
+    {
+      "orden": 18,
+      "titulo_o_texto": "RRHH operativo-administrativo: sin gestión por competencias, sin evaluación de desempeño más allá del período de prueba, sin políticas escritas ni planificación de dotación; dos gerencias país sin instancia corporativa (sección 5)",
+      "criticidad": "Media",
+      "seccion_origen": null,
+      "implicacion": "Evolucionar RRHH hacia socio estratégico del negocio con rol protagónico en la gestión del cambio — dirección ya planteada a la presidencia; la estructura patrón de cargos y el diccionario de competencias (Fases 3–4) son sus primeros instrumentos.",
+      "factores": [
+        "4"
+      ]
+    },
+    {
+      "orden": 19,
+      "titulo_o_texto": "Uso de IA real pero disperso y sin gobierno: focos de madurez por iniciativa individual, licencias y tokens sin dueño de presupuesto, sin política de uso ni criterios de seguridad de la información (7.3, 9.1)",
+      "criticidad": "Media",
+      "seccion_origen": "7.3, 9.1",
+      "implicacion": "La instancia de gobierno de IA acordada en el Comité del 01-jul, la Política de Uso de IA (entregable del proyecto) y la estandarización de licencias resuelven este hallazgo de forma directa; el pronunciamiento sobre el rol de BI en la estructura objetivo (sección 4.8) le da dueño organizacional.",
+      "factores": [
+        "6",
+        "5"
+      ]
+    },
+    {
+      "orden": 20,
+      "titulo_o_texto": "Resistencia al cambio anclada en experiencias previas: migraciones vividas como traumáticas alimentan la desconfianza en los sistemas nuevos y el retorno a las herramientas anteriores (9.2)",
+      "criticidad": "Media",
+      "seccion_origen": "9.2",
+      "implicacion": "Formación completa y por departamento (no genérica) como regla de todo despliegue futuro; Maia es el instrumento en curso; comunicar éxitos tempranos (Panamá al día en estados financieros) como evidencia interna.",
+      "factores": [
+        "5"
+      ]
+    },
+    {
+      "orden": 21,
+      "titulo_o_texto": "Hallazgo positivo — capacidades internas replicables: el grupo ya contiene sus propios benchmarks: la operación del socio de Costa Rica (comité de innovación, forecast con IA, reportería gerencial disciplinada), la célula de BI (modelos predictivos y prescriptivos en producción), marketing (adopción ejemplar de Lark y pipeline de IA) y la PMO (metodología en construcción con estándares propios)",
+      "criticidad": "Oportunidad",
+      "seccion_origen": null,
+      "implicacion": "Usar estos casos como referencia interna del cambio — \"esto ya funciona dentro de nuestra propia casa\" — en la comunicación del proyecto; replicar sus prácticas (reportería de una página por gerencia, facilitadores internos de IA, disciplina de plataforma) en el despliegue de Fase 2.",
+      "factores": [
+        "5",
+        "6",
+        "2"
+      ]
+    }
+  ],
+  "factores_leyenda": {
+    "1": "Gobierno y fundamentos",
+    "2": "Mapa de procesos",
+    "3": "Estructura organizativa",
+    "4": "Estructura del talento",
+    "5": "Gestión del cambio",
+    "6": "Soporte técnico e IA"
+  },
+  "dependencias_criticas": [
+    {
+      "persona_o_rol": "Vera Gavizon — compras y datos Casio",
+      "dependencia": "Única persona que prepara los archivos de compra de Casio para 6+ países y la reportería oficial mensual a Casio de la zona. Herramienta: Excel personal no documentado. Única en contacto con ciertos clientes/reportes. Reside en Israel, con huso horario y disponibilidad limitados que ya hoy ralentizan decisiones.",
+      "impacto": "Interrupción del ciclo de compras de la mitad de los mercados y de la relación de reporte con el proveedor principal del grupo.",
+      "mitigacion": "Documentar el archivo y su lógica (candidato prioritario a caso de uso IA); formar respaldo; trasladar la reportería a un proceso sistematizado.",
+      "severidad": "alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Juseth González (\"Josep\") — servicio técnico Casio",
+      "dependencia": "Más de dos décadas en la empresa (ingreso oficial 2002); gestiona repuestos y servicio técnico de Casio para todos los países desde Caracas. Cita textual de la organización: \"nadie más sabe cómo hacerlo\". Único interlocutor con la fábrica para repuestos.",
+      "impacto": "Parálisis de la postventa y garantías Casio en toda la región; incumplimiento de estándares del fabricante.",
+      "mitigacion": "Documentación urgente del proceso con él en vida activa; formalizar a Gilbert u otro respaldo; digitalizar el flujo de solicitudes.",
+      "severidad": "alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Roberto Roizental — aprobación de compras Casio",
+      "dependencia": "Aprueba personalmente los pedidos de tres entidades (Kenex Trading/Zona Libre, Casiolandia, Rower Venezuela) además de su rol comercial LatAm e interlocución con Casio Brasil. Declara repetidamente falta de tiempo; reconoce perder el hilo de las compras Cubitt en Lark.",
+      "impacto": "Cuello de botella ya materializado: decisiones de reposición esperan su disponibilidad; riesgo de quiebres o excesos de stock.",
+      "mitigacion": "Delegación estructurada con reglas de aprobación por monto/categoría (el modelo Colombia→Santiago ya demostró que funciona); apoyo del modelo de BI (Alexis/Jimena).",
+      "severidad": "alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Andrés Roizental — comercial regional + Lark",
+      "dependencia": "Tres unidades comerciales, la operación completa de Guatemala, autorización personal de cada pedido regional con criterio no escrito (márgenes, allocation por SKU, crédito) y condición de único experto interno en Lark, plataforma donde corre la gestión del grupo.",
+      "impacto": "Doble exposición: parálisis comercial regional y pérdida del conocimiento de la plataforma central de trabajo.",
+      "mitigacion": "Codificar sus reglas de autorización (candidato a caso de uso IA); instaurar el rol de administración Lark propuesto en el Comité de Dirección; estructurar segunda línea comercial (Handani, John Morgan).",
+      "severidad": "alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Alejandro Roizental — producto y compras Cubitt",
+      "dependencia": "Concentra la relación con los ~10 proveedores en China, el diseño de colecciones, la negociación y las compras de la marca propia, más la operación de EE.UU. Él mismo lo reconoce: si se ausenta un mes, tendría que delegar por correo sin proceso establecido.",
+      "impacto": "Detención del pipeline de producto de la marca estratégica del grupo y de la operación de EE.UU. simultáneamente.",
+      "mitigacion": "Formalizar la delegación parcial ya iniciada (Estefanía R. con proveedores); documentar el ciclo de desarrollo de producto; separar operación EE.UU. del rol de producto global.",
+      "severidad": "alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Mariela Castro — sistemas regionales",
+      "dependencia": "Lidera IT y Odoo de Panamá, Venezuela y Colombia, y además parametriza personalmente (puntos de venta, diarios, métodos de pago). Riesgo de salida ya señalado en el diagnóstico. Equipos país pequeños y dependientes de ella.",
+      "impacto": "Pérdida del conocimiento de configuración del ERP en plena migración (Venezuela recién en producción, upgrade a v19 planificado).",
+      "mitigacion": "Plan de retención explícito; documentación de parametrizaciones; fortalecer coordinadores país (José Herrera) y partners (Logiciel/Pragma).",
+      "severidad": "alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Jaime González — finanzas holding",
+      "dependencia": "CFO único para todas las entidades; genera personalmente proyecciones y situación financiera consolidada. Él mismo recomienda en su entrevista separar tesorería, contabilidad y finanzas en lugar de concentrarlas.",
+      "impacto": "Pérdida de visibilidad financiera consolidada del grupo; concentración de accesos.",
+      "mitigacion": "Adoptar su propia recomendación de estructura; documentar el modelo de proyecciones (hoy en Excel personal, con intención declarada de migrar a software).",
+      "severidad": "media-alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Alexis Mujica — célula de BI e inteligencia de inventarios",
+      "dependencia": "Su entrevista matiza el riesgo: no es una persona sola sino una célula de tres (con Kenzie Pérez en ETL y Ali Aguilar en métricas) y cada proyecto se documenta (manual, diccionario, medidas). Persisten: la célula completa carece de posición formal en la estructura, Alexis es el único con perfil de ciencia de datos/arquitectura, y hay fragilidad de accesos (usuarios que pierden acceso a modelos por vencimiento de licencias/pruebas gratuitas). Detectó ~1 MM USD de inventario estancado. Brecha declarada por él mismo: falta formación de los usuarios en el uso de los modelos (\"todo el mundo cree que BI es hacer dashboards\").",
+      "impacto": "Pérdida del único arquitecto de los modelos con los que el grupo empieza a decidir; subutilización de la capacidad analítica ya construida.",
+      "mitigacion": "Formalizar la célula en la estructura propuesta; plan de licencias; programa de formación de usuarios en modelos (candidato a integrarse con Maia); integrarla a la gobernanza de IA.",
+      "severidad": "media-alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Ricardo Roizental — relaciones bancarias",
+      "dependencia": "La capacidad de financiamiento del grupo (líneas, deuda, tasas) descansa en su relación personal con los bancos, no en un proceso institucional.",
+      "impacto": "Encarecimiento o pérdida de acceso a financiamiento ante su ausencia.",
+      "mitigacion": "Institucionalizar la relación bancaria (documentar líneas, condiciones, contactos; incorporar a Jaime/tesorería como segunda cara visible).",
+      "severidad": "media-alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Joel Cohen — representación legal Colombia",
+      "dependencia": "Único representante legal y única persona autorizada a mover dinero en Deltadir SAS.",
+      "impacto": "Bloqueo operativo y financiero total de la entidad colombiana ante cualquier eventualidad.",
+      "mitigacion": "Poderes y firmas de respaldo; revisar esquema societario con los abogados del grupo.",
+      "severidad": "media-alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Edgar — soporte de tiendas Venezuela",
+      "dependencia": "Persona única atendiendo los requerimientos de las 20 tiendas de Venezuela, de lunes a domingo, residiendo en EE.UU.",
+      "impacto": "Tiendas sin soporte de facturación/POS; riesgo adicional de desgaste de la persona.",
+      "mitigacion": "Respaldo local (Héctor/José Herrera); base de conocimiento de incidencias frecuentes (candidato a caso de uso IA de soporte).",
+      "severidad": "media-alta",
+      "seccion_origen": "4.5"
+    },
+    {
+      "persona_o_rol": "Isabela — administración Kenex USA",
+      "dependencia": "Toda la administración de la entidad de EE.UU. (listings, envíos, devoluciones, QuickBooks) en una persona, sobre un sistema desconectado del grupo.",
+      "impacto": "Opacidad y detención administrativa de la operación de EE.UU.",
+      "mitigacion": "Continuar la delegación iniciada (apoyo en Caracas); evaluar integración de datos EE.UU. al ecosistema del grupo.",
+      "severidad": "media-alta",
+      "seccion_origen": "4.5"
+    }
+  ],
+  "brechas_rrhh": [
+    {
+      "proceso_rrhh": "Planificación de plantilla y diseño organizativo",
+      "severidad": "Crítica",
+      "hallazgo": "El crecimiento se dota reactivamente: el patrón declarado es \"se crea el cargo y luego se busca a alguien\". No hay plan de plantilla ni presupuesto de personal ligado al plan de negocio.",
+      "exigencia_o_requerido": "El desarrollo de producto digital requiere anticipar una familia de cargos completa (producto, desarrollo, datos) con meses de antelación. Sin planificación, el rediseño organizativo se desactualiza en seis meses."
+    },
+    {
+      "proceso_rrhh": "Descripciones de cargo y gestión por competencias",
+      "severidad": "Crítica",
+      "hallazgo": "Corrección relevante al diagnóstico preliminar: la cobertura de ~90% declarada en Panamá no se sostiene al revisar los archivos — hay amplitud pero no profundidad ni consistencia (cargos sin objetivo, campos vacíos sistemáticos, duplicados, formatos que cambian entre hojas). Paradójicamente, el formato de Venezuela es el más sólido, aunque congelado. Ninguno de los dos sirve tal cual como estándar corporativo; no existe diccionario de competencias.",
+      "exigencia_o_requerido": "Sin descripciones vigentes y homogéneas no se puede evaluar, formar con criterio, certificar competencias de IA ni construir la matriz de ajuste. Es la brecha que bloquea todo el frente de talento."
+    },
+    {
+      "proceso_rrhh": "Atracción y selección",
+      "severidad": "Alta",
+      "hallazgo": "Selección sin criterios escritos ni proceso formal, con decisión final concentrada en la dirección incluso para cargos no directivos (coherente con el vicio de aprobaciones personalistas, 4.7). Los perfiles técnicos se resuelven vía freelancers que \"terminan formando parte del equipo\" sin figura estable.",
+      "exigencia_o_requerido": "Atraer desarrolladores y perfiles de producto/datos exige proceso formal, criterios por nivel y una propuesta de valor al empleado (EVP) que hoy no existe. El aplicativo de análisis de CV (Fase 4) no puede operar sin descripciones contra las cuales evaluar."
+    },
+    {
+      "proceso_rrhh": "Contratación y marco formal",
+      "severidad": "Crítica",
+      "hallazgo": "En Venezuela el personal ingresa a nómina sin contrato de trabajo firmado — situación que la propia presidencia ha manifestado querer corregir y que la función reconoce, complicada por las múltiples variables salariales. Se implementó recientemente un acuerdo de confidencialidad para el personal administrativo.",
+      "exigencia_o_requerido": "Sin contrato no hay cláusulas de propiedad intelectual, confidencialidad ni no-competencia: quien construya el producto digital de Cubitt sin contrato deja abierta la titularidad de lo que produce. Riesgo laboral y patrimonial que excede el frente de talento — escalado al frente jurídico."
+    },
+    {
+      "proceso_rrhh": "Inducción y onboarding",
+      "severidad": "Media",
+      "hallazgo": "Documentado y valorado en Panamá (recepción personal, código de cultura, reglamento, descripción de cargo); informal y no documentado en Venezuela.",
+      "exigencia_o_requerido": "Con más de 30% de crecimiento semestral, un onboarding informal no escala. Brecha de rápida solución: el activo existe, solo hay que replicarlo — incorporando un módulo de herramientas digitales e IA desde el día uno."
+    },
+    {
+      "proceso_rrhh": "Evaluación del desempeño",
+      "severidad": "Crítica",
+      "hallazgo": "Panamá tiene ciclo estructurado (prueba, 6 y 12 meses, FODA anual, 360 en camino). En Venezuela no hay evaluación formal: no existe medición individual del desempeño en la mayor operación del grupo.",
+      "exigencia_o_requerido": "El proyecto aplicará una evaluación cruzada (desempeño operativo × potencial de adopción digital) sobre una organización que en su mayor parte nunca ha sido evaluada — exige sensibilización previa. Construir sobre el ciclo de Panamá, no desde cero; la presidencia pidió además evaluación ascendente."
+    },
+    {
+      "proceso_rrhh": "Formación, desarrollo y carrera",
+      "severidad": "Crítica",
+      "hallazgo": "La debilidad reconocida por la propia función: sin gestión estructurada de capacitación, sin rutas de desarrollo ni criterios de promoción. La Universidad Cubitt (e-learning) existe pero está subutilizada; el diagnóstico de necesidades está en pausa esperando la figura de Formación y Desarrollo que la directiva contratará; la PMO mantiene un departamento de capacitación \"on hold\".",
+      "exigencia_o_requerido": "La brecha más consecuente: la adopción de IA es un problema de formación masiva, y el upskilling llega en pocos meses. Tres piezas del mismo rompecabezas (figura de F&D, departamento on hold, Universidad Cubitt) hoy descoordinadas."
+    },
+    {
+      "proceso_rrhh": "Compensación y estructura salarial",
+      "severidad": "Alta",
+      "hallazgo": "Sin bandas salariales definidas ni política formal de compensación; la compensación no monetaria se maneja caso a caso sin política escrita; la estructura de compensación de Venezuela es compleja y de múltiples componentes.",
+      "exigencia_o_requerido": "Sin bandas no se puede competir por perfiles tecnológicos (que se cotizan en mercado con referencias públicas) ni sostener equidad interna defendible. Se recomienda construir bandas al menos para las familias de cargos nuevas (tecnología y producto), donde no hay historia que proteger."
+    },
+    {
+      "proceso_rrhh": "Administración de personal y nómina",
+      "severidad": "Crítica",
+      "hallazgo": "La estimación de nómina de Venezuela — el proceso de mayor riesgo del área — se arma manualmente en un Excel que la propia función describe como \"una nómina manual… el índice de error es muy alto\", en paralelo al módulo de Odoo aún en construcción.",
+      "exigencia_o_requerido": "Simultáneamente el riesgo operativo más serio y el caso de uso de IA mejor patrocinado del área: victoria temprana ideal para la hoja de ruta de automatización (sección 12) — alto impacto, dueño convencido, ROI demostrable."
+    },
+    {
+      "proceso_rrhh": "Sistemas de información y datos de talento",
+      "severidad": "Crítica",
+      "hallazgo": "Cada país gestiona RRHH con una herramienta distinta: Venezuela inicia el módulo de Odoo; Panamá no usa Odoo (migró a un software de nómina propio conectado al biométrico); Colombia y Costa Rica tercerizados. La adopción de Lark en la función también es dispar.",
+      "exigencia_o_requerido": "No existe una fuente única de datos de talento: no se puede consolidar rotación, ausentismo, costo laboral ni brechas de competencias entre países. Restricción explícita para la evaluación masiva y la reportería consolidada — requiere una capa mínima de consolidación definida con el frente técnico."
+    },
+    {
+      "proceso_rrhh": "Indicadores de gestión",
+      "severidad": "Alta",
+      "hallazgo": "La función no se mide: el \"termómetro\" declarado es la ausencia de reclamos. La carencia de KPIs, además, es un patrón de toda la organización, no exclusivo de RRHH.",
+      "exigencia_o_requerido": "Sin una línea base de indicadores no hay forma de demostrar el impacto de la transformación; dotar a la función de un cuadro mínimo de KPIs de talento es condición para medir su evolución."
+    },
+    {
+      "proceso_rrhh": "Retención, continuidad y conocimiento crítico",
+      "severidad": "Crítica",
+      "hallazgo": "Las dependencias individuales de severidad alta (4.5) coinciden con los procesos menos documentados. No existen mecanismos de retención ni planes de sucesión — y la propia función replica el patrón (en Panamá concentra RRHH, relaciones laborales, marca empleadora y servicios generales en una persona).",
+      "exigencia_o_requerido": "Un grupo que apuesta por producto digital propio no puede permitirse conocimiento crítico tácito y personal. La mitigación coincide exactamente con los casos de uso de IA priorizables: documentar y automatizar lo que hoy vive en una cabeza."
+    },
+    {
+      "proceso_rrhh": "Cultura, gestión del cambio y adopción de IA",
+      "severidad": "Alta",
+      "hallazgo": "No existe función de gestión del cambio. El reto está identificado con precisión desde la propia función: sensibilizar al personal de 20–40 años de arraigo para que sea protagonista de la evolución, no un obstáculo — mientras la política de talento ya viró de la fidelidad a la profesionalización, creando una plantilla bimodal.",
+      "exigencia_o_requerido": "La adopción de IA fracasa por resistencia cultural más que por limitaciones técnicas. El piloto Maia y la comunicación del proyecto deben anclarse en un relato de protagonismo, no de reemplazo; ambas gerentes de RRHH deben ser agentes visibles del cambio, no receptoras pasivas."
+    }
+  ],
+  "procesos_sin_sistema": [
+    {
+      "proceso": "Compra estratégica del grupo (Casio)",
+      "naturaleza": "Excel como sistema de decisión",
+      "detalle": "El director de compras exporta de Odoo y \"abre su hoja Excel y empieza a estudiar… le mete cantidad a cada producto, abre una columna\"; incluye disponible, costos, tránsito de dos meses. La decisión de compra se ejerce enteramente en la hoja.",
+      "area_o_pais": null,
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Ofertas y pedidos a clientes mayoristas (Casio)",
+      "naturaleza": "Excel + dependencia individual",
+      "detalle": "Una sola persona (\"la única que contacta con ellos\") gestiona ofertas de stock y recibe pedidos que vuelca en \"una gran sábana que Roberto ve\"; se probó automatizar y se descartó por costo.",
+      "area_o_pais": null,
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Reportería comercial a la junta",
+      "naturaleza": "Excel como capa de reporte",
+      "detalle": "Se arma con reportes de Odoo exportados y \"bases de datos conectadas al Excel\"; la carga masiva de pedidos vuelve a Odoo por importación de Excel.",
+      "area_o_pais": null,
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Nómina de Venezuela",
+      "naturaleza": "Excel como cálculo crítico",
+      "detalle": "Estimación en un Excel que la propia gerencia describe como \"una nómina manual: borro variaciones y cargo otra vez\", en paralelo al módulo de Odoo en construcción.",
+      "area_o_pais": "Venezuela",
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Tesorería y flujo de caja del holding",
+      "naturaleza": "Excel como sistema financiero paralelo",
+      "detalle": "Un Excel maestro (una pestaña por mes, saldos de banco actualizados a diario, solicitudes de pago, proyecciones, préstamos) compartido entre CFO y presidencia; el CFO aspira explícitamente a \"quitarme mis Excel\".",
+      "area_o_pais": null,
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Conciliación de Cashea",
+      "naturaleza": "Manual por falta de integración",
+      "detalle": "\"La única que no han logrado reconciliar por Odoo, sino que la hacen manual y luego hacen los asientos\"; su API \"es para otro esquema, no para conciliación\".",
+      "area_o_pais": null,
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Planeación comercial de Colombia",
+      "naturaleza": "Excel como sistema de gestión completo",
+      "detalle": "Un \"Excel máster creado por atrás\" que consolida ventas por canal y metas anuales; el propio country manager reconoce \"esto está manual hasta la punta, no veo data, siento un hueco\".",
+      "area_o_pais": "Colombia",
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Forecast de compras de Costa Rica",
+      "naturaleza": "Excel + IA individual",
+      "detalle": "Se modela mensualmente con IA (Claude) \"aunque tenemos un forecast en Excel… todo se exporta a Excel y después en Excel uno trabaja\".",
+      "area_o_pais": "Costa Rica",
+      "bloque": "a. Procesos críticos que corren en Excel al lado de los sistemas"
+    },
+    {
+      "proceso": "Servicio técnico de Venezuela",
+      "naturaleza": "Sistema aislado, sin integración",
+      "detalle": "Registró años de garantías y reparaciones en Syscore, sistema \"todo manual, no integrado al ERP\", asignando piezas \"a dedo, sin trazabilidad\".",
+      "area_o_pais": "Venezuela",
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Recepción de mercancía en e-commerce VE",
+      "naturaleza": "Sin captura sistematizada",
+      "detalle": "Ingreso \"a dedo, no se pistolea, no se identifica\"; sin panel de despacho en Odoo, obliga a documentación externa en Lark \"para saber si un pedido salió\".",
+      "area_o_pais": "VE",
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Recepción de contenedores",
+      "naturaleza": "Manual + integración inexistente",
+      "detalle": "1.800 cajas descargadas y ubicadas a mano; hasta que la última no se ubica, \"la primera no aparece disponible\"; el sistema ACN \"no habla\" con Odoo y requiere una interfaz por desarrollar.",
+      "area_o_pais": null,
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Marketplaces de EE.UU.",
+      "naturaleza": "Sin integración, por diseño",
+      "detalle": "Sin EDI (descartado por costo): cada marketplace se opera por su portal, \"descargas los labels, todo muy manual\"; transferencia a QuickBooks marketplace por marketplace.",
+      "area_o_pais": "EE.UU.",
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Marketplaces de Colombia",
+      "naturaleza": "Manual pese a integración parcial",
+      "detalle": "Pese a la integración con Astrocell, \"concilian manual\".",
+      "area_o_pais": "Colombia",
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Difusión de contenido a tiendas (VE)",
+      "naturaleza": "Sin sistema de distribución",
+      "detalle": "Para actualizar los televisores de tienda con nuevas promociones, \"manualmente se extrae el pendrive, se descarga y se lleva\".",
+      "area_o_pais": "VE",
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Activos de marca (marketing)",
+      "naturaleza": "Sin repositorio ni sistema",
+      "detalle": "Gráficos y presentaciones en Dropbox y Canva, fuera de repositorio gobernado; reportes mensuales a la junta \"todavía se generan manuales\".",
+      "area_o_pais": null,
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Verificación de facturas de importación",
+      "naturaleza": "Manual, sin sistema",
+      "detalle": "\"Regresan con una pila de facturas gigantesca y un Excel con el detalle; la gente revisa factura por factura\" a mano.",
+      "area_o_pais": null,
+      "bloque": "b. Procesos que operan sin sistema alguno"
+    },
+    {
+      "proceso": "Departamento de compras",
+      "naturaleza": "IA individual sobre Excel",
+      "detalle": "\"Todos tienen Claude y lo utilizan para llevar sus métricas\"; se usa \"como Excel para sus reportes\".",
+      "area_o_pais": null,
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    },
+    {
+      "proceso": "Comercial de Colombia",
+      "naturaleza": "IA individual sobre Excel",
+      "detalle": "\"Con Excel usamos inteligencia artificial, con eso hago informes muy rápido\"; queries de Odoo llevadas a Excel.",
+      "area_o_pais": "Colombia",
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    },
+    {
+      "proceso": "Compras de Costa Rica",
+      "naturaleza": "IA individual sobre Excel",
+      "detalle": "Forecast mensual modelado con Claude sobre el Excel de forecast.",
+      "area_o_pais": "Costa Rica",
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    },
+    {
+      "proceso": "Marketing",
+      "naturaleza": "IA individual, aspiración de flujo",
+      "detalle": "Quiere \"entrenar la IA para que baje el brief y lo mande a diseño sin tanto trabajo manual\"; usa IA generativa de imagen/video.",
+      "area_o_pais": null,
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    },
+    {
+      "proceso": "Planificación de temporadas (e-commerce VE)",
+      "naturaleza": "IA individual, alto valor",
+      "detalle": "Dos temporadas altas dimensionadas de personal \"planificadas con IA 100%\", modelando tráfico y tiempos.",
+      "area_o_pais": "VE",
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    },
+    {
+      "proceso": "PMO",
+      "naturaleza": "IA individual de gestión",
+      "detalle": "IA \"de análisis, para plantear el proyecto, la metodología y el cronograma\"; cronogramas antes \"a pulmón en Excel\".",
+      "area_o_pais": null,
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    },
+    {
+      "proceso": "Célula de BI",
+      "naturaleza": "IA estructurada (excepción)",
+      "detalle": "Modelos de ML y una capa conversacional propia sobre la \"fuente de la verdad\"; la única con arquitectura, no individual (7.4).",
+      "area_o_pais": null,
+      "bloque": "c. Islas de IA generativa usadas individualmente"
+    }
+  ],
+  "sistemas_por_pais": [
+    {
+      "sistema": "Odoo (ERP)",
+      "pais": "Panamá",
+      "estado": "Operativo (Trading, Casiolandia, Basaida) — estados al día",
+      "lectura": "Troncal, pero solo en 3 de 6 territorios. La \"fuente de la verdad\" contable no es única."
+    },
+    {
+      "sistema": "Odoo (ERP)",
+      "pais": "Venezuela",
+      "estado": "Operativo desde ene-2026 — implementación \"traumática\", reportería con rezago",
+      "lectura": "Troncal, pero solo en 3 de 6 territorios. La \"fuente de la verdad\" contable no es única."
+    },
+    {
+      "sistema": "Odoo (ERP)",
+      "pais": "Colombia",
+      "estado": "Implementación original del grupo — con WMS nativo de Odoo",
+      "lectura": "Troncal, pero solo en 3 de 6 territorios. La \"fuente de la verdad\" contable no es única."
+    },
+    {
+      "sistema": "Odoo (ERP)",
+      "pais": "Costa Rica",
+      "estado": "No usa (ERP local propio)",
+      "lectura": "Troncal, pero solo en 3 de 6 territorios. La \"fuente de la verdad\" contable no es única."
+    },
+    {
+      "sistema": "Odoo (ERP)",
+      "pais": "EE.UU.",
+      "estado": "No usa (QuickBooks)",
+      "lectura": "Troncal, pero solo en 3 de 6 territorios. La \"fuente de la verdad\" contable no es única."
+    },
+    {
+      "sistema": "Odoo (ERP)",
+      "pais": "Guatemala",
+      "estado": "No usa (sistema del operador)",
+      "lectura": "Troncal, pero solo en 3 de 6 territorios. La \"fuente de la verdad\" contable no es única."
+    },
+    {
+      "sistema": "Lark",
+      "pais": "Panamá",
+      "estado": "Uso pleno (marketing, PMO, formularios, wiki)",
+      "lectura": "Troncal declarado, adopción real heterogénea. Un solo experto interno."
+    },
+    {
+      "sistema": "Lark",
+      "pais": "Venezuela",
+      "estado": "Uso parcial (repositorio; soporte y comercial \"jalan por WhatsApp\")",
+      "lectura": "Troncal declarado, adopción real heterogénea. Un solo experto interno."
+    },
+    {
+      "sistema": "Lark",
+      "pais": "Colombia",
+      "estado": "En adopción",
+      "lectura": "Troncal declarado, adopción real heterogénea. Un solo experto interno."
+    },
+    {
+      "sistema": "Lark",
+      "pais": "Costa Rica",
+      "estado": "Adopción gradual",
+      "lectura": "Troncal declarado, adopción real heterogénea. Un solo experto interno."
+    },
+    {
+      "sistema": "Lark",
+      "pais": "EE.UU.",
+      "estado": "Marginal",
+      "lectura": "Troncal declarado, adopción real heterogénea. Un solo experto interno."
+    },
+    {
+      "sistema": "Lark",
+      "pais": "Guatemala",
+      "estado": "Fuera de Lark (opera por WhatsApp)",
+      "lectura": "Troncal declarado, adopción real heterogénea. Un solo experto interno."
+    },
+    {
+      "sistema": "WMS / bodega",
+      "pais": "Panamá",
+      "estado": "EBS (Colón) + WMS (ciudad)",
+      "lectura": "Tres tecnologías distintas para la misma función. Estandarización en EBS pendiente (2027)."
+    },
+    {
+      "sistema": "WMS / bodega",
+      "pais": "Venezuela",
+      "estado": "Migración en curso (Fernando A.)",
+      "lectura": "Tres tecnologías distintas para la misma función. Estandarización en EBS pendiente (2027)."
+    },
+    {
+      "sistema": "WMS / bodega",
+      "pais": "Colombia",
+      "estado": "WMS nativo de Odoo",
+      "lectura": "Tres tecnologías distintas para la misma función. Estandarización en EBS pendiente (2027)."
+    },
+    {
+      "sistema": "WMS / bodega",
+      "pais": "Costa Rica",
+      "estado": "Módulo del ERP local",
+      "lectura": "Tres tecnologías distintas para la misma función. Estandarización en EBS pendiente (2027)."
+    },
+    {
+      "sistema": "WMS / bodega",
+      "pais": "EE.UU.",
+      "estado": "Bodega mínima",
+      "lectura": "Tres tecnologías distintas para la misma función. Estandarización en EBS pendiente (2027)."
+    },
+    {
+      "sistema": "WMS / bodega",
+      "pais": "Guatemala",
+      "estado": "Bodega del operador",
+      "lectura": "Tres tecnologías distintas para la misma función. Estandarización en EBS pendiente (2027)."
+    },
+    {
+      "sistema": "E-commerce",
+      "pais": "Panamá",
+      "estado": "Shopify (Casio y Cubitt) ↔ Odoo",
+      "lectura": "Cuatro plataformas sin estándar común (vicio F5)."
+    },
+    {
+      "sistema": "E-commerce",
+      "pais": "Venezuela",
+      "estado": "Webs propias + Cashea + Mercado Libre",
+      "lectura": "Cuatro plataformas sin estándar común (vicio F5)."
+    },
+    {
+      "sistema": "E-commerce",
+      "pais": "Colombia",
+      "estado": "Incipiente",
+      "lectura": "Cuatro plataformas sin estándar común (vicio F5)."
+    },
+    {
+      "sistema": "E-commerce",
+      "pais": "Costa Rica",
+      "estado": "Bots en relanzamiento",
+      "lectura": "Cuatro plataformas sin estándar común (vicio F5)."
+    },
+    {
+      "sistema": "E-commerce",
+      "pais": "EE.UU.",
+      "estado": "Shopify + marketplaces (EDI descartado)",
+      "lectura": "Cuatro plataformas sin estándar común (vicio F5)."
+    },
+    {
+      "sistema": "E-commerce",
+      "pais": "Guatemala",
+      "estado": "—",
+      "lectura": "Cuatro plataformas sin estándar común (vicio F5)."
+    },
+    {
+      "sistema": "Nómina / RRHH",
+      "pais": "Panamá",
+      "estado": "Software local propio (biométrico), no Odoo",
+      "lectura": "Sin fuente única de datos de talento (ver 5.3)."
+    },
+    {
+      "sistema": "Nómina / RRHH",
+      "pais": "Venezuela",
+      "estado": "Odoo (desde ene) + Excel manual paralelo",
+      "lectura": "Sin fuente única de datos de talento (ver 5.3)."
+    },
+    {
+      "sistema": "Nómina / RRHH",
+      "pais": "Colombia",
+      "estado": "Tercerizada",
+      "lectura": "Sin fuente única de datos de talento (ver 5.3)."
+    },
+    {
+      "sistema": "Nómina / RRHH",
+      "pais": "Costa Rica",
+      "estado": "Tercerizada / ERP local",
+      "lectura": "Sin fuente única de datos de talento (ver 5.3)."
+    },
+    {
+      "sistema": "Nómina / RRHH",
+      "pais": "EE.UU.",
+      "estado": "QuickBooks",
+      "lectura": "Sin fuente única de datos de talento (ver 5.3)."
+    },
+    {
+      "sistema": "Nómina / RRHH",
+      "pais": "Guatemala",
+      "estado": "Operador externo",
+      "lectura": "Sin fuente única de datos de talento (ver 5.3)."
+    },
+    {
+      "sistema": "Servicio técnico",
+      "pais": "Panamá",
+      "estado": "Registro estadístico integrado (\"control absoluto\")",
+      "lectura": "El modelo de Panamá es el estándar; Venezuela es la brecha."
+    },
+    {
+      "sistema": "Servicio técnico",
+      "pais": "Venezuela",
+      "estado": "Syscore — manual, no integrado a Odoo",
+      "lectura": "El modelo de Panamá es el estándar; Venezuela es la brecha."
+    },
+    {
+      "sistema": "Servicio técnico",
+      "pais": "Colombia",
+      "estado": "Apoyo desde el estándar regional",
+      "lectura": "El modelo de Panamá es el estándar; Venezuela es la brecha."
+    },
+    {
+      "sistema": "Servicio técnico",
+      "pais": "Costa Rica",
+      "estado": "Propio",
+      "lectura": "El modelo de Panamá es el estándar; Venezuela es la brecha."
+    },
+    {
+      "sistema": "Servicio técnico",
+      "pais": "EE.UU.",
+      "estado": "—",
+      "lectura": "El modelo de Panamá es el estándar; Venezuela es la brecha."
+    },
+    {
+      "sistema": "Servicio técnico",
+      "pais": "Guatemala",
+      "estado": "—",
+      "lectura": "El modelo de Panamá es el estándar; Venezuela es la brecha."
+    },
+    {
+      "sistema": "BI / analítica",
+      "pais": "Panamá",
+      "estado": "Centralizado en la célula regional (Fabric + Python + Power BI) que consume de todos los orígenes anteriores — su calidad depende íntegramente de la calidad de lo que hay aguas arriba.",
+      "lectura": null
+    },
+    {
+      "sistema": "BI / analítica",
+      "pais": "Venezuela",
+      "estado": "Centralizado en la célula regional (Fabric + Python + Power BI) que consume de todos los orígenes anteriores — su calidad depende íntegramente de la calidad de lo que hay aguas arriba.",
+      "lectura": null
+    },
+    {
+      "sistema": "BI / analítica",
+      "pais": "Colombia",
+      "estado": "Centralizado en la célula regional (Fabric + Python + Power BI) que consume de todos los orígenes anteriores — su calidad depende íntegramente de la calidad de lo que hay aguas arriba.",
+      "lectura": null
+    },
+    {
+      "sistema": "BI / analítica",
+      "pais": "Costa Rica",
+      "estado": "Centralizado en la célula regional (Fabric + Python + Power BI) que consume de todos los orígenes anteriores — su calidad depende íntegramente de la calidad de lo que hay aguas arriba.",
+      "lectura": null
+    },
+    {
+      "sistema": "BI / analítica",
+      "pais": "EE.UU.",
+      "estado": "Centralizado en la célula regional (Fabric + Python + Power BI) que consume de todos los orígenes anteriores — su calidad depende íntegramente de la calidad de lo que hay aguas arriba.",
+      "lectura": null
+    },
+    {
+      "sistema": "BI / analítica",
+      "pais": "Guatemala",
+      "estado": "Centralizado en la célula regional (Fabric + Python + Power BI) que consume de todos los orígenes anteriores — su calidad depende íntegramente de la calidad de lo que hay aguas arriba.",
+      "lectura": null
+    }
+  ],
+  "vicios_flujos": [
+    {
+      "flujo_codigo": "F1",
+      "flujo_nombre": "Compras y reposición Casio (multi-país)",
+      "orden_vicio": 1,
+      "texto_vicio": "Doble cuello de botella personal: todo pasa por el Excel no documentado de Vera y por la firma de Roberto, quien declara no tener tiempo."
+    },
+    {
+      "flujo_codigo": "F1",
+      "flujo_nombre": "Compras y reposición Casio (multi-país)",
+      "orden_vicio": 2,
+      "texto_vicio": "Huso horario y disponibilidad de Israel ralentizan decisiones de reposición."
+    },
+    {
+      "flujo_codigo": "F1",
+      "flujo_nombre": "Compras y reposición Casio (multi-país)",
+      "orden_vicio": 3,
+      "texto_vicio": "El único país con delegación reglada (Colombia→Santiago) funciona bien y nadie ha replicado el modelo."
+    },
+    {
+      "flujo_codigo": "F1",
+      "flujo_nombre": "Compras y reposición Casio (multi-país)",
+      "orden_vicio": 4,
+      "texto_vicio": "Los modelos Random Forest de la célula BI ya calculan reposición, pero los decisores no los usan de forma sistemática por falta de formación."
+    },
+    {
+      "flujo_codigo": "F1",
+      "flujo_nombre": "Compras y reposición Casio (multi-país)",
+      "orden_vicio": 5,
+      "texto_vicio": "La reportería al proveedor principal del grupo depende de una sola persona sin respaldo."
+    },
+    {
+      "flujo_codigo": "F1",
+      "flujo_nombre": "Compras y reposición Casio (multi-país)",
+      "orden_vicio": 6,
+      "texto_vicio": "La variabilidad del alistado de pedidos en Zona Libre es extrema — de una semana a casi un mes para un mismo tipo de pedido (testimonio del socio de Costa Rica, cuyo flujo pasa por el gerente de Ventas Mayor Internacional) — sin estándar de servicio interno."
+    },
+    {
+      "flujo_codigo": "F2",
+      "flujo_nombre": "Compras y desarrollo de producto Cubitt",
+      "orden_vicio": 1,
+      "texto_vicio": "El proceso corre en Lark pero Roberto — miembro del comité — declara \"perder el hilo\" de esas compras: la herramienta existe y el hábito no."
+    },
+    {
+      "flujo_codigo": "F2",
+      "flujo_nombre": "Compras y desarrollo de producto Cubitt",
+      "orden_vicio": 2,
+      "texto_vicio": "Decisión de producto unipersonal sin proceso de delegación (Alejandro: un mes de ausencia = gestionar por correo)."
+    },
+    {
+      "flujo_codigo": "F2",
+      "flujo_nombre": "Compras y desarrollo de producto Cubitt",
+      "orden_vicio": 3,
+      "texto_vicio": "Estefanía ejerce dos funciones de naturaleza distinta (PMO + compras) sin definición formal de dedicación."
+    },
+    {
+      "flujo_codigo": "F3",
+      "flujo_nombre": "Logística, almacenes e inventario",
+      "orden_vicio": 1,
+      "texto_vicio": "Inventario en Odoo poco confiable en varios países: la operación decide con datos que no cuadran con el físico."
+    },
+    {
+      "flujo_codigo": "F3",
+      "flujo_nombre": "Logística, almacenes e inventario",
+      "orden_vicio": 2,
+      "texto_vicio": "~1 MM USD de inventario estancado detectado por BI sin dueño claro del proceso de liquidación."
+    },
+    {
+      "flujo_codigo": "F3",
+      "flujo_nombre": "Logística, almacenes e inventario",
+      "orden_vicio": 3,
+      "texto_vicio": "Devoluciones de EE.UU. sin proceso: lo invendible \"retorna a Panamá\" sin flujo definido de reingreso."
+    },
+    {
+      "flujo_codigo": "F3",
+      "flujo_nombre": "Logística, almacenes e inventario",
+      "orden_vicio": 4,
+      "texto_vicio": "El almacén compartido con Crocs (negocio familiar externo) mezcla costos y decisiones del WMS con un tercero fuera del perímetro."
+    },
+    {
+      "flujo_codigo": "F3",
+      "flujo_nombre": "Logística, almacenes e inventario",
+      "orden_vicio": 5,
+      "texto_vicio": "Riesgo de colisión entre la migración WMS y el \"Proyecto Warehouse\" interno de la PMO — dos iniciativas sobre el mismo activo sin coordinación explícita."
+    },
+    {
+      "flujo_codigo": "F4",
+      "flujo_nombre": "Autorización comercial y precios",
+      "orden_vicio": 1,
+      "texto_vicio": "El criterio de autorización vive en la cabeza de Andrés: no hay política escrita de márgenes, descuentos ni asignación — imposible de delegar o auditar."
+    },
+    {
+      "flujo_codigo": "F4",
+      "flujo_nombre": "Autorización comercial y precios",
+      "orden_vicio": 2,
+      "texto_vicio": "Canal partido: parte del flujo en Lark, parte por WhatsApp (Guatemala), parte verbal."
+    },
+    {
+      "flujo_codigo": "F4",
+      "flujo_nombre": "Autorización comercial y precios",
+      "orden_vicio": 3,
+      "texto_vicio": "John Morgan/Jhony Wong opera el wholesale sin que su rol y límites de autorización estén definidos en ningún documento."
+    },
+    {
+      "flujo_codigo": "F4",
+      "flujo_nombre": "Autorización comercial y precios",
+      "orden_vicio": 4,
+      "texto_vicio": "La \"república independiente\" de Costa Rica compra como cliente sin visibilidad alguna del grupo sobre su demanda futura."
+    },
+    {
+      "flujo_codigo": "F5",
+      "flujo_nombre": "E-commerce y venta digital",
+      "orden_vicio": 1,
+      "texto_vicio": "Tres canales digitales sin coordinación entre sí ni estándar común: la unidad de Venezuela creció \"desconectada de arriba\" según su propia gerente."
+    },
+    {
+      "flujo_codigo": "F5",
+      "flujo_nombre": "E-commerce y venta digital",
+      "orden_vicio": 2,
+      "texto_vicio": "Patrick, responsable nominal del e-commerce Casio, declara haber perdido visibilidad de la venta digital de Venezuela."
+    },
+    {
+      "flujo_codigo": "F5",
+      "flujo_nombre": "E-commerce y venta digital",
+      "orden_vicio": 3,
+      "texto_vicio": "El dato de referencia interno estaba desactualizado (\"Smith\" figura aún como responsable en el conocimiento de gerentes regionales)."
+    },
+    {
+      "flujo_codigo": "F5",
+      "flujo_nombre": "E-commerce y venta digital",
+      "orden_vicio": 4,
+      "texto_vicio": "EE.UU. opera en sistemas desconectados del grupo: su venta digital no consolida en los datos que ve BI sin ETL manual."
+    },
+    {
+      "flujo_codigo": "F6",
+      "flujo_nombre": "Servicio técnico y postventa",
+      "orden_vicio": 1,
+      "texto_vicio": "Doble línea de mando no escrita: los técnicos reportan jerárquicamente a su país y funcionalmente a Patrick — sin regla de desempate."
+    },
+    {
+      "flujo_codigo": "F6",
+      "flujo_nombre": "Servicio técnico y postventa",
+      "orden_vicio": 2,
+      "texto_vicio": "El conocimiento de repuestos y estándares Casio de toda la región reside en una persona (Juseth) sin documentación."
+    },
+    {
+      "flujo_codigo": "F6",
+      "flujo_nombre": "Servicio técnico y postventa",
+      "orden_vicio": 3,
+      "texto_vicio": "Inconsistencia formal: la nómina registra a Eloy en \"servicio técnico\" cuando opera atención al cliente — los cargos oficiales no describen el trabajo real."
+    },
+    {
+      "flujo_codigo": "F6",
+      "flujo_nombre": "Servicio técnico y postventa",
+      "orden_vicio": 4,
+      "texto_vicio": "Reclamos de países donde el grupo es solo mayorista llegan igual a la operación propia, sin política de alcance de postventa."
+    },
+    {
+      "flujo_codigo": "F7",
+      "flujo_nombre": "Datos, reportería y decisiones (BI)",
+      "orden_vicio": 1,
+      "texto_vicio": "\"La data llega muy mal y se llegan a conclusiones erradas\" (Alexis): la calidad del origen — sobre todo Odoo e inventarios — contamina la cadena completa."
+    },
+    {
+      "flujo_codigo": "F7",
+      "flujo_nombre": "Datos, reportería y decisiones (BI)",
+      "orden_vicio": 2,
+      "texto_vicio": "Los clientes no dan acceso a sus sistemas: 41 formatos re-procesados a mano por una sola ingeniera."
+    },
+    {
+      "flujo_codigo": "F7",
+      "flujo_nombre": "Datos, reportería y decisiones (BI)",
+      "orden_vicio": 3,
+      "texto_vicio": "Usuarios pierden acceso a modelos por licencias vencidas y nadie es dueño del presupuesto de herramientas."
+    },
+    {
+      "flujo_codigo": "F7",
+      "flujo_nombre": "Datos, reportería y decisiones (BI)",
+      "orden_vicio": 4,
+      "texto_vicio": "Brecha de alfabetización: \"todo el mundo cree que BI es hacer dashboards\" — los modelos existen pero las decisiones no siempre los usan."
+    },
+    {
+      "flujo_codigo": "F7",
+      "flujo_nombre": "Datos, reportería y decisiones (BI)",
+      "orden_vicio": 5,
+      "texto_vicio": "La célula que sostiene todo esto no existe en ninguna nómina."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 1,
+      "texto_vicio": "Consolidación financiera artesanal: Jaime genera proyecciones en herramienta personal, sin sistema de consolidación multi-entidad."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 2,
+      "texto_vicio": "Acceso a financiamiento sostenido en la relación individual de Ricardo, sin institucionalización."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 3,
+      "texto_vicio": "Punto único de fallo en Colombia (una sola firma autorizada)."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 4,
+      "texto_vicio": "EE.UU. fuera del perímetro contable común."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 5,
+      "texto_vicio": "El propio CFO recomienda separar tesorería/contabilidad/finanzas — diagnóstico interno ya disponible y no ejecutado."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 6,
+      "texto_vicio": "Endeudamiento históricamente concentrado en Kenex Trading (\"la gallina de los huevos de oro\" / \"caja madre\") financiando tiendas y países; la política de independizar la deuda por compañía — impulsada por Bassan y ya aplicada a las tiendas de Panamá — está en transición y sin formalizar como norma del grupo."
+    },
+    {
+      "flujo_codigo": "F8",
+      "flujo_nombre": "Finanzas, tesorería y gobierno del dinero",
+      "orden_vicio": 7,
+      "texto_vicio": "La reportería financiera de Venezuela llega con meses de retraso, y el canal Cashea genera ingresos diferidos difíciles de conciliar en Odoo (fuente: CFO)."
+    }
+  ],
+  "decisiones_junta": [
+    {
+      "orden": 1,
+      "decision": "Explicitar y reconciliar, en una sesión facilitada de Junta, las tres visiones de futuro que hoy conviven en la dirección, antes de aprobar la estructura definitiva —estructuras distintas sirven a estrategias distintas (3.4 · 11).",
+      "seccion_origen": "3.4 · 11",
+      "ambito": "Reconciliar la visión estratégica",
+      "grupo": "Gobierno y estrategia"
+    },
+    {
+      "orden": 2,
+      "decision": "Formalizar la cadencia de junta con agenda, actas y seguimiento de acuerdos; completar el protocolo familiar en curso y levantar el inventario societario formal (3.2 · 3.3 · 11).",
+      "seccion_origen": "3.2 · 3.3 · 11",
+      "ambito": "Institucionalizar el gobierno corporativo",
+      "grupo": "Gobierno y estrategia"
+    },
+    {
+      "orden": 3,
+      "decision": "Decidir entre desarrollar la aplicación propia o adquirir el código actual, hoy en manos de un tercero: cualquier visión de negocio construida sobre la base de usuarios exige propiedad del activo (11).",
+      "seccion_origen": "11",
+      "ambito": "Propiedad del activo digital de Cubitt",
+      "grupo": "Gobierno y estrategia"
+    },
+    {
+      "orden": 4,
+      "decision": "Evaluar, con asesoría legal, la conveniencia y viabilidad de formalizar la representación de Casio, mientras se reduce la exposición documentando esa operación (11).",
+      "seccion_origen": "11",
+      "ambito": "Relación con el proveedor principal",
+      "grupo": "Gobierno y estrategia"
+    },
+    {
+      "orden": 5,
+      "decision": "Validar y afinar el organigrama de estructura propuesto (subsección 4.8) —capa corporativa formalizada, con gerencias corporativas de soporte y medulares y direcciones por país—: primera corrección estructural del rediseño, hoy invisible en las nóminas oficiales (4.8 · 4.1 · 11).",
+      "seccion_origen": "4.8 · 4.1 · 11",
+      "ambito": "Validar la estructura propuesta",
+      "grupo": "Estructura y talento"
+    },
+    {
+      "orden": 6,
+      "decision": "Constituir una capa corporativa de RRHH y elevar la función de administrativa a estratégica, con la estructura y los recursos que eso implica: es condición de viabilidad de toda la transformación (5.4).",
+      "seccion_origen": "5.4",
+      "ambito": "Elevar la función de RRHH",
+      "grupo": "Estructura y talento"
+    },
+    {
+      "orden": 7,
+      "decision": "Resolver la fragmentación de los sistemas de datos de talento y dotar la capacidad de formación antes de necesitarla (figura de F&D, departamento de capacitación y Universidad Cubitt, hoy descoordinados) (5.4).",
+      "seccion_origen": "5.4",
+      "ambito": "Datos de talento y formación",
+      "grupo": "Estructura y talento"
+    },
+    {
+      "orden": 8,
+      "decision": "Escalar con urgencia la regularización de contratos con cláusulas de confidencialidad y propiedad intelectual —riesgo laboral y patrimonial, en especial para quien construya el producto digital (5.3 · 11).",
+      "seccion_origen": "5.3 · 11",
+      "ambito": "Marco de contratación formal",
+      "grupo": "Estructura y talento"
+    },
+    {
+      "orden": 9,
+      "decision": "Poner en pie la instancia acordada en el Comité del 01-jul —marco legal de accesos, dueño del dato y política de uso de IA—: es la única pieza que no admite espera y avanza en paralelo, sin esperar ninguna construcción (10 · 11).",
+      "seccion_origen": "10 · 11",
+      "ambito": "Constituir el gobierno de IA y dato",
+      "grupo": "Dato e inteligencia artificial"
+    },
+    {
+      "orden": 10,
+      "decision": "Aprobar la obra fundacional —catálogo y diccionario maestro más una API interna de datos— como prerrequisito de cualquier agente: es la diferencia entre IA que multiplica valor e IA que multiplica errores (7 · 10).",
+      "seccion_origen": "7 · 10",
+      "ambito": "Construir la capa de datos certificada",
+      "grupo": "Dato e inteligencia artificial"
+    },
+    {
+      "orden": 11,
+      "decision": "Formar un equipo interno entrenado como eje transversal de sistemas e IA y contraparte de los desarrolladores externos, para que el conocimiento y el control queden en la organización (10.3).",
+      "seccion_origen": "10.3",
+      "ambito": "Constituir el equipo interno",
+      "grupo": "Dato e inteligencia artificial"
+    },
+    {
+      "orden": 12,
+      "decision": "Dar a la PMO un marco de priorización aprobado por la Junta, visibilidad de capacidad, y la gestión presupuestaria y el procurement que ella misma ha reclamado (4.6 · 11).",
+      "seccion_origen": "4.6 · 11",
+      "ambito": "Dotar a la PMO",
+      "grupo": "Dato e inteligencia artificial"
+    }
+  ],
+  "quick_wins": [
+    {
+      "nombre": "Quick win 1 · El agente de IA para las conversaciones",
+      "que_es": "Un agente conversacional sobre el canal de WhatsApp del e-commerce, que responde con dato real de Odoo las consultas repetitivas —estado del pedido, disponibilidad, precio— y asiste la venta, dejando a las personas las conversaciones de mayor valor y las excepciones. Se apoya en MCP-Odoo en solo lectura (fase 1 de 10.5): un agente que solo lee no puede romper nada, y no exige que la capa certificada esté terminada.",
+      "por_que": "El hallazgo de 7.9 lo sostiene con números del propio negocio: del orden de 6.000 mensajes al mes atendidos a mano por seis personas; cada pedido genera contactos de postventa; y cuando el canal se saturaba, se perdían ventas por falta de capacidad de respuesta. La magnitud del costo de oportunidad está cuantificada: en abril el canal conversacional facturó 37 mil dólares frente a 30 mil de la web — es decir, el canal atendido íntegramente a mano ya vende más que el automatizado. Cada punto de mejora en velocidad y cobertura se traduce en ventas capturadas. Y el dueño no ofrece resistencia sino capacidad: ya planificó dos temporadas altas modelando con IA el tráfico y los tiempos de atención.",
+      "que_resolver_antes": "Una sola cosa, y el diagnóstico la nombra con precisión: hoy no existe la conexión que lo haría posible — \"a través de Odoo no puedo saber si algo salió o no salió\". Si la persona que atiende el chat tiene que salir a un documento externo para saber si un pedido despachó, un agente tampoco tiene de dónde leerlo. Exponer el estado del pedido y la disponibilidad por MCP-Odoo es el trabajo habilitante — acotado, y el mismo que la arquitectura necesita de todos modos.",
+      "como_se_mide": "Tiempo de primera respuesta, proporción de conversaciones resueltas sin intervención humana, conversaciones atendidas por persona y —la que importa a la Junta— ventas capturadas por el canal frente a la línea base de abril. La observabilidad del Componente 8 se instrumenta aquí desde el día uno."
+    },
+    {
+      "nombre": "Quick win 2 · La formación en IA con licencia Claude Teams para la organización",
+      "que_es": "Dotar a la organización de licencias corporativas de Claude Teams con formación estructurada y política de uso, convirtiendo el uso individual que ya florece en una capacidad de grupo gobernada: licencias con dueño, un repositorio compartido de prompts y casos, y —a medida que la capa certificada exista— la conexión a las fuentes de datos oficiales para que ese uso deje de correr sobre Excel no validado.",
+      "por_que": "Es el quick win de menor costo técnico y mayor alcance: no hay que construir nada. El diagnóstico documentó que la herramienta ya está adoptada orgánicamente —en compras \"todos tienen Claude\", en Colombia se usa con soltura experta, en Costa Rica se modela el forecast mensual, en marketing y en la PMO se usa a diario (8.5)— y que en varios casos las licencias existentes se subutilizan. No hay resistencia que vencer: hay una capacidad dispersa que ordenar. Es además la respuesta directa al hallazgo de la 9.1 — capacidad real con crecimiento arbitrario — y al Riesgo 1 (7.5), porque encuadra bajo política un uso que hoy corre sobre hojas que nadie certifica.",
+      "que_resolver_antes": "Nada técnico. Sí dos decisiones de dirección: la cobertura de licencias y su dueño presupuestario —el diagnóstico señaló que hoy nadie es dueño del presupuesto de herramientas (7.3), con usuarios que pierden acceso por vencimientos—, y la política de uso que fija qué fuentes son admisibles. Ambas son piezas del Componente 1, que ya debía avanzar en paralelo.",
+      "como_se_mide": "Cobertura y activación real de licencias, casos documentados en el repositorio por área, y horas liberadas en los procesos donde se aplica. La formación de dirección y gerencia (9.3) es el vehículo natural de su despliegue."
+    }
+  ],
+  "estructura_informe": [
+    {
+      "id": "indice",
+      "numero": null,
+      "titulo": "Índice del documento",
+      "nivel": 2,
+      "orden_documento": 1,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s1",
+      "numero": "1",
+      "titulo": "Resumen ejecutivo",
+      "nivel": 2,
+      "orden_documento": 2,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s1-1",
+      "numero": "1.1",
+      "titulo": "Qué encontró el diagnóstico: dos hilos",
+      "nivel": 3,
+      "orden_documento": 3,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s1-2",
+      "numero": "1.2",
+      "titulo": "Qué se propone: dos tesis",
+      "nivel": 3,
+      "orden_documento": 4,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s1-3",
+      "numero": "1.3",
+      "titulo": "Decisiones que este informe eleva a la Junta",
+      "nivel": 3,
+      "orden_documento": 5,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s1-4",
+      "numero": "1.4",
+      "titulo": "Qué sigue: hacia la Fase 2",
+      "nivel": 3,
+      "orden_documento": 6,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s2",
+      "numero": "2",
+      "titulo": "Metodología y fuentes del diagnóstico",
+      "nivel": 2,
+      "orden_documento": 7,
+      "estado_rotulado": "Borrador"
+    },
+    {
+      "id": "s2-1",
+      "numero": "2.1",
+      "titulo": "Enfoque metodológico",
+      "nivel": 3,
+      "orden_documento": 8,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s2-2",
+      "numero": "2.2",
+      "titulo": "Marco del diagnóstico: seis aspectos centrales",
+      "nivel": 3,
+      "orden_documento": 9,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s2-3",
+      "numero": "2.3",
+      "titulo": "Entrevistas, sesiones y fuentes procesadas",
+      "nivel": 3,
+      "orden_documento": 10,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s3",
+      "numero": "3",
+      "titulo": "Fundamentos organizacionales, gobierno y estrategia",
+      "nivel": 2,
+      "orden_documento": 11,
+      "estado_rotulado": "Borrador"
+    },
+    {
+      "id": "s3-1",
+      "numero": "3.1",
+      "titulo": "Identidad del grupo y mapa de relaciones entre entidades",
+      "nivel": 3,
+      "orden_documento": 12,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s3-2",
+      "numero": "3.2",
+      "titulo": "Gobierno corporativo y carácter familiar",
+      "nivel": 3,
+      "orden_documento": 13,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s3-3",
+      "numero": "3.3",
+      "titulo": "Mapa de entidades y modelo de presencia por país",
+      "nivel": 3,
+      "orden_documento": 14,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s3-4",
+      "numero": "3.4",
+      "titulo": "Estrategia y visión de negocio",
+      "nivel": 3,
+      "orden_documento": 15,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4",
+      "numero": "4",
+      "titulo": "Estructura organizativa global",
+      "nivel": 2,
+      "orden_documento": 16,
+      "estado_rotulado": "Borrador"
+    },
+    {
+      "id": "s4-1",
+      "numero": "4.1",
+      "titulo": "Organigrama actual: estructura formal vs. estructura real",
+      "nivel": 3,
+      "orden_documento": 17,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-2",
+      "numero": "4.2",
+      "titulo": "Inventario de personas por grupo operativo",
+      "nivel": 3,
+      "orden_documento": 18,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-3",
+      "numero": "4.3",
+      "titulo": "Validación de la estructura contra archivos oficiales de nómina (julio 2026)",
+      "nivel": 3,
+      "orden_documento": 19,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-4",
+      "numero": "4.4",
+      "titulo": "Personas que operan en múltiples grupos operativos",
+      "nivel": 3,
+      "orden_documento": 20,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-5",
+      "numero": "4.5",
+      "titulo": "Dependencias críticas de personas individuales — análisis de riesgo",
+      "nivel": 3,
+      "orden_documento": 21,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-6",
+      "numero": "4.6",
+      "titulo": "Instancias de coordinación: PMO y gestión de proyectos",
+      "nivel": 3,
+      "orden_documento": 22,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-7",
+      "numero": "4.7",
+      "titulo": "Flujos operativos entre grupos: cadenas reales y vicios detectados",
+      "nivel": 3,
+      "orden_documento": 23,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s4-8",
+      "numero": "4.8",
+      "titulo": "Borrador de propuesta de estructura organizativa y del talento",
+      "nivel": 3,
+      "orden_documento": 24,
+      "estado_rotulado": "Borrador — para discusión"
+    },
+    {
+      "id": "s5",
+      "numero": "5",
+      "titulo": "Talento y función de Recursos Humanos",
+      "nivel": 2,
+      "orden_documento": 25,
+      "estado_rotulado": "Borrador"
+    },
+    {
+      "id": "s5-1",
+      "numero": "5.1",
+      "titulo": "Estado actual de la función de RRHH por país",
+      "nivel": 3,
+      "orden_documento": 26,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s5-2",
+      "numero": "5.2",
+      "titulo": "La función actual frente a la función requerida",
+      "nivel": 3,
+      "orden_documento": 27,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s5-3",
+      "numero": "5.3",
+      "titulo": "Brechas por proceso de Recursos Humanos",
+      "nivel": 3,
+      "orden_documento": 28,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s5-4",
+      "numero": "5.4",
+      "titulo": "Severidad, riesgos de implantación y decisiones requeridas",
+      "nivel": 3,
+      "orden_documento": 29,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s5-5",
+      "numero": "5.5",
+      "titulo": "Primera aproximación a la estructura de la función de Recursos Humanos",
+      "nivel": 3,
+      "orden_documento": 30,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s6",
+      "numero": "6",
+      "titulo": "Procesos y operaciones: hallazgos clave",
+      "nivel": 2,
+      "orden_documento": 31,
+      "estado_rotulado": "Borrador — primera versión"
+    },
+    {
+      "id": "s6-1",
+      "numero": "6.1",
+      "titulo": "Cadena comercial y de compras",
+      "nivel": 3,
+      "orden_documento": 32,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s6-2",
+      "numero": "6.2",
+      "titulo": "Logística y almacenes",
+      "nivel": 3,
+      "orden_documento": 33,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s6-3",
+      "numero": "6.3",
+      "titulo": "Atención al cliente y postventa",
+      "nivel": 3,
+      "orden_documento": 34,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s6-4",
+      "numero": "6.4",
+      "titulo": "Buenas prácticas replicables detectadas",
+      "nivel": 3,
+      "orden_documento": 35,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s6-5",
+      "numero": "6.5",
+      "titulo": "Mapa de Procesos del Grupo (versión integrada)",
+      "nivel": 3,
+      "orden_documento": 36,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7",
+      "numero": "7",
+      "titulo": "Tecnología, sistemas y datos",
+      "nivel": 2,
+      "orden_documento": 37,
+      "estado_rotulado": "Borrador"
+    },
+    {
+      "id": "s7-1",
+      "numero": "7.1",
+      "titulo": "Ecosistema de sistemas actual",
+      "nivel": 3,
+      "orden_documento": 38,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-2",
+      "numero": "7.2",
+      "titulo": "Integraciones y calidad de los datos",
+      "nivel": 3,
+      "orden_documento": 39,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-3",
+      "numero": "7.3",
+      "titulo": "Conocimiento, dependencias y gobierno tecnológico",
+      "nivel": 3,
+      "orden_documento": 40,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-4",
+      "numero": "7.4",
+      "titulo": "Caso de estudio: la célula de BI como anticipo — y advertencia — de una IA bien adoptada",
+      "nivel": 3,
+      "orden_documento": 41,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-5",
+      "numero": "7.5",
+      "titulo": "Riesgo 1 — El dato no certificado: IA que razona sobre Excel sin fuente de verdad",
+      "nivel": 3,
+      "orden_documento": 42,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-6",
+      "numero": "7.6",
+      "titulo": "Riesgo 2 — La ausencia de un eje: la tecnología y la IA como función transversal",
+      "nivel": 3,
+      "orden_documento": 43,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-7",
+      "numero": "7.7",
+      "titulo": "Riesgo 3 — El gobierno del dato: la información crítica en manos sin marco formal",
+      "nivel": 3,
+      "orden_documento": 44,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-8",
+      "numero": "7.8",
+      "titulo": "Riesgo 4 — Continuidad y escala: exposiciones adicionales del repaso",
+      "nivel": 3,
+      "orden_documento": 45,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-9",
+      "numero": "7.9",
+      "titulo": "El reverso oportuno: procesos manuales de alto volumen y alto contacto",
+      "nivel": 3,
+      "orden_documento": 46,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-10",
+      "numero": "7.10",
+      "titulo": "Síntesis de hallazgos: del ecosistema actual a la base para la IA",
+      "nivel": 3,
+      "orden_documento": 47,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s7-11",
+      "numero": "7.11",
+      "titulo": "Preborrador de propuesta — la tecnología como función transversal y el núcleo propio",
+      "nivel": 3,
+      "orden_documento": 48,
+      "estado_rotulado": "Preborrador de propuesta"
+    },
+    {
+      "id": "s8",
+      "numero": "8",
+      "titulo": "Auditoría técnica de Lark y Odoo",
+      "nivel": 2,
+      "orden_documento": 49,
+      "estado_rotulado": "Borrador — fase documental"
+    },
+    {
+      "id": "s8-1",
+      "numero": "8.1",
+      "titulo": "Auditoría de Lark: plataforma correcta, expectativa incorrecta",
+      "nivel": 3,
+      "orden_documento": 50,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s8-2",
+      "numero": "8.2",
+      "titulo": "Auditoría de Odoo: la extensión con código propio, entre la necesidad y la deuda",
+      "nivel": 3,
+      "orden_documento": 51,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s8-3",
+      "numero": "8.3",
+      "titulo": "Síntesis de la auditoría documental",
+      "nivel": 3,
+      "orden_documento": 52,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s8-4",
+      "numero": "8.4",
+      "titulo": "Verificaciones pendientes de acceso directo (bloqueadas por C#2)",
+      "nivel": 3,
+      "orden_documento": 53,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s8-5",
+      "numero": "8.5",
+      "titulo": "Inventario de procesos sin sistema, manuales o en herramientas personales",
+      "nivel": 3,
+      "orden_documento": 54,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s8-6",
+      "numero": "8.6",
+      "titulo": "Preborrador de propuesta — no reemplazar sistemas, hacer nacer el sistema propio",
+      "nivel": 3,
+      "orden_documento": 55,
+      "estado_rotulado": "Preborrador de propuesta"
+    },
+    {
+      "id": "s9",
+      "numero": "9",
+      "titulo": "Cultura organizacional y preparación para la adopción de IA",
+      "nivel": 2,
+      "orden_documento": 56,
+      "estado_rotulado": "Borrador — primera versión"
+    },
+    {
+      "id": "s9-1",
+      "numero": "9.1",
+      "titulo": "El punto de partida: capacidad real, crecimiento desordenado",
+      "nivel": 3,
+      "orden_documento": 57,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s9-2",
+      "numero": "9.2",
+      "titulo": "Disposición al cambio: lealtad alta, hábito arraigado",
+      "nivel": 3,
+      "orden_documento": 58,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s9-3",
+      "numero": "9.3",
+      "titulo": "Preborrador de propuesta — la formación, los cimientos y la escalera de adopción",
+      "nivel": 3,
+      "orden_documento": 59,
+      "estado_rotulado": "Preborrador de propuesta"
+    },
+    {
+      "id": "s9-4",
+      "numero": "9.4",
+      "titulo": "El despliegue de Maia — nivelación en fundamentos de IA",
+      "nivel": 3,
+      "orden_documento": 60,
+      "estado_rotulado": "Preborrador de propuesta"
+    },
+    {
+      "id": "s10",
+      "numero": "10",
+      "titulo": "Arquitectura de IA — preborrador de propuesta",
+      "nivel": 2,
+      "orden_documento": 61,
+      "estado_rotulado": "Preborrador de propuesta"
+    },
+    {
+      "id": "s10-1",
+      "numero": "10.1",
+      "titulo": "El esquema por capas",
+      "nivel": 3,
+      "orden_documento": 62,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s10-2",
+      "numero": "10.2",
+      "titulo": "Los componentes, uno por uno",
+      "nivel": 3,
+      "orden_documento": 63,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s10-3",
+      "numero": "10.3",
+      "titulo": "La pieza que sostiene todo: un equipo interno entrenado como eje transversal",
+      "nivel": 3,
+      "orden_documento": 64,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s10-4",
+      "numero": "10.4",
+      "titulo": "Profundización I — El diccionario y catálogo maestro: el corazón de la certificación",
+      "nivel": 3,
+      "orden_documento": 65,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s10-5",
+      "numero": "10.5",
+      "titulo": "Profundización II — MCP-Odoo: la secuencia lectura → escritura sin tocar producción",
+      "nivel": 3,
+      "orden_documento": 66,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s10-6",
+      "numero": "10.6",
+      "titulo": "Profundización III — Human-in-the-loop: cómo la IA alimenta el criterio sin sustituirlo",
+      "nivel": 3,
+      "orden_documento": 67,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s10-7",
+      "numero": "10.7",
+      "titulo": "Los dos quick wins: por dónde empezar sin esperar a la arquitectura",
+      "nivel": 3,
+      "orden_documento": 68,
+      "estado_rotulado": "Preborrador de propuesta"
+    },
+    {
+      "id": "s10-8",
+      "numero": "10.8",
+      "titulo": "Lo que este esquema deliberadamente no hace",
+      "nivel": 3,
+      "orden_documento": 69,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s11",
+      "numero": "11",
+      "titulo": "Síntesis de hallazgos críticos y riesgos",
+      "nivel": 2,
+      "orden_documento": 70,
+      "estado_rotulado": "Borrador consolidado — para revisión del equipo"
+    },
+    {
+      "id": "s11-1",
+      "numero": "11.1",
+      "titulo": "Criterios de lectura",
+      "nivel": 3,
+      "orden_documento": 71,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s11-2",
+      "numero": "11.2",
+      "titulo": "Hallazgos consolidados por criticidad",
+      "nivel": 3,
+      "orden_documento": 72,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s11-3",
+      "numero": "11.3",
+      "titulo": "Lectura transversal: los dos hilos del diagnóstico",
+      "nivel": 3,
+      "orden_documento": 73,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s12",
+      "numero": "12",
+      "titulo": "Próximos pasos y hoja de ruta",
+      "nivel": 2,
+      "orden_documento": 74,
+      "estado_rotulado": "Borrador — para revisión del equipo"
+    },
+    {
+      "id": "s12-1",
+      "numero": "12.1",
+      "titulo": "De la Fase 1 a la Fase 2: del diagnóstico al deber ser",
+      "nivel": 3,
+      "orden_documento": 75,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s12-2",
+      "numero": "12.2",
+      "titulo": "La hoja de ruta de automatización: tres olas",
+      "nivel": 3,
+      "orden_documento": 76,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s12-3",
+      "numero": "12.3",
+      "titulo": "Habilitadores: política de IA, formación y despliegue de Maia",
+      "nivel": 3,
+      "orden_documento": 77,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s12-4",
+      "numero": "12.4",
+      "titulo": "Condiciones para que la transformación se sostenga",
+      "nivel": 3,
+      "orden_documento": 78,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s12-5",
+      "numero": "12.5",
+      "titulo": "Horizonte del proyecto e hitos inmediatos",
+      "nivel": 3,
+      "orden_documento": 79,
+      "estado_rotulado": null
+    },
+    {
+      "id": "s15",
+      "numero": null,
+      "titulo": "Anexo A — Inventario de entrevistas y sesiones del diagnóstico",
+      "nivel": 2,
+      "orden_documento": 80,
+      "estado_rotulado": "En construcción"
+    },
+    {
+      "id": "s16",
+      "numero": null,
+      "titulo": "Anexo B — Plan de trabajo interno de la Fase 1",
+      "nivel": 2,
+      "orden_documento": 81,
+      "estado_rotulado": "En construcción"
+    },
+    {
+      "id": "s17",
+      "numero": null,
+      "titulo": "Apartado interno — Alertas de identidad y datos por verificar",
+      "nivel": 2,
+      "orden_documento": 82,
+      "estado_rotulado": "Uso interno del equipo"
+    }
+  ],
+  "procedimientos_s9": [
+    {
+      "proceso_nombre": "Detección de Necesidades y Diagnóstico",
+      "orden": 1,
+      "texto": "Identificación de solicitudes de mejora o creación de procesos (por área, país o iniciativa directiva)",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Detección de Necesidades y Diagnóstico",
+      "orden": 2,
+      "texto": "Levantamiento preliminar de la situación actual (entrevistas, observación, documentación existente)",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Detección de Necesidades y Diagnóstico",
+      "orden": 3,
+      "texto": "Priorización de necesidades según impacto y urgencia",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Diseño Estructural y Levantamiento",
+      "orden": 1,
+      "texto": "Mapeo del proceso As-Is (actores, flujo, entradas y salidas)",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Diseño Estructural y Levantamiento",
+      "orden": 2,
+      "texto": "Identificación de brechas, cuellos de botella y dependencias críticas",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Diseño Estructural y Levantamiento",
+      "orden": 3,
+      "texto": "Diseño del proceso To-Be con puntos de mejora e integración tecnológica",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Análisis Técnico y Documentación de Manuales",
+      "orden": 1,
+      "texto": "Redacción del manual de proceso (objetivo, alcance, roles, diagrama, indicadores)",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Análisis Técnico y Documentación de Manuales",
+      "orden": 2,
+      "texto": "Definición de políticas, controles y niveles de autorización asociados",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Análisis Técnico y Documentación de Manuales",
+      "orden": 3,
+      "texto": "Revisión técnica cruzada con las áreas de Sistemas y Calidad",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Validación, Aprobación e Implementación",
+      "orden": 1,
+      "texto": "Validación del manual con el dueño del proceso y equipos involucrados",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Validación, Aprobación e Implementación",
+      "orden": 2,
+      "texto": "Aprobación formal por la instancia de gobierno correspondiente (Comité Directivo / Junta)",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Validación, Aprobación e Implementación",
+      "orden": 3,
+      "texto": "Plan de implementación, comunicación y capacitación a los equipos",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Actualización de Registros, Seguimiento y Mejora",
+      "orden": 1,
+      "texto": "Publicación y control de versiones en el repositorio único (Wiki de Lark)",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Actualización de Registros, Seguimiento y Mejora",
+      "orden": 2,
+      "texto": "Medición de indicadores de adopción y desempeño del proceso",
+      "sugerido": null
+    },
+    {
+      "proceso_nombre": "Actualización de Registros, Seguimiento y Mejora",
+      "orden": 3,
+      "texto": "Ciclo de mejora continua y actualización periódica del manual",
+      "sugerido": null
+    }
+  ],
+  "avisos": [
+    "hallazgos: la tabla de 11.2 no tiene columna «sección de origen»; el campo seccion_origen se obtuvo extrayendo las referencias tipo N.M presentes en el propio texto del hallazgo (orden de aparición, separadas por «, ») y es null en las 6 filas que no citan ninguna subsección: órdenes 1, 5, 9, 13, 18, 21. Ojo: el orden 18 cita «(sección 5)» y el 13 «(insumo sesión 14-jul)» — referencias que no son N.M y por eso quedan en null.",
+    "hallazgos: el orden de las columnas en el HTML es Hallazgo · Factores (2.2) · Criticidad · Implicación / recomendación preliminar; se respetaron los literales de criticidad (Alta / Media-Alta / Media / Oportunidad).",
+    "dependencias_criticas: la severidad no es columna — viene del <h4> que precede cada tabla («Riesgos de severidad alta» → alta, 6 filas; «Riesgos de severidad media-alta» → media-alta, 6 filas). seccion_origen se fijó a «4.5» para las 12 filas (no hay columna de origen).",
+    "sistemas_por_pais: la fila «BI / analítica» es una sola celda con colspan=6 (no hay valor por país); se replicó su literal en las 6 filas de país y su columna «Lectura» viene vacía en el HTML (null).",
+    "procesos_sin_sistema: el enunciado del bloque y la columna «Naturaleza» son dos cosas distintas. naturaleza lleva el literal de la columna Naturaleza de cada fila (de ahí salen los ejemplos «Excel como sistema de decisión», «Sin captura sistematizada», «IA individual sobre Excel»); se añadió el campo extra «bloque» con el literal del <h4> del bloque (a / b / c) para no perderlo.",
+    "procesos_sin_sistema: no existe columna de área o país. area_o_pais solo se rellenó cuando el nombre del proceso menciona literalmente un país o «VE»; es null en 12 de las 23 filas.",
+    "sistemas_por_pais: la tabla tiene además una columna «Lectura» (una conclusión por sistema, no por país); se conservó en el campo extra «lectura», repetido en las filas del mismo sistema.",
+    "vicios_flujos: los vicios se partieron por los marcadores «(1) (2) (3)…» dentro de la celda «Vicios» de cada flujo. Reparto: F1 6 · F2 3 · F3 5 · F4 4 · F5 4 · F6 4 · F7 5 · F8 7 = 38 vicios. La celda «Cadena real» de cada flujo no se extrajo (no la pedía el esquema); la tabla de «Vicios transversales» (6 patrones) tampoco.",
+    "decisiones_junta: las 12 decisiones están en la tabla de 1.3, agrupadas por tres filas-cabecera (Gobierno y estrategia · Estructura y talento · Dato e inteligencia artificial), 4 decisiones cada una. Se añadieron los campos extra «ambito» (primera columna de la tabla) y «grupo» (la fila-cabecera). seccion_origen es el paréntesis final de cada decisión, literal (p.ej. «3.4 · 11»).",
+    "quick_wins: los cuatro rótulos del informe son «Qué es.» / «Por qué este.» / «Qué hay que resolver antes.» / «Cómo se mide.» — se mapearon a que_es / por_que / que_resolver_antes / como_se_mide.",
+    "estructura_informe: el documento vigente tiene 16 <h2> y 66 <h3>. Los <h2> son: «indice» + las 12 secciones numeradas (1–12) + los anexos s15 y s16 + el apartado interno s17. OJO: NO existen secciones 13 ni 14 — los anexos conservan los ids s15/s16/s17 (fósiles de una numeración anterior), y el índice los lista con <ol start=\"15\">. numero es null para «indice» y para los tres anexos.",
+    "estructura_informe: agrupación por partes (no es campo del esquema): Parte I — Diagnóstico organizativo = s1–s10 · Parte II — Síntesis de hallazgos y próximos pasos = s11–s12 · Anexos = s15, s16 · Uso interno del equipo = s17. El informe NO tiene «Parte III».",
+    "estructura_informe: estado_rotulado es el texto literal del <span class=\"badge\"> del encabezado («Borrador», «Borrador — primera versión», «Borrador consolidado — para revisión del equipo», «Preborrador de propuesta», «En construcción», «Uso interno del equipo», «Borrador — para discusión», «Borrador — fase documental»); null cuando el encabezado no trae rótulo. Los <h4> no se incluyeron (113 en el documento): el esquema pide solo h2 y h3.",
+    "procedimientos_s9: son 15, no ~16, y se reparten 3 + 3 + 3 + 3 + 3 entre CINCO procesos, no cuatro. El macroproceso «9. Gestión de Procesos y Mejora Continua» está en la tercera tabla de 6.5 (id=\"mapa-sop\") con rowspan=15. OJO: la lista de procesos del coordinador omitió el segundo del .js, «Diseño Estructural y Levantamiento»; el orden real en mapa-procesos-datos.js es 1 Detección de Necesidades y Diagnóstico · 2 Diseño Estructural y Levantamiento · 3 Análisis Técnico y Documentación de Manuales · 4 Validación, Aprobación e Implementación · 5 Actualización de Registros, Seguimiento y Mejora — y coincide exactamente, nombre a nombre y en el mismo orden, con los cinco de la tabla del informe.",
+    "procedimientos_s9: sugerido es null en las 15 filas. El informe NO marca los sugeridos en las tablas de 6.5: no hay cursiva, ni color, ni clase CSS, ni columna de estado en ninguna de las 260 filas (verificado: .mapa-proc no tiene regla de estilo, es solo un gancho). La nota metodológica de 6.5 lo dice expresamente — los propuestos por el equipo consultor «quedan ubicados en el lugar que ocuparía el procedimiento real» y «en esta versión no se incluye la columna de estado». El dato sugerido/levantado de estos 15 no existe en el repo: los textos aparecen SOLO en el informe (no están en el .js, cuyos 5 procesos de s9 traen pr: []), así que hay que decidirlo con Jesús o sacarlo del Excel v7.",
+    "procedimientos_s9: la diferencia 260 − 244 = 16 NO es solo s9. Comparando macro por macro, el informe y el .js coinciden en 21 de los 22 macroprocesos; los dos huecos son s9 (informe 15 · .js 0) y «o4 Gestión Comercial - Canal Mayoreo (B2B)» (informe 10 · .js 9, coherente con el «1 duplicado eliminado» de la auditoría v7). 15 + 1 = 16. Además hay 3 procesos con pr: [] fuera de s9 («Democratización de Datos (Self-Service BI)» en s4, «Gestión de Eventos y Presencia en Ferias» en s5, «Gestión de Riesgos Legales» en s7): en el informe cada uno tiene 1 procedimiento, pero el total de su macro cuadra con el .js, así que esos procedimientos están reubicados en procesos hermanos (los «8 procedimientos reubicados» de la auditoría), no perdidos."
+  ]
+}

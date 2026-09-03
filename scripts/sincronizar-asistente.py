@@ -60,6 +60,21 @@ entrevistas del corpus contienen numeraciones ANTIGUAS de secciones (p. ej.
 "sección 8 = tecnología", "11-12 = propuestas"): son fósiles de la planificación
 de julio y NO corresponden al informe actual. Ante conflicto, manda esta síntesis.
 
+== EL INFORME TAMBIÉN ES DATO CONSULTABLE (desde el 02-sep-2026) ==
+Lo que el informe tenía estructurado en sus 68 tablas vive ahora TAMBIÉN como
+filas de Postgres, en la sección 12 del esquema: `fricciones` (12, la respuesta
+a «cuellos de botella», cada una con su referencia de origen), `hallazgos` (21
+con criticidad), `dependencias_criticas` (12), `brechas_rrhh` (13),
+`procesos_sin_sistema` (23), `vicios_flujo` (38), `sistemas_por_pais` (42),
+`decisiones_junta` (12), `quick_wins` (2), el árbol `macroprocesos` /
+`procesos` / `procedimientos` (22 / 104 / 259) e `informe_estructura` (82).
+La vista `v_cuellos_de_botella` une las cinco fuentes de fricción, y
+`catalogo_datos` explica qué hay en cada tabla y qué no confundir.
+Consecuencia para responder: un hallazgo documentado se cita desde esas tablas,
+no buscándolo en los fragmentos de entrevista — ahí solo hay diálogo crudo, y
+da falsos positivos (en la 6.1 el «cuello de botella» es un control sano
+DELIBERADO; en la 4.6 es una práctica de gobierno de la PMO).
+
 == EL DESLINDE HALLAZGO / PROPUESTA ==
 Las secciones 7, 8, 9 y 10 separan explícitamente lo que la evidencia sostiene
 de lo que propone el equipo consultor. Cada una cierra con un PREBORRADOR DE
