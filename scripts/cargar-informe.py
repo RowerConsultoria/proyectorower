@@ -442,9 +442,9 @@ def catalogo(mapa: dict, inf: dict, ia: dict, org: dict) -> str:
              cuando_usar="Buscar una cita textual concreta en el corpus.",
              advertencia="El 95,6 % de este índice es diálogo crudo de entrevistas y solo el 0,7 % viene del informe. Buscar aquí un hallazgo documentado devuelve conversación, no conclusiones. Usa las tablas de la sección 12."),
         dict(tabla="conocimiento", filas_aprox=35,
-             descripcion="Síntesis por documento del corpus y del repo, en prosa larga.",
-             cuando_usar="Contexto general de un documento o del informe completo.",
-             advertencia="Las claves `informe-fase1`, `arquitectura-ia` y `sistema-prototipo` las genera un guion desde el repo: pueden estar atrasadas respecto al informe. Se refrescan con scripts/sincronizar-asistente.py."),
+             descripcion="Síntesis destilada del corpus, en prosa larga. Dos filas lo resumen TODO: `resumenes` (165 mil caracteres, síntesis documento por documento) y `memoria` (73 mil, hechos destilados). Juntas son ~59 mil tokens.",
+             cuando_usar="PARA TODA PREGUNTA DE SÍNTESIS TRANSVERSAL —«desde la óptica de los entrevistados», «por qué este proyecto», una DOFA, las conclusiones sobre talento— empieza leyendo `resumenes` y `memoria` completas. Son ingeribles de una vez y cubren el corpus entero; después ancla cada afirmación en las tablas de la sección 12.",
+             advertencia="No intentes sintetizar leyendo `fragmentos`: son 3.300 trozos de diálogo crudo y cualquier muestreo da una conclusión con aire de certeza y base de tres citas. Las claves `informe-fase1`, `arquitectura-ia` y `sistema-prototipo` las genera un guion desde el repo y pueden ir por detrás del informe; se refrescan con scripts/sincronizar-asistente.py."),
     ]
     return insertar("catalogo_datos",
                     ["tabla", "descripcion", "cuando_usar", "advertencia", "filas_aprox"], filas)
