@@ -2292,8 +2292,8 @@ async function renderPersonal(){
       </div>
       <div class="fila">
         <button class="btn btn-suave" id="perMasivoBtn">⚙ asignación masiva</button>
-        <button class="btn btn-suave" id="perLote">↗ generar enlaces pendientes</button>
-        <button class="btn btn-marca" id="perExport">⬇ exportar enlaces (CSV)</button>
+        <button class="btn btn-suave" id="perLote">↗ generar enlaces en masa</button>
+        <button class="btn btn-marca" id="perExport">⬇ exportar enlaces (Excel)</button>
       </div>
     </div>
     <div class="rejilla rejilla-4 gap-12" id="perKpis" style="margin-bottom:20px"></div>
@@ -2311,7 +2311,8 @@ async function renderPersonal(){
     <div id="perWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
 
     <div class="modal-fondo" id="perModalFondo"><div class="modal-caja grande" id="perModalCaja"></div></div>
-    <div class="modal-fondo" id="masModalFondo"><div class="modal-caja" id="masModalCaja"></div></div>`;
+    <div class="modal-fondo" id="masModalFondo"><div class="modal-caja" id="masModalCaja"></div></div>
+    <div class="modal-fondo" id="loteModalFondo"><div class="modal-caja" id="loteModalCaja"></div></div>`;
 
   $('#qp').addEventListener('input', paintPersonal);
   $('#fpEntidad').addEventListener('change', ()=>{ poblarAreasPersonal(); paintPersonal(); });
@@ -2322,10 +2323,11 @@ async function renderPersonal(){
   $('#vistaTabla').addEventListener('click', ()=>{ vistaPersonal='tabla'; actualizarVistaPersonal(); paintPersonal(); });
   $('#vistaArbol').addEventListener('click', ()=>{ vistaPersonal='arbol'; actualizarVistaPersonal(); paintPersonal(); });
   $('#perMasivoBtn').addEventListener('click', abrirModalMasivo);
-  $('#perLote').addEventListener('click', generarEnlacesLote);
-  $('#perExport').addEventListener('click', exportarEnlacesCSV);
+  $('#perLote').addEventListener('click', abrirModalLote);
+  $('#perExport').addEventListener('click', exportarEnlacesXLSX);
   $('#perModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='perModalFondo') cerrarModalPersona(); });
   $('#masModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='masModalFondo') cerrarModalMasivo(); });
+  $('#loteModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='loteModalFondo') cerrarModalLote(); });
   document.addEventListener('keydown', escCierraModalesPersonal);
 
   if(!db){ $('#perWrap').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
@@ -2345,6 +2347,7 @@ function escCierraModalesPersonal(e){
   if(e.key!=='Escape') return;
   if($('#perModalFondo')?.classList.contains('on')) cerrarModalPersona();
   if($('#masModalFondo')?.classList.contains('on')) cerrarModalMasivo();
+  if($('#loteModalFondo')?.classList.contains('on')) cerrarModalLote();
 }
 
 async function recargarPersonal(){
@@ -2688,39 +2691,201 @@ async function revocarEnlace(tokenId, personaId){
   paintPersonal();
 }
 
-async function generarEnlacesLote(){
+/* ---------- Generación de enlaces en masa ---------- */
+/* Dos lotes independientes y marcables por separado: el individual (cada quien
+   llena su ficha) y el de equipo (un enlace por gerente que cubre a todos sus
+   reportes directos). «Falta» = no hay token vivo de ese tipo; lo ya repartido
+   no se toca. El lote de equipo exige reportes directos ACTIVOS — el mismo
+   criterio de bloqueEnlace(), para no crear enlaces que la ficha declara
+   inaplicables. */
+function pendientesLote(){
+  const activos = cachePersonal.filter(p=>p.activo);
+  return {
+    individuales: activos.filter(p=> !tokensDe(p.id).some(t=>t.tipo==='individual')),
+    gerentes:     activos.filter(p=> reportesDe(p.id).length>0 && !tokensDe(p.id).some(t=>t.tipo==='gerente')),
+  };
+}
+
+function abrirModalLote(){
+  const { individuales, gerentes } = pendientesLote();
+  const cubiertos = gerentes.reduce((s,g)=> s + reportesDe(g.id).length, 0);
+  const nada = !individuales.length && !gerentes.length;
+  $('#loteModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div>
+        <div class="sobretitulo">censo y enlaces</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">Generar enlaces en masa</div>
+      </div>
+      <button type="button" class="btn btn-fantasma btn-mini" id="loteCerrar" aria-label="Cerrar">✕ cerrar</button>
+    </div>
+    <div class="modal-cuerpo">
+      <p class="tenue" style="margin-bottom:14px;">Solo se crea lo que falta: a quien ya tiene un enlace vigente de ese tipo no se le toca, así que nada de lo ya repartido deja de funcionar.</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <label class="disclosure" style="padding:14px 15px; display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
+          <input type="checkbox" id="loteInd" style="width:16px;height:16px;margin-top:3px;flex:none;"${individuales.length?' checked':' disabled'}>
+          <span>
+            <b>Enlaces individuales</b> — cada persona llena su propia ficha.
+            <div class="tenue" style="font-size:12.5px;margin-top:4px;">${individuales.length? individuales.length+' persona(s) activa(s) sin enlace individual.' : 'Todas las personas activas ya tienen el suyo.'}</div>
+          </span>
+        </label>
+        <label class="disclosure" style="padding:14px 15px; display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
+          <input type="checkbox" id="loteGer" style="width:16px;height:16px;margin-top:3px;flex:none;"${gerentes.length?' checked':' disabled'}>
+          <span>
+            <b>Enlaces de equipo (gerentes)</b> — un enlace por gerente, con el que llena de una sola vez la ficha de todos sus reportes directos.
+            <div class="tenue" style="font-size:12.5px;margin-top:4px;">${gerentes.length? gerentes.length+' gerente(s) sin enlace de equipo, que cubren '+cubiertos+' persona(s).' : 'Todos los gerentes con equipo activo ya tienen el suyo.'}</div>
+          </span>
+        </label>
+      </div>
+      ${nada? '<div class="tenue" style="margin-top:14px;font-size:12.5px;">No queda nada pendiente por generar.</div>' : ''}
+    </div>
+    <div class="modal-pie">
+      <button type="button" class="btn btn-marca" id="loteAplicar"${nada?' disabled':''}>generar los que faltan</button>
+      <button type="button" class="btn btn-suave" id="loteCancelar">cerrar</button>
+    </div>`;
+  $('#loteModalFondo').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#loteCerrar').addEventListener('click', cerrarModalLote);
+  $('#loteCancelar').addEventListener('click', cerrarModalLote);
+  $('#loteAplicar').addEventListener('click', aplicarLoteEnlaces);
+}
+function cerrarModalLote(){
+  $('#loteModalFondo')?.classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+async function aplicarLoteEnlaces(){
   if(!db) return;
-  if(!confirm('¿Generar el enlace individual de todas las personas activas que aún no lo tienen, y el enlace de equipo de todos los gerentes que aún no lo tienen?')) return;
-  const gerentesConEquipo = new Set(cachePersonal.filter(p=>p.gerente_id).map(p=>p.gerente_id));
+  const ind = $('#loteInd'), ger = $('#loteGer');
+  const quiereInd = !!(ind && ind.checked && !ind.disabled);
+  const quiereGer = !!(ger && ger.checked && !ger.disabled);
+  if(!quiereInd && !quiereGer) return toast('Marca al menos un tipo de enlace', true);
+
+  const { individuales, gerentes } = pendientesLote();
+  const autor = (PERFIL && PERFIL.correo) || null;
   const nuevos = [];
-  cachePersonal.filter(p=>p.activo).forEach(p=>{
-    if(!tokensDe(p.id).some(t=>t.tipo==='individual')){
-      nuevos.push({ token: tokenAleatorio(), tipo:'individual', persona_id:p.id, creado_por:(PERFIL&&PERFIL.correo)||null });
-    }
-    if(gerentesConEquipo.has(p.id) && !tokensDe(p.id).some(t=>t.tipo==='gerente')){
-      nuevos.push({ token: tokenAleatorio(), tipo:'gerente', persona_id:p.id, creado_por:(PERFIL&&PERFIL.correo)||null });
-    }
-  });
-  if(!nuevos.length) return toast('Ya todo el mundo tiene sus enlaces generados');
+  if(quiereInd) individuales.forEach(p=> nuevos.push({ token: tokenAleatorio(), tipo:'individual', persona_id:p.id, creado_por:autor }));
+  if(quiereGer) gerentes.forEach(p=> nuevos.push({ token: tokenAleatorio(), tipo:'gerente', persona_id:p.id, creado_por:autor }));
+  if(!nuevos.length) return toast('No queda nada pendiente de ese tipo');
+
+  const btn = $('#loteAplicar');
+  if(btn){ btn.disabled = true; btn.textContent = 'generando…'; }
   const { error } = await db.from('fichas_tokens').insert(nuevos);
-  if(error) return toast('Error al generar en lote: '+error.message, true);
-  toast(nuevos.length + ' enlace(s) generado(s)');
+  if(error){
+    if(btn){ btn.disabled = false; btn.textContent = 'generar los que faltan'; }
+    return toast('Error al generar en lote: '+error.message, true);
+  }
+  const partes = [];
+  if(quiereInd && individuales.length) partes.push(individuales.length+' individual(es)');
+  if(quiereGer && gerentes.length)     partes.push(gerentes.length+' de equipo');
+  toast('Generado(s) '+partes.join(' y '));
+  cerrarModalLote();
   await recargarPersonal();
 }
 
-function exportarEnlacesCSV(){
-  const filas = [['nombre','entidad','area','correo','tipo','enlace','usos','ultimo_uso']];
-  cacheTokens.filter(t=>!t.revocado).forEach(t=>{
-    const p = cachePersonal.find(x=>x.id===t.persona_id); if(!p) return;
-    filas.push([p.nombre, p.entidad||'', p.area||'', p.correo||'', t.tipo, enlaceUrl(t.token), t.usos||0, t.ultimo_uso||'']);
-  });
-  if(filas.length===1) return toast('Todavía no hay enlaces generados', true);
-  const csv = filas.map(f=> f.map(v=> '"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
-  const blob = new Blob(['﻿'+csv], { type:'text/csv;charset=utf-8;' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'enlaces-actualizacion-perfil.csv';
-  document.body.appendChild(a); a.click(); a.remove();
+/* ---------- Exportar enlaces a Excel (.xlsx) ---------- */
+/* Dos hojas: «Enlaces» con todo lo vigente, ordenado por entidad → gerente →
+   tipo (el de equipo encabeza a su gente) → nombre; y «Equipos» con una fila
+   por gerente y los integrantes que cubre su enlace, que es la hoja con la que
+   se reparte. SheetJS se carga a demanda, igual que en Archivos. */
+const ORD = (a,b)=> String(a==null?'':a).localeCompare(String(b==null?'':b), 'es', {sensitivity:'base'});
+
+function filasEnlaces(){
+  const porId = new Map(cachePersonal.map(p=>[p.id, p]));
+  return cacheTokens.filter(t=>!t.revocado).map(t=>{
+    const p = porId.get(t.persona_id); if(!p) return null;
+    const ge = p.gerente_id ? porId.get(p.gerente_id) : null;
+    return {
+      token: t, p,
+      entidad: p.entidad || '',
+      area:    p.area || '',
+      gerente: ge ? ge.nombre : '',
+      tipo:    t.tipo,
+      equipo:  t.tipo==='gerente' ? reportesDe(p.id) : [],
+      url:     enlaceUrl(t.token),
+    };
+  }).filter(Boolean).sort((a,b)=>
+       ORD(a.entidad, b.entidad)
+    || ORD(a.gerente, b.gerente)
+    || (a.tipo==='gerente'?0:1) - (b.tipo==='gerente'?0:1)
+    || ORD(a.p.nombre, b.p.nombre));
+}
+
+/* Convierte en hipervínculo real la columna del enlace, para poder abrirlo
+   desde el propio Excel sin copiar y pegar. */
+function enlazarColumna(hoja, col, nFilas){
+  for(let r=1; r<=nFilas; r++){
+    const celda = hoja[XLSX.utils.encode_cell({ r, c: col })];
+    if(celda && celda.v) celda.l = { Target: String(celda.v), Tooltip: 'Abrir la ficha' };
+  }
+}
+
+async function exportarEnlacesXLSX(){
+  const filas = filasEnlaces();
+  if(!filas.length) return toast('Todavía no hay enlaces generados', true);
+
+  const btn = $('#perExport');
+  const rotulo = btn ? btn.textContent : '';
+  const restaurar = ()=>{ if(btn){ btn.disabled = false; btn.textContent = rotulo; } };
+  if(btn){ btn.disabled = true; btn.textContent = '⬇ preparando…'; }
+
+  try{
+    await cargarLib('https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js');
+  }catch(e){
+    restaurar();
+    return toast('No se pudo cargar la librería de Excel — revisa la conexión', true);
+  }
+
+  try{
+    const fechaHora = v => v ? new Date(v).toLocaleString('es') : '';
+    const soloFecha = v => v ? new Date(v).toLocaleDateString('es') : '';
+    const ESTADO = { pendiente:'Pendiente', en_progreso:'En progreso', completada:'Completada' };
+
+    /* Hoja 1 — todos los enlaces vigentes */
+    const cabEnlaces = ['Entidad','Área','Gerente','Tipo de enlace','Nombre','Cargo','Correo','Personas que cubre','Enlace','Estado de la ficha','Usos','Último acceso','Expira','Vencido'];
+    const datosEnlaces = filas.map(f=>[
+      f.entidad, f.area, f.gerente,
+      f.tipo==='gerente' ? 'Equipo (gerente)' : 'Individual',
+      f.p.nombre, f.p.cargo || '', f.p.correo || '',
+      f.tipo==='gerente' ? f.equipo.length : 1,
+      f.url,
+      ESTADO[estadoFicha(f.p.id)] || 'Pendiente',
+      f.token.usos || 0,
+      fechaHora(f.token.ultimo_uso),
+      soloFecha(f.token.expira_en),
+      new Date(f.token.expira_en).getTime() < Date.now() ? 'Sí' : '',
+    ]);
+    const hojaEnlaces = XLSX.utils.aoa_to_sheet([cabEnlaces, ...datosEnlaces]);
+    hojaEnlaces['!cols'] = [18,22,26,17,28,26,28,10,58,16,7,18,12,9].map(wch=>({ wch }));
+    hojaEnlaces['!autofilter'] = { ref: XLSX.utils.encode_range({ s:{r:0,c:0}, e:{r:datosEnlaces.length, c:cabEnlaces.length-1} }) };
+    enlazarColumna(hojaEnlaces, cabEnlaces.indexOf('Enlace'), datosEnlaces.length);
+
+    /* Hoja 2 — una fila por gerente, con a quién cubre su enlace */
+    const soloGerentes = filas.filter(f=> f.tipo==='gerente');
+    const cabEquipos = ['Entidad','Área','Gerente','Cargo','Correo','Personas en el equipo','Enlace de equipo','Integrantes que cubre','Usos','Último acceso','Expira'];
+    const datosEquipos = soloGerentes.map(f=>[
+      f.entidad, f.area, f.p.nombre, f.p.cargo || '', f.p.correo || '',
+      f.equipo.length, f.url,
+      f.equipo.map(m=>m.nombre).sort(ORD).join(' · '),
+      f.token.usos || 0, fechaHora(f.token.ultimo_uso), soloFecha(f.token.expira_en),
+    ]);
+    const hojaEquipos = XLSX.utils.aoa_to_sheet([cabEquipos, ...datosEquipos]);
+    hojaEquipos['!cols'] = [18,22,28,26,28,10,58,70,7,18,12].map(wch=>({ wch }));
+    if(datosEquipos.length){
+      hojaEquipos['!autofilter'] = { ref: XLSX.utils.encode_range({ s:{r:0,c:0}, e:{r:datosEquipos.length, c:cabEquipos.length-1} }) };
+      enlazarColumna(hojaEquipos, cabEquipos.indexOf('Enlace de equipo'), datosEquipos.length);
+    }
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, hojaEnlaces, 'Enlaces');
+    XLSX.utils.book_append_sheet(wb, hojaEquipos, 'Equipos');
+    XLSX.writeFile(wb, 'enlaces-actualizacion-perfil-' + new Date().toISOString().slice(0,10) + '.xlsx');
+
+    restaurar();
+    toast(datosEnlaces.length + ' enlace(s) exportado(s), ' + datosEquipos.length + ' de equipo');
+  }catch(e){
+    restaurar();
+    toast('No se pudo generar el Excel: ' + (e && e.message ? e.message : e), true);
+  }
 }
 
 /* ---------- Modal: asignación masiva de gerente por área ---------- */
