@@ -2291,6 +2291,7 @@ async function renderPersonal(){
         <div class="titulo-seccion" style="margin-top:4px">censo y enlaces</div>
       </div>
       <div class="fila">
+        <button class="btn btn-suave" id="perNueva">＋ nueva persona</button>
         <button class="btn btn-suave" id="perMasivoBtn">⚙ asignación masiva</button>
         <button class="btn btn-suave" id="perLote">↗ generar enlaces en masa</button>
         <button class="btn btn-marca" id="perExport">⬇ exportar enlaces (Excel)</button>
@@ -2301,6 +2302,10 @@ async function renderPersonal(){
       <div class="buscador"><input class="campo" id="qp" type="search" placeholder="Buscar por nombre, cargo, correo, área…"></div>
       <select class="filtro" id="fpEntidad"><option value="">Todas las entidades</option></select>
       <select class="filtro" id="fpArea"><option value="">Todas las áreas</option></select>
+      <select class="filtro" id="fpActivo">
+        <option value="">Activos e inactivos</option>
+        <option value="activos">Solo activos</option>
+        <option value="inactivos">Solo inactivos</option></select>
       <select class="filtro" id="fpEstado"><option value="">Cualquier estado de ficha</option>
         <option value="pendiente">Pendiente</option><option value="en_progreso">En progreso</option><option value="completada">Completada</option></select>
       ${selectAgrupar('agrupPer', AGRUPADORES_PERSONAL, agrupPersonal)}
@@ -2317,11 +2322,13 @@ async function renderPersonal(){
   $('#qp').addEventListener('input', paintPersonal);
   $('#fpEntidad').addEventListener('change', ()=>{ poblarAreasPersonal(); paintPersonal(); });
   $('#fpArea').addEventListener('change', paintPersonal);
+  $('#fpActivo').addEventListener('change', paintPersonal);
   $('#fpEstado').addEventListener('change', paintPersonal);
   $('#agrupPer').addEventListener('change', (e)=>{ agrupPersonal = e.target.value; paintPersonal(); });
   bindColapsarTodo('perColapsarTodo', document.getElementById('perWrap'));
   $('#vistaTabla').addEventListener('click', ()=>{ vistaPersonal='tabla'; actualizarVistaPersonal(); paintPersonal(); });
   $('#vistaArbol').addEventListener('click', ()=>{ vistaPersonal='arbol'; actualizarVistaPersonal(); paintPersonal(); });
+  $('#perNueva').addEventListener('click', ()=> abrirModalPersona(null));
   $('#perMasivoBtn').addEventListener('click', abrirModalMasivo);
   $('#perLote').addEventListener('click', abrirModalLote);
   $('#perExport').addEventListener('click', exportarEnlacesXLSX);
@@ -2338,6 +2345,7 @@ function actualizarVistaPersonal(){
   $('#vistaTabla')?.classList.toggle('on', vistaPersonal==='tabla');
   $('#vistaArbol')?.classList.toggle('on', vistaPersonal==='arbol');
   $('#fpArea')?.toggleAttribute('disabled', vistaPersonal==='arbol');
+  $('#fpActivo')?.toggleAttribute('disabled', vistaPersonal==='arbol');
   $('#fpEstado')?.toggleAttribute('disabled', vistaPersonal==='arbol');
   $('#agrupPer')?.toggleAttribute('disabled', vistaPersonal==='arbol');
   $('#perColapsarTodo')?.toggleAttribute('disabled', vistaPersonal==='arbol');
@@ -2393,12 +2401,13 @@ function pintarKpisPersonal(){
   const el = $('#perKpis'); if(!el) return;
   const activos = cachePersonal.filter(p=>p.activo);
   const total = activos.length;
+  const inactivos = cachePersonal.length - total;
   const sinGerente = activos.filter(p=>!p.gerente_id).length;
   const gerentesConEquipo = new Set(activos.filter(p=>p.gerente_id).map(p=>p.gerente_id)).size;
   const completas = activos.filter(p=> estadoFicha(p.id)==='completada').length;
   const pct = total? Math.round(completas/total*100) : 0;
   el.innerHTML = `
-    <div class="tarjeta"><div class="kpi"><span class="rotulo">personal activo</span><span class="valor">${total}</span><span class="pie">en el censo</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">personal activo</span><span class="valor">${total}</span><span class="pie">${inactivos? 'de '+cachePersonal.length+' en el censo · '+inactivos+' inactivo'+(inactivos===1?'':'s') : 'en el censo'}</span></div></div>
     <div class="tarjeta"><div class="kpi"><span class="rotulo">sin gerente</span><span class="valor">${sinGerente}</span><span class="pie">pendientes de asignar</span></div></div>
     <div class="tarjeta"><div class="kpi"><span class="rotulo">gerentes con equipo</span><span class="valor">${gerentesConEquipo}</span><span class="pie">con al menos un reporte</span></div></div>
     <div class="tarjeta"><div class="kpi"><span class="rotulo">fichas completadas</span><span class="valor">${pct}%</span><span class="pie">${completas} de ${total}</span></div></div>`;
@@ -2418,10 +2427,13 @@ function pintarTablaPersonal(){
   const fe = $('#fpEntidad')?.value||'';
   const fa = $('#fpArea')?.value||'';
   const fs = $('#fpEstado')?.value||'';
+  const fv = $('#fpActivo')?.value||'';
   let rows = cachePersonal.filter(p=>{
     if(fe && p.entidad!==fe) return false;
     if(fa && p.area!==fa) return false;
     if(fs && estadoFicha(p.id)!==fs) return false;
+    if(fv==='activos'   && p.activo===false) return false;
+    if(fv==='inactivos' && p.activo!==false) return false;
     if(!q) return true;
     return [p.nombre,p.cargo,p.correo,p.area,p.entidad].join(' ').toLowerCase().includes(q);
   });
@@ -2432,7 +2444,11 @@ function pintarTablaPersonal(){
   rows = ordenarFilas(rows, ordPersonal);
   const wrap = $('#perWrap'); if(!wrap) return;
   if(!rows.length){
-    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">◎</div>${cachePersonal.length? 'Nadie con esos filtros.' : 'Aún no hay personal cargado. Corre <code>scripts/importar-personal.py</code>.'}</div></div>`;
+    const censoVacio = !cachePersonal.length;
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">◎</div>${censoVacio
+      ? 'Aún no hay personal cargado. Corre <code>scripts/importar-personal.py</code>, o crea a alguien a mano.<br><button class="btn btn-marca" style="margin-top:14px" id="perVacioNueva">＋ crear la primera persona</button>'
+      : 'Nadie con esos filtros.'}</div></div>`;
+    if(censoVacio) $('#perVacioNueva').addEventListener('click', ()=> abrirModalPersona(null));
     return;
   }
   const pintarFilaP = p=>{
@@ -2540,9 +2556,31 @@ function pintarArbolPersonal(){
   $$('#perWrap [data-abrir]').forEach(el=> el.addEventListener('click', (e)=>{ e.preventDefault(); abrirModalPersona(e.currentTarget.dataset.abrir); }));
 }
 
-/* ---------- Modal: ficha de persona (datos + enlaces) ---------- */
+/* ---------- Modal: ficha de persona (datos + enlaces) ----------
+   Un solo modal para las dos cosas: con id es la ficha de siempre; sin id es
+   un ALTA MANUAL. El alta existe porque el censo entra por Excel
+   (scripts/importar-personal.py) y ahí falta gente — una contratación
+   posterior, o alguien que la hoja de origen no traía. Al crear no hay
+   sección de ficha ni de enlaces (la persona todavía no existe, y el token
+   necesita su id): al guardar se reabre su ficha, que es donde se generan.
+   ⚠️ `origen` no se pide, se sella: distingue lo importado de lo dado de alta
+   a mano, y eso solo lo sabe el panel. */
+function opcionesDatalist(campo){
+  return [...new Set(cachePersonal.map(x=>x[campo]).filter(Boolean))]
+    .sort((a,b)=>a.localeCompare(b,'es'))
+    .map(v=>`<option value="${esc(v)}"></option>`).join('');
+}
+
 function abrirModalPersona(id){
-  const p = cachePersonal.find(x=> String(x.id)===String(id)); if(!p) return;
+  const nueva = !id;
+  /* En el alta, entidad y área se heredan de los filtros activos: si estás
+     mirando un área concreta, es casi seguro dónde va quien falta — y de paso
+     evita que un tecleo distinto ("Ventas " vs "Ventas") parta los grupos. */
+  const p = nueva
+    ? { activo:true, entidad:($('#fpEntidad')?.value||''), area:($('#fpArea')?.value||'') }
+    : cachePersonal.find(x=> String(x.id)===String(id));
+  if(!p) return;
+
   const opcionesGerente = '<option value="">— sin gerente —</option>' + [...cachePersonal]
     .filter(x=>x.id!==p.id).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'))
     .map(x=>`<option value="${esc(x.id)}"${x.id===p.gerente_id?' selected':''}>${esc(x.nombre)}${x.cargo?' — '+esc(x.cargo):''}</option>`).join('');
@@ -2550,44 +2588,57 @@ function abrirModalPersona(id){
   $('#perModalCaja').innerHTML = `
     <div class="modal-cab">
       <div>
-        <div class="sobretitulo">${esc(p.entidad||'—')} · ${esc(p.area||'—')}</div>
-        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${esc(p.nombre)}</div>
+        <div class="sobretitulo">${nueva? 'censo y enlaces · alta manual' : esc(p.entidad||'—')+' · '+esc(p.area||'—')}</div>
+        <div style="font-size:16px;font-weight:700;color:var(--tinta);margin-top:2px">${nueva? 'Nueva persona' : esc(p.nombre)}</div>
       </div>
       <button type="button" class="btn btn-fantasma btn-mini" id="perCerrar" aria-label="Cerrar">✕ cerrar</button>
     </div>
     <div class="modal-cuerpo">
+      ${(!nueva && p.activo===false)? `<div class="disclosure" style="padding:12px 15px;margin-bottom:16px;"><b>⊘ Persona inactiva.</b> <span class="tenue">Su registro se conserva completo, pero queda fuera de los conteos, del lote de enlaces y del Excel, y no se le pueden generar enlaces nuevos.</span></div>` : ''}
+      ${nueva? `<p class="tenue" style="margin:0 0 16px;">Para quien falte en el censo importado del Excel. Solo el <b>nombre</b> es obligatorio; lo demás se puede completar después. Sus enlaces de ficha se generan al guardar.</p>` : ''}
       <div class="sobretitulo" style="margin-bottom:10px;">datos</div>
       <form id="frmPer">
         <div class="grid2">
-          <div class="field"><label>Nombre *</label><input class="campo" name="nombre" required value="${esc(p.nombre)}"></div>
+          <div class="field"><label>Nombre *</label><input class="campo" name="nombre" required value="${esc(p.nombre||'')}"></div>
           <div class="field"><label>Correo</label><input class="campo" type="email" name="correo" value="${esc(p.correo||'')}"></div>
+          <div class="field"><label>Identificación</label><input class="campo" name="identificacion" value="${esc(p.identificacion||'')}"></div>
           <div class="field"><label>País</label><select class="campo" name="pais"><option value="">—</option>${PAISES.map(x=>`<option${x===p.pais?' selected':''}>${esc(x)}</option>`).join('')}</select></div>
-          <div class="field"><label>Entidad</label><input class="campo" name="entidad" value="${esc(p.entidad||'')}"></div>
-          <div class="field"><label>Área</label><input class="campo" name="area" value="${esc(p.area||'')}"></div>
-          <div class="field"><label>Cargo</label><input class="campo" name="cargo" value="${esc(p.cargo||'')}"></div>
+          <div class="field"><label>Entidad</label><input class="campo" name="entidad" list="dlPerEntidad" autocomplete="off" value="${esc(p.entidad||'')}"><datalist id="dlPerEntidad">${opcionesDatalist('entidad')}</datalist></div>
+          <div class="field"><label>Área</label><input class="campo" name="area" list="dlPerArea" autocomplete="off" value="${esc(p.area||'')}"><datalist id="dlPerArea">${opcionesDatalist('area')}</datalist></div>
+          <div class="field"><label>Cargo</label><input class="campo" name="cargo" list="dlPerCargo" autocomplete="off" value="${esc(p.cargo||'')}"><datalist id="dlPerCargo">${opcionesDatalist('cargo')}</datalist></div>
+          <div class="field"><label>Ubicación de trabajo</label><input class="campo" name="ubicacion" list="dlPerUbic" autocomplete="off" value="${esc(p.ubicacion||'')}"><datalist id="dlPerUbic">${opcionesDatalist('ubicacion')}</datalist></div>
+          <div class="field"><label>Condición</label><input class="campo" name="condicion" list="dlPerCond" autocomplete="off" value="${esc(p.condicion||'')}"><datalist id="dlPerCond">${opcionesDatalist('condicion')}</datalist></div>
+          <div class="field"><label>Fecha de ingreso</label><input class="campo" type="date" name="fecha_ingreso" value="${esc(p.fecha_ingreso||'')}"></div>
           <div class="field full"><label>Gerente / supervisor</label><select class="campo" name="gerente_id">${opcionesGerente}</select></div>
+          <div class="field"><label>Supervisor (texto libre)</label><input class="campo" name="supervisor_txt" value="${esc(p.supervisor_txt||'')}" placeholder="si su jefe aún no está en el censo"></div>
           <div class="field"><label>Activo</label><select class="campo" name="activo"><option value="true"${p.activo!==false?' selected':''}>Sí</option><option value="false"${p.activo===false?' selected':''}>No</option></select></div>
           <div class="field full"><label>Notas</label><textarea class="campo" name="notas">${esc(p.notas||'')}</textarea></div>
         </div>
       </form>
-
+      ${nueva? '' : `
       <div class="sobretitulo" style="margin:22px 0 10px;">ficha de actualización de perfil</div>
       <span class="marca-estado ${claseFicha(estadoFicha(p.id))}"><i class="punto"></i>${esc(estadoFicha(p.id))}</span>
 
       <div class="sobretitulo" style="margin:22px 0 10px;">enlaces</div>
       <div id="perEnlaces"></div>
+
+      <div class="meta-line" style="margin-top:18px;">Origen: ${esc(p.origen||'—')}${p.creado_en? ' · Creado: '+esc(new Date(p.creado_en).toLocaleString('es')):''}${p.actualizado_en? ' · Actualizado: '+esc(new Date(p.actualizado_en).toLocaleString('es')):''}</div>`}
     </div>
     <div class="modal-pie">
-      <button type="button" class="btn btn-marca" id="perGuardar">✓ guardar</button>
-      <button type="button" class="btn btn-suave" id="perCancelar">cerrar</button>
+      <button type="button" class="btn btn-marca" id="perGuardar">${nueva? '＋ crear persona' : '✓ guardar'}</button>
+      <button type="button" class="btn btn-suave" id="perCancelar">${nueva? 'cancelar' : 'cerrar'}</button>
+      ${nueva? '' : `<span class="spacer"></span>
+      <button type="button" class="btn ${p.activo===false? 'btn-humano':'btn-riesgo'}" id="perActivo">${p.activo===false? '↻ reactivar' : '⊘ desactivar'}</button>`}
     </div>`;
 
   $('#perModalFondo').classList.add('on');
   document.body.style.overflow = 'hidden';
   $('#perCerrar').addEventListener('click', cerrarModalPersona);
   $('#perCancelar').addEventListener('click', cerrarModalPersona);
-  $('#perGuardar').addEventListener('click', ()=> guardarPersonal(p.id));
-  pintarEnlacesModal(p.id);
+  $('#perGuardar').addEventListener('click', ()=> guardarPersonal(nueva? null : p.id));
+  if(!nueva) $('#perActivo').addEventListener('click', ()=> alternarActivoPersona(p.id));
+  if(nueva) $('#frmPer')?.elements['nombre']?.focus();
+  else pintarEnlacesModal(p.id);
 }
 function cerrarModalPersona(){
   $('#perModalFondo')?.classList.remove('on');
@@ -2595,28 +2646,115 @@ function cerrarModalPersona(){
 }
 
 async function guardarPersonal(id){
-  if(!db || !id) return;
-  const f = $('#frmPer');
-  const g = n => f.elements[n].value.trim();
+  if(!db) return;
+  const nueva = !id;
+  const anterior = nueva ? null : cachePersonal.find(x=> String(x.id)===String(id));
+  const f = $('#frmPer'); if(!f) return;
+  const g = n => (f.elements[n]?.value || '').trim();
   const payload = {
     nombre: g('nombre'), correo: g('correo')||null, pais: g('pais')||null, entidad: g('entidad')||null,
-    area: g('area')||null, cargo: g('cargo')||null, gerente_id: f.elements['gerente_id'].value || null,
+    area: g('area')||null, cargo: g('cargo')||null, identificacion: g('identificacion')||null,
+    ubicacion: g('ubicacion')||null, condicion: g('condicion')||null,
+    fecha_ingreso: g('fecha_ingreso')||null, supervisor_txt: g('supervisor_txt')||null,
+    gerente_id: f.elements['gerente_id'].value || null,
     activo: f.elements['activo'].value === 'true', notas: g('notas')||null,
   };
   if(!payload.nombre) return toast('El nombre es obligatorio', true);
   const btn = $('#perGuardar'); btn.disabled = true;
-  const { error } = await db.from('personal').update(payload).eq('id', id);
+  let error = null, nuevoId = null;
+  if(nueva){
+    payload.origen = 'alta manual · panel';
+    const r = await db.from('personal').insert(payload).select('id').single();
+    error = r.error; nuevoId = r.data && r.data.id;
+  }else{
+    error = (await db.from('personal').update(payload).eq('id', id)).error;
+  }
   btn.disabled = false;
   if(error){
     if(/ciclo|propio gerente/i.test(error.message)) return toast(error.message, true);
     if(/duplicate|unique/i.test(error.message)) return toast('Ya existe alguien con ese nombre en esa entidad', true);
     return toast('Error al guardar: '+error.message, true);
   }
-  toast('Persona actualizada'); cerrarModalPersona(); await recargarPersonal();
+  /* El desplegable «Activo» del formulario y el botón ⊘ del pie llevan al
+     mismo sitio, así que tienen que hacer lo mismo: si esto fue una baja,
+     también se cierran sus enlaces. Ver alternarActivoPersona() para el por
+     qué de la revocación. */
+  let revocados = 0;
+  if(!nueva && payload.activo===false && anterior && anterior.activo!==false){
+    revocados = await revocarEnlacesDe(id);
+  }
+  toast(nueva? 'Persona creada'
+      : (payload.activo===false && anterior && anterior.activo!==false)
+        ? 'Persona desactivada' + (revocados? ' · '+revocados+' enlace'+(revocados===1?'':'s')+' revocado'+(revocados===1?'':'s') : '')
+        : 'Persona actualizada');
+  cerrarModalPersona();
+  await recargarPersonal();
+  /* Recién creada: se reabre su ficha, que es donde viven sus enlaces. */
+  if(nuevoId) abrirModalPersona(nuevoId);
+}
+
+/* ---------- Baja y reactivación ----------
+   El censo NO borra: una persona que sale de Kenex sigue siendo parte del
+   diagnóstico (su ficha, su sitio en la jerarquía, la evidencia que la cita),
+   y `personal.id` cuelga de `fichas_perfil` y `fichas_tokens` con
+   `on delete cascade` — borrarla se llevaría su ficha por delante. La baja es
+   un `activo=false`: el registro queda entero y sale de los conteos, del lote
+   de enlaces y del Excel.
+
+   ⚠️ Desactivar SIN cerrar sus enlaces dejaría la puerta abierta: el token no
+   mira `personal.activo` — la Edge Function `ficha` lo valida solo por
+   `revocado` + `expira_en` (`supabase/functions/ficha/index.ts`, validarToken)
+   —, así que quien tuviera el enlace de alguien de baja seguiría llenando su
+   ficha. Por eso la baja revoca; y por eso bloqueEnlace() no ofrece generar
+   enlaces a un inactivo. La reactivación NO los devuelve: hay que generarlos
+   de nuevo, que es lo correcto (un enlace revocado ya se pudo haber
+   repartido). */
+async function revocarEnlacesDe(personaId){
+  const vivos = tokensDe(personaId);
+  if(!vivos.length) return 0;
+  const { error } = await db.from('fichas_tokens').update({ revocado:true }).in('id', vivos.map(t=>t.id));
+  if(error){ toast('No se pudieron revocar sus enlaces: '+error.message, true); return 0; }
+  return vivos.length;
+}
+
+async function alternarActivoPersona(id){
+  if(!db) return;
+  const p = cachePersonal.find(x=> String(x.id)===String(id)); if(!p) return;
+  const baja = p.activo !== false;
+  const vivos = tokensDe(id);
+  const equipo = reportesDe(id);
+
+  if(baja){
+    const av = [`¿Desactivar a ${p.nombre}?`, '',
+      'No se borra nada: su registro y su ficha se conservan completos. Queda fuera de los conteos, del lote de enlaces y del Excel, y se puede reactivar cuando quieras.'];
+    if(vivos.length) av.push('', `Se revocarán sus ${vivos.length} enlace(s) vigente(s): quien los tenga ya no podrá llenar la ficha.`);
+    if(equipo.length) av.push('', `Ojo: es gerente de ${equipo.length} persona(s) activa(s), que seguirán apuntando a ella hasta que les asignes otro gerente.`);
+    if(!confirm(av.join('\n'))) return;
+  }else{
+    if(!confirm(`¿Reactivar a ${p.nombre}?\n\nVuelve a los conteos y al lote de enlaces. Sus enlaces revocados NO se restauran: hay que generarlos de nuevo.`)) return;
+  }
+
+  const btn = $('#perActivo'); if(btn) btn.disabled = true;
+  const { error } = await db.from('personal').update({ activo: !baja }).eq('id', id);
+  if(error){
+    if(btn) btn.disabled = false;
+    return toast('Error al cambiar el estado: '+error.message, true);
+  }
+  const revocados = baja ? await revocarEnlacesDe(id) : 0;
+  toast((baja? 'Persona desactivada' : 'Persona reactivada')
+      + (revocados? ' · '+revocados+' enlace'+(revocados===1?'':'s')+' revocado'+(revocados===1?'':'s') : ''));
+  await recargarPersonal();
+  abrirModalPersona(id);   // repinta la ficha con el estado nuevo
 }
 
 /* ---------- Enlaces: generar / copiar / revocar (dentro del modal) ---------- */
 function bloqueEnlace(p, tipo){
+  /* A quien esta de baja no se le abren puertas nuevas: sus enlaces vivos ya
+     se revocaron al desactivarla, y generar otro los reabriria. */
+  if(p.activo===false){
+    const tk = cacheTokens.filter(t=> t.persona_id===p.id && t.tipo===tipo);
+    return `<div class="disclosure" style="padding:14px 15px;"><span class="tenue">Persona inactiva — no se generan enlaces${tk.length? '. Tenía '+tk.length+' de este tipo, ya revocado'+(tk.length===1?'':'s') : ''}. Reactívala si necesitas uno.</span></div>`;
+  }
   const disponible = tipo==='individual' || reportesDe(p.id).length>0;
   const etiqueta = tipo==='gerente' ? `equipo (${reportesDe(p.id).length} persona${reportesDe(p.id).length===1?'':'s'})` : 'individual';
   if(!disponible){
@@ -2671,6 +2809,8 @@ async function copiarTexto(txt){
 
 async function generarEnlaceModal(personaId, tipo){
   if(!db) return;
+  const per = cachePersonal.find(x=>x.id===personaId);
+  if(per && per.activo===false) return toast('Esa persona está inactiva — reactívala antes de generarle un enlace', true);
   if(tipo==='gerente' && !reportesDe(personaId).length) return toast('Esa persona no tiene reportes directos activos', true);
   const token = tokenAleatorio();
   const { error } = await db.from('fichas_tokens').insert({ token, tipo, persona_id: personaId, creado_por: (PERFIL && PERFIL.correo) || null });
