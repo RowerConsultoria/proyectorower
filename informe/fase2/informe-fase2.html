@@ -161,18 +161,6 @@
   .f2-proc .pn{flex:1;min-width:0;font-size:13px;font-weight:600}
   .f2-proc .pa{flex:none;font-size:14px;color:var(--tinta-tenue)}
 
-  /* ── estados de avance ── */
-  .f2-est{
-    display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:var(--r-pildora);
-    font-size:10.5px;font-weight:700;letter-spacing:.03em;border:1px solid transparent;white-space:nowrap;
-  }
-  .f2-est i{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
-  .est-pendiente{background:var(--panel-alto);color:var(--tinta-tenue);border-color:var(--borde)}
-  .est-semilla{background:rgba(50,198,244,.12);color:var(--cian);border-color:rgba(50,198,244,.30)}
-  .est-borrador{background:rgba(255,201,74,.13);color:var(--alerta);border-color:rgba(255,201,74,.30)}
-  .est-revision{background:rgba(255,201,74,.13);color:var(--alerta);border-color:rgba(255,201,74,.30)}
-  .est-validado{background:rgba(46,212,122,.13);color:var(--ok);border-color:rgba(46,212,122,.30)}
-
   .f2-vacio{
     margin-top:10px;padding:18px 16px;border:1px dashed var(--borde);border-radius:var(--r-tarjeta);
     font-size:12.5px;color:var(--tinta-tenue);line-height:1.5;
@@ -195,11 +183,6 @@
   .f2-mcard .mp{font-size:10px;font-weight:700;color:var(--tinta-tenue);font-variant-numeric:tabular-nums}
   .f2-mcard .mn{font-size:13px;font-weight:650;line-height:1.25;margin:3px 0 8px}
   .f2-mcard .mc{font-size:11px;color:var(--tinta-tenue)}
-  .f2-mix{display:flex;height:5px;border-radius:999px;overflow:hidden;margin-top:7px;background:var(--borde-tenue)}
-  .f2-mix > i{display:block;height:100%}
-  .mix-asis{background:var(--tinta-tenue)}
-  .mix-hibrido{background:var(--alerta)}
-  .mix-tobe{background:var(--cian)}
 
   .f2-aside{border:1px solid var(--borde);border-radius:var(--r-panel);padding:14px 16px;background:var(--panel);margin-top:16px}
   .f2-aside h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tinta-tenue);margin:0 0 10px}
@@ -305,21 +288,6 @@
 
   function leerAbiertos(){try{return JSON.parse(localStorage.getItem(LS_NAV))||{};}catch(e){return {};}}
   function guardarAbiertos(o){try{localStorage.setItem(LS_NAV,JSON.stringify(o));}catch(e){}}
-
-  var LABEL_EST = {pendiente:'Pendiente',semilla:'Ficha del mapa v18',borrador:'Borrador',revision:'En revisión',validado:'Validado'};
-  function chipEstado(est){
-    est = est||'pendiente';
-    return '<span class="f2-est est-'+est+'"><i></i>'+esc(LABEL_EST[est]||est)+'</span>';
-  }
-  function mixMadurez(procesos){
-    var c={'as-is':0,'híbrido':0,'to-be':0};
-    procesos.forEach(function(p){if(c[p.madurez]!=null)c[p.madurez]++;});
-    var tot=procesos.length||1;
-    return '<div class="f2-mix" title="'+c['as-is']+' vigentes · '+c['híbrido']+' en transición · '+c['to-be']+' nuevos">'+
-      '<i class="mix-asis" style="width:'+(100*c['as-is']/tot)+'%"></i>'+
-      '<i class="mix-hibrido" style="width:'+(100*c['híbrido']/tot)+'%"></i>'+
-      '<i class="mix-tobe" style="width:'+(100*c['to-be']/tot)+'%"></i></div>';
-  }
 
   // ---------- sidenav ----------
   var CHEV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5 15.5 12 9 18.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -500,7 +468,6 @@
                '<div class="mp">'+esc(m.prefijo)+'</div>'+
                '<div class="mn">'+esc(m.n)+'</div>'+
                '<div class="mc">'+m.procesos.length+' procesos</div>'+
-               mixMadurez(m.procesos)+
              '</a>';
       });
       h += '</div></div>';
@@ -513,12 +480,6 @@
       h += '<div class="ax"><b>'+esc(a.n)+'</b><span>'+esc(a.r)+'</span></div>';
     });
     h += '</div>';
-
-    // leyenda de madurez
-    h += '<p style="font-size:11px;color:var(--tinta-tenue);margin-top:14px">'+
-         '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--tinta-tenue);vertical-align:middle;margin-right:4px"></span>vigente&nbsp;&nbsp;'+
-         '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--alerta);vertical-align:middle;margin-right:4px"></span>en transición&nbsp;&nbsp;'+
-         '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--cian);vertical-align:middle;margin-right:4px"></span>nuevo por implementar</p>';
 
     // acerca de / confidencialidad
     h += '<details class="f2-acerca"><summary>Acerca de este manual · aviso de confidencialidad</summary>'+
@@ -547,7 +508,6 @@
     h += '<div class="f2-cab"><span class="f2-num">'+esc(m.prefijo)+'</span><div><h1 class="f2-h1" style="margin-bottom:4px">'+esc(m.n)+'</h1>'+
          '<div class="f2-meta"><span class="chip" style="cursor:default">'+esc(catNombre(m.cat))+'</span>'+
          '<span class="chip" style="cursor:default">'+m.procesos.length+' procesos</span></div></div></div>';
-    h += '<div style="max-width:280px;margin:4px 0 6px">'+mixMadurez(m.procesos)+'</div>';
 
     h += riel(D.seccionesN0);
 
@@ -560,7 +520,6 @@
           h += '<a class="f2-proc" href="#/p/'+esc(p.codigo)+'"><span class="pc">'+esc(p.codigo)+'</span><span class="pn">'+esc(p.n)+'</span><span class="pa">→</span></a>';
         });
       } else {
-        h += '<div style="margin:6px 0">'+chipEstado(est(m.n0[s.id]))+'</div>';
         if(s.sub && s.sub.length){
           h += '<ul class="f2-outline">'+s.sub.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
         }
@@ -598,7 +557,6 @@
       h += '<section class="f2-sec" id="sec-'+esc(s.id)+'">';
       h += '<h2><span class="f2-secnum">'+esc(p.codigo)+'.'+(i+1)+'</span>'+esc(s.n)+'</h2>';
       if(s.nota) h += '<div class="f2-secnota">'+esc(s.nota)+'</div>';
-      h += '<div style="margin:6px 0">'+chipEstado(est(p.n1[s.id]))+'</div>';
 
       if(s.id==='proposito' && fx.alcance){
         h += fichaHtml([['Alcance (mapa v18)', esc(fx.alcance)]]);
@@ -608,7 +566,6 @@
           rows.push(['Participantes', '<ul>'+fx.participantes.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
         }
         h += fichaHtml(rows);
-        h += '<div class="f2-vacio">Cargos por normalizar a la denominación de la Estructura Patrón Propuesta V4 al desarrollar el contenido.</div>';
       } else if(s.id==='disparador' && (fx.disparador||fx.cadencia||fx.output)){
         h += fichaHtml([
           ['Disparador', esc(fx.disparador||'—')],
