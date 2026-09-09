@@ -193,8 +193,9 @@
   .f2-aside .ax span{display:block;color:var(--tinta-media);margin-top:2px}
 
   /* ── totalizaciones: [macro] [procesos → estrat/oper/soporte] ── */
-  .f2-tot{display:flex;gap:14px;margin:16px 0;align-items:flex-start;flex-wrap:wrap}
-  .f2-tot .col-uno{flex:0 1 210px}
+  .f2-tot{display:flex;gap:14px;margin:16px 0;align-items:stretch;flex-wrap:wrap}
+  .f2-tot .col-uno{flex:0 1 210px;display:flex}
+  .f2-tot .col-uno .f2-kpi{flex:1;display:flex;flex-direction:column;justify-content:center}
   .f2-tot .col-dos{flex:1 1 260px;min-width:240px;display:flex;flex-direction:column;gap:0}
   .f2-kpi{border:1px solid var(--borde);border-radius:var(--r-tarjeta);padding:13px 15px;background:var(--panel)}
   .f2-kpi .kr{font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--tinta-tenue)}
@@ -589,7 +590,7 @@
 
     // totalizaciones — macroprocesos · procesos, con procesos desglosado por categoría
     h += '<div class="f2-tot">';
-    h += '<div class="col-uno">'+kpi(t.macroprocesos, 'Macroprocesos', '3 categorías', 'lg')+'</div>';
+    h += '<div class="col-uno">'+kpi(t.macroprocesos, 'Macroprocesos', '3 categorías', 'lg')+'</div>'; // abarca la altura de toda la columna de procesos
     h += '<div class="col-dos">';
     h += kpi(t.procesos, 'Procesos', 'sin bajar a procedimientos', 'lg');
     h += '<div class="f2-deriv">';
