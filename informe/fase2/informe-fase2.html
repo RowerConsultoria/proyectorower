@@ -592,7 +592,7 @@
     h += '<div class="f2-tot">';
     h += '<div class="col-uno">'+kpi(t.macroprocesos, 'Macroprocesos', '3 categorías', 'lg')+'</div>'; // abarca la altura de toda la columna de procesos
     h += '<div class="col-dos">';
-    h += kpi(t.procesos, 'Procesos', 'sin bajar a procedimientos', 'lg');
+    h += kpi(t.procesos, 'Procesos', '', 'lg');
     h += '<div class="f2-deriv">';
     D.categorias.forEach(function(c){
       var x = t.categoria[c.id]; if(x) h += kpi(x.p, c.n, x.m+' macroprocesos', 'cat-'+c.id);
@@ -661,7 +661,7 @@
     if(spy) spy.disconnect();
     main.scrollTop = 0;
   }
-  function kpi(v,r,p,cls){return '<div class="f2-kpi'+(cls?' '+cls:'')+'"><div class="kr">'+esc(r)+'</div><div class="kv">'+esc(v)+'</div><div class="kp">'+esc(p)+'</div></div>';}
+  function kpi(v,r,p,cls){return '<div class="f2-kpi'+(cls?' '+cls:'')+'"><div class="kr">'+esc(r)+'</div><div class="kv">'+esc(v)+'</div>'+(p?'<div class="kp">'+esc(p)+'</div>':'')+'</div>';}
   function est(o){return (o&&o.estado)||'pendiente';}
 
   // ---------- vista: macroproceso ----------
