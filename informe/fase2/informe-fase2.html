@@ -439,7 +439,8 @@
   function pintarNav(){
     var abiertos = leerAbiertos();
     var h = '<input class="f2-buscar" id="buscar" type="search" placeholder="Buscar macroproceso o proceso…" autocomplete="off">';
-    h += '<a class="f2-navhome" href="#/">Inicio · mapa de procesos</a>';
+    h += '<a class="f2-navhome" href="#/">Inicio</a>';
+    h += '<a class="f2-navhome" href="#/mapa" id="navMapa">Mapa de procesos</a>';
     D.categorias.forEach(function(cat){
       var ms = D.macros.filter(function(m){return m.cat===cat.id;});
       if(!ms.length) return;
