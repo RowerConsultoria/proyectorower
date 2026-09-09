@@ -11,6 +11,14 @@ backup_*.html
 # Node (si algún módulo llega a usar tooling)
 node_modules/
 
+# Insumos de trabajo (material confidencial del cliente: entrevistas, docs de
+# Lark, Estructura Patrón, mapa v18). Se leen en local; nunca al repositorio.
+Insumos/
+
+# Workspace local del editor
+scripts/Rower.code-workspace
+*.code-workspace
+
 # Python (caché de los guiones de scripts/)
 __pycache__/
 *.pyc

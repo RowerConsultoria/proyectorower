@@ -3,150 +3,701 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Informe de Procesos — Fase 2 | Proyecto Rower</title>
-<!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover de aquí: debe correr antes de que se pinte la página. -->
+<title>Manual de Procesos — Fase 2 | Proyecto Rower</title>
+<script>(function(){try{if(localStorage.getItem('rower.tema')==='oscuro')document.documentElement.setAttribute('data-tema','oscuro');}catch(e){}})();</script>
+<!-- Acceso: guardia de sesión (redirige a /acceso/ si no hay sesión). No mover: corre antes de pintar. -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../estilo/app.css">
 <style>
-  /* Alias: --navy/--blue/--gray/--light/--border/--red/--green/--amber quedan
-     intactos más abajo, solo redirigidos a los tokens compartidos. */
-  :root{
-    --navy:var(--tinta); --blue:var(--cian); --gray:var(--tinta-media); --light:var(--panel-alto);
-    --border:var(--borde); --red:var(--riesgo); --green:var(--ok); --amber:var(--alerta);
+  /* ── El módulo «Fase 2 — Procesos». Armazón navegable; el contenido de las
+     secciones se llena con el pipeline de manuales. Identidad compartida
+     (estilo/app.css); nada de colores propios salvo los estados de avance. ── */
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--fuente);color:var(--tinta);background:var(--fondo);font-size:14px;line-height:1.5}
+  a{color:inherit}
+
+  .f2{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+
+  /* ── barra superior ── */
+  .f2-top{
+    flex:none;display:flex;align-items:center;gap:14px;
+    padding:0 18px;height:56px;border-bottom:1px solid var(--borde);
+    background:var(--panel-vidrio);backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);z-index:20;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:var(--fuente);color:var(--gray);background:var(--fondo);line-height:1.55;font-size:15px;}
-  .layout{display:flex;align-items:flex-start;max-width:1280px;margin:0 auto;gap:0;}
-  /* Sigue el tema del sitio, igual que el .menu de /sistema — nada de
-     "siempre oscuro" aquí. */
-  .sidenav{
-    flex:0 0 280px;min-height:100vh;background:var(--lienzo);
-    color:var(--tinta);padding:26px 18px 40px;position:sticky;top:0;border-right:1px solid var(--borde);
+  .f2-top .marca{display:flex;align-items:center;gap:10px;min-width:0}
+  .f2-top .marca .nom{font-size:15px;font-weight:700;letter-spacing:-.02em;text-transform:lowercase;line-height:1.05}
+  .f2-top .marca .sub{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .f2-top .crece{flex:1;min-width:0}
+  .f2-top .lnk{font-size:12px;font-weight:600;color:var(--tinta-media);text-decoration:none;padding:6px 10px;border-radius:var(--r-pildora)}
+  .f2-top .lnk:hover{background:var(--realce);color:var(--tinta)}
+  .f2-icbtn{
+    flex:none;width:34px;height:34px;border-radius:var(--r-pildora);border:1px solid var(--borde);
+    background:var(--panel-alto);color:var(--tinta-media);font-size:15px;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;
   }
-  .sidenav .brand{display:flex;align-items:center;gap:10px;}
-  .sidenav .brand .textos{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-tenue);font-weight:700;}
-  .sidenav .brand b{display:block;color:var(--tinta);font-size:17px;letter-spacing:0;margin-top:6px;text-transform:lowercase;font-weight:700;}
-  .fasesel{position:relative;margin-top:16px;}
-  .fasesel>button{
-    width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
-    background:var(--panel-alto);border:1px solid var(--borde);color:var(--tinta);
-    padding:9px 14px;border-radius:var(--r-pildora);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  .f2-icbtn:hover{border-color:var(--tinta-tenue);color:var(--tinta)}
+  .f2-abremenu{display:none}
+
+  .f2-body{flex:1;display:flex;min-height:0}
+
+  /* ── sidenav ── */
+  .f2-nav{
+    flex:none;width:314px;border-right:1px solid var(--borde);background:var(--lienzo);
+    overflow-y:auto;padding:14px 10px 40px;
   }
-  .fasesel>button:hover{border-color:var(--tinta-tenue);}
-  .fasesel .menu{
-    display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;
-    background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-tarjeta);box-shadow:var(--sombra-alta);overflow:hidden;
+  .f2-buscar{
+    width:100%;font-family:inherit;font-size:12.5px;padding:8px 12px;margin-bottom:8px;
+    background:var(--panel-alto);color:var(--tinta);border:1px solid var(--borde);border-radius:var(--r-pildora);
   }
-  .fasesel.abierto .menu{display:block;}
-  .fasesel .menu a{display:block;padding:10px 13px;color:var(--tinta);text-decoration:none;font-size:13.5px;font-weight:600;}
-  .fasesel .menu a.actual{background:var(--panel-alto);color:var(--menta);}
-  .fasesel .menu a:not(.actual):hover{background:var(--realce);}
-  .fasesel .menu small{display:block;font-weight:400;color:var(--tinta-tenue);font-size:11.5px;margin-top:2px;}
-  .navlbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-tenue);margin:26px 0 8px;padding:0 8px;}
-  .sidenav a.navitem{display:block;color:var(--tinta-media);text-decoration:none;font-size:13.5px;
-    padding:8px 12px;border-left:3px solid transparent;border-radius:0 10px 10px 0;transition:background .15s var(--curva);}
-  .sidenav a.navitem:hover{background:var(--realce);color:var(--tinta);}
-  .sidenav a.navitem.active{background:var(--panel);border-left-color:var(--menta);color:var(--tinta);font-weight:600;}
-  .main{flex:1;min-width:0;}
-  .page{max-width:900px;margin:24px auto;background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-panel);box-shadow:var(--sombra);padding:56px 64px;}
-  .cover{border-bottom:2px solid var(--navy);padding-bottom:28px;margin-bottom:32px;}
-  .cover .kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px;}
-  .cover h1{color:var(--navy);font-size:1.9rem;margin-bottom:10px;text-transform:lowercase;letter-spacing:-.01em;}
-  .cover .sub{color:var(--tinta-media);font-size:1rem;}
-  .estado{display:inline-block;margin-top:14px;padding:4px 13px;border-radius:var(--r-pildora);background:rgba(255,201,74,.13);color:var(--amber);
-    font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,201,74,.3);}
-  h2{color:var(--navy);font-size:1.3rem;margin:34px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);text-transform:lowercase;}
-  h3{color:var(--navy);font-size:1.05rem;margin:22px 0 8px;}
-  p{margin-bottom:12px;}
-  .nota{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--cian);
-    border-radius:var(--r-campo);padding:14px 18px;margin:16px 0;font-size:.92rem;}
-  .nota b{color:var(--navy);}
-  .ficha{border:1px solid var(--border);border-radius:var(--r-tarjeta);padding:18px 20px;margin:14px 0;background:var(--light);}
-  .ficha .meta{font-size:.8rem;color:var(--tinta-tenue);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
-  .vacio{border:1.5px dashed var(--border);border-radius:var(--r-tarjeta);padding:26px 20px;text-align:center;color:var(--tinta-tenue);font-size:.92rem;}
-  footer{max-width:900px;margin:0 auto 40px;padding:0 64px;color:var(--tinta-tenue);font-size:.82rem;}
-  @media(max-width:980px){
-    .layout{flex-direction:column;}
-    .sidenav{position:static;width:100%;min-height:auto;}
-    .page{padding:40px 24px;margin:16px auto;}
-    footer{padding:0 24px;}
+  .f2-buscar::placeholder{color:var(--tinta-tenue)}
+  .f2-buscar:focus{outline:none;border-color:var(--cian)}
+  .f2-navhome{
+    display:flex;align-items:center;gap:8px;padding:8px 12px;margin-bottom:6px;border-radius:10px;
+    font-size:12.5px;font-weight:600;color:var(--tinta-media);text-decoration:none;
+  }
+  .f2-navhome:hover{background:var(--realce);color:var(--tinta)}
+  .f2-navhome.on{background:var(--panel);color:var(--tinta);box-shadow:var(--sombra)}
+
+  .f2-cat-tit{
+    font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--tinta-tenue);padding:14px 12px 6px;
+  }
+  .f2-mrow{display:flex;align-items:stretch;gap:2px;border-radius:9px}
+  .f2-mrow.on{background:var(--panel);box-shadow:var(--sombra)}
+  .f2-mlink{
+    flex:1;min-width:0;display:flex;align-items:baseline;gap:8px;
+    padding:8px 10px;font-size:12.5px;color:var(--tinta-media);text-decoration:none;line-height:1.3;
+  }
+  .f2-mrow.on .f2-mlink{color:var(--tinta);font-weight:650}
+  .f2-mlink:hover{color:var(--tinta)}
+  .f2-mpref{
+    flex:none;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tinta-tenue);
+    min-width:16px;text-align:right;
+  }
+  .f2-mchev{
+    flex:none;width:26px;border:0;background:transparent;color:var(--tinta-tenue);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;border-radius:8px;
+  }
+  .f2-mchev:hover{background:var(--realce);color:var(--tinta)}
+  .f2-mchev svg{width:12px;height:12px;transition:transform var(--rapido) var(--curva)}
+  .f2-mchev[aria-expanded="true"] svg{transform:rotate(90deg)}
+  .f2-msub{margin:0 0 4px 18px;padding-left:8px;border-left:1px solid var(--borde)}
+  .f2-msub a{
+    display:flex;align-items:baseline;gap:7px;padding:6px 9px;border-radius:8px;
+    font-size:11.5px;color:var(--tinta-media);text-decoration:none;line-height:1.3;
+  }
+  .f2-msub a:hover{background:var(--realce);color:var(--tinta)}
+  .f2-msub a.on{background:var(--gradiente-suave);color:var(--tinta);font-weight:600}
+  .f2-pcod{flex:none;font-size:9.5px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tinta-tenue)}
+  .f2-nada{padding:14px 12px;font-size:12px;color:var(--tinta-tenue)}
+
+  /* ── zona de contenido ── */
+  .f2-main{flex:1;min-width:0;overflow-y:auto;scroll-behavior:smooth}
+  .f2-doc{max-width:1060px;margin:0 auto;padding:28px 40px 8px}
+
+  .f2-migas{font-size:11.5px;color:var(--tinta-tenue);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .f2-migas a{color:var(--tinta-media);text-decoration:none}
+  .f2-migas a:hover{color:var(--tinta)}
+  .f2-migas .sep{opacity:.5}
+
+  .f2-kicker{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cian);margin-bottom:6px}
+  .f2-h1{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 10px;text-transform:lowercase}
+  .f2-lead{font-size:14px;color:var(--tinta-media);max-width:70ch;margin:0 0 16px}
+
+  .f2-cab{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .f2-cab .f2-num{
+    flex:none;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tinta-tenue);
+    line-height:1.2;
+  }
+  .f2-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px}
+
+  /* ── riel de secciones (scroll-spy) ── */
+  .f2-riel{
+    position:sticky;top:0;z-index:10;display:flex;gap:4px;flex-wrap:wrap;
+    padding:10px 0;margin-bottom:6px;background:var(--fondo);border-bottom:1px solid var(--borde-tenue);
+  }
+  .f2-riel a{
+    font-size:11.5px;font-weight:600;color:var(--tinta-media);text-decoration:none;
+    padding:5px 11px;border-radius:var(--r-pildora);border:1px solid transparent;white-space:nowrap;
+  }
+  .f2-riel a:hover{background:var(--realce);color:var(--tinta)}
+  .f2-riel a.on{background:var(--gradiente-suave);border-color:var(--menta);color:var(--tinta)}
+
+  .f2-sec{padding:22px 0;border-bottom:1px solid var(--borde-tenue);scroll-margin-top:58px}
+  .f2-sec:last-of-type{border-bottom:0}
+  .f2-sec h2{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .f2-sec .f2-secnum{font-size:12px;font-weight:700;color:var(--tinta-tenue);font-variant-numeric:tabular-nums}
+  .f2-sec .f2-secnota{font-size:12px;color:var(--tinta-media);margin:2px 0 12px}
+
+  .f2-outline{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1px}
+  .f2-outline li{
+    font-size:12.5px;color:var(--tinta-media);padding:7px 12px;border-left:2px solid var(--borde);
+    background:var(--panel-alto);border-radius:0 8px 8px 0;
+  }
+
+  .f2-ficha{border:1px solid var(--borde);border-radius:var(--r-tarjeta);overflow:hidden;margin-top:10px}
+  .f2-ficha .fr{display:flex;gap:0;border-top:1px solid var(--borde-tenue)}
+  .f2-ficha .fr:first-child{border-top:0}
+  .f2-ficha .fk{
+    flex:none;width:150px;padding:10px 14px;font-size:10.5px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--tinta-tenue);background:var(--panel-alto);
+  }
+  .f2-ficha .fv{flex:1;min-width:0;padding:10px 14px;font-size:13px}
+  .f2-ficha .fv ul{margin:0;padding-left:18px}
+  .f2-ficha .fv li{margin:2px 0}
+
+  .f2-proc{
+    display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--borde);
+    border-radius:12px;margin-top:8px;text-decoration:none;color:inherit;
+    transition:border-color var(--rapido) var(--curva),transform var(--rapido) var(--curva);
+  }
+  .f2-proc:hover{border-color:var(--tinta-tenue);transform:translateX(2px)}
+  .f2-proc .pc{flex:none;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tinta-tenue);min-width:30px}
+  .f2-proc .pn{flex:1;min-width:0;font-size:13px;font-weight:600}
+  .f2-proc .pa{flex:none;font-size:14px;color:var(--tinta-tenue)}
+
+  /* ── estados de avance ── */
+  .f2-est{
+    display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:var(--r-pildora);
+    font-size:10.5px;font-weight:700;letter-spacing:.03em;border:1px solid transparent;white-space:nowrap;
+  }
+  .f2-est i{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+  .est-pendiente{background:var(--panel-alto);color:var(--tinta-tenue);border-color:var(--borde)}
+  .est-semilla{background:rgba(50,198,244,.12);color:var(--cian);border-color:rgba(50,198,244,.30)}
+  .est-borrador{background:rgba(255,201,74,.13);color:var(--alerta);border-color:rgba(255,201,74,.30)}
+  .est-revision{background:rgba(255,201,74,.13);color:var(--alerta);border-color:rgba(255,201,74,.30)}
+  .est-validado{background:rgba(46,212,122,.13);color:var(--ok);border-color:rgba(46,212,122,.30)}
+
+  .f2-vacio{
+    margin-top:10px;padding:18px 16px;border:1px dashed var(--borde);border-radius:var(--r-tarjeta);
+    font-size:12.5px;color:var(--tinta-tenue);line-height:1.5;
+  }
+
+  /* ── mapa de la portada ── */
+  .f2-bandas{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+  .f2-banda{border:1px solid var(--borde);border-radius:var(--r-panel);padding:14px 16px;background:var(--panel)}
+  .f2-banda .bt{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .f2-banda .bt b{font-size:13px;font-weight:700;text-transform:lowercase}
+  .f2-banda .bt span{font-size:11px;color:var(--tinta-tenue)}
+  .f2-banda .bg{font-size:12px;color:var(--tinta-media);margin-bottom:12px}
+  .f2-mcards{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .f2-mcard{
+    display:block;text-decoration:none;color:inherit;padding:12px 13px;border:1px solid var(--borde);
+    border-radius:14px;background:var(--panel-alto);
+    transition:border-color var(--rapido) var(--curva),transform var(--rapido) var(--curva),box-shadow var(--rapido) var(--curva);
+  }
+  .f2-mcard:hover{border-color:var(--menta);transform:translateY(-2px);box-shadow:var(--sombra)}
+  .f2-mcard .mp{font-size:10px;font-weight:700;color:var(--tinta-tenue);font-variant-numeric:tabular-nums}
+  .f2-mcard .mn{font-size:13px;font-weight:650;line-height:1.25;margin:3px 0 8px}
+  .f2-mcard .mc{font-size:11px;color:var(--tinta-tenue)}
+  .f2-mix{display:flex;height:5px;border-radius:999px;overflow:hidden;margin-top:7px;background:var(--borde-tenue)}
+  .f2-mix > i{display:block;height:100%}
+  .mix-asis{background:var(--tinta-tenue)}
+  .mix-hibrido{background:var(--alerta)}
+  .mix-tobe{background:var(--cian)}
+
+  .f2-aside{border:1px solid var(--borde);border-radius:var(--r-panel);padding:14px 16px;background:var(--panel);margin-top:16px}
+  .f2-aside h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tinta-tenue);margin:0 0 10px}
+  .f2-aside .ax{padding:8px 0;border-top:1px solid var(--borde-tenue);font-size:12px}
+  .f2-aside .ax:first-of-type{border-top:0}
+  .f2-aside .ax b{font-weight:650}
+  .f2-aside .ax span{display:block;color:var(--tinta-media);margin-top:2px}
+
+  .f2-kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:14px 0}
+  .f2-kpi{border:1px solid var(--borde);border-radius:var(--r-tarjeta);padding:13px 15px;background:var(--panel)}
+  .f2-kpi .kr{font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .f2-kpi .kv{font-size:22px;font-weight:700;letter-spacing:-.03em;line-height:1;margin-top:5px}
+  .f2-kpi .kp{font-size:11px;color:var(--tinta-media);margin-top:4px}
+
+  .f2-cober{margin:6px 0 2px}
+  .f2-cober .cl{font-size:11.5px;color:var(--tinta-media);margin-bottom:5px}
+  .f2-cober .barra{height:8px}
+
+  details.f2-acerca{margin-top:22px;border:1px solid var(--borde);border-radius:var(--r-tarjeta);background:var(--panel)}
+  details.f2-acerca summary{padding:12px 16px;font-size:12.5px;font-weight:650;cursor:pointer;list-style:none}
+  details.f2-acerca summary::-webkit-details-marker{display:none}
+  details.f2-acerca[open] summary{border-bottom:1px solid var(--borde-tenue)}
+  details.f2-acerca .ac{padding:14px 16px;font-size:12px;color:var(--tinta-media);line-height:1.6}
+  details.f2-acerca .ac ol{margin:6px 0 0;padding-left:20px}
+  details.f2-acerca .ac li{margin:5px 0}
+
+  /* ── navegación anterior/siguiente ── */
+  .f2-pasos{display:flex;justify-content:space-between;gap:12px;margin:24px 0 10px}
+  .f2-pasos a{
+    flex:1;max-width:48%;text-decoration:none;color:inherit;padding:11px 14px;border:1px solid var(--borde);
+    border-radius:12px;font-size:12px;
+  }
+  .f2-pasos a:hover{border-color:var(--tinta-tenue)}
+  .f2-pasos a.sig{text-align:right}
+  .f2-pasos a .pl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-tenue);display:block;margin-bottom:3px}
+  .f2-pasos a .pt{font-weight:600}
+
+  /* ── pie de confidencialidad ── */
+  .f2-conf{
+    max-width:1060px;margin:8px auto 0;padding:14px 40px 22px;
+    font-size:10.5px;color:var(--tinta-tenue);border-top:1px solid var(--borde-tenue);line-height:1.5;
+  }
+
+  @media (max-width:900px){
+    .f2-abremenu{display:inline-flex}
+    .f2-nav{
+      position:fixed;left:0;top:56px;bottom:0;width:300px;z-index:30;
+      transform:translateX(-100%);transition:transform var(--medio) var(--curva);
+    }
+    body.f2-menu .f2-nav{transform:none;box-shadow:var(--sombra-alta)}
+    .f2-doc{padding:20px 18px 8px}
+    .f2-conf{padding:14px 18px 22px}
+    .f2-riel{position:static}
+  }
+  @media print{
+    .f2-top,.f2-nav,.f2-riel,.f2-pasos{display:none!important}
+    .f2{height:auto;overflow:visible}
+    .f2-main{overflow:visible}
   }
 </style>
 </head>
 <body>
-<div class="layout">
-  <nav class="sidenav">
-    <div class="brand">
+<div class="f2">
+  <header class="f2-top">
+    <button class="f2-icbtn f2-abremenu" id="btnMenu" aria-label="Menú">☰</button>
+    <div class="marca">
       <span class="orbe orbe-grande" aria-hidden="true"></span>
-      <div class="textos">Consultores UCAB · Proyecto Rower<b>informe de procesos · fase 2</b></div>
-    </div>
-    <div class="fasesel" id="faseSel">
-      <button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 2 — Procesos <span>▾</span></button>
-      <div class="menu">
-        <a href="../fase1/informe-diagnostico-fase1.html">Fase 1 — Diagnóstico<small>Informe maestro (13 secciones + anexos)</small></a>
-        <a class="actual" href="informe-fase2.html">Fase 2 — Procesos<small>En construcción — aportes de los consultores</small></a>
+      <div>
+        <div class="nom">manual de procesos</div>
+        <div class="sub">UCAB Consultores · Grupo Kenex · Fase 2</div>
       </div>
     </div>
-    <div class="navlbl">Contenido</div>
-    <a class="navitem" href="#intro" data-sec="intro">Introducción</a>
-    <a class="navitem" href="#mapa" data-sec="mapa">Mapa de procesos</a>
-    <a class="navitem" href="#fichas" data-sec="fichas">Fichas de proceso</a>
-  </nav>
+    <div class="crece"></div>
+    <a class="lnk" href="../fase1/informe-diagnostico-fase1.html">← Fase 1</a>
+    <button class="f2-icbtn" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+  </header>
 
-  <div class="main">
-    <div class="page">
-      <div class="cover">
-        <div class="kicker">UCAB Consultores · Grupo Kenex</div>
-        <h1>Informe de Procesos — Fase 2</h1>
-        <p class="sub">Documentación de procesos y prototipos de IA. Este documento se construye de forma incremental con los aportes de cada consultor a medida que avanza el levantamiento.</p>
-        <span class="estado">En construcción</span>
-      </div>
-
-      <section id="intro">
-        <h2>Introducción</h2>
-        <p>Esta página reúne, a lo largo de la Fase 2 del proyecto, la información que cada consultor va documentando sobre los procesos de Grupo Kenex: procedimientos detallados, hallazgos de campo, oportunidades de automatización y prototipos de IA asociados a cada proceso del <a href="../fase1/mapa-procesos-kenex.html">mapa de procesos</a> levantado en la Fase 1.</p>
-        <div class="nota"><b>Cómo se usa:</b> cada consultor agrega su aporte como una nueva «ficha de proceso» en la sección siguiente, indicando el proceso al que corresponde (código del mapa de procesos), su nombre y la fecha del aporte. No se sobrescribe el trabajo de otro consultor: se agrega una ficha nueva o se amplía la existente citando la fuente.</div>
-      </section>
-
-      <section id="mapa">
-        <h2>Mapa de procesos</h2>
-        <p>Punto de partida de la Fase 2: la cadena de valor de Grupo Kenex tal como quedó levantada en la Fase 1 —procesos estratégicos, operativos, de soporte y frentes externos— con su detalle de procesos (N1) y procedimientos (N2). Cada ficha de la sección siguiente se ancla a una estación de este mapa mediante su código.</p>
-        <div class="nota"><b>Fuente:</b> <a href="../fase1/mapa-procesos-kenex.html">mapa de procesos interactivo</a> de la Fase 1 (22 macroprocesos · 104 procesos · procedimientos en curso de conciliación). En construcción: esta sección incorporará la versión de la Fase 2 con los procedimientos documentados y validados en campo.</div>
-        <div class="vacio">Marcador — aquí irá el mapa de procesos consolidado de la Fase 2.</div>
-      </section>
-
-      <section id="fichas">
-        <h2>Fichas de proceso</h2>
-        <p>Aún no hay fichas cargadas. A medida que el equipo consultor documente procesos, aparecerán aquí como bloques individuales con el siguiente formato:</p>
-        <div class="ficha">
-          <div class="meta">Plantilla · proceso N-M · consultor · fecha</div>
-          <h3>Nombre del proceso</h3>
-          <p><b>Procedimiento actual:</b> descripción paso a paso de cómo se ejecuta hoy.</p>
-          <p><b>Hallazgos:</b> fricciones, riesgos o vacíos identificados en campo.</p>
-          <p><b>Oportunidad de IA / automatización:</b> qué prototipo o mejora se propone y su relación con la <a href="../fase1/arquitectura-ia-kenex.html">arquitectura de IA</a> de la Fase 1.</p>
-        </div>
-        <div class="vacio">La primera ficha real sustituye este marcador — no lo dejes junto a contenido cargado.</div>
-      </section>
+  <div class="f2-body">
+    <nav class="f2-nav" id="nav"></nav>
+    <div class="f2-main" id="main">
+      <div class="f2-doc" id="doc"></div>
+      <footer class="f2-conf" id="conf"></footer>
     </div>
-    <footer>Proyecto Rower · UCAB Consultores para Grupo Kenex · Documento interno del equipo consultor</footer>
   </div>
 </div>
 
+<script src="manual-procesos-datos.js"></script>
 <script>
 (function(){
-  var sel = document.getElementById('faseSel');
-  var btn = document.getElementById('faseBtn');
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    sel.classList.toggle('abierto');
-    btn.setAttribute('aria-expanded', sel.classList.contains('abierto'));
+  "use strict";
+  var D = window.MANUAL_FASE2;
+  var LS_NAV = 'rower.fase2.nav';
+  var $ = function(s,c){return (c||document).querySelector(s);};
+  var main = $('#main'), doc = $('#doc'), nav = $('#nav'), conf = $('#conf');
+
+  // ---------- utilidades ----------
+  function esc(t){var d=document.createElement('div');d.textContent=(t==null?'':String(t));return d.innerHTML;}
+  function el(html){var t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstChild;}
+  function catNombre(id){for(var i=0;i<D.categorias.length;i++)if(D.categorias[i].id===id)return D.categorias[i].n;return id;}
+  function macro(pref){return D.macros.filter(function(m){return m.prefijo===String(pref);})[0];}
+  function procTodos(){var r=[];D.macros.forEach(function(m){m.procesos.forEach(function(p){r.push({m:m,p:p});});});return r;}
+  function proc(cod){return procTodos().filter(function(x){return x.p.codigo===String(cod);})[0];}
+
+  function leerAbiertos(){try{return JSON.parse(localStorage.getItem(LS_NAV))||{};}catch(e){return {};}}
+  function guardarAbiertos(o){try{localStorage.setItem(LS_NAV,JSON.stringify(o));}catch(e){}}
+
+  var LABEL_EST = {pendiente:'Pendiente',semilla:'Ficha del mapa v18',borrador:'Borrador',revision:'En revisión',validado:'Validado'};
+  function chipEstado(est){
+    est = est||'pendiente';
+    return '<span class="f2-est est-'+est+'"><i></i>'+esc(LABEL_EST[est]||est)+'</span>';
+  }
+  function mixMadurez(procesos){
+    var c={'as-is':0,'híbrido':0,'to-be':0};
+    procesos.forEach(function(p){if(c[p.madurez]!=null)c[p.madurez]++;});
+    var tot=procesos.length||1;
+    return '<div class="f2-mix" title="'+c['as-is']+' vigentes · '+c['híbrido']+' en transición · '+c['to-be']+' nuevos">'+
+      '<i class="mix-asis" style="width:'+(100*c['as-is']/tot)+'%"></i>'+
+      '<i class="mix-hibrido" style="width:'+(100*c['híbrido']/tot)+'%"></i>'+
+      '<i class="mix-tobe" style="width:'+(100*c['to-be']/tot)+'%"></i></div>';
+  }
+
+  // ---------- sidenav ----------
+  var CHEV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5 15.5 12 9 18.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function pintarNav(){
+    var abiertos = leerAbiertos();
+    var h = '<input class="f2-buscar" id="buscar" type="search" placeholder="Buscar macroproceso o proceso…" autocomplete="off">';
+    h += '<a class="f2-navhome" href="#/">Inicio · mapa de procesos</a>';
+    D.categorias.forEach(function(cat){
+      var ms = D.macros.filter(function(m){return m.cat===cat.id;});
+      if(!ms.length) return;
+      h += '<div class="f2-cat-tit">'+esc(cat.n)+'</div>';
+      ms.forEach(function(m){
+        var ab = abiertos[m.prefijo]===true;
+        h += '<div class="f2-mrow" data-pref="'+esc(m.prefijo)+'">'+
+               '<a class="f2-mlink" href="#/m/'+esc(m.prefijo)+'"><span class="f2-mpref">'+esc(m.prefijo)+'</span>'+esc(m.n)+'</a>'+
+               '<button class="f2-mchev" data-toggle="'+esc(m.prefijo)+'" aria-expanded="'+ab+'" aria-label="Ver procesos de '+esc(m.n)+'">'+CHEV+'</button>'+
+             '</div>';
+        h += '<div class="f2-msub" id="sub-'+esc(m.prefijo)+'"'+(ab?'':' hidden')+'>';
+        m.procesos.forEach(function(p){
+          h += '<a href="#/p/'+esc(p.codigo)+'" data-cod="'+esc(p.codigo)+'"><span class="f2-pcod">'+esc(p.codigo)+'</span>'+esc(p.n)+'</a>';
+        });
+        h += '</div>';
+      });
+    });
+    h += '<div class="f2-nada" id="navNada" hidden>Sin coincidencias.</div>';
+    nav.innerHTML = h;
+
+    nav.querySelectorAll('.f2-mchev').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        var pref=b.getAttribute('data-toggle'), sub=$('#sub-'+CSS.escape(pref));
+        var abrir = b.getAttribute('aria-expanded')!=='true';
+        b.setAttribute('aria-expanded', abrir);
+        sub.hidden = !abrir;
+        var o=leerAbiertos(); o[pref]=abrir; guardarAbiertos(o);
+      });
+    });
+    $('#buscar').addEventListener('input', filtrarNav);
+  }
+
+  function filtrarNav(e){
+    var q = (e.target.value||'').trim().toLowerCase();
+    var algo = false;
+    nav.querySelectorAll('.f2-cat-tit').forEach(function(t){t.style.display='';});
+    D.macros.forEach(function(m){
+      var row = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(m.prefijo)+'"]');
+      var sub = $('#sub-'+CSS.escape(m.prefijo));
+      var chev = row.querySelector('.f2-mchev');
+      if(!q){
+        row.style.display=''; sub.style.display='';
+        var ab = leerAbiertos()[m.prefijo]===true;
+        sub.hidden = !ab; chev.setAttribute('aria-expanded', ab);
+        sub.querySelectorAll('a').forEach(function(a){a.style.display='';});
+        algo=true; return;
+      }
+      var mMatch = m.n.toLowerCase().indexOf(q)>=0 || m.prefijo===q;
+      var hits = 0;
+      sub.querySelectorAll('a').forEach(function(a){
+        var ok = mMatch || a.textContent.toLowerCase().indexOf(q)>=0;
+        a.style.display = ok?'':'none';
+        if(ok) hits++;
+      });
+      var vis = mMatch || hits>0;
+      row.style.display = vis?'':'none';
+      sub.style.display = vis?'':'none';
+      sub.hidden = !vis; chev.setAttribute('aria-expanded', vis);
+      if(vis) algo=true;
+    });
+    // oculta títulos de categoría sin macros visibles
+    D.categorias.forEach(function(cat){
+      var tit = [].slice.call(nav.querySelectorAll('.f2-cat-tit')).filter(function(t){return t.textContent===cat.n;})[0];
+      if(!tit) return;
+      var any = D.macros.filter(function(m){return m.cat===cat.id;}).some(function(m){
+        var r = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(m.prefijo)+'"]');
+        return r && r.style.display!=='none';
+      });
+      tit.style.display = any?'':'none';
+    });
+    $('#navNada').hidden = algo;
+  }
+
+  function marcarNav(tipo, id){
+    nav.querySelectorAll('.f2-mrow.on').forEach(function(n){n.classList.remove('on');});
+    nav.querySelectorAll('.f2-msub a.on').forEach(function(n){n.classList.remove('on');});
+    $('.f2-navhome').classList.toggle('on', tipo==='inicio');
+    if(tipo==='macro'){
+      var r = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(id)+'"]');
+      if(r) r.classList.add('on');
+    }
+    if(tipo==='proceso'){
+      var x = proc(id); if(!x) return;
+      var r = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(x.m.prefijo)+'"]');
+      if(r) r.classList.add('on');
+      var sub = $('#sub-'+CSS.escape(x.m.prefijo));
+      var a = sub && sub.querySelector('a[data-cod="'+CSS.escape(id)+'"]');
+      if(a){ a.classList.add('on'); }
+      // abre el macro si el usuario no ha decidido lo contrario
+      var o = leerAbiertos();
+      if(o[x.m.prefijo]===undefined && sub){
+        sub.hidden=false;
+        var chev = r && r.querySelector('.f2-mchev'); if(chev) chev.setAttribute('aria-expanded', true);
+      }
+    }
+  }
+
+  // ---------- scroll-spy sobre el riel de secciones ----------
+  var spy = null;
+  function activarSpy(){
+    if(spy) spy.disconnect();
+    var secs = [].slice.call(doc.querySelectorAll('.f2-sec'));
+    if(!secs.length) return;
+    spy = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var id = en.target.id;
+        doc.querySelectorAll('.f2-riel a').forEach(function(a){
+          a.classList.toggle('on', a.getAttribute('href')==='#'+id);
+        });
+      });
+    }, {rootMargin:'-56px 0px -60% 0px', threshold:0});
+    secs.forEach(function(s){spy.observe(s);});
+  }
+
+  function riel(secciones, base){
+    return '<div class="f2-riel">'+secciones.map(function(s){
+      return '<a href="#sec-'+esc(s.id)+'">'+esc(s.n)+'</a>';
+    }).join('')+'</div>';
+  }
+
+  // ---------- vista: inicio ----------
+  function vistaInicio(){
+    var t = D.meta.totales;
+    var h = '<div class="f2-kicker">UCAB Consultores · Grupo Kenex</div>';
+    h += '<h1 class="f2-h1">manual de procesos — fase 2</h1>';
+    h += '<p class="f2-lead">Sitio navegable de los manuales de proceso de Grupo Kenex. Se construye de forma incremental: el árbol y la ficha de cada proceso vienen del <b>Mapa de Procesos Actualizado '+esc(D.meta.version)+'</b> (validado por el equipo); el contenido de cada sección se completa cruzando las entrevistas, la documentación de Lark y buenas prácticas.</p>';
+    h += '<span class="marca-estado e-alerta">En construcción</span>';
+
+    // KPIs
+    h += '<div class="f2-kpis">';
+    h += kpi(t.macroprocesos, 'Macroprocesos', '3 categorías');
+    h += kpi(t.procesos, 'Procesos', 'sin bajar a procedimientos');
+    D.categorias.forEach(function(c){
+      var x = t.categoria[c.id]; if(x) h += kpi(x.p, c.n, x.m+' macroprocesos');
+    });
+    h += '</div>';
+
+    // cobertura
+    var tot = 0, val = 0;
+    var procList = 0, macroList = 0;
+    D.macros.forEach(function(m){
+      var mOk = true;
+      Object.keys(m.n0).forEach(function(k){tot++; if(est(m.n0[k])==='validado')val++; else mOk=false;});
+      if(mOk) macroList++;
+      m.procesos.forEach(function(p){
+        var pOk = true;
+        Object.keys(p.n1).forEach(function(k){tot++; if(est(p.n1[k])==='validado')val++; else pOk=false;});
+        if(pOk) procList++;
+      });
+    });
+    h += '<div class="f2-cober">';
+    h += '<div class="cl">Avance — <b>'+procList+'</b>/'+t.procesos+' manuales de proceso completos · <b>'+macroList+'</b>/'+t.macroprocesos+' macroprocesos completos</div>';
+    h += '<div class="barra'+(val?'':' parcial')+'"><span style="width:'+Math.max(1.2,100*val/tot).toFixed(1)+'%"></span></div>';
+    h += '</div>';
+
+    // mapa por bandas
+    h += '<h2 style="font-size:15px;margin:24px 0 4px;text-transform:lowercase">cadena de valor</h2>';
+    h += '<div class="f2-bandas">';
+    D.categorias.forEach(function(cat){
+      var ms = D.macros.filter(function(m){return m.cat===cat.id;});
+      if(!ms.length) return;
+      var x = t.categoria[cat.id];
+      h += '<div class="f2-banda"><div class="bt"><b>'+esc(cat.n)+'</b><span>'+x.m+' macroprocesos · '+x.p+' procesos</span></div>';
+      h += '<div class="bg">'+esc(cat.g)+'</div>';
+      h += '<div class="f2-mcards">';
+      ms.forEach(function(m){
+        h += '<a class="f2-mcard" href="#/m/'+esc(m.prefijo)+'">'+
+               '<div class="mp">'+esc(m.prefijo)+'</div>'+
+               '<div class="mn">'+esc(m.n)+'</div>'+
+               '<div class="mc">'+m.procesos.length+' procesos</div>'+
+               mixMadurez(m.procesos)+
+             '</a>';
+      });
+      h += '</div></div>';
+    });
+    h += '</div>';
+
+    // actores externos
+    h += '<div class="f2-aside"><h3>Actores externos — referencia</h3>';
+    D.actoresExternos.forEach(function(a){
+      h += '<div class="ax"><b>'+esc(a.n)+'</b><span>'+esc(a.r)+'</span></div>';
+    });
+    h += '</div>';
+
+    // leyenda de madurez
+    h += '<p style="font-size:11px;color:var(--tinta-tenue);margin-top:14px">'+
+         '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--tinta-tenue);vertical-align:middle;margin-right:4px"></span>vigente&nbsp;&nbsp;'+
+         '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--alerta);vertical-align:middle;margin-right:4px"></span>en transición&nbsp;&nbsp;'+
+         '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--cian);vertical-align:middle;margin-right:4px"></span>nuevo por implementar</p>';
+
+    // acerca de / confidencialidad
+    h += '<details class="f2-acerca"><summary>Acerca de este manual · aviso de confidencialidad</summary>'+
+         '<div class="ac"><ol>'+
+         '<li>Documento de uso interno y restringido de Grupo Kenex.</li>'+
+         '<li>El contenido es propiedad de Grupo Kenex y fue elaborado por el equipo consultor UCAB en el marco del Proyecto Rower.</li>'+
+         '<li>Su circulación se limita a las personas autorizadas por la dirección del grupo; no debe reproducirse ni divulgarse fuera de la organización sin autorización escrita.</li>'+
+         '<li>Describe procesos, controles, sistemas y estructura organizativa — información sensible en lo competitivo y en el control interno.</li>'+
+         '<li>Es un documento vivo, sujeto a versionamiento. Verifique que trabaja con la versión vigente.</li>'+
+         '</ol><p style="margin-top:10px">Control del documento — Clasificación: uso interno · Elaborado por: equipo consultor UCAB · Revisado por: <i>pendiente</i> · Aprobado por: <i>pendiente</i> · Versión del mapa base: '+esc(D.meta.version)+' · Generado: '+esc(D.meta.generado)+'.</p></div></details>';
+
+    doc.innerHTML = h;
+    marcarNav('inicio');
+    document.title = 'Manual de Procesos — Fase 2 | Proyecto Rower';
+    if(spy) spy.disconnect();
+    main.scrollTop = 0;
+  }
+  function kpi(v,r,p){return '<div class="f2-kpi"><div class="kr">'+esc(r)+'</div><div class="kv">'+esc(v)+'</div><div class="kp">'+esc(p)+'</div></div>';}
+  function est(o){return (o&&o.estado)||'pendiente';}
+
+  // ---------- vista: macroproceso ----------
+  function vistaMacro(pref, secId){
+    var m = macro(pref);
+    if(!m) return vistaInicio();
+    var h = '<div class="f2-migas"><a href="#/">Manual</a><span class="sep">›</span><span>'+esc(catNombre(m.cat))+'</span><span class="sep">›</span><span>'+esc(m.n)+'</span></div>';
+    h += '<div class="f2-cab"><span class="f2-num">'+esc(m.prefijo)+'</span><div><h1 class="f2-h1" style="margin-bottom:4px">'+esc(m.n)+'</h1>'+
+         '<div class="f2-meta"><span class="chip" style="cursor:default">'+esc(catNombre(m.cat))+'</span>'+
+         '<span class="chip" style="cursor:default">'+m.procesos.length+' procesos</span></div></div></div>';
+    h += '<div style="max-width:280px;margin:4px 0 6px">'+mixMadurez(m.procesos)+'</div>';
+
+    h += riel(D.seccionesN0);
+
+    D.seccionesN0.forEach(function(s, i){
+      h += '<section class="f2-sec" id="sec-'+esc(s.id)+'">';
+      h += '<h2><span class="f2-secnum">'+(i+1)+'</span>'+esc(s.n)+'</h2>';
+      if(s.indice){
+        h += '<div class="f2-secnota">Los procesos que componen este macroproceso. Cada uno tiene su propia ficha y flujo de actividades.</div>';
+        m.procesos.forEach(function(p){
+          h += '<a class="f2-proc" href="#/p/'+esc(p.codigo)+'"><span class="pc">'+esc(p.codigo)+'</span><span class="pn">'+esc(p.n)+'</span><span class="pa">→</span></a>';
+        });
+      } else {
+        h += '<div style="margin:6px 0">'+chipEstado(est(m.n0[s.id]))+'</div>';
+        if(s.sub && s.sub.length){
+          h += '<ul class="f2-outline">'+s.sub.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
+        }
+        h += '<div class="f2-vacio">Contenido pendiente. Se completará con el procesamiento de las entrevistas, la documentación de Lark y buenas prácticas del sector.</div>';
+      }
+      h += '</section>';
+    });
+
+    // anterior/siguiente macro
+    var idx = D.macros.indexOf(m);
+    h += '<div class="f2-pasos">';
+    if(idx>0) h += paso('ant','Macroproceso anterior', D.macros[idx-1].n, '#/m/'+D.macros[idx-1].prefijo);
+    if(idx<D.macros.length-1) h += paso('sig','Macroproceso siguiente', D.macros[idx+1].n, '#/m/'+D.macros[idx+1].prefijo);
+    h += '</div>';
+
+    doc.innerHTML = h;
+    marcarNav('macro', m.prefijo);
+    document.title = m.prefijo+'. '+m.n+' — Fase 2';
+    activarSpy();
+    irASeccion(secId);
+  }
+
+  // ---------- vista: proceso ----------
+  function vistaProceso(cod, secId){
+    var x = proc(cod);
+    if(!x) return vistaInicio();
+    var m = x.m, p = x.p, fx = p.mapa;
+    var h = '<div class="f2-migas"><a href="#/">Manual</a><span class="sep">›</span><a href="#/m/'+esc(m.prefijo)+'">'+esc(m.n)+'</a><span class="sep">›</span><span>'+esc(p.n)+'</span></div>';
+    h += '<div class="f2-cab"><span class="f2-num">'+esc(p.codigo)+'</span><div><h1 class="f2-h1" style="margin-bottom:4px">'+esc(p.n)+'</h1>'+
+         '<div class="f2-meta"><a class="chip" href="#/m/'+esc(m.prefijo)+'">'+esc(m.prefijo)+'. '+esc(m.n)+'</a></div></div></div>';
+
+    h += riel(D.seccionesN1);
+
+    D.seccionesN1.forEach(function(s, i){
+      h += '<section class="f2-sec" id="sec-'+esc(s.id)+'">';
+      h += '<h2><span class="f2-secnum">'+esc(p.codigo)+'.'+(i+1)+'</span>'+esc(s.n)+'</h2>';
+      if(s.nota) h += '<div class="f2-secnota">'+esc(s.nota)+'</div>';
+      h += '<div style="margin:6px 0">'+chipEstado(est(p.n1[s.id]))+'</div>';
+
+      if(s.id==='proposito' && fx.alcance){
+        h += fichaHtml([['Alcance (mapa v18)', esc(fx.alcance)]]);
+      } else if(s.id==='dueno' && (fx.dueno || (fx.participantes&&fx.participantes.length))){
+        var rows = [['Dueño del proceso', esc(fx.dueno||'—')]];
+        if(fx.participantes && fx.participantes.length){
+          rows.push(['Participantes', '<ul>'+fx.participantes.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
+        }
+        h += fichaHtml(rows);
+        h += '<div class="f2-vacio">Cargos por normalizar a la denominación de la Estructura Patrón Propuesta V4 al desarrollar el contenido.</div>';
+      } else if(s.id==='disparador' && (fx.disparador||fx.cadencia||fx.output)){
+        h += fichaHtml([
+          ['Disparador', esc(fx.disparador||'—')],
+          ['Cadencia', esc(fx.cadencia||'—')],
+          ['Output', esc(fx.output||'—')]
+        ]);
+      } else if(s.id==='flujo'){
+        h += '<div class="f2-vacio">Pendiente: descripción numerada de las actividades del proceso (con el actor responsable de cada paso) y el <b>flujograma BPMN</b> derivado de esa misma secuencia.</div>';
+      } else if(s.id==='riesgos'){
+        h += '<div class="f2-vacio">Pendiente: matriz de riesgos del proceso (riesgo · descripción · probabilidad · impacto · mitigación).</div>';
+      } else if(s.id==='indicadores'){
+        h += '<div class="f2-vacio">Pendiente: indicadores propuestos (indicador · fórmula · frecuencia · dueño · meta sugerida).</div>';
+      } else {
+        h += '<div class="f2-vacio">Contenido pendiente.</div>';
+      }
+      h += '</section>';
+    });
+
+    if(fx.fuentes){
+      h += '<p style="font-size:10.5px;color:var(--tinta-tenue);margin-top:16px"><b>Fuentes del mapa (uso interno del equipo):</b> '+esc(fx.fuentes)+'</p>';
+    }
+
+    // anterior/siguiente proceso (global, en orden de documento)
+    var todos = procTodos();
+    var pi = -1;
+    for(var k=0;k<todos.length;k++){ if(todos[k].p.codigo===p.codigo){pi=k;break;} }
+    h += '<div class="f2-pasos">';
+    if(pi>0) h += paso('ant','Proceso anterior', todos[pi-1].p.n, '#/p/'+todos[pi-1].p.codigo);
+    if(pi>=0 && pi<todos.length-1) h += paso('sig','Proceso siguiente', todos[pi+1].p.n, '#/p/'+todos[pi+1].p.codigo);
+    h += '</div>';
+
+    doc.innerHTML = h;
+    marcarNav('proceso', p.codigo);
+    document.title = p.codigo+' '+p.n+' — Fase 2';
+    activarSpy();
+    irASeccion(secId);
+  }
+
+  function fichaHtml(rows){
+    return '<div class="f2-ficha">'+rows.map(function(r){
+      return '<div class="fr"><div class="fk">'+r[0]+'</div><div class="fv">'+r[1]+'</div></div>';
+    }).join('')+'</div>';
+  }
+  function paso(dir, lbl, tit, href){
+    return '<a class="'+(dir==='sig'?'sig':'')+'" href="'+href+'"><span class="pl">'+esc(lbl)+'</span><span class="pt">'+esc(tit)+'</span></a>';
+  }
+  function irASeccion(secId){
+    if(!secId){ main.scrollTop = 0; return; }
+    var t = doc.querySelector('#sec-'+CSS.escape(secId));
+    if(t){ requestAnimationFrame(function(){ t.scrollIntoView({block:'start'}); }); }
+    else { main.scrollTop = 0; }
+  }
+
+  // ---------- pie de confidencialidad ----------
+  conf.textContent = 'Documento de uso interno y restringido · Grupo Kenex · Proyecto Rower — UCAB Consultores. Elaborado por el equipo consultor. No distribuir fuera de la organización.';
+
+  // ---------- enrutador ----------
+  function router(){
+    var raw = location.hash.replace(/^#\/?/, '');
+    var parts = raw.split('/').filter(Boolean).map(decodeURIComponent);
+    document.body.classList.remove('f2-menu');
+    if(!parts.length) return vistaInicio();
+    if(parts[0]==='m') return vistaMacro(parts[1], parts[2]);
+    if(parts[0]==='p') return vistaProceso(parts[1], parts[2]);
+    vistaInicio();
+  }
+
+  // riel: clic en sub-sección sin recargar la vista
+  doc.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('.f2-riel a');
+    if(!a) return;
+    e.preventDefault();
+    var id = a.getAttribute('href').slice(1);
+    var t = doc.querySelector('#'+CSS.escape(id));
+    if(t) t.scrollIntoView({block:'start'});
   });
-  var actual = sel.querySelector('.menu a.actual');
-  if(actual) actual.addEventListener('click', function(e){ e.preventDefault(); sel.classList.remove('abierto'); });
-  document.addEventListener('click', function(){ sel.classList.remove('abierto'); });
+
+  // ---------- tema ----------
+  $('#btnTema').addEventListener('click', function(){
+    var osc = document.documentElement.getAttribute('data-tema')==='oscuro';
+    document.documentElement.setAttribute('data-tema', osc?'claro':'oscuro');
+    try{ localStorage.setItem('rower.tema', osc?'claro':'oscuro'); }catch(e){}
+  });
+  $('#btnMenu').addEventListener('click', function(){ document.body.classList.toggle('f2-menu'); });
+
+  // ---------- arranque ----------
+  pintarNav();
+  window.addEventListener('hashchange', router);
+  router();
 })();
 </script>
 </body>
