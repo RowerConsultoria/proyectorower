@@ -881,7 +881,8 @@
       if(c.politicas) h += subtit('Políticas aplicables')+numLista(c.politicas);
       if(c.normativo) h += subtit('Marco normativo')+numLista(c.normativo);
     } else if(id==='agenda'){
-      if(c.por_implementar) h += subtit('Procesos por implementar')+tabla(['Proceso','Qué falta','Roadmap sugerido'], c.por_implementar);
+      if(c.nota) h += prosa(c.nota);
+      if(c.por_implementar && c.por_implementar.length) h += subtit('Procesos por implementar')+tabla(['Proceso','Qué falta','Roadmap sugerido'], c.por_implementar);
       if(c.por_formalizar) h += subtit('Procesos por formalizar o consolidar')+tabla(['Proceso','Brecha','Roadmap sugerido'], c.por_formalizar);
       if(c.brechas) h += subtit('Brechas en procesos vigentes')+tabla(['Proceso','Brecha','Roadmap sugerido'], c.brechas);
     } else if(id==='anexos'){
