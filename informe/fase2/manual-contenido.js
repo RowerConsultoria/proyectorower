@@ -14,6 +14,20 @@
 // Mayor y Ventas Web respectivamente — no se usaron aquí como fuente primaria;
 // vale la pena revisar esa agrupación de carpeta con el equipo.
 //
+// Macro 6 (Compras y Abastecimiento) — COMPLETO: los 9 procesos + Contexto,
+// Gobernanza, Marco de referencia, Agenda de mejora y Anexos. A diferencia de
+// Ventas Retail, aquí SÍ hay procesos «to-be» (6.2, 6.8, 6.9) — el propio
+// mapa v18 los rotula con fuente «Best practices CIPS/APQC PCF», porque hoy
+// no operan en la organización.
+//
+// Fuentes cruzadas: entrevistas E-10 Vera Gavizón, E-08 Roberto Roizental,
+// E-40 Jimena, E-59 Hugo/Itai (Costa Rica/Importbel) — Insumos/Entrevistas_
+// dialogo_limpio_agrupadas/Compras — + marcos CIPS/APQC PCF citados por el
+// propio mapa v18 para los procesos to-be. ⚠️ 6.7 (Gestión de reposición a
+// punto de venta) documenta el lado analítico de Compras del mismo ciclo que
+// 9.3 de Ventas Retail documenta desde el lado comercial — se cruzan a
+// propósito en vez de duplicarse.
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
@@ -1202,6 +1216,664 @@ window.MANUAL_CONTENIDO = {
       ["Tiempo de resolución de incidencia urgente", "Fecha de resolución − fecha de reporte", "Por caso", "Supervisor de Ventas", "Mismo día"],
       ["Cuotas y permisos del centro comercial al día", "Cuotas/permisos vigentes ÷ total exigido", "Mensual", "Contabilidad", "100%"],
       ["Incidencias de infraestructura por tienda", "Incidencias reportadas por tienda en el período", "Mensual", "Supervisor de Ventas", "Referencia de gestión"]
+     ]
+    }
+   }
+
+  }
+ },
+
+ "6": {
+  "n0": {
+
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual reúne cómo se opera hoy —y cómo debería operarse de forma homologada— el abastecimiento de mercancía de Grupo Kenex: desde la planificación de demanda hasta la compra internacional a Casio y a las fábricas de Cubitt, la compra local de urgencia, la reposición entre el hub regional y cada país, y la reposición al punto de venta. Sirve como referencia única para que quien asuma el rol de compras en un país nuevo, o quien entre a suplir a quien hoy decide la compra de cada marca, pueda operar bajo el mismo criterio, sin depender de que \"alguien lo sepa de memoria\".",
+    "alcance": "Desde la consolidación de demanda (S&OP) hasta la orden de compra confirmada, su seguimiento hasta el arribo al hub regional de Kenex Panamá, y la reposición desde ese hub hacia cada país y hacia el punto de venta. No incluye la nacionalización aduanera ni el despacho físico desde el hub (macro 7, Logística y Operaciones), aunque este manual documenta hasta el punto en que Compras entrega el pedido aprobado a Logística. Tampoco incluye el pronóstico de venta por tienda que usa como insumo (macro 2, Planeación Comercial) ni el ajuste comercial y la recepción en el punto de venta (macro 9, Ventas Retail, proceso 9.3), con el que este manual se cruza a propósito en el proceso 6.7.",
+    "audiencia": [
+     "Gerente Regional Comercial / Retail",
+     "Gerente Regional de Marketing",
+     "Coordinador(a) de Logística y Bodega",
+     "Analista/Ejecutivo(a) Comercial (KAM Casio, Mayor)",
+     "Asistente Administrativo(a) / Servicios Generales (por país)",
+     "Planificador Financiero",
+     "Gerencia de Contabilidad / Administración",
+     "Junta / Comité Directivo (seguimiento de allocation y forecast de compra)"
+    ]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Compras y Abastecimiento es la bisagra entre la demanda que consolidan Planeación Comercial y los canales de venta, y la oferta que llega de las dos marcas del grupo: Casio, representada bajo cuota territorial exclusiva de la casa matriz japonesa, y Cubitt, marca propia fabricada en China. No existe hoy un departamento de compras formalmente estructurado: la compra internacional de cada marca la decide una sola persona con apoyo de un comité informal, sin backup documentado. Toda la mercancía —de ambas marcas y de todos los países— converge primero en la bodega central de Zona Libre de Colón, Panamá (5.000 m²), antes de redistribuirse a cada país; desde ahí también opera el pequeño almacén de Obarrio para el detal panameño, y aparte el almacén de Rower en Venezuela. La planificación de demanda se apoya en una reunión mensual de S&OP que cruza inventario, sell-in y sell-out por SKU/país/canal, y en un módulo de sugerido en Power BI que la gerencia comercial ajusta con criterio experto antes de confirmar la compra.",
+    "duenos": [
+     ["Estratégico / marca", "Gerente Regional Comercial / Retail (Casio) · Gerente Regional de Marketing (Cubitt, con comité colegiado)", "Decide qué y cuánto comprar de cada marca; sin backup formal documentado hoy."],
+     ["Operativo regional", "Coordinador(a) de Logística y Bodega", "Dueño operativo de la planificación (S&OP), la reposición inter-compañía y a punto de venta, y del ciclo de vida del proveedor."],
+     ["País", "Asistente Administrativo(a) / Servicios Generales (por país)", "Ejecuta la compra local de urgencia y la registra en el ERP de su país."]
+    ],
+    "entidades": [
+     ["Distribuidora Rower C.A.", "Venezuela", "Operación propia", "Recibe reposición inter-compañía desde el hub de Panamá; también ejecuta compra local de urgencia (p. ej. proveedor Mundo)."],
+     ["Kenex Panamá (hub regional)", "Panamá / Zona Libre de Colón", "Operación propia", "Bodega central de 5.000 m² que recibe TODA la mercancía Casio y Cubitt de la región antes de redistribuir; también almacén de Obarrio para el detal panameño."],
+     ["Importbel, S.A.", "Costa Rica", "Sociedad (socio)", "Compra local de urgencia bajo la misma dinámica de allocation que el resto de los países."],
+     ["Casio (casa matriz)", "Japón", "Marca representada", "Fija la cuota o allocation mensual por país; en meses recientes ha confirmado solo una fracción de lo solicitado."],
+     ["Fábricas de Cubitt", "China", "Marca propia — sourcing", "Producción bajo pedido, coordinada en sitio por un enlace de sourcing; decisión aérea o marítima según urgencia."]
+    ],
+    "sistemas": [
+     ["Odoo (ERP)", "Registro de compras locales por país; base para el sugerido de reposición", "Compra local, reposición inter-compañía, reposición a punto de venta"],
+     ["Módulo de sugerido (Power BI)", "Modelo de sugerido de compra/reposición por SKU, con apoyo analítico de datos", "Planificación de demanda, compra Casio, reposición"],
+     ["\"Archivo de compras\" (Excel)", "Reconciliación manual mensual entre lo pedido, lo confirmado por Casio y la venta real por país — descrito por el propio equipo como \"un rompecabezas de 5.000 piezas todos los meses\"", "Compra internacional Casio (PCI)"],
+     ["Lark (tablero de producción/tránsito Cubitt)", "Seguimiento de órdenes Cubitt en producción y tránsito; muy reciente, en construcción", "Compra internacional Cubitt"],
+     ["Lark (self-report)", "Registro de la planificación de reposición y lanzamientos por país", "Planificación de demanda, reposición"]
+    ],
+    "interfaces": [
+     ["Planeación Comercial", "Entrada", "Forecast de venta y plan de negocio anual por país/marca que alimenta el sugerido de compra."],
+     ["R&D y Desarrollo de Producto (Cubitt)", "Entrada", "Calendario de lanzamientos que dispara la compra internacional de nuevos SKU."],
+     ["Logística y Operaciones", "Salida", "Pedido aprobado para nacionalización, recepción en el hub y despacho a cada país."],
+     ["Ventas Retail / Ventas Mayor", "Coordinación", "Venta real (sell-out) y necesidad de reposición del punto de venta y del mayorista."],
+     ["Administración y Finanzas / Contabilidad", "Coordinación", "Restricción presupuestaria de la compra; pago a proveedores y anticipos."],
+     ["Gestión de Datos e Inteligencia de Negocio", "Coordinación", "Reportes que alimentan el sugerido de compra y reposición."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Gerente Regional Comercial / Retail", "Regional — marca Casio", "Decide la compra internacional de Casio; participa en S&OP, en la aprobación de allocation y en el comité informal de Cubitt.", "Ajustes de cantidad dentro de la cuota confirmada; decisiones de allocation entre países.", "Sin backup documentado hoy — una ausencia detiene la decisión de compra Casio."],
+     ["Gerente Regional de Marketing", "Regional — marca Cubitt", "Encabeza el comité informal de Cubitt; decide sourcing, muestras y modo de envío junto con el comité.", "Decisiones de producto y lanzamiento dentro del presupuesto aprobado.", "Compras que exceden el presupuesto de lanzamiento escalan a la Junta."],
+     ["Coordinador(a) de Logística y Bodega", "Regional — operación", "Dueño operativo de la planificación de demanda, la reposición inter-compañía y a punto de venta, y de la homologación de proveedores.", "Ajuste del sugerido de reposición dentro del criterio experto ya validado.", "Cantidades finales de reposición inter-compañía escalan al Gerente Regional Comercial / Retail."],
+     ["Asistente Administrativo(a) / Servicios Generales (país)", "País", "Ejecuta la compra local de urgencia y la registra en el ERP.", "Compras puntuales de bajo monto, dentro del criterio local.", "Compras que exceden el criterio local escalan al Country Manager."],
+     ["Comité informal de compras Cubitt", "Regional — colegiado", "Revisa la necesidad, decide con la fábrica china y confirma el modo de envío.", "Decisión colegiada dentro del ciclo de lanzamiento.", "Sin backup formal si dos de sus integrantes no están disponibles a la vez."]
+    ],
+    "comites": [
+     ["Reunión mensual de S&OP", "Consolidar inventario, sell-in, sell-out y forecast para producir el plan de suministro del mes.", "Mensual", "Coordinador(a) de Logística y Bodega · Gerente Regional Comercial / Retail · Gerente Regional de Marketing · Planificador Financiero · Analista de Sistemas / Datos", "Plan de suministro por SKU/país/canal", "Inventario, sell-in/sell-out, forecast, sugerido de Power BI", "Plan de suministro aprobado y propuesta de reposición"],
+     ["Comité informal de compras Cubitt", "Decidir la compra internacional de la marca propia, sin estructura ni acta formal.", "Por evento (lanzamiento o necesidad)", "Gerente Regional de Marketing · Gerente Regional Comercial / Retail · Director(a) Ventas Regional Cubitt", "Decisión de compra, sourcing y modo de envío", "Necesidad detectada, disponibilidad de la fábrica, sell-in/sell-out", "Orden de compra Cubitt confirmada"],
+     ["Comité de finanzas", "Revisar el flujo de caja y las compras pendientes de aprobación financiera.", "Quincenal", "Contabilidad · Junta · asesores externos", "Aprobación de pagos y anticipos a proveedores", "Estado de cuentas por pagar, compras en curso", "Pagos autorizados y prioridades de caja"]
+    ]
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "Un solo hub regional: toda la mercancía —de ambas marcas y de todos los países— converge primero en el hub de Kenex Panamá antes de redistribuirse, para concentrar el control de inventario en un solo punto.",
+     "Criterio experto sobre el sugerido del modelo: el sugerido de Power BI es un punto de partida, no una decisión; la gerencia comercial lo ajusta con el conocimiento del negocio antes de confirmar.",
+     "Exclusividad territorial de Casio: la cuota que confirma la casa matriz por país es la restricción dura del ciclo de compra, no una referencia.",
+     "Compra local de urgencia como excepción, no como regla: el país solo compra localmente lo que el hub regional no puede cubrir a tiempo."
+    ],
+    "politicas": [
+     "Reporte mensual de PCI (Plan de Compra Internacional): reconciliación manual de lo pedido, lo confirmado por Casio y la venta real por país, hoy hecha en un archivo de compras propio.",
+     "Ajuste manual del sugerido de compra y reposición: el modelo de Power BI genera un punto de partida; la gerencia comercial lo ajusta con criterio experto antes de confirmar cualquier compra.",
+     "Clasificación Pareto A/B/C para la reposición a tienda: la reposición semanal prioriza los SKU por velocidad de venta, no por un criterio único de cantidad.",
+     "Bandera amarilla de cobertura crítica: un SKU con menos de dos semanas de cobertura en tienda se marca como alerta y se revisa antes del quiebre.",
+     "Decisión colegiada para la compra internacional de Cubitt: el comité informal de compras revisa la necesidad y decide en conjunto, en vez de que una sola persona decida por la marca propia.",
+     "Aprobación de cantidades finales de reposición inter-compañía por la gerencia comercial: la cantidad final que sale del hub hacia cada país queda sujeta a una aprobación superior a la propuesta del planificador.",
+     "Compra local como excepción, no como regla: el país solo compra localmente lo que el hub regional no puede cubrir a tiempo, y la aprueba el Country Manager."
+    ],
+    "normativo": [
+     "Exclusividad territorial de Casio por país, definida por la casa matriz japonesa — no es una norma propia de Kenex, pero condiciona toda la compra de esa marca.",
+     "Regulación aduanera y de importación de cada país (Venezuela, Panamá, Colombia, Costa Rica) sobre la mercancía que transita por el hub de Panamá y se redistribuye."
+    ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "A diferencia de Ventas Retail, en Compras y Abastecimiento sí hay procesos clasificados como «to-be» en el mapa v18: 6.2 (Gestión del ciclo de vida del proveedor), 6.8 (Gobierno, política y control de compras) y 6.9 (Devoluciones y no conformidades a proveedor) no operan hoy como tales en la organización — su fuente es buena práctica de referencia (CIPS/APQC PCF), no evidencia de campo. El resto es 1 híbrido (6.1) y 5 as-is (6.3–6.7).",
+    "por_implementar": [
+     ["6.2 Gestión del ciclo de vida del proveedor (SRM)", "No existe hoy homologación ni evaluación periódica de proveedores; el riesgo de mono-proveedor de firmware de Cubitt ya se identificó sin proceso que lo mitigue.", "Priorizar la homologación de los proveedores críticos (firmware Cubitt, fábricas principales) antes de extenderla a todo el panel."],
+     ["6.8 Gobierno, política y control de compras", "No existe un departamento de compras formalmente estructurado, ni política escrita, ni matriz de aprobación, ni KPI formalizados.", "Documentar primero la matriz de aprobación por monto y tipo de compra; la política completa y el tablero de KPI pueden seguir después."],
+     ["6.9 Devoluciones y no conformidades a proveedor", "Devoluciones acumuladas sin política, y defectos de Cubitt sin trazabilidad.", "Definir primero el protocolo de detección y apertura de reclamo; la recuperación de costo puede formalizarse en un segundo momento."]
+    ],
+    "por_formalizar": [
+     ["6.1 Planificación de demanda y S&OP", "El sugerido de Power BI y el ajuste experto de la gerencia comercial no están documentados como método; dependen del conocimiento de dos personas.", "Documentar el criterio de ajuste manual sobre el sugerido, para que no dependa solo de quien lo aplica hoy."]
+    ],
+    "brechas": [
+     ["6.3 Compra internacional a marca representada (Casio)", "La reconciliación mensual (PCI) es enteramente manual y depende de una sola persona.", "Documentar el método de reconciliación y evaluar automatizar el cruce entre lo pedido, lo confirmado y lo vendido."],
+     ["6.4 Compra internacional a marca propia (Cubitt)", "El comité de compras Cubitt es informal, sin acta ni criterio de decisión escrito.", "Documentar el criterio de decisión del comité y la responsabilidad de cada integrante."],
+     ["6.5 Compra local por país (nacionales y de urgencia)", "Cada país compra localmente con su propio criterio, sin visibilidad regional consolidada.", "Definir un umbral y un reporte mínimo de compra local para visibilidad regional."],
+     ["6.6 Gestión de reposición inter-compañía (país-hub)", "El llenado del contenedor entre el hub y cada país no se reporta sistemáticamente cuando un pedido no cabe completo; el problema se descubre por faltantes o discrepancias de aduana.", "Documentar y reportar de forma sistemática el ajuste por capacidad de contenedor antes del zarpe."],
+     ["6.7 Gestión de reposición a punto de venta", "La meta de cobertura de inventario en tienda se fijó como un número único regional, sin considerar la capacidad física de los kioscos pequeños, y está en renegociación.", "Ajustar la meta de cobertura por tipo de punto de venta (tienda grande vs. kiosco) en vez de un número único regional."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Allocation", "Cuota o cantidad que la casa matriz de Casio confirma por país sobre lo solicitado; puede ser menor a lo pedido."],
+     ["Archivo de compras", "Hoja de cálculo donde se reconcilia mensualmente lo pedido, lo confirmado por Casio y la venta real por país."],
+     ["Bandera amarilla", "Alerta visual en la hoja de reposición cuando la cobertura de un SKU en tienda cae debajo de dos semanas."],
+     ["Comité de compras Cubitt", "Grupo informal, sin acta, que decide la compra internacional de la marca propia."],
+     ["Hub regional", "Bodega central de Kenex Panamá (Zona Libre de Colón) que recibe toda la mercancía antes de redistribuirla."],
+     ["MOQ", "Cantidad mínima de pedido que exige una fábrica para producir o despachar un lote."],
+     ["NCR", "Reporte de no conformidad: documento que registra un defecto o discrepancia con un proveedor."],
+     ["Pareto A/B/C", "Clasificación de SKU por velocidad de venta, usada para priorizar la reposición a tienda."],
+     ["PCI", "Plan de Compra Internacional: reconciliación mensual de lo pedido, confirmado y vendido para la marca Casio."],
+     ["S&OP", "Sales & Operations Planning: reunión mensual que concilia inventario, venta y forecast en un plan único de suministro."],
+     ["Sourcing", "Búsqueda y gestión de proveedores o fábricas, en este caso principalmente en China para Cubitt."],
+     ["SRM", "Supplier Relationship Management: gestión del ciclo de vida y desempeño de proveedores."]
+    ],
+    "raci": [
+     ["6.1 Planificación de demanda y S&OP", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Analista de Sistemas / Datos · Planificador Financiero", "Junta / Comité Directivo"],
+     ["6.2 Gestión del ciclo de vida del proveedor (SRM)", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración", "Planificador Financiero"],
+     ["6.3 Compra internacional a marca representada (Casio)", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
+     ["6.4 Compra internacional a marca propia (Cubitt)", "Sourcing en China", "Gerente Regional de Marketing", "Director(a) Ventas Regional Cubitt · Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail"],
+     ["6.5 Compra local por país (nacionales y de urgencia)", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Coordinador(a) de Logística y Bodega", "—"],
+     ["6.6 Gestión de reposición inter-compañía (país-hub)", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Coordinador(a) Comercial", "—"],
+     ["6.7 Gestión de reposición a punto de venta", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Supervisor de Ventas · Analista/Ejecutivo(a) Comercial (Mayor)", "Gerente de Ventas al Detal (País)"],
+     ["6.8 Gobierno, política y control de compras", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Planificador Financiero · Gerente de Contabilidad / Administración", "Junta / Comité Directivo"],
+     ["6.9 Devoluciones y no conformidades a proveedor", "Coordinador(a) de Logística y Bodega", "Director(a) responsable de la marca", "Gerente de Contabilidad / Administración", "Gerente Regional Comercial / Retail"]
+    ],
+    "catalogo_sistemas": [
+     ["Odoo (ERP)", "Registro de compra local; base de datos para el sugerido", "6.5 · 6.6 · 6.7", "Coordinador(a) de Sistemas"],
+     ["Módulo de sugerido (Power BI)", "Modelo de sugerido de compra/reposición por SKU", "6.1 · 6.3 · 6.6 · 6.7", "Analista de Sistemas / Datos"],
+     ["\"Archivo de compras\" (Excel)", "Reconciliación mensual PCI", "6.3", "Sin responsable formal — depende de una persona"],
+     ["Lark (tablero de producción/tránsito Cubitt)", "Seguimiento de órdenes Cubitt", "6.4", "Coordinador(a) de Logística y Bodega"],
+     ["Lark (self-report)", "Registro de planificación de reposición y lanzamientos", "6.1 · 6.6 · 6.7", "Coordinador(a) de Logística y Bodega"]
+    ],
+    "interfaces_detalle": [
+     ["Planeación Comercial", "Entrega del forecast anual aprobado", "Forecast de venta por país/marca"],
+     ["R&D y Desarrollo de Producto (Cubitt)", "Calendario de lanzamiento", "Especificación y fecha objetivo del nuevo SKU"],
+     ["Logística y Operaciones", "Entrega del pedido aprobado", "Orden de compra confirmada, lista de empaque esperada"],
+     ["Ventas Retail / Ventas Mayor", "Ciclo de reposición", "Venta real (sell-out), necesidad de reposición"],
+     ["Administración y Finanzas / Contabilidad", "Aprobación de pago", "Restricción presupuestaria, anticipos a proveedor"]
+    ],
+    "docs_lark": [
+     ["Levantamiento de Procesos de Compras (self-report)", "Regional", "Descripción de la planificación de reposición y compra de lanzamientos", "6.1 · 6.6 · 6.7"],
+     ["Tablero de producción y tránsito Cubitt", "Regional", "Seguimiento de órdenes en fábrica y en tránsito", "6.4"]
+    ],
+    "variaciones_pais": [
+     ["Panamá", "Único país con hub regional propio (Zona Libre de Colón) y almacén de detal aparte (Obarrio).", "Ubicación geográfica y rol de hub regional para toda la operación."],
+     ["Costa Rica", "Operación bajo figura de socio (Importbel, S.A.), con la misma dinámica de allocation que la operación propia.", "Relación societaria distinta a la de la operación propia."],
+     ["Venezuela", "Compra local de urgencia a proveedor identificado cuando el hub regional no cubre a tiempo.", "Restricciones propias de importación y de mercado del país."]
+    ]
+   }
+  },
+
+  "procesos": {
+
+   "6.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la consolidación mensual de inventario, sell-in y sell-out por SKU/país/canal, la generación del sugerido de compra y reposición en Power BI, su ajuste con criterio experto, y la validación cross-funcional en la reunión de S&OP que produce el plan de suministro del mes. No incluye la ejecución de la compra internacional en sí (procesos 6.3 y 6.4) ni la reposición física a cada país o punto de venta (procesos 6.6 y 6.7), que parten de este plan ya aprobado.",
+     "nota_estado": "Este proceso combina un modelo analítico ya en producción —el sugerido en Power BI— con un ajuste manual por criterio experto que hoy no está documentado como método: depende de que cada responsable de marca lo aplique con su propio conocimiento del negocio."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Inicia el ciclo mensual de S&OP al cierre del mes comercial, convocando a los participantes."},
+      {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Ejecuta el módulo de sugerido en Power BI, cruzando inventario, sell-in y sell-out por SKU/país/canal."},
+      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Ajusta el sugerido con criterio experto para la marca Casio, considerando la cuota vigente y la venta reciente por país."},
+      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Ajusta el sugerido con criterio experto para la marca Cubitt, considerando lanzamientos previstos y cobertura crítica."},
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Valida que el plan de suministro propuesto sea consistente con la restricción presupuestaria del mes."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida los ajustes y presenta el plan de suministro en la reunión mensual de S&OP para su aprobación."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing", "Planificador Financiero"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Cierre del mes comercial — inicia el ciclo de S&OP"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Convocar a los participantes de la reunión de S&OP"},
+       {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Ejecutar el módulo de sugerido", "sistemas": ["Módulo de sugerido (Power BI)"]},
+       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar el sugerido de Casio con criterio experto"},
+       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Ajustar el sugerido de Cubitt con criterio experto"},
+       {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar restricción presupuestaria del mes"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar ajustes y presentar el plan de suministro", "sistemas": ["Lark (self-report)"]},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Plan de suministro aprobado en S&OP?"},
+       {"id": "n7alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar plan y reprogramar aprobación"},
+       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Plan de suministro del mes aprobado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8", "etq": "Sí"}, {"de": "n7", "a": "n7alt", "etq": "No"}, {"de": "n7alt", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Ajuste manual sin método documentado", "El ajuste sobre el sugerido depende del criterio de dos personas, sin guía escrita.", "Media", "Alto", "Documentar el criterio de ajuste como guía escrita, con ejemplos de decisiones ya tomadas."],
+      ["Modelo de Power BI concentrado en una persona", "El diseño y mantenimiento del módulo de sugerido depende de un solo especialista de datos.", "Media", "Alto", "Documentar el diseño del modelo y formar un respaldo en el equipo de datos."],
+      ["Datos de sell-out heterogéneos entre países", "Los países en transición a Odoo todavía reportan venta real con formatos distintos.", "Media", "Medio", "Estandarizar el reporte de venta real por país a medida que avanza la migración a Odoo."],
+      ["Meta de cobertura fijada sin considerar el tipo de punto de venta", "Un mandato regional de cobertura uniforme resultó físicamente imposible para los kioscos pequeños y está en renegociación.", "Media", "Medio", "Ajustar la meta de cobertura por tipo de punto de venta antes de fijarla como estándar regional."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Precisión del sugerido de compra/reposición", "Venta real ÷ sugerido ajustado, por SKU/país", "Mensual", "Analista de Sistemas / Datos", "±15%"],
+      ["Plan de suministro aprobado a tiempo", "Fecha de aprobación en S&OP − fecha de cierre de mes", "Mensual", "Coordinador(a) de Logística y Bodega", "≤5 días hábiles"],
+      ["Cobertura de inventario por SKU crítico", "Inventario disponible ÷ venta promedio semanal", "Semanal", "Coordinador(a) de Logística y Bodega", "Según clasificación Pareto A/B/C"]
+     ]
+    }
+   },
+
+   "6.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la homologación de un proveedor nuevo, su contratación formal, la evaluación periódica de desempeño mediante scorecard, y la decisión de continuidad, renovación o baja. No incluye la ejecución de una orden de compra puntual a un proveedor ya homologado (procesos 6.3, 6.4 y 6.5), que se apoya en este proceso solo cuando hay evaluación o cambio de proveedor de fondo.",
+     "nota_estado": "Este proceso es «to-be»: hoy no existe homologación ni evaluación formal de proveedores en Kenex. Se documenta con base en buena práctica de la disciplina de compras (CIPS/APQC PCF) y en una brecha concreta ya identificada — el riesgo de depender de un solo proveedor de firmware para Cubitt, sin evaluación ni plan de contingencia."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Detecta la necesidad de homologar un proveedor nuevo o de evaluar uno vigente por vencimiento de contrato o ciclo programado."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Solicita y verifica la documentación legal y financiera básica del proveedor candidato."},
+      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Valida al proveedor estratégico —marca o volumen significativo— antes de avanzar."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa las condiciones comerciales y de pago propuestas."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aplica el scorecard de desempeño al proveedor vigente en su ciclo de evaluación."},
+      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Decide la continuidad, renovación o baja del proveedor con base en el scorecard."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración", "Planificador Financiero"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Detectar necesidad de homologación o de evaluación"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Solicitar y verificar documentación legal y financiera"},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Proveedor estratégico?"},
+       {"id": "n2alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Validar al proveedor estratégico"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar condiciones comerciales y de pago"},
+       {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar impacto presupuestario del contrato"},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aplicar scorecard de desempeño en el ciclo de evaluación"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Decidir continuidad, renovación o baja del proveedor"},
+       {"id": "n7", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Proveedor homologado o evaluado, con decisión documentada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
+       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin homologación previa a la fecha", "Los proveedores actuales nunca pasaron por un proceso de homologación formal.", "Alta", "Alto", "Priorizar la homologación retroactiva de los proveedores críticos."],
+      ["Mono-proveedor de firmware Cubitt sin evaluación de riesgo", "Un solo proveedor de firmware para la marca propia, sin plan de contingencia.", "Alta", "Alto", "Evaluar y calificar un segundo proveedor de firmware."],
+      ["Scorecard sin criterios definidos", "No hay criterios de evaluación documentados para aplicar el primer scorecard.", "Media", "Medio", "Definir los criterios de evaluación antes de aplicar el primer scorecard."],
+      ["Decisión de baja sin plan de transición", "Dar de baja a un proveedor sin un plan de transición al reemplazo puede interrumpir el suministro.", "Media", "Alto", "Exigir plan de transición a un nuevo proveedor antes de dar de baja al vigente."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Proveedores críticos homologados", "Homologados ÷ total de proveedores críticos identificados", "Trimestral", "Coordinador(a) de Logística y Bodega", "100% de los críticos"],
+      ["Proveedores evaluados en el ciclo semestral", "Evaluados ÷ total de proveedores vigentes", "Semestral", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Tiempo de homologación de un proveedor nuevo", "Fecha de aprobación − fecha de solicitud", "Por caso", "Coordinador(a) de Logística y Bodega", "Referencia a definir con el primer ciclo"]
+     ]
+    }
+   },
+
+   "6.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la recepción de la cuota o allocation mensual que confirma la casa matriz de Casio, la validación de cantidades por país, la confirmación de la orden y su seguimiento hasta el arribo al hub de Kenex Panamá — incluida la reconciliación mensual (PCI) entre lo pedido, lo confirmado y lo vendido. No incluye la reposición desde el hub hacia cada país (proceso 6.6) ni hacia el punto de venta (proceso 6.7), que parten de la mercancía ya recibida aquí."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Recibe la comunicación mensual de casa matriz Casio con la cuota o allocation asignada por país."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "texto": "Valida las cantidades asignadas contra lo solicitado y contra la venta reciente por país."},
+      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Confirma la orden de compra con la cuota efectivamente asignada."},
+      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a la orden hasta su arribo al hub de Kenex Panamá."},
+      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "texto": "Actualiza el «archivo de compras» con lo confirmado por Casio en el mes."},
+      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Reconcilia mensualmente lo pedido, lo confirmado y la venta real por país en el reporte PCI."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente Regional Comercial / Retail", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "Coordinador(a) de Logística y Bodega"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Recibir la asignación mensual de cuota Casio"},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "tipo": "tarea", "n": "Validar cantidades asignadas contra lo solicitado y la venta reciente", "sistemas": ["\"Archivo de compras\" (Excel)"]},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "tipo": "decision", "n": "¿Allocation cubre lo solicitado?"},
+       {"id": "n2alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Priorizar países y SKU con la cuota reducida"},
+       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Confirmar la orden de compra"},
+       {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento a la orden hasta el hub de Panamá"},
+       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "tipo": "tarea", "n": "Actualizar el archivo de compras con lo confirmado"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Reconciliar el reporte PCI: pedido, confirmado y venta real"},
+       {"id": "n7", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Orden Casio recibida en el hub y PCI reconciliado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Allocation confirmada muy por debajo de lo solicitado", "En meses recientes, la casa matriz ha confirmado solo una fracción menor de la cuota pedida.", "Alta", "Alto", "Escalar a casa matriz con antelación y ajustar el plan de venta por país ante una reducción sostenida."],
+      ["Reconciliación PCI enteramente manual y en una sola persona", "El cruce mensual entre pedido, confirmado y venta real depende de una sola persona.", "Alta", "Alto", "Documentar el método de reconciliación y formar un respaldo."],
+      ["Priorización entre países sin criterio escrito ante escasez", "Cuando la cuota no cubre lo solicitado, la prioridad entre países se decide caso por caso.", "Media", "Alto", "Definir un criterio de priorización (por venta real o por compromiso ya firmado) antes de la próxima reducción."],
+      ["Seguimiento del pedido hasta el hub sin visibilidad de contenedor", "No siempre se sabe si el pedido cupo completo en el envío hasta que llega o no llega.", "Media", "Medio", "Reportar sistemáticamente si el pedido no cabe completo en el envío (ver también proceso 6.6)."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cumplimiento de la cuota confirmada", "Cuota confirmada ÷ cuota solicitada", "Mensual", "Gerente Regional Comercial / Retail", "Seguimiento de tendencia"],
+      ["Tiempo de reconciliación PCI", "Días desde el cierre de mes hasta el reporte PCI cerrado", "Mensual", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "≤5 días hábiles"],
+      ["Órdenes Casio recibidas en el hub dentro de la ventana esperada", "Recibidas a tiempo ÷ total de órdenes del mes", "Mensual", "Coordinador(a) de Logística y Bodega", "≥90%"]
+     ]
+    }
+   },
+
+   "6.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la decisión del comité informal de compras Cubitt ante una necesidad de lanzamiento o de cobertura, el sourcing con la fábrica en China, la gestión de muestras, la decisión de envío aéreo o marítimo, y la confirmación de la orden. No incluye la producción física en fábrica ni el desarrollo del producto en sí (macro 3, R&D y Desarrollo de Producto — Cubitt), que es anterior a este proceso."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Regional de Marketing", "texto": "Detecta la necesidad de compra: nuevo lanzamiento, cobertura crítica u oportunidad comercial."},
+      {"id": "a2", "rol": "Director(a) Ventas Regional Cubitt", "texto": "Revisa la necesidad en el comité informal y decide avanzar con la fábrica seleccionada."},
+      {"id": "a3", "rol": "Sourcing en China", "texto": "Coordina con la fábrica el sourcing, las muestras y el costo del lote."},
+      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Aprueba la muestra y decide el modo de envío —aéreo o marítimo— según la urgencia."},
+      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Confirma la orden de compra Cubitt con la fábrica y el modo de envío decidido."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a la orden en producción y en tránsito hasta el hub de Kenex Panamá."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente Regional de Marketing", "Director(a) Ventas Regional Cubitt", "Sourcing en China", "Coordinador(a) de Logística y Bodega"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Regional de Marketing", "tipo": "inicio", "n": "Detectar necesidad de compra Cubitt"},
+       {"id": "n1", "carril": "Director(a) Ventas Regional Cubitt", "tipo": "tarea", "n": "Revisar la necesidad en el comité informal"},
+       {"id": "n2", "carril": "Director(a) Ventas Regional Cubitt", "tipo": "decision", "n": "¿El comité decide avanzar con la fábrica?"},
+       {"id": "n2alt", "carril": "Director(a) Ventas Regional Cubitt", "tipo": "tarea", "n": "Descartar o posponer la necesidad"},
+       {"id": "n3", "carril": "Sourcing en China", "tipo": "tarea", "n": "Coordinar sourcing y muestras con la fábrica"},
+       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Aprobar muestra y decidir modo de envío"},
+       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Confirmar la orden de compra Cubitt"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento en producción y tránsito", "sistemas": ["Lark (tablero de producción/tránsito Cubitt)"]},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Orden Cubitt confirmada y en seguimiento hasta el hub"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n7"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Comité informal sin acta ni criterio de decisión escrito", "La decisión de compra Cubitt se toma en conversación, sin registro ni criterio documentado.", "Media", "Alto", "Documentar el criterio de decisión y la responsabilidad de cada integrante del comité."],
+      ["Sourcing concentrado en una sola persona en China", "El enlace de sourcing en fábrica es un solo punto de contacto, sin respaldo.", "Alta", "Alto", "Formar un respaldo o un segundo contacto de sourcing en la fábrica."],
+      ["Tablero de tránsito Cubitt muy reciente, sin trayectoria", "El tablero de seguimiento en Lark es de reciente construcción y todavía sin historial de uso.", "Media", "Medio", "Dar seguimiento al tablero por 2-3 ciclos completos antes de tomarlo como fuente única."],
+      ["Sin criterio documentado para decidir envío aéreo o marítimo", "La decisión de modo de envío se toma con criterio experto, sin regla escrita de costo/urgencia.", "Media", "Medio", "Documentar el criterio de urgencia y costo ya usado de facto."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de ciclo de compra Cubitt", "Fecha de confirmación − fecha de detección de la necesidad", "Por orden", "Gerente Regional de Marketing", "Referencia de seguimiento"],
+      ["Órdenes Cubitt con seguimiento activo en el tablero", "Órdenes en el tablero ÷ total de órdenes en curso", "Semanal", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Proporción de envío aéreo vs. marítimo", "Envíos aéreos ÷ total de envíos del período", "Mensual", "Gerente Regional de Marketing", "Referencia de costo y urgencia"]
+     ]
+    }
+   },
+
+   "6.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la detección de una necesidad puntual o de urgencia en el país que el hub regional no puede cubrir a tiempo, su aprobación local y el registro de la orden en el ERP del país. No incluye la compra internacional que normalmente cubre esa necesidad (procesos 6.3 y 6.4), de la que esta compra local es la excepción, no la regla."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Detecta la necesidad puntual o de urgencia no cubierta a tiempo por el hub regional."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Identifica el proveedor local disponible y cotiza."},
+      {"id": "a3", "rol": "Country Manager", "texto": "Aprueba la compra local dentro del criterio del país."},
+      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden de compra en el ERP local."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da visibilidad regional a la compra local registrada, para el consolidado del país."}
+     ],
+     "diagrama": {
+      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Coordinador(a) de Logística y Bodega"],
+      "nodos": [
+       {"id": "n0", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "inicio", "n": "Detectar necesidad puntual o de urgencia en el país"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Identificar proveedor local disponible y cotizar"},
+       {"id": "n2", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar la compra local"},
+       {"id": "n3", "carril": "Country Manager", "tipo": "decision", "n": "¿Compra aprobada?"},
+       {"id": "n3alt", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Buscar proveedor alternativo o posponer la compra"},
+       {"id": "n4", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el ERP local", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar visibilidad regional a la compra local"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Compra local registrada y visible para el consolidado regional"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n1"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin visibilidad regional consolidada de la compra local", "Cada país compra localmente sin un reporte que la región pueda ver en conjunto.", "Media", "Medio", "Definir un reporte mínimo mensual de compra local por país."],
+      ["Sin umbral definido de cuándo recurrir a compra local", "No hay un monto o criterio escrito que delimite la excepción frente al hub regional.", "Media", "Medio", "Definir el criterio y el monto máximo de la excepción."],
+      ["Dependencia de un solo proveedor local por país", "Cada país suele tener un único proveedor local de confianza para la urgencia.", "Media", "Alto", "Calificar un segundo proveedor local de respaldo por país."],
+      ["Compra local usada para cubrir una falla recurrente del hub, no una excepción real", "Si se repite con frecuencia en el mismo SKU, deja de ser una excepción.", "Baja", "Medio", "Monitorear la frecuencia de compra local por país como señal de alerta."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Compras locales de urgencia por país y por mes", "Conteo de órdenes de compra local por país", "Mensual", "Coordinador(a) de Logística y Bodega", "Referencia de seguimiento"],
+      ["Monto de compra local ÷ monto de compra internacional del país", "Proporción sobre el total de compra del país", "Mensual", "Planificador Financiero", "Mantenerlo bajo — referencia de tendencia"],
+      ["Tiempo de aprobación de la compra local", "Fecha de aprobación − fecha de solicitud", "Por caso", "Country Manager", "Mismo día"]
+     ]
+    }
+   },
+
+   "6.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el armado del pedido de reposición mensual del país contra la disponibilidad del hub de Kenex Panamá, la validación operativa local, la aprobación de cantidades finales y la transferencia a Logística para preparación y despacho. No incluye la preparación física del pedido en bodega ni su despacho (macro 7, Logística y Operaciones), que empieza donde este proceso termina."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Inicia el ciclo mensual de reposición del país con base en el sugerido de Power BI."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Valida operativamente el pedido contra la disponibilidad real del hub de Panamá."},
+      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba las cantidades finales de reposición."},
+      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Realiza el handoff del pedido aprobado a Logística."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento al despacho hasta la confirmación de recepción en el país."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Coordinador(a) Comercial"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Iniciar el ciclo mensual de reposición del país"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el pedido con base en el sugerido", "sistemas": ["Módulo de sugerido (Power BI)"]},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Validar el pedido contra la disponibilidad real del hub"},
+       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Cantidades finales aprobadas?"},
+       {"id": "n3alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar el pedido y re-validar contra disponibilidad"},
+       {"id": "n4", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Realizar el handoff del pedido a Logística", "sistemas": ["Lark (self-report)"]},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento hasta la confirmación de recepción en el país"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Pedido inter-compañía despachado y recibido en el país"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n2"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Ajuste por capacidad de contenedor sin reporte sistemático", "Cuando un pedido no cabe completo en el contenedor, hoy no se reporta de forma sistemática; se descubre al no llegar o por discrepancia de aduana.", "Alta", "Alto", "Documentar y reportar sistemáticamente el ajuste por capacidad de contenedor antes del zarpe."],
+      ["Aprobación de cantidades finales concentrada en una persona", "La aprobación final de cada ciclo mensual depende de un solo responsable comercial.", "Media", "Alto", "Documentar el criterio de aprobación y formar un respaldo."],
+      ["Discrepancias de aduana o faltantes descubiertos tarde", "La lista de empaque no siempre se cruza contra lo recibido antes de cerrar el ciclo.", "Media", "Alto", "Cruzar la lista de empaque contra lo recibido antes de cerrar cada ciclo mensual."],
+      ["Meta de cobertura inter-compañía sin criterio diferenciado por país", "La meta de cobertura no distingue la rotación real de cada país.", "Baja", "Medio", "Revisar la meta de cobertura por país según su rotación real."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Fill rate del pedido inter-compañía", "Cantidad despachada ÷ cantidad pedida", "Mensual", "Coordinador(a) de Logística y Bodega", "≥90%"],
+      ["Pedidos con ajuste por capacidad de contenedor reportado", "Reportados ÷ total de pedidos con ajuste real", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Tiempo de aprobación de cantidades finales", "Fecha de aprobación − fecha de propuesta", "Mensual", "Gerente Regional Comercial / Retail", "≤3 días hábiles"]
+     ]
+    }
+   },
+
+   "6.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el análisis de inventario y venta de tiendas y del mayorista local que hace el planificador de Compras para armar el pedido de reposición, y su transferencia a Logística local para despacho. Es la cara analítica de este ciclo; el ajuste por capacidad del punto, la aprobación comercial y la recepción en tienda están documentados como parte de Ventas Retail (proceso 9.3, Reposición de tiendas y kioscos) — evitar duplicar contenido entre ambos: aquí se documenta cómo se construye el pedido, allá cómo se ajusta, aprueba y recibe."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Ejecuta semanalmente la clasificación Pareto A/B/C por velocidad de venta de cada tienda."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Calcula la cobertura de cada SKU contra la meta objetivo y marca con bandera amarilla la cobertura crítica (menos de dos semanas)."},
+      {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Revisa las banderas amarillas de su zona y confirma la necesidad real en el punto."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial (Mayor)", "texto": "Evalúa la necesidad de reposición del mayorista local por evento."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida el pedido de reposición y lo transfiere a Logística local para despacho."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Supervisor de Ventas", "Analista/Ejecutivo(a) Comercial (Mayor)"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Ciclo semanal de reposición de tiendas / alerta de cobertura crítica"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ejecutar clasificación Pareto A/B/C por tienda", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Calcular cobertura por SKU y marcar bandera amarilla"},
+       {"id": "n3", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Revisar bandera amarilla de la zona y confirmar necesidad real"},
+       {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Aplica también reposición al mayorista local?"},
+       {"id": "n4alt", "carril": "Analista/Ejecutivo(a) Comercial (Mayor)", "tipo": "tarea", "n": "Evaluar necesidad de reposición del mayorista por evento"},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar el pedido de reposición al punto de venta"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Pedido de reposición transferido a Logística local"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4", "a": "n5", "etq": "No"},
+       {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Montaje de pedidos requiere reimpresión y recarga manual por tienda", "Aunque el sistema soporta la carga directa, hoy se imprime y se vuelve a cargar la plantilla por punto de venta.", "Media", "Medio", "Evaluar la automatización directa que el sistema ya soporta en teoría."],
+      ["Meta de cobertura regional fijada sin considerar capacidad física del kiosco", "Un mandato de cobertura uniforme resultó imposible para los puntos más pequeños y está en renegociación.", "Alta", "Alto", "Ajustar la meta de cobertura por tipo de punto de venta (se cruza con el proceso 9.3 de Ventas Retail)."],
+      ["Clasificación Pareto no revisada periódicamente", "El ranking de SKU por velocidad de venta puede quedar desactualizado si no se revisa con regularidad.", "Baja", "Medio", "Revisar la clasificación Pareto al menos trimestralmente."],
+      ["Reposición de mayorista local por evento, sin calendario ni criterio escrito", "La activación de reposición al mayorista depende de que alguien la solicite, sin calendario propio.", "Media", "Medio", "Documentar el criterio de activación de reposición al mayorista."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiendas con bandera amarilla resuelta antes de quiebre", "Resueltas a tiempo ÷ total de tiendas con bandera en el período", "Semanal", "Coordinador(a) de Logística y Bodega", "≥90%"],
+      ["Fill rate del pedido a punto de venta", "Cantidad despachada ÷ cantidad pedida", "Semanal", "Coordinador(a) de Logística y Bodega", "≥90%"],
+      ["Cobertura promedio por clase Pareto (A/B/C)", "Inventario disponible ÷ venta promedio, por clase", "Semanal", "Coordinador(a) de Logística y Bodega", "Meta diferenciada por clase"]
+     ]
+    }
+   },
+
+   "6.8": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la política de compras, la matriz de aprobación por monto y tipo, el tablero de KPI del área y la gestión de riesgo de la cadena de suministro que deberían gobernar de forma transversal el resto de los procesos de este macroproceso. No incluye la ejecución operativa de ninguna compra en particular (procesos 6.1 a 6.7 y 6.9), sobre los que esta capa aplica.",
+     "nota_estado": "Este proceso es «to-be»: hoy no existe un departamento de compras formalmente estructurado, ni política escrita, ni matriz de aprobación, ni KPI formalizados. Se documenta con base en buena práctica de la disciplina de compras (CIPS) como referencia para construirlo, no como descripción de lo que ya opera."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define y aprueba la política de compras y la matriz de aprobación por monto y tipo."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aplica la matriz de aprobación en la operación diaria de compra y reposición."},
+      {"id": "a3", "rol": "Planificador Financiero", "texto": "Alimenta el tablero de KPI de compras con los indicadores de cada proceso."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa el cumplimiento de la política en la auditoría interna, cuando aplica."},
+      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa trimestralmente la política y el tablero de KPI, y decide ajustes."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Planificador Financiero", "Gerente de Contabilidad / Administración"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Revisión trimestral programada de gobierno de compras"},
+       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir o actualizar política de compras y matriz de aprobación"},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aplicar la matriz de aprobación en la operación diaria"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alimentar el tablero de KPI de compras"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar cumplimiento en auditoría interna cuando aplica"},
+       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Política o KPI requieren ajuste?"},
+       {"id": "n5alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar política, matriz o KPI"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Gobierno de compras vigente para el próximo trimestre"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5alt", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Ausencia total de política escrita hoy", "No existe una política de compras documentada en la organización.", "Alta", "Alto", "Documentar primero la matriz de aprobación, que es lo más urgente y lo más citado en las entrevistas."],
+      ["Sin KPI formalizados de compras", "No hay un tablero ni un set mínimo de indicadores definidos para el área.", "Alta", "Medio", "Definir un set mínimo de KPI (allocation, fill rate, tiempo de ciclo) antes de construir el tablero completo."],
+      ["Sin estructura de departamento de compras", "La compra internacional de cada marca depende de una sola persona, sin equipo ni backup formal.", "Alta", "Alto", "Decidir primero el modelo mínimo de estructura, aunque sea una sola persona con respaldo, antes de la política completa."],
+      ["Riesgo de la cadena de suministro no mapeado formalmente", "Los riesgos ya identificados (mono-proveedor, allocation, capacidad de contenedor) no están consolidados en un solo mapa de riesgo.", "Media", "Alto", "Mapear los riesgos ya identificados de facto como primer inventario de riesgo del área."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Política de compras documentada y aprobada", "Sí/no, verificado contra el documento vigente", "Una vez; luego trimestral", "Gerente Regional Comercial / Retail", "Documentada en el primer ciclo"],
+      ["Compras aplicando la matriz de aprobación", "Compras bajo matriz ÷ total de compras del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "100% una vez vigente"],
+      ["KPI de compras publicados en el tablero", "KPI activos ÷ KPI definidos", "Trimestral", "Planificador Financiero", "100%"]
+     ]
+    }
+   },
+
+   "6.9": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la detección de un defecto o discrepancia en la mercancía recibida, la apertura del reclamo con el proveedor, su seguimiento y la recuperación del costo o de la mercancía correspondiente. No incluye la garantía o el servicio postventa al cliente final (proceso 9.13 de Ventas Retail; macro 11, Postventa y Experiencia de Cliente), que es un reclamo distinto: del cliente hacia Kenex, no de Kenex hacia el proveedor.",
+     "nota_estado": "Este proceso es «to-be»: hoy no hay política de devoluciones a proveedor, y hay devoluciones acumuladas sin resolver mientras los defectos de Cubitt no quedan trazados. Se documenta con base en buena práctica (CIPS/APQC PCF) para cerrar esa brecha."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Detecta el defecto o discrepancia en la recepción, o lo recibe reportado desde la operación."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Documenta la no conformidad (NCR) con evidencia: fotos, cantidades y referencia del lote."},
+      {"id": "a3", "rol": "Director(a) responsable de la marca", "texto": "Da soporte a la apertura del reclamo con el proveedor correspondiente (Casio o fábrica Cubitt)."},
+      {"id": "a4", "rol": "Gerente Regional Comercial / Retail", "texto": "Da seguimiento al reclamo con el proveedor hasta su resolución."},
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Registra la recuperación del costo o de la mercancía una vez resuelto el reclamo."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Director(a) responsable de la marca", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Detectar defecto o discrepancia en la mercancía recibida"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Documentar la no conformidad (NCR) con evidencia"},
+       {"id": "n2", "carril": "Director(a) responsable de la marca", "tipo": "tarea", "n": "Dar soporte a la apertura del reclamo con el proveedor"},
+       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Dar seguimiento al reclamo hasta su resolución"},
+       {"id": "n4", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿El proveedor reconoce el reclamo?"},
+       {"id": "n4alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Escalar el reclamo o documentar la pérdida no recuperable"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Registrar la recuperación del costo o de la mercancía"},
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Reclamo cerrado y NCR documentada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"},
+       {"de": "n4alt", "a": "n6"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Devoluciones acumuladas sin política", "Hay devoluciones pendientes acumuladas sin un proceso que las resuelva de forma ordenada.", "Alta", "Alto", "Priorizar el cierre del backlog de devoluciones acumuladas como primer paso."],
+      ["Defectos de Cubitt sin trazabilidad", "Los defectos detectados en producto Cubitt no quedan registrados de forma sistemática.", "Alta", "Medio", "Exigir registro de NCR desde la primera detección, aunque sea con una plantilla simple."],
+      ["Sin criterio de cuándo escalar un reclamo no reconocido por el proveedor", "No hay un tiempo máximo de espera ni un criterio de escalamiento documentado.", "Media", "Medio", "Definir el criterio y el tiempo máximo de espera antes de escalar un reclamo."],
+      ["Recuperación de costo sin proceso contable definido", "No está definido cómo se registra contablemente la recuperación de costo o de mercancía.", "Media", "Medio", "Definir el registro contable de la recuperación de costo o de mercancía."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["NCR documentadas sobre defectos detectados", "NCR documentadas ÷ defectos detectados en el período", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Tiempo de resolución del reclamo", "Fecha de cierre − fecha de apertura", "Por caso", "Gerente Regional Comercial / Retail", "Referencia a definir con el primer ciclo"],
+      ["Monto recuperado ÷ monto reclamado", "Proporción recuperada sobre el total reclamado en el período", "Trimestral", "Gerente de Contabilidad / Administración", "Referencia de seguimiento"]
      ]
     }
    }
