@@ -9,7 +9,8 @@ confidencialidad como página, especificación editorial, glosario al final
 como anexo de lectura obligatoria).
 
 **Validado contra el piloto:** macro 9 (Ventas Retail), proceso 9.3
-(Reposición de tiendas y kioscos) — 09/2026.
+(Reposición de tiendas y kioscos) — 09/2026, con dos rondas de correcciones
+de Jesús ya incorporadas a este documento (ver §10).
 
 ---
 
@@ -26,8 +27,13 @@ como anexo de lectura obligatoria).
    Personal», columna «Cargo Patrón Propuesto») para la denominación de cargos.
 3. Salida: un objeto JS que se funde a mano en `manual-contenido.js` bajo
    `window.MANUAL_CONTENIDO["<prefijo>"]` — ver esquema en la sección 4.
-4. Piloto recomendado antes de correr el lote completo de un macroproceso:
-   1 proceso primero, revisar la forma, luego el resto.
+4. **Piloto recomendado antes de correr el lote completo de un macroproceso:
+   1 proceso primero, revisar la forma con el equipo, luego el resto.** Así
+   funcionó con 9.3: la revisión detectó ajustes de forma (§10) que ahora
+   ya están resueltos en este prompt — no hace falta repetirlos por macro.
+5. Al terminar, el JSON se entrega a Gabriel (o a quien mantenga el
+   aplicativo) para fundirlo en `manual-contenido.js` y correr
+   `validar-html.py` + el smoke test antes de publicar.
 
 ## 1. Rol y contexto (igual que el original)
 
@@ -47,7 +53,7 @@ Nunca usar la nomenclatura interna «N0/N1/N2» en el texto visible del
 `texto`/`prosa` que lee el lector — sí puede aparecer en claves internas
 del JSON.
 
-## 3. Autopista común y tratamiento de madurez — igual que el original
+## 3. Autopista común y tratamiento de madurez — igual que el original, con un matiz
 
 - Un flujo estándar regional; las diferencias país-específicas legítimas van
   al campo `n0.anexos.variaciones_pais`, no como ramas del flujo.
@@ -56,9 +62,13 @@ del JSON.
   - **as-is**: `proposito.texto` en presente indicativo, sin aclaratoria.
   - **to-be**: agregar `proposito.nota_estado` con una frase corta que
     aclare que es un proceso a implementar.
-  - **híbrido**: agregar `proposito.nota_estado` reconociendo la transición
-    (ver ejemplo real en 9.3: migración del despacho local al despacho
-    centralizado).
+  - **híbrido**: agregar `proposito.nota_estado` reconociendo la transición.
+  - ⚠️ **La nota debe ser autocontenida:** decir *qué* transita y, si aplica
+    a un solo país, **nombrarlo explícitamente** ("Panamá está migrando…").
+    En el piloto 9.3 la primera versión decía «el país está migrando…» sin
+    decir cuál, y confundía al lector — Jesús pidió quitarla en vez de
+    aclararla. Si la transición no se puede describir sin ambigüedad en una
+    frase corta, **se omite** `nota_estado` antes que dejarla confusa.
 - La madurez sigue alimentando `n0.agenda` (por implementar / por formalizar
   / brechas vigentes) — **se consolida solo cuando los N1 del macroproceso
   están completos**, no proceso por proceso.
@@ -72,7 +82,7 @@ MANUAL_CONTENIDO["<prefijo>"] = {
     contexto: {
       estado, ubicacion /* prosa 2-3 párrafos, con \n\n entre ellos */,
       duenos: [[nivel, cargo, responsabilidad], ...],
-      entidades: [[entidad, pais, rol, particularidad], ...],
+      entidades: [[entidad, pais, rol, particularidad], ...],   // entidad = razón social exacta, no un rol genérico (ver §10)
       sistemas: [[sistema, uso, procesos], ...],
       interfaces: [[macroproceso, sentido, intercambio], ...]
     },
@@ -81,7 +91,12 @@ MANUAL_CONTENIDO["<prefijo>"] = {
       actores: [[actor, ambito, responsabilidades, decide, escala], ...],
       comites: [[instancia, proposito, cadencia, participantes, decisiones, insumo, salida], ...]
     },
-    marco: { estado, principios: [...], politicas: [...], normativo: [...] },
+    marco: {
+      estado,
+      principios: [...],   // 3-6, los que tengan evidencia real
+      politicas: [...],    // **entre 5 y 8** — ver criterio de evidencia abajo
+      normativo: [...]     // los que tengan evidencia real
+    },
     agenda: { estado, por_implementar:[[proceso,brecha,roadmap]], por_formalizar:[...], brechas:[...] },
     anexos: { estado, glosario:[[termino,definicion]], raci:[...], catalogo_sistemas:[...],
               interfaces_detalle:[...], docs_lark:[...], variaciones_pais:[...] }
@@ -89,7 +104,7 @@ MANUAL_CONTENIDO["<prefijo>"] = {
   procesos: {
     "<codigo>": {
       proposito: { estado, texto, nota_estado? },
-      dueno: { estado, notas? },        // el dueño/participantes ya viven en el mapa v18 (ficha)
+      dueno: { estado },                // el dueño/participantes ya viven en el mapa v18 (ficha) — ver §10, no usar "notas"
       disparador: { estado },           // idem — disparador/cadencia/output ya en el mapa v18
       flujo: {
         estado,
@@ -111,6 +126,16 @@ MANUAL_CONTENIDO["<prefijo>"] = {
 revisión del equipo) · `"revision"` cuando el equipo la está validando ·
 `"validado"` cuando ya se aprobó. Nunca escribir `"pendiente"` ni `"semilla"`
 desde este prompt — esos los pone el armazón antes de generar.
+
+**Criterio de evidencia para `marco.politicas` (entre 5 y 8, no menos):**
+cada política debe salir de algo que alguien dijo en una entrevista o de un
+documento de Lark — nunca inventada ni "razonable pero sin fuente". Si el
+macroproceso trae menos de 5 políticas con evidencia real, decirlo en el
+mensaje de cierre en vez de rellenar con supuestos (fechas de lanzamiento,
+compromisos, responsables) que nadie confirmó. En el piloto, la primera
+versión de 9.3 incluyó una política de comisiones con una fecha inventada
+("meta de lanzamiento el semestre siguiente") — se detectó en revisión y se
+sustituyó por una con evidencia real (protocolo de servicio al cliente).
 
 ## 5. Las 6 convenciones BPMN → traducidas al esquema de `diagrama`
 
@@ -150,9 +175,19 @@ lee directo el `diagrama` de arriba. No genera coordenadas manuales.
 - `indicadores.filas`: igual a x.7 (2-5 filas, mismas 5 columnas).
 - **No incluir** `dueno`/`disparador` con datos que ya trae el mapa v18
   (alcance, dueño, participantes, disparador, cadencia, output) — el
-  armazón ya los muestra desde la ficha del mapa. Usar `dueno.notas` solo
-  para una aclaración puntual (p. ej. limpiar una duplicación evidente del
-  campo del mapa, como en 9.3).
+  armazón ya los muestra desde la ficha del mapa.
+- ⚠️ **No agregar campos de "notas" para explicar cómo se procesó el dato**
+  (p. ej. "el mapa traía tal duplicación y se limpió así"). Esa trazabilidad
+  es para el mensaje de cierre (§9), no para el contenido que lee el
+  cliente — en el piloto se agregó una nota así en `dueno` y se retiró en
+  la revisión por innecesaria para el lector.
+- Una aclaración **sí** entra en el contenido cuando es información real
+  sobre el negocio que el lector necesita, no sobre cómo se hizo el manual
+  — por ejemplo, cuando no hay evidencia de la naturaleza de un sistema
+  mencionado en una entrevista (¿es una app propia? ¿un servicio de un
+  tercero? ¿dónde vive?), decirlo así, explícito, en el campo
+  correspondiente (`n0.contexto.sistemas`), en vez de inventar una
+  respuesta o callarlo.
 
 ## 7. Estructura del contenido de N0 — igual intención que las secciones 1-4 y 6-7 del original
 
@@ -161,6 +196,11 @@ Mapeo directo: introducción → `introduccion` · contexto (2.1-2.5) →
 (4.1-4.3) → `marco` · agenda de mejora (6.1-6.3) → `agenda` (**última**, solo
 con los 1as N1 completos) · anexos (7.1-7.6) → `anexos` (**último**, RACI y
 glosario son consolidados de todo el macroproceso).
+
+En `contexto.entidades`, la columna «entidad» es la **razón social exacta**
+de la empresa (verificarla en las entrevistas o en `CLAUDE.md` antes de
+escribir un rol genérico como "Socio de Costa Rica" — en el piloto era
+Importbel, S.A., y hubo que corregirlo en revisión).
 
 ## 8. Convenciones de escritura — iguales al original
 
@@ -174,5 +214,31 @@ del texto visible.
 - El objeto JS de la sección 4, para fundir a mano en `manual-contenido.js`
   bajo la clave del macroproceso.
 - Un mensaje corto de cierre: qué se generó, qué insumo faltó o fue débil,
-  qué inconsistencia menor del mapa se detectó (si alguna) — nunca dentro
-  del contenido.
+  qué inconsistencia menor del mapa se detectó (si alguna), y cualquier
+  limpieza de dato que se haya hecho sobre un campo del mapa (dueño,
+  participantes) — **nunca dentro del contenido**, solo aquí.
+
+## 10. Lo que la revisión del piloto corrigió — checklist antes de entregar
+
+Repasar esto antes de entregar el JSON de cada macroproceso, para no repetir
+lo que ya se corrigió en 9.3:
+
+- [ ] Ninguna entidad aparece con un rol genérico ("socio de…") si tiene
+      razón social conocida — usarla.
+- [ ] Cada sistema mencionado que no tenga evidencia clara de qué es o
+      dónde vive lo dice explícitamente, en vez de sonar seguro sobre algo
+      que no se confirmó.
+- [ ] `marco.politicas` tiene entre 5 y 8 entradas, todas con evidencia —
+      ninguna con fecha, compromiso o responsable inventado.
+- [ ] Ningún `nota_estado` de transición deja ambigüedad de a qué país o
+      alcance se refiere; si no se puede aclarar en una frase, se omite.
+- [ ] Ningún campo de contenido (`dueno`, `disparador`, etc.) explica cómo
+      se procesó o limpió el dato del mapa — eso va solo en el mensaje de
+      cierre.
+- [ ] Nada de `[flujo].actividades` ni ninguna otra sección repite datos
+      que ya muestra la ficha del mapa (alcance, dueño, participantes,
+      disparador, cadencia, output) — solo se agrega lo que la ficha no
+      trae.
+
+No hace falta preocuparse por mayúsculas en los títulos de macroproceso o
+proceso — el aplicativo los capitaliza automáticamente.
