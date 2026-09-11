@@ -811,7 +811,7 @@
                     (s.id==='disparador' && (fx.disparador||fx.cadencia||fx.output));
 
       if(conMapa){
-        if(s.id==='proposito'){ h += fichaHtml([['Alcance (mapa v18)', esc(fx.alcance)]]); }
+        if(s.id==='proposito'){ h += fichaHtml([['Alcance', esc(fx.alcance)]]); }
         else if(s.id==='dueno'){
           var rows = [['Dueño del proceso', esc(fx.dueno||'—')]];
           if(fx.participantes && fx.participantes.length){
@@ -839,10 +839,6 @@
       }
       h += '</section>';
     });
-
-    if(fx.fuentes){
-      h += '<p style="font-size:10.5px;color:var(--tinta-tenue);margin-top:16px"><b>Fuentes del mapa (uso interno del equipo):</b> '+esc(fx.fuentes)+'</p>';
-    }
 
     // anterior/siguiente proceso (global, en orden de documento)
     var todos = procTodos();
@@ -923,7 +919,10 @@
     } else if(id==='indicadores'){
       if(c.filas) h += tabla(['Indicador','Fórmula','Frecuencia','Dueño','Meta sugerida'], c.filas);
     }
-    return h || '<div class="f2-vacio">Contenido pendiente.</div>';
+    // proposito/dueno/disparador ya tienen su ficha del mapa como respaldo — un
+    // vacío aquí no significa "pendiente", solo que no hay nada que añadir a la ficha.
+    var necesitaRespaldo = (id==='flujo' || id==='riesgos' || id==='indicadores');
+    return h || (necesitaRespaldo ? '<div class="f2-vacio">Contenido pendiente.</div>' : '');
   }
 
   function fichaHtml(rows){

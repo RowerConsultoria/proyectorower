@@ -46,7 +46,7 @@ window.MANUAL_CONTENIDO = {
      ["Distribuidora Rower C.A.", "Venezuela", "Operación propia", "21 puntos de venta (Casio 4 · Cubitt 9 · mixtas 2 en Caracas, 6 en el interior); responsabilidad de inventario descontada al personal de tienda ante faltante."],
      ["Cubitt Panamá", "Panamá", "Operación propia", "Piloto en curso: pedido generado directo desde el almacén central regional (Colón/Colombia) en vez del almacén local (Obarrio)."],
      ["Kenex Trading (regional)", "Colombia", "Sede de la Gerencia Regional de Retail", "Bodega central regional para el piloto de despacho directo a Panamá y otros países."],
-     ["Socio de Costa Rica", "Costa Rica", "Sociedad", "Alineado a los mismos cuadros de meta y KPI que la operación propia, bajo la misma \"torre de control\"."],
+     ["Importbel, S.A.", "Costa Rica", "Sociedad (socio)", "Alineado a los mismos cuadros de meta y KPI que la operación propia, bajo la misma \"torre de control\"."],
      ["Franquicias (Guatemala, Honduras, Nicaragua, República Dominicana)", "Centroamérica / Caribe", "Franquicia con fee de servicio", "Sistemas propios distintos (p. ej. Power BI de un operador logístico tercero); reportan por interfaz aparte hacia la torre de control regional."]
     ],
     "sistemas": [
@@ -54,7 +54,7 @@ window.MANUAL_CONTENIDO = {
      ["Lark", "Comunicación de campo cuando hay señal; ficha de necesidad del punto de venta", "Reposición, comunicación con gerentes de tienda"],
      ["WhatsApp", "Comunicación de campo de respaldo cuando Lark no está descargado o la señal falla", "Coordinación diaria, incidencias, aperturas"],
      ["Cuadro de KPI diario (Drive) → torre de control regional (en desarrollo)", "Ventas, tráfico, conversión, UPT/BPT por tienda y país", "Seguimiento comercial, forecast, comisiones"],
-     ["Follow Up", "Tráfico y conversión por tienda", "Seguimiento comercial, esquema de comisiones"],
+     ["Follow Up", "Herramienta de conteo de tráfico en el punto de venta: registra cuántos visitantes entran a la tienda y cuántos de ellos compran, para calcular la tasa de conversión", "Seguimiento comercial, esquema de comisiones"],
      ["WMS / dispositivo móvil (bodega)", "Preparación y despacho de pedidos de reposición", "Reposición"]
     ],
     "interfaces": [
@@ -94,7 +94,7 @@ window.MANUAL_CONTENIDO = {
     ],
     "politicas": [
      "Código de vestimenta y política de dotación regional — en desarrollo (borrador v1, Talento Humano), con headcount por talla y género para dimensionar la compra.",
-     "Esquema de comisiones e incentivos homologado para gerentes de país y asesores — en desarrollo, meta de lanzamiento en el semestre siguiente.",
+     "Protocolo de servicio al cliente en tienda — desarrollado este año, con estándares de atención y experiencia del cliente; su gobierno pasó a Formación y Desarrollo.",
      "Procedimiento de pago de inventario por faltantes: verificado el faltante, se factura el producto con descuento de empleado y el monto se divide entre el personal de la sucursal (Venezuela)."
     ],
     "normativo": [
@@ -112,8 +112,7 @@ window.MANUAL_CONTENIDO = {
 
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la generación y ejecución del pedido periódico de mercancía hacia cada tienda o kiosco: desde el corte semanal de necesidad hasta que la mercancía queda cargada y disponible para la venta en el punto. Incluye el ajuste del sugerido por capacidad física y patrón de venta local, y —cuando el pedido excede el umbral de aprobación del país— la autorización adicional en el nivel regional. No incluye las transferencias puntuales entre tiendas ante una rotura de stock inmediata (proceso 9.4) ni la recepción de mercancía nueva en el centro de distribución, que pertenece a Logística y Operaciones (macro 7).",
-     "nota_estado": "Este proceso está en transición: el país está migrando de generar el pedido desde el almacén local hacia generarlo directamente desde el almacén central regional, con el almacén local operando como capa de tránsito. Este manual describe la versión objetivo del flujo."
+     "texto": "Cubre la generación y ejecución del pedido periódico de mercancía hacia cada tienda o kiosco: desde el corte semanal de necesidad hasta que la mercancía queda cargada y disponible para la venta en el punto. Incluye el ajuste del sugerido por capacidad física y patrón de venta local, y —cuando el pedido excede el umbral de aprobación del país— la autorización adicional en el nivel regional. No incluye las transferencias puntuales entre tiendas ante una rotura de stock inmediata (proceso 9.4) ni la recepción de mercancía nueva en el centro de distribución, que pertenece a Logística y Operaciones (macro 7)."
     },
 
     "dueno": {
