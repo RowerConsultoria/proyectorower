@@ -54,7 +54,7 @@ window.MANUAL_CONTENIDO = {
      ["Lark", "Comunicación de campo cuando hay señal; ficha de necesidad del punto de venta", "Reposición, comunicación con gerentes de tienda"],
      ["WhatsApp", "Comunicación de campo de respaldo cuando Lark no está descargado o la señal falla", "Coordinación diaria, incidencias, aperturas"],
      ["Cuadro de KPI diario (Drive) → torre de control regional (en desarrollo)", "Ventas, tráfico, conversión, UPT/BPT por tienda y país", "Seguimiento comercial, forecast, comisiones"],
-     ["Follow Up", "Herramienta de conteo de tráfico en el punto de venta: registra cuántos visitantes entran a la tienda y cuántos de ellos compran, para calcular la tasa de conversión", "Seguimiento comercial, esquema de comisiones"],
+     ["Follow Up", "Registra el tráfico de clientes en el punto de venta (cuántos entran y cuántos compran) para calcular la conversión — se referencia como una plataforma aparte a la que la tienda \"entra\" a consultar. ⚠️ Naturaleza exacta sin confirmar: no hay evidencia de si es una aplicación propia, un servicio de un tercero (p. ej. un contador de tráfico del centro comercial) o dónde se hospeda; validar con el equipo antes de la versión final.", "Seguimiento comercial, esquema de comisiones"],
      ["WMS / dispositivo móvil (bodega)", "Preparación y despacho de pedidos de reposición", "Reposición"]
     ],
     "interfaces": [
@@ -95,7 +95,11 @@ window.MANUAL_CONTENIDO = {
     "politicas": [
      "Código de vestimenta y política de dotación regional — en desarrollo (borrador v1, Talento Humano), con headcount por talla y género para dimensionar la compra.",
      "Protocolo de servicio al cliente en tienda — desarrollado este año, con estándares de atención y experiencia del cliente; su gobierno pasó a Formación y Desarrollo.",
-     "Procedimiento de pago de inventario por faltantes: verificado el faltante, se factura el producto con descuento de empleado y el monto se divide entre el personal de la sucursal (Venezuela)."
+     "Procedimiento de pago de inventario por faltantes: verificado el faltante, se factura el producto con descuento de empleado y el monto se divide entre el personal de la sucursal (Venezuela).",
+     "Gestión de inventarios por fases: conteo físico selectivo semanal (dos conteos adicionales en meses de venta especial), conciliación y ajuste en la semana 3 del ciclo, e inventario general masivo de dos días en julio y enero (Venezuela).",
+     "Auditoría y visitas de supervisión a tienda: revisión de instalaciones, cartelera fiscal, inventario y cumplimiento de horario; en desarrollo una auto-auditoría del gerente de tienda a nivel regional.",
+     "Monitoreo de cámaras de seguridad en tienda a cargo de un proveedor externo, que notifica hallazgos irregulares — no hay monitoreo interno permanente de las cámaras.",
+     "Manejo de efectivo: cobro y cuadre de caja en tienda, envío a tesorería por transporte con frecuencia fija por punto de venta (Venezuela: lunes, miércoles y viernes)."
     ],
     "normativo": [
      "Patentes y permisología municipal por punto de venta (varía por país; en Venezuela la patente cambia según el surtido que vende cada tienda).",
@@ -116,8 +120,7 @@ window.MANUAL_CONTENIDO = {
     },
 
     "dueno": {
-     "estado": "borrador",
-     "notas": "El mapa base trae el campo «dueño» con una duplicación de generación (\"Gerente Comercial (País / Canal) al Detal (País) (País) (País) (VE)\") — se limpia aquí a su lectura correcta: el dueño por país es el Gerente de Ventas al Detal, con el Supervisor de Ventas como dueño operativo en Panamá."
+     "estado": "borrador"
     },
 
     "disparador": {"estado": "borrador"},
