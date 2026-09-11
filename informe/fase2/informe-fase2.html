@@ -162,6 +162,57 @@
   .f2-proc .pn{flex:1;min-width:0;font-size:13px;font-weight:600}
   .f2-proc .pa{flex:none;font-size:14px;color:var(--tinta-tenue)}
 
+  /* ── contenido real: prosa, listas numeradas, tablas ── */
+  .f2-prosa{font-size:13px;line-height:1.65;color:var(--tinta);margin:6px 0 14px;white-space:pre-line}
+  .f2-nota{
+    margin:8px 0 14px;padding:10px 14px;border-radius:var(--r-tarjeta);font-size:12px;line-height:1.55;
+    background:rgba(255,201,74,.08);border:1px solid rgba(255,201,74,.3);color:var(--tinta-media);
+  }
+  .f2-num-list{margin:6px 0 16px;padding-left:22px;display:flex;flex-direction:column;gap:9px}
+  .f2-num-list li{font-size:13px;line-height:1.55;color:var(--tinta)}
+  .f2-num-list b{color:var(--tinta);font-weight:650}
+  .f2-tabla-wrap{margin:6px 0 16px;border:1px solid var(--borde);border-radius:var(--r-tarjeta);overflow:auto}
+  table.f2-tabla{width:100%;border-collapse:separate;border-spacing:0;font-size:12px}
+  table.f2-tabla thead th{
+    position:sticky;top:0;background:var(--panel-alto);padding:9px 11px;text-align:left;
+    font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-tenue);
+    border-bottom:1px solid var(--borde);white-space:nowrap;
+  }
+  table.f2-tabla tbody td{padding:9px 11px;border-bottom:1px solid var(--borde-tenue);vertical-align:top;color:var(--tinta)}
+  table.f2-tabla tbody tr:last-child td{border-bottom:0}
+  table.f2-tabla tbody tr:hover{background:var(--realce)}
+  .f2-subtit{font-size:12px;font-weight:700;color:var(--tinta-media);margin:16px 0 4px;text-transform:uppercase;letter-spacing:.06em}
+  .f2-subtit:first-child{margin-top:2px}
+
+  /* ── flujograma embebido ── */
+  .fx-marco{position:relative;margin:6px 0 16px;border:1px solid var(--borde);border-radius:var(--r-tarjeta);background:var(--panel);overflow:hidden}
+  .fx-scroll{overflow:auto;padding:10px}
+  .fx-ampliar{
+    position:absolute;right:10px;top:10px;font-size:11.5px;font-weight:600;color:var(--tinta-media);
+    background:var(--panel-vidrio);border:1px solid var(--borde);border-radius:var(--r-pildora);padding:5px 11px;cursor:pointer;
+    backdrop-filter:blur(8px);
+  }
+  .fx-ampliar:hover{border-color:var(--tinta-tenue);color:var(--tinta)}
+  .fx-svg{display:block}
+  .fx-lane{fill:var(--panel-alto);stroke:var(--borde-tenue);stroke-width:1}
+  .fx-lane:nth-child(odd){fill:var(--panel)}
+  .fx-lane-cab{fill:var(--panel);stroke:var(--borde-tenue);stroke-width:1}
+  .fx-lane-t{font:700 11px var(--fuente);fill:var(--tinta-media)}
+  .fx-nodo{fill:var(--panel);stroke:var(--tinta-tenue);stroke-width:1.5}
+  .fx-inicio,.fx-fin{fill:var(--menta);stroke:var(--menta)}
+  .fx-decision{fill:var(--panel-alto);stroke:var(--alerta);stroke-width:1.5}
+  .fx-nodo-t{font:650 11px var(--fuente);fill:var(--tinta)}
+  .fx-evt-t{font:600 10px var(--fuente);fill:var(--tinta-media)}
+  .fx-sis{font:600 9.5px var(--mono);fill:var(--cian)}
+  .fx-arista{fill:none;stroke:var(--tinta-tenue);stroke-width:1.6}
+  .fx-etq{font:700 10.5px var(--fuente);fill:var(--alerta)}
+
+  .fx-lb{position:fixed;inset:0;z-index:200;background:var(--fondo);display:flex;flex-direction:column}
+  .fx-lb-bar{flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--borde);font-size:13px}
+  .fx-lb-bar button{border:0;background:var(--panel-alto);color:var(--tinta-media);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px}
+  .fx-lb-vp{flex:1;overflow:hidden;position:relative;cursor:grab}
+  .fx-lb-world{position:absolute;left:0;top:0;transform-origin:0 0}
+
   .f2-vacio{
     margin-top:10px;padding:18px 16px;border:1px dashed var(--borde);border-radius:var(--r-tarjeta);
     font-size:12.5px;color:var(--tinta-tenue);line-height:1.5;
@@ -428,7 +479,9 @@
 </div>
 
 <script src="manual-procesos-datos.js"></script>
+<script src="manual-contenido.js"></script>
 <script src="mapa-procesos-flujos.js"></script>
+<script src="flujo-render.js"></script>
 <script>
 (function(){
   "use strict";
@@ -442,6 +495,31 @@
   function el(html){var t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstChild;}
   function catNombre(id){for(var i=0;i<D.categorias.length;i++)if(D.categorias[i].id===id)return D.categorias[i].n;return id;}
   function macro(pref){return D.macros.filter(function(m){return m.prefijo===String(pref);})[0];}
+  var CONT = window.MANUAL_CONTENIDO || {};
+  function contN0(pref, secId){var c=CONT[String(pref)]; return c && c.n0 && c.n0[secId]; }
+  function contN1(pref, cod, secId){var c=CONT[String(pref)]; var p=c && c.procesos && c.procesos[cod]; return p && p[secId]; }
+  function hayContenido(c){ return c && c.estado && c.estado!=='pendiente'; }
+
+  function tabla(cab, filas){
+    if(!filas || !filas.length) return '';
+    var h='<div class="f2-tabla-wrap"><table class="f2-tabla"><thead><tr>'+cab.map(function(c){return '<th>'+esc(c)+'</th>';}).join('')+'</tr></thead><tbody>';
+    filas.forEach(function(f){
+      h += '<tr>'+f.map(function(v){return '<td>'+(typeof v==='string' && v.indexOf('<')>=0 ? v : esc(v))+'</td>';}).join('')+'</tr>';
+    });
+    h += '</tbody></table></div>';
+    return h;
+  }
+  function numLista(items){
+    if(!items || !items.length) return '';
+    return '<ol class="f2-num-list">'+items.map(function(it){
+      if(it && typeof it==='object' && it.rol){
+        return '<li><b>'+esc(it.rol)+'.</b> '+esc(it.texto)+'</li>';
+      }
+      return '<li>'+esc(it)+'</li>';
+    }).join('')+'</ol>';
+  }
+  function subtit(t){ return '<div class="f2-subtit">'+esc(t)+'</div>'; }
+  function prosa(t){ return t ? '<p class="f2-prosa">'+esc(t)+'</p>' : ''; }
   function procTodos(){var r=[];D.macros.forEach(function(m){m.procesos.forEach(function(p){r.push({m:m,p:p});});});return r;}
   function proc(cod){return procTodos().filter(function(x){return x.p.codigo===String(cod);})[0];}
 
@@ -684,10 +762,15 @@
           h += '<a class="f2-proc" href="#/p/'+esc(p.codigo)+'"><span class="pc">'+esc(p.codigo)+'</span><span class="pn">'+esc(p.n)+'</span><span class="pa">→</span></a>';
         });
       } else {
-        if(s.sub && s.sub.length){
-          h += '<ul class="f2-outline">'+s.sub.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
+        var cn = contN0(m.prefijo, s.id);
+        if(hayContenido(cn)){
+          h += renderN0Seccion(s.id, cn);
+        } else {
+          if(s.sub && s.sub.length){
+            h += '<ul class="f2-outline">'+s.sub.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
+          }
+          h += '<div class="f2-vacio">Contenido pendiente. Se completará con el procesamiento de las entrevistas, la documentación de Lark y buenas prácticas del sector.</div>';
         }
-        h += '<div class="f2-vacio">Contenido pendiente. Se completará con el procesamiento de las entrevistas, la documentación de Lark y buenas prácticas del sector.</div>';
       }
       h += '</section>';
     });
@@ -711,6 +794,7 @@
     var x = proc(cod);
     if(!x) return vistaInicio();
     var m = x.m, p = x.p, fx = p.mapa;
+    flujosMontar = [];
     var h = '<div class="f2-migas"><a href="#/">Manual</a><span class="sep">›</span><a href="#/m/'+esc(m.prefijo)+'">'+esc(m.n)+'</a><span class="sep">›</span><span>'+esc(p.n)+'</span></div>';
     h += '<div class="f2-cab"><span class="f2-num">'+esc(p.codigo)+'</span><div><h1 class="f2-h1" style="margin-bottom:4px">'+esc(p.n)+'</h1>'+
          '<div class="f2-meta"><a class="chip" href="#/m/'+esc(m.prefijo)+'">'+esc(m.prefijo)+'. '+esc(m.n)+'</a></div></div></div>';
@@ -722,20 +806,28 @@
       h += '<h2><span class="f2-secnum">'+esc(p.codigo)+'.'+(i+1)+'</span>'+esc(s.n)+'</h2>';
       if(s.nota) h += '<div class="f2-secnota">'+esc(s.nota)+'</div>';
 
-      if(s.id==='proposito' && fx.alcance){
-        h += fichaHtml([['Alcance (mapa v18)', esc(fx.alcance)]]);
-      } else if(s.id==='dueno' && (fx.dueno || (fx.participantes&&fx.participantes.length))){
-        var rows = [['Dueño del proceso', esc(fx.dueno||'—')]];
-        if(fx.participantes && fx.participantes.length){
-          rows.push(['Participantes', '<ul>'+fx.participantes.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
+      var cn1 = contN1(m.prefijo, p.codigo, s.id);
+      var conMapa = (s.id==='proposito' && fx.alcance) || (s.id==='dueno' && (fx.dueno||(fx.participantes&&fx.participantes.length))) ||
+                    (s.id==='disparador' && (fx.disparador||fx.cadencia||fx.output));
+
+      if(conMapa){
+        if(s.id==='proposito'){ h += fichaHtml([['Alcance (mapa v18)', esc(fx.alcance)]]); }
+        else if(s.id==='dueno'){
+          var rows = [['Dueño del proceso', esc(fx.dueno||'—')]];
+          if(fx.participantes && fx.participantes.length){
+            rows.push(['Participantes', '<ul>'+fx.participantes.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
+          }
+          h += fichaHtml(rows);
+        } else {
+          h += fichaHtml([
+            ['Disparador', esc(fx.disparador||'—')],
+            ['Cadencia', esc(fx.cadencia||'—')],
+            ['Output', esc(fx.output||'—')]
+          ]);
         }
-        h += fichaHtml(rows);
-      } else if(s.id==='disparador' && (fx.disparador||fx.cadencia||fx.output)){
-        h += fichaHtml([
-          ['Disparador', esc(fx.disparador||'—')],
-          ['Cadencia', esc(fx.cadencia||'—')],
-          ['Output', esc(fx.output||'—')]
-        ]);
+        if(hayContenido(cn1)) h += renderN1Seccion(s.id, cn1, p.n);
+      } else if(hayContenido(cn1)){
+        h += renderN1Seccion(s.id, cn1, p.n);
       } else if(s.id==='flujo'){
         h += '<div class="f2-vacio">Pendiente: descripción numerada de las actividades del proceso (con el actor responsable de cada paso) y el <b>flujograma BPMN</b> derivado de esa misma secuencia.</div>';
       } else if(s.id==='riesgos'){
@@ -762,10 +854,76 @@
     h += '</div>';
 
     doc.innerHTML = h;
+    flujosMontar.forEach(function(f){
+      var el = doc.querySelector('#'+f.id);
+      if(el && window.FlujoRender) window.FlujoRender.montar(el, f.flujo, f.titulo);
+    });
     marcarNav('proceso', p.codigo);
     document.title = p.codigo+' '+p.n+' — Fase 2';
     activarSpy();
     irASeccion(secId);
+  }
+
+  function renderN0Seccion(id, c){
+    var h = '';
+    if(id==='introduccion'){
+      h += subtit('Propósito del manual')+prosa(c.proposito);
+      h += subtit('Alcance')+prosa(c.alcance);
+      if(c.audiencia && c.audiencia.length){ h += subtit('Audiencia')+numLista(c.audiencia); }
+    } else if(id==='contexto'){
+      h += subtit('Ubicación en el mapa de procesos')+prosa(c.ubicacion);
+      if(c.duenos) h += subtit('Dueños y responsabilidades')+tabla(['Nivel','Cargo','Responsabilidad'], c.duenos);
+      if(c.entidades) h += subtit('Entidades y países involucrados')+tabla(['Entidad','País','Rol','Particularidad relevante'], c.entidades);
+      if(c.sistemas) h += subtit('Sistemas utilizados')+tabla(['Sistema o herramienta','Para qué se usa','Procesos que lo emplean'], c.sistemas);
+      if(c.interfaces) h += subtit('Interfaces con otros macroprocesos')+tabla(['Macroproceso','Sentido','Qué se intercambia'], c.interfaces);
+    } else if(id==='gobernanza'){
+      if(c.actores) h += subtit('Actores y límites de autoridad')+tabla(['Actor','Ámbito','Responsabilidades','Decide por sí mismo','Qué escala y a quién'], c.actores);
+      if(c.comites) h += subtit('Comités e instancias de decisión')+tabla(['Instancia','Propósito','Cadencia','Participantes','Decisiones','Insumo','Salida'], c.comites);
+    } else if(id==='marco'){
+      if(c.principios) h += subtit('Principios rectores')+numLista(c.principios);
+      if(c.politicas) h += subtit('Políticas aplicables')+numLista(c.politicas);
+      if(c.normativo) h += subtit('Marco normativo')+numLista(c.normativo);
+    } else if(id==='agenda'){
+      if(c.por_implementar) h += subtit('Procesos por implementar')+tabla(['Proceso','Qué falta','Roadmap sugerido'], c.por_implementar);
+      if(c.por_formalizar) h += subtit('Procesos por formalizar o consolidar')+tabla(['Proceso','Brecha','Roadmap sugerido'], c.por_formalizar);
+      if(c.brechas) h += subtit('Brechas en procesos vigentes')+tabla(['Proceso','Brecha','Roadmap sugerido'], c.brechas);
+    } else if(id==='anexos'){
+      if(c.glosario) h += subtit('Glosario')+tabla(['Término','Definición'], c.glosario);
+      if(c.raci) h += subtit('Matriz RACI consolidada')+tabla(['Proceso','Responsable','Aprobador','Consultado','Informado'], c.raci);
+      if(c.catalogo_sistemas) h += subtit('Catálogo de sistemas y herramientas')+tabla(['Sistema','Uso','Procesos','Responsable'], c.catalogo_sistemas);
+      if(c.interfaces_detalle) h += subtit('Interfaces con otros macroprocesos (detalle)')+tabla(['Macroproceso','Punto de handoff','Qué se intercambia'], c.interfaces_detalle);
+      if(c.docs_lark) h += subtit('Documentación de Lark')+tabla(['Documento','País','Propósito','Se relaciona con'], c.docs_lark);
+      if(c.variaciones_pais) h += subtit('Variaciones operativas por país')+tabla(['País','Variación','Por qué es legítima'], c.variaciones_pais);
+    }
+    return h || '<div class="f2-vacio">Contenido pendiente.</div>';
+  }
+
+  var flujosMontar = [];  // {sel, flujo, titulo} pendientes de montar tras pintar el DOM
+
+  function renderN1Seccion(id, c, tituloProc){
+    var h = '';
+    if(c.nota_estado) h += '<div class="f2-nota">'+esc(c.nota_estado)+'</div>';
+    if(id==='proposito'){
+      h += prosa(c.texto);
+    } else if(id==='dueno'){
+      if(c.notas) h += '<div class="f2-nota">'+esc(c.notas)+'</div>';
+    } else if(id==='disparador'){
+      // el detalle vive en la ficha del mapa; sin campos propios por ahora
+    } else if(id==='flujo'){
+      if(c.actividades && c.actividades.length){
+        h += subtit('Descripción del flujo')+numLista(c.actividades);
+      }
+      if(c.diagrama){
+        var fid = 'fx-'+flujosMontar.length;
+        h += subtit('Flujograma')+'<div id="'+fid+'"></div>';
+        flujosMontar.push({id: fid, flujo: c.diagrama, titulo: tituloProc});
+      }
+    } else if(id==='riesgos'){
+      if(c.filas) h += tabla(['Riesgo','Descripción','Probabilidad','Impacto','Mitigación propuesta'], c.filas);
+    } else if(id==='indicadores'){
+      if(c.filas) h += tabla(['Indicador','Fórmula','Frecuencia','Dueño','Meta sugerida'], c.filas);
+    }
+    return h || '<div class="f2-vacio">Contenido pendiente.</div>';
   }
 
   function fichaHtml(rows){
