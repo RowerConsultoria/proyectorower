@@ -8,10 +8,6 @@ el formato de salida y quita lo que solo aplicaba a Word (portada, aviso de
 confidencialidad como página, especificación editorial, glosario al final
 como anexo de lectura obligatoria).
 
-**Validado contra el piloto:** macro 9 (Ventas Retail), proceso 9.3
-(Reposición de tiendas y kioscos) — 09/2026, con dos rondas de correcciones
-de Jesús ya incorporadas a este documento (ver §10).
-
 ---
 
 ## 0. Cómo se usa
@@ -19,21 +15,26 @@ de Jesús ya incorporadas a este documento (ver §10).
 1. Precondición: el mapa v18 debe estar validado para el macroproceso a
    documentar (ya lo está — es la fuente de `manual-procesos-datos.js`).
 2. Insumos por macroproceso: la porción del mapa (ya en el `.js`) +
-   entrevistas relevantes de `Insumos/Entrevistas_dialogo_limpio_agrupadas/<macroproceso>`
-   (y búsqueda cruzada en `Entrevistas_dialogo_limpio/` completo) + documentación
-   de Lark relevante en `Insumos/Documentación/<país>/<área>/` + buenas
-   prácticas de fuentes profesionales/académicas (WebSearch, filtrando sitios
-   no verificados) + `Estructura_Patron_Cargos_Rower_V4.xlsx` (hoja «Detalle
-   Personal», columna «Cargo Patrón Propuesto») para la denominación de cargos.
+   revisión del **corpus completo** de entrevistas en
+   `Insumos/Entrevistas_dialogo_limpio/` — no limitarse a la carpeta
+   agrupada por macroproceso (`Entrevistas_dialogo_limpio_agrupadas/`), que
+   ya ha tenido errores de clasificación; revisar todas las entrevistas y
+   que sea el propio criterio de quien redacta el que decida cuáles son
+   prioritarias según lo que efectivamente digan sobre el macroproceso, no
+   según en qué carpeta quedaron archivadas — + documentación de Lark
+   relevante en `Insumos/Documentación/<país>/<área>/` + buenas prácticas de
+   fuentes profesionales/académicas (WebSearch, filtrando sitios no
+   verificados) + `Estructura_Patron_Cargos_Rower_V4.xlsx` (hoja «Detalle
+   Personal», columna «Cargo Patrón Propuesto») para la denominación de
+   cargos.
 3. Salida: un objeto JS que se funde a mano en `manual-contenido.js` bajo
    `window.MANUAL_CONTENIDO["<prefijo>"]` — ver esquema en la sección 4.
 4. **Piloto recomendado antes de correr el lote completo de un macroproceso:
-   1 proceso primero, revisar la forma con el equipo, luego el resto.** Así
-   funcionó con 9.3: la revisión detectó ajustes de forma (§10) que ahora
-   ya están resueltos en este prompt — no hace falta repetirlos por macro.
-5. Al terminar, el JSON se entrega a Gabriel (o a quien mantenga el
-   aplicativo) para fundirlo en `manual-contenido.js` y correr
-   `validar-html.py` + el smoke test antes de publicar.
+   1 proceso primero, revisar la forma con el equipo, y solo entonces el
+   resto.**
+5. Al terminar, el JSON se entrega a quien mantenga el aplicativo para
+   fundirlo en `manual-contenido.js` y correr `validar-html.py` + el smoke
+   test antes de publicar.
 
 ## 1. Rol y contexto (igual que el original)
 
@@ -63,12 +64,6 @@ del JSON.
   - **to-be**: agregar `proposito.nota_estado` con una frase corta que
     aclare que es un proceso a implementar.
   - **híbrido**: agregar `proposito.nota_estado` reconociendo la transición.
-  - ⚠️ **La nota debe ser autocontenida:** decir *qué* transita y, si aplica
-    a un solo país, **nombrarlo explícitamente** ("Panamá está migrando…").
-    En el piloto 9.3 la primera versión decía «el país está migrando…» sin
-    decir cuál, y confundía al lector — Jesús pidió quitarla en vez de
-    aclararla. Si la transición no se puede describir sin ambigüedad en una
-    frase corta, **se omite** `nota_estado` antes que dejarla confusa.
 - La madurez sigue alimentando `n0.agenda` (por implementar / por formalizar
   / brechas vigentes) — **se consolida solo cuando los N1 del macroproceso
   están completos**, no proceso por proceso.
@@ -82,7 +77,7 @@ MANUAL_CONTENIDO["<prefijo>"] = {
     contexto: {
       estado, ubicacion /* prosa 2-3 párrafos, con \n\n entre ellos */,
       duenos: [[nivel, cargo, responsabilidad], ...],
-      entidades: [[entidad, pais, rol, particularidad], ...],   // entidad = razón social exacta, no un rol genérico (ver §10)
+      entidades: [[entidad, pais, rol, particularidad], ...],   // entidad = razón social exacta, no un rol genérico (ver §7)
       sistemas: [[sistema, uso, procesos], ...],
       interfaces: [[macroproceso, sentido, intercambio], ...]
     },
@@ -104,7 +99,7 @@ MANUAL_CONTENIDO["<prefijo>"] = {
   procesos: {
     "<codigo>": {
       proposito: { estado, texto, nota_estado? },
-      dueno: { estado },                // el dueño/participantes ya viven en el mapa v18 (ficha) — ver §10, no usar "notas"
+      dueno: { estado },                // el dueño/participantes ya viven en el mapa v18 (ficha) — ver §6, no usar "notas"
       disparador: { estado },           // idem — disparador/cadencia/output ya en el mapa v18
       flujo: {
         estado,
@@ -132,10 +127,7 @@ cada política debe salir de algo que alguien dijo en una entrevista o de un
 documento de Lark — nunca inventada ni "razonable pero sin fuente". Si el
 macroproceso trae menos de 5 políticas con evidencia real, decirlo en el
 mensaje de cierre en vez de rellenar con supuestos (fechas de lanzamiento,
-compromisos, responsables) que nadie confirmó. En el piloto, la primera
-versión de 9.3 incluyó una política de comisiones con una fecha inventada
-("meta de lanzamiento el semestre siguiente") — se detectó en revisión y se
-sustituyó por una con evidencia real (protocolo de servicio al cliente).
+compromisos, responsables) que nadie confirmó.
 
 ## 5. Las 6 convenciones BPMN → traducidas al esquema de `diagrama`
 
@@ -179,8 +171,7 @@ lee directo el `diagrama` de arriba. No genera coordenadas manuales.
 - ⚠️ **No agregar campos de "notas" para explicar cómo se procesó el dato**
   (p. ej. "el mapa traía tal duplicación y se limpió así"). Esa trazabilidad
   es para el mensaje de cierre (§9), no para el contenido que lee el
-  cliente — en el piloto se agregó una nota así en `dueno` y se retiró en
-  la revisión por innecesaria para el lector.
+  cliente.
 - Una aclaración **sí** entra en el contenido cuando es información real
   sobre el negocio que el lector necesita, no sobre cómo se hizo el manual
   — por ejemplo, cuando no hay evidencia de la naturaleza de un sistema
@@ -198,9 +189,8 @@ con los 1as N1 completos) · anexos (7.1-7.6) → `anexos` (**último**, RACI y
 glosario son consolidados de todo el macroproceso).
 
 En `contexto.entidades`, la columna «entidad» es la **razón social exacta**
-de la empresa (verificarla en las entrevistas o en `CLAUDE.md` antes de
-escribir un rol genérico como "Socio de Costa Rica" — en el piloto era
-Importbel, S.A., y hubo que corregirlo en revisión).
+de la empresa — nunca un rol genérico como "socio de tal país" — y se
+verifica en las entrevistas o en `CLAUDE.md` antes de escribirla.
 
 ## 8. Convenciones de escritura — iguales al original
 
@@ -218,27 +208,22 @@ del texto visible.
   limpieza de dato que se haya hecho sobre un campo del mapa (dueño,
   participantes) — **nunca dentro del contenido**, solo aquí.
 
-## 10. Lo que la revisión del piloto corrigió — checklist antes de entregar
+**Verificación final antes de entregar** (repasar contra las secciones 4,
+6 y 7 de este prompt):
 
-Repasar esto antes de entregar el JSON de cada macroproceso, para no repetir
-lo que ya se corrigió en 9.3:
-
-- [ ] Ninguna entidad aparece con un rol genérico ("socio de…") si tiene
-      razón social conocida — usarla.
+- [ ] Ninguna entidad aparece con un rol genérico si tiene razón social
+      conocida — usarla (§7).
 - [ ] Cada sistema mencionado que no tenga evidencia clara de qué es o
-      dónde vive lo dice explícitamente, en vez de sonar seguro sobre algo
-      que no se confirmó.
+      dónde vive lo dice explícitamente (§6).
 - [ ] `marco.politicas` tiene entre 5 y 8 entradas, todas con evidencia —
-      ninguna con fecha, compromiso o responsable inventado.
-- [ ] Ningún `nota_estado` de transición deja ambigüedad de a qué país o
-      alcance se refiere; si no se puede aclarar en una frase, se omite.
+      ninguna con fecha, compromiso o responsable inventado (§4).
 - [ ] Ningún campo de contenido (`dueno`, `disparador`, etc.) explica cómo
       se procesó o limpió el dato del mapa — eso va solo en el mensaje de
-      cierre.
-- [ ] Nada de `[flujo].actividades` ni ninguna otra sección repite datos
-      que ya muestra la ficha del mapa (alcance, dueño, participantes,
+      cierre (§6).
+- [ ] Nada de `flujo.actividades` ni ninguna otra sección repite datos que
+      ya muestra la ficha del mapa (alcance, dueño, participantes,
       disparador, cadencia, output) — solo se agrega lo que la ficha no
-      trae.
+      trae (§6).
 
 No hace falta preocuparse por mayúsculas en los títulos de macroproceso o
 proceso — el aplicativo los capitaliza automáticamente.
