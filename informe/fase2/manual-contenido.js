@@ -28,15 +28,20 @@
 // 9.3 de Ventas Retail documenta desde el lado comercial — se cruzan a
 // propósito en vez de duplicarse.
 //
-// 2026-09 — 6.6 (reposición inter-compañía) revisado con el doc de Lark
-// «Levantamiento Procesos Compras» (VE, self-report de la Coordinadora de
-// Compras/Planificación) — Insumos/Documentación/Venezuela/Compras/, no
-// consultado en la primera pasada. Aportó tiempos y cifras reales (cobertura
-// 3-4 meses, cubicaje del contenedor, reparto ~50-60% a Venezuela) y dos
-// mejoras ya propuestas por el propio equipo (back order, margen de
-// cubicaje). Pendiente: revisar con el mismo criterio los demás procesos de
-// este macro y los docs de Lark de Ventas Mayor y Ventas Web, que tampoco se
-// consultaron en su primera pasada.
+// 2026-09 — Todo el macro revisado con el doc de Lark «Levantamiento
+// Procesos Compras» (VE, self-report de la Coordinadora de Compras/
+// Planificación) — Insumos/Documentación/Venezuela/Compras/, no consultado
+// en la primera pasada. Tocó 6.1 (el método real de planificación corre en
+// Excel manual, no en el Power BI nuevo/en prueba, y no hay KPI ni MOR
+// formalizados), 6.6 (cobertura 3-4 meses, cubicaje del contenedor, reparto
+// ~50-60% a Venezuela, mecanismo de back order), 6.7 (cobertura real ~3
+// semanas en tienda, 1-1.5 meses en mayorista Panamá, modelo de consignación
+// en definición) y 6.8 (tres mejoras de gobierno ya propuestas por el propio
+// equipo: MOR mensual, margen preaprobado de promociones, analista dedicado
+// a tiendas). 6.2, 6.3, 6.4, 6.5 y 6.9 no tenían contenido directo en este
+// documento y quedaron sin tocar. Pendiente: revisar con el mismo criterio
+// los docs de Lark de Ventas Mayor y Ventas Web, que tampoco se consultaron
+// en su primera pasada.
 //
 // Macro 8 (Ventas Mayor) — COMPLETO: los 17 procesos + Contexto, Gobernanza,
 // Marco de referencia, Agenda de mejora y Anexos. Como en Compras, hay
@@ -1362,18 +1367,18 @@ window.MANUAL_CONTENIDO = {
     "nota": "A diferencia de Ventas Retail, en Compras y Abastecimiento sí hay procesos clasificados como «to-be» en el mapa v18: 6.2 (Gestión del ciclo de vida del proveedor), 6.8 (Gobierno, política y control de compras) y 6.9 (Devoluciones y no conformidades a proveedor) no operan hoy como tales en la organización — su fuente es buena práctica de referencia (CIPS/APQC PCF), no evidencia de campo. El resto es 1 híbrido (6.1) y 5 as-is (6.3–6.7).",
     "por_implementar": [
      ["6.2 Gestión del ciclo de vida del proveedor (SRM)", "No existe hoy homologación ni evaluación periódica de proveedores; el riesgo de mono-proveedor de firmware de Cubitt ya se identificó sin proceso que lo mitigue.", "Priorizar la homologación de los proveedores críticos (firmware Cubitt, fábricas principales) antes de extenderla a todo el panel."],
-     ["6.8 Gobierno, política y control de compras", "No existe un departamento de compras formalmente estructurado, ni política escrita, ni matriz de aprobación, ni KPI formalizados.", "Documentar primero la matriz de aprobación por monto y tipo de compra; la política completa y el tablero de KPI pueden seguir después."],
+     ["6.8 Gobierno, política y control de compras", "No existe un departamento de compras formalmente estructurado, ni política escrita, ni matriz de aprobación, ni KPI formalizados.", "Priorizar las tres mejoras ya propuestas por el propio equipo de compras —la reunión mensual de coberturas (MOR), el margen preaprobado para promociones y un analista dedicado al día a día de tiendas— antes de encarar la matriz de aprobación y la política completa."],
      ["6.9 Devoluciones y no conformidades a proveedor", "Devoluciones acumuladas sin política, y defectos de Cubitt sin trazabilidad.", "Definir primero el protocolo de detección y apertura de reclamo; la recuperación de costo puede formalizarse en un segundo momento."]
     ],
     "por_formalizar": [
-     ["6.1 Planificación de demanda y S&OP", "El sugerido de Power BI y el ajuste experto de la gerencia comercial no están documentados como método; dependen del conocimiento de dos personas.", "Documentar el criterio de ajuste manual sobre el sugerido, para que no dependa solo de quien lo aplica hoy."]
+     ["6.1 Planificación de demanda y S&OP", "La planificación real corre en Excel con apoyo de IA, no en el módulo de Power BI —nuevo y todavía en prueba—; no existen KPIs formalizados de cobertura ni una reunión periódica que los revise.", "Documentar el método de proyección manual como estándar, e implementar la reunión mensual de coberturas (MOR) ya propuesta por el propio equipo."]
     ],
     "brechas": [
      ["6.3 Compra internacional a marca representada (Casio)", "La reconciliación mensual (PCI) es enteramente manual y depende de una sola persona.", "Documentar el método de reconciliación y evaluar automatizar el cruce entre lo pedido, lo confirmado y lo vendido."],
      ["6.4 Compra internacional a marca propia (Cubitt)", "El comité de compras Cubitt es informal, sin acta ni criterio de decisión escrito.", "Documentar el criterio de decisión del comité y la responsabilidad de cada integrante."],
      ["6.5 Compra local por país (nacionales y de urgencia)", "Cada país compra localmente con su propio criterio, sin visibilidad regional consolidada.", "Definir un umbral y un reporte mínimo de compra local para visibilidad regional."],
      ["6.6 Gestión de reposición inter-compañía (país-hub)", "El llenado del contenedor entre el hub y cada país no se reporta sistemáticamente cuando un pedido no cabe completo — se carga hasta ~64 de los 66 m³ de capacidad, sin margen de maniobra — y el problema se descubre por faltantes, o incluso ya pagado el arancel de aduana sobre mercancía que figuraba en factura pero nunca salió del hub.", "Dejar un margen deliberado de cubicaje (cargar hasta 60 de los 66 m³) y reportar explícitamente lo que quedó fuera antes del zarpe — propuesta ya planteada por el propio equipo de compras."],
-     ["6.7 Gestión de reposición a punto de venta", "La meta de cobertura de inventario en tienda se fijó como un número único regional, sin considerar la capacidad física de los kioscos pequeños, y está en renegociación.", "Ajustar la meta de cobertura por tipo de punto de venta (tienda grande vs. kiosco) en vez de un número único regional."]
+     ["6.7 Gestión de reposición a punto de venta", "La meta de cobertura de inventario en tienda se fijó como un número único regional, sin considerar la capacidad física de los kioscos pequeños, y está en renegociación — el propio equipo de Compras reporta un objetivo de ~3 semanas para tienda por el tamaño de los depósitos, distinto del mandato regional más amplio en discusión.", "Ajustar la meta de cobertura por tipo de punto de venta (tienda grande vs. kiosco) en vez de un número único regional."]
     ]
    },
 
@@ -1436,8 +1441,8 @@ window.MANUAL_CONTENIDO = {
    "6.1": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la consolidación mensual de inventario, sell-in y sell-out por SKU/país/canal, la generación del sugerido de compra y reposición en Power BI, su ajuste con criterio experto, y la validación cross-funcional en la reunión de S&OP que produce el plan de suministro del mes. No incluye la ejecución de la compra internacional en sí (procesos 6.3 y 6.4) ni la reposición física a cada país o punto de venta (procesos 6.6 y 6.7), que parten de este plan ya aprobado.",
-     "nota_estado": "Este proceso combina un modelo analítico ya en producción —el sugerido en Power BI— con un ajuste manual por criterio experto que hoy no está documentado como método: depende de que cada responsable de marca lo aplique con su propio conocimiento del negocio."
+     "texto": "Cubre la consolidación mensual de inventario, sell-in y sell-out por SKU/país/canal, la construcción de la proyección de demanda, su ajuste con criterio experto, y la validación cross-funcional en la reunión de S&OP que produce el plan de suministro del mes. No incluye la ejecución de la compra internacional en sí (procesos 6.3 y 6.4) ni la reposición física a cada país o punto de venta (procesos 6.6 y 6.7), que parten de este plan ya aprobado.",
+     "nota_estado": "Este proceso es híbrido: la planificación de demanda corre hoy casi enteramente fuera de Odoo (que no automatiza reposición, solo alerta cuando el inventario llega a un nivel mínimo) en Excel, con tablas conectadas al ERP y apoyo de IA para partes puntuales del cálculo. El módulo de sugerido en Power BI es nuevo —en prueba desde hace pocas semanas— y todavía no refleja bien los ajustes fuera de rutina (p. ej. el incremento de pedido de cara a diciembre), por lo que no sustituye el ajuste manual."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
@@ -1445,29 +1450,31 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Inicia el ciclo mensual de S&OP al cierre del mes comercial, convocando a los participantes."},
-      {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Ejecuta el módulo de sugerido en Power BI, cruzando inventario, sell-in y sell-out por SKU/país/canal."},
-      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Ajusta el sugerido con criterio experto para la marca Casio, considerando la cuota vigente y la venta reciente por país."},
-      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Ajusta el sugerido con criterio experto para la marca Cubitt, considerando lanzamientos previstos y cobertura crítica."},
-      {"id": "a5", "rol": "Planificador Financiero", "texto": "Valida que el plan de suministro propuesto sea consistente con la restricción presupuestaria del mes."},
-      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida los ajustes y presenta el plan de suministro en la reunión mensual de S&OP para su aprobación."}
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Extrae inventario y tránsito con tablas de Excel conectadas a Odoo, y construye la proyección de demanda tomando la venta del mismo mes del año anterior ajustada por el crecimiento esperado."},
+      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Contrasta la proyección manual contra el sugerido del módulo nuevo de Power BI, todavía en prueba."},
+      {"id": "a4", "rol": "Gerente Regional Comercial / Retail", "texto": "Ajusta el sugerido con criterio experto para la marca Casio, considerando la cuota vigente y la venta reciente por país."},
+      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Ajusta el sugerido con criterio experto para la marca Cubitt, considerando lanzamientos previstos y cobertura crítica."},
+      {"id": "a6", "rol": "Planificador Financiero", "texto": "Valida que el plan de suministro propuesto sea consistente con la restricción presupuestaria del mes."},
+      {"id": "a7", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida los ajustes y presenta el plan de suministro en la reunión mensual de S&OP para su aprobación."}
      ],
      "diagrama": {
       "carriles": ["Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing", "Planificador Financiero"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Cierre del mes comercial — inicia el ciclo de S&OP"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Convocar a los participantes de la reunión de S&OP"},
-       {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Ejecutar el módulo de sugerido", "sistemas": ["Módulo de sugerido (Power BI)"]},
-       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar el sugerido de Casio con criterio experto"},
-       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Ajustar el sugerido de Cubitt con criterio experto"},
-       {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar restricción presupuestaria del mes"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar ajustes y presentar el plan de suministro", "sistemas": ["Lark (self-report)"]},
-       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Plan de suministro aprobado en S&OP?"},
-       {"id": "n7alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar plan y reprogramar aprobación"},
-       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Plan de suministro del mes aprobado"}
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Extraer inventario/tránsito y construir la proyección de demanda", "sistemas": ["Excel de reposición"]},
+       {"id": "n3", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Contrastar la proyección contra el sugerido nuevo", "sistemas": ["Módulo de sugerido (Power BI)"]},
+       {"id": "n4", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar el sugerido de Casio con criterio experto"},
+       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Ajustar el sugerido de Cubitt con criterio experto"},
+       {"id": "n6", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar restricción presupuestaria del mes"},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar ajustes y presentar el plan de suministro", "sistemas": ["Lark (self-report)"]},
+       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Plan de suministro aprobado en S&OP?"},
+       {"id": "n8alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar plan y reprogramar aprobación"},
+       {"id": "n9", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Plan de suministro del mes aprobado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8", "etq": "Sí"}, {"de": "n7", "a": "n7alt", "etq": "No"}, {"de": "n7alt", "a": "n8"}
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n8alt", "etq": "No"}, {"de": "n8alt", "a": "n9"}
       ]
      }
     },
@@ -1475,9 +1482,10 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Ajuste manual sin método documentado", "El ajuste sobre el sugerido depende del criterio de dos personas, sin guía escrita.", "Media", "Alto", "Documentar el criterio de ajuste como guía escrita, con ejemplos de decisiones ya tomadas."],
-      ["Modelo de Power BI concentrado en una persona", "El diseño y mantenimiento del módulo de sugerido depende de un solo especialista de datos.", "Media", "Alto", "Documentar el diseño del modelo y formar un respaldo en el equipo de datos."],
+      ["Herramienta nueva de Power BI todavía no sustituye el proceso manual", "El módulo de sugerido es reciente y aún no refleja bien los ajustes fuera de rutina, por lo que el ciclo real sigue corriendo en Excel; herramientas evaluadas antes (Netstock, Slimstock, Pecan.ai) no se llegaron a implementar por integración o tiempo de limpieza de datos.", "Media", "Alto", "Documentar el diseño del modelo de Power BI y su hoja de ruta hasta que sustituya de forma confiable el proceso manual."],
       ["Datos de sell-out heterogéneos entre países", "Los países en transición a Odoo todavía reportan venta real con formatos distintos.", "Media", "Medio", "Estandarizar el reporte de venta real por país a medida que avanza la migración a Odoo."],
-      ["Meta de cobertura fijada sin considerar el tipo de punto de venta", "Un mandato regional de cobertura uniforme resultó físicamente imposible para los kioscos pequeños y está en renegociación.", "Media", "Medio", "Ajustar la meta de cobertura por tipo de punto de venta antes de fijarla como estándar regional."]
+      ["Meta de cobertura fijada sin considerar el tipo de punto de venta", "Un mandato regional de cobertura uniforme resultó físicamente imposible para los kioscos pequeños y está en renegociación.", "Media", "Medio", "Ajustar la meta de cobertura por tipo de punto de venta antes de fijarla como estándar regional."],
+      ["Sin KPI formalizados de planificación ni reunión periódica que los revise", "Los cálculos de cobertura y clasificación ABC/Pareto se hacen de forma manual y puntual, sin reporte periódico que nadie recibe de forma sistemática.", "Alta", "Medio", "Implementar la reunión mensual de revisión de coberturas (MOR) ya propuesta por el propio equipo de compras, para detectar quiebres y generar alertas."]
      ]
     },
     "indicadores": {
@@ -1485,7 +1493,8 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Precisión del sugerido de compra/reposición", "Venta real ÷ sugerido ajustado, por SKU/país", "Mensual", "Analista de Sistemas / Datos", "±15%"],
       ["Plan de suministro aprobado a tiempo", "Fecha de aprobación en S&OP − fecha de cierre de mes", "Mensual", "Coordinador(a) de Logística y Bodega", "≤5 días hábiles"],
-      ["Cobertura de inventario por SKU crítico", "Inventario disponible ÷ venta promedio semanal", "Semanal", "Coordinador(a) de Logística y Bodega", "Según clasificación Pareto A/B/C"]
+      ["Cobertura de inventario por SKU crítico", "Inventario disponible ÷ venta promedio semanal", "Semanal", "Coordinador(a) de Logística y Bodega", "Según clasificación Pareto A/B/C"],
+      ["Reunión MOR de cobertura ejecutada", "Reuniones realizadas ÷ meses del período", "Mensual", "Coordinador(a) de Logística y Bodega", "100% una vez implementada"]
      ]
     }
    },
@@ -1775,9 +1784,9 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Ejecuta semanalmente la clasificación Pareto A/B/C por velocidad de venta de cada tienda."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Calcula la cobertura de cada SKU contra la meta objetivo y marca con bandera amarilla la cobertura crítica (menos de dos semanas)."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Calcula la cobertura de cada SKU contra la meta objetivo —alrededor de 3 semanas en tienda, por el tamaño de los depósitos— y marca con bandera amarilla la cobertura crítica (menos de dos semanas)."},
       {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Revisa las banderas amarillas de su zona y confirma la necesidad real en el punto."},
-      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial (Mayor)", "texto": "Evalúa la necesidad de reposición del mayorista local por evento."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial (Mayor)", "texto": "Evalúa la necesidad de reposición del mayorista local por evento, con una cobertura objetivo de 1 a 1.5 meses — más corta que la del mayorista de Venezuela (3 a 4 meses, ver proceso 6.6) por su cercanía al hub."},
       {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida el pedido de reposición y lo transfiere a Logística local para despacho."}
      ],
      "diagrama": {
@@ -1804,7 +1813,8 @@ window.MANUAL_CONTENIDO = {
       ["Montaje de pedidos requiere reimpresión y recarga manual por tienda", "Aunque el sistema soporta la carga directa, hoy se imprime y se vuelve a cargar la plantilla por punto de venta.", "Media", "Medio", "Evaluar la automatización directa que el sistema ya soporta en teoría."],
       ["Meta de cobertura regional fijada sin considerar capacidad física del kiosco", "Un mandato de cobertura uniforme resultó imposible para los puntos más pequeños y está en renegociación.", "Alta", "Alto", "Ajustar la meta de cobertura por tipo de punto de venta (se cruza con el proceso 9.3 de Ventas Retail)."],
       ["Clasificación Pareto no revisada periódicamente", "El ranking de SKU por velocidad de venta puede quedar desactualizado si no se revisa con regularidad.", "Baja", "Medio", "Revisar la clasificación Pareto al menos trimestralmente."],
-      ["Reposición de mayorista local por evento, sin calendario ni criterio escrito", "La activación de reposición al mayorista depende de que alguien la solicite, sin calendario propio.", "Media", "Medio", "Documentar el criterio de activación de reposición al mayorista."]
+      ["Reposición de mayorista local por evento, sin calendario ni criterio escrito", "La activación de reposición al mayorista depende de que alguien la solicite, sin calendario propio.", "Media", "Medio", "Documentar el criterio de activación de reposición al mayorista."],
+      ["Modelo de consignación para nuevas cadenas todavía en definición", "Un modelo de consignación con cadenas nuevas en Venezuela está recién comenzando y va a requerir un tratamiento de pedido especial que hoy no está definido.", "Baja", "Medio", "Definir el tratamiento de pedido especial para consignación antes de escalar el modelo a más cadenas."]
      ]
     },
     "indicadores": {
@@ -1812,7 +1822,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Tiendas con bandera amarilla resuelta antes de quiebre", "Resueltas a tiempo ÷ total de tiendas con bandera en el período", "Semanal", "Coordinador(a) de Logística y Bodega", "≥90%"],
       ["Fill rate del pedido a punto de venta", "Cantidad despachada ÷ cantidad pedida", "Semanal", "Coordinador(a) de Logística y Bodega", "≥90%"],
-      ["Cobertura promedio por clase Pareto (A/B/C)", "Inventario disponible ÷ venta promedio, por clase", "Semanal", "Coordinador(a) de Logística y Bodega", "Meta diferenciada por clase"]
+      ["Cobertura promedio por clase Pareto (A/B/C)", "Inventario disponible ÷ venta promedio, por clase", "Semanal", "Coordinador(a) de Logística y Bodega", "~3 semanas en tienda; 1 a 1.5 meses en mayorista Panamá"]
      ]
     }
    },
@@ -1828,9 +1838,9 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define y aprueba la política de compras y la matriz de aprobación por monto y tipo."},
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define y aprueba la política de compras y la matriz de aprobación por monto y tipo, incluido un margen preaprobado para descuentos de promoción que hoy se aprueban caso por caso."},
       {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aplica la matriz de aprobación en la operación diaria de compra y reposición."},
-      {"id": "a3", "rol": "Planificador Financiero", "texto": "Alimenta el tablero de KPI de compras con los indicadores de cada proceso."},
+      {"id": "a3", "rol": "Planificador Financiero", "texto": "Alimenta el tablero de KPI de compras y organiza la reunión mensual de revisión de coberturas (MOR) ya propuesta por el propio equipo."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa el cumplimiento de la política en la auditoría interna, cuando aplica."},
       {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa trimestralmente la política y el tablero de KPI, y decide ajustes."}
      ],
@@ -1838,9 +1848,9 @@ window.MANUAL_CONTENIDO = {
       "carriles": ["Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Planificador Financiero", "Gerente de Contabilidad / Administración"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Revisión trimestral programada de gobierno de compras"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir o actualizar política de compras y matriz de aprobación"},
+       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir o actualizar política de compras, matriz de aprobación y margen preaprobado de promociones"},
        {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aplicar la matriz de aprobación en la operación diaria"},
-       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alimentar el tablero de KPI de compras"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alimentar el tablero de KPI y organizar la reunión mensual de coberturas (MOR)"},
        {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar cumplimiento en auditoría interna cuando aplica"},
        {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Política o KPI requieren ajuste?"},
        {"id": "n5alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar política, matriz o KPI"},
@@ -1856,8 +1866,9 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Ausencia total de política escrita hoy", "No existe una política de compras documentada en la organización.", "Alta", "Alto", "Documentar primero la matriz de aprobación, que es lo más urgente y lo más citado en las entrevistas."],
-      ["Sin KPI formalizados de compras", "No hay un tablero ni un set mínimo de indicadores definidos para el área.", "Alta", "Medio", "Definir un set mínimo de KPI (allocation, fill rate, tiempo de ciclo) antes de construir el tablero completo."],
-      ["Sin estructura de departamento de compras", "La compra internacional de cada marca depende de una sola persona, sin equipo ni backup formal.", "Alta", "Alto", "Decidir primero el modelo mínimo de estructura, aunque sea una sola persona con respaldo, antes de la política completa."],
+      ["Sin KPI formalizados de compras", "No hay un tablero ni un set mínimo de indicadores definidos para el área; los cálculos de cobertura se hacen de forma manual y puntual, sin reporte periódico.", "Alta", "Medio", "Implementar la reunión mensual de revisión de coberturas (MOR) ya propuesta por el propio equipo, como primer paso hacia el tablero completo."],
+      ["Sin estructura de departamento de compras", "La compra internacional de cada marca depende de una sola persona, sin equipo ni backup formal; el propio equipo ya identifica la necesidad de un analista de Compras dedicado al día a día de tiendas.", "Alta", "Alto", "Incorporar primero un analista de Compras dedicado a tiendas — la ampliación de estructura ya identificada como más urgente por el propio equipo — antes de la política completa."],
+      ["Aprobación de descuentos en promoción sin margen preaprobado", "Cada promoción requiere hoy aprobación caso por caso de la gerencia comercial, sin un margen mínimo regular preaprobado.", "Alta", "Medio", "Definir un margen preaprobado para promociones, dejando la aprobación caso por caso solo para las que lo excedan — propuesta ya planteada por el propio equipo de compras."],
       ["Riesgo de la cadena de suministro no mapeado formalmente", "Los riesgos ya identificados (mono-proveedor, allocation, capacidad de contenedor) no están consolidados en un solo mapa de riesgo.", "Media", "Alto", "Mapear los riesgos ya identificados de facto como primer inventario de riesgo del área."]
      ]
     },
@@ -1866,7 +1877,8 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Política de compras documentada y aprobada", "Sí/no, verificado contra el documento vigente", "Una vez; luego trimestral", "Gerente Regional Comercial / Retail", "Documentada en el primer ciclo"],
       ["Compras aplicando la matriz de aprobación", "Compras bajo matriz ÷ total de compras del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "100% una vez vigente"],
-      ["KPI de compras publicados en el tablero", "KPI activos ÷ KPI definidos", "Trimestral", "Planificador Financiero", "100%"]
+      ["KPI de compras publicados en el tablero", "KPI activos ÷ KPI definidos", "Trimestral", "Planificador Financiero", "100%"],
+      ["Promociones dentro del margen preaprobado", "Promociones sin aprobación caso por caso ÷ total de promociones", "Mensual", "Gerente Regional Comercial / Retail", "≥80% una vez vigente el margen"]
      ]
     }
    },
