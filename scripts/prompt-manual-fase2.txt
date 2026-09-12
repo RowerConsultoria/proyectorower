@@ -24,9 +24,9 @@ como anexo de lectura obligatoria).
    según en qué carpeta quedaron archivadas — + documentación de Lark
    relevante en `Insumos/Documentación/<país>/<área>/` + buenas prácticas de
    fuentes profesionales/académicas (WebSearch, filtrando sitios no
-   verificados) + `Estructura_Patron_Cargos_Rower_V4.xlsx` (hoja «Detalle
-   Personal», columna «Cargo Patrón Propuesto») para la denominación de
-   cargos.
+   verificados) + `Insumos/estructura-patron-cargos-v4.json` para la
+   denominación de cargos (ver §1.1 — es un derivado del Excel V4 original,
+   no editar a mano).
 3. Salida: un objeto JS que se funde a mano en `manual-contenido.js` bajo
    `window.MANUAL_CONTENIDO["<prefijo>"]` — ver esquema en la sección 4.
 4. **Piloto recomendado antes de correr el lote completo de un macroproceso:
@@ -41,6 +41,23 @@ como anexo de lectura obligatoria).
 Consultor senior de procesos del Proyecto Rower para Grupo Kenex. El **mapa
 v18 es un input estructural firme**: no se cuestiona el listado de N1: si hay
 una inconsistencia menor, se reporta aparte, nunca dentro del contenido.
+
+### 1.1 Cargos V4: usar el JSON, no el Excel
+
+`Insumos/estructura-patron-cargos-v4.json` es la conversión fiel, fila por
+fila, de `Estructura_Patron_Cargos_Rower_V4.xlsx` (hoja «Detalle Personal»)
+— se regenera con `scripts/convertir-cargos-v4.py` si el equipo entrega una
+versión nueva del Excel. Trae las 9 columnas originales por persona, entre
+ellas `cargo_actual` (como se nombra hoy, y como suele aparecer citado en
+las entrevistas) y `cargo_patron_propuesto` (la denominación V4 que **sí**
+se usa en el contenido de los manuales). Esa correspondencia es justamente
+el valor del archivo: permite reconciliar que alguien se presente en una
+entrevista con un cargo y que el manual deba nombrarlo con otro.
+
+⚠️ `nombre_completo` es dato personal real — se usa solo para ubicar a
+quién cita una entrevista y encontrar su `cargo_patron_propuesto`; **nunca
+pasa al contenido del manual** (convención ya vigente: sin nombres propios,
+solo denominación V4).
 
 ## 2. Niveles (igual, sin el N2)
 

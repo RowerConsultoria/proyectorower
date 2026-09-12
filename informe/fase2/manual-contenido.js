@@ -28,6 +28,16 @@
 // 9.3 de Ventas Retail documenta desde el lado comercial — se cruzan a
 // propósito en vez de duplicarse.
 //
+// 2026-09 — 6.6 (reposición inter-compañía) revisado con el doc de Lark
+// «Levantamiento Procesos Compras» (VE, self-report de la Coordinadora de
+// Compras/Planificación) — Insumos/Documentación/Venezuela/Compras/, no
+// consultado en la primera pasada. Aportó tiempos y cifras reales (cobertura
+// 3-4 meses, cubicaje del contenedor, reparto ~50-60% a Venezuela) y dos
+// mejoras ya propuestas por el propio equipo (back order, margen de
+// cubicaje). Pendiente: revisar con el mismo criterio los demás procesos de
+// este macro y los docs de Lark de Ventas Mayor y Ventas Web, que tampoco se
+// consultaron en su primera pasada.
+//
 // Macro 8 (Ventas Mayor) — COMPLETO: los 17 procesos + Contexto, Gobernanza,
 // Marco de referencia, Agenda de mejora y Anexos. Como en Compras, hay
 // procesos «to-be» (8.1, 8.3, 8.8, 8.13) donde el mapa v18 documenta el deber
@@ -1292,7 +1302,8 @@ window.MANUAL_CONTENIDO = {
     ],
     "sistemas": [
      ["Odoo (ERP)", "Registro de compras locales por país; base para el sugerido de reposición", "Compra local, reposición inter-compañía, reposición a punto de venta"],
-     ["Módulo de sugerido (Power BI)", "Modelo de sugerido de compra/reposición por SKU, con apoyo analítico de datos", "Planificación de demanda, compra Casio, reposición"],
+     ["Excel de reposición (tablas conectadas a Odoo)", "Herramienta real del ciclo mensual de reposición: Odoo no tiene reposición automatizada ni reglas inteligentes (solo alertas de nivel mínimo), así que la planificación y el armado del pedido se hacen en Excel con tablas que se actualizan directo desde Odoo, más apoyo de IA (Claude) para partes del proceso", "Planificación de demanda, reposición inter-compañía"],
+     ["Módulo de sugerido (Power BI)", "Herramienta nueva (desarrollada por un analista de datos) que sugiere reposición automática; en prueba desde hace pocas semanas y todavía no refleja bien los ajustes fuera de rutina (p. ej. incrementos de pedido de cara a diciembre), por lo que aún no sustituye el proceso manual en Excel", "Planificación de demanda, compra Casio, reposición"],
      ["\"Archivo de compras\" (Excel)", "Reconciliación manual mensual entre lo pedido, lo confirmado por Casio y la venta real por país — descrito por el propio equipo como \"un rompecabezas de 5.000 piezas todos los meses\"", "Compra internacional Casio (PCI)"],
      ["Lark (tablero de producción/tránsito Cubitt)", "Seguimiento de órdenes Cubitt en producción y tránsito; muy reciente, en construcción", "Compra internacional Cubitt"],
      ["Lark (self-report)", "Registro de la planificación de reposición y lanzamientos por país", "Planificación de demanda, reposición"]
@@ -1361,7 +1372,7 @@ window.MANUAL_CONTENIDO = {
      ["6.3 Compra internacional a marca representada (Casio)", "La reconciliación mensual (PCI) es enteramente manual y depende de una sola persona.", "Documentar el método de reconciliación y evaluar automatizar el cruce entre lo pedido, lo confirmado y lo vendido."],
      ["6.4 Compra internacional a marca propia (Cubitt)", "El comité de compras Cubitt es informal, sin acta ni criterio de decisión escrito.", "Documentar el criterio de decisión del comité y la responsabilidad de cada integrante."],
      ["6.5 Compra local por país (nacionales y de urgencia)", "Cada país compra localmente con su propio criterio, sin visibilidad regional consolidada.", "Definir un umbral y un reporte mínimo de compra local para visibilidad regional."],
-     ["6.6 Gestión de reposición inter-compañía (país-hub)", "El llenado del contenedor entre el hub y cada país no se reporta sistemáticamente cuando un pedido no cabe completo; el problema se descubre por faltantes o discrepancias de aduana.", "Documentar y reportar de forma sistemática el ajuste por capacidad de contenedor antes del zarpe."],
+     ["6.6 Gestión de reposición inter-compañía (país-hub)", "El llenado del contenedor entre el hub y cada país no se reporta sistemáticamente cuando un pedido no cabe completo — se carga hasta ~64 de los 66 m³ de capacidad, sin margen de maniobra — y el problema se descubre por faltantes, o incluso ya pagado el arancel de aduana sobre mercancía que figuraba en factura pero nunca salió del hub.", "Dejar un margen deliberado de cubicaje (cargar hasta 60 de los 66 m³) y reportar explícitamente lo que quedó fuera antes del zarpe — propuesta ya planteada por el propio equipo de compras."],
      ["6.7 Gestión de reposición a punto de venta", "La meta de cobertura de inventario en tienda se fijó como un número único regional, sin considerar la capacidad física de los kioscos pequeños, y está en renegociación.", "Ajustar la meta de cobertura por tipo de punto de venta (tienda grande vs. kiosco) en vez de un número único regional."]
     ]
    },
@@ -1395,7 +1406,8 @@ window.MANUAL_CONTENIDO = {
     ],
     "catalogo_sistemas": [
      ["Odoo (ERP)", "Registro de compra local; base de datos para el sugerido", "6.5 · 6.6 · 6.7", "Coordinador(a) de Sistemas"],
-     ["Módulo de sugerido (Power BI)", "Modelo de sugerido de compra/reposición por SKU", "6.1 · 6.3 · 6.6 · 6.7", "Analista de Sistemas / Datos"],
+     ["Excel de reposición (tablas conectadas a Odoo)", "Planificación y armado del pedido — la herramienta real del día a día, ante la falta de reposición automatizada en Odoo", "6.1 · 6.6", "Coordinador(a) de Logística y Bodega"],
+     ["Módulo de sugerido (Power BI)", "Modelo de sugerido de compra/reposición por SKU — nuevo, en prueba", "6.1 · 6.3 · 6.6 · 6.7", "Analista de Sistemas / Datos"],
      ["\"Archivo de compras\" (Excel)", "Reconciliación mensual PCI", "6.3", "Sin responsable formal — depende de una persona"],
      ["Lark (tablero de producción/tránsito Cubitt)", "Seguimiento de órdenes Cubitt", "6.4", "Coordinador(a) de Logística y Bodega"],
      ["Lark (self-report)", "Registro de planificación de reposición y lanzamientos", "6.1 · 6.6 · 6.7", "Coordinador(a) de Logística y Bodega"]
@@ -1700,30 +1712,30 @@ window.MANUAL_CONTENIDO = {
    "6.6": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el armado del pedido de reposición mensual del país contra la disponibilidad del hub de Kenex Panamá, la validación operativa local, la aprobación de cantidades finales y la transferencia a Logística para preparación y despacho. No incluye la preparación física del pedido en bodega ni su despacho (macro 7, Logística y Operaciones), que empieza donde este proceso termina."
+     "texto": "Cubre el armado del pedido de reposición mensual del país contra la disponibilidad del hub de Kenex Panamá —descrito por el propio equipo de Compras como \"el proceso ancla\" de la reposición—, la validación operativa local, la aprobación de cantidades finales y la transferencia a Logística para preparación y despacho. No incluye la preparación física del pedido en bodega ni su despacho (macro 7, Logística y Operaciones), que empieza donde este proceso termina, ni la reposición semanal a punto de venta (proceso 6.7), de ciclo mucho más corto."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Inicia el ciclo mensual de reposición del país con base en el sugerido de Power BI."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Valida operativamente el pedido contra la disponibilidad real del hub de Panamá."},
-      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba las cantidades finales de reposición."},
-      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Realiza el handoff del pedido aprobado a Logística."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento al despacho hasta la confirmación de recepción en el país."}
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Al cierre de cada mes, revisa el inventario disponible en el país, la mercancía en tránsito y la disponibilidad en el hub de Kenex Panamá."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el pedido buscando mantener una cobertura de seguridad de 3 a 4 meses, ajustándolo al alza con anticipación en la temporada de mayor venta."},
+      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba las cantidades finales —en aproximadamente una semana— según lo que el hub puede liberar sin desabastecer a los demás países del reparto."},
+      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Gestiona con la bodega del hub la preparación y el cubicaje del contenedor, e informa tiempos o retrasos."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento durante el tránsito y la nacionalización —entre 1 y 1.5 meses en total— hasta la entrega en el país."}
      ],
      "diagrama": {
       "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Coordinador(a) Comercial"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Iniciar el ciclo mensual de reposición del país"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el pedido con base en el sugerido", "sistemas": ["Módulo de sugerido (Power BI)"]},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Validar el pedido contra la disponibilidad real del hub"},
-       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Cantidades finales aprobadas?"},
-       {"id": "n3alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar el pedido y re-validar contra disponibilidad"},
-       {"id": "n4", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Realizar el handoff del pedido a Logística", "sistemas": ["Lark (self-report)"]},
-       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento hasta la confirmación de recepción en el país"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Pedido inter-compañía despachado y recibido en el país"}
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Cierre de mes — inicia el ciclo mensual de reposición del país"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y disponibilidad en el hub", "sistemas": ["Excel de reposición"]},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el pedido con cobertura objetivo de 3 a 4 meses", "sistemas": ["Módulo de sugerido (Power BI)"]},
+       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Cantidades finales aprobadas según disponibilidad del hub?"},
+       {"id": "n3alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar el pedido a lo que el hub puede liberar sin desabastecer a los demás países"},
+       {"id": "n4", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Gestionar con la bodega del hub la preparación y el cubicaje del contenedor"},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento al tránsito y la nacionalización"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Pedido recibido en el país, cobertura objetivo restablecida"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
@@ -1734,18 +1746,20 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Ajuste por capacidad de contenedor sin reporte sistemático", "Cuando un pedido no cabe completo en el contenedor, hoy no se reporta de forma sistemática; se descubre al no llegar o por discrepancia de aduana.", "Alta", "Alto", "Documentar y reportar sistemáticamente el ajuste por capacidad de contenedor antes del zarpe."],
+      ["Ajuste por capacidad de contenedor sin reporte sistemático", "Un contenedor de 40 pies (66 m³) se carga hoy hasta ~64 m³, sin margen de maniobra: cuando algo no cabe, simplemente no se envía sin notificación formal, y se puede estar contando con mercancía en tránsito que en realidad nunca salió del hub.", "Alta", "Alto", "Dejar un margen deliberado de cubicaje (cargar hasta 60 de los 66 m³, dejando 6 m³ de holgura) y reportar explícitamente lo que quedó fuera antes del zarpe — propuesta ya planteada por el propio equipo de compras."],
+      ["Gap entre lo solicitado y lo asignado sin mecanismo de compensación", "Cuando el hub asigna menos de lo solicitado (p. ej. se piden 1.000 unidades y se asignan 500), no hay un mecanismo que reserve automáticamente el faltante para el siguiente envío.", "Alta", "Alto", "Implementar un mecanismo de back order: reservar la cantidad no enviada para el siguiente ciclo en vez de armar el pedido desde cero cada vez — propuesta ya planteada por el propio equipo de compras."],
       ["Aprobación de cantidades finales concentrada en una persona", "La aprobación final de cada ciclo mensual depende de un solo responsable comercial.", "Media", "Alto", "Documentar el criterio de aprobación y formar un respaldo."],
-      ["Discrepancias de aduana o faltantes descubiertos tarde", "La lista de empaque no siempre se cruza contra lo recibido antes de cerrar el ciclo.", "Media", "Alto", "Cruzar la lista de empaque contra lo recibido antes de cerrar cada ciclo mensual."],
-      ["Meta de cobertura inter-compañía sin criterio diferenciado por país", "La meta de cobertura no distingue la rotación real de cada país.", "Baja", "Medio", "Revisar la meta de cobertura por país según su rotación real."]
+      ["Discrepancias de aduana o faltantes descubiertos tarde", "La lista de empaque no siempre se cruza contra lo recibido antes de cerrar el ciclo; se han pagado aranceles de aduana sobre mercancía que figuraba en factura pero que finalmente no entró en el contenedor.", "Media", "Alto", "Cruzar la lista de empaque contra lo recibido antes de cerrar cada ciclo mensual."],
+      ["Reparto entre países sin regla explícita cuando el hub no cubre el total", "El reparto entre países al llegar al hub se basa en el historial de ventas (a Venezuela le correspondería ~50-60% de lo que llega) sin una regla escrita para cuando el hub no alcanza para todos.", "Media", "Medio", "Documentar la regla de reparto entre países cuando el hub no cubre el 100% de lo solicitado por todos."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
+      ["Cobertura de inventario del país", "Inventario disponible ÷ venta promedio mensual", "Mensual", "Coordinador(a) de Logística y Bodega", "3 a 4 meses"],
       ["Fill rate del pedido inter-compañía", "Cantidad despachada ÷ cantidad pedida", "Mensual", "Coordinador(a) de Logística y Bodega", "≥90%"],
       ["Pedidos con ajuste por capacidad de contenedor reportado", "Reportados ÷ total de pedidos con ajuste real", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
-      ["Tiempo de aprobación de cantidades finales", "Fecha de aprobación − fecha de propuesta", "Mensual", "Gerente Regional Comercial / Retail", "≤3 días hábiles"]
+      ["Tiempo de aprobación de cantidades finales", "Fecha de aprobación − fecha de propuesta", "Mensual", "Gerente Regional Comercial / Retail", "≤1 semana"]
      ]
     }
    },
