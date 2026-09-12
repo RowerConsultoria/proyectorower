@@ -43,6 +43,24 @@
 // (alcance/fuentes por proceso), que en este macroproceso ya trae nombres
 // de entidades y mecánicas de negocio con un nivel de detalle alto.
 //
+// Macro 10 (Ventas Web / E-Commerce) — COMPLETO: los 16 procesos + Contexto,
+// Gobernanza, Marco de referencia, Agenda de mejora y Anexos. Como Ventas
+// Retail, no tiene procesos «to-be» — es el canal que más rápido crece
+// (la venta por WhatsApp llegó a superar a la web propia en Venezuela) y
+// opera con un almacén propio, separado del principal, que funciona «como
+// una tienda». El área está en transición organizacional: el liderazgo de
+// e-commerce viene de Marketing y se está formando un rol regional propio.
+//
+// Fuentes cruzadas: entrevistas E-16 Jesmir (VE, F1), E-41 Gerente de Ventas
+// Web/Supervisor de Operaciones (VE, F2) — Insumos/Entrevistas_dialogo_
+// limpio_agrupadas/Ventas Web — + E-30 Isabella Roizental (Kenex USA, F2,
+// archivada por error bajo la carpeta de Ventas Retail — mismo hallazgo de
+// clasificación ya señalado en macro 9), E-56 Leslie (mercadeo/e-commerce
+// Colombia, F2) y E-22 Natasha Betancourt (transición organizacional del
+// e-commerce, F1) — Insumos/Entrevistas_dialogo_limpio (carpeta plana). ⚠️
+// 10.14 (devoluciones) cruza con el macroproceso de Servicio Técnico cuando
+// el motivo es garantía — se deriva, no se duplica.
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
@@ -2995,8 +3013,1067 @@ window.MANUAL_CONTENIDO = {
    }
 
   }
+ },
+
+ "10": {
+  "n0": {
+
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual reúne cómo se opera hoy —y cómo debería operarse de forma homologada— el canal de venta digital de Grupo Kenex: sitios propios en Shopify, marketplaces regionales (Cachea en Venezuela y equivalentes) y de Estados Unidos (Amazon, Walmart, Target y otros marketplaces bajo la marca Cubitt), venta asistida por chat/WhatsApp, y todo el ciclo de toma, pago, preparación, facturación, despacho y devolución del pedido web. Sirve como referencia única para que un país nuevo, un asesor nuevo o quien asuma el rol de e-commerce pueda operar bajo el mismo criterio, sin depender de que \"alguien lo sepa de memoria\".",
+    "alcance": "Desde la planificación comercial del canal digital hasta la devolución y logística inversa de un pedido web, pasando por la operación de sitios propios y marketplaces, la venta por chat, la validación de pagos, la preparación en el almacén web (independiente del almacén principal) y el despacho. No incluye la venta al detal en tienda física (macro 9, Ventas Retail) ni la venta al mayor a distribuidores y cadenas (macro 8, Ventas Mayor), aunque los tres canales comparten catálogo e inventario y a veces se cruzan (una venta corporativa grande puede resolverse pidiendo traslado al almacén principal). Tampoco incluye la garantía técnica del producto (macroproceso de Servicio Técnico y Postventa), a la que este manual deriva los reclamos de garantía.",
+    "audiencia": [
+     "Gerente de E-commerce / Ventas Web (por país)",
+     "Gerente Regional Comercial / Retail",
+     "Gerente Regional de Marketing",
+     "Supervisor(a) de Operaciones E-commerce",
+     "Asesor(a) de Ventas Web",
+     "Supervisor(a) de Bodega / Despacho",
+     "Analista de Sistemas / Datos",
+     "Junta / Comité Directivo (seguimiento de venta digital y capacidad operativa)"
+    ]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Ventas Web es, junto con Ventas Retail y Ventas Mayor, uno de los tres canales de venta de la cadena de valor operativa, y el que crece más rápido: en Venezuela la venta por WhatsApp llegó a superar a la web propia en un mes, y el volumen de órdenes se ha multiplicado varias veces en pocos años. Opera con un almacén propio, separado del almacén principal, que funciona \"como una tienda\" con su propio inventario sincronizado en tiempo real entre sitios propios y marketplaces para evitar la sobreventa. El área está en transición organizacional: hoy el liderazgo de e-commerce vive repartido entre Marketing (de donde salió históricamente) y Ventas Web propiamente, con un rol regional propio todavía en formación. La venta de marca propia (Cubitt) en Estados Unidos opera en 15 marketplaces distintos bajo una compañía hermana dedicada casi exclusivamente a Amazon.",
+    "duenos": [
+     ["Estratégico / regional", "Gerente Regional Comercial / Retail · Gerente Regional de Marketing (rol de e-commerce regional en formación)", "Aprueba decisiones de impacto en caja (p. ej. bajada inicial de un marketplace) y la estrategia de expansión a nuevos canales."],
+     ["País", "Gerente de E-commerce / Ventas Web (por país)", "Opera el canal digital completo del país como una unidad casi autónoma: venta, almacén, chat, pagos y reposición."],
+     ["Estados Unidos (marca propia)", "Gerente de E-commerce / Ventas Web (USA)", "Opera los 15 marketplaces de Cubitt en EE. UU., con apoyo de una agencia externa especializada y de una compañía hermana dedicada a Amazon."]
+    ],
+    "entidades": [
+     ["Distribuidora Rower C.A.", "Venezuela", "Operación propia", "El e-commerce con mayor volumen del grupo; almacén web propio, más de diez personas dedicadas, venta por WhatsApp que ha llegado a superar a la web."],
+     ["Deltadir", "Colombia", "Operación propia", "Crecimiento mensual reportado de 80% en la web propia; sin marketplace tipo Cachea, todo por sitio propio y WhatsApp."],
+     ["Kenex USA / TEC 770", "Estados Unidos", "Operación propia — dos compañías hermanas", "Kenex USA vende en 15 marketplaces con Cubitt como única marca (Casio no se vende en EE. UU.); TEC 770 es la compañía dedicada exclusivamente a la operación en Amazon."],
+     ["Cachea", "Venezuela", "Marketplace / agregador de pagos", "Concentra alrededor de 80% de la venta digital en Venezuela; exige escaneo de cada caja desde 2026 y ofrece la modalidad Cachea Link para venta por WhatsApp."],
+     ["Amazon y otros 14 marketplaces de EE. UU. (Walmart, Target, Macy's, TikTok Shop, entre otros)", "Estados Unidos", "Marketplaces externos", "Cada uno con requisitos de listing distintos; Amazon con más de 7 años de operación y una reactivación de cuenta reciente con apoyo de agencia especializada."]
+    ],
+    "sistemas": [
+     ["Odoo / WMS", "Montaje del pedido, comando de preparación en tablet, facturación", "Toma y montaje del pedido, preparación, facturación"],
+     ["Shopify", "Sitio propio, agregador de marketplaces y métodos de pago", "Sitios propios, onboarding de marketplaces"],
+     ["Mercateli (CRM de chats)", "Recepción y distribución de chats de WhatsApp/redes sociales por asesor", "Venta asistida por chat, servicio al cliente digital"],
+     ["Sellerboard", "Analítica de ventas e inventario por marketplace en EE. UU.", "Gestión de marketplaces USA, reposición"],
+     ["LARK (grupo \"Confirmaciones\")", "Notificación y validación manual de pagos recibidos", "Validación de pagos"],
+     ["QuickBooks", "Contabilidad de Kenex USA, en camino a migrar a Odoo", "Reportería y conciliación en EE. UU."]
+    ],
+    "interfaces": [
+     ["Compras y Abastecimiento", "Entrada", "Reposición del almacén web desde el almacén principal, o directo de fábrica (China) para Estados Unidos."],
+     ["Logística y Operaciones", "Coordinación", "Almacén principal como respaldo de inventario; couriers nacionales (MRW, Zoom) para última milla."],
+     ["Gestión de Mercadeo y Comunicaciones", "Coordinación", "Banners, campañas, contenido de redes sociales, coordinación de lanzamientos y del rol regional de e-commerce."],
+     ["Contabilidad", "Salida", "Facturación fiscal del pedido, notas de crédito por devolución, destino natural de la validación de pagos."],
+     ["Servicio Técnico y Postventa", "Salida", "Escalamiento de reclamos de garantía técnica que no son de retracto ni de daño en tránsito."],
+     ["Gestión del Talento Humano", "Coordinación", "Contratación de personal temporal para temporada alta (chat y almacén)."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Gerente de E-commerce / Ventas Web (por país)", "País", "Opera el canal digital completo: venta, almacén web, chat, validación de pagos y reposición.", "Decide reposición del almacén web, activa o desactiva delivery propio, define personal temporal.", "Decisiones con impacto en caja (bajada inicial de marketplace) escalan al nivel regional o a la Junta."],
+     ["Gerente Regional Comercial / Retail", "Regional", "Aprueba decisiones de impacto en caja y participa en la reunión informal de promociones.", "Ajustes de presupuesto de pauta y metas del canal digital.", "Sin instancia formal de reportería regional de e-commerce — hoy informal país por país."],
+     ["Gerente Regional de Marketing", "Regional — rol de e-commerce en formación", "Encabeza la transición del e-commerce de Marketing hacia un departamento propio; aprueba campañas y banners.", "Ajustes de campaña y contenido visual.", "La estructura regional de e-commerce todavía no está formalmente constituida."],
+     ["Supervisor(a) de Operaciones E-commerce", "Colombia — referencia regional", "Lidera marketplaces y sitio propio en el país más desarrollado en e-commerce del grupo.", "Gestión operativa de marketplaces y sitio propio.", "Aporta buenas prácticas a otros países sin instancia formal de réplica."],
+     ["Asesor(a) de Ventas Web", "Operativo", "Atiende chats, monta pedidos, valida disponibilidad, ejecuta la venta asistida.", "Cotización y montaje de pedido dentro de la lista vigente.", "Casos complejos de reclamo o garantía escalan a Servicio Técnico."]
+    ],
+    "comites": [
+     ["Reunión informal de promociones", "Decidir el alcance, el descuento y el inventario disponible de una promoción de marketplace o de campaña.", "Por evento (varias veces al año)", "Gerente de E-commerce / Ventas Web · Gerente de Operaciones y Logística · Analista de Logística · Gestión de Mercadeo y Comunicaciones · Gerente Regional Comercial / Retail (aprobación final)", "Aprobación de la promoción por porcentaje y alcance", "Inventario disponible, rotación histórica, calendario comercial", "Promoción aprobada con inventario asegurado para reponer"],
+     ["Reunión mensual P&L Kenex USA", "Revisar el resultado financiero mensual de la operación en Estados Unidos.", "Mensual", "Gerente de E-commerce / Ventas Web (USA) · Junta / Comité Directivo · Contabilidad", "Ajustes de inversión en pauta y aprobación de gasto", "P&L sobre QuickBooks, reporte de ventas por marketplace", "Reporte mensual cerrado y acciones correctivas"],
+     ["Planificación anual de temporada alta", "Dimensionar la capacidad de personal, espacio e inventario para los picos comerciales del año.", "Anual, por país (revisión previa a cada pico)", "Gerente de E-commerce / Ventas Web · Coordinador(a) de Recursos Humanos · Analista de Logística · Planificador Financiero", "Plan de capacidad aprobado con headcount y presupuesto", "Proyección de volumen (histórico + IA), calendario de picos", "Plan de capacidad ejecutado antes del pico"]
+    ]
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El almacén web opera como una tienda: tiene su propio inventario, su propia reposición y su propio ciclo de cierre, sincronizado con el almacén principal en vez de depender de él en tiempo real.",
+     "El inventario está sincronizado entre todos los canales digitales a la vez: lo que se vende en un marketplace se descuenta de inmediato en todos los demás, para no vender lo que ya no hay.",
+     "La demanda no espera: cuando se detecta un producto por agotarse, se pide reposición sin esperar la asignación formal, para no perder venta por quiebre de inventario.",
+     "El chat es un canal de venta, no solo de atención: un cliente que escribe se atiende y se le vende ahí mismo, sin redirigirlo a otro canal si eso puede perder la venta."
+    ],
+    "politicas": [
+     "Validación manual de cada pago recibido antes de liberar el pedido a preparación, cruzando referencia y monto contra el portal del banco.",
+     "Sincronización de inventario en tiempo real entre sitio propio y marketplaces para evitar sobreventa — un producto agotado se pone en cero en todos los canales a la vez.",
+     "Reposición proactiva del almacén web antes de una promoción o quiebre previsto, adelantándose al sugerido formal cuando el histórico lo justifica.",
+     "Escaneo obligatorio de cada caja despachada por Cachea desde 2026, como control de trazabilidad exigido por el propio marketplace.",
+     "Doble verificación del pedido antes de facturar (preparación confirmada + pago validado), adaptación del principio de doble aprobación que también aplica en Ventas Mayor.",
+     "Planificación de personal temporal para temporada alta basada en proyección de volumen (histórico + IA), no en la disponibilidad que resulte tener el almacén principal.",
+     "Meta de tiempo de respuesta del chat (primera respuesta y tiempo promedio) como estándar de servicio, aunque hoy sea grupal y no individual."
+    ],
+    "normativo": [
+     "Reglas propias de cada marketplace (requisitos de listing, políticas de devolución, ventanas de retracto) que condicionan la operación de cada canal por separado.",
+     "Normativa de facturación fiscal de cada país, que hoy en Venezuela exige factura física antes de cerrar la caja — origen del cuello de botella que la migración a facturación digital busca resolver."
+    ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "A diferencia de Compras y de Ventas Mayor, Ventas Web no tiene procesos «to-be» en el mapa v18: los 16 procesos son 5 as-is y 11 híbridos — el canal ya opera en todos sus frentes, aunque buena parte de esa operación combina una práctica real con un «debería ser» todavía no alcanzado (reportería estructurada, migración a facturación digital, rol regional de e-commerce).",
+    "por_implementar": [],
+    "por_formalizar": [
+     ["10.1 Planificación comercial de e-commerce y forecast por canal", "El forecast se baja como un incremento único sobre el año anterior, sin desglose por canal ni línea de negocio, y sin reportería estructurada al cierre de mes.", "Formalizar el desglose por canal digital y la reportería mensual antes de fijar la meta del próximo ciclo."],
+     ["10.3 Gestión operativa de sitios propios Shopify", "Los métodos de pago recientes en Cubitt (Cachea, pago móvil, tarjetas) todavía no migraron a las webs de Casio.", "Completar la migración de métodos de pago a Casio en todos los países."],
+     ["10.4 Gestión operativa de marketplaces LATAM", "El cruce entre lo que el marketplace reporta y lo que Odoo recibe (incluidos los pedidos cancelados) sigue siendo manual, dependiente de una persona dedicada.", "Formalizar con el marketplace la entrega de solo pedidos pagados, un cambio ya conversado con ellos."],
+     ["10.5 Gestión operativa de marketplaces USA", "El customer service de Amazon y el envío diario de órdenes dependen de una sola persona con más de 7 años haciéndolo personalmente.", "Documentar el proceso y formar un respaldo antes de que la dependencia se convierta en un riesgo operativo."],
+     ["10.6 Venta asistida por chat multiplataforma", "No existe meta individual por asesor, solo una meta grupal que ya se superó sin ajustar, y no distingue perfiles de soporte de perfiles de venta.", "Definir metas diferenciadas por perfil (soporte vs. venta) dentro del equipo de chat."],
+     ["10.8 Validación de pagos y conciliación multi-instrumento", "La validación de pagos vive hoy en Ventas Web \"por rapidez\", aunque el propio equipo reconoce que debería estar en Contabilidad.", "Completar la migración de la validación de pagos a Contabilidad/Tesorería, ya identificada como el destino natural."],
+     ["10.9 Preparación, embalaje y escaneo de pedidos e-commerce", "El espacio físico del almacén web se quedó pequeño para el volumen actual, obligando a embalar fuera del almacén.", "Priorizar la ampliación o remodelación del almacén web antes de la próxima temporada alta."],
+     ["10.10 Facturación fiscal del pedido web", "La facturación física genera un cuello de botella conocido (cajas abiertas esperando factura), con migración a facturación digital anunciada pero no ejecutada.", "Completar la migración a facturación digital, ya anunciada, para cerrar el cuello de botella identificado."],
+     ["10.12 Reposición e inventario del almacén e-commerce", "El almacén web depende de un cruce manual diario contra el almacén principal, sin visibilidad automática de discrepancias.", "Evaluar automatizar el cruce diario de inventario entre el almacén web y el principal."],
+     ["10.14 Devoluciones y logística inversa e-commerce", "Las devoluciones de marketplaces en EE. UU. son miles al mes sin sistema formal, hoy en migración a un tracker en Odoo.", "Priorizar la implementación del tracker de devoluciones en Odoo, ya en curso."],
+     ["10.16 Reportería y KPIs de e-commerce", "La reportería hoy es un reporte básico e informal mostrado al cierre de mes, sin niveles de servicio ni comparativos.", "Construir la reportería estructurada con KPI por canal, integrada a una torre de control propia o compartida con Retail."]
+    ],
+    "brechas": [
+     ["10.2 Onboarding y expansión de marketplaces", "Cada marketplace pide campos y requisitos distintos, sin una plantilla única que sirva para todos.", "Documentar una plantilla base por tipo de marketplace, aunque cada uno requiera ajustes."],
+     ["10.7 Toma y montaje del pedido en Odoo/WMS", "El montaje de todas las órdenes de un país recae hoy en una sola persona dedicada.", "Formar un respaldo para el montaje de pedidos, especialmente antes de temporada alta."],
+     ["10.11 Despacho, retiro en tienda y última milla e-commerce", "Las pérdidas y daños en tránsito con couriers nacionales se asumen como pérdida, sin un protocolo de reclamo sistemático.", "Documentar el protocolo de reclamo ante el courier y su plazo de respuesta."],
+     ["10.13 Servicio al cliente digital pre y postventa", "El volumen de chats varía enormemente entre países (miles en Venezuela vs. cientos en el resto) sin que la dotación se ajuste con la misma métrica en todos.", "Extender la metodología de proyección de dotación (histórico + IA) que ya usa Venezuela al resto de los países."],
+     ["10.15 Planificación de temporadas altas y capacidad operativa", "El espacio físico del almacén no siempre alcanza para el volumen proyectado, aun con el personal correctamente dimensionado.", "Sincronizar la planificación de capacidad de personal con la de espacio físico del almacén."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Almacén web", "Bodega separada del almacén principal, dedicada exclusivamente al canal digital, con su propio inventario."],
+     ["Cachea Link", "Modalidad de venta por WhatsApp con integración de pago del marketplace Cachea."],
+     ["Cachea 0%", "Promoción estructural del marketplace que permite comprar sin pagar de inmediato, con pago a 14 días."],
+     ["FBA (Fulfillment by Amazon)", "Modalidad en la que Amazon almacena y despacha el inventario que Kenex USA le envía."],
+     ["Guía", "Documento de envío que identifica el paquete ante el courier o el marketplace; puede generarse automática o manualmente según el canal."],
+     ["Listing", "Ficha de producto publicada en un marketplace, con las características y campos específicos que exige cada plataforma."],
+     ["Mercateli", "CRM que centraliza los chats de WhatsApp y redes sociales, distribuyéndolos entre los asesores por botonera."],
+     ["Origen del pedido", "Etiqueta que identifica por qué canal entró un pedido (Shopify, marketplace LATAM, marketplace USA, WhatsApp), usada para trazabilidad y reportería."],
+     ["Pedido sugerido", "Propuesta que el e-commerce genera hacia el almacén principal para reponer el almacén web antes de agotarse."],
+     ["Preventa (web)", "Igual que en Ventas Mayor: pedido reservado contra un tránsito confirmado cuando el inventario disponible no cubre lo solicitado."],
+     ["Retracto", "Derecho del comprador en marketplaces de EE. UU. a devolver la compra dentro de una ventana de tiempo, sin necesidad de justificar defecto."],
+     ["Sellerboard", "Herramienta analítica externa usada para el seguimiento de ventas e inventario por marketplace en Estados Unidos."],
+     ["Shopify", "Plataforma que sostiene los sitios propios y actúa como agregador central de marketplaces y métodos de pago."],
+     ["TEC 770", "Compañía hermana de Kenex USA, dedicada exclusivamente a la operación en Amazon."],
+     ["Torre de control digital", "Tablero regional propuesto para consolidar los KPI del canal e-commerce, hoy inexistente de forma consolidada."],
+     ["Tracker de devoluciones", "Herramienta en desarrollo sobre Odoo para escanear y clasificar cada devolución (nuevo, usado o dañado)."],
+     ["WMS (almacén web)", "Aplicación en tablet que recibe el comando de preparación desde Odoo y guía al preparador dentro del almacén web."]
+    ],
+    "raci": [
+     ["10.1 Planificación comercial de e-commerce y forecast por canal", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Planificador Financiero · Gerente Regional de Marketing", "Junta / Comité Directivo"],
+     ["10.2 Onboarding y expansión de marketplaces", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Diseñador(a) / Analista de Contenido · Agencia externa especializada", "—"],
+     ["10.3 Gestión operativa de sitios propios Shopify", "Diseñador(a) / Analista de Contenido", "Gerente de E-commerce / Ventas Web", "Gestión de Mercadeo y Comunicaciones · Coordinador(a) de Sistemas", "—"],
+     ["10.4 Gestión operativa de marketplaces LATAM", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Supervisor(a) de Operaciones E-commerce", "—"],
+     ["10.5 Gestión operativa de marketplaces USA", "Gerente de E-commerce / Ventas Web (USA)", "Gerente Regional de Marketing", "Agencia externa especializada · Asistente de E-commerce / Almacén Web", "Junta / Comité Directivo"],
+     ["10.6 Venta asistida por chat multiplataforma", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "—"],
+     ["10.7 Toma y montaje del pedido en Odoo/WMS", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Supervisor(a) de Bodega / Despacho", "—"],
+     ["10.8 Validación de pagos y conciliación multi-instrumento", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Cuentas por Cobrar · Contabilidad", "Coordinador(a) de Tesorería y Cobranzas"],
+     ["10.9 Preparación, embalaje y escaneo de pedidos e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Asistente de E-commerce / Almacén Web", "—"],
+     ["10.10 Facturación fiscal del pedido web", "Analista de Facturación", "Gerente de E-commerce / Ventas Web", "Asesor(a) de Ventas Web · Coordinador(a) de Sistemas", "—"],
+     ["10.11 Despacho, retiro en tienda y última milla e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
+     ["10.12 Reposición e inventario del almacén e-commerce", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Logística · Gerente de Operaciones y Logística", "—"],
+     ["10.13 Servicio al cliente digital pre y postventa", "Asesor(a) de Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "Gerente de Servicio Técnico", "—"],
+     ["10.14 Devoluciones y logística inversa e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Gerente de Servicio Técnico · Contabilidad", "Coordinador(a) de Sistemas"],
+     ["10.15 Planificación de temporadas altas y capacidad operativa", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Coordinador(a) de Recursos Humanos · Analista de Logística", "Planificador Financiero"],
+     ["10.16 Reportería y KPIs de e-commerce", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing · Planificador Financiero", "Junta / Comité Directivo"]
+    ],
+    "catalogo_sistemas": [
+     ["Odoo / WMS", "Montaje del pedido, tablet de preparación, facturación", "10.7 · 10.9 · 10.10 · 10.12", "Coordinador(a) de Sistemas"],
+     ["Shopify", "Sitios propios, agregador de marketplaces y pagos", "10.2 · 10.3", "Coordinador(a) de Sistemas"],
+     ["Mercateli", "CRM de chats de WhatsApp y redes sociales", "10.4 · 10.6 · 10.13", "Coordinador(a) de Sistemas"],
+     ["Sellerboard", "Analítica de ventas e inventario en EE. UU.", "10.5 · 10.12", "Gerente de E-commerce / Ventas Web (USA)"],
+     ["LARK (grupo \"Confirmaciones\")", "Validación manual de pagos recibidos", "10.8", "Sin responsable formal — situación transitoria"],
+     ["QuickBooks", "Contabilidad de Kenex USA, en camino a migrar a Odoo", "10.5 · 10.16", "Contabilidad"]
+    ],
+    "interfaces_detalle": [
+     ["Compras y Abastecimiento", "Reposición del almacén web", "Traslado desde almacén principal, pedido directo a fábrica (EE. UU.)"],
+     ["Logística y Operaciones", "Última milla y respaldo de inventario", "Guía de despacho, disponibilidad del almacén principal"],
+     ["Gestión de Mercadeo y Comunicaciones", "Banners, campañas y contenido", "Piezas gráficas, calendario de campaña, aprobación de lanzamiento"],
+     ["Contabilidad", "Facturación y conciliación de pagos", "Factura fiscal, nota de crédito, conciliación mensual de marketplace"],
+     ["Servicio Técnico y Postventa", "Escalamiento de garantía", "Caso derivado con evidencia del reclamo del cliente"]
+    ],
+    "docs_lark": [
+     ["Grupo \"Confirmaciones\" (validación de pagos)", "Venezuela", "Registro de pago validado por pedido", "10.8"],
+     ["Descripciones de cargo del equipo de e-commerce", "Venezuela / regional", "Único documento formal existente; no hay manuales ni flujogramas de proceso", "Todos"]
+    ],
+    "variaciones_pais": [
+     ["Venezuela", "El marketplace Cachea concentra alrededor de 80% de la venta digital; volumen de miles de órdenes mensuales en temporada alta.", "Penetración de Cachea muy superior a la de otros países."],
+     ["Colombia", "Sin marketplace tipo Cachea; toda la venta digital es sitio propio y WhatsApp, con crecimiento mensual reportado de 80%.", "Estructura de mercado digital distinta — el país más grande geográficamente entre los tres principales."],
+     ["Estados Unidos", "Cubitt como única marca (Casio no se vende); operación en 15 marketplaces con compañía hermana dedicada a Amazon.", "Mercado maduro de marketplaces, con reglas y competencia propias de EE. UU."],
+     ["Panamá", "Web propia poco relevante frente a la venta en tienda física; el país es geográficamente compacto.", "Menor necesidad relativa de canal digital dada la cercanía física a los puntos de venta."]
+    ]
+   }
+  },
+
+  "procesos": {
+
+   "10.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la construcción del forecast anual y trimestral por canal digital (sitios propios, marketplaces LATAM, marketplaces USA, WhatsApp, venta en vivo), la asignación de presupuesto de pauta digital y la comunicación de metas al equipo de e-commerce por país. No incluye la operación diaria de cada canal (procesos 10.3 a 10.6), que ejecuta el plan aprobado aquí.",
+     "nota_estado": "Este proceso es híbrido: hoy opera de forma informal, con una meta anual que baja como un incremento único sobre el año previo, sin desglose por canal ni línea de negocio, y sin reportería estructurada al cierre de mes que permita verificar el cumplimiento."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define el incremento esperado sobre el año anterior como base del forecast regional."},
+      {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Construye el forecast del país por canal digital, con el histórico de venta y de chats como base."},
+      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el histórico de venta y de chats por canal para dimensionar la proyección."},
+      {"id": "a4", "rol": "Planificador Financiero", "texto": "Valida el presupuesto de pauta digital asignado a cada país."},
+      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina la asignación de pauta digital con el plan de campañas regional."},
+      {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Comunica las metas al equipo de e-commerce del país."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente Regional Comercial / Retail", "Gerente de E-commerce / Ventas Web", "Planificador Financiero", "Gerente Regional de Marketing"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Cierre del ciclo anual — inicia la planificación del canal digital"},
+       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir incremento esperado sobre el año anterior"},
+       {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Construir el forecast por canal digital"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar presupuesto de pauta digital"},
+       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar pauta digital con el plan de campañas"},
+       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Forecast por canal aprobado?"},
+       {"id": "n5alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ajustar el forecast y re-presentar"},
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Comunicar metas al equipo del país"},
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Forecast vigente comunicado al equipo"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Meta sin desglose por canal ni línea de negocio", "El forecast se define como un incremento único, sin distinguir sitio propio, marketplace, WhatsApp o venta corporativa.", "Alta", "Alto", "Formalizar el desglose por canal digital y línea de negocio antes del próximo ciclo."],
+      ["Sin reportería estructurada al cierre de mes", "No hay un reporte formal que permita verificar el cumplimiento del forecast mes a mes.", "Alta", "Medio", "Construir el reporte mensual estructurado (proceso 10.16) antes de fijar la siguiente meta."],
+      ["Meta grupal en vez de individual para el equipo de chat", "El equipo de venta por chat no tiene metas por persona, solo del departamento.", "Media", "Medio", "Evaluar metas diferenciadas por perfil dentro del equipo de e-commerce."],
+      ["Presupuesto de pauta digital coordinado caso por caso, sin calendario formal", "La asignación de pauta se conversa según necesidad, sin un calendario acordado de antemano.", "Media", "Bajo", "Formalizar el calendario de asignación de pauta digital junto con el de campañas."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Precisión del forecast por canal", "Venta real ÷ forecast, por canal digital", "Trimestral", "Gerente de E-commerce / Ventas Web", "±20%"],
+      ["Presupuesto de pauta ejecutado ÷ asignado", "Proporción del gasto real sobre el presupuesto de pauta digital", "Mensual", "Planificador Financiero", "90%-110%"],
+      ["Metas comunicadas antes del inicio del ciclo", "Equipos notificados a tiempo ÷ total de equipos de país", "Anual", "Gerente de E-commerce / Ventas Web", "100%"]
+     ]
+    }
+   },
+
+   "10.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la decisión de entrar a un marketplace nuevo, la postulación y aceptación, la subida de listings con los requisitos específicos de cada plataforma, la integración con Shopify y la activación del canal de servicio al cliente correspondiente, hasta la operación estable. Incluye la reactivación de cuentas suspendidas. No incluye la operación diaria una vez el marketplace está activo (procesos 10.4 y 10.5)."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Identifica la oportunidad de un marketplace nuevo o la necesidad de reactivar una cuenta suspendida."},
+      {"id": "a2", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba la entrada al marketplace o la reactivación de la cuenta."},
+      {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Completa la postulación y gestiona la aceptación del marketplace."},
+      {"id": "a4", "rol": "Diseñador(a) / Analista de Contenido", "texto": "Sube todos los listings con los campos específicos que exige el marketplace."},
+      {"id": "a5", "rol": "Coordinador(a) de Sistemas", "texto": "Conecta la cuenta bancaria y la integración con Shopify."},
+      {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Ejecuta pruebas de flujo end-to-end antes de declarar el marketplace operativo."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Diseñador(a) / Analista de Contenido", "Coordinador(a) de Sistemas"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Oportunidad de marketplace nuevo o necesidad de reactivación"},
+       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Entrada o reactivación aprobada?"},
+       {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Descartar o posponer la oportunidad"},
+       {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Completar postulación y gestionar aceptación"},
+       {"id": "n3", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Subir listings con los campos específicos del marketplace"},
+       {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Conectar cuenta bancaria e integración con Shopify"},
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ejecutar pruebas de flujo end-to-end"},
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Marketplace operativo con primer pedido procesado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n6"},
+       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Cada marketplace exige campos distintos, sin plantilla única", "No existe un Excel único que sirva para subir listings a todos los marketplaces por igual.", "Alta", "Medio", "Documentar una plantilla base por tipo de marketplace, aunque cada uno requiera ajustes."],
+      ["Reactivación de cuenta depende de agencia externa especializada", "La reapertura de una cuenta suspendida (p. ej. Amazon) recae en el apoyo de una agencia contratada.", "Media", "Alto", "Documentar el criterio de reactivación para no depender solo de la agencia."],
+      ["Pruebas end-to-end no siempre cubren todos los métodos de pago del marketplace", "El flujo se valida antes de operar, pero no siempre con cada método de pago habilitado.", "Media", "Medio", "Ampliar el checklist de pruebas a todos los métodos de pago habilitados."],
+      ["Sin criterio de priorización entre marketplaces candidatos", "La elección de a qué marketplace entrar depende de la oportunidad detectada, sin un criterio comparativo escrito.", "Baja", "Bajo", "Definir un criterio de priorización (volumen potencial, costo de entrada) para elegir el próximo marketplace."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de onboarding de un marketplace nuevo", "Fecha de operación estable − fecha de postulación", "Por evento", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento"],
+      ["Marketplaces activos sobre candidatos identificados", "Marketplaces activos ÷ total de candidatos evaluados", "Anual", "Gerente Regional Comercial / Retail", "Referencia de avance"],
+      ["Cuentas reactivadas exitosamente", "Reactivaciones logradas ÷ intentadas", "Por evento", "Gerente de E-commerce / Ventas Web (USA)", "100% de las intentadas"]
+     ]
+    }
+   },
+
+   "10.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la operación diaria de las webs propias por marca y país: actualización de inventario y precios, publicación de producto nuevo, banners, activación de métodos de pago e integración con couriers para la generación automática de guía. No incluye el montaje del pedido del cliente en Odoo (proceso 10.7), que es el paso siguiente una vez el cliente compra en el sitio.",
+     "nota_estado": "Este proceso es híbrido: la operación de Cubitt ya tiene métodos de pago modernos activos (Cachea, pago móvil, tarjetas), pero la migración de esos mismos métodos a las webs de Casio todavía está pendiente."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Diseñador(a) / Analista de Contenido", "texto": "Carga masivamente el producto nuevo a todas las webs desde Odoo."},
+      {"id": "a2", "rol": "Gestión de Mercadeo y Comunicaciones", "texto": "Actualiza banners y contenido visual según la campaña activa."},
+      {"id": "a3", "rol": "Coordinador(a) de Sistemas", "texto": "Activa nuevos métodos de pago y las integraciones de envío (MRW, Zoom)."},
+      {"id": "a4", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Monitorea disponibilidad, precios y reglas de envío vigentes."},
+      {"id": "a5", "rol": "Gerente de Proyectos (PMO)", "texto": "Coordina la implementación de integraciones nuevas cuando lo requieren."}
+     ],
+     "diagrama": {
+      "carriles": ["Diseñador(a) / Analista de Contenido", "Gestión de Mercadeo y Comunicaciones", "Coordinador(a) de Sistemas", "Gerente de E-commerce / Ventas Web"],
+      "nodos": [
+       {"id": "n0", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "inicio", "n": "Llegada de mercancía nueva o campaña programada"},
+       {"id": "n1", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Cargar producto nuevo a todas las webs desde Odoo"},
+       {"id": "n2", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Actualizar banners y contenido visual"},
+       {"id": "n3", "carril": "Coordinador(a) de Sistemas", "tipo": "decision", "n": "¿Requiere activar método de pago o integración nueva?"},
+       {"id": "n3alt", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Activar el método de pago o la integración"},
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Monitorear disponibilidad, precios y reglas de envío"},
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Web operativa con catálogo, banners y pagos vigentes"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Métodos de pago modernos sin migrar a Casio", "Cachea, pago móvil y tarjetas ya operan en Cubitt pero no en las webs de Casio.", "Alta", "Medio", "Completar la migración de métodos de pago a las webs de Casio en todos los países."],
+      ["Carga masiva depende de una sola persona a nivel regional", "La publicación de producto nuevo en todas las webs recae en una sola persona.", "Media", "Alto", "Documentar el proceso de carga masiva y formar un respaldo."],
+      ["Incidencia técnica en pasarela de pago sin protocolo de escalamiento documentado", "Una falla de pago no siempre tiene un camino claro de a quién escalar primero.", "Media", "Medio", "Documentar el protocolo de escalamiento ante una falla de pasarela."],
+      ["Reglas de envío no siempre actualizadas al mismo ritmo en todos los países", "El ajuste de reglas de envío (tiempos, zonas) se hace país por país sin revisión periódica coordinada.", "Baja", "Bajo", "Revisar periódicamente las reglas de envío vigentes por país."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de publicación de producto nuevo", "Fecha de publicación − fecha de llegada de la mercancía", "Por producto", "Diseñador(a) / Analista de Contenido", "≤48 horas"],
+      ["Métodos de pago activos por marca y país", "Métodos activos ÷ métodos aprobados", "Mensual", "Coordinador(a) de Sistemas", "100%"],
+      ["Incidencias de pasarela de pago resueltas dentro del SLA", "Incidencias resueltas a tiempo ÷ total de incidencias", "Mensual", "Coordinador(a) de Sistemas", "≥90%"]
+     ]
+    }
+   },
+
+   "10.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el monitoreo de pedidos entrantes de marketplaces LATAM (como Cachea), el cruce manual entre la data del marketplace y Odoo, la participación en promociones estructurales del marketplace y el monitoreo del tiempo de respuesta como KPI. No incluye el montaje formal del pedido en Odoo una vez cruzado (proceso 10.7).",
+     "nota_estado": "Este proceso es híbrido: la integración con el marketplace ya trae los pedidos a Odoo, pero incluye los cancelados, por lo que el cruce que distingue lo realmente vendible sigue siendo manual — una mejora ya conversada con el propio marketplace para que solo entregue lo efectivamente pagado."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Monitorea los pedidos entrantes del marketplace durante el horario operativo."},
+      {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Extrae la data de pedidos del marketplace y la cruza manualmente contra Odoo para descartar los cancelados."},
+      {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Evalúa la participación en una promoción estructural anunciada por el marketplace."},
+      {"id": "a4", "rol": "Gestión de Mercadeo y Comunicaciones", "texto": "Coordina la comunicación asociada a la promoción del marketplace."},
+      {"id": "a5", "rol": "Supervisor(a) de Operaciones E-commerce", "texto": "Da seguimiento al KPI de tiempo de respuesta exigido por el marketplace."}
+     ],
+     "diagrama": {
+      "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Gestión de Mercadeo y Comunicaciones", "Supervisor(a) de Operaciones E-commerce"],
+      "nodos": [
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pedido entrante en el marketplace o anuncio de promoción estructural"},
+       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Es un pedido individual o una promoción estructural?"},
+       {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Evaluar participación en la promoción estructural"},
+       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Extraer data del marketplace y cruzar contra Odoo"},
+       {"id": "n3", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Coordinar comunicación de la promoción cuando aplica"},
+       {"id": "n4", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "tarea", "n": "Dar seguimiento al KPI de tiempo de respuesta"},
+       {"id": "n5", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "fin", "n": "Pedido cruzado o promoción ejecutada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Pedido"}, {"de": "n1", "a": "n1alt", "etq": "Promoción"},
+       {"de": "n2", "a": "n4"}, {"de": "n1alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Cruce manual dependiente de una persona dedicada", "El cruce diario entre lo que reporta el marketplace y Odoo recae en una sola persona.", "Alta", "Alto", "Formalizar con el marketplace la entrega de solo pedidos pagados, ya conversada."],
+      ["Datos de contacto del cliente incompletos desde el marketplace", "El marketplace no siempre entrega teléfono o correo completos, lo que complica la trazabilidad.", "Media", "Medio", "Solicitar formalmente al marketplace los campos de contacto completos."],
+      ["Participación en promoción sin inventario suficiente", "Sumarse a una promoción estructural sin confirmar disponibilidad puede generar quiebre de stock.", "Media", "Alto", "Confirmar disponibilidad con Compras/Logística antes de confirmar la participación."],
+      ["Picos de volumen (hasta 350 pedidos/día) sin escalamiento de personal automático", "El volumen puede triplicarse en campaña sin que la dotación se ajuste con la misma velocidad.", "Media", "Alto", "Vincular la planificación de temporada alta (proceso 10.15) con el calendario de promociones del marketplace."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Pedidos cruzados correctamente sobre el total recibido", "Pedidos cruzados sin error ÷ total de pedidos entrantes", "Diaria", "Asesor(a) de Ventas Web", "≥98%"],
+      ["Tiempo de respuesta del marketplace", "Tiempo promedio de primera respuesta al chat del marketplace", "Diaria", "Supervisor(a) de Operaciones E-commerce", "Según meta del marketplace"],
+      ["Cumplimiento de inventario en promociones estructurales", "Inventario disponible ÷ inventario comprometido en la promoción", "Por evento", "Gerente de E-commerce / Ventas Web", "100% de lo comprometido"]
+     ]
+    }
+   },
+
+   "10.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la operación diaria de los 15 marketplaces de Cubitt en Estados Unidos: impresión y envío de órdenes al almacén, atención de customer service, envío de inventario a Amazon FBA y gestión del inventario por marketplace para evitar sobreventa. No incluye la preparación física del pedido (proceso 10.9, adaptado a Miami) ni las devoluciones masivas (proceso 10.14).",
+     "nota_estado": "Este proceso es híbrido: opera con más de 7 años de trayectoria, pero la centralización del customer service y del envío de órdenes en una sola persona, y la reciente incorporación de una agencia externa, marcan una transición hacia un modelo con más apoyo especializado."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Revisa e imprime diariamente las órdenes entrantes de los marketplaces sin acceso directo del almacén."},
+      {"id": "a2", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Prepara y envía el pedido según la instrucción impresa."},
+      {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Atiende el customer service de Amazon y de los demás marketplaces."},
+      {"id": "a4", "rol": "Agencia externa especializada", "texto": "Recomienda niveles de inventario a enviar a FBA según la analítica de Sellerboard."},
+      {"id": "a5", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Envía inventario a Amazon FBA varias veces por semana."},
+      {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Pone en cero el inventario de un producto agotado en todos los marketplaces."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de E-commerce / Ventas Web (USA)", "Asistente de E-commerce / Almacén Web", "Agencia externa especializada"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "inicio", "n": "Pedidos entrantes diarios en los 15 marketplaces"},
+       {"id": "n1", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Revisar e imprimir órdenes del día"},
+       {"id": "n2", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Preparar y enviar el pedido"},
+       {"id": "n3", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Atender customer service de Amazon y otros marketplaces"},
+       {"id": "n4", "carril": "Agencia externa especializada", "tipo": "tarea", "n": "Recomendar niveles de inventario a enviar a FBA", "sistemas": ["Sellerboard"]},
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "decision", "n": "¿Producto agotado en algún marketplace?"},
+       {"id": "n5alt", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Poner el producto en cero en todos los marketplaces"},
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Enviar inventario a Amazon FBA"},
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "fin", "n": "Pedidos despachados, customer service atendido, inventario FBA repuesto"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Customer service de Amazon concentrado en una sola persona por más de 7 años", "Toda la atención de Amazon y otros marketplaces recae en un solo puesto.", "Alta", "Alto", "Documentar el proceso y formar un respaldo, evaluando apoyo de la agencia externa para esta función."],
+      ["Almacén sin acceso directo a los marketplaces", "El almacén depende de que se le impriman las órdenes cada día en vez de consultarlas directamente.", "Media", "Medio", "Evaluar dar acceso limitado de consulta al almacén para reducir la dependencia de la impresión diaria."],
+      ["Devoluciones masivas de marketplaces (miles al mes) sin trazabilidad", "Las devoluciones de Amazon y otros marketplaces se acumulan sin sistema formal.", "Alta", "Alto", "Ver proceso 10.14 (devoluciones), que ya tiene un tracker en desarrollo."],
+      ["Reactivación reciente de cuenta Amazon sin plan de contingencia ante una nueva suspensión", "La cuenta fue reabierta con apoyo de agencia tras una suspensión previa.", "Media", "Alto", "Documentar con la agencia el protocolo ante una eventual nueva suspensión de cuenta."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Órdenes impresas y despachadas el mismo día", "Órdenes despachadas el mismo día ÷ total de órdenes del día", "Diaria", "Gerente de E-commerce / Ventas Web (USA)", "100%"],
+      ["Nivel de inventario FBA sobre el mínimo recomendado", "Inventario en FBA ÷ mínimo recomendado por Sellerboard", "Semanal", "Agencia externa especializada", "≥100% del mínimo"],
+      ["Productos con sobreventa por falta de actualización a cero", "Casos de sobreventa detectados en el período", "Mensual", "Gerente de E-commerce / Ventas Web (USA)", "0 casos"]
+     ]
+    }
+   },
+
+   "10.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la recepción del cliente por WhatsApp Business o redes sociales, la atención por un asesor usando el CRM de chats, la cotización, el montaje directo en Odoo y el cierre de la venta con validación de pago. No incluye el montaje técnico en Odoo en sí una vez decidido (proceso 10.7), que documenta el paso siguiente del pedido ya cerrado.",
+     "nota_estado": "Este proceso es híbrido: la venta por WhatsApp ya es un canal de peso —en un mes llegó a superar a la venta de la web propia en Venezuela—, pero no tiene una meta individual por asesor, solo una meta grupal del departamento que ya fue superada sin ajustarse."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Recibe al cliente por WhatsApp Business o por DM de red social redirigido."},
+      {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Cotiza con la lista de precios vigente usando el CRM de chats."},
+      {"id": "a3", "rol": "Asesor(a) de Ventas Web", "texto": "Monta el pedido directamente en Odoo, sin redirigir al cliente a la web, para no perder la venta."},
+      {"id": "a4", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Valida el pago móvil o la transferencia informada por el cliente."},
+      {"id": "a5", "rol": "Asesor(a) de Ventas Web", "texto": "Cierra la venta e informa la promesa de entrega al cliente."}
+     ],
+     "diagrama": {
+      "carriles": ["Asesor(a) de Ventas Web", "Coordinador(a) de Tesorería y Cobranzas"],
+      "nodos": [
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Cliente escribe por WhatsApp Business, DM redirigido o Cachea Link"},
+       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Cotizar con la lista de precios vigente", "sistemas": ["Mercateli (CRM de chats)"]},
+       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Montar el pedido directamente en Odoo"},
+       {"id": "n3", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Validar pago móvil o transferencia"},
+       {"id": "n4", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Pago validado?"},
+       {"id": "n4alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Solicitar comprobante de pago adicional al cliente"},
+       {"id": "n5", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Cerrar la venta e informar la promesa de entrega"},
+       {"id": "n6", "carril": "Asesor(a) de Ventas Web", "tipo": "fin", "n": "Pedido montado con pago validado, listo para preparación"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Meta grupal, no individual, ya superada sin ajustar", "El equipo de chat opera con una sola meta departamental que ya fue rebasada sin actualizarse.", "Media", "Medio", "Definir metas diferenciadas por perfil (soporte vs. venta) dentro del equipo."],
+      ["Redirección accidental a la web pierde la venta por WhatsApp", "Si el asesor manda al cliente a la web en vez de montar directo, se puede perder la venta en el camino.", "Baja", "Medio", "Reforzar con el equipo la regla de montar directo en Odoo sin redirigir."],
+      ["Validación de pago depende de un canal externo a Odoo (LARK)", "El cierre de la venta espera confirmación fuera del sistema transaccional.", "Alta", "Medio", "Ver proceso 10.8 (validación de pagos), que documenta esta brecha en detalle."],
+      ["Picos de chats en campaña sin dotación ajustada a tiempo", "Un aumento repentino de chats por campaña puede superar la capacidad del equipo.", "Media", "Alto", "Vincular la planificación de temporada alta (proceso 10.15) con el volumen esperado de chats."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Venta por WhatsApp sobre venta total del canal digital", "Venta por WhatsApp ÷ venta total del canal digital", "Mensual", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento (tendencia creciente)"],
+      ["Tiempo de cierre de la venta por chat", "Fecha de cierre − fecha del primer mensaje del cliente", "Por venta", "Asesor(a) de Ventas Web", "Según meta grupal de tiempo de respuesta"],
+      ["Chats atendidos por asesor por día", "Chats atendidos ÷ asesores activos", "Diaria", "Coordinador(a) de Soporte / Servicio al Cliente", "Referencia de carga operativa"]
+     ]
+    }
+   },
+
+   "10.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ingreso del pedido en Odoo desde cualquier canal (Shopify, marketplace LATAM, marketplace USA, WhatsApp o cliente presencial), la asignación de origen, método de envío y el envío del comando de preparación al WMS del almacén web. No incluye la preparación física en sí (proceso 10.9), que es el paso siguiente."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Ingresa el pedido en Odoo con el origen correspondiente al canal de venta."},
+      {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Asigna el método de envío: delivery propio, courier nacional, retiro en oficina o en tienda."},
+      {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Confirma que el pago del pedido está validado antes de disparar la preparación."},
+      {"id": "a4", "rol": "Asesor(a) de Ventas Web", "texto": "Envía el comando de preparación al WMS del almacén web."},
+      {"id": "a5", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe el pedido en la tablet y lo asigna a un preparador."}
+     ],
+     "diagrama": {
+      "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Supervisor(a) de Bodega / Despacho"],
+      "nodos": [
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Confirmación de pago validado del cliente"},
+       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Ingresar el pedido en Odoo con su origen"},
+       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Asignar método de envío"},
+       {"id": "n3", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "decision", "n": "¿Pago confirmado validado?"},
+       {"id": "n3alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Esperar confirmación de validación de pago (proceso 10.8)"},
+       {"id": "n4", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enviar comando de preparación al WMS", "sistemas": ["Odoo / WMS"]},
+       {"id": "n5", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Recibir en tablet y asignar a un preparador"},
+       {"id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Pedido en preparación con timer de SLA activado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Montaje de todas las órdenes de un país en una sola persona dedicada", "El ingreso de pedidos a Odoo recae en un único puesto por país.", "Alta", "Alto", "Formar un respaldo para el montaje de pedidos, especialmente antes de temporada alta."],
+      ["Odoo no distingue si un pedido salió o no sin consultar archivos externos", "El asesor tiene que revisar hojas externas para saber el estado real de un pedido.", "Alta", "Medio", "Evaluar un panel de despacho en Odoo visible para el asesor."],
+      ["Origen del pedido mal asignado afecta la trazabilidad por canal", "Un error al marcar el canal de entrada distorsiona la reportería por origen.", "Baja", "Medio", "Reforzar el checklist de asignación de origen antes de enviar a preparación."],
+      ["Métodos de envío no siempre coinciden con la capacidad real del punto", "Se puede ofrecer delivery propio aunque esté desactivado por falta de espacio.", "Media", "Medio", "Validar la capacidad de delivery propio antes de ofrecerlo como opción por defecto."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo entre pago validado y comando de preparación enviado", "Fecha de envío del comando − fecha de validación del pago", "Por pedido", "Asesor(a) de Ventas Web", "≤30 minutos"],
+      ["Pedidos con origen correctamente asignado", "Pedidos con origen correcto ÷ total de pedidos", "Mensual", "Gerente de E-commerce / Ventas Web", "100%"],
+      ["Pedidos montados por asesor dedicado por día", "Pedidos montados ÷ día", "Diaria", "Supervisor(a) de Bodega / Despacho", "Referencia de carga operativa"]
+     ]
+    }
+   },
+
+   "10.8": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la validación de cada pago recibido por el canal web —cruce de referencia y monto contra el banco— y la conciliación mensual de cada marketplace. No incluye el cálculo de comisiones de venta al mayor (proceso 8.14) ni la cobranza a crédito, que este canal no maneja al operar solo de contado.",
+     "nota_estado": "Este proceso es híbrido en el peor sentido posible: la propia gerencia de e-commerce reconoce que la validación de pagos debería estar en Contabilidad, pero quedó en Ventas Web por rapidez, y la migración hacia el destino natural todavía no se completó."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Envía el número de pedido al grupo de notificación de pagos cuando recibe la confirmación del cliente."},
+      {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Entra al portal del banco y verifica referencia contra referencia y monto."},
+      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Asume la validación cuando está disponible, como parte de la transición hacia Contabilidad."},
+      {"id": "a4", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Responde en el grupo con fecha, referencia y monto validados."},
+      {"id": "a5", "rol": "Contabilidad", "texto": "Ejecuta la conciliación mensual de cada marketplace (en EE. UU., sobre QuickBooks)."}
+     ],
+     "diagrama": {
+      "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Cuentas por Cobrar", "Contabilidad"],
+      "nodos": [
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pago recibido notificado por el asesor"},
+       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enviar número de pedido al grupo de notificación", "sistemas": ["LARK (grupo \"Confirmaciones\")"]},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Analista de Cuentas por Cobrar disponible?"},
+       {"id": "n2alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Validar el pago directamente contra el banco"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Validar el pago directamente contra el banco"},
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Responder con fecha, referencia y monto validados"},
+       {"id": "n5", "carril": "Contabilidad", "tipo": "tarea", "n": "Ejecutar conciliación mensual de cada marketplace"},
+       {"id": "n6", "carril": "Contabilidad", "tipo": "fin", "n": "Pago verificado y pedido liberado a preparación"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n4"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Actividad reconocida como fuera de lugar, sin fecha de migración fijada", "El propio equipo señala que esto debería estar en Contabilidad, pero no hay fecha comprometida de traspaso.", "Alta", "Alto", "Fijar una fecha objetivo para migrar la validación de pagos a Contabilidad/Tesorería."],
+      ["Validación depende de un canal externo a Odoo (grupo de LARK)", "El pago se confirma por chat en vez de un flujo dentro del sistema transaccional.", "Alta", "Medio", "Evaluar el botón de aprobación dentro de Odoo, ya identificado como mejora deseada."],
+      ["Analista de Cuentas por Cobrar es una figura todavía en construcción", "El rol que debería absorber esta tarea apenas se está formando.", "Media", "Alto", "Acelerar la consolidación del rol para dejar de depender de la gerencia de e-commerce."],
+      ["Conciliación mensual de marketplace en EE. UU. depende de una sola persona remota", "El cierre mensual sobre QuickBooks recae en un solo puesto administrativo remoto.", "Media", "Medio", "Documentar el proceso de conciliación y formar un respaldo."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de validación del pago", "Fecha de validación − fecha de notificación del asesor", "Por pago", "Gerente de E-commerce / Ventas Web", "Mismo día"],
+      ["Pagos validados sin discrepancia de monto o referencia", "Pagos sin discrepancia ÷ total de pagos validados", "Mensual", "Analista de Cuentas por Cobrar", "≥98%"],
+      ["Conciliaciones mensuales de marketplace cerradas a tiempo", "Conciliaciones cerradas a tiempo ÷ total de marketplaces", "Mensual", "Contabilidad", "100%"]
+     ]
+    }
+   },
+
+   "10.9": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la ejecución física de la preparación del pedido en el almacén web: búsqueda del producto, armado del paquete, impresión y pegado de la guía según el canal, escaneo de la caja cuando el marketplace lo exige, y el envío de la evidencia para que Facturación libere la factura. No incluye el despacho en sí hacia el cliente o el courier (proceso 10.11).",
+     "nota_estado": "Este proceso es híbrido: el WMS con tablet ya reemplazó el proceso manual con hojas impresas, pero el espacio físico del almacén web se quedó pequeño para el volumen actual, obligando a embalar fuera del almacén en varios países."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe el pedido en la tablet WMS y lo asigna a un preparador."},
+      {"id": "a2", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Busca el producto físicamente y arma el paquete."},
+      {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Imprime o genera la guía según el canal (automática por integración, o manual para venta por WhatsApp)."},
+      {"id": "a4", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Escanea la caja con pistola cuando el marketplace lo exige."},
+      {"id": "a5", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Envía la foto de la etiqueta al grupo de facturación para liberar la factura."}
+     ],
+     "diagrama": {
+      "carriles": ["Supervisor(a) de Bodega / Despacho", "Auxiliar / Ayudante de Bodega y Tráfico", "Asistente de E-commerce / Almacén Web"],
+      "nodos": [
+       {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido en la tablet WMS listo para preparar"},
+       {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Asignar el pedido a un preparador"},
+       {"id": "n2", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Buscar el producto y armar el paquete"},
+       {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "decision", "n": "¿Guía automática por integración?"},
+       {"id": "n3alt", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Generar guía manual con datos del cliente"},
+       {"id": "n4", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Pegar la guía a la caja"},
+       {"id": "n5", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "decision", "n": "¿Marketplace exige escaneo de caja?"},
+       {"id": "n5alt", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Escanear la caja con pistola"},
+       {"id": "n6", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Enviar foto de la etiqueta al grupo de facturación"},
+       {"id": "n7", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "fin", "n": "Pedido empacado y listo para facturación"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Espacio físico del almacén insuficiente para el volumen actual", "El almacén web no crece al ritmo del volumen de pedidos.", "Alta", "Alto", "Priorizar la ampliación o remodelación del almacén web antes de la próxima temporada alta."],
+      ["Embalaje fuera del almacén por falta de espacio", "El armado del paquete se hace en mesas fuera del almacén cuando este se queda corto.", "Media", "Medio", "Evaluar una solución temporal de espacio mientras se ejecuta la ampliación."],
+      ["Guía manual expuesta a error humano (nombre, cédula, dirección)", "El dato del cliente para la guía manual depende de que el vendedor lo anote bien en un archivo compartido.", "Media", "Medio", "Reforzar la regla de datos mínimos con una plantilla validada."],
+      ["Escaneo de caja añade tiempo sin herramienta suficiente", "Una sola pistola de escaneo por turno puede no bastar en picos de volumen.", "Baja", "Bajo", "Evaluar la dotación de pistolas de escaneo según el volumen del país."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Pedidos preparados dentro del SLA", "Pedidos preparados a tiempo ÷ total de pedidos del día", "Diaria", "Supervisor(a) de Bodega / Despacho", "≥90%"],
+      ["Cajas escaneadas correctamente cuando el marketplace lo exige", "Cajas escaneadas ÷ cajas que lo requieren", "Diaria", "Asistente de E-commerce / Almacén Web", "100%"],
+      ["Tiempo entre preparación y envío de foto a facturación", "Fecha de envío de foto − fecha de fin de preparación", "Por pedido", "Asistente de E-commerce / Almacén Web", "≤15 minutos"]
+     ]
+    }
+   },
+
+   "10.10": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la emisión de la factura del pedido web una vez que el almacén envía la evidencia de que terminó la preparación, incluido el enlace de la guía en el caso de marketplaces que la exigen. No incluye el despacho físico posterior (proceso 10.11).",
+     "nota_estado": "Este proceso es híbrido: hoy la facturación es física en varios países, lo que genera un cuello de botella conocido (cajas abiertas esperando factura), con una migración a facturación digital ya anunciada pero todavía no ejecutada."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Envía la foto de la etiqueta al grupo de facturación."},
+      {"id": "a2", "rol": "Analista de Facturación", "texto": "Emite la factura física del pedido."},
+      {"id": "a3", "rol": "Asesor(a) de Ventas Web", "texto": "Enlaza la factura con la guía impresa en el caso de marketplaces que la exigen."},
+      {"id": "a4", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Cierra la caja una vez recibida la factura enlazada."},
+      {"id": "a5", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Monitorea el cuello de botella de cajas abiertas esperando factura."}
+     ],
+     "diagrama": {
+      "carriles": ["Asistente de E-commerce / Almacén Web", "Analista de Facturación", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web"],
+      "nodos": [
+       {"id": "n0", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "inicio", "n": "Foto de la etiqueta enviada al grupo de facturación"},
+       {"id": "n1", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Emitir la factura física del pedido"},
+       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿El marketplace exige guía enlazada a la factura?"},
+       {"id": "n2alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enlazar la factura con la guía impresa"},
+       {"id": "n3", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Cerrar la caja con la factura recibida"},
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Monitorear el cuello de botella de cajas abiertas"},
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Factura emitida y caja cerrada, lista para despacho"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
+       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Cuello de botella conocido por facturación física", "Las cajas quedan abiertas esperando la factura antes de poder cerrarse.", "Alta", "Alto", "Completar la migración a facturación digital, ya anunciada."],
+      ["Caja abierta expuesta a pérdida o daño mientras espera factura", "El pedido queda vulnerable mientras no se cierra la caja.", "Media", "Medio", "Priorizar el cierre del cuello de botella antes de la próxima temporada alta."],
+      ["Enlace factura-guía depende de un paso manual adicional", "Para marketplaces con guía propia, alguien tiene que enlazarla a mano con la factura.", "Media", "Bajo", "Evaluar automatizar el enlace factura-guía dentro de Odoo tras la migración digital."],
+      ["Analista de Facturación como punto único, sin respaldo documentado", "La emisión de todas las facturas del canal depende de una sola persona.", "Media", "Alto", "Formar un respaldo para la emisión de factura."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo entre preparación y factura emitida", "Fecha de emisión de factura − fecha de fin de preparación", "Por pedido", "Analista de Facturación", "≤30 minutos (meta tras migración digital)"],
+      ["Cajas abiertas esperando factura al cierre del día", "Conteo de cajas abiertas al cierre de la jornada", "Diaria", "Gerente de E-commerce / Ventas Web", "0 al cierre"],
+      ["Facturas con guía correctamente enlazada", "Facturas enlazadas ÷ total de facturas que lo requieren", "Diaria", "Asesor(a) de Ventas Web", "100%"]
+     ]
+    }
+   },
+
+   "10.11": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la salida del pedido hacia el cliente por delivery propio, retiro en el punto de operación o courier nacional, incluida la gestión de reclamos por pérdida o daño en tránsito. No incluye la preparación física previa (proceso 10.9) ni la facturación (proceso 10.10)."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Decide la modalidad de salida del pedido según el método asignado: delivery propio, retiro o courier."},
+      {"id": "a2", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Entrega el pedido al motorizado propio o prepara la colecta del courier."},
+      {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Coordina la entrega al cliente en el punto de operación cuando la modalidad es retiro."},
+      {"id": "a4", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Contabiliza el envío por agencia y confirma la firma de recepción."},
+      {"id": "a5", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Gestiona el reclamo con el courier cuando hay pérdida o daño en tránsito."}
+     ],
+     "diagrama": {
+      "carriles": ["Supervisor(a) de Bodega / Despacho", "Auxiliar / Ayudante de Bodega y Tráfico", "Gerente de E-commerce / Ventas Web"],
+      "nodos": [
+       {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido facturado y físicamente listo"},
+       {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Modalidad de salida asignada?"},
+       {"id": "n1a", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Entregar al motorizado propio (delivery)"},
+       {"id": "n1b", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Coordinar entrega en el punto de operación (retiro)"},
+       {"id": "n1c", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Preparar la colecta para el courier nacional"},
+       {"id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Contabilizar el envío y confirmar firma de recepción"},
+       {"id": "n3", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Hubo pérdida o daño en tránsito?"},
+       {"id": "n3alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Gestionar el reclamo con el courier"},
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Pedido entregado al cliente o al courier, SLA cumplido"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1a", "etq": "Delivery"}, {"de": "n1", "a": "n1b", "etq": "Retiro"}, {"de": "n1", "a": "n1c", "etq": "Courier"},
+       {"de": "n1a", "a": "n2"}, {"de": "n1b", "a": "n2"}, {"de": "n1c", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Pérdidas y daños en tránsito se asumen como pérdida sin protocolo sistemático de reclamo", "Cuando el courier extravía o daña un pedido, hoy se asume el costo sin un procedimiento formal de reclamo.", "Alta", "Alto", "Documentar el protocolo de reclamo ante el courier y su plazo de respuesta."],
+      ["Delivery propio desactivado por falta de espacio en algunos países", "La modalidad de entrega directa está apagada por la limitación física del almacén.", "Media", "Medio", "Retomar el delivery propio una vez resuelto el espacio del almacén (proceso 10.9)."],
+      ["Colecta del courier en días fijos puede represar pedidos urgentes", "Un pedido que se pierde el día de colecta espera hasta la próxima fecha programada.", "Baja", "Medio", "Evaluar un día adicional de colecta en temporada alta."],
+      ["Capacidad del vehículo del courier menor a la necesaria en picos de volumen", "El transporte asignado por el courier puede ser insuficiente para el volumen real del día.", "Media", "Medio", "Coordinar con el courier el tamaño de vehículo según la proyección de volumen (proceso 10.15)."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Envíos entregados dentro del SLA", "Envíos entregados a tiempo ÷ total de envíos del período", "Diaria", "Supervisor(a) de Bodega / Despacho", "≥90%"],
+      ["Reclamos por pérdida o daño resueltos por el courier", "Reclamos resueltos ÷ reclamos presentados", "Mensual", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento"],
+      ["Envíos despachados por modalidad", "Distribución de envíos entre delivery, retiro y courier", "Mensual", "Supervisor(a) de Bodega / Despacho", "Referencia de mezcla de canal"]
+     ]
+    }
+   },
+
+   "10.12": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la sincronización de inventario entre todos los canales digitales, el cruce diario del almacén web contra el almacén principal, la generación proactiva de un pedido sugerido, la aceptación de traslados y los inventarios mensuales de ajuste. No incluye la reposición inter-compañía entre países (proceso 6.6 de Compras y Abastecimiento), de la que el almacén web es un cliente más.",
+     "nota_estado": "Este proceso es híbrido: el cruce diario y el sugerido proactivo ya son práctica consolidada en el país más grande del grupo, pero dependen de un cruce manual contra el almacén principal en Odoo, sin visibilidad automática de discrepancias."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Cruza diariamente el inventario del almacén web contra el del almacén principal en Odoo."},
+      {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Genera un pedido sugerido proactivo cuando detecta un producto por agotarse o una promoción próxima."},
+      {"id": "a3", "rol": "Analista de Logística", "texto": "Recibe el sugerido y lo evalúa contra la disponibilidad regional."},
+      {"id": "a4", "rol": "Gerente de Operaciones y Logística", "texto": "Aprueba el traslado desde el almacén principal al almacén web."},
+      {"id": "a5", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Recibe físicamente el traslado y lo carga al inventario del almacén web."},
+      {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Ejecuta el inventario mensual de ajuste para corregir discrepancias."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de E-commerce / Ventas Web", "Analista de Logística", "Gerente de Operaciones y Logística", "Asistente de E-commerce / Almacén Web"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Cruce diario que detecta niveles bajos o promoción anunciada"},
+       {"id": "n1", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Cruzar inventario del almacén web contra el principal", "sistemas": ["Odoo / WMS"]},
+       {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Generar pedido sugerido proactivo"},
+       {"id": "n3", "carril": "Analista de Logística", "tipo": "tarea", "n": "Evaluar el sugerido contra la disponibilidad regional"},
+       {"id": "n4", "carril": "Gerente de Operaciones y Logística", "tipo": "decision", "n": "¿Traslado aprobado?"},
+       {"id": "n4alt", "carril": "Analista de Logística", "tipo": "tarea", "n": "Ajustar cantidad del sugerido"},
+       {"id": "n5", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Recibir el traslado y cargarlo al inventario"},
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ejecutar inventario mensual de ajuste"},
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Inventario sincronizado en todos los canales digitales"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Cruce diario manual, sin visibilidad automática de discrepancias", "El cruce contra el almacén principal se hace a mano, sin alerta automática de diferencias.", "Alta", "Medio", "Evaluar automatizar el cruce diario de inventario entre almacén web y principal."],
+      ["Sugerido proactivo depende del criterio de una persona", "El adelanto de pedido antes de agotarse o de una promoción se basa en el juicio de quien lidera el país.", "Media", "Alto", "Documentar el criterio de anticipación (qué señales disparan el sugerido proactivo)."],
+      ["Traslados urgentes por venta corporativa no siempre visibles a tiempo para el almacén principal", "Una venta grande e imprevista puede tardar en comunicarse hacia arriba.", "Media", "Medio", "Definir un canal de urgencia para traslados por venta corporativa grande."],
+      ["Discrepancias solo se detectan y corrigen mensualmente", "El ajuste de inventario ocurre una vez al mes, no con más frecuencia.", "Baja", "Medio", "Evaluar inventarios de ajuste más frecuentes en temporada alta."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Discrepancias detectadas en el inventario mensual", "Conteo de discrepancias por inventario de ajuste", "Mensual", "Gerente de E-commerce / Ventas Web", "Tendencia a la baja"],
+      ["Sugeridos atendidos dentro del ciclo semanal", "Sugeridos atendidos ÷ total de sugeridos enviados", "Semanal", "Analista de Logística", "≥90%"],
+      ["Productos con sobreventa por sincronización tardía", "Casos de sobreventa detectados en el período", "Mensual", "Gerente de E-commerce / Ventas Web", "0 casos"]
+     ]
+    }
+   },
+
+   "10.13": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la atención al cliente por WhatsApp, CRM de chats y redes sociales, tanto en preventa (información, disponibilidad, cotización) como en postventa (seguimiento del pedido, reclamos por daño en tránsito), con escalamiento a Servicio Técnico cuando el reclamo es de garantía. No incluye la venta cerrada en sí (proceso 10.6), aunque ambos procesos comparten el mismo canal y a veces al mismo asesor."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Atiende la consulta de preventa: producto, disponibilidad, ayuda para completar la compra."},
+      {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Atiende el seguimiento postventa del pedido (\"¿ya salió?\", \"¿cuándo llega?\")."},
+      {"id": "a3", "rol": "Coordinador(a) de Soporte / Servicio al Cliente", "texto": "Evalúa si el reclamo postventa es de garantía técnica."},
+      {"id": "a4", "rol": "Asesor(a) de Ventas Web", "texto": "Resuelve con macro predefinida o con respuesta armada con apoyo de IA."},
+      {"id": "a5", "rol": "Analista de Sistemas / Datos", "texto": "Actualiza la métrica de tiempo de primera respuesta y tiempo promedio."}
+     ],
+     "diagrama": {
+      "carriles": ["Asesor(a) de Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "Analista de Sistemas / Datos"],
+      "nodos": [
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Cliente escribe por cualquier canal digital"},
+       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Es preventa o postventa?"},
+       {"id": "n1a", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Atender consulta de preventa"},
+       {"id": "n1b", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Atender seguimiento postventa del pedido"},
+       {"id": "n2", "carril": "Coordinador(a) de Soporte / Servicio al Cliente", "tipo": "decision", "n": "¿Es reclamo de garantía técnica?"},
+       {"id": "n2alt", "carril": "Coordinador(a) de Soporte / Servicio al Cliente", "tipo": "tarea", "n": "Escalar el reclamo a Servicio Técnico"},
+       {"id": "n3", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Resolver con macro o respuesta armada con IA"},
+       {"id": "n4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Actualizar la métrica de tiempo de respuesta"},
+       {"id": "n5", "carril": "Analista de Sistemas / Datos", "tipo": "fin", "n": "Consulta resuelta o escalada, métrica actualizada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1a", "etq": "Preventa"}, {"de": "n1", "a": "n1b", "etq": "Postventa"},
+       {"de": "n1a", "a": "n3"}, {"de": "n1b", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
+       {"de": "n2alt", "a": "n4"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Volumen de chats muy dispar entre países sin dotación proporcional formalizada", "Un país puede recibir miles de chats mensuales y otro apenas cientos, sin una misma metodología de dotación.", "Media", "Medio", "Extender la metodología de proyección de dotación (histórico + IA) al resto de países (proceso 10.15)."],
+      ["Meta grupal de tiempo de respuesta, no individual", "El desempeño se mide por equipo, no por asesor.", "Media", "Bajo", "Evaluar metas individuales complementarias a la grupal."],
+      ["Dependencia de macros y de IA generativa sin revisión de calidad sistemática", "Las respuestas armadas con IA no siempre se muestrean para control de calidad.", "Baja", "Medio", "Muestrear periódicamente las respuestas generadas con IA para control de calidad."],
+      ["Escalamiento a Servicio Técnico sin SLA de respuesta acordado entre áreas", "No hay un tiempo máximo pactado para que Servicio Técnico atienda un caso escalado.", "Media", "Medio", "Definir un SLA de respuesta de Servicio Técnico para los casos escalados desde e-commerce."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de primera respuesta", "Tiempo entre el mensaje del cliente y la primera respuesta del asesor", "Diaria", "Coordinador(a) de Soporte / Servicio al Cliente", "Meta grupal vigente"],
+      ["Tiempo promedio de resolución", "Tiempo promedio entre apertura y cierre del chat", "Diaria", "Coordinador(a) de Soporte / Servicio al Cliente", "Meta grupal vigente"],
+      ["Chats mensuales por país", "Conteo de chats recibidos por país en el mes", "Mensual", "Analista de Sistemas / Datos", "Referencia de dimensionamiento"]
+     ]
+    }
+   },
+
+   "10.14": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo completo cuando un pedido web debe volver: daño en tránsito, cambio sin defecto, retracto en marketplaces de EE. UU., el reingreso al inventario con marcado de estado y la decisión de rehabilitar, reponer, desechar o reportar a fábrica. Se solapa con Servicio Técnico cuando la devolución es por garantía técnica, caso en el que se deriva.",
+     "nota_estado": "Este proceso es híbrido: en Venezuela el ciclo ya tiene un flujo claro con inventario mensual de conciliación, pero en Estados Unidos las devoluciones de marketplace (miles al mes) hoy no tienen sistema formal y están en migración a un tracker en Odoo que distinga nuevo, usado y dañado."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe físicamente la mercancía devuelta, del courier o del cliente."},
+      {"id": "a2", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Clasifica el motivo de la devolución: daño en tránsito, cambio sin defecto, retracto o garantía técnica."},
+      {"id": "a3", "rol": "Gerente de Servicio Técnico", "texto": "Recibe la devolución cuando el motivo es garantía técnica."},
+      {"id": "a4", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Reingresa la mercancía al inventario del almacén web con el estado marcado (nuevo, usado, dañado)."},
+      {"id": "a5", "rol": "Contabilidad", "texto": "Emite la nota de crédito cuando corresponde."},
+      {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Decide si el producto se rehabilita, se repone, se desecha o se reporta a fábrica."}
+     ],
+     "diagrama": {
+      "carriles": ["Supervisor(a) de Bodega / Despacho", "Gerente de Servicio Técnico", "Auxiliar / Ayudante de Bodega y Tráfico", "Contabilidad"],
+      "nodos": [
+       {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Cliente reporta problema o retorno del courier"},
+       {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Recibir físicamente la mercancía devuelta"},
+       {"id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Es garantía técnica?"},
+       {"id": "n2alt", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Recibir la devolución por garantía técnica"},
+       {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Reingresar al inventario con estado marcado", "sistemas": ["Odoo / WMS"]},
+       {"id": "n4", "carril": "Contabilidad", "tipo": "tarea", "n": "Emitir nota de crédito cuando corresponde"},
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Decidir rehabilitar, reponer, desechar o reportar a fábrica"},
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Mercancía reingresada, nota de crédito emitida, decisión tomada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
+       {"de": "n2alt", "a": "n6"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Devoluciones masivas en EE. UU. sin sistema formal (miles al mes)", "El volumen de retornos de marketplace no tiene hoy un registro sistemático de estado.", "Alta", "Alto", "Priorizar la implementación del tracker de devoluciones en Odoo, ya en curso."],
+      ["Estado del producto devuelto sin registro sistemático", "No se sabe con certeza cuánto de lo devuelto está nuevo, usado o dañado.", "Alta", "Medio", "Dar seguimiento a la implementación del tracker que debe resolver esta brecha."],
+      ["Disputa con courier por firma de conformidad del cliente sin protocolo claro", "Un cliente que firmó conforme puede perder el reclamo aunque el producto llegara dañado.", "Media", "Medio", "Documentar el protocolo de disputa con courier (ver también proceso 10.11)."],
+      ["Decisión de rehabilitar o desechar sin criterio escrito", "La decisión depende del criterio de quien lidera el e-commerce en el momento.", "Baja", "Medio", "Documentar el criterio de decisión por tipo de producto y estado."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Devoluciones reingresadas con estado marcado", "Devoluciones con estado marcado ÷ total de devoluciones", "Mensual", "Auxiliar / Ayudante de Bodega y Tráfico", "100% tras el tracker"],
+      ["Tiempo de emisión de nota de crédito", "Fecha de emisión − fecha de recepción de la devolución", "Por caso", "Contabilidad", "≤5 días hábiles"],
+      ["Devoluciones sobre el total de pedidos del período", "Devoluciones ÷ total de pedidos", "Mensual", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento (EE. UU. especialmente)"]
+     ]
+    }
+   },
+
+   "10.15": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la planificación anticipada de los picos comerciales del año: proyección de volumen, contratación de personal temporal, adecuación de espacio del almacén, adelanto de reposición y coordinación con Marketing. No incluye la ejecución operativa durante el pico en sí (procesos 10.4 a 10.11), que este plan dimensiona con antelación."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Analista de Sistemas / Datos", "texto": "Proyecta el volumen esperado del pico cruzando venta histórica, chats promedio y tiempo por chat con apoyo de IA."},
+      {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Determina el headcount adicional necesario para chat y almacén, y sincroniza la fecha con Marketing."},
+      {"id": "a3", "rol": "Planificador Financiero", "texto": "Aprueba el presupuesto de contratación temporal."},
+      {"id": "a4", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Ejecuta la contratación de personal temporal según el headcount determinado."},
+      {"id": "a5", "rol": "Analista de Logística", "texto": "Adelanta la reposición de mercancía estrella antes del pico."},
+      {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Adecúa el espacio del almacén web para el volumen esperado del pico."}
+     ],
+     "diagrama": {
+      "carriles": ["Analista de Sistemas / Datos", "Gerente de E-commerce / Ventas Web", "Planificador Financiero", "Coordinador(a) de Recursos Humanos", "Analista de Logística"],
+      "nodos": [
+       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Proximidad de temporada alta o campaña estructural anunciada"},
+       {"id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Proyectar volumen esperado con histórico + IA"},
+       {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Determinar headcount adicional y sincronizar con Marketing"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aprobar presupuesto de contratación temporal"},
+       {"id": "n4", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Ejecutar la contratación de personal temporal"},
+       {"id": "n5", "carril": "Analista de Logística", "tipo": "tarea", "n": "Adelantar reposición de mercancía estrella"},
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Adecuar el espacio del almacén web para el pico"},
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Plan de capacidad ejecutado antes del pico"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Espacio físico no siempre alcanza aun con personal bien dimensionado", "El cálculo de headcount no siempre viene acompañado de una revisión de espacio disponible.", "Alta", "Alto", "Sincronizar la planificación de capacidad de personal con la de espacio físico del almacén."],
+      ["Proyección con IA depende del criterio de una sola persona por país", "El método de proyección (histórico + IA) lo aplica quien lidera el país, sin metodología replicada formalmente.", "Media", "Alto", "Documentar la metodología de proyección para replicarla en otros países sin depender de una persona."],
+      ["Contratación temporal aprobada tarde por falta de disponibilidad del área de apoyo", "El personal de respaldo del almacén principal no siempre está disponible cuando se necesita.", "Media", "Medio", "Anticipar la solicitud de apoyo del almacén principal con más margen."],
+      ["Crecimiento año a año no siempre revisado contra la capacidad instalada del año anterior", "El plan puede repetir el dimensionamiento del año pasado sin ajustarlo al crecimiento real.", "Baja", "Medio", "Revisar anualmente si la capacidad instalada sigue siendo suficiente frente al crecimiento proyectado."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Precisión de la proyección de volumen del pico", "Volumen real ÷ volumen proyectado", "Por evento", "Analista de Sistemas / Datos", "±15%"],
+      ["Personal temporal contratado a tiempo antes del pico", "Contrataciones a tiempo ÷ headcount aprobado", "Por evento", "Coordinador(a) de Recursos Humanos", "100%"],
+      ["Órdenes procesadas por día durante el pico vs. proyectado", "Órdenes procesadas ÷ órdenes proyectadas por día", "Diaria (durante el pico)", "Gerente de E-commerce / Ventas Web", "≥90% del proyectado sin colapso operativo"]
+     ]
+    }
+   },
+
+   "10.16": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el diseño, generación y comunicación de la reportería del canal web: hoy un reporte básico de Odoo por origen mostrado informalmente al cierre de mes, más la reunión mensual formal de P&L en Estados Unidos y el dashboard de pauta digital en Colombia. No incluye la reportería de Ventas Retail (torre de control, proceso 9.2) ni la de Ventas Mayor (proceso 8.17), aunque comparten la aspiración de integrarse en una torre de control regional.",
+     "nota_estado": "Este proceso es híbrido: existen piezas sueltas de reportería (el reporte básico de Odoo, el P&L de EE. UU., el dashboard de Colombia) pero falta integrarlas en una reportería mensual estructurada con KPI por canal, comparativos y niveles de servicio."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Analista de Sistemas / Datos", "texto": "Extrae el reporte básico de Odoo por origen al cierre de cada mes."},
+      {"id": "a2", "rol": "Supervisor(a) de Operaciones E-commerce", "texto": "Alimenta el dashboard de pauta digital y e-commerce en Colombia."},
+      {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Presenta informalmente el reporte a la Gerencia Regional Comercial / Retail al cierre de mes."},
+      {"id": "a4", "rol": "Analista de Sistemas / Datos", "texto": "Consolida los KPI de servicio (tiempo de respuesta) de forma semanal."},
+      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Prioriza acciones correctivas por canal a partir del reporte mensual."}
+     ],
+     "diagrama": {
+      "carriles": ["Analista de Sistemas / Datos", "Supervisor(a) de Operaciones E-commerce", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail"],
+      "nodos": [
+       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre semanal (KPI de servicio) o cierre mensual (revisión ejecutiva)"},
+       {"id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Extraer el reporte básico de Odoo por origen"},
+       {"id": "n2", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "tarea", "n": "Alimentar el dashboard de pauta digital y e-commerce"},
+       {"id": "n3", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Presentar el reporte al cierre de mes"},
+       {"id": "n4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Consolidar KPI de servicio semanalmente"},
+       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Priorizar acciones correctivas por canal"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Reporte mensual entregado y acciones correctivas priorizadas"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Reportería informal, sin niveles de servicio ni comparativos", "El reporte al cierre de mes se muestra de manera informal, sin estructura de KPI comparable entre países.", "Alta", "Alto", "Construir la reportería estructurada con KPI por canal ya identificada como necesidad."],
+      ["Sin torre de control consolidada del canal digital", "No existe un tablero único que integre venta, chats, devoluciones y capacidad del canal digital.", "Media", "Alto", "Evaluar integrar el canal digital a la torre de control de Retail o construir una propia."],
+      ["Reporte depende de una sola persona por país", "La extracción manual del reporte de Odoo recae en un solo puesto.", "Media", "Medio", "Documentar la extracción del reporte y formar un respaldo."],
+      ["P&L de EE. UU. sobre QuickBooks pendiente de migrar a Odoo", "El reporte financiero de Kenex USA vive en un sistema aparte del resto del grupo.", "Baja", "Medio", "Completar la migración de QuickBooks a Odoo, ya en conversación."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Venta, unidades y tickets por canal reportados mensualmente", "Canales con reporte completo ÷ total de canales", "Mensual", "Analista de Sistemas / Datos", "100% de los canales"],
+      ["Tasa de conversión por canal", "Ventas cerradas ÷ visitas o chats recibidos, por canal", "Mensual", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento"],
+      ["Tasa de devolución por canal", "Devoluciones ÷ pedidos, por canal", "Mensual", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento"]
+     ]
+    }
+   }
+
+  }
  }
 };
+
+
 
 
 
