@@ -58,6 +58,21 @@
 // (alcance/fuentes por proceso), que en este macroproceso ya trae nombres
 // de entidades y mecánicas de negocio con un nivel de detalle alto.
 //
+// 2026-09 — Revisado además con dos docs de Lark de Ventas al Mayor no
+// consultados en la primera pasada: «Proceso Ventas al Mayor Rower» (VE,
+// jul-2026, manual certificado homologado a Panamá) y un self-report de
+// Panamá — Insumos/Documentación/{Venezuela,Panama}/Ventas al Mayor/.
+// Tocó 8.3 (seis listas de precios reales por línea), 8.4 (carga directa
+// del mismo Excel devuelto, con los 3 errores típicos de verificación), 8.5
+// (los dos nombres reales de la doble autorización: "para trabajar" y "para
+// facturar", más la clasificación de urgencia Urgente/Regular/Caso Especial
+// y el gate de cartera vencida), 8.12 y 8.15 (descuento inicial más bajo,
+// revisión de cobranza los lunes) y 8.16 (canal único de devolución por
+// Zoom en VE). El hallazgo más importante: **8.6 corrige, no solo enriquece**
+// — la brecha de trazabilidad de demanda no cumplida, documentada como
+// prioridad número uno sin resolver, ya se resolvió en Venezuela con el Hub
+// Compras & Ventas (Lark Base); falta extenderla al resto de la región.
+//
 // Macro 10 (Ventas Web / E-Commerce) — COMPLETO: los 16 procesos + Contexto,
 // Gobernanza, Marco de referencia, Agenda de mejora y Anexos. Como Ventas
 // Retail, no tiene procesos «to-be» — es el canal que más rápido crece
@@ -1978,6 +1993,7 @@ window.MANUAL_CONTENIDO = {
      ["Odoo (ERP)", "Presupuesto → orden de venta, aprobación comercial, facturación, cobranza", "Toma de pedido, aprobación, cobranza, comisiones"],
      ["Dashboard comercial (externo, alojado fuera de Lark/Odoo)", "Visualización por marca/cliente/país/vendedor/familia de producto con semáforo de cumplimiento, cruzado con la data de cierre diario de Odoo", "Reportería y toma de decisión (8.17)"],
      ["LARK", "Solicitud de devolución comercial con flujo definido; en algunos países también envío de disponibilidad y cobranza", "Devoluciones (8.16), disponibilidad (8.3), cobranza (8.15)"],
+     ["Hub Compras & Ventas (Lark Base)", "En Venezuela: registro por formulario de solicitudes de compra (Backorder, Periódica o Especial, nunca por chat o correo) y seguimiento de contenedores en tránsito por 6 etapas de pipeline, con vistas consolidadas por producto y canal para Compras", "Preventa y demanda no cumplida (8.6)"],
      ["Documento de crédito legal", "Respaldo legal firmado por el cliente nuevo, creado tras un caso de mora, para un eventual impago", "Prospección y apertura de cliente (8.12)"],
      ["Excel de disponibilidad y pedido", "Plantilla semanal enviada al cliente con SKU, imagen, precio, disponibilidad y tránsito; base de la carga masiva a Odoo", "Envío de disponibilidad (8.3), toma del pedido (8.4)"]
     ],
@@ -2014,7 +2030,8 @@ window.MANUAL_CONTENIDO = {
      "Autopista común con excepciones declaradas: un mismo proceso de toma, aprobación y cobranza del pedido para todos los países, con la variación local (moneda, instrumento de pago, gobierno de aprobación) documentada como excepción, no como regla nueva.",
      "El pedido no reserva inventario hasta que se aprueba: la carga masiva a Odoo primero genera un presupuesto sin reserva, y solo la aprobación comercial lo convierte en orden de venta con reserva, para no comprometer inventario que otro cliente necesita.",
      "La demanda no cumplida se documenta, no se descarta: cuando el pedido excede la disponibilidad, el remanente se registra como preventa contra tránsito en vez de perderse, para que Compras vea la brecha real entre lo pedido y lo vendido.",
-     "La comisión se paga sobre lo cobrado, no sobre lo facturado: el filtro de recaudación efectiva es la regla dura del cálculo de comisión en toda la fuerza de venta mayor."
+     "La comisión se paga sobre lo cobrado, no sobre lo facturado: el filtro de recaudación efectiva es la regla dura del cálculo de comisión en toda la fuerza de venta mayor.",
+     "Separación de funciones en el ciclo de venta: el vendedor vende y gestiona su cartera, sin subir a almacén ni entregar pedidos — cada área (Almacén, Tráfico, Facturación, Cuentas por Cobrar) ejecuta su función, liberando entre 30% y 40% del tiempo comercial que antes se perdía en tareas administrativas y logísticas."
     ],
     "politicas": [
      "Aprobación de pedido por margen, allocation y riesgo de crédito: todo pedido pasa por una vista máster en Odoo que cruza margen contra lista aplicable, allocation por SKU y el indicador de riesgo del cliente antes de autorizarlo.",
@@ -2023,7 +2040,7 @@ window.MANUAL_CONTENIDO = {
      "Reserva de inventario para clientes preferentes en campañas de alto volumen: una porción del volumen de una campaña inorgánica se reserva para las cuentas clave antes de abrirla al resto del mercado.",
      "Business case obligatorio para inversión en mobiliario o activación de punto de venta: una solicitud de mueble o material POP requiere respaldo de plan de venta o retorno esperado antes de aprobarse.",
      "Documento de crédito legal para cliente nuevo: todo cliente que se crea en Odoo firma un documento de crédito como respaldo legal ante un eventual impago.",
-     "Doble aprobación en Odoo antes de facturar: trabajar el pedido y facturar son dos aprobaciones separadas, con excepción declarada para pedidos de contado en algunos países."
+     "Doble aprobación en Odoo antes de facturar —autorización para trabajar y autorización para facturar—, con excepción declarada para pedidos de contado en algunos países; el pedido aprobado se clasifica además por urgencia (Urgente 24 h, Regular 48 h o Caso Especial) para ordenar el trabajo de Almacén y Tráfico."
     ],
     "normativo": [
      "Contrato de franquicia Casio con royalty, vigente solo para las franquicias activas — el resto del marco de franquicia varía por país.",
@@ -2042,7 +2059,7 @@ window.MANUAL_CONTENIDO = {
     ],
     "por_formalizar": [
      ["8.2 Segmentación de clientes y gobierno de política comercial", "La segmentación A/B/C/D y las listas de precios existen pero varían de criterio entre países, y la cadena de aprobación de excepciones no siempre está clara.", "Documentar un único criterio de segmentación y una cadena de aprobación de excepciones sin ambigüedad entre roles."],
-     ["8.6 Gestión de preventa contra tránsito y demanda no cumplida", "La preventa contra tránsito ya opera; la trazabilidad de la demanda no cumplida cuando el tránsito no llega —marcada como prioridad número uno por la propia gerencia comercial— todavía no se registra de forma sistemática.", "Implementar el log persistente de demanda no cumplida por SKU/cliente/país como insumo directo a la planificación de compra (proceso 6.1)."],
+     ["8.6 Gestión de preventa contra tránsito y demanda no cumplida", "La trazabilidad de demanda no cumplida —antes una brecha crítica marcada como prioridad número uno— ya se resolvió en Venezuela con el Hub Compras & Ventas en Lark Base (registro de backorder contra el maestro de cliente); falta formalizarla y extenderla al resto de los países.", "Documentar el Hub Compras & Ventas como estándar regional y replicarlo en los países que todavía no lo usan."],
      ["8.7 Gestión de cuentas clave y grandes superficies (KAM)", "El modelo está desarrollado en algunos países (con dashboard de sellout e inventario por cadena) y apenas empieza en otros.", "Llevar a toda la región la práctica ya validada en el país más avanzado."],
      ["8.17 Reportería comercial y toma de decisión basada en data", "El dashboard comercial es una herramienta valiosa pero externa a Lark y Odoo, y su mantenimiento depende de una sola persona.", "Formalizar el mantenimiento del dashboard (documentación del diseño, respaldo) antes de que dependa de una sola persona."]
     ],
@@ -2103,6 +2120,7 @@ window.MANUAL_CONTENIDO = {
      ["Odoo (ERP)", "Pedido, aprobación, facturación, cobranza, comisiones", "8.4 · 8.5 · 8.6 · 8.12 · 8.14 · 8.15", "Coordinador(a) de Sistemas"],
      ["Dashboard comercial (externo)", "Reportería por marca/cliente/país/vendedor", "8.7 · 8.17", "Analista de Sistemas / Datos"],
      ["LARK", "Devoluciones, disponibilidad en algunos países, cobranza", "8.3 · 8.15 · 8.16", "Coordinador(a) de Sistemas"],
+     ["Hub Compras & Ventas (Lark Base)", "Registro de backorder/periódica/especial y seguimiento de contenedores en tránsito (Venezuela)", "8.6", "Gerente Regional Comercial / Retail"],
      ["Documento de crédito legal", "Respaldo legal de cliente nuevo", "8.12", "Legal Corporativo"],
      ["Excel de disponibilidad y pedido", "Plantilla semanal cliente → carga masiva", "8.3 · 8.4", "Sin responsable formal — depende de cada vendedor"]
     ],
@@ -2115,14 +2133,17 @@ window.MANUAL_CONTENIDO = {
     ],
     "docs_lark": [
      ["Flujo de devoluciones comerciales (LARK)", "Regional", "Solicitud → aprobación → recepción en bodega → nota de crédito", "8.16"],
-     ["Tablero de disponibilidad semanal (Panamá)", "Panamá", "Envío de disponibilidad al cliente vía LARK con seguimiento a cobranza", "8.3 · 8.15"]
+     ["Tablero de disponibilidad semanal (Panamá)", "Panamá", "Envío de disponibilidad al cliente vía LARK con seguimiento a cobranza", "8.3 · 8.15"],
+     ["Proceso Ventas al Mayor Rower (jul-2026)", "Venezuela", "Manual operativo certificado del ciclo comercial completo, homologado a Panamá: actores, doble autorización, clasificación de urgencia, Hub Compras & Ventas y canal único de devolución", "8.3 · 8.4 · 8.5 · 8.6 · 8.15 · 8.16"],
+     ["Procesos de Ventas al Mayor (self-report)", "Panamá", "Notas de levantamiento: prospección, política de crédito y cobranza semanal, KPIs de ventas/equipo/financieros", "8.2 · 8.12 · 8.15 · 8.17"]
     ],
     "variaciones_pais": [
      ["Colombia", "Segmentación A/B/C ya implementada, con business case de rentabilidad exigido para mobiliario y dashboard con inventario por cadena.", "Prácticas más maduras que se proponen como estándar regional (ver agenda)."],
      ["Venezuela", "Cobranza multi-instrumento (retenciones, transferencias, pago móvil, efectivo, indexación) y departamento de CxC en construcción.", "Complejidad cambiaria y bancaria propia del país."],
      ["Panamá", "Doble aprobación en Odoo con excepción para pedidos de contado; herramienta LARK para disponibilidad y cobranza.", "Menor complejidad relativa que permite mayor automatización."],
      ["Guatemala", "Operación de tienda vía operador logístico-administrativo tercerizado (fee del 10%), sin entidad local propia.", "Modelo de entrada a un mercado sin oficina propia."],
-     ["Costa Rica", "Operación bajo figura de socio (Importbel, S.A.).", "Relación societaria distinta a la de la operación propia."]
+     ["Costa Rica", "Operación bajo figura de socio (Importbel, S.A.).", "Relación societaria distinta a la de la operación propia."],
+     ["Venezuela", "Canal único de devolución comercial: envío por Zoom a un casillero designado, con el flete asumido por Rower (no por el cliente).", "Estandarización propia del país dentro del modelo certificado de julio de 2026."]
     ]
    }
   },
@@ -2245,7 +2266,7 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "texto": "Cubre el envío periódico a cada cliente recurrente de su lista de disponibilidad —SKU, imagen, precio, inventario disponible y tránsito confirmado— con una columna de orden para que el cliente devuelva su pedido. No incluye la carga del pedido devuelto en Odoo (proceso 8.4), que es el siguiente paso una vez el cliente responde.",
-     "nota_estado": "Este proceso es «to-be»: el envío semanal parametrizado —el deber ser, todos los lunes— ya se automatizó en algunos equipos, pero en otros sigue siendo manual e irregular, con refuerzo informal a los 15 días si el cliente no responde."
+     "nota_estado": "Este proceso es «to-be»: el envío semanal parametrizado —el deber ser, todos los lunes— ya se automatizó en algunos equipos, pero en otros sigue siendo manual e irregular, con refuerzo informal a los 15 días si el cliente no responde. En Venezuela la distribución de listas de precios por WhatsApp ya es práctica consolidada, aunque dirigida a quien las solicita o tiene pedidos pendientes, no necesariamente bajo el calendario semanal fijo descrito como deber ser."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
@@ -2253,7 +2274,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Actualiza la disponibilidad e inventario en tránsito por SKU al inicio de la semana."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Genera la plantilla de disponibilidad de cada cliente de su cartera con SKU, imagen, precio y tránsito."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Genera la plantilla de disponibilidad de cada cliente de su cartera —descargada de Odoo por línea (aproximadamente seis: Casio, Q&Q, Cubitt, teclados, calculadoras y otros) y adaptada quitando columnas innecesarias— con SKU, imagen, precio y tránsito."},
       {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Envía la plantilla al cliente, cada lunes, con la columna de orden para que la devuelva."},
       {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Refuerza el envío a los 15 días si el cliente no ha respondido."},
       {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Aporta piezas de comunicación cuando el envío coincide con una campaña o lanzamiento."}
@@ -2298,41 +2319,42 @@ window.MANUAL_CONTENIDO = {
    "8.4": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la recepción del pedido del cliente —respuesta a la lista de disponibilidad, sugerido del vendedor o pedido levantado en visita—, su montaje en plantilla y la carga masiva a Odoo, que genera primero un presupuesto (sin reserva de inventario) y luego la orden de venta (con reserva). No incluye la venta corporativa (8.9), la inorgánica de alto volumen (8.10) ni la de línea blanca (8.11), que tienen su propio flujo de cotización."
+     "texto": "Cubre la recepción del pedido del cliente —el mismo Excel de la lista de precios con las cantidades completadas, una solicitud por texto, o un pedido levantado en visita—, su carga directa en Odoo (que lo convierte automáticamente en pedido, con verificación de referencias) y la conversión del presupuesto en orden de venta cuando hay inventario disponible. No incluye la venta corporativa (8.9), la inorgánica de alto volumen (8.10) ni la de línea blanca (8.11), que tienen su propio flujo de cotización."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el pedido del cliente en cualquiera de sus formas: respuesta a la lista de disponibilidad, sugerido propio o levantado en visita."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Monta el pedido en la plantilla Excel con SKU, cantidades y precio de la lista aplicable al cliente."},
-      {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Confirma la disponibilidad y el tránsito visible al momento del montaje, para resolver dudas del vendedor."},
-      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Carga masivamente la plantilla a Odoo, generando el pedido en estado presupuesto (sin reserva de inventario)."},
+      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el pedido del cliente: el mismo Excel de la lista de precios con las cantidades completadas, una solicitud por texto, o un pedido levantado en visita."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Carga el archivo directo en Odoo, que lo convierte automáticamente en pedido sin necesidad de cargarlo producto por producto."},
+      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Corrige y recarga si la verificación automática de referencias marca un error: referencia mal escrita, cliente no seleccionado del maestro de Odoo, o formato de celda incompatible."},
+      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Confirma la disponibilidad y el tránsito visible al momento del montaje, para resolver dudas del vendedor."},
       {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Convierte el presupuesto a orden de venta cuando corresponde, reservando el inventario disponible."}
      ],
      "diagrama": {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Coordinador(a) de Logística y Bodega", "Gerente Comercial (País / Canal)"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Recibir el pedido del cliente"},
-       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Montar el pedido en la plantilla Excel"},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Confirmar disponibilidad y tránsito visible"},
-       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cargar masivamente a Odoo (estado presupuesto)", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cargar el archivo en Odoo (conversión automática a pedido)", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿La verificación automática de referencias encuentra error?"},
+       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Corregir y recargar (referencia, cliente o formato)"},
+       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Confirmar disponibilidad y tránsito visible"},
        {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Inventario disponible cubre el pedido?"},
        {"id": "n4alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Derivar el remanente a preventa (proceso 8.6)"},
        {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Convertir a orden de venta (reserva inventario)"},
        {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Orden de venta lista para aprobación (8.5)"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Montaje del pedido depende de la disciplina del vendedor", "Sin el envío de disponibilidad parametrizado (8.3), el montaje del pedido varía en calidad entre vendedores.", "Media", "Medio", "Cerrar primero la brecha de 8.3 para reducir la dependencia de la disciplina individual."],
+      ["Errores recurrentes de carga por referencia o maestro de cliente", "Referencias mal escritas, clientes escritos a mano en vez de seleccionados del maestro, o formatos de celda incompatibles obligan a corregir y recargar el pedido.", "Media", "Bajo", "Reforzar con el equipo comercial el uso correcto del maestro de clientes y del formato de carga, para reducir recargas."],
       ["Alerta de disponibilidad no siempre confiable", "Algunos equipos reportan que la alerta de inventario en la plantilla no refleja la disponibilidad real.", "Media", "Alto", "Validar la fuente de la alerta de disponibilidad contra el inventario real antes de cada ciclo de envío."],
       ["Carga masiva sin control de duplicados", "Un mismo pedido cargado dos veces por error puede generar presupuestos duplicados.", "Baja", "Medio", "Agregar validación de duplicados en la carga masiva a Odoo."],
       ["Pedidos de cadenas con formato propio del cliente", "Las grandes superficies y cadenas pueden enviar su pedido con su propio formato de sellout, distinto a la plantilla estándar.", "Media", "Bajo", "Documentar el formato aceptado por cadena para no perder tiempo normalizándolo cada vez."]
@@ -2342,7 +2364,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Tiempo de montaje y carga del pedido", "Fecha de carga en Odoo − fecha de recepción del pedido", "Por pedido", "Analista/Ejecutivo(a) Comercial", "≤24 horas"],
-      ["Pedidos cargados sin error de carga masiva", "Cargas sin error ÷ total de cargas", "Mensual", "Coordinador(a) de Sistemas", "≥95%"],
+      ["Pedidos cargados sin error de verificación en el primer intento", "Cargas sin error ÷ total de cargas", "Mensual", "Coordinador(a) de Sistemas", "≥95%"],
       ["Presupuestos convertidos a orden de venta", "Convertidos ÷ total de presupuestos generados", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"]
      ]
     }
@@ -2351,34 +2373,37 @@ window.MANUAL_CONTENIDO = {
    "8.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la revisión y autorización del pedido antes de enviarlo a preparación en bodega: margen contra la lista aplicable, allocation por SKU, riesgo de crédito y condición de pago. No incluye el montaje del pedido en sí (proceso 8.4) ni la cobranza posterior a la entrega (proceso 8.15)."
+     "texto": "Cubre la revisión y autorización del pedido en dos niveles —autorización para trabajar (puede prepararse en almacén) y autorización para facturar (puede facturarse y despacharse)— antes de enviarlo a preparación, y la clasificación de prioridad (Urgente 24 h, Regular 48 h o Caso Especial) que ordena el trabajo de Almacén y Tráfico. No incluye el montaje del pedido en sí (proceso 8.4) ni la cobranza posterior a la entrega (proceso 8.15), aunque la cartera vencida del cliente retiene la aprobación hasta regularizarse."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Responde por el estado de deuda del cliente cuando la vista máster lo señala como riesgo."},
-      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa la vista máster del pedido: margen, allocation por SKU y riesgo de crédito."},
-      {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba el pedido local dentro de su criterio y monto, o lo escala si excede el umbral."},
-      {"id": "a4", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba los pedidos internacionales de Casio o de cuentas top regionales de Cubitt."},
-      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Marca el pedido aprobado con el flag que dispara la preparación en bodega."}
+      {"id": "a1", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa margen, segmento de precio, condición crediticia y estado de cartera del cliente sobre el pedido cargado en Odoo."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Gestiona la cobranza pendiente cuando la cartera del cliente no está al día, antes de que el pedido pueda continuar."},
+      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba los pedidos internacionales de Casio o de cuentas top regionales de Cubitt que excedan el umbral local."},
+      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga la autorización para trabajar, habilitando la preparación en almacén."},
+      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga la autorización para facturar, habilitando la facturación y el despacho."},
+      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Clasifica el pedido por urgencia —Urgente 24 h, Regular 48 h o Caso Especial— para ordenar el trabajo de Almacén y Tráfico."}
      ],
      "diagrama": {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial / Retail"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Comercial (País / Canal)", "tipo": "inicio", "n": "Orden de venta creada en Odoo (output de 8.4)"},
-       {"id": "n1", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar vista máster: margen, allocation, riesgo de crédito", "sistemas": ["Odoo (ERP)"]},
-       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Responder por el estado de deuda del cliente si se señala riesgo"},
+       {"id": "n1", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar margen, segmento de precio, crédito y cartera", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Cartera del cliente al día?"},
+       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Gestionar la cobranza pendiente antes de continuar"},
        {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿El pedido excede el umbral local?"},
        {"id": "n3alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Aprobar el pedido internacional o de cuenta top regional"},
-       {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Aprobar el pedido local"},
-       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Marcar el flag que dispara preparación en bodega"},
-       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Pedido aprobado, listo para Logística"}
+       {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Otorgar autorización para trabajar (preparación en almacén)"},
+       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Otorgar autorización para facturar (facturación y despacho)"},
+       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Clasificar por urgencia: Urgente 24h, Regular 48h o Caso Especial"},
+       {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Pedido aprobado y clasificado, listo para Logística"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"},
-       {"de": "n3alt", "a": "n5"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
     },
@@ -2388,7 +2413,8 @@ window.MANUAL_CONTENIDO = {
       ["Gobierno de la aprobación ambiguo en algunos países", "Un aprobador local en la práctica transmite la decisión de otra persona, sin asumirla como propia.", "Alta", "Alto", "Aclarar quién aprueba realmente cada tipo de pedido y eliminar los pasos que no son una aprobación real."],
       ["Aprobación concentrada en muy pocas personas a nivel regional", "Los pedidos internacionales pasan por una o dos personas, sin backup documentado.", "Alta", "Alto", "Formar y documentar un respaldo para la aprobación de pedidos internacionales."],
       ["Excepción de \"salta aprobación\" sin criterio escrito", "Algunos pedidos de contado se saltan la aprobación en ciertos países, sin un criterio uniforme de cuándo aplica.", "Media", "Medio", "Documentar el criterio de excepción de aprobación para pedidos de contado."],
-      ["Indicador de riesgo de crédito no homogéneo entre países", "El cálculo del indicador de riesgo de cliente puede variar en la práctica de un país a otro.", "Baja", "Medio", "Homologar la fórmula del indicador de riesgo de crédito entre países."]
+      ["Indicador de riesgo de crédito no homogéneo entre países", "El cálculo del indicador de riesgo de cliente puede variar en la práctica de un país a otro.", "Baja", "Medio", "Homologar la fórmula del indicador de riesgo de crédito entre países."],
+      ["Modelo de doble autorización todavía en certificación", "El modelo de autorización para trabajar/autorización para facturar, homologado a Panamá, sigue en proceso de certificación; queda pendiente consolidar la recepción de efectivo.", "Media", "Medio", "Cerrar el punto pendiente de recepción de efectivo para completar la certificación del modelo."]
      ]
     },
     "indicadores": {
@@ -2396,7 +2422,8 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Tiempo de aprobación del pedido", "Fecha de aprobación − fecha de creación de la orden de venta", "Por pedido", "Gerente Comercial (País / Canal)", "Referencia: minutos, no días"],
       ["Pedidos aprobados sin excepción de riesgo de crédito", "Aprobados sin excepción ÷ total aprobados", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"],
-      ["Pedidos escalados a la gerencia regional", "Pedidos escalados ÷ total de pedidos aprobados", "Mensual", "Gerente Regional Comercial / Retail", "Referencia de seguimiento"]
+      ["Pedidos escalados a la gerencia regional", "Pedidos escalados ÷ total de pedidos aprobados", "Mensual", "Gerente Regional Comercial / Retail", "Referencia de seguimiento"],
+      ["Pedidos retenidos por cartera vencida", "Pedidos retenidos ÷ total de pedidos presentados a aprobación", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"]
      ]
     }
    },
@@ -2405,7 +2432,7 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "texto": "Cubre la reserva de mercancía en tránsito para cubrir el remanente de un pedido que excede la disponibilidad (preventa), y la captura de la demanda no cumplida cuando el tránsito no llega o llega parcial, para retroalimentar a la planificación de compra. No incluye la ejecución de la compra internacional en sí (procesos 6.3 y 6.4 de Compras y Abastecimiento), que decide cuánto y cuándo comprar con este dato como insumo.",
-     "nota_estado": "Este proceso es híbrido: la preventa contra tránsito confirmado ya opera y está bien entendida por el equipo comercial; la segunda pata —la trazabilidad de la demanda no cumplida cuando el tránsito no llega— es hoy una brecha crítica que la propia gerencia comercial señala como prioridad número uno, porque sin ella Compras no sabe cuánto dejó de vender realmente el mayor."
+     "nota_estado": "Este proceso es híbrido: la preventa contra tránsito confirmado ya opera y está bien entendida por el equipo comercial. La segunda pata —la trazabilidad de la demanda no cumplida— era hasta hace poco una brecha crítica marcada como prioridad número uno; en Venezuela ya se resolvió con una herramienta concreta, el Hub Compras & Ventas en Lark Base, donde toda solicitud de backorder se registra contra el maestro de cliente para trazabilidad y para evitar duplicados. Falta extender y formalizar esa práctica al resto de los países."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
@@ -2413,43 +2440,44 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Detecta que el remanente de un pedido no puede cubrirse con el inventario disponible al momento del montaje."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Confirma si hay un tránsito conocido que pueda cubrir el remanente y en qué fecha."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consulta el pipeline de 6 etapas del contenedor (solicitado, embarcado, en camino, en nacionalización, en espera de recepción, finalizado) para confirmar si hay tránsito que cubra el remanente y su fecha estimada."},
       {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Marca el remanente como preventa contra ese tránsito y comunica la fecha comprometida al cliente."},
-      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Confirma la llegada real del tránsito y su cobertura efectiva de la preventa."},
-      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Registra en el log de demanda no cumplida el remanente que el tránsito no llegó a cubrir, por SKU/cliente/país."}
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cuando no hay tránsito que cubra el remanente, registra una solicitud de tipo Backorder en el Hub Compras & Ventas —por formulario, nunca por chat o correo— contra el maestro de cliente de Odoo."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Trabaja, del lado de Compras, sobre las vistas consolidadas del Hub por producto y canal para planificar el reabastecimiento."}
      ],
      "diagrama": {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Coordinador(a) de Logística y Bodega"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Pedido con remanente no cubierto por inventario disponible"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Hay tránsito confirmado que cubra el remanente?"},
-       {"id": "n1alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Comunicar al cliente que no hay cobertura visible"},
-       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Marcar preventa contra el tránsito y comprometer fecha", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Hay tránsito en el pipeline que cubra el remanente?", "sistemas": ["Hub Compras & Ventas (Lark Base)"]},
+       {"id": "n1alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar solicitud de Backorder en el Hub, contra el maestro de cliente"},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Marcar preventa contra el tránsito y comprometer fecha"},
        {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿El tránsito llegó y cubrió la preventa?"},
-       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar en el log la demanda no cumplida por SKU/cliente/país"},
-       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Preventa cerrada y brecha de demanda documentada"}
+       {"id": "n3alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar el remanente no cubierto como Backorder en el Hub"},
+       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Preventa cerrada o demanda no cumplida trazada en el Hub"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n4"},
-       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n5", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n4", "a": "n5"}
+       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n4"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Demanda no cumplida sin log persistente", "Cuando el tránsito no cubre la preventa, la brecha se pierde en vez de registrarse — la propia gerencia comercial la señala como prioridad número uno.", "Alta", "Alto", "Implementar el log persistente de demanda no cumplida por SKU/cliente/país como insumo a la planificación de compra."],
-      ["Visibilidad de tránsito limitada a un mes para Casio", "La visibilidad de tránsito de la marca representada alcanza solo el próximo despacho mensual.", "Media", "Medio", "Evaluar si es posible extender la visibilidad de tránsito más allá del próximo mes para mejorar la preventa."],
+      ["Herramienta de backorder sin extender a todos los países", "El registro sistemático de demanda no cumplida ya se resolvió en Venezuela con el Hub Compras & Ventas, pero no está formalizado ni replicado en el resto de los países.", "Alta", "Alto", "Extender el Hub Compras & Ventas (o un mecanismo equivalente) a todos los países, documentando el proceso como estándar regional."],
+      ["Visibilidad de tránsito de Casio históricamente limitada a un mes", "La visibilidad de tránsito de la marca representada alcanzaba solo el próximo despacho mensual; el pipeline de 6 etapas del Hub, con fecha estimada por contenedor, ya amplía esa ventana en Venezuela.", "Baja", "Medio", "Confirmar que el pipeline del Hub cubra también los contenedores de Cubitt y se extienda a los demás países."],
       ["Preventa sin fecha comprometida documentada de forma uniforme", "La comunicación de la fecha al cliente depende del vendedor, sin plantilla o registro estándar.", "Baja", "Medio", "Estandarizar el mensaje y el registro de la fecha comprometida al cliente."],
-      ["Pérdida de venta al cliente que acude a otro proveedor", "Mientras la brecha no se resuelve, el cliente puede cubrir su necesidad con otro proveedor de la misma marca en la región.", "Media", "Alto", "Priorizar el cierre de la brecha de trazabilidad para poder dimensionar el impacto real en venta perdida."]
+      ["Pérdida de venta al cliente que acude a otro proveedor", "Mientras la brecha no se resuelve, el cliente puede cubrir su necesidad con otro proveedor de la misma marca en la región.", "Media", "Alto", "Priorizar la extensión del Hub a los demás países para dimensionar el impacto real en venta perdida en toda la región."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
       ["Preventas cubiertas por el tránsito comprometido", "Preventas cubiertas ÷ total de preventas registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "≥85%"],
-      ["Demanda no cumplida registrada en el log", "Casos registrados ÷ casos identificados de demanda no cubierta", "Mensual", "Analista/Ejecutivo(a) Comercial", "100% una vez implementado el log"],
-      ["Valor de la demanda no cumplida por período", "Suma del remanente no cubierto, por SKU/cliente/país", "Mensual", "Gerente Regional Comercial / Retail", "Insumo directo a 6.1 S&OP"]
+      ["Solicitudes de backorder registradas en el Hub", "Casos con backorder registrado ÷ casos identificados de demanda no cubierta", "Mensual", "Analista/Ejecutivo(a) Comercial", "100% en Venezuela; en extensión al resto de países"],
+      ["Valor de la demanda no cumplida por período", "Suma del remanente no cubierto, por SKU/cliente/país", "Mensual", "Gerente Regional Comercial / Retail", "Insumo directo a 6.1 S&OP"],
+      ["Países con el Hub Compras & Ventas (o equivalente) implementado", "Países con backorder sistemático ÷ total de países", "Anual", "Gerente Regional Comercial / Retail", "Meta de avance progresivo"]
      ]
     }
    },
@@ -2737,7 +2765,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Identifica el lead (referido, prospección de calle, redes) o el cliente dormido a reactivar."},
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Califica al prospecto: visita al punto de venta, número de tiendas, categorización inicial."},
       {"id": "a3", "rol": "Legal Corporativo", "texto": "Evalúa el riesgo y hace firmar el documento de crédito legal al cliente nuevo."},
-      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Crea el código de cliente en Odoo con la lista de precios y condición de crédito asignada."},
+      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Crea el código de cliente en Odoo con la lista de precios y condición de crédito asignada, arrancando siempre con el descuento más bajo del rango vigente y ajustándolo después según el volumen real de compra."},
       {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cierra el primer pedido en los puntos top del cliente, con capacitación, incentivos y exhibición inicial."},
       {"id": "a6", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Define el plan de expansión hacia el resto de las tiendas del cliente."}
      ],
@@ -2898,7 +2926,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Carga el soporte de pago en Odoo, informando a Contabilidad los datos necesarios para descargar la factura."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Concilia formalmente la factura contra el pago recibido y aplica la indexación cuando corresponde."},
       {"id": "a5", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Confirma el ingreso del pago en tesorería."},
-      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa semanalmente uno a uno con cada vendedor el estado de la deuda vigente."}
+      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa la cobranza todos los lunes, uno a uno con cada vendedor, y puede suspender el crédito de un cliente por mal comportamiento de pago."}
      ],
      "diagrama": {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería y Cobranzas", "Gerente Comercial (País / Canal)"],
@@ -2947,7 +2975,7 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Monta la solicitud de devolución en LARK: cliente, factura, SKU, motivo y cantidad."},
       {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba la solicitud verificando motivo, condiciones e impacto."},
-      {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Recibe físicamente el producto y confirma en el sistema con observaciones."},
+      {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Recibe físicamente el producto y confirma en el sistema con observaciones — en Venezuela, siempre por un canal único (envío por Zoom a un casillero designado, con el flete asumido por Rower)."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Genera la nota de crédito, la aplica al cliente y devuelve el dinero si corresponde."}
      ],
      "diagrama": {
@@ -2957,7 +2985,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Montar solicitud de devolución en LARK", "sistemas": ["LARK"]},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Devolución aprobada?"},
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Comunicar al cliente que la devolución no procede"},
-       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Recibir físicamente el producto y confirmar con observaciones"},
+       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Recibir el producto (canal único por país, p. ej. Zoom en Venezuela) y confirmar con observaciones"},
        {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Generar y aplicar la nota de crédito"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Devolución cerrada con nota de crédito aplicada"}
       ],
