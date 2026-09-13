@@ -91,10 +91,28 @@
 // 10.14 (devoluciones) cruza con el macroproceso de Servicio Técnico cuando
 // el motivo es garantía — se deriva, no se duplica.
 //
+// 2026-09 — Revisado también con tres docs de Lark de Ventas Web no
+// consultados en la primera pasada: «Procesos Activos» (VE, guía breve con
+// enlaces a bases Lark de cierre de caja, casilleros de courier y colas de
+// pedidos Cachea) y, de Panamá, «Manual de Procedimientos: Ventas a
+// Minoristas» (canal de reventa por WhatsApp/email, con Sistema NAF propio
+// distinto de Odoo) y «Manual de Procesos: Pedidos E-Commerce Bodega
+// Obarrio» (el más detallado de los tres) — Insumos/Documentación/
+// {Venezuela,Panama}/e-commerce/. Tocó 10.4 (las colas de Lark detrás del
+// cruce manual de Cachea), 10.6 (el canal de reventa/minorista de Panamá,
+// con pedido mínimo de USD 500 y perfil de interesado, sin equivalente
+// documentado en otros países), 10.9 (el formulario de control con
+// trazabilidad de almacenista/vendedor y la notificación automática por
+// correo al cerrar el empaque, ambas prácticas de Panamá) y 10.11 (la flota
+// de terceros Yummy Rides como respaldo del delivery propio en Venezuela,
+// además de la flota interna). A diferencia de macro 8, aquí no hubo ninguna
+// corrección de fondo — todo fue enriquecimiento de detalle ya alineado con
+// el contenido existente.
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
-// scripts/prompt-manual-fase2.md §10 antes de dar por cerrada una revisión.
+// scripts/prompt-manual-fase2.md §9 antes de dar por cerrada una revisión.
 
 window.MANUAL_CONTENIDO = {
  "9": {
@@ -3101,7 +3119,8 @@ window.MANUAL_CONTENIDO = {
      ["Deltadir", "Colombia", "Operación propia", "Crecimiento mensual reportado de 80% en la web propia; sin marketplace tipo Cachea, todo por sitio propio y WhatsApp."],
      ["Kenex USA / TEC 770", "Estados Unidos", "Operación propia — dos compañías hermanas", "Kenex USA vende en 15 marketplaces con Cubitt como única marca (Casio no se vende en EE. UU.); TEC 770 es la compañía dedicada exclusivamente a la operación en Amazon."],
      ["Cachea", "Venezuela", "Marketplace / agregador de pagos", "Concentra alrededor de 80% de la venta digital en Venezuela; exige escaneo de cada caja desde 2026 y ofrece la modalidad Cachea Link para venta por WhatsApp."],
-     ["Amazon y otros 14 marketplaces de EE. UU. (Walmart, Target, Macy's, TikTok Shop, entre otros)", "Estados Unidos", "Marketplaces externos", "Cada uno con requisitos de listing distintos; Amazon con más de 7 años de operación y una reactivación de cuenta reciente con apoyo de agencia especializada."]
+     ["Amazon y otros 14 marketplaces de EE. UU. (Walmart, Target, Macy's, TikTok Shop, entre otros)", "Estados Unidos", "Marketplaces externos", "Cada uno con requisitos de listing distintos; Amazon con más de 7 años de operación y una reactivación de cuenta reciente con apoyo de agencia especializada."],
+     ["Cubitt Panamá / Casio Panamá", "Panamá", "Operación propia", "Web propia poco relevante, pero opera un canal documentado de reventa/minorista por WhatsApp y email, con Sistema NAF propio y pedido mínimo de USD 500."]
     ],
     "sistemas": [
      ["Odoo / WMS", "Montaje del pedido, comando de preparación en tablet, facturación", "Toma y montaje del pedido, preparación, facturación"],
@@ -3109,7 +3128,8 @@ window.MANUAL_CONTENIDO = {
      ["Mercateli (CRM de chats)", "Recepción y distribución de chats de WhatsApp/redes sociales por asesor", "Venta asistida por chat, servicio al cliente digital"],
      ["Sellerboard", "Analítica de ventas e inventario por marketplace en EE. UU.", "Gestión de marketplaces USA, reposición"],
      ["LARK (grupo \"Confirmaciones\")", "Notificación y validación manual de pagos recibidos", "Validación de pagos"],
-     ["QuickBooks", "Contabilidad de Kenex USA, en camino a migrar a Odoo", "Reportería y conciliación en EE. UU."]
+     ["QuickBooks", "Contabilidad de Kenex USA, en camino a migrar a Odoo", "Reportería y conciliación en EE. UU."],
+     ["Sistema NAF (Panamá)", "Registro y facturación del pedido en el canal de reventa/minorista por WhatsApp y email", "Toma del pedido, facturación"]
     ],
     "interfaces": [
      ["Compras y Abastecimiento", "Entrada", "Reposición del almacén web desde el almacén principal, o directo de fábrica (China) para Estados Unidos."],
@@ -3242,13 +3262,16 @@ window.MANUAL_CONTENIDO = {
     ],
     "docs_lark": [
      ["Grupo \"Confirmaciones\" (validación de pagos)", "Venezuela", "Registro de pago validado por pedido", "10.8"],
-     ["Descripciones de cargo del equipo de e-commerce", "Venezuela / regional", "Único documento formal existente; no hay manuales ni flujogramas de proceso", "Todos"]
+     ["Descripciones de cargo del equipo de e-commerce", "Venezuela / regional", "Único documento formal existente; no hay manuales ni flujogramas de proceso", "Todos"],
+     ["Procesos Activos", "Venezuela", "Guía breve con enlaces a bases Lark: cierre de caja, casilleros corporativos MRW/ZOOM y colas de pedidos por procesar de Cachea Cubitt/Casio", "10.4 · 10.10 · 10.11"],
+     ["Manual de Procedimientos: Ventas a Minoristas", "Panamá", "Proceso completo del canal de reventa/minorista por WhatsApp y email, sobre Sistema NAF", "10.6 · 10.7 · 10.9 · 10.10 · 10.11"],
+     ["Manual de Procesos: Pedidos E-Commerce Bodega Obarrio", "Panamá", "Flujo detallado de preparación y empaque en bodega, con formulario de control de responsables y métodos de empaque por courier", "10.7 · 10.9"]
     ],
     "variaciones_pais": [
      ["Venezuela", "El marketplace Cachea concentra alrededor de 80% de la venta digital; volumen de miles de órdenes mensuales en temporada alta.", "Penetración de Cachea muy superior a la de otros países."],
      ["Colombia", "Sin marketplace tipo Cachea; toda la venta digital es sitio propio y WhatsApp, con crecimiento mensual reportado de 80%.", "Estructura de mercado digital distinta — el país más grande geográficamente entre los tres principales."],
      ["Estados Unidos", "Cubitt como única marca (Casio no se vende); operación en 15 marketplaces con compañía hermana dedicada a Amazon.", "Mercado maduro de marketplaces, con reglas y competencia propias de EE. UU."],
-     ["Panamá", "Web propia poco relevante frente a la venta en tienda física; el país es geográficamente compacto.", "Menor necesidad relativa de canal digital dada la cercanía física a los puntos de venta."]
+     ["Panamá", "Web propia poco relevante frente a la venta en tienda física, pero con un canal de reventa/minorista por WhatsApp y email más formalizado que en otros países: perfil de interesado, pedido mínimo de USD 500, verificación fotográfica del código de producto antes del pago, y mantenimiento mensual de la relación con el cliente. Corre sobre un Sistema NAF propio, distinto de Odoo, y su bodega (Obarrio) documenta un formulario de control de responsables y métodos de empaque por courier (ASAP, UnoExpress, recogida en oficina) que no tienen equivalente documentado en otros países.", "Menor volumen de e-commerce propiamente digital, pero el proceso mejor documentado de los tres países revisados con Lark en esta ronda."]
     ]
    }
   },
@@ -3430,7 +3453,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Monitorea los pedidos entrantes del marketplace durante el horario operativo."},
-      {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Extrae la data de pedidos del marketplace y la cruza manualmente contra Odoo para descartar los cancelados."},
+      {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Registra el pedido a procesar en la base de Lark del marketplace (en Venezuela, «Cachea Cubitt» o «Cachea Casio», según marca) y lo cruza manualmente contra Odoo para descartar los cancelados."},
       {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Evalúa la participación en una promoción estructural anunciada por el marketplace."},
       {"id": "a4", "rol": "Gestión de Mercadeo y Comunicaciones", "texto": "Coordina la comunicación asociada a la promoción del marketplace."},
       {"id": "a5", "rol": "Supervisor(a) de Operaciones E-commerce", "texto": "Da seguimiento al KPI de tiempo de respuesta exigido por el marketplace."}
@@ -3441,7 +3464,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pedido entrante en el marketplace o anuncio de promoción estructural"},
        {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Es un pedido individual o una promoción estructural?"},
        {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Evaluar participación en la promoción estructural"},
-       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Extraer data del marketplace y cruzar contra Odoo"},
+       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Registrar en la base de Lark del marketplace y cruzar contra Odoo", "sistemas": ["Lark (Cachea Cubitt / Cachea Casio)"]},
        {"id": "n3", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Coordinar comunicación de la promoción cuando aplica"},
        {"id": "n4", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "tarea", "n": "Dar seguimiento al KPI de tiempo de respuesta"},
        {"id": "n5", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "fin", "n": "Pedido cruzado o promoción ejecutada"}
@@ -3531,14 +3554,14 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "texto": "Cubre la recepción del cliente por WhatsApp Business o redes sociales, la atención por un asesor usando el CRM de chats, la cotización, el montaje directo en Odoo y el cierre de la venta con validación de pago. No incluye el montaje técnico en Odoo en sí una vez decidido (proceso 10.7), que documenta el paso siguiente del pedido ya cerrado.",
-     "nota_estado": "Este proceso es híbrido: la venta por WhatsApp ya es un canal de peso —en un mes llegó a superar a la venta de la web propia en Venezuela—, pero no tiene una meta individual por asesor, solo una meta grupal del departamento que ya fue superada sin ajustarse."
+     "nota_estado": "Este proceso es híbrido: la venta por WhatsApp ya es un canal de peso —en un mes llegó a superar a la venta de la web propia en Venezuela—, pero no tiene una meta individual por asesor, solo una meta grupal del departamento que ya fue superada sin ajustarse. Panamá documenta además una variante de reventa/minorista por WhatsApp y email, con perfil de interesado y pedido mínimo de USD 500, sin equivalente documentado en otros países."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Recibe al cliente por WhatsApp Business o por DM de red social redirigido."},
+      {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Recibe al cliente por WhatsApp Business o por DM de red social redirigido; si es un revendedor/minorista (canal documentado en Panamá), registra primero su perfil como interesado."},
       {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Cotiza con la lista de precios vigente usando el CRM de chats."},
       {"id": "a3", "rol": "Asesor(a) de Ventas Web", "texto": "Monta el pedido directamente en Odoo, sin redirigir al cliente a la web, para no perder la venta."},
       {"id": "a4", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Valida el pago móvil o la transferencia informada por el cliente."},
@@ -3568,7 +3591,8 @@ window.MANUAL_CONTENIDO = {
       ["Meta grupal, no individual, ya superada sin ajustar", "El equipo de chat opera con una sola meta departamental que ya fue rebasada sin actualizarse.", "Media", "Medio", "Definir metas diferenciadas por perfil (soporte vs. venta) dentro del equipo."],
       ["Redirección accidental a la web pierde la venta por WhatsApp", "Si el asesor manda al cliente a la web en vez de montar directo, se puede perder la venta en el camino.", "Baja", "Medio", "Reforzar con el equipo la regla de montar directo en Odoo sin redirigir."],
       ["Validación de pago depende de un canal externo a Odoo (LARK)", "El cierre de la venta espera confirmación fuera del sistema transaccional.", "Alta", "Medio", "Ver proceso 10.8 (validación de pagos), que documenta esta brecha en detalle."],
-      ["Picos de chats en campaña sin dotación ajustada a tiempo", "Un aumento repentino de chats por campaña puede superar la capacidad del equipo.", "Media", "Alto", "Vincular la planificación de temporada alta (proceso 10.15) con el volumen esperado de chats."]
+      ["Picos de chats en campaña sin dotación ajustada a tiempo", "Un aumento repentino de chats por campaña puede superar la capacidad del equipo.", "Media", "Alto", "Vincular la planificación de temporada alta (proceso 10.15) con el volumen esperado de chats."],
+      ["Criterios de entrada al canal de reventa/minorista sin estandarizar entre países", "Panamá documenta un perfil de interesado y un pedido mínimo de USD 500 para vender por WhatsApp a revendedores; no hay evidencia de un criterio equivalente en los demás países.", "Baja", "Medio", "Evaluar si conviene documentar y homologar un criterio mínimo de entrada al canal de reventa/minorista."]
      ]
     },
     "indicadores": {
@@ -3692,7 +3716,7 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "texto": "Cubre la ejecución física de la preparación del pedido en el almacén web: búsqueda del producto, armado del paquete, impresión y pegado de la guía según el canal, escaneo de la caja cuando el marketplace lo exige, y el envío de la evidencia para que Facturación libere la factura. No incluye el despacho en sí hacia el cliente o el courier (proceso 10.11).",
-     "nota_estado": "Este proceso es híbrido: el WMS con tablet ya reemplazó el proceso manual con hojas impresas, pero el espacio físico del almacén web se quedó pequeño para el volumen actual, obligando a embalar fuera del almacén en varios países."
+     "nota_estado": "Este proceso es híbrido: el WMS con tablet ya reemplazó el proceso manual con hojas impresas, pero el espacio físico del almacén web se quedó pequeño para el volumen actual, obligando a embalar fuera del almacén en varios países. El doc de Lark de la bodega de Obarrio (Panamá) documenta además dos prácticas sin evidencia de estar generalizadas al resto de países: un formulario de control con trazabilidad de almacenista y vendedor por pedido, y una notificación automática por correo al cerrar el empaque."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
@@ -3700,27 +3724,31 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe el pedido en la tablet WMS y lo asigna a un preparador."},
-      {"id": "a2", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Busca el producto físicamente y arma el paquete."},
-      {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Imprime o genera la guía según el canal (automática por integración, o manual para venta por WhatsApp)."},
-      {"id": "a4", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Escanea la caja con pistola cuando el marketplace lo exige."},
-      {"id": "a5", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Envía la foto de la etiqueta al grupo de facturación para liberar la factura."}
+      {"id": "a2", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Registra en el formulario de control el almacenista y el vendedor responsable del pedido, antes de iniciar el empaque (práctica documentada en Panamá)."},
+      {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Busca el producto físicamente y arma el paquete, adaptando el empaque al método de entrega (ej. nota y aseguramiento especial para pedidos prioritarios, bolsa abierta para retiro en oficina)."},
+      {"id": "a4", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Escanea cada producto empacado y verifica cantidad contra la lista de empaque."},
+      {"id": "a5", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Imprime o genera la guía según el canal (automática por integración, o manual para venta por WhatsApp)."},
+      {"id": "a6", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Escanea la caja con pistola cuando el marketplace lo exige, y envía la evidencia (foto de la etiqueta o notificación automática, según el país) al grupo de facturación."}
      ],
      "diagrama": {
       "carriles": ["Supervisor(a) de Bodega / Despacho", "Auxiliar / Ayudante de Bodega y Tráfico", "Asistente de E-commerce / Almacén Web"],
       "nodos": [
        {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido en la tablet WMS listo para preparar"},
        {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Asignar el pedido a un preparador"},
-       {"id": "n2", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Buscar el producto y armar el paquete"},
+       {"id": "n1b", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Registrar almacenista y vendedor responsable en el formulario de control (Panamá)"},
+       {"id": "n2", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Buscar el producto y armar el paquete según el método de entrega"},
+       {"id": "n2b", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Escanear cada producto y verificar contra la lista de empaque"},
        {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "decision", "n": "¿Guía automática por integración?"},
        {"id": "n3alt", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Generar guía manual con datos del cliente"},
        {"id": "n4", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Pegar la guía a la caja"},
        {"id": "n5", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "decision", "n": "¿Marketplace exige escaneo de caja?"},
        {"id": "n5alt", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Escanear la caja con pistola"},
-       {"id": "n6", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Enviar foto de la etiqueta al grupo de facturación"},
+       {"id": "n6", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Enviar evidencia (foto o notificación automática) al grupo de facturación"},
        {"id": "n7", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "fin", "n": "Pedido empacado y listo para facturación"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1b"}, {"de": "n1b", "a": "n2"}, {"de": "n2", "a": "n2b"}, {"de": "n2b", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
        {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
@@ -3731,7 +3759,8 @@ window.MANUAL_CONTENIDO = {
       ["Espacio físico del almacén insuficiente para el volumen actual", "El almacén web no crece al ritmo del volumen de pedidos.", "Alta", "Alto", "Priorizar la ampliación o remodelación del almacén web antes de la próxima temporada alta."],
       ["Embalaje fuera del almacén por falta de espacio", "El armado del paquete se hace en mesas fuera del almacén cuando este se queda corto.", "Media", "Medio", "Evaluar una solución temporal de espacio mientras se ejecuta la ampliación."],
       ["Guía manual expuesta a error humano (nombre, cédula, dirección)", "El dato del cliente para la guía manual depende de que el vendedor lo anote bien en un archivo compartido.", "Media", "Medio", "Reforzar la regla de datos mínimos con una plantilla validada."],
-      ["Escaneo de caja añade tiempo sin herramienta suficiente", "Una sola pistola de escaneo por turno puede no bastar en picos de volumen.", "Baja", "Bajo", "Evaluar la dotación de pistolas de escaneo según el volumen del país."]
+      ["Escaneo de caja añade tiempo sin herramienta suficiente", "Una sola pistola de escaneo por turno puede no bastar en picos de volumen.", "Baja", "Bajo", "Evaluar la dotación de pistolas de escaneo según el volumen del país."],
+      ["Trazabilidad de responsables por pedido documentada solo en una bodega", "El formulario de control de almacenista y vendedor solo tiene evidencia en Panamá; no hay registro equivalente en el resto de las bodegas web.", "Baja", "Bajo", "Evaluar si conviene homologar el formulario de control en las demás bodegas."]
      ]
     },
     "indicadores": {
@@ -3739,7 +3768,8 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Pedidos preparados dentro del SLA", "Pedidos preparados a tiempo ÷ total de pedidos del día", "Diaria", "Supervisor(a) de Bodega / Despacho", "≥90%"],
       ["Cajas escaneadas correctamente cuando el marketplace lo exige", "Cajas escaneadas ÷ cajas que lo requieren", "Diaria", "Asistente de E-commerce / Almacén Web", "100%"],
-      ["Tiempo entre preparación y envío de foto a facturación", "Fecha de envío de foto − fecha de fin de preparación", "Por pedido", "Asistente de E-commerce / Almacén Web", "≤15 minutos"]
+      ["Tiempo entre preparación y envío de foto a facturación", "Fecha de envío de foto − fecha de fin de preparación", "Por pedido", "Asistente de E-commerce / Almacén Web", "≤15 minutos"],
+      ["Pedidos con formulario de control completo (almacenista y vendedor registrados)", "Pedidos con formulario completo ÷ total de pedidos empacados", "Diaria", "Supervisor(a) de Bodega / Despacho", "100% donde aplica (Panamá); referencia para evaluar en el resto"]
      ]
     }
    },
@@ -3808,7 +3838,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Decide la modalidad de salida del pedido según el método asignado: delivery propio, retiro o courier."},
-      {"id": "a2", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Entrega el pedido al motorizado propio o prepara la colecta del courier."},
+      {"id": "a2", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Entrega el pedido al motorizado propio o a la flota de terceros de respaldo (Yummy Rides en Venezuela), o prepara la colecta del courier nacional (MRW, Zoom — vía casillero corporativo en Venezuela)."},
       {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Coordina la entrega al cliente en el punto de operación cuando la modalidad es retiro."},
       {"id": "a4", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Contabiliza el envío por agencia y confirma la firma de recepción."},
       {"id": "a5", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Gestiona el reclamo con el courier cuando hay pérdida o daño en tránsito."}
@@ -3818,9 +3848,9 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido facturado y físicamente listo"},
        {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Modalidad de salida asignada?"},
-       {"id": "n1a", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Entregar al motorizado propio (delivery)"},
+       {"id": "n1a", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Entregar a la flota interna o a la flota de terceros de respaldo (Yummy Rides en Venezuela)"},
        {"id": "n1b", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Coordinar entrega en el punto de operación (retiro)"},
-       {"id": "n1c", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Preparar la colecta para el courier nacional"},
+       {"id": "n1c", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Preparar la colecta para el courier nacional (MRW, Zoom — casillero corporativo en Venezuela)"},
        {"id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Contabilizar el envío y confirmar firma de recepción"},
        {"id": "n3", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Hubo pérdida o daño en tránsito?"},
        {"id": "n3alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Gestionar el reclamo con el courier"},
@@ -3839,7 +3869,8 @@ window.MANUAL_CONTENIDO = {
       ["Pérdidas y daños en tránsito se asumen como pérdida sin protocolo sistemático de reclamo", "Cuando el courier extravía o daña un pedido, hoy se asume el costo sin un procedimiento formal de reclamo.", "Alta", "Alto", "Documentar el protocolo de reclamo ante el courier y su plazo de respuesta."],
       ["Delivery propio desactivado por falta de espacio en algunos países", "La modalidad de entrega directa está apagada por la limitación física del almacén.", "Media", "Medio", "Retomar el delivery propio una vez resuelto el espacio del almacén (proceso 10.9)."],
       ["Colecta del courier en días fijos puede represar pedidos urgentes", "Un pedido que se pierde el día de colecta espera hasta la próxima fecha programada.", "Baja", "Medio", "Evaluar un día adicional de colecta en temporada alta."],
-      ["Capacidad del vehículo del courier menor a la necesaria en picos de volumen", "El transporte asignado por el courier puede ser insuficiente para el volumen real del día.", "Media", "Medio", "Coordinar con el courier el tamaño de vehículo según la proyección de volumen (proceso 10.15)."]
+      ["Capacidad del vehículo del courier menor a la necesaria en picos de volumen", "El transporte asignado por el courier puede ser insuficiente para el volumen real del día.", "Media", "Medio", "Coordinar con el courier el tamaño de vehículo según la proyección de volumen (proceso 10.15)."],
+      ["Dependencia de una flota de terceros sin acuerdo documentado (Yummy Rides en Venezuela)", "Un socio externo de reparto complementa a la flota interna sin evidencia de un contrato o SLA formal.", "Media", "Medio", "Documentar el acuerdo con la flota de terceros y evaluar un segundo proveedor de respaldo."]
      ]
     },
     "indicadores": {
