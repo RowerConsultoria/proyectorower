@@ -175,6 +175,40 @@
 // explícitamente por el propio equipo como "un acto de fe", sin comité de
 // crédito ni umbral de aprobación por monto.
 //
+// Macro 11 (Postventa y Experiencia de Cliente) — COMPLETO: los 11 procesos +
+// Contexto, Gobernanza, Marco de referencia, Agenda de mejora y Anexos. Sin
+// procesos «to-be»: 3 as-is (11.2 garantías y reemplazo de marca propia, 11.4
+// servicio técnico de la marca representada, 11.9 disposición final/scrap) y
+// 8 híbridos. El principio que ordena todo el macro: Cubitt (marca propia) no
+// repara, solo reemplaza bajo una garantía comercial de un año; la marca
+// representada (Casio) sí tiene reparación real, concentrada en un relojero
+// por país. Panamá (Obarrio) opera como casa matriz del soporte técnico
+// regional para casi toda la región, salvo Venezuela, que mantiene liderazgo
+// propio y el mayor volumen de garantías del grupo.
+//
+// Fuentes cruzadas: entrevistas E-64 Jesús/Rockmar/Eloy (equipo de Servicio
+// Técnico Panamá, F2) y E-58/E-02 Patrick Corujo (Gerente de Servicio
+// Técnico regional, F1/F2) — Insumos/Entrevistas_dialogo_limpio_agrupadas/
+// Customer Service — + E-51 Josep/Johan/Gustavo (equipo de Servicio Técnico
+// Venezuela, F2), ubicada en el corpus plano por el mismo problema de
+// clasificación de carpetas ya documentado en macros 9 y 10 — + los docs de
+// Lark de Insumos/Documentación/Panama/Servicio al Cliente/: el Manual
+// Regional de Operaciones de Postventa (canales, árbol de decisión de
+// garantía, política de garantía, motivos de garantía por categoría de
+// producto, formulario de garantías, guía de comunicación corporativa), la
+// Carta de Garantía, el manual de llenado del formulario de garantías, y un
+// comunicado oficial de control de calidad sobre la referencia CT-PWANC1
+// (apertura preventiva de todo el stock, prueba guiada, resellado
+// certificado) — evidencia directa del hallazgo de trazabilidad por lote de
+// 11.3. Venezuela no tiene equivalente de documentación de Lark para este
+// macro: su evidencia es enteramente de entrevista. Hallazgo transversal: no
+// existen KPI formalizados ni exigidos por la organización para este
+// macroproceso — el propio gerente regional mide SLA, índice de garantías y
+// tiempos de respuesta con fábrica por iniciativa y presupuesto propios, sin
+// retroalimentación sistemática de la Junta sobre el reporte mensual que
+// recibe; y el % de garantías sobre sell-out viene subiendo de menos de 1,5%
+// histórico a cerca de 3,5% en algunos productos.
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
@@ -5742,7 +5776,1208 @@ window.MANUAL_CONTENIDO = {
    }
 
   }
+ },
+
+ "11": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual reúne cómo se opera hoy —y cómo debería operarse de forma homologada— la postventa y la experiencia del cliente de Grupo Kenex: la atención omnicanal del cliente final, la garantía y el reemplazo del producto de marca propia (Cubitt), la gestión de casos técnicos y el reporte de calidad a fábrica, el servicio de reparación de la marca representada (Casio), la gestión de repuestos y accesorios de servicio, la atención de garantías en mercados sin operación propia, el escalamiento del cliente insatisfecho, los reembolsos, la disposición final del producto defectuoso (scrap), y el gobierno del modelo de servicio y su medición. Sirve como referencia única para que un país nuevo, un socio o una persona nueva en el cargo puedan operar bajo el mismo estándar de garantía que hoy sostiene, según el propio equipo, \"el pilar más importante\" del éxito de la marca.",
+    "alcance": "Desde el contacto del cliente por cualquier canal (WhatsApp, correo, chat web, redes o presencial) hasta el cierre del caso —reemplazo, reparación, corrección de software, reembolso o rechazo documentado—, y desde la detección de un patrón de fallas hasta el reporte formal a fábrica. No incluye la venta original del producto (macro de Ventas), de la que este macroproceso recibe el registro de compra como insumo, ni el registro contable del reembolso o del costo de la garantía en sí (macros Contabilidad y Administración y Finanzas), aunque interactúa con ambos en cada cierre de mes.",
+    "audiencia": [
+     "Gerente de Servicio Técnico",
+     "Subgerente de Servicio Técnico",
+     "Gerente de Servicio Técnico (por país)",
+     "Asesor(a) de Servicio al Cliente",
+     "Técnico(a) de Servicio / Relojero(a)",
+     "Especialista de Producto / Proyecto",
+     "Supervisor(a) de Bodega / Despacho",
+     "Coordinador(a) de Logística y Bodega",
+     "Gerente Regional de Marketing",
+     "Junta Directiva"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Postventa y Experiencia de Cliente es el macroproceso operativo que sostiene la promesa de garantía después de la venta y administra la relación de marca con el cliente final. Opera bajo dos regímenes de producto claramente distintos: para Cubitt (marca propia) no existe reparación —solo asistencia técnica y reemplazo directo bajo una garantía comercial de un año—; para Casio (marca representada) sí existe una operación real de reparación, hoy concentrada en un relojero especializado por país. Panamá (oficina de Obarrio) funciona como la casa matriz del soporte técnico regional: recibe consultas y reporta con fábrica en nombre de casi toda la región, salvo Venezuela, que mantiene un liderazgo propio, el mayor volumen de garantías del grupo y su propia dificultad de homologación con el estándar regional. Colombia, Guatemala, Costa Rica y Ecuador operan con estructuras más pequeñas o apoyadas en personal freelance, y existen mercados sin operación propia (Brasil, Argentina, Chile, México) atendidos mediante compra en tránsito aeroportuario en Tocumen o mediante un agente local.",
+    "duenos": [
+     [
+      "Regional / holding",
+      "Gerente de Servicio Técnico",
+      "Dueño regional del soporte técnico y la postventa de toda la región salvo Venezuela, que mantiene un liderazgo propio; define el estándar de garantía, la carta de garantía y el modelo de escalamiento."
+     ],
+     [
+      "País / operación",
+      "Gerente de Servicio Técnico (por país) / Subgerente de Servicio Técnico",
+      "Responsable de la operación diaria de garantías, reparación, repuestos y bodega de desecho en su país, y de la auditoría de cierre de mes."
+     ],
+     [
+      "Función específica",
+      "Asesor(a) de Servicio al Cliente",
+      "Atiende al cliente final por los canales de contacto habilitados y ejecuta la primera línea de diagnóstico y reemplazo."
+     ]
+    ],
+    "entidades": [
+     [
+      "Cubitt Panamá (Obarrio)",
+      "Panamá",
+      "Casa matriz de servicio técnico regional",
+      "Recibe consultas y reporta con fábrica para casi toda la región; opera el centro de experiencia (café) y el mayor volumen de canal digital."
+     ],
+     [
+      "Servicio Técnico Venezuela",
+      "Venezuela",
+      "Operación propia — mayor volumen",
+      "El país con más garantías del grupo y un liderazgo de más largo recorrido, con su propia dificultad de homologación al estándar regional."
+     ],
+     [
+      "Servicio Técnico Colombia / Guatemala / Costa Rica / Ecuador",
+      "Colombia, Guatemala, Costa Rica, Ecuador",
+      "Operación propia menor o apoyada en freelance",
+      "Estructuras más pequeñas; Costa Rica opera como sociedad (Import), no como franquicia, y no usa LARK; Ecuador se atiende con un único agente entre Quito y Guayaquil."
+     ],
+     [
+      "Mercados sin operación propia",
+      "Brasil, Argentina, Chile, México",
+      "Sin operación ni socio local",
+      "Atendidos por compra en tránsito aeroportuario en Tocumen o por un agente externo, con envío del reemplazo por courier internacional."
+     ],
+     [
+      "Casio Store (marca representada)",
+      "Panamá (Albrook) y equivalentes por país",
+      "Punto de reparación técnica",
+      "Tienda especializada de la marca representada donde opera el relojero que sí realiza reparación real, a diferencia de Cubitt."
+     ]
+    ],
+    "sistemas": [
+     [
+      "LARK",
+      "Tabla de casos de software y hardware compartida con fábrica, wiki de manuales y protocolos, formulario de garantías (RMA), grupos de comunicación con fábrica",
+      "Registro, trazabilidad y gobierno documental de la postventa"
+     ],
+     [
+      "Mercately",
+      "Plataforma de omnicanalidad que conecta WhatsApp Business y chat con el número de cada país",
+      "Atención al cliente y asignación de casos"
+     ],
+     [
+      "Odoo (ERP)",
+      "Traslado del producto reemplazado hacia la bodega de desecho, registro de inventario de servicio",
+      "Trazabilidad del producto físico entre el cliente, la bodega y el scrap"
+     ],
+     [
+      "Sistema propio de RMA (en desarrollo)",
+      "Digitaliza la recepción de garantía, hoy en papel; en fase de prototipo en Panamá",
+      "Reducir el registro manual y duplicado del caso de garantía"
+     ],
+     [
+      "Centro de mando de omnicanalidad (Supabase + IA)",
+      "Tiempo de respuesta, calidad de redacción y sentimiento del cliente por agente, con alerta automática",
+      "Herramienta de uso interno del gerente regional, sin ser un estándar corporativo"
+     ],
+     [
+      "DHL / Servientrega / ASAP",
+      "Envío internacional o nacional del producto de reemplazo o de reparación",
+      "Logística de garantía en mercados remotos o sin operación propia"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Ventas Retail / Ventas Mayor / Ventas Web",
+      "Entrada",
+      "Registro de compra y factura del cliente para verificar la elegibilidad de la garantía; venta en tránsito aeroportuario que origina la garantía internacional."
+     ],
+     [
+      "Compras y Abastecimiento / Bodega",
+      "Entrada / coordinación",
+      "Stock de reemplazo y de repuestos; traslado y validación del producto dañado contra el producto nuevo entregado."
+     ],
+     [
+      "Contabilidad / Administración y Finanzas",
+      "Salida / coordinación",
+      "Ejecución y registro contable de los reembolsos; costeo del producto dado de baja por scrap."
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Coordinación",
+      "Formación de nuevos agentes de servicio, hoy en transición hacia la Universidad Cubitt y una posición dedicada de capacitación."
+     ],
+     [
+      "Fábrica Cubitt (China) / casa matriz de la marca representada",
+      "Salida / entrada",
+      "Reporte de defectos por producto, serial y lote; corrección remota de fallas de software; pedido y suministro de repuestos."
+     ],
+     [
+      "Junta Directiva",
+      "Salida",
+      "Reporte mensual de postventa: SLA, índice de garantías, satisfacción y reputación digital."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Gerente de Servicio Técnico",
+      "Regional",
+      "Define el estándar de garantía, el modelo de escalamiento y los protocolos de atención; opera el centro de mando y consolida el reporte a la Junta.",
+      "Aprobación de excepciones de alto impacto (cambio de generación, reembolso fuera de política).",
+      "Decisiones de inversión (repuestos, plataformas) o de estructura escalan a la Junta Directiva."
+     ],
+     [
+      "Subgerente de Servicio Técnico",
+      "Regional / país",
+      "Coordina la gestión de casos técnicos, el reporte de calidad a fábrica y la disposición final de producto (scrap).",
+      "Clasificación de casos por producto/serial/lote y cierre de la conciliación mensual.",
+      "Patrones de defecto recurrente escalan al Gerente de Servicio Técnico y a Marketing regional."
+     ],
+     [
+      "Gerente de Servicio Técnico (por país)",
+      "País",
+      "Ejecuta la operación diaria de garantías, reparación, repuestos y auditoría de bodega en su país.",
+      "Aprobación de pedidos de repuestos dentro del umbral del país; contacto directo con clientes escalados.",
+      "Pedidos sobre el umbral escalan al Country Manager; excepciones de alto impacto escalan al gerente regional."
+     ],
+     [
+      "Asesor(a) de Servicio al Cliente",
+      "Operación",
+      "Atiende al cliente por los canales habilitados, diagnostica, reemplaza o deriva el caso.",
+      "Reemplazo directo dentro de la política estándar de garantía.",
+      "Casos fuera de política o clientes molestos escalan al Gerente de Servicio Técnico (por país)."
+     ],
+     [
+      "Gerente Regional de Marketing",
+      "Regional",
+      "Decide sobre defectos de producto confirmados con fábrica y aprueba excepciones de alto impacto al cliente.",
+      "Aprobación de cobertura de garantía extendida o retiro de lote.",
+      "N/A — instancia de decisión de producto."
+     ],
+     [
+      "Junta Directiva",
+      "Regional",
+      "Recibe el reporte mensual de postventa; aprueba inversión en repuestos, plataformas o estructura del área.",
+      "N/A — instancia de aprobación final.",
+      "N/A"
+     ]
+    ],
+    "comites": [
+     [
+      "Reunión mensual de soporte técnico regional",
+      "Repasar el estado de los casos, las brechas de homologación y las iniciativas de mejora entre los países.",
+      "Mensual",
+      "Gerente de Servicio Técnico (hoy delegada en el Coordinador de Soporte) · Gerente de Servicio Técnico (por país)",
+      "Reporte de casos y tablero de garantías del mes",
+      "Ajustes de proceso y compromisos de homologación por país",
+      "Minuta y compromisos de seguimiento"
+     ],
+     [
+      "Seguimiento individual (one to one) con cada país",
+      "Dar seguimiento cercano a cada equipo de país y detectar cuellos de botella no visibles en el tablero.",
+      "Semanal (objetivo declarado, no siempre cumplido)",
+      "Gerente de Servicio Técnico · Gerente de Servicio Técnico (por país)",
+      "Novedades del país por WhatsApp o llamada",
+      "Ajustes puntuales de operación",
+      "Compromisos de la semana"
+     ],
+     [
+      "Gobierno del modelo de servicio (recomendado, sin formalizar hoy)",
+      "Revisar y aprobar cambios a la carta de garantía, los protocolos y la homologación entre países, con participación formal de más de una persona.",
+      "Trimestral (propuesto)",
+      "Gerente de Servicio Técnico · Gerente de Servicio Técnico (por país) · Gerente de Proyectos (PMO)",
+      "Brechas de homologación reportadas por país",
+      "Cambios de política o protocolo aprobados de forma colegiada",
+      "Estándar actualizado publicado en el wiki"
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "La garantía es el valor insignia de la marca: el respaldo al cliente, no solo el producto, es lo que sostiene la confianza y el crecimiento de Cubitt según el propio equipo que la opera.",
+     "Cubitt no repara, reemplaza: la política deliberada de la marca propia es el cambio directo del producto dentro de garantía, sin intentar reparación, a diferencia de la marca representada (Casio), que sí cuenta con reparación real.",
+     "La balanza se inclina a favor del cliente cuando hay duda razonable sobre el origen de la falla, salvo evidencia clara de mal uso o modificación no autorizada.",
+     "El trato humano es una decisión de marca, no una limitación tecnológica: el equipo evaluó y descartó activamente un chatbot de inteligencia artificial para la atención, con el criterio explícito de que el cliente latinoamericano prefiere ser atendido por una persona.",
+     "Toda auditoría de garantía lleva una segunda mirada independiente: quien recibe y cambia el producto no es quien concilia el traslado contra el inventario físico al cierre del mes."
+    ],
+    "politicas": [
+     "Garantía comercial de doce meses desde la compra para el producto de marca propia, con exclusiones documentadas (maltrato, modificación no autorizada, falta de factura, período vencido).",
+     "Clasificación obligatoria de todo caso técnico entre falla de hardware (reemplazo directo, sin tiempo de espera) y falla de software (ciclo de corrección de hasta siete días con corrección remota, sin reemplazo).",
+     "Ningún cambio de producto por defecto de fábrica está autorizado sin la validación explícita del aprobador nombrado, tras el diagnóstico técnico que confirma el defecto — política estricta documentada en el Manual Regional de Postventa.",
+     "Ventana de desistimiento de quince días calendario sobre el precio de compra cuando el motivo es insatisfacción y no falla, con el producto en su empaque original; el incumplimiento de esa condición puede aplicar una penalización de hasta 40% sobre el valor de reposición.",
+     "Apertura preventiva de todo el stock en tienda de una referencia cuando se confirma un defecto de fábrica, con prueba guiada y resellado certificado de las unidades verificadas — como ya ocurrió con la referencia CT-PWANC1.",
+     "Cierre y conciliación mensual obligatorios entre el traslado del ERP, los reportes de garantía y el inventario físico de bodega, antes de entregar cualquier lote a la empresa certificada de reciclaje."
+    ],
+    "normativo": [
+     "Normativa de protección al consumidor de cada país, base de la política de garantía de doce meses y de la ventana de desistimiento por insatisfacción.",
+     "Normativa de manejo y disposición de residuos electrónicos, que exige el retiro y reciclaje del producto desechado por una empresa certificada con constancia documental.",
+     "Régimen aduanero de tránsito internacional (Zona Libre de Colón / aeropuerto de Tocumen), que habilita la venta —y por tanto la garantía— a clientes de países donde el grupo no tiene operación propia.",
+     "Buena práctica de gestión de calidad y trazabilidad de producto (serialización y lotificación) como base para aislar y retirar un lote defectuoso, hoy en fase temprana de implementación en el grupo."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "De los 11 procesos, 3 son as-is (11.2 Gestión de garantías y reemplazo, 11.4 Servicio técnico de marca representada, 11.9 Disposición final de producto) y 8 son híbridos — no hay procesos «to-be» en este macro, porque cada función ya opera en algún grado en al menos un país. La brecha dominante no es la ausencia de un proceso sino, igual que en Contabilidad y en Administración y Finanzas, su falta de homologación entre países (Venezuela con liderazgo propio, Costa Rica sin LARK) y de un esquema de indicadores exigido por la organización: el propio gerente regional reconoce medir por iniciativa propia lo que considera importante, sin que la Junta lo haya formalizado ni le dé seguimiento sistemático.",
+    "por_implementar": [
+     [
+      "11.1 / 11.2 Atención omnicanal y gestión de garantías",
+      "No existe hoy una automatización integral (\"360\") donde el cliente pueda consultar el estatus de su garantía por número de serie sin intervención de un agente — una idea ya declarada como prioridad por el gerente regional.",
+      "Evaluar como base el proyecto de aplicación de RMA ya en desarrollo en Panamá y definir su hoja de ruta de extensión a los demás países."
+     ]
+    ],
+    "por_formalizar": [
+     [
+      "11.5 Gestión de repuestos y accesorios de servicio",
+      "El rol de gestión regional de repuestos de la marca representada (Venezuela, Costa Rica, Panamá, República Dominicana) opera de forma efectiva pero informal, apoyado en la iniciativa personal de quien lo ejerce, sin bodega dedicada ni procedimiento escrito de custodia.",
+      "Formalizar el rol regional de repuestos con un punto de custodia dedicado al equipo de soporte técnico, según la propuesta que el propio equipo ya planteó."
+     ],
+     [
+      "11.10 Gobierno del modelo de servicio",
+      "Costa Rica opera como sociedad —no como franquicia— y no usa LARK; su comunicación con la casa matriz queda en WhatsApp sin registro trazable, a diferencia del resto de los países con operación propia o de socio.",
+      "Evaluar extender el acceso a LARK o un canal equivalente con registro a los países que hoy quedan fuera de la plataforma."
+     ]
+    ],
+    "brechas": [
+     [
+      "11.3 Gestión de casos técnicos y reporte de calidad con fábrica",
+      "La serialización y la lotificación del producto propio recién entraron en producción; antes de esto no existía forma de aislar un lote defectuoso ni de sustentar un reclamo de cobertura extendida ante la fábrica con evidencia sistemática.",
+      "Extender la trazabilidad por serial y lote a todos los países y todos los productos con el mismo nivel de detalle."
+     ],
+     [
+      "11.6 Gestión de garantías en mercados sin operación propia",
+      "El costo logístico de sostener la garantía en mercados sin operación propia (Ecuador, Brasil, Argentina, Chile) no tenía visibilidad hasta que se documentó recientemente: más de USD 12.000 en lo que va del año entre envíos y mercancía, sin que exista todavía una alternativa evaluada.",
+      "Mantener el registro periódico de costo logístico ya iniciado y evaluar alternativas de largo plazo (oficina propia, consolidación de envíos) si el volumen lo justifica."
+     ],
+     [
+      "11.11 Medición de la experiencia del cliente y reportería de postventa",
+      "No existen KPI formalizados ni exigidos por la organización para este macroproceso; el propio gerente regional reconoce medir SLA, índice de garantías y tiempos de respuesta con fábrica por iniciativa propia, sin retroalimentación sistemática de la Junta sobre el reporte mensual que recibe.",
+      "Formalizar con la Junta un esquema de indicadores del macroproceso y un mecanismo de revisión periódica del reporte mensual."
+     ],
+     [
+      "11.9 Disposición final de producto defectuoso (scrap)",
+      "La segunda revisión para recuperar unidades o partes reutilizables del producto reemplazado es una práctica reciente e informal, sin un criterio escrito de cuándo una unidad se recupera y cuándo se desecha.",
+      "Documentar el criterio de recuperación y su registro en el inventario de repuestos (proceso 11.5)."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "RMA (Return Merchandise Authorization)",
+      "Autorización y registro del retorno de un producto para su reemplazo, hoy en proceso de digitalización en Panamá."
+     ],
+     [
+      "Traslado",
+      "Movimiento del producto reemplazado registrado en el ERP entre el punto de atención y la bodega de desecho, base de la conciliación mensual."
+     ],
+     [
+      "Asistencia técnica (vs. servicio técnico)",
+      "Distinción que usa el propio equipo: Cubitt (marca propia) ofrece asistencia técnica y reemplazo, no reparación; la marca representada sí ofrece servicio técnico de reparación."
+     ],
+     [
+      "Scrap",
+      "Disposición final del producto reemplazado y no recuperable, certificada por una empresa de reciclaje autorizada."
+     ],
+     [
+      "Serialización y lotificación",
+      "Registro del número de serie y del lote de fabricación de cada unidad, base para aislar un defecto recurrente y sustentar un reclamo ante fábrica."
+     ],
+     [
+      "Formulario de garantías (LARK)",
+      "Formulario de catorce campos (país, sede, cliente, fecha de compra, serial, motivo, subcategoría, resolución, entre otros) que alimenta la tabla y el tablero de garantías."
+     ],
+     [
+      "Garantía internacional",
+      "Cobertura de garantía a un cliente que compró el producto en tránsito aeroportuario (Tocumen) y reside en un país sin operación propia del grupo."
+     ],
+     [
+      "Nota de crédito",
+      "Ajuste comercial aplicado por el ejecutivo de ventas tras el diagnóstico técnico y la aprobación explícita del cambio por defecto de fábrica."
+     ],
+     [
+      "Universidad Cubitt",
+      "Plataforma propia de formación con cursos, evaluaciones y reconocimientos, hoy en transición hacia una posición dedicada de Recursos Humanos."
+     ],
+     [
+      "Centro de mando de omnicanalidad",
+      "Panel de uso interno que audita tiempo de respuesta, calidad de redacción y sentimiento del cliente por agente."
+     ],
+     [
+      "Niveles de escalamiento (rojo/naranja/amarillo)",
+      "Clasificación de un caso crítico por su nivel de urgencia y la instancia que debe resolverlo, desarrollada en Panamá."
+     ]
+    ],
+    "raci": [
+     [
+      "11.1 Gestión de la atención omnicanal al cliente",
+      "Asesor(a) de Servicio al Cliente",
+      "Gerente de Servicio Técnico (por país)",
+      "Gerente de Servicio Técnico · Coordinador(a) de Soporte / Servicio al Cliente (Colombia)",
+      "—"
+     ],
+     [
+      "11.2 Gestión de garantías y reemplazo de producto de marca propia",
+      "Asesor(a) de Servicio al Cliente",
+      "Gerente de Servicio Técnico",
+      "Supervisor(a) de Bodega / Despacho · Gerente de Tienda / Supervisor de Ventas",
+      "—"
+     ],
+     [
+      "11.3 Gestión de casos técnicos y reporte de calidad con fábrica",
+      "Especialista de Producto / Proyecto",
+      "Subgerente de Servicio Técnico",
+      "Asesor(a) de Servicio al Cliente · fábrica",
+      "Gerente Regional de Marketing"
+     ],
+     [
+      "11.4 Servicio técnico y reparación de marca representada",
+      "Técnico(a) de Servicio / Relojero(a)",
+      "Gerente de Servicio Técnico (por país)",
+      "Asesor(a) de Servicio al Cliente · Gerente de Tienda / Supervisor de Ventas",
+      "—"
+     ],
+     [
+      "11.5 Gestión de repuestos y accesorios de servicio",
+      "Gerente de Servicio Técnico (por país)",
+      "Country Manager",
+      "Técnico(a) de Servicio / Relojero(a) · Gerente Regional de Marketing",
+      "Gerente de Servicio Técnico de otros países"
+     ],
+     [
+      "11.6 Gestión de garantías en mercados sin operación propia",
+      "agente de servicio del país (externo o freelance)",
+      "Gerente de Servicio Técnico",
+      "Coordinador(a) de Logística y Bodega · Analista de Cuentas por Cobrar",
+      "—"
+     ],
+     [
+      "11.7 Escalamiento y recuperación del cliente insatisfecho",
+      "Gerente de Servicio Técnico (por país)",
+      "Gerente de Servicio Técnico",
+      "Gerente Regional de Marketing",
+      "Asesor(a) de Servicio al Cliente"
+     ],
+     [
+      "11.8 Gestión de reembolsos y reversos de postventa",
+      "Analista de Cuentas por Cobrar",
+      "Gerente de Contabilidad / Administración",
+      "Gerente de Servicio Técnico · Asesor(a) de Servicio al Cliente",
+      "—"
+     ],
+     [
+      "11.9 Disposición final de producto defectuoso (scrap)",
+      "Supervisor(a) de Bodega / Despacho",
+      "Subgerente de Servicio Técnico",
+      "Gerente de Servicio Técnico (por país)",
+      "—"
+     ],
+     [
+      "11.10 Gobierno del modelo de servicio, estándares y base de conocimiento",
+      "Gerente de Servicio Técnico (por país)",
+      "Gerente de Servicio Técnico",
+      "Gerente de Proyectos (PMO)",
+      "Junta Directiva"
+     ],
+     [
+      "11.11 Medición de la experiencia del cliente y reportería de postventa",
+      "Analista de Sistemas / Datos",
+      "Gerente de Servicio Técnico",
+      "Gerente Regional Comercial / Retail",
+      "Junta Directiva"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "LARK",
+      "Tabla de casos software/hardware, wiki, formulario de garantías (RMA), grupos con fábrica",
+      "11.1 · 11.2 · 11.3 · 11.9 · 11.10 · 11.11",
+      "Coordinador(a) de Sistemas"
+     ],
+     [
+      "Mercately",
+      "Omnicanalidad (WhatsApp/chat) por país",
+      "11.1 · 11.7",
+      "Gerente de Servicio Técnico"
+     ],
+     [
+      "Odoo (ERP)",
+      "Traslado del producto reemplazado, inventario de servicio",
+      "11.2 · 11.5 · 11.9",
+      "Coordinador(a) de Sistemas"
+     ],
+     [
+      "Sistema propio de RMA (en desarrollo)",
+      "Digitalización de la recepción de garantía",
+      "11.2",
+      "Gerente de Servicio Técnico (por país) — Panamá"
+     ],
+     [
+      "Centro de mando de omnicanalidad (Supabase + IA)",
+      "Tiempo de respuesta, calidad de redacción, sentimiento del cliente",
+      "11.1 · 11.11",
+      "Gerente de Servicio Técnico"
+     ],
+     [
+      "DHL / Servientrega / ASAP",
+      "Envío internacional o nacional del reemplazo o la reparación",
+      "11.4 · 11.6",
+      "Coordinador(a) de Logística y Bodega"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Ventas Retail / Ventas Mayor / Ventas Web",
+      "Registro de compra",
+      "Factura y fecha de compra para verificar elegibilidad; venta en tránsito aeroportuario que origina garantía internacional"
+     ],
+     [
+      "Compras y Abastecimiento / Bodega",
+      "Stock y validación",
+      "Stock de reemplazo y repuestos; validación cruzada del traslado contra el producto físico"
+     ],
+     [
+      "Contabilidad / Administración y Finanzas",
+      "Reembolso y costeo",
+      "Ejecución y registro del reembolso; costeo del producto dado de baja por scrap"
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Formación",
+      "Inducción y capacitación de nuevos agentes vía Universidad Cubitt"
+     ],
+     [
+      "Fábrica Cubitt (China) / casa matriz de la marca representada",
+      "Reporte y suministro",
+      "Reporte de defecto por serial/lote; corrección remota de software; pedido de repuestos"
+     ],
+     [
+      "Junta Directiva",
+      "Reportería",
+      "Reporte mensual de postventa: SLA, índice de garantías, satisfacción"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Manual Regional de Operaciones — Postventa",
+      "Panamá (regional)",
+      "Canales de atención, árbol de decisión de garantía, política de garantía (12 meses, causales de exclusión, devolución por insatisfacción), motivos de garantía y diagnóstico técnico por categoría de producto, formulario de garantías, guía de comunicación corporativa",
+      "11.1 · 11.2 · 11.3 · 11.10"
+     ],
+     [
+      "Carta de Garantía",
+      "Panamá (aplicada regionalmente)",
+      "Cobertura de 12 meses, exclusiones, canales de contacto, aplicación de la nota de crédito",
+      "11.2 · 11.10"
+     ],
+     [
+      "Manual para el llenado del formulario de garantías",
+      "Panamá",
+      "Guía paso a paso de los 14 campos del formulario RMA y checklist de errores frecuentes de auditoría",
+      "11.2 · 11.11"
+     ],
+     [
+      "Comunicado oficial de control de calidad (referencia CT-PWANC1)",
+      "Panamá (regional)",
+      "Apertura preventiva de todo el stock de una referencia, prueba guiada, resellado certificado y reporte de unidades dañadas",
+      "11.3"
+     ],
+     [
+      "Motivos de garantía y diagnóstico técnico",
+      "Panamá",
+      "Criterios de validación técnica por categoría de producto (relojes, audífonos, bocinas), casos especiales por lote de fabricación",
+      "11.3"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Panamá",
+      "Casa matriz del servicio técnico regional; opera Mercately, el centro de mando de omnicanalidad y el desarrollo del RMA digital; concentra la reparación de la marca representada en un relojero de tienda especializada (Casio Store).",
+      "El país con los procedimientos más documentados y con mayor autonomía tecnológica del macroproceso."
+     ],
+     [
+      "Venezuela",
+      "El país con mayor volumen de garantías del grupo y un liderazgo propio de mayor recorrido; opera con un equipo dedicado a la reparación de la marca representada y gestiona el rol regional de repuestos para varios países.",
+      "La mayor dificultad de homologación con el estándar regional, según el propio gerente regional."
+     ],
+     [
+      "Costa Rica",
+      "Opera como sociedad (Import), no como franquicia; no usa LARK y su comunicación con la casa matriz queda en WhatsApp sin registro trazable.",
+      "Única variación estructural que deja a un país fuera de la plataforma común del grupo."
+     ],
+     [
+      "Ecuador",
+      "Atendido por un único agente (no una operación con equipo) debido a la rivalidad comercial entre Quito y Guayaquil, que impide compartir cobertura de garantía entre ambas ciudades.",
+      "Volumen bajo, pero alta complejidad logística y de coordinación."
+     ],
+     [
+      "Mercados sin operación propia (Brasil, Argentina, Chile, México)",
+      "Atendidos por compra en tránsito aeroportuario en Tocumen o por un agente externo, con reemplazo enviado por courier internacional.",
+      "El costo logístico de sostener estos mercados no tenía visibilidad hasta hace poco."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+ "11.1": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la recepción de todo contacto entrante del cliente final por WhatsApp Business, correo, mensaje directo en redes, chat web y atención presencial (oficina, tienda o centro de experiencia), su clasificación y enrutamiento entre la ruta comercial (venta) y la ruta de soporte técnico dentro de la plataforma de omnicanalidad, la asignación al agente del país correspondiente y el seguimiento hasta el cierre del caso bajo el tiempo de respuesta acordado. No incluye la resolución técnica del caso en sí (procesos 11.2 a 11.8), de los que este proceso es la puerta de entrada.",
+   "nota_estado": "Híbrido: Panamá opera con Mercately conectando un número por país y un tablero de seguimiento, además de un panel propio que audita tiempo de respuesta y calidad de la redacción del agente; Venezuela y Colombia replican el canal con menor automatización, y ese panel de auditoría no es todavía un estándar formal del grupo."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe el contacto del cliente por el canal que use (WhatsApp, correo, chat web, DM o presencial) a través de la plataforma de omnicanalidad." },
+    { "id": "a2", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Clasifica el contacto entre ruta comercial (consulta de venta o producto nuevo) y ruta de soporte (garantía, reparación o queja), y verifica el registro del cliente y del producto cuando aplica." },
+    { "id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Atiende el caso dentro del guion de comunicación corporativo (saludo, personalización, empatía) o lo deriva a la tienda física más cercana cuando el canal no permite resolverlo a distancia." },
+    { "id": "a4", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Supervisa el tablero de tiempos de respuesta y calidad de redacción, e interviene cuando un caso se acerca al límite del SLA o el cliente escala su tono." },
+    { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el contacto en la plataforma con el resultado y el tiempo de respuesta registrado, o lo deriva al proceso de garantía, reparación o escalamiento correspondiente." }
+   ],
+   "diagrama": {
+    "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Servicio Técnico (por país)"],
+    "nodos": [
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Contacto entrante del cliente por cualquier canal habilitado" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el contacto en ruta comercial o ruta de soporte" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿El caso requiere derivar a garantía, reparación o escalamiento?" },
+     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Registrar la derivación y notificar al proceso correspondiente" },
+     { "id": "n3", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Atender y responder el contacto dentro del guion de comunicación corporativo" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿El caso se acerca al límite del SLA de respuesta?" },
+     { "id": "n4alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Intervenir directamente o reasignar el caso" },
+     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Contacto cerrado en la plataforma con el tiempo de respuesta registrado" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3", "etq": "No" },
+     { "de": "n2", "a": "n2alt", "etq": "Sí" },
+     { "de": "n2alt", "a": "n5" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5", "etq": "No" },
+     { "de": "n4", "a": "n4alt", "etq": "Sí" },
+     { "de": "n4alt", "a": "n5" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Panel de auditoría de tiempo de respuesta y redacción no es un estándar corporativo", "El centro de mando que audita tiempo de respuesta, ortografía y sentimiento del cliente es una herramienta de uso personal del gerente regional, pagada por él mismo, sin que la organización lo haya adoptado como propio.", "Media", "Medio", "Formalizar la herramienta como estándar del grupo y asignarle presupuesto y responsable corporativo."],
+    ["Costa Rica sin plataforma de omnicanalidad activa", "El proyecto de implementar Mercately en Costa Rica y Colombia está en curso pero no completo, con comunicación en algunos casos todavía manual por WhatsApp directo.", "Media", "Medio", "Completar el despliegue de Mercately en los países pendientes."],
+    ["Dependencia de agentes freelance para la atención de Guatemala", "Los agentes que atienden WhatsApp de Guatemala son freelance contratados directamente por el gerente regional, fuera de la estructura formal de personal.", "Media", "Medio", "Evaluar la formalización de esas posiciones dentro de la estructura del país o de la región."],
+    ["Sin SLA de respuesta formalizado y exigido por la organización", "El tiempo de respuesta se mide y se sigue por iniciativa del gerente regional, sin una meta de SLA aprobada ni exigida desde la Junta.", "Media", "Alto", "Formalizar el SLA de respuesta como parte del esquema de indicadores del macroproceso (proceso 11.11)."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Tiempo de primera respuesta por canal", "Hora de primera respuesta del agente − hora del contacto entrante", "Diaria", "Gerente de Servicio Técnico (por país)", "Referencia interna (sin meta formal de la organización)"],
+    ["Casos atendidos por canal y por agente", "Conteo de casos cerrados por canal y por agente", "Diaria", "Gerente de Servicio Técnico", "Referencia de volumen"],
+    ["Errores de ortografía o redacción detectados", "Alertas de calidad de redacción ÷ total de respuestas", "Semanal", "Gerente de Servicio Técnico", "Tendencia a la baja"]
+   ]
+  }
+ },
+ "11.2": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre desde la recepción del producto Cubitt reclamado por el cliente (en oficina, tienda o por envío) hasta la entrega del reemplazo: verificación de elegibilidad contra la carta de garantía (un año, factura de compra, ausencia de daño por mal uso o modificación no autorizada), diagnóstico inicial —incluido el reinicio forzoso y la prueba de carga—, apertura del traslado en el ERP hacia la bodega de desecho, validación cruzada por Bodega (vía oficina o mayoristas) o por el propio gerente del país (vía tienda), entrega del producto nuevo al cliente y carga del caso en el formulario de garantías de LARK. No incluye la reparación del producto (no aplica a la marca propia) ni la disposición final del producto reemplazado (proceso 11.9).",
+   "nota_estado": "As-is: el proceso corre de forma consistente y con volumen alto (25 a 30 casos diarios solo en Panamá), pero depende de una auditoría manual de cierre de mes para cuadrar el traslado del ERP contra el inventario físico de bodega, y de que cada agente cargue el formulario de LARK después de cada cambio."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe el producto reclamado y solicita la factura de compra y el número de serie para verificar la elegibilidad contra la carta de garantía (un año, sin daño por mal uso)." },
+    { "id": "a2", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Diagnostica la falla (reinicio forzoso, prueba de carga en el hub) y la clasifica como reemplazo directo por hardware o como caso de software a derivar al proceso de gestión de casos técnicos (11.3)." },
+    { "id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Abre el traslado en el ERP hacia la bodega de desecho y retiene el producto dañado como respaldo del cambio." },
+    { "id": "a4", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe y valida el producto dañado contra el traslado, y libera el producto nuevo para la entrega al cliente." },
+    { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Entrega el producto nuevo al cliente y carga el caso en el formulario de garantías de LARK (cliente, serial, motivo, subcategoría, cómo fue resuelto)." }
+   ],
+   "diagrama": {
+    "carriles": ["Asesor(a) de Servicio al Cliente", "Supervisor(a) de Bodega / Despacho"],
+    "nodos": [
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Cliente presenta un producto Cubitt con falla dentro del período de garantía" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Verificar la factura de compra y el número de serie contra la carta de garantía" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿El producto es elegible bajo la carta de garantía?" },
+     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Informar al cliente que el caso no aplica y cerrar sin cambio" },
+     { "id": "n3", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Diagnosticar la falla (reinicio forzoso, prueba de carga)" },
+     { "id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿La falla es de hardware?" },
+     { "id": "n4alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Derivar el caso al proceso de gestión de casos técnicos (11.3) por software" },
+     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Abrir el traslado en el ERP hacia la bodega de desecho" },
+     { "id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Validar el producto dañado contra el traslado y liberar el producto nuevo" },
+     { "id": "n7", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Producto reemplazado entregado y caso cargado en el formulario de garantías" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3", "etq": "Sí" },
+     { "de": "n2", "a": "n2alt", "etq": "No" },
+     { "de": "n2alt", "a": "n7" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5", "etq": "Sí" },
+     { "de": "n4", "a": "n4alt", "etq": "No" },
+     { "de": "n4alt", "a": "n7" },
+     { "de": "n5", "a": "n6" },
+     { "de": "n6", "a": "n7" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Auditoría de cierre mensual como único control de cuadre", "El traslado del ERP se concilia contra el inventario físico de bodega solo una vez al mes, sin control intermedio.", "Media", "Medio", "Evaluar una conciliación intermedia quincenal o alertas automáticas de traslados abiertos."],
+    ["Carga del formulario de garantías dependiente de la disciplina del agente", "El registro en LARK depende de que cada agente lo complete después de cada cambio, sin validación automática.", "Media", "Medio", "Conectar el cierre del traslado con la carga automática del formulario, aprovechando el proyecto de RMA en desarrollo."],
+    ["Producto retenido como respaldo sin bodega interna dedicada", "El equipo de soporte depende de personal de otro departamento para el resguardo del producto, lo que genera demoras y riesgo de control.", "Alta", "Medio", "Formalizar un punto de custodia dedicado al equipo de soporte técnico, con control de transparencia (traslado formal, no acceso directo)."],
+    ["Excepción de pérdida del comprobante de compra sin criterio documentado", "Cuando el cliente pierde la factura o la hoja de recepción, se resuelve caso a caso sin un criterio escrito de excepción.", "Media", "Medio", "Documentar el criterio de excepción por pérdida de comprobante como parte del proceso 11.10."],
+    ["Diferencia de criterio de auditoría entre la vía oficina y la vía tienda", "La vía oficina la audita Bodega y la vía tienda la audita el gerente del país, sin el mismo checklist.", "Media", "Medio", "Homologar el checklist de auditoría entre ambas vías."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Casos de garantía atendidos por día", "Conteo de casos de garantía ÷ día", "Diaria", "Gerente de Servicio Técnico (por país)", "Referencia de volumen (25 a 30/día en Panamá)"],
+    ["Tiempo de resolución del reemplazo", "Hora de entrega del producto nuevo − hora de recepción del reclamo", "Por caso", "Asesor(a) de Servicio al Cliente", "Mismo día (falla de hardware)"],
+    ["% de garantías sobre sell-out", "Unidades reemplazadas ÷ unidades vendidas del período", "Mensual", "Gerente de Servicio Técnico", "< 4% (referencia de industria: 4% a 6%)"],
+    ["Traslados de garantía sin conciliar al cierre de mes", "Traslados abiertos ÷ total de traslados del período", "Mensual", "Supervisor(a) de Bodega / Despacho", "0"]
+   ]
+  }
+ },
+ "11.3": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la clasificación del caso diagnosticado como falla de software (carga en la tabla compartida con la fábrica, ciclo de corrección de siete días vía actualización remota, prueba y devolución al cliente sin reemplazo) y la consolidación de defectos recurrentes por producto, serial y lote para el reporte formal a la fábrica —incluida la apertura preventiva de todo el stock de una referencia cuando se detecta un defecto, como ya ocurrió con la referencia CT-PWANC1—, con el fin de obtener cobertura de garantía extendida o el retiro de un lote defectuoso. No incluye el reemplazo directo del producto (proceso 11.2), del que este proceso es la alternativa cuando la falla es corregible por software.",
+   "nota_estado": "Híbrido: la tabla compartida con la fábrica y el ciclo de siete días ya operan de forma consistente; la trazabilidad por serial y lote es reciente —recién entró en producción— y todavía no cubre todos los países ni todos los productos con el mismo nivel de detalle."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe un caso ya diagnosticado como falla de software (pantalla, sensor, notificaciones) y lo carga en la tabla compartida con la fábrica con el archivo de diagnóstico del dispositivo." },
+    { "id": "a2", "rol": "Especialista de Producto / Proyecto", "texto": "Da seguimiento a la tabla y coordina con el agente de la fábrica la revisión del archivo y el envío de la actualización correctiva al dispositivo." },
+    { "id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Mantiene el producto en espera hasta siete días, aplica la actualización cuando llega y prueba el dispositivo antes de devolverlo al cliente sin reemplazo." },
+    { "id": "a4", "rol": "Subgerente de Servicio Técnico", "texto": "Consolida mensualmente los casos de reemplazo por producto, serial y lote, y detecta patrones de falla recurrente en una misma referencia o lote de fabricación." },
+    { "id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Revisa el reporte de defecto recurrente con la fábrica y decide, junto con el Especialista de Producto / Proyecto, si procede la cobertura de garantía extendida, el retiro del lote o la revisión preventiva de todo el stock de la referencia." }
+   ],
+   "diagrama": {
+    "carriles": ["Asesor(a) de Servicio al Cliente", "Especialista de Producto / Proyecto", "Subgerente de Servicio Técnico"],
+    "nodos": [
+     { "id": "n0", "carril": "Subgerente de Servicio Técnico", "tipo": "inicio", "n": "Caso diagnosticado como falla de software, o patrón de fallas detectado en un producto o lote" },
+     { "id": "n1", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Es un caso individual de falla de software?" },
+     { "id": "n1alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar el caso en el reporte mensual de defectos por producto, serial y lote" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Cargar el caso en la tabla compartida con la fábrica con el archivo de diagnóstico" },
+     { "id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Coordinar con la fábrica la revisión y el envío de la actualización correctiva" },
+     { "id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Aplicar la actualización, probar el dispositivo y devolverlo al cliente sin reemplazo" },
+     { "id": "n5", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿El patrón consolidado indica un defecto recurrente por lote?" },
+     { "id": "n5alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Solicitar la revisión preventiva o el retiro del lote a la fábrica" },
+     { "id": "n6", "carril": "Subgerente de Servicio Técnico", "tipo": "fin", "n": "Caso cerrado (dispositivo corregido) o reporte de defecto enviado a fábrica con serial y lote" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2", "etq": "Sí" },
+     { "de": "n1", "a": "n1alt", "etq": "No" },
+     { "de": "n1alt", "a": "n5" },
+     { "de": "n2", "a": "n3" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n6" },
+     { "de": "n5", "a": "n6", "etq": "No" },
+     { "de": "n5", "a": "n5alt", "etq": "Sí" },
+     { "de": "n5alt", "a": "n6" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Trazabilidad por serial y lote incompleta entre países", "La serialización y lotificación recién entró en producción y no todos los países la registran con el mismo nivel de detalle.", "Alta", "Alto", "Homologar el registro de serial y lote en el formulario de garantías en todos los países."],
+    ["Ciclo de siete días de corrección sin alerta de vencimiento", "El seguimiento del plazo depende del especialista de producto sin una alerta automática de vencimiento.", "Media", "Medio", "Implementar una alerta automática al cumplirse el plazo del ciclo."],
+    ["Reporte de defecto a fábrica sin evidencia fotográfica sistemática", "El reporte depende de que el agente adjunte fotos de forma consistente en el formulario.", "Media", "Medio", "Reforzar el checklist de auditoría del formulario de garantías."],
+    ["Decisión de cobertura de garantía extendida concentrada en una sola persona", "La aprobación final de cobertura extendida o retiro de lote depende de un único aprobador (Gerente Regional de Marketing).", "Media", "Alto", "Definir un segundo aprobador de respaldo para esta decisión."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Casos de software resueltos dentro del ciclo de 7 días", "Casos resueltos a tiempo ÷ total de casos de software", "Mensual", "Especialista de Producto / Proyecto", "≥ 90%"],
+    ["Referencias con defecto de lote reportadas a fábrica", "Conteo de reportes de defecto de lote enviados a fábrica", "Mensual", "Subgerente de Servicio Técnico", "Referencia de gestión"],
+    ["% de garantías por causa de software vs. hardware", "Casos de software ÷ total de casos de garantía", "Mensual", "Subgerente de Servicio Técnico", "Referencia de análisis de causa raíz"]
+   ]
+  }
+ },
+ "11.4": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre el ciclo completo del producto reparable de la marca representada: recepción y apertura de la orden de servicio en tienda o en el taller, valoración técnica del relojero, presupuesto y cobro al cliente cuando el producto está fuera de garantía, reparación, prueba y cierre de la orden, y devolución del producto al cliente o a la tienda de origen. No incluye la gestión de repuestos en sí (proceso 11.5), de la que este proceso es el principal consumidor.",
+   "nota_estado": "As-is: el proceso opera de forma consistente y con volumen alto en Venezuela (del orden de 700 órdenes de servicio por mes), concentrado en un relojero interno con apoyo de personal de calculadoras; en Panamá la reparación se apoya en un relojero externo dentro de la tienda especializada de la marca, sin equipo técnico propio dedicado, porque la operación es de menor volumen."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Gerente de Tienda / Supervisor de Ventas", "texto": "Recibe el producto de la marca representada del cliente y abre la orden de servicio con los datos del cliente, el producto y la factura o comprobante de compra." },
+    { "id": "a2", "rol": "Técnico(a) de Servicio / Relojero(a)", "texto": "Realiza la valoración técnica del producto y determina si la falla está cubierta por la garantía vigente o requiere presupuesto." },
+    { "id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Presenta el presupuesto al cliente cuando el producto está fuera de garantía y gestiona el cobro antes de proceder con la reparación." },
+    { "id": "a4", "rol": "Técnico(a) de Servicio / Relojero(a)", "texto": "Repara el producto, prueba su funcionamiento y cierra la orden de servicio con el repuesto utilizado." },
+    { "id": "a5", "rol": "Gerente de Tienda / Supervisor de Ventas", "texto": "Devuelve el producto reparado al cliente en la tienda de origen o coordina su envío cuando el cliente lo entregó en otra sede." }
+   ],
+   "diagrama": {
+    "carriles": ["Gerente de Tienda / Supervisor de Ventas", "Técnico(a) de Servicio / Relojero(a)", "Asesor(a) de Servicio al Cliente"],
+    "nodos": [
+     { "id": "n0", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "inicio", "n": "Cliente entrega un producto reparable de la marca representada en tienda, taller o por envío nacional" },
+     { "id": "n1", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "tarea", "n": "Abrir la orden de servicio con los datos del cliente y el producto" },
+     { "id": "n2", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Realizar la valoración técnica de la falla" },
+     { "id": "n3", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "decision", "n": "¿La falla está cubierta por la garantía vigente?" },
+     { "id": "n3alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Presentar el presupuesto al cliente y gestionar el cobro" },
+     { "id": "n4", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Reparar el producto y probar su funcionamiento" },
+     { "id": "n5", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "tarea", "n": "Cerrar la orden de servicio y devolver el producto al cliente" },
+     { "id": "n6", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "fin", "n": "Producto reparado y entregado, con la orden de servicio cerrada" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3" },
+     { "de": "n3", "a": "n4", "etq": "Sí" },
+     { "de": "n3", "a": "n3alt", "etq": "No" },
+     { "de": "n3alt", "a": "n4" },
+     { "de": "n4", "a": "n5" },
+     { "de": "n5", "a": "n6" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Concentración de la reparación en un único relojero por país", "La operación técnica depende de una sola persona especializada, sin respaldo formal en la mayoría de los países.", "Alta", "Alto", "Formar un segundo técnico de respaldo, como ya ocurre parcialmente en Venezuela con el apoyo de personal de calculadoras."],
+    ["Reparación de la marca representada sin sistema propio de trazabilidad de orden de servicio", "El registro de la orden de servicio depende de tablas separadas (Excel/LARK) sin integración con el formulario de garantías.", "Media", "Medio", "Integrar el registro de la orden de servicio al mismo formulario de garantías."],
+    ["Escasez de repuestos para reparaciones específicas", "La disponibilidad de repuestos depende del proceso de gestión de repuestos (11.5) y puede detener la orden semanas o meses.", "Alta", "Alto", "Ver riesgos y mitigación del proceso 11.5 (repuestos)."],
+    ["Presupuesto y cobro fuera de garantía sin tarifario homologado entre países", "Cada país fija su propio precio de reparación fuera de garantía sin una referencia regional.", "Media", "Medio", "Definir un tope de precio de referencia regional para reparaciones comunes."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Órdenes de servicio cerradas por mes", "Conteo de órdenes de servicio cerradas", "Mensual", "Gerente de Servicio Técnico (por país)", "Referencia de volumen (≈700/mes en Venezuela)"],
+    ["Tiempo de ciclo de reparación", "Fecha de cierre − fecha de apertura de la orden", "Por orden", "Técnico(a) de Servicio / Relojero(a)", "≤ 7 días"],
+    ["% de órdenes fuera de garantía con presupuesto cobrado", "Órdenes cobradas ÷ órdenes fuera de garantía", "Mensual", "Asesor(a) de Servicio al Cliente", "Referencia de gestión"]
+   ]
+  }
+ },
+ "11.5": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la determinación de la necesidad de repuestos y accesorios para el servicio postventa, la consolidación y el filtro de los pedidos que hacen los distintos países, la validación de la razonabilidad del pedido (control antifraude ante solicitudes de cantidades inusuales), la colocación del pedido ante la casa matriz de la marca representada o ante la fábrica de marca propia, y la definición del tope de precio de venta del repuesto al cliente. No incluye la reparación en sí (proceso 11.4), de la que este proceso es insumo directo.",
+   "nota_estado": "Híbrido: el pedido y la validación de cantidades operan de forma consistente para la marca representada bajo un rol regional que cubre Venezuela, Costa Rica, Panamá y República Dominicana; la disponibilidad del repuesto en bodega depende hoy de personal de otro departamento, lo que el propio equipo identifica como el principal cuello de botella del proceso."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Técnico(a) de Servicio / Relojero(a)", "texto": "Detecta la necesidad de un repuesto durante la valoración o la reparación y la reporta al responsable de repuestos del país." },
+    { "id": "a2", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Consolida las solicitudes de repuestos del taller y de otros países, y valida que la cantidad pedida sea razonable frente al volumen histórico de servicio." },
+    { "id": "a3", "rol": "Country Manager", "texto": "Aprueba los pedidos que superan el umbral definido antes de colocarlos ante la casa matriz de la marca representada." },
+    { "id": "a4", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Coloca el pedido ante la casa matriz (marca representada) o ante la fábrica (marca propia), y define el tope de precio de venta del repuesto cuando aplica cobro al cliente." },
+    { "id": "a5", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Recibe el repuesto, lo registra en el inventario de servicio y, cuando la fábrica no lo suministra en el plazo normal, evalúa alternativas (recuperación de piezas de unidades ya reemplazadas) para sostener el servicio mientras llega el pedido regular." }
+   ],
+   "diagrama": {
+    "carriles": ["Técnico(a) de Servicio / Relojero(a)", "Gerente de Servicio Técnico (por país)", "Country Manager"],
+    "nodos": [
+     { "id": "n0", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "inicio", "n": "Necesidad de repuesto detectada en taller, o solicitud de otro país o de un cliente mayorista" },
+     { "id": "n1", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Reportar la necesidad de repuesto al responsable del país" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Consolidar la solicitud y validar la razonabilidad de la cantidad pedida" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿El monto o la cantidad supera el umbral de aprobación del país?" },
+     { "id": "n3alt", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar o rechazar el pedido antes de colocarlo" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Colocar el pedido ante la casa matriz o la fábrica y definir el tope de precio de venta" },
+     { "id": "n5", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿La fábrica puede suministrar el repuesto en el plazo normal?" },
+     { "id": "n5alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Evaluar la recuperación de piezas de unidades ya reemplazadas mientras llega el pedido" },
+     { "id": "n6", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "fin", "n": "Repuesto disponible en el inventario de servicio, con precio de venta topado" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3" },
+     { "de": "n3", "a": "n4", "etq": "No" },
+     { "de": "n3", "a": "n3alt", "etq": "Sí" },
+     { "de": "n3alt", "a": "n4" },
+     { "de": "n4", "a": "n5" },
+     { "de": "n5", "a": "n6", "etq": "Sí" },
+     { "de": "n5", "a": "n5alt", "etq": "No" },
+     { "de": "n5alt", "a": "n6" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Dependencia de personal de otro departamento para el despacho del repuesto", "El propio equipo estima este cuello de botella entre 30% y 40% del tiempo de atención.", "Alta", "Alto", "Formalizar un punto de custodia dedicado al equipo de soporte técnico, con control de transparencia (traslado formal, no acceso directo a bodega)."],
+    ["Plazo de suministro de fábrica de 6 a 8 meses para repuestos no estándar", "Piezas fuera del catálogo normal de la fábrica (por ejemplo, tapas de termo) pueden tardar 6 a 8 meses en llegar por canal regular, con riesgo de imagen de \"producto desechable\" ante el cliente.", "Alta", "Alto", "Formalizar un programa regional de repuestos con la casa matriz de la marca representada."],
+    ["Control antifraude de cantidades inusuales dependiente del criterio de una sola persona", "La validación de pedidos grandes de un país se apoya en el juicio de quien gestiona el rol regional, sin checklist documentado.", "Media", "Medio", "Documentar el criterio de validación antifraude como checklist formal."],
+    ["Recuperación de piezas de unidades reemplazadas sin procedimiento formal", "La reutilización de piezas de productos ya cambiados (tapas, correas) es una solución informal sin registro en inventario.", "Media", "Medio", "Formalizar el procedimiento de recuperación y su registro en el inventario de repuestos."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Tiempo de ciclo de reposición de repuestos", "Fecha de recepción − fecha de pedido", "Por pedido", "Gerente de Servicio Técnico (por país)", "Referencia actual: 6 a 8 meses (marca representada, repuestos no estándar)"],
+    ["Pedidos de repuestos rechazados por validación antifraude", "Pedidos rechazados ÷ total de pedidos", "Mensual", "Country Manager", "Referencia de control"],
+    ["Órdenes de reparación detenidas por falta de repuesto", "Órdenes en espera de repuesto ÷ total de órdenes abiertas", "Mensual", "Gerente de Servicio Técnico (por país)", "Tendencia a la baja"]
+   ]
+  }
+ },
+ "11.6": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la atención de garantías de clientes en mercados donde el grupo no tiene operación propia ni socio local —incluida la compra en tránsito en el aeropuerto de Tocumen para clientes de Brasil, Argentina, Chile o México—, o donde la operación se apoya en un único agente externo o freelance (como en Ecuador): el envío de stock de reposición al agente, la coordinación del despacho internacional del reemplazo por courier, y el registro y control del costo logístico asociado. No incluye la evaluación de la falla en sí (proceso 11.2), que se realiza igual que en cualquier otro mercado.",
+   "nota_estado": "Híbrido: el reemplazo al cliente se resuelve caso a caso de forma efectiva, pero el costo logístico de sostener estos mercados no tenía visibilidad hasta que se documentó recientemente (más de USD 12.000 en lo que va del año entre envíos y mercancía), y la reposición de stock al agente depende de una gestión manual sin calendario fijo."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe el reclamo de un cliente en un mercado sin operación propia, ya sea por compra en tránsito aeroportuario o por contacto directo con el agente del país." },
+    { "id": "a2", "rol": "agente de servicio del país (externo o freelance)", "texto": "Evalúa el caso con el stock de reposición disponible y, si no tiene el producto, lo escala al equipo regional de soporte técnico." },
+    { "id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina el despacho internacional del producto de reemplazo por courier (DHL u otro) cuando el agente no tiene el stock disponible." },
+    { "id": "a4", "rol": "agente de servicio del país (externo o freelance)", "texto": "Entrega el reemplazo al cliente en el mercado remoto." },
+    { "id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Registra el costo del envío y de la mercancía en el control de gasto logístico del macroproceso, y evalúa si corresponde reponer el stock del agente." }
+   ],
+   "diagrama": {
+    "carriles": ["Asesor(a) de Servicio al Cliente", "agente de servicio del país (externo o freelance)", "Coordinador(a) de Logística y Bodega"],
+    "nodos": [
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Reclamo de garantía de un cliente en un mercado sin operación propia, o stock bajo en el agente del país" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Recibir el reclamo y verificar la elegibilidad de la garantía" },
+     { "id": "n2", "carril": "agente de servicio del país (externo o freelance)", "tipo": "decision", "n": "¿El agente del país tiene el producto de reemplazo en stock?" },
+     { "id": "n2alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar el despacho internacional del reemplazo por courier" },
+     { "id": "n3", "carril": "agente de servicio del país (externo o freelance)", "tipo": "tarea", "n": "Entregar el reemplazo al cliente en el mercado remoto" },
+     { "id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Registrar el costo del envío y de la mercancía en el control de gasto logístico" },
+     { "id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Reemplazo entregado al cliente y costo del envío registrado en el flujo de control" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3", "etq": "Sí" },
+     { "de": "n2", "a": "n2alt", "etq": "No" },
+     { "de": "n2alt", "a": "n3" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Costo logístico de estos mercados sin visibilidad sistemática", "El gasto se documentó recién este año: más de USD 12.000 entre envíos y mercancía.", "Media", "Medio", "Mantener el registro periódico ya iniciado con Logística."],
+    ["Dependencia de un único agente freelance sin respaldo (caso Ecuador)", "La cobertura de garantía de todo un país depende de una sola persona operadora, sin respaldo formal.", "Alta", "Alto", "Evaluar un segundo punto de contacto o una oficina propia si el volumen lo justifica."],
+    ["Reposición de stock al agente sin calendario fijo", "El envío de stock de reposición se gestiona de forma manual y reactiva, sin una cadencia formal.", "Media", "Medio", "Definir una cadencia formal de reposición (referencia: cada 2 a 3 meses)."],
+    ["Tensión entre agentes de un mismo país que no cubren la garantía del otro", "La rivalidad comercial entre zonas de un mismo país (caso Quito/Guayaquil) impide compartir cobertura de garantía entre ambas.", "Media", "Medio", "Formalizar la responsabilidad de garantía por zona con el equipo regional como árbitro."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Costo logístico total de garantías en mercados sin operación propia", "Suma de costo de envío + mercancía del período", "Mensual", "Coordinador(a) de Logística y Bodega", "Referencia de control de gasto"],
+    ["Tiempo de entrega del reemplazo en mercado remoto", "Fecha de entrega − fecha del reclamo", "Por caso", "agente de servicio del país (externo o freelance)", "Referencia de gestión"],
+    ["Reposiciones de stock al agente por período", "Conteo de reposiciones de stock realizadas", "Trimestral", "Gerente de Servicio Técnico", "Cada 2 a 3 meses"]
+   ]
+  }
+ },
+ "11.7": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre el tratamiento de los casos que exceden la capacidad de resolución del agente de primer contacto: la clasificación del caso por nivel de escalamiento (según el estándar de colores desarrollado en Panamá: crítico, intermedio y de primera línea), la intervención del coordinador o del gerente del país, la revisión del historial del cliente y del producto, y el acuerdo de una solución excepcional —cambio de generación de producto, reembolso o compensación— cuando la solución estándar de garantía ya no satisface al cliente.",
+   "nota_estado": "Híbrido: existe un archivo de clasificación por niveles ya desarrollado en Panamá (rojo, naranja, amarillo), pero es un desarrollo local todavía sin extender a todos los países, y la efectividad del escalamiento depende en buena medida del criterio y la disposición personal del gerente que atiende el caso."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Identifica un caso crítico (reincidencia del producto, cliente visiblemente molesto o con exposición pública) y lo clasifica según el nivel de escalamiento." },
+    { "id": "a2", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Revisa el historial completo del cliente y del producto (número de cambios previos, antigüedad de la compra) antes de intervenir directamente." },
+    { "id": "a3", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Contacta al cliente de forma personal (llamada o atención presencial) para explicar la situación y ofrecer las opciones disponibles." },
+    { "id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Evalúa y aprueba la solución excepcional cuando implica cambio de generación de producto, reembolso o compensación fuera de la política estándar de garantía." },
+    { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el caso con la solución acordada y registra el acuerdo excepcional en el historial del cliente." }
+   ],
+   "diagrama": {
+    "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Servicio Técnico (por país)", "Gerente Regional de Marketing"],
+    "nodos": [
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Caso marcado como crítico por reincidencia del producto, cliente molesto o reclamo público" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el caso según el nivel de escalamiento" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Revisar el historial del cliente y del producto" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Contactar al cliente de forma personal y presentar las opciones disponibles" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿La solución requiere una excepción fuera de la política estándar de garantía?" },
+     { "id": "n4alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Evaluar y aprobar la solución excepcional" },
+     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso cerrado con la solución acordada y registrada en el historial del cliente" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5", "etq": "No" },
+     { "de": "n4", "a": "n4alt", "etq": "Sí" },
+     { "de": "n4alt", "a": "n5" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Estándar de niveles de escalamiento sin extender a todos los países", "El archivo de clasificación por colores (rojo/naranja/amarillo) es un desarrollo local de Panamá, sin réplica formal en los demás países.", "Media", "Medio", "Formalizar y replicar el estándar de niveles de escalamiento a los demás países."],
+    ["Efectividad del escalamiento dependiente del criterio personal del gerente", "No hay un guion escrito de las opciones que se pueden ofrecer a un cliente escalado (cambio, reembolso, compensación).", "Media", "Medio", "Documentar el guion de opciones como parte del gobierno del modelo de servicio (proceso 11.10)."],
+    ["Sin registro centralizado de acuerdos excepcionales", "Cada acuerdo excepcional queda en el criterio de quien lo resuelve, sin un registro único consultable entre países.", "Media", "Alto", "Centralizar el registro de excepciones en la tabla de garantías."],
+    ["Casos que llegan directamente a la alta gerencia sin pasar por el primer nivel de atención", "Un cliente muy molesto puede saltarse el canal regular y llegar directo a la gerencia regional.", "Baja", "Medio", "Reforzar la visibilidad del canal de escalamiento con el equipo de primera línea."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Casos escalados por nivel de criticidad", "Conteo de casos por nivel (rojo/naranja/amarillo)", "Mensual", "Gerente de Servicio Técnico", "Referencia de gestión"],
+    ["Tiempo de resolución de un caso escalado", "Fecha de cierre − fecha de escalamiento", "Por caso", "Gerente de Servicio Técnico (por país)", "≤ 48 horas"],
+    ["Reincidencia de escalamiento por el mismo cliente o producto", "Casos repetidos ÷ total de casos escalados", "Trimestral", "Gerente Regional de Marketing", "Tendencia a la baja"]
+   ]
+  }
+ },
+ "11.8": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre el ciclo del reembolso al cliente cuando no procede el reemplazo del producto —por falta de stock, reincidencia de la falla o decisión del propio cliente—: el levantamiento de la solicitud en el flujo de aprobación, la validación por Contabilidad, la ejecución del pago por Tesorería/Cuentas por Cobrar y la confirmación al cliente dentro del SLA acordado. No incluye el registro contable del reembolso en sí, que es responsabilidad de Contabilidad y Tesorería (macros 12 y 13).",
+   "nota_estado": "Híbrido: el SLA de reembolso ya bajó de 30 días a un rango de 48 horas a 5 días en el país donde se documentó primero (Panamá), tras la intervención directa del gerente regional; no hay evidencia de que el mismo SLA esté formalizado ni se cumpla igual en los demás países."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Acuerda con el cliente la procedencia del reembolso (falta de stock, reincidencia o decisión propia) y levanta la solicitud en el flujo de aprobación." },
+    { "id": "a2", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Valida que el caso cumpla el criterio de reembolso y aprueba la solicitud antes de enviarla a Contabilidad." },
+    { "id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Valida la solicitud contra el monto de la compra original y autoriza la ejecución del pago." },
+    { "id": "a4", "rol": "Analista de Cuentas por Cobrar", "texto": "Ejecuta el pago del reembolso al cliente por el medio acordado." },
+    { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Confirma al cliente la ejecución del reembolso dentro del SLA vigente y cierra el caso." }
+   ],
+   "diagrama": {
+    "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Contabilidad / Administración", "Analista de Cuentas por Cobrar"],
+    "nodos": [
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Decisión de reembolsar acordada con el cliente en un caso de postventa" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Levantar la solicitud de reembolso en el flujo de aprobación" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿La solicitud cumple el criterio de reembolso (sin stock, reincidencia o decisión del cliente)?" },
+     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Informar al cliente que el caso no procede y ofrecer una alternativa (reemplazo o reparación)" },
+     { "id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar la solicitud contra el monto de la compra original y autorizar el pago" },
+     { "id": "n4", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Ejecutar el pago del reembolso al cliente" },
+     { "id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Reembolso ejecutado y confirmado al cliente dentro del SLA vigente" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3", "etq": "Sí" },
+     { "de": "n2", "a": "n2alt", "etq": "No" },
+     { "de": "n2alt", "a": "n5" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["SLA de reembolso no formalizado en todos los países", "La reducción de 30 días a 48 horas-5 días solo está documentada en Panamá.", "Media", "Alto", "Formalizar y replicar el SLA de reembolso en los demás países."],
+    ["Doble aprobación sin plazo máximo definido entre pasos", "La aprobación de Servicio Técnico y luego de Contabilidad no tiene un tiempo máximo de respuesta por instancia.", "Media", "Medio", "Definir un tiempo máximo de respuesta por instancia dentro del SLA total."],
+    ["Criterio de procedencia del reembolso sujeto a negociación caso a caso", "La decisión de si procede el reembolso se resuelve caso a caso entre el agente y el cliente.", "Media", "Medio", "Documentar el criterio de procedencia como parte del gobierno del modelo de servicio (11.10)."],
+    ["Reembolso sin visibilidad cruzada con el proceso de reemplazo", "Existe el riesgo de que un mismo caso reciba tanto reembolso como reemplazo por falta de cruce de información.", "Baja", "Alto", "Validar contra el historial del caso en la tabla de garantías antes de ejecutar el pago."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Tiempo de ejecución del reembolso", "Fecha de pago − fecha de solicitud", "Por caso", "Gerente de Servicio Técnico", "48 horas a 5 días"],
+    ["Reembolsos ejecutados por mes", "Conteo de reembolsos ejecutados", "Mensual", "Analista de Cuentas por Cobrar", "Referencia de volumen"],
+    ["% de reembolsos sobre el total de casos de postventa", "Reembolsos ÷ total de casos cerrados", "Mensual", "Gerente de Servicio Técnico", "Tendencia a la baja"]
+   ]
+  }
+ },
+ "11.9": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la acumulación del producto reemplazado en la bodega de desecho, la segunda revisión para recuperar unidades o partes que puedan volver a servicio, la extracción mensual de los traslados del ERP y su conciliación contra los reportes de garantía y el inventario físico de bodega, y la entrega final del lote depurado a la empresa certificada de reciclaje. No incluye la recuperación de piezas para reparación en sí, que alimenta al proceso de gestión de repuestos (11.5) cuando aplica.",
+   "nota_estado": "As-is: el ciclo mensual de conciliación y entrega a la empresa de reciclaje corre de forma estable, con certificado de disposición por cada corte; la segunda revisión para recuperar unidades o partes es una práctica reciente y todavía informal, sin un criterio escrito de cuándo una unidad se recupera y cuándo se desecha."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Recibe y acumula el producto reemplazado proveniente de los traslados de garantía durante el mes." },
+    { "id": "a2", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Da una segunda revisión al lote acumulado para identificar unidades o partes recuperables antes de clasificarlo como desecho definitivo." },
+    { "id": "a3", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Extrae al cierre de mes el registro de todos los traslados de garantía del ERP del período." },
+    { "id": "a4", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Concilia el registro extraído contra los reportes de garantía cargados en LARK y el inventario físico de bodega." },
+    { "id": "a5", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Coordina con la empresa de reciclaje certificada el pesaje, retiro y certificado de disposición del lote conciliado." }
+   ],
+   "diagrama": {
+    "carriles": ["Supervisor(a) de Bodega / Despacho", "Gerente de Servicio Técnico (por país)"],
+    "nodos": [
+     { "id": "n0", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "inicio", "n": "Cierre del mes con la conciliación de los traslados de garantía del período" },
+     { "id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Acumular el producto reemplazado del mes en la bodega de desecho" },
+     { "id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Alguna unidad o parte es recuperable en la segunda revisión?" },
+     { "id": "n2alt", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Separar la unidad o parte recuperable y registrarla para el proceso de repuestos (11.5)" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Extraer el registro de traslados de garantía del ERP del período" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿El registro extraído concilia contra los reportes de garantía y el inventario físico?" },
+     { "id": "n4alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Investigar y resolver la diferencia antes de continuar" },
+     { "id": "n5", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Entregar el lote conciliado a la empresa de reciclaje certificada" },
+     { "id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Lote desechado con certificado de disposición y conciliación cerrada" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3", "etq": "No" },
+     { "de": "n2", "a": "n2alt", "etq": "Sí" },
+     { "de": "n2alt", "a": "n3" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5", "etq": "Sí" },
+     { "de": "n4", "a": "n4alt", "etq": "No" },
+     { "de": "n4alt", "a": "n5" },
+     { "de": "n5", "a": "n6" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Segunda revisión de recuperación sin criterio escrito", "No existe un criterio documentado de cuándo una unidad o parte se recupera y cuándo se desecha.", "Media", "Medio", "Documentar el criterio de recuperación como parte del proceso de repuestos (11.5)."],
+    ["Conciliación de fin de mes como único punto de control", "El cuadre entre ERP, garantías e inventario físico se hace una sola vez al mes.", "Media", "Medio", "Evaluar puntos de control intermedios (quincenal)."],
+    ["Dependencia de una sola persona para la conciliación entre países", "Riesgo ya observado en otros macroprocesos: saldos o traslados sin conciliar por meses cuando la conciliación depende de una sola persona.", "Alta", "Alto", "Mantener la conciliación como responsabilidad compartida y periódica, no dependiente de una sola persona."],
+    ["Certificado de disposición sin archivo centralizado", "Cada país guarda su propio certificado de reciclaje sin un repositorio único.", "Baja", "Medio", "Centralizar el archivo de certificados en el wiki del macroproceso."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Producto conciliado y entregado a reciclaje por mes", "Unidades desechadas ÷ unidades reemplazadas del período", "Mensual", "Subgerente de Servicio Técnico", "Referencia de control"],
+    ["Diferencias sin explicar al cierre de la conciliación", "Diferencias abiertas ÷ total de traslados del período", "Mensual", "Gerente de Servicio Técnico (por país)", "0"],
+    ["Unidades o partes recuperadas en la segunda revisión", "Conteo de unidades o partes recuperadas", "Mensual", "Supervisor(a) de Bodega / Despacho", "Referencia de gestión"]
+   ]
+  }
+ },
+ "11.10": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la definición y el mantenimiento de la carta de garantía, los protocolos de atención, los estándares de servicio y el catálogo de manuales publicados en el wiki de LARK (motivos de garantía por categoría de producto, guía de comunicación corporativa, formulario de garantías); la homologación del modelo entre países propios, socios y distribuidores —incluidos los que no operan con LARK—; la inducción de los nuevos agentes al estándar de servicio; y el sostenimiento de la agenda de mejora del macroproceso. No incluye la ejecución diaria de cada proceso (11.1 a 11.9), a los que este proceso da el estándar.",
+   "nota_estado": "Híbrido: el wiki y los manuales existen y están bastante desarrollados, pero su uso y actualización dependen en gran medida del gerente regional y de su equipo directo; la formación de personal, antes también a su cargo, se está traspasando a una posición dedicada de Recursos Humanos, y la homologación entre países sigue incompleta (un socio no franquiciado no usa LARK en absoluto)."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Gerente de Servicio Técnico", "texto": "Revisa y actualiza la carta de garantía, los protocolos de atención y los manuales del wiki cuando cambia una política, se abre un nuevo mercado o se lanza un producto nuevo." },
+    { "id": "a2", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Aplica el estándar vigente en su país y reporta al gerente regional las brechas de homologación (falta de plataforma, falta de acceso a LARK, diferencias de criterio)." },
+    { "id": "a3", "rol": "Gerente de Servicio Técnico", "texto": "Induce a los nuevos agentes de atención al cliente en los estándares y el guion de comunicación corporativa antes de que atiendan casos reales." },
+    { "id": "a4", "rol": "Gerente de Proyectos (PMO)", "texto": "Da seguimiento a las iniciativas transversales de mejora del macroproceso (automatización del formulario de garantías, trazabilidad por serial y lote, digitalización del RMA)." },
+    { "id": "a5", "rol": "Gerente de Servicio Técnico", "texto": "Sostiene la agenda de mejora del macroproceso y decide qué desarrollo local (Panamá, Colombia) se formaliza como estándar para replicar en los demás países." }
+   ],
+   "diagrama": {
+    "carriles": ["Gerente de Servicio Técnico", "Gerente de Servicio Técnico (por país)", "Gerente de Proyectos (PMO)"],
+    "nodos": [
+     { "id": "n0", "carril": "Gerente de Servicio Técnico", "tipo": "inicio", "n": "Apertura de operación en un nuevo mercado, cambio de política de garantía o brecha detectada en la homologación entre países" },
+     { "id": "n1", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Revisar y actualizar la carta de garantía, los protocolos y los manuales del wiki" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico", "tipo": "decision", "n": "¿La brecha detectada requiere una iniciativa transversal de mejora?" },
+     { "id": "n2alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Dar seguimiento a la iniciativa de mejora hasta su cierre" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Aplicar el estándar vigente y reportar las brechas de homologación en su país" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Inducir a los nuevos agentes en el estándar y el guion de comunicación corporativa" },
+     { "id": "n5", "carril": "Gerente de Servicio Técnico", "tipo": "fin", "n": "Carta de garantía y protocolos vigentes, publicados en el wiki y aplicados de forma homologada" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n2alt", "etq": "Sí" },
+     { "de": "n2", "a": "n3", "etq": "No" },
+     { "de": "n2alt", "a": "n3" },
+     { "de": "n3", "a": "n4" },
+     { "de": "n4", "a": "n5" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Actualización del wiki y de los manuales concentrada en el gerente regional y su equipo directo", "El mantenimiento documental depende de un único equipo, sin distribución de responsabilidad por país.", "Alta", "Medio", "Distribuir la responsabilidad de mantenimiento del wiki entre los gerentes de país."],
+    ["Socio no franquiciado sin acceso a LARK", "Costa Rica no usa LARK y su comunicación con la casa matriz queda en WhatsApp sin registro trazable.", "Media", "Medio", "Evaluar extender el acceso a LARK o un canal equivalente con registro."],
+    ["Formación de personal en transición de un equipo informal a una posición formal de RRHH", "El traspaso de la formación de producto y habilidades blandas a una posición dedicada recién contratada puede dejar una brecha de continuidad.", "Media", "Medio", "Documentar el traspaso de contenidos y responsabilidades entre el equipo actual y la nueva posición."],
+    ["Sin comité formal de gobierno del macroproceso", "Las decisiones de homologación dependen de la disposición del gerente regional a visitar cada país, sin una instancia colegiada periódica.", "Media", "Medio", "Formalizar una reunión periódica de gobierno del macroproceso con los gerentes de país."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["Manuales y protocolos del wiki actualizados en el período", "Conteo de actualizaciones publicadas", "Trimestral", "Gerente de Servicio Técnico", "Referencia de gestión"],
+    ["Países operando bajo el estándar homologado", "Países alineados ÷ total de países con operación", "Semestral", "Gerente de Servicio Técnico", "100%"],
+    ["Nuevos agentes inducidos en el estándar antes de atender casos reales", "Agentes inducidos ÷ total de agentes nuevos", "Mensual", "Gerente de Servicio Técnico (por país)", "100%"]
+   ]
+  }
+ },
+ "11.11": {
+  "proposito": {
+   "estado": "borrador",
+   "texto": "Cubre la definición y el seguimiento de los indicadores del macroproceso (SLA de respuesta al cliente y a la fábrica, índice y porcentaje de garantías sobre sell-out, satisfacción y reputación digital), la operación de los tableros de garantías por país, producto y motivo y del centro de mando de omnicanalidad, la mezcla de esos datos con el sell-out comercial para calcular el porcentaje real de garantías, y la emisión del reporte mensual de postventa a la Junta Directiva. No incluye la corrección del proceso que originó la desviación (procesos 11.1 a 11.10), de los que este proceso es el termómetro.",
+   "nota_estado": "Híbrido: los tableros de garantías y el centro de mando de omnicanalidad ya existen y se actualizan en tiempo real, pero no hay un esquema de KPI definido ni exigido formalmente por la organización: el propio gerente regional reconoce medir SLA, índice de garantías y tiempos de respuesta con la fábrica por iniciativa propia, sin retroalimentación sistemática de la Junta sobre si esos datos se usan para decidir algo."
+  },
+  "dueno": { "estado": "borrador" },
+  "disparador": { "estado": "borrador" },
+  "flujo": {
+   "estado": "borrador",
+   "actividades": [
+    { "id": "a1", "rol": "Analista de Sistemas / Datos", "texto": "Actualiza los tableros de garantías por país, producto y motivo a partir de la carga diaria del formulario de LARK." },
+    { "id": "a2", "rol": "Gerente de Servicio Técnico", "texto": "Solicita al área comercial el dato de sell-out del período y lo cruza manualmente con las garantías reportadas para calcular el porcentaje de garantías sobre venta." },
+    { "id": "a3", "rol": "Gerente de Servicio Técnico", "texto": "Revisa el centro de mando de omnicanalidad (tiempo de respuesta, calidad de redacción, sentimiento del cliente) y da seguimiento a las alertas que arroja." },
+    { "id": "a4", "rol": "Gerente de Servicio Técnico", "texto": "Consolida los tableros y el cálculo de garantías sobre sell-out en un reporte mensual resumido para la Junta Directiva." },
+    { "id": "a5", "rol": "Junta Directiva", "texto": "Recibe el reporte mensual de postventa y da seguimiento puntual a las alertas que considera relevantes." }
+   ],
+   "diagrama": {
+    "carriles": ["Analista de Sistemas / Datos", "Gerente de Servicio Técnico", "Junta Directiva"],
+    "nodos": [
+     { "id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Carga de casos y garantías en las tablas de origen; cierre mensual del período" },
+     { "id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Actualizar los tableros de garantías por país, producto y motivo" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Solicitar el sell-out del período y calcular el porcentaje de garantías sobre venta" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico", "tipo": "decision", "n": "¿El porcentaje de garantías o alguna alerta del centro de mando supera el rango esperado?" },
+     { "id": "n3alt", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Investigar la causa con el proceso correspondiente antes de reportar" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar el reporte mensual de postventa" },
+     { "id": "n5", "carril": "Junta Directiva", "tipo": "fin", "n": "Tablero actualizado y reporte mensual de postventa entregado a la Junta Directiva" }
+    ],
+    "aristas": [
+     { "de": "n0", "a": "n1" },
+     { "de": "n1", "a": "n2" },
+     { "de": "n2", "a": "n3" },
+     { "de": "n3", "a": "n4", "etq": "No" },
+     { "de": "n3", "a": "n3alt", "etq": "Sí" },
+     { "de": "n3alt", "a": "n4" },
+     { "de": "n4", "a": "n5" }
+    ]
+   }
+  },
+  "riesgos": {
+   "estado": "borrador",
+   "filas": [
+    ["Sin esquema de KPI definido ni exigido por la organización", "El propio gerente regional reconoce medir por iniciativa propia, sin retroalimentación de la Junta sobre el reporte mensual.", "Alta", "Alto", "Formalizar el esquema de indicadores del macroproceso con la Junta Directiva."],
+    ["Cálculo del % de garantías sobre sell-out manual y dependiente de otro departamento", "El dato de venta lo suministra el área comercial de forma manual y se cruza a mano con las garantías.", "Media", "Medio", "Automatizar el cruce entre el dato de ventas y el de garantías."],
+    ["% de garantías sobre sell-out en aumento", "El indicador pasó de menos de 1,5% histórico a cerca de 3,5% en algunos productos.", "Media", "Alto", "Dar seguimiento prioritario junto con el proceso de reporte de calidad a fábrica (11.3)."],
+    ["Reportes mensuales a la Junta sin evidencia de retroalimentación o uso en decisiones", "El gerente regional no ha recibido retroalimentación sistemática sobre si el reporte mensual se usa para decidir algo.", "Media", "Medio", "Establecer un mecanismo formal de revisión y respuesta de la Junta al reporte mensual."]
+   ]
+  },
+  "indicadores": {
+   "estado": "borrador",
+   "filas": [
+    ["SLA de tiempo de respuesta al cliente", "Tiempo de primera respuesta por canal", "Diaria", "Gerente de Servicio Técnico", "Referencia interna (sin meta formal de la organización)"],
+    ["% de garantías sobre sell-out", "Unidades en garantía ÷ unidades vendidas del período", "Mensual", "Gerente de Servicio Técnico", "< 4% (referencia de industria 4% a 6%; actual ≈3,5% en productos críticos)"],
+    ["Calificación de la marca en tiendas de aplicaciones y reseñas", "Promedio de estrellas en App Store, Google Play y reseñas", "Mensual", "Gerente de Servicio Técnico", "≥ 4 estrellas"],
+    ["Reportes mensuales entregados a la Junta a tiempo", "Reportes entregados ÷ 12", "Anual", "Gerente de Servicio Técnico", "100%"]
+   ]
+  }
  }
+}
+ }
+
 
 };
 
