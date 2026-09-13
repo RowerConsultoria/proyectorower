@@ -142,6 +142,39 @@
 // Colombia, Obarrio en Panamá) es el mismo cuello de botella en los tres
 // países — una sola persona reconciliando a mano en Excel.
 //
+// Macro 13 (Administración y Finanzas) — COMPLETO: los 9 procesos + Contexto,
+// Gobernanza, Marco de referencia, Agenda de mejora y Anexos. Sin procesos
+// «to-be»: 4 as-is (13.1-13.4: cuentas por pagar, flujo de caja y pago,
+// compra de divisas, financiamiento bancario) y 5 híbridos (13.5-13.9:
+// crédito, cobranza, conciliación intercompañía, planificación financiera,
+// presupuesto). La estructura societaria panameña (Kenex Trading —solo
+// exporta— vende a Basaidai, que nacionaliza y revende a Casiolandia) obliga
+// a un flujo intercompañía permanente que atraviesa varios procesos. En
+// Venezuela, el régimen cambiario agrega una función sin equivalente en los
+// demás países (13.3, compra de divisas y repatriación) con indicadores
+// propios (velocidad de devaluación, brecha del diferencial, escudo fiscal).
+//
+// Fuentes cruzadas: entrevistas E-65 Andrés Largo (CxP, VE, F2), E-62 Noel
+// (crédito/cobranza/intercompañía, PA, F2) —
+// Insumos/Entrevistas_dialogo_limpio_agrupadas/Adminstración y Finanzas— +
+// siete docs de Lark de Insumos/Documentación/{Venezuela,Panama}/Finanzas/:
+// de Venezuela, el manual y el diagnóstico con plan de acción de Cuentas por
+// Cobrar (Cuadro Multitasas), el manual de Cuentas por Pagar con el costeo
+// de importaciones (landed costs), y el manual de Tesorería (compra de
+// divisas, títulos de cobertura, estructura de pago en 3 fases); de Panamá,
+// el procedimiento de funciones de Cuentas por Cobrar (enlaces de pago,
+// notas de crédito/débito, reporte a la Unidad de Análisis Financiero) y el
+// de Cuentas por Pagar (matriz de aprobación por departamento/monto,
+// segregación de funciones, tarjetas corporativas) + una búsqueda de buenas
+// prácticas (conciliación a tres vías y segregación de funciones en cuentas
+// por pagar; marco de las 5 C del crédito) para los procesos con menor
+// formalización. Hallazgo transversal: el manejo físico de soportes de pago
+// y de cobranza —diagnosticado con plan de acción propio en Venezuela— es la
+// misma raíz de retraso y riesgo documental en más de un proceso de este
+// macro; y la evaluación de crédito a un cliente internacional se reconoce
+// explícitamente por el propio equipo como "un acto de fe", sin comité de
+// crédito ni umbral de aprobación por monto.
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
@@ -5027,6 +5060,683 @@ window.MANUAL_CONTENIDO = {
       ["Criterios contables homologados entre los tres países", "Criterios homologados ÷ total de criterios identificados como divergentes", "Semestral", "Planificador Financiero", "Referencia de avance (hoy sin línea base)"],
       ["Procesos con instrucción de trabajo vigente y publicada", "Procesos documentados ÷ total de procesos del macroproceso", "Semestral", "Coordinador(a) Contable", "100% (meta)"],
       ["Tiempo entre la detección de una divergencia y su homologación", "Fecha de homologación − fecha de detección", "Por criterio", "Planificador Financiero", "Referencia de seguimiento"]
+     ]
+    }
+   }
+
+  }
+ },
+
+ "13": {
+  "n0": {
+
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual reúne cómo se opera hoy —y cómo debería operarse de forma homologada— la administración financiera de Grupo Kenex: el pago a proveedores, la gestión del efectivo y su proyección, la compra de divisas y el financiamiento bancario, la afiliación y cobranza de clientes, la conciliación entre las empresas del grupo, y la planificación financiera y presupuestaria. Sirve como referencia única para que un país nuevo, una entidad nueva o una persona nueva en el cargo puedan operar bajo el mismo estándar, sin depender de que alguien \"lo sepa de memoria\".",
+    "alcance": "Desde la recepción de una factura de proveedor o la afiliación de un cliente a crédito, hasta la ejecución del pago o la aplicación del cobro, la conciliación de los saldos entre países, y la reportería financiera a la Junta. No incluye el registro contable de esas operaciones en sí (macro 12, Contabilidad), del que este macroproceso es el principal proveedor de información y, a la vez, el principal destinatario de la validación contable. Tampoco incluye el cálculo de la nómina (Gestión del Talento Humano), aunque Tesorería ejecuta el pago de las retenciones laborales.",
+    "audiencia": [
+     "Gerente de Tesorería",
+     "Coordinador(a) de Tesorería / Cobranzas",
+     "Analista de Cuentas por Cobrar",
+     "Asistente de Tesorería / Cobranzas",
+     "Supervisor(a) de Cuentas por Cobrar/Pagar",
+     "Planificador Financiero",
+     "Gerente de Contabilidad / Administración",
+     "Junta Directiva / Comité de Finanzas"
+    ]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Administración y Finanzas es el macroproceso de soporte que mueve el efectivo de la cadena de valor: paga a los proveedores que documenta Compras y Abastecimiento, cobra a los clientes que documentan Ventas Mayor y Ventas Retail, financia el ciclo de compra internacional con líneas bancarias y compra de divisas, y entrega a Contabilidad el registro de cada pago y cada cobro para su cierre. La estructura societaria del grupo obliga a un flujo intercompañía permanente: Kenex Trading (Zona Libre de Colón) solo puede exportar, así que vende a Basaidai, la intermediaria que nacionaliza la mercancía, y esta a su vez vende a Casiolandia (retail) — una cadena de tres empresas que genera cuentas por cobrar y por pagar cruzadas que hay que conciliar entre sí. En Venezuela, la operación de mayor volumen, el efectivo está además sujeto a un régimen cambiario que obliga a comprar divisas en mesa de cambio, medir la brecha frente al mercado paralelo y repatriar fondos a la casa matriz (Kenex, Panamá) para sostener el ciclo de compra — una función que no existe en los demás países.",
+    "duenos": [
+     ["Regional / holding", "Planificador Financiero", "Supervisa y aprueba pagos por monto según la matriz de aprobación; homologa criterios financieros entre países; consolida la reportería a la Junta."],
+     ["País / entidad legal", "Gerente de Tesorería", "Responsable del flujo de caja, la ejecución de pagos, el financiamiento bancario y —en Venezuela— la compra de divisas y la repatriación de fondos."],
+     ["Función específica", "Coordinador(a) de Tesorería / Cobranzas", "Coordina las funciones de cuentas por pagar, crédito y cobranza dentro de Tesorería, según cómo esté repartido el equipo en cada país."]
+    ],
+    "entidades": [
+     ["Distribuidora Rower, C.A.", "Venezuela", "Operación propia", "La única entidad del grupo con función de compra de divisas y repatriación de fondos; paga casi toda factura de proveedor el mismo día de recepción para evitar el diferencial cambiario."],
+     ["Kenex Trading, S.A.", "Panamá (Zona Libre de Colón)", "Operación propia — exportación", "Solo puede vender al exterior por su licencia de Zona Libre; no puede facturar directo al mercado panameño."],
+     ["Basaidai, S.A.", "Panamá", "Intermediaria", "Nacionaliza la mercancía que compra a Kenex Trading y se la revende a Casiolandia — el eslabón que permite la venta local."],
+     ["Casiolandia (Panamá), S.A.", "Panamá", "Operación propia — retail", "Compra a Basaidai; sus tres compañías relacionadas generan el mayor volumen de conciliación intercompañía del grupo."],
+     ["Kenex (Panamá) — casa matriz", "Panamá", "Holding regional", "Recibe la repatriación de fondos desde Venezuela y financia el ciclo de compra internacional del grupo."]
+    ],
+    "sistemas": [
+     ["Odoo (ERP)", "Cuentas por pagar y por cobrar, pagos, conciliación bancaria, líneas de crédito, análisis de antigüedad de cartera", "Registro y conciliación de todo el ciclo de efectivo"],
+     ["LARK", "Solicitud de pago, aprobación por matriz de monto/departamento, confirmación de cobro, cambio de condiciones de crédito, drive de archivo", "Aprobaciones, comunicación con proveedores/clientes, trazabilidad"],
+     ["Cuadro Multitasas (Excel maestro)", "Cruce de cartera vencida contra tipo de cambio BCV y simulación de pago por modalidad (Bs/divisa/mixto)", "Cobranza de clientes mayoristas en Venezuela"],
+     ["SIGMA / WOMPI (pasarelas de enlace de pago)", "Cobro de clientes por link de pago en Panamá, con comisión bancaria del 3%", "Cobranza"],
+     ["Plataforma de la Unidad de Análisis Financiero (UAF)", "Declaración de depósitos en efectivo que excedan B/.10.000 semanales por cliente", "Cumplimiento contra lavado de activos (Panamá)"],
+     ["Portal 2RConnect (cliente DO IT Center)", "Carga de factura y orden de compra para su aprobación y programación de pago por el cliente", "Facturación a un cliente corporativo con portal propio"]
+    ],
+    "interfaces": [
+     ["Compras y Abastecimiento", "Entrada", "Factura de proveedor nacional o de importación, con sus gastos asociados (landed costs) para el costeo del inventario."],
+     ["Ventas Mayor / Ventas Retail / Ventas Web", "Entrada", "Pedido con crédito aprobado o pago validado, factura emitida, solicitud de nota de crédito/débito."],
+     ["Contabilidad", "Salida / coordinación", "Registro contable de cada pago y cada cobro; Contabilidad valida el pago contra monto y fecha, no contra el detalle manual del asiento."],
+     ["Gestión del Talento Humano", "Entrada", "Solicitud de pago de retenciones laborales y aportes a la seguridad social, con segregación de funciones entre quien calcula la planilla y quien ejecuta la transferencia."],
+     ["Junta Directiva / Comité de Finanzas", "Salida", "Situación financiera, proyección de flujo de caja, presupuesto y su ejecución, líneas de crédito y su renovación."],
+     ["Bancos / pasarelas de pago / UAF", "Salida / cumplimiento", "Ejecución de transferencias, compra de divisas, líneas de crédito, y reporte de depósitos en efectivo que exige la normativa contra lavado de activos."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Gerente de Tesorería", "País", "Ejecuta el flujo de caja, los pagos, el financiamiento bancario y —en Venezuela— la compra de divisas.", "Programación de pagos dentro del flujo de caja aprobado; ejecución de transferencias.", "Montos que exceden el umbral de su departamento en la matriz de aprobación escalan al siguiente nivel (regional o Junta)."],
+     ["Coordinador(a) de Tesorería / Cobranzas", "Función (CxP, crédito o cobranza, según el país)", "Coordina el equipo operativo de su función y la relación día a día con proveedores o clientes.", "Aprobación de crédito dentro del rango delegado; gestión de excepciones menores de cobranza.", "Nuevas líneas de crédito, cambios de condición o casos de cobranza mayores escalan al Gerente de Tesorería o al Planificador Financiero."],
+     ["Analista de Cuentas por Cobrar", "Operación", "Registra facturas de proveedor, pagos y cobros; concilia cuentas transitorias y prepara el expediente de pago.", "Registro y corrección dentro de su cuenta o proceso asignado.", "Diferencias sin explicación o proveedores/clientes nuevos escalan al Coordinador(a) de Tesorería / Cobranzas."],
+     ["Planificador Financiero", "Regional", "Aprueba pagos por matriz de monto, homologa criterios financieros, consolida presupuesto y reportería.", "Aprobación de pagos sobre el umbral departamental; ajustes de forma del presupuesto.", "Decisiones de financiamiento, política de crédito o presupuesto del grupo escalan a la Junta Directiva."],
+     ["Junta Directiva / Director(a) Externo(a) de Junta Directiva", "Regional", "Aprueba el endeudamiento, el presupuesto anual y las líneas de crédito de mayor cuantía.", "N/A — instancia de aprobación final.", "N/A"]
+    ],
+    "comites": [
+     ["Comité de Finanzas (Venezuela / Panamá / Miami)", "Revisar estados financieros, endeudamiento, caja y proyecciones — el mismo comité que en Contabilidad (macro 12).", "Quincenal", "Gerente de Tesorería · Planificador Financiero · Gerente de Contabilidad / Administración · Asesor(a) Externo de Finanzas y Auditoría", "Flujo de caja proyectado, estado de la cartera, endeudamiento vigente", "Ajustes de pago y de cobranza; decisiones que requieren aprobación de Junta", "Alertas y compromisos de la quincena siguiente"],
+     ["Revisión de cartera con la fuerza de ventas", "Revisar el estado de la cobranza por vendedor y por cliente, y comprometer fechas de cobro.", "Varias veces al mes, según la dinámica comercial", "Coordinador(a) de Tesorería / Cobranzas · vendedores", "Reporte de antigüedad de cartera por vendedor/cliente", "Compromisos de cobro registrados y dados de seguimiento", "Cartera actualizada y compromisos de la semana"],
+     ["Comité de crédito (recomendado, sin formalizar hoy)", "Aprobar líneas de crédito y cambios de condición que superen un umbral, con participación de más de un nivel de la organización.", "Por evento", "Planificador Financiero · Gerente Comercial · Coordinador(a) de Tesorería / Cobranzas", "Solicitud de afiliación o cambio de condición con matriz de riesgo", "Línea aprobada, ajustada o rechazada, con la decisión documentada", "Condición de crédito vigente y trazable en LARK"]
+    ]
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El pago espera a la verificación, nunca al revés: toda factura se coteja contra su orden de compra y su recepción (el principio de conciliación a tres vías) antes de liberarse a pago — el mismo criterio que ya aplican, cada uno a su manera, el costeo de importaciones y el registro de facturas de gasto corriente.",
+     "Segregación de funciones como control por diseño, no por confianza: quien prepara y registra un pago no es quien lo ejecuta en el banco, y quien concilia una cuenta es independiente de quien la registra — ya formalizado por escrito en el procedimiento de pagos comerciales y no comerciales de Panamá.",
+     "Todo cambio en las condiciones de un cliente queda escrito: una línea de crédito, un plazo o un límite no cambian por una conversación — cambian por una solicitud trazable que documenta el antes y el después.",
+     "La cobranza es aliada de la venta, no su fiscal: el equipo de cobranza existe para sostener el ciclo de venta a crédito, no para perseguir al vendedor — un cambio de cultura ya logrado en Panamá tras años de ver al área de cobro como \"el enemigo de la venta\".",
+     "El efectivo no espera: una diferencia de un día entre la llegada de una factura y su pago genera un costo real en un entorno de variación cambiaria — de ahí que en Venezuela casi toda factura de proveedor se pague el mismo día que se recibe."
+    ],
+    "politicas": [
+     "Matriz de aprobación de pago por departamento y por monto: los departamentos de front-office comercial y de alta dirección (Business Intelligence, Compras, Gerencia, R&D, Ventas al Detal, Ventas al Mayor, Ventas Web) requieren la aprobación directa de la dirección regional en cualquier monto; los departamentos de soporte (Marketing, Operaciones y Logística, Proyectos, RRHH, Servicio al Cliente, Sistemas, Tesorería y Contabilidad, Visual Merchandising) aprueban hasta USD 1.000 con el gerente de área, y sobre ese monto suman la aprobación regional.",
+     "Dos días de caja fijos a la semana para el pago a proveedores (martes y jueves en Venezuela; miércoles en Panamá), con un corte de recepción de documentación antes del mediodía del día anterior — lo que llega después pasa automáticamente al siguiente día de caja.",
+     "Doble verificación del neto a pagar: el monto de la factura menos las retenciones de ley (IVA/ISLR o ITBMS) se calcula por separado antes de instruir el pago, para no pagar de más ni perder el comprobante de retención que exige la entrega de mercancía en aduana.",
+     "Conciliación bancaria mensual obligatoria por una persona independiente del departamento de Tesorería, como control de la concentración de funciones entre quien prepara y quien registra un pago.",
+     "Segregación de funciones en el pago de obligaciones laborales: quien parametriza el descuento en el sistema de planilla no es quien autoriza ni ejecuta la transferencia bancaria.",
+     "Umbral de reporte a la Unidad de Análisis Financiero (Panamá): todo depósito en efectivo que supere B/.10.000 semanales por cliente se filtra, consolida y reporta a la autoridad correspondiente.",
+     "Toda solicitud de pago o de cambio de condición de crédito se tramita por una solicitud formal (LARK) con sus soportes adjuntos — el correo directo sin solicitud es la excepción documentada, no la norma, salvo gastos fijos recurrentes (alquileres, servicios básicos).",
+     "El documento de relación comercial firmado por el representante legal del cliente es requisito de afiliación, precisamente para poder identificar un pago cuando el nombre de quien transfiere no coincide con el del cliente registrado."
+    ],
+    "normativo": [
+     "Régimen cambiario de Venezuela (tasa oficial BCV, IGTF) que condiciona la compra de divisas, la facturación indexada y el tratamiento fiscal del diferencial cambiario.",
+     "Normativa contra el lavado de activos de Panamá, que exige reportar a la Unidad de Análisis Financiero los depósitos en efectivo que superen el umbral semanal por cliente.",
+     "Retenciones de impuesto al consumo (IVA/ISLR en Venezuela, ITBMS en Panamá) que varían según si el cliente o el proveedor está calificado como agente de retención — un listado oficial que debe mantenerse actualizado en el maestro de contactos del ERP.",
+     "Buena práctica de control interno: la conciliación a tres vías (orden de compra, recepción de mercancía, factura) como barrera estructural contra el pago de una factura fraudulenta o duplicada, y la segregación de funciones en cuentas por pagar (quien aprueba, quien paga y quien concilia deben ser personas distintas) — ambas ya aplicadas parcialmente y candidatas a formalizar como estándar del grupo.",
+     "Buena práctica de gestión de riesgo de crédito comercial (marco de las 5 C: capacidad de pago, capital, garantía, carácter/historial y condiciones del entorno) como referencia para estructurar la matriz de riesgo de un cliente nuevo, hoy aplicada de forma más completa a clientes locales que a clientes internacionales, donde el propio equipo la describe como \"un acto de fe\"."
+    ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "De los 9 procesos, todos son as-is o híbridos (4 as-is: 13.1 a 13.4; 5 híbridos: 13.5 a 13.9) — no hay procesos «to-be» en este macro, porque cada función ya opera en algún grado en al menos un país. La brecha dominante no es la ausencia de un proceso sino su falta de homologación: cada país resolvió su propio método (matriz de riesgo, formato de estado de cuenta, plantilla de conciliación) sin un mecanismo que convierta el mejor desarrollo de un país en el estándar del grupo — el mismo patrón de gobierno ya señalado en Contabilidad (macro 12).",
+    "por_implementar": [],
+    "por_formalizar": [
+     ["13.1 Gestión de cuentas por pagar a proveedores", "Panamá ya tiene una matriz de aprobación por departamento y monto, y un control de segregación de funciones documentado por escrito; Venezuela calcula el neto a pagar con una verificación manual en papel y no tiene una matriz de aprobación formalizada.", "Formalizar en Venezuela la matriz de aprobación por monto y departamento ya operando en Panamá, y evaluar la automatización del cálculo de retenciones que el propio equipo de Venezuela ya identificó como posible en Odoo."],
+     ["13.5 Evaluación y aprobación de crédito de clientes", "Panamá ya usa una matriz de riesgo apoyada en IA para clientes locales, pero reconoce que la evaluación de clientes internacionales es \"un acto de fe\" sin comité de crédito ni umbral de aprobación escalonado por monto.", "Formalizar un comité de crédito con umbrales de aprobación por monto, retomando el manual de crédito ya redactado en Panamá y adaptado a la escala actual del grupo."]
+    ],
+    "brechas": [
+     ["13.2 Gestión del flujo de caja y ejecución de pagos", "El expediente de pago sigue siendo enteramente físico entre Cuentas por Pagar y Tesorería, sin digitalización salvo excepciones puntuales para proveedores de monto considerable.", "Evaluar digitalizar el expediente de pago completo, no solo los casos de excepción, aprovechando que ya se hace para montos altos."],
+     ["13.3 Gestión de compra de divisas y repatriación de fondos", "Los indicadores de riesgo cambiario (velocidad de devaluación, brecha del diferencial, escudo fiscal) existen como fórmulas documentadas pero sin evidencia de que se calculen y reporten de forma sistemática y periódica.", "Formalizar el cálculo y el reporte periódico de los indicadores cambiarios ya definidos, con su alerta crítica asociada."],
+     ["13.6 Gestión de cuentas por cobrar y cobranza", "El manejo físico de soportes de pago (vouchers, retenciones) que la fuerza de ventas traslada en papel sigue siendo la norma en Venezuela, con el riesgo de extravío y retraso que el propio diagnóstico interno documenta; en Panamá, la rotación de cartera no se puede calcular con precisión porque el sistema no distingue con claridad los clientes de crédito de los de contado.", "Priorizar la digitalización de soportes de cobranza en Venezuela (ya diagnosticada y con plan de acción propio) y, en Panamá, resolver la clasificación crédito/contado en el maestro de clientes para poder calcular la rotación de cartera."],
+     ["13.7 Conciliación de operaciones y saldos intercompañía", "La conciliación entre países dependía hasta hace poco de una sola persona sin visibilidad cruzada, lo que dejó saldos intercompañía sin aplicar por montos significativos durante un período prolongado.", "Mantener la conciliación intercompañía como responsabilidad compartida y periódica entre los países, ya con evidencia de que reconciliar con apoyo de IA acelera la detección de diferencias."],
+     ["13.9 Gestión presupuestaria y control del gasto", "El seguimiento de ejecución presupuestaria depende de la clasificación analítica del gasto por centro de costo, hecha manualmente por Contabilidad, sin un reporte estándar de desviaciones entre países.", "Definir un formato común de seguimiento de ejecución presupuestaria por centro de costo entre los países."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Conciliación a tres vías (three-way match)", "Verificación de que la orden de compra, la recepción de la mercancía y la factura del proveedor coinciden antes de liberar el pago."],
+     ["Cuadro Multitasas", "Archivo Excel maestro que cruza la cartera vencida de clientes mayoristas contra el tipo de cambio del día para simular el pago según la modalidad (bolívares, divisa o mixto)."],
+     ["Día de caja", "Día fijo de la semana en que Tesorería ejecuta los pagos programados a proveedores (martes y jueves en Venezuela; miércoles en Panamá)."],
+     ["Diferencial cambiario", "Brecha entre la tasa oficial y la tasa paralela; cuando se amplía, el consumidor prefiere pagar en la moneda más blanda y la empresa pierde margen real."],
+     ["Documento de relación comercial", "Carta firmada por el representante legal del cliente que autoriza a identificar como suyo un pago hecho desde una cuenta o nombre distinto al registrado."],
+     ["Escudo fiscal por pérdida cambiaria", "Beneficio tributario estimado sobre la pérdida neta por diferencial cambiario, usado para la planificación fiscal."],
+     ["Landed cost (costo en destino)", "Gastos de importación (flete, seguro, aranceles) capitalizados sobre el valor del inventario en vez de llevados directo a gasto."],
+     ["Matriz de riesgo del cliente", "Evaluación de un cliente nuevo o de una línea de crédito, hoy apoyada con IA en Panamá, que pondera antigüedad de pago, monto promedio y comportamiento histórico."],
+     ["Reintegro de tesorería", "Devolución de dinero a un cliente por una venta anulada o devuelta, registrada por Tesorería (caso Cachea) o por Cuentas por Pagar (venta web/tienda) según el origen."],
+     ["Título de cobertura", "Instrumento de inversión temporal que Tesorería (Venezuela) usa como mecanismo de protección cambiaria."],
+     ["Transferencia interna", "Traspaso de fondos entre cuentas bancarias de la misma entidad, registrado en Odoo con un pago automático de contrapartida."],
+     ["Unidad de Análisis Financiero (UAF)", "Autoridad panameña contra el lavado de activos a la que se reportan los depósitos en efectivo que superen el umbral semanal por cliente."],
+     ["5 C del crédito", "Marco de referencia (capacidad, capital, garantía, carácter y condiciones) para evaluar el riesgo de un cliente antes de aprobarle una línea."]
+    ],
+    "raci": [
+     ["13.1 Gestión de cuentas por pagar a proveedores", "Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Contabilidad / Administración · Gerente de Tesorería", "—"],
+     ["13.2 Gestión del flujo de caja y ejecución de pagos", "Gerente de Tesorería", "Planificador Financiero", "Coordinador(a) de Tesorería / Cobranzas · Analista de Recursos Humanos", "—"],
+     ["13.3 Gestión de compra de divisas y repatriación de fondos", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Planificador Financiero · Analista de Cuentas por Cobrar", "—"],
+     ["13.4 Gestión del financiamiento bancario y relación con entidades financieras", "Gerente de Tesorería", "Planificador Financiero", "Gerente de Contabilidad / Administración", "Junta Directiva · Director(a) Externo(a) de Junta Directiva"],
+     ["13.5 Evaluación y aprobación de crédito de clientes", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar · Coordinador(a) Comercial y fuerza de ventas", "Planificador Financiero"],
+     ["13.6 Gestión de cuentas por cobrar y cobranza", "Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Coordinador(a) Comercial y fuerza de ventas · Coordinador(a) Contable", "—"],
+     ["13.7 Conciliación de operaciones y saldos intercompañía", "Analista de Cuentas por Cobrar", "Gerente de Tesorería", "Gerente de Contabilidad / Administración de cada país", "Planificador Financiero"],
+     ["13.8 Planificación financiera y reporte de resultados a la dirección", "Planificador Financiero", "Planificador Financiero", "Gerente de Contabilidad / Administración · Coordinador(a) de Tesorería / Cobranzas", "Junta Directiva · Asesor(a) Externo de Finanzas y Auditoría"],
+     ["13.9 Gestión presupuestaria y control del gasto", "Planificador Financiero", "Junta Directiva", "Gerente de Contabilidad / Administración · líderes de área", "—"]
+    ],
+    "catalogo_sistemas": [
+     ["Odoo (ERP)", "Cuentas por pagar/cobrar, pagos, conciliación, líneas de crédito, antigüedad de cartera", "13.1 · 13.2 · 13.4 · 13.5 · 13.6 · 13.7", "Coordinador(a) de Sistemas"],
+     ["LARK", "Solicitud y aprobación de pago, cambio de condiciones de crédito, drive de archivo", "13.1 · 13.2 · 13.5 · 13.6", "Coordinador(a) de Sistemas"],
+     ["Cuadro Multitasas (Excel maestro)", "Cruce de cartera vencida contra tipo de cambio del día", "13.3 · 13.6", "Sin responsable formal — herramienta departamental (Venezuela)"],
+     ["SIGMA / WOMPI", "Enlaces de pago para cobro de clientes en Panamá", "13.6", "Coordinador(a) de Tesorería / Cobranzas"],
+     ["Plataforma UAF", "Declaración de depósitos en efectivo sobre el umbral semanal", "13.6", "Gerente de Tesorería (Panamá)"],
+     ["Portal 2RConnect (cliente)", "Carga de factura para pago por un cliente corporativo con portal propio", "13.6", "Analista de Cuentas por Cobrar"]
+    ],
+    "interfaces_detalle": [
+     ["Compras y Abastecimiento", "Factura de proveedor e importación", "Orden de compra, recepción de mercancía, expediente de aranceles y landed costs"],
+     ["Ventas Mayor / Ventas Retail / Ventas Web", "Crédito y cobro", "Pedido con crédito aprobado, factura emitida, solicitud de nota de crédito/débito"],
+     ["Contabilidad", "Registro y validación", "Asiento de pago/cobro conciliado contra monto y fecha; cuenta transitoria cerrada"],
+     ["Gestión del Talento Humano", "Pago de obligaciones laborales", "Solicitud de pago de retenciones y aportes, con segregación de funciones"],
+     ["Junta Directiva / Comité de Finanzas", "Reportería y aprobación", "Situación financiera, flujo de caja, presupuesto, líneas de crédito"],
+     ["Bancos / pasarelas / UAF", "Ejecución y cumplimiento", "Transferencias, compra de divisas, líneas de crédito, reporte de efectivo"]
+    ],
+    "docs_lark": [
+     ["Manual de Procedimientos Operativos: Cuentas por Cobrar (CxC)", "Venezuela", "Cuadro Multitasas: creación de clientes, conciliación de tasas, exportación de cartera, retenciones y pago multimoneda; KPI sugeridos", "13.6"],
+     ["Diagnóstico y Plan de Acción: Cuentas por Cobrar", "Venezuela", "Autodiagnóstico con 5 hallazgos (soportes físicos, partidas sin conciliar, falta de segmentación, reportes limitados, exposición cambiaria) y plan de acción por área", "13.6"],
+     ["Manual de Procesos Cuentas por Pagar (Odoo 17) + Costeo de Mercancías", "Venezuela", "Maestro de proveedores, registro y validación de facturas, costeo de importaciones (landed costs), pagos y retenciones, KPI de CxP", "13.1"],
+     ["Manual de Procesos de Tesorería", "Venezuela", "Compra de divisas, traspasos internos, líneas de crédito, títulos de cobertura, reintegros, estructura del proceso de pago (3 fases), KPI de tesorería cambiaria", "13.2 · 13.3 · 13.4"],
+     ["Procedimiento de Funciones — Cuentas por Cobrar", "Panamá", "Confirmaciones de pago (ACH/depósitos), enlaces de pago (SIGMA/WOMPI), notas de crédito/débito, showroom Cinamex, reporte a la UAF, portal de cliente DO IT Center, facturación de arrendamientos", "13.6"],
+     ["Procedimiento de Funciones — Cuentas por Pagar (pagos comerciales, no comerciales y tarjetas corporativas)", "Panamá", "Matriz de aprobación por departamento/monto, segregación de funciones, legalización de gastos de tarjeta corporativa", "13.1 · 13.2"]
+    ],
+    "variaciones_pais": [
+     ["Venezuela", "Único país con función de compra de divisas y repatriación de fondos; casi toda factura de proveedor se paga el mismo día para evitar el diferencial cambiario; expediente de pago enteramente físico entre Cuentas por Pagar y Tesorería.", "El régimen cambiario concentra aquí la mayor complejidad y los indicadores más sofisticados del macroproceso."],
+     ["Panamá", "El país con los procedimientos más formalizados por escrito: matriz de aprobación de pago, segregación de funciones documentada, matriz de riesgo de crédito apoyada en IA, y la única obligación de reporte a la Unidad de Análisis Financiero.", "La estructura triangular Kenex Trading–Basaidai–Casiolandia concentra aquí el mayor volumen de conciliación intercompañía."],
+     ["Colombia / Costa Rica", "Las conciliaciones intercompañía con Venezuela y Panamá se cuadraron recientemente al centavo tras años de aplicación incompleta de pagos entre entidades relacionadas.", "Menor complejidad cambiaria que Venezuela, pero la misma necesidad de conciliación intercompañía periódica."]
+    ]
+   }
+  },
+
+  "procesos": {
+   "13.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo desde la recepción y validación de la factura del proveedor hasta el registro del documento por pagar en el ERP con sus retenciones (IVA/ISLR o ITBMS), el cálculo del neto, la preparación del lote de pago para Tesorería, el control de anticipos y el costeo de las importaciones (landed costs). No incluye la ejecución del pago en el banco en sí (proceso 13.2), que es el paso siguiente.",
+     "nota_estado": "Este proceso es as-is, pero con una brecha real de formalización entre países: Panamá documenta por escrito una matriz de aprobación por departamento y monto y un control de segregación de funciones; Venezuela calcula el neto a pagar con una verificación manual en papel como única segunda revisión, sin una matriz de aprobación equivalente."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Analista de Cuentas por Cobrar", "texto": "Recibe la factura del proveedor (nacional o de importación) y verifica que esté en el maestro de contactos, con su condición fiscal y datos bancarios completos."},
+      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Registra la factura en el ERP, calcula la retención de ley aplicable y coteja el monto contra la orden de compra y la recepción de la mercancía (conciliación a tres vías)."},
+      {"id": "a3", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Verifica el neto a pagar (factura menos retenciones) y prepara el expediente para Tesorería, respetando el día de caja y el corte de recepción."},
+      {"id": "a4", "rol": "Gerente de Tesorería", "texto": "Aprueba el pago según la matriz de aprobación por departamento y monto vigente en el país."},
+      {"id": "a5", "rol": "Analista de Cuentas por Cobrar", "texto": "Registra el pago una vez ejecutado, distribuye el costo de importación al inventario cuando aplica, y archiva el expediente para auditoría."}
+     ],
+     "diagrama": {
+      "carriles": ["Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería"],
+      "nodos": [
+       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Recepción de una factura o solicitud de pago de un proveedor o de un área"},
+       {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Verificar al proveedor en el maestro de contactos"},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar la factura y calcular la retención aplicable"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Es una importación con gastos asociados (landed costs)?"},
+       {"id": "n3alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar y prorratear los gastos en destino al costo del producto"},
+       {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Verificar el neto a pagar y preparar el expediente para Tesorería"},
+       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿El monto requiere aprobación adicional según la matriz?"},
+       {"id": "n5alt", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Escalar la aprobación al siguiente nivel de la matriz"},
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Aprobar y programar el pago en el día de caja correspondiente"},
+       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Documento por pagar registrado, con retenciones y pago programado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5", "a": "n5alt", "etq": "Sí"},
+       {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Cálculo del neto a pagar dependiente de una verificación manual en papel", "El monto exacto a transferir se valida con un cálculo manual como segunda revisión, sin automatización, con riesgo de error humano documentado por el propio equipo.", "Media", "Medio", "Evaluar la automatización del cálculo de retenciones dentro de Odoo, ya identificada como viable por el propio equipo de cuentas por pagar."],
+      ["Matriz de aprobación por monto sin formalizar en todos los países", "Panamá tiene una matriz de aprobación por departamento y monto documentada por escrito; Venezuela no tiene un equivalente formal.", "Media", "Alto", "Formalizar en Venezuela la matriz de aprobación por monto y departamento ya operando en Panamá."],
+      ["Expediente de pago enteramente físico", "La factura, la retención y el soporte de pago viajan en papel entre Cuentas por Pagar y Tesorería, con digitalización solo para proveedores de monto considerable.", "Media", "Medio", "Evaluar extender la digitalización del expediente a todos los proveedores, no solo a los de mayor monto."],
+      ["Cuentas por pagar intercompañía sin conciliar por períodos prolongados", "Se han encontrado casos de pagos entre entidades relacionadas sin aplicar por meses, atribuibles a la salida abrupta de personal clave sin traspaso de conocimiento.", "Alta", "Alto", "Mantener la conciliación intercompañía como responsabilidad compartida y periódica (proceso 13.7), no dependiente de una sola persona."],
+      ["Retención de impuesto mal calculada por error de parametrización del proveedor", "Un proveedor mal configurado como agente de retención o no retenedor puede generar semanas o meses de retenciones incorrectas hasta detectarse.", "Media", "Medio", "Mantener actualizado el maestro de proveedores contra el listado oficial de agentes de retención, ya adoptado como práctica en Panamá."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tasa de pagos a tiempo (on-time payment rate)", "Facturas pagadas en o antes de su vencimiento ÷ total de facturas", "Mensual", "Gerente de Tesorería", "≥90%"],
+      ["Tiempo promedio del ciclo de procesamiento de facturas", "Fecha de registro y aprobación en el ERP − fecha de recepción de la factura", "Por factura", "Coordinador(a) de Tesorería / Cobranzas", "≤48 horas"],
+      ["Días de cuentas por pagar pendientes (DPO)", "(Saldo promedio de CxP ÷ total de compras al proveedor) × 365", "Mensual", "Planificador Financiero", "Referencia de gestión de caja"],
+      ["Descuentos por pronto pago aprovechados", "Descuentos tomados ÷ total de descuentos ofrecidos por los proveedores", "Mensual", "Gerente de Tesorería", "Referencia de valor generado"]
+     ]
+    }
+   },
+
+   "13.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la apertura y el monitoreo diario de saldos, la construcción y actualización del flujo de caja proyectado, la aprobación y programación de las solicitudes de pago, la ejecución de los desembolsos (proveedores, nómina y financiamiento) y el cierre diario con reporte de disponibilidad. No incluye la preparación del expediente de pago en sí (proceso 13.1), que es el insumo de entrada de este proceso.",
+     "nota_estado": "Este proceso es as-is: opera con una estructura de tres fases bien definida —recepción y validación en Cuentas por Pagar, ejecución en Tesorería, cierre y registro de vuelta en Cuentas por Pagar— con una regla explícita de corte y día de caja, pero el expediente que viaja entre las tres fases sigue siendo enteramente físico."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Recibe el expediente de pago validado de Cuentas por Pagar antes del corte del día de caja."},
+      {"id": "a2", "rol": "Gerente de Tesorería", "texto": "Revisa el flujo de caja disponible y programa los pagos del día en la plataforma bancaria, priorizando según la disponibilidad."},
+      {"id": "a3", "rol": "Gerente de Tesorería", "texto": "Ejecuta las transferencias u otra forma de pago (cheque, Western Union) y emite el soporte de pago físico y digital."},
+      {"id": "a4", "rol": "Analista de Cuentas por Cobrar", "texto": "Recibe de vuelta el expediente con el soporte de pago y registra el pago en el ERP para cerrar la cuenta por pagar."},
+      {"id": "a5", "rol": "Gerente de Tesorería", "texto": "Cierra el día con el reporte de disponibilidad y la proyección actualizada del flujo de caja."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Apertura del día y recepción de las solicitudes de pago aprobadas"},
+       {"id": "n1", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Revisar el flujo de caja disponible del día"},
+       {"id": "n2", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿La documentación llegó antes del corte del día de caja?"},
+       {"id": "n2alt", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Programar el pago para el siguiente día de caja"},
+       {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Programar y ejecutar el pago en la plataforma bancaria"},
+       {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Emitir el soporte de pago y devolver el expediente a Cuentas por Pagar"},
+       {"id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar el pago en el ERP para cerrar la cuenta por pagar"},
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Cerrar el día con el reporte de disponibilidad y la proyección actualizada"},
+       {"id": "n7", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Pagos ejecutados y conciliados con soporte, flujo de caja actualizado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Expediente físico sin digitalizar entre las tres fases del proceso", "El pago depende de que un documento en papel viaje físicamente entre dos áreas, sin trazabilidad digital salvo excepciones.", "Media", "Medio", "Evaluar digitalizar el expediente de pago completo, aprovechando el desarrollo ya existente para montos altos."],
+      ["Corte de día de caja no siempre respetado", "La regla de recibir la documentación antes del mediodía previo al día de caja no siempre se cumple, generando pagos de última hora.", "Media", "Bajo", "Reforzar el cumplimiento del corte con las áreas que generan la mayoría de las facturas."],
+      ["Reintegros de tesorería con doble punto de registro", "Los reintegros por devolución de un marketplace de crédito de consumo los registra Tesorería, y los de venta web/tienda los registra Cuentas por Pagar, sin una única política documentada de cuándo aplica cada uno.", "Baja", "Medio", "Documentar el criterio de asignación entre Tesorería y Cuentas por Pagar para los distintos tipos de reintegro."],
+      ["Excepciones de pago sin solicitud formal en LARK", "Los pagos de gastos fijos recurrentes y algunos correos directos quedan fuera del flujo de solicitud formal, reduciendo la trazabilidad.", "Baja", "Medio", "Evaluar incorporar los gastos fijos recurrentes al flujo de solicitud formal, aunque sea con una plantilla simplificada."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Pagos ejecutados en el día de caja programado", "Pagos ejecutados a tiempo ÷ total de pagos programados", "Por día de caja", "Gerente de Tesorería", "≥95%"],
+      ["Exactitud del flujo de caja proyectado", "Disponibilidad proyectada vs. disponibilidad real al cierre del día", "Diaria", "Gerente de Tesorería", "Referencia de precisión"],
+      ["Tiempo entre la ejecución del pago y su registro en el ERP", "Fecha de registro − fecha de ejecución del pago", "Por pago", "Analista de Cuentas por Cobrar", "≤2 días hábiles"]
+     ]
+    }
+   },
+
+   "13.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la adquisición de divisas en mesa de cambio con la banca, la distribución de fondos entre cuentas, el uso de instrumentos de cobertura cambiaria y la repatriación de recursos a la casa matriz (Kenex, Panamá) para sostener el ciclo de compra de mercancía, con el cumplimiento normativo cambiario. Proceso particular de Venezuela, sin equivalente en los demás países del grupo.",
+     "nota_estado": "Este proceso es as-is: la mecánica de compra de divisas, traspasos y repatriación está documentada paso a paso en Odoo, y el propio equipo de Tesorería ya definió un conjunto de indicadores cambiarios sofisticados; lo que no hay evidencia de que ocurra de forma sistemática es el cálculo y el reporte periódico de esos indicadores."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Monitorea la tasa de cambio oficial y la brecha frente al mercado paralelo para decidir el momento de la compra de divisas."},
+      {"id": "a2", "rol": "Gerente de Tesorería", "texto": "Ejecuta la compra de divisas en mesa de cambio con la banca y registra el asiento con la pérdida o ganancia por diferencial cambiario."},
+      {"id": "a3", "rol": "Gerente de Tesorería", "texto": "Evalúa la compra de títulos de cobertura como mecanismo de protección cambiaria cuando las condiciones lo ameritan."},
+      {"id": "a4", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Distribuye los fondos entre cuentas y ejecuta la repatriación hacia la casa matriz para sostener el ciclo de compra internacional."},
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Calcula los indicadores cambiarios (velocidad de devaluación, brecha del diferencial, escudo fiscal) y alerta al área comercial y a Tesorería cuando superan el umbral crítico."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Planificador Financiero"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "inicio", "n": "Disponibilidad de bolívares y necesidad de pago a la casa matriz o al proveedor internacional"},
+       {"id": "n1", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Monitorear la tasa BCV y la brecha frente al mercado paralelo"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿La brecha o la velocidad de devaluación supera el umbral de alerta?"},
+       {"id": "n2alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alertar a Tesorería y al área comercial y evaluar un título de cobertura"},
+       {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Ejecutar la compra de divisas en mesa de cambio"},
+       {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Registrar el asiento con el diferencial cambiario correspondiente"},
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Distribuir los fondos y ejecutar la repatriación a la casa matriz"},
+       {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Divisas adquiridas y fondos repatriados, registrados en el ERP"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2", "a": "n2alt", "etq": "Sí"},
+       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Indicadores cambiarios definidos pero sin evidencia de cálculo periódico sistemático", "Las fórmulas de velocidad de devaluación, brecha del diferencial y escudo fiscal existen documentadas, pero no hay evidencia de un reporte periódico regular.", "Media", "Alto", "Formalizar el cálculo y el reporte periódico de estos indicadores, con su alerta crítica asociada."],
+      ["Concentración de la función en una sola persona", "La compra de divisas y la repatriación de fondos son una función que Venezuela ejecuta sin respaldo documentado para una ausencia.", "Media", "Alto", "Documentar el procedimiento y formar un respaldo para la función de mesa de cambio."],
+      ["Exposición a la brecha del diferencial cambiario sobre el margen comercial", "Si la brecha con el mercado paralelo se amplía, el consumidor prefiere pagar en la moneda más blanda y la empresa pierde margen real en la venta a tasa oficial.", "Alta", "Alto", "Usar el indicador de brecha del diferencial como alerta temprana al área comercial, según el criterio ya definido por Tesorería."],
+      ["Instrumentos de cobertura cambiaria sin política de uso documentada", "La compra y liquidación de títulos de cobertura está descrita a nivel de asiento contable, pero no hay evidencia de un criterio escrito de cuándo usarlos.", "Baja", "Medio", "Documentar el criterio de decisión para el uso de títulos de cobertura cambiaria."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Velocidad de devaluación semanal", "(Tasa BCV actual ÷ Tasa BCV semana anterior − 1) × 100", "Semanal", "Coordinador(a) de Tesorería / Cobranzas", "Alerta crítica si supera 2%"],
+      ["Brecha del diferencial cambiario", "(Tasa paralelo ÷ Tasa BCV − 1) × 100", "Semanal", "Planificador Financiero", "Alerta crítica si supera 10%"],
+      ["Eficiencia de adjudicación cambiaria", "$ comprados en mesa de cambio ÷ Bs totales disponibles para cambiar", "Semanal", "Gerente de Tesorería", "Referencia: mayor al 85%"]
+     ]
+    }
+   },
+
+   "13.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la gestión de las líneas de crédito y los pagarés y su renovación, amortizaciones e intereses, la negociación de tasas, la entrega de estados financieros a la banca y la relación institucional con los bancos para financiar el ciclo de compra. No incluye la ejecución del pago de la cuota en sí (proceso 13.2), que es el paso siguiente una vez aprobado el desembolso.",
+     "nota_estado": "Este proceso es as-is: opera de forma consistente en Venezuela y Panamá mediante líneas de crédito registradas en el ERP con su propio asiento contable, aunque la evidencia recogida es más rica del lado de la ejecución contable de una línea que del proceso de negociación en sí con la banca."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Tesorería", "texto": "Identifica la necesidad de financiamiento del ciclo de compra o el vencimiento próximo de una línea vigente."},
+      {"id": "a2", "rol": "Planificador Financiero", "texto": "Prepara y entrega a la banca los estados financieros y la información requerida para la renovación o la negociación de una línea."},
+      {"id": "a3", "rol": "Gerente de Tesorería", "texto": "Negocia la tasa y las condiciones con el banco, y formaliza el pagaré o el contrato de línea correspondiente."},
+      {"id": "a4", "rol": "Gerente de Tesorería", "texto": "Registra la línea de crédito en el ERP con sus cuentas de capital e intereses, y programa las amortizaciones."},
+      {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba el endeudamiento cuando el monto o el plazo lo requiere, según la matriz de gobierno del grupo."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Tesorería", "Planificador Financiero", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Tesorería", "tipo": "inicio", "n": "Necesidad de financiamiento del ciclo de compra, o vencimiento/renovación de una línea"},
+       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Preparar y entregar a la banca los estados financieros requeridos"},
+       {"id": "n2", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Negociar tasa y condiciones con el banco"},
+       {"id": "n3", "carril": "Junta Directiva", "tipo": "decision", "n": "¿El monto o plazo requiere aprobación de la Junta Directiva?"},
+       {"id": "n3alt", "carril": "Junta Directiva", "tipo": "tarea", "n": "Presentar la propuesta de financiamiento a la Junta para su aprobación"},
+       {"id": "n4", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Formalizar el pagaré o el contrato de línea"},
+       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Registrar la línea en el ERP y programar las amortizaciones"},
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Línea de crédito vigente o renovada, con los compromisos formalizados"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Relación bancaria concentrada en pocas entidades", "El financiamiento del ciclo de compra depende de un número reducido de bancos, sin evidencia de una estrategia de diversificación documentada.", "Media", "Alto", "Evaluar diversificar la relación bancaria para reducir la dependencia de una sola entidad."],
+      ["Entrega de estados financieros a la banca sin el cierre completo", "En el país de mayor volumen, la entrega a la banca puede depender de un cierre contable que todavía no incluye el balance completo (ver proceso 12.8).", "Media", "Medio", "Alinear el calendario de cierre contable con las fechas de entrega comprometidas con la banca."],
+      ["Sin calendario consolidado de vencimientos entre líneas y países", "Cada línea se gestiona por país, sin un calendario regional único que anticipe vencimientos y renovaciones.", "Baja", "Medio", "Consolidar un calendario regional de vencimientos de líneas de crédito."],
+      ["Costo financiero sin comparación sistemática entre alternativas", "La negociación de tasa no muestra evidencia de comparación formal entre bancos antes de decidir una renovación.", "Baja", "Medio", "Evaluar solicitar cotización comparativa antes de renovar una línea de monto significativo."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Líneas de crédito vigentes vs. vencidas sin renovar", "Líneas vigentes ÷ total de líneas del período", "Trimestral", "Gerente de Tesorería", "100%"],
+      ["Costo financiero promedio ponderado", "Suma de (monto × tasa) ÷ monto total financiado", "Trimestral", "Planificador Financiero", "Referencia de seguimiento"],
+      ["Tiempo de respuesta de la banca a una solicitud de renovación", "Fecha de respuesta − fecha de solicitud", "Por evento", "Gerente de Tesorería", "Referencia de relación bancaria"]
+     ]
+    }
+   },
+
+   "13.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la afiliación del cliente a crédito, la debida diligencia y el análisis de riesgo mediante la matriz de riesgo, la definición y aprobación de la línea de crédito, y el control de crédito sobre los pedidos (bloqueo por saldo vencido). No incluye la gestión de cobro en sí una vez otorgado el crédito (proceso 13.6), que es el paso siguiente.",
+     "nota_estado": "Este proceso es híbrido: la afiliación y el análisis de riesgo de un cliente local ya se apoyan en un formulario estructurado y, recientemente, en inteligencia artificial que simula el criterio de un director de riesgo; pero la evaluación de un cliente internacional se reconoce explícitamente por el propio equipo como \"un acto de fe\", sin comité de crédito ni umbral de aprobación escalonado por monto."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) Comercial y fuerza de ventas", "texto": "Completa en LARK el formulario de afiliación del cliente con sus datos, el documento de relación comercial firmado y los soportes requeridos."},
+      {"id": "a2", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Realiza la debida diligencia y el análisis de riesgo del cliente, hoy apoyado con IA en la evaluación de clientes locales para estimar su perfil de riesgo."},
+      {"id": "a3", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Define la línea de crédito propuesta (monto y plazo) según el resultado del análisis de riesgo."},
+      {"id": "a4", "rol": "Gerente de Tesorería", "texto": "Aprueba la línea de crédito o la escala a un nivel superior cuando el monto o el perfil de riesgo lo amerita."},
+      {"id": "a5", "rol": "Analista de Cuentas por Cobrar", "texto": "Crea el cliente en el ERP con la línea aprobada y aplica el control de bloqueo automático por saldo vencido en pedidos futuros."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) Comercial y fuerza de ventas", "Coordinador(a) de Tesorería / Cobranzas", "Gerente de Tesorería", "Analista de Cuentas por Cobrar"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) Comercial y fuerza de ventas", "tipo": "inicio", "n": "Solicitud de afiliación o de una nueva línea de crédito de un cliente"},
+       {"id": "n1", "carril": "Coordinador(a) Comercial y fuerza de ventas", "tipo": "tarea", "n": "Completar el formulario de afiliación con el documento de relación comercial"},
+       {"id": "n2", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Realizar la debida diligencia y el análisis de riesgo del cliente"},
+       {"id": "n3", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "decision", "n": "¿Es un cliente internacional sin matriz de riesgo formal?"},
+       {"id": "n3alt", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Evaluar con el criterio disponible, sin comité de crédito formal"},
+       {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Definir la línea de crédito propuesta"},
+       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "decision", "n": "¿El monto o el riesgo requiere escalar la aprobación?"},
+       {"id": "n5alt", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Escalar la aprobación al siguiente nivel"},
+       {"id": "n6", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Aprobar y crear el cliente con la línea en el ERP"},
+       {"id": "n7", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Cliente creado con línea de crédito aprobada y decisión documentada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5", "a": "n5alt", "etq": "Sí"},
+       {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Evaluación de crédito internacional sin criterio formal", "El propio equipo describe la aprobación de un cliente internacional como \"un acto de fe\", sin contrato posible por diferencias de legislación entre países.", "Alta", "Alto", "Adaptar la matriz de riesgo local (marco de las 5 C del crédito) a un formato mínimo viable para clientes internacionales."],
+      ["Sin comité de crédito ni umbral de aprobación escalonado por monto", "Un manual de crédito con comité formal se redactó y quedó archivado por no ajustarse al nivel de formalidad de la organización en ese momento.", "Media", "Alto", "Retomar el manual de crédito ya redactado, adaptado a la escala actual, con umbrales de aprobación por monto."],
+      ["Dependencia de una sola persona para el análisis de riesgo", "La evaluación de crédito recae en un único coordinador por país, sin respaldo documentado.", "Media", "Medio", "Documentar el procedimiento de análisis de riesgo (incluido el uso de IA) para que no dependa de una sola persona."],
+      ["Uso de IA para análisis de riesgo sin plantilla estandarizada", "El análisis de riesgo con IA se hace con un criterio que el propio analista reconoce que aún no ha convertido en plantilla repetible.", "Baja", "Medio", "Estandarizar el criterio de análisis de riesgo con IA como plantilla reutilizable y documentada."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de aprobación de una solicitud de crédito", "Fecha de aprobación − fecha de la solicitud en LARK", "Por solicitud", "Coordinador(a) de Tesorería / Cobranzas", "Referencia de servicio"],
+      ["Clientes con documento de relación comercial completo", "Clientes con documento ÷ total de clientes afiliados a crédito", "Mensual", "Analista de Cuentas por Cobrar", "100%"],
+      ["Pedidos bloqueados por saldo vencido resueltos antes del despacho", "Pedidos resueltos ÷ total de pedidos bloqueados", "Mensual", "Coordinador(a) de Tesorería / Cobranzas", "Referencia de control de crédito"]
+     ]
+    }
+   },
+   "13.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el registro y la aplicación de los cobros multi-instrumento (con tasa del día e indexación en Venezuela), la gestión y el seguimiento de la cartera por antigüedad, la emisión de estados de cuenta, el escalamiento de saldos vencidos, el informe de morosidad y el tratamiento de notas de crédito/débito e incobrables. No incluye la aprobación de la línea de crédito en sí (proceso 13.5), que es el paso anterior.",
+     "nota_estado": "Este proceso es híbrido, con una brecha real de digitalización en Venezuela —el manejo físico de soportes de pago que traslada la fuerza de ventas retrasa la conciliación, y ya tiene un diagnóstico y un plan de acción propios— y una limitación estructural en Panamá: el sistema no distingue con claridad los clientes de crédito de los de contado, lo que impide calcular con precisión la rotación de cartera aunque sí se calcula la morosidad."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Analista de Cuentas por Cobrar", "texto": "Recibe el comprobante de pago del cliente (transferencia, ACH, enlace de pago o depósito) y lo coteja contra el movimiento bancario antes de registrarlo."},
+      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Registra el cobro y lo concilia (emparejamiento) contra las facturas abiertas del cliente, aplicando la tasa del día cuando corresponde."},
+      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Procesa la nota de crédito o de débito solicitada, según el motivo (garantía, descuento comercial, ajuste de otro departamento) y su aprobación previa."},
+      {"id": "a4", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Da seguimiento a la cartera por antigüedad y por vendedor, comparte el reporte con la fuerza de ventas y escala los saldos vencidos."},
+      {"id": "a5", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Emite el informe de morosidad periódico y evalúa, junto con la Dirección, los saldos que se consideran incobrables."}
+     ],
+     "diagrama": {
+      "carriles": ["Analista de Cuentas por Cobrar", "Coordinador(a) de Tesorería / Cobranzas"],
+      "nodos": [
+       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Emisión de una factura a crédito o recepción de un cobro"},
+       {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Cotejar el comprobante de pago contra el movimiento bancario"},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿El monto coincide exactamente con lo transferido?"},
+       {"id": "n2alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar la diferencia (cargo bancario intermediario) y documentar la partida"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Registrar el cobro y conciliarlo contra las facturas abiertas"},
+       {"id": "n4", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Hay una solicitud de nota de crédito o de débito asociada?"},
+       {"id": "n4alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Procesar la nota de crédito o de débito según el motivo aprobado"},
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Actualizar la cartera por antigüedad y compartirla con la fuerza de ventas"},
+       {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Escalar los saldos vencidos y emitir el informe de morosidad"},
+       {"id": "n7", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Cobro aplicado, cartera actualizada y conciliada, informe de morosidad emitido"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5", "etq": "No"}, {"de": "n4", "a": "n4alt", "etq": "Sí"},
+       {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Manejo físico de soportes de pago en Venezuela", "El traslado en papel de comprobantes de pago, retenciones y transferencias por la fuerza de ventas retrasa la conciliación e incrementa el riesgo de extravío — hallazgo con diagnóstico y plan de acción propios.", "Alta", "Alto", "Ejecutar el plan de acción ya definido: digitalización de soportes, con Ventas cargando el comprobante y el tipo de transacción directamente al sistema."],
+      ["Rotación de cartera no calculable con precisión en Panamá", "El sistema no distingue con claridad los clientes de crédito de los de contado tras una migración de datos, lo que distorsiona el indicador de rotación.", "Media", "Medio", "Resolver la clasificación crédito/contado en el maestro de clientes para poder calcular la rotación de cartera con un filtro confiable."],
+      ["Confirmaciones de pago sin comprobante previo", "Transacciones no notificadas aparecen primero en el movimiento bancario que en la solicitud de comprobante, obligando a registrar y notificar sin soporte adjunto todavía.", "Media", "Bajo", "Reforzar con los clientes la práctica de enviar el comprobante antes o al momento de la transferencia, no después."],
+      ["Comisión bancaria de enlaces de pago sin validación automática", "El 3% de comisión de los enlaces de pago (SIGMA/WOMPI) se revisa manualmente contra lo indicado por la solicitud, dependiendo de que la gerencia haya comunicado cualquier cambio de porcentaje.", "Baja", "Medio", "Parametrizar el porcentaje de comisión en el sistema en vez de verificarlo manualmente en cada solicitud."],
+      ["Notas de crédito/débito con soporte inconsistente frente al total solicitado", "Cuando el soporte adjunto no coincide con el total de la solicitud, el proceso se detiene y depende de que el vendedor corrija la información.", "Baja", "Bajo", "Mantener el control ya existente de no proceder sin coincidencia exacta entre soporte y solicitud."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Índice de morosidad de la cartera", "Saldo vencido ÷ saldo total de la cartera", "Mensual", "Coordinador(a) de Tesorería / Cobranzas", "<3%"],
+      ["Efectividad de cobranza mensual", "Monto cobrado ÷ monto proyectado a cobrar", "Mensual", "Coordinador(a) de Tesorería / Cobranzas", "≥80-85%"],
+      ["Tiempo de aplicación del pago", "Fecha de aplicación del cobro − fecha de recepción del comprobante", "Por cobro", "Analista de Cuentas por Cobrar", "Mismo día"],
+      ["Rotación de cartera (días)", "(Cuentas por cobrar promedio de clientes a crédito ÷ ventas a crédito) × 365", "Mensual", "Coordinador(a) de Tesorería / Cobranzas", "Referencia de seguimiento (pendiente de depurar en Panamá)"]
+     ]
+    }
+   },
+
+   "13.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la conciliación periódica de los saldos y operaciones entre las compañías del grupo (compras a Kenex, repatriaciones y notas), emparejando las cuentas por pagar y por cobrar entre países hasta cuadrar al detalle. No incluye el registro de cada operación en sí (procesos 13.1/13.6), del que este proceso parte.",
+     "nota_estado": "Este proceso es híbrido: dependía hasta hace poco de una sola persona sin visibilidad cruzada entre países, lo que dejó saldos intercompañía sin aplicar por montos significativos durante un período prolongado; hoy se concilia de forma directa entre las cuentas por pagar y por cobrar de cada país, con apoyo de inteligencia artificial para acelerar el cruce de cientos de transacciones."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Analista de Cuentas por Cobrar", "texto": "Descarga el estado de cuenta intercompañía de cada país (compras a Kenex Trading, repatriaciones, notas) para el período a conciliar."},
+      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Cruza las facturas y los pagos entre las cuentas por pagar y por cobrar de las entidades relacionadas, apoyándose en IA para el cruce de grandes volúmenes de transacciones."},
+      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Identifica las diferencias (facturas no aplicadas, duplicadas o de período distinto) y determina si son de timing o requieren ajuste."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Aplica el patrón acordado entre países para dejar abiertas solo las facturas más recientes y cerrar el resto del saldo."},
+      {"id": "a5", "rol": "Gerente de Tesorería", "texto": "Confirma el saldo intercompañía cuadrado al centavo con la contraparte de cada país."}
+     ],
+     "diagrama": {
+      "carriles": ["Analista de Cuentas por Cobrar", "Gerente de Contabilidad / Administración", "Gerente de Tesorería"],
+      "nodos": [
+       {"id": "n0", "carril": "Analista de Cuentas por Cobrar", "tipo": "inicio", "n": "Cierre de período o detección de un descuadre en cuentas de compañías relacionadas"},
+       {"id": "n1", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Descargar el estado de cuenta intercompañía de cada país"},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Cruzar facturas y pagos entre las cuentas por pagar y por cobrar de las entidades relacionadas"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Hay diferencias entre lo que reporta cada país?"},
+       {"id": "n3alt", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Identificar si la diferencia es de timing o requiere ajuste"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aplicar el patrón acordado para dejar abiertas solo las facturas más recientes"},
+       {"id": "n5", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Confirmar el saldo intercompañía cuadrado con la contraparte"},
+       {"id": "n6", "carril": "Gerente de Tesorería", "tipo": "fin", "n": "Saldos intercompañía conciliados y cuadrados entre las entidades del grupo"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Historial de conciliación dependiente de una sola persona sin visibilidad cruzada", "Antes de la administración actual, un solo puesto administrativo manejaba la cuenta intercompañía sin que las partes supieran con certeza si se estaba pagando o no.", "Media", "Alto", "Mantener la conciliación intercompañía como responsabilidad compartida y periódica, no dependiente de una sola persona."],
+      ["Saldos cruzados (crédito y débito) dentro de la misma compañía por error de aplicación", "Se encontraron millones en crédito y millones en débito dentro de la misma cuenta intercompañía por pagos no aplicados correctamente, una situación que tomó dos meses en depurar.", "Alta", "Alto", "Aplicar el patrón ya validado (dejar abiertas solo las facturas más recientes) de forma preventiva, no solo correctiva."],
+      ["Estructura triangular de facturación sin trazabilidad directa", "Una factura de Basaidai a Casiolandia no necesariamente corresponde a una sola orden de Kenex, sino a varias facturas pequeñas atadas a un mismo pedido, complicando el cruce manual.", "Media", "Medio", "Mantener el apoyo de IA para el cruce de órdenes de compra fragmentadas, ya validado como efectivo."],
+      ["Sin mecanismo formal de conciliación institucionalizado con todos los países", "La conciliación con Costa Rica y Colombia se resolvió recientemente, pero no hay evidencia de una periodicidad fija con todos los países del grupo.", "Baja", "Medio", "Definir una periodicidad y un responsable fijo de la conciliación intercompañía con cada país del grupo."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Saldos intercompañía conciliados al cierre del período", "Saldos conciliados ÷ total de saldos intercompañía", "Mensual", "Gerente de Contabilidad / Administración", "100%"],
+      ["Diferencia intercompañía sin explicar al cierre", "Monto de diferencia sin explicar por país", "Mensual", "Gerente de Tesorería", "$0"],
+      ["Tiempo de conciliación intercompañía por país", "Fecha de cierre de la conciliación − fecha de inicio del cruce", "Por país", "Analista de Cuentas por Cobrar", "Referencia de eficiencia (mejorada con apoyo de IA)"]
+     ]
+    }
+   },
+
+   "13.8": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la elaboración de proyecciones y de la situación financiera a partir de los cierres contables, el análisis de rentabilidad y de márgenes (incluido el efecto cambiario) y la preparación de la reportería financiera a la Junta y a la banca. No incluye el cierre contable en sí (proceso 12.8), del que este proceso parte, ni la gestión presupuestaria en sí (proceso 13.9), con la que se coordina.",
+     "nota_estado": "Este proceso es híbrido: la reportería a la Junta y al Comité de Finanzas ya es una disciplina quincenal consolidada, pero el análisis de margen tiene que absorber un efecto cambiario real en Venezuela que puede distorsionar la comparación entre períodos si no se ajusta a una tasa comparable."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Contabilidad / Administración", "texto": "Entrega los insumos del cierre contable del período (estados financieros, cuentas de balance) al Planificador Financiero."},
+      {"id": "a2", "rol": "Planificador Financiero", "texto": "Elabora la situación financiera y la proyección del período, ajustando el análisis de margen al efecto del diferencial cambiario cuando aplica."},
+      {"id": "a3", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Aporta el flujo de caja proyectado y el estado de la cartera como insumo de la reportería."},
+      {"id": "a4", "rol": "Planificador Financiero", "texto": "Presenta la situación financiera y el análisis de resultados al Comité de Finanzas."},
+      {"id": "a5", "rol": "Junta Directiva", "texto": "Recibe el paquete de reportería y las decisiones que requieren su aprobación."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Contabilidad / Administración", "Planificador Financiero", "Coordinador(a) de Tesorería / Cobranzas", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Cierre contable del período o requerimiento de la Junta o de la banca"},
+       {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Entregar los insumos del cierre contable"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Elaborar la situación financiera y la proyección del período"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿El análisis de margen requiere ajuste por efecto cambiario?"},
+       {"id": "n3alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Ajustar el análisis de margen a una tasa de cambio comparable"},
+       {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Incorporar el flujo de caja proyectado y el estado de la cartera"},
+       {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Presentar la situación financiera al Comité de Finanzas"},
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "fin", "n": "Situación financiera, proyecciones y análisis de resultados presentados a la dirección"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Comparación entre períodos distorsionada por el efecto cambiario", "Sin ajustar a una tasa comparable, una variación puede reflejar solo el efecto de la devaluación y no un cambio real del negocio.", "Media", "Alto", "Mantener el ajuste a valores comparables como paso obligatorio del análisis de margen en Venezuela."],
+      ["Reportería dependiente de que el cierre contable esté completo", "Si el cierre de Contabilidad se retrasa (ver proceso 12.8), la situación financiera para la Junta también se retrasa o se presenta incompleta.", "Media", "Alto", "Alinear el calendario de este proceso con la meta de cierre contable de cinco días (proceso 12.8)."],
+      ["Dependencia de una sola persona para el análisis financiero regional", "El Planificador Financiero concentra el análisis y la presentación a la Junta sin un respaldo documentado.", "Baja", "Medio", "Formar un respaldo para el análisis financiero antes de la temporada de cierre anual."],
+      ["Formato de reportería sin homologar entre países", "Cada país arma su propia hoja de cálculo para presentar variaciones y proyecciones, sin una plantilla regional común (ver también proceso 12.9).", "Media", "Medio", "Definir una plantilla común de reportería financiera regional, coordinada con Contabilidad."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Situación financiera presentada dentro del plazo del Comité de Finanzas", "Presentaciones a tiempo ÷ total de sesiones del Comité de Finanzas", "Quincenal", "Planificador Financiero", "100%"],
+      ["Variación de margen explicada por efecto cambiario vs. efecto de negocio", "Variación total − variación atribuible al diferencial cambiario", "Mensual", "Planificador Financiero", "Referencia de análisis"],
+      ["Paquetes de información a la banca entregados dentro del plazo solicitado", "Paquetes a tiempo ÷ total de paquetes solicitados", "Por evento", "Planificador Financiero", "100%"]
+     ]
+    }
+   },
+
+   "13.9": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la formulación del presupuesto operativo del grupo, el seguimiento de presupuesto frente a ejecución y el control del gasto por centro de costo y por rubro, con la clasificación analítica del gasto. No incluye el registro contable del gasto en sí (macro 12, Contabilidad), del que este proceso toma la clasificación por centro de costo ya aplicada en el registro.",
+     "nota_estado": "Este proceso es híbrido: la formulación anual y el seguimiento mensual ya ocurren, pero el seguimiento de ejecución depende de una clasificación analítica del gasto hecha manualmente por Contabilidad, sin un reporte estándar de desviaciones homologado entre países."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Planificador Financiero", "texto": "Convoca a los líderes de área para la formulación del presupuesto operativo del ciclo anual."},
+      {"id": "a2", "rol": "líderes de área", "texto": "Presentan su propuesta de presupuesto por centro de costo y por rubro."},
+      {"id": "a3", "rol": "Planificador Financiero", "texto": "Consolida el presupuesto del grupo y lo somete a la Junta Directiva para su aprobación."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Clasifica el gasto real por centro de costo y por rubro al cierre de cada mes."},
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Compara la ejecución contra el presupuesto y reporta las desviaciones a los líderes de área y a la Junta."}
+     ],
+     "diagrama": {
+      "carriles": ["Planificador Financiero", "líderes de área", "Gerente de Contabilidad / Administración", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Planificador Financiero", "tipo": "inicio", "n": "Inicio del ciclo presupuestario anual o revisión periódica de la ejecución"},
+       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Convocar a los líderes de área para la formulación del presupuesto"},
+       {"id": "n2", "carril": "líderes de área", "tipo": "tarea", "n": "Presentar la propuesta de presupuesto por centro de costo y por rubro"},
+       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Consolidar el presupuesto del grupo"},
+       {"id": "n4", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar el presupuesto del grupo"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Clasificar el gasto real por centro de costo al cierre de cada mes"},
+       {"id": "n6", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿La ejecución se desvía significativamente del presupuesto?"},
+       {"id": "n6alt", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Reportar la desviación al líder de área y a la Junta"},
+       {"id": "n7", "carril": "Planificador Financiero", "tipo": "fin", "n": "Presupuesto aprobado y reporte de ejecución y de desviaciones por centro de costo"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7", "etq": "No"}, {"de": "n6", "a": "n6alt", "etq": "Sí"}, {"de": "n6alt", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Clasificación analítica del gasto hecha manualmente", "El centro de costo de cada gasto se asigna a mano al momento del registro contable, con riesgo de error o inconsistencia entre países.", "Media", "Medio", "Reforzar la distribución analítica como campo obligatorio validado en el registro contable (ver proceso 12.1)."],
+      ["Sin reporte estándar de desviaciones homologado entre países", "Cada país reporta su ejecución presupuestaria con su propio formato, dificultando la comparación regional.", "Media", "Medio", "Definir un formato común de seguimiento de ejecución presupuestaria por centro de costo entre los países."],
+      ["Formulación anual sin un proceso de revisión intermedia documentado", "No hay evidencia de un ajuste formal a mitad de año cuando las condiciones del negocio cambian significativamente (ej. devaluación acelerada).", "Baja", "Medio", "Evaluar un mecanismo de revisión presupuestaria intermedia ante eventos significativos del entorno."],
+      ["Presupuesto aprobado sin trazabilidad de los supuestos usados", "No hay evidencia documentada de los supuestos (tasa de cambio, crecimiento de venta) usados para formular el presupuesto, dificultando explicar una desviación después.", "Baja", "Bajo", "Documentar los supuestos macro y de negocio usados en cada ciclo de formulación presupuestaria."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Desviación del gasto real vs. presupuestado por centro de costo", "(Gasto real − gasto presupuestado) ÷ gasto presupuestado", "Mensual", "Planificador Financiero", "Referencia de control (umbral a definir por rubro)"],
+      ["Presupuesto formulado y aprobado dentro del calendario anual", "Fecha de aprobación − fecha objetivo del calendario", "Anual", "Planificador Financiero", "A tiempo"],
+      ["Centros de costo con clasificación analítica completa", "Centros de costo clasificados ÷ total de centros de costo activos", "Mensual", "Gerente de Contabilidad / Administración", "100%"]
      ]
     }
    }
