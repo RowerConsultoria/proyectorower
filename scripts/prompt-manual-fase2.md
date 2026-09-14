@@ -22,7 +22,7 @@ como anexo de lectura obligatoria).
    que sea el propio criterio de quien redacta el que decida cuáles son
    prioritarias según lo que efectivamente digan sobre el macroproceso, no
    según en qué carpeta quedaron archivadas — + documentación de Lark
-   relevante en `Insumos/Documentación/<país>/<área>/` + buenas prácticas de
+   relevante en `Insumos/Documentación de Lark/<país>/<área>/` + buenas prácticas de
    fuentes profesionales/académicas (WebSearch, filtrando sitios no
    verificados) + `Insumos/estructura-patron-cargos-v4.json` para la
    denominación de cargos (ver §1.1 — es un derivado del Excel V4 original,
