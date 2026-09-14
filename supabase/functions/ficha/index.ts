@@ -10,6 +10,13 @@
 // token contra la tabla con la clave de servicio, siguiendo el mismo
 // precedente que la función `indexar` (--no-verify-jwt, cierre en el código).
 //
+// El token muere por tres vías, y las tres se comprueban en CADA llamada:
+// revocado, vencido (45 días) o su titular dado de baja del censo
+// (`personal.activo = false`). Ver puerta().
+//
+// Comprobaciones (sin credenciales, con un `fetch` falso):
+//   deno test --allow-env --allow-read scripts/comprobar-ficha.ts
+//
 // Entrada:  POST { accion, token, ... }
 //   abrir     { token }                          → { tipo, persona, equipo? }
 //   cargar    { token, persona_id }               → { persona, ficha }
@@ -70,17 +77,57 @@ async function sbJson(ruta: string, init: RequestInit = {}): Promise<unknown> {
    Token
    ============================================================ */
 
-/** Valida el token en cada llamada (revocar surte efecto de inmediato). */
-async function resolverToken(token: string): Promise<Token | null> {
-  if (!token || typeof token !== "string") return null;
+const MSG_INVALIDO = "Este enlace no es válido o ya expiró.";
+const MSG_INACTIVA = "Este enlace ya no está activo: la persona que lo recibió " +
+  "salió del censo. Si crees que es un error, avisa a quien te lo compartió.";
+
+/** O el token vigente, o la respuesta con la que se rechaza al llamante. */
+type Puerta = { t: Token } | { rechazo: Response };
+
+/**
+ * La única puerta de la función. Valida en CADA llamada que el token exista,
+ * no esté revocado, no esté vencido y que **su titular siga activo en el
+ * censo** — así revocar o dar de baja surte efecto de inmediato, incluso con
+ * la página ya abierta y a medio llenar.
+ *
+ * ⚠️ Lo de `activo` vive aquí y no en cada acción a propósito: si el guardia
+ * se repitiera en las cuatro, la quinta que alguien añada nacería abierta. Por
+ * lo mismo devuelve la Response de rechazo en vez de un booleano: no hay forma
+ * de quedarse con el token sin haber atendido antes el rechazo.
+ *
+ * Cuesta una consulta más por llamada — búsqueda por clave primaria, al lado
+ * de las 2-3 que ya hace cada acción —. Se podría ahorrar embebiendo
+ * `personal` en el select del token, pero eso ata la puerta a que PostgREST
+ * resuelva la relación por nombre, y un fallo ahí cierra la ficha para todo el
+ * mundo: no vale el riesgo por un viaje.
+ */
+async function puerta(b: Record<string, unknown>): Promise<Puerta> {
+  const token = String(b.token ?? "");
+  const noVale = { rechazo: json({ error: MSG_INVALIDO }, 401) };
+  if (!token) return noVale;
+
   const filas = await sbJson(
     `/rest/v1/fichas_tokens?token=eq.${encodeURIComponent(token)}&select=*`,
   ) as Token[];
   const t = filas[0];
-  if (!t) return null;
-  if (t.revocado) return null;
-  if (new Date(t.expira_en).getTime() < Date.now()) return null;
-  return t;
+  if (!t) return noVale;
+  if (t.revocado) return noVale;
+  if (new Date(t.expira_en).getTime() < Date.now()) return noVale;
+
+  /* Dar de baja a alguien desde el panel ya revoca sus enlaces, así que lo
+     normal es que este caso muera en el `t.revocado` de arriba. Esto lo cierra
+     igual para lo que la revocación no alcanza: un `activo=false` puesto por
+     SQL, por el importador, o por una versión del panel anterior a sep-2026.
+     El titular es la persona del token: en un enlace de equipo, el gerente
+     —sus reportes los filtra ambito() por su cuenta—. */
+  const titular = await sbJson(
+    `/rest/v1/personal?id=eq.${t.persona_id}&select=activo`,
+  ) as Array<{ activo: boolean }>;
+  if (!titular.length || titular[0].activo === false) {
+    return { rechazo: json({ error: MSG_INACTIVA }, 403) };
+  }
+
+  return { t };
 }
 
 async function marcarUso(t: Token): Promise<void> {
@@ -104,8 +151,9 @@ async function ambito(t: Token): Promise<string[]> {
    ============================================================ */
 
 async function abrir(b: Record<string, unknown>): Promise<Response> {
-  const t = await resolverToken(String(b.token ?? ""));
-  if (!t) return json({ error: "Este enlace no es válido o ya expiró." }, 401);
+  const p = await puerta(b);
+  if ("rechazo" in p) return p.rechazo;
+  const t = p.t;
   await marcarUso(t);
 
   const idsAmbito = await ambito(t);
@@ -141,8 +189,9 @@ async function abrir(b: Record<string, unknown>): Promise<Response> {
 }
 
 async function cargar(b: Record<string, unknown>): Promise<Response> {
-  const t = await resolverToken(String(b.token ?? ""));
-  if (!t) return json({ error: "Este enlace no es válido o ya expiró." }, 401);
+  const p = await puerta(b);
+  if ("rechazo" in p) return p.rechazo;
+  const t = p.t;
   const personaId = String(b.persona_id ?? "");
   const idsAmbito = await ambito(t);
   if (!idsAmbito.includes(personaId)) {
@@ -182,8 +231,9 @@ async function upsertFicha(personaId: string, campos: Record<string, unknown>, q
 }
 
 async function guardar(b: Record<string, unknown>): Promise<Response> {
-  const t = await resolverToken(String(b.token ?? ""));
-  if (!t) return json({ error: "Este enlace no es válido o ya expiró." }, 401);
+  const p = await puerta(b);
+  if ("rechazo" in p) return p.rechazo;
+  const t = p.t;
   const personaId = String(b.persona_id ?? "");
   const idsAmbito = await ambito(t);
   if (!idsAmbito.includes(personaId)) {
@@ -214,8 +264,9 @@ function faltantes(f: Record<string, unknown>): string[] {
 }
 
 async function completar(b: Record<string, unknown>): Promise<Response> {
-  const t = await resolverToken(String(b.token ?? ""));
-  if (!t) return json({ error: "Este enlace no es válido o ya expiró." }, 401);
+  const p = await puerta(b);
+  if ("rechazo" in p) return p.rechazo;
+  const t = p.t;
   const personaId = String(b.persona_id ?? "");
   const idsAmbito = await ambito(t);
   if (!idsAmbito.includes(personaId)) {
