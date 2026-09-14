@@ -1,10 +1,10 @@
 # Prompt adaptado — Constructor de manuales para el aplicativo (Fase 2)
 
-Adaptación de `Insumos/Prompt_Constructor_Manual_sobre_Mapa.txt` (v4, equipo
-consultor) para que el resultado sea el **JSON de contenido** que consume
+Guía para redactar el contenido de cada macroproceso del Manual de Procesos
+de Fase 2 directamente como el **JSON de contenido** que consume
 `informe/fase2/manual-contenido.js`, en vez de un documento Word + archivos
-`.bpmn` sueltos. Conserva toda la metodología del prompt original; cambia
-el formato de salida y quita lo que solo aplicaba a Word (portada, aviso de
+`.bpmn` sueltos. Conserva la misma metodología de siempre; cambia el
+formato de salida y quita lo que solo aplicaba a Word (portada, aviso de
 confidencialidad como página, especificación editorial, glosario al final
 como anexo de lectura obligatoria).
 
@@ -16,12 +16,7 @@ como anexo de lectura obligatoria).
    documentar (ya lo está — es la fuente de `manual-procesos-datos.js`).
 2. Insumos por macroproceso: la porción del mapa (ya en el `.js`) +
    revisión del **corpus completo** de entrevistas en
-   `Insumos/Entrevistas_dialogo_limpio/` — no limitarse a la carpeta
-   agrupada por macroproceso (`Entrevistas_dialogo_limpio_agrupadas/`), que
-   ya ha tenido errores de clasificación; revisar todas las entrevistas y
-   que sea el propio criterio de quien redacta el que decida cuáles son
-   prioritarias según lo que efectivamente digan sobre el macroproceso, no
-   según en qué carpeta quedaron archivadas — + documentación de Lark
+   `Insumos/Entrevistas_dialogo_limpio/` + documentación de Lark
    relevante en `Insumos/Documentación de Lark/<país>/<área>/` + buenas prácticas de
    fuentes profesionales/académicas (WebSearch, filtrando sitios no
    verificados) + `Insumos/estructura-patron-cargos-v4.json` para la
@@ -293,10 +288,3 @@ procesos** (permiso `admin.validacion`).
 - Un dueño que es **personal de línea** (un asesor, un ayudante) hace que la
   propuesta escale automáticamente a su gerente — la decisión del equipo es
   que **validan los gerentes en su cargo de gerentes**.
-
-### Reparto de la ronda
-
-Jesús coordina qué macroprocesos entran en cada oleada (van por macroproceso
-completo, no proceso a proceso) y Clemencia valida el reparto con los
-gerentes de Kenex antes de mandar los enlaces — es contacto directo con el
-cliente, no debe salir del equipo sin que ella lo sepa.

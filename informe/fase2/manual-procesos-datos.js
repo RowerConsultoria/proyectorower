@@ -5,7 +5,7 @@
 window.MANUAL_FASE2 = {
  "meta": {
   "version": "v18",
-  "generado": "2026-09-09",
+  "generado": "2026-09-14",
   "fuenteMapa": "Mapa de Procesos Actualizado v18 — validado por el equipo consultor",
   "niveles": "N0 (macroprocesos) y N1 (procesos). Sin N2: los procedimientos quedaron fuera del alcance de la Fase 2.",
   "totales": {
@@ -213,7 +213,7 @@ window.MANUAL_FASE2 = {
       "cadencia": "Anual (primera quincena del año); revisión formal de avance semestral como deber ser",
       "disparador": "Inicio del ciclo anual del grupo; cambio relevante del entorno o del portafolio de marcas",
       "output": "Plan estratégico a tres años aprobado, documentado y comunicado a la primera línea gerencial",
-      "fuentes": "E-01 Bernardo Roizental F1 (2026-06-16) — líneas 35-37, 52-58, 61-63; E-20 Máximo Dolman F1 (2026-07-07) — líneas 4, 29-31; E-12 Carmela Iribarren F1 (2026-07-09) — línea 111; E-26 Presentación Junta Directiva (2026-07-27) — línea 129"
+      "fuentes": "E-01 Bernardo Roizental F1 (2026-06-16) — líneas 35-37, 52-58, 61-63; E-20 Máximo Dolman F1 (2026-07-07) — líneas 4, 29-31; E-12 Carmela Iribarren F1 (2026-07-09) — línea 111"
      },
      "n1": {
       "proposito": {
@@ -294,7 +294,7 @@ window.MANUAL_FASE2 = {
       "cadencia": "Junta Directiva mensual como deber ser; Comité Directivo quincenal; Comité de Finanzas quincenal; comités funcionales mensuales",
       "disparador": "Llegada de la fecha del calendario del órgano, o punto que requiere decisión colegiada elevado por un director o un gerente",
       "output": "Sesión celebrada con agenda cumplida y decisiones registradas con su responsable",
-      "fuentes": "E-01 F1 (2026-06-16) — líneas 126-180; E-12 F1 (2026-07-09) — líneas 57, 63, 65, 71, 75-77; E-20 F1 (2026-07-07) — líneas 65-67, 88; E-23 F1 (2026-07-09) — líneas 33-36; E-26 (2026-07-27) — línea 134"
+      "fuentes": "E-01 F1 (2026-06-16) — líneas 126-180; E-12 F1 (2026-07-09) — líneas 57, 63, 65, 71, 75-77; E-20 F1 (2026-07-07) — líneas 65-67, 88; E-23 F1 (2026-07-09) — líneas 33-36"
      },
      "n1": {
       "proposito": {
@@ -334,7 +334,7 @@ window.MANUAL_FASE2 = {
       "cadencia": "Continua; revisión concentrada al inicio y al cierre de semana, y antes de cada sesión del órgano",
       "disparador": "Decisión tomada en una sesión de gobierno o fuera de ella por el CEO o los directores",
       "output": "Acuerdo registrado con dueño y urgencia, seguido hasta su cierre o su reescalamiento documentado",
-      "fuentes": "E-12 F1 (2026-07-09) — líneas 41, 52-59, 63, 73; E-20 F1 (2026-07-07) — líneas 29-31, 88, 152; E-01 F1 (2026-06-16) — líneas 139-140; E-26 (2026-07-27) — línea 133"
+      "fuentes": "E-12 F1 (2026-07-09) — líneas 41, 52-59, 63, 73; E-20 F1 (2026-07-07) — líneas 29-31, 88, 152; E-01 F1 (2026-06-16) — líneas 139-140"
      },
      "n1": {
       "proposito": {
@@ -7755,7 +7755,7 @@ window.MANUAL_FASE2 = {
       "cadencia": "Continua; revisión formal anual del mapa completo",
       "disparador": "Creación o reorganización de un macroproceso, cambio estructural en la organización, o revisión programada del mapa",
       "output": "Mapa de procesos vigente y aprobado, con el dueño de cada proceso asignado y las fronteras resueltas",
-      "fuentes": "E-26 Presentación del Informe a la Junta Directiva (2026-07-27) — líneas 129, 634-639; E-01 Bernardo Roizental F1 (2026-06-16) — líneas 20-22; E-38 Víctor Padovani VE F2 (2026-08-06) — línea 176"
+      "fuentes": "E-01 Bernardo Roizental F1 (2026-06-16) — líneas 20-22; E-38 Víctor Padovani VE F2 (2026-08-06) — línea 176"
      },
      "n1": {
       "proposito": {
@@ -7914,7 +7914,7 @@ window.MANUAL_FASE2 = {
       "cadencia": "Programada por proceso y por país; sorpresiva en los puntos de control críticos",
       "disparador": "Programación de la revisión del período, o alerta de desviación detectada en la operación o en un indicador",
       "output": "Informe de adherencia con las desviaciones registradas y el plan de corrección acordado con el dueño del proceso",
-      "fuentes": "E-38 Víctor Padovani VE F2 (2026-08-06) — líneas 154-160, 176, 180; E-58 Patrick Corujo F2 (2026-08-19) — línea 40; E-26 (2026-07-27) — línea 133"
+      "fuentes": "E-38 Víctor Padovani VE F2 (2026-08-06) — líneas 154-160, 176, 180; E-58 Patrick Corujo F2 (2026-08-19) — línea 40"
      },
      "n1": {
       "proposito": {
