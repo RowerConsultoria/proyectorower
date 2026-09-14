@@ -819,6 +819,7 @@
             rows.push(['Participantes', '<ul>'+fx.participantes.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
           }
           h += fichaHtml(rows);
+          h += bloqueValidacion(p.codigo);
         } else {
           h += fichaHtml([
             ['Disparador', esc(fx.disparador||'—')],
@@ -1245,10 +1246,62 @@
   });
   $('#btnMenu').addEventListener('click', function(){ document.body.classList.toggle('f2-menu'); });
 
+  // ---------- validadores ----------
+  // Quién validó cada proceso vive en Supabase, no en el repo: es dato que se
+  // mueve con la ronda de validación, no contenido del manual. Se lee de la
+  // vista `v_validadores_proceso`, que expone solo nombre/cargo/entidad de las
+  // asignaciones ya CONFIRMADAS — no el censo, que el rol Junta no puede ver.
+  //
+  // Sin `supabase-js`: un `fetch` al REST con el JWT que ya dejó sesion.js.
+  // Añadir el cliente oficial por CDN a este archivo no compensa por una
+  // consulta. Si falla (sin red, sin permiso) el informe se pinta igual: el
+  // bloque de validación simplemente no aparece.
+  // Mismos valores que supabase/cliente.js y supabase/sesion.js: la clave
+  // publishable es pública por diseño (lo que cierra el dato es la RLS).
+  // Mantenerlos en sintonía con esos dos archivos.
+  var SB_URL = 'https://kmhwqybqrcjhjeywjgxj.supabase.co';
+  var SB_KEY = 'sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1';
+  var VALIDADORES = null;
+
+  function cargarValidadores(){
+    if(!(window.rowerSesion && rowerSesion.tokenVivo)) return Promise.resolve(null);
+    return rowerSesion.tokenVivo().then(function(jwt){
+      if(!jwt) return null;
+      return fetch(SB_URL + '/rest/v1/v_validadores_proceso?select=*', {
+        headers: { apikey: SB_KEY, Authorization: 'Bearer ' + jwt }
+      }).then(function(r){ return r.ok ? r.json() : null; });
+    }).catch(function(){ return null; });
+  }
+
+  function validadoresDe(codigo){
+    if(!VALIDADORES) return [];
+    return VALIDADORES.filter(function(v){ return v.proceso === codigo; });
+  }
+
+  /** El bloque que se cuela en la sección «Dueño y participantes». */
+  function bloqueValidacion(codigo){
+    var vs = validadoresDe(codigo);
+    if(!vs.length) return '';
+    var enviadas = vs.filter(function(v){ return v.estado_validacion === 'enviada'; });
+    var quien = vs.map(function(v){
+      return '<li>' + esc(v.nombre) + ' <span class="tenue">· ' + esc(v.cargo || 'sin cargo') +
+             (v.entidad ? ' · ' + esc(v.entidad) : '') + '</span></li>';
+    }).join('');
+    var rotulo = enviadas.length === vs.length
+      ? 'Validado por'
+      : (enviadas.length ? 'En validación (' + enviadas.length + ' de ' + vs.length + ')' : 'Pendiente de validar por');
+    return fichaHtml([[rotulo, '<ul>' + quien + '</ul>']]);
+  }
+
   // ---------- arranque ----------
   pintarNav();
   window.addEventListener('hashchange', router);
   router();
+  cargarValidadores().then(function(datos){
+    if(!datos || !datos.length) return;
+    VALIDADORES = datos;
+    router();                    // repinta con el bloque ya disponible
+  });
 })();
 </script>
 </body>
