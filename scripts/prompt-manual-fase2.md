@@ -244,3 +244,59 @@ del texto visible.
 
 No hace falta preocuparse por mayúsculas en los títulos de macroproceso o
 proceso — el aplicativo los capitaliza automáticamente.
+
+---
+
+## 10. Después de redactar: la ronda de validación con los gerentes
+
+**Esto NO lo hace quien redacta el manual, pero sí depende de que el manual
+esté terminado.** Va aquí para que nadie lo dé por hecho.
+
+Un macroproceso redactado todavía no está validado. Lo que la Junta va a
+preguntar es *«¿quién de Kenex dijo que esto es así?»*, y la respuesta tiene
+que ser una persona con nombre, no «el equipo consultor lo levantó de las
+entrevistas». Esa ronda se gestiona en el panel: **Admin → Validación de
+procesos** (permiso `admin.validacion`).
+
+### Qué hay que hacer, en orden
+
+1. **Correr `python scripts/cargar-validacion.py`** cada vez que se publique
+   un macroproceso nuevo. Proyecta los procesos redactados a la base y
+   propone, para cada uno, qué persona real del censo debería validarlo
+   —cruzando el dueño que el mapa v18 dejó como texto libre contra los
+   cargos de `personal`—. Volver a correrlo es seguro: no deshace nada de
+   lo que ya se confirmó a mano.
+2. **Confirmar o corregir cada propuesta en el panel.** Esto es lo que hay
+   que hacer y no se puede saltar: lo que el guion siembra son **propuestas**,
+   no asignaciones, y **una propuesta sin confirmar no le llega a nadie**.
+   El dueño del mapa v18 viene con errores de una sustitución automática
+   («Gerente de Proyectoss (PMO)»), así que hay propuestas equivocadas.
+   Confirmar es `✓`; el `⋯` de cada fila abre la gestión completa —deshacer
+   una confirmación equivocada, quitar a alguien, o elegir a otra persona
+   del censo con el buscador—.
+3. **Generar los enlaces** (botón «🔗 enlaces») y repartirlos. Son enlaces
+   opacos de 45 días, revocables, y **no hay correo automático**: se exportan
+   a CSV y se reparten a mano, igual que los de la ficha de perfil.
+4. El gerente entra sin cuenta, ve sus procesos, marca cada bloque como
+   correcto o con observaciones, y puede comentar **un paso concreto** del
+   flujo. Lo que devuelve se lee en el mismo módulo del panel.
+
+### Por qué importa para quien redacta
+
+- **El validador sale publicado en el informe de Fase 2**, dentro de la
+  sección «Dueño y participantes» de cada proceso (`#/p/<codigo>`). Mientras
+  nadie esté confirmado, ahí no aparece nada.
+- Un proceso cuyo dueño en el mapa v18 esté mal escrito o sea un cargo que
+  no existe en el censo **no se puede asignar sin trabajo manual**. Si al
+  redactar detectas que la ficha del mapa trae un dueño dudoso, dilo en el
+  mensaje de cierre: ahorra tiempo en esta ronda.
+- Un dueño que es **personal de línea** (un asesor, un ayudante) hace que la
+  propuesta escale automáticamente a su gerente — la decisión del equipo es
+  que **validan los gerentes en su cargo de gerentes**.
+
+### Reparto de la ronda
+
+Jesús coordina qué macroprocesos entran en cada oleada (van por macroproceso
+completo, no proceso a proceso) y Clemencia valida el reparto con los
+gerentes de Kenex antes de mandar los enlaces — es contacto directo con el
+cliente, no debe salir del equipo sin que ella lo sepa.

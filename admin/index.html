@@ -318,6 +318,84 @@
     .toolbar{gap:8px;}
     .toast{left:16px; right:16px; bottom:16px; text-align:center;}
   }
+
+  /* ============================================================
+     Tablas densas (módulo «Validación de procesos»)
+     ============================================================
+     Dos densidades sobre la misma tabla. Las alturas siguen la escala de
+     Carbon —32px compacta, 40px cómoda— y en ambas el texto se queda en
+     12.5px: achicar la letra no es densificar, es empeorar la lectura.
+     `--alto-fila` la fija el JS según la preferencia guardada. */
+  .densa{--pad-y:9px; --pad-x:12px;}
+  .densa[data-densidad="compacta"]{--pad-y:4px; --pad-x:10px;}
+  .densa table.tabla{table-layout:fixed;}           /* columnas estables entre grupos */
+  .densa table.tabla tbody td{padding:var(--pad-y) var(--pad-x);}
+  .densa table.tabla thead th{padding:calc(var(--pad-y) + 1px) var(--pad-x);}
+
+  /* Una línea y elipsis. El texto íntegro va en `title`: filas multilínea
+     rompen el ritmo vertical que hace rápido el escaneo. */
+  .recorta{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:0;}
+
+  /* Segunda línea de una celda (el correo bajo el nombre): en compacta
+     desaparece y la fila baja de dos líneas a una. El dato no se pierde —
+     sigue en el `title` de la celda y en la ficha de la persona. */
+  .densa[data-densidad="compacta"] .solo-comoda{display:none;}
+
+  /* Fila de grupo (macroproceso) dentro del MISMO tbody, para no partir la
+     tabla en 20 tablas con anchos divergentes. */
+  tr.grupo td{
+    background:var(--panel-alto); font-weight:700; font-size:11px;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--tinta-tenue);
+    border-bottom:1px solid var(--borde); cursor:pointer; user-select:none;
+    position:sticky; top:32px; z-index:1;
+  }
+  tr.grupo td:hover{color:var(--tinta);}
+  tr.grupo .flecha{display:inline-block; width:12px; transition:transform .15s var(--curva);}
+  tr.grupo.cerrado .flecha{transform:rotate(-90deg);}
+
+  /* Validadores: 2 visibles y «+N» con el resto en un popover. 20 chips en
+     línea reventarían la altura de fila. */
+  .chip-val{
+    display:inline-flex; align-items:center; gap:5px; max-width:170px;
+    background:var(--panel-alto); border:1px solid var(--borde);
+    border-radius:var(--r-pildora); padding:1px 8px; font-size:11.5px;
+    margin-right:4px; vertical-align:middle;
+  }
+  .chip-val.prop{border-style:dashed; color:var(--tinta-tenue);}
+  .chip-val .nom{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .chip-mas{
+    background:none; border:none; color:var(--blue); font:inherit; font-size:11.5px;
+    font-weight:700; cursor:pointer; padding:2px 4px; min-width:24px; min-height:24px;
+  }
+  .pop{
+    position:fixed; z-index:70; background:var(--panel); border:1px solid var(--borde);
+    border-radius:var(--r-tarjeta); box-shadow:var(--sombra-alta);
+    padding:8px; max-height:320px; overflow:auto; min-width:260px; font-size:12.5px;
+  }
+  .pop .linea{display:flex; align-items:center; gap:8px; padding:5px 6px; border-radius:6px;}
+  .pop .linea:hover{background:var(--realce);}
+
+  /* WCAG 2.2: 24×24 mínimo de objetivo interactivo, también en modo compacto. */
+  .acc{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:24px; min-height:24px; padding:0 5px; border:1px solid var(--borde);
+    background:var(--panel); color:var(--txt); border-radius:6px; cursor:pointer;
+    font-size:12px; line-height:1; margin-right:3px;
+  }
+  .acc:hover{background:var(--realce); border-color:var(--blue);}
+  .acc.si{color:var(--verde,#2E7D32);} .acc.no{color:var(--rojo,#C00000);}
+
+  /* Chips del filtro activo: sin esto no se sabe qué se está mirando. */
+  .filtro-activo{
+    display:inline-flex; align-items:center; gap:6px; background:var(--gradiente-suave);
+    border:1px solid var(--borde); border-radius:var(--r-pildora);
+    padding:3px 6px 3px 10px; font-size:11.5px; margin:0 6px 6px 0;
+  }
+  .filtro-activo button{
+    background:none; border:none; cursor:pointer; color:var(--tinta-tenue);
+    min-width:24px; min-height:24px; font-size:13px;
+  }
+  .conteo{font-size:12px; color:var(--tinta-tenue); white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -343,6 +421,8 @@
       <div class="group">Personal</div>
       <a class="item" data-route="personal" href="#personal"><span class="ico">◎</span> Censo y enlaces</a>
       <a class="item" data-route="fichas" href="#fichas"><span class="ico">◈</span> Fichas recibidas</a>
+      <div class="group">Procesos</div>
+      <a class="item" data-route="validacion" href="#validacion"><span class="ico">◈</span> Validación de procesos</a>
       <div class="group">Accesos</div>
       <a class="item" data-route="usuarios" href="#usuarios"><span class="ico">⬤</span> Usuarios</a>
       <a class="item" data-route="roles" href="#roles"><span class="ico">◆</span> Roles y permisos</a>
@@ -452,6 +532,7 @@ const routes = {
   timeline:    renderTimeline,
   personal:    renderPersonal,
   fichas:      renderFichas,
+  validacion:  renderValidacion,
   usuarios:    renderUsuarios,
   roles:       renderRoles,
   secciones:   ()=> stub('Estado del informe','Espejo operable de la tabla <code>secciones</code> — próximamente.'),
@@ -463,10 +544,11 @@ const routes = {
 const PERMISO_RUTA = {
   asistente:'admin.asistente', entrevistas:'admin.entrevistas', archivos:'admin.archivos',
   timeline:'admin.timeline', personal:'admin.personal', fichas:'admin.fichas',
+  validacion:'admin.validacion',
   usuarios:'admin.usuarios', roles:'admin.roles',
   secciones:'admin.informe', comentarios:'admin.informe', riesgos:'admin.informe',
 };
-const ORDEN_RUTAS = ['asistente','entrevistas','archivos','timeline','personal','fichas','secciones','comentarios','riesgos','usuarios','roles'];
+const ORDEN_RUTAS = ['asistente','entrevistas','archivos','timeline','personal','fichas','validacion','secciones','comentarios','riesgos','usuarios','roles'];
 
 /** La primera ruta que esta cuenta sí puede abrir. */
 function rutaInicial(){
@@ -505,6 +587,7 @@ function sinPermiso(ruta, permiso){
   const nombre = ({ 'admin.asistente':'el Asistente IA', 'admin.entrevistas':'las entrevistas transcritas',
     'admin.archivos':'los archivos e insumos', 'admin.timeline':'la línea de tiempo',
     'admin.personal':'el censo de personal y sus enlaces', 'admin.fichas':'las fichas de perfil recibidas',
+    'admin.validacion':'la validación de procesos de Fase 2',
     'admin.usuarios':'la administración de usuarios', 'admin.roles':'la definición de roles',
     'admin.informe':'el estado del informe' })[permiso] || 'este módulo';
   view.innerHTML = `
@@ -2312,7 +2395,11 @@ async function renderPersonal(){
       ${botonColapsarTodo('perColapsarTodo')}
       <span class="chip on" id="vistaTabla" style="cursor:pointer">☰ tabla</span>
       <span class="chip" id="vistaArbol" style="cursor:pointer">◫ árbol de jerarquía</span>
+      <span style="flex:1"></span>
+      <span class="conteo" id="perConteo"></span>
+      <button class="btn btn-mini" id="perDens" title="Alternar densidad de la tabla"></button>
     </div>
+    <div id="perChips" style="margin-bottom:8px"></div>
     <div id="perWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
 
     <div class="modal-fondo" id="perModalFondo"><div class="modal-caja grande" id="perModalCaja"></div></div>
@@ -2328,6 +2415,15 @@ async function renderPersonal(){
   bindColapsarTodo('perColapsarTodo', document.getElementById('perWrap'));
   $('#vistaTabla').addEventListener('click', ()=>{ vistaPersonal='tabla'; actualizarVistaPersonal(); paintPersonal(); });
   $('#vistaArbol').addEventListener('click', ()=>{ vistaPersonal='arbol'; actualizarVistaPersonal(); paintPersonal(); });
+  // Misma preferencia de densidad que el módulo de validación: es del usuario,
+  // no del módulo, así que se guarda una sola vez en `rower.densidad`.
+  rotularDensidadPersonal();
+  $('#perDens').addEventListener('click', ()=>{
+    valDensidad = valDensidad==='compacta' ? 'comoda' : 'compacta';
+    try{ localStorage.setItem('rower.densidad', valDensidad); }catch(e){}
+    rotularDensidadPersonal();
+    const w = $('#perWrap .densa'); if(w) w.dataset.densidad = valDensidad;
+  });
   $('#perNueva').addEventListener('click', ()=> abrirModalPersona(null));
   $('#perMasivoBtn').addEventListener('click', abrirModalMasivo);
   $('#perLote').addEventListener('click', abrirModalLote);
@@ -2418,7 +2514,35 @@ const colsPersonal = [
   {col:'cargo', label:'Cargo'}, {label:'Gerente'}, {label:'Equipo'}, {label:'Ficha'}, {label:'Enlaces'},
 ];
 
+function rotularDensidadPersonal(){
+  const b = $('#perDens'); if(!b) return;
+  b.textContent = valDensidad==='compacta' ? '≡ compacta' : '≣ cómoda';
+}
+
+/** Qué se está mirando ahora mismo, con un quitar por filtro. */
+function pintarChipsFiltroPersonal(){
+  const el = $('#perChips'); if(!el) return;
+  const defs = [
+    ['qp', ($('#qp')?.value||'').trim(), (v)=>`«${v}»`],
+    ['fpEntidad', $('#fpEntidad')?.value||'', (v)=>v],
+    ['fpArea', $('#fpArea')?.value||'', (v)=>v],
+    ['fpActivo', $('#fpActivo')?.value||'', (v)=> v==='activos'?'Solo activos':'Solo inactivos'],
+    ['fpEstado', $('#fpEstado')?.value||'', (v)=>`Ficha: ${v}`],
+  ].filter(([,v])=>v);
+  el.innerHTML = defs.map(([id,v,rot])=>
+    `<span class="filtro-activo">${esc(rot(v))}<button data-limpiar-per="${id}" title="Quitar">✕</button></span>`
+  ).join('') + (defs.length>1 ? `<button class="btn btn-mini" data-limpiar-per="todo">limpiar todo</button>` : '');
+  $$('#perChips [data-limpiar-per]').forEach(b=> b.addEventListener('click', ()=>{
+    const k = b.dataset.limpiarPer;
+    const ids = k==='todo' ? ['qp','fpEntidad','fpArea','fpActivo','fpEstado'] : [k];
+    ids.forEach(id=>{ const e = $('#'+id); if(e) e.value=''; });
+    if(ids.includes('fpEntidad')) poblarAreasPersonal();
+    paintPersonal();
+  }));
+}
+
 function paintPersonal(){
+  pintarChipsFiltroPersonal();
   vistaPersonal==='arbol' ? pintarArbolPersonal() : pintarTablaPersonal();
 }
 
@@ -2451,25 +2575,37 @@ function pintarTablaPersonal(){
     if(censoVacio) $('#perVacioNueva').addEventListener('click', ()=> abrirModalPersona(null));
     return;
   }
+  // 436 personas: cada celda va a UNA línea con el texto íntegro en `title`.
+  // El área («JUNTA DIRECTIVA / DIRECCION GENERAL / GERENCIA DE MARKETING»)
+  // envolvía a tres líneas y era lo que inflaba la fila a 56-76 px.
   const pintarFilaP = p=>{
     const reportes = reportesDe(p.id);
     const enl = estadoEnlaces(p.id);
     return `
       <tr data-id="${esc(p.id)}">
-        <td><b>${esc(p.nombre)}</b>${p.activo? '' : ' <span class="chip">inactivo</span>'}<br><span class="tenue" style="font-size:12px">${esc(p.correo||'sin correo')}</span></td>
-        <td>${esc(p.entidad||'—')}</td>
-        <td>${esc(p.area||'—')}</td>
-        <td class="tenue">${esc(p.cargo||'—')}</td>
-        <td class="tenue">${p.gerente_nombre? esc(p.gerente_nombre) : '— sin asignar —'}</td>
-        <td>${reportes.length? `<span class="chip">◎ gerente de ${reportes.length}</span>` : '<span class="tenue">—</span>'}</td>
+        <td class="recorta" title="${esc(p.nombre)}${p.correo? ' · '+esc(p.correo) : ''}">
+          <b>${esc(p.nombre)}</b>${p.activo? '' : ' <span class="chip">inactivo</span>'}
+          <div class="tenue solo-comoda" style="font-size:12px">${esc(p.correo||'sin correo')}</div></td>
+        <td class="recorta" title="${esc(p.entidad||'')}">${esc(p.entidad||'—')}</td>
+        <td class="recorta" title="${esc(p.area||'')}">${esc(p.area||'—')}</td>
+        <td class="recorta tenue" title="${esc(p.cargo||'')}">${esc(p.cargo||'—')}</td>
+        <td class="recorta tenue" title="${esc(p.gerente_nombre||'')}">${p.gerente_nombre? esc(p.gerente_nombre) : '— sin asignar —'}</td>
+        <td class="num">${reportes.length? `<span class="chip" title="Gerente de ${reportes.length} personas">◎ ${reportes.length}</span>` : '<span class="tenue">—</span>'}</td>
         <td><span class="marca-estado ${claseFicha(p.estado_ficha)}"><i class="punto"></i>${esc(p.estado_ficha)}</span></td>
-        <td>${enl.clase==='sin'? '<span class="tenue">sin enlace</span>' : `<span class="marca-estado ${enl.clase}"><i class="punto"></i>${esc(enl.texto)}</span>`}</td>
+        <td class="recorta" title="${esc(enl.clase==='sin' ? 'Sin enlace generado' : enl.texto)}">${enl.clase==='sin'? '<span class="tenue">sin enlace</span>' : `<span class="marca-estado ${enl.clase}"><i class="punto"></i>${esc(enl.texto)}</span>`}</td>
       </tr>`;
   };
-  wrap.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+  wrap.innerHTML = `<div class="densa" data-densidad="${esc(valDensidad)}"><div class="tabla-envoltura"><table class="tabla">
+    <colgroup>
+      <col style="width:18%"><col style="width:8%"><col style="width:17%"><col style="width:16%">
+      <col style="width:13%"><col style="width:5%"><col style="width:11%"><col style="width:12%">
+    </colgroup>
     <thead>${theadOrd(colsPersonal, ordPersonal)}</thead>
     <tbody>${filasAgrupadas(rows, agrupPersonal, colsPersonal.length, pintarFilaP)}</tbody>
-  </table></div>`;
+  </table></div></div>`;
+  const cont = $('#perConteo');
+  if(cont) cont.textContent = rows.length===cachePersonal.length
+    ? `${rows.length} personas` : `${rows.length} de ${cachePersonal.length}`;
   bindOrd($('#perWrap thead'), ordPersonal, pintarTablaPersonal);
   bindGrupos($('#perWrap'));
   $$('#perWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalPersona(tr.dataset.id)));
@@ -2488,11 +2624,15 @@ function decorarGruposPersonal(){
     const p = cachePersonal.find(x=> x.nombre===nombre);
     if(!p) return;
     const td = tr.querySelector('td'); if(!td) return;
+    // Un icono, no un botón rotulado: repetido en 55 filas de grupo, el texto
+    // «✎ ver ficha de <nombre>» hacía la fila de grupo más alta que las de
+    // datos. Lo que dice el botón ya lo dice el título del grupo.
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'btn btn-fantasma btn-mini';
-    btn.style.cssText = 'margin-left:10px;text-transform:none;letter-spacing:normal;';
-    btn.textContent = '✎ ver ficha de ' + nombre;
+    btn.className = 'acc';
+    btn.style.cssText = 'margin-left:10px;vertical-align:middle;';
+    btn.textContent = '✎';
+    btn.title = 'Ver la ficha de ' + nombre;
     btn.addEventListener('click', (e)=>{ e.stopPropagation(); abrirModalPersona(p.id); });
     td.appendChild(btn);
   });
@@ -3111,6 +3251,9 @@ async function renderFichas(){
         <option value="pendiente">Pendiente</option><option value="en_progreso">En progreso</option><option value="completada">Completada</option></select>
       ${selectAgrupar('agrupFi', AGRUPADORES_FICHAS, agrupFichas)}
       ${botonColapsarTodo('fiColapsarTodo')}
+      <span style="flex:1"></span>
+      <span class="conteo" id="fiConteo"></span>
+      <button class="btn btn-mini" id="fiDens" title="Alternar densidad de la tabla"></button>
     </div>
     <div id="fiWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
 
@@ -3120,6 +3263,14 @@ async function renderFichas(){
   $('#ffEstado').addEventListener('change', paintFichas);
   $('#agrupFi').addEventListener('change', (e)=>{ agrupFichas = e.target.value; paintFichas(); });
   bindColapsarTodo('fiColapsarTodo', document.getElementById('fiWrap'));
+  const rotulaF = ()=>{ const b=$('#fiDens'); if(b) b.textContent = valDensidad==='compacta' ? '≡ compacta' : '≣ cómoda'; };
+  rotulaF();
+  $('#fiDens').addEventListener('click', ()=>{
+    valDensidad = valDensidad==='compacta' ? 'comoda' : 'compacta';
+    try{ localStorage.setItem('rower.densidad', valDensidad); }catch(e){}
+    rotulaF();
+    const w = $('#fiWrap .densa'); if(w) w.dataset.densidad = valDensidad;
+  });
   $('#fiExport').addEventListener('click', exportarFichasCSV);
   $('#fiModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='fiModalFondo') cerrarModalFicha(); });
   document.addEventListener('keydown', escCierraModalFicha);
@@ -3182,19 +3333,28 @@ function paintFichas(){
     wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">◈</div>${cacheFichasDet.length? 'Ninguna ficha con esos filtros.' : 'Todavía no ha llegado ninguna ficha.'}</div></div>`;
     return;
   }
+  // Misma densidad que el censo: una línea por ficha, el texto íntegro en
+  // `title`. Son las mismas 436 personas vistas por el otro lado.
   const pintarFilaF = x => `
     <tr data-id="${esc(x.persona_id)}">
-      <td><b>${esc(x.persona.nombre)}</b></td>
-      <td class="tenue">${esc(x.persona.entidad||'—')}</td>
-      <td class="tenue">${esc(x.persona.area||'—')}</td>
-      <td class="tenue">${esc(x.cargo_actual || x.persona.cargo || '—')}</td>
+      <td class="recorta" title="${esc(x.persona.nombre)}"><b>${esc(x.persona.nombre)}</b></td>
+      <td class="recorta tenue" title="${esc(x.persona.entidad||'')}">${esc(x.persona.entidad||'—')}</td>
+      <td class="recorta tenue" title="${esc(x.persona.area||'')}">${esc(x.persona.area||'—')}</td>
+      <td class="recorta tenue" title="${esc(x.cargo_actual || x.persona.cargo || '')}">${esc(x.cargo_actual || x.persona.cargo || '—')}</td>
       <td><span class="marca-estado ${claseFicha(x.estado)}"><i class="punto"></i>${esc(x.estado)}</span></td>
       <td class="tenue">${x.enviada_en? new Date(x.enviada_en).toLocaleDateString('es') : '—'}</td>
     </tr>`;
-  wrap.innerHTML = `<div class="tabla-envoltura"><table class="tabla">
+  wrap.innerHTML = `<div class="densa" data-densidad="${esc(valDensidad)}"><div class="tabla-envoltura"><table class="tabla">
+    <colgroup>
+      <col style="width:24%"><col style="width:12%"><col style="width:24%"><col style="width:22%">
+      <col style="width:100px"><col style="width:88px">
+    </colgroup>
     <thead>${theadOrd(colsFichas, ordFichas)}</thead>
     <tbody>${filasAgrupadas(rows, agrupFichas, colsFichas.length, pintarFilaF)}</tbody>
-  </table></div>`;
+  </table></div></div>`;
+  const contF = $('#fiConteo');
+  if(contF) contF.textContent = rows.length===cacheFichasDet.length
+    ? `${rows.length} fichas` : `${rows.length} de ${cacheFichasDet.length}`;
   bindOrd($('#fiWrap thead'), ordFichas, paintFichas);
   bindGrupos($('#fiWrap'));
   $$('#fiWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalFicha(tr.dataset.id)));
@@ -3307,6 +3467,548 @@ $('#sesSalir').addEventListener('click', ()=>{
     rotula();
   });
 })();
+
+/* ============================================================
+   Validación de procesos (Fase 2)
+   ============================================================
+   Los manuales los redacta el equipo; quien dice si describen la operación
+   real es el gerente dueño del proceso. Aquí se decide QUIÉN es esa persona.
+
+   El guion scripts/cargar-validacion.py deja propuestas (origen='auto')
+   emparejando el dueño que el mapa v18 dejó como texto libre con un cargo del
+   censo. Son propuestas y no asignaciones a propósito: ese texto viene con
+   artefactos de una sustitución mal hecha, y mandarle a un gerente un proceso
+   ajeno quema la ronda en el primer envío. Confirmar aquí es lo que habilita
+   generar el enlace. */
+let cacheVal = { procesos: [], validadores: [], personas: [] };
+let valMacro = '', valEstado = '', valCerrados = {};
+let valDensidad = (()=>{ try{ return localStorage.getItem('rower.densidad') || 'compacta'; }catch(e){ return 'compacta'; } })();
+
+const SECCIONES_N1 = [
+  ['proposito','Propósito y alcance'], ['dueno','Dueño y participantes'],
+  ['disparador','Disparador, cadencia y output'], ['flujo','Flujo de actividades'],
+  ['riesgos','Matriz de riesgos'], ['indicadores','Indicadores'],
+];
+
+async function renderValidacion(){
+  view.innerHTML = `
+    <div class="lienzo-cab fila-sep">
+      <div>
+        <div class="sobretitulo">procesos · fase 2</div>
+        <div class="titulo-seccion" style="margin-top:4px">validación de procesos</div>
+      </div>
+    </div>
+    <div class="rejilla rejilla-4 gap-12" id="vaKpis" style="margin-bottom:16px"></div>
+    <div class="toolbar">
+      <div class="buscador"><input class="campo" id="qv" type="search" placeholder="Buscar por código, proceso, dueño o validador…"></div>
+      <select class="filtro" id="vaMacro"><option value="">Todos los macroprocesos</option></select>
+      <select class="filtro" id="vaEstado">
+        <option value="">Cualquier estado</option>
+        <option value="por_confirmar">Por confirmar</option>
+        <option value="confirmado">Confirmados</option>
+        <option value="sin">Sin validador</option>
+      </select>
+      <span style="flex:1"></span>
+      <span class="conteo" id="vaConteo"></span>
+      <button class="btn btn-mini" id="vaEnlaces">🔗 enlaces</button>
+      <button class="btn btn-mini" id="vaDens" title="Alternar densidad de la tabla"></button>
+    </div>
+    <div id="vaChips" style="margin-bottom:8px"></div>
+    <div id="vaWrap"><div class="card"><div class="empty">Cargando…</div></div></div>
+    <div class="modal-fondo" id="vaModalFondo"><div class="modal-caja" id="vaModalCaja"></div></div>`;
+
+  $('#qv').addEventListener('input', paintValidacion);
+  $('#vaMacro').addEventListener('change', (e)=>{ valMacro = e.target.value; paintValidacion(); });
+  $('#vaEstado').addEventListener('change', (e)=>{ valEstado = e.target.value; paintValidacion(); });
+  $('#vaDens').addEventListener('click', alternarDensidad);
+  $('#vaEnlaces').addEventListener('click', abrirPanelEnlaces);
+  $('#vaModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='vaModalFondo') cerrarModalVal(); });
+  document.addEventListener('keydown', escCierraVal);
+  document.addEventListener('click', cerrarPopSiFuera);
+  rotularDensidad();
+
+  if(!db){ $('#vaWrap').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
+  await recargarValidacion();
+}
+
+function escCierraVal(e){
+  if(e.key!=='Escape') return;
+  if($('#vaPop')) return cerrarPop();
+  if($('#vaModalFondo')?.classList.contains('on')) cerrarModalVal();
+}
+
+function alternarDensidad(){
+  valDensidad = valDensidad==='compacta' ? 'comoda' : 'compacta';
+  try{ localStorage.setItem('rower.densidad', valDensidad); }catch(e){}
+  rotularDensidad();
+  const w = $('#vaWrap .densa'); if(w) w.dataset.densidad = valDensidad;
+}
+function rotularDensidad(){
+  const b = $('#vaDens'); if(!b) return;
+  b.textContent = valDensidad==='compacta' ? '≡ compacta' : '≣ cómoda';
+}
+
+async function recargarValidacion(){
+  // `contenido` pesa 300 kB en total y aquí no se usa: se pide columna por
+  // columna para no traerlo en cada repintado del panel.
+  const [pr, va, pe, tk] = await Promise.all([
+    db.from('procesos_fase2')
+      .select('codigo,macro,macro_nombre,nombre,madurez,dueno_texto,tiene_contenido,orden')
+      .order('orden'),
+    db.from('procesos_validadores').select('*'),
+    db.from('personal').select('id,nombre,cargo,entidad,pais,area').eq('activo', true),
+    db.from('validacion_tokens').select('*'),
+  ]);
+  const error = pr.error || va.error || pe.error || tk.error;
+  if(error){
+    setConn('err','Error de conexión');
+    $('#vaWrap').innerHTML = `<div class="card">${errBox(error.message)}</div>`;
+    return;
+  }
+  setConn('ok','Conectado · Supabase');
+  cacheVal = { procesos: pr.data||[], validadores: va.data||[], personas: pe.data||[], tokens: tk.data||[] };
+
+  const macros = [];
+  cacheVal.procesos.forEach(p=>{ if(p.tiene_contenido && !macros.some(m=>m.macro===p.macro)) macros.push({macro:p.macro, nombre:p.macro_nombre}); });
+  const sel = $('#vaMacro');
+  if(sel) sel.innerHTML = `<option value="">Todos los macroprocesos</option>` +
+    macros.map(m=>`<option value="${esc(m.macro)}"${valMacro===m.macro?' selected':''}>${esc(m.macro)}. ${esc(m.nombre)}</option>`).join('');
+
+  pintarKpisValidacion();
+  paintValidacion();
+}
+
+function personaPorId(id){
+  if(!personaPorId._i || personaPorId._n !== cacheVal.personas.length){
+    personaPorId._i = {}; cacheVal.personas.forEach(p=> personaPorId._i[p.id]=p);
+    personaPorId._n = cacheVal.personas.length;
+  }
+  return personaPorId._i[id];
+}
+
+function validadoresDe(codigo){
+  return cacheVal.validadores
+    .filter(v=> v.proceso===codigo)
+    .map(v=> ({...v, persona: personaPorId(v.persona_id) || {nombre:'(fuera del censo)', cargo:null}}));
+}
+
+/** Un proceso está resuelto cuando al menos un validador lo confirmó un humano. */
+function estadoVal(codigo){
+  const vs = validadoresDe(codigo);
+  if(vs.some(v=> v.origen!=='auto')) return 'confirmado';
+  return vs.length ? 'por_confirmar' : 'sin';
+}
+
+function pintarKpisValidacion(){
+  const el = $('#vaKpis'); if(!el) return;
+  const oleada = cacheVal.procesos.filter(p=>p.tiene_contenido);
+  const conf = oleada.filter(p=> estadoVal(p.codigo)==='confirmado').length;
+  const porConf = oleada.filter(p=> estadoVal(p.codigo)==='por_confirmar').length;
+  const sin = oleada.filter(p=> estadoVal(p.codigo)==='sin').length;
+  el.innerHTML = `
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">listos para validar</span><span class="valor">${oleada.length}</span><span class="pie">de ${cacheVal.procesos.length} procesos del mapa</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">confirmados</span><span class="valor">${conf}</span><span class="pie">con validador aprobado a mano</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">por confirmar</span><span class="valor">${porConf}</span><span class="pie">propuestas del emparejador</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">sin validador</span><span class="valor">${sin}</span><span class="pie">hay que asignarlos a mano</span></div></div>`;
+}
+
+function filasFiltradas(){
+  const q = ($('#qv')?.value||'').trim().toLowerCase();
+  return cacheVal.procesos.filter(p=>{
+    if(!p.tiene_contenido) return false;              // solo lo que ya se puede validar
+    if(valMacro && p.macro!==valMacro) return false;
+    if(valEstado && estadoVal(p.codigo)!==valEstado) return false;
+    if(!q) return true;
+    const quien = validadoresDe(p.codigo).map(v=>v.persona.nombre).join(' ');
+    return [p.codigo, p.nombre, p.dueno_texto, quien].join(' ').toLowerCase().includes(q);
+  });
+}
+
+function paintValidacion(){
+  const wrap = $('#vaWrap'); if(!wrap) return;
+  const filas = filasFiltradas();
+  const total = cacheVal.procesos.filter(p=>p.tiene_contenido).length;
+
+  const cont = $('#vaConteo');
+  if(cont) cont.textContent = filas.length===total ? `${total} procesos` : `${filas.length} de ${total}`;
+  pintarChipsFiltro();
+
+  if(!filas.length){
+    wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">◇</div>Ningún proceso con esos filtros.</div></div>`;
+    return;
+  }
+  // Una sola tabla con filas de grupo: 20 tablas separadas divergen de ancho.
+  const grupos = [];
+  filas.forEach(p=>{
+    let g = grupos.find(x=>x.macro===p.macro);
+    if(!g){ g = {macro:p.macro, nombre:p.macro_nombre, procesos:[]}; grupos.push(g); }
+    g.procesos.push(p);
+  });
+  wrap.innerHTML = `
+    <div class="densa" data-densidad="${esc(valDensidad)}">
+      <div class="tabla-envoltura">
+        <table class="tabla">
+          <colgroup>
+            <col style="width:58px"><col style="width:30%"><col style="width:24%">
+            <col><col style="width:96px">
+          </colgroup>
+          <thead><tr>
+            <th>Código</th><th>Proceso</th><th>Dueño según el mapa</th>
+            <th>Quién valida</th><th>Acciones</th>
+          </tr></thead>
+          <tbody>
+            ${grupos.map(g=>{
+              const cerrado = !!valCerrados[g.macro];
+              return `<tr class="grupo ${cerrado?'cerrado':''}" data-macro="${esc(g.macro)}">
+                  <td colspan="5"><span class="flecha">▾</span> ${esc(g.macro)}. ${esc(g.nombre)}
+                    <span class="tenue" style="font-weight:400;text-transform:none;letter-spacing:0"> · ${g.procesos.length}</span></td>
+                </tr>` + (cerrado ? '' : g.procesos.map(p=>filaValidacion(p)).join(''));
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+
+  $$('#vaWrap tr.grupo').forEach(tr=> tr.addEventListener('click', ()=>{
+    const m = tr.dataset.macro; valCerrados[m] = !valCerrados[m]; paintValidacion();
+  }));
+  $$('#vaWrap [data-confirmar]').forEach(b=> b.addEventListener('click', ()=> confirmarValidador(b.dataset.confirmar)));
+  $$('#vaWrap [data-gestionar]').forEach(b=> b.addEventListener('click', (e)=>{ e.stopPropagation(); abrirPopValidadores(b, b.dataset.gestionar); }));
+  $$('#vaWrap [data-mas]').forEach(b=> b.addEventListener('click', (e)=>{ e.stopPropagation(); abrirPopValidadores(b, b.dataset.mas); }));
+}
+
+function pintarChipsFiltro(){
+  const el = $('#vaChips'); if(!el) return;
+  const chips = [];
+  if(valMacro){
+    const m = cacheVal.procesos.find(p=>p.macro===valMacro);
+    chips.push(`<span class="filtro-activo">${esc(valMacro)}. ${esc(m?m.macro_nombre:'')}<button data-limpiar="macro" title="Quitar">✕</button></span>`);
+  }
+  if(valEstado){
+    const rot = {por_confirmar:'Por confirmar', confirmado:'Confirmados', sin:'Sin validador'}[valEstado];
+    chips.push(`<span class="filtro-activo">${esc(rot)}<button data-limpiar="estado" title="Quitar">✕</button></span>`);
+  }
+  const q = ($('#qv')?.value||'').trim();
+  if(q) chips.push(`<span class="filtro-activo">«${esc(q)}»<button data-limpiar="q" title="Quitar">✕</button></span>`);
+  el.innerHTML = chips.join('') + (chips.length>1 ? `<button class="btn btn-mini" data-limpiar="todo">limpiar todo</button>` : '');
+  $$('#vaChips [data-limpiar]').forEach(b=> b.addEventListener('click', ()=>{
+    const k = b.dataset.limpiar;
+    if(k==='macro'||k==='todo'){ valMacro=''; $('#vaMacro').value=''; }
+    if(k==='estado'||k==='todo'){ valEstado=''; $('#vaEstado').value=''; }
+    if(k==='q'||k==='todo'){ $('#qv').value=''; }
+    paintValidacion();
+  }));
+}
+
+const MAX_CHIPS = 2;
+
+function filaValidacion(p){
+  const vs = validadoresDe(p.codigo);
+  const est = estadoVal(p.codigo);
+  const punto = est==='confirmado' ? '✓' : est==='por_confirmar' ? '•' : '○';
+  const titulo = est==='confirmado' ? 'Validador confirmado'
+               : est==='por_confirmar' ? 'Propuesta sin confirmar' : 'Sin validador asignado';
+
+  const visibles = vs.slice(0, MAX_CHIPS).map(v=>`
+    <span class="chip-val ${v.origen==='auto'?'prop':''}" title="${esc(v.persona.nombre)} — ${esc(v.persona.cargo||'sin cargo')}${v.origen==='auto'?' (propuesta sin confirmar)':''}">
+      <span class="nom">${esc(v.persona.nombre)}</span>
+    </span>`).join('');
+  const resto = vs.length > MAX_CHIPS
+    ? `<button class="chip-mas" data-mas="${esc(p.codigo)}" title="Ver los ${vs.length} validadores">+${vs.length-MAX_CHIPS}</button>` : '';
+  const celdaVal = vs.length ? visibles + resto : `<span class="tenue">—</span>`;
+
+  const hayPropuesta = vs.some(v=>v.origen==='auto');
+  return `
+    <tr data-codigo="${esc(p.codigo)}">
+      <td><b>${esc(p.codigo)}</b></td>
+      <td class="recorta" title="${esc(p.nombre)}"><span title="${esc(titulo)}">${punto}</span> ${esc(p.nombre)}</td>
+      <td class="recorta tenue" title="${esc(p.dueno_texto||'')}">${esc(p.dueno_texto||'—')}</td>
+      <td class="recorta">${celdaVal}</td>
+      <td>
+        ${hayPropuesta ? `<button class="acc si" data-confirmar="${esc(p.codigo)}" title="Confirmar la propuesta">✓</button>` : ''}
+        <button class="acc" data-gestionar="${esc(p.codigo)}" title="Gestionar los validadores de este proceso">⋯</button>
+      </td>
+    </tr>`;
+}
+
+/* ---- Popover de gestión de validadores ----
+   Siempre accesible desde el «⋯» de la fila, también cuando el proceso ya
+   está confirmado: una confirmación equivocada tiene que poder deshacerse
+   sin tocar la base a mano. Desde aquí se confirma, se devuelve a propuesta,
+   se quita y se añade. */
+function cerrarPop(){ const p = $('#vaPop'); if(p) p.remove(); }
+function cerrarPopSiFuera(e){
+  const p = $('#vaPop');
+  if(p && !p.contains(e.target) && !e.target.closest('[data-mas]') && !e.target.closest('[data-gestionar]')) cerrarPop();
+}
+
+function abrirPopValidadores(boton, codigo){
+  cerrarPop();
+  const vs = validadoresDe(codigo);
+  const caja = document.createElement('div');
+  caja.className = 'pop'; caja.id = 'vaPop';
+  caja.innerHTML = `
+    <div class="tenue" style="padding:2px 6px 6px">
+      ${esc(codigo)} · ${vs.length ? vs.length + ' validador' + (vs.length===1?'':'es') : 'sin validador'}
+    </div>` +
+    (vs.length ? vs.map(v=>`
+      <div class="linea">
+        <span style="flex:1">${esc(v.persona.nombre)}
+          <span class="tenue"> · ${esc(v.persona.cargo||'sin cargo')}</span>
+          ${v.origen==='auto'
+            ? `<span class="tenue" style="font-size:10.5px"> · propuesta</span>`
+            : `<span class="tenue" style="font-size:10.5px"> · ${esc(v.origen==='manual'?'puesto a mano':'confirmado')}</span>`}
+        </span>
+        ${v.origen==='auto'
+          ? `<button class="acc si" data-pop-confirmar="${esc(v.id)}" title="Confirmar">✓</button>`
+          : `<button class="acc" data-pop-deshacer="${esc(v.id)}" title="Deshacer la confirmación: vuelve a ser una propuesta">↺</button>`}
+        <button class="acc no" data-pop-quitar="${esc(v.id)}" title="Quitar este validador">✕</button>
+      </div>`).join('')
+    : `<div class="tenue" style="padding:4px 6px">Nadie asignado todavía.</div>`) +
+    `<div style="border-top:1px solid var(--borde); margin-top:6px; padding-top:6px">
+       <button class="btn btn-mini" data-pop-anadir="${esc(codigo)}">+ añadir persona del censo</button>
+     </div>`;
+  document.body.appendChild(caja);
+  const r = boton.getBoundingClientRect();
+  caja.style.top = Math.min(r.bottom + 6, window.innerHeight - caja.offsetHeight - 12) + 'px';
+  caja.style.left = Math.max(12, Math.min(r.left - 120, window.innerWidth - caja.offsetWidth - 12)) + 'px';
+  $$('#vaPop [data-pop-confirmar]').forEach(b=> b.addEventListener('click', ()=>{ cerrarPop(); confirmarUno(b.dataset.popConfirmar); }));
+  $$('#vaPop [data-pop-deshacer]').forEach(b=> b.addEventListener('click', ()=>{ cerrarPop(); desconfirmarValidador(b.dataset.popDeshacer); }));
+  $$('#vaPop [data-pop-quitar]').forEach(b=> b.addEventListener('click', ()=>{ cerrarPop(); quitarValidador(b.dataset.popQuitar); }));
+  $$('#vaPop [data-pop-anadir]').forEach(b=> b.addEventListener('click', ()=>{ cerrarPop(); abrirPickerPersona(b.dataset.popAnadir); }));
+}
+
+/** Devuelve una asignación al estado de propuesta, sin borrarla. */
+async function desconfirmarValidador(id){
+  const fila = cacheVal.validadores.find(v=> v.id===id);
+  // Una fila 'manual' no nació de ninguna propuesta: devolverla a 'auto' la
+  // dejaría como si la hubiera sugerido el emparejador, que no es cierto.
+  if(fila && fila.origen==='manual'){
+    return toast('Ese validador se puso a mano: quítalo con ✕ si te equivocaste', true);
+  }
+  const { error } = await db.from('procesos_validadores')
+    .update({ origen:'auto', confirmado_por:null, confirmado_en:null })
+    .eq('id', id);
+  if(error) return toast(error.message, true);
+  toast('Vuelve a ser una propuesta sin confirmar');
+  await recargarValidacion();
+}
+
+/* ---- Acciones ---- */
+async function confirmarUno(id){
+  const quien = (PERFIL && PERFIL.correo) || 'panel';
+  const { error } = await db.from('procesos_validadores')
+    .update({ origen:'confirmado', confirmado_por: quien, confirmado_en: new Date().toISOString() })
+    .eq('id', id);
+  if(error) return toast(error.message, true);
+  toast('Validador confirmado');
+  await recargarValidacion();
+}
+
+/** Confirma TODAS las propuestas de ese proceso de una vez. */
+async function confirmarValidador(codigo){
+  const ids = validadoresDe(codigo).filter(v=>v.origen==='auto').map(v=>v.id);
+  if(!ids.length) return;
+  const quien = (PERFIL && PERFIL.correo) || 'panel';
+  const { error } = await db.from('procesos_validadores')
+    .update({ origen:'confirmado', confirmado_por: quien, confirmado_en: new Date().toISOString() })
+    .in('id', ids);
+  if(error) return toast(error.message, true);
+  toast(ids.length===1 ? 'Validador confirmado' : `${ids.length} validadores confirmados`);
+  await recargarValidacion();
+}
+
+async function quitarValidador(id){
+  const { error } = await db.from('procesos_validadores').delete().eq('id', id);
+  if(error) return toast(error.message, true);
+  toast('Validador quitado');
+  await recargarValidacion();
+}
+
+/* ---- Picker de persona (sustituye al prompt() nativo) ----
+   436 personas no caben en un prompt: hace falta buscador, teclado y Esc. */
+function cerrarModalVal(){ $('#vaModalFondo')?.classList.remove('on'); }
+
+function abrirPickerPersona(codigo){
+  const proc = cacheVal.procesos.find(p=>p.codigo===codigo);
+  $('#vaModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div><b>Añadir validador</b>
+        <div class="tenue" style="font-size:12px">${esc(codigo)} · ${esc(proc?proc.nombre:'')}</div></div>
+      <button class="btn btn-mini" id="vaCerrar">✕</button>
+    </div>
+    <div style="padding:14px 16px">
+      <input class="campo" id="vaBuscaPersona" type="search" placeholder="Buscar en el censo por nombre o cargo…" autocomplete="off">
+      <div class="tenue" style="font-size:11.5px;margin-top:6px">Dueño según el mapa: ${esc(proc?(proc.dueno_texto||'—'):'—')}</div>
+      <div id="vaResultados" style="margin-top:10px; max-height:340px; overflow:auto"></div>
+    </div>`;
+  $('#vaModalFondo').classList.add('on');
+  $('#vaCerrar').addEventListener('click', cerrarModalVal);
+  const inp = $('#vaBuscaPersona');
+  inp.addEventListener('input', ()=> pintarResultadosPersona(codigo));
+  pintarResultadosPersona(codigo);
+  inp.focus();
+}
+
+function pintarResultadosPersona(codigo){
+  const q = ($('#vaBuscaPersona')?.value||'').trim().toLowerCase();
+  const yaEstan = new Set(validadoresDe(codigo).map(v=>v.persona_id));
+  let cands = cacheVal.personas;
+  if(q) cands = cands.filter(p=> `${p.nombre} ${p.cargo||''}`.toLowerCase().includes(q));
+  else cands = cands.slice(0, 40);
+  const el = $('#vaResultados'); if(!el) return;
+  if(!cands.length){ el.innerHTML = `<div class="empty">Nadie del censo activo coincide.</div>`; return; }
+  el.innerHTML = cands.slice(0, 80).map(p=>`
+    <div class="linea" style="display:flex;align-items:center;gap:8px;padding:6px;border-radius:6px">
+      <span style="flex:1">${esc(p.nombre)}
+        <span class="tenue"> · ${esc(p.cargo||'sin cargo')} · ${esc(p.entidad||'—')}</span></span>
+      ${yaEstan.has(p.id)
+        ? `<span class="tenue" style="font-size:11.5px">ya asignado</span>`
+        : `<button class="btn btn-mini" data-elegir="${esc(p.id)}">añadir</button>`}
+    </div>`).join('');
+  $$('#vaResultados [data-elegir]').forEach(b=> b.addEventListener('click', ()=> asignarValidador(codigo, b.dataset.elegir)));
+}
+
+/* ---- Enlaces para los gerentes ----
+   Un enlace por PERSONA, no por proceso: el gerente entra una vez y ve su
+   bandeja completa. Solo entra quien tiene al menos una asignación confirmada
+   —una propuesta del emparejador no abre nada, ni aquí ni en la función—. */
+function validadoresConfirmados(){
+  const porPersona = new Map();
+  cacheVal.validadores.filter(v=> v.origen!=='auto').forEach(v=>{
+    if(!porPersona.has(v.persona_id)) porPersona.set(v.persona_id, []);
+    porPersona.get(v.persona_id).push(v.proceso);
+  });
+  return [...porPersona.entries()].map(([id, procs])=>({
+    persona: personaPorId(id) || {nombre:'(fuera del censo)', cargo:null, entidad:null},
+    persona_id: id, procesos: procs,
+    token: (cacheVal.tokens||[]).find(t=> t.persona_id===id && !t.revocado) || null,
+  })).sort((a,b)=> (a.persona.nombre||'').localeCompare(b.persona.nombre||''));
+}
+
+function enlaceValidacion(token){
+  const raiz = (window.rowerSesion && rowerSesion.raiz) || (location.origin + '/');
+  return raiz + 'validar-procesos/?t=' + token;
+}
+
+function abrirPanelEnlaces(){
+  const filas = validadoresConfirmados();
+  const sinEnlace = filas.filter(f=>!f.token).length;
+  $('#vaModalCaja').innerHTML = `
+    <div class="modal-cab">
+      <div><b>Enlaces de validación</b>
+        <div class="tenue" style="font-size:12px">${filas.length} personas con procesos confirmados · ${sinEnlace} sin enlace</div></div>
+      <button class="btn btn-mini" id="vaCerrar">✕</button>
+    </div>
+    <div style="padding:12px 16px">
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px">
+        <button class="btn btn-marca btn-mini" id="vaLote" ${sinEnlace?'':'disabled'}>Generar los ${sinEnlace} que faltan</button>
+        <button class="btn btn-mini" id="vaCsv" ${filas.length?'':'disabled'}>⬇ exportar (CSV)</button>
+      </div>
+      <div class="tenue" style="font-size:11.5px; margin-bottom:8px">
+        Vigencia 45 días. Se reparten a mano: no hay correo automático.
+      </div>
+      <div id="vaListaEnlaces" style="max-height:380px; overflow:auto"></div>
+    </div>`;
+  $('#vaModalFondo').classList.add('on');
+  $('#vaCerrar').addEventListener('click', cerrarModalVal);
+  $('#vaLote').addEventListener('click', generarLoteEnlaces);
+  $('#vaCsv').addEventListener('click', exportarEnlacesCSV);
+  pintarListaEnlaces();
+}
+
+function pintarListaEnlaces(){
+  const el = $('#vaListaEnlaces'); if(!el) return;
+  const filas = validadoresConfirmados();
+  if(!filas.length){
+    el.innerHTML = `<div class="empty">Todavía no hay ningún validador confirmado.<br>
+      <span class="tenue">Confirma primero las propuestas en la tabla.</span></div>`;
+    return;
+  }
+  el.innerHTML = filas.map(f=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 6px;border-bottom:1px solid var(--borde-tenue)">
+      <span style="flex:1;min-width:0">
+        <b>${esc(f.persona.nombre)}</b>
+        <span class="tenue"> · ${esc(f.persona.cargo||'sin cargo')} · ${f.procesos.length} proceso${f.procesos.length===1?'':'s'}</span>
+      </span>
+      ${f.token
+        ? `<button class="btn btn-mini" data-copiar="${esc(f.token.token)}">copiar enlace</button>
+           <button class="acc no" data-revocar="${esc(f.token.id)}" title="Revocar">✕</button>`
+        : `<button class="btn btn-mini" data-generar="${esc(f.persona_id)}">generar</button>`}
+    </div>`).join('');
+  $$('#vaListaEnlaces [data-generar]').forEach(b=> b.addEventListener('click', ()=> generarEnlaceValidacion(b.dataset.generar)));
+  $$('#vaListaEnlaces [data-revocar]').forEach(b=> b.addEventListener('click', ()=> revocarEnlaceValidacion(b.dataset.revocar)));
+  $$('#vaListaEnlaces [data-copiar]').forEach(b=> b.addEventListener('click', ()=>{
+    navigator.clipboard.writeText(enlaceValidacion(b.dataset.copiar))
+      .then(()=> toast('Enlace copiado')).catch(()=> toast('No se pudo copiar', true));
+  }));
+}
+
+async function generarEnlaceValidacion(personaId){
+  const { error } = await db.from('validacion_tokens').insert({
+    token: tokenAleatorio(), tipo:'individual', persona_id: personaId,
+    creado_por: (PERFIL && PERFIL.correo) || null,
+  });
+  if(error) return toast(error.message, true);
+  toast('Enlace generado');
+  await recargarValidacion();
+  pintarListaEnlaces();
+}
+
+async function generarLoteEnlaces(){
+  const nuevos = validadoresConfirmados().filter(f=>!f.token).map(f=>({
+    token: tokenAleatorio(), tipo:'individual', persona_id: f.persona_id,
+    creado_por: (PERFIL && PERFIL.correo) || null,
+  }));
+  if(!nuevos.length) return;
+  const { error } = await db.from('validacion_tokens').insert(nuevos);
+  if(error) return toast(error.message, true);
+  toast(`${nuevos.length} enlaces generados`);
+  await recargarValidacion();
+  abrirPanelEnlaces();
+}
+
+async function revocarEnlaceValidacion(id){
+  const { error } = await db.from('validacion_tokens').update({ revocado:true }).eq('id', id);
+  if(error) return toast(error.message, true);
+  toast('Enlace revocado');
+  await recargarValidacion();
+  pintarListaEnlaces();
+}
+
+function exportarEnlacesCSV(){
+  const filas = validadoresConfirmados().filter(f=>f.token);
+  if(!filas.length) return toast('No hay enlaces que exportar', true);
+  const cab = ['Nombre','Cargo','Entidad','Procesos','Enlace','Expira'];
+  const cuerpo = filas.map(f=> [
+    f.persona.nombre, f.persona.cargo||'', f.persona.entidad||'',
+    f.procesos.join(' '), enlaceValidacion(f.token.token),
+    (f.token.expira_en||'').slice(0,10),
+  ]);
+  const csv = [cab, ...cuerpo]
+    .map(fila=> fila.map(v=> '"' + String(v==null?'':v).replace(/"/g,'""') + '"').join(','))
+    .join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['﻿'+csv], {type:'text/csv;charset=utf-8'}));
+  a.download = 'enlaces-validacion-procesos-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click(); URL.revokeObjectURL(a.href);
+  toast(`${filas.length} enlaces exportados`);
+}
+
+/** Alta a mano: nace como 'manual', que ya cuenta como decisión humana. */
+async function asignarValidador(codigo, personaId){
+  const persona = personaPorId(personaId);
+  const quien = (PERFIL && PERFIL.correo) || 'panel';
+  const { error } = await db.from('procesos_validadores').insert({
+    proceso: codigo, persona_id: personaId, origen:'manual',
+    cargo_sugerido: persona ? persona.cargo : null,
+    confirmado_por: quien, confirmado_en: new Date().toISOString(),
+  });
+  if(error) return toast(error.message, true);
+  toast((persona?persona.nombre:'Validador') + ' asignado a ' + codigo);
+  cerrarModalVal();
+  await recargarValidacion();
+}
 
 /* ---- arranque ----
    El perfil cacheado pinta ya (sin parpadeo) y se revalida contra la base:

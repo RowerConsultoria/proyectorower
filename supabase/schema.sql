@@ -572,7 +572,8 @@ insert into public.permisos (clave, nombre, descripcion, grupo, orden) values
   ('admin.usuarios',  'Administrar usuarios',  'Crear cuentas, reponer claves, asignar roles y dar de baja. Permiso delicado.', 'Gobierno del acceso', 90),
   ('admin.roles',     'Definir roles',         'Crear roles y decidir qué puede hacer cada uno. Permiso delicado.', 'Gobierno del acceso', 100),
   ('admin.personal',  'Censo y enlaces',       'Censo de personal de Kenex, su jerarquía y la generación de enlaces para la ficha de actualización de perfil.', 'Panel', 110),
-  ('admin.fichas',    'Fichas recibidas',      'Leer y exportar las fichas de actualización de perfil recibidas. Incluye documento de identidad y nivel educativo.', 'Panel', 120)
+  ('admin.fichas',    'Fichas recibidas',      'Leer y exportar las fichas de actualización de perfil recibidas. Incluye documento de identidad y nivel educativo.', 'Panel', 120),
+  ('admin.validacion','Validación de procesos','Asignar qué gerente valida cada proceso de Fase 2, generar sus enlaces y leer las observaciones que devuelven.', 'Panel', 130)
 on conflict (clave) do update
   set nombre = excluded.nombre, descripcion = excluded.descripcion,
       grupo = excluded.grupo, orden = excluded.orden;
@@ -594,7 +595,7 @@ insert into public.roles_permisos (rol, permiso)
 select 'consultor', clave from public.permisos
  where clave in ('ver.informe','ver.sistema','admin.entrar','admin.asistente',
                  'admin.entrevistas','admin.archivos','admin.timeline','admin.informe',
-                 'admin.personal','admin.fichas')
+                 'admin.personal','admin.fichas','admin.validacion')
 on conflict do nothing;
 
 insert into public.roles_permisos (rol, permiso) values ('junta','ver.informe')
@@ -836,8 +837,11 @@ create policy insumos_auth on storage.objects for all to authenticated
 
 drop policy if exists personal_lectura   on public.personal;
 drop policy if exists personal_escritura on public.personal;
+-- `admin.validacion` también lee el censo: el módulo de validación de procesos
+-- necesita poner NOMBRE a quien valida cada proceso. Solo lectura — el censo se
+-- sigue editando únicamente con `admin.personal`.
 create policy personal_lectura   on public.personal for select to authenticated
-  using (public.tiene_permiso('admin.personal'));
+  using (public.tiene_permiso('admin.personal') or public.tiene_permiso('admin.validacion'));
 create policy personal_escritura on public.personal for all to authenticated
   using (public.tiene_permiso('admin.personal')) with check (public.tiene_permiso('admin.personal'));
 
@@ -1514,3 +1518,179 @@ begin
       t || '_escritura', t, 'admin.informe', 'admin.informe');
   end loop;
 end $$;
+
+
+-- ============================================================
+-- 15. Validación de procesos por sus dueños (Fase 2, sep-2026)
+-- ============================================================
+-- Los manuales de Fase 2 los redacta el equipo consultor; quien manda sobre si
+-- describen la operación real es el gerente dueño de cada proceso. Este bloque
+-- sostiene esa ronda de validación: proyecta el manual a filas, resuelve qué
+-- PERSONA REAL del censo valida cada proceso, y guarda lo que respondió.
+--
+-- Mismo patrón de entrega que las fichas de perfil (§11) y por la misma razón:
+-- los gerentes de Kenex no tienen cuenta del aplicativo. Enlace opaco de 45
+-- días, revocable, sin sesión de Supabase Auth; la puerta es la Edge Function
+-- `validacion`, que replica la `puerta()` de `ficha` (revocado · vencido ·
+-- titular dado de baja del censo).
+
+-- ---------- El manual, proyectado a filas ----------
+-- GENERADA desde el repo por scripts/cargar-validacion.py. El repo manda: no
+-- editar a mano — se borra y recarga entera en cada corrida, igual que las
+-- tablas de la §12. `tiene_contenido` distingue los procesos que ya redactó el
+-- equipo (hoy 92 de 182) de los que solo tienen la ficha semilla del mapa v18:
+-- solo los primeros se pueden mandar a validar.
+create table if not exists public.procesos_fase2 (
+  codigo          text primary key,                      -- «9.3»
+  macro           text not null,                         -- «9»
+  macro_nombre    text not null,
+  nombre          text not null,
+  madurez         text,
+  dueno_texto     text,                                  -- crudo del mapa v18, tal como vino
+  participantes   jsonb not null default '[]'::jsonb,
+  tiene_contenido boolean not null default false,
+  -- El manual del proceso, tal cual lo redactó el equipo. Vive aquí y no solo
+  -- en los .js del repo para que la Edge Function pueda servir SOLO el proceso
+  -- del token: si la página pública leyera el .js completo, el enlace de un
+  -- gerente de Contabilidad enseñaría de paso los 92 procesos redactados.
+  contenido       jsonb,
+  orden           int,
+  actualizado_en  timestamptz not null default now()
+);
+create index if not exists procesos_fase2_macro_idx on public.procesos_fase2 (macro);
+
+-- ---------- Quién valida qué ----------
+-- El emparejador siembra filas con origen='auto' y su grado de confianza; esas
+-- son PROPUESTAS, no asignaciones. Solo 'confirmado' (un humano aceptó la
+-- propuesta) y 'manual' (un humano la eligió desde cero) habilitan la
+-- generación de un enlace — así ningún gerente recibe un proceso que no le
+-- toca porque un replace mal hecho dejó el cargo sucio en el mapa v18.
+create table if not exists public.procesos_validadores (
+  id             uuid primary key default gen_random_uuid(),
+  proceso        text not null references public.procesos_fase2(codigo) on delete cascade,
+  persona_id     uuid not null references public.personal(id) on delete cascade,
+  origen         text not null default 'auto'
+                 check (origen in ('auto','confirmado','manual')),
+  confianza      numeric,                                -- 0..1 del emparejador; NULL si se puso a mano
+  cargo_sugerido text,                                   -- el cargo del censo con el que casó
+  confirmado_por text,
+  confirmado_en  timestamptz,
+  creado_en      timestamptz not null default now(),
+  unique (proceso, persona_id)
+);
+create index if not exists procesos_validadores_persona_idx on public.procesos_validadores (persona_id);
+
+-- ---------- Lo que respondió el gerente ----------
+-- `veredictos` es {seccion: ok|observaciones} para las 6 secciones del N1;
+-- `comentarios` es una lista de {seccion, ancla, texto, creado_en} donde `ancla`
+-- apunta al elemento concreto (id de actividad del flujo, índice de fila de
+-- riesgo…) o va en null si el comentario es de la sección entera. Ambos en
+-- jsonb: se leen y escriben completos, no se consultan por campo interno.
+create table if not exists public.validaciones (
+  id             uuid primary key default gen_random_uuid(),
+  proceso        text not null references public.procesos_fase2(codigo) on delete cascade,
+  persona_id     uuid not null references public.personal(id) on delete cascade,
+  veredictos     jsonb not null default '{}'::jsonb,
+  comentarios    jsonb not null default '[]'::jsonb,
+  estado         text not null default 'pendiente'
+                 check (estado in ('pendiente','en_progreso','enviada')),
+  enviada_en     timestamptz,
+  creado_en      timestamptz not null default now(),
+  actualizado_en timestamptz not null default now(),
+  unique (proceso, persona_id)
+);
+create index if not exists validaciones_persona_idx on public.validaciones (persona_id);
+
+drop trigger if exists trg_validaciones_touch on public.validaciones;
+create trigger trg_validaciones_touch
+  before update on public.validaciones
+  for each row execute function public.touch_actualizado_en();
+
+-- ---------- Enlaces de acceso público ----------
+-- Tabla aparte de `fichas_tokens` a propósito: son dos campañas distintas, con
+-- vigencias y revocaciones independientes. Revocar los enlaces de la ficha de
+-- perfil no debe apagar los de la validación de procesos, ni al revés.
+create table if not exists public.validacion_tokens (
+  id          uuid primary key default gen_random_uuid(),
+  token       text not null unique,
+  tipo        text not null check (tipo in ('individual','gerente')),
+  persona_id  uuid not null references public.personal(id) on delete cascade,
+  expira_en   timestamptz not null default (now() + interval '45 days'),
+  revocado    boolean not null default false,
+  usos        int not null default 0,
+  ultimo_uso  timestamptz,
+  creado_por  text,
+  creado_en   timestamptz not null default now()
+);
+create index if not exists validacion_tokens_persona_idx on public.validacion_tokens (persona_id);
+
+alter table public.procesos_fase2       enable row level security;
+alter table public.procesos_validadores enable row level security;
+alter table public.validaciones         enable row level security;
+alter table public.validacion_tokens    enable row level security;
+
+-- El manual proyectado se lee con el mismo permiso que el informe; lo escribe
+-- el guion de carga con la clave de servicio.
+drop policy if exists procesos_fase2_lectura   on public.procesos_fase2;
+drop policy if exists procesos_fase2_escritura on public.procesos_fase2;
+create policy procesos_fase2_lectura   on public.procesos_fase2 for select to authenticated
+  using (public.tiene_permiso('ver.informe') or public.tiene_permiso('admin.validacion'));
+create policy procesos_fase2_escritura on public.procesos_fase2 for all to authenticated
+  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+
+drop policy if exists procesos_validadores_lectura   on public.procesos_validadores;
+drop policy if exists procesos_validadores_escritura on public.procesos_validadores;
+create policy procesos_validadores_lectura   on public.procesos_validadores for select to authenticated
+  using (public.tiene_permiso('admin.validacion'));
+create policy procesos_validadores_escritura on public.procesos_validadores for all to authenticated
+  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+
+drop policy if exists validacion_tokens_lectura   on public.validacion_tokens;
+drop policy if exists validacion_tokens_escritura on public.validacion_tokens;
+create policy validacion_tokens_lectura   on public.validacion_tokens for select to authenticated
+  using (public.tiene_permiso('admin.validacion'));
+create policy validacion_tokens_escritura on public.validacion_tokens for all to authenticated
+  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+
+-- validaciones: las escribe también la Edge Function `validacion` con la clave
+-- de servicio (el gerente responde sin sesión); el panel lee y exporta.
+drop policy if exists validaciones_lectura   on public.validaciones;
+drop policy if exists validaciones_escritura on public.validaciones;
+create policy validaciones_lectura   on public.validaciones for select to authenticated
+  using (public.tiene_permiso('admin.validacion'));
+create policy validaciones_escritura on public.validaciones for all to authenticated
+  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+-- ---------- Los validadores, para el informe de Fase 2 ----------
+-- Quién validó cada proceso es parte de la credibilidad del manual, así que
+-- se muestra en el propio informe (ruta #/p/<codigo>), no solo en el panel.
+--
+-- ⚠️ Va como VISTA y no como lectura directa de las tablas a propósito. El
+-- informe lo lee el rol **Junta**, que tiene `ver.informe` pero NO
+-- `admin.personal`: abrirle `personal` para poner un nombre le abriría el
+-- censo entero de 436 personas con sus correos. Esta vista expone solo
+-- nombre, cargo y entidad de quien valida, y únicamente de las asignaciones
+-- ya CONFIRMADAS — una propuesta del emparejador no es un validador.
+--
+-- Y va con `security_invoker = off` (al revés que v_cuellos_de_botella): la
+-- vista necesita saltarse la RLS de `personal` para resolver el nombre. Lo
+-- que la cierra es el `tiene_permiso` del propio WHERE — sin el permiso la
+-- vista devuelve cero filas, no un error.
+drop view if exists public.v_validadores_proceso;
+create view public.v_validadores_proceso
+  with (security_invoker = off) as
+select v.proceso,
+       p.nombre,
+       p.cargo,
+       p.entidad,
+       v.origen,
+       coalesce(val.estado, 'pendiente') as estado_validacion,
+       val.enviada_en
+  from public.procesos_validadores v
+  join public.personal p on p.id = v.persona_id and p.activo
+  left join public.validaciones val
+         on val.proceso = v.proceso and val.persona_id = v.persona_id
+ where v.origen <> 'auto'
+   and public.tiene_permiso('ver.informe');
+
+revoke all on public.v_validadores_proceso from anon;
+grant select on public.v_validadores_proceso to authenticated;

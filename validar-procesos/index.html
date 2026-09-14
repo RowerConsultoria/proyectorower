@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Validación de procesos · Proyecto Rower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilo/app.css">
+<!--
+  Página pública (FUERA del guardia de acceso): la abren gerentes de Kenex que
+  no tienen cuenta del aplicativo. Todo el cierre lo hace la Edge Function
+  `validacion` contra el token opaco del enlace — aquí no hay sesión, ni clave,
+  ni lectura directa de Supabase.
+
+  El manual del proceso NO se lee de informe/fase2/*.js: lo sirve la función,
+  proceso a proceso, para que un enlace solo enseñe lo que le toca.
+-->
+<style>
+  body{background:var(--fondo); min-height:100vh;}
+  .topbar{
+    --fondo:#0A0E13; --tinta:#E9EFF5; --tinta-tenue:#7D8C9C;
+    background:var(--fondo); color:var(--tinta);
+    padding:18px 20px; display:flex; align-items:center; gap:11px;
+  }
+  .topbar .kicker{text-transform:uppercase; letter-spacing:.14em; font-size:.68rem; color:var(--tinta-tenue);}
+  .topbar h1{font-size:1.1rem; margin-top:2px; font-weight:700; text-transform:lowercase; letter-spacing:-.01em;}
+  .wrap{max-width:900px; margin:0 auto; padding:16px 14px 80px;}
+  .card{background:var(--panel); border:1px solid var(--borde); border-radius:var(--r-panel); box-shadow:var(--sombra); padding:20px; margin-top:14px;}
+  .empty{padding:40px 18px; text-align:center; color:var(--muted);}
+  .empty .big{font-size:2.2rem; margin-bottom:10px;}
+  .empty.err{color:var(--riesgo);}
+
+  /* ---------- Bandeja ---------- */
+  .proc-row{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:12px 6px; border-bottom:1px solid var(--borde); cursor:pointer;
+    transition:background .12s var(--curva);
+  }
+  .proc-row:last-child{border-bottom:none;}
+  .proc-row:hover{background:var(--realce);}
+  .proc-row .cod{font-weight:700; color:var(--navy); min-width:46px;}
+  .proc-row .nom{flex:1; min-width:0;}
+  .proc-row .sub{font-size:.78rem; color:var(--muted);}
+  .estado-chip{
+    font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:var(--r-pildora);
+    white-space:nowrap; background:var(--panel-alto); color:var(--tinta-media); border:1px solid var(--borde);
+  }
+  .estado-chip.enviada{background:rgba(46,212,122,.13); color:var(--ok); border-color:rgba(46,212,122,.3);}
+  .estado-chip.en_progreso{background:rgba(242,180,60,.14); color:var(--alerta,#B26A00); border-color:rgba(242,180,60,.3);}
+
+  /* ---------- Ficha de un proceso ---------- */
+  .seccion{border:1px solid var(--borde); border-radius:var(--r-tarjeta); margin-top:14px; overflow:hidden;}
+  .seccion > header{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    padding:11px 14px; background:var(--panel-alto); border-bottom:1px solid var(--borde);
+  }
+  .seccion > header h3{font-size:.92rem; font-weight:700; flex:1; min-width:180px;}
+  .seccion .cuerpo{padding:14px;}
+  .veredicto{display:inline-flex; gap:6px;}
+  .veredicto button{
+    border:1px solid var(--borde); background:var(--panel); color:var(--tinta-media);
+    border-radius:var(--r-pildora); padding:5px 13px; font:inherit; font-size:.78rem;
+    font-weight:700; cursor:pointer; min-height:32px;
+  }
+  .veredicto button[aria-pressed="true"][data-v="ok"]{background:rgba(46,212,122,.15); color:var(--ok); border-color:var(--ok);}
+  .veredicto button[aria-pressed="true"][data-v="observaciones"]{background:rgba(242,180,60,.18); color:#B26A00; border-color:#B26A00;}
+
+  .acts{list-style:none; counter-reset:a;}
+  .acts li{
+    display:flex; gap:10px; align-items:flex-start;
+    padding:9px 0; border-bottom:1px solid var(--borde-tenue);
+  }
+  .acts li:last-child{border-bottom:none;}
+  .acts .n{
+    flex:none; width:22px; height:22px; border-radius:50%; background:var(--panel-alto);
+    border:1px solid var(--borde); font-size:.72rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center; color:var(--muted);
+  }
+  .acts .rol{font-weight:650; color:var(--navy); font-size:.82rem;}
+  .acts .txt{font-size:.88rem;}
+  .coment-btn{
+    flex:none; background:none; border:1px solid transparent; cursor:pointer;
+    min-width:28px; min-height:28px; border-radius:6px; color:var(--muted); font-size:.9rem;
+  }
+  .coment-btn:hover, .coment-btn.tiene{border-color:var(--borde); color:var(--blue); background:var(--panel-alto);}
+  .coment-caja{margin-top:8px;}
+  .coment-caja textarea{width:100%; min-height:70px; padding:9px 11px; border:1px solid var(--borde); border-radius:var(--r-campo); font:inherit; font-size:.86rem; background:var(--panel-alto); color:var(--txt); resize:vertical;}
+
+  table.mini{width:100%; border-collapse:separate; border-spacing:0; font-size:.82rem;}
+  table.mini th{
+    text-align:left; padding:7px 9px; font-size:.68rem; font-weight:700;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+    border-bottom:1px solid var(--borde); white-space:nowrap;
+  }
+  table.mini td{padding:7px 9px; border-bottom:1px solid var(--borde-tenue); vertical-align:top;}
+  table.mini tr:last-child td{border-bottom:none;}
+
+  .barra-fija{
+    position:sticky; bottom:0; margin-top:18px; padding:12px 14px;
+    background:var(--panel); border:1px solid var(--borde); border-radius:var(--r-panel);
+    box-shadow:var(--sombra-alta); display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .barra-fija .avance{flex:1; min-width:150px; font-size:.82rem; color:var(--muted);}
+  .aviso-pie{margin-top:22px; font-size:.76rem; color:var(--muted); text-align:center; line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="textos">
+    <div class="kicker">UCAB Consultores · Kenex</div>
+    <h1>validación de procesos</h1>
+  </div>
+</div>
+
+<div class="wrap" id="wrap">
+  <div class="card"><div class="empty"><div class="big">⏳</div>Abriendo tu enlace…</div></div>
+</div>
+
+<script src="../informe/fase2/flujo-render.js"></script>
+<script>
+const FN = 'https://kmhwqybqrcjhjeywjgxj.supabase.co/functions/v1/validacion';
+const ANON = 'sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1';
+const TOKEN = new URLSearchParams(location.search).get('t') || '';
+
+const SECCIONES = [
+  ['proposito','Propósito y alcance'], ['dueno','Dueño y participantes'],
+  ['disparador','Disparador, cadencia y output'], ['flujo','Flujo de actividades'],
+  ['riesgos','Matriz de riesgos'], ['indicadores','Indicadores'],
+];
+
+const $ = (s,e=document)=>e.querySelector(s);
+const $$ = (s,e=document)=>[...e.querySelectorAll(s)];
+const esc = (v)=> (v==null?'':String(v)).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const wrap = $('#wrap');
+
+let PERSONA = null, PROCESOS = [], ACTUAL = null;
+let veredictos = {}, comentarios = [];
+
+async function fn(accion, extra){
+  const r = await fetch(FN, {
+    method:'POST',
+    headers:{'Content-Type':'application/json', apikey:ANON, Authorization:'Bearer '+ANON},
+    body: JSON.stringify(Object.assign({accion, token:TOKEN}, extra||{})),
+  });
+  const d = await r.json().catch(()=>({error:'Respuesta ilegible del servidor.'}));
+  return { ok:r.ok, datos:d };
+}
+
+function pintarError(msg){
+  wrap.innerHTML = `<div class="card"><div class="empty err"><div class="big">⚠️</div>${esc(msg)}</div></div>`;
+}
+
+/* ============================= Bandeja ============================= */
+async function abrir(){
+  if(!TOKEN) return pintarError('Este enlace está incompleto: le falta el código de acceso.');
+  const { ok, datos } = await fn('abrir');
+  if(!ok) return pintarError(datos.error || 'No se pudo abrir el enlace.');
+  PERSONA = datos.persona; PROCESOS = datos.procesos || [];
+  pintarBandeja();
+}
+
+function pintarBandeja(){
+  ACTUAL = null;
+  const hechos = PROCESOS.filter(p=>p.estado==='enviada').length;
+  if(!PROCESOS.length){
+    wrap.innerHTML = `
+      <div class="card">
+        <h2 style="font-size:1.05rem">Hola, ${esc(PERSONA.nombre)}</h2>
+        <div class="empty"><div class="big">✓</div>
+          Ahora mismo no tienes procesos asignados para validar.<br>
+          <span class="tenue">Si esperabas ver alguno, avisa a quien te compartió el enlace.</span></div>
+      </div>`;
+    return;
+  }
+  const grupos = [];
+  PROCESOS.forEach(p=>{
+    let g = grupos.find(x=>x.macro===p.macro);
+    if(!g){ g={macro:p.macro, nombre:p.macro_nombre, items:[]}; grupos.push(g); }
+    g.items.push(p);
+  });
+  wrap.innerHTML = `
+    <div class="card">
+      <h2 style="font-size:1.05rem">Hola, ${esc(PERSONA.nombre)}</h2>
+      <p style="color:var(--muted); font-size:.88rem; margin-top:6px">
+        Estos son los procesos de los que eres responsable en la documentación de Fase 2.
+        Revisa cada uno y dinos si describe cómo se trabaja hoy de verdad.
+      </p>
+      <div style="margin-top:12px; font-size:.82rem; color:var(--muted)">
+        <b style="color:var(--navy)">${hechos}</b> de <b style="color:var(--navy)">${PROCESOS.length}</b> enviados
+      </div>
+    </div>
+    ${grupos.map(g=>`
+      <div class="card">
+        <div class="tenue" style="font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:700">
+          ${esc(g.macro)}. ${esc(g.nombre)}</div>
+        <div style="margin-top:6px">
+          ${g.items.map(p=>`
+            <div class="proc-row" data-codigo="${esc(p.codigo)}">
+              <span class="cod">${esc(p.codigo)}</span>
+              <span class="nom">${esc(p.nombre)}
+                ${p.comentarios ? `<div class="sub">${p.comentarios} observación${p.comentarios===1?'':'es'}</div>` : ''}
+              </span>
+              <span class="estado-chip ${esc(p.estado)}">${p.estado==='enviada'?'enviado':p.estado==='en_progreso'?'a medias':'pendiente'}</span>
+            </div>`).join('')}
+        </div>
+      </div>`).join('')}
+    <div class="aviso-pie">Documento interno del proyecto de UCAB Consultores para Grupo Kenex.<br>Contenido confidencial — no reenviar este enlace fuera de la organización.</div>`;
+  $$('.proc-row').forEach(r=> r.addEventListener('click', ()=> abrirProceso(r.dataset.codigo)));
+}
+
+/* ============================= Un proceso ============================= */
+async function abrirProceso(codigo){
+  wrap.innerHTML = `<div class="card"><div class="empty"><div class="big">⏳</div>Cargando el proceso…</div></div>`;
+  const { ok, datos } = await fn('cargar', {proceso:codigo});
+  if(!ok) return pintarError(datos.error || 'No se pudo abrir ese proceso.');
+  ACTUAL = datos.proceso;
+  veredictos = (datos.validacion && datos.validacion.veredictos) || {};
+  comentarios = (datos.validacion && datos.validacion.comentarios) || [];
+  pintarProceso();
+}
+
+function comentarioDe(seccion, ancla){
+  return comentarios.find(c=> c.seccion===seccion && (c.ancla||null)===(ancla||null));
+}
+function ponerComentario(seccion, ancla, texto){
+  const i = comentarios.findIndex(c=> c.seccion===seccion && (c.ancla||null)===(ancla||null));
+  if(!texto.trim()){ if(i>=0) comentarios.splice(i,1); return; }
+  if(i>=0) comentarios[i].texto = texto;
+  else comentarios.push({seccion, ancla:ancla||null, texto});
+}
+
+function pintarProceso(){
+  const c = ACTUAL.contenido || {};
+  const mapa = c.mapa || {};
+  wrap.innerHTML = `
+    <div class="card">
+      <button class="btn btn-mini" id="volver">← Volver a mis procesos</button>
+      <h2 style="font-size:1.15rem; margin-top:12px">${esc(ACTUAL.codigo)} · ${esc(ACTUAL.nombre)}</h2>
+      <div class="tenue" style="font-size:.8rem; margin-top:3px">${esc(ACTUAL.macro)}. ${esc(ACTUAL.macro_nombre)}</div>
+      <p style="color:var(--muted); font-size:.86rem; margin-top:10px">
+        Marca cada bloque como <b>correcto</b> o <b>con observaciones</b>. Si algo no encaja con la
+        realidad, escríbelo: puedes comentar un paso concreto con el icono 💬.
+      </p>
+    </div>
+    ${SECCIONES.map(([clave,titulo])=> pintarSeccion(clave, titulo, c, mapa)).join('')}
+    <div class="barra-fija">
+      <span class="avance" id="avance"></span>
+      <button class="btn" id="guardar">Guardar y seguir luego</button>
+      <button class="btn btn-marca" id="enviar">Enviar validación</button>
+    </div>
+    <div class="aviso-pie">Documento interno del proyecto de UCAB Consultores para Grupo Kenex.<br>Contenido confidencial — no reenviar este enlace fuera de la organización.</div>`;
+
+  $('#volver').addEventListener('click', pintarBandeja);
+  $('#guardar').addEventListener('click', ()=> enviarTodo(false));
+  $('#enviar').addEventListener('click', ()=> enviarTodo(true));
+
+  $$('.veredicto button').forEach(b=> b.addEventListener('click', ()=>{
+    veredictos[b.dataset.sec] = b.dataset.v;
+    $$(`.veredicto button[data-sec="${b.dataset.sec}"]`).forEach(o=> o.setAttribute('aria-pressed', String(o===b)));
+    refrescarAvance();
+  }));
+  $$('.coment-btn').forEach(b=> b.addEventListener('click', ()=> alternarCaja(b)));
+  $$('.coment-caja textarea').forEach(t=> t.addEventListener('input', ()=>{
+    ponerComentario(t.dataset.sec, t.dataset.ancla || null, t.value);
+    const btn = $(`.coment-btn[data-sec="${t.dataset.sec}"][data-ancla="${t.dataset.ancla||''}"]`);
+    if(btn) btn.classList.toggle('tiene', !!t.value.trim());
+  }));
+
+  // El flujograma, con el mismo motor que el informe de Fase 2.
+  const cont = $('#flujograma');
+  if(cont && c.flujo && c.flujo.diagrama && window.FlujoRender){
+    try{ window.FlujoRender.montar(cont, c.flujo.diagrama); }
+    catch(e){ cont.innerHTML = '<div class="tenue">No se pudo dibujar el diagrama.</div>'; }
+  }
+  refrescarAvance();
+}
+
+function cabeceraSeccion(clave, titulo){
+  const v = veredictos[clave];
+  return `<header>
+      <h3>${esc(titulo)}</h3>
+      <span class="veredicto">
+        <button data-sec="${clave}" data-v="ok" aria-pressed="${v==='ok'}">✓ correcto</button>
+        <button data-sec="${clave}" data-v="observaciones" aria-pressed="${v==='observaciones'}">⚠ con observaciones</button>
+      </span>
+      ${botonComentario(clave, null)}
+    </header>`;
+}
+
+function botonComentario(seccion, ancla){
+  const c = comentarioDe(seccion, ancla);
+  return `<button class="coment-btn ${c?'tiene':''}" data-sec="${seccion}" data-ancla="${ancla||''}"
+            title="Escribir una observación">💬</button>`;
+}
+
+function cajaComentario(seccion, ancla){
+  const c = comentarioDe(seccion, ancla);
+  return `<div class="coment-caja" data-caja="${seccion}|${ancla||''}" style="display:${c?'block':'none'}">
+      <textarea data-sec="${seccion}" data-ancla="${ancla||''}"
+        placeholder="¿Qué habría que corregir?">${esc(c?c.texto:'')}</textarea>
+    </div>`;
+}
+
+function alternarCaja(boton){
+  const clave = boton.dataset.sec + '|' + (boton.dataset.ancla||'');
+  const caja = $(`[data-caja="${clave}"]`);
+  if(!caja) return;
+  const abierta = caja.style.display !== 'none';
+  caja.style.display = abierta ? 'none' : 'block';
+  if(!abierta) caja.querySelector('textarea').focus();
+}
+
+function pintarSeccion(clave, titulo, c, mapa){
+  let cuerpo = '';
+  if(clave==='proposito'){
+    cuerpo = `<p style="font-size:.9rem">${esc((c.proposito&&c.proposito.texto) || mapa.alcance || 'Sin redactar.')}</p>`;
+  } else if(clave==='dueno'){
+    cuerpo = `
+      <div style="font-size:.88rem"><b>Dueño:</b> ${esc(mapa.dueno||'—')}</div>
+      ${(mapa.participantes||[]).length ? `<div style="margin-top:8px; font-size:.88rem"><b>Participantes:</b>
+        <ul style="margin:6px 0 0 18px">${mapa.participantes.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>` : ''}`;
+  } else if(clave==='disparador'){
+    cuerpo = `
+      <div style="font-size:.88rem"><b>Disparador:</b> ${esc(mapa.disparador||'—')}</div>
+      <div style="font-size:.88rem; margin-top:6px"><b>Cadencia:</b> ${esc(mapa.cadencia||'—')}</div>
+      <div style="font-size:.88rem; margin-top:6px"><b>Resultado:</b> ${esc(mapa.output||'—')}</div>`;
+  } else if(clave==='flujo'){
+    const acts = (c.flujo && c.flujo.actividades) || [];
+    cuerpo = `
+      <ul class="acts">
+        ${acts.map((a,i)=>`
+          <li>
+            <span class="n">${i+1}</span>
+            <span style="flex:1; min-width:0">
+              <span class="rol">${esc(a.rol||'')}</span>
+              <div class="txt">${esc(a.texto||'')}</div>
+              ${cajaComentario('flujo', a.id || ('a'+(i+1)))}
+            </span>
+            ${botonComentario('flujo', a.id || ('a'+(i+1)))}
+          </li>`).join('')}
+      </ul>
+      <div id="flujograma" style="margin-top:14px"></div>`;
+  } else if(clave==='riesgos'){
+    const filas = (c.riesgos && c.riesgos.filas) || [];
+    cuerpo = filas.length ? tablaMini(['Riesgo','Descripción','Prob.','Impacto','Mitigación'], filas)
+      : '<div class="tenue" style="font-size:.86rem">Sin riesgos documentados todavía.</div>';
+  } else if(clave==='indicadores'){
+    const filas = (c.indicadores && c.indicadores.filas) || [];
+    cuerpo = filas.length ? tablaMini(['Indicador','Cómo se calcula','Frecuencia','Responsable','Meta'], filas)
+      : '<div class="tenue" style="font-size:.86rem">Sin indicadores documentados todavía.</div>';
+  }
+  return `<div class="seccion">
+      ${cabeceraSeccion(clave, titulo)}
+      <div class="cuerpo">${cuerpo}${clave!=='flujo' ? cajaComentario(clave, null) : cajaComentario(clave, null)}</div>
+    </div>`;
+}
+
+function tablaMini(cabeceras, filas){
+  return `<table class="mini"><thead><tr>${cabeceras.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead>
+    <tbody>${filas.map(f=>`<tr>${f.map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+}
+
+function refrescarAvance(){
+  const el = $('#avance'); if(!el) return;
+  const n = SECCIONES.filter(([k])=> veredictos[k]).length;
+  el.textContent = `${n} de ${SECCIONES.length} bloques respondidos`;
+}
+
+async function enviarTodo(definitivo){
+  const btn = definitivo ? $('#enviar') : $('#guardar');
+  const rotulo = btn.textContent;
+  btn.disabled = true; btn.textContent = definitivo ? 'Enviando…' : 'Guardando…';
+  const { ok, datos } = await fn(definitivo ? 'enviar' : 'guardar', {
+    proceso: ACTUAL.codigo, veredictos, comentarios,
+  });
+  btn.disabled = false; btn.textContent = rotulo;
+
+  if(!ok){
+    const faltan = (datos.faltan||[]).map(k=>{
+      const s = SECCIONES.find(x=>x[0]===k); return s ? s[1] : k;
+    });
+    alert((datos.error || 'No se pudo enviar.') + (faltan.length ? '\n\n· ' + faltan.join('\n· ') : ''));
+    return;
+  }
+  const p = PROCESOS.find(x=>x.codigo===ACTUAL.codigo);
+  if(p){ p.estado = definitivo ? 'enviada' : 'en_progreso'; p.comentarios = comentarios.length; }
+  if(definitivo) pintarBandeja();
+  else alert('Guardado. Puedes volver a este enlace y seguir donde lo dejaste.');
+}
+
+abrir();
+</script>
+</body>
+</html>
