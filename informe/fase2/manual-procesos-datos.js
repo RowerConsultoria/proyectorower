@@ -327,7 +327,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Country Manager",
        "Directores de la familia (dueños de acuerdo)",
-       "Gerente de Proyectoss (PMO) para los acuerdos que derivan en proyecto",
+       "Gerente de Proyectos (PMO) para los acuerdos que derivan en proyecto",
        "Director(a) Externo(a) de Junta Directiva",
        "gerentes responsables de la ejecución"
       ],
@@ -448,7 +448,7 @@ window.MANUAL_FASE2 = {
        "Gerentes regionales por función",
        "Gerente de Recursos Humanos y Coordinador(a) de Recursos Humanos (mantienen el organigrama)",
        "Director(a) Externo(a) de Junta Directiva",
-       "Gerente de Proyectoss (PMO)"
+       "Gerente de Proyectos (PMO)"
       ],
       "cadencia": "Revisión anual; por evento (creación de una gerencia regional, incorporación de una entidad, cambio de reporte)",
       "disparador": "Decisión de crear o modificar una gerencia regional, incorporar una entidad al modelo de gestión, o brecha de reporte detectada",
@@ -1177,10 +1177,10 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Entrada de la solicitud mediante el formulario de requerimiento de proyecto, que solo puede levantar un gerente de primera línea tras validar necesidad, presupuesto y tiempo con su equipo; evaluación de viabilidad en el comité interno de la oficina; categorización como proyecto, iniciativa o tarea según el número de departamentos involucrados y la existencia de entregables y fechas; y asignación del gestor o devolución al área.",
-      "dueno": "Gerente de Proyectoss (PMO)",
+      "dueno": "Gerente de Proyectos (PMO)",
       "participantes": [
-       "Gerente de Proyectoss",
-       "Gerente de Proyectoss",
+       "Gerente de Proyectos",
+       "Gerente de Proyectos",
        "gerentes de primera línea solicitantes",
        "Country Manager (solicitudes de origen directivo)"
       ],
@@ -1216,9 +1216,9 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Ciclo completo del proyecto de categoría uno: elaboración del cronograma con entregables, responsables e hitos; asignación del código de proyecto y del presupuesto; ejecución con seguimiento de hitos, riesgos y desviaciones; puesta en marcha; y reunión de lecciones aprendidas al cierre, cuyas conclusiones se aplican al proyecto siguiente.",
-      "dueno": "Gerente de Proyectoss (con supervisión del Gerente Regional de Proyectos)",
+      "dueno": "Gerente de Proyectos (con supervisión del Gerente Regional de Proyectos)",
       "participantes": [
-       "Gerente de Proyectoss (PMO)",
+       "Gerente de Proyectos (PMO)",
        "gerentes de las áreas involucradas",
        "Planificador Financiero (código y control de presupuesto)",
        "proveedores externos del proyecto",
@@ -1256,9 +1256,9 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Modelo de consultoría interna para las solicitudes de categoría dos: la oficina reúne a los dos departamentos involucrados, levanta lo que cada uno necesita del otro, identifica los bloqueos que han impedido avanzar, entrega un plan inicial acordado y devuelve la ejecución y el reporte de resultados a los gerentes, sin acompañamiento continuo.",
-      "dueno": "Gerente de Proyectoss",
+      "dueno": "Gerente de Proyectos",
       "participantes": [
-       "Gerente de Proyectoss (PMO)",
+       "Gerente de Proyectos (PMO)",
        "gerentes de los dos departamentos involucrados (responsables de la ejecución y del resultado)"
       ],
       "cadencia": "Por iniciativa; el acompañamiento se concentra en la fase inicial y termina con la entrega del plan",
@@ -1293,9 +1293,9 @@ window.MANUAL_FASE2 = {
      "madurez": "híbrido",
      "mapa": {
       "alcance": "Conducción del lanzamiento como proyecto transversal: categorización del lanzamiento según sea producto nuevo, mejora de un producto existente o variante, definición del alcance por país y de la simultaneidad requerida, cronograma con marketing, visual, comercial, logística y soporte técnico, ejecución de la puesta en mercado y seguimiento del calendario trimestral de lanzamientos.",
-      "dueno": "Gerente de Proyectoss",
+      "dueno": "Gerente de Proyectos",
       "participantes": [
-       "Gerente de Proyectoss (PMO)",
+       "Gerente de Proyectos (PMO)",
        "Gerente Regional de Marketing",
        "Especialista de Producto / Proyecto",
        "Gerente Regional de Marketing",
@@ -1336,10 +1336,10 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Mantenimiento del repositorio único del portafolio con el estado, progreso, hito de la semana, área responsable, tipo, prioridad y país de cada iniciativa; comité interno semanal de la oficina para revisar avances, cuellos de botella, riesgos y desviaciones de presupuesto o cronograma; y emisión automatizada del reporte ejecutivo semanal a la Junta Directiva.",
-      "dueno": "Gerente de Proyectoss (PMO)",
+      "dueno": "Gerente de Proyectos (PMO)",
       "participantes": [
-       "Gerente de Proyectoss",
-       "Gerente de Proyectoss",
+       "Gerente de Proyectos",
+       "Gerente de Proyectos",
        "Junta Directiva (destinataria del reporte)",
        "Country Manager (sesión de alineación quincenal)"
       ],
@@ -1375,10 +1375,10 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Control del volumen de entrada de solicitudes frente a la capacidad real de la oficina: medición de la carga por gestor, identificación del punto de saturación, decisión de suspender temporalmente la recepción de nuevas solicitudes, análisis de la serie histórica para distinguir el pico de la media, y sustentación de la necesidad de incorporar capacidad adicional.",
-      "dueno": "Gerente de Proyectoss (PMO)",
+      "dueno": "Gerente de Proyectos (PMO)",
       "participantes": [
-       "Gerente de Proyectoss",
-       "Gerente de Proyectoss",
+       "Gerente de Proyectos",
+       "Gerente de Proyectos",
        "Country Manager (aprueba la incorporación de capacidad)",
        "Gerente de Recursos Humanos"
       ],
@@ -1414,10 +1414,10 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Asignación de un código de proyecto enlazado con Finanzas y del presupuesto correspondiente, exigencia de cotizaciones múltiples antes de comprometer un gasto, seguimiento del consumo contra lo asignado durante la ejecución, y alerta y reescalamiento cuando el proyecto se desvía.",
-      "dueno": "Gerente de Proyectoss (PMO)",
+      "dueno": "Gerente de Proyectos (PMO)",
       "participantes": [
        "Planificador Financiero (asignación y control del código)",
-       "Gerente de Proyectoss",
+       "Gerente de Proyectos",
        "Gerente de Tesorería",
        "Junta Directiva (aprueba el presupuesto del proyecto)",
        "proveedores cotizantes (actores externos)"
@@ -1485,7 +1485,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Country Manager",
        "Coordinador(a) de Sistemas",
-       "Gerente de Proyectoss (PMO)",
+       "Gerente de Proyectos (PMO)",
        "Asistente Administrativo(a) / Servicios Generales (levantamiento de uso y necesidades)",
        "Asesor(a) Jurídico(a) Externo(a) del Grupo",
        "Planificador Financiero"
@@ -1522,7 +1522,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Captura de las iniciativas de automatización que hoy nacen de forma dispersa en cada área, mantenimiento del inventario de casos de uso activos y de las plataformas sobre las que corren, evaluación del valor y del riesgo de cada uno, decisión de si se construye internamente, con el partner o no se construye, y aprobación para pasar a desarrollo.",
-      "dueno": "Gerente de Proyectoss (PMO)",
+      "dueno": "Gerente de Proyectos (PMO)",
       "participantes": [
        "Gerente de Tecnología / Sistemas",
        "Coordinador(a) de Sistemas",
@@ -1566,7 +1566,7 @@ window.MANUAL_FASE2 = {
       "participantes": [
        "Country Manager (patrocinio y convocatoria)",
        "Gerente de Tecnología / Sistemas",
-       "Gerente de Proyectoss (PMO)",
+       "Gerente de Proyectos (PMO)",
        "gerentes de primera línea (participantes y replicadores)",
        "Asistente Administrativo(a) / Servicios Generales (convocatoria y seguimiento)"
       ],
@@ -3364,10 +3364,10 @@ window.MANUAL_FASE2 = {
      "madurez": "as-is",
      "mapa": {
       "alcance": "Ciclo end-to-end desde identificación del local (con apoyo del supervisor por contactos en administradoras de malls), ACP financiero regional (proyección ventas/gastos/márgenes/payback bajo regla de 3 años), diseño de layout con arquitecto externo, gestión de permisos (alcaldía, bomberos, patente, publicidad), plantilla por turno respetando ley, contratación de POS y merchant, adecuación IT y cámaras, instalación de visual merchandising, hasta inauguración. Orquestado como proyecto formal por la PMO.",
-      "dueno": "Gerente de Proyectoss (PMO) para el proyecto; Gerente Regional Comercial / Retail para ACP y decisión de negocio",
+      "dueno": "Gerente de Proyectos (PMO) para el proyecto; Gerente Regional Comercial / Retail para ACP y decisión de negocio",
       "participantes": [
-       "Gerente de Proyectoss (PMO)",
-       "Gerente de Proyectoss",
+       "Gerente de Proyectos (PMO)",
+       "Gerente de Proyectos",
        "Gerente Regional Comercial / Retail",
        "Planificador Financiero",
        "Gerente Regional Comercial / Retail",
@@ -3419,7 +3419,7 @@ window.MANUAL_FASE2 = {
        "Gerente Comercial (País / Canal) al Detal (País) (País) (País) (por país)",
        "Supervisor de Ventas",
        "Arquitecto/Proveedor de Remodelación",
-       "Gerente de Proyectoss (PMO)"
+       "Gerente de Proyectos (PMO)"
       ],
       "cadencia": "Por proyecto (agrupada en cola cuando el material está disponible)",
       "disparador": "Envejecimiento de imagen; disponibilidad de material del proveedor; alineación con nuevo concepto; daño estructural o de mobiliario",
@@ -3930,7 +3930,7 @@ window.MANUAL_FASE2 = {
        "Supervisor(a) de Operaciones E-commerce (Colombia — Tatiana)",
        "Marketing (banners, campañas visuales)",
        "Coordinador(a) de Sistemas",
-       "Gerente de Proyectoss (PMO — para integraciones nuevas)"
+       "Gerente de Proyectos (PMO — para integraciones nuevas)"
       ],
       "cadencia": "Continua (actualización diaria); por evento (lanzamiento de producto nuevo, cambio de banner de campaña, activación de nuevo método de pago)",
       "disparador": "Llegada de mercancía nueva; campaña de Marketing programada; incidencia técnica en pasarela de pago o integración",
@@ -4868,7 +4868,7 @@ window.MANUAL_FASE2 = {
        "Gerente de Servicio Técnico (por país)",
        "Gerente de E-commerce / Ventas Web (por país)",
        "Gerente Regional de Marketing",
-       "Gerente de Proyectoss (PMO) para iniciativas transversales"
+       "Gerente de Proyectos (PMO) para iniciativas transversales"
       ],
       "cadencia": "Continua; revisión por evento (nuevo mercado, nuevo producto, cambio de plataforma o de política)",
       "disparador": "Apertura de operación en un nuevo mercado, cambio de política de garantía o brecha detectada en la homologación entre países",
@@ -6057,7 +6057,7 @@ window.MANUAL_FASE2 = {
       "dueno": "Coordinador(a) de Sistemas",
       "participantes": [
        "Analista de Sistemas / Datos (infraestructura física)",
-       "Gerente de Proyectoss (coordinación de la apertura)",
+       "Gerente de Proyectos (coordinación de la apertura)",
        "Gerente de Contabilidad / Administración (creación de diarios contables)",
        "Gerente de Tecnología / Sistemas",
        "proveedores de conectividad, cámaras, telefonía e integración bancaria (actores externos)"
@@ -6434,7 +6434,7 @@ window.MANUAL_FASE2 = {
        "Planificador Financiero (aprobación del presupuesto)",
        "Gerente Regional Comercial / Retail",
        "Gerente Regional de Marketing",
-       "Gerente de Proyectoss"
+       "Gerente de Proyectos"
       ],
       "cadencia": "Anual (construcción del plan y del presupuesto); revisión trimestral; seguimiento semanal de ejecución",
       "disparador": "Aprobación del presupuesto del ejercicio e inicio del ciclo anual de planificación",
@@ -6476,7 +6476,7 @@ window.MANUAL_FASE2 = {
        "Gerente de Marketing",
        "Gerente Regional de Visual Merchandising",
        "Gerente Regional Comercial / Retail",
-       "Gerente de Proyectoss"
+       "Gerente de Proyectos"
       ],
       "cadencia": "Por campaña; concentración en las temporadas fijas del calendario y en los lanzamientos",
       "disparador": "Campaña prevista en el calendario anual, lanzamiento de producto confirmado, o acción comercial acordada con un cliente ancla",
@@ -6676,7 +6676,7 @@ window.MANUAL_FASE2 = {
        "Gerente Regional Comercial / Retail",
        "Gerente Comercial (País / Canal) al Detal (País) por país",
        "Gerente Regional Comercial / Retail y Key Account Manager (material para el canal)",
-       "Gerente de Proyectoss (aperturas)",
+       "Gerente de Proyectos (aperturas)",
        "proveedores de mobiliario y producción gráfica (actores externos)"
       ],
       "cadencia": "Continua (mantenimiento del estándar en tienda); por proyecto (apertura o remodelación); por solicitud (material para el canal)",
@@ -7744,7 +7744,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Custodia del mapa de procesos del grupo como artefacto único: definición y mantenimiento de los niveles de descomposición, de las convenciones de nomenclatura y de las fronteras entre macroprocesos, asignación del dueño de cada proceso, y priorización de la cola de macroprocesos a documentar y a actualizar.",
-      "dueno": "Gerente de Proyectoss (PMO) mientras no exista una función dedicada",
+      "dueno": "Gerente de Proyectos (PMO) mientras no exista una función dedicada",
       "participantes": [
        "Country Manager",
        "Junta Directiva (aprueba el mapa)",
@@ -7784,7 +7784,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Ciclo de documentación de un proceso: levantamiento de la operación real con los actores, contraste con las mejores prácticas del sector, diseño de la versión deber ser, redacción del manual con su flujograma y sus instrucciones de trabajo, validación con el dueño del proceso y con las áreas involucradas, y aprobación para su publicación.",
-      "dueno": "Gerente de Proyectoss (PMO) mientras no exista una función dedicada",
+      "dueno": "Gerente de Proyectos (PMO) mientras no exista una función dedicada",
       "participantes": [
        "Dueño del proceso documentado",
        "actores del proceso en cada país",
@@ -7824,7 +7824,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Administración del repositorio único donde vive la documentación de procesos: publicación del manual aprobado, asignación de versión y de fecha de vigencia, retiro de las versiones superadas, control de las modificaciones posteriores mediante solicitud formal, y notificación del cambio a los usuarios del proceso.",
-      "dueno": "Gerente de Proyectoss (PMO) mientras no exista una función dedicada",
+      "dueno": "Gerente de Proyectos (PMO) mientras no exista una función dedicada",
       "participantes": [
        "Dueño del proceso",
        "Gerente de Tecnología / Sistemas (administración del repositorio)",
@@ -7863,7 +7863,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Captación de la oportunidad de mejora desde sus fuentes —hallazgo de una auditoría o revisión, dolor reportado por el dueño del proceso, indicador fuera de rango, o propuesta de un colaborador—, evaluación del impacto y del esfuerzo, priorización, ejecución del cambio sobre el proceso y verificación del resultado.",
-      "dueno": "Gerente de Proyectoss (PMO) mientras no exista una función dedicada",
+      "dueno": "Gerente de Proyectos (PMO) mientras no exista una función dedicada",
       "participantes": [
        "Dueño del proceso",
        "gerentes de las áreas involucradas",
@@ -7903,7 +7903,7 @@ window.MANUAL_FASE2 = {
      "madurez": "to-be",
      "mapa": {
       "alcance": "Verificación de que la operación se ejecuta como el proceso documentado establece: definición de los puntos de control por proceso, revisión periódica o sorpresiva de su cumplimiento en cada país, registro de las desviaciones con su causa, y devolución del hallazgo al dueño del proceso para su corrección o para revisar el estándar cuando la desviación es razonable.",
-      "dueno": "Gerente de Proyectoss (PMO) mientras no exista una función dedicada",
+      "dueno": "Gerente de Proyectos (PMO) mientras no exista una función dedicada",
       "participantes": [
        "Dueño del proceso",
        "Gerente de Contabilidad / Administración",
@@ -7945,7 +7945,7 @@ window.MANUAL_FASE2 = {
       "alcance": "Acompañamiento de la puesta en uso del proceso documentado: comunicación del cambio a los equipos afectados, formación en el estándar nuevo, incorporación del proceso a la inducción del personal que ingresa, atención de la resistencia y de los ajustes que surgen en los primeros ciclos, y confirmación de que el estándar quedó instalado.",
       "dueno": "Gerente de Recursos Humanos (Formación y Desarrollo)",
       "participantes": [
-       "Gerente de Proyectoss (PMO)",
+       "Gerente de Proyectos (PMO)",
        "dueño del proceso",
        "gerentes de las áreas afectadas",
        "Country Manager (patrocinio de los cambios transversales)",

@@ -264,11 +264,11 @@ procesos** (permiso `admin.validacion`).
 2. **Confirmar o corregir cada propuesta en el panel.** Esto es lo que hay
    que hacer y no se puede saltar: lo que el guion siembra son **propuestas**,
    no asignaciones, y **una propuesta sin confirmar no le llega a nadie**.
-   El dueño del mapa v18 viene con errores de una sustitución automática
-   («Gerente de Proyectoss (PMO)»), así que hay propuestas equivocadas.
-   Confirmar es `✓`; el `⋯` de cada fila abre la gestión completa —deshacer
-   una confirmación equivocada, quitar a alguien, o elegir a otra persona
-   del censo con el buscador—.
+   El dueño del mapa v18 puede traer artefactos de una sustitución automática
+   mal hecha, así que puede haber propuestas equivocadas. Confirmar es `✓`;
+   el `⋯` de cada fila abre la gestión completa —deshacer una confirmación
+   equivocada, quitar a alguien, o elegir a otra persona del censo con el
+   buscador—.
 3. **Generar los enlaces** (botón «🔗 enlaces») y repartirlos. Son enlaces
    opacos de 45 días, revocables, y **no hay correo automático**: se exportan
    a CSV y se reparten a mano, igual que los de la ficha de perfil.
