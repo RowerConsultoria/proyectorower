@@ -425,8 +425,9 @@ create table if not exists public.fichas_perfil (
   documento           text,
   antiguedad_org      text,
   nivel_educativo     text check (nivel_educativo in
-                       ('bachiller_tecnico_medio','tsu_universitario_incompleto',
-                        'universitario_titulado','especializacion_maestria_doctorado')),
+                       ('primaria_bachillerato_incompleto','bachiller_tecnico_medio',
+                        'tsu_universitario_incompleto','universitario_titulado',
+                        'especializacion_maestria_doctorado')),
   otras_formaciones   text,
   titulo_obtenido     text,
   institucion         text,
@@ -443,6 +444,17 @@ create table if not exists public.fichas_perfil (
   creado_en           timestamptz not null default now(),
   actualizado_en      timestamptz not null default now()
 );
+
+-- El check de arriba solo nace con la tabla: en la base que ya existe hay que
+-- reponerlo al ampliar el dominio. 15-sep-2026: se añadió el nivel más bajo,
+-- 'primaria_bachillerato_incompleto' (personal de almacén y tienda que no
+-- terminó bachillerato y antes no tenía casilla que marcar).
+alter table public.fichas_perfil drop constraint if exists fichas_perfil_nivel_educativo_check;
+alter table public.fichas_perfil add  constraint fichas_perfil_nivel_educativo_check
+  check (nivel_educativo in
+    ('primaria_bachillerato_incompleto','bachiller_tecnico_medio',
+     'tsu_universitario_incompleto','universitario_titulado',
+     'especializacion_maestria_doctorado'));
 
 drop trigger if exists trg_fichas_perfil_touch on public.fichas_perfil;
 create trigger trg_fichas_perfil_touch

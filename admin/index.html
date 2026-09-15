@@ -3366,7 +3366,8 @@ function abrirModalFicha(personaId){
   const previas = Array.isArray(x.posiciones_previas)? x.posiciones_previas : [];
   const hab = (x.habilidades && typeof x.habilidades==='object')? x.habilidades : {};
   const NIVEL = { basico:'Básico', intermedio:'Intermedio', avanzado:'Avanzado', no_aplica:'No aplica' };
-  const NIVELEDU = { bachiller_tecnico_medio:'Bachiller / Técnico Medio', tsu_universitario_incompleto:'TSU / Universitario incompleto',
+  const NIVELEDU = { primaria_bachillerato_incompleto:'Primaria / Bachillerato incompleto',
+    bachiller_tecnico_medio:'Bachiller / Técnico Medio', tsu_universitario_incompleto:'TSU / Universitario incompleto',
     universitario_titulado:'Universitario titulado', especializacion_maestria_doctorado:'Especialización / Maestría / Doctorado' };
 
   $('#fiModalCaja').innerHTML = `
