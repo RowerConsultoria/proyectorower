@@ -6993,7 +6993,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente del área solicitante", "texto": "Identifica la necesidad de cubrir una vacante —por crecimiento del negocio, apertura de un punto de venta o salida de un colaborador— y levanta la solicitud de requisición de personal con el perfil, la urgencia y el presupuesto salarial de referencia."},
-      {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Recibe la requisición, confirma con el gerente solicitante el perfil del puesto cuando no existe una descripción de cargo vigente, y da la aprobación previa que toda vacante requiere antes de iniciar la búsqueda."},
+      {"id": "a2", "rol": "Coordinador(a) / Gerente de Reclutamiento y Selección / Gerente de Recursos Humanos", "texto": "Confirma con el gerente solicitante el perfil del puesto, revisa la descripción de cargo vigente, y da la aprobación previa que toda vacante requiere antes de iniciar la búsqueda."},
       {"id": "a3", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Publica la vacante en LinkedIn y en las plataformas de reclutamiento autorizadas, y activa en paralelo la red de referidos internos, un canal especialmente usado para cubrir los cargos operativos de tienda y almacén."},
       {"id": "a4", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Centraliza en la base de candidatos las hojas de vida que llegan por los canales oficiales —correo institucional, portal corporativo, plataformas de empleo y postulaciones físicas— y aplica un primer filtro contra el perfil solicitado."},
       {"id": "a5", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Realiza una entrevista telefónica breve a los candidatos que superan el filtro inicial, sondeando experiencia, ubicación, disponibilidad y aspiración salarial, y descarta a quienes quedan fuera del rango salarial o la logística del cargo."},
@@ -7009,11 +7009,11 @@ window.MANUAL_CONTENIDO = {
       {"id": "a15", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Formaliza la contratación: hace firmar el contrato de trabajo, registra al colaborador ante los entes de seguridad social y laborales del país, y abre su expediente con la documentación completa."}
      ],
      "diagrama": {
-      "carriles": ["Gerente del área solicitante", "Gerente de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Coordinador(a) de Recursos Humanos", "Country Manager"],
+      "carriles": ["Gerente del área solicitante", "Coordinador(a) / Gerente de Reclutamiento y Selección / Gerente de Recursos Humanos", "Gerente de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Coordinador(a) de Recursos Humanos", "Country Manager"],
       "nodos": [
        {"id": "n0", "carril": "Gerente del área solicitante", "tipo": "inicio", "n": "Necesidad de cubrir una vacante"},
        {"id": "n1", "carril": "Gerente del área solicitante", "tipo": "tarea", "n": "Levantar la requisición de personal"},
-       {"id": "n2", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Confirmar perfil y aprobar la apertura de la vacante"},
+       {"id": "n2", "carril": "Coordinador(a) / Gerente de Reclutamiento y Selección / Gerente de Recursos Humanos", "tipo": "tarea", "n": "Confirmar perfil, revisar descripción de cargo y aprobar la apertura de la vacante"},
        {"id": "n3", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Publicar la vacante y activar referidos internos", "sistemas": ["LinkedIn"]},
        {"id": "n4", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Filtrar hojas de vida recibidas"},
        {"id": "n5", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Sondear candidatos por entrevista telefónica"},
