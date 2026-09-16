@@ -6976,8 +6976,93 @@ window.MANUAL_CONTENIDO = {
   }
  }
 }
- }
+ },
 
+ "17": {
+  "procesos": {
+
+   "17.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la incorporación de personal nuevo a la organización: desde que un gerente formaliza la necesidad de cubrir una vacante hasta que el colaborador queda contratado, registrado ante los entes de seguridad social y laborales del país y con su expediente abierto. No incluye la inducción ni la entrega de accesos y dotación al colaborador ya contratado (proceso 17.2).",
+     "nota_estado": "El proceso sigue la misma secuencia general en Venezuela y Panamá —publicación, filtro, entrevistas, oferta y contratación—, pero cada país lo ejecuta con su propio criterio, sin un procedimiento único documentado que lo homologue entre ellos; en Colombia, además, está completamente tercerizado con una empresa de servicios de personal que contrata en su propio nombre."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente del área solicitante", "texto": "Identifica la necesidad de cubrir una vacante —por crecimiento del negocio, apertura de un punto de venta o salida de un colaborador— y levanta la solicitud de requisición de personal con el perfil, la urgencia y el presupuesto salarial de referencia."},
+      {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Recibe la requisición, confirma con el gerente solicitante el perfil del puesto cuando no existe una descripción de cargo vigente, y da la aprobación previa que toda vacante requiere antes de iniciar la búsqueda."},
+      {"id": "a3", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Publica la vacante en LinkedIn y en las plataformas de reclutamiento autorizadas, y activa en paralelo la red de referidos internos, un canal especialmente usado para cubrir los cargos operativos de tienda y almacén."},
+      {"id": "a4", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Centraliza en la base de candidatos las hojas de vida que llegan por los canales oficiales —correo institucional, portal corporativo, plataformas de empleo y postulaciones físicas— y aplica un primer filtro contra el perfil solicitado."},
+      {"id": "a5", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Realiza una entrevista telefónica breve a los candidatos que superan el filtro inicial, sondeando experiencia, ubicación, disponibilidad y aspiración salarial, y descarta a quienes quedan fuera del rango salarial o la logística del cargo."},
+      {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Consolida la preselección en una terna de candidatos y la envía por correo al gerente solicitante, con el resumen de cada entrevista telefónica y la hoja de vida de cada candidato adjunta."},
+      {"id": "a7", "rol": "Gerente del área solicitante", "texto": "Revisa la terna, decide a qué candidatos convocar a entrevista y coordina con Recursos Humanos la disponibilidad para agendarla, de forma presencial o virtual según el cargo y la ubicación del candidato."},
+      {"id": "a8", "rol": "Gerente de Recursos Humanos", "texto": "Entrevista al candidato —antes o después de la entrevista con el gerente solicitante, según la agenda de la semana— para validar el encaje cultural y trasladarle al gerente una impresión adicional a la suya."},
+      {"id": "a9", "rol": "Gerente del área solicitante", "texto": "Entrevista al candidato a profundidad sobre los conocimientos técnicos y la experiencia específica que exige el cargo, y comunica a Recursos Humanos su decisión sobre a quién prefiere para la posición."},
+      {"id": "a10", "rol": "Gerente de Recursos Humanos", "texto": "Determina si el cargo es gerencial o una posición clave de la organización; de ser así, traslada la entrevista final y la aprobación al Country Manager antes de continuar, y si no, sigue con el proceso estándar."},
+      {"id": "a11", "rol": "Country Manager", "texto": "Entrevista al candidato para las posiciones gerenciales o clave del país y da la aprobación final sobre quién ingresa, una instancia que se activa solo para este tipo de cargos."},
+      {"id": "a12", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Verifica las referencias laborales del candidato seleccionado, contactando a sus empleadores anteriores por teléfono y solicitando la confirmación por escrito antes de avanzar a la oferta."},
+      {"id": "a13", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Gestiona las pruebas técnicas o psicométricas y los exámenes de laboratorio de preingreso que el perfil del cargo requiera, como respaldo adicional a la decisión de selección."},
+      {"id": "a14", "rol": "Gerente de Recursos Humanos", "texto": "Presenta al candidato la propuesta laboral por escrito, con el salario, el horario y el cargo; si la acepta, se inicia la formalización del contrato, y si la rechaza, Recursos Humanos reabre la búsqueda con la terna preseleccionada."},
+      {"id": "a15", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Formaliza la contratación: hace firmar el contrato de trabajo, registra al colaborador ante los entes de seguridad social y laborales del país, y abre su expediente con la documentación completa."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente del área solicitante", "Gerente de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Coordinador(a) de Recursos Humanos", "Country Manager"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente del área solicitante", "tipo": "inicio", "n": "Necesidad de cubrir una vacante"},
+       {"id": "n1", "carril": "Gerente del área solicitante", "tipo": "tarea", "n": "Levantar la requisición de personal"},
+       {"id": "n2", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Confirmar perfil y aprobar la apertura de la vacante"},
+       {"id": "n3", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Publicar la vacante y activar referidos internos", "sistemas": ["LinkedIn"]},
+       {"id": "n4", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Filtrar hojas de vida recibidas"},
+       {"id": "n5", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Sondear candidatos por entrevista telefónica"},
+       {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Enviar terna al gerente solicitante"},
+       {"id": "n7", "carril": "Gerente del área solicitante", "tipo": "tarea", "n": "Seleccionar candidatos a entrevistar"},
+       {"id": "n8", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Entrevistar al candidato (encaje cultural)"},
+       {"id": "n9", "carril": "Gerente del área solicitante", "tipo": "tarea", "n": "Entrevistar al candidato (conocimiento técnico)"},
+       {"id": "n10", "carril": "Gerente de Recursos Humanos", "tipo": "decision", "n": "¿Cargo gerencial o posición clave?"},
+       {"id": "n10alt", "carril": "Country Manager", "tipo": "tarea", "n": "Entrevistar y aprobar al candidato"},
+       {"id": "n11", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Verificar referencias laborales"},
+       {"id": "n12", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Aplicar pruebas y exámenes de preingreso"},
+       {"id": "n13", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Presentar oferta laboral por escrito"},
+       {"id": "n14", "carril": "Gerente de Recursos Humanos", "tipo": "decision", "n": "¿Candidato acepta la oferta?"},
+       {"id": "n14alt", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Búsqueda reabierta con la terna preseleccionada"},
+       {"id": "n15", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Formalizar contrato y registrar ante los entes"},
+       {"id": "n16", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Colaborador contratado y registrado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n10alt", "etq": "Sí"}, {"de": "n10", "a": "n11", "etq": "No"}, {"de": "n10alt", "a": "n11"},
+       {"de": "n11", "a": "n12"}, {"de": "n12", "a": "n13"}, {"de": "n13", "a": "n14"},
+       {"de": "n14", "a": "n15", "etq": "Sí"}, {"de": "n14", "a": "n14alt", "etq": "No"},
+       {"de": "n15", "a": "n16"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Contratación fuera del proceso formal para posiciones estratégicas o técnicas", "La dirección general ha contratado directamente a especialistas clave sin pasar por Recursos Humanos, evitando la requisición y la aprobación estándar del cargo.", "Media", "Alto", "Definir un único punto de entrada para toda contratación, incluida la de iniciativa directa de la dirección, con el mismo registro y aprobación."],
+      ["Sin control formal de personal contratado para trabajar en otro país", "No existe hoy una verificación migratoria o laboral estructurada para quienes se contratan desde un país para trabajar en otro de la región.", "Media", "Alto", "Definir un protocolo de verificación migratoria y laboral antes de formalizar una contratación transfronteriza."],
+      ["Ausencia de indicadores formales del proceso", "El propio gerenciamiento reconoce que no se mide el tiempo ni la efectividad de la contratación en ningún país.", "Alta", "Medio", "Adoptar y reportar de forma regular los indicadores definidos en esta ficha."],
+      ["Dependencia de una sola persona por país sin respaldo documentado", "En Venezuela y Panamá, una sola persona ejecuta el proceso completo de reclutamiento y selección sin un procedimiento escrito que permita a alguien más asumirlo.", "Media", "Alto", "Documentar el procedimiento país por país y designar un respaldo capacitado."],
+      ["Selección sin diccionario de competencias", "La evaluación técnica del candidato queda al criterio individual de cada gerente entrevistador, sin un diccionario de competencias por cargo que la estandarice.", "Alta", "Medio", "Adoptar un diccionario de competencias por cargo como referencia común de entrevista."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de cobertura de la vacante", "Fecha de firma del contrato − fecha de aprobación de la requisición, en días", "Mensual", "Gerente de Recursos Humanos", "Dentro de 1 a 3 meses, el rango que el propio procedimiento reconoce como normal"],
+      ["Efectividad de la terna presentada", "Ternas que terminan en contratación ÷ total de ternas enviadas al gerente solicitante", "Mensual", "Coordinador(a) de Recursos Humanos", "Por definir — no hay línea base hoy"],
+      ["Rotación temprana (0-90 días)", "Contrataciones que salen de la organización dentro de los primeros 90 días ÷ total de contrataciones del período", "Trimestral", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   }
+
+  }
+ }
 
 };
 
