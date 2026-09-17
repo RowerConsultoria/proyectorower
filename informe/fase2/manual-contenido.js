@@ -7059,11 +7059,781 @@ window.MANUAL_CONTENIDO = {
       ["Rotación temprana (0-90 días)", "Contrataciones que salen de la organización dentro de los primeros 90 días ÷ total de contrataciones del período", "Trimestral", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"]
      ]
     }
+   },
+
+   "17.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el recibimiento formal del colaborador que ingresa: presentación de la organización, de las marcas y de la cultura del grupo, entrega de la información de beneficios y de las condiciones de la relación, presentación al equipo y al puesto, y entrega del material de incorporación, hasta que se confirma su continuidad al cierre del periodo de prueba.",
+     "nota_estado": "Es un proceso a implementar: hoy la inducción se limita a una presentación informal de las áreas y a una breve explicación verbal de los beneficios, sin una charla estructurada ni un checklist de cumplimiento. El flujo que describe esta ficha recoge el procedimiento ya diseñado por el equipo de Panamá para llevarlo a la práctica en todo el grupo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe la confirmación de la fecha de ingreso acordada al cierre de la contratación y prepara la agenda del primer día del colaborador, coordinando con el gerente del área receptora la hora de llegada."},
+      {"id": "a2", "rol": "Coordinador(a) de Sistemas", "texto": "Prepara antes del ingreso los accesos, el equipo y la dotación del colaborador —correo, usuario en Lark y en Odoo si aplica, computador y, en el caso de tienda, el uniforme— a partir de la solicitud que le traslada Recursos Humanos."},
+      {"id": "a3", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe al colaborador el primer día, le asigna estacionamiento cuando aplica y le da la bienvenida institucional."},
+      {"id": "a4", "rol": "Gerente de Recursos Humanos", "texto": "Explica la cultura organizacional y las normas de convivencia, y hace entrega por correo del código de cultura, el reglamento interno y la descripción del cargo."},
+      {"id": "a5", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Hace firmar los documentos de ingreso —formulario de datos personales y contrato de trabajo— y toma la foto para el carné y para el registro del reloj de marcación."},
+      {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Envía por correo a toda la organización la presentación del colaborador que ingresa, con su nombre, su cargo y su área."},
+      {"id": "a7", "rol": "gerente del área receptora", "texto": "Presenta al colaborador al equipo de trabajo y le entrega la descripción de su cargo, su puesto de trabajo y los insumos de oficina."},
+      {"id": "a8", "rol": "gerente del área receptora", "texto": "Realiza, o delega en un compañero de trabajo, la capacitación inicial sobre las funciones y las herramientas que el colaborador va a utilizar en el puesto."},
+      {"id": "a9", "rol": "Subgerente de Servicio Técnico", "texto": "En el caso de un cargo de cara al cliente en tienda, registra al colaborador en la Universidad Cubitt y coordina con el supervisor de marca las sesiones de formación técnica de producto antes de que atienda al público."},
+      {"id": "a10", "rol": "gerente del área receptora", "texto": "Da seguimiento al colaborador durante el periodo de prueba y, antes de que se cumpla, informa a Recursos Humanos su valoración sobre el desempeño mostrado."},
+      {"id": "a11", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Aplica, antes de que venza el periodo de prueba, la evaluación con la que el gerente del área valora si el colaborador cumplió las expectativas del cargo."},
+      {"id": "a12", "rol": "Gerente de Recursos Humanos", "texto": "Decide, con base en la valoración del gerente y la evaluación aplicada, si el ingreso se formaliza de manera definitiva o si la relación laboral termina al vencer el periodo de prueba."},
+      {"id": "a13", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Una vez superado el periodo de prueba, tramita la apertura de la cuenta bancaria de nómina del colaborador y su incorporación definitiva a la planilla, cerrando el proceso de incorporación."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Recursos Humanos", "Coordinador(a) de Sistemas", "Gerente de Recursos Humanos", "gerente del área receptora", "Subgerente de Servicio Técnico"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Fecha de ingreso confirmada"},
+       {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Preparar la agenda del primer día"},
+       {"id": "n2", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Preparar accesos, equipo y dotación", "sistemas": ["Lark", "Odoo"]},
+       {"id": "n3", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Recibir al colaborador y dar la bienvenida"},
+       {"id": "n4", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Explicar la cultura y entregar los documentos"},
+       {"id": "n5", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Firmar documentos de ingreso y tomar foto para el carné"},
+       {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Anunciar el ingreso a la organización"},
+       {"id": "n7", "carril": "gerente del área receptora", "tipo": "tarea", "n": "Presentar al colaborador al equipo y entregar su puesto"},
+       {"id": "n8", "carril": "gerente del área receptora", "tipo": "tarea", "n": "Capacitar en funciones y herramientas del puesto"},
+       {"id": "n9", "carril": "gerente del área receptora", "tipo": "decision", "n": "¿Cargo de cara al cliente en tienda?"},
+       {"id": "n9alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Registrar en la Universidad Cubitt y formar en producto"},
+       {"id": "n10", "carril": "gerente del área receptora", "tipo": "tarea", "n": "Dar seguimiento durante el periodo de prueba"},
+       {"id": "n11", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Aplicar la evaluación de fin de periodo de prueba"},
+       {"id": "n12", "carril": "Gerente de Recursos Humanos", "tipo": "decision", "n": "¿Colaborador cumplió las expectativas del cargo?"},
+       {"id": "n12alt", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Relación laboral termina al vencer el periodo de prueba"},
+       {"id": "n13", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Tramitar cuenta bancaria y planilla definitiva"},
+       {"id": "n14", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Colaborador incorporado de forma definitiva"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n9alt", "etq": "Sí"}, {"de": "n9", "a": "n10", "etq": "No"}, {"de": "n9alt", "a": "n10"},
+       {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13", "etq": "Sí"}, {"de": "n12", "a": "n12alt", "etq": "No"},
+       {"de": "n13", "a": "n14"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Inducción sin charla estructurada", "La bienvenida institucional se da hoy de manera informal, sin un programa estandarizado que garantice que todo colaborador reciba la misma información de cultura y beneficios.", "Alta", "Medio", "Formalizar y aplicar el procedimiento de onboarding ya diseñado, con un checklist de cumplimiento."],
+      ["Accesos y dotación no listos antes del ingreso", "A veces el colaborador llega sin correo, equipo o uniforme asignado porque la solicitud a Sistemas no se tramita con suficiente anticipación.", "Media", "Medio", "Anclar la solicitud de accesos a la fecha de ingreso confirmada, con un plazo mínimo de anticipación."],
+      ["Formación técnica de producto fuera del seguimiento de Recursos Humanos", "El entrenamiento en la Universidad Cubitt para el personal de tienda lo ejecuta el supervisor de marca, sin que Recursos Humanos dé seguimiento a su cumplimiento.", "Media", "Medio", "Incorporar el registro de finalización de la formación técnica al expediente del colaborador."],
+      ["Evaluación de periodo de prueba sin criterio homologado", "La decisión de continuidad al cierre del periodo de prueba depende del criterio informal del gerente del área, sin un instrumento único.", "Media", "Alto", "Aplicar un formato de evaluación de periodo de prueba homologado para todos los cargos."],
+      ["Sin indicador de la calidad de la incorporación", "No se mide hoy el cumplimiento ni el resultado del proceso de inducción en ningún país.", "Alta", "Bajo", "Adoptar los indicadores definidos en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cumplimiento del checklist de inducción", "Colaboradores con checklist de onboarding completo ÷ total de ingresos del período", "Mensual", "Coordinador(a) de Recursos Humanos", "100%"],
+      ["Tiempo de activación de accesos", "Fecha de entrega de accesos y equipo − fecha de ingreso, en días", "Por ingreso", "Coordinador(a) de Sistemas", "0 días (listo antes del ingreso)"],
+      ["Retención al cierre del periodo de prueba", "Colaboradores que superan el periodo de prueba ÷ total de ingresos del período", "Trimestral", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "17.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo de la nómina del período: recolección de las novedades que reportan las gerencias y los puntos de venta, cálculo en el sistema de nómina, revisión y aprobación, ejecución del pago, y declaración y pago de las obligaciones ante los entes de seguridad social y parafiscales, con entrega del reporte a Contabilidad para su contabilización.",
+     "nota_estado": "Es un proceso híbrido: la secuencia general del ciclo es la misma en Venezuela y Panamá, pero mientras se completa la adopción del módulo de nómina del sistema, parte del cálculo —sobre todo el de comisiones y bonificaciones— se sostiene todavía en un reporte adicional en hoja de cálculo que se concilia manualmente contra el sistema."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Define y comunica a las gerencias y a los puntos de venta las fechas de corte del período —quincenal o mensual según el país— y solicita el reporte de novedades: asistencia, ausencias, reposos, horas extra y variaciones de cada colaborador."},
+      {"id": "a2", "rol": "Gerentes de área y Gerentes de Tienda", "texto": "Consolidan y envían el reporte de novedades de su equipo en el formato acordado, incluyendo domingos trabajados, horas nocturnas, permisos y reposos del período."},
+      {"id": "a3", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Descarga del sistema de marcación de asistencia las horas trabajadas por colaborador y las concilia contra los reportes de novedades recibidos de las gerencias."},
+      {"id": "a4", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Calcula las comisiones del período por cargo y gerencia a partir del sistema comercial, y envía el reporte a cada gerencia de ventas para su validación."},
+      {"id": "a5", "rol": "Gerentes de área y Gerentes de Tienda", "texto": "Revisan y validan el reporte de comisiones de su equipo, señalando cualquier novedad —cambio de tienda, ajuste— antes de que se incorpore al cálculo."},
+      {"id": "a6", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Carga las novedades conciliadas y las comisiones validadas en el sistema de nómina para generar el cálculo del período."},
+      {"id": "a7", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Genera la prenómina del período con el cálculo completo —salario, comisiones, bonificaciones y descuentos— y la concilia contra el reporte adicional que respalda las compensaciones fuera de la nómina formal, mientras el país completa su transición al módulo de nómina del sistema."},
+      {"id": "a8", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Revisa la prenómina generada y confirma que la cantidad de colaboradores y los montos calculados sean correctos antes de enviarla a aprobación."},
+      {"id": "a9", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa la prenómina, la contrasta contra el reporte de nómina y aprueba el monto a pagar."},
+      {"id": "a10", "rol": "Gerente de Tesorería", "texto": "Ejecuta el pago de la nómina aprobada a las cuentas bancarias de los colaboradores."},
+      {"id": "a11", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Declara y paga ante los entes de seguridad social y parafiscales del país las obligaciones que corresponden al período, dentro de los plazos legales."},
+      {"id": "a12", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Entrega a Contabilidad el reporte de la nómina pagada, desglosado por departamento y cuenta contable, para su contabilización."}
+     ],
+     "diagrama": {
+      "carriles": ["Analista de Recursos Humanos / Nómina", "Gerentes de área y Gerentes de Tienda", "Coordinador(a) de Recursos Humanos", "Gerente de Contabilidad / Administración", "Gerente de Tesorería"],
+      "nodos": [
+       {"id": "n0", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "inicio", "n": "Cierre del período de nómina"},
+       {"id": "n1", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Solicitar el reporte de novedades a las gerencias"},
+       {"id": "n2", "carril": "Gerentes de área y Gerentes de Tienda", "tipo": "tarea", "n": "Enviar el reporte de novedades del equipo"},
+       {"id": "n3", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Conciliar la marcación de asistencia con las novedades", "sistemas": ["Sia Red / biométrico"]},
+       {"id": "n4", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Calcular las comisiones del período"},
+       {"id": "n5", "carril": "Gerentes de área y Gerentes de Tienda", "tipo": "tarea", "n": "Validar las comisiones del equipo"},
+       {"id": "n6", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Cargar novedades y comisiones al sistema de nómina", "sistemas": ["Odoo"]},
+       {"id": "n7", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Generar y conciliar la prenómina"},
+       {"id": "n8", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Revisar cantidad de colaboradores y montos"},
+       {"id": "n9", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar y aprobar la prenómina"},
+       {"id": "n10", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Ejecutar el pago de la nómina"},
+       {"id": "n11", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Declarar y pagar las obligaciones ante los entes"},
+       {"id": "n12", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Entregar el reporte a Contabilidad"},
+       {"id": "n13", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "fin", "n": "Nómina pagada, conciliada y obligaciones declaradas"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"}, {"de": "n12", "a": "n13"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Doble carga de trabajo entre hoja de cálculo y sistema de nómina", "Mientras el módulo de nómina se termina de adoptar, una parte del cálculo se sostiene en un reporte adicional, lo que duplica el trabajo y eleva el riesgo de error entre ambas fuentes.", "Alta", "Medio", "Completar la migración al módulo de nómina y retirar el reporte adicional una vez validado."],
+      ["Dependencia de una sola persona para bajar y conciliar las comisiones", "El cálculo de comisiones de varias gerencias lo ejecuta una sola persona sin respaldo documentado, lo que compromete el pago si esa persona no está disponible.", "Media", "Alto", "Documentar el procedimiento y capacitar a un segundo responsable."],
+      ["Contingencia manual si el sistema de nómina no está disponible", "Si el sistema de nómina no está disponible, el pago se genera manualmente por archivo bancario, un proceso más lento y expuesto a error.", "Baja", "Alto", "Documentar y ensayar el protocolo de contingencia manual."],
+      ["Ausencia de indicadores formales del proceso", "No se mide hoy el tiempo ni la tasa de error del ciclo de nómina en ningún país.", "Alta", "Medio", "Adoptar y reportar los indicadores definidos en esta ficha."],
+      ["Resguardo de la información histórica de nómina sin política formal", "El histórico de pagos se conserva en archivos de las estaciones de trabajo del equipo de Recursos Humanos, sin una política de respaldo ni de control de acceso definida.", "Media", "Alto", "Definir una política de resguardo y control de acceso para la información de nómina."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Errores de cálculo por período", "Colaboradores con corrección de pago posterior al cierre ÷ total de colaboradores pagados en el período", "Quincenal o mensual, según el país", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"],
+      ["Cumplimiento del calendario de declaraciones", "Declaraciones ante los entes presentadas dentro del plazo legal ÷ total de declaraciones del período", "Mensual", "Analista de Recursos Humanos / Nómina", "100%"],
+      ["Tiempo de cierre de la prenómina", "Fecha de entrega de la prenómina a Contabilidad − fecha de corte del período, en días", "Quincenal o mensual, según el país", "Coordinador(a) de Recursos Humanos", "1 día antes del pago"]
+     ]
+    }
+   },
+
+   "17.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la gestión de los hechos que ocurren durante la relación laboral: emisión de constancias y cartas, tramitación de permisos, ausencias, reposos y vacaciones, registro de amonestaciones e incidencias disciplinarias, mantenimiento del expediente exigido por la normativa de cada país, y atención de las visitas de fiscalización de los entes laborales."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "gerentes de área y Gerentes de Tienda", "texto": "Reciben la solicitud del colaborador —permiso, constancia, vacaciones— o detectan una incidencia disciplinaria o un conflicto en su equipo, y la trasladan a Recursos Humanos."},
+      {"id": "a2", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Registra la solicitud o la incidencia y determina si corresponde a un trámite administrativo o a un caso disciplinario o de conflicto laboral."},
+      {"id": "a3", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Tramita las solicitudes administrativas —constancias de trabajo, permisos, reposos, solicitudes de vacaciones— y actualiza el expediente físico del colaborador con el soporte correspondiente."},
+      {"id": "a4", "rol": "gerentes de área y Gerentes de Tienda", "texto": "Intentan resolver directamente con el colaborador cualquier conflicto o falta menor antes de escalarlo a Recursos Humanos."},
+      {"id": "a5", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Media entre las partes cuando el conflicto no se resuelve internamente, escuchando a ambos lados de manera imparcial."},
+      {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Registra la amonestación en el libro de la tienda o unidad correspondiente cuando la falta lo amerita, y la incorpora al expediente del colaborador."},
+      {"id": "a7", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo y asesoría laboral externa", "texto": "Es consultado por Recursos Humanos en los casos disciplinarios graves o reincidentes, antes de que la empresa aplique una medida."},
+      {"id": "a8", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Da seguimiento al caso para verificar el cumplimiento de los acuerdos y evitar reincidencias."},
+      {"id": "a9", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Al recibir el aviso de una inspección de un ente laboral o de seguridad social en una tienda, notifica de inmediato a los gerentes involucrados para que tengan la documentación al día."},
+      {"id": "a10", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Reúne y entrega la documentación del expediente que solicita el ente fiscalizador durante la inspección."},
+      {"id": "a11", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo y asesoría laboral externa", "texto": "Acompaña a Recursos Humanos en las inspecciones o fiscalizaciones que lo requieran, y asesora sobre la respuesta a las observaciones del ente."},
+      {"id": "a12", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Archiva el resultado de la inspección o del caso en el expediente físico del colaborador o de la tienda, que se conserva por el tiempo que exige la normativa de cada país."}
+     ],
+     "diagrama": {
+      "carriles": ["gerentes de área y Gerentes de Tienda", "Coordinador(a) de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Asesor(a) Jurídico(a) Externo(a) del Grupo y asesoría laboral externa"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Solicitud del colaborador, incidencia o visita de fiscalización"},
+       {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "decision", "n": "¿Qué origina el trámite?"},
+       {"id": "n2", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Tramitar constancia, permiso o vacaciones"},
+       {"id": "n3", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Actualizar el expediente del colaborador"},
+       {"id": "n4", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "fin", "n": "Solicitud resuelta y documentada"},
+       {"id": "n5", "carril": "gerentes de área y Gerentes de Tienda", "tipo": "tarea", "n": "Intentar resolver el conflicto internamente"},
+       {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "decision", "n": "¿Se resuelve internamente?"},
+       {"id": "n7", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Mediar entre las partes y registrar amonestación si corresponde"},
+       {"id": "n8", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo y asesoría laboral externa", "tipo": "tarea", "n": "Asesorar en casos disciplinarios graves"},
+       {"id": "n9", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento al caso"},
+       {"id": "n9b", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Caso resuelto y documentado en el expediente"},
+       {"id": "n10", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Notificar a los gerentes involucrados"},
+       {"id": "n11", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Reunir y entregar la documentación solicitada"},
+       {"id": "n12", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo y asesoría laboral externa", "tipo": "tarea", "n": "Acompañar la inspección y asesorar la respuesta"},
+       {"id": "n13", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Resultado de la inspección archivado en el expediente"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2", "etq": "Solicitud administrativa"}, {"de": "n1", "a": "n5", "etq": "Incidencia o conflicto"}, {"de": "n1", "a": "n10", "etq": "Inspección de un ente"},
+       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n9", "etq": "Sí"}, {"de": "n6", "a": "n7", "etq": "No"},
+       {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n9b"},
+       {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"}, {"de": "n12", "a": "n13"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Expediente físico como único resguardo", "La ley exige el expediente físico; sin respaldo digital, la pérdida o el deterioro del archivo físico deja sin soporte legal al colaborador y a la empresa.", "Media", "Alto", "Digitalizar el expediente como resguardo adicional al físico exigido por ley."],
+      ["Amonestaciones sin política escrita", "Las amonestaciones se registran en un libro por tienda, sin una política corporativa escrita que homologue los criterios y las faltas entre países.", "Media", "Medio", "Documentar una política corporativa de conducta y régimen disciplinario."],
+      ["Dependencia de la asesoría legal externa sin tiempo de respuesta definido", "Los casos disciplinarios graves dependen de la disponibilidad del asesor jurídico externo, sin un tiempo de respuesta acordado.", "Media", "Medio", "Formalizar un acuerdo de servicio con tiempos de respuesta."],
+      ["Falta de trazabilidad de las inspecciones", "Las inspecciones de los entes laborales se atienden de manera reactiva y no queda un registro consolidado de sus resultados y observaciones.", "Baja", "Alto", "Mantener un registro consolidado de inspecciones y sus resultados."],
+      ["Ausencia de indicadores de cumplimiento normativo", "No se mide hoy el tiempo de resolución de casos ni el estado de vigencia de la documentación de cada colaborador.", "Alta", "Medio", "Adoptar los indicadores definidos en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de resolución de un caso disciplinario o de conflicto", "Fecha de cierre del caso − fecha de la incidencia, en días", "Trimestral", "Coordinador(a) de Recursos Humanos", "Por definir — no hay línea base hoy"],
+      ["Expedientes con documentación vigente", "Expedientes con permisos y certificaciones vigentes ÷ total de expedientes activos", "Semestral", "Analista de Recursos Humanos / Nómina", "100%"],
+      ["Resultado de inspecciones", "Inspecciones sin observaciones ÷ total de inspecciones recibidas en el período", "Anual", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "17.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la aplicación y el mantenimiento de la escala salarial aprobada por Finanzas: ubicación del colaborador en la escala al ingreso y ante un movimiento, revisión periódica de la equidad interna, administración de la póliza de salud corporativa y del resto de beneficios, y comunicación de los cambios a los colaboradores.",
+     "nota_estado": "Es un proceso híbrido: la escala salarial y la póliza de salud corporativa están formalizadas y se aplican de manera consistente, pero el resto de los beneficios y la vinculación de la compensación con el desempeño del colaborador todavía no están formalizados."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Ubica al colaborador en la escala salarial vigente al momento de su ingreso, de acuerdo con el cargo y el país, y define su paquete de beneficios —póliza de salud corporativa, tique de alimentación y, cuando aplica, acceso a la plataforma de préstamos internos."},
+      {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Revisa periódicamente la equidad interna de la escala, identificando cargos cuya remuneración se aleja de la banda vigente."},
+      {"id": "a3", "rol": "Gerente de Recursos Humanos", "texto": "Eleva al Planificador Financiero la propuesta de ajuste de la escala o de un movimiento salarial individual, con el sustento del caso."},
+      {"id": "a4", "rol": "Country Manager", "texto": "Interviene en las decisiones de compensación de las posiciones gerenciales o clave del país, junto con el Planificador Financiero."},
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Revisa y aprueba la escala salarial y los movimientos individuales que se proponen, de acuerdo con el presupuesto y la estructura financiera del grupo."},
+      {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Comunica al colaborador el ajuste aprobado y actualiza su ubicación en la escala."},
+      {"id": "a7", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Administra la relación con las aseguradoras y los corredores de la póliza de salud corporativa —altas, bajas y reclamos de los colaboradores."},
+      {"id": "a8", "rol": "Gerente de Recursos Humanos", "texto": "Evalúa, ante un cambio en las condiciones de un beneficio o de un proveedor, las alternativas disponibles y presenta la recomendación para su aprobación."},
+      {"id": "a9", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Comunica a los colaboradores cualquier cambio en las condiciones de un beneficio, en el momento en que se activa."},
+      {"id": "a10", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Ejecuta la administración operativa de los beneficios —carga del tique de alimentación, gestión de la plataforma de préstamos internos— dentro de cada ciclo de nómina."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Recursos Humanos", "Gerente de Recursos Humanos", "Planificador Financiero", "Country Manager", "Analista de Recursos Humanos / Nómina"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Ingreso o movimiento de un colaborador, o revisión anual de la escala"},
+       {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Ubicar al colaborador en la escala y definir beneficios"},
+       {"id": "n2", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Revisar la equidad interna de la escala"},
+       {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elevar la propuesta de ajuste al Planificador Financiero"},
+       {"id": "n4", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿Es una posición gerencial o clave?"},
+       {"id": "n4alt", "carril": "Country Manager", "tipo": "tarea", "n": "Intervenir en la decisión de compensación"},
+       {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aprobar la escala o el movimiento"},
+       {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Comunicar el ajuste al colaborador"},
+       {"id": "n7", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Administrar la póliza de salud con aseguradoras y corredores"},
+       {"id": "n8", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Evaluar cambios en las condiciones de un beneficio"},
+       {"id": "n9", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Comunicar el cambio de beneficio a los colaboradores"},
+       {"id": "n10", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Ejecutar la administración operativa de los beneficios"},
+       {"id": "n11", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "fin", "n": "Colaborador ubicado en la escala con su paquete de beneficios activo"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4", "a": "n5", "etq": "No"}, {"de": "n4alt", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Escala sin estudio salarial de mercado", "La escala vigente fue aprobada por Finanzas a partir de un estudio interno, sin una referencia externa de mercado que la valide frente a la competencia por talento.", "Media", "Alto", "Contrastar la escala contra un estudio salarial de mercado del sector."],
+      ["Compensación sin vínculo con el desempeño", "La compensación no está ligada al desempeño del colaborador porque no existe hoy un proceso de evaluación desempeño formal.", "Alta", "Medio", "Vincular la revisión de compensación a los resultados del proceso de gestión del desempeño una vez esté implementado."],
+      ["Gestión de beneficios sin figura dedicada", "La promoción y la formalización de beneficios distintos a la póliza y el tique dependen de una gestión adicional que el equipo actual reconoce no cubrir hoy.", "Media", "Medio", "Asignar la administración de beneficios a una figura dedicada, como parte de la ampliación del equipo prevista."],
+      ["Sin presupuesto formal del área", "Recursos Humanos no maneja un presupuesto propio aprobado para el año; cada gasto de compensación y beneficios se solicita y aprueba caso por caso.", "Media", "Medio", "Aprobar un presupuesto anual del área con partidas para compensación y beneficios."],
+      ["Ausencia de indicadores del proceso", "No se mide hoy la competitividad de la escala ni la cobertura real de los beneficios entre países.", "Alta", "Medio", "Adoptar los indicadores definidos en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura de la póliza de salud", "Colaboradores activos con póliza vigente ÷ total de colaboradores activos", "Mensual", "Analista de Recursos Humanos / Nómina", "100%"],
+      ["Ajustes salariales aprobados en el período", "Movimientos salariales aprobados ÷ movimientos propuestos por Recursos Humanos", "Trimestral", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"],
+      ["Vigencia de la revisión de la escala", "Tiempo transcurrido desde la última revisión formal de la escala, en meses", "Anual", "Planificador Financiero", "≤ 12 meses"]
+     ]
+    }
+   },
+
+   "17.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el mantenimiento del organigrama de cada país y de las descripciones de puesto asociadas: creación y modificación de posiciones conforme a la línea rectora aprobada, redacción y actualización de la descripción de cada cargo, y conciliación entre el cargo formal registrado y las funciones que la persona realmente ejerce.",
+     "nota_estado": "Es un proceso híbrido: el organigrama y la mayoría de las descripciones de cargo existen y se mantienen actualizados en cada país, pero en formatos distintos entre sí, y la conciliación entre el cargo formal y las funciones reales depende de que se detecte en el trato cotidiano con las gerencias, no de una revisión periódica."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "gerentes de área", "texto": "Detecta la necesidad de crear una posición nueva o de modificar una existente, y lo comunica a Recursos Humanos con la justificación del cambio."},
+      {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Revisa la solicitud contra el organigrama vigente del país y determina si se trata de una posición nueva o de un ajuste a una posición existente."},
+      {"id": "a3", "rol": "Gerente de Recursos Humanos", "texto": "Eleva la solicitud de creación de la posición al Country Manager para su aprobación, cuando se trata de un cargo nuevo."},
+      {"id": "a4", "rol": "Country Manager", "texto": "Aprueba o rechaza la creación de la posición nueva en el organigrama del país."},
+      {"id": "a5", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Redacta o actualiza la descripción del cargo, con sus funciones, sus requisitos y su ubicación en la estructura."},
+      {"id": "a6", "rol": "gerentes de área", "texto": "Revisa y valida que la descripción del cargo refleje las funciones reales que la posición ejerce."},
+      {"id": "a7", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Actualiza el organigrama del país con la posición nueva o modificada."},
+      {"id": "a8", "rol": "Gerente de Recursos Humanos", "texto": "Detecta, en el trabajo cotidiano con las gerencias, brechas entre el cargo formal registrado y las funciones que la persona realmente ejerce."},
+      {"id": "a9", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Concilia la descripción del cargo con las funciones reales detectadas, y la actualiza si corresponde."},
+      {"id": "a10", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Revisa, en el marco de la gobernanza del grupo, los cambios relevantes en la estructura organizativa que se presentan a la Junta."},
+      {"id": "a11", "rol": "Gerente de Recursos Humanos", "texto": "Revisa una vez al año el organigrama completo del país y actualiza las descripciones de cargo pendientes."}
+     ],
+     "diagrama": {
+      "carriles": ["gerentes de área", "Gerente de Recursos Humanos", "Country Manager", "Coordinador(a) de Recursos Humanos", "Director(a) Externo(a) de Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "gerentes de área", "tipo": "inicio", "n": "Necesidad de crear o modificar una posición, o brecha detectada"},
+       {"id": "n1", "carril": "gerentes de área", "tipo": "tarea", "n": "Comunicar la necesidad con su justificación"},
+       {"id": "n2", "carril": "Gerente de Recursos Humanos", "tipo": "decision", "n": "¿Posición nueva o ajuste a una existente?"},
+       {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elevar la solicitud al Country Manager"},
+       {"id": "n4", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar la creación de la posición"},
+       {"id": "n5", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Redactar o actualizar la descripción del cargo"},
+       {"id": "n6", "carril": "gerentes de área", "tipo": "tarea", "n": "Validar que la descripción refleje las funciones reales"},
+       {"id": "n7", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Actualizar el organigrama del país"},
+       {"id": "n8", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Detectar brechas entre cargo formal y funciones reales"},
+       {"id": "n9", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Conciliar la descripción con las funciones reales"},
+       {"id": "n10", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Revisar los cambios relevantes de estructura"},
+       {"id": "n11", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "fin", "n": "Organigrama y descripciones de cargo actualizados"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Nueva"}, {"de": "n2", "a": "n5", "etq": "Ajuste"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Organigrama y descripciones desactualizadas por país", "Las posiciones que ingresan en las últimas semanas pueden no estar todavía reflejadas en el organigrama ni tener su descripción de cargo terminada.", "Media", "Medio", "Cerrar la actualización del organigrama y la descripción del cargo como requisito del cierre de cada contratación."],
+      ["Formatos de descripción de cargo sin homologar entre países", "Cada país ha llevado sus descripciones en formatos distintos, lo que dificulta compararlas o replicarlas entre países.", "Media", "Medio", "Adoptar un formato único de descripción de cargo para todo el grupo."],
+      ["Brecha entre cargo formal y funciones reales sin detección sistemática", "La conciliación entre el cargo registrado y las funciones que la persona realmente ejerce depende de que el gerente de Recursos Humanos la detecte en el trato cotidiano con las gerencias, no de una revisión periódica.", "Alta", "Medio", "Incorporar la revisión de esta brecha a la revisión anual del organigrama."],
+      ["Actualización del organigrama dependiente de una persona por país", "El organigrama de cada país lo mantiene una sola persona, sin un procedimiento documentado que permita a alguien más asumirlo.", "Media", "Alto", "Documentar el procedimiento de actualización del organigrama y designar un respaldo."],
+      ["Sin indicador de cobertura de descripciones de cargo", "No se mide hoy qué porcentaje de las posiciones activas tiene su descripción de cargo vigente.", "Alta", "Bajo", "Adoptar el indicador definido en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura de descripciones de cargo", "Posiciones activas con descripción de cargo vigente ÷ total de posiciones activas del país", "Semestral", "Gerente de Recursos Humanos", "100%"],
+      ["Vigencia del organigrama", "Tiempo transcurrido desde la última actualización formal del organigrama, en meses", "Anual", "Coordinador(a) de Recursos Humanos", "≤ 12 meses"],
+      ["Tiempo de actualización tras un movimiento", "Fecha de actualización del organigrama y la descripción de cargo − fecha de efectividad del ingreso, cambio o salida, en días", "Por movimiento", "Coordinador(a) de Recursos Humanos", "≤ 15 días"]
+     ]
+    }
+   },
+
+   "17.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la definición de los objetivos individuales alineados con los indicadores del área, la conversación de seguimiento entre el colaborador y su supervisor durante el período, la evaluación formal del desempeño al cierre del ciclo, y la traducción del resultado en decisiones de desarrollo, movimiento o compensación.",
+     "nota_estado": "Es un proceso a implementar: Venezuela no aplica hoy ningún proceso de evaluación desempeño, y Panamá aplicó una evaluación 360 por primera vez sin que exista todavía un ciclo anual recurrente ni un vínculo formal con la compensación. El flujo que describe esta ficha recoge el instrumento ya ensayado en Panamá para llevarlo a un ciclo homologado en todo el grupo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Fija con el colaborador y su supervisor los objetivos individuales del período, alineados con los indicadores del área, dentro de los primeros meses de cada ciclo o del ingreso del colaborador."},
+      {"id": "a2", "rol": "gerentes y supervisores de área", "texto": "Sostiene con cada colaborador una conversación de seguimiento durante el período —trimestral o semestral— sobre el avance de sus objetivos."},
+      {"id": "a3", "rol": "Gerente de Recursos Humanos", "texto": "Envía a cada gerente el instrumento de evaluación al cierre del ciclo anual, con la valoración del uno al cinco por cada dimensión evaluada."},
+      {"id": "a4", "rol": "gerentes y supervisores de área", "texto": "Se reúne con el colaborador, quien se autoevalúa primero en cada dimensión del instrumento; el gerente da su valoración y una retroalimentación directa sobre las diferencias entre ambas."},
+      {"id": "a5", "rol": "gerentes y supervisores de área", "texto": "Completa con el colaborador el acuerdo de fortalezas, debilidades y el plan de acción de mejora que se compromete a seguir durante el próximo período."},
+      {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe el resultado de cada evaluación, lo revisa y lo archiva en el expediente del colaborador."},
+      {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Consolida los resultados de todas las evaluaciones del ciclo y los presenta al Country Manager."},
+      {"id": "a8", "rol": "Country Manager", "texto": "Revisa los resultados consolidados y define, junto con Recursos Humanos, qué colaboradores requieren una acción de desarrollo o un movimiento."},
+      {"id": "a9", "rol": "Planificador Financiero", "texto": "Evalúa, con base en los resultados de desempeño, los casos que ameritan una recomendación de ajuste de compensación."},
+      {"id": "a10", "rol": "Gerente de Recursos Humanos", "texto": "Traslada al proceso de formación y desarrollo las brechas de habilidades que la evaluación identificó por colaborador o por área."},
+      {"id": "a11", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Recibe, en el marco de la gobernanza del grupo, el resumen de los resultados de desempeño de las posiciones clave."}
+     ],
+     "diagrama": {
+      "carriles": ["Coordinador(a) de Recursos Humanos", "gerentes y supervisores de área", "Gerente de Recursos Humanos", "Country Manager", "Planificador Financiero"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Cierre del ciclo anual, o ingreso de un colaborador que requiere fijar objetivos"},
+       {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Fijar los objetivos individuales del período"},
+       {"id": "n2", "carril": "gerentes y supervisores de área", "tipo": "tarea", "n": "Sostener la conversación de seguimiento periódica"},
+       {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Enviar el instrumento de evaluación al cierre del ciclo"},
+       {"id": "n4", "carril": "gerentes y supervisores de área", "tipo": "tarea", "n": "Aplicar la autoevaluación y dar retroalimentación"},
+       {"id": "n5", "carril": "gerentes y supervisores de área", "tipo": "tarea", "n": "Acordar fortalezas, debilidades y plan de mejora"},
+       {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Archivar el resultado en el expediente"},
+       {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Consolidar los resultados del ciclo"},
+       {"id": "n8", "carril": "Country Manager", "tipo": "tarea", "n": "Definir acciones de desarrollo o movimiento"},
+       {"id": "n9", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Evaluar casos de ajuste de compensación"},
+       {"id": "n10", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Trasladar brechas de habilidades a formación y desarrollo"},
+       {"id": "n11", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Evaluación registrada, con plan de acción y recomendación de desarrollo acordados"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin resultado accionable tras la evaluación", "El resultado de la única evaluación 360 aplicada quedó archivado en el expediente sin traducirse en una decisión de desarrollo, movimiento o compensación.", "Alta", "Alto", "Cerrar siempre el ciclo con la consolidación y el traslado de resultados a compensación y formación."],
+      ["Instrumento de evaluación sin diseño técnico documentado", "El instrumento vigente de evaluación se hereda de una versión anterior sin que conste quién lo diseñó ni sobre qué criterio técnico.", "Media", "Medio", "Rediseñar el instrumento con un diccionario de competencias por cargo como referencia."],
+      ["Cobertura desigual entre países", "Venezuela no aplica hoy ningún proceso de evaluación desempeño formal, mientras Panamá ya ensayó una evaluación 360; el grupo no tiene un ciclo homologado.", "Alta", "Alto", "Implementar el ciclo de evaluación desempeño en todos los países bajo el mismo instrumento y calendario."],
+      ["Conversaciones de seguimiento sin registro", "Las conversaciones periódicas entre gerente y colaborador durante el período no quedan documentadas, lo que dificulta sustentar la evaluación de cierre.", "Media", "Medio", "Registrar cada conversación de seguimiento en un formato breve dentro del expediente."],
+      ["Ausencia de indicadores del proceso", "No existe hoy ninguna medición sobre la cobertura, el cumplimiento o el efecto de la evaluación desempeño.", "Alta", "Medio", "Adoptar los indicadores definidos en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura del ciclo de evaluación", "Colaboradores evaluados en el ciclo ÷ total de colaboradores activos", "Anual", "Gerente de Recursos Humanos", "100%"],
+      ["Planes de acción con seguimiento", "Planes de mejora acordados con seguimiento registrado ÷ total de planes acordados", "Semestral", "gerentes y supervisores de área", "Por definir — no hay línea base hoy"],
+      ["Resultados trasladados a decisiones", "Evaluaciones que derivan en una acción de desarrollo, movimiento o compensación ÷ total de evaluaciones del ciclo", "Anual", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "17.8": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la detección de las necesidades de formación por área y por rol, la construcción del plan de formación del período con su presupuesto, el diseño o la contratación de la actividad según sea contenido que el equipo domina o requiera un tercero, la ejecución y el registro de la asistencia, y la evaluación del aprovechamiento.",
+     "nota_estado": "Es un proceso a implementar: el diagnóstico de necesidades de capacitación se hizo, pero quedó pausado a la espera de incorporar la figura de formación y desarrollo que la dirección aprobó contratar. La Universidad Cubitt existe como plataforma, pero su uso está concentrado en Servicio Técnico y no responde todavía a un plan de formación con presupuesto definido."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Se reúne con cada gerente de área para levantar las necesidades de formación de su equipo, a partir de las brechas detectadas en la evaluación de desempeño y de las necesidades operativas del área."},
+      {"id": "a2", "rol": "gerentes de área", "texto": "Aportan su diagnóstico de necesidades de formación del equipo, incluyendo las habilidades técnicas y blandas que consideran prioritarias."},
+      {"id": "a3", "rol": "Gerente de Tecnología / Sistemas", "texto": "Identifica las competencias digitales que el equipo necesita desarrollar frente a las herramientas y los sistemas que se van incorporando."},
+      {"id": "a4", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Construye el plan de formación del período, con su presupuesto, priorizando las necesidades levantadas."},
+      {"id": "a5", "rol": "Gerente de Recursos Humanos", "texto": "Presenta el plan y el presupuesto de formación a la dirección para su aprobación."},
+      {"id": "a6", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Determina, para cada actividad del plan, si el contenido lo domina el propio equipo, requiere contratar a un proveedor externo, o corresponde a formación técnica de producto."},
+      {"id": "a7", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Gestiona la contratación del proveedor externo cuando la actividad lo requiere, y coordina la logística de la actividad."},
+      {"id": "a8", "rol": "Subgerente de Servicio Técnico", "texto": "Registra al colaborador de tienda en la Universidad Cubitt y coordina con el supervisor de marca las sesiones de formación técnica de producto."},
+      {"id": "a9", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Ejecuta o coordina la actividad de formación programada, ya sea presencial, virtual o a través de la Universidad Cubitt."},
+      {"id": "a10", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Registra la asistencia de los colaboradores a cada actividad de formación."},
+      {"id": "a11", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Evalúa el aprovechamiento de la actividad, ya sea con una prueba, una encuesta o la observación del gerente del área."},
+      {"id": "a12", "rol": "Gerente de Recursos Humanos", "texto": "Consolida al cierre del período el reporte de las actividades ejecutadas frente al plan y su presupuesto."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Recursos Humanos (Formación y Desarrollo)", "gerentes de área", "Gerente de Tecnología / Sistemas", "Analista de Recursos Humanos / Nómina", "Subgerente de Servicio Técnico"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "inicio", "n": "Necesidad de formación, tecnología nueva o brecha de desempeño"},
+       {"id": "n1", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Levantar necesidades de formación con cada gerencia"},
+       {"id": "n2", "carril": "gerentes de área", "tipo": "tarea", "n": "Aportar el diagnóstico de necesidades del equipo"},
+       {"id": "n3", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Identificar competencias digitales necesarias"},
+       {"id": "n4", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Construir el plan de formación y su presupuesto"},
+       {"id": "n5", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Presentar el plan a la dirección para su aprobación"},
+       {"id": "n6", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "decision", "n": "¿Quién ejecuta el contenido de la actividad?"},
+       {"id": "n6alt", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Contratar y coordinar al proveedor externo"},
+       {"id": "n6b", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Coordinar la formación técnica de producto en la Universidad Cubitt"},
+       {"id": "n7", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Ejecutar o coordinar la actividad de formación"},
+       {"id": "n8", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Registrar la asistencia"},
+       {"id": "n9", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Evaluar el aprovechamiento"},
+       {"id": "n10", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Consolidar el reporte del período frente al plan"},
+       {"id": "n11", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "fin", "n": "Actividad de formación ejecutada con asistencia y aprovechamiento evaluados"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Equipo interno"}, {"de": "n6", "a": "n6alt", "etq": "Proveedor externo"}, {"de": "n6", "a": "n6b", "etq": "Formación técnica de producto"},
+       {"de": "n6alt", "a": "n7"}, {"de": "n6b", "a": "n7"},
+       {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Formación sin responsable dedicado hasta ahora", "El diagnóstico de necesidades de capacitación se hizo y quedó pausado a la espera de incorporar la figura de formación y desarrollo, dejando el plan sin ejecutar.", "Alta", "Alto", "Mantener la figura de formación y desarrollo dedicada y activa una vez incorporada."],
+      ["Universidad Cubitt subutilizada fuera de Servicio Técnico", "La plataforma tiene cursos generales de ofimática, atención al cliente e inglés básico, pero solo el personal de Servicio Técnico la usa de forma consistente porque no hay una exigencia ni una estructura que promueva su uso en el resto de la organización.", "Alta", "Medio", "Incorporar la Universidad Cubitt al plan de formación de todas las áreas, no solo Servicio Técnico."],
+      ["Plan sin presupuesto formal aprobado", "Las actividades de formación se aprueban caso por caso ante la dirección, sin un presupuesto anual definido de antemano.", "Media", "Medio", "Aprobar el presupuesto de formación como parte del presupuesto anual del área."],
+      ["Sin desarrollo de carrera ni retención de talento formalizados", "No existen hoy mecanismos formales de desarrollo de carrera o de retención de talento más allá de la formación puntual.", "Media", "Alto", "Incorporar un componente de desarrollo de carrera al plan de formación, una vez esté implementado."],
+      ["Ausencia de indicadores del proceso", "No se mide hoy el aprovechamiento ni la cobertura de la formación en ningún país.", "Alta", "Medio", "Adoptar los indicadores definidos en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura del plan de formación", "Colaboradores que reciben al menos una actividad de formación en el período ÷ total de colaboradores activos", "Anual", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Por definir — no hay línea base hoy"],
+      ["Ejecución del plan frente al presupuesto", "Actividades ejecutadas ÷ actividades planificadas del período", "Semestral", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Por definir — no hay línea base hoy"],
+      ["Uso de la Universidad Cubitt fuera de Servicio Técnico", "Colaboradores de otras áreas con al menos un curso completado en la plataforma ÷ total de colaboradores activos fuera de Servicio Técnico", "Anual", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "17.9": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el diseño y la ejecución del programa de bienestar y de las actividades de clima con su presupuesto asignado, la medición periódica del clima y de la experiencia del colaborador, y la canalización de las iniciativas de bienestar que proponen los propios equipos.",
+     "nota_estado": "Es un proceso a implementar: hoy las actividades de bienestar se ejecutan con una metodología que el propio equipo reconoce que no se ha ajustado al tamaño actual de la empresa, y la medición de clima es casi inexistente y se hace por percepción, sin indicadores. El flujo que describe esta ficha recoge el procedimiento de encuesta anual ya diseñado en Panamá para llevarlo a la práctica en todo el grupo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Recursos Humanos", "texto": "Elabora el cronograma anual de las actividades de bienestar y de la medición de clima organizacional, alineado con la línea temática que la empresa define para el año."},
+      {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Prepara o actualiza la encuesta de clima organizacional y bienestar laboral."},
+      {"id": "a3", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Informa a todos los colaboradores sobre el proceso, las fechas y el objetivo de la evaluación de clima."},
+      {"id": "a4", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Envía y aplica la encuesta de forma digital, con un período de una semana para que los colaboradores la respondan de manera anónima."},
+      {"id": "a5", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recopila y verifica las respuestas obtenidas por departamento."},
+      {"id": "a6", "rol": "Gerente de Recursos Humanos", "texto": "Analiza los resultados, identificando las fortalezas y las oportunidades de mejora de cada departamento."},
+      {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Elabora, junto con cada gerente de área, un plan de acción específico según las necesidades particulares de su equipo."},
+      {"id": "a8", "rol": "gerentes de área", "texto": "Comunica a su equipo los resultados generales y las acciones que se van a implementar para fortalecer el bienestar y el clima laboral."},
+      {"id": "a9", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Organiza la logística de las actividades de bienestar del cronograma —insumos, espacios, proveedores— bajo la coordinación de Recursos Humanos."},
+      {"id": "a10", "rol": "Gerente Regional de Marketing", "texto": "Apoya la comunicación interna de las actividades de bienestar y clima hacia toda la organización."},
+      {"id": "a11", "rol": "gerentes de área", "texto": "Da seguimiento a las acciones de su plan y reporta las mejoras a Recursos Humanos dentro de los dos meses siguientes a la encuesta."},
+      {"id": "a12", "rol": "Gerente de Recursos Humanos", "texto": "Da seguimiento al cumplimiento del plan de acción y archiva la documentación del ciclo."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Recursos Humanos", "Coordinador(a) de Recursos Humanos", "gerentes de área", "Asistente Administrativo(a) / Servicios Generales", "Gerente Regional de Marketing"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Recursos Humanos", "tipo": "inicio", "n": "Aprobación del programa de bienestar, o iniciativa propuesta por un equipo"},
+       {"id": "n1", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elaborar el cronograma anual"},
+       {"id": "n2", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Preparar la encuesta de clima"},
+       {"id": "n3", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Informar el proceso a los colaboradores"},
+       {"id": "n4", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Aplicar la encuesta de forma anónima"},
+       {"id": "n5", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Recopilar y verificar las respuestas"},
+       {"id": "n6", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Analizar los resultados por departamento"},
+       {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elaborar el plan de acción con cada gerencia"},
+       {"id": "n8", "carril": "gerentes de área", "tipo": "tarea", "n": "Comunicar los resultados y las acciones al equipo"},
+       {"id": "n9", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Organizar la logística de las actividades de bienestar"},
+       {"id": "n10", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Apoyar la comunicación interna de las actividades"},
+       {"id": "n11", "carril": "gerentes de área", "tipo": "tarea", "n": "Dar seguimiento y reportar las mejoras"},
+       {"id": "n12", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento al cumplimiento y archivar"},
+       {"id": "n13", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Actividad ejecutada con participación registrada y resultado de clima disponible"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"}, {"de": "n12", "a": "n13"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Medición de clima poco frecuente y sin indicadores", "La medición de clima se hace casi nunca —una vez al año, en el mejor de los casos— y por percepción, sin indicadores que sustenten las decisiones de bienestar.", "Alta", "Medio", "Formalizar la encuesta anual de clima con los indicadores definidos en esta ficha."],
+      ["Actividades sin ajustar al tamaño actual de la empresa", "El propio equipo de Recursos Humanos reconoce que la metodología de actividades de bienestar sigue siendo la de cuando la empresa era más pequeña.", "Media", "Medio", "Rediseñar el catálogo de actividades de bienestar al tamaño y la dispersión geográfica actual de la organización."],
+      ["Sin presupuesto propio para bienestar", "El presupuesto de las actividades se solicita y aprueba caso por caso, sin una partida anual definida.", "Media", "Medio", "Aprobar un presupuesto anual de bienestar como parte del presupuesto del área."],
+      ["Resultados de clima sin cierre visible", "Cuando se ha medido el clima, no siempre se documenta el plan de acción resultante ni su seguimiento hasta el cierre.", "Media", "Medio", "Cerrar siempre el ciclo con el plan de acción, su seguimiento y su archivo."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Participación en la encuesta de clima", "Colaboradores que responden la encuesta ÷ total de colaboradores activos", "Anual", "Coordinador(a) de Recursos Humanos", "Por definir — no hay línea base hoy"],
+      ["Cumplimiento del plan de acción por departamento", "Acciones del plan reportadas como cumplidas ÷ total de acciones acordadas por departamento", "Semestral", "gerentes de área", "Por definir — no hay línea base hoy"],
+      ["Frecuencia de la medición de clima", "Mediciones de clima realizadas en el año ÷ mediciones planificadas en el cronograma", "Anual", "Gerente de Recursos Humanos", "1 medición al año, como mínimo"]
+     ]
+    }
+   },
+
+   "17.10": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el cierre de la relación laboral: registro de la causa y de la fecha de salida, cálculo de la liquidación con las prestaciones, vacaciones pendientes y descuentos aplicables incluidos los préstamos internos vigentes, revocación de accesos y recuperación de la dotación, ejecución del pago y baja ante los entes.",
+     "nota_estado": "Es un proceso híbrido: la secuencia y la política de cálculo están documentadas y formalizadas en Venezuela, y Panamá lleva un formulario propio de pasos de cierre, pero el checklist de revocación de accesos y recuperación de activos no está homologado entre países."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "gerente del área", "texto": "Origina la desvinculación: el colaborador presenta su renuncia por escrito y firmada, el gerente del área solicita la terminación por causa justificada, o se concluye la negociación de un mutuo acuerdo."},
+      {"id": "a2", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe y clasifica la desvinculación según su tipo —voluntaria, involuntaria por causa justificada, o involuntaria sin causa o por mutuo acuerdo— y confirma la fecha de egreso."},
+      {"id": "a3", "rol": "asesoría laboral externa", "texto": "Redacta, junto con la Gerencia de Recursos Humanos, la carta de notificación en los casos de despido o mutuo acuerdo, y asesora sobre la causal aplicable."},
+      {"id": "a4", "rol": "gerente del área", "texto": "En los casos de despido o mutuo acuerdo, negocia con el colaborador las condiciones de salida cuando corresponde, antes de la firma."},
+      {"id": "a5", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Notifica de inmediato a Sistemas, Tesorería y al gerente del área para programar la baja del colaborador."},
+      {"id": "a6", "rol": "Coordinador(a) de Sistemas", "texto": "Revoca los accesos del colaborador —correo, sistemas— y coordina la recuperación de los equipos, el uniforme y el carné de trabajo."},
+      {"id": "a7", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Calcula la liquidación en el sistema de nómina, incluyendo salarios pendientes, vacaciones vencidas y fraccionadas, utilidades o beneficios proporcionales, y las indemnizaciones que correspondan según la causa de la desvinculación y la normativa del país."},
+      {"id": "a8", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Deduce del cálculo, de aplicar, los préstamos internos vigentes del colaborador."},
+      {"id": "a9", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Audita los montos calculados y solicita a Tesorería la provisión y la interfaz de pago."},
+      {"id": "a10", "rol": "Gerente de Contabilidad / Administración", "texto": "Valida el cálculo de la liquidación y su registro contable antes de autorizar el pago."},
+      {"id": "a11", "rol": "Gerente de Tesorería", "texto": "Ejecuta el pago de la liquidación por transferencia, y en los casos de desvinculación compleja lo coordina para que la firma se realice ante la Inspectoría del Trabajo con la asesoría laboral externa."},
+      {"id": "a12", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Realiza la entrevista de salida al colaborador que egresa de forma voluntaria o por mutuo acuerdo, para recoger los motivos reales de la salida y las oportunidades de mejora."},
+      {"id": "a13", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Registra la salida en el sistema de nómina, reporta la baja ante los entes de seguridad social del país y entrega el reporte a Contabilidad."},
+      {"id": "a14", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Archiva el expediente del colaborador cesante, que se conserva por el tiempo mínimo que exige la normativa del país para contingencias o inspecciones."}
+     ],
+     "diagrama": {
+      "carriles": ["gerente del área", "Coordinador(a) de Recursos Humanos", "Coordinador(a) de Sistemas", "Analista de Recursos Humanos / Nómina", "Gerente de Contabilidad / Administración", "Gerente de Tesorería"],
+      "nodos": [
+       {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Renuncia, terminación de la relación laboral o vencimiento de un contrato"},
+       {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Clasificar la desvinculación y confirmar la fecha de egreso"},
+       {"id": "n2", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "decision", "n": "¿Es un despido o un mutuo acuerdo?"},
+       {"id": "n2alt", "carril": "gerente del área", "tipo": "tarea", "n": "Negociar las condiciones de salida"},
+       {"id": "n3", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Notificar a Sistemas, Tesorería y al gerente del área"},
+       {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Revocar accesos y recuperar equipos, uniforme y carné", "sistemas": ["Lark"]},
+       {"id": "n5", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Calcular la liquidación en el sistema de nómina", "sistemas": ["Odoo"]},
+       {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Auditar los montos y solicitar la interfaz de pago"},
+       {"id": "n7", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar el cálculo y su registro contable"},
+       {"id": "n8", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Ejecutar el pago de la liquidación"},
+       {"id": "n9", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "decision", "n": "¿Egreso voluntario o por mutuo acuerdo?"},
+       {"id": "n9alt", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Realizar la entrevista de salida"},
+       {"id": "n10", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Registrar la salida y reportar la baja ante los entes"},
+       {"id": "n11", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Archivar el expediente del colaborador cesante"},
+       {"id": "n12", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Liquidación calculada, validada y pagada, con accesos revocados y baja registrada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n9alt", "etq": "Sí"}, {"de": "n9", "a": "n10", "etq": "No"}, {"de": "n9alt", "a": "n10"},
+       {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Liquidación por causa incorrecta", "Si la causa registrada en la liquidación no corresponde a la real, el colaborador puede acudir al ente laboral y la empresa enfrenta el riesgo de una multa o de tener que corregir el cálculo.", "Media", "Alto", "Mantener la revisión de la asesoría laboral externa antes de formalizar cualquier causal de despido."],
+      ["Plazo legal de pago ajustado", "La liquidación debe pagarse dentro de un plazo legal breve; un cálculo o una aprobación tardía genera intereses de mora.", "Media", "Medio", "Iniciar el cálculo de la liquidación desde que se confirma la fecha de egreso, sin esperar el último día del plazo."],
+      ["Revocación de accesos sin control formal de cumplimiento", "La solicitud de bloqueo de accesos y recuperación de equipos depende de que Recursos Humanos notifique a Sistemas a tiempo, sin un checklist que confirme que se cumplió.", "Media", "Alto", "Adoptar un checklist de cierre que Sistemas y Recursos Humanos confirmen antes de dar por cerrado el caso."],
+      ["Checklist de cierre sin homologar entre países", "Panamá lleva un formulario propio de pasos de cierre que no existe de la misma forma en el resto del grupo.", "Media", "Medio", "Homologar el checklist de cierre de la desvinculación en todos los países."],
+      ["Confidencialidad de la información de salida sin homologar", "No hay un criterio único entre países sobre qué información se puede compartir con terceros que solicitan referencias de un ex colaborador.", "Baja", "Medio", "Homologar entre países el criterio de confidencialidad ya documentado en Venezuela —limitarse a confirmar fechas de ingreso, egreso y último cargo."],
+      ["Ausencia de indicadores del proceso", "No se mide hoy el tiempo de cierre de una desvinculación ni la tasa de negociación o litigio.", "Alta", "Medio", "Adoptar los indicadores definidos en esta ficha."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de pago de la liquidación", "Fecha de pago de la liquidación − fecha de confirmación del egreso, en días hábiles", "Por evento", "Gerente de Recursos Humanos", "Dentro del plazo legal del país"],
+      ["Cumplimiento del checklist de cierre", "Desvinculaciones con checklist de accesos y activos completo ÷ total de desvinculaciones del período", "Mensual", "Coordinador(a) de Sistemas", "100%"],
+      ["Cobertura de la entrevista de salida", "Desvinculaciones voluntarias o por mutuo acuerdo con entrevista de salida realizada ÷ total de desvinculaciones voluntarias o por mutuo acuerdo del período", "Trimestral", "Coordinador(a) de Recursos Humanos", "100%"],
+      ["Rotación de personal", "Desvinculaciones del período ÷ plantilla promedio del período", "Trimestral", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"]
+     ]
+    }
    }
 
+  },
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual documenta cómo Grupo Kenex atrae, incorpora, compensa, desarrolla y, cuando corresponde, desvincula a su personal en cada uno de los países donde opera. Cubre el ciclo completo de la relación laboral: desde que se identifica la necesidad de un colaborador hasta que se cierra su expediente al término de esa relación, pasando por su nómina, su compensación, su desempeño y su formación.",
+    "alcance": "Aplica al personal directo de Kenex en Venezuela y Panamá, y a la administración de los contratos por honorarios de personal que apoya la operación de otros países de la región. No cubre la operación de Recursos Humanos de Costa Rica, que funciona como una unidad independiente del socio local, la relación laboral de Colombia —completamente tercerizada con una empresa de servicios de personal externa a Kenex—, ni la nómina de los equipos comerciales de venta al mayor, que gestionan directamente sus propias gerencias.",
+    "audiencia": ["Gerente de Recursos Humanos", "Coordinador(a) de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Country Manager", "Director(a) Externo(a) de Junta Directiva"]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "La función de Recursos Humanos opera hoy de manera independiente en cada país: Venezuela y Panamá tienen su propio equipo interno —una gerencia, una coordinación y de uno a dos analistas—, mientras que en Colombia la relación laboral está completamente tercerizada con una empresa de servicios de personal que contrata al personal en su propio nombre. No existe todavía una coordinación de Recursos Humanos a nivel de grupo que homologue los procesos entre países: cada equipo desarrolló su propio criterio, sus propios formatos y su propio ritmo de digitalización.\n\nEl crecimiento acelerado de la red de tiendas de los últimos años concentró la mayor parte del tiempo del área en dos frentes: la atracción y selección de talento, por el ritmo de apertura de puntos de venta, y la administración de la nómina, que en varios países todavía combina el sistema de nómina de Odoo con reportes complementarios en hoja de cálculo mientras se completa la transición. El resto de los subprocesos —compensación, desempeño, formación, clima y bienestar— se ejecutan hoy con un grado de formalidad menor y varían de un país a otro.",
+    "duenos": [
+     ["Macroproceso", "Gerente de Recursos Humanos", "Responde por la ejecución de Recursos Humanos en su país y es el punto de escalamiento de las decisiones que exceden el criterio del equipo"],
+     ["Reclutamiento y selección", "Gerente / Coordinador(a) de Recursos Humanos", "Aprueba la decisión final de a quién se contrata, salvo en posiciones gerenciales o clave, donde interviene el Country Manager"],
+     ["Nómina y compensación", "Gerente de Recursos Humanos, con aprobación de Contabilidad / Administración", "Calcula, concilia y somete a aprobación el pago de cada período"],
+     ["Relación laboral y expediente", "Coordinador(a) de Recursos Humanos", "Administra el expediente y media los conflictos y las incidencias disciplinarias"]
+    ],
+    "entidades": [
+     ["Seguros Mercantil", "Venezuela", "Aseguradora de la póliza de salud corporativa (HCM) vigente", "El grupo cambió de aseguradora en mayo de 2026"],
+     ["Por identificar — empresa de servicios de personal que tercer​iza la relación laboral", "Colombia", "Contrata al personal en su propio nombre; Kenex le paga un fee y asume el pasivo laboral por esa vía", "No se identificó en el corpus revisado la razón social exacta de esta empresa; queda pendiente de confirmar con el equipo antes de publicar"]
+    ],
+    "sistemas": [
+     ["Odoo (módulo de nómina)", "Cálculo y pago de la nómina; en Venezuela conviviendo con complementos en hoja de cálculo mientras se completa la adopción", "17.3, 17.5, 17.10"],
+     ["Fonseca (Panamá)", "Software de cálculo de la planilla de Panamá, en sustitución de un sistema anterior desde 2026", "17.3, 17.10"],
+     ["Sia Red / biométrico", "Registro de marcación de asistencia por huella o reconocimiento facial", "17.3"],
+     ["LinkedIn", "Publicación de vacantes y búsqueda de candidatos", "17.1"],
+     ["Universidad Cubitt", "Plataforma de formación técnica de producto y cursos generales, con mayor uso en Servicio Técnico", "17.2, 17.8"],
+     ["Lark", "Comunicación interna, formularios de solicitud (vacaciones, permisos, cartas de trabajo) y repositorio de descripciones de cargo", "17.1 a 17.10"],
+     ["SIPE / Caja de Seguro Social (Panamá)", "Declaración y pago de las obligaciones de seguridad social", "17.3, 17.10"]
+    ],
+    "interfaces": [
+     ["Finanzas", "Entrante", "Aprueba la escala salarial y los movimientos individuales de compensación"],
+     ["Contabilidad y Administración", "Saliente", "Recibe el reporte de nómina para su contabilización y valida el cálculo de las liquidaciones"],
+     ["Tesorería", "Saliente", "Ejecuta los pagos de nómina, liquidaciones y las compras que Recursos Humanos solicita"],
+     ["Tecnología / Sistemas", "Bidireccional", "Recibe la solicitud de accesos y equipos para cada ingreso y baja, y aporta el diagnóstico de competencias digitales para el plan de formación"]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Gerente de Recursos Humanos", "País", "Ejecuta y responde por los diez subprocesos de este manual en su país", "Contratación de personal operativo, compensación dentro de la escala aprobada, actividades de bienestar dentro del presupuesto asignado", "Eleva al Country Manager las contrataciones gerenciales o clave, y a Finanzas los ajustes de escala"],
+     ["Country Manager", "País", "Aprueba las decisiones de mayor impacto en la estructura de personal del país", "Contratación y compensación de posiciones gerenciales o clave; creación de posiciones nuevas en el organigrama", "No tiene una instancia superior formal dentro del país; escala a la Dirección General en casos extraordinarios"],
+     ["Planificador Financiero", "Grupo", "Aprueba la escala salarial y los movimientos de compensación", "Aprobación de la escala y de los ajustes salariales individuales", ""],
+     ["Director(a) Externo(a) de Junta Directiva", "Junta Directiva", "Revisa los cambios relevantes de estructura organizativa", "No ejecuta directamente", "Recibe la información que la Gerencia de Recursos Humanos y la Dirección General le presentan"]
+    ],
+    "comites": [
+     ["Reunión de equipo de Recursos Humanos", "Coordinar el cronograma de actividades y trasladar las directrices de la dirección al equipo", "Regular, sin periodicidad formal establecida", "Gerente y Coordinador(a) de Recursos Humanos del país", "Cronograma de actividades del período", "Directrices de la dirección", "Cronograma de actividades"]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "Formalizar el vínculo laboral cumpliendo la normativa de cada país donde se opera",
+     "Tratar la salida de un colaborador con la misma seriedad legal y humana que su ingreso",
+     "Preferir la resolución interna y humana de un conflicto antes de escalarlo a una medida disciplinaria",
+     "Actuar como voz de doble vía entre el colaborador y la empresa, más allá del cumplimiento normativo"
+    ],
+    "politicas": [
+     "Política corporativa de desvinculación (offboarding) — Venezuela: clasifica la salida en tres tipos (voluntaria, involuntaria por causa justificada, involuntaria sin causa o por mutuo acuerdo) y define el protocolo de notificación, cálculo, firma y resguardo del expediente por un mínimo de diez años.",
+     "Política de indemnizaciones y liquidaciones — Venezuela: fija, bajo la normativa laboral vigente, la metodología de cálculo del salario integral y normal, la garantía de prestaciones sociales y la indemnización por despido injustificado, y el plazo legal de pago de cinco días hábiles.",
+     "Reglamento interno — cada país: define las normas de convivencia y conducta que se entregan a todo colaborador al ingresar; en Panamá está en proceso de actualización.",
+     "Código de cultura — Panamá: declaración escrita de la cultura de la organización que se entrega a todo colaborador desde su ingreso.",
+     "Procedimiento de nómina y compensación (diseñado en Panamá, a implementar en el resto del grupo) — fija las condiciones del ciclo de pago: quincenal, por transferencia bancaria, con las deducciones obligatorias de ley y un periodo de prueba máximo de tres meses.",
+     "Procedimiento de onboarding e incorporación (diseñado en Panamá, a implementar en el resto del grupo) — estandariza los pasos de la inducción, desde la recepción hasta la entrega de la descripción del cargo.",
+     "Procedimiento de gestión de conflictos y relaciones laborales (diseñado en Panamá, a implementar en el resto del grupo) — define la mediación de Recursos Humanos y el uso de la amonestación escrita.",
+     "Procedimiento de bienestar y clima (diseñado en Panamá, a implementar en el resto del grupo) — fija la encuesta anual anónima de clima y el plan de acción por departamento."
+    ],
+    "normativo": [
+     "Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras (LOTTT) — Venezuela",
+     "Código de Trabajo — Panamá",
+     "Régimen de seguridad social de cada país (IVSS, INCES y BANAVI en Venezuela; Caja de Seguro Social en Panamá)",
+     "Ministerio de Trabajo de cada país, para el registro de contratos y la fiscalización laboral"
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "por_implementar": [
+     ["17.2 Inducción e incorporación", "No existe una charla de inducción estructurada; hoy se limita a una presentación informal de las áreas", "Implementar en el resto de los países el procedimiento de onboarding ya diseñado en Panamá"],
+     ["17.7 Gestión del desempeño", "Venezuela no aplica ningún proceso de evaluación desempeño; Panamá aplicó una evaluación 360 una sola vez, sin ciclo recurrente", "Implementar un ciclo anual de evaluación desempeño homologado en todo el grupo, ligado a compensación y formación"],
+     ["17.8 Formación y desarrollo", "No hay un plan de formación con presupuesto definido; el diagnóstico de necesidades quedó pausado a la espera de incorporar la figura de formación y desarrollo", "Activar el plan de formación una vez incorporada esa figura, e integrar la Universidad Cubitt fuera de Servicio Técnico"],
+     ["17.9 Clima organizacional y bienestar", "La medición de clima es casi inexistente y las actividades no se han ajustado al tamaño actual de la empresa", "Implementar en todo el grupo, con presupuesto propio, la encuesta anual de clima ya diseñada en Panamá"]
+    ],
+    "por_formalizar": [
+     ["17.4 Administración de la relación laboral", "Las amonestaciones se registran en un libro por tienda, sin una política corporativa escrita que homologue los criterios entre países", "Documentar una política corporativa de conducta y régimen disciplinario"],
+     ["17.5 Gestión de compensación y beneficios", "La escala salarial se aprobó a partir de un estudio interno de Finanzas, sin una referencia externa de mercado", "Contrastar la escala contra un estudio salarial de mercado del sector"],
+     ["17.6 Estructura de cargos", "Cada país lleva sus descripciones de cargo en formatos distintos", "Adoptar un formato único de descripción de cargo para todo el grupo"]
+    ],
+    "brechas": [
+     ["17.0 Gestión del Talento Humano (transversal)", "No existe una coordinación de Recursos Humanos a nivel de grupo que homologue los procesos entre países; cada equipo desarrolló su propio criterio y su propio ritmo de digitalización.", "Definir una instancia de coordinación regional de Recursos Humanos que fije el criterio común y de seguimiento a la homologación."],
+     ["17.0 Gestión del Talento Humano (transversal)", "Ningún país lleva indicadores formales de Recursos Humanos.", "Adoptar y reportar de forma regular los indicadores ya definidos en cada ficha de proceso de este manual."],
+     ["17.4 Administración de la relación laboral y del expediente", "El expediente del colaborador se resguarda solo en físico, sin una política de digitalización y resguardo seguro.", "Definir una política de digitalización y resguardo seguro del expediente laboral."],
+     ["17.5 Gestión de compensación y beneficios", "La compensación no está ligada al desempeño porque no hay un ciclo de evaluación desempeño implementado.", "Ligar los ajustes de compensación al resultado del ciclo de evaluación desempeño una vez implementado (17.7)."],
+     ["17.0 Gestión del Talento Humano (transversal)", "Recursos Humanos no maneja un presupuesto anual propio y aprobado; cada gasto se solicita caso por caso.", "Definir un presupuesto anual propio del área, aprobado junto con el resto del presupuesto del grupo."]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Onboarding", "Proceso de integración del colaborador nuevo a la organización, desde su recepción hasta su incorporación plena al puesto"],
+     ["Offboarding", "Proceso de salida de un colaborador de la organización, por renuncia, despido o vencimiento de contrato"],
+     ["Finiquito / liquidación", "Pago que cierra la relación laboral, con las prestaciones, las vacaciones y los descuentos que correspondan según la ley del país"],
+     ["Salario integral", "Base de cálculo de las prestaciones sociales e indemnizaciones en Venezuela: el salario normal más la alícuota de utilidades y de bono vacacional"],
+     ["HCM", "Póliza de salud corporativa (hospitalización, cirugía y maternidad) que la empresa ofrece como beneficio"],
+     ["Universidad Cubitt", "Plataforma de formación técnica de producto y cursos generales de la marca Cubitt, con mayor uso en Servicio Técnico"]
+    ],
+    "raci": [
+     ["17.1 Atracción, selección y contratación", "Analista de Recursos Humanos / Nómina", "Gerente de Recursos Humanos", "gerente solicitante", "Country Manager (posiciones clave)"],
+     ["17.3 Nómina y obligaciones laborales", "Analista de Recursos Humanos / Nómina", "Gerente de Contabilidad / Administración", "Coordinador(a) de Recursos Humanos", "Gerente de Tesorería"],
+     ["17.7 Gestión del desempeño", "gerentes y supervisores de área", "Gerente de Recursos Humanos", "Country Manager", "Planificador Financiero"],
+     ["17.10 Desvinculación y liquidación", "Analista de Recursos Humanos / Nómina", "Gerente de Contabilidad / Administración", "asesoría laboral externa", "Gerente de Tesorería"]
+    ],
+    "catalogo_sistemas": [
+     ["Odoo (módulo de nómina)", "Cálculo y pago de la nómina; en Venezuela conviviendo con complementos en hoja de cálculo mientras se completa la adopción", "17.3 · 17.5 · 17.10", "Coordinador(a) de Recursos Humanos"],
+     ["Fonseca (Panamá)", "Software de cálculo de la planilla de Panamá, en sustitución de un sistema anterior desde 2026", "17.3 · 17.10", "Coordinador(a) de Recursos Humanos"],
+     ["Sia Red / biométrico", "Registro de marcación de asistencia por huella o reconocimiento facial", "17.3", "Coordinador(a) de Sistemas"],
+     ["LinkedIn", "Publicación de vacantes y búsqueda de candidatos", "17.1", "Analista de Recursos Humanos / Nómina"],
+     ["Universidad Cubitt", "Plataforma de formación técnica de producto y cursos generales, con mayor uso en Servicio Técnico", "17.2 · 17.8", "Subgerente de Servicio Técnico"],
+     ["Lark", "Comunicación interna, formularios de solicitud (vacaciones, permisos, cartas de trabajo) y repositorio de descripciones de cargo", "17.1 a 17.10", "Coordinador(a) de Sistemas"],
+     ["SIPE / Caja de Seguro Social (Panamá)", "Declaración y pago de las obligaciones de seguridad social", "17.3 · 17.10", "Coordinador(a) de Recursos Humanos"]
+    ],
+    "interfaces_detalle": [
+     ["Finanzas", "Aprobación de la escala salarial y los movimientos de compensación individuales"],
+     ["Contabilidad y Administración", "Contabilización de la nómina y validación del cálculo de las liquidaciones"],
+     ["Tesorería", "Ejecución de los pagos de nómina, liquidaciones y compras del área"],
+     ["Tecnología / Sistemas", "Altas y bajas de accesos y equipos; diagnóstico de competencias digitales"]
+    ],
+    "docs_lark": [
+     ["Plantilla de procedimiento - Reclutamiento y Selección", "Panamá", "Procedimiento formal de atracción, selección y contratación", "17.1"],
+     ["Plantilla de procedimiento - Onboarding e Incorporación", "Panamá", "Procedimiento formal de inducción e incorporación", "17.2"],
+     ["Plantilla de procedimiento - Nómina y Compensación", "Panamá", "Procedimiento formal del ciclo de pago y sus condiciones", "17.3 · 17.5"],
+     ["Plantilla de procedimiento - Relaciones Laborales, Marco Legal", "Panamá", "Marco legal aplicable a la relación laboral", "17.4"],
+     ["Plantilla de procedimiento - Relaciones Laborales, Gestión de Conflictos", "Panamá", "Mediación y régimen disciplinario", "17.4"],
+     ["Plantilla de procedimiento - Relaciones Laborales, Offboarding", "Panamá", "Procedimiento formal de desvinculación", "17.10"],
+     ["Plantilla de procedimiento - Bienestar y Clima", "Panamá", "Encuesta anual de clima y plan de acción", "17.9"],
+     ["Política corporativa de desvinculación", "Venezuela", "Clasificación de tipos de salida y protocolo de notificación, cálculo y resguardo", "17.10"],
+     ["Política de indemnizaciones y liquidaciones", "Venezuela", "Metodología de cálculo de salario integral, prestaciones e indemnización", "17.10"]
+    ],
+    "variaciones_pais": [
+     ["Venezuela", "Nómina con complemento en hoja de cálculo mientras se completa la migración al módulo de nómina de Odoo; digitalización del expediente pendiente.", "Transición en curso hacia el sistema único del grupo, no una diferencia estructural permanente."],
+     ["Panamá", "Software de planilla propio (Fonseca, desde 2026) y biométrico de asistencia (Sia Red); procedimientos de Recursos Humanos ya documentados como plantilla, pendientes de implementar de forma consistente.", "Panamá adelantó la formalización de sus procedimientos; el resto del grupo los adopta desde aquí."],
+     ["Colombia", "Relación laboral completamente tercerizada con una empresa de servicios de personal externa a Kenex.", "Modelo de operación distinto por decisión de entrada al país, no una brecha de proceso."],
+     ["Panamá", "Administra, y en algunos casos paga, la relación del personal contratado para trabajar en otros países de la región (Guatemala, Nicaragua, El Salvador).", "Kenex no tiene entidad legal propia en esos países; Panamá actúa como punto de apoyo regional."]
+    ]
+   }
   }
  }
-
 };
 
 
