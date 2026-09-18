@@ -1,0 +1,170 @@
+S1: ¿Hola, qué tal, cómo estás?
+S2: Es que andamos.
+S1: Full. No, yo sé, yo sé que te estoy quitando tiempo valioso. No te da las horas del día.
+S2: Me da porque se me monta una cosa con otra, ahorita tengo una reunión con la jefa mía allá de Panamá,.
+S1: Mariela o Mariela, entonces mil vainas.
+S2: Sí, mil vainas porque entonces estoy con la parte de supervisión, la parte operativa. Fíjate que yo ayer Arani me pasó, cuando nos envió el correo, nos pasó unas posibles preguntas que tú no podías hacer y entonces basado en esas preguntas yo me puse a contestarle, ahora usando la IA Amaya de mejor manera, ya la usaba pero no utilizaba los prompts correctos, todo lo demás, ahora usándola de mejor manera, bueno, le dije mira, ayúdame de tal manera que cuando vengan a entrevistarme yo leo y le doy la respuesta a la gente, si no lo escribo.
+S1: José, más allá de las respuestas que ahorita si la avanzaste en eso, brutal, eso nos ayuda full. Ahorita estamos en el proceso de levantar procesos, o sea, cómo es el proceso. Entonces básicamente José, lo que yo quiero ahorita contigo es que como que si yo estoy entrando a trabajar contigo, explícame qué se hace, cómo lo hace, cuál es el proceso, o sea, tú ahorita estás primero, ¿Cuál es tu cargo?
+S2: Coordinador de sistema.
+S1: Coordinador de sistema, entonces tú estás en toda la parte de tecnología y sistemas que están operando en las tiendas y demás y me imagino internos también, o sea, todo lo que tiene que ver sistema y estás bajo el paraguas de Mariela y Mariela está en Panamá. ¿Entonces la primera pregunta uno, qué sistemas en esta organización, cuál es tu visión, que es lo que hay? ¿Y dos, que estás ejecutando tú de ti para adelante? ¿Qué hay.
+S2: De mí hacia adelante? Bueno, tenemos un equipo, yo coordino tres personas que es Miguelito que está la parte de tecnología, está Héctor también que está en tecnología, hay una persona que está en EEUU que es el DES de las tiendas, entrenado por mí, porque además de, además de coordinar, parametrizo, he parametrizado todas las tiendas, de tal manera de que una vez que yo tengo parametrizar todas las tiendas, entonces bueno ya agarren, agarra tú y cuando hay algún rollo tú los atiendes y en caso no puedes resolver, tú vienes hacia mí para yo ayudarte.
+S1: Eso es mucho. Estoy preguntando para yo entender sí sí.
+S2: Es una persona que está en Estados Unidos que se llama Edgar y tenemos.
+S1: Tienda en Estados Unidos.
+S2: No, no, pero él hace el health desde remoto pues de forma remota con.
+S1: Las tiendas, o sea ayudando a Venezuela.
+S2: A Venezuela solamente Venezuela, Panamá no, Panamá hay otra persona que hace esa labor, se hace las solicitudes, o sea tenemos un grupo para las tiendas. ¿Para que más o menos? Y si te estoy hablando de muchas cosas al mismo tiempo, bueno porque tenemos un grupo en LARK donde están todas las tiendas y cada vez que hay algún problema se cría por ese grupo, saludos, todas las personas que estamos ingresar estemos metidas dentro de ese grupo para estar al tanto todo y bueno y la persona que pueda atender, atiende, responde, o sea puedo ascenderlo yo, aunque yo sea el coordinador puedo estar en mi casa, hay un rollo allí, el frente no puede, meto yo.
+S1: ¿Cuántas tiendas estamos hablando?
+S2: Mira, estamos hablando de 22 tiendas en Venezuela. ¿Veintidós tiendas? Sí, 22 tiendas y cada tienda tiene dos cajas, aunque dos cajas, las dos cajas no se utilicen siempre hay una caja de backup por si acaso. Por si acaso se utiliza la caja en diciembre que hay más movimiento y.
+S1: Hay entonces 22 grupos en lar no.
+S2: Hay un solo grupo y dentro de ese grupo están las 22 tiendas. Este grupo que está aquí es el de tiendas Venezuela y sistema, entonces cada vez que hay una incidencia alguna de las tiendas ellos escriben por este grupo y la persona que esté el que le prácticamente soporte a ellos. Qué pasa cuando uno de estas si está escribiendo a Edgar y no responde un sábado y yo el sábado estoy con mi esposo haciendo mercado, de repente veo el teléfono, me escriben al chat mío personal, llámame para ayudarte, ayudo de.
+S1: Forma remota y ese chat de sistemas,.
+S2: Sistemas, Sistema y tienda. Aquí estamos todas las personas del sistema Venezuela y Panamá y las 20 tiendas.
+S1: Digo claro, pero se ventila solo cosas del sistema si la tienda tiene un problema con el sistema.
+S2: Es correcto, es correcto, así es. Eso con respecto a las tiendas, cuando hay algún tema, hay algún tema, algún requerimiento por parte de algún usuario, hace la solicitud por LAR, se evalúa y se le asigna a la persona que tenga competencia con ese problema, o sea si es un problema de tecnología están los muchachos, Si un problema de sistema de algún programa, está Mariela o estoy yo. Entonces, bueno, Mariela y yo nos reunimos, vemos, evaluamos que es lo que hay que hacer, si hay que desarrollar algo. Tenemos un equipo de programadores que programan en Python y conoces de Odoo, se le asigna a la persona que esté desocupada en ese momento que estés desocupado, o las personas que tengan más conocimiento en el módulo a la cual se está pidiendo un desarrollo, una conexión, una mejora, lo que sea.
+S1: Tenemos en las tiendas Odoo. Es todo lo que hay en todas las tiendas.
+S2: ¿Todas las tiendas tienen Odoo? Todas las tiendas Tenemos Odoo versión 17. Venezuela, Panamá tiene Odoo versión 16. ¿Se va a migrar? Eso tengo que hablarlo con Mariela.
+S1: No sé si va a migrar a.
+S2: 17 O vamos a mirar las dos a la última versión de. No sabemos todavía, eso lo maneja Mariela, pero la idea es que ambos países estén alineados y tengan la misma versión. Y los que esté en Venezuela, esté Panamá, o sea, si en Panamá hay un programa que mejora, si en Panamá hay un programa que hace alguna mejora de algún punto de venta, bueno, esa mejora también se trae Venezuela para que veamos alineado.
+S1: Ahorita ya no está.
+S2: Se está trabajando en eso. Se está trabajando en eso. Muchas cosas que se están haciendo en Panamá que nos las traemos para acá, para Venezuela, para. Aunque no se utilice, pero puede utilizar en cualquier momento. OK.
+S1: Y esas cosas que son como módulos personalizados de que se hace.
+S2: Sí, sí.
+S1: ¿Y quién hace esos módulos personalizados?
+S2: Tenemos un equipo de cuatro programadores. Está Pedro Pablo, está Jorge que está en el WMS, Pedro Pablo que atiende inventario, cualquier otro módulo. Está Marlon que está con nómina y cualquier otro requerimiento. Sencillo.
+S1: ¿Y esos están aquí contigo?
+S2: No, no, ellos están fuera del país,.
+S1: Son freelance que saben de Odoo y los tienen.
+S2: Uno está en Perú, Pedro Pablo, está Marlon que está en México, está Jorge que está en Panamá y está Jorge y Enrique que también está en Panamá. Tenemos cuatro programadores, Mariel y yo. Que bueno.
+S1: Para entender todos los sistemas que hay en sistemas en Venezuela, ¿Cuáles son módulos?
+S2: ¿Te refieren a los módulos?
+S1: No, sistema general. Odo es uno. Odoo con sus módulos solamente en inventarios, Odoo, WMS. No hay otro.
+S2: Está pegado.
+S1: Está pegado. OK. Contable, financiero, todo.
+S2: No hay nada que no se maneje bajo du todo, incluso nómina.
+S1: ¿Nómina lo tienes ya también?
+S2: Sí, pues tiene la localización de Venezuela.
+S1: OK.
+S2: Y lag que hay integraciones que lo están haciendo los muchachos desde Panamá se está haciendo integración, por ejemplo en Panamá, que digamos que es la matriz, se crea algún producto, se cree Panamá y a su vez se crea, hay una interfaz entre Odoo Panamá y Venezuela y se crea ese producto también en Venezuela y además de eso se envía una comunicación mediante la diciendo mira se creó el producto tal a las personas que tengan, las personas interesadas, en este caso la gente de Vladimir y Jiménez, que son la gente de Logística Inventario, entonces le dan la letra a ellos para que sepa de que se creó un producto.
+S1: Explícame eso es como un sistema arriba.
+S2: De los adultos, Para explicártelo así un poquito medio gráfica. Mira, todo esto es. A mí me gusta hablar escribiendo. Claro, claro, más gráfico que supongamos que este es Panamá, este es Panamá y este es Venezuela. OK, entonces aquí en el módulo inventario ellos pueden crear productos y una vez que creen productos como especie de un Chrome que a lo que yo creo el producto, el viaja, esto son base de datos pobre, él viaje conecta una base de datos con la otra vía y lo crea en la base de datos de producto, en el modelo de producto que se llama modelo, crea ese producto acá y a su vez cuando crea el producto acá, da una notificación mediante LAR a las personas que estén dentro de ese grupo, por ejemplo aquí cuando envía la notificación, le envía la notificación a un grupo que se llama Logística y dentro de este grupo logística hay varios usuarios, o sea.
+S1: Que el Odoo de Panamá está funcionando como matriz.
+S2: No, o sea, en Panamá es mismo sistema Panamá hay puntos de venta, hay inventarios, contabilidad y todo, entonces esta creación.
+S1: De productos sí o sí quieren que se cree en el de Venezuela porque.
+S2: Es el que manda, porque al que manda porque le compra, estoy hablando aquí, no conozco mucho de ese procedimiento, pero o sea, para más el que le envía los productos a Venezuela se compran y todo lo demás, no sé mucho de ese tema, pero es así. ¿Qué pasaba? ¿Que de repente aquí hay productos nuevos cuando se envía la orden de compra, resulta que hay que crear los productos aquí para poder cargar la orden de compra, entonces para evitar este, esta inconsistencia al momento de cargar la compra se crea, cuando llega la orden de compra ya los productos están creados, entonces no hay esa inconsistencia mire este producto no existe y todo lo demás Y por.
+S1: Qué razón Venezuela crearía un producto?
+S2: ¿Porque son productos nuevos no?
+S1: Digo claro con este cron ya se crean. Ya se crean pero hay posibilidad que Venezuela cree un producto a mano porque no habría una bidireccionalidad para el otro.
+S2: Lado porque o sea aquí estos dos productos tienen que ser iguales, la cantidad de productos que hayan aquí en Panamá tiene que ser la misma producto que tengan aquí en Venezuela. OK, OK, o sea si hay, si está la opción de crear un producto se puede crear pero no es el deber ser, es lo que tú dices.
+S1: Que si se crea lo que hace.
+S2: Es notificar esto, incluso en la creación de productos está los muchachos están quitando esa opción de crear y de están quitando esa verga .
+S1: Claro, porque si no hay errores.
+S2: Y ha pasado. Exacto, pasado que crea un producto con.
+S1: El código mal y eso rompe el flujo.
+S2: ¿No, o sea se queda un producto allí basurando porque claro, entonces lo que hacemos es bueno Vladimir lo identifica y viene los archiva o los elimina .
+S1: Te pregunto por ejemplo tú me dices, los muchachos están en eso, estos cuatro que tú me nombras, pero no me va el que me nombraste Jorge quita el botón, eso es una personalización en código, quita el botón, qué pasa cuando tengamos que mudar a siguiente versión?
+S2: Toma en cuenta todo eso está documentado,.
+S1: Hay que estar pendiente de todas esas personalizaciones.
+S2: Mariela tiene documentado, Mariela tiene documentado todo.
+S1: Lo que son todas las nuevos desarrollos pues. OK.
+S2: De hecho creo que yo se lo envío a ustedes en alguna reunión con ellos.
+S1: ¿José tenemos documentos, ya sabemos sistema general o DU, si abrimos una nueva tienda qué pasa?
+S2: Está Héctor conjuntamente con Arani que es la Project Manager, entonces bueno hace la coordinación de cuál es la tienda que se va a aperturar, se contratan a los ingenieros, los arquitectos, Héctor va para las tiendas para armar todo lo referente a las cámaras, donde se van a colocar los equipos, en fin, todas las partes tecnológicas, mientras ellos están trabajando con esto yo estoy armando la tienda pero a nivel de sistema, estoy creando las tiendas, estoy hablando con la gente de las contabilidades para que vaya creando los diarios contables para pegarle a los métodos de pago, esos diarios contables, o sea tener ya casi todo armado, es donde una vez que tengo ya todo eso armado yo lo que tengo que hacer es importar la data, porque yo creo una plantilla, mi plantilla con todos los métodos de pago y lo que hago es importar la data y ya queda. Al principio me costaba hermanito, pero vámonos.
+S1: A ese proceso José, que ese es el que necesito delinear. ¿Por ejemplo, Héctor, qué función tiene?
+S2: Mira, ellos son de tecnología, De tecnología, Yo no conozco de tecnología mucho, o sea, la verdad que no lo conozco, pero es como me dijo alguien alguna.
+S1: Vez,.
+S2: Tú no tienes que, Uno es como un director de orquesta, tú lo tienes que conocer todo, tú tienes que saber que todo esté alineado y que todos que toque el trombón, otro que toque la corneta. Suena bonito. OK.
+S1: ¿Qué pasa?
+S2: Yo me oriento más a la parte del área de programación.
+S1: OK. ¿Tú Eres programador?
+S2: Tengo 18 años. ¿Ya no? Ya no. Primero programé en COBOL, después en COL, después en Visual Basic, como que fue la vaina, después Oracle y lo último fue que hizo módulo de comisiones para Panamá. Pero no soy experto en Python, de funciones de comandos SQL y todo lo demás, no soy experto en Python. ¿Por qué no pasó eso? Y me estaba saliendo un poquito de la vaina, porque en ese tiempo yo no usaba la IA. Y yo le digo a Mariela, mira Mariela, si yo cuando tenía 20 años, 21. 21 Años, la vaina existiera como existe ahorita, yo no estuviera aquí sentado, yo fuera un tipo, no sé, hubiese inventado una vaina súper arrecha, una locura. Y te voy a decir una cosa también chamo, a mí me da miedo todo esto, me da miedo lo que pueda pasar en un futuro, me da miedo que se puede escapar toda vaina de las manos.
+S1: Mira, yo creo que va mucho de que la uses para ti y en eso vamos a entrar, pero mira, entrémonos en el sistema, abre la tienda. ¿Qué haces tú?
+S2: A ver, fíjate, tenemos, o sea, hay tres ambientes, un ambiente que es el desarrollo, un ambiente que es el de Kua y el ambiente que hace producción. Los muchachos trabajan en este ambiente, van escuchando su código, una vez que esto está OK, su programa o su módulo lo pasan a el ambiente de QA, el QA se certifica. Mira Jose, vamos a probar lo que yo hice justamente con el usuario, certifiquemos esto a ver si todo está acá. Y una vez que está acá, le decimos al partner, porque no tenemos esa. Esa potestad, digamos así, de subir nosotros lo que desarrollamos a producción, mira esta vaina, producción lo haces a final de la noche para no interrumpir las operaciones del día, porque cuando ellos hacen esto hay que parar todo. Entonces no me gusta y lo hacemos de lunes a jueves, no lo hacemos un viernes, porque si revienta algo el viernes por algo que está malo que el programa esté en alguna herencia de algunas de los modelos y falle esto, entonces se complica la cosa en las.
+S1: Tiendas y se jodió el fin.
+S2: Entonces los viernes no se hace nada de lunes a jueves o el. Si, de lunes a jueves. Entonces bueno, ¿Qué hago yo cuando estoy parametrizando una de las tiendas? Lo hago en QA. OK, OK. No necesariamente tengo que hacer los métodos de pago, parametrizar todos los métodos de pago, sino que me creo la tienda, digo bueno, ¿Cuántos métodos de pago voy a utilizar? Esta tienda normalmente siempre son los mismos. Vamos a mostrarte aquí para que veas algo. Déjame decirle a Mariela un momentico.
+S1: Dile a Mariela que estoy yo. Gabriel, me tiene jodido. Eso. ¿Tiene foto esa vaina? Diez minuticos más ya.
+S2: Se puede entender la. Entonces fíjate, aquí estoy en el ambiente de Cuba. Entonces aquí en el módulo de Punto de Venta, vamos a entrar aquí un momentico por aquí, que se llama Puntos de Venta. Vamos a ver, Métodos de pago. La 3030, la última tienda que se abro fue la tienda de Margarita. Estos son todos los momentos de pago. Esto es la plantilla que yo me genero. Pero entonces ¿Qué hago yo? Como ya hay tiendas que están parametrizadas y funcionan perfectamente con estos métodos de pago, yo lo que hago es que me exporto aquellos métodos de pago de esa tienda y una vez que me los exporto, les cambio lo que tenga que cambiar. Necesito tener, previo a esto, necesito tener todos los diarios cargados, porque si no me va a fallar la vaina, cuando estoy importando me va a fallar. Entonces me generó mi plantilla.
+S1: OK, tú siempre entonces descargas los Excel de las plantillas para después cargar.
+S2: ¿Yo hago esto, vamos a hacer ejercicio aquí Punto de Venta Y cuando me.
+S1: Dicen los diarios, también descargas diarios?
+S2: No, eso sí le tengo que decir a la gente de contabilidad que cree los diarios para esa tienda, aunque ellos siempre están al tanto porque como es comunicación con el propio hermano y todo el mundo se entera lo que hay que hacer, entonces bueno ellos crean su diario, si yo voy a exportar pensando que ya yo exportaba, el sistema va a decir aquí no es diario, vete chapa que no ha creado los diarios, muévela para crear los diarios, para crear la tienda. ¿Entonces fíjate yo aquí en, aquí los? Bueno estamos en el punto de vista, vamos a agarrar el 32 31 por ejemplo,.
+S1: ¿Treinta y un treinta y un.
+S2: Y te explico algo aquí de lo que pasó, fíjate esto tiene como prefijo un número, porque yo hice esto de esta manera? ¿Porque el sistema que teníamos anteriormente, las tiendas se manejaban con prefijo también tenía un número la tienda, o sea yo cuando llegué aquí, que yo llegué aquí primero como un consultor y después me contactaron, pero aquí las tiendas se manejan con un prefijo, la tienda esta, que hice yo para que la gente el impacto fuese fuerte, se ello al momento de cambiar el sistema lo hice igual, yo voy a la misma nomenclatura para que ellos venga qué vaina esta, cuál es mi tienda, no, cuando vieran Cercico se había quedado brutal eso, entonces qué hice acá? Bueno vamos a agarrar aquí dice bueno estoy llamando a la tienda 3131 y tina 3131 es margarita, no hay otra vaina, todo esto tiene, corresponde a Margarita, OK, esa es una de las ventajas de haber creado esta vaina y.
+S1: Tiene sus métodos, su diario, su método,.
+S2: Su diario, entonces qué hago yo marco toda esta vaina, la exporto esta secuencia, no la necesito, exporto todo esto, una vez que la exporto, estos son los métodos de pago, estos son los métodos de pago de esa tienda, supongamos que voy a tener una tienda número 32 que es de Punto Fijo, entonces yo agarro y cambio esta vaina, la 31 la cambio por la 32, le cambio el nombre aquí que ya no va a ser Cubi Sam, los diarios también van a tener esa vaina, válido que todo esto acá y después que esta boca es cuando yo aquí en, aquí mismo en los métodos de pago, pero previo a esto, previo a esto hermanito, tengo que crear la tienda OK, para eso tengo que crear la tienda, porque el método de pago estará asociado a una tienda. OK, entonces debería crear aquí una tienda nueva. Crear una tienda nueva que se llama. Prueba, por ejemplo,.
+S1: Si quieres no la.
+S2: Crees, pero ya bueno, si yo desperdé, creo mi tienda con todas las vainas, todos los métodos de pago, configuro todo. Una vez que tengo configurado todo esto.
+S1: Y esa configuración la haces primero en QA.
+S2: Ya no lo estoy haciendo en QA.
+S1: Porque ya lo tienes.
+S2: Sí ya no lo tienes en QA porque ya me conozco el proceso ya bien directamente en el ambiente de producción, si falló la elimino. Entonces, ¿Qué debería hacer yo acá? ¿Si supiera que esta vaina, yo en estos días me puse a averiguar y decía coño, cómo que funciona esta vaina? Y la pegué y fui a puerta de dos pantallas, no sabía que se podía hacer. Tengo dos ambientes aquí y tengo esta también. OK, entonces fíjate cuál es el siguiente paso Una vez que está creada la tienda, bueno, nada, yo voy a salirme de esta vaina, yo voy al punto de venta, por ejemplo, vamos a agarrar la 30 supongamos que fuese así, Tengo eso igual creado, pero vamos a simular como que si yo lo fuese a importar esto señores, digo subir archivo, busco donde tengo esa plantilla y.
+S1: Te sale el preview para validarlo.
+S2: De venta.
+S1: ¿Mira José, y si la tienda tiene un problema? Tú puedes entrar aquí a ver el punto o tú te vas a la tienda si hay una yuca de algún problema que no sea rápido, ¿Qué hacemos?
+S2: Por el grupo de Venezuela, Tienda Venezuela y Sistema, aquí nos llamamos, comparte la pantalla, vamos a ver qué tal. Dime qué vale el problema si no lo puede resolver, me conecto yo a la tienda desde aquí de mi máquina con mi usuario, soy administrador, le resuelvo el problema, refresca, valida que todo esté bien, si todo está acá, listo, continúa desde aquí está desde mi casa, de cualquier parte.
+S1: Perfecto. OK. ¿Hay algo que nos esté faltando José de lo que tú haces? Bueno, cosas que te pidan que están fuera de esto.
+S2: Sí, bueno, además de esta mañana hay un tema . Que tengo que hablarlo, está pendiente porque por hablarlo con la gente de Logiciel que es nuestro partner, que es que a veces algo que está funcionando deja de funcionar cuando ellos despliegan algo en producción, cosa que no entendemos, no entiendo. Si yo no fuese del área yo era larga. Si yo tengo algo que está funcionando aquí, fíjate si yo tengo algo y tengo aquí producción y aquí en producción hay, no sé, un reporte que me saca cédula, nombre y monto y aquí, y ese reporte evidentemente tiene que estar aquí en Cuba. Entonces cómo es posible que cuando yo monte un reporte, este reporte del 1, yo tengo aquí un reporte de 2 que le digo, mira, reporte 2, quiero que me lo subas para producción. Cuando sube este reporte a producción, el reporte 2, este reporte 1 empieza a fallar. Error. Entonces pareciera de que hay un tema aquí con las versiones. Pareciera que como que, o sea, no quiero decir que claro, pero pareciera que hay un tema aquí con las versiones, no sé cómo lo manejan ellos. Y entonces cuando pasa, resulta que pasando programas que ellos no es la última, se puede joder, dañar cosas. Lo otro es como te decía anteriormente cuando llegaste, es lo de coño, no sé, seccionarse, picarse en barrio, porque tú y siempre a veces escapan cosas, aunque yo lo trate de llevar por lar mis tareas, escapan cosas. Por ejemplo, esta mañana viene una chica de cuentas por cobrar diciendo de que tenía un problema con una factura, porque la factura cuando se migró la data, se migró una nota de débito, una factura con la nota de crédito, pero las dos se migraron como factura. Entonces lo que hicieron fue subirle la deuda al cliente. Cuando se hizo, cuando se migró enero, en diciembre, del sistema bio para acá. Entonces ese tipo de cosas, vamos a resolverlo, tenemos que resolverlo ya, vamos a resolverlo, pero entonces lo resuelvo. Pero entonces llega gastú, no lo coloqué en tarea. Entonces, o sea, manejar, hacer la coordinación de lo que estoy haciendo y hacer la parte operativa, coño.
+S1: Y OK, o sea que tú estás en Venezuela, tú te pareces.
+S2: Poco menos si te parece a mira,.
+S1: En Venezuela entonces si alguien tiene un problema en tienda, eres tú.
+S2: Sí, depende del problema. Depende del problema, porque que puede ser de que, como te dije anteriormente, hay una persona que está en Estados Unidos que es el DEX, que es el que llama, mira, tengo un problema, entonces ella se conecta, cuéntame qué es lo que te pasa, resuelve. Si no puedo resolver, ella se comunica conmigo, coño José, tengo este rollo aquí, no sé cómo resolver. Bueno, va a resolver por aquí, pero ya está, lo resolvemos. Listo, refresque. Él lo pone como una tarea y coloca la tarea culminada. Tarea ya procesada. Es ese lineamiento, es la forma de atacar los problemas de tienda. Edgar, Si Edgar no puede, se comunica conmigo, lo resolvemos. ¿Y si no puedes? Si yo no lo puedo resolver, elevo requerimiento a la gente de los iniciales, porque puede ser que sea un problema de programas, ¿No? Yo no tengo la opción, la forma de meter dentro del programa y hacer la corrección. Entonces ese requerimiento lo leo la gente de LOES, le digo que de manera inmediata, que necesitamos eso urgente, porque para las operaciones de la tienda. Y mientras tanto, la tienda factura de forma manual, factura contingencia, y una vez que se resuelve el problema, esas facturas de contingencia se cargan en el sistema para dejar inventario, hacer afectaciones contables y todo el rollo. Cuento ese y listo.
+S1: OK. ¿Tienes ese backup físico, Factura físicamente?
+S2: Sí.
+S1: Los sistemas, por ejemplo, que si el e commerce, Shopify, todas esas cosas entran en tus manos, ¿No?
+S2: Eso lo maneja una persona que está en Panamá, se llama César, César Ribodo.
+S1: Y yo conocí una mucha hesmir que está aquí, que hace esa de las.
+S2: Huellas de la web. Ella es de la web, está en el piso 1. Sí, hasta cierto punto yo le doy soporte. Por ejemplo, ahorita estamos con el tema de las facturas digitales, que no está en producción todavía, está en el ambiente de Cuba. Estamos haciendo pruebas. Una vez que tenemos una reunión próxima, la semana que viene, una reunión con esta gente de Unidigital, porque hay unos cabitos sueltos allí que yo no entiendo cómo debe funcionar. Respecto a las numeraciones, no sé legalmente como somos, estamos una compañía, pero esa compañía tiene varias tiendas, entonces cada una de las tiendas tiene una serie, no sé si actualmente son series diferentes, porque cada una tiene una impresora fiscal, y cada impresora fiscal tiene una numeración diferente a las otras tiendas. Entonces no sé cómo se va a manejar con la factura digital, si es una numeración para todas las tiendas. No sé, es una de las preguntas que quiero hacerle a ellos.
+S1: ¿Y ese no es logiciel que te está dando?
+S2: Si, está Rover Logiciel y la gente de Unidigital, porque Unidigital está haciendo adecuaciones. Hay unas. Hay unos módulos. Cuando hay una adecuación, alguno de los sistemas, que yo le llamaba sistema, lo llaman módulo. Lo llama módulo al sistema lo llama esa actualización.
+S1: ¿Como ese anexo?
+S2: Sí, ese anexo yo lo llamo módulo. Yo. Yo le llamo una actualización. Bueno, me avisa igual.
+S1: Si ya vamos a ir terminando. OK.
+S2: Ajá. Fíjate entonces lo que te quería comentar rápidamente aquí de Unidigital. En Unidigital, Estas opciones que están acá son propias de Unidital, son los parámetros que hay que hacer digital, los reportes digitales.
+S1: ¿Unidigital es una contratación que ustedes hicieron con ellos o bien a través de logiciel?
+S2: No sé decírtelo, pero supongo que debe haber sido Ro. No manejé eso, lo manejo. Fue Contabilidad junto con Mariela, pero debe haber sido así.
+S1: OK, buenísimo. ¿Hay cosas que te pidan Contabilidad, que te pidan otros departamentos para desarrollar cosas o que sepas que a ellos les falta, que todavía no está dentro del sistema?
+S2: Básicamente. Básicamente lo ha estado manejando Mariela. Se hace las reuniones juntamente. Si pasa, si pasa, mejora. Porque hay cualquier cantidad de módulos que se han subido al ambiente de producción que son mejora. Hay unos reportes macro 90 que se le. Que es para la gente de. De logística, Inventario, que es Vladimir. Era un reporte que se manejaba en el sistema anterior y ellos lo necesitan porque bueno, te va a funcionar la información correcta para hacer sus pedidos y manejar sus costos promedio y todo el cuento. Pero sí, sí, se pide, evidentemente se pide, se maneja con Mariela junto conmigo, se analiza y se le asigna a alguno de los programadores que está en Panamá lo que demás.
+S1: ¿Sabes más o menos cuántos módulos hay aparte sin ingresar?
+S2: Hay mucho, hay mucho. Mira, Héctor. ¿Qué tal Héctor?
+S1: ¿Cómo estás? Mucho gusto, Gabriel. ¿Todo bien?
+S2: Todo bien.
+S1: Me dijeron que estabas con lo de tu mamá, ¿No?
+S2: Sí, ando corriendo ahorita con eso, pero todo bien, gracias a Dios.
+S1: No, tranquilo.
+S2: No todavía. Vamos a decir hoy, espero yo que. Yo no sé si tú después quieres hablar con.
+S1: Si tienes chance después unos 30, 40 minutos que no se entendan y ya se le contigo. Mira, bueno, déjame tomar fotos a las que ya notaste de las preguntas que las respondiste.
+S2: Mira, mira, mira aquí la vaina me quita la vaina.
+S1: Mira, está bien, está bien. No, déjame tomar la foto y ya después.
+S2: ¿Dónde está Rani? Son las preguntas que supuestamente. Y bueno, basado en esto yo respondí a ese cuestionario. Puse primera pregunta, una pregunta sucesivamente y las conclusiones aquí de él.
+S1: ¿Listo Vanessa para llevármela o quieres.
+S2: Que te la imprima?
+S1: No, después se me pierde la hoja.
+S2: El co. Yo creo que es más fácil.
+S1: Una más, una más.
+S2: No, no.
+S1: ¿Una más hasta la 8, no? Sí, Buenísimo. Mira, creo que me faltaba uno más. Si algo se cae, Si se cae completo el sistema ha pasado.
+S2: Bueno, se ha caído por fallas en actualización de Cuba a Producción. Mierda, o sea, pasó algo, está fallando todo. ¿Que se hace? Se desinstala la actualización que la gente.
+S1: De los iniciales, por ejemplo, se reversa el cambio.
+S2: Nosotros hicimos algún módulo, Mira, pásame ese módulo. Producción, pasó a producción. Cuando pasa producción, aunque la gente refresca, empieza a fallar por todos lados. Mierda, está fallando. Desinstalo, lo desinstalo, refresco otra vez y sigue adelante hasta que la gente ya corrija. Eso puede pasar con nuestro equipo y puede pasar con el equipo de ellos, de ambas partes, pero siempre se notifica quién hizo la corrección, de quién es el módulo que está fallando, de no su instalamos aquí vemos lo que está fallando la gente Logiciel, Mire, lo hicier. Su módulo que subieron estaba fallando. Como son panas, yo le hablo así.
+S1: Y en cuanto soporte, ¿Te están atendiendo bien? ¿Están activos?
+S2: Sí, sí, sí, sí, sí. Hay un temita allí que estoy haciendo. Tenemos 40 horas de consultoría. Lo que estoy haciendo ahora es, mediante la IA, estoy haciendo un análisis de qué es lo que están haciendo ellos, en qué se están consumiendo, las horas qué están haciendo, por qué están cobrando más de lo que hemos contratado. Ese tipo de análisis se me lleva.
+S1: en la IA. ¿Qué estás usando ahorita de IA?
+S2: Oye, mira, yo estoy usando ahorita Geminis y Cloud lo uso poco, porque Cloud, no sé, creo que Cloud está como más orientado al área de programación y hay unas partes que son muy buenas, pero como estoy usando Cloud con uno que es gratuito. Dame el número tú. Entonces, bueno, trato de usarlo lo menos posible. Yembri. Si, le doy Chola y eso es todos los días.
+S1: Y te ayuda haciendo este.
+S2: Cosa que yo podía durar dos horas. Mira, de hecho te cuento que rápidamente. Ellos tienen aquí una portal, la gente de Logiciel. Tengo las horas que ellos han trabajado aquí. Tengo, por ejemplo, el día 8,.
+S1: Tengo.
+S2: Aquí a Brian, que fue lo que me llamó la atención, y tengo aquí Brian. Brian tiene 8.6, 14 y una 15 horas del mismo día 3. Coño, que arrecho eres tú chamo. Tal cual. Me copié esta vaina así se la mandé a la IA. Mira chama, analíceme esta vaina. El día tiene 24 horas, este tipo está trabajando 15 horas. ¿En qué tiempo come? ¿Qué tiempo carga? ¿Qué tiempo?
+S1: Claro, claro.
+S2: Y el tío me dice, mira, me sacó toda estadística, Hora de consultoría,.
+S1: Sobrecarga, crític,.
+S2: Dos horas, te sola para comer, alimentarse, cagarme, de seis a siete horas. Coño, explícame esta vaina porque no entiendo. Yo digo, humanamente nadie hace esto.
+S1: ¿Y eso lo hiciste con Claude o con Gemini?
+S2: Con Gemini. Sí. Entonces claro, me pone aquí una vaina. Entonces humanamente nadie hace esto. Entonces, ¿Qué es lo que digo yo? Esto, carajo, yo digo, porque yo fui consultor durante muchos años también. Yo soy del team de nómina. ¿Qué pueden decir ellos cuando nosotros le digamos, mira, vale, qué es lo que está pasando aquí? que me equivoqué de fecha, chavo, yo no era tonto, no era el día 3, era el día 4. Eso es lo que va a pasar. Yo le digo, yo le digo a siempre hecho, te cuento cuando pase este tipo de vaina. Una vez un jefe mío de otra, era una empresa que acá tenía todos los sistemas administrativos, sistema de Nome. Yo siempre estuvo, andaba en el team de Nome porque siempre me gustó Nome.
+S1: OK.
+S2: Entonces un carajo me dice, mira José, el jefe mío me dice, mira José, ¿Cuánto tiempo tardas tú en hacer este programa? Un reporte sencillo, que tenga la cédula, el nombre del trabajador, el concepto, un concepto asignación y el monto y que me totalice y me lo pones en el menú del cliente en Oracle. Y yo digo, verga chamo, no sé. Una hora. Una hora. Yo te lo hago. No se ha equivocado más. Una hora son ocho horas, chamo. Digo, no vales una hora. Y el tipo llevo una hora y el 8.01 y cobramos 100 dólares la hora. Una hora y sos, ¿Cuánto es una hora? Si no las paga, ¿Cuántos dólares son 100? Y si son 8, ¿Cuántos dólares SON? ¿Ochocientos? Los consultores vienen en esta vaina de la zona, pero coño, se ve un poquito más.
+S1: Mira, si tuvieses la oportunidad y la empresa lo da de meterte más en cloud, le metes como formarte más dentro, como licencias para todos, etc. De.
+S2: Hecho yo estuve hablando con Mariela y Mariela me decía que me formara en la IA. Le dije mira, puedo hacerlo, pero creo que si es para beneficio de la empresa, tiene que pagar la empresa, no pagarlo yo, aunque va a ser un beneficio para mí también, pero tiene que pagar la empresa. Eso no solía manera, por supuesto, no se lo pensé, pero Mariela me dice que iba a hablar con Andrés, que es uno de los directivos, los hijos de los dueños, para que me dieran una licencia para yo trabajar con Clau y desarrollarme con esa.
+S1: Me parece que es parte también lo que estamos viendo nosotros, que les ayudaría full y debería ser algo corporativo.
+S2: Me dijo que me iba a ayudar, iba a hablar con Andrés, que es un chamito de 30 años, 28 años, era uno de los dueños, para que me dieran licencia para yo utilizarlo abiertamente. Coño, que voy a consumir las vainas, entonces puedo hacer cuatro preguntas nada más y las cuatro preguntas me da la vaina por la mitad.
+S1: Listo, o sea, no te quites más tiempo, gustazo conocerte, estamos hablando.
+S2: Y lo hacemos llegar a la tienda.

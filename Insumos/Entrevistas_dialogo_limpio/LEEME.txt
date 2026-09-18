@@ -1,0 +1,69 @@
+LEEME - Entrevistas Grupo Kenex, dialogo limpio (.txt)
+Total: 62 archivos | Exportado desde tabla 'entrevistas' (Supabase)
+Nota: las etiquetas S1/S2/... son el numero de hablante del transcriptor (Fireflies),
+no identifican rol; el consultor suele ser S1 pero conviene confirmarlo por contenido.
+Formatos especiales: E-11/E-15/E-16/E-18 vienen en markdown con timestamps; E-17 es nota de voz (Josue Bonilla).
+
+ARCHIVO | BYTES
+E-01_Bernardo-Roizental_2026-06-16.txt | 78,662
+E-02_Patrick-Corujo_2026-06-18.txt | 65,520
+E-03_Fernando-Alvarado-y-Alejandra-Mejias_2026-06-18.txt | 80,884
+E-04_Arani-Gonzalez_2026-06-18.txt | 83,362
+E-05_Andres-Roizental_2026-06-19.txt | 69,625
+E-06-pt-1_Alejandro-Roizental_2026-06-19.txt | 37,840
+E-06-pt-2_Alejandro-Roizental_2026-06-19.txt | 14,383
+E-07_Mariela-Castro_2026-06-22.txt | 60,661
+E-08_Roberto-Roizental_2026-06-24.txt | 62,409
+E-09_Ricardo-Candanedo_2026-06-23.txt | 52,644
+E-10_Vera-Gavizon_2026-06-29.txt | 42,592
+E-11_Joel-Cohen_2026-07-01.txt | 66,730
+E-12_Carmela-Iribarren_2026-07-09.txt | 71,165
+E-13_Nuria-Ashby_2026-07-01.txt | 61,311
+E-14_Santiago-Ramirez_2026-07-02.txt | 60,865
+E-15_Jaime_2026-07-02.txt | 74,117
+E-16_Jesmir_2026-07-02.txt | 52,625
+E-17_Ricardo-Roizental_2026-07-06.txt | 24,676
+E-18_Alexis-Mujica_2026-07-06.txt | 62,862
+E-19_Jill-Porat_2026-07-07.txt | 58,489
+E-20_Maximo-Dolman_2026-07-07.txt | 34,770
+E-21_Evelia-Manso_2026-07-07.txt | 43,203
+E-22_Natasha-Betancourt_2026-07-07.txt | 50,727
+E-23_Alberto-Bassan_2026-07-09.txt | 40,463
+E-24_Arani-y-Carmela_2026-07-14.txt | 78,457
+E-25_Bernardo-Roizental_2026-07-22.txt | 45,585
+E-26_Presentacion-Informe-Junta-Directiva-y-equipo-directivo_2026-07-27.txt | 185,756
+E-27_Sesion-con-Arani-sobre-alineacion-de-la-lista-de-entrev_2026-07-29.txt | 24,549
+E-28_Equipo-Rower_2026-07-31.txt | 35,641
+E-29_Sesion-Equipo-Interno_2026-08-04.txt | 14,582
+E-30_Isabella-Roizental_2026-08-06.txt | 42,400
+E-31_Sesion-de-levantamiento-de-procesos-con-Visual-Marketin_2026-08-07.txt | 142,238
+E-32_Jose_2026-08-07.txt | 34,689
+E-33_Hector_2026-08-07.txt | 21,078
+E-34_Elvis-Vladimir-Yoly_2026-08-07.txt | 67,552
+E-35_Andres-Marquez_2026-08-07.txt | 49,394
+E-36_Jose-Ramon-y-Henry-Lucena_2026-08-07.txt | 35,028
+E-37_Evelyn-Manso-y-Mayari-sismania_sin-fecha.txt | 84,635
+E-38_Victor-Padovani_2026-08-06.txt | 87,757
+E-39_Edumar-Escalona_2026-08-10.txt | 55,063
+E-40_Jimena_2026-08-10.txt | 62,574
+E-41_Gerente-de-Ventas-Web-Ricardo-Supervisor-de-Operaciones_2026-08-10.txt | 61,067
+E-42_Valentina_2026-08-11.txt | 123,397
+E-43_Ali-Carmona-y-Norman-Vanegas_2026-08-11.txt | 67,077
+E-44_Ian-Chen-Fernando-y-Yamanis_2026-08-11.txt | 67,456
+E-45_William-Porra_2026-08-12.txt | 41,428
+E-46_Marcella-Ramirez_2026-08-13.txt | 54,401
+E-47_Maria-Eugenia_2026-08-12.txt | 79,306
+E-48_Yajaira-Cotoreal_2026-08-13.txt | 83,593
+E-49_Sofiana_2026-08-13.txt | 94,714
+E-50_Sabrina-y-Reina_2025-08-16.txt | 106,424
+E-51_Yusseth-Johan-y-Gustavo_2026-08-18.txt | 85,236
+E-52_Cesar-Rivodo-y-Mariela-Castro_2026-08-18.txt | 52,476
+E-53_Blas-Garcia_2026-08-18.txt | 59,330
+E-54_Catherine-Jimenez_2026-08-18.txt | 63,171
+E-55_Handani_2026-08-18.txt | 75,401
+E-56_Leslie_2026-08-19.txt | 55,104
+E-57_Carlos-Melendez_2026-08-19.txt | 69,791
+E-58_Patrick-Corujo_2026-08-19.txt | 62,436
+E-59_Hugo-e-Itai_2026-08-20.txt | 60,021
+E-60_Alejandro-y-Estephania-Roizental_2026-08-20.txt | 56,153
+E-DEMO_Ejemplo-reemplazar_sin-fecha.txt | 99

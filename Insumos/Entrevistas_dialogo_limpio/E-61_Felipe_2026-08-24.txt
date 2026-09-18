@@ -1,0 +1,324 @@
+S1: Buenos días Felipe, ¿Qué tal? ¿Cómo estás?
+S2: Muy bien, gracias.
+S3: Qué bueno.
+S1: ¿Se escucha bien el audio?
+S3: OK, Vale, ahora Sí te oigo.
+S1: ¿Qué tal Felipe, ¿Cómo estás? Por fin, un placer conocerte. ¿Cómo te va?
+S2: Bien, gracias. A dia.
+S3: Qué bueno, qué bueno.
+S1: Teníamos tiempo pendiente de conversar. Si, vale.
+S3: ¿Qué tal?
+S1: ¿Mira, te comentaron un poco cuál es el propósito de esta sesión? ¿Sabes para qué estás acá? Vale, ¿Que te comentaron?
+S2: Me envió un correo, si no me equivoco, de que íbamos a unificar ideas sobre el proceso del departamento, que me iba a conectar yo y la persona que hacía el mismo cargo en Venezuela para hablar del proceso.
+S1: Sí, correcto, así es. En este caso vamos a estar solo nosotros, dado que por temas de agenda se ha complicado, o sea, la vez pasada nos pudimos ver por algo de nosotros, entonces claro, vamos a hacerla por separado y ya luego unificamos criterios. Vale, un poco la idea es precisamente tal como tú bien indicas, conocer del proceso, del área, pues que tú lideras, que tú manejas para levantar los procesos. ¿Qué pasa? Ya nosotros tuvimos una primera sesión de diagnóstico, una fase 1. Esta es la fase 2, donde ya entramos en procesos, es con personas claves y líderes de área, como por ejemplo tú en este caso. Entonces tomarte simplemente unos minutos Felipe, de tu tiempo para conversar. ¿Para empezar, cuéntame cómo es tu historia, cómo llegas tú a Knex y cuánto tiempo llevas?
+S2: Yo ingresé enero de este año, venía de una fintech, solo que había una gestión un poco pesada, entonces busqué otras opciones, la empresa tiene beneficios que convenían y tenía la experiencia del carro y pues aquí estoy, todo bien, gracias a Dios hasta el momento.
+S3: Qué bueno.
+S1: Lleva poco, o sea menos de un año.
+S3: Vale.
+S1: Vale. ¿Y cómo ingresas? ¿Fue por un proceso de selección normal o referido de algún contacto?
+S2: No, fue por un proceso de selección. Me postulé en LinkedIn, creo que la primera entrevista la hice con el señor Jaime virtual, luego tuve una entrevista presencial con la señora Nuria y con la señora Ian, que es la gerente de contabilidad aquí en Panamá. Luego entonces me enviaron una propuesta de trabajo.
+S1: Perfecto, vale. ¿Y tú estás ubicado en Kennex, ¿Tú estás en Ovario o estás en Zona Libre en Colón? En Ovario, las oficinas de o barrio.
+S3: Perfecto, muy bien.
+S1: Y cuéntame algo Felipe, ¿Tu rol hoy en día cuál es? ¿Cuál es el rol que tú desempeñas?
+S2: OK, mi cargo es analista de cuentas por pagar, pero aquí se asocia con Tesorería, entonces en otros lugares siempre se maneja cuentas por pagar, contabilidad, tesoros aparte, pero aquí es unificado. Aquí manejo las cuentas por pagar, los registros de pago a proveedores y el manejo de los proveedores, más los pagos de tesorería.
+S3: OK.
+S1: tú llevas todos esos procesos hoy en día.
+S2: Correcto. El registro por pagar y el análisis de los pagos. Bueno, todo el proceso de los pagos.
+S3: Todo el proceso de pagos. Perfecto.
+S1: Nosotros conversamos con Norman, no sé si tú trabajas con el equipo de Norman.
+S2: Sí, correcto.
+S3: Vale.
+S1: Norman supervisa tu trabajo directamente.
+S2: Correcto, Entre el señor Norman y la señora Ian.
+S1: también con la señora Ian. Correcto, o sea, tienes dos líneas de reporte realmente.
+S3: Perfecto.
+S1: Y además de ti, hay otra persona en cuentas por pagar, Tesorería, he escuchado de ella.
+S3: Sí. Sí, sí, la han mencionado también. Perfecto.
+S1: Pero lo que hacen ustedes, Ruth y tú, es diferente o. Es más o menos lo mismo, pero.
+S2: Son casi las mismas funciones, solo que cuando recién entré los dividieron por empresas. Ruth maneja la parte de. La parte de Casiolandia.
+S3: OK.
+S2: Un poco de diferencia. Y a veces, pues, aunque ella maneje la empresa, yo igual hago registros en Kennextrading, y aunque yo maneje Casiolandia, ella también algunos registros. Más bien es cuando sucede lo de las intercompañías.
+S3: Entiendo.
+S1: Cuando hablas de Casiolandia es las ventas al retail. Correcto. Las ventas al detal.
+S2: Correcto. La empresa panameña de las tiendas y la venta.
+S1: Vale. Y Kenex, que abarca lo que lleva Ruth, o sea, la parte del mayor.
+S2: La parte del mayor, correcto. Y en Kenneth se enfocan más los gastos y tradicionales.
+S3: Entiendo. OK, buenísimo.
+S1: Y ventas web, o sea, algo vinculado a la parte web online. Eso es Casolandia.
+S3: Perfecto. Buenísimo, Felipe.
+S1: Bueno, si quieres cuéntame. Ahora bien, un poco quiero conocer como un inventario de tus procesos, de lo que tú llevas. Ya me has dado como en general los títulos, cuentas por pagar, tesorería, pero internamente eso se desglosa en sus procesos o actividades más específicas. Cuéntame cómo es tu rutina, cómo se desagregan esos procesos, cómo es el flujo de trabajo.
+S2: Te cuento, bueno, una vez al día, el trabajo, que ya casi estamos al día, estos meses nosotros tenemos como una mini política, porque te digo, mínimo te cuesta estricta de pagar los días miércoles, entonces los pagos de proveedores los solicitan por LAR, cada departamento hace su solicitud, se lo aprueba su jefe directo y depende del monto, lo aprueba Andrés o lo aprueba el gerente de tesorería en este caso. Entonces yo los martes tengo que montar como mi programación de pago a un Excel manual, coloco los montos, el número de solicitud, descripción, facturas y se coloca el nombre del proveedor como para presentarle al señor Norman el monto total a desembolsar el día miércoles,.
+S3: El.
+S2: Martes monto un borrador, el miércoles aprueba un montón de solicitud más, en la mañana lo modifico, lo completo y se los presento, monto los pagos del banco también de forma manual y luego lo envío como el listado de autorizaciones del banco que coincida con el cuadro que tengo de programación, el señor Norma y él se encarga de solicitar la aprobación por parte de los directivos. Eso en cuanto a los pagos. En cuanto a los gastos si tengo el chance cuando voy descargando las solicitudes, porque AVIS nosotros manejamos archivo digital donde yo subo los días de pago, el día que salió un movimiento del banco, el comprobante y la solicitud de ese movimiento. El día que voy montando el cuadro yo descargo las solicitudes con su archivo, con los que ellos adjuntan con soporte, facturas, cotizaciones, en unas carpetas según el día y debería ir registrando también los gastos según la solicitud, los gastos en oro una vez tenga la factura, en ocasiones se piden cotizaciones, no registro cotización, simplemente se hace el pago y luego le doy seguimiento a la solicitud de la factura fiscal. Trabajo muy de mano con el reporte de la DGI. ¿Tiene conocimiento?
+S1: Me comentaron un poco el reporte de.
+S2: La DGI y ese es como mi diario, los veo todos los días, estoy pendiente de los datos que llegan, porque pasa mucho que en algunos departamentos como que se les olvida subir las solicitudes y yo trabajo mucho con la fecha donde se genera el gasto, entonces dentro de allí me doy de cuenta si llegó una factura, dos pagos que ya hice o si están facturando otras cosas, si lo puedo ir solicitando igual, entonces tengo un cuadro con ese reporte a cada factura le voy colocando el número de registro que tengo en Odoo. Una vez listo y como para que circunstancia registrado, como para llevar un control de los gastos, porque si me dedico como a subirlo solo por las solicitudes, me quedo sin gastos dentro del mes, sin algunos gastos dentro del mes, porque se les pasa, pues como es tiempo, entonces me lo pueden estar solicitando, si no, les hago un recorder y me lo pueden solicitar a finales del mes siguiente y ya tengo como un atraxo en el pago al proveedor y voy a presentar gasto en un mes, dos meses por seis. Entonces eso es lo que voy haciendo, registrando la factura, llevando el control con el cuadro y listo. Una vez se aprueben los pagos, que puede ser el mismo día, puede ser el día siguiente, descargo todos los comprobantes del banco, los guardo en la carpeta que te comenté, la creo por fecha, coloco las solicitudes y los punto antes y en LAR tengo que enviar los comprobantes y adjuntar. Adjunto todos los comprobantes, cierro todas las solicitudes, luego descargo el movimiento del banco y tengo un Excel con todos los movimientos del banco y registro los pagos en oro. Registro los pagos en oro. Corrección, eso en cuanto a los pagos. Llevamos tarjetas también. Cada empresa tiene tarjetas. Kennex tiene más tarjetas que Casiolandia, pues las tarjetas de Casiolandia son dos. Ahora estoy dando apoyo con una tarjeta de kennextrading, que es la de Banco General. Igual cuando recién entré había atraso una tarjeta y apoyé bastante con esas tarjetas. La idea ahora es tener fecha de cierre, que me parece muy positivo porque al inicio no había. Siempre trabajo con fecha de cierre, entonces las tarjetas tienen mayor gestión en el área de marketing, plataformas de publicidad, sus herramientas, etc. Entonces de parte de marketing me apuntan una carpeta con todos los soportes, donde deberían estar todos los soportes, solo que las adjuntan los primeros días del mes siguiente para ver las facturas de agosto, yo las veo los primeros días de septiembre. Clara me comparte que ya tiene la carpeta lista y yo voy adjuntando los soportes, hago el registro también de los gastos. Muchos de estos registros, claro, como son plataformas, no los consigo me lío de allí, de los movimientos que tiene la tarjeta, hago los registros como te dije. Luego ahora, porque antes hacía la aplicación de pago como individual de la tarjeta y ahora ya pude, conversé con los contadores, me crearon un diario de tarjeta de crédito, porque yo trabajaba con asientos masivos, el temita era que aquí no había como un diario por utilizar para la tarjeta, entonces ellos me crearon el diario para de crédito. Yo ahora del estado de cuenta que me genera el banco de la tarjeta, paso a un formato que hay que llenar para subirlo, para cargar los asientos con sus contactos, con la descripción que trae la tarjeta, también le coloco el número del registro que tiene MO para que se asocie y los mont. Cargo el asiento, los confirmo porque se cargan en borradores y están todos movimientos de la tarjeta. Luego me toca conciliarlo con el registro del gasto. Entonces las tarjetas este mes la he podido trabajar corrida, pero siempre teníamos temita, siempre como a lo último, pero ya este mes hasta pude cargar hasta el día 15 ya hice los registros, todos los registros que pude cargar, porque los desmanteos que hasta el final de mes pertenencia para tener. Entonces ese es el proceso con la tarjeta. Hemos estado también verificando la intercompañía con los contadores que no le hacemos un seguimiento y pues a partir de agosto si nos tenemos que sentar Ruth y yo, que somos los que partimos con esa, para cuadrarlos y enviarlos también mensualmente. Adicional también llevaba los gastos del café, pero ya este mes no, y el mes pasado estamos como haciendo unos ajustes en la carga laboral.
+S3: Excelente, excelente.
+S1: ¿Eso último que mencionas, se movió alguien específico esos gastos?
+S2: ¿Tenía atraso en la tarjeta? Cuando yo entré enero había un atraso más amplio, porque la muchacha que era compañera del RUT como que salió unos meses antes, demoraron en conseguir a persona. A mi suerte, a mi suerte porque entré enero y creo que la chica se permis. Entonces te imaginarás, había un atraso en el registro de cajas menudas de las tarjetas de crédito, etc. Cuando entré di bastante apoyo con la caja menuda, di apoyo con registros, di apoyo con archivo, di apoyo con las tarjetas. Las tarjetas faltaban solo noviembre, diciembre, creo que de todas pude hacer el registro de esos dos meses, de todas las tarjetas había una que estaba pendiente en junio, pero no tenía casi movimiento de que me estrell. Te digo, son cinco tarjetas, pero dos son pesadas, las demás poco se utilizan las otras tres. Entonces más o menos pude con las tarjetas ponerlas al día, mientras llevaba como el día a día los pagos de Casiolandia, no trabajaba el banco, recuerdo, no tenía usuario root, cargaba pago, me pegaba el comprobante, pero más o menos pudimos irlas colocando al día. Cuando dijeron las empresas como las tarjetas quedaron a diciembre, yo saqué las tarjetas, casi la envía a mes corriente y ru no había podido terminar los registros de la tarjeta de ella, como que en Estrellas tuvimos un retraso como más largo. Entonces recientemente nos reunimos con la señora ya no región que diera más apoyo con las tarjetas de crédito, le pasó los registros del café en julio a Yajaira con Yamani, son del equipo de contabilidad y pues solo trabajé dos meses de dos tarjetas que fueron las de Banco General. Puse mi trabajo al día también, porque siempre dentro de la corredera siempre estábamos en atraso, como iniciamos en atraso, los meses iban corriendo y sacamos algo, pero algo sin iba quedando. Entonces saqué mi trabajo al día, apoyé con esa tarjeta, pude conversar con la señora Jan y le dije que si el flujo de Chemex era muy alto, que me digan una tarjeta de allá para yo registrarme, porque dentro de todo me gusta trabajar como con funciones específicas. ¿Claro, creo que quizás a veces se malentiende la sierra, ya me no te gusta trabajar en equipo? Yo le digo, si, me gusta trabajar en equipo, me gusta tener claro de qué es lo que tengo que entregar.
+S3: Correcto.
+S2: Qué es lo que tengo que entregar, en qué fecha lo tengo que entregar, porque nunca me he quejado como del volumen de trabajo, más bien trato de organizarme con lo que tengo y se me es difícil como organizarme o quizá quedarme unos días más tarde para tener algo listo, que luego que yo siento que estoy listo y que está al día, se me diga como que falta tantas cosas. Entonces esa fue la conversación que tuvimos, la señora ya nos preguntó si creíamos necesario que se incorporara a otra persona y pues con que estas muchachas llevaran el café, pude colocar todo. Imagínate Entonces le solicité la tarjeta de una de las tarjetas de Kenneth porque arrea muchos viáticos, reembols y eso le toma bastante tiempo porque todos los viajes internacionales, los registros, yo casi no tengo reembolso, yo tengo como un reembolso al mes aquí ya viajaron a provincias centrales que viajaron a CH.
+S3: Entiendo, entiendo.
+S1: ¿Y Felipe, cuando tú mencionabas que bajabas los movimientos bancarios para lo que tú necesitas, o sea, tú tienes acceso a las cuentas bancarias, tú mismo entras?
+S2: Sí, cuando ingresó el señor Norman me pidió el usuario, creo que fue en mayo, no recuerdo, mayo, abril, y yo mismo cargo los pagos y yo mismo descargo los comprobantes. Solo tengo acceso a las cuentas de Casiolati, no tengo el usuario que tiene acceso a todas las cuentas.
+S3: OK, OK.
+S1: Y desde esas mismas cuentas tú programas y tú ejecutas los pagos cuando ya están aprobados, tú eres el ejecutor de los pagos.
+S2: ¿Cuando dices el ejecutor te refieres a.
+S1: Ejecutar las transferencias, es decir, programarlas y ejecuta? Sí, programación procesarlas.
+S2: Pues yo las programo, el señor Ricardo las aprueba.
+S1: El señor Ricardo a Roisendal. Claro, las aprueba, pero tú tienes que esperar que la apruebe y luego tú ejecutas la transferencia o él mismo termina.
+S2: De ejecutarla, o sea, yo solo la cargo en banco y él aprueba, ya luego yo descargo el comprobante, esos son los tres pasos, yo subo la prueba, descargo los comprobantes, ya está realizada la transferencia.
+S3: Perfecto, perfecto.
+S1: ¿Y cuando lo subes lo que haces es abres el portal y tienes que subir algún archivo?
+S2: No, no trabajamos con el archivo todavía, la señora ya nos solicitó, recién yo entré, solicitaron como un desarrollo nuevo para que pudiéramos poner la información de las cuentas de los proveedores. ¿Entonces de Odo como generar un txt? Exacto, eso era a lo que íbamos a hacer la carga, pero todavía no tengo ese archivo. Hace un txt, porque yo sé que aunque si no se puede ahorita desde Odo igual se puede hacer manual, porque donde yo trabajaba la tesorera lo hacía así.
+S1: Manual.
+S2: Sí, el txt, pero lo subía en una carga de archivo.
+S1: muy bien. Si, no, esa consulta te la tenía. De acuerdo. Y en cuanto a Odoo, ¿Qué otra función tiene o sea, ¿Qué otro tipo de utilidad le sacan a Odoo como parte del proceso?
+S2: Te comento que actualmente siento que es bastante poco en el área, porque yo sé que Odoo se trabaja con asientos masivos también si es necesario. Sin embargo, no tengo todavía el archivo de la carga masiva de los pagos. Lo solicité Tecnología todavía no ha pasado, le está dando seguimiento porque yo tengo el masivo de los asientos contables. Entonces, ¿Qué pasa? Del asiento contable yo pudiera subirlo afectando la transitoria con la cuenta por pagar, así como hablo de las tarjetas de crédito. Sin embargo, yo tengo diarios de banco para hacer las cargas masivas. Yo no puedo tocar los diarios de banco. Los diarios de banco se generan a través del módulo de pago. Entonces del módulo de pago, imagino yo también que hay un Excel para carga masiva, ese es el que no tengo, porque el módulo de pago si es como una aplicación y dentro de esa aplicación él te genera el asiento contable de igual forma que lo sub. Así que me ayudaría bastante. Creo que es más rápido. Nosotros adjuntamos los soportes de los comprobantes de pago.
+S3: OK.
+S2: Al igual que el gasto, le adjuntamos la factura así al pago le adjuntamos el comprobante de pago.
+S1: Es obligatorio siempre.
+S2: Fíjate que no sé si es una regla, pero cuando entré RUT lo hacía y a mí me parece súper genial porque no solo yo cuando necesite el comprobante lo puedo tener. Claro, ni solamente va a estar en LA una vez. Yo busco el pago en Odo, está tanto en Odo como en LA. Entonces me ayuda mucho, me facilita mucho la cosa.
+S3: Excelente, qué bueno. Muy bien.
+S1: ¿En cuanto quería preguntarte cómo tú recibes la información de los pagos pendientes, es decir, que el proveedor tiene contacto contigo, a ti los gerentes te dan alguna, digamos, resumen semanal de los pagos pendientes por ejecutar?
+S2: No, ellos sumen las solicitudes.
+S3: OK.
+S2: Como te comento, yo sumo las solicitudes y yo trabajo en base a la solicitud únicamente.
+S1: Eso es en LAR. Correcto.
+S2: En LAR casi no tengo gestión con el proveedor. Tengo gestión con el proveedor. Cuando hay un, por decirte, como un enredo, la persona que trabaja en el departamento me dice comunícate con el proveedor. Yo me comunico con ello. Poco me pasa muy poco. Casi nunca necesito como solicitar estado de cuenta o algo así. Con los únicos proveedores que trabajo con estado de cuenta son con índice, que tienen un volumen alto de trabajo. Aquí con uno que se llama hardplot, que es como una impresora, y los utilizan todos los departamentos. A ellos yo les solicito un estado de cuenta, pago contra el estado de cuenta y ellos me envían las facturas escaneadas y veo qué departamento los solicitó. Casi siempre, como tiene mucho volumen, les escribo, necesito que me suba tal solicitud, porque aunque la pague, igual yo necesito sustentar alguna solicitud de ello.
+S3: listo.
+S1: De todas maneras tú tienes.
+S2: Casi no tengo proveedores. Un proveedor al que se le hace un anticipo, aunque solicitan bastante anticipo. Yo le doy seguimiento a esa cuenta. Yo le doy seguimiento a la cuenta de anticipo desde la cuenta Go y desde mis registros en banco también. Cuando registro el banco, coloco el número del registro en los movimientos del banco para estar seguro de que culmine esos registros. Cuando culmino esos registros es 15 en una semana, en un mes. Se lo paso a la chica de conciliación, se la hace súper más fácil cuando ve ya el número de mis movimientos al lado del movimiento bancario.
+S3: Perfecto.
+S2: Dentro de este archivo también le doy un seguimiento, por decir así, no lo marco un color porque no tengo la factura, y a cada rato le escribo al departamento, necesito tal factura, les consulto si el trabajo ya se hizo para que me la den. Si el trabajo no se hizo, definitivamente lo dejo como un anticipo y cierro el mes como un anticipo, porque eso es lo que es, dentro del cierre del mes. Si dentro del mes me lo solicitan unos días antes y la factura llega antes que el mes cierre, no lo dejo como anticipo, simplemente se concilia como pago prueba.
+S3: Listo.
+S1: Esa persona de conciliación es ¿Quién es?
+S2: Licia Ojeda. La que concilia Kennex es. Yajaira. Yajaira More. Son dos conciliadoras.
+S3: Correcto. Listo.
+S1: Y claro, tú tienes proveedores recurrentes, me imagino. Ya tú los conoces y tienes sus fechas de pago. ¿Y los no recurrentes?
+S2: Los recurrentes normalmente son temas de las tiendas.
+S3: Claro.
+S2: Alquileres. Los alquileres se pagan el primer día del mes o los primeros días del mes. Eso los monto yo. Y de hecho en el cuadro que presento en la programación de pago le coloco recurrente porque allí no hay solicitud de pago. De eso yo tengo la factura, el monto, bueno, no la factura porque a veces no lo han facturado. Claro, tengo el monto y tengo el proveedor y sé lo que corresponde, que son todos los alquileres. Los servicios también son recurrentes, pero de eso sí me llegan las facturas.
+S3: Vale.
+S2: De los servicios recurrentes tengo como el servicio de auditoría, tenemos una gestión aquí con algo de comercial. Recurrentes son los pagos, estos envíos que hacen por. Tengo como dos proveedores que hacen envíos internacionales de mercancías, el servicio de limpieza de la oficina, el mantenimiento de los. De los dispensadores de agua, tengo varios recurrentes, eso lo voy trabajando durante el mes.
+S3: Perfecto.
+S2: Y también tenemos los pagos de los acreedores, de los empleados. ¿Cómo así los acreedores? Los préstamos que realizan los empleados. Recursos Humanos nos realiza una solicitud, nos generan un informe de todos los acreedores y también se pagan los primeros días del principio de eso también, aunque Recursos Humanos genere una solicitud, yo siempre verifico con el anterior. Verifico con el anterior, le digo me falta este, o sea, cuando hay alguna incurrencia sobre lo que ya me envía, yo siempre lo considero porque ellos tuvieron un cambio de sistema y el sistema traía unos errores. Si, es el sistema o la configuración, no sé, de vez en cuando se comían unos pagos, entonces yo siempre verifico con el anterior, me quedé con eso en la mente y siempre verifico. Normalmente sus pagos sabes que no son tan cambiantes, eso es si ingresa uno nuevo o si sale una persona.
+S3: Entiendo.
+S1: Y por ejemplo con lo que son los pagos de nómina o plantillas de personal, ¿Tú te encargas de esa parte?
+S2: Nómina lo maneja Recursos Humanos, a nosotros se nos solicita el fondo que se transfiera a la cuenta que ellos utilizan para planillar.
+S3: Listo.
+S1: Y ese fondo tú lo transfieres de.
+S2: Banco General a Credit Corp.
+S1: ¿Y también funciona por solicitud del ARC?
+S2: No, es un correo que le manda a la gerente de recursos humanos, al Sr. Norman. El Sr. Norman nos da la indicación y se hace el envío del fanfieres.
+S1: ¿Y después envías algún comprobante o no hace falta comprobante?
+S2: Sí, cuando él me hace la solicitud yo le adjunto el comprobante de que monte la transferencia.
+S1: para que sea aprobada correcta, le.
+S2: Indica el señor Ricardo. El señor Ricardo prueba y la transferencia quedó lista. Igual ese movimiento igual lo llevo dentro del archivo de pago. A todos los pagos que monto yo a través del BAN están en un archivo en LAR.
+S1: En un archivo en Lark. ¿Lo montas directamente en LARK o es un Excel que después subes a LARK?
+S2: No, yo hago una carpeta y le Coloco pago hoy 24 pagos este 4 de agosto. Entras a la carpeta, solicitudes, comprobantes, Si fue un comprobante está allí. Y si la solicitud, coloco la solicitud del pago o en estos casos el descargo el correo con la indicación.
+S3: Perfecto. OK.
+S1: ¿Y cada cuánto? Eso tiene fecha fija, el tema nómina tiene su fecha fija para hacer ese proceso.
+S3: OK, perfecto.
+S1: No, está bien. Y en cuanto a los gastos, Felipe, hay gastos que también son recurrentes y gastos que pueden llegar de la nada, es decir, por alguna coyuntura.
+S2: Correcto, los gastos recurrentes, como te digo, alquileres, los servicios, siempre los hay. Seguimientos de que está en todo y me ayuda un montón el informe de la DGI. Ahora a fin de mes puedo revisar por cuenta porque tiene un informe donde la comparación de meses anteriores, si hay una diferencia grande, verificación, si falta algo, si hubo un cambio. Adicional a esto trabajo con las analíticas, también le doy seguimiento a fin de mes, porque al principio siempre no lo pedí al señor Jaime que la revisara, yo lo reviso si todo quedó bien, porque Odo tiene algo que a veces cuando tú le cambias un monto o la cuenta te mueve ciertas cositas y le cambias como el monto, te mueve la cuenta contable. Si le cambias la cuenta contable te puede mover la analítica. Lo reviso y me cercioro de que todo esté tal cual en el departamento. Que el tema de las tiendas nos dijeron que era muy delicado porque por allí miden como el rendimiento de las tiendas, entonces estoy muy pendiente si el gasto en sí es de la tienda o si es general.
+S3: Sí, sí, sí, correcto.
+S1: Vale. Ahora bien, Felipe, una consulta que quiero hacerte. En tu opinión y la experiencia de lo que has vivido y has visto, ¿Cuáles son los cuellos de botella, los principales dolores de proceso? Es decir, en tu opinión, ¿Hay algún proceso que pueda, que esté funcionando por debajo de lo óptimo que se pueda mejorar?
+S2: Recomendación sí de que cosas que se necesiten y que se puedan mejorar. La carga de los pagos en banco a través de un Excel, a través de un archivo facilitaría más. Ahora te digo, aquí no es tan grande el volumen de pago, no te crees que un miércoles monto 100 pagos, un miércoles monto 30 pagos, o sea no es un volumen como tan alto. También sería productivo tener la carga del registro de los pagos en odo masiva, lo que también acorta mucho el tiempo, aunque en el bill también existe un masivo, a mi me gusta trabajar los individuales porque al final subo el soporte, miro bien las analíticas, entonces el gas más factible. También creo que el proceso de pago con tarjeta podría mejorar, tiene acceso sistemas, tiene acceso los directivos, tiene acceso a mercado, entonces hay pagos que se realizan en tú. Ni por enterado. Wow, ni por enterado. Ellos saben, me imagino que se lo comentaron a alguien, pero contabilidad no se entera, entonces pues de donde yo vengo teníamos un departamento de compra donde hacían la solicitud que ponte que aquí es LAR, la solicitud de pago de LAR, hacían la solicitud y si era pago con tarjeta se acercaban a de pesar, Tesorería ejecutaba el pago, no se hacía pago, o sea nadie tenía acceso a esa tarjeta más que tesorería, el dueño de la empresa.
+S3: Entiendo.
+S2: Entonces le dábamos un poquito más de seguimiento a los pagos con tarjeta de crédito.
+S3: OK.
+S2: Aquí creo que es un punto débil, digo nunca ha pasado nada. Nunca ha pasado nada, nunca habido nada, ningún tema. ¿El problemita es que como se manejaba en atraso la tarjeta, tres meses después preguntamos por una factura, oye quién esta factura? Envíame un soporte y a veces es tedioso. A veces es tedioso, a veces se tardan o te lo envían, es un punto de mejora.
+S3: OK, OK.
+S1: ¿Qué más podrías indicar que se te venga a la memoria, a la mente?
+S2: Informar a los otros departamentos, sabes que ahora estamos tratando de llevar los cierres de MEX, creo que sería productivo también notificarle a los otros departamentos, como yo te digo, las tarjetas yo las cierro y necesito del archivo que Clara sube con todos los soportes la tarjeta yo la cierro, pero necesito los soportes de la compra que realizó tecnología recientemente con César siempre, no sé si conoces a César.
+S1: César Sí, sí, claro, he conversado.
+S2: Las compras, me pasa los comprobantes, pero se los solicito, o sea, no es que yo ya tengo el comprobante y yo creo que necesitamos tener el comprobante una vez se realiza la compra, no al siguiente ni dos meses después.
+S3: Sí, sí, totalmente.
+S2: Entonces ya el diente, pero ya en mejora te digo que no es tan mal en mejora. Conversando con él un día me dijo yo tengo una carpeta y te la voy a compartir. Perfecto, desde el principio me la compartió, solo que tenía como un desorden en la fecha porque hizo la cargo el mismo día que sufrieron los meses anteriores, pero en adelante sí se va a hacer en adelante no los clasifica por mes, siento que debería estar clasificado por mes, te enseño la de marketing, está súper clasificada por tarjeta por mes y por contacto por proveedor. Entonces bueno, ya hay en ese punto un poquito de mejora. Esta vez que me tocó hacer las tarjetas de Kennex tiene bastantes movimientos, tengo bastantes soportes, pero igual hacen falta. También hacen compra de mercancía extranjera. ¿La señora nos comentó que le iba a hacer la solicitud de que nos enviaran los soportes, necesitamos como saber si un anticipo, si ya está la factura, con que la asociamos? Porque en estas compras mercancía extranjera a veces son proveedores como informales y se hace a través de una plataforma de pago. ¿Qué pasa con esa plataforma de pago? Se cargaron un montón de pagos a de través de esa plataforma y luego hay que hacer como la reclasificación del proveedor al que realmente le hicieron la compra registrada. La señora María Alejandra, si no me equivoco, ella hace la solicitud, pero ya es un trabajo adicional conectar el pago con esa factura. Imagina y que a veces tiene diferentes montos y bueno, de eso se están cargando la sillona, pero sabrá que un trabajo extra si no se tiene la información. Pero en lo que registré mayo y en lo que registré julio solicito un montón de comprobantes, César me ayudó un montón. César es como una enciclopedia, cuando hizo la compra yo le digo pues dime quién es y él sabe más o menos por dónde va, Les escribo, necesito este comprobante, para qué se utiliza, para quien utiliza. Y bueno, se iba. se ha ido mejorando también. Se ha ido mejorando en que las tarjetas. El gasto era de Chemex y se paga con la tarjeta de Casiolandia. El gasto era de Casiolandi, se paga con la tarjeta de Chemex. El gasto es de Venezuela y se paga con la tarjeta de Chemex. Pagos cruzados también que necesitamos que se. Que se gestione mejor, por lo menos con el tema de publicidad. Yo le solicité, aclara. Varios cambios los ha realizado Gasto desarrollo, otros países donde no se tienen tarjetas, es de Chemex, se pasa la tarjeta de Chemex y se registra más fácil. Porque antes de eso se cobraba por Casiolandia. Tenía que hacer yo el pago, la cuenta por cobrar a Chemex. En Chemex el gasto y la cuenta por pagar a Casiolandia eran 4 asientos por 1 solo movimiento. Ha ido mejorando un montón. Pero antes teníamos muchos movimientos entre compañía.
+S3: Claro.
+S2: Pero yo por lo menos cada vez que veo que algo no es de mi tarjeta, por eso creo que mi tarjeta queda con menos movimiento, que no tengo problema en que se registre, pero siento que es mucho más fácil que se registre que la tarjeta de Kenneth tenga, no sé, 400 transacciones, pero que todas correspondan a la empresa. Porque aunque sean 200 y son 200 y cuatro registros, es un trabajo adicional.
+S3: Sí, sí, entiendo eso.
+S1: Y por ejemplo, las personas falta por mejorar.
+S2: Sí, por organizarse con esas gestiones, esas suscripciones que están colocadas así en diferentes compañías.
+S3: listo.
+S1: Sin embargo, cuando alguien pide una tarjeta para ser utilizada en Larce, declara el propósito, el uso que. Que se le va a dar, los límites de gasto. Eso está establecido,.
+S3: No se solicita.
+S2: Quizás es una solicitud interna entre, no sé si los directivos y el gerente, pero como te comento, aquí no se hace solicitud de pago con tarjeta. Y creo que se debería hacer, porque aunque el pago sea con tarjeta, eso para mí no debe dejar de pasar por la. Claro, te comento que por darte un ejemplo, recientemente hicieron una compra en marketing de Temita aquí, como un aparato eléctrico para producir energía en estos eventos que ellos tienen, y se compró una tarjeta. Imagino yo que la persona que lo compró tenía la aprobación del gerente o creo que fue la gerenta directamente, sin embargo, para mí eso no es de pasar por la $400 y no por el monto, sino que necesito también saber de quién es.
+S3: Sí, sí, sí, sí.
+S2: Al final el soporte estaba. Al final el soporte estaba, pero un error y no estaba dentro de la tarjeta que se hizo el gasto. Y yo buscando ese gasto por todos lados, le escribí a Andrés, conversé con Informática, hasta que le conversé con Mercader y me indicó que ella había subido el comprobante, pero hubo un error.
+S3: ¿Como?
+S1: ¿Y Felipe, formalmente hay alguien, alguna entidad que apruebe el tema de asignación de tarjetas, Si alguien la solicita, a quién se la pueden dar y quién lo hace?
+S2: Cuando no hay zonas directivas, cuando no hay informática, cuando no es mercadeo, Entonces Recursos Humanos necesita un gasto que se debe pagar por tarjeta. También conversa con el señor Norma.
+S3: OK, OK.
+S1: Directamente, pero no hay un flujo como tal de aprobación. Por .
+S2: Existe el flujo. El flujo está.
+S3: Entiendo, ya te entendí.
+S2: La compra de la tarjeta de crédito es como una compra rápida y lo necesito y se paga.
+S3: OK,.
+S2: Igualmente aunque sea rápida, aunque cualquier motivo vale.
+S1: Felipe, mira, otra consulta. Tú participas en algún. ¿Hay algún comité o espacio de gobierno en el que tú formes parte, alguna reunión con los gerentes o quizá a nivel de coordinaciones para temas concretos?
+S3: OK.
+S1: ¿Y reportes, tú emites reportes a la gerencia, algún reporte consolidado?
+S2: ¿Cuando? No, casi aquí no se genera un reporte o un informe. Quizás están implementando como un reporte como para que vayamos colocando. ¿Cómo vamos con el cierre?
+S3: OK.
+S2: Cuando manejaba el café, cuando ya tenía listo todos los gastos del café, cuando había registrado los pagos, yo mandaba un correo colocando cierre de mes, gasto de café tal mes y les notificaba de que ya mis gastos estaban listos. Le apuntaba el reporte de la DGI donde estaban todos los gastos trabajados, revisados y le apuntaban los movimientos bancarios con todo su registro. De igual forma el estado de cuenta de la tarjeta y el número de asiento de la tarjeta para que vieran que estaba cuadrado. Era todo lo que correcto podría llegar revisar antes con las tarjetas de crédito, no me lo solicitan o no me lo han solicitado, pero de igual forma de donde yo vengo y todo lo manejábamos con entrega y con reportes y teníamos que sustentar. Entonces yo con las tarjetas de crédito tengo el estado de cuenta, la tarjeta en PDF, el estado de cuenta, la tarjeta en Excel donde trabajé, los asientos, los registros, y yo descargo el libro mayor del para que se confirme de que está conciliada los movimientos de la tarjeta del estado de cuenta junto con tal cual a la fecha que ellos manejan. Si la tarjeta corta del 4 al 4, yo mando el movimiento de o del 4 al 4 y se confirma que los saldos son totalmente iguales.
+S3: Excelente.
+S2: Y los cargo, no los envío los cargos, los cargas en lar.
+S3: Excelente, excelente.
+S2: Adicional, los guardo en mi carta, en mi computadora, por si acaso también.
+S1: Y los pagos, por ejemplo, de las deudas de tarjetas, ¿Tú haces los pagos?
+S2: Esas deudas, cuando yo entré, una vez hice la consulta y la señora ya me dijo que ya se encargaba.
+S3: OK.
+S2: Recientemente hubo como un pago que se pagó justo de tiempo y le consulta al Sr. Norman si él necesitaba que yo estuviera como en seguimiento del pago de la tarjeta, porque un problema debería ser parte de nuestras funciones. Y me dijo que lo vamos viendo los dos. Entonces entiendo como un recorderi que puedo hacer de repente, pero él siempre solicita el pago a la tarjeta.
+S3: Perfecto, perfecto.
+S1: Y con recursos humanos en cuanto a. ¿Volviendo un momento a las nóminas, no hay conversación sobre que esa función pase a cuentas por pagar la ejecución de los pagos? No, eso se lleva por allá.
+S3: OK.
+S1: ¿Las transferencias las hacen ellos directamente de pagos de nómina?
+S2: Las únicas transferencias que se realizan por tesorería son las transferencias, algunos honorarios que son internacionales.
+S3: claro.
+S2: Esos honorarios si lo hacen por solicitud de la. Y normalmente los hace rojo el trabajador. Normalmente los paga. A veces me llegan a mí, a veces le llegan a ella, pero si me llegan a mí, yo se lo transfiero a ella porque se tiene la orden de que los pagos internacionales salgan, porque me extraña.
+S3: Listo, listo.
+S1: Felipe, ¿Tú prestas servicio o apoyas en algún proceso de otras regiones? Colombia, Costa Rica, Venezuela.
+S2: Como te digo, manejo Casiolanda y Casioland.
+S1: Full Panamá.
+S2: Lo único que hago con Chemex Frame son algunos gastos de intercompañía. Ahora que estoy registrando las tarjetas de Banco General, de ellos veo todos los gastos.
+S3: OK.
+S2: Con el tema de los otros países, los que no tienen como una sede principal, los asume. Solo trabajo con las analíticas colocando gasto por país. Y con Venezuela, Colombia y Estados Unidos, si yo tengo un gasto que son de ellos, se lleva una cuenta por cobrar a esas empresas. Gestión, que también creo que hace falta como trabajar, porque nosotros llevamos la cuenta por cobrar, pero no hacemos el cobro con la empresa, no mando un correo a fin de mes, mira, esto es todo lo que tengo por cobrar a Venezuela, esto es todo lo que tengo por cobrar a Colombia y creo que se debería hacer.
+S1: ¿Crees que eso ayudaría, verdad?
+S2: Claro, ayudaría que todas las empresas tengan el gasto dentro de dónde va.
+S1: Y eso podría ir dentro del sistema. ¿Eso se podría configurar a nivel de sistema, que esa información esté visible desde largo, desde Odoo, o tú lo ves como un reporte manual que se enviaría por correo?
+S2: Creo que sería un reporte. Como una cuenta por cobrar.
+S1: Como una cuenta por cobrar.
+S2: No se quita que pueden hacer algo en la te subo el reporte, la factura proveedor y eso es como el reembolso de que me tengas que hacer. Caso. Financieramente deciden que las empresas van a hacer el remate, retorno de eso sí. Ya, pero sí, también creo que sería bueno que ellos tuvieran el conocimiento de los gastos que están incurriendo en sus empresas y que se paga desde acá.
+S3: OK, perfecto.
+S1: ¿Eso de los gastos intercompañía, tú lo estás llevando desde que entraste o es algo reciente? Ajá, sí, los movimientos intercompañía que mencionaste.
+S2: Con las tarjetas, normalmente son gastos de publicidad, normalmente, pero hay unos que son compartidos en una factura, llegan varios países, se gestionan igual, se cobran su porción a las tres empresas que te mencioné y hay unos que definitivamente el gasto es completo de Venezuela, el gasto es completo de Colombia y todo eso me lo aclara en su soporte.
+S3: Excelente.
+S1: ¿Pagos en efectivo? ¿Podemos hacer algún tipo de pago?
+S2: Aquí en Casiolandia existe una caja menuda, la caja menuda la mantiene Yajaira. Yajaira hace los pagos, los recibos, creo que entre ella y Fernando son los que lo registran. Fernando es el contador de Casiolandia. A mí solo me toca hacer el reembolso con el cheque reembolso y ella me. Y me toca a mí archivar.
+S3: OK, perfecto.
+S1: Si, no tenía esa consulta. Ahora, en tu opinión, así como te pregunté por procesos por mejorar o áreas de oportunidad, ¿Cuál tú dirías que es el proceso que mejor funciona y que podría ser replicable en otras regiones? ¿Como buena práctica? Sí, si tuvieses que dos, tres procesos que mejor funcionen, un top tres, digamos.
+S2: Pues creo que mis pagos siempre están bien registrados, pero no creo que sea como el proceso más ágil que se replicaría.
+S3: OK.
+S2: La verdad no sabría, no tengo así como un top 3.
+S1: Vale, vale. Pero en general yo que sí funciona,.
+S2: También me funciona un montón con el reporte de la G, pero no sé si en todos los países sea igual.
+S3: OK.
+S2: Si no, posiblemente no, depende del gobierno, de la facturación.
+S3: Listo, listo.
+S2: Pero sabes que tenía la idea, como me dijeron que me iba a conectar con el muchacho de Venezuela, yo dije cheverísimo, para escuchar también cómo lo maneja, por si estamos haciendo algo como más lively, pues.
+S1: Lo vamos a descubrir en el camino, ahora que abordemos las otras. Pero sí, porque estamos, apenas estamos conversando contigo, faltan las otras regiones, pero si.
+S3: Vale.
+S1: Pero yo veo que llevas un buen proceso, veo que tiene bastante orden en.
+S3: Lo que llevas realmente.
+S1: Por eso te lo preguntaba, porque podrían ser ustedes el caso de ejemplo con los pagos de gobierno o a nivel de impuestos, ¿Tú te encargas de esos pagos?
+S2: Eso pago contabilidad. Normalmente se gestionan por tarjeta. Permíteme un segundo, voy al baño.
+S1: Claro que sí. ¿Seguro Felipe?
+S2: Seguro.
+S3: Hola. Sí, listo.
+S1: Vale, vale. Te iba a consultar también por, o no sé si me ibas a comentar algo ahora antes de irte.
+S2: Normalmente ellos pagan municipio, impuesto y tbms.
+S3: Perfecto.
+S2: Y normalmente se realizan con las tarjetas también, ellos hacen el registro del sistema y el registro del pago, o sea, acá en Casiolandia con Fernando, Si él me hace un pago con una tarjeta de crédito, él lo registra, yo siempre primero veo si la tarjeta tiene movimiento y luego subo lo que hace falta.
+S3: Excelente. Listo.
+S1: ¿Tú utilizas o incluyes inteligencia artificial o lo has pensado hacer en algún proceso, Felipe, a nivel de tus procesos?
+S2: Por el momento no. Yo utilizaba la inteligencia artificial cuando me llegaban estas tarjetas, de estos gastos de tarjeta, donde habían varios países en gasto y un montón de líneas y me ayudaba a colocarme los gastos por país, el total y eso era lo que se cobraba, lo que se registraba cada país.
+S3: OK, perfecto.
+S2: Por el momento no uso casi para otro, la utilizo como para algunas consultas y temas.
+S3: Vale.
+S1: ¿Pero ves alguna oportunidad a corto, mediano plazo? ¿Estás pensando en algo ahora mismo para optimizar tu proceso?
+S2: Me gustaría de lar poder descargar, como te digo, las solicitudes que yo manualmente monto en un Excel que me tiro en un listado.
+S3: OK.
+S2: Con la información que ya existe , el número de solicitud, el número de factura, el número del proveedor y el monto, la descripción. Eso es lo que yo utilizo en el cuadro que presento. Eso sería algo menos manual, pero no sé qué tanto me podría ayudar la Inteligencia Artificial, porque esa solicitud son como algo que se descargan, sino que es como algo que pertenece a instalar. Por lo demás, creo que el reporte de las tarjetas como ahora lo hago en Excel, tengo tema, lo gasto, no le veo como oportunidad la Inteligencia Artificial o creo que tiene algo como de que se puede activar la Inteligencia Artificial para llenar los espacios. No sé qué tan creíble sea, lo leí una vez, pero hasta el momento no va más allá.
+S3: Vale, vale. De acuerdo.
+S1: ¿Power BI o alguna otra herramienta de procesamiento de datos ha llegado a utilizar o se piensa utilizar Power BI?
+S2: No, no lo utiliza Excel. Excel, o sea, lo que utilizo lo utilizo en Excel.
+S3: OK.
+S2: Utilizo más bien es porque para mi trabajo, pero aquí casi no se solicitan informes. Yo necesitaba Excel para todo. De repente estaban en una reunión y te llamaban, necesito los gastos de tal cosa en tal momento y había que hacer una tabla dinámica, pero aquí la verdad no. OK.
+S1: No, no, está bien. Sí, justamente por los informes y los.
+S3: Dashboards si te pedían alguno, pero cuando.
+S2: Allá me pedían informes si me servía mucho la Inteligencia Artificial.
+S3: Perfecto.
+S2: Tira el Excel con los datos, los analiza, pero siempre la presentación y va por delante.
+S1: Además de Odoo y Lark. ¿Trabajas con otro sistema?
+S3: ¿No?
+S1: Interactúas con otro sistema.
+S3: El banco. Exacto, el tema de los bancos. Perfecto.
+S1: ¿Y por casualidad Felipe, tienen procesos o manuales instructivos documentados?
+S2: Nos solicitaron uno recientemente hicimos uno por departamento como por áreas y Ruth trabajó el manual completo.
+S3: OK.
+S1: ¿Se lo solicitaron desde proyecto será?
+S2: Nos lo solicitaron a todos. Tesorería y Contabilidad.
+S1: A Tesorería y Contabilidad. Y en el caso de ustedes ya esos manuales los hizo RUT. No sé si sabes ese estatus tú los manejas tú tienes el acceso.
+S3: OK, OK.
+S1: Porque si sería. Nos gustaría saber, ver esos manuales, poder revisarlos también, cómo podríamos hacer con la señora Jan. OK, déjame coordinarlo con ella. ¿Sabes cuántos son por casualidad, o cuáles son?
+S3: Sí,.
+S1: Uno solo de cuentas por pagar.
+S2: Solo que tengo la leve impresión que fue más como una descripción.
+S1: No, no, está bien, está bien.
+S2: Yo pensé que era más un paso a paso, porque te digo, aunque el proceso no se vea complicado, creo que sí se necesita un paso a paso.
+S3: Claro.
+S2: De esta forma, aunque al final toque de una forma, como el proceso en el que se realiza, lo pueden cambiar, porque cuando yo recién tenía unas ideas del año pasado, de su última gente, se llevaban una forma y luego fue más complicado, pero era como debía ser. La Sra. Jen nos dio las instrucciones y se realizó de esta. Entonces sí sería bueno plantear, porque la empresa tiene muchos años y esperemos Dios que tenga mucho más, como el proceso, y esto se realiza de esta forma, que pueden pasar gerencias, pueden pasar coordinadores, y aunque se vea del mismo modo en contabilidad, creo que hay que tener el proceso, la línea del proceso se hace de esta forma, las intercompany, así se rebaja el gasto, así se cobra a la otra compañía. Entonces creo que eso hace falta también.
+S3: Muy bien, perfecto.
+S1: Ustedes tienen custodio de caja menuda en Tesorería son los custodios. Contabilidad, contabilidad, custodia.
+S3: OK.
+S1: ¿Y participación en proyectos internos? ¿Estás en alguno en este momento?
+S2: Pues solo en el tema de las intercompanías. Las intercompañías, pero pudimos revisar, creo si me equivoco, de Casiolandia a Kennex. No, perdón, de Kennex a Casiolandia. Pudimos revisar de enero a junio. Iban a empezar a revisar el año pasado, donde conversé con la señora Jan y le dije yo definitivamente no estaba, llevaba un proceso distinto y les propuse trabajar yo Casiolandia, que me estrell, que fui quien más debió hacer los gastos intercompañía, a cuadrarlos de enero a junio y a dejar lo que movida el año pasado también presentárselos de que están ambos registros en ambas compañías. Pero la verdad sentía que no íbamos a reunir los cuatro y yo iba a estar aquí viéndolos a todos, porque no sé qué tocaron, no sé qué indicaciones tenían, no sé cómo lo hicieron. De hecho, ni siquiera Ruth. Si no me equivoco, tiene tantas emociones de so movimiento. Entiendo que lo registraba su compañera o el mismo gerente que existía allá.
+S3: Muy bien, entiendo.
+S1: ¿Hay alguna unidad de la empresa que te pueda solicitar a ti insumos y que dependan de ti para recibir esos insumos para sus trabajos?
+S2: Bueno, la cibereta, las libretas de caja menuda que yo entré, hicieron una solicitud, me mandaron a mí hacer la solicitud, las hice, las solicité, les monto un cuadro de control porque entregaban los números dispersos.
+S3: OK, OK, era un lío.
+S2: Le mandaban una numeración, luego le mandaban otra, les ajusté los recibos, les modifique el recibo a como creí yo que debería estar el recibo, se lo presenté a la señora, allí se solicitó y en una carpeta compartida les hice un listado de la numeración y que me fueran llenando cuando quien lo recibió, cuando se entre, como para que no se llegue a estar acabando para entonces mandarlo a hacer, sino que yo siempre le echo un ojo, miro que tantas faltan, es la caja menuda de aquí y es la caja menuda de color para hacer la solicitud.
+S3: Perfecto, muy bien.
+S2: También el archivo, también tengo un archivo bastante leve, a ver, cero papel. Cuando yo entré aquí llevaba todavía el archivo y los pagos y yo dije en físico, en modo, en todos lados, porque en tanto como conversamos con la señora, ya me dijo que lo intentáramos, que la programación enviáramos, porque antes creo que imprimía todo un gap con la programación y ella lo revisaba como físico e iba firmando. Ahora se envía el cuadro de la programación con el número de las solicitudes. Todo esto está en LAR. Adicional tengo la carpeta que se sube a LAR también como archivo y pues por eso ya el por lo menos el archivo disminuye un montón. Yo solamente archivo las cajas menudas que me pasa contabilidad, Las cajas menudas. Empecé a archivar lo de los pagos de la caja en Seguro Social, porque sé que es importante. Claro, necesito también un archivo de las tiendas que no conseguí cuando entré, no los conseguí como quise conseguir. Claro, mi mente los tuviera por tienda, los contratos de Contrato del Arrendamiento, pero no fue así. Tenemos un archivo digital con un contrato y yo espero también crear las carpetas como las tenía en mente, contrato del hogar. No con las facturas mensuales. No con los pagos mensuales. Todo eso está en banco. Todo eso está en modo. Sino los contratos de el arrendamiento, cualquier modificación al contrato, El contrato de servicio.
+S3: Perfecto.
+S2: Mi archivo es caja menuda. Acreedores, que me parece importante también. Caja de seguro social. Las multas no son muchas. Y cheques.
+S3: Los cheques también.
+S1: Vale.
+S3: Vale.
+S1: ¿Cómo está manejando ahora mismo la actualización de los proveedores en el sistema? ¿Tú eres la persona que ingresa nuevos proveedores?
+S2: Sí. Bueno, todo el que registra ingresa nuevo proveedor. También creo que se puede tener más seguimiento con eso.
+S1: Vale.
+S2: Porque o lo utilizan desde la tienda, los vendedores de la oficina, cuentas por cobrar, contabilidad, cuentas por pagar, vendedores, todo el mundo utiliza. Ojo, aquí pasa mucho con los proveedores que los contactos hay 5 y 6 de una sola persona. Yo cuando entré, para mí eso era un tema. Imagino, te imaginarás que a veces se hace un registro de gasto y yo lo coloco a tu nombre y luego hago el pago y lo coloco a tu nombre también. Y luego no me concilia porque son dos distintos.
+S3: Claro.
+S2: Entonces yo ya manejaba Odo, Sé que Odo tiene la función de fusionar los contactos. Pasa que aquí los puntos de las tiendas manejan Odo y yo no puedo fusionar los contactos si los puntos están encendidos. Conversé con el señor Blas, conversé con Sistema que me dijo que un punto en específico, que es el de Colón, sólo cierra una vez al mes.
+S3: OK.
+S2: Cerraron el 30. 31, No recuerdo del mes. Fue un sábado, recuerdo. Estuve en mi casa, me levanté temprano, antes que abrieran las tiendas y me puse a funcionar contactos porque se me un dolor de cabeza que hayan tantos contactos. Al final fue y no fue tan positivo. Te comento algo. Inicialmente, cuando se creaba un contacto, Casiolandia tenía la configuración de que el contacto solo se guardara con la empresa. Casiolandia solo me aparecía en Casiolandia.
+S3: OK.
+S2: Distribuidora, que es el Café, y Kennextrading tenían la configuración de que el contacto quedaba sin compañía, ya qué pasaba, yo creo un contacto en Casiolandia que se llama Distribuidora el Café y en Chemex el Café no existe. Y luego van en el Café y me crean un contacto. El mismo proveedor por X y motivo. Es el mismo proveedor y lo usamos las tres compañías. A mí en Casiolandia me queda el mío y el de Distribuidora.
+S3: OK.
+S2: Que nextrading me hace el mismo contacto y yo en Casiolandia tengo el de Casiolandia, el de Distribuidora y el de Kennextrad. Empiezo a hacer registros de ventas del de Kennextrading, empiezo a hacer registro de gastos del de Distribuidora y también tengo el de Casiolandia. Por eso tengo tres y cuatro contactos. Cuando lo fusioné, me di cuenta que luego no se podían utilizar las otras empresas. Más bien tuve que separarlos nuevamente. ¿Existía sistemas que gestionaran la misma configuración en las tres compañías? Porque no entiendo el por qué solo en Casiolandia se quedaban en Casiolandia y los otros se compartía. Para mí es ideal, o uno para todos, o cada empresa tiene su contacto, que creo que es lo mejor, que cada empresa tenga el contacto. Así lo configuraron. Cada vez que creas un contactador en las nuevas compañías, solo se quedan en la compañía.
+S3: OK.
+S2: Yo tengo un contacto en Casi, yo tengo un contacto en Chemex, yo tengo un contacto en Distribuidora. Porque somos la misma persona, pero son tres compañías distintas. Creo que era lo mejor. Así configuró. Automatizaron el registro de la compañía, automatizaron las cuentas contables también, porque lo solicité. Las cuentas contables sólo se configuraban Casio. Si yo creaba un contacto, me venía con las cuentas contables en Casiolandia, sin que en Strading yo configuraba, registraba un contacto nuevo. Yo tenía que manualmente colocar las cuentas contables. Entonces, ¿Por qué el desarrollo solo fue para una empresa, pero al final se solicitó, se ajustó y ahora es más rápido? Pero todavía sigo teniendo muchos contactos duplicados. Pero es un temita, porque como te digo, hay contactos en Casiolandia que son de las otras compañías. Entonces, para dejarlos en la otra compañía, porque yo puedo dentro del contacto, colocarle la empresa, tengo que quitarle movimiento a ese contacto y pasárselos al contacto de Casiolandia. Un tema complicado, pero creo que con los contactos también hay que tener un poco de seguimiento. Como unas reglas, compartirlo con las tiendas, compartirlo con los vendedores. Unas normas, creo, que ellos hagan los contactos dobles y triples, porque quieran molestar. Entiendo que a veces buscan el contacto, no lo consiguen por cualquier diferencia en el texto sabes que no aparece, entonces los creo, pero importante como capacitarlos o mandarle correo cada cierto tiempo o diciéndoles cuando trabajen un proveedor puede que exista, en su mayoría puede existir. Casiolandia tiene no sé, más de cinco tiendas y le vende un montón de gente y así le vende a personas también le vende empresas, desde las tiendas le venden empresas y si quizás hoy a mí me llegan con un proveedor nuevo, lo primero que yo hago es buscarlo, porque quizás ya trabajaron con ese proveedor como cliente y al contacto no existe. Entonces creo que al contacto también hay que tener un poquito de seguimiento.
+S3: Me parece muy bien.
+S2: Cuando fusioné, fusionó un montón, hasta tuve como repercusión porque fusionaron sin notificar, porque pasa que tal vez no haya clientes.
+S3: OK.
+S2: Que para mí es muy amigable y yo creo que por cliente y proveedor solo deberíamos tener un contacto, porque tiene la opción de cliente y proveedor, solo que cuando ellos mandan reportes de cuentas por cobrar, separa las cuentas por pagar y las cuentas por cobrar, porque si te vas al libro mayor del contacto sale todo, desde sus ingresos hasta sus pagos. Entonces fue como una diferencia que tuvimos, pero creo que en o dos semanas hay.
+S1: Felipe, me comentabas que tú llevas pues Casolandia, aunque apoyas un poco en Kennex, pero Kennex realmente lo llevas. ¿Ruth, tú que has visto ambas líneas, cuáles son las diferencias principales entre los procesos que tú me has comentado versus los que se manejan por Kennex? ¿Son parecidos o difieren mucho?
+S2: No mucho, realmente las diferencias pueden ser que Chemex paga muchos, hace, realiza muchos pagos internacionales. La diferencia es que yo trabajo full con Banco General y ella puede trabajar con tres, cuatro bancos, depende de la empresa. Ella trabaja con Vivanc, ella trabaja con Davivienda, trabajan con Mercantil y con Banco General, depende del proveedor en qué país esté ubicado. Creo que estrategia con el gasto de la transferencia internacional. Esa es la única diferencia. Yo manejo casi mayormente un banco, un solo banco, todo mi archivo y mis registros son de un solo banco. Ella sí tiene varios bancos, OK, no tiene un volumen grande, o sea tan grande de pago, pero sí es como son urgentes, son pago urgente, yo me puedo programar y pagar un miércoles y me sale algún pago urgente. Para mí no es tan urgente, porque no es algo como de vida o muerte. Siempre les digo también, a veces no se organizan con el tiempo en hacer las cosas, por eso el pago para mí no es tan urgente, pero ella sí, porque son compras de mercancías, son honorarios profesionales. Entonces ella tiene una programación miércoles, pero ella fácilmente puede pagar jueves y el viernes. Esa es la diferencia. Ella no puede decir que me parece que no lo subieron a tiempo porque se tiene que pagar, porque si no afecta la gestión de la mercancía o de los servicios que nos brind. Esa es la única diferencia. Los bancos, la urgencia de los pagos y los viáticos y reembolso que ya tiene mucho más, imagino. Que noto yo. Y también, pues cuando ella tuvo vacaciones, yo se las cubrí, llevé las dos compañías y era como lo único que notaba, que acá yo lo hacía todo un banco y allá si era por diferentes bancos. Así mismo, creo. Claro, como yo te digo que trabajo con el movimiento de los bancos, cuando ella se fue de vacaciones también descargaba los movimientos de Banco General, descargaba los movimientos de Vivan, descargaba los movimientos de vivienda, para que nada se me quedara por fuera en el registro. Muy bien, pero si es la diferencia.
+S3: Excelente.
+S1: Felipe, cuando en el modelo del negocio entiendo que Casiolandia recibe mercancía de Kennex, es decir, Kennex es la que compra y ustedes le compran a Kennex a su vez. ¿Es así? ¿Abasaidai, tú llevas Basaida también?
+S2: Pues recientemente tuvimos varias reuniones donde querían ajustar los saldos de Vasaidai, o sea, cuadrar. Cuadrar los saldos. Que lo que tengo en Casiolania por pagar sea lo que tengo en Baasaidai por cobrar y que lo que tengo en Baseidai por pagar a Kennex sea lo quemex tiene porque cobrar la Vasall.
+S3: Entiendo.
+S2: Entonces tuvimos varias reuniones, pero al final no vi como. ¿Cómo ayudo? ¿Cómo ayudo, Porque si tú me dices que necesitas un reporte, te lo tiro? Si me dices que yo voy a manejar el registro, lo hago, pero no es así. Registro de Vasall lo maneja la señora Alejandro, las cuentas por cobrar de Casio de Vasall las maneja el señor.
+S1: Ella es Alejandra Mejías, ¿Verdad?
+S2: La que tú dices Alejandra Mejías, correcto. Que es la que tiene que ver como con todo esto de la mercancía, de la logística. Recientemente el señor Noel quería cuadrar la cuenta por cobrar de Basaida y la cuenta por pagar de Casio. Yo lo que hice fue generar un reporte, le monté todos los pagos contra las facturas que tenía desde la carga inicial y se pudo conciliar. Estaban como de acuerdo.
+S3: Entiendo. OK.
+S1: ¿Bazaiday es una empresa que está en Colón o está en Zona Libre en o barrio?
+S2: No, si no me equivoco, creo que la empresa no está física. No, pero si no me equivoco, es de Colón. Pertenece a Colón.
+S1: Llegué a pensar que estaban donde ustedes, como cerca de ustedes.
+S2: No, no, pero ahora te digo, no es una empresa física.
+S3: OK.
+S1: Es una empresa sin la sede como tal.
+S3: OK, OK.
+S1: Eso es porque Kennex no le puede vender a Casiolandia directamente. Eso por el tema de la Zona Libre, me imagino.
+S3: Está bien, está bien. Perfecto. Perfecto, Felipe.
+S1: Mira, ¿Qué otro elemento que tú, que no hayamos conversado, consideras relevante mencionar? Ya me has dado mucha, muy buena información, ¿No? Pero te pregunto sientes queda algo por fuera, algo que quieras comentar.
+S3: Sí, sí.
+S1: De tus procesos, funciones.
+S2: Pues creo que no se me queda ninguno. Creo que no se me queda ninguno. Son los gastos, son los pagos, son las tarjetas de crédito, son los anticipo, el manejo de los proveedores. También se nos pidió cuadrar los auxiliares de los proveedores, porque habían diferencias, existían diferencias, pero creo que se hizo un buen trabajo con Fernando también ayudó un montón, que es el contador, y casi eso está al día. Recientemente también le estoy colocando las cuentas bancarias a los proveedores que ya existían para que, como te digo, en adelante la señora Jen nos habló como de un tema que presentó el banco a la junta directiva sobre que se podían hacer como un archivo y se sube al banco y todo es más fácil. Pero para eso necesitamos las cuentas bancarias en el contacto del proveedor.
+S3: claro.
+S2: Y en eso estoy trabajando, colocándole las cuentas bancarias al proveedor.
+S3: OK, excelente, buenísimo. Está bien, Felipe.
+S1: Bueno, de momento entonces te agradezco mucho, ¿Vale? De verdad, este tiempo ha sido muy valioso contigo. Creo que hemos cubierto una buena sesión. Igual nosotros vamos a procesar todo esto, lo vamos a compartir con ustedes para que exista una revisión, ¿Vale? ¿Por su parte, igual cualquier cosa te consulto por larg, te escribo por , vale? Pendiente de verdad, gracias Felipe por toda esta información de verdad muy valiosa, conoces muy bien el proceso. Gracias, gracias a ti, claro que sí, seguimos en contacto.
+S3: Pues listo, que estés muy bien. Gracias Felipe, cuídate, hasta luego.

@@ -1,0 +1,406 @@
+S1: Con el libro gordo de Petente.
+S2: Vamos, yo tengo 200 trillones de iPads, inteligencia artificial, grabadoras, tres tipos. No existe que yo una reunión sin estos cuadernos. Mira, mira lo que me quedé de mi cuadernito. Y esto costó un mes de trabajo.
+S1: Soy igual que tú.
+S2: Mira, mira, muy bonito tamaño de cuaderno.
+S3: Porque escribo gigante y este ya se me acabó y entonces estoy con este.
+S1: Tú sabes que incluso es importante el escribir desarrolla.
+S2: A mí todo lo que yo escribo me lo recuerdo cuando voy a una reunión y no lo escribí.
+S1: Se te pasa.
+S2: Aunque no lea la minuta, yo lo escribí. Ya, yo sé.
+S3: Sí es verdad. Eso ayuda. Bernardo. Sí, vale.
+S2: Muy ocupada y yo no quiero hacerles.
+S3: Perder el tiempo para nada. Lo vamos a aprovechar al máximo. Bernardo, gracias por este espacio. Y bueno, le he pedido a Josué que nos acompañe hoy también en la sesión, porque además tiene una función central de liderazgo y refrescamiento. Así la he decidido llamar porque tú has hablado tanto conmigo y que debes estar agotado. Así que bueno, también una visión, un.
+S1: Heladito mientras esposo, por favor.
+S3: Lo que quiera. Mira, es importante también ese approach que puede tener Josué también desde una perspectiva, aunque ya estaba bastante empapado de todo lo que hemos conversado entre su experiencia. Y bueno, también es refrescante que puedas conversar con él y él tenga la oportunidad de recoger algunas cosas que ya sean blind spots para mí en este punto, en este momento. Entonces, bueno, él va a estar dirigiendo la entrevista. Solamente comento algo antes de que comience, que es central. Vamos a ir teniendo durante estas dos semanas, como te comentaba, entrevistas de este estilo que pueden variar un poco en cuanto a su alcance o contenido dependiendo de los perfiles. Por ejemplo, con Ricardo, con Roberto, con Alejandro, con Andrés, tendrán mucho más este tono que estamos utilizando hoy o que estaremos utilizando hoy, que involucra un componente de estrategia organizacional, recoger esa información por parte de estos liderazgos. Y bueno, ya en las próximas reuniones sí tendremos un foco un poco más detallado para la construcción del mapa de procesos, incluso algunos elementos un poco más operativos y de conocimiento a esos niveles de funcionamiento de la organización. Esto es para informarte. Es probable que no creas que con esta reunión ya tú estás tranquilo y esto sigue navegando y ya no hablamos más, nosotros vamos a seguir hablando bastante. Es probable que, claro, vamos a aprovechar el máximo el tiempo, sobre todo con los perfiles más altos, más ocupados, pero bueno, es para tener en cuenta que es probable que necesitemos otras sesiones de trabajo con alguno de esos perfiles que ya estamos citando estas dos semanas. Pero bueno, creo que por ahora es lo que quisiera compartir contigo ya para darle entonces paso a Josué y aprovechar el tiempo de esta sesión.
+S2: Súper, vale.
+S1: Bueno, Bernardo, gracias por el tiempo. Por supuesto, como te decía, Clemencia, esta conversación no se agota acá, porque tú aquí tienes un rol muy particular, por una parte doliente, pero además las ruedas de este proyecto. Entonces, por supuesto, no vamos a tener solamente una sesión contigo, pero esta es una entrevista digamos que de apertura. Si, esta entrevista tiene un corte particular porque le vamos a añadir un componente que tiene que ver con una discusión breve y concisa también, como tú la quieras llevar por su que tiene que ver con la estrategia y ya te voy a explicar por qué, o sea, un poco que tienes tú en la cabeza en cuanto al tema estratégico. Vamos también a repasar un poco cómo se conecta esa estrategia con el modelo organizativo y la estructura organizativa actual. Luego vamos a repasar también el tema de la conexión entre tecnología y procesos. Y normalmente estas entrevistas añaden un componente adicional que tiene que ver con el tema de personas, pero en una discusión previa con el equipo decidimos que esta sesión nos vamos a centrar más en los primeros puntos que te comenté y vamos a dejar el tema de las personas un poco, cuando avancemos un poco más en el proyecto, estemos ya perfilando la estructura organizativa y el perfil de las personas en función de esa estructura. Entonces la entrevista tiene esos bloques. Un primer bloque sobre estrategia, esa estrategia vamos a ir bajando y decantando y conectándola con la estructura organizativa. Y luego vamos a hablar de un recorrido, vamos a hacer un recorrido global por el negocio, sobre todo porque nos interesa ver cómo lo tienes tú en tu mapa mental desde el principio hasta el final para ir identificando, además, aprovechar esta sesión para ir identificando personas clave dentro de la organización para dos cosas. Una, para enfocar las propias entrevistas, decidir el orden de esas entrevistas y lo otro, por supuesto, es para profundizar sobre ciertos procesos que son críticos y que nos van a servir de punto de partida de fondo. A ver, parte de las bondades de Inteligencia artificial es que precisamente estas entrevistas son una forma de entrenar los modelos de IA. Nosotros vamos a cargar los modelos de IA con estas salidas, y estas salidas nos va a dar respuesta a preguntas que vamos a hacer contra esos modelos. Entonces, por supuesto, todos esos insumos que estás diciendo, aunque sientas que en algún momento no controlas parte del proceso, o dice, mira, esta parte, tengo dudas, prefiero que pregunten a tal persona, entrevisten a tal otra, eso lo vamos a poder organizar perfectamente con el modelo y nos va a ayudar en este recorrido que empezamos a transitar hace muy poco. ¿Alguna expectativa adicional que tengas que no haya cubierto con lo que te dije? ¿Tenías pensado que trabajas con algo?
+S2: Hoy hice una pregunta a mi equipo, Customer Service y Logística. Vayamos hablando, pero te voy a explicar por qué me los mandé los de Panamá. Nosotros estamos en una transformación muy grande, transformando toda la empresa, profesionalizando y colocando gente profesional en cargos estratégicos. Yo mandé a mi gente de Customer Service y de Logística de Panamá, llegaron ayer a Venezuela para estar tres días allá, porque la falta de proceso en esos departamentos es tal, y desde costumbre, cuando llegue la UCAP y vea este desastre, no quiero que vean este desastre. Entonces, indistintamente, tampoco me gustó mucho el desastre que hay más que todo en Atención al Cliente de la puerta para afuera, o sea, la clientela de CO, te digo, porque yo sigo las redes y tengo todos los. Todo me llega a mí. ¿El feedback de la gente es maravilloso, o sea, la imagen de Cubita a nivel de Customer Service, cliente garantía, porque yo cambio todo por uno nuevo, y hace cuánto lo comprome? Un año tomo uno nuevo, no hay questions ask, no te pregunto chao y adiós. Son maravillosos. Pero la parte de atrás, en Panamá hay un registro estadístico LAR, un control absoluto integrado con o un departamento de un depósito de mercancía de servicio técnico separado y una estadística súper detallada. Claro, nosotros arrancamos un proyecto de serialización del 100% de la mercancía para hacerle seguimiento cuando lo compró, quien se lo vendió, donde se echó a perder, etc. Lo que quiero decirte con esto es que hoy en la reunión que tuve con el gerente de Customer Servía en Panamá y el de logística en Venezuela. ¿Le dije, mira, una pregunta y le dije a Ricardo, al pie mo a Ricardo Candario, tú sientes que si hoy te entrevistan y entrevistan al gerente de servicio técnico en Venezuela y ven este desastre, tú sientes o tú esperas que la UCAP venga con esta hoja de ruta de aquí para adelante vamos a cambiar ese proceso? Dice, bueno, ellos vienen. Entonces, esa pregunta es la misma pregunta que yo les quiero hacer a ustedes. Mi pregunta las expectativas son muy grandes, yo sé muy bien, tengo los pies parados sobre las 10, pero por ejemplo, este proceso de garantía, días y cambio de mercancía en Venezuela, el proceso está en cero, no existe. El gerente mío hace veinticinco, veintiocho años agarra mercancía, como le tienen confianza, llévate sesenta relojes para las próximas seis semanas de reparación. Le dan sesenta relojes y viene Jose, el gerente de servicio, mira que está la señora en el CCT, la señora Clemencia compró este reloj, no tiene factura, pero es nuestro reloj, cámbiase, toma Clemencia, ay gracias. Llega el reloj malo y adiós, no hubo registro, no hay seguimiento. Claro, cuando llega el reloj malo, ellos llevan una hojita de Excel para saber cuánto reloj, pero no hay proceso. ¿Mi pregunta, la primera pregunta es entender si este proyecto, le hice toda esta antesala para que sepa dónde estamos parados, si este proyecto incluye el diseño de proceso, porque qué tanta experiencia puede tener el equipo de consultoría en diseñar un proceso de atención al cliente y manejo de garantía de una marca? Fíjate Bernardo, hasta dónde podemos llegar si ustedes vienen a chequear los procesos actuales, detectar que es un desastre y junto con mi gente diseñar o tienen esta propuesta.
+S3: Mira Bernardo, eso integra entre ambas opciones. Ciertamente. Bueno, en primer lugar que vale también la experiencia que tiene el equipo consultor en distintos tipos de organizaciones y trabajando con diversidad de procesos. Hay unos procesos que a veces cuando uno está sumergido en su dinámica y dentro de su organización pueden comprender los niveles de dificultad, pero al final pueden ser mucho más parecidos a algunas prácticas que ya hay en mercados, en corporaciones, de lo que uno cree. Entonces, generalmente nosotros nos fundamentamos para implementar estas mejoras, porque sí nosotros entramos no para registrar lo que está ocurriendo, eso es apenas un primer paso, es para también identificar brechas e implementar mejoras en función de mejores prácticas que pueden estar asociadas a esos procesos. Y esas mejores prácticas tienen distintas fuentes e iteran entre ellas. Como te decía, una fuente, por supuesto, es la organización, es la gente que lleva sus procesos, porque incluso haciéndolos incompletos o haciéndolos mal, a nuestro juicio, digo el tuyo o el de la gente, el del liderazgo y la organización incompletos, sabe dónde puede haber potenciales mejoras. El tema es que no siempre tienen el tiempo ni el control para implementar esos cambios o esas mejoras, a menos que estén justamente en un proceso como este, donde se abre esa ventana de oportunidad. Esa es una fuente, mejores prácticas, el know how de la gente que sabe cómo mejorar eso y la experiencia también del equipo consultor en función de lo que han sido proyectos previos también de transformación. Entonces, reafirmo lo que te he comentado en otras oportunidades, esto no es un proyecto de documentación, no te hubiéramos cobrado tanto. Bueno, Josué, uno tiene que ser, no, Uno tiene que ser, ¿Cómo se llama? Asertivo. No tienes que ponerte los zapatos del otro, ¿Entiendes? Tiene que ser empático. ¿Ves? ¿Hasta me cuesta la palabra,.
+S2: No? Lo que costó el valor que le damos haber aprobado este calibre de proyecto. Nosotros no estamos acostumbrados.
+S1: Yo creo que tomaron la decisión correcta y creo que Clemencia lo explicó muy bien y tu inquietud es muy válida. Pero ojo, el estar en cero tiene sus ventajas también, porque a lo mejor ya tú lo viviste como organización y no te has dado cuenta, pero cuando tú implementas un sistema, un ERP comodoo, tiene detrás un blueprint, que son unos procesos, y esos procesos hacen que la organización se adecúe a esos procesos, y esos procesos no son más que mejores prácticas. La ventaja que tienes tú es que tu organización, en tu organización hay que inventar la rueda. Hay muchísimas mejores prácticas y ahora con el uso de la inteligencia artificial, podemos hacer propuestas sobre el proceso, sobre cómo se desagrega el proceso, e incluso sobre políticas y normativas de ese proceso que pongan en cintura a los responsables del proceso. Entonces, es lo que dice un poco Clemencia, nosotros nos movemos entre el ser y el deber ser, pero nuestro foco es el deber ser.
+S3: Bueno, y me permito,.
+S1: ¿Cómo se hace cada cosa en Panamá, en Colombia, Nosotros vamos a documentar un solo proceso, a estandarizar ese proceso y decir a la gente, mira, esta es la mejor manera de hacerlo? Y otra cosa, esto no se para aquí porque estamos documentando procesos y estamos viendo arquitectura de IA para optimizar ese proceso que estamos documentando. Entonces te montas en un principio de mejora continua.
+S2: Y además.
+S3: No, no, y además, rápido, brevemente. Además, Bernardo, recuerda que el componente de procesos es tan solo un nivel de esa transformación de tu organización. Nosotros en esta fase de diagnóstico estamos abordando incluso una revisión de tu estructura, una revisión de tu estructura de talento. Estamos haciendo revisión.
+S2: Clemencia, ya que baja eso. Me adelanto a todo esto, ¿Que era lo primero que yo tenía anotado antes de empezar la entrevista? ¿Qué tipo de convenios de confidencialidad, ese tipo de cosas nosotros vamos a tener con el equipo consultorio?
+S3: Lo que ustedes determinen. Eso es muy importante. Normalmente la empresa nos presenta, bueno, trabajan con sus oficinas de consultoría jurídica en los documentos propuestos que involucran a las partes y nosotros hacemos revisión de esos documentos también de este lado.
+S1: OK, mira, saliendo de aquí. Saliendo de aquí. Si no está firmado, le decimos a Vanessa que te mande un DA también. Claro, eso tendría que haber estado listo ya. Totalmente de acuerdo. Y si no, yo les paso un modelo, lo que sea.
+S2: Yo tengo modelos de D y nosotros tenemos uno interno. Bueno, para que conozcan más o menos y para que nos terminamos de conocer, que ya nos conocemos y ya saben, Nosotros en 40 años que tenemos un caso que acabamos de cumplir, no hemos firmado un solo papel, ni un solo contrato, ni un solo NDID, nada. Eso es fatal. Bueno, no tengo. Acabamos. Acabamos de firmar apenas mi equipo, como somos ahorita fabricante, no somos un simple comerciante que compra y vende Casio, la empresa japonesa. Se dan la mano, se ven los ojos y se cerró el negocio, confían en la gente y así hemos estado 40 años, que no está bien, pero ha sido mi escuela. Ahorita somos dueños de una marca, fabricante de una marca. No podemos vivir de esa forma internamente. Hay equipos míos que saben quiénes son proveedores, conocen gastos, conocen costos, conocen quién es en la fábrica.
+S1: Mira, Bernardo, te propongo lo siguiente, porque te lo voy a preguntar un poco más adelante, pero efectivamente, ese grupo, ese conjunto de procesos asociados al tema de consultoría jurídica, que tiene que tener una aproximación corporativa, ¿Me vas a comentar un poquito más adelante cómo lo están abordando, si los apoyan de fuera?
+S2: Tengo el asesor fiscal, que es hermano mío de la vida, mi abogado, que nunca fue un abogado para nada, pero ya me dijo medio cha deja el fastidio, lo metí en la junta, prácticamente tiene un sueldo, asesor externo legal, ya me mandó NDA, ya mi gente, todo mi equipo ha firmado NDA, están firmando con las fábricas contrato, o sea, cambiamos la liga en la parte legal. Se acabó la fiestiva de la.
+S1: Muy bien. Haciéndolo con.
+S2: Sí, claro. Entonces, bueno, el tema del NDA, yo le voy a preguntar a Bernie si uso el que si les mando las versiones que yo tengo, si me mandan ustedes el que tienen y lo revisamos y lo firmamos.
+S3: Bernardo, mira. Exacto, lo hablas directamente con Vanessa. Josué, que Bernardo lo hable con Vanessa, que tiene los formatos también de consultores. OK, chévere.
+S1: Vale, Bernardo, para que tú nos entrevistes a nosotros y nosotros a ti. Mira, fíjate, comencemos por lo siguiente. A nosotros nos gustaría saber cuál fue la última vez en la que ustedes tuvieron la oportunidad de hacer un repaso sobre su estrategia de negocio. Y si ese repaso sobre la estrategia está explícito, o sea, está en blanco y negro o digamos, está tácito, es algo que todos ustedes lo tienen en cabeza, o alguno de ustedes lo tienen en cabeza, pero no se ha expresado explícitamente.
+S2: Pero nosotros los primeros 15 días del año hacemos reunión estratégica, encerrona estratégica, encerramos los 5, invitamos a Máximo para que sea el moderador y preparamos la estrategia del año, y es la hoja de ruta del año, es un plan de.
+S1: Negocio del año, no plan estratégico del grupo del año A plan estratégico. Y ese plan estratégico lo comparten, se queda allí, está escrito en algún sitio,.
+S2: Máximo lo escribió, lo aprobamos entre uniones posteriores y se le hace seguimiento, lo hablamos, cada uno se mete en su ruta y eso se ejecuta.
+S1: Ese plan lo podemos ver claro, vamos a poner en la lista de requerimiento,.
+S2: Pero un ejemplo,.
+S3: En la lista de requerimientos, que por cierto, Bernardo, perdón, pero todo el apoyo que nos puedas dar, ya nosotros le entregamos a Araní ese listado de requerimientos, mientras más pronto podamos ir teniendo los disponibles, mejor.
+S2: Los correos que se puso a mandar por , les voy a contar, estamos viviendo todo este tema, estamos entrando, pidiendo y haciendo muchas cosas a la vez. Y el tema, el cambio de 8. Entonces está consumiendo mucho trabajo la operación del día a día. Estamos buscando gente y estamos metiendo gente, pero no es tan fácil. A lo mejor se pueden retrasar un poquito mandando los papeles, pero todo lo que va a pedir, todo se va a conseguir.
+S1: Ahora otra pregunta, perfecto. ¿Ustedes hacen ese ejercicio de estrategia, etcétera? Yo recuerdo que tú nos comentaste que por lo que pasó en el 3-1, etcétera, no habían tenido oportunidad de reunirse toda la organización y que lo van a hacer pronto. Y nos pediste unos insumos para tu disc curso de esa sesión. Esa sesión es para socializar esa estrategia. ¿Generalmente cuando cierran o abren el año van por los tiros o no tiene nada que ver?
+S2: Tenemos muchos años en Venezuela y realmente el grupo nunca hemos reunido a todo el personal de la empresa para nada, sino a fin de año, la fiesta de fin de año, unas pequeñas palabras y la gente lo quieres romper de tanto trabajo. En este caso, hace muchos años, las épocas de crecimiento 2011-2010, yo recuerdo, no éramos ni lo que somos ahorita, pero sí recuerdo que vendíamos mucho. Entonces sí hacíamos ciertas reuniones, más que todo de motivación. Hemos venido profesionalizando los negocios. Gerente regional de tiendas, procesos en las tiendas de KPIs, todo viene ahorita con un proceso de evaluación y no se ha transmitido. Cada quien haciendo lo suyo el país. Llegó la fiesta de Navidad y tres días antes la fiesta la anulamos porque estaban los barcos y tal. Y entonces hicieron 8 o 10 reuniones locales y tú sabes, se quedó como ese saborcito después coño, están viéndome particularmente involucrarme en una vida un poquito más pública. Toda la vida nosotros estábamos detrás de las cortinas, nunca quisimos que Cubis sepa que es una marca nuestra, era una marca global, porque te persiguen, te perseguían Venezuela, la persecución empresarial era lo que mandaba. Entonces nosotros toda la vida bajo perfil. Ahorita siento que un momento para estimular un poco el equipo, que se sientan parte de una marca súper querida que se ha ganado el premio El emprendedor del año fui yo, pero gracias a una marca donde todos ellos participan. Entonces me provocó reunirlos, aprovechar este trampolín de transformación que viene a la empresa y que sean parte de eso. Me traigo nuestros embajadores que es Juan Pablo Dos Santos y Michael Melamet que subimos mentor, no los vamos a traer para más que todo motivar y tengan un sentido de pertenencia adicional. Increíblemente, siendo yo asocio de Crocs, yo creo que les comenté que soy socio de Crocs, Otro concepto completamente distinto. En una corporación no le importa la gente, tú no sirves, tú te vas mañana, te vas, tráeme a otro, no cumplió con los KPI, no les interesa. Y así funciona. Y wow, todo el día rotación me tiene muy impresionante y vende y cada vez vende más y todos los inventarios cuadran, o sea, una cosa de loco. Entonces yo le pone, yo no voy a cambiar mi estilo, yo tengo poca rotación, la gente amaneció, manejamos productos muy chiquitos, muy fáciles de robar. Entonces la gente sea fiel. La verdad no tenemos conflictos laborales, Crocs no ha parado recibir conflictos laborales, abogados laborales, yo no tenía abogados laborales. Entonces todo este tema es como para nada. Reunir a la gente, que sientan donde estamos entrando. El mundo cambió, hacer los pareció la marca, es una marca que está en plan, tiene un futuro increíble. Bueno, esa es la idea. Es un evento corto porque tienes que ir a trabajar a las 3 horas, tienen que ir desde 9 a 12 y chao.
+S1: Ahora, si tú en el mensaje, supongamos que ese día, yo sé que tú estás construyendo el discurso, etcétera,.
+S3: Lo preparó Josué. Así es.
+S2: Cloud metió su. Entendió quiénes somos y metió su mano y Josué le metió su cabeza porque el discurso está muy bien montado, muy bien dirigido. A mí me gustó mucho.
+S1: Qué bueno que te gustó. Bueno, eso fue lo que nos pidieron.
+S2: Hay un tema de un panel que ojalá haya tiempo del panel. No estoy seguro si va a haber tiempo de hacer un panel. Creo que lo vi, no sé si en. Lo vi en ese mismo discurso, lo vi en una cartita que vimos. Aparte no sé dónde vi lo del panel.
+S1: Sí, aparte te mandamos una comunicación oficial del proyecto.
+S2: Y la agenda. no, mentira, la agenda la estaba haciendo yo. No, no, no, la broma del panel lo vi yo con las niñas de marketing. Yo le dije, mándeme la idea, yo lo voy a estudiar. Yo vi por una idea de tener un panel dentro del evento, no sé si.
+S1: Pero bueno, Bernardo, la pregunta es la siguiente. ¿Si tú en esa sesión quisieras transmitir a la gente dónde quieres ver a la organización en dos o tres años, tú puedes sacar esa información de ese documento que compartiste con tu equipo o ahora mismo? ¿Eso lo tienes tú en tu cabeza? Si lo tuvieras que decir, ¿Cómo lo? ¿Cómo nos los transmitirías a nosotros? No importa que sea un discurso montado, dinos con lo primero que se te ocurra dónde quieres ver la organización en tres años.
+S2: Bueno, no tenía pensado, no vi en el documento eso, pero sí estamos viendo la organización primero en la Venezuela que viene. bueno, la otra cosa, para empezar el evento no lo voy a enfocar a la Venezuela que viene porque invité a los gerentes de Toro País, pero para que se sienta que ya efectivamente somos una corporación regional, no local, vamos a entrar en este mismo carrusel y ahorita que le estoy dando importancia a la figura mía, voy a ir a todos los países a hacer una visita y me quiero encontrar con todo el personal de todos los países. Eso nunca ha pasado. Yo no conozco a los ganadores, ni a los gerentes de la hacienda, ni de Costa Rica, ni de Panamá. Conozco todo el personal gerencial. Ya está de administrativo, ni siquiera gerencial operativo.
+S3: Es que claro, Bernardo, tu empresa ha crecido brutalmente y viene de ser además muy característico del punto anterior, Josué, que es una empresa familiar. Ese foco no hay que perderlo aquí. Es una empresa familiar.
+S2: Una empresa familiar dirigida por los hermanos y los sobrinos.
+S1: Claro, pero no te quepado. Si yo hubiese tenido a mano ese documento, seguramente que lo hubiese incluido. Hubiese dicho, mira, dime aquí cinco aspectos claves o críticos de qué tenemos nosotros, cuál es nuestra visión de negocio, porque eso sirve de elemento amalgamador sobre todo porque entiendo que ustedes no bajan la estrategia. El transgerencial según lo que dice no.
+S2: Se va la estrategia no se baja. Por eso que yo no pensé en hablar que me voy a la empresa, Claro, la vemos como una marca global, como una marca aspiracional que la gente y nosotros la verdad, lo que queremos es tener fanáticos. Eso es lo queremos, no simples clientes. Nosotros tenemos fanáticos de la marca. Para allá están enfocados los chavos y para allá estamos enfocados. Tener fanáticos de la marca.
+S1: Eso pone tu visión a tres años. Es que por supuesto, ya hay una marca que es reconocida, que es CAS, pero quizás el impacto de Qubit tenga un peso mayor específico. Me imagino que también las cosas van por tener una empresa mucho mejor estructurada, apoyada en tecnología, profesionalizada.
+S2: Detectamos que Casio se quedó en la parada. Dejamos a Casio no abandonada, pero muy tranquila. No caímos, no crecimos. Cuando toda la vida hemos crecido. Dos años de casi no crece. ¿Cómo eso? Claro, toda la energía está. Entonces, ¿Qué es lo que está pasando? Que nosotros le estamos quitando energía. Entonces acabamos de contratar un brand manager, nos traemos un tipo importante, una empresa grande, una transnacional, y el plan manager de Casio para los mercados que nosotros dirigimos, porque las políticas de Casio también están cambiando. Entonces tenemos tiempo para dedicar Casio. Casio está exigiendo. Entonces, bueno, eso parte de la estrategia del grupo de empresas de que a tres años crecer Casio, crecer una marca mundial, global y eso prácticamente, digamos, un objetivo a largo plazo. De para adelante, cantidad de cosas. Transformar la empresa, profesionalizarla, dirigida por gente profesional.
+S1: OK, ¿Eso que me estás diciendo ahora está descrito en ese documento que me dijiste?
+S2: Voy a revisarlo. Yo creo que sí. Me parece que todos los que creo.
+S1: Que están escritos, si no está, no importa, lo compartís con nosotros. Pero ¿Por qué estamos haciendo este ejercicio? Porque nosotros tenemos que también, como parte del proyecto, estamos todos reconociendo que tenemos que tener una estrategia de adopción de inteligencia artificial. Entonces tenemos que definir conjuntamente una política de adopción de inteligencia artificial. Y esa política tiene que estar vinculada a la estrategia global de negocio. A lo mejor haciendo estos ejercicios, esto te puede ayudar un poco a anticiparte a lo que vas a hacer en esa situación. ¿Qué es lo que nosotros vamos a ir construyendo? Una política de adopción de IA. ¿Qué tiene que tener esa política o a qué tiene que estar vinculada? A valores de la organización, orientación estratégica a la organización. Si hay un código de ética, un código de ética. Entonces esos documentos, aunque los tengas en borrador o lo que sea, nos pueden servir para eso. Si tú en algún momento has escrito algo sobre, o han actualizado la visión, la misión, si lo tienen incluso. ¿Cómo ves tú, haz ese ejercicio y lo compartes con nosotros más adelante? ¿Cómo ves tú que la IA, digamos, nos va a contribuir a potenciar este negocio? Ahora, ¿Que está, porque es una visión diferente, que probablemente la tengas tú, la tengas otros más, pero no demasiada gente dentro de la organización? Entonces eso nos puede ser útil como un proyecto disruptivo, ¿No? Que es un poco lo queremos también transmitir.
+S2: Sí, de acuerdo. Estoy anotando todo. Sí, nosotros, la cultura, Misión y Visión. Yo tengo tiempo que no veo, pero por hay un documento relativamente actualizado el tema. Yo creo que lo pediste, Alguien lo pidió. ¿Quién me pidió eso? ¿Que se mandó a revisar?
+S3: Yo, profe, seguramente lo pedimos en lista de referencia, está incluso el código de ética también listado. Todo eso es de marco.
+S1: Dile que nos hagan trampa, dile que no actualicen las visiones y la.
+S2: Broma, que manden lo que hay.
+S3: Lo que sí pueden es aclarar, porque en el formato de solicitud tienen una columna de observaciones, nos pueden decir, mira, esto no está actualizado. pueden poner ese tipo de comentarios. Sí, correcto.
+S2: Por cierto, el correo que me enviaste, bienvenida y tal, este es el momento de enviarlo porque ya están empezando las entrevistas. Todavía no, yo leí que había que.
+S1: Enviarlo en el momento de enviarlo era después del kick off. Ya después del kick off podemos enviar ese documento porque ya formalizamos el inicio del proyecto.
+S2: Entendido. No lo envié porque dije, bueno, hay que esperar las entrevistas y vi que las entrevistas eran dentro de no sé cuánto tiempo. Pero ya lo mando ya terminando aquí la mano.
+S3: No, no, ya estamos en caliente. Acuérdate que estas dos semanas son las entrevistas diagnóstico, son importantes.
+S1: Vale, entonces te pregunto en concreto, y con esto cerramos esta parte sobre estrategia. Cómo estás viendo, pensando en ese ejercicio que hicieron y proyectándote quizás el ejercicio del año que viene, ¿Que incorporarías en ese ejercicio ahora que está incursionando o arrepintiendo todo, transformando tantas cosas? ¿Que verías ? ¿Qué expectativas tiene sobre eso?
+S2: Bueno, mi sueño es tener un dashboard, y eso es lo que yo creo que al final de cuentas la IA está haciendo, tener como consultar cualquier tema, cualquier empresa que nosotros tenemos en vivo, consultarlo e integrarlo. Yo sueño con tener balances consolidados, que no es el caso, pero superioría que me lo haga, tener todo a mano y que se detecten problemas que antes requerían grandes audiencias, que lo detecte inmediatamente. Como tenemos, como hemos transformado el negocio 100% auditable, porque está por odo ahora que le quiero sacar provecho a todo ese tema. Igualmente todos los procesos de fabricación, de diseño de producto, de precio, de compras, que estén totalmente auditables para que no hayan los problemas que hemos venido consiguiendo. Falta de producto, sobre stock de producto, errores en compra. ¿Como te digo, me dice cuando vamos a pasar al tema de la estructura, quién va a entrevistar primero? Pero estratégicamente hablando, la estrategia empieza.
+S1: Ya vamos a eso.
+S2: Y nuestra compra está en manos de gente nuestra, mi hermano, hijo, con todo el equipo que está alrededor, sin procesos profesionales de compra. El olfato y los Excel y las hojas de cálculo con tablas DI y un poquito de Power BI, lo llevan ellos de su cuenta que se contrató y entonces ella hace los modelos. Y un tipo que tenía Fernando de Apura, un genio que contraté como un profesor de una universidad por allá de San Fernando, Honduras, ¿No? ¿Dónde es? Del Llano.
+S1: Yo tengo un llanero, el Alessandro Alvarado, ¿Puede ser?
+S3: ¿Y qué hace Bernardo?
+S2: Yo tengo un llanero que está terminado, es profesor de la universidad no sé dónde, y me trajo a otro profesor y a su esposa. Son unos genios en el tema de Power BI. Son las primeras personas que yo conseguí que sabían algo de chat GPT. Por cosa de la vida cayeron a mí, porque ellos es el hermano de una de las. De la administradora de Crocs. Yo llegué un día a la oficina administradora de Crox y veo que su hijo está hablando con. Con Chagipit. Entonces chamo, ¿Quién te hizo eso? Eso No, mi tío. ¿Qué tío? El hermano de Ale. Ale, yo no hablamos de ese tipo hace como un año. Total de que el tipo es gigante del Llano, cómo sabe de Power BI, de Excel, de ChatGPT, no existía cloud. Bueno, total, mira, ven acá, está contratado, ¿Qué hace tu meta? Yo vendo cursos, cómo manejarse el i y yo hago cursito y ego consigo, ven acá, ¿Tú estás listo? ¿Cuánto quieres ganar? Tanto. Te va a poner a prueba tres meses el chavo, ¿No?
+S1: ¿Y qué cargo tiene? ¿Qué cargo tiene?
+S2: Bueno, lo pusimos casi que llegaba. Él es un Project Manager, en verdad es un Project Manager debajo del departamento.
+S3: De proyecto, o sea, como Araní al.
+S2: Principio como Araní me salté todos los proyectos, lo contraté por Panamá para que no pase por todo el fastidio de Recursos Humanos. Mira chamo, tú estás pagado por Panamá, te voy a abrir una cuenta en el Mercantil Panamá y tú trabajas directo conmigo. Tres meses después, ya entendimos los niveles, ya entendimos. Lo metí debajo de Ricardo Candane. Ricardo es el que le controla su trabajo, porque yo lo presenté ante todos los gerentes y le cayeron como movimiento a pasarle millones de proyectos, ASME, ASM. Y el tipo no sabe decir que no.
+S1: ¿Y qué sabe de este proyecto? ¿Sabe algo del proyecto?
+S2: Él sabe de este proyecto.
+S3: ¿Cómo se llama?
+S2: Se llama Alexis Mujica. Nunca le hablé de él. Nunca les hablé de él.
+S3: Perfecto. Mira, eso es muy importante.
+S2: Él es el Project Manager de la introducción de proyectos con inteligencia artificial y Power BI a los departamentos que lo requieran. ¿Quién lo usó? Lo usó Andrés en el departamento comercial de Panamá. Le ha sacado un montón de dashboards de qué se vende, que no se vende, cuando se vende, cómo se vende. Le sacó un proyecto donde nosotros le vendemos a grandes cadenas. Todo empezó porque le vendemos a grandes cadenas en Colombia que nos reportan el sellout de manera ordenada. Entonces llega el sello, nadie lo podía organizar, nadie lo podía montar. Y para contratar a alguien para que organice los helados, para poderles estudiar que venden y poderles reponer, era muy difícil. Entonces contratamos este tipo de mira, primer proyecto, tú vas a recibir data de un montón de empresas gigantescas que tienen 120 sucursales, 80 sucursales, todos venden lo mismo, cada uno lo tiene codificado diferente. Y nos mandan los helados, Arréglatelas. A que yo vengo un dashboard, toda la venta de todos ellos, qué tienda no vende, qué tienda si vende, para traspasarle de esta para allá. Bueno, todo un tema que había que hacer.
+S1: pero esa parte es interesante porque esa es la otra punta de la compra. Esa es la venta y la conexión de la reportería de ventas.
+S2: Correcto.
+S1: Él es clave . Entonces, en la parte de venta, podemos entrevistarlo a él.
+S3: Comercialización.
+S2: Yo te voy a decir a quién vas a entrevistar, en qué Perfecto se ha metido, que le mandé a firmar 40 en 10 y 200 documentos legales, porque el tipo maneja mis costos, mis ventas, mis márgenes, y se te acabó. Te vas a ganar. Está en Llanero. Está en Llanero. Mira, te acabo descubrir un hueco aquí de un millón de dólares de mercancía estacionada, cosa que, Dios mío, este tipo que salió de la nada, que está manejando tus números. Sí,.
+S1: Pero OK, tengo esa figura por.
+S2: consiguiendo tu respuesta.
+S1: Pero fíjate que estamos haciendo ya las conexiones porque en el fondo eso es lo que nos interesa ver aquí. Bueno, comienza por acá. La compra, la relación con los clientes, le llamo investigación y desarrollo. no hay procesos y las dos personas clave son aquí en la venta hay un señor que no sé qué tal.
+S2: Vamos a hacer eso. Cuando quieras hablamos de estructura y yo te cuento.
+S3: Ahora vamos para la estructura, pero rapidísimo, rapidísimo. ¿Una consulta, Ricardo trabaja de la mano con Roberto? ¿Están al mismo nivel en los mismos procesos?
+S2: ¿Ricardo Candaneo?
+S3: No, Ricardo, tu hermano.
+S2: Richie. Mi hermano.
+S3: OK.
+S2: El que está hablando todo el tiempo.
+S3: No, no lo sé. Sí, pero es que tengo a Richie en mente y quiero ubicarlo en ese mapa también.
+S2: Hoy por hoy, relativamente desligado de la operación de Kennex, él está en otros negocios. Tenemos otros negocios de real estate, de restaurante en Panamá y él maneja, digamos, él maneja. ¿Cómo lo podemos llamar? ¿La administración paralela, aprovechando que estamos en Panamá, es un paraíso fiscal, digamos, él maneja la administración paralela familiar, digámoslo así.
+S1: Propiamente, o no tienen protocolo de familia y eso?
+S2: Tenemos un protocolo familiar muy bien organizado. Consejo de accionista y consejo familiar.
+S3: Sí, si. Está el señor Máximo. Si, Máximo Dolman está probablemente los apoyó con eso.
+S2: Está actualizando el protocolo y cabeza. Claro, metido en eso.
+S1: OK, mira, última pregunta de estrategia. Me meto en estructura. ¿Ustedes tienen una cultura de funcionamiento por KPI o no?
+S2: Sí, estamos cada vez más en eso. Sí, Sí la tenemos.
+S1: ¿Dónde está? ¿Usted tiene los KPI disponibles o tenemos que reconstruirlos? ¿Eso está documentado en algún sitio?
+S2: Toda la parte comercial, de ventas, la parte de las tiendas la maneja Handani, el gerente regional de Ventas al Detal,.
+S1: O sea, ventas tiene un. Una batería de KPI. Perfecto.
+S2: Ventas al Detal tiene una batería de KPI. Ventas al Mayor también tiene, la maneja Andrés y su mismo.
+S1: Perfecto, Andrés y KPI. Sobre procesos de apoyo tienes. Miden objetivos, por ejemplo, en gestión de talento, en administración y finanzas nada.
+S2: Tenemos forecast de compra venta, margen, que eso es.
+S1: Clave.
+S2: Están al día con forecast y se hace seguimiento mensual y se ajusta mensualmente.
+S3: Pero a tu soporte, Recursos humanos, finanzas, tecnología, obviamente entra.
+S2: Si, Finanzas tiene. Ahora, no hay KPI de tecnología, no tengo idea qué hace. En Recursos Humanos no tenemos KPI de recursos humanos, no tenemos idea cómo se. Están , contratan gente, la gente ve, se mete, pero ellos no miden ni de abajo, o sea, yo no sé, yo quiero que a mí me miden a mi gerente los de abajo, porque yo sé que los gerentes evalúan a los de abajo, pero yo quiero que me evalúen los de abajo arriba.
+S3: Mira, Bernardo, ciertamente el proyecto, que esto seguro es una pregunta que te ronda en la cabeza o va a parecer, atiende esos proyectos críticos, centrales del negocio. Pero ten en cuenta que estos procesos de apoyo también son parte importante de este registro de mejoras.
+S2: No los conocemos, no los tenemos.
+S1: Igual vamos a entrevistar a las personas y vamos a ver. Solamente quería saber qué tanto.
+S2: Recurso humano, que yo sé qué nivel tiene.
+S1: Vámonos ahora a la estructura. Fíjate qué es lo que necesito o que necesita. Cuéntanos un poco qué instancias de gobierno formales e informales quieren. Por ejemplo, nosotros tenemos una junta directiva que se reúne cada. ¿Tenemos un comité gerencial de tal, tenemos un comité de innovación, que tal? Tenemos un comité de compras. ¿Qué tan formalizado están esos comités? ¿Quiénes lo integran? Cuéntanos un poquito sobre eso.
+S2: La junta directiva existe, lo que pasa. Hay que ponerle un nombre a una junta. Nosotros tenemos una junta directiva donde Máximo es director externo, donde Jaime es director de finanzas y pertenece a esa junta, y tenemos a Alberto Bazán, que también es un director externo fiscal. Y nosotros cinco, Ricardo, Richie, Robbie, Alejandro, Regnal, está claro que tienen un presidente, que soy yo. Los demás son directores. El comité de finanzas existe formal, Richie, Bernardo, Bazán, Jaime, perdón.
+S1: La junta se reúne cada cuánto, o.
+S2: Sea, es una junta directiva que debería reunirse todos los meses, cada dos meses. Cada mes, todos los meses. Desde que tengo asistente, que es Carmela, que no creo que tenga ni dos meses trabajando conmigo, es que está logrando formalizar esas reuniones. Porque ¿Qué es lo que pasa? Me salto en las reuniones, como yo tengo mi monitor aquí enfrente mío, tengo mis salas de reuniones en mis narices 24 horas. Cuando mi hermano se sienta en almorzar y Alejandro, que está aquí pegado, Alejandro y yo almorzamos aquí.
+S1: Si hablan todo el tiempo.
+S2: Entonces arrancó una reunión, almorzamos juntos, y está la reunión de junta esta semana, sin invitar a Jaime, sin invitar a Máximo. Y cometemos ese error de informalidad, pero nos vemos constante Yo no sé cómo llamar a la junta, porque no Junta de accionistas. Porque la junta de accionistas. Mi hermano médico y mis hijos hermanos. Somos cuatro hermanos.
+S3: Tu hermano médico, además que es famosísimo, lo entrevistó Shirley Barnagui. Pero ustedes parecen trillizos, una cosa así. Son idénticos todos.
+S2: Bueno, mi hermano Morocho. ¿Morocho? Morocho, idéntico.
+S3: tienes un hermano morocho, fíjate.
+S2: Claro, el médico es mi hermano morocho.
+S3: Con razón, con razón. No, es que yo decía, pero Bernardo, o sea, no sé si es que tiene doble rol y anda por en otras cosas también.
+S2: Gente, una mujer y me echa todo el cuento, sus várices.
+S1: Yo no soy. Yo no soy ese.
+S3: Yo no soy ese.
+S1: Entonces te pregunto, Bernardo, eso. Aparte de la informalidad, ¿Ustedes no tienen registro de esas reuniones? ¿Nada? No.
+S2: Bueno, sí. Mi libro Gordo Ptete está en las reuniones y hacemos seguimiento. Y ahorita Carmela se está encargando de hacer seguimiento. Carmela todavía no entra reuniones de junta directiva de verdad. Todavía no está en la junta directiva de verdad. Ella entra en ciertas reuniones, me coordina y se. Cuéntame qué hablaron en la junta. ¿Dame a qué quiere que le haga seguir? Yo le voy diciendo. Tengo que terminar de entender a qué nivel de confianza va a entrar Carmela para ver hasta dónde la voy a meter.
+S3: Mira, pero eso con un ayudante. Ya, Bernardo, almorzando. Tú puedes hacer esas reuniones como tú quieras. Y tienes hasta el historial inform.
+S1: Pero bueno, perdón, la asamblea y pago.
+S2: Todo y me estoy comprando el plauto, el bichito ese plaut. No le tengo paciencia.
+S3: No puede ser. Eso va a cambiar.
+S1: Pero mira, no se me disperse. Ya va. ¿La asamblea de accionistas se reúne cada cuánto?
+S2: ¿Una vez al año?
+S1: ¿Y son disciplinados con eso o no tanto?
+S2: Sí terminan los resultados del año, mi hermano quiere su billete.
+S1: OK, perfecto. Luego la junta directiva dices tú que debería reunirse una vez al mes, pero no hay.
+S2: Por eso hay dos juntos. Hay dos juntas. Junta directiva formal, que está Máximo, Jaime y Bazán y nosotros cinco. Y la junta de nosotros cinco, que no sé qué nombre dar, es una.
+S1: Suerte de comité directivo. Comité gen.
+S2: Sí, podemos llamarlo comité directivo. Buenísimo.
+S1: Correcto, perfecto. Ese comité directivo, ¿A ti te interesaría formalizarlo? Porque efectivamente parece. Ese comité parece más las ruedas del asunto que la junta directiva.
+S2: Obviamente ABO, o sea, nos escribió en el chat, hay mucho que hablar, nos vemos a las 3, decimos un poco cosas, cada quien se lleva sus cosas.
+S1: Y aparte de ese comité, aparte de ese comité directivo, entiendo que hay una suerte de comité de compras, ¿No?
+S2: Sí. Alejandro y Roby están en su comité, que tienen su gente .
+S1: OK. ¿Hay algún comité de finanzas o de talento?
+S2: Finanzas 100%.
+S1: ¿Cada cuánto se reúne ese comité de finanzas?
+S2: Cada 15 días. Religiosos.
+S1: ¿Quiénes están en ese comité de finanzas?
+S2: Jaime Ricci, Máximo bazán y yo.
+S1: ¿Te resulta bien ese comité de finanzas?
+S2: Impecable.
+S1: Impecable. Perfecto.
+S2: OK.
+S1: ¿Hay algún otro comité, alguna instancia de gobierno donde se tomen decisiones en donde.
+S3: Participa el Sr. Albert, Sr. Bernardo? En la junta directiva. En junta directiva, Perfecto.
+S2: Y en comité de finanzas.
+S3: OK, buenísimo.
+S2: Mira, la otra instancia que hay, que yo no participo, son lo que hacen es reportar una vez al mes a la junta, al comité directivo. Marketing.
+S1: OK. Hay un comité de marketing. Vale. Esos indicadores, ¿No?
+S2: Más vale que hay. Más vale que tengan su indicador. No lo sé, pero me encantaría que.
+S1: Lo haya porque hay la persona clave, la que tú dices que vive en Nueva York, ¿No?
+S2: Natasha.
+S1: Natasha, perfecto. Entrevistamos a Natasha para saber sobre eso. Perfecto, ahora vámonos ya. Esas son las instancias de gobierno.
+S2: ¿Comercial?
+S1: Hay un comité comercial muy importante, distinto el de compras.
+S2: Sí, claro que este. Yo creo que no está formalizado.
+S1: ¿Cada cuánto se reúne?
+S2: Bueno, como ellos están juntos, Roberto y Andrés, están 24 horas al día con Ricardo Baltodano.
+S1: OK, vamos a preguntarles a ellos sobre la pertinencia de esos comités, porque una de las cosas importantes cuando definamos la estructura organizativa es la formalización de esa instancia de golpe. ¿Porque una cosa que tenemos que repasar es, y que preguntar, no tienes que responderme ahora, pero es cómo tomamos decisiones nosotros en la organización? Porque ojo, aquí esta organización es compleja porque se toman decisiones en Venezuela, pero se toman decisiones transfronterizas, se toman decisiones por áreas, se toman por. Entonces hay que hacer un seguimiento a la lógica. Debe tomar decisiones y eso es una responsabilidad del CEO. Entonces piénsalo y en cualquier momento lo discutimos. OK, sigo bajando en la estructura. Me pregunto, ¿Hay una capa, o debería haber una capa corporativa en la organización? Pareciera que sí, ¿No? ¿Una capa corporativa que agrupe, por ejemplo, los procesos de apoyo de toda la organización o no existe?
+S2: Dame un ejemplo.
+S1: Por ejemplo, yo tengo una. Voy a definir una línea rectora sobre la presentación de reportes financieros por país, pero yo tengo una instancia que aglutina todo esto. Yo tengo un gerente corporativo de finanzas que tiene que le reportan los gerentes de los distintos países y él consolida. Eso funciona así, No funciona así.
+S2: ¿Como funciona Finanzas? Se contrató a Jaime para eso, era el jefe de finanzas del grupo.
+S1: Correcto. Entonces sí hay una conciencia. ¿Igual que Marketing también, no?
+S2: Igual que Marketing, idéntico. Una jefa marketing, cada país tiene su departamento. ¿Igual que.
+S1: Recursos Humanos, no? Porque me dijiste que estaba descentralizado.
+S2: Finanzas y Ventas, totalmente. Existe la capa corporativa.
+S1: Perfecto, Exacto. Perfecto. OK, entonces digamos que haciendo la conexión.
+S2: O desagregando, digamos que IT también y Customer Service también. Y ahorita estamos contratando un jefe de e commerce corporativo que maneje todos los. Que se relaciona con todos los gerentes de e commerce de todos los países.
+S1: Vale, pero eso es comercial. Perfecto, pero es una modalidad. Correcto, perfecto. Consultoría jurídica no creo que lo tienes descentralizado por países.
+S2: Recursos Humanos tampoco. Consultoría Jurídica, tenemos a Bernie Weininger, está la consulta. Si tenemos una consultoría. La verdad que sí. En Panamá hay abogados, Katsi López, son nuestros abogados en Panamá, porque hay muchísimas compañías relacionadas con todo el tema que te dije, mi hermano.
+S1: Pero un bufete externo, interno.
+S2: Esta figura que ni siquiera es interno, que es externo pero que es parte, es el que dirige políticas jurídicas y no se le ha dado la importancia al caso.
+S1: Vale, ya lo veremos. Si, estratégicamente necesitamos una unidad de apoyo corporativa a ese nivel. Otra pregunta, ¿Cuáles son las unidades de apoyo que menos peso tiene? Por lo que me dices, pareciera que son Recursos humanos, Tecnología, quizá.
+S2: Problemas todo el día. Ellos están todo el día, o sea,.
+S1: Recursos humanos, o sea, tienen una visión más operativa que estratégica.
+S2: Sí, totalmente.
+S1: tú crees, Si te pregunto de la estructura organizativa, ¿Cuáles posiciones clave no tenemos cubiertas hoy? Cuando digo no cubiertas, me refiero a que aunque tenga un ocupante, el ocupante no tiene el perfil que tú visionas para esa posición.
+S2: Jefe Contabilidad de Caracas, Jefe de Contabilidad de Venezuela, no está preparada para el cargo. Ya lo vengo viendo. Estamos reestructurando ese departamento completamente.
+S1: Sí, porque ya nombraste un gerente corporativo. Si ese gerente corporativo lo nombraste y está haciendo un equipo, seguramente cubrirá esa posición.
+S2: Él va a cubrir esa posición, ya la está buscando.
+S1: Eso me preocupa menos. Pero por ejemplo, hablaste de alguien de Recursos Humanos que está como en una transición, una señora que tiene mucho tiempo, salud,.
+S2: La gente, la señora recursos humanos, una mujer muy querida y ama apasionadamente su trabajo. Pero yo le digo, buscamos una gerente regional de market, no tiene idea cómo buscar porque no entiende los niveles, la política interna salarial, que la gente le llegue su plata, que estén todos asegurados, estemos al día con el INSE, con el otro, con aquel, con el seguro social, que se paga el día de la nómina. Maravilloso, vale, maravilloso.
+S3: Es una administradora de recursos humanos, ella.
+S2: Tiene dos personas a su cargo, tiene tres personas en Venezuela, la misma figura en Panamá, Nuria, 25 años, que todo se pague al día, que todo perfecto, que la estructura, que el organigrama esté bonito y descripciones de cargo, todo está cheverísimo. Yo le digo a Nuria, búscame un gerente, un brand manager para la marca Cash. Ella sabe buscar los LinkedIn, pero tiene que mandar nosotros todo el proceso, contratar por ejemplo, ese tipo de cosas. Ella contrata el equipo de personal de tienda. Entonces tal cual.
+S1: Ahora por ejemplo, las estrategias de compensación la definen ustedes, no la gente de recursos Humanos.
+S2: Bueno, hicimos un experimento el mes de abril, Jaime se involucró con Mebelia y pusimos por fin orden, una estrategia, se puso un poco de orden en los departamentos, en la parte salarial. Sí era muy sui genera, está ganando poco, esta debería ganar más.
+S1: Ahora te pregunto allí, vale la pena que entrevistemos por proceso a quién de recursos humanos, de consultoría, de tecnología, de las partes de apoyo, a quién vale la pena que entrevistemos, que con Ebelia es suficiente y veríamos Venezuela, Panamá, por ejemplo.
+S3: No hay que entrevistar a Nuria.
+S1: Perfecto.
+S2: Saben manejar nóminas paralelas, pagamos por debajo para que no se entere el otro, esto y esto, todo eso se hace. Y esas son las dos mujeres de confianza que manejan ese tema.
+S1: Vale, vale, OK. Eso nos lo tienen que contar un poquito para ver cómo de tecnología también hay otro país que maneje tema de gestión de talento, que vale la pena,.
+S2: Que bueno, en Colombia lo tenemos tercerizado Colombia se estila mucho que todo lo que es recursos humanos no trabaje para la empresa. Es una compañía que nos da el servicio de recursos humanos.
+S1: Si, es administrativo. En España también pasa mucho.
+S2: Ellos contratan, no son empleados míos. Yo tengo pasivos laborales, yo le pago un fee, Ella contrata a la gente y son los empleados nuestros. Así trabaja. Así trabaja Colombia.
+S1: Sí, está bien, perfecto.
+S2: La república independiente de Gil, de mi socio. Una república independiente.
+S1: Costa Rica.
+S2: Costa Rica, una república independiente dentro de esta empresa, porque es el único negocio. Yo tengo un socio 50% y él maneja su negocio en Costa Rica. Él maneja su negocio, yo intervengo poco, yo veo reporte financiero. Nosotros le decimos, está la imagen, esto es lo que se tiene que vender. ¿Todo lo que nosotros vendemos este producto, él hace su compra, le compra a Kennex, le paga a quienes? Es un cliente de Kenneth. Soy socio 50%.
+S1: Ya te entiendo.
+S2: Y él no se, no maneja, no tiene Odoo, tiene otro sistema. Ahorita que el negocio empezó a ser rentable, los últimos tres, cuatro años, toda la vida fue un negocio que ni ganaba ni perdía. Yo no le paraba mucho, pero me compraba muchísimo y me compra muchísimo. Ahorita le hemos prestado la atención al caso. El negocio se convirtió en un negocio muy bueno. Está dejando plata. Entonces me le empecé a meter y por eso lo metí en esta consultoría. Pero ellos vienen. Ando en Sencamer. Déjame decirle solamente que estoy reunido solamente a esta persona. Costa Rica primero, por ser la república independiente, tiene sus procesos y el tipo es muy proactivo, el socio. Y él se está dando cuenta que está creciendo. Entonces él solito está haciendo procesos y yo le invité al kick off al costado y entonces dice, wow, Bernardo, qué chévere. Pero ya nosotros empezamos con nuestro proceso, ya no estamos en esto. Entonces, ¿Qué vamos a hacer contigo? ¿Cómo vamos a trabajar juntos? Bueno, vamos a ver.
+S1: tenemos que ver cómo vamos a trabajar ese tema. Creo que va a ser clave la entrevista con él, pero porque va a.
+S2: Ser estratégica y después veremos qué necesita y qué no. Y cómo lo vamos a manejar, si entra dentro de esta fiesta o no.
+S3: Bernardo, dos cosas. ¿Cuál es el nombre?
+S2: Proceso. Y ellos saben queremos estandarizar proceso. Y él sabe que yo quiero que cada vez se parezca más a mí, porque al final de cuentas me tienen que rendir cuentas como nosotros sabemos rendirnos cuenta y los reportes tienen que venir en estos formatos.
+S1: Pero no tienen el soporte tecnológico que tienes tú. No tienen un RP.
+S3: Mira Bernardo, sí ellos tienen RP.
+S2: Tienen un RP, claro, tiene un RP muy bueno donde el tipo está montado. Salió el Oracle mío hace mucho antes que nosotros. Logró salirse mucho antes que nosotros.
+S3: Bernardo, ¿Cuál es el nombre completo del señor, de este contador?
+S2: Gil Porat. Gil es su nombre. ¿Y el apellido? Porat, él es mi sociólogo.
+S3: Porat con P.
+S2: Dirige su negocio en Costa Rica.
+S3: ¿Mira, te hago otra pregunta relacionado con esto que aprovechando Josué para tener en el mapa en el G. Alguien preguntó bajito y dijo y los demás países, o sea, hay más países en el mapa en acción o es algo que todavía está pendiente, que están evaluando operación propia?
+S2: Son estos cuatro países, Venezuela, Panamá, Costa Rica y Colombia. Ahora, tener la operación de Guatemala tercerizada a una empresa se llama Ix Comercio, que tú le entregas tu marca y ellos te abren las tiendas, te manejan, te administran, manda la mercancía, ellos te manejan tu negocio bajo las políticas que tú digas. Así tenemos Costa Rica, ya tenemos tres tiendas, tres kiosco. Ahora en Costa En Guatemala tenemos una country manager nuestra porque se vende mucho al mayor, alumno.
+S1: Sí, te escuchamos.
+S2: Se vende mucho al mayor en Guatemala, Casio y Cu se vende muchísimo al mayor. Hay una country manager que se encarga de visitar los clientes, el visual merchandising, etcétera. Me está llegando Roby, mi hermano de Panamá. ¿Que hay con local? Primera entrevista, saludo, te mando el saludo.
+S3: Saludos. Hola, muy bien.
+S1: ¿Viste Alberto me dijo Alberto que te había visto?
+S2: ¿Que Alberto?
+S1: Alberto,.
+S2: Soy muy amigo de él.
+S3: Buenísimo, chao.
+S2: Entonces bueno, esa es la estructura de Guatemala, una simple gerente y digamos la operación, la administración, todo lo maneja un tercero, le pagamos un fee y chao.
+S1: OK, mira, ahora vamos a ir, vamos a un poquito la estructura y vámonos otra vez al tema de los macroprocesos. Entonces fíjate, ya nos describiste las dos puntas, porque aquí la idea es, vamos a identificar dónde están los procesos críticos, las instancias de gobierno y las personas clave en eso proceso. Entonces vamos a empezar por el lado de como si hiciéramos, vamos a suponer que tú vas para Valencia, te debes conocer esa ruta cinco veces a la semana y nosotros vamos a viajar a Valencia, tú nos vas a decir desde que salimos, coño, mira, te vas a encontrar en el kilómetro 1 con tal cosa, en el kilómetro 3 te vas a encontrar con tal otra, en el 4 te vas a encontrar con tal otra, y con eso que te va a encontrar, vas a preguntar por tal, y con esto vas a preguntar por el otro. Aquí he visto tal cosa. Alguien que haya recorrido eso y nos está transmitiendo a nosotros cómo hace el recorrido, a entender mejor todo. Incluso yo metería pensando en más en Qubit que en Casio, porque entiendo que todos los procesos de Casio están subsumidos en Qubit, que es un proceso más complejo porque es marca propia. Entonces, retomando, ya teníamos claro que el tema investigación y desarrollo es más un tema de compras, decisiones de compras con proveedores.
+S2: Perdón, ¿Cuando vive la jefa? Ya tengo que decirle que estoy.
+S1: Dile que te quedan 20 minutos. En 20 minutos cerramos y después si hace falta, retomamos, porque para cumplir con tu tiempo y tu cosa. Perfecto, excelente.
+S2: Entonces entiendo lo de la ruta.
+S1: Entonces, fíjate, ya identificamos las personas clave en esa instancia de gobierno que llamamos el comité de compra, ¿No? Ese comité de compra ya sabemos que lo vamos a entrevistar y vamos a montar un mapa, ya sabemos que no hay proceso, etc. OK. Una vez que nosotros nos traemos la mercancía, esa mercancía llega a un solo sitio. Me imagino que todo llega a Panamá. Todo llega a Panamá. Perfecto. ¿Con quién podemos ver el proceso de logística en Panamá?
+S2: Jefe de logística, nuevo profesional, porque lo tengo en Caracas.
+S1: ¿Cómo se llama?
+S2: Venezolano, que se llama Fernando.
+S1: Fernando, qué.
+S3: Él entró por Alejandra Mejías, porque nosotros conocíamos. Era el nombre de Alejandra, que es la anterior.
+S2: Se quedó en la parte administrativa de operación. Carga la factura, los precios, los códigos de barra, esto, aquello, y los compra.
+S1: Eso se conecta con el inventario, ¿No? Ya digamos que eso pasa, pistola, escaneo, pa. Y eso va al RP. Y de Panamá distribuye del resto de los países. ¿Correcto? Perfecto. Llegamos. Entonces, ya tengo productos en cada país. Ahora viene, Se activa el tema comercial, ¿No? Sí, el tema comercial funciona por. Tú me dijiste que había un comité comercial.
+S2: Hay una gerencia comercial, Robbie es el director comercial, Andrés el gerente comercial. Diseñan las políticas de venta al mayor y en eso le vendemos al mayor a todo el mundo.
+S1: Y tenemos tiendas propias tienen 13.8 tiendas. Correcto. Ahora, ¿Esas decisiones comerciales se deciden en cada país o hay una línea rectora corporativa? ¿Ese gerente corporativo?
+S2: Hay una línea rectora corporativa total. Gerente comercial, Andrés. Perfecto.
+S1: Te pregunto, ¿Hay alguno, alguna persona de la parte comercial que sea crítico entrevistar en países?
+S2: Andrés en Panamá, por supuesto.
+S1: Andrés en Panamá. ¿Quién más?
+S2: Bueno, en Colombia hay un gerente comercial que se llama Santiago.
+S1: Es importante que lo entreviste.
+S2: Bueno, él ha traído las políticas, las políticas de Santiago. Viene una transacción a las políticas de venta. Esto es maravilloso. El departamento de Colombia que acaba de nacer está mejor organizado que el mío en Venezuela.
+S1: Vale, perfecto.
+S2: En Venezuela acabo de cambiar al gerente de mayor, al gerente comercial de mayor lo acabo de cambiar, me acabo de un tipo nuevo, el que tenía lo dejé de vendedor, tenía 30 años conmigo. El gerente regional de metal de tal, que es Handani, también tipo de una transnacional y el tipo KPI, todo lo que es organizar la metal de tal, si la maneja él muy bien.
+S1: Perfecto.
+S3: ¿Y Bernardo se llama? Santiago Ramírez.
+S2: Santiago Ramírez, el de Colombia.
+S1: El de Colombia.
+S2: Tres minutos que llego aquí, tengo que firmar un documento y veo. Tranquilo, tranquilo, gringo, que estos tipos no se le puede dar largas. Eso es rápido.
+S3: Está bien. Si, yo he ido tomando nota porque hay unos nombres que no estaban actualizados. No estaban actualizados. Sí, claro, pero no de los nombres, porque hay unos que no teníamos actualizados. No teníamos actualizados en la base inicial.
+S1: Es importante esto, ¿No? Ya estamos, ya estamos terminando.
+S3: Sí, lo que estoy viendo es que a nivel de procesos también vamos a adelantar bastante este mes.
+S1: Claro, claro. Eso como cuando no carretera te encuentras bajada y subida.
+S3: Bajada, claro. Exactamente. ¿Qué horas allá, Josué? ¿Las ocho ya, no?
+S1: 8.45, Casi las nueve.
+S3: Exacto.
+S1: Vamos como lo planificamos. Sí, creo que de la guía que yo tengo nos hemos saltado nada, o sea, creo que yo la tengo.
+S3: Por aquí abierta y sí vamos bien,.
+S1: Por supuesto, yo hecho una guía.
+S3: Referencial, yo voy a armar con esto que tú mandaste, referencial, una guía para las entrevistas que no son tan de alto nivel como esto, pues para que Gabo también la tenga y asegurarnos que si a él le toca atender una solo, no se nos pase algo clave del diagnóstico. Igual siempre podemos retomar con alguna llamada, pero para evitar eso.
+S1: OK, lo que nos falta es un poquito repasar cómo es el tema de distribución en tiendas y lo del servicio por red.
+S3: Sí, y a mí me interesa ya cerrando la entrevista, hablar un punto con Bernardo que tiene que ver con el tema de Maya en el grupo inicial, porque claro, dilatar eso mucho.
+S1: Yo tengo, me acaban de compartir el dashboard nuevo que muestra también, pero no lo he revisado, muestra quiénes son los promotores o lo que sea, pero yo no sé si lo hacemos en otra sesión, porque ahorita no lo tengo a mano nada.
+S3: Pero entonces podemos cuadrar una sesión de unos 20 minutos para hablar a este punto con Bernardo.
+S1: Sí, sí, sí. Lo que pasa es que yo quiero, construyendo lo de la prueba, las personas clave.
+S3: Claro, sí, porque si no cuando vengamos a ver, ya estamos en el mes 3 y ya para esas alturas más bien habría que haber masificado. Además que eso siempre tiene una curva de inicio que bueno, la gente arranca, lo deja abierto, hay que hacer un push entonces. Ajá.
+S2: OK, listo.
+S1: Ajá, Bernardo, fíjate, ya estamos perfecto hablando.
+S2: También hay que entrevistar, o sea, nosotros tenemos muchos problemas de procesos administrativos, más que todo en Venezuela. Jaime está tratando de poner orden, pero Venezuela no había proceso de ningún tipo, contables y administrativos.
+S1: Eso lo vamos a abordar con los procesos de apoyo. Me preocupan un poco menos porque son incluso más estándares que los otros. Entonces, fíjate, me habías dicho de la parte comercial por países, etcétera. OK, ahora vamos a la parte. Ya me hablaste de cómo se hacen los cierres de las ventas con distribuidores, tiendas, no hay. La persona clave, me dijiste que este muchacho, otra persona clave en ese punto de venta al mayor de tal,.
+S2: Etc. Andrés es la persona clave, súper clave. ¿Con quien tienes que hablar? No hay nada que hablar. Venta tienes que hablar con Andrés.
+S1: OK, perfecto.
+S2: El bolsillo compra tiene que ver con Alejandro, Roycenthal y con Robbie. sí vas a conseguir un buen campo para profesionalizar el departamento y te vas a dar cómo ha avanzado la profesionalización del departamento de venta. Porque Andrés es un tigre, que se lo dije a Clemencia, ese es un tipo que hay que metérselo en el bolsillo, porque Andrés es un mover. Andrés es una persona súper clave en la organización, un verdadero líder, un chamo, mi sobrino, con un liderazgo que no tiene nadie, ni mi hermano ni mi hijo.
+S1: Él está en Panamá.
+S2: Panamá. Él es un líder NATO, Maneja.
+S1: Yo creo que hay que entrevistar a él en que entre el calor rápido.
+S3: Él está de primero, después de Roberto son los primeros. Ojo, depende de la disponibilidad. Depende de la disponibilidad de agenda de ellos, pero los puse de primero a Roberto, Alejandro y Andrés.
+S2: Una agenda súper sofisticada, muy complicada. Él está hablando y agarra una llamada de teléfono, está hablando, ya va. Y se va para otra reunión y no te dice que ya va. Ya ven, te deja diez minutos. Andrés está cargado de trabajos, involucrado en muchas cosas, toma decisiones, sabe tomar decisiones. Es un verdadero líder que es el que tienes que. Ese es un líder. Roberto en la parte de compras y también en la parte comercial. Súper. Y Alejandro, el que maneja todos los proveedores en China de Qubit estratégico y maneja toda la operación de Estados Unidos solo, sin procesos en Estados Unidos. Aquí no. Sólo en Estados Unidos. Él con mi sobrina venden en Amazon, Target Com, Bestfile, Com y un montón de marketplaces sin personal. Aquí no hay personal. Aquí hay dos muchachas en depósito. Y Isabela, mi sobrina, en la parte. Bueno, acá me cont. Un administrador en Venezuela que apoye Isabela porque ya no da más. Y entonces ellos son muchachos que se.
+S1: Tiene personalidad jurídica propia y todo.
+S2: Y sí, Kennex US se llama, que no sé por qué no lo hemos hablado, pero sí se llama Kennex USA y estratégico que lo metamos en esta fiesta. Bueno, entonces hay que tratarse Kennex USA. Claro. Alejandro manejando toda la compra de Qubit, hace la relación con los proveedores y los despachos, absolutamente de todo, pero además maneja la operación de Miami.
+S1: La cosa no está claro eso. Lo vamos a entrevistar y vamos a.
+S2: Ojo, parte del objetivo estratégico en crecer los negocios en Estados Unidos en Internet, con Alejandro a la cabeza, sin mayor estrategia, o sea, una estrategia que sabe muy bien lo que hace. Y él es la república independiente. ¿Ese es otro que es una república independiente? Nadie sabe lo que hace ni cómo lo hace, pero lo hace. Nosotros vendemos.
+S1: Tiene su precio contra eso, pero bueno,.
+S2: Es fatal.
+S1: ¿Ustedes tienen botón de pago.
+S2: En donde? Tenemos nueve páginas web.
+S1: En e Commerce.
+S2: Claro, tenemos nueve páginaS web, tenemos e Commerce, tenemos. Estamos en Amazon, Target, Best Buy, en todos lados.
+S1: Y esa administración que se lleva aparte.
+S2: Claro, una administración empresa aparte, completamente. Con compras, pago, le paga Kennex le compra Kennex trae mercancía directa de China, se vende en todos esos lugares, se compra, se administra, se pagan los impuestos. Por supuesto. Una empresa aparte, Pues. Sí, la verdad, ¿Verdad? Mira, es tan independiente que se nos olvida meterla en los procesos, porque hay.
+S1: Que decidir si eso lo vas a manejar como una organización independiente o si lo vas a meter dentro de la estructura para beneficiarse del corporativo.
+S2: Bueno, es parte de la estructura, pero una empresa americana no tiene nada que ver con esta. Nosotros no tenemos ninguna compañía relacionada. Son empresas independientes.
+S1: No, no, claro, porque. Pero independientemente de las personas jurídicas que tenga, porque Tú puedes tener 10 personas jurídicas, pero tiene un solo paraguas.
+S3: Piénsalo como el modelo de gestión, Bernardo, como el modelo de Gest.
+S2: Está 100 metida en el paraguas. Reporta sus estados financieros a la junta, compra, tiene inventario, vende, da customer service. Exactamente. Dentro de la página de Qubit. Com, en estadoficial. Com es la misma página Cubit Venezuela, la misma página CubiT Colombia, cada una con sus precios, la misma página, el mismo contenido, no hay ninguna diferencia.
+S1: Vale.
+S2: Los mismos markets, las mismas promociones.
+S1: ¿Aparece en alguna estructura organizativa? La que tenemos aparece dibujada. ¿Cómo aparece dibujada eso en la estructura?
+S2: Me huele, me huele que no te han pasado la estructura de quién es USA En ningún lado.
+S3: No, no, lo tenemos, o sea, tenemos.
+S2: Tiene que entrar Ken.
+S3: Bernardo, mira, te voy a mostrar qué es lo que tenemos, que lo compartiste con nosotros. Al Principito. Al Principito. No sé si ahorita ves mi pantalla. Esto es lo que tenemos para Panamá. Nosotros. Sí, sí, es. Esta chiquitica. Tenemos esto para Panamá.
+S2: Mira lo que dice . Business Intelligence. Me preguntaste por Alexis Mujica. Mira dónde estaba. Ya él no está . Eso, viejo, él está. Él es ahorita un Product Manager, un Project Manager del departamento PMO.
+S3: Pasó para acá.
+S2: Allá va.
+S1: ¿Actualizado esto? ¿Quién actualiza esto? Organigrama.
+S2: Bueno, Andrés el de Panamá. Andrés con Nuria, pues. Andrés con Nuria, Claro.
+S3: ¿Y el de Venezuela?
+S2: Venezuela. Yo con recursos humanos. ¿Esto que es? ¿Venezuela?
+S3: Esto es Venezuela. Esto es Rower.
+S2: Sí, más o menos lo mismo. Todos tienen los mismos departamentos.
+S3: Yo lo vi. Hay unas diferencias allí muy leves, pero.
+S2: Alejandro es el que compra y vende. Se venden en organizaciones de email, de e commerce, que prácticamente nuestra página web. Y tiene un deporte departamento administrativo que lo maneja Isabela y tiene un departamento de logística y bodega que lo manejan las niñas que están allí. La organización de Estados Unidos. Muy simple. Una cabeza con tres divisiones. La parte comercial la maneja Alejandro. Compra la maneja Alejandro. Administración la maneja Isabela. Logística la manejan las niñas que están allá. Esos Estados Unidos.
+S3: OK, OK.
+S2: Cuatro cajitas ocupadas por dos.
+S3: No está bien. Sí, son funciones centralmente administrativas de ejecución.
+S1: Perdón, hay una unidad que no la repasé rápido, pero hay una unidad que iba a preguntarle a. Abre un momentico que no la tengo a mano.
+S3: ¿Cómo no, la de Panamá, Rapidito?
+S1: No, no, la de Venezuela.
+S3: ves la de Venezuela.
+S1: ¿Y la gerencia visual? ¿Qué hace la gerencia visual?
+S2: Eso está debajo, ¿No? Eso está debajo de marketing, visual merchandising. Eso no era línea. Está mal ubicada en Panamá. Sí, se montó como un gerente con una capa corporativa, porque el visual merchandising se ha convertido en una figura muy importante.
+S1: Te podemos mandar esto y tú a mano nos actualizas esto, aunque sea me dice esto Si, esto no, esto lo veo así.
+S2: No sé sí el único cambio drástico, dramático, pues el de que no es ninguna gerencia de primera línea y tampoco el visual de Venezuela de primera línea. Ninguna de las dos son gerentes de primera línea. No entran en reuniones de primera línea. Reuniones de primera línea son finanza, sistema, ventas al mayor.
+S1: Pero finanzas, fíjate, no hay. Es planificación financiera. Es finanzas, Josué.
+S2: Lo que pasa es que, claro, como gerente.
+S3: Es que Bernardo, para contarle a Josué de todas maneras, que revisando justamente estos documentos, me da la impresión que no están agrupados como lo estás pensando, sea lo que te refieres, Josué, pero sí.
+S1: No vamos a entrar en ese detalle.
+S3: Exacto.
+S2: Aquí tiene la gerencia clara, o sea, aquí está clarita la gerencia de administración, de contabilidad, de marketing, de operaciones y logística, que separó. Operaciones una cosa y logística es otra. Financiera es el gerente de planificación financiera. No es de Venezuela, es del grupo, Es Jaime. Él es CFO. Hoy en día él está buscando un gerente de planificación financiera, pero como no lo tiene, lo está ocupando él. Entonces, dentro de la junta directiva hay un CEO, un CFO y los otros tres directores. Jaime, como gerente de finanza del grupo, figura en todas las. Digamos, yo creo que hay que hacer un organigrama, como tú lo llamaste, de la capa corporativa.
+S3: ¿Sí, sí, en ese ejercicio lo vamos a hacer exactamente Vale, mira, ya estamos.
+S1: En tiempo, pero falta solamente para cerrar en la parte, ya creo que nos lo dijiste, pero en la parte postventa no hay procesos y hay alguna persona clave en postventa que debemos entrevistar?
+S2: Vienes a Patrick Panamá.
+S3: Si, lo anotamos por aquí, está en lista. Patrick Corujo, Gerente, Customer Service.
+S2: Después, bueno, la parte de e commerce es parte de la venta. Déjame pensar que más. Mariela, a nivel de sistema, no sé si vas a entrevistarla. Yo creo que es importante, es la gerencia.
+S1: Mariela Kher,.
+S2: Ahora el cargo le queda grande. Nosotros estamos en busca de un sitio, la empresa, porque necesitamos un gerente, jefe técnico de la marca. La marca se fue a otro nivel en la parte tecnológica, las aplicaciones y tal. Y nosotros tenemos una dependencia del proveedor. No podemos seguir dependiendo proveedor, sino que tenemos que manejarlo interno. Es uno de los grandes, grandísimos temas que estamos manejando, la creación de ese departamento y un equipo completo técnico aprovechando eso.
+S1: Bernardo, ¿Quién es el que más sabe en temas de implementación de Odoo en la empresa, o sea, ¿A quién queremos entrevistar para saber?
+S3: Jaime de Finanzas.
+S2: Finanzas del Grupo Jaime.
+S1: Pero él llevó toda la implementación del ERP. OK, perfecto. Eso. OK, listo. Entonces yo creo que vamos a hacer un resumen de esto. Vamos a ver, vamos a hacer un listado previo de las personas que salieron, vinculándolas a procesos y a estructura. Cómo eso, verificamos la agenda de entrevista, la compartimos contigo y bueno, cuando tú. Bueno, contigo va a ser un contacto permanente.
+S2: Permanente.
+S1: Pero creo que fue muy productiva la sesión. Muy bien, la verdad, muchas gracias.
+S2: Acuérdate muy bien lo que te hablé. Andrés Royce, ficha clave,.
+S1: Lo tengo claro y ya Clemencia me lo habías comentado también. Clemen, tú ibas a decirle algo a Bernardo.
+S3: ¿Quieres comentar algo, Bernardo, un poco sobre próximos pasos súper inmediatos? Hay un punto que ya por acá tengo levantada la notificación del project. Tenemos que revisar los perfiles que entran para si se quiere, la hemos denominado fase piloto de implementación de malla, que es con liderazgos clave para hacer también todo el diseño de cascada y de entrada en la formación masiva en la organización. Definir eso contigo. Pero de todas maneras es importante que iniciemos con ese grupo central o de liderazgo para el uso de Maya, porque si luego entramos con la decisión de formación masiva, Bueno, entramos en el mes tres, un mes y medio encima, para hacerle seguimiento a la gente. Nosotros conocemos cómo son esos procesos y hay una entrada en la que hay muchos entusiastas que terminan pronto, pero hay unos grupos a los que hay que hacer push seguimiento para consolidar que eso llegue al final en 100%. Entonces necesitamos una sesión contigo de unos 15 a 20 minutos, Josué. Con Josué para hacer revisión de esos perfumes despegue y que puedas conocer también.
+S2: ¿Cómo lo puedo decir ya si no quiere ahorrarte los 15 minutos y usted puede decir ya quién va a empezar con eso?
+S1: Sí, o sea, yo lo que diría es que hagamos una prueba piloto con una. Yo metería a toda la gerencia de primera línea y a las personas clave, o sea, yo creo que son unas veinticinco personas, veinticinco, treinta personas, que se forme todos los fundamentos, nivelamos todo, sabemos exactamente que tenemos como producto y después hacemos un lanzamiento de masivo, porque esa primera prueba piloto nos ayuda también a ajustar malla a tu necesidad.
+S2: Me metes a todos los primeros gerentes de primera línea que están identificados y metes Anabel, Isabel y Estefanía, que no, Estefanía, mi sobrina que es Project Manager e Isabela que es la administradora de Miami.
+S1: OK, perfecto. Entonces te mandamos un listado inicial con las personas para que tú lo verifique y una fecha tentativa de comienzo ya de Maya de lanzamiento, porque tenemos que hacer el anuncio, etcétera. Tú ahora creo que vas a mandar el correo ya con la formalización del kick off. Eso, bueno, el segundo correo que enviemos va a tener que ver con ese ciclo de formación particular.
+S3: Muy bien. Josué, tú vas a necesitar un espacio de inducción a la herramienta breve para ese grupo.
+S1: No, lo que sí podemos hacer, que podemos invitar a Dorón, es una suerte de lanzamiento inicial, de show inicial. Sí, déjame cuadrarlo con Dorón. Vamos a definir primero listado que lo va a hacer y fecha de inicio formal.
+S2: Eso lo tiene que manejar directamente con Araní.
+S3: Con Araní, perfecto. Está bien.
+S2: ¿Bernardo, de todo esto me pidió apoyo Bernardo, mandé unos correos, yo creo que con este bombazo que voy a lanzar un correo de parte mío que va a ir prácticamente a los 25 gerentes de primera línea? ¿A todos los que tienen email, o sea, o le mando esto a todo el mundo?
+S3: No, los que nosotros recomendamos a los que estuvieron en el kick off.
+S2: Claro, los gerentes de primera línea.
+S1: Ojo, yo sí pondría, pensándolo aquí en voz alta, yo pondría una caletilla en el correo de que ellos lo compr. Partan con lo que ellos consideren. ¿Que lo bajen a los equipos, no?
+S3: Con lo que ellos consideren. Es que eso es información, debe llegar a todos. Mira, Josué. Exacto. Fíjate, Bernardo, la idea es que esa información permee. La idea de no mandarla a toda la organización al unísono es también buscar involucramiento de esos liderazgos para comunicar el contenido y la intención de este proyecto. Eso es. Entonces, bueno, lo que está en el comunicado.
+S1: Ojo, Bernardo, cuando sea algo que tú digas, coño, esto no conviene que lo mande yo, sino que lo mande la universidad, porque tal lo hacemos nosotros. ¿Me explico? Porque estratégicamente también te puede convenir eso.
+S3: Eso puede pasar.
+S2: Yo tengo la barajita de Carmela. Cuando llega un email a cualquiera de Carmela sabe que viene de mi parte este caso particular lo voy a mandar.
+S3: Totalmente.
+S1: Perfecto. Entonces estamos clarísimos. Entonces nosotros te mandamos el listado de los entrevistados, que ahora con esto lo terminamos, creo que de cerrar. Te mandamos el listado de las personas claves para inicio de Maya y una fecha tentativa de cómo comienzo de Maya con un workshop.
+S2: Perfecto. Mete a Arani de una vez en ese correo y copia Carmela.
+S3: OK.
+S2: Porque si a mí se me pasa un correo que me está pasando muchísimo eso, que ya tengo programado mi sistema para que las personas claves queden con un asterisco y con la estrellita de VIP en los emails, y puede. Lo puedo leer, pero si me están pasando algunos correos, entonces metemos a Carmela y Araní y estoy seguro que todo va a llegar al paso final. Correcto.
+S3: Vale, está bien.
+S1: De todas maneras, tú , Clemencia y Bernardo, como quieran, si quieren establecer formalmente un momento punto de control semanal sobre el proyecto, lo podemos hacer también. Tú, Clemencia, con Bernardo, a lo mejor te conviene. So, la misma nariz, pero.
+S2: Buenísimo. Yo me voy a encargar mis tareas, ustedes ya tienen y nos seguimos, nos ponemos en contacto todo el tiempo.
+S1: Claro, tarea tenemos. Gracias.
+S2: Tú me estás escribiendo siempre, Clemencia, mi teléfono venezolano, yo tengo dos WhatsApp.
+S3: ¿Bueno, escríbeme a cuál prefieres que te escriba?
+S2: Mi teléfono americano, te voy a mandar un mensaje. Mi teléfono americano. OK, para que me escribas más fácil por que el venezolano.
+S3: Dale, perfecto.
+S2: A veces me tardo un poco, en cambio en el americano lo veo inmediato. El NDA es clave.
+S3: Ese punto. Sí, bueno, dale, tranquilo, en contacto te.
+S1: Liberamos porque dijiste 30 minutos, te mando.
+S3: Un NDA a Vanessa. A Vanessa, Vanessa y eso en.
+S1: Un momento lo resolvemos.
+S2: Así es, si, o Vanessa tiene uno ya prehecho, lo que quiera para evitar que se ponga a leer y no sé lo que ustedes, me da igual,.
+S3: Dale, ya le voy a comunicar a Vanessa y ella te va a mandar un ejemplo y tú ves que conviene más Bernardo. Perfecto, en contacto, un abrazo pues, chao, gracias.

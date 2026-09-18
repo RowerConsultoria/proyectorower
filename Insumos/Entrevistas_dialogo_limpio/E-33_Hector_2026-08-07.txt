@@ -1,0 +1,113 @@
+S1: Coño, te lo acepto, te lo acepto.
+S2: Así que vamos entonces Rosita, no te preocupes, descansa. Saludos. Ahora sin culpa. ¿Héctor, no? Héctor, correcto. ¿Tu nombre?
+S1: Gabriel. Gabriel, no me has tocado. ¿No te relaja en la silla?
+S2: A veces inconscientemente nos recostamos y pasan cosas.
+S1: Héctor, mira, estuve hablando ahorita con José, ahorita estamos en levantar el proceso, o sea, básicamente entender las ejecuciones que se dan ustedes, en qué están y cómo fluye el proceso también de ustedes a otros departamentos, ustedes y así. Entonces José me cuenta que primero esto es sistema, correcto. ¿Tú estás en tecnología?
+S2: Yo estoy en tecnología.
+S1: ¿Cuál es tu cargo?
+S2: Mira, yo soy técnico.
+S1: Técnico, OK.
+S2: Así está escrito el cargo, aunque realmente no es lo que. No es lo que hago del todo, pero es como está digamos en Recursos.
+S1: Humanos, démosle por . ¿Dame detalle por qué no es lo que haces, qué hace?
+S2: Sí, porque más allá de técnico, yo coordino muchas cosas.
+S1: OK.
+S2: Yo coordino muchas cosas, yo coordino instalaciones con proveedores también con Miguel. Proveedores, compras, atención a las tiendas. Muchas veces nos toca también enseñar a las tiendas cómo hacer las cosas, cuáles son las cosas que se realizan y.
+S1: También obviamente la parte técnica y dame detalle de eso. ¿Pero proveedores de qué estilo? Proveedores en las tiendas de todo tipo,.
+S2: Proveedores de Internet, Instalaciones de sensores, follow up, todo lo que tiene que ver con el área de tecnología que no atendemos nosotros directamente ya que dependemos de tercero, lo coordino yo. Fiscalizaciones, CENIA, impresoras fiscales, puntos de venta, Merchant, las integraciones entre Megasoft, bancos y nuestro sistema de. Nuestro sistema de facturación, una serie de configuraciones que no las hacemos nosotros directamente, pero hay que coordinar con las personas o con el personal de Megasoft en este caso, que es quien se encarga de esa integración. Y ya una vez se coordina todo, se pasan a la práctica, ya yo hago la instalación directamente, configuración de archivos, planos, datos, todo eso.
+S1: OK. Megasoft es el que pone los puntos de venta en las tiendas.
+S2: Megasoft quien integra las plataformas bancarias que nosotros les indicamos a ellos con los puntos de venta por medio de un solo aparato. Por medio de un solo aparato puedes pagar.
+S1: Mira, no le puse azúcar, sin azúcar.
+S2: ¿Por medio de esa plataforma, un solo punto de venta, tú puedes hacer pago móvil, integrar varios bancos de manera que todo sincronice y todo concilia a donde concilia? ¿Esa es la función de Megasoft también pagos internacionales, el sistema te confirma pago móvil, te puedes dar vuelto, Paypal, obviamente el cel, todo eso lo puedes hacer por medio de esa plataforma de Megasoft ellos se encargan de integrar todo, nosotros instalamos y lo ponemos en marcha o.
+S1: Sea que ellos te ponen un punto en cada tienda, tipo de tarjeta y demás y todos los pagos los centralizas por o sea que tú todas las tiendas las ves en un solo programa?
+S2: Sí, yo puedo ver en un portento, ellos normalmente me están llamando, tengo problemas con esto, tengo problemas con aquello, esto no tengo reporte, métete, vemos la transacción, vemos si hay o si no hay, todo ese tipo de cosas también las ve.
+S1: ¿OK, o sea que tú estás en comunicación directa con proveedor Megasoft y ese Megasoft está conectado directo, hay alguna conexión? Esta parte de este sistema hay un.
+S2: Intermediario, hay un programa intermediario que es la BPOS, que es quien recibe datos del sistema y la BPOS así como recibe los datos del sistema también manda los datos al aparato y ya se hace la ejecución bancaria.
+S1: Tienes que explicarme, explícame. Si estoy entrando aquí a la organización qué pasa una tienda que tiene.
+S2: Por esa parte, la tienda tiene sistema de.
+S1: Facturación que es.
+S2: Al igual que acá, todo está en. No está directamente el Megasoft o Merchant no está directamente dentro de Odoo, sino que necesita de un aplicativo adicional cuando hacen una transacción LOAD envía la información a ese aplicativo, por medio del aplicativo se ejecuta el cobro y devuelve ya al servidor y a integraciones hace conexiones con los bancos por medio del aplicativo hay una comunicación entre ambos, pero no está dentro del Odoo como tal.
+S1: ¿OK, y ese como es?
+S2: ¿VSoft, Megasoft y el programa es la BIPOS? La.
+S1: ¿La BPOS es la misma gente o es otro programa? Es la misma gente, solo que ellos.
+S2: Tienen dos programas, Megasos realmente es el proveedor y BPOS es el programa con el que ellos ejecutan su transacción.
+S1: OK, OK y ese BPOS está conectado.
+S2: A ODO, ese BIPO recibe un llamado de.
+S1: OK, que me imagino es la impresora fiscal eso es.
+S2: No, la impresora fiscal realmente solo. Solo está allí a recibir lo que se le mande, le mandamos el archivo la inversora fiscal interpreta que es y hace el ticket, digamos la factura.
+S1: Cuando se abre una tienda, que juegas tú en una tienda como que si estuviésemos abriendo una horita desde el.
+S2: Inicio, perdón, desde el inicio digamos que se reúnen arquitecto, supervisión, junta directiva, se enlaza el proyecto, el arquitecto presenta cuál es el proyecto, se aprueba y luego vienen a mí, vienen a mí con las solicitudes de sistema, ellos me muestran cuál es el plano en la tienda, doy Nico, todo lo que yo necesita en la tierra, comienza digamos la obra, demolición, levantamiento de estructura, se hace una inspección, una primera inspección, normalmente voy yo a una primera inspección, evaluamos el local con la hora limpia, evaluamos el local, damos al el chequeo de dónde y cómo se va a estructurar, ver Internet, muchas veces electricidad, obviamente está los puntos eléctricos. Posterior a ello ya yo empiezo la comunicación con proveedores, esto obviamente los asesoro, lo hago con su reunión, project manager, cuántas cajas van a aceptar, qué quieres hacer en la tienda, cómo lo quieres hacer, En base a eso se hace una orden de compra o se plantea cuál es la compra necesaria en equipos de tecnología, todo lo que se va a necesitar y se pasa para la aprobación. Una vez aprobado pues se empieza con las compras allí, bueno, coordinar instalación, telefonía, alarmas, cámaras.
+S1: Aparentes, todo eso me imagino un proveedor u otro está en tus manos, el proveedor de las cámaras, seguridad,.
+S2: Mira esto tal, si son varios proveedores, le digo que necesito, como lo necesito, especificaciones y todo para entonces ya yo voy reuniendo todo acá, armo acá en oficina una especie de laboratorio, son dos cajas, equipo acá, equipo acá, inversión acá, inversor acá, inversión aquí, inversión allá, hacemos prueba de facturación, hacemos todo de manera que certificar que todo está saliendo bien para la tienda, para obviamente evitar errores al momento de conectar y nada, ya procedemos a la instalación. La instalación en principio vemos tema de cableado, certificamos, ahora tenemos el tema del sonido que está ahorita en versión de prueba, es un sistema de sonido nuevo que estamos implementando, entonces estamos todavía haciendo prueba, digamos laboratorio para empezar a implementar.
+S1: En las tiendas, o sea que vas a tener sonido las tiendas, sonido propio.
+S2: De nosotros centralizado, ayuda, cambio la persona cabeza, entonces estamos con eso. Bueno, como te decía, coordinaciones con el centro comercial, temas de alarmas, temas de telefonía, las tiendas que tienen que cuenta con central telefónica, cuando está a punto empieza digamos la batalla con los proveedores, porque muchas veces los proveedores son proveedores únicos, por ejemplo el caso de Mega SO, un proveedor único y que tenerlo Y esa es la parte digamos de coordinación. Esa es la parte de coordinación en cuanto se refiere a las tiendas. Una vez ya se coordina todo, procedemos a la instalación técnica. ¿Normalmente yo hago la instalación técnica cuando está la gente de la carpintería, porque siempre hay, nunca quedan digamos las cosas de la manera en la que se plantearon en un principio, sino que necesito, mira este mueble Brasil, entonces vamos a ver cómo lo adaptamos Y lo normal de la instalación técnica, temas esas cosas.
+S1: Como carpintería y tal, también es un solo proveedor?
+S2: Son varios, mira, nosotros trabajamos con un solo proveedor. Con un solo proveedor porque alguien de confianza que siempre está disponible, siempre está a la mano, accesible.
+S1: ¿Pero es como una empresa o es una empresa?
+S2: Ellos se llaman. Nimpatar creo que se llama. Es un nombre, el nombre no es un nombre común que.
+S1: Pero ellos trabajan la carpintería.
+S2: Ellos trabajan la carpintería, correcto.
+S1: ¿OK, y después que está abierta la empresa, qué haces tú en las que están abiertas, qué soporte hay?
+S2: Requerimientos diarios. Requerimientos diarios, mejoras futuras, estamos siempre atentos de igual manera, tema país, Internet falla todos los días, luces de todos los días, desconexiones de los bancos, reportería, las solicitudes diarias, la tecnología por lo general, aparato eléctrico, estamos siempre para dar el soporte de igual manera, soporte anteriormente con el sistema anterior estábamos metidos con sistema como tal, ahorita hay otra persona designada que él se encarga únicamente de dar soporte al sistema de las tiendas, no está acá, se llama Edgar.
+S1: OK, Heather, correcto.
+S2: Él se encarga de hacer el soporte a las tiendas, cuando él no puede, nosotros le colaboramos, nos mantenemos allí en comunicación. Pero en eso se basa prácticamente, o.
+S1: Sea que básicamente tú estás mucho más en lo que es hardware.
+S2: Yo estoy más en lo que es hardware, Más de lo que es hardware, la coordinación de hardware de la tecnología. Adicional a esto acá presto soporte también al edificio, varias áreas del edificio condominio y una empresa digamos hermana que es Laxington, que me prestan como personal de sistema.
+S1: OK.
+S2: Personal de apoyo y bueno, y ellos.
+S1: Están aquí en este edificio.
+S2: Ya no estaban anteriormente y ahorita se mudaron de edificios. Ya están en proceso ya de buscar su personal de sistemas. Y de resto nada. Los requerimientos aquí en oficina junto con el compañero.
+S1: Todo esto es para esta oficina. Pues.
+S2: Hay que sacarlo. Eso se cayó después que tembló las lámparas, cables, todo se cayó. Eso está en proceso de remodelación. Aquí se va a remodelar, se va a quitar todo ese cableado sale, se va a estructurar por el techo, se va a bajar ya por tubería. No sabemos si acá hacia el lado. Están decidiendo todavía dónde va el depósito. ¿Miguel? Esto porque claro, teníamos un depósito el cual nos quitaron y estamos ahorita como damnificados.
+S1: Mira, por ejemplo, estos cambios que van a hacer, ¿Esto Quién los decide? ¿Quién está montado sobre? ¿Sobre eso?
+S2: Mira, básicamente yo. Básicamente yo.
+S1: ¿Entonces Qué estás buscando? ¿Como cablear otra vez todo hacia el servidor?
+S2: Realmente cablear todo. No Hay cableado allí. ¿Que es un cableado rescatable? Cableado categoría 6 es cableado nuevo. Recablear lo que se tenga que recablear únicamente y el resto salir de lo que no se necesite. Tener una estructura simplificada y efectiva.
+S1: Y cuando tú tienes un proyecto así, tú como que lo armas, dices lo que quieres y a quién, con quién te sientas, a quién se lo das.
+S2: ¿Y la jefa de José? Él es mi jefe directo.
+S1: Mariela.
+S2: Con Mariela él es mi jefe directo. Perdón. Por ejemplo, yo estaba estructurando, vamos entrando al último trimestre del año y la intención o mi meta es disminuir. Sabemos que el 100% es difícil, siempre hay pequeñeces que se escapan, pero por lo menos bajar un 90.95 las exigencias en tierra. Yo armó el proyecto, hicimos un levantamiento, información con el compañero, armamos un proyecto de qué es lo que se necesita, que hay que. En el caso de las compras, que hay que comprar con fecha de inicio, fecha fin y a la persona que se va a asignar X labor entre los dos. Eso yo se lo reporto directamente a José. ¿Le parece bien? Escalamos a Mariela, lo ponemos por el grupo de sistema para que todos estemos al tanto de qué es lo que se está haciendo, de cómo se está haciendo y a dónde queremos llegar con eso.
+S1: Perfecto. ¿Qué sistemas tenemos en general? Tenemos Odo, tenemos esto de Soft, que es Megasoft, ¿Qué más hay?
+S2: Sí, acá trabajamos o Megasoft. Ya el NAS está quedando únicamente para consultas. Ya estamos. ¿Cuál, perdón? ¿Es Nas? Es un sistema que ya no se usa.
+S1: Que era el que estaba antes.
+S2: Era el que estaba antes, ya no se usa. Se está trabajando también con el Follow, son estos aparatos que están acá. También lo coordina el Follow Sonic. La función, esto va en la entrada de cada tienda.
+S1: OK.
+S2: La función es contar y monitorear el flujo de personas que entran a la tienda. Genera un reporte, se va contra el sistema se va contra. Y saca una estadística de cuántas personas entraron, cuántas personas compraron en tiempo real. Esto es desencargo, esto para mejorar y ver cuando de repente una tienda entra muchas personas pero compran solamente una o dos personas. Cuando pasa esto obviamente se ataca la tienda a ver qué es lo que está pasando, si es el asesor, si es la zona.
+S1: Y esto es un software aparte con este aparato.
+S2: Es una plataforma. Es una plataforma, una página. Él va enviando la información a un servidor. En esa página los chicos pueden entrar, pueden ver metas, pueden ver qué es lo que están haciendo en tiempo real.
+S1: Y lo quieren conectado también.
+S2: Sí, él sincroniza con Odoo porque allí ve las ventas, él compara el físico de las personas que están entrando contra las ventas en el sistema cada determinado tiempo. Una hora entraron 15 personas, pero solamente comparon 5. Estamos hablando de un 33% de efectividad en las ventas. Es algo considerable. Esa es la función de este sistema en particular. Otro sistema, un sistema digamos plataformas cacheras con lo que trabajamos y bueno, hay un módulo del NAS que todavía se utiliza, es para recibir las reparaciones. Lo utilizan en el taller. Las reparaciones entran, ingresan al taller por el NAP, se le da ingreso y hacen seguimiento. En taller de reparaciones. Esa es la manera en la que trabajan abajo con este sistema Por ahora tenemos.
+S1: ¿El sistema está conectado?
+S2: No, ellos solamente reciben como llevar.
+S1: Su orden de reparación.
+S2: Llevan las órdenes allí. Esto porque utilizamos un sistema llamado Sysco. Está sobre APEX, es por donde se le da ingreso en las tiendas de la reparación. No tiene ahorita una integración con Odo, la tiene con NAV.
+S1: OK, o sea las tiendas aparte de Odo tienen algo que se llama Syscor.
+S2: Sí. Eso es una página ellos abren aquí el Apex, el Apex, un formulario y eso viene y le entra.
+S1: El NAF.
+S2: Ya por ellos ya saben, entonces le hacen el seguimiento a la reparación. Eso es básicamente lo que utiliza. De resto, bueno, está muy simplificado. Yo he tratado centralizando en el sentido de tener un mejor monitoreo los aparatos que hemos estado cambiando en la tienda. Trabajando ahorita con Unify desde acá podemos en tiempo real ver averías, ver fallas del Internet, ver si verdaderamente es el aparato que está fallando o es algo en la red, o ver si es un proveedor de servicio. En caso de esto, automáticamente yo llamo al proveedor y empezamos a coordinar ya lo que sería una reparación. Me acerco yo al sitio, se acerca mi compañero y bueno, se trabaja en conjunto. Las tiendas en su mayoría, es un proyecto que estamos ya culminando, todas tienen un Internet de respaldo y este aparato yo lo configuro de manera que si se cae un Internet nadie se da cuenta. Hay un balanceador que hace un fileover allí y nadie se da cuenta de lo que sucedió.
+S1: Mira Héctor, una cosa, todo esto levanta la tienda, el Unify que pusiste, el balanceador, el Internet, lo de los puntos, lo de no sé qué, todo eso está escrito en algún lado. ¿Hay como documentación paso a paso?
+S2: El paso a paso realmente no. El paso a paso realmente no, pero sí digamos, constancia en chat de nosotros del LAR, en donde se va siempre comentando lo que vamos haciendo.
+S1: Pero por ejemplo, si yo entrara hoy y tuviese que hacer lo que tú haces, ¿Hay un sitio donde leerlo? No,.
+S2: Estamos, estamos, digamos, dando el paso adelante en cuanto a la organización.
+S1: ¿OK?
+S2: Es lo queremos, es nuestra meta. Yo creo que una de las principales metas que tenemos nosotros en nuestra organización esa, llevar una documentación de todo. Yo lo llevaba en los inicios, todavía sigo cargando, no de la mejor manera, pero se llevaba desde los inicios así. Yo tenía este documento larguísimo que bueno, ya no se usa. Por ejemplo, organización, rover, son los equipos, departamento, colaborador, usuario, contraseña, nombre del equipo, IP del equipo, por ejemplo.
+S1: de los equipos, es como laptop que usan.
+S2: Entonces por ejemplo aquí, router principal, IP, contraseñas, proveedor de servicio primario y secundario, los routers, cuáles son las antenas que habían a lo largo del edificio, cuáles eran las IP, cuáles eran las contraseñas, tanto de administración como de la wifi como tal, nombres s impresor, cuáles eran las impresoras que tenemos.
+S1: Y de las tiendas y todo eso también los tienes.
+S2: , de las tiendas empiezan, estas son las lactos que estaban asignadas de las tiendas empiezan, de aquí en adelante tienes.
+S1: Todo guardado, o sea que IT Sistemas y demás no tiene sistemas es para la venta que es otra,.
+S2: Un sistema propio de nosotros, sería muy bueno, muy bueno contar con él. No lo tenemos, trabajamos con la plataforma, no sé si José te habrá comentado, trabajamos con una plataforma llamada LAR, que no es solamente de sistema sino que es para toda la empresa, esto es un canal de comunicación de la empresa y obviamente nosotros tenemos nuestro grupo de sistemas, tenemos nuestros proyectos compartidos, aquí va quedando rastro de todo lo que vamos haciendo, aperturas de tienda, tareas culminadas, inventario, aquí está el inventario más actualizado de todo lo que tenemos ahorita en cuanto a equipos asignados, tanto acá en oficina como en tienda.
+S1: Y eso lo montas tú entre.
+S2: Los dos vamos cargando, se hace una orden de compra, llega document, por ejemplo este mes han llegado estos dos equipos, el tracking, la orden con la que nos llegó, día que nos llegó, que nos llegó, quién lo recibió y a quién fue asignado este mentor solamente nos ha llegado y luego se hace, se trabaja en el equipo, se hace la entrega, se carga acá. Sería interesante tener un sistema más adecuado donde le pueda hacer un seguimiento completo, sería lo ideal.
+S1: Si, todo lo que tienes en tiendas, tantos equipos, tantas cosas que tiene y.
+S2: Bueno hemos estado trabajando así sobre eso.
+S1: Perfecto. ¿Lo último Héctor, con IA que estás haciendo? ¿Cómo te va? ¿Cuál usas? ¿Que estás usando?
+S2: Yo uso Gemini, uso varias, depende de lo que esté haciendo, uso Gemini, tareas sencillas, reportería, análisis, uso Cloud muy completa, pero lamentablemente no tenemos licencia, lo que hacemos es tratar, yo por lo menos yo en lo particular, tareas complejas, me voy a Cloud de manera de utilizar lo menos posible, de manera poder extender el plazo en que lo tengo gratuito. Y para temas de Microsoft, para temas de sistemas en cuanto a equipos Windows, trabajo con copilot, se enfoca duro en lo que es Windows y el sistema operativo base que tenemos acá en la empresa, entonces utilizo bastante Copilot para ese tipo de consultas.
+S1: OK. ¿Si tuvieses la oportunidad de entrenarte en eso te gustaría meterte más a profundidad?
+S2: 100 %, 100 Depender en que estamos.
+S1: Es una bola de nieve, va sí.
+S2: O sí, eso no va a disminuir, es una bola de nieve que va a crecer, nosotros tenemos que estar allí.
+S1: Bueno Héctor, yo creo que eso es, creo que entendí. ¿Hay algo que se te escape fuera de lo que haces, que digas esto es otro proceso que yo llevo, bueno,.
+S2: Normalmente tiro por la hoja en todo, normalmente trato de colaborar en todo lo que se necesite, no únicamente en el área de sistema y tecnología, sino que hay departamentos que de repente necesitan una mano, yo estoy allí, carpintería, vamos y yo me llevo mi herramienta, abrimos la carpintería, estamos en tienda y están los asesores full? ¿Hay que ofrecer? ¿Ofrecemos o atender un cliente? Atender un cliente, o sea no hay digamos.
+S1: Un.
+S2: No, claro, si hay el tiempo y se puede hacer, se hace. Obviamente cosas que no están digamos sobre el entendimiento de nosotros, obviamente brutal, preferimos no estorbar y si no sabemos no tocamos.
+S1: ¿Oye Héctor, eso era, gracias y coño que tu mamá estamos en contacto, viste? Gracias. Saludos Miguel, Un placer. ¿Oíste? ¿Jesús llegó?

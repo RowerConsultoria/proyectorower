@@ -1,0 +1,431 @@
+S1: Miren, se conectó Ricardo. chévere. No me voy a conectar desde acá porque realmente lento.
+S2: Estamos todos aquí reunidos.
+S1: Hola Ricardo, buenos días, Clemencia, ¿Cómo estás? Bien, gracias. Todo chévere.
+S3: Buenos días.
+S1: Sí, no voy a activar la conferencia en mi computador porque aquí funciona sobre Chrome y no sé qué pasa con mi Chrome que lo hace súper, súper lento.
+S2: La idea de hoy obviamente es ver cómo vamos y también sincerar las fechas, porque obviamente hubo un periodo de tiempo, yo le comentamos, mover las fechas para reorganizarnos otra vez con estas fechas que se movieron por evidentes razones.
+S1: Correcto, así es. Bueno, vamos a comenzar por en seguimiento de avances a la fecha. En realidad no es tan dramático el movimiento de los indicadores en cuanto a tiempo porque afortunadamente tuvimos un excelente avance en las entrevistas de diagnóstico. Logramos concretar 23 entrevistas a un total de 24 personas. Porque hubo una entrevista que fue dual, que fue con el jefe de logística y la jefa de inventario de Panamá. Y Fernando Alvarado. Exactamente. Entonces, bueno, eso la verdad es que fluyó bastante bien. En paralelo, nosotros también hemos ido teniendo sesiones de seguimiento dentro del equipo, además de las sesiones de corte o parciales que hemos tenido con la directiva de la empresa para ir organizando algunos puntos como el despliegue de malla, que ese sí lo teníamos planteado por una semana, se demoró una semana más, pero bueno, en un trabajo en equipo un poco presionado por la velocidad, se logró aterrizar una semana más tarde. Pero bueno, estamos en una condición de emergencia bastante importante. Entonces, bueno, en ese sentido, ¿Qué es lo que tenemos planteado a continuación?
+S2: Aquí yo no sé,.
+S1: Esto lo puede.
+S2: Igual la otra también lo puede.
+S1: Viste que es súper lento para reaccionar aquí por sí es algo de memoria, pero es de Chrome, porque si estuviera sobre Edge no me haría esto. Y esto también lo puedes achicar.
+S2: Entonces, bueno, aquí yo no sé, yo le comenté a Jesús que podía. Yo le puse el estatus, una columna como que de estatus para saber que están progresores, que está completado para poder ver en el Gantt, si esta es la fecha de hoy está. Entonces todo lo que esté antes de la línea debería estar en teoría completado. Y todo lo que está sobre, o sea, esto que está aquí abajo, deberíamos estar en progreso. Entonces, obviamente esto no lo tengo actualizado porque no tenía la visibilidad. Si quiere, podemos ir actualizando a medida que vamos bajando y lo que veamos que no está, nos vamos viendo por el GAN. Lo que no se haya comenzado todavía, le ajustamos la fecha.
+S1: Sí, esa revisión la tuvimos dentro del equipo y bueno, en este momento estamos aterrizando en el componente de concretar la primera versión del informe diagnóstico. ¿Por qué es la primera versión? Porque nosotros tenemos que hacer una presentación organizada con apoyo de ustedes a la Junta Directiva. Pero antes de hacer esa presentación a la Junta Directiva, yo quisiera hacer una revisión contigo, Bernardo, de ese informe. Y estamos planteando ver una primera versión de ese informe que acorde a cronograma debíamos entregarlo el viernes pasado, si no me equivoco, porque no logro aquí navegarlo.
+S2: Pero ¿Cuál ese.
+S1: Es un hito final de entregaba? Exactamente. ¿Y esa está planteada en qué fecha?
+S2: Sí, la semana pasada.
+S1: La semana pasada. Pero bueno, como hay una semana justamente de retraso, desfase, pues lo que planteamos es hacerte una presentación a ti este viernes, que yo puedo venir para hacer esa revisión de ese borrador o el lunes cuadramos ahorita en la tarde.
+S4: Para ver el borrador.
+S1: Para ver el borrador. Para que vea de ese informe. Exactamente. Claro, nosotros vamos a entregar dos productos, es el informe, pero nuestra idea es generar también con Cloud una base HTML que sirva, bueno, te estoy haciendo un poco de spoiler, de cómo queremos hacer la presentación, que sirva como un repositorio web de ese informe para que sea también más fácil acceder a la información clave sin tener que leerlo completo. Ojo, tienen el informe y también tienen eso. Pero bueno, sabemos que a veces leer un informe puede ser demandante en términos de tiempo. Pero tendrían los dos recursos. Tendrían los dos recursos. Entonces sí me interesa antes de planificar esa presentación a la Junta Directiva, hacer una revisión contigo para que tengas todos los detalles que hay en ese informe. Por supuesto, todo el componente de abordaje metodológico, cómo llegamos nosotros a la elaboración de ese informe desde el punto de vista de los recursos que utilizamos, los insumos, y abordamos también los puntos de gobierno corporativo, los puntos de procesos, tanto corporativos como medulares, los que tienen que ver con el flujo de negocio. Abordamos también el componente de estructura organizacional, estructura de talento y elementos que están asociados a cambio organizacional. Y finalmente hay una sección que está asociada a cambio tecnológico e implementación de inteligencia artificial.
+S4: Una vez que este proyecto termina, que están los informes y entregan todo, ¿Qué seguimiento viene?
+S1: OK, fíjate, durante el proyecto nosotros hacemos la entrega del informe con elementos de diagnóstico y hay elementos también de propuesta. Cómo vemos nosotros como sugerencia, puede quedar organizada la empresa en función de estructura organizacional, patrón de talento. Claro, este primer informe digamos es un borrador todavía de esa propuesta, porque en lo que nosotros entremos en proceso es que vamos también a afinar, pero se va a parecer bastante a lo que ya estamos viendo. Seguramente entrando en procesos en el detalle, habrá que afinar elementos, sobre todo de procesos a segundo nivel en procedimiento. Pero la idea es que nosotros durante el proyecto podamos acompañarte en el proceso de toma decisiones que tiene que tomar la empresa. Sin embargo, las decisiones si deben tener una lógica dentro de su proceso de organización estratégica a nivel de junta directiva para decir, bueno, mira, con qué debemos avanzar en este momento, en el corto plazo, qué debemos dejar a mediano plazo y qué a largo plazo. Eso forma parte de las recomendaciones que.
+S4: Les vamos a hacer y después nosotros quedamos echenle pichón. Entonces de repente se pueden hacer ciertas contrataciones de la gente que ustedes nos recomiendan.
+S1: Sí, totalmente, exacto. Eso puede ser. Estos cinco meses nosotros lo que vamos a dejar es la casa en orden y le vamos a hacer sugerencia de cómo comenzar también cómo mantenerlo ordenado. Exactamente. Pero ya el proceso de toma decisiones si queda en manos de lo que ustedes discutan a nivel de junta directiva, que también es un punto importante dentro del componente de gobernanza.
+S4: En ese informe diagnóstico, el viaje para más importante.
+S2: No tienen que ver, tienen que estar allá como para ver.
+S4: Que es un monstruo, hay que ir a la bodega, hay que ir al departamento de servicio de atención al cliente, hay que ir más que todo eso es lo que.
+S2: Me tiene un poco en la fase de procesos, siento que las entrevistas funcionó.
+S1: Bastante bien, pero ya ahorita que viene.
+S2: La parte de procesos, de ver todos los procesos sí es necesario que viene.
+S4: Y bueno y aquí estoy bien.
+S3: De hecho que hemos tenido ciertos retos, vale la pena que lo conozcan dentro de la propuesta y hacer para esas contrataciones estratégicas. No nos ha ido bien. Llevamos más de dos meses tratando de estructurar el departamento de contabilidad con una propuesta y talento que necesitamos para un puesto de gerencia media, por así decirlo, un coordinador.
+S1: ¿Y saben cuáles son las razones? Las personas les dicen, alguien que tiene.
+S4: Ahorita cinco entrevistas, esta semana ha llegado gente, no sé, no terminan de dar la te, no es un tema salarial, no sé qué pasa. Yo en verdad no sé qué pasa, pero estoy diciendo que hemos dado pie con bola, estamos en LinkedIn, estamos con.
+S3: No sé quién, no sé, tiene que ver con nuestra marca empleadora, con el uso de LinkedIn, con la redacción de los perfiles, como que hay demasiadas aristas que influencian este tipo de.
+S1: Procesos, entonces.
+S3: Eso es importante tenerlo sólido de cara a que la nueva estructura sea factible, porque si pasamos seis meses tratando de contratar roles estratégicos, pues los resultados dejan de verse.
+S1: Claro. Sí, no, totalmente. Pero de todas, lo que a ver no debiera pasar es que un proceso de reestructuración quede limitado por la ausencia de talento para la cobertura de esas posiciones, o sea, también hay maneras de hacer transiciones a ese proceso de reestructuración hacia las, hacia lo que se está planteando como estructura ideal para el momento en el que nosotros hacemos el proyecto, desarrollamos la propuesta, pero sí entiendo que no soy especialista en temas de reclutamiento y selección, pero sin duda alguna creo que este primer semestre ha sido un reto ya adicional a todas las organizaciones para la selección de talento clave y altamente calificado, porque la gente que puede estar aquí está sinceramente en pausa, viendo qué decisión toma y a partir de esta tragedia, pues probablemente algunos tomen otras decisiones también de salida. Es complejo, yo creo, yo lo veo.
+S4: Al revés, aquí lo que viene es un bombazo, esto, digámoslo, esta es la mecha que entra el camión para acá, esta tragedia va a disparar, a mí me va a disparar todo.
+S1: Yo lo veo claro. Bueno, también por cómo se ha procedido institucionalmente, me refiero a organizaciones internacionales, sobre todo la intervención de Estados Unidos es muy evidente quién tiene el control del asunto allá abajo en La Guaya.
+S3: Lo que me gustaría que hagamos ahorita en línea, no pasar de página porque Aroni está llevando la agenda de la sesión, es que cuadremos el horario al salir de la reunión del viernes y.
+S2: De una vez, o sea, para que.
+S3: Cerrando puntos las dos y media.
+S1: Sí, perfecto.
+S3: Y para la junta directiva cuadremosla también de una reunirnos y después decidir si se reúne la junta. Creo que.
+S2: ¿Cuánto tiempo después sería la semana siguiente?
+S1: Puede ser la semana que viene. Así es. Ya les voy a decir con Bernardo el viernes el draft ya te pasó el nombre como tal para que vea ese borrador y también para que puedas tener el esquema de cómo sería esa presentación a la Junta Directiva, recoger tus impresiones también todo. ¿Y la semana que viene? La verdad es que salvo el martes en la tarde, yo tengo ahorita agenda libre, entonces puede ser quizás entre miércoles y jueves idealmente, porque los lunes me suelen poner reuniones de seguimiento directivo en la universidad.
+S3: Y necesitas una hora para esto, para el informe, para el reporte Ideal si.
+S1: Es en la mañana,.
+S2: Pero de una hora. Duración una hora.
+S1: Una hora. Ponle hora y media, porque a mí siempre me gusta reservar un poquito más por si la gente hace comentarios, hace preguntas. Entonces para asegurar la agenda de la gente.
+S3: Miércoles está perfecto. Inmediatamente te digo la hora y como te he dicho siempre, la agendamos y te confirmo porque puede haber comentarios sobre el horario. Dijiste que en la mañana preferiblemente.
+S1: No,.
+S3: Tiene que ser en la tarde, al menos que sea el viernes.
+S1: Bueno, puede ser el viernes.
+S3: Entonces el viernes en la mañana a las 11. No te digo las 10 porque como estamos lidiando con Panamá, esos son sus 9.
+S1: OK.
+S3: Para asegurar que si van a hacer algo los agrega.
+S1: Entonces sería el viernes 24. Sí, cualquier cosa que.
+S3: ¿Y alguien más de tu equipo va a estar ?
+S1: Sí, estaríamos todos. Y eso sí la podemos hacer vía LAR, porque entiendo que la. La Junta Directiva está la mayor parte fuera,.
+S3: Porque la habitación de Zoom la maneja Bernardo directamente y está en todo. Y ella debería haber llegado. Andrés, Robert, que fue Robbie está viajando mañana a Panamá. Claro.
+S4: Alejandro está llegando a Panamá hoy.
+S3: Entonces son 10 días. Es el 31. ¿Junta Directiva, es decir, incluyendo Jaime a Máximo o Comité Directivo?
+S4: Bueno, esa es la pregunta.
+S3: Creo que Máximo debería estar.
+S1: Máximo debe estar Máximo. Alberto.
+S4: Sí, la Junta.
+S3: Sí, la junta, exacto. Ya avanzamos. Yo puede ser los tiene padres que.
+S2: No se quedó pautada la reunión con señor Berna este viernes 17 para el borrador y el viernes 24 para la presentación. ¿Cuál es de cara a esta semana,.
+S1: Que dice el Gantt? Porque nosotros tenemos cubierto las cuatro fases propuestas para esta primera parte.
+S2: Estatus aquí para quede actualizado.
+S1: Vamos a chequear.
+S2: Requisito, requisito. De despliegue desde entrevista, liderazgo, romentación y plataforma.
+S1: Eso sí, aunque hay algunas cosas de documentación que no teniéndolas a la fecha, que eso lo podemos ver este viernes también porque es parte del informe, no teniéndolo a la fecha, estamos asumiendo que es que de pronto no están qué cosa como tal de tecnología, algunas políticas de seguridad que están en ese listado de. De requisitos DIT.
+S2: Yo te voy a dar.
+S1: Yo tengo por aquí en el inventario.
+S3: También en 10 minutos en la reunión.
+S4: Semanal con Colombia la cancelaron porque Andrés llega aterrizando en Colombia y se va para ver la tienda.
+S3: La tienda que van a ver.
+S2: Ya tengo ese punto también agendado sobre los requerimientos, lo vamos a revisar para que sepas el estatus.
+S1: Perfecto.
+S2: OK, aquí tenemos otro punto que es recepción alimentario, centralización de alta información.
+S1: Perfecto, eso está cubierto.
+S5: Arani, mencionaste algo de tienda, disculpa.
+S1: No.
+S2: Mapeo organizativo actual, estructura, proceso violento y.
+S1: Nivel, también está cubierto esa parte del informe que estamos armando ahorita.
+S2: Procesamiento de audios y las entrevistas y transcripción a que mandes. Imagino que eso es lo que están haciendo por el informe, ¿Correcto?
+S1: Bueno, por lo en progreso está muy bien.
+S3: Una pregunta, el informe lo van a mandar por adelantado para que la junta lo vea con el HTTML y después en la reunión ustedes van a explicar.
+S1: Nos gustaría hacer primero la presentación, por eso voy a hacer el chequeo previo con el señor Bernardo. Sí. ¿Y hacer ya la presentación directamente, porque lo que tememos es que con este tipo de informes qué pasa? Cada quien suele saltar algún punto del informe, no necesariamente lo van a leer en orden, entonces eso puede generar alguna detrás, alguna confusión. Entonces presentarlo es idóneo.
+S2: Te voy a poner esto también en progreso, que es el análisis de la data, la colección, redacción del informe, propuesta organizativa inicial,.
+S1: En progreso. Bien.
+S2: Revisión de consistencia interna organizativa, también. Firma.
+S1: Esto es una extensión de 90 días del crédito,.
+S2: ¿Correcto?
+S1: Sí.
+S3: Bernardo,.
+S1: Si. Todo lo referido al informe lo puedes poner en progreso. Exactamente. Auditoría en Perú, eso está en progreso también. Formación del equipo de sutronomía, eso sí lo puedes marcar como listo, Eso sí está pendiente. Las sesiones de formación para el equipo directivo, que es algo con lo que marcamos la parte del inicio o la base del inicio de la segunda fase.
+S2: Dictado de primera instancia, esto es lo mismo.
+S1: No, eso no, porque eso fíjate que dice. sí, eso es el equipo. Sí, perfecto. Bueno, está en progreso porque lo tuvimos para LAR, pero para Odoo todavía, aunque tenemos un levantamiento por las entrevistas. Y este Gabriel también conoce Odoo en sí, no ha visto los módulos acá, pero ojo, eso no condiciona. Igual ponlo en progreso porque es parte también de la segunda fase.
+S4: Yo creo que estoy claro aquí.
+S1: Sí, sí, sí. Perfecto,.
+S4: Gracias. Buenísimo.
+S1: Gracias a ti, Bernardo.
+S2: Evaluación de estado, consistencia, volumen, las bases de datos utilizadas para futuros desarrollo. Lo que me decía es que todavía no era.
+S1: No la segunda fase, porque hay una formación de equipo directivo en cloud. OK, pero eso ya es segunda fase. Eso está en progreso también porque eso es parte del informe. Eso es de Gabriel y es parte del informe también. Entonces está en desarrollo. Sí, él está aquí en Caracas ahorita.
+S2: Esta primera fase era mucho ustedes al.
+S3: Comienzo.
+S2: Todo el tema de entrevista, pero ya después toda esta parte es informe.
+S1: Exactamente. Ya cuando hagamos la presentación, pues marcamos todo eso como listo.
+S3: Obviamente.
+S1: ¿Todo esto ya es la fase de procesos de documentación de parte de nosotros.
+S2: O esto va a empezar después de la presentación?
+S1: Fíjate, ¿Qué queremos hacer nosotros para no retrasar mucho más las tareas y esperar hasta el 24 para dar inicio? Sinceramente, nosotros podemos comenzar ya mesas de trabajo y entrevistas para levantamiento de procesos, teniendo la información que tenemos hasta el momento. Sin embargo, lo quería consultarte también un poco para tener clara, bueno, teniendo tu recomendación también en términos de la dinámica de la empresa, ¿Qué tan factible ves tú la realización de mesas de trabajo que involucren a una dependencia entera que podamos trabajar con ellos una mañana o es conveniente el trabajo con entrevista? Ojo, también podemos tener un modelo híbrido donde tengamos algunas mesas de trabajo, pero la mayor parte sean entrevistas.
+S2: Porque tienen que ver uno con el otro.
+S1: Exacto.
+S2: Que se enlaza, pero no diría que todo sea así, porque hay cosas que son propias del departamento. Yo diría que podrían empezar con las cosas propias por departamento. Por ejemplo, pueden levantar el tema de almacenamiento con Elvis, tal vez con Jimena, que es la por separado, porque cada uno tiene como que sus procesos que sí son independientes de cada uno. Y luego tal vez poder generar una mesa de trabajo en tres unidades.
+S1: Claro, sobre todo para la validación, porque también nos imaginamos que podíamos hacer ese levantamiento con las entrevistas individuales y hacer un trabajo de prevalidación, porque al final, bueno, también Bernardo tiene que ver el liderazgo tiene que ver cómo estamos viendo los procedimientos transformados, o sea, ya transformados.
+S3: Sabes que no queda claro y creo que se deben haber dado cuenta perfecto en las entrevistas que hay, así como hay en cualquier empresa procesos que se entrelazan entre áreas, hay áreas que terminan.
+S2: Duplicando tareas, verdad, o trabajo de la otra área, porque la otra área no se daba. Entonces, bueno, como tú no estás pudiendo, yo te estoy haciendo tu. Pasa mucho, por ejemplo, un ejemplo práctico, Ventana Mayor, el mes pasaba, ya se ha ido mejorando porque ya entró Elvis, pero que como no había una estructura de persona de almacén, entonces Ventas Mayor vendía, se daba el vuelto, cobraba, buscaba la factura, armaba la caja, sellaba la caja y la bajaba. Ventas al Mayor con la entrada de él, y eso se ha ido mejorando. Pero así estoy segura que deben haber millones de procesos que están en la unión incorrecta.
+S3: Exacto. Que le reportan a la persona que lo es o no le reportan sin razón. Doble reporte. Es que tienen razón y otros que no.
+S1: Es que incluso eso viene y lo vimos clarito. Aunque bueno, igual uno necesita meterse en toda la fase diagnóstico para ir levantando evidencia, documentado. Pero desde que nosotros recibimos los organigramas ya sabíamos que tenían todos esos problemas. Ya lo sabíamos. Ojo, es bastante usual, no es una cosa así como que eso nos pasa porque no sabemos. No, no, es que es bastante usual y desde la estructura se generan esos problemas, porque hay unos principios que desde la teoría nos dicen unas cosas, mira cuántas personas debe supervisar una sola persona, cómo se organizan también esas unidades, y todo eso responde además antes al propio modelo estratégico de la organización, que es algo que todavía está difuso acá.
+S3: Sobre los documentos, eso se conecta con los documentos que te mandé. Yo te mandé un documento de cultura organizacional, que yo ahorita tuve la oportunidad de estar en Pan los Días y reunirme con Nuria y verlo, porque había la concepción de que eso se tropicalizó para vencer, que no se hizo, y la concepción de que se estaba actualizando, que tampoco está pasando. Entonces vamos a crear una comisión de cultura para actualizar la cultura, muy en línea con todo lo que está pasando con ustedes también, pero ya no como Qubit, sino como Chemex, ¿Verdad? Porque aquí hay empleados que responden a.
+S1: Ambas marcas, Rover, pero también Qubit, que es Kennex. Entonces, claro, No me imagino. Debe estar también los grupos, las subculturas, el grupo Casio, el grupo de toda la vida, el grupo Los Nuevos.
+S3: Y lo que es la estrategia. Lo de febrero otra vez. Yo me senté con bar personas en la junta directiva, porque no estaba entendiendo cuál era entregable. Tengo un documento que ellos hablaron y te puedo mandar como esa noción del objetivo de crecimiento, pero no tiene que enviar.
+S1: Claro.
+S3: Y eso es lo queremos levantar, pero que ha sido más difícil, porque al no ser. Esto no es un Hay tiro cruzarlo a una empresa que reporta. Hay que definir bien, y no sé si eso viene con lo que ustedes entregan. ¿Qué objetivos son visibles para la organización completa, ¿Cuáles son, para que la junta directiva le haga seguimiento financiero a la empresa?
+S1: Nosotros hacemos un approach a esa propuesta en función de lo que dijo la misma junta directiva en las entrevistas. Ojo, levantamos también coincidencias y disonancias, porque también hay disonancias en el enfoque. No son tan graves. Creo que lo que falta también son unos mecanismos de consolidación y de seguimiento de esas cuestiones que se discuten. Porque también vemos que dependiendo de si sale o no una oportunidad, y yo entiendo que el ritmo corporativo puede ser así, a veces se toman decisiones muy sobre la marcha y no hay seguimiento de algunos acuerdos que se habían conversado sobre cómo abordar un problema, o a veces ni siquiera llegan acuerdos conjuntos como junta directiva. Y eso sí es importante también documentarlo y regularizarlo, porque, bueno, a ver, también es algo característico de las empresas familiares. Suele pasar, pero si tú te vas transformando en un grupo corporativo.
+S2: Sí.
+S1: Donde también hay recursos que, aunque quizás no sean los mayoritarios, pero también forman parte de otros perfiles del grupo corporativo, es importante formalizar algunos procesos de toma decisiones y saber que, bueno, ya no solamente dependen de una o dos personas. Decisiones cruciales que ponen en juego plata de la empresa. Y la sorpresa sí está el mo. No te lo creo vayas a venir.
+S4: Un día de chocolate, pues nos va a tocar.
+S1: Ay, qué bonito. Qué bueno. ¿Vale? Sí, vale. Qué belleza. Hermoso.
+S4: Mira que estos días yo estaba usándolo en el carro, hice así. Hay que tener cuidado, porque hice así.
+S1: Y me he chorreado completo porque no lo había sellado.
+S4: Bien, no sé, tiene su truco tomar esto, o sea, no es así tan fácil.
+S1: Bueno, le haré control de calidad. El Moxi. Sí, no, pero está buenísimo, yo lo uso.
+S4: Full. Que todo el Miami que tengo que agarrar 20 minutos de carro para ir para la oficina.
+S1: No, me encanta. No, y pondré café o pondré Celsius.
+S4: Yo no he visto la bolsa, me di cuenta que por dentro no, todo.
+S3: El tema de marketing son unos genes,.
+S1: Es toda una experiencia.
+S4: Y esto lo hicieron para los almacenes, porque resulta que allá arriba sacan, a veces no sacan de abulto, sacan 1, 2, 1, 2 y entonces el código de barra, bueno, mira lo que le metieron, o sea, a este estuche le han metido código de barra para que no haya peligro.
+S1: Bueno, chévere, gracias. Dale.
+S3: Estamos los mecanismos, Veremos sí eso es.
+S1: Parte de lo queremos trabajar también con Bernardo, porque también sabemos que bastante, digamos, involucrado y comprometido con el proceso de toma decisiones y está metido en mil cosas, pero a veces también hay que aprender algunas cosas a saber. Hacerle seguimiento sin intervenir todo el tiempo, para eso hay una estructura.
+S2: Y bueno, confiar en el personal que tiene.
+S1: Y también les hace falta. Si, les hace falta. Ese proceso también se documenta. Los procesos directivos también se documentan y bueno, después tienen toda su base política, normativa, que entiendo. Por ejemplo, el señor Máximo les ha estado ayudando con el asunto de el protocolo familiar, que se lo está actualizando. El Máximo se maneja directamente con.
+S3: Lo que accionista.
+S1: Claro, claro, exacto. El comité, pues no la junta, sino el comité.
+S3: El comité incluye Andrés y Alejandro.
+S1: OK. el comité no son nada más los cinco horizontal.
+S3: No, la junta es que esto se resenté junta y son los 5 horizontal más máximo. Basada en. Básicamente igual es lo que te acabo decir. Y aparte está el Comité de Finanzas, que ese mismo grupo más ciertas personas en contabilidad.
+S1: OK. Que está en Panamá, que es la persona nueva.
+S4: Resolviste los liquid.
+S2: Sí, ya sé, ayer respondió, me dijo.
+S4: Sí.
+S2: No, pues porque el contrato era desde julio.
+S3: Bueno, exacto. Esa diferenciación, esa reunión de protocolo nada más es Máximo con los hermanos accionistas. Yo los llamo, no sé exactamente cómo se dividen las acciones, pero ese grupo es el que le hacen a los padres. Los padres, los patriarcas y yo no entré a esa reunión, pero estoy al tanto de ciertas cosas. En el protocolo familiar, por ejemplo, las contrataciones familiares tienen uno, pero es buenísimo que lo tienen.
+S1: Sí es necesario. Qué bueno que Máximo los está acompañando.
+S3: Con eso denos ya las recomendaciones de cómo deberíamos hacerle seguimiento. Y con respecto, no sé si quieres entrar en esón reestructuración, vamos a terminar.
+S2: De agendar, me imagino que esta semana realmente van a estar enfocados en el informe que se le va a entregar.
+S1: Sin embargo, ya nosotros tuvimos un avance ayer de organización del arranque de la fase 2. La sesión que tuvimos ayer de inicio de semana, uno de los puntos que trabajamos fue el arranque, ya tenemos listos los formularios de trabajo. Lo queríamos explorar un poco y por eso te hacía la pregunta de cómo ves metodológicamente el asunto de las mesas de trabajo. Yo creo que va a ser conveniente hacer las entrevistas individuales y luego entrar en procesos de preaprobación.
+S2: Esta entrevista individual, este tiene procesos con este y era lo.
+S1: Que tenga y vamos conectando. Exactamente.
+S2: Pueden hacer meses de trabajo. Bueno, estos tres sectores hacemos meses con estos tres, con estos. Como que tres meses de trabajo con.
+S1: Poniendo un número total. Mira, es importante que sepan un poco para comentarles, Ricardo, también el enfoque de estas entrevistas se diferencia de las entrevistas diagnóstico en el nivel detalle en el que vamos a entrar, incluso preguntando formato, sistemas, ya es una historia mucho más detallada del paso a paso de lo que la persona hace al día, a la semana, a la quincena, al mes, dependiendo de la regularidad de sus procesos y de los hitos también de esos procesos.
+S2: Es algo que se tiene que sentar a revisar sobre un quehacer, a ver cómo lo hace.
+S1: Un poquito más extensa, sí es una sesión por lo menos también son de una hora y media, dos horas y bueno, siempre que podamos ver el proceso es bueno. Ya vamos a tocar lo del punto de Panamá, que también está allí, es precisamente mencionar. Entonces, claro, en esas sesiones nosotros por supuesto levantamos los procesos y los procedimientos como son, pero dependiendo del perfil, algunas personas también nosotros levantamos con ellos cómo se imaginan que puede ser el procedimiento, porque al final también son especialistas en lo que están haciendo. ¿Claro, hay perfiles que están más preparados para una transformación del proceso en términos de experiencia, de visión, sabes? Depende mucho también del perfil y de la preparación de la persona y de qué tan dispuesta también esté al cambio. Ojo, eso lo sabemos, nos ha pasado, hay gente que te va a decir no, eso se tiene que seguir haciendo así y ya uno como consultor y también habiendo hecho el diagnóstico puede identificar, no, mira, aquí hay unos problemas claros, unos cuellos de botella y también vamos identificando resistencia. Entonces la idea es que levantamos los procesos tal como son, con recomendaciones mejores o peores de los dueños de esos procedimientos y levantamos el proceso como debería ser en función también de experiencia. Nosotros tenemos también referencias de esos distintos procedimientos corporativos en otras empresas y lo más importante que tenemos el diagnóstico y el approach ya verificado desde cuando hagamos la presentación del informe diagnóstico, cómo debe orientarse en función de lo que la empresa está queriendo. Esto lo estamos entendiendo además como algo que está vivo. Estamos súper claros que una de las complejidades del proyecto, y eso también suele pasar regularmente, es que la empresa no está estática esperando el informe de diagnóstico, sigue tomando decisiones o se siguen transformando. Entonces bueno, por eso también estas reuniones de seguimiento son importantes para nosotros.
+S2: ¿Comenzaría crees tú, la semana de arriba,.
+S1: La semana del 20 ya deberíamos estar, yo estaría hablando contigo para ir organizando las primeras entrevistas que empezarían esa semana,.
+S2: Idealmente cómo quisieran, bueno, podemos ir viendo el calendario, pero la idea ustedes quisieran terminar primero con Venezuela y luego Panamá, o quisieran o van a estar aquí y unos que viajen, ¿Como quisieran llevar esa parte?
+S1: OK, fíjate, hay procesos que los hemos visto, están divididos entre Venezuela y Panamá, pero están conectados. Nosotros, nuestra idea es organizarlo por áreas o procesos más que por localidad. Entonces eso nos va a llevar a que tengamos que vivir con el componente híbrido, o sea, venir para acá, hacer unas entrevistas acá y estar conectados con Panamá para hacer otras entrevistas a la siguiente hora con Panamá, por ejemplo, vamos.
+S2: A poner un ejemplo, van a revisar todos los procesos de la web y el de Panamá, lo idealmente es que la misma persona de parte de ustedes.
+S1: Levante los dos, pues bueno, eso no es obligatorio, eso la verdad es que nosotros trabajamos súper bien como equipo, tenemos excelente comunicación y metodología. OK, fíjate, el viaje a Panamá. El viaje a Panamá ciertamente lo pensamos, de hecho en el marco del inicio de la segunda fase, un poco apresurado hubiese sido esta semana ¿Estaría ya ahorita, por ejemplo, o estaría saliendo hoy, Gabriel? Hoy en la noche, mañana temprano. Claro, lo planteamos así un poco por la premura ante la oportunidad de que estuvieran los Roizenthal allá. Todos o casi todos. Esa era la idea, todos iban a estar allá. Coincidieron las agendas y hablamos de esa fecha por eso, porque también coincidía con quien ahorita tiene posibilidad de viajar a Panamá, que es Gabriel. Entonces, ¿Qué es lo que quisiéramos? Tener la oportunidad de ya Consultores UCAP nos está ayudando a averiguar cuáles son los requisitos de la visa Panamá. Sabemos que está muy difícil. No es tan difícil.
+S2: Tienen que pagar 30 dólares a alguien para que te consiga la cita.
+S1: OK, perfecto.
+S2: Y lo que es petarlan para te dan la cita y la cita te la dan para la semana que viene. Y tienes que tener, obviamente, cuando vayas a pedirle al contacto que te saque la cita, tener ya como que más o menos tus papeles, como que ya tengo la documentación necesaria. Es muy difícil la documentación baja tu cita lo deja, pero dura tres meses.
+S1: En que te contesta. Bueno, pero del equipo, por ejemplo, puede viajar Gabriel y también puede viajar Josué. Josué está saliendo, sale el 16 de vacaciones y se va un par de semanas. Vacaciones realmente lejos, pero él viene a Venezuela. Entonces lo que quiero corroborar es la fecha de regreso de la Venezuela, porque él pasa aquí dos o tres semanas en Venezuela por temas de empresa.
+S3: Y.
+S1: Ver si justamente cuando estemos arrancando el tercer mes del proyecto, tenemos ese vínculo Panamá sin ningún problema. Nosotros podemos ir adelantando Panamá a distancia. La visita a Panamá es importante. Sí, estoy segura que buscándolo lo puede tener antes, pero a mí me gustaría que fuera Gabriel y alguien más del equipo. Sí, porque claro, esta visita no solamente es de procedimiento, sino que genuinamente también tiene un factor político importante, ¿Me entiendes? De entrada del equipo consultor que conozcan allá en Panamá el equipo de la empresa de Génesis al equipo consultor trabajando con los Roes sentando. Si.
+S2: No nada más van a levantar, sino que puedan sentarse.
+S1: Y ojo, Gabriel lo puede hacer, pero si va uno solo, creo que un equipo. Sí, sí. Además son aristas distintas lo que está atendiendo Gabriel que lo que está atendiendo Josué, que también tiene un liderazgo importante en el equipo por su experiencia. Y bueno, creo que esa entrada puede ser importante si la hacen en equipo. Entonces, esto lo hemos discutido nosotros y creemos que. Bueno, mira, las cosas no se dieron como esperábamos. ¿Lo ideal hubiera sido dejar esta semana,.
+S2: Pero esas fechas tú me dices, o sea, cuándo estimas?
+S1: Josué regresa el 30 de Francia, A Coruña. OK, tengo que revisar con él si él viene a Venezuela en agosto, que estoy casi segura que es así. OK, probablemente sea mediados o finales de agosto porque lo ideal también sería que saliera de Venezuela hacia Panamá, pero bueno, vamos a ver, tengo que conversarlo con él para ver.
+S2: Pero podemos manejar esa feria para poder.
+S1: Sí, vamos tentativamente hacia finales de agosto. Tentativa, ojo, lo podemos intentar nosotros. Consultores UCAP ya no está tres meses.
+S2: Y no solamente en mi experiencia, sino que yo le he dado hospedaje a todas las mamás de mis amigos que están allá para su visa y todas hemos tardado tres meses en recoger una visa. Yo me animé a sacar la mía porque vi que a todos ellos se la probaron. Yo viví allá seis años viví allá, gran parte de mis amigos están allá, yo recibí a todas sus mamás aquí en Caracas para que fueran a la cita y todas las han recibido en mi casa cuando piden la cita. Y tres meses exactos después cuando vienen a buscar la visa en dije bueno, yo también voy a intentarlo. Y me pasó exactamente lo mismo, fui tres meses exactos, me llegó para Mira,.
+S1: Lo que voy a hacer después de la reunión es hablar con Vanessa para ponerte en contacto con la asistente de ella y la guíes con este tema del contacto y todo. Cuestión que Vanessa nos ayude a organizar y nosotros como equipo hagamos el intento, pero si no, probablemente puede ayudar a acelerar a lo mejor, no lo sé, o puede ayudar a que la den.
+S2: Para que la den, no para acelerar.
+S3: Sí nos la dieron acelerada pero hubo un proceso de lobby con la gente de Empresa SEM en Panamá, o sea nos la sacaron como una semana a muy poco Grande Consulado abrió por nosotros pero cuándo el año pasado, digo, el consulado iba a abrir que si en una semana y nosotros ya estábamos en contacto para. Porque ya agosto me parece un poquito lejos.
+S2: Sí, pero se puede hacer la gestión y de verdad que sí conoce a alguien de alguien. De alguien de alguien y sí se.
+S3: Puede hacer la pregunta sí tocarnos entrar, contemos con que puede ser Josué a finales de agosto. Junto con Gabriel.
+S1: Junto con Gabriel.
+S3: Pongamos ese hito como que ya en el plan. Aparte si es a finales de agosto, Bernardo pudiese estar también en Panamá, porque él se va el 1 de agosto.
+S2: Si van a finales de agosto estarían.
+S1: Para la fase 3, correcto. Bueno, no, todavía estaríamos. Estas son dos meses, la fase 2. Nosotros vamos a estar en septiembre todavía.
+S3: En fase 2, pero obviamente no dejemos de avanzar.
+S1: Claro, no, totalmente. Total. Por eso digo que agosto es plausible para fase 2 todavía. Perfectamente. No nos va a limitar en el avance, siempre que la gente tenga la disposición a la conexión en las entrevistas.
+S2: Yo diría que para la semana que viene. Bueno, ya estoy bando un poquito.
+S3: Punto.
+S2: Estamos totalmente de acuerdo que esta semana.
+S1: Va a ser para ustedes venir el 17, ver un borrador y luego la.
+S2: Siguiente semana me imagino ese informe.
+S5: Disculpa, ¿Qué es lo que va a tener lo de la entrevista?
+S1: Todo el entregable de la fase 1. El entregable de la fase 1, exactamente. ¿Que corresponde? Bueno, tiene una sección de metodología, cómo fue el abordaje, un resumen de toda la recolección de información y todo el componente de análisis de gobierno corporativo, estructura organizacional, estructura de talento, gestión de cambio y estructura tecnológica también. Sí, por supuesto. Eso está en la parte de estructura de talento, en la sección de recomendaciones, referido a. Claro, nosotros hemos buscado no personalizar, porque aunque está el listado de nombre de entrevistas con los nombres de las personas que entrevistamos, no hacemos referencia a nombres de quién mencionó cuáles cosas. Entonces, bueno, en el caso de los perfiles que estamos recomendando, estamos hablando en términos de eso, de perfiles. Aunque actualmente el perfil de Alexis está en el mapa con su nombre y su apellido, en las conversaciones que hemos tenido en el informe no vamos a hacer mención directa a su nombre, sino, mira, hace falta que genuinamente haya un área que esté dedicada al seguimiento y a la implementación de inteligencia artificial en la empresa, o sea, que tenga ese liderazgo centralizado. Que Alexis no es necesariamente el perfil que está llevando.
+S3: Eso él no asiente. Artificial es.
+S1: Machine Learning, lo que él hace. Correcto, así es. Pero sí vimos que tenía en el organigrama un cargo denominado con inteligencia artificial.
+S3: Sí no está en el organigrama, él es externo, él vive en SA.
+S1: San Juan de los Morros. Exacto. Pero si sale en uno de los organigramas, está la cajita.
+S5: Sí. Yo creo que vas a tener que hacer una excepción y no sé, en alguna parte del informe ver el tema de Alexis cuál va a ser la recomendación que ustedes están viendo desde una óptica general.
+S1: Perfecto, está muy bien.
+S5: Más allá de este de Inteligencia Artificial, sino de él como profesional, si ustedes ven que aporta la organización, si se puede mejorar o simplemente ya no.
+S1: Perfecto, está muy bien. Sí, sí.
+S3: Metodología de Abordaje.
+S1: Metodología de Abordaje, Gobierno Corporativo y Fundamentos Organizacionales. Estructura de Procesos, que es Mapa de procesos, como son y cómo vemos que pueden quedar en función de el siguiente punto que es Propuesta de Estructura Organizacional, El siguiente punto estructura de Talento y allá adentro hay varias recomendaciones, análisis y recomendaciones que incluyen este punto que está solicitando Ricardo. Análisis de ese perfil y de su funcionamiento acorde a lo que está necesitando la empresa ahorita por lo que nos han descrito en las entrevistas. Diagnósticos, yo no sé si lo quieres.
+S5: Hacer o no.
+S1: No, allí, allí. Después un componente que está asociado a Gestión del Cambio y Comunicaciones y el componente de Tecnología, que básicamente Sistemas e Inteligencia Artificial. Todo eso, por supuesto, tiene un componente descriptivo que nosotros vamos dando también un orden lógico a esa descripción para que no sea solamente el relato organizado de cosas que ustedes saben, pero que van a poder recuperar en un solo lugar, sino también las recomendaciones a partir de ese relato que nosotros estamos recogiendo. Recomendaciones concretamente en Propuestas de Estructura Organizacional, de Estructura de Patrón del Talento y en términos de estructura también de Inteligencia Artificial.
+S2: Para las entrevistas, bueno, Con toda la parte de procesos, el levantamiento, voy a crear de una vez aquí un duplicado de esto. Entonces para poder organizar un poquito mejor y quede aquí mismo todo lo que veníamos diciendo cuando por WhatsApp al correo que yo te respondía vamos a.
+S1: Buenísimo. Sí, sí, me gustó mucho cuando lo vi allí, yo dije, ay, yo lo hubiera sabido programar, pero sabía que eso era posible. Me encanta.
+S2: Entonces lo hacemos así, total, yo te.
+S1: Mando un listado y te digo, mira, estas son las personas o estas son las áreas y no sé el nombre de alguien. Aunque ahorita como tenemos el listado de personal debería ser más fácil, pero yo creo que prefiero por área y por proceso, para segura de que no confundirnos aquí.
+S2: Y si, sería bastante útil saber, no sé si eso, como lo está manejando ustedes de manera interna, quién es el designado, porque yo no me atrevía a solapar porque no sabía quién era la persona, por eso te fijabas, ponía una, después la otra, porque no sabía si podían chocar. Porque puedo yo, tú me mandas la lista, mira, estos son los cargos, te pongo aquí la lista y tú más pollas colocadas. Yo sé cuáles pueden solaparse y cuáles no se pueden solapar. Bueno, yo sé que tú vas a ver a Evelia y a Víctor, no los pongo a la misma hora, pero si son tres personas diferentes, capaz los.
+S1: Pongo a la misma hora, van a.
+S2: Aprovechar más el tiempo. Te pongo aquí la fecha y la hora, bueno, como se ve aquí la fecha y la hora y te la pongo aquí como si te da por confirmar es porque no la he cuadrado.
+S1: Con nadie, programada porque está confirmado y.
+S2: Ya tú la puedes agendar en el calendario con la persona y cuando ya se termine, pues tú le colocas realizar.
+S1: Y bueno, en principio yo en las entrevistas diagnóstico fui la encargada de trabajar con el cronograma del ARC programando, pero bueno, ya aquí cada uno sería responsable de convocar a sus personas para descentralizar. Exacto, entonces vas a ver que de pronto Jesús es el que programa, o Vanesa o Josué, lo importante es que.
+S2: Se le hagas llegar a ellos, que cuando la tengan vamos a llegar otro.
+S5: Aquí ese levantamiento son las mismas personas que las entrevistan,.
+S1: Vamos a repetir con algunos de ellos, pero la idea es trabajar con los responsables de todos los procesos de la organización, no es una muestra de procesos, sino que son todos.
+S3: OK, lo que entonces debería ser por área y un representante o dos por área.
+S1: Sí, puede ser hasta tres por área, por ejemplo, mercadeo probablemente vamos a necesitar tres personas, que es una de las áreas más grandes, es lo que estuvimos viendo. Sí, y de todas maneras nosotros al hacer esa organización del listado de personas que vamos a entrevistar, ese mapa, chequenlo ustedes también, valídenlo en función de, bueno, mira, de pronto hay algo que cambió dentro de esa estructura que nosotros tenemos como referencia para armar este mapa de entrevista, entonces nos dicen, mira Clement, tienen que meter aquí también a esta persona que llegó nueva, o mira, esta persona ya no se encarga de eso, se movió para tal, o mira, es importante, aquí viene un cambio, Clemen, mete a esta persona también, o ten en cuenta antes de entrevistar a esta persona esta situación, ¿Sabes como? Ese mapa quiero mandárselos para que ustedes ya sepan a quienes queremos entrevistar a las áreas y que nos hagan esas recomendaciones previas simultáneamente, como tú dijiste, la empresa se mueve.
+S3: Sí, se está moviendo puntualmente. Vamos a empezar a hacer evaluaciones 360.
+S2: Sí, pero esto está dentro del esquema del proyecto. La última fase, la fase 4 última.
+S1: Sí, pero ya igual ya están avanzando en eso. OK.
+S3: Tú le dijo el día de empezar en Paraguay y acá en Venezuela creo que Ricardo está tanto en las evaluaciones procesales que va a ser nubio, ¿Verdad? Sí, ya se están haciendo por eso, porque sé que conecta con su proceso.
+S2: Si.
+S3: ¿Alguna recomendación? Porque usted tiene más experiencia.
+S2: La recomendación es que esperen que nosotros hagamos. Sería la recomendación en realidad que esperen, porque esto va a ser en septiembre, o sea, tampoco.
+S3: No, pero es porque no lo van a estar haciendo ustedes ya lo va a estar haciendo empezar a hacer por otras necesidades que tiene hoy y va también a empezar a hacerse aquí en Venezuela, desde el equipo Recursos Humanos Venezuela. No sé si las recomendaciones. Espérense, avísanos porque se le dice a Nuria, no es que se van a Leo.
+S1: No, no, Buenísimo. Mira, es la. Fíjate, para comentarles un poquito sobre la fase de evaluación del personal, hay distintas maneras de adelantar ese proceso de evaluación. Ciertamente las organizaciones cuando nosotros entramos, no detienen sus procesos regulares de evaluación. De hecho, para nosotros es un recurso. Si ya la empresa las tiene, para nosotros es un recurso que forma parte de la evaluación que nosotros incorporamos. ¿Qué es lo que pasa? No siempre se evalúa todos los elementos que a nosotros nos interesan, efectos de la transformación que está teniendo la empresa. Entonces, bueno, mi recomendación es que sigan adelante. Si tienen unas necesidades puntuales a las que atiende esa evaluación 360, vayan adelantando. Para nosotros va a ser un insumo. Ya eso. Lo que sí vamos a necesitar, que es muy importante, que es uno de los puntos que puse para hoy, es que los currículos del personal, independientemente de que haya o no razón de que pronto la persona vaya a salir de la empresa, porque no sabemos cuándo va a salir, es importante que actualicen currículos y que puedan estar disponibles en una base de datos o resúmenes curriculares. OK.
+S2: El curso humano, haga una actualización de esos públicos virtualmente, porque actualmente está en un archivo. Pero bueno, se le puede ir dando ese trabajo, ¿No?
+S1: Sí, totalmente. A ver, también puede haber un trabajo de digitalización por parte de ellos y que IA le ayude a transcribir y bueno, nos vayan poniendo eso en un repositorio. Pero para nosotros tener los currículos actualizados también es importante en términos de, mira, ¿Cuál es la formación de esta persona? ¿Qué experiencia tiene? ¿Cuántos años tiene? ¿En qué áreas? Estaba para la última. Sí, ya eso es para octubre.
+S3: Igual que las preguntas que ellos hacen en la encuesta inicial. Panamá lo haces, Italia lo hace en persona, el papelito con un traste que te hicieron llenar. Pero también eso parte del level up del equipo acá, que es que hay unas cosas que sé que tienen que tener a papel por un tema de la luz.
+S1: Está como temblando la mesa, pero. Sorry Ricardo, aquí estoy. Bueno, pues no sé si Carmela y Arani le pasa lo mismo, pero yo escucho un ruido fuerte o siento un temblorcito y ya estoy atenta.
+S3: Yo siempre he sido así, yo no tengo PTSD, gracias a Dios, porque no estaba yo. Después las bombas en realidad. Demostramos en 2026 ya fue suficiente.
+S5: Carmela, sí me gustaría tocar el punto que hablamos sobre si esperar la UCAP o no, de los movimientos de los departamentos.
+S3: Hay necesidades también y lo vas a ver conectado a las prioridades de la junta que te voy a mandar en su versión más cruda. Hoy, obviamente uno de los objetivos es crecer en e commerce, entonces se ve la necesidad de contratar un e commerce manager, pero ese movimiento afecta.
+S1: Ustedes tienen una aquí en Venezuela que.
+S3: Es.
+S1: Gerente de la web, OK, pero no es e commerce.
+S3: Perfil Comercio Venezuela, y queremos una persona que a nivel regional estandarice la calidad del e commerce y que lleve la batuta en ese crecimiento, ¿Verdad? Porque aquí está Esmir, pero en otros países, otras personas y no estás tan.
+S1: Al y no se comunican tampoco.
+S3: Nadie,.
+S2: No existe la figura o cada uno.
+S1: Le reportan su país.
+S3: Pero entonces no hay una estabilización porque Bernardo no está viendo el proceso de Panamá y USA, más allá de que está creciendo, no les va bien financieramente o no. Entonces, para esa ejecución brillante se requiere a un e commerce manager. Ya lo quieren contratar y ya lo están buscando. Surgió, para que sepas el contexto completo, que una persona dentro del equipo de marketing web, dentro del equipo Digitale, solicitó la oportunidad si estamos con una persona, yo considero que soy e hizo una propuesta para el rol y de hecho como que sí ha hecho campaña para el rol y sabemos que ese rol afecta el de customer service, porque ahorita Panamá e commerce lo lleva customer service.
+S1: También Patrick.
+S3: También tiene mucho como que hay un tema de solapamiento y no de servicio técnico e commerce. Entonces para poder separar e commerce y servicio al cliente se requiere esta cabeza de e commerce. Pero esta persona está solicitando la oportunidad, pero hay un proceso de, bueno, tendrá la habilidad de organización para llevarte a un área después de venir de una tarea muy específica que es el medio, ¿Verdad?
+S1: Pero que este mes más el tema autoritas o el tema de capacidad técnica,.
+S3: A mí no me preocupa la capacidad técnica porque esta es una de las personas que está como pro en cloud. Si tiene cierto nivel de liderazgo, porque.
+S1: Claro, claro.
+S3: Ella y Patrick obviamente no lo podemos mover si no se tiene la persona de e commerce, pero no, obviamente es la decisión que ya se tomó para que no se tomaran decisiones aceleradas. Yo dije, no movamos a nadie hasta que Lucap nos dé también su visión de cómo se ve esa estructura en la que e commerce separa de servicio al cliente, ¿Verdad? Pero vamos a ver igual la propuesta que tiene Clara de cómo sería esa transición, porque lo que le hemos dicho a estas personas que quieren estos roles de liderazgo no es tanto como que dale prueba, sino hagamos un periodo revisado de prueba con KPIs. Entonces, Pat, ¿Quieres ser Customer Service? OK, tres meses de prueba, cuatro meses de prueba acordados y después se te da el filmin y se decide. Porque si tú subes a alguien no lo puedes bajar. Pero sí es momento movimiento de Patrick, no va solo, es una cosa articulada. Clara entra e commerce, Patrick separa customer service y se tiene que contratar a una persona para paid media, para que no quede descubierto. Entonces queríamos tener también su punto de vista al respecto de esta recomendación.
+S1: Claro, OK. Sí, sí, entiendo que hay áreas críticas, por ejemplo, esa está el área también de finanzas concentrada en contabilidad especialmente, aunque ustedes no lo mencionan desde el día uno. Le comenté a Bernardo también la importancia de la visión estratégica de gestión de talento humano como aliado del negocio, más que una oficina de operación administrativa, porque tiene además un rol clave en la gestión del cambio organizacional. Entonces, bueno, lo que vemos hoy día, ustedes lo saben, es una función básicamente operativa administrativa, bueno, tiene algunas iniciativas de cuidado del talento, todo esto, pero genuinamente sí hace falta un acompañante estratégico justamente además para un especialista para estos temas de cambio también de los perfiles de las áreas de las contrataciones. ¿El componente también del área del liderazgo, vamos a decir, por no decir el área, pero dónde está el liderazgo del proceso de cambio tecnológico en la empresa? Si es algo tan central, ¿Quien lo lleva? Porque ahorita está totalmente fragmentado y además con visiones distintas. Por un lado está Lexis que lleva un asunto de BI con Machine Learning y bueno, incorpora algunas cosas de inteligencia artificial, pero no es quien está liderando ese componente a nivel transversal.
+S5: Sí, pero Clemencia, más allá de lo que está mencionando, lo que dice Carmela es que ese puesto de e commerce y de soporte o servicio al cliente va muy de la mano por el tema de la web y el manejo de todos los ingredientes de e commerce. Entonces los dos candidatos que están sobre la mesa manejan muy bien lo que es inteligencia artificial, esos son los que más la usan en la organización. Por eso es queríamos saber cómo lo ven ustedes. Perfecto, es un cambio positivo de crecimiento y continúa el engranaje de la empresa, porque el tema del e commerce y del servicio de cliente y soporte técnico es muy complicado porque no hay figuras regionales. Entonces si se contrata alguien de afuera va a tomar un tiempo, digo yo, largo de adaptación y para mí va a haber un hueco que no podemos tomarlo en estos momentos. Para mí, como yo lo veo, traer gente de afuera que dar la oportunidad a gente adentro que conoce bien el negocio.
+S1: OK, entiendo. Sí, no, y lo vimos.
+S3: Esa primera pregunta que tú haces, esa es la respuesta.
+S1: Tienen un rollo tremendo también, o sea, no entiendo cómo hacen para atender más de mil solicitudes con un solo departamento, que además conjuga el tema de.
+S2: En Venezuela si está separado, aquí están separados, pero Patrick está llevando las dos.
+S1: En todo lo demás, Ajuro tuvo que meter IA a Juro. Pero eso es mejorable totalmente desde el punto de vista estructural y desde el punto de vista también de soporte técnico, pues de cómo pueden automatizar algunas cosas.
+S3: También eso afecta y por eso es tan importante que ustedes metan el ojo, porque obviamente están cota, hay demasiadas áreas, compras que necesitan de su. Pero en esta separación de áreas que se está haciendo, ya hay equipos por debajo de analistas, digamos que se van a tener que separar y ver dónde queda cada uno de sus roles, porque no podemos cambiar las cabezas y a río.
+S1: No, no, total. Eso es parte también del diseño de la estructura y los niveles. OK, perfecto.
+S3: Pero bueno, en esa presentación del viernes.
+S1: De la semana que viene, bueno, este viernes vemos un avance con Bernardo importante, eso es lo de los currículos. Si podemos empezar hoy, yo le voy a mostrar porque claro, el mapeo del talento también, además de nosotros tener los nombres y los cargos con algunas referencias salariales, uno sabe más que o menos por cuánto tiempo la persona tiene la empresa, pero si necesitamos ver los perfiles, queremos ver.
+S2: Para darles a ellos una fecha límite para que tengan eso.
+S1: Que Sí, porque ¿Cuándo creerías tú que.
+S2: Es lo máximo para tener eso?
+S1: Oye, mira, a mediados de septiembre.
+S2: OK, OK. Tiene bastante tiempo para sentarse cada vez de julio,.
+S3: De agosto.
+S1: Exacto. Incluso ustedes pueden definir un mecanismo de bueno, mira, si no escanear estos currículos que ya tenemos, es decirles, mira, aquí está la plantilla, completen estos cinco campos esenciales. Exacto. Complétenlo y tienen de aquí a tal. Porque claro, ¿Qué es lo que pasa.
+S2: Si yo voy a reunirme con ambas, con Evelia y con Nuria y definimos a ver el mejor proceso?
+S1: Total. Pero interno, porque ¿Qué es lo que pasa? Genuinamente, haciendo el conteo de personal entre Venezuela y Panamá y Colombia también son alrededor de 400 personas. Exacto. Entonces nuestra metodología no involucra entrar y bueno, vamos a hacerle una evaluación a Carmela de 45 minutos. Normalmente esas evaluaciones lo hacemos contra perfil documental ya verificado con la empresa, por eso es importante el tema de actualización, de tener como que un mismo formato. Y el liderazgo también, o sea, normalmente vamos, bueno, Arani supervisa a cinco personas, nosotros vemos el perfil de esas personas, ponte la estructura, vemos la propuesta de reclasificación de esas personas y lo verificamos con el jefe directo de esas personas, bueno, mira, esta persona nosotros cómo la vemos en función de. Porque ¿Qué pasa? ¿También hay situaciones contextuales, a lo mejor Clemencia tiene un perfil excelente para e commerce, ay, genial, está a nivel técnico tal, pero a nivel de autoritas o incluso a nivel de un tema actitudinal que afecta al autoritas, no es la persona, es como que mira, no? Exacto. Entonces, claro, esas sesiones de evaluación se hacen regularmente contra información documental, en contraste con la evaluación que hace el supervisor directo de esas propuestas de reclasificación. Así es que la consolidación, de salen resultados asociados a movimientos posibles sugeridos con los que la empresa tomará decisiones o desincorporaciones. Y también, bueno, hacemos algunas sugerencias de cómo puede ser la desincorporación. Por eso también al principio pedimos todo lo que ustedes tengan en función de, mire, qué políticas tienen para desincorporación de personal, cómo lo han venido atendiendo, etc.
+S2: De los requerimientos. Y ya creo que podemos ir aquí en el mismo LAR yo coloqué eso.
+S1: Sí, esto exactamente correcto.
+S2: Y aquí en la última columna les coloqué mi comentario.
+S1: El comentario, Sí.
+S2: Entonces, por ejemplo, todo lo que tenía que ver con organigrama, todos los recursos humanos, lo cargué.
+S1: Te voy a decir lo que tengo pendiente, que creo que es más fácil porque la mayoría está entregado, pero por ejemplo, dentro de información organizacional y de talento, el inventario de iniciativas de formación, capacitación, recientes, últimos dos años y resultados de evaluación desempeño no existen. OK. Entonces en procesos y operación tucu, KPI, operativos comerciales y financieros, todo lo.
+S2: Que tiene que ver por departamento está.
+S1: En la calle Drive.
+S3: Exacto.
+S2: Y aquí yo les coloqué. bueno Ricardo, ahorita me ayudas con algo. Acá yo creé una carpeta dentro del mismo lar que dice carga de información de cada uno de los departamentos y esta solicitud de esto yo se los mandé a cada uno de los gerentes que cargaran toda esa información. Entonces todos estos gerentes respondieron, los que dicen que fueron champions, porque respondió literalmente mira, no contamos con nada de esto.
+S1: OK, perfecto.
+S2: Lo que dice regional, ¿Que es?
+S1: Proyecto, documentos. Carga de información.
+S2: Carga de información. Lo que dice regional es porque lo que cargó Ricardo de proyectos en Panamá y lo que cargó Patrick de servicio cliente Panamá, aplica para. Es regional, o sea, aplica para Colombia, aplica para Venezuela. Lo que dice cargado es porque cargaron lo que ellos encontraron en su haber. Puede que hayan encontrado de los cinco requerimientos uno solo, pero ya como que lo que cargaron es lo que tienen fuera de. No tienen nada. Y bueno Ricardo, la única persona que a mí no me contestó fue Handan, no sé si tú quieres hacerle otro seguimiento. Ya yo le mandé un correo de seguimiento, otro correo de seguimiento, no contestó, es el único que no ha dicho. Mira, por ejemplo, Fernando no me había contestado y Fernando con Sudani no tengo nada. Bueno, ya tomar como no tengo información, pero Handani no respondió nada. Entonces si puedes tú preguntarle porque ya yo le hice dos puntos de si.
+S3: No tú me pagas acceso a la carpeta con los. Bueno, al base, ¿Verdad?
+S2: Tienes acceso,.
+S5: No, lo que debe ser.
+S1: Que no tienen link.
+S2: Es el único que me faltó. Y todo lo que es de ITECA también comentamos hace un rato que faltaba. le comenté a Jesús que fue un error mío, pero que ella lo pedí a la persona que no era.
+S1: Él me dijo OK, perfecto.
+S2: Mariela quedó en invierno esta semana. Le pregunté si me contesté un correo, le pregunté esta mañana tipo Mariela ya que está, o sea, ella dijo esta semana no específico día y le escribí esta mañana, no me ha contestado. Le pregunté qué día esta semana puede tener para yo decirles a ustedes mira, lo van a tener tal día.
+S1: Sí, sobre todo quizás frente al informe tener el blueprint de Odoo, incluso si por país, porque entiendo que hay diferencias también conocer esas diferencias de versiones.
+S2: Bueno, ya en la entrevista que hubo con Mariela, no sé qué tanta información van a sacar también capaz de allí.
+S1: Entre ella y también la entrevista con Jaime con los temas de Odoo, Gabriel sí logró levantar un mapa importante allí.
+S2: Con recomendaciones y aparte de legal, de la parte legal,.
+S1: Marco regulatorio y normativo vigente que aplica en materia de protección de datos personales y propiedad intelectual, contratos tipo con empleados. Bueno, a ver, eso sobre todo saber si existe o no existe.
+S2: Solamente de existe un acuerdo de confidencialidad que los empleados están cargando ahorita,.
+S1: Que fue como el que firmamos nosotros para el proyecto. Muy bien.
+S2: Eso es lo que básicamente lo que esté en el drive, a excepción de Retail que es Andan y que no ha contestado.
+S1: Ya está listo. Ya ese es el estatus.
+S2: Mariel es la dict que va a mandarlo demasiado.
+S1: Perfecto, está muy bien.
+S2: Ya por eso. ¿Qué otra cosa? Aquí ven los requerimientos.
+S1: Si, era eso en principio ahorita eso sí vamos a necesitar otro espacio de repositorio porque claro, cuando empezamos hacemos las entrevistas de levantamiento de proceso. Si hay formatos que son que están en físico. Oye, tenerlos escaneados y ponerlos en un lugar como me están diciendo que usan mucho papel, es posible que algunos formatos haya que escanearlos, ponerlos en un repositorio,.
+S2: Todo se va a quedar siempre en la misma carpeta grande de lockout, entonces la voy a poner aquí. Levantamiento.
+S1: De proceso.
+S2: Entonces a lo que tú me envíes el listado de las gerencias, te armo las subcarpetas por gerencia.
+S1: Excelente, está muy bien. Bueno, ya. Ajá, dime. Perdón que te interrumpí la idea que venía.
+S2: Tranquila, solamente para comentarte que aquí también está una carpeta de malla que las creé, no hay nada, pero por si tienes que cargar algo, se puede cargar allí.
+S1: ¿Vi que Vanessa ayer te mandó un.
+S2: Reporte de avance, se les dio, Bueno,.
+S1: De las personas hasta mañana, no? Los que no estén mañana, de las.
+S2: Personas que ya mandó, de estas cinco personas, Robert y Andrés, yo me imagino que no lo van a hacer, vamos a quitarlos. Y Recursos Humanos, Chávez presionado a Nuria. bueno, con eso también puedes apoyar, Ricardo. Del equipo de Nuria se incluyó a Kathrinia, Karina, ellas son las únicas dos personas de Panamá que no han comenzado Maya. Ya yo les hice el recordatorio a Nuria, les hice ellas mismas y no han entrado. Bueno, hasta ayer no sé si habían entrado. Ellas dos son las únicas que no han entrado, entonces apóyame también y ellas dos para que entren en Maya. Y Héctor está de viaje, entonces quizás.
+S1: Le puedes dar un poquito más de tiempo o entrar en la otra ronda.
+S2: Yo diría, porque Héctor está dirige por la empresa, pero me dice arenillo a las 2 de la mañana todos los días, me fue claro y me dijo no lo voy a poder hacer ahorita,.
+S1: Ahorita.
+S2: Otra vez es la semana que viene, entonces capaz iba a poder entrar, pero no va a lograr hacerlo en una semana, no creo, entonces no sé cómo no.
+S1: Bueno, yo diría que lo dejes en la lista y lo incluyas en el cronograma de la siguiente ronda, que justamente ese creo que es el único punto que nos falta en agenda y es el tema de las licencias. May, hay un costo por licencias Si son menos de 200 y bueno, otro costo que la verdad es que la diferencia es significativa, eso está en la propuesta del monto.
+S2: Si queremos llegar a las 12, ¿Cuál es el plan que tenemos hasta ahora? Evidentemente que todos estos usuarios terminan el 24 de junio. Exacto, o lo que habíamos conversado muy por encima con Bernardo, era que están todos los gerentes, están todos los gerentes y de algunas áreas de una vez metimos dos o tres personas más por área, por ejemplo de marketing no nada más está Valentina, sino que está Valentina, Carol y Walter, entonces, pero hay áreas donde solo está el gerente. Que queremos sincerar con los gerentes siempre la idea es que lo hagan todos y queremos que lo hagan todos, pero si queremos tener el feedback de los gerentes de mira toda tu plantilla, crees que le va a sacar provecho a esto, los ves, si dicen que sí, todo, bueno, amén sea, se los damos a todos. Claro, claro, si existe un mira de verdad, yo creo que después de haber visto todo el proceso programa, yo considero que de mi equipo ponemos elvis, que son 18 personas, mira, de mi equipo realmente lo van a usar y lo van a dar aprovechar 5. ¿Entonces bueno, para definir el cronograma sería el 24 todo el mundo termina, hasta 20 termina, luego yo hacer un pequeño feedback con cada uno de los gerentes y voy mira de tu equipo quién es? Armamos la lista de metas, porque la idea es poder llegar al desp.
+S1: Claro, claro, sí, total.
+S2: Entonces, pero por ejemplo, qué hago con esta gente como Ricardo, Robert, los borro, les digo que les quiten la cuenta,.
+S1: O sea yo los dejaría y esperaría esa segunda tanda, o sea lo que haría es cambiarles cronograma, pero los dejaría allí para que sigan siendo parte también del listado y puedan llegar al descuento.
+S2: Pero la idea si esa, la idea es poder llegar al descuento. Claro, la idea que Bernardo es como que mire, yo llegué, de hecho me dijo bueno y si falta gente vendo a mi sobrino, si falta gente.
+S1: Claro, recordemos que el objetivo también es, o sea, de la masificación, el objetivo central es que nosotros estamos teniendo como drive del proceso de cambio en una primera etapa en la organización, la formación del talento, entonces bueno, genuinamente es clave y es muy importante lo que estás describiendo de que las gerencias puedan hacer la identificación de mira, estos son los perfiles críticos que tienen que hacer esto porque son los que menos saben, por empezar por son los que menos saben y por lo tanto son los que más provecho le van a sacar y son a los que vamos a ayudar a traer también este lado de la luz para que comprendan un poco también que la IA no es algo a lo que temerle, que es una herramienta que va a optimizar la manera en que tú haces las cosas. Por lo tanto, optimizar cómo hacemos las cosas en la organización y que no se traduce en todas las áreas y en todos los elementos en la sustitución de la persona. Porque esa es una de las primeras impresiones y una fuente de la resistencia al cambio clave en lo que uno comienza a trabajar en eso, a través de formación, de capacitación, de que la gente comprenda, se involucre con la herramienta. Eso de base ayuda también al proceso de cambio. Es una premisa que estamos utilizando en el proceso proyecto como drive del cambio. Y bueno, por supuesto está en la segunda fase la formación del equipo directivo en cloud con Gabriel, que esas son unas mesas que vamos a tener que organizar. Por ejemplo, Gabriel ya tenía pensado y armado, aprovechando la visita a Panamá, hacer la formación de todo el equipo directivo que estuviera allá de una vez, pero bueno, no se dio.
+S2: ¿Abarca gerencia o nada más junta directiva?
+S1: Abarca dos niveles, junta directiva y bueno, pueden aprovechar Junta Directiva y sus extensiones, comités y hay otra capa que es gerencias medias. ¿Para que? Un poco también para nivelar desde los que mira, no han usado nada cloud, hasta mira, los que ya están mastering la cuestión en su área, porque el asunto también es ir nivelando e incorporando.
+S2: Por eso la importancia de lo que mencionaste hace un buen rato, de tener un perfil que se encargue de todo este tema de manera interna.
+S5: Después que ustedes saben, tiene quedar alguien que se encargue de eso.
+S1: ¿Y ustedes tienen alguien de abreboca para aprovechar el punto? ¿Tienen alguien en mente? Usted, o sea, incluso a nivel informal que ustedes digan. Yo me imagino no interno, que es.
+S5: Amiga de Estefanía Royce, pero eso está muy complicado porque ella tiene un muy.
+S1: Buen trabajo, me imagino. Sí,.
+S5: Ella se llama Hannah,.
+S1: Es externa,.
+S3: Pues ahorita por amiga le ha dado un curso particular a Estefanía y a Clara, Y Andrés también ha aprendido mucho, pero por su lado hacer aplicaciones. Y hay otras personas en el equipo que también yo lo ponía muy bien, yo les hice entrevistas, por eso el reporte que les mandé ayer y después todos los demás. Y por eso lleguen entre estas que yo me Bernardo, yo ya sé que lo usa como un chat y para generar ciertos documentos. Andrés, aplicaciones 100% Star Coding pero ya después todas las personas del equipo comercial, incluyendo a Jimena, Ricardo, Datodano, que es nada más el equipo comercial, los que tienen acceso, porque lo usan, de verdad que sí lo usan, es lo que.
+S1: Está incluido en el reporte que me mandaste.
+S3: Exacto. Pero ya, o sea, marketing, pues como te digo, está claro, y Natasha, lo usan, pero no creo que no se esté usando en finanzas, ¿Verdad? Y hay oportunidad.
+S1: Sí, en todo el área de compra, finanzas, contabilidad,.
+S2: Darle las licencias a la.
+S1: Gente, o sea, ¿Cuál va a ser ese?
+S3: Creo que la entrada de Gabriel vale mucho la pena porque nos va a economizar la licencia, porque lo que pasa con CL es que se les van a acabar los tokens, que ya les pasó, o sea, yo agarré a toda esta gente ya después de que se les habían acabado los tokens en algún momento y habían buscado soluciones, que hay muchas, pero es como que estandarizar la solución, porque Clara y mía utilizamos Obsidian, que es como una aplicación externa, pero no sabemos por qué no pudiesen estar usando la, por ejemplo, y esa evaluación de, mira, si Jimena, Alaní, Ricardo, van a tener un cerebro externo que les facilite que los tokens no se gasten en un desarrollo de un producto, dígase una app para seguimiento de proyecto, si te pagamos la licencia de Claudia ahorita, te la vas a gastar, no te va a dar abasto. Entonces que Gabriel de verdad como que también tenga en mente, hay ciertas reglas que se pueden estandarizar, que no es por gusto y aparte por seguridad de la información, hay que decidir cuál es la mejor.
+S1: Sí, no, de hecho, bueno, parte de.
+S5: Y ver quién la usa, como y quien no, porque creo que eso tú lo hiciste, Carmen. Bueno, no, por eso te. Con toda la mujer, solo con Clau.
+S3: Claro, la gente que usa chat puede usar el Gemini de cool.
+S1: Exacto, sí, por eso es muy importante.
+S2: Igual estoy seguro que muchos empleados están.
+S3: Para ver,.
+S2: Es mi cuenta cloud mía personal, porque la utilizo para cosas que también son fuera del trabajo y obviamente si ya la tengo, bueno, aprovecho y lo uso para.
+S3: Y a mí me alcanza mi cuenta normal también.
+S1: Sí, exacto.
+S2: No, el tema para Coding tampoco lo utilizo más que todo para documentos, análisis de información.
+S1: Tanto la estructura de Inteligencia Artificial como la Política de Uso de Inteligencia Artificial, que son dos productos asociados a este proyecto, les va a ser también de ayuda para justamente esos incendios que han tenido que ir apagando, porque vuelvo y repito, la implementación ha sido diversa.
+S3: Yo sí vi un techo, Páginas webs, o sea es como que de dónde la nada, una HTTM brutal. Y después están los que lo tienen en Excel y es como si tuvieras un analista pero como que una acción.
+S1: Muy puntual que gasta recursos.
+S3: Claro, y el recurso es como que capaz una sola licencia puede estar haciendo la automatización y a ellos les llega. Se puede economizar.
+S1: Muy bien, excelente. Bueno, yo creo que estamos como listos. Sí, ya pasamos.
+S2: Aquí que no tiene nada. Muchas gracias por su gestión.
+S3: Yo me voy a sentar, pero me.
+S2: Parece raro porque él es el señor Clau. Señor Documento de Clau,.
+S3: Lo que le pidieron a él es con lo que pones aquí, cargas información, compras e commerce.
+S2: ¿Sabes que le digo? Solamente me faltaban por responder Handani.
+S1: Fernando.
+S2: Yo le escribo. Fernando, disculpa, solo faltan tú y Handani. Yo no creo que tú quieres estar. Ya mismo lo reviso, encontré la motivación que necesitaba.
+S1: Oh my God.
+S5: Clemencia, ¿Qué pasa si las personas no quieren compartir información?
+S1: Bueno, fíjate, depende de qué tan crítico sea la información que tiene esa persona. Hay cosas con las que nosotros podemos avanzar partiendo del punto de que si no la entrega no la tiene y si no la tiene para nosotros eso es parte del diagnóstico puntual de Handani.
+S5: Yo creo que importante darle un poquito de importancia porque maneja mucha data, tiene muchas presentaciones, tiene muchas.
+S1: Bueno, eso es importante que nosotros lo podamos ver.
+S5: Nosotros sabemos que tiene mucha documentación, por.
+S2: Eso fue yo mi insistencia en que mira, sube la información porque yo sé que la tiene.
+S1: Bueno, tiene cierta documentación en esta fase de proceso la vamos a entrevistar con especial a Inco en recolección de documental.
+S2: Está muy bien porque si hay alguien que utiliza, si hay alguien que tiene documentos hechos por cloud,.
+S3: Tiene un Excel con.
+S1: Ojo. Pero ha sido escurridizo en general en esta fase para nosotros también ha sido una especie de incógnita el poder tener la conversación con él.
+S2: Bueno, yo no, de hecho yo hice un diagnóstico cuando yo llegué de todo, fue el único gerente que nunca me.
+S1: Dio, sino para nosotros también tenemos exactamente la misma impresión en el equipo.
+S2: Llévate eso para que él sepa, o sea, pasó lo mismo que conmigo con ellos.
+S5: Y también me gustaría Clemencia, que dentro del reporte pudieras hacer esa acotación porque.
+S1: Es importante también una directiva que tenga esa pista. Sí, hay una sección, justamente la que estaba revisando ahorita con Araní de requisitos y allí uno puede ver, mira, hay cosas que no existen, hay cosas que sí nos entregaron, están desactualizadas, hay unas cosas actualizadas que nos entregaron y luego hay cosas que sabemos que están pero no entregan.
+S2: Sí, estoy segura que tiene. Porque él se reúne con su equipo y él tiene KPI, ellos marcan KPI.
+S1: Corazón,.
+S3: Estructura de comisiones, que también. Claro, va muy de la manera.
+S2: Me imagino que en esta parte de proceso, mira cómo se ha puesto esto rojo. En esta parte de proceso van a poder ver. Bueno, y una de las agendas, una de las reuniones como que más importantes sería como que maneja lo que es la empresa. Todo retail los maneja. Pero bueno, estamos listos. Apóyame allí con lo de Nuria. Con lo del equipo de Nuria, porfa. Y listo. Creo que no, que su equipo no ha entrado a lo de Moneda. Ya le hice seguimiento particular en conjunto todo. bueno. Y en líneas generales, el equipo de Panamá en general es el que menos ha avanzado en mayo. Entonces yo igual voy a mandar los recordatorios por el grupo, pero no, yo.
+S5: Voy a subir de una vez donde Nuria y.
+S2: Yo. Ayer, por ejemplo, yo ayer me paré y busqué a los que se van a registrar y no habían comenzado aquí a Venezuela. Me fui.
+S3: Hola,.
+S2: Biquete, está lista. ¿Pero que No has avanzado? ¿Cómo vas con eso? No, no, entonces como que cada quien me dijo, no, lo empiezo a ir mañana. Es que sintieron la presión. Me fui así. Te lo juro que los computadoras sí, estás en mi lista negra.
+S3: Hola.
+S2: Porque si no lo van a hacer.
+S3: Yo empecé cuando llegué porque debía que.
+S5: Le dice que me copie, porfa, no corra.
+S2: la región ya te lo pongo. No, no, Ella no manda la lista. La lista está en el acceso que tuvieron. Pero ya te cop. Ya te copio. No me doy cuenta que no estás copiado. Y en la ves.
+S1: Bueno, entonces es correcto. Yo vengo entonces este viernes en la tarde.
+S3: Sí.
+S2: Bueno, esta reunión fue más larga porque no estamos como haciendo cacha, pero la idea es que semanalmente sea un repaso más breve.
+S1: Incluso podremos evaluar, dependiendo de cómo vaya evolucionando esos paseos, evaluamos si en alguna oportunidad tiene que. Soy flexible, puede ser cada 15 días. Si se nos complica la agenda en algún momento o puede ser en otro horario. En principio martes 9 y media para yo tenerlo bloqueado. Surge algo, Podemos ajustar pues.
+S2: bueno, y recuérdale a tu equipo cuando vayamos a agendar las reuniones y le agregué otro dato por confirmar, por ejemplo, tú dices, mira, necesito entrevistar a la mía y está develado. Pongo que la entrevista está confirmada. Es porque ya le puse la duración, o sea, la hora y la fecha.
+S1: Perfecto.
+S2: Ya ustedes saben que esta persona ya dijo que sí.
+S1: Excelente.
+S2: Entonces programada, cuando ya ustedes la programen con la. Y bueno, cuando la terminen la ponen aquí. Es para evitar que nos echa tiempo, sino que está aquí y esta tiene la opción de abrir. Tú puedes insertarle un comentario. Te puedo decir, yo vi, tú.
+S1: Pusiste un gana en el.
+S2: Y puedes etiquetar a la persona, Puedes etiqueta por.
+S1: Y eso llega por el chat.
+S2: Debería llegar por el chat entonces, por si me tienen que mira, esta persona está confirmada, pero la contacté, me dijo que no puede. Ya yo sé que. Y así estás en París.
+S1: Aquí no hay papelera, aquí adentro. Bernardo, Permiso. Estamos listos por hoy. Nosotros nos vemos entonces el viernes en la tarde.
+S4: Viernes. Este viernes.
+S1: Este viernes, sí. Ya, Carmela, te ayudó con eso.
+S4: Te sale el 17 a las 3.
+S1: Y media. 2 Y media, 3 y media. No vale un regalo. ¿En serio?
+S4: Claro. ¿Cómo estás? Cuarenteno. Estás loco. Te lo llevas y lo disfrutas.
+S1: Bello. Claro que sí. Mira, yo tengo. Yo les compré a ustedes de estreno en diciembre de 2023. ¿El que moradito tornasolado, el que me has visto? Ese era un color nuevo. Yo estaba en Cerro Verde y llegué a una tiendita chiquitica allá que vende sus productos y lo vi. Yo quiero este termo y lo tengo además. Muy bueno. Chao, Carmelo, que estés bien. Qué belleza.
+S2: Calcomanía.
+S1: Nos vemos pues, que está genial.
+S4: Me mandaron uno, quiero montar. ¿Hay café cúbica en Venezuela? Me manda algún local ese Robert Ahorita es que me estoy dando cuenta. Bueno, entonces listo. Es este viernes. ¿Que?
+S1: Nos vemos este viernes. ¿El borrador? Sí. OK, dale, gracias.
+S3: Chao.
+S1: Que estés muy bien. Nos vemos. Chao. Voy a botar esto aquí, Arani, esta vez. No, es que eso es puro papel. Voy al baño antes de salir. Chao, Arani. Muchas gracias. Nos vemos el viernes. Buenos días, perdón, día.

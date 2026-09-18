@@ -1,0 +1,1 @@
+Transcripción de ejemplo para validar el módulo. Puede borrarse: el corpus real ya está cargado.
