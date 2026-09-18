@@ -6978,6 +6978,579 @@ window.MANUAL_CONTENIDO = {
 }
  },
 
+ "1": {
+  "procesos": {
+
+   "1.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ejercicio anual con el que los accionistas y directores de la familia, moderados por un director externo de la Junta Directiva, definen hacia dónde va el grupo en un horizonte de tres años, dejan el plan por escrito, lo aprueban y le dan seguimiento a lo largo del año. Es la hoja de ruta desde la cual cada frente del grupo fija su propia ruta.",
+     "nota_estado": "El proceso está en transición: la sesión anual de formulación, la redacción y la aprobación del plan ocurren hoy con regularidad, pero el plan no se comunica de forma estructurada a la primera línea gerencial, no queda un acta o documento de acuerdos de acceso general, y las revisiones de avance se convocan de manera irregular en lugar de seguir una cadencia formal."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Presidente de Junta Directiva", "texto": "Convoca la sesión estratégica anual —una reunión cerrada de dos días en las primeras semanas del año— con los accionistas y directores de la familia, e invita al director externo de la Junta Directiva para que la modere."},
+      {"id": "a2", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Modera la sesión: conduce la revisión de dónde está cada marca y de las prioridades del año, y mantiene la conversación enfocada en decisiones y no solo en el diagnóstico de la situación."},
+      {"id": "a3", "rol": "Accionistas y Directores de la familia", "texto": "Revisan la situación de las marcas Casio y Cubitt y de los países donde opera el grupo, y definen las prioridades y objetivos de crecimiento a tres años, incluidas las líneas de transformación y profesionalización de la organización."},
+      {"id": "a4", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Redacta el plan estratégico a partir de lo definido en la sesión y lo circula entre los accionistas y directores para su revisión."},
+      {"id": "a5", "rol": "Accionistas y Directores de la familia", "texto": "Revisan el borrador en reuniones posteriores a la sesión, piden los ajustes que consideren necesarios y aprueban el plan entre ellos."},
+      {"id": "a6", "rol": "Accionistas y Directores de la familia", "texto": "Asumen cada uno su ruta dentro del plan aprobado —el frente o la función que dirigen— y la ejecutan; el plan se mantiene en el círculo de los accionistas y directores y no se baja de forma estructurada al resto de la gerencia."},
+      {"id": "a7", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Da seguimiento a los pendientes que la Presidencia le indica, incluidos los temas que deben llevarse a la agenda de la Junta Directiva, y le recuerda a la Presidencia los compromisos y reuniones que se aproximan."},
+      {"id": "a8", "rol": "Presidente de Junta Directiva", "texto": "Revisa con los demás directores, en las reuniones de la Junta Directiva, el avance frente al plan y los cambios relevantes del entorno o del portafolio de marcas que hayan surgido desde la última revisión."},
+      {"id": "a9", "rol": "Presidente de Junta Directiva", "texto": "Determina si el avance registrado o un cambio del entorno exigen ajustar el plan; de ser así, lo lleva de nuevo a los accionistas y directores para su revisión, y si no, el plan vigente continúa sin cambios."},
+      {"id": "a10", "rol": "Accionistas y Directores de la familia", "texto": "Acuerdan el ajuste al plan cuando la revisión lo exige y lo integran al documento vigente, de modo que cada ruta se corrija a partir de la versión actualizada."}
+     ],
+     "diagrama": {
+      "carriles": ["Presidente de Junta Directiva", "Director(a) Externo(a) de Junta Directiva", "Accionistas y Directores de la familia", "Asistente Ejecutivo(a) de la Presidencia"],
+      "nodos": [
+       {"id": "n0", "carril": "Presidente de Junta Directiva", "tipo": "inicio", "n": "Inicio del ciclo anual del grupo"},
+       {"id": "n1", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Convocar la sesión estratégica anual"},
+       {"id": "n2", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Moderar la sesión de formulación"},
+       {"id": "n3", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Definir prioridades y objetivos a tres años"},
+       {"id": "n4", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Redactar el plan estratégico"},
+       {"id": "n5", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Revisar y aprobar el plan"},
+       {"id": "n6", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Asumir y ejecutar la ruta de cada frente"},
+       {"id": "n7", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Dar seguimiento a pendientes y agenda"},
+       {"id": "n8", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Revisar el avance frente al plan"},
+       {"id": "n9", "carril": "Presidente de Junta Directiva", "tipo": "decision", "n": "¿El avance o el entorno exigen ajustar el plan?"},
+       {"id": "n10", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Acordar e integrar el ajuste al plan"},
+       {"id": "n11", "carril": "Accionistas y Directores de la familia", "tipo": "fin", "n": "Plan ajustado y vigente"},
+       {"id": "n12", "carril": "Presidente de Junta Directiva", "tipo": "fin", "n": "Plan vigente continúa sin cambios"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10", "etq": "Sí"}, {"de": "n9", "a": "n12", "etq": "No"},
+       {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Plan sin documento ni acta accesible", "Las decisiones de la sesión anual no quedan en un documento de acuerdos de acceso general: quien se incorpora a la Presidencia después de la sesión no tiene el plan a la vista, y su versión completa la conserva una sola persona.", "Alta", "Alto", "Cerrar cada sesión con un documento del plan y un acta de decisiones, custodiados en un repositorio común al que accedan la Presidencia y su asistente."],
+      ["Estrategia que no se baja a la organización", "El plan se queda en el círculo de accionistas y directores; los gerentes regionales y de función ejecutan sin conocer la visión a tres años ni cómo se conecta con su trabajo.", "Alta", "Alto", "Definir un momento anual de comunicación del plan a la primera línea gerencial, con un resumen de prioridades por marca y por país."],
+      ["Seguimiento irregular de lo decidido", "Las revisiones de avance se intentan pero no se sostienen: al considerar que el diagnóstico y la estrategia ya están definidos, el tema pierde prioridad frente a los asuntos operativos del día a día.", "Alta", "Alto", "Fijar una cadencia de revisión —semestral como mínimo— y asignar a una persona la preparación de la agenda y el registro de lo revisado."],
+      ["Decisiones estratégicas tomadas fuera de la sesión", "Algunas decisiones de fondo se toman en conversaciones informales entre los directores, por fuera del plan y de las reuniones, y pueden contradecirlo sin que se registre el cambio.", "Media", "Alto", "Llevar toda decisión que modifique el rumbo a la siguiente revisión formal, dejando constancia del ajuste al plan."],
+      ["Dependencia de una sola persona para moderar y redactar", "La conducción de la sesión y la redacción del plan recaen en un único director externo, sin una metodología escrita que permita replicar el ejercicio si esa persona no está disponible.", "Media", "Medio", "Documentar la metodología de la sesión —agenda, insumos y estructura del plan— y designar un respaldo."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Sesión estratégica anual realizada en fecha", "Sesión realizada dentro de las primeras semanas del año (sí / no)", "Anual", "Presidente de Junta Directiva", "En las primeras semanas del año, como se practica hoy"],
+      ["Plan documentado y aprobado", "Plan escrito y aprobado por los accionistas y directores, con acta de decisiones archivada (sí / no)", "Anual", "Director(a) Externo(a) de Junta Directiva", "Por definir — hoy no hay acta accesible"],
+      ["Revisiones formales de avance realizadas", "Revisiones de avance realizadas ÷ revisiones programadas en el año", "Semestral", "Presidente de Junta Directiva", "Dos por año, la cadencia que el proceso reconoce como deber ser"],
+      ["Alcance de la comunicación del plan", "Gerentes de primera línea que recibieron el plan ÷ total de gerentes de primera línea", "Anual", "Presidente de Junta Directiva", "Por definir — hoy no hay comunicación estructurada"]
+     ]
+    }
+   },
+
+   "1.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Traduce el plan estratégico en un cuadro de indicadores de la Junta Directiva con metas por nivel, lo cascadea hacia las gerencias regionales y de país, y lo revisa cada mes frente al presupuesto y al forecast. Busca que la Junta pueda saber, con las mismas reglas para todas las funciones, si el grupo va hacia lo que decidió.",
+     "nota_estado": "Es un proceso a implementar como cuadro único. Hoy existen indicadores en las áreas comerciales, y el presupuesto y el forecast de compra, venta y margen se siguen y ajustan cada mes; en cambio, funciones de apoyo como Recursos Humanos, Tecnología y Administración y Finanzas no miden objetivos, y no hay un set común ni una revisión de conjunto."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Junta Directiva", "texto": "Toma el plan estratégico aprobado y señala las prioridades y objetivos del año que deben medirse, de modo que el cuadro de indicadores responda a lo decidido y no a lo que ya resulta fácil de medir."},
+      {"id": "a2", "rol": "Director(a) de Finanzas del Grupo", "texto": "Propone el cuadro de indicadores de la Junta a partir de lo que ya se mide con regularidad —presupuesto, forecast de compra y venta, y margen—, y define cómo se consolidará la información de cada país."},
+      {"id": "a3", "rol": "Gerentes regionales por función", "texto": "Aportan los indicadores que su función ya lleva, como la batería de Ventas al Detal y de Ventas al Mayor, y proponen los que hoy no existen en las funciones de apoyo, con la fórmula y la frecuencia con que podrían medirse."},
+      {"id": "a4", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Contrasta el conjunto de indicadores con el plan estratégico y señala vacíos o excesos, para que el set sea homologado entre funciones y no crezca con métricas sin relación con el rumbo del grupo."},
+      {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba el set de indicadores y asigna las metas por nivel: las que la Junta sigue directamente y las que se trasladan a cada gerencia regional y de país."},
+      {"id": "a6", "rol": "Gerentes regionales por función", "texto": "Cascadean las metas hacia las gerencias de país y sus equipos, y confirman con cada gerente los indicadores que le corresponden y la fuente de donde saldrá su dato."},
+      {"id": "a7", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Consolida cada mes los resultados que reportan las gerencias en el formato definido y los entrega al Director de Finanzas del Grupo para su análisis, dando seguimiento a quienes no han reportado."},
+      {"id": "a8", "rol": "Director(a) de Finanzas del Grupo", "texto": "Presenta en la revisión mensual el avance de los indicadores frente al presupuesto y al forecast, con las desviaciones relevantes explicadas."},
+      {"id": "a9", "rol": "Junta Directiva", "texto": "Revisa el avance y decide si alguna desviación exige una acción correctiva; de ser así, acuerda la acción y su responsable, y de no serlo, el cuadro sigue vigente hasta la siguiente revisión."}
+     ],
+     "diagrama": {
+      "carriles": ["Junta Directiva", "Director(a) de Finanzas del Grupo", "Gerentes regionales por función", "Director(a) Externo(a) de Junta Directiva", "Asistente Administrativo(a) / Servicios Generales"],
+      "nodos": [
+       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Plan estratégico aprobado"},
+       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Señalar prioridades que deben medirse"},
+       {"id": "n2", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Proponer el cuadro de indicadores"},
+       {"id": "n3", "carril": "Gerentes regionales por función", "tipo": "tarea", "n": "Aportar y proponer indicadores por función"},
+       {"id": "n4", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Contrastar el set con el plan"},
+       {"id": "n5", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar indicadores y metas por nivel"},
+       {"id": "n6", "carril": "Gerentes regionales por función", "tipo": "tarea", "n": "Cascadear metas a gerencias de país"},
+       {"id": "n7", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Consolidar resultados mensuales"},
+       {"id": "n8", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Presentar avance frente a presupuesto y forecast"},
+       {"id": "n9", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Alguna desviación exige acción correctiva?"},
+       {"id": "n10", "carril": "Junta Directiva", "tipo": "tarea", "n": "Acordar acción y responsable"},
+       {"id": "n11", "carril": "Junta Directiva", "tipo": "fin", "n": "Acción correctiva acordada"},
+       {"id": "n12", "carril": "Junta Directiva", "tipo": "fin", "n": "Cuadro vigente hasta la próxima revisión"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10", "etq": "Sí"}, {"de": "n9", "a": "n12", "etq": "No"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Funciones de apoyo sin indicadores", "Recursos Humanos, Tecnología y Administración y Finanzas no miden hoy objetivos propios, de modo que la Junta no puede saber qué rinden ni cómo se comparan con lo planeado.", "Alta", "Medio", "Incluir a cada función de apoyo en el set inicial con al menos dos indicadores acordados con su gerente."],
+      ["Indicadores desalineados del plan", "El set puede crecer con métricas heredadas de cada área que no responden a las prioridades definidas en el plan estratégico.", "Media", "Medio", "Validar cada indicador contra una prioridad del plan antes de incluirlo en el cuadro."],
+      ["Dato disperso entre países y sistemas", "La información sale de sistemas y de formatos distintos por país, lo que dificulta consolidar cifras comparables cada mes.", "Alta", "Alto", "Definir un formato único de reporte y una fuente por indicador antes de la primera consolidación."],
+      ["Revisión mensual que se pierde entre lo operativo", "Los asuntos del día a día desplazan la reunión de revisión, como ya ocurre con otras instancias de seguimiento del grupo.", "Media", "Alto", "Fijar la revisión dentro de una sesión ya existente de la Junta y registrar sus resultados."],
+      ["Metas sin dueño identificable", "Un indicador sin un gerente responsable de su resultado deja de revisarse porque nadie responde por su desvío.", "Media", "Medio", "Asignar a cada indicador un dueño con nombre de cargo en el cuadro aprobado."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura del cuadro de indicadores", "Funciones con indicadores y metas aprobados ÷ total de funciones del grupo", "Anual", "Director(a) de Finanzas del Grupo", "Por definir — hoy las funciones de apoyo no miden"],
+      ["Revisiones mensuales realizadas", "Revisiones de presupuesto y forecast realizadas ÷ 12", "Mensual", "Director(a) de Finanzas del Grupo", "Cada mes, como se practica hoy con el forecast"],
+      ["Indicadores reportados a tiempo", "Indicadores reportados en la fecha de corte ÷ indicadores del cuadro", "Mensual", "Asistente Administrativo(a) / Servicios Generales", "Por definir — no hay línea base"]
+     ]
+    }
+   },
+
+   "1.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo de las sesiones de la Junta Directiva, del Comité Directivo y de los comités especializados: la convocatoria, la agenda, la circulación previa de los temas, la conducción de la sesión y el registro de lo decidido. Busca que cada reunión llegue preparada y termine con decisiones que alguien pueda seguir.",
+     "nota_estado": "El proceso está en transición: la agenda y el resumen de cada reunión los prepara hoy la asistente de la Presidencia y los circula por mensajería, y el Comité de Finanzas se reúne con regularidad; en cambio, la Junta Directiva no tiene una frecuencia fija, las sesiones no siempre llegan con presentación previa y no se emite un acta formal."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Presidente de Junta Directiva", "texto": "Indica los temas que deben llevarse a la siguiente sesión de la Junta Directiva o del Comité Directivo, y señala cuáles requieren una decisión y no solo información."},
+      {"id": "a2", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Mantiene el registro de los temas pendientes, actualiza su estado y arma la agenda priorizada en una página con los puntos que requieren decisión y un resumen breve de cada uno."},
+      {"id": "a3", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Busca la franja horaria que permita reunir a los participantes de Panamá y Venezuela, que suele ser el mediodía, y convoca la sesión."},
+      {"id": "a4", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Circula la agenda por mensajería a los participantes, les pregunta si falta algún tema y emite una segunda versión con los puntos que ellos agregan."},
+      {"id": "a5", "rol": "Director(a) de Finanzas del Grupo", "texto": "Prepara, para el Comité de Finanzas, la presentación de los estados financieros, el endeudamiento y la caja, y la deja disponible antes de la reunión."},
+      {"id": "a6", "rol": "Presidente de Junta Directiva", "texto": "Conduce la sesión: recorre los puntos de la agenda, escucha a los directores familiares y a los directores externos y a los gerentes invitados por punto, y cierra cada tema con una decisión o con un pendiente."},
+      {"id": "a7", "rol": "Presidente de Junta Directiva", "texto": "Determina, al cierre de cada punto, si quedó resuelto; si no lo está, lo deja como tema pendiente con quien debe ocuparse de él, para llevarlo a la siguiente sesión."},
+      {"id": "a8", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Captura las decisiones y los pendientes de la sesión y los envía como resumen a los participantes por mensajería, para que cada quien confirme o corrija lo registrado."}
+     ],
+     "diagrama": {
+      "carriles": ["Presidente de Junta Directiva", "Asistente Ejecutivo(a) de la Presidencia", "Director(a) de Finanzas del Grupo"],
+      "nodos": [
+       {"id": "n0", "carril": "Presidente de Junta Directiva", "tipo": "inicio", "n": "Se acerca la sesión del órgano"},
+       {"id": "n1", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Indicar los temas para la agenda"},
+       {"id": "n2", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Armar la agenda de una página", "sistemas": ["Lark"]},
+       {"id": "n3", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Convocar en franja Panamá–Venezuela"},
+       {"id": "n4", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Circular la agenda e integrar temas nuevos", "sistemas": ["WhatsApp"]},
+       {"id": "n5", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Preparar la presentación financiera"},
+       {"id": "n6", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Conducir la sesión"},
+       {"id": "n7", "carril": "Presidente de Junta Directiva", "tipo": "decision", "n": "¿El punto queda resuelto?"},
+       {"id": "n8", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Dejar el tema como pendiente con responsable"},
+       {"id": "n9", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Enviar resumen de decisiones y pendientes", "sistemas": ["WhatsApp"]},
+       {"id": "n10", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "fin", "n": "Sesión cerrada con decisiones registradas"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n9", "etq": "Sí"}, {"de": "n7", "a": "n8", "etq": "No"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sesiones sin frecuencia fija", "La Junta Directiva debería reunirse cada mes o cada dos semanas, pero las reuniones se ubican donde hay un espacio libre en las agendas y no en fechas establecidas.", "Alta", "Alto", "Fijar un calendario anual de sesiones con fecha y hora recurrentes en la franja común de los países."],
+      ["Miembros que se enteran de las decisiones después", "Algunas decisiones se conversan entre los directores familiares por fuera de la sesión, y los directores externos las conocen tarde, cuando no las conocen por terceros.", "Alta", "Alto", "Llevar a la siguiente sesión toda decisión tomada fuera de ella para que quede registrada y sea conocida por todos."],
+      ["Reuniones sin preparación previa", "Cuando el material no está listo, la sesión se conduce abriendo hojas de cálculo en el momento y se pierde tiempo en ordenar la información en lugar de decidir.", "Media", "Medio", "Exigir una presentación breve por cada punto financiero antes de la sesión."],
+      ["Ausencia de acta formal", "El registro de lo decidido se limita a un resumen enviado por mensajería, sin un documento que permita reconstruir después qué se acordó y con qué responsable.", "Alta", "Alto", "Adoptar un acta mínima —decisión, responsable y fecha— archivada en un repositorio común."],
+      ["Órganos con nombres y miembros que se confunden", "La Junta Directiva y el Comité Directivo comparten agenda, canal y buena parte de sus miembros, y no siempre queda claro cuál de los dos toma cada decisión.", "Media", "Medio", "Definir por escrito la composición y las atribuciones de cada órgano."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cumplimiento de la frecuencia de sesiones", "Sesiones celebradas ÷ sesiones previstas en el calendario del órgano", "Trimestral", "Presidente de Junta Directiva", "Junta Directiva mensual y Comité de Finanzas quincenal, según el deber ser reconocido"],
+      ["Agenda circulada antes de la sesión", "Sesiones con agenda circulada al menos un día antes ÷ total de sesiones", "Trimestral", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"],
+      ["Sesiones con decisiones registradas", "Sesiones con resumen de decisiones enviado en las 48 horas siguientes ÷ total de sesiones", "Trimestral", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"]
+     ]
+    }
+   },
+
+   "1.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre lo que ocurre con una decisión de gobierno después de tomada, en cualquier instancia y también fuera de sesión: su registro con dueño y urgencia, la comunicación a los participantes, el seguimiento de su avance y su cierre formal o su reescalamiento al órgano.",
+     "nota_estado": "Es un proceso a implementar. Hoy la asistente de la Presidencia lleva una base de temas con dueños y hace seguimiento frecuente de los que le indica el Presidente, pero el registro no lo consulta toda la Junta, no siempre queda definido quién responde por el seguimiento, y las decisiones tomadas fuera de sesión no llegan siempre a todos los miembros."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Directores de la familia", "texto": "Informan a la asistente de la Presidencia toda decisión tomada, sea en una sesión o fuera de ella, con el detalle de lo que se acordó y de quién se hará cargo."},
+      {"id": "a2", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Registra el acuerdo en la base de seguimiento con su dueño, el nivel de urgencia y la fecha esperada de cumplimiento, y mantiene ese registro actualizado."},
+      {"id": "a3", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Comunica el acuerdo registrado a todos los participantes del órgano, incluidos los directores externos, para que nadie lo conozca por terceros."},
+      {"id": "a4", "rol": "Gerente de Proyectos", "texto": "Evalúa los acuerdos que pueden convertirse en proyecto según el criterio de la oficina de proyectos, los registra como tales y les asigna un gerente de proyecto."},
+      {"id": "a5", "rol": "Gerentes responsables de la ejecución", "texto": "Ejecutan el acuerdo que les corresponde y actualizan su estado en la base de seguimiento para que el avance quede visible sin depender de mensajes sueltos."},
+      {"id": "a6", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Revisa la base al inicio y al cierre de cada semana y antes de cada sesión del órgano, y recuerda a los dueños los acuerdos con plazo próximo o vencido."},
+      {"id": "a7", "rol": "Directores de la familia", "texto": "Revisan los acuerdos abiertos en la siguiente sesión y determinan si cada uno se cumplió o sigue en curso."},
+      {"id": "a8", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Cierra formalmente en la base el acuerdo cumplido, y reescala al órgano el que no se cumplió, con el motivo del retraso y una nueva fecha propuesta."}
+     ],
+     "diagrama": {
+      "carriles": ["Directores de la familia", "Asistente Ejecutivo(a) de la Presidencia", "Gerente de Proyectos", "Gerentes responsables de la ejecución"],
+      "nodos": [
+       {"id": "n0", "carril": "Directores de la familia", "tipo": "inicio", "n": "Decisión tomada en sesión o fuera de ella"},
+       {"id": "n1", "carril": "Directores de la familia", "tipo": "tarea", "n": "Informar la decisión y su responsable"},
+       {"id": "n2", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Registrar acuerdo con dueño y urgencia", "sistemas": ["Lark"]},
+       {"id": "n3", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Comunicar el acuerdo a los participantes"},
+       {"id": "n4", "carril": "Gerente de Proyectos", "tipo": "decision", "n": "¿El acuerdo se convierte en proyecto?"},
+       {"id": "n5", "carril": "Gerente de Proyectos", "tipo": "tarea", "n": "Registrar como proyecto y asignar gerente"},
+       {"id": "n6", "carril": "Gerentes responsables de la ejecución", "tipo": "tarea", "n": "Ejecutar y actualizar el estado"},
+       {"id": "n7", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Revisar la base y recordar plazos"},
+       {"id": "n8", "carril": "Directores de la familia", "tipo": "decision", "n": "¿El acuerdo se cumplió?"},
+       {"id": "n9", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Cerrar el acuerdo en la base"},
+       {"id": "n10", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Reescalar al órgano con nueva fecha"},
+       {"id": "n11", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "fin", "n": "Acuerdo cerrado"},
+       {"id": "n12", "carril": "Directores de la familia", "tipo": "fin", "n": "Acuerdo reescalado al órgano"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n6", "etq": "No"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n10", "etq": "No"},
+       {"de": "n9", "a": "n11"}, {"de": "n10", "a": "n12"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Acuerdos sin responsable de seguimiento", "Cuando un tema se conversa sin definir quién le hará seguimiento, queda en el aire y no vuelve a la agenda.", "Alta", "Alto", "No dar por registrado un acuerdo hasta que tenga un dueño y una fecha."],
+      ["Decisiones fuera de sesión que no se registran", "Las decisiones que los directores toman en conversaciones directas no llegan siempre a los demás miembros, y algunos se enteran cuando ya se ejecutan.", "Alta", "Alto", "Establecer que toda decisión de gobierno se informa a la asistente de la Presidencia el mismo día."],
+      ["Registro consultado por pocos", "La base de seguimiento la consultan solo algunos directores, y el resto depende de mensajes por mensajería para saber el estado de cada tema.", "Alta", "Medio", "Acordar con la Junta que el estado de los acuerdos se revisa en la base y no por mensajes."],
+      ["Traslape entre la iniciativa de la Presidencia y la oficina de proyectos", "No hay un criterio escrito que separe lo que lleva la asistente de la Presidencia de lo que lleva la oficina de proyectos, y la frontera se define caso por caso.", "Media", "Medio", "Documentar el criterio de la oficina de proyectos para distinguir proyectos, iniciativas y tareas, y aplicarlo a los acuerdos."],
+      ["Dependencia de una sola persona para el registro", "El registro y el seguimiento dependen de la asistente de la Presidencia y de su criterio para decidir qué requiere una decisión.", "Media", "Alto", "Documentar el procedimiento y designar un respaldo con acceso a la base."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Acuerdos con dueño y fecha", "Acuerdos registrados con dueño y fecha ÷ total de acuerdos registrados", "Mensual", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"],
+      ["Acuerdos cerrados en el plazo", "Acuerdos cerrados dentro de la fecha comprometida ÷ acuerdos con fecha vencida en el período", "Trimestral", "Presidente de Junta Directiva", "Por definir — no hay línea base"],
+      ["Acuerdos reescalados", "Acuerdos reescalados al órgano ÷ total de acuerdos abiertos en el período", "Trimestral", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"]
+     ]
+    }
+   },
+
+   "1.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el mantenimiento y la aplicación del protocolo familiar, que define las relaciones entre la familia y la empresa, y el funcionamiento de sus instancias: el consejo de familia, el consejo de accionistas y la asamblea anual de accionistas con la rendición de resultados del año.",
+     "nota_estado": "Es un proceso a implementar en su forma completa: el protocolo familiar existe y se está actualizando y simplificando, pero está pendiente su terminación y la revisión del abogado, y el consejo de familia con reuniones periódicas se está definiendo dentro del propio protocolo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Actualiza y simplifica el protocolo familiar para que sea usable por sus destinatarios, e incorpora los temas que la familia requiere que regule, como el ingreso de familiares y los cambios de estado civil."},
+      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Revisa el texto del protocolo desde el punto de vista legal y señala los ajustes necesarios antes de someterlo a la familia."},
+      {"id": "a3", "rol": "Accionistas y miembros de la familia", "texto": "Revisan el protocolo revisado, lo aprueban y lo firman, dejando constituidos el consejo de accionistas y el consejo de familia con sus reglas de funcionamiento."},
+      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Convoca el consejo de familia una o dos veces al año y registra su celebración y sus conclusiones."},
+      {"id": "a5", "rol": "Accionistas y miembros de la familia", "texto": "Se reúnen en el consejo de familia con los miembros consanguíneos para informarles cómo va la empresa y atender lo que la familia plantee."},
+      {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Convoca la asamblea anual de accionistas una vez cerrados los resultados del año y prepara el registro de la reunión."},
+      {"id": "a7", "rol": "Accionistas y miembros de la familia", "texto": "Celebran la asamblea, reciben la rendición de los resultados del año y adoptan las decisiones que corresponden a los accionistas."},
+      {"id": "a8", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Ante un evento que el protocolo regula —ingreso o salida de un familiar, matrimonio, divorcio— revisa qué establece el protocolo y determina si el caso requiere modificarlo."},
+      {"id": "a9", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Revisa legalmente la modificación propuesta al protocolo cuando el evento la requiere, antes de que los accionistas la aprueben."}
+     ],
+     "diagrama": {
+      "carriles": ["Director(a) Externo(a) de Junta Directiva", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Accionistas y miembros de la familia", "Asistente Administrativo(a) / Servicios Generales"],
+      "nodos": [
+       {"id": "n0", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "inicio", "n": "Protocolo por actualizar o evento familiar"},
+       {"id": "n1", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Actualizar y simplificar el protocolo"},
+       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Revisar el protocolo legalmente"},
+       {"id": "n3", "carril": "Accionistas y miembros de la familia", "tipo": "tarea", "n": "Aprobar y firmar el protocolo"},
+       {"id": "n4", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Convocar el consejo de familia"},
+       {"id": "n5", "carril": "Accionistas y miembros de la familia", "tipo": "tarea", "n": "Reunirse en consejo de familia"},
+       {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Convocar la asamblea anual tras el cierre"},
+       {"id": "n7", "carril": "Accionistas y miembros de la familia", "tipo": "tarea", "n": "Celebrar asamblea y recibir resultados"},
+       {"id": "n8", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "decision", "n": "¿Un evento exige modificar el protocolo?"},
+       {"id": "n9", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Revisar la modificación propuesta"},
+       {"id": "n10", "carril": "Accionistas y miembros de la familia", "tipo": "fin", "n": "Protocolo modificado y vigente"},
+       {"id": "n11", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "fin", "n": "Protocolo vigente se aplica sin cambios"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n11", "etq": "No"}, {"de": "n9", "a": "n10"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Protocolo inconcluso o sin revisión legal", "El protocolo no está terminado y aún debe revisarlo un abogado, por lo que no puede aplicarse ni consultarse como referencia.", "Alta", "Alto", "Terminar el texto, cerrar la revisión legal y firmarlo con fecha."],
+      ["Instancias sin registro de su funcionamiento", "No queda claro cuándo se reúne cada instancia familiar ni qué se decidió en ella, y hay versiones distintas sobre si la asamblea se celebra.", "Media", "Alto", "Definir el calendario del consejo de familia y de la asamblea y dejar acta de cada una."],
+      ["Mezcla de asuntos familiares y de la empresa", "Decisiones de la empresa se toman en encuentros familiares o en conversaciones informales, sin pasar por las instancias de gobierno.", "Alta", "Alto", "Distinguir en el protocolo qué se decide en cada instancia y llevar a la Junta lo que afecta a la empresa."],
+      ["Dependencia de una sola persona como custodio", "El protocolo se redactó y se mantiene por un único director externo, sin un respaldo que lo custodie.", "Media", "Medio", "Definir quién custodia el protocolo y dónde se guarda la versión vigente."],
+      ["Reglas sin criterios para familiares políticos", "Hay miembros de la familia que no son consanguíneos, y los criterios de ingreso y permanencia pueden no cubrir sus casos.", "Media", "Medio", "Incorporar al protocolo criterios explícitos para cada categoría de familiar."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Protocolo vigente y firmado", "Protocolo aprobado, con revisión legal y firmado por los accionistas (sí / no)", "Anual", "Director(a) Externo(a) de Junta Directiva", "Por definir — hoy está en actualización"],
+      ["Consejo de familia celebrado", "Sesiones del consejo de familia celebradas en el año", "Anual", "Accionistas y miembros de la familia", "Una o dos por año, según lo que se plantea en el protocolo"],
+      ["Asamblea anual celebrada con registro", "Asamblea celebrada tras el cierre de resultados y con acta archivada (sí / no)", "Anual", "Asistente Administrativo(a) / Servicios Generales", "Una por año, tras el cierre de resultados"]
+     ]
+    }
+   },
+
+   "1.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la identificación de las posiciones críticas del grupo y de sus posibles sucesores, la conversación de proyección de carrera con la tercera generación de la familia, la evaluación del ajuste de quienes ocupan hoy esas posiciones, y la decisión de nombramiento o relevo de la primera línea gerencial.",
+     "nota_estado": "Es un proceso a implementar: hoy no existe un plan de sucesión ni un plan de desarrollo por persona, y las decisiones de nombramiento las toman los directores familiares sin un proceso estructurado. La Junta Directiva reconoce la sucesión como una de sus mayores responsabilidades y se ha planteado comenzar por la conversación con la tercera generación."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Junta Directiva", "texto": "Encarga el ejercicio de sucesión y designa a quien lo facilita, y define qué posiciones —de la familia y de la gerencia— quedan dentro de su alcance."},
+      {"id": "a2", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Facilita el ejercicio: propone el mapa de posiciones críticas del grupo, aquellas cuya ausencia o desajuste pondría en riesgo la operación."},
+      {"id": "a3", "rol": "Directores de la familia", "texto": "Identifican, para cada posición crítica, a los posibles sucesores dentro y fuera de la organización y señalan las posiciones cuyo ocupante actual no tiene el perfil que se espera."},
+      {"id": "a4", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Conversa de forma estructurada con los miembros de la tercera generación sobre lo que quieren hacer y hacia dónde proyectan su carrera dentro del grupo."},
+      {"id": "a5", "rol": "Gerente de Recursos Humanos", "texto": "Evalúa el ajuste de quienes ocupan hoy las posiciones críticas al perfil requerido, con base en la descripción del cargo y en la trayectoria de cada persona."},
+      {"id": "a6", "rol": "Junta Directiva", "texto": "Revisa el mapa de posiciones con sus sucesores y la evaluación de ajuste, y determina si hay brecha entre el ocupante y el perfil requerido."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Acuerda, cuando hay brecha, la decisión de desarrollo, relevo o nombramiento para cada posición, y ratifica al ocupante cuando no la hay."},
+      {"id": "a8", "rol": "Gerente de Recursos Humanos", "texto": "Da seguimiento al plan de desarrollo acordado para cada sucesor y lo actualiza al revisar el mapa de posiciones cada año."}
+     ],
+     "diagrama": {
+      "carriles": ["Junta Directiva", "Director(a) Externo(a) de Junta Directiva", "Directores de la familia", "Gerente de Recursos Humanos"],
+      "nodos": [
+       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Revisión anual o vacante crítica"},
+       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Encargar el ejercicio y su alcance"},
+       {"id": "n2", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Proponer el mapa de posiciones críticas"},
+       {"id": "n3", "carril": "Directores de la familia", "tipo": "tarea", "n": "Identificar sucesores potenciales"},
+       {"id": "n4", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Conversar con la tercera generación"},
+       {"id": "n5", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Evaluar ajuste de ocupantes al perfil"},
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Hay brecha entre ocupante y perfil?"},
+       {"id": "n7", "carril": "Junta Directiva", "tipo": "tarea", "n": "Acordar desarrollo, relevo o nombramiento"},
+       {"id": "n8", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento al plan de desarrollo"},
+       {"id": "n9", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Mapa de posiciones con sucesores vigente"},
+       {"id": "n10", "carril": "Junta Directiva", "tipo": "fin", "n": "Ocupante ratificado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n10", "etq": "No"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Ausencia de plan de sucesión", "No existe hoy un plan para el relevo de quienes ocupan las posiciones de mayor peso, de modo que una salida imprevista no tendría un sustituto definido.", "Media", "Alto", "Construir el mapa de posiciones críticas con al menos un sucesor identificado por posición."],
+      ["Nombramientos decididos sin proceso", "La ocupación de cargos relevantes se decide entre los directores familiares por valoración personal, sin evaluación contra un perfil.", "Alta", "Alto", "Evaluar a candidatos y ocupantes contra el perfil del cargo antes de decidir."],
+      ["Ocupantes que no cubren el perfil de la posición", "Algunas posiciones clave tienen un ocupante sin el perfil que la organización necesita en su etapa actual, y no hay un proceso para tratarlo.", "Media", "Alto", "Incorporar la evaluación de ajuste al ejercicio anual y acordar plan de desarrollo o relevo."],
+      ["Función corporativa de Recursos Humanos sin constituir", "No existe una capa corporativa de Recursos Humanos que sostenga la evaluación y el seguimiento del talento de las posiciones críticas.", "Alta", "Medio", "Definir quién asume en el grupo la función corporativa de talento."],
+      ["Conversación con la tercera generación sin estructura", "La proyección de carrera de los miembros más jóvenes de la familia no tiene un formato ni un responsable definidos.", "Media", "Medio", "Definir el formato de la conversación y quién la conduce."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Posiciones críticas con sucesor identificado", "Posiciones críticas con al menos un sucesor identificado ÷ total de posiciones críticas", "Anual", "Director(a) Externo(a) de Junta Directiva", "Por definir — hoy no hay mapa de posiciones"],
+      ["Planes de desarrollo acordados", "Sucesores con plan de desarrollo acordado ÷ sucesores identificados", "Anual", "Gerente de Recursos Humanos", "Por definir — hoy no hay planes"],
+      ["Revisión anual del mapa realizada", "Revisión del mapa de posiciones críticas realizada en el año (sí / no)", "Anual", "Junta Directiva", "Una por año"]
+     ]
+    }
+   },
+
+   "1.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la definición de qué decisiones rige la capa corporativa y cuáles quedan en cada país, la constitución de la línea rectora por función, la resolución de las funciones que hoy carecen de capa corporativa, y la aprobación y mantenimiento del organigrama del grupo con todas sus entidades legales.",
+     "nota_estado": "El proceso está en transición: existe una capa corporativa en Finanzas, Marketing, Ventas, Tecnología y Servicio al Cliente, y se está incorporando una para el comercio electrónico; en cambio, Recursos Humanos y la función jurídica no la tienen, y no hay un ejercicio periódico que defina qué se rige desde el centro."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Junta Directiva", "texto": "Decide iniciar la revisión del modelo organizativo, ya sea en el ciclo anual o por un evento como la creación de una gerencia regional, la incorporación de una entidad o un cambio de reporte."},
+      {"id": "a2", "rol": "Gerentes regionales por función", "texto": "Describen, para su función, qué decisiones se rigen hoy desde el centro y cuáles se toman en cada país, y señalan los puntos donde la separación no está clara."},
+      {"id": "a3", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Facilita la definición de la línea rectora por función y señala las funciones sin capa corporativa, para que la Junta resuelva cómo se cubrirán."},
+      {"id": "a4", "rol": "Gerente de Recursos Humanos", "texto": "Actualiza el organigrama del grupo con las posiciones y los reportes vigentes, incluidas todas las entidades legales, incluso las que operan con estructura propia."},
+      {"id": "a5", "rol": "Gerente de Proyectos", "texto": "Evalúa el alcance del cambio propuesto y define un plan de implantación con responsables y fechas cuando la propuesta modifica reportes o crea posiciones."},
+      {"id": "a6", "rol": "Junta Directiva", "texto": "Revisa la propuesta de modelo organizativo, la línea rectora y el organigrama actualizado, y decide si los aprueba o pide ajustes."},
+      {"id": "a7", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Publica el organigrama aprobado y lo comunica a los gerentes, y mantiene la versión vigente accesible para toda la organización."}
+     ],
+     "diagrama": {
+      "carriles": ["Junta Directiva", "Gerentes regionales por función", "Director(a) Externo(a) de Junta Directiva", "Gerente de Recursos Humanos", "Gerente de Proyectos", "Coordinador(a) de Recursos Humanos"],
+      "nodos": [
+       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Revisión anual o cambio estructural"},
+       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Decidir iniciar la revisión"},
+       {"id": "n2", "carril": "Gerentes regionales por función", "tipo": "tarea", "n": "Describir decisiones del centro y de cada país"},
+       {"id": "n3", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Definir línea rectora y funciones sin capa corporativa"},
+       {"id": "n4", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Actualizar el organigrama con todas las entidades"},
+       {"id": "n5", "carril": "Gerente de Proyectos", "tipo": "tarea", "n": "Definir plan de implantación"},
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿La Junta aprueba la propuesta?"},
+       {"id": "n7", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Publicar y comunicar el organigrama"},
+       {"id": "n8", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Modelo organizativo vigente"},
+       {"id": "n9", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "fin", "n": "Propuesta devuelta con ajustes"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n9", "etq": "No"}, {"de": "n7", "a": "n8"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Funciones sin capa corporativa", "Recursos Humanos y la función jurídica se manejan por país o con un asesor externo, sin una línea rectora del grupo que homologue criterios.", "Alta", "Alto", "Definir para cada función sin capa corporativa quién la ejerce y qué decisiones rige."],
+      ["Límite difuso entre lo corporativo y lo local", "No hay un criterio escrito de qué decisiones se toman en el centro y cuáles en el país, y se resuelve caso por caso.", "Alta", "Alto", "Documentar por función las decisiones que se rigen desde el centro."],
+      ["Entidades fuera del organigrama", "Una entidad que opera con estructura propia puede no aparecer en el organigrama, con lo que sus reportes y responsabilidades no se ven.", "Media", "Medio", "Incluir todas las entidades legales del grupo en el organigrama vigente y revisarlo cada año."],
+      ["Cambios de estructura sin plan de implantación", "Una gerencia nueva o un cambio de reporte se anuncia sin definir cómo se implanta, y sus efectos sobre las demás funciones no se anticipan.", "Media", "Medio", "Exigir un plan de implantación breve antes de aprobar todo cambio de estructura."],
+      ["Organigrama desactualizado", "Los cambios de reporte y de cargos ocurren más rápido que la actualización del documento, y este deja de reflejar la realidad.", "Media", "Medio", "Actualizar el organigrama ante cada cambio de reporte y fijar una revisión anual."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Funciones con línea rectora definida", "Funciones con línea rectora documentada ÷ total de funciones del grupo", "Anual", "Junta Directiva", "Por definir — hoy hay funciones sin capa corporativa"],
+      ["Entidades legales en el organigrama", "Entidades legales incluidas en el organigrama vigente ÷ total de entidades del grupo", "Anual", "Gerente de Recursos Humanos", "Todas las entidades del grupo"],
+      ["Vigencia del organigrama", "Días desde la última actualización del organigrama aprobado", "Semestral", "Coordinador(a) de Recursos Humanos", "Por definir — no hay línea base"]
+     ]
+    }
+   },
+
+   "1.8": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el gobierno de las unidades que no son de operación propia directa: la sociedad al cincuenta por ciento en un país, la operación tercerizada bajo marca en otro, los distribuidores en mercados sin presencia y la filial de Estados Unidos, que opera con estructura y sistemas propios. Define qué reporte se les exige, con qué periodicidad, y cómo se revisa la relación.",
+     "nota_estado": "El proceso está en transición: el grupo recibe reporte financiero del socio y de la filial y busca que lleguen en los formatos del grupo, pero no hay un formato ni una periodicidad únicos para todos, algunas unidades operan con sistemas distintos y la filial de Estados Unidos ha quedado fuera de parte de los ejercicios de estructura y de procesos."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Junta Directiva", "texto": "Define, para cada socio, operador tercerizado, distribuidor y filial, el formato del reporte financiero y comercial que se le exige y la periodicidad con que debe entregarlo."},
+      {"id": "a2", "rol": "Socio, operador tercerizado o distribuidor", "texto": "Envía cada mes el reporte financiero y comercial de su operación, en el formato acordado con el grupo, aunque opere con un sistema distinto al del resto de las entidades."},
+      {"id": "a3", "rol": "Director(a) de Finanzas del Grupo", "texto": "Recibe el reporte, verifica que llegue completo y en el formato estándar, y lo analiza junto a las compras que la unidad le hace al grupo."},
+      {"id": "a4", "rol": "Director(a) de Finanzas del Grupo", "texto": "Devuelve al socio el reporte que llega incompleto o en otro formato, con la indicación de lo que falta, cuando no cumple lo acordado."},
+      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa la operación comercial de la unidad y verifica que se ajuste a las políticas de comercialización del grupo, en lo que se vende y cómo se vende."},
+      {"id": "a6", "rol": "Gerente Regional de Marketing", "texto": "Verifica que la unidad aplique la imagen y las políticas de marca del grupo en sus tiendas, canales y materiales, e indica los ajustes cuando no es así."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Revisa una vez al año la relación con cada socio, operador y distribuidor: el desempeño, el reporte recibido y las condiciones acordadas, y acuerda las acciones que correspondan."}
+     ],
+     "diagrama": {
+      "carriles": ["Junta Directiva", "Socio, operador tercerizado o distribuidor", "Director(a) de Finanzas del Grupo", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing"],
+      "nodos": [
+       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Nuevo socio o corte mensual"},
+       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Definir formato y periodicidad del reporte"},
+       {"id": "n2", "carril": "Socio, operador tercerizado o distribuidor", "tipo": "tarea", "n": "Enviar el reporte mensual"},
+       {"id": "n3", "carril": "Director(a) de Finanzas del Grupo", "tipo": "decision", "n": "¿El reporte llega completo y en el formato?"},
+       {"id": "n4", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Devolver el reporte con lo que falta"},
+       {"id": "n5", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Analizar el reporte"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Revisar alineación comercial"},
+       {"id": "n7", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Verificar políticas de marca"},
+       {"id": "n8", "carril": "Junta Directiva", "tipo": "tarea", "n": "Revisar la relación cada año"},
+       {"id": "n9", "carril": "Junta Directiva", "tipo": "fin", "n": "Relación revisada con acciones acordadas"},
+       {"id": "n10", "carril": "Director(a) de Finanzas del Grupo", "tipo": "fin", "n": "Reporte devuelto al socio"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n5", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n4", "a": "n10"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Reporte sin formato ni periodicidad únicos", "Cada socio u operador entrega su información de forma distinta, y el grupo no puede comparar ni consolidar con las demás unidades.", "Alta", "Alto", "Fijar un formato estándar de reporte y una fecha de entrega mensual para cada unidad."],
+      ["Unidad que queda fuera de los procesos del grupo", "Una operación con sistemas y estructura propios puede quedar sin incluir en los ejercicios de procesos y de organización, y sus prácticas se desconocen desde el centro.", "Alta", "Medio", "Incluir a cada unidad en el alcance de los ejercicios de estructura y decidir qué procesos del grupo aplican a ella."],
+      ["Dependencia comercial del socio como cliente", "La unidad del socio compra al grupo y a la vez rinde cuentas a él, y las dos relaciones no se separan ni se revisan por igual.", "Media", "Medio", "Revisar en la relación anual tanto la sociedad como la condición de cliente, con sus condiciones."],
+      ["Operación tercerizada sin mecanismo de control", "El operador administra tiendas bajo la marca y el grupo paga un fee, sin un mecanismo periódico de revisión del cumplimiento de las políticas de marca.", "Media", "Alto", "Definir una revisión periódica del cumplimiento de políticas de marca por parte del operador."],
+      ["Unidades sin claridad sobre lo que les aplica", "Parte de lo que el grupo define para sus procesos no aplica a socios independientes, y nadie decide caso por caso qué se les pide.", "Media", "Medio", "Documentar, por tipo de unidad, qué políticas del grupo se les exigen."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Reportes recibidos en el formato estándar", "Reportes mensuales recibidos completos y en el formato ÷ reportes esperados", "Mensual", "Director(a) de Finanzas del Grupo", "Todos los reportes esperados"],
+      ["Puntualidad del reporte", "Reportes recibidos en la fecha acordada ÷ reportes esperados", "Mensual", "Director(a) de Finanzas del Grupo", "Por definir — no hay fecha común acordada"],
+      ["Revisiones anuales de la relación realizadas", "Relaciones con socios, operadores y distribuidores revisadas en el año ÷ total de relaciones", "Anual", "Junta Directiva", "Todas las relaciones, una vez al año"]
+     ]
+    }
+   },
+
+   "1.9": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la definición y emisión del mensaje institucional del grupo hacia la organización, su cascadeo a través de la primera línea gerencial, los encuentros con el personal de todos los países, la actualización y difusión de la identidad, la misión, la visión y los valores del grupo, y el orden de los canales internos de comunicación.",
+     "nota_estado": "Es un proceso a implementar: hoy el grupo no ha reunido al personal de todos sus países, los mensajes de la Presidencia se envían a un grupo reducido de gerentes de primera línea, el documento de misión, visión y valores está desactualizado y se está conformando un comité de cultura para actualizarlo, y la comunicación por mensajería ha derivado en muchos grupos sin orden."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Presidente de Junta Directiva", "texto": "Define el mensaje institucional que el grupo quiere transmitir a su organización y decide si se emite desde la Presidencia o a través de otra instancia, como la Universidad Cubitt, según convenga."},
+      {"id": "a2", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Canaliza el mensaje, prepara el comunicado y coordina su envío, de modo que quien lo reciba reconozca que viene de la Presidencia."},
+      {"id": "a3", "rol": "Gerente Regional de Marketing", "texto": "Da forma al comunicado y al material de apoyo con la identidad del grupo, para que el mensaje sea coherente con la marca y con lo definido para la cultura."},
+      {"id": "a4", "rol": "Presidente de Junta Directiva", "texto": "Emite el comunicado a los gerentes de primera línea, con la indicación de que lo trasladen a sus equipos con lo que ellos consideren pertinente."},
+      {"id": "a5", "rol": "Gerentes de primera línea", "texto": "Trasladan el mensaje a sus equipos de trabajo y lo adaptan a lo que es relevante para cada área y país."},
+      {"id": "a6", "rol": "Gerente de Recursos Humanos", "texto": "Confirma el alcance del mensaje consultando a los gerentes de primera línea si llegó a sus equipos, e identifica los que aún no lo han recibido."},
+      {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Convoca cada año al comité de cultura para actualizar la identidad del grupo —misión, visión, valores— bajo una sola identidad para todas las marcas y países."},
+      {"id": "a8", "rol": "Coordinador(a) de Sistemas", "texto": "Define, con Recursos Humanos, los canales oficiales de comunicación interna y cuáles son los grupos de mensajería vigentes, y da de baja los que ya no tienen razón de existir."}
+     ],
+     "diagrama": {
+      "carriles": ["Presidente de Junta Directiva", "Asistente Ejecutivo(a) de la Presidencia", "Gerente Regional de Marketing", "Gerentes de primera línea", "Gerente de Recursos Humanos", "Coordinador(a) de Sistemas"],
+      "nodos": [
+       {"id": "n0", "carril": "Presidente de Junta Directiva", "tipo": "inicio", "n": "Mensaje institucional por comunicar"},
+       {"id": "n1", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Definir el mensaje y quién lo emite"},
+       {"id": "n2", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Preparar el comunicado"},
+       {"id": "n3", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Dar forma al comunicado con la identidad"},
+       {"id": "n4", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Emitir a los gerentes de primera línea"},
+       {"id": "n5", "carril": "Gerentes de primera línea", "tipo": "tarea", "n": "Trasladar el mensaje a los equipos"},
+       {"id": "n6", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Confirmar el alcance del mensaje"},
+       {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "decision", "n": "¿El mensaje llegó a todos los equipos?"},
+       {"id": "n8", "carril": "Gerentes de primera línea", "tipo": "tarea", "n": "Reforzar el cascadeo donde faltó"},
+       {"id": "n9", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Actualizar la identidad con el comité de cultura"},
+       {"id": "n10", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Ordenar los canales internos", "sistemas": ["Lark", "WhatsApp"]},
+       {"id": "n11", "carril": "Coordinador(a) de Sistemas", "tipo": "fin", "n": "Mensaje cascadeado e identidad vigente"},
+       {"id": "n12", "carril": "Gerentes de primera línea", "tipo": "fin", "n": "Cascadeo reforzado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n9", "etq": "Sí"}, {"de": "n7", "a": "n8", "etq": "No"}, {"de": "n8", "a": "n12"},
+       {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Mensaje que no llega más allá de la primera línea", "La estrategia y los mensajes se comunican a un grupo reducido de gerentes y no se bajan de forma estructurada al resto del personal.", "Alta", "Alto", "Definir un encuentro anual con el personal y un mecanismo de cascadeo con confirmación de alcance."],
+      ["Identidad desactualizada y no unificada", "El documento de misión, visión y valores está desactualizado y responde a la marca original más que al grupo, y no ha sido adaptado a todos los países.", "Alta", "Medio", "Actualizar la identidad como grupo, con un comité de cultura, y publicarla en todos los países."],
+      ["Canales de mensajería sin orden", "Hay una gran cantidad de grupos de mensajería sin nombres organizados y con participantes desactualizados, y la información se dispersa o llega a quien no corresponde.", "Alta", "Medio", "Definir los canales oficiales por tipo de comunicación y depurar los grupos existentes."],
+      ["Personal que nunca ha sido reunido", "Nunca se ha reunido al personal de todos los países, y los equipos de cada país conocen poco a los directivos y a la visión del grupo.", "Media", "Medio", "Programar un encuentro anual con el personal y visitas de la Presidencia a cada país."],
+      ["Comunicación que depende de una sola vía", "Buena parte de la comunicación institucional depende de la Presidencia y de su asistente, sin un plan de comunicación con calendario.", "Media", "Medio", "Definir un calendario anual de comunicaciones institucionales con responsables."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Alcance del mensaje institucional", "Gerentes de primera línea que confirman haber trasladado el mensaje ÷ total de gerentes de primera línea", "Por evento", "Gerente de Recursos Humanos", "Por definir — hoy no hay confirmación de alcance"],
+      ["Encuentros con el personal realizados", "Encuentros con personal de todos los países realizados en el año", "Anual", "Presidente de Junta Directiva", "Uno por año"],
+      ["Identidad del grupo vigente y publicada", "Misión, visión y valores actualizados y publicados en los canales internos (sí / no)", "Anual", "Gerente de Recursos Humanos", "Por definir — hoy el documento está desactualizado"]
+     ]
+    }
+   }
+  }
+ },
+
  "17": {
   "procesos": {
 
