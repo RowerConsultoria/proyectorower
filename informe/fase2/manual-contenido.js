@@ -6979,6 +6979,191 @@ window.MANUAL_CONTENIDO = {
  },
 
  "1": {
+  "n0": {
+
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual describe cómo se dirige y se gobierna Grupo Kenex: cómo se define el rumbo a tres años, cómo se convierte en metas e indicadores, cómo se reúnen y deciden sus órganos, cómo se le da seguimiento a lo acordado y cómo se ordena la relación entre la familia propietaria y la empresa. Sirve como referencia única para que la Junta Directiva, los directores y la primera línea gerencial compartan las mismas reglas de gobierno y no dependan de lo que cada quien recuerde.",
+    "alcance": "Desde la sesión estratégica anual de los accionistas hasta el cierre de los acuerdos de gobierno, incluidos el modelo organizativo y la línea rectora corporativa, la sucesión de la línea directiva, el gobierno de los socios y de las operaciones tercerizadas, y la comunicación institucional y la cultura. No incluye la operación de las funciones —ventas, compras, finanzas, talento— que este macroproceso orienta pero que documentan sus propios manuales.",
+    "audiencia": [
+     "Presidente de Junta Directiva",
+     "Accionistas y Directores de la familia",
+     "Director(a) Externo(a) de Junta Directiva",
+     "Director(a) de Finanzas del Grupo",
+     "Asistente Ejecutivo(a) de la Presidencia",
+     "Gerentes regionales por función",
+     "Gerente de Recursos Humanos",
+     "Gerente de Proyectos"
+    ]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Dirección y Gobierno Corporativo es el macroproceso estratégico que orienta a todos los demás. Fija hacia dónde va el grupo —hacer crecer Cubitt, la marca propia, y volver a hacer crecer Casio, la marca representada, en un horizonte de tres años—, decide cómo se organiza para llegar allí y le da seguimiento a lo decidido. Los macroprocesos operativos y de soporte reciben de él el plan, las metas y el modelo organizativo, y le devuelven los resultados que le permiten revisarlos.\n\nGrupo Kenex es una empresa familiar con operación en Venezuela, Panamá, Colombia, Costa Rica, Guatemala y Estados Unidos, dirigida por los hermanos y los sobrinos de la familia propietaria y acompañada por directores externos y asesores. Esa condición marca el gobierno: las decisiones se toman con rapidez y en conversaciones directas, los directores están conectados casi de forma permanente aunque estén en países distintos, y las instancias formales —Junta Directiva, comités— conviven con espacios informales que hoy son los que más deciden.\n\nEl grupo está pasando de esa forma de decidir a un gobierno corporativo más estructurado: se formalizan las sesiones, se ordena el registro de los acuerdos, se actualiza el protocolo familiar y se define qué se rige desde el centro y qué desde cada país. Este manual recoge tanto lo que ya existe como lo que está por implementarse, y distingue cada caso en la ficha de cada proceso.",
+    "duenos": [
+     ["Grupo", "Presidente de Junta Directiva", "Preside la Junta Directiva, convoca la sesión estratégica anual, conduce las sesiones y emite los mensajes institucionales del grupo."],
+     ["Grupo", "Accionistas y Directores de la familia", "Definen y aprueban el plan estratégico, deciden en la Junta y en el Comité Directivo y ejecutan cada uno la ruta del plan en el frente que dirigen."],
+     ["Grupo", "Director(a) Externo(a) de Junta Directiva", "Modera la sesión estratégica y redacta el plan, custodia el protocolo familiar y facilita los ejercicios de sucesión y de modelo organizativo."],
+     ["Grupo", "Director(a) de Finanzas del Grupo", "Preside la preparación del Comité de Finanzas, propone el cuadro de indicadores de la Junta y recibe el reporte de los socios y las filiales."],
+     ["Presidencia", "Asistente Ejecutivo(a) de la Presidencia", "Arma las agendas, convoca las sesiones, registra las decisiones y da seguimiento a los pendientes de la Presidencia y de la Junta."],
+     ["Función", "Gerente de Recursos Humanos", "Mantiene el organigrama, evalúa el ajuste de los ocupantes de las posiciones críticas y conduce la actualización de la identidad; su rol corporativo aún no está constituido."]
+    ],
+    "entidades": [
+     ["Kenex (compañía madre del grupo)", "Panamá", "Holding", "Concentra el financiamiento del grupo y de sus operaciones; su endeudamiento es un tema recurrente del Comité de Finanzas."],
+     ["Distribuidora Rower, C.A.", "Venezuela", "Operación propia", "Sede de la Presidencia y de buena parte de las decisiones del grupo; opera con un régimen cambiario propio."],
+     ["Kenex Trading, S.A.", "Panamá (Zona Libre de Colón)", "Operación propia — exportación", "Solo puede vender al exterior por su licencia de Zona Libre; no puede facturar directo al mercado panameño."],
+     ["Casiolandia (Panamá), S.A.", "Panamá", "Operación propia — retail", "Opera las tiendas propias de Panamá."],
+     ["Deltadir SAS", "Colombia", "Operación propia", "Cuenta con una reunión semanal de seguimiento en la que participan la Presidencia y la dirección financiera y comercial del grupo."],
+     ["Importbel, S.A.", "Costa Rica", "Socio al 50 %", "Opera su propio negocio con ERP propio, le compra al grupo como cliente y rinde reportes financieros; el grupo busca que lleguen en sus formatos."],
+     ["Kenex USA", "Estados Unidos", "Filial con personalidad jurídica propia", "Opera con estructura y sistemas propios y reporta sus estados financieros a la Junta."],
+     ["Operador tercerizado de Guatemala", "Guatemala", "Operación tercerizada bajo marca", "El operador administra las tiendas bajo las políticas del grupo a cambio de un fee; el grupo mantiene un country manager para las ventas al mayor."]
+    ],
+    "sistemas": [
+     ["WhatsApp", "Canal principal de convocatoria a las sesiones, de circulación de agendas y resúmenes, y de comunicación de las decisiones; el grupo mantiene unos 300 grupos sin un orden común. Es una aplicación de un tercero; no hay evidencia de un canal oficial distinto para las decisiones de gobierno.", "1.3 · 1.4 · 1.9"],
+     ["Lark", "Comunicación interna, reuniones y documentos donde la asistente de la Presidencia lleva tareas con recordatorios; la Junta lo usa poco y sigue prefiriendo la mensajería.", "1.3 · 1.4 · 1.9"],
+     ["Base de seguimiento de la Presidencia", "Registro tipo grilla, con dueños por tema, donde la asistente de la Presidencia sigue los pendientes de la Presidencia y de la Junta; lo consultan pocos directores. No hay evidencia de en qué herramienta vive ni de quién más tiene acceso.", "1.3 · 1.4"],
+     ["Claude", "La asistente de la Presidencia lo usa para redactar las minutas de algunas reuniones; el grupo paga licencias y la Junta lo impulsa como herramienta de trabajo. Hay una preocupación abierta sobre qué datos del grupo se cargan en la herramienta.", "1.3 · 1.4"],
+     ["Excel", "Formato en que se presenta a la Junta el resultado financiero y el seguimiento de los países; hoy suele abrirse en la propia sesión, sin una presentación preparada.", "1.2 · 1.3"],
+     ["Odoo", "Fuente de los estados financieros al día con que se revisa el presupuesto; Venezuela aún completa su implantación.", "1.2 · 1.8"]
+    ],
+    "interfaces": [
+     ["Todos los macroprocesos funcionales", "Salida", "El plan estratégico, los objetivos, el cuadro de indicadores y el modelo organizativo vigente; reciben a cambio los resultados con que la Junta revisa el avance."],
+     ["Administración y Finanzas / Contabilidad", "Entrada", "Estados financieros, presupuesto, forecast, caja y endeudamiento que se revisan en el Comité de Finanzas y en la Junta."],
+     ["Gestión del Talento Humano", "Salida / coordinación", "Organigrama aprobado, mapa de posiciones críticas y planes de sucesión, e identidad y cultura del grupo."],
+     ["Gobierno de Portafolio (PMO)", "Salida", "Acuerdos de la Junta que derivan en proyecto, con su prioridad; la PMO devuelve un resumen de avance."],
+     ["Adopción de IA y Transformación Digital", "Salida", "La orientación estratégica y los valores de la organización con que debe vincularse la política de adopción de inteligencia artificial."],
+     ["Gestión de Mercadeo y Comunicaciones", "Salida / coordinación", "Mensaje institucional y material de identidad para su difusión."],
+     ["Socios, operadores tercerizados y distribuidores", "Entrada", "Reportes financieros y comerciales mensuales de las unidades que no son de operación propia directa."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Presidente de Junta Directiva", "Grupo", "Preside la Junta Directiva y el Comité Directivo, convoca la sesión estratégica anual y emite los comunicados institucionales.", "Temas de agenda, convocatoria y conducción de las sesiones, y el mensaje institucional.", "Las decisiones de fondo se llevan a la Junta Directiva o al Comité Directivo."],
+     ["Accionistas y Directores de la familia", "Grupo", "Definen el plan, deciden en la Junta y en el Comité Directivo y dirigen los frentes de compras, comercial y desarrollo de producto.", "Decisiones de su frente y las que se acuerdan en Junta o Comité; el plan se aprueba entre ellos.", "Al Comité Directivo o a la Junta cuando la decisión cruza frentes o países."],
+     ["Director(a) Externo(a) de Junta Directiva", "Grupo", "Modera la sesión estratégica y redacta el plan, custodia el protocolo familiar y facilita los ejercicios de sucesión y de modelo organizativo.", "Sin decisión propia sobre el negocio; propone y facilita.", "A la Junta Directiva."],
+     ["Asesor(a) Externo de Finanzas y Auditoría", "Grupo", "Participa en la Junta y en los comités de finanzas de los países, revisa documentos legales y participa en la selección del personal administrativo y contable.", "Sin decisión propia; asesora.", "A la Junta y al Comité de Finanzas."],
+     ["Director(a) de Finanzas del Grupo", "Grupo", "Propone el cuadro de indicadores, presenta los estados financieros y el endeudamiento, y recibe el reporte de socios y filiales.", "Formato y contenido del reporte financiero que se exige a las unidades.", "Al Comité de Finanzas y a la Junta."],
+     ["Asistente Ejecutivo(a) de la Presidencia", "Presidencia", "Arma las agendas, convoca, registra las decisiones y da seguimiento a los pendientes; canaliza los comunicados de la Presidencia.", "Orden de los temas dentro de la agenda, con el criterio que le indica la Presidencia.", "A la Presidencia."],
+     ["Gerente de Proyectos", "Grupo", "Recibe los requerimientos de la Junta que derivan en proyecto, evalúa su factibilidad y asigna gerente de proyecto.", "Si un requerimiento es proyecto, iniciativa o tarea, según el criterio de la oficina de proyectos.", "A la Junta cuando el requerimiento exige recursos o prioridad."],
+     ["Gerente de Recursos Humanos", "Grupo", "Mantiene el organigrama, evalúa el ajuste de los ocupantes de posiciones críticas y conduce la actualización de la identidad.", "Sin decisión de nombramiento sobre posiciones clave.", "A la Junta Directiva."]
+    ],
+    "comites": [
+     ["Junta Directiva", "Decidir el rumbo del grupo, revisar el avance frente al plan y aprobar lo que el grupo decide como órgano colegiado.", "Mensual o cada dos semanas como deber ser; en la práctica, sin frecuencia fija", "Accionistas y Directores de la familia (cinco) · Director(a) Externo(a) de Junta Directiva · Asesor(a) Externo de Finanzas y Auditoría · Director(a) de Finanzas del Grupo", "Rumbo del grupo, aprobación del presupuesto y del endeudamiento, modelo organizativo, sucesión", "Agenda de una página y resumen de temas pendientes", "Decisiones comunicadas por mensajería; sin acta formal"],
+     ["Comité Directivo", "Coordinar el día a día de las decisiones entre los directores de la familia y decidir lo que no espera a la Junta.", "Sin frecuencia fija; se convoca por mensajería cuando hay un tema", "Los cinco accionistas y directores de la familia", "Decisiones operativas y estratégicas de los frentes de la familia", "Temas planteados en el grupo de mensajería", "Cada quien asume su parte; sin registro formal"],
+     ["Comité de Finanzas", "Revisar los estados financieros, el endeudamiento, la caja y las proyecciones.", "Quincenal", "Presidente de Junta Directiva · Director(a) de Finanzas del Grupo · directores externos · Asesor(a) Externo de Finanzas y Auditoría", "Endeudamiento, caja, presupuesto y su ajuste", "Estados financieros y proyección de caja", "Decisiones financieras y seguimiento de pendientes"],
+     ["Comité de Compras", "Decidir las compras del grupo y coordinar la relación con las fábricas.", "Sin evidencia de frecuencia", "Directores de la familia a cargo de compras y desarrollo de producto y su equipo", "Compras internacionales y desarrollo de producto", "Forecast de compra y venta", "Órdenes de compra"],
+     ["Comité Comercial", "Coordinar la actividad comercial del grupo.", "No está formalizado", "Directores de la familia a cargo de lo comercial y gerentes comerciales", "Decisiones comerciales entre países y canales", "Seguimiento comercial", "Sin registro formal"],
+     ["Reunión semanal de seguimiento de Colombia", "Dar seguimiento a la operación de Colombia.", "Semanal", "Gerente general de la operación de Colombia · Presidente · Director(a) de Finanzas del Grupo · directores de compras y comercial · marketing", "Ajustes a la operación de Colombia", "Resultados semanales de la operación", "Acuerdos con seguimiento de la asistente de la Presidencia"],
+     ["Consejo de familia y consejo de accionistas", "Regular la relación entre la familia y la empresa según el protocolo familiar.", "Una o dos veces al año como deber ser; aún en definición", "Accionistas y miembros de la familia consanguíneos", "Asuntos de la relación familia-empresa", "Protocolo familiar", "Información de la marcha de la empresa a la familia"],
+     ["Comité de Cultura (en conformación)", "Actualizar la identidad y la cultura del grupo como Kenex, más allá de cada marca.", "Por definir", "Recursos Humanos, Marketing y directores de la familia", "Misión, visión y valores", "Documento de cultura vigente, hoy desactualizado", "Identidad actualizada del grupo"]
+    ]
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "Profesionalizar sin perder el carácter familiar: la Presidencia se propone transformar la empresa y dirigirla con gente profesional, sin dejar de ser una empresa familiar dirigida por los hermanos y los sobrinos.",
+     "Una sola identidad como grupo Kenex: la cultura y la identidad se piensan para todas las marcas y todos los países, no para una marca en particular.",
+     "Las unidades rinden cuentas en el formato del grupo: el socio, el operador y la filial rinden cuentas con reportes en los formatos del grupo, aunque operen con sistemas propios.",
+     "El seguimiento es mensual: la venta, la compra y el margen se revisan cada mes contra el presupuesto y el forecast, y se ajustan en función de lo que va ocurriendo.",
+     "La estrategia la define la familia y la modera un externo: la sesión anual reúne a los accionistas con un director externo que la conduce y redacta el plan."
+    ],
+    "politicas": [
+     "Sesión estratégica anual: los accionistas y directores de la familia se reúnen en las primeras semanas del año, con un director externo como moderador, para preparar la estrategia del año y el plan a tres años.",
+     "Comité de Finanzas quincenal: se revisan los estados financieros, el endeudamiento y la caja, y se hace seguimiento de los pendientes de la sesión anterior.",
+     "Presupuesto anual y forecast: el presupuesto se define para los doce meses, se revisa mensualmente y a mitad de año se ajusta con los estados financieros disponibles.",
+     "Reporte financiero de socios y filiales: el socio de Costa Rica y la filial de Estados Unidos entregan reporte financiero al grupo, en el formato que el grupo define.",
+     "Acuerdos de confidencialidad: el equipo firma acuerdos de confidencialidad y el grupo firma contratos con las fábricas, como parte del ordenamiento legal que la Presidencia impulsó.",
+     "Seguimiento semanal de Colombia: la operación de Colombia se revisa en una reunión semanal con participación de la Presidencia y de las direcciones financiera y comercial.",
+     "Requerimientos de la Junta a la oficina de proyectos: lo que la Junta Directiva decide que debe implementarse se canaliza a la oficina de proyectos con su prioridad, y esta evalúa su factibilidad y asigna un gerente de proyecto."
+    ],
+    "normativo": [
+     "Protocolo familiar: define las relaciones entre la familia y la empresa —ingreso de familiares, cambios de estado civil, vacaciones—, distingue a los miembros consanguíneos de los políticos y prevé un consejo de accionistas y un consejo de familia. Está en actualización y pendiente de revisión legal.",
+     "Asamblea anual de accionistas: la Presidencia la ubica una vez al año, tras los resultados; existen versiones distintas sobre si se ha celebrado en la práctica.",
+     "Relación con la marca representada: el grupo distribuye Casio desde hace unos cuarenta años, sin un contrato de exclusividad y con condiciones que define la marca; el propio grupo la reconoce como un riesgo de continuidad y por eso busca consolidar la marca propia."
+    ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "De los 9 procesos, 5 son to-be (1.2, 1.4, 1.5, 1.6 y 1.9) y 4 son híbridos (1.1, 1.3, 1.7 y 1.8); ninguno es as-is. El macroproceso no parte de cero —hay una sesión estratégica anual, un Comité de Finanzas que se reúne con regularidad y una capa corporativa en varias funciones—, pero lo que falta es dejar por escrito, registrar y sostener lo que hoy ocurre de manera informal. Las acciones no llevan fecha porque el equipo no las ha acordado.",
+    "por_implementar": [
+     ["1.2 Despliegue de objetivos e indicadores de gestión del grupo", "Solo las áreas comerciales miden con una batería de indicadores; Recursos Humanos, Tecnología y Administración y Finanzas no miden objetivos, y no hay un cuadro único que revise la Junta.", "Construir el cuadro de indicadores partiendo de lo ya medido —presupuesto, forecast y margen— e incorporar las funciones de apoyo con al menos dos indicadores cada una."],
+     ["1.4 Registro, seguimiento y cierre de los acuerdos de gobierno", "Hay una base de seguimiento que lleva la asistente de la Presidencia, pero la consultan pocos directores, las decisiones fuera de sesión no siempre llegan a todos y no hay un cierre formal de acuerdos.", "Ampliar el uso de la base a toda la Junta, exigir dueño y fecha en cada acuerdo y definir un cierre o reescalamiento formal."],
+     ["1.5 Gobierno de la relación familia-empresa", "El protocolo familiar está sin terminar y sin revisión legal; el consejo de familia y la asamblea anual no tienen un calendario ni registro claros.", "Terminar el protocolo, revisarlo legalmente, firmarlo y definir el calendario y el registro de sus instancias."],
+     ["1.6 Planificación de la sucesión y del relevo de la línea directiva", "No existe un plan de sucesión ni un plan de desarrollo por persona; las posiciones críticas no están mapeadas y la función corporativa de talento no está constituida.", "Definir el mapa de posiciones críticas, abrir la conversación con la tercera generación y decidir quién asume la función corporativa de talento."],
+     ["1.9 Comunicación institucional interna y gestión de la cultura", "El personal de todos los países nunca se ha reunido, el mensaje se queda en la primera línea, la identidad está desactualizada y hay unos 300 grupos de mensajería sin orden.", "Constituir el comité de cultura, definir un encuentro anual con el personal, un cascadeo con confirmación de alcance y los canales oficiales de comunicación."]
+    ],
+    "por_formalizar": [
+     ["1.1 Formulación y revisión del plan estratégico del grupo", "La sesión anual y la redacción del plan ocurren con regularidad, pero el plan no queda en un documento accesible, no se comunica a la primera línea gerencial y las revisiones de avance son irregulares.", "Documentar el plan y las decisiones de cada sesión, comunicarlo a la primera línea y fijar una cadencia de revisión, al menos semestral."],
+     ["1.3 Preparación y conducción de las sesiones de los órganos de gobierno", "La agenda y el resumen los prepara la asistente de la Presidencia y el Comité de Finanzas se reúne con regularidad; la Junta no tiene frecuencia fija, las sesiones no siempre llegan preparadas y no hay acta.", "Fijar un calendario de sesiones, exigir presentación previa por punto y emitir un acta mínima con decisión, responsable y fecha."],
+     ["1.7 Diseño del modelo organizativo y de la línea rectora corporativa", "Existe capa corporativa en Finanzas, Marketing, Ventas, Tecnología y Servicio al Cliente; Recursos Humanos y la función jurídica no la tienen, y no hay una revisión periódica de qué se rige desde el centro.", "Documentar por función qué decisiones rige el centro, resolver las funciones sin capa corporativa e incluir todas las entidades en el organigrama."],
+     ["1.8 Gobierno de socios, distribuidores y operaciones tercerizadas", "El grupo recibe reporte del socio y de la filial, pero no hay un formato ni una periodicidad únicos, y hay unidades que quedan fuera de los ejercicios de procesos y de estructura.", "Fijar un formato y una fecha de reporte por unidad y decidir qué políticas del grupo aplican a cada tipo de unidad."]
+    ],
+    "brechas": [
+     ["Transversal — registro y documentación", "Las decisiones se toman en sesión, en chat y en conversaciones directas; no hay un acta ni un repositorio común, y los miembros externos a veces conocen tarde lo decidido.", "Adoptar un registro único de decisiones, con dueño y fecha, y hacer que toda decisión fuera de sesión se informe a la asistente de la Presidencia el mismo día."],
+     ["Transversal — seguimiento", "El seguimiento de lo acordado no es una de las fortalezas del grupo: las revisiones estratégicas de avance se han intentado sin sostenerse.", "Asignar a una persona la preparación de la agenda y el registro del seguimiento, y llevarlo a una cadencia fija."],
+     ["Transversal — decisiones sin diligencia", "Algunas decisiones de mayor riesgo se han tomado de forma rápida sin una revisión previa, como ilustra un caso de adquisición en otro país que terminó mal.", "Definir para las decisiones de inversión o de entrada a un país una revisión previa mínima antes de decidir."],
+     ["Transversal — dependencia de personas", "La conducción de la sesión, la redacción del plan, el protocolo y el seguimiento dependen cada uno de una sola persona, sin respaldo documentado.", "Documentar la metodología de cada actividad y designar un respaldo."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Asamblea de accionistas", "Reunión anual de los accionistas tras el cierre de resultados, donde se rinden las cuentas del año."],
+     ["Cascadeo", "Traslado de un mensaje o de una meta desde la Presidencia a los gerentes de primera línea, y de estos a sus equipos."],
+     ["Capa corporativa", "Función que agrupa y consolida a los equipos de un mismo tema en los países y define la línea rectora para todos."],
+     ["Comité de Finanzas", "Instancia quincenal que revisa los estados financieros, el endeudamiento, la caja y las proyecciones del grupo."],
+     ["Comité Directivo", "Reunión de los cinco accionistas y directores de la familia, más informal que la Junta Directiva."],
+     ["Consejo de accionistas / consejo de familia", "Instancias que prevé el protocolo familiar para regular la relación entre la familia propietaria y la empresa."],
+     ["Director(a) externo(a)", "Miembro de la Junta Directiva que no pertenece a la familia; se suman a los cinco directores de la familia, y las personas entrevistadas cuentan dos o tres según se incluya o no a la dirección de finanzas."],
+     ["Línea rectora", "Criterio corporativo, por función, sobre qué decisiones se toman desde el centro y cuáles en el país."],
+     ["Primera línea gerencial", "Conjunto de unos veinticinco gerentes a quienes la Presidencia dirige sus comunicados institucionales."],
+     ["Protocolo familiar", "Documento que define las relaciones entre la familia y la empresa: ingreso de familiares, cambios de estado civil, vacaciones y las instancias de la familia."],
+     ["Sesión estratégica anual", "Reunión cerrada de dos días, en las primeras semanas del año, donde los accionistas definen la estrategia con un director externo como moderador."],
+     ["Tercera generación", "Miembros más jóvenes de la familia propietaria, con quienes se prevé una conversación de proyección de carrera."]
+    ],
+    "raci": [
+     ["1.1 Formulación y revisión del plan estratégico del grupo", "Director(a) Externo(a) de Junta Directiva", "Presidente de Junta Directiva", "Accionistas y Directores de la familia", "Junta Directiva"],
+     ["1.2 Despliegue de objetivos e indicadores de gestión del grupo", "Director(a) de Finanzas del Grupo", "Junta Directiva", "Gerentes regionales por función · Director(a) Externo(a) de Junta Directiva", "Gerentes de país"],
+     ["1.3 Preparación y conducción de las sesiones de los órganos de gobierno", "Asistente Ejecutivo(a) de la Presidencia", "Presidente de Junta Directiva", "Director(a) de Finanzas del Grupo · gerentes invitados", "Miembros de la Junta"],
+     ["1.4 Registro, seguimiento y cierre de los acuerdos de gobierno", "Asistente Ejecutivo(a) de la Presidencia", "Presidente de Junta Directiva", "Gerente de Proyectos · Directores de la familia", "Gerentes responsables de la ejecución"],
+     ["1.5 Gobierno de la relación familia-empresa", "Director(a) Externo(a) de Junta Directiva", "Accionistas y miembros de la familia", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Miembros de la familia"],
+     ["1.6 Planificación de la sucesión y del relevo de la línea directiva", "Director(a) Externo(a) de Junta Directiva", "Junta Directiva", "Gerente de Recursos Humanos · Directores de la familia", "Ocupantes y candidatos de las posiciones críticas"],
+     ["1.7 Diseño del modelo organizativo y de la línea rectora corporativa", "Gerente de Recursos Humanos", "Junta Directiva", "Gerentes regionales por función · Director(a) Externo(a) de Junta Directiva · Gerente de Proyectos", "Coordinador(a) de Recursos Humanos"],
+     ["1.8 Gobierno de socios, distribuidores y operaciones tercerizadas", "Director(a) de Finanzas del Grupo", "Junta Directiva", "Gerente Regional Comercial / Retail · Gerente Regional de Marketing", "Socios, operadores y distribuidores"],
+     ["1.9 Comunicación institucional interna y gestión de la cultura", "Gerente de Recursos Humanos", "Presidente de Junta Directiva", "Gerente Regional de Marketing · Asistente Ejecutivo(a) de la Presidencia · Coordinador(a) de Sistemas", "Gerentes de primera línea"]
+    ],
+    "catalogo_sistemas": [
+     ["WhatsApp", "Convocatoria, agendas, resúmenes y comunicación de decisiones", "1.3 · 1.4 · 1.9", "Sin responsable formal"],
+     ["Lark", "Comunicación interna, reuniones y documentos con tareas y recordatorios", "1.3 · 1.4 · 1.9", "Coordinador(a) de Sistemas"],
+     ["Base de seguimiento de la Presidencia", "Registro de temas, dueños y estado de los pendientes de la Presidencia y la Junta", "1.3 · 1.4", "Asistente Ejecutivo(a) de la Presidencia"],
+     ["Claude", "Redacción de minutas de algunas reuniones", "1.3 · 1.4", "Sin responsable formal"],
+     ["Excel", "Presentación del resultado financiero y del seguimiento de los países", "1.2 · 1.3", "Director(a) de Finanzas del Grupo"],
+     ["Odoo", "Estados financieros al día para la revisión del presupuesto", "1.2 · 1.8", "Coordinador(a) de Sistemas"]
+    ],
+    "interfaces_detalle": [
+     ["Todos los macroprocesos funcionales", "Plan y metas", "Plan estratégico, objetivos, cuadro de indicadores y modelo organizativo vigente"],
+     ["Administración y Finanzas / Contabilidad", "Información financiera", "Estados financieros, presupuesto, forecast, caja y endeudamiento"],
+     ["Gestión del Talento Humano", "Organización y cultura", "Organigrama, mapa de posiciones críticas, planes de sucesión e identidad del grupo"],
+     ["Gobierno de Portafolio (PMO)", "Requerimientos de la Junta", "Acuerdos que derivan en proyecto, con prioridad y resumen de avance"],
+     ["Adopción de IA y Transformación Digital", "Orientación estratégica", "Estrategia y valores de la organización para vincular la política de adopción de IA"],
+     ["Gestión de Mercadeo y Comunicaciones", "Mensaje institucional", "Comunicado, material de identidad y difusión"],
+     ["Socios, operadores tercerizados y distribuidores", "Reporte", "Reporte financiero y comercial mensual en el formato del grupo"]
+    ],
+    "variaciones_pais": [
+     ["Venezuela", "Sede de la Presidencia y de buena parte de las decisiones; el personal ha cambiado poco en años y hay una figura de administración de recursos humanos sin función estratégica.", "La Presidencia decide desde allí y coordina con los demás países por mensajería y videollamada."],
+     ["Panamá", "Reside allí parte de los directores de la familia y a Panamá llega la mercancía que compra el grupo.", "Los horarios de las sesiones se fijan en la franja común con Venezuela."],
+     ["Colombia", "Es la única operación con una reunión semanal de seguimiento propia, con participación de la Presidencia y de la dirección financiera y comercial.", "El seguimiento semanal es un modelo que otros países no tienen."],
+     ["Costa Rica", "Opera como sociedad al 50 % con su propio negocio y su propio ERP; compra al grupo como cliente y rinde reportes financieros.", "El grupo busca que su reporte llegue en los formatos estándar."],
+     ["Guatemala", "Operación tercerizada a un operador bajo marca, con un country manager del grupo para las ventas al mayor.", "El control de las políticas de marca se ejerce a distancia."],
+     ["Estados Unidos", "Filial con personalidad jurídica, estructura y sistemas propios que reporta sus estados financieros a la Junta.", "Ha quedado fuera de parte de los ejercicios de estructura y procesos."]
+    ]
+   }
+  },
   "procesos": {
 
    "1.1": {
