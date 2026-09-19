@@ -1746,54 +1746,113 @@ window.MANUAL_CONTENIDO = {
    "6.4": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la decisión del comité informal de compras Cubitt ante una necesidad de lanzamiento o de cobertura, el sourcing con la fábrica en China, la gestión de muestras, la decisión de envío aéreo o marítimo, y la confirmación de la orden. No incluye la producción física en fábrica ni el desarrollo del producto en sí (macro 3, R&D y Desarrollo de Producto — Cubitt), que es anterior a este proceso."
+     "texto": "Cubre cómo se decide y se coloca la compra internacional de la marca propia Cubitt a las fábricas de China: la revisión periódica de qué pedir y cuánto en el comité de compras, el recojo del requerimiento de los países, la selección de fábrica y la gestión de muestras, la segunda confirmación antes de proceder, la colocación de la orden y la decisión de qué parte se embarca por aire y qué parte por mar. No incluye el desarrollo del producto en sí (macro 3, R&D y Desarrollo de Producto — Cubitt), que es anterior, ni la recepción física en el hub de Colón (macro 7, Logística y Operaciones)."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "participantes": [
+      "Comité de compras Cubitt — instancia de cuatro integrantes que define qué pedir y cuánto: el Director(a) de Marca Propia (Cubitt), el Gerente Comercial (País / Canal), el Gerente Regional Comercial / Retail (Cubitt) y el Gerente Regional de Ventas (Cubitt).",
+      "Gerente Regional Comercial / Retail (Cubitt) — lleva el control de venta mensual, inventario y sugerido de pedido que alimenta la decisión del comité.",
+      "Gerente Comercial (País / Canal) — aporta el forecast de los canales y la venta esperada de sus clientes.",
+      "Junta Directiva / Director de Compras — segunda instancia de revisión: un grupo aparte del comité revisa los puntos que este quiere confirmar antes de proceder. Lo atiende el director que lleva la compra de la marca representada; en este proceso interviene como instancia de gobierno, no porque la compra de la marca propia esté bajo su cargo.",
+      "Coordinador(a) de Logística y Bodega (Venezuela) — incorporada recientemente al comité; aporta el requerimiento del país que concentra la mayor parte de la compra.",
+      "Encargado(a) de Sourcing (China) — busca proveedores nuevos y mantiene el control por fábrica de qué está en producción, qué viene en camino y el estado de los pagos.",
+      "Gerente de Operaciones y Logística — recibe la mercancía en el hub de Colón y requiere aviso anticipado del embarque."
+     ],
+     "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
+     "notas": "La evidencia distingue con claridad las dos compras del grupo: la de la marca representada y la de la marca propia las llevan personas distintas, con metodologías que el propio equipo describe como no unificadas. Quien encabeza la marca propia declara hacer la compra, y la gerencia comercial lo confirma y se deslinda expresamente de compras, quedándose con la venta. ⚠️ Tres de los cargos citados —Director(a) de Marca Propia (Cubitt), Gerente Regional de Ventas (Cubitt) y Encargado(a) de Sourcing (China)— NO existen todavía en el patrón de cargos V4, que no contempla ni la capa de propiedad y gobierno ni la función de compras, y cuyo censo cubre Venezuela, Panamá y Colombia pero no Estados Unidos, donde opera el primero de los tres. Están redactados como cargos, no como etiquetas funcionales, para que el manual nombre funciones y no personas; su incorporación formal al patrón corresponde a la Fase 3 y debe ratificarla el área de talento.",
+     "sin_evidencia": "Quién sustituye al dueño del proceso en su ausencia: el corpus no lo recoge y no se infiere. Pendiente de confirmar con el equipo: la transcripción deja el apellido de quien mantiene el control de venta e inventario entre dos personas homónimas de nombre; se resolvió por el departamento que la propia entrevista menciona, pero conviene verificarlo antes de asignar el validador. El cargo patrón V4 «Gerente Regional Comercial / Retail» cubre a la vez la gerencia regional de detal y la de la marca propia, funciones distintas: aquí se precisa entre paréntesis para no confundirlas. Tampoco consta el vínculo laboral de quien lleva el sourcing en China: la entrevista solo dice que «trabaja para» el dueño del proceso, y su ausencia del censo no lo aclara porque este cubre únicamente Venezuela, Panamá y Colombia. Queda por confirmar si es personal propio o externo —de ser externo, no puede actuar como validador de este proceso."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Reunión periódica de compras del comité Cubitt, alimentada por el control de venta mensual, inventario y sugerido de pedido que mantiene el Gerente Regional Comercial / Retail (Cubitt), y por el forecast que aportan los canales. En la práctica se complementa con la revisión que el propio dueño del proceso hace de memoria cuando detecta que el stock está corto.",
+     "cadencia": "Sin periodicidad fija — «cada cierto tiempo», según disponibilidad de agenda de los cuatro integrantes.",
+     "output": "Orden de compra colocada con la fábrica en China, con el modo de envío decidido por producto.",
+     "evidencia": ["E-06 (partes 1 y 2)"],
+     "notas": "El disparador no es una necesidad que detecte una sola función: nace del dato de venta e inventario y se decide en comité. Este proceso no consume hoy el plan de suministro aprobado en 6.1 (Planificación de demanda y S&OP), pese a que el alcance de aquel proceso declara que 6.3 y 6.4 parten de él — la costura entre ambos está declarada pero no opera."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional de Marketing", "texto": "Detecta la necesidad de compra: nuevo lanzamiento, cobertura crítica u oportunidad comercial."},
-      {"id": "a2", "rol": "Director(a) Ventas Regional Cubitt", "texto": "Revisa la necesidad en el comité informal y decide avanzar con la fábrica seleccionada."},
-      {"id": "a3", "rol": "Sourcing en China", "texto": "Coordina con la fábrica el sourcing, las muestras y el costo del lote."},
-      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Aprueba la muestra y decide el modo de envío —aéreo o marítimo— según la urgencia."},
-      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Confirma la orden de compra Cubitt con la fábrica y el modo de envío decidido."},
-      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a la orden en producción y en tránsito hasta el hub de Kenex Panamá."}
+      {"id": "a1", "rol": "Comité de compras Cubitt", "texto": "Convoca la revisión periódica de compra de la marca propia."},
+      {"id": "a2", "rol": "Gerente Regional Comercial / Retail (Cubitt)", "texto": "Aporta el control de venta mensual, inventario disponible y sugerido de cuánto debería pedirse por producto, apoyado en Power BI y archivos propios."},
+      {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aporta el forecast de los tres canales —mayoreo, detal y comercio electrónico— y la venta esperada de sus clientes."},
+      {"id": "a4", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Dimensiona la compra recogiendo de forma prioritaria, con el país que concentra la mayor parte de ella y a través de su Coordinador(a) de Logística y Bodega, un requerimiento explícito producto por producto. La necesidad del resto de países —que la compra también abastece— entra de forma indirecta, por el control de venta e inventario y por el forecast que los equipos de cada país aportan al canal, sin un requerimiento propio por país."},
+      {"id": "a5", "rol": "Comité de compras Cubitt", "texto": "Decide qué pedir y cuánto, cruzando los tres insumos: el control de venta e inventario, el forecast de los canales y el dimensionamiento por país."},
+      {"id": "a6", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Selecciona la fábrica —o busca una nueva con el Encargado(a) de Sourcing (China)—, negocia condiciones y revisa las muestras del lote."},
+      {"id": "a7", "rol": "Junta Directiva / Director de Compras", "texto": "Revisa los puntos que el comité quiere confirmar antes de proceder con la orden."},
+      {"id": "a8", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Coloca la orden de compra con la fábrica seleccionada."},
+      {"id": "a9", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Cuando la mercancía está lista, decide con el equipo de comercialización qué parte se embarca por aire —solo los productos de tamaño pequeño lo permiten— y qué parte por mar."},
+      {"id": "a10", "rol": "Encargado(a) de Sourcing (China)", "texto": "Mantiene el control por fábrica de qué está en producción, qué viene en camino, cuándo se estima que llegue y el estado de los pagos."},
+      {"id": "a11", "rol": "Gerente de Operaciones y Logística", "texto": "Recibe la mercancía en el hub de Colón y le da visibilidad a los canales de venta."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Marketing", "Director(a) Ventas Regional Cubitt", "Sourcing en China", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Comité de compras Cubitt", "Gerente Regional Comercial / Retail (Cubitt)", "Gerente Comercial (País / Canal)", "Director(a) de Marca Propia (Cubitt)", "Junta Directiva / Director de Compras", "Encargado(a) de Sourcing (China)", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional de Marketing", "tipo": "inicio", "n": "Detectar necesidad de compra Cubitt"},
-       {"id": "n1", "carril": "Director(a) Ventas Regional Cubitt", "tipo": "tarea", "n": "Revisar la necesidad en el comité informal"},
-       {"id": "n2", "carril": "Director(a) Ventas Regional Cubitt", "tipo": "decision", "n": "¿El comité decide avanzar con la fábrica?"},
-       {"id": "n2alt", "carril": "Director(a) Ventas Regional Cubitt", "tipo": "tarea", "n": "Descartar o posponer la necesidad"},
-       {"id": "n3", "carril": "Sourcing en China", "tipo": "tarea", "n": "Coordinar sourcing y muestras con la fábrica"},
-       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Aprobar muestra y decidir modo de envío"},
-       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Confirmar la orden de compra Cubitt"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento en producción y tránsito", "sistemas": ["Lark (tablero de producción/tránsito Cubitt)"]},
-       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Orden Cubitt confirmada y en seguimiento hasta el hub"}
+       {"id": "n0", "carril": "Comité de compras Cubitt", "tipo": "inicio", "n": "Se convoca la revisión periódica de compra"},
+       {"id": "n1", "carril": "Gerente Regional Comercial / Retail (Cubitt)", "tipo": "tarea", "n": "Aportar venta, inventario y sugerido de pedido", "sistemas": ["Power BI", "Archivos propios de seguimiento"]},
+       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Aportar el forecast de los tres canales"},
+       {"id": "n3", "carril": "Comité de compras Cubitt", "tipo": "tarea", "n": "Decidir qué pedir y cuánto"},
+       {"id": "n4", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Dimensionar la compra de todos los países, priorizando el mayor"},
+       {"id": "n5", "carril": "Comité de compras Cubitt", "tipo": "decision", "n": "¿Quedó decidido qué pedir de este producto?"},
+       {"id": "n5alt", "carril": "Comité de compras Cubitt", "tipo": "fin", "n": "Queda para una reunión posterior — sigue sin pedido"},
+       {"id": "n6", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Seleccionar fábrica, negociar y revisar muestras"},
+       {"id": "n7", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Buscar proveedor nuevo si hace falta"},
+       {"id": "n8", "carril": "Junta Directiva / Director de Compras", "tipo": "tarea", "n": "Revisar los puntos a confirmar antes de proceder"},
+       {"id": "n9", "carril": "Junta Directiva / Director de Compras", "tipo": "decision", "n": "¿Se confirma proceder?"},
+       {"id": "n9alt", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Ajustar cantidades o condiciones"},
+       {"id": "n10", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Colocar la orden de compra con la fábrica"},
+       {"id": "n11", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Decidir aéreo o marítimo por producto"},
+       {"id": "n12", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Controlar producción, tránsito y pagos por fábrica", "sistemas": ["Documentos de control por proveedor"]},
+       {"id": "n13", "carril": "Gerente de Operaciones y Logística", "tipo": "fin", "n": "Mercancía recibida en el hub de Colón"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
-       {"de": "n2alt", "a": "n7"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n0", "a": "n2"},
+       {"de": "n0", "a": "n4"},
+       {"de": "n1", "a": "n3"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n4", "a": "n3"},
+       {"de": "n3", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5alt", "etq": "No"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10", "etq": "Sí"},
+       {"de": "n9", "a": "n9alt", "etq": "No"},
+       {"de": "n9alt", "a": "n10"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
      "filas": [
-      ["Comité informal sin acta ni criterio de decisión escrito", "La decisión de compra Cubitt se toma en conversación, sin registro ni criterio documentado.", "Media", "Alto", "Documentar el criterio de decisión y la responsabilidad de cada integrante del comité."],
-      ["Sourcing concentrado en una sola persona en China", "El enlace de sourcing en fábrica es un solo punto de contacto, sin respaldo.", "Alta", "Alto", "Formar un respaldo o un segundo contacto de sourcing en la fábrica."],
-      ["Tablero de tránsito Cubitt muy reciente, sin trayectoria", "El tablero de seguimiento en Lark es de reciente construcción y todavía sin historial de uso.", "Media", "Medio", "Dar seguimiento al tablero por 2-3 ciclos completos antes de tomarlo como fuente única."],
-      ["Sin criterio documentado para decidir envío aéreo o marítimo", "La decisión de modo de envío se toma con criterio experto, sin regla escrita de costo/urgencia.", "Media", "Medio", "Documentar el criterio de urgencia y costo ya usado de facto."]
+      ["La reunión no alcanza a cubrir todos los productos", "El comité revisa muchos productos en una sola sesión y no termina de verlos todos; lo que queda sin revisar se acumula y se detecta tarde, ya con el stock corto.", "Alta", "Alto", "Partir la revisión por familia de producto con una lista priorizada por cobertura, de modo que ningún producto quede sin revisar dos ciclos seguidos."],
+      ["El proceso se detiene cuando los cuatro no coinciden en agenda", "La decisión exige reunir a los cuatro integrantes; con viajes y carga de trabajo la reunión se posterga y la compra queda parada aun sabiendo que hace falta pedir.", "Alta", "Alto", "Fijar cadencia y quórum mínimo, con regla de decisión cuando falte un integrante, para que la ausencia no bloquee la compra."],
+      ["Qué y cuánto pedir descansa en la revisión personal del dueño", "Entre reuniones, la detección de que el stock está corto depende de que el responsable lo revise de memoria; no hay cadencia ni umbral escrito que la dispare.", "Alta", "Alto", "Definir el punto de reposición por producto y disparar la revisión desde el dato de cobertura, no desde la memoria."],
+      ["Quien define la necesidad es quien coloca la orden", "El mismo responsable participa en el comité que define la compra, negocia con la fábrica y coloca la orden. La segunda revisión existe, pero es informal y no está documentada como control.", "Media", "Alto", "Documentar la segunda revisión como aprobación formal, con umbral de monto a partir del cual es obligatoria y registro de quién aprobó."],
+      ["Las dos marcas compran con metodologías no unificadas", "La compra de la marca representada y la de la marca propia las llevan personas distintas con métodos distintos, sin proceso documentado; el propio responsable comercial declara no tener claro el proceso de compra.", "Alta", "Alto", "Documentar ambos métodos y unificar lo que sea unificable, dejando por escrito las diferencias que la naturaleza de cada marca justifica."],
+      ["Logística se entera tarde del embarque", "La carga aérea no se traquea porque la información de compra no baja a tiempo; el hub llega a enterarse de un embarque con dos días de margen o el mismo día, lo que altera la planificación de recepción.", "Alta", "Medio", "Que la colocación de la orden dispare el aviso a Logística con producto, cantidad, modo de envío y fecha estimada."],
+      ["Sourcing concentrado en una sola persona en China", "El enlace con las fábricas es un único punto de contacto, sin respaldo; el control de producción, tránsito y pagos depende de esa persona.", "Alta", "Alto", "Formar un segundo contacto de sourcing y dejar el control por fábrica en un repositorio compartido, no personal."],
+      ["Solo un país aporta requerimiento explícito","La compra abastece a todos los países del grupo, pero solo el de mayor peso aporta un requerimiento producto por producto; los demás entran únicamente por el dato agregado de venta y forecast, sin que se les pregunte qué necesitan. Con 60 a 90 días de tránsito marítimo desde China, el país que quedó corto no tiene corrección hasta el ciclo siguiente.","Alta","Alto","Pedir a cada país un requerimiento por producto antes de la reunión de compra, aunque sea una estimación gruesa, y dejar constancia de qué países respondieron."],
+      ["El surtido depende de lo que ofrece el proveedor", "No hay estudio de producto propio: la definición de qué desarrollar se apoya en lo que las fábricas ofrecen y en pruebas pequeñas del equipo.", "Media", "Medio", "Incorporar un perfil de producto dedicado que sustente la decisión de surtido con criterio técnico y de segmento."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de ciclo de compra Cubitt", "Fecha de confirmación − fecha de detección de la necesidad", "Por orden", "Gerente Regional de Marketing", "Referencia de seguimiento"],
-      ["Órdenes Cubitt con seguimiento activo en el tablero", "Órdenes en el tablero ÷ total de órdenes en curso", "Semanal", "Coordinador(a) de Logística y Bodega", "100%"],
-      ["Proporción de envío aéreo vs. marítimo", "Envíos aéreos ÷ total de envíos del período", "Mensual", "Gerente Regional de Marketing", "Referencia de costo y urgencia"]
+      ["Tiempo de ciclo de compra Cubitt", "Fecha de colocación de la orden − fecha de la reunión que la decidió", "Por orden", "Director(a) de Marca Propia (Cubitt)", "Referencia de seguimiento"],
+      ["Productos revisados por reunión de comité", "Productos revisados ÷ productos previstos en la agenda de la reunión", "Por reunión", "Comité de compras Cubitt", "100% — ningún producto arrastrado dos ciclos"],
+      ["Quiebres de stock atribuibles a revisión tardía", "Productos con quiebre cuyo pedido se decidió después del punto de reposición ÷ total de quiebres", "Mensual", "Gerente Regional Comercial / Retail (Cubitt)", "A la baja"],
+      ["Órdenes con aviso anticipado a Logística", "Órdenes notificadas al hub antes del embarque ÷ total de órdenes colocadas", "Mensual", "Gerente de Operaciones y Logística", "100%"],
+      ["Proporción de envío aéreo vs. marítimo", "Envíos aéreos ÷ total de envíos del período", "Mensual", "Director(a) de Marca Propia (Cubitt)", "Referencia de costo y urgencia"]
      ]
     }
    },
