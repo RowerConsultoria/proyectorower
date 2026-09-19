@@ -83,6 +83,30 @@ for (const prefijo of prefijos) {
       if (color[id] === 0) dfs(id);
     });
     if (cicloEncontrado) problemas++;
+
+    // 3) Coherencia entre la descripción del flujo y el flujograma: todo rol que
+    // ejecuta una actividad tiene que tener su carril, y todo carril tiene que
+    // ejecutar algo. Sin esto, un actor puede desaparecer del dibujo aunque el
+    // texto lo nombre — y peor, su paso queda dibujado en el carril de otro, que
+    // es como un control de aprobación acaba pareciendo ejecutado por la misma
+    // persona a la que controla (encontrado en 6.4 el 2026-09-18).
+    const actividades = (procesos[codigo].flujo && procesos[codigo].flujo.actividades) || [];
+    const carriles = diagrama.carriles || [];
+    if (actividades.length && carriles.length) {
+      const roles = [...new Set(actividades.map((a) => a.rol).filter(Boolean))];
+      roles
+        .filter((r) => !carriles.includes(r))
+        .forEach((r) => {
+          console.log(`${codigo} :: ROL SIN CARRIL — "${r}" ejecuta una actividad del flujo pero no aparece en el flujograma`);
+          problemas++;
+        });
+      carriles
+        .filter((c) => !roles.includes(c))
+        .forEach((c) => {
+          console.log(`${codigo} :: CARRIL SIN ROL — "${c}" tiene carril en el flujograma pero ninguna actividad del flujo`);
+          problemas++;
+        });
+    }
   }
 }
 
