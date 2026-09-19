@@ -145,3 +145,15 @@ De ahí salió un defecto real de lo entregado horas antes: la escritura no dest
 Confirmado también: los dos triggers de historial activos, un reguardado idéntico **no** ensucia el diario (solo se registran cambios materiales), y el diario conserva el valor anterior recuperable. Estado de la base: 487 personas · 357 fichas · 288 completadas · 516 enlaces.
 
 ⚠️ **Sigue sin haber PITR ni copias diarias en Supabase** (`pitr_enabled:false`, 0 backups). El diario cubre `fichas_perfil` y solo esa tabla: si se borra algo de `personal`, `fichas_tokens` o cualquier otra, no hay de dónde sacarlo. Contratar PITR es la única red que cubre el resto.
+
+**2026-09-19** — Gabriel (vía Claude Code) — **Las prácticas de resguardo, extendidas a todo: el censo, los enlaces y el módulo de validación.**
+
+- **Un solo diario, `public.historial`,** sobre **siete tablas** (`fichas_perfil`, `personal`, `fichas_tokens`, `procesos_fase2`, `procesos_validadores`, `validaciones`, `validacion_tokens`). Sustituye a `fichas_perfil_historial`, cuyas 48 filas se migraron. Un trigger genérico parametrizado: de `procesos_fase2.contenido` (~300 kB) guarda una marca de tamaño en vez del blob, y los contadores `usos`/`ultimo_uso` de los tokens se ignoran del todo — se mueven en cada apertura y las fichas llevan 1053, así que el diario sería ruido. Sin foránea, a propósito. Probado con una escritura real en las siete y revertido.
+- **`validacion` tenía los mismos tres fallos que `ficha`**, y la campaña aún no había arrancado (0 validaciones, 268 asignaciones sembradas), así que se cierran antes de que llegue el primer gerente: (1) el `creado_en` de cada observación **se reescribía a «ahora» en cada guardado** — se perdía la fecha de lo dicho; (2) un `guardar` posterior a un `enviar` **degradaba** la validación a «en progreso» dejando `enviada_en` puesto, la misma huella que dejó 48 fichas mal contadas; (3) veredictos y comentarios se **reemplazaban enteros**, así que un envío incompleto borraba. Arreglado con `fundirValidacion()` + el mismo `base` de la ficha.
+- **Arnés nuevo `scripts/comprobar-validacion-fn.ts`** (14 pruebas, sin credenciales, con el `fetch` falso **respetando el `select=`**). **6 de las 14 fallan contra la versión anterior.** Más una prueba de extremo a extremo contra producción con un enlace desechable: **14/14**.
+
+**Hallazgo aparte, NO causado por este trabajo: 8 procesos tienen como validador a alguien dado de baja** (un Gerente de Contabilidad de Rower). El módulo carga el censo con `.eq('activo', true)`, así que salen como «(fuera del censo)» y `comprobar-validacion.py` falla con un mensaje que culpa a la RLS. **Hay que reasignar esos 8 antes de mandar la oleada.**
+
+Estado: 487 personas · 357 fichas · 288 completadas · 516 enlaces de ficha · 268 asignaciones · 182 procesos. Pruebas: `ficha` 31 · `validacion` 14 · censo 19 · `validar-html` · `/sistema` 14.
+
+⚠️ **Sigue sin haber PITR ni copias diarias** (`pitr_enabled:false`, 0 backups). El diario cubre siete tablas; el resto de la base no tiene red. Contratar PITR es lo único que la cubre entera.

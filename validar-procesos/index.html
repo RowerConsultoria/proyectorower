@@ -138,7 +138,7 @@ const esc = (v)=> (v==null?'':String(v)).replace(/[&<>"']/g, c=>({'&':'&amp;','<
 const wrap = $('#wrap');
 
 let PERSONA = null, PROCESOS = [], ACTUAL = null;
-let veredictos = {}, comentarios = [];
+let veredictos = {}, comentarios = [], BASE = null;
 
 async function fn(accion, extra){
   const r = await fetch(FN, {
@@ -220,6 +220,10 @@ async function abrirProceso(codigo){
   ACTUAL = datos.proceso;
   veredictos = (datos.validacion && datos.validacion.veredictos) || {};
   comentarios = (datos.validacion && datos.validacion.comentarios) || [];
+  /* Lo que se cargó, congelado. Viaja de vuelta en cada guardado como `base`:
+     es lo que le permite al servidor saber si una observación que ya no llega
+     es que el gerente la borró, o que la página no llegó a cargarla. */
+  BASE = JSON.parse(JSON.stringify({ veredictos, comentarios }));
   pintarProceso();
 }
 
@@ -375,7 +379,7 @@ async function enviarTodo(definitivo){
   const rotulo = btn.textContent;
   btn.disabled = true; btn.textContent = definitivo ? 'Enviando…' : 'Guardando…';
   const { ok, datos } = await fn(definitivo ? 'enviar' : 'guardar', {
-    proceso: ACTUAL.codigo, veredictos, comentarios,
+    proceso: ACTUAL.codigo, veredictos, comentarios, base: BASE,
   });
   btn.disabled = false; btn.textContent = rotulo;
 
@@ -386,6 +390,9 @@ async function enviarTodo(definitivo){
     alert((datos.error || 'No se pudo enviar.') + (faltan.length ? '\n\n· ' + faltan.join('\n· ') : ''));
     return;
   }
+  /* Lo guardado pasa a ser la nueva base: si no, un segundo borrado sobre la
+     misma observación ya no se reconocería como querido. */
+  BASE = JSON.parse(JSON.stringify({ veredictos, comentarios }));
   const p = PROCESOS.find(x=>x.codigo===ACTUAL.codigo);
   if(p){ p.estado = definitivo ? 'enviada' : 'en_progreso'; p.comentarios = comentarios.length; }
   if(definitivo) pintarBandeja();

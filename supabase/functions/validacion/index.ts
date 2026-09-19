@@ -20,8 +20,11 @@
 // Entrada:  POST { accion, token, ... }
 //   abrir    { token }                                   → { tipo, persona, procesos }
 //   cargar   { token, proceso }                          → { proceso, validacion }
-//   guardar  { token, proceso, veredictos, comentarios } → { ok: true }
-//   enviar   { token, proceso, veredictos, comentarios } → { ok } | { error, faltan }
+//   guardar  { token, proceso, veredictos, comentarios, base } → { ok: true }
+//   enviar   { token, proceso, veredictos, comentarios, base } → { ok } | { error, faltan }
+//
+//   `base` es lo que la página CARGÓ. Deja al servidor distinguir «el gerente
+//   borró esta observación» de «la página nunca la tuvo». Sin `base`, conserva.
 //
 // Deploy:  supabase functions deploy validacion --no-verify-jwt --project-ref <ref>
 // ============================================================
@@ -223,9 +226,24 @@ function limpiarVeredictos(entrada: unknown): Record<string, string> {
   return limpio;
 }
 
-/** Solo se aceptan los campos que la página escribe; nada de texto libre suelto. */
+/** Una fecha ISO utilizable, o null. */
+function fechaValida(v: unknown): string | null {
+  if (typeof v !== "string") return null;
+  const t = Date.parse(v);
+  return Number.isFinite(t) ? new Date(t).toISOString() : null;
+}
+
+/**
+ * Solo se aceptan los campos que la página escribe; nada de texto libre suelto.
+ *
+ * ⚠️ `creado_en` se CONSERVA si viene. Antes se ponía a `now()` en cada
+ * guardado, así que la fecha de cada observación se perdía en cuanto el gerente
+ * volvía a guardar — y esa fecha es la que dice cuándo se dijo algo, que en una
+ * ronda de validación es justo lo que hay que poder demostrar.
+ */
 function limpiarComentarios(entrada: unknown): Array<Record<string, unknown>> {
   if (!Array.isArray(entrada)) return [];
+  const ahora = new Date().toISOString();
   return entrada
     .filter((c) => c && typeof c === "object")
     .map((c) => c as Record<string, unknown>)
@@ -235,8 +253,80 @@ function limpiarComentarios(entrada: unknown): Array<Record<string, unknown>> {
       seccion: SECCIONES.includes(String(c.seccion)) ? String(c.seccion) : null,
       ancla: c.ancla == null ? null : String(c.ancla).slice(0, 80),
       texto: String(c.texto).slice(0, 4000),
-      creado_en: new Date().toISOString(),
+      creado_en: fechaValida(c.creado_en) ?? ahora,
     }));
+}
+
+/** Identidad de un comentario: la sección y el punto al que se ancló. */
+function claveComentario(c: Record<string, unknown>): string {
+  return String(c.seccion ?? "") + "\u0000" + String(c.ancla ?? "");
+}
+
+/**
+ * Funde lo que llega con lo que hay, para que un envío incompleto no borre.
+ *
+ * Misma lección que en `ficha`: el cliente manda el objeto entero y el servidor
+ * lo reemplaza, así que cualquier fallo del navegador —o una carga a medias—
+ * se lleva por delante lo ya escrito. Aquí no ha pasado todavía porque la
+ * campaña no ha arrancado; se cierra antes de que arranque.
+ *
+ * `base` es lo que la página CARGÓ. Es lo que distingue «el gerente borró esta
+ * observación» de «la página nunca la tuvo». Sin `base` se conserva todo.
+ */
+function fundirValidacion(
+  veredictos: Record<string, string>,
+  comentarios: Array<Record<string, unknown>>,
+  previa: Record<string, unknown> | null,
+  base: Record<string, unknown> | null,
+): { veredictos: Record<string, string>; comentarios: Array<Record<string, unknown>> } {
+  const vPrev = (previa?.veredictos && typeof previa.veredictos === "object")
+    ? previa.veredictos as Record<string, string> : {};
+  /* Los veredictos solo se superponen: la página no ofrece «quitar» un
+     veredicto, únicamente cambiarlo entre ok y observaciones. */
+  const vFin: Record<string, string> = { ...vPrev, ...veredictos };
+
+  const cPrev = Array.isArray(previa?.comentarios)
+    ? previa!.comentarios as Array<Record<string, unknown>> : [];
+  const cBase = (base && Array.isArray(base.comentarios))
+    ? base.comentarios as Array<Record<string, unknown>> : null;
+  const enBase = cBase ? new Set(cBase.map(claveComentario)) : null;
+  const llegan = new Map(comentarios.map((c) => [claveComentario(c), c]));
+
+  const fin: Array<Record<string, unknown>> = [];
+  for (const viejo of cPrev) {
+    const k = claveComentario(viejo);
+    const nuevo = llegan.get(k);
+    if (nuevo) {
+      // El mismo comentario, quizá con el texto corregido: se queda su fecha.
+      fin.push({ ...nuevo, creado_en: fechaValida(viejo.creado_en) ?? nuevo.creado_en });
+      llegan.delete(k);
+    } else if (enBase && enBase.has(k)) {
+      // La página lo tenía delante y ya no lo manda: lo borró el gerente.
+    } else {
+      // La página nunca lo vio (o no mandó `base`): no puede borrarlo.
+      fin.push(viejo);
+    }
+  }
+  for (const nuevo of llegan.values()) fin.push(nuevo);
+  return { veredictos: vFin, comentarios: fin };
+}
+
+/** La validación que hay hoy, o null. */
+async function validacionPrevia(codigo: string, personaId: string): Promise<Record<string, unknown> | null> {
+  const filas = await sbJson(
+    `/rest/v1/validaciones?proceso=eq.${encodeURIComponent(codigo)}&persona_id=eq.${personaId}&select=*`,
+  ) as Array<Record<string, unknown>>;
+  return filas[0] ?? null;
+}
+
+/** null cuando el llamante no mandó `base` (una pestaña con la página vieja). */
+function limpiarBase(entrada: unknown): Record<string, unknown> | null {
+  if (!entrada || typeof entrada !== "object") return null;
+  const b = entrada as Record<string, unknown>;
+  return {
+    veredictos: limpiarVeredictos(b.veredictos),
+    comentarios: Array.isArray(b.comentarios) ? b.comentarios : [],
+  };
 }
 
 async function upsert(codigo: string, personaId: string, campos: Record<string, unknown>) {
@@ -255,11 +345,16 @@ async function guardar(b: Record<string, unknown>): Promise<Response> {
   if (!mapa.has(codigo)) {
     return json({ error: "Ese proceso no está dentro de lo que este enlace permite validar." }, 403);
   }
-  await upsert(codigo, mapa.get(codigo)!, {
-    veredictos: limpiarVeredictos(b.veredictos),
-    comentarios: limpiarComentarios(b.comentarios),
-    estado: "en_progreso",
-  });
+  const personaId = mapa.get(codigo)!;
+  const previa = await validacionPrevia(codigo, personaId);
+  const fundido = fundirValidacion(
+    limpiarVeredictos(b.veredictos), limpiarComentarios(b.comentarios),
+    previa, limpiarBase(b.base));
+  /* Un guardado NUNCA devuelve a «en progreso» algo ya enviado. Es el mismo
+     fallo que dejó 48 fichas de perfil entregadas contando como pendientes:
+     `enviada_en` se quedaba puesto y el estado no. */
+  const estado = previa?.estado === "enviada" ? "enviada" : "en_progreso";
+  await upsert(codigo, personaId, { ...fundido, estado });
   return json({ ok: true });
 }
 
@@ -271,8 +366,13 @@ async function enviar(b: Record<string, unknown>): Promise<Response> {
   if (!mapa.has(codigo)) {
     return json({ error: "Ese proceso no está dentro de lo que este enlace permite validar." }, 403);
   }
-  const veredictos = limpiarVeredictos(b.veredictos);
-  const comentarios = limpiarComentarios(b.comentarios);
+  const personaId = mapa.get(codigo)!;
+  const previa = await validacionPrevia(codigo, personaId);
+  /* Se valida lo FUNDIDO, no lo que llega: si la página mandó de menos, lo
+     guardado sigue contando y no hay por qué rechazar el envío. */
+  const { veredictos, comentarios } = fundirValidacion(
+    limpiarVeredictos(b.veredictos), limpiarComentarios(b.comentarios),
+    previa, limpiarBase(b.base));
 
   // Marcar «con observaciones» sin decir cuáles deja al equipo sin nada que
   // corregir, así que ahí sí se exige el comentario.
@@ -290,7 +390,7 @@ async function enviar(b: Record<string, unknown>): Promise<Response> {
     return json({ error: "Faltan secciones por responder.", faltan: sinResponder }, 400);
   }
 
-  await upsert(codigo, mapa.get(codigo)!, {
+  await upsert(codigo, personaId, {
     veredictos, comentarios, estado: "enviada", enviada_en: new Date().toISOString(),
   });
   return json({ ok: true });
