@@ -1574,60 +1574,100 @@ window.MANUAL_CONTENIDO = {
    "6.1": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la consolidación mensual de inventario, sell-in y sell-out por SKU/país/canal, la construcción de la proyección de demanda, su ajuste con criterio experto, y la validación cross-funcional en la reunión de S&OP que produce el plan de suministro del mes. No incluye la ejecución de la compra internacional en sí (procesos 6.3 y 6.4) ni la reposición física a cada país o punto de venta (procesos 6.6 y 6.7), que parten de este plan ya aprobado.",
-     "nota_estado": "Este proceso es híbrido: la planificación de demanda corre hoy casi enteramente fuera de Odoo (que no automatiza reposición, solo alerta cuando el inventario llega a un nivel mínimo) en Excel, con tablas conectadas al ERP y apoyo de IA para partes puntuales del cálculo. El módulo de sugerido en Power BI es nuevo —en prueba desde hace pocas semanas— y todavía no refleja bien los ajustes fuera de rutina (p. ej. el incremento de pedido de cara a diciembre), por lo que no sustituye el ajuste manual."
+     "nota_estado": "Proceso PROPUESTO. Hoy no existe una planificación de demanda consolidada: cada marca planifica en su propia rutina de compra (6.3 y 6.4), el país de mayor peso lleva su archivo de reposición aparte y los socios proyectan una vez al año. Lo que sigue describe cómo debería operar, no cómo opera.",
+     "texto": "Cubre la consolidación periódica de la demanda estimada, el inventario disponible, la mercancía en tránsito y el techo presupuestario del ciclo, y la decisión colegiada del plan de suministro por marca y país. El plan que produce es el punto de partida de las dos compras internacionales (6.3 y 6.4), y por eso ambas se cierran aquí: quien compra cada marca participa en la decisión y sale de ella con el plan que ejecutará. No incluye la ejecución de esas compras ni la reposición física a cada país o punto de venta (6.6 y 6.7)."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Junta Directiva / Director de Compras",
+     "participantes": [
+      "Junta Directiva / Director de Compras — convoca el ciclo y sale de la decisión con el plan de la marca representada, que ejecuta en 6.3. Es dueño del proceso por autoridad, no por tenencia del dato.",
+      "Director(a) de Marca Propia (Cubitt) — participa en la decisión y sale de ella con el plan de la marca propia, que ejecuta en 6.4.",
+      "Comité de Planificación de Suministro — instancia colegiada que contrasta los insumos y decide el plan. La integran los dos anteriores más quienes aportan dato, demanda y presupuesto.",
+      "Coordinador(a) de Logística y Bodega — aporta el inventario disponible y la mercancía en tránsito; no arbitra la decisión.",
+      "Analista de Sistemas / Datos — aporta la demanda estimada por SKU, país y canal a partir del modelo.",
+      "Gerente Comercial (País / Canal) — aporta el forecast de los tres canales y las campañas previstas del ciclo.",
+      "Planificador Financiero — aporta el techo presupuestario del ciclo antes de la decisión, no después."
+     ],
+     "evidencia": ["E-40", "E-08", "E-10", "E-18", "E-05"],
+     "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un cargo de Coordinación II no puede convocar, arbitrar y dar por aprobado un plan a dos Gerencias Corporativas y a la capa de dirección; y la persona que ocupa ese cargo patrón declara además ser «del departamento de planificación, ni compra ni logística». Queda como quien aporta inventario y tránsito, que es lo que la evidencia le atribuye. ⚠️ El ajuste por marca tampoco recae ya en «Gerente Regional de Marketing» (mapa v18): ese cargo lo ocupa paid media, y la marca propia la decide su director, según quedó establecido en 6.4. «Comité de Planificación de Suministro» y «Director(a) de Marca Propia (Cubitt)» son denominaciones propuestas: ni la instancia ni el cargo existen hoy, y el patrón de cargos V4 tampoco contempla «Planificador Financiero».",
+     "sin_evidencia": "El corpus no documenta ninguna reunión periódica de planificación: «S&OP», «plan de suministro» y «planificación de demanda» no aparecen en ninguna de las 59 entrevistas, y la coordinadora de planificación declara no tener forecast ni reporte periódico. La composición de la instancia y su cadencia son, por tanto, diseño del equipo consultor, no levantamiento."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Cierre del ciclo comercial: el dueño del proceso convoca la sesión de planificación del siguiente ciclo.",
+     "cadencia": "Mensual (propuesta). Debe anteceder a la fecha en que la marca representada recibe su oferta y a la revisión de compra de la marca propia, o el plan llega tarde para ambas.",
+     "output": "Plan de suministro del ciclo aprobado por marca y país, entregado a los dos procesos de compra internacional.",
+     "evidencia": ["E-08", "E-40"],
+     "notas": "La cadencia propuesta se ancla a las dos compras que debe alimentar: la de la marca representada es mensual y en días fijos; la de la marca propia hoy no tiene periodicidad. Fijar la del plan es también el modo de darle una a la segunda."
+    },
     "flujo": {
      "estado": "borrador",
+     "nota_estado": "Flujo propuesto. Ningún paso describe una práctica vigente.",
+     "evidencia": ["E-40", "E-08", "E-10", "E-18"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Inicia el ciclo mensual de S&OP al cierre del mes comercial, convocando a los participantes."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Extrae inventario y tránsito con tablas de Excel conectadas a Odoo, y construye la proyección de demanda tomando la venta del mismo mes del año anterior ajustada por el crecimiento esperado."},
-      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Contrasta la proyección manual contra el sugerido del módulo nuevo de Power BI, todavía en prueba."},
-      {"id": "a4", "rol": "Gerente Regional Comercial / Retail", "texto": "Ajusta el sugerido con criterio experto para la marca Casio, considerando la cuota vigente y la venta reciente por país."},
-      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Ajusta el sugerido con criterio experto para la marca Cubitt, considerando lanzamientos previstos y cobertura crítica."},
-      {"id": "a6", "rol": "Planificador Financiero", "texto": "Valida que el plan de suministro propuesto sea consistente con la restricción presupuestaria del mes."},
-      {"id": "a7", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida los ajustes y presenta el plan de suministro en la reunión mensual de S&OP para su aprobación."}
+      {"id": "a1", "rol": "Junta Directiva / Director de Compras", "texto": "Convoca la sesión de planificación del ciclo al cierre del ciclo comercial anterior."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta el inventario disponible por SKU y país y la mercancía ya comprometida en tránsito, con su fecha estimada de arribo."},
+      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta la demanda estimada por SKU, país y canal. ⚠️ La estimación corrige la venta de los períodos sin existencias: proyectar sobre la venta registrada arrastra el quiebre, porque se vendió poco por no haber, no por no haber demanda."},
+      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Aporta el forecast de los tres canales —mayoreo, detal y comercio electrónico— y las campañas y lanzamientos previstos del ciclo."},
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Aporta el techo presupuestario del ciclo antes de que se componga el plan, para que la restricción sea un insumo de la decisión y no un filtro que obligue a rehacerla."},
+      {"id": "a6", "rol": "Comité de Planificación de Suministro", "texto": "Contrasta demanda estimada, inventario, tránsito y techo presupuestario, y compone el plan de suministro por marca y país."},
+      {"id": "a7", "rol": "Comité de Planificación de Suministro", "texto": "Cuando la demanda estimada excede el techo, prioriza por cobertura crítica y rotación, dejando constancia de qué quedó fuera del plan y por qué."},
+      {"id": "a8", "rol": "Junta Directiva / Director de Compras", "texto": "Toma la parte del plan correspondiente a la marca representada como base de su compra del ciclo (proceso 6.3)."},
+      {"id": "a9", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Toma la parte del plan correspondiente a la marca propia como base de su compra del ciclo (proceso 6.4)."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing", "Planificador Financiero"],
+      "carriles": ["Junta Directiva / Director de Compras", "Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Comercial (País / Canal)", "Planificador Financiero", "Comité de Planificación de Suministro", "Director(a) de Marca Propia (Cubitt)"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Cierre del mes comercial — inicia el ciclo de S&OP"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Convocar a los participantes de la reunión de S&OP"},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Extraer inventario/tránsito y construir la proyección de demanda", "sistemas": ["Excel de reposición"]},
-       {"id": "n3", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Contrastar la proyección contra el sugerido nuevo", "sistemas": ["Módulo de sugerido (Power BI)"]},
-       {"id": "n4", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar el sugerido de Casio con criterio experto"},
-       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Ajustar el sugerido de Cubitt con criterio experto"},
-       {"id": "n6", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar restricción presupuestaria del mes"},
-       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar ajustes y presentar el plan de suministro", "sistemas": ["Lark (self-report)"]},
-       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Plan de suministro aprobado en S&OP?"},
-       {"id": "n8alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar plan y reprogramar aprobación"},
-       {"id": "n9", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Plan de suministro del mes aprobado"}
+       {"id": "n0", "carril": "Junta Directiva / Director de Compras", "tipo": "inicio", "n": "Se convoca la sesión de planificación"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar inventario y mercancía en tránsito", "sistemas": ["Odoo", "Tablas de inventario"]},
+       {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar la demanda estimada por SKU y país", "sistemas": ["Power BI"]},
+       {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Aportar el forecast de los tres canales"},
+       {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aportar el techo presupuestario del ciclo"},
+       {"id": "n5", "carril": "Comité de Planificación de Suministro", "tipo": "tarea", "n": "Componer el plan por marca y país"},
+       {"id": "n6", "carril": "Comité de Planificación de Suministro", "tipo": "tarea", "n": "Priorizar por cobertura y rotación si excede el techo"},
+       {"id": "n7", "carril": "Junta Directiva / Director de Compras", "tipo": "tarea", "n": "Tomar el plan de la marca representada"},
+       {"id": "n8", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Tomar el plan de la marca propia"},
+       {"id": "n9", "carril": "Comité de Planificación de Suministro", "tipo": "fin", "n": "Plan del ciclo aprobado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n8alt", "etq": "No"}, {"de": "n8alt", "a": "n9"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n0", "a": "n2"},
+       {"de": "n0", "a": "n3"},
+       {"de": "n0", "a": "n4"},
+       {"de": "n1", "a": "n5"},
+       {"de": "n2", "a": "n5"},
+       {"de": "n3", "a": "n5"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n6", "a": "n8"},
+       {"de": "n7", "a": "n9"},
+       {"de": "n8", "a": "n9"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-40", "E-10", "E-18", "E-08"],
      "filas": [
-      ["Ajuste manual sin método documentado", "El ajuste sobre el sugerido depende del criterio de dos personas, sin guía escrita.", "Media", "Alto", "Documentar el criterio de ajuste como guía escrita, con ejemplos de decisiones ya tomadas."],
-      ["Herramienta nueva de Power BI todavía no sustituye el proceso manual", "El módulo de sugerido es reciente y aún no refleja bien los ajustes fuera de rutina, por lo que el ciclo real sigue corriendo en Excel; herramientas evaluadas antes (Netstock, Slimstock, Pecan.ai) no se llegaron a implementar por integración o tiempo de limpieza de datos.", "Media", "Alto", "Documentar el diseño del modelo de Power BI y su hoja de ruta hasta que sustituya de forma confiable el proceso manual."],
-      ["Datos de sell-out heterogéneos entre países", "Los países en transición a Odoo todavía reportan venta real con formatos distintos.", "Media", "Medio", "Estandarizar el reporte de venta real por país a medida que avanza la migración a Odoo."],
-      ["Meta de cobertura fijada sin considerar el tipo de punto de venta", "Un mandato regional de cobertura uniforme resultó físicamente imposible para los kioscos pequeños y está en renegociación.", "Media", "Medio", "Ajustar la meta de cobertura por tipo de punto de venta antes de fijarla como estándar regional."],
-      ["Sin KPI formalizados de planificación ni reunión periódica que los revise", "Los cálculos de cobertura y clasificación ABC/Pareto se hacen de forma manual y puntual, sin reporte periódico que nadie recibe de forma sistemática.", "Alta", "Medio", "Implementar la reunión mensual de revisión de coberturas (MOR) ya propuesta por el propio equipo de compras, para detectar quiebres y generar alertas."]
+      ["El plan no obliga a los procesos de compra", "Si el plan se aprueba sin que quien compra cada marca salga de la sesión con él, cada compra seguirá su rutina propia — que es exactamente lo que ocurre hoy. Es el riesgo que hace fracasar el proceso completo.", "Alta", "Alto", "Que la sesión cierre con el plan por marca entregado a su comprador, y que las dos compras citen el ciclo de plan del que parten."],
+      ["Proyectar sobre la venta registrada arrastra el quiebre", "La venta pasada está sesgada a la baja en los períodos sin existencias: se vendió poco por no haber mercancía. Proyectar sobre ella reproduce el desabastecimiento ciclo tras ciclo.", "Alta", "Alto", "Corregir la serie por los períodos sin existencias antes de estimar, y medir la demanda no atendida como dato propio."],
+      ["No hay hoy forecast ni reporte periódico sobre el que apoyarse", "La coordinación de planificación declara no disponer de un forecast actualizado por producto ni de un reporte periódico; el proceso propuesto presupone ambos.", "Alta", "Alto", "Levantar primero el forecast por producto y el reporte de cobertura; sin ellos la sesión no tiene insumo que contrastar."],
+      ["La herramienta de apoyo ya se abandonó una vez", "Una herramienta previa se retiró porque no reducía el trabajo manual y se consideró costosa, y el equipo estuvo meses sin sustituto. El mismo desenlace dejaría al proceso sin base de dato.", "Media", "Alto", "Medir el trabajo que evita antes de adoptarla, y no retirar la anterior hasta que la nueva sostenga un ciclo completo."],
+      ["Dato de venta heterogéneo entre países", "Los países no registran la venta con el mismo detalle ni en el mismo sistema, así que la demanda estimada no es comparable entre ellos.", "Media", "Medio", "Homologar el mínimo de campos por venta y declarar qué países cumplen el estándar en cada ciclo."],
+      ["Instancia y cargos que todavía no existen", "El proceso descansa en un comité que no está constituido y en cargos que el patrón no contempla — el de compras, el de la marca propia y el de planificación financiera.", "Alta", "Alto", "Constituir la instancia con acta y cadencia fija, y resolver los cargos en la estructura antes de poner el proceso en marcha."],
+      ["Sin indicadores de cumplimiento del plan", "No hay hoy medida de cuánto de lo planificado se compra ni de cuánto de lo comprado se vende, así que el plan no se puede corregir contra su propio resultado.", "Alta", "Medio", "Cerrar cada ciclo comparando plan contra compra y contra venta, y revisar la desviación en la sesión siguiente."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Precisión del sugerido de compra/reposición", "Venta real ÷ sugerido ajustado, por SKU/país", "Mensual", "Analista de Sistemas / Datos", "±15%"],
-      ["Plan de suministro aprobado a tiempo", "Fecha de aprobación en S&OP − fecha de cierre de mes", "Mensual", "Coordinador(a) de Logística y Bodega", "≤5 días hábiles"],
-      ["Cobertura de inventario por SKU crítico", "Inventario disponible ÷ venta promedio semanal", "Semanal", "Coordinador(a) de Logística y Bodega", "Según clasificación Pareto A/B/C"],
-      ["Reunión MOR de cobertura ejecutada", "Reuniones realizadas ÷ meses del período", "Mensual", "Coordinador(a) de Logística y Bodega", "100% una vez implementada"]
+      ["Apego de la compra al plan", "Líneas compradas que estaban en el plan ÷ líneas compradas del ciclo", "Por ciclo", "Junta Directiva / Director de Compras", "Alto — mide si el plan gobierna la compra"],
+      ["Cobertura en semanas por SKU y país", "Inventario disponible + tránsito ÷ demanda estimada semanal", "Por ciclo", "Coordinador(a) de Logística y Bodega", "Dentro del rango definido por categoría"],
+      ["Error de la demanda estimada", "|demanda estimada − demanda real| ÷ demanda real", "Por ciclo", "Analista de Sistemas / Datos", "A la baja, con línea base del primer ciclo"],
+      ["Plan ajustado al techo sin reproceso", "Ciclos cerrados sin rehacer el plan ÷ ciclos del período", "Trimestral", "Planificador Financiero", "100%"],
+      ["Demanda no atendida por falta de existencias", "Unidades pedidas y no servidas ÷ unidades pedidas", "Por ciclo", "Comité de Planificación de Suministro", "A la baja"]
      ]
     }
    },
@@ -1635,55 +1675,98 @@ window.MANUAL_CONTENIDO = {
    "6.2": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la homologación de un proveedor nuevo, su contratación formal, la evaluación periódica de desempeño mediante scorecard, y la decisión de continuidad, renovación o baja. No incluye la ejecución de una orden de compra puntual a un proveedor ya homologado (procesos 6.3, 6.4 y 6.5), que se apoya en este proceso solo cuando hay evaluación o cambio de proveedor de fondo.",
-     "nota_estado": "Este proceso es «to-be»: hoy no existe homologación ni evaluación formal de proveedores en Kenex. Se documenta con base en buena práctica de la disciplina de compras (CIPS/APQC PCF) y en una brecha concreta ya identificada — el riesgo de depender de un solo proveedor de firmware para Cubitt, sin evaluación ni plan de contingencia."
+     "nota_estado": "Proceso PROPUESTO. Hoy no existe homologación de proveedores, ni evaluación periódica, ni scorecard: la relación con cada proveedor la lleva directamente quien compra esa marca. La brecha sí está documentada —dependencia de un solo proveedor en el firmware de la marca propia, y búsqueda de candidatos concentrada en una persona—, y es lo que justifica proponerlo.",
+     "texto": "Cubre el ciclo de vida del proveedor: la detección de la necesidad, la búsqueda y preselección de candidatos, la evaluación de muestras y capacidad, el expediente y las condiciones comerciales, la homologación formal, y después la evaluación periódica de desempeño y la decisión de continuidad, renovación o baja. No incluye la colocación de órdenes a un proveedor ya homologado (6.3, 6.4 y 6.5). ⚠️ Esa costura hoy no opera en sentido inverso: ninguno de esos tres procesos exige que el proveedor esté homologado, porque la homologación no existe."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Comité de Compras / Director de Compras",
+     "participantes": [
+      "Comité de Compras / Director de Compras — homologa al proveedor, autoriza la relación y decide su continuidad. Es también el único contacto con la fábrica de la marca representada, así que en esa marca concentra relación y decisión.",
+      "Director(a) de Marca Propia (Cubitt) — detecta la necesidad de proveedor nuevo y evalúa muestras y capacidad del candidato; lleva hoy la relación con la decena de proveedores de la marca propia.",
+      "Encargado(a) de Sourcing (China) — busca y preselecciona candidatos en origen, y gestiona muestras y cotizaciones.",
+      "Coordinador(a) de Logística y Bodega — arma el expediente del proveedor candidato y consolida el scorecard del ciclo. Aporta y ordena, no decide.",
+      "Gerente de Contabilidad / Administración — revisa las condiciones comerciales y de pago propuestas antes de la homologación.",
+      "Gerente de Operaciones y Logística — aporta, por cada proveedor, si entregó en la fecha comprometida, en qué estado llegó la mercancía y qué incidencias hubo."
+     ],
+     "evidencia": ["E-06 (partes 1 y 2)", "E-08", "E-05"],
+     "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un proveedor no se homologa contra un expediente sino contra quien negocia con él, y la evidencia sitúa esa relación en los dos directores que compran cada marca. El coordinador conserva lo que sí le corresponde: armar el expediente y consolidar el scorecard. ⚠️ Se retiró el carril de «Planificador Financiero», que en la versión anterior tenía carril y nodo en el flujograma pero ninguna actividad en el texto: la revisión económica la hace Contabilidad / Administración y duplicarla no añadía control. ⚠️ El «Comité de Compras» de este proceso NO es el «comité de compras Cubitt» del proceso 6.4: aquel existe, es de una sola marca y decide qué pedir; este se propone para el grupo y decide con quién se trabaja. Se sitúa la homologación en un comité y no en la Junta por dos razones: homologar a un proveedor es una decisión de gobierno operativo, no de directorio, y así queda separado de quien mantiene la relación comercial con la fábrica —que hoy es la misma persona—. «Comité de Compras», «Director(a) de Compras», «Director(a) de Marca Propia (Cubitt)» y «Encargado(a) de Sourcing (China)» son denominaciones propuestas, sin equivalencia en el patrón de cargos V4.",
+     "sin_evidencia": "El diseño del proceso proviene de un marco de referencia externo, no del levantamiento: «scorecard», «evaluación de proveedor» y «SRM» no aparecen en ninguna de las 59 entrevistas, y las once menciones de «homologación» del corpus se refieren a permisos regulatorios y a sistemas, no a proveedores. Quedan por definir con el equipo: qué hace «estratégico» a un proveedor, la cadencia real de evaluación y los criterios del scorecard."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Necesidad de un proveedor nuevo —por desarrollo de producto, por reducir la dependencia de uno existente o porque el vigente deja de servir—, o llegada del ciclo de evaluación de los proveedores ya homologados.",
+     "cadencia": "Homologación por evento; evaluación periódica de los proveedores vigentes con cadencia a definir (propuesta: semestral para los críticos).",
+     "output": "Proveedor homologado y autorizado, o candidato descartado; y, en el ciclo de evaluación, decisión de continuidad, renovación o baja documentada.",
+     "evidencia": ["E-06 (partes 1 y 2)"],
+     "notas": "El disparador de reducir dependencia no es teórico: el diseño de la aplicación de la marca propia se apoya en el kit de desarrollo de una sola fábrica, y su responsable ya declara querer que un proveedor alterno funcione bajo la misma aplicación."
+    },
     "flujo": {
      "estado": "borrador",
+     "nota_estado": "Flujo propuesto. Ningún paso describe una práctica vigente; lo vigente es la relación directa de cada comprador con sus proveedores, sin expediente ni evaluación.",
+     "evidencia": ["E-06 (partes 1 y 2)", "E-08"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Detecta la necesidad de homologar un proveedor nuevo o de evaluar uno vigente por vencimiento de contrato o ciclo programado."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Solicita y verifica la documentación legal y financiera básica del proveedor candidato."},
-      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Valida al proveedor estratégico —marca o volumen significativo— antes de avanzar."},
-      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa las condiciones comerciales y de pago propuestas."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aplica el scorecard de desempeño al proveedor vigente en su ciclo de evaluación."},
-      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Decide la continuidad, renovación o baja del proveedor con base en el scorecard."}
+      {"id": "a1", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Detecta la necesidad de un proveedor nuevo: desarrollo de un producto que el actual no cubre, reducción de la dependencia de un proveedor único, o incumplimiento del vigente."},
+      {"id": "a2", "rol": "Encargado(a) de Sourcing (China)", "texto": "Busca y preselecciona candidatos en origen, y gestiona las muestras y las cotizaciones iniciales."},
+      {"id": "a3", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Evalúa las muestras, la capacidad de producción y la compatibilidad técnica del candidato, y propone con cuál avanzar."},
+      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el expediente del proveedor candidato: documentación legal, financiera y de capacidad, y referencias verificables."},
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa las condiciones comerciales y de pago propuestas, y su encaje con el ciclo de caja del grupo."},
+      {"id": "a6", "rol": "Comité de Compras / Director de Compras", "texto": "Homologa al proveedor y autoriza la relación, o descarta al candidato dejando constancia del motivo."},
+      {"id": "a7", "rol": "Gerente de Operaciones y Logística", "texto": "Aporta, para cada proveedor con el que se trabajó en el período, si entregó en la fecha que había comprometido, en qué estado llegó la mercancía y qué incidencias hubo. Es el dato con el que se evalúa al proveedor: sin él, el scorecard no tiene con qué llenarse."},
+      {"id": "a8", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida ese cumplimiento en el scorecard del ciclo, junto con calidad, cumplimiento de condiciones y concentración de compra."},
+      {"id": "a9", "rol": "Comité de Compras / Director de Compras", "texto": "Decide la continuidad, renovación o baja de cada proveedor. Cuando decide una baja, fija el plan de transición antes de ejecutarla."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración", "Planificador Financiero"],
+      "carriles": ["Director(a) de Marca Propia (Cubitt)", "Encargado(a) de Sourcing (China)", "Coordinador(a) de Logística y Bodega", "Gerente de Contabilidad / Administración", "Comité de Compras / Director de Compras", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Detectar necesidad de homologación o de evaluación"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Solicitar y verificar documentación legal y financiera"},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Proveedor estratégico?"},
-       {"id": "n2alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Validar al proveedor estratégico"},
-       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar condiciones comerciales y de pago"},
-       {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar impacto presupuestario del contrato"},
-       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aplicar scorecard de desempeño en el ciclo de evaluación"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Decidir continuidad, renovación o baja del proveedor"},
-       {"id": "n7", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Proveedor homologado o evaluado, con decisión documentada"}
+       {"id": "n0", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "inicio", "n": "Se detecta la necesidad de un proveedor"},
+       {"id": "n1", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Buscar y preseleccionar candidatos"},
+       {"id": "n2", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Evaluar muestras y capacidad del candidato"},
+       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el expediente del proveedor candidato"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar condiciones comerciales y de pago"},
+       {"id": "n5", "carril": "Comité de Compras / Director de Compras", "tipo": "decision", "n": "¿Se homologa al proveedor?"},
+       {"id": "n5alt", "carril": "Comité de Compras / Director de Compras", "tipo": "fin", "n": "Candidato descartado"},
+       {"id": "n6", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Aportar cómo cumplió cada proveedor sus entregas"},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar el scorecard del ciclo"},
+       {"id": "n8", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Decidir continuidad, renovación o baja"},
+       {"id": "n9", "carril": "Comité de Compras / Director de Compras", "tipo": "fin", "n": "Decisión de continuidad documentada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
-       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n2", "a": "n4"},
+       {"de": "n3", "a": "n5"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5alt", "etq": "No"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-06 (partes 1 y 2)", "E-08", "E-05"],
      "filas": [
-      ["Sin homologación previa a la fecha", "Los proveedores actuales nunca pasaron por un proceso de homologación formal.", "Alta", "Alto", "Priorizar la homologación retroactiva de los proveedores críticos."],
-      ["Mono-proveedor de firmware Cubitt sin evaluación de riesgo", "Un solo proveedor de firmware para la marca propia, sin plan de contingencia.", "Alta", "Alto", "Evaluar y calificar un segundo proveedor de firmware."],
-      ["Scorecard sin criterios definidos", "No hay criterios de evaluación documentados para aplicar el primer scorecard.", "Media", "Medio", "Definir los criterios de evaluación antes de aplicar el primer scorecard."],
-      ["Decisión de baja sin plan de transición", "Dar de baja a un proveedor sin un plan de transición al reemplazo puede interrumpir el suministro.", "Media", "Alto", "Exigir plan de transición a un nuevo proveedor antes de dar de baja al vigente."]
+      ["No existe homologación de proveedores a la fecha", "Ningún proveedor pasa hoy por un expediente ni por una autorización formal: se trabaja con quien cada comprador decide, sin verificación legal, financiera ni de capacidad.", "Alta", "Alto", "Empezar por los proveedores críticos ya activos —homologarlos hacia atrás— antes de exigir el paso a los nuevos."],
+      ["Dependencia de un solo proveedor en el firmware de la marca propia", "La aplicación de la marca se apoya en el kit de desarrollo de una única fábrica, así que cambiar de proveedor obligaría a rehacer la aplicación o a mantener dos. Lo declara el propio responsable de la marca.", "Alta", "Alto", "Exigir compatibilidad con la aplicación propia como requisito de homologación, y desarrollar la capa de conexión para no depender del kit de una fábrica."],
+      ["La búsqueda de proveedores depende de una sola persona en origen", "Encontrar y preseleccionar candidatos recae en un único enlace en China, sin respaldo. Sin él, el proceso no arranca.", "Alta", "Alto", "Formar un segundo contacto en origen y dejar el registro de candidatos y su evaluación en un repositorio compartido."],
+      ["El scorecard no tiene hoy fuente de dato de desempeño", "No se registra de forma sistemática el cumplimiento de fecha, la calidad recibida ni las incidencias por proveedor, así que la evaluación periódica no tendría con qué alimentarse.", "Alta", "Medio", "Registrar por embarque la fecha comprometida frente a la real y las incidencias, antes de poner en marcha la evaluación."],
+      ["Sin criterio escrito de qué hace estratégico a un proveedor", "La versión anterior del proceso hacía depender de esa etiqueta el nivel de validación, sin definirla: queda a juicio de quien clasifica.", "Media", "Medio", "Definir el umbral por concentración de compra, criticidad del producto y facilidad de sustitución, y revisarlo cada ciclo."],
+      ["Baja de proveedor sin plan de transición", "Dar de baja a un proveedor de producto propio sin cubrir el traspaso de moldes, especificaciones y compatibilidad técnica deja la línea sin origen.", "Media", "Alto", "Condicionar toda baja a un plan de transición con proveedor alterno identificado y periodo de solape."],
+      ["La relación con la fábrica de la marca representada es de una sola persona", "En esa marca el contacto con la casa matriz recae íntegramente en el dueño del proceso, que es además quien homologaría: no hay segregación posible mientras siga siendo el único interlocutor.", "Media", "Alto", "Incorporar al perfil de marca ya contratado a la relación con la fábrica, de modo que homologación y relación comercial no recaigan en la misma persona."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Proveedores críticos homologados", "Homologados ÷ total de proveedores críticos identificados", "Trimestral", "Coordinador(a) de Logística y Bodega", "100% de los críticos"],
-      ["Proveedores evaluados en el ciclo semestral", "Evaluados ÷ total de proveedores vigentes", "Semestral", "Coordinador(a) de Logística y Bodega", "100%"],
-      ["Tiempo de homologación de un proveedor nuevo", "Fecha de aprobación − fecha de solicitud", "Por caso", "Coordinador(a) de Logística y Bodega", "Referencia a definir con el primer ciclo"]
+      ["Proveedores críticos con homologación vigente", "Proveedores críticos homologados ÷ total de proveedores críticos", "Semestral", "Comité de Compras / Director de Compras", "100% al cierre del primer año"],
+      ["Concentración de compra en el mayor proveedor", "Compra al mayor proveedor ÷ compra total de la marca", "Semestral", "Comité de Compras / Director de Compras", "A la baja — es la medida del riesgo de dependencia"],
+      ["Proveedores evaluados en el ciclo", "Proveedores con scorecard cerrado ÷ proveedores vigentes", "Semestral", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Cumplimiento de fecha comprometida por proveedor", "Embarques dentro de la fecha ÷ embarques del ciclo", "Por ciclo", "Gerente de Operaciones y Logística", "A la alza, con línea base del primer ciclo"],
+      ["Tiempo de homologación de un candidato", "Fecha de homologación − fecha de preselección", "Por candidato", "Coordinador(a) de Logística y Bodega", "Referencia de seguimiento"]
      ]
     }
    },
@@ -1691,54 +1774,96 @@ window.MANUAL_CONTENIDO = {
    "6.3": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la recepción de la cuota o allocation mensual que confirma la casa matriz de Casio, la validación de cantidades por país, la confirmación de la orden y su seguimiento hasta el arribo al hub de Kenex Panamá — incluida la reconciliación mensual (PCI) entre lo pedido, lo confirmado y lo vendido. No incluye la reposición desde el hub hacia cada país (proceso 6.6) ni hacia el punto de venta (proceso 6.7), que parten de la mercancía ya recibida aquí."
+     "texto": "Cubre cómo se compone y se coloca cada mes la compra internacional de la marca representada: la recepción de la oferta mensual de la fábrica, la preparación del archivo de compras que cruza venta histórica, inventario y tránsito, la decisión de qué pedir de esa oferta, la colocación de la orden, la aprobación del flete y la reconciliación posterior. No incluye la recepción física ni la nacionalización (macro 7, Logística y Operaciones) ni la distribución a cada país (procesos 6.6 y 6.7)."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Junta Directiva / Director de Compras",
+     "participantes": [
+      "Junta Directiva / Director de Compras — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
+      "Analista de Compras (externo) — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.",
+      "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.",
+      "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.",
+      "Especialista de Marketing / Brand (Casio) — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."
+     ],
+     "evidencia": ["E-08", "E-10", "E-05", "E-03"],
+     "notas": "El dueño de este proceso es el mismo director que en 6.4 revisa la compra de la marca propia antes de proceder: aquí la lleva él directamente y allí solo confirma, según la división que el propio equipo describe —una marca por cada director, con métodos que reconocen como no unificados—. ⚠️ Ni él ni quien prepara el archivo de compras figuran en el censo del patrón de cargos V4: el primero por pertenecer a la capa de gobierno, que el patrón no contempla, y la segunda por no ser personal propio. «Analista de Compras» es una denominación funcional propuesta, no un cargo existente — el patrón no tiene ninguno de compras.",
+     "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: el corpus dice que lleva esta marca solo. Tampoco consta el alcance definitivo del perfil de marca recién incorporado, que a la fecha de las entrevistas estaba en incorporación."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Recepción mensual del «order sheet» de la fábrica: la lista de mercancía que tiene disponible y que el grupo puede pedir. ⚠️ No es una cuota asignada ni un allocation por país — es una oferta, y la compra se compone a partir de ella decidiendo qué interesa pedir.",
+     "cadencia": "Mensual, en días fijos del mes.",
+     "output": "Orden de compra colocada con la fábrica, cotización de flete aprobada y archivo de compras del mes actualizado.",
+     "evidencia": ["E-08", "E-10"],
+     "notas": "La compra se coloca para la bodega de Zona Libre, donde converge toda la mercancía del grupo antes de redistribuirse; no se compra por país. El sugerido del modelo acompaña la decisión pero no la sustituye: la composición final es criterio experto."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-08", "E-10", "E-03"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Recibe la comunicación mensual de casa matriz Casio con la cuota o allocation asignada por país."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "texto": "Valida las cantidades asignadas contra lo solicitado y contra la venta reciente por país."},
-      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Confirma la orden de compra con la cuota efectivamente asignada."},
-      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a la orden hasta su arribo al hub de Kenex Panamá."},
-      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "texto": "Actualiza el «archivo de compras» con lo confirmado por Casio en el mes."},
-      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Reconcilia mensualmente lo pedido, lo confirmado y la venta real por país en el reporte PCI."}
+      {"id": "a1", "rol": "Junta Directiva / Director de Compras", "texto": "Recibe de la fábrica el «order sheet» del mes con la mercancía disponible para pedir."},
+      {"id": "a2", "rol": "Analista de Compras (externo)", "texto": "Prepara el archivo de compras del mes, que reúne la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida."},
+      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el sugerido de pedido que produce el modelo, como apoyo a la decisión."},
+      {"id": "a4", "rol": "Junta Directiva / Director de Compras", "texto": "Compone la compra decidiendo qué pedir de la oferta, cruzando la venta pasada, el inventario, lo que ya viene en camino y el sugerido."},
+      {"id": "a5", "rol": "Junta Directiva / Director de Compras", "texto": "Coloca la orden de compra con la fábrica."},
+      {"id": "a6", "rol": "Gerente de Operaciones y Logística", "texto": "Solicita a la fábrica la cotización del flete, con el número de contenedores y la mercancía que va en cada uno."},
+      {"id": "a7", "rol": "Junta Directiva / Director de Compras", "texto": "Aprueba la cotización del flete: cuántos contenedores son y qué mercancía lleva cada uno."},
+      {"id": "a8", "rol": "Gerente de Operaciones y Logística", "texto": "Da seguimiento al embarque hasta el hub de Zona Libre, donde se recibe toda la mercancía del grupo."},
+      {"id": "a9", "rol": "Analista de Compras (externo)", "texto": "Actualiza el archivo de compras con lo efectivamente confirmado y reconcilia lo pedido contra la venta real del período."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Junta Directiva / Director de Compras", "Analista de Compras (externo)", "Analista de Sistemas / Datos", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Recibir la asignación mensual de cuota Casio"},
-       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "tipo": "tarea", "n": "Validar cantidades asignadas contra lo solicitado y la venta reciente", "sistemas": ["\"Archivo de compras\" (Excel)"]},
-       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "tipo": "decision", "n": "¿Allocation cubre lo solicitado?"},
-       {"id": "n2alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Priorizar países y SKU con la cuota reducida"},
-       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Confirmar la orden de compra"},
-       {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento a la orden hasta el hub de Panamá"},
-       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial (KAM Casio)", "tipo": "tarea", "n": "Actualizar el archivo de compras con lo confirmado"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Reconciliar el reporte PCI: pedido, confirmado y venta real"},
-       {"id": "n7", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Orden Casio recibida en el hub y PCI reconciliado"}
+       {"id": "n0", "carril": "Junta Directiva / Director de Compras", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
+       {"id": "n1", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Preparar el archivo de compras del mes", "sistemas": ["Archivo de compras (Excel)"]},
+       {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar el sugerido de pedido del modelo", "sistemas": ["Power BI"]},
+       {"id": "n3", "carril": "Junta Directiva / Director de Compras", "tipo": "tarea", "n": "Componer la compra: qué pedir de la oferta"},
+       {"id": "n4", "carril": "Junta Directiva / Director de Compras", "tipo": "tarea", "n": "Colocar la orden con la fábrica"},
+       {"id": "n5", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Solicitar la cotización del flete"},
+       {"id": "n6", "carril": "Junta Directiva / Director de Compras", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
+       {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Ajustar contenedores y su contenido"},
+       {"id": "n7", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Seguir el embarque hasta Zona Libre"},
+       {"id": "n8", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Actualizar y reconciliar el archivo de compras"},
+       {"id": "n9", "carril": "Junta Directiva / Director de Compras", "tipo": "fin", "n": "Compra recibida y reconciliada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
-       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n0", "a": "n2"},
+       {"de": "n1", "a": "n3"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"},
+       {"de": "n6", "a": "n6alt", "etq": "No"},
+       {"de": "n6alt", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-08", "E-10", "E-03"],
      "filas": [
-      ["Allocation confirmada muy por debajo de lo solicitado", "En meses recientes, la casa matriz ha confirmado solo una fracción menor de la cuota pedida.", "Alta", "Alto", "Escalar a casa matriz con antelación y ajustar el plan de venta por país ante una reducción sostenida."],
-      ["Reconciliación PCI enteramente manual y en una sola persona", "El cruce mensual entre pedido, confirmado y venta real depende de una sola persona.", "Alta", "Alto", "Documentar el método de reconciliación y formar un respaldo."],
-      ["Priorización entre países sin criterio escrito ante escasez", "Cuando la cuota no cubre lo solicitado, la prioridad entre países se decide caso por caso.", "Media", "Alto", "Definir un criterio de priorización (por venta real o por compromiso ya firmado) antes de la próxima reducción."],
-      ["Seguimiento del pedido hasta el hub sin visibilidad de contenedor", "No siempre se sabe si el pedido cupo completo en el envío hasta que llega o no llega.", "Media", "Medio", "Reportar sistemáticamente si el pedido no cabe completo en el envío (ver también proceso 6.6)."]
+      ["Toda la compra de la marca representada en una sola persona", "El mismo responsable recibe la oferta, compone la compra, coloca la orden y aprueba el flete, y es además el único contacto con la fábrica. No hay segregación entre quien decide y quien compromete, ni respaldo si falta.", "Alta", "Alto", "Completar la incorporación del perfil de marca ya contratado a la relación con la fábrica y al armado de la compra, y documentar el método para que no dependa de una persona."],
+      ["El archivo de compras lo prepara alguien fuera de la plantilla", "La pieza que sostiene la decisión mensual la construye una persona que no es personal propio, sin respaldo ni continuidad formal prevista.", "Alta", "Alto", "Definir el encaje de esa función en la estructura y formar un respaldo interno que pueda armar el archivo."],
+      ["El archivo de compras es enteramente manual", "Se arma a mano cada mes cruzando venta, stock, tránsito y oferta. Una herramienta de apoyo que se probó se retiró por costo y por no reducir el trabajo, y el equipo estuvo varios meses sin nada.", "Alta", "Medio", "Automatizar el cruce a partir del sugerido del modelo, midiendo antes cuánto trabajo evita para no repetir el intento fallido."],
+      ["Sin criterio escrito de qué pedir de la oferta", "La composición de la compra descansa en criterio experto sobre venta pasada, inventario y tránsito; el sugerido del modelo acompaña pero no hay regla escrita de cuándo apartarse de él.", "Media", "Alto", "Documentar el criterio ya usado de facto y dejar constancia de los apartamientos del sugerido y su motivo."],
+      ["Logística depende del comprador para saber qué viene", "La información del embarque baja por la vía del comprador; el hub llega a enterarse con días de margen, lo que altera la planificación de recepción.", "Alta", "Medio", "Que la colocación de la orden dispare el aviso a Logística con mercancía, contenedores y fecha estimada."],
+      ["La relación con la fábrica consume la agenda del dueño", "El contacto con la casa matriz de la marca es semanal y con viajes frecuentes, y recae en la misma persona que compone la compra: la operativa compite con la relación comercial.", "Media", "Medio", "Separar la relación institucional con la marca de la ejecución mensual de la compra al incorporar el perfil de marca."],
+      ["Reconciliación posterior manual y sin trazabilidad", "El cruce entre lo pedido, lo confirmado y la venta real se rehace a mano cada mes sobre el mismo archivo, sin dejar registro de versiones.", "Media", "Medio", "Versionar el archivo por mes y dejar el resultado de la reconciliación como dato consultable, no como hoja de cálculo."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cumplimiento de la cuota confirmada", "Cuota confirmada ÷ cuota solicitada", "Mensual", "Gerente Regional Comercial / Retail", "Seguimiento de tendencia"],
-      ["Tiempo de reconciliación PCI", "Días desde el cierre de mes hasta el reporte PCI cerrado", "Mensual", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "≤5 días hábiles"],
-      ["Órdenes Casio recibidas en el hub dentro de la ventana esperada", "Recibidas a tiempo ÷ total de órdenes del mes", "Mensual", "Coordinador(a) de Logística y Bodega", "≥90%"]
+      ["Tiempo de ciclo de la compra mensual", "Fecha de colocación de la orden − fecha de recepción de la oferta", "Mensual", "Junta Directiva / Director de Compras", "Referencia de seguimiento"],
+      ["Cierre del archivo de compras dentro del mes", "Archivos cerrados antes de la fecha de pedido ÷ meses del período", "Mensual", "Analista de Compras (externo)", "100%"],
+      ["Apego al sugerido del modelo", "Líneas pedidas que coinciden con el sugerido ÷ líneas pedidas", "Mensual", "Analista de Sistemas / Datos", "Referencia — mide cuánto aporta el modelo, no cuánto se le obedece"],
+      ["Órdenes con aviso anticipado a Logística", "Órdenes notificadas al hub antes del embarque ÷ total de órdenes", "Mensual", "Gerente de Operaciones y Logística", "100%"],
+      ["Contenedores recibidos en la ventana estimada", "Contenedores llegados dentro de la ventana ÷ total del período", "Mensual", "Gerente de Operaciones y Logística", "A la alza"]
      ]
     }
    },
@@ -1860,52 +1985,85 @@ window.MANUAL_CONTENIDO = {
    "6.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la detección de una necesidad puntual o de urgencia en el país que el hub regional no puede cubrir a tiempo, su aprobación local y el registro de la orden en el ERP del país. No incluye la compra internacional que normalmente cubre esa necesidad (procesos 6.3 y 6.4), de la que esta compra local es la excepción, no la regla."
+     "texto": "Cubre la compra que cada país resuelve con proveedores locales: insumos de operación, mantenimiento, servicios y activos menores —desde el material de tienda y el mantenimiento del almacén hasta el trámite de un permiso o la contratación de un servicio—. Va desde la detección de la necesidad y la cotización hasta la aprobación según umbral, el registro en el sistema del país y su consolidación en la visibilidad regional. ⚠️ No cubre la mercancía de las marcas del grupo: esa llega exclusivamente por la compra internacional (6.3 y 6.4) y la reposición desde el hub (6.6 y 6.7). Un país no puede resolver localmente un faltante de producto de marca, porque ningún proveedor local lo tiene."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Country Manager",
+     "participantes": [
+      "Country Manager — aprueba la compra local dentro del umbral del país y responde por el gasto local del período.",
+      "Asistente Administrativo(a) / Servicios Generales — detecta la necesidad, identifica proveedores locales, cotiza y registra la orden en el sistema del país. Es quien ejecuta el proceso en el día a día.",
+      "Comité de Compras / Director de Compras — autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente.",
+      "Coordinador(a) de Logística y Bodega — consolida las compras locales de los países para que el gasto tenga visibilidad regional y no quede solo en el sistema de cada uno."
+     ],
+     "evidencia": ["E-34", "E-59", "E-50"],
+     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función al Country Manager: quien ejecuta la compra no puede ser quien la aprueba. «Comité de Compras / Director de Compras» es denominación propuesta, sin equivalencia en el patrón V4.",
+     "sin_evidencia": "No consta el umbral de aprobación de ningún país — el proceso lo incorpora como control, pero el monto lo tiene que fijar el equipo. Tampoco consta qué conceptos quedan dentro y cuáles escalan por naturaleza y no por monto (activos, contratos de arrendamiento, vehículos), aunque la evidencia muestra que hoy se deciden por la misma vía. El «proveedor Mundo» que el mapa cita para Venezuela se retiró: no aparece en ninguna de las 59 entrevistas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Necesidad local de un bien o servicio que no es mercancía de marca: un insumo de operación, un mantenimiento, un servicio, un trámite o un activo menor.",
+     "cadencia": "Por evento. En los países con operación propia el gasto recurrente tiene además un ciclo de pago ordenado por semanas del mes.",
+     "output": "Orden de compra local registrada en el sistema del país y consolidada en la visibilidad regional del gasto.",
+     "evidencia": ["E-59", "E-34"],
+     "notas": "El socio local de Costa Rica queda dentro del proceso, pero opera con su propio sistema administrativo y su propio gobierno: para él el proceso describe la práctica esperada, no una instrucción del grupo. Es la diferencia que hay que tener presente al consolidar."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-34", "E-59", "E-50"],
      "actividades": [
-      {"id": "a1", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Detecta la necesidad puntual o de urgencia no cubierta a tiempo por el hub regional."},
-      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Identifica el proveedor local disponible y cotiza."},
-      {"id": "a3", "rol": "Country Manager", "texto": "Aprueba la compra local dentro del criterio del país."},
-      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden de compra en el ERP local."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da visibilidad regional a la compra local registrada, para el consolidado del país."}
+      {"id": "a1", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Detecta la necesidad local de un bien o servicio que no es mercancía de marca: insumo de operación, mantenimiento, servicio, trámite o activo menor."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Identifica los proveedores locales disponibles y solicita cotización, verificando que el proveedor siga activo y sostenga el precio."},
+      {"id": "a3", "rol": "Country Manager", "texto": "Aprueba la compra cuando el monto queda dentro del umbral del país, y responde por ella ante el consolidado del período."},
+      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente — que es lo que hoy ya escala al hub."},
+      {"id": "a5", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden de compra en el sistema administrativo del país, con el concepto que permita clasificarla después."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida la compra local en la visibilidad regional del gasto, para que el grupo pueda ver qué se compra fuera del circuito central y dónde se repite."}
      ],
      "diagrama": {
-      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Comité de Compras / Director de Compras", "Coordinador(a) de Logística y Bodega"],
       "nodos": [
-       {"id": "n0", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "inicio", "n": "Detectar necesidad puntual o de urgencia en el país"},
-       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Identificar proveedor local disponible y cotizar"},
-       {"id": "n2", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar la compra local"},
-       {"id": "n3", "carril": "Country Manager", "tipo": "decision", "n": "¿Compra aprobada?"},
-       {"id": "n3alt", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Buscar proveedor alternativo o posponer la compra"},
-       {"id": "n4", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el ERP local", "sistemas": ["Odoo (ERP)"]},
-       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar visibilidad regional a la compra local"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Compra local registrada y visible para el consolidado regional"}
+       {"id": "n0", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "inicio", "n": "Se detecta una necesidad local"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Identificar proveedores locales y cotizar"},
+       {"id": "n2", "carril": "Country Manager", "tipo": "decision", "n": "¿Supera el umbral del país?"},
+       {"id": "n3", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar la compra localmente"},
+       {"id": "n4", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Autorizar la compra desde el hub"},
+       {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el sistema del país", "sistemas": ["Sistema administrativo del país"]},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar la compra en la visibilidad regional"},
+       {"id": "n7", "carril": "Country Manager", "tipo": "fin", "n": "Compra local registrada y visible"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "No"},
+       {"de": "n2", "a": "n4", "etq": "Sí"},
+       {"de": "n3", "a": "n5"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-34", "E-59", "E-50"],
      "filas": [
-      ["Sin visibilidad regional consolidada de la compra local", "Cada país compra localmente sin un reporte que la región pueda ver en conjunto.", "Media", "Medio", "Definir un reporte mínimo mensual de compra local por país."],
-      ["Sin umbral definido de cuándo recurrir a compra local", "No hay un monto o criterio escrito que delimite la excepción frente al hub regional.", "Media", "Medio", "Definir el criterio y el monto máximo de la excepción."],
-      ["Dependencia de un solo proveedor local por país", "Cada país suele tener un único proveedor local de confianza para la urgencia.", "Media", "Alto", "Calificar un segundo proveedor local de respaldo por país."],
-      ["Compra local usada para cubrir una falla recurrente del hub, no una excepción real", "Si se repite con frecuencia en el mismo SKU, deja de ser una excepción.", "Baja", "Medio", "Monitorear la frecuencia de compra local por país como señal de alerta."]
+      ["No hay umbral de aprobación definido en ningún país", "El proceso incorpora el umbral como control, pero hoy no existe: cada país aprueba con criterio propio y no hay monto a partir del cual la compra deba escalar. Sin él, la decisión de escalar depende del criterio de quien compra.", "Alta", "Alto", "Fijar un umbral por país —en moneda y con tasa fechada— y revisarlo cada semestre; declarar además qué conceptos escalan por naturaleza y no por monto."],
+      ["Activos y contratos siguen la misma vía que un insumo menor", "La evidencia muestra compra de locales, vehículos y trámites de permisos decidiéndose por el mismo circuito informal que un gasto corriente, con la firma del contrato en el propio país.", "Alta", "Alto", "Separar activos y contratos de arrendamiento del circuito de gasto corriente, con autorización del hub con independencia del monto."],
+      ["Sin visibilidad regional del gasto local", "Cada país registra en su propio sistema administrativo y no hay consolidado, así que el grupo no sabe cuánto se compra fuera del circuito central ni en qué conceptos se repite.", "Alta", "Medio", "Consolidar por concepto y país en cada cierre, aunque sea con carga manual mientras los sistemas no se conecten."],
+      ["El socio local opera con su propio sistema y su propio gobierno", "El socio de Costa Rica lleva su administración en un sistema propio y decide bajo su propia estructura: el consolidado regional no lo alcanza sin un acuerdo expreso de reporte.", "Media", "Medio", "Acordar con el socio qué reporta y con qué periodicidad, en vez de asumir que el proceso del grupo le aplica."],
+      ["Dependencia de un solo proveedor local por concepto", "En varios países cada concepto lo cubre un único proveedor conocido; cuando falla o sube el precio, la sustitución se improvisa y hay que escalar con urgencia.", "Media", "Alto", "Mantener al menos un proveedor alterno identificado por concepto crítico, aunque no se le compre."],
+      ["La compra local tapa una falla recurrente del abastecimiento", "Si un concepto se compra localmente ciclo tras ciclo, deja de ser una excepción y señala que el circuito central no lo está cubriendo — pero nadie lo mide, así que el síntoma no llega a verse.", "Media", "Medio", "Medir la recurrencia por concepto y elevar a la planificación los que se repitan más de dos ciclos."],
+      ["Quien ejecuta la compra podía aprobarla", "En la versión anterior del proceso, detectar la necesidad, cotizar, aprobar y registrar recaían prácticamente en la misma función administrativa, sin separación entre quien pide y quien autoriza.", "Media", "Alto", "Mantener separadas la ejecución y la aprobación, como queda en este flujo, y dejar registro de quién aprobó cada compra."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Compras locales de urgencia por país y por mes", "Conteo de órdenes de compra local por país", "Mensual", "Coordinador(a) de Logística y Bodega", "Referencia de seguimiento"],
-      ["Monto de compra local ÷ monto de compra internacional del país", "Proporción sobre el total de compra del país", "Mensual", "Planificador Financiero", "Mantenerlo bajo — referencia de tendencia"],
-      ["Tiempo de aprobación de la compra local", "Fecha de aprobación − fecha de solicitud", "Por caso", "Country Manager", "Mismo día"]
+      ["Gasto en compra local por país y período", "Monto de compras locales del país en el período, con moneda y tasa fechada", "Mensual", "Country Manager", "Referencia de seguimiento"],
+      ["Compras que superaron el umbral", "Compras escaladas al hub ÷ compras locales del período", "Mensual", "Comité de Compras / Director de Compras", "Referencia — si tiende a cero, el umbral está alto"],
+      ["Recurrencia por concepto", "Conceptos comprados localmente en más de dos ciclos seguidos ÷ conceptos del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "A la baja — la recurrencia delata una falla del circuito central"],
+      ["Cobertura del consolidado regional", "Compras locales que llegan al consolidado ÷ compras locales registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Tiempo desde la detección hasta la aprobación", "Fecha de aprobación − fecha de detección de la necesidad", "Por compra", "Country Manager", "Referencia — mide si el control entorpece la urgencia"]
      ]
     }
    },
@@ -1913,54 +2071,83 @@ window.MANUAL_CONTENIDO = {
    "6.6": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el armado del pedido de reposición mensual del país contra la disponibilidad del hub de Kenex Panamá —descrito por el propio equipo de Compras como \"el proceso ancla\" de la reposición—, la validación operativa local, la aprobación de cantidades finales y la transferencia a Logística para preparación y despacho. No incluye la preparación física del pedido en bodega ni su despacho (macro 7, Logística y Operaciones), que empieza donde este proceso termina, ni la reposición semanal a punto de venta (proceso 6.7), de ciclo mucho más corto."
+     "texto": "Cubre el ciclo mensual con el que cada país se repone desde el hub de Zona Libre: la revisión del inventario propio, del tránsito y de lo que hay disponible en el hub, el armado del pedido con el archivo de reposición, la asignación de las cantidades finales según lo que el hub puede liberar sin desabastecer a los demás países, la coordinación del contenedor y el seguimiento hasta la recepción. No incluye la preparación física ni el despacho (macro 7, Logística y Operaciones), que empiezan donde este proceso los convoca, ni la reposición a punto de venta (6.7), de ciclo mucho más corto."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador(a) de Logística y Bodega",
+     "participantes": [
+      "Coordinador(a) de Logística y Bodega — lleva el ciclo completo del país: revisa inventario y tránsito, arma el pedido con el archivo de reposición, sigue el embarque y recibe. Es dueño real del proceso, no solo ejecutor.",
+      "Comité de Compras / Director de Compras — revisa el pedido del país y asigna las cantidades finales contra la disponibilidad del hub. Es la misma figura que compone la compra de la marca representada (6.3) y confirma la de la marca propia (6.4).",
+      "Coordinador(a) Comercial — coordina con la bodega del hub la preparación del pedido y el cubicaje del contenedor, e informa tiempos y retrasos."
+     ],
+     "evidencia": ["E-40", "E-08", "E-34"],
+     "notas": "⚠️ La aprobación de cantidades cambia respecto al mapa v18, que la ponía en «Gerente Regional Comercial / Retail». La evidencia es explícita: quien revisa el pedido del país y confirma cuánto sale es el director que lleva las compras del grupo — el mismo de 6.3, 6.4 y 6.2. Es la quinta vez en este macroproceso que el mapa sitúa una decisión de compra en una gerencia regional y la evidencia la sitúa en la dirección de compras. ⚠️ Hoy esa asignación la decide una sola persona con criterio propio; «Comité de Compras» aparece en el rótulo como la instancia propuesta para que el reparto entre países tenga regla escrita — ver el riesgo correspondiente. ⚠️ Se retiró del alcance la frase que describía este proceso como «el proceso ancla» entrecomillada y atribuida al equipo de Compras: esa expresión no aparece en ninguna de las 59 entrevistas ni en la documentación de Lark.",
+     "sin_evidencia": "No consta la regla con la que se reparte entre países cuando el hub no cubre el total: la evidencia muestra el criterio —no dejar corto al hub— pero no un orden de prelación entre países. Tampoco consta qué ocurre con lo que se pidió y no se asignó: si se arrastra al ciclo siguiente o se pierde."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Inicio de mes: arranca el ciclo de reposición del país contra el hub.",
+     "cadencia": "Mensual. El ciclo completo —desde el armado del pedido hasta la recepción en el país— toma entre uno y mes y medio entre tránsito y nacionalización.",
+     "output": "Pedido inter-compañía con cantidades asignadas, embarcado desde el hub y recibido en el país.",
+     "evidencia": ["E-40"],
+     "notas": "La cobertura objetivo del país es de tres a cuatro meses, y el pedido se arma por separado para cada marca. Es un ciclo distinto del de reposición a tienda (6.7), que trabaja con cobertura de semanas."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-40", "E-08", "E-34"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Al cierre de cada mes, revisa el inventario disponible en el país, la mercancía en tránsito y la disponibilidad en el hub de Kenex Panamá."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el pedido buscando mantener una cobertura de seguridad de 3 a 4 meses, ajustándolo al alza con anticipación en la temporada de mayor venta."},
-      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba las cantidades finales —en aproximadamente una semana— según lo que el hub puede liberar sin desabastecer a los demás países del reparto."},
-      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Gestiona con la bodega del hub la preparación y el cubicaje del contenedor, e informa tiempos o retrasos."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento durante el tránsito y la nacionalización —entre 1 y 1.5 meses en total— hasta la entrega en el país."}
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Al inicio de cada mes revisa el inventario disponible en el país, la mercancía en tránsito y lo que hay disponible en el hub de Zona Libre."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el pedido con un archivo de reposición formulado que propone cuánto pedir por producto para sostener la cobertura objetivo de tres a cuatro meses, por separado para cada marca. Revisa la propuesta antes de mandarla en vez de seguirla sin más: la venta histórica sobre la que calcula está deformada por los períodos en que no hubo mercancía."},
+      {"id": "a3", "rol": "Comité de Compras / Director de Compras", "texto": "Revisa el pedido contra la disponibilidad del hub y asigna las cantidades finales, recortando lo que dejaría desabastecidos a los demás países. El país pide, pero no siempre recibe lo que pidió."},
+      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Coordina con la bodega del hub la preparación del pedido y el cubicaje del contenedor, e informa tiempos y retrasos. Lo que no entra en el contenedor queda para el ciclo siguiente."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento al tránsito y a la nacionalización preguntando al responsable del embarque cuándo salió y cuándo llega: no hay seguimiento automático que avise."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Recibe la mercancía en el país y la confirma contra lo asignado, dejando registro de faltantes y discrepancias para el reclamo."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Coordinador(a) Comercial"],
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Comité de Compras / Director de Compras", "Coordinador(a) Comercial"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Cierre de mes — inicia el ciclo mensual de reposición del país"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y disponibilidad en el hub", "sistemas": ["Excel de reposición"]},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el pedido con cobertura objetivo de 3 a 4 meses", "sistemas": ["Módulo de sugerido (Power BI)"]},
-       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Cantidades finales aprobadas según disponibilidad del hub?"},
-       {"id": "n3alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ajustar el pedido a lo que el hub puede liberar sin desabastecer a los demás países"},
-       {"id": "n4", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Gestionar con la bodega del hub la preparación y el cubicaje del contenedor"},
-       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento al tránsito y la nacionalización"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Pedido recibido en el país, cobertura objetivo restablecida"}
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Inicio de mes: arranca la reposición"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y hub"},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el pedido con el archivo formulado", "sistemas": ["Archivo de reposición (Excel)", "Odoo"]},
+       {"id": "n3", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Asignar las cantidades finales"},
+       {"id": "n4", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Coordinar la preparación y el cubicaje"},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Seguir el tránsito y la nacionalización"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Recibir y confirmar contra lo asignado"},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Cobertura del país restablecida"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-40", "E-08", "E-34"],
      "filas": [
-      ["Ajuste por capacidad de contenedor sin reporte sistemático", "Un contenedor de 40 pies (66 m³) se carga hoy hasta ~64 m³, sin margen de maniobra: cuando algo no cabe, simplemente no se envía sin notificación formal, y se puede estar contando con mercancía en tránsito que en realidad nunca salió del hub.", "Alta", "Alto", "Dejar un margen deliberado de cubicaje (cargar hasta 60 de los 66 m³, dejando 6 m³ de holgura) y reportar explícitamente lo que quedó fuera antes del zarpe — propuesta ya planteada por el propio equipo de compras."],
-      ["Gap entre lo solicitado y lo asignado sin mecanismo de compensación", "Cuando el hub asigna menos de lo solicitado (p. ej. se piden 1.000 unidades y se asignan 500), no hay un mecanismo que reserve automáticamente el faltante para el siguiente envío.", "Alta", "Alto", "Implementar un mecanismo de back order: reservar la cantidad no enviada para el siguiente ciclo en vez de armar el pedido desde cero cada vez — propuesta ya planteada por el propio equipo de compras."],
-      ["Aprobación de cantidades finales concentrada en una persona", "La aprobación final de cada ciclo mensual depende de un solo responsable comercial.", "Media", "Alto", "Documentar el criterio de aprobación y formar un respaldo."],
-      ["Discrepancias de aduana o faltantes descubiertos tarde", "La lista de empaque no siempre se cruza contra lo recibido antes de cerrar el ciclo; se han pagado aranceles de aduana sobre mercancía que figuraba en factura pero que finalmente no entró en el contenedor.", "Media", "Alto", "Cruzar la lista de empaque contra lo recibido antes de cerrar cada ciclo mensual."],
-      ["Reparto entre países sin regla explícita cuando el hub no cubre el total", "El reparto entre países al llegar al hub se basa en el historial de ventas (a Venezuela le correspondería ~50-60% de lo que llega) sin una regla escrita para cuando el hub no alcanza para todos.", "Media", "Medio", "Documentar la regla de reparto entre países cuando el hub no cubre el 100% de lo solicitado por todos."]
+      ["El país pide y no siempre recibe, sin compensación en el ciclo siguiente", "La asignación recorta el pedido cuando el hub no puede liberar el total, pero lo que quedó fuera no se arrastra ni se compensa: el país vuelve a pedirlo el mes siguiente partiendo del mismo faltante.", "Alta", "Alto", "Registrar la diferencia entre lo pedido y lo asignado por producto, y arrastrarla como prioridad del ciclo siguiente."],
+      ["El reparto entre países no tiene regla escrita", "El criterio es no dejar corto al hub, y lo aplica una sola persona con juicio propio. Ningún país sabe con qué prelación se decide ni puede anticipar cuánto recibirá.", "Alta", "Alto", "Escribir la regla de prelación —cobertura crítica, rotación, compromiso ya adquirido— y publicarla a los países, aunque la decisión siga siendo de una sola instancia."],
+      ["La venta histórica sobre la que se calcula está sesgada a la baja", "El archivo propone cantidades a partir de la venta pasada, pero hubo períodos largos sin mercancía: se vendió poco por no haber. Seguir la fórmula sin corregir reproduce el desabastecimiento, y hoy lo evita el criterio de quien arma el pedido.", "Alta", "Alto", "Marcar en el archivo los períodos sin existencias y excluirlos del cálculo, para que la corrección no dependa de que alguien recuerde hacerla."],
+      ["El ajuste por capacidad de contenedor no se reporta", "Lo que no entra en el contenedor —y siempre queda algo, porque el volumen no cuadra exacto— se queda sin registro: el país no sabe qué dejó de venir por espacio y no por asignación.", "Alta", "Medio", "Dejar constancia por embarque de qué quedó fuera por cúbico y sumarlo a la prioridad del ciclo siguiente."],
+      ["El seguimiento del embarque depende de preguntar", "No hay aviso automático de salida ni de llegada: el país se entera preguntando al responsable del embarque, y a veces se entera cuando la mercancía ya llegó.", "Alta", "Medio", "Que la salida del contenedor dispare un aviso al país con fecha estimada de arribo, y que el cambio de esa fecha también avise."],
+      ["Discrepancias y faltantes se descubren tarde", "La confirmación contra lo asignado ocurre al recibir, semanas después del despacho, cuando reclamar al hub o a la aduana ya es difícil.", "Media", "Alto", "Confirmar el contenido contra lo asignado en el momento del despacho, no solo en la recepción."],
+      ["Todo el ciclo del país descansa en una persona", "Revisar, armar, seguir y recibir recaen en la misma función, sin respaldo formado. Una ausencia detiene la reposición del país durante el ciclo.", "Media", "Alto", "Formar un respaldo y dejar el archivo de reposición documentado, no solo formulado."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cobertura de inventario del país", "Inventario disponible ÷ venta promedio mensual", "Mensual", "Coordinador(a) de Logística y Bodega", "3 a 4 meses"],
-      ["Fill rate del pedido inter-compañía", "Cantidad despachada ÷ cantidad pedida", "Mensual", "Coordinador(a) de Logística y Bodega", "≥90%"],
-      ["Pedidos con ajuste por capacidad de contenedor reportado", "Reportados ÷ total de pedidos con ajuste real", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
-      ["Tiempo de aprobación de cantidades finales", "Fecha de aprobación − fecha de propuesta", "Mensual", "Gerente Regional Comercial / Retail", "≤1 semana"]
+      ["Cobertura de inventario del país", "Inventario disponible + tránsito ÷ venta mensual promedio", "Mensual", "Coordinador(a) de Logística y Bodega", "Entre 3 y 4 meses"],
+      ["Proporción asignada sobre lo pedido", "Unidades asignadas ÷ unidades pedidas por el país", "Mensual", "Comité de Compras / Director de Compras", "A la alza — mide cuánto del pedido sobrevive al reparto"],
+      ["Unidades que quedaron fuera por cúbico", "Unidades asignadas y no embarcadas ÷ unidades asignadas", "Por embarque", "Coordinador(a) Comercial", "A la baja"],
+      ["Ciclo total del pedido", "Fecha de recepción en el país − fecha de armado del pedido", "Mensual", "Coordinador(a) de Logística y Bodega", "Entre 1 y 1,5 meses"],
+      ["Discrepancias detectadas en recepción", "Líneas con faltante o diferencia ÷ líneas recibidas", "Mensual", "Coordinador(a) de Logística y Bodega", "A la baja"]
      ]
     }
    },
