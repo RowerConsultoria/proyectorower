@@ -2081,7 +2081,7 @@ window.MANUAL_CONTENIDO = {
    "6.6": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el ciclo mensual con el que cada país se repone desde el hub de Zona Libre: la revisión del inventario propio, del tránsito y de lo que hay disponible en el hub, el armado del pedido con el archivo de reposición, la asignación de las cantidades finales según lo que el hub puede liberar sin desabastecer a los demás países, la coordinación del contenedor y el seguimiento hasta la recepción. No incluye la preparación física ni el despacho (macro 7, Logística y Operaciones), que empiezan donde este proceso los convoca, ni la reposición a punto de venta (6.7), de ciclo mucho más corto."
+     "texto": "Cubre el ciclo mensual con el que cada país se repone desde el hub de Zona Libre: la revisión del inventario propio, del tránsito y de lo que hay disponible en el hub, el armado del pedido con el archivo de reposición, la asignación de las cantidades finales según lo que el hub puede liberar sin desabastecer a los demás países, la preparación y el cubicaje del contenedor, el despacho al país y el seguimiento hasta la recepción. ⚠️ El detalle de la operación logística —tráfico, aduana y despacho— pertenece al macro 7 (Logística y Operaciones): aquí se nombra a quién la ejecuta y en qué punto del ciclo entra, para que la reposición se lea de punta a punta, pero no se describe su procedimiento. No incluye la reposición a punto de venta (6.7), de ciclo mucho más corto."
     },
     "dueno": {
      "estado": "borrador",
@@ -2090,7 +2090,8 @@ window.MANUAL_CONTENIDO = {
       "Coordinador(a) de Logística y Bodega (país) — lleva el ciclo completo del país: revisa inventario y tránsito, arma el pedido con el archivo de reposición, sigue el embarque y recibe. Es dueño real del proceso, no solo ejecutor.",
       "Comité de Compras / Director de Compras — revisa el pedido del país y asigna las cantidades finales contra la disponibilidad del hub. Es la misma figura que compone la compra de la marca representada (6.3) y confirma la de la marca propia (6.4).",
       "Gerente Comercial (País / Canal) — en el hub, recibe las cantidades confirmadas y manda preparar el pedido. La reposición del país se tramita por la puerta comercial de la central, como un pedido de mayoreo.",
-      "Coordinador(a) de Logística y Bodega (hub) — prepara el pedido en la bodega de Zona Libre y lo cubica en el contenedor."
+      "Coordinador(a) de Logística y Bodega (hub) — prepara el pedido en la bodega de Zona Libre y lo cubica en el contenedor.",
+      "Gerente de Operaciones y Logística — contrata el flete, saca la carga de Zona Libre y la liquida en aduana. Su procedimiento se describe en el macro 7; aquí se nombra para que el ciclo no tenga un hueco entre el hub y el país."
      ],
      "evidencia": ["E-40", "E-08", "E-34"],
      "notas": "⚠️ La aprobación de cantidades cambia respecto al mapa v18, que la ponía en «Gerente Regional Comercial / Retail». La evidencia es explícita: quien revisa el pedido del país y confirma cuánto sale es el director que lleva las compras del grupo — el mismo de 6.3, 6.4 y 6.2. Es la quinta vez en este macroproceso que el mapa sitúa una decisión de compra en una gerencia regional y la evidencia la sitúa en la dirección de compras. ⚠️ El tramo del hub también se corrige: el mapa lo atribuía a «Coordinador(a) Comercial», que en el censo es una coordinación de ventas al mayor del país que recibe, no del hub que despacha. La evidencia nombra a la gerencia comercial de mayoreo de la central, y además separa dos actos que estaban en una sola caja: mandar a preparar (comercial) y preparar y cubicar (bodega del hub). Los dos carriles de logística se distinguen con «(país)» y «(hub)» porque comparten cargo patrón y son personas distintas en extremos opuestos del flujo. ⚠️ Hoy esa asignación la decide una sola persona con criterio propio; «Comité de Compras» aparece en el rótulo como la instancia propuesta para que el reparto entre países tenga regla escrita — ver el riesgo correspondiente. ⚠️ Se retiró del alcance la frase que describía este proceso como «el proceso ancla» entrecomillada y atribuida al equipo de Compras: esa expresión no aparece en ninguna de las 59 entrevistas ni en la documentación de Lark.",
@@ -2113,11 +2114,12 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Comité de Compras / Director de Compras", "texto": "Revisa el pedido contra la disponibilidad del hub y asigna las cantidades finales, recortando lo que dejaría desabastecidos a los demás países. El país pide, pero no siempre recibe lo que pidió."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Recibe las cantidades ya confirmadas y manda preparar el pedido en la bodega del hub. La reposición entra por la puerta comercial de la central y no directamente por la bodega, porque se tramita como un pedido de mayoreo: el país es, a efectos operativos, un cliente del hub."},
       {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega (hub)", "texto": "Prepara el pedido y lo cubica en el contenedor. Lo que no entra en el volumen disponible —y casi siempre queda algo, porque el cúbico no cuadra exacto— se queda para el ciclo siguiente."},
-      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Da seguimiento al tránsito y a la nacionalización preguntando al responsable del embarque cuándo salió y cuándo llega: no hay seguimiento automático que avise."},
-      {"id": "a7", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Recibe la mercancía en el país y la confirma contra lo asignado, dejando registro de faltantes y discrepancias para el reclamo."}
+      {"id": "a6", "rol": "Gerente de Operaciones y Logística", "texto": "Contrata el flete —marítimo, aéreo o terrestre según el caso—, saca la carga de Zona Libre y la liquida en aduana para despacharla al país. En el movimiento entre empresas del grupo la liquidación es interna, y de ella depende la fecha en que la mercancía queda realmente disponible."},
+      {"id": "a7", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Da seguimiento al tránsito y a la nacionalización preguntando al responsable del embarque cuándo salió y cuándo llega: no hay seguimiento automático que avise."},
+      {"id": "a8", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Recibe la mercancía en el país y la confirma contra lo asignado, dejando registro de faltantes y discrepancias para el reclamo."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega (país)", "Comité de Compras / Director de Compras", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega (hub)"],
+      "carriles": ["Coordinador(a) de Logística y Bodega (país)", "Comité de Compras / Director de Compras", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega (hub)", "Gerente de Operaciones y Logística"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "inicio", "n": "Inicio de mes: arranca la reposición"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y hub"},
@@ -2125,9 +2127,10 @@ window.MANUAL_CONTENIDO = {
        {"id": "n3", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Asignar las cantidades finales"},
        {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Mandar a preparar el pedido en el hub"},
        {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega (hub)", "tipo": "tarea", "n": "Preparar y cubicar el contenedor"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Seguir el tránsito y la nacionalización"},
-       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Recibir y confirmar contra lo asignado"},
-       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "fin", "n": "Cobertura del país restablecida"}
+       {"id": "n6", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Contratar el flete y despachar al país"},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Seguir el tránsito y la nacionalización"},
+       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Recibir y confirmar contra lo asignado"},
+       {"id": "n9", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "fin", "n": "Cobertura del país restablecida"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -2137,7 +2140,8 @@ window.MANUAL_CONTENIDO = {
        {"de": "n4", "a": "n5"},
        {"de": "n5", "a": "n6"},
        {"de": "n6", "a": "n7"},
-       {"de": "n7", "a": "n8"}
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}
       ]
      }
     },
