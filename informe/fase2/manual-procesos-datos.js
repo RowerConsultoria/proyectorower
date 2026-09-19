@@ -5,7 +5,7 @@
 window.MANUAL_FASE2 = {
  "meta": {
   "version": "v18",
-  "generado": "2026-09-14",
+  "generado": "2026-09-19",
   "fuenteMapa": "Mapa de Procesos Actualizado v18 — validado por el equipo consultor",
   "niveles": "N0 (macroprocesos) y N1 (procesos). Sin N2: los procedimientos quedaron fuera del alcance de la Fase 2.",
   "totales": {
@@ -1782,7 +1782,7 @@ window.MANUAL_FASE2 = {
     },
     {
      "codigo": "6.5",
-     "n": "Compra local por país (nacionales y de urgencia)",
+     "n": "Compra local de bienes y servicios por país",
      "madurez": "as-is",
      "mapa": {
       "alcance": "Detección de necesidad puntual en el país (Venezuela al proveedor Mundo, Panamá a proveedor local, Costa Rica y otros), aprobación local por el coordinador responsable y registro de la orden en el ERP local.",

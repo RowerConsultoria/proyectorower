@@ -727,7 +727,7 @@
         },
         {
           "codigo": "6.5",
-          "nombre": "Compra local por país (nacionales y de urgencia)",
+          "nombre": "Compra local de bienes y servicios por país",
           "alcance": "Detección de necesidad puntual en el país (Venezuela al proveedor Mundo, Panamá a proveedor local, Costa Rica y otros), aprobación local por el coordinador responsable y registro de la orden en el ERP local.",
           "dueno": "Asistente Administrativo(a) / Servicios Generales (según país: Venezuela, Panamá, Costa Rica, Colombia)",
           "participantes": [
