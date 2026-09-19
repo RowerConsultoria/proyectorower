@@ -2354,6 +2354,32 @@ function enlaceUrl(token){
 }
 function estadoFicha(personaId){ return (cacheFichas[personaId] && cacheFichas[personaId].estado) || 'pendiente'; }
 function claseFicha(estado){ return { pendiente:'e-alerta', en_progreso:'e-neutro', completada:'e-ok' }[estado] || 'e-neutro'; }
+
+/* Huecos de una ficha ya entregada — el badge «incompleta» (19-sep-2026).
+   Nace de un borrado real: el formulario repintaba el «periodo» de las
+   posiciones anteriores leyendo unas claves que no existían (desde/hasta en
+   vez de periodo), así que salía en blanco y el siguiente guardado lo borraba.
+   73 periodos perdidos en 46 personas, sin copia de la que sacarlos. Arreglado
+   el formulario, esto sirve para encontrar a quién hay que repreguntar.
+
+   Deliberadamente NO cuenta «otras formaciones» (vacía en 155 de 288) ni «otra
+   herramienta» (215): están en blanco porque no aplican, y marcarlas volvería
+   el badge ruido. Tampoco exige título ni institución a quien declaró primaria
+   o bachillerato incompleto. Con este criterio salen 63 de 288. */
+function huecosFicha(x){
+  const falta = [];
+  const vacio = v => !(typeof v === 'string' && v.trim());
+  const previas = Array.isArray(x.posiciones_previas) ? x.posiciones_previas : [];
+  if(previas.some(pp => vacio(pp && pp.periodo))) falta.push('Periodo de una posición anterior');
+  if(x.nivel_educativo !== 'primaria_bachillerato_incompleto'){
+    if(vacio(x.titulo_obtenido)) falta.push('Título / especialidad');
+    if(vacio(x.institucion))     falta.push('Institución educativa');
+  }
+  if(vacio(x.antiguedad_cargo)) falta.push('Antigüedad en el cargo');
+  return falta;
+}
+/** Solo se marca lo ya ENTREGADO: en una ficha en progreso un hueco es normal. */
+function fichaIncompleta(x){ return x.estado === 'completada' && huecosFicha(x).length > 0; }
 function tokensDe(personaId){ return cacheTokens.filter(t=> t.persona_id===personaId && !t.revocado); }
 function reportesDe(personaId){ return cachePersonal.filter(p=> p.gerente_id===personaId && p.activo); }
 
@@ -3244,11 +3270,12 @@ async function renderFichas(){
       </div>
       <button class="btn btn-marca" id="fiExport">⬇ exportar consolidado (CSV)</button>
     </div>
-    <div class="rejilla rejilla-4 gap-12" id="fiKpis" style="margin-bottom:20px"></div>
+    <div class="rejilla rejilla-5 gap-12" id="fiKpis" style="margin-bottom:20px"></div>
     <div class="toolbar">
       <div class="buscador"><input class="campo" id="qf" type="search" placeholder="Buscar por nombre, cargo, documento…"></div>
       <select class="filtro" id="ffEstado"><option value="">Cualquier estado</option>
-        <option value="pendiente">Pendiente</option><option value="en_progreso">En progreso</option><option value="completada">Completada</option></select>
+        <option value="pendiente">Pendiente</option><option value="en_progreso">En progreso</option><option value="completada">Completada</option>
+        <option value="incompleta">Completada con huecos</option></select>
       ${selectAgrupar('agrupFi', AGRUPADORES_FICHAS, agrupFichas)}
       ${botonColapsarTodo('fiColapsarTodo')}
       <span style="flex:1"></span>
@@ -3306,11 +3333,13 @@ function pintarKpisFichas(){
   const completadas = cacheFichasDet.filter(x=>x.estado==='completada').length;
   const enProgreso = cacheFichasDet.filter(x=>x.estado==='en_progreso').length;
   const pendientes = cacheFichasDet.filter(x=>x.estado==='pendiente').length;
+  const incompletas = cacheFichasDet.filter(fichaIncompleta).length;
   el.innerHTML = `
     <div class="tarjeta"><div class="kpi"><span class="rotulo">recibidas</span><span class="valor">${cacheFichasDet.length}</span><span class="pie">fichas con al menos un guardado</span></div></div>
     <div class="tarjeta"><div class="kpi"><span class="rotulo">completadas</span><span class="valor">${completadas}</span><span class="pie">listas para consolidar</span></div></div>
     <div class="tarjeta"><div class="kpi"><span class="rotulo">en progreso</span><span class="valor">${enProgreso}</span><span class="pie">guardadas sin enviar</span></div></div>
-    <div class="tarjeta"><div class="kpi"><span class="rotulo">pendientes</span><span class="valor">${pendientes}</span><span class="pie">sin datos aún</span></div></div>`;
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">pendientes</span><span class="valor">${pendientes}</span><span class="pie">sin datos aún</span></div></div>
+    <div class="tarjeta"><div class="kpi"><span class="rotulo">con huecos</span><span class="valor">${incompletas}</span><span class="pie">entregadas a las que falta algún campo</span></div></div>`;
 }
 
 const colsFichas = [
@@ -3322,7 +3351,11 @@ function paintFichas(){
   const q = ($('#qf')?.value||'').trim().toLowerCase();
   const fe = $('#ffEstado')?.value||'';
   let rows = cacheFichasDet.filter(x=>{
-    if(fe && x.estado!==fe) return false;
+    /* «incompleta» no es un estado de la base: es una vista sobre las
+       completadas que traen huecos. Por eso se resuelve antes del filtro por
+       estado y no dentro de él. */
+    if(fe === 'incompleta'){ if(!fichaIncompleta(x)) return false; }
+    else if(fe && x.estado!==fe) return false;
     if(!q) return true;
     return [x.persona.nombre, x.persona.cargo, x.documento].join(' ').toLowerCase().includes(q);
   });
@@ -3341,13 +3374,16 @@ function paintFichas(){
       <td class="recorta tenue" title="${esc(x.persona.entidad||'')}">${esc(x.persona.entidad||'—')}</td>
       <td class="recorta tenue" title="${esc(x.persona.area||'')}">${esc(x.persona.area||'—')}</td>
       <td class="recorta tenue" title="${esc(x.cargo_actual || x.persona.cargo || '')}">${esc(x.cargo_actual || x.persona.cargo || '—')}</td>
-      <td><span class="marca-estado ${claseFicha(x.estado)}"><i class="punto"></i>${esc(x.estado)}</span></td>
+      <td style="white-space:nowrap"><span class="marca-estado ${claseFicha(x.estado)}"><i class="punto"></i>${esc(x.estado)}</span>${
+        fichaIncompleta(x)
+          ? `<span class="marca-hueco" title="${esc('Entregada, pero le faltan: ' + huecosFicha(x).join(' · '))}">incompleta</span>`
+          : ''}</td>
       <td class="tenue">${x.enviada_en? new Date(x.enviada_en).toLocaleDateString('es') : '—'}</td>
     </tr>`;
   wrap.innerHTML = `<div class="densa" data-densidad="${esc(valDensidad)}"><div class="tabla-envoltura"><table class="tabla">
     <colgroup>
-      <col style="width:24%"><col style="width:12%"><col style="width:24%"><col style="width:22%">
-      <col style="width:100px"><col style="width:88px">
+      <col style="width:20%"><col style="width:11%"><col style="width:20%"><col style="width:18%">
+      <col style="width:196px"><col style="width:88px">
     </colgroup>
     <thead>${theadOrd(colsFichas, ordFichas)}</thead>
     <tbody>${filasAgrupadas(rows, agrupFichas, colsFichas.length, pintarFilaF)}</tbody>
@@ -3422,12 +3458,13 @@ function cerrarModalFicha(){
 
 function exportarFichasCSV(){
   if(!cacheFichasDet.length) return toast('Todavía no ha llegado ninguna ficha', true);
-  const cab = ['nombre','entidad','area','cargo_actual','documento','antiguedad_org','nivel_educativo','titulo_obtenido',
+  const cab = ['nombre','entidad','area','cargo_actual','huecos','documento','antiguedad_org','nivel_educativo','titulo_obtenido',
     'institucion','otras_formaciones','antiguedad_cargo','area_sede','responsabilidades','posiciones_previas','habilidades','estado','enviada_en'];
   const filas = [cab];
   cacheFichasDet.forEach(x=>{
     filas.push([
-      x.persona.nombre, x.persona.entidad||'', x.persona.area||'', x.cargo_actual||'', x.documento||'',
+      x.persona.nombre, x.persona.entidad||'', x.persona.area||'', x.cargo_actual||'',
+      fichaIncompleta(x) ? huecosFicha(x).join(' | ') : '', x.documento||'',
       x.antiguedad_org||'', x.nivel_educativo||'', x.titulo_obtenido||'', x.institucion||'', x.otras_formaciones||'',
       x.antiguedad_cargo||'', x.area_sede||'', JSON.stringify(x.responsabilidades||[]),
       JSON.stringify(x.posiciones_previas||[]), JSON.stringify(x.habilidades||{}), x.estado, x.enviada_en||'',

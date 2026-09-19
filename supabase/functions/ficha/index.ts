@@ -14,6 +14,11 @@
 // revocado, vencido (45 días) o su titular dado de baja del censo
 // (`personal.activo = false`). Ver puerta().
 //
+// Escritura NO destructiva (19-sep-2026): el formulario manda la ficha entera
+// en cada guardado, así que un campo que no se pintó viajaba como "" y borraba
+// lo que había. Ver fundirFicha(): un valor vacío jamás pisa uno guardado, y
+// `guardar` no degrada una ficha ya entregada.
+//
 // Comprobaciones (sin credenciales, con un `fetch` falso):
 //   deno test --allow-env --allow-read scripts/comprobar-ficha.ts
 //
@@ -160,9 +165,14 @@ async function abrir(b: Record<string, unknown>): Promise<Response> {
   const personas = await sbJson(
     `/rest/v1/personal?id=in.(${idsAmbito.join(",")})&select=id,nombre,pais,entidad,area,cargo,correo,gerente_id,activo`,
   ) as Persona[];
+  /* `select=*` y no una lista de columnas: el formulario repinta la ficha con lo
+     que devuelva esto y vuelve a guardarla ENTERA, así que una columna que no
+     viaje aquí se reescribe vacía en el siguiente guardado. Con la lista corta
+     que había antes (sin otras_formaciones, titulo_obtenido, institucion,
+     antiguedad_cargo ni posiciones_previas) el enlace individual borraba esos
+     cinco campos en cuanto la persona reentraba y tecleaba algo. */
   const fichas = await sbJson(
-    `/rest/v1/fichas_perfil?persona_id=in.(${idsAmbito.join(",")})&select=persona_id,estado,` +
-      "documento,antiguedad_org,nivel_educativo,cargo_actual,area_sede,responsabilidades,habilidades",
+    `/rest/v1/fichas_perfil?persona_id=in.(${idsAmbito.join(",")})&select=*`,
   ) as Array<{ persona_id: string; estado: string } & Ficha>;
   const fichaPorPersona = new Map(fichas.map((f) => [f.persona_id, f]));
 
@@ -213,6 +223,12 @@ const CAMPOS_FICHA = [
   "responsabilidades", "posiciones_previas", "habilidades",
 ];
 
+const CAMPOS_TEXTO = [
+  "documento", "antiguedad_org", "nivel_educativo", "otras_formaciones",
+  "titulo_obtenido", "institucion", "cargo_actual", "antiguedad_cargo", "area_sede",
+];
+const CLAVES_SKILL = ["excel", "odoo", "lark", "powerbi", "ia"];
+
 function limpiarFicha(entrada: unknown): Record<string, unknown> {
   const f = (entrada && typeof entrada === "object") ? entrada as Record<string, unknown> : {};
   const limpio: Record<string, unknown> = {};
@@ -222,11 +238,107 @@ function limpiarFicha(entrada: unknown): Record<string, unknown> {
   return limpio;
 }
 
+const txt = (v: unknown): string => (typeof v === "string" ? v.trim() : "");
+
+/**
+ * Un valor que llega VACÍO nunca pisa uno ya guardado.
+ *
+ * El formulario manda siempre los doce campos, llenos o no, y reescribe la
+ * ficha entera en cada guardado: cualquier campo que no se haya pintado bien
+ * viaja como "" y borraba el dato. Pasó de verdad — 73 «periodos» de
+ * posiciones anteriores desaparecieron así, y no había copia de la que
+ * sacarlos. Aquí se cierra por el lado del servidor, para que un fallo del
+ * navegador no vuelva a poder vaciar la base.
+ *
+ * ⚠️ El precio: desde aquí NO se puede dejar en blanco un campo que ya tenía
+ * texto (hay que corregirlo con otro texto). Es deliberado: en una recogida de
+ * datos, un borrado accidental cuesta mucho más que un borrado impedido. Para
+ * vaciarlo de verdad está el panel, y todo cambio queda en
+ * `fichas_perfil_historial`.
+ *
+ * Además nunca devuelve "" sino null: el `check` de `nivel_educativo` rechaza
+ * la cadena vacía, y por eso un guardado hecho antes de marcar el nivel
+ * reventaba entero (400) y el autoguardado se lo tragaba en silencio.
+ */
+function fundirFicha(
+  entra: Record<string, unknown>,
+  previa: Record<string, unknown> | null,
+): Record<string, unknown> {
+  const p = previa ?? {};
+  const out: Record<string, unknown> = {};
+
+  for (const c of CAMPOS_TEXTO) {
+    if (!(c in entra) && !(c in p)) continue;
+    out[c] = txt(entra[c]) || txt(p[c]) || null;
+  }
+
+  if ("responsabilidades" in entra || "responsabilidades" in p) {
+    const e = (Array.isArray(entra.responsabilidades) ? entra.responsabilidades : [])
+      .filter((r) => txt(r));
+    const g = Array.isArray(p.responsabilidades) ? p.responsabilidades : [];
+    out.responsabilidades = e.length ? e : g;
+  }
+
+  if ("posiciones_previas" in entra || "posiciones_previas" in p) {
+    const g = (Array.isArray(p.posiciones_previas) ? p.posiciones_previas : []) as Record<string, unknown>[];
+    const e = (Array.isArray(entra.posiciones_previas) ? entra.posiciones_previas : []) as Record<string, unknown>[];
+    if (!e.length) {
+      out.posiciones_previas = g;
+    } else {
+      /* Se emparejan por `cargo` y no por posición: así rellenar un hueco no
+         puede resucitar la fila que la persona acaba de borrar ni mezclar dos
+         puestos distintos. Si el cargo cambió, no hay a qué agarrarse y se
+         respeta lo que llega. */
+      out.posiciones_previas = e.map((it) => {
+        const par = g.find((x) => txt(x.cargo) && txt(x.cargo).toLowerCase() === txt(it.cargo).toLowerCase());
+        if (!par) return it;
+        const fund: Record<string, unknown> = { ...it };
+        for (const k of ["cargo", "area", "periodo"]) {
+          if (!txt(fund[k]) && txt(par[k])) fund[k] = txt(par[k]);
+        }
+        return fund;
+      });
+    }
+  }
+
+  if ("habilidades" in entra || "habilidades" in p) {
+    const ge = (p.habilidades && typeof p.habilidades === "object") ? p.habilidades as Record<string, unknown> : {};
+    const ee = (entra.habilidades && typeof entra.habilidades === "object") ? entra.habilidades as Record<string, unknown> : {};
+    const hab: Record<string, unknown> = { ...ge, ...ee };
+    for (const k of CLAVES_SKILL) {
+      const v = txt(ee[k]) || txt(ge[k]);
+      if (v) hab[k] = v; else delete hab[k];
+    }
+    const otraE = (ee.otra && typeof ee.otra === "object") ? ee.otra as Record<string, unknown> : {};
+    const otraG = (ge.otra && typeof ge.otra === "object") ? ge.otra as Record<string, unknown> : {};
+    const otra = {
+      nombre: txt(otraE.nombre) || txt(otraG.nombre),
+      nivel: txt(otraE.nivel) || txt(otraG.nivel),
+    };
+    if (otra.nombre || otra.nivel) hab.otra = otra; else delete hab.otra;
+    out.habilidades = hab;
+  }
+
+  return out;
+}
+
+/** La ficha que hay hoy, o null si aún no existe. */
+async function fichaPrevia(personaId: string): Promise<Record<string, unknown> | null> {
+  const filas = await sbJson(
+    `/rest/v1/fichas_perfil?persona_id=eq.${personaId}&select=*`,
+  ) as Record<string, unknown>[];
+  return filas[0] ?? null;
+}
+
 async function upsertFicha(personaId: string, campos: Record<string, unknown>, quien: string): Promise<void> {
+  const cuerpo: Record<string, unknown> = { persona_id: personaId, ...campos };
+  /* `llenada_por` guarda un nombre de persona: si no llega ninguno, se deja el
+     que hubiera en vez de borrarlo con null. */
+  if (quien) cuerpo.llenada_por = quien;
   await sbJson(`/rest/v1/fichas_perfil?on_conflict=persona_id`, {
     method: "POST",
     headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
-    body: JSON.stringify([{ persona_id: personaId, ...campos, llenada_por: quien || null }]),
+    body: JSON.stringify([cuerpo]),
   });
 }
 
@@ -240,8 +352,16 @@ async function guardar(b: Record<string, unknown>): Promise<Response> {
     return json({ error: "Esa persona no está dentro de lo que este enlace permite llenar." }, 403);
   }
 
-  const campos = limpiarFicha(b.ficha);
-  await upsertFicha(personaId, { ...campos, estado: "en_progreso" }, String(b.llenada_por ?? "").trim());
+  const previa = await fichaPrevia(personaId);
+  const campos = fundirFicha(limpiarFicha(b.ficha), previa);
+  /* Un guardado NUNCA degrada una ficha ya entregada. El formulario autoguarda
+     2 s después de cada tecla, y ese autoguardado llegaba detrás del botón
+     «Marcar como completada» y la devolvía a «en progreso»: 48 fichas quedaron
+     así, entregadas y contadas como pendientes. Corregido también en el
+     navegador (el temporizador ahora se cancela), pero el estado se defiende
+     aquí porque aquí es donde se escribe. */
+  const estado = previa?.estado === "completada" ? "completada" : "en_progreso";
+  await upsertFicha(personaId, { ...campos, estado }, String(b.llenada_por ?? "").trim());
   return json({ ok: true });
 }
 
@@ -273,7 +393,11 @@ async function completar(b: Record<string, unknown>): Promise<Response> {
     return json({ error: "Esa persona no está dentro de lo que este enlace permite llenar." }, 403);
   }
 
-  const campos = limpiarFicha(b.ficha);
+  const previa = await fichaPrevia(personaId);
+  /* Se valida lo FUNDIDO, no lo que llega: si el navegador mandó un campo en
+     blanco que ya estaba guardado, la ficha sigue completa y no hay por qué
+     rechazarla. */
+  const campos = fundirFicha(limpiarFicha(b.ficha), previa);
   const falta = faltantes(campos);
   if (falta.length) return json({ error: "Faltan campos obligatorios para completar la ficha.", faltan: falta }, 400);
 

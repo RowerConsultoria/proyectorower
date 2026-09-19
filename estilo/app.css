@@ -228,6 +228,7 @@ p{margin:0 0 10px}
 .rejilla{display:grid;gap:16px}
 .rejilla-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .rejilla-4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.rejilla-5{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
 
 .fila{display:flex;align-items:center;gap:10px}
 .fila-sep{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -299,6 +300,14 @@ p{margin:0 0 10px}
 .e-ok{background:rgba(46,212,122,.13);color:var(--ok);border-color:rgba(46,212,122,.30)}
 .e-alerta{background:rgba(255,201,74,.13);color:var(--alerta);border-color:rgba(255,201,74,.30)}
 .e-riesgo{background:rgba(255,107,90,.13);color:var(--riesgo);border-color:rgba(255,107,90,.30)}
+/* Ficha entregada a la que le faltan campos no obligatorios. Va AL LADO del
+   estado, no en su lugar: la ficha sí está completada — lo que falta es lo que
+   el formulario borraba al repintarse (19-sep-2026). */
+.marca-hueco{
+  display:inline-block;margin-left:5px;padding:2px 7px;border-radius:var(--r-pildora);
+  font-size:10px;font-weight:700;letter-spacing:.02em;cursor:help;white-space:nowrap;vertical-align:middle;
+  background:rgba(255,201,74,.13);color:var(--alerta);border:1px solid rgba(255,201,74,.30);
+}
 .e-neutro{background:var(--panel-alto);color:var(--tinta-media);border-color:var(--borde)}
 
 .punto{width:7px;height:7px;border-radius:50%;flex:none;background:currentColor}

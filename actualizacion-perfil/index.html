@@ -208,6 +208,16 @@ function renderRoster(d) {
   });
 }
 function $$$(s, el = document) { return [...el.querySelectorAll(s)]; }
+
+/* El roster se pinta desde el objeto que devolvió `abrir` y «Volver a mi equipo»
+   lo repinta tal cual, sin volver a preguntar. Sin esto, quien completaba una
+   ficha y volvía seguía viendo el estado viejo y creía que no se había guardado. */
+function anotarEstado(roster, personaId, estado) {
+  if (!roster) return;
+  if (roster.persona && roster.persona.id === personaId) { roster.propia.estado = estado; return; }
+  const p = (roster.equipo || []).find(x => x.id === personaId);
+  if (p) { p.estado = estado; if (estado === "completada") p.completitud = 100; }
+}
 function rotuloEstado(e) {
   return e === "completada" ? "Completada" : e === "en_progreso" ? "En progreso" : "Pendiente";
 }
@@ -335,7 +345,7 @@ function filaPrevia(p) {
   return `<div class="previas-fila">
     <input type="text" class="previa-cargo" placeholder="Cargo anterior" value="${esc(p.cargo)}">
     <input type="text" class="previa-area" placeholder="Área / departamento" value="${esc(p.area)}">
-    <input type="text" class="previa-periodo" placeholder="Periodo (desde – hasta)" value="${esc(p.desde)}${p.desde || p.hasta ? " – " : ""}${esc(p.hasta)}">
+    <input type="text" class="previa-periodo" placeholder="Periodo (desde – hasta)" value="${esc(p.periodo ?? [p.desde, p.hasta].filter(Boolean).join(" – "))}">
     <button type="button" class="btn-quitar previa-quitar">✕</button>
   </div>`;
 }
@@ -389,7 +399,17 @@ function leerFicha() {
   };
 }
 
+function marcaGuardado(texto, esAviso) {
+  const el = $("#guardadoTxt");
+  if (!el) return;
+  el.textContent = texto;
+  el.style.color = esAviso ? "var(--riesgo)" : "var(--muted)";
+}
+
 async function enviar(personaId, accion, roster) {
+  /* Lo primero: matar el autoguardado pendiente. Si se dispara después de un
+     «completar», la ficha vuelve a «en progreso». */
+  cancelarAutoguardado();
   const btn = accion === "guardar" ? $("#btnGuardar") : $("#btnCompletar");
   const aviso = $("#avisoWrap");
   aviso.innerHTML = "";
@@ -402,8 +422,11 @@ async function enviar(personaId, accion, roster) {
       aviso.innerHTML = `<div class="aviso err">${esc(d.error)}${d.faltan ? "<ul>" + d.faltan.map(x => `<li>${esc(x)}</li>`).join("") + "</ul>" : ""}</div>`;
     } else if (accion === "completar") {
       aviso.innerHTML = `<div class="aviso ok">✅ Ficha marcada como completada. ¡Gracias!</div>`;
+      marcaGuardado("Entregada " + new Date().toLocaleTimeString("es"));
+      anotarEstado(roster, personaId, "completada");
     } else {
-      $("#guardadoTxt").textContent = "Guardado " + new Date().toLocaleTimeString("es");
+      marcaGuardado("Guardado " + new Date().toLocaleTimeString("es"));
+      anotarEstado(roster, personaId, "en_progreso");
     }
   } catch (e) {
     aviso.innerHTML = `<div class="aviso err">No pude guardar: ${esc(e.message)}</div>`;
@@ -413,17 +436,29 @@ async function enviar(personaId, accion, roster) {
   }
 }
 
-/* Autoguardado silencioso: cada cambio dispara un guardado de fondo tras 2 s de inactividad. */
-let debTimer;
+/* Autoguardado: cada cambio dispara un guardado de fondo tras 2 s de quietud.
+   Lo cancela cancelarAutoguardado(), que llama enviar() ANTES de mandar nada:
+   sin eso, el temporizador armado por la última tecla llegaba detrás del botón
+   «Marcar como completada» y devolvía la ficha a «en progreso». Pasó 48 veces.
+   La Edge Function lo defiende también por su lado (`guardar` ya no degrada una
+   ficha entregada), pero cancelar aquí evita el viaje inútil. */
+let debTimer = null;
+function cancelarAutoguardado() { clearTimeout(debTimer); debTimer = null; }
+
 document.addEventListener("input", (e) => {
   if (!e.target.closest("#frm") || !ACTUAL_PERSONA_ID) return;
-  clearTimeout(debTimer);
+  cancelarAutoguardado();
+  const personaId = ACTUAL_PERSONA_ID;   // congelado: si navega, este guardado ya no aplica
   debTimer = setTimeout(async () => {
+    if (personaId !== ACTUAL_PERSONA_ID || !$("#frm")) return;
     try {
-      await pedir("guardar", { persona_id: ACTUAL_PERSONA_ID, ficha: leerFicha() });
-      const txt = $("#guardadoTxt");
-      if (txt) txt.textContent = "Guardado automático " + new Date().toLocaleTimeString("es");
-    } catch (e) { /* el botón "Guardar" sigue disponible si esto falla */ }
+      await pedir("guardar", { persona_id: personaId, ficha: leerFicha() });
+      marcaGuardado("Guardado automático " + new Date().toLocaleTimeString("es"));
+    } catch (err) {
+      /* Antes esto se tragaba el error y la persona seguía escribiendo creyendo
+         que se guardaba. Ahora se ve, y el botón «Guardar» sigue a mano. */
+      marcaGuardado("⚠️ No se pudo guardar automáticamente. Usa «Guardar y seguir después».", true);
+    }
   }, 2000);
 });
 

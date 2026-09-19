@@ -65,6 +65,20 @@ function valorFiltro(qs: URLSearchParams, campo: string): string | null {
   return v ? v.replace(/^eq\./, "") : null;
 }
 
+/**
+ * Recorta las filas al `select=` pedido, como hace PostgREST.
+ *
+ * ⚠️ Esto NO estaba, y por eso las 13 pruebas pasaban mientras `abrir`
+ * devolvía media ficha: el falso contestaba la fila entera pasara lo que
+ * pasara. Si se quita, vuelve a haber un punto ciego del tamaño de un borrado
+ * de datos en producción.
+ */
+function proyectar(filas: Fila[], select: string | null): Fila[] {
+  if (!select || select === "*") return filas;
+  const cols = select.split(",").map((c) => c.trim()).filter(Boolean);
+  return filas.map((f) => Object.fromEntries(cols.filter((c) => c in f).map((c) => [c, f[c]])));
+}
+
 function respuesta(cuerpo: unknown, status = 200): Response {
   if (status === 204 || status === 304) return new Response(null, { status });
   return new Response(JSON.stringify(cuerpo), { status, headers: { "Content-Type": "application/json" } });
@@ -87,9 +101,15 @@ globalThis.fetch = ((entrada: string | URL | Request, init: RequestInit = {}) =>
     if (tabla === "fichas_perfil") {                       // upsertFicha
       const entradas = JSON.parse(String(init.body)) as Fila[];
       for (const e of entradas) {
+        // El `check` de nivel_educativo rechaza la cadena vacía, igual que la
+        // base real: escribir "" tiene que fallar aquí también.
+        if (e.nivel_educativo === "") {
+          return Promise.resolve(respuesta(
+            { message: 'new row violates check constraint "fichas_perfil_nivel_educativo_check"' }, 400));
+        }
         const prev = fichas.find((f) => f.persona_id === e.persona_id);
         if (prev) Object.assign(prev, e);
-        else fichas.push({ ...e });
+        else fichas.push({ estado: "pendiente", ...e });
       }
       return Promise.resolve(respuesta(null, 201));
     }
@@ -114,7 +134,7 @@ globalThis.fetch = ((entrada: string | URL | Request, init: RequestInit = {}) =>
     const ger = valorFiltro(qs, "gerente_id");
     if (ger) filas = filas.filter((p) => p.gerente_id === ger);
     if (qs.get("activo") === "eq.true") filas = filas.filter((p) => p.activo === true);
-    return Promise.resolve(respuesta(filas));
+    return Promise.resolve(respuesta(proyectar(filas, qs.get("select"))));
   }
 
   if (tabla === "fichas_perfil") {
@@ -125,7 +145,7 @@ globalThis.fetch = ((entrada: string | URL | Request, init: RequestInit = {}) =>
       const ids = pid.slice(4, -1).split(",");
       filas = filas.filter((f) => ids.includes(String(f.persona_id)));
     }
-    return Promise.resolve(respuesta(filas));
+    return Promise.resolve(respuesta(proyectar(filas, qs.get("select"))));
   }
 
   return Promise.resolve(respuesta({ message: "ruta inesperada: " + url.pathname }, 404));
@@ -268,4 +288,163 @@ Deno.test("acción desconocida y método no POST", async () => {
   if (raro.status !== 400) throw new Error("esperaba 400, dio " + raro.status);
   const get = await handler!(new Request("https://falso/ficha", { method: "GET" }));
   if (get.status !== 405) throw new Error("esperaba 405, dio " + get.status);
+});
+
+// ============================================================
+//  LOS CUATRO FALLOS DEL LLENADO (19-sep-2026)
+//  Reportados desde Kenex: «guardas, vuelves a entrar y faltan datos» y «le
+//  das completar y se queda en progreso». Medido en producción: 73 periodos
+//  de posiciones anteriores borrados en 46 personas, y 48 fichas entregadas
+//  que el panel contaba como pendientes.
+//
+//  El punto ciego que dejó pasar todo esto era del propio arnés: su `fetch`
+//  falso ignoraba el `select=`, así que `abrir` podía devolver media ficha y
+//  las 13 pruebas seguían en verde. Ver proyectar().
+// ============================================================
+
+/** Lo que manda leerFicha() de actualizacion-perfil/index.html, con todo lleno. */
+const FICHA_LLENA: Fila = {
+  documento: "V-123", antiguedad_org: "5 años", nivel_educativo: "universitario_titulado",
+  otras_formaciones: "Diplomado en logística", titulo_obtenido: "Ing. Industrial", institucion: "UCAB",
+  cargo_actual: "Gerente de Ventas", antiguedad_cargo: "2 años", area_sede: "Ventas / Colón",
+  responsabilidades: ["Dirigir el equipo"],
+  posiciones_previas: [{ cargo: "Vendedor", area: "Ventas", periodo: "2018 – 2021" }],
+  habilidades: {
+    excel: "avanzado", odoo: "intermedio", lark: "basico", powerbi: "basico", ia: "intermedio",
+    otra: { nombre: "SAP", nivel: "basico" },
+  },
+};
+
+/** Lo que el formulario reenvía tras repintarse con `vista`: los doce campos
+    siempre, y cadena vacía en lo que no se haya pintado. */
+function comoReenviaElFormulario(vista: Fila): Fila {
+  const t = (v: unknown) => (typeof v === "string" ? v : "");
+  return {
+    documento: t(vista.documento), antiguedad_org: t(vista.antiguedad_org),
+    nivel_educativo: t(vista.nivel_educativo), otras_formaciones: t(vista.otras_formaciones),
+    titulo_obtenido: t(vista.titulo_obtenido), institucion: t(vista.institucion),
+    cargo_actual: t(vista.cargo_actual), antiguedad_cargo: t(vista.antiguedad_cargo),
+    area_sede: t(vista.area_sede),
+    responsabilidades: Array.isArray(vista.responsabilidades) ? vista.responsabilidades : [],
+    posiciones_previas: Array.isArray(vista.posiciones_previas) ? vista.posiciones_previas : [],
+    habilidades: (vista.habilidades && typeof vista.habilidades === "object") ? vista.habilidades : {},
+  };
+}
+
+Deno.test("FALLO 1: abrir devuelve la ficha ENTERA, no una lista corta de columnas", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  const { data } = await llamar({ accion: "abrir", token: "tk-ana-ind" });
+  const vista = (data.ficha ?? {}) as Fila;
+  const faltan = Object.keys(FICHA_LLENA).filter((k) => !(k in vista));
+  if (faltan.length) throw new Error("abrir() no devolvió: " + faltan.join(", "));
+});
+
+Deno.test("FALLO 1: reentrar por enlace individual y reguardar NO borra nada", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  const { data } = await llamar({ accion: "abrir", token: "tk-ana-ind" });
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: comoReenviaElFormulario((data.ficha ?? {}) as Fila),
+  });
+  const enBD = fichas[0];
+  const rotos = Object.keys(FICHA_LLENA).filter((k) =>
+    JSON.stringify(enBD[k]) !== JSON.stringify(FICHA_LLENA[k])
+  );
+  if (rotos.length) throw new Error("el reguardado destruyó: " + rotos.join(", "));
+});
+
+Deno.test("FALLO 1: un campo vacío nunca pisa uno ya guardado", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, titulo_obtenido: "", institucion: "   ", antiguedad_cargo: "" },
+  });
+  const f = fichas[0];
+  if (f.titulo_obtenido !== "Ing. Industrial") throw new Error("borró titulo_obtenido: " + JSON.stringify(f.titulo_obtenido));
+  if (f.institucion !== "UCAB") throw new Error("borró institucion: " + JSON.stringify(f.institucion));
+  if (f.antiguedad_cargo !== "2 años") throw new Error("borró antiguedad_cargo: " + JSON.stringify(f.antiguedad_cargo));
+});
+
+Deno.test("FALLO 2: el periodo de una posición anterior sobrevive a un reguardado en blanco", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, posiciones_previas: [{ cargo: "Vendedor", area: "Ventas", periodo: "" }] },
+  });
+  const previas = fichas[0].posiciones_previas as Array<Record<string, string>>;
+  if (previas[0].periodo !== "2018 – 2021") throw new Error("perdió el periodo: " + JSON.stringify(previas));
+});
+
+Deno.test("FALLO 2: pero si la persona cambia el cargo, se respeta lo que escribe", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, posiciones_previas: [{ cargo: "Supervisor", area: "Bodega", periodo: "" }] },
+  });
+  const previas = fichas[0].posiciones_previas as Array<Record<string, string>>;
+  if (previas.length !== 1 || previas[0].cargo !== "Supervisor" || previas[0].periodo !== "") {
+    throw new Error("no respetó el cambio de cargo: " + JSON.stringify(previas));
+  }
+});
+
+Deno.test("FALLO 3: un autoguardado posterior NO devuelve completada a en_progreso", async () => {
+  sembrar();
+  await llamar({ accion: "completar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  if (fichas[0].estado !== "completada") throw new Error("no completó");
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  if (fichas[0].estado !== "completada") throw new Error("el autoguardado la degradó a " + fichas[0].estado);
+  if (!fichas[0].enviada_en) throw new Error("perdió enviada_en");
+});
+
+Deno.test("FALLO 4: guardar sin nivel educativo no revienta; escribe null, nunca cadena vacía", async () => {
+  sembrar();
+  const { status, data } = await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, nivel_educativo: "" },
+  });
+  if (status !== 200) throw new Error("el guardado falló con " + status + ": " + JSON.stringify(data));
+  if (fichas[0].nivel_educativo !== null) {
+    throw new Error("escribió " + JSON.stringify(fichas[0].nivel_educativo) + " en vez de null");
+  }
+  if (fichas[0].documento !== "V-123") throw new Error("se perdió el resto de la ficha");
+});
+
+Deno.test("FALLO 4: y una vez marcado, el nivel no se pierde al reguardar en blanco", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: { ...FICHA_LLENA, nivel_educativo: "" } });
+  if (fichas[0].nivel_educativo !== "universitario_titulado") {
+    throw new Error("perdió el nivel: " + JSON.stringify(fichas[0].nivel_educativo));
+  }
+});
+
+Deno.test("completar valida lo FUNDIDO: un blanco que ya estaba guardado no la rechaza", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  const { status, data } = await llamar({
+    accion: "completar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, documento: "", area_sede: "" },
+  });
+  if (status !== 200) throw new Error("rechazó una ficha que sí está completa: " + JSON.stringify(data));
+  if (fichas[0].documento !== "V-123" || fichas[0].area_sede !== "Ventas / Colón") {
+    throw new Error("completar borró campos: " + JSON.stringify(fichas[0]));
+  }
+});
+
+Deno.test("una ficha nueva de cero sigue guardándose entera", async () => {
+  sembrar();
+  const { status } = await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  if (status !== 200) throw new Error("status " + status);
+  const f = fichas[0];
+  for (const k of Object.keys(FICHA_LLENA)) {
+    if (JSON.stringify(f[k]) !== JSON.stringify(FICHA_LLENA[k])) {
+      throw new Error(k + ": guardó " + JSON.stringify(f[k]) + " en vez de " + JSON.stringify(FICHA_LLENA[k]));
+    }
+  }
+  if (f.estado !== "en_progreso") throw new Error("estado " + f.estado);
 });
