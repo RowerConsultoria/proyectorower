@@ -809,24 +809,36 @@
       if(s.nota) h += '<div class="f2-secnota">'+esc(s.nota)+'</div>';
 
       var cn1 = contN1(m.prefijo, p.codigo, s.id);
-      var conMapa = (s.id==='proposito' && fx.alcance) || (s.id==='dueno' && (fx.dueno||(fx.participantes&&fx.participantes.length))) ||
-                    (s.id==='disparador' && (fx.disparador||fx.cadencia||fx.output));
+      // La ficha del mapa v18 es el respaldo, no la última palabra: cuando el manual
+      // redactado trae el campo derivado de las entrevistas, ese manda. Sin override,
+      // se sigue viendo la ficha tal cual (los procesos aún no rederivados no cambian).
+      var vDueno  = (cn1 && cn1.dueno) || fx.dueno;
+      var vPartic = (cn1 && cn1.participantes && cn1.participantes.length) ? cn1.participantes : fx.participantes;
+      var vDisp   = (cn1 && cn1.disparador) || fx.disparador;
+      var vCad    = (cn1 && cn1.cadencia)   || fx.cadencia;
+      var vOut    = (cn1 && cn1.output)     || fx.output;
+      var propio  = !!(cn1 && (cn1.dueno || cn1.disparador));
+
+      var conMapa = (s.id==='proposito' && fx.alcance) || (s.id==='dueno' && (vDueno||(vPartic&&vPartic.length))) ||
+                    (s.id==='disparador' && (vDisp||vCad||vOut));
 
       if(conMapa){
         if(s.id==='proposito'){ h += fichaHtml([['Alcance', esc(fx.alcance)]]); }
         else if(s.id==='dueno'){
-          var rows = [['Dueño del proceso', esc(fx.dueno||'—')]];
-          if(fx.participantes && fx.participantes.length){
-            rows.push(['Participantes', '<ul>'+fx.participantes.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
+          var rows = [['Dueño del proceso', esc(vDueno||'—')]];
+          if(vPartic && vPartic.length){
+            rows.push(['Participantes', '<ul>'+vPartic.map(function(pp){return '<li>'+esc(pp)+'</li>';}).join('')+'</ul>']);
           }
           h += fichaHtml(rows);
+          if(propio) h += notaFuente(cn1);
           h += bloqueValidacion(p.codigo);
         } else {
           h += fichaHtml([
-            ['Disparador', esc(fx.disparador||'—')],
-            ['Cadencia', esc(fx.cadencia||'—')],
-            ['Output', esc(fx.output||'—')]
+            ['Disparador', esc(vDisp||'—')],
+            ['Cadencia', esc(vCad||'—')],
+            ['Output', esc(vOut||'—')]
           ]);
+          if(propio) h += notaFuente(cn1);
         }
         if(hayContenido(cn1)) h += renderN1Seccion(s.id, cn1, p.n);
       } else if(hayContenido(cn1)){
@@ -927,6 +939,18 @@
     // vacío aquí no significa "pendiente", solo que no hay nada que añadir a la ficha.
     var necesitaRespaldo = (id==='flujo' || id==='riesgos' || id==='indicadores');
     return h || (necesitaRespaldo ? '<div class="f2-vacio">Contenido pendiente.</div>' : '');
+  }
+
+  // Trazabilidad: de dónde salió el campo. Un dato sin procedencia es lo que nos
+  // dejó heredar atribuciones del mapa sin poder auditarlas.
+  function notaFuente(c){
+    if(!c) return '';
+    var h = '';
+    if(c.evidencia && c.evidencia.length){
+      h += '<b>Derivado de la evidencia:</b> ' + esc(c.evidencia.join(' · '));
+    }
+    if(c.sin_evidencia) h += (h?'<br>':'') + '<b>Sin evidencia en el corpus:</b> ' + esc(c.sin_evidencia);
+    return h ? '<div class="f2-nota">'+h+'</div>' : '';
   }
 
   function fichaHtml(rows){
