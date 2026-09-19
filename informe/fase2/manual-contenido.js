@@ -2453,7 +2453,7 @@ window.MANUAL_CONTENIDO = {
     "proposito": "Este manual reúne cómo se opera hoy —y cómo debería operarse de forma homologada— la venta al mayor de Grupo Kenex: la relación comercial con distribuidores, cadenas, grandes superficies, franquiciados, clientes corporativos y de marca privada, desde la planificación anual hasta el cobro y el servicio postventa comercial. Sirve como referencia única para que un país nuevo, un vendedor nuevo o quien asuma un rol de gerencia comercial pueda operar bajo el mismo criterio, sin depender de que \"alguien lo sepa de memoria\".",
     "alcance": "Desde la planificación comercial anual y la segmentación de clientes hasta la toma del pedido, su aprobación, la cobranza y las devoluciones comerciales — incluidas las líneas de negocio no orgánicas (venta corporativa, promociones de alto volumen, marca privada) y la gestión de cuentas clave y franquicias. No incluye la venta al detal en tienda propia (macro 9, Ventas Retail) ni el comercio electrónico (macro 10, Ventas Web), aunque los tres canales comparten catálogo, inventario y, en el caso de grandes cuentas, calendario de campañas. Tampoco incluye la compra internacional que provee el inventario (macro 6, Compras y Abastecimiento) ni la preparación y despacho físico del pedido (macro 7, Logística y Operaciones).",
     "audiencia": [
-     "Gerente Regional Comercial / Retail",
+     "Gerente Regional Comercial (Mayoreo)",
      "Gerente Regional de Marketing",
      "Gerente Comercial (País / Canal)",
      "Coordinador(a) Comercial",
@@ -2468,7 +2468,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "ubicacion": "Ventas Mayor es, junto con Ventas Retail y Ventas Web, uno de los tres canales de venta de la cadena de valor operativa — y el de mayor peso histórico en la facturación del grupo. Recibe la mercancía ya nacionalizada y asignada por Compras y Logística, y la coloca en distribuidores, cadenas, grandes superficies, franquiciados y clientes corporativos de toda la región, además de dos líneas de negocio propias de alto volumen: la venta puntual inorgánica (campañas masivas de corta duración) y la fabricación de producto de marca privada para terceros. Hoy no existe un departamento de compras equivalente en estructura para el mayor: la conducción comercial de cada marca —Casio y Cubitt— recae en una sola persona con equipo de apoyo creciente, sin backup pleno documentado. La reportería comercial se apoya en un dashboard propio, construido fuera de Lark y Odoo pero cruzado con su data de cierre diario, con seguimiento semanal por vendedor y por país hasta la Junta.",
     "duenos": [
-     ["Estratégico / marca", "Gerente Regional Comercial / Retail (transversal a Casio y Cubitt) · Gerente Regional de Marketing (venta inorgánica y marca privada Cubitt)", "Conduce la estrategia comercial regional, el forecast, la política de precios y comisiones."],
+     ["Estratégico / marca", "Gerente Regional Comercial (Mayoreo) (transversal a Casio y Cubitt) · Gerente Regional de Marketing (venta inorgánica y marca privada Cubitt)", "Conduce la estrategia comercial regional, el forecast, la política de precios y comisiones."],
      ["País / canal", "Gerente Comercial (País / Canal)", "Ejecuta la estrategia local: aprobación de pedidos, cobranza, comisiones y relación con cuentas clave del país."],
      ["Cuenta / cliente", "Analista/Ejecutivo(a) Comercial · Coordinador(a) Comercial (cuentas clave)", "Gestiona la cartera asignada: pedido, cobranza, devoluciones y seguimiento del punto de venta del cliente."]
     ],
@@ -2501,16 +2501,16 @@ window.MANUAL_CONTENIDO = {
    "gobernanza": {
     "estado": "borrador",
     "actores": [
-     ["Gerente Regional Comercial / Retail", "Regional — transversal a marcas", "Conduce la estrategia comercial, el forecast y la política de precios/comisiones; participa en el comité de estrategia de precios.", "Ajustes de forecast y de política dentro de lo aprobado; aprobación de pedidos internacionales de alto monto.", "Decisiones de inversión (apertura, remodelación) y campañas de gran cadena escalan a la Junta / Comité Directivo."],
+     ["Gerente Regional Comercial (Mayoreo)", "Regional — transversal a marcas", "Conduce la estrategia comercial, el forecast y la política de precios/comisiones; participa en el comité de estrategia de precios.", "Ajustes de forecast y de política dentro de lo aprobado; aprobación de pedidos internacionales de alto monto.", "Decisiones de inversión (apertura, remodelación) y campañas de gran cadena escalan a la Junta / Comité Directivo."],
      ["Gerente Regional de Marketing", "Regional — venta inorgánica y marca privada Cubitt", "Conduce las líneas de venta puntual de alto volumen y marca privada; comparte el comité de estrategia de precios.", "Decisiones de producto, sourcing y campaña dentro del presupuesto aprobado.", "Compromisos de volumen o presupuesto mayores escalan a la Junta."],
      ["Gerente Comercial (País / Canal)", "País", "Aprueba pedidos locales, cobranza semanal por vendedor, comisiones del país, relación con cuentas clave locales.", "Aprobación de pedido dentro del criterio y monto local.", "Pedidos internacionales o de cuentas top regionales escalan a la Gerencia Regional Comercial / Retail."],
-     ["Coordinador(a) Comercial", "Cuentas clave regionales", "Gestiona el acuerdo comercial anual, el calendario de campañas y el dashboard de inventario por cadena.", "Ajustes operativos del acuerdo vigente.", "Renegociación del acuerdo o nuevas condiciones escalan al Gerente Regional Comercial / Retail."],
+     ["Coordinador(a) Comercial", "Cuentas clave regionales", "Gestiona el acuerdo comercial anual, el calendario de campañas y el dashboard de inventario por cadena.", "Ajustes operativos del acuerdo vigente.", "Renegociación del acuerdo o nuevas condiciones escalan al Gerente Regional Comercial (Mayoreo)."],
      ["Analista/Ejecutivo(a) Comercial", "Cartera de clientes", "Ejecuta la toma del pedido, la cobranza diaria y la relación directa con el cliente asignado.", "Envío de disponibilidad, montaje de pedido dentro de lista vigente.", "Aprobación del pedido y excepciones de crédito escalan al Gerente Comercial (País / Canal)."]
     ],
     "comites": [
-     ["Comité de estrategia de precios y producto", "Definir estrategia de precio por mercado, portafolio y respuesta a competencia.", "Continua / por oportunidad", "Gerente Regional Comercial / Retail · Gerente Regional de Marketing · Planificador Financiero · Coordinador(a) Comercial", "Ajustes de precio, portafolio y lanzamiento por mercado", "Data de venta por cliente, benchmark de competencia", "Estrategia de precio vigente por mercado"],
+     ["Comité de estrategia de precios y producto", "Definir estrategia de precio por mercado, portafolio y respuesta a competencia.", "Continua / por oportunidad", "Gerente Regional Comercial (Mayoreo) · Gerente Regional de Marketing · Planificador Financiero · Coordinador(a) Comercial", "Ajustes de precio, portafolio y lanzamiento por mercado", "Data de venta por cliente, benchmark de competencia", "Estrategia de precio vigente por mercado"],
      ["Reporte semanal de cobranza y venta (por país)", "Revisar deuda vigente por cliente y avance de venta contra meta.", "Semanal", "Gerente Comercial (País / Canal) · Analista/Ejecutivo(a) Comercial", "Ajustes de prioridad de cobranza y de pedido", "Reporte de cobranza y dashboard comercial", "Reporte semanal a la Gerencia Regional Comercial / Retail"],
-     ["Comité directivo de campañas de alto volumen", "Aprobar campañas inorgánicas y acuerdos con cadenas que comprometen volumen o presupuesto mayor.", "Por evento (2-3 veces al año)", "Gerente Regional de Marketing · Gerente Regional Comercial / Retail · Junta / Comité Directivo", "Aprobación de la campaña por monto", "Propuesta de la cadena, proyección de venta y margen", "Acuerdo firmado y campaña autorizada"]
+     ["Comité directivo de campañas de alto volumen", "Aprobar campañas inorgánicas y acuerdos con cadenas que comprometen volumen o presupuesto mayor.", "Por evento (2-3 veces al año)", "Gerente Regional de Marketing · Gerente Regional Comercial (Mayoreo) · Junta / Comité Directivo", "Aprobación de la campaña por monto", "Propuesta de la cadena, proyección de venta y margen", "Acuerdo firmado y campaña autorizada"]
     ]
    },
 
@@ -2588,29 +2588,29 @@ window.MANUAL_CONTENIDO = {
      ["Vista máster", "Pantalla en Odoo que resume margen, allocation y riesgo de crédito de un pedido para decidir su aprobación en segundos."]
     ],
     "raci": [
-     ["8.1 Planificación comercial anual y trimestral", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial / Retail", "Planificador Financiero · Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
-     ["8.2 Segmentación de clientes y gobierno de política comercial", "Gerente Regional Comercial / Retail", "Country Manager", "Planificador Financiero · Gerente de Contabilidad / Administración", "Gerente Regional de Marketing"],
+     ["8.1 Planificación comercial anual y trimestral", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)", "Planificador Financiero · Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
+     ["8.2 Segmentación de clientes y gobierno de política comercial", "Gerente Regional Comercial (Mayoreo)", "Country Manager", "Planificador Financiero · Gerente de Contabilidad / Administración", "Gerente Regional de Marketing"],
      ["8.3 Envío de disponibilidad y oferta comercial recurrente", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
      ["8.4 Toma y montaje del pedido en Odoo", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "—"],
-     ["8.5 Aprobación comercial del pedido", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial / Retail", "Analista/Ejecutivo(a) Comercial", "—"],
-     ["8.6 Gestión de preventa contra tránsito y demanda no cumplida", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Coordinador(a) de Logística y Bodega (macro 6, S&OP)"],
-     ["8.7 Gestión de cuentas clave y grandes superficies (KAM)", "Coordinador(a) Comercial", "Gerente Regional Comercial / Retail", "Analista/Ejecutivo(a) Comercial · Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
+     ["8.5 Aprobación comercial del pedido", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)", "Analista/Ejecutivo(a) Comercial", "—"],
+     ["8.6 Gestión de preventa contra tránsito y demanda no cumplida", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Coordinador(a) de Logística y Bodega (macro 6, S&OP)"],
+     ["8.7 Gestión de cuentas clave y grandes superficies (KAM)", "Coordinador(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Analista/Ejecutivo(a) Comercial · Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
      ["8.8 Gestión de franquicias Casio", "Gerente Comercial (País / Canal)", "Gerente Regional de Marketing", "Legal Corporativo · Coordinador(a) de Visual Merchandising", "—"],
-     ["8.9 Gestión de venta corporativa", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing · Gerente de Contabilidad / Administración", "—"],
-     ["8.10 Gestión de venta puntual de alto volumen y promociones tácticas", "Gerente Regional Comercial / Retail", "Junta / Comité Directivo", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
-     ["8.11 Gestión de línea blanca / marca privada", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing", "Sourcing en China · Gerente de Contabilidad / Administración", "—"],
+     ["8.9 Gestión de venta corporativa", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing · Gerente de Contabilidad / Administración", "—"],
+     ["8.10 Gestión de venta puntual de alto volumen y promociones tácticas", "Gerente Regional Comercial (Mayoreo)", "Junta / Comité Directivo", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
+     ["8.11 Gestión de línea blanca / marca privada", "Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing", "Sourcing en China · Gerente de Contabilidad / Administración", "—"],
      ["8.12 Prospección y apertura de nuevo cliente", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Legal Corporativo", "—"],
-     ["8.13 Gestión de mobiliario, POP y activaciones en punto de venta", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial / Retail", "Coordinador(a) de Visual Merchandising · Planificador Financiero", "—"],
+     ["8.13 Gestión de mobiliario, POP y activaciones en punto de venta", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Visual Merchandising · Planificador Financiero", "—"],
      ["8.14 Cálculo, aprobación y pago de comisiones", "Gerente Comercial (País / Canal)", "Country Manager", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería y Cobranzas"],
      ["8.15 Cobranza comercial y conciliación multi-instrumento", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Tesorería y Cobranzas", "—"],
      ["8.16 Devoluciones y notas de crédito comerciales", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega · Gerente de Contabilidad / Administración", "—"],
-     ["8.17 Reportería comercial y toma de decisión basada en data", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Comercial (País / Canal)", "Junta / Comité Directivo"]
+     ["8.17 Reportería comercial y toma de decisión basada en data", "Analista de Sistemas / Datos", "Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Junta / Comité Directivo"]
     ],
     "catalogo_sistemas": [
      ["Odoo (ERP)", "Pedido, aprobación, facturación, cobranza, comisiones", "8.4 · 8.5 · 8.6 · 8.12 · 8.14 · 8.15", "Coordinador(a) de Sistemas"],
      ["Dashboard comercial (externo)", "Reportería por marca/cliente/país/vendedor", "8.7 · 8.17", "Analista de Sistemas / Datos"],
      ["LARK", "Devoluciones, disponibilidad en algunos países, cobranza", "8.3 · 8.15 · 8.16", "Coordinador(a) de Sistemas"],
-     ["Hub Compras & Ventas (Lark Base)", "Registro de backorder/periódica/especial y seguimiento de contenedores en tránsito (Venezuela)", "8.6", "Gerente Regional Comercial / Retail"],
+     ["Hub Compras & Ventas (Lark Base)", "Registro de backorder/periódica/especial y seguimiento de contenedores en tránsito (Venezuela)", "8.6", "Gerente Regional Comercial (Mayoreo)"],
      ["Documento de crédito legal", "Respaldo legal de cliente nuevo", "8.12", "Legal Corporativo"],
      ["Excel de disponibilidad y pedido", "Plantilla semanal cliente → carga masiva", "8.3 · 8.4", "Sin responsable formal — depende de cada vendedor"]
     ],
@@ -2651,27 +2651,27 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define los supuestos regionales del ciclo: crecimiento esperado por marca y contexto de cada mercado."},
+      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Define los supuestos regionales del ciclo: crecimiento esperado por marca y contexto de cada mercado."},
       {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Construye el forecast por vendedor y cliente sobre la base del año anterior más el crecimiento pedido."},
       {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta la disponibilidad esperada de inventario por marca como insumo del forecast."},
       {"id": "a4", "rol": "Planificador Financiero", "texto": "Valida el forecast propuesto contra la restricción presupuestaria del grupo."},
-      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Consolida el plan comercial regional con cuotas mensuales, trimestrales y anuales."},
+      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Consolida el plan comercial regional con cuotas mensuales, trimestrales y anuales."},
       {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Baja la cuota individual a cada vendedor con el calendario comercial de campañas del canal."},
-      {"id": "a7", "rol": "Gerente Regional Comercial / Retail", "texto": "Ajusta el plan cada trimestre según el cumplimiento real contra la meta."}
+      {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Ajusta el plan cada trimestre según el cumplimiento real contra la meta."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "Planificador Financiero"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "Planificador Financiero"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Cierre del año fiscal o del trimestre — inicia el ciclo"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir supuestos regionales del ciclo"},
+       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre del año fiscal o del trimestre — inicia el ciclo"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Definir supuestos regionales del ciclo"},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Construir el forecast por vendedor y cliente"},
        {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar la disponibilidad esperada por marca"},
        {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar restricción presupuestaria del forecast"},
-       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Forecast consolidado aprobado?"},
+       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "decision", "n": "¿Forecast consolidado aprobado?"},
        {"id": "n5alt", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Ajustar el forecast y re-presentar"},
        {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Bajar cuota individual con calendario comercial"},
-       {"id": "n7", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar el plan cada trimestre por cumplimiento"},
-       {"id": "n8", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Plan comercial vigente y comunicado"}
+       {"id": "n7", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Ajustar el plan cada trimestre por cumplimiento"},
+       {"id": "n8", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Plan comercial vigente y comunicado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
@@ -2691,8 +2691,8 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Precisión del forecast", "Venta real ÷ venta pronosticada, por vendedor y país", "Trimestral", "Gerente Regional Comercial / Retail", "±15%"],
-      ["Países con revisión trimestral adoptada", "Países en cadencia trimestral ÷ total de países", "Trimestral", "Gerente Regional Comercial / Retail", "100%"],
+      ["Precisión del forecast", "Venta real ÷ venta pronosticada, por vendedor y país", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "±15%"],
+      ["Países con revisión trimestral adoptada", "Países en cadencia trimestral ÷ total de países", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "100%"],
       ["Cuotas comunicadas antes del inicio del período", "Vendedores notificados a tiempo ÷ total de vendedores", "Trimestral", "Gerente Comercial (País / Canal)", "100%"]
      ]
     }
@@ -2709,23 +2709,23 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa anualmente —al cierre de la planificación comercial— la segmentación de clientes vigente por tipología y canal."},
+      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Revisa anualmente —al cierre de la planificación comercial— la segmentación de clientes vigente por tipología y canal."},
       {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Propone ajustes a las listas de precios del país según cambio de costo, margen o competencia."},
       {"id": "a3", "rol": "Planificador Financiero", "texto": "Valida el impacto de las listas propuestas en el margen del grupo."},
       {"id": "a4", "rol": "Country Manager", "texto": "Aprueba la política de comisiones y los descuentos estratégicos del país."},
-      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Publica la matriz de aprobación por monto y tipo de decisión vigente para el ciclo."}
+      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Publica la matriz de aprobación por monto y tipo de decisión vigente para el ciclo."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Gerente Comercial (País / Canal)", "Planificador Financiero", "Country Manager"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Planificador Financiero", "Country Manager"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Cierre de la planificación comercial anual (8.1)"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Revisar segmentación de clientes vigente"},
+       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre de la planificación comercial anual (8.1)"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Revisar segmentación de clientes vigente"},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Proponer ajuste a listas de precios del país"},
        {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar impacto en margen del grupo"},
        {"id": "n4", "carril": "Country Manager", "tipo": "decision", "n": "¿Política de comisiones y descuentos aprobada?"},
        {"id": "n4alt", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Ajustar la propuesta y re-presentar"},
-       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Publicar matriz de aprobación por monto y tipo"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Política comercial y listas vigentes para el ciclo"}
+       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Publicar matriz de aprobación por monto y tipo"},
+       {"id": "n6", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Política comercial y listas vigentes para el ciclo"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
@@ -2745,9 +2745,9 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Listas de precios vigentes y publicadas a tiempo", "Listas publicadas antes del inicio del ciclo ÷ total de listas", "Anual", "Gerente Regional Comercial / Retail", "100%"],
+      ["Listas de precios vigentes y publicadas a tiempo", "Listas publicadas antes del inicio del ciclo ÷ total de listas", "Anual", "Gerente Regional Comercial (Mayoreo)", "100%"],
       ["Excepciones de precio o descuento con aprobación documentada", "Excepciones documentadas ÷ total de excepciones aplicadas", "Mensual", "Country Manager", "100%"],
-      ["Países con esquema de comisiones homologado", "Países homologados ÷ total de países", "Anual", "Gerente Regional Comercial / Retail", "Meta de avance progresivo"]
+      ["Países con esquema de comisiones homologado", "Países homologados ÷ total de países", "Anual", "Gerente Regional Comercial (Mayoreo)", "Meta de avance progresivo"]
      ]
     }
    },
@@ -2872,20 +2872,20 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa margen, segmento de precio, condición crediticia y estado de cartera del cliente sobre el pedido cargado en Odoo."},
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Gestiona la cobranza pendiente cuando la cartera del cliente no está al día, antes de que el pedido pueda continuar."},
-      {"id": "a3", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba los pedidos internacionales de Casio o de cuentas top regionales de Cubitt que excedan el umbral local."},
+      {"id": "a3", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Aprueba los pedidos internacionales de Casio o de cuentas top regionales de Cubitt que excedan el umbral local."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga la autorización para trabajar, habilitando la preparación en almacén."},
       {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga la autorización para facturar, habilitando la facturación y el despacho."},
       {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Clasifica el pedido por urgencia —Urgente 24 h, Regular 48 h o Caso Especial— para ordenar el trabajo de Almacén y Tráfico."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial / Retail"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Comercial (País / Canal)", "tipo": "inicio", "n": "Orden de venta creada en Odoo (output de 8.4)"},
        {"id": "n1", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar margen, segmento de precio, crédito y cartera", "sistemas": ["Odoo (ERP)"]},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Cartera del cliente al día?"},
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Gestionar la cobranza pendiente antes de continuar"},
        {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿El pedido excede el umbral local?"},
-       {"id": "n3alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Aprobar el pedido internacional o de cuenta top regional"},
+       {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Aprobar el pedido internacional o de cuenta top regional"},
        {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Otorgar autorización para trabajar (preparación en almacén)"},
        {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Otorgar autorización para facturar (facturación y despacho)"},
        {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Clasificar por urgencia: Urgente 24h, Regular 48h o Caso Especial"},
@@ -2912,7 +2912,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Tiempo de aprobación del pedido", "Fecha de aprobación − fecha de creación de la orden de venta", "Por pedido", "Gerente Comercial (País / Canal)", "Referencia: minutos, no días"],
       ["Pedidos aprobados sin excepción de riesgo de crédito", "Aprobados sin excepción ÷ total aprobados", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"],
-      ["Pedidos escalados a la gerencia regional", "Pedidos escalados ÷ total de pedidos aprobados", "Mensual", "Gerente Regional Comercial / Retail", "Referencia de seguimiento"],
+      ["Pedidos escalados a la gerencia regional", "Pedidos escalados ÷ total de pedidos aprobados", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Referencia de seguimiento"],
       ["Pedidos retenidos por cartera vencida", "Pedidos retenidos ÷ total de pedidos presentados a aprobación", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"]
      ]
     }
@@ -2966,8 +2966,8 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Preventas cubiertas por el tránsito comprometido", "Preventas cubiertas ÷ total de preventas registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "≥85%"],
       ["Solicitudes de backorder registradas en el Hub", "Casos con backorder registrado ÷ casos identificados de demanda no cubierta", "Mensual", "Analista/Ejecutivo(a) Comercial", "100% en Venezuela; en extensión al resto de países"],
-      ["Valor de la demanda no cumplida por período", "Suma del remanente no cubierto, por SKU/cliente/país", "Mensual", "Gerente Regional Comercial / Retail", "Insumo directo a 6.1 S&OP"],
-      ["Países con el Hub Compras & Ventas (o equivalente) implementado", "Países con backorder sistemático ÷ total de países", "Anual", "Gerente Regional Comercial / Retail", "Meta de avance progresivo"]
+      ["Valor de la demanda no cumplida por período", "Suma del remanente no cubierto, por SKU/cliente/país", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Insumo directo a 6.1 S&OP"],
+      ["Países con el Hub Compras & Ventas (o equivalente) implementado", "Países con backorder sistemático ÷ total de países", "Anual", "Gerente Regional Comercial (Mayoreo)", "Meta de avance progresivo"]
      ]
     }
    },
@@ -3126,7 +3126,7 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Margen promedio de la venta corporativa", "Margen aplicado ÷ margen mínimo de referencia", "Mensual", "Gerente Regional Comercial / Retail", "≥ margen mínimo de referencia"],
+      ["Margen promedio de la venta corporativa", "Margen aplicado ÷ margen mínimo de referencia", "Mensual", "Gerente Regional Comercial (Mayoreo)", "≥ margen mínimo de referencia"],
       ["Tiempo de entrega de producto customizado", "Fecha de entrega − fecha de aprobación de arte", "Por pedido", "Producción", "Según plazo de referencia por tipo"],
       ["Clientes corporativos recurrentes", "Clientes con más de un ciclo de compra ÷ total de clientes corporativos", "Anual", "Analista/Ejecutivo(a) Comercial", "Referencia de seguimiento"]
      ]
@@ -3144,20 +3144,20 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente Regional de Marketing", "texto": "Identifica la oportunidad de volumen con una cadena o supermercado para una temporada fuerte."},
-      {"id": "a2", "rol": "Gerente Regional Comercial / Retail", "texto": "Negocia directamente el acuerdo con la cadena — no delegable a nivel país."},
+      {"id": "a2", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Negocia directamente el acuerdo con la cadena — no delegable a nivel país."},
       {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Reserva el volumen específico comprometido, más un colchón adicional para clientes preferentes."},
       {"id": "a4", "rol": "Junta / Comité Directivo", "texto": "Aprueba la campaña por el monto que compromete."},
       {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina la concentración del despacho para el volumen comprometido."},
       {"id": "a6", "rol": "Gerente Regional de Marketing", "texto": "Da seguimiento al sellout de la campaña una vez ejecutada."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Marketing", "Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
+      "carriles": ["Gerente Regional de Marketing", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional de Marketing", "tipo": "inicio", "n": "Oportunidad de volumen identificada con una cadena"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Negociar el acuerdo con la cadena"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Negociar el acuerdo con la cadena"},
        {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reservar volumen comprometido + colchón preferente"},
        {"id": "n3", "carril": "Junta / Comité Directivo", "tipo": "decision", "n": "¿Campaña aprobada por monto?"},
-       {"id": "n3alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Renegociar condiciones de la campaña"},
+       {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Renegociar condiciones de la campaña"},
        {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar despacho concentrado del volumen"},
        {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Dar seguimiento al sellout de la campaña"},
        {"id": "n6", "carril": "Gerente Regional de Marketing", "tipo": "fin", "n": "Campaña ejecutada y reportada"}
@@ -3181,7 +3181,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Cumplimiento del volumen comprometido", "Unidades vendidas ÷ unidades comprometidas con la cadena", "Por campaña", "Gerente Regional de Marketing", "≥80%"],
-      ["Campañas de alto volumen ejecutadas en el año", "Conteo de campañas", "Anual", "Gerente Regional Comercial / Retail", "2-3 al año (referencia histórica)"],
+      ["Campañas de alto volumen ejecutadas en el año", "Conteo de campañas", "Anual", "Gerente Regional Comercial (Mayoreo)", "2-3 al año (referencia histórica)"],
       ["Tiempo entre cierre del acuerdo y despacho", "Fecha de despacho − fecha de firma del acuerdo", "Por campaña", "Coordinador(a) de Logística y Bodega", "Referencia de seguimiento"]
      ]
     }
@@ -3197,22 +3197,22 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Recibe el interés del cliente en fabricar un producto (audífono, termo, bocina) con su propia marca."},
+      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Recibe el interés del cliente en fabricar un producto (audífono, termo, bocina) con su propia marca."},
       {"id": "a2", "rol": "Gerente Regional de Marketing", "texto": "Coordina con desarrollo de producto el diseño y la muestra inicial."},
       {"id": "a3", "rol": "Sourcing en China", "texto": "Gestiona con el proveedor chino la producción de la muestra aprobada."},
-      {"id": "a4", "rol": "Gerente Regional Comercial / Retail", "texto": "Cierra la proforma firmada con el cliente una vez aprobada la muestra."},
+      {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Cierra la proforma firmada con el cliente una vez aprobada la muestra."},
       {"id": "a5", "rol": "Sourcing en China", "texto": "Libera la producción del pedido con el proveedor chino."},
       {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Factura la entrega del pedido con las condiciones acordadas en la proforma."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Gerente Regional de Marketing", "Sourcing en China", "Gerente de Contabilidad / Administración"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing", "Sourcing en China", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Cliente interesado en marca privada (handshake o red de contactos)"},
+       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cliente interesado en marca privada (handshake o red de contactos)"},
        {"id": "n1", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar diseño y muestra con desarrollo de producto"},
        {"id": "n2", "carril": "Sourcing en China", "tipo": "tarea", "n": "Gestionar producción de la muestra con el proveedor"},
-       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Cliente aprueba la muestra?"},
+       {"id": "n3", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "decision", "n": "¿Cliente aprueba la muestra?"},
        {"id": "n3alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Ajustar diseño y reintentar la muestra"},
-       {"id": "n4", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Cerrar proforma firmada con el cliente"},
+       {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Cerrar proforma firmada con el cliente"},
        {"id": "n5", "carril": "Sourcing en China", "tipo": "tarea", "n": "Liberar producción del pedido"},
        {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar la entrega según proforma"},
        {"id": "n7", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Pedido de marca privada entregado y facturado"}
@@ -3235,7 +3235,7 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Facturación de la línea de marca privada", "Monto facturado en el período", "Anual", "Gerente Regional Comercial / Retail", "Referencia de seguimiento (crecimiento)"],
+      ["Facturación de la línea de marca privada", "Monto facturado en el período", "Anual", "Gerente Regional Comercial (Mayoreo)", "Referencia de seguimiento (crecimiento)"],
       ["Tiempo de ciclo proforma → entrega", "Fecha de entrega − fecha de firma de proforma", "Por proyecto", "Sourcing en China", "Según origen de producción (2-6 meses)"],
       ["Proyectos de marca privada con muestra aprobada en el primer intento", "Aprobados al primer intento ÷ total de proyectos", "Anual", "Gerente Regional de Marketing", "Referencia de seguimiento"]
      ]
@@ -3254,17 +3254,17 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Identifica el lead (referido, prospección de calle, redes) o el cliente dormido a reactivar."},
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Califica al prospecto: visita al punto de venta, número de tiendas, categorización inicial."},
-      {"id": "a3", "rol": "Legal Corporativo", "texto": "Evalúa el riesgo y hace firmar el documento de crédito legal al cliente nuevo."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Evalúa el riesgo del cliente nuevo y le hace firmar el documento de crédito, que respalda al grupo si el cliente deja de pagar. El documento nació de una propuesta del propio canal mayorista, construida con contabilidad tras un caso de morosidad."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Crea el código de cliente en Odoo con la lista de precios y condición de crédito asignada, arrancando siempre con el descuento más bajo del rango vigente y ajustándolo después según el volumen real de compra."},
       {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cierra el primer pedido en los puntos top del cliente, con capacitación, incentivos y exhibición inicial."},
       {"id": "a6", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Define el plan de expansión hacia el resto de las tiendas del cliente."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Legal Corporativo", "Gerente Comercial (País / Canal)"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente de Contabilidad / Administración", "Gerente Comercial (País / Canal)"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Lead identificado o cliente dormido a reactivar"},
        {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Calificar al prospecto (visita, categorización)"},
-       {"id": "n2", "carril": "Legal Corporativo", "tipo": "tarea", "n": "Evaluar riesgo y firmar documento de crédito", "sistemas": ["Documento de crédito legal"]},
+       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Evaluar riesgo y firmar documento de crédito", "sistemas": ["Documento de crédito legal"]},
        {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Crear código de cliente en Odoo", "sistemas": ["Odoo (ERP)"]},
        {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cerrar primer pedido en los puntos top del cliente"},
        {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Definir plan de expansión al resto de las tiendas"},
@@ -3306,16 +3306,16 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Levanta la solicitud de mueble, material POP o activación, con el plan de venta que la respalda."},
-      {"id": "a2", "rol": "Gerente Regional Comercial / Retail", "texto": "Evalúa la solicitud contra el plan de compras del cliente o el retorno proyectado."},
+      {"id": "a2", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Evalúa la solicitud contra el plan de compras del cliente o el retorno proyectado."},
       {"id": "a3", "rol": "Planificador Financiero", "texto": "Aprueba la solicitud según el monto y la matriz de aprobación vigente (proceso 8.2)."},
       {"id": "a4", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Produce el mueble o material aprobado y coordina la entrega y montaje en el punto de venta."},
       {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Da seguimiento al rendimiento del punto tras la instalación."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial / Retail", "Planificador Financiero", "Coordinador(a) de Visual Merchandising"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Planificador Financiero", "Coordinador(a) de Visual Merchandising"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Solicitud de mueble, POP o activación del vendedor o KAM"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Evaluar contra plan de compras o retorno proyectado"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Evaluar contra plan de compras o retorno proyectado"},
        {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿Business case aprobado según matriz?"},
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Rechazar o replantear la solicitud"},
        {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Producir el mueble o material aprobado"},
@@ -3342,7 +3342,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Solicitudes aprobadas con business case documentado", "Con business case ÷ total de solicitudes aprobadas", "Trimestral", "Planificador Financiero", "100%"],
-      ["Tiempo de aprobación de la solicitud", "Fecha de aprobación − fecha de solicitud", "Por solicitud", "Gerente Regional Comercial / Retail", "Diferenciado por circuito (corto/largo)"],
+      ["Tiempo de aprobación de la solicitud", "Fecha de aprobación − fecha de solicitud", "Por solicitud", "Gerente Regional Comercial (Mayoreo)", "Diferenciado por circuito (corto/largo)"],
       ["Sellout post-instalación vs. proyectado", "Venta real ÷ venta proyectada en el business case", "Trimestral", "Analista/Ejecutivo(a) Comercial", "≥80% de lo proyectado"]
      ]
     }
@@ -3396,7 +3396,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Tiempo de aprobación del reporte de comisiones", "Fecha de aprobación − fecha de envío del reporte", "Mensual", "Gerente Comercial (País / Canal)", "≤5 días hábiles"],
       ["Comisión pagada sobre lo cobrado (no sobre lo facturado)", "Verificación del filtro de recaudación aplicado correctamente", "Mensual", "Gerente de Contabilidad / Administración", "100%"],
-      ["Costo de comisión ÷ facturación cobrada", "Proporción del costo comercial sobre la facturación cobrada", "Mensual", "Gerente Regional Comercial / Retail", "Referencia de seguimiento por país"]
+      ["Costo de comisión ÷ facturación cobrada", "Proporción del costo comercial sobre la facturación cobrada", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Referencia de seguimiento por país"]
      ]
     }
    },
@@ -3519,18 +3519,18 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Procesa la data en el dashboard comercial externo, actualizando el semáforo de cumplimiento por marca/cliente/país/vendedor."},
       {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Revisa semanalmente con su gerente el avance de su cartera contra la meta."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Envía el reporte semanal a la Gerencia Regional Comercial / Retail con resultado, proyección y temas pendientes."},
-      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Presenta la lectura ejecutiva a la Junta / Comité Directivo con el estado regional."}
+      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Presenta la lectura ejecutiva a la Junta / Comité Directivo con el estado regional."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Sistemas / Datos", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial / Retail"],
+      "carriles": ["Analista de Sistemas / Datos", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)"],
       "nodos": [
        {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre del día — actualización automática de la data"},
        {"id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Extraer data transaccional desde Odoo", "sistemas": ["Odoo (ERP)"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Procesar y publicar el dashboard comercial", "sistemas": ["Dashboard comercial (externo)"]},
        {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Revisar avance semanal de la cartera con el gerente"},
        {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Enviar reporte semanal a la Gerencia Regional"},
-       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Presentar lectura ejecutiva a la Junta"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Dashboard vigente y decisiones de ajuste comunicadas"}
+       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Presentar lectura ejecutiva a la Junta"},
+       {"id": "n6", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Dashboard vigente y decisiones de ajuste comunicadas"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
@@ -3551,7 +3551,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Actualización diaria del dashboard sin incidencia", "Días con actualización correcta ÷ total de días del período", "Mensual", "Analista de Sistemas / Datos", "≥95%"],
       ["Reportes semanales entregados a tiempo", "Reportes a tiempo ÷ total de países", "Semanal", "Gerente Comercial (País / Canal)", "100%"],
-      ["Cumplimiento regional contra meta (semáforo verde)", "Países/marcas en verde ÷ total", "Mensual", "Gerente Regional Comercial / Retail", "Referencia de seguimiento"]
+      ["Cumplimiento regional contra meta (semáforo verde)", "Países/marcas en verde ÷ total", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Referencia de seguimiento"]
      ]
     }
    }
