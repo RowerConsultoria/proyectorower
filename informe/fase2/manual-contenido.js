@@ -2099,18 +2099,18 @@ window.MANUAL_CONTENIDO = {
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Inicio de mes: arranca el ciclo de reposición del país contra el hub.",
-     "cadencia": "Mensual. El ciclo completo —desde el armado del pedido hasta la recepción en el país— toma entre uno y mes y medio entre tránsito y nacionalización.",
+     "disparador": "Arranque del ciclo de reposición del país contra el hub. En los países alejados del hub el ciclo abre a inicio de mes; en Panamá, por estar al lado de Zona Libre, abre cada dos semanas.",
+     "cadencia": "Hay dos regímenes según la distancia al hub. En los países alejados es mensual, con cobertura objetivo de tres a cuatro meses; el ciclo completo —del armado del pedido a la recepción— toma entre uno y mes y medio entre tránsito y nacionalización. En Panamá es quincenal, con cobertura objetivo de uno a mes y medio: la mercancía sale del mismo sitio y el trayecto es corto, así que se pide menos cantidad más a menudo.",
      "output": "Pedido inter-compañía con cantidades asignadas, embarcado desde el hub y recibido en el país.",
      "evidencia": ["E-40"],
-     "notas": "La cobertura objetivo del país es de tres a cuatro meses, y el pedido se arma por separado para cada marca. Es un ciclo distinto del de reposición a tienda (6.7), que trabaja con cobertura de semanas."
+     "notas": "El pedido se arma por separado para cada marca. ⚠️ La cobertura objetivo no es única: depende de la distancia al hub, y el régimen quincenal de Panamá se alcanzó corrigiendo el mensual —al aplicarle los cuatro meses de un país lejano, «el pedido era gigante»—. Es un ciclo distinto del de reposición a punto de venta (6.7), que trabaja con cobertura de semanas."
     },
     "flujo": {
      "estado": "borrador",
      "evidencia": ["E-40", "E-08", "E-34"],
      "actividades": [
       {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Al inicio de cada mes revisa el inventario disponible en el país, la mercancía en tránsito y lo que hay disponible en el hub de Zona Libre."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Arma el pedido con un archivo de reposición formulado que propone cuánto pedir por producto para sostener la cobertura objetivo de tres a cuatro meses, por separado para cada marca. Revisa la propuesta antes de mandarla en vez de seguirla sin más: la venta histórica sobre la que calcula está deformada por los períodos en que no hubo mercancía."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Arma el pedido con un archivo de reposición formulado que propone cuánto pedir por producto para sostener la cobertura objetivo del país —tres a cuatro meses en los alejados del hub, uno a mes y medio en Panamá—, por separado para cada marca. Revisa la propuesta antes de mandarla en vez de seguirla sin más: la venta histórica sobre la que calcula está deformada por los períodos en que no hubo mercancía."},
       {"id": "a3", "rol": "Comité de Compras / Director de Compras", "texto": "Revisa el pedido contra la disponibilidad del hub y asigna las cantidades finales, recortando lo que dejaría desabastecidos a los demás países. El país pide, pero no siempre recibe lo que pidió."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Recibe las cantidades ya confirmadas y manda preparar el pedido en la bodega del hub. La reposición entra por la puerta comercial de la central y no directamente por la bodega, porque se tramita como un pedido de mayoreo: el país es, a efectos operativos, un cliente del hub."},
       {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega (hub)", "texto": "Prepara el pedido y lo cubica en el contenedor. Lo que no entra en el volumen disponible —y casi siempre queda algo, porque el cúbico no cuadra exacto— se queda para el ciclo siguiente."},
@@ -2173,53 +2173,93 @@ window.MANUAL_CONTENIDO = {
    "6.7": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el análisis de inventario y venta de tiendas y del mayorista local que hace el planificador de Compras para armar el pedido de reposición, y su transferencia a Logística local para despacho. Es la cara analítica de este ciclo; el ajuste por capacidad del punto, la aprobación comercial y la recepción en tienda están documentados como parte de Ventas Retail (proceso 9.3, Reposición de tiendas y kioscos) — evitar duplicar contenido entre ambos: aquí se documenta cómo se construye el pedido, allá cómo se ajusta, aprueba y recibe."
+     "texto": "Cubre el ciclo semanal con el que se repone cada punto de venta desde el almacén del país: el cálculo del sugerido por tienda a partir de la rotación de cada producto, su revisión y corrección, el armado del traslado y su depuración contra lo que hay físicamente, y la recepción y validación en tienda, incluida la búsqueda de lo que falta. No incluye la reposición del país desde el hub (6.6), que trabaja con cobertura de meses, ni la compra de bienes y servicios locales (6.5). ⚠️ Se solapa con el proceso 9.3 de Ventas Retail, que describe este mismo ciclo desde el lado comercial."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador(a) de Logística y Bodega",
+     "participantes": [
+      "Coordinador(a) de Logística y Bodega — calcula el sugerido semanal por tienda, lo revisa y arma el traslado. Lleva la reposición de punto de venta de más de un país.",
+      "Analista de Logística — prepara el traslado en el almacén y depura del documento lo que no está físicamente, para que la tienda lo sepa al recibir.",
+      "Supervisor(a) de Bodega / Despacho — programa y ejecuta el despacho interno del traslado al punto de venta, con transporte propio o courier.",
+      "Gerente de Tienda — recibe la mercancía, la chequea contra el traslado, la valida y reporta los faltantes.",
+      "Gerente de Operaciones y Logística — responde por el inventario del almacén y busca los faltantes que la tienda reporta.",
+      "Analista de Sistemas / Datos — desarrolla el modelo que busca automatizar el cálculo de la reposición de tiendas; a la fecha de las entrevistas estaba en curso y cubría solo un país."
+     ],
+     "evidencia": ["E-40", "E-34"],
+     "notas": "⚠️ Este proceso se rederivó desde la evidencia y no desde la ficha del mapa, que atribuía la revisión del sugerido a un «Supervisor de Ventas»: ese cargo no existe en el patrón V4 y ninguna entrevista lo sitúa en este ciclo. Lo que el corpus describe es un circuito entre planificación, almacén y tienda, sin validación comercial previa al armado del pedido. ⚠️ Queda un solape sin resolver con el proceso 9.3 (Reposición de tiendas y kioscos): describe el mismo ciclo semanal con otros actores —ajuste por capacidad del punto y aprobación por umbral—. Los dos no pueden convivir tal cual: hay que decidir cuál documenta el ciclo operativo y cuál el tramo comercial, y la decisión está pendiente del equipo.",
+     "sin_evidencia": "No consta que la tienda participe en el armado del pedido: hoy recibe lo que planificación calcula. Que el punto de venta pida lo que necesita es una intención declarada —se quiere que los gerentes de tienda manejen sus coberturas y soliciten—, pero a la fecha de las entrevistas no ocurría. Tampoco consta con qué periodicidad se revisan las reglas propias de cada tienda ni la clasificación por rotación."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Corte semanal de reposición de tiendas. En la práctica cada tienda necesita recibir algo todas las semanas, aunque sea poco.",
+     "cadencia": "Semanal.",
+     "output": "Traslado por tienda preparado, despachado y validado en el punto de venta.",
+     "evidencia": ["E-40"],
+     "notas": "El volumen por tienda varía mucho entre países —donde un producto de alta rotación mueve veinte unidades por semana, en otro mueve cien—, pero la cadencia es la misma."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-40", "E-34"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Ejecuta semanalmente la clasificación Pareto A/B/C por velocidad de venta de cada tienda."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Calcula la cobertura de cada SKU contra la meta objetivo —alrededor de 3 semanas en tienda, por el tamaño de los depósitos— y marca con bandera amarilla la cobertura crítica (menos de dos semanas)."},
-      {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Revisa las banderas amarillas de su zona y confirma la necesidad real en el punto."},
-      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial (Mayor)", "texto": "Evalúa la necesidad de reposición del mayorista local por evento, con una cobertura objetivo de 1 a 1.5 meses — más corta que la del mayorista de Venezuela (3 a 4 meses, ver proceso 6.6) por su cercanía al hub."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida el pedido de reposición y lo transfiere a Logística local para despacho."}
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Ejecuta el cálculo semanal de reposición por tienda: parte de la venta promedio semanal, clasifica cada producto por rotación en A, B o C, y propone cuánto reponer para sostener la cobertura objetivo de su clase —del orden de tres a cuatro semanas—. El archivo lleva además reglas propias de cada punto, como no enviar ciertas líneas a un outlet."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Revisa el sugerido a mano antes de convertirlo en pedido: descarta lo que no tiene venta, corrige lo que el sistema da por existente y no está, y marca los productos cuya existencia no cubre dos semanas de venta —en el archivo se resaltan en amarillo—. No sigue la fórmula sin más."},
+      {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el traslado de cada tienda con las cantidades ya revisadas y lo pasa al almacén para su preparación."},
+      {"id": "a4", "rol": "Analista de Logística", "texto": "Prepara el traslado en el almacén y, cuando un producto no aparece físicamente aunque el sistema lo dé por disponible, lo elimina del documento para que la tienda sepa al recibir que no viene. Es el único filtro entre el inventario teórico y lo que sale de verdad."},
+      {"id": "a5", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Programa y ejecuta el despacho interno del traslado al punto de venta, con transporte propio o con courier según el caso y la distancia. Es el tramo más difícil del circuito: entre tiendas del mismo centro comercial se resuelve a veces pidiéndoles que se lleven la mercancía entre ellas."},
+      {"id": "a6", "rol": "Gerente de Tienda", "texto": "Recibe la mercancía, la chequea contra el traslado y la valida. Si algo no cuadra, lo reporta a quien armó el pedido."},
+      {"id": "a7", "rol": "Gerente de Operaciones y Logística", "texto": "Busca en el almacén el faltante que la tienda reportó y responde por el resultado. Es donde el ciclo se atasca: sin inventario periódico, la búsqueda puede quedar abierta semanas."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Supervisor de Ventas", "Analista/Ejecutivo(a) Comercial (Mayor)"],
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Analista de Logística", "Supervisor(a) de Bodega / Despacho", "Gerente de Tienda", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Ciclo semanal de reposición de tiendas / alerta de cobertura crítica"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Ejecutar clasificación Pareto A/B/C por tienda", "sistemas": ["Odoo (ERP)"]},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Calcular cobertura por SKU y marcar bandera amarilla"},
-       {"id": "n3", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Revisar bandera amarilla de la zona y confirmar necesidad real"},
-       {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Aplica también reposición al mayorista local?"},
-       {"id": "n4alt", "carril": "Analista/Ejecutivo(a) Comercial (Mayor)", "tipo": "tarea", "n": "Evaluar necesidad de reposición del mayorista por evento"},
-       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar el pedido de reposición al punto de venta"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Pedido de reposición transferido a Logística local"}
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Corte semanal de reposición"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Calcular el sugerido por tienda", "sistemas": ["Archivo de reposición (Excel)", "Odoo"]},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Revisar y corregir el sugerido"},
+       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el traslado por tienda"},
+       {"id": "n4", "carril": "Analista de Logística", "tipo": "tarea", "n": "Preparar y depurar el traslado"},
+       {"id": "n4b", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Despachar el traslado al punto de venta"},
+       {"id": "n5", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Recibir, chequear y validar"},
+       {"id": "n6", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Coincide con el traslado?"},
+       {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Buscar el faltante en el almacén"},
+       {"id": "n6fin", "carril": "Gerente de Operaciones y Logística", "tipo": "fin", "n": "Faltante en búsqueda"},
+       {"id": "n7", "carril": "Gerente de Tienda", "tipo": "fin", "n": "Reposición recibida y validada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4", "a": "n5", "etq": "No"},
-       {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n4b"},
+       {"de": "n4b", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"},
+       {"de": "n6", "a": "n6alt", "etq": "No"},
+       {"de": "n6alt", "a": "n6fin"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-40", "E-34"],
      "filas": [
-      ["Montaje de pedidos requiere reimpresión y recarga manual por tienda", "Aunque el sistema soporta la carga directa, hoy se imprime y se vuelve a cargar la plantilla por punto de venta.", "Media", "Medio", "Evaluar la automatización directa que el sistema ya soporta en teoría."],
-      ["Meta de cobertura regional fijada sin considerar capacidad física del kiosco", "Un mandato de cobertura uniforme resultó imposible para los puntos más pequeños y está en renegociación.", "Alta", "Alto", "Ajustar la meta de cobertura por tipo de punto de venta (se cruza con el proceso 9.3 de Ventas Retail)."],
-      ["Clasificación Pareto no revisada periódicamente", "El ranking de SKU por velocidad de venta puede quedar desactualizado si no se revisa con regularidad.", "Baja", "Medio", "Revisar la clasificación Pareto al menos trimestralmente."],
-      ["Reposición de mayorista local por evento, sin calendario ni criterio escrito", "La activación de reposición al mayorista depende de que alguien la solicite, sin calendario propio.", "Media", "Medio", "Documentar el criterio de activación de reposición al mayorista."],
-      ["Modelo de consignación para nuevas cadenas todavía en definición", "Un modelo de consignación con cadenas nuevas en Venezuela está recién comenzando y va a requerir un tratamiento de pedido especial que hoy no está definido.", "Baja", "Medio", "Definir el tratamiento de pedido especial para consignación antes de escalar el modelo a más cadenas."]
+      ["El sugerido se calcula sobre un inventario que no es fiable", "El sistema da por existente mercancía que en el almacén no está, y el inventario general se levanta una vez al año. Todo el cálculo de reposición parte de un dato que no se sostiene.", "Alta", "Alto", "Establecer conteos cíclicos por rotación —más frecuentes en la clase A— en vez de un único inventario anual."],
+      ["La corrección del sugerido depende del criterio de una persona", "La fórmula no se sigue sin más: quien arma el pedido descarta, corrige y ajusta con conocimiento propio. Sin esa revisión el pedido saldría mal, y no está documentada.", "Alta", "Alto", "Escribir las reglas de corrección que hoy se aplican de memoria y llevarlas al archivo, para que no dependan de quién lo ejecute."],
+      ["La búsqueda de faltantes queda abierta sin plazo", "Cuando la tienda reporta que falta algo empieza una búsqueda que puede durar semanas sin cerrarse, y mientras tanto ni la tienda ni el sistema saben dónde está la mercancía.", "Alta", "Medio", "Fijar un plazo de cierre para cada faltante reportado y escalarlo automáticamente al vencerlo."],
+      ["Las discrepancias llegan por mensajes sueltos", "Los faltantes y errores de recepción se reportan por mensajería, uno a uno y a diario, sin registro que permita ver el patrón ni medir cuántos hay.", "Alta", "Medio", "Registrar la discrepancia en el mismo documento de traslado, para que quede contada y no dependa de un mensaje."],
+      ["El despacho es el cuello de botella del ciclo", "Mover la mercancía al punto de venta es la parte más difícil del circuito, hasta el punto de que entre tiendas del mismo centro comercial se resuelve pidiéndoles que se la lleven entre ellas.", "Alta", "Alto", "Dimensionar la capacidad de despacho contra la cadencia semanal, y formalizar el traslado entre tiendas cercanas en vez de resolverlo por acuerdo informal."],
+      ["El punto de venta no participa en el armado", "La tienda recibe lo que el cálculo central decide; no pide. La intención de que los gerentes de tienda manejen su cobertura y soliciten está declarada pero no implantada.", "Media", "Medio", "Dar a cada tienda visibilidad de su propia cobertura y abrir una vía formal de solicitud, antes de esperar que la usen."],
+      ["Las reglas por tienda y la clasificación no se revisan", "El archivo lleva excepciones por punto —qué no enviar a un outlet— y una clasificación por rotación, sin periodicidad de revisión: una tienda que cambió de perfil sigue reponiendo con el criterio viejo.", "Media", "Medio", "Revisar la clasificación y las excepciones al menos cada trimestre, y dejar constancia de quién las cambió."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiendas con bandera amarilla resuelta antes de quiebre", "Resueltas a tiempo ÷ total de tiendas con bandera en el período", "Semanal", "Coordinador(a) de Logística y Bodega", "≥90%"],
-      ["Fill rate del pedido a punto de venta", "Cantidad despachada ÷ cantidad pedida", "Semanal", "Coordinador(a) de Logística y Bodega", "≥90%"],
-      ["Cobertura promedio por clase Pareto (A/B/C)", "Inventario disponible ÷ venta promedio, por clase", "Semanal", "Coordinador(a) de Logística y Bodega", "~3 semanas en tienda; 1 a 1.5 meses en mayorista Panamá"]
+      ["Productos por debajo de dos semanas de cobertura", "SKU por debajo de dos semanas al cierre del ciclo ÷ SKU activos de la tienda", "Semanal", "Coordinador(a) de Logística y Bodega", "A la baja"],
+      ["Líneas depuradas del traslado por no estar físicamente", "Líneas eliminadas en la preparación ÷ líneas del traslado", "Semanal", "Analista de Logística", "A la baja — mide la fiabilidad del inventario, no el trabajo del almacén"],
+      ["Traslados validados sin discrepancia", "Traslados validados sin faltante reportado ÷ traslados recibidos", "Semanal", "Gerente de Tienda", "A la alza"],
+      ["Tiempo de cierre de un faltante reportado", "Fecha de cierre − fecha del reporte de la tienda", "Por incidencia", "Gerente de Operaciones y Logística", "Dentro del plazo que se fije"],
+      ["Cobertura promedio por clase de rotación", "Cobertura media de los SKU de cada clase A, B y C", "Mensual", "Coordinador(a) de Logística y Bodega", "Dentro del objetivo de cada clase"]
      ]
     }
    },
@@ -2227,55 +2267,88 @@ window.MANUAL_CONTENIDO = {
    "6.8": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la política de compras, la matriz de aprobación por monto y tipo, el tablero de KPI del área y la gestión de riesgo de la cadena de suministro que deberían gobernar de forma transversal el resto de los procesos de este macroproceso. No incluye la ejecución operativa de ninguna compra en particular (procesos 6.1 a 6.7 y 6.9), sobre los que esta capa aplica.",
-     "nota_estado": "Este proceso es «to-be»: hoy no existe un departamento de compras formalmente estructurado, ni política escrita, ni matriz de aprobación, ni KPI formalizados. Se documenta con base en buena práctica de la disciplina de compras (CIPS) como referencia para construirlo, no como descripción de lo que ya opera."
+     "nota_estado": "Proceso PROPUESTO. Hoy no existe política de compras escrita, ni matriz de aprobación por monto, ni indicadores del área: «política de compras», «matriz de aprobación» y «tablero de KPI» no aparecen en ninguna de las 59 entrevistas. La brecha sí está documentada —no hay departamento de compras estructurado, cada marca compra con su propio método y las promociones se aprueban una a una—, y es lo que justifica proponerlo.",
+     "texto": "Cubre el gobierno del macroproceso de compras: la política que fija cómo se compra, la matriz que dice quién aprueba qué según monto y tipo, el margen preaprobado para las promociones, los indicadores del área y su revisión periódica. Es una capa transversal: no ejecuta ninguna compra, sino que fija las reglas con las que se ejecutan los procesos 6.1 a 6.7 y 6.9. La aplicación de esas reglas es continua y ocurre dentro de cada uno de ellos; lo que este proceso describe es el ciclo con el que se revisan y se actualizan."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Comité de Compras / Director de Compras",
+     "participantes": [
+      "Comité de Compras / Director de Compras — convoca la revisión, contrasta el cumplimiento de la política y propone los ajustes; después publica lo aprobado a los países.",
+      "Junta Directiva — aprueba la política, la matriz de aprobación y el margen preaprobado de promociones.",
+      "Coordinador(a) de Logística y Bodega — aporta el dato de ejecución del período: qué se pidió, qué se recibió, con qué cobertura se cerró y qué quedó fuera.",
+      "Planificador Financiero — aporta el dato económico: gasto por marca y país, desviación contra lo previsto y margen con el que se cerraron las promociones aplicadas.",
+      "Gerente de Contabilidad / Administración — revisa el cumplimiento de la política cuando se practica una auditoría interna, con independencia del ciclo de revisión."
+     ],
+     "evidencia": ["E-05", "E-08", "E-40"],
+     "notas": "⚠️ La aprobación se sitúa en la Junta y no en una gerencia, como proponía el mapa. La razón no es jerárquica sino de eficacia: hoy quienes compran son dos directores de la propia Junta —uno por marca—, y una política que los gobierna no puede aprobarse por debajo de ellos. El comité prepara y propone; la Junta aprueba. ⚠️ El mapa daba la titularidad a «Gerente Regional Comercial / Retail»: es la sexta vez en este macroproceso que sitúa una decisión de compras en una gerencia regional. «Comité de Compras» y «Director(a) de Compras» son denominaciones propuestas y «Planificador Financiero» no existe en el patrón de cargos V4.",
+     "sin_evidencia": "El diseño proviene de un marco de referencia externo, no del levantamiento. Quedan por definir con el equipo: los umbrales de la matriz —en moneda y con tasa fechada—, la cadencia real de la revisión, qué indicadores entran al tablero y quién practica la auditoría interna, que hoy no tiene periodicidad conocida."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llegada del ciclo de revisión del gobierno de compras, o un hecho que obligue a revisarlo antes —un incumplimiento detectado, un cambio de estructura o una compra que no encaja en ninguna regla vigente—.",
+     "cadencia": "Periódica, con cadencia a definir (propuesta: trimestral). La aplicación de la política es continua y ocurre dentro de cada proceso operativo, no aquí.",
+     "output": "Política de compras y matriz de aprobación vigentes y publicadas, margen preaprobado de promociones fijado, y tablero de indicadores del período revisado.",
+     "evidencia": ["E-40", "E-05"],
+     "notas": "El margen preaprobado no es una idea del marco de referencia: sale de una peticion expresa del equipo. Hoy cada promoción se aprueba una a una por un director, y quien las tramita señala que basta con fijar un mínimo —en la conversación se menciona un 20 %— para que lo que quede por encima se acepte sin consulta."
+    },
     "flujo": {
      "estado": "borrador",
+     "nota_estado": "Flujo propuesto. Describe el ciclo de revisión del gobierno, no la aplicación diaria de las reglas, que ocurre dentro de los procesos operativos.",
+     "evidencia": ["E-40", "E-05", "E-08"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define y aprueba la política de compras y la matriz de aprobación por monto y tipo, incluido un margen preaprobado para descuentos de promoción que hoy se aprueban caso por caso."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aplica la matriz de aprobación en la operación diaria de compra y reposición."},
-      {"id": "a3", "rol": "Planificador Financiero", "texto": "Alimenta el tablero de KPI de compras y organiza la reunión mensual de revisión de coberturas (MOR) ya propuesta por el propio equipo."},
-      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa el cumplimiento de la política en la auditoría interna, cuando aplica."},
-      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa trimestralmente la política y el tablero de KPI, y decide ajustes."}
+      {"id": "a1", "rol": "Comité de Compras / Director de Compras", "texto": "Convoca la revisión periódica del gobierno de compras y fija qué se pone sobre la mesa: cumplimiento de la política, umbrales de la matriz, margen de promociones e indicadores del período."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta el dato de ejecución del período: qué se pidió y qué se recibió por marca y país, con qué cobertura se cerró, qué quedó fuera del reparto y qué tuvo que resolverse con compra local."},
+      {"id": "a3", "rol": "Planificador Financiero", "texto": "Aporta el dato económico: gasto de compra por marca y país, desviación frente a lo previsto y margen con el que se cerraron las promociones aplicadas en el período."},
+      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Contrasta lo ejecutado con lo que la política y la matriz dicen, identifica dónde se decidió fuera de regla —o sin ninguna— y propone los ajustes: umbrales, margen preaprobado, indicadores y estructura del área."},
+      {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba la política, la matriz de aprobación por monto y tipo, y el margen preaprobado de promociones, o devuelve la propuesta con observaciones. Aprueba la Junta porque quienes compran hoy son dos de sus propios directores: una regla que los alcanza no puede fijarse por debajo de ellos."},
+      {"id": "a6", "rol": "Comité de Compras / Director de Compras", "texto": "Publica a los países la política y la matriz vigentes y el tablero de indicadores del período, para que cada proceso operativo sepa con qué reglas trabaja."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Planificador Financiero", "Gerente de Contabilidad / Administración"],
+      "carriles": ["Comité de Compras / Director de Compras", "Coordinador(a) de Logística y Bodega", "Planificador Financiero", "Junta Directiva"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Revisión trimestral programada de gobierno de compras"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir o actualizar política de compras, matriz de aprobación y margen preaprobado de promociones"},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aplicar la matriz de aprobación en la operación diaria"},
-       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Alimentar el tablero de KPI y organizar la reunión mensual de coberturas (MOR)"},
-       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar cumplimiento en auditoría interna cuando aplica"},
-       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Política o KPI requieren ajuste?"},
-       {"id": "n5alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Ajustar política, matriz o KPI"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Gobierno de compras vigente para el próximo trimestre"}
+       {"id": "n0", "carril": "Comité de Compras / Director de Compras", "tipo": "inicio", "n": "Se convoca la revisión del gobierno"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar el dato de ejecución del período"},
+       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aportar el dato económico del período"},
+       {"id": "n3", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Revisar cumplimiento y proponer ajustes"},
+       {"id": "n4", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Se aprueba la política?"},
+       {"id": "n4alt", "carril": "Junta Directiva", "tipo": "fin", "n": "Propuesta devuelta al comité"},
+       {"id": "n5", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Publicar la política y el tablero"},
+       {"id": "n6", "carril": "Comité de Compras / Director de Compras", "tipo": "fin", "n": "Gobierno de compras vigente"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5alt", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n0", "a": "n2"},
+       {"de": "n1", "a": "n3"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"},
+       {"de": "n4", "a": "n4alt", "etq": "No"},
+       {"de": "n5", "a": "n6"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-08", "E-40"],
      "filas": [
-      ["Ausencia total de política escrita hoy", "No existe una política de compras documentada en la organización.", "Alta", "Alto", "Documentar primero la matriz de aprobación, que es lo más urgente y lo más citado en las entrevistas."],
-      ["Sin KPI formalizados de compras", "No hay un tablero ni un set mínimo de indicadores definidos para el área; los cálculos de cobertura se hacen de forma manual y puntual, sin reporte periódico.", "Alta", "Medio", "Implementar la reunión mensual de revisión de coberturas (MOR) ya propuesta por el propio equipo, como primer paso hacia el tablero completo."],
-      ["Sin estructura de departamento de compras", "La compra internacional de cada marca depende de una sola persona, sin equipo ni backup formal; el propio equipo ya identifica la necesidad de un analista de Compras dedicado al día a día de tiendas.", "Alta", "Alto", "Incorporar primero un analista de Compras dedicado a tiendas — la ampliación de estructura ya identificada como más urgente por el propio equipo — antes de la política completa."],
-      ["Aprobación de descuentos en promoción sin margen preaprobado", "Cada promoción requiere hoy aprobación caso por caso de la gerencia comercial, sin un margen mínimo regular preaprobado.", "Alta", "Medio", "Definir un margen preaprobado para promociones, dejando la aprobación caso por caso solo para las que lo excedan — propuesta ya planteada por el propio equipo de compras."],
-      ["Riesgo de la cadena de suministro no mapeado formalmente", "Los riesgos ya identificados (mono-proveedor, allocation, capacidad de contenedor) no están consolidados en un solo mapa de riesgo.", "Media", "Alto", "Mapear los riesgos ya identificados de facto como primer inventario de riesgo del área."]
+      ["No hay política de compras escrita", "Nada define hoy cómo se compra, con qué criterio se elige proveedor ni quién puede comprometer cuánto. Cada marca opera con su propio método, y el propio responsable comercial declara no tener claro el proceso de compra.", "Alta", "Alto", "Escribir primero la política mínima —quién aprueba qué y con qué criterio— antes que el tablero de indicadores: sin regla, no hay qué medir."],
+      ["La regla tendría que gobernar a quienes la aprobarían", "Las dos compras internacionales las deciden dos directores de la Junta. Cualquier matriz de aprobación los alcanza, así que su eficacia depende de que la Junta se autolimite y de que alguien pueda señalar el incumplimiento.", "Alta", "Alto", "Aprobar la política en Junta con acta, y dar al comité el mandato expreso de reportar las decisiones tomadas fuera de regla, sea quien sea quien las tome."],
+      ["No existe departamento de compras", "La función no tiene estructura, ni personal dedicado, ni respaldo: dos personas compran cada una su marca. El propio equipo ya identificó la necesidad de un analista de compras dedicado como la incorporación más urgente.", "Alta", "Alto", "Incorporar primero ese perfil dedicado y darle el sostenimiento de la política y del tablero, antes de diseñar la estructura completa."],
+      ["Las promociones se aprueban una a una por un director", "Cada descuento sube a un director que está en muchas otras cosas, lo que retrasa la respuesta comercial. La propia área que las tramita propone fijar un margen mínimo y decidir sola por encima de él.", "Alta", "Medio", "Fijar el margen preaprobado y dejar la consulta solo para lo que quede por debajo, con registro de quién aprobó la excepción."],
+      ["Sin indicadores del área no hay forma de saber si la regla se cumple", "No se mide nada de compras —ni apego al plan, ni tiempo de ciclo, ni concentración de proveedor—, así que una política publicada no se podría verificar.", "Alta", "Medio", "Arrancar con pocos indicadores tomados de los procesos ya documentados, en vez de diseñar un tablero completo que nadie alimente."],
+      ["El riesgo de la cadena de suministro no está mapeado", "Dependencia de un solo proveedor de firmware, un único enlace de sourcing, un solo interlocutor con la casa matriz de la marca representada: los riesgos existen y están documentados proceso a proceso, pero nadie los mira juntos.", "Media", "Alto", "Consolidar en el ciclo de revisión los riesgos que cada proceso ya declara, en vez de levantar un mapa de riesgos aparte."],
+      ["La auditoría interna no tiene periodicidad conocida", "La revisión de cumplimiento aparece como algo que ocurre «cuando aplica», sin cadencia ni alcance definidos, de modo que no se puede contar con ella como control.", "Media", "Medio", "Definir qué revisa y cada cuánto, aunque sea una muestra pequeña por período."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Política de compras documentada y aprobada", "Sí/no, verificado contra el documento vigente", "Una vez; luego trimestral", "Gerente Regional Comercial / Retail", "Documentada en el primer ciclo"],
-      ["Compras aplicando la matriz de aprobación", "Compras bajo matriz ÷ total de compras del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "100% una vez vigente"],
-      ["KPI de compras publicados en el tablero", "KPI activos ÷ KPI definidos", "Trimestral", "Planificador Financiero", "100%"],
-      ["Promociones dentro del margen preaprobado", "Promociones sin aprobación caso por caso ÷ total de promociones", "Mensual", "Gerente Regional Comercial / Retail", "≥80% una vez vigente el margen"]
+      ["Política y matriz vigentes y publicadas", "Existe versión aprobada en el período y está accesible a los países (sí / no)", "Por ciclo", "Comité de Compras / Director de Compras", "Sí, desde el primer ciclo"],
+      ["Decisiones tomadas fuera de la matriz", "Compras aprobadas fuera del umbral o sin la firma que corresponde ÷ compras del período", "Por ciclo", "Comité de Compras / Director de Compras", "A la baja — incluye las de la propia dirección"],
+      ["Promociones resueltas sin consulta", "Promociones cerradas por encima del margen preaprobado ÷ promociones del período", "Mensual", "Planificador Financiero", "A la alza — mide si el margen liberó la decisión"],
+      ["Indicadores del tablero efectivamente alimentados", "Indicadores con dato del período ÷ indicadores definidos", "Por ciclo", "Coordinador(a) de Logística y Bodega", "100% — un indicador sin dato es un indicador que sobra"],
+      ["Riesgos del macroproceso revisados en el ciclo", "Riesgos declarados por los procesos que se revisan ÷ riesgos declarados", "Por ciclo", "Comité de Compras / Director de Compras", "100%"]
      ]
     }
    },
@@ -2283,53 +2356,88 @@ window.MANUAL_CONTENIDO = {
    "6.9": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la detección de un defecto o discrepancia en la mercancía recibida, la apertura del reclamo con el proveedor, su seguimiento y la recuperación del costo o de la mercancía correspondiente. No incluye la garantía o el servicio postventa al cliente final (proceso 9.13 de Ventas Retail; macro 11, Postventa y Experiencia de Cliente), que es un reclamo distinto: del cliente hacia Kenex, no de Kenex hacia el proveedor.",
-     "nota_estado": "Este proceso es «to-be»: hoy no hay política de devoluciones a proveedor, y hay devoluciones acumuladas sin resolver mientras los defectos de Cubitt no quedan trazados. Se documenta con base en buena práctica (CIPS/APQC PCF) para cerrar esa brecha."
+     "texto": "Cubre qué se hace cuando la mercancía recibida no está conforme: el reporte de la incidencia —faltante, sobrante, daño o mercancía mojada—, la determinación de su naturaleza, la apertura del reclamo por el canal que corresponda según de quién sea la responsabilidad, y el registro de lo recuperado o de la pérdida. ⚠️ No incluye la devolución del cliente final ni la garantía de producto (macro 11, Postventa, y proceso 7.7 de logística inversa): esa es una reclamación del cliente hacia el grupo, y este proceso trata la del grupo hacia quien le entregó mal."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Operaciones y Logística",
+     "participantes": [
+      "Gerente de Operaciones y Logística — determina la naturaleza de la incidencia y abre el canal de reclamo que corresponda; es quien decide si la responsabilidad es del transporte, de la aduana, del proveedor o propia.",
+      "Coordinador(a) de Logística y Bodega — detecta y reporta la incidencia en la recepción, con la evidencia del estado en que llegó la mercancía.",
+      "Comité de Compras / Director de Compras — lleva el reclamo cuando la responsabilidad es del proveedor de la mercancía, porque es quien mantiene la relación con la fábrica o con la casa matriz de la marca.",
+      "Gerente de Contabilidad / Administración — registra la recuperación obtenida o, cuando no la hay, la pérdida asumida."
+     ],
+     "evidencia": ["E-03", "E-40", "E-06 (parte 2)"],
+     "notas": "⚠️ El eje del proceso cambia respecto al mapa, que lo planteaba como un reclamo al proveedor desde el primer paso. La evidencia describe otra cosa y más útil: lo primero es **clasificar la incidencia**, porque de su naturaleza depende a quién se le reclama —a la naviera, al proveedor aéreo, al proveedor de la mercancía o a nosotros mismos—. Sin ese paso, el proceso presupone culpable antes de averiguarlo. ⚠️ También cambia el actor: el mapa reparte el seguimiento entre «Gerente Regional Comercial / Retail» y «Gerente Regional de Marketing»; quien mantiene la relación con cada proveedor es la dirección de compras, según quedó establecido en 6.2, 6.3 y 6.4.",
+     "sin_evidencia": "No consta ningún procedimiento formal de reclamo ni registro de no conformidades: lo que el corpus documenta es el criterio con el que se decide a quién reclamar, no cómo se tramita ni en cuánto tiempo. ⚠️ La fuente que el mapa cita para este proceso —devoluciones acumuladas sin control en la operación de Estados Unidos— **no corresponde aquí**: son devoluciones de clientes de comercio electrónico, no mercancía devuelta a un proveedor. Esa brecha es real y está documentada, pero pertenece a postventa y a logística inversa."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Detección de una incidencia en la mercancía recibida: faltante, sobrante, daño o mercancía mojada, tanto en el hub como en el país.",
+     "cadencia": "Por evento.",
+     "output": "Incidencia clasificada, reclamo tramitado por el canal que corresponde y recuperación o pérdida registrada.",
+     "evidencia": ["E-03"],
+     "notas": "Las discrepancias que detecta la recepción en 6.6 y 6.7 entran por aquí: son el mismo hecho visto desde el proceso que lo encuentra y desde el que lo resuelve."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-03", "E-40"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Detecta el defecto o discrepancia en la recepción, o lo recibe reportado desde la operación."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Documenta la no conformidad (NCR) con evidencia: fotos, cantidades y referencia del lote."},
-      {"id": "a3", "rol": "Director(a) responsable de la marca", "texto": "Da soporte a la apertura del reclamo con el proveedor correspondiente (Casio o fábrica Cubitt)."},
-      {"id": "a4", "rol": "Gerente Regional Comercial / Retail", "texto": "Da seguimiento al reclamo con el proveedor hasta su resolución."},
-      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Registra la recuperación del costo o de la mercancía una vez resuelto el reclamo."}
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Reporta la incidencia detectada al recibir —faltante, sobrante, mercancía dañada o mojada— con la evidencia del estado en que llegó y la referencia del embarque."},
+      {"id": "a2", "rol": "Gerente de Operaciones y Logística", "texto": "Determina la naturaleza de la incidencia antes de reclamar nada: si la responsabilidad es del transporte, de la aduana, del proveedor de la mercancía o propia. De esa clasificación depende el canal que se activa, y equivocarla hace perder el plazo de reclamo del canal correcto."},
+      {"id": "a3", "rol": "Gerente de Operaciones y Logística", "texto": "Cuando la responsabilidad es del transporte, reclama a la naviera o al proveedor aéreo dentro del plazo que fije el contrato de flete, con el acta de recepción como respaldo."},
+      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Cuando la responsabilidad es del proveedor de la mercancía, abre y lleva el reclamo con la fábrica o la casa matriz de la marca, y acuerda la reposición, la nota de crédito o la devolución física del lote."},
+      {"id": "a5", "rol": "Gerente de Operaciones y Logística", "texto": "Cuando la responsabilidad es propia —un error de conteo, de manipulación o de registro—, lo corrige internamente y deja constancia, para que el mismo fallo no se reclame fuera."},
+      {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Registra el resultado del caso: la recuperación obtenida en dinero o en mercancía, o la pérdida asumida cuando no se recupera nada."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Director(a) responsable de la marca", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración"],
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente de Operaciones y Logística", "Comité de Compras / Director de Compras", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Detectar defecto o discrepancia en la mercancía recibida"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Documentar la no conformidad (NCR) con evidencia"},
-       {"id": "n2", "carril": "Director(a) responsable de la marca", "tipo": "tarea", "n": "Dar soporte a la apertura del reclamo con el proveedor"},
-       {"id": "n3", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Dar seguimiento al reclamo hasta su resolución"},
-       {"id": "n4", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿El proveedor reconoce el reclamo?"},
-       {"id": "n4alt", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Escalar el reclamo o documentar la pérdida no recuperable"},
-       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Registrar la recuperación del costo o de la mercancía"},
-       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Reclamo cerrado y NCR documentada"}
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Incidencia en la recepción"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reportar la incidencia con evidencia"},
+       {"id": "n2", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Determinar la naturaleza de la incidencia"},
+       {"id": "n3", "carril": "Gerente de Operaciones y Logística", "tipo": "decision", "n": "¿A quién se reclama?"},
+       {"id": "n4", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Reclamar al transportista"},
+       {"id": "n5", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Reclamar al proveedor de la mercancía"},
+       {"id": "n6", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Corregir internamente y registrar"},
+       {"id": "n7", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Registrar la recuperación o la pérdida"},
+       {"id": "n8", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Incidencia cerrada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"},
-       {"de": "n4alt", "a": "n6"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Transporte"},
+       {"de": "n3", "a": "n5", "etq": "Proveedor"},
+       {"de": "n3", "a": "n6", "etq": "Propia"},
+       {"de": "n4", "a": "n7"},
+       {"de": "n5", "a": "n7"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-03", "E-40", "E-06 (parte 2)"],
      "filas": [
-      ["Devoluciones acumuladas sin política", "Hay devoluciones pendientes acumuladas sin un proceso que las resuelva de forma ordenada.", "Alta", "Alto", "Priorizar el cierre del backlog de devoluciones acumuladas como primer paso."],
-      ["Defectos de Cubitt sin trazabilidad", "Los defectos detectados en producto Cubitt no quedan registrados de forma sistemática.", "Alta", "Medio", "Exigir registro de NCR desde la primera detección, aunque sea con una plantilla simple."],
-      ["Sin criterio de cuándo escalar un reclamo no reconocido por el proveedor", "No hay un tiempo máximo de espera ni un criterio de escalamiento documentado.", "Media", "Medio", "Definir el criterio y el tiempo máximo de espera antes de escalar un reclamo."],
-      ["Recuperación de costo sin proceso contable definido", "No está definido cómo se registra contablemente la recuperación de costo o de mercancía.", "Media", "Medio", "Definir el registro contable de la recuperación de costo o de mercancía."]
+      ["No hay procedimiento de reclamo ni registro de no conformidades", "El criterio para decidir a quién reclamar existe y funciona, pero nada define cómo se tramita, con qué respaldo ni en cuánto tiempo. Cada caso se resuelve como se puede.", "Alta", "Alto", "Escribir el procedimiento por canal —transporte, proveedor, interno— con el respaldo mínimo que cada uno exige, y llevar un registro único de incidencias."],
+      ["Clasificar mal la incidencia hace perder el reclamo", "Cada canal tiene su propio plazo: si se atribuye al proveedor lo que era del transporte, cuando se descubre el error el plazo de la naviera puede haber vencido.", "Alta", "Alto", "Fijar un plazo corto para clasificar y, ante la duda, notificar en paralelo a los dos canales para preservar el derecho."],
+      ["La discrepancia se detecta semanas después del despacho", "La conformidad contra lo asignado ocurre al recibir en el país, no al despachar desde el hub, así que cuando aparece un faltante ya es difícil saber dónde se quedó y a quién reclamar.", "Alta", "Alto", "Confirmar el contenido contra lo asignado en el momento del despacho, que es la misma mitigación que pide el proceso 6.6."],
+      ["Los faltantes internos quedan abiertos sin plazo", "Cuando la incidencia es propia, la búsqueda de la mercancía puede durar semanas sin cerrarse ni convertirse en pérdida registrada, de modo que el inventario sigue contando algo que no está.", "Alta", "Medio", "Fijar un plazo tras el cual el faltante no encontrado se registra como pérdida y se corrige el inventario."],
+      ["No se mide la incidencia por proveedor ni por transportista", "Sin registro consolidado no se sabe qué proveedor o qué transportista concentra los problemas, así que el dato no llega a la evaluación de proveedores del proceso 6.2.", "Media", "Medio", "Consolidar las incidencias por origen y llevarlas al scorecard del ciclo de evaluación."],
+      ["La devolución física al proveedor no tiene circuito", "Cuando el acuerdo con el proveedor es devolver el lote, nada define quién lo embala, lo embarca ni con cargo a quién viaja, lo que retrasa el cierre del caso.", "Media", "Medio", "Definir el circuito de devolución con el mismo detalle que el de despacho, incluido quién asume el flete de retorno."],
+      ["La mercancía no conforme se acumula sin decisión", "Sin un plazo para resolver qué se hace con lo no conforme, se aparta y se deja: el patrón ya se observa en la operación de comercio electrónico del grupo con las devoluciones de cliente.", "Media", "Medio", "Fijar una revisión periódica de lo apartado, con decisión obligada: reclamar, revender, o dar de baja."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["NCR documentadas sobre defectos detectados", "NCR documentadas ÷ defectos detectados en el período", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
-      ["Tiempo de resolución del reclamo", "Fecha de cierre − fecha de apertura", "Por caso", "Gerente Regional Comercial / Retail", "Referencia a definir con el primer ciclo"],
-      ["Monto recuperado ÷ monto reclamado", "Proporción recuperada sobre el total reclamado en el período", "Trimestral", "Gerente de Contabilidad / Administración", "Referencia de seguimiento"]
+      ["Incidencias con canal de reclamo abierto en plazo", "Incidencias clasificadas y reclamadas dentro del plazo ÷ incidencias del período", "Mensual", "Gerente de Operaciones y Logística", "100%"],
+      ["Recuperación obtenida sobre lo reclamado", "Monto recuperado ÷ monto reclamado, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "A la alza"],
+      ["Tiempo de cierre de la incidencia", "Fecha de cierre − fecha del reporte", "Por incidencia", "Gerente de Operaciones y Logística", "Dentro del plazo que se fije por canal"],
+      ["Incidencias por proveedor y por transportista", "Incidencias del período agrupadas por origen", "Trimestral", "Comité de Compras / Director de Compras", "Referencia — alimenta la evaluación de proveedores"],
+      ["Incidencias de causa propia", "Incidencias atribuidas a error interno ÷ incidencias del período", "Mensual", "Coordinador(a) de Logística y Bodega", "A la baja"]
      ]
     }
    }
