@@ -128,4 +128,12 @@ Verificación visual de Vanessa el mismo día: el navegador embebido de VS Code 
 
 **Verificación:** las pruebas de `ficha` pasan de 13 a **23** y **7 de ellas fallan contra la versión anterior** (comprobado con `FICHA_TS`); el `fetch` falso del arnés ahora **respeta el `select=`** — no hacerlo era el punto ciego que dejó pasar el fallo (1) · prueba de extremo a extremo con Playwright contra la función desplegada y una persona desechable, **13/13**, incluido que con el HTML viejo el servidor ya impide el borrado · panel verificado en navegador, **13/13**, con la fila compacta aún en 34 px · `validar-html.py`, `comprobar-censo.py` (19) y `comprobar-sistema.py` sin regresión.
 
-**Pendiente:** desplegar el sitio estático (Cloudflare) — sin sesión de `wrangler` ni token en el entorno; hasta entonces el navegador sigue mostrando el «periodo» en blanco, aunque **la base ya está protegida** por la capa del servidor.
+**Publicado y verificado contra producción** (`proyectorower.rower.workers.dev`): los cuatro arreglos vivos en el HTML servido y la prueba de extremo a extremo repetida contra el sitio real, 13/13.
+
+Al desplegar salieron **dos cosas que nadie había visto**, ambas por `assets.directory: "."` (sirve el disco, no git) y la falta de un `.assetsignore`:
+- **El `.git` se servía entero** — `/.git/config` y `/.git/HEAD` daban 200, o sea el repositorio completo era descargable desde el sitio. Eso **deja sin efecto la mitigación pendiente de hacer privado el repo**: hacerlo privado en GitHub no habría cerrado esta copia. También se servían `CLAUDE.md`, `BITACORA.md` y `scripts/`.
+- **El despliegue llevaba roto desde el 18-sep:** `Insumos/Documentación de Lark/` trajo un PDF de 31,6 MiB y el límite de Workers son 25 MiB por archivo, así que `wrangler deploy` abortaba sin subir nada y el sitio estaba congelado en la versión del 18-sep a las 20:22.
+
+Se añade **`.assetsignore`** (`.git`, `.env*`, `Insumos/`, `scripts/`, `supabase/` salvo `sesion.js`/`cliente.js`, y la documentación interna): de 1272 archivos a **144**. Verificado que los once caminos sensibles dan 404 y que las doce rutas del aplicativo siguen en 200.
+
+⚠️ **Corrección a lo que se creía del despliegue:** el sitio **no** se publica solo al hacer push. Los despliegues que parecían seguir a cada commit eran `wrangler deploy` corrido a mano justo después. Push y publicación son dos pasos.
