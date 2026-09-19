@@ -1509,7 +1509,7 @@ window.MANUAL_CONTENIDO = {
     "brechas": [
      ["6.3 Compra internacional a marca representada (Casio)", "La reconciliación mensual (PCI) es enteramente manual y depende de una sola persona.", "Documentar el método de reconciliación y evaluar automatizar el cruce entre lo pedido, lo confirmado y lo vendido."],
      ["6.4 Compra internacional a marca propia (Cubitt)", "El comité de compras Cubitt es informal, sin acta ni criterio de decisión escrito.", "Documentar el criterio de decisión del comité y la responsabilidad de cada integrante."],
-     ["6.5 Compra local por país (nacionales y de urgencia)", "Cada país compra localmente con su propio criterio, sin visibilidad regional consolidada.", "Definir un umbral y un reporte mínimo de compra local para visibilidad regional."],
+     ["6.5 Compra local de bienes y servicios por país", "Cada país compra localmente con su propio criterio, sin visibilidad regional consolidada.", "Definir un umbral y un reporte mínimo de compra local para visibilidad regional."],
      ["6.6 Gestión de reposición inter-compañía (país-hub)", "El llenado del contenedor entre el hub y cada país no se reporta sistemáticamente cuando un pedido no cabe completo — se carga hasta ~64 de los 66 m³ de capacidad, sin margen de maniobra — y el problema se descubre por faltantes, o incluso ya pagado el arancel de aduana sobre mercancía que figuraba en factura pero nunca salió del hub.", "Dejar un margen deliberado de cubicaje (cargar hasta 60 de los 66 m³) y reportar explícitamente lo que quedó fuera antes del zarpe — propuesta ya planteada por el propio equipo de compras."],
      ["6.7 Gestión de reposición a punto de venta", "La meta de cobertura de inventario en tienda se fijó como un número único regional, sin considerar la capacidad física de los kioscos pequeños, y está en renegociación — el propio equipo de Compras reporta un objetivo de ~3 semanas para tienda por el tamaño de los depósitos, distinto del mandato regional más amplio en discusión.", "Ajustar la meta de cobertura por tipo de punto de venta (tienda grande vs. kiosco) en vez de un número único regional."]
     ]
@@ -1536,7 +1536,7 @@ window.MANUAL_CONTENIDO = {
      ["6.2 Gestión del ciclo de vida del proveedor (SRM)", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración", "Planificador Financiero"],
      ["6.3 Compra internacional a marca representada (Casio)", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
      ["6.4 Compra internacional a marca propia (Cubitt)", "Sourcing en China", "Gerente Regional de Marketing", "Director(a) Ventas Regional Cubitt · Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail"],
-     ["6.5 Compra local por país (nacionales y de urgencia)", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Coordinador(a) de Logística y Bodega", "—"],
+     ["6.5 Compra local de bienes y servicios por país", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Coordinador(a) de Logística y Bodega", "—"],
      ["6.6 Gestión de reposición inter-compañía (país-hub)", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Coordinador(a) Comercial", "—"],
      ["6.7 Gestión de reposición a punto de venta", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Supervisor de Ventas · Analista/Ejecutivo(a) Comercial (Mayor)", "Gerente de Ventas al Detal (País)"],
      ["6.8 Gobierno, política y control de compras", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Planificador Financiero · Gerente de Contabilidad / Administración", "Junta / Comité Directivo"],
@@ -1985,19 +1985,20 @@ window.MANUAL_CONTENIDO = {
    "6.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la compra que cada país resuelve con proveedores locales: insumos de operación, mantenimiento, servicios y activos menores —desde el material de tienda y el mantenimiento del almacén hasta el trámite de un permiso o la contratación de un servicio—. Va desde la detección de la necesidad y la cotización hasta la aprobación según umbral, el registro en el sistema del país y su consolidación en la visibilidad regional. ⚠️ No cubre la mercancía de las marcas del grupo: esa llega exclusivamente por la compra internacional (6.3 y 6.4) y la reposición desde el hub (6.6 y 6.7). Un país no puede resolver localmente un faltante de producto de marca, porque ningún proveedor local lo tiene."
+     "texto": "Cubre la compra que cada país resuelve con proveedores locales: insumos de operación, mantenimiento, servicios y activos menores —desde el material de tienda y el mantenimiento del almacén hasta el trámite de un permiso o la contratación de un servicio—. Va desde la detección de la necesidad y la cotización hasta la aprobación según umbral, el registro en el sistema del país y su consolidación en la visibilidad regional. ⚠️ No cubre la mercancía de las marcas del grupo: esa llega exclusivamente por la compra internacional (6.3 y 6.4) y la reposición desde el hub (6.6 y 6.7). Un país no puede resolver localmente un faltante de producto de marca, porque ningún proveedor local lo tiene. Tampoco incluye la recepción física ni el alta en inventario (macro 7, Logística y Operaciones): lo que compra este proceso no es mercancía y no entra al inventario del grupo — el proveedor entrega directamente al área que lo pidió, y es esa área la que da la conformidad. La excepción es lo que sí entra a bodega —un activo, o una compra de volumen—: ahí la recepción física sí es de Logística."
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Country Manager",
+     "dueno": "Gerente de Contabilidad / Administración",
      "participantes": [
-      "Country Manager — aprueba la compra local dentro del umbral del país y responde por el gasto local del período.",
-      "Asistente Administrativo(a) / Servicios Generales — detecta la necesidad, identifica proveedores locales, cotiza y registra la orden en el sistema del país. Es quien ejecuta el proceso en el día a día.",
+      "Área solicitante del país — detecta y solicita la necesidad, y después confirma que el bien llegó o el servicio se cumplió. Cada departamento tiene identificado quién firma por él.",
+      "Asistente Administrativo(a) / Servicios Generales — canaliza la solicitud, cotiza con proveedores locales y registra la orden en el sistema del país. Es quien ejecuta el proceso en el día a día.",
+      "Gerente de Contabilidad / Administración — aprueba la compra dentro del umbral del país y responde por el gasto local del período.",
       "Comité de Compras / Director de Compras — autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente.",
       "Coordinador(a) de Logística y Bodega — consolida las compras locales de los países para que el gasto tenga visibilidad regional y no quede solo en el sistema de cada uno."
      ],
      "evidencia": ["E-34", "E-59", "E-50"],
-     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función al Country Manager: quien ejecuta la compra no puede ser quien la aprueba. «Comité de Compras / Director de Compras» es denominación propuesta, sin equivalencia en el patrón V4.",
+     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función a la administración del país —quien ejecuta la compra no puede ser quien la aprueba—, y no al Country Manager: la evidencia sitúa la compra y el pago en quien lleva «compras, administración y finanzas» del país, y hacer firmar al máximo responsable cada insumo de oficina no es proporcionado. ⚠️ Se incorpora además el área solicitante, que en la versión anterior no aparecía: la necesidad nace donde se tiene, y es el área la que después confirma la conformidad del bien o servicio — el único control de recepción que la evidencia documenta. «Comité de Compras / Director de Compras» es denominación propuesta, sin equivalencia en el patrón V4.",
      "sin_evidencia": "No consta el umbral de aprobación de ningún país — el proceso lo incorpora como control, pero el monto lo tiene que fijar el equipo. Tampoco consta qué conceptos quedan dentro y cuáles escalan por naturaleza y no por monto (activos, contratos de arrendamiento, vehículos), aunque la evidencia muestra que hoy se deciden por la misma vía. El «proveedor Mundo» que el mapa cita para Venezuela se retiró: no aparece en ninguna de las 59 entrevistas."
     },
     "disparador": {
@@ -2010,26 +2011,32 @@ window.MANUAL_CONTENIDO = {
     },
     "flujo": {
      "estado": "borrador",
-     "evidencia": ["E-34", "E-59", "E-50"],
+     "evidencia": ["E-59", "E-34", "E-50"],
      "actividades": [
-      {"id": "a1", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Detecta la necesidad local de un bien o servicio que no es mercancía de marca: insumo de operación, mantenimiento, servicio, trámite o activo menor."},
-      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Identifica los proveedores locales disponibles y solicita cotización, verificando que el proveedor siga activo y sostenga el precio."},
-      {"id": "a3", "rol": "Country Manager", "texto": "Aprueba la compra cuando el monto queda dentro del umbral del país, y responde por ella ante el consolidado del período."},
-      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente — que es lo que hoy ya escala al hub."},
-      {"id": "a5", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden de compra en el sistema administrativo del país, con el concepto que permita clasificarla después."},
-      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida la compra local en la visibilidad regional del gasto, para que el grupo pueda ver qué se compra fuera del circuito central y dónde se repite."}
+      {"id": "a1", "rol": "Área solicitante del país", "texto": "Detecta y solicita el bien o servicio que necesita para operar: insumo, mantenimiento, servicio, trámite o activo menor. La necesidad nace donde se tiene, no en la función que compra."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Canaliza la solicitud, identifica los proveedores locales disponibles y pide cotización, verificando que el proveedor siga activo y sostenga el precio."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Aprueba la compra cuando no necesita subir al hub —proveedor ya habitual para ese concepto y monto dentro del umbral del país— y responde por ella ante el consolidado del período."},
+      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Autoriza la compra cuando escala al hub, por cualquiera de dos vías: porque implica cambiar de proveedor en un concepto recurrente —lo único que hoy escala de hecho, según la evidencia— o porque el monto supera el umbral del país, que es un control propuesto y cuyo importe queda por fijar."},
+      {"id": "a5", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Coloca la orden con el proveedor elegido una vez aprobada, confirmando precio, plazo de entrega y condiciones de pago. Es el paso que compromete al grupo frente al proveedor, y por eso va después de la aprobación y nunca antes."},
+      {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden en el sistema administrativo del país, con el concepto que permita clasificarla después y con el proveedor identificado para el ciclo de pago."},
+      {"id": "a7", "rol": "Proveedor local", "texto": "Entrega el bien o presta el servicio contratado, directamente al área que lo solicitó. En este circuito la mercancía no pasa por la bodega ni entra al inventario del grupo, así que no hay recepción logística que intermedie; la excepción es lo que sí entra a bodega —un activo, o una compra de volumen—, donde la recepción física es de Logística y aplica el macro 7."},
+      {"id": "a8", "rol": "Área solicitante del país", "texto": "Confirma por escrito que el bien llegó o que el servicio se cumplió, antes de que se autorice el pago. Es el único control de conformidad del proceso: sin él se paga contra factura y no contra entrega."},
+      {"id": "a9", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida la compra local en la visibilidad regional del gasto, para que el grupo pueda ver qué se compra fuera del circuito central y dónde se repite."}
      ],
      "diagrama": {
-      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Comité de Compras / Director de Compras", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Área solicitante del país", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Contabilidad / Administración", "Comité de Compras / Director de Compras", "Proveedor local", "Coordinador(a) de Logística y Bodega"],
       "nodos": [
-       {"id": "n0", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "inicio", "n": "Se detecta una necesidad local"},
-       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Identificar proveedores locales y cotizar"},
-       {"id": "n2", "carril": "Country Manager", "tipo": "decision", "n": "¿Supera el umbral del país?"},
-       {"id": "n3", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar la compra localmente"},
+       {"id": "n0", "carril": "Área solicitante del país", "tipo": "inicio", "n": "Un área necesita un bien o servicio"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Canalizar la solicitud y cotizar proveedores"},
+       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Requiere autorización del hub?"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aprobar dentro del umbral del país"},
        {"id": "n4", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Autorizar la compra desde el hub"},
-       {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el sistema del país", "sistemas": ["Sistema administrativo del país"]},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar la compra en la visibilidad regional"},
-       {"id": "n7", "carril": "Country Manager", "tipo": "fin", "n": "Compra local registrada y visible"}
+       {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Colocar la orden con el proveedor"},
+       {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el sistema del país", "sistemas": ["Sistema administrativo del país"]},
+       {"id": "n7", "carril": "Proveedor local", "tipo": "tarea", "n": "Entregar el bien o prestar el servicio"},
+       {"id": "n8", "carril": "Área solicitante del país", "tipo": "tarea", "n": "Confirmar que se recibió o se cumplió"},
+       {"id": "n9", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar en la visibilidad regional"},
+       {"id": "n10", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Compra registrada y conforme"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -2039,7 +2046,10 @@ window.MANUAL_CONTENIDO = {
        {"de": "n3", "a": "n5"},
        {"de": "n4", "a": "n5"},
        {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"}
       ]
      }
     },
@@ -2059,11 +2069,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Gasto en compra local por país y período", "Monto de compras locales del país en el período, con moneda y tasa fechada", "Mensual", "Country Manager", "Referencia de seguimiento"],
+      ["Gasto en compra local por país y período", "Monto de compras locales del país en el período, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "Referencia de seguimiento"],
       ["Compras que superaron el umbral", "Compras escaladas al hub ÷ compras locales del período", "Mensual", "Comité de Compras / Director de Compras", "Referencia — si tiende a cero, el umbral está alto"],
       ["Recurrencia por concepto", "Conceptos comprados localmente en más de dos ciclos seguidos ÷ conceptos del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "A la baja — la recurrencia delata una falla del circuito central"],
       ["Cobertura del consolidado regional", "Compras locales que llegan al consolidado ÷ compras locales registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
-      ["Tiempo desde la detección hasta la aprobación", "Fecha de aprobación − fecha de detección de la necesidad", "Por compra", "Country Manager", "Referencia — mide si el control entorpece la urgencia"]
+      ["Tiempo desde la detección hasta la aprobación", "Fecha de aprobación − fecha de detección de la necesidad", "Por compra", "Gerente de Contabilidad / Administración", "Referencia — mide si el control entorpece la urgencia"]
      ]
     }
    },
@@ -2075,14 +2085,15 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Coordinador(a) de Logística y Bodega",
+     "dueno": "Coordinador(a) de Logística y Bodega (país)",
      "participantes": [
-      "Coordinador(a) de Logística y Bodega — lleva el ciclo completo del país: revisa inventario y tránsito, arma el pedido con el archivo de reposición, sigue el embarque y recibe. Es dueño real del proceso, no solo ejecutor.",
+      "Coordinador(a) de Logística y Bodega (país) — lleva el ciclo completo del país: revisa inventario y tránsito, arma el pedido con el archivo de reposición, sigue el embarque y recibe. Es dueño real del proceso, no solo ejecutor.",
       "Comité de Compras / Director de Compras — revisa el pedido del país y asigna las cantidades finales contra la disponibilidad del hub. Es la misma figura que compone la compra de la marca representada (6.3) y confirma la de la marca propia (6.4).",
-      "Coordinador(a) Comercial — coordina con la bodega del hub la preparación del pedido y el cubicaje del contenedor, e informa tiempos y retrasos."
+      "Gerente Comercial (País / Canal) — en el hub, recibe las cantidades confirmadas y manda preparar el pedido. La reposición del país se tramita por la puerta comercial de la central, como un pedido de mayoreo.",
+      "Coordinador(a) de Logística y Bodega (hub) — prepara el pedido en la bodega de Zona Libre y lo cubica en el contenedor."
      ],
      "evidencia": ["E-40", "E-08", "E-34"],
-     "notas": "⚠️ La aprobación de cantidades cambia respecto al mapa v18, que la ponía en «Gerente Regional Comercial / Retail». La evidencia es explícita: quien revisa el pedido del país y confirma cuánto sale es el director que lleva las compras del grupo — el mismo de 6.3, 6.4 y 6.2. Es la quinta vez en este macroproceso que el mapa sitúa una decisión de compra en una gerencia regional y la evidencia la sitúa en la dirección de compras. ⚠️ Hoy esa asignación la decide una sola persona con criterio propio; «Comité de Compras» aparece en el rótulo como la instancia propuesta para que el reparto entre países tenga regla escrita — ver el riesgo correspondiente. ⚠️ Se retiró del alcance la frase que describía este proceso como «el proceso ancla» entrecomillada y atribuida al equipo de Compras: esa expresión no aparece en ninguna de las 59 entrevistas ni en la documentación de Lark.",
+     "notas": "⚠️ La aprobación de cantidades cambia respecto al mapa v18, que la ponía en «Gerente Regional Comercial / Retail». La evidencia es explícita: quien revisa el pedido del país y confirma cuánto sale es el director que lleva las compras del grupo — el mismo de 6.3, 6.4 y 6.2. Es la quinta vez en este macroproceso que el mapa sitúa una decisión de compra en una gerencia regional y la evidencia la sitúa en la dirección de compras. ⚠️ El tramo del hub también se corrige: el mapa lo atribuía a «Coordinador(a) Comercial», que en el censo es una coordinación de ventas al mayor del país que recibe, no del hub que despacha. La evidencia nombra a la gerencia comercial de mayoreo de la central, y además separa dos actos que estaban en una sola caja: mandar a preparar (comercial) y preparar y cubicar (bodega del hub). Los dos carriles de logística se distinguen con «(país)» y «(hub)» porque comparten cargo patrón y son personas distintas en extremos opuestos del flujo. ⚠️ Hoy esa asignación la decide una sola persona con criterio propio; «Comité de Compras» aparece en el rótulo como la instancia propuesta para que el reparto entre países tenga regla escrita — ver el riesgo correspondiente. ⚠️ Se retiró del alcance la frase que describía este proceso como «el proceso ancla» entrecomillada y atribuida al equipo de Compras: esa expresión no aparece en ninguna de las 59 entrevistas ni en la documentación de Lark.",
      "sin_evidencia": "No consta la regla con la que se reparte entre países cuando el hub no cubre el total: la evidencia muestra el criterio —no dejar corto al hub— pero no un orden de prelación entre países. Tampoco consta qué ocurre con lo que se pidió y no se asignó: si se arrastra al ciclo siguiente o se pierde."
     },
     "disparador": {
@@ -2097,24 +2108,26 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-40", "E-08", "E-34"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Al inicio de cada mes revisa el inventario disponible en el país, la mercancía en tránsito y lo que hay disponible en el hub de Zona Libre."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el pedido con un archivo de reposición formulado que propone cuánto pedir por producto para sostener la cobertura objetivo de tres a cuatro meses, por separado para cada marca. Revisa la propuesta antes de mandarla en vez de seguirla sin más: la venta histórica sobre la que calcula está deformada por los períodos en que no hubo mercancía."},
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Al inicio de cada mes revisa el inventario disponible en el país, la mercancía en tránsito y lo que hay disponible en el hub de Zona Libre."},
+      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Arma el pedido con un archivo de reposición formulado que propone cuánto pedir por producto para sostener la cobertura objetivo de tres a cuatro meses, por separado para cada marca. Revisa la propuesta antes de mandarla en vez de seguirla sin más: la venta histórica sobre la que calcula está deformada por los períodos en que no hubo mercancía."},
       {"id": "a3", "rol": "Comité de Compras / Director de Compras", "texto": "Revisa el pedido contra la disponibilidad del hub y asigna las cantidades finales, recortando lo que dejaría desabastecidos a los demás países. El país pide, pero no siempre recibe lo que pidió."},
-      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Coordina con la bodega del hub la preparación del pedido y el cubicaje del contenedor, e informa tiempos y retrasos. Lo que no entra en el contenedor queda para el ciclo siguiente."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento al tránsito y a la nacionalización preguntando al responsable del embarque cuándo salió y cuándo llega: no hay seguimiento automático que avise."},
-      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Recibe la mercancía en el país y la confirma contra lo asignado, dejando registro de faltantes y discrepancias para el reclamo."}
+      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Recibe las cantidades ya confirmadas y manda preparar el pedido en la bodega del hub. La reposición entra por la puerta comercial de la central y no directamente por la bodega, porque se tramita como un pedido de mayoreo: el país es, a efectos operativos, un cliente del hub."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega (hub)", "texto": "Prepara el pedido y lo cubica en el contenedor. Lo que no entra en el volumen disponible —y casi siempre queda algo, porque el cúbico no cuadra exacto— se queda para el ciclo siguiente."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Da seguimiento al tránsito y a la nacionalización preguntando al responsable del embarque cuándo salió y cuándo llega: no hay seguimiento automático que avise."},
+      {"id": "a7", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Recibe la mercancía en el país y la confirma contra lo asignado, dejando registro de faltantes y discrepancias para el reclamo."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Comité de Compras / Director de Compras", "Coordinador(a) Comercial"],
+      "carriles": ["Coordinador(a) de Logística y Bodega (país)", "Comité de Compras / Director de Compras", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega (hub)"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Inicio de mes: arranca la reposición"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y hub"},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el pedido con el archivo formulado", "sistemas": ["Archivo de reposición (Excel)", "Odoo"]},
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "inicio", "n": "Inicio de mes: arranca la reposición"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y hub"},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Armar el pedido con el archivo formulado", "sistemas": ["Archivo de reposición (Excel)", "Odoo"]},
        {"id": "n3", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Asignar las cantidades finales"},
-       {"id": "n4", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Coordinar la preparación y el cubicaje"},
-       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Seguir el tránsito y la nacionalización"},
-       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Recibir y confirmar contra lo asignado"},
-       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Cobertura del país restablecida"}
+       {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Mandar a preparar el pedido en el hub"},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega (hub)", "tipo": "tarea", "n": "Preparar y cubicar el contenedor"},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Seguir el tránsito y la nacionalización"},
+       {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Recibir y confirmar contra lo asignado"},
+       {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "fin", "n": "Cobertura del país restablecida"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -2123,7 +2136,8 @@ window.MANUAL_CONTENIDO = {
        {"de": "n3", "a": "n4"},
        {"de": "n4", "a": "n5"},
        {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"}
       ]
      }
     },
@@ -2143,11 +2157,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cobertura de inventario del país", "Inventario disponible + tránsito ÷ venta mensual promedio", "Mensual", "Coordinador(a) de Logística y Bodega", "Entre 3 y 4 meses"],
+      ["Cobertura de inventario del país", "Inventario disponible + tránsito ÷ venta mensual promedio", "Mensual", "Coordinador(a) de Logística y Bodega (país)", "Entre 3 y 4 meses"],
       ["Proporción asignada sobre lo pedido", "Unidades asignadas ÷ unidades pedidas por el país", "Mensual", "Comité de Compras / Director de Compras", "A la alza — mide cuánto del pedido sobrevive al reparto"],
-      ["Unidades que quedaron fuera por cúbico", "Unidades asignadas y no embarcadas ÷ unidades asignadas", "Por embarque", "Coordinador(a) Comercial", "A la baja"],
-      ["Ciclo total del pedido", "Fecha de recepción en el país − fecha de armado del pedido", "Mensual", "Coordinador(a) de Logística y Bodega", "Entre 1 y 1,5 meses"],
-      ["Discrepancias detectadas en recepción", "Líneas con faltante o diferencia ÷ líneas recibidas", "Mensual", "Coordinador(a) de Logística y Bodega", "A la baja"]
+      ["Unidades que quedaron fuera por cúbico", "Unidades asignadas y no embarcadas ÷ unidades asignadas", "Por embarque", "Coordinador(a) de Logística y Bodega (hub)", "A la baja"],
+      ["Ciclo total del pedido", "Fecha de recepción en el país − fecha de armado del pedido", "Mensual", "Coordinador(a) de Logística y Bodega (país)", "Entre 1 y 1,5 meses"],
+      ["Discrepancias detectadas en recepción", "Líneas con faltante o diferencia ÷ líneas recibidas", "Mensual", "Coordinador(a) de Logística y Bodega (país)", "A la baja"]
      ]
     }
    },
