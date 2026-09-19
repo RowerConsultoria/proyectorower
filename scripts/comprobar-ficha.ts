@@ -448,3 +448,126 @@ Deno.test("una ficha nueva de cero sigue guardándose entera", async () => {
   }
   if (f.estado !== "en_progreso") throw new Error("estado " + f.estado);
 });
+
+// ============================================================
+//  `base`: distinguir el borrado QUERIDO del accidental
+//
+//  La primera versión del arreglo protegía todo blanco, y con eso impedía
+//  también lo legítimo: quien añadía una posición anterior por error y la
+//  borraba se la encontraba de vuelta. Ahora el navegador manda lo que CARGÓ
+//  (`base`) y el servidor compara: si el formulario tenía delante el valor
+//  guardado y la persona lo dejó en blanco, se obedece; si nunca lo pintó, no.
+// ============================================================
+
+Deno.test("base: un blanco SOBRE lo que el formulario enseñó SÍ borra", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  const cargada = { ...FICHA_LLENA };                       // lo que el formulario vio
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, otras_formaciones: "" },
+    base: cargada,
+  });
+  if (fichas[0].otras_formaciones !== null) {
+    throw new Error("no obedecio el borrado: " + JSON.stringify(fichas[0].otras_formaciones));
+  }
+});
+
+Deno.test("base: un blanco de algo que el formulario NUNCA vio no borra", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  // el formulario cargo la ficha RECORTADA (el fallo original) y reenvia ""
+  const recortada = { ...FICHA_LLENA, otras_formaciones: "", titulo_obtenido: "" };
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: recortada, base: recortada,
+  });
+  if (fichas[0].otras_formaciones !== "Diplomado en logística") {
+    throw new Error("borro otras_formaciones: " + JSON.stringify(fichas[0].otras_formaciones));
+  }
+  if (fichas[0].titulo_obtenido !== "Ing. Industrial") {
+    throw new Error("borro titulo_obtenido: " + JSON.stringify(fichas[0].titulo_obtenido));
+  }
+});
+
+Deno.test("base: SIN base (pestaña con el HTML viejo en cache) se protege", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, institucion: "" },              // sin `base`
+  });
+  if (fichas[0].institucion !== "UCAB") {
+    throw new Error("sin base deberia proteger, y borro: " + JSON.stringify(fichas[0].institucion));
+  }
+});
+
+Deno.test("base: borrar TODAS las posiciones anteriores a proposito SÍ vacia la lista", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, posiciones_previas: [] },
+    base: { ...FICHA_LLENA },
+  });
+  const previas = fichas[0].posiciones_previas as unknown[];
+  if (previas.length !== 0) throw new Error("no las quito: " + JSON.stringify(previas));
+});
+
+Deno.test("base: pero si el formulario no las pinto, siguen ahi", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  const sinPrevias = { ...FICHA_LLENA, posiciones_previas: [] };
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: sinPrevias, base: sinPrevias,
+  });
+  const previas = fichas[0].posiciones_previas as unknown[];
+  if (previas.length !== 1) throw new Error("las perdio: " + JSON.stringify(previas));
+});
+
+Deno.test("base: poner un nivel de skill en «—» a proposito SÍ lo quita", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  const hab = { ...(FICHA_LLENA.habilidades as Record<string, unknown>), lark: "" };
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, habilidades: hab }, base: { ...FICHA_LLENA },
+  });
+  const h = fichas[0].habilidades as Record<string, unknown>;
+  if ("lark" in h) throw new Error("no lo quito: " + JSON.stringify(h));
+  if (h.excel !== "avanzado") throw new Error("se llevo por delante otro nivel: " + JSON.stringify(h));
+});
+
+Deno.test("base desfasada (otra persona cambio el campo entretanto): no se pisa", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA });
+  // el gerente, en otra pestaña, corrige la institucion
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, institucion: "UCV" }, base: { ...FICHA_LLENA },
+  });
+  // la primera pestaña, que cargo "UCAB", manda el campo en blanco
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, institucion: "" }, base: { ...FICHA_LLENA },
+  });
+  if (fichas[0].institucion !== "UCV") {
+    throw new Error("piso el cambio del otro: " + JSON.stringify(fichas[0].institucion));
+  }
+});
+
+Deno.test("base: no rompe el caso normal — llenar de cero y editar despues", async () => {
+  sembrar();
+  await llamar({ accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana", ficha: FICHA_LLENA, base: null });
+  for (const k of Object.keys(FICHA_LLENA)) {
+    if (JSON.stringify(fichas[0][k]) !== JSON.stringify(FICHA_LLENA[k])) {
+      throw new Error(k + " no se guardo: " + JSON.stringify(fichas[0][k]));
+    }
+  }
+  await llamar({
+    accion: "guardar", token: "tk-ana-ind", persona_id: "p-ana",
+    ficha: { ...FICHA_LLENA, institucion: "UCV" }, base: { ...FICHA_LLENA },
+  });
+  if (fichas[0].institucion !== "UCV") throw new Error("no dejo editar: " + JSON.stringify(fichas[0].institucion));
+});

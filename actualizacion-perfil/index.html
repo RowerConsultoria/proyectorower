@@ -227,11 +227,19 @@ function rotuloEstado(e) {
    --------------------------------------------------------------- */
 let ACTUAL_PERSONA_ID = null;
 let ACTUAL_ROSTER = null;
+/* La ficha tal y como llegó del servidor. Viaja de vuelta en cada guardado como
+   `base`: es lo que le permite al servidor saber si un campo en blanco es una
+   decisión de la persona (lo tenía delante y lo borró) o el rastro de un
+   formulario que no llegó a pintarlo. Sin esto, la protección del servidor
+   impide también los borrados queridos — y quien añadía una posición anterior
+   por error se la encontraba de vuelta. */
+let FICHA_BASE = null;
 
 function renderFormulario(persona, ficha, roster) {
   ACTUAL_PERSONA_ID = persona.id;
   ACTUAL_ROSTER = roster;
   ficha = ficha || {};
+  FICHA_BASE = JSON.parse(JSON.stringify(ficha));
   const resp = (Array.isArray(ficha.responsabilidades) && ficha.responsabilidades.length ? ficha.responsabilidades : [""]);
   const previas = Array.isArray(ficha.posiciones_previas) ? ficha.posiciones_previas : [];
   const hab = (ficha.habilidades && typeof ficha.habilidades === "object") ? ficha.habilidades : {};
@@ -417,14 +425,19 @@ async function enviar(personaId, accion, roster) {
   const textoOriginal = btn.textContent;
   btn.textContent = accion === "guardar" ? "Guardando…" : "Enviando…";
   try {
-    const d = await pedir(accion, { persona_id: personaId, ficha: leerFicha() });
+    const enviada = leerFicha();
+    const d = await pedir(accion, { persona_id: personaId, ficha: enviada, base: FICHA_BASE });
     if (d.error) {
       aviso.innerHTML = `<div class="aviso err">${esc(d.error)}${d.faltan ? "<ul>" + d.faltan.map(x => `<li>${esc(x)}</li>`).join("") + "</ul>" : ""}</div>`;
     } else if (accion === "completar") {
+      /* Lo guardado pasa a ser la nueva base: si no, un segundo borrado sobre
+         el mismo campo ya no se reconocería como querido. */
+      FICHA_BASE = JSON.parse(JSON.stringify(enviada));
       aviso.innerHTML = `<div class="aviso ok">✅ Ficha marcada como completada. ¡Gracias!</div>`;
       marcaGuardado("Entregada " + new Date().toLocaleTimeString("es"));
       anotarEstado(roster, personaId, "completada");
     } else {
+      FICHA_BASE = JSON.parse(JSON.stringify(enviada));
       marcaGuardado("Guardado " + new Date().toLocaleTimeString("es"));
       anotarEstado(roster, personaId, "en_progreso");
     }
@@ -452,7 +465,9 @@ document.addEventListener("input", (e) => {
   debTimer = setTimeout(async () => {
     if (personaId !== ACTUAL_PERSONA_ID || !$("#frm")) return;
     try {
-      await pedir("guardar", { persona_id: personaId, ficha: leerFicha() });
+      const enviada = leerFicha();
+      await pedir("guardar", { persona_id: personaId, ficha: enviada, base: FICHA_BASE });
+      FICHA_BASE = JSON.parse(JSON.stringify(enviada));
       marcaGuardado("Guardado automático " + new Date().toLocaleTimeString("es"));
     } catch (err) {
       /* Antes esto se tragaba el error y la persona seguía escribiendo creyendo

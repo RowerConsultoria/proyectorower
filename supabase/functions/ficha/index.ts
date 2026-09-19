@@ -25,8 +25,12 @@
 // Entrada:  POST { accion, token, ... }
 //   abrir     { token }                          → { tipo, persona, equipo? }
 //   cargar    { token, persona_id }               → { persona, ficha }
-//   guardar   { token, persona_id, ficha }        → { ok: true }
-//   completar { token, persona_id, ficha }        → { ok: true } | { error, faltan: [...] }
+//   guardar   { token, persona_id, ficha, base } → { ok: true }
+//   completar { token, persona_id, ficha, base } → { ok: true } | { error, faltan: [...] }
+//
+//   `base` es la ficha tal y como la CARGÓ el navegador. Es lo que deja al
+//   servidor distinguir «la persona borró esto» de «el formulario nunca lo
+//   pintó». Sin `base` se protege el valor guardado.
 //
 // Deploy:  supabase functions deploy ficha --no-verify-jwt --project-ref <ref>
 // ============================================================
@@ -229,6 +233,12 @@ const CAMPOS_TEXTO = [
 ];
 const CLAVES_SKILL = ["excel", "odoo", "lark", "powerbi", "ia"];
 
+/** null cuando el llamante no mandó nada (una pestaña con el HTML viejo). */
+function limpiarBase(entrada: unknown): Record<string, unknown> | null {
+  if (!entrada || typeof entrada !== "object") return null;
+  return limpiarFicha(entrada);
+}
+
 function limpiarFicha(entrada: unknown): Record<string, unknown> {
   const f = (entrada && typeof entrada === "object") ? entrada as Record<string, unknown> : {};
   const limpio: Record<string, unknown> = {};
@@ -250,11 +260,10 @@ const txt = (v: unknown): string => (typeof v === "string" ? v.trim() : "");
  * sacarlos. Aquí se cierra por el lado del servidor, para que un fallo del
  * navegador no vuelva a poder vaciar la base.
  *
- * ⚠️ El precio: desde aquí NO se puede dejar en blanco un campo que ya tenía
- * texto (hay que corregirlo con otro texto). Es deliberado: en una recogida de
- * datos, un borrado accidental cuesta mucho más que un borrado impedido. Para
- * vaciarlo de verdad está el panel, y todo cambio queda en
- * `fichas_perfil_historial`.
+ * Un blanco SÍ borra cuando el formulario había cargado y enseñado el valor
+ * guardado —eso es la persona decidiendo—; ver `loVio()`. Lo que no puede
+ * borrar es un blanco de un campo que el formulario nunca llegó a pintar, que
+ * es lo que pasaba. Todo cambio queda además en `fichas_perfil_historial`.
  *
  * Además nunca devuelve "" sino null: el `check` de `nivel_educativo` rechaza
  * la cadena vacía, y por eso un guardado hecho antes de marcar el nivel
@@ -263,27 +272,51 @@ const txt = (v: unknown): string => (typeof v === "string" ? v.trim() : "");
 function fundirFicha(
   entra: Record<string, unknown>,
   previa: Record<string, unknown> | null,
+  base: Record<string, unknown> | null,
 ): Record<string, unknown> {
   const p = previa ?? {};
   const out: Record<string, unknown> = {};
 
+  /**
+   * ¿El navegador tenía delante lo que hay guardado cuando la persona lo borró?
+   *
+   * Es lo que separa un borrado querido de uno accidental. Si el formulario
+   * cargó «Ing. Industrial», lo enseñó, y la persona lo dejó en blanco, hay que
+   * obedecer. Si el formulario nunca vio ese texto —porque llegó recortado, que
+   * es exactamente lo que pasaba— entonces el blanco no es una decisión de
+   * nadie y no puede borrar nada.
+   *
+   * Sin `base` (una pestaña con el HTML viejo en caché) se protege, como antes.
+   * De paso cubre el choque entre dos personas: si alguien más cambió el campo
+   * desde que esta pestaña cargó, `base` ya no coincide y no se pisa.
+   */
+  const loVio = (c: string): boolean => {
+    if (!base) return false;
+    const a = base[c], b = p[c];
+    if (typeof a === "string" || typeof b === "string" || a == null || b == null) {
+      return txt(a) === txt(b);
+    }
+    return JSON.stringify(a) === JSON.stringify(b);
+  };
+
   for (const c of CAMPOS_TEXTO) {
     if (!(c in entra) && !(c in p)) continue;
-    out[c] = txt(entra[c]) || txt(p[c]) || null;
+    const v = txt(entra[c]);
+    out[c] = v || (loVio(c) ? null : (txt(p[c]) || null));
   }
 
   if ("responsabilidades" in entra || "responsabilidades" in p) {
     const e = (Array.isArray(entra.responsabilidades) ? entra.responsabilidades : [])
       .filter((r) => txt(r));
     const g = Array.isArray(p.responsabilidades) ? p.responsabilidades : [];
-    out.responsabilidades = e.length ? e : g;
+    out.responsabilidades = e.length ? e : (loVio("responsabilidades") ? [] : g);
   }
 
   if ("posiciones_previas" in entra || "posiciones_previas" in p) {
     const g = (Array.isArray(p.posiciones_previas) ? p.posiciones_previas : []) as Record<string, unknown>[];
     const e = (Array.isArray(entra.posiciones_previas) ? entra.posiciones_previas : []) as Record<string, unknown>[];
     if (!e.length) {
-      out.posiciones_previas = g;
+      out.posiciones_previas = loVio("posiciones_previas") ? [] : g;
     } else {
       /* Se emparejan por `cargo` y no por posición: así rellenar un hueco no
          puede resucitar la fila que la persona acaba de borrar ni mezclar dos
@@ -304,16 +337,23 @@ function fundirFicha(
   if ("habilidades" in entra || "habilidades" in p) {
     const ge = (p.habilidades && typeof p.habilidades === "object") ? p.habilidades as Record<string, unknown> : {};
     const ee = (entra.habilidades && typeof entra.habilidades === "object") ? entra.habilidades as Record<string, unknown> : {};
+    const bh = (base?.habilidades && typeof base.habilidades === "object")
+      ? base.habilidades as Record<string, unknown> : null;
+    /* Igual que arriba pero clave a clave: un nivel que el formulario enseñó y
+       la persona puso en «—» sí se quita. */
+    const vioSkill = (k: string) => !!bh && txt(bh[k]) === txt(ge[k]);
     const hab: Record<string, unknown> = { ...ge, ...ee };
     for (const k of CLAVES_SKILL) {
-      const v = txt(ee[k]) || txt(ge[k]);
+      const v = txt(ee[k]) || (vioSkill(k) ? "" : txt(ge[k]));
       if (v) hab[k] = v; else delete hab[k];
     }
     const otraE = (ee.otra && typeof ee.otra === "object") ? ee.otra as Record<string, unknown> : {};
     const otraG = (ge.otra && typeof ge.otra === "object") ? ge.otra as Record<string, unknown> : {};
+    const otraB = (bh?.otra && typeof bh.otra === "object") ? bh.otra as Record<string, unknown> : null;
+    const vioOtra = !!otraB && txt(otraB.nombre) === txt(otraG.nombre) && txt(otraB.nivel) === txt(otraG.nivel);
     const otra = {
-      nombre: txt(otraE.nombre) || txt(otraG.nombre),
-      nivel: txt(otraE.nivel) || txt(otraG.nivel),
+      nombre: txt(otraE.nombre) || (vioOtra ? "" : txt(otraG.nombre)),
+      nivel: txt(otraE.nivel) || (vioOtra ? "" : txt(otraG.nivel)),
     };
     if (otra.nombre || otra.nivel) hab.otra = otra; else delete hab.otra;
     out.habilidades = hab;
@@ -353,7 +393,7 @@ async function guardar(b: Record<string, unknown>): Promise<Response> {
   }
 
   const previa = await fichaPrevia(personaId);
-  const campos = fundirFicha(limpiarFicha(b.ficha), previa);
+  const campos = fundirFicha(limpiarFicha(b.ficha), previa, limpiarBase(b.base));
   /* Un guardado NUNCA degrada una ficha ya entregada. El formulario autoguarda
      2 s después de cada tecla, y ese autoguardado llegaba detrás del botón
      «Marcar como completada» y la devolvía a «en progreso»: 48 fichas quedaron
@@ -397,7 +437,7 @@ async function completar(b: Record<string, unknown>): Promise<Response> {
   /* Se valida lo FUNDIDO, no lo que llega: si el navegador mandó un campo en
      blanco que ya estaba guardado, la ficha sigue completa y no hay por qué
      rechazarla. */
-  const campos = fundirFicha(limpiarFicha(b.ficha), previa);
+  const campos = fundirFicha(limpiarFicha(b.ficha), previa, limpiarBase(b.base));
   const falta = faltantes(campos);
   if (falta.length) return json({ error: "Faltan campos obligatorios para completar la ficha.", faltan: falta }, 400);
 
