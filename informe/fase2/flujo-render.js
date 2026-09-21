@@ -19,10 +19,14 @@
 
   var NS = "http://www.w3.org/2000/svg";
   var COL_W = 210;      // ancho de columna (paso del flujo)
-  var LANE_H = 118;     // alto de carril
+  var LANE_H = 132;     // alto de carril (da sitio al rombo más alto)
   var NODE_W = 158;     // ancho de caja de tarea
   var NODE_H = 56;
-  var DIAM = 62;        // lado del rombo de decisión
+  var DIAM = 62;        // lado MÍNIMO del rombo de decisión; crece con su texto
+  var ROMBO_CAR = 13;   // caracteres por línea dentro del rombo
+  var ROMBO_LIN = 4;    // líneas que admite antes de recortar
+  var ROMBO_W = 180;    // ancho máximo, para no invadir la columna vecina
+  var ROMBO_H = 118;
   var EVT = 34;         // diámetro de evento
   var PAD_L = 190;      // margen izquierdo (rótulos de carril)
   var PAD_T = 34;
@@ -33,15 +37,22 @@
   }
 
   // parte un texto en <= 2-3 líneas para caber en la caja
-  function lineas(txt, max) {
+  function lineas(txt, max, tope) {
     max = max || 22;
+    tope = tope || 3;
     var pals = String(txt).split(/\s+/), out = [], cur = "";
     pals.forEach(function (p) {
       if ((cur + " " + p).trim().length > max && cur) { out.push(cur); cur = p; }
       else cur = (cur ? cur + " " : "") + p;
     });
     if (cur) out.push(cur);
-    return out.slice(0, 3);
+    // Lo que no cabe se marca. Cortar en seco hace desaparecer texto sin que nadie
+    // lo note, que es lo que pasaba con las preguntas largas de los rombos.
+    if (out.length > tope) {
+      out = out.slice(0, tope);
+      out[tope - 1] = out[tope - 1].replace(/\s*\S*$/, "") + "\u2026";
+    }
+    return out;
   }
 
   // --- layout por capas: columna = camino más largo desde un inicio ---
@@ -93,13 +104,25 @@
       var total = celda[k], ord = (usoCelda[k] = (usoCelda[k] || 0) + 1) - 1;
       var cx = PAD_L + ci * COL_W + COL_W / 2;
       var baseY = PAD_T + li * LANE_H + LANE_H / 2;
-      var cy = baseY + (ord - (total - 1) / 2) * 62;
+      var cy = baseY + (ord - (total - 1) / 2) * 74;
       pos[n.id] = { x: cx, y: cy, col: ci, lane: li };
     });
 
     var w = PAD_L + (maxC + 1) * COL_W + 30;
     var h = PAD_T + flujo.carriles.length * LANE_H + 20;
     return { pos: pos, w: w, h: h, maxC: maxC, carrilIdx: carrilIdx, idx: idx };
+  }
+
+  // Dimensiona el rombo con su pregunta. En un rombo el rectángulo inscrito mide
+  // la mitad de cada diagonal: para que quepa un texto de w x h hacen falta
+  // diagonales de 2w y 2h. Con un rombo fijo, todo texto que pase de dos palabras
+  // se sale por los cuatro lados.
+  function medidaRombo(n) {
+    if (n._rls) return;
+    n._rls = lineas(n.n, ROMBO_CAR, ROMBO_LIN);
+    var anchoT = Math.max.apply(null, n._rls.map(function (t) { return t.length * 6.3; }));
+    n._rw = Math.max(DIAM, Math.min(ROMBO_W, 2 * anchoT + 18));
+    n._rh = Math.max(DIAM, Math.min(ROMBO_H, 2 * n._rls.length * 12 + 16));
   }
 
   function nodoSVG(n, p) {
@@ -112,10 +135,11 @@
         out += '<text class="fx-evt-t" x="' + p.x + '" y="' + (p.y + EVT / 2 + 13 + i * 12) + '" text-anchor="middle">' + esc(t) + '</text>';
       });
     } else if (n.tipo === "decision") {
-      var d = DIAM / 2;
-      out += '<path class="' + cls + '" d="M' + p.x + ',' + (p.y - d) + ' L' + (p.x + d) + ',' + p.y +
-        ' L' + p.x + ',' + (p.y + d) + ' L' + (p.x - d) + ',' + p.y + ' Z"/>';
-      lineas(n.n, 16).forEach(function (t, i, a) {
+      medidaRombo(n);
+      var dx = n._rw / 2, dy = n._rh / 2;
+      out += '<path class="' + cls + '" d="M' + p.x + ',' + (p.y - dy) + ' L' + (p.x + dx) + ',' + p.y +
+        ' L' + p.x + ',' + (p.y + dy) + ' L' + (p.x - dx) + ',' + p.y + ' Z"><title>' + esc(n.n) + '</title></path>';
+      n._rls.forEach(function (t, i, a) {
         out += '<text class="fx-nodo-t" x="' + p.x + '" y="' + (p.y - (a.length - 1) * 6 + i * 12) + '" text-anchor="middle">' + esc(t) + '</text>';
       });
     } else {
@@ -132,39 +156,95 @@
     return out;
   }
 
-  function aristaSVG(e, L) {
+  // Reparte las salidas etiquetadas de cada nodo entre sus vértices: la primera
+  // por la derecha y las demás por arriba o por abajo, según adonde vayan; si a un
+  // lado le tocan varias, se escalonan. Sin esto dos ramas salen por el mismo
+  // punto y sus etiquetas no se pueden atribuir: el rombo parece tener una sola
+  // salida aunque las dos estén dibujadas.
+  function ramasDecision(flujo, L) {
+    var porNodo = {}, out = [];
+    flujo.aristas.forEach(function (e, i) {
+      out[i] = null;
+      if (!e.etq) return;
+      (porNodo[e.de] = porNodo[e.de] || []).push(i);
+    });
+    Object.keys(porNodo).forEach(function (id) {
+      var a = L.pos[id], usados = { arriba: 0, abajo: 0 };
+      porNodo[id].forEach(function (idx, n) {
+        if (n === 0) { out[idx] = { lado: "der", k: 0 }; return; }
+        var b = L.pos[flujo.aristas[idx].a];
+        var lado = (b && a && b.y < a.y) ? "arriba" : "abajo";
+        out[idx] = { lado: lado, k: usados[lado]++ };
+      });
+    });
+    return out;
+  }
+
+  function aristaSVG(e, L, rama) {
     var a = L.pos[e.de], b = L.pos[e.a];
     if (!a || !b) return "";
     var na = L.idx[e.de], nb = L.idx[e.a];
     var ax = a.x + anchoNodo(na) / 2, bx = b.x - anchoNodo(nb) / 2;
-    var d;
+    var d, etqP;
+    // Rama que no sale por la derecha: usa el vértice de arriba o el de abajo, con
+    // su escalón si a ese lado le tocó más de una.
+    if (rama && rama.lado !== "der" && b.col > a.col) {
+      var sube = rama.lado === "arriba";
+      var ey = sube ? a.y - altoNodo(na) / 2 : a.y + altoNodo(na) / 2;
+      var sep = 24 + rama.k * 34;
+      var y1 = sube ? ey - sep : ey + sep;
+      d = "M" + a.x + "," + ey + " V" + y1 + " H" + (bx - 14) + " V" + b.y + " H" + bx;
+      etqP = { x: a.x + 22, y: y1 + (sube ? -7 : 15) };
+      var etq2 = '<text class="fx-etq" x="' + etqP.x + '" y="' + etqP.y + '" text-anchor="middle">' + esc(e.etq) + '</text>';
+      return '<path class="fx-arista" d="' + d + '" marker-end="url(#fxflecha)"/>' + etq2;
+    }
     if (b.col > a.col) {
-      var midx = (ax + bx) / 2;
-      d = "M" + ax + "," + a.y + " H" + midx + " V" + b.y + " H" + bx;
+      // ¿hay un nodo en medio y a la misma altura? La recta lo atravesaría, y la
+      // rama larga de un rombo se vería como si no saliera de él.
+      // El trazado lleva dos tramos horizontales, uno a la altura de salida y otro
+      // a la de llegada. Basta con que un nodo intermedio estorbe UNO de los dos
+      // para que la rama lo atraviese y su flecha quede tapada detrás de la caja.
+      var choca = false;
+      Object.keys(L.pos).forEach(function (id) {
+        if (id === e.de || id === e.a) return;
+        var p = L.pos[id];
+        if (p.col <= a.col || p.col >= b.col) return;
+        // El trazado son tres tramos: sale en horizontal a la altura de salida,
+        // baja o sube en vertical por el centro, y entra en horizontal a la de
+        // llegada. Un nodo intermedio puede estorbar cualquiera de los tres, y el
+        // vertical es el que se escapaba: un nodo en un carril de en medio queda
+        // justo sobre esa bajada.
+        var cerca = Math.abs(p.y - a.y) < 34 || Math.abs(p.y - b.y) < 34;
+        var enMedio = p.y > Math.min(a.y, b.y) && p.y < Math.max(a.y, b.y);
+        if (cerca || enMedio) choca = true;
+      });
+      if (choca) {
+        var yr = Math.min(a.y, b.y) - 40;  // rodea por encima de las dos alturas
+        d = "M" + ax + "," + a.y + " h10 V" + yr + " H" + (bx - 10) + " V" + b.y + " H" + bx;
+      } else {
+        var midx = (ax + bx) / 2;
+        d = "M" + ax + "," + a.y + " H" + midx + " V" + b.y + " H" + bx;
+      }
+      // La etiqueta se ancla SIEMPRE a la salida del nodo, también cuando la rama
+      // rodea: si viaja con el trazado acaba a dos carriles de su propio rombo.
+      etqP = { x: ax + 26, y: a.y - 8 };
     } else if (b.col === a.col) {
       // mismo nivel, distinto carril
       d = "M" + a.x + "," + (a.y + altoNodo(na) / 2) + " V" + (b.y - altoNodo(nb) / 2);
+      etqP = { x: a.x + 22 + (rama ? rama.k : 0) * 48, y: a.y + altoNodo(na) / 2 + 16 };
     } else {
       // retorno (loop-back): sale por abajo, va a la izquierda, sube
       var y0 = a.y + altoNodo(na) / 2 + 16;
       d = "M" + a.x + "," + (a.y + altoNodo(na) / 2) + " V" + y0 +
         " H" + (b.x - anchoNodo(nb) / 2 - 24) + " V" + b.y + " H" + (b.x - anchoNodo(nb) / 2);
+      etqP = { x: a.x + 22 + (rama ? rama.k : 0) * 48, y: y0 - 6 };
     }
-    var mid = puntoMedio(d);
-    var etq = e.etq ? '<text class="fx-etq" x="' + mid.x + '" y="' + (mid.y - 5) + '" text-anchor="middle">' + esc(e.etq) + '</text>' : "";
+    var etq = e.etq ? '<text class="fx-etq" x="' + etqP.x + '" y="' + etqP.y + '" text-anchor="middle">' + esc(e.etq) + '</text>' : "";
     return '<path class="fx-arista" d="' + d + '" marker-end="url(#fxflecha)"/>' + etq;
   }
 
-  function anchoNodo(n) { return n.tipo === "decision" ? DIAM : (n.tipo === "inicio" || n.tipo === "fin" ? EVT : NODE_W); }
-  function altoNodo(n) { return n.tipo === "decision" ? DIAM : (n.tipo === "inicio" || n.tipo === "fin" ? EVT : NODE_H); }
-  function puntoMedio(d) {
-    var nums = d.match(/-?\d+(\.\d+)?/g).map(Number);
-    // aproxima con el punto medio de la lista de coordenadas
-    var xs = [], ys = [];
-    for (var i = 0; i < nums.length - 1; i += 2) { xs.push(nums[i]); ys.push(nums[i + 1]); }
-    return { x: xs[Math.floor(xs.length / 2)], y: ys[Math.floor(ys.length / 2)] };
-  }
-
+  function anchoNodo(n) { if (n.tipo === "decision") { medidaRombo(n); return n._rw; } return n.tipo === "inicio" || n.tipo === "fin" ? EVT : NODE_W; }
+  function altoNodo(n) { if (n.tipo === "decision") { medidaRombo(n); return n._rh; } return n.tipo === "inicio" || n.tipo === "fin" ? EVT : NODE_H; }
   function svg(flujo) {
     if (!flujo || !flujo.nodos || !flujo.nodos.length) return "";
     var L = disponer(flujo);
@@ -182,7 +262,8 @@
       });
     });
 
-    flujo.aristas.forEach(function (e) { s += aristaSVG(e, L); });
+    var ramas = ramasDecision(flujo, L);
+    flujo.aristas.forEach(function (e, i) { s += aristaSVG(e, L, ramas[i]); });
     flujo.nodos.forEach(function (n) { s += nodoSVG(n, L.pos[n.id]); });
     s += "</svg>";
     return s;

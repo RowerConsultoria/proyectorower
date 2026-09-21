@@ -2643,56 +2643,85 @@ window.MANUAL_CONTENIDO = {
    "8.1": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la construcción del forecast de venta al mayor por vendedor, cliente, marca y país, su validación, la bajada de cuotas mensuales/trimestrales/anuales y el ajuste trimestral por cumplimiento y calendario comercial. No incluye la planificación de compra ni el allocation de inventario (proceso 6.1, S&OP), que es un macroproceso distinto aunque toma este forecast como insumo.",
-     "nota_estado": "Este proceso es «to-be»: la cadencia y el detalle de la proyección varían hoy por país —algunos ya trabajan trimestral con colchón de ajuste, otros siguen con una proyección anual heredada—, sin un estándar regional único todavía adoptado."
+     "texto": "Cubre la construcción del forecast de venta al mayor por vendedor, cliente, marca y país, su consolidación regional, la aprobación del plan antes de que se convierta en compromiso, la bajada de cuotas mensuales/trimestrales/anuales y el ajuste trimestral por cumplimiento y calendario comercial. No incluye la planificación de compra ni la asignación de inventario (proceso 6.1), que toma este forecast como insumo pero es un macroproceso distinto.",
+     "nota_estado": "Este proceso es «to-be» en su cadencia: hoy varía por país —algunos ya trabajan trimestral con colchón de ajuste, otros siguen con una proyección anual heredada—, sin un estándar regional único todavía adoptado."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial (Mayoreo)",
+     "participantes": [
+      "Gerente Regional Comercial (Mayoreo) — fija la base y el crecimiento del ciclo, consolida el plan regional y lo revisa cada trimestre contra el cumplimiento real.",
+      "Gerente Comercial (País / Canal) — consolida el forecast de su mercado con su equipo de vendedores y baja después la cuota individual con el calendario comercial.",
+      "Country Manager — avala el forecast de su mercado antes de que suba a consolidación regional y responde por ese número. Aporta el contexto local que la región no ve: reglas del mercado, calendario propio y capacidad de la estructura del país.",
+      "Comité Comercial / Director Comercial — revisa y aprueba el plan comercial regional antes de que se convierta en cuota. Es el nivel donde se fijan las políticas de venta al mayor y a quien reporta la gerencia comercial regional.",
+      "Analista/Ejecutivo(a) Comercial — aporta el detalle de su cartera —movimiento de cada cliente, oportunidades abiertas, clientes nuevos del año— como insumo del forecast del país. No lo construye: lo alimenta."
+     ],
+     "evidencia": ["E-39", "E-05", "E-01", "E-63", "E-14", "E-31"],
+     "notas": "⚠️ Este proceso se rederivó desde la evidencia y se aparta de la ficha del mapa en tres puntos. (1) El mapa incorpora al «Coordinador(a) de Logística y Bodega» como insumo de disponibilidad: ninguna entrevista describe que la disponibilidad de inventario entre en la construcción del forecast, y lo que sí describen es lo contrario —el plan se arma y la falta de mercancía lo rompe después—. Es una fricción documentada, no una actividad, y como tal quedó en la matriz de riesgos. (2) El mapa atribuye la aprobación de metas al «Country Manager» y el armazón traía una validación presupuestaria de Finanzas: no consta ninguna de las dos. Lo que el corpus sí documenta es que no está claro hasta dónde llegan las decisiones que la gerencia comercial puede tomar, que también es un riesgo y no un paso. (3) Se incorpora el Comité Comercial y la Dirección Comercial como aprobadores del plan consolidado, porque sin ellos quien construye el plan es también quien lo aprueba —el mismo defecto que se corrigió en los procesos del macroproceso 6—. ⚠️ Sobre el nivel de la proyección: el corpus describe que hoy es cada vendedor quien coloca cuánto va a vender por marca y por cliente sobre la base que recibe. Se documenta en cambio como actividad de gerencia, porque el forecast del país es un compromiso de mercado —se consolida con el movimiento de la cartera, las aperturas del año y el calendario comercial— y no la suma de las expectativas individuales de quien después será medido contra ellas. El aporte del vendedor se conserva como insumo, no como paso. (4) El «Country Manager» vuelve al proceso, pero no con el papel que le daba el mapa. El mapa lo listaba como quien «aprueba metas globales» y eso no consta en ninguna entrevista: las metas globales las fija la línea comercial regional. Lo que sí consta es que responde por su mercado —la reportería comercial de un país sube a su Country Manager además de a la gerencia regional— y que aporta el contexto local que la región no ve, desde las reglas del mercado hasta la capacidad de la estructura del país. Por eso queda como aval del forecast de su país antes de la consolidación, no como aprobador del plan del grupo. ⚠️ Ni «Director Comercial» ni «Comité Comercial» figuran en el patrón de cargos V4: ese patrón solo alcanza el nivel de gerencia y no tiene capa de dirección ni órganos colegiados, igual que ocurre con la dirección de compras en 6.2, 6.3 y 6.4.",
+     "sin_evidencia": "⚠️ La figura de Country Manager no está en todos los mercados: en el patrón de cargos V4 aparece en uno solo, y en los demás la cabeza del país es la gerencia comercial de país o la gerencia de tiendas, según el peso de cada canal. El paso de aval existe igual en todos —alguien responde por el número del mercado—, pero el cargo que lo ejecuta cambia, y eso hay que resolverlo al fijar la estructura. El Comité Comercial es en parte hallazgo y en parte propuesta. Existe en la casa un comité de estrategia —integrado por la dirección comercial, la dirección de marca propia, la gerencia comercial regional y la gerencia de proyectos— que sesiona sobre lo que aquí se decide, y existe la práctica de reunir a todos los canales para llegar a un dato único de demanda. Lo que NO consta es su cadencia sobre el plan comercial: esa reunión de consenso se ha hecho dos veces y la tercera se saltó por falta de tiempo, justo el ciclo en que la planificación salió incompleta. Lo que se propone no es crear el órgano, es fijarle el punto obligatorio en el ciclo. No consta un segundo método que contraste el forecast: el nivel de reto de la meta depende del criterio de quien la revisa. Tampoco consta un criterio único de colchón de ajuste entre países, ni una cadencia regional adoptada: la revisión trimestral existe en algunos mercados y en otros sigue vigente la proyección anual heredada."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Cierre del ciclo anual, con la venta del año anterior ya consolidada. Dentro del año, el arranque de cada trimestre reabre el ajuste.",
+     "cadencia": "Anual para la construcción del plan, con revisión trimestral. La revisión trimestral es el estándar propuesto: hoy no la aplican todos los mercados por igual.",
+     "output": "Plan comercial regional aprobado, con cuota mensual, trimestral y anual por vendedor y por cliente, y el calendario comercial de campañas del canal. Es el insumo de la planificación de compra (6.1) y de la liquidación de comisiones (8.14).",
+     "evidencia": ["E-39", "E-14", "E-63", "E-35"],
+     "notas": "El ajuste dentro del año no es excepcional: en un ciclo el forecast comercial se rehizo tres veces por sobrecumplimiento del primer trimestre."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-39", "E-05", "E-63", "E-14", "E-35"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Define los supuestos regionales del ciclo: crecimiento esperado por marca y contexto de cada mercado."},
-      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Construye el forecast por vendedor y cliente sobre la base del año anterior más el crecimiento pedido."},
-      {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta la disponibilidad esperada de inventario por marca como insumo del forecast."},
-      {"id": "a4", "rol": "Planificador Financiero", "texto": "Valida el forecast propuesto contra la restricción presupuestaria del grupo."},
-      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Consolida el plan comercial regional con cuotas mensuales, trimestrales y anuales."},
-      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Baja la cuota individual a cada vendedor con el calendario comercial de campañas del canal."},
-      {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Ajusta el plan cada trimestre según el cumplimiento real contra la meta."}
+      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Define la base y el crecimiento del ciclo: toma del sistema la venta del año anterior por vendedor y por cliente, y fija el porcentaje de subida con el que cada mercado debe trabajar. Es lo que se envía a cada país al arrancar el año."},
+      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Construye el forecast de su mercado por marca y por cliente: parte de la base recibida, recoge de cada vendedor el detalle de su cartera —movimiento de los clientes que ya compran, oportunidades abiertas y clientes nuevos del año— y lo contrasta contra el seguimiento de venta que el sistema alimenta en continuo."},
+      {"id": "a3", "rol": "Country Manager", "texto": "Avala el forecast de su mercado antes de que suba a consolidación regional: lo contrasta contra el contexto local —reglas del mercado, calendario propio, capacidad de la estructura del país— y queda como responsable del número que su país compromete."},
+      {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Mide la brecha antes de consolidar nada: compara el objetivo que bajó al arrancar el ciclo contra la suma de los forecast que los países avalaron, y la abre por país y por marca. Esa diferencia —cuánto falta o cuánto sobra, y de dónde viene— es lo que el comité tiene que decidir; sin ella, la aprobación es una firma sobre un número ya cuadrado."},
+      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Consolida el plan comercial regional con cuotas mensuales, trimestrales y anuales, y deja constancia de cómo se cerró la brecha: qué se pidió de más a cada mercado, qué se aceptó por debajo del objetivo y con qué razón."},
+      {"id": "a6", "rol": "Comité Comercial / Director Comercial", "texto": "Revisa el plan regional con todos los canales en la mesa —la brecha a la vista, no solo el resultado— y lo aprueba, o lo devuelve con el ajuste que corresponda. Es el punto donde el forecast deja de ser una propuesta de la gerencia y pasa a ser el compromiso de venta del grupo: sin él, quien construye el plan es el mismo que lo da por bueno."},
+      {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Recibe la devolución y rehace el plan: cuando el ajuste pedido cabe en lo que los países ya avalaron, reconsolida; cuando no cabe, reabre el ciclo a los mercados afectados, y entonces el forecast vuelve a construirse y a avalarse. Lo que se devuelve es el plan regional, así que lo recibe quien lo armó, no el país que ya había cerrado su parte."},
+      {"id": "a8", "rol": "Gerente Comercial (País / Canal)", "texto": "Baja la cuota individual a cada vendedor —mensual, trimestral y anual— junto con el calendario comercial de campañas del canal."},
+      {"id": "a9", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Ajusta el plan cada trimestre según el cumplimiento real contra la meta, con el seguimiento que el sistema entrega en continuo. El ajuste dentro del año es lo normal, no la excepción."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "Planificador Financiero"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Country Manager", "Comité Comercial / Director Comercial"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre del año fiscal o del trimestre — inicia el ciclo"},
-       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Definir supuestos regionales del ciclo"},
-       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Construir el forecast por vendedor y cliente"},
-       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar la disponibilidad esperada por marca"},
-       {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar restricción presupuestaria del forecast"},
-       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "decision", "n": "¿Forecast consolidado aprobado?"},
-       {"id": "n5alt", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Ajustar el forecast y re-presentar"},
-       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Bajar cuota individual con calendario comercial"},
-       {"id": "n7", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Ajustar el plan cada trimestre por cumplimiento"},
-       {"id": "n8", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Plan comercial vigente y comunicado"}
+       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre del ciclo comercial"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Definir la base y el crecimiento del ciclo", "sistemas": ["Odoo"]},
+       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Construir el forecast del país por marca y cliente", "sistemas": ["Odoo", "Tablero comercial de seguimiento"]},
+       {"id": "n3", "carril": "Country Manager", "tipo": "tarea", "n": "Avalar el forecast del mercado"},
+       {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Medir la brecha contra el objetivo del ciclo"},
+       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Consolidar el plan comercial regional"},
+       {"id": "n6", "carril": "Comité Comercial / Director Comercial", "tipo": "decision", "n": "¿Aprueba el plan regional?"},
+       {"id": "n6alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Rehacer el plan con el ajuste pedido"},
+       {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Bajar cuota individual con calendario comercial"},
+       {"id": "n8", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Ajustar el plan cada trimestre por cumplimiento", "sistemas": ["Odoo", "Tablero comercial de seguimiento"]},
+       {"id": "n9", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Plan comercial vigente y comunicado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n6alt", "etq": "No"}, {"de": "n6alt", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-35", "E-05", "E-39", "E-63", "E-14", "E-36"],
      "filas": [
-      ["Cadencia de planificación distinta por país", "Algunos países ya revisan trimestral, otros siguen con una proyección anual heredada, sin insumo de disponibilidad de Compras.", "Alta", "Alto", "Adoptar la revisión trimestral como estándar regional, con el insumo de disponibilidad desde el primer ciclo."],
-      ["Forecast sin segundo método de validación", "El nivel de reto de la meta depende del criterio de quien construye el forecast, sin un segundo método que lo contraste.", "Media", "Medio", "Validar el forecast contra al menos dos métodos (histórico y tendencia) antes de bajarlo a cuota."],
-      ["Meta de apertura o inversión sin análisis financiero integrado", "Una oportunidad comercial puede avanzar sin que Finanzas participe desde el inicio, generando fricción cuando llega a la Junta.", "Media", "Alto", "Exigir el análisis financiero desde la primera etapa de toda oportunidad que implique inversión."],
-      ["Colchón de ajuste no estandarizado entre países", "El margen de ajuste sobre el forecast (\"colchón\") varía de un país a otro sin criterio único.", "Baja", "Medio", "Definir un colchón de referencia único y documentar las excepciones por país."]
+      ["El plan se compromete sin saber si habrá mercancía para cumplirlo", "La disponibilidad de inventario no entra en la construcción del forecast: el plan se arma y la falta de reposición lo rompe después. El vendedor queda con una cuota que no puede cumplir y con comisión pendiente de una mercancía que no llegó.", "Alta", "Alto", "Cerrar el circuito con la planificación de compra (6.1): que el plan regional consolidado sea el insumo formal de la compra, y que la cobertura esperada por marca vuelva al comercial antes de bajar la cuota."],
+      ["No está declarado hasta dónde decide la gerencia comercial", "No hay un gobierno escrito de qué decisiones puede tomar el comercial por su cuenta y cuáles suben. Una iniciativa que exige inversión avanza sin contraparte hasta que se frena arriba.", "Alta", "Alto", "Escribir el umbral de decisión del plan comercial —qué aprueba la gerencia regional, qué sube a la dirección— y adjuntar el análisis financiero desde la primera etapa de toda oportunidad que implique inversión."],
+      ["La brecha entre la meta y lo que los países comprometen no se documenta", "El objetivo baja al arrancar el ciclo y el forecast sube construido desde los mercados, pero la diferencia entre ambos no queda registrada: se cierra dentro de la consolidación. Quien aprueba no ve cuánto se pidió de más ni qué mercado quedó por debajo, así que la decisión se toma sobre un número ya cuadrado.", "Alta", "Alto", "Presentar la brecha abierta por país y por marca como parte del expediente que va al comité, y dejar constancia de cómo se cerró: qué se exigió de más y qué se aceptó por debajo, con su razón."],
+      ["La mesa de consenso comercial no tiene cadencia fija", "Existe el órgano y existe la práctica de sentar a todos los canales para llegar a un dato único, pero no un punto obligatorio en el ciclo: se ha hecho dos veces y la tercera se saltó por falta de tiempo, que fue justamente el ciclo en que la planificación salió incompleta. Cuando el calendario aprieta, la reunión es lo primero que cae.", "Alta", "Alto", "Fijar la sesión de aprobación del plan como hito con fecha dentro del ciclo —no como reunión convocable— y dejar por escrito quién la integra y qué decide."],
+      ["Cadencia de planificación distinta por país", "Algunos países ya revisan trimestral, otros siguen con una proyección anual heredada. El plan regional se consolida sobre insumos que no están en el mismo ciclo.", "Alta", "Alto", "Adoptar la revisión trimestral como estándar regional y fijar la fecha de corte común a todos los mercados."],
+      ["Forecast sin segundo método de validación", "El nivel de reto de la meta depende del criterio de quien revisa el forecast, sin un segundo método que lo contraste.", "Media", "Medio", "Validar el forecast contra al menos dos métodos —histórico y tendencia del período en curso— antes de bajarlo a cuota."],
+      ["Colchón de ajuste no estandarizado entre países", "El margen de ajuste sobre el forecast varía de un país a otro sin criterio único, así que la precisión no se puede comparar entre mercados.", "Baja", "Medio", "Definir un colchón de referencia único y documentar las excepciones por país con su justificación."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Precisión del forecast", "Venta real ÷ venta pronosticada, por vendedor y país", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "±15%"],
+      ["Precisión del forecast", "Venta real ÷ venta pronosticada, por vendedor y por país, con moneda y tasa fechada", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "±15%"],
       ["Países con revisión trimestral adoptada", "Países en cadencia trimestral ÷ total de países", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "100%"],
+      ["Plan regional aprobado antes del inicio del período", "Ciclos con aprobación del comité antes del arranque ÷ ciclos del año", "Trimestral", "Comité Comercial / Director Comercial", "100%"],
       ["Cuotas comunicadas antes del inicio del período", "Vendedores notificados a tiempo ÷ total de vendedores", "Trimestral", "Gerente Comercial (País / Canal)", "100%"]
      ]
     }
@@ -2701,53 +2730,85 @@ window.MANUAL_CONTENIDO = {
    "8.2": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la clasificación de clientes en tipologías por volumen, frecuencia y canal, el mantenimiento de las listas de precios vigentes, la matriz de descuentos y crédito, y la política de comisiones. No incluye la aprobación transaccional de un pedido puntual (proceso 8.5) ni el cálculo mensual de comisiones (proceso 8.14), que ejecutan la política definida aquí.",
-     "nota_estado": "Este proceso es híbrido: las listas de precios y la segmentación de clientes ya operan, pero con criterio distinto entre países, y la cadena de aprobación de una excepción de precio o descuento no siempre está clara — un país reportó tener que pasar la aprobación por dos personas sin que ninguna de las dos la asumiera como propia."
+     "texto": "Cubre el gobierno de la política comercial del mayoreo: la segmentación de clientes por capacidad de compra, inversión y canal; las listas de precios vigentes por mercado y forma de pago; la matriz de descuentos y las condiciones de crédito; y el esquema de comisiones. Define las reglas y quién puede excederlas. No incluye la aprobación de un pedido concreto (proceso 8.5) ni el cálculo mensual de la comisión (proceso 8.14): ambos ejecutan lo que aquí se decide.",
+     "nota_estado": "Este proceso es híbrido: la segmentación por clústeres y las listas de precios ya operan, pero con criterio distinto en cada mercado, y el esquema de comisiones no está homologado —cada país paga con una regla propia—. Lo que no existe todavía es la política escrita: hoy las reglas viven en la cabeza de quien autoriza y se aplican pedido a pedido."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial (Mayoreo)",
+     "participantes": [
+      "Gerente Regional Comercial (Mayoreo) — propone y mantiene la política comercial del canal: segmentación, listas, matriz de descuento y crédito, y esquema de comisiones. Es donde hoy se llevan las propuestas de cambio de alcance regional.",
+      "Gerente Comercial (País / Canal) — aporta el comportamiento de su mercado y propone los ajustes que su plaza necesita; después aplica la política y responde por las excepciones que pide.",
+      "Gerente de Contabilidad / Administración — contrasta el efecto de las listas y de la matriz de descuento sobre el margen, y fija las condiciones de crédito con las que se puede vender a plazo.",
+      "Comité Comercial / Director Comercial — aprueba la política del ciclo. Compromete margen del grupo, así que la decisión no puede quedar en quien la propone ni en un solo mercado."
+     ],
+     "evidencia": ["E-05", "E-35", "E-63", "E-14", "E-39"],
+     "notas": "⚠️ Se aparta de la ficha del mapa en tres puntos. (1) El mapa pone al «Country Manager como aprobador de política de comisiones y descuentos estratégicos». La evidencia dice lo contrario y por una razón estructural: una política regional no la puede aprobar la cabeza de un país. Cuando se quiso cambiar el esquema de comisiones de toda la región, la propuesta subió a la gerencia comercial regional, no a un país. El Country Manager aplica la política y pide excepciones para su mercado; no la fija. (2) El armazón atribuía la validación de margen a un «Planificador Financiero», cargo que no existe en el patrón V4. Quien lleva esa función es el Gerente de Contabilidad / Administración, que es además a quien se acudió para intentar formalizar el respaldo del crédito. (3) Se incorpora el Comité Comercial como aprobador, por la misma razón que en 8.1: la política compromete el margen del grupo y quien la propone no puede ser quien la da por buena. ⚠️ El flujo se reescribió además porque recorría un solo objeto —las listas de precios— cuando el alcance promete cuatro: la segmentación, las listas, el descuento y crédito, y las comisiones. Ahora cada uno tiene su paso y su responsable.",
+     "sin_evidencia": "No consta una política comercial escrita. Lo que consta son los criterios con los que se decide —margen de la venta, concentración de referencias en un solo cliente, deuda vigente— aplicados caso a caso por quien autoriza, y tablas de comisión construidas por cada país en su propia hoja. ⚠️ Tampoco consta cómo se decide una excepción: el corpus la describe como una conversación en vivo con el nivel directivo, resuelta por confianza y trayectoria del cliente, no por un umbral. Y no consta ningún respaldo documental del crédito: existe la iniciativa de crear un documento que el cliente firme al pedirlo, planteada desde el país a la gerencia de contabilidad, pero a la fecha de las entrevistas no estaba implantada."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Cierre de la planificación comercial del ciclo (proceso 8.1). Dentro del año lo reabren un cambio material de costo, margen o competencia, la apertura de un canal o un mercado, y la aparición de un tipo de cliente que la segmentación vigente no cubre.",
+     "cadencia": "Revisión anual de la política completa, con ajustes por evento. El esquema de comisiones se revisa al menos una vez al año.",
+     "output": "Segmentación de clientes vigente; listas de precios activas por mercado y forma de pago; matriz de descuento, crédito y niveles de aprobación; esquema de comisiones del ciclo. Todo publicado a la fuerza de ventas y aplicado en el sistema con el que se cotiza.",
+     "evidencia": ["E-35", "E-63", "E-14"],
+     "notas": "El disparador encadena con 8.1: la política se fija después de saber qué se va a vender, no antes. Las listas y los descuentos alimentan después la aprobación del pedido (8.5) y el cálculo de la comisión (8.14)."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-35", "E-63", "E-14", "E-05", "E-39"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Revisa anualmente —al cierre de la planificación comercial— la segmentación de clientes vigente por tipología y canal."},
-      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Propone ajustes a las listas de precios del país según cambio de costo, margen o competencia."},
-      {"id": "a3", "rol": "Planificador Financiero", "texto": "Valida el impacto de las listas propuestas en el margen del grupo."},
-      {"id": "a4", "rol": "Country Manager", "texto": "Aprueba la política de comisiones y los descuentos estratégicos del país."},
-      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Publica la matriz de aprobación por monto y tipo de decisión vigente para el ciclo."}
+      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Revisa la segmentación vigente con el comportamiento real del ciclo que cierra: reclasifica a los clientes por capacidad de compra y de inversión, y revisa los canales que la tipología debe cubrir —punto de venta pequeño, gran superficie, cadena, corredor informal, corporativo, redistribuidor y comercio electrónico—."},
+      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Propone los ajustes que su mercado necesita: qué lista aplica a cada forma de pago, qué descuentos van atados a qué clientes, y qué condiciones de crédito pide su plaza. Es quien conoce el precio al que compite y el que después tendrá que aplicar la regla."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Contrasta las listas y la matriz de descuento propuestas contra el margen que dejan, y fija las condiciones con las que se puede vender a crédito: a quién, hasta cuánto, a qué plazo y con qué respaldo documental."},
+      {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Arma la matriz de aprobación: hasta qué descuento decide el vendedor, hasta cuál el gerente del país, y a partir de qué punto sube. Es el paso que convierte el criterio en regla, porque hoy la excepción se resuelve conversándola con el nivel directivo."},
+      {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Propone el esquema de comisiones del ciclo, con el tramo que corresponde a cada nivel de descuento aplicado y la condición de recaudo. Lo propone en regional, y no cada país por su cuenta, porque hoy cada mercado paga con una regla distinta y esa es la brecha que este paso viene a cerrar."},
+      {"id": "a6", "rol": "Comité Comercial / Director Comercial", "texto": "Aprueba la política del ciclo como un solo cuerpo —segmentación, listas, descuento y crédito, comisiones— o devuelve lo que deba revisarse. Aprobar las piezas por separado es lo que permite que un descuento aprobado en un sitio convierta en pérdida una comisión pactada en otro."},
+      {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Rehace la pieza devuelta con el ajuste pedido y la vuelve a presentar. Lo que se devuelve es la política regional, así que la rehace quien la armó."},
+      {"id": "a8", "rol": "Gerente Comercial (País / Canal)", "texto": "Publica la política aprobada donde tiene que estar para surtir efecto: cargada en el sistema con el que se cotiza, comunicada a la fuerza de ventas con la matriz de aprobación a la vista, y la lista de precios enviada a cada cliente. Mientras la lista no llega sola y a fecha fija, el vendedor cotiza de memoria y la política es papel."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Planificador Financiero", "Country Manager"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Gerente de Contabilidad / Administración", "Comité Comercial / Director Comercial"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre de la planificación comercial anual (8.1)"},
-       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Revisar segmentación de clientes vigente"},
-       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Proponer ajuste a listas de precios del país"},
-       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar impacto en margen del grupo"},
-       {"id": "n4", "carril": "Country Manager", "tipo": "decision", "n": "¿Política de comisiones y descuentos aprobada?"},
-       {"id": "n4alt", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Ajustar la propuesta y re-presentar"},
-       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Publicar matriz de aprobación por monto y tipo"},
-       {"id": "n6", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Política comercial y listas vigentes para el ciclo"}
+       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre de la planificación comercial"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Revisar la segmentación de clientes"},
+       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Proponer listas, descuento y crédito del mercado", "sistemas": ["Odoo", "Simulador de precios"]},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Contrastar margen y fijar condiciones de crédito"},
+       {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Armar la matriz de aprobación por nivel"},
+       {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Proponer el esquema de comisiones del ciclo"},
+       {"id": "n6", "carril": "Comité Comercial / Director Comercial", "tipo": "decision", "n": "¿Aprueba la política del ciclo?"},
+       {"id": "n6alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Rehacer la pieza devuelta y re-presentar"},
+       {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Publicar, cargar en sistema y comunicar", "sistemas": ["Odoo"]},
+       {"id": "n8", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Política comercial vigente y aplicada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n6alt", "etq": "No"}, {"de": "n6alt", "a": "n7"}, {"de": "n7", "a": "n8"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-35", "E-14", "E-63", "E-39"],
      "filas": [
-      ["Criterio de segmentación distinto entre países", "La clasificación A/B/C/D y las listas de precios no siguen un mismo criterio en todos los países.", "Alta", "Medio", "Documentar un único criterio de segmentación y de lista de precios aplicable a toda la región."],
-      ["Cadena de aprobación de excepciones ambigua", "Una excepción de precio o descuento puede pasar por dos personas sin que ninguna asuma la decisión como propia.", "Alta", "Alto", "Aclarar quién aprueba realmente cada tipo de excepción y eliminar los pasos que no son una aprobación real."],
-      ["Precios directos negociados sin registro centralizado", "Un precio negociado a costo con un cliente grande (fuera de las listas MA/MB/MI) no siempre queda documentado en un solo lugar.", "Media", "Medio", "Centralizar el registro de precios directos negociados en la matriz de política comercial."],
-      ["Homologación de comisiones pendiente entre países", "Cada país opera hoy con su propio esquema de comisiones heredado.", "Media", "Alto", "Avanzar la homologación regional de comisiones ya propuesta por el equipo."]
+      ["La política no está escrita: los criterios viven en quien autoriza", "Lo que decide si una venta pasa —el margen al que se vende, cuánta mercancía de una misma referencia se lleva un solo cliente, si tiene deuda— es criterio aplicado pedido a pedido por una persona, no una regla publicada. Funciona mientras esa persona esté; no es trasladable ni auditable.", "Alta", "Alto", "Escribir los criterios que hoy se aplican de memoria y convertirlos en la matriz de aprobación por nivel, con el umbral a partir del cual cada decisión sube."],
+      ["La excepción de precio se resuelve conversándola con la dirección", "Un descuento fuera de lista se acuerda en una conversación con el nivel directivo, sobre la base de la relación y la trayectoria del cliente. Es rápido y funciona, pero no deja umbral, no deja registro y no se puede delegar.", "Alta", "Alto", "Fijar el nivel de descuento que cada figura puede conceder sin consultar y registrar la excepción con su motivo, para que la agilidad no dependa de quién conoce a quién."],
+      ["El esquema de comisiones no está homologado entre países", "Cada mercado paga con una regla propia —tramos distintos, condiciones de recaudo distintas— y cada uno la lleva en su propia hoja. Una propuesta de unificarlo para toda la región ya se planteó.", "Alta", "Alto", "Aprobar el esquema regional en el comité con los tramos por nivel de descuento y la condición de recaudo comunes, y documentar como excepción justificada lo que cada mercado necesite conservar."],
+      ["El crédito se concede sin respaldo documental", "Se vende a plazo sin que el cliente firme nada que soporte la obligación. La iniciativa de crear ese documento se planteó desde el país a la gerencia de contabilidad, pero no estaba implantada.", "Alta", "Alto", "Definir en la política el respaldo mínimo que exige una venta a crédito y no habilitar el plazo sin él."],
+      ["Los precios directos negociados no tienen registro centralizado", "Hay descuentos atados a clientes concretos que aplican por encima de cualquier lista. Viven en la relación comercial y no en un registro único, así que nadie puede ver el precio real al que le vende el grupo a cada cliente.", "Alta", "Medio", "Registrar todo precio negociado como condición del cliente en el sistema, con vigencia y con quién lo autorizó, y revisarlo en cada ciclo."],
+      ["La segmentación se aplica con criterio distinto en cada mercado", "La clasificación por clústeres existe, pero cada país la construyó por su cuenta y con su propio umbral, de modo que un cliente «A» no significa lo mismo en dos mercados y la política que cuelga de esa letra tampoco.", "Media", "Alto", "Fijar el criterio regional de clasificación —capacidad de compra e inversión, con umbrales declarados— y dejar como excepción documentada lo que cada mercado ajuste."],
+      ["La lista de precios no llega sola a quien la usa", "Mientras la lista no salga a fecha fija hacia el vendedor y hacia el cliente, se cotiza con la versión que cada quien tenga a mano. Automatizar ese envío es una intención declarada, no un hecho.", "Media", "Medio", "Publicar la lista con fecha y versión, enviarla automáticamente en cada actualización, y dejar la versión vigente como la única con la que el sistema cotiza."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Listas de precios vigentes y publicadas a tiempo", "Listas publicadas antes del inicio del ciclo ÷ total de listas", "Anual", "Gerente Regional Comercial (Mayoreo)", "100%"],
-      ["Excepciones de precio o descuento con aprobación documentada", "Excepciones documentadas ÷ total de excepciones aplicadas", "Mensual", "Country Manager", "100%"],
-      ["Países con esquema de comisiones homologado", "Países homologados ÷ total de países", "Anual", "Gerente Regional Comercial (Mayoreo)", "Meta de avance progresivo"]
+      ["Política del ciclo aprobada antes de su entrada en vigor", "Ciclos con política aprobada por el comité antes del arranque ÷ ciclos del año", "Anual", "Comité Comercial / Director Comercial", "100%"],
+      ["Ventas dentro de la matriz de aprobación", "Pedidos cerrados dentro del nivel de descuento autorizado ÷ pedidos del período", "Mensual", "Gerente Comercial (País / Canal)", "A la alza"],
+      ["Excepciones de precio con motivo y autorización registrados", "Excepciones con registro completo ÷ excepciones concedidas", "Mensual", "Gerente Regional Comercial (Mayoreo)", "100%"],
+      ["Países con esquema de comisiones homologado", "Países en el esquema regional ÷ total de países", "Anual", "Gerente Regional Comercial (Mayoreo)", "100%"],
+      ["Margen real contra el margen previsto por la política", "Margen obtenido ÷ margen que la lista y el descuento previeron, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "±5%"],
+      ["Crédito concedido con respaldo documental", "Ventas a plazo con respaldo firmado ÷ ventas a plazo del período", "Mensual", "Gerente de Contabilidad / Administración", "100%"]
      ]
     }
    },
@@ -2755,53 +2816,79 @@ window.MANUAL_CONTENIDO = {
    "8.3": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el envío periódico a cada cliente recurrente de su lista de disponibilidad —SKU, imagen, precio, inventario disponible y tránsito confirmado— con una columna de orden para que el cliente devuelva su pedido. No incluye la carga del pedido devuelto en Odoo (proceso 8.4), que es el siguiente paso una vez el cliente responde.",
-     "nota_estado": "Este proceso es «to-be»: el envío semanal parametrizado —el deber ser, todos los lunes— ya se automatizó en algunos equipos, pero en otros sigue siendo manual e irregular, con refuerzo informal a los 15 días si el cliente no responde. En Venezuela la distribución de listas de precios por WhatsApp ya es práctica consolidada, aunque dirigida a quien las solicita o tiene pedidos pendientes, no necesariamente bajo el calendario semanal fijo descrito como deber ser."
+     "texto": "Cubre el envío periódico a cada cliente recurrente de su disponibilidad —SKU, imagen, precio de la lista que le corresponde, existencia y tránsito confirmado— con la columna donde escribe su orden, y el acompañamiento del vendedor hasta que la devuelve. No incluye la carga de esa orden en el sistema (proceso 8.4) ni la reserva de mercancía contra tránsito (proceso 8.6). ⚠️ No aplica a la consignación, que se repone contra venta reportada, ni a la venta puntual de alto volumen (proceso 8.10), que tiene circuito propio.",
+     "nota_estado": "Este proceso es «to-be» en su ejecución, no en su diseño: el envío semanal está definido y el equipo lo reconoce como el deber ser, pero hoy depende de que cada vendedor se acuerde —unos lo hacen el lunes y otros no—. La automatización en el sistema está en curso y ya opera en un equipo; lo que falta es extenderla."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Comercial (País / Canal)",
+     "participantes": [
+      "Gerente Comercial (País / Canal) — responde por que el envío salga a fecha fija en su mercado y decide qué portafolio y qué prioridad comercial lleva la semana.",
+      "Analista/Ejecutivo(a) Comercial — genera la disponibilidad de los clientes de su cartera, se la envía, los acompaña durante la semana resolviendo dudas de precio y de existencia, y recoge la orden devuelta. Es quien ejecuta el ciclo de punta a punta."
+     ],
+     "evidencia": ["E-05", "E-07", "E-63"],
+     "notas": "⚠️ Se aparta de la ficha del mapa en dos puntos. (1) El mapa incorpora a Marketing con piezas de comunicación «cuando hay campaña asociada», y el armazón lo había convertido en una compuerta dentro del envío semanal —una decisión de marketing que el ciclo tenía que atravesar cada lunes—. Eso no consta y además invierte la dependencia: si el envío espera una pieza, deja de salir a fecha fija, que es justamente lo que se quiere corregir. La coordinación con campaña y lanzamiento es una interfaz con el macroproceso de marketing, no un paso de este ciclo. (2) El armazón ponía al Coordinador de Sistemas emitiendo el envío semanal. Esa función es de soporte —desarrolla y mantiene la parametrización— y no operación del ciclo: quien manda la lista es el vendedor de la cartera, que es además lo que describe la evidencia. Se documenta como lo que es: un paso del vendedor, hoy manual, que la automatización en curso convertirá en emisión programada sin cambiar de responsable. (2) El armazón abría el proceso con el Coordinador de Logística «actualizando la disponibilidad al inicio de la semana». La existencia y el tránsito viven en el sistema de forma continua; no hay un acto semanal de actualizarlos. Lo que sí hay —y no estaba— es la parametrización que decide qué se envía a quién.",
+     "sin_evidencia": "⚠️ No consta el refuerzo «a los quince días si el cliente no ha respondido» que traía la ficha del mapa: no existe en ninguna entrevista del corpus. La fuente que el mapa cita para ese punto es un pasaje sobre el tiempo de respuesta de una garantía, en una entrevista de operación de tienda, no de venta al mayor. El seguimiento a la no respuesta sí debe existir, pero su cadencia está por definir y aquí se documenta sin plazo inventado. Tampoco consta cómo se decide el portafolio que entra en el envío: hoy se ofrece lo que hay disponible."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Arranque de la semana comercial. También lo reabren la llegada de un tránsito que cambia la disponibilidad y el lanzamiento de un producto con fecha de arribo confirmada.",
+     "cadencia": "Semanal, el mismo día para todos los mercados.",
+     "output": "Disponibilidad enviada a cada cliente recurrente con su precio y su columna de orden; orden devuelta y lista para el montaje (proceso 8.4); registro de lo ofrecido que no se convirtió en pedido.",
+     "evidencia": ["E-05", "E-63"],
+     "notas": "El día fijo es parte del diseño, no una preferencia: el cliente organiza su compra alrededor de cuándo recibe la lista, y un envío irregular lo empuja a comprarle a quien sí es previsible."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-07", "E-63"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Actualiza la disponibilidad e inventario en tránsito por SKU al inicio de la semana."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Genera la plantilla de disponibilidad de cada cliente de su cartera —descargada de Odoo por línea (aproximadamente seis: Casio, Q&Q, Cubitt, teclados, calculadoras y otros) y adaptada quitando columnas innecesarias— con SKU, imagen, precio y tránsito."},
-      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Envía la plantilla al cliente, cada lunes, con la columna de orden para que la devuelva."},
-      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Refuerza el envío a los 15 días si el cliente no ha respondido."},
-      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Aporta piezas de comunicación cuando el envío coincide con una campaña o lanzamiento."}
+      {"id": "a1", "rol": "Gerente Comercial (País / Canal)", "texto": "Fija qué lleva el envío de la semana: el portafolio que se ofrece a cada tipología de cliente y la prioridad comercial del período —lo que hay que mover, lo que está por llegar y lo que se lanza—. Sin esa decisión el envío ofrece todo lo que hay, que no es lo mismo que lo que conviene vender."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Genera desde el sistema la disponibilidad de cada cliente de su cartera: SKU, imagen del producto, el precio de la lista que le corresponde, la existencia, el tránsito confirmado y la columna donde el cliente escribirá su orden."},
+      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Envía la disponibilidad a cada cliente de su cartera el día fijado, por el canal que ese cliente usa. Hoy es un acto manual y de ahí viene la irregularidad: la automatización en curso hará que salga sola a la hora acordada, sin cambiar de responsable."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Acompaña a los clientes de su cartera durante la semana: confirma que la disponibilidad llegó y resuelve las dudas de precio, de existencia y de fecha. ⚠️ Debe decirle al cliente que lo enviado no le reserva nada: la mercancía se aparta solo cuando su pedido se convierte en orden de venta, y hasta entonces se le está ofreciendo lo mismo a los demás."},
+      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el archivo con la orden del cliente y lo pasa al montaje del pedido (proceso 8.4)."},
+      {"id": "a6", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Registra la no compra y su motivo cuando el cliente no devuelve orden: sin precio competitivo, sin la referencia que buscaba, ya abastecido o sin respuesta. Es lo que convierte el envío en dato del ciclo siguiente en vez de en un correo perdido."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Analista/Ejecutivo(a) Comercial", "Gerente Regional de Marketing"],
+      "carriles": ["Gerente Comercial (País / Canal)", "Analista/Ejecutivo(a) Comercial"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Inicio de semana — disponibilidad e inventario en tránsito actualizados"},
-       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Generar plantilla de disponibilidad por cliente", "sistemas": ["Excel de disponibilidad y pedido"]},
-       {"id": "n2", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Hay campaña o lanzamiento asociado?"},
-       {"id": "n2alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Aportar piezas de comunicación de campaña"},
-       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Enviar la plantilla al cliente (lunes)"},
-       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿Cliente respondió en 15 días?"},
-       {"id": "n4alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reforzar el envío al cliente"},
-       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Pedido del cliente recibido, listo para 8.4"}
+       {"id": "n0", "carril": "Gerente Comercial (País / Canal)", "tipo": "inicio", "n": "Arranque de la semana comercial"},
+       {"id": "n1", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Definir portafolio y prioridad de la semana"},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Generar la disponibilidad de la cartera", "sistemas": ["Odoo", "Plantilla de disponibilidad y pedido"]},
+       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Enviar la disponibilidad a cada cliente"},
+       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Acompañar al cliente y resolver dudas"},
+       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿El cliente devuelve su orden?"},
+       {"id": "n5alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar la no compra y su motivo"},
+       {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Recibir la orden y pasarla al montaje (8.4)"},
+       {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Ciclo semanal cerrado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
-       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n6", "a": "n7"}, {"de": "n5alt", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-63", "E-07"],
      "filas": [
-      ["Envío semanal irregular entre equipos", "El deber ser (\"todos los lunes\") no se cumple igual en todos los países o carteras.", "Alta", "Alto", "Parametrizar el envío en Odoo, comenzando por las cuentas de mayor volumen."],
-      ["Misma disponibilidad enviada a varios clientes a la vez", "Todos los vendedores mandan la misma lista de disponibilidad, así que se puede sobrepasar lo realmente disponible cuando varios clientes piden a la vez.", "Media", "Medio", "Analizar dar visibilidad en línea de la disponibilidad real en vez de una lista estática semanal."],
-      ["Sin refuerzo sistemático a los 15 días", "El refuerzo cuando el cliente no responde depende de que el vendedor se acuerde de hacerlo.", "Media", "Bajo", "Automatizar el refuerzo a los 15 días como parte de la parametrización en Odoo."],
-      ["Piezas de campaña no siempre listas a tiempo para el envío", "La coordinación con Marketing para el envío con campaña asociada no siempre llega a tiempo.", "Baja", "Medio", "Anticipar la solicitud de piezas de campaña con el calendario comercial del canal (proceso 8.1)."]
+      ["El envío depende de que cada vendedor se acuerde", "El deber ser es el mismo día para todos, pero unos lo hacen y otros no. El cliente que recibe tarde compra antes en otro sitio, y la irregularidad no se nota hasta que se pierde la venta.", "Alta", "Alto", "Extender a todos los mercados la parametrización del envío en el sistema, que ya opera en un equipo, y medir el cumplimiento del día fijado."],
+      ["Lo enviado no reserva nada y el cliente cree que sí", "La disponibilidad se ofrece a todos los clientes a la vez y la mercancía solo se aparta cuando el pedido se convierte en orden de venta. Entre el envío y la conversión, dos clientes pueden pedir lo mismo y solo uno se lo lleva.", "Alta", "Alto", "Declarar en el propio envío que la existencia es informativa y no reservada, y acortar al máximo el tiempo entre que el cliente devuelve la orden y el pedido se convierte."],
+      ["Se publica como disponible una existencia que no se ha verificado", "La lista sale con lo que el sistema dice que hay, y el inventario no se verifica con frecuencia. Una diferencia se descubre al preparar el pedido, cuando el cliente ya lo dio por comprado.", "Alta", "Alto", "Contrastar la existencia de las referencias de mayor rotación antes de emitir, y tratar la diferencia detectada como incidencia y no como un ajuste silencioso."],
+      ["El tránsito se publica como confirmado y puede no llegar", "La lista muestra tránsito para que el cliente cuente con él, pero lo que se embarcó no siempre llega completo ni a tiempo. El compromiso se toma sobre una fecha que aún no es un hecho.", "Alta", "Alto", "Mostrar el tránsito con su fecha estimada y su grado de confirmación, distinguiendo lo embarcado de lo pedido, y no ofrecerlo como si fuera existencia."],
+      ["La no respuesta del cliente no se registra", "Cuando el cliente no devuelve orden, no queda nada: ni cuánto se le ofreció, ni por qué no compró. Se pierde la mitad del dato que el ciclo genera, que es justamente la que explica lo que no se vendió.", "Media", "Alto", "Registrar el motivo de la no compra con una lista corta de causas y llevarlo al forecast del ciclo siguiente."],
+      ["Sin curaduría se ofrece lo que hay, no lo que conviene mover", "Si el envío vuelca la existencia completa, empuja por igual lo que rota y lo que está detenido, y no acompaña lo que se lanza. La lista deja de ser una oferta y pasa a ser un inventario.", "Media", "Medio", "Definir cada semana el portafolio por tipología de cliente y la prioridad del período antes de emitir."],
+      ["El envío y la campaña no van coordinados", "Cuando hay lanzamiento o campaña, la pieza de comunicación y la disponibilidad enviada pueden no coincidir, y el cliente recibe la oferta de algo que aún no puede pedir.", "Media", "Medio", "Sincronizar el calendario de campañas con el calendario de envíos, como interfaz con marketing y sin que el envío quede a la espera de la pieza."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Clientes recurrentes con envío semanal parametrizado", "Clientes con envío automatizado ÷ total de clientes recurrentes", "Mensual", "Coordinador(a) de Logística y Bodega", "Meta de avance progresivo"],
-      ["Envíos realizados en la semana correspondiente", "Envíos a tiempo ÷ total de envíos programados", "Semanal", "Gerente Comercial (País / Canal)", "≥90%"],
-      ["Tasa de respuesta del cliente al envío de disponibilidad", "Clientes que devuelven pedido ÷ total de envíos", "Mensual", "Analista/Ejecutivo(a) Comercial", "Referencia de seguimiento"]
+      ["Clientes recurrentes con envío automatizado", "Clientes con envío programado ÷ clientes recurrentes con cartera activa", "Mensual", "Gerente Comercial (País / Canal)", "100%"],
+      ["Envíos emitidos en el día fijado", "Envíos emitidos a tiempo ÷ envíos de la semana", "Semanal", "Gerente Comercial (País / Canal)", "100%"],
+      ["Tasa de respuesta al envío", "Clientes que devuelven orden ÷ clientes que reciben el envío", "Semanal", "Analista/Ejecutivo(a) Comercial", "A la alza"],
+      ["Valor ofrecido que no se convirtió en pedido", "Monto de lo ofrecido y no pedido, con moneda y tasa fechada", "Mensual", "Gerente Comercial (País / Canal)", "Referencia — alimenta el forecast de 8.1"],
+      ["No compras con motivo registrado", "No compras con causa registrada ÷ no compras del período", "Semanal", "Analista/Ejecutivo(a) Comercial", "100%"]
      ]
     }
    },
@@ -2809,53 +2896,87 @@ window.MANUAL_CONTENIDO = {
    "8.4": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la recepción del pedido del cliente —el mismo Excel de la lista de precios con las cantidades completadas, una solicitud por texto, o un pedido levantado en visita—, su carga directa en Odoo (que lo convierte automáticamente en pedido, con verificación de referencias) y la conversión del presupuesto en orden de venta cuando hay inventario disponible. No incluye la venta corporativa (8.9), la inorgánica de alto volumen (8.10) ni la de línea blanca (8.11), que tienen su propio flujo de cotización."
+     "texto": "Cubre la recepción de la orden del cliente y su montaje en el sistema hasta quedar como orden de venta con inventario reservado: la carga del archivo, la corrección de lo que la validación rechaza, la conversión que aparta la mercancía, y el tratamiento del remanente cuando la existencia no cubre todo lo pedido. No incluye la aprobación comercial del pedido (proceso 8.5), la reserva contra tránsito (proceso 8.6), ni la venta corporativa, inorgánica o de línea blanca (procesos 8.9, 8.10 y 8.11), que tienen circuito propio.",
+     "nota_estado": "Este proceso es «as-is»: funciona y está soportado en el sistema. Lo que no está resuelto es qué pasa con lo que el cliente pidió y no se le pudo dar."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista/Ejecutivo(a) Comercial",
+     "participantes": [
+      "Analista/Ejecutivo(a) Comercial — monta el pedido, lo carga, lo convierte en orden de venta y decide qué se hace con lo que no se pudo cubrir.",
+      "Cliente — devuelve su orden sobre la disponibilidad que recibió, o la pide por mensajería, correo o en la visita del vendedor.",
+      "Coordinador(a) de Logística y Bodega — confirma si el tránsito comprometido cubre el remanente y con qué fecha, que es lo que decide si la demanda se conserva o se pierde.",
+      "Gerente Comercial (País / Canal) — supervisa el montaje de su equipo; la aprobación del pedido es un acto distinto y va en el proceso 8.5."
+     ],
+     "evidencia": ["E-05", "E-39", "E-35"],
+     "notas": "⚠️ Se aparta del armazón anterior en el punto que más pesa. El flujo tenía una decisión —«¿el inventario disponible cubre el pedido?»— resuelta por el Gerente Comercial. No es así: el reparto lo hace el sistema solo, en el momento en que el presupuesto se convierte en orden de venta, reservando lo que existe y ofreciendo generar un presupuesto nuevo con lo que faltó. Esa decisión no es de nadie; lo que sí es una decisión —y no estaba— es qué se hace después con ese remanente. ⚠️ Hay dos formas de montar según el mercado: por carga masiva de un archivo, y montando el vendedor directamente en el sistema. El circuito posterior es el mismo en los dos casos.",
+     "sin_evidencia": "No consta un criterio para decidir entre conservar el remanente como preventa o eliminarlo; se resuelve caso a caso. Tampoco consta un formato acordado con las cadenas que entregan su pedido en plantilla propia, ni una verificación de la existencia antes de comprometerla."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llegada de la orden del cliente en cualquiera de sus formas: el archivo de disponibilidad con la columna de pedido llena (proceso 8.3), un mensaje, un correo o un pedido levantado en la visita.",
+     "cadencia": "Continua, a demanda. Los clientes pequeños piden una o varias veces por semana; las cadenas, con cadencia mensual.",
+     "output": "Orden de venta creada con inventario reservado, lista para la aprobación comercial (proceso 8.5). Cuando la existencia no cubre todo, un presupuesto con el remanente derivado a preventa (proceso 8.6) o cerrado con su motivo.",
+     "evidencia": ["E-05", "E-39"],
+     "notas": "El pedido entra por varias vías y todas desembocan en el mismo montaje; lo que cambia es quién teclea, no el circuito."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-39", "E-35"],
      "actividades": [
-      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el pedido del cliente: el mismo Excel de la lista de precios con las cantidades completadas, una solicitud por texto, o un pedido levantado en visita."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Carga el archivo directo en Odoo, que lo convierte automáticamente en pedido sin necesidad de cargarlo producto por producto."},
-      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Corrige y recarga si la verificación automática de referencias marca un error: referencia mal escrita, cliente no seleccionado del maestro de Odoo, o formato de celda incompatible."},
-      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Confirma la disponibilidad y el tránsito visible al momento del montaje, para resolver dudas del vendedor."},
-      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Convierte el presupuesto a orden de venta cuando corresponde, reservando el inventario disponible."}
+      {"id": "a1", "rol": "Cliente", "texto": "Devuelve su orden: el mismo archivo de disponibilidad con la columna de pedido llena, o una solicitud por mensajería, por correo o levantada en la visita del vendedor."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Carga la orden en el sistema, que la genera como presupuesto. ⚠️ El presupuesto no reserva inventario: se puede montar cualquier monto sin afectar la existencia, y mientras el pedido siga en ese estado la mercancía se le sigue ofreciendo a los demás clientes. En los mercados donde el vendedor monta directamente en el sistema, recepción y carga ocurren en la misma sesión."},
+      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Corrige y vuelve a cargar cuando la validación rechaza el archivo: referencia mal escrita, cliente no dado de alta en el maestro, o formato alterado por el cliente al llenarlo."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Convierte el presupuesto en orden de venta, que es el acto que aparta la mercancía. La conversión debe ser inmediata: cada minuto que el pedido pasa en presupuesto es tiempo en que lo pedido sigue disponible para otro."},
+      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cuando la existencia no cubre todo lo pedido, el sistema reserva lo que hay y ofrece generar un presupuesto nuevo con el remanente. Aceptarlo es lo que conserva el rastro de lo que el cliente quiso comprar y no se le pudo dar."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Confirma si el tránsito ya comprometido cubre el remanente y con qué fecha estimada de arribo. Es el dato que decide el destino de esa demanda."},
+      {"id": "a7", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Decide el destino del remanente: si el tránsito lo cubre, lo convierte en preventa y lo confirma al cliente con fecha (proceso 8.6); si no va a llegar, lo cierra. ⚠️ Cerrarlo sin registrar el motivo es lo que hace perder la visibilidad de la demanda no atendida, que es el dato que después falta al planificar la compra."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Coordinador(a) de Logística y Bodega", "Gerente Comercial (País / Canal)"],
+      "carriles": ["Cliente", "Analista/Ejecutivo(a) Comercial", "Coordinador(a) de Logística y Bodega"],
       "nodos": [
-       {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Recibir el pedido del cliente"},
-       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cargar el archivo en Odoo (conversión automática a pedido)", "sistemas": ["Odoo (ERP)"]},
-       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿La verificación automática de referencias encuentra error?"},
-       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Corregir y recargar (referencia, cliente o formato)"},
-       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Confirmar disponibilidad y tránsito visible"},
-       {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Inventario disponible cubre el pedido?"},
-       {"id": "n4alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Derivar el remanente a preventa (proceso 8.6)"},
-       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Convertir a orden de venta (reserva inventario)"},
-       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Orden de venta lista para aprobación (8.5)"}
+       {"id": "n0", "carril": "Cliente", "tipo": "inicio", "n": "El cliente coloca su pedido"},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cargar la orden como presupuesto", "sistemas": ["Odoo"]},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿La carga valida?"},
+       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Corregir y volver a cargar"},
+       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Convertir a orden de venta y reservar", "sistemas": ["Odoo"]},
+       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿La existencia cubre todo?"},
+       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Generar presupuesto con el remanente", "sistemas": ["Odoo"]},
+       {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Confirmar si el tránsito cubre el remanente"},
+       {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Derivar a preventa o cerrar con motivo"},
+       {"id": "n8", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Orden de venta lista para aprobación (8.5)"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2alt", "a": "n3"},
-       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n8", "etq": "Sí"}, {"de": "n4", "a": "n5", "etq": "No"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-39", "E-35"],
      "filas": [
-      ["Errores recurrentes de carga por referencia o maestro de cliente", "Referencias mal escritas, clientes escritos a mano en vez de seleccionados del maestro, o formatos de celda incompatibles obligan a corregir y recargar el pedido.", "Media", "Bajo", "Reforzar con el equipo comercial el uso correcto del maestro de clientes y del formato de carga, para reducir recargas."],
-      ["Alerta de disponibilidad no siempre confiable", "Algunos equipos reportan que la alerta de inventario en la plantilla no refleja la disponibilidad real.", "Media", "Alto", "Validar la fuente de la alerta de disponibilidad contra el inventario real antes de cada ciclo de envío."],
-      ["Carga masiva sin control de duplicados", "Un mismo pedido cargado dos veces por error puede generar presupuestos duplicados.", "Baja", "Medio", "Agregar validación de duplicados en la carga masiva a Odoo."],
-      ["Pedidos de cadenas con formato propio del cliente", "Las grandes superficies y cadenas pueden enviar su pedido con su propio formato de sellout, distinto a la plantilla estándar.", "Media", "Bajo", "Documentar el formato aceptado por cadena para no perder tiempo normalizándolo cada vez."]
+      ["Cerrar el remanente sin registro borra la demanda no atendida", "Cuando lo que faltó no va a llegar, el pedido se cierra y con él desaparece el rastro de lo que el cliente quiso comprar. Esa demanda no llega nunca a la planificación de la compra, así que el faltante se repite el ciclo siguiente.", "Alta", "Alto", "Prohibir el cierre sin motivo registrado y consolidar la demanda no atendida por referencia y por cliente como insumo obligatorio de la planificación comercial y de compra."],
+      ["El presupuesto no reserva y la ventana queda abierta", "Entre que el pedido se carga y se convierte, la mercancía sigue disponible para cualquiera. Un pedido que se deja en presupuesto puede quedarse sin la existencia que tenía al montarse.", "Alta", "Alto", "Convertir en el acto y medir el tiempo entre carga y conversión; alertar sobre todo presupuesto que pase de un umbral en ese estado."],
+      ["Se compromete una existencia que no se ha verificado", "La reserva se hace contra lo que el sistema dice que hay. Si el inventario no coincide, la diferencia aparece al preparar el pedido, con el cliente ya avisado de que su compra estaba confirmada.", "Alta", "Alto", "Contar cíclicamente las referencias de mayor rotación y tratar toda diferencia detectada en la preparación como incidencia registrada."],
+      ["La demanda no atendida no tiene criterio de decisión", "Que el remanente se conserve como preventa o se cierre depende de quién lo mire y de cómo lea el tránsito. Sin criterio, el mismo caso se resuelve distinto en dos mercados.", "Alta", "Medio", "Fijar el criterio: se conserva como preventa cuando hay tránsito embarcado con fecha, y se cierra con motivo en el resto de los casos."],
+      ["La carga se rechaza por referencia o por maestro de cliente", "El archivo vuelve con una referencia mal escrita o de un cliente no dado de alta, y el montaje se rehace. Es trabajo repetido que se paga en tiempo de respuesta al cliente.", "Media", "Medio", "Validar el archivo antes de emitirlo al cliente y mantener el maestro de clientes al día como condición para operar la cartera."],
+      ["El cliente devuelve el archivo alterado", "La plantilla vuelve con columnas movidas, filas añadidas o formatos cambiados, y hay que reconstruirla a mano antes de cargarla.", "Media", "Medio", "Emitir la plantilla con las celdas de estructura protegidas y solo la columna de orden abierta."],
+      ["Las cadenas entregan el pedido en su propio formato", "Los clientes grandes mandan su pedido en la plantilla que ellos usan, que no es la del sistema, y hay que transcribirlo. Es donde más se cuela un error de cantidad o de referencia.", "Media", "Medio", "Acordar con cada cadena una equivalencia fija entre su formato y el de carga, y automatizar esa conversión."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de montaje y carga del pedido", "Fecha de carga en Odoo − fecha de recepción del pedido", "Por pedido", "Analista/Ejecutivo(a) Comercial", "≤24 horas"],
-      ["Pedidos cargados sin error de verificación en el primer intento", "Cargas sin error ÷ total de cargas", "Mensual", "Coordinador(a) de Sistemas", "≥95%"],
-      ["Presupuestos convertidos a orden de venta", "Convertidos ÷ total de presupuestos generados", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"]
+      ["Tiempo entre la orden del cliente y la orden de venta creada", "Fecha y hora de la orden de venta − recepción del pedido", "Por pedido", "Analista/Ejecutivo(a) Comercial", "Dentro del mismo día hábil"],
+      ["Tiempo del pedido en estado presupuesto", "Conversión a orden de venta − creación del presupuesto", "Por pedido", "Analista/Ejecutivo(a) Comercial", "A la baja"],
+      ["Pedidos cargados sin error en el primer intento", "Cargas aceptadas a la primera ÷ cargas del período", "Mensual", "Coordinador(a) de Sistemas", "A la alza"],
+      ["Remanente conservado con destino registrado", "Remanentes derivados a preventa o cerrados con motivo ÷ remanentes generados", "Mensual", "Gerente Comercial (País / Canal)", "100%"],
+      ["Demanda no atendida del período", "Monto y unidades de lo pedido y no cubierto, por referencia y por cliente, con moneda y tasa fechada", "Mensual", "Gerente Comercial (País / Canal)", "Referencia — insumo de 8.1 y de la planificación de compra"],
+      ["Diferencia entre lo reservado y lo despachado", "Unidades despachadas ÷ unidades reservadas en la orden de venta", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"]
      ]
     }
    },
@@ -2863,57 +2984,87 @@ window.MANUAL_CONTENIDO = {
    "8.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la revisión y autorización del pedido en dos niveles —autorización para trabajar (puede prepararse en almacén) y autorización para facturar (puede facturarse y despacharse)— antes de enviarlo a preparación, y la clasificación de prioridad (Urgente 24 h, Regular 48 h o Caso Especial) que ordena el trabajo de Almacén y Tráfico. No incluye el montaje del pedido en sí (proceso 8.4) ni la cobranza posterior a la entrega (proceso 8.15), aunque la cartera vencida del cliente retiene la aprobación hasta regularizarse."
+     "texto": "Cubre la revisión del pedido y su autorización en dos niveles —autorización para trabajar, que habilita la preparación en almacén, y autorización para facturar, que habilita la facturación y el despacho—, el escalamiento de lo que excede el umbral local, la devolución del pedido que no se aprueba, y la clasificación por urgencia con la que almacén y tráfico ordenan su trabajo. No incluye el montaje del pedido (proceso 8.4), la preparación en almacén ni el despacho (macroproceso 7).",
+     "nota_estado": "Este proceso es «as-is» y está documentado: el modelo de doble autorización está homologado entre Panamá y Venezuela y en certificación desde julio de 2026. Lo que no está resuelto es el umbral —cuánto puede aprobar cada figura antes de escalar— y el atajo del pedido de contado, que en un mercado no pasa por aprobación."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Comercial (País / Canal)",
+     "participantes": [
+      "Gerente Comercial (País / Canal) — revisa márgenes, segmento de precio, condición crediticia y estado de cartera, otorga las dos autorizaciones y define la prioridad de despacho.",
+      "Analista/Ejecutivo(a) Comercial — solicita la aprobación con las condiciones del pedido y sus instrucciones especiales; si se devuelve, lo ajusta con el cliente o gestiona la cobranza pendiente. A partir de la aprobación no vuelve a intervenir en el ciclo.",
+      "Gerente Regional Comercial (Mayoreo) — decide los pedidos que exceden el umbral local: los internacionales y los de cuenta regional."
+     ],
+     "evidencia": ["E-05", "E-39", "E-35"],
+     "notas": "El proceso se apoya en el manual operativo de ventas al mayor homologado entre Panamá y Venezuela, que fija la doble autorización, la retención por cartera vencida y la clasificación por urgencia, y en la evidencia sobre cómo se decide. ⚠️ Se aparta del armazón anterior en tres puntos. (1) No existía salida de rechazo: todos los caminos terminaban en pedido aprobado. Un proceso de aprobación sin «no» no es una aprobación, es un trámite; ahora el pedido que no pasa vuelve al vendedor para ajustarlo con el cliente. (2) Faltaba el criterio de reparto por referencia, que es uno de los que de verdad se aplican: no se deja que un solo cliente se lleve las referencias más vendidas, porque la asignación que se recibe de la marca no da para reponerlas. (3) El pedido de contado que no pasa por aprobación figuraba solo como riesgo; es un camino real del proceso en al menos un mercado y se documenta como tal, con su advertencia.",
+     "sin_evidencia": "No consta el umbral por encima del cual un pedido escala: se describe que en teoría cada gerencia aprueba hasta cierto monto, pero el límite no está escrito y el reparto de quién decide qué no es claro para quienes lo ejecutan. Tampoco consta el criterio con el que se concede la condición de cliente preferencial que da despacho en 24 horas, más allá de volumen, influencia comercial o condiciones prenegociadas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Orden de venta creada en el sistema con el inventario ya reservado (salida del proceso 8.4) y solicitud de aprobación del vendedor.",
+     "cadencia": "Continua. Es parte del trabajo diario de quien aprueba, y el tiempo que tarda se paga en días de entrega al cliente.",
+     "output": "Pedido autorizado para trabajar y para facturar, clasificado por urgencia y pasado a preparación; o devuelto al vendedor con el motivo, para ajustarlo con el cliente o regularizar su cartera.",
+     "evidencia": ["E-05", "E-39"],
+     "notas": "La vista consolidada del sistema reúne margen, deuda y comportamiento de pago del cliente, de modo que la decisión sobre un pedido se toma en segundos. La lentitud, cuando aparece, no es de la revisión sino de la disponibilidad de quien tiene que revisar."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-39", "E-35"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa margen, segmento de precio, condición crediticia y estado de cartera del cliente sobre el pedido cargado en Odoo."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Gestiona la cobranza pendiente cuando la cartera del cliente no está al día, antes de que el pedido pueda continuar."},
-      {"id": "a3", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Aprueba los pedidos internacionales de Casio o de cuentas top regionales de Cubitt que excedan el umbral local."},
-      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga la autorización para trabajar, habilitando la preparación en almacén."},
-      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga la autorización para facturar, habilitando la facturación y el despacho."},
-      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Clasifica el pedido por urgencia —Urgente 24 h, Regular 48 h o Caso Especial— para ordenar el trabajo de Almacén y Tráfico."}
+      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Solicita la aprobación del pedido ya cargado, con la modalidad de pago, el descuento asignado según la política vigente y las instrucciones especiales del cliente. A partir de este punto no vuelve a intervenir físicamente en el ciclo: no sube a almacén, no imprime guías y no entrega pedidos."},
+      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa el pedido sobre cuatro criterios: el margen al que se está vendiendo contra la lista que corresponde, el descuento aplicado, el estado de la cartera del cliente —deuda vigente y comportamiento de pago—, y el reparto por referencia, para que un solo cliente no se lleve las referencias más vendidas, que no se pueden reponer a voluntad porque dependen de la asignación que da la marca."},
+      {"id": "a3", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Decide los pedidos que exceden el umbral local —los internacionales y los de cuenta regional—, con los mismos criterios y con la vista de toda la región, que es donde se ve si una referencia se está concentrando en un mercado."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el pedido devuelto con su motivo y lo resuelve: ajusta cantidades o condiciones con el cliente cuando el problema es de margen o de reparto, o gestiona la cobranza pendiente cuando la cartera no está al día. El pedido retenido por cartera vencida no avanza hasta que se regulariza."},
+      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Otorga las dos autorizaciones: la de trabajar, que habilita la preparación en almacén, y la de facturar, que habilita la facturación y el despacho. Con ellas el pedido pasa solo a almacén, sin que el vendedor tenga que moverse de su puesto."},
+      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Clasifica el pedido por urgencia —urgente con despacho en 24 horas, regular en 48 horas, o caso especial con su detalle—, con criterios comunes a ventas, almacén y tráfico. Es lo que permite que cada área sepa qué atender primero sin que nadie suba a presionar por su pedido."}
      ],
      "diagrama": {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Comercial (País / Canal)", "tipo": "inicio", "n": "Orden de venta creada en Odoo (output de 8.4)"},
-       {"id": "n1", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar margen, segmento de precio, crédito y cartera", "sistemas": ["Odoo (ERP)"]},
-       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Cartera del cliente al día?"},
-       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Gestionar la cobranza pendiente antes de continuar"},
-       {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿El pedido excede el umbral local?"},
-       {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Aprobar el pedido internacional o de cuenta top regional"},
-       {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Otorgar autorización para trabajar (preparación en almacén)"},
-       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Otorgar autorización para facturar (facturación y despacho)"},
-       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Clasificar por urgencia: Urgente 24h, Regular 48h o Caso Especial"},
-       {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Pedido aprobado y clasificado, listo para Logística"}
+       {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Orden de venta creada (8.4)"},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Solicitar aprobación con sus condiciones", "sistemas": ["Odoo"]},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿La venta es a crédito?"},
+       {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar margen, descuento, cartera y reparto", "sistemas": ["Odoo"]},
+       {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Supera el umbral local?"},
+       {"id": "n4alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Decidir el pedido escalado"},
+       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Se aprueba el pedido?"},
+       {"id": "n5alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Ajustar con el cliente o gestionar la cobranza"},
+       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Autorizar para trabajar y para facturar", "sistemas": ["Odoo"]},
+       {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Clasificar por urgencia: 24 h, 48 h o especial"},
+       {"id": "n8", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Pedido aprobado — pasa a preparación"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
-       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n7", "etq": "No — contado"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4", "a": "n5", "etq": "No"}, {"de": "n4alt", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-39", "E-35"],
      "filas": [
-      ["Gobierno de la aprobación ambiguo en algunos países", "Un aprobador local en la práctica transmite la decisión de otra persona, sin asumirla como propia.", "Alta", "Alto", "Aclarar quién aprueba realmente cada tipo de pedido y eliminar los pasos que no son una aprobación real."],
-      ["Aprobación concentrada en muy pocas personas a nivel regional", "Los pedidos internacionales pasan por una o dos personas, sin backup documentado.", "Alta", "Alto", "Formar y documentar un respaldo para la aprobación de pedidos internacionales."],
-      ["Excepción de \"salta aprobación\" sin criterio escrito", "Algunos pedidos de contado se saltan la aprobación en ciertos países, sin un criterio uniforme de cuándo aplica.", "Media", "Medio", "Documentar el criterio de excepción de aprobación para pedidos de contado."],
-      ["Indicador de riesgo de crédito no homogéneo entre países", "El cálculo del indicador de riesgo de cliente puede variar en la práctica de un país a otro.", "Baja", "Medio", "Homologar la fórmula del indicador de riesgo de crédito entre países."],
-      ["Modelo de doble autorización todavía en certificación", "El modelo de autorización para trabajar/autorización para facturar, homologado a Panamá, sigue en proceso de certificación; queda pendiente consolidar la recepción de efectivo.", "Media", "Medio", "Cerrar el punto pendiente de recepción de efectivo para completar la certificación del modelo."]
+      ["No está escrito hasta cuánto aprueba cada figura", "Se entiende que cada gerencia decide hasta cierto monto, pero el límite no está documentado y quienes ejecutan no tienen claro el reparto. En la duda, o se escala lo que no hacía falta o se aprueba lo que debía subir.", "Alta", "Alto", "Fijar el umbral por monto, por tipo de cliente y por marca en la matriz de aprobación del proceso 8.2, y dejarlo visible en el propio sistema."],
+      ["La aprobación regional se concentra en muy pocas personas", "Todos los pedidos internacionales pasan por dos personas. Mientras están disponibles la decisión es de segundos; cuando no lo están, el pedido espera y el cliente no sabe por qué.", "Alta", "Alto", "Delegar por umbral con criterios escritos y dejar el escalamiento para la excepción, no para el volumen corriente."],
+      ["El pedido de contado no pasa por aprobación", "En al menos un mercado, si el cliente paga de contado el pedido no se revisa. El riesgo de crédito desaparece, pero no el de margen ni el de que un cliente se lleve las referencias que no se pueden reponer.", "Alta", "Medio", "Mantener la revisión de margen y de reparto también en el contado, y reservar el atajo únicamente al riesgo de cartera."],
+      ["Un solo cliente puede llevarse las referencias que no se reponen", "La asignación de las referencias más vendidas depende de lo que da la marca, no de lo que se quiera comprar. Un pedido grande que se lleva las de mayor rotación deja sin abastecer al resto de la cartera durante todo el ciclo.", "Alta", "Alto", "Declarar un tope por referencia y por cliente en la política comercial, y que el sistema lo advierta en el momento de aprobar y no después."],
+      ["El indicador de riesgo del cliente no es homogéneo", "El estado de cartera y el comportamiento de pago se leen con criterio propio en cada mercado, así que el mismo cliente puede estar bloqueado en uno y aprobado en otro.", "Media", "Alto", "Unificar la definición del indicador de riesgo del cliente y calcularlo en el sistema, no en la apreciación de quien aprueba."],
+      ["El modelo de doble autorización sigue en certificación", "Está homologado y vigente, pero la certificación no ha cerrado —queda pendiente consolidar la recepción de efectivo—, así que conviven tramos certificados con tramos que todavía no lo están.", "Media", "Medio", "Cerrar los puntos pendientes de la certificación y fechar la versión vigente del procedimiento."],
+      ["El motivo del rechazo no queda registrado", "Cuando un pedido se devuelve, la razón viaja en una conversación. No se puede medir cuánto se devuelve, por qué, ni si el mismo cliente reincide.", "Media", "Medio", "Exigir motivo de una lista corta al devolver un pedido y reportarlo por cliente y por vendedor."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de aprobación del pedido", "Fecha de aprobación − fecha de creación de la orden de venta", "Por pedido", "Gerente Comercial (País / Canal)", "Referencia: minutos, no días"],
-      ["Pedidos aprobados sin excepción de riesgo de crédito", "Aprobados sin excepción ÷ total aprobados", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"],
-      ["Pedidos escalados a la gerencia regional", "Pedidos escalados ÷ total de pedidos aprobados", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Referencia de seguimiento"],
-      ["Pedidos retenidos por cartera vencida", "Pedidos retenidos ÷ total de pedidos presentados a aprobación", "Mensual", "Gerente Comercial (País / Canal)", "Referencia de seguimiento"]
+      ["Tiempo de aprobación del pedido", "Hora de la autorización − hora de la solicitud", "Por pedido", "Gerente Comercial (País / Canal)", "Dentro del mismo día hábil"],
+      ["Pedidos aprobados en el primer intento", "Pedidos autorizados sin devolución ÷ pedidos presentados", "Mensual", "Gerente Comercial (País / Canal)", "A la alza"],
+      ["Pedidos devueltos con motivo registrado", "Devoluciones con motivo ÷ devoluciones del período", "Mensual", "Gerente Comercial (País / Canal)", "100%"],
+      ["Pedidos escalados a la gerencia regional", "Pedidos escalados ÷ pedidos aprobados del período", "Mensual", "Gerente Regional Comercial (Mayoreo)", "A la baja — mide si el umbral está bien puesto"],
+      ["Pedidos retenidos por cartera vencida", "Pedidos retenidos ÷ pedidos presentados", "Mensual", "Gerente Comercial (País / Canal)", "A la baja"],
+      ["Cumplimiento del compromiso de urgencia", "Pedidos despachados dentro de su plazo ÷ pedidos clasificados", "Mensual", "Gerente Comercial (País / Canal)", "A la alza"]
      ]
     }
    },
@@ -2921,53 +3072,86 @@ window.MANUAL_CONTENIDO = {
    "8.6": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la reserva de mercancía en tránsito para cubrir el remanente de un pedido que excede la disponibilidad (preventa), y la captura de la demanda no cumplida cuando el tránsito no llega o llega parcial, para retroalimentar a la planificación de compra. No incluye la ejecución de la compra internacional en sí (procesos 6.3 y 6.4 de Compras y Abastecimiento), que decide cuánto y cuándo comprar con este dato como insumo.",
-     "nota_estado": "Este proceso es híbrido: la preventa contra tránsito confirmado ya opera y está bien entendida por el equipo comercial. La segunda pata —la trazabilidad de la demanda no cumplida— era hasta hace poco una brecha crítica marcada como prioridad número uno; en Venezuela ya se resolvió con una herramienta concreta, el Hub Compras & Ventas en Lark Base, donde toda solicitud de backorder se registra contra el maestro de cliente para trazabilidad y para evitar duplicados. Falta extender y formalizar esa práctica al resto de los países."
+     "texto": "Cubre las dos mitades del mismo problema: reservar mercancía en tránsito para cubrir el remanente de un pedido que la existencia no alcanzó —la preventa—, con su fecha comprometida al cliente y su cierre cuando el contenedor llega; y registrar la demanda que no se pudo atender, cuando no hay tránsito que la cubra o cuando el que llegó no alcanzó, para que la compra del ciclo siguiente la vea. No incluye el montaje del pedido (proceso 8.4) ni la planificación de la compra (macroproceso 6), que es quien consume este dato.",
+     "nota_estado": "Este proceso es híbrido. La preventa contra tránsito confirmado opera y el equipo la maneja bien. La segunda mitad —la trazabilidad de lo que no se pudo vender— está resuelta en un mercado con la aplicación de enlace entre ventas y compras, y sin resolver en el resto. Es la brecha que la propia gerencia comercial señala como prioridad número uno."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial (Mayoreo)",
+     "participantes": [
+      "Analista/Ejecutivo(a) Comercial — marca la preventa contra el contenedor, compromete la fecha con el cliente, registra el faltante como solicitud de compra y cierra la preventa cuando la mercancía llega.",
+      "Coordinador(a) de Logística y Bodega — mantiene y consulta el seguimiento del tránsito: en qué etapa va cada contenedor, qué referencias trae y con qué fecha estimada de disponibilidad.",
+      "Comité de Compras / Director de Compras — trabaja sobre el consolidado de solicitudes para planificar el reabastecimiento. Es el destinatario del dato: sin él, este proceso registra y nadie lo usa.",
+      "Gerente Regional Comercial (Mayoreo) — responde por que la demanda no atendida quede trazada en todos los mercados y llegue a la compra."
+     ],
+     "evidencia": ["E-05", "E-36"],
+     "notas": "El circuito se apoya en la aplicación de enlace entre ventas y compras documentada para Venezuela, que tiene dos secciones: las solicitudes hacia compras —faltante contra un cliente concreto, pronóstico recurrente por canal, y pedido especial no pronosticable— y el seguimiento de cada contenedor por sus seis etapas, de solicitado a finalizado, con las referencias que trae y su fecha estimada. ⚠️ Se aparta del armazón anterior en dos puntos. (1) Faltaba el acto que cierra el circuito: el flujo llegaba a preguntar si el contenedor había llegado y terminaba ahí, sin que nadie convirtiera la preventa en venta ni avisara al cliente que su mercancía ya estaba. (2) El consolidado de solicitudes lo trabajaba el Coordinador de Logística y Bodega «del lado de Compras». Compras es un actor distinto y con decisión propia, como quedó establecido en los procesos 6.2, 6.3 y 6.4; el coordinador de bodega aporta el tránsito, no planifica la compra.",
+     "sin_evidencia": "⚠️ La regla que distingue una oportunidad confirmada de una en negociación —para que lo que aún se está negociando no infle las cantidades a comprar— está documentada pero no consta su aplicación fuera del mercado donde se creó la herramienta. Tampoco consta cómo se decide, cuando el contenedor llega incompleto, a qué cliente se le sirve primero: ese reparto se resuelve caso a caso."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Pedido cuyo remanente no pudo cubrirse con la existencia al momento del montaje (salida del proceso 8.4). También lo reabre la llegada del contenedor comprometido, que obliga a cerrar las preventas que dependían de él.",
+     "cadencia": "Continua para el registro. El cierre sigue el ciclo del tránsito: mensual en la marca representada, porque despacha con esa cadencia, e irregular en la marca propia.",
+     "output": "Preventa registrada contra un contenedor identificado, con fecha comprometida al cliente y convertida en venta al llegar; y demanda no atendida registrada por referencia y por cliente, disponible para la planificación de la compra.",
+     "evidencia": ["E-05"],
+     "notas": "La visibilidad de tránsito de la marca representada alcanza un mes, que es su cadencia de despacho. Ese horizonte es el que limita hasta dónde se puede comprometer una preventa."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-36"],
      "actividades": [
-      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Detecta que el remanente de un pedido no puede cubrirse con el inventario disponible al momento del montaje."},
-      {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consulta el pipeline de 6 etapas del contenedor (solicitado, embarcado, en camino, en nacionalización, en espera de recepción, finalizado) para confirmar si hay tránsito que cubra el remanente y su fecha estimada."},
-      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Marca el remanente como preventa contra ese tránsito y comunica la fecha comprometida al cliente."},
-      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cuando no hay tránsito que cubra el remanente, registra una solicitud de tipo Backorder en el Hub Compras & Ventas —por formulario, nunca por chat o correo— contra el maestro de cliente de Odoo."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Trabaja, del lado de Compras, sobre las vistas consolidadas del Hub por producto y canal para planificar el reabastecimiento."}
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consulta el seguimiento del tránsito para el remanente que quedó sin cubrir: si hay un contenedor que traiga esa referencia, en qué etapa va —solicitado, embarcado, en camino, en nacionalización, en espera de recepción o finalizado— y con qué fecha estimada de disponibilidad."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Marca el remanente como preventa contra ese contenedor y le compromete al cliente la fecha que el tránsito sostiene. La preventa es una reserva sobre mercancía que todavía no está: se compromete la fecha del contenedor, no una promesa propia."},
+      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Registra el faltante como solicitud de compra contra el cliente concreto cuando no hay tránsito que lo cubra. Es el registro que impide que la venta perdida desaparezca, y va contra el cliente para poder seguirle el rastro y no contarla dos veces."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Al finalizar el contenedor, convierte la preventa en orden de venta, la pasa a preparación y le avisa al cliente que su mercancía ya está. Es el acto que cierra el compromiso: sin él la preventa envejece en el sistema y el cliente se entera por su cuenta o no se entera."},
+      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Registra como solicitud de compra lo que el contenedor no alcanzó a cubrir, cuando llega incompleto o con menos de lo esperado. ⚠️ Es el punto donde hoy se pierde el dato: si la preventa se cierra sin registrar el faltante, no queda constancia de cuánto se pidió de verdad, solo de cuánto se vendió."},
+      {"id": "a6", "rol": "Comité de Compras / Director de Compras", "texto": "Trabaja sobre el consolidado de solicitudes por referencia y por canal para planificar el reabastecimiento. Sin este dato la compra se dimensiona contra la venta ejecutada, que es siempre menor que la demanda real, y el faltante se repite el ciclo siguiente."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Analista/Ejecutivo(a) Comercial", "Comité de Compras / Director de Compras"],
       "nodos": [
-       {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Pedido con remanente no cubierto por inventario disponible"},
-       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Hay tránsito en el pipeline que cubra el remanente?", "sistemas": ["Hub Compras & Ventas (Lark Base)"]},
-       {"id": "n1alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar solicitud de Backorder en el Hub, contra el maestro de cliente"},
-       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Marcar preventa contra el tránsito y comprometer fecha"},
-       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿El tránsito llegó y cubrió la preventa?"},
-       {"id": "n3alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar el remanente no cubierto como Backorder en el Hub"},
-       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Preventa cerrada o demanda no cumplida trazada en el Hub"}
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Remanente sin cubrir (8.4)"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consultar el tránsito y su etapa", "sistemas": ["Enlace Ventas–Compras (Lark Base)"]},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Hay tránsito que lo cubra?"},
+       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar el faltante contra el cliente", "sistemas": ["Enlace Ventas–Compras (Lark Base)"]},
+       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Marcar preventa y comprometer la fecha", "sistemas": ["Odoo"]},
+       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿El contenedor cubrió la preventa?"},
+       {"id": "n4alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar lo no cubierto como faltante", "sistemas": ["Enlace Ventas–Compras (Lark Base)"]},
+       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Convertir la preventa en venta y avisar al cliente", "sistemas": ["Odoo"]},
+       {"id": "n6", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Planificar el reabastecimiento con el consolidado", "sistemas": ["Enlace Ventas–Compras (Lark Base)"]},
+       {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Demanda atendida o trazada para la compra"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n4"},
-       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n4"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n6"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n4alt", "etq": "No"}, {"de": "n4alt", "a": "n6"},
+       {"de": "n5", "a": "n7"}, {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-05", "E-36"],
      "filas": [
-      ["Herramienta de backorder sin extender a todos los países", "El registro sistemático de demanda no cumplida ya se resolvió en Venezuela con el Hub Compras & Ventas, pero no está formalizado ni replicado en el resto de los países.", "Alta", "Alto", "Extender el Hub Compras & Ventas (o un mecanismo equivalente) a todos los países, documentando el proceso como estándar regional."],
-      ["Visibilidad de tránsito de Casio históricamente limitada a un mes", "La visibilidad de tránsito de la marca representada alcanzaba solo el próximo despacho mensual; el pipeline de 6 etapas del Hub, con fecha estimada por contenedor, ya amplía esa ventana en Venezuela.", "Baja", "Medio", "Confirmar que el pipeline del Hub cubra también los contenedores de Cubitt y se extienda a los demás países."],
-      ["Preventa sin fecha comprometida documentada de forma uniforme", "La comunicación de la fecha al cliente depende del vendedor, sin plantilla o registro estándar.", "Baja", "Medio", "Estandarizar el mensaje y el registro de la fecha comprometida al cliente."],
-      ["Pérdida de venta al cliente que acude a otro proveedor", "Mientras la brecha no se resuelve, el cliente puede cubrir su necesidad con otro proveedor de la misma marca en la región.", "Media", "Alto", "Priorizar la extensión del Hub a los demás países para dimensionar el impacto real en venta perdida en toda la región."]
+      ["No se sabe cuánta demanda se dejó de atender", "Cuando el tránsito no llega o no alcanza, se pierde el rastro de lo que se dejó de vender y de hasta dónde llegaba la demanda: se sabe lo que se vendió, no lo que pidieron. La consecuencia la nombra la propia gerencia: se compra la mitad de lo que habría que comprar, porque la compra se dimensiona contra la venta ejecutada.", "Alta", "Alto", "Hacer obligatorio el registro del faltante en todo cierre de preventa no cubierta y consolidarlo por referencia y por cliente como insumo formal de la planificación de compra."],
+      ["El registro de la demanda no atendida existe en un solo mercado", "La herramienta que resuelve el registro está en funcionamiento en un país y no se ha formalizado ni replicado. En el resto, la demanda no atendida sigue sin dejar rastro.", "Alta", "Alto", "Documentar la herramienta como estándar regional, replicarla en los demás mercados y fijar un responsable de su mantenimiento."],
+      ["El cliente que no recibe se va a otro proveedor", "La demanda no atendida no se queda esperando: el cliente la busca en otro sitio, y en la marca representada el grupo no es el único proveedor de la región. Lo que se pierde no es un pedido, es la siguiente compra de ese cliente.", "Alta", "Alto", "Medir la demanda no atendida por cliente y priorizar con ella la reposición, en vez de repartir el contenedor por orden de llegada."],
+      ["El horizonte de tránsito limita lo que se puede comprometer", "La visibilidad alcanza el mes que marca la cadencia de despacho de la marca representada, y en la marca propia es irregular. Más allá de ese horizonte no hay contra qué reservar, aunque la demanda exista.", "Alta", "Medio", "Extender el horizonte de visibilidad con el plan de compra en firme, y distinguir en la reserva lo embarcado de lo solicitado."],
+      ["La preventa se compromete sobre un contenedor que puede no llegar completo", "Se le da al cliente una fecha que depende de un embarque que aún no ha llegado. Si llega incompleto, el compromiso incumplido es del vendedor, no del tránsito.", "Alta", "Alto", "Comprometer la fecha con el grado de confirmación del contenedor a la vista y avisar al cliente en cuanto la etapa del tránsito cambie, no cuando venza la fecha."],
+      ["No hay criterio de reparto cuando el contenedor llega incompleto", "Si lo que llega no alcanza para todas las preventas, a quién se sirve primero se decide caso a caso. Sin regla, el reparto premia a quien más insiste.", "Media", "Alto", "Aplicar el orden de precedencia del reparto en escasez —compromiso firmado primero— y dejar constancia del motivo de todo ajuste manual."],
+      ["Lo que está en negociación puede inflar la compra", "La solicitud por oportunidad no pronosticable solo debe sumar al consolidado cuando está confirmada. Si se cuenta mientras se negocia, se compra contra una venta que quizá no ocurra.", "Media", "Medio", "Mantener la regla de que solo la oportunidad confirmada suma al consolidado, y auditarla al cierre de cada ciclo de compra."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Preventas cubiertas por el tránsito comprometido", "Preventas cubiertas ÷ total de preventas registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "≥85%"],
-      ["Solicitudes de backorder registradas en el Hub", "Casos con backorder registrado ÷ casos identificados de demanda no cubierta", "Mensual", "Analista/Ejecutivo(a) Comercial", "100% en Venezuela; en extensión al resto de países"],
-      ["Valor de la demanda no cumplida por período", "Suma del remanente no cubierto, por SKU/cliente/país", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Insumo directo a 6.1 S&OP"],
-      ["Países con el Hub Compras & Ventas (o equivalente) implementado", "Países con backorder sistemático ÷ total de países", "Anual", "Gerente Regional Comercial (Mayoreo)", "Meta de avance progresivo"]
+      ["Demanda no atendida del período", "Unidades y monto pedidos y no servidos, por referencia y por cliente, con moneda y tasa fechada", "Mensual", "Gerente Regional Comercial (Mayoreo)", "Referencia — insumo obligatorio de la planificación de compra"],
+      ["Remanentes con destino registrado", "Remanentes convertidos en preventa o registrados como faltante ÷ remanentes generados", "Mensual", "Analista/Ejecutivo(a) Comercial", "100%"],
+      ["Preventas cubiertas por el contenedor comprometido", "Preventas servidas completas ÷ preventas comprometidas", "Por ciclo de tránsito", "Coordinador(a) de Logística y Bodega", "A la alza"],
+      ["Cumplimiento de la fecha comprometida al cliente", "Preventas servidas en la fecha dada ÷ preventas comprometidas", "Por ciclo de tránsito", "Analista/Ejecutivo(a) Comercial", "A la alza"],
+      ["Mercados con el registro de demanda no atendida operando", "Mercados con la herramienta en uso ÷ total de mercados", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "100%"],
+      ["Demanda no atendida que llega a la compra", "Referencias con faltante registrado que entran en el plan de compra ÷ referencias con faltante", "Por ciclo de compra", "Comité de Compras / Director de Compras", "100%"]
      ]
     }
    },
@@ -2975,54 +3159,96 @@ window.MANUAL_CONTENIDO = {
    "8.7": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la atención dedicada a clientes de alto volumen o alto reconocimiento —grandes superficies, cadenas y clústeres A/B—: acuerdo comercial anual, calendario de campañas por canal, mobiliario y visual dentro de la tienda del cliente, promotoría, capacitación técnica y monitoreo de inventario y semanas de cobertura. No incluye el pedido puntual regular (proceso 8.4), la venta inorgánica masiva (8.10) ni la corporativa (8.9).",
-     "nota_estado": "Este proceso es híbrido: el modelo de cuenta clave —con dashboard de sellout e inventario por cadena, calendario de canal y malla de promotoría— ya está desarrollado y validado en al menos un país, pero apenas empieza a extenderse al resto de la región."
+     "texto": "Cubre el ciclo de gestión de las cuentas de alto volumen o alto reconocimiento —grandes superficies, cadenas con varios puntos y clientes de los clústeres A y B—: la tipificación de la cartera con su nivel de atención, la preparación y negociación del acuerdo comercial del año con su calendario de campañas por canal, el despliegue del plan acordado en los puntos del cliente, el seguimiento de su venta e inventario, la acción sobre lo que ese seguimiento revela y la revisión trimestral del acuerdo. No incluye el pedido puntual (proceso 8.4), la campaña masiva de alto volumen (proceso 8.10) ni la venta corporativa (proceso 8.9).",
+     "nota_estado": "Este proceso es híbrido: el modelo está construido y funcionando en un mercado —con tipificación por frecuencia de atención, calendario por canal negociado cuenta por cuenta y tablero de venta, inventario y semanas de cobertura por punto— y apenas empieza a extenderse a los demás. Lo que sostiene el modelo no es una herramienta corporativa sino el trabajo de una persona sobre su propia hoja."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista/Ejecutivo(a) Comercial",
+     "participantes": [
+      "Analista/Ejecutivo(a) Comercial — es el ejecutivo de cuenta y lleva el ciclo completo: tipifica la cartera, prepara y negocia el acuerdo, despliega el plan en los puntos del cliente, sigue su venta y su cobertura, y actúa sobre ellas.",
+      "Cliente — cuenta clave — acuerda las condiciones y el calendario por su lado, y comparte la data de venta e inventario de sus puntos. Es una contraparte, no un destinatario: sin su data el seguimiento no existe.",
+      "Gerente Comercial (País / Canal) — aprueba el acuerdo antes de firmarlo, porque compromete margen, apoyos y mercancía de asignación limitada por fuera del pedido corriente, y lo revisa cada trimestre contra el desempeño real.",
+      "Líder de Punto de Venta / Impulsadores — función de apoyo que el ejecutivo de cuenta convoca: ejecuta la promotoría en los puntos donde el plan la ubica.",
+      "Coordinador(a) de Visual Merchandising — función de apoyo: provee el mobiliario propio y la exhibición comprometidos en el acuerdo, con el estándar de marca vigente."
+     ],
+     "evidencia": ["E-14", "E-35", "E-63", "E-05"],
+     "notas": "⚠️ Cambia el cargo que lleva la cuenta. El armazón lo atribuía al Coordinador(a) Comercial; el cargo real de quien ejecuta este proceso —KAM de cadenas— corresponde a Analista/Ejecutivo(a) Comercial en el patrón V4, y lo mismo ocurre con quien se incorporó en otro mercado para atender cadenas y grandes superficies. El nivel de gerencia entra donde tiene que entrar: aprobando el acuerdo, no negociándolo. ⚠️ El flujo se estructura como el ciclo de gestión de una cuenta —preparar, negociar, aprobar, desplegar, seguir, actuar, revisar— y no como una cadena de entregas entre áreas. Por eso la promotoría y el visual figuran como funciones de apoyo que el ejecutivo convoca al desplegar el plan, y no como carriles con paso propio: no son etapas del ciclo comercial, son recursos que ese ciclo despliega. El armazón anterior, además, concentraba las tres funciones distintas —piezas de campaña, mobiliario y exhibición, y promotoría— en un solo «Gerente Regional de Marketing».",
+     "sin_evidencia": "No consta un acuerdo comercial escrito y homologado entre mercados: lo que consta es la práctica de negociarlo cuenta por cuenta. Tampoco consta una regla de asignación que proteja la mercancía comprometida con una cuenta clave frente a la reposición corriente, más allá de la intención de reservar una parte del inventario para los clientes preferentes."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Arranque del ciclo comercial de la cuenta, con el acuerdo del año por negociar o renovar. Dentro del año lo reabren el mes que arranca en el calendario del canal, la solicitud puntual del cliente y el lanzamiento de un producto que entra en esa cuenta.",
+     "cadencia": "Acuerdo anual con revisión trimestral. Seguimiento semanal de venta y cobertura por punto, y reunión semanal del equipo para alinear y salir a la calle. El calendario de cada mes se trabaja con un mes de anticipación.",
+     "output": "Acuerdo comercial vigente por cuenta —márgenes, condiciones y apoyos comprometidos— con su calendario de campañas por canal; nivel de atención definido por tipología; tablero de venta, inventario y semanas de cobertura por punto; y las acciones de reposición, movimiento entre puntos y venta cruzada que ese tablero dispara.",
+     "evidencia": ["E-14", "E-63"],
+     "notas": "El mes de anticipación no es holgura: es el tiempo que necesita el cliente para incorporar la campaña a su propio calendario y el que necesita el grupo para tener el producto en el punto."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-14", "E-35", "E-63"],
      "actividades": [
-      {"id": "a1", "rol": "Coordinador(a) Comercial", "texto": "Negocia y firma el acuerdo comercial anual con la cuenta clave: márgenes, condiciones y apoyos comprometidos."},
-      {"id": "a2", "rol": "Coordinador(a) Comercial", "texto": "Construye el calendario de campañas por canal con la cadena, alineado al calendario comercial regional."},
-      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Da seguimiento semanal al dashboard de inventario y semanas de cobertura por punto de la cadena."},
-      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Gestiona el allocation dedicado a la cuenta clave y el despacho certificado con la transportadora que exige la cadena."},
-      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina material POP, mueble propio y promotoría en el punto de venta del cliente."},
-      {"id": "a6", "rol": "Coordinador(a) Comercial", "texto": "Revisa trimestralmente el acuerdo comercial contra el desempeño real y ajusta lo que corresponda."}
+      {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Tipifica la cartera de cuentas y fija el nivel de atención de cada una: las de tipo A con la frecuencia más alta, las B más espaciadas, y las de tipo C agrupadas —cada una compra poco y una o dos veces al año, pero juntas pesan en la venta—. La ruta se ajusta a la capacidad real de atención del equipo, no al número de cuentas en la lista."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Prepara la propuesta de cada cuenta con su propia historia: qué vendió el año anterior punto por punto, qué portafolio le funciona, dónde tuvo quiebres y qué apoyos recibió. Es lo que permite negociar con la cuenta sobre su desempeño y no sobre una plantilla igual para todas."},
+      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Negocia el acuerdo comercial del año y el calendario del canal mes a mes: qué entra en cada mes, con qué producto y con qué apoyo. El producto se elige por lo que le sirve a esa cuenta en esa temporada, no por lo que hay que sacar del almacén."},
+      {"id": "a4", "rol": "Cliente — cuenta clave", "texto": "Acuerda las condiciones y el calendario por su lado, y se compromete a entregar la data de venta e inventario de sus puntos con la periodicidad pactada. Esa entrega no es un anexo de la negociación: es parte de lo que se negocia, porque sin ella el resto del ciclo no se puede ejecutar."},
+      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba el acuerdo antes de firmarlo, o lo devuelve con el ajuste que corresponda. Compromete margen, apoyos y mercancía de asignación limitada por fuera del pedido corriente, así que la decisión no puede quedar en quien negocia."},
+      {"id": "a6", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Renegocia con la cuenta las condiciones que la aprobación devolvió, y vuelve a presentar el acuerdo."},
+      {"id": "a7", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Despliega el plan acordado en los puntos de la cuenta: activa la campaña del mes con un mes de anticipación, pide a visual merchandising el mobiliario y la exhibición comprometidos, y ubica la promotoría donde está el inventario y no donde resulta más cómodo. Una promotora en un punto sin existencia es costo sin venta."},
+      {"id": "a8", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Sigue semanalmente cada punto de la cuenta con la data que el cliente entrega: venta de las últimas cuatro semanas, existencia por producto y semanas de cobertura, punto por punto."},
+      {"id": "a9", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Actúa sobre lo que el seguimiento muestra, que es lo que distingue una cuenta gestionada de una cuenta observada: repone lo que está por debajo de la cobertura objetivo, propone mover producto entre puntos de la misma cuenta cuando uno lo tiene detenido y otro lo agotó, y empuja la venta cruzada del portafolio que falta en ese punto."},
+      {"id": "a10", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa el acuerdo cada trimestre contra el desempeño real —venta ejecutada frente a la comprometida, apoyos entregados, campañas cumplidas— y ajusta con la cuenta lo que corresponda."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) Comercial", "Analista/Ejecutivo(a) Comercial", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Cliente — cuenta clave", "Gerente Comercial (País / Canal)"],
       "nodos": [
-       {"id": "n0", "carril": "Coordinador(a) Comercial", "tipo": "inicio", "n": "Existencia del acuerdo comercial anual con la cuenta clave"},
-       {"id": "n1", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Construir calendario de campañas por canal"},
-       {"id": "n2", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar material POP, mueble y promotoría"},
-       {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Gestionar allocation y despacho certificado"},
-       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Dar seguimiento semanal a inventario y cobertura por punto", "sistemas": ["Dashboard comercial (externo)"]},
-       {"id": "n5", "carril": "Coordinador(a) Comercial", "tipo": "decision", "n": "¿Desempeño del trimestre en línea con el acuerdo?"},
-       {"id": "n5alt", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Ajustar el acuerdo comercial con la cuenta clave"},
-       {"id": "n6", "carril": "Coordinador(a) Comercial", "tipo": "fin", "n": "Acuerdo vigente y seguimiento activo"}
+       {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Arranque del ciclo de la cuenta"},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Tipificar la cartera y fijar el nivel de atención"},
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Preparar la propuesta con la data de la cuenta", "sistemas": ["Tablero de sell-out por cuenta"]},
+       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Negociar el acuerdo y el calendario del canal"},
+       {"id": "n4", "carril": "Cliente — cuenta clave", "tipo": "tarea", "n": "Acordar condiciones y comprometer su data"},
+       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Aprueba el acuerdo?"},
+       {"id": "n5alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Renegociar y volver a presentar"},
+       {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Desplegar el plan: campaña, exhibición y promotoría"},
+       {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Seguir venta, inventario y cobertura por punto", "sistemas": ["Tablero de sell-out por cuenta"]},
+       {"id": "n8", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿La cobertura está en objetivo?"},
+       {"id": "n8alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reponer, mover entre puntos o cruzar portafolio"},
+       {"id": "n9", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar el acuerdo cada trimestre"},
+       {"id": "n10", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Cuenta gestionada con acuerdo vigente"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"}
+       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n8alt", "etq": "No"}, {"de": "n8alt", "a": "n9"},
+       {"de": "n9", "a": "n10"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-14", "E-35", "E-63"],
      "filas": [
-      ["Modelo de cuenta clave no extendido a toda la región", "El dashboard de sellout e inventario por cadena y la malla de promotoría existen en un país y no en todos.", "Alta", "Medio", "Llevar la práctica ya validada al resto de la región, priorizando las cuentas de mayor volumen."],
-      ["Despacho certificado dependiente de una sola transportadora aprobada por la cadena", "Si la transportadora aprobada falla, no siempre hay una alternativa certificada lista.", "Media", "Alto", "Certificar una segunda transportadora de respaldo para las cadenas más grandes."],
-      ["Allocation de cuenta clave en tensión con la reposición regular", "El volumen dedicado a la cuenta clave compite con la disponibilidad para el resto de la cartera.", "Media", "Medio", "Definir el criterio de prioridad entre el allocation de cuenta clave y la reposición regular."],
-      ["Coordinación de campaña con Marketing no siempre alineada al peso comercial del mayor", "El mayor puede quedar fuera de una campaña regional aunque represente un volumen de facturación mayor que el canal que sí participa.", "Media", "Alto", "Incluir al mayor desde el diseño de toda campaña regional que involucre cuentas clave."]
+      ["El modelo vive en la hoja de una persona", "El tablero que sostiene la cuenta —venta, inventario y cobertura por punto— lo construyó y lo actualiza quien lleva las cuentas clave, con sus propias fórmulas. Funciona muy bien y no es de la empresa: si esa persona falta, la cuenta se queda sin instrumento.", "Alta", "Alto", "Llevar el tablero a una herramienta corporativa con su fuente de datos declarada, y dejar documentado cómo se construye antes de extenderlo a otros mercados."],
+      ["El modelo de cuenta clave no está extendido a la región", "Está construido y probado en un mercado; en los demás la cuenta grande se atiende como un cliente más, sin acuerdo formal ni seguimiento de cobertura.", "Alta", "Alto", "Documentar el modelo como estándar regional y replicarlo mercado por mercado, empezando por las cuentas de mayor volumen."],
+      ["La data del punto de venta la tiene el cliente, no el grupo", "El seguimiento depende de que cada cuenta entregue su venta y su inventario. Si deja de hacerlo, o si lo hace tarde o incompleto, el tablero se apaga y la cuenta vuelve a gestionarse a ciegas.", "Alta", "Alto", "Incluir la entrega periódica de la data en el propio acuerdo comercial, con formato y frecuencia, y medir su cumplimiento como una condición más."],
+      ["La mercancía comprometida con la cuenta compite con la reposición corriente", "Lo que se aparta para una cuenta clave sale del mismo inventario que atiende al resto de la cartera, y la asignación de las referencias más vendidas no da para las dos cosas.", "Alta", "Alto", "Declarar en la política comercial qué parte del inventario se reserva a cuentas preferentes y aplicar el orden de precedencia del reparto en escasez cuando no alcance."],
+      ["La promotoría puede quedar desplegada donde no hay inventario", "La promotoría se ubica con el plan y la existencia de cada punto cambia después. Un punto sin producto con promotoría es costo puro, y el punto que sí lo tiene queda sin atender.", "Alta", "Medio", "Revisar la ubicación de la promotoría contra la cobertura de cada punto dentro del mismo ciclo semanal de seguimiento."],
+      ["El despacho depende del transportista que la cuenta aprueba", "Las grandes superficies exigen entregar con su transportista certificado. Un problema con ese único proveedor detiene la entrega sin alternativa inmediata.", "Media", "Alto", "Acordar con cada cuenta al menos una alternativa certificada y dejarla prevista en el acuerdo."],
+      ["La campaña necesita un mes de anticipación y el material no siempre llega", "El calendario se trabaja con un mes de antelación porque la cuenta debe incorporarlo al suyo. Cuando el material de campaña o la exhibición llegan tarde, la fecha ya está comprometida con el cliente.", "Media", "Medio", "Fijar la fecha de entrega del material y del mobiliario como hito del calendario del canal, y no como una solicitud a las áreas de apoyo."],
+      ["Las cuentas de tipo C pesan en la venta y no tienen atención definida", "Se agrupan porque son muchas y compran poco cada una, pero juntas sostienen una parte relevante de la venta. Sin una forma de atención propia, se atienden cuando queda tiempo.", "Media", "Medio", "Definir un modelo de atención diferenciado para el grupo —envío de disponibilidad, campaña y contacto periódico— en vez de dejarlo a la capacidad sobrante del equipo."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Semanas de cobertura por cuenta clave", "Inventario disponible ÷ venta promedio semanal, por cadena", "Semanal", "Analista/Ejecutivo(a) Comercial", "Meta por cadena, según acuerdo"],
-      ["Cumplimiento del calendario de campañas acordado", "Campañas ejecutadas a tiempo ÷ campañas acordadas", "Trimestral", "Coordinador(a) Comercial", "≥90%"],
-      ["Cuentas clave con modelo de dashboard implementado", "Cuentas con dashboard activo ÷ total de cuentas clave", "Trimestral", "Coordinador(a) Comercial", "Meta de avance progresivo"]
+      ["Puntos por debajo de la cobertura objetivo", "Puntos con cobertura bajo el objetivo ÷ puntos de la cuenta", "Semanal", "Analista/Ejecutivo(a) Comercial", "A la baja"],
+      ["Semanas de cobertura por cuenta clave", "Existencia del punto ÷ venta promedio semanal de las últimas cuatro semanas", "Semanal", "Analista/Ejecutivo(a) Comercial", "Dentro del objetivo acordado"],
+      ["Cumplimiento del calendario acordado con la cuenta", "Campañas ejecutadas en su mes ÷ campañas del calendario", "Trimestral", "Analista/Ejecutivo(a) Comercial", "100%"],
+      ["Cuentas con data de venta entregada y al día", "Cuentas que entregan su data en la frecuencia acordada ÷ cuentas clave", "Mensual", "Gerente Comercial (País / Canal)", "100%"],
+      ["Nivel de atención cumplido por tipología", "Contactos realizados ÷ contactos previstos por tipología", "Mensual", "Analista/Ejecutivo(a) Comercial", "100%"],
+      ["Venta por punto con promotoría frente a punto sin promotoría", "Venta promedio de puntos con promotoría ÷ venta promedio de puntos sin ella, con moneda y tasa fechada", "Trimestral", "Analista/Ejecutivo(a) Comercial", "Referencia — dimensiona la inversión en promotoría"],
+      ["Cumplimiento del acuerdo comercial", "Venta ejecutada ÷ venta comprometida en el acuerdo, con moneda y tasa fechada", "Trimestral", "Gerente Comercial (País / Canal)", "A la alza"]
      ]
     }
    },
@@ -3030,53 +3256,101 @@ window.MANUAL_CONTENIDO = {
    "8.8": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la relación con franquiciados Casio: contrato de franquicia con royalty, acceso a la data de venta del franquiciado, materiales POP y marquesina, negociación de remodelación, capacitación del personal y presupuestos de apoyo aprobados por casa matriz. Aplica solo a Casio, no a Cubitt, y solo a las franquicias vigentes.",
-     "nota_estado": "Este proceso es «to-be»: el modelo de franquicia se abandonó y se está retomando, con solo 2 de 39 franquicias originales activas hoy y un contrato nuevo en trabajo."
+     "texto": "Cubre el ciclo de vida de una franquicia de la marca representada: la captación y evaluación del prospecto contra los criterios de la marca, la firma del contrato con su royalty y sus condiciones, el acondicionamiento del local al estándar, la entrega del paquete de activación —imagen, mobiliario, surtido inicial y formación del personal—, la solicitud a la marca del presupuesto de apoyo a la apertura, y la reevaluación al vencimiento para decidir si el contrato se renueva. Aplica solo a la marca representada, no a la marca propia.",
+     "nota_estado": "Este proceso es «to-be» en su totalidad y conviene leerlo así: hoy no ocurre ninguno de sus pasos. El modelo se abandonó con el tiempo, la red pasó de treinta y nueve franquicias a dos, no hay contrato vigente que defina el royalty ni las condiciones, y el punto se atiende como una tienda cualquiera que llega, pide mercancía y se va. Se está retomando, con el contrato en elaboración y una persona del equipo asignada a sostener la relación. Por eso el proceso se documenta como el ciclo de activación que hay que poner en marcha, y no como la descripción de una rutina que no existe."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador(a) Comercial",
+     "participantes": [
+      "Coordinador(a) Comercial — capta y evalúa al prospecto, entrega el paquete de activación, forma al personal del punto, sube a la marca la necesidad de apoyo y sostiene después el ciclo de atención.",
+      "Gerente Comercial (País / Canal) — decide si el prospecto califica, negocia y firma el contrato con su royalty, y reevalúa al vencimiento si se renueva.",
+      "Franquiciado — es el dueño del punto: acondiciona el local al estándar de la marca, invierte en el surtido inicial y se obliga por contrato a reportar su venta.",
+      "Marca representada — fija los criterios que un punto debe cumplir para llevar su imagen y resuelve el presupuesto de apoyo a la apertura.",
+      "Coordinador(a) de Visual Merchandising — define el estándar de imagen del punto y el material que compone el paquete de activación."
+     ],
+     "evidencia": ["E-35"],
+     "notas": "⚠️ Se aparta del armazón anterior en el encuadre, no en un detalle. Aquel describía la atención periódica de una franquicia ya existente —visitar, enviar material, subir necesidades—, que es una rutina razonable pero no sirve para lo que hace falta: el modelo está apagado y lo que se quiere es volver a encenderlo. Este proceso documenta el ciclo de vida completo, que es donde están las decisiones: a quién se le da una franquicia, con qué contrato, qué se le entrega para arrancar y con qué criterio se le renueva o no. ⚠️ Sale «Legal Corporativo»: ese cargo no existe en el patrón V4 —que no tiene ninguna función jurídica— y la evidencia no menciona a nadie de legal. El contrato queda donde puede quedar hoy, en la gerencia comercial del país, y la ausencia de cobertura jurídica se documenta como riesgo, porque es un hallazgo de estructura. ⚠️ Entran el franquiciado y la marca como actores con carril propio: sin el primero no hay local ni data de venta, y sin la segunda no hay presupuesto de apoyo. Son los dos puntos donde este proceso depende de alguien que no está en la nómina.",
+     "sin_evidencia": "Nada de este ciclo ocurre hoy: la evidencia describe con precisión lo que debería suceder y afirma que no sucede. No constan los criterios con los que se evalúa a un prospecto —ubicación, inversión mínima, compra mínima, experiencia—, ni el plazo del contrato, ni cómo se calcula y cobra el royalty, ni el plazo en que la marca resuelve un presupuesto de apoyo, ni el reparto del costo del acondicionamiento entre el grupo y el dueño del punto. Tampoco consta qué se hace con la imagen de marca cuando una franquicia cierra. Todo eso hay que fijarlo antes de abrir la primera."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Aparición de un prospecto de franquicia: un comerciante interesado, un punto de la red anterior que se quiera reactivar, o una plaza que la marca quiera cubrir. Dentro del ciclo, lo reabre el vencimiento del contrato de una franquicia activa.",
+     "cadencia": "Por evento para la activación. La reevaluación sigue el plazo del contrato; el ciclo de atención de la franquicia ya activa es periódico y se describe en el propio proceso.",
+     "output": "Franquicia activa con contrato firmado, local al estándar de imagen, paquete de activación entregado y personal formado; o prospecto devuelto con su motivo. Al vencimiento, contrato renovado o punto cerrado con su imagen recuperada.",
+     "evidencia": ["E-35"],
+     "notas": "El disparador más probable a corto plazo no es un prospecto nuevo sino la reactivación de un punto de la red anterior, que es donde está la oportunidad inmediata: treinta y siete puntos que llevaron la marca y dejaron de hacerlo."
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": ["E-35"],
      "actividades": [
-      {"id": "a1", "rol": "Gerente Comercial (País / Canal)", "texto": "Da seguimiento periódico al franquiciado vigente: visita, revisión de data de venta y necesidades puntuales."},
-      {"id": "a2", "rol": "Legal Corporativo", "texto": "Mantiene y renueva el contrato de franquicia con royalty vigente."},
-      {"id": "a3", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Provee materiales POP y marquesina, y negocia la remodelación cuando cambia la imagen de la marca."},
-      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Sube al franquiciado las necesidades específicas de apoyo a Casio para su aprobación de presupuesto."},
-      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Capacita al personal del franquiciado con el material y estándar de marca vigente."}
+      {"id": "a1", "rol": "Coordinador(a) Comercial", "texto": "Capta el prospecto de franquicia y abre su expediente: un comerciante interesado, un punto de la red anterior que se quiera reactivar, o una plaza que convenga cubrir."},
+      {"id": "a2", "rol": "Coordinador(a) Comercial", "texto": "Evalúa al prospecto contra los criterios de la marca: ubicación y tránsito del local, superficie y posibilidad de llevarlo al estándar de imagen, capacidad de inversión y de compra mínima sostenida, experiencia en el rubro, y situación legal y financiera del solicitante."},
+      {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Decide si el prospecto califica. Una franquicia lleva la imagen de la marca y la representa ante el público: el filtro de entrada es lo que evita que la red vuelva a poblarse de puntos que no la sostienen."},
+      {"id": "a4", "rol": "Coordinador(a) Comercial", "texto": "Devuelve el prospecto que no califica con el motivo por escrito, y lo deja en seguimiento con fecha de revisión cuando el motivo es subsanable —una ubicación que puede cambiar, una capacidad de compra que puede crecer—, en vez de descartarlo sin más."},
+      {"id": "a5", "rol": "Gerente Comercial (País / Canal)", "texto": "Negocia y firma el contrato de franquicia: royalty, compra mínima, plazo, estándar de imagen exigible, derecho del grupo a la data de venta del punto y compromiso de apoyo en materiales. ⚠️ Es el paso que hoy no existe, y del que depende todo lo demás: sin contrato no hay condiciones que imponer, ni derecho a la data, ni base para donar material."},
+      {"id": "a6", "rol": "Franquiciado", "texto": "Acondiciona el local al estándar de la marca y lo prepara para la apertura, con el reparto de costos que el contrato haya fijado. El local no es del grupo: lo que aquí se hace se acuerda, no se instruye."},
+      {"id": "a7", "rol": "Coordinador(a) Comercial", "texto": "Entrega el paquete de activación: marquesina e imagen exterior, mobiliario y material de punto de venta, el surtido inicial con la lista de precios que le corresponde, y la formación del personal en producto y estándar de marca. Un franquiciado vende la marca sin pertenecer a la empresa: lo que sabe del producto es lo que se le haya enseñado."},
+      {"id": "a8", "rol": "Marca representada", "texto": "Resuelve el presupuesto de apoyo a la apertura dentro de su ciclo de asignaciones. La marca destina fondos a sostener su presencia, y ese presupuesto no se activa si nadie lo pide con el caso documentado."},
+      {"id": "a9", "rol": "Coordinador(a) Comercial", "texto": "Da la franquicia por activada y arranca su ciclo de atención: visita periódica, recepción de la venta del punto, reposición del surtido y mantenimiento de la imagen. Es el estado en el que la franquicia vive hasta el vencimiento."},
+      {"id": "a10", "rol": "Gerente Comercial (País / Canal)", "texto": "Al vencimiento, reevalúa la franquicia contra lo que el contrato comprometió —venta alcanzada, compra mínima sostenida, royalty al día y cumplimiento del estándar de imagen— y decide si se renueva. Renovar por inercia es como se llegó a una red de puntos que ya no representaban a la marca."},
+      {"id": "a11", "rol": "Coordinador(a) Comercial", "texto": "Cierra el punto cuando no se renueva: recupera la marquesina y el material de imagen, liquida el surtido pendiente y deja constancia del motivo del cierre, para que la baja sea una decisión registrada y no una desaparición."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Comercial (País / Canal)", "Legal Corporativo", "Coordinador(a) de Visual Merchandising", "Gerente Regional de Marketing"],
+      "carriles": ["Coordinador(a) Comercial", "Gerente Comercial (País / Canal)", "Franquiciado", "Marca representada"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Comercial (País / Canal)", "tipo": "inicio", "n": "Franquicia vigente — visita programada o solicitud puntual"},
-       {"id": "n1", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar data de venta y necesidades del franquiciado"},
-       {"id": "n2", "carril": "Legal Corporativo", "tipo": "tarea", "n": "Mantener o renovar el contrato de franquicia con royalty"},
-       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "decision", "n": "¿Necesidad de remodelación o material POP?"},
-       {"id": "n3alt", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Provisionar POP, marquesina o negociar remodelación"},
-       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Subir necesidad de apoyo a Casio para aprobación de presupuesto"},
-       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Capacitar al personal del franquiciado"},
-       {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Franquicia al día con contrato, apoyo y capacitación vigentes"}
+       {"id": "n0", "carril": "Coordinador(a) Comercial", "tipo": "inicio", "n": "Prospecto de franquicia"},
+       {"id": "n1", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Evaluar al prospecto contra los criterios"},
+       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Califica?"},
+       {"id": "n2alt", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Devolver con motivo y dejar en seguimiento"},
+       {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Negociar y firmar el contrato con royalty"},
+       {"id": "n4", "carril": "Franquiciado", "tipo": "tarea", "n": "Acondicionar el local al estándar"},
+       {"id": "n5", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Entregar el paquete de activación y formar"},
+       {"id": "n6", "carril": "Marca representada", "tipo": "tarea", "n": "Resolver el apoyo a la apertura"},
+       {"id": "n7", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Activar y sostener el ciclo de atención"},
+       {"id": "n8", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Se renueva?"},
+       {"id": "n8alt", "carril": "Coordinador(a) Comercial", "tipo": "tarea", "n": "Cerrar el punto y recuperar la imagen"},
+       {"id": "n9", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Franquicia renovada"},
+       {"id": "n10", "carril": "Coordinador(a) Comercial", "tipo": "fin", "n": "Prospecto no activado o punto cerrado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n5", "etq": "No"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n10"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n8alt", "etq": "No"}, {"de": "n8alt", "a": "n10"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": ["E-35"],
      "filas": [
-      ["Red de franquicias reducida a una fracción mínima", "Solo 2 de las 39 franquicias originales están activas hoy.", "Alta", "Alto", "Tratar las 2 franquicias activas como piloto formal del nuevo contrato antes de buscar reactivar el resto de la red."],
-      ["Contrato de franquicia en trabajo, sin versión final vigente", "El nuevo contrato con royalty todavía no está cerrado.", "Alta", "Medio", "Cerrar el contrato con las 2 franquicias piloto como primer caso de referencia."],
-      ["Presupuestos de apoyo sujetos a aprobación de casa matriz sin plazo definido", "La aprobación de Casio para presupuestos de apoyo no tiene un plazo de respuesta comprometido.", "Media", "Medio", "Establecer un plazo de referencia para la respuesta de casa matriz sobre presupuestos de apoyo."],
-      ["Dependencia de una sola persona para la relación con el franquiciado", "El seguimiento del franquiciado hoy recae en una sola persona por país.", "Media", "Medio", "Documentar el proceso de seguimiento para que no dependa de una sola persona."]
+      ["No hay contrato vigente, así que no hay relación de franquicia", "Sin un contrato que defina el royalty y las condiciones no se pueden imponer condiciones, no hay derecho a la data de venta del punto y no hay base para donar material. La franquicia existe de nombre y opera como un cliente que compra.", "Alta", "Alto", "Cerrar el contrato en elaboración y firmarlo con las franquicias vigentes antes de activar ninguna nueva: sin contrato no se abre."],
+      ["No están fijados los criterios de entrada", "Nada define qué debe cumplir un punto para llevar la marca —ubicación, superficie, inversión, compra mínima, experiencia—. Sin filtro, la red vuelve a poblarse de puntos que no la sostienen, que es como se llegó de treinta y nueve a dos.", "Alta", "Alto", "Escribir los criterios de calificación con su umbral antes de evaluar el primer prospecto, y dejar el motivo de cada rechazo registrado."],
+      ["La red pasó de treinta y nueve franquicias a dos", "Es la medida de cuánto se abandonó el modelo. Cada punto cerrado es un punto de venta de la marca que dejó de existir sin que nadie lo registrara como pérdida ni recuperara su imagen.", "Alta", "Alto", "Levantar el estado de la red original, decidir qué puntos se reactivan y fijar una meta de activación con responsable y plazo."],
+      ["No existe función jurídica en la estructura para sostener el contrato", "El patrón de cargos no contempla ninguna función legal. Un contrato de franquicia con royalty, condiciones de imagen y acceso a data necesita alguien que lo redacte, lo actualice y lo haga cumplir.", "Alta", "Alto", "Resolver la cobertura jurídica —interna o externa contratada— como decisión de estructura, y no dejarla implícita en la gerencia comercial."],
+      ["La renovación por inercia devuelve el problema", "Si al vencimiento no se contrasta la venta, la compra mínima, el royalty y la imagen, el contrato se renueva solo y el punto se deteriora dentro de la red en vez de fuera.", "Alta", "Alto", "Hacer de la reevaluación un hito con fecha y criterios medibles, y admitir el cierre como resultado legítimo del proceso."],
+      ["El paquete de activación no está definido ni costeado", "No consta qué se entrega al abrir —imagen, mobiliario, surtido inicial, formación— ni cuánto cuesta ni quién lo paga. Sin eso, cada apertura se negocia desde cero y ninguna es comparable.", "Alta", "Medio", "Definir el paquete estándar con su costo y el reparto con el franquiciado, y presupuestarlo por apertura."],
+      ["Sin data de venta del punto no se puede dimensionar ni justificar nada", "No se sabe qué vende el franquiciado, así que ni la reposición se dimensiona, ni el apoyo ante la marca se sustenta con un caso, ni la renovación se puede decidir con un número.", "Alta", "Alto", "Hacer de la entrega periódica de la venta una condición del contrato, con formato y frecuencia, y no un favor que se pide."],
+      ["El presupuesto de apoyo de la marca no se pide y por tanto no llega", "La marca destina asignaciones a sostener su presencia en estos puntos. Si nadie las solicita con el caso documentado, la apertura se sostiene con lo que el franquiciado pueda poner.", "Alta", "Medio", "Calendarizar la solicitud con el ciclo de presupuestos de la marca y llevar el caso con el plan de venta del punto como respaldo."],
+      ["Toda la relación depende de una sola persona", "El modelo se retoma asignando a una persona del equipo. Si esa persona cambia de rol, el proceso vuelve al punto en que estaba, que es donde ya estuvo.", "Alta", "Medio", "Dejar documentado el ciclo y el expediente de cada franquicia, de modo que la relación sobreviva al relevo."],
+      ["El royalty no tiene circuito de cobro", "El contrato en elaboración lo define y nada dice quién lo calcula, quién lo factura ni cuándo se cobra. Un derecho que no se factura no se cobra.", "Media", "Medio", "Definir el circuito de facturación y cobro del royalty con administración antes de firmar el contrato, no después."],
+      ["Al cerrar un punto la imagen de marca se queda ahí", "Nada define qué pasa con la marquesina, el mobiliario y el material cuando una franquicia termina. Un local que ya no representa a la marca puede seguir exhibiéndola.", "Media", "Medio", "Incluir en el contrato la obligación de devolver o retirar la imagen al terminar, y verificarla en el cierre."]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Franquicias con contrato vigente y al día", "Franquicias al día ÷ franquicias activas", "Semestral", "Legal Corporativo", "100%"],
-      ["Visitas de seguimiento realizadas", "Visitas realizadas ÷ visitas programadas", "Trimestral", "Gerente Comercial (País / Canal)", "≥90%"],
-      ["Presupuestos de apoyo aprobados por Casio", "Aprobados ÷ solicitados", "Semestral", "Gerente Regional de Marketing", "Referencia de seguimiento"]
+      ["Prospectos evaluados contra criterios escritos", "Prospectos con evaluación registrada ÷ prospectos recibidos", "Trimestral", "Coordinador(a) Comercial", "100%"],
+      ["Tiempo de activación de una franquicia", "Fecha de apertura − fecha de firma del contrato", "Por activación", "Coordinador(a) Comercial", "Dentro del plazo que se fije"],
+      ["Franquicias activas con contrato vigente", "Franquicias con contrato firmado y al día ÷ franquicias activas", "Trimestral", "Gerente Comercial (País / Canal)", "100%"],
+      ["Franquicias que reportan su venta", "Franquicias que entregan su venta en la frecuencia acordada ÷ franquicias activas", "Mensual", "Coordinador(a) Comercial", "100%"],
+      ["Puntos con imagen de marca al estándar vigente", "Franquicias con visual al día ÷ franquicias activas", "Semestral", "Coordinador(a) de Visual Merchandising", "100%"],
+      ["Presupuesto de apoyo aprobado sobre el solicitado", "Monto aprobado por la marca ÷ monto solicitado, con moneda y tasa fechada", "Por ciclo de presupuestos", "Coordinador(a) Comercial", "A la alza"],
+      ["Franquicias activadas en el período", "Puntos incorporados a la red con contrato firmado y paquete entregado", "Anual", "Gerente Comercial (País / Canal)", "Según la meta de activación que se fije"],
+      ["Renovaciones decididas con evaluación documentada", "Renovaciones o cierres con evaluación registrada ÷ contratos vencidos", "Anual", "Gerente Comercial (País / Canal)", "100%"],
+      ["Royalty facturado sobre el devengado", "Royalty facturado ÷ royalty devengado según contrato, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "100%"]
      ]
     }
    },
@@ -3092,25 +3366,30 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el contacto del cliente corporativo, por primer contacto o por cuenta recurrente."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Elabora la cotización especial a costo con el margen negociado, fuera de las listas MA/MB/MI."},
-      {"id": "a3", "rol": "Gerente Regional de Marketing", "texto": "Coordina el arte y la aprobación de co-branding cuando hay marcas patrocinantes involucradas."},
-      {"id": "a4", "rol": "Producción", "texto": "Ejecuta la customización, grabado o empaque especial del producto según lo aprobado."},
-      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Factura la venta con las condiciones corporativas acordadas."}
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Elabora la cotización especial fuera de las listas corrientes: la venta corporativa se cotiza sobre el precio de referencia al público con el descuento que se negocie, porque el comprador no revende sino que consume o regala el producto."},
+      {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba la cotización antes de que salga al cliente. Un precio fuera de lista es una excepción a la política comercial y compromete margen: pasa por la misma autoridad que aprueba cualquier otra excepción, y escala a la gerencia regional cuando supera el umbral del país."},
+      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Coordina el arte del producto personalizado y lo lleva a aprobación de cada marca patrocinante. ⚠️ Aquí no aprobamos nosotros: cuando el pedido lleva varias marcas invitadas, cada una aprueba su color, su forma y su aplicación por separado. Es lo que alarga y complica esta venta, y es la parte del plazo que no controlamos."},
+      {"id": "a5", "rol": "Proveedor de personalización", "texto": "Ejecuta el grabado, la personalización o el empaque especial del producto según el arte aprobado."},
+      {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Factura la venta con las condiciones corporativas acordadas."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional de Marketing", "Producción", "Gerente de Contabilidad / Administración"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional de Marketing", "Proveedor de personalización", "Gerente de Contabilidad / Administración"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Contacto de cliente corporativo (nuevo o recurrente)"},
-       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Elaborar cotización especial a costo con margen negociado"},
-       {"id": "n2", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Hay co-branding con marca patrocinante?"},
-       {"id": "n2alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar arte y aprobación de co-branding"},
-       {"id": "n3", "carril": "Producción", "tipo": "tarea", "n": "Ejecutar customización, grabado o empaque especial"},
-       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar con condiciones corporativas"},
-       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Venta corporativa entregada y facturada"}
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Elaborar la cotización especial"},
+       {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Aprueba el precio?"},
+       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la cotización con el cliente"},
+       {"id": "n3", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Lleva marcas invitadas?"},
+       {"id": "n3alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Llevar el arte a cada marca patrocinante"},
+       {"id": "n4", "carril": "Proveedor de personalización", "tipo": "tarea", "n": "Grabar o personalizar el producto"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar con condiciones corporativas"},
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Venta corporativa entregada y facturada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
-       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
       ]
      }
     },
@@ -3143,28 +3422,31 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional de Marketing", "texto": "Identifica la oportunidad de volumen con una cadena o supermercado para una temporada fuerte."},
+      {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Identifica y dimensiona la oportunidad de volumen con una cadena o supermercado para una temporada fuerte: unidades, precio, mecánica de la promoción y ventana de ejecución. La venta de alto volumen la mete la línea comercial sobre su lectura del mercado; marketing la comunica después, no la origina."},
       {"id": "a2", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Negocia directamente el acuerdo con la cadena — no delegable a nivel país."},
       {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Reserva el volumen específico comprometido, más un colchón adicional para clientes preferentes."},
-      {"id": "a4", "rol": "Junta / Comité Directivo", "texto": "Aprueba la campaña por el monto que compromete."},
-      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina la concentración del despacho para el volumen comprometido."},
-      {"id": "a6", "rol": "Gerente Regional de Marketing", "texto": "Da seguimiento al sellout de la campaña una vez ejecutada."}
+      {"id": "a4", "rol": "Comité Comercial / Director Comercial", "texto": "Aprueba la campaña por el volumen y el monto que compromete. Es el mismo órgano que aprueba el plan comercial y la política de precios, y no la Junta: lo que se decide aquí es comercial —cuánta mercancía se compromete a qué precio— y cabe dentro del gobierno de la dirección comercial."},
+      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina con la cadena la comunicación de la promoción: la pieza, el material en el punto y la mecánica que verá el comprador. Entra cuando la campaña ya está aprobada, porque lo que comunica es un acuerdo cerrado, no una intención."},
+      {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina la concentración del despacho para el volumen comprometido y su entrega en la ventana acordada con la cadena."},
+      {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Sigue la salida real de la campaña contra lo comprometido y la cierra: cuánto se facturó, cuánto se vendió al público y qué quedó en el punto. Es el dato que dice si la siguiente campaña se dimensiona igual."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Marketing", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Comité Comercial / Director Comercial", "Gerente Regional de Marketing"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional de Marketing", "tipo": "inicio", "n": "Oportunidad de volumen identificada con una cadena"},
-       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Negociar el acuerdo con la cadena"},
-       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reservar volumen comprometido + colchón preferente"},
-       {"id": "n3", "carril": "Junta / Comité Directivo", "tipo": "decision", "n": "¿Campaña aprobada por monto?"},
-       {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Renegociar condiciones de la campaña"},
-       {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar despacho concentrado del volumen"},
-       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Dar seguimiento al sellout de la campaña"},
-       {"id": "n6", "carril": "Gerente Regional de Marketing", "tipo": "fin", "n": "Campaña ejecutada y reportada"}
+       {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Oportunidad de volumen"},
+       {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Dimensionar y negociar la campaña"},
+       {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reservar el volumen y el colchón preferente"},
+       {"id": "n3", "carril": "Comité Comercial / Director Comercial", "tipo": "decision", "n": "¿Aprueba la campaña?"},
+       {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Renegociar volumen y condiciones"},
+       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar la comunicación con la cadena"},
+       {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar el despacho concentrado"},
+       {"id": "n6", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Seguir la salida real y cerrar la campaña"},
+       {"id": "n7", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Campaña ejecutada y reportada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
     },
@@ -3254,24 +3536,32 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Identifica el lead (referido, prospección de calle, redes) o el cliente dormido a reactivar."},
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Califica al prospecto: visita al punto de venta, número de tiendas, categorización inicial."},
-      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Evalúa el riesgo del cliente nuevo y le hace firmar el documento de crédito, que respalda al grupo si el cliente deja de pagar. El documento nació de una propuesta del propio canal mayorista, construida con contabilidad tras un caso de morosidad."},
-      {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Crea el código de cliente en Odoo con la lista de precios y condición de crédito asignada, arrancando siempre con el descuento más bajo del rango vigente y ajustándolo después según el volumen real de compra."},
-      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cierra el primer pedido en los puntos top del cliente, con capacitación, incentivos y exhibición inicial."},
-      {"id": "a6", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Define el plan de expansión hacia el resto de las tiendas del cliente."}
+      {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Presenta la propuesta comercial en la visita: el portafolio que le encaja por tipología y por el público de su punto, las condiciones de precio de la lista que le correspondería, el apoyo de exhibición y los términos de la primera compra."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Deja en seguimiento al prospecto que no cierra, con el motivo por el que no avanzó —precio, plazo de pago, portafolio o simplemente el momento— y una fecha de recontacto. Un prospecto que dice que no, no es un prospecto perdido: es uno al que hay que volver con un argumento distinto, y sin el motivo registrado se vuelve a empezar de cero."},
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Evalúa el riesgo del cliente nuevo y le hace firmar el documento de crédito, que respalda al grupo si el cliente deja de pagar. El documento nació de una propuesta del propio canal mayorista, construida con contabilidad tras un caso de morosidad."},
+      {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Crea el código de cliente en Odoo con la lista de precios y condición de crédito asignada, arrancando siempre con el descuento más bajo del rango vigente y ajustándolo después según el volumen real de compra."},
+      {"id": "a7", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Cierra el primer pedido en los puntos top del cliente, con capacitación, incentivos y exhibición inicial."},
+      {"id": "a8", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Define el plan de expansión hacia el resto de las tiendas del cliente."}
      ],
      "diagrama": {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente de Contabilidad / Administración", "Gerente Comercial (País / Canal)"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Lead identificado o cliente dormido a reactivar"},
        {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Calificar al prospecto (visita, categorización)"},
-       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Evaluar riesgo y firmar documento de crédito", "sistemas": ["Documento de crédito legal"]},
-       {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Crear código de cliente en Odoo", "sistemas": ["Odoo (ERP)"]},
-       {"id": "n4", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cerrar primer pedido en los puntos top del cliente"},
-       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Definir plan de expansión al resto de las tiendas"},
-       {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Cliente activo con primer pedido y plan de expansión"}
+       {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Presentar la propuesta comercial en la visita"},
+       {"id": "n3", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "decision", "n": "¿Acepta la propuesta?"},
+       {"id": "n3alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Registrar el motivo y fijar recontacto"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Evaluar riesgo y firmar el crédito", "sistemas": ["Documento de crédito legal"]},
+       {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Crear el código de cliente", "sistemas": ["Odoo (ERP)"]},
+       {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cerrar el primer pedido en sus puntos top"},
+       {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Definir el plan de expansión al resto"},
+       {"id": "n8", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Cliente activo con plan de expansión"},
+       {"id": "n9", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Prospecto en seguimiento"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n9"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}
       ]
      }
     },
@@ -3307,25 +3597,32 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Levanta la solicitud de mueble, material POP o activación, con el plan de venta que la respalda."},
       {"id": "a2", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Evalúa la solicitud contra el plan de compras del cliente o el retorno proyectado."},
-      {"id": "a3", "rol": "Planificador Financiero", "texto": "Aprueba la solicitud según el monto y la matriz de aprobación vigente (proceso 8.2)."},
-      {"id": "a4", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Produce el mueble o material aprobado y coordina la entrega y montaje en el punto de venta."},
-      {"id": "a5", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Da seguimiento al rendimiento del punto tras la instalación."}
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Contrasta la inversión contra el retorno que el plan de venta proyecta y aprueba o devuelve según la matriz de aprobación vigente (proceso 8.2)."},
+      {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Reajusta la propuesta con el cliente cuando el retorno no da: sube el compromiso de compra, reduce el alcance del mobiliario, cambia el material por una alternativa más barata o reparte el costo con el punto. Una solicitud que no cuadra a la primera es una negociación abierta, no una oportunidad perdida."},
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Vuelve a evaluar la propuesta reajustada con los números nuevos. Solo si tampoco así se sostiene, la solicitud se cierra — y se cierra con el motivo escrito, para que el vendedor sepa qué tendría que cambiar la próxima vez."},
+      {"id": "a6", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Produce el mueble o material aprobado y coordina la entrega y el montaje en el punto de venta."},
+      {"id": "a7", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Da seguimiento al rendimiento del punto tras la instalación, para saber si la inversión devolvió lo que el plan de venta prometía."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Planificador Financiero", "Coordinador(a) de Visual Merchandising"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente de Contabilidad / Administración", "Coordinador(a) de Visual Merchandising"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Solicitud de mueble, POP o activación del vendedor o KAM"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Evaluar contra plan de compras o retorno proyectado"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "decision", "n": "¿Business case aprobado según matriz?"},
-       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Rechazar o replantear la solicitud"},
-       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Producir el mueble o material aprobado"},
-       {"id": "n4", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Entregar y montar en el punto de venta"},
-       {"id": "n5", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Dar seguimiento al rendimiento post-instalación"},
-       {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Activación instalada y con seguimiento de sellout"}
+       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿El retorno justifica la inversión?"},
+       {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la propuesta con el cliente"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Aprueba lo reajustado?"},
+       {"id": "n3alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cerrar la solicitud con su motivo"},
+       {"id": "n4", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Producir el mueble o el material"},
+       {"id": "n5", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Entregar y montar en el punto de venta"},
+       {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Seguir el rendimiento tras la instalación"},
+       {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Activación instalada y con seguimiento"},
+       {"id": "n8", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Solicitud cerrada con motivo"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
-       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n2alt", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n4", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n8"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
     },
