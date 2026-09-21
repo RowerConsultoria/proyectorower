@@ -360,23 +360,23 @@ window.MANUAL_CONTENIDO = {
     ],
     "raci": [
      ["9.1 Planificación comercial y forecast", "Gerente Regional de Retail", "Junta / Comité Directivo", "Planificador Financiero · Gerente de Ventas al Detal", "Gerente de Tienda"],
-     ["9.2 Torre de control y KPI", "Analista de Sistemas / Datos", "Gerente Regional de Retail", "Gerente de Ventas al Detal · Supervisor de Ventas", "Junta / Comité Directivo"],
-     ["9.3 Reposición de tiendas y kioscos", "Analista de Logística", "Gerente de Ventas al Detal (País)", "Supervisor de Ventas · Gerente de Tienda", "Gerente de Operaciones y Logística"],
-     ["9.4 Transferencias entre tiendas", "Supervisor de Ventas", "Gerente de Ventas al Detal (País)", "Gerente de Tienda", "Auxiliar / Ayudante de Bodega y Tráfico"],
+     ["9.2 Torre de control y KPI", "Analista de Sistemas / Datos", "Gerente Regional de Retail", "Gerente de Ventas al Detal", "Junta / Comité Directivo"],
+     ["9.3 Reposición de tiendas y kioscos", "Coordinador(a) de Logística y Bodega", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal · Gerente de Tienda", "Gerente de Operaciones y Logística"],
+     ["9.4 Transferencias entre tiendas", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "Gerente de Tienda", "Auxiliar / Ayudante de Bodega y Tráfico"],
      ["9.5 Cierre de caja diario", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "—", "Gerente Regional de Retail"],
-     ["9.6 Operación diaria de tienda", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Supervisor de Ventas", "—"],
-     ["9.7 Supervisión y visitas a tienda", "Supervisor de Ventas", "Gerente de Ventas al Detal (País)", "Gerente de Tienda", "Gerente Regional de Retail"],
+     ["9.6 Operación diaria de tienda", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "—"],
+     ["9.7 Supervisión y visitas a tienda", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "Gerente de Tienda", "Gerente Regional de Retail"],
      ["9.8 Apertura de tienda o kiosco", "Gerente de Proyectos (PMO)", "Gerente Regional de Retail", "Planificador Financiero · Arquitecto", "Junta / Comité Directivo"],
      ["9.9 Remodelación de tienda", "Coordinador(a) de Visual Merchandising", "Gerente Regional de Retail", "Arquitecto / Proveedor de Remodelación", "Gerente de Proyectos (PMO)"],
-     ["9.10 Gestión de franquicias Cubitt", "Gerente Regional de Retail", "Junta / Comité Directivo", "Legal Corporativo · Planificador Financiero", "Gerente Regional de Visual Merchandising"],
+     ["9.10 Gestión de franquicias Cubitt", "Gerente Regional de Retail", "Junta / Comité Directivo", "Franquiciado", "Gerente Regional de Visual Merchandising"],
      ["9.11 Socios y partners regionales", "Gerente Regional de Retail", "Gerente Regional de Retail", "Planificador Financiero · Analista de Sistemas / Datos", "Junta / Comité Directivo"],
-     ["9.12 Auditoría y autoauditoría de tienda", "Gerente de Tienda", "Gerente Regional de Retail", "Gerente de Ventas al Detal (País)", "Supervisor de Ventas"],
+     ["9.12 Auditoría y autoauditoría de tienda", "Gerente de Tienda", "Gerente Regional de Retail", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)"],
      ["9.13 Garantías y servicio postventa", "Gerente de Tienda", "Gerente de Servicio Técnico", "Técnico(a) de Servicio / Relojero(a) · Especialista de Producto", "Cliente"],
-     ["9.14 Inventarios selectivos y general", "Gerente de Tienda", "Supervisor de Ventas", "Supervisor(a) de Bodega / Despacho", "Gerente de Ventas al Detal (País)"],
+     ["9.14 Inventarios selectivos y general", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Supervisor(a) de Bodega / Despacho", "Gerente de Ventas al Detal (País)"],
      ["9.15 Manejo de efectivo", "Gerente de Tienda", "Coordinador(a) de Tesorería y Cobranzas", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
-     ["9.16 Gestión operativa del personal", "Gerente de Tienda", "Supervisor de Ventas", "Coordinador(a) de Recursos Humanos", "Gerente Regional de Retail"],
+     ["9.16 Gestión operativa del personal", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Recursos Humanos", "Gerente Regional de Retail"],
      ["9.17 Comisiones e incentivos", "Analista de Recursos Humanos / Nómina", "Gerente Regional de Retail", "Planificador Financiero · Gerente de Tienda", "—"],
-     ["9.18 Mantenimiento e incidencias", "Supervisor de Ventas", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Sistemas · Contabilidad", "Administración del Centro Comercial"]
+     ["9.18 Mantenimiento e incidencias", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Sistemas · Contabilidad", "Administración del Centro Comercial"]
     ],
     "catalogo_sistemas": [
      ["Odoo (ERP)", "Pedidos, traslados, facturación, cierre de caja, inventarios", "9.3 · 9.4 · 9.5 · 9.13 · 9.14", "Coordinador(a) de Sistemas"],
@@ -483,19 +483,19 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente de Tienda", "texto": "Al cierre de caja diario, diligencia manualmente la fila de su tienda en el cuadro consolidado del Drive —venta, unidades, transacciones— de forma deliberadamente manual, para que el gerente \"sienta el número\" del día."},
-      {"id": "a2", "rol": "Supervisor de Ventas", "texto": "Verifica que todas las tiendas de su zona hayan cargado su fila antes del corte; si falta alguna, la persigue directamente por Lark o llamada."},
+      {"id": "a2", "rol": "Gerente de Ventas al Detal (País)", "texto": "Verifica que todas las tiendas de su zona hayan cargado su fila antes del corte; si falta alguna, la persigue directamente por Lark o llamada."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Ejecuta consultas automáticas (queries) contra el ERP Odoo de cada país para traer venta, inventario y cobertura, sin depender de que todos usen el mismo sistema."},
       {"id": "a4", "rol": "Analista de Sistemas / Datos", "texto": "Consolida el diligenciamiento manual y las consultas automáticas en el tablero regional retail —la torre de control—, incluyendo franquicias y socios con acceso por query."},
       {"id": "a5", "rol": "Gerente de Ventas al Detal (País)", "texto": "Revisa el tablero y define la acción correctiva para cada tienda que queda rezagada frente a su meta o su conversión."},
       {"id": "a6", "rol": "Gerente Regional de Retail", "texto": "Presenta la lectura ejecutiva regional una vez al mes a la Junta, con el estado de cada país, marca y proyecto de expansión."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Tienda", "Supervisor de Ventas", "Analista de Sistemas / Datos", "Gerente de Ventas al Detal (País)", "Gerente Regional de Retail"],
+      "carriles": ["Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Analista de Sistemas / Datos", "Gerente Regional de Retail"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Cierre de caja diario en el punto de venta"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Diligenciar fila diaria del punto de venta", "sistemas": ["Cuadro consolidado (Drive)"]},
-       {"id": "n2", "carril": "Supervisor de Ventas", "tipo": "decision", "n": "¿Todas las tiendas cargaron su fila?"},
-       {"id": "n2alt", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Perseguir carga faltante del punto", "sistemas": ["Plataforma Lark"]},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Todas las tiendas cargaron su fila?"},
+       {"id": "n2alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Perseguir carga faltante del punto", "sistemas": ["Plataforma Lark"]},
        {"id": "n3", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Ejecutar consultas automáticas a los ERP", "sistemas": ["ERP Odoo"]},
        {"id": "n4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Consolidar y publicar el tablero regional", "sistemas": ["Tablero regional retail"]},
        {"id": "n5", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Definir acción correctiva por tienda rezagada"},
@@ -520,7 +520,7 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiendas con fila diaria cargada a tiempo", "Tiendas que cargaron antes del corte ÷ total de tiendas", "Diaria", "Supervisor de Ventas", "100%"],
+      ["Tiendas con fila diaria cargada a tiempo", "Tiendas que cargaron antes del corte ÷ total de tiendas", "Diaria", "Gerente de Ventas al Detal (País)", "100%"],
       ["Tiempo entre cierre de caja y publicación del tablero", "Hora de publicación del tablero − hora de cierre de caja", "Diaria / semanal", "Analista de Sistemas / Datos", "≤ 24 horas"],
       ["Cobertura de países y franquicias integrados a la torre", "Países/franquicias en la torre ÷ total de países/franquicias", "Mensual", "Gerente Regional de Retail", "Creciente hasta 100%"]
      ]
@@ -543,8 +543,8 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Logística", "texto": "En el corte semanal, la Analista de Logística genera el sugerido de reposición por tienda cruzando el inventario disponible y la venta reciente registrada en Odoo, y lo distribuye a cada punto de venta de la región para su revisión local."},
-      {"id": "a2", "rol": "Supervisor de Ventas", "texto": "El Supervisor de Ventas ajusta el sugerido según la capacidad física del punto —tienda o kiosco— y el patrón de venta local, evitando enviar producto que el punto no puede exhibir o absorber en el ciclo (por ejemplo, un pedido puntual grande que no se repetirá)."},
+      {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "En el corte semanal, la coordinación de logística genera el sugerido de reposición por tienda cruzando el inventario disponible y la venta reciente registrada en Odoo, y lo distribuye a cada punto de venta de la región para su revisión local."},
+      {"id": "a2", "rol": "Gerente de Ventas al Detal (País)", "texto": "El Gerente de Ventas al Detal ajusta el sugerido según la capacidad física del punto —tienda o kiosco— y el patrón de venta local, evitando enviar producto que el punto no puede exhibir o absorber en el ciclo (por ejemplo, un pedido puntual grande que no se repetirá)."},
       {"id": "a3", "rol": "Gerente de Tienda", "texto": "El Gerente de Tienda confirma la necesidad real del punto de venta, señalando faltantes que el sugerido no capturó, y comunica cualquier ajuste por la plataforma Lark antes de que se cierre el pedido de la semana."},
       {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "El Gerente de Ventas al Detal del país valida si el pedido consolidado excede el umbral de aprobación local: por debajo, el pedido sigue su curso regular; por encima, se eleva para aprobación en el nivel regional antes de que la bodega pueda tomarlo."},
       {"id": "a5", "rol": "Gerente de Operaciones y Logística", "texto": "Con el pedido aprobado, el Gerente de Operaciones y Logística programa el despacho dentro de la ventana semanal, coordinando el transporte hacia cada centro comercial y negociando con la seguridad del lugar el horario de ingreso."},
@@ -552,11 +552,11 @@ window.MANUAL_CONTENIDO = {
       {"id": "a7", "rol": "Gerente de Tienda", "texto": "El Gerente de Tienda recibe la mercancía, verifica que coincida con lo facturado y confirma la recepción en Odoo; esa confirmación dispara la carga del traslado al inventario del punto, que queda disponible para la venta."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Logística", "Supervisor de Ventas", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Gerente de Operaciones y Logística", "Auxiliar / Ayudante de Bodega y Tráfico"],
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente de Ventas al Detal (País)", "Gerente de Tienda", "Gerente de Operaciones y Logística", "Auxiliar / Ayudante de Bodega y Tráfico"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Logística", "tipo": "inicio", "n": "Corte semanal de reposición"},
-       {"id": "n1", "carril": "Analista de Logística", "tipo": "tarea", "n": "Generar sugerido semanal por tienda", "sistemas": ["ERP Odoo"]},
-       {"id": "n2", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Ajustar sugerido por capacidad y patrón local"},
+       {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Corte semanal de reposición"},
+       {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Generar sugerido semanal por tienda", "sistemas": ["ERP Odoo"]},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Ajustar sugerido por capacidad y patrón local"},
        {"id": "n3", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Confirmar necesidad del punto de venta", "sistemas": ["Plataforma Lark"]},
        {"id": "n4", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Excede umbral de aprobación local?"},
        {"id": "n4alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Aprobar pedido en nivel regional"},
@@ -576,7 +576,7 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Dependencia de una persona única para el sugerido regional", "El cálculo del sugerido de reposición de toda la región recae en una sola Analista de Logística, sin respaldo documentado.", "Alta", "Alto", "Documentar el criterio de cálculo del sugerido y entrenar una persona de respaldo."],
+      ["Dependencia de una persona única para el sugerido regional", "El cálculo del sugerido de reposición de toda la región recae en una sola Coordinador(a) de Logística y Bodega, sin respaldo documentado.", "Alta", "Alto", "Documentar el criterio de cálculo del sugerido y entrenar una persona de respaldo."],
       ["Ajuste manual sin reglas escritas de capacidad por punto", "La capacidad de cada tienda o kiosco se ajusta \"a ojo\" por experiencia del Supervisor, no como dato maestro.", "Media", "Medio", "Catalogar la capacidad de cada punto de venta (tienda/kiosco) como dato maestro en Odoo."],
       ["Piloto de despacho directo sin proceso estabilizado (Panamá)", "El cambio a generar el pedido desde el almacén central agrega un paso de traslado y expuso demoras de transporte en la primera semana.", "Media", "Medio", "Medir el piloto durante 2–3 ciclos completos antes de decidir su continuidad, con criterio de costo de transporte y tiempo de disponibilidad."],
       ["Umbral de aprobación no escrito ni homologado entre países", "Cada país aplica un umbral informal distinto para escalar la aprobación a nivel regional; no hay una política documentada.", "Media", "Medio", "Definir y documentar el umbral de aprobación por país en la política de reposición."],
@@ -589,7 +589,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Fill rate de reposición semanal", "Unidades despachadas dentro de la ventana ÷ unidades solicitadas en el sugerido ajustado", "Semanal", "Gerente de Operaciones y Logística", "≥ 95%"],
       ["Tiempo de ciclo del pedido", "Fecha de mercancía disponible en el punto − fecha de corte del sugerido", "Semanal", "Gerente de Ventas al Detal", "≤ 5 días hábiles"],
-      ["Ajuste manual del sugerido", "Pedidos con cambio del Supervisor o Gerente de Tienda ÷ total de pedidos de la semana", "Semanal", "Analista de Logística", "Tendencia descendente"],
+      ["Ajuste manual del sugerido", "Pedidos con cambio del Supervisor o Gerente de Tienda ÷ total de pedidos de la semana", "Semanal", "Coordinador(a) de Logística y Bodega", "Tendencia descendente"],
       ["Quiebres de stock en punto de venta", "SKU críticos sin disponibilidad en el punto ÷ SKU críticos del catálogo del punto", "Semanal", "Gerente de Ventas al Detal", "A validar con el equipo"]
      ]
     }
@@ -607,19 +607,19 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente de Tienda", "texto": "Detecta que un cliente pide un modelo o color que no tiene, y consulta en Odoo la disponibilidad en otro punto de venta cercano."},
-      {"id": "a2", "rol": "Supervisor de Ventas", "texto": "Si el traslado cruza una restricción aduanal regional —como el caso de Margarita, que exige trámite ante el ente aduanal por impuesto de salida— gestiona el permiso antes de mover la mercancía."},
-      {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Autoriza el traslado y lo registra en Odoo; en Venezuela esta autorización está delegada al Gerente de Tienda cuando el movimiento es dentro del mismo centro comercial."},
+      {"id": "a2", "rol": "Líder de Administración / Importaciones", "texto": "Si el traslado cruza una restricción aduanal regional —como el caso de Margarita, que exige trámite ante el ente aduanal por impuesto de salida— gestiona el permiso antes de mover la mercancía."},
+      {"id": "a3", "rol": "Gerente de Ventas al Detal (País)", "texto": "Autoriza el traslado y lo registra en Odoo; en Venezuela esta autorización está delegada al Gerente de Tienda cuando el movimiento es dentro del mismo centro comercial."},
       {"id": "a4", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Prepara la mercancía y la entrega físicamente al punto de venta destino, priorizando el transporte que ya circula esa ruta cuando es posible."},
       {"id": "a5", "rol": "Gerente de Tienda", "texto": "El punto destino recibe la mercancía y confirma la carga al inventario, dejando el producto disponible para cerrar la venta que originó el traslado."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Tienda", "Supervisor de Ventas", "Auxiliar / Ayudante de Bodega y Tráfico"],
+      "carriles": ["Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Líder de Administración / Importaciones", "Auxiliar / Ayudante de Bodega y Tráfico"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Necesidad urgente de producto en un punto de venta"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Detectar disponibilidad en otro punto de venta", "sistemas": ["ERP Odoo"]},
-       {"id": "n2", "carril": "Supervisor de Ventas", "tipo": "decision", "n": "¿Requiere trámite aduanal (p. ej. Margarita)?"},
-       {"id": "n2alt", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Tramitar permiso de salida ante el ente aduanal"},
-       {"id": "n3", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Autorizar y registrar el traslado", "sistemas": ["ERP Odoo"]},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Requiere trámite aduanal?"},
+       {"id": "n2alt", "carril": "Líder de Administración / Importaciones", "tipo": "tarea", "n": "Tramitar el permiso de salida ante la aduana"},
+       {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Autorizar y registrar el traslado", "sistemas": ["ERP Odoo"]},
        {"id": "n4", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Preparar y entregar la mercancía al punto destino"},
        {"id": "n5", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Recibir y cargar al inventario del punto destino"},
        {"id": "n6", "carril": "Gerente de Tienda", "tipo": "fin", "n": "Venta cerrada con mercancía disponible en el destino"}
@@ -642,8 +642,8 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo entre solicitud y disponibilidad en destino", "Hora de disponibilidad − hora de solicitud", "Por evento", "Supervisor de Ventas", "≤ 24h dentro del mismo centro comercial"],
-      ["Traslados registrados en Odoo antes de la salida física", "Traslados registrados a tiempo ÷ total de traslados", "Semanal", "Supervisor de Ventas", "100%"],
+      ["Tiempo entre solicitud y disponibilidad en destino", "Hora de disponibilidad − hora de solicitud", "Por evento", "Gerente de Ventas al Detal (País)", "≤ 24h dentro del mismo centro comercial"],
+      ["Traslados registrados en Odoo antes de la salida física", "Traslados registrados a tiempo ÷ total de traslados", "Semanal", "Gerente de Ventas al Detal (País)", "100%"],
       ["Transferencias por rebalanceo vs. por venta urgente", "Traslados por sobrestock ÷ total de traslados del mes", "Mensual", "Gerente de Ventas al Detal", "Referencia de gestión"]
      ]
     }
@@ -713,27 +713,37 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Encargado(a) de Tienda", "texto": "Al abrir, verifica que el sistema tenga la fecha y la tasa del día actualizadas y que la cartelera fiscal esté vigente y visible."},
-      {"id": "a2", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Revisa que la exhibición esté agrupada por línea de producto según el estándar —por ejemplo G-Shock, Edifice y BBG en Casio, o por familia en Cubitt—, con vitrinas y etiquetas limpias y correctas."},
-      {"id": "a3", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Atiende al cliente siguiendo el protocolo de servicio de la marca, cumpliendo uniforme, carnet y la normativa de uso del celular en piso de venta."},
-      {"id": "a4", "rol": "Gerente de Tienda", "texto": "Cuando surge una incidencia que excede la atención normal —una garantía, una queja, un faltante detectado en el momento— la resuelve en tienda si puede, o la escala al proceso correspondiente."},
-      {"id": "a5", "rol": "Gerente de Tienda", "texto": "Al cierre del horario comercial, asegura físicamente el punto de venta y confirma que quede en condiciones de abrir sin sobresaltos al día siguiente."}
-     ],
+       {"id": "a1", "rol": "Encargado(a) de Tienda", "texto": "Al abrir, verifica que el sistema tenga la fecha y la tasa del día actualizadas y que la cartelera fiscal esté vigente y visible."},
+      {"id": "a2", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Revisa que la exhibición esté agrupada por línea de producto según el estándar y que las vitrinas estén limpias y con el precio visible."},
+      {"id": "a3", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Recibe al cliente bajo el protocolo de servicio de la marca —uniforme, carnet y la norma de uso del celular en sala— e identifica qué busca: para quién es, para qué uso y con qué presupuesto."},
+      {"id": "a4", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Muestra el producto y asesora sobre él: funciones, diferencia entre modelos, garantía y cuidado. Es la parte del trabajo que distingue una tienda de marca de un mostrador, y la que exige que el asesor conozca la línea."},
+      {"id": "a5", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Resuelve las objeciones y las preguntas del cliente —precio frente a otra marca, disponibilidad de otro color o talla, condiciones de la garantía— y propone la alternativa que encaje cuando el modelo que pide no está."},
+      {"id": "a6", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Cierra la venta: cobra por el medio de pago que el cliente elija, emite la factura y entrega el producto con su empaque, su garantía y el comprobante. En la mayoría de los puntos no hay cajero: el mismo asesor que atiende es el que cobra y factura."},
+      {"id": "a7", "rol": "Asesor(a) de Ventas - Tienda", "texto": "Cuando el cliente no compra, registra el motivo —no estaba el modelo, no estaba la talla o el color, el precio, o solo miraba—. Es el único rastro de la demanda que la tienda no pudo atender, y el que dice qué reponer."},
+      {"id": "a8", "rol": "Gerente de Tienda", "texto": "Atiende la situación que se sale de la venta corriente y que el asesor no puede resolver en el mostrador: un reclamo de garantía, una devolución, una queja, una diferencia detectada en el momento. La resuelve si le corresponde, o la deriva al proceso que la trata —postventa, garantía o inventario— en vez de dejarla en la conversación."},
+      {"id": "a9", "rol": "Gerente de Tienda", "texto": "Al cierre del horario comercial, cuadra la caja contra lo facturado, asegura físicamente el punto de venta y confirma que quede en condiciones de abrir sin sobresaltos al día siguiente."}
+      ],
      "diagrama": {
       "carriles": ["Encargado(a) de Tienda", "Asesor(a) de Ventas - Tienda", "Gerente de Tienda"],
       "nodos": [
-       {"id": "n0", "carril": "Encargado(a) de Tienda", "tipo": "inicio", "n": "Apertura del horario comercial del centro comercial"},
-       {"id": "n1", "carril": "Encargado(a) de Tienda", "tipo": "tarea", "n": "Verificar sistema, tasa del día y cartelera fiscal", "sistemas": ["ERP Odoo"]},
-       {"id": "n2", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Revisar exhibición por línea y limpieza de vitrinas"},
-       {"id": "n3", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Atender al cliente bajo el protocolo de servicio"},
-       {"id": "n4", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Incidencia excede la atención normal?"},
-       {"id": "n4alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Escalar la incidencia al proceso correspondiente"},
-       {"id": "n5", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Cerrar y asegurar físicamente el punto de venta"},
-       {"id": "n6", "carril": "Gerente de Tienda", "tipo": "fin", "n": "Jornada cerrada conforme al estándar"}
+       {"id": "n0", "carril": "Encargado(a) de Tienda", "tipo": "inicio", "n": "Apertura del horario comercial"},
+       {"id": "n1", "carril": "Encargado(a) de Tienda", "tipo": "tarea", "n": "Verificar sistema, tasa del día y cartelera fiscal"},
+       {"id": "n2", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Revisar exhibición, limpieza y precio visible"},
+       {"id": "n3", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Recibir al cliente e identificar qué busca"},
+       {"id": "n4", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Mostrar el producto y asesorar sobre él"},
+       {"id": "n5", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Resolver objeciones y preguntas"},
+       {"id": "n6", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "decision", "n": "¿Cierra la compra?"},
+       {"id": "n6alt", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Registrar el motivo de la no compra"},
+       {"id": "n7", "carril": "Asesor(a) de Ventas - Tienda", "tipo": "tarea", "n": "Cobrar, facturar y entregar el producto", "sistemas": ["Odoo (POS)"]},
+       {"id": "n8", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Surge una situación fuera de la venta?"},
+       {"id": "n8alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Resolver o derivar al proceso que la trata"},
+       {"id": "n9", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Cuadrar caja, asegurar y cerrar el punto"},
+       {"id": "n10", "carril": "Gerente de Tienda", "tipo": "fin", "n": "Jornada cerrada conforme al estándar"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5", "etq": "No"}, {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4alt", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n6alt", "etq": "No"}, {"de": "n6alt", "a": "n8"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n8alt", "etq": "Sí"}, {"de": "n8", "a": "n9", "etq": "No"}, {"de": "n8alt", "a": "n9"}, {"de": "n9", "a": "n10"}
       ]
      }
     },
@@ -750,7 +760,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Cumplimiento del checklist de apertura", "Aperturas con checklist completo ÷ total de aperturas", "Diaria", "Gerente de Tienda", "100%"],
-      ["Incidencias escaladas por tienda", "Incidencias escaladas en el mes por tienda", "Mensual", "Supervisor de Ventas", "Referencia de gestión"],
+      ["Incidencias escaladas por tienda", "Incidencias escaladas en el mes por tienda", "Mensual", "Gerente de Ventas al Detal (País)", "Referencia de gestión"],
       ["Resultado de auditoría o visita de supervisión", "Hallazgos críticos por visita", "Mensual", "Gerente de Ventas al Detal", "Sin hallazgos críticos"]
      ]
     }
@@ -766,22 +776,23 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Supervisor de Ventas", "texto": "Programa la ruta semanal para cubrir todos los puntos de venta a su cargo, agrupando por cercanía geográfica para aprovechar el tiempo de traslado."},
-      {"id": "a2", "rol": "Supervisor de Ventas", "texto": "En cada visita revisa exhibición, cumplimiento de uniforme y carnet, funcionamiento de sistemas y cámaras, y el estado general de la instalación."},
-      {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Cuando detecta una desviación del estándar, la corrige en el momento si es sencilla, o la deja como observación formal al Gerente de Tienda si requiere seguimiento."},
-      {"id": "a4", "rol": "Supervisor de Ventas", "texto": "Acompaña al Gerente de Tienda en la resolución de lo pendiente, incluidas incidencias que el gerente escaló durante la semana."},
-      {"id": "a5", "rol": "Supervisor de Ventas", "texto": "Registra la visita —hoy como acta en papel en Venezuela, por Lark en Panamá— con los hallazgos y las responsabilidades asignadas."},
-      {"id": "a6", "rol": "Gerente de Ventas al Detal (País)", "texto": "Lleva los hallazgos relevantes a la reunión semanal de gerentes de tienda para que se conviertan en acuerdos operativos de la semana."}
+      {"id": "a1", "rol": "Gerente de Ventas al Detal (País)", "texto": "Programa la ruta semanal para cubrir todos los puntos de venta a su cargo, agrupando por cercanía geográfica para aprovechar el tiempo de traslado."},
+      {"id": "a2", "rol": "Gerente de Ventas al Detal (País)", "texto": "En cada visita revisa exhibición, cumplimiento de uniforme y carnet, funcionamiento de sistemas y cámaras, y el estado general de la instalación."},
+      {"id": "a3", "rol": "Gerente de Ventas al Detal (País)", "texto": "Cuando detecta una desviación del estándar, la corrige en el momento si es sencilla, o la deja como observación formal al Gerente de Tienda si requiere seguimiento."},
+      {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Acompaña al Gerente de Tienda en la resolución de lo pendiente, incluidas incidencias que el gerente escaló durante la semana."},
+      {"id": "a5", "rol": "Gerente de Ventas al Detal (País)", "texto": "Registra la visita —hoy como acta en papel en Venezuela, por Lark en Panamá— con los hallazgos y las responsabilidades asignadas."},
+      {"id": "a6", "rol": "Gerente de Tienda", "texto": "Recibe el acompañamiento en el punto: resuelve en el momento lo que se pueda corregir sobre la marcha y se queda con la observación de lo que exija gestión posterior, con su plazo."},
+      {"id": "a7", "rol": "Gerente de Ventas al Detal (País)", "texto": "Lleva los hallazgos relevantes a la reunión semanal de gerentes de tienda para que se conviertan en acuerdos operativos de la semana."}
      ],
      "diagrama": {
-      "carriles": ["Supervisor de Ventas", "Gerente de Tienda", "Gerente de Ventas al Detal (País)"],
+      "carriles": ["Gerente de Ventas al Detal (País)", "Gerente de Tienda"],
       "nodos": [
-       {"id": "n0", "carril": "Supervisor de Ventas", "tipo": "inicio", "n": "Programación semanal de ruta de visitas"},
-       {"id": "n1", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Visitar el punto y revisar exhibición, uniforme y sistemas"},
-       {"id": "n2", "carril": "Supervisor de Ventas", "tipo": "decision", "n": "¿Se detecta una desviación del estándar?"},
-       {"id": "n2alt", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Corregir en el momento o dejar observación"},
+       {"id": "n0", "carril": "Gerente de Ventas al Detal (País)", "tipo": "inicio", "n": "Programación semanal de ruta de visitas"},
+       {"id": "n1", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Visitar el punto y revisar exhibición, uniforme y sistemas"},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Se detecta una desviación del estándar?"},
+       {"id": "n2alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Corregir en el momento o dejar observación"},
        {"id": "n3", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Recibir acompañamiento en la resolución"},
-       {"id": "n4", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Registrar la visita (acta en papel o por Lark)", "sistemas": ["Plataforma Lark"]},
+       {"id": "n4", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Registrar la visita (acta en papel o por Lark)", "sistemas": ["Plataforma Lark"]},
        {"id": "n5", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Llevar hallazgos a la reunión semanal de gerentes"},
        {"id": "n6", "carril": "Gerente de Ventas al Detal (País)", "tipo": "fin", "n": "Punto verificado, con hallazgos y seguimiento asignado"}
       ],
@@ -804,8 +815,8 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Puntos de venta visitados según cadencia programada", "Visitas realizadas ÷ visitas programadas", "Semanal", "Gerente de Ventas al Detal", "100%"],
-      ["Hallazgos recurrentes en 3 visitas consecutivas", "Hallazgos repetidos por tienda", "Mensual", "Supervisor de Ventas", "Tendencia descendente"],
-      ["Tiempo entre el hallazgo y su cierre", "Fecha de cierre − fecha de hallazgo", "Por hallazgo", "Supervisor de Ventas", "≤ 1 semana"]
+      ["Hallazgos recurrentes en 3 visitas consecutivas", "Hallazgos repetidos por tienda", "Mensual", "Gerente de Ventas al Detal (País)", "Tendencia descendente"],
+      ["Tiempo entre el hallazgo y su cierre", "Fecha de cierre − fecha de hallazgo", "Por hallazgo", "Gerente de Ventas al Detal (País)", "≤ 1 semana"]
      ]
     }
    },
@@ -820,33 +831,48 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Planificador Financiero", "texto": "Elabora el ACP (análisis de conveniencia del proyecto) con la proyección de ventas, gastos y margen del local candidato, bajo la regla de que el payback no exceda tres años."},
-      {"id": "a2", "rol": "Gerente Regional de Retail", "texto": "Revisa el ACP; si el negocio no se sostiene, el local se descarta en este punto, antes de comprometer ningún gasto."},
-      {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Aprueba la apertura y la formaliza como proyecto dentro de la PMO, con fecha objetivo y responsables asignados."},
-      {"id": "a4", "rol": "Arquitecto (proveedor externo)", "texto": "Diseña el layout del local y lo somete a ronda de ajustes con Visual Merchandising y la operación local hasta que el render queda aprobado."},
-      {"id": "a5", "rol": "Gerente de Proyectos (PMO)", "texto": "Gestiona los permisos que exige el local —alcaldía, bomberos, patente municipal, publicidad de fachada— en paralelo al montaje físico."},
-      {"id": "a6", "rol": "Supervisor de Ventas", "texto": "Dimensiona la plantilla por turno respetando el límite legal de horas, y coordina con Recursos Humanos la selección del personal que va a operar la tienda desde el día uno."},
-      {"id": "a7", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Instala la exhibición, el mobiliario y los materiales de marca, y coordina con Sistemas la habilitación de POS, cámaras y conectividad."},
-      {"id": "a8", "rol": "Gerente de Proyectos (PMO)", "texto": "Ejecuta la inauguración y cierra el proyecto en la PMO, dejando el ACP archivado como línea base para medir el payback real contra el proyectado."}
-     ],
+       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Recibe o detecta la oportunidad de local y decide si vale la pena estudiarla. Llega por varias vías —la propuesta de un centro comercial, la gerencia del país que ve una plaza desatendida, un corredor inmobiliario, o la propia estrategia de expansión de la marca— y la primera criba es de criterio comercial, no financiera: tránsito, perfil del público y presencia de la competencia."},
+      {"id": "a2", "rol": "Gerente de Contabilidad / Administración", "texto": "Elabora el ACP —análisis de conveniencia del proyecto— del local candidato: proyección de ventas, gastos de operación, inversión inicial, margen y período de recuperación."},
+      {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Revisa el ACP y decide. Si el negocio no se sostiene, el local se descarta aquí, antes de comprometer ningún gasto y antes de negociar nada."},
+      {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Negocia con el centro comercial o el propietario las condiciones del espacio: canon o precio de compra, plazo, metros y ubicación dentro del centro, aporte a remodelación y fecha de entrega del local. Es donde el ACP se confirma o se cae, porque hasta aquí el costo del espacio era un supuesto."},
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Formaliza el contrato de arrendamiento o compraventa con las condiciones cerradas y lo incorpora al ACP como costo en firme."},
+      {"id": "a6", "rol": "Gerente de Proyectos (PMO)", "texto": "Abre el proyecto de apertura en la PMO con su fecha objetivo, su presupuesto y sus responsables, y es quien lo gobierna de aquí al cierre. Sin apertura formal, el montaje avanza por empuje de cada área y nadie responde por la fecha."},
+      {"id": "a7", "rol": "Arquitecto (proveedor externo)", "texto": "Diseña el layout del local y lo ajusta en rondas de render con Visual Merchandising y la operación del país hasta que queda aprobado."},
+      {"id": "a8", "rol": "Gerente de Proyectos (PMO)", "texto": "Gestiona los permisos que exige el local —alcaldía, bomberos, patente municipal, publicidad de fachada— en paralelo al montaje físico, porque son los que fijan la fecha real de apertura."},
+      {"id": "a9", "rol": "Gerente de Ventas al Detal (País)", "texto": "Dimensiona la plantilla por turno respetando el límite legal de horas, coordina con Recursos Humanos la selección del personal y su formación en producto y protocolo antes de abrir."},
+      {"id": "a10", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Monta la tienda según el estándar de la marca: mobiliario, exhibición por línea, iluminación, señalética y materiales de marca, con el layout aprobado como referencia."},
+      {"id": "a11", "rol": "Coordinador(a) de Sistemas", "texto": "Habilita la infraestructura del punto: punto de venta y su conexión al sistema, red y conectividad, cámaras y control de acceso. Es trabajo de sistemas, no de visual: lo que visual monta es la tienda, no la instalación técnica."},
+      {"id": "a12", "rol": "Gerente Regional de Retail", "texto": "Inspecciona el punto antes del lanzamiento y da el visto bueno: que la exhibición cumpla el estándar, que el surtido inicial esté completo y bien presentado, que el personal esté formado y que la infraestructura funcione. Es el último filtro antes de abrir al público."},
+      {"id": "a13", "rol": "Gerente de Proyectos (PMO)", "texto": "Ejecuta la inauguración y cierra el proyecto, dejando el ACP archivado como línea base para medir después el retorno real contra el proyectado."}
+      ],
      "diagrama": {
-      "carriles": ["Planificador Financiero", "Gerente Regional de Retail", "Arquitecto (proveedor externo)", "Gerente de Proyectos (PMO)", "Supervisor de Ventas", "Coordinador(a) de Visual Merchandising"],
+      "carriles": ["Gerente Regional de Retail", "Gerente de Contabilidad / Administración", "Gerente de Proyectos (PMO)", "Arquitecto (proveedor externo)", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Visual Merchandising", "Coordinador(a) de Sistemas"],
       "nodos": [
-       {"id": "n0", "carril": "Planificador Financiero", "tipo": "inicio", "n": "Oportunidad de local identificada"},
-       {"id": "n1", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Elaborar el ACP financiero"},
-       {"id": "n2", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿El ACP resulta viable (payback ≤ 3 años)?"},
-       {"id": "n2alt", "carril": "Gerente Regional de Retail", "tipo": "fin", "n": "Local descartado"},
-       {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Aprobar la apertura y abrir el proyecto en la PMO"},
-       {"id": "n4", "carril": "Arquitecto (proveedor externo)", "tipo": "tarea", "n": "Diseñar el layout y ajustar en render"},
-       {"id": "n5", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Gestionar permisos (alcaldía, bomberos, patente, publicidad)"},
-       {"id": "n6", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Definir plantilla por turno y contratar personal"},
-       {"id": "n7", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Instalar visual, sistemas y cámaras"},
-       {"id": "n8", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Ejecutar inauguración y cerrar el proyecto"},
-       {"id": "n9", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Tienda operativa, ACP archivado como línea base"}
+       {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Oportunidad de local"},
+       {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Cribar la oportunidad por criterio comercial"},
+       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Elaborar el ACP del local candidato"},
+       {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿El ACP es viable?"},
+       {"id": "n3alt", "carril": "Gerente Regional de Retail", "tipo": "fin", "n": "Local descartado"},
+       {"id": "n4", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Negociar el espacio con el centro comercial"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Formalizar el contrato del local"},
+       {"id": "n6", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Abrir el proyecto de apertura"},
+       {"id": "n7", "carril": "Arquitecto (proveedor externo)", "tipo": "tarea", "n": "Diseñar el layout y ajustarlo en render"},
+       {"id": "n8", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Gestionar los permisos del local"},
+       {"id": "n9", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Dimensionar, contratar y formar la plantilla"},
+       {"id": "n10", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Montar la tienda al estándar de marca"},
+       {"id": "n11", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Habilitar punto de venta, red y cámaras"},
+       {"id": "n12", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Listo para abrir?"},
+       {"id": "n12alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Cerrar los pendientes del punto"},
+       {"id": "n13", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Inaugurar y cerrar el proyecto"},
+       {"id": "n14", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Tienda operativa, ACP como línea base"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2", "a": "n3", "etq": "Sí"},
-       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13", "etq": "Sí"}, {"de": "n12", "a": "n12alt", "etq": "No"}, {"de": "n12alt", "a": "n13"},
+       {"de": "n13", "a": "n14"}
       ]
      }
     },
@@ -879,29 +905,36 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Al detectar la necesidad de renovar —imagen envejecida, mobiliario dañado o un nuevo estándar de marca— la agrega a la cola de remodelaciones en vez de intervenir la misma tienda más de una vez."},
-      {"id": "a2", "rol": "Gerente Regional de Retail", "texto": "Prioriza la cola según disponibilidad de material y proveedor, agrupando varias intervenciones de una misma tienda para hacerlas juntas."},
-      {"id": "a3", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Presenta la propuesta y el render de la intervención, coordinando con el mismo proveedor que suele ejecutar las aperturas."},
-      {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Aprueba el presupuesto de la intervención antes de que el proveedor arranque el trabajo físico."},
-      {"id": "a5", "rol": "Arquitecto / Proveedor de Remodelación", "texto": "Ejecuta la intervención —cambio de iluminación, paneles, mobiliario o reparación estructural— dentro de la ventana de tiempo acordada con el centro comercial."},
-      {"id": "a6", "rol": "Gerente de Proyectos (PMO)", "texto": "Cierra el proyecto una vez entregada la tienda renovada y verificado que quedó conforme al estándar visual y funcional vigente."}
-     ],
+       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Registra la necesidad de renovación —imagen envejecida, mobiliario dañado o un estándar de marca nuevo— en el plan de renovaciones del año y la prioriza frente a las demás pendientes, agrupando en una sola intervención lo que haya que hacer en el mismo punto para no cerrarlo dos veces."},
+      {"id": "a2", "rol": "Gerente Regional de Visual Merchandising", "texto": "Fija el estándar al que tiene que llegar el punto: qué versión de la imagen de marca aplica, qué mobiliario y qué señalética corresponden, y qué se conserva de lo que ya hay."},
+      {"id": "a3", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Prepara la propuesta y el render de la intervención con el proveedor que ejecuta las aperturas, y la costea."},
+      {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Valida el impacto en la operación del punto: en qué ventana se puede intervenir, cuántos días queda cerrado o a media capacidad, y qué venta se deja de hacer. Una renovación mal calendarizada cuesta más en venta perdida que en obra."},
+      {"id": "a5", "rol": "Gerente Regional de Retail", "texto": "Aprueba el presupuesto y la ventana de ejecución antes de que el proveedor arranque el trabajo físico."},
+      {"id": "a6", "rol": "Gerente de Proyectos (PMO)", "texto": "Abre el proyecto de renovación con su alcance, su presupuesto y su fecha, y lo gobierna hasta el cierre. Sin apertura formal nadie responde por la fecha de reapertura, que es lo que la tienda necesita saber."},
+      {"id": "a7", "rol": "Arquitecto / Proveedor de Remodelación", "texto": "Ejecuta la intervención —iluminación, paneles, mobiliario o reparación estructural— dentro de la ventana acordada."},
+      {"id": "a8", "rol": "Gerente de Ventas al Detal (País)", "texto": "Recibe el punto renovado y confirma que quedó operativo: exhibición montada, surtido repuesto y personal en sitio para reabrir."},
+      {"id": "a9", "rol": "Gerente de Proyectos (PMO)", "texto": "Cierra el proyecto una vez verificado que el punto quedó conforme al estándar visual y funcional, con el costo final contra el presupuesto aprobado."}
+      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Retail", "Coordinador(a) de Visual Merchandising", "Arquitecto / Proveedor de Remodelación", "Gerente de Proyectos (PMO)"],
+      "carriles": ["Gerente Regional de Retail", "Gerente Regional de Visual Merchandising", "Coordinador(a) de Visual Merchandising", "Gerente de Ventas al Detal (País)", "Gerente de Proyectos (PMO)", "Arquitecto / Proveedor de Remodelación"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Necesidad de renovación detectada"},
-       {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Agrupar la intervención en la cola de remodelaciones"},
-       {"id": "n2", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Material o proveedor disponible?"},
-       {"id": "n2alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Mantener en cola hasta disponibilidad"},
-       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Presentar propuesta y render de la intervención", "sistemas": ["Plataforma Lark"]},
-       {"id": "n4", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Aprobar el presupuesto de la intervención"},
-       {"id": "n5", "carril": "Arquitecto / Proveedor de Remodelación", "tipo": "tarea", "n": "Ejecutar la intervención"},
-       {"id": "n6", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Cerrar el proyecto"},
-       {"id": "n7", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Tienda renovada bajo el nuevo estándar"}
+       {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Necesidad de renovación"},
+       {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Registrar y priorizar en el plan de renovaciones"},
+       {"id": "n2", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Fijar el estándar al que debe llegar el punto"},
+       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Preparar propuesta, render y costeo"},
+       {"id": "n4", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Validar la ventana y el impacto en la venta"},
+       {"id": "n5", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Aprueba presupuesto y ventana?"},
+       {"id": "n5alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Dejar en cola hasta material o presupuesto"},
+       {"id": "n6", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Abrir el proyecto de renovación"},
+       {"id": "n7", "carril": "Arquitecto / Proveedor de Remodelación", "tipo": "tarea", "n": "Ejecutar la intervención"},
+       {"id": "n8", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Recibir el punto y confirmar que reabre"},
+       {"id": "n9", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Cerrar el proyecto con el costo final"},
+       {"id": "n10", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Punto renovado al estándar vigente"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2", "a": "n3", "etq": "Sí"},
-       {"de": "n2alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
       ]
      }
     },
@@ -934,29 +967,33 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Evalúa la oportunidad de un nuevo mercado y define el fee del contrato, homologado con los casos ya en curso (Nicaragua, Honduras, República Dominicana)."},
-      {"id": "a2", "rol": "Legal Corporativo", "texto": "Redacta el contrato bajo el modelo estandarizado que el grupo está construyendo desde cero para Cubitt."},
-      {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Define el protocolo de reportería obligatoria que la franquicia debe entregar para alimentar la torre de control regional."},
-      {"id": "a4", "rol": "Gerente Regional de Visual Merchandising", "texto": "Transfiere las herramientas de gestión —cuadro de metas, Follow Up, estándar visual— para que la franquicia opere bajo el mismo sistema que la operación propia."},
-      {"id": "a5", "rol": "Gerente Regional de Retail", "texto": "Verifica que la franquicia cumpla la reportería y el estándar acordado; si no, escala el incumplimiento y define un plan de corrección."},
-      {"id": "a6", "rol": "Gerente Regional de Retail", "texto": "Ejecuta la auditoría integral anual de cumplimiento del contrato y del estándar de marca."}
-     ],
+       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Evalúa la oportunidad del mercado y define el fee del contrato, homologado con los casos ya en curso para que el modelo sea comparable entre franquicias."},
+      {"id": "a2", "rol": "Gerente Regional de Retail", "texto": "Cierra el contrato de franquicia sobre el modelo estandarizado que el grupo construye desde cero para la marca propia: fee, plazo, territorio, estándar de imagen exigible y obligación de reportar. ⚠️ El patrón de cargos no contempla ninguna función jurídica que redacte o haga cumplir este contrato; queda como riesgo de estructura."},
+      {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Define el protocolo de reportería obligatoria —qué entrega la franquicia, con qué frecuencia y en qué formato— para que su operación alimente el tablero regional como una tienda más."},
+      {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Transfiere las herramientas de gestión comercial: cuadro de metas, seguimiento de cumplimiento y esquema de comisiones, que son las que hacen que la franquicia opere con el mismo lenguaje que la operación propia."},
+      {"id": "a5", "rol": "Gerente Regional de Visual Merchandising", "texto": "Transfiere el estándar de imagen y exhibición, y acompaña el montaje inicial del punto para que abra con la marca bien puesta. Es lo propio de visual en este proceso: la imagen, no las metas."},
+      {"id": "a6", "rol": "Franquiciado", "texto": "Inicia operaciones: abre el punto, opera bajo el contrato y entrega la reportería acordada. Es el actor que ejecuta el modelo, y sin su operación en marcha no hay nada que evaluar."},
+      {"id": "a7", "rol": "Gerente Regional de Retail", "texto": "Verifica que la franquicia cumpla la reportería y el estándar acordado; si no, escala el incumplimiento y define un plan de corrección con plazo."},
+      {"id": "a8", "rol": "Gerente Regional de Retail", "texto": "Ejecuta la auditoría integral anual de cumplimiento del contrato y del estándar de marca, que es la que sostiene la renovación o la salida."}
+      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Retail", "Legal Corporativo", "Gerente Regional de Visual Merchandising"],
+      "carriles": ["Gerente Regional de Retail", "Gerente Regional de Visual Merchandising", "Franquiciado"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Interés de franquiciado potencial en un nuevo mercado"},
+       {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Interés de franquiciado en un mercado"},
        {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Evaluar la oportunidad y definir el fee"},
-       {"id": "n2", "carril": "Legal Corporativo", "tipo": "tarea", "n": "Redactar el contrato bajo el modelo estandarizado"},
-       {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Definir el protocolo de reportería obligatoria", "sistemas": ["Tablero regional retail"]},
-       {"id": "n4", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Transferir herramientas de gestión"},
-       {"id": "n5", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Cumple reportería y estándar?"},
-       {"id": "n5alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Escalar incumplimiento y definir plan de corrección"},
-       {"id": "n6", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Ejecutar auditoría integral anual"},
-       {"id": "n7", "carril": "Gerente Regional de Retail", "tipo": "fin", "n": "Franquicia operativa, reportando a la torre de control"}
+       {"id": "n2", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Cerrar el contrato de franquicia"},
+       {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Definir el protocolo de reportería"},
+       {"id": "n4", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Transferir las herramientas de gestión"},
+       {"id": "n5", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Transferir el estándar de imagen y acompañar el montaje"},
+       {"id": "n6", "carril": "Franquiciado", "tipo": "tarea", "n": "Iniciar operaciones y reportar"},
+       {"id": "n7", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Cumple lo acordado?"},
+       {"id": "n7alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Escalar y fijar plan de corrección"},
+       {"id": "n8", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Auditar el contrato y el estándar cada año"},
+       {"id": "n9", "carril": "Gerente Regional de Retail", "tipo": "fin", "n": "Franquicia operando y reportando"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8", "etq": "Sí"}, {"de": "n7", "a": "n7alt", "etq": "No"}, {"de": "n7alt", "a": "n8"}, {"de": "n8", "a": "n9"}
       ]
      }
     },
@@ -989,25 +1026,37 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Sistemas / Datos", "texto": "Consulta la información de venta e inventario de cada partner regional (Costa Rica, Guatemala, Ecuador, la boutique del aeropuerto de Panamá) por query, sin acceder directamente a sus sistemas."},
-      {"id": "a2", "rol": "Planificador Financiero", "texto": "Revisa el P&L de cada tienda-partner al cierre del mes, comparándolo contra el mismo estándar de la operación propia."},
-      {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Cuando una tienda-partner cierra en rojo, abre una renegociación comercial con el partner en vez de dejar que la pérdida se acumule."},
-      {"id": "a4", "rol": "Gerente Regional de Visual Merchandising", "texto": "Traslada al partner los estándares regionales de gestión —metas, Follow Up, comisiones y visual— para que opere bajo el mismo sistema que la operación propia."}
-     ],
+       {"id": "a1", "rol": "Socio / Operador del punto", "texto": "Entrega su venta y su inventario en el formato y la frecuencia que el acuerdo fija. Es la contraparte del modelo: sin su reporte no hay P&L que revisar ni conversación que tener."},
+      {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Consolida la información de cada punto operado por un socio y la deja comparable con la de la operación propia, sin lo cual el P&L de uno y otro no se pueden poner al lado."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa el P&L de cada punto al cierre del mes contra el mismo estándar que se aplica a la tienda propia, para que un socio no se evalúe con una vara distinta."},
+      {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Cuando el punto cierra en rojo, abre la renegociación comercial con el socio —condiciones, aporte de cada parte, surtido o alcance— en vez de dejar que la pérdida se acumule mes a mes."},
+      {"id": "a5", "rol": "Socio / Operador del punto", "texto": "Negocia las condiciones nuevas y se compromete con el plan que se acuerde, o plantea su salida del acuerdo."},
+      {"id": "a6", "rol": "Comité Directivo", "texto": "Decide cuando la renegociación toca el acuerdo mismo: cambiar el modelo, reducir el alcance o terminar la relación. Un socio compromete la presencia de la marca en un mercado y su salida deja una plaza descubierta, así que la decisión no cabe en la gerencia que la negocia."},
+      {"id": "a7", "rol": "Gerente Regional de Retail", "texto": "Traslada al socio los estándares de gestión comercial —metas, seguimiento y esquema de comisiones— para que el punto opere con el mismo lenguaje que la operación propia."},
+      {"id": "a8", "rol": "Gerente Regional de Visual Merchandising", "texto": "Audita la imagen y la exhibición del punto contra el estándar de la marca, que es lo que el cliente ve y lo que no puede diferir entre una tienda propia y una operada por un socio."}
+      ],
      "diagrama": {
-      "carriles": ["Analista de Sistemas / Datos", "Planificador Financiero", "Gerente Regional de Retail", "Gerente Regional de Visual Merchandising"],
+      "carriles": ["Socio / Operador del punto", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente Regional de Retail", "Comité Directivo", "Gerente Regional de Visual Merchandising"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre mensual de P&L por tienda-partner"},
-       {"id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Consultar información del partner por query"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Revisar el P&L de cada tienda-partner"},
-       {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿La tienda-partner cierra en rojo?"},
-       {"id": "n3alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Abrir renegociación comercial con el partner"},
-       {"id": "n4", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Aplicar los estándares regionales"},
-       {"id": "n5", "carril": "Gerente Regional de Visual Merchandising", "tipo": "fin", "n": "P&L revisado, con acciones correctivas cuando aplica"}
+       {"id": "n0", "carril": "Socio / Operador del punto", "tipo": "inicio", "n": "Cierre mensual del punto"},
+       {"id": "n1", "carril": "Socio / Operador del punto", "tipo": "tarea", "n": "Entregar venta e inventario del punto"},
+       {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Consolidar y dejar comparable la información"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar el P&L contra el estándar propio"},
+       {"id": "n4", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿El punto cierra en rojo?"},
+       {"id": "n5", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Abrir la renegociación con el socio"},
+       {"id": "n6", "carril": "Socio / Operador del punto", "tipo": "tarea", "n": "Negociar condiciones o plantear su salida"},
+       {"id": "n7", "carril": "Comité Directivo", "tipo": "decision", "n": "¿Se mantiene el acuerdo?"},
+       {"id": "n7alt", "carril": "Comité Directivo", "tipo": "tarea", "n": "Decidir el cambio de modelo o la salida"},
+       {"id": "n8", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Trasladar los estándares de gestión comercial"},
+       {"id": "n9", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Auditar imagen y exhibición del punto"},
+       {"id": "n10", "carril": "Gerente Regional de Visual Merchandising", "tipo": "fin", "n": "Punto revisado y con acciones abiertas"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
-       {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n8", "etq": "No"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8", "etq": "Sí"}, {"de": "n7", "a": "n7alt", "etq": "No"}, {"de": "n7alt", "a": "n8"},
+       {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
       ]
      }
     },
@@ -1068,7 +1117,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Autoauditoría por aplicación no está en producción", "Hoy no hay alerta automática por intervalo excedido.", "Alta", "Medio", "Fijar una cadencia mínima manual (p. ej. trimestral) mientras la aplicación no esté lista."],
       ["Acta de visita en papel sin centralizar", "Un hallazgo repetido entre viajes puede pasar inadvertido.", "Alta", "Medio", "Migrar el acta a un registro digital simple antes de esperar la aplicación completa."],
-      ["Cobertura de auditoría externa sin frecuencia garantizada", "Depende de cuándo viaja el Gerente Regional al país.", "Media", "Medio", "Complementar con las visitas del Supervisor de Ventas (proceso 9.7) como fuente adicional."],
+      ["Cobertura de auditoría externa sin frecuencia garantizada", "Depende de cuándo viaja el Gerente Regional al país.", "Media", "Medio", "Complementar con las visitas del Gerente de Ventas al Detal (proceso 9.7) como fuente adicional."],
       ["Autoauditoría vs. auditoría externa sin distinción clara", "El gerente puede depender de que \"vengan a verlo\" en vez de reportar proactivamente.", "Media", "Bajo", "Comunicar la autoauditoría como responsabilidad propia del gerente, no como sustituto de la visita externa."]
      ]
     },
@@ -1104,7 +1153,7 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Cliente", "tipo": "inicio", "n": "Cliente presenta reclamo de garantía"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Recibir el reclamo y decidir cambio o derivación"},
-       {"id": "n2", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Reparación menor que el relojero de tienda resuelve (Casio)?"},
+       {"id": "n2", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿La resuelve el relojero de tienda?"},
        {"id": "n2alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Enviar a relojera central o Servicio Técnico", "sistemas": ["Plataforma Lark"]},
        {"id": "n3", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Reparar o cambiar en tienda"},
        {"id": "n4", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Reportar número de serie a Casio Japón para nota de crédito"},
@@ -1148,18 +1197,18 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente de Tienda", "texto": "Cada semana cuenta 2 o 3 líneas de producto (por ejemplo, hoy termos, mañana audífonos) con la tablet conectada al WMS, evitando el papel."},
-      {"id": "a2", "rol": "Supervisor de Ventas", "texto": "Descarga el conteo capturado y lo compara de inmediato contra la existencia que marca el sistema, generando una existencia al día que no afecta la venta en curso."},
-      {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Si hay diferencia, la envía a la tienda para que el equipo la revise y ajuste al día siguiente."},
+      {"id": "a2", "rol": "Gerente de Ventas al Detal (País)", "texto": "Descarga el conteo capturado y lo compara de inmediato contra la existencia que marca el sistema, generando una existencia al día que no afecta la venta en curso."},
+      {"id": "a3", "rol": "Gerente de Ventas al Detal (País)", "texto": "Si hay diferencia, la envía a la tienda para que el equipo la revise y ajuste al día siguiente."},
       {"id": "a4", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Aplica el ajuste final en el sistema una vez confirmada la diferencia, y en fechas comerciales fuertes coordina un conteo antes y otro después del evento."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Tienda", "Supervisor de Ventas", "Supervisor(a) de Bodega / Despacho"],
+      "carriles": ["Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Supervisor(a) de Bodega / Despacho"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Programación semanal de conteo por línea"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Contar la línea de producto con tablet", "sistemas": ["WMS"]},
-       {"id": "n2", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Descargar y comparar contra existencia de sistema", "sistemas": ["ERP Odoo"]},
-       {"id": "n3", "carril": "Supervisor de Ventas", "tipo": "decision", "n": "¿Hay diferencia entre conteo y sistema?"},
-       {"id": "n3alt", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Enviar diferencia a la tienda para ajuste"},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Descargar y comparar contra existencia de sistema", "sistemas": ["ERP Odoo"]},
+       {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Hay diferencia entre conteo y sistema?"},
+       {"id": "n3alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Enviar diferencia a la tienda para ajuste"},
        {"id": "n4", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Aplicar el ajuste final en el sistema"},
        {"id": "n5", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Inventario cuadrado y registrado"}
       ],
@@ -1181,7 +1230,7 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cobertura del catálogo por conteo selectivo", "Líneas contadas en el ciclo ÷ líneas activas del catálogo", "Mensual", "Supervisor de Ventas", "100% de las líneas activas"],
+      ["Cobertura del catálogo por conteo selectivo", "Líneas contadas en el ciclo ÷ líneas activas del catálogo", "Mensual", "Gerente de Ventas al Detal (País)", "100% de las líneas activas"],
       ["Diferencias injustificadas tras revisión (merma real)", "Faltantes confirmados ÷ total de diferencias detectadas", "Mensual", "Gerente de Ventas al Detal", "Tendencia descendente"],
       ["Tiempo entre el conteo y el ajuste en sistema", "Fecha de ajuste − fecha de conteo", "Por conteo", "Supervisor(a) de Bodega / Despacho", "≤ 1 día"]
      ]
@@ -1198,25 +1247,28 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente de Tienda", "texto": "Al cierre, separa el efectivo, las tarjetas y las transferencias del día conforme al cuadre de caja."},
-      {"id": "a2", "rol": "Gerente de Tienda", "texto": "Si el punto de venta tiene banco propio en el centro comercial, deposita el efectivo directamente ese mismo día; si no, lo entrega bajo firma al mensajero o auxiliar autorizado."},
-      {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Recoge el efectivo y lo deposita en la cuenta del grupo —en Venezuela con transporte de frecuencia fija; en el interior, por valija con la empresa que mejor cubra la ruta."},
-      {"id": "a4", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Recibe los documentos físicos (facturas, comprobantes) y los concilia contra lo efectivamente depositado."}
-     ],
+       {"id": "a1", "rol": "Gerente de Tienda", "texto": "Al cierre, cuadra la caja y separa el efectivo de los cobros con tarjeta y las transferencias, dejando constancia del monto de cada medio contra lo facturado en el día."},
+      {"id": "a2", "rol": "Gerente de Tienda", "texto": "Deposita el efectivo el mismo día cuando el centro comercial tiene banco: el trayecto es corto y no sale del recinto, que es lo que lo hace practicable."},
+      {"id": "a3", "rol": "Gerente de Tienda", "texto": "Cuando no hay banco en el centro comercial, entrega la recaudación al servicio de traslado de valores en la frecuencia establecida y la resguarda hasta entonces. ⚠️ El traslado de efectivo no debe hacerse en la ruta ordinaria de mensajería ni por personal de bodega: expone a la persona y al dinero, y la evidencia describe esa ruta expresamente para documentos, no para efectivo."},
+      {"id": "a4", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Traslada los documentos del punto —facturas, comprobantes de depósito y garantías— aprovechando la ruta de mensajería que ya pasa por la tienda a entregar mercancía. Es lo que hoy se hace y es lo que esa ruta puede cubrir sin riesgo."},
+      {"id": "a5", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Concilia lo efectivamente depositado contra el cuadre de caja y los documentos recibidos, y persigue la diferencia cuando la hay."}
+      ],
      "diagrama": {
       "carriles": ["Gerente de Tienda", "Auxiliar / Ayudante de Bodega y Tráfico", "Coordinador(a) de Tesorería y Cobranzas"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Cierre de caja diario con efectivo consolidado"},
-       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Tiene banco propio en el centro comercial?"},
-       {"id": "n1alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Depositar directamente en el banco del centro comercial"},
-       {"id": "n2", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Entregar el efectivo al mensajero o auxiliar autorizado"},
-       {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Depositar el efectivo en la cuenta del grupo"},
-       {"id": "n4", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Recibir y conciliar documentos contra lo depositado"},
-       {"id": "n5", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "fin", "n": "Efectivo depositado y conciliado"}
+       {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Cierre de caja del día"},
+       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Cuadrar y separar efectivo de otros medios"},
+       {"id": "n2", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Hay banco en el centro comercial?"},
+       {"id": "n2alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Resguardar y entregar a traslado de valores"},
+       {"id": "n3", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Depositar el efectivo el mismo día"},
+       {"id": "n4", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Trasladar los documentos del punto"},
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Conciliar lo depositado contra el cuadre"},
+       {"id": "n6", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "fin", "n": "Efectivo depositado y conciliado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1alt", "etq": "Sí"}, {"de": "n1", "a": "n2", "etq": "No"},
-       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n1alt", "a": "n4"}, {"de": "n4", "a": "n5"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n4"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
       ]
      }
     },
@@ -1252,19 +1304,19 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Gerente de Tienda", "texto": "Ante una ausencia que necesita cobertura inmediata, la cubre con un movimiento de personal entre tiendas o con quien esté disponible, avisando al Supervisor."},
       {"id": "a2", "rol": "Gerente de Tienda", "texto": "Aprueba permisos y vacaciones verificando que la plantilla mínima quede cubierta antes de autorizar."},
       {"id": "a3", "rol": "Gerente de Tienda", "texto": "Ante una incidencia menor (uso de celular, incumplimiento de uniforme), resuelve en primera instancia con un llamado de atención verbal."},
-      {"id": "a4", "rol": "Supervisor de Ventas", "texto": "Cuando la incidencia es reincidente y ya se agotaron los llamados informales, la escala a Recursos Humanos con el historial documentado."},
+      {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Cuando la incidencia es reincidente y ya se agotaron los llamados informales, la escala a Recursos Humanos con el historial documentado."},
       {"id": "a5", "rol": "Gerente de Tienda", "texto": "Notifica a Recursos Humanos las novedades del personal para que el circuito cierre en la nómina formal."},
       {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Gestiona la dotación con el headcount por talla y género calculado a nivel regional, y coordina inducción y refrescamiento de normativa."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Tienda", "Supervisor de Ventas", "Coordinador(a) de Recursos Humanos"],
+      "carriles": ["Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Recursos Humanos"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Ausencia, incidencia o necesidad de personal detectada"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "decision", "n": "¿Requiere cobertura inmediata?"},
        {"id": "n1alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Cubrir con movimiento entre tiendas"},
        {"id": "n2", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Aprobar permiso o vacaciones verificando cobertura"},
-       {"id": "n3", "carril": "Supervisor de Ventas", "tipo": "decision", "n": "¿Incidencia disciplinaria reincidente?"},
-       {"id": "n3alt", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Escalar a Recursos Humanos con el historial"},
+       {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Incidencia disciplinaria reincidente?"},
+       {"id": "n3alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Escalar a Recursos Humanos con el historial"},
        {"id": "n4", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Resolver en primera instancia (llamado de atención)"},
        {"id": "n5", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Notificar a Recursos Humanos", "sistemas": ["Plataforma Lark"]},
        {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Plantilla cubierta e incidencia cerrada"}
@@ -1351,41 +1403,45 @@ window.MANUAL_CONTENIDO = {
    "9.18": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la gestión de incidencias y trámites de infraestructura física del punto de venta —cuotas, permisos, cámaras, POS, daños— con el Supervisor de Ventas como puente entre la tienda y el resto de los departamentos. No incluye la remodelación planificada (proceso 9.9), que es una intervención programada y no una respuesta a una incidencia."
+     "texto": "Cubre la gestión de incidencias y trámites de infraestructura física del punto de venta —cuotas, permisos, cámaras, POS, daños— con el Gerente de Ventas al Detal como puente entre la tienda y el resto de los departamentos. No incluye la remodelación planificada (proceso 9.9), que es una intervención programada y no una respuesta a una incidencia."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente de Tienda", "texto": "Detecta la incidencia —falla de cámara, filtración, cuota que subió, orden de chequeo del centro comercial— y la reporta al Supervisor de Ventas, que centraliza este tipo de gestión."},
-      {"id": "a2", "rol": "Supervisor de Ventas", "texto": "Si la incidencia es urgente (por ejemplo, una puerta que no cierra y deja la tienda expuesta de noche), resuelve de inmediato con un proveedor de confianza ya conocido."},
-      {"id": "a3", "rol": "Supervisor de Ventas", "texto": "Para lo que no es urgente, coordina con Sistemas cuando es cámaras, POS o conectividad, o con Contabilidad cuando es una cuota o un pago a proveedor."},
-      {"id": "a4", "rol": "Administración del Centro Comercial", "texto": "Notifica cambios (cuota extraordinaria, orden de chequeo, nueva disposición) que la tienda debe atender dentro de un plazo."},
-      {"id": "a5", "rol": "Contabilidad", "texto": "Cierra la incidencia una vez pagado y facturado el proveedor, dejando la tienda al día con el centro comercial."}
-     ],
+       {"id": "a1", "rol": "Gerente de Tienda", "texto": "Detecta la incidencia de infraestructura —una cámara caída, una filtración, una puerta que no cierra, una cuota que subió o una orden de chequeo del centro comercial— y la reporta a la gerencia de ventas al detal del país con su evidencia."},
+      {"id": "a2", "rol": "Gerente de Tienda", "texto": "Recibe y traslada las notificaciones del centro comercial —cuota extraordinaria, orden de chequeo, disposición nueva— con el plazo que traen, porque la tienda es la que las recibe en el sitio y la que responde ante el centro."},
+      {"id": "a3", "rol": "Gerente de Ventas al Detal (País)", "texto": "Cuando la incidencia deja el punto expuesto o impide operar —una puerta que no cierra de noche, una falla eléctrica—, la resuelve de inmediato con un proveedor calificado del país, sin esperar el circuito ordinario."},
+      {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Para el resto, deriva según la naturaleza de la incidencia: lo técnico —cámaras, punto de venta, conectividad— a Sistemas; lo económico —cuota, permiso, multa o contrato con el centro comercial— a Administración. No es una alternativa entre áreas, es una clasificación: cada tipo tiene su destinatario."},
+      {"id": "a5", "rol": "Coordinador(a) de Sistemas", "texto": "Resuelve lo técnico del punto: repone o repara cámaras, punto de venta y conectividad, y deja constancia de la intervención."},
+      {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Gestiona la obligación económica: valida la cuota o el permiso contra lo contratado, paga al proveedor y registra la factura."},
+      {"id": "a7", "rol": "Gerente de Ventas al Detal (País)", "texto": "Cierra la incidencia cuando el punto queda resuelto y al día con el centro comercial. El cierre lo da quien responde por la operación de la tienda, no quien pagó la factura."}
+      ],
      "diagrama": {
-      "carriles": ["Gerente de Tienda", "Supervisor de Ventas", "Administración del Centro Comercial", "Contabilidad"],
+      "carriles": ["Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Sistemas", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Incidencia o notificación de infraestructura detectada"},
-       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Reportar la incidencia al Supervisor"},
-       {"id": "n2", "carril": "Supervisor de Ventas", "tipo": "decision", "n": "¿Es una incidencia urgente?"},
-       {"id": "n2alt", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Resolver de inmediato con proveedor de confianza"},
-       {"id": "n3", "carril": "Supervisor de Ventas", "tipo": "tarea", "n": "Coordinar con Sistemas o Contabilidad"},
-       {"id": "n4", "carril": "Administración del Centro Comercial", "tipo": "tarea", "n": "Notificar y coordinar con el centro comercial"},
-       {"id": "n5", "carril": "Contabilidad", "tipo": "tarea", "n": "Cerrar la incidencia con el proveedor pagado y facturado"},
-       {"id": "n6", "carril": "Contabilidad", "tipo": "fin", "n": "Infraestructura resuelta, al día con cuotas y permisos"}
+       {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Incidencia o notificación de infraestructura"},
+       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Reportar la incidencia con su evidencia"},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Deja el punto expuesto?"},
+       {"id": "n2alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Resolver ya con proveedor calificado"},
+       {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Derivar según su naturaleza"},
+       {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Resolver cámaras, punto de venta o red"},
+       {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Gestionar la cuota, el permiso y el pago"},
+       {"id": "n6", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Cerrar la incidencia del punto"},
+       {"id": "n7", "carril": "Gerente de Ventas al Detal (País)", "tipo": "fin", "n": "Punto resuelto y al día"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
-       {"de": "n2alt", "a": "n5"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2alt", "a": "n6"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Gestión de infraestructura centralizada en una sola persona", "El Supervisor de Ventas es el único puente entre la tienda y el resto de los departamentos en su país.", "Alta", "Alto", "Documentar contactos de proveedores de confianza y criterio de urgencia para no depender de una sola persona."],
+      ["Gestión de infraestructura centralizada en una sola persona", "El Gerente de Ventas al Detal es el único puente entre la tienda y el resto de los departamentos en su país.", "Alta", "Alto", "Documentar contactos de proveedores de confianza y criterio de urgencia para no depender de una sola persona."],
       ["Incidencias urgentes resueltas fuera de horario sin protocolo de reembolso", "No hay un límite de gasto ni aprobación posterior documentada para una emergencia.", "Media", "Medio", "Definir un límite de gasto que el Supervisor puede autorizar en emergencia, con reporte posterior."],
       ["Notificaciones del centro comercial sin registro centralizado", "Llegan por canales informales (correo, WhatsApp) sin repositorio por tienda.", "Media", "Bajo", "Centralizar las notificaciones del centro comercial en un solo repositorio por tienda (Lark)."],
       ["Dependencia de un solo proveedor de confianza por tipo de incidencia", "Sin alternativa si el proveedor habitual no está disponible.", "Baja", "Medio", "Calificar un segundo proveedor de respaldo para las categorías más frecuentes."]
@@ -1394,9 +1450,9 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de resolución de incidencia urgente", "Fecha de resolución − fecha de reporte", "Por caso", "Supervisor de Ventas", "Mismo día"],
+      ["Tiempo de resolución de incidencia urgente", "Fecha de resolución − fecha de reporte", "Por caso", "Gerente de Ventas al Detal (País)", "Mismo día"],
       ["Cuotas y permisos del centro comercial al día", "Cuotas/permisos vigentes ÷ total exigido", "Mensual", "Contabilidad", "100%"],
-      ["Incidencias de infraestructura por tienda", "Incidencias reportadas por tienda en el período", "Mensual", "Supervisor de Ventas", "Referencia de gestión"]
+      ["Incidencias de infraestructura por tienda", "Incidencias reportadas por tienda en el período", "Mensual", "Gerente de Ventas al Detal (País)", "Referencia de gestión"]
      ]
     }
    }
