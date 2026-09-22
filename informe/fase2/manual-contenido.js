@@ -9316,6 +9316,81 @@ window.MANUAL_CONTENIDO = {
     ]
    }
   }
+ },
+
+ "18": {
+  "procesos": {
+
+   "18.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Define y mantiene vigente el marco jurídico común a las entidades del grupo: los criterios bajo los cuales se contrata con un tercero, el modelo de acuerdo de confidencialidad exigible, los umbrales de aprobación y la delegación de firma por monto y tipo de compromiso, y la coordinación entre el asesor jurídico corporativo y los bufetes locales y la asesoría laboral y tributaria de cada país.",
+     "nota_estado": "Es un proceso a implementar: hoy el asesor jurídico corporativo (General Counsel) opera de forma reactiva, en comunicación casi exclusiva con el Country Manager, sin que su rol tenga la relevancia formal que el propio Country Manager reconoce que debería tener. Los avances existentes —el acuerdo de confidencialidad para el personal administrativo, redactado por abogados y validado por la Junta en Venezuela, o los acuerdos de confidencialidad firmados con contratistas y consultores— se dan proceso por proceso, sin una política única que fije los criterios y los umbrales para todas las entidades."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Country Manager", "texto": "Identifica la necesidad de definir o ajustar la política jurídica del grupo —por la incorporación de una entidad, un tipo de tercero no previsto o una brecha detectada en la aplicación actual— y encarga al asesor jurídico corporativo la revisión correspondiente."},
+      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Diagnostica el vacío o el cambio frente al marco vigente, revisando los criterios de contratación, el modelo de confidencialidad y los umbrales de aprobación y delegación de firma que aplican hoy en cada entidad del grupo."},
+      {"id": "a3", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Consulta a los bufetes locales del país o los países afectados y, cuando el ajuste toca la relación laboral, a la asesoría laboral externa, para conocer las particularidades normativas que la política debe respetar."},
+      {"id": "a4", "rol": "bufetes locales por país y asesoría laboral externa (actores externos)", "texto": "Remiten su criterio jurídico sobre la norma local, el tipo de tercero o la particularidad del país que la política corporativa debe incorporar."},
+      {"id": "a5", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Redacta o actualiza el criterio de contratación con terceros, el modelo de acuerdo de confidencialidad y los umbrales de aprobación y delegación de firma por monto y tipo de compromiso."},
+      {"id": "a6", "rol": "Planificador Financiero", "texto": "Valida los umbrales de aprobación propuestos desde el criterio de exposición financiera y de la estructura de firmas vigente para autorizar compromisos económicos."},
+      {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Valida el impacto del ajuste sobre los contratos y acuerdos de naturaleza laboral, y sobre la exigencia de confidencialidad al personal, antes de que la propuesta se consolide."},
+      {"id": "a8", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Consolida la propuesta de política jurídica del grupo con los modelos y los umbrales definidos, y la traslada al Country Manager para su revisión final."},
+      {"id": "a9", "rol": "Country Manager", "texto": "Revisa la propuesta consolidada y la presenta a la Junta Directiva para su aprobación."},
+      {"id": "a10", "rol": "Junta Directiva", "texto": "Aprueba la política jurídica del grupo, o la devuelve con observaciones para que el asesor jurídico corporativo la ajuste antes de una nueva presentación."},
+      {"id": "a11", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Difunde la política aprobada y sus modelos —de contratación, de confidencialidad y de delegación de firma— a las entidades del grupo, y el Country Manager da seguimiento a su aplicación homogénea entre países."}
+     ],
+     "diagrama": {
+      "carriles": ["Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "bufetes locales por país y asesoría laboral externa (actores externos)", "Planificador Financiero", "Gerente de Recursos Humanos", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Country Manager", "tipo": "inicio", "n": "Necesidad de definir o ajustar la política jurídica"},
+       {"id": "n1", "carril": "Country Manager", "tipo": "tarea", "n": "Encargar la revisión al asesor jurídico corporativo"},
+       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Diagnosticar el vacío frente al marco vigente"},
+       {"id": "n3", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Consultar a los bufetes locales y la asesoría externa"},
+       {"id": "n4", "carril": "bufetes locales por país y asesoría laboral externa (actores externos)", "tipo": "tarea", "n": "Remitir el criterio jurídico local"},
+       {"id": "n5", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Redactar los criterios, el modelo de confidencialidad y los umbrales"},
+       {"id": "n6", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar los umbrales de aprobación"},
+       {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Validar el impacto laboral y de confidencialidad"},
+       {"id": "n8", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Consolidar la propuesta de política"},
+       {"id": "n9", "carril": "Country Manager", "tipo": "tarea", "n": "Presentar la propuesta a la Junta Directiva"},
+       {"id": "n10", "carril": "Junta Directiva", "tipo": "decision", "n": "¿La Junta aprueba la política propuesta?"},
+       {"id": "n10alt", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Ajustar la propuesta con las observaciones de la Junta"},
+       {"id": "n11", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Difundir la política aprobada y sus modelos a las entidades"},
+       {"id": "n12", "carril": "Country Manager", "tipo": "tarea", "n": "Dar seguimiento a la aplicación homogénea entre países"},
+       {"id": "n13", "carril": "Country Manager", "tipo": "fin", "n": "Política jurídica del grupo vigente y aplicada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11", "etq": "Sí"}, {"de": "n10", "a": "n10alt", "etq": "No"}, {"de": "n10alt", "a": "n9"},
+       {"de": "n11", "a": "n12"}, {"de": "n12", "a": "n13"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Asesor jurídico corporativo sin la relevancia formal que el rol exige", "El propio Country Manager reconoce que quien dirige hoy la política jurídica del grupo no ha recibido la importancia estratégica que amerita, y su comunicación queda restringida casi en exclusiva a él.", "Alta", "Alto", "Formalizar esta política y ampliar el canal de comunicación del asesor jurídico corporativo más allá del Country Manager."],
+      ["Confidencialidad implementada de forma fragmentada, no como política única", "El acuerdo de confidencialidad para el personal administrativo se está formalizando en Venezuela de forma aislada, sin que exista todavía un modelo único vigente para todas las entidades y todo tipo de tercero.", "Media", "Alto", "Adoptar un modelo de confidencialidad único, exigible a todo tercero y todo colaborador con acceso a información sensible del grupo, en las cuatro entidades."],
+      ["Sin umbrales de aprobación ni delegación de firma documentados", "Las aprobaciones y las firmas de compromisos se resuelven caso por caso en la Junta o en la familia, sin un umbral escrito que determine cuándo se requiere su intervención.", "Alta", "Alto", "Definir y documentar los umbrales de aprobación y la delegación de firma por monto y tipo de compromiso, con revisión anual."],
+      ["Relaciones recurrentes con terceros o entre entidades sin instrumento contractual", "Se han identificado relaciones operativas —como el uso de espacio físico entre entidades del grupo— sostenidas por años sin un contrato de servicio que las respalde.", "Media", "Medio", "Exigir, dentro de la política, que toda relación recurrente con un tercero o entre entidades del grupo cuente con su instrumento contractual correspondiente."],
+      ["Dependencia de bufetes locales sin coordinación corporativa homogénea", "Cada país gestiona su relación con bufetes locales y asesoría laboral de forma independiente, sin que el asesor jurídico corporativo centralice el criterio aplicado en cada jurisdicción.", "Media", "Medio", "Establecer un punto de coordinación único entre el asesor jurídico corporativo y los bufetes locales, con reporte periódico al Country Manager."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura de acuerdos de confidencialidad firmados", "Colaboradores y terceros con acceso a información sensible con acuerdo de confidencialidad firmado ÷ total con acceso", "Trimestral", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
+      ["Vigencia de la política jurídica del grupo", "Meses transcurridos desde la última revisión formal de la política", "Anual", "Country Manager", "≤ 12 meses"],
+      ["Tiempo de respuesta a consulta jurídica", "Fecha de respuesta del asesor jurídico corporativo − fecha de la consulta, en días hábiles", "Por consulta", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   }
+  }
  }
 };
 
