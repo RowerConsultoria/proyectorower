@@ -10735,6 +10735,242 @@ window.MANUAL_CONTENIDO = {
       ["Verificación técnica de la infraestructura entregada por el arrendador", "Aperturas de tienda con verificación técnica de la acometida y las instalaciones del local antes de operar ÷ total de aperturas", "Por apertura", "Country Manager", "100%"]
      ]
     }
+   },
+
+   "19.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Controla el inventario de insumos de oficina, papelería, consumibles y material de limpieza en cada sede, detecta la necesidad de reposición, solicita y aprueba la compra, recibe y descarga el insumo en el depósito interno, y lo entrega al área solicitante.",
+     "nota_estado": "Es un proceso híbrido: opera con regularidad, sostenido por varias asistentes administrativas de sede que llevan su propio respaldo de inventario y contactan directo al proveedor cuando detectan un nivel bajo, pero sin un sistema que lo centralice ni un criterio único de reposición entre sedes — cada una decide con su propio criterio cuándo y cuánto reponer."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "asistentes administrativas de sede", "texto": "Detecta, mediante el respaldo de inventario que lleva cada sede, que el nivel de un insumo de oficina, papelería, consumible o material de limpieza está bajo, o recibe la solicitud puntual de un área."},
+      {"id": "a2", "rol": "asistentes administrativas de sede", "texto": "Verifica si el insumo está disponible en el depósito interno de la sede; si lo está, lo entrega directamente al área solicitante."},
+      {"id": "a3", "rol": "asistentes administrativas de sede", "texto": "Contacta directamente al proveedor ya establecido cuando el insumo no está disponible, y solicita la reposición según el consumo habitual de la sede."},
+      {"id": "a4", "rol": "Gerente de Tesorería", "texto": "Aprueba el desembolso para la compra del insumo antes de que el proveedor lo despache."},
+      {"id": "a5", "rol": "proveedores de insumos (actores externos)", "texto": "Despachan el insumo a la sede correspondiente."},
+      {"id": "a6", "rol": "Analista de Cuentas por Cobrar", "texto": "Tramita el pago al proveedor una vez recibida la factura correspondiente."},
+      {"id": "a7", "rol": "asistentes administrativas de sede", "texto": "Recibe y descarga el insumo en el depósito interno de la sede, y lo entrega al área solicitante."}
+     ],
+     "diagrama": {
+      "carriles": ["asistentes administrativas de sede", "Gerente de Tesorería", "proveedores de insumos (actores externos)", "Analista de Cuentas por Cobrar"],
+      "nodos": [
+       {"id": "n0", "carril": "asistentes administrativas de sede", "tipo": "inicio", "n": "Nivel bajo detectado en el inventario interno, o solicitud puntual de un área"},
+       {"id": "n1", "carril": "asistentes administrativas de sede", "tipo": "decision", "n": "¿El insumo está disponible en el depósito interno de la sede?"},
+       {"id": "n1alt", "carril": "asistentes administrativas de sede", "tipo": "fin", "n": "Insumo entregado directamente al solicitante desde el depósito interno"},
+       {"id": "n2", "carril": "asistentes administrativas de sede", "tipo": "tarea", "n": "Contactar al proveedor ya establecido y solicitar la reposición"},
+       {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Aprobar el desembolso para la compra"},
+       {"id": "n4", "carril": "proveedores de insumos (actores externos)", "tipo": "tarea", "n": "Despachar el insumo a la sede"},
+       {"id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Tramitar el pago al proveedor"},
+       {"id": "n6", "carril": "asistentes administrativas de sede", "tipo": "tarea", "n": "Recibir y descargar el insumo en el depósito interno"},
+       {"id": "n7", "carril": "asistentes administrativas de sede", "tipo": "fin", "n": "Insumo repuesto en el depósito interno de la sede y entregado al solicitante"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n1alt", "etq": "Sí"}, {"de": "n1", "a": "n2", "etq": "No"},
+       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Criterio de reposición distinto por sede, sin nivel mínimo consolidado", "Cada sede decide cuándo y cuánto reponer con su propio respaldo de inventario, sin un umbral único de reposición entre sedes.", "Media", "Medio", "Definir un nivel mínimo de reposición común por tipo de insumo y por sede."],
+      ["Sin sistema que centralice el inventario ni las compras de suministros", "El control es un respaldo interno de cada sede, sin visibilidad consolidada del stock ni del gasto del grupo en suministros.", "Media", "Medio", "Adoptar un registro único de inventario de suministros por sede."],
+      ["Relación con el proveedor sostenida por trato directo, sin comparación de presupuestos", "Cada sede contacta directamente a su proveedor ya establecido, sin evidencia de que se comparen alternativas de precio o calidad antes de reponer.", "Media", "Bajo", "Exigir la comparación de al menos dos presupuestos antes de una compra recurrente de mayor monto."],
+      ["Pago tramitado por un cargo sin relación funcional con pagos a proveedores", "El trámite de pago a proveedores de suministros recae en un cargo orientado a la cartera de clientes (Cuentas por Cobrar), no a proveedores.", "Media", "Bajo", "Confirmar con el equipo el cargo real que tramita el pago a proveedores de suministros de oficina."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Nivel de inventario de suministros por sede", "Existencia disponible ÷ consumo promedio del período, en días de cobertura", "Mensual", "asistentes administrativas de sede", "Por definir — no hay línea base hoy"],
+      ["Tiempo de reposición de un insumo", "Fecha de entrega del proveedor − fecha de la solicitud, en días", "Por solicitud", "asistentes administrativas de sede", "Por definir — no hay línea base hoy"],
+      ["Insumos entregados desde depósito interno sin necesidad de compra", "Solicitudes atendidas desde el depósito interno ÷ total de solicitudes", "Mensual", "asistentes administrativas de sede", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "19.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Gestiona los movimientos físicos de la operación administrativa: la distribución y recepción de correspondencia y documentación entre sedes, entidades bancarias y entes públicos, el traslado de valores y soportes desde los puntos de venta hacia la oficina principal, y la coordinación del personal motorizado y del transporte administrativo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Contabilidad / Administración", "texto": "Identifica la necesidad de trasladar documentación, valores o soportes entre sedes, entidades bancarias o entes públicos, y la comunica al personal de mensajería."},
+      {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Encarga, de forma independiente, el traslado de la documentación de un trámite específico ante un ente público cuando el trámite es de su competencia."},
+      {"id": "a3", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Determina si la necesidad corresponde a la ruta programada de recolección en los puntos de venta o a un traslado puntual entre sedes, bancos o entes."},
+      {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina la valija que circula en la ruta programada entre las tiendas y la oficina principal, con la documentación y los soportes que cada punto de venta remite."},
+      {"id": "a5", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Recoge el documento, el valor o el soporte en el punto de origen cuando es un traslado puntual, y lo traslada al destino usando el transporte administrativo o motorizado asignado."},
+      {"id": "a6", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Entrega el documento, el valor o el soporte en destino y obtiene la constancia de recepción correspondiente."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Contabilidad / Administración", "Gerente de Recursos Humanos", "Auxiliar / Ayudante de Bodega y Tráfico", "Coordinador(a) de Logística y Bodega"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Necesidad de trasladar documentación, valores o soportes entre sedes, entidades bancarias o entes públicos"},
+       {"id": "n0b", "carril": "Gerente de Recursos Humanos", "tipo": "inicio", "n": "Necesidad de trasladar la documentación de un trámite específico ante un ente público"},
+       {"id": "n1", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "decision", "n": "¿Es la ruta programada de recolección en tiendas, o un traslado puntual?"},
+       {"id": "n1alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar la valija entre las tiendas y la oficina principal"},
+       {"id": "n2", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Recoger el documento, el valor o el soporte en el punto de origen"},
+       {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Trasladar al destino usando el transporte administrativo o motorizado asignado"},
+       {"id": "n4", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Entregar en destino y obtener la constancia de recepción"},
+       {"id": "n5", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "fin", "n": "Documento, valor o soporte entregado en destino con la constancia de recepción correspondiente"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n0b", "a": "n1"},
+       {"de": "n1", "a": "n1alt", "etq": "Ruta programada"}, {"de": "n1", "a": "n2", "etq": "Traslado puntual"},
+       {"de": "n1alt", "a": "n3"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin protocolo documentado de traslado de valores", "No hay evidencia de un protocolo escrito para el traslado de valores o soportes sensibles entre puntos de venta y la oficina principal, más allá de la práctica del personal motorizado.", "Alta", "Alto", "Definir y documentar un protocolo de traslado de valores, con ruta, horario y responsable de custodia."],
+      ["Dependencia de muy poco personal de mensajería", "La función recae en un motorizado y una persona adicional, sin evidencia de respaldo si alguno de los dos falta.", "Media", "Medio", "Evaluar un respaldo mínimo para cubrir ausencias del personal de mensajería."],
+      ["Sin registro de constancias de entrega centralizado", "No hay evidencia de que las constancias de recepción de cada traslado se consoliden en un registro único y consultable.", "Media", "Medio", "Centralizar el registro de constancias de entrega por traslado."],
+      ["Coordinación de trámites ante entes dispersa entre áreas", "El traslado de documentación ante un ente público depende de que cada área —Recursos Humanos, Contabilidad— gestione su propio trámite, sin un punto único de coordinación.", "Media", "Bajo", "Evaluar un punto único de coordinación para los traslados ante entes públicos, sin importar el área que lo origine."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de entrega de un traslado puntual", "Fecha de entrega en destino − fecha de la solicitud, en horas", "Por traslado", "Auxiliar / Ayudante de Bodega y Tráfico", "Por definir — no hay línea base hoy"],
+      ["Cobertura de la ruta programada de recolección", "Puntos de venta visitados en la ruta programada ÷ total de puntos de venta en ruta", "Semanal", "Coordinador(a) de Logística y Bodega", "100%"],
+      ["Constancias de recepción registradas", "Traslados con constancia de recepción registrada ÷ total de traslados del período", "Mensual", "Auxiliar / Ayudante de Bodega y Tráfico", "100%"]
+     ]
+    }
+   },
+
+   "19.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Opera los dispositivos y las rutinas de seguridad física de las sedes y los puntos de venta: la apertura y el cierre de las instalaciones, la custodia de llaves y claves de acceso, la operación de las centrales de alarma de intrusión e incendio, la coordinación con la vigilancia del inmueble, y la respuesta ante un evento de seguridad.",
+     "nota_estado": "Es un proceso híbrido: la apertura y el cierre de la sede y la supervisión de la central de alarma ya operan con regularidad, con una empresa externa de monitoreo conectada y bajo la supervisión del Asistente Administrativo / Servicios Generales, pero sostenidos por la misma persona que también resuelve el mantenimiento eléctrico, sin rotación ni respaldo. La instalación de cámaras y de los sistemas de seguridad de una tienda nueva queda del lado de Sistemas desde el proyecto, y la operación diaria del punto de venta queda del lado de la tienda; este proceso cubre la frontera entre ambos, no la ejecución técnica de ninguno por separado."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Tienda / Supervisor de Ventas", "texto": "Abre o cierra el punto de venta siguiendo la rutina diaria de seguridad, y activa o desactiva la alarma de intrusión al hacerlo."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Abre o cierra la sede central en los días en que el resto del personal directivo no está presente, y custodia las llaves y las claves de acceso."},
+      {"id": "a3", "rol": "empresas de vigilancia y de monitoreo de alarmas (actores externos)", "texto": "Monitorean de forma continua la conexión de la central de alarma de intrusión e incendio de cada sede, y notifican de inmediato una activación o un incidente."},
+      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Determina si el incidente depende del circuito cerrado de televisión o de un sistema conectado a la red, o si es de su competencia eléctrica y de alarma."},
+      {"id": "a5", "rol": "Analista de Sistemas / Datos", "texto": "Atiende, de forma independiente, el incidente que depende del circuito cerrado de televisión o de un sistema conectado a la red, sin que el Asistente Administrativo / Servicios Generales intervenga en esa frontera."},
+      {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Atiende y reporta el incidente cuando es de su competencia, y coordina con la vigilancia del inmueble cuando la situación lo requiere."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Tienda / Supervisor de Ventas", "Asistente Administrativo(a) / Servicios Generales", "empresas de vigilancia y de monitoreo de alarmas (actores externos)", "Analista de Sistemas / Datos"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "inicio", "n": "Apertura o cierre de la sede, o activación de una alarma"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿Es la rutina diaria de apertura o cierre, o un evento de alarma o incidente?"},
+       {"id": "n1alt", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "fin", "n": "Sede o punto de venta abierto o cerrado con el control ejercido"},
+       {"id": "n2", "carril": "empresas de vigilancia y de monitoreo de alarmas (actores externos)", "tipo": "tarea", "n": "Notificar la activación de la alarma o el incidente de seguridad"},
+       {"id": "n3", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿El incidente depende del circuito cerrado de televisión o de un sistema conectado a la red?"},
+       {"id": "n3alt", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Atender el incidente de forma independiente"},
+       {"id": "n4", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Atender y reportar el incidente, y coordinar con la vigilancia del inmueble"},
+       {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "fin", "n": "Incidente de seguridad atendido y reportado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n1alt", "etq": "Rutina diaria"}, {"de": "n1", "a": "n2", "etq": "Evento de alarma o incidente"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"},
+       {"de": "n3alt", "a": "n5"}, {"de": "n4", "a": "n5"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Custodia de llaves y apertura de la sede concentrada en una sola persona", "La misma persona que resuelve el mantenimiento eléctrico es quien abre la sede central los días en que el resto del personal directivo no está, sin rotación ni respaldo documentado.", "Alta", "Alto", "Definir un respaldo formal para la apertura y el cierre de la sede, además del responsable de mantenimiento."],
+      ["Sin protocolo escrito de respuesta ante un evento de seguridad", "La atención de una alarma o un incidente se resuelve de forma verbal y según la disponibilidad de quien la reciba, sin un protocolo documentado de respuesta.", "Alta", "Medio", "Documentar el protocolo de respuesta ante una alarma o un incidente, con los pasos y los responsables según el tipo de evento."],
+      ["Frontera entre Servicios Generales y Sistemas sin criterio escrito", "La decisión de si un incidente de seguridad depende de la instalación eléctrica o de un sistema conectado a la red se resuelve caso por caso, sin un criterio documentado que la guíe.", "Media", "Medio", "Documentar el criterio que distingue un incidente de competencia eléctrica de uno de competencia de Sistemas."],
+      ["Sin registro de incidentes de seguridad", "No hay evidencia de un registro consolidado de las alarmas activadas ni de los incidentes de seguridad atendidos en las sedes.", "Media", "Medio", "Adoptar un registro único de incidentes de seguridad, con fecha, tipo y resolución."],
+      ["Dependencia de un tercero para el monitoreo, sin acuerdo de nivel de servicio evidenciado", "El monitoreo de las alarmas está a cargo de una empresa externa, sin evidencia de un acuerdo que fije tiempos de respuesta ante una activación.", "Media", "Bajo", "Formalizar el acuerdo de nivel de servicio con la empresa de monitoreo de alarmas."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de respuesta a una activación de alarma", "Fecha de atención − fecha de la notificación de la empresa de monitoreo, en minutos", "Por evento", "Asistente Administrativo(a) / Servicios Generales", "Por definir — no hay línea base hoy"],
+      ["Cobertura de apertura y cierre con respaldo", "Aperturas o cierres cubiertos por el respaldo definido ÷ total de aperturas o cierres sin el responsable titular", "Mensual", "Asistente Administrativo(a) / Servicios Generales", "100%"],
+      ["Incidentes de seguridad registrados y cerrados", "Incidentes con registro y cierre documentado ÷ total de incidentes reportados", "Mensual", "Asistente Administrativo(a) / Servicios Generales", "100%"]
+     ]
+    }
+   },
+
+   "19.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Identifica y califica a los contratistas que ejecutan lo que el equipo interno no cubre —obra civil, plomería, pintura, limpieza, mantenimiento general y montaje de tienda—, obtiene y compara presupuestos, presenta la propuesta al aprobador con facultad, supervisa la ejecución en sitio, y recibe conforme el trabajo.",
+     "nota_estado": "Es un proceso híbrido: hay un criterio claro y aplicado de comparar presupuestos y priorizar la calidad del material sobre el precio más bajo, pero sin un registro de contratistas calificados ni una supervisión técnica sistemática antes de recibir el trabajo por concluido — la apertura de una tienda mostró que un contratista puede entregar una instalación eléctrica subdimensionada y que eso solo se descubre después, cuando falla."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Identifica la necesidad de un contratista para una intervención que excede la competencia del equipo interno, o detecta el vencimiento del contrato de un servicio recurrente."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Solicita y compara presupuestos de contratistas, priorizando la calidad y la durabilidad del material sobre el precio más bajo."},
+      {"id": "a3", "rol": "Gerente Comercial (País / Canal) al Detal (País)", "texto": "Aprueba la intervención cuando se trata de una obra en un punto de venta, y decide, cuando ya existe la relación, con qué contratista trabajar."},
+      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Presenta el presupuesto al aprobador con la facultad correspondiente según el monto del gasto."},
+      {"id": "a5", "rol": "Gerente de Operaciones y Logística", "texto": "Aprueba la contratación cuando el presupuesto excede el umbral del gasto ordinario."},
+      {"id": "a6", "rol": "contratistas (actores externos)", "texto": "Ejecutan el trabajo en sitio bajo la supervisión del Asistente Administrativo / Servicios Generales."},
+      {"id": "a7", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Supervisa la ejecución en sitio y verifica, antes de recibir el trabajo conforme, que cumpla con las especificaciones técnicas necesarias para la operación de la sede."},
+      {"id": "a8", "rol": "Analista de Cuentas por Cobrar", "texto": "Tramita la factura del contratista una vez recibido el trabajo conforme."}
+     ],
+     "diagrama": {
+      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Operaciones y Logística", "contratistas (actores externos)", "Analista de Cuentas por Cobrar"],
+      "nodos": [
+       {"id": "n0", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "inicio", "n": "Necesidad de una intervención que excede la competencia interna, o vencimiento de un contrato recurrente"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Solicitar y comparar presupuestos de contratistas"},
+       {"id": "n2", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿La intervención es en un punto de venta?"},
+       {"id": "n2alt", "carril": "Gerente Comercial (País / Canal) al Detal (País)", "tipo": "tarea", "n": "Aprobar la intervención y decidir el contratista"},
+       {"id": "n3", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Presentar el presupuesto al aprobador con la facultad correspondiente"},
+       {"id": "n4", "carril": "Gerente de Operaciones y Logística", "tipo": "decision", "n": "¿El presupuesto excede el umbral del gasto ordinario?"},
+       {"id": "n4alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Aprobar la contratación"},
+       {"id": "n5", "carril": "contratistas (actores externos)", "tipo": "tarea", "n": "Ejecutar el trabajo en sitio bajo supervisión"},
+       {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Supervisar la ejecución y verificar el cumplimiento técnico antes de recibir conforme"},
+       {"id": "n7", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Tramitar la factura del contratista"},
+       {"id": "n8", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Trabajo ejecutado y recibido conforme, con el presupuesto aprobado y la factura tramitada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
+       {"de": "n2alt", "a": "n4"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n4alt", "etq": "Sí"}, {"de": "n4", "a": "n5", "etq": "No"}, {"de": "n4alt", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Trabajo de contratista recibido conforme sin verificación técnica", "Un contratista entregó una instalación eléctrica subdimensionada para la carga real de una tienda nueva, y el problema solo se detectó después de la apertura, cuando generó un riesgo real de incendio.", "Alta", "Alto", "Exigir una verificación técnica de la ejecución antes de recibir conforme el trabajo de un contratista, no después de que falle."],
+      ["Sin registro de contratistas calificados", "No hay evidencia de un registro de contratistas con su desempeño histórico; cada intervención busca presupuesto sin partir de un historial de calidad ya evaluado.", "Media", "Medio", "Mantener un registro de contratistas calificados, con su historial de desempeño por intervención."],
+      ["Comparación de presupuestos sin criterio documentado", "El criterio de priorizar calidad sobre precio es real y declarado, pero no está escrito en ningún lado; queda al juicio individual de quien pide los presupuestos.", "Media", "Bajo", "Documentar el criterio de selección de contratistas —calidad, garantía y disponibilidad— más allá del precio."],
+      ["Sin contrato formal para los servicios recurrentes de mantenimiento y limpieza", "Los contratistas recurrentes de mantenimiento y limpieza operan sin evidencia de un contrato de servicio vigente que fije alcance, frecuencia y penalidad por incumplimiento.", "Media", "Medio", "Formalizar un contrato de servicio con cada contratista recurrente, con alcance y frecuencia definidos (relacionado con 18.2)."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Trabajos recibidos conforme con verificación técnica", "Trabajos con verificación técnica documentada antes de recibirse conforme ÷ total de trabajos ejecutados", "Por intervención", "Asistente Administrativo(a) / Servicios Generales", "100%"],
+      ["Contratistas con presupuesto comparado", "Intervenciones con al menos dos presupuestos comparados ÷ total de intervenciones contratadas", "Trimestral", "Asistente Administrativo(a) / Servicios Generales", "100%"],
+      ["Tiempo de aprobación de una contratación", "Fecha de aprobación − fecha de presentación del presupuesto, en días hábiles", "Por contratación", "Gerente de Operaciones y Logística", "Por definir — no hay línea base hoy"]
+     ]
+    }
    }
   }
  }
