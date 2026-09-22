@@ -10598,11 +10598,64 @@ window.MANUAL_CONTENIDO = {
      "Autorización previa de toda compra: el Asistente Administrativo / Servicios Generales no decide ni ejecuta una compra por su cuenta; presenta el presupuesto y quien aprueba es Administración o la gerencia de tiendas, según el caso.",
      "Preferencia por proveedores de calidad comprobada sobre el más económico: el criterio declarado privilegia la durabilidad del material sobre el precio, porque la instalación reparada es la imagen de la tienda.",
      "Autorización directa de la Presidencia para el cierre temporal de una tienda: una intervención de emergencia que requiere cerrar el punto de venta se autoriza directamente por la Presidencia, sin pasar por un comité.",
-     "Alcance geográfico limitado por decisión de la dirección: el área de mantenimiento no presta servicio a las franquicias, por decisión expresa de la Presidencia."
+     "Alcance geográfico limitado por decisión de la dirección: el área de mantenimiento no presta servicio a las franquicias, por decisión expresa de la Presidencia.",
+     "Monitoreo externo de alarmas conectado de forma permanente: una empresa externa de vigilancia y monitoreo mantiene la central de alarma de intrusión e incendio de cada sede conectada, con supervisión periódica del Asistente Administrativo / Servicios Generales."
     ],
     "normativo": [
      "Memorándum de funciones del Asistente Administrativo / Servicios Generales (de hace unos siete u ocho años): documento escrito, hoy sin ubicar con facilidad, que fijó por primera vez el alcance de electricidad, alarmas e infraestructura tecnológica como su competencia; no incluye suministros de oficina ni mantenimiento general, que hoy se le propone incorporar.",
      "Reglamento del condominio del edificio de la sede: rige el uso de equipos compartidos entre las empresas del edificio, como la escalera de mantenimiento cuyo mal estado ya generó un incidente de seguridad."
+    ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "De los 6 procesos, ninguno es to-be: 5 son híbridos (19.1, 19.2, 19.3, 19.5 y 19.6) y 1 es as-is (19.4). El macroproceso no parte de cero —hay una persona que sostiene el mantenimiento, la seguridad y la relación con el arrendador desde hace más de veinte años, y una red básica de suministros y mensajería que funciona—, pero ninguno de los seis procesos está documentado, tiene respaldo de personal, o cuenta con un sistema que centralice su información. Las acciones no llevan fecha porque el equipo no las ha acordado.",
+    "por_implementar": [],
+    "por_formalizar": [
+     ["19.1 Mantenimiento de infraestructura e instalaciones", "El mantenimiento eléctrico y de alarmas opera con años de práctica, pero sostenido por una sola persona, sin ticket ni registro, y limitado a Caracas.", "Adoptar un sistema de tickets, definir un respaldo para el responsable, y decidir si el alcance se extiende más allá de Caracas."],
+     ["19.2 Gestión de la sede y relación con el arrendador o condominio", "La relación con el arrendador o el condominio funciona por trato directo, sin contrato de servicio ni verificación técnica de la infraestructura que entrega antes de operar.", "Formalizar la relación con cada arrendador o condominio y exigir verificación técnica de la infraestructura entregada antes de la apertura de una tienda."],
+     ["19.3 Gestión de suministros de oficina y consumibles", "Cada sede repone sus suministros con su propio criterio y su propio respaldo de inventario, sin un sistema ni un nivel mínimo consolidado entre sedes.", "Definir un nivel mínimo de reposición común y adoptar un registro único de inventario de suministros."],
+     ["19.5 Seguridad física y control de acceso a las sedes", "La apertura, el cierre y la respuesta ante un incidente de seguridad dependen de la misma persona que resuelve el mantenimiento eléctrico, sin protocolo escrito ni respaldo.", "Documentar el protocolo de respuesta ante un evento de seguridad y definir un respaldo formal para la apertura y el cierre de la sede."],
+     ["19.6 Gestión de contratistas y proveedores de servicios generales", "Se comparan presupuestos y se prioriza la calidad de forma consistente, pero sin un registro de contratistas calificados ni una verificación técnica sistemática antes de recibir el trabajo conforme.", "Mantener un registro de contratistas calificados y exigir verificación técnica antes de recibir conforme un trabajo."]
+    ],
+    "brechas": [
+     ["19.4 Mensajería, correspondencia y transporte administrativo", "No hay un protocolo documentado para el traslado de valores y soportes sensibles, y la función depende de muy poco personal sin respaldo.", "Documentar el protocolo de traslado de valores y evaluar un respaldo mínimo de personal de mensajería."],
+     ["Transversal — dependencia de una sola persona", "El mantenimiento, la apertura y cierre de la sede central, y buena parte de la coordinación con contratistas dependen de la misma persona, sin vacaciones en ocho años y sin respaldo formal.", "Asignar un asistente o un respaldo formal que cubra ausencias, vacaciones e incapacidad en todo el macroproceso."],
+     ["Transversal — sin sistema ni registro consolidado", "Ninguno de los seis procesos tiene un sistema propio: las solicitudes se gestionan por llamada telefónica y el inventario, por respaldos internos de cada sede, sin trazabilidad ni indicadores.", "Evaluar una herramienta única de gestión de servicios generales, con tickets, inventario y registro de contratistas."],
+     ["Transversal — infraestructura del arrendador sin verificación técnica antes de operar", "El caso de la tienda de Recreo —una acometida eléctrica subdimensionada que generó riesgo de incendio— se repite como referencia en tres procesos distintos (19.1, 19.2 y 19.6), y ninguno de los tres exige hoy una verificación técnica antes de la apertura.", "Adoptar una verificación técnica única, previa a la apertura de cualquier tienda nueva, que cubra a los tres procesos a la vez."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Servicios Generales", "Función que atiende el mantenimiento, la seguridad física y el abastecimiento de insumos de una sede; en Kenex, sostenida hoy por una sola persona en Venezuela."],
+     ["Ticket", "Registro individual de una solicitud de mantenimiento o de servicio, con su fecha, su estado y su resolución; propuesto para este macroproceso y todavía no implementado."],
+     ["Gasto ordinario", "Monto de compra o de contratación que el Asistente Administrativo / Servicios Generales o la gerencia de tienda pueden aprobar directamente, sin escalar a una instancia superior."],
+     ["Acometida eléctrica", "Punto de conexión entre la red eléctrica del inmueble o del centro comercial y las instalaciones de una sede; su dimensionamiento correcto es responsabilidad del arrendador o del contratista que la instala."],
+     ["Valija", "Recorrido periódico que recoge y entrega documentación y soportes entre las tiendas y la oficina principal."]
+    ],
+    "raci": [
+     ["19.1 Mantenimiento de infraestructura e instalaciones", "Asistente Administrativo(a) / Servicios Generales", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Contabilidad / Administración · Analista de Sistemas / Datos", "Gerente de Operaciones y Logística"],
+     ["19.2 Gestión de la sede y relación con el arrendador o condominio", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Gerente de Contabilidad / Administración · Supervisor de Ventas y Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Operaciones y Logística"],
+     ["19.3 Gestión de suministros de oficina y consumibles", "asistentes administrativas de sede", "Gerente de Tesorería", "Analista de Cuentas por Cobrar", "Asistente Administrativo(a) / Servicios Generales"],
+     ["19.4 Mensajería, correspondencia y transporte administrativo", "Auxiliar / Ayudante de Bodega y Tráfico", "Gerente de Contabilidad / Administración", "Coordinador(a) de Logística y Bodega · Gerente de Recursos Humanos", "Asistente Administrativo(a) / Servicios Generales"],
+     ["19.5 Seguridad física y control de acceso a las sedes", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "empresas de vigilancia y de monitoreo de alarmas · Analista de Sistemas / Datos", "Gerente de Tienda / Supervisor de Ventas"],
+     ["19.6 Gestión de contratistas y proveedores de servicios generales", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "Gerente Comercial (País / Canal) al Detal (País) · Analista de Cuentas por Cobrar", "Country Manager"]
+    ],
+    "catalogo_sistemas": [
+     ["Sin sistema de gestión de mantenimiento o de tickets", "Registro de solicitudes, fallas y su resolución", "19.1 · 19.5", "Sin responsable formal"],
+     ["Correo electrónico y computador", "Herramienta recién asignada al responsable de mantenimiento; todavía sin uso consolidado para informes", "19.1", "Asistente Administrativo(a) / Servicios Generales"]
+    ],
+    "interfaces_detalle": [
+     ["Dirección y Gobierno Corporativo", "Autorización de excepción", "Cierre temporal de una tienda o intervención de mayor alcance sobre la sede"],
+     ["Contabilidad", "Pago y registro", "Trámite de pago a proveedores y contratistas; cuotas del arrendador o condominio"],
+     ["Ventas Retail", "Reporte y seguimiento", "Fallas o necesidades reportadas desde el punto de venta; sede o tienda operativa de vuelta"],
+     ["Adopción de IA y Transformación Digital / Sistemas", "Frontera tecnológica", "Cámaras, sensores y red del lado de Sistemas; instalación eléctrica y alarmas del lado de Servicios Generales"]
+    ],
+    "variaciones_pais": [
+     ["Venezuela", "Único país con evidencia directa en el corpus para los seis procesos del macro; la función la sostiene una sola persona en Caracas.", "Es la base de todo lo redactado en este macroproceso; no hay evidencia equivalente de otro país."],
+     ["Panamá", "El responsable de mantenimiento de Venezuela menciona que Panamá ya cuenta con su propio equipo, sin más detalle sobre su alcance o su forma de operar.", "Cabo abierto: no se pudo describir el proceso de Panamá por falta de evidencia; queda pendiente de una entrevista dedicada."]
     ]
    }
   },
