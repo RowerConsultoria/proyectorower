@@ -10675,6 +10675,66 @@ window.MANUAL_CONTENIDO = {
       ["Verificación técnica previa a la apertura de una tienda", "Aperturas de tienda con inspección eléctrica formal antes de la inauguración ÷ total de aperturas", "Por apertura", "Gerente Comercial (País / Canal) al Detal (País)", "100%"]
      ]
     }
+   },
+
+   "19.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Administra las condiciones de ocupación de cada sede y punto de venta: la relación con la administración del edificio o del centro comercial, la coordinación de las intervenciones que afectan áreas comunes, la atención de las cuotas y obligaciones del condominio, y la gestión de los servicios básicos y de las contingencias de suministro.",
+     "nota_estado": "Es un proceso híbrido: la relación con la administración del inmueble existe y funciona en la práctica —incluso de forma recíproca, porque el mismo responsable de mantenimiento de Kenex atiende, a solicitud de la Presidencia, instalaciones del edificio que en rigor no son de la compañía—, pero sin un contrato de servicio ni un protocolo escrito que la sostenga. La dependencia de la infraestructura del centro comercial se hizo evidente cuando la apertura de una tienda mostró que la acometida eléctrica que el arrendador entregó no estaba dimensionada para la carga real del local, y la reparación consecuente comprometió a la sede completa."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "administración del edificio o del centro comercial (actor externo)", "texto": "Notifica un requerimiento, una intervención programada en áreas comunes, o una incidencia de servicios básicos que afecta la operación de la sede o del punto de venta."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Recibe la notificación o detecta la incidencia, y evalúa si compromete la operación inmediata de la sede."},
+      {"id": "a3", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Coordina directamente con la administración del inmueble la intervención en áreas comunes o la corrección de la incidencia, cuando la solución está dentro de su alcance."},
+      {"id": "a4", "rol": "Country Manager", "texto": "Interviene directamente ante el arrendador o el centro comercial cuando la incidencia compromete la operación de una sede completa o excede lo que Servicios Generales puede resolver por su cuenta."},
+      {"id": "a5", "rol": "Supervisor de Ventas y Gerente Comercial (País / Canal) al Detal (País)", "texto": "Da seguimiento local a la corrección desde el punto de venta y reporta cuando la condición de la sede comercial vuelve a la normalidad."},
+      {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Verifica, tras una intervención del arrendador o del centro comercial en la infraestructura de la sede —como la acometida eléctrica de un local—, que la capacidad entregada corresponda a la carga real de la operación."},
+      {"id": "a7", "rol": "Gerente de Contabilidad / Administración", "texto": "Recibe y tramita el pago de las cuotas y obligaciones recurrentes del condominio o del arrendador de cada sede."}
+     ],
+     "diagrama": {
+      "carriles": ["administración del edificio o del centro comercial (actor externo)", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Supervisor de Ventas y Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Contabilidad / Administración"],
+      "nodos": [
+       {"id": "n0", "carril": "administración del edificio o del centro comercial (actor externo)", "tipo": "inicio", "n": "Requerimiento, intervención en áreas comunes, o incidencia de servicios básicos"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Recibir la notificación o detectar la incidencia"},
+       {"id": "n2", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿La incidencia excede lo que Servicios Generales puede resolver directamente con el inmueble?"},
+       {"id": "n2alt", "carril": "Country Manager", "tipo": "tarea", "n": "Intervenir directamente ante el arrendador o el centro comercial"},
+       {"id": "n3", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Coordinar con la administración del inmueble la intervención o la corrección"},
+       {"id": "n4", "carril": "Supervisor de Ventas y Gerente Comercial (País / Canal) al Detal (País)", "tipo": "tarea", "n": "Dar seguimiento local a la corrección desde el punto de venta"},
+       {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Verificar que la capacidad entregada por el arrendador corresponda a la carga real de la operación"},
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Tramitar el pago de las cuotas y obligaciones recurrentes del condominio o del arrendador"},
+       {"id": "n7", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Obligación de la sede atendida y relación con el arrendador o condominio en orden"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n2alt", "etq": "Excede su alcance"}, {"de": "n2", "a": "n3", "etq": "Dentro de su alcance"},
+       {"de": "n2alt", "a": "n4"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin contrato de servicio que respalde la relación con el arrendador o el condominio", "La relación con la administración del inmueble se sostiene por trato directo y de confianza, sin un contrato de servicio o protocolo escrito que fije responsabilidades y tiempos de respuesta.", "Alta", "Medio", "Formalizar por escrito las condiciones de la relación con cada arrendador o condominio, con tiempos de respuesta y responsabilidades definidos."],
+      ["Infraestructura del arrendador sin verificación técnica antes de operar", "La acometida eléctrica que el centro comercial entregó para un local nuevo no estaba dimensionada para la carga real de la tienda, lo que generó un riesgo real de incendio después de la apertura.", "Alta", "Alto", "Exigir la verificación técnica de la infraestructura entregada por el arrendador antes de la apertura de una tienda, no después (relacionado con 19.1)."],
+      ["Dependencia de equipo prestado por el condominio para el mantenimiento propio", "La compañía no cuenta con su propio equipo básico de mantenimiento en altura y depende de una escalera prestada por el condominio, cuyo mal estado ya causó un accidente.", "Alta", "Alto", "Dotar a Servicios Generales de su propio equipo de seguridad y de mantenimiento, sin depender del que preste el condominio."],
+      ["Soporte recíproco al edificio sin acuerdo formal", "El responsable de mantenimiento de Kenex atiende, a solicitud de la Presidencia, instalaciones del edificio que exceden la sede de la compañía, sin que exista un acuerdo que defina el alcance o la contraprestación de ese apoyo.", "Media", "Bajo", "Formalizar o acotar por escrito el alcance del soporte que Kenex presta al edificio más allá de su propia sede."],
+      ["Sin registro de cuotas y obligaciones del condominio por sede", "No hay evidencia de un calendario o un control consolidado de las cuotas y obligaciones recurrentes de cada sede frente a su arrendador o condominio.", "Media", "Medio", "Consolidar un calendario de cuotas y obligaciones por sede, bajo seguimiento de Administración."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de respuesta a una incidencia del inmueble", "Fecha de resolución − fecha de la notificación o la detección, en horas", "Por incidencia", "Asistente Administrativo(a) / Servicios Generales", "Por definir — no hay línea base hoy"],
+      ["Cuotas del condominio o del arrendador pagadas a tiempo", "Cuotas pagadas dentro del plazo ÷ total de cuotas del período", "Mensual", "Gerente de Contabilidad / Administración", "100%"],
+      ["Verificación técnica de la infraestructura entregada por el arrendador", "Aperturas de tienda con verificación técnica de la acometida y las instalaciones del local antes de operar ÷ total de aperturas", "Por apertura", "Country Manager", "100%"]
+     ]
+    }
    }
   }
  }
