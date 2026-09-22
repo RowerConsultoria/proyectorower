@@ -11026,6 +11026,128 @@ window.MANUAL_CONTENIDO = {
     }
    }
   }
+ },
+
+ "20": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual documenta cómo Grupo Kenex gobierna el ciclo de vida de sus propios procesos: el mapa que los organiza, cómo se levantan y se documentan, cómo se publican y se controlan sus cambios, cómo se identifican y se ejecutan las mejoras, cómo se verifica que la operación real cumpla lo documentado, y cómo se instala el estándar nuevo en los equipos que lo van a usar.",
+    "alcance": "Aplica a la gestión del mapa de procesos del grupo como artefacto vivo, una vez cerrada la fase de diagnóstico que dio origen a los macroprocesos de este manual. No cubre el contenido de ningún macroproceso operativo o de soporte en particular —eso lo documenta cada uno por su cuenta—, sino el gobierno transversal que decide cuándo un proceso se levanta, se actualiza, se publica o se retira, y quién responde por cada uno.",
+    "audiencia": ["Gerente de Proyectos (PMO)", "Country Manager", "Junta Directiva", "dueños de proceso de cada macroproceso", "Gerente de Tecnología / Sistemas", "Gerente de Recursos Humanos"]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Gestión de Procesos y Mejora Continua es el macroproceso que no existe todavía en Grupo Kenex: hoy no hay una función, ni una persona, ni un mapa gobernado que decida qué proceso se documenta, quién lo posee, dónde vive su versión vigente y cómo se verifica que la operación lo cumple. Los macroprocesos de este manual se levantaron desde cero, en un proyecto de consultoría externo con fecha de cierre, no desde una capacidad instalada del grupo que continúe el trabajo después.\n\nLa Oficina de Proyectos (PMO) es hoy lo más parecido a una función de este tipo: clasifica el trabajo del grupo en proyectos, iniciativas y tareas según cuántas gerencias involucra, lleva un registro único en una base de Lark con los hitos de cada uno, y envía cada viernes a las 4 de la tarde un resumen automático de avance a la Junta Directiva. Pero su alcance es la ejecución de iniciativas de cambio, no la custodia de un mapa de procesos ni la verificación de que la operación cumple lo documentado; este macroproceso propone extender esa misma disciplina —el registro único, el reporte semanal a la Junta— al gobierno de los procesos del grupo.",
+    "duenos": [
+     ["Macroproceso", "Gerente de Proyectos (PMO)", "Custodia interina del mapa de procesos y de la cartera de mejoras mientras no exista una función dedicada, aprovechando el mismo registro y el mismo reporte semanal a la Junta que ya usa para proyectos e iniciativas."],
+     ["Proceso", "dueños de proceso de cada macroproceso", "Responde por la vigencia de su proceso documentado, valida su levantamiento y recibe las desviaciones que la medición de adherencia detecta."],
+     ["Grupo", "Junta Directiva", "Aprueba el mapa de procesos del grupo y los procesos críticos que se documentan o se modifican."],
+     ["Función", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Encabeza la gestión del cambio y la incorporación del estándar nuevo a la inducción del personal."]
+    ],
+    "sistemas": [
+     ["Lark Base de la oficina de proyectos", "Registro único de proyectos e iniciativas con sus hitos; este macroproceso propone extender la misma base al gobierno del mapa de procesos y de sus versiones.", "20.1 · 20.3 · 20.4"],
+     ["Sin repositorio de documentación de procesos", "No existe hoy un repositorio único donde vivan los manuales de proceso con su versión vigente; este manual de Fase 2 es el primer artefacto del grupo con ese propósito.", "20.2 · 20.3"]
+    ],
+    "interfaces": [
+     ["Dirección y Gobierno Corporativo", "Entrada / salida", "Recibe de la Junta Directiva la aprobación del mapa de procesos y de los procesos críticos; le entrega el mapa vigente y el estado de la cartera de mejoras."],
+     ["Todos los macroprocesos operativos y de soporte", "Entrada / salida", "Cada macroproceso aporta su dueño y su operación real; recibe de vuelta su documentación vigente, sus mejoras implantadas y el resultado de su medición de adherencia."],
+     ["Gestión del Talento Humano", "Coordinación", "Coordina la incorporación del estándar de cada proceso a la inducción del personal que ingresa."],
+     ["Adopción de IA y Transformación Digital / Sistemas", "Coordinación", "Habilita las herramientas y los sistemas que un proceso mejorado requiere."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Gerente de Proyectos (PMO)", "Grupo", "Custodia interina del mapa de procesos, coordina el levantamiento y la publicación de cada manual, y da seguimiento a la cartera de mejoras.", "La priorización de la cola de procesos a documentar o a mejorar.", "A la Junta Directiva para la aprobación del mapa o de un proceso crítico."],
+     ["dueños de proceso de cada macroproceso", "Proceso", "Valida el levantamiento de su proceso, recibe las desviaciones de la medición de adherencia y decide si corrige la operación o revisa el estándar.", "Si una desviación se corrige en la operación o si el estándar documentado debe ajustarse.", "Al Gerente de Proyectos (PMO) cuando la corrección excede su propio proceso."],
+     ["Country Manager", "País", "Patrocina los cambios transversales que un proceso nuevo o modificado exige en su país.", "Sin decisión propia sobre el contenido del proceso.", "A la Junta Directiva en los cambios de mayor alcance."],
+     ["Junta Directiva", "Grupo", "Aprueba el mapa de procesos del grupo y los procesos críticos que se documentan, modifican o publican.", "Las decisiones de mayor alcance sobre la arquitectura de procesos del grupo.", "Sin escalamiento — es la instancia de cierre."],
+     ["Gerente de Recursos Humanos (Formación y Desarrollo)", "Función", "Encabeza la gestión del cambio: comunica, forma e incorpora el estándar nuevo a la inducción del personal.", "El plan de formación y de comunicación de cada cambio.", "Al Gerente de Proyectos (PMO) cuando la resistencia al cambio no se resuelve en el equipo."],
+     ["equipo consultor externo (actor externo)", "Grupo", "Ejecutó el levantamiento inicial de los macroprocesos de este manual durante la fase de diagnóstico; su participación es temporal, no una función instalada en el grupo.", "El criterio metodológico de cómo se documenta un proceso durante el proyecto.", "Sin escalamiento — su mandato termina con el cierre del proyecto."]
+    ],
+    "comites": []
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El mapa de procesos es un artefacto único y vivo, no un documento de una sola vez: se revisa, se corrige y se actualiza, no se archiva al terminar el proyecto que le dio origen.",
+     "Documentar es apenas el primer paso: el objetivo no es registrar cómo se hace algo hoy, sino identificar la brecha frente a la mejor práctica y mejorar el proceso a partir de ahí.",
+     "Un proceso nuevo o modificado no está instalado hasta que el equipo lo usa: publicar el manual no basta si no hay comunicación, formación e inducción sobre el estándar nuevo.",
+     "La verificación de la adherencia no busca sancionar sino corregir: una desviación puede corregirse en la operación o puede significar que el propio estándar documentado necesita revisarse."
+    ],
+    "politicas": [
+     "Reporte semanal automático a la Junta Directiva: la Oficina de Proyectos consolida en su base de Lark un resumen de dos líneas por iniciativa y lo envía automáticamente cada viernes a las 4 de la tarde, práctica que este macroproceso propone extender al estado del mapa de procesos.",
+     "Clasificación del trabajo en proyectos, iniciativas y tareas: la Oficina de Proyectos distingue el nivel de acompañamiento según si la iniciativa cruza más de una gerencia (proyecto, con acompañamiento de principio a fin), depende de un solo gerente (iniciativa, con apoyo solo al inicio) o es puntual (tarea).",
+     "Aprobación de la Junta Directiva para todo cambio de alcance mayor: las iniciativas de mayor envergadura, como la revisión de costos o la asignación de un nuevo proyecto, se presentan a la Junta Directiva antes de ejecutarse."
+    ],
+    "normativo": [
+     "Metodología del proyecto de consultoría Rower (2026): estableció por primera vez el mapa de macroprocesos y las convenciones de nomenclatura y de niveles que rigen este manual; es el precedente directo de lo que este macroproceso propone institucionalizar de forma permanente."
+    ]
+   }
+  },
+  "procesos": {
+
+   "20.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Custodia el mapa de procesos del grupo como artefacto único: define y mantiene los niveles de descomposición, las convenciones de nomenclatura y las fronteras entre macroprocesos, asigna el dueño de cada proceso, y prioriza la cola de macroprocesos por documentar y por actualizar.",
+     "nota_estado": "Es un proceso a implementar: el mapa de procesos del grupo —el que sostiene este mismo manual— nació de un proyecto de consultoría externo con fecha de cierre, no de una función instalada en la organización. Sin este proceso, no hay quien decida qué pasa con el mapa cuando el proyecto termine: quién lo actualiza cuando el grupo cambia de estructura, quién resuelve una frontera confusa entre dos macroprocesos, o quién reasigna un dueño cuando alguien deja el cargo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Country Manager", "texto": "Identifica la necesidad de crear, reorganizar o actualizar un macroproceso —por un cambio estructural en la organización, la incorporación de una entidad nueva, o la llegada de la fecha de revisión anual del mapa— y lo traslada al Gerente de Proyectos (PMO)."},
+      {"id": "a2", "rol": "Gerente de Proyectos (PMO)", "texto": "Evalúa si el cambio afecta los niveles de descomposición, las convenciones de nomenclatura o la frontera entre dos o más macroprocesos, con apoyo del equipo consultor externo mientras la función no esté instalada, y define el ajuste correspondiente al mapa."},
+      {"id": "a3", "rol": "Gerente de Tecnología / Sistemas", "texto": "Verifica el impacto del ajuste sobre los sistemas y las herramientas que sostienen los procesos afectados."},
+      {"id": "a4", "rol": "dueños de proceso de cada macroproceso", "texto": "Revisa el ajuste propuesto sobre su propio macroproceso y confirma o corrige la asignación de dueño y las fronteras que le corresponden."},
+      {"id": "a5", "rol": "Gerente de Proyectos (PMO)", "texto": "Prioriza la cola de macroprocesos por documentar o por actualizar, según el impacto y la urgencia del cambio."},
+      {"id": "a6", "rol": "Gerente de Proyectos (PMO)", "texto": "Presenta el mapa actualizado, con los dueños asignados y las fronteras resueltas, a la Junta Directiva para su aprobación."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Aprueba el mapa de procesos actualizado, o lo devuelve con observaciones para que el Gerente de Proyectos (PMO) lo ajuste antes de una nueva presentación."}
+     ],
+     "diagrama": {
+      "carriles": ["Country Manager", "Gerente de Proyectos (PMO)", "Gerente de Tecnología / Sistemas", "dueños de proceso de cada macroproceso", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Country Manager", "tipo": "inicio", "n": "Cambio estructural, creación o reorganización de un macroproceso, o revisión anual del mapa"},
+       {"id": "n1", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Evaluar el impacto sobre niveles, nomenclatura o fronteras entre macroprocesos"},
+       {"id": "n2", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Verificar el impacto sobre los sistemas que sostienen los procesos afectados"},
+       {"id": "n3", "carril": "dueños de proceso de cada macroproceso", "tipo": "tarea", "n": "Revisar y confirmar la asignación de dueño y las fronteras de su macroproceso"},
+       {"id": "n4", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Priorizar la cola de macroprocesos por documentar o por actualizar"},
+       {"id": "n5", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Presentar el mapa actualizado a la Junta Directiva"},
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿La Junta aprueba el mapa actualizado?"},
+       {"id": "n6alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Mapa devuelto con observaciones, pendiente de ajuste y nueva presentación"},
+       {"id": "n7", "carril": "Junta Directiva", "tipo": "fin", "n": "Mapa de procesos vigente y aprobado, con el dueño de cada proceso asignado y las fronteras resueltas"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n6alt", "etq": "No"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin función instalada que continúe el gobierno del mapa tras el cierre del proyecto", "El mapa de procesos nació de un proyecto de consultoría externo con fecha de cierre; sin este proceso, nadie queda a cargo de actualizarlo, corregir una frontera confusa o reasignar un dueño cuando el proyecto termine.", "Alta", "Alto", "Asignar la custodia interina del mapa a la Oficina de Proyectos (PMO) antes del cierre del proyecto, con un plan de transición explícito."],
+      ["Dueños de proceso mal asignados sin mecanismo de corrección", "La asignación de un dueño a cada proceso puede quedar mal hecha desde el origen —un cargo que no existe, o una persona que ya no ocupa el puesto—, sin un proceso que la revise y la corrija con regularidad.", "Alta", "Medio", "Revisar la asignación de dueños de proceso como parte de la revisión anual del mapa, y ante cada cambio de estructura."],
+      ["Sin criterio único de niveles y nomenclatura para procesos futuros", "El criterio de niveles de descomposición y de nomenclatura que ordenó los macroprocesos de este manual no queda documentado como estándar del grupo, y un macroproceso nuevo podría diseñarse con un criterio distinto.", "Media", "Medio", "Documentar como estándar del grupo el criterio de niveles y nomenclatura ya aplicado en este manual."],
+      ["Fronteras entre macroprocesos que se descubren confusas solo al operar", "Ya se han identificado procesos de distintos macroprocesos que describen el mismo ciclo desde ángulos distintos, sin que exista una instancia que resuelva a cuál corresponde documentarlo.", "Media", "Medio", "Definir el criterio y la instancia que resuelve una frontera confusa entre dos macroprocesos cuando aparece."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura de dueños de proceso confirmados", "Procesos con dueño confirmado por su propio dueño ÷ total de procesos del mapa", "Anual", "Gerente de Proyectos (PMO)", "100%"],
+      ["Tiempo de resolución de una frontera confusa", "Fecha de resolución − fecha en que se identificó la frontera confusa, en días", "Por caso", "Gerente de Proyectos (PMO)", "Por definir — no hay línea base hoy"],
+      ["Vigencia de la revisión anual del mapa", "Meses transcurridos desde la última revisión formal del mapa completo", "Anual", "Junta Directiva", "≤ 12 meses"]
+     ]
+    }
+   }
+  }
  }
 };
 
