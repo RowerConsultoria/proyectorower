@@ -9319,6 +9319,14 @@ window.MANUAL_CONTENIDO = {
  },
 
  "18": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual documenta cómo Grupo Kenex gobierna su marco jurídico corporativo: la política que rige la contratación con terceros y la delegación de firma, el ciclo de vida de los contratos del grupo, la estructura societaria de sus entidades, la protección de sus marcas y de su propiedad intelectual, el cumplimiento regulatorio no tributario en cada país, y la gestión de contingencias, litigios y asesoría legal especializada.",
+    "alcance": "Aplica a las seis funciones jurídicas corporativas del grupo —gobierno de la política jurídica, ciclo de vida contractual, estructura societaria, propiedad intelectual y de marca, cumplimiento regulatorio no tributario, y contingencias y litigios— en las entidades operativas de Venezuela, Panamá, Colombia, Costa Rica y Estados Unidos, más las entidades intermediarias e inmobiliarias del grupo. No cubre el cumplimiento tributario, que es responsabilidad de Contabilidad (macro 12), ni las obligaciones sustantivas de la relación laboral —contratación, nómina, desvinculación—, que documenta Gestión del Talento Humano (macro 17); este manual cubre solo el componente jurídico transversal de esas obligaciones, como los permisos de trabajo de personal extranjero, los acuerdos de confidencialidad y las contingencias que escalan a un ente laboral.",
+    "audiencia": ["Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Gerente de Contabilidad / Administración", "Gerente de Recursos Humanos", "Planificador Financiero", "Junta Directiva"]
+   }
+  },
   "procesos": {
 
    "18.1": {
