@@ -11082,10 +11082,12 @@ window.MANUAL_CONTENIDO = {
     "politicas": [
      "Reporte semanal automático a la Junta Directiva: la Oficina de Proyectos consolida en su base de Lark un resumen de dos líneas por iniciativa y lo envía automáticamente cada viernes a las 4 de la tarde, práctica que este macroproceso propone extender al estado del mapa de procesos.",
      "Clasificación del trabajo en proyectos, iniciativas y tareas: la Oficina de Proyectos distingue el nivel de acompañamiento según si la iniciativa cruza más de una gerencia (proyecto, con acompañamiento de principio a fin), depende de un solo gerente (iniciativa, con apoyo solo al inicio) o es puntual (tarea).",
-     "Aprobación de la Junta Directiva para todo cambio de alcance mayor: las iniciativas de mayor envergadura, como la revisión de costos o la asignación de un nuevo proyecto, se presentan a la Junta Directiva antes de ejecutarse."
+     "Aprobación de la Junta Directiva para todo cambio de alcance mayor: las iniciativas de mayor envergadura, como la revisión de costos o la asignación de un nuevo proyecto, se presentan a la Junta Directiva antes de ejecutarse.",
+     "Solicitud de proyecto formalizada por escrito: toda iniciativa se somete con el Formulario de Solicitud de Proyecto de la PMO —objetivo, alcance, fechas, recursos, riesgos y firma del gerente del área—, antes de que el Project Director evalúe su viabilidad."
     ],
     "normativo": [
-     "Metodología del proyecto de consultoría Rower (2026): estableció por primera vez el mapa de macroprocesos y las convenciones de nomenclatura y de niveles que rigen este manual; es el precedente directo de lo que este macroproceso propone institucionalizar de forma permanente."
+     "Metodología del proyecto de consultoría Rower (2026): estableció por primera vez el mapa de macroprocesos y las convenciones de nomenclatura y de niveles que rigen este manual; es el precedente directo de lo que este macroproceso propone institucionalizar de forma permanente.",
+     "Flujo de trabajo de la PMO, modalidades Híbrida y Scrum (Panamá): el flujograma vigente —Solicitante → Project Director → Project Manager → Departamento de Finanzas, con Gantt, RACI y registro de riesgos por proyecto, y una variante Scrum con sprints para proyectos de software y BI— es el canal real de intake y ejecución de toda iniciativa formal en el grupo, y el precedente más cercano a lo que 20.4 propone para las mejoras de proceso."
     ]
    }
   },
@@ -11095,7 +11097,7 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "texto": "Custodia el mapa de procesos del grupo como artefacto único: define y mantiene los niveles de descomposición, las convenciones de nomenclatura y las fronteras entre macroprocesos, asigna el dueño de cada proceso, y prioriza la cola de macroprocesos por documentar y por actualizar.",
-     "nota_estado": "Es un proceso a implementar: el mapa de procesos del grupo —el que sostiene este mismo manual— nació de un proyecto de consultoría externo con fecha de cierre, no de una función instalada en la organización. Sin este proceso, no hay quien decida qué pasa con el mapa cuando el proyecto termine: quién lo actualiza cuando el grupo cambia de estructura, quién resuelve una frontera confusa entre dos macroprocesos, o quién reasigna un dueño cuando alguien deja el cargo."
+     "nota_estado": "Es un proceso a implementar: el mapa de procesos del grupo —el que sostiene este mismo manual— nació de un proyecto de consultoría externo con fecha de cierre, no de una función instalada en la organización. Sin este proceso, no hay quien decida qué pasa con el mapa cuando el proyecto termine: quién lo actualiza cuando el grupo cambia de estructura, quién resuelve una frontera confusa entre dos macroprocesos, o quién reasigna un dueño cuando alguien deja el cargo. La PMO sí tiene un canal formal para tramitar cualquier iniciativa —el Formulario de Solicitud de Proyecto y el flujo de aprobación con Project Director, Project Manager y Finanzas—, pero ese canal evalúa proyectos uno por uno; no existe todavía una instancia que lo use para gobernar el mapa como un todo."
     },
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
