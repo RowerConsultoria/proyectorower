@@ -10548,6 +10548,62 @@ window.MANUAL_CONTENIDO = {
     "proposito": "Este manual documenta cómo Grupo Kenex sostiene la operación física del día a día de sus sedes: el mantenimiento de las instalaciones, la relación con arrendadores y condominios, el abastecimiento de insumos de oficina, la mensajería y el transporte administrativo, la seguridad física de las sedes, y la contratación de los proveedores que ejecutan lo que el equipo interno no cubre.",
     "alcance": "Aplica a las oficinas, depósitos y puntos de venta de Venezuela, donde el corpus documenta esta función con nombre y responsable. No cubre la infraestructura tecnológica en sí —red, servidores, puntos de venta, cámaras—, que es competencia de Sistemas; este manual cubre solo la frontera física donde Servicios Generales y Sistemas se tocan, como la instalación eléctrica que alimenta un equipo. Tampoco cubre el diseño ni la obra civil de una tienda nueva en su fase de proyecto, que hoy coordina directamente la Presidencia con un contratista externo; Servicios Generales interviene en la infraestructura de una sede ya en operación, no en su construcción inicial.",
     "audiencia": ["Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Contabilidad / Administración", "Analista de Sistemas / Datos", "Country Manager"]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Gestión de Servicios Generales y Administración es el macroproceso de soporte que sostiene la operación física de las sedes: repara lo que se daña, abastece lo que se consume, mueve lo que hay que mover entre oficinas y entes, resguarda las instalaciones, y contrata a quien ejecuta lo que el equipo interno no cubre. Ningún otro macroproceso lo ve directamente, pero todos dependen de él cuando una lámpara se funde, una alarma falla, una tienda necesita papelería o un documento tiene que llegar a un banco.\n\nHoy la función la sostiene, en la práctica, una sola persona en Caracas —con más de veinte años en la compañía y un nombramiento formal por escrito de apenas seis o siete—, sin equipo propio, sin presupuesto propio y sin un canal único de solicitud: cualquier gerente, encargado o colaborador reporta una falla por llamada telefónica directa. Su alcance real quedó fijado por la práctica, no por un diseño: cubre electricidad, alumbrado y las alarmas de incendio e intrusión, y ha ido cediendo terreno a otras dos fronteras —el circuito cerrado de televisión, que pasó a Sistemas porque dejó de depender de una instalación eléctrica y pasó a depender de la red, y el resto de la infraestructura de una tienda nueva (obra civil, carpintería, mobiliario), que un equipo externo de confianza de la Presidencia ejecuta de principio a fin sin que Servicios Generales intervenga.\n\nLa gestión de la relación con el arrendador o el condominio, el abastecimiento de suministros de oficina, la mensajería y el transporte administrativo, y la contratación formal de proveedores externos son procesos del mismo macroproceso que hoy resuelven otras personas —administración y la gerencia de tiendas e infraestructura—, sin que exista todavía una sola función de servicios generales que los reúna a todos.",
+    "duenos": [
+     ["Macroproceso", "Asistente Administrativo(a) / Servicios Generales", "Ejecuta directamente el mantenimiento eléctrico y de alarmas de las sedes de Caracas, y responde de manera informal ante el encargado de depósito y el Gerente de Operaciones y Logística."],
+     ["Sede / tienda", "Gerente Comercial (País / Canal) al Detal (País)", "Autoriza la compra de insumos y materiales para la infraestructura de las tiendas y decide con qué proveedor trabajar cuando ya existe la relación."],
+     ["Administración", "Gerente de Contabilidad / Administración", "Aprueba y tramita el pago a los proveedores de servicios generales, y decide cuándo un presupuesto es demasiado alto para aprobarlo directamente."],
+     ["Grupo", "Gerente de Operaciones y Logística", "Referencia jerárquica informal del Asistente Administrativo / Servicios Generales; no hay evidencia de una gerencia de servicios generales formalmente constituida por encima de él."]
+    ],
+    "entidades": [
+     ["Distribuidora Rower, C.A.", "Venezuela", "Operación propia", "Sede de las oficinas centrales y del depósito donde opera Servicios Generales; comparte edificio con un condominio cuyas áreas comunes también atiende este macroproceso."]
+    ],
+    "sistemas": [
+     ["Sin sistema de gestión de mantenimiento o de tickets", "Las solicitudes se gestionan por llamada telefónica, sin registro digital ni trazabilidad de lo ejecutado.", "19.1"],
+     ["Correo electrónico y computador", "Herramienta asignada muy recientemente al responsable de mantenimiento, todavía sin uso consolidado para informes ni reportes.", "19.1"]
+    ],
+    "interfaces": [
+     ["Dirección y Gobierno Corporativo", "Entrada", "La Presidencia autoriza directamente decisiones de mayor alcance, como el cierre temporal de una tienda para una reparación de emergencia."],
+     ["Contabilidad", "Coordinación", "Tramita el pago a los proveedores de insumos y de contratistas de servicios generales."],
+     ["Ventas Retail", "Entrada / salida", "Las tiendas reportan la falla o la necesidad de mantenimiento, y reciben de vuelta la sede o el punto de venta operativo."],
+     ["Adopción de IA y Transformación Digital / Sistemas", "Coordinación", "Frontera de la infraestructura tecnológica: cámaras, sensores y red quedan del lado de Sistemas, no de Servicios Generales."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Asistente Administrativo(a) / Servicios Generales", "Sede", "Ejecuta el mantenimiento eléctrico y de alarmas, gestiona el depósito interno de repuestos y supervisa a los contratistas en sitio.", "Qué reparación ejecuta directamente y cuándo se apoya en un contratista.", "A la gerencia de tiendas o a Administración cuando la compra o la intervención exceden su alcance."],
+     ["Gerente Comercial (País / Canal) al Detal (País)", "País", "Autoriza la compra de insumos y materiales de infraestructura para las tiendas y gestiona la relación con ciertos proveedores ya establecidos.", "Qué proveedor se usa y si se autoriza la compra.", "Al Gerente de Contabilidad / Administración cuando el presupuesto es alto, o a la Presidencia en un caso de mayor alcance."],
+     ["Gerente de Contabilidad / Administración", "Función", "Aprueba y tramita el pago a los proveedores de servicios generales.", "Si el presupuesto presentado se aprueba o si se busca una alternativa más económica.", "A la Presidencia cuando el monto lo amerita."],
+     ["Gerente de Operaciones y Logística", "Grupo", "Referencia jerárquica informal del Asistente Administrativo / Servicios Generales; recibe sus reportes verbales y sus sugerencias de mejora.", "Sin decisión formal documentada sobre el área.", "A la Presidencia."],
+     ["Country Manager / Presidencia", "Grupo", "Autoriza directamente una intervención de mayor alcance, como el cierre temporal de un punto de venta para una reparación de emergencia.", "Decisiones de excepción sobre la operación de una sede.", "Sin escalamiento — es la instancia de cierre."]
+    ],
+    "comites": []
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El servicio se presta por llamada, no por proceso: cualquier gerente, encargado o colaborador reporta una falla directamente a la persona responsable, sin pasar por un canal único.",
+     "Se prioriza la imagen y la continuidad operativa sobre el costo: el criterio declarado del área es que las instalaciones luzcan bien y que la tienda no deje de operar, no la rentabilidad del gasto.",
+     "La ejecución directa se prefiere sobre el contratista cuando la competencia es interna, y se delega cuando no: electricidad y alarmas se resuelven con personal propio; obra civil, plomería y pintura, con contratista.",
+     "No se invade el área ya establecida de otro: la propuesta de ampliar el alcance de Servicios Generales se plantea con la condición explícita de no interferir con quienes ya gestionan suministros e infraestructura general."
+    ],
+    "politicas": [
+     "Autorización previa de toda compra: el Asistente Administrativo / Servicios Generales no decide ni ejecuta una compra por su cuenta; presenta el presupuesto y quien aprueba es Administración o la gerencia de tiendas, según el caso.",
+     "Preferencia por proveedores de calidad comprobada sobre el más económico: el criterio declarado privilegia la durabilidad del material sobre el precio, porque la instalación reparada es la imagen de la tienda.",
+     "Autorización directa de la Presidencia para el cierre temporal de una tienda: una intervención de emergencia que requiere cerrar el punto de venta se autoriza directamente por la Presidencia, sin pasar por un comité.",
+     "Alcance geográfico limitado por decisión de la dirección: el área de mantenimiento no presta servicio a las franquicias, por decisión expresa de la Presidencia."
+    ],
+    "normativo": [
+     "Memorándum de funciones del Asistente Administrativo / Servicios Generales (de hace unos siete u ocho años): documento escrito, hoy sin ubicar con facilidad, que fijó por primera vez el alcance de electricidad, alarmas e infraestructura tecnológica como su competencia; no incluye suministros de oficina ni mantenimiento general, que hoy se le propone incorporar.",
+     "Reglamento del condominio del edificio de la sede: rige el uso de equipos compartidos entre las empresas del edificio, como la escalera de mantenimiento cuyo mal estado ya generó un incidente de seguridad."
+    ]
    }
   },
   "procesos": {
