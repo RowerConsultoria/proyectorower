@@ -11089,6 +11089,64 @@ window.MANUAL_CONTENIDO = {
      "Metodología del proyecto de consultoría Rower (2026): estableció por primera vez el mapa de macroprocesos y las convenciones de nomenclatura y de niveles que rigen este manual; es el precedente directo de lo que este macroproceso propone institucionalizar de forma permanente.",
      "Flujo de trabajo de la PMO, modalidades Híbrida y Scrum (Panamá): el flujograma vigente —Solicitante → Project Director → Project Manager → Departamento de Finanzas, con Gantt, RACI y registro de riesgos por proyecto, y una variante Scrum con sprints para proyectos de software y BI— es el canal real de intake y ejecución de toda iniciativa formal en el grupo, y el precedente más cercano a lo que 20.4 propone para las mejoras de proceso."
     ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "Los 6 procesos son to-be: ninguno opera hoy en el grupo como función de gestión de procesos. Dos de ellos —20.1 y 20.4— pueden apoyarse en una infraestructura que ya existe (la Oficina de Proyectos, su base de Lark y su canal de solicitud), mientras que el resto —20.2, 20.3, 20.5 y 20.6— parte enteramente de cero. Las acciones no llevan fecha porque el equipo no las ha acordado.",
+    "por_implementar": [
+     ["20.1 Gobierno del mapa de procesos y de la arquitectura documental", "El mapa de procesos nació de un proyecto externo con fecha de cierre; nadie queda a cargo de actualizarlo, resolver una frontera confusa entre macroprocesos o reasignar un dueño después.", "Asignar la custodia interina a la Oficina de Proyectos (PMO) antes del cierre del proyecto, con un plan de transición explícito."],
+     ["20.2 Levantamiento, documentación y validación de procesos", "Ningún proceso se documentaba de esta manera antes de este proyecto, y la asignación de dueño puede quedar mal hecha desde el origen.", "Definir el criterio de priorización de la cola y validar la asignación de dueño con la propia operación, no solo con el mapa."],
+     ["20.3 Publicación, versionado y control de cambios de la documentación", "No hay un repositorio propio del grupo ni control de versiones; la documentación vive hoy en el sitio del proyecto de consultoría.", "Definir dónde vivirá el repositorio del grupo y adoptar un esquema simple de versión y fecha de vigencia."],
+     ["20.4 Identificación, evaluación y ejecución de iniciativas de mejora", "El canal de solicitud de la PMO ya existe para proyectos, pero un hallazgo de auditoría o un indicador fuera de rango no tienen hoy una vía definida para convertirse en una mejora de proceso.", "Habilitar el mismo canal de la PMO para que también reciba mejoras de proceso, con línea base y verificación de cierre."],
+     ["20.5 Medición de la adherencia al proceso", "Ningún proceso tiene puntos de control definidos, salvo la disciplina que ya existe en el ámbito contable con el asesor externo de auditoría.", "Definir los puntos de control al documentar cada proceso y extender el criterio de revisión más allá de lo contable."],
+     ["20.6 Gestión del cambio y habilitación del estándar en la operación", "Publicar un manual no garantiza que el equipo cambie de práctica; no hay confirmación formal de que un estándar nuevo quedó instalado.", "Exigir confirmación de adopción tras el primer ciclo y ligar la actualización de la inducción a la publicación de cada cambio."]
+    ],
+    "por_formalizar": [],
+    "brechas": [
+     ["Transversal — sin función instalada", "Los 6 procesos del macro dependen de que alguien los ejecute; hoy la Oficina de Proyectos es la única función existente que podría asumirlos, mientras no exista una posición dedicada a la gestión de procesos.", "Decidir si la función queda en la PMO de forma permanente o si se crea una posición dedicada cuando el volumen de procesos lo justifique."],
+     ["Transversal — evidencia limitada en el corpus de entrevistas", "Varias de las fuentes que el mapa v18 cita para estos procesos no existen en el corpus local disponible; este macroproceso se construyó con menos entrevistas propias que el resto del manual.", "Completar el levantamiento de este macroproceso con el equipo cuando existan las entrevistas o los documentos que hoy faltan."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["Adherencia al proceso", "Grado en que la operación real de un país sigue lo que su proceso documentado establece."],
+     ["Deber ser", "Versión del proceso que resulta de contrastar la operación real con mejores prácticas del sector, en vez de solo registrar cómo se hace hoy."],
+     ["Project Director (PD)", "Rol de la PMO que evalúa la viabilidad de una solicitud de proyecto y aprueba su plan antes de la ejecución."],
+     ["Project Manager (PM)", "Rol de la PMO que planifica, valida el presupuesto y ejecuta un proyecto ya aprobado."],
+     ["Cola de documentación", "Lista priorizada de los macroprocesos o procesos pendientes de levantar, documentar o actualizar."],
+     ["Punto de control", "Momento o dato específico de un proceso donde se verifica si la operación cumple lo documentado."]
+    ],
+    "raci": [
+     ["20.1 Gobierno del mapa de procesos y de la arquitectura documental", "Gerente de Proyectos (PMO)", "Junta Directiva", "dueños de proceso de cada macroproceso · Gerente de Tecnología / Sistemas", "Country Manager"],
+     ["20.2 Levantamiento, documentación y validación de procesos", "Gerente de Proyectos (PMO)", "Dueño del proceso documentado / Junta Directiva (procesos críticos)", "actores del proceso en cada país · Gerente de Tecnología / Sistemas", "equipo consultor externo"],
+     ["20.3 Publicación, versionado y control de cambios de la documentación", "Gerente de Tecnología / Sistemas", "Dueño del proceso", "Coordinador(a) de Sistemas", "Gerente de Recursos Humanos"],
+     ["20.4 Identificación, evaluación y ejecución de iniciativas de mejora", "Gerente de Proyectos (PMO)", "Junta Directiva (seguimiento) / Dueño del proceso", "Analista de Sistemas / Datos · Gerente de Tecnología / Sistemas", "gerentes de las áreas involucradas"],
+     ["20.5 Medición de la adherencia al proceso", "Gerente de Proyectos (PMO)", "Dueño del proceso", "Gerente de Contabilidad / Administración · Asesor(a) Externo de Finanzas y Auditoría", "gerentes y supervisores de las áreas revisadas"],
+     ["20.6 Gestión del cambio y habilitación del estándar en la operación", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Gerente de Proyectos (PMO)", "Country Manager · Gerente Regional de Marketing", "gerentes de las áreas afectadas"]
+    ],
+    "catalogo_sistemas": [
+     ["Lark Base de la oficina de proyectos", "Registro de iniciativas y su avance; canal real de intake ya usado por la PMO", "20.1 · 20.4", "Gerente de Proyectos (PMO)"],
+     ["Formulario de Solicitud de Proyecto (PMO)", "Plantilla formal de intake de toda iniciativa: objetivo, alcance, fechas, recursos, riesgos y firma del gerente", "20.4", "Gerente de Proyectos (PMO)"],
+     ["Sin repositorio de documentación de procesos", "No existe hoy una plataforma administrada por el grupo para publicar y versionar manuales de proceso", "20.3", "Sin responsable formal"]
+    ],
+    "interfaces_detalle": [
+     ["Dirección y Gobierno Corporativo", "Aprobación y patrocinio", "Aprobación del mapa, de procesos críticos, y patrocinio de cambios transversales"],
+     ["Todos los macroprocesos operativos y de soporte", "Documentación y mejora", "Dueño y operación real a cambio de documentación vigente, mejoras implantadas y resultado de adherencia"],
+     ["Gestión del Talento Humano", "Formación e inducción", "Incorporación del estándar de cada proceso a la formación y a la inducción del personal"],
+     ["Adopción de IA y Transformación Digital / Sistemas", "Habilitación tecnológica", "Sistemas y herramientas que un proceso documentado o mejorado requiere"]
+    ],
+    "docs_lark": [
+     ["PMO flujo de trabajo (Híbrido)", "Panamá", "Flujo de aprobación y ejecución de un proyecto general: Solicitante → Project Director → Project Manager → Finanzas", "20.1 · 20.4"],
+     ["PMO flujo de trabajo SCRUM", "Panamá", "Variante del flujo para proyectos de software y BI, con sprints y ceremonias ágiles", "20.4"],
+     ["Formulario de Solicitud de Proyecto – PMO", "Panamá", "Plantilla formal de intake de toda iniciativa", "20.4"],
+     ["Roadmap de Proyectos BI utilizando metodología Scrum", "Panamá", "Guía de roles, artefactos y KPIs de Scrum aplicados a proyectos de inteligencia de negocio", "20.4"]
+    ],
+    "variaciones_pais": [
+     ["Panamá", "Sede de la Oficina de Proyectos (PMO) y origen de la documentación real de su flujo de trabajo (formulario, flujo Híbrido y Scrum).", "Es la única evidencia documental encontrada sobre cómo el grupo ya gestiona sus iniciativas; no hay evidencia equivalente de otro país."]
+    ]
    }
   },
   "procesos": {
@@ -11146,6 +11204,302 @@ window.MANUAL_CONTENIDO = {
       ["Cobertura de dueños de proceso confirmados", "Procesos con dueño confirmado por su propio dueño ÷ total de procesos del mapa", "Anual", "Gerente de Proyectos (PMO)", "100%"],
       ["Tiempo de resolución de una frontera confusa", "Fecha de resolución − fecha en que se identificó la frontera confusa, en días", "Por caso", "Gerente de Proyectos (PMO)", "Por definir — no hay línea base hoy"],
       ["Vigencia de la revisión anual del mapa", "Meses transcurridos desde la última revisión formal del mapa completo", "Anual", "Junta Directiva", "≤ 12 meses"]
+     ]
+    }
+   },
+
+   "20.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo de documentación de un proceso: levantamiento de la operación real con los actores, contraste con las mejores prácticas del sector, diseño de la versión deber ser, redacción del manual con su flujograma y sus instrucciones de trabajo, validación con el dueño del proceso y con las áreas involucradas, y aprobación para su publicación.",
+     "nota_estado": "Es un proceso a implementar: ningún proceso del grupo se documentaba de esta manera antes de este proyecto. El levantamiento, el contraste con mejores prácticas y la validación con el dueño real —no con quien el mapa asigna por defecto— fueron necesarios en la construcción de este mismo manual, donde repetidas veces la persona señalada como dueña de un proceso resultó no ser quien realmente lo decide en la operación. Sin este proceso, el grupo no tiene manera propia de repetir ese ejercicio cuando el proyecto termine."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Proyectos (PMO)", "texto": "Prioriza, según la cola definida en el gobierno del mapa, el siguiente proceso a levantar o a actualizar."},
+      {"id": "a2", "rol": "actores del proceso en cada país", "texto": "Describen la operación real del proceso —lo que hacen hoy, no lo que deberían hacer— en las sesiones de levantamiento que coordina el equipo a cargo."},
+      {"id": "a3", "rol": "Gerente de Proyectos (PMO)", "texto": "Contrasta la operación levantada con mejores prácticas del sector o de organizaciones similares, e identifica la brecha entre el ser y el deber ser."},
+      {"id": "a4", "rol": "Gerente de Proyectos (PMO)", "texto": "Diseña la versión deber ser del proceso y redacta el manual con su propósito, su flujo de actividades, su flujograma, sus riesgos y sus indicadores."},
+      {"id": "a5", "rol": "Gerente de Tecnología / Sistemas", "texto": "Revisa los sistemas y las herramientas que el proceso documentado involucra, y confirma que la descripción sea consistente con lo que esos sistemas permiten hacer."},
+      {"id": "a6", "rol": "Dueño del proceso documentado", "texto": "Valida el manual con las áreas involucradas y confirma si describe correctamente su proceso, señalando cualquier corrección antes de aprobarlo."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Aprueba la publicación del manual cuando el proceso es crítico para el grupo; los demás procesos los aprueba directamente el Gerente de Proyectos (PMO) con la validación del dueño."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Proyectos (PMO)", "actores del proceso en cada país", "Gerente de Tecnología / Sistemas", "Dueño del proceso documentado", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Proyectos (PMO)", "tipo": "inicio", "n": "Proceso priorizado en la cola de documentación, o cambio relevante en un proceso ya documentado"},
+       {"id": "n1", "carril": "actores del proceso en cada país", "tipo": "tarea", "n": "Describir la operación real del proceso en la sesión de levantamiento"},
+       {"id": "n2", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Contrastar la operación levantada con mejores prácticas del sector"},
+       {"id": "n3", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Diseñar la versión deber ser y redactar el manual con su flujograma, riesgos e indicadores"},
+       {"id": "n4", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Revisar los sistemas y herramientas involucrados"},
+       {"id": "n5", "carril": "Dueño del proceso documentado", "tipo": "tarea", "n": "Validar el manual y señalar correcciones"},
+       {"id": "n6", "carril": "Gerente de Proyectos (PMO)", "tipo": "decision", "n": "¿El proceso es crítico para el grupo?"},
+       {"id": "n6alt", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar la publicación del manual"},
+       {"id": "n7", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Aprobar la publicación del manual directamente"},
+       {"id": "n8", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Manual del proceso con su flujograma e instrucciones de trabajo, validado por el dueño y aprobado para publicación"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n6alt", "etq": "Sí"}, {"de": "n6", "a": "n7", "etq": "No"},
+       {"de": "n6alt", "a": "n8"}, {"de": "n7", "a": "n8"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Dueño asignado que no es quien realmente decide en la operación", "La asignación inicial de dueño de un proceso puede ser errónea —un cargo genérico en vez de la persona que en la práctica gobierna la decisión—, como ha ocurrido repetidas veces al construir este mismo manual.", "Alta", "Alto", "Validar la asignación de dueño con la propia operación antes de dar el levantamiento por bueno, no solo con lo que indica el mapa."],
+      ["Levantamiento sin contraste con mejores prácticas", "Documentar cómo se hace algo hoy sin contrastarlo contra una referencia externa repite la práctica actual en vez de mejorarla.", "Media", "Medio", "Exigir el contraste con al menos una referencia de mejores prácticas antes de dar el proceso por documentado."],
+      ["Sin criterio de priorización documentado para la cola de levantamiento", "No hay un criterio escrito que determine qué proceso se documenta primero cuando compiten varias solicitudes.", "Media", "Bajo", "Definir el criterio de priorización de la cola —impacto, riesgo o urgencia— junto con el gobierno del mapa (20.1)."],
+      ["Validación del dueño sin plazo definido", "Sin un plazo para que el dueño valide el manual, el ciclo de documentación puede quedar abierto indefinidamente.", "Media", "Bajo", "Definir un plazo máximo de validación, con escalamiento a la Junta si el dueño no responde."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de levantamiento y documentación de un proceso", "Fecha de aprobación − fecha de priorización en la cola, en semanas", "Por proceso", "Gerente de Proyectos (PMO)", "Por definir — no hay línea base hoy"],
+      ["Procesos validados por su dueño real", "Procesos con validación confirmada por el dueño ÷ total de procesos documentados", "Trimestral", "Gerente de Proyectos (PMO)", "100%"],
+      ["Cobertura de mejores prácticas contrastadas", "Procesos documentados con al menos una referencia de mejores prácticas ÷ total de procesos documentados", "Trimestral", "Gerente de Proyectos (PMO)", "100%"]
+     ]
+    }
+   },
+
+   "20.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Administra el repositorio único donde vive la documentación de procesos: publica el manual aprobado, le asigna versión y fecha de vigencia, retira las versiones superadas, controla las modificaciones posteriores mediante solicitud formal, y notifica el cambio a los usuarios del proceso.",
+     "nota_estado": "Es un proceso a implementar: no existe hoy un repositorio único de documentación de procesos en el grupo. Este manual de Fase 2 es el primer artefacto con ese propósito, y hoy vive en el sitio que sostiene el proyecto de consultoría, no en una plataforma administrada por el grupo con control de versiones ni de acceso propio."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Dueño del proceso", "texto": "Solicita, mediante el canal formal que use el grupo, la modificación de un proceso ya publicado, o entrega el manual recién aprobado para su primera publicación."},
+      {"id": "a2", "rol": "Gerente de Tecnología / Sistemas", "texto": "Administra el repositorio único donde vive la documentación y publica el manual con su versión y su fecha de vigencia."},
+      {"id": "a3", "rol": "Coordinador(a) de Sistemas", "texto": "Gestiona los permisos de acceso al repositorio, según quién debe consultar y quién debe modificar la documentación."},
+      {"id": "a4", "rol": "Gerente de Tecnología / Sistemas", "texto": "Retira o marca como superada la versión anterior del manual cuando publica la nueva."},
+      {"id": "a5", "rol": "Gerente de Tecnología / Sistemas", "texto": "Notifica el cambio a los usuarios del proceso afectado."},
+      {"id": "a6", "rol": "Gerente de Recursos Humanos", "texto": "Actualiza la referencia al estándar vigente en el material de inducción cuando el cambio lo requiere."}
+     ],
+     "diagrama": {
+      "carriles": ["Dueño del proceso", "Gerente de Tecnología / Sistemas", "Coordinador(a) de Sistemas", "Gerente de Recursos Humanos"],
+      "nodos": [
+       {"id": "n0", "carril": "Dueño del proceso", "tipo": "inicio", "n": "Manual aprobado listo para publicar, o solicitud de modificación de un proceso ya publicado"},
+       {"id": "n1", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Publicar el manual en el repositorio único con su versión y fecha de vigencia"},
+       {"id": "n2", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Gestionar los permisos de acceso al repositorio"},
+       {"id": "n3", "carril": "Gerente de Tecnología / Sistemas", "tipo": "decision", "n": "¿Existe una versión anterior del manual?"},
+       {"id": "n3alt", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Retirar o marcar como superada la versión anterior"},
+       {"id": "n4", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Notificar el cambio a los usuarios del proceso"},
+       {"id": "n5", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Actualizar la referencia al estándar vigente en el material de inducción"},
+       {"id": "n6", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Documento publicado en el repositorio con su versión vigente identificada y las versiones superadas retiradas"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin repositorio propio del grupo", "La documentación de procesos vive hoy en el sitio del proyecto de consultoría, no en una plataforma administrada por el grupo.", "Alta", "Alto", "Definir dónde vivirá el repositorio de procesos del grupo antes del cierre del proyecto, con su administrador designado."],
+      ["Sin control de versiones", "No hay un mecanismo que distinga la versión vigente de una superada, ni que registre quién y cuándo hizo un cambio.", "Alta", "Medio", "Adoptar un esquema simple de versión y fecha de vigencia para cada manual publicado."],
+      ["Sin notificación formal de un cambio a los usuarios del proceso", "Un cambio en el manual no llega automáticamente a quien ejecuta el proceso en el día a día.", "Media", "Medio", "Definir el canal y el responsable de notificar cada cambio a los usuarios del proceso afectado."],
+      ["Inducción desactualizada frente al estándar vigente", "El material de inducción puede seguir citando una versión superada de un proceso si nadie lo actualiza cuando se publica un cambio.", "Media", "Bajo", "Incluir la actualización de la inducción como paso obligatorio de este proceso, no como una tarea aparte."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Manuales con versión y fecha de vigencia identificadas", "Manuales publicados con versión y fecha ÷ total de manuales publicados", "Trimestral", "Gerente de Tecnología / Sistemas", "100%"],
+      ["Tiempo de notificación de un cambio", "Fecha de notificación − fecha de publicación del cambio, en días", "Por cambio", "Gerente de Tecnología / Sistemas", "Por definir — no hay línea base hoy"],
+      ["Cobertura de la inducción actualizada", "Procesos con cambio publicado cuya inducción ya lo refleja ÷ total de procesos con cambio publicado", "Trimestral", "Gerente de Recursos Humanos", "100%"]
+     ]
+    }
+   },
+
+   "20.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Capta la oportunidad de mejora desde sus fuentes —hallazgo de una auditoría o revisión, dolor reportado por el dueño del proceso, indicador fuera de rango, o propuesta de un colaborador—, evalúa el impacto y el esfuerzo, prioriza, ejecuta el cambio sobre el proceso y verifica el resultado.",
+     "nota_estado": "Es un proceso a implementar en el ámbito de mejora de procesos, pero se apoya en un canal que sí existe: la Oficina de Proyectos ya recibe propuestas de mejora a través de un formulario de solicitud, las clasifica según si cruzan más de una gerencia (proyecto), dependen de un solo gerente (iniciativa) o son puntuales (tarea), y las lleva por un flujo de evaluación de viabilidad, planificación, validación de presupuesto y ejecución con seguimiento semanal a la Junta Directiva. Lo que falta es que ese mismo canal reciba también las mejoras que se detectan sobre un proceso documentado —hoy nace de la iniciativa de un gerente, no de un hallazgo de auditoría o de un indicador fuera de rango."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Dueño del proceso / colaborador proponente", "texto": "Identifica la oportunidad de mejora —un hallazgo de auditoría, un dolor reportado, un indicador fuera de rango, o una idea propia— y la presenta con el Formulario de Solicitud de Proyecto de la PMO."},
+      {"id": "a2", "rol": "Gerente de Proyectos (PMO)", "texto": "Evalúa la viabilidad de la propuesta y, si no procede tal como se presentó, la devuelve al proponente con las observaciones para ajustarla."},
+      {"id": "a3", "rol": "Gerente de Proyectos (PMO)", "texto": "Planifica la iniciativa con su cronograma, su matriz de responsabilidades y sus riesgos, y valida el presupuesto con el área de Finanzas cuando la mejora lo requiere."},
+      {"id": "a4", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el indicador o el dato que sustenta la mejora, con su línea base, y da seguimiento a su comportamiento durante y después de la ejecución."},
+      {"id": "a5", "rol": "Gerente de Tecnología / Sistemas", "texto": "Habilita la herramienta o el ajuste de sistema que la mejora requiere."},
+      {"id": "a6", "rol": "gerentes de las áreas involucradas", "texto": "Ejecutan el cambio sobre el proceso en su área, con el acompañamiento de la Oficina de Proyectos durante los primeros ciclos."},
+      {"id": "a7", "rol": "Gerente de Proyectos (PMO)", "texto": "Reporta el avance de la iniciativa a la Junta Directiva y verifica el resultado contra la situación inicial al cierre."},
+      {"id": "a8", "rol": "Dueño del proceso", "texto": "Actualiza el manual del proceso con la mejora ya implantada, a través del proceso de publicación y control de cambios (20.3)."}
+     ],
+     "diagrama": {
+      "carriles": ["Dueño del proceso / colaborador proponente", "Gerente de Proyectos (PMO)", "Analista de Sistemas / Datos", "Gerente de Tecnología / Sistemas", "gerentes de las áreas involucradas"],
+      "nodos": [
+       {"id": "n0", "carril": "Dueño del proceso / colaborador proponente", "tipo": "inicio", "n": "Hallazgo, dolor reportado, indicador fuera de rango, o propuesta de mejora"},
+       {"id": "n1", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Evaluar la viabilidad de la propuesta"},
+       {"id": "n2", "carril": "Gerente de Proyectos (PMO)", "tipo": "decision", "n": "¿La propuesta es viable tal como se presentó?"},
+       {"id": "n2alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Propuesta devuelta al proponente con observaciones, pendiente de ajuste y nueva presentación"},
+       {"id": "n3", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Planificar la iniciativa y validar el presupuesto con Finanzas"},
+       {"id": "n4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar el indicador que sustenta la mejora y su línea base"},
+       {"id": "n5", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Habilitar la herramienta o el ajuste de sistema requerido"},
+       {"id": "n6", "carril": "gerentes de las áreas involucradas", "tipo": "tarea", "n": "Ejecutar el cambio sobre el proceso en su área"},
+       {"id": "n7", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Reportar el avance a la Junta Directiva y verificar el resultado contra la situación inicial"},
+       {"id": "n8", "carril": "Dueño del proceso / colaborador proponente", "tipo": "tarea", "n": "Actualizar el manual del proceso con la mejora implantada"},
+       {"id": "n9", "carril": "Dueño del proceso / colaborador proponente", "tipo": "fin", "n": "Mejora implantada sobre el proceso con el documento actualizado y el resultado verificado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Mejora de proceso sin canal formal de entrada, a diferencia de un proyecto", "El canal de solicitud de la PMO ya existe, pero nace de la iniciativa de un gerente; un hallazgo de auditoría o un indicador fuera de rango no tiene hoy una vía definida para convertirse en una solicitud de mejora.", "Alta", "Medio", "Habilitar el mismo Formulario de Solicitud de Proyecto para que un hallazgo o un indicador fuera de rango también puedan originar una iniciativa de mejora."],
+      ["Mejora implantada sin actualizar el manual del proceso", "Nada garantiza hoy que, al cerrar una iniciativa de mejora, el manual del proceso se actualice para reflejarla; el proceso documentado puede quedar desactualizado frente a la operación real mejorada.", "Media", "Alto", "Exigir la actualización del manual como parte del cierre de toda iniciativa de mejora sobre un proceso (relacionado con 20.3)."],
+      ["Sin verificación sistemática del resultado contra la situación inicial", "El reporte semanal de la PMO da seguimiento al avance de la iniciativa, pero no hay evidencia de que se verifique, al cierre, si la mejora produjo el resultado esperado frente a una línea base.", "Media", "Medio", "Exigir una línea base y una medición de cierre para toda iniciativa de mejora sobre un proceso."],
+      ["Pocas propuestas de colaboradores llegan al canal formal", "El propio formulario de propuestas existe hace tiempo, pero solo un puñado de colaboradores lo ha usado.", "Media", "Bajo", "Difundir y facilitar el uso del formulario de propuestas entre los colaboradores, no solo entre los gerentes."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Iniciativas de mejora con resultado verificado", "Iniciativas cerradas con verificación contra la línea base ÷ total de iniciativas cerradas", "Trimestral", "Gerente de Proyectos (PMO)", "100%"],
+      ["Iniciativas de mejora con manual actualizado", "Iniciativas cerradas con el manual del proceso actualizado ÷ total de iniciativas cerradas sobre un proceso documentado", "Trimestral", "Dueño del proceso", "100%"],
+      ["Origen de las iniciativas de mejora", "Iniciativas originadas en un hallazgo o un indicador fuera de rango ÷ total de iniciativas de mejora", "Anual", "Gerente de Proyectos (PMO)", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "20.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Verifica que la operación se ejecute como el proceso documentado establece: define los puntos de control por proceso, revisa periódica o sorpresivamente su cumplimiento en cada país, registra las desviaciones con su causa, y devuelve el hallazgo al dueño del proceso para su corrección o para revisar el estándar cuando la desviación es razonable.",
+     "nota_estado": "Es un proceso a implementar: no existe hoy una revisión periódica que confirme si la operación de un país sigue el proceso documentado. La única disciplina de revisión sistemática que el grupo ya practica es la del área contable y financiera, con acompañamiento de un asesor externo de auditoría; este proceso propone extender ese mismo criterio de verificación a los procesos operativos y de soporte del manual."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Proyectos (PMO)", "texto": "Define, junto con el dueño del proceso, los puntos de control que permiten verificar si la operación sigue lo documentado."},
+      {"id": "a2", "rol": "Gerente de Contabilidad / Administración", "texto": "Programa la revisión del período para los procesos de su ámbito, y participa como referencia de lo que ya se revisa hoy en control interno contable."},
+      {"id": "a3", "rol": "Asesor(a) Externo de Finanzas y Auditoría", "texto": "Aporta el criterio de auditoría y, cuando corresponde, ejecuta una revisión sorpresiva en los puntos de control críticos."},
+      {"id": "a4", "rol": "gerentes y supervisores de las áreas revisadas", "texto": "Facilitan la revisión y aportan la evidencia de cómo se ejecuta el proceso en su país."},
+      {"id": "a5", "rol": "Gerente de Proyectos (PMO)", "texto": "Registra las desviaciones encontradas, con su causa, y las devuelve al dueño del proceso."},
+      {"id": "a6", "rol": "Dueño del proceso", "texto": "Decide si la desviación se corrige en la operación o si, cuando es razonable, el propio estándar documentado debe revisarse."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Proyectos (PMO)", "Gerente de Contabilidad / Administración", "Asesor(a) Externo de Finanzas y Auditoría", "gerentes y supervisores de las áreas revisadas", "Dueño del proceso"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Proyectos (PMO)", "tipo": "inicio", "n": "Programación de la revisión del período, o alerta de desviación detectada en la operación o en un indicador"},
+       {"id": "n1", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Definir los puntos de control del proceso junto con su dueño"},
+       {"id": "n2", "carril": "Gerente de Proyectos (PMO)", "tipo": "decision", "n": "¿Es una revisión programada o una revisión sorpresiva en un punto crítico?"},
+       {"id": "n2alt", "carril": "Asesor(a) Externo de Finanzas y Auditoría", "tipo": "tarea", "n": "Ejecutar la revisión sorpresiva en el punto de control crítico"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Programar la revisión del período para los procesos de su ámbito"},
+       {"id": "n4", "carril": "gerentes y supervisores de las áreas revisadas", "tipo": "tarea", "n": "Facilitar la revisión y aportar la evidencia de la operación"},
+       {"id": "n5", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Registrar las desviaciones encontradas con su causa"},
+       {"id": "n6", "carril": "Dueño del proceso", "tipo": "decision", "n": "¿La desviación se corrige en la operación o el estándar debe revisarse?"},
+       {"id": "n6alt", "carril": "Dueño del proceso", "tipo": "tarea", "n": "Revisar el estándar documentado a través del proceso de mejora (20.4)"},
+       {"id": "n7", "carril": "Dueño del proceso", "tipo": "tarea", "n": "Corregir la operación conforme al estándar vigente"},
+       {"id": "n8", "carril": "Dueño del proceso", "tipo": "fin", "n": "Informe de adherencia con las desviaciones registradas y el plan de corrección acordado con el dueño del proceso"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n2alt", "etq": "Sorpresiva"}, {"de": "n2", "a": "n3", "etq": "Programada"},
+       {"de": "n2alt", "a": "n4"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n6alt", "etq": "Revisar estándar"}, {"de": "n6", "a": "n7", "etq": "Corregir operación"},
+       {"de": "n6alt", "a": "n8"}, {"de": "n7", "a": "n8"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin puntos de control definidos para la mayoría de los procesos", "Ningún proceso del manual tiene hoy definidos los puntos donde se verificaría su cumplimiento; la disciplina de revisión solo existe hoy en el ámbito contable.", "Alta", "Alto", "Definir los puntos de control de cada proceso al momento de documentarlo (relacionado con 20.2), no como un ejercicio aparte."],
+      ["Confusión entre auditoría punitiva y verificación de adherencia", "Una revisión de cumplimiento puede percibirse como una sanción al responsable en vez de una oportunidad de corregir el proceso o el estándar.", "Media", "Medio", "Comunicar el propósito de corrección, no de sanción, antes de iniciar la medición de adherencia en un área."],
+      ["Sin distinción entre desviación por incumplimiento y desviación por estándar desactualizado", "Una desviación puede deberse a que el colaborador no sigue el proceso, o a que el proceso documentado ya no refleja la mejor forma de operar; sin un criterio que las distinga, ambas se tratarían igual.", "Media", "Medio", "Aplicar el criterio de esta ficha —corregir la operación o revisar el estándar— en cada desviación registrada, antes de cerrar el hallazgo."],
+      ["Dependencia de un asesor externo para la revisión de mayor rigor", "La única revisión sistemática que existe hoy depende de un asesor externo de auditoría, sin una función interna que sostenga la disciplina si esa relación externa termina.", "Media", "Bajo", "Formar una capacidad interna de revisión de adherencia, con el asesor externo como apoyo puntual, no como sostén permanente."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura de procesos con puntos de control definidos", "Procesos con puntos de control definidos ÷ total de procesos documentados", "Anual", "Gerente de Proyectos (PMO)", "100%"],
+      ["Desviaciones cerradas con plan de corrección", "Desviaciones con plan de corrección acordado ÷ total de desviaciones registradas", "Trimestral", "Gerente de Proyectos (PMO)", "100%"],
+      ["Procesos revisados en el período", "Procesos revisados ÷ procesos programados para revisión en el período", "Trimestral", "Gerente de Contabilidad / Administración", "100%"]
+     ]
+    }
+   },
+
+   "20.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Acompaña la puesta en uso del proceso documentado: comunica el cambio a los equipos afectados, forma en el estándar nuevo, incorpora el proceso a la inducción del personal que ingresa, atiende la resistencia y los ajustes que surgen en los primeros ciclos, y confirma que el estándar quedó instalado.",
+     "nota_estado": "Es un proceso a implementar: publicar un manual no garantiza que el equipo cambie su forma de trabajar. La propia experiencia del grupo con cambios de sistema muestra que la resistencia es real y transversal entre departamentos, y que buena parte de ella se explica por una formación incompleta en el momento del cambio, no solo por la resistencia de las personas."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Proyectos (PMO)", "texto": "Identifica que un proceso nuevo o modificado publicado cambia la forma de trabajar de un equipo, y lo traslada al Gerente de Recursos Humanos."},
+      {"id": "a2", "rol": "Country Manager", "texto": "Patrocina el cambio ante los equipos de su país cuando el proceso es transversal a más de un área."},
+      {"id": "a3", "rol": "Gerente Regional de Marketing", "texto": "Apoya la comunicación interna del cambio a los equipos afectados."},
+      {"id": "a4", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Diseña y ejecuta la formación en el estándar nuevo para los equipos afectados."},
+      {"id": "a5", "rol": "gerentes de las áreas afectadas", "texto": "Acompañan a su equipo durante los primeros ciclos de operación bajo el estándar nuevo, y reportan la resistencia o los ajustes que surgen."},
+      {"id": "a6", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Incorpora el proceso nuevo o modificado al material de inducción del personal que ingresa."},
+      {"id": "a7", "rol": "Gerente de Proyectos (PMO)", "texto": "Confirma, tras los primeros ciclos, que el estándar quedó instalado en la operación del equipo."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente de Proyectos (PMO)", "Country Manager", "Gerente Regional de Marketing", "Gerente de Recursos Humanos (Formación y Desarrollo)", "gerentes de las áreas afectadas"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Proyectos (PMO)", "tipo": "inicio", "n": "Publicación de un proceso nuevo o modificado que cambia la forma de trabajar de un equipo"},
+       {"id": "n1", "carril": "Country Manager", "tipo": "tarea", "n": "Patrocinar el cambio ante los equipos de su país"},
+       {"id": "n2", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Apoyar la comunicación interna del cambio"},
+       {"id": "n3", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Diseñar y ejecutar la formación en el estándar nuevo"},
+       {"id": "n4", "carril": "gerentes de las áreas afectadas", "tipo": "tarea", "n": "Acompañar al equipo durante los primeros ciclos y reportar la resistencia o los ajustes"},
+       {"id": "n5", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "decision", "n": "¿Persiste la resistencia o hacen falta ajustes tras el primer ciclo?"},
+       {"id": "n5alt", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Ajustar la formación o la comunicación y repetir el acompañamiento"},
+       {"id": "n6", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Incorporar el proceso al material de inducción del personal que ingresa"},
+       {"id": "n7", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Confirmar que el estándar quedó instalado en la operación del equipo"},
+       {"id": "n8", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Equipo operando bajo el estándar publicado, con el proceso incorporado a la inducción y la adopción confirmada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Formación incompleta en el momento del cambio", "La experiencia del grupo con cambios de sistema muestra que buena parte de la resistencia se explica por una formación incompleta al momento del cambio, no solo por la resistencia de las personas.", "Alta", "Alto", "Verificar que la formación cubra el estándar completo antes de dar un cambio por instalado, no solo una presentación inicial."],
+      ["Sin confirmación formal de que el estándar quedó instalado", "No hay hoy un paso que confirme, tras los primeros ciclos, si el equipo realmente adoptó el proceso nuevo o volvió a la práctica anterior.", "Alta", "Medio", "Exigir una confirmación explícita de adopción, apoyada en la medición de adherencia (20.5), antes de cerrar el acompañamiento del cambio."],
+      ["Inducción que no se actualiza al mismo ritmo que los procesos", "Incorporar un proceso nuevo o modificado a la inducción depende de que alguien lo recuerde hacer; sin ese paso, el personal que ingresa aprende un estándar ya superado.", "Media", "Medio", "Ligar la actualización de la inducción a la publicación de todo cambio (relacionado con 20.3), como paso obligatorio."],
+      ["Patrocinio del cambio sin claridad de cuándo interviene el Country Manager", "No hay un criterio que determine cuándo un cambio requiere el patrocinio directo del Country Manager y cuándo basta con la gerencia del área.", "Media", "Bajo", "Definir el criterio de cuándo un cambio transversal requiere patrocinio del Country Manager."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Equipos con adopción confirmada tras el primer ciclo", "Equipos con adopción confirmada ÷ total de equipos afectados por un cambio", "Por cambio", "Gerente de Proyectos (PMO)", "100%"],
+      ["Procesos incorporados a la inducción", "Procesos publicados o modificados incorporados a la inducción ÷ total de procesos publicados o modificados", "Trimestral", "Gerente de Recursos Humanos (Formación y Desarrollo)", "100%"],
+      ["Tiempo de acompañamiento hasta confirmar la adopción", "Fecha de confirmación de adopción − fecha de publicación del cambio, en semanas", "Por cambio", "Gerente de Proyectos (PMO)", "Por definir — no hay línea base hoy"]
      ]
     }
    }
