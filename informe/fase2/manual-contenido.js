@@ -9340,6 +9340,142 @@ window.MANUAL_CONTENIDO = {
     "proposito": "Este manual documenta cómo Grupo Kenex gobierna su marco jurídico corporativo: la política que rige la contratación con terceros y la delegación de firma, el ciclo de vida de los contratos del grupo, la estructura societaria de sus entidades, la protección de sus marcas y de su propiedad intelectual, el cumplimiento regulatorio no tributario en cada país, y la gestión de contingencias, litigios y asesoría legal especializada.",
     "alcance": "Aplica a las seis funciones jurídicas corporativas del grupo —gobierno de la política jurídica, ciclo de vida contractual, estructura societaria, propiedad intelectual y de marca, cumplimiento regulatorio no tributario, y contingencias y litigios— en las entidades operativas de Venezuela, Panamá, Colombia, Costa Rica y Estados Unidos, más las entidades intermediarias e inmobiliarias del grupo. No cubre el cumplimiento tributario, que es responsabilidad de Contabilidad (macro 12), ni las obligaciones sustantivas de la relación laboral —contratación, nómina, desvinculación—, que documenta Gestión del Talento Humano (macro 17); este manual cubre solo el componente jurídico transversal de esas obligaciones, como los permisos de trabajo de personal extranjero, los acuerdos de confidencialidad y las contingencias que escalan a un ente laboral.",
     "audiencia": ["Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Gerente de Contabilidad / Administración", "Gerente de Recursos Humanos", "Planificador Financiero", "Junta Directiva"]
+   },
+
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Gestión Legal y Cumplimiento es el macroproceso de soporte que sostiene jurídicamente al resto del grupo: define el criterio bajo el cual el grupo se compromete con un tercero, mantiene vigentes sus sociedades, protege sus marcas y su propiedad intelectual, cumple con la normativa no tributaria de cada país donde opera, y contiene una contingencia antes de que escale. Ninguno de los otros macroprocesos lo ve directamente, pero todos dependen de él cuando firman un contrato, contratan a alguien de otro país, lanzan una campaña con un licenciante o enfrentan un reclamo.\n\nHoy la función existe, pero sin la relevancia formal que su propio dueño reconoce que debería tener. El asesor jurídico corporativo (identificado en el corpus como el «General Counsel», con base en Estados Unidos) se comunica casi en exclusiva con el Country Manager, y cada país resuelve buena parte de lo suyo por su cuenta: bufetes locales distintos en Panamá y Venezuela, un comercial con formación de abogado apoyando de forma informal a Mercadeo en sus contratos de licencia, y un registro de sociedades —entre 35 y 40, según la propia dirección— que vive en gran parte en la memoria de quien las administra, sin un sistema que las consolide.\n\nEl grupo está consciente de la brecha: el propio Country Manager señala que la consultoría jurídica «dirige políticas jurídicas y no se le ha dado la importancia al caso», y reconoce que «estratégicamente necesitamos una unidad de apoyo corporativa a ese nivel». Hay avances puntuales —un acuerdo de confidencialidad para el personal administrativo, redactado por abogados y validado por la directiva en Venezuela; acuerdos de confidencialidad firmados con contratistas y consultores externos—, pero ninguno se ha consolidado todavía en una política única del grupo.",
+    "duenos": [
+     ["Macroproceso", "Country Manager", "Encarga y revisa las piezas jurídicas de mayor impacto —política jurídica, estructura societaria, cumplimiento regulatorio y contingencias— y firma dentro de su facultad de firma."],
+     ["Función", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Redacta, revisa y administra el marco jurídico corporativo: contratos, propiedad intelectual, licencias y la coordinación con los bufetes locales; hoy en comunicación casi exclusiva con el Country Manager."],
+     ["Área", "Gerente Regional de Marketing", "Origina y en la práctica redacta hoy buena parte de los contratos comerciales de licencia, influencer y patrocinio, sin una validación jurídica centralizada obligatoria."],
+     ["Área", "Gerente de Recursos Humanos", "Da seguimiento a los permisos de trabajo de personal extranjero y participa en la evaluación de una contingencia de naturaleza laboral, hoy negociando de forma directa antes de escalar."],
+     ["Grupo", "Junta Directiva", "Aprueba la política jurídica del grupo, la constitución o modificación de una sociedad y la estrategia de un caso de impacto material."]
+    ],
+    "entidades": [
+     ["Kenex (compañía madre del grupo)", "Panamá", "Holding", "Concentra el financiamiento del grupo y las decisiones societarias de mayor nivel."],
+     ["Kenex Trading, S.A.", "Panamá (Zona Libre de Colón)", "Operación propia — exportación", "Solo puede vender al exterior por su licencia de Zona Libre; no puede facturar directo al mercado panameño."],
+     ["Basaidai, S.A.", "Panamá", "Entidad intermediaria", "Triangula la venta entre Kenex Trading y Casiolandia (Panamá), S.A. porque Kenex Trading no puede facturar directo al mercado panameño; no maneja inventario propio."],
+     ["Casiolandia (Panamá), S.A.", "Panamá", "Operación propia — retail", "Recibe la venta triangulada de Basaidai, S.A. y opera las tiendas propias de Panamá."],
+     ["Importbel, S.A.", "Costa Rica", "Socio al 50 %", "Sociedad constituida en el país desde 2003; es cliente del grupo y opera con su propio ERP y estructura legal."]
+    ],
+    "sistemas": [
+     ["Odoo", "Multiempresa: sostiene la integración de facturación entre las sociedades del grupo que permite la triangulación societaria (Kenex Trading → entidad intermediaria → Casiolandia).", "18.3"],
+     ["Correo electrónico y WhatsApp", "Canal por el que hoy circulan los acuerdos de confidencialidad y los borradores de contrato entre las áreas, el asesor jurídico corporativo y los bufetes locales, sin un repositorio único.", "18.1 · 18.2"],
+     ["Sin sistema propio de gestión legal o de contratos", "No hay hoy una herramienta que centralice contratos, vencimientos, marcas registradas o casos abiertos; cada área lleva su propio control, cuando lo lleva.", "18.2 · 18.3 · 18.4 · 18.6"]
+    ],
+    "interfaces": [
+     ["Dirección y Gobierno Corporativo", "Entrada / salida", "Recibe de la Junta Directiva la aprobación de la política jurídica, de la estructura societaria y de las decisiones de impacto material; le entrega el marco jurídico vigente y el estado de las contingencias abiertas."],
+     ["Gestión del Talento Humano", "Coordinación", "Coordina los permisos de trabajo de personal extranjero, la exigencia de confidencialidad al personal y la evaluación de una contingencia de naturaleza laboral."],
+     ["Contabilidad", "Coordinación", "Coordina el registro contable y fiscal de cada sociedad del grupo y recibe la exposición financiera de una contingencia legal para su provisión."],
+     ["Administración y Finanzas", "Entrada", "El Planificador Financiero valida los umbrales de aprobación y cuantifica la exposición de un compromiso o de una contingencia."],
+     ["Gestión de Mercadeo y Comunicaciones", "Coordinación", "Coordina el registro de marca, la administración de licencias de terceros y la revisión de los contratos con influencers, licenciantes y agencias."],
+     ["Compras y Abastecimiento / Ventas Mayor / Ventas Retail", "Entrada", "Elevan a consulta jurídica los contratos con fábricas, proveedores, distribuidores y franquiciados antes de firmarlos."]
+    ]
+   },
+
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     ["Country Manager", "Grupo", "Encarga y revisa las piezas jurídicas de mayor impacto, firma dentro de su facultad y escala a la Junta lo que la excede.", "Qué compromiso firma directamente y cuál eleva a la Junta.", "A la Junta Directiva cuando el compromiso excede su facultad de firma o compromete la estructura patrimonial del grupo."],
+     ["Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Grupo", "Redacta y mantiene la política jurídica, revisa y administra los contratos, la estructura societaria, la propiedad intelectual y las contingencias; coordina a los bufetes locales.", "El criterio jurídico aplicable a cada caso y la vía de defensa o negociación de una contingencia.", "Al Country Manager y, en casos de impacto material, a la Junta Directiva."],
+     ["bufetes locales por país y asesoría laboral externa (actores externos)", "País", "Aportan el criterio jurídico local en materia societaria, contractual, laboral y regulatoria de su jurisdicción.", "El criterio técnico de la norma local aplicable.", "Al asesor jurídico corporativo."],
+     ["Gerente Regional de Marketing", "Función", "Origina contratos de licencia, influencer y patrocinio y gestiona las marcas y su uso; hoy redacta con apoyo informal de un comercial con formación jurídica.", "El contenido comercial del contrato antes de la revisión jurídica.", "Al asesor jurídico corporativo antes de firmar."],
+     ["Gerente de Contabilidad / Administración", "Función", "Actualiza el registro contable y fiscal de cada sociedad y da seguimiento a la vigencia de las obligaciones fiscales no tributarias.", "Sin decisión jurídica propia; ejecuta el registro.", "Al asesor jurídico corporativo o al Country Manager según el caso."],
+     ["Gerente de Recursos Humanos", "Función", "Da seguimiento a los permisos de trabajo de personal extranjero y participa en la evaluación de una contingencia laboral; hoy negocia directamente con el colaborador antes de escalar.", "La negociación directa de un reclamo laboral antes de escalarlo.", "Al asesor jurídico corporativo cuando la negociación directa no resuelve el caso."],
+     ["Planificador Financiero", "Función", "Valida los umbrales de aprobación y cuantifica la exposición financiera de un compromiso o de una contingencia.", "El monto de la provisión y la exposición que se reporta a Finanzas.", "Sin escalamiento propio; informa a Finanzas."],
+     ["Junta Directiva", "Grupo", "Aprueba la política jurídica, la constitución o modificación de una sociedad y decide la estrategia de un caso con impacto material sobre el grupo.", "Las decisiones de mayor impacto patrimonial o reputacional del grupo.", "Sin escalamiento — es la última instancia."]
+    ],
+    "comites": [
+     ["Junta Directiva", "Aprobar la política jurídica del grupo, las decisiones societarias de mayor nivel y la estrategia de las contingencias con impacto material.", "Sin frecuencia fija — la misma Junta que revisa el resto del gobierno del grupo (macro 1)", "Accionistas y Directores de la familia · Director(a) de Finanzas del Grupo · Asesor(a) Jurídico(a) Externo(a) del Grupo cuando el tema lo amerita", "Aprobación de política jurídica, estructura societaria y estrategia de contingencia", "Propuesta del Country Manager o del asesor jurídico corporativo", "Decisión comunicada por mensajería; sin instancia jurídica dedicada dentro de la Junta"]
+    ]
+   },
+
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El asesor jurídico corporativo es el único punto de validación antes de firmar: ninguna pieza jurídica se cierra sin su revisión, sin importar el área que la origine.",
+     "El criterio jurídico se centraliza, la ejecución se descentraliza: el asesor jurídico corporativo define el criterio único del grupo; los bufetes locales y las áreas lo aplican en cada país.",
+     "Toda relación con un tercero se formaliza por escrito: ningún compromiso recurrente queda solo de palabra, sin importar la confianza con la contraparte.",
+     "La exposición se cuantifica antes de decidir: ninguna contingencia se resuelve sin que el Planificador Financiero mida lo que está en juego.",
+     "El conocimiento legal del grupo no depende de una sola persona: el registro societario, contractual y de marcas se documenta más allá de quien lo tiene hoy en la memoria."
+    ],
+    "politicas": [
+     "Firma de acuerdos de confidencialidad con el personal administrativo: el equipo firma un acuerdo redactado por abogados y validado por la directiva, con el proceso ya en curso en Venezuela.",
+     "NDA con contratistas y consultores externos: el grupo exige acuerdo de confidencialidad a quien accede a información sensible desde fuera, como los contratistas de sistemas.",
+     "Comunicación restringida del asesor jurídico corporativo: hoy el General Counsel se comunica casi en exclusiva con el Country Manager, práctica que la propia dirección reconoce que debe ampliarse.",
+     "Uso de bufetes locales por país: cada país mantiene su propio bufete o asesoría externa para lo laboral y lo societario, como el bufete que administra la representación local en Panamá.",
+     "Apoyo jurídico informal para contratos comerciales de Mercadeo: desde hace poco, un comercial con formación de abogado revisa los acuerdos de licencia e influencer antes de firmarlos.",
+     "Triangulación societaria bajo el régimen de Zona Libre de Colón: la venta entre Kenex Trading y Casiolandia se factura a través de una entidad intermediaria porque Kenex Trading no puede facturar directo al mercado panameño.",
+     "Negociación directa antes de escalar una contingencia laboral: Recursos Humanos procura corregir o negociar con el colaborador un cálculo de liquidación cuestionado antes de que el caso llegue a un ente laboral."
+    ],
+    "normativo": [
+     "Marco societario de Zona Libre de Colón (Panamá): rige que una entidad con licencia de exportación como Kenex Trading no pueda facturar directo al mercado panameño, lo que sostiene la necesidad de una entidad intermediaria.",
+     "Seguro Social y Ministerio de Trabajo (Panamá): entes que inspeccionan el cumplimiento laboral y ante los que la organización mantiene sus contratos y permisos de trabajo de extranjeros al día.",
+     "Ley Orgánica del Trabajo, Seguro Social e INCES (Venezuela): marco laboral que Recursos Humanos declara cumplir, con el informe periódico ante el INCES desactualizado.",
+     "Entes de protección al consumidor por país (Sundde en Venezuela, «Libro Rojo» en Guatemala, organismos de México y Colombia): normativa que Mercadeo consulta hoy de manera informal con el Country Manager de cada país.",
+     "Buena práctica de gestión de contratos (International Association for Contract & Commercial Management — IACCM/World Commerce & Contracting): un ciclo de vida contractual con revisión legal previa a la firma, repositorio centralizado de vencimientos y modelos estándar por tipo de acuerdo — la referencia detrás del rediseño de 18.2.",
+     "Buena práctica de gestión de riesgo legal (ISO 31000 aplicada a riesgo legal): evaluación de probabilidad e impacto antes de decidir la estrategia de una contingencia, con registro de la lección aprendida al cierre — la referencia detrás del rediseño de 18.6."
+    ]
+   },
+
+   "agenda": {
+    "estado": "borrador",
+    "nota": "De los 6 procesos, 4 son to-be (18.1, 18.4, 18.5 y 18.6), 1 es híbrido (18.2) y 1 es as-is (18.3). El macroproceso no parte de cero —hay un asesor jurídico corporativo, bufetes locales por país y avances puntuales de confidencialidad y de apoyo contractual en Mercadeo—, pero falta consolidarlo en una función con relevancia formal, con criterio único y con registro más allá de la memoria de la dirección. Las acciones no llevan fecha porque el equipo no las ha acordado.",
+    "por_implementar": [
+     ["18.1 Gobierno de la política jurídica del grupo", "No hay una política jurídica única con criterios de contratación, modelo de confidencialidad y umbrales de aprobación homogéneos entre entidades; el asesor jurídico corporativo opera sin la relevancia formal que el propio Country Manager reconoce que debería tener.", "Formalizar la política, ampliar el canal de comunicación del asesor jurídico corporativo y definir los umbrales de aprobación y delegación de firma."],
+     ["18.4 Protección de la propiedad intelectual y de la marca", "No hay registro consolidado de marcas por país ni administración jurídica formal de las licencias de terceros; un desarrollo de software sobre un producto propio quedó en manos de un tercero sin que el grupo tenga su titularidad.", "Consolidar el registro de marcas y licencias, y formalizar la titularidad de los desarrollos de terceros sobre productos propios."],
+     ["18.5 Cumplimiento regulatorio y atención de fiscalizaciones", "Cada área cumple sus obligaciones regulatorias por su cuenta, sin un inventario único ni un criterio jurídico documentado para el marco de protección al consumidor por país.", "Consolidar el inventario de obligaciones regulatorias y documentar el marco de protección al consumidor vigente en cada país."],
+     ["18.6 Gestión de contingencias, litigios y asesoría legal especializada", "Cada área resuelve su propia contingencia sin que el asesor jurídico corporativo entre al circuito desde el inicio, y sin un protocolo de evaluación de exposición ni un umbral definido de cuándo escalar a la Junta.", "Definir el protocolo de detección, evaluación y escalamiento, con el asesor jurídico corporativo involucrado desde el primer momento."]
+    ],
+    "por_formalizar": [
+     ["18.2 Gestión del ciclo de vida contractual", "Hay apoyo jurídico puntual en algunas áreas antes de firmar, pero no una validación centralizada obligatoria, ni un repositorio único de vencimientos, ni modelos estándar para los tipos de contrato recurrentes.", "Extender la revisión jurídica previa a la firma a todo contrato, centralizar el repositorio de vencimientos y desarrollar modelos estándar."]
+    ],
+    "brechas": [
+     ["18.3 — Registro de sociedades sostenido de memoria", "El grupo tiene entre 35 y 40 sociedades cuyo detalle vive en gran parte en la memoria de la dirección, sin un registro único y estructurado.", "Consolidar un registro único de sociedades, con jurisdicción, representantes y vencimientos, y dar respaldo documentado al conocimiento societario."],
+     ["Transversal — sin sistema de gestión legal", "No hay una herramienta que centralice contratos, marcas, sociedades o casos abiertos; cada área lleva su propio control, cuando lo lleva.", "Evaluar una herramienta única de gestión legal que centralice contratos, marcas, sociedades y contingencias."],
+     ["Transversal — comunicación del asesor jurídico corporativo restringida", "El General Counsel se comunica casi en exclusiva con el Country Manager, lo que puede retrasar la activación de un caso que otra área detecta primero.", "Ampliar el canal de comunicación del asesor jurídico corporativo, como ya recoge 18.1."],
+     ["Transversal — sin comité jurídico o de cumplimiento constituido", "No existe una instancia periódica dedicada a revisar el estado del marco jurídico, los contratos vigentes o las contingencias abiertas; el seguimiento depende de que alguien lo traiga a la Junta.", "Evaluar la creación de un punto de revisión periódico del estado jurídico del grupo, dentro o fuera de la Junta Directiva."]
+    ]
+   },
+
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     ["General Counsel", "Denominación con la que el corpus identifica al asesor jurídico externo del grupo, hoy con base en Estados Unidos."],
+     ["Bufete local", "Firma de abogados externa que atiende la jurisdicción de un país específico, coordinada por el asesor jurídico corporativo."],
+     ["Delegación de firma", "Facultad que determina hasta qué monto o tipo de compromiso puede firmar el Country Manager antes de requerir la aprobación de la Junta Directiva."],
+     ["Triangulación societaria", "Mecanismo por el cual una entidad intermediaria factura entre dos sociedades del grupo para permitir una venta que la primera no puede facturar directo, por el régimen que la rige."],
+     ["Licencia de propiedad intelectual", "Autorización de un tercero para que el grupo use un personaje, una marca o un desarrollo bajo condiciones y vigencia definidas."],
+     ["Provisión y exposición", "Estimación financiera del monto que una contingencia legal podría costarle al grupo mientras el caso permanece abierto."],
+     ["Zona Libre de Colón", "Régimen aduanero especial de Panamá bajo el cual opera Kenex Trading, S.A., que solo puede exportar y no facturar directo al mercado panameño."]
+    ],
+    "raci": [
+     ["18.1 Gobierno de la política jurídica del grupo", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Junta Directiva", "Planificador Financiero · Gerente de Recursos Humanos · bufetes locales", "Country Manager"],
+     ["18.2 Gestión del ciclo de vida contractual", "Gerente del área que origina la relación", "Country Manager / Junta Directiva según el umbral", "Asesor(a) Jurídico(a) Externo(a) del Grupo · bufetes locales", "Gerente de Contabilidad / Administración"],
+     ["18.3 Gestión de la estructura societaria y de las representaciones legales", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Junta Directiva", "Gerente de Contabilidad / Administración · Planificador Financiero · bufete corporativo de la jurisdicción", "Country Manager"],
+     ["18.4 Protección de la propiedad intelectual y de la marca", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Gerente Regional de Marketing", "Especialista de Producto / Proyecto · licenciantes y agentes de propiedad industrial", "Gerente Regional Comercial / Retail"],
+     ["18.5 Cumplimiento regulatorio y atención de fiscalizaciones", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Country Manager", "Gerente de Contabilidad / Administración · Gerente de Recursos Humanos · Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
+     ["18.6 Gestión de contingencias, litigios y asesoría legal especializada", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Junta Directiva (casos de impacto material) / Country Manager (los demás)", "asesoría laboral externa y bufetes especializados · Planificador Financiero", "Gerente de Recursos Humanos"]
+    ],
+    "catalogo_sistemas": [
+     ["Odoo", "Multiempresa: sostiene la integración de facturación entre las sociedades del grupo que permite la triangulación societaria", "18.3", "Coordinador(a) de Sistemas"],
+     ["Correo electrónico y WhatsApp", "Canal informal por el que circulan hoy los acuerdos de confidencialidad y los borradores de contrato", "18.1 · 18.2", "Sin responsable formal"]
+    ],
+    "interfaces_detalle": [
+     ["Dirección y Gobierno Corporativo", "Aprobación y decisión", "Aprobación de la política jurídica, de la estructura societaria y de las decisiones de impacto material"],
+     ["Gestión del Talento Humano", "Coordinación laboral", "Permisos de trabajo de extranjeros, confidencialidad del personal y contingencias laborales"],
+     ["Contabilidad", "Registro societario", "Registro contable y fiscal de cada sociedad y provisión de la exposición de una contingencia"],
+     ["Administración y Finanzas", "Validación financiera", "Umbrales de aprobación y cuantificación de la exposición de un compromiso o contingencia"],
+     ["Gestión de Mercadeo y Comunicaciones", "Marca y contratos comerciales", "Registro de marca, administración de licencias y revisión de contratos con influencers y licenciantes"],
+     ["Compras y Abastecimiento / Ventas Mayor / Ventas Retail", "Revisión contractual", "Contratos con fábricas, proveedores, distribuidores y franquiciados elevados a consulta jurídica"]
+    ],
+    "variaciones_pais": [
+     ["Venezuela", "El acuerdo de confidencialidad para el personal administrativo se formalizó primero aquí, redactado por abogados y validado por la directiva; el cumplimiento ante el INCES no está totalmente al día.", "Venezuela adelantó la formalización de la confidencialidad; el resto del grupo la adopta desde aquí (18.1)."],
+     ["Panamá", "Sede de Kenex Trading, S.A. bajo el régimen de Zona Libre de Colón, que exige la triangulación societaria con una entidad intermediaria para vender a Casiolandia; Recursos Humanos mantiene sus obligaciones regulatorias sin documentarlas por escrito, pese a las inspecciones reales del Seguro Social y el Ministerio de Trabajo.", "El régimen de Zona Libre es la razón de ser de la entidad intermediaria (18.3)."],
+     ["Costa Rica", "El socio opera como Importbel, S.A., una sociedad constituida en el país desde 2003, con su propio ERP y estructura legal.", "Es el único socio del grupo con personalidad jurídica y sistemas completamente independientes del grupo."],
+     ["Guatemala", "Mercadeo se apoya en el «Libro Rojo», el marco local de protección al consumidor, y en el criterio del gerente de país para interpretarlo.", "Ejemplo del patrón regional: el marco de protección al consumidor se resuelve país por país, sin criterio jurídico documentado (18.5)."]
+    ]
    }
   },
   "procesos": {
