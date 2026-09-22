@@ -17,7 +17,12 @@ como anexo de lectura obligatoria).
 2. Insumos por macroproceso: la porción del mapa (ya en el `.js`) +
    revisión del **corpus completo** de entrevistas en
    `Insumos/Entrevistas_dialogo_limpio/` + documentación de Lark
-   relevante en `Insumos/Documentación de Lark/<país>/<área>/` + buenas prácticas de
+   relevante, que vive en **tres** carpetas de `Insumos/Documentación de Lark/`:
+   `Documentación/<país>/<área>/` (manuales y procesos por área),
+   `Info Requerimientos/` (RRHH, legal, organigramas y planes de país) y
+   `Wikis/` (formularios y flujos) — recorrer las tres y, de cada archivo,
+   anotar en el mensaje de cierre si se leyó o no; los `.pdf` requieren
+   extraer su texto aparte + buenas prácticas de
    fuentes profesionales/académicas (WebSearch, filtrando sitios no
    verificados) + `Insumos/estructura-patron-cargos-v4.json` para la
    denominación de cargos (ver §1.1 — es un derivado del Excel V4 original,
