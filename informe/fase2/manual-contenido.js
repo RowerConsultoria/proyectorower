@@ -9373,7 +9373,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n8", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Consolidar la propuesta de política"},
        {"id": "n9", "carril": "Country Manager", "tipo": "tarea", "n": "Presentar la propuesta a la Junta Directiva"},
        {"id": "n10", "carril": "Junta Directiva", "tipo": "decision", "n": "¿La Junta aprueba la política propuesta?"},
-       {"id": "n10alt", "carril": "Junta Directiva", "tipo": "fin", "n": "Política devuelta con observaciones, pendiente de nueva presentación"},
+       {"id": "n10alt", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "fin", "n": "Propuesta devuelta con observaciones, pendiente de ajuste y nueva presentación"},
        {"id": "n11", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Difundir la política aprobada y sus modelos a las entidades"},
        {"id": "n12", "carril": "Country Manager", "tipo": "tarea", "n": "Dar seguimiento a la aplicación homogénea entre países"},
        {"id": "n13", "carril": "Country Manager", "tipo": "fin", "n": "Política jurídica del grupo vigente y aplicada"}
@@ -9402,6 +9402,333 @@ window.MANUAL_CONTENIDO = {
       ["Cobertura de acuerdos de confidencialidad firmados", "Colaboradores y terceros con acceso a información sensible con acuerdo de confidencialidad firmado ÷ total con acceso", "Trimestral", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
       ["Vigencia de la política jurídica del grupo", "Meses transcurridos desde la última revisión formal de la política", "Anual", "Country Manager", "≤ 12 meses"],
       ["Tiempo de respuesta a consulta jurídica", "Fecha de respuesta del asesor jurídico corporativo − fecha de la consulta, en días hábiles", "Por consulta", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "18.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo del instrumento contractual desde que un área identifica la necesidad de formalizar una relación con un tercero hasta su archivo: elaboración o revisión del texto según el modelo aplicable, negociación de las cláusulas, validación jurídica antes de la firma, firma por quien tiene la facultad, y custodia del original con seguimiento de vencimientos y renovaciones.",
+     "nota_estado": "Es un proceso híbrido: algunas áreas del grupo ya cuentan con apoyo puntual de alguien con formación jurídica antes de firmar un acuerdo —en Mercadeo, con un comercial que es abogado de profesión, incorporado hace poco porque los acuerdos que el propio equipo redactaba sin ese respaldo traían detalles pasados por alto—, pero no hay una validación jurídica centralizada y obligatoria para todo contrato del grupo, ni un repositorio único de vencimientos. Hay además compromisos comerciales recurrentes con distribuidores que se negocian y se reservan de palabra, sin instrumento contractual que los respalde."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente del área que origina la relación", "texto": "Identifica la necesidad de formalizar una relación con un tercero —una fábrica, un proveedor, un cliente, un distribuidor o un licenciante— y reúne las condiciones comerciales ya acordadas de palabra con la contraparte."},
+      {"id": "a2", "rol": "Gerente del área que origina la relación", "texto": "Elabora un primer borrador del contrato a partir del modelo aplicable cuando existe, o redacta el texto sin un modelo formal cuando el tipo de acuerdo —como una licencia o un contrato con un influencer— todavía no lo tiene."},
+      {"id": "a3", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Revisa el borrador cuando el área que lo origina lo eleva a consulta, y ajusta las cláusulas que expongan al grupo o que no respeten los criterios de contratación de la política jurídica vigente."},
+      {"id": "a4", "rol": "bufetes locales (actor externo)", "texto": "Emiten su criterio cuando el contrato involucra una norma local específica —laboral, de importación o de protección al consumidor— que el asesor jurídico corporativo no domina en el detalle de cada país."},
+      {"id": "a5", "rol": "Gerente del área que origina la relación", "texto": "Negocia con la contraparte las cláusulas pendientes hasta llegar a una versión final aceptada por ambas partes."},
+      {"id": "a6", "rol": "Country Manager", "texto": "Firma el instrumento cuando el monto y el tipo de compromiso están dentro de su facultad de firma, o lo eleva a la Junta Directiva cuando excede el umbral de delegación vigente."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Aprueba y firma el compromiso cuando excede el umbral de delegación del Country Manager."},
+      {"id": "a8", "rol": "Gerente del área que origina la relación", "texto": "Archiva el original firmado y registra la fecha de vencimiento y las condiciones de renovación en el control de seguimiento de su área."},
+      {"id": "a9", "rol": "Gerente del área que origina la relación", "texto": "Da seguimiento a la proximidad del vencimiento y activa a tiempo la renovación o la terminación del contrato antes de que expire."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente del área que origina la relación", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "bufetes locales (actor externo)", "Country Manager", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente del área que origina la relación", "tipo": "inicio", "n": "Necesidad de formalizar una relación con un tercero"},
+       {"id": "n1", "carril": "Gerente del área que origina la relación", "tipo": "tarea", "n": "Elaborar el borrador del contrato"},
+       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Revisar el borrador y ajustar cláusulas de exposición"},
+       {"id": "n3", "carril": "bufetes locales (actor externo)", "tipo": "tarea", "n": "Emitir criterio sobre la norma local aplicable"},
+       {"id": "n4", "carril": "Gerente del área que origina la relación", "tipo": "tarea", "n": "Negociar las cláusulas pendientes con la contraparte"},
+       {"id": "n5", "carril": "Country Manager", "tipo": "decision", "n": "¿El compromiso está dentro de la facultad de firma del Country Manager?"},
+       {"id": "n5alt", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar y firmar el compromiso que excede el umbral"},
+       {"id": "n6", "carril": "Country Manager", "tipo": "tarea", "n": "Firmar el instrumento"},
+       {"id": "n7", "carril": "Gerente del área que origina la relación", "tipo": "tarea", "n": "Archivar el original y registrar el vencimiento"},
+       {"id": "n8", "carril": "Gerente del área que origina la relación", "tipo": "tarea", "n": "Dar seguimiento al vencimiento y activar la renovación"},
+       {"id": "n9", "carril": "Gerente del área que origina la relación", "tipo": "fin", "n": "Instrumento vigente, archivado y con seguimiento activo"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Contratos redactados sin formación jurídica, sin validación previa a la firma", "Áreas comerciales redactan acuerdos de licencia o con influencers sin perfil jurídico, apoyándose de forma informal en un comercial con formación de abogado en vez de en una validación centralizada.", "Alta", "Alto", "Exigir la revisión del asesor jurídico corporativo antes de la firma de todo contrato, sin excepción por monto o por tipo."],
+      ["Compromisos comerciales con distribuidores sin respaldo contractual", "Se negocian y reservan compromisos de mercancía con distribuidores por canales informales, sin un instrumento que los respalde ni condiciones escritas.", "Media", "Medio", "Formalizar con un instrumento simple todo compromiso comercial recurrente que supere un monto o un plazo definido."],
+      ["Sin repositorio único de vencimientos de contrato", "Cada área archiva y da seguimiento a sus propios contratos por su cuenta, sin un repositorio centralizado que alerte sobre vencimientos próximos.", "Alta", "Medio", "Centralizar el repositorio de contratos y sus vencimientos bajo custodia del asesor jurídico corporativo, con alertas automáticas."],
+      ["Sin modelo estándar para tipos de acuerdo nuevos", "Contratos de licencia, de influencer o de patrocinio se redactan desde cero cada vez, sin un modelo estándar que agilice y homologue su contenido.", "Media", "Alto", "Desarrollar modelos estándar para los tipos de contrato recurrentes que hoy se redactan sin plantilla."],
+      ["Delegación de firma sin umbral escrito", "La firma de un contrato se decide caso por caso entre el Country Manager y la Junta, sin un umbral documentado por monto y tipo de compromiso.", "Alta", "Alto", "Aplicar a la firma de todo contrato los umbrales que defina la política jurídica del grupo (18.1)."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Contratos con revisión jurídica previa a la firma", "Contratos revisados por el asesor jurídico corporativo antes de firmarse ÷ total de contratos firmados", "Trimestral", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
+      ["Vencimientos gestionados a tiempo", "Contratos renovados o cerrados antes de su vencimiento ÷ total de contratos vencidos en el período", "Trimestral", "Gerente del área que origina la relación", "Por definir — no hay línea base hoy"],
+      ["Tiempo de revisión jurídica", "Fecha de devolución del asesor jurídico corporativo − fecha de envío del borrador, en días hábiles", "Por contrato", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "18.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Mantiene vigentes las sociedades del grupo en los países donde opera —incluidas las entidades intermediarias, como la que permite triangular una venta entre dos sociedades del grupo dentro del régimen de una zona franca, y las inmobiliarias— con sus poderes, representantes legales y obligaciones societarias anuales al día en cada jurisdicción."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Country Manager", "texto": "Identifica la necesidad de constituir, modificar o dar de baja una sociedad del grupo —por la entrada a un país nuevo, un cambio de representante legal o de apoderado, o el vencimiento de una obligación societaria anual— y lo traslada al asesor jurídico corporativo."},
+      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Evalúa la figura societaria requerida y coordina con el bufete corporativo de la jurisdicción correspondiente la constitución, la modificación estatutaria o la actualización de poderes y representantes."},
+      {"id": "a3", "rol": "bufete corporativo de la jurisdicción (actor externo)", "texto": "Ejecuta el trámite ante el registro mercantil del país y devuelve la sociedad constituida, modificada o con sus poderes y representantes actualizados."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Actualiza el registro contable y fiscal de la sociedad —incluida, cuando aplica, una entidad intermediaria sin inventario propio que solo factura entre dos sociedades del grupo— y verifica que sus obligaciones anuales queden al día."},
+      {"id": "a5", "rol": "Planificador Financiero", "texto": "Revisa la exposición financiera y patrimonial de la sociedad, en particular cuando se trata de una entidad inmobiliaria o de una constitución nueva."},
+      {"id": "a6", "rol": "Country Manager", "texto": "Presenta la constitución, la modificación o el cambio de representante a la Junta Directiva cuando la decisión compromete la propiedad o la estructura patrimonial del grupo."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Aprueba la constitución, la modificación estatutaria o el cambio de representante legal cuando el caso se lo presenta."},
+      {"id": "a8", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Actualiza el registro consolidado de sociedades del grupo —hoy sostenido en gran parte de memoria por la dirección— con la sociedad vigente, su jurisdicción, sus representantes y la fecha de su próxima obligación anual."}
+     ],
+     "diagrama": {
+      "carriles": ["Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "bufete corporativo de la jurisdicción (actor externo)", "Gerente de Contabilidad / Administración", "Planificador Financiero", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Country Manager", "tipo": "inicio", "n": "Necesidad de constituir, modificar o dar de baja una sociedad"},
+       {"id": "n1", "carril": "Country Manager", "tipo": "tarea", "n": "Trasladar la necesidad al asesor jurídico corporativo"},
+       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Evaluar la figura societaria y coordinar con el bufete"},
+       {"id": "n3", "carril": "bufete corporativo de la jurisdicción (actor externo)", "tipo": "tarea", "n": "Ejecutar el trámite ante el registro mercantil"},
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Actualizar el registro contable y fiscal de la sociedad"},
+       {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Revisar la exposición financiera y patrimonial"},
+       {"id": "n6", "carril": "Country Manager", "tipo": "decision", "n": "¿La decisión compromete la propiedad o la estructura patrimonial del grupo?"},
+       {"id": "n6alt", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar la constitución, modificación o cambio de representante"},
+       {"id": "n7", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Actualizar el registro consolidado de sociedades del grupo"},
+       {"id": "n8", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "fin", "n": "Sociedad vigente y en cumplimiento"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "No"}, {"de": "n6", "a": "n6alt", "etq": "Sí"}, {"de": "n6alt", "a": "n7"},
+       {"de": "n7", "a": "n8"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Registro de sociedades sostenido de memoria, no documentado", "El grupo tiene alrededor de 35 a 40 compañías y sociedades cuyo detalle —jurisdicción, representantes, vencimientos— vive en la memoria de la dirección, sin un registro único y estructurado.", "Alta", "Alto", "Consolidar un registro único de todas las sociedades del grupo, con jurisdicción, representantes y vencimientos."],
+      ["Entidad intermediaria sin inventario propio, dependiente de un régimen regulatorio específico", "Una entidad intermediaria solo transita facturación entre dos sociedades del grupo para permitir la venta bajo un régimen de zona franca, sin manejar inventario propio.", "Media", "Medio", "Documentar el fundamento regulatorio de la triangulación y dar seguimiento a cambios en el régimen que la sostiene."],
+      ["Dependencia de bufetes distintos por jurisdicción sin coordinación única", "Cada país gestiona su relación con el bufete corporativo local de forma independiente, sin que el asesor jurídico corporativo centralice el criterio aplicado en cada jurisdicción.", "Media", "Medio", "Extender a lo societario el mismo punto de coordinación único que define la política jurídica del grupo (18.1)."],
+      ["Sin calendario único de obligaciones societarias anuales", "Las obligaciones societarias anuales de cada país se siguen por separado, sin un calendario consolidado que alerte sobre vencimientos próximos.", "Alta", "Medio", "Consolidar un calendario único de obligaciones societarias, con alerta de vencimiento por sociedad y por país."],
+      ["Conocimiento societario concentrado en una sola persona", "El detalle de las sociedades del grupo depende hoy del conocimiento de una sola persona de la dirección, sin un respaldo documentado que permita a alguien más asumirlo.", "Media", "Alto", "Documentar y dar respaldo al conocimiento societario más allá de una persona, como parte del registro consolidado."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Sociedades con obligación societaria anual al día", "Sociedades con su obligación anual cumplida ÷ total de sociedades del grupo", "Anual", "Country Manager", "100%"],
+      ["Cobertura del registro consolidado de sociedades", "Sociedades documentadas en el registro consolidado ÷ total de sociedades del grupo", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "100%"],
+      ["Tiempo de actualización de un representante legal", "Fecha de registro del nuevo representante − fecha del cambio decidido, en días", "Por evento", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "18.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el registro y mantenimiento de las marcas propias en los mercados donde el grupo opera o proyecta operar, el control del uso correcto de la marca por parte de franquiciados, socios y distribuidores, la administración de las licencias de propiedad intelectual de terceros, y la atención de los casos de uso indebido o de producto no autorizado en circulación.",
+     "nota_estado": "Es un proceso a implementar: hoy no hay un registro consolidado de las marcas propias por país ni una administración jurídica formal de las licencias de terceros —una licencia de personaje se gestiona hoy con la propuesta comercial de la temporada, no con el seguimiento de un contrato de licencia—, y el propio equipo directivo reconoce como brecha estratégica que la aplicación de software asociada a un producto propio la desarrolla un tercero externo sin que la propiedad de ese desarrollo sea del grupo."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Regional de Marketing", "texto": "Identifica la necesidad de proteger un activo de propiedad intelectual —la entrada a un mercado nuevo, el desarrollo de una colección bajo licencia de un tercero, o la detección de un uso indebido de la marca o de producto no autorizado en circulación— y lo traslada al asesor jurídico corporativo."},
+      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Evalúa si el activo requiere el registro de una marca, la administración de una licencia de un tercero, o la atención de una infracción, y define la vía correspondiente."},
+      {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Aporta el detalle técnico del producto o de la colección bajo licencia —características, mercado de destino y desarrollos de terceros involucrados, como el software asociado al producto— que el registro o la licencia deben cubrir."},
+      {"id": "a4", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Tramita el registro de la marca propia ante la autoridad de propiedad industrial del país, o negocia con el licenciante las condiciones de uso de la licencia de un tercero."},
+      {"id": "a5", "rol": "licenciantes y agentes de propiedad industrial (actores externos)", "texto": "Formalizan el registro de la marca o las condiciones de la licencia, incluida la titularidad de los desarrollos derivados —como una aplicación de software vinculada al producto— cuando corresponde."},
+      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Comunica a franquiciados y distribuidores las condiciones de uso correcto de la marca y de la licencia vigente."},
+      {"id": "a7", "rol": "Gerente Regional de Marketing", "texto": "Da seguimiento al uso de la marca por parte de franquiciados, socios y distribuidores, y reporta al asesor jurídico corporativo cualquier caso de uso indebido o de producto no autorizado en circulación."},
+      {"id": "a8", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Atiende el caso de uso indebido —con el licenciante, el agente de propiedad industrial o el canal legal correspondiente— hasta su cierre."},
+      {"id": "a9", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Revisa anualmente el portafolio de marcas registradas y de licencias vigentes, y actualiza su estado."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente Regional de Marketing", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Especialista de Producto / Proyecto", "licenciantes y agentes de propiedad industrial (actores externos)", "Gerente Regional Comercial / Retail"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Regional de Marketing", "tipo": "inicio", "n": "Mercado nuevo, licencia de un tercero o uso indebido detectado"},
+       {"id": "n1", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Trasladar el caso al asesor jurídico corporativo"},
+       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Evaluar la vía: registro, licencia o infracción"},
+       {"id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Aportar el detalle técnico del producto o la colección"},
+       {"id": "n4", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "decision", "n": "¿Es un registro de marca propia o una licencia de un tercero?"},
+       {"id": "n4a", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Tramitar el registro ante la autoridad de propiedad industrial"},
+       {"id": "n4b", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Negociar las condiciones de la licencia con el licenciante"},
+       {"id": "n5", "carril": "licenciantes y agentes de propiedad industrial (actores externos)", "tipo": "tarea", "n": "Formalizar el registro o las condiciones de la licencia"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Comunicar las condiciones de uso a franquiciados y distribuidores"},
+       {"id": "n7", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Dar seguimiento al uso de la marca"},
+       {"id": "n8", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Se detecta uso indebido o producto no autorizado?"},
+       {"id": "n8alt", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Atender el caso hasta su cierre"},
+       {"id": "n9", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Revisar anualmente el portafolio de marcas y licencias"},
+       {"id": "n10", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "fin", "n": "Marca registrada y vigente, o licencia administrada dentro de las condiciones acordadas"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n4a", "etq": "Registro"}, {"de": "n4", "a": "n4b", "etq": "Licencia"}, {"de": "n4a", "a": "n5"}, {"de": "n4b", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n8alt", "etq": "Sí"}, {"de": "n8", "a": "n9", "etq": "No"}, {"de": "n8alt", "a": "n9"},
+       {"de": "n9", "a": "n10"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Desarrollo de un tercero sobre un producto propio sin titularidad del grupo", "La aplicación de software de un producto propio la desarrolla un proveedor externo, sin que el grupo tenga la propiedad de ese desarrollo —el propio equipo directivo advierte que, sin eso, la marca no vale lo que debería.", "Alta", "Alto", "Formalizar la titularidad de los desarrollos de software vinculados al producto en el contrato con el desarrollador, o internalizar el desarrollo."],
+      ["Licencias de terceros administradas de forma comercial, sin gestión jurídica formal", "Una licencia de personaje se gestiona hoy con la propuesta comercial de la temporada, sin que el asesor jurídico corporativo administre sus condiciones y su vigencia como licencia.", "Media", "Alto", "Incorporar cada licencia vigente al portafolio administrado por el asesor jurídico corporativo, con sus condiciones y vigencia."],
+      ["Sin registro consolidado de marcas por país", "No existe un registro único de qué marcas propias están registradas y vigentes en cada país donde el grupo opera.", "Alta", "Medio", "Consolidar el registro de marcas propias vigentes por país y por línea de producto."],
+      ["Sin protocolo de atención a uso indebido o producto no autorizado", "No hay un protocolo definido para detectar, escalar y cerrar un caso de uso indebido de la marca o de producto no autorizado en circulación.", "Media", "Alto", "Definir el protocolo de atención, desde la detección hasta el cierre, con el canal legal correspondiente para cada tipo de caso."],
+      ["Franquiciados y distribuidores sin comunicación formal de las condiciones de marca", "Las condiciones de uso correcto de la marca no siempre quedan explícitas en el contrato de franquicia o de distribución.", "Media", "Medio", "Incluir la condición de uso de marca en el contrato de franquicia o distribución (relacionado con 18.2)."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Marcas propias registradas y vigentes", "Marcas registradas y vigentes ÷ marcas propias en operación por país", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
+      ["Licencias de terceros con condiciones administradas", "Licencias vigentes con condiciones de uso documentadas y con seguimiento ÷ total de licencias vigentes", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
+      ["Tiempo de cierre de un caso de uso indebido", "Fecha de cierre del caso − fecha de detección, en días", "Por caso", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Por definir — no hay línea base hoy"]
+     ]
+    }
+   },
+
+   "18.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Mantiene el inventario de obligaciones regulatorias no tributarias que aplican a la operación en cada país —permisología de importación y certificación de producto, normas de protección al consumidor, permisos de trabajo de personal extranjero, licencias de funcionamiento y normativa de seguridad de las sedes—, da seguimiento a su vigencia, y coordina la respuesta cuando un ente fiscalizador se presenta o requiere información.",
+     "nota_estado": "Es un proceso a implementar: cada área cumple sus propias obligaciones regulatorias por su cuenta —Recursos Humanos ante el Seguro Social y el Ministerio del Trabajo, Mercadeo ante los entes de protección al consumidor de cada país— pero no existe un inventario único que las consolide ni un punto de coordinación jurídica corporativo. El marco de protección al consumidor, por ejemplo, se resuelve hoy consultando de forma informal al Country Manager de cada país en vez de con un criterio jurídico documentado, y al menos un informe periódico ante un ente laboral no está al día."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Country Manager", "texto": "Identifica, junto con el asesor jurídico corporativo, las obligaciones regulatorias no tributarias que aplican a la operación en su país —permisología de importación, protección al consumidor, permisos de trabajo de extranjeros, licencias de funcionamiento y seguridad de las sedes."},
+      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Consolida el inventario de obligaciones regulatorias del país con el área responsable de cada una y su fecha de vigencia."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Da seguimiento a la vigencia de las obligaciones fiscales no tributarias y a la documentación que Contabilidad debe mantener al día ante una fiscalización."},
+      {"id": "a4", "rol": "Gerente de Recursos Humanos", "texto": "Da seguimiento a la vigencia de los contratos de trabajo, los permisos de trabajo de personal extranjero y el registro del personal ante los entes de seguridad social y del trabajo."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a la permisología de importación y a la certificación de producto vigente en cada país."},
+      {"id": "a6", "rol": "Gerente Regional de Marketing", "texto": "Consulta al Country Manager del país el marco de protección al consumidor vigente antes de lanzar una comunicación o promoción con riesgo de ambigüedad regulatoria."},
+      {"id": "a7", "rol": "entes reguladores (actores externos)", "texto": "Notifican o se presentan para una visita o un requerimiento de información sobre una obligación regulatoria."},
+      {"id": "a8", "rol": "Country Manager", "texto": "Recibe la notificación o la visita del ente fiscalizador y activa al área responsable de la obligación en cuestión."},
+      {"id": "a9", "rol": "Country Manager", "texto": "Solicita el apoyo del asesor jurídico corporativo cuando el caso lo requiere, y remite la respuesta o la documentación al ente dentro del plazo establecido."},
+      {"id": "a10", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Da seguimiento al hallazgo hasta su cierre y actualiza el inventario de obligaciones regulatorias con lo aprendido del caso."}
+     ],
+     "diagrama": {
+      "carriles": ["Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Gerente de Contabilidad / Administración", "Gerente de Recursos Humanos", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing", "entes reguladores (actores externos)"],
+      "nodos": [
+       {"id": "n0", "carril": "Country Manager", "tipo": "inicio", "n": "Obligación regulatoria identificada, o visita/requerimiento de un ente"},
+       {"id": "n1", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Consolidar el inventario de obligaciones regulatorias del país"},
+       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Dar seguimiento a la vigencia fiscal no tributaria"},
+       {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento a permisos de trabajo y registro laboral"},
+       {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento a la permisología de importación y certificación"},
+       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Consultar el marco de protección al consumidor antes de una comunicación de riesgo"},
+       {"id": "n6", "carril": "entes reguladores (actores externos)", "tipo": "tarea", "n": "Notificar o presentarse para una visita o un requerimiento"},
+       {"id": "n7", "carril": "Country Manager", "tipo": "tarea", "n": "Recibir la notificación y activar al área responsable"},
+       {"id": "n8", "carril": "Country Manager", "tipo": "decision", "n": "¿El caso requiere apoyo del asesor jurídico corporativo?"},
+       {"id": "n8alt", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Apoyar la preparación de la respuesta al ente"},
+       {"id": "n9", "carril": "Country Manager", "tipo": "tarea", "n": "Remitir la respuesta o documentación dentro del plazo"},
+       {"id": "n10", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Dar seguimiento al hallazgo hasta su cierre y actualizar el inventario"},
+       {"id": "n11", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "fin", "n": "Obligación vigente y documentada, o fiscalización atendida con el hallazgo cerrado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "No"}, {"de": "n8", "a": "n8alt", "etq": "Sí"}, {"de": "n8alt", "a": "n9"},
+       {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Sin inventario único de obligaciones regulatorias por país", "Recursos Humanos, Contabilidad y Logística dan seguimiento cada uno a sus propias obligaciones regulatorias, sin una vista consolidada a cargo del asesor jurídico corporativo.", "Alta", "Alto", "Consolidar el inventario de obligaciones regulatorias por país bajo un único responsable jurídico."],
+      ["Marco de protección al consumidor resuelto de forma informal, país por país", "Mercadeo consulta al Country Manager de cada país antes de una comunicación con riesgo regulatorio, en vez de apoyarse en un criterio jurídico documentado por país.", "Media", "Alto", "Documentar el marco de protección al consumidor vigente en cada país donde el grupo opera, con el asesor jurídico corporativo como responsable."],
+      ["Informe periódico ante un ente laboral desactualizado", "Al menos un informe periódico de obligación laboral no está al día ante el ente correspondiente en uno de los países.", "Media", "Medio", "Ponerse al día con el informe pendiente y calendarizar su presentación periódica."],
+      ["Obligaciones regulatorias sin documentación escrita, dependientes de la práctica", "Un área reconoce que sus obligaciones regulatorias no están escritas ni plasmadas en ningún lugar, aunque las cumple en la práctica.", "Alta", "Medio", "Documentar por escrito las obligaciones regulatorias de cada área como parte del inventario consolidado."],
+      ["Sin protocolo único de atención a una visita o requerimiento de un ente", "No hay un protocolo definido de principio a fin para atender la visita o el requerimiento de un ente fiscalizador, más allá de la práctica de cada área.", "Media", "Alto", "Definir el protocolo de atención, con el asesor jurídico corporativo como punto de apoyo formal desde el primer contacto."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Cobertura del inventario de obligaciones regulatorias", "Obligaciones regulatorias documentadas en el inventario ÷ obligaciones regulatorias identificadas por país", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "100%"],
+      ["Fiscalizaciones atendidas dentro del plazo", "Fiscalizaciones respondidas dentro del plazo del ente ÷ total de fiscalizaciones recibidas", "Por evento", "Country Manager", "100%"],
+      ["Vigencia de permisos y certificaciones", "Permisos y certificaciones vigentes ÷ total de permisos y certificaciones requeridos por país", "Trimestral", "Coordinador(a) de Logística y Bodega", "100%"]
+     ]
+    }
+   },
+
+   "18.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la detección temprana de una contingencia legal, la evaluación del riesgo y de la exposición, la decisión sobre la estrategia de defensa o de negociación, la designación y coordinación del abogado especializado cuando el caso lo requiere, el seguimiento hasta su cierre, y el registro de la lección para prevenir su repetición.",
+     "nota_estado": "Es un proceso a implementar: hoy la gestión de una contingencia se resuelve dentro de cada área que la enfrenta —Recursos Humanos, por ejemplo, negocia directamente con el colaborador un cálculo de liquidación cuestionado antes de que escale a un ente laboral— sin un protocolo único de detección, evaluación de exposición y designación de abogado especializado que involucre al asesor jurídico corporativo desde el inicio del caso."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente del área afectada", "texto": "Detecta la contingencia legal —un reclamo de un colaborador, un cliente, un proveedor o un ente, o un incidente con exposición legal— y la traslada al Country Manager y al asesor jurídico corporativo."},
+      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Evalúa el riesgo y la exposición del caso, y determina si puede resolverse con una negociación directa o si requiere asesoría especializada desde el inicio."},
+      {"id": "a3", "rol": "Gerente del área afectada", "texto": "Intenta primero la negociación directa con la contraparte cuando el caso lo permite —como ocurre hoy con un reclamo de liquidación, que se procura resolver corrigiendo o negociando con el colaborador antes de que escale a un ente."},
+      {"id": "a4", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Designa y coordina al abogado o al bufete especializado cuando la negociación directa no resuelve el caso o cuando su naturaleza lo exige desde el inicio."},
+      {"id": "a5", "rol": "asesoría laboral externa y bufetes especializados (actores externos)", "texto": "Definen la estrategia de defensa o de negociación del caso y ejecutan las actuaciones que correspondan ante la contraparte o la autoridad."},
+      {"id": "a6", "rol": "Planificador Financiero", "texto": "Cuantifica la provisión y la exposición financiera del caso mientras permanece abierto."},
+      {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Participa en el caso cuando la contingencia es de naturaleza laboral, aportando el expediente y el histórico del colaborador."},
+      {"id": "a8", "rol": "Junta Directiva", "texto": "Decide la estrategia a seguir cuando el caso tiene un impacto material sobre el grupo."},
+      {"id": "a9", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Da seguimiento al caso hasta su cierre, documenta la decisión y su fundamento, y registra la lección para prevenir su repetición."},
+      {"id": "a10", "rol": "Planificador Financiero", "texto": "Informa a Finanzas la exposición cuantificada y el cierre del caso."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente del área afectada", "Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "asesoría laboral externa y bufetes especializados (actores externos)", "Planificador Financiero", "Gerente de Recursos Humanos", "Junta Directiva"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente del área afectada", "tipo": "inicio", "n": "Reclamo o incidente con exposición legal detectado"},
+       {"id": "n1", "carril": "Gerente del área afectada", "tipo": "tarea", "n": "Trasladar el caso al Country Manager y al asesor jurídico corporativo"},
+       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Evaluar el riesgo y la exposición del caso"},
+       {"id": "n3", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "decision", "n": "¿El caso puede resolverse con negociación directa?"},
+       {"id": "n3a", "carril": "Gerente del área afectada", "tipo": "tarea", "n": "Negociar directamente con la contraparte"},
+       {"id": "n3b", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Designar al abogado o bufete especializado"},
+       {"id": "n4", "carril": "asesoría laboral externa y bufetes especializados (actores externos)", "tipo": "tarea", "n": "Definir la estrategia y ejecutar las actuaciones del caso"},
+       {"id": "n5", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Cuantificar la provisión y la exposición financiera"},
+       {"id": "n6", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Aportar el expediente cuando la contingencia es laboral"},
+       {"id": "n7", "carril": "Country Manager", "tipo": "decision", "n": "¿El caso tiene impacto material sobre el grupo?"},
+       {"id": "n7alt", "carril": "Junta Directiva", "tipo": "tarea", "n": "Decidir la estrategia a seguir"},
+       {"id": "n8", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Dar seguimiento hasta el cierre y documentar la decisión"},
+       {"id": "n9", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Informar a Finanzas la exposición y el cierre"},
+       {"id": "n10", "carril": "Planificador Financiero", "tipo": "fin", "n": "Caso cerrado con la decisión documentada y la exposición informada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n3a", "etq": "Sí"}, {"de": "n3", "a": "n3b", "etq": "No"}, {"de": "n3b", "a": "n4"}, {"de": "n3a", "a": "n5"}, {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8", "etq": "No"}, {"de": "n7", "a": "n7alt", "etq": "Sí"}, {"de": "n7alt", "a": "n8"},
+       {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Negociación de contingencias sin involucrar al asesor jurídico desde el inicio", "Recursos Humanos negocia liquidaciones cuestionadas directamente con el colaborador, sin que el asesor jurídico corporativo entre al circuito desde la detección del caso.", "Alta", "Alto", "Incorporar al asesor jurídico corporativo desde la detección de toda contingencia, incluida la laboral."],
+      ["Sin protocolo de evaluación de exposición antes de decidir la estrategia", "No hay un protocolo escrito que guíe la evaluación de riesgo y exposición antes de escoger entre negociación directa o asesoría especializada.", "Alta", "Alto", "Definir el protocolo con los pasos de evaluación de riesgo y exposición previos a la decisión de estrategia."],
+      ["Comunicación del asesor jurídico corporativo restringida casi a una persona", "El asesor jurídico corporativo del grupo se comunica casi en exclusiva con el Country Manager, lo que puede retrasar la activación de un caso que otra área detecta primero.", "Media", "Alto", "Ampliar el canal de comunicación del asesor jurídico corporativo, como ya señala la política jurídica del grupo (18.1)."],
+      ["Sin registro de lecciones de casos cerrados", "No hay evidencia de que la lección de un caso cerrado quede documentada para prevenir su repetición.", "Media", "Medio", "Documentar la lección de cada caso cerrado, como ya prevé esta ficha."],
+      ["Sin criterio único de cuándo un caso escala a la Junta", "No hay un umbral definido de impacto material que determine cuándo una contingencia debe decidirla la Junta Directiva y no el asesor jurídico corporativo.", "Media", "Alto", "Definir el umbral de impacto material que activa la decisión de la Junta Directiva."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Casos con evaluación de exposición documentada", "Casos con evaluación de riesgo y exposición documentada ÷ total de casos abiertos", "Trimestral", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "100%"],
+      ["Tiempo de cierre de un caso", "Fecha de cierre del caso − fecha de detección, en días", "Por caso", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Por definir — no hay línea base hoy"],
+      ["Exposición financiera provisionada e informada a Finanzas", "Casos cerrados con su exposición informada a Finanzas ÷ total de casos cerrados", "Trimestral", "Planificador Financiero", "100%"]
      ]
     }
    }
