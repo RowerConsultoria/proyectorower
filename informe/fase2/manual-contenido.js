@@ -10539,6 +10539,88 @@ window.MANUAL_CONTENIDO = {
     }
    }
   }
+ },
+
+ "19": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual documenta cómo Grupo Kenex sostiene la operación física del día a día de sus sedes: el mantenimiento de las instalaciones, la relación con arrendadores y condominios, el abastecimiento de insumos de oficina, la mensajería y el transporte administrativo, la seguridad física de las sedes, y la contratación de los proveedores que ejecutan lo que el equipo interno no cubre.",
+    "alcance": "Aplica a las oficinas, depósitos y puntos de venta de Venezuela, donde el corpus documenta esta función con nombre y responsable. No cubre la infraestructura tecnológica en sí —red, servidores, puntos de venta, cámaras—, que es competencia de Sistemas; este manual cubre solo la frontera física donde Servicios Generales y Sistemas se tocan, como la instalación eléctrica que alimenta un equipo. Tampoco cubre el diseño ni la obra civil de una tienda nueva en su fase de proyecto, que hoy coordina directamente la Presidencia con un contratista externo; Servicios Generales interviene en la infraestructura de una sede ya en operación, no en su construcción inicial.",
+    "audiencia": ["Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Contabilidad / Administración", "Analista de Sistemas / Datos", "Country Manager"]
+   }
+  },
+  "procesos": {
+
+   "19.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Atiende las fallas y el mantenimiento preventivo de las instalaciones de oficinas, depósitos y puntos de venta —sistema eléctrico y de alumbrado, y las centrales de alarma de incendio y de intrusión—, con ejecución directa cuando la competencia es interna y mediante contratista cuando no lo es.",
+     "nota_estado": "Es un proceso híbrido: la atención eléctrica y de alarmas opera con años de práctica, pero sostenida por una sola persona sin respaldo, sin ticket ni registro de lo ejecutado, y con un alcance que hoy se limita a Caracas y esta oficina —Panamá tiene su propio equipo y las franquicias quedaron excluidas por decisión de la dirección—. El circuito cerrado de televisión, que antes era parte de esta función, pasó a Sistemas porque ya no depende de instalación eléctrica sino de la red; este proceso reconoce esa frontera y no vuelve a cruzarla. Hay una propuesta —del propio equipo consultor, a partir de una práctica vista en organizaciones de Panamá— de adoptar un sistema de tickets, todavía no implementada."
+    },
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Comercial (País / Canal) al Detal (País) y Gerente de Tienda / Supervisor de Ventas", "texto": "Reporta por llamada telefónica una falla detectada en la sede o en el punto de venta, o el Asistente Administrativo / Servicios Generales identifica la llegada de la fecha de un mantenimiento preventivo programado."},
+      {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Determina si la necesidad es eléctrica, de alumbrado o de alarma —de su competencia— o si depende de la red y los sistemas, caso en el que la traslada directamente al Analista de Sistemas / Datos sin intervenir."},
+      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Atiende de forma independiente la necesidad que depende de la red o de un sistema —como una cámara o un sensor—, una frontera que dejó de ser competencia eléctrica desde que el circuito cerrado de televisión pasó a Sistemas."},
+      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Determina, cuando la necesidad sí es eléctrica o de alarma, si está dentro de su propia competencia o si excede al equipo interno —obra civil, plomería, pintura, o una instalación de mayor envergadura."},
+      {"id": "a5", "rol": "contratistas de electricidad, obra civil, alarmas y mantenimiento (actores externos)", "texto": "Ejecutan, bajo supervisión del Asistente Administrativo / Servicios Generales, el trabajo que excede la competencia interna."},
+      {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Verifica si tiene el repuesto necesario en su depósito interno cuando la intervención está dentro de su competencia; si lo tiene, se traslada de inmediato al sitio a ejecutar la reparación."},
+      {"id": "a7", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Presenta la necesidad al Gerente Comercial (País / Canal) al Detal (País) cuando el repuesto no está en depósito, para que autorice la compra y, si ya existe la relación, indique el proveedor."},
+      {"id": "a8", "rol": "Gerente de Contabilidad / Administración", "texto": "Tramita el pago al proveedor una vez que el Asistente Administrativo / Servicios Generales retira el material y entrega la factura correspondiente."},
+      {"id": "a9", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Ejecuta la reparación o el mantenimiento en el sitio y aprovecha el traslado para recorrer el resto de la sede y detectar otra necesidad que el solicitante no haya reportado."}
+     ],
+     "diagrama": {
+      "carriles": ["Gerente Comercial (País / Canal) al Detal (País) y Gerente de Tienda / Supervisor de Ventas", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Contabilidad / Administración", "Analista de Sistemas / Datos", "contratistas de electricidad, obra civil, alarmas y mantenimiento (actores externos)"],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Comercial (País / Canal) al Detal (País) y Gerente de Tienda / Supervisor de Ventas", "tipo": "inicio", "n": "Falla reportada, o fecha de mantenimiento preventivo programada"},
+       {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿Es un asunto eléctrico, de alumbrado o de alarma, o depende de la red y los sistemas?"},
+       {"id": "n1alt", "carril": "Analista de Sistemas / Datos", "tipo": "fin", "n": "Necesidad de red o de sistemas atendida fuera de este proceso"},
+       {"id": "n2", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿La intervención está dentro de la competencia interna, o excede al equipo interno?"},
+       {"id": "n2alt", "carril": "contratistas de electricidad, obra civil, alarmas y mantenimiento (actores externos)", "tipo": "tarea", "n": "Ejecutar bajo supervisión el trabajo que excede la competencia interna"},
+       {"id": "n3", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "decision", "n": "¿El repuesto está disponible en el depósito interno?"},
+       {"id": "n4", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Presentar la necesidad al Gerente Comercial (País / Canal) al Detal (País)"},
+       {"id": "n5", "carril": "Gerente Comercial (País / Canal) al Detal (País) y Gerente de Tienda / Supervisor de Ventas", "tipo": "tarea", "n": "Autorizar la compra y definir el proveedor"},
+       {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Tramitar el pago al proveedor"},
+       {"id": "n7", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Retirar el material del proveedor"},
+       {"id": "n8", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Trasladarse al sitio y ejecutar la reparación o el mantenimiento"},
+       {"id": "n9", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Recorrer el resto de la sede para detectar otra necesidad no reportada"},
+       {"id": "n10", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "fin", "n": "Falla resuelta o mantenimiento ejecutado, con la sede o el punto de venta operativo"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n1alt", "etq": "Sistemas"}, {"de": "n1", "a": "n2", "etq": "Eléctrica / alarma"},
+       {"de": "n2", "a": "n2alt", "etq": "Excede"}, {"de": "n2", "a": "n3", "etq": "Dentro de su competencia"},
+       {"de": "n2alt", "a": "n10"},
+       {"de": "n3", "a": "n8", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"},
+       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      ["Dependencia total de una sola persona, sin respaldo", "El proceso lo sostiene una sola persona desde hace más de dos décadas, sin equipo ni asistente; no ha tomado vacaciones en ocho años, y cuando falta —por una cita médica o una eventualidad— la sede queda sin cobertura salvo por contratistas puntuales.", "Alta", "Alto", "Asignar un asistente o un respaldo formal capacitado para cubrir ausencias, vacaciones e incapacidad."],
+      ["Sin registro ni trazabilidad del trabajo ejecutado", "Toda solicitud y toda intervención se gestionan de forma verbal; no queda ticket, informe ni constancia de qué se hizo, dónde ni cuándo.", "Alta", "Medio", "Adoptar un sistema de tickets con registro por intervención, como ya lo propone el propio equipo."],
+      ["Incidente de seguridad sin protocolo ni reporte formal", "El responsable sufrió una caída trabajando en altura sobre una escalera del condominio en mal estado, sin arnés ni procedimiento de seguridad, y el incidente no generó ningún reporte formal.", "Alta", "Alto", "Dotar de equipo de seguridad adecuado para trabajo en altura y establecer un protocolo de reporte de incidentes."],
+      ["Trabajo de contratista sin verificación técnica antes de la apertura", "En la apertura de una tienda, un contratista instaló una red eléctrica subdimensionada para la carga del local, lo que generó un riesgo real de incendio; el responsable tuvo que rehacer la instalación completa un fin de semana, después de la inauguración.", "Media", "Alto", "Exigir una inspección técnica de la instalación eléctrica antes de la apertura de una tienda nueva, no después."],
+      ["Sin indicadores ni reporte periódico del área", "No se mide el número de incidencias atendidas, el tiempo de respuesta ni el gasto del área; no existe ningún reporte periódico hacia la dirección.", "Media", "Medio", "Adoptar los indicadores definidos en esta ficha y reportarlos con la periodicidad que se acuerde."]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      ["Tiempo de atención de una falla reportada", "Fecha de resolución − fecha del reporte, en horas", "Por incidencia", "Asistente Administrativo(a) / Servicios Generales", "Por definir — no hay línea base hoy"],
+      ["Cobertura de mantenimiento preventivo", "Mantenimientos preventivos ejecutados en la fecha programada ÷ total de mantenimientos preventivos programados", "Trimestral", "Asistente Administrativo(a) / Servicios Generales", "100%"],
+      ["Verificación técnica previa a la apertura de una tienda", "Aperturas de tienda con inspección eléctrica formal antes de la inauguración ÷ total de aperturas", "Por apertura", "Gerente Comercial (País / Canal) al Detal (País)", "100%"]
+     ]
+    }
+   }
+  }
  }
 };
 
