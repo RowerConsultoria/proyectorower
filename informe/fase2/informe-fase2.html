@@ -278,6 +278,23 @@
   details.f2-acerca .ac ol{margin:6px 0 0;padding-left:20px}
   details.f2-acerca .ac li{margin:5px 0}
 
+  /* ── versiones As-Is / To-Be de un proceso ── */
+  .f2-ver{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0 8px;max-width:760px}
+  .f2-ver a{
+    display:flex;flex-direction:column;gap:6px;padding:18px 18px 16px;border:1px solid var(--borde);
+    border-radius:var(--r-tarjeta);text-decoration:none;color:inherit;background:var(--panel-alto);
+    transition:border-color var(--rapido) var(--curva),transform var(--rapido) var(--curva);
+  }
+  .f2-ver a:hover{border-color:var(--cian);transform:translateY(-2px)}
+  .f2-ver .vk{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cian)}
+  .f2-ver .vt{font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .f2-ver .vd{font-size:12.5px;line-height:1.55;color:var(--tinta-media)}
+  .f2-ver .va{margin-top:6px;font-size:12px;font-weight:700;color:var(--tinta)}
+  .f2-vertog{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--borde);border-radius:var(--r-pildora);background:var(--panel-alto)}
+  .f2-vertog a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--tinta-media);padding:5px 12px;border-radius:var(--r-pildora);min-height:24px}
+  .f2-vertog a:hover{color:var(--tinta)}
+  .f2-vertog a.on{background:var(--cian);color:#fff}
+
   /* ── navegación anterior/siguiente ── */
   .f2-pasos{display:flex;justify-content:space-between;gap:12px;margin:24px 0 10px}
   .f2-pasos a{
@@ -482,6 +499,7 @@
 
 <script src="manual-procesos-datos.js"></script>
 <script src="manual-contenido.js"></script>
+<script src="manual-asis.js"></script>
 <script src="mapa-procesos-flujos.js"></script>
 <script src="flujo-render.js"></script>
 <script>
@@ -499,7 +517,11 @@
   function macro(pref){return D.macros.filter(function(m){return m.prefijo===String(pref);})[0];}
   var CONT = window.MANUAL_CONTENIDO || {};
   function contN0(pref, secId){var c=CONT[String(pref)]; return c && c.n0 && c.n0[secId]; }
-  function contN1(pref, cod, secId){var c=CONT[String(pref)]; var p=c && c.procesos && c.procesos[cod]; return p && p[secId]; }
+  function contN1(pref, cod, secId, fuente){var c=(fuente||CONT)[String(pref)]; var p=c && c.procesos && c.procesos[cod]; return p && p[secId]; }
+  // As-Is: cómo opera el proceso HOY (cargos actuales, sin mejoras). Vive aparte,
+  // en manual-asis.js; el contenido de manual-contenido.js es el To-Be.
+  var ASIS = window.MANUAL_ASIS || {};
+  function tieneAsis(cod){ var x=proc(cod); var c=x && ASIS[String(x.m.prefijo)]; return !!(c && c.procesos && c.procesos[cod]); }
   function hayContenido(c){ return c && c.estado && c.estado!=='pendiente'; }
 
   function tabla(cab, filas){
@@ -792,14 +814,51 @@
   }
 
   // ---------- vista: proceso ----------
-  function vistaProceso(cod, secId){
+  /** Pantalla de elección: el proceso tiene dos versiones y el lector escoge. */
+  function vistaElegir(cod){
     var x = proc(cod);
     if(!x) return vistaInicio();
-    var m = x.m, p = x.p, fx = p.mapa;
-    flujosMontar = [];
+    var m = x.m, p = x.p;
     var h = '<div class="f2-migas"><a href="#/">Manual</a><span class="sep">›</span><a href="#/m/'+esc(m.prefijo)+'">'+esc(m.n)+'</a><span class="sep">›</span><span>'+esc(p.n)+'</span></div>';
     h += '<div class="f2-cab"><span class="f2-num">'+esc(p.codigo)+'</span><div><h1 class="f2-h1" style="margin-bottom:4px">'+esc(p.n)+'</h1>'+
          '<div class="f2-meta"><a class="chip" href="#/m/'+esc(m.prefijo)+'">'+esc(m.prefijo)+'. '+esc(m.n)+'</a></div></div></div>';
+    h += '<p class="f2-lead">Este proceso está documentado en dos versiones. Elige cuál quieres ver.</p>';
+    h += '<div class="f2-ver">'+
+           '<a href="#/asis/'+esc(p.codigo)+'" id="verAsis"><span class="vk">As-Is</span><span class="vt">Cómo opera hoy</span>'+
+             '<span class="vd">El proceso tal como se ejecuta en la actualidad, según las entrevistas y la documentación de Lark. Cargos actuales, sin mejoras aplicadas.</span><span class="va">Ver As-Is →</span></a>'+
+           '<a href="#/tobe/'+esc(p.codigo)+'" id="verTobe"><span class="vk">To-Be</span><span class="vt">Cómo debería operar</span>'+
+             '<span class="vd">El manual propuesto: flujo, riesgos e indicadores con la estructura y los cargos del patrón V4.</span><span class="va">Ver To-Be →</span></a>'+
+         '</div>';
+    doc.innerHTML = h;
+    marcarNav('proceso', p.codigo);
+    document.title = p.codigo+' '+p.n+' — Fase 2';
+    main.scrollTop = 0;
+  }
+
+  function vistaProceso(cod, secId, version){
+    var x = proc(cod);
+    if(!x) return vistaInicio();
+    var m = x.m, p = x.p, fx = p.mapa;
+    var esAsis = version==='asis' && tieneAsis(cod);
+    var fuente = esAsis ? ASIS : CONT;
+    // En el As-Is no hay respaldo del mapa v18: su ficha habla con los cargos del
+    // To-Be. Todo lo que se pinta sale de manual-asis.js.
+    if(esAsis){ var ap = contN1(m.prefijo, p.codigo, 'proposito', ASIS); fx = {alcance: ap && ap.alcance}; }
+    flujosMontar = [];
+    var dos = tieneAsis(cod);
+    var h = '<div class="f2-migas"><a href="#/">Manual</a><span class="sep">›</span><a href="#/m/'+esc(m.prefijo)+'">'+esc(m.n)+'</a><span class="sep">›</span>'+
+            (dos ? '<a href="#/p/'+esc(p.codigo)+'">'+esc(p.n)+'</a><span class="sep">›</span><span>'+(esAsis?'As-Is':'To-Be')+'</span>' : '<span>'+esc(p.n)+'</span>')+'</div>';
+    h += '<div class="f2-cab"><span class="f2-num">'+esc(p.codigo)+'</span><div><h1 class="f2-h1" style="margin-bottom:4px">'+esc(p.n)+'</h1>'+
+         '<div class="f2-meta"><a class="chip" href="#/m/'+esc(m.prefijo)+'">'+esc(m.prefijo)+'. '+esc(m.n)+'</a>'+
+         (dos ? '<span class="f2-vertog" role="group" aria-label="Versión del proceso">'+
+                  '<a href="#/asis/'+esc(p.codigo)+'"'+(esAsis?' class="on" aria-current="page"':'')+'>As-Is · hoy</a>'+
+                  '<a href="#/tobe/'+esc(p.codigo)+'"'+(esAsis?'':' class="on" aria-current="page"')+'>To-Be · propuesto</a>'+
+                '</span>' : '')+
+         '</div></div></div>';
+    if(esAsis){
+      var nv = ASIS[String(m.prefijo)].procesos[p.codigo].nota_version;
+      if(nv) h += '<div class="f2-nota">'+esc(nv)+'</div>';
+    }
 
     h += riel(D.seccionesN1);
 
@@ -808,7 +867,7 @@
       h += '<h2><span class="f2-secnum">'+esc(p.codigo)+'.'+(i+1)+'</span>'+esc(s.n)+'</h2>';
       if(s.nota) h += '<div class="f2-secnota">'+esc(s.nota)+'</div>';
 
-      var cn1 = contN1(m.prefijo, p.codigo, s.id);
+      var cn1 = contN1(m.prefijo, p.codigo, s.id, fuente);
       // La ficha del mapa v18 es el respaldo, no la última palabra: cuando el manual
       // redactado trae el campo derivado de las entrevistas, ese manda. Sin override,
       // se sigue viendo la ficha tal cual (los procesos aún no rederivados no cambian).
@@ -831,7 +890,7 @@
           }
           h += fichaHtml(rows);
           if(propio) h += notaFuente(cn1);
-          h += bloqueValidacion(p.codigo);
+          if(!esAsis) h += bloqueValidacion(p.codigo);   // los gerentes validan el To-Be
         } else {
           h += fichaHtml([
             ['Disparador', esc(vDisp||'—')],
@@ -870,7 +929,7 @@
       if(el && window.FlujoRender) window.FlujoRender.montar(el, f.flujo, f.titulo);
     });
     marcarNav('proceso', p.codigo);
-    document.title = p.codigo+' '+p.n+' — Fase 2';
+    document.title = p.codigo+' '+p.n+(dos?(esAsis?' (As-Is)':' (To-Be)'):'')+' — Fase 2';
     activarSpy();
     irASeccion(secId);
   }
@@ -931,9 +990,10 @@
         flujosMontar.push({id: fid, flujo: c.diagrama, titulo: tituloProc});
       }
     } else if(id==='riesgos'){
-      if(c.filas) h += tabla(['Riesgo','Descripción','Probabilidad','Impacto','Mitigación propuesta'], c.filas);
+      // `cabecera` opcional: el As-Is no propone mitigaciones, registra el control que existe hoy.
+      if(c.filas) h += tabla(c.cabecera || ['Riesgo','Descripción','Probabilidad','Impacto','Mitigación propuesta'], c.filas);
     } else if(id==='indicadores'){
-      if(c.filas) h += tabla(['Indicador','Fórmula','Frecuencia','Dueño','Meta sugerida'], c.filas);
+      if(c.filas) h += tabla(c.cabecera || ['Indicador','Fórmula','Frecuencia','Dueño','Meta sugerida'], c.filas);
     }
     // proposito/dueno/disparador ya tienen su ficha del mapa como respaldo — un
     // vacío aquí no significa "pendiente", solo que no hay nada que añadir a la ficha.
@@ -1249,7 +1309,14 @@
     salirMapa();
     if(!parts.length) return vistaInicio();
     if(parts[0]==='m') return vistaMacro(parts[1], parts[2]);
-    if(parts[0]==='p') return vistaProceso(parts[1], parts[2]);
+    if(parts[0]==='p'){
+      // Con As-Is, entrar al proceso ofrece elegir versión. Un enlace con sección
+      // (#/p/6.3/flujo) es anterior a las dos versiones: sigue abriendo el To-Be.
+      if(!parts[2] && tieneAsis(parts[1])) return vistaElegir(parts[1]);
+      return vistaProceso(parts[1], parts[2]);
+    }
+    if(parts[0]==='asis') return vistaProceso(parts[1], parts[2], 'asis');
+    if(parts[0]==='tobe') return vistaProceso(parts[1], parts[2], 'tobe');
     vistaInicio();
   }
 
