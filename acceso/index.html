@@ -186,6 +186,10 @@
           <b>📘 Informe Diagnóstico — Fase 1</b>
           <span>El entregable maestro: 13 secciones, anexos y módulos interactivos.</span>
         </a>
+        <a class="ruta front tarjeta pulsable" id="rFase2" href="../informe/fase2/informe-fase2.html">
+          <b>📗 Manual de Procesos — Fase 2</b>
+          <span>20 macroprocesos y 182 procesos del grupo, con flujogramas y mapa interactivo.</span>
+        </a>
         <a class="ruta admin tarjeta pulsable" id="rAdmin" href="../admin/">
           <b>🔵 Panel administrativo</b>
           <span>Asistente IA, entrevistas, insumos y línea de tiempo.</span>
@@ -217,6 +221,7 @@ const PERMISO = (params.get('permiso') || '').replace(/[^\w.\-]/g, '');   // el 
 /* Los dos permisos que gobiernan los caminos del portal */
 const CAMINOS = [
   { id:'rInforme', permiso:'ver.informe',  ruta:'informe/fase1/informe-diagnostico-fase1.html' },
+  { id:'rFase2',   permiso:'ver.informe',  ruta:'informe/fase2/informe-fase2.html' },
   { id:'rAdmin',   permiso:'admin.entrar', ruta:'admin/' },
 ];
 const NOMBRE_PERMISO = {
@@ -236,6 +241,7 @@ function rotulo(d){
   if(d.indexOf('informe/fase1/organigrama') === 0)  return 'Organigrama de Kenex';
   if(d.indexOf('informe/fase1/arquitectura') === 0) return 'Arquitectura de IA (la torre)';
   if(d.indexOf('informe/fase1/mapa-procesos') === 0)return 'Mapa de procesos';
+  if(d.indexOf('informe/fase2') === 0)              return 'Manual de Procesos — Fase 2';
   if(d.indexOf('informe') === 0)                    return 'Informe Diagnóstico — Fase 1';
   if(d.indexOf('sistema') === 0)                    return 'Prototipo del sistema Kenex';
   return d;
