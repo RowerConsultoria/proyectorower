@@ -1,0 +1,322 @@
+S1: Positivo.
+S2: Así es, así es.
+S3: Eso espero.
+S2: Bueno, Vera, a ver, espero no quitarte mucho tiempo. Yo creo que estaremos en esta entrevista aproximadamente, yo calculo que unos 60 minutos, no más de eso.
+S3: De acuerdo.
+S2: Entonces, bueno, a ver, para quede. Para el registro me gustaría tu nombre y apellido completo y justamente en qué área de la organización es la que tú estás.
+S1: Yo soy Vera Gavizón y trabajo directamente con la junta directiva del grupo de Kenex, en plan toda la parte de datos, de informes. La verdad que mi cargo es un poco su générica porque estoy en contacto directo con Roberto y Bernardo y ellos son los que me van pidiendo. Tengo algunas cosas específicas que hago todos los meses o todas las semanas, dependiendo, pero es un poco lo que la disposición de ellos.
+S2: OK, está a la disposición de Roberto y de Bernardo.
+S3: OK.
+S1: Principalmente sí, pero bueno, a veces Andrés me llama a pedirme algo, pero básicamente Roberto y Bernardo.
+S3: OK, OK, chévere.
+S2: Vera, a ver, un poco para.
+S3: Entender.
+S2: Un poco el proceso, ¿No? Me gustaría que a grosso modo, sin entrar en mucho detalle, me muestres un poco cuál es el recorrido paso a paso que tú haces en lo que ellos te solicitan, pero sin entrar en tareas minuciosas, sino como paso a grandes rasgos.
+S1: OK, mira, una de las tareas principales que yo hago con Roberto es ayudarlo a definir la compra a Casio, OK. Entonces, para eso, todos los meses preparamos un archivo de compras que incluye la venta de todo el año, mes a mes, que incluye toda la mercancía que hay en stock, la mercancía que hay en tránsito, incluye la mercancía que Casio nos ofrece cada mes. Ellos nos envían un order sheet, o sea, una propuesta de los productos que tienen disponibles. Entonces todo eso va como todo un archivo para que él pueda tomar decisiones, OK. Qué es lo que nos interesa pedir en base al pasado de las ventas, en base a lo que nos ofrece, en base al stock, en base a lo que ya viene. Y ahora mismo nos estamos ayudando con un modelo que nos preparó Alexis, donde también nos hace una sugerencia de compra que no es un 100% viable, obviamente, porque no es un 100%. Está la expertise de Roberto en este caso, que termina de tomar las decisiones, pero nos está empezando a ayudar eso. ¿Entonces, eso es un archivo que se mantiene durante todo el mes, OK? Para todas las compras acá, calculadoras, relojes, todo, OK. Se va manteniendo todo el mes porque va cambiando el stock, cada tres, cuatro días se vuelve a analizar cuál es el stock. También en ese mismo archivo se pone todo lo que habría que promocionar porque hay exceso de stock, o todo lo que hay que liquidar porque está completamente paradísimo, ya no se está tomando, entonces toda esa información se la voy yo poniendo Roberto y él es el que toma las decisiones. Realmente en ese mismo archivo yo manejo unos diez, doce clientes especiales que no los maneja más nadie, que son clientes que están fuera de nuestra zona de mercado, de nuestro mercado oficial, con clientes importantes que al final representan por lo menos un 10% de la venta total de Ken.
+S2: OK, grandecito, o sea que son clientes que manejas tú directamente. Vera Esos clientes los manejas tú directamente.
+S3: OK.
+S1: Soy la única persona que contacta con ellos me mandan sus pedidos, yo les mando ofertas de nuestro stock, me van pidiendo cuál es el stock que tiene, me van mandando pedidos y todos esos pedidos también se ponen en ese archivo, una gran sábana que Roberto ve todos los días y yo le pongo lo que pide el cliente, pero Roberto decide que le damos al cliente, pasa nuestro stock, porque pensando que no es un cliente de nuestra zona natural, no podemos tampoco quedarnos sin mercancía para nuestros clientes de nuestra zona natural.
+S3: OK, OK.
+S1: Pero como representa un porcentaje importante, nos conviene manejarlos.
+S3: Entiendo.
+S1: Algunos de esos clientes también hacen prepedidos, o sea, al mismo tiempo que Casio nos manda su propuesta de qué modelos tiene disponibles para este mes, nosotros se los mandamos a los clientes, algunos dos, tres, cuatro clientes de estos que te digo, especiales, y ellos nos hacen órdenes por anticipado.
+S3: OK.
+S1: También entonces tenemos que hacerle la factura por anticipado, confirmar por anticipado, ellos pagan por anticipado, la mercancía les llega cuarenta y cinco, sesenta días después. Entonces como una preventa que nosotros tenemos.
+S2: Ese archivo que tú dices que le mandas a Roberto. Vera A ver, esa data de ese archivo entiendo que la recibes de Alexis, ¿Cierto? Explícame un poco cómo lo recibes.
+S1: Odoo me saca a mí un reporte que se llama macro.
+S3: OK.
+S1: Es un reporte donde sale el stock que hay, los precios, diferentes rangos, diferentes tipos de precios, de mayor, de tal, muchos precios de todas las referencias, absolutamente todas las referencias que manejamos a partir de una macro. Esa macro yo la puedo sacar todos los días si me da la gana. Cuando Roberto me dice, OK, ya tenemos que preparar el archivo de compras de este mes. Por ejemplo, ahorita acá, ahorita como el día 20 preparamos el archivo antes, como el día 18 preparamos el archivo de compras del siguiente mes.
+S3: OK.
+S1: OK. Entonces, pues ese día yo saco una macro nueva para tener un stock completamente actualizado y de agrego a ese mismo archivo las ventas de todos los meses, los pedidos que puedan haber, etcétera. Se va construyendo a partir de una macro de un día 18 aproximadamente del mes. Y se va entonces a ese archivo es que se le va actualizando cosas, se le van agregando cosas. Por ejemplo, la data de Alexis.
+S3: OK.
+S1: Alexis tiene ese módulo. ¿Yo entro al módulo, no? De Odoo, saco mi reporte.
+S2: Entras al módulo de Odoo de Alexis.
+S1: No es de Odoo, es un módulo de Power BI de Alexis.
+S2: Power BI.
+S3: OK.
+S1: Es un módulo que está online, que yo tengo acceso, poca gente tiene acceso, yo tengo acceso completo. Saco los reportes que me interesan y les voy apagando columnas a ese archivo para que él vaya teniendo toda la información que va requiriendo en el momento. Porque no siempre quiere ver lo que hay que comprar, a veces quiere ver lo que hay que liquidar, a veces quiere ver qué pedido llegaron. A lo largo de todo el mes se va trabajando ese archivo. Llega otra vez el 15-18 del mes, empezamos de cero con un archivo nuevo, otra vez agregamos todas las ventas, otra vez vamos a ver qué ya pedimos, que nos ha llegado. Acuérdate que cuando nosotros hacemos un pedido, Acacio nos tarda entre 45 y 60 días en llegar. Entonces hay dos pedidos en tránsito, uno que está casi llegando y uno que apenas va saliendo.
+S3: OK. OK.
+S1: Entonces cuando él va a tomar la decisión de que comprar, tiene que saber no solamente lo que hay en stock en este momento, sino lo que nos va a llegar ahora mismo y lo que nos va a llegar dentro de 45 días.
+S3: OK.
+S1: Para tener idea bien de la necesidad que tenemos de hacer pedidos.
+S3: OK. OK.
+S2: Y en construir ese archivo, ver cuánto te tardas aproximadamente, es decir, en hacer ese archivo y construir eso para entregárselo a Roberto, ¿Cuánto te demora hacer eso?
+S1: OK. El construir el archivo la primera vez, porque acuérdate que es un archivo que se va construyendo casi que todos los días vamos agregando cosas. Pero empezar el archivo desde la macro inicial que yo saco de Odoo y digo que voy a hacer archivo me puede tardar un par de horas.
+S3: OK, OK.
+S2: Y construir, agregar esas cosas diariamente.
+S1: No suelen tardar mucho.
+S3: OK, OK, entiendo.
+S2: Además de esa fuente que tocas de Alexis, ¿Hay alguna otra información que sea para ti relevante para construir ese archivo? ¿De dónde la sacas? Porque además de nosotros nos comentó Roberto que Jimena está entrando dentro del proceso, que Jimena está en Caracas, ¿Cierto?
+S1: Yo no tengo ningún contacto con Jimena ni sé cómo está entrando en el proceso. Yo creo que Jimena está entrando más en las necesidades que tiene Rower para poder pedirle y entonces en base a esas necesidades Roberto puede tomar esa información para pedir más mercancía o menos mercancía Casio. Pero no creo que Jimena esté tomando esa información para el pedido, o sea para hacer el pedido a Casio, sino mandando la información a Roberto de las necesidades de Robert en Venezuela. Y en base a eso, porque yo creo que hasta ahora quizá Roberto no se estaba fijando mucho en cuáles eran las necesidades de Venezuela.
+S2: OK, o sea que entiendo que tú entonces apoyas a Roberto en las necesidades de Casio que no son de Venezuela sino de los otros países. A ver, entonces en global, OK, o sea que tú apoyas a Roberto en la compra de Casio que se distribuye a nivel global,.
+S1: En la compra de caso que se compra para distribuir a nuestras tiendas, a los clientes,.
+S2: Hablamos Panamá, Venezuela, Costa Rica, Colombia, todos. OK, Y en el caso de Jimena, ¿Crees que tiene que ver solo con Venezuela?
+S1: Yo creo que sí.
+S2: ¿Y no estás segura?
+S1: No estoy segura y no tengo ningún contacto con ella. Creo que si estuviera haciendo algo de la compra global estaríamos en contacto, no sería absurdo.
+S2: OK, a ver, ¿Y qué parte de este proceso, a ver, de este proceso de compras tú dirías que es criterio de alguna manera por indicadores, que sea una cosa replicable? ¿Y qué parte crees tú que es como el ojo por ciento de lo que Roberto cree que debería ser?
+S1: Bueno, creo que con el módulo que hizo Alexis no estamos. Mira, hace. Yo creo que hace un año y medio, hace un año yo creo que paramos, teníamos a una persona armando que él nos preparaba un reporte a través de Business Intelligence también para saber qué mercancía era la buena, mala, que había que liquidar, la que había que comprar. A mí personalmente me gustaba, pero al final Roberto dijo no, esto no me sirve, me está dando, no me está quitando trabajo, sigo haciendo yo todo muy manual y lo quitó porque creo que además le parecía costoso. Lo quitó y estuvimos varios meses sin nada. Al si yo vendí esto durante cuatro meses tanto, yo creo que voy a seguir vendiendo. Ojo, tiene buen criterio.
+S2: No, no, seguro. Porque tiene mucha experiencia, muchos años.
+S3: Claro.
+S1: Es un buen comprador. OK. Pero son tantas referencias que te puedes equivocar muy fácil.
+S3: Obvio.
+S1: Tiene mucha menos referencias, casi tiene miles de referencias.
+S3: Claro, claro.
+S1: Entonces es muy fácil equivocarse o no comprar o comprar de más.
+S2: Y ha pasado eso, Verá, que se equivocan, que compran de más, que eso ha pasado.
+S1: También es verdad que nosotros hacemos un pedido a Casio y Casio nos entrega el pedido completo.
+S2: Eso comentó Roberto.
+S3: Sí,.
+S1: Los últimos meses ha sido desastroso.
+S2: ¿A qué te refieres con desastroso? ¿A qué te refieres con desastroso?
+S1: Que la location que nos ha dado ha sido un 20 25 lo que le hemos pedido.
+S2: Imagínate, imagínate.
+S3: Wow.
+S1: Y hay alguna referencia que son claves que tenemos clientes que quieren y quieren y no.
+S3: OK, OK.
+S1: Entonces, claro, una cosa es lo que nos sugiere el módulo de Alexis, por ejemplo pedir, otra cosa es lo que pedimos y otra cosa es lo que.
+S2: Nos da Claro, claro. me gustaría como entender, Vera, en ese proceso y sin entrar al detalle nuevamente, qué cosas crees tú que pudieran ser como automatizables y qué cosas realmente tú dices requieren del criterio humano Realmente, o sea, un poco como para diferenciar que del proceso donde tú intervienes tú crees que pudiera automatizarse y qué cosas tú dirías oye, no, esto requiere de criterio humano.
+S1: La compra, que es una de las cosas que más le toma a Roberto tiempo, se supone que se está automatizando.
+S2: Con este módulo, con este módulo de.
+S1: Power BI siempre va a haber, siempre lo tiene que realizar, eso sin duda, porque hay muchas excepciones. Entonces siempre él va a tener, pero a lo mejor en vez dedicarle tres días a la compra, con dedicarle dos o tres horas máximo.
+S3: Entiendo.
+S1: Tiene. Entonces esto de el módulo de Lexis, yo pienso que ha sido muy importante para automatizar la compra.
+S3: OK, OK.
+S1: Luego el resto no, El resto, por ejemplo, cuando estos diez, doce clientes que yo manejo me mandan pedidos, yo les mando primero el stock, ellos me mandan pedido yo los meto en ese archivo y él tiene que decidir qué es lo que quiere darles.
+S2: Lo decide Roberto.
+S1: No es que si le damos. OK. Si un cliente me dice, porque podría pasar en algunos clientes quizás locales o algunos clientes de cualquier empresa, si hay, le damos. Entonces sería automático, se mete el pedido, nodo, lo que hay, chao, se factura y ya está. Pero aquí no. En estos clientes especiales, él cuida mucho qué le da y cuánto le da. Por ejemplo, hay algunos relojes de la línea exclusiva que tienen cereal.
+S3: OK.
+S1: Entonces él muchas veces no le interesa a determinados clientes despacharle relojes con un serial.
+S3: OK.
+S1: Entonces dice, él es el que lo sabe. Yo no tengo ni idea si tiene serial o no. Él sabe. Hay una columna dentro de esta macro que dice si tiene serial o no y no está actualizada.
+S3: OK. OK.
+S2: ¿Y él lo sabe de memoria? ¿De que se sabe tanto los modelos que se lo sabe?
+S1: No, muchas veces no lo sabe, pero asume que es un reloj muy particular y dice, este no me conviene. No, imposible saber esto de memoria. Una de las cosas que yo le he pedido a la bodega, porque para actualizar esa columna hay que mirar referencia por referencia.
+S3: OK.
+S1: Y entiendo que eso toma mucho tiempo. Entonces esa lista no está nada actualizada,.
+S2: O sea que eso sería algo que tendría que estar como en bodega, como en la gente que tiene todo en stock, no tendría que estar en inventario.
+S1: no tiene serial. Marcarlo.
+S3: OK.
+S1: Yo entiendo. Yo a veces le digo a Alejandra, necesitamos actualizar. No sé, señora Vera, cuando yo entiendo que eso es un trabajo minucioso. No hay tiempo para eso. Muy minucioso, sí.
+S3: OK, OK.
+S2: Y no hay tiempo para hacer eso.
+S3: Entiendo.
+S1: Entonces elegir qué le va a dar a cada cliente y cuánto es un trabajo totalmente que no se puede automatizar.
+S3: OK. OK.
+S2: A vera, y algo de este proceso en el que tú estás, ¿Dirías tú que existe algo escrito, algo levantado o es un proceso que sencillamente tú sigues porque tienes muchos años haciéndolo, intuitivamente has ido llevándolo? ¿Cómo esto? Cuéntame un poco.
+S1: La verdad que no hay nada levantado.
+S3: OK.
+S1: Absolutamente nada. Cuando yo llegué a la empresa, llevo trabajando con ellos mucho tiempo, trabajando en otra de las empresas, y cuando empecé a trabajar en Kenex, que fue en el 2019, había una muchacha que se iba y me explicó más o menos dos o tres cosas en dos o tres días y a partir de se siguió eso y se fue quizás modificando con el tiempo, pero no hay nada levantado.
+S2: OK, o sea que es algo que sencillamente tú has ido construyendo junto con Roberto de bueno, me gusta aquí, haz esto así, de esta forma. Lo han ido haciendo los dos juntos, Vera, un poco para entender cuáles son como los cuellos de botella o los puntos de dolor de este proceso. ¿A qué me refiero con esto? ¿Cuáles son las cosas donde es posible que tú hayas podido detectar mayores fallas o un cuello de botella que de alguna manera cuesta como salir de allí, quizás identificar los puntos de dolor de todo ese proceso que tú sigues?
+S1: Mira, es un proceso relativamente fácil, ya sale bastante automático, bastante rápido. El tema de las calculadoras a veces, por ejemplo, nosotros tenemos el nombre del modelo y está el nombre del modelo que da la fábrica.
+S3: OK.
+S1: No es el mismo, cambia en algunas letras al final.
+S3: OK.
+S1: Entonces eso a veces tardo en identificar, ver lo que me ofrece Casio y buscarlo a lo que es nuestro modelo.
+S3: Entiendo. OK. OK.
+S1: Ya me hecho experta en eso, pero eso tarda un poquito.
+S3: Entiendo.
+S2: Y cometes errores eventualmente, me imagino que porque es una cosa muy del ojo, ¿No? De ver esas siglas y entender la diferencia.
+S1: Posiblemente se pueda cometer algún error, pero los que no me salen automático porque tengo como. Tengo como una chuleta.
+S3: OK.
+S1: OK. Pero si hay cosas nuevas, eso yo no sé cuál es el criterio que usan cuando crean los códigos, porque los cambian.
+S2: Y esa chuleta que tú dices que tienes, cuéntame qué eso. Es un documento, es un Excel.
+S3: OK. OK. OK.
+S2: Donde tú comparas entonces lo que te mandan con lo que tú tienes y así estás viendo.
+S3: OK. Entiendo.
+S2: ¿Qué herramientas usas, Vera, además de un Excel? ¿Porque entiendo que lo que recibe Roberto es un Excel, cierto? Sí.
+S3: OK.
+S2: Además de DC, ¿Qué otras herramientas? ¿Me dices que sacas un archivo de Odoo, me dices que de Alexis sacas algo de Power BI, pero además de eso, hay alguna otra herramienta que uses en tu proceso.
+S1: Para ese trabajo?
+S3: No.
+S2: Lark, por ejemplo.
+S1: Lar utilizo, la verdad que para chatear con alguno que no chateo por WhatsApp, te digo la verdad.
+S3: OK.
+S1: Solamente la utilizo para reuniones si tengo que pedir algo. Sistemas.
+S3: OK.
+S1: No, no. Por ejemplo, sé que las compras que hacen de Qubit, que yo no me ocupo de esas compras, pero me gustaría conocerlas porque toda la información que nos da el módulo de Alexis no solamente es para la compra de Casio, es también para la compra de Cubic. La compra Q, la de Q sí la manejo con Roberto Sa.
+S3: OK.
+S1: La de Covid la maneja Alejandro en Miami. Sí, yo no tengo ni idea de lo que compra o lo que deja de comprar, pero nos hemos dado cuenta de que la compra de Covid no está del todo bien.
+S2: ¿A qué te refieres? A ver, cuéntame un poco con eso de que, ¿Cómo eso que no.
+S3: Está del todo bien?
+S1: Faltan muchas cosas, sobran muchas cosas.
+S3: OK, OK.
+S1: Nos hemos dado cuenta a través del módulo de Alexis porque tenemos todo esto aquí, ¿Hay años de stock o por qué esto no hay? Si, se vende, se vende. Entonces estamos tratando, estoy empezando a pasar la información también Alejandro, de lo que dice el módulo de Qubit, el módulo de Alexis y decirle Alex, esto es lo que deberíamos de pedir. No sé lo que tú ya tienes pedido porque no lo sé.
+S3: OK.
+S1: Hay unos archivos en Larca que no los entiendo, no están actualizados me parece, pero en base a lo que tú ya tienes pedido, revisa que esto ya esté pedido.
+S2: Entiendo, o sea, entiendo ver, entonces quiere decir que tú básicamente estás con Roberto en la compra de Casio, en la compra de Qubit, Caso y Cuicú, pero Qubit sí es algo que maneja solamente Alejandro,.
+S1: O sea, maneja al final es solamente Alejandro. Lo que pasa es que yo creo que con Ricardo Baltodano se sienta, no sé si me imagino que estará con Roberto, pero necesitan tener información y es la información que yo les estoy empezando a pasar. Este módulo de Alexis es muy nuevo, tiene un poquito par de meses nada más.
+S2: OK. Es muy reciente.
+S1: Es muy reciente. Se le ha pedido a Alejandro que se reúna con Alexis porque este módulo requiere unos parámetros, o sea, requiere saber cuánto tarda la mercancía en tránsito desde que se pide hasta que llega, cuánto es el pedido mínimo de cada producto. Y los de Casio los tenemos perfectamente conocidos, pero los de Cubista Alexis no lo sabe. Entonces se supone que se tiene que reunir Alexis y Alejandro para definir esos criterios y que entonces la información que saque el modelo esté bien, porque de nada me sirve a mí que el modelo me diga pide 100 relojes de cubi cuando el pedido mínimo es 5000.
+S3: Entiendo, entiendo. OK, OK.
+S1: Entonces ellos reunirse, no sé si se han reunido, pero digamos que estamos justo ahora en un momento donde están, donde Alejandro está empezando a decir, OK, si me quiero involucrar con esto, si quiero ver el modelo este, a ver si no funciona. Entonces yo le estoy mandando esa información. Ellos tienen que terminar de cuadrar para definir bien los criterios.
+S3: Entiendo.
+S2: Ahora, en este intercambio o esta interfaz que tienes con Alexis, ¿No? ¿Tú entras al módulo de él o es él el que te manda a ti la información?
+S1: Yo entro directamente.
+S2: Entras tú directamente.
+S3: OK.
+S2: Y tú, esa interfaz, ese módulo que tú tienes de Alexis, ¿Qué le haces? ¿En qué formato recibes eso? ¿Dónde estarían como las fricciones entre lo que tú haces y lo que Alexis te manda?
+S1: No, lo que, o sea, a ver, como te digo, el módulo es bastante nuevo, entonces hasta ahora hemos ido puliendo también el módulo. OK, le digo, no, Alexis, me está saliendo. ¿Estás tomando en cuenta la fecha de última llegada del reloj? Yo quiero que tomes en cuenta la fecha de creación del reloj, por decirte, voy a cambiarlo. Alexis, ¿Estás tomando los productos que están descontinuados? No, quiero que tomes en cuenta los productos. Hemos hecho muchas modificaciones, supuestamente esta última versión debería estar bien. Entonces yo simplemente meto y le pido reportes al. Le pido reportes que los pasa por Excel.
+S3: Por Excel.
+S1: Quiero saber que voy a comprar de hubi. Quiero saber que voy a. Quiero saber que voy a las calculadoras. Me interesa ahora la compra de calculadora en particular me interesa. Voy sacando los reportes, o sea, interactúo con el módulo simplemente pidiendo los reportes que me interesan de gestión del inventario, de reposición del inventario.
+S3: OK, OK.
+S2: Entiendo que entonces tú.
+S1: Estoy ayudando a Alexis a sacar un nuevo módulo que él quiere. Justo ayer estábamos hablando de eso, que él quiere como. Que los stocks de las tiendas y la venta de las tiendas propias influyan también. Porque ¿Qué pasa si nosotros le vendemos a una tienda nuestra 500 relojes, pero la tienda vende 5? Es mentira que es un buen producto.
+S3: Obvio.
+S1: ¿OK, pero para quienes fue un buen producto? Vendió 500. Claro, entonces Kenneth puede pensar, vamos a volver a comprar porque esto lo vendimos.
+S2: Bien, pero a la tienda se le quedan. Se le quedan los relojes adentro. Entiendo.
+S1: Ajá, o sea el público, el consumidor final, en realidad es el mejor.
+S2: Indicador.
+S1: Indicador. El mejor indicador de si el producto es bueno o malo. Porque yo le puedo vender a un distribuidor en Guatemala también mil piezas de algo, pero si el distribuidor después no las vende, eso no le sirve.
+S3: Entiendo, entiendo.
+S2: Para Kenex pudo ser, pero.
+S1: A través de lo que venda las tiendas, lo que le vendamos, el stock que tengamos, como interrelacionar no solamente lo que vende Kenneth como distribuidor oficial, sino también lo que vende tomar las decisiones también con respecto a lo que venden las tiendas para ver si es un producto bueno. Esto si está en pañales, se está empezando a desarrollar.
+S3: OK, OK.
+S2: ¿Tú crees que dirías tú que el trabajo que Alexis hace y haces tú, es un trabajo que se complementa en alguna parte? ¿Tú sientes que hay como un solapamiento? ¿Cómo lo ves?
+S1: No, no hay solapamiento. Yo para nada. Él es el que hace todo eso, yo simplemente le doy la información, o sea, él saca la información de Odoo, pero hay información de pre Odoo, por ejemplo, que él no tiene, entonces yo se la doy, o vamos analizando esto porque sí, esto por qué no, Pero en verdad él no hizo lavamiento para.
+S2: Hay complemento. Lo que hay es complemento entre ustedes. Sí, y me dijiste que de Jimena no tienes mucho conocimiento.
+S3: Como.
+S2: OK, OK, a ver, un poco para. Ya es algo que te lo había preguntado, pero un poco para entender, bueno, ¿Dónde están los errores? Dónde está como que lo que te hace. ¿Tú dirías que, oye, perdiste tiempo aquí donde tú sientes, Vera, que tú inviertes la mayor parte de tu tiempo, ¿Hay algo que tú sientas que a lo mejor te consume mucho tiempo y pudiese ser más sencillo?
+S1: No. En este trabajo del archivo de compras hay otro trabajo que yo hago todos los meses, que son los reportes que le pasamos a Casio de lo que Kenex y los demás países, los demás países de nuestra zona, Guatemala, Costa Rica, Honduras, El Salvador, Ecuador, los ocho países le vendemos a ellos. OK, o sea, es lo que llaman el PCI de relojes, el PCI de calculadores, el PCI de teclados.
+S3: OK, OK.
+S1: Entonces aquí hay un tema. Eso podría sacarse directamente desde Odoo. OK. Formatearlo y ya está, Pero no, ¿Verdad?
+S2: ¿Cuéntame, cuéntame cómo es?
+S1: Pero no hay mucha. ¿Cuál sería la palabra? Hay muchos ajustes que hay que hacer de cara a Casio.
+S3: OK.
+S2: Cuéntame un poco.
+S1: Nosotros compramos mercancía a Casio para Kenex y para Robert.
+S3: OK.
+S1: Roberto hace el pedido a Casio, toma. Este es el pedido de Kenneth, este es el pedido de Robert, pero toda la mercancía llega a Panamá, a Zona Libre.
+S3: OK.
+S1: Y en verdad toda esa mercancía no se va a robar.
+S3: OK.
+S1: Esa mercancía se va a donde nos dé la gana.
+S2: Entiendo.
+S3: OK, OK.
+S1: A Costa Rica si hace falta más El Salvador, Honduras.
+S3: OK, OK.
+S1: Entonces, si yo compré mil relojes por Chemex y mil por Rower, Kenex no puede vender más de mil.
+S3: OK, OK. Entiendo, entiendo.
+S1: Aunque le hayamos vendido Costa Rica 1500.
+S3: Entiendo. OK, OK.
+S1: Entonces todo eso se hace muy manual eso.
+S2: Claro, eso requiere que tú. Entiendo, que tú ajustes muy bien eso.
+S1: Me tome a mí los primeros 10 días del mes por lo menos.
+S3: OK, OK.
+S2: Enviarle ese reporte y ese reporte se le manda a Casio.
+S3: OK.
+S1: seguramente, si hay errores. Ni ellos pueden saberlo, o sea, ¿Que te quiero decir? Está.
+S2: Solapado.
+S1: Eso es un rompecabezas de 5.000 piezas todos los meses.
+S3: OK, OK.
+S2: Y esa información, para enviar ese reporte, Vera, cuéntame cómo la construcción, ¿De dónde sacas todos esos datos?
+S1: Yo saco de Odu.
+S3: De Odo. OK.
+S2: Y vas armando ese rompecabezas a partir.
+S3: De Odu.
+S1: Saco los reportes y sí.
+S3: OK.
+S1: Eso es un tema. Y eso Roby lo sabe, Bernardo lo sabe, todos lo saben. Ese era un trabajo cuando yo llegué, lo hacía Alejandro, que vivía en Panamá. Y cuando yo empecé a ver lo que hacía ¿Qué estás haciendo manualmente, así los números? Y me dice Vera, es total. Me esto te lo voy a pasar a ti. Y se ha ido complicando conforme pasaba el tiempo porque.
+S2: Claro, porque además entiendo que. Claro, entonces además entiendo que es que Kenex no puede vender más de mil, el otro no puede vender más de mil. Entonces de alguna manera tú vas ajustando esos números para que dé el número exacto. Eso es lo que vas haciendo.
+S3: OK, OK.
+S2: Y claro, sí es un rompecabezas que vas armando todos los meses. Entiendo, Vera. Y cuéntame algo, ¿Tú eres la única persona que maneja eso o además de ti hay alguien más que lo haga?
+S1: Te lo juro que a veces me asusto y yo digo, Dios mío, o sea, no sé lo que va a pasar.
+S2: Sí, claro, entiendo, entiendo. Pero eso es algo que solo tú sabes cómo haces y más nadie maneja ese proceso.
+S1: Entiendo. OK, eso no lo saben ni ellos y a veces se los trato de explicar.
+S2: Sí, o sea que tú dirías que.
+S1: A veces queremos demostrar que le hemos.
+S2: Vendido full a Costa Rica y no tienes cómo hacerlo. No tienes cómo demostrar.
+S1: Estoy quitando venta Costa Rica.
+S3: Claro, claro,.
+S2: Pero para entender es un tema de política de Casio, o sea, a qué obedece que esto tenga que ser, Porque lo veo como una pequeña camisa de fuerza, No sé, la imagen que me llega, verá, es como una camisa de fuerza. ¿A qué se debe que esto tenga que ser así?
+S1: Bueno, porque ellos quieren que. Quieren que la mercancía de Venezuela se venda en Venezuela, que seamos los distribuidores de Venezuela en Venezuela. OK, OK, entonces, y además, peor aún, antes, hasta hace poco nos daba un descuento especial para Venezuela, el cual nos aprovechábamos, Ya no, ahora el precio es el mismo. Mentira. En calculadores el de Venezuela es un poquito mejor. OK, OK, Entonces a veces decimos OK, pedimos aunque Venezuela no venda todo pedimos por Venezuela y solo quedamos y tenemos un pequeñito margen . En relojes ya no, en relojes el precio ya es el mismo, pero ellos quieren que el mercado de Venezuela sea el mercado de Venezuela, sobre todo con la línea exclusiva de relojes.
+S2: OK, o sea que ellos no pueden saber que ustedes a lo mejor esos relojes los venden a Costa Rica, a Honduras, a El Salvador.
+S1: Roberto Dicen que la línea regular de relojes, que es como la línea barata, tiene menos problemas. Si nos dicen algo podríamos decir, sí, bueno, esto no lo quedamos tal, ahora que el precio es el mismo, pero la línea exclusiva, por ejemplo, tengo muchísimo cuidado de que si yo compré 5, vendo 5. Me da igual que le tenga que quitar venta a Guatemala o venta a El Salvador.
+S3: OK, OK, entiendo.
+S1: Entonces eso es muy manual. Sí, sí, eso obviamente puede tener errores porque es muy rompecabezas y tengo que estar también pendiente de que al final los números de los países, de estos 8 o 9 países que representamos sean buenos. ¿Entiendo, porque también ellos tienen dos convenciones al año con caso y analizan pero por qué no estás vendiendo en Guatemala? Si. ¿Por qué se te cayó la venta? Hay que estar pendiente de que el FORCAS que se dio en la convención para los países se cumpla más o menos coherente.
+S3: Entiendo, entiendo eso es muy manual. Sí.
+S2: Y tú dispones de la información que necesitas para hacer eso de manera puntual en el momento que la necesidad es oportuna. Si eso no tienes ningún problema.
+S1: Yo en verdad no tengo que pedirle nada a nadie.
+S2: Tú te metes en Odoo y sacas lo que necesitas.
+S3: OK. ¿OK,.
+S2: Ahora hablemos un poquito quizás de tu propio rol en términos de, bueno, cómo sientes que, o sea, tú sientes que tú pudieras asumir más cosas Vera, o sientes que estás a tope, qué necesitarías tú pensando que a lo mejor tu rol cómo lo defines? Yo creo que tiene que ver con un rol de compras, pero ¿Cómo definirías tú tu rol desde el punto de vista de talento?
+S1: Yo también a fin de mes yo también les saco a ellos reportes para la junta directiva de Venezuela, reportes del mes de Venezuela, reportes del mes de Panamá. Utilizo, sí utilizo inteligencia artificial para sacarlos porque saco los reportes por Power BI. OK. Hago los reportes, yo los hago con Power BI y luego el informe. Sí pido con inteligencia artificial, chatGPT o cloud que me ayuden a hacer el informe un poco comparativo y también les presento a ellos todos los informes de las ventas de Guatemala, Costa Rica y Guatemala, Costa Rica y Colombia.
+S3: OK, OK.
+S1: Entonces ¿Cuál es mi rol? Es muy, o sea, a mí no me digas tú eres encargada de.
+S2: Reportas venta. No, no solamente eso.
+S1: Sí, no solo.
+S3: Exactamente.
+S1: Entonces por eso muchas veces me llama Bernardo o necesitamos o ro necesito, uicu, me está pidiendo que le mande un reporte de las últimas, no sé qué tal. OK, yo te lo hago en un momento. OK, o sea van pidiendo cosas. Yo a Bernardo también le mando dos veces al mes como una fotografía de Venezuela. Mira, en el año llevas comprado tanto en el año, llevas pagado tanto en el año, o sea tienes un inventario, empezaste con este inventario, acabaste con este inventario dos veces al mes y él va viendo esa fotografía.
+S2: OK, o sea que tus clientes directos de lo que tú haces es Roberto por una parte, Bernardo por otro y la junta directiva son como tus clientes directos.
+S1: Sí.
+S2: ¿OK, A alguien más le entregas tu información, ver además de Roberto, Bernardo y la junta directiva?
+S1: No entregar información. No trabajo mucho con la bodega. OK. Porque todos los pedidos que me llegan a mí, tanto pre pedidos como pedidos de stock, yo soy la que los pase una vez que Roberto los aprueba, yo soy la que lo mete en Odoo para que la bodega los prepare, yo soy la que doy la orden de que me lo facturen y yo soy la que le manda al cliente la factura y me ocupo de que el cliente me lo haya pagado y le mando contabilidad. Mira, este cliente ya pagó este documento de pago.
+S2: Pensando en cosas que pudieras necesitar, Vera, o sea, ¿Qué te gustaría a ti si tú pudieras hacer como, no sé, tuvieses una lamparita mágica que te diera a ti como facilidad para hacer tus cosas, qué te gustaría pedir? Aunque sea muy loco, no importa, o sea, ¿Qué te gustaría a ti que te facilitara tu trabajo?
+S1: La verdad que salgo la computadora que estoy a punto decirle a Roberto que me la cambie, Tengo las herramientas, ellos me pagan cloud, me pagan la licencia de Power BI, ni siquiera profesional como la Premium.
+S3: OK,.
+S1: Trabajo con un horario completamente flexible, pero puede ser que trabaje hasta la una de la mañana.
+S2: Claro, además la diferencia horario.
+S1: Hace que por las mañanas muchas veces hago cosas que no necesito ni hablar con la bodega, ni hablar con Roberto, ni hablar con nadie, pero cuando ellos arrancan ya entonces empieza como la comunicación, pero a lo mejor hay días de que no tengo nada que hacer en la mañana y hago mis cosas o hay días que a las 10 de la noche si no me pudiera acostar, o sea, sí, si tengo tiempo como para hacer más cosas, sí puedo tener algo de tiempo, o sea, yo no estoy colapsada, puede haber días de colapso. OK, esos primeros 10 días del mes, luego hay una semana cuando ya llegan los orders de Casio que toman tiempo porque hay que mandarle a cada cliente de estos especiales su order sheet con sus precios, cada cliente tiene un precio especial, pero luego siempre hay una semana en el mes como así en la mitad que tú dices, bueno, estoy tranquila,.
+S2: O sea que son momentos que van fluctuando en el mes.
+S3: OK, OK.
+S2: ¿Hay algo bueno además de este reporte que mencionas que hay que mandarle acá, que entiendo que es todos los meses, ¿Verdad? El reporte que le mandas a Casio.
+S1: Es todos los meses y luego, o sea, hay más gente que me pide reporte, por ejemplo, Marketing me pide report de que se vendió en las tiendas, que se vendió por Internet, otra chica que creo que también es de marketing pero para otro departamento, me pide otro reporte, o sea mando mucho reporte a gente que me pide.
+S2: ¿OK, quién te pide, además de marketing, quién más te pide? ¿Vera?
+S1: Clara.
+S2: Clara. ¿Clara es de qué área? ¿Clara qué?
+S3: Ya,.
+S1: Espérate un minuto. Para ver. Catherine se llama una. Caitlyn. Caitlyn garcía.
+S2: ¿Ok, que está dónde en venezuela?
+S1: En marketing.
+S2: En marketing. ¿Ok, quién más?
+S1: En panamá.
+S3: Ok,.
+S1: Ya va, Es que yo las confundo, la otra es Clara creo. Sí. Y Clara Arosemena.
+S2: ¿Clara, perdón, me repites el apellido?
+S1: Me piden reportes de venta.
+S2: ¿Clara qué?
+S1: Arosemena.
+S2: Arosemena. ¿OK, ellos te piden reportes de venta?
+S1: Ellos me piden reportes. Reportes de ventas de Casio y Cubi. OK, De las tiendas.
+S3: OK.
+S1: ¿De las tiendas propias nuestras? De nuestras tiendas propias en Venezuela y en Panamá todos los meses.
+S3: OK.
+S2: OK, o sea que tú si das reportes de ventas de Qubit.
+S1: Sí.
+S3: OK.
+S1: No, y en los reportes mensuales a la junta directiva, reportes globales de ventas.
+S2: De todo, de Qubit y de Casio, de las dos marcas.
+S3: OK.
+S2: Y todo lo que ustedes hayan vendido.
+S3: OK. OK.
+S2: ¿Ajá, entonces a ver quién más participa en este proceso? ¿Fíjate, me acabas de mencionar a dos personas que no me habías mencionado que son Caitlyn García y Clara, pero además de eso hay alguien más que participa o conoce este proceso tuyo? ¿Vera, alguien más que de alguna manera trata de pensar con quién más intervienes tú en este proceso? ¿Además de las personas que ya mencionaste y por supuesto tus clientes internos principales que son Roberto y Bernardo y la junta directiva, hay alguien más que participa? OK, pero tú no tienes. Pero tú no te vinculas con Natasha para ningún reporte.
+S3: No.
+S2: OK, Y esos reportes de ventas tú los sacas de Odoo. De Power BI. Exactamente, Odoo y Power Bi. OK, entiendo, o sea que quien informa marketing de lo que se ha vendido eres tú, no hay nadie más que los informe. ¿No lo sabes?
+S1: No lo sé.
+S3: OK. OK.
+S1: Yo sé que esos reportes que ellos me piden todos los meses yo se los preparo y cuando hay convención con Casio otra vez hay reportes que podrían apretar un botón y sacarlo, pero si nosotros hemos reportado unas cosas a casi durante todo el año, tenemos que ser coherentes con eso que hemos reportado y en la convención reportar lo mismo. No podemos decir ahorita yo te voy a reportar esto que sacó la computadora por Odoo, entonces esos reportes que ellos preparan cada dos veces al año para Casio, para la convención, los hago yo, los números los saco yo con mis datos reportados y luego Marketing monta su presentación, yo le doy como estos son los números, tú tienes que hacer la.
+S2: Presentación y a nivel de. Sí, te escucho.
+S3: Y.
+S1: Los forecast de ventas que hay que presentar también los vamos viendo. Una vez que se ha hecha la presentación con Roberto y Andrés decimos OK, no vamos a subir acá, estamos abriendo tienda en Venezuela, hay que subir más esto otro reporte que yo presento todos los meses, que actualizo todos los meses, no lo presento, eso se actualiza y Roberto lo mira cuando quiera porque tenemos carpetas compartidas, es el forecast del año. Andrés y Roberto preparan en diciembre un forecast del año, el año siguiente de lo que voy a comprar para cast enero, lo que voy a comprar en febrero y las ventas que deberíamos tener enero, las ventas de febrero igual cuy. Entonces eso es el forecast, pero luego hay que poner la realidad. OK, entonces esa realidad yo la pongo, eso sí es la realidad de verdad fue para nosotros.
+S2: OK, entonces entiendo que, fíjate Vera, o sea, estoy entendiendo, a ver, corrígeme a ver si yo lo estoy entendiendo bien. Entiendo que tú participas en la construcción de ese forecast, o sea de lo que se va a comprar solo para Casio, no para Qubit, pero en el reporte de las ventas sí participas para todas las marcas del grupo, para Casio, para Qubit y para Q y ese reporte de lo que se vendió, ¿Hay alguna diferencia entre Casio y Qubit o básicamente haces el mismo proceso para las dos marcas?
+S1: Es un reporte donde en el reporte está lo general y luego lo divido en las marcas, porque además las tiendas están separadas también por marcas, entonces las tiendas de Casio han vendido esto, las tiendas de cuenta, las unidades tanto, o sea que dentro del mismo reporte hay división de marca.
+S2: A ver, ¿Cómo sabes tú al día de hoy, OK, si lo que tú estás haciendo está bien o tiene un margen de error, tienes algún indicador, algún número, algún tablero que te haga a ti saber que tú estás navegando bien o sencillamente de dónde, o sea, cómo sabes tú que lo que estás haciendo está bien?
+S3: Bien hecho,.
+S1: Yo creo que está bien, pero obviamente sobre todo en los reportes estos de PCI pueden haber errores.
+S3: OK, OK.
+S1: Porque es muy manual lo otro en verdad son reportes que salen de Odoo y a menos que la información de o esté mal, yo no hago cálculos, es el que saca tal, me lo exporta a Excel, yo puedo hacer una tabla dinámica, puedo compasarlo al Power BI por ejemplo, desde que Venezuela cambió al Odoo que fue este año. Si, al principio fue como complicado porque el Odoo Venezuela tiene en bolívares el cambio en dólares, o sea, eso complejo es complicado, entonces al principio vimos que estaba mal. ¿Que estás mezclando aquí en algunas, en la misma columna a veces me sale bolívares y a veces dólares, eso fue un error que salió y yo habré presentado reportes con ese error hasta que me di cuenta por un número grandísimo que dije estos son bolívares imposibles y entonces hablando con Sistema me dice sí, porque hay facturas que se hacen en dólares y hay una bolívar, entonces se ha mezclado?
+S3: OK, OK, entiendo.
+S1: Bueno, habrá reportes que habré presentado que estaban mal.
+S3: Seguro. Sí, lo entiendo.
+S2: Bueno, ver, a ver, ya siento que te he preguntado todo. ¿Hay algo que tú creas que no te he preguntado que es importante mencionarme y que yo no te haya preguntado?
+S1: Yo creo que más o menos te dije todo lo que yo me dedico todos los días a mí me llega por mail las ventas de Costa Rica, Guatemala y Colombia, bueno, las de Colombia me llegan por largo, no todos los días, cada dos o tres días ellos lo actualizan y yo preparo una a la semana más o menos las agrupo y les mando a ellos a la junta, les mando como un cuadrito del mes para que vayan viendo cómo va y una vez al trimestre les hago como un reporte trimestral comparado con el año pasado, o sea que lo que más hago yo son reportes.
+S3: Reportes, sí, entiendo.
+S2: Verá, a ver, y ya para finalizar, ¿Qué esperas tú de este proyecto que estamos haciendo para ustedes? Exacto. ¿Cuáles son tus expectativas?
+S1: Mira, yo creo que a nivel general de la empresa mi expectativa es que haya más coherencia en los procesos, porque por ejemplo, Venezuela tiene unos procesos, Panamá tiene otros procesos, no sale la misma información, a veces sale de una forma en Venezuela, bueno, imagínate antes que Venezuela tuviera Odoo salía completamente distinto a la información, como que haya más unificación, que se pueda ajustar, que haya como más coherencia entre los procesos a nivel global y que si a lo mejor se detecta que hay gente que está haciendo duplicado el trabajo o que hay gente que está haciendo trabajo pero que no sirve para nada porque nadie lo ve.
+S3: Entiendo, entiendo.
+S2: Bueno, Vera, muchísimas gracias por tu tiempo. De verdad que bueno, esta es una primera entrevista. Sí, seguro que nos seguiremos viendo. Esta es una primera entrevista, después te volveremos a entrevistar para que nos diga tarea por tarea, pero eso todavía falta. Eso es la siguiente fase. De acuerdo.
+S1: ¿Y cuál es el objetivo exacto de usted?
+S2: Bueno, fíjate, en esta primera fase lo que estamos es levantando información diagnóstica para entender un poco, bueno, toda. Toda la organización. Para entender toda la organización y realmente sí que es compleja y realmente sí, el objetivo final ese que acabas decir, la idea es unificar procesos y que de alguna manera todo el corporativo funcione con procesos coherentes en todos los países. Esa es la idea. Sí, esa es la idea final. Bueno, Vera, muchísimas gracias.
+S1: Un gusto.
+S2: Igualmente. Hasta luego. Que estés muy bien. Chau.
+S3: Chau.

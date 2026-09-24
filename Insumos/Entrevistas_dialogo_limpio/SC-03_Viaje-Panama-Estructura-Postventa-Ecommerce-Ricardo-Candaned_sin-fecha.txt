@@ -1,0 +1,260 @@
+S1: Todos los pedidos regularmente, llegue o no llegue, MRB llega en la tarde y lo que tienes que sacar a nivel de calle, que es donde ellos cargan.
+S2: Y es belleza, ya eso lo tienes que. Ahora, me gustaría que Clara te comente un poco la información que ha levantado para el e commerce, que no fue lo que yo obviamente les dije, ella ha visualizado otras cosas aparte y sí es importante que te lo transmita porque la conozcas más.
+S1: ¿Por qué no hacemos una cosa? ¿Por qué no subimos?
+S2: Sí, sí, yo quería mostrarle la bodega para que entendieras la locura que hay.
+S3: Allá.
+S2: Y las garantías las mejoramos, porque eso sí obligué, porque sí tenía control y obligué a pasarlo a bodega, o sea, eso sí lo está manejando Elvis, Pero además es algo que no.
+S3: Les gusta porque quieren volver atrás, pero.
+S2: No vamos a permitir,.
+S1: Mira esto todo.
+S3: Aquí, Pero también hay una situación allá que es que entiendo que quieren volver porque se tardan en el proceso, eso.
+S2: Es mentira, es cuestión de que.
+S4: No.
+S2: Comprendieron el proceso, siguen pensando que Quit se maneja como Casio y no es así, Esto es rápido, es muy rápido, entonces colapsan. ¿Qué pasa? Ellos están, nosotros aquí vamos a subir para que lo último, todo lo que.
+S1: Está aquí, Esto por ejemplo, son unos pedidos que tienen, esto no va a estar aquí, esto está aquí porque es un pedido que tiene que despachar grande la casa y todo eso, Y hay almacén. Esa era peor todavía, esa vaina, una vez que liberemos va a quedar mucho espacio. ¿Entonces? Entonces lo que quiero es sacar y meter vainas que sean que sí, de mercadeo del otro, incluso garantía, lo que sea, con muebles, con llave y está cerrado . Y va a quedar, o sea, nosotros ahorita tenemos aquí, creo que son 70, 75 mil piezas y nosotros deberíamos tener la verdad, 30. 35 A lo sumo.
+S3: ¿Qué vas a hacer? ¿Llevarlo colón?
+S1: No, no lo vamos a hacer, estamos presionando la venta y parando los pedidos que ellos vayan a hacer para acá. OK, entonces así es que hemos ido bajando, yo no he mandado nada colón de vuelta porque voy a perder los impuestos.
+S2: Gracias Isa, eres un sol.
+S1: ¿Pero qué pasa? Lo que tengo que. Felicitaciones otra vez. Pero lo que tengo que presionar es que no recibir, entonces tenemos varias semanas que nosotros no hemos recibido mercancías, sino muy poco de la que diga la matriz que hicimos del 2.5 semanas de inventario. Aquí que el 2.5 semanas inventario empezamos ahorita. Pero yo lo que quiero llevar esa matriz no a 2.5 semanas de todos los ítems, sino manejar de los ítems a 2.5 semanas y de los otros ítems de una semana. El domingo.
+S3: El domingo.
+S1: Lo único que yo no hablo es de correo.
+S2: Mira, marca para el 8 para que vean el 8.
+S1: Ese oso. Entonces, bajar 2.5 semanas, dejar los ítem A por si hay un disparo de un ítem A, que es más probable, y quitar. Y bajar a una y media semana todos los items. Entonces va a ser menos de los 30.000 los item. Perfecto. Entonces nosotros no tenía. Es lo que yo leía a Andrés y a Roberto. Nosotros no tenemos un problema espacio. Nosotros nos estamos creando nosotros un problema espacio. Y está el tema. No hay ningún problema espacio. No nos hace falta más espacio. Lo que nos pasa es organización. Entonces, esa caja blanca que viste en la entrada, que está así completo, todos los anaqueles, que es la zona que va a ser de pique ahora, todo eso va a estar con gavetica. Y cuando cogamos el sistema, cada gaveta es una posición. Y como aquí no tengo que manejar en caja mi volumen, como el color también, cada posición tengo inventario suficiente para manejar y está todo en orden y no tengo que estar moviendo nada. Porque ahorita agarra la última caja, vamos a suponer, tiene una pila así de cajas, de cajitas. Permiso. Se levantan todas las demás cajas para sacar el ticket de la última caja.
+S3: Dímelo.
+S1: Y es lo que.
+S2: Bienvenidos. Están en el piso de nosotros.
+S1: coño. Aquí es súper bueno, para que vea.
+S3: Lo de el piso de.
+S1: Este es el área. Aquí está Ricardo. Bueno, el que te diga. Tú eres el barrio aquí.
+S2: Sí. Esto es visual, Luis. Ventas visual, Oficina visual, esas dos. está Reina y su equipo. Esto es mío. Todo esto acá. Aquí está customer service de. De gestión de Shopify. Son dos personas. Bueno, yo, Ricardo Candanedo. Y la parte del laboratorio es de postventa. ¿Qué pasa? Que era lo que te iba a decir antes de que le demos un espacio. Claro. Porque si me interesa que te vayas con esa información de.
+S1: Claro.
+S2: Cuando nosotros llegamos allá, después de muchos años que yo no iba a Rower, nos damos cuenta de que Yuse tenía un espacio donde estaban todos los chicos unos al lado del otro, no sé si lo llegaste a ver. Y arriba había una repisa y había mercancías. Ellos agarraban la mercancía a criterio y se lo llevaban y se lo entregaban al cliente. No sabemos si alguien se llevó algo, no está en sistema. Los reportes que ellos nos hacen para la fábrica están mal. Entonces, ¿Qué hicimos nosotros? Mira, lo primero que hay que hacer es organizar esto, limpiar lo máximo posible. Él no dejó del todo, quedó un desastre igual. Y establecimos un proceso en dos fases. La primera fase era organizar, obviamente lo de la oficina de ellos, trabajar todo a través de sistemas de Odoo, de traslados, pasar toda esa mercancía en una bodega lógica que la maneja Elvis, y ellos tenían que hacer su traslado, como se hace aquí. Aquí es un traslado y Bodega se encarga de tramitar el pedido y el fiscal, cuando ellos querían retirar, llevan el producto malo, se lo entregaban a bodega y al final de mes sacaban un reporte. Esto es lo que yo tengo. Cool, hace match, dame lo malo y va para scrap. Así está funcionando ahorita. Cuando hemos intentado hacer el scrap, nos hemos encontrado que Elvis, que es bodega, tiene todo limpio, organizadito, los números cuadran, y Joseph en sus números, que es lo que me tiene que reportar a mí, tiene una data errada. Entonces nos dimos cuenta que aquí el problema sigue estando en este liderazgo. No hay organización de arriba, mucho menos le puedes dar a las otras personas.
+S1: Pero Elvis tiene instrucción clara de que él no puede entregar ningún reloj de.
+S2: Nuevo el proceso hasta que no reciba el viejo.
+S1: No puede. ¿Y hay un almacén o un stock?
+S3: Claro que hay un proceso desconfianza.
+S1: Hay un stock. No, no. Desconfianza es el Procell. ¿Por qué? Porque el almacén, si yo entrego una pieza, vamos a suponer que yo tengo mil piezas de inventario, y a mí me llega garantía y me dice dame una pieza porque le voy a cambiar el reloj a fulano, o una garantía. Si yo le doy la garantía, pero no meto ninguna unidad, yo tengo 991 unidades en mi inventario, no tengo las.
+S2: Mil que dice al final.
+S1: En cambio, si yo tengo la vieja, yo pongo esa vieja en dañado o en garantía, tengo 999 en disponible para la venta y una unidad aquí cuando me suma el total de inventario, tengo los mil. Pero si yo le entrego y no tengo nada, yo tengo 999.
+S2: Es la única forma de fiscalizar.
+S3: Exacto. Estás poniendo un control.
+S2: Exactamente.
+S3: Estás usando almacén como un control de garantía.
+S1: Sí, pero también financiero. Porque Jaime tiene que.
+S3: No, porque la localización podría estar abajo, pero lo está fiscalizando arriba.
+S2: Es que tiene que haber un fiscal.
+S3: ¿Pero en tu almacén virtual de garantías de vuelta, pudiesen estar abajo?
+S1: Sí pudiera, sí. No, eso no pudieras, porque abajo yo no tengo almacén ni tengo personal. No habría control.
+S2: Si se pierde esa mercancía, como yo.
+S1: Le exijo al gerente de la bodega. Ya, porque tú no tienes control. Porque yo no lo tengo aquí.
+S2: Pero entonces nos dimos cuenta ¿Qué pasa? Porque todavía ya sabemos que aquí Hay un problema. ¿Qué pasa? Nos metimos más. La fase dos era ser como hacemos en todos los países, las tiendas sirven como filtro. El cliente va a la tienda tiene una bodega de garantías donde hace el traslado a esa bodega y al final de mes nosotros fiscalizamos que lo que nos están entregando es lo que está reportado desecho y scrap. Allá eso no existe. Allá todas las tiendas reciben el producto, se lo mandan a Josep. Él tiene un millón de garantías que son colapso. Obviamente las tres personas que tiene, pues tienen que revisar una a una. Y aparte ellos no solo están recibiendo garantías, sino que le ofrecen al cliente una vaina que se llama descuento. No es para un descuento presupuesto, porque según le dicen al cliente que el producto lo pueden reparar y el producto no se repara. Pero como tiene la misma visión de Casio, que si se repara relojería tradicional, siguieron el mismo proceso. Entonces yo le estoy tratando de mostrar que no es así. Ya Bernardo por lo menos entendió que no es así y entendió que Joseph quizás no es la persona que necesita estar en Covid, sino que necesitamos a alguien que tenga una visión un poco más tecnológica y que sepa utilizar herramientas de inteligencia artificial y bueno, todo lo que ustedes vienen alimentando. Entonces, bueno, creo que ahorita ya lo están entendiendo. Sin embargo, ya hablé con Mario para hacer lo de las tiendas. Lo compró, pero seguimos teniendo una resistencia allí. No sé cómo entrar, porque al final pasa lo mismo. ¿Que pasó con Smith? ¿Uno le dice, le dice, cuadra todo, les pasa todo el diagrama, el flujo, todo el manual, cómo va a ser? Y si ellos sienten que tú te estás metiendo ya o que algo les va a afectar, van y le dicen a ver, como tienen llegada directa con el CEO, van, le lloran literalmente.
+S3: Pero una pregunta, en la estructura tú eres el jefe de.
+S2: Ja. Sí, ahora es ella. Yo también. Yo también. Es dividido en parte. Es que esa es la vaina, porque como ve tantas vainas.
+S3: Porque en los labios de Herni su jefe es Bernardo directamente y ella es coordinadora. ¿Entonces quién es su jefe directo? Claro.
+S4: Que ella me mostró, ella pone.
+S2: Gerente y no es así. Y no es así.
+S3: Ella no es la gerente de cómo.
+S2: Es allá, es coordinadora porque gerente No, Lo que pasa es que aquí no sé si te has dado cuenta que hay 180 y pico de gerente y un operador.
+S3: Parte de la reclasificación.
+S2: Estoy claro.
+S3: Pero claro, primero lo que existe es un desconocimiento de quién es mi persona de arriba o un conocimiento directo de que es Bernardo y no es así, o sea, es como desconocimiento de.
+S1: El gerente es Bernardo, tampoco se sabe aquí. Y si no es él tampoco. Si son ellos tampoco. Ya sabe.
+S3: Pero digo, como Hero Quarter y Panamá tenemos claro quién está arriba de Gesmir.
+S1: ¿Claro, Quién?
+S4: Yo. Pero eso es nuevo.
+S1: Y no.
+S2: Y para Andrés yo. Para Andrés yo siempre, o sea, ya pasaba un problema y así ella no me contara. ¿Andrés me llamaba a mí y me decía por qué está pasando esto? ¿Me entiendes? A ese nivel.
+S1: ¿Pero tú fuiste a la oficina allá, verdad? Pero tú entraste a la oficina de Yusuf, por ejemplo.
+S3: Sí.
+S4: Abajo.
+S3: Cómo es la que está después de todo el e commerce a la derecha.
+S1: ¿Cómo es la oficina?
+S2: ¿Cómo la viste? Pues lo viste así relativamente organizado.
+S1: Ven para que veas. Esta parte es la oficina Joseph.
+S3: ¿Que esta parte?
+S2: Esto es el laboratorio, esto es soporte técnico, esto es lo que es.
+S1: ¿Cuál es el mueble que tiene los relojes de garantía o viejo odio?
+S3: La verdad es que todo eso se.
+S2: Está bajando ahorita bodega, ahorita mismo lo tiro en una bolsita y cuando ya termino la semana lo bajo a las cajas que están abajo, o sea hay un. Todo está establecido paso a paso.
+S1: Bernardo no creía cuando entró él no, que no puede ser que lo sacaron. Esto es lo mismo.
+S3: Claro.
+S2: Nosotros siempre hemos querido todo lo que tú ves aquí, yo logré en Colombia, logré en Guatemala, Costa Rica, a pesar que es con Guild, ellos siempre han estado muy bien alineados. El único país que no funciona tal cual es Venezuela y más que todo por eso que en el organigrama para ellos la línea directa es el CEO, o sea la llegada que hay con él para nosotros. Yo espero que él me escriba, yo nunca le escribiría.
+S3: Tú también eres la cabeza de ELV. Así es.
+S1: Bueno, sí, pero o sea, me refiero igual yo no he tenido en ese caso resistencia como si creo que otras áreas.
+S2: Porque Elvis es nuevo.
+S1: Porque Elvis es nuevo y yo también soy nuevo, entonces yo y también que he tenido a la directriz de ellos, igual que Andrés, yo agarro, vete para Colombia, entonces hablo con Joel que es el gerente general, me coordina la reunión con las dos personas que están de logística allá, nos conocemos virtual y empezamos a trabajar así y así hemos ido. Lo que pasa que como Colón creo que tenía tanto pedo, ellos querían que nos enfocaran en color para después hacer cascada y eso es más o menos. Pero por ejemplo Elvi, en el caso de nosotros, o sea en mi caso, perdón, yo fui para allá, no conocí a Elvi, lo conocí allá y empezamos a trabajar juntos, entonces estábamos primero con los EBS porque fuimos con el sistema a explicarles todo el tema, después que le explicamos el tema y se va EBS, ahora viene la parte donde tú y yo coordinamos codo a codo y yo quiero que los demás desde el operador, nos reunimos todos los operadores para explicarle lo que íbamos a hacer y que era para facilitarle la vida, que no estamos sacando a nadie, todo el pedo, no sé qué. Al principio era como que coño, pero después ya sí fue ¿Qué es lo que vamos a hacer? Bueno, vamos a hacer esto, a montar esto, no sé qué, y Elvis hizo.
+S2: Todo eso es lo que tú quieras.
+S1: Hacer, o sea Elvis hizo el que se vaya con eso y él hizo todos los cambios que nosotros acordamos hacer cuando fuimos allá y le fuimos haciendo seguimiento, seguimiento y el pana cambió.
+S2: Una cosa que funcionó bastante. ¿Nosotros siempre viajamos, siempre hemos viajado, no tanto como deberían, porque hay veces que ellos viajan también y ven cosas y después nos reclaman y nosotros le decimos mira, he ido una sola vez sabes cómo quieres que sepas lo que está pasando? Ellos me cuentan lo que yo les puedo sacar de información.
+S3: Esa es otra pregunta. Cuando, o sea ustedes están en calidad de recomendadores cuando viajan o están en calidad de esto debe suceder, esto debe.
+S2: Suceder, esto debe suceder, los países que el único sitio donde yo he ido que no se hace esto debe suceder, aunque esta vez sí es Venezuela, yo.
+S1: Solamente fui a Venezuela y yo fui esto es lo que vamos a hacer y estos son los lazos.
+S2: Eso era lo que te iba a decir, nosotros fuimos tipo comité, fuimos Ricardo, él y yo y siento que se lograron más cosas que cuando tú vas uno solo, cuando tú vas individual obviamente atacas un punto clave, pero cuando te vas en grupo en un tipo comité hay tres visiones de la operación completa de lo que tú quieres replicar y se trabaja mucho mejor y se logran mejores resultados.
+S1: Lo que pasa que vas con áreas comunes también de acción. Entonces yo no me voy con no sé, con un coño finanzas, no me importa, me explico, pero si me voy con el carajo que me está jodiendo con tema garantía, que está pidiendo loco marketing, que está no sé qué, es otro vaina, en este caso e commerce, no que no quiera no sé qué, yo no soy. Lo que pasa que yo siento una cosa que sí aquí he notado en el poco tiempo es que también como hay ese paternalismo y esa vaina que lo dijo Bernard en la reunión que hizo con nosotros antes que usted llegara, que lo reconoció abiertamente, ese paternalismo de la vaina coño que tiene tanto tiempo no sé qué, entonces yo siento que hay como que no, si no me gusta la vaina voy con Bernardo y hablo o voy con Andrés.
+S2: Exacto y frena todo.
+S1: Entonces yo pero a mí me ha dado resultado.
+S3: ¿Pero por qué te lo frena?
+S1: No, no, a mí no me ha frenado porque yo no sé marica, yo soy más viejo que ellos y yo les digo el que le guste este es el plan, la vaina se queda, esto está conversado con Delimitar, si tienen alguna queja no hay problema, la puerta de la oficina de Andrés de verdad está abierta igual que la mía, o sea como que marico no vayas a llorar para allá porque esta barriga está seteada. Entonces de mi parte ha sido eso yo no lo he tenido pero sí lo veo que no fulanito no voy para allá. Entonces le pones dos lagrimones a Bernardo o al otro.
+S3: ¿Y qué pasa en ese respecto de los lagrínan?
+S2: Todo bro, todo.
+S3: Bernardo te lo frena.
+S2: Claro, claro. Andrés no tanto, más que todo pasas en Venezuela, Andrés siempre es mucho más.
+S1: Pero igual en general hay demasiado como que ojo, es bueno que la gente vea que somos el buen ambiente, la vaina de sal, pero creo que esa parte de yo soy tu jefe igual, porque es como yo estoy. Claro, Andrés es mi jefe, yo no tengo más nada, o sea, Andrés es mi jefe y tengo a los dueños todos en la junta, que Roberto no es mi jefe, pero es de la junta, pero yo no voy a presentarle una vaina a Roberto sin que Andrés lo sepa, ¿Me explico? Chau,.
+S2: Andrés lo sepa y con estos.
+S1: Peladitos nosotros jodemos tal chévere, pero hey, estamos buen de tinga rollo, pero si tengo que, perdón, quemar el culo, te voy a quemar el culo, ¿Me explico? Y las vainas están claras y el.
+S2: Ambiente se mantiene con todo.
+S1: Claro, pero allá yo la semana pasada,.
+S2: Lo que yo quiero que ustedes entiendan y por eso queríamos y porque quiero que Clara te muestre, ella se quiere ir también. Es que bro, nosotros estamos muy claros que faltan muchas cosas y sé que ustedes lo van a proponer herramientas que seguro le vamos a sacar muchísimo provecho. No lo dudo, no lo dudo y espero que sea así, porque a mí me encantan las automatizaciones y la inteligencia artificial más que nada. Pero si aquí está funcionando bien, hace lo que falte o lo que sea, si está funcionando y te lo queremos transmitir, entiendan que no es por joder a nadie por la operación de la empresa y eso se tiene que entender desde arriba, ¿No? Porque al final si tú vas con esa persona y tiene 80 años en la empresa y llegan a ellos, obviamente le ha maca, es obvio que le van a prestar atención porque está ese sentimiento de que esta gente está comprometida conmigo desde el día uno, ¿No?
+S3: Las líneas deberían respetarse para que quienes están dentro de las líneas respeten los mandos de los otros. Sucede mucho en temas familiares, pero me lo llevo importante escucharlo.
+S1: No, pero te digo una cosa, aquí hay muy buen material, probablemente por lo mismo que está diciendo Patrick y lo mismo que dijo incluso Bernardo en esta reunión que te digo antes que usted llegara en la tarde el miércoles, estuvimos reuniendo los gerentes y lo que sea, ellos mismos dijeron coño, nosotros agarramos y decíamos no, que este coño es el gerente de papelería, estamos trabajando, coño, le estamos sacando la chicha, venimos a la bodega, un gustazo, coño. Feliz viaje.
+S4: Gracias.
+S2: Siempre por aquí, cuando haya Santo domingo.
+S3: Avísenos para que pase para allá por.
+S2: El patio, para que veas,.
+S4: Pero no.
+S1: Sé cuándo, la verdad.
+S3: Este año seguro No,.
+S1: Posiblemente Caracas sí.
+S2: bueno, pero está la.
+S4: Que.
+S3: Pases por allá y conozca el espacio.
+S1: Buenísimo.
+S3: Bueno, buen viaje.
+S1: Que tenga.
+S2: Gracias por todo.
+S1: Seguimos.
+S2: Gracias por las.
+S3: Por favor, dale.
+S1: Entonces lo que decía, decía verdad, Los Ríos, le agarré y dije bueno, tú eres el gerente de papelería porque se ocurrió la verga y es gerente de papelería. A la verga dice que es gerente de papelería y el carajo, lo que era más sir de compra o reposición.
+S3: Sí, sí, es así.
+S1: Entonces luego creamos, tengan claro que hay.
+S3: Muchísimos cargos diferenciados que hacen lo mismo, hay otros que no hacen lo mismo, o sea, hay una cantidad de vicios que para eso estamos, es decir, es parte de lo que viene, la reclasificación de cargos, esa reducción de cosas, las líneas claras de donde estoy yo posicionado y es mucho lo que está pasando. Si no lo tengo claro, voy a quien siempre me ha respondido antes. Pero bueno, creo que es bueno tenerlo claro y es bueno no dejar de saberlo, dejarlo saber siempre porque todavía no está, de hecho todavía no lo hemos presentado, todavía nos falta. Estamos en el dibujo de ese big map para que lo vean y después que lo vean es hacer lo suyo y empujarlo. Empujarlo y ustedes lo verán en algún momento ustedes van a validar esos procesos que levantamos, tienen que validarlo, nosotros vamos a presentar una forma de validarlo. Estamos justo en eso. ¿Cómo lo van a validar? Cuando ustedes validen eso, después va a haber un horario de organigrama, unas descripciones, unos manuales y un big map. Bueno, tienen que hacer los suyos y empujar por eso.
+S2: Lo que quiero ahora es que veas con Clara lo que ella tiene pensado para que te vayas con esa información también.
+S3: Tú estás ahorita como gerente de e commerce, de todos los e commerce, de todo,.
+S2: Como te dije yo antes, por eso salgo como yo siempre me encargo del customer service. Siempre Andrés me achacó como que esto era e commerce, pero yo siempre se lo decía, yo no soy e commerce, yo manejo el e commerce operativamente con mi equipo, pero el e commerce necesita alguien cabeza que tenga la estrategia, que hable con marketing.
+S3: ¿Y qué hacías antes?
+S4: Yo era la que. Bueno, todavía lo sigo viendo, pero el plan es verlo a nivel de estrategia, ya no como que implementación, que es toda la parte de Pymea, pero. Y análisis. Pero yo era también la que implementaba en el día a día. Montar los ads todos los días, optimizarlos y también estrategia, manejo de presupuestos.
+S3: ¿Qué pasó fue que hiciste la herramienta?
+S4: ¿Y quién lleva suareta ahora Entró Paula, que está en Colombia, que pasa a ser la picnic specialist? Entonces ella optimiza e implementa día a día y ve la estrella conmigo y la parte de presupuesto.
+S3: Entonces ahora vas a ver los e commerce en general.
+S4: La parte de performance sigue siendo algo de e commerce súper importante. Yo también tengo a Rosy Bel, que es la SEO Specialist. Y bueno, tengo a Lu.
+S2: ¿Pero muéstrale cómo quedaría tu organigrama, porque ella va a tener un organigrama fijo que en un traje es MIR, porque mira, fue contratada para e commerce y marketplaces, pero aparte trabaja de línea indirecta con mi equipo de customer service, el equipo de IT, el equipo de marketing, sabes? No son su equipo, pero se alinea con ello.
+S4: Acentuación aparte en el 8, Pero más o menos quedaría así, por ejemplo, lo que es Lewin y Cynthia, ellos también ven la parte de integraciones, por ejemplo, de cachea y todo eso. Ellos le siguen reportando entonces a Mariela, que es la gerente de sistemas, ellos tienen como que reportarle a nosotras dos. Y tenemos, Bueno, lleva una semana, pero ya tuvimos reunión los cuatro, en donde vamos viendo como el seguimiento de los proyectos que están activos. Esta es Paula también, la que acaba de entrar hace dos semanas. Este puesto lo queremos abrir en un futuro. Está Rosy Bell, que es la self specialist. Y entonces está Tatiana, que es la coordinadora de marketplaces en Colombia y Jesmir que es la coordinadora e commerce y marketplace en Venezuela. Entonces abajo tiene su equipo, tiene 14 personas. Presentan a Patrick y a Jesmín.
+S3: Una pregunta. Claro. ¿Y a quién reportas tú, Andrés?
+S2: ¿Por qué?
+S3: ¿Por qué, ¿Porque qué? Está bien, preguntas a mí.
+S4: Se iba.
+S3: No, no sé.
+S2: No, es que pusiste una cara así como que no, qué locura. Andrés también tiene una cara. Cuando tú ves ese organigrama, Andrés también tiene una carga que no tiene sentido tampoco.
+S4: Sí, porque antes también veía, se supone.
+S2: Que ahora en el nuevo organigrama que ahora yo voy a estar, no sé si te acuerdas que yo te dije que en ese momento en el organigrama Edumar salía como mi jefe, pero a nivel regional yo estaba de primera línea, no sé si te acuerdas.
+S3: Ya para que no estoy escuchando porque tengo estás pensadito.
+S2: ¿Yo sabía.
+S3: Quién es la persona de marketing?
+S4: Natacha, la directora de marketing.
+S1: La que está en Nueva York.
+S3: Natacha está en Nueva York y tú no tienes nada que ver con Natacha.
+S4: Sí, porque igual seguimos trabajando en conjunto toda la parte de paid media, e mail marketing, solo que ya yo no formo. Antes lo que era Lubin, Cynthia y bueno, yo y Rosy estábamos bajo el equipo de marketing.
+S3: Pero Natacha no está pendiente de los e commerce.
+S2: Sí, sí, antes sí, pero eso estaba mal porque no se brindaba toda la atención. Realmente no había alguien encargado del e commerce.
+S4: Como te pongo un ejemplo, había unas reuniones semanales porque estamos cambiando el frontend de las webs y ella estaba , o sea reuniones que tomaban horas y ella estaba metida. Este botón hay que cambiar Texas Holding. OK. Entonces ya eso pasa a ser como que mi parte, porque ella en verdad ve otras cosas de e commerce ya más como que tengan que ver con marketing, pero toda la parte de yo, entonces la voy a ver yo junto con el equipo de.
+S3: Natacha, quién tiene con ella, o sea, quién está trabajando.
+S1: Esta es tu oficina.
+S2: Entonces ahora yo me quedo con el costo de la PO. Clara con el e Commerce 100 como organismos independientes, porque aquí está cubierta. ¿Y tú qué Estás viendo, bro? ¿Cuál es tu propuesta?
+S3: Mira, Gerente de Marketing Panamá. Sofiana. Sofiana, yo la conocí, ¿Verdad?
+S4: Sofiana estuvo ayer en el curso de.
+S3: IA en la primera inteligencia artificial chiquitica. Katira, yo quiero eso. A tu lado izquierdo. Ya, flaquita. Ok. Gerente de marketing, casio, skelly, Kiaco, Manager, Director de Arte. Director de arte.
+S1: Claro.
+S3: Marketing es todo creativo, no lo tengo.
+S2: En mercado, que es otra y que es competitiva. Es un sistema omnicanalidad Exacto. Pero no.
+S1: Es muy.
+S3: Brian Líder es súper efectivo.
+S2: Yo no sé si quitaríamos al 100% eso. Siempre creo que tiene que haber alguien humano. Pero si, capaz aquí hay uno solo, una sola persona, pero en Venezuela y 10, que es lo que él dice, aquí hay un solo agente de chat que quizás valga la pena mantenerlo por si el cliente al final sí quiere hablar con una persona y el bot lo traspasa, ¿Sabes? Pero en Venezuela y 10 y en Black Friday ya le dijo hoy a ella que quiere meter. Ya tiene las personas que necesita solo para atención de WhatsApp. Pero es que entonces esa persona de atención al WhatsApp, que era lo que te decía, colapsa algo en la bodeguita que ya tiene en el sistema de almacenaje. Entonces esa persona que atiende WhatsApp, suelta el WhatsApp y se va a atender eso porque obviamente aquí tienes tres personas, se abollan, son 3.500 órdenes, no pasa lo que está diciendo él. Tienes esas tres personas designadas en bodega, pero la gente bodega que sabe lo que va a pasar, que tiene ese pensamiento y tiene ese conocimiento, ya se puede preparar realmente para que la cuestión cuestión se optimiza.
+S1: Nosotros no tenemos Amazon tampoco allá de pronto en la cabeza, como fue el primero que se vende por método online, puede ser que vean como si, vergonzo, pero la verdad nosotros no tenemos Amazon todavía.
+S2: No brother, es que aquí, sabes, Panamá fue el primero que tuvo e commerce y aquí el movimiento fue a ese nivel en algún momento porque nosotros arrancamos aquí en pandemia y los pedidos eran mil pedidos, mil cien pedidos en un día. Era una locura y fluía. Nunca tuvimos los desastres que se arman allá. Nunca, nunca. Y era, éramos, siempre era, siempre ha sido estructurado como te estoy diciendo, estaba alguien en bodega, yo era el que operaba la vaina y atendía los WhatsApp, ella estaba en marketing, o sea, tal cual. Cada quien es su problema con tu habilidad, con el problema. Y fluía allá desde el inicio se abrió una tienda donde toda la operación la maneja una sola persona, un líder completo que hacía almacenada como una tienda. Pero no funciona así. El e commerce es totalmente diferente. Si le mete inteligencia artificial más rápido.
+S3: Todavía tiene la capacidad almacén allá de operar todo el e commerce en términos despacho,.
+S1: No capacidad de operarlo. Sin duda. El tema está si nosotros queremos entregar same day. Nosotros tenemos una limitante. Nosotros tenemos que hacer pedidos same day. Si yo lo proceso allá, es todo pedido que yo reciba desde la noche anterior, supongamos toda la noche anterior, ahorita cerramos a las cinco, ¿Verdad? Todo lo que la bodega llegue, vamos a suponer que hoy es jueves, todo lo que la bodega llegue y se encuentre que pusieron en la noche, la gente comprando como en Amazon, clickeando, coneando, todo lo que llegue en la mañana, eso saldría de una vez a procesar y es muy rápido. Pero tengo que hacer un corte que sea tipo 2 de la tarde. 2 De la tarde no me da chance de hacer liquidación, porque el sistema de liquidación, yo tengo que montar todos los pedidos, todos los productos, voy a liquidar con código arancelario, tengo que pasar, me tiene que dar la orden de liquidación, pagar la liquidación, después tener report, recibir la orden y con eso que yo puedo dar salida.
+S2: No, no. En Venezuela.
+S1: Será Maduro.
+S2: Yo estaba así.
+S1: Caracas, Caracas. Te lo voy a poner la respuesta te lo voy a dar en un simple e ¿Te acuerdas de la zona de e Commerce? ¿Me lo.
+S3: Donde opera Esmir, Pero ese.
+S1: Pedacito, no todo el área, verdad? Sino un cuartico que está metido así, el almacenaje atrás, Eso de sacan todo el e commerce. ¿Tú crees que si suben al piso 3 con toda esa verga que tienen , no vamos a poder sacar esa border?
+S3: No sé, te lo pregunto.
+S1: La respuesta total es sí.
+S3: La orden llega por Shopify. Operativamente de forma manual, lo montan en automático, ya está pegado.
+S2: Ellos tienen que hacer algunas modificaciones para mandárselo al WMS o al EBS.
+S3: ¿OK? De manera que Almacén lo vería y tú pudieses allá procesar esa orden para despacho el mismo día.
+S1: Ahorita con EBS, de entrada sería que cuando Shopify manda la orden a EBS, yo voy a mandar esa orden convertida.
+S2: Al pedido a Odoo más rápido.
+S1: Pero eso no lo ve ni siquiera el cliente.
+S3: ¿Pero digo, o sea, tienes la capacidad en almacén de hacer los despachos y cómo no tendría que pensar en despacho?
+S1: ¿Es que esa fue la propuesta y.
+S2: Contabilidad tiene que tener un equipo consciente de que esto es una operación muy rápida que también se encargue de la facturación y no gesmir y su equipo se encargue obviamente de la Atención al Cliente, que incluso a mí.
+S1: No me hace brother, hay gente hoy.
+S2: En RO que está trabajando cuando aquí tú ves que todo el mundo se fue y los pedidos están limpios, sabe? Pero es por un tema de proceso y ellos creen que es porque coño estamos haciendo. No brother, tú tienes que estar en tu casa a las 5 de la tarde, por ejemplo.
+S1: Proceso de facturación. No, es que aquí hay una persona que factura y tiene que facturar. Es que marico, a mí no me hace falta que esté una persona. Lo que me falta es un terminal que la factura me llega y yo.
+S2: Lo agarro y lo pongo como está aquí. Aquí la facturación está allí en el piso 10 y se imprime allá abajo.
+S1: Se imprime allá abajo. Yo agarro la factura, la saco, lo que me interesa qué facturación, que el que tiene que hacer la vaina lo haga. Entonces yo no necesito una persona ni siquiera arriba.
+S2: Aquí en Colombia es lo mismo. Se factura, lo factura Contabilidad, el equipo de guión que tiene una persona encargada, Andrea factura, le llega bodega automáticamente. Ya se hizo consolidación, ya se hizo todo, ya se cerró ese pedido. Allá en Venezuela tienen dos meses o tres meses todavía trazados de consolidación por la misma vaina, porque está Alexandra en el equipo de Smith que está allá abajo tirando la vaina, pero es que ni siquiera una factura. Ella se lo está anotando todo y modificando. Obviamente entiendo el tema de los precios, pero se puede armar un proceso igual como todo, nada cambia y se lo deja todo anotado por escrito para que alguien arriba termine hacer la facturación cuando le llegue para hacer la consolidación. Una locura. Desastre.
+S3: Creo que lo tengo claro. Me lo llevo. ¿Algo más? Me lo llevo.
+S2: Pregunta consultor. Yo lo que necesito es ver herramientas que nos hayan a ustedes y que nos dejen claro todo. Yo tengo mucha fe en ustedes, la verdad. Yo creo que se los dije. Sí, yo te lo dije.
+S1: Yo creo que partiendo de lo que tú comentabas antes y que también Bernardo y eso comentó, yo creo que una de las partes más importantes es que va a haber estructura clara.
+S2: Exactamente.
+S1: Y eso es lo que yo más espero esperando.
+S3: Después de eso se los digo. Muy importante es hacer cumplir. Cumplir. Y va a estar de la mano de ustedes.
+S1: No, eso yo creo que no hay.
+S3: Problema porque ustedes, digo, de todo desde arriba.
+S1: Esa parte es importante porque a veces sí es desgastante tener que repetir la misma vaina a varias personas porque tú pensaste que hablaste con el que era y resulta que no, que son cinco. Entonces pues son aquí. Oye, ¿Por qué no copiaste a fulano? ¿Quién coño fulano nunca ni idea quién es? Entonces ese tema de estar claro en la estructura, de no tener comunicación, sean treinta, cuarenta personas, creo que también ayuda a que no te lleguen dos mil mensajes al día, sino que te lleguen los que tienen que llegar. Eso también importante.
+S2: ¿Bueno, un wiki o qué?
+S3: Los que le decía el quick win de la gente es algo. Claro que coño, creo que ahora hay un quickway más rápido que Almacén. Esté en Almacén. Claro,.
+S2: Porque obviamente cree que va a perder visibilidad, cree que todo está óptimo, pero cuando se haga ese cambio, ella vea el beneficio que le va a dar, va a estar más que feliz.
+S1: Y una vaina clara es que estoy seguro que al principio va a haber reticencias y 700 quejas y a la primera que se, por lo mismo que.
+S2: Está pasando con.
+S1: Nosotros, agarramos y fuimos hablar con Roberto y Andrés del tema despacho directo a tienda. Porque claro, las tiendas están como que con Robbie, pero Andrés es mi jefe y obviamente todo ese lo que te digo. Entonces voy, no puede ser verga, loco, déjame equivocar. Eso es lo que yo le digo a Bernardo, déjame equivocarme pues déjame decir la cagué, yo te lo voy a decir, no tengo problema, pero déjame equivocarse. ¿Entonces él hoy se cae la risa, pero decía coño, entonces él hacía así cuando estábamos allá, me acuerdo que hacía así como tú estás seguro que tú vas a poder? Entonces la otra es pajarito, déjalo así. Yo voy con las tiendas. Y fuimos con las tiendas y yo le dije a ellos, probablemente la primera semana la vamos a cagar y de pronto la segunda también y tal vez dame un mes. Eso sí, cagándola no vamos a tardar unos 13 días, sino 5 o 6 por lo que sea. Y tú tienes 50% de mejoras al mes. Y pasamos de 13 días a 2 días en 3 semanas. que a veces pasa, coño, no sé, el camión se quedó, lo retuvieron a guardar, se le pinchó una llanta. Sí, pero está aquí marico, a los dos días baja, el otro día manda la misma malcita que mandaba señores y se acabó el pe, entonces esa allá. Yo siento que cuando hagamos eso hay que hacer el mismo SP, es decir, te van a venir a llorar y no sé qué y te hace vaina. ¿Cuántas son? Porque yo por ejemplo, mi argumento siempre es coño, que hay una orden que faltó, que esa vaina siempre va a pasar, siempre va a haber una orden que despachan con un faltante, con un sobrante que despacharon ten que no, esa vaina siempre va a pasar. Ahora, ¿Cuál es el porcentaje de orden que tiene Error, o sea, tú haces 100% de las vainas perfectas en cada labor de la que nosotros hacemos? No, pero si yo tengo 99.5% yo estoy bien huevón,.
+S3: Lo tengo claro.
+S2: Lo mismo pasó con Yuse, armamos eso que te dije, lo pasamos a Elvis, el se llegó llorando a este, al escuché y el jefe le dijo no, si no te funciona echa para atrás todo, o sea, el que no funciona no es el proceso.
+S3: Pero eso lo has detenido, no ha ido para atrás.
+S2: No, yo le dije a Luis, bro, si te dicen algo usted me llama.
+S1: A mí, él viste, listo.
+S2: Así que nada, apostamos, confiamos ciegamente, hay mucha fe, Usted viene con par de haces.
+S1: Lo que me preocupa, esas expectativas. No, no, hay cosas que no cambian.
+S2: De un día para otro. No, estoy 100% claro. Estoy 100 claro, pero se han visto cambios positivos también en este tiempo, están logrando cosas, creo que están concientizando también la situación.
+S3: Sí, yo creo que está bien,.
+S1: Hay.
+S3: Buen ánimo y entusiasmo además.
+S1: No, no, además hay cosas palpables,.
+S3: Una.
+S1: Bodega de una corporación, una familiar que se está conformando en dos meses me hace falta, Voy a hacer como hiciste tú toda la conversación, Dale, habla otro video, Lo hice todo, yo te grabé, yo tengo grabado.
+S2: No hay bluff, no hay bluff,.
+S1: Lo que te estoy diciendo es 100% real.
+S2: Sí no, estoy claro. Estamos claros.
+S1: Hay muchas decisiones todavía por tomar.
+S2: Obvio, obvio.
+S1: Y cosas por.
+S3: Pero bueno, es un reto. Clara, gerente de e commerce hace una.
+S2: Semana, regional,.
+S1: Escuchando todo es bueno con esto mágico, uno habla mucho porque cualquier vaina es para tu cuello cuando te haga vaina. ¿En qué parte?
+S4: En Madrid.
+S1: En Madrid,.
+S4: En Eude.
+S2: Viene de.
+S3: Viene de.
+S2: De familia panameña, de historia. Abuelo presidente del país. Gracias, gracias por eso.
+S1: Con maquinarias, vainas.
+S2: En la tarde con.
+S1: Blas.
+S2: Se pueden ir para la playa.
+S1: Coño, pero no es sábado pues.
+S3: bueno, entonces mira, si sabes contar no cuentes conmigo.
+S1: Ey, pero si quieren jugar mañana, jugamos en la tarde. No, ya le dije que fueran en la mañana a Deepoint para que se tiraran en el Zipland. No, pero después de la visita tiene a lo mejor tú me avisas marico. Me escribe. Ya sabemos con qué nos vamos a apuntar. Pero que.
+S3: Cervecita lo veo. Va bien.
+S1: Bueno, son cuatro, más de cuatro no se puede dar.
+S2: bueno, tenemos otro. Claro, también juega pa.
+S1: Sí, también. bueno, también podemos hacer una americana. ¿Coño, pero en paz me escriben y o sea eso que no vamos a verme? Yo no, nunca conté contigo. Sin pena. Agarra, me escribes y.
+S4: Mañana.
+S2: Mantengas tu hándicap. Bien, Me voy con mis hijos entonces. ¿Quiero llevar lo que si la colonia.
+S4: Tom.
+S2: Probablemente fallo al lado Valencia sabroso?
+S1: ¿No?
+S3: No sé.

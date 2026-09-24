@@ -1,0 +1,973 @@
+S1: Ahora sí estamos listos, pues. Ahora sí nos escucha María. María, No, tú sí, Isabel. María, ¿Nos escuchas?
+S2: Sí, sí, señor, les escucho. Muchísimas gracias. Estaba solucionando temario, pero ya.
+S1: Perfecto. Listo, Gabriel, ahora sí.
+S3: ¿Esto cómo se ve?
+S1: No, es que tienes que entrar al Zoom, el que te pase en la mañana. sí, Sí, ese mismo.
+S3: ¿Eso está dónde? ya lo tengo aquí en WhatsApp. Pucha, va a quedar ciego. Sin brío, sin brío. Me sentí súper oscuro. Join. ¿Me aceptan por que estoy dándole.
+S1: El Sí, Max, ¿Acepta Gabriel en la tablet, porfa? ¿Y a Jorge Albiares ahorita se lo viste? ¿Participante o personas? Creo que no, Robert. No, a Gabriel.
+S3: va entrando.
+S4: Cada detalle.
+S5: Perfecto.
+S4: Que tienes el micrófono.
+S5: No dije nada malo en la anterior tampoco.
+S3: Bueno, mire, hablamos en la mañana sobre la data y de dónde viene la data, ¿No? Hay varias iniciativas y lo único que tenemos que saber en términos de tecnología es de dónde proviene la data y cómo vamos a hacer para que fluya en las distintas iniciativas que vamos a tener todos nosotros y seguramente más de la organización. Entonces, lo primero que tiene que suceder en esta formación escuchar lo que han hecho. Es decir, vamos a ver qué hasta ahora han hecho, qué tienen construido y dónde lo tienen construido, para después irnos a como todas esas iniciativas que ya están construidas las vamos a localizar en un servidor y en una base que va a ser de Kennex. Y a partir de , cómo vamos a empezar a operar. ¿Quién toma la iniciativa decir que ha construido y qué tierra?
+S6: Yo puedo tomar la iniciativa.
+S3: Tú estás en el Zoom. Me gustaría que entraran en el Zoom para que ustedes compartan pantalla y así vemos de una vez en el Por ejemplo, quienes van ya a iniciativa, que saben que van a mostrarlas, métanse en el Zoom para que podamos mostrarla aquí y la vemos de una vez.
+S6: Pero que la herramienta que cada uno creó.
+S3: Sí, o sea, vamos a irnos a profundidad, la creé, dónde la creé y cómo está creada. Vamos a irnos a los recovecos del desarrollo. No es lo visual, no es el front visual queremos, sino dónde está desarrollada y constru.
+S5: pero no estamos working off lo que hicimos esta mañana.
+S3: No, lo de esta mañana se. Olvídate tú eso, borrón y cuéntanos. No, lo primero es quiénes han hecho iniciativas desarrollo. Una herramienta Yo para no la tengo terminado.
+S7: Entonces no sirve.
+S3: No la puedes usar. No, lo que has hecho lo muestras hasta ahora.
+S6: Acéptame en el Zoom.
+S3: Aceptemos en el Zoom la gente que va entrando, porfa. Estefanía, si tienes, ve metiéndote en el ZO. No se trata de lo que está construido solo si es con Code, sí con Dashboard, sí Code. Si han hecho Code, se ha hecho Cowork y eso es de la mañana.
+S6: Esta es Code.
+S3: Vayan entrando en el Zoom y déjenme más bien yo dejar de compartir pantalla.
+S5: ¿Estamos?
+S6: Entonces, bueno, empiezo yo con lo que hecho.
+S3: Comparte para poder verlo en pantalla. ¿Dónde está el Ricardo?
+S1: Acá.
+S6: No me. OK, voy a contar un poquito lo que hecho y cómo lo hecho y por qué lo hecho.
+S3: Ojo, no el porqué de negocio. Vamos a meternos desarrollo. ¿Cómo llegaste a eso y cómo lo construiste? ¿Está así, no? El contenido que yo sé que es de negoci prendido.
+S6: Entonces, antes que nada, yo no tengo ni idea ni de programación ni de plataforma, no tengo idea absolutamente nada. Nada, nada. Fui aprendiendo a los coñazos. Y lo que hago hoy en día es que aprendí a usar Cloud en la terminal para construir herramientas. Construí varias. Pues esta es la última que hecho y es la que estoy usando. Uso Obsidian librería de los documentos de todas las herramientas que hecho y trato decirle a la terminal o a Cloud que me documenten todo lo que voy haciendo. ¿Por qué? Para entender algo, por qué lo hice, cómo lo hice. Como no soy técnico y no sé un coño de código, puedo venir acá y leerlo en un idioma normal y.
+S3: Entender qué estoy viendo, qué esa ventana que está abierta.
+S6: Entonces, esta ventana que está abierta es Obsidiana, donde están todos los documentos de este proyecto, que es el Kinex AI Dashboard.
+S3: OK, Ya.
+S6: Este es el documento que me creó la terminal sobre el proyecto que yo empecé a hacer del Dashboard inteligente de venta.
+S3: ¿Y cómo le empiezas a meter data a eso? ¿Dónde escribes para meterlo ?
+S6: En la terminal.
+S3: ¿Entonces tú vas escribiendo en la terminal y te lo va mostrando en Obsidian?
+S6: No, yo lo voy diciendo en la terminal. Todo lo que vamos haciendo me lo vas documentando en Obsidia.
+S3: Ya. Y esa terminal que tú estás haciendo, dónde se está mostrando el aplicativo, ¿Cuál es el aplicativo?
+S6: El aplicativo este.
+S3: OK, ese aplicativo está en Render Com On Render es como un sup lo que entiendo. Sí, pero hasta . Entonces en la terminal conectaste on render y la data. Muéstrame un poquito de qué trata el aplicativo.
+S6: Es un aplicativo donde está conectado a Odoo los cuatro países de nosotros, donde está el breakdown de la data de Mayor, de retail y de e commerce y hay tab de venta, de Sellout, de inventarios, inventario de la bodega de retail, inventario de la bodega de Mayor.
+S3: ¿Y sabes dónde tenemos esa conexión de Odo?
+S6: Dónde está esa conexión de Odoo,.
+S3: O sea, en la terminal escribimos ¿Qué pusiste en la terminal para que te conectara Odoo?
+S6: Conéctate a Odoo con este API. Así mismo. Y con mis credenciales, obviamente.
+S3: ¿Qué credenciales?
+S6: Las mías, tipo.
+S3: Las tenemos. ¿Puedo ver esas credenciales, o sea, cómo son? ¿Es usuario y clave o es un SSH? Usuario y clave. Pero no puede ser solo usuario y clave. Es que es un master password.
+S2: Hay un API key.
+S3: Hay un API key, Solamente la llave de la API key y con esa llave entró entonces no entró con usuario y clave, es la llave del API key. ¿Pero me puedes mostrar eso? Quiero verlo para saber lo que le pusiste a la termin para que te conectara. Listo, eso lo podemos preguntar ahorita. Está bien, entonces eso está entonces en on render, tienes la terminal abierta y vas publicando.
+S6: Todo se va guardando en mi repositorio de GitHub.
+S3: OK, vámonos al repositorio de GitHub, que.
+S6: No es una cuenta corporativa, que es lo que venía hablando con Dani antes, ¿No?
+S3: OK, listo. ¿Y ese está con qué correo?
+S6: ¿Con qué correo?
+S3: Allá Profile arribita. Edit profile a la izquierdita. Baja un poquito.
+S6: Si, tengo por un email que me había mandado GitHub.
+S3: lo tienes con ese correo. ¿Cuál ese correo?
+S6: Gmail.
+S3: Ni siquiera de la empresa, como que.
+S5: Estaba una y me dijo no, mejor la otra.
+S3: Entonces Andrés, para entender, abres la terminal y siempre te conectas con on render.
+S6: Yo abro la terminal, meto en el folder donde está desarrollado el proyecto.
+S3: Folder local.
+S8: Sí.
+S3: OK.
+S6: Que está aquí.
+S3: ¿Y cómo conectaste On Render? ¿Qué le dices a la terminal para conectarte con uno.
+S5: Render? ¿Qué es? Si ya lo tienen GitHub Aquí están.
+S6: Todos los folders de todas las vainas que hecho con la terminal.
+S3: Este es el de OK, tú vas abriendo un folder por cada proyecto que vas haciendo.
+S6: Yo cuando voy a trabajar el dashboard, abro la terminal, abro Cloud en ese folder y le digo, mira, vamos a hacer este cambio.
+S3: OK, pero por ejemplo, si un proyecto nuevo hoy, abres la terminal, le pones un folder nuevo, abres Cloud, lo que yo hago normalmente, como haces con onret,.
+S6: Lo que yo hago es que meto en Cloud, le echo el cuento de todo el proyecto y le digo, creame un prompt para pasarlo a la.
+S3: Terminal Cloud normal, OK, hacemos para pasarlo.
+S6: A la terminal y usa el stack que ha usado para todos mis proyectos, mi cuenta de GitHub, mi cuenta de render y me guardan la vaina en Obsidian. ¿Entonces me crea eso, lo guardo en un documento en Obsidian que este, que este prompt? Agarro, le copio la ruta y se la tiro a la terminal y le digo, construye.
+S3: ¿Quién busca Josué? Por lo cierto.
+S6: Listo, yo hago este prompt, lo guardo aquí en Obsidian, le copio la ruta y se la tiro a la terminal y le digo construyeme esta.
+S3: Una pregunta, vuelve otra vez al Dasher este de Kinex que tenías . ¿OK? Ese dashboard está trayendo la información de Odo, está automática, todos los días está.
+S6: Entrando a las 6 de la mañana se actualiza.
+S3: ¿OK, tienes un cron? Listo, perfecto. ¿Algo más que hayas hecho? Que lo que hecho, lo he.
+S6: Hecho a los coñazos, así apoyándome de que no sé nada y le digo a Cloud lo que no sé, explícamelo y resuélvelo.
+S3: Listo, perfecto, vamos ahorita está excelente, esto está brutal. Ahorita el objetivo de esta formación es ambientarnos a un solo sitio.
+S6: Ahora cojo eso, hecho otras vainas que por ejemplo, lo que te dije antes del MCP hablando con Cloud, no, que no puedes conectar dos cuentas, hermano, busca la manera. No, que hay que hacer un MCP, Pues dale, dame el prompt y haz el MCP. Agarra esa, va, tiras a la terminal, aquí está el prompt, chau. está el MCP, están mis dos emails conectados en Cloud. ¿Cómo se hizo? No tengo ni idea. Y así y así varias vainas que.
+S3: He hecho Perfecto. Ya vamos a entrar.
+S6: Aquí está cómo conectar Lark, que es lo que estábamos hablando antes con NIA. Cómo conectarlo, el MCP, la vaina. Creó un app aquí en Lark. El app me da las credenciales. Aquí está el app secret, el app id. Se lo doy a. Se conecta.
+S3: OK, buenísimo. ¿Quién más? ¿Quién más ha hecho algo con código? El siguiente que quiere mostrar tu nombre es Clara. Clara.
+S6: Venimos de la misma escuela, Clara, yo y mía. Fue la misma persona la que cogió el. Una clasecita.
+S3: Los puñazos.
+S8: Yo tenía una consulta sobre eso. Hablando con Clara también. En ese momento que les enseñaron eso, el terminal todavía era muy utilizado porque no estaba tan desarrollado como está ahorita. ¿Pero actualmente todavía es necesario hacerlo terminal o ya podemos 100% usarlo siempre la terminal?
+S3: Porque lo que está haciendo constantemente Cloud es ponértelo fácil en Cloud Code. Pero en esta formación y en lo que ustedes van a hacer, no vamos a lo fácil, vamos a lo correcto y vamos a trabajar con todas las capacidades. Y eso siempre es terminal. Tranquilo que tú no vas a. Ni yo soy programador, ni nadie es programador. Aquí el punto es como con nuestro lenguaje natural, Cloud nos va a empezar a ejecutar cosas. Lo que tenemos que entender exactamente es el ambiente en el que nos vamos a mover y qué cosas más mucho se recrear en ese ambiente para llegar.
+S6: Al otro nivel, conectar diferentes vainas.
+S3: Adelante.
+S4: Un poquito de contexto. Yo lo quería crear era como decir un cloth, pero para el team de marketing o el que quiera saber de todo lo que está pasando en todo lo que es ventas, plataformas tipo Meta, Google Ads, Analytics, Shopify y todo en conjunto. Porque a veces, por ejemplo, pongo el ejemplo de la gerente de marketing de Farmazo. Me preguntaba que te puedes meter en Shopify a ver cómo van los productos, cómo la inversión. Entonces yo quería que ellas, las gerentes y Andrés y todos tuvieran como un espacio en donde pudieran ver cómo va la meta, cómo va la inversión y.
+S3: Así sin que te muestre.
+S4: Sin que. Claro, porque no todo el mundo puede tener acceso a Shopify.
+S3: Claro. ¿Dónde está creado eso? Muéstrame.
+S4: Bueno, igual que Andrés, yo lo creo.
+S3: veo.
+S5: Supa. ¿Ves?
+S4: Aquí está como que todo OK.
+S3: tienes clavo abierto.
+S5: Listo.
+S3: ¿Dónde está alojado eso que acabo de ver? ¿Ese dashboard? Veo que esa es la base de datos con el servidor y el front esa URL que estoy viendo de Kinex ¿Cuál es? Flow IO le das front al asunto y actualiza con el GitHub. Me imagino, cada vez que haces push actualiza con el GitHub. Y eso cada vez que tú escribes en la terminal y quieres que eso se actualice, ¿Qué escribes? ¿Qué dice él?
+S4: Me da como el comando y yo lo pego en supabase para que entonces lo corra.
+S3: Lo pegas en supabase SQL supabase te vas y pegas el asunto. Y muéstrame GitHub. ¿Dónde está eso en GitHub?
+S6: ¿No usas GitHub?
+S5: No, son como alternativas.
+S3: Estás pegada a supabase, a Fly IO y la terminal. Muéstrame cómo conectaste Shopify, dónde está todo.
+S4: A través de API Ya no lo tengo porque está.
+S3: Pero Shopify se conecta con una app client ID, client secret. ¿Hiciste eso en la app de Shopify? Puedes ir a ese Shopify y puedes ir a esa parte de la. Estás entendiendo todo. Estoy entendiendo perfecto.
+S6: Yo estoy como si estuviera en la.
+S3: Fábrica de China con los chinos.
+S2: Tal cual,.
+S4: O sea yo me fui en Shopify a la parte developer.
+S3: Y entonces vamos a estar en Partner Shopify. no hay, vete la parte developer. OK, en apps, dale donde dice.
+S4: Apps arribita creo que me va a salir, Vamos a poner por ejemplo Venezuela,.
+S3: O sea ese es el Shopify.
+S4: Sí, pero no me está saliendo mi app aquí.
+S3: ¿No importa, vete el Shopify que es? ¿Y desde el Shopify yo te digo cómo entrar desde OK, Abajo en configuración vas a entrar donde dice apps, dale arribita dice desarrollador apps y después abajito dice dev desarrollar app, dev Dashboard OK, esa app entra en cuál app es? Lo sabe. OK, vas a darle donde dice baja un poquito No, a la izquierda dice versiones, crear nueva versión a la derecha arriba. Listo, perfecto. ¿Ahora muéstrame dónde conectaste Meta, cómo lo conectaste?
+S4: También con API Connector Developer Facebook.
+S3: Consiste.
+S7: En User.
+S3: Admin o en el Graph API, lo sabes, puedes abrirlo. Eso es justo lo que estaban evitando con clavo. donde ve César se está muriendo por dentro. ¿Querés regañar a todos? Claro, va publicando sus credenciales no,.
+S2: Aquí.
+S3: OK, estás en el developer, esa es la app Kubi ¿Y cómo llegaste ? Con Tools arriba. Dale a Tools un momentico arriba, dale Graph App Explorer y copiaste ese access token de la derecha, ese fue el que copiaste y pusiste. Chévere. ¿Qué más tenemos conectado?
+S6: Voy diciendo después la nota. Cómo vamos a nivel de Google.
+S4: Ad.
+S3: Analytics, Google Ads y Analytics. ¿Dónde lo hiciste? En la consola de Google. Muéstrame eso. Abre la consola de Google.
+S2: Me preocupa la seguridad.
+S3: No te preocupes, nos ocupamos.
+S4: Porque eso también me preocupaba pero yo lo vi con Hannah la que nos enseñó y yo lo tengo todo con clave también.
+S3: Keep Calm.
+S6: Vamos a.
+S3: Vamos a verlo. OK, estás en Google Ads, entra en la consola o lo hiciste en admin con el centro de API. abajo en admin me imagino.
+S4: Sí, pero es que esa no es la cuenta.
+S5: En mi supabase dice que no tengo GitHub como repository conectado.
+S8: A mí también me.
+S6: Explícanos un poquito sobre las plataformas y para qué funciona. Para qué funciona cada una y cuál es.
+S5: ¿Porque el CMT flowea o el superbase o inversa obtienes como repository y supabase son las alternativas, son tiplo?
+S6: Yo creo que sí, pero vamos a ver, no estoy claro.
+S3: ¿Ya entraste y copiaste el token de programador, lo pusiste da?
+S5: Si.
+S6: Render la que yo uso.
+S3: ¿Qué más tenemos?
+S6: Render la que yo uso. Vaina con su.
+S4: Voy a hablar de me triculo mismo agarré la piqui.
+S3: ¿Y qué tienes en Metricool?
+S4: Metricool tengo todo lo que es la data de todas las redes sociales.
+S3: ¿OK, lo usas como para programar los post que haces y demás?
+S4: No tanto programar sino para hacer análisis. Por ejemplo en el equipo de social lo que pedía es un análisis de quejas recurrentes en todas las redes, entonces esto me saca reportes.
+S3: ¿Qué te saca el reporte? Metricool Cloud con Metricol Cloud junto con Metricool. ¿Me puedes mostrar Metricool? ¿Lo podemos abrir a ver qué tenemos adentro?
+S4: Este es Metricool, o sea en el.
+S3: Mismo dashboard lo entiendo, pero en Metricool podemos abrirlo a ver si tenemos .
+S6: Estamos hechos unos Happy Gabriel.
+S3: Súper interesante porque todos dan con su iniciativa, todos están a mi nivel.
+S2: Yo pensaba,.
+S3: Listo, lo que hiciste fue conectar Facebook, Instagram, autenticaste también Google Ads y Pinterest, No, pero.
+S4: Google Ads lo hice con el lápiz de Google Ads aquí nada más.
+S3: claro, autenticaste Facebook y te agarró el Instagram y Pinterest veo, ¿No?
+S4: Sí, pero estos son.
+S3: Sí, sí, claro. Y lo que hiciste fue conectar la API de Metricool para que él a su vez te lleve información al dashboard. ¿Qué más tenemos conectado ?
+S4: Ya,.
+S3: OK, claro. Esto lo hiciste tú sola, todas estas conexiones. ¿Quién es Ana?
+S4: Ana, nuestra coach de club.
+S3: Coach de club, pero está en la organización, es alguien que. una amiga. OK, perfecto, Listo, claro, excelente. ¿Quién más tiene cosas? ¿Iniciativas armadas?
+S8: Gabriel, lo de Rockback es interesante,.
+S4: Me.
+S3: Dice Andrés, te va a buscar alguien.
+S5: Para hacer.
+S3: Unas consultas de seguridad y alguien de este equipo me llamó, No, desde que me llamó sabía que había aplazado. Mandamos archivos por WhatsApp, La idea es que lo pagamos, No sé si aquí tienes, Yo no voy a presentar nada, entonces.
+S6: Que no sabemos un coño, pero somos developers.
+S8: Yo he trabajado en CO y en Cowork también, varias cosas.
+S3: OK.
+S8: Nunca en la terminal, hemos trabajado en varias interfaces.
+S3: En Reddit me conectaba para no pagar,.
+S8: Me conectaba utilizando la base de datos, Todos los códigos que he creado los tengo así en Google Sheet y después los iba pegando en Excel.
+S3: Perfecto.
+S8: OK, después le pasa,.
+S6: Dale Reinaldo, presenta tú.
+S5: Yo estoy en el área de venta y básicamente era agilizar un poco más mi trabajo, tenía que generar 5 acá, me ahorraba eso. Por ejemplo, cada usuario tiene su nombre y le va a aparecer de una.
+S3: Vez su lista de precios, los clientas.
+S6: Tú le hiciste esto a los clientes,.
+S3: Estás en ella en estudio, ¿Dónde se muestra eso? En el lifi. OK, ¿Y cómo hace para que llegue a Netflix? Desde push en el lifi.
+S2: Listo.
+S3: ¿Y dónde está almacenado esa data? Supaba conectado a AI Studios. Si es triangulado, yo me creé un.
+S5: Perfil en cada cuenta.
+S3: OK, OK.
+S5: Entonces fue así, lo cargué acá en IQ, de lo pasé a neclefit y acá entonces le dije en deploy.
+S3: Debes tener conectado el.
+S5: No, le di las variables acá de.
+S3: Supabase, el anunkey y el URL Deploy un momento a la izquierda acá,.
+S5: GitHub,.
+S3: Reinaldo tal, o sea ese hijo también es personal .
+S5: Y luego está supabase que es donde cargo todos mis clientes con su sección de precio y cargo el SSB ya de los datos que tengo de los productos para que me los pueda mostrar.
+S7: Como lo muestra acá.
+S3: OK, ¿Y qué haces? Vas y lo cargas en directo en su país para que se muestre en.
+S5: El front, modifico todo en Excel, lo descargo SSB y lo descargo en Supabase,.
+S3: O sea lo trabajas directo en Supabase. OK. ¿Al final qué es lo queremos ? Que se muestre los productos y que.
+S5: Suceda que cada cliente tenga su lista de precios, pueda anexar por ejemplo los pedidos que quiere, si quiere 10, o.
+S3: Sea es un punto de venta para tus clientes.
+S1: Pero dale el contexto de por qué pas y qué es lo que te está ahorrando para que.
+S6: Pero eso no tiene conectado inventario ni nada Gabriel.
+S5: No lo hago yo manual.
+S2: ¿Y cómo sabes que hay artículos nuevos? Cuando hay artículos nuevos se te actualiza automáticamente.
+S3: Ya va, se me olvidó tu nombre, disculpa. Reinaldo, solamente explícame por qué eso está controlado para que el cliente te haga la orden.
+S4: Correcto.
+S5: Y para que no me tengan que estar preguntando cuánto cuesta o actualízame la lista de precios que me enviaste hace 15 días, una semana para ver qué está disponible.
+S3: Cliente que te escribe, tú le dices métete en el link, ya ellos saben,.
+S5: A veces me envían hasta la orden de compra de una vez, yo aguanto entonces y también el revendedor.
+S3: OK, está bien. Y el link es un link personalizado por cliente. ¿Entonces tú cómo refrescas el precio de.
+S1: Los productos.
+S5: Por nosotros que hay un 20 25 30 35?
+S2: Ya toda esa base está en los extrae de Odo. Entiendo.
+S3: Lo que pasa que la adaptación.
+S2: Y.
+S3: Él tiene el descuento que es para ese cliente y cada uno tiene su perfil, entonces el cliente sabe cuál es lo que tenemos. Si hay una actualización de precio, él sí tiene que actualizar base precio. ¿Pero cómo te enteras que hay una actualización de precio? Porque viene de venta igual cuando hay una política de cambio de precio. ¿Hay política de cambio de precio y qué hace?
+S6: No es cambio de precio, es que llegó un modelo nuevo, el señor trabaja la página web de la empresa, él sabe, le avisan David llegó el termo color verde. OK. Viene acá y él carga el termocolor verde con su referencia, sus links de Shopify para que salga la foto y los precios del producto.
+S5: Correcto.
+S9: OK.
+S3: Tú no estás entrando en Odoo ni nada de eso, tú porque te enteras de que llegó primera mano el producto y le montaste el asunto tanto en la web como aquí.
+S5: De Odoo descargué la lista de precios,.
+S2: Él hace un export en Odoo, la.
+S5: Lista de precios una sola vez, porque ya tengo todo, al menos que llegue un producto nuevo que necesite.
+S3: Y vuelves y descargas la lista cuando entra el producto en Odoo, solo ese.
+S5: Producto y acá trato.
+S6: Busca la ficha del producto en Odoo y vas copiando la referencia tan.
+S3: Y ese Shopify, o sea, tú montas.
+S5: Las cosas en Shopify, reproceso el e commerce, que es la página web y también manejo, que ya es cuando son corporativos o mayoristas.
+S3: Explícame, o sea, yo manejo todo Shopify. Compras por la Entonces Clara no maneja el Shopify.
+S6: No, no, él es operador, o.
+S2: Sea, él es vendedor.
+S6: A ver, su función de hoy, que ya a partir de la próxima semana ya no es así, está con doble función, que es lo que me venía ahora, que la gente no puede hacer una de sus funciones, operar la página web. La gente manda chats, quiero comprar, hice esto, El procesa los pedidos, se encarga que el pedido se pasó de Shopify a Odoo, que el cliente lo vino a retirar, que el delivery salió. Esa es su operación de página web. Aparte para subir la venta de la página web se le dice hace un año o dos años vamos a empezar corporativo. Claro, yo estoy todo el día en la computadora, puedo mandar email a todas las empresas, voy a empezar a vender corporativo. Arrancó tan. Se encontró con un problema de que los clientes todo el día le pedían precio y vaina, Me la di mandarle lista de precios. ¿Sabes que? Voy a hacer una página web donde cada cliente entre con su nombre, van a salir todos mis productos, todos sus precios, la página web no está conectada, está conectada a su país y hace Google sheet, Él actualiza su Google sheet si es que llegó un producto nuevo y se le actualiza aquí el proceso del cliente termina cuando esto le genera un PDF, que es como una orden.
+S3: De compra y me imagino vas y lo montas en modo manual la orden de venta.
+S5: OK. Y de surgió también la otra necesidad de enviar la guía, que sería este que yo todo el día iría cargando acá los que serían envíos al interior, Le doy enviar todo y se envían todas las guías, porque las guías.
+S1: Llegan en la tarde.
+S3: ¿Esas guías se envían a qué?
+S5: Al final de la página web.
+S3: OK. Todas las guías de Uno Express que te dieron. ¿Todas las guías que hiciste? ¿Como las rellenaste todas?
+S5: Correcto. Ya, durante todo el día tengo nombre y correo y cuando me llegan la guía solo coloco número de guía y se envían desde mi correo.
+S3: OK, ya, perfecto. ¿Todo eso lo hiciste tú Reinaldo? Listo. Algo más que se me escape. ¿Quién crea el producto del modo? Cuando hay un nuevo producto, ¿Quién lo crea? Alejandro, ¿Quién es? Alejandra. Alejandra Mejía no está aquí. Gracias Reinaldo. ¿Quién más tiene?
+S8: ¿Esto? Es un desarrollo dentro del ARC, que es nuestra plataforma de comunicación dentro de la empresa.
+S7: Primero, bueno con superviso yo me tomé la libertad de ponerle Vita. Yo lo que hice es que integré un chatbot, nuestro chatbot de los relojes que es Vita, lo integré a Shopify y esto nació como consecuencia a que muchas personas dentro de la organización me preguntan cosas específicas, técnicas de los relojes. No solo técnicas, también me preguntan cosas de materiales, dimensiones, colores, funciones. Entonces la idea de este chatbot es que tú entres, hagas una pregunta y él te contesta entrenado con la información.
+S3: Que yo le dime dónde está construido eso detrás que hay Increíble, ¿Qué departamento eres tú? Y tú no, yo hablo con Rockma, compárame.
+S7: Esto está, la base está en esta plataforma porque lo primero que me pidió es que generara estos. No sé cómo se llama esto, Octage. Redis me pidió eso. Eso va en Vercel. Vercel me pidió que hiciera primero las variables en donde puse cada una de estas, se cambia. Cada una de estas cosas. Pero aquí yo me topé con una limitante y es que intenté poner un API key de una de las que Una de las inteligencia artificial que ya conocemos, intenté llegar con Gemini, intenté con gr, intenté con OpenAI y utilicé los free, las gratis y no me funcionaba ninguna, no me generaba respuesta. Entonces la única forma que conseguí que sí me generara respuesta es pagando.
+S4: Esto.
+S7: Realmente yo hecho varias consultas y yo puse solamente 5 dólares para probar y ya a partir de me generó respuestas. No se consume tan rápido.
+S3: Pero ¿Dónde está construido lo que responde el bot dónde lo hiciste?
+S7: La información que toma para responder primero.
+S5: Es.
+S7: Del chat del OpenAI normal, pero si yo quiero que responda algo específico, que es las variables que yo le doy las responde este repositorio.
+S3: Un repositorio que creaste, lo tienes público.
+S5: Estas dos de aquí son para repositorios, son públicos.
+S3: OK. Y tienes los productos y tienes privado, estas dos de aquí son las.
+S7: Que te hablan, pero esta es la de productos y esta es la que en el código que utiliza para ejecutarse me dice que el primero consulte aquí. Entonces aquí están las variables cada producto.
+S3: Y dónde iteras, o sea dónde escribes.
+S7: ¿Yo le puedo preguntar qué pantalla tiene el Viva?
+S4: ¿No, no,.
+S3: Dónde escribes para que haya más productos?
+S5: Por ejemplo tengo entendido que.
+S7: no, si yo quiero agregar más información producto lo hago directamente en el repositorio de.
+S3: OK, lo haces , Internet manual, le metes información y lo que estás haciendo es que en lar está usando OpenAI y entra a verificar esta información y responde, o sea OpenAI es el que está respondiendo.
+S7: Exacto, OpenAI responde cualquier pregunta normal, pero si yo le pregunto algo del producto lo va a tomar de este repositorio.
+S3: Esto es que instalamos, o sea esto es para que ustedes.
+S8: Hay muchos departamentos que nos hacen consultas en específico ahorita Rockmar sobre temas de producto como tal para que tengan acceso.
+S5: Tuviste que conectar con un.
+S1: Eso todavía no lo hemos lanzado actualmente.
+S3: Hay una pregunta que tengo, ¿Hay una universidad que sabe esto, está amarrado a eso, ¿Hay alguna conexión con eso? No, de momento no tiene nada que ver con eso que vi, de momento es algo nuevo y alguien quién hizo momento lo vamos a ver ahorita cómo se desarrolló,.
+S1: Pero no es, no.
+S3: Tiene conexiones ni nada.
+S1: OK, listo, dale enter rapidito y él.
+S7: Va a tomar de las parejas que hablé y me va a responder.
+S1: Eso es de gran ayuda la verdad para ahorrar tiempo.
+S3: Para marketing.
+S8: Sobre todo es para marketing.
+S5: Bueno y.
+S3: Para el equipo de ventas cubita total. Bueno eso.
+S6: Excelente.
+S3: OK, listo Roma, gracias.
+S8: Es una herramienta que estamos desarrollando y se lo pasé a él para que lo terminara de ajustar y es un aplicativo completo para el tema de reporte. Para el tema de reporte de garantías, no sé si cuando hablamos te mostré el dashboard que nosotros tenemos para temas de medición de garantías.
+S3: Creo que me mostró él un poco, pero dale si querés compartir. No, es una. Creaste en el difícil. Dónde pediste Cloud Code, la aplicación Muéstrame, sabes, ve abriendo para ir. Para ir viendo dónde lo manejo en chatly,.
+S5: Pero para llamar al folder le pones con slash.
+S6: Cada vez que lo voy a buscar le pregunto Cloud no termino de agarrar ese slash. No, slash sí.
+S5: Yo tampoco. no, pero ya entró de una vez al user Stefanía.
+S3: Y tú vas chateando.
+S5: Tipo copy paste.
+S8: Todo está conectado a LAR porque nuestro sistema de reportaje está en la.
+S9: Claro.
+S5: OK.
+S8: Lo queríamos era tener todo centralizado y acceso, o sea, no acceso, sino que todos los países puedan reportar lo más rápido posible. No sé si. Mariela te comentó que hay un desarrollo ahorita de que las personas hacen la solicitud de la. Nosotros aprobamos y se monta automáticamente en Odoo y se hace el reporte automáticamente. Entonces queríamos era unir todas esas cosas.
+S6: ¿Pero esta herramienta para qué es Patrick?
+S8: Para el aplicativo de seguimiento de casos de reportes de garantías.
+S6: ¿Cuál es la diferencia con el dashboard de Lark?
+S8: Que queremos que se haga el reporte automáticamente por toda esta aplicación y las personas, todo partió por la aplicación que tú me mostraste de viaje. Que las personas que suben el reporte puedan tener acceso a lo que ellos están subiendo.
+S6: ¿Por qué no es adentro del ar todo?
+S8: Porque hay personas que no tienen LAR en la empresa. ¿Sabes lo que te digo?
+S6: Un cliente no en la empresa, los clientes entran a este link y reportan su garantía.
+S8: Y se le da seguimiento. También que se mande los correos automáticamente. No, eso sí lo hace largo. Pero el cliente.
+S3: Una pregunta Patrick, ¿Reinaldo está contigo o es otra división? ¿Muéstrame cómo hace el cliente, cuál es el journey? El cliente viene y qué es lo que tiene que hacer.
+S6: No, OK.
+S8: Por ahora, como esto lo volví a.
+S3: Reseñar porque te mostré la primera, los dos, abandoné la idea en el wifi, me vine acá,.
+S8: La idea es que llene este campo, país, tienda,.
+S3: El nombre del cliente, el correo, para que le llegue el caso y cada vez que yo le actualice el caso, que ya se encuentra en revisión, se encuentra reemplazado, reparado, leyendo y el cliente puede pasar retirado un porcentaje también. Porque ¿Qué pasa?
+S8: Nosotros ya tenemos las automatizaciones desarrolladas en LAR. Tiene un sistema de automatizaciones, Inteligencia artificial.
+S3: Pero es que necesito que me muestre. Muestrale LAR. Exacto, o sea, LAR lo tienes conectado aquí. Entonces tú metes esto es para que le llegue una notificación al cliente. ¿Y esa notificación por donde sales? Un correo que sale largo y de LAR. Por eso la conexión con la.
+S6: Porque le actualiza la base de garantías.
+S8: En largo, su repositorio es LAR, crea.
+S2: Como un base que es un archivo tipo Excel. Entonces ellos tienen dos.
+S3: ¿Claro, pero dónde están haciendo la data? ¿La garantía está en este aplicativo o en LAR? ¿Y por qué no salimos de LAR? Porque hay lientes.
+S7: ¿Que es un LAR?
+S8: Es introductor. ¿Me explico?
+S3: Tienes que tener una cuenta. ¿Pero qué hace el cliente? Rellena algo como que se me dañó esto. Te llega el aplicativo y tú lo metes en la.
+S2: Se actualiza en la. El cliente llena el formulario y actualiza en la. En el base de la.
+S1: Pero un segundo, Gabriel. El cliente, para que él entienda, no es el usuario final,.
+S3: Es tu BB, tu mayorista, o sea, él le dieron unas garantías y rellena su garantía y te llega a un tablero del Arca. Pero. Por ejemplo, Hi Business dijo un táctil no funciona. Él puso un código del táctil o algo así.
+S5: Como punto de venta autorizados que tienen permiso de recibir esas garantías. Tiendas Cubicafé y ellos son los que llenan la información.
+S2: Aunque no tenga la persona externa, se puede crear un link y ese link al formulario que llena.
+S6: Por eso no entendí para qué creaste la plata.
+S3: ¿Por qué la otra plataforma?
+S8: El futuro es que conectemos todo por Approval y sí necesita con la inteligencia artificial no necesita.
+S6: El proceso de aprobación es el acto.
+S2: Del act que comienza con un formulario y que tú puedes decir él aprueba.
+S3: Andrés tiene que cambiar el estatus para que le pase al otro y le pase al otro. Multiaplicaciones El Appui es una de las aplicaciones que trabajan en tu Pero yo.
+S6: Todavía no entiendo para qué aplicación afuera del ARC. Si yo soy Panafoto. Panafoto es un cliente BB, recibí esta garantía, metí en el formulario, en el link del ARC, recibí una garantía de este reloj que no le sirve la pantalla y te la reporté. ¿Para que es la otra plataforma?
+S3: Esto no está conectado.
+S8: Porque ahorita es por formular. Y se monte automáticamente Odoo y se.
+S6: Automatice todo lo demás está perfecto. ¿Para que es la otra plataforma?
+S8: Porque el Approval sí necesitas tener acceso al dar, no es abierto a todo el mundo.
+S6: Pero los clientes no van a usar el Approba. El que aprueba, tengo.
+S8: Claro, el que va a subir el reporte va a.
+S6: Usar el va a usar el formulario.
+S2: Lo que pasa es que hay dos caminos. El formulario no es aprobado, pero el cliente que está afuera tiene un formulario que no entra dentro de la prueba.
+S3: Digamos que lo hicieron para que el cliente tuviese una experiencia también y lo conectaron.
+S6: Pero sí se puede.
+S3: No nos metamos demasiado ahorita lo que quiero ver las construcciones. Ya vamos ahorita ambiental. OK.
+S6: Importante entender la lógica de por qué lo están haciendo.
+S3: No, las lógicas ahorita son mixtas. Ya vi muchas necesidades. Claro, claro, ya la vi. Pero eso es algo de negocio y lo entiendo. Pero ahorita si nos metemos en negocio se nos va el tiempo. Yo lo que quiero es ver las construcciones y poderlos ambientar en un mismo sitio. Ya lo entiendo, puede ser por X, tal vez quería que se viera bonito, tal vez, etcétera. No importa. Vi ya lo que construiste. ¿Ahora hay algo más?
+S4: ¿No?
+S3: Sí, pero lo tenía algo más listo. ¿Alguien más?
+S8: ¿Es que todo?
+S6: ¿El papel cómo lo trabajamos?
+S2: Él te va a hablar cómo trabajamos como programadores. ¿Quién?
+S5: Jorge Albiar.
+S3: Jorge, ¿Qué tal? Cómo trabajamos como programadores con Comparte Entonces Jorge, ¿Qué tenemos? Súper bien, te escucho en K. Vera. Vera también construyó algo.
+S5: No ha construido nada.
+S3: Entre Chile y japonés. Vera está como Roberto para ver qué es lo que. A ver Jorge, ¿Qué tenemos ?
+S9: Nosotros tenemos un servicio llamado USH. Básicamente es un servicio de Sapio Loop que te quita toda la parte de administración de los servidores y tenemos un proceso de integración continua que básicamente hacemos un repositorio. Cuando se actualiza el código de repositorio se actualiza el servidor con el código. Es básicamente lo mismo que tienen casi todos los que usan Render o Netify.
+S3: Muéstrame Jorge, muéstrame lo construido que tenemos.
+S9: Bueno para mantener aquí. Entonces, ¿Que tenemos aquí? Tenemos un repositorio que lo tengo yo aquí clonado, mi máquina, están todas las integraciones, todos los módulos que tenemos personalizados con los.
+S3: Muéstrame un módulo. ¿Un módulo que hace?
+S9: Básicamente este lo uso para sincronizar instancias de Odoo entre diferentes. Para sincronizar productos entre diferentes instancias de Odoo.
+S2: Cuando Alejandra crea productos aquí en Venezuela y se actualizan en Colombia. Esa esa sincronización.
+S3: OK.
+S9: Este es un módulo que está instalado en todo y básicamente yo me dé una personalización.
+S3: Listo.
+S9: ¿Qué hago yo básicamente tengo aquí instalado el cloud en el Visual Studio Code y básicamente yo hago una nueva sesión de chat, por lo menos esta? Y donde yo hice toda la descripción del problema. ¿Qué hice yo previamente? Yo básicamente hice toda la investigación, todos los parámetros que he configurado, le di toda la descripción y creé un plan con Odoo Base. Entonces, casualmente este es el plan. Yo primero reviso el plan que tengo du fase 1, reviso el plan, luego que le digo aquí a simplemente el plan, reviso todo el código del plan para ver que funcione más o menos volvió. Luego voy a una parte donde hago mi commit, subo los cambios, espero que despliegue, instalo, actualizo el módulo, reviso que todo funcione con el pelo, y así voy iterando básicamente hasta que el producto queda como.
+S3: Jorge, ¿Cómo estás construyendo ese código? ¿Usas Cloud o le metes mano directo?
+S9: Ambos, básicamente. Generalmente le doy contexto a Cloud y si hay un cambio pequeño o algo, generalmente lo termino haciendo yo. OK, y dónde el 90% del trabajo es dio. Revisar el código de Cloud y ya lo que.
+S3: Claro, pero ese código que estás escribiendo en Visual Code, lo está generando Cloud o tú te vas a la sesión de Cloud, escribes por allá, vienes, copias acá.
+S9: Yo tengo aquí el módulo de cloud integrado.
+S6: ¿Dónde?
+S3: Muéstramelo aquí.
+S9: Este es el chat de Cloud dentro de mi selección. Vamos a hacerlo. ¿Yo aquí ya tengo este plan, ya yo lo revisé, ya yo sé que.
+S3: Está como yo espero, pero dónde está el chapi?
+S9: Simplemente le doy a aplicar.
+S3: ya, eso que está allá arriba. ¿Pero dónde escribes? No veo dónde escribes. OK, listo. OK, ya, perfecto. OK, buenísimo. OK, listo. Va construyendo, Va construyendo el módulo y después hace. OK, esto se ve bastante más ordenado.
+S9: Generalmente yo hago un review del código antes de enviarlo y sugiero cualquier codificación que haga. Entonces aquí, aquí ya cojando por mí.
+S3: Perfecto.
+S9: Realmente aquí esperando que. Claro, por lo menos aquí creo que ya les estaba. Mira, acá yo reviso mi casa, que digamos que ya más o menos lo estaba haciendo. Luego que termina, reviso todo, lo pruebo internamente, se llenan unas dos o tres veces, porque generalmente una vez no la quedó como yo quería, de repente no hay contexto de que estaba explicando. Incluso yo uso mucho aquí en las herramientas del blog de co. Yo uso mucho lo que llama el módulo Plan, donde justamente él me describe todo lo que te digo que dice. Primero integro sobre Plan, luego integro sobre el código y por último ya subo los cambios. Cuando actualizo mi repositorio, se actualiza el código.
+S3: Módulo brutal.
+S9: Y voy a las puertas del producto.
+S3: Brutal.
+S9: Hay como tres fases de.
+S3: Perfecto, Jorge. Jorge, una pregunta. Tú estás haciendo estas partes de personalizaciones en Odo. ¿Hay algo más fuera de Odo que estés haciendo?
+S2: Hay otro programador que está con la.
+S6: Listo.
+S3: OK, listo. Está bien. Gracias Jorge. ¿Alguien más?
+S1: Creo que sí.
+S6: María Catalina.
+S1: María.
+S3: Hola María Catalina. Dale Catalina.
+S6: Cerrado.
+S3: Tú también tenías algo, Estefanía, Pero no para mostrar en verdad después en lo que vi yo no tengo, pero digo, está funcionando María Catalina está , estás creando cosas. OK. ¿Alguien más aparte? María Catalina.
+S1: María, estás en mi, o sea, casi. Pero yo creo que le puedes dar la idea de lo queríamos hacer. La idea sí, pero no, pero igual estaría interesado.
+S5: Ahora está CLO trabajando.
+S4: La idea era,.
+S5: Cómo se dice, recopilar toda la información que tenemos entre WeChat, que es el chat que tenemos con la fábrica.
+S1: Listo.
+S5: WhatsApp, que tenemos mil grupos, Tenemos mucha información con distintos proveedores en distintos lugares, correo electrónico y lo que tenemos en la cabeza.
+S3: ¿Tienes alguna herramienta donde llegue WhatsApp, WeChat y todo?
+S5: Claro, no, entonces yo mi cabeza. Entonces le trato de meter la información. Tengo ahora todo, por ejemplo el Lark.
+S3: En un documento y en Obsidian Mercatitelli no tiene WeChat con esas conexiones.
+S8: No, solo tiene con WhatsApp.
+S3: WhatsApp e Instagram.
+S5: Bueno, la idea es un dashboard más que todo para mí, pero si lo necesito compartir, lo comparto con passwords o con distintos accesos para que todo el.
+S3: Mundo tenga visibilidad.
+S5: Y todo el mundo sepa cuándo llega qué producto. Y así cada departamento se puede organizar con tiempo, con toda la información de cada producto y no me tenga que preguntar a mí y todo esté como real time en el dashboard. Adicional a eso está la parte de que no es compartirlo con las personas, por lo que he estado trabajando ahorita, que es más que todo para organizar, hacer tipo un forecast de lanzamiento de 2027, trabajando la hora en base a la data para organizar los tiempos y trabajar para atrás. Pero la parte de compartir el resto del equipo es un dashboard. Es un dashboard con toda la información básica, no básica, pero con todos los specs, keystelling points, cómo vender el producto, cómo viene el producto, cómo es el empaque, cómo se ve, cuáles son los.
+S3: Skins, cómo es el producto, cómo se ve, cómo se tal.
+S5: Ahora mismo hago reuniones mensuales con Ricardo y se habla del producto y como que se pichea y se le da la bienvenida y se van dando updates por el chat de LAR que.
+S3: Tenemos con el resto.
+S1: Y en el AR también tenemos un base donde tenemos todo lo que es el cronograma de GAN, todo lo que viene, etcétera, y la gente puede meterse y saber más o menos cuál es la fecha, pero la idea de ese dashboard que ella está haciendo, que es súper interesante, es meter un bot y que la gente entre y le pregunta al botón que quiera sobre el lanzamiento, no que le estén preguntando a NIA.
+S5: No sólo eso, sino adicional que esto va a llevar más tiempo de historial, que yo me pueda conectar al de Clara, que Clara tiene toda la información de cómo le fue en meta, cómo le fue en los ads, etc. Y ver si de verdad el producto se vendió bien o solo se vendió bien porque me quedé sin stock, pero si de verdad fue un buen producto y vale la pena entonces que el equipo de compras diga quiero más del producto o no, o sea que tenga su analítica y su cierre, pero eso ya es con muchos meses después de lanzamiento y con más data yo puedo decir que se vendió bien, si pedí 5 unidades y se vendieron las 5, pero en verdad si le metí 1000 dólares, entonces no vendí bien, dónde está tu inversión versus lo que vendiste en el tiempo que lo hiciste, donde lo hiciste, o sea es como un que tengas.
+S3: Visibilidad de todo el lanzamiento completo, esa información que tú manejas quieres que otros la vean más rápido.
+S1: Esa es la última fase que es súper importante, que lo que habla ella es el retorno de ese lanzamiento, cuánto nos costó lanzar ese lanzamiento y si realmente tuvo valor, porque a veces pasa que se atrasan, hay que pagar pedido aéreo y no se, nos tenemos tracking de los costos, pero nunca se muestra, mira, lanzamos, corrimos para lanzar porque teníamos que cumplir con la fecha, pero aquí hiciste, pagaste un aéreo, ¿Cuánto costó? ¿Lo recuperas o no lo recupera?
+S3: Esa información ahorita no la tienes exacta, sino que vas recolectando y por todos lados no en análisis exacto vas a ir sacando la info. OK, está bien.
+S6: Dice que está llegando a la computadora,.
+S1: Yo creo que puede seguir porque ya van a ser las tres y media. ¿Y María Catalina, no sé si alguien ayer central o si no, bueno, Fernando,.
+S3: Tú no tenías algo de? ¿Qué es lo que tú necesitas? Recuérdame. No, eso después porque eso nosotros tenemos.
+S6: En la bodega un WMS que tiene miles de indicadores, miles de KPIs, tiempo de preparación, productividad por usuario, todo eso. Ellos no tienen hoy en día un display, un análisis interesante sobre toda la data que tiene. Entonces el proyecto de ellos es ver cómo esta gente nos da un API para nosotros jalar esa data y poder analizarlo de una manera bonita.
+S3: Lo que pasa es que realmente tiene la data en teoría, tienen reporting, tienen.
+S5: Todo,.
+S3: Entonces sí, pero el tema está en ese que la configuración de los reportes, la información que tú necesitas para que te haga como el base de donde va tomando la matriz, todo está en conf. Entonces al momento que tengan que ser, si es que le vas a colocar, se tiene que bajar demasiadas cosas para él poder llevar, porque no tienen el.
+S8: Reporting que ellos tienen, a nosotros nos sirve.
+S6: Tienen diferentes reportes, importe el reporting.
+S3: Pero tú puedes descargar un Excel. No, todavía hay limitantes. El sistema tiene una limitante también que es que tiene un límite de volumen. Entonces, por ejemplo, si yo voy a bajar un tema de que quiero ver todas las posiciones para ver dónde están los ítems y dónde está ubicado físicamente , yo no lo puedo bajar, tengo que agarrar, hacer un copy y paste y llevarlo a un Excel.
+S1: Porque te.
+S3: Lo da la pantalla, pero no te permite el tamaño, no hay como un descarte que ni un T. Por lo menos eso es lo que tenemos nosotros y eso es lo que se le está preguntando.
+S6: Es cuestión de pedirle al proveedor estas tablas que tú me estás mostrando o.
+S3: Constrúyeme una tabla, eso está en la nube, está local y sabemos en qué servidor local está local de otra gente, o sea, allá entran por una URL, hay una VPN entre nosotros y ellos y una red local. Ya que te vas casca.
+S5: Ya me da,.
+S3: Perfecto, vamos a. Estamos listos.
+S1: Sí, solamente déjame enfocar esto para que los que están en la.
+S3: OK, Miren, primero, que bueno que tienen muchas iniciales, pensé que no había tantas, así que está bien chévere. El punto es cómo centralizamos todas esas iniciativas para que todos empecemos a hablar el mismo lenguaje. Por ejemplo, veo Reinaldo que está haciendo unas cosas, las hace con algunas herramientas, Andrea hace otra, la hace con otra herramienta y Clara hace otra, las hace con otra herramienta, entonces entre ustedes no se podrían hablar, tú le dices una herramienta a Rinal y ella me entiende y él te dice otro, entonces no se entiende, eso es un punto uno. Entonces no importa las herramientas, hay muchísima, importa la estructura que le queremos dar y la seguridad que necesitamos de aquí en adelante para movilizar esa data. Entonces fíjense bien en Odo vamos a separar los dos temas, Odo no lo vamos a tocar porque Odo es a big problem que después habla con INTernamente, pero todo lo demás son iniciativas con muchas herramientas. La pregunta es cómo manejamos dos mundos o y una sola herramienta y en esa sola herramienta como todos aportamos a lo queremos construir. Entonces necesitamos cubrir tres un backend, un front end y la parte de la base de datos y donde se almacenan las cosas. ¿Saben que es backend? ¿Frontend? ¿Han escuchado? Backend es la parte de atrás, es decir, es el código, es donde está la construcción de esto. Front es la parte visual, cómo se le va a ver a el cliente o a ustedes internamente esas cosas bonitas y el storage es la parte donde se va a almacenar, dónde está esa data. Entonces tenemos que pensar siempre en estas tres cosas. ¿Dónde deben vivir estas tres cosas? En este triángulo. ¿Este triángulo cuál es el backend? Lo trabajamos en supabase y supabase va a fungir como backend y como Storage. ¿Por qué Supabase? ¿Aquí tenemos dos opciones, o nos vamos directo a armar todo, es decir, contratamos un servidor de Amazon y empezamos desde cero, armar todo lo que son nuestras tablas SQL para que empiece a registrar toda la data y demás, pero no son programadores verdad? Nadie programado, entonces no queremos que la vaina se nos haga tan difícil o utilizamos herramientas que estén adaptadas ya a una cantidad de cosas de IA que nos va a permitir conectar, pero yo tengo que pensar que en mi backend y en mi almacén tengo que tener la mejor de las seguridades. ¿Qué son las seguridades? ¿Las seguridades cada vez que yo hago una conexión es un tubo de información que va moviéndose de un lado a otro, ese tubo tiene que estar bien protegido y esa buena protección se llaman unas functions, la han escuchado no? Cuando hacen iterando no les ha salido como he function. Entonces una edge function tiene un modelo de edge function bien robusto y bien interesante. ¿Después tenemos la parte de el storage, entonces dónde se va a guardar eso? En las tablas que va a crear supabase y va a almacenar también esto tiene que ser algo viable en el tiempo en términos de costo, porque lo que está pasando es que todo el mundo estamos utilizando cosas y como la pagamos si son cosas distintas, ¿Cuántas herramientas había? Como dos herramientas, ya el modelo no es sostenible, entonces en supabase podemos pagar cosas como 50 dólares y centralizamos todo lo que acabo de escuchar en una sola cosa, eso va teniendo muchos sentido. Bien, este es backend y storage, después.
+S6: Tenemos que dar también. Tenemos todo en un solo lugar.
+S3: Sí claro y ya vamos a eso en términos de la seguridad, lo primero esas conexiones con la seguridad, lo segundo es el almacenamiento de eso y lo tercero es el control de la data. El control de la data básicamente estamos poniéndolo en todos lados y en todos lados de manera gratuita y demás, por más que tú estés cuidando la data, la estás poniendo en un chat abierto y eso no puede suceder. ¿Entonces cómo yo manejo el client ID, el client Secret, cómo manejo las credenciales de API de Odo? Cómo manejo las credenciales de. ¿Ya hablamos del ar, cuál es el otro? Las de Meta, imagínate en Meta entran en ese graphic y se fue la tarjeta de crédito en was de un solo carajazo. ¿Cómo manejo las de Shopify? Cómo manejo las de. OK, entonces ya vamos a ver eso, todo el manejo de credenciales tiene que ir en una bóveda, de hecho está aquí, Esas son las cosas que ustedes han ido creando, un dashboard para ver la analítica, un post BB, un punto de venta para que me lleguen los BB, un dashboard de ventas para ver todas las ventas con Odo, unas garantías que tengo que resolver que me tienen que llegar y una bóveda donde tengo que tener la información guardada. Entonces todo eso puede formar parte ahora de un solo sistema. Entonces vamos a ver por un lado con qué trabaja supaves Con Amazon, el servidor de su. Ahora necesito trabajar en el front, hay muchísimas cosas de front, ya trabajan con varias, yo recomiendo trabajar con Netlify o con Verce, son empresas grandes, robustas, no cuestan mucho o puede ser con Cloudflare también, cualquiera de esas, simplemente que elegí una que nos mate el asunto, cualquiera de ellas elegimos y sobre esa empezamos a trabajar bien. Y también es relevante que todo use uno mismo, si cada quien puede andar en la suya, es importante eso. Todo es parte de la empresa y todos debemos trabajar dentro de la empresa publicando nuestras actualizaciones. Y alguien debe ser el encargado de hacer merge. Merge es meterlo públicamente en el aplicativo para que no haga conflicto con otras cosas. Es decir, si tú estás creando un módulo, tu módulo de ventas de no sé qué, pero él también está haciendo unas ventas BB, puede ser que lo que tú hayas creado en código haga conflicto con lo que él ha creado. Entonces tú no vas a publicar directo en el aplicativo, vas a publicar en una rama y él va a publicar en una rama y alguien tiene que verificar como la rama la vamos a unificar públicamente.
+S2: Eso es como cuando nosotros le decimos vamos a hacerlo en test y después lo pasamos a producción. Hay una rama de test y hay una rama de producción. A eso es lo que él se refiere. Va a haber un lugar donde usted ensayo y error y luego que ya estén seguros se pasa a producción, porque saben que no hay conflicto con los demás.
+S3: Hay muchas cosas que van a ir produciendo, la idea es que las puedan producir, puedan ver en tiempo real el aplicativo, irlo mejorando y mandan la actualización, pero la actualización hay que verificar que no haga cumplir. Entonces lo primero aquí también es planear qué son las cosas queremos y a la medida que planeemos entonces vamos desarrollando y vamos mandando las cosas. También veo que hay como muchas iniciativas que tal vez se puedan chocar.
+S1: Importante lo que dice Ricardo al final me gustaría agregar también lo que plantea Gabriel estandarizarlo, o sea, si alguien quiere hacer algo ya sabe cuál usar,.
+S3: Tiene quedar como un acuerdo las cosas que vamos a utilizar y además tenemos que aprender a utilizar. Entonces él usa AI Studio, Clara utiliza Cloud en terminal, Estefanía también veo que está utilizando, pero AI Studio también por.
+S5: Allá.
+S3: Usamos un solo motor de una sola forma y usamos una publicación de una sola forma y usamos una base de datos de una sola forma. ¿Entonces vamos a elegir, después que lo elegimos, donde yo voy publicando las iniciativas? En GitHub. GitHub es como un archivador de las cosas que voy a publicar. El GitHub tiene que ser manejado por un solo control, el control lo eligen ustedes, ser IT puede ser Andrés puede ser, etc. Pero quien esté en el control, quien esté en el control tiene que verificar que lo que hizo el OTR no hace conflicto con Ricardo, que lo que hizo Ricardo no hace conflicto con Renal. ¿OK? Entonces es alguien que está verificando, dejando que creen pero verificando que no me haya conflicto para publicar y que ya ustedes empiecen a ver.
+S5: ¿Pero el frontend usas verso, pero publicas las cosas por medio de GitHub?
+S3: No, GitHub es un repositorio para que todos tengan. Tú podías hacer no usar GitHub, sino que directo lo que construyes lo metes en Versel o en el. No queremos eso. ¿Por qué? Porque somos un equipo multidisciplinario que va a empezar a crear, crear, creAR y crear. Entonces esto es como mi ramificación de creaciones. ¿OK? Tú tienes una rama principal, pero viene Ricardo y crea una cosa, viene Reinaldo y crea otra cosa, viene Andrés y crea otra cosa. Y Mariela va a decir déjame revisar a ver que hicieron esto carajo. Lo verifica y dice mando lo principal y limpiamos. Volvimos a limpiar esto otra vez y vuelven y siguen creando.
+S1: Y aparte de no crear conflicto, que es lo que mencionamos en la mañana, no hacer doble trabajo. ¿Claro, claro, ahorita mismo, lo que sea,.
+S3: Ahorita mismo los felicito por el esfuerzo, pero se tiene que acabar? ¿Lo que está sucediendo, no? No porque esté mal ni nada, sino porque estamos corriendo para todos lados y ese barco no sabe para dónde ir y eso ya no puede suceder. Es decir, estamos todos en el mismo barco. Entonces vamos a ver si Eloy le va a dar el timón, nosotros atrás vamos, pero no es tú, no hay para otro lado. Entonces vamos un poquito a meternos en un camino. OK, Entonces ¿Qué es lo primero que vamos a hacer Andrés? Un supabase. Tú no tienes supabase, tienes on render, ¿Verdad? Onre, los RLs y las ed function. No way. OK. Y necesitamos que se maneje todas las formas. Se Ahorita lo más fácil en trabajo y que tiene todas las cosas seguras es supabase. Entonces nos vamos a Supabase. ¿Que es irnos a supabase? Es crear el supabase y lo que tienes armado vamos a migrar para acá y vamos a empezar más. OK, Eso en un día migraste y está. Y vamos a ir planificando la migración de lo que ya está con. Es decir, nos vamos a inventar cosas nuevas. Ya hoy tenemos construido un dashboard de.
+S6: Ventas, una cuenta corporativa,.
+S3: Vas a crear en supabase, puedes tener múltiples bases de datos y eso es importante que lo verifiquemos. ¿Qué es una base de datos? Una base de datos es tablas guardando esa información, ¿Verdad? Entonces, lo que tenemos que pensar aquí de las cosas que estamos haciendo, que tiene mucha información. Porque si todo está en una tabla, tendríamos que pagar mucho cómputo para que se mueva esa data fluidamente. Y la verdad es que no es tan necesario tener un cómputo inmenso para que Clara vea la campaña. Clara puede tener una base de datos de marketing, ventas puede tener una base de datos de todo el mundo de venta, incluido el BB, incluido la parte de las ventas y todo lo demás. Otra base de datos. Tenemos tres bases de datos que están interconectadas. 25 Dólares cada uno son 75 y nada colapsa y todo se está manejando . Las campañas traen demasiada data diaria. Y además tenemos que conectar la ser Console, tenemos que conectar Analytics, el Google Tag Manager, tenemos que conectar los sitios, Shopify, todo. Ahora le vamos a meter más car. Si le meto más caña, necesito que eso vaya, no se me vaya, queda pegado el cómputo y se me vuelva costoso en el tiempo. Pero ahorita mismo una base de datos, empecemos a gestionar el control del asunto. ¿Dónde está la información de las API? La información de las API vive localmente. Voy para acá. Para que algo funcione en API, tiene que ir a una ed function. Eso lo va a manejar supabase. Después que eso entro , tú no puedes verla más nunca. Ya no se ve la app y ya no se logra ver. ¿Dónde la vas a ver? En tu computadora. Localmente. En Visual Studio ya nadie puede utilizar AI Studio ni nada de esa cosa, ni la terminal directa, porque tenemos que trabajar en un solo ambiente donde todos entend dónde estamos trabajando. Entonces tú estás trabajando en Obsidian. Obsidian, cheverísimo, etc. Pero pierdes funcionalidades, lo que es demasiado fácil. Estás perdiendo funcionalidades. Entonces yo necesito un sitio donde tenga todos los archivos y donde Cloud me funcione perfectamente. Y Cloud va controlando los archivos que están localmente,.
+S5: Que la terminal llama a Cloud. Entonces, en verdad, todo lo mío está en Cloud, que es de la empresa.
+S3: Sí, claro. Visual Studio lo que hace es organizar la visual, sigues utilizando la terminal pero dentro de Visual Studio. Porque tú ahorita, si yo te digo cuántas carpetas tiene el proyecto, uno nadie sabe. Pero eso no puede suceder más. Es decir, tenemos que saber porque tenemos que saber y tenemos que ir entendiendo.
+S6: Lo sabe buscándolo en la car local.
+S3: Claro, pero si tú a la medida que tú vas ejecutando, tú tienes que entender dónde está entrando.
+S6: No la tienes en vivo, tus carpetas.
+S3: Tiene que estar en vivo.
+S6: Tienes en el Finder o.
+S3: Claro, pero no te veía el file tiene que ser un sitio donde tú vas.
+S6: Yo empecé usando Virtual Studio pero.
+S3: No lo entendía bien. Lo vamos a entender ahorita nos metemos y lo que quiero es que. De hecho vamos a verificar con cuál vamos a comenzar, porque ya seguramente resulta ser que ahorita en todo lo que tienen de la consultoría ya está con esa estructura. Tal vez lo más fácil es que te agarres de y empieces a seguir construyendo desde . Y ahorita entramos un poquito y lo decidimos en pantalla. Pero tenemos que tener. Todos vamos a trabajar en Visual Estudio, todos vamos a tener una única autenticación con su país que va a existir. Todos vamos a publicar en un solo proyecto de GitHub las distintas ramas que nosotros hagamos. Y al publicar ese GitHub, o sea, nadie va a utilizar el Merch Analytics.
+S5: ¿Por qué?
+S3: Porque va a haber un responsable de hacer el merge para que esto salga públicamente en el front. Ustedes no necesitan ver el front. ¿Por qué? Porque ustedes en su local, en su servidor localhost, van a ver todos los cambios que están haciendo, van a inventar, van a soñar quiero esto, quiero lo otro y voy hacia aquí, allá, etc. Lo hicieron, lo mandaron y después eso van a integrarlo.
+S8: ¿Cuál es el criterio? Que la persona encargada sea, sepan que entra en conflicto con Balboam, por ejemplo,.
+S3: La idea que está.
+S2: Cuando ustedes les.
+S3: Piden cosas, eso es peor.
+S2: Somos nosotros los que vemos qué conflicto trae. Como yo te digo, eso va a afectar a contabilidad, eso va a afectar. Es el mismo. Es ese mismo criterio.
+S3: Sí, es lo mismo. Ellos van a utilizar el cloud para entender si hay conflicto. Básicamente que ya no pensamos aquí escribimos a cloud para que nos diga qué coño está pasando. Una pregunta, es lo mismo que está haciendo Jorge. Jorge está utilizando Cloud, programa todo el asunto ve si hay algún error y lo monta. Y normalmente hay error y dice mierda, clau, te equivocaste. Y vuelve otra vez todo aquí ya no necesitamos codificar, necesitamos entender lo que estamos haciendo, verificar si salió bien, si no corregimos y hacemos. Sí, yo soy más básico en el conocimiento de esto. Entonces, lo que entiende. Aquí es donde uno escribe los códigos, Ya lo vamos a ver. Aquí guardas. Aquí es donde escribes los códigos. Pero tú necesitas tener una credencial para mandar información .
+S5: Pero te lo manda Cloud, ¿Verdad?
+S3: Sí, sí, todo Cloud, Claro. Uno no hace nada.
+S5: No, por eso. Entonces, ¿Por qué Visual Studio si lo tenemos en Cloud Terminal?
+S3: Porque tú tienes que. Porque tienes que entender lo que estás haciendo. Va a decir, sí, Cloud me entregué a ti. Pero déjame entender un poco dónde va el asunto. Entonces uno escribe el código en Visual.
+S1: Studio,.
+S3: Cuando tú llegaste en la mañana y dices, voy a ver qué voy a hacer conexión, voy a hacer formulario y quiero que la conexión tal, lo que ustedes ya están pensando. Entonces tú dices, abres el Visual Studio, ruedas el servidor en local, lo ves visualmente y empieza ponme aquí a la derecha este botón, que el botón abra un pop up, que el pop up haga tal, que la haga tal. Y lo pruebas en local. Estás dándole un pro y dices, oye, me gustó y manda el merch.
+S6: Tú no te enteras lo que pasa en las otras Visual Studio, que es Cloud se comunica con las tres.
+S3: ¿Y cuál es el rol?
+S7: ¿El que? No entiendo.
+S3: ¿Cuál es el rol del Supa? El Supa es todo, las distintas herramientas, el donde se almacena la información, es donde tienes las bases estructuradas de data. Es decir, ventas en una tabla, Garantía es otra tabla, no sé qué. Es un esquema. Ese esquema lo Tiene Supa y GitHub. GitHub es para que colaboren ustedes con el código. Es decir, lo que tú te inventaste, ¿Dónde lo envías? En GitHub para que ellos lo revisen. Y de ya se va el GitHub.
+S6: ¿No? Igual, pero imagínate un Dropbox.
+S3: De código,.
+S2: Controlas tus versiones, si lo dañaste.
+S3: ¿El frontend tipo count, yo puedo ver, no? Después que ellos te avisan publicado, tú entras en la pública y está lo que tú sientes. Ya está público, ya funciona públicamente.
+S5: Y en Visual Studio también haces los.
+S6: Iterations de tu frontend en tu desarrollo.
+S5: Me parece que está feo, quiero que sea rojo.
+S6: Cuando ella lo aprueba, lo sube y.
+S3: Lo manda y es un medio que lo va a esperar, No visuales para que todos hablemos así un mismo lenguaje. Ya vamos a utilizar, Me vuelve una Apple , ya más nunca va a pasar eso porque vamos a utilizar la CL. No, nada de eso. Necesitamos que Supaba actúe directamente bajo las tablas. Digamos cuando uno trabaja Odoo se conecta a supabase, el que alimenta.
+S9: Todo,.
+S3: Tiene una conexión con SOPAVES y va metiendo la data Odo SOPAVES y eso hace que se muestra. Ya después yo trabajo allá y se guarda allá y se ve allá. OK señores, miren cómo vamos a trabajar, voy a decirle cómo se ejecuta, o sea, vamos a ir trabajando, vamos a ir haciendo cosas. Yo creería que básicamente esto seguramente va a ser después donde tenemos que decidir. El SOPA va a tener que ser unas conexiones iniciales para organizar el swab, organizar el GitHub y empezar a decirle Eloy, aquí está el GitHub, empieza a trabajar tal. Esto no se trata de que cambie hoy, no va a ser posible, nos vamos a atropellar. Se trata de que empecemos hoy a poner las bases para que yo voy primero, entonces Andrés tiene ese dashboard, es lo primero que vamos a hacer, después meto a Clara ya está trabajando, etcétera, Después meto a Patri, después meto.
+S5: A.
+S3: Rock y así voy metiendo.
+S5: Hay que parar de trabajar en donde sea que cada quien esté trabajando. Cuando sea mi turno.
+S8: Eso se replique. Lo de Reinaldo ya lo copiemos en Colombia, lo que hizo Reinaldo se está.
+S3: Usando con una persona, para quien lo está usando ni se tiene que enterar de esto. Entonces una migración donde ahora lo estamos teniendo más organizado, pero para él tal vez puede ser que cambie la URL, pero los colores y demás, la manera que lo cobra, los procesos que ya hemos ido construyendo es que migrarlo y que siga igual para ello.
+S5: Pero no sigue igual, porque ahora vas a ser Visual Studio. Pero la escribes igual, solo que Clau está corriendo sobre.
+S2: Es como que migrara de una versión a la otra.
+S5: Ya pensé que era como otro.
+S3: Vamos a ver si yo tengo esto conectado aquí.
+S1: Lo único Gabriel, es el storage.
+S3: ¿Qué pasa con el storage?
+S2: ¿Habrá que contratar un servicio de Adobe?
+S3: No, el storage es supabase, ya eso está en Amazon, todo es supabase, o.
+S2: Sea que en esa compra, en ese licenciamiento de Supab corporativo, va incluido todo el almacenamiento que nosotros decidamos tener.
+S3: De hecho si estamos usando Dropbox, no sé qué, lo podemos dejar utilizar, todo va a storage, todo va a superar. Sí eso puede estar con Amazon, ¿Qué va a pasar?
+S2: Porque nosotros tenemos en Odoo base de datos y vamos a tener data replicada, por supuesto.
+S3: ¿Cuál es el objetivo de esto? Que ustedes manejen dos sistemas, un sistema Odoo que está adaptado a los puntos de venta y un sistema para todo lo demás.
+S6: ¿Proyecto de la torre que es después? La idea es que después.
+S3: No, no es después, estoy comenzando ya,.
+S6: Pero que sea un solo servidor que tenga toda la data y nosotros halemos ese servidor, o sea, ya yo no.
+S3: Jale directo el servidor Supaba por eso.
+S6: Pero entonces.
+S3: ¿Entonces qué va a pasar? Sí, o sea, supabis cómodo, el cable va de Odo a supabase y de para adelante alimento, tú vas a controlar las situaciones en Supabase, entre Odo y Supabase viene todo.
+S6: ¿Esa es mi pregunta, no me pego directo a Odo?
+S3: No, o sea, sí estás pegando supabase.
+S6: Ahora, pero tú vas a pegar supabez a Odo, yo me voy a pegar a su pavis. Esa es la idea.
+S3: Exactamente, o sea, tú tienes ahorita onrende que está pegado a Odo, ¿Verdad? Ya no vas a tener eso, sino que vas a tener supavis pegado a Odo. Exacto, o sea, cambiaste una herramienta por otra, solo que supavis cumple otra cantidad de cosas necesarias de seguridad,.
+S6: Pero hay.
+S2: Que pagar almacenamiento también.
+S6: Una pregunta, cuando yo quiera integrar data de Shopify a mi dashboard, todo va.
+S3: A estar conectado a su país, yo.
+S6: Voy a jalar la data de supabase, ya yo no tengo que agarrar el API de Shopify y todo eso, todo.
+S3: Va supabase, de hecho tenemos que conectar todo a supabase para que los que quieran usar las distintas conexiones la usen y controlar esas conexiones. El Shopify ya va a estar conectado en el supabase y ella desde sus módulos, desde sus cosas, desde su terminal va a poder modificar, sacar, no sé qué, pero está jalado.
+S6: Si tú llegas a conectar las 10 fuentes de datos a Supabase, que es lo que vas a hacer, Ya yo no tengo que conectarme a 10 lugares, me conozco solo a Supabase y .
+S3: Jalo lo que yo ya no necesita.
+S2: Exactamente, ya todo llega, hereda los permisos y los perfiles de cada persona. Por ejemplo, un vendedor, él solamente tiene acceso a sus documentos.
+S3: Tienes que crearlo.
+S2: Eso hay que construir.
+S3: Hay que construir los permisos, el control, la información de la data, etcétera. Por eso tenemos que ir comiéndonos poco a poco el pastel. ¿Cuál es el pastel?
+S6: ¿Un duplicado de la base de datos de Odoo no te trae ya todo eso?
+S3: No, nada de eso, son funcionalidades. Estamos creando desde cero el sistema desde cero. ¿Qué pasa? Tú tienes un dashboard de 20 y ese dashboard de venta, tú ves cualquier cantidad de cosas. Después vamos a conectar a Clara, que es el Dashboard de ADS, pero por.
+S6: Ejemplo, en el Dashboard de ventas yo lo conecté al perfil administrativo que me da el 100% de la data de Odoo. Pero yo en el Dashboard creé los permisos para cada usuario, yo no me guié por los permisos de Odoo.
+S3: Claro, los construiste en tu Dashboard. Bueno, es lo mismo que va a pasar, o sea, la conexión es dame la data, ya aquí yo me encargo, cómo se ve la data, quién la ve, qué permisos pongo, y hay que ir poco a poco haciéndolo. OK, entonces lo de ventas, quién lo ve, etcétera. Ahora, pero es un usuario único, Gabriel tiene un usuario en esa plataforma. Cuando tú crees el módulo de Dashboard de ADS, La pregunta es, ¿Gabriel lo puede ver? Ya verás, tiene que ser. Sí, no, puede ver, pero no editar. Puede ver, editar, pero no crear. Vamos a ir creando los permisos, Gabriel, y el consumo.
+S8: Por ejemplo, yo estaba usando su para Mercatel y para sacar información de ortografía y chats, y son 299.000 chats en ese momento. Y era la versión gratuita, obviamente que tiene 5 GB. Se los comió en un día.
+S3: Sí, por eso tenemos que manejar las distintas bases de datos. Si la parte de chats la metemos en Supabase, en la parte donde está venta, el cómputo se nos vaya a la verga y vamos a pagar mucho extra. Tendría que ser separado. Pero hay una situación en Atención al cliente que para conectar eso a Supabase tendríamos que conectar desde el Facebook Developers, WhatsApp, tendríamos que conectar Instagram, tendríamos que Conectar TikTok, entonces yo lo que haría es suplirme con una plataforma tercera como Mercater y el API key va a justo lo que necesita.
+S8: Pero el consumo me pareció exagerado.
+S3: Pero es que el consumo no necesitamos almacenar, lo que necesitamos es llamarlo y que me lo muestre en report, en dashboard. Si el consumo lo metes en base de datos almacenada, probablemente se vaya. Tenemos que verificar esa conexión con Mercadelli, porque si metes todo lo que se escribe en los chats, que sería muy raro que Mercadelli tenga eso, que lo pueda sacar. Ya lo saqué, OK, bueno, eso es un fallo de seguridad, pero fue impreso. La gente mercateli, esta vaina es seguridad de meta, que es una locura que no sé cómo sucede, pero imagínate que sucedió. Nada, no tenemos que meter eso es demasiada que no es necesario, de hecho pudiésemos, cuando ya tenemos el agente y el agente está respondiendo, vamos a tener toda esa información que va entrando ¿Para qué? Para saber qué preguntan, qué cosas preguntan, qué es lo que. Y entrenarlo y demás. Pero eso tiene que ser una base de datos solo para eso. Pero esa base de datos está dentro del mismo supavis y tiene conexión con las distintas bases de datos, después esta estructura va a ir creciendo, pero dentro del mismo esquema.
+S8: Era lo que yo decía ayer, el tema del consumo es lo que más hay que ver.
+S2: Una pregunta, ¿Esa comunicación con su pabe es bidireccional? ¿Es decir, si alguien se le ocurre hacer ciertas cosas en su pabellizar en.
+S5: On,.
+S3: No tienes que controlarlo? Hay que controlarlo, claro, o sea, solamente consumo, lectura, no edito hacia otro.
+S5: O.
+S3: Pudiera darse el caso, Yo no tengo la verdad en mis manos, Hay que ejecutarla y la ejecución es Gabriel, no pueden editar. listo, perfecto.
+S2: Mi pregunta va más orientada a lo posible, o sea, es factible que lo puedan hacer, o sea, desde mi lógica se puede hacer, pero.
+S3: Tú no puedes dejar jamás que algo se modifique en ODO sin un control riguroso, porque la complejidad de los SQL dentro de ODO es que tienen toda la contabilidad pegada. Odo es un sistema contable, todo es debes y haberes, si tú toqueteas un debe y un haber, se te fue el odo.
+S2: Claro, pero cada uno creatividad que todos tenemos. Es posible que no está mal, es posible que diga, bueno, sabes qué, pero.
+S3: Vamos a eso vamos a, eso es parte de lo que vamos a hacer. Es decir, ahorita mismo al centralizar y comernos la primer pedazo del pastel es en esta conexión de, o sea, tenemos que controlar las conexiones. En la primera conexión es Leo. Leo, pero no publico, no hay forma de publicación, pero de lectura yo diría que durante mucho tiempo no va a haber publicación, sino que tú muestras cosas que necesitas publicar y las harás manuales hasta que en verdad tengas un buen control de publicación. ¿Porque qué cosas si hay que publicar? Una orden BB, o sea que la tengas que hacer manual, Eso es perfectamente publicable como un borrador de cotización en Odoo, pero tiene que ser bien controlado. Entonces yo lo metería a través de un módulo de Odo, esa conexión para que sólo pase por . No hay problema. ¿Jorge lo hace? Si, ya lo hace, simplemente decir, tengo esta conexión, tengo esto es el enlace que necesito hacer, pero él ya está generando eso en un ambiente que tú puedes controlar para hacer la conexión.
+S2: ¿Igualmente también controlaríamos lo histórico, sabes? Data vieja que no quiero que esté su pavé porque me lo coloca muy lento, yo pudiera, estoy hablando a futuro, 5 años, ¿Para qué voy a tener data allí que no necesito? Si por ejemplo, los pedidos de Reinaldo son inmediatos, yo no necesito guardar esa data.
+S3: Depende, porque.
+S2: De programador.
+S3: Sí las vamos a ir viendo, tranquilo con eso que las vamos a ir viendo. Siempre un punto es no limitar. No se trata de limitar, se trata de que no jodas algo que está en producción. Entonces, sobre ese pensamiento es cómo hago que los canales no me afecten otras cosas, que tú puedas hacer las cosas, etcétera, pero que tú tengas que revisar para que eso entre. Lo mismo que pasa con tú lo metes en una instancia QA para verificar que está funcionando y vas y lo publica.
+S1: Última pregunta para dejarte seguir y quizás yo me vaya un poquito más allá y me puedes responder al final. Cuando centralizamos procesos y funciones y todo, debe haber un plan de contingencia. Entonces, ¿Qué pasa si eso falla?
+S3: Todo puede fallar y el plan de contingencia tiene que estar, así como estamos pensando en un daño, tenemos que pensar en una contingencia. La contingencia es cuáles son los backup, cada cuánto suceden los backup, ¿Hacia dónde va el backup? Entonces yo diría, si ya tú tienes servidores locales aquí tienes algo local, pudieses tener en drive resguardo diario de toda la información, pudieses tenerlo en un local. ¿Qué va a pasar? Que la estructura va a crecer tanto que se va a volver a cara. ¿Por qué? Porque después vamos a meterle IA a la operación. La IA te va a decir cuando se está acabando el producto, la IA te va a decir, bueno, de hecho Fernando, ¿Qué vamos a hacer allá? Bueno, tenemos que resolver como lo descarga. El dashboard que tú vas a hacer es para que sea muy fácil de cargar, lo sacaste aquí, lo montaste acá y entró. Eso lo vas a poder construir tú y tú lo primero que te saquen el link se ve y entonces vas a montar en el Visual Studio tú mismo tú vas a saber cómo hacerlo. Decirle, mira, me acaban de dar este Excel, yo necesito que esto esté en un módulo y empiezas a crear y empiezas a ver cómo se ve. Entonces eso ya va a quedar en base a ese Excel con esas columnas, con todo. Bueno, tendrás un proceso manual descargar y montar lo que se haga. Cuando ya pase un tiempo, coño, me tiene la vaina, bueno, listo, vamos a montar un cloud leyendo la computadora que lo haga automático. Pero eso lo podemos hacer después. De hecho teníamos una computadora solo asignada, la computadora estaba completa y con esa computadora solo estaba para eso. Porque si no, a veces si lo tienes pegado a una o a la de uno mismo, que fue la primera fase que hicimos, lo que pasa que relativiza también muchas cosas, entonces empieza a congestionar tareas y se volvía a veces, claro, tampoco era esta vaina. También lo conectas con eso y hacia Power BI que era un poquito menos, pero aquí si te consultas. Bueno, lo primero que vamos a hacer señores, es uno, descarguemos Visual Studio. Just do it right now, escribe en Chrome Visual Studio Code y lo descarga normalmente en las de Windows ya está, vean a ver si ya está. Si no está, van y lo descargan.
+S6: Las conversaciones que yo tengo las puedo cerrar y me hace resumen acá.
+S3: Si esas conversaciones ya están en carpetas en tu local, en tu computadora, esa misma carpeta la vas a meter Visual Studio, no vas a perder nada. Me arrancas tu chat.
+S5: Él usa Python, eso a mí no.
+S7: Me importa que usa él Python, es.
+S3: Un lenguaje de programación, pero si lo.
+S5: Quiere usar que lo usa. Me está preguntando, me está pidiendo.
+S3: Entrégate. La página se llama co visualstudio. Com, no la bajen de otra página. No, porque vamos a cambiar eso con tu correo, con tu cuenta Google. Pero hay que download primero descárguenlo. De hecho no tienen que iniciar sesión. Sí, está bien, pero no importa si no vamos a usar el Visual Studio Code. La URL es co visualstudio. ¿Com para que no lo descarguen en otro lado, sino en la oficial?
+S2: ¿No?
+S3: Code visualstudio. Com. Descárguenlo, ténganlo en la cara.
+S8: Esto.
+S3: Dije mi consejo.
+S6: Mira Gabriel, cuando me trato de hacer sign in de una vez, él no.
+S3: Haga sign in, solo descárgalo en la computadora.
+S6: No, ya lo tenía descargado.
+S3: Listo, tenlo , ya vamos para allá.
+S6: Pero ya yo estaba sign in con eso es lo que te digo.
+S3: Está bien, está bien, no hay problema.
+S5: Uy, eso me va a tardar.
+S3: Yo lo tengo descargado, si quieres te lo paso por dentro. sí, sí. no tardó tanto.
+S5: Lleva cinco minutos en dame el código.
+S3: Ni alguien me mandó,.
+S5: No me sale. ya va. 5 8 4 2 4 1.
+S3: Por el 2 más rápido.
+S6: ¿Ahora si hay que tener una cuenta.
+S3: O no, o tú trabajas de visual studio, no? 50. Ya ahorita lo vamos a y conectar.
+S6: El GitHub solamente para poder hacer.
+S3: Cuando y si es gratis, cómo es el negocio de ella y generas el código. Puedes, solo que ellos te dan facilidades también para que codifiques,.
+S6: Pero va a ir guardando .
+S3: ¿Listo, está.
+S4: No?
+S3: Without signing. ¿Pero sin eso por ahora o siempre vamos a trabajar así? Sin usuario Siempre, nunca.
+S5: y dice que se eject.
+S6: ¿Por qué?
+S5: ¿Download este o este?
+S3: El que te envió este. OK, ¿Dónde está? no, porque ya está instalado.
+S5: ¿Dónde?
+S3: Pero no vi que me había preguntado nada.
+S2: Pero.
+S3: no te lleva. Quieres caminar a como y simplificarte y el sistema que. Está aquí, si lo vas mejorando, tienes el control de lo que está aquí. No, pero no debería aumentar.
+S8: No, porque.
+S5: No, ya va. Pero la cosa que me salió a mí que si subes el plan te regalan.
+S6: Faltaban doble para llegar allá 12 mil dólares.
+S5: Bueno, pero te regala.
+S3: OK, vamos. ¿Andrés, estás allí? Necesito que me abra Supa.
+S6: Mira, vamos a hacerlo. César es el que crea todas las cosas que me cree el supabe César,.
+S8: Toda la ciberseguridad.
+S3: Crea el Supa en.
+S5: El vision o igual Gabriel Vera tiene.
+S3: Una pregunta y que invita No, no, Ya va.
+S5: No, ella. Gabriel, Vera está preguntando algo.
+S3: Vera, te escucho, dímelo.
+S2: ¿No, que ya se hace?
+S3: No todavía. bueno, sí, Git, Sí, instálalo. Dale que sí, instálalo.
+S6: Sí, el Git, César, va a ser.
+S5: El.
+S6: Stack,.
+S5: Pero Visual Code no hemos hecho nada,.
+S3: Te llega, autentícate, entra y me avisa.
+S6: Y el GitHub empresarial también que lo cree y es Netify o el que vamos a ver.
+S3: Igual el GitHub. Todos tienen que tener cuenta para poder hacer los local.
+S6: Yo puedo seguir usando mi cuenta, no me agrega a la corporativa.
+S3: Exactamente, No, Nada se pierde. ¿Lo tienes armado ya?
+S6: sí, pero no me pidió mi lojín.
+S3: Debe ser que ya no. Buenísima pregunta. Max me pregunta. Escúcheme Genexu, vuelve a mí. Max me pregunta, Gabriel, si yo quiero hacer un dashboard con información y demás, ¿Yo por qué tendría que hacer esto simplemente hago mi artefacto en mi desktop de cloud? Y la respuesta es sí, totalmente. Solo estamos haciendo aquí lo que tiene que ver con sistemas, es decir, como operar ya los sistemas centralizados. Pero si yo quiero, digamos, mi reportería, estoy en mi individualidad, que lo que yo quiero son mis reportes, mi artefacto y tal, yo trabajo en mi cuenta.
+S6: Porque es personal para ti, porque es.
+S3: Personal, o tal vez yo no tengo un módulo todavía en el sistema, eso no se ha creado eso. Yo trabajo en mi cuenta cloud, pásame mi data que tengo que manejar y trabajo en mi situación, por ejemplo, Recursos Humanos. Recursos Humanos maneja demasiada data y yo pregunto, ¿Eso está en el sistema? ¿Va a estar en el sistema? No, eso no está ahorita. Entonces ella sigue trabajando en su cloud, montando su data, su Excel y su cosa y haciendo su artefacto. Esto va a funcionar para quien ya está haciendo también iniciativas de sistemas, garantías, necesita mostrar algo para que me llegue, para que automatice, para que haga. Reinaldo, necesito que las órdenes lleguen automáticamente, necesito ir a sistema. Si es para un consumo para ti. Y después no por fuera. Pero mira, Ahora sí vas a tener.
+S2: Una.
+S3: Lo que tienes que hacer es tu módulo para ver lo que tú quieres. Continuar sin iniciar sesión. ¿OK? La organización la vas a llamar Kevla, déjale el OR para que sepas. Esto es una solución, Vamos a bautizar en la mala palabra Aviso al estudio. No vamos a usar sus funciones, sino que él nos va a hacer un análisis sobre la. Ya te voy a decir que lo voy a hacer aquí en pantalla, OK, ahora el proyecto. Para que sepa,.
+S1: Lo conectaste a.
+S6: Pero ya no tenía que aprobar nada.
+S3: Ahorita mismo tiene que haber una. Cosa. Kerex, vuelve a mí.
+S6: ¿Aló?
+S3: Mire, importante, ¿Quién no tiene cuenta de cloud corporativa? ¿Quién no tiene?
+S6: Y.
+S3: Este carajo produce las vainas y.
+S6: Pat saca tu cheque y vas a tener.
+S3: Importante que ellos estén influenciados en la cuenta corporativa. Reinaldo y Patrick, o sea que nuestras cuentas son propias. Gracias por ahorrarnos un billete, gracias por tu servicio. Para nada, qué buena iniciativa, Gabriel.
+S5: Yo le puedo poner que me.
+S6: Patrick Arroz oficial Igual la preso que.
+S5: Sea tu dueño que no me pregunt.
+S3: Yo no tengo cuya. Sí, por supuesto. Reinaldo Rojo Oficial OK, señores, escúchenme ahorita mismo, escúchenme ahorita mismo. Tenemos que orar. Vuelve, vuelve, vuelve a mí. Mira, escúchenme ahorita a mí.
+S2: ¿Por qué no comparten una pantalla de lo que está haciendo para que yo vea?
+S3: Tú eres el profesor, ¿Vale? Y esta no es la pantalla.
+S2: Yo estoy compartiendo,.
+S3: Lo que pasa es que no estoy haciendo nada, pero estoy aquí. ¿Que dice Open Folder?
+S6: Que la podemos ir rotando, el que la necesita lo ve.
+S3: ¿Que dice? Rover Boosting. no, claro, no, todavía no hecho nada aquí, ya voy para allá. OK, fíjense, ahorita no vamos a trabajar el Supabase porque es algo que hay que organizar en términos de las conexiones, pero lo que sí quiero es que empiecen a trabajar en Visual Studio con el Cloud correctamente puesto en la terminal, OK, ¿Cómo lo hacemos? Vamos a ver la pantalla, Vean la pantalla. Esto que yo tengo abierto, olviden este nombre que se llama Windsurf, es igualito a AB estudio. ¿Deben tener una pantalla negra que seguramente tiene un panel a la derecha y un panel a la izquierda, entonces así la tienen abierta, OK? Lo primero que tenemos que hacer es crear una carpeta local para toda la información que va a empezar a crear cloud. Entonces pueden ser que lo tengan aquí a la izquierda en Open Folder o puede ser que lo tengan aquí. ¿Me siguen? Entonces vamos a crear la carpeta. Yo voy a crear una carpeta. Lo primero, ¿Dónde voy a crear la carpeta? Ustedes van a estar trabajando probablemente no solo en un proyecto, tal vez en otros, tal vez en el mismo, no lo sé. La carpeta tiene que estar ordenada. Entonces, por ejemplo, les recomiendo irse a Documentos, crean una carpeta que se llame Development, Está interesante, o Desarrollo que, o Kinex en general. Y dentro de esa carpeta, vamos a hacerlo aquí, vamos a ponerle Desarrollo. Desarrollo. Dentro de la carpeta desarrollo Kinex, vamos a llamar lo que se va a llamar Sistema Central. Entonces, Sistema Central lo selecciono. No es. Le voy a dar a Select Folder.
+S5: Yo hice un new folder.
+S3: ¿Hiciste la folder? Sí. Dale entonces para allá. En el que estás trabajando. Arriba dice File Archivo.
+S5: ¿Lo ve?
+S3: Espérense un momento. Seguramente les va a salir algo como confiar en el proyecto. Además, si le sale, le dan si confío. Bien, entonces les debe salir a la izquierda la carpeta vacía, ¿Verdad? Si es así, sí. OK, vamos con Andrés. Andrés, ya tú tenías algo. ¿Que vas a hacer? File, new, window, with, En esa carpeta que ya existía. Listo, perfecto. Entonces, ¿Ahora qué vamos a hacer? Vamos a trabajar con CL en la terminal. ¿Cómo se pone la terminal en Visual? Están en el Visual Studio. ¿OK, estás ? Estás en eso. Métanse en Visual Studio, ponen la carpeta y van a tener aquí la parte ahora de la carpeta. Voy a abrir la terminal. ¿Dónde abro la terminal? Arribita. Tienen estas ventajas. Esta ventanita, la de abajo, siempre es la Terminal. Si le dan , tienen que verificar que lo que dice está dentro de la carpeta que ustedes pusieron. Está dentro de la carpeta que ustedes pusiEron. Listo, perfecto. ¿Ahora ¿Qué voy a hacer? Les voy a dar este código. ¿Dónde está el código? Se dejó de mostrar esto, explotó mi computadora. mira, ahora sí estoy.
+S2: Le doy a Terminal y en Terminal.
+S4: ¿Qué?
+S3: Ya va, quédese en Terminal, ya le voy a decir. Yo estoy aquí, creé un folder y dentro el que se llama sistema control. Perfecto, quédate. ¿Pero como estoy acá? No, espérate. OK. Fíjense aquí, vean la pantalla donde estoy. Tenemos a la izquierda este panel, ¿Verdad? Este panel yo lo puedo mover izquierda, derecha, y es donde están los archivos. Y tengo el panel de abajo que es la terminal. Fíjense que lo abro aquí de abajo, ¿Verdad? Y tengo el panel de la derecha que es el chat. Este chat no lo vamos a usar nunca en nuestras vidas. Este siempre tiene que estar apagado. ¿Por qué? Porque esto es usar la parte paga de Visual Studio no vamos a hacer eso porque ya estamos pagando Cloud Code. Entonces vamos a usar directo cloud con la terminal. Entonces siempre esto o lo cerramos en la X o lo colapsamos aquí. Siempre vamos a utilizar la terminal abajo.
+S6: ¿OK?
+S3: OK, yo tengo ahora verifique que estoy en la URL de la carpeta y voy a poner, Miren esto que acabo de poner aquí, este comando, ¿Lo ven? Cloud espacio guión guión dangerous skip permissions, ¿Lo ven? Escríbanlo y cópienlo y guárdenlo en sus vidas. Se lo penta tod también.
+S2: OK, Perdona, ¿Cómo llego hasta esa dirección?
+S3: ¿A esta? OK, aquí vera, tú quitas esta terminal y la vuelves a poner, ¿Verdad? Aquí, aquí arribita, ¿Cierto? ¿Qué dice en tu URL qué pusiste tú? ¿Cómo se llama la carpeta? ¿Cómo se Llama lo que está a la izquierda? Perfecto, ya está generando lugar. Correcto. Ahora escribe Claude espacio guión guión dangerously permission. ¿OK, ya escribieron esto?
+S5: Denle Enter.
+S3: ¿Quién escucha? Ya va, volvamos para atrás. ¿Vamos a hacer esto más fácil, pero.
+S6: Si llamo a Cloud normal, después le puedo skip los perditions,.
+S3: OK? Vuelvo otra vez aquí. OK, estoy aquí. Escúchenme, vamos a escribir. Olviden lo que dije, vamos a escribir solamente Cloud. Pelado,.
+S6: Tienen que instalar.
+S3: Déjelo . Perfecto.
+S5: ya no escribimos lo dentro.
+S3: Denle solamente a Cloud, denle enter y avisen que sale. Si salen letras rojas, a ti ya te salió qué sale.
+S7: Ya.
+S2: Tenemos que tener Cloud tiene que instalar rotación.
+S3: Ya usaste varias veces la terminal. Tienes que matar ese terminal y armar otra. Entonces en el más, dale y vas a escribir, OK, no lo tienes instalado, entonces vas a tocarnos. Print pantalla aquí abre tu Cloud en desktop vas a hacer printe pantalla, lo pones aquí y vas a decir necesito instalar la Cloud que tiene pantalla, Pero te salió aquí porque vuelve a abrir el marzo escribió Claudia.
+S8: Pelado,.
+S3: Importante que él prende pantalla.
+S5: Señores, adelante.
+S3: ¿Quién es V? Mire, ¿A quien no le abrió el clavo de eso? ¿A quien no le abrió el clavo de eso? Vamos a tomar print de pantalla completo y nos vamos a ir al cloud desktop en un chat y vamos a decir necesito instalar cloud y me está saliendo este error. Él nos va a empezar a dar los pad que tenemos que poner para quede bien instalado. ¿OK? Print de pantalla completo. No, un pedacito pin de pantalla completo para que él vea todo el contexto de lo que estamos haciendo.
+S5: Nunca lo he tenido, siempre he trabajado.
+S3: Con las otras herramientas. Pero tienes Cloud ahorita, Ya te enviaron.
+S8: Invitación,.
+S3: Los que no lo tengan que esté pago.
+S1: Listo.
+S3: Necesito tener cuidado. Perfecto, vamos a ver lo que te va diciendo. Hice lo que me dijo, pero No pasa nada. ¿Qué me dijo? Copia y pegarlo. ¿Qué te hizo? Escúchame lo que te dice. Señores, importante, hay que leer, si no leemos todo, no pasa nada. Se ve que estás en la terminal DBS Code en tu Mac. ¿Es cierto lo que está diciendo? El comando cloud no está instalado todavía, así te explico. ¿Es cierto eso? Opción recomendada, instalador nativo. Copias eso y después te dice pega eso en tu terminal y dale enter. Esto instala el binario. Eso dice.
+S9: Perfecto.
+S3: Ahora print pantalla. Eso se lo pone y empieza el avance. OK, OK. Te va a decir que cierres la terminal y la vuelvas a abrir. ¿Que es cerrar la terminal? Le dan al más a este más que está aquí, ¿Están viendo? Este más de aquí. Este más que está aquí, no sé por qué sale aquí. Este más que está aquí, ¿Lo ven? Este más es abrir una nueva terminal. Primero móntale eso, mándale y no, en esa cierra. ¿Qué hago ahora?
+S4: ¿Perfecto,.
+S3: Espera, Vera después pusiste Claude qué te salió?
+S2: No, no me sale, ya copié el error en Claude.
+S3: OK. ¿Y lo pusiste? No, tienes que hacer lo que te dice Claudia. ¿Qué te dice? Cl.
+S6: Reinaldo, lo puse mal.
+S3: Es como abre,.
+S6: Pero él necesita un correo que sea Reinaldo.
+S3: Quién ya logró ponerlo.
+S6: Te vas a enredar, lo tiene.
+S5: Cosas raras.
+S3: Perfecto, dale. Claro, pero lo hiciste . De este la terminal. Cierra, vete a Visual Studio. Y le vas a poner las dos. Le dices ya instalé esto tal y volví otra vez a tal. Entonces él te va a dar que tienes que poner para que lo. Entonces te va a abrir auténticas.
+S6: F.
+S5: Lo que tienes que hacer es cerrar tu sesión.
+S4: Para mover tú.
+S6: Te voy con esto,.
+S3: Prende pantalla, es un cierre completo. Ahora Cloud subscription y te va a abrir para que autentique y ya está. Entonces tienes que hacer inicio.
+S6: Eleven yards.
+S1: Hasta que le digas. Le dijiste close y ya te sirve,.
+S2: Ya lo instalé, dale bajo Yes,.
+S3: Instálalo. Sí, ya la que sí, sí, puedes quitarlo y ya te queda con el que está la papelera Y ahora te quedas con el otro lo abre. Fíjense aquí, aquí, vean aquí mi pantalla. ¿Ustedes puede ser que lo tengan así, verdad? ¿Y lo tienen pequeño acá, verdad? La idea es que le den aquí a este aquí este cuadrito para que esté completo en la pantalla y puedan trabajar con una visual que es a la izquierda los archivos, en el medio Cloud Code, botoncito, no el cuadrado.
+S5: Ahora tú le puedes decir que vaya.
+S3: A tu file en tu folder de documento.
+S5: Fuera. No, ya te lo metiste al folder que.
+S1: Tendrías que hacerlo de nuevo.
+S3: Si yo cierro esto por ejemplo y lo vuelvo a abrir, Se me cerró ya lo de antes, perdí lo de antes, se me cerré solo para ver. Abrí, se pierde.
+S1: Había un pasito, por eso había.
+S3: Aquí Ricardo. Ya está 30 nombrado.
+S1: Sí.
+S3: Y sí puedo cerrar y volver que te lo traje. Dale baja y dar inquietud. Aquí estás adentro.
+S5: Sí, pero tengo un problema, me inventé un folder que me dijiste que inventé, pero lo tenían otro.
+S6: Reinaldo, entraste o.
+S3: No te molestes conmigo.
+S5: ¿No, no,.
+S3: Esto está en una carpeta, cierto? ¿Ahora cuál es? Dímelo. No tienes que decirle cuáles son las distintas posibilidades.
+S5: Claro que sí, mil cosas que me ha hecho adentro. Tengo Project, tengo otro, todo es el mismo, pero Claude Max también está muy desordenado, entonces ya no quiero , ahora lo quiero en dos, quiero que se vaya Piraquito, quiero.
+S3: Hice eso, todos estos respira ni respira le a. Vas a decir la carpeta que está en mueble, Eso es lo primero, Ya.
+S7: Para eso me quedo durmiendo aquí vale.
+S3: La pena, ya el sistema está asociado con Chamuqué.
+S2: ¿Y qué me quieres decir? ¿Pero qué vas a hacer? ¿Vas a mezclar lo de todo el.
+S3: Mundo con lo de nosotros?
+S2: Van a ser Roma distinta,.
+S3: Ocho por ciento fix y después aparte 30 centavos de importancia. Vera lo tiene,.
+S2: Pero que comparte su pantalla para ayuda. No puedo, ese es mi problema, me tienes que cambiar esa computadora.
+S3: Bueno, si quieres puedes compartir Vera y te puedo ir diciendo.
+S4: Cómo no.
+S3: Cuándo ves a payar primero te digo.
+S5: Que no es para ahorrar reina.
+S2: No, yo no voy a usar más.
+S3: OK, déjeme hacer un estudio y le paso cuál es mañana mismo. No, mañana se va. No potenciar ningún. No, no, yo estoy claro, si trabaja. No, porque ya tiene muchos archivos que trabajan basados en window power, bi cuando copia and lanza. A mi me gusta este porque tiene un poquitito de picante, pero pues no es muy.
+S5: Cuando.
+S1: Estamos listos ya.
+S3: No siempre como email, no llamarse a otras.
+S8: Todavía falta el hoy.
+S1: Verás si quieres mandar,.
+S8: Ya te lo.
+S3: Puso en el proyecto. Ahora vente acá. Postup. Vas a ver.
+S8: Claro.
+S3: Aquí estos ejemplos creando esta máquina. Entonces puede.
+S5: Está buenísimo. Puedes verte otro trip. Mira, ya te.
+S6: Ve.
+S3: Dame un par de días bro. Soy un programador. Si Ricardo tiene un desastre. Todo posible me avisa.
+S2: Me pude conectar en la computadora.
+S6: OK, lo estaba terminando una vez igual.
+S5: Pasa,.
+S1: Pero puedes presentar.
+S3: Activo el automóvil.
+S1: Déjale compartir nada más para ver en qué estatua está.
+S6: Me pregunta el environment, shell, history o otro repositorio también.
+S3: Una vez estemos trabajando en el proyecto, a la izquierda van a ver los archivos y lo primero que necesitamos son las credenciales en la carpeta env. La carpeta env es la que va a tener las credenciales. Ves que la tienes aquí env.
+S2: Y se van a colocar las creencias.
+S3: Es un solo repo, ¿Verdad?
+S1: Y si le pones compartir toda la pantalla no te deja.
+S3: OK, entonces quítale ese.
+S6: Acuérdate que está conectado a mi gimbal.
+S3: Claro, pero te está preguntando si trabaja en varios récords o igual. Y después necesito que trabajes en este y le pegues la URL.
+S1: Y ahora sí borro Obsidian.
+S3: Ahora sí se ve y copia la URL.
+S1: Ponga Claude, donde está, ponga cloud, no ponga la palabra Claude.
+S5: Le doy acceso a visual, a mi desktop, a mis downloads.
+S1: Tiene que hacer una captura de toda la pantalla y mandárselo a Clau.
+S3: ¿Y que le dijo?
+S5: ¿Mañana vamos a seguir o no hay esto?
+S2: Es que no puedo porque ya yo tengo mi pantalla negra.
+S3: Ya llega mi pantalla.
+S7: Bueno, ahora las.
+S1: Yo me puedo conectar,.
+S4: Pero yo creo.
+S3: Que ella hizo el.
+S1: Gabriel.
+S5: Yo le puedo poner We continue tomorrow. Ya se acuerda.
+S3: Lo que siempre te tienes que preocupar es que te den la carpeta y después tienes que cerrar.
+S5: No, pues le dije que quiero que revise.
+S3: Le das X y.
+S6: A dónde está mi. ¿A dónde está todas esas credenciales?
+S3: Revalida todo.
+S6: Está actualizado el día.
+S3: Claro, pero está trabajando ahorita en. Que verificar que lo esté entendiendo. ¿Por qué?
+S5: Porque.
+S3: Vamos a robar el celular. Porque. Primero le pones print de pantalla de la instalación completa, Le ponen las dos el print instalado completo y el error de Visual Studio. Entonces dile, necesito que veas esta otra carpeta, dime si la ves.
+S5: Gabriel, literal cierro mi computadora.
+S3: Cuando terminas con terminal o cierras acá.
+S5: O No cierro cuando no voy a trabajar dos días, ahora me toca ir y lo voy a seguir.
+S3: Lo único que tienes que saber es que se borra el informe de las carpetas. Normalmente le está codificando pero tal vez no ha guardado en esta PC.
+S5: Lo voy a decir.
+S3: Importante, una buena práctica cuando estamos trabajando ya, es decir, créame una bitácora de todo lo que hemos hecho el día de hoy. Actualiza la bitácora, él actualiza y cierras la terminal. ¿Por qué? Porque no hay memoria. No hay memoria en Cloud Co. Si no guardaste una bitácora, vuelve a entrar y vas a tener que echar todo el puerto que echaste .
+S5: ¿Y la bitácora donde se guarda? En mis documentos.
+S3: Él va a hacer un documento llamado.
+S5: Bitácora que guarda dentro del folder mío.
+S3: Cada vez que empieza una conversación le digo border en la bitácora. Sí, porque cuando entra en la otra sesión, mañana él va a leer la bitácora y sabe dónde quedó. Y de para adelante tendrías que volver a echar cuento. Lo tenemos. No, otra vez que no. Cada vez que estemos rodando y terminaste hoy me voy. Oye, pero has hecho una cantidad de cosas en el día, le vas a decir todo lo que hemos hecho en esta sesión, guárdalo en bitácora, Mañana lo vuelves a abrir y él va a leer bitácora y va a saber dónde quedó. No hay memoria, no es como cloud code en el chat. La bitácora queda en un archivo y es lo que está haciendo es volver a leer dónde está. ¿Dónde quedaste la última? Se te olvidó poner la bitácora, Vas a llegar mañana, vas a tener que echar el cuento que hiciste. ¿Él lo que va a hacer es leer el código que pusiste y dice ya vi que creaste el coso que hay que seguir? ¿Bueno, seguramente te cueste dos pro un poquito más de token por? Y por ejemplo yo creo que Mía y Andrés. Yo miro que ustedes tienen un proyecto, tienen como mil folder ¿Eso es normal o eso es por falta de?
+S6: Se van creando solos.
+S3: Esta es la bitácora,.
+S6: Los folders son de código, el historial de lo que.
+S3: Hiciste no tiene nada que ver con los otros folder. Y él va a crear. Descarga si no va. Furula el git.
+S7: Git.
+S3: Git el que te dijo para descargar, Dejarles descar. Descargar. Dale a la Windows. Click here to down now. Se va a descargar. ya se está descargando arriba. OK señores, miren, para empezar a trabajar, para trabajar con la base de datos se necesita primero que organicen la base de datos. Pero quiero que sepan cómo ver el servidor. Entonces escúcheme, vamos a escribirle ahorita. Hazme un dashboard tipo CRM pipeline. Escríbanle eso. Dame un dashboard tipo CRM pipline pipe, pip line pipeline le dan y rom server rodar servidor y rom server. Enter. ¿Lo hicieron? ¿No velucero dan en eso qué pasó? Ya no estaba instalado. Por la ira en drones. ¿Tienes algo en tu carpeta? Créalo porque lo que quiero es que vean el ron server. Esto es para el tema de Andrés. No es nada, está con sueño.
+S6: Como no sabía.
+S3: Para que si tenemos a Andrés.
+S6: Pero porque le gusta.
+S3: Cierra completo el mismo estudio.
+S6: Yo tengo mi dashboard aquí.
+S3: Ya lo tengo acá pero modo aplicación. Pero cuando ya tiene.
+S6: Que no estaba preparado para celular ayer. Hoy lo trabajé, se acaba de terminar Ahora vete a Claudia hizo una actualización.
+S3: Voy a ir al ministerio para que no agarre el contexto de.
+S2: Si lo quiero express.
+S8: Después. No, no.
+S3: Ya me respondió esto porque no entendí nada de lo que me respondió.
+S2: ¿Vamos a conectarnos a una base de.
+S3: Datos real o no, verdad?
+S2: Le pongo Gangna de ejemplo.
+S6: Dijo que tiene que crear.
+S1: Tú lees las instrucciones,.
+S3: No lee la pregunta de políticas que se aceptan las políticas. Te lees la política.
+S2: Mientras mi esposo está tratando de.
+S3: Arreglar yo estoy viendo el pato. No le escucho bien señora Vera,.
+S1: Armé.
+S6: Un servidor Python puro así que sirve como fronter.
+S1: Pero es que hay que decirle de qué queremos.
+S2: Lee te está diciendo lo que.
+S3: No importa cualquier cosa. ¿Lo que quiero es? ¿Él cuando responda va a responder que lo puso en un localhost y un número lo ven allá? Te lo estoy viendo. Localhost 5 1 no sé qué.
+S1: Correcto.
+S3: Dashboard de pasa funcionando en.
+S1: Ajá.
+S3: Y eso que una copia lo IP.
+S1: Tiene que leer eso.
+S3: OK señores, ¿Quién está en localhost? Ya, ya abrió. ¿Están viendo el dato? Precisamente eso es lo que tiene que suceder de aquí en adelante. Ustedes en la terminal van metiéndole lo que van queriendo que suceda y lo van viendo en local 2 en tiempo real. Cuando está listo, usted dice, ya hice lo que yo quería hacer. ¿Me estás escuchando? ¿Quién está en localhost? ¿Andrés, estás en localhost?
+S6: Alejandro está en localhost.
+S3: ¿Pero tú abriste localhost?
+S5: ¿No?
+S3: Importante que lo abras. Dale, dile ron serv, escríbele ron serv.
+S6: Sí, pero en este mismo proyecto dice sí.
+S3: Sí, ¿Por qué? Porque yo quiero que ustedes no dependan de verlo en la web, sino dependan de verlo en su local. Cuando ustedes lo ven en su local, ustedes pueden ir mejorando, viendo. No me gusta. Le cambio, le pongo, le cambio, le pongo. Cuando están listos, ustedes le dan publicar en GitHub. ¿OK? Y ese publicar en GitHub va en un PR. Ese PR son los merge que vimos allá después para que ellos verifiquen si no hay conflicto y lo pongan en publicación. Y literal va a ser así. Publica en GitHub y eso le va a llegar a ellos, van a verificarlo y van a hacer el.
+S9: Local.
+S3: Y esto es local. Y es donde lo ves siempre y vas mejorando la cosa.
+S6: Me dio el local para verlo.
+S1: Mi celular.
+S3: Va. Todo el tiempo. Es como una memoria de. Y sabe por dónde quedaste.
+S6: Si la excede, crea una bitácora nueva.
+S3: No, la bitácora no puede exceder de mil líneas porque si no los agentes no la leen completa.
+S1: Dile, pregúntale, dame la dirección del Dash. Muy.
+S3: Eso siempre hay que decirle no, porque no es necesario, porque si no él va ahora demasiado huevona. Es una línea de lo que. Sí, pero le dije otra cosa aquí. A ver qué hace. Lo que lo has ido.
+S6: ¿Entonces qué hacía yo? Yo agarraba y lo metía en.
+S1: Bro,.
+S3: Quiero ser el nuevo director de que llamamos de Ia empresa. Mira, mira, fue con filtros.
+S6: Mira el de Alejandro ya te ganó. Alejandro ya lo tiene colores. Quiero que se vea tecnológico, fondo negro, quirográfico. Empieza a tirar vainas así.
+S3: Y la otra tienes aquí en eso. le voy a escribir. Ya ve,.
+S6: Dile ahorita. Créame una bitácora. Todo lo que vamos haciendo en el.
+S3: Día me lo vas a guardar . Oíme, y este bitácora no puede pasar de mil. ¿Mira, y este?
+S5: No.
+S3: Creo que vaya. Él va a seguir creando cosas . Eso lo dejo están los códigos,.
+S6: No lo vas a ver nunca. Se va a guardar . Se daña mañana está todo el equipo.
+S3: Yo le pedí que me pusiera el logo de Kubi.
+S6: Descargar como imagen.
+S3: Ahora autentíquese.
+S2: Es que lo volví a hacer otra vez.
+S3: Porque.
+S2: Se queda.
+S3: Que lo haga.
+S2: Se quedó.
+S3: Ya va. Yo cuando salió que cambia algo acá, me lo cambia y me lo.
+S6: Lleva Ya está tu local host 80-80.
+S3: Ahora puedan ver una pantalla con una.
+S6: Gráfica que sea fácil para poder ver el día, el mes, el año, no sé qué. Todas estaban logrados.
+S3: Señores. ¿Qué tiene que suceder ahora? Alguien salta por localhost. Creo que ya estás , ya lograste tú, la primavera y yo. Pero ya estabas iterando. Escribe, hazme un dashboard, pipeline y run server. Escríbele eso. Dime ¿Y qué es lo de run server? Run server es activar, corre del servidor. Tú lo que quieres eso es un servidor, el localhost. Tú lo que quieres es ver lo que estás haciendo. Siempre tengo que decir o corre el servidor que tienes que ponerte un localhost para ver lo que está haciendo. Eso solo lo ves tú, más nadie lo puede arreglar. Y tú vas actualizando en el chat quedó abierto después que ustedes hicieron Ron Server, le dieron, actualizaron, hicieron todo. Publican en GitHub. ¿En cuál GitHub? No lo tienen ahorita. OK, se le van a dar trabajo un GitHub de la organización, porque si es de la organización va a ir a los distintos bench. OK, ya le voy a decir.
+S1: Señora Vera, falta la bitácora.
+S3: OK señora Vera, usted va a escribir allí en el chat del terminal hazme un dashboard tipo CRM pipeline y Ron Sergio.
+S1: Y ya.
+S3: De yo va a organizar la vaina y va a ser muy fácil. Eso fue lo que digo.
+S6: John.
+S3: Dijo suficiente con que Andrés, Ricardo sepan hacer para que uno aprende.
+S1: Contra felicidad.
+S3: Lo que tienes que tener es la seguridad, pero de resto te puede equivocar y no puedes sacar.
+S6: Eso. Lo uso al 100%.
+S3: Claro, porque es lo base, pero no es tan base. Me pareció esos dos mensajes. Está bueno. Yo usaba y hacía mis cosas, pero.
+S6: No hice nut, lo hice hoy en la mañana.
+S5: Alguien falta.
+S3: ¿Ya tienes localhost, verdad Mari?
+S7: Ya lo tengo.
+S3: ¿Tú también verdad Ricardo? ¿Entonces ahorita que tienen que hacer cuando se van? Todo lo que hicimos en esta sesión guárdalo en bitácora se guarda y se fuera.
+S1: Pero no hay que decirle que bitácora.
+S3: Y bitácora es un archivo que va.
+S1: A Yo sé, pero me refiero a que no le tienes que decir en.
+S3: Dónde guardar la bitácora, él sabe porque él tiene el archivo bitácora, o sea se lo dice la primera vez crea bitácora. Ocho 1000 tokens,.
+S6: Muy difícil monetizar los tokens. ¿Cuántos tiene? Estos manes hicieron una fórmula para que no tengan ni puta idea cuánto vale un token.
+S3: Donde guardes todo lo que planteas.
+S6: Mira, mi próximo paso es la migración,.
+S3: Deberíamos hablar de eso para organizar, ya el sub está , entonces lo que hay que hacer es migrar a ese sub y ya lo tiene. Ahora deberíamos organizar como el plan y ya ir poniendo los turistas, ella tiene un súp, comerlo de ella, Pero ya eso es ustedes cerrados, como van a manejar con el primer control. Ya no te siento tan inteligente. ¿Para finalizar, escucha hoy? ¿Qué hicimos? Hoy utilizamos Visual Studio con Cloud Code para empezar a codificar en un sitio donde ahora todos nos vamos metiendo, todos estamos utilizando Visual Studio. Listo. Lo que viene después de haber codificado y hecho lo nuestro con un servidor local donde estamos viendo todo es publicar en GitHub. Publicar en GitHub, cuando ya le den las credenciales lo que va a hacer es tener distintos merge para que ellos puedan ponerlo en un solo sitio. ¿Qué va a pasar? ¿Primero que vamos a ir paso a paso, lo que creó Andrés ahora va a estar , después lo de Clara o tal vez lo de Reinaldo tal vez y vamos haciendo cuando les toque a ustedes van a tener que clonar un repositorio ya que ya está creado OK? Ese repositorio donde seguramente ya está lo de Andrés, lo de Reinaldo a la medida que van haciendo y cuando ya lo clonen ustedes dicen listo, ya estoy viendo lo que ellos tenían, ahora le voy a meter lo mío y lo mío en local es tal vez ya lo tenía porque lo han avanzado entonces dice lo que tengo en la carpeta de allá, pónmelo ahora en este repositorio, empecemos a crear mi módulo. Lo empiezan a crear, lo empiezan a ver en el servidor local cómo está quedando, etcétera y mandar aquí para que entonces lo verifique.
+S6: El URL va a ser uno para.
+S3: Todo, para todo el que quiera, no sé, app que cuál es la página web. Entonces, app no necesitamos más sistema. empezamos a. Inicia sesión con su usuario y va viendo los módulos que tenga que ver.
+S8: Y si yo quiero ver solo, por.
+S3: Ejemplo, Ricardo, ¿Qué pasa? Fíjense eso que está diciendo, él conecta con él conecta seguramente con una información. Debemos hacer una mesa de trabajo desarrollo, si no nos vamos a entender nunca, OK, Una mesa de trabajo es, mira, esto que estoy haciendo, va con él, va con no sé qué, etcétera. ¿Cómo lo vamos a hacer? No podemos a loco poner cosas, sino planear qué es lo que viene en ese planeo vamos a ir comiendo. El primer planeo es, el segundo planeo es lo que tiene Reinaldo, Entonces, bueno, ¿Cómo lo vamos a poner lo de Reinaldo? Lo de Reinaldo es BB, o sea, pega exactamente con lo que tiene él. Yo tendría que preguntarme cómo lo de Odo va a entrar la orden en borrador, etcétera, lo planeado le digo a Reinaldo, vete a trabajar, desarrolla, ponlo bonito, volvemos aquí abajo el merch y lo pongo. Pero eso ya está ambientado a una conexión y ya quedó lo de Reinaldo. Reinaldo seguirá poniendo otras ideas y demás, vamos con el otro y así vamos con el otro. Pero sí deberíamos planear comité desarrollo donde vamos teniendo periódicamente y tiene que ser muy rápido, van creando cosas muy rápidas y voy, hago publico, verifican merch, ya está publicado, velo sí me siguen, sé que hay muchas cosas nebulosas que van quedando por , pero bueno, lo iremos viendo en el.
+S6: Tenemos que ponernos de acuerdo todos, hacer mesa de trabajo, el que va a construir, hablamos, mira, quiero hacer esto, opinamos, eso funciona así, ¿No? Y lo dices tú y dale ya.
+S3: Lo importante es que todos van a codificar en el mismo sitio Visual Studio, es decir, si Reinaldo me llama y yo veo, yo entiendo porque yo también lo hago, entonces ya yo sé lo que está haciendo, entonces nos salgamos de , no usamos más AI Studio, no usamos más X y ZW con el cloud de la suscripción que tenemos pelguitos o que nos van a poner y ya la publicación y te trabajará la parte de supabase y la conexión con Odo. Una duda, si yo quiero trabajar este tema del dashboard, pero tengo una data que es mucha data, entonces no quiero que me use tantos tokens, yo puedo arrancar con una base pequeña y después decirle, ahora quiero que haga esto, pero con este otro folder, que es el folder donde está la data completa, tienes una sociedad con los tokens. Vamos a trabajar en desarrollo, sino en tu ansiedad, tranquilo, trabajará. Mira, eso no lo vimos. Importantísimo. Terminamos con esto. Escúchame, voy compartiendo pantalla porque esto funciona distinto a como lo hicimos en el cada vez que corro algo, meto a usage y paso viendo usage.
+S6: A ver cómo se me va haciendo los vergazos en una sola conversación.
+S3: ¿Ven mi pantalla? ¿Ven mi pantalla? Así como tiene el Visual Studio, como tienen el estudio abierto, ¿Verdad? ¿Cómo yo sé qué modelo y qué esfuerzo estoy trabajando? Lo dice aquí arribita. Estoy en OPO 5x High Effort, es decir, se me fueron los toques en un abrir y cerrar de HO. Entonces, ¿Cuál es la mejor manera de trabajar en terminal? Esto tienen que anotarlo porque si no se les va a olvidar. Para el coño es slash model espacio opus plan enter. ¿Qué está diciendo él ? Voy a planear en modo opus, es decir, voy a planear pensando, pero voy a ejecutar con sonnet. Entonces es un in between entre los dos modelos y eso va a hacer que ahorren muchísimos tokens. Entonces, lo otro es el esfuerzo. El esfuerzo es. Y fíjense que estoy en medium. OK, suficiente con medium. En tal caso, high me quedo medium low. No, nunca es medium o es high. ¿Cuando yo utilizaría ultra code? No lo utilicen todavía no hemos llegado ni . Son cosas cuando ya está complicado. Vamos a usar ultra code cuando está bien grande el sistema ultra code lo utilizamos cuando queremos hacer cosas de ciberseguridad, encontrar recovecos, etcétera. Después nos entramos en esas cosas ahorita mismo. Medium, perfecto. Entonces miren dónde tengo el esfuerzo. Mírenlo aquí abajo. Medium. Y de hecho me lo dice aquí. ¿Opus Plan with Medium Esfor me pregunta do you want to install?
+S2: Después de eso,.
+S6: Quemando ese Facebook.
+S3: OK, Y por ejemplo, si, ahorita hice este, pero como por un ejemplo, pero esto no tiene nada dentro, esa información que no es de verdad. Borro eso, borra la carpeta, pregunta dudas.
+S1: ¿Hay algún comando para ver el model? No, para ver. Para ver cuál está configurado.
+S3: Sí, dale. Slash model y te dice dónde está puesto. Solo slash modelado y dale. Ese es el esfuerzo.
+S6: ¿Dónde está?
+S1: Yo le había puesto a usar el modelo.
+S3: Sí, pero yo le puse a usar el Opus Plan. No debería salirme él digo que.
+S6: Va a pensar como Opus, pero va a codear con Sony.
+S3: Ese es el Opus Plan igual. bueno, ya estabas moviendo. De hecho tú puedes trabajar perra, estás haciendo análisis Opus High para los análisis y dice ya hice el análisis, cambias el esfuerzo a mediano y ahora empiezas a ejecutar y eso te ahorra. Opus es lo que vamos a usar y el esfuerzo es medio ojal. Estamos pensando un análisis,.
+S5: ¿Verdad?
+S1: Ya está, seis. Ahora le pongo y dice que está.
+S3: Gabriel.
+S6: El Opus Plan es que lo piensa.
+S2: Como Opus,.
+S3: Eso no sale normalmente, o.
+S1: Sea que si yo le pongo ver el modelo me va a salir que estoy en zona.
+S3: No, te vas, si ya pusiste el Opus Plan te vas a salir que está en Opus Plan, pero si no lo hubieses puesto no te sale zona.
+S1: ¿Será que toca abrir una nueva sesión?
+S3: Mira, Si no has hecho bitácora ni nada, no lo actualizo. Si ya hiciste bitácora, puedes cerrar.
+S1: Es que hay que darle enter para que te diga realmente donde está ese mensajito de arriba, Como que.
+S5: Pasaba con.
+S8: Pero.
+S3: Que Esquizia roto. Cierra las distintas terminales y los visos.
+S7: Que tiene,.
+S9: Porque si no todo el.
+S1: Mundo se va a poner.
+S6: Gabriel. Cuando actualizo la bitácora tengo que push. Cuando actualizo la bitácora la subo a GitHub o la puedo dejar local.
+S3: Y no puede subir a GitHub, Es una gran práctica, pero igual está en computador. Bueno, señores,.
+S8: Porque.
+S3: Bueno, ¿Dónde estaba?
+S5: Al proyecto le cambias el nombre,.
+S3: Señores. Listo, finalizamos por hoy. Aplauso para ustedes. Logramos aplicarnos ya en un solo sitio y bueno, nos falta trabajo, pero ya se logró algo. Nos falta trabajo.
+S6: El domingo a las ocho de la mañana aquí.
+S3: ¿Tú no has visto el sticker?
+S1: ¿Y que?
+S3: Nada, lo que pasa es que.
+S2: Bueno, gracias,.
+S1: Buenas noches.
+S3: Yo ahorita debería empezar a meter aquí carpetas mías o no tocó nada hasta que tengamos la vaina de su pre. Tú puedes trabajar localmente y vas teniendo todo . Pero eso lo hago en cloud. No, o sea, son vainas personales. ¿ sí? ¿Si, es personal o son artefactos? Lo hace.
+S6: No, pero tu vaina lo vamos a hacer ya la otra semana empezamos a conectar lo tuyo a.
+S3: Ya te lo va a pasar. Se llama María.
+S2: Por lo menos voy a tener una rug.
+S3: Pero me voy para la playa.
+S2: Ya da tranquilidad.
+S3: OK, voy a cerrar aquí. Chao Soravera. Adiós. La mejor inversión que hice yo es saber que ustedes están bien metidos en esa. Alguien tiene que usar con lo que usted va a crear. No.
+S8: Dejar mudo.
+S3: Mudo para que se me acabe el trabajo.
+S6: Las negociaciones son de cara a cara.
+S8: Le metemos tu voz a una inteligencia.
+S3: Artificial y ya un banco de tú.
+S2: Solo habla que eso se guarda y tengo.
+S3: Nunca va a hablar tanta paciente.
+S8: Siempre di que sí, después resolver.
+S6: Él usa bolígrafo y papel.
+S3: Un día los invito para que vean cómo se trabaja.
+S2: Mira, tú estás muy joven para pensar.
+S3: Así que no, yo quiero aprender.
+S6: Pero yo sé que ahora la vaina va, o sea, si lo doy, alguien.
+S3: Tiene que vender y otros en las computadoras, ¿Verdad? Tenían que resolver hoy una cosa, pero me voy a poner al día. Mira quién tengo aquí.
+S5: Yo sé, yo sé.
+S3: Ahora viene la hora del helado. Escríbame cuando quiera. Sin problema. Maneja la ansiedad.
+S2: Excelente. Me diste mucha tranquilidad.
+S3: Imagino que salimos de aquí.
+S6: Yo voy con Bernardo. No, yo voy directo.
+S3: Ustedes se han comunicado. listo, perfecto. Yo quiero refrescarme.
+S6: Tú vas a ver. Quiero escuchar.
+S8: Está mal.
+S6: A cantarse.
+S8: ¿Que canta?
+S3: Marketing in mundo. Hay que ser separado. Esto que se llama quick win.
+S5: Siete.
+S3: En el sol. Coño, no me he despido mañana como ustedes. Un corrique aquí a las 7 y.
+S6: Paso por en el sol y nos vamos.
+S3: Desde la ventana de la casa. Vean la par. Dónde está Josué. Que mañana nos Vamos a las 7 y media. No, a las 7 ya dijiste que claro. No, no, porque a las 7 vamos a estar corriendo vaina. Para qué. Tres entrevistas las matamos entre los dos en una hora y media.
+S8: Dos horas.
+S3: En la piscinita.
+S8: ¿Quién?
+S3: ¿Roberto? Me acaba marico, ¿Cómo esto? Hay que seguir información. Yo le dije, hay que seguir promociones y tengo que pasar la propuesta para que acepte seguir formando. Todo el mundo te no puede parar. Bueno, para la otra vaina. No, es que hay que hablar con la más importante, con la mujer de la vaina corporativa. ¿Porque es que la vamos a convencer quién es? Bueno, la de Claro, la corporativa, la de Colombia, la que entró a nosotros. Pagar la vaina de fundamentos. ¿Porque de fundamento? Porque tenían que enterarse e integrarlo al sistema de. Integrar televisión. ¿Mira, dónde nos tomamos? ¿Para dónde? ¿Dónde estás?
+S8: Me acuerdo,.
+S3: Pero vamos orinando horrible. Mariciste mi pie vos. Me parece un mar cuando sales. ¿Pero nos vamos así de una? Sí, de una toma, pero no, pero vamos a encontrar mismo. Vamos a pasar, Alejandro. Ay, verdad.
+S2: Vamos a subir hotel.
+S3: Miren, cuéntenme. Apreciación. ¿Que vieron? ¿Cómo lo vieron? Este fue el día más duro, marico, ya estoy mamado. Ya mañana es. Mira, entrevista a tus nadie, Porque este es un chamo que recibe a la gente cuando hace la cultura de la marca y tal. Bueno, perfecto. Loquísima. Pero me encantó la conversación de hoy con Vin. Viste que fue fundamental. No están claros, pero vienen otra vez con la guardonada desverga. No, no, eso quedó bello. ¿Saben lo que nos ha hecho el chat? ¿Sabes lo que nos ha hecho Ricardo? La había ordenado a la una de.
+S5: La tarde y teníamos que aprovechar el.
+S3: Tiempo cuando hicimos esa entrevista. Marico, estuvo espectacular. Y el almuerzo me encantó porque fue alinear esas expectativas. Que sepan que este bicho está fuera de pote y que. El que nos va a dar el turbo en la tienda.
+S6: There honey.
+S1: Hour.
+S9: Clemencia estaba toda estresada,.
+S3: Yo no he leído la vaina. Total,.
+S7: Gracias.
+S3: Hay que irse, tiene que ir certero. Está todo loco ahorita sí se jodió porque ya se le vio la grieta. ¿Para dónde vamos? los bolsos. ¿Aquí, aquí los puntos de venta pueden pagar contact? No, en Venezuela no. Venezuela todavía no. Bueno, está el 20%. ¿Vanesco no tiene contact, por ejemplo? de contact con el teléfono. No, en Caracas sí, pero en algunos. Algunos, pero poco ahorita. ¿Veinte por ciento será de qué? ¿De qué pago de punto de veinte? ¿Están normalizando, no, en modo lobby? ¿Quedó redondo, no? Estamos hablando, huevona. Y no, gracias, Mi compadre. Me llevo mis 300. Eso va a ser.
+S5: ¿Cómo se llama?
+S3: Coworking Panamá.
+S2: Coworking.
+S3: Hay que darle con vaselinita. Pero no puede ser.

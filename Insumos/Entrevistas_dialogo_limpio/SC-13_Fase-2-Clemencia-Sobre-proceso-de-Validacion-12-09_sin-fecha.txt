@@ -1,0 +1,250 @@
+S1: Yo tengo que construir el proceso de validación con los link y con todo, tengo que hacer los vídeos explicativos de cómo es, validamos quedó, como es y nos vamos a esa reunión ventana,.
+S2: Todos conectados, formación, validación para decir cómo.
+S1: Deben hacer la validación.
+S3: Sí, la haría presencial porque se va a conectar igual Panamá, entonces coño, el toque presencial es bueno con la gente aquí en Venezuela. Yo creo que eso sí, y que.
+S4: Quede grabado además para que entonces después quien lo quiera ver después lo pueda ver.
+S3: Pero es por las herencias de cuando.
+S1: Tú recibes tu link. ¿Lo primero es un video yo explicando, hola, vas a entrar, vas a ver esto, vas a ver tal vaina? Me peino y vaina.
+S4: No digas que son las chicas del CAN, por ejemplo.
+S3: ¿A ver, esa se la marcó? ¿Me dio una risa, porque además yo dije cómo tienes su referencia?
+S2: Y yo la chica, le dijiste a ella, la chica del CAR.
+S4: Me llevaste a mi infancia.
+S3: Ya, Manu. Una reunión que Carmela dijo chicas, ¿No te acuerdas? Una reunión que Gabo dijo miren chicas y Carmela dijo chicas, No, yo así.
+S4: Me acuerdo de mi tía bailando.
+S2: En España se usa mucho en la época de Matusalén.
+S3: Claro, claro, tenía como 12 años las chicas. Claro. Cha.
+S1: Importante quedó grabado la chica del CAR. Entonces hacemos la ventana online de la validación.
+S3: Esa validación no debe durar más de una semana, o sea, déjate de vaina en la que te va a tomar dos semanas revisar lo que está allí.
+S2: Bueno, ¿Cuánto tiene planificado en tu proyecto?
+S3: Yo no me acuerdo cuánto le pusimos a la validación.
+S2: Bueno, lo verificamos, pero podemos ganar la semana y media que perdiste el terreno.
+S4: ¿Esta clase se supone que se acaba el 18 de septiembre?
+S3: Sí, en teoría, pero está retrasada por lo que dijeron y yo le dije. Finales de mencionar en esta reunión de.
+S4: Hoy, qué es lo de la política de IA. Eso es un entregable de esta fase de fase 2.
+S1: ¿La arquitectura de IA viene de estos.
+S3: Macroprocesos y la política derivada de esa arquitectura o se asocia en todo caso?
+S1: ¿Lo que pasa es que dijimos que iba a ser como un aproximado, no?
+S3: No.
+S2: Lo plantearía. La política tiene dos niveles. Hay un nivel declarativo, es como la política de calidad. ¿Cuál es el nivel declarativo de la política, o sea, considerando que explícito exactamente que hay un fenómeno que es la inteligencia, que nosotros estamos incorporando tal, Robert va, tal? Eso puede estar asociado incluso a un código de ética o una normativa asociada a esa declaración. Entonces ese es el nivel donde tenemos que esta fase, porque después viene porque la política tú ve claras coño, mira, yo reconozco que hay un fenómeno que es la inteligencia artificial, que ese fenómeno me está impactando y que ese impacto lo tengo que manejar y controlar y aprovechar internamente.
+S1: Aceleraremos los procesos de adopción, entraremos declaraciones.
+S2: ¿Entonces después viene cómo lo vamos a hacer? ¿Cómo lo vamos a hacer? entra la formación, o sea, si tú quieres adoptar, tienes que formar a la gente. ¿Cómo ha sido la formación? Esta ha sido la lógica de formación. Está trancada, verga. Está trancada. La lógica que habíamos dicho es competencias básicas de IA y después profundizar en clave y otras herramientas por proceso. Y después viene lo segundo, esa política de adopción se transforma en implementación de IA a través de una arquitectura. Es más, en esa política puedes declarar la organización está orientada a definir una arquitectura de IA adecuada a sus sistemas, a su ANA. De hecho, yo le mandé a Clemencia y a Jesús en algún momento, o lo puse en el chat, una declaración que sería la política de adopción. Ya hay una primera versión de.
+S3: No, claro que no, porque eso está .
+S2: No es que la adopción deriva de la arquitectura. No, la adopción comienza cuando la organización da el primer paso para incorporar el uso de inteligencia artificial en la organización.
+S1: ¿Y dónde está la arquitectura? En la fase 3.
+S2: Ahorita es muy fácil.
+S1: Documento técnico de arquitectura de agua Documento.
+S2: Técnico arquitectura Izcape Ahorita es muy fácil sacar esa política de adopción porque con toda esa base de conocimiento, haciendo un buen pro a cloud. Claro, va a salir muy bien. Yo la puedo revisar y depurar, ustedes también. Va a salir muy arrecho.
+S3: Jesús también está contento. Jesús estaba diciéndome esto.
+S4: Por WhatsApp, esto todavía masivamente.
+S3: No, yo lo dejé en plan.
+S2: Fíjate lo que yo hice, que se los comenté. Yo agarré la estructura de cargo, toda la de los 400, y le dije a Clau, mire, nosotros hicimos esta lógica, estamos haciendo esta lógica de formación, identificamos un piloto de 70 personas. Esas personas son personas que potencialmente son muy investigadores o dueños del proceso, o personas que tienen posiciones de impacto dentro de la organización. Yo quiero que basado en esos perfiles, tú identifiques del personal restante en función de los carros que ocupan, a qué personas deberían desarrollado, participado en este programa de formación base. Dime las personas y dime los cargos. Y me sacó 140 personas que escribió , los auxiliares de bodega, lo que sea. Entonces si falta una fase para completar estos. De hecho ya Arani había hecho, ella le pidió a estos 70 que dijeran a quién recomendaban de información básica. Entonces ya teníamos dos insumos para hacer, uno más objetivo, que es el de Claude, y el segundo que esta gente recomendando a quien debe participar. Entonces esa vaina lamentablemente lo pararon, pero bueno.
+S4: Pero yo lo quería era que chequeáramos esto para estar seguro que lo tenemos .
+S2: Ojo, yo tengo la posibilidad, que es lo que hablé con Gabriel, yo le puedo decir a Doron, mira Doron, vamos a hacer un fast tracking de Maya, o sea, yo puedo agarrar y digamos, hacer que Maya sea más compacta, no sea tan larga, sea más tal, ¿Cierto? Que es un poco lo que tú me dices. Eso lo podemos hacer.
+S3: Josué, de esta reunión con Bernardo también el otro punto que quiero hablar con él, como para no pasarle por encima a él. Sí. Es decirle, mira, María Elvira empieza el 1 de octubre, pero ella ya está trabajando para la organización en varias cosas. Nos queremos reunir con ella porque hay un tema y para esa reunión con.
+S2: Ella van, ¿Sabes eso que está trabajando con tu esposo?
+S3: Me lo dijo Araní o Carmela, una de las dos me lo dijo en.
+S2: La reunión, estaba de vacaciones, pero bueno.
+S3: No, pero ella ya está haciendo cosas para Robert, o sea, se está poniendo al día, pues, ¿Me entiendes? Pero empieza oficialmente el 1 de octubre, está cerrando en el otro lado.
+S2: Me salió un currículum buenísimo para un gerente de Recursos Humanos. ¿Ustedes conocen a Sol Castigli? No. Esta era buenísima para ese perfil, pero no. Perfecto, Maril.
+S4: Isabel Gosaine la ganó.
+S3: Claro, incluso yo le Dije a ella,.
+S2: ¿Quién es Isabel Gosain?
+S4: Isabel González, estudió con Mike.
+S3: Ya va. Ella es amiga de Betty. Es la de Betty.
+S2: la que es muy gordita, corre.
+S3: Bastante, va a dar clase ahorita desempeño, muy buena.
+S4: Y resulta que ella, no se, yo le dije, pero ella acaba de entrar al láser. Y resulta que le dije, mira, te vengo a complicar la vida. Y le conté, ¿No? Entonces ella me dijo, ¿Puedes hablar? Y después me llamó, me dijo, oh, no, van. Y perdí ese bote buenísimo, porque además ella misma me llamó y me dijo que María Elvira estaba aceptando. Yo le dije que era la empresa. No te voy a decir quién es empresa, pero es un cargazo igual tú.
+S2: Vas a pasar currículum. Este chat me llamó y me dijo.
+S4: Ya sé que es empresa y soy una pajúa que no me puse los.
+S2: P. ¿Y dónde está ella ahorita, además? Ella está en Polar, pero ella se fue Polar.
+S3: Miren, para revalidar allá, para cerrar lo de María Elvira Foco. Mira, pedimos la reunión con ella, pero para esa reunión tenemos que ir con la estructura de talento humano pensada. Tenemos que pensar en la estructura corporativa para abajo del departamento. Una cuestión sencilla. Pero ella es la corporativa.
+S2: Yo no diría. Perdona que te.
+S4: ¿No la ves corporativa?
+S3: Claro que sí, a eso está entrando.
+S2: No, no, pero es distinto ir con una propuesta hecha que involucrarla a ella en mi diseño.
+S3: Claro, no se la vamos a mostrar, pero hay que ir con una idea de lo que estamos pens.
+S2: Lo que hay que ofrecerle es.
+S4: Queremos aprovechar que tú estás aquí para que.
+S2: Llegaste en el momento ideal para que tú. Que no es lo mismo que decirle mira, esta es la estructura, nosotros estamos pensando.
+S3: No, no, para nada. Pero es posible que ella pregunte. Entonces hay que estar pero ustedes pueden.
+S2: No, esa la vamos a liar, yo.
+S4: Me la voy a ganar y le.
+S3: Voy a decir qué bueno que estás.
+S4: Aquí, porque tú y yo vamos a trabajar juntas en lo queda de que en adelante, en esta proye.
+S1: Reunión con Bernardo para matar las chispas, etcétera, que estamos avanzando. Confianza y decirle que lo que viene es la validación de esos procesos, donde va a haber una ventana online para explicarle a todos cómo van a validar. Y después van a venir unas múltiples ventanas pequeñas con directivos para explicarles poco a poco cómo ver esos procesos una vez ya en paralelo están sucediendo esas validaciones. ¿Para qué? Para que ellos sientan que hay cosas y que más bien tienen que leer muchísimo de aquí en adelante. Y después viene lo de quién va a ser la persona capaz de aquel lado de entender esto y llevarlo a buen puerto.
+S3: Potencialmente María Elvira es el bombazo, vale,.
+S2: Déjalo que lo diga.
+S1: Es María Elvira y es Ricardo Roiz.
+S3: A Ricardo que es panisima, que casi no está en el mapeo.
+S4: Ricardo Roycental, ¿Sabe?
+S1: Uno cree que no hace nada. Es como el hermano rico que nada más conoce a ricos en Panamá, marico. Es el carajo que se sudó todo desde el principio y debe estar tan mamado que no quiero hacer nada.
+S2: Sí, sí, estábamos.
+S1: Lo dijo la propuesta, es una propuesta que me gustaría que llevaran. Es como que mira, lo hemos visto y la persona capaz de llevar esto, buen puerto, pero si está mamado tu.
+S4: Crejo.
+S2: Está encargado desarrollo de negocio.
+S1: La negrita que yo mando en Mute, A mi parecer es un personaje que va a hacer de esto una vaina increíble, pero hay que entusiasmar. Entonces a mí me gustaría que fuera en la reunión que dijera, mira, vemos a Ricardo, que sería una locura, liderándolo y llevando a María Elvila y demás, porque no hay nadie que tenga uno de los conocimientos con él y es un carajo joven, tiene energía, agarró la computadora, hizo los ejercicios, es menor de.
+S2: Ellos, ni siquiera joven el que debe tener cincuenta y pico.
+S4: bueno, o sea, contemporáneo conmigo es.
+S3: Contemporáneo, cuidado con lo que haya hecho,.
+S2: No te aburre de mí, pero soy contemporáneo contigo.
+S4: Contemporáneo conmigo.
+S1: Y entonces la propuesta con Bernardo es Bernardo, ¿Cómo lo ves? ¿Crees que podamos empezar a entusiasmar a Ricardo a ver si él pudiese ser esto? Y esperemos que él diga sí, porque.
+S3: Vamos a estar claros que Bernardo es un buen impulsor, emotivo, no sé qué tal, pero no se enfoca.
+S4: Demasiado disperso, Bernardo. Demasiado disperso.
+S3: Y entonces en la dispersión a veces se pone medio autoritario. Si se le escapa.
+S2: Yo eso no lo diría todavía lo de Ricardo, pero bueno, lo de Ricardo no sé, no creo que sea el momento todavía, lo tendría bajo la manga. Lo que sí tenemos que decir pronto es lo del gobierno de ia. Pero no, tu cuñada.
+S1: no, pero ese es el departamento. ¿Claro, pero quién va a velar por eso?
+S2: No, no, correcto, pero.
+S1: Nadie. Mejor uno que dos, el bicho es inteligentísimo, tres, tiene energía, cuatro, todo el mundo lo respeta. Pero además Andrés a Ricardo. Andrés.
+S2: Pero espérate, lo que pasa que yo lo que te digo es que yo no vivía todavía por qué, o sea, ahorita esa responsabilidad entre comillas, está diluida en ese comité directivo, el cual Bernardo se siente protagonista. Yo creo que no es momento de quitar el protagonismo a Bernardo de esta vaina, es momento de que nosotros diseñemos aguas abajo la unidad de gobierno de ia y después entonces busquemos un enlace, esa unidad de gobierno con el comité directivo y ese enlace este señor. Pero eso hay que anunciarlo en su momento.
+S1: Era el bombazo que tenía que llegar.
+S3: A lo mismo, pero por otro lado.
+S2: Sí es un tema de timing del.
+S1: Proyecto,.
+S2: Porque lo que sí discutimos y ellos tienen claro es que. Te iba a preguntar si tú habías hablado con tus puntos. No quiero, no quiero, coño, nosotros vamos a poner, Tiene que haber una instancia en la capa corporativa de gobierno .
+S1: No, espérate, ve para atrás. En la formación de la tarde metí en código código que es cuando se destapa la cañería de 14 aplicativos creados, todo el mundo con una vaina distinta y la cara de Mariela y.
+S4: Fue horrible, pobrecita ella. Ella necesitaba contención.
+S3: ¿Tú le diste contención a ella? No te dio chance, ¿Verdad?
+S2: Bueno, en la reunión de la tarde Ricardo te absorbió. No, no, pero en la reunión de la tarde si le dimos un espaldarazo.
+S1: Intentábamos que no llorara. Mariela, de hecho.
+S2: No, no, ustedes tienen que ir. Es que viene otra sesión de Panamá Recha que tienen que ir.
+S1: Les hecho el cuento. En la tarde, cuando yo estoy viendo cómo comienza el leva de la tarde. Dime que existe, tú dime. Empiezo a ver dos genios brillantes hicieron unas vainas que yo digo, si tú llegaste solo dándote coñazo, yo te quiero en el equipo que va lograr esto. Bueno, se da la vaina y eso son Clara, una niña que se llama Clara y Reinaldo, un chamo que se llama Reinaldo. Reinaldo está bajo de patrón, chamito. Y Clara está bajo mercadeo y la acaban de nombrar gerente de e commerce regional. Ella está feliz de la vaina y yo pero tú no eres cuando nos vamos a tomar café que les perdemos a Ricardo. Y Ricardo empieza a llamar a Josué y Josué le dice, coño, donde manda capitán no manda marinero. Estoy con tu jefe, Habla, le decimos a Bernardo. Yo le digo, mira, Josué le empieza a explicar, mira, yo veo esto como un gobierno de ia, es decir, como una dirección que está con su líder y sus personas ejecutando, que no es.
+S2: Recursos Humanos ni Tecnología y tiene un.
+S3: Comité que puede incluir a Recursos Humanos.
+S1: Y a Tecnología, pero es como un departamento transversal. Transversal, o sea que va a ayudar a toda esta situación y en esa situación Gabriel identificó a una persona. Yo le digo, oye Bernardo, mira, identifique a una chama que se llama Clara y una chama que se llama ¿Quién es? ¿Reinaldo? ¿Quiénes? Va, búscamelo.
+S2: Fue que había hecho toda verga, ¿Sabe quién es? No lo conoce, Eso sí es atorado, ese carajo.
+S1: ¿Y entonces? Y Josué le dice, y tiene que haber una cabeza. ¿Y quién es la cabeza? Y yo le digo, yo tengo a alguien pensado, pero no sé. Pero qué huevona, dime quién es. Y Josué dice, pero primero hay que preguntarle a ver si ella quiere. Mi cuñada, que tú la conoces que es Amanda, es la herencia de mis desarrolladores, la que fue en el, pero.
+S2: No le dimos nada porque.
+S1: Ella es la gerente de operaciones de Bus, o sea, y la jefa de Melanie, de todos los niños desarrolladores que tengo en Colombia, en todos lados, bacán aquí que no es de esto, ella trabaja conmigo, es la esposa de Humberto y ella viene de Bel, ella es buscavista, ingeniera en sistemas, informática y ella ha estado mucho en sistemas pesados, en todo lo que hay sistemas, toda su vida de Microsoft y se viene conmigo, ¿Por qué? Porque se casa. Entonces estoy en Panamá. Que ladilla, mierda. Y yo para la familia allá es gerente de operaciones de OK, cuando yo veo esta vaina yo digo, verga, déjame dar, déjame. Amanda haría esta vaina, o sea, primero llevaría a estos muchachos brillantes, sería un paseo y dos, ganaría más de lo que yo le pongo. Y yo digo, eso es internamente. Y yo le digo a José, coño Josué me en el desayuno me levanto y le digo, Josué, tengo a alguien en esa posición que debería ser. Y yo le digo, bueno, pero primero voy a hablar el cuento corto es que no me dijo que no trabajaba de Vele.
+S3: Claro, no quería irse pa corporativo otra vez.
+S2: ¿Pero ella no puede ayudar a identificar.
+S1: A alguien también puede ser, de hecho.
+S3: No le con beso, mira, pero por qué no es Andrea?
+S2: No, no, porque vas a mezclar chicha con limonada cuando un carajo, tú vas a poner ese carajo y entonces se va, no va a saber distinguir el rol de dueño de negocio con el rol de Andrés, tiene que trabajar con él, pero como socio director,.
+S1: Muy bueno operativamente, regaña y de hecho en la formación empezó a regañar patilló, pero él es muy de una vez .
+S3: Claro, claro. Es mecha corta, no es Andrés.
+S1: Tiene que ser una persona que logre llevar desarrollador y que entienda. Me siento contigo, Clemencia. Entiende el proceso.
+S2: Un perfil peludo tiene que tener pensamiento estratégico, tiene que entenderse bien con recursos humanos y con tecnología. Reportar al director dentro del directorio. Tenía que reportarle a Andrés directamente porque.
+S1: Cuando tú metes a desarrollar cuestiones de contabilidad, si no entiendes esa mierda, se odió todo. Entonces un perfil o ingeniero industrial, ingeniero informático, además que esté ya adaptado a Claude. Sí, que he trabajado con desarrolladores y demás. Un perfilazo. Es un perfil peludo. Entonces.
+S2: Como Chief of Engineering, ahorita lo.
+S1: Están llamando AI Engineer.
+S3: pero yo entiendo que ese cargo no necesariamente tiene que ser ingeniero, de hecho puede ser alguien que venga de otro, pero que puede ser un industriólogo, por ejemplo. Bueno, un industriólogo formado en eso. Es brutal. Es brutal, Pero como si lo fuera demasiado tiempo. Parece que es un perfil arrechísimo.
+S4: Y yo la verdad es que cuando mi hijo iba a estudiar administración, yo quería que él estudiara Relaciones Industriales y lo persuadí, traté decirle cómo métete por tal. Y él ahora que ya está donde está, que ya se va a graduar y que ha trabajado con industriólogos de la UCA, yo le dije ¿Qué te parece este perfil? Me dijo mami, súper, súper bueno, lo que pasa es que a mí me gusta mi área financiera.
+S3: no, bueno, claro, sí nosotros no.
+S1: Mira, entoncese gobierno que plantea Josué tiene que ser una cabeza que este líder y estos muchachos en la formación también sale un carajo que se llama Jorge y Jorge el que hace todos los módulos de ODO 114 módulos. Cuando yo veo le digo Jorge, muéstrame. Resulta ser que Jorge es un huevo pelado haciendo los módulos y con que los.
+S2: Con Clau dentro.
+S1: Cuando yo lo veo, Esta es la.
+S2: Llave que cerró ese que saca lo dice y le digo, bueno, entonces se puede ser, Escúchame. no, lo que pasa es que es muy técnico.
+S1: No, no, él no es para jefe, él es técnico, o sea, te estoy diciendo, es una llave desarrollo divina que está dentro ya, pero tiene.
+S2: Que traérselo para ahora.
+S1: Necesitan quien los guíe y quien entiende el proceso con las distintas cosas.
+S4: Lo que sucede.
+S1: Que yo creo que es Ricardo, pero después yo creería que bueno, Ricardo está arriba y. Pero Ricardo sabe todo y le va a doler.
+S2: No, pero claro, pero sí está bien,.
+S3: Pero es verdad, no tiene que ser ahorita.
+S4: No, pero bueno, pero uno se sienta.
+S1: Con él, no, hay que entusiasmarlo porque él no quiere desde el punto de.
+S2: Vista liderazgo, él está en lo que.
+S4: Se llama en el cuadrante M, según la teoría de Hersi Blanc.
+S2: No, no, pero es que no tienes toda la información. Lo que pasa es que él está dedicado a desarrollar otros negocios. Él montó Macon, Acostamos,.
+S3: Tú estás con Arce,.
+S2: Mantó, los coworking, está montando los cafés cúbicos, él está dedicado a desarrollo de nuevo negocio, o sea, el tipo tiene trabajo y es el que lleva además financieramente todos esos negocios. Lo que pasa es que le echa en falta, te lo digo porque yo le entrevisté, le echa en falta a lo mejor las mismas herramientas que tiene la corporación para facilitar el trabajo dentro de lo que le está haciendo.
+S1: Pero bueno, por eso digo, habría que entusiasmarlo y ver tal vez no, eso.
+S2: Sí, él salió muy entusiasmado de todo eso.
+S1: Rápido le dije, Bernardo, tienes que calmar a María primero en la formación le falta muchísimo, pero no vas a salir de ella porque eso siempre debe existir, el que está pendiente lodo de los sistemas, de las redes. Ahora lo que viene es lo que te comentamos del gobierno de. Ya le dije que es el otro, lo tengo clarísimo. Mariela, lo que hay que hacer con.
+S4: Mariela es dejarla tranquila donde ella estaba.
+S1: Coño, tranquila. Pero tienes que saber que viene y que no lo vas a llevar.
+S2: No, no, pero ni siquiera con Ángel, porque nosotros no le vamos a poner por encima nadie. Ella tiene su espacio, igual que lo tiene Recursos Humanos y tal. Este es un perfil nuevo y la.
+S3: Estructura propuesta son unidades distintas. Está clarísimo lo que planteamos. La estructura borrador, la que presentamos, estaría.
+S2: A nivel de Estado porque es transversal a toda la organización. Lo que está proponiendo Gabriel es que a nivel de staff, en vez de reportarle directamente al CEO, le reporte a una de las directivas que es Ricardo,.
+S1: Que va a tener una visión brutal de.
+S3: Está bien. Había algo que le iba a comentar, se me pasó.
+S4: Yo les quiero comentar esto que no hemos tenido chance de comentarlo en la.
+S3: Entrevista que yo le hice.
+S2: Máximo Dol.
+S4: Máximo me contó lo que pasó con.
+S3: Puerto Rico Máximo Dol quebraron, perdieron toda la plata, Ay señor, perdieron toda la plata.
+S4: ¿Ellos se lanzaron para abrir Cubi Puerto.
+S3: Rico sin hacer una evaluación de la empresa con la que estaban negociar y.
+S4: Salieron con las tablas en la cabeza.
+S2: Y compraron esa empresa o perdieron plata?
+S4: Porque aparentemente, o sea, lo que dijeron, o sea, él me quiso mostrar es el nivel de impulsividad que tienen ellos como empresarios, o sea, yo lo que veo, lo que yo veo desde afuera es que es una gente que tiene plata porque ellos están solventes,.
+S2: Tienen bur de plata, claro que tienen.
+S1: Bur de plata, ya vi los números,.
+S3: La meta, yo lo vi con Handai, yo verga, una locura.
+S4: Y los tipos se lanzaron.
+S3: La tienda que más vende es Candelariado, ayer tenía en el tablero que dice Andani, lo que no vi es cuántos días eran pues, pero tenían 35 mil dólares, a lo mejor eso es de la semana, pero la supervisora de tienda Rosa me dijo a las cinco de la tarde, Clemencia, cuando la gente sale aquí a las oficinas se hacen dos colas de gente comprando, lo que más se llevan son bolsos, los koalitas y audífonos.
+S2: Eso me llamó la atención, te acuerdas que nosotros le preguntamos a este chamo, te acuerdas que nosotros le dijimos a este chamo, coño, explícame esa vaina de que cajero, que aquí hay cajeros, auxiliar de tienda, Entonces él me dice, no Josué, aquí no, ya eso lo uniformamos, ¿Te acuerdas? ¿Tú tienes esa grabación? Él incluso nos dijo, mira, aquí los vendedores cobran, los encargados cobran, incluso entre las tiendas de Cubet y Casio cuando no hay personal se rota y van.
+S4: Con el uniforme Casio para la tienda,.
+S2: Entonces eso fue lo primero que yo le dije a Clemencia que verificara con este chamo si aquí el esquema de funcionamiento era parecido. Clemencia me dice, no, aquí si hay cajero, mira, espérate, cuando yo fui.
+S4: A comprar el reloj yo explícame los modelos, bueno, este modelo, este no sé qué me destino, me voy a llevar esto, pasé con la cajera sentada y.
+S3: Me dijo algo importante del margen de ganancia, Oye este Josué, Vane Handani me dijo algo importante, dice bueno, el fenómeno Venezuela, ¿No? Porque todo el mundo en la empresa habla el fenómeno Venezuela, por cuánto se está vendiendo, pero él dice, es que a mí un monto flat no me dice nada, yo tengo que saber cuánto estás metiendo tú antes para yo ver efectivamente cuál es el margen y eso es lo que ellos no tienen. ¿Claro, tú le preguntas a quien sea, están ganando bien? Y te van a decir sí, si, la empresa va bien, ¿Por qué? Y no te van a saber explicar por qué No, porque no tienen indicadores, o sea, no tienen. De inversión. De.
+S1: Inversión es un hueco puro.
+S2: Qué maneja la parte financiera, yo estoy seguro,.
+S1: Pero Jaime lo que hace. Ya yo vi cómo procede Jaime lo que hace es sacar transferencia en la.
+S2: Parte de compra, entonces no es finanza, es una vaina de administración, de tesorería.
+S3: Él es CFO. No, pero tiene que.
+S2: Entonces no es un CFO, porque nuestro CFO por ejemplo, mierda, nosotros tenemos un reporte de todo lo que ingresa, de nuestra estructura de costo, el margen neto, toda esa vaina.
+S3: En la torre de control esta, pero él me dice eso todavía lo estoy construyendo, lo estamos construyendo para ver.
+S2: Eso, porque si tú tienes un CFO, el CFO no solamente ve los resultados del comercial, sino ve otras cosas, incluso las inversiones relacionadas. Él ese no es un cifrado que.
+S1: Es un po Ya para él y lo llaman CFO, pero él no tiene el análisis global.
+S2: Bueno, a lo mejor porque estos carajos son también muy celosos,.
+S1: Yo estoy seguro que nadie sabe el costo real de un producto porque ellos no lo dicen. Mira, Dani compró una gorra, le dieron el 50 descuento, o sea la mitad, o sea imagínate cuánto.
+S3: Y a las gorras económicas le debe.
+S1: Costar 20% de costo, la gorra de 20 dólares le debe costar.
+S2: No, no, esto carajo. Van a China, hacen todo en China, sobre todo con la marca propia, el margen es brutal, por eso tú montas una marca propia, por eso tú tienes.
+S1: Esa cantidad de evoluciones y no hay pe.
+S4: Y no pasa nada. Claro, pero la cantidad de evoluciones que tienen es mundial.
+S1: Grandísimo. De los Terra, ellos lo llaman, salió un Bach malo, Badge salió.
+S2: Bueno. Si le pasa a Garmin, imagínense. Imagínate todo eso.
+S4: ¿Pero tú sabes cuál es la tasa de evolución de Garmin? ¿No lo sabes?
+S2: No, no, pero no empíricamente no, porque es una vaina empírica, o sea, se mucha gente que ha tenido problemas con el Army, va y soporte, te devuelve un reloj nuevo, o sea, gente, triatletas, vaina. Sí, por eso te digo, si le pasa Gar, imagínate Garmin, imagínate ellos que.
+S1: No tiene muy claro cuánto Josep, que es el pedazo de la garantía, me dijo, al menos el 10% va a.
+S3: Patar, pero el 10% no, que es.
+S2: Una brutalidad, porque nosotros por ejemplo, sí le digo una referencia en una marca premium que son los post, nosotros tenemos los post ingénicos, las fallas, el índice de fallas o problemas es más máximo, 4% máximo, pero realmente nosotros hemos tenido, no hemos llegado ni al 2%, o sea, de equipos que salen mal, que no sé qué, y generalmente los fallos vienen más por un tema de mal uso, son equipos digitales y la gente está acostumbrada a teclear y B y entonces los desconfiguran. Iván, que por falla del equipo, esos equipos son. Y esos equipos son hechos en China. Claro, porque son equipos premium, pero ahora las otras marcas, las que son chinas, que son competencia ingénico, pero valen la mitad o lo que sea, el índice de fallas está entre el 12 y el 15 por ciento. Eso coincide un poco con este marca prop igual tú agarras caso de los mejor caso es 3% y agarras terra y es 10% seguramente ese es el.
+S1: Comportamiento típico de saber bueno, tienen margen para pagar, así que sin huevo nada.
+S3: Pero bueno, total que Janari me dijo.
+S2: Entonces bueno, mira, la entrevista del martes, lo único que no me queda todavía claro es si le vamos a mostrar.
+S3: Algunos resultados, eso lo preparo con Vane mañana y con Jesús.
+S2: Yo creo que eso está bien que se presente.
+S1: Yo me voy entonces a ir construyendo una vez esa validación, como hacer, tú.
+S3: Dijiste que viste cosas raras, voy a.
+S1: Verificar la estructura como para prepararlo lo.
+S3: Mejor posible para el martes de la navegación.
+S1: Voy a hacer la política de una vez para que ya quede la política de adopción.
+S3: Lo de la estructura después voy a hacer.
+S2: Mira, si quiere podemos mostrar un mapa de la metodología validación, o sea por fase. La fase 1 sería tal, si mostramos un mapa, un esquemita de la metodología de validación, podemos explicarlo fácilmente para.
+S3: Tener un apoyo visual, se lo podemos explicar ya como que tenemos que.
+S2: Seguramente te va a decir esta chama o el otro.
+S3: Ricardo, compártelo con nosotros.
+S1: Tenemos algo para compartir lo de la ficha técnica, para que ellos vean, para que él vea cómo los gerentes van a llenar.
+S3: bueno, Eso se lo puede hacer Vane. Exactamente. Lo de la ficha técnica, para que él vea.
+S1: Mira, tu gerente van a recibir esto, abren aquí, tienen que rellenar. No, pero para que lo vean.
+S4: De hecho yo les tengo que pedir estatus de lunes de cómo va eso. Se supone que deben ya estar llenando eso.
+S3: Ya estar casi que listo. Ya.
+S4: Eso debería. De hecho la fecha, El plan es el 21 de septiembre, el día de mi cumpleaños. Gracias a. Eres.
+S2: Tu cumpleaños. ¿Ese día que hay ese día?
+S4: Ese día es que termina.
+S2: Aparte de tu torta.
+S4: Además de mi torta y mi celebración. Hasta ese día tienen para la ficha de talento.
+S2: A la ficha de talento Y la fase 2, ¿Cuándo se tiene que entregar?
+S3: Le entregamos a finales de septiembre.
+S2: Entonces tenemos que pensar octubre y noviembre.
+S3: Deberíamos estar enfocados en los componentes de talento.
+S2: ¿Cuándo terminamos de documentar todos los procesos?
+S3: Ahorita en septiembre.
+S2: Y entonces hay que ponerle fecha de validación ya para que ellos tengan certeza sobre. Esas son las cosas que para estos carajos es lo que quieren oír los de proyectos. Un pelo de dolor de cabeza.
+S4: Y.
+S3: Ahorita provoca un piscinazo.
+S2: Estaba igualita que tú.
+S4: Yo cuando veo la video decía.
+S3: Y mañana voy a correr 10 entrenamiento. Claro, mañana yo estoy como 9 en la mañana.
+S2: ¿Donde? En el parque al Este. Corre.
+S3: No, mañana vamos a Los Próceres. Cambia toda la semana. Mira, esa es otra cosa. Hay que decirle a Bernardo para ir a nadar, que íbamos a ir a nadar porque el carajo nada una aguas abiertas y vainas. Candanío le va a dar una vaina cuando sepa que fuimos a la co.
+S2: Voy a llamar a Ricky, le voy a decir que vamos a nadar con él. Mira, para que estés enterado, para que sepa. ¿Sabes que? Yo todo te lo cuento a ti primero.
+S4: Mira, pero tranquilo que aún no va a haber nada.
+S2: Ya uno va a estar.
+S3: La piña cuela afuera.
+S4: Pero tranquilo que cada uno va a nadar y se va a quedar afuera, tomarse una piñita con la.
+S3: Ay no, que loco, qué loco. Sí, tenemos que decirle, porque habíamos hablado de.
+S1: Coordina esa reunión la próxima semana de día.

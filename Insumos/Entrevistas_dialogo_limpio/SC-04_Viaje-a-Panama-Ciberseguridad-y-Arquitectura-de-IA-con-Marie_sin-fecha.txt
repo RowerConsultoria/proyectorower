@@ -1,0 +1,201 @@
+S1: Tienen que hablar con él de entenderle. A Bernardo le encanta el tema de la estructura organizacional. Que se meta Bernardo, que lo ayude, porque además hay un momento en que no suficiente para crecer tanto en estructura, pero hace unas decisiones que nada que ver. Que se meta Bernardo, que porque es. Ni ellos le preguntas a ellos. No hay una estructura, no existe. Pero bueno, gracias.
+S2: No, ustedes, gracias.
+S3: Mari, talk to me, dímelo todo. Dame luces.
+S4: ¿Quieres saber que no sepas?
+S3: No sé.
+S4: Me dijeron en una reunión ahorita proyecto.
+S2: De seguridad, pero nosotros pensamos que tú nos habías convocado la reunión.
+S4: No, a mí me convocaron a esta reunión, tal vez fue Candanedo. Y dice Carmela, organizador, Carmela, Gabriel,.
+S3: No sé, ya yo he hablado tanto contigo que te siento mi hermano.
+S2: No, lo mejor es el momento de que un poco te cuente cuál es la propuesta,.
+S3: Qué es lo de ciberseguridad.
+S4: Mira, nosotros hemos desarrollado, o sea, contratamos a una persona para que nos hicieran una auditoría de la seguridad, de todo el tema de seguridad.
+S3: Pero entonces ¿Qué evaluó él?
+S4: Evaluó todos nuestros sistemas, porque bueno, tenemos varias fallas de seguridad, o sea, sobre todo cuando ahorita hay varias cosas.
+S2: Déjame mostrarte el informe, o sea, el informe de auditoría. Bueno, tú lo puedes compartir con nosotros.
+S3: Claro. Para poder.
+S4: Porque nosotros ya hicimos como ese trabajo de auditoría internamente. Internamente. Bueno, una persona externa. Una persona externa se reunió con César, que es la persona encargada de ciberseguridad y levantaron toda la información, entrevistaron gente,.
+S2: Hicieron todo, pero fue una auditoría con un informe de auditoría. Perfecto.
+S4: Exacto. Y con un plan de trabajo de.
+S2: Aquí en adelante, una propuesta basada en.
+S4: Hecha de 0 a 3 meses. ¿Qué vamos a hacer de 0 a 3 meses? ¿Qué vamos a hacer DE aquí a un año? Sobre todos los temas, todos los problemas que él encontró basado en las certificaciones Covid e hizo y entonces con eso vamos a trabajar. Entonces, claro, Candanedo me dice el proyecto de ciberseguridad No va. Yo ¿Como que no va? Si es algo que nosotros. Va con quien sea, con usted o sin usted, porque es algo que nosotros como departamento necesitamos y la empresa lo necesita. Entonces me imagino que es el motivo de esta reunión, porque independientemente que tengamos la IA o no tengamos la IA, igual nosotros tenemos como departamento que blindar a la empresa de todo lo que hay de seguridad. Que se vio ayer y de lo que no tiene nada que ver, nuestros temas de firewall, nuestros temas de nuestros endpoint, nuestros temas de NDA. Hay muchos temas internos del departamento que probablemente ustedes no conocen, pero que están . Entonces, un proyecto que nosotros tenemos que llevar a cabo. Igual yo les puedo mandar el informe, les puedo llevar el plan de acción que nosotros determinamos.
+S2: Sí, sí, yo creo que la forma. Bueno, tú eres el que toma, digamos, la decisión sobre eso. Pero a ver, lo que yo creo que lo coherente en esta situación es, por supuesto, y estoy totalmente de acuerdo y celebro la iniciativa de que ustedes hayan hecho una auditoría sobre su. Lo que nosotros tenemos que hacer es ver un poco el resultado de su auditoría, ver el plan de acción asociado a esa auditoría, y ver cómo eso se concatena con la propuesta de arquitectura que tú dibujaste ayer, y ver cómo se hace match entre todo eso. Y decidimos, o bueno, o vemos cómo nosotros, digamos, hacemos match entre todas.
+S3: Las cosas para integrarla.
+S4: Nosotros tenemos, casualmente, hace rato tenía una reunión con la persona de Venezuela que está con ciberseguridad, una persona que Bernardo contrató. Y entonces Y hacer match con lo que nosotros levantamos de información para que. Porque son tres países, son Colombia, Venezuela.
+S2: ¿Y él ya vio el informe? Todavía no ha visto el informe.
+S4: No lo ha visto. Lo que vio fue el plan de acción, el cronograma de ejecución que hicimos. Pero la idea es con él determinar qué cosas puede hacer allá en Venezuela, qué cosas vamos a hacer.
+S2: ¿Harías un informe de auditoría también en Venezuela y en Colombia para ver cómo están los sistemas?
+S4: Porque necesito trabajar.
+S2: Necesitas tener los tres informes de auditoría para establecer un plan de acción corporativo, para dar respuesta.
+S4: Y además yo me quiero preparar para la IA.
+S3: Esta auditoría es de Panamá.
+S4: Es de Panamá, pero yo me tengo que preparar para la IA, porque si todavía sin IA no tenemos controles, imagínate con IA que todo el mundo está desarrollando cosas a loco y nosotros no tenemos la casa lista para eso. Aquí está el cronograma de ejecución, igual te lo puedo mandar un poco denso.
+S3: Y un poquito la auditoría para leerlo.
+S2: No, yo lo más importante acá es que todos estemos en línea y pongamos sobre la mesa todo lo que estamos avanzando para empujar todo el carro juntos. Porque si nosotros empezamos a empujar el.
+S4: Carro y que ya nosotros. Ustedes no vinieron al desierto.
+S2: Exactamente, estoy de acuerdo contigo.
+S4: Tenemos probablemente no las mejores prácticas o porque nos quedamos en el tiempo o por X o Y, pero nosotros igual tenemos que mantener la operatividad y nosotros estamos haciendo lo necesario para mantener esa operatividad y tenemos proyectos andando que no pueden parar, porque hoy ustedes están aquí, mañana no están, y esto tiene que seguir avanzando. Y hasta que ese universo Kennex no exista, tenemos que seguir.
+S2: Nosotros vamos a meter, Queremos poner unas mejoras al avión, pero el avión tiene que seguir volando.
+S4: Tenemos que tal vez ajustar ese vuelo para que cuando llegue lo que venga, estemos ya preparados, Mira, estamos en el.
+S2: Mismo barrio, a ver, cuenta con nosotros en la medida de lo posible vamos a ayudarte a ti y vamos a ir juntos. Nosotros no venimos a imponer nada, todo lo contrario, no queremos que se malinterprete que es simplemente alineación. Y estas son cosas que pasan. Hemos tenido, yo no sé, hemos planificado una y sobre la marcha hemos tenido siete más donde han salido problemas y hemos resuelto sobre una salida marcha. Entonces buenísimo si hubo un malentendido, lo que sea. Lo importante es ver un poco esto y caminar justo ver esto.
+S4: ¿Y también no sé si tiene que ver en esta reunión lo de conciliaciones bancarias que hablaron, ya lo vieron, o sea que no sé Cómo lo vieron? ¿Cuáles son sus comentarios?
+S3: Dos comentarios aquí tú tienes las computadoras, las conexiones están en servidores locales. En esta oficina todo el mundo tiene su laptop y está en conexión, tiene.
+S4: Su laptop y está, o sea, nosotros tenemos un Active Directory en Canadá, un servidor local en Canadá, que se autentican todas las personas de todos los países.
+S3: Yo me conecto al LAR a través de Canadá.
+S4: No, al LAR no LAR, tú te conectas por correo, o sea, a tu Windows, tu sistema operativo, o sea qué.
+S3: Quisiera proteger esta ciberseguridad.
+S4: Aquí, por ejemplo, de nuestro sistema Odoo o de todo, porque el sistema es todo, no solo es Odoo.
+S3: Por eso que otro sistema.
+S4: Contraseñas corporativo y Erradicación de credenciales por canales no controlados Nosotros no tenemos un gestor de contraseñas y todo el mundo tiene una contraseña.
+S3: ¿Y dónde va a estar ese gestor? Ellos te van a dar como un sistema.
+S4: Él nos dio varias opciones gratis y opciones pagas, y que nosotros tenemos que decidir que eso es el plan que vamos a hacer, de qué necesitamos para tener esas contraseñas.
+S3: Eso es una bóveda.
+S4: Es la bóveda. Pero entonces eso no lo tenemos claro,.
+S3: Hay muchas cosas, o sea, lo único que sí, nunca te pares, el vuelo está a 30.000 pies y no puedes bajar tú. Dale. Yo lo único que quiero que tengamos en el camino es que ¿Hacia dónde vamos, Sí? ¿Y yo voy a poner seguridad en dónde? En mi sistema de Odo, en mi sistema de Lark, o es que quiero crear un sistema para tener seguridad de algo, o es que quiero poner todas las computadoras en una red, donde todas.
+S4: Las computadoras están en una red, y esas computadoras, todos los usuarios, aparte de sus correos, tienen un usuario de red, ese usuario de red tiene una contraseña, tú te metes a tu máquina y tú tienes un usuario y una contraseña de tu máquina que se conecta a un Active Directory que está en Canadá, Entonces eso no tiene nada que ver con LAR, no tiene nada que ver con Odoo, eso es como nuestro sistema de seguridad, todo el mundo tiene una contraseña que no es, ni se cambia cada tanto tiempo, ni por eso, es una contraseña que conoce una persona que no está documentada en ningún lado.
+S3: De las computadoras. De las computadoras sería ciberseguridad de la red de activos de computadora que tiene.
+S4: Por supuesto, debe existir eso no existe, o sea, existe. César los conoce, hay que preguntarle, o sea, no hay una documentación sobre ese tema. ¿Que este tema? Gestión de contraseñas, autenticación obligatoria de Actis directo y o renovación de soporte de firewall. No tenemos, Hay que revisar ese tema legal de soporte de firewall que no tenemos. Renovación, autenticación de firmas y firmware, respaldo diario automatizado y prueba de restauración documentada. No tenemos eso, o sea, nosotros los respaldos de Odoo, lo hace la gente de Odoo, pero nosotros, por ejemplo, no sabemos, nosotros no hemos hecho una recuperación en caso de falla de odoo, ¿Qué pasaría? ¿Qué plan B tenemos?
+S3: No lo tenemos, Ellos te van a hacer backup de Odoo y recuperación.
+S4: A crear una metodología para eso.
+S5: Perfecto,.
+S4: Gracias. Sálvame canal corporativo para datos de clientes retiro de WhatsApp personal. ¿Qué pasa? Que la gente usa el WhatsApp, usa el ar como estrategia de comunicación, y resulta que eso hay que unificarlo, la gente pone contraseña, te manda una información importante por WhatsApp, no hay un sistema de control de ese WhatsApp. ¿Vamos a utilizar LAR, vamos a utilizar WhatsApp, cuál va a ser nuestro sistema real de comunicación? Entonces es un poco como establecer la gobernanza que no existe porque cada quien usa lo que quiere, lo que le convenga en el momento. Entonces son cosas muy de nuestro departamento que necesitamos resolver antes de lo que venga.
+S3: De acuerdo. ¿Lo que veo más bien es que vas a construir con ellos? ¿Cómo va a ser?
+S4: Tenemos un mes de planificación, que le vamos a hacer con Candaneo y luego él ya nos tiene como que qué vamos a hacer con esta iniciativa de gestionar contraseñas, Estas son las opciones que tiene y nosotros vamos a ver qué nos cuesta, qué nos cuesta, qué vamos a hacer, hacia dónde nos vamos.
+S5: Si me quedas cartado.
+S2: Porque es parte.
+S5: De la política estandarizada.
+S4: Claro, claro.
+S5: La realidad es que lo que tú crees tienes que.
+S4: Yo no quiero después volverla a hacer. Tenemos que trabajar.
+S3: Un cliente, mira, a.
+S4: Precio especial, oí un poco, tarde un poco. Si está pagando, imagínense que compraste tres. No, si está pagando, vaya por el precio.
+S2: No, mentira, tranquilo.
+S5: Entonces lo que te decía es que al final lo que tú construyes va muy atado a lo que es el tema de los procesos. Cuando tú llegas a un empleado nuevo, hay un proceso que tienes que seguir.
+S4: Cuando una persona se retira, quita credencial,.
+S5: Tumba contra ellos tú vas a hacer. No eso. También tiene indocumentada la parte que está levantando aquí. Yo lo que te diría es, más bien hay que cotejarlo con lo que tienen ellos. Lo que diría antes de arrancar, de que te vayas de una vez y vamos a empezar ya es manche aquí, vamos a ver y cómo paralelamente vas haciendo lo que tú tienes que hacer, o sea, yo que te digo, no arranques ya diciendo que no va, eso va.
+S4: Lo que te quiero decir es que yo no sé por dónde van ustedes, entonces yo sigo mi camino, no es que yo estoy apurada, es que esto ya tiene tiempo, ¿Me explico? Entonces ustedes llegaron después, es a lo que voy. Entonces, ¿Qué sería lo ideal? Yo poder saber, no todo lo que hacen, pero por dónde van, porque hay un camino que nosotros ya hemos andado, entonces que nosotros hemos resuelto que la junta nos está pidiendo, entonces no puedo esperar a que ustedes lleguen hasta o nos unimos y lo hacemos juntos o yo sigo y pierdo mi tiempo porque después ustedes tienen otra propuesta. ¿Me explico?
+S3: Mira, no hay que detenerse, solo pásame la auditoría para tenerla contemplada y engranarla con esa arquitectura final que vas a tener. Porque acuérdate que al final esto tú no vas a tener algo donde nosotros vamos a ejecutar, sino es un Big Map, es una guía a donde ya tú sabes dónde vas a poder ir. Fíjate que lo que hicimos ayer fue una guía como que miren, esto es una forma de hacerlo y cómo nos engranamos todo bajo esta forma, entonces incluyamos eso. Si ya lo tienes y está avanzada con eso, pásame la auditoría y vamos a incluirla dentro de ese Big Map para que cuando te llegue el Big Map no vaya en contraposición a eso,.
+S4: Porque este es un proyecto que ya tiene tiempo, que ya lo que nos queda es como detallar cada una de las subtareas de estas iniciativas y ya tiene hasta fechas. ¿Entonces qué hago? ¿Espero que ustedes me manden su IMAP o yo sigo?
+S3: No, no te detengas, pásame la auditoría y eso para engranarlo en lo que vas a recibir, que no vaya a ser algo divorciado de tu avance, tal.
+S4: Vez puede tener más, es decir, nunca.
+S3: Va en contraposición que cubras los flancos de toda la red de activos de computadora, nunca va en contra disposición que cubras los flancos de VPN o de backup de odo o de recuperación en caso desastres de odontología, eso no va a encontrar, no va en contraposición con nada de eso. Y esto de hecho que fue además apresurado tal vez dar esta arquitectura digamos información, pero fue algo como que necesita un poco de luces para que también.
+S4: La gente se ubicara.
+S3: Sí, pero. Pero eso no está en mis manos, no es una decisión, la decisión de ustedes es ir por esa arquitectura, entonces eso también lo decidirás tú de en adelante y eso porque también tendrías que como mira eso es un sueño, voy a con este.
+S4: La realidad física tangible es lo que tenemos ahora y tenemos que seguir.
+S3: No, no te detengas, solamente pásamelo para yo engranarlo en el plan,.
+S2: Porque al final si tú en tu arquitectura diría vas a hacer una propuesta de arquitectura, esto lo vas a pasar a un informe, esto lo vamos a meter un informe, lo que sea, concatenándolo con esto puede tener un resultado más potente.
+S3: Sí lo pregunto.
+S2: No, y perfecto.
+S4: Inclusive aquí está Gobierno del uso de la IA generativa y licenciamiento corporativo. Eso está entre las actividades, o sea, porque era un poco para prepararnos para lo que venía, ¿No?
+S2: No, yo sí creo que no. A lo mejor el haber fue. No, no, lo correcto es agarrar eso que tienes tú y concatenar un poco con lo que estamos proponiendo nosotros y actuar inicio.
+S4: Y que esto también se hizo en conjunto con toda la empresa, es decir, hubo entrevistas con personas claves, perdónanos si.
+S2: Hubo un mal, yo particularmente, respetamos muchísimo el trabajo que estás haciendo, estamos clarísimos que al final la que va a ejecutar esto eres tú y tu equipo, y bueno, cuenta con nosotros para que tú enriquezca lo que estás trabajando con el aporte que estamos dando. Entonces, en ese sentido estamos alineados y menos malísimos esta reunión, porque efectivamente hacía falta ponernos de acuerdo, no podemos quedarnos con un tema de una broma de ciberfurria. No, eso no es la respuesta. La respuesta esto que estamos construyendo.
+S4: Claro, claro. Porque hay que ver lo que ya se está haciendo. Como te digo, no están en el desierto, hay cosas que se están haciendo, hay proyectos que vienen andando y que hay que considerarlos y se pueden, ojo, nada está escrito en piedra, Se pueden mejorar, se pueden modificar, pero no se pueden desestimar.
+S2: Estoy totalmente de acuerdo. Totalmente, 100%. Y te agradecemos muchísimo, Mariel, cuenta con nosotros que la verdad que vamos a estar juntas.
+S4: Sí, no, y que, como te digo, eso es un sueño, Pero el barco sigue andando, el tren como quiera,.
+S5: Ya eso está caminando.
+S4: Claro, pero están creando en otra plataforma que no esa. Esta estructura se tiene que crear así como se creó.
+S2: Este es el boceto de un arquitecto que agarró un primer plano y dice mira, esto es lo que vamos a hacer, pero tenemos que construir la CAS.
+S4: Claro, claro. Las bases. Las bases no existen y toda la data va a venir de Odoo. Entonces hay que hacer un análisis, un modelo entidad relación, ver cómo vamos a poner toda esa data , porque eso tiene que tener un origen.
+S2: Si todavía la arquitectura no está escrita.
+S4: Ni formalizada porque hayan hecho post, ¿Que tiene ese post? Artículos, precios y más nada. La arquitectura de Odoo es mucho más robusta que eso. Entonces eso hay que construirlo aquí. Esa relación hay que construirla para que todo lo que la gente sueña tenga sentido y además integrarla con oro y eso es un sistema que se construye, bueno no sé, pero un sistema no se construye de un día para otro, o sea un sistema robusto y que perdure en el tiempo porque de construir la IA lo construye pero.
+S2: Hay un portafolio de proyectos que tienen diferentes ritmos, diferentes velocidades, diferentes tal, lógicamente tú tienes un coche que sabes que es para correr y un coche que sabes que es para que no va a pasar de 60 kilómetros pero tiene, no sé, un coche de paseo, un clásico, entonces las dos cosas tienen que ir a mano. Lo ideal si nosotros estandarizamos esto que es la arquitectura de ida que va a estar conectado con arquitectura Odoo y esto va a ser un estándar y esto va a ser un estándar al final vamos a conectar las dos cosas y vamos a lograr una cosa, algo.
+S4: Muchísimo más robusto pero para poder lograr eso tenemos que sentarnos, mira una de las cosas que.
+S5: Se llama. Una versión de Go diferente tú vas a poder migrar esos parches que tiene a la parche esa programación que hizo.
+S4: Eso no son parches, ya va.
+S5: ¿Qué es para ti un parche?
+S4: ¿Es cuando tú colocas algo que está dañado,.
+S5: Tú creaste un aplicativo para una necesidad tuya en especial, por ejemplo como lo que hizo ya de K esa.
+S4: Aplicación dicen yo no creo, yo no creé un aplicativo Odo nativo tiene modelos de conciliación nativo qué se hizo? Modificar los modelos de conciliación para que permitiera más filtros, o sea si el modelo nativo de conciliación solamente te hace. Lo hizo con Clau, pero está bien, pero si eso, nosotros lo que hicimos fue mejorar lo que traía obra,.
+S5: Pero tú eso lo vas a poder montar en las otras versiones pero tienes que desarrollarlo en cada versión, cuando tú subas a esta versión a última versión vas a poder mostrar todo eso.
+S4: Claro, claro, yo así como migré todo lo que hice en Panamá, Venezuela, lo voy a migrar a la siguiente, pero.
+S5: Para cada versión en cada país tienes.
+S4: Que ser, todas van a ir a una sola versión, Venezuela, Colombia y Panamá van a ir a la versión 19, todos van a ir a la misma versión o a la 19, la 20, ya veremos, pero todos van a ir a la misma versión para no estar en esto qué pasó en el caso de Venezuela, que Venezuela su localización sólo la tenía en 17, no, la tenía en 16, ¿Por qué? Porque Colombia, Odoo se compra en Colombia en el 2024, en el 2025 se instala en Venezuela y en el 2026 en Panamá. Y cada año, no sé si sabe, Odoo va subiendo de versión. Cuando llegamos a Venezuela nos dijeron, mira, nosotros no tenemos la versión 16, tenemos la localización en versión 17. bueno, vámonos a la versión 17 directamente. Entonces, bueno, nada, tendremos un país una versión, el otro en otro, pero va a llegar momentos que todos van a estar en una sola versión para no tener que retrabajar.
+S3: Chévere,.
+S2: Tenemos que seguir. No, no, yo creo que con Mariela,.
+S3: Ricardo, Hitler, ¿Me puedo comer esto?
+S2: Ricardo, María parece de repente contra.
+S4: Entonces aparecen mis calendarios, tienes reunión a tal hora, tal hora. Una vez le dije, agarra mi calendario, si me ves un huequito , tú me pones una. No, ahora no, ahora veo concha, tengo todo el día. ¿Qué hice? ¿Tú dices qué hice? Dios mío.
+S3: Mira, Mari, tranquila, perfecto, pásame la auditoría para meterla en el plan. Sí, de lodo, eso ya lo sabemos, es adaptar los módulos que tienes para subir a la siguiente versión. Mira Jorge, freelance.
+S4: Sí.
+S3: ¿Y podemos meterlo adentro?
+S4: Ya está adentro, él trabaja con nosotros, o sea ya está adentro. ¿Que llamas tú adentro? No, no, o sea, porque que esté en la parte de. Cuatro más.
+S3: No, no, pero no, a mí no.
+S4: Contratado, bajo contrato, habría que ver qué se le puede ofrecer. Pero te digo que, o sea, ya.
+S3: Yo le dije Bernardo, pero do it,.
+S4: Él me preguntó, pero es un muy.
+S3: Buen asset que tienes y debe estar adentro.
+S4: Pero lo que te digo es que tengo cuatro iguales, o sea, todos trabajan con Claus y todos trabajan como viste que él trabaja.
+S3: No, no, está bien, es el único,.
+S4: Es lo que te quiero decir.
+S3: No, no, está bien, pero es importante que tengas por lo menos uno que conocía Jorge, tal vez los otros, pero.
+S4: Si puedes, mételo igual está, él es freelancer, pero él está 100% con nosotros. ¿Por qué está freelancer? Para evitarle pasivos a la empresa, entonces creo que le sale mucho más barato así que tenerlo fijo porque son recursos costosos que si le pones utilidades, prestaciones y todo eso, no sé, no sé habría que sacar los números, por ahora los cuatro, porque los cuatro trabajan de la misma manera, porque el primero que entró fue Jorge y él de alguna manera ha ido llevándolos a todos a trabajar.
+S2: Como él tiene un contrato honorario profesional. Bueno, está bien, tranquila. Ahorita no hay que. No hay que tocar nada.
+S4: Van a generar más gastos a la empresa porque son recursos. No sé si les conviene que les bajen el salario, o sea, hablando así.
+S2: Claro, sí, sí, eso se verá cuando.
+S3: Claro, con los pagos, porque cobran por.
+S4: Hora, por trabajo realizado, o sea, eso habría que evaluar. ¿Puedo hacer el análisis con Nuria? ¿Cuánto costaría el anual si los contratan y cuánto cuesta anual?
+S2: No, no lo hagas todavía. Lo importante es que ya está en tu equipo, está a tiempo completo contigo por un contrato profesional y ya no hace falta que haga más nada. Deja eso así y ya vendrá el momento que lo discutemos.
+S4: Por eso te digo qué significa, porque él está dentro.
+S2: Eso ya, tranquilo. No, eso no hay problema, está perfecto. No, no eso.
+S3: Vamos Ricardo, vamos.
+S1: Firme.
+S2: Bueno, ¿Algo más que quieras?
+S4: Sí, me quedé con la duda de lo del Odu, las versiones.
+S5: No, no, es que si podías llevarlo a las versiones, todo lo que has hecho, todos los desarrollos que has hecho, esas herramientas que has hecho de mejora.
+S3: Sí, lo que pasa es que. Pero sí hay módulos, aparte que ella los adapta y hay una planificación de subir de versión y adaptar esos módulos, ¿Cierto? ¿Verdad?
+S5: Sí, exacto.
+S3: Estamos en versión que ahorita Panamá dieciséis, la está en diecinueve es Venezuela, ¿Verdad?
+S4: Diecisiete y Colombia dieciséis.
+S3: Venezuela es la que está distinta. Y vas ahorita a 19.
+S4: Esperamos ir a 19 o 20 porque Andrés, claro, con esto que ustedes han comentado, que ha quedado como en la mente de ellos de que migrar no es lo más adecuado, que ya las migraciones no van a venir y todo eso. Entonces yo he detenido el proyecto hasta que se defina que se va a hacer, si no se va a seguir migrando, si no se va a seguir desarrollando, porque hay muchas cosas que ellos me han dicho, no personalices más, no migres, no esto. Entonces. Pero no tengo una.
+S3: Migrar debería ser algo, debería ser prioridad, obligatorio, porque.
+S4: ¿Pero lo que ellos han entendido de ustedes es que no se debe migrar más, no?
+S3: Sino personalizar Claro, pero se te hace más difícil siempre.
+S4: ¿Claro, pero por qué personalizado?
+S3: Bueno, claro, para adaptarte a todos los recovecos que hay en la empresa y los distintos flujos que hay.
+S4: ¿Cómo luego hacemos para que mejorar el trabajo de la gente si Odoo no tiene esas bondades a cómo trabajan ellos? Si Odoo no tiene esas bondades, entonces eso es lo que uno hace que lo llamó parches. Pero eso no son parches, eso son mejoras a lo que Odoo no tiene. Odoo es básico para como nosotros trabajamos. Yo no estoy mejorando, un error no es mejorando el sistema porque el sistema no hace lo que nosotros necesitamos. Tanto en Venezuela como en Panamá como en Colombia. Hay una manera, no sé si ustedes lo levantaron en su proceso, hay muchas cosas que nosotros hacemos que no está en ningún sistema.
+S3: Claro, claro, totalmente.
+S4: Claro que no está en ningún sistema.
+S5: Ningún sistema lo va a traer personalizarte a tu gusto.
+S2: Son anexos ad hoc que complementan lo.
+S4: Que está en el sistema y son producto de lo que ellos han pedido.
+S2: Claro, no. El único tema aquí es que todos nos pongamos de acuerdo para que estos anexos que están conectados y que complementa al ERP se hagan con un estándar de seguridad de back y de frontend único. Esa es la gran conclusión. Entonces ¿Para qué? Para que esto que está acá no sea un ecosistema disperso, sino un ecosistema comparto que nos facilita conectar con tus anexos. Eso es todo.
+S4: ¿Esos anexos, como tú lo llamas, igual tienen seguridad, o sea, van bajo un criterio, no?
+S2: Esto cada anexo. Claro, yo lo que tengo aquí esto. Un anexo, un anexo y tengo ERP y esto está conectado acá. Lo que yo entendí de todo esto es que estos anexos tiene una lógica particular.
+S4: ¿Que te refieres el de la IAC de lo que yo desarrollé o los 140 desarrollos?
+S2: Es sencillo. Exactamente. Yo tengo, mi núcleo es el RP, tengo aquí todas estas soluciones que complementan el ERP, como tú lo dices muy bien. Cada una de estas soluciones se han desarrollado, yo no hablo con la mejor intención del mundo y se han desarrollado con su parámetro de seguridad. Claro, yo me refiero a la mejor intención de que lo mejor posible como anexo. Lo que yo creo que a lo que tenemos que ir es que todos estos anexos sean exactamente igual, sean esto para que cuando este sistema evolucione, todo esto evoluciona con esto. Esos son los carros que yo estoy hablando, el que corra 160 y el que corra 80.
+S4: Bueno, ojo, si te refieres, si a lo que te refieres es a las versiones, todos los desarrollos que están en Panamá están exactamente igual en Venezuela y están exactamente igual en Colombia. No se ha hecho algo diferente. Venezuela tiene sus detalles de moneda y por eso probablemente un reporte tenga la moneda bolívares y dólares, que no lo tiene Panamá porque no tiene doble moneda ni lo tiene Colombia. Pero la filosofía es exactamente igual.
+S2: No, no. Ojo, yo lo que entendí que a.
+S4: La hora de versionar no es que yo tengo un mundo en cada país, es que yo tengo el mismo programa, la misma aplicación.
+S2: Yo no he dicho eso. Yo lo que, yo lo que dije no es que tengas un mundo en cada país. Yo lo que interpreté ayer, a lo mejor estoy equivocado, es que todos estos complementos de Odoo, todos estos complementos se han hecho con una lógica particular en diferentes momentos y que la evolución de esto, de este ecosistema implica que estos complementos tengan una arquitectura única. Eso esto. Lo que estamos definiendo todavía no está definido. Si nosotros logramos crear una arquitectura única para acá todo escrito y eso sumarle este componente de ciberseguridad para esta arquitectura única y eso está conectado en un tubo con Odoo como ERP, es el deber ser. Hacia eso es que debemos ir.
+S4: Claro, lo que pasa es que nosotros vamos directo a Odoo. No tenemos un programa, una aplicación o una plataforma intermedia. Vamos directa.
+S2: Yo tampoco he dicho, yo estoy diciendo que hay una conexión entre esto y esto. Yo no he dicho que hay una plataforma intermedia. Lo que estoy diciendo es que vamos a ir hacia una sola arquitectura que conecte esto con una sola tubería. Lo que está pasando ahora, de acuerdo a lo que yo entendí o mis limitaciones, porque yo no soy técnico, es que tengo esto y esto ahorita o con el cajo de usines, pero es con arquitecturas diferentes.
+S4: Cuando arquitecturas diferentes, ¿A qué te refieres?
+S2: ¿Que tienen un frontend diferente, un backend diferente? Bueno, están desarrollados, ellos desarrollan,.
+S4: Que ayer comentaron los desarrollos que tienen mis programadores, todos tienen el mismo backend, el mismo frontend, ni modo, storage, porque es el mismo Postgres y está hecho en Python y estamos usando Odoo. Nosotros no tenemos otro ecosistema. El que tú te estás refiriendo es lo que desarrollaron los potenciales programadores de la empresa. A eso es lo que tú te estás refiriendo. Pero mis cuatro programadores y mi departamento, todo trabaja bajo el mismo ecosistema.
+S2: Perfecto.
+S4: El mismo Bane, el mismo frontend y el mismo storage, que fue la manera como mostró.
+S2: OK, entonces.
+S5: Perfecto.
+S2: Entonces tú tienes esto, tú tienes los anexos que desarrolló tu área de tecnología, tienes los anexos que ha desarrollado el área que no es tecnología. Correcto. Entonces esto que está aquí tiene que conectarse con esto.
+S4: Totalmente de acuerdo.
+S2: Eso es lo que.
+S5: Eso.
+S4: Totalmente de acuerdo. Porque esto salió desde que se explotó la I que salieron los romadores.
+S2: Correcto. Eso es. Hacia eso es lo que tenemos que ir. ¿Para qué? Para que todo esto vaya junto. Cuando evolucione para acá, todo este aroma sea más coherente.
+S4: Sí, porque ellos están trabajando doble. Claro. No son programadores, no tienen mentalidad de programador.
+S3: Mari Una pregunta para yo entender. Si, perdón, porque tal vez estoy también. Tenemos el OTR 16 y tenemos estos son que tienen una misma arquitectura todos los módulos, porque están funcionando en el 16. Cuando yo suba 19, esto sube automáticamente.
+S4: Automáticamente no. Bueno, yo simplemente lo muevo distancia, pruebo mi ambiente de test y veo qué cosas habría que modificar ajustes que Odoo tiene de instrucciones. Hay instrucciones que Odoo cambia de versión a versión, pero los cambios no es volver a ser de cero, porque me pasó de Venezuela, de Panamá a Venezuela.
+S2: Es muy aprovechable lo que tiene, porque.
+S4: Odoo son aplicaciones separadas que tú heredas de la estructura que tiene Odo. Y Odo no cambia su infraestructura de modelo entidad relación. Son las mismas tablas, son las mismas relaciones. Lo único que hicimos, heredamos lo que trae Odoo cambia de versión, pero la versión que tiene la 19, que tiene IA, que eso es otro tema que habría que mirar.
+S1: Claro.
+S2: Lo que tú tienes que controlar como gran órgano rector es que lo que desarrolla fuera de tal, se monte analógica, una arquitectura.
+S4: Porque eso se escapó de mis manos, porque había libertad absoluta desarrollar. Porque si eso hubiese pasado por mis manos, estoy segura que hubiese habido un filtro como lo tienen los tres primeros chocolates. Los tres primeros chocolates no pasan a producción hasta que yo no verifico que eso.
+S2: Y tú tienes compatibilidad perfecta con esto y hay seguridad.
+S4: Se hizo. No va porque eso está afectando contabilidad, porque eso está afectando inventario. Aquellos chocolates no pasaron por aquí. Ellos hicieron su trabajo porque era la libertad de hacer.
+S2: Bueno, el reto de nosotros como equipo en conjunto es que todo esto tenga la misma lógica, el mismo parámetro de orden y tengamos una evolución adecuada de este ecosistema que estamos construyendo.
+S3: Dame un minuto, Ricardo,.
+S5: Para que no me digan Nancy y vengan en la mañana.
+S4: Gracias. Ni modo, forma parte. Hermano, hermano, no me integramos.
+S2: Vamos a dividir.
