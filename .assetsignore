@@ -35,6 +35,10 @@ Insumos/**
 respaldos-censo
 respaldos-censo/**
 
+# --- Borradores locales de redacción (ignorados en git, pero están en disco) ---
+.borradores-fase2-macros1-5
+.borradores-fase2-macros1-5/**
+
 # --- Herramientas del equipo consultor: no son parte del aplicativo ---
 scripts
 scripts/**
