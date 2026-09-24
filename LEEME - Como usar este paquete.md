@@ -26,7 +26,7 @@ scripts/
   verificar-diagramas-fase2.js         detecta ciclos y nodos colgantes en los flujogramas
   comprobar-fase2.py                    smoke test: abre la app en un navegador real y verifica el mínimo del esquema
   generar-armazon-fase2.py             (rara vez lo necesitas — solo si te llega un mapa v18 nuevo)
-prompt-manual-fase2.md                 la guía de redacción — empieza por aquí
+prompt-tobe-fase2.md                 la guía de redacción — empieza por aquí
 ```
 
 **A propósito no está incluida la documentación de Lark** (`Insumos/Documentación de Lark/<país>/<área>/` en el prompt) — se agrega en una entrega posterior.
@@ -43,7 +43,7 @@ prompt-manual-fase2.md                 la guía de redacción — empieza por aq
 
 Pídele a tu agente algo como:
 
-> Lee `prompt-manual-fase2.md` y ejecútalo para el macroproceso **"X"** (nombre o prefijo exacto, según `Insumos/mapa-procesos-kennex-v18.json`).
+> Lee `prompt-tobe-fase2.md` y ejecútalo para el macroproceso **"X"** (nombre o prefijo exacto, según `Insumos/mapa-procesos-kennex-v18.json`).
 
 El agente debe cruzar la ficha del mapa v18 con las entrevistas relevantes de `Insumos/Entrevistas_dialogo_limpio/` (revisa el corpus completo con su propio criterio, no solo por nombre de archivo) y con buenas prácticas de fuentes confiables (WebSearch) cuando el mapa no traiga suficiente evidencia propia. El resultado es un objeto JS que sigue el esquema de la sección 4 del prompt.
 

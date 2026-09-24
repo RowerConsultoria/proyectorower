@@ -1,4 +1,4 @@
-# Prompt adaptado — Constructor de manuales para el aplicativo (Fase 2)
+# Prompt — Versión To-Be de un macroproceso (Fase 2)
 
 Guía para redactar el contenido de cada macroproceso del Manual de Procesos
 de Fase 2 directamente como el **JSON de contenido** que consume
@@ -15,8 +15,9 @@ como anexo de lectura obligatoria).
 1. Precondición: el mapa v18 debe estar validado para el macroproceso a
    documentar (ya lo está — es la fuente de `manual-procesos-datos.js`).
 2. Insumos por macroproceso: la porción del mapa (ya en el `.js`) +
-   revisión del **corpus completo** de entrevistas en
-   `Insumos/Entrevistas_dialogo_limpio/` + documentación de Lark
+   revisión del **corpus completo** de entrevistas y sesiones, que vive en la
+   tabla `entrevistas` de **Supabase** y no en el repositorio (ver §0.1 bis,
+   abajo: es de lectura obligatoria antes de empezar) + documentación de Lark
    relevante, que vive en **tres** carpetas de `Insumos/Documentación de Lark/`:
    `Documentación/<país>/<área>/` (manuales y procesos por área),
    `Info Requerimientos/` (RRHH, legal, organigramas y planes de país) y
@@ -35,6 +36,53 @@ como anexo de lectura obligatoria).
 5. Al terminar, el JSON se entrega a quien mantenga el aplicativo para
    fundirlo en `manual-contenido.js` y correr `validar-html.py` + el smoke
    test antes de publicar.
+
+### 0.1 bis. De dónde salen las transcripciones (leer antes de empezar)
+
+**Las entrevistas y sesiones viven en la tabla `entrevistas` de Supabase, que
+es la fuente oficial.** Contiene todo lo que hay en el repositorio y en local,
+y además lo que nunca llegó a comitearse: a 24-sep-2026 son **87 registros**
+frente a 44 archivos en el repositorio. Ni `Insumos/Entrevistas_dialogo_limpio*/`
+ni Drive son sustitutos, y dar por completo el corpus del repositorio ya hizo
+que varios macroprocesos se redactaran con la mitad de la evidencia.
+
+Reglas para recorrerlo sin dejar nada fuera:
+
+- **Se lee el corpus completo.** No se preselecciona por palabras clave, ni por
+  las fuentes que cita la ficha del mapa v18, ni por la carpeta en que esté
+  archivada una entrevista: los tres criterios tienen errores documentados y
+  descartan en silencio. Las citas del mapa apuntan mal con frecuencia (una
+  supuesta fuente sobre plazos de pedido resultó ser un pasaje sobre garantías),
+  y la agrupación por carpetas tiene entrevistas mal clasificadas.
+- **Enumera por `id`** (uuid, presente y único en las 87 filas). **No enumeres
+  por `codigo` ni por `fecha`:** 12 filas no tienen código y 17 no tienen fecha,
+  así que un recorrido «de la E-01 a la E-70» o «las de septiembre» omite
+  sesiones enteras sin avisar. El total de control es `select count(*)`.
+- **Lee la columna `dialogo`** (texto limpio `S1:` / `S2:`), no `transcripcion`:
+  esta última es el JSON crudo del transcriptor, pesa 2,4 veces más y solo añade
+  marcas de tiempo e identificadores de hablante. **Donde `dialogo` sea nulo,
+  derívalo de `transcripcion` antes de leer** — hoy faltan en 14 filas, y darlas
+  por leídas deja fuera todo el trabajo de campo de septiembre.
+- ⚠️ **El transcriptor destroza los nombres propios.** Buscar «Cubitt» en el
+  corpus devuelve **cero**: aparece como `Qubit` (302 veces), `Cubit` o `Cubic`.
+  Lo mismo con «Lark» → *LARQ/LARP*, «Odoo» → *ODU* y «Rower» → *Raúl*. Antes de
+  concluir que algo no se menciona, prueba las variantes.
+
+**El resto de insumos NO está en Supabase.** La documentación de Lark (164
+archivos) y el patrón de cargos V4 viven en el repositorio; los organigramas
+vigentes sí están en Supabase, en la tabla `archivos`. Ninguna fuente las tiene
+todas:
+
+| Insumo | Dónde está la versión buena |
+|--------|------------------------------|
+| Entrevistas y sesiones | **Supabase**, tabla `entrevistas` |
+| Documentación de Lark | **Repositorio**, `Insumos/Documentación de Lark/` |
+| Estructura Patrón de Cargos V4 | **Repositorio**, `Insumos/estructura-patron-cargos-v4.json` |
+| Organigramas vigentes | **Supabase**, tabla `archivos` |
+| Censo con cargos actuales | **Supabase**, tabla `personal` |
+
+⚠️ `personal.cargo` de Supabase **parece** el V4 y no lo es: sale de otro Excel
+(«Listado Personal Consolidado»). Para denominar cargos manda el V4 — ver §1.1.
 
 ## 1. Rol y contexto (igual que el original)
 

@@ -860,9 +860,20 @@
       if(nv) h += '<div class="f2-nota">'+esc(nv)+'</div>';
     }
 
-    h += riel(D.seccionesN1);
+    // El As-Is es una versión más corta a propósito: solo lleva las secciones que
+    // el proceso redactado trae. Si se recorrieran siempre las seis, las omitidas
+    // se pintarían como «Pendiente: …» y el lector leería como incompleto lo que
+    // es una decisión de alcance. El To-Be sigue recorriendo la lista entera,
+    // porque ahí un hueco sí es un pendiente real.
+    var secs = D.seccionesN1;
+    if(esAsis){
+      var cAsis = ASIS[String(m.prefijo)].procesos[p.codigo];
+      secs = secs.filter(function(s){ return !!cAsis[s.id]; });
+    }
 
-    D.seccionesN1.forEach(function(s, i){
+    h += riel(secs);
+
+    secs.forEach(function(s, i){
       h += '<section class="f2-sec" id="sec-'+esc(s.id)+'">';
       h += '<h2><span class="f2-secnum">'+esc(p.codigo)+'.'+(i+1)+'</span>'+esc(s.n)+'</h2>';
       if(s.nota) h += '<div class="f2-secnota">'+esc(s.nota)+'</div>';

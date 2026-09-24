@@ -145,7 +145,437 @@ window.MANUAL_ASIS = {
       ["Diferencia entre lo pedido, lo asignado y lo vendido", "No existe", "—", "—", "No hay indicador; tampoco para la brecha entre lo solicitado y lo enviado desde el hub"]
      ]
     }
+   },
+ "6.4": {
+  "nota_version": "Versión As-Is: describe cómo se compra hoy a las fábricas de la marca propia, con los cargos que usan las propias entrevistas y el patrón V4 en su columna de cargo actual. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+  "proposito": {
+   "estado": "borrador",
+   "alcance": "Desde que se detecta que hay que reponer o lanzar un producto de la marca propia hasta que el lote sale de China con su modo de envío decidido, pasando por la reunión del grupo que define qué pedir, la búsqueda de fábrica y la evaluación de muestras, la colocación de la orden y el pago del depósito de inicio de producción. Quedan fuera el diseño y desarrollo del producto en sí (macro 3), la recepción en el hub de Colón (macro 7) y el reparto posterior a cada país (6.6 y 6.7).",
+   "texto": "Hoy la compra de la marca propia no pertenece a un departamento de compras —el grupo no tiene uno— sino a un socio que la lleva personalmente y que declara estar «100 %» en esta marca y «cero» en la representada, igual que su contraparte lo está al revés. A diferencia de la marca representada, que tiene un solo proveedor y un calendario mensual impuesto por la fábrica, aquí hay una decena de fábricas distintas, cada una con su lote mínimo y sus condiciones de pago, y no se compra todos los meses: se compra «cada cierto tiempo», cuando el grupo logra reunirse.\n\nEl proceso descansa en una reunión informal de cuatro personas —quien compra, la gerencia de ventas internacional, la gerencia regional de ventas de la marca y un product manager que aporta la data— que no tiene periodicidad fija, no deja registro y, por el número de productos, rara vez alcanza a revisar el catálogo completo en una sola sesión. Lo que no se alcanza a ver se acumula para la próxima, y el propio dueño del proceso describe la consecuencia: de repente se descubre que el stock de algo está bajo y por ese atraso se pasa un mes sin existencias. Él mismo resume el estado: «no está muy bien planificado este proceso» y «en toda la parte de compras estoy seguro que hace falta un proceso»."
+  },
+  "dueno": {
+   "estado": "borrador",
+   "dueno": "Director de Compras de Marca Propia (socio)",
+   "participantes": [
+    "Director de Compras de Marca Propia (socio) — decide qué y cuánto pedir, es el único contacto permanente con las fábricas, negocia, coloca la orden, instruye los pagos, decide el modo de envío y aprueba las muestras. Lleva además la creación de producto y la operación de Estados Unidos, así que la compra compite con todo lo demás.",
+    "Product Manager / Project Manager (Panamá) — mantiene el archivo con venta mensual, inventario y sugerido por producto, y hace los cálculos sobre los que el grupo decide cuánto pedir. Es la única base cuantitativa de la reunión.",
+    "Gerente de Ventas Internacional — aporta el forecast de los canales y lo que sus clientes van a comprar; el dueño del proceso declara no estar empapado de ese dato y no poder decidirlo solo.",
+    "Gerente Regional de Ventas de Marca Propia — «no se mete tanto en la compra, pero ayuda porque sabe lo que se vende»: es el vendedor principal de la marca y participa en la definición de qué pedir.",
+    "Director Comercial y de Compras (socio) — segunda mirada: el grupo le lleva los puntos que quiere que revise antes de proceder. Es el mismo socio que compra la marca representada, y declara querer «organizar un poco mejor la compra y las proyecciones» de esta.",
+    "Gerente de Sourcing y Logística (China) — entró hace un año como gerente de sourcing para buscar fábricas y su rol derivó a una mezcla de sourcing y logística: coordina envíos y consolidaciones desde China, sigue producciones y pagos por proveedor, y organizó el control que antes no existía.",
+    "Product Specialist — prueba las muestras de electrónica y da su visto antes de la aprobación, hace el seguimiento de fallas con la fábrica y la inspección en fábrica.",
+    "Coordinadora de Planificación de Compras (Rower, Venezuela) — aporta cuánto va a necesitar Venezuela, que toma gran parte de la compra; su incorporación al proceso es reciente y parcial.",
+    "Gerencia de Administración y Finanzas — recibe por correo la instrucción de pago y consigue los fondos; no participa en la decisión de compra.",
+    "Fábricas de China (externo) — una decena de proveedores distintos por línea de producto (relojes, básculas, audífonos, cocina, relojes de niño, accesorios). Aportan el diseño y, en los productos conectados, el firmware y la aplicación, cuyo código no es del grupo."
+   ],
+   "evidencia": [
+    "E-06 (partes 1 y 2)",
+    "E-60",
+    "E-08",
+    "E-15",
+    "E-10",
+    "E-05",
+    "E-25"
+   ],
+   "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él: Gerente de Ventas Internacional, Product Manager / Project Manager y Coordinadora de Planificación de Compras. El dueño del proceso, el Director Comercial y de Compras, el Gerente Regional de Ventas de Marca Propia, el Gerente de Sourcing y Logística en China y el Product Specialist no figuran en el V4 —los dos primeros pertenecen a la capa de socios, que el patrón no contempla, y los tres últimos están fuera del censo—; para ellos se usa la denominación que dan las propias entrevistas («product specialist, ese es su cargo»; «entró como gerente de sourcing»). La sesión de revisión del organigrama sitúa al dueño bajo «compras», junto al otro socio que compra.",
+   "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: él mismo dice que podría delegarlo mandando un correo con la referencia y las cantidades, y que la gerencia de ventas internacional y la coordinación de accesorios tienen contacto con casi todas las fábricas, pero no hay un segundo formalmente designado. Tampoco consta el umbral de monto a partir del cual una compra requeriría otra aprobación: no existe ninguno."
+  },
+  "disparador": {
+   "estado": "borrador",
+   "disparador": "No hay un disparador externo equivalente al order sheet de la marca representada. Lo dispara la percepción del propio dueño del proceso de que hay stock corto de algo —«yo tengo mi mente y trato de revisar cada cierto tiempo; sé que estamos cortos y sé que tenemos que pedir»— o el lanzamiento de un producto nuevo. La señal cuantitativa existe pero es secundaria: el archivo de venta e inventario que mantiene el product manager, y el módulo de inventario que usa la marca representada, cuyos datos alguien de esa otra compra empezó a pasarle por iniciativa propia.",
+   "cadencia": "Sin periodicidad fija: «cada cierto tiempo», sujeta a que los cuatro integrantes del grupo coincidan. El propio dueño describe la consecuencia: lleva más de una semana intentando reunirlos sin conseguirlo mientras hace falta comprar, y el proceso queda parado porque no logran reunirse. A diferencia de la marca representada, no se compra todos los meses.",
+   "output": "Orden colocada con la fábrica y depósito de inicio de producción pagado, con el modo de envío decidido por producto.",
+   "evidencia": [
+    "E-06 (partes 1 y 2)",
+    "E-08",
+    "E-10"
+   ],
+   "notas": "El mapa v18 sitúa el disparador en «necesidad detectada por el comité». La evidencia lo matiza: el comité es el sitio donde se decide, pero quien detecta la necesidad y convoca es el dueño del proceso, y lo hace en buena medida de memoria."
+  },
+  "flujo": {
+   "estado": "borrador",
+   "evidencia": [
+    "E-06 (partes 1 y 2)",
+    "E-60",
+    "E-15",
+    "E-08"
+   ],
+   "actividades": [
+    {
+     "id": "a1",
+     "rol": "Product Manager / Project Manager (Panamá)",
+     "texto": "Mantiene el control de venta mensual, inventario y sugerido por producto: cuánto se ha vendido en promedio los últimos meses, cuánto hay y cuánto debería pedirse. Es la única base cuantitativa con la que cuenta el grupo."
+    },
+    {
+     "id": "a2",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Detecta que hay que pedir —por revisión propia de lo que sabe corto, o porque se va a lanzar un producto nuevo— y convoca al grupo. No hay calendario: la reunión se hace cuando los cuatro coinciden, y el pedido espera mientras tanto."
+    },
+    {
+     "id": "a3",
+     "rol": "Gerente de Ventas Internacional",
+     "texto": "Aporta el forecast de los canales y lo que sus clientes van a comprar en el periodo."
+    },
+    {
+     "id": "a4",
+     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "texto": "Aporta cuánto va a necesitar Venezuela de los productos en cuestión, por ser el mercado que toma la mayor parte de la compra. Su participación es reciente y no está en todos los pedidos."
+    },
+    {
+     "id": "a5",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Reúne al grupo y recorren producto por producto qué pedir y cuánto, sobre el archivo del product manager y el forecast de los canales. La conversación no queda registrada en ningún formato."
+    },
+    {
+     "id": "a6",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Comprueba si la reunión alcanzó a cubrir todo el catálogo. Como son muchos productos, habitualmente no se termina de ver todo en una sesión y lo que queda se acumula para la próxima."
+    },
+    {
+     "id": "a7",
+     "rol": "Director Comercial y de Compras (socio)",
+     "texto": "Revisa los puntos que el grupo quiere confirmar antes de proceder. Es una consulta puntual, no una aprobación formal ni un umbral por monto."
+    },
+    {
+     "id": "a8",
+     "rol": "Gerente de Sourcing y Logística (China)",
+     "texto": "Cuando el producto es nuevo o hace falta otro proveedor, busca fábrica en China y solicita muestras. Con los proveedores ya establecidos, coordina directamente."
+    },
+    {
+     "id": "a9",
+     "rol": "Fábricas de China (externo)",
+     "texto": "Envían la muestra, normalmente sobre un diseño propio de la fábrica o sobre la inspiración que se les manda: el grupo no diseña desde cero salvo en los accesorios que lleva la diseñadora industrial recién incorporada."
+    },
+    {
+     "id": "a10",
+     "rol": "Product Specialist",
+     "texto": "Prueba la muestra cuando es electrónica y da su visto: funcionamiento del producto, del firmware y de la aplicación."
+    },
+    {
+     "id": "a11",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Decide sobre la muestra. Casi siempre la hace enviar a Panamá aunque él no esté allí, para que opine el equipo —no quiere decidirlo solo habiendo diez personas que pueden opinar—, recoge el feedback y decide. Las muestras se controlan desde hace poco en una base de Lark; antes llegaban y se perdían o se olvidaba por qué se habían pedido."
+    },
+    {
+     "id": "a12",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Coloca la orden con la fábrica. No hay formato ni canal único: se ha hecho por correo y también por mensajería instantánea, indicando referencia y cantidad."
+    },
+    {
+     "id": "a13",
+     "rol": "Fábricas de China (externo)",
+     "texto": "Envían la factura correspondiente a la orden."
+    },
+    {
+     "id": "a14",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Instruye por correo a Finanzas el pago del depósito que la fábrica exige para iniciar la producción, entre un 20 % y un 30 % según el proveedor. Cada fábrica tiene condiciones distintas."
+    },
+    {
+     "id": "a15",
+     "rol": "Gerencia de Administración y Finanzas",
+     "texto": "Ejecuta el pago y consigue los fondos. Se trabaja con un estimado mensual de lo que va a hacer falta, pero nunca es exacto: aparecen órdenes no contempladas y el equipo financiero resuelve cómo cubrirlas."
+    },
+    {
+     "id": "a16",
+     "rol": "Fábricas de China (externo)",
+     "texto": "Producen el lote y avisan cuando está próximo a salir; el saldo se paga antes del embarque, según las condiciones de cada proveedor."
+    },
+    {
+     "id": "a17",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Decide con el equipo comercial qué parte del lote sale por aire y qué parte por mar. Solo los relojes son candidatos al aéreo por tamaño; el resto va marítimo."
+    },
+    {
+     "id": "a18",
+     "rol": "Gerente de Sourcing y Logística (China)",
+     "texto": "Coordina con los proveedores la consolidación y la salida del envío desde China, y mantiene por proveedor el documento de qué está en producción, qué viene en camino, cuándo se estima que llegue y hacia dónde va."
+    },
+    {
+     "id": "a19",
+     "rol": "Director de Compras de Marca Propia (socio)",
+     "texto": "Deja el archivo por proveedor actualizado en la carpeta compartida de Lark —producción, tránsito y pagos— para que quien necesite saberlo entre y lo consulte sin preguntarle. Antes esa información solo estaba en su correo."
+    }
+   ],
+   "diagrama": {
+    "carriles": [
+     "Product Manager / Project Manager (Panamá)",
+     "Gerente de Ventas Internacional",
+     "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "Director de Compras de Marca Propia (socio)",
+     "Director Comercial y de Compras (socio)",
+     "Gerente de Sourcing y Logística (China)",
+     "Product Specialist",
+     "Fábricas de China (externo)",
+     "Gerencia de Administración y Finanzas"
+    ],
+    "nodos": [
+     {
+      "id": "n0",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "inicio",
+      "n": "Se detecta stock corto o un lanzamiento"
+     },
+     {
+      "id": "n1",
+      "carril": "Product Manager / Project Manager (Panamá)",
+      "tipo": "tarea",
+      "n": "Actualizar venta, inventario y sugerido",
+      "sistemas": [
+       "Excel"
+      ]
+     },
+     {
+      "id": "n2",
+      "carril": "Gerente de Ventas Internacional",
+      "tipo": "tarea",
+      "n": "Aportar el forecast de los canales"
+     },
+     {
+      "id": "n3",
+      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "tipo": "tarea",
+      "n": "Aportar la necesidad de Venezuela"
+     },
+     {
+      "id": "n4",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "tarea",
+      "n": "Convocar al grupo y reunirlo"
+     },
+     {
+      "id": "n5",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "tarea",
+      "n": "Definir qué pedir y cuánto, sin registro",
+      "sistemas": [
+       "Excel"
+      ]
+     },
+     {
+      "id": "n6",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "decision",
+      "n": "¿Se cubrió todo el catálogo?"
+     },
+     {
+      "id": "n7",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "fin",
+      "n": "Resto acumulado para la próxima reunión"
+     },
+     {
+      "id": "n8",
+      "carril": "Director Comercial y de Compras (socio)",
+      "tipo": "tarea",
+      "n": "Revisar los puntos a confirmar"
+     },
+     {
+      "id": "n9",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "decision",
+      "n": "¿Producto nuevo o proveedor por buscar?"
+     },
+     {
+      "id": "n10",
+      "carril": "Gerente de Sourcing y Logística (China)",
+      "tipo": "tarea",
+      "n": "Buscar fábrica y pedir muestras"
+     },
+     {
+      "id": "n11",
+      "carril": "Fábricas de China (externo)",
+      "tipo": "tarea",
+      "n": "Enviar la muestra"
+     },
+     {
+      "id": "n12",
+      "carril": "Product Specialist",
+      "tipo": "tarea",
+      "n": "Probar la muestra de electrónica"
+     },
+     {
+      "id": "n13",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "decision",
+      "n": "¿Se aprueba la muestra?"
+     },
+     {
+      "id": "n14",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "fin",
+      "n": "Muestra devuelta con ajustes a la fábrica"
+     },
+     {
+      "id": "n15",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "tarea",
+      "n": "Colocar la orden, sin formato único",
+      "sistemas": [
+       "Correo",
+       "Mensajería"
+      ]
+     },
+     {
+      "id": "n16",
+      "carril": "Fábricas de China (externo)",
+      "tipo": "tarea",
+      "n": "Enviar la factura"
+     },
+     {
+      "id": "n17",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "tarea",
+      "n": "Instruir el depósito de inicio",
+      "sistemas": [
+       "Correo"
+      ]
+     },
+     {
+      "id": "n18",
+      "carril": "Gerencia de Administración y Finanzas",
+      "tipo": "tarea",
+      "n": "Pagar y conseguir los fondos"
+     },
+     {
+      "id": "n19",
+      "carril": "Fábricas de China (externo)",
+      "tipo": "tarea",
+      "n": "Producir el lote y avisar la salida"
+     },
+     {
+      "id": "n20",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "tarea",
+      "n": "Decidir qué va aéreo y qué marítimo"
+     },
+     {
+      "id": "n21",
+      "carril": "Gerente de Sourcing y Logística (China)",
+      "tipo": "tarea",
+      "n": "Consolidar y despachar desde China"
+     },
+     {
+      "id": "n22",
+      "carril": "Director de Compras de Marca Propia (socio)",
+      "tipo": "fin",
+      "n": "Orden en producción y tránsito visible",
+      "sistemas": [
+       "Lark"
+      ]
+     }
+    ],
+    "aristas": [
+     {
+      "de": "n0",
+      "a": "n1"
+     },
+     {
+      "de": "n0",
+      "a": "n4"
+     },
+     {
+      "de": "n1",
+      "a": "n5"
+     },
+     {
+      "de": "n4",
+      "a": "n2"
+     },
+     {
+      "de": "n4",
+      "a": "n3"
+     },
+     {
+      "de": "n2",
+      "a": "n5"
+     },
+     {
+      "de": "n3",
+      "a": "n5"
+     },
+     {
+      "de": "n5",
+      "a": "n6"
+     },
+     {
+      "de": "n6",
+      "a": "n7",
+      "etiqueta": "No"
+     },
+     {
+      "de": "n6",
+      "a": "n8",
+      "etiqueta": "Sí"
+     },
+     {
+      "de": "n8",
+      "a": "n9"
+     },
+     {
+      "de": "n9",
+      "a": "n10",
+      "etiqueta": "Sí"
+     },
+     {
+      "de": "n9",
+      "a": "n15",
+      "etiqueta": "No"
+     },
+     {
+      "de": "n10",
+      "a": "n11"
+     },
+     {
+      "de": "n11",
+      "a": "n12"
+     },
+     {
+      "de": "n12",
+      "a": "n13"
+     },
+     {
+      "de": "n13",
+      "a": "n14",
+      "etiqueta": "No"
+     },
+     {
+      "de": "n13",
+      "a": "n15",
+      "etiqueta": "Sí"
+     },
+     {
+      "de": "n15",
+      "a": "n16"
+     },
+     {
+      "de": "n16",
+      "a": "n17"
+     },
+     {
+      "de": "n17",
+      "a": "n18"
+     },
+     {
+      "de": "n18",
+      "a": "n19"
+     },
+     {
+      "de": "n19",
+      "a": "n20"
+     },
+     {
+      "de": "n20",
+      "a": "n21"
+     },
+     {
+      "de": "n21",
+      "a": "n22"
+     }
+    ]
    }
+  }
+ }
 
   }
  }

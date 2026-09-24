@@ -16,24 +16,40 @@ const fs = require("fs");
 const path = require("path");
 
 const soloPrefijo = process.argv[2] || null;
-const ruta = path.join(__dirname, "..", "informe", "fase2", "manual-contenido.js");
 
-let src = fs.readFileSync(ruta, "utf8");
-src = src.replace("window.MANUAL_CONTENIDO", "globalThis.MANUAL_CONTENIDO");
-// eslint-disable-next-line no-eval
-eval(src);
+// Se revisan LAS DOS versiones: el To-Be (manual-contenido.js) y el As-Is
+// (manual-asis.js). Hasta el 24-sep-2026 este guion solo miraba el To-Be, así
+// que los flujogramas del As-Is quedaban sin ninguna comprobación de ciclos,
+// nodos colgantes ni coherencia rol↔carril — justo los defectos que se pagaron
+// caros en los macros 8 y 9.
+function cargar(archivo, global) {
+  const ruta = path.join(__dirname, "..", "informe", "fase2", archivo);
+  if (!fs.existsSync(ruta)) return {};
+  let src = fs.readFileSync(ruta, "utf8");
+  src = src.replace("window." + global, "globalThis." + global);
+  // eslint-disable-next-line no-eval
+  eval(src);
+  return globalThis[global] || {};
+}
 
-const contenido = globalThis.MANUAL_CONTENIDO;
-const prefijos = soloPrefijo ? [soloPrefijo] : Object.keys(contenido);
+const versiones = [
+  { etiqueta: "To-Be", contenido: cargar("manual-contenido.js", "MANUAL_CONTENIDO") },
+  { etiqueta: "As-Is", contenido: cargar("manual-asis.js", "MANUAL_ASIS") },
+];
 
 let totalDiagramas = 0;
 let problemas = 0;
 
-for (const prefijo of prefijos) {
+for (const { etiqueta, contenido } of versiones) {
+ const prefijos = soloPrefijo ? [soloPrefijo] : Object.keys(contenido);
+ for (const prefijo of prefijos) {
   const macro = contenido[prefijo];
   if (!macro) {
-    console.error(`⚠️  No hay contenido para el macro "${prefijo}" en manual-contenido.js`);
-    process.exitCode = 1;
+    // Un macro sin As-Is no es un error: el As-Is se redacta proceso a proceso.
+    if (etiqueta === "To-Be") {
+      console.error(`⚠️  No hay contenido para el macro "${prefijo}" en manual-contenido.js`);
+      process.exitCode = 1;
+    }
     continue;
   }
   const procesos = macro.procesos || {};
@@ -55,7 +71,7 @@ for (const prefijo of prefijos) {
     // 1) Nodo colgante: no es "fin" y no tiene ninguna arista de salida.
     for (const id of nodos) {
       if (tipoDe[id] !== "fin" && adyacentes[id].length === 0) {
-        console.log(`${codigo} :: NODO COLGANTE "${id}" (${tipoDe[id]}) sin arista de salida`);
+        console.log(`[${etiqueta}] ${codigo} :: NODO COLGANTE "${id}" (${tipoDe[id]}) sin arista de salida`);
         problemas++;
       }
     }
@@ -71,7 +87,7 @@ for (const prefijo of prefijos) {
       for (const v of adyacentes[u] || []) {
         if (color[v] === 1) {
           cicloEncontrado = true;
-          console.log(`${codigo} :: CICLO detectado — ${pila.join(" → ")} → ${v}`);
+          console.log(`[${etiqueta}] ${codigo} :: CICLO detectado — ${pila.join(" → ")} → ${v}`);
         } else if (color[v] === 0) {
           dfs(v);
         }
@@ -97,17 +113,18 @@ for (const prefijo of prefijos) {
       roles
         .filter((r) => !carriles.includes(r))
         .forEach((r) => {
-          console.log(`${codigo} :: ROL SIN CARRIL — "${r}" ejecuta una actividad del flujo pero no aparece en el flujograma`);
+          console.log(`[${etiqueta}] ${codigo} :: ROL SIN CARRIL — "${r}" ejecuta una actividad del flujo pero no aparece en el flujograma`);
           problemas++;
         });
       carriles
         .filter((c) => !roles.includes(c))
         .forEach((c) => {
-          console.log(`${codigo} :: CARRIL SIN ROL — "${c}" tiene carril en el flujograma pero ninguna actividad del flujo`);
+          console.log(`[${etiqueta}] ${codigo} :: CARRIL SIN ROL — "${c}" tiene carril en el flujograma pero ninguna actividad del flujo`);
           problemas++;
         });
     }
   }
+ }
 }
 
 console.log(

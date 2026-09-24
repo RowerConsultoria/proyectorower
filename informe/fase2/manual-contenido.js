@@ -212,7 +212,7 @@
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
-// scripts/prompt-manual-fase2.md §9 antes de dar por cerrada una revisión.
+// scripts/prompt-tobe-fase2.md §9 antes de dar por cerrada una revisión.
 
 window.MANUAL_CONTENIDO = {
  "9": {
