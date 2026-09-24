@@ -11529,10 +11529,3318 @@ window.MANUAL_CONTENIDO = {
     }
    }
   }
+ },
+ "7": {
+ "n0": {
+  "introduccion": {
+   "estado": "borrador",
+   "proposito": "Describir cómo el grupo recibe, custodia, prepara y entrega la mercancía: desde que un embarque llega al hub o a la bodega de un país hasta que el producto queda en manos del cliente, la tienda o la operación de otro país, con su inventario cuadrado y su costo real cargado. Es el macroproceso que sostiene físicamente todo lo que las áreas comerciales venden y todo lo que Compras trae.",
+   "alcance": "Cubre los nueve procesos del macroproceso: recepción de importación y costeo en destino, control de inventarios, preparación de pedidos, facturación logística, despacho y última milla, tráfico e importaciones, logística inversa, traslados internos y la capa de gobierno con sus indicadores. Aplica al hub de Zona Libre de Colón y a las bodegas de país. No cubre la decisión de compra ni la reposición entre países, que son del macroproceso de Compras y Abastecimiento; ni el diagnóstico y la reparación técnica, que son de Postventa; ni la venta en sí, en cualquiera de sus canales.",
+   "audiencia": [
+    "Gerente de Operaciones y Logística",
+    "Coordinador(a) de Logística y Bodega",
+    "Supervisor(a) de Bodega / Despacho",
+    "Líder de Administración / Importaciones",
+    "Analista de Logística",
+    "Analista de Facturación",
+    "Gerente Comercial (País / Canal)",
+    "Gerente de Contabilidad / Administración",
+    "Coordinador(a) Contable",
+    "Junta Directiva"
+   ]
+  },
+  "contexto": {
+   "estado": "borrador",
+   "ubicacion": "La logística del grupo está organizada alrededor de un hub único: toda la mercancía de ambas marcas y de todos los países entra primero por la bodega de Zona Libre de Colón, en Panamá, y desde ahí se redistribuye. Junto al hub opera un almacén aparte en la ciudad de Panamá para el detal panameño, y cada país mantiene su propia bodega, siendo la de Venezuela la de mayor volumen de operación diaria. Dentro del grupo, la operación de un país es tratada como un cliente más del hub: recibe, cuenta y da entrada en su propio inventario con la misma mecánica con la que lo haría un cliente externo.\n\nEl macroproceso vive hoy una transición de sistemas y de madurez. El hub migró a un sistema de gestión de almacén dedicado tras quedarse corto el desarrollo propio anterior, y la operación de Venezuela está normalizando ubicaciones para incorporar el suyo. La gerencia que responde por la operación del hub se incorporó poco antes del levantamiento y encontró un área sin indicadores: su definición estaba empezando con la Junta al momento de las entrevistas.\n\nEl ritmo de entrada es desigual por marca y condiciona toda la operación: la marca representada llega una vez al mes con la factura del proveedor disponible con un mes de antelación, y es planificable; la marca propia llega de forma continua, con carga aérea casi semanal, y con frecuencia sin aviso previo —se sabe que viene algo cuando ya está en puerto.",
+   "duenos": [
+    [
+     "Estratégico / grupo",
+     "Gerente de Operaciones y Logística",
+     "Responde por la operación del almacén de punta a punta y por el inventario y su costeo; es el dueño de la capa de gobierno del macroproceso."
+    ],
+    [
+     "Táctico / operación",
+     "Coordinador(a) de Logística y Bodega",
+     "Conduce el día a día: programa recepciones y ciclos de conteo, libera disponibilidad, autoriza traslados y responde por la exactitud de la preparación."
+    ],
+    [
+     "Táctico / importación",
+     "Líder de Administración / Importaciones",
+     "Sigue el embarque desde que la compra se coloca, coordina agente aduanal y operador de carga, y emite el aviso anticipado al almacén."
+    ],
+    [
+     "Operativo / almacén",
+     "Supervisor(a) de Bodega / Despacho",
+     "Dirige descarga, verificación, embalaje y salida; responde por la programación de rutas y el retorno documental."
+    ],
+    [
+     "Operativo / administrativo",
+     "Analista de Facturación",
+     "Coteja el pedido preparado contra el original, comprueba el estado del cliente y emite la factura que habilita la salida."
+    ],
+    [
+     "Regional / medición",
+     "Analista de Logística",
+     "Consolida la medición de todas las operaciones y mantiene el tablero del macroproceso."
+    ]
+   ],
+   "entidades": [
+    [
+     "Kenex Trading, S.A.",
+     "Panamá",
+     "Hub regional",
+     "Recibe toda la importación del grupo en Zona Libre de Colón y redistribuye a los países; concentra el departamento de tráfico y el costeo en destino."
+    ],
+    [
+     "Casiolandia, S.A.",
+     "Panamá",
+     "Operación propia",
+     "Almacén de detal panameño y operación de comercio electrónico local, abastecido desde el hub."
+    ],
+    [
+     "Distribuidora Rower, C.A.",
+     "Venezuela",
+     "Operación propia",
+     "Bodega de mayor volumen diario del grupo: mayoreo, tiendas propias y comercio electrónico, con flota propia y agencias de envío."
+    ],
+    [
+     "Deltadir, S.A.S.",
+     "Colombia",
+     "Operación propia",
+     "Operación de país con bodega propia abastecida desde el hub."
+    ],
+    [
+     "Importbel, S.A.",
+     "Costa Rica",
+     "Socio local",
+     "Operación bajo figura de socio, abastecida desde el hub con entrega puerta a puerta y operador de carga externo."
+    ]
+   ],
+   "sistemas": [
+    [
+     "Sistema de gestión de almacén (WMS)",
+     "Ubicaciones, olas de recolección, auditoría por escaneo y estatus de la mercancía",
+     "Recepción, inventarios, preparación, logística inversa y traslados"
+    ],
+    [
+     "ERP",
+     "Orden de compra, inventario valorado, facturación y costeo en destino",
+     "Recepción y costeo, inventarios, facturación logística y traslados"
+    ],
+    [
+     "Enlace entre el sistema de almacén y el ERP",
+     "Traspaso del cierre de recepción a la carga de inventario; activo pero no incorporado al proceso",
+     "Recepción y costeo en destino"
+    ],
+    [
+     "Terminales de radiofrecuencia",
+     "Escaneo de ubicación y producto en recolección y en auditoría de empaque",
+     "Inventarios y preparación de pedidos"
+    ],
+    [
+     "Lark",
+     "Documentación de embarque, seguimiento de entregas y solicitudes de traslado",
+     "Despacho, tráfico e importaciones y traslados internos"
+    ]
+   ],
+   "interfaces": [
+    [
+     "Compras y Abastecimiento",
+     "Entrada",
+     "Orden colocada y embarque en camino. Es la interfaz más rota del macroproceso: la información de la compra no baja a la operación, y por eso el almacén se entera tarde."
+    ],
+    [
+     "Ventas (mayoreo, detal y web)",
+     "Entrada",
+     "Pedido liberado y aprobado comercialmente; el almacén no evalúa condiciones del cliente."
+    ],
+    [
+     "Ventas (mayoreo, detal y web)",
+     "Salida",
+     "Aviso de disponibilidad efectiva y confirmación de entrega al cliente."
+    ],
+    [
+     "Contabilidad",
+     "Entrada",
+     "Factura del flete registrada, sin la cual el costeo en destino no puede ejecutarse."
+    ],
+    [
+     "Contabilidad",
+     "Salida",
+     "Ajustes de inventario y bajas de mercancía, con su causa documentada."
+    ],
+    [
+     "Tesorería",
+     "Entrada",
+     "Pago de tributos aduanales dentro del plazo de liberación."
+    ],
+    [
+     "Postventa y Servicio Técnico",
+     "Entrada",
+     "Determinación del desenlace de lo que el cliente devuelve; la custodia física sigue siendo de este macroproceso."
+    ],
+    [
+     "Mercadeo",
+     "Entrada",
+     "Solicitudes de traslado de material que se consume y debe salir a costo."
+    ]
+   ]
+  },
+  "gobernanza": {
+   "estado": "borrador",
+   "actores": [
+    [
+     "Gerente de Operaciones y Logística",
+     "Hub y país",
+     "Responde por la operación del almacén de punta a punta —recepción, ubicación, preparación, despacho— y por el inventario y su costeo. Es el dueño de la capa de gobierno del macroproceso.",
+     "Reacomodo de la programación ante cargas no previstas; autorización de ajustes de inventario por encima del umbral de firma; validación del costeo en destino.",
+     "Los planes de mejora y la política logística escalan a la Junta."
+    ],
+    [
+     "Coordinador(a) de Logística y Bodega",
+     "Hub y país",
+     "Conduce el día a día: programa las recepciones y los ciclos de conteo, libera disponibilidad, autoriza traslados y responde por la exactitud de la preparación.",
+     "Liberación de disponibilidad por tramo; autorización de traslados internos sin aprobación adicional.",
+     "Diferencias de inventario por encima del umbral y cargas no previstas escalan a la gerencia."
+    ],
+    [
+     "Líder de Administración / Importaciones",
+     "Hub y país",
+     "Sigue el embarque desde que la compra se coloca, coordina al agente aduanal y al operador de carga, tramita la permisología y emite el aviso anticipado al almacén.",
+     "Elección del agente y del operador dentro de los acuerdos vigentes.",
+     "El pago de tributos depende de Tesorería; la demora con costo de almacenaje escala a la gerencia."
+    ],
+    [
+     "Supervisor(a) de Bodega / Despacho",
+     "Hub y país",
+     "Dirige la descarga, la verificación y el embalaje, y responde por la salida: programación de rutas, control de puerta y retorno documental.",
+     "Autorización de re-preparación o ajuste en un pedido retenido por diferencia.",
+     "Las incidencias de sobrante y faltante escalan a la gerencia."
+    ],
+    [
+     "Analista de Facturación",
+     "País",
+     "Coteja el pedido preparado contra el original, comprueba el estado del cliente y emite la factura que habilita la salida.",
+     "Retención del pedido cuando la condición del cliente no lo permite.",
+     "La liberación de un pedido retenido corresponde a la gerencia comercial."
+    ],
+    [
+     "Analista de Logística",
+     "Regional",
+     "Consolida la medición de todas las operaciones y mantiene el tablero del macroproceso.",
+     "Criterio de cálculo y consolidación de los indicadores.",
+     "La composición del tablero y sus metas las aprueba la Junta."
+    ],
+    [
+     "Junta Directiva",
+     "Grupo",
+     "Aprueba la política logística y el cuadro de indicadores, prioriza las brechas y asigna los recursos.",
+     "Aprobación del tablero, de sus metas y de los planes de mejora.",
+     "—"
+    ]
+   ],
+   "comites": [
+    [
+     "Revisión trimestral de desempeño logístico",
+     "Revisar el tablero de indicadores, analizar los desvíos hasta su causa, separar los que nacen en una interfaz y aprobar planes de mejora con responsable y fecha.",
+     "Trimestral",
+     "Gerente de Operaciones y Logística · Analista de Logística · Coordinador(a) de Logística y Bodega · Gerente Regional Comercial / Retail · Gerente de Contabilidad / Administración · Junta Directiva",
+     "Planes de mejora aprobados y priorizados",
+     "Tablero de indicadores del macroproceso y medición por operación",
+     "No existe hoy: la definición del cuadro de indicadores estaba empezando con la Junta al momento del levantamiento. Es la instancia que propone el proceso 7.9."
+    ]
+   ]
+  },
+  "marco": {
+   "estado": "borrador",
+   "principios": [
+    "Un solo hub: toda la importación entra por Zona Libre de Colón antes de redistribuirse, de modo que el control de la mercancía se concentre en un punto.",
+    "El país es un cliente del hub: la operación de un país propio recibe, cuenta y da entrada con la misma mecánica que un cliente externo, sin excepciones por ser del grupo.",
+    "La verificación precede a la disponibilidad: ninguna mercancía se ofrece como vendible antes de estar contada contra el documento que la ampara.",
+    "El almacén no evalúa condiciones comerciales: el filtro de crédito y de retención ocurre antes de que el pedido llegue a la bodega; si el pedido llega, se prepara.",
+    "Todo movimiento deja rastro: la mercancía que se mueve sin una venta detrás —traslados, reemplazos, material consumido— se registra igual que la que se factura."
+   ],
+   "politicas": [
+    "Procedimiento formal de preparación y entrega: la operación de Venezuela tiene emitido y firmado un manual de procedimientos de almacén y despacho, versión 1.0 de mayo de 2026, que fija picking, packing, embalaje y las tres vías de entrega con sus controles obligatorios.",
+    "Escaneo de ubicación antes que de producto: en la recolección se escanea primero el código de la ubicación y después el del producto, para validar que el operario está donde el sistema cree.",
+    "Auditoría unidad por unidad antes de embalar: ningún pedido se embala sin haber sido escaneado pieza a pieza contra la lista en pantalla, y el sistema bloquea el avance ante un artículo que no corresponde.",
+    "Embalaje diferenciado por canal: el bulto que sale por agencia externa lleva doble cinta y precinto de garantía por la manipulación de terceros, y no se despachan cajas con costura expuesta o debilidad estructural.",
+    "Conteo conjunto antes de estibar y control en puerta: el conductor y el supervisor cuentan juntos la carga antes de subirla, y seguridad coteja precintos, placas, identidad y carga contra la documentación antes de autorizar la salida.",
+    "Entrega contra firma con identificación: el receptor firma con nombre, identificación, fecha, hora y sello, y toda inconformidad se asienta en el documento y se comunica al supervisor.",
+    "Auditoría de las diferencias de inventario sobre umbral: las referencias con diferencia por encima del umbral se auditan revisando el histórico de movimientos, y las diferencias definitivas se comunican a la junta y a contabilidad antes de ajustar.",
+    "Costeo en destino antes de revisar márgenes: la revisión mensual de márgenes se hace a principio de mes, una vez calculados todos los costes en destino, para comprobar que los fletes no hayan movido los precios fuera de rango."
+   ],
+   "normativo": [
+    "Régimen de Zona Libre de Colón: determina la mecánica de traspaso, salida y liquidación de la mercancía que entra y sale del hub, y separa el movimiento dentro de la zona del que la nacionaliza.",
+    "Normativa aduanal de cada país de destino: fija la declaración, el reconocimiento y la liquidación de tributos, con plazos cuyo incumplimiento genera costo de almacenaje.",
+    "Permisología sectorial por país: determinados productos exigen permiso de un organismo nacional antes de su nacionalización, y el requisito varía por país y por tipo de producto."
+   ]
+  },
+  "agenda": {
+   "estado": "borrador",
+   "nota": "El reparto por madurez de este macroproceso es extremo y ordena toda la agenda: siete de los nueve procesos son «as-is», uno es híbrido (7.2, control de inventarios) y uno solo es «to-be» (7.9, el gobierno). Es decir: la operación existe, funciona y está descrita con detalle por quienes la ejecutan — lo que falta es la capa que la mide y la política que la unifica entre países. Por eso la agenda tiene un único punto por implementar y mucho por formalizar.\n\nEl contraste que atraviesa todo el macroproceso: la operación de Venezuela tiene un manual formal, emitido y firmado, para lo que toca físicamente la mercancía —picking, packing, embalaje y las tres vías de entrega—, y tiene **vacías** las plantillas de recepción, facturación y traslados del mismo libro. Se documentó lo que se manipula y quedó sin documentar lo que se mueve administrativamente, que es justo donde el inventario se descuadra.",
+   "por_implementar": [
+    [
+     "7.9 Gobierno logístico, indicadores y excelencia operativa",
+     "No existe hoy. La gerencia declara que no había indicadores y que su definición estaba empezando con la Junta; las operaciones pequeñas lo confirman desde el otro lado, describiendo su día a día como apagar incendios. Sin esta capa, cada operación mejora por su cuenta y nada es comparable entre países.",
+     "Constituir la revisión trimestral con un cuadro acotado de indicadores aprobado por la Junta, y un mínimo común que toda operación reporte aunque su sistema sea simple."
+    ]
+   ],
+   "por_formalizar": [
+    [
+     "7.1 Recepción de mercancía importada y costeo en destino",
+     "El proceso opera, pero su disparador es un aviso tardío y su cierre —el costo en destino— llega después de que la mercancía ya se vendió. Formalizarlo es que el aviso llegue con contenido anticipado y que el costo provisional cubra la distancia hasta la factura del flete.",
+     "Hacer que el aviso de arribo traiga el contenido esperado línea a línea, y cargar el costo provisional con la cotización de flete desde el arribo."
+    ],
+    [
+     "7.2 Gestión y control de inventarios",
+     "El conteo cíclico existe como práctica declarada y no como rutina sostenida: cedía ante el volumen de recepción y preparación. Formalizarlo es proteger la cuadrilla del conteo en la agenda, clasificar el catálogo por rotación y valor, y ocultar al operario la cifra del sistema al contar.",
+     "Proteger la cuadrilla del conteo en la agenda semanal, construir la clasificación del catálogo por rotación y valor, y ocultar al operario la cifra del sistema al contar."
+    ],
+    [
+     "7.3 Preparación de pedidos",
+     "Está formalizado en una operación y no en las demás. Formalizarlo es adoptar ese manual como estándar del grupo, con las diferencias de cada operación anotadas como variación y no como práctica distinta.",
+     "Adoptar el manual de Venezuela como estándar del grupo, con las diferencias de cada operación anotadas como variación."
+    ],
+    [
+     "7.4 Facturación logística y transferencia a despacho",
+     "Es el único punto entre la bodega y la calle donde se comprueba que lo que sale coincide con lo que se vendió, y lo sostiene una sola persona por operación sin procedimiento escrito. La propia gerencia lo señala como zona a revisar porque la función está repartida entre logística y tráfico.",
+     "Fijar dónde reside la emisión de la factura y con qué controles, formar un segundo y llevar el cotejo contra el pedido original al sistema."
+    ],
+    [
+     "7.5 Despacho y última milla",
+     "Los tres procedimientos de entrega están formalizados en una operación. Lo que falta en todas es el cierre: que el documento firmado vuelva, se valide y el vendedor sepa que su cliente recibió.",
+     "Convertir el retorno del documento firmado en un control explícito del cierre de ruta, y medir las entregas sin prueba de entrega."
+    ],
+    [
+     "7.6 Tráfico e importaciones",
+     "El área existe con personal dedicado y opera con solvencia, pero arranca tarde porque la información de la compra no le llega. Formalizarlo es que el embarque entre en seguimiento cuando la compra se coloca, no cuando aparecen los documentos.",
+     "Registrar el embarque en seguimiento al colocarse la compra y mantener por país la lista de requisitos de permisología por tipo de producto."
+    ],
+    [
+     "7.7 Gestión de logística inversa",
+     "Opera con bodegas separadas para lo que puede volver a circular y lo que no, pero sin vía para devolver al inventario vendible la unidad que llega íntegra, y con la baja contable del desecho reconocida como pendiente y sin periodicidad.",
+     "Habilitar la vía de retorno al inventario vendible con su control de calidad y fijar la periodicidad de la baja contable del desecho."
+    ],
+    [
+     "7.8 Traslados internos entre bodegas y áreas",
+     "Es el proceso más informal del macroproceso: mueve inventario sin factura detrás, con solicitudes que a menudo se piden de viva voz y se ejecutan antes de existir constancia.",
+     "Exigir solicitud registrada antes de ejecutar, distinguir el traslado con retorno del definitivo y fijar la periodicidad de la salida a costo."
+    ]
+   ],
+   "brechas": [
+    [
+     "La información de la compra no baja a la operación",
+     "Un contenedor tarda entre sesenta y noventa días en llegar y el almacén se entera dos días antes; la carga aérea con frecuencia no viene rastreada. El origen no es logístico y por eso el macroproceso no puede cerrarlo solo: nace en la interfaz con Compras.",
+     "Afecta a 7.1 y 7.6, y de rebote a toda la programación del almacén."
+    ],
+    [
+     "El costo real llega después de la venta",
+     "La mercancía se marca disponible al cerrar la recepción, pero el costeo en destino depende de que Contabilidad registre la factura del flete. Entre ambos momentos se vende a un costo que todavía no existe, y cuando el flete entra puede dejar el margen fuera de rango.",
+     "Afecta a 7.1 y a la fijación de precios del macroproceso comercial."
+    ],
+    [
+     "El enlace entre el sistema de almacén y el ERP está activo y sin usar",
+     "El traspaso entre el cierre de la recepción y la carga del inventario se hace hoy vigilando manualmente si el almacén terminó. La conexión ya existe; lo que falta es incorporarla al proceso.",
+     "Afecta a 7.1, y condiciona el efecto de cualquier mejora de liberación por tramos."
+    ],
+    [
+     "No hay ubicaciones normalizadas en todas las bodegas",
+     "Donde no existe el sistema de ubicaciones hubo que inventar zonas y pasillos virtuales para poder contar. Un conteo sobre ubicaciones improvisadas no es comparable con el siguiente.",
+     "Afecta a 7.2 y 7.3, y bloquea la medición de exactitud entre operaciones."
+    ],
+    [
+     "Dos cargos que ejecutan controles obligatorios no existen en el patrón de cargos",
+     "El procedimiento formal asigna al conductor de flota propia y al personal de seguridad pasos de control que no son formalidades: el conteo conjunto antes de estibar y el cotejo en puerta. El patrón V4 no contempla ninguno de los dos.",
+     "Afecta a 7.5; es decisión de talento, no del macroproceso."
+    ],
+    [
+     "El patrón de cargos nombra igual a tres funciones que son los traspasos del macroproceso",
+     "Operaciones de almacén, inventario y costeo, y tráfico son hoy tres responsables distintos, y el patrón los llama a todos «Gerente de Operaciones y Logística». Mientras no se abran, el manual no puede separarlos sin inventar un cargo.",
+     "Afecta a 7.1, 7.2 y 7.6; es decisión de talento."
+    ]
+   ]
+  },
+  "anexos": {
+   "estado": "borrador",
+   "glosario": [
+    [
+     "Aviso anticipado de embarque",
+     "Mensaje que el proveedor o el área de tráfico manda antes del arribo con el contenido esperado línea a línea, para que el almacén prepare lo que va a recibir y la recepción consista en verificar contra lo esperado."
+    ],
+    [
+     "Costeo en destino",
+     "Proceso por el que el flete y los gastos de nacionalización se reparten sobre las referencias de un embarque, fijando el costo del producto puesto en el almacén de destino."
+    ],
+    [
+     "Ola de recolección",
+     "Conjunto de líneas de pedido que el sistema agrupa y asigna a un operario para que las recoja en un solo recorrido optimizado por pasillo y nivel."
+    ],
+    [
+     "Packing",
+     "Auditoría del pedido recolectado: revisión visual de calidad y escaneo unidad por unidad contra la lista del pedido, antes de embalar."
+    ],
+    [
+     "Tramo",
+     "Porción de un embarque —típicamente una paleta— que se verifica y se libera como unidad, sin esperar a que termine la descarga completa."
+    ],
+    [
+     "Conteo sin ver la cifra del sistema",
+     "Conteo en el que el operario recibe la ubicación y la referencia pero no la cantidad que el sistema espera, de modo que el resultado sea una medición y no una confirmación."
+    ],
+    [
+     "Clasificación por rotación y valor",
+     "Ordenamiento del catálogo en clases que determinan con qué frecuencia se cuenta cada referencia y qué diferencia se admite antes de recontar."
+    ],
+    [
+     "Prueba de entrega",
+     "Copia del documento firmada por el receptor con nombre, identificación, fecha, hora y sello, que cierra el ciclo de entrega."
+    ],
+    [
+     "Bodega de garantías",
+     "Ubicación separada del inventario vendible donde se custodia lo que el cliente devuelve mientras se determina su desenlace."
+    ],
+    [
+     "Salida a costo",
+     "Registro contable por el que la mercancía consumida y no vendida —material promocional, unidades usadas como reemplazo— deja de figurar como existencia."
+    ]
+   ],
+   "raci": [
+    [
+     "7.1 Recepción de mercancía importada y costeo en destino",
+     "Coordinador(a) de Logística y Bodega",
+     "Gerente de Operaciones y Logística",
+     "Líder de Administración / Importaciones · Supervisor(a) de Bodega / Despacho · Coordinador(a) Contable",
+     "Gerente Comercial (País / Canal)"
+    ],
+    [
+     "7.2 Gestión y control de inventarios",
+     "Coordinador(a) de Logística y Bodega",
+     "Gerente de Operaciones y Logística",
+     "Auxiliar / Ayudante de Bodega y Tráfico · Coordinador(a) Contable · Analista de Logística",
+     "Junta Directiva"
+    ],
+    [
+     "7.3 Preparación de pedidos",
+     "Supervisor(a) de Bodega / Despacho",
+     "Coordinador(a) de Logística y Bodega",
+     "Auxiliar / Ayudante de Bodega y Tráfico · Analista de Sistemas / Datos",
+     "Gerente Comercial (País / Canal)"
+    ],
+    [
+     "7.4 Facturación logística y transferencia a despacho",
+     "Analista de Facturación",
+     "Gerente Comercial (País / Canal)",
+     "Supervisor(a) de Bodega / Despacho · Coordinador(a) Contable",
+     "Coordinador(a) de Logística y Bodega"
+    ],
+    [
+     "7.5 Despacho y última milla",
+     "Supervisor(a) de Bodega / Despacho",
+     "Coordinador(a) de Logística y Bodega",
+     "Conductor de flota propia · Personal de seguridad · Analista de Facturación",
+     "Gerente Comercial (País / Canal)"
+    ],
+    [
+     "7.6 Tráfico e importaciones",
+     "Líder de Administración / Importaciones",
+     "Gerente de Operaciones y Logística",
+     "Auxiliar / Ayudante de Bodega y Tráfico · Coordinador(a) de Tesorería / Cobranzas",
+     "Coordinador(a) de Logística y Bodega"
+    ],
+    [
+     "7.7 Gestión de logística inversa",
+     "Coordinador(a) de Logística y Bodega",
+     "Subgerente de Servicio Técnico",
+     "Auxiliar / Ayudante de Bodega y Tráfico · Técnico(a) de Servicio / Relojero(a) · Coordinador(a) Contable",
+     "Coordinador(a) de Soporte / Servicio al Cliente"
+    ],
+    [
+     "7.8 Traslados internos entre bodegas y áreas",
+     "Coordinador(a) de Logística y Bodega",
+     "Gerente de Ventas al Detal (País)",
+     "Auxiliar / Ayudante de Bodega y Tráfico · Supervisor(a) de Bodega / Despacho · Coordinador(a) Contable",
+     "Coordinador(a) de Marca · Subgerente de Servicio Técnico"
+    ],
+    [
+     "7.9 Gobierno logístico, indicadores y excelencia operativa",
+     "Gerente de Operaciones y Logística",
+     "Junta Directiva",
+     "Analista de Logística · Analista de Sistemas / Datos · Coordinador(a) de Logística y Bodega",
+     "Gerente Regional Comercial / Retail · Gerente de Contabilidad / Administración"
+    ]
+   ],
+   "catalogo_sistemas": [
+    [
+     "Sistema de gestión de almacén (WMS)",
+     "Ubicaciones, olas de recolección, auditoría por escaneo, estatus de mercancía y movimientos de traslado",
+     "7.1 · 7.2 · 7.3 · 7.7 · 7.8",
+     "Coordinador(a) de Logística y Bodega"
+    ],
+    [
+     "ERP",
+     "Orden de compra, inventario valorado, facturación, costeo en destino y ajustes",
+     "7.1 · 7.2 · 7.4 · 7.7 · 7.8",
+     "Coordinador(a) de Sistemas"
+    ],
+    [
+     "Enlace entre el sistema de almacén y el ERP",
+     "Traspaso del cierre de recepción a la carga de inventario — activo pero no incorporado al proceso",
+     "7.1",
+     "Analista de Sistemas / Datos"
+    ],
+    [
+     "Terminales de radiofrecuencia",
+     "Escaneo de ubicación y producto en recolección y auditoría de empaque",
+     "7.2 · 7.3",
+     "Analista de Sistemas / Datos"
+    ],
+    [
+     "Portales de las agencias de envío",
+     "Solicitud de recolecta, generación y seguimiento de guías",
+     "7.5",
+     "Supervisor(a) de Bodega / Despacho"
+    ],
+    [
+     "Lark",
+     "Documentación de embarque, seguimiento de entregas y solicitudes de traslado",
+     "7.5 · 7.6 · 7.8",
+     "Coordinador(a) de Logística y Bodega"
+    ]
+   ],
+   "interfaces_detalle": [
+    [
+     "Compras y Abastecimiento",
+     "Orden colocada y embarque en camino",
+     "Proveedor, contenido línea a línea, modo de envío y fecha estimada"
+    ],
+    [
+     "Ventas (mayoreo, detal y web)",
+     "Pedido liberado y aprobado comercialmente",
+     "Pedido con cliente, condiciones y vía de entrega"
+    ],
+    [
+     "Ventas (mayoreo, detal y web)",
+     "Aviso de disponibilidad y de entrega",
+     "Lo libre y lo comprometido por preventa; confirmación de entrega al cliente"
+    ],
+    [
+     "Contabilidad",
+     "Factura del flete registrada",
+     "Habilita el costeo en destino definitivo"
+    ],
+    [
+     "Contabilidad",
+     "Ajustes de inventario y bajas",
+     "Diferencia, causa documentada y firma cuando supera el umbral"
+    ],
+    [
+     "Tesorería",
+     "Pago de tributos aduanales",
+     "Liquidación y plazo de liberación"
+    ],
+    [
+     "Postventa y Servicio Técnico",
+     "Determinación del desenlace de la devolución",
+     "Reparación, reemplazo, retorno a vendible o desecho"
+    ],
+    [
+     "Mercadeo",
+     "Solicitud de traslado de material",
+     "Destino, motivo y si la mercancía se consume o retorna"
+    ]
+   ],
+   "docs_lark": [
+    [
+     "Procedimientos de Almacén y Despacho, V1.0",
+     "Venezuela",
+     "Manual formal de picking, packing, embalaje, cliente retira, flota propia y agencias de envío, con controles obligatorios y firmas de cuatro instancias",
+     "7.3 · 7.5"
+    ],
+    [
+     "Procesos — Logística/Inventario",
+     "Panamá",
+     "Creación de productos, órdenes de compra, cálculo de precios, llegada del tránsito con costeo en destino, inventarios y revisión de márgenes",
+     "7.1 · 7.2"
+    ],
+    [
+     "Flujo logístico (libro de hojas de proceso)",
+     "Venezuela",
+     "Plantillas de flujo por proceso: ventas al mayor, facturación, recepción y traslados. Solo contiene responsables; las hojas están sin pasos desarrollados",
+     "7.1 · 7.4 · 7.8"
+    ]
+   ],
+   "variaciones_pais": [
+    [
+     "Panamá",
+     "Único país con hub regional en Zona Libre de Colón y almacén de detal aparte en la ciudad. Concentra el departamento de tráfico del grupo, con personal dedicado a importación y exportación, y es donde el costeo en destino se ejecuta para toda la importación.",
+     "Rol de hub y régimen de zona franca."
+    ],
+    [
+     "Venezuela",
+     "Bodega de mayor volumen diario. Es la única operación con manual formal de almacén y despacho, emitido y firmado; a la vez es donde la normalización de ubicaciones está en curso y donde las plantillas de recepción, facturación y traslados siguen vacías. Opera flota propia con rutas foráneas y agencias de envío nacionales.",
+     "Volumen, madurez documental desigual y combinación de canales de entrega."
+    ],
+    [
+     "Colombia",
+     "Operación de país abastecida desde el hub, descrita por su propia gerencia como sin procesos definidos y operando por reacción.",
+     "Menor madurez de proceso."
+    ],
+    [
+     "Costa Rica",
+     "Operación bajo figura de socio, abastecida desde el hub con entrega puerta a puerta y operador de carga externo. Reconoce cumplimiento bajo y quiebres de inventario.",
+     "Relación societaria distinta y dependencia de terceros en el corredor."
+    ],
+    [
+     "Estados Unidos",
+     "Operación de comercio electrónico con bodega pequeña y alto volumen de devoluciones, sin control claro de su disposición.",
+     "Modelo de canal y ausencia de proceso de logística inversa."
+    ]
+   ]
+  }
+ },
+ "procesos": {
+  "7.1": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Convierte la mercancía que llega importada en inventario vendible con su costo cargado. Empieza cuando Tráfico avisa que la carga arribó y termina cuando el embarque queda cuadrado y costeado.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **La mercancía se libera por tramos, no por contenedor.** Cada paleta verificada se puede vender de inmediato. Hoy ninguna referencia está disponible hasta que el contenedor entero se cierra: en una carga de la marca representada, la primera caja ubicada espera a que bajen a mano las mil ochocientas.\n2. **El costo se carga desde el arribo, no después de la venta.** El aviso de arribo trae la cotización de flete que Tráfico ya negoció, y con ella se carga un costo provisional. El definitivo lo sustituye cuando entra la factura. Hoy la mercancía se vende con un costo que todavía no existe.\n3. **El aviso al ERP viaja por el enlace que ya existe.** Hoy la gerencia de inventario tiene que estar pendiente de que el almacén haya terminado para poder actualizar; el enlace entre ambos sistemas está activo pero el proceso no lo usa.\n\nQuedan fuera el trámite aduanal y el seguimiento del embarque (7.6), la colocación de la compra (6.3 y 6.4), el conteo cíclico de inventario (7.2), la preparación de pedidos (7.3) y el reparto posterior a los países (6.6)."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Coordinador(a) de Logística y Bodega",
+    "participantes": [
+     "Coordinador(a) de Logística y Bodega — dueño del proceso: programa la recepción, la conduce, libera cada tramo verificado y cierra el embarque. **Es un cambio deliberado respecto de hoy**, donde la recepción la dirige la gerencia de operaciones: la conducción del día a día baja a una coordinación dedicada para que la gerencia conserve el escalamiento y las incidencias. Lo sostiene la evidencia: quien hoy lleva la gerencia responde además por pick, pack, despacho y envío.",
+     "Gerente de Operaciones y Logística — decide cuando entra una carga no prevista que desplaza compromisos, y resuelve las incidencias de sobrante y faltante.",
+     "Gerente de Operaciones y Logística — valida la orden de compra, confirma las preventas, carga el costo provisional y ejecuta el costeo definitivo.",
+     "Líder de Administración / Importaciones — emite el aviso de arribo con la documentación del embarque y la cotización del flete.",
+     "Supervisor(a) de Bodega / Despacho — dirige la descarga y la paletización, y verifica cada tramo contra el documento de embarque.",
+     "Auxiliar / Ayudante de Bodega y Tráfico — descarga, paletiza y ubica la mercancía en el anaquel.",
+     "Coordinador(a) Contable — registra la factura del flete, que convierte el costo provisional en definitivo."
+    ],
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-70",
+     "Lark: Procesos.pdf — Logística/Inventario (PA), secciones 2 y 4"
+    ],
+    "notas": "⚠️ Todos los cargos son denominaciones del patrón V4. El patrón **nombra «Gerente de Operaciones y Logística» a dos funciones que hoy son personas distintas**: la gerencia que responde por la operación del almacén y la que lleva inventario, precios y costeo. Al ser un solo cargo, el traspaso «el almacén cierra → inventario carga» queda dentro de la misma gerencia en vez de ser un traspaso entre áreas. Los cargos actuales sí las distinguen —Gerente de Operaciones y Excelencia Logística y Gerente de Inventario y Precios— y son los que usa la versión As-Is de este proceso. Conviene que talento decida si el patrón debe abrirlas; mientras no lo haga, el manual no puede separarlas sin inventar un cargo. El tráfico y el trámite de importación se atribuyen a **Líder de Administración / Importaciones**, que sí existe en el patrón y es el mismo cargo con el que el macro 9 documenta el trámite aduanal.",
+    "sin_evidencia": "El cambio de titularidad a la coordinación es una propuesta, no un hallazgo: ninguna entrevista describe hoy a esa coordinación conduciendo la recepción. Queda sujeto a que la estructura la dote."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Aviso de arribo de la carga, que Tráfico emite acompañado de la documentación del embarque y de la cotización del flete. Cuando el aviso llega por el agente aduanal, es ese aviso el que arranca el proceso.",
+    "cadencia": "Por evento, con dos ritmos muy distintos: la marca representada llega una vez al mes y es planificable; la marca propia llega de forma continua, con carga aérea casi semanal y a menudo sin aviso previo.",
+    "output": "Embarque cuadrado, con su mercancía liberada por tramos a medida que se verificó y su costo en destino definitivo aplicado.",
+    "evidencia": [
+     "E-03",
+     "E-70",
+     "Lark: Procesos.pdf — Logística/Inventario (PA), secciones 2 y 4"
+    ],
+    "notas": "La cotización de flete viaja con el aviso de arribo porque Tráfico ya la tiene: es quien contrata el flete y calcula su adición."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-70",
+     "Lark: Procesos.pdf — Logística/Inventario (PA)",
+     "Lark: flujo logistico.xlsx — hoja Recepción (VE)"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Manda el aviso anticipado de embarque con la documentación y la cotización del flete ya negociada. El aviso no es solo una fecha: trae el contenido esperado línea a línea, de modo que el sistema de almacén pueda preparar lo que va a recibir y la recepción consista en verificar contra lo esperado, no en contar contra un papel."
+     },
+     {
+      "id": "a2",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Programa la recepción y comprueba si la carga estaba prevista para esa semana."
+     },
+     {
+      "id": "a3",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Comprueba si el arribo figura en la programación de recepciones de la semana. No pregunta si la compra existía —alguien la colocó— sino si el almacén contaba con ella para ese día."
+     },
+     {
+      "id": "a4",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Dirige la descarga y ordena la paletización en tramos identificados, de modo que cada tramo pueda verificarse por separado."
+     },
+     {
+      "id": "a5",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Ubica cada tramo en su posición de anaquel y registra la ubicación en el sistema de almacén."
+     },
+     {
+      "id": "a6",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Verifica el tramo contra el documento de embarque según se va ubicando, sin esperar al final de la descarga, y comprueba si cuadra."
+     },
+     {
+      "id": "a7",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Verifica el tramo contra lo esperado en cuatro comprobaciones, en este orden: que lo recibido corresponde a la orden de compra y al aviso de embarque, que las cantidades cuadran con el documento del transportista, que el empaque y la mercancía llegan sin daño, y que la identificación del producto es la correcta."
+     },
+     {
+      "id": "a8",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Libera la disponibilidad del tramo verificado, y cierra el embarque cuando el último tramo queda liberado. El cierre sirve de cuadre, ya no de condición para vender."
+     },
+     {
+      "id": "a9",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Recibe el aviso de cada liberación por el enlace entre el sistema de almacén y el ERP, valida la orden de compra contra lo recibido, carga el inventario y confirma las preventas tomadas sobre el tránsito."
+     },
+     {
+      "id": "a10",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Avisa a la fuerza comercial la disponibilidad y carga el costo provisional del embarque repartiendo la cotización de flete, marcado como provisional."
+     },
+     {
+      "id": "a11",
+      "rol": "Coordinador(a) Contable",
+      "texto": "Registra la factura del flete cuando el proveedor la emite."
+     },
+     {
+      "id": "a12",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Ejecuta el costeo en destino definitivo sustituyendo el provisional, comprueba que ningún margen quede fuera de rango y remite a la dirección comercial las referencias que se salen."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Líder de Administración / Importaciones",
+      "Coordinador(a) de Logística y Bodega",
+      "Gerente de Operaciones y Logística",
+      "Supervisor(a) de Bodega / Despacho",
+      "Auxiliar / Ayudante de Bodega y Tráfico",
+      "Coordinador(a) Contable"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "inicio",
+       "n": "Aviso anticipado con contenido y flete"
+      },
+      {
+       "id": "n1",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Programar la recepción",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n2",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "decision",
+       "n": "¿Está en la programación?"
+      },
+      {
+       "id": "n3",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Decidir qué recepción se desplaza"
+      },
+      {
+       "id": "n4",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Descargar y paletizar por tramos"
+      },
+      {
+       "id": "n5",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Ubicar el tramo en anaquel",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n6",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "decision",
+       "n": "¿El tramo cuadra?"
+      },
+      {
+       "id": "n7",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Abrir incidencia del embarque"
+      },
+      {
+       "id": "n8",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Liberar el tramo y cerrar el embarque",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n9",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Validar la orden y confirmar preventas",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n10",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Avisar disponibilidad y costo provisional",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n11",
+       "carril": "Coordinador(a) Contable",
+       "tipo": "tarea",
+       "n": "Registrar la factura del flete",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n12",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "fin",
+       "n": "Costeo definitivo y márgenes revisados"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2"
+      },
+      {
+       "de": "n2",
+       "a": "n3",
+       "etq": "No"
+      },
+      {
+       "de": "n2",
+       "a": "n4",
+       "etq": "Sí"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6"
+      },
+      {
+       "de": "n6",
+       "a": "n7",
+       "etq": "No"
+      },
+      {
+       "de": "n6",
+       "a": "n8",
+       "etq": "Sí"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      },
+      {
+       "de": "n8",
+       "a": "n9"
+      },
+      {
+       "de": "n9",
+       "a": "n10"
+      },
+      {
+       "de": "n8",
+       "a": "n11"
+      },
+      {
+       "de": "n10",
+       "a": "n12"
+      },
+      {
+       "de": "n11",
+       "a": "n12"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-70",
+     "Lark: Procesos.pdf — Logística/Inventario (PA)"
+    ],
+    "filas": [
+     [
+      "El almacén se entera del arribo con muy poca antelación",
+      "Un contenedor puede tardar entre sesenta y noventa días y la operación se entera dos días antes; la carga aérea a menudo no viene rastreada. El origen no es logístico: la información de la compra no baja a operaciones. El resultado es que se satura la semana y se desplazan recepciones comprometidas.",
+      "Alta",
+      "Alto",
+      "Hacer que la orden de compra colocada abra la visibilidad del embarque: el pago anticipado que la dispara ya obliga a Finanzas a saber qué viene, de modo que ese hito alimente un tablero de tránsito accesible a Operaciones y a Ventas."
+     ],
+     [
+      "La liberación por tramos se degrada a liberación total",
+      "Si la presión de la operación devuelve la verificación al final de la descarga, el proceso vuelve a ser todo o nada sin que nadie lo declare, y el cambio principal de este diseño se pierde.",
+      "Media",
+      "Alto",
+      "Medir los tramos liberados por embarque: un embarque con un solo tramo es la señal de que se volvió al comportamiento anterior. Fijar un tamaño máximo de tramo por tipo de carga."
+     ],
+     [
+      "El costo provisional se queda como definitivo",
+      "Si la factura del flete tarda o no se registra, el costo provisional se consolida de hecho como costo del producto y el margen no se revisa nunca.",
+      "Media",
+      "Alto",
+      "Marcar el costo como provisional de forma visible en el ERP y fijar un plazo máximo desde el arribo para el costeo definitivo, con alerta al vencerlo. La revisión mensual de márgenes solo se da por cerrada cuando ningún embarque del mes queda provisional."
+     ],
+     [
+      "El aviso al ERP sigue siendo manual",
+      "El enlace entre el sistema de almacén y el ERP existe y está activo, pero el proceso no lo usa. Mientras el traspaso dependa de que alguien vigile si el almacén terminó, la liberación por tramos no llega al ERP a tiempo.",
+      "Alta",
+      "Medio",
+      "Activar el enlace como parte del proceso: la liberación de cada tramo dispara la carga en el ERP, y la intervención manual queda como excepción registrada."
+     ],
+     [
+      "La recepción del país depende de personas y no de un procedimiento",
+      "El levantamiento de Venezuela existe como plantilla con los responsables anotados, pero sin un solo paso. La operación funciona por conocimiento de quien la lleva, y no hay ubicaciones normalizadas en todas las bodegas.",
+      "Alta",
+      "Medio",
+      "Completar el procedimiento por país sobre este flujo y cerrar la normalización de ubicaciones que Venezuela ya tiene en curso para su nuevo sistema de almacén."
+     ],
+     [
+      "El aviso anticipado llega incompleto o no cuadra con lo recibido",
+      "Todo el diseño descansa en que el aviso traiga el contenido esperado línea a línea. Si el proveedor lo manda incompleto o desfasado, la verificación por tramos pierde su referencia y el almacén vuelve a contar contra el documento de transporte.",
+      "Media",
+      "Alto",
+      "Medir la exactitud del aviso a nivel de línea y exigirla en las condiciones con cada proveedor; la referencia del sector sitúa el objetivo en torno al 99,5 % de coincidencia con el embarque físico."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Antelación del aviso de arribo",
+      "Fecha de arribo efectivo − fecha del aviso recibido por el almacén",
+      "Por embarque",
+      "Líder de Administración / Importaciones",
+      "Mínimo 5 días hábiles para carga marítima"
+     ],
+     [
+      "Tiempo hasta la primera liberación",
+      "Fecha y hora del primer tramo liberado − fecha y hora de arribo",
+      "Por embarque",
+      "Coordinador(a) de Logística y Bodega",
+      "A fijar por tipo de carga tras medir los primeros ciclos"
+     ],
+     [
+      "Tramos liberados por embarque",
+      "Tramos liberados ÷ embarques recibidos",
+      "Mensual",
+      "Coordinador(a) de Logística y Bodega",
+      "Más de 1 — un solo tramo indica retorno a la liberación total"
+     ],
+     [
+      "Exactitud de la recepción",
+      "Referencias sin diferencia ÷ referencias del embarque",
+      "Por embarque",
+      "Supervisor(a) de Bodega / Despacho",
+      "99 %"
+     ],
+     [
+      "Embarques con costo provisional vencido",
+      "Embarques sin costeo definitivo pasado el plazo ÷ embarques del mes",
+      "Mensual",
+      "Gerente de Operaciones y Logística",
+      "0 % al cierre de la revisión mensual de márgenes"
+     ]
+    ]
+   }
+  },
+  "7.2": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Mantiene el inventario cuadrado: cuenta lo que hay, explica las diferencias contra el sistema y las ajusta con soporte.\n\n**Tres decisiones de diseño lo separan de cómo se cuenta hoy:**\n\n1. **El operario cuenta sin ver la cifra del sistema.** El terminal le indica a qué ubicación ir y qué referencia contar, pero no cuánto debería haber; él reporta lo que encuentra y es el sistema quien compara. Si viera la cifra esperada, tendería a confirmarla —recontando hasta que coincida o dando por hecho que se equivocó—, y el conteo dejaría de servir para lo único que existe: detectar que el sistema está equivocado.\n2. **La frecuencia depende de la clase.** Las referencias de clase A se cuentan varias veces al año y las de clase C una sola vez, en lugar de un calendario plano que trata igual lo que rota mucho y lo que no.\n3. **No hay tercer conteo.** Si el recuento de un segundo operario, también sin ver la cifra del sistema, sigue sin cuadrar, el problema no está en el conteo sino en los movimientos: se investiga el histórico de transacciones. Contar una tercera vez arbitra entre dos cifras sin explicar ninguna.\n\nHoy la operación cuenta una o dos veces al año y los conteos cíclicos se hacen «cuando se puede», porque el volumen de recepción y preparación se come la agenda.\n\nNo incluye la recepción (7.1) ni los traslados (7.8), que son los movimientos que el inventario audita; ni la valoración contable de las existencias, que es del macro 12."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Coordinador(a) de Logística y Bodega",
+    "participantes": [
+     "Coordinador(a) de Logística y Bodega — dueño del proceso: programa los conteos según la clase de cada referencia, los ejecuta con la cuadrilla y aplica la tolerancia que corresponde.",
+     "Auxiliar / Ayudante de Bodega y Tráfico — ejecuta el conteo físico sin ver la cifra del sistema; el recuento lo hace siempre un operador distinto del primero.",
+     "Gerente de Operaciones y Logística — investiga el histórico de movimientos de las diferencias que persisten y autoriza el ajuste cuando supera el umbral de firma.",
+     "Coordinador(a) Contable — registra el ajuste en la contabilidad con su soporte.",
+     "Analista de Logística — consolida la exactitud por clase y operación y prepara el reporte para la junta."
+    ],
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-42",
+     "Lark: Procesos.pdf — Logística/Inventario (PA), sección 5"
+    ],
+    "notas": "El umbral de auditoría por diferencia y la revisión del histórico de movimientos están tomados del procedimiento real de Panamá. Contar sin ver la cifra del sistema, la clasificación ABC para la frecuencia y el doble umbral —uno que dispara el recuento, otro que exige firma antes de ajustar— son buenas prácticas de gestión de inventarios y no describen lo que hoy se hace.",
+    "sin_evidencia": "La clasificación ABC del catálogo no existe hoy: hay que construirla antes de que la frecuencia diferenciada pueda aplicarse. Tampoco consta una meta de exactitud aprobada por la organización; las que se proponen son la referencia habitual del sector."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "El calendario de conteo cíclico, que asigna frecuencia según la clase de cada referencia, o una alerta de discrepancia detectada en la operación —un faltante al preparar un pedido o al recibir un embarque.",
+    "cadencia": "Por clase: las referencias A varias veces al año, las B con menor frecuencia y las C una vez. El inventario general deja de ser la red única.",
+    "output": "Inventario conciliado, diferencias explicadas con su causa y ajustes aplicados con soporte y con la firma que corresponda.",
+    "evidencia": [
+     "E-03",
+     "Lark: Procesos.pdf — Logística/Inventario (PA), sección 5"
+    ],
+    "notas": "Los conteos cíclicos existen hoy como práctica declarada pero no como rutina sostenida: se hacían «muy poco» porque la bodega tenía un volumen de trabajo muy grande entre recepción de contenedores y preparación de pedidos."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-42",
+     "Lark: Procesos.pdf — Logística/Inventario (PA), sección 5"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Programa el conteo del ciclo tomando las referencias que tocan según su clase —las A con mucha más frecuencia que las C— y bloquea el movimiento de esas ubicaciones mientras dura el conteo."
+     },
+     {
+      "id": "a2",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Cuenta sin ver la cifra del sistema: el terminal le indica la ubicación y la referencia, pero no cuántas unidades debería haber. Registra lo que encuentra, y es el sistema el que compara después."
+     },
+     {
+      "id": "a3",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Compara lo contado con el sistema y aplica la tolerancia de la clase: cero diferencia admitida en las referencias A, banda porcentual en B y C. Por debajo de la tolerancia, la referencia se da por cuadrada."
+     },
+     {
+      "id": "a4",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Recuenta las referencias fuera de tolerancia, también sin ver la cifra del sistema ni la del primer conteo. Lo hace un operario distinto del que contó primero, para que la segunda cifra sea independiente y no una confirmación."
+     },
+     {
+      "id": "a5",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Investiga el histórico de movimientos de las referencias que siguen sin cuadrar: un ajuste anterior, un traslado mal registrado, una venta mal despachada. No se cuenta una tercera vez — una discrepancia que dos conteos independientes no resuelven es un problema de transacciones, no de conteo."
+     },
+     {
+      "id": "a6",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Autoriza el ajuste cuando la diferencia supera el umbral de valor que exige firma, dejando constancia de la causa encontrada o de que la investigación no la halló."
+     },
+     {
+      "id": "a7",
+      "rol": "Coordinador(a) Contable",
+      "texto": "Registra el ajuste en la contabilidad con el soporte de la investigación."
+     },
+     {
+      "id": "a8",
+      "rol": "Analista de Logística",
+      "texto": "Consolida el resultado del ciclo por clase, bodega y país —exactitud alcanzada, diferencias ajustadas y causas más frecuentes— y prepara el reporte para la junta."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Coordinador(a) de Logística y Bodega",
+      "Auxiliar / Ayudante de Bodega y Tráfico",
+      "Gerente de Operaciones y Logística",
+      "Coordinador(a) Contable",
+      "Analista de Logística"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "inicio",
+       "n": "Programar el ciclo según la clase",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n1",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Contar sin ver la cifra del sistema",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n2",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "decision",
+       "n": "¿Dentro de la tolerancia de su clase?"
+      },
+      {
+       "id": "n3",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Recontar con otro operario"
+      },
+      {
+       "id": "n4",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Investigar el histórico de movimientos"
+      },
+      {
+       "id": "n5",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "decision",
+       "n": "¿Supera el umbral de firma?"
+      },
+      {
+       "id": "n6",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Autorizar el ajuste con su causa"
+      },
+      {
+       "id": "n7",
+       "carril": "Coordinador(a) Contable",
+       "tipo": "tarea",
+       "n": "Registrar el ajuste con soporte",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n8",
+       "carril": "Analista de Logística",
+       "tipo": "fin",
+       "n": "Reporte del ciclo consolidado a la junta"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2"
+      },
+      {
+       "de": "n2",
+       "a": "n8",
+       "etq": "Sí"
+      },
+      {
+       "de": "n2",
+       "a": "n3",
+       "etq": "No"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6",
+       "etq": "Sí"
+      },
+      {
+       "de": "n5",
+       "a": "n7",
+       "etq": "No"
+      },
+      {
+       "de": "n6",
+       "a": "n7"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-42",
+     "E-34"
+    ],
+    "filas": [
+     [
+      "El conteo cíclico cede siempre ante la operación",
+      "Los conteos por referencia se hacían «muy poco» porque entre recibir contenedores y preparar pedidos no quedaba cuadrilla. Si el ciclo no está protegido en la agenda, el inventario general vuelve a ser la única red y las diferencias se descubren con un año de retraso.",
+      "Alta",
+      "Alto",
+      "Reservar la cuadrilla del conteo en la programación semanal del almacén, al mismo nivel que una recepción, y medir el cumplimiento del ciclo, no solo su resultado."
+     ],
+     [
+      "El sistema deja ver la cantidad esperada y el conteo pierde su sentido",
+      "Que el operario no vea la cifra del sistema es lo que convierte el conteo en una medición independiente. Si el terminal o la hoja la muestran, tiende a confirmarla en vez de contar, y la diferencia real no aflora. Es una casilla de configuración, no un problema de conducta — y el proceso sigue corriendo igual sin que nadie note que dejó de servir.",
+      "Alta",
+      "Alto",
+      "Configurar el conteo para que la cantidad esperada no sea visible al operario, y verificar esa configuración antes de dar por válido un ciclo."
+     ],
+     [
+      "Sin ubicaciones normalizadas y sin clasificación ABC el ciclo no se puede programar",
+      "Donde no hay sistema de ubicaciones hubo que inventar zonas y pasillos virtuales para asignar contadores. Y la frecuencia por clase exige una clasificación del catálogo que hoy no existe: sin ella, el calendario vuelve a ser plano.",
+      "Alta",
+      "Alto",
+      "Cerrar la normalización de ubicaciones y construir la clasificación ABC por rotación y valor antes de declarar el ciclo en régimen."
+     ],
+     [
+      "Conteos a mano en puntos con sistema disponible",
+      "Hay puntos donde el inventario se sigue llevando a mano pese a existir sistemas, lo que impide consolidar, obliga a transcribir y hace imposible ocultar la cifra esperada al operario.",
+      "Media",
+      "Medio",
+      "Extender el registro del conteo al sistema en todos los puntos, y no aceptar como cerrado un ciclo cuyo resultado no esté en el sistema."
+     ],
+     [
+      "El ajuste se aplica sin causa identificada",
+      "Cuando la investigación del histórico no encuentra el origen, la presión por cerrar lleva a ajustar igual. El inventario queda cuadrado y la causa sigue viva, de modo que la diferencia reaparece el ciclo siguiente.",
+      "Media",
+      "Alto",
+      "Exigir causa documentada para todo ajuste por encima del umbral de firma, y llevar el recuento de ajustes sin causa como indicador propio: es la medida de lo que el proceso todavía no explica."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Exactitud de inventario",
+      "Referencias dentro de tolerancia ÷ referencias contadas",
+      "Por ciclo",
+      "Coordinador(a) de Logística y Bodega",
+      "95–98 % general; más del 99 % en referencias de clase A"
+     ],
+     [
+      "Cumplimiento del ciclo de conteo",
+      "Referencias contadas ÷ referencias programadas para el ciclo",
+      "Mensual",
+      "Coordinador(a) de Logística y Bodega",
+      "100 %"
+     ],
+     [
+      "Diferencias con causa identificada",
+      "Diferencias con causa documentada ÷ diferencias investigadas",
+      "Por ciclo",
+      "Gerente de Operaciones y Logística",
+      "Más del 80 %"
+     ],
+     [
+      "Reincidencia de diferencias",
+      "Referencias con diferencia en dos ciclos consecutivos ÷ referencias con diferencia",
+      "Trimestral",
+      "Analista de Logística",
+      "Menos del 10 %"
+     ],
+     [
+      "Recuentos por ciclo",
+      "Referencias que exigieron recuento ÷ referencias contadas",
+      "Por ciclo",
+      "Coordinador(a) de Logística y Bodega",
+      "Tendencia a la baja — mide la calidad del primer conteo"
+     ]
+    ]
+   }
+  },
+  "7.3": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Prepara físicamente el pedido: recolecta la mercancía de sus ubicaciones, la audita unidad por unidad, la embala según el canal por el que va a salir y la deja rotulada en la zona de despacho.\n\nEs el proceso mejor documentado de todo el macroproceso: la operación de Venezuela tiene un manual formal, emitido en mayo de 2026 y firmado por cuatro instancias, que fija los pasos, los controles y las responsabilidades de picking, packing y embalaje. Este To-Be recoge ese procedimiento como estándar del grupo y lo extiende a las demás operaciones, que hoy no lo tienen escrito.\n\nNo incluye la facturación del pedido ni su entrega al canal de transporte (7.4 y 7.5), ni la liberación comercial previa, que llega al almacén como pedido ya aprobado."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Coordinador(a) de Logística y Bodega",
+    "participantes": [
+     "Coordinador(a) de Logística y Bodega — dueño del proceso: responde por la exactitud y el tiempo de preparación y por la disponibilidad operativa de los equipos de lectura.",
+     "Supervisor(a) de Bodega / Despacho — monitorea la cola de pedidos, asigna las olas de recolección por prioridad o zona, y autoriza el re-picking o el ajuste cuando un pedido queda retenido por diferencia.",
+     "Auxiliar / Ayudante de Bodega y Tráfico — ejecuta la recolección, la auditoría por escaneo en la estación de empaque y el embalaje, pesaje y etiquetado del bulto.",
+     "Analista de Sistemas / Datos — mantiene la configuración de ubicaciones y la conectividad de los terminales de radiofrecuencia, de los que depende todo el proceso."
+    ],
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE), mayo 2026",
+     "E-34",
+     "E-03"
+    ],
+    "notas": "El procedimiento formal de Venezuela distingue tres perfiles operativos —picker, packer y embalador— que la V4 agrupa bajo «Auxiliar / Ayudante de Bodega y Tráfico». Se conserva la denominación del patrón y se indica en cada actividad cuál de los tres papeles ejecuta."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Llegada al sistema de almacén del pedido liberado y aprobado comercialmente. El almacén no evalúa condiciones del cliente: si el pedido llega, se prepara.",
+    "cadencia": "Continua, con picos por evento. El pedido normal se despacha en 48 horas; el urgente entra por línea dedicada con prioridad inmediata.",
+    "output": "Pedido embalado, pesado, medido y etiquetado, en la bahía de la ruta o agencia que le corresponde, con estatus de listo para despacho.",
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE)",
+     "E-34"
+    ],
+    "notas": "La separación es deliberada y la operación la reclama: el filtro de crédito y condiciones lo hace la gerencia comercial antes de liberar; el almacén recibe el pedido ya apto."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE), procedimientos 2005-ALM-2026#1, #2 y #3",
+     "E-34",
+     "E-03"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Monitorea la cola de pedidos liberados y genera la ola de recolección, asignándola al terminal del operador disponible según prioridad y zona."
+     },
+     {
+      "id": "a2",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Recorre la ruta que el sistema optimiza por pasillo, estantería y nivel; escanea primero el código de la ubicación y después el del producto, y confirma la cantidad recolectada."
+     },
+     {
+      "id": "a3",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Comprueba si la ubicación tiene la cantidad esperada."
+     },
+     {
+      "id": "a4",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Resuelve el faltante de ubicación: reasigna desde otra ubicación o retiene la línea, y deja registrada la discrepancia para que la recoja el ciclo de conteo."
+     },
+     {
+      "id": "a5",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Traslada lo recolectado a la estación de empaque y cierra la ola en el terminal, con lo que el pedido entra en cola de auditoría."
+     },
+     {
+      "id": "a6",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "En la estación de empaque, revisa visualmente cada producto —empaque sin roturas ni abolladuras, sellos de fábrica intactos— y separa lo dañado para que se reponga."
+     },
+     {
+      "id": "a7",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Audita el pedido escaneando cada unidad una a una contra la lista en pantalla. El sistema bloquea el avance si el artículo no pertenece al pedido y alerta si la cantidad excede lo solicitado; lo sobrante va a la caja de discrepancias."
+     },
+     {
+      "id": "a8",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Audita los pedidos retenidos por diferencia y autoriza el re-picking o el ajuste."
+     },
+     {
+      "id": "a9",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Cierra el packing con el pedido cuadrado, lo que habilita su facturación y lo dirige a la mesa de embalaje."
+     },
+     {
+      "id": "a10",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Embala según el canal de salida: paletizado y envuelto para flota propia; doble cinta y precinto de garantía para agencia de envíos, por la manipulación de terceros. No se despachan cajas con costura expuesta o debilidad estructural."
+     },
+     {
+      "id": "a11",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Pesa y mide cada bulto, imprime y pega la etiqueta con pedido, cliente, dirección, canal y numeración correlativa del bulto, y lo ubica en la bahía de su ruta o agencia."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Supervisor(a) de Bodega / Despacho",
+      "Auxiliar / Ayudante de Bodega y Tráfico"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "inicio",
+       "n": "Generar la ola de recolección",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n1",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Recolectar escaneando ubicación y producto",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n2",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "decision",
+       "n": "¿Hay cantidad en la ubicación?"
+      },
+      {
+       "id": "n3",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Reasignar ubicación y registrar la discrepancia"
+      },
+      {
+       "id": "n4",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Cerrar la ola y pasar a empaque",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n5",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Revisar calidad y auditar por escaneo",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n6",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "decision",
+       "n": "¿El pedido queda cuadrado?"
+      },
+      {
+       "id": "n7",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Autorizar re-picking o ajuste"
+      },
+      {
+       "id": "n8",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Embalar según el canal de salida"
+      },
+      {
+       "id": "n9",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "fin",
+       "n": "Bulto pesado, etiquetado y en su bahía"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2"
+      },
+      {
+       "de": "n2",
+       "a": "n3",
+       "etq": "No"
+      },
+      {
+       "de": "n2",
+       "a": "n4",
+       "etq": "Sí"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6"
+      },
+      {
+       "de": "n6",
+       "a": "n7",
+       "etq": "No"
+      },
+      {
+       "de": "n6",
+       "a": "n8",
+       "etq": "Sí"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      },
+      {
+       "de": "n8",
+       "a": "n9"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE)",
+     "E-34",
+     "E-03"
+    ],
+    "filas": [
+     [
+      "El procedimiento formal existe en un país y no en los demás",
+      "El manual de picking, packing y embalaje está emitido y firmado en Venezuela. Las demás operaciones ejecutan pasos equivalentes sin documento que los fije, de modo que la exactitud depende de quién esté en la estación.",
+      "Alta",
+      "Alto",
+      "Adoptar el procedimiento de Venezuela como estándar del grupo, con los ajustes de cada operación anotados como variación y no como práctica distinta."
+     ],
+     [
+      "Todo el proceso depende de la lectura por radiofrecuencia",
+      "Picking y packing se apoyan enteramente en terminales de escaneo y en la red del almacén. Una caída de red o de equipos deja al operador sin ruta ni validación, y la salida es contar a mano sin los controles del sistema.",
+      "Media",
+      "Alto",
+      "Definir el modo degradado por escrito —qué se permite preparar sin escaneo y con qué doble verificación— en vez de improvisarlo, y medir las horas de indisponibilidad de los terminales."
+     ],
+     [
+      "El faltante de ubicación no alimenta el inventario",
+      "Cuando el picker no encuentra la cantidad esperada, la línea se resuelve para que el pedido salga, pero la discrepancia puede quedarse en la conversación del turno y no llegar al ciclo de conteo.",
+      "Alta",
+      "Medio",
+      "Hacer que todo faltante de ubicación genere un registro que entre automáticamente en la lista de referencias a contar del ciclo siguiente."
+     ],
+     [
+      "El urgente desordena la cola sin dejar rastro",
+      "El pedido urgente entra por línea dedicada y desplaza a la cola normal. Sin registro de cuántos urgentes entran y de qué desplazaron, el incumplimiento del plazo de 48 horas parece un problema de productividad cuando es de priorización.",
+      "Media",
+      "Medio",
+      "Registrar el motivo y el solicitante de cada urgente y medir su peso sobre el total preparado."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Exactitud de preparación",
+      "Pedidos cuadrados en la primera auditoría ÷ pedidos preparados",
+      "Semanal",
+      "Coordinador(a) de Logística y Bodega",
+      "99 %"
+     ],
+     [
+      "Cumplimiento del plazo de preparación",
+      "Pedidos preparados dentro de 48 h ÷ pedidos normales recibidos",
+      "Semanal",
+      "Supervisor(a) de Bodega / Despacho",
+      "95 %"
+     ],
+     [
+      "Tiempo de ciclo de preparación",
+      "Hora de bulto en bahía − hora de entrada del pedido al almacén",
+      "Por pedido",
+      "Coordinador(a) de Logística y Bodega",
+      "A fijar tras medir los primeros ciclos"
+     ],
+     [
+      "Peso de los pedidos urgentes",
+      "Pedidos urgentes ÷ pedidos preparados",
+      "Mensual",
+      "Coordinador(a) de Logística y Bodega",
+      "Menos del 15 %"
+     ]
+    ]
+   }
+  },
+  "7.4": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Convierte el pedido ya preparado en una factura y lo entrega documentado a despacho. Coteja lo que el almacén auditó contra el pedido original, comprueba que el cliente esté en condiciones de recibir, emite la factura y traspasa el pedido con su documentación.\n\nEs un eslabón corto pero de riesgo alto: es el único punto entre la bodega y la calle donde se verifica que lo que sale coincide con lo que se vendió y que el cliente puede recibirlo. Hoy lo sostiene una sola persona por operación, y la propia gerencia lo señala como zona a revisar porque la función está repartida entre logística y tráfico.\n\nNo incluye la causación contable ni la conciliación de cuentas por cobrar, que son del macro 12 y del 13."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Analista de Facturación",
+    "participantes": [
+     "Analista de Facturación — dueño del proceso: coteja el pedido auditado contra el original, comprueba el estado del cliente, emite la factura y entrega el pedido documentado a despacho.",
+     "Supervisor(a) de Bodega / Despacho — entrega el pedido auditado y embalado, y recibe después el pedido facturado con su documentación.",
+     "Gerente Comercial (País / Canal) — resuelve el pedido retenido por condición comercial: crédito vencido, retención o negociación abierta.",
+     "Coordinador(a) Contable — recibe la factura emitida para su causación posterior."
+    ],
+    "evidencia": [
+     "E-34",
+     "E-03",
+     "E-70",
+     "Lark: flujo logistico.xlsx — hoja facturación (VE)"
+    ],
+    "notas": "⚠️ El mapa v18 atribuye este proceso a «Auxiliar / Ayudante de Bodega y Tráfico», que es el cargo de la persona que hoy lo ejecuta en Venezuela como asistente administrativo de logística. Se propone **Analista de Facturación**, que sí existe en el patrón V4 y describe la función: el proceso emite documento fiscal y comprueba condiciones del cliente, no manipula mercancía.",
+    "sin_evidencia": "No consta cómo se reparte hoy la facturación entre logística y tráfico en el hub: la propia gerencia de operaciones la señala como zona a revisar sin describir el reparto actual."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Recepción del pedido auditado y embalado que llega desde la estación de empaque con su comprobante.",
+    "cadencia": "Continua, a lo largo de la jornada.",
+    "output": "Factura emitida y pedido traspasado a despacho con su documentación completa: factura, guía y permisología cuando la ruta la exija.",
+    "evidencia": [
+     "E-34",
+     "Lark: flujo logistico.xlsx — hoja facturación (VE)"
+    ],
+    "notas": "El levantamiento de este proceso en Venezuela existe como plantilla con los responsables anotados, sin pasos desarrollados."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-34",
+     "E-03",
+     "E-70",
+     "Lark: flujo logistico.xlsx — hoja facturación (VE)"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Entrega el pedido auditado y embalado con su comprobante de packing."
+     },
+     {
+      "id": "a2",
+      "rol": "Analista de Facturación",
+      "texto": "Coteja el pedido contra el original: cantidades, referencias, colores y códigos, para detectar cualquier sustitución hecha durante la preparación."
+     },
+     {
+      "id": "a3",
+      "rol": "Analista de Facturación",
+      "texto": "Comprueba el estado del cliente antes de facturar: que no tenga retención ni crédito vencido que impida la salida."
+     },
+     {
+      "id": "a4",
+      "rol": "Gerente Comercial (País / Canal)",
+      "texto": "Resuelve el pedido retenido: libera bajo su responsabilidad, lo ajusta o lo devuelve a la espera. La decisión queda registrada con su motivo."
+     },
+     {
+      "id": "a5",
+      "rol": "Analista de Facturación",
+      "texto": "Emite la factura de venta en el sistema y arma la documentación que acompaña al pedido, incluida la guía y la permisología cuando la ruta la exija."
+     },
+     {
+      "id": "a6",
+      "rol": "Analista de Facturación",
+      "texto": "Traspasa el pedido facturado a despacho, dejando constancia de la entrega."
+     },
+     {
+      "id": "a7",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Recibe el pedido con su documentación y lo incorpora a la programación de salida."
+     },
+     {
+      "id": "a8",
+      "rol": "Coordinador(a) Contable",
+      "texto": "Recibe la factura emitida para su causación."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Supervisor(a) de Bodega / Despacho",
+      "Analista de Facturación",
+      "Gerente Comercial (País / Canal)",
+      "Coordinador(a) Contable"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "inicio",
+       "n": "Entregar el pedido auditado"
+      },
+      {
+       "id": "n1",
+       "carril": "Analista de Facturación",
+       "tipo": "tarea",
+       "n": "Cotejar contra el pedido original"
+      },
+      {
+       "id": "n2",
+       "carril": "Analista de Facturación",
+       "tipo": "decision",
+       "n": "¿El cliente puede recibir?"
+      },
+      {
+       "id": "n3",
+       "carril": "Gerente Comercial (País / Canal)",
+       "tipo": "tarea",
+       "n": "Resolver la retención con motivo"
+      },
+      {
+       "id": "n4",
+       "carril": "Analista de Facturación",
+       "tipo": "tarea",
+       "n": "Emitir factura y armar documentación",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n5",
+       "carril": "Analista de Facturación",
+       "tipo": "tarea",
+       "n": "Traspasar el pedido a despacho"
+      },
+      {
+       "id": "n6",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "fin",
+       "n": "Pedido en la programación de salida"
+      },
+      {
+       "id": "n7",
+       "carril": "Coordinador(a) Contable",
+       "tipo": "fin",
+       "n": "Factura recibida para causación",
+       "sistemas": [
+        "ERP"
+       ]
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2"
+      },
+      {
+       "de": "n2",
+       "a": "n3",
+       "etq": "No"
+      },
+      {
+       "de": "n2",
+       "a": "n4",
+       "etq": "Sí"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6"
+      },
+      {
+       "de": "n4",
+       "a": "n7"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-34",
+     "E-03",
+     "E-70"
+    ],
+    "filas": [
+     [
+      "El proceso depende de una sola persona por operación",
+      "La facturación logística la sostiene una única persona en cada operación. Su ausencia detiene la salida de todos los pedidos preparados, porque nada sale sin factura.",
+      "Alta",
+      "Alto",
+      "Formar un segundo con acceso y procedimiento, y dejar por escrito el orden de prioridad cuando la cola se acumula."
+     ],
+     [
+      "La función está repartida entre logística y tráfico",
+      "La propia gerencia de operaciones señala que tráfico también factura y lo declara zona a revisar. Con dos áreas emitiendo, el criterio de verificación previa puede no ser el mismo.",
+      "Media",
+      "Alto",
+      "Fijar dónde reside la emisión y con qué controles; si se mantiene repartida, que ambas apliquen la misma comprobación de condiciones del cliente."
+     ],
+     [
+      "El cotejo contra el pedido original se salta bajo presión",
+      "Es el único punto donde se detecta una sustitución hecha en la preparación. Con la cola acumulada, la tentación es facturar directamente el comprobante de packing, que ya viene cuadrado contra sí mismo pero no contra lo que el cliente pidió.",
+      "Media",
+      "Alto",
+      "Incorporar el cotejo al sistema en lugar de dejarlo a la vista: que la factura no se pueda emitir si las líneas no coinciden con el pedido de venta."
+     ],
+     [
+      "El pedido retenido se libera sin dejar constancia",
+      "La liberación de un pedido con crédito vencido es una decisión comercial con consecuencia de cobranza. Si se resuelve por conversación, no queda quién la autorizó ni por qué.",
+      "Alta",
+      "Medio",
+      "Exigir que toda liberación quede registrada con autor y motivo, y llevar el recuento de liberaciones por cliente como insumo para la revisión de crédito."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Tiempo de facturación",
+      "Hora de emisión de la factura − hora de recepción del pedido auditado",
+      "Por pedido",
+      "Analista de Facturación",
+      "Menos de 2 horas"
+     ],
+     [
+      "Pedidos retenidos por condición del cliente",
+      "Pedidos retenidos ÷ pedidos recibidos para facturar",
+      "Semanal",
+      "Gerente Comercial (País / Canal)",
+      "Seguimiento; sin meta fijada"
+     ],
+     [
+      "Liberaciones con motivo registrado",
+      "Liberaciones con autor y motivo ÷ liberaciones totales",
+      "Mensual",
+      "Gerente Comercial (País / Canal)",
+      "100 %"
+     ],
+     [
+      "Diferencias detectadas en el cotejo",
+      "Pedidos con diferencia contra el original ÷ pedidos facturados",
+      "Mensual",
+      "Analista de Facturación",
+      "Menos del 1 %"
+     ]
+    ]
+   }
+  },
+  "7.5": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Entrega la mercancía al destinatario y cierra el ciclo con la prueba de que llegó. Cubre las tres vías por las que sale un pedido —flota propia, agencia de envíos y cliente que retira— con el control de salida en puerta, la entrega con inspección conjunta y el retorno del documento firmado.\n\nComo en la preparación, la operación de Venezuela tiene los tres procedimientos formalizados y firmados en mayo de 2026; este To-Be los toma como estándar y los extiende. El cierre es lo que hoy queda más flojo: el ciclo no termina cuando el bulto sale, sino cuando el documento firmado vuelve y el vendedor sabe que su cliente recibió.\n\nNo incluye la logística inversa de lo que el cliente devuelve (7.7) ni el despacho entre bodegas del grupo (7.8)."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Supervisor(a) de Bodega / Despacho",
+    "participantes": [
+     "Supervisor(a) de Bodega / Despacho — dueño del proceso: consolida los pedidos facturados, programa las rutas, gestiona las guías con las agencias, valida la carga junto al conductor y cierra el ciclo cuando vuelven los documentos firmados.",
+     "Coordinador(a) de Logística y Bodega — asigna la flota y el personal a cada ruta según volumen y peso, y gestiona la permisología de las rutas foráneas.",
+     "Conductor de flota propia — custodia la mercancía y los documentos en tránsito, entrega con inspección conjunta y retorna los documentos firmados. ⚠️ Cargo sin equivalencia en el patrón V4.",
+     "Personal de seguridad — coteja precintos, placas, identidad del conductor y carga contra la documentación antes de autorizar la salida. ⚠️ Cargo sin equivalencia en el patrón V4.",
+     "Analista de Facturación — entrega la documentación legal del pedido y registra los datos que exige la agencia de envíos.",
+     "Gerente Comercial (País / Canal) — recibe la notificación de entrega para informar a su cliente.",
+     "Agencias de envío (externo) — ZOOM, MRW, Tealca, Domesa y similares, bajo modalidad de casillero, agencia destino o puerta a puerta."
+    ],
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE), procedimientos 1905-DESP-2026#1, #2 y #3",
+     "E-34",
+     "E-03",
+     "E-19"
+    ],
+    "notas": "⚠️ **El patrón V4 no contempla conductor ni personal de seguridad**, y ambos ejecutan pasos de control que el procedimiento formal del cliente define como obligatorios: el conteo conjunto antes de la estiba y el cotejo en puerta. Se usan las denominaciones del propio manual y se dejan señaladas como hueco del patrón, a ratificar por talento."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Pedido facturado que llega a la zona de despacho con su documentación completa.",
+    "cadencia": "Continua, con consolidación diaria de rutas. El pedido normal se entrega dentro de las 48 horas; el urgente tiene prioridad inmediata.",
+    "output": "Mercancía entregada con documento firmado y sellado por el receptor, ciclo cerrado en el sistema y vendedor notificado.",
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE)",
+     "E-34"
+    ],
+    "notas": "El cierre del ciclo es explícito en el procedimiento de flota propia: el supervisor valida que no falte ninguna firma ni sello antes de cerrar la orden y avisar al vendedor."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE), procedimientos 1905-DESP-2026#1, #2 y #3",
+     "E-34",
+     "E-03",
+     "E-19"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Consolida diariamente los pedidos facturados y los agrupa por zona geográfica para armar las rutas."
+     },
+     {
+      "id": "a2",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Determina la vía de salida de cada pedido: flota propia, agencia de envíos o retiro del cliente."
+     },
+     {
+      "id": "a3",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Asigna a cada ruta el vehículo acorde al volumen y peso, con su conductor y ayudante, y tramita la permisología cuando la ruta es foránea."
+     },
+     {
+      "id": "a4",
+      "rol": "Conductor de flota propia",
+      "texto": "Cuenta la carga junto al supervisor antes de estibar e inspecciona el estado de las cajas: es el punto donde la responsabilidad sobre la mercancía cambia de manos."
+     },
+     {
+      "id": "a5",
+      "rol": "Personal de seguridad",
+      "texto": "Coteja en puerta precintos, placas, identidad del conductor y carga contra la factura o guía, y estampa la autorización de salida con la hora de partida."
+     },
+     {
+      "id": "a6",
+      "rol": "Conductor de flota propia",
+      "texto": "Entrega en destino con inspección conjunta: descarga, revisión del estado y conteo con el receptor autorizado, que firma con nombre, identificación, fecha, hora y sello. Cualquier inconformidad se asienta en el documento y se comunica al supervisor."
+     },
+     {
+      "id": "a7",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Gestiona la salida por agencia: solicita la recolecta en la plataforma del courier o entrega en sus instalaciones, valida con el transportista la cantidad de bultos y obtiene su firma como constancia."
+     },
+     {
+      "id": "a8",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Atiende el retiro directo del cliente: valida la documentación y la identificación, comprueba que el pedido esté liberado, y realiza la inspección conjunta y la entrega contra firma."
+     },
+     {
+      "id": "a9",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Registra el número de guía de cada envío por agencia y le hace seguimiento hasta la entrega."
+     },
+     {
+      "id": "a10",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Recibe al cierre de la ruta los documentos firmados, valida que no falte firma ni sello y cierra la orden en el sistema."
+     },
+     {
+      "id": "a11",
+      "rol": "Gerente Comercial (País / Canal)",
+      "texto": "Recibe la notificación de entrega y la traslada a su cliente."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Supervisor(a) de Bodega / Despacho",
+      "Coordinador(a) de Logística y Bodega",
+      "Conductor de flota propia",
+      "Personal de seguridad",
+      "Gerente Comercial (País / Canal)"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "inicio",
+       "n": "Consolidar pedidos facturados del día"
+      },
+      {
+       "id": "n1",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "decision",
+       "n": "¿Por qué vía sale el pedido?"
+      },
+      {
+       "id": "n2",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Asignar vehículo, personal y permisos"
+      },
+      {
+       "id": "n3",
+       "carril": "Conductor de flota propia",
+       "tipo": "tarea",
+       "n": "Contar la carga con el supervisor y estibar"
+      },
+      {
+       "id": "n4",
+       "carril": "Personal de seguridad",
+       "tipo": "tarea",
+       "n": "Cotejar en puerta y autorizar la salida"
+      },
+      {
+       "id": "n5",
+       "carril": "Conductor de flota propia",
+       "tipo": "tarea",
+       "n": "Entregar con inspección conjunta y firma"
+      },
+      {
+       "id": "n6",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Entregar a la agencia y registrar la guía"
+      },
+      {
+       "id": "n7",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Atender el retiro directo del cliente"
+      },
+      {
+       "id": "n8",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Validar documentos firmados y cerrar la orden",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n9",
+       "carril": "Gerente Comercial (País / Canal)",
+       "tipo": "fin",
+       "n": "Vendedor notificado de la entrega"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2",
+       "etq": "Flota propia"
+      },
+      {
+       "de": "n1",
+       "a": "n6",
+       "etq": "Agencia"
+      },
+      {
+       "de": "n1",
+       "a": "n7",
+       "etq": "Cliente retira"
+      },
+      {
+       "de": "n2",
+       "a": "n3"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n8"
+      },
+      {
+       "de": "n6",
+       "a": "n8"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      },
+      {
+       "de": "n8",
+       "a": "n9"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "Lark: Procedimientos de Almacén y Despacho V1.0 (VE)",
+     "E-34",
+     "E-19"
+    ],
+    "filas": [
+     [
+      "El documento firmado no vuelve y el ciclo no cierra",
+      "La prueba de entrega es la firma del receptor en la copia que retorna el conductor. Si falta una firma o un sello, no hay constancia ante un reclamo posterior y el vendedor no sabe si su cliente recibió.",
+      "Alta",
+      "Alto",
+      "Hacer del retorno documental un paso con control explícito al cierre de ruta, y medir las entregas sin prueba de entrega como indicador propio."
+     ],
+     [
+      "La responsabilidad sobre la carga cambia de manos sin registro común",
+      "El conteo conjunto antes de la estiba es lo que separa la responsabilidad del almacén de la del transporte. Cuando se omite por prisa, una diferencia detectada en destino no se puede atribuir.",
+      "Media",
+      "Alto",
+      "No autorizar la salida sin el conteo conjunto registrado, y que el control de puerta lo verifique como requisito, no como formalidad."
+     ],
+     [
+      "El envío por agencia se pierde de vista tras la entrega al courier",
+      "Con agencia externa la trazabilidad depende del número de guía y de su seguimiento. Sin registro sistemático de la guía, el reclamo por extravío empieza sin el dato básico.",
+      "Media",
+      "Medio",
+      "Registrar la guía en el pedido en el momento de generarla y no al cierre, y revisar semanalmente los envíos sin confirmación de entrega."
+     ],
+     [
+      "La entrega desde el hub a otro país depende de terceros sin acuerdo de nivel de servicio",
+      "Las operaciones que reciben desde Zona Libre describen su cumplimiento como bajo y con quiebres. La entrega cruza al menos dos manos externas sin compromiso de plazo pactado.",
+      "Media",
+      "Alto",
+      "Pactar plazo y forma de reporte con cada operador externo por corredor, y medir el cumplimiento por corredor en vez de en agregado."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Entregas a tiempo",
+      "Entregas dentro del plazo comprometido ÷ entregas realizadas",
+      "Semanal",
+      "Supervisor(a) de Bodega / Despacho",
+      "95 % en 48 horas para pedido normal"
+     ],
+     [
+      "Entregas con prueba de entrega completa",
+      "Documentos retornados con firma y sello ÷ entregas de flota propia",
+      "Semanal",
+      "Supervisor(a) de Bodega / Despacho",
+      "100 %"
+     ],
+     [
+      "Incidencias en destino",
+      "Entregas con inconformidad asentada ÷ entregas realizadas",
+      "Mensual",
+      "Coordinador(a) de Logística y Bodega",
+      "Menos del 2 %"
+     ],
+     [
+      "Envíos por agencia sin confirmación",
+      "Guías sin confirmación de entrega a los 7 días ÷ guías emitidas",
+      "Semanal",
+      "Supervisor(a) de Bodega / Despacho",
+      "Menos del 3 %"
+     ]
+    ]
+   }
+  },
+  "7.6": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Trae la mercancía desde el proveedor hasta la puerta del almacén de destino, nacionalizada y liberada. Cubre el seguimiento del embarque, la gestión con el agente aduanal y el operador de carga, la permisología del país, el pago de los impuestos y el aviso de arribo con el que arranca la recepción.\n\nEs el proceso que alimenta al resto del macroproceso y también su principal punto ciego: quien compra sabe qué viene y cuándo, pero esa información no baja a tráfico ni al almacén, de modo que el seguimiento empieza tarde y a veces arranca con el aviso del agente aduanal cuando la carga ya está en puerto. Este To-Be hace que el embarque se siga desde que la compra se coloca, no desde que llega.\n\nNo incluye la decisión de compra (6.3 y 6.4) ni la recepción física y el costeo (7.1), al que este proceso entrega el aviso de arribo y la documentación."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Líder de Administración / Importaciones",
+    "participantes": [
+     "Líder de Administración / Importaciones — dueño del proceso: sigue el embarque, coordina al agente aduanal y al operador de carga, tramita la permisología y emite el aviso de arribo con la documentación y la cotización del flete.",
+     "Auxiliar / Ayudante de Bodega y Tráfico — apoya la tramitación documental y el seguimiento de los embarques activos.",
+     "Coordinador(a) de Tesorería / Cobranzas — paga los impuestos y tasas aduanales en el plazo que exige la liberación.",
+     "Gerente de Operaciones y Logística — recibe la previsión de arribos para programar la capacidad del almacén.",
+     "Agente aduanal (externo) — presenta la declaración, atiende el aforo y libera la carga.",
+     "Operador de carga (externo) — transporta el embarque y reporta su posición y fecha estimada de llegada."
+    ],
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-70",
+     "E-19"
+    ],
+    "notas": "⚠️ El mapa v18 atribuye el proceso a «Coordinador(a) de Logística y Bodega». Se propone **Líder de Administración / Importaciones**, que existe en el patrón V4 y es el mismo cargo con el que el manual documenta el trámite aduanal en el macro 9. En la operación del hub esta función es hoy un departamento con jefatura propia y personal dedicado a importación y exportación.",
+    "sin_evidencia": "Las exigencias de permisología varían por país —hay operaciones que tramitan permisos sectoriales antes del arribo y otras que no los requieren— y no consta una lista consolidada por país y tipo de producto."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Orden de compra colocada con salida programada del proveedor. A partir de ese hito el embarque entra en seguimiento, sin esperar a los documentos de embarque ni al aviso del agente.",
+    "cadencia": "Continua para los embarques en tránsito; por evento en cada arribo.",
+    "output": "Mercancía nacionalizada, con permisología completa e impuestos pagados, y aviso de arribo entregado al almacén con la documentación y la cotización del flete.",
+    "evidencia": [
+     "E-03",
+     "E-34"
+    ],
+    "notas": "El disparador es un cambio respecto de hoy: el seguimiento arranca hoy con la llegada de los documentos de embarque o con el aviso del agente aduanal, no con la compra."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-70",
+     "E-19"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Registra el embarque en seguimiento en cuanto la compra se coloca, con proveedor, contenido línea a línea, modo de envío y fecha estimada. Ese registro es el que se convierte después en el aviso anticipado que recibe el almacén."
+     },
+     {
+      "id": "a2",
+      "rol": "Operador de carga (externo)",
+      "texto": "Reporta la salida desde origen y la posición del embarque, y entrega el conocimiento de embarque y los documentos del proveedor."
+     },
+     {
+      "id": "a3",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Revisa que los documentos cuadren entre sí —conocimiento de embarque, factura del proveedor y detalle de mercancía— antes de pasarlos al agente aduanal."
+     },
+     {
+      "id": "a4",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Comprueba si la mercancía exige permiso sectorial previo en el país de destino."
+     },
+     {
+      "id": "a5",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Tramita el permiso ante el organismo que corresponda, apoyándose en la certificación del producto que envía el origen."
+     },
+     {
+      "id": "a6",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Entrega el expediente al agente aduanal con los códigos arancelarios, cantidades y valores."
+     },
+     {
+      "id": "a7",
+      "rol": "Agente aduanal (externo)",
+      "texto": "Presenta la declaración, atiende el reconocimiento cuando la aduana lo determina y liquida los tributos."
+     },
+     {
+      "id": "a8",
+      "rol": "Coordinador(a) de Tesorería / Cobranzas",
+      "texto": "Paga los impuestos y tasas aduanales dentro del plazo de liberación."
+     },
+     {
+      "id": "a9",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Confirma la liberación de la carga y coordina su traslado al almacén de destino."
+     },
+     {
+      "id": "a10",
+      "rol": "Líder de Administración / Importaciones",
+      "texto": "Emite al almacén el aviso anticipado de embarque —contenido esperado línea a línea, documentación y cotización del flete—, con el que arranca la recepción."
+     },
+     {
+      "id": "a11",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Consulta la previsión de arribos para programar cuadrilla y espacio con antelación, en lugar de reaccionar al aviso."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Líder de Administración / Importaciones",
+      "Operador de carga (externo)",
+      "Auxiliar / Ayudante de Bodega y Tráfico",
+      "Agente aduanal (externo)",
+      "Coordinador(a) de Tesorería / Cobranzas",
+      "Gerente de Operaciones y Logística"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "inicio",
+       "n": "Registrar el embarque al colocarse la compra"
+      },
+      {
+       "id": "n1",
+       "carril": "Operador de carga (externo)",
+       "tipo": "tarea",
+       "n": "Reportar salida y entregar documentos"
+      },
+      {
+       "id": "n2",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "tarea",
+       "n": "Revisar que los documentos cuadren"
+      },
+      {
+       "id": "n3",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "decision",
+       "n": "¿Exige permiso previo?"
+      },
+      {
+       "id": "n4",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Tramitar el permiso sectorial"
+      },
+      {
+       "id": "n5",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "tarea",
+       "n": "Entregar el expediente al agente"
+      },
+      {
+       "id": "n6",
+       "carril": "Agente aduanal (externo)",
+       "tipo": "tarea",
+       "n": "Declarar, atender aforo y liquidar tributos"
+      },
+      {
+       "id": "n7",
+       "carril": "Coordinador(a) de Tesorería / Cobranzas",
+       "tipo": "tarea",
+       "n": "Pagar impuestos y tasas"
+      },
+      {
+       "id": "n8",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "tarea",
+       "n": "Confirmar liberación y trasladar al almacén"
+      },
+      {
+       "id": "n9",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Programar cuadrilla y espacio"
+      },
+      {
+       "id": "n10",
+       "carril": "Líder de Administración / Importaciones",
+       "tipo": "fin",
+       "n": "Aviso de arribo emitido al almacén"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n0",
+       "a": "n9"
+      },
+      {
+       "de": "n1",
+       "a": "n2"
+      },
+      {
+       "de": "n2",
+       "a": "n3"
+      },
+      {
+       "de": "n3",
+       "a": "n4",
+       "etq": "Sí"
+      },
+      {
+       "de": "n3",
+       "a": "n5",
+       "etq": "No"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6"
+      },
+      {
+       "de": "n6",
+       "a": "n7"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      },
+      {
+       "de": "n8",
+       "a": "n10"
+      },
+      {
+       "de": "n9",
+       "a": "n10"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-34",
+     "E-19"
+    ],
+    "filas": [
+     [
+      "La información de compra no baja a tráfico",
+      "Quien compra conoce el contenido y la fecha del embarque, pero ese dato no llega al área que debe seguirlo. El seguimiento arranca con los documentos o, peor, con el aviso del agente cuando la carga ya está en puerto.",
+      "Alta",
+      "Alto",
+      "Hacer del registro del embarque un paso obligado al colocar la compra, con el pago anticipado como hito que lo dispara: quien paga ya sabe qué viene y cuándo."
+     ],
+     [
+      "La carga aérea no viene rastreada",
+      "El seguimiento de la carga aérea depende de que el proveedor lo comparta, y con frecuencia no lo hace. El almacén se entera de un envío aéreo cuando ya llegó.",
+      "Alta",
+      "Medio",
+      "Incluir en las condiciones con cada proveedor la obligación de mandar el aviso anticipado del embarque con su contenido y seguimiento, y medir su exactitud a nivel de línea; la referencia del sector sitúa el objetivo cerca del 99,5 %."
+     ],
+     [
+      "La permisología depende de conocimiento no escrito",
+      "Qué producto exige permiso y ante qué organismo varía por país y se resuelve por experiencia de quien lo ha tramitado antes. Un producto nuevo puede quedarse detenido por un permiso que nadie previó.",
+      "Alta",
+      "Alto",
+      "Mantener por país una lista de requisitos por tipo de producto, y consultarla al registrar el embarque y no al llegar a aduana."
+     ],
+     [
+      "El pago de tributos entra en la cola general de tesorería",
+      "La liberación tiene plazo y su incumplimiento genera almacenaje. Si el pago compite con el resto de la cola sin prioridad declarada, la demora cuesta dinero y espacio.",
+      "Media",
+      "Alto",
+      "Tratar el pago aduanal como compromiso con fecha límite en la planificación de tesorería, con el plazo de liberación como dato del propio pago."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Embarques en seguimiento desde la compra",
+      "Embarques registrados al colocar la compra ÷ embarques recibidos",
+      "Mensual",
+      "Líder de Administración / Importaciones",
+      "100 %"
+     ],
+     [
+      "Antelación del aviso de arribo",
+      "Fecha de arribo − fecha del aviso al almacén",
+      "Por embarque",
+      "Líder de Administración / Importaciones",
+      "Mínimo 5 días hábiles en carga marítima"
+     ],
+     [
+      "Tiempo de nacionalización",
+      "Fecha de liberación − fecha de llegada a puerto",
+      "Por embarque",
+      "Líder de Administración / Importaciones",
+      "A fijar por país tras medir los primeros ciclos"
+     ],
+     [
+      "Costo de almacenaje por demora",
+      "Gasto de almacenaje en puerto atribuible a demora de trámite",
+      "Mensual",
+      "Líder de Administración / Importaciones",
+      "Tendencia a la baja; sin meta fijada"
+     ],
+     [
+      "Exactitud del aviso anticipado",
+      "Líneas del aviso que coinciden con lo recibido ÷ líneas del aviso",
+      "Por embarque",
+      "Líder de Administración / Importaciones",
+      "99,5 %"
+     ]
+    ]
+   }
+  },
+  "7.7": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Recibe lo que el cliente devuelve, lo pone en manos de Servicio Técnico para su determinación y ejecuta el desenlace: devolver al inventario vendible lo que vuelve intacto, entregar el reemplazo, devolver la unidad reparada o dar de baja lo que no se recupera.\n\n**Cuatro desenlaces, no tres.** Hoy lo que entra a la bodega de garantías solo puede salir como reemplazo o como desecho. Una unidad devuelta sin abrir o sin falla comprobada debería volver al inventario vendible: es valor que hoy se pierde por no tener esa vía.\n\nLa frontera con Servicio Técnico es la que ordena el proceso: **la determinación técnica y la reparación son de Servicio Técnico; la custodia física, el movimiento y la baja son de Logística.** El desenlace depende de la marca: la marca propia no se repara y se resuelve por reemplazo directo; la representada sí tiene reparación real.\n\nNo incluye el diagnóstico técnico ni la reparación en sí, que pertenecen al macro 11; ni la devolución al proveedor de origen, que es de compras."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Coordinador(a) de Logística y Bodega",
+    "participantes": [
+     "Coordinador(a) de Logística y Bodega — dueño del proceso: responde por la custodia y el movimiento de la mercancía devuelta y por la separación entre lo que puede volver a circular y lo que no.",
+     "Auxiliar / Ayudante de Bodega y Tráfico — recibe el producto devuelto, lo ubica en la bodega de garantías y ejecuta los traslados del reemplazo.",
+     "Subgerente de Servicio Técnico — determina si procede reparación, reemplazo o rechazo, y devuelve la unidad reparada para su entrega.",
+     "Técnico(a) de Servicio / Relojero(a) — repara las unidades de la marca representada con las piezas que el fabricante suministra.",
+     "Coordinador(a) de Soporte / Servicio al Cliente — informa al cliente el estado de su caso y coordina la entrega del desenlace.",
+     "Coordinador(a) Contable — registra la baja contable de la mercancía no recuperable."
+    ],
+    "evidencia": [
+     "E-34",
+     "E-51",
+     "E-64"
+    ],
+    "notas": "La separación física entre la bodega de mercancía disponible para reemplazo y la de mercancía a desechar existe hoy en la operación de Venezuela con dos almacenes distintos, y se recoge como estándar."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Llegada del producto devuelto —por el almacén central, por una tienda o por agencia de envíos— con su caso abierto.",
+    "cadencia": "Continua, con cortes de procesamiento en horas fijas del día. Los volúmenes por corte en la operación de mayor tamaño llegan a varios cientos de unidades.",
+    "output": "Cliente resuelto con reemplazo o unidad reparada, y mercancía no recuperable separada y dada de baja con su registro.",
+    "evidencia": [
+     "E-34",
+     "E-51",
+     "E-64"
+    ],
+    "notas": "Los cortes por horas fijas son el punto que la propia operación de Servicio Técnico identifica como su cuello de botella: dependen de dos tiempos al día para obtener la mercancía de reemplazo."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-34",
+     "E-51",
+     "E-64"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Recibe el producto devuelto, lo asocia a su caso y lo ubica en la bodega de garantías, separada del inventario vendible."
+     },
+     {
+      "id": "a1c",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Devuelve al inventario vendible la unidad determinada como íntegra, con su control de calidad y su movimiento registrado."
+     },
+     {
+      "id": "a2",
+      "rol": "Subgerente de Servicio Técnico",
+      "texto": "Determina el desenlace entre cuatro: la unidad llega íntegra y sin falla comprobada y vuelve al inventario vendible; procede reparación; procede reemplazo; o se rechaza y va a desecho. La clasificación por estado es parte de la determinación, no un paso aparte."
+     },
+     {
+      "id": "a3",
+      "rol": "Técnico(a) de Servicio / Relojero(a)",
+      "texto": "Repara la unidad cuando la marca tiene reparación y hay pieza disponible, y la devuelve para su entrega."
+     },
+     {
+      "id": "a4",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Atiende la solicitud de reemplazo con cargo a la bodega de garantías y autoriza el traslado de la unidad de sustitución."
+     },
+     {
+      "id": "a5",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Ejecuta el traslado de la unidad de reemplazo y la deja a disposición para su entrega al cliente."
+     },
+     {
+      "id": "a6",
+      "rol": "Coordinador(a) de Soporte / Servicio al Cliente",
+      "texto": "Informa al cliente el desenlace y coordina la entrega del reemplazo o de la unidad reparada."
+     },
+     {
+      "id": "a7",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Traslada la unidad no recuperable a la bodega de desecho, que es de entrada y no de salida: nada de lo que entra vuelve a circular."
+     },
+     {
+      "id": "a8",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Consolida periódicamente lo acumulado en desecho y lo presenta para su baja, en lugar de dejarlo crecer sin cierre."
+     },
+     {
+      "id": "a9",
+      "rol": "Coordinador(a) Contable",
+      "texto": "Registra la baja contable de la mercancía desechada con su soporte."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Auxiliar / Ayudante de Bodega y Tráfico",
+      "Subgerente de Servicio Técnico",
+      "Técnico(a) de Servicio / Relojero(a)",
+      "Coordinador(a) de Logística y Bodega",
+      "Coordinador(a) de Soporte / Servicio al Cliente",
+      "Coordinador(a) Contable"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "inicio",
+       "n": "Recibir y ubicar en bodega de garantías",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n1",
+       "carril": "Subgerente de Servicio Técnico",
+       "tipo": "decision",
+       "n": "¿Cuál es el desenlace?"
+      },
+      {
+       "id": "n2",
+       "carril": "Técnico(a) de Servicio / Relojero(a)",
+       "tipo": "tarea",
+       "n": "Reparar y devolver la unidad"
+      },
+      {
+       "id": "n3",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Autorizar el traslado del reemplazo"
+      },
+      {
+       "id": "n4",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Trasladar la unidad de reemplazo",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n5",
+       "carril": "Coordinador(a) de Soporte / Servicio al Cliente",
+       "tipo": "fin",
+       "n": "Cliente resuelto y entrega coordinada"
+      },
+      {
+       "id": "n6",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Trasladar a bodega de desecho",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n7",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Consolidar el desecho del periodo"
+      },
+      {
+       "id": "n8",
+       "carril": "Coordinador(a) Contable",
+       "tipo": "fin",
+       "n": "Baja contable registrada",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n9",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "fin",
+       "n": "Devuelta al inventario vendible",
+       "sistemas": [
+        "WMS"
+       ]
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2",
+       "etq": "Reparación"
+      },
+      {
+       "de": "n1",
+       "a": "n3",
+       "etq": "Reemplazo"
+      },
+      {
+       "de": "n1",
+       "a": "n6",
+       "etq": "Rechazo"
+      },
+      {
+       "de": "n2",
+       "a": "n5"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n6",
+       "a": "n7"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      },
+      {
+       "de": "n1",
+       "a": "n9",
+       "etq": "Sin falla"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-34",
+     "E-51",
+     "E-64"
+    ],
+    "filas": [
+     [
+      "El reemplazo depende de dos cortes al día",
+      "Servicio Técnico dejó de tener mercancía de reemplazo a mano y ahora la solicita al almacén, que la entrega en dos momentos fijos de la jornada. El propio equipo lo señala como su cuello de botella: un caso que llega después del corte espera al siguiente.",
+      "Alta",
+      "Alto",
+      "Mantener en Servicio Técnico un stock de reemplazo de las referencias de mayor rotación, repuesto contra consumo, de modo que el corte deje de ser la vía única."
+     ],
+     [
+      "La mercancía de desecho se acumula sin baja",
+      "La bodega de desecho recibe pero no cierra: la baja contable se reconoce como pendiente y sin periodicidad establecida. El inventario carga unidades que ya no valen nada.",
+      "Alta",
+      "Medio",
+      "Fijar una periodicidad de baja y tratarla como cierre obligatorio del periodo, con el volumen acumulado en desecho como indicador visible."
+     ],
+     [
+      "El caso abierto en tienda no llega al sistema hasta que llega el producto",
+      "La recepción del producto ocurre en el punto de venta y el área central se entera cuando el producto físico llega. Entre ambos momentos el cliente ya espera y nadie puede decirle en qué estado está su caso.",
+      "Alta",
+      "Alto",
+      "Abrir el caso en el punto de recepción, no en el central, de modo que el reloj del cliente empiece a contar donde se entrega el producto."
+     ],
+     [
+      "La frontera con Servicio Técnico se difumina en la práctica",
+      "La determinación es técnica y el movimiento es logístico, pero ambos ocurren en el mismo espacio físico y con el mismo personal en las operaciones pequeñas, de modo que la responsabilidad sobre una unidad perdida no es atribuible.",
+      "Media",
+      "Medio",
+      "Registrar cada cambio de custodia de la unidad entre bodega y taller, aunque sea el mismo espacio."
+     ],
+     [
+      "Toda devolución se trata como garantía",
+      "Sin una clasificación por estado al recibir, la unidad íntegra sigue el mismo camino que la defectuosa y acaba consumida como reemplazo o desechada. Es valor recuperable que se pierde por la forma del proceso, no por el estado del producto.",
+      "Alta",
+      "Medio",
+      "Clasificar por estado en la recepción del caso y habilitar la vía de retorno al inventario vendible con su control de calidad."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Tiempo de resolución del caso",
+      "Fecha de entrega del desenlace − fecha de recepción del producto",
+      "Por caso",
+      "Coordinador(a) de Logística y Bodega",
+      "A fijar por marca tras medir los primeros ciclos"
+     ],
+     [
+      "Casos en espera de reemplazo",
+      "Casos determinados sin reemplazo entregado al cierre del día",
+      "Diario",
+      "Coordinador(a) de Logística y Bodega",
+      "Tendencia a cero"
+     ],
+     [
+      "Unidades en desecho sin baja",
+      "Unidades acumuladas en bodega de desecho sin baja contable",
+      "Mensual",
+      "Coordinador(a) Contable",
+      "Cero al cierre del periodo de baja"
+     ],
+     [
+      "Trazabilidad del caso",
+      "Casos con registro desde el punto de recepción ÷ casos recibidos",
+      "Mensual",
+      "Coordinador(a) de Soporte / Servicio al Cliente",
+      "100 %"
+     ],
+     [
+      "Tasa de recuperación de valor",
+      "Valor de las unidades devueltas al inventario vendible ÷ valor de las unidades devueltas",
+      "Mensual",
+      "Coordinador(a) de Logística y Bodega",
+      "A fijar tras medir los primeros ciclos; hoy la vía no existe"
+     ]
+    ]
+   }
+  },
+  "7.8": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Mueve mercancía entre bodegas o hacia un área de la organización cuando no hay una venta detrás: material para Marketing, unidades para Servicio Técnico, urgencias entre tiendas de la misma plaza, retornos de tienda a bodega central y reorganizaciones internas.\n\nEs el proceso más informal del macroproceso y el de mayor riesgo silencioso: mueve inventario sin que medie factura, de modo que un traslado mal hecho no lo detecta nadie hasta el conteo. El cambio que propone este To-Be es que **todo traslado nazca de una solicitud registrada y que el que consume salga a costo**, que es justo lo que hoy no ocurre.\n\nNo incluye la reposición inter-compañía entre países (6.6) ni el despacho al cliente (7.5)."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Coordinador(a) de Logística y Bodega",
+    "participantes": [
+     "Coordinador(a) de Logística y Bodega — dueño del proceso: recibe la solicitud, comprueba que tenga aprobación cuando le corresponde y autoriza el movimiento.",
+     "Auxiliar / Ayudante de Bodega y Tráfico — ejecuta el traslado físico y lo registra.",
+     "Supervisor(a) de Bodega / Despacho — entrega la mercancía al área destino contra constancia.",
+     "Coordinador(a) de Marca — solicitante frecuente para material promocional y entregas a terceros.",
+     "Subgerente de Servicio Técnico — solicitante frecuente para unidades de reemplazo y repuestos.",
+     "Gerente de Ventas al Detal (País) — aprueba los traslados entre tiendas de la misma plaza.",
+     "Coordinador(a) Contable — registra la salida a costo de la mercancía que se consume y no vuelve al inventario vendible."
+    ],
+    "evidencia": [
+     "E-34",
+     "E-51",
+     "Lark: flujo logistico.xlsx — hojas Traslados Marketing y Traslados Solicitudes (VE)"
+    ],
+    "notas": "⚠️ El mapa v18 nombra «Supervisor de Ventas» como aprobador de los traslados entre tiendas; ese cargo no existe en el patrón V4. Se usa **Gerente de Ventas al Detal (País)**, que sí existe y es la equivalencia ya adoptada en el macro 9. El mapa atribuye además el proceso al auxiliar que lo ejecuta; la titularidad se sitúa en la coordinación, que es quien autoriza."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "Solicitud de traslado del área requirente, registrada por el canal formal con el destino, el motivo y el uso previsto de la mercancía.",
+    "cadencia": "Continua, a lo largo de la jornada.",
+    "output": "Mercancía trasladada al destino con el movimiento registrado, y salida a costo aplicada cuando el material se consume.",
+    "evidencia": [
+     "E-34",
+     "Lark: flujo logistico.xlsx — hojas de traslados (VE)"
+    ],
+    "notas": "El registro de la solicitud es un cambio respecto de hoy: buena parte de los traslados urgentes se piden de viva voz y se ejecutan antes de que exista constancia."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-34",
+     "E-51",
+     "Lark: flujo logistico.xlsx — hojas Traslados Marketing y Traslados Solicitudes (VE)"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Coordinador(a) de Marca",
+      "texto": "Registra la solicitud de traslado indicando destino, motivo y si la mercancía se consume o retorna."
+     },
+     {
+      "id": "a2",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Comprueba si el traslado requiere aprobación previa por su destino o su valor."
+     },
+     {
+      "id": "a3",
+      "rol": "Gerente de Ventas al Detal (País)",
+      "texto": "Aprueba los traslados entre tiendas de la misma plaza, que mueven inventario entre puntos con responsables distintos."
+     },
+     {
+      "id": "a4",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Autoriza el movimiento y lo asigna a la cuadrilla, indicando la bodega de origen y la de destino."
+     },
+     {
+      "id": "a5",
+      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
+      "texto": "Ejecuta el traslado físico y registra el movimiento entre ubicaciones en el sistema."
+     },
+     {
+      "id": "a6",
+      "rol": "Supervisor(a) de Bodega / Despacho",
+      "texto": "Entrega la mercancía al área destino contra constancia de quien la recibe."
+     },
+     {
+      "id": "a7",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Determina si la mercancía se consume —material promocional entregado, unidad usada como reemplazo— o si retorna al inventario vendible."
+     },
+     {
+      "id": "a8",
+      "rol": "Coordinador(a) Contable",
+      "texto": "Registra la salida a costo de la mercancía consumida, con la periodicidad acordada, de modo que deje de figurar como existencia."
+     },
+     {
+      "id": "a9",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Da seguimiento a los traslados con retorno previsto que no han vuelto y los reclama al área destino."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Coordinador(a) de Marca",
+      "Coordinador(a) de Logística y Bodega",
+      "Gerente de Ventas al Detal (País)",
+      "Auxiliar / Ayudante de Bodega y Tráfico",
+      "Supervisor(a) de Bodega / Despacho",
+      "Coordinador(a) Contable"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Coordinador(a) de Marca",
+       "tipo": "inicio",
+       "n": "Registrar la solicitud de traslado"
+      },
+      {
+       "id": "n1",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "decision",
+       "n": "¿Requiere aprobación previa?"
+      },
+      {
+       "id": "n2",
+       "carril": "Gerente de Ventas al Detal (País)",
+       "tipo": "tarea",
+       "n": "Aprobar el traslado entre tiendas"
+      },
+      {
+       "id": "n3",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Autorizar y asignar el movimiento"
+      },
+      {
+       "id": "n4",
+       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
+       "tipo": "tarea",
+       "n": "Ejecutar y registrar el traslado",
+       "sistemas": [
+        "WMS"
+       ]
+      },
+      {
+       "id": "n5",
+       "carril": "Supervisor(a) de Bodega / Despacho",
+       "tipo": "tarea",
+       "n": "Entregar contra constancia"
+      },
+      {
+       "id": "n6",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "decision",
+       "n": "¿La mercancía se consume?"
+      },
+      {
+       "id": "n7",
+       "carril": "Coordinador(a) Contable",
+       "tipo": "fin",
+       "n": "Salida a costo registrada",
+       "sistemas": [
+        "ERP"
+       ]
+      },
+      {
+       "id": "n8",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "fin",
+       "n": "Retorno pendiente en seguimiento"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2",
+       "etq": "Sí"
+      },
+      {
+       "de": "n1",
+       "a": "n3",
+       "etq": "No"
+      },
+      {
+       "de": "n2",
+       "a": "n3"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6"
+      },
+      {
+       "de": "n6",
+       "a": "n7",
+       "etq": "Sí"
+      },
+      {
+       "de": "n6",
+       "a": "n8",
+       "etq": "No"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-34",
+     "E-51"
+    ],
+    "filas": [
+     [
+      "La salida a costo no se ejecuta",
+      "El material que sale a Marketing y se entrega a terceros debe salir a costo para dejar de contar como existencia. La operación reconoce no haber hecho todavía ninguna salida de ese tipo con el sistema actual, de modo que el inventario carga mercancía que ya no está.",
+      "Alta",
+      "Alto",
+      "Fijar la periodicidad de la salida a costo y tratarla como cierre del periodo; medir el valor acumulado pendiente de dar de baja."
+     ],
+     [
+      "El traslado urgente se ejecuta antes de existir la solicitud",
+      "Las entregas urgentes —material para un influencer, una unidad para una visita— se piden de viva voz y salen en el momento. El registro, si llega, llega después y con los datos que alguien recuerde.",
+      "Alta",
+      "Alto",
+      "Permitir el registro posterior solo dentro del mismo día y con motivo obligatorio, y medir el porcentaje de traslados registrados a posteriori."
+     ],
+     [
+      "El traslado con retorno previsto no se reclama",
+      "Cuando la mercancía sale para exhibición o prueba y debe volver, nadie tiene el reclamo a su cargo; la unidad queda fuera del inventario vendible sin estar consumida.",
+      "Media",
+      "Medio",
+      "Distinguir en la solicitud el traslado con retorno del definitivo, y llevar una lista de retornos vencidos que se revise semanalmente."
+     ],
+     [
+      "El traslado entre tiendas mueve responsabilidad sin control",
+      "Un movimiento entre dos puntos con responsables distintos cambia de quién es la mercancía. Sin aprobación ni constancia de recepción, el faltante aparece en el conteo del punto que la recibió.",
+      "Media",
+      "Alto",
+      "Exigir aprobación del responsable comercial del canal y constancia de recepción en destino antes de cerrar el movimiento."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Traslados con solicitud previa",
+      "Traslados con solicitud registrada antes de ejecutarse ÷ traslados ejecutados",
+      "Mensual",
+      "Coordinador(a) de Logística y Bodega",
+      "Más del 90 %"
+     ],
+     [
+      "Valor pendiente de salida a costo",
+      "Valor de la mercancía consumida y aún registrada como existencia",
+      "Mensual",
+      "Coordinador(a) Contable",
+      "Cero al cierre del periodo"
+     ],
+     [
+      "Retornos vencidos",
+      "Traslados con retorno previsto vencido ÷ traslados con retorno",
+      "Semanal",
+      "Coordinador(a) de Logística y Bodega",
+      "Menos del 5 %"
+     ],
+     [
+      "Traslados con constancia de recepción",
+      "Traslados con constancia en destino ÷ traslados entregados",
+      "Mensual",
+      "Supervisor(a) de Bodega / Despacho",
+      "100 %"
+     ]
+    ]
+   }
+  },
+  "7.9": {
+   "proposito": {
+    "estado": "borrador",
+    "texto": "Es la capa de gobierno del macroproceso: define los indicadores logísticos, los mide, los lleva a la junta y convierte las brechas en planes con responsable y fecha. También sostiene la política logística regional y la convergencia de procesos y sistemas entre operaciones.\n\n**Es un proceso que hoy no existe.** La propia gerencia de operaciones lo declara: hasta hace poco no había indicadores, y apenas ahora se están definiendo con la junta, escogiendo con cuáles empezar para no dispersar la atención. Las operaciones que no son el hub lo confirman desde el otro lado: una describe su día a día como apagar incendios y otra reconoce un nivel de cumplimiento bajo con quiebres de inventario.\n\nSe documenta como ciclo de gobierno, no como flujo operativo: no mueve mercancía, mueve decisiones."
+   },
+   "dueno": {
+    "estado": "borrador",
+    "dueno": "Gerente de Operaciones y Logística",
+    "participantes": [
+     "Gerente de Operaciones y Logística — dueño del proceso: propone el cuadro de indicadores, lo sostiene, presenta resultados a la junta y responde por los planes de mejora.",
+     "Analista de Logística — consolida la medición de todas las operaciones y mantiene el tablero.",
+     "Analista de Sistemas / Datos — extrae el dato de los sistemas de almacén y del ERP y automatiza el tablero, de modo que la medición no dependa de hojas armadas a mano.",
+     "Coordinador(a) de Logística y Bodega — aporta la medición de su operación y ejecuta los planes de mejora que le corresponden.",
+     "Gerente Regional Comercial / Retail — participa en la revisión, porque buena parte de las brechas logísticas nacen en la interfaz con ventas.",
+     "Gerente de Contabilidad / Administración — aporta el costo logístico y valida el impacto económico de las brechas.",
+     "Junta Directiva — recibe el reporte, aprueba la política y prioriza las brechas. ⚠️ Instancia de gobierno, no cargo del patrón V4."
+    ],
+    "evidencia": [
+     "E-03",
+     "E-11",
+     "E-19",
+     "E-63"
+    ],
+    "notas": "⚠️ El mapa v18 nombra «Planificador Financiero» como participante; ese cargo no existe en el patrón V4. Se usa **Gerente de Contabilidad / Administración**, equivalencia ya adoptada en los macros 8 y 9. La Junta Directiva se conserva como instancia de gobierno, no como cargo.",
+    "sin_evidencia": "No consta qué indicadores quedaron finalmente seleccionados con la junta ni con qué metas: la selección estaba en curso al momento de las entrevistas."
+   },
+   "disparador": {
+    "estado": "borrador",
+    "disparador": "El calendario de revisión trimestral, y fuera de él, cualquier indicador que salga del rango acordado.",
+    "cadencia": "Medición continua; revisión formal trimestral con la junta.",
+    "output": "Tablero de indicadores vigente, política logística aprobada y planes de mejora con responsable y fecha en ejecución.",
+    "evidencia": [
+     "E-03"
+    ],
+    "notas": "La cadencia trimestral recoge el criterio que la propia gerencia describe: llevar a la junta un conjunto acotado de indicadores para no dispersar la atención, y profundizar por área con subindicadores."
+   },
+   "flujo": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-11",
+     "E-19",
+     "E-63"
+    ],
+    "actividades": [
+     {
+      "id": "a1",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Propone el cuadro de indicadores del macroproceso —exactitud de inventario, cumplimiento de entrega, tiempo de puesta a disposición, tiempo de preparación y costo logístico— deliberadamente acotado, y lo lleva a la junta para su aprobación."
+     },
+     {
+      "id": "a2",
+      "rol": "Junta Directiva",
+      "texto": "Aprueba el cuadro y sus metas, o devuelve la propuesta para ajustar el alcance."
+     },
+     {
+      "id": "a3",
+      "rol": "Analista de Sistemas / Datos",
+      "texto": "Extrae el dato de los sistemas de almacén y del ERP y automatiza el tablero, de modo que la medición no dependa de consolidaciones manuales."
+     },
+     {
+      "id": "a4",
+      "rol": "Coordinador(a) de Logística y Bodega",
+      "texto": "Aporta la medición de su operación con el mismo criterio de cálculo que las demás."
+     },
+     {
+      "id": "a5",
+      "rol": "Analista de Logística",
+      "texto": "Consolida el tablero por operación y por corredor y señala los indicadores fuera de rango."
+     },
+     {
+      "id": "a6",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Analiza cada desvío hasta su causa, distinguiendo el que nace dentro del macroproceso del que nace en una interfaz —compras que no avisa, ventas que promete lo que no hay."
+     },
+     {
+      "id": "a7",
+      "rol": "Gerente Regional Comercial / Retail",
+      "texto": "Revisa con operaciones las brechas de interfaz y acuerda el compromiso que corresponde a su lado."
+     },
+     {
+      "id": "a8",
+      "rol": "Gerente de Contabilidad / Administración",
+      "texto": "Cuantifica el impacto económico de las brechas priorizadas para que la decisión se tome con su costo delante."
+     },
+     {
+      "id": "a9",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Presenta a la junta el resultado del trimestre con las brechas y su costo, y propone los planes de mejora."
+     },
+     {
+      "id": "a10",
+      "rol": "Junta Directiva",
+      "texto": "Prioriza las brechas, aprueba los planes y asigna los recursos."
+     },
+     {
+      "id": "a11",
+      "rol": "Gerente de Operaciones y Logística",
+      "texto": "Convierte lo aprobado en planes con responsable y fecha, y los sigue hasta el cierre en la revisión siguiente."
+     }
+    ],
+    "diagrama": {
+     "carriles": [
+      "Gerente de Operaciones y Logística",
+      "Junta Directiva",
+      "Analista de Sistemas / Datos",
+      "Coordinador(a) de Logística y Bodega",
+      "Analista de Logística",
+      "Gerente Regional Comercial / Retail",
+      "Gerente de Contabilidad / Administración"
+     ],
+     "nodos": [
+      {
+       "id": "n0",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "inicio",
+       "n": "Proponer el cuadro de indicadores"
+      },
+      {
+       "id": "n1",
+       "carril": "Junta Directiva",
+       "tipo": "decision",
+       "n": "¿Se aprueba el cuadro?"
+      },
+      {
+       "id": "n2",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "fin",
+       "n": "Propuesta devuelta para ajustar alcance"
+      },
+      {
+       "id": "n3",
+       "carril": "Analista de Sistemas / Datos",
+       "tipo": "tarea",
+       "n": "Automatizar el tablero desde los sistemas",
+       "sistemas": [
+        "WMS",
+        "ERP"
+       ]
+      },
+      {
+       "id": "n4",
+       "carril": "Coordinador(a) de Logística y Bodega",
+       "tipo": "tarea",
+       "n": "Aportar la medición de su operación"
+      },
+      {
+       "id": "n5",
+       "carril": "Analista de Logística",
+       "tipo": "tarea",
+       "n": "Consolidar y señalar los desvíos"
+      },
+      {
+       "id": "n6",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "decision",
+       "n": "¿El desvío nace en una interfaz?"
+      },
+      {
+       "id": "n7",
+       "carril": "Gerente Regional Comercial / Retail",
+       "tipo": "tarea",
+       "n": "Acordar el compromiso de su lado"
+      },
+      {
+       "id": "n8",
+       "carril": "Gerente de Contabilidad / Administración",
+       "tipo": "tarea",
+       "n": "Cuantificar el impacto económico"
+      },
+      {
+       "id": "n9",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "tarea",
+       "n": "Presentar el trimestre y proponer planes"
+      },
+      {
+       "id": "n10",
+       "carril": "Junta Directiva",
+       "tipo": "tarea",
+       "n": "Priorizar brechas y asignar recursos"
+      },
+      {
+       "id": "n11",
+       "carril": "Gerente de Operaciones y Logística",
+       "tipo": "fin",
+       "n": "Planes con responsable y fecha en curso"
+      }
+     ],
+     "aristas": [
+      {
+       "de": "n0",
+       "a": "n1"
+      },
+      {
+       "de": "n1",
+       "a": "n2",
+       "etq": "No"
+      },
+      {
+       "de": "n1",
+       "a": "n3",
+       "etq": "Sí"
+      },
+      {
+       "de": "n3",
+       "a": "n4"
+      },
+      {
+       "de": "n4",
+       "a": "n5"
+      },
+      {
+       "de": "n5",
+       "a": "n6"
+      },
+      {
+       "de": "n6",
+       "a": "n7",
+       "etq": "Sí"
+      },
+      {
+       "de": "n6",
+       "a": "n8",
+       "etq": "No"
+      },
+      {
+       "de": "n7",
+       "a": "n8"
+      },
+      {
+       "de": "n8",
+       "a": "n9"
+      },
+      {
+       "de": "n9",
+       "a": "n10"
+      },
+      {
+       "de": "n10",
+       "a": "n11"
+      }
+     ]
+    }
+   },
+   "riesgos": {
+    "estado": "borrador",
+    "evidencia": [
+     "E-03",
+     "E-11",
+     "E-19",
+     "E-63"
+    ],
+    "filas": [
+     [
+      "El tablero nace apoyado en consolidaciones manuales",
+      "Si la medición depende de que alguien arme hojas cada mes, el tablero sobrevive mientras esa persona tenga tiempo. Es el mismo patrón que ya se observa en los puntos donde el inventario se lleva a mano pese a haber sistemas.",
+      "Alta",
+      "Alto",
+      "Condicionar la incorporación de un indicador al tablero a que su dato se extraiga automáticamente; un indicador que no se puede automatizar entra como seguimiento manual declarado y con fecha de revisión."
+     ],
+     [
+      "Se mide el hub y no las demás operaciones",
+      "El seteo de indicadores arranca donde está la gerencia. Las operaciones más pequeñas —las que describen su día como apagar incendios— son justamente las que más lo necesitan y las que menos capacidad tienen de reportar.",
+      "Alta",
+      "Alto",
+      "Definir un mínimo común de tres indicadores que toda operación reporte, por simple que sea su sistema, antes de profundizar en el hub."
+     ],
+     [
+      "Las brechas de interfaz se reportan como problemas logísticos",
+      "Buena parte de los desvíos nacen fuera: la compra que no avisa el embarque, la venta que promete lo que no hay. Si el reporte los presenta como incumplimiento de logística, la causa no se toca y el indicador no mejora.",
+      "Alta",
+      "Alto",
+      "Clasificar cada desvío por origen antes de reportarlo, y llevar a la revisión el compromiso del área de origen junto al indicador."
+     ],
+     [
+      "El cuadro crece hasta dejar de leerse",
+      "La propia gerencia anticipa el riesgo al escoger con cuáles empezar para no distorsionar la atención. Un tablero que crece indicador a indicador deja de servir para decidir.",
+      "Media",
+      "Medio",
+      "Fijar un máximo de indicadores a nivel de junta y mantener el detalle en subindicadores por área, revisando la composición una vez al año."
+     ]
+    ]
+   },
+   "indicadores": {
+    "estado": "borrador",
+    "filas": [
+     [
+      "Cobertura de la medición",
+      "Operaciones que reportan el mínimo común ÷ operaciones del grupo",
+      "Trimestral",
+      "Analista de Logística",
+      "100 %"
+     ],
+     [
+      "Indicadores con dato automatizado",
+      "Indicadores extraídos del sistema ÷ indicadores del tablero",
+      "Trimestral",
+      "Analista de Sistemas / Datos",
+      "Más del 80 %"
+     ],
+     [
+      "Planes de mejora cerrados en plazo",
+      "Planes cerrados en la fecha comprometida ÷ planes abiertos",
+      "Trimestral",
+      "Gerente de Operaciones y Logística",
+      "Más del 70 %"
+     ],
+     [
+      "Desvíos con causa clasificada por origen",
+      "Desvíos con origen identificado ÷ desvíos reportados",
+      "Trimestral",
+      "Gerente de Operaciones y Logística",
+      "100 %"
+     ]
+    ]
+   }
+  }
  }
+}
 };
-
-
-
-
-

@@ -95,9 +95,12 @@ artefacto que no aparezca en las entrevistas.
 ## 3. Reglas de contenido (estrictas)
 
 **1) Cargos actuales, nunca los del To-Be.** Usa el nombre que dan las entrevistas
-o el campo **`cargo_actual`** / `cargo_normalizado_auxiliar` del V4, y los
-organigramas vigentes. No uses `cargo_patron_propuesto`, que es la denominación
-propuesta y alimenta el To-Be.
+o el campo **`cargo_actual`** del V4, y los organigramas vigentes. No uses
+`cargo_patron_propuesto`, que es la denominación propuesta y alimenta el To-Be.
+
+> `cargo_normalizado_auxiliar` no sirve para esto: no normaliza contra ningún
+> catálogo, solo pasa el texto a mayúsculas — 405 de las 426 filas son idénticas
+> a `cargo_actual` y las 21 restantes difieren solo en la caja.
 
 > ⚠️ `personal.cargo` de Supabase **parece** el V4 y no lo es: sale de otro Excel
 > («Listado Personal Consolidado», hoja «Personal Consolidado»). Sirve para

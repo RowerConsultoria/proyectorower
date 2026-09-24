@@ -501,12 +501,12 @@ window.MANUAL_ASIS = {
      {
       "de": "n6",
       "a": "n7",
-      "etiqueta": "No"
+      "etq": "No"
      },
      {
       "de": "n6",
       "a": "n8",
-      "etiqueta": "Sí"
+      "etq": "Sí"
      },
      {
       "de": "n8",
@@ -515,12 +515,12 @@ window.MANUAL_ASIS = {
      {
       "de": "n9",
       "a": "n10",
-      "etiqueta": "Sí"
+      "etq": "Sí"
      },
      {
       "de": "n9",
       "a": "n15",
-      "etiqueta": "No"
+      "etq": "No"
      },
      {
       "de": "n10",
@@ -537,12 +537,12 @@ window.MANUAL_ASIS = {
      {
       "de": "n13",
       "a": "n14",
-      "etiqueta": "No"
+      "etq": "No"
      },
      {
       "de": "n13",
       "a": "n15",
-      "etiqueta": "Sí"
+      "etq": "Sí"
      },
      {
       "de": "n15",
@@ -577,6 +577,341 @@ window.MANUAL_ASIS = {
   }
  }
 
+  }
+ },
+ "7": {
+  "procesos": {
+   "7.1": {
+    "nota_version": "Versión As-Is: describe cómo se recibe hoy la mercancía importada y cómo se le carga el costo, con los cargos que usan las propias entrevistas y el patrón V4 en su columna de cargo actual. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que Tráfico avisa el arribo de la carga al hub de Zona Libre hasta que la mercancía queda marcada como disponible y, más tarde, con su costo puesto en destino ya calculado. El flujo descrito es el del hub de Panamá, que es donde la evidencia alcanza para describirlo paso a paso. Quedan fuera el trámite aduanal y el seguimiento del embarque, la colocación de la compra, el conteo cíclico de inventario y la preparación de pedidos.",
+     "texto": "La recepción en el hub funciona hoy como una cadena de tres manos que se pasan el testigo sin un procedimiento escrito que las ate: Tráfico avisa el arribo y entrega los documentos, Operaciones descarga, paletiza y ubica, y la gerencia de inventario valida la orden de compra, confirma las preventas y calcula el costo. Cada tramo funciona, y quien lo lleva lo describe con precisión; lo que no existe es el documento que lo fije ni la medición que lo vigile —hasta hace poco no había indicadores de la operación, y apenas ahora se están definiendo.\n\nTres rasgos marcan el proceso tal como opera. El primero es que **la operación se entera tarde**: un contenedor puede tardar entre sesenta y noventa días en llegar y el almacén se entera dos días antes, y la carga aérea con frecuencia no viene rastreada porque el proveedor no comparte el seguimiento. El origen no es logístico —la información de la compra no baja a operaciones—, y la consecuencia sí: se satura la semana y se desplazan recepciones ya comprometidas. El segundo es que **la disponibilidad es todo o nada**: ninguna referencia aparece como vendible hasta que el contenedor entero se cierra, y en una carga de la marca representada eso significa bajar a mano del orden de mil ochocientas cajas, con la primera caja ubicada esperando a la última. El tercero es que **el costo llega después de la venta**: la mercancía se marca disponible al cerrar la recepción, pero el costeo en destino solo puede ejecutarse cuando Contabilidad ha registrado la factura del flete, de modo que entre ambos momentos se vende a un costo aún provisional.\n\nLos dos ritmos de llegada no se parecen. La marca representada llega una vez al mes, con la factura del proveedor disponible con un mes de antelación, y es planificable. La marca propia llega de forma continua —aérea casi semanal— y a menudo sin aviso: se sabe que viene algo cuando ya está en el puerto."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Operaciones y Excelencia Logística",
+     "participantes": [
+      "Gerente de Operaciones y Excelencia Logística — responde por toda la operación del almacén: recepción, ubicación, pick, pack, despacho y envío, «excepto compra y costeo». Toma el arribo que reporta Tráfico, organiza la recepción y resuelve las incidencias de sobrante y faltante. Lleva un mes en el cargo a la fecha de la entrevista.",
+      "Jefa de Tráfico — emite el Aviso de Notificación de Arribo (ACN) y entrega la documentación del embarque. Su departamento lleva aduana, movimiento interno, contacto con el proveedor de fletes y liquidaciones, con una persona de importación y tres de exportación.",
+      "Gerente de Inventario y Precios — carga la orden de compra, valida el inventario cuando Operaciones ha culminado la recepción, confirma las preventas, avisa la disponibilidad a los vendedores y ejecuta el costeo en destino. Responde por los inventarios de todas las ubicaciones, bodegas y tiendas.",
+      "Jefe de Bodega — dirige la descarga, la paletización y el conteo contra el documento de embarque.",
+      "Ayudante de Bodega — descarga, paletiza y ubica físicamente la mercancía. Es el cargo más numeroso de la operación del hub.",
+      "Gerente de Contabilidad — registra en el sistema la factura del pago del flete, sin la cual el costeo en destino no puede ejecutarse.",
+      "Agente aduanal (externo) — en parte de las cargas, es quien avisa la llegada efectiva; ese aviso dispara la búsqueda de documentos y el arranque del proceso."
+     ],
+     "evidencia": [
+      "E-03",
+      "E-34",
+      "E-70",
+      "Lark: Procesos.pdf — Logística/Inventario (PA), secciones 2 y 4"
+     ],
+     "notas": "Cargos tomados de la columna «cargo actual» del patrón V4, donde las cuatro funciones que este proceso separa sí aparecen distinguidas: Gerente de Operaciones y Excelencia Logística, Gerente de Inventario y Precios, Jefa de Tráfico y Jefe de Bodega. ⚠️ El patrón propuesto las colapsa todas bajo «Gerente de Operaciones y Logística», que es la denominación que usa el To-Be de este mismo proceso; esa diferencia es deliberada y conviene no cruzarla. En Panamá no existe hoy el cargo «Supervisor de Bodega»: hay Jefe de Bodega y Coordinadora de Bodega.",
+     "sin_evidencia": "La ficha del mapa v18 da el proceso al Coordinador(a) de Logística y Bodega. Ninguna entrevista sitúa a esa coordinación ejecutando la recepción: en el hub la dirige la gerencia de operaciones y en Venezuela la gerencia de almacén, así que el dueño se atribuye a quien de hecho responde por ella. No consta procedimiento escrito de recepción en ninguna de las dos operaciones: el levantamiento de Venezuela existe como plantilla de cinco fases con los responsables anotados, pero sin un solo paso; y quien lleva la operación del hub declara que «no tenemos documentación completa»."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El Aviso de Notificación de Arribo (ACN) que crea Tráfico cuando la carga llega, o —en buena parte de los embarques— el aviso de llegada que manda el agente aduanero, que es lo que dispara buscar los documentos y arrancar. No hay un hito anterior que anticipe la llegada: la orden de compra colocada no abre visibilidad para el almacén.",
+     "cadencia": "Por evento, con dos ritmos muy distintos: la marca representada, una vez al mes y planificable; la marca propia, continua, con carga aérea casi semanal y a menudo sin aviso previo.",
+     "output": "Mercancía ubicada y marcada como disponible en el sistema de almacén, con la orden de compra validada en el ERP, las preventas confirmadas y la disponibilidad avisada a ventas. El costo puesto en destino se calcula después, cuando entra la factura del flete.",
+     "evidencia": [
+      "E-03",
+      "Lark: Procesos.pdf — Logística/Inventario (PA), secciones 2 y 4"
+     ],
+     "notas": "El output tiene dos cierres que hoy no coinciden en el tiempo, y esa distancia es el rasgo definitorio del proceso: la mercancía se vende antes de que su costo real esté cargado."
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-03",
+      "E-34",
+      "E-70",
+      "Lark: Procesos.pdf — Logística/Inventario (PA)",
+      "Lark: flujo logistico.xlsx — hoja Recepción (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Jefa de Tráfico",
+       "texto": "Crea el Aviso de Notificación de Arribo (ACN) cuando la carga llega, y entrega la documentación del embarque. En parte de los embarques el aviso llega antes por el agente aduanero, y es entonces cuando se buscan los documentos y se arranca."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Operaciones y Excelencia Logística",
+       "texto": "Toma el arribo, lo reporta y organiza la recepción con la cuadrilla disponible. En la práctica el margen es corto: un contenedor que tarda entre sesenta y noventa días en llegar se conoce dos días antes, y la carga aérea normalmente no viene rastreada porque el proveedor no comparte el seguimiento."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Operaciones y Excelencia Logística",
+       "texto": "Comprueba si la carga estaba dentro de lo previsto para esa semana. Cuando aparece un contenedor no contemplado, se reacomoda la operación del día sobre la marcha y se desplazan recepciones ya comprometidas."
+      },
+      {
+       "id": "a4",
+       "rol": "Jefe de Bodega",
+       "texto": "Dirige la descarga y el conteo de bultos contra el documento de embarque, y ordena la paletización: la carga viene a granel y hay que consolidarla en paleta antes de poder ubicarla."
+      },
+      {
+       "id": "a5",
+       "rol": "Ayudante de Bodega",
+       "texto": "Descarga, paletiza y ubica la mercancía en su posición de anaquel. Es trabajo manual: en un contenedor de la marca representada se bajan del orden de mil ochocientas cajas."
+      },
+      {
+       "id": "a6",
+       "rol": "Jefe de Bodega",
+       "texto": "Verifica lo recibido contra el documento de embarque y recuenta las referencias que muestran diferencia."
+      },
+      {
+       "id": "a7",
+       "rol": "Jefe de Bodega",
+       "texto": "Determina si hay sobrante o faltante respecto a lo documentado."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Operaciones y Excelencia Logística",
+       "texto": "Recibe el reporte de la diferencia y la manda recontar al supervisor del área implicada. Establecer de dónde viene exige revisar hacia atrás los movimientos del producto, porque no hay un registro que ate la incidencia a su embarque; el proceso lo dispara la incidencia, no es una rutina."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Operaciones y Excelencia Logística",
+       "texto": "Cierra el contenedor en el sistema de gestión de almacén. Hasta que no se cierra, ninguna de sus referencias figura como disponible: la primera caja ubicada espera a la última."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Inventario y Precios",
+       "texto": "Valida la orden de compra contra lo efectivamente recibido y carga los productos en el inventario del ERP. Tiene que estar pendiente de que la operación del almacén haya terminado para poder actualizar; el enlace entre los dos sistemas existe pero no se usa como parte del proceso."
+      },
+      {
+       "id": "a11",
+       "rol": "Gerente de Inventario y Precios",
+       "texto": "Confirma las preventas que los vendedores habían tomado sobre el tránsito, amarrando a cada una la mercancía que ya está en bodega. Es en ese momento cuando el vendedor tiene disponibilidad real."
+      },
+      {
+       "id": "a12",
+       "rol": "Gerente de Inventario y Precios",
+       "texto": "Avisa a los vendedores la disponibilidad de la mercancía recibida."
+      },
+      {
+       "id": "a13",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Registra en el sistema la factura del pago del flete del embarque."
+      },
+      {
+       "id": "a14",
+       "rol": "Gerente de Inventario y Precios",
+       "texto": "Ejecuta en el ERP el proceso de costes en destino y fija el costo del producto puesto en Zona Libre o en la bodega de la ciudad, según a dónde haya entrado la carga."
+      },
+      {
+       "id": "a15",
+       "rol": "Gerente de Inventario y Precios",
+       "texto": "A principio de mes, una vez calculados todos los costes en destino, revisa sobre el reporte de existencias, costos y precios que los fletes no hayan movido los márgenes fuera del rango esperado, y remite a la dirección comercial las referencias que se salen para que decida el precio."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Jefa de Tráfico",
+       "Gerente de Operaciones y Excelencia Logística",
+       "Jefe de Bodega",
+       "Ayudante de Bodega",
+       "Gerente de Inventario y Precios",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Jefa de Tráfico",
+        "tipo": "inicio",
+        "n": "Crear el aviso de arribo (ACN)"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Operaciones y Excelencia Logística",
+        "tipo": "tarea",
+        "n": "Tomar y reportar el arribo"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Operaciones y Excelencia Logística",
+        "tipo": "decision",
+        "n": "¿Estaba prevista la carga?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Operaciones y Excelencia Logística",
+        "tipo": "tarea",
+        "n": "Reacomodar la semana sobre la marcha"
+       },
+       {
+        "id": "n4",
+        "carril": "Jefe de Bodega",
+        "tipo": "tarea",
+        "n": "Dirigir descarga y paletización"
+       },
+       {
+        "id": "n5",
+        "carril": "Ayudante de Bodega",
+        "tipo": "tarea",
+        "n": "Paletizar y ubicar en anaquel",
+        "sistemas": [
+         "EBS"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Jefe de Bodega",
+        "tipo": "tarea",
+        "n": "Verificar contra el documento de embarque"
+       },
+       {
+        "id": "n7",
+        "carril": "Jefe de Bodega",
+        "tipo": "decision",
+        "n": "¿Hay sobrante o faltante?"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Operaciones y Excelencia Logística",
+        "tipo": "tarea",
+        "n": "Mandar recontar y rastrear el origen"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Operaciones y Excelencia Logística",
+        "tipo": "tarea",
+        "n": "Cerrar el contenedor en el almacén",
+        "sistemas": [
+         "EBS"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "tarea",
+        "n": "Validar la OC y cargar inventario",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "tarea",
+        "n": "Confirmar las preventas del tránsito",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "tarea",
+        "n": "Avisar disponibilidad a los vendedores"
+       },
+       {
+        "id": "n13",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Registrar la factura del flete",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n14",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "tarea",
+        "n": "Ejecutar los costes en destino",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n15",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "fin",
+        "n": "Costo en destino cargado y márgenes revisados"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n0",
+        "a": "n13"
+       },
+       {
+        "de": "n12",
+        "a": "n14"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       },
+       {
+        "de": "n14",
+        "a": "n15"
+       }
+      ]
+     }
+    }
+   }
   }
  }
 };
