@@ -1,27 +1,38 @@
 LEEME - Entrevistas Grupo Kenex, dialogo limpio (.txt)
-Total: 62 archivos | Exportado desde tabla 'entrevistas' (Supabase)
+Total: 87 archivos | Exportado desde la tabla 'entrevistas' (Supabase). Actualizado el 24-sep-2026.
 Nota: las etiquetas S1/S2/... son el numero de hablante del transcriptor (Fireflies),
 no identifican rol; el consultor suele ser S1 pero conviene confirmarlo por contenido.
 Formatos especiales: E-11/E-15/E-16/E-18 vienen en markdown con timestamps; E-17 es nota de voz (Josue Bonilla).
 
+Prefijos:
+- E-NN  entrevista con codigo asignado en Supabase.
+- SC-NN registro de Supabase SIN codigo (viajes a Panama, talleres, sesiones de sep-2026),
+        numerado por orden de carga. Cuando se le asigne codigo en Supabase, renombrar aqui.
+Sesiones INTERNAS del equipo consultor (no son evidencia del cliente; usar solo como contexto):
+  E-00, E-28, E-29, SC-11, SC-12, SC-13, SC-14.
+Cuando el registro no traia 'dialogo' (E-68, E-69 y la mayoria de SC-NN), el texto se derivo
+de 'transcripcion' con el mismo criterio que la Edge Function 'indexar' (frases seguidas del
+mismo hablante en una sola linea).
+
 ARCHIVO | BYTES
+E-00_Carmela-y-Arani-interno_sin-fecha.txt | 21,490
 E-01_Bernardo-Roizental_2026-06-16.txt | 78,662
-E-02_Patrick-Corujo_2026-06-18.txt | 65,520
-E-03_Fernando-Alvarado-y-Alejandra-Mejias_2026-06-18.txt | 80,884
+E-02_Patrick-Corujo_2026-06-18.txt | 65,795
+E-03_Fernando-Alvarado-y-Alejandra-Mejias_2026-06-18.txt | 81,115
 E-04_Arani-Gonzalez_2026-06-18.txt | 83,362
-E-05_Andres-Roizental_2026-06-19.txt | 69,625
-E-06-pt-1_Alejandro-Roizental_2026-06-19.txt | 37,840
-E-06-pt-2_Alejandro-Roizental_2026-06-19.txt | 14,383
+E-05_Andres-Roizental_2026-06-19.txt | 69,887
+E-06-pt-1_Alejandro-Roizental_2026-06-19.txt | 37,958
+E-06-pt-2_Alejandro-Roizental_2026-06-19.txt | 14,422
 E-07_Mariela-Castro_2026-06-22.txt | 60,661
-E-08_Roberto-Roizental_2026-06-24.txt | 62,409
+E-08_Roberto-Roizental_2026-06-24.txt | 62,589
 E-09_Ricardo-Candanedo_2026-06-23.txt | 52,644
-E-10_Vera-Gavizon_2026-06-29.txt | 42,592
+E-10_Vera-Gavizon_2026-06-29.txt | 42,913
 E-11_Joel-Cohen_2026-07-01.txt | 66,730
 E-12_Carmela-Iribarren_2026-07-09.txt | 71,165
 E-13_Nuria-Ashby_2026-07-01.txt | 61,311
-E-14_Santiago-Ramirez_2026-07-02.txt | 60,865
-E-15_Jaime_2026-07-02.txt | 74,117
-E-16_Jesmir_2026-07-02.txt | 52,625
+E-14_Santiago-Ramirez_2026-07-02.txt | 60,952
+E-15_Jaime_2026-07-02.txt | 74,512
+E-16_Jesmir_2026-07-02.txt | 52,779
 E-17_Ricardo-Roizental_2026-07-06.txt | 24,676
 E-18_Alexis-Mujica_2026-07-06.txt | 62,862
 E-19_Jill-Porat_2026-07-07.txt | 58,489
@@ -31,39 +42,63 @@ E-22_Natasha-Betancourt_2026-07-07.txt | 50,727
 E-23_Alberto-Bassan_2026-07-09.txt | 40,463
 E-24_Arani-y-Carmela_2026-07-14.txt | 78,457
 E-25_Bernardo-Roizental_2026-07-22.txt | 45,585
-E-26_Presentacion-Informe-Junta-Directiva-y-equipo-directivo_2026-07-27.txt | 185,756
-E-27_Sesion-con-Arani-sobre-alineacion-de-la-lista-de-entrev_2026-07-29.txt | 24,549
-E-28_Equipo-Rower_2026-07-31.txt | 35,641
-E-29_Sesion-Equipo-Interno_2026-08-04.txt | 14,582
-E-30_Isabella-Roizental_2026-08-06.txt | 42,400
+E-26_Presentacion-Informe-Junta-Directiva-y-equipo-directivo-de-G_2026-07-27.txt | 186,513
+E-27_Sesion-con-Arani-sobre-alineacion-de-la-lista-de-entrevistas_2026-07-29.txt | 24,643
+E-28_Equipo-Rower_2026-07-31.txt | 35,760
+E-29_Sesion-Equipo-Interno_2026-08-04.txt | 14,626
+E-30_Isabella-Roizental_2026-08-06.txt | 42,569
 E-31_Sesion-de-levantamiento-de-procesos-con-Visual-Marketin_2026-08-07.txt | 142,238
 E-32_Jose_2026-08-07.txt | 34,689
 E-33_Hector_2026-08-07.txt | 21,078
-E-34_Elvis-Vladimir-Yoly_2026-08-07.txt | 67,552
-E-35_Andres-Marquez_2026-08-07.txt | 49,394
-E-36_Jose-Ramon-y-Henry-Lucena_2026-08-07.txt | 35,028
+E-34_Elvis-Vladimir-Yoly_2026-08-07.txt | 67,941
+E-35_Andres-Marquez_2026-08-07.txt | 49,588
+E-36_Jose-Ramon-y-Henry-Lucena_2026-08-07.txt | 35,249
 E-37_Evelyn-Manso-y-Mayari-sismania_sin-fecha.txt | 84,635
-E-38_Victor-Padovani_2026-08-06.txt | 87,757
-E-39_Edumar-Escalona_2026-08-10.txt | 55,063
-E-40_Jimena_2026-08-10.txt | 62,574
-E-41_Gerente-de-Ventas-Web-Ricardo-Supervisor-de-Operaciones_2026-08-10.txt | 61,067
+E-38_Victor-Padovani_2026-08-06.txt | 88,057
+E-39_Edumar-Escalona_2026-08-10.txt | 55,201
+E-40_Jimena_2026-08-10.txt | 62,873
+E-41_Gerente-de-Ventas-Web-Ricardo-Supervisor-de-Operaciones-y-Lo_2026-08-10.txt | 61,407
 E-42_Valentina_2026-08-11.txt | 123,397
-E-43_Ali-Carmona-y-Norman-Vanegas_2026-08-11.txt | 67,077
-E-44_Ian-Chen-Fernando-y-Yamanis_2026-08-11.txt | 67,456
+E-43_Ali-Carmona-y-Norman-Vanegas_2026-08-11.txt | 67,486
+E-44_Ian-Chen-Fernando-y-Yamanis_2026-08-11.txt | 67,712
 E-45_William-Porra_2026-08-12.txt | 41,428
-E-46_Marcella-Ramirez_2026-08-13.txt | 54,401
-E-47_Maria-Eugenia_2026-08-12.txt | 79,306
-E-48_Yajaira-Cotoreal_2026-08-13.txt | 83,593
+E-46_Marcella-Ramirez_2026-08-13.txt | 54,561
+E-47_Maria-Eugenia_2026-08-12.txt | 79,784
+E-48_Yajaira-Cotoreal_2026-08-13.txt | 84,057
 E-49_Sofiana_2026-08-13.txt | 94,714
 E-50_Sabrina-y-Reina_2025-08-16.txt | 106,424
 E-51_Yusseth-Johan-y-Gustavo_2026-08-18.txt | 85,236
 E-52_Cesar-Rivodo-y-Mariela-Castro_2026-08-18.txt | 52,476
-E-53_Blas-Garcia_2026-08-18.txt | 59,330
+E-53_Blas-Garcia_2026-08-18.txt | 59,566
 E-54_Catherine-Jimenez_2026-08-18.txt | 63,171
-E-55_Handani_2026-08-18.txt | 75,401
+E-55_Handani_2026-08-18.txt | 75,597
 E-56_Leslie_2026-08-19.txt | 55,104
-E-57_Carlos-Melendez_2026-08-19.txt | 69,791
-E-58_Patrick-Corujo_2026-08-19.txt | 62,436
-E-59_Hugo-e-Itai_2026-08-20.txt | 60,021
+E-57_Carlos-Melendez_2026-08-19.txt | 70,061
+E-58_Patrick-Corujo_2026-08-19.txt | 62,668
+E-59_Hugo-e-Itai_2026-08-20.txt | 60,385
 E-60_Alejandro-y-Estephania-Roizental_2026-08-20.txt | 56,153
+E-61_Felipe_2026-08-24.txt | 61,974
+E-62_Noel_2026-08-24.txt | 75,883
+E-63_John_2026-08-24.txt | 89,524
+E-64_Jesus-Rockmar-y-Eloy-equipo-de-Servicio-Tecnico-Panama_2026-08-24.txt | 58,812
+E-65_Andres-Largo_CuentasPorPagar-Venezuela.txt | 89,020
+E-66_Lilibet_sin-fecha.txt | 39,708
+E-67_Viaje-Panama-con-Ricardo-responsable-comercial-enlace-con-Co_sin-fecha.txt | 37,453
+E-68_Jose-Isaac_2026-09-04.txt | 27,820
+E-69_Fernando_2026-09-04.txt | 14,218
+E-70_Viaje-a-Panama-Equipo-de-Trafico-Yanilka-Natalia-Lebana-y-co_sin-fecha.txt | 24,022
 E-DEMO_Ejemplo-reemplazar_sin-fecha.txt | 99
+SC-01_Viaje-Panama-Recorrido-1_2026-09-04.txt | 75,428
+SC-02_Viaje-Panama-Recorrido-Tiendas-Albrook_sin-fecha.txt | 34,253
+SC-03_Viaje-Panama-Estructura-Postventa-Ecommerce-Ricardo-Candaned_sin-fecha.txt | 39,026
+SC-04_Viaje-a-Panama-Ciberseguridad-y-Arquitectura-de-IA-con-Marie_sin-fecha.txt | 32,366
+SC-05_Viaje-Panama-Demostracion-Conciliaciones-Bancarias_sin-fecha.txt | 24,296
+SC-06_Viaje-Panama-con-Fernando_sin-fecha.txt | 54,474
+SC-07_Ricardo-Fernando_sin-fecha.txt | 99,731
+SC-08_Viaje-a-Panama-formacion-taller-de-IA-y-arquitectura-de-dato_sin-fecha.txt | 119,952
+SC-09_Viaje-a-Panama-Formacion-Taller-IA-a-la-Junta-y-a-la-Gerenci_sin-fecha.txt | 70,317
+SC-10_Bernardo-y-PMO_2026-09-15.txt | 65,043
+SC-11_Parte-1-Fase-2-Capacitacion-Formacion-Gabriel-Presencial-Vnz_sin-fecha.txt | 85,893
+SC-12_Parte-2-Fase-2-Capacitacion-Formacion-Gabriel-Presencial-Vnz_sin-fecha.txt | 93,889
+SC-13_Fase-2-Clemencia-Sobre-proceso-de-Validacion-12-09_sin-fecha.txt | 31,440
+SC-14_Equipo-Consultor-Reunion-sobre-procesos_2025-09-23.txt | 62,740

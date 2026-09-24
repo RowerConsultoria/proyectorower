@@ -1,0 +1,171 @@
+S1: Que vamos a hacer ahora con este, bueno,.
+S2: Modelo de conciliación y eso obviamente.
+S1: Es mucho más fácil explicar mis concentraciones.
+S2: Si están al día, como la manera que yo las estoy pasando, nosotros cocinamos diariamente y si mantengo mis concentraciones, el sistema al día.
+S1: Y el último punto es cómo lo vamos a replicar entonces en los otros.
+S3: Países, contarle un poquito tú de lo.
+S1: Que haces aquí y ya ellos entonces te van a hacer las preguntas que necesites.
+S3: Yo salgo un momentito y vengo ahorita.
+S1: Gracias.
+S3: Gracias Ricardo. Si se atraviesa un café por . Gracias Ricardo. Ya yo lo tengo aquí.
+S2: No, no, por llamada.
+S1: sí, claro, sí, sí, yo me acuerdo, claro.
+S2: OK. Cuando llegué aquí, obviamente yo llevo en junio del año pasado, habían seis meses de atraso en las conciliaciones bancarias, en los activos fijos, en todo el sistema no estaba desarrollado de la manera correcta y. Y bueno, fuimos conciliando, echamos para atrás, lo hacíamos muy manual, o sea, de trabano. Nosotros entramos aquí igual, menos que los otros países le han mostrado esta pantalla, por ejemplo, Nosotros aquí cargamos el extracto bancario. ¿Qué hace el extracto bancario? No sé si conocen de Odoo. El alimenta la cuenta contable de bancos y abre una transitoria de conciliación y nuestros registros van a transitorias. Lo que se concilia son las transitorias, pero lo queda en vivo en el sistema, en la cuenta bancaria, es lo que traigo del extracto. Entonces cuando nosotros cargamos aquí y vamos a ver los ajustes contables, lo que ven aquí son las transitorias y este es el extracto del banco. Antes si yo ponía aquí, por ejemplo,.
+S1: Lo que hicieron fue, había un desarrollo en UDO, que es como se hacía antes, y ustedes incorporan un desarrollo nuevo,.
+S2: Optimiza la consideración, antes lo hacía así y buscaba la transitoria de entrada, revisábamos, lo tocaba aquí y le daba a validar y ya queda conciliado. No era tampoco tan. Pero ahora estamos creando, porque todavía no hemos terminado, pero si ya estamos trabajando sobre ello, modelos de conciliación, o sea que eso lo estamos implementando esta semana.
+S1: ¿Ya lo probaron?
+S2: Ya lo probamos, ya estamos ahora en el productivo. Vamos aquí a modelo de conciliación, y si ven aquí, ya les han creado su modelo de conciliación, que el sistema va a buscar emparejado automáticamente, sin tener que entrar y poner monto, por ejemplo, ya trabajó, Ya lo trae ella buscó el asiento y me lo está proponiendo, yo además le doy validar, o sea ya lo hace automático, no tengo que entrar, buscar aquí donde está, ya lo trae, ya me lo propone y te.
+S1: Hace eso es uno por uno o es un batch, o sea un canal,.
+S2: O sea yo voy tocando y él lo va trayendo, si yo toco aquí, él ya me trae los 86 mil, o sea ella va cayendo, porque si lo hace automáticamente puede que las transacciones son muy parecidas, pueden haber tres transferencias de 300 mil, entonces puede conciliar la que ya le parezca, o sea si yo le pongo que lo validen automáticamente sin alguien que revise que realmente puede conciliar mal, como cualquier sistema contable.
+S1: Claro, pero esta optimización del proceso de conciliación prácticamente no modifica en nada el proceso, porque al final lo que estás diciendo sigo conciliando, me quito un paso más. Claro,.
+S2: En vez de hacerlo un día cocinando lo hacen 20 minutos.
+S1: Claro, te facilita a ti, pero en el fondo lo que estoy tratando de ver es claro, el proceso de procedimiento es conciliación, otra cosa es que te tardes ahora 20 minutos, ya te tarda, pero bien, no hay mucho que con eso está clarísimo, o sea que nos haya dicho esto yo creo que ya que es lo quería Ricardo, que.
+S3: Vieron, además entiendo que es como replicar.
+S2: Esto en los otros países, ¿Que pasa por ejemplo Venezuela, les pagan por un medio que se llama caxea viene un extracto de cachea y en el banco? Pero ya tengo la solución para eso hay un desarrollo.
+S3: El asunto es que todo eso son desarrollos no soportados por cuando ellos. ¿Eso está armado en el B o ve algo?
+S2: Sí, en la versión esta es versión esta 16, ellos tienen que mojar o.
+S3: Este año o el próximo.
+S2: ¿Que era lo que decía? Que con el 19 por ejemplo, cuentas por pagar, hoy día hay sistemas que yo escaneo la factura y la factura lee y me la registra, pero entonces.
+S3: 130 Módulos personalizados, todo eso se pierde.
+S1: La versión de DO ahorita cuando migras no te las llevas, la explota todo. ¿Por qué va a explotar todo?
+S3: Porque ese módulo que está codificado al 16 no es lo mismo que al 19, vas a tener que adaptar 130 módulos en tiempo real el 19 esa big pro y se sigue personalizando.
+S2: Si, esto está súper, esto obviamente con.
+S1: El extracto y cómo y esos desarrollos no están montados sobre do con una vaina de do y no lo reconoce.
+S3: La versión nueva, No, porque se están haciendo fuera de o no es nativo.
+S1: ¿Y cómo se conecta con Odo eso?
+S3: Odo te permite que tú hagas como un módulo que anexa código a una.
+S1: Funcionalidad, pero no te garantiza que una actualización de versión eso se conecte, lo más probable es que no se conecte,.
+S3: Porque ahora en este va cambiando los formatos entre una portable estable, porque nosotros.
+S2: Creamos un modelo de conciliación, yo cuando.
+S3: Pensé en algún principio pensé que no sé, doce, quince modificaciones que han hecho ciento treinta y pico inviable.
+S2: Bueno Jorge me creó un módulo de conciliación que yo cargo el extracto bancario que viene más detallado y él busca en Odoo el movimiento y me lo.
+S3: Propone también Jorge ha venido solucionando. Sí Jorge, pero cuando lo pero esto tiene que suceder fuera de Odo y tienes que ejecutar dentro de Odo sin modificar el código de Odo.
+S1: Y cuál es la solución que plantea tecnología para eso, o sea migrar los 136 a la nueva versión de o.
+S2: Eso no tiene sentido porque cómo conciliaría yo fuera de para usted.
+S3: No, no, lo que pasa es que es algo técnico, pero porque como eso que tú dices tomar la foto y que la lea de una vez, eso es algo.
+S2: Y también los extractos bancarios en Rico ya lo hacía.
+S3: En Venezuela, de hecho tiene este sote que te da todas las conexiones con todas las cuentas bancarias del de los bancos, tú lo único que necesitas es una conexión con Odo pero fuera de Odo que te haga todos los match y esos match cuando tú los apruebes, igualito que aquí, una pantalla donde lo que lo está aprobando es dentro de Odo pero no está.
+S2: Modificando, pero como dure tienes que cargar el extracto para que se te alimente.
+S3: Tu cuenta bancaria, no conectas la cuenta.
+S2: Bancaria, No, es que si no subes el extracto no se te alimenta la cuenta, te muestro, o sea si yo no cargo el sistema.
+S1: Yo no voy.
+S2: A ver, o sea quedan en las transitorias.
+S3: Claro, tú la fuente de la verdad es el movimiento bancario. ¿Cierto, o cargas el txt o el excel que te da el banco o te conectas al banco?
+S2: Me conecto al banco. Y el banco lo vas a cargar en Venezuela.
+S3: Te conectas al banco en tiempo real, entró hoy, mil dólares y los mil dólares ya lo está viendo el dashboard y lo está amarrando a alguna orden que tenga, etc. Y tú lo que tienes que validar.
+S2: ¿Pero Odoo cómo se carga?
+S3: No, en Odoo tienes la orden de venta, ¿Verdad?
+S2: No, lo que pasa es que te explico un poquito como es Odoo. Entonces, si yo no cargo el extracto, las que se mueven son las transitorias. Si yo no le cargo movimiento al banco dice cero, ¿Cómo lo conectas para que el banco se alimente el dinero en el banco? Porque no es como otro sistema que tú la conciliación simplemente es un reporte que banco contra el sistema.
+S3: No, no lo traes, lo traes desde afuera. Claro, ahorita Jorge te lo hizo adentro.
+S2: No, eso no lo hizo Jorge, eso sí es nativo, cargar el extracto.
+S3: No, no, claro, pero lo que estás haciendo ahorita que le das clic y te sale,.
+S2: Es nativo de Odoo, porque tú puedes crear el modelo de conciliación, el módulo existe, no es un desarrol, creó, fuera de.
+S1: Claro, pero la pregunta es cuando esto pase a la otra nueva versión de Odo, perdemos ese, vamos a llamar Marieta, ese desarrollo,.
+S3: Pero bueno, en términos estaba reunida siempre.
+S2: Hola, ¿Puedes regalarme 10 minutos? Entonces. ¿Que vengas?
+S3: ¿Mira, y Colombia también tiene que estar vendiendo? Colombia.
+S2: Colombia no concilian en Odoo, ellos lo hacen en Excel todavía.
+S3: Y Venezuela sí concilia con Odoo, creo.
+S2: Que es cachéas de que están atrasados, pero no sé cómo estén las conciliaciones, realmente estuvimos dándole soporte a Colombia la semana pasada, antepasada, mostrándoles, pero no sé si queda en tanto avanzado, realmente no me he conectado con Marcela para ver si lo está haciendo o no, porque le decía Marcela 3, más tiempo pase vas a tener.
+S3: ¿Tú llevas entonces Panamá?
+S2: Yo llevo Panamá a todas las empresas de Panamá, son varias empresas, no solamente Kenneth Kennedy, Casolandia, el Café Cubi, las inmobiliarias, que es el edificio y la compañía intermediaria antes que yo. Ese desarrollo está en todas, solo estamos aquí en Panamá ahorita, o sea, tendría que volver a hacer ese mismo desarrollo, copiar código, probárselo en Caracas por hacer, y por lo menos con el activo.
+S1: Fijo que lo de con de Colombia, el deudo es diferente a este.
+S2: No, creo que tenemos la misma.
+S1: Debería funcionar, o sea, tiene que empezar a desarrollarse ciento y pico en cada.
+S2: País, copiar el código e instalar.
+S1: no, sí la ciento y pico. No sé, yo estoy. Estamos hablando de esta.
+S2: Sí, por lo menos los activos fijos, Colombia tampoco los lleva en el sistema, ni las amortizaciones de gasto. Yo sí lo tengo, el procesador se corre automático, yo creo el activo, le pongo los meses, línea recta, lo básico y él solo corre la depreciación. Yo tenía que hacerlo manualmente, eso sí tenemos aquí en Panamá. Pero no los tienen en los mismos países. Lo tengo por modelo de activo fijo.
+S1: Todos los que son computados el mismo.
+S3: Día, puedes tener esos nuevos.
+S2: Nosotros conciliamos todos los días.
+S3: Venezuela y Colombia.
+S2: Creo que están atrasados. Colombia lo hacen al día, pero en Excel, o sea, y hacen una cosa como que concilian el extracto del intermediario en Excel, después el intermediario con el banco, después entonces el banco con lo que traen de Odoo, pero en Excel. Ese es Colombia, modelo de Colombia. La idea es que carguen el extracto y sea el extracto con Odo.
+S1: Lo más lógico en este tipo de cosas, que en vez de hacer un desarrollo para Odoo, tú por ejemplo te traigas suponiendo hipotéticamente lo que tengas en Excel, lo lleves a Cloud, lo que sea, haces la broma Cloud con la data de Odoo y ya no depende una cosa de otra. Y eso es más lógico, es todo.
+S3: Hacerlo fuera de Odoo y ejecutas en Odoo que Odo necesite para su.
+S1: Con la arquitectura que hablaste ayer de su pabeis y tal, todo esto en vez de hacerlo así, migrarlo, ya no.
+S3: Modifica nada de lodo, solamente le has dado lo que él necesita. Claro, tú al final necesita cerrar su contabilidad según su plan de cuenta y.
+S2: Que mis transitorias queden.
+S3: Claro, esa gestión de que te salga tan pum pam, etc. Esas son mejoras en la vida de Young y de todas las más. Esas mejoras tienes que hacer afuera.
+S1: Claro, claro. Y la lógica esto a lo mejor te funciona si es la misma versión y tal, tú agarras esto y lo llevas a la Odoo y lo aplicas en Colombia. El problema es cuando cambias de versión. La lógica sería que lo que está haciendo en Colombia, ese Excel que debería extraerse de data Odoo, ese Excel vaya Cloud te haga la conciliación, haga la conciliación en cloud y después se cargue. Esa es la lógica.
+S3: Que bueno que no sea eso manual, sino que son dos sistemas conectados.
+S1: Claro, tiene que estar conectado.
+S3: Hay que planearlo, o sea, planeas el flujo conciliatorio. Además hay que pensar en los distintos países. La solución en Venezuela te sote, aquí habría que ver la solución bancaria, pero Colombia la tiene en conexión con banco, Es poner el flujo afuera para no afectar el Odo. Este o es igual al de Venezuela o al de Colombia, pero hay uno de los tres que es distinto.
+S2: Venezuela es el 19 ya es la.
+S1: Nueva versión, y esto no lo han probado,.
+S3: Pero no tiene estas funcionalidades de este 18, son dos desarrollos.
+S1: Claro, o sea, si tú agarras este.
+S3: Ahora se tiene que entender La estructura del 19, que es distinta a la estructura del 16, hace dos módulos distintos para un fin igual, que es conciliar. De manera que no puedes tener lo mismo en los dos países. Imposible.
+S1: Claro, el problema no es ni siquiera el desarrollo, porque el desarrollo tú le pones la lógica a cloud y la vaina se hace en minutos. el tema es la migración de los 119 con un parámetro o una arquitectura única que se conecte a Odoo con una tubería única. En sentido común, pues,.
+S3: Pero eso no es algo de ella, está haciendo el trabajo,.
+S2: Es la manera como que lo he encontrado para.
+S1: No, no, es que estamos hablando de ti, o sea, tú perfecto, o sea, tu solución es, coño, yo tengo un sistema y yo agarro y le monto el RP, un sistema Z, lo que sea, que se conecte con el RP y optimiza mi trabajo. Tú estás haciendo lo que tienes que hacer. El problema que estamos viendo nosotros, el problema macro, es que toda esa solución que tú estás en conciliación, existe eso por 130, son 130 y pico, 180, y todos esos parches son independientes. Cuando tú agarras todos esos parches y cambias esta versión, esos parches no se conectan con esto. Como, no sé, si tú tuvieras un jean viejo y tienes 150 parches pegados al jean, si compras un jean nuevo, coño, no le vas a quitar los 180 parches al jean.
+S3: Puedes, puedes hacer, pero te va a costar.
+S1: Entonces es mejor fabricar jean con los parches ya listos. ¿O dejar los parches aparte?
+S2: Cuando yo llegué aquí todo lo hacían en Excel, también había otro gerente de contabilidad, todo lo hacía manual, los números, todo estaba atrasado, los cierres estaban súper atrasados. Obviamente yo cambié todo el equipo contable.
+S3: ¿En qué módulo está Contabilidad?
+S2: Este es el que. Contabilidad.
+S3: Tienes tus planes de cuentas, Caja de cambio, caja menuda.
+S2: Este es el CAS, obviamente que eso.
+S3: Es lo otro, tu plan de cuenta. Háblanos un poquito de eso. Es el mismo plan de cuentas de Venezuela.
+S2: Debemos ser iguales. Debemos ser iguales. Todos usamos las transitorias, estas que están aquí son las transitorias donde se cargan todas las transacciones que se hacen van a las transitorias y estas son las que se consiguen realmente.
+S1: ¿Y cómo funciona?
+S2: Cuando le dije al señor Víctor que cuando comenzaron en Venezuela le dije no cree tantas transiciones porque al crear tantas transitorias les va a costar cuando vayan a analizar esas transitorias, que es lo que está quedando allí. No sé realmente cómo lo ha hecho, pero era mi recomendación cuando comenzaron allá.
+S3: No, claro. Venezuela es un tema. Se vuelve loco el asunto. Igual eso no es el tema. La replicación se vuelve muy difícil cuando son cosas distintas.
+S1: Claro, porque tienes conviviendo no sé cuántas arquitecturas distintas.
+S3: Lo que vi 14 arquitectura viviendo,.
+S1: Por ejemplo yo. ¿Yo encuentro una solución, tú tienes esta solución, esta solución, tú te das cuenta que es replicable en los demás países? ¿La lógica para replicarlo es una lógica informal o formal? ¿Me refiero, tú tienes la posibilidad establecer una línea rectora que esto se hace así o tú recomiendas hacerlo así?
+S2: No, yo digo que se tiene que.
+S1: Hacer, o sea tú tienes la potestad de establecer una línea rectora de cómo vamos a hacer la conciliación en todo el grupo.
+S2: ¿Bueno, mi jefe Jaime, conocen a Jaime? Jaime es el que realmente es el líder de todos los países de Marcela, pero por lo general me dice, por lo menos ahorita él me dice ayuda a Colombia, conéctate con Colombia, los activos fijos no se atreven a hacerlos en el sistema, no sé qué pasa con Colombia. Entonces yo estaba hablando llamado Marcela, Constelaciones Bancarias también me dijo métete con Colombia, ayuda un poco a Colombia. Entonces eso es lo que hemos venido haciendo, algunas conversaciones con el señor Víctor en Venezuela, recomendaciones, pero realmente que Jaime.
+S1: Es el que establece la.
+S2: Sí, pero realmente debería ser igual todos deberían ser igual, y por lo menos Colombia tenemos lo mismo, deberíamos ayudar. Y ya yo lo vi con ella y vi las cuentas, y yo pero. Pero por qué no lo hace, o sea, hay una forma de hacerlo, por.
+S3: Lo menos difícil, yo lo vi.
+S1: ¿Claro, lo extraño es que tú digas, bueno, mire, yo tengo una línea rectora, tengo una solución que está conectada a un sistema que tiene la misma versión que tú, y coño, y entonces que? En Colombia, por eso te preguntaban, en Colombia se te. Entonces tú dices, bueno, Colombia lo hace, la decisión la toma Colombia, no la toma el corporativo, pero si la toma el corporativo, no sé por qué Colombia no lo hace, habría que preguntar a.
+S2: Jaime, creo que Jaime les ha dicho que tiene que hacer, tienen que hacerlo, pero creo que contrataron a un chico nuevo que está ayudando, pero no sé cuánto han avanzado, Tuvimos varias reuniones hace dos semanas explicándoles cómo, pero ya quedaba en manos de ellos atreverse a hacerlo en el sistema. Imagínense como son las transitorias, y si concilias, a mí me pasó mucho al principio, como conciliábanos, y de repente me iba a la transitoria, y había vida transitoria todavía, y la presentación acá decía que no había nada por conciliar, y decía no, eso está mal conciliado, hay que volver hacia atrás, y desmarcábamos todo y comenzábamos de nuevo hasta que logramos.
+S1: Y esto, por ejemplo, qué está hecho, esos desarrollos que están hechos, esto está.
+S3: Hecho con Clau, o sea, son módulos que pegas a Odo. ¿Pero como hiciste el modo con Clau que nos enseñó Jorge ayer?
+S1: Este mismo.
+S3: Es que son parches hechos.
+S1: Claro, pero este parche de conciliación lo hizo con Clau, lo pegó a.
+S3: La carpeta que es el maole. Pone la carpeta en el ojo.
+S1: ya me acordé, ya me acordé que él se conectó y tú le preguntaste dónde está el muestra de la.
+S3: Situación, No sé si escuchaste hoy en la. Estábamos en la. en Colón, que una. Una orden no llegó,.
+S1: No llegó al.
+S3: ¿Pero te acuerdas del por qué? Porque hay un módulo personalizado que conecta.
+S1: Dos órdenes, que hizo un merge entre los dos co resolvimos esto tiene una.
+S3: Dependencia para que pase logística y no la contemple. Contemplar todas las dependencias que tiene odo entre módulos. ¿Qué pasó? Quedó en el limbo y nunca llegó.
+S1: Agarraron un mismo cliente hizo un pedido por un lado, un pedido por otro, entonces claro, para optimizar hicieron un merce los dos pedidos para mandar un solo pedido. Pero cuando hicieron el MERS que tenía que llegar a logística para sacar pedido, se perdió. Entonces la solución fue peor que.
+S3: El problema.
+S1: La solución exacerbó el problema, porque ahora el cliente perdió la orden. Claro, eso no salió ni siquiera ni una ni la otra.
+S3: Coges la solución y que lo hagas afuera, no sé qué, y mandas a Odo su estructura, lo que necesita.
+S1: Claro, pero en la propuesta que discutíamos esta mañana de esa lógica de funcionamiento, entonces ese equipo tendría que agarrar todos esos parches, llevar esos parches a la lógica de la nueva arquitectura y conectar esa broma como dos empezar a quinta.
+S3: Parte y poner acá por para que cuando no existan parches, ahora modemos los dos cada vez queramos. Y tenemos los parches. No, ya no tenemos parches, que tenemos este sistema conectado.
+S1: Solo conectar el sistema, la versión 21,.
+S3: La que den para dejarlo nativo.
+S1: Ya está bien. Está claro. Está claro.
+S3: Guía revelador.
+S1: Sí, sí, claro. Porque claro, nosotros lo que pasa que. Perdona, que estamos haciendo es que estamos uniendo piezas de rompecabezas.
+S2: Claro, Si usted me dice, no, Venezuela lo hace de una manera.
+S1: Bueno, de eso se trata la estandarización de procesos.
+S2: Exacto. Pero siento que todos deberíamos ser igual,.
+S1: No se hace de la noche a la mañana, pero lo importante es que por lo menos esté declarado un concepto y vayamos a hacer.
+S2: Y como siempre se lo digo, por lo menos Marila, que si ellos por lo menos Colombia no lo hacen, no le empieza a hacer. En Odoo están creando una bola de nieve en algún momento, o sea, ya tienen 2 años usando Odoo y todavía no tienen las conciliaciones. En odoo yo tengo 6 empresas y todas las conciliaciones están al día y mis cierres están al día y mis activos fijos corren solos, porque entre menos cosas yo haga manuales, pues.
+S3: Bueno, tenemos.
+S1: Claro, sí ya no hay más nada que ahora ¿Quien dijo que íbamos a reunirnos con Comercial? No con Guía, con Comercial y con Pat.
+S2: ¿Tú te llamas?
+S1: Ian.
+S3: Ian. ¿Quién se va?
+S1: Tu nombre es como mi esposa. Tú sabes que a veces yo le digo que mi esposa se llama Maike, pero la gente no sabe cuando dicen Maike, a veces piensan que yo soy Maike. Me dice, mira, Maike, mi mujer. Entonces te dice IA, cuando dice NIA, tú piensas. Claro, es un hombre que puede ser hombre o mujer.
+S2: Exacto. Pero nadie me dice Isa, pero me ha pasado mi esposo cuando hago el taller de mi carro voy a sacarme. Hola señor.
+S1: Ya, exacto. No, mira, ya soy yo. Lo mismo me pasa a mi esposa. Igualito. Hola manque, ¿Cómo estás? No, no, yo no soy manque. Eso es más que.
+S2: Ojalá que encuentres una forma pues que no sea con desarrollo, pero mientras tanto.
+S1: No, no. Perfecto, porque además eso no lo podemos suplir así, eso hay que construir, o sea, hay que migrar todo a una arquitectura única aprovechando al máximo los conceptos que tienes. Ya, pero esos conceptos no se van a tocar porque esos conceptos al final optimizan que los de que tocar, lo que uniformar es el desarrollo que va alrededor de como RP y de sí, sí tú no tienes nada que tu labor sí va a ser convencer a los colombias que ya empieza a utilizar esto, optimizó un poco el tema.
+S2: Pensé que ustedes iban hacia allá.
+S1: No, no, nosotros no, o sea, nosotros no podemos replicar. Fíjate lo que te está diciendo él como este caso. Claro, no, no. Lo que nosotros vamos a respaldar es que exista un solo proceso entre ellos, un procedimiento de conciliación, ese proceso sea un proceso corporativo y todas las unidades vayan al funcionamiento con ese proceso corporativo. Ahora, ese proceso corporativo se apoya en tecnologías. Entonces tú tienes. El tema aquí estandarizar esas tecnologías. La primera tecnología que está vinculada a eso es, hay unas soluciones particulares que complementan a Odo como RP, que es la que generamos experiencia. Esas soluciones tienen que estar montadas en una sola arquitectura. Lo que está pasando ahora está montada en distinta arquitectura. Hay que uniformar esa arquitectura para que esto tenga una conexión, una sola tubería con Odoo y que de manera que si Odoo modifica su versión, toda esta tubería se mantenga. Esa es la lógica para mí.
+S2: Odoo también. Primera vez que usaba en mi vida de manejar sapos con ambas versiones. Con Business One.
+S1: ¿Qué te gustó más Odoo?
+S2: Odoo por las transitorias me causa un temita, pero es amigable.
+S1: Bueno, son dos RP potentes. Son dos RP potentes, lo que pasa es que después viene. Son las particularidades de las empresas. Los RP no pueden replicar todas las particularidades que existen en cada organización.
+S2: No, pero me ha ido bien como.
+S1: La diferencia de ahora con antes es que antes los desarrollos ibas a pie. Ahora tú tienes el concepto y el desarrollo se hace mucho más rápido. Lo agarramos, usted desarrollo en cloud y listo, ya tiene.
+S3: Bien, gracias a este gustazo conocerte. Placer.

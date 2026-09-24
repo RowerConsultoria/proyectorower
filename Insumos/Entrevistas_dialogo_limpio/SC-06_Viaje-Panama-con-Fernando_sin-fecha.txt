@@ -1,0 +1,462 @@
+S1: De cargo, el alcance, lo querían, no sé qué, todas esas van y entregables, entonces obviamente, más o menos en eso, obviamente Andrés tenía la carta al niño Jesús, lo cual todo no era viable, pero también hicimos otras cosas que no estaban , entonces la intención siempre fue los primeros, a pesar que los primeros cuatro semanas, cinco semanas, era muy difícil que yo hablara porque lo que estaba era viendo si había cosas que si estaba muy mal, si era como paremos eso y cosas así. Entonces yo les presenté a ellos en esa reunión en la junta que fue la primera, los primeros 60 días y la verdad todo lo que se presentó, se habló con el cáncer regional, o sea, lo que pasa queríamos empezar a ser plan piloto aquí en Panamá, o sea en zona libre, de hecho era tan piloto que yo no tenía la bodega Barrio, en teoría la bodega Barrio era otra persona que no sé ni quién era, quién era Alejandro o eso pasó de una vez, casi que pasó y me dijeron no, no, tú llevas la bodega, OK. Entonces obviamente empecé acá y empezamos con todas esas parametrizaciones locas. Y en esas parametrizaciones locas era como yo le dije, sabes qué, resetea toda esa vaina porque en vez de ayudarme en la operación me la están bloqueando. Eso era como reglas estivas que no tenían sentido porque estaban por marca, entonces tenía un tener cubi recibiéndolo mientras estaba llegando a un Casio, pero yo no podía poner Casio porque era por decirte algo, todo ese pozo, las reglas de picking, las vergas de transferencia, había una sola bodega, no había inventario, la verdad, operativamente hablando, si está metido uno en el área, no era nada bueno y esas propuestas se llevaron, quiero hacer estos son los tiempos, podemos revisarlo Ahora si quieres, 20 minutos para mostrarte lo que tú querías y lo otro, y esto es la estructura que replicar a todo, pero obviamente tenemos que empezar por aquí. Se dio en el camino querían hacer la migración de Venezuela y fuimos a Venezuela porque o Barrio, ellos la querían ser primero, o Barrio, pero Barrio no estaba listo, o Barrio tenía una bodega sumamente desoladora, muy loca, muy, muy loca, o sea tú no veías nada, no veías el piso, para que tengas idea. Entonces estabas teniendo inventarios en la existencia de unidades de esa bodega que es chiquitica, estaba casi 130 mil ítems, pero cuando hicimos el estudio para un funcionamiento de que tengas dos semanas y media de ítems de existencia por ítem acorde a la demanda, lo que tú requieres son 30 mil unidades, 29 mil y pico, entonces estamos teniendo un problema de espacio que no estamos creando nosotros mismos, porque seguíamos mandando órdenes para allá, entonces llegó un momento donde yo vi que habría un cargamento grande, 600, 700 caja para allá, lo paré, había como 16 mil 500 piezas, de las cuales había 11 mil y pico de piezas en inventario de esos mismos ítems allá. Entonces fue donde ya hicimos los cortes completos, nos reunimos, pedí una reunión.
+S2: Con Roberto porque.
+S1: Estaba de vacaciones en ese momento, hicimos un estudio y le presentamos donde todos los ítems que estaban con overstock y que eso nos estaba trayendo problemas porque no puedo poner orden para yo poder ejecutar la implementación de la migración del sistema. Entonces empezó todo y coño, ya ahorita no está como quiero, pero obviamente también faltan unos anaqueles para que se termine de ver mejor, porque van a tener gaveticas individuales por ítem para poder marcar la posición, porque allá la operación es otro tipo de operación muy diferente a la de acá.
+S3: Es muy granel.
+S1: Es muy granel, es muy piqueo, entonces tiene mucho, a veces tiene más ítems que tiene, pero son 5 que está, entonces es tenerlo en abrica, lo tienen en caja aplastado, que ojo, tampoco estaba acomodado el espacio, no estaba. No estaban adecuados los racks, pusimos uno mejor rack para que estén de la bodega.
+S2: ¿Eso es aquí en Panamá?
+S1: Sí, claro, ahorita bajamos si quiere.
+S3: Yo tenía una pregunta rápida y esa se me olvidó aquella vez que hablamos al principio. ¿Cuántas tiendas hay en Panamá?
+S1: Tiendas Casio Cubic creo que son cuatro. Son cuatro en Alblo, Multiplaza, Alta Plaza, Metro Mall, Los Andes y Metromol 2. Son ocho o nueve.
+S3: ¿Y tiene sentido la bodega ya y no simplemente Colón envía Fry?
+S1: No, ya despachamos a las tiendas, pero es que nosotros no despachamos de esa bodega solo a tienda, nosotros despachamos ventas BB y despachamos también ventas al mayoreo,.
+S3: O sea, sí tiene sentido.
+S1: Sí todavía tiene sentido porque además que tú tienes que tener, por ejemplo, llega alguien y quiere comprar 100 vasos, pero lo necesitas de una vez. Si llega a las 10 de la mañana y quiere allí, yo no lo puedo despachar porque tengo que liquidar. El proceso de liquidación, o sea, lo que trabaja para hacer eso que tú quieres es el proceso de liquidación.
+S3: Claro, pero digo igual si ya optimizaste aquí, te tardas dos días en un despacho BB.
+S1: ¿Pero hay muchas ventas que son ya cuánta? Pregúntale a venta. Pero sí es necesario tener un inventario aquí.
+S3: Pero ese inventario puede estar en las tiendas. Son muchas tiendas.
+S1: No, porque las tiendas son pequeñitas. No te imagines que son tiendas. Estaba hablando que son kiosco.
+S2: OK.
+S1: Entonces esa parte lo queríamos era en Venezuela fu. Y ordenamos un poco más todo el flujo de proceso. Entonces eso es lo que Elvis, que es el de logística, ya ha acomodado, que lo que estaba antes es muy distinto a lo que está ahora. Ahorita tienes todo el flujo completo. Imagínate el mezzanín de nosotros, pero imagínate el fondo de la bodega, donde tú estás viendo ya que está Casino y te imaginas lo que es el mezzanil de Casio y vas a ver que tienen las gavetitas y todo eso que están pegadas aquí. Entonces todo el picking es . Y alrededor tiene las zonas para. Está norte. Pero es un edificio de la compañía en Colombia. En Colombia también.
+S2: ¿Cuántas bodegas tienes tú? Dos aquí, una en Colombia.
+S1: Que yo sepa. Está la bodega de Colón, Frisón, está la del barrio. Está en Colombia. Una está en Venezuela, la otra en Venezuela, otra que hay dos pisos y está. Y por ver también funciona como diga nosotros, ¿Verdad Ricardo?
+S4: No solamente la entrega.
+S1: OK.
+S4: Pero dentro del proyecto de nosotros está tomar el control. No el control, sino ser nosotros como unos supervisores, digamos así.
+S1: Garante, pues. Pero la de Miami.
+S4: Y la idea es también que ellos se migren a EBS el otro año, en algún momento del año.
+S1: La otra está en Miami. Y creo que así como que bodegas como tal son eso.
+S2: Y la idea es que tú estandarices todo eso, lleves toda la estandarización a todas las bodegas.
+S1: Por ejemplo, creo que te lo mostré a ti cuando entrevistamos, empezaste a levantar procesos porque no había nada. No encontré sin nada. Entonces, por ejemplo, hay uno que es muy importante, que es el de reclamo. Entonces hicimos uno donde está. Levantamos uno donde está. Lo que yo requ. Quiero que el cliente llene como documentación del reclamo es faltante, sobrante, dañado, golpeado. Fue el carro fue ro, o sea, que se yo, faltó su bro, dame la foto, cómo llegó, cuál es el ítem, la cantidad que pediste, la cantidad no sé qué, y ya, muy básico y es muy rápido de llenar. Y el otro que tiene que enviar, tiene que hacer el procedimiento en bodega para constatar de que fue piqueado, de la foto despacho, toda esa vaina. Hasta que toda esa investigación lleg. Hasta una definición que la decisión final la va a tomar Andrés, que él dice, coño, yo le voy a decir por ejemplo, si en la parte que sea el caso, coño Andrés, aquí la cagamos, así que no hay pedo, hay que hacer la nota clarito, no se la despachamos o la despachamos menos, listo, pero él va a tener que autorizar, entonces tiene que ir a un approval donde autorice que eso se hizo y con ese soporte yo hago el ajuste inventario. En el caso que le digan, Andrés, yo no tengo producto, ese producto fue despachado y yo tengo aquí que fue piqueado por fulanito, fue piqueado por sultanito, empacado por dale, ese producto nosotros lo mandamos. pero Andrés dice, coño, es que no quiero pe. Bueno, listo, tú haces la vaina, pero no fue un error de operación, entonces no lo puedo tomar como una incidencia nuestra. Entonces ese tipo de cosas, lo que quiero seguir trabajando en ese tipo de procesos para poder estandarizar, porque al final del día es el comparativo que tú puedes levantar para tener KPI que son realistas, igualito los tiempos despacho, los tiempos por proceso, los LCA por proceso, que sea una vaina estándar, que indistintamente, o sea, por ejemplo, si nosotros estamos ceñidos a tener X tiempo y procedimiento de vaina, lo vamos a tener para todo. Entonces adecuar la estructura de cada bodega a que eso se cumpla, puede ser más contratación, despido o lo que sea, pero tienes que ajustarla a esa meta que tú quieres, no es que la quieres porque la quiero. Y para mí lo de las estructuras es muy importante, porque aquí nada tenía nombre, entonces nadie tiene responsabilidad.
+S2: ¿Todos esos procesos que levantaste, se los transmite también a Jesús o a alguien en la entrevista fue contigo?
+S1: No, fue con Gabriel. Sí, él vio varias partes del clean, él me dijo que lo colocara en la. Yo no lo coloqué la verdad, pero igualito todo lo que hicimos de cambio de flujo, el flujo de producción en la bodega también lo cambiamos un poco en la entrada también la entrada era muy lenta, entonces lo que se terminaba. Lo que terminaba redundando eso era que la disponibilidad para pedidos de venta era lenta y sobre todo cuando eran fechas cercanas a cierre no podía facturar. Más o menos eso.
+S2: Con lo que hemos hablado yo con las entrevistas. Sí, sí, porque a ver,.
+S1: Ellos me.
+S2: Acotaron un poco el contraste entre lo que había anteriormente, cómo se solventaron los cuellos de botella con eso complementó un poco la información que levantamos contigo, la descripción que tú nos diste. Luego entonces hablamos poco sobre el esquema o modelo de funcionamiento de ellos, de su rol de supervisor, o sea, cómo trabajaban con los operadores, qué roles tenían los operadores, cuáles son los picos y la estacionalidad que tienen en el almacén. Todo eso lo repasamos y después me dijeron dónde estaban los principales problemas que se estaban encontrando ahora chévere con eso, digamos en media hora. Y los dos, digamos, los dos se complementaban. Uno me decía una cosa, el otro bueno, también complementó un poco lo que está diciendo tal cosa. Resultó bastante bien haber transmitido los dos.
+S1: En ellos están haciendo buen team y como no se pisan, porque eso era otra vaina de nuevo como hacían todos. Entonces bueno, hoy estaba José de Big Pack, el otro estaba recibiendo. Ya no se pisan, ya se complementan. Y eso tienen que hablar mucho porque por transferencia personal, cuando no tienes operación de inbound, todos ellos tienen que estar entonces adentro haciendo un Big Pack y sacando órdenes. Entonces siempre tienes a alguien necesito. José le dice pues yo tengo por decirte algo, ocho personas, pero no tengo por debajo lo que va a hacer es reposición y compactación. Bueno, me llevo un montacarguito y me llevo un operador. Exacto, agarra seis y te lo llevas tú para tu área.
+S3: Y ellos son de Colón.
+S1: Voy a hacer si co. No sé si me puedo echar whisky porque José no sé cómo, pero él toma claro, Pintas para todo el mundo, le dije yo. Y después yo así como que maybe. Dice no, que nosotros tomamos. Y yo coñuela madre y dan comida y entonces le traje pizza y vaina y no sé qué.
+S2: No, no, me parecieron dos tipos bastante. Y los veo cómo se ll contento,.
+S1: Los veo motivados, se nota que les.
+S2: Gusta lo que hace.
+S3: Y el tráfico, el proceso está claro ya lo tengo.
+S1: Cuéntame más.
+S3: Súper claro. Bueno, hay lo del packing list que tienes que chequear eso.
+S1: Tiene que haber alguna diferencia de eso.
+S2: Porque.
+S1: Andrés lo puso.
+S3: Lo que tienes que lograr es el acceso a EBS.
+S1: Eso es tarea del señor de o.
+S3: Por base de datos del director de proyecto. Pero te pregunto,.
+S2: Él es el que.
+S1: Tiene la relación con EBS.
+S3: ¿Pero mira, te pregunto, EBS está.
+S2: Que.
+S3: Te lo creo que te pregunté ayer o que? ¿Está por red? ¿No? ¿Dónde está la base de datos? En un computador locales en la.
+S4: No, no.
+S3: Está contratado con EBS y les pusieron una red.
+S1: Es cierto, No Ricardo, si estoy diciendo algo que no es, Corrígeme. ¿Qué cosa?
+S3: La data de ustedes de EBS, ¿Dónde está? En unas computadoras.
+S2: Pero EBS solamente está para esta bodega.
+S1: Y para Barrionita para Panamá, que Salimos.
+S4: Live al 5, después para Colombia, después para.
+S1: Después Venezuela, después Venezuela.
+S4: El de Venezuela, ese contrato está cerrado. Colombia, vamos a empezar negociación.
+S3: Y después.
+S4: Vemos si metemos en Estados Unidos y Costa Rica.
+S3: Pero eso es un tema. La data.
+S1: No es la data. La data la hay que es la buena parte. Odio no tenerla. La vaina es el acceso a la data, la organización de la data.
+S3: Si la data es tuya, tienes que tener el control de tu dato, Eso es todo. Ellos pueden hacer todos los países, todo. Perfecto, pero tengo que tener acceso a mi dato que es mi base de datos o API.
+S1: Esta es la única parte más Larilla,.
+S2: ¿Cuánto pagas aquí de peaje?
+S1: No es 230, pero los ladillas no es pagarlo la día es que tiene que ser efectivo, marico. Si te quedaste sin efectivo, tú te vas a quedar en esa vaina y no te vas a pasar.
+S4: Lo que pasa es que Colón ya.
+S1: Es otra provincia, es otra concesión. Panamá sí es igual.
+S4: Aquí ellos tienen un sistema de.
+S3: También de buenos días, como pase rápido.
+S1: Para pasar rápido, pero tiene que sacar otro para más. Entonces si yo vengo en el otro carro no me sirve tampoco. Entonces ya te jodiste.
+S4: Allá vamos. No son dos, pero son interesantes.
+S1: Mira, ¿Qué pasa?
+S4: Ian, que es la gerente de contabilidad y Mariela que es la gerente de sistemas. Se está desarrollando un proyecto de conciliaciones bancarias.
+S1: Quizás Gabriel, Gabo, ¿Tú sabes el proyecto.
+S2: De conciliaciones bancarias que tienen en qué?
+S3: ¿En Venezuela?
+S4: No, aquí no. Bueno, por eso. Entonces la idea es que Gabriel se reúna con ellas, con Ian, sobre todo para entender lo que estamos haciendo y ver si hay una deficiencia y ver si podemos mejorar algo. Esa reunión puede ser menos de una hora. Es nada más para que ustedes estén.
+S2: Enterados de lo que está haciendo en sistemas. Pero ellos están montando un sistema sobre eso.
+S1: Están adquiriendo un sistema.
+S2: OK. Mejor desarrollo de Odoo.
+S4: Exacto. De nosotros.
+S2: ¿Y ayer por qué no salió eso?
+S3: No salió uno de los grandes problemas, las personalizaciones en Odo. Eso debe detenerse inmediato. Un gran problema. Esas personas.
+S2: Pero entonces Mariel estaba ayer en la reunión.
+S3: Sí, claro. Y lo vimos, lo mostró Jorge, las miles de personajes. Pero bueno, vamos a checar,.
+S4: Pero no vamos a llegar. Gabriel lo va a atender a la hora que sea. Porque Mariela tiene una mujer, Va a tener una reunión.
+S2: ¿Quién es un? Sue.
+S4: Va a tener una reunión con Clara y Patrick. ¿Por qué? Porque aquí se está formando algo interesante. Clara es la nueva gerente regional de e commerce y Patrick es el gerente de soporte técnico y servicio al cliente.
+S1: Y también.
+S4: Entonces eso en algún momento se va a combinar.
+S3: Esa. No hace falta porque ya yo tengo claro lo que va a pasar con Clara.
+S4: Y.
+S3: Eso fue lo que te comenté en la mañana y es lo que es hasta dala por hecho, Ricardo, que tengo. De hecho, ayer en la tarde en la formación tengo. De hecho no queremos ni. Está claro.
+S2: No conviene ni hacer por ahora.
+S1: Claro, claro.
+S2: Perfecto. Entonces esa como Ricardo le dice que no la hagamos.
+S3: No, además con Patrick ya yo estoy cansado de hablar.
+S2: Que no se preocupe que nosotros tenemos una conversación con el, porque además tenemos una.
+S3: Hay una propuesta de reorganización .
+S4: ¿Pero ustedes no han hablado con Clara?
+S3: Sí, pero ya yo tengo muy claro Clara.
+S2: Si, es que él me habló de Clara esta mañana. Yo conecté todo.
+S3: Sí, Ricardo, créeme que está. Eso está claro . De hecho, te diría que más bien la conversación. ¿Repíteme qué es lo que tengo yo ahorita?
+S4: Lo de conciliaciones bancarias.
+S2: Ian. María.
+S3: ¿Con quién? ¿Cómo se llama? OK. Y después tenías lo de Patrick.
+S2: Él quería que yo hablara con ellos dos. OK.
+S3: Lo de Patrick. Y tienes otra más, Ricardo.
+S4: Sí. Después viene esa siesta agendada que es con el equipo comercial. Y tenemos un problema con Costa Rica porque no se están siguiendo los lineamientos del equipo comercial y hay un problema y un tema como el equipo de Costa Rica.
+S3: OK.
+S4: Entonces esa es con Jo, con Ricardo Baltodano y con una persona que agregaron que es el comercial de Costa Rica. va a estar Josué.
+S3: Esa sí está interesante lo que podemos hacer en esa.
+S4: Yo te había puesto Gabriel, porque Patricia. Bueno, no sé, tú dices que ellas habla un montón con Patri.
+S3: Si, no, eso está. Es que tengo un muy claro una reorganización, pero OK, lo de. Y esa comercial y necesitamos tiempo porque nos vamos a sentar con Andrés. ¿Sabes que Andrés que va a hacer ahorita en la tarde? Organízanos eso Ricardo, que tengamos ahorita mismo comercial, Ian, paralelo. Tú le das comercial, yo le doy Ian y lo queda de tarde.
+S1: Nos queda una que me di, me.
+S4: Dice que íbamos a tener una reunión nosotros dos. Esa es de cuatro a cinco.
+S3: pero se puede ser al final.
+S4: Y Gabriel, esta sí la tienes que tener con Mariela. El tema de Cyber Security.
+S3: No, eso tampoco va en la reorganización que vamos a hacer. Entonces a mí me gustaría hacemos la de ella entonces comercial y nos sentamos con Andrés.
+S4: Sí, pero es que nosotros tenemos ahorita mismo un proyecto de cybersecurity que vamos a comenzar consultor.
+S3: Claro, pero cybersecurity dónde si no tienes.
+S4: Nada para protegernos nosotros a nivel del ciberseguridad.
+S3: Pero qué vas a proteger si tienes mi sistema, o sea, ya eso lo vi y es lo que quiero reorganizar.
+S4: Claro.
+S3: Y ayer una formación, o sea, lo tengo muy claro y es parte de lo que hay que trabajar con Andrés en términos.
+S2: ¿Y sabías de este proyecto?
+S3: Sí, claro. Y me hablaron y me reuní con Mariel y con César para hablar de eso. Ya yo hablé eso largo.
+S4: Porque ese proyecto va y se le va a pagar un consultorio. Es un proyecto de un año. Por eso es que quiero que lo revisen, que sean 20 minutos. Claro, pero porque si tú me estás diciendo que vamos a hacer otra cosa o que se va a plantear otra cosa, yo tengo que parar ese proyecto.
+S3: Es que yo te diría que lo detengas porque ahorita vas a poner ciberseguridad en algo donde no hay nada, dónde vas a poner ciberseguridad de modo, pero.
+S4: Al final, bueno, esa sí, esa sí quiero que la haga. Esa de 4 a 5. El espacio de la tarde lo ven con Andrés.
+S3: No, esa no va. Reorganízame con Andrés porque es que girar sobre lo mismo. Organízame. Tenemos Ian, tenemos comercial que sí está súper interesante y organízame a hablar con Andrés y ya después al final ustedes.
+S2: Tienen, ustedes dos y tú tienes la propuesta de ciberseguridad.
+S3: y me dio tortícola,.
+S2: Comparte esa propuesta de ciberseguridad para ver qué es lo que.
+S3: No, pero es que no, ni siquiera lo vas a ver, o sea, está perfecto lo de ciberseguridad, pero la ciberseguridad tiene que venir cuando tenemos claro los sistemas donde vamos a tener la base. No, ni siquiera la arquitectura. Ni siquiera la arquitectura, porque yo me imagino que la ciberseguridad el único sitio donde puede ir ahorita es en ODO, es lo único real que tiene, pero justo no hay riesgo de. De ciberseguridad, porque Odo, toda la seguridad está en ODO SH.
+S2: ¿Y por qué justifica Mariela entonces?
+S3: Mariela tiene un miedo de la seguridad por justo lo que vimos en la tarde de ayer, que Hay más de 14 sistemas que están en todos lados, pero a eso no hay que ponerle ciberseguridad porque eso no puede suceder más.
+S2: Estandarizar la forma en cómo vamos a.
+S3: Concebir, que fue justo lo que dije.
+S2: Ayer, blinda ya con su pabellón, ese.
+S3: Triángulo esté armado, tú le puedes decir a ciberseguridad protégeme el triángulo, cuando tú le digas ahorita ciberseguridad protégeme, que te voy a decir que te protejo. Si hay un ambiente,.
+S2: O sea, cada quien está haciendo lo que le da.
+S3: La gana en temas desarrollo, entonces.
+S2: Hay que estandarizar,.
+S3: Hay que estandarizar primero el equipo interno en sus iniciativas, pero.
+S2: Hay un nivel de blindaje, si cabe el término, cuando ya tú metes su papel y de si esquema, porque.
+S3: Ahorita en ODO no tienes inseguridad en ODO porque está en modo SH para que te clone, para que te hackeen OSH, coño, y para que hackeen EBS, bueno, para eso tienes un contrato con EBS, están los servidores EBS, entonces la pregunta es la contratación, ¿El cybersecurity se lo vas a poner ABS o a ODO? No, el miedo de Mariela es todo lo que se está dando por todos lados y ella me habló de los riesgos del reporte que le dio cybersecurity. Bueno, es lo mismo que vimos ayer. Bueno, es obvio. Claro, pero no lo tengo claro, pero lo que tienes que estar tranquilo. Es que lo tengo claro.
+S2: Ricardo tiene cara que no está tranquilo.
+S3: Lo que tiene que estar tranquilo es que lo tengo claro y quiero hablar de esa reorganización. Entonces hagamos Ian, hagamos comercial y nos sentamos con Andrés a hablar de eso,.
+S4: ¿No?
+S3: Si, Marielo me dijo. Estoy tranquila, gracias. Tranquilo que si después de hablar eso. Después de hablar eso, si se necesita hablar de ciberseguridad, lo hablamos después, no hay problema. Pero no es el.
+S2: La de comercial. Entonces vamos juntos.
+S3: Dale.
+S4: Entonces para hablar con Andrés tendrían que hablar a las dos y media, por .
+S3: ¿Y la de Ian?
+S2: ¿Quieres que hablemos con Andrés?
+S4: La de Ian es apenas llegamos.
+S2: bueno, pero nos da tiempo. Son las dos. Así son las dos.
+S3: Ricardo. Aquí ni se come.
+S1: Puedes comer pero no digieres.
+S2: Oye, y lo peor es que nos dice se quieren com. Pero no van a comer.
+S3: Coño, ¿Sabes que eso puede ser una comida china?
+S4: Vamos al Guerrero Chan.
+S1: bueno, ¿Sabes cuál es otra? El Guerrero Chan es.
+S2: El.
+S1: Guerrero Chan es el mismo de Caracas. Y aquí hay otro que tiene comida venezolana. Si quieren comer comida venezolana, que no creo tú, pero no sé tú,.
+S3: Aquí no estamos folclóricos.
+S1: Yo expongo, o sea, venden agüitesapo, marico. Así que para mí ese es un santo grial.
+S2: ¿Qué es agüitesapo?
+S1: bueno, está, está por seguir mamando gallo. Instagram, lleven pues. No saben que es agüitasa. Busca , pregúntale a Chadipití o a Chloe que te monte la wittesapo y las recetas.
+S2: ¿No,.
+S1: En serio, usted no sabe que es wittesapo?
+S2: Yo no sé.
+S1: La mejor arepa que puede existir. Es la mejor arepa que hay es de pernil frita, tapita de pernil.
+S2: El que yo uso de mi WhatsApp, que es el más importante. Si te paso el Instagram. No, esa viene para liga. Pregúntaselo a los carajitos.
+S3: Todos los carajitos ahora todos los ligan por .
+S1: Sí, marico, que la vaina ya uno no.
+S2: Si tú te acercas a alguien en un sitio, es un bicho raro, te ven raro. Acosador.
+S1: No, la otra vaina también es que si tú no tienes. Si tú no tienes red, o sea, yo a veces, yo de vez en cuando me friseo las redes.
+S2: Si no le paras bola.
+S1: No, no es que le paro bola, es que lo quito. Tú sabes que tú tienes tres meses cuatro meses que la cuenta te va a quedar , no existe para el mundo. Es que no quiero porque marico yo trato de filtrar la vaina, yo no veo noticias,.
+S4: Yo.
+S1: No veo noticias cero, pero obviamente te va a llegar sobre todo Venezuela te va a llegar vainas y no sé qué tal, pero yo no veo esa vaina, no sigo ninguna cuenta noticia, no sigo nada de esa vaina coño, entonces a veces trata de poner vaina chamo y no hay forma y lo que te llega es pura mierda, se murió no sé qué verga, vaina, tragedia, no.
+S2: Sé qué noticias, son las vainas negativas.
+S1: Chamo, para ver esa vaina yo prefiero no un coño, o sea coño que muy extremo no quiero.
+S2: ¿Danny, danny effect?
+S4: Ya te escribo Tom,.
+S2: Cuando quiera jugar.
+S4: Golf,.
+S2: Organizar el paseo, cuando quiera hacer.
+S1: Cualquier cosa tú que Ya, ¿Mira,.
+S2: Yo.
+S1: Tengo como filosofía que todo lo que, por eso esta vaina dice eso y lo llevo siempre que esto es todo pasa por esto también pasa por mi bien, son principios judíos.
+S2: Y marico cuál es el principio judío que tienes tú?
+S1: Se llama esto, Gasur le tobá y gasur le tobá significa esto también pasa por mi bien o esto también pasará. Es como decir sea bueno o sea malo, esa verga transitoria, o sea no es tu estado, se create tu estado y si tienes mala actitud frente a algo malo que te pasa te vas a ir peor, no estás aportando a ninguna solución. Entonces hace muchos años que hago esa vaina y tengo demasiada paz marico. Entonces yo normalmente no me estreso. Normalmente no, yo no me estreso, o.
+S2: Sea tú eres estoico.
+S1: Sí porque yo hago todo lo que está bajo mi control de poder mejorar situación, ahora lo que está fuera de mis manos yo no estoy sin, no sé por qué carajo me voy a preocupar amarga, yo a la gente de la compañía le digo mire no que está mi mamá, vaya me vale huevo si es cierre, si es vaina, vaya a atender a su madre, vaya a atender a su hijo, no sé, eso es primero, cuando a usted le dé un infarto porque anda estresado por una vaina no sé qué, le aseguro una vaina al otro día va a haber otro huevón que está contratado, eso es así, nadie es indispensable, nadie. Se cae el presidente Coca Cola, se cae el avión y se muere y mañana hay otro huevón, mañana, no, hoy mismo, qué va a asumir esa vaina.
+S2: Esa es la fuente de todos los peos, la ansiedad.
+S1: Esa vaina de vivir en el futuro preocupante.
+S2: 99.
+S1: 99. Y llega el chino marico ese de allá, el presidente, un botón, tira una bomba nuclear, se prendió el peo. Y aquí no quedó nadie. Y aquí no quedó. Y aquí no quedó nadie, marico.
+S2: Si tú tienes actitud, si tú tienes.
+S1: Actitud positiva, es como yo siempre digo, esa misma vaina es lógica matemática. Porque por ejemplo, mi mujer y uno de mis mejores amigos siempre es que el positivismo tóxico, yo le digo, ¿Saben que? Mejoris con el positivismo tóxico, no existe. Porque si yo estoy en un acantilado y me estoy cayendo, yo no estoy disoci de la realidad que me vuelve mierda si llego abajo. Pero si yo estoy pensando qué puedo hacer para ayudarme, de pronto me encuentro una ramita, marico, me agarro y no me caí. Pero si yo lo que estoy pensando es que me voy a volver mierda si me acerco, no sé qué, cómo va a quedar el cuerpo, marico, te va a pasar. Entonces cuando tú estás, tú tienes cien dólares en el barco, marico, es fácil. Tú tienes cien dólares en el barco y tú agarraste, llegaste, pagaste el peaje, en el estado de cuenta que te va a aparecer 230 porque pagaste el peaje. Ahora, si yo paso y el carajo me suena y me hace cita, es un signo de igual. Yo no tengo más, pero tampoco tengo menos. Y si de pronto la carajo, pase todo, me lleve.
+S2: Positivismo tóxico. Hay negativismo tóxico. Obviamente, si es positivismo, no puede ser tóxico.
+S1: Exacto.
+S3: Porque tú no, espérate, no estoy de acuerdo.
+S2: ¿Por qué?
+S3: Primero todo tortí, no puedo voltear. Hay gente con un positivismo que ya es demasiado días de mierda. No puede estar todo el día feliz. Verga, coño, me llevas loco con esa puina.
+S1: Es positivismo. Y la otra es disociación. Usted no tiene que sentirse feliz todo el tiempo. Ahora, una vaina mala que le pase, usted no tiene por qué amargarse todo.
+S2: El día o pensar que una vaina varico.
+S1: Yo no he visto nadie que se dé un coñazo con la pata de una silla en el dedo gordo del pie. Y no diga coñuela madre, pero si te vas a rechar todo el día. Porque quién dejó la puta silla abierta, marico, fuiste tú de imbécil que no estar con el teléfono. Te diste un coñazo entonces, marico. Y yo tuve un accidente en noviembre donde me explotó mi casa. ¿Explotó tu casa? Yo no soy así de feo normal, sino que.
+S2: Fue aquí.
+S1: Aquí me quemé 51% del cuerpo.
+S3: La bombonega.
+S1: Aquí hacen una prueba. Menicidad que llama. Entonces te desconectan todo. Prueba todas las tuberías, todas las vainas. Pero mientras tanto todo está conectado, hace toda esa mierda, pasa certificación de bombero, va para todos lados, no sé qué, todo ese peo. Y después que lo certifican vas a reconectarte otra vez una compañía con idóneos que te manejan una idoneidad para que te hagan. Bueno, esa conexión la hicieron mal.
+S2: No es suma.
+S1: No, yo estoy vivo. Por Dios. Mandaste esos coños, marica. Estoy vivo. Yo soy muy creyente, aunque no parezca. Yo soy muy creyente y lo practico. ¿Pero no que voy a la misa o eres judío? No, no, yo soy católico. Católico apostólico romano.
+S2: Yo estudié en colegio en esa mesa. ¿Judío dijo?
+S1: No, lo que pasa es que yo.
+S3: ¿Católico, apostólico y romano?
+S1: No, lo que pasa que yo sigo muchos principios del Judá. Claro. Tengo mucho tiempo. Tengo mucho tiempo que yo hablo con. Yo tengo un arabi, un rabino que es como un terapeuta. Entonces hablamos mucho una vez al mes. Entonces. Que está en Venezuela, por cierto. Entonces este sí es normal. Entonces cuando pasó el accidente, a mí me dijeron que yo estaba entre tres y seis meses en el hospital. Y yo salí a los 19 días. ¿Y toda esta vaina es nuevo? ¿Todo esto es nuevo? No, no. Injerto un coño mi cuerpo.
+S2: Es tu cuerpo que se regeneró.
+S1: Las piernas, la cara, todav.
+S2: ¿Y dónde estabas cuando explotó?
+S1: Frente a lo que explotó. Yo prendí la cocina y la cocina explotó.
+S2: Y no te acuerdas de nada, ¿O si te acuerdas?
+S1: Yo bajé 21 pisos. Yo busqué a mi perro y bajé 21.
+S2: o sea estaba.
+S1: Nunca estuve inconsciente. Pero lo que te quiero decir con esto no es quedas recho. No marico, es la mente. Cuando yo llegué a esa vaina, yo le dije a los manes, había tres carajos que estaban conmigo en la unidad. Y un carajo un gringo que estaba primero que yo, le dije a la caraje, al Santo Tomás, el Hospital Santo Tomás, Hospital que es público pero. Pero es la única unidad de quemados que hay en Panamá, no hay más. Pero yo lo sabía porque hubo una explosión de unos allegados a nosotros los de Costa Mar, que fue hace como 8 años que se murió. se murió un carajito de un año y era hijo de un parra. Y la mujer quedó 80% quemada, el otro coñito todo coñetado. Y él no le pasó nada porque él estaba abajo buscando por seta. Era la primera noche que iban a pasar en su nueva casa. Y yo me acordé marico, y lléveme para esa mierda. Y yo le dije al Cano, si yo me desmayo, no importa, no me vas a llevar ninguna clínica, nada, me vas a llevar al Hospital Santo Tomás. Y eso fue. Entonces cuando llegué estaban tres pacientes compartiendo la vaina semi. Y estaba un gringo, que era un gringo judío por cierto, que había tenido, había explotado una lancha, estaban navegando en la vaina y explotó la. El cuello, ese Sí estaba más recontra vuelto mierda que todo. Entonces todo el mundo ¿Pero qué le pasó? Cada uno pues hablando pues marico, íbamos a compartir meses , había varios de ellos que tenían meses , todos los cuentos que había. Yo dije marico, aquí hay una sola cosa que nosotros tenemos en común, que a nosotros nos salvó Dios, marico. Todos teníamos que estar muertos. Entonces yo le de ahora en adelante aquí en esta vaina nadie se puede quejar porque nosotros. Nosotros estamos en tiempo extra. Marí Entonces se ha agradecido de que estamos. Y cambió todo. Todo era una jo. Todo marico.
+S2: Y las curas eran letalmente Y se retroalimentaron entre ustedes.
+S1: Claro, mucho de que yo me pude recuperar también fue por eso. Aparte de todo, gracias. El cuerpo respondió bien, no sé qué. Y los médicos no creen, marico. Yo todavía consulta a veces y los médicos marico, no puede ser que tú no hagas que el oído, no hagas no sé qué. Porque ellos vieron, marico, todo era nuevo, o sea, todo esto es piel que salió nuevo.
+S2: Sufriste más en los brazos y en.
+S1: Las piernas, toda la cara, marico, pero.
+S2: La cara no se te notaba.
+S1: Bueno marico, yo no tenía ni pestaña, ni ceja, ni pelo, o sea, nada, o sea, qué bola, jodido. Entonces, pero lo que quiero ir al punto para no desviar a eso, porque no es pobrecita, al contrario, es decir, afronta la vaina con positivismo porque marico, ya había una carajita que llegó día allá al hospital, la carajita tenía 17 años y se quemó con una olla aquí, se quemó aquí una parte del seno, una vaina de eso chamo, la carajita casi se moría porque no quería comer.
+S2: Claro, una depresión, una vaina, pero es que yo no diría la palabra , no es positivismo, es un profundo agradecimiento y actitud frente a la vida porque no es necesariamente positiva, es una actitud ante la vida porque el positivismo, o sea, la actitud puede ser de lucha, de entrega, de agradecimiento, de fortaleza, de ayudar a otro, ¿Me entiendes? Que no necesariamente es positivismo, es lo que te da la oportunidad de seguir viviendo.
+S1: ¿Pero tú también estás diciendo, coño, yo voy a salir de esto, no?
+S2: Claro, es que eso es lo que.
+S1: Determina tu actitud o. Y para mí salir rápido del hospital o no era tanto por mí, era para mi familia, o sea, yo estoy aquí solo con mi esposa y mi perrito, bueno, tenemos muchos amigos, cercano no tiene chamo, nosotros hemos tenido cuatro pérdidas, entonces cuando agarra tú dices marico, yo quiero salir, yo no voy, me dijeron te vas a comer jamón, o sea aquí se come el 24, como nosotros comemos perdil, entre el 24 y 31 aquí comen 24 jamón que llaman, que es como un tender de nosotros, pero lo preparan, es como dulce y el 31 pavo, entonces el médico me decía, Michael, te vas a comer, hazte idea de una vez, te vas a comer jamón, el pavo, carnaval y semana sal. Entonces ya yo agarré y yo dije marico, yo no, yo le dije a mi esposa, yo el 24 de diciembre estoy en la casa, yo no sé cómo coño y qué va a pasar, pero yo el 24 de diciembre estoy en mi casa, pero no era por mí, porque en la visita lo permitían una hora al día, entonces la incertidumbre porque por ejemplo yo estaba consciente que yo estaba bien, pero mis papás no, mi mujer tampoco, si estoy me termino recuperar en mi casa, pero yo tuve que volver a caminar, caminé conadera, o sea un poco de verga marico, yo la primera entrevista que tuve fue con co. Cuando yo salí después de la Y yo dije yo no voy a ninguna entrevista hasta que no pueda apretar la mano. Yo te voy a poquito. Y cuando yo agarré, ellos me llamaron y hice así literal, a ver si puedo. No me duele cuando me hagan que uno hace así.
+S2: Estás hipersensible ya No, ya hago así.
+S1: Normal y esto ya lo ves y ya va a pasar, ¿Me explico? Pero tú veías esta marico, que la vaina, esto era el doble. A mí los empeines se me explotaron y se quemaron los pies, eran como si fueran tres pies. Entonces coño, cuando tú di todo lo que estaba. bueno, que todavía sé. Sí marico, pero no tengo nada, o.
+S2: Sea no tiene sensibilidad en la otra mano tampoco.
+S1: No tengo sensibilidad, pero no me duele. No te duele, eso es otra cosa.
+S2: ¿Y te estás trabajando esto?
+S1: Tengo terapia que hago yo mismo terapia y a veces voy a un centro de la vaina, pero en la piel.
+S2: No necesitas más cuidado, me vas a.
+S1: Ver cuando me veas echando cremita. No es que soy maricón, sino que tengo que hidratarme siempre con crema, ese es uno. Pero yo salí de sin tomar medicina. Entonces tú dices marico,.
+S2: Hola Eric, ¿Cómo estás?
+S1: Ricky, si nos vamos directo es mejor, verdad, o sea no digo recto,.
+S4: Vamos a agarrar, o sea.
+S1: Sí, pero digo si queda mejor ir recto. Yo creo que.
+S4: Que sí,.
+S1: Es que aquí, aquí no dice derecho, aquí dice en directo.
+S3: sí, por eso que dijo.
+S2: Claro, yo he tratado de. Pero no es lo mismo, trata de.
+S1: Transmitir, hasta paso Fernández de Córdoba y.
+S4: Todo,.
+S2: Nadie aprende por experiencia ajena. Entonces yo hacía tiempo le decía, tienes que conocer a. De hecho yo le dije porque ella viajó a Alemania, Cuando estés en Madrid, avísame, yo bajo Madrid y te presento a Dorón y Alberto que viene Madrid, pero no pudimos cuadrarlo porque.
+S1: Sorry que no te paré bola ayer y ahorita estoy regresando de Colón, tengo toda la junta esta semana dan un chachecito que estoy regresando a Colón para llegar a oficina, barrio y te llamo ahora más tardecito. Te oigo Si me escribiste algo luego.
+S2: Que terminado de concretar nada.
+S1: Verga, tengo 7.000 llamadas, mensajes que me da pena, no respondí por culpa de esos consultores del canal. Voy a ver un grupo marico, para hablar con. WhatsApp.
+S3: Sabes que yo utilizo puro Telegram en la compañía, ¿No?
+S1: Porque me comentó un poco.
+S3: Porque de hecho es una cosa que los ayudaría full a todos. No, pero internamente porque Telegram conecta con los sistemas.
+S1: Pero es que lar por lar, aquí hay gente que tú hablan todo el tiempo y no tiene el teléfono.
+S3: Claro, claro.
+S1: Haces vídeo y llamadas por lar como si fuera.
+S4: Claro.
+S3: El largo tiene.
+S2: Claro, si. No recuerdo para grupo en proceso sobre. Correcto, correcto.
+S3: Entonces estás casado, Fernando y tienes hijo.
+S1: Hemos tenido cuatro, pero ya vendrán, Dios mediante.
+S3: Nada más ese novio.
+S4: Exacto.
+S1: Ahorita lo que tengo es un perrito. Parece que fuera un muchacho marico. Se sienta, se pone así abrazado, duerme con nada. Oye, se aguantó la pela también. Ese coño se quemó. Estuve conmigo. Claro.
+S3: Qué bolas de saber.
+S1: Gracias a Dios mi mujer no había llegado. ¿Te había dicho que como iba a reinstalar eso y dije cuando lo instalé? Yo hago el almuerzo y llega. Sí, huevón. Pero después se fue. Después se fue porque como yo tengo los aires prendidos siempre también. Pero es que yo le dije al carajo, es normal porque tiene mucho tiempo cerrado y cuando uno abre después lo llamé otra vez No vengan para esta verga tan huevones. Ya después me imagino que se fue yendo porque me acostumbré o yo no sé. Y marico, eso fue. Es más, dentro de todo, marico, de pronto era mejor que hubiese pasado eso. Bueno, en Panamá. Pues aquí habido mucho marico y eso no es. No creas que es porque estás en un rancho, una vaina. No. En Jaén hay edificios que han condenado completo. Entonces esos tres niveles que han puesto todo eléctrico en la Avenida Balboa y todo el guay es puro eléctrico.
+S2: Es que es muy.
+S1: No sé, no sé la palabra.
+S3: El gas siempre es delicado. Claro. Si no le dan buen tratamiento.
+S1: Bueno, remodelé el apartamento que esta semana lo entregamos para alquilarlo y yo puse todo eléctrico.
+S2: Es que eso seguramente porque nosotros originalmente.
+S1: Estamos literalmente el coño va a estrenar.
+S2: El apartamento el Vanesco. Pero ellos también tuvieron el mismo problema que tiene con el tema de Claut en Venezuela y se fueron con Antigravity. Entonces lo enfocamos así y seguramente yo sabía que algo iba a salir de esa sesión. Por eso es que incluso dije prefiero hablar con ella. Sí, sí. Estaba segurísimo de verdad. Por eso preferí hablar contigo hoy para que tuvieras un feedback con ella primero. Pero si, no te preocupes, porque la verdad. ¿Cuándo se va Yamile? ¿Qué día se va? Yo vuelo a Venezuela el 10. Entonces la hacemos virtual. Déjame convocarla a ver si la hacemos o el 8 o el 9, ¿Te parece? Dime tú qué disponibilidad tienes. Dame opciones del 8 y el 9. Dime a quién invitarías, si quieres dile a Yamil o lo que sea. Y lo blanco, si ellos pueden atenderlo. Si no, buscamos la manera de atenderlo, vemos cómo hacemos. OK, entonces te bloque. Voy a traer. Tratar de bloquearte en la mañana del 8 o cualquier hora del nuevo. Vale. Hoy yo organizo un poquito eso y te mando un mensajito de todas maneras, si puede, A lo mejor. Bueno, no sé si Janine quiere algo, no sé si vale la pena que esté, pero como quiera tú te volteas y yo me volteo por este lado. Yo vivo. Yo vivo en Coruña, pero Sí, pero voy tres veces al año a Venezuela, por lo menos tres semanas. Entonces ahora voy hasta el 10 de septiembre de octubre y después regreso el 28 de noviembre hasta el 25 de diciembre. Luego iré otra vez en febrero, marzo, depende también de lo que tengamos. Pero en Venezuela tenemos gente, o sea, nosotros tenemos oficinas en Venezuela, tenemos una unidad desarrollo de software en Venezuela.
+S3: Soy el único maracucho que nació en Maracay y se fue. Me crié en Paraguaná,.
+S1: Era más rápido.
+S2: Esta voz.
+S3: ¿Mi familia también petrolero, vivía en Boy,.
+S1: Cómo que se llama? Cardón.
+S3: Cardón y Amuay.
+S1: Yo fui con esta chance, como que fui. Así que te dije que toda la visita pedía que vaina y una semana para llegar agarramos cuando estaba esos coños madres iban para allá. Estaba muy chamo, sus coños eran viejos todos. Y íbamos a una vaina, el Paramito creo que era.
+S3: El cor. El Palito.
+S1: Era una vaina quedaba arriba y.
+S3: Era fringo a la ciudad.
+S1: Sí, pero había un lugar que creo que le llaman el Paranito, no me acuerdo. Ibas con secretaria, con vaina, doctora, echarte palo y volver el día antes de que te vinieras te regresaba.
+S3: Montiel. Eso No se puede.
+S1: ¿Tú eres familia Grey, por casualidad?
+S3: Yo soy familia de millones de Montiellos.
+S1: Son los que tenían cómo que se llamaba ya.
+S3: El hotel paseo era algo donde metí de uno de los tíos.
+S1: Y eso es lo que hay una cadena grande que está aquí. No sé, el Rey ni siquiera más grande. Era centro.
+S3: A veces me encuentro vainas como que.
+S1: Yo soy tu prima, marico, pero es que el Mundial es como atención, como Pérez, tú agarras la vaina, atención Bracho.
+S3: Levantar el proceso, levantar los procesos del Mundial es imposible.
+S1: Bueno, había una herencia de un. De unos Villas Mil Nacü, un viejo Villamil, palísima mío, siete millones. Yo no sé, una vaina así. Entonces empezaron a armar un árbol. Entonces todo Villamil que era 7 millones, todo el mundo fue para esa vaina.
+S3: Le quedó un dólar a todo el mundo.
+S1: No era para ver si de verdad era familia. Entonces obviamente había gente que le tocó plata que ni siquiera sabía que era familia. Pero son mucho. Y además que es muy maracuyo, es como lo. ¿Como se llama esto en Colombia? Los Henao, que son paisas. ¿Cómo se llama?
+S2: Héctor, ¿Cómo estás tú? ¿Cómo es el otro apellido que es muy costero?
+S1: no, el nombre. ¿John Jairo o Camilo? Mari.
+S3: No casi.
+S1: ¿Querés conocer?
+S2: ¿Vale, le voy a decir a Oli a qué hora te viene bien o Jairo?
+S3: Jairo también por eso.
+S1: ¿Jairo también que? Maracaiba y Jairo. Pero es por los colombianos.
+S2: Ya entendí cómo todo va tomando forma.
+S1: Se está armando el muñeco.
+S3: Ahora todo cobra sentido.
+S2: Dani. Si, lo que le gusta y lo que esta vez de direcciones. Cualquier baile cuando tengas un peo de direcciones. Hable con Dani.
+S3: no, porque ayer. Ayer Dani que no, vamos a un local aquí mismo. Llegamos acá y Uruguay caminando.
+S2: No, no, aquí llegamos a la esquina. No, no, es la otra.
+S1: Llegamos la otra, no, una cuadra llanera.
+S2: Le dimos la vuelta a Panamá hasta.
+S3: Cayo Uruguay, Pero con la promesa de que era la próxima cuadra.
+S2: Entonces de repente dice no, Gabo agarró un Uber, no pudimos. Después que llegaba 20 minutos la mirando, dice no, vamos a agarrar un Uber.
+S1: ¿Qué bola tienes Tú sabes que una sorpresa me llevé cuando fui, que viajamos casualmente pues unos días? Ricardo Patrick creo que también estaba.
+S2: ¿Y yo.
+S1: Llegué después y cuando yo llego yo tengo unos días , no? Y cómo no, vámonos caminando y caminando Caracas de noche, yo no voy a caminar.
+S2: Y Patri no marico, dale.
+S1: Y yo me acuerdo, yo entiendo este huevón que es panameño, primera vez que viene para acá, pero tú marico, le digo yo y me dice marico, vamos marico, sacando a pasear perrito a las 12 de la noche todo marico, nos quedamos el pestal,.
+S2: Todo esa zona.
+S1: Pero espera, nos fuimos a León para un juego de fútbol del mundial y nos regresamos al Festana caminando y salíamos por toda esa parte caminando. Hubo un día que yo agarré a que me vi con el rabino y nos vimos en el San Ignacio enfrente de un café y me vine caminando del San Ignacio hasta el Pestario marico, Pero yo agarré la gente con teléfono afuera. ¿Tenías cuánto tiempo sin ir? 11 Años.
+S2: No, el pedo de la inseguridad. Claro, todos los exportaron, todos los mandaron.
+S1: Bueno, no viste que deportaron estos días que me dio mi esposa, deportaron a Estados Unidos al jefe del tren de Aragua hace carajo, literalmente lo agarraron como un plátano marico, como una maleta así y lo subieron al avión de Estados Unidos.
+S2: Uno que mataron.
+S1: Sí, pero este lo agarraron y lo deportaron el coño casi llorando, pegando grito. Exacto, lléveselo, sufre coño tu madre que.
+S2: No te deseo, no te deseo dolor.
+S1: Pero tampoco lo contó demasiado el país marico.
+S2: No la parte, dígame la época de los secuestros chamo que yo de las vainas más arrechas que digo deberían ser más duras la justicia con los secuestros no es su madre porque chantajea a otro con la vida de una persona, o sea esa vaina yo me parece intolerable yo secuestro y violaciones, secuestro y.
+S1: Violaciones que no tengan ningún tipo de contemplo, nada, dale todo lo que tú quieras como dice Bukele marico, o sea el derecho humano su culo tiene razón, no baja, no me baja, no me vas a defender derechos humanos de un coño que no tuvo ningún tipo de refugio, no lo voy a coñetar, pero no olvidas que lo traten.
+S2: A una mamá, te voy a matar tu hijo si no me pones tanto marico.
+S1: Los maras, los mara cuando yo veo El Salvador y estoy hablando hace mucho tiempo, yo viajé a El Salvador como de 2007, 2011 más o menos 2010 y una vez cada seis semanas por marico. Nosotros, la compañía, nosotros no podíamos salir del hotel si no era con el carro de la compañía, con escolta blindado, no podíamos salir del hotel, o sea a comer esto, el otro, el otro y los cuentos que tú escuchabas de los maras salvatruchas y las vainas y todo eso, ni siquiera los mexicanos.
+S2: Horrible. Estuve hablando con unos amigos que tienen un laboratorio de temas de blockchain, smart contract, etc. Y panas, se ha convertido en un sitio.
+S1: Es que está Google, está todo ellos. En estos días salió una vaina que decía El Salvador oficialmente es más seguro que Suecia.
+S2: ¿Chamo, yo te digo una vaina, vale la pena pasar por El Salvador?
+S3: Yo fui.
+S4: Perro.
+S3: ¿Hay varios contrastes, pero que tenías?
+S1: ¿Tú nunca habías ido?
+S3: Yo nunca he ido, tú solo he ido una vez.
+S1: Por eso, lo que pasa que si tú ves El Salvador ahorita. Exacto, pero marico, tú llegas al Salvador y tú casi que no, pero fui.
+S3: ¿No, no, pero espérate, me lancé mi recorrido interesante, además con alguien que nos explicó local y marico, es como una tensa calma, es como sabes, vas en el taxi y tienes cara de asesino y te pregunto y que mire y la seguridad cómo está aquí? 100% Seguro y tú dices OK, me montaba en el otro uber y preguntaba 100% seguro te montabas en el otro y te respondía lo mismo y dices no, lo están obligando a responder, o sea lo decían todos idénticos y todos tienen cara de asesino. Y todos tienen cara de asesino, yo dije mierda. Entonces todo es como raro, Mario es como una gente que está acostumbrada a la violencia y ahorita no hay violencia,.
+S1: Entonces tienen síndrome de abstinencia.
+S3: Bueno, entonces, pero bro, todo el mundo te respondía 100% seguro, entonces como el bannac local que nos llevó porque también hicimos como un recorrido hasta esta biblioteca que hizo Bukele y todo, bueno, toda esa parte tomada por los mar, el asunto, las pandillas y no sé qué, y nos explicaba que mataban a la gente, si tú pasabas por.
+S1: estaba frito y no, déjelo así, gracias a usted.
+S3: Y entonces claro, como ahora Bukele están limpiando todas las calles, o sea todo el mundo para afuera los pone ahora en todo el mundo ahora dice 100 seguro, solo que es miedo full. No hay una sensación de que en verdad te sientes bien.
+S1: Mucho.
+S3: Tiempo que no voy a ahora donde hicieron la torre esta de Google y tal, se parece como que si estuvieses en La Castellana. Todo bonito, chévere, tal. Pero tampoco se siente dinero en la calle, no se siente prosperidad ni nada. Como que no hay. No hay movimiento, todo es como una tensa calma.
+S1: ¿Guatemala también tenía pedos de eso, o tiene pedos de eso, pero cómo se llama? Y en Guatemala sí veías cosas. Además Guatemala tiene cosas bastante bonitas también.
+S4: ¿Por dónde te vas a ir, Fernando?
+S1: Derecho como íbamos normal y damos la vuelta como fuimos hoy. No, que va mejor por aquí.
+S4: Era mejor por . Métete aquí en Jamar. Después de la Prao. Después, después. ¿Aquí? Sí, sí. Yo te digo por dónde.
+S2: I kick you off.
+S1: Para estacionamiento.
+S4: Derecha, Derecha.
+S2: Ahora sí está guiando allá para la derecha. Para la izquierda.
+S1: Te comes este pedacito que estás en contravía. Entonces la gente hace esta.
+S3: Baquiano aquí.
+S2: Ya, pero ayer no aparecía. Holandés me cagas María.
+S1: Saliste este calle, ahora a la izquierda,.
+S4: Después a la derecha y ya sales a Guerrero Chapito. Por aquí yo meto cuando hay demasiado tráfico.
+S2: Para más tráfico.
+S1: Es que esta zona siempre es tráfico. Y hoy es viernes.
+S3: Chao. Necesito ir al baño este que es.
+S1: Otra cosa esa vaina. Salí con gente ya mayor que la próstata. Está en esta en la que viene.
+S4: Esta bueno pronto. La Dani.
+S3: Está bueno. Dani sabrá. Mira, aquí había un resto, Mira, se quebró weón.
+S1: ¿Cuál era el que aquí era el venezolano, pero con Urrutia?
+S3: Urrutia.
+S1: Urrutia estaba . Pero se pasaron de caro, marico.
+S2: ¿ se comía bien?
+S1: Se comía. ¿No eran los mismos de allá? Sí, muy buen.
+S2: En Venezuela mero en salsa verde. Una vaina.
+S1: Famosa.
+S2: ¿Qué cosa? ¿El donde estabas tú?
+S1: no está.
+S4: ¿Ese te gustó, Fernando? Sí.
+S1: Marico, no me la sabías de verdad. Para que sepas.
+S2: ¿Y este que es rico?
+S1: Ese es venezolano.
+S4: donde agarran el sapo.
+S1: Ajá. ¿También es la botamina de ella? No, esa es una cadena de hamburguesas. Una cadena de hamburguesas panameñas que son bastante buenas.
+S2: Muy buenas.
+S4: Por hay más espacio.
+S3: Siempre, Doctor. Gracias, Marcia. Marcia manda ese correo junto con ese documento de las horas.
+S1: Y él me va a agarrar. Entonces tiene que literal de manera el librito, armar la cajita.
+S3: Esto así con lo que hizo del tren, Fernando es que lo van colocando.
+S4: En la mitad del pasillo y llega un punto que ya lo divide a cada pedido.
+S1: Eso sí, los sortes automáticos.
+S3: Tienes coca cola cerdo con hielo y.
+S2: Van a pedir un tecito.
+S3: ¿Dónde te provoca tecito?
+S2: Un té sofrido.
+S3: Coca cola cerdo.
+S1: Coca cola cerdo.
+S3: Es delicadito de procedencia. ¿Se pueden afectar mi vida?
+S2: ¿Viste?
+S3: Compliqué la vaina.
+S1: ¿Qué pasó?
+S4: ¿Mariano?
+S1: Puede ser la misma línea para todo el mundo.
+S2: Exactamente. Estandariza todo. Menú ejecutivo para todo el mundo, peine para todo el mundo.
+S1: No junta.
+S3: Cómo es caserrero, cuchillo de palo, uno hablando. Estandarizada. ¿Y salgo de la línea, no?
+S2: Y él se mete por la trocha.
+S4: Pero tú santas.
+S3: Bueno, yo vivo en Caracas. Yo vivo en Coruña y me sacan de muerto.
+S2: Primero se ha vuelto coño, no sabe.
+S1: Yo tenía dos años sin hielo.
+S3: ¿Pero eres de Caracas?
+S1: De Valencia, pero viví mis últimos dos años.
+S3: ¿Qué tal te pareció la última ida?
+S2: A Ricardo le gusta.
+S3: Tú siempre vas Ricardo de Caracas, o.
+S4: Sea,.
+S1: Y yo le digo, coño, yo.
+S3: No entiendo, o sea, Ricardo cree que esto nunca ha estado mal. Yo no los entiendo a ustedes.
+S2: Venezuela era una época heavy. Por eso es que venezolano. Nosotros tenemos una tara con esa.
+S1: Vinimos todo el tiempo así, weón, me.
+S2: Van a robar, me van a joder.
+S1: Tú veías la gente en la calle como si nada, muy relajado.
+S4: Carísimo.
+S1: La comida es carísima.
+S2: Sí, sí.
+S3: Miami, esto es carajo. No entiendo por dónde se van los reales,.
+S4: Brother.
+S1: Yo me, o sea, pero es que obviamente. Pero proporcionalmente sí no tiene sentido.
+S4: Nosotros.
+S3: Yo me fui personal del este y.
+S2: Pedí dos arepas con 30 dólares.
+S3: No, no, está estúpidamente caro.
+S1: Todo el mundo como si nada.
+S3: No, es que.
+S1: Porque aquí se hizo viral esa vaina,.
+S2: Fuimos pasado vaina y que un perrito como este tamaño 5 dólares. Una vaina que yo puedo hacer en mi casa.
+S4: Exacto.
+S1: Al final podía. Eso vale la pena. Fuimos por el hype horrible.
+S2: Sí, la comida es cara, pero fíjate que es porque después fuimos al fútbol,.
+S1: Subimos al Humboldt y comimos en Humboldt.
+S2: Y salió más barato comer en el Humboldt que abajo.
+S3: La distorsión es, o sea, te descuidas y te cogieron y camina un poquito.
+S1: Más Santa Mónica ya y comes otro precio.
+S2: Bueno, pero ahorita están poniendo en muchos.
+S1: Sitios menús ejecutivos y cómputo. Era mejor de lo que me cobraron a mí. Sí, sí, es que lo están haciendo.
+S2: Ahora porque se están dando cuenta que la gente.
+S1: Y Sánchez Torre coca, pero. No la rioja negra, sino la que está. Comer puerco frito, como.
+S4: Siempre.

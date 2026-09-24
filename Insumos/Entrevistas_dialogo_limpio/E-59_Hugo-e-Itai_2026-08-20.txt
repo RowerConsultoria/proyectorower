@@ -1,0 +1,365 @@
+S1: ¿Quien les comentó esto? La PMO de acá de Venezuela. Como bien saben, estamos ahora mismo en una segunda fase del proyecto que estamos llevando a cabo con la organización. La primera fase fue un diagnóstico que ya tenemos claro, conversamos con el señor Gil Porat, por ejemplo, con algunas personas de allá. Y ahora mismo vamos a pasar una fase de procesos, un poco para ayudar a documentar los procesos que no estén documentados, para intentar buscar mantener esa documentación al día. Entonces, esta sesión es con personas clave, por supuesto. Ustedes, Hugo y Itai son personas que manejan los temas de compras, los temas de administración y finanzas y queríamos un poco compartir con ustedes algunas ideas para levantar esos procesos. Además conocer opiniones sobre inteligencia artificial, que es parte de lo que estamos manejando. Un poco ese es el propósito.
+S2: Vale.
+S1: Quisiera comenzar un poco conociendo la historia de ustedes. ¿Cómo llegan acá a Import Bell? ¿Cuál es la historia de ustedes? Cuéntenme un poco cuánto tiempo lleva.
+S2: Por turnos.
+S3: Mucho más corta que la de Hugo.
+S2: OK.
+S3: Yo comencé enero. La verdad no tenía muy planeado entrar allí, ¿Verdad? Por si acaso, yo soy el hijo de Don Gil y sí, me dijo que necesitaba alguien para hacer las compras porque Carolina, la esposa de Hugo, que también estuve aquí toda una vida, ya se quería ir para la casa, entonces como que tocaba ir buscando como la íbamos a medio reemplazar, ¿Verdad? Y bueno, se me abrió la oportunidad y comencé más que nada en compras y ahorita se me ha como expandido un poco la cartera de responsabilidades, pero mi labor principal diría que son compras.
+S2: OK, vale.
+S1: Tú eres hijo de Gil, Del señor Gil Porat.
+S2: Claro.
+S1: Eres Itay Porat. No sabía tu apellido, pero ahora lo comentas y.
+S3: Correcto.
+S1: Vale. Y Hugo, ¿Cuánto llevas más tiempo que Itay o eres más reciente?
+S4: Bueno, vamos a tratarse el cuento corto y resumido. Cuando decidimos salir de Venezuela, mi esposa se le plantó la institución de que nos íbamos del país y él nos ofreció oportunidades fuera del país. Entonces primero estuve en República Dominicana un tiempo levantando una empresa que arrancó allá, distribuyendo la marca Casio. Y después Bernardo nos comentó, mi esposa Carolina, que si queríamos venirnos a Costa Rica, hacer todo lo que ya veníamos haciendo, que era toda la parte administrativa pues del caso. Y Bueno, ya tengo 15 años acá.
+S2: Wow.
+S4: 15 Años. Todo lo que administrativa, financiera, ya eso es lo que viene desarrollando.
+S2: Perfecto.
+S1: Has visto seguramente mucha de la evolución de la organización y has visto los hitos clave en estos 15 años.
+S4: Había estructuras administrativas y financieras que en su oportunidad eran muy viables por temas de impuestos, por tema de separación de bienes y todo lo demás. Pero las leyes van cambiando, se van actualizando. Acá hay una ley que se llama transferencia de precios, entonces no está muy bien que te venda el mismo precio entre sociedades que están conectadas. También la carga administrativa es llevar cinco empresas cuando todas hacen lo mismo por los volúmenes de venta ya no te conviene porque si vendías poco, si pagabas poco impuestos, pero ya todas las empresas pequeñitas, ya entrar en el tramo grande ya no tiene sentido y era manejar 15 bancos, 5 compañías, el problema de personal cuando se cambiaban las tiendas. Entonces todo eso se fue hablando, se fue trabajando y ahora somos una sola razón social, un distribuidor unificado. Antes la distribución estaba en dos compañías. Todo se ha cambiado, ya son una sola compañía, una contabilidad unificada, toda integrada y bueno, ha sido un trabajo, pero ha sido bonito.
+S2: Qué bien, qué bueno.
+S1: Ahora mismo en Importbel están manejando ambas marcas, tanto Casio como Qubit. Correcto. ¿Hay alguna marca adicional por casualidad que estén manejando?
+S3: Bueno, Casio, Kitizen, Seiko.
+S2: OK.
+S3: Hace poco Carabine Q y creo que no se me da ninguna más.
+S2: OK.
+S1: Son varias.
+S2: De acuerdo. Vale.
+S1: ¿Y una pregunta, funcionalmente a nivel de estructura, cuáles son sus funciones? ¿Es decir, el rol que tiene cada uno de ustedes formalmente?
+S3: Bueno, yo creo que sería gerente de compras, coordinador de compras, encargado de compras.
+S2: OK.
+S3: ¿Eso es lo que yo diría que describe mi rol oficial, verdad? Porque un poquito más de cosas, más que nada mi papá me tiene medio una sombra de él como para que vaya aprendiendo, pero mi rol digamos operativo son las compras.
+S2: Perfecto.
+S1: Tú te responsabilizas y lideras todo el proceso de compras.
+S2: Muy bien.
+S1: Y en el caso de Hugo,.
+S4: En la parte financiera administrativa, Pero en la parte administrativa que tiene que ver con la parte de flujo de dinero, o sea entradas y salida, Somos una empresa que ha venido creciendo mucho y voy a tomar unas palabras de Itai , en el sentido de que uno cree que hace una cosa pero también termina metiendo la mano en otros lados. No siempre, pero a veces toca. Pero ya estamos organizando, hay una muy buena separación, pero a veces hay cosas que te influyen a ti como en tu área y llama a una gente, mira banca yo, me poné ese tipo de cosas básicamente. Financiero, ingresos y egresos.
+S1: Ingresos, egresos. ¿Estamos hablando, a ver si entiendo bien Hugo, de una responsabilidad de tesorería, tú ejecutas pagos, tú eres la persona que ejecuta los pagos a proveedores?
+S4: No los ejecuto como tal, más si hago toda la coordinación, porque yo no tengo la responsabilidad de la salida del dinero.
+S2: OK.
+S4: Yo coordino todo, verifico que las personas estén satisfechas con los servicios recibidos para no tener problemas con los proveedores. Cuando todos los pasos se cumplen, entendiendo cronogramas y disponibilidades, se montan pago y el último clic ya lo da un GU, Pero básicamente si, toda la coordinación anterior a eso.
+S1: Toda la coordinación anterior, planificación, garantizar que estén los recursos disponibles, toda esa parte,.
+S4: Me imagino toda esa parte.
+S2: OK.
+S1: Y en tu caso Itay, para comprender, nosotros conversamos por ejemplo acá con Jimena, no sé si conoces a Jimena, me imagino que has conversado con ella quizás acá en Venezuela, ella se encarga de toda la compra para las tiendas del Grupo Panamá Venezuela. Quería un poco contrastar con tu rol en el caso de compras para conocer si tú te encargas desde la parte de analizar qué necesitamos, qué vamos a comprar, hasta el contacto con el proveedor y recibir la mercancía. Cuéntame de tus palabras, cómo es tu trabajo, qué tipo de funciones tú desempeñas en este liderazgo de compras.
+S3: Bueno, prácticamente eso, yo voy revisando inventarios, yo sé que me pongo contacto, digamos en el caso de Kennex con Edumar, manda las hojas de Pedro, yo las monto. Últimamente más que nada con Covid, he estado haciendo los pedidos muy de la mano con Ricardo, el brand manager, porque salen pedidos que por más de que el inventario, los cuadros de venta o lo que sea, no lo pueden predecir, entonces justamente Qubit lo estaba haciendo mucho con él, pero sí, desde revisar inventarios hasta mandar el pedido, eso es todo mío, ya después parte de pagos y logística, ya yo me desentiendo.
+S2: OK, OK.
+S1: Mencionas a Edumar de Panamá, Edumar te suministra el insumo verdad, o sea lo que entiendo él te da a ti un insumo qué te está dando ahora.
+S3: Mismo que entró algo nuevo o que está entrando nuevo, hasta la documentación de que ya se entregaron todos el pedido o donde está estatus, de todo, es como.
+S2: Perfecto, perfecto.
+S1: ¿OK, porque ustedes compran a Kennex, correcto? En Panamá. Claro, es fronterizo, me imagino. Es traslado terrestre, ¿Verdad? Principalmente,.
+S5: Hugo.
+S1: Adelante, adelante.
+S5: Claro, a ti sí te toca. Hacemos dos compras, las directas que vienen de una línea producto y las que vienen de Panamá, que.
+S4: OK, no solamente.
+S3: Viene de Panamá, no es solo Kennex.
+S4: Correcto.
+S3: Y ni siquiera solo en Casio. Casio, incluso las calculadoras vienen directo, pero tal vez los relojes y así si vienen de Kennex, entonces hay como un mil y también Kennex no es nuestro único proveedor, entonces hay más detallitos. Pero sí, digamos que con todo lo que trabajo tenemos un. Un Edumar, ¿Verdad? Del otro lado y así es como manejo los pedidos.
+S2: Perfecto, perfecto.
+S1: Y tú, Itay, ¿Tienes que montar estos pedidos en un sistema? ¿Tienes que cargarlos en sistemas?
+S3: No, más bien se siente bastante, no trivial, pero bastante simple, o sea, llega un Excel con la lista de precios y yo lo que hago es revisarlos y mandar ese mismo Excel ya rellenado, ¿Verdad? Ya más allá Andrea, la de logística, ella es la que se encarga de poner precios, cargar todo el sistema, asegurarse que haya entrado al inventario y todo eso.
+S2: OK, OK.
+S1: Y por ejemplo, Itay, en esa revisión que tú haces, ¿Es posible o no sé si te ha pasado que detectes alguna inconsistencia, algo que no ves bien? ¿Hay alguna corrección o ajuste por tu parte antes de seguir el proceso?
+S3: Digamos que sí, más que nada terminan siendo errores por parte mía, ¿Verdad? Yo pegándole el inventario a la hoja de pedido, a veces yo digo como no, esto no me da que hayan cero de esto, entonces ya reviso y es como que tal vez la hoja de pedido traía caracteres invisibles en el SKU, entonces no me hacía match, pero son más cosas así que errores como tal.
+S1: Pero es importante eso.
+S2: Está bien. Vale, de acuerdo.
+S1: Y en tu caso, Hugo, OK, ya comprendo lo que me estás indicando, tu función previa al tema de los pagos, cuéntame un poco también de cuáles son tus procesos internos dentro de tu área.
+S4: Yo lo vería como básicamente una parte es todo lo que tiene que ver con ingresos. OK. Entonces es el control de todos los ingresos que vienen de los puntos de venta. En este momento hay 14 puntos de venta, entonces estar vigilando que se hagan los depósitos, que se registren bien muchísimas transacciones, lo que conlleva que somos humanos y a veces el error hay un ocho, nueve, pero bueno, eso es básicamente ver que los gastos que también vienen de los puntos de venta sean documentos validados por Hacienda. Solo hace el equipo, después viene su registro, viene la comprobación de que toda esa información cuadre a través de una cuenta que se va analizando, una caja principal que un tipo de cuenta transitoria, la venta diaria cae y después cada uno de los ingresos cuando se registra en su respectivo banco deben hacer macho con esa cuenta debe tender a cero, entonces viene todo ese lado por . Eso al final del mes lleva un proceso de conciliación bancaria que me detectan ciertos movimientos de los cuales debo estar pendiente. Y por la parte de egreso, bueno, parte de los registros de todos los.
+S5: Documentos,.
+S4: Control, coordinación de pago, fijar fecha. Vamos a ver básicamente lo que utilizamos en la primera semana para pagar proveedores importantes como son alquileres y mantenimiento. Segunda semana hacemos planillas, tercera semana proveedores en general y cuarta semana planillas y proveedores en general. No quiere decir que no haya casos esporádicos, este urgente hay que meterlo aquí y se hace sobre todo lo que viene con la parte de gastos. Lo que más hacemos como cuidado es que el documento sea un documento validado por asiento. Hay un sistema donde van llegando los documentos, se van registrando y en otra plataforma vamos verificando que efectivamente Hacienda lo aprobó y que tiene todo lo que es contener una factura electrónica, se hace el registro en el sistema y bueno, y se va coordinando siempre y cuando todos los encargados, las personas que solicitan esos pagos ya están identificados, cada uno de los departamentos y todas las facultades deben venir firmadas por ellos a un correo donde ellos aprueban que ese servicio cumplió con los requisitos y se entregó o que se pague parcialmente.
+S1: Muy bien, o sea, tú funges como. Tú eres gerente de administración, ¿Verdad? Me imagino.
+S2: Sí.
+S4: Bueno, después tengo que montar los casos financieros, tengo que entregar las cosas a los bancos, todo lo que tenga que ver con el área contable. En cuanto al número, bueno, hacerle seguimiento a las cuentas a los valores, todo ese tipo de cosas.
+S2: Excelente, buenísimo.
+S1: Hablaste ahorita de dos sistemas, mencionaste una herramienta y un sistema para el tema de hacienda. ¿Cómo se llaman? ¿Cuáles son esas herramientas?
+S4: Bueno, nosotros trabajamos con un sistema administrativo que se llama PCGR, pero hay un enlace de estos documentos y la página que se llama Alma Mater.
+S2: OK, perfecto.
+S4: Cuando se genera el documento electrónico de nuestra parte, cuando se genera el documento electrónico, ese documento electrónico cumple con todos los requisitos que tiene que tener. Pasa como por primer filtro que es el sistema administrativo, después se le manda al cliente y también se almacena en Alma. Cuando recibimos un documento se crea una cuenta especial que se llama facturas electrónicas, todas las facturas llegan y hay una programación con el mamate donde si recibe todo eso, el archivo es previamente aceptado. Y después nosotros, si de verdad alguien me lo entregó, hago la aceptación del documento. Hay meses donde tengo muchos documentos que nadie me ha entregado y yo no los acepto.
+S2: ¿No los aceptas?
+S4: No todos, porque es que.
+S5: Cuando tengo.
+S4: Tanta documentación de cosas que para mí no son parte de la compañía, yo creo que aceptándola y agarrándola.
+S5: Yo creo.
+S4: Que podría estar haciendo un mal en vez de un bien.
+S2: Claro. Correcto, entiendo.
+S1: Está bien. Ustedes utilizan, no sé si en compras, en administración el sistema Odoo.
+S2: Odo.
+S4: No, en compras también se utiliza el ecosistema administrativo cuando. Un segundo que me han llamado tres veces.
+S2: Tranquilo.
+S1: Sí, sí, sí. Adelante, toma la llamada.
+S2: Tranquilo. Adelante, adelante.
+S1: Bueno, converso contigo y Itai mientras tanto. Pcgraph se llama. Déjame tomar nota aquí. Odu no lo usan como tal.
+S2: OK.
+S1: PcGraph se escribe así. PcGraph, PC Graph.
+S2: OK.
+S1: Para tomar nota por acá. Bueno, lo había escuchado. Eso es un ERP como tal, un sistema de gestión de empresa.
+S2: Vale.
+S1: ¿Y todos los procesos se llevan por PCGraph?
+S3: Ciertamente, entre PCGraph y Lark creo que llevamos la mayoría de procesos.
+S2: OK.
+S4: La parte administrativa gruesa se hace en pcgrap. Es un sistema que a veces contamos, tiene su capacidad de mejora, pero básicamente cosas, por ejemplo, la parte de la compra, cuando después que llega al país se nacionalizan, que fue lo que comentó Andrea, ya la mete en el sistema. Eso ya se cálculo porque ya tiene los códigos arancelarios,.
+S5: Todos los códigos.
+S4: Aquí hay un código también que se llama un código carque, código de cada producto, porque hay un alumno en Hacienda, entonces todo eso ya está metido , pero hay que verificar que el cálculo salga bien, que se metieron bien los porcentajes de impuestos, esa parte también se hace desde acá y cuando se termina eso se registra toda esa compra con cada proveedor y todo eso. OK, en esto también la parte de compras, por eso también se usa pcgraph, ese pcgraph alimenta inventario, básicamente la administración completa está en pcgraph donde nos hemos apoyado en dar y otras cosas, es lo que pcgraph nos está dando con fluidez y tenemos que resolver.
+S1: ¿OK, y qué sería eso que pcgraph no les da con fluidez, o sea si pudieran mencionar cuáles son esos procesos qué dirían? ¿Cuáles son principalmente?
+S3: ¿Yo diría que se vuelven tal vez temas de información compartida digamos, por lo menos en mi caso, a ver, con los de marketing digamos ellos a veces hacen solicitudes de producto, no de producto que tenemos, sino de producto que tenemos que comprar, por lo menos en mi caso me dicen bueno los de Casio de calculadoras nos están pidiendo tal campaña con tal producto, me lo mandan por Lark, me mandan toda la campaña, los planes de campaña y así ya se vuelve menos operativo en el tema de sistemas y se vuelve más como temas de comunicación y flujo de procesos.
+S2: Que.
+S3: Se podrían hacer hasta cierto punto en el PC Craft, pero tiene más lógica y es más sencillo desde la Entiendo,.
+S1: Y por cierto Itay, ahora que estabas hablando me preguntaba yo algo, las compras que tú lideras, que tú gerencia son para, son compras retail, o sea son para subir, surtir tiendas dentro de Costa Rica o es más para distribución a canales al Mayor?
+S3: Todas las compras menos las cosas para las tiendas digamos ya jabón, papel, esas cosas, sí se encarga Hugo, pero todo lo que para el Mayor y.
+S2: Para nuestras tiendas es todo OK, perfecto.
+S1: También te encargas de compras para surtir e commerce,.
+S2: Todo perfecto,.
+S1: Muy bien. ¿Y esas compras cuando van llegando a Costa Rica, dónde están almacenada el inventario dónde está? ¿ mismo en Orbe, en el mismo.
+S2: Edificio,.
+S3: Después Ivonne es la que se encarga de hacer la distribución a tiendas, que tampoco eso yo me encargo, entonces básicamente cuando yo mando ya mi compra y yo medio desentiendo en ese sentido de obviamente uno la va siguiendo y traqueando porque los vendedores del Mayor me pasan preguntando dónde está esto? Entonces no es como que me puedas entender, ¿Verdad? Pero ya toda la parte de distribución, que va, que tienda, lo de Andrea ingresando al sistema, todo eso, yo no tengo nada que ver .
+S1: Ya, eso pasa con Ivonne. Entiendo que es con Ivonne. Ivonne quién es, o sea, ¿Qué rol tiene ella?
+S4: Disculpa.
+S1: Sí, sí, adelante Hugo,.
+S4: Porque Ivón te hace caso y te hace.
+S2: OK, OK, vale.
+S1: No había escuchado Divon. Ella tiene un rol específico, ¿Qué rol tiene ella?
+S3: Ella sería supervisora de tiendas.
+S1: OK, listo, listo. Ella monitorea toda la operación de las tiendas y va a las tiendas físicamente a supervisar.
+S2: OK, lista.
+S3: Que sería nuestra gerente de retail. Y después está ni Stephanie, que ya son más específicas de las tiendas, Ellas son las que hacen el surtido de las tiendas. Temas más de reposiciones de producto y traslados a tiendas, es por ellas.
+S2: OK, OK, vale.
+S1: Y por ejemplo, cuando un cliente necesita compras, o sea, requiere comprar algo, ¿Hablan contigo, te contactan directamente?
+S3: Itai No necesariamente, más que nada si es cliente, el mayor es a través de su vendedor y ellos son los que me hacen el pedido.
+S2: OK, perfecto.
+S1: Sí, sí, Para ver la estructura de procesos.
+S2: Chévere.
+S1: Vale, vale. En este tramo, Hugo, ¿Cómo participas tú a nivel del monitoreo de las compras? ¿Tú tienes también haces tracking, simplemente te encargas de los temas de flujo de ingreso? Egreso.
+S4: Básicamente yo con las compras lo que hago es realizar que el proceso de alimentación en el sistema haya estado correcto, con aranceles, con tasas correctas, para que los impuestos que me trae el DUA, que es el Documento Único de Aduana, me coincida con el cálculo del sistema. es donde yo entro, digo que si todo eso me da bien, yo la acepto, se me carga el sistema. ¿Qué pasa con esto? Si tú me dices que me entregaste, no sé, 100 mil dólares en mercancía y el otro cálculo me da 120, y yo le digo si, dale, esos 20 me quedan en aire y me descuadran todo. En la compra se paga una cantidad de impuestos y tasas que se redistribuyen en cada artículo porcentualmente por su valor y por la tasa que tuvo. Entonces esa es la parte compleja de las compras. Pero yo no meto , más que de vez en cuando, que de repente, no sé, molesto por una referencia, de repente veo lo que no, pero me voy con Andrea. A mí me andrea, Joana, con esto, no meto con más con eso.
+S2: Correcto, correcto.
+S1: No sé si te encargas tú de esto, Hugo. ¿Y si trabajan con procesos de cobranzas, tienen ustedes cuentas por cobrar? ¿Tú te encargas de eso o lo delegas en alguien?
+S4: Hay una persona que decimos que es el departamento, pero es una persona que es el departamento de cobro. Departamento de crédito y cobro.
+S2: Muy bien.
+S4: OK. En este caso ella se encarga de toda la parte del mayor porque. Porque las tiendas me venden al contado.
+S2: Correcto.
+S4: Entonces ella es la persona que se encarga del mayor de contarme. ¿Bueno, justamente Que estás hablando? ¿Que hace el sistema? ¿Con quien nos apoyamos por fuera? Justamente con ellos. La semana pasada estamos como puliendo, pero ya sacamos como un reportico.
+S5: Claro.
+S4: Que me va a decir PCGram. El PCGram es decir, esto es lo que tiene por cobrar. Entonces con Cloud los muchachos nos ayudaron, hicieron un programita.
+S5: Entonces.
+S4: Antes tenías que hacerlo todo manual, entonces ahora ya simplemente los muchachos ayudaron coordinando. Sale cada pestaña por vendedor, me está hablando de lo que tienen, el porcentaje de la cartera, el porcentaje de lo vencido, de lo que no está vencido, sugerencias para cada uno, tipo sugerencia de acciones, dependiendo de los días deuda y del volumen de la deuda. Pero si hay una persona en cuenta por mural que se encarga de eso, que antes. Antes eran dos empresas, había dos instituciones, ahora es una sola.
+S5: Es mucho más sencillo manejar.
+S4: Antes eran 10 bancos, ahora son 5 bancos. Más sencillo manejar. Pero si hay una persona que se encarga de eso. Esa persona también tiene otras labores que se encarga también de compras, pero insumos de la oficina.
+S2: Correcto, perfecto.
+S1: Hablando de las estructuras de sus equipos, ¿Cómo están configuradas los equipos de tanto compras como administración, ¿Cuántos son en cada equipo?
+S3: Bueno, el mío son simple, soy yo.
+S2: OK. Yo.
+S3: Y bueno, últimamente el que tiene que aprobar todos los pedidos es Don Gil. Yo los monto, él me los aprueba, a veces los revisa todo a detalle, los que son tal vez más complicados, calculadoras y así, relojería. Yo le digo como salió tanto Qubit, más que nada le digo salió tanto el pedido, él me dice démosle o me pregunta por qué salió tan alto y vemos qué hacemos. Y ese es mi equipo de compras básicamente.
+S2: Sí, sí, te sigo OK,.
+S3: Entonces más o menos algo así. ¿Y bueno, aparte de las de cuando algún vendedor de mayor me pide alguna especie, se vuelve como parte del proceso, verdad? Pero el equipo como tal soy diría yo y el que me aprueba mi papá.
+S2: Perfecto, perfecto.
+S1: OK, me queda claro. En el caso de administración Hugo, ¿Cómo está el equipo por allá?
+S4: Bueno, en este momento es parte de mi responsabilidad, pero la tiene el sol, porque eso fue parte de lo que se practicó es Recursos Humanos. Recursos Humanos ya también creció la cartera y ya se aprobó una plaza más. Entonces hay dos personas en Recursos Humanos. Un poquito , vamos , pero va bien, van bien las dos personas. Recursos Humanos. OK, pero quiero ya ir también dejándome esa responsabilidad. Esa responsabilidad también era totalmente mía. Planilla, todo lo demás ya no habrá. Solamente si las reviso, si soy responsable de montarlas, o sea las chequeo porque.
+S5: Fueron muchos años manejando el recurso humano y tengo el conocimiento para la legislación.
+S4: Costarricense y a veces los muchachos mira te equivocaste aquí arregla esto, esa parte la voy supervisando, pero ya no es mi responsabilidad totalmente. En la parte ya de control de ingresos, las tiendas, tengo dos personas que vienen, una de esas personas también comparte la recepción de la compañía por la distribución física que tenemos, tengo otra persona en cuenta por cobrar y hay como uno aparte. Con que más me apoyo por su conocimiento y por su disposición y me pongo apoyo en todas las áreas, pero ya como la parte de todos los registros ya proveedores de gasto, con el ya voy centrificando. Más o menos te podría decir que tendría cuatro patas pequeñita, pero al final de cuenta más o menos casi todos podemos hacer todo menos Recursos Humanos, que si es solamente Recursos Humanos.
+S1: Correcto, correcto, e igualmente tu reporte es directo al señor Gil Porat.
+S4: Sí, básicamente. Y a la Junta Directiva. A la Directiva, vamos a ver, la comunicación hacia ellos es igual, cuando es algo muy del día a día, algo muy de acción, claro, por supuesto, con él porque es el que está gerenciando y con él es el que resuelvo y podemos tomar decisiones, pero cuando hay una información que es de carácter de socios, por supuesto.
+S1: Eso que comentas me lleva a una pregunta para los dos, es sobre los comités o espacios de gobierno corporativo en los que hacen vida o forman parte. Ustedes están teniendo sesiones recurrentes a nivel de comités Frecuentemente eso existe en Importbel.
+S3: Hemos creado comité internos, eso es algo que comenzó este año, que es más que nada un mini foro, comité de innovación general de cosas que están pasando en el mundo y herramientas que nos pueden servir para el trabajo y también como dolores que cada uno tiene en sus áreas en forma de panel así para solucionar problemas. Más que nada ahorita con inteligencia artificial vamos como de la mano de eso, pero ya fuera del trabajo, digamos. Yo personalmente no estoy en ninguno, tal vez de mi parte es como lo que dije, como voy medio de sombra de Don Gil, medio termino como de rebote al fútbol comités, pero así como personalmente no participo.
+S1: Vale, pero estás enterado de las decisiones que se van tomando y por supuesto estás al día.
+S2: De acuerdo. OK.
+S1: ¿En administración hay algún comité, Hugo directamente?
+S4: Básicamente es que manejamos la publicación muy abierta y muy frecuente. Entonces no es como que no tengo espacio para poderme expresar o o nunca hay espacio para que me atiendan. Entonces cuando hay algo es simplemente mira y ya son tan. No tengo que estarle diciendo porque hay una comunicación frecuente. Mira, así arreglamos esto, pasó, si pasó algo y ya se resolvió, listo, ya para qué le voy a decir para que tú decías o le pues mira, pasó esto porque si era grave, hice esto y esto, ya quedó listo para que te enteres. Pero cuando son tonteras no tengo por qué.
+S5: Es como el día a día, pues.
+S4: Es el trabajo y conjunta. Si tenemos un chat, pero es lo mismo. Es que a veces la información es como muy fluida.
+S2: OK.
+S4: A veces ¿Para qué se van a reunir un mes? Ellos mismos lo han dicho, ¿Para qué no me reunimos un mes si toda la semana nos hablamos? Entonces quizás lo que pueda quedar es como, no sé, una sesión, un escrito de una tal día, quedamos en tal como ellos, llega a una bitácora, pero no siento que haya traba en la información. Y eso que puede mejorar por supuesto, no siento que haya un puente roto.
+S2: Qué bien.
+S1: No les pregunté cuántas Personas hay en Import B, la nómina o la plantilla, ¿Cuántos son en total?
+S4: En este momento estamos rayando las 100 personas.
+S2: Wow. OK.
+S1: Número alto.
+S4: De repente si te entrego el reporte de la caja, me dice bueno, pero aquí hay 97, se fueron tres contratando dos. El personal de tienda complica, entra, sale, entra, sale. Oficina muchísimo más estable.
+S1: Y cuando. Que es importante eso.
+S2: Claro.
+S1: ¿Y cuando hablas del chat, Hugo, ese chat es dentro del ARK o lo llevan, no sé, por otra herramienta?
+S4: Yo digo un chat, pero un WhatsApp que está .
+S1: OK, un grupo de WhatsApp, no.
+S4: Sé qué, no sé qué, no sé qué. Entonces claro, si fue un Caldiel y.
+S2: Así vamos,.
+S4: Vamos a ver, hay información que a mí me parece delicada que nada más manejan los socios y cuando yo copio, mira, Roberto, Bernardo, Ricardo, ahora meto Andrés y Alejandro y ahora meteré también, pero así lo hemos venido manejando.
+S2: Correcto, correcto.
+S1: En el caso, no sé, de compras y bueno, para los dos con Panamá ¿Hay algún tipo de relación frecuente con actores de Panamá? Yo escuché por ejemplo Edumar mencionó Itay, pero bueno, digamos, ¿Con quienes más se relacionan en cuanto a Panamá?
+S3: Bueno, Edumar obvio con Handani no está en Panamá, pero es Kennext, o sea, para mí Kennex es Panamá.
+S2: Correcto.
+S3: Y bueno, últimamente Jimena que manda también, pero diría que ellos tres son como los que más me relaciono, ellos son los que mandan productos nuevos, cosas que les están llegando así más que nada Handani, Edumar, Jimena por se aparece de vez en cuando, pero diría que ellos tres son que yo más me relaciono. Para el tema de compras.
+S1: Para el tema de compras. ¿Y con Handani concretamente, tú qué tipo de actividad maneja con Handani? ¿Tú cargas información en las matrices que él lleva por tienda o algo así?
+S3: Handani se supone que él tiene nuestra información en tiempo real de inventarios y así en teoría también tiene nuestra, como nuestra orden, nuestras órdenes de compra, el historial de compras, entonces a veces se pone a joder como no tienen eso y me toca a mí decirle como no, si tenemos.
+S2: Nada más.
+S3: Tema más así ahorita que él se está, se está encargando un poco más de la parte de Casio, entonces ahora me toca hablar un poco más con él, porque antes como era solo retail de qubit, la verdad era bastante sencillo con inventarios yo solo pedía suficiente para el mayor y también y ya de se sacaba para tiendas, entonces para mí no era tanto problema con casi es un poco más, porque obviamente son muchos más SKUs y más cosas que necesita campaña, campaña que requiere Casio y así, entonces está tal vez un poco más encima, pero sí andar Handani es como de los que más me toca relacionar.
+S1: ¿Y con qué frecuencia lo estás haciendo, o sea, ¿Tienes con Handani algún plan de reuniones o algo así, o es a demanda, a solicitud, o sea, la.
+S3: Verdad que Handani se aparece cuando él quiere?
+S2: OK.
+S3: Él siempre está muy por encima, entonces antes de que yo le pueda decir algo, probablemente ya me lo dijo a mí. Entonces medio así me han funcionado las cosas con Edumar. Si es un poco más al revés, yo reviso los inventarios y yo le digo Edumar, necesito la hoja de pedido de Cubi, él me la manda y así nos manejamos. Sí es un poco más necio, digamos, como para tener la palabra, se aparece mucho más.
+S1: Justamente conversábamos ayer con Handani, hablamos con él ayer casualmente. Sí, sí, no, es tal cual lo.
+S2: Que me comentas, Itay, chévere.
+S1: ¿En el caso de Hugo, tú con Panamá tienes vínculos concretos con entidades, actores de allá?
+S5: Mira, muy poco esporádico de repente, Alejandra,.
+S4: Porque hay una diferencia en un pedido,.
+S5: Una diferencia en un pago, y eso también lo conversó con la Evidencia, papá. Hubiera sido Miriam, faltó nosotras, papá.
+S1: sí, Reina Barraza. Sí, sí, Reina también la conocimos.
+S4: ¿Sí, sí, pero por qué? Porque a veces hace cuestiones especiales con.
+S5: Cubi y entonces ella dice mira, permite que paguen desde allá y yo le hago el reconocimiento. Entonces solamente en esos casos, por hacer algo de seguimiento, sí puedo hablar un poquito más con Edomar, porque también es venezolano, nos conocemos de Venezuela, y entonces así como cuando echamos ayuda a nuestra propia. Tiene algo trancado por una situación con Andrea me terminé su querido también avanzando con mi ayuda y cerramos ese caso. Y con Eduard también, porque él lleva nuestra cuenta. Entonces con Edumar y Noel, básicamente, por lo menos una vez al mes yo los estoy fastidiando. Yo me siento a ver que me cargaron lo que me cargaron, que no me está metiendo un documento, que no es un documento, que no tiene explicación, que me digan a qué corresponde, ese tipo de cosas.
+S2: Excelente, excelente.
+S5: A nivel de Roberto, y disculpa por.
+S2: Roberto,.
+S5: Pero como digo, son cosas puntuales. Mira, Roberto, Lino, ustedes acordaron esto, papa, quitar los comprobantes, quitar la información que no me convence, pero quita y listo. Pero no es muy puntal.
+S1: ¿Y con Andrés pasa lo mismo?
+S5: Mira, con Andrés básicamente yo creo que no, ni siquiera me puso palabras con él. OK, si, de repente hay un correo, papá, y él está al tanto, él responde, él coordina, pero que yo le reporté.
+S2: Vale, vale.
+S1: No, está bien.
+S2: Listo, listo.
+S1: Ahora mire, algo que es importante que estamos tratando de documentar también y entender son los cuellos de botella o dolores, los dolores del proceso. En el caso de ustedes han identificado procesos que sean complejos que tengan cuello de botella, ¿Qué es lo que no está funcionando óptimamente hoy en día que se podría mejorar?
+S3: Bueno, en mi caso tal vez yo creo que poner un poco más de orden porque tal vez con marketing es muy fácil cuando ellos me hacen pedidos especiales de necesitan tal producto, ellos son un poco más ordenados pero con los vendedores del mayor por ejemplo, ellos se pueden aparecer en cualquier momento, a cualquier hora y decir me necesito 20 tantos o tenemos tantos o cómo vamos a hacer para conseguir esto Y puede ser que yo haya mandado un pedido la semana pasada, ya mandé un pedido el lunes o mando un pedido hoy y mañana me siguen así. Entonces tal vez establecer un calendario de pedidos y decir como bueno, todos los martes se va a revisar esto y si no me lo piden antes del martes no se va porque uno se pone mucho a chillar a los vendedores ¿Verdad? Si llegan y necesito 50 de esto, yo voy a hacer todo lo posible para traerlo. Pero tal vez a veces hay que forzar un poco más de orden previo al pedido y que salga todo de una forma más ordenada, que todos estén al tanto de que en tal día va a salir el pedido y que todos los requests especiales que tengan que sean por lo menos altos de ese día para no tener que estar corriendo después ver cómo hacemos en Panamá para que logren meter los adicionales al pedido. Diría que más por no sé si es un cuello de botella, pero definitivamente es como un mini desorden que se podría optimizar muchísimo y bueno, dentro de todo me haría dormir mi trabajo muy más fácil porque sería construir el pedido y una vez que lo mando me desentiendo y hasta el próximo.
+S2: Correcto.
+S3: Pero ahorita se vuelve muy como el pedido que salió ayer todavía lo consideramos como abierto por temas así porque un día para otro pueden llegar y avisarme como necesitamos tanto y sí como que se desorganiza, se comienza a perder un poco, ya no sé en qué pedido venía, que cosas. Por diría que es como mi dolor más grande, no muy grave porque tampoco es todos los días que llegan los vendedores a pedirme cosas, pero sí, mi tema creo que va un poco por .
+S1: ¿Y ese por ejemplo, Itay, pensando acá ese orden que se necesita, esa planificación ordenada, tú crees que va más de la mano con tema de tecnología que quizá una herramienta facilitaría las cosas? ¿Es más, quizá un tema de la forma de trabajar entre los actores que forman parte del proceso, tú lo adjudicas más a un tema de las herramientas que no las tenemos o es más la forma de trabajar?
+S3: Yo creo que obviamente las dos pesan, pero creo que es un poco más la forma de trabajar.
+S2: OK.
+S3: ¿Aparte de no hemos establecido como un protocolo para hacer estos requests de mercancía, verdad? ¿Por más que los de marketing hayan ideado su propio sistema, los vendedores son otro monstruo, verdad? Entonces, y aparte son cuatro diferentes que lo que quieren hacer siempre es vender, entonces no necesariamente se ponen acuerdo entre ellos como departamento o fuerza de ventas. ¿Entonces es como, bueno, cada uno es como su propio, su propia entidad, verdad? Entonces medio por van. A mí se me ha ocurrido que canalicen esos request por medio del gerente mayor, pero la realidad es que ellos llegan a la oficina y igual si meten es como necesito 20 de estos o revisas en Panamá. Entonces sí, por va. Vale, vale más como trabajan ellos y mañana de ellos, más que la tecnología, porque la tecnología está y se me ocurren ideas de cómo podríamos hacer, pero si, más que nada como trabajan.
+S1: OK. Los flujos, no sé si en LARK ustedes tienen configurados los flujos de solicitudes, eso lo utilizan allá lo utilizamos justo para compras.
+S3: ¿No, pero sí, o sea, los vendedores del mayor a medio costado que se adapten, ya ahorita está comenzando con ciertos procesos de aprobaciones y todo eso, entonces ya cuando terminen estando más familiarizados o más cómodos con aprobaciones por LARC, a lo mejor se viene una oportunidad para hacer, para pedir mercancía de a mí, verdad?
+S2: OK, vale en cuenta.
+S1: ¿Hugo, en cuanto a esos cuellos de botella o dolores administrativos, qué nos podrías comentar?
+S5: Bueno, hablemos de un caso existido y hablemos de una situación que está ya abierta, por ejemplo, la conciliación bancaria, que la determinación o el análisis de todos los movimientos que se presentaron de la compañía se hacía manualmente porque el sistema que tenemos no se pudo configurar por X o por y en un principio se trató con ChatGPT y era bastante complejo todavía su proceso por lo que uno entendía cuando comenzó y ya la compañía nos facilitó herramientas con cloud y ya con esa silencio completamente la conciliación. Entonces para el grupo yo que eso fue un éxito a los muchachos de verdad que trabajo y para mí es un proceso muy importante porque es el que me da el análisis de todos los ingresos y todos los egresos de la compañía. Lo que a mí es como mi cierre de que yo sé que lo que entró, entró bien y iba por de IVA y lo que salió tenía una correspondencia, tenía una explicación, o sea que no me quedan dineros en llegar.
+S2: Claro.
+S5: Para mí es muy importante ese último.
+S4: Proceso y se logró.
+S5: Ese como por decir el caso éxito, o sea es un hecho. Hay otra cosa que estamos haciendo, pero bueno. Y por cierto esta semana me aprobaron averiguar con cuánto nos costaría esta mejora. Es que ya son muchas unidades de negocio, mucha gente en la calle y hay un registro inmenso de documentos.
+S2: OK.
+S5: ¿Y todos esos registros se hace en la actualidad y con la tecnología que tenemos o los requerimientos de Hacienda? Si, Hacienda me pide a mí una factura electrónica. Una factura electrónica de una estructura que es un XML. Yo no sé mucho eso que te.
+S4: Hablo de los técnicos.
+S5: Tranquilo. Lo que nosotros hacemos al final es un documento que es un XML, que es una estructura que está estandarizada. Si, eso es lo que sale cuando yo emito todas mis compras. Alguien las emitió, tienen ese mismo formato. Entonces en este momento lo queremos, o sea tenemos pasar el correo a la gente del sistema para que me coordine con él con el dueño del programa cuánto nos costaría, si es posible hacer un link, un botón de ingreso, algo que me permita agarrar ese archivo XML y meterlo en el sistema y.
+S4: No tener buscando proveedor qué tipo de documento, la fecha, el monto, verificar el impuesto, o sea una cantidad de registros que hacemos. Claro, cuando ya hacen 300 400 registros es mucho más sencillo, debería ser mucho más amigable con la tecnología.
+S5: Este documento es una estructura que está establecida,.
+S4: Entra, se tiene los campos que necesite y bueno yo sí determinar tú eres para avenida o tú eres alquiler o tú eres agua, para que en el análisis de los gastos veamos qué rubro va creciendo o cuál se va manteniendo. Pero básicamente ese sería para mí un.
+S5: Cuello botella actual, o sea, no es.
+S4: Un cuello botella, proceso que conforme avanzando la tecnología siento que se quedó pegado.
+S3: Yo creo que eso aplica para el PC Graph en general. Diría que es uno de nuestros cuellos de botella más grandes en términos desarrollo, porque nos ha costado conectarnos con las herramientas que tenemos hoy en día. ¿Siento que hay mucha información que se pierde solo por tema de accesibilidad a la herramienta, verdad? Ya ahorita con ti estamos desarrollando todo como un espejo para que funcione desde el teléfono, para por lo menos que los vendedores del mayor puedan revisar inventarios desde su teléfono sin tener que andar jalando la compu a todo lado y así. Pero son cosillas así como las que dice Hugo, que deberían poder hacerse, pero no son tan fácil como suena.
+S4: Como no piensas, ¿No?
+S2: Sí, claro.
+S3: Son cosas que llevan desarrollo de sistemas y nos dejan medio, no diría mal parados, pero nos incomoda un poco progresar hasta cierto punto, ¿No?
+S2: Por supuesto.
+S1: Y además que lograr eso agilizaría mucho el proceso y ahorraría tiempo, horas, hombres, trabajo. Por supuesto, manual, sobre todo manual. De acuerdo. Hablaban de la inteligencia artificial, por ejemplo, el caso de éxito que mencionaste, Hugo, de las conciliaciones. ¿Se está incluyendo la inteligencia artificial en otros procesos de Uds?
+S5: ¿Hoy en día, particularmente yo en el área Ya hicimos éxito?
+S2: OK, ya es un hecho.
+S4: Hay unos reportes que. Hay un reporte que se monta con frecuencia que es de gasto, una separación para que todo quede arregladito y entonces nada más el gerente general llamado y lo entienda y no tenga que ver 50.000 números. También ya se hace con eso. Con Claudia también se hace como tú de cuentas por cobrar, también se está haciendo.
+S5: está esto de que esté. Nunca voy a decir que está perfecto.
+S4: Porque siempre alguien me puede aportar una.
+S5: Situación adicional que me dé algún dato.
+S4: Interesante, pero ya está.
+S5: Esto de que esté listo en su.
+S4: Primera etapa, el 1.0 está a esto y que esté listo, OK, pero ya se está usando. ¿Y por qué no está listo?
+S5: Porque ya se está usando y en.
+S4: El uso el que me va a.
+S5: Decir cambiemos esto, pero ya está en uso. Pero todo eso lo bajamos, todo eso se baja de PC Cloud y entonces se le entra el teclado y me ayuda y avanzamos los demás.
+S4: Así que por ese ladito va.
+S1: Pero tienen que bajarlo de Cloud y pasar de pcgras y pasarlo a Cloud. No está linkeado Cloud con el sistema.
+S5: Yo, bueno, yo no sé, pero es complejo.
+S3: Ese match.
+S4: Verga,.
+S5: No sé por qué.
+S1: Tranquilo.
+S2: OK, OK.
+S1: No, no, está bien, está bien. ¿Y en el caso de Itai, me ibas a comentar algo?
+S3: ¿Bueno, Reuniones de Innovación y todo eso, a la gente que se ha incluido es toda la gente que tiene la licencia de Cloud paga o está medio de que podría tenerla? Porque no todos tienen Cloud. En su momento, apenas la introducimos, yo estaba medio de tutor de Cloud, porque es una herramienta un poco diferente a ChatGPT, digamos que es lo que más diría que la gente está acostumbrada. Entonces tal vez en un comienzo tocaba dar un poco de guía a la gente y un poco entrenamiento de tips y todo para flujo de trabajo dentro del Cloud y así. Ya hoy en día diría que no es tan necesario. Tal vez el primer proyecto de conciliaciones con Hugo, yo metí un poco mano y todo, pero ya ahorita ellos están caminando solos y quería que eso para todos. A este punto, las Reuniones de Innovación se nota que han tenido resultados, más que nada en ese tema de herramientas y el uso de la herramienta, porque al principio venían a preguntarme por todo y ya hoy en día más bien casi que nada. Entonces yo tomo eso como que la gente se empoderó de la práctica y ya no me necesitan, digamos.
+S2: Interesante.
+S3: Todavía me buscan a veces, pero ya siento que más por su cuenta se están desarrollando proyectos y todo, más que depender de mí para ayudarlos a construir.
+S1: ¿Tú utilizabas Cloud anteriormente? ¿Tú eras la persona que mentoreaba o formaba en estos temas? ¿Ayudabas con Cloud?
+S3: Un poco sí, porque yo conocía la herramienta antes que todos. También fue como trabajo mío analizar a ver si realmente era una herramienta que nos servía por temas de las licencias y todo eso también yo soy como.
+S4: El.
+S3: Manager de Cloud en la empresa, digamos. Si alguno necesita una licencia nueva o algo, listo.
+S1: Eres el usuario máster, digamos.
+S2: OK, correcto. Sí, sí,.
+S3: Como por eso me venían a buscar mucho por temas de Cloud y así. Pero ya hoy en día no sé cuánto llevamos ya con Cloud, como seis meses, tal vez un poquito menos. Ya la gente se descubrió lo que le sirve, lo que no, y de con la Reunión de Innovación siguen saliendo tips, entonces no es como que la gente se estanca por comodidad.
+S1: Vale, esas reuniones de Innovación y Itai, ¿Cuántas personas forman parte hoy en día? ¿Quiénes son?
+S3: Las primeras que yo estuve, habremos sido no más de 10, y ahorita yo creo que ya somos casi 15 en esas reuniones.
+S1: Vale, y están yendo quiénes, ¿Los líderes departamento o son personas que necesitan participar por alguna razón?
+S3: ¿Hay un poco de todo, o sea, están los líderes de los departamentos, pero después tenemos a la gente de TI, que digamos, si es un proyecto que necesita un poco más desarrollo, más ayuda en sistemas o algo muy específico del ARK, ellos digamos que están como dinners como para aportar y es como, bueno, eso se puede hacer así, se puede hacer asa, pero en su mayoría son los líderes de sus equipos o los gerentes?
+S2: Por los gerentes.
+S1: Y recuérdame, solo para recapitular, la frecuencia de esas reuniones, ¿Cada cuánto están? Están siendo cada 15 días quincenal,.
+S5: El segundo lunes de cada mes.
+S2: Correcto. OK, perfecto.
+S1: Vale, muy bien. ¿Y digamos, tienen en mente ahora mismo, en el radar, otras oportunidades para incluir la inteligencia artificial? ¿Hay algo en lo que estén pensando que podría ser para el corto, mediano plazo?
+S3: Bueno, para mí, porque yo también estoy usando mucho Cloud para compras, más que nada las de reposición.
+S2: OK.
+S3: Y más que nada no sería como agregarle nada, sino como irrefig.
+S4: Para que.
+S3: Idealmente llegue un momento, ¿Verdad? Donde la compra al 100% se la puedo confiar a Cloud. Obviamente siempre la tengo que revisar yo, porque siempre hay modelos nuevos, siempre hay cosas que tal vez la matemática me va a pedir que no lo haga, pero necesito comprarlo por campañas o obligaciones así. Y bueno, a fin de cuentas también siempre los pedidos especiales de vendedores, necesito esto. ¿Pero por el momento, digamos, para mi departamento de compras, ya ese punto nada más es seguir refinando la herramienta al punto que yo pueda casi que confiar ciegamente en él, verdad?
+S1: Y En tu caso, ¿Itaya está haciendo efectivo el resultado que te da Cloud, o sea, ¿Son precisos los resultados de Cloud hoy en día?
+S3: Diría ahorita que obviamente dependiendo de la compra que sea, obviamente las que son más frecuentes me sirve mucho más, digamos, Qubit, que sale bastante más. El tema es que como los volúmenes de venta y de compra han crecido tanto, ya ahorita yo me siento directamente con Ricardo y los Juntos, porque la mate a veces no da y las ventas se dan, entonces se volvió más complicado, pero calculadoras y cosas así he notado que casi diría que un 85% de exactitud.
+S1: OK, confiable es confiable, pero va a.
+S3: Ir subiendo y subiendo, o sea, cada compra que hago siempre obviamente la reviso, pero yo la voy alimentando con lo que él me hace, lo que yo hago, lo que después me revisa Don Gil, como para que se vaya acostumbrando a cómo pedimos, cómo funcionamos y así. Si, se nota cómo va entrenándose más y más y más la herramienta.
+S2: Qué bien, qué bueno, entiendo Hugo que.
+S1: Hablaste de conciliaciones, el tema de cobranzas, ¿Tienes en mente ahora mismo otro proceso que quisieras o desearías optimizar, automatizar con IA? ¿Qué seguiría en la lista si tuviésemos que seleccionar algo?
+S5: No, básicamente para mí el proyecto que sería parte de inteligencia es poder cargarlo para mí. Y hasta diría que la cereza son demasiado, Llega un documento de los vendedores, llega un documento de los gerentes, llega un documento de las tiendas, sabes que es muchísima reconocimiento, hay que meter la manual.
+S2: OK.
+S4: Y básica. Y básicamente vamos a ver, podemos ir mejorando los reportes como si lo voy puliendo y lo voy poniendo más lindo y que al final sea un informe de dos minutos que cada gerente lo vea y entienda todo, porque ya está todo súper puesto justamente donde vamos a hacer la lectura correcta, pero más de , o sea, a veces no se puede inventar qué hacer. Sí, sí sabe, si controlo todos los ingresos y controlo todos los egresos.
+S2: Claro, te entiendo perfecto.
+S1: ¿Además de IA, utilizan Power BI o alguna otra herramienta de procesamiento?
+S3: Yo casi no, o sea, sí veo reportes en Power BI pero no lo uso personalmente.
+S2: OK.
+S3: La que más usa Power BI diría que es Carla, la de Inteligencia de Negocios, Ella sí, Power BI un montón y dashboards en Excel un montón, pero yo personalmente cero. Aparte de verlo no lo uso.
+S1: Pero recibes reportes e informes basados en Power Bi.
+S3: OK, o sea, si es una herramienta que se usa dentro de la empresa, no es una que yo uso.
+S2: Te entiendo, te entiendo.
+S1: ¿Y eso es algo que tú solicitas o te lo están enviando periódicamente?
+S3: Me los envían, me los envían yo casi nunca estoy pidiendo por lo mismo, no tengo que pedirlo porque siempre me está llegando a mí.
+S1: Es interesante. ¿Y cuáles son los reportes de BI más frecuentes que te están enviando en Dashboard?
+S3: Usualmente un montón de cosas. Últimamente el estado del inventario. Estado inventario, cosas que ya están en el bucket de hace rato, cosas que se tienen que liquidar. Eso a mí me interesa más que nada como para saber a qué producto le tengo que poner la X que no debería volver a comprar. Más que nada para eso lo estoy usando yo. Y diría que ese es el reporte que más veo. Los otros casi honestamente muchos reportes me llegan porque mi papá pide que me lleguen, pero los termino viendo con él, no es como que meto por mi cuenta a revisarlos porque en realidad los puedo ver, los puedo entender, pero en realidad no los entiendo o no me sirven de mucho. Y es donde entra mi papá y y él me comienza a explicar más que nada lo que él ve en esos reportes como para enseñarme. Pero así como en función a mi rol, yo diría que el de inventarios es el que más veo.
+S2: Ese sí lo veo al de inventario.
+S1: ¿Y por casualidad ese reporte está enlazado con el WMS, el sistema de gestión, el mayor o sabes de dónde proviene esa data que toma el Power BI? OK, de PC.
+S2: Perfecto. Vale, vale.
+S4: Si yo no me equivoco, creo que ya está conectada la base de datos, no es que tienes que bajarla.
+S5: De una fuente local, hacer con enlace también. Entonces yo tengo entendido que ya está conectada, creo.
+S2: Claro, perfecto.
+S3: Porque de hecho creo que muchos de los reportes que me llegan si son semi automatizados o automatizados porque culpa de eso digamos, ya es una plantilla que está lista y lo que se va actualizando los datos y se manda automático todo.
+S2: Sí, sí, sí.
+S3: Entonces creo que va por . Pero sí, los datos de PCGRAPH todo muy bien.
+S1: ¿Tú recibes Hugo algún reporte o solicitas en Power BI o necesitas que alguien lo haga?
+S4: Solicito me esté llegando reporte sobre de venta porque ya vienen márgenes y todo y por lo general nunca está de.
+S5: Más echar un vistazo para que no me lo pegó con el mío de.
+S4: Repente papá, si pegaron o mira, no me pegó porque me pasó que la vaina rara ese tipo de cosas porque me ha metido costos y todo lo demás, pero ese es el que me llega.
+S2: Perfecto, perfecto.
+S1: ¿Por cierto, hablando un poco también de los indicadores, los KPI que utilizan para monitorear la salud de los procesos, hoy en día estamos manejando sistemas de KPI para las áreas de finanzas, de compras, algún reporte de KPI? ¿Bueno, quizá los dashboards ya ayudan mucho en eso, no?
+S3: De repente si, o sea, mis KPIs, digamos como no hay mucho que analizar, digamos, yo más que nada, como más que nada temas de planificación, digamos, o sea, se vuelve más como, no tanto un KPI, pero yo poder dar un orden de yo pretendo hacer tal y tal compra, vamos a gastar tal y después hacer la compra y decir, se gastó tal y listo. OK. Diría que más que nada como el KPI, no hay nada así como muy desempeño que mida, pero si diría que es más que nada eso, o sea, desgloses tal vez de lo que estoy comprando, pero más allá de eso no estoy bugiendo mucho, o sea, siento que no hay tanto que medir en compras.
+S2: Entiendo. OK.
+S1: ¿Documentación tienen hoy en día de procesos? ¿Por casualidad hay algún tipo de manual instructivo sobre el paso a paso de los procesos de Importbel?
+S3: Se están haciendo, o sea, ahorita este es un proyecto que también estamos haciendo con inteligencia Artificial, estamos comenzando construcciones de puesto, pero también el plan es que haya manuales de proceso y todo eso. Por ejemplo, en bodega sé que se estaba haciendo mucho, que entró un jefe de bodega, pero sí, o sea, si hay, no sé si está activo ahorita, pero está en proceso para documentar todo, todo.
+S2: OK, o sea, sí, sí, sí se.
+S3: Está trabajando en tiendas,.
+S5: Quizás es una cuestión de cómo de mejorarlo, actualizarlo, pero si hay muchos de esos procesos. ¿Por qué? Porque la gente tiende a hacer nota mucho y hay procesos que si, no se, de repente una nota de crédito por tu de dinero o no, mira el apartado se hace por aquí, por aquí, por aquí, entonces una pantallita, mira, como haces esto, Regístrate, no tienes que registrar cliente. Entonces hay muchísimos, hay unos cuantos en tienda, sobre todo por la alta rotación de las personas y se necesita que tengan.
+S3: Y bueno, en mi caso también a mí Carolina me dejó como un mini manual de cosas específicas que me iban a tocar hacer a mí, pero eso es algo que hizo ella, como ella fue la encargada de ese rol por tanto tiempo, fue más o menos ella haciéndome como un resumencito, un cheat sheet, esto es lo que hacía, esto es tal persona, con esta persona es mejor hacer esto, cosas medio así. ¿Pero no era como manual así como tal que existía para mi rol, verdad? Pero sí, ahorita diría que de oficina ya se está comenzando con primero que nada como el manual de puesto para después ya seguir como más detalladamente los procesos. Tal vez hay algunas áreas que no necesitan tanto como otras, digamos servicio técnico es como, o todo por me imaginaría que requiere mucha más documentación de procesos, pero igual para cualquier posición. 10 Importantes de todo.
+S1: Es interesante esa parte por ejemplo de las garantías, cómo se están llevando cuando hay lotes que son por garantía o mercancía por garantía,.
+S3: La verdad que un líder.
+S5: OK, depende del producto,.
+S4: Pero ya el taller tiene su manejo, incluso por lo menos la parte cuatric viene, Patrick ha venido unas cuantas veces ya para acá.
+S5: Y les ha enseñado cómo se revisan los productos, que se puede rescatar, si son actualizaciones o no. Ellos están clarísimos en la parte descubrimos y en la parte de Casio también hay, te lo digo porque entonces ellos están claros de qué cubre y que no cubre, pues un reloj que ya viene abierto no cubre. Incluso hay productos de Casio que vengan con un defecto de fábrica, Casio no lo reconoce, una calculadora HL, una vaina esa que viene con pixelcito manchado en la pantalla, no te lo van a cubrir. El taller está muy, no te sigue el 100% porque no te olvides. Pero sí, sí están claros en cuáles son las normas del proceso, cómo se piden las garantías de repuestos a Casio, incluso la forma en que se desecha la mercancía de Cubi, porque Cubi lo establece, lo que se desecha tiene que ser con una recicladora autorizada, que un certificado y todo lo demás porque hay componentes peligrosos, o sea, todo eso conforme han venido las directrices de par.
+S2: OK, correcto.
+S4: Y te lo digo porque yo soy.
+S5: El que paga eso, porque llegó esto, van y tienen carta, se empezó, pero.
+S2: Todo eso se hace, no hay forma.
+S1: De escaparse de . Tú lo monitoreas porque Sí No.
+S4: 100 Empleados suena bastante, pero creo que.
+S5: Aquí nos hablamos mucho entonces.
+S2: Entiendo, te entiendo perfectamente Hugo. Listo, listo.
+S1: ¿Qué otro proceso, muchachos, podría estar quedando por fuera que consideren relevante mencionar? Digamos, veo que hemos levantado una buena sesión de trabajo, al menos para comprender los elementos de ustedes, pero no sé si hay algo más que ustedes quisieran agregar que se esté quedando por fuera. ¿Que se podría añadir para complementar?
+S3: Bueno, a mí como sí me hablo mucho con los Vendedores del Mayor, son los que más me están pidiendo cosas todo el día. El dolor más grande de ellos era catálogos, catálogos y generar catálogos y suena tan simple, pero nos ha costado tanto y bueno, ahorita se supone que ya con la aplicación y todo vamos a lograr de que los vendedores puedan generar sus propios catálogos filtrados como quieren desde el teléfono, que es donde va todo lo más importante, porque ellos andan en la calle todo el día, parar a abrir la compu tal vez no es tan efectivo ni en tiempo ni en comodidad. Entonces ya son cosas que se están trabajando, pero son cosas que no estuvieron mucho tiempo y desde que las hemos comenzado a trabajar han tardado pero ya iban caminando. ¿Yo siento que por lo menos para mí va a ser una mega diferencia porque ahorita como yo soy el que compra, me piden las cosas a mí verdad? Pero ya estamos llegando al punto donde ellos se van a poder hasta autogestionar sus propios request, más que nada en inventarios y en catálogos para que puedan trabajar más eficientemente todos. Ya no tienen que estar encima de nadie pidiendo no tiene esto, no tiene la foto de esto, ya van a poder autogestionarse que creo que les va a dar demasiada más libertad tal vez de no depender de otra gente para cosas que sí necesitan en realidad.
+S2: Claro, perfecto.
+S1: ¿En tu caso Hugo, algo adicional que consideres que quieras mencionar como complemento sobre tu visión?
+S5: Acá interno no y externo tampoco conozco.
+S3: Básicamente.
+S5: Nada. Vale. Creo que he venido 15 años sondeando la situación, me pareció increíble la conciliación para mí, a mí me encantó. Sin duda vamos teniendo otras pequeñitas batallas esas, pero para mí en este momento es mucha carga. Si yo logro, como te comenté, ese proceso de la carga de documentos, me voy por satisfecho, no siento que hay una traba o algo así.
+S2: Vale.
+S5: A lo mejor estamos usando algo en Panamá. Buenísimo para. Para el registro de los documentos por pagar y lo podemos aplicar acá, pero igualmente al no haber conexión termino yo cargando, trabajando, haciendo un doble registro porque registra aquí, registra aquí y después sacar reporte los dos y verificar los dos lados. Entonces a veces. Pero bueno, por sería.
+S2: Podría ser por .
+S1: No, no, está bien. Eso que has comentado es clave y estamos buscando. Exacto, entender cada región y entender cómo están cada uno en ese tema. Muy bien, bueno, listo. Yo pienso que de momento estamos cubriendo bien la sesión. Nosotros por supuesto vamos a procesar toda esta data, esta información para entregar un producto a ustedes, a toda la organización del señor Bernardo, a los líderes de cada región también, pero lo más seguro es que estemos en contacto. Vale, nuevamente, quizá por lar alguna consulta específica con ustedes, Vale, Que son clave en este proceso y de verdad les agradezco mucho este tiempo que han dedicado, que sé que están muy complicados en sus agendas, más bien les saqué de sus rutinas y les agradezco este espacio que hicieron para levantar esta sesión.
+S3: No, gracias a vos.
+S5: Interesante que nos quieran escuchar, que nos apoyen y.
+S2: Buenísimo.
+S1: Hugo Itai, gracias a ambos de verdad Y bueno, seguimos en contacto. Vale, muy amables. Vale, que estén bien.
+S2: Feliz día.
+S1: Gracias Vale, hasta luego.

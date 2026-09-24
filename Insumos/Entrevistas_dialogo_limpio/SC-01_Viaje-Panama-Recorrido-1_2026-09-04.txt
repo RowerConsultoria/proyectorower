@@ -1,0 +1,410 @@
+S1: Para nosotros uno puede convertir en 50, 60, 70 palets, depende de los productos de principal. Entonces ese inbound tiene que venir. El proceso comienza desde que al compra. Cuando nos envían la notificación de partida, se crea un ASN, que es el aviso anticipado de llegada, y llega la factura, documentación y todo eso, y lo procesa. Tráfico. Tráfico crea ese ACN y ya nosotros tenemos la visibilidad de lo que viene. Entonces ya con eso podemos empezar a ver qué espacio te. Para anotar eso.
+S2: Quiero cambiar el proceso para que ya se pueda cargar a Odu desde que está en producción.
+S1: Exacto.
+S2: Ahorita nadie sabe que está en producción. Yo tengo unos documentos aparte, pero. Y el tránsito se carga en Odoo cuando ya está una o dos semanas de llegar.
+S1: Este apenas sale. Entonces nosotros hemos agarrado también que con esa información tenemos que tener el espacio disponible para poder recibir la carga y preparar. Pero no es para meter la carga como sea, sino para poner la carga de manera organizada. Nosotros estamos trabajando en algo que llamamos heatmap, que es que la organización de los racks y de la bodega esté acorde al movimiento de producto. Por qué necesito tener lo más cercano que tenga, lo que más se mueva. Necesito tener lo más cercano para que mi tiempo de proceso sea más corto. Si tengo el proceso, por ejemplo, el ítem que más venda, cada vez que me pida, van a tener pedir el operador con montacarga ir allá. Y lo otro también es que necesito que los que más se muevan estén más alto y necesitar menos maquinaria para no crear cuello botella, porque necesito maquinaria de altura. Entonces la bodega, digamos que este es el alto, yo necesito que los a estén nivel 1 o nivel piso, estén acá a lo largo, hasta menos de la mitad de la bodega y para acá. Entonces los B arriba y acá y piso y al lado. Y los C arriba y atrás. Los C son los que menos salen,.
+S3: Los que menos se mueven. Y tienes tres categorías, A, B y.
+S1: C. Tengo ABC y Nomo, porque el Nomov también tengo que tener eso es lo más lejos que tengo que tener.
+S3: Está parado, que tú sabes que va.
+S1: Productos de generaciones anteriores que se han quedado fríos, que tengo que empujar a venta para que lo saque, porque al final del día si no se convierte en scrap o basura. Entonces son cosas eso que tenemos . Entonces el ABC está categorizado Antes esto estaba por marca, entonces había un pasillo de Pudic, otro de Casio, algo así. A mí me da igual si es cubido caso, porque nosotros tenemos código, nosotros no tenemos productos ni marca, o sea para la bodega es un código, entonces yo necesito que ese código que más se venda esté organizado, acuerda como se venda y no como se llame, entonces eso ya lo quitamos, todas esas reglas de estiva que estaba.
+S3: ¿Cuántos SDK tiene más o menos acá SKU?
+S1: Nosotros tenemos ahorita podemos tener casi 7.000 distintos, pero realmente yo lo tomo como unos 4.800 por , que son los que realmente están, porque va otros que tienen código, material promocional, otras cosas de esas que la verdad para la operación diaria no están.
+S4: De peso 4800 SKU,.
+S5: Cinco colores son cinco SKU.
+S4: Exacto.
+S5: Tiene 25 colores un modelo interno, pero tenemos 60 colores. Son 60 SKU.
+S4: Claro, por eso son 4.800 SKU, pero.
+S1: La mayoría es casi Exacto, casi.
+S5: Como.
+S1: 480 Tiene cubo, en cambio casi tiene un montón porque hay muchos colores del.
+S5: Mismo reloj.
+S1: Todos los meses, entonces tienes una, pero igual tampoco no es manejable. El tema es el orden, que es lo que yo siempre le digo a ellos, lo que nos separa a nosotros de los japoneses, a nosotros es la disciplina, más nada. Entonces eso lo que estamos tratando de construir aquí, que haya disciplinas de orden, las 5 segundos que les comentaba en la junta antes, limpieza, todo tiene que estar donde tiene que estar, que es la forma que se haga, la parte más fácil, obviamente es un proceso, no se va a cambiar de hoy a mañana, pero que ellos sepan que vamos a eso. Entonces todo se prepara la bodega acorde a lo que ya nos han dicho que vengan. Cuando venga el contenedor se hace proceso descarga y como es manual, como es a granel, hay que hacer segregación de aire, entonces yo tengo que paletizar la carga, entonces ellos tienen que bajar y como tampoco lo recibimos en orden, sino que puede ser que unas cajas por aquí, otras por allá, y yo sé la cantidad que tengo, yo tengo que paletizar acorde a esas cantidades que tengo, entonces tienes que sacar, la persona va bajando, haciendo la descarga, párate, llega.
+S4: El contenedor, cuando llega tú no sabes que hay adentro,.
+S3: Lo que hace es.
+S1: Que venga hasta que nosotros recibamos el Backend league y la factura de lo que viene que lo monta en el sistema.
+S3: Pero la primera clasificación es cuando descargas que lo pones ABC, la primera,.
+S1: Esté,.
+S3: Lo que tú estás esperando,.
+S1: A dónde lo voy a ubicar, si va.
+S3: El ABC, que es la segunda parte. Una vez verifico, una vez verifico, mira bien está lo que esperaba estar y clasifico ABC y después muevo.
+S1: No, primero tienes que etiquetar todo eso, cada caja tiene que tener un LPN, que es como su cédula de identidad en la bodega.
+S3: ¿Que se pone aquí, que se pone aquí?
+S1: no, viene de cada caja tiene que tener el EPN y cada palet tiene que tener su palet ID. Entonces con eso, después que tú tengas ese proceso que se hace acá, pasas y dices, ese producto es cubic Terra, bueno, ese lo vendemos, bueno, este tiene que estar, ojo, no tiene que estar, lo ideal es que todos lleguen y estén pegados para que haya menos movilización y no tenga dispersión, que eso otro tema, que eso es consolidación.
+S3: Pero ahora, ¿Por qué dos procesos? ¿Por qué? Porque hay un tema primero de clasificación inicial, o sea, yo digo, le pongo la etiqueta del almacén y después entonces qué digo, se vende, no se vende ABC, no es junto todo.
+S1: No, no, es que ya tú sabes el producto, a ti lo que te importa es identificar el producto porque tiene que tener las etiquetas y tú sabes a dónde va, o sea es una sola intrínseco.
+S3: Ya cuando tú pones la etiqueta ya tú sabes si es ABC, ellos ya saben.
+S2: Por momento no teníamos de este, entonces vamos a ponerlo aquí, siempre van al.
+S1: Mismo lugar, ahora van casi del mismo lugar y cuando tengo, podemos suponer que yo recibí Terra 58, lo recibí la semana pasada, pero yo tenía aquí en la boton, los tengo acá, pero al lado no lo voy a tener. Entonces lo que tienes que hacer después, cuando hay una parte de esas, si no es que lo hiciste antes que llegara el contenedor, lo que vas a hacer es consolidación de ítem en otra operación que vas a decir acercar y que el ítem esté en el mismo P. Entonces tú te garantizas que ya tienes , porque nosotros ya tenemos desde hace cuatro semanas, tres, cuatro semanas ya nosotros tenemos aplicado FIFO a la bodega, entonces ya yo sé que lo primero que. Lo primero que llegó es lo primero que se va a ir. No lo teníamos. Y eso es un tema con garantías muy importantes. Pero ya de hace cuatro semanas ya lo tenemos implantado en la web. Entonces eso ya lo tenemos. Entonces todo eso involucra eso, si hay un faltante, si hay un sobrante. Antes estaba todo en una misma bodega. Ahorita nosotros tenemos bodegas virtuales diferentes, en el cual si yo recibo, a mí me dijeron que llegaron mil, yo voy a recibir las mil, ¿Verdad? Pero yo recibí 900, pero yo necesito ubicar esas 100 en otro lado. Pero que no se pierda de vista, porque yo necesito decirle, Hey, Ale, mandaron 100 menos. Y él tiene que reclamar a la planta.
+S4: Si lo pones en una bodega virtual para saber que está faltando, y cuando.
+S1: Se haga, recibamos la nota de crédito o recibamos el producto adicional, lo que sea, se descarga esa bodega y ya queda todo traqueado.
+S3: Y las etiquetas de la bodega salen directamente de Odoo. No, es un sistema aparte.
+S1: Aquí tú le preguntas a ellos qué es Odoo y van a saber lo que tienen relación con facturación. Pero para nosotros Odoo no existe. El sistema que manda GBS, que es el WMS que tenemos.
+S3: Ajá, es el que dice exactamente ese sistema. Entonces sale todo perfecto. Y cuando ese inventario se registra en.
+S1: Odoo automático, lo que pasa que nosotros.
+S3: Agarramos cuando lo pistó.
+S1: No es así. Tú no puedes cerrar. Yo no puedo cargar una carga como disponible en el sistema, ni siquiera en EBS. Se carga como una carga en tránsito o descarga mientras yo abro el contenedor. Hasta que yo no registro todo el contenedor y cierro ese contenedor o ACN, ese inventario no sube como disponible en EBS. Una vez que suba como disponible EBS, hay una interfase que se dispara directo EBS hacia Odoo y va la carga y los ítems en las cantidades que nosotros dijimos hacia Odoo. Y hay un proceso que hace Alejandra, que Alejandra es que tiene que validar ciertas cosas de precios, costos, otra cosa que yo no desconozco, ese proceso. Y ella acepta manualmente el inventario y sube aún. Pero siempre el inventario debe mantenerse expresamente.
+S4: Dónde nace las cantidades, nace en EBS. Entonces o sea tú eres quien dicta qué es lo que va a entrar en almacén y después allá me imagino le dan a aceptar en el.
+S6: Alejandra tiene un respaldo en Odoo. Alejandra cargó la compra como un tránsito módulo.
+S4: OK.
+S6: Que no entró disponible porque no está en tránsito. Cuando él confirma la recepción en EBS, esa recepción convierte el tránsito en disponible.
+S4: Entonces nace.
+S6: Ya tenemos información.
+S1: Conectada con Odoo.
+S6: Si, nace en Odoo, solamente que para él no existe.
+S1: Si no hay el trigger de nosotros avisarle a Odoo, aquí está ese inventario nunca lo van a ver en mi polígono.
+S4: Ya lo tiene ya seteado. Lo que pasa es que él está esperando tu aprobación de que llegó para validador. Una pregunta, llega un producto nuevo, no está. No lo tienes, digamos, catalogado en ABC. ¿Quién lo cataloga cuando nuevo?
+S1: Todo producto nuevo, porque vas a tener órdenes de pedido para llenar canal. Entonces no necesito tenerlo lejos porque voy a recibir órdenes de una vez. Cada cuatro o cinco meses.
+S6: Tú le vas moviendo.
+S4: Y.
+S1: Nosotros agarramos y categorizamos. La categorización de los productos ABC no está en el sistema. La categorización de productos ABC la tenemos nosotros ahorita que la estamos cargando al sistema. Entonces el sistema ya desde que está cargada con nosotros que vamos a hacer el Outlook masivo, porque nosotros ahorita lo clasificamos acorde al histórico de venta que a nosotros nos pasaron. Entonces yo tengo un histórico de venta en el cual tengo los últimos 12 meses. Yo tomo los primeros 6, porque hay muchos productos que antes no estaban. Tomó los últimos seis. Hicimos la categorización acorde a valor y movimiento. Entonces cuando tú tienes esa primera categorización, ya después el sistema te lo va a ir dando porque te va a calcular movimiento, él te lo va a sugerir, tú lo puedes cambiar, pero eso no es.
+S4: Torita lo baja.
+S1: No lo tenemos porque lo hemos hecho manualmente.
+S4: La categorización ahorita está manual. Tú ves las ventas y dices esto.
+S7: Para,.
+S1: Te estoy hablando que tiene dos meses que empezamos ahorita. ¿Tú vas y llega una orden nueva y antes tú dices esta orden, vamos a suponer cuando llega una orden y tiene 100 líneas, verdad? Que cada línea yo llamo a cada escape que tiene la orden, porque es un movimiento que te lo mínimo, un movimiento que te va a disparar esa orden. Cuando esa orden, cuando esa orden llega él te va a decir esto es un movimiento de altura, esto es un movimiento de piso, esto es mezanín, piso, entonces eso antes demandaba mucha altura porque metías donde sea. Ahorita nosotros tenemos menos dependencia de eso, por eso podemos sobrevivir con dos montacarga de altura, porque tenemos muchas cosas en piso y llenamos mezanina. Entonces tú puedes, es lo que debe ser. Lo otro lo puedes tener también arriba, pero tienes que tener también ese plan de reposición en el cual se agotó el adepiso, yo tengo que reponer el piso para evitar que un operador vaya a hacer picking arriba.
+S4: Tengo otra llegó, tú decía que recibías mil, recibiste 900. Tú estás diciéndole a EBS lo que recibiste, recibí 900. ¿También le pones EBS lo que no recibiste o solo lo que sí recibiste?
+S5: La orden de compra ya cargado, él.
+S1: Tiene lo 100, pero militiamente lo que.
+S5: Tenga.
+S1: Yo agarro, le doy entrada a los 1000 perdón, pero voy a decir 90 lo tengo en bodega regular y 100 lo paso a bodega faltante.
+S6: Pero él para recibir un contenedor ya tiene la orden en la PDT cargada, ya la PDT sabe que vienen mil, recibió 900, él cerró la orden con 900 y la puso 100. EBS tiene la cantidad total, el faltante está . Lo que él está haciendo ahorita, que ese faltante se vaya a una bodega.
+S1: De faltantes, porque siempre tienes que tener visibilidad porque si no se te olvida y nadie le pide la nota de crédito.
+S6: No llegaron los otros 100, coño una corrección en el inventario de Odu porque estaba el tránsito cargado completo, manualmente lo bajaba, encárgate con la fábrica, pasa el.
+S5: Tiempo, se te olvida esos cien, ya no llego nunca.
+S1: No se te queda tranquilo que si son 100, bueno son 100, pero es que los 100 son todos los días.
+S6: Pero para él la respuesta es que todo está en el sistema, o sea él no dice que llegó, el sistema le dice tú tienes que recibir tanto, cuéntame lo que llegó.
+S1: Exacto, pero si tengo. Entonces luego que haces todo eso que hace el Puraway, que el Puraway es la ubicación en la posición, ya queda expreso, cierras el carrito y disparas y queda venta.
+S4: Lo puede ver, Mira la última para seguir tú etiquetas, llega la paleta tiene 100 cajas, esas cajas tienen un código de barra, no tomamos en cuenta ese código de barra. El de caja exacto.
+S1: El de origen.
+S4: El de origen no, o sea que cada caja le pones etiqueta o a la paleta le pones etiqueta.
+S1: Cada caja.
+S4: Párate dónde sale esa etiqueta, tú agarras.
+S1: Y tú leíste la recepción OK, Tú leíste la recepción del item y él te va a aparecer item CT papá 1000, tú agarres 1000 en bultos de 50 son tantas cajas.
+S4: Imprime todas las etiquetas.
+S1: ¿Imprime todas las etiquetas, el operador lo agarra, esa va a ser nuestro LP y es en su ID parte esa.
+S4: Numeración de códigos de barra que la está ejecutando EBS existen o no?
+S3: Te explico antes.
+S5: Inventario, saber cuántos quedan,.
+S6: Cuál vas a piquear, ubicación y trazabilidad,.
+S1: Cuál es el aging de la caja. Claro, pero si a mí me devuelven.
+S4: Un producto yo no puedo saber en qué caja viene.
+S1: Trabajando Ricardo ahorita no OK, pero ahorita tenemos, o sea lo.
+S4: Único que quiero saber código de barra.
+S6: Solo vive en EBS y mueren así porque cuando él cambia de posición murió ese y le imprime una etiqueta nueva.
+S1: Porque tiene otro idioma.
+S6: Ya vas a entender. Solamente para un tema de ubicación. Como que el loading Solamente para un tema de ubicaciones.
+S1: ¿Lo que pasa que tú tienes el que muere que dice Andrés es el pale de aire, si yo cambio el.
+S4: Pale de aire, si yo quiero saber cuál fue la paleta podrida, puedo saberla hoy me van a reportar en Guatemala una vez y digo dónde?
+S1: Si sabes de dónde se pidió, yo sé dónde pique.
+S6: Con relojes jodidos a Guatemala.
+S4: ¿Guatemala se empieza a quejar, mira mal dices dónde está la paleta podrida?
+S6: Está trabajando un proyecto donde las fábricas me van a mandar ese código de barra que yo voy a poder usar en la bodega directo de allá y ese sería el nombre tiene no sé qué vaina que salió tal día que para acá, que para allá se jodió en Guatemala eso, saca toda esa vaina.
+S1: Y mándalo ya listo porque aquí lo que podemos decir es de esa orden dónde se piqueó, cuánto se piqueó y la hora que se pique, sí, logístico, pero que si había dos lotes diferentes, eso no te lo puedo.
+S4: Decir, viene de fábrica.
+S6: El tema de etiquetas de aquí es un tema meramente de ubicación y control en bodega, ellos agarran y etiquetan todos los bultos. Entonces, si él agarra ya una PDT y escanea esa etiqueta, le va a decir, ese bulto tiene 50 relojes y está en la A en el lado B. Para saber. En el momento que alguien lo mandan a piquear y le dicen consígueme el Viva X, él le va a decir, ve a la ubicación B tal y agarra tal caja. El pistolea la caja y la ubicación y la saco de . Pero esa caja tiene que caer en otra ubicación. Si vas para una mesa de trabajo para adentro, ellos vuelven, escanean la otra ubicación y la caja, y es como que depositaron la caja en la ubicación. De tal manera que él si quiere saber dónde están todos los vivas, él sabe en qué ubicación están. Ahora, hay veces que las etiquetas van muriendo porque estás cambiando de ubicaciones. Si él agarra una caja, un bulto cerrado y lo va a meter adentro del mezanín donde tenemos menudeo, esta etiqueta murió y se le creó una etiqueta, una posición nueva adentro.
+S4: Pero todo eso está viviendo ahorita en el.
+S1: ¿Entonces, bueno, luego del pura güey y todas esas cosas,.
+S6: El proceso que yo.
+S2: Quería cambiar es que el nacimiento, no? Cuando viene la mercancía, se mete en Tránsito. Cuando Tránsito recibe el BL de que esto viene llegando, ellos tienen la.
+S6: Factura, el parking, y lo ponen en.
+S2: Tránsito y llega a la semana o dos semanas. Quisiéramos de que el nacimiento en Odoo sea cuando ya se manda a producir y que en Odoo puedas ver que está en producción. Cuando pase de producción a Tránsito, se pase directo apenas sale, no cuando ya está llegando aquí. Entonces que todos los vendedores y la gente interesada pueda ver que está en producción, que está en Tránsito, cuando llega, cuando está listo.
+S3: Claro, ya entiendo cuál es el momento.
+S1: Del producto en cada fase, desde el.
+S3: Origen, incluso cuando estás esperando el producto.
+S1: Que se produzca, cuando viene mezclado.
+S7: Eso es lo que estás haciendo con.
+S1: Fábrica, para poder trazar lo que se casi o no lo vamos a hacer con CU aquí. Yo no quiero eso, trazabilidad, porque eso ahorita con caso no es tema. Yo lo que quiero es que cuando esto tenga un packing list, que lo vas a ver allá adentro, tiene cinco, seis, diez. Yo quiero que esto, cuando lo lea en la PDT, me aparezcan los ítems. Yo solamente tenga que cargar la cantidad y no meter manualmente cada 20. OK. Y no meter manualmente para que el proceso sea más rápido, porque el surtido, eso sí. Pero bueno, vamos viendo. Cómo están observando, hablando lo de la organización ABC y todo lo que es el heatmat, esto tiene que ir yendo. Si van viendo, por ejemplo, Cubic se vende mucho, va a estar siempre un poquito para acá y abajo. Los ítems que venden casi son ítems que se mueven. Entonces tú vas viendo. Exacto. Estos son los que para cuando está Carlita, ellos marcan posición aquí abajo y no lo marcan arriba, obviamente por seguridad. Entonces aquí esto está organizado, que si cada Skennex, que así le pusieron cuando hicieron la bodega, uno que rack Mezanín dice KM. Entonces esto aquí. Aquí como estás viendo, te dice el pasillo de la bodega, te dice el área de pique, la altura, perdón, la columna, el nivel y el lado, si es lado A, lado B. Entonces tú tienes aquí y tú no hay. Si él llega aquí arriba y él pistolea y cuando él llega por ella en otro lado y dispara otra, no le va a aceptar. Dice ¿Estás haciendo algo mal? No está bien. Se tiene que marcar primero el segundo y así certifica que la vaina está. Entonces por eso lo que les decía del orbe también es otra cosa que se ha trabajado mucho, es que todo tiene que estar como tiene que estar. El movimiento de la dimensión alta, obviamente vas a colocar algo, pero no que vas a tener toda una dispersión de las vainas. Porque incluso operativamente hablando, si ellos van a pillar y la caja del código está del otro lado, ellos van a tener que hacer más tiempo. Y es lo que tú tratas siempre evitar. Entonces, a medida que te vas alineando, obviamente son ítems que son de menos movimiento. Entonces la parte de alocación, tú tienes alocación de cuando nosotros recibimos todo va acá, porque es bulto cerrado. Cuando hay una, tú abres esa caja y sacas unidad. Eso tiene que ir a Mezaní. Aquí afuera no debe haber bultos abiertos. La única sección que puedes encontrar por probablemente sea material publicitario, camisas, franelitas y todas esas cosas.
+S2: Perdón.
+S1: Como le estaba diciendo antes, nosotros ahorita clasificamos. Nosotros teníamos un problema de identificación de ítem. ¿Por qué? Porque la compañía tiene un producto que era el Qubit Mo y venía una versión nueva, entonces cambia la tapa, pero el código era el mismo. Entonces teníamos problemas que ponían un pedido de eso y se podía mandar cualquiera de las dos versiones, porque el mismo.
+S5: Código con una tapa diferente a la otra, el mismo tema, misma referencia, ya se está arreglando eso, están llegando con las diferentes referencia para que no haya problema de inventario.
+S1: Ya segregamos eso, lo pusimos a una bodega que se llama antiguo, en el cual los vendedores saben que si está es modelo viejo, entonces negocia modelo viejo, si Robi le tiene que dar precio, Andrés, lo que sea, ellos tienen ese inventario allí. No está perfecto porque no sabemos si hay otra cosa, pero sí está una muy buena parte de lo que nosotros tenemos y obviamente esos ítems que están allá, porque que son ítems que no te va a salir órdenes, te van a salir órdenes especiales, pero tu orden regular no. Entonces este es el último lugar de la bodega, esto es lo que nadie viene, entonces pongo las vainas viejas. Entonces todo eso es viejo, todo aquí es viejo menos abajo. Entonces te das cuenta de que vienen muchas cosas, se marca como viejo, viejo', y ya sabes que esta vaina aquí es la zona que nadie viene. Y si yo quiero considerar de microbiología.
+S3: En la Si yo quiero considerar el sistema, esa categoría de viejo que tú.
+S1: Llamas viejo, está en una bodega aparte.
+S3: Hay un criterio. Exacto, está en una bodega aparte que yo puedo ver qué es lo que.
+S1: Hay en viejo, lo que esté en antiguo. La bodega se llama Antiguo FF, que es antiguo Franklin, o sea que yo.
+S3: Puedo hacer un análisis de todo el tipo de producto que está en eso que tú llamas viejo.
+S1: Claro, lo que está es que no es. Ojo, pudo haber llegado hoy, No, pero es modelo anterior. Entonces todo lo que se considera antiguo a la bodega antiguo es que no es del modelo corriente que tenemos en.
+S5: Este momento, no necesariamente hay que rematarlo con preso, hay que buscar la manera de salir de él o rematándolo o al precio de verdad, pero ofrecerlo.
+S3: De acuerdo, Mi pregunta era a ver si tenías claridad de qué es lo que hay , para saber tu estrategia en función de lo que hay. Perfecto, esa es la.
+S1: De hecho aquí, si vienen por aquí, van a ver que todavía tenemos cosas. Acá también estos son muebles y cosas que no tiene movimiento, tiene mucho tiempo y hay que pegar. Y también está la parte de los pianos que salen con menos. Claro, entonces lo aleja, pero no lo pones para allá, sino que lo pones aquí y tienes en el primer pasillo de entrada, estas son cajas que usamos, son de reciclaje, entonces en vez de botarlos cuando haga falta,.
+S3: Esta es la.
+S1: Zona que está para eso. Esto que está aquí son productos también que están en inspección, esto está en revisor, error de logo, cualquier vaina, todo esto puede ser mercadeo, todo esto. ¿Entonces esto está ahorita está aquí porque en esta zona donde se inspecciona, entonces se inspecciona y se le dice encontramos unos caballetes, no sé qué vaina, reina o marketing, miren esta vaina que está aquí, usted la necesitan o la botamos?
+S4: ¿Qué quiere decir se inspecciona?
+S1: No, no, esto es bien, todo esto es bien, tú lo viejo lo inspeccionas, no es que tiene que inspeccionar para ver si está en condición de venta o no, porque puede ser que sea golpeado, pero tú no lo sabes porque no está registrado, puede ser que esté dañado, que esté golpeado, la rosca no sirva, o sea tienes que ver que el producto esté funcional.
+S4: Pero cuándo sucede la inspección, cuando te dicen mira lo vendí, tú tienes que inspeccionar todo.
+S1: No, no, no, esto es que nosotros lo hemos retomado, que lo peca, lo pescamos, lo vamos pescando y se va poniendo aquí. Entonces cuando el momento de la operación está más bajo, se inspecciona y se ve. Pero eso ya no va a pasar más. Eso ya no va a pasar. Esto viene arrastrándolo, por ejemplo el cubic.
+S6: De los termos lleva al revés, no se puede vender ya hasta aquí.
+S1: Entonces de pronto no sé,.
+S6: Donamos un pocotón a una escuela, una jungla de Darién y vaina, porque tampoco lo quiero donar a un lugar donde se vea, porque puede tener lobo al revés por .
+S1: Pero por ejemplo esta parte es un área que a veces hay trabajos andando, bodega viva, reparan alguna vaina, esto es como el área del taller y estos materiales que tenemos para ir cambiando como siempre hay de pronto le dieron el carajo, un choque un rato, cambiamos el rack, tenemos aquí la reposición, este por ejemplo se quitó, se puso uno nuevo, se acomoda y tu operación sigue, pero no dejaste la bodega sin nada. Y esto también, esto es normal que pasa, que son las botas que llamamos, que están en las esquinas. Entonces claro, por el roce y la vaina hay unos que se dan que te protege la columna y tienes que tenerla. Entonces tenemos vivos de con cualquier cosa agarras y la cama. Entonces como un área que reservamos como para reparación, taller y esas cosas que.
+S5: Tampoco la tenía mucho espacio para creceríamos eso. Tenemos una visión de que esto en algún momento se va a llenar y vamos a hacer lo mismo que eso o crecer todo esto. Es raqueable el crecimiento espacial. Claro.
+S1: Entonces estos son materiales que una vez que tienen la infraestructura lista es más fácil. Pero esto que está para salir. Pero son órdenes seguramente de ser de Rower y son órdenes que van a estar un poquito más de tiempo aquí en la bodega. Entonces para No, con Rower es Venezuela.
+S5: bueno.
+S1: Para no congestionar mi salida que es viva con una cosa que yo sé que va a estar parado, la tengo en otra área.
+S3: Pero la tienes preparada Ya pre.
+S1: Que hemos recibido de marketing, de visual, no sé qué destinamos un área que todo está acá, o sea no es que una vaina está aquí, la otra por allá, todo está acá.
+S3: Pero eso es nuevo.
+S1: Sí.
+S3: OK.
+S5: Eso es mobiliario que hacemos de qubit para ciertos clientes hacemos 20 y ya colocamos 10. Los otros días están aquí para otros clientes.
+S1: Esto también, esto ha salido aquí, puede ser unos termos que hay un cliente que hubo una orden que tenía que hacer la impresión y un rotulado y eso, entonces lo tenemos acá. Esta parte también para que ellos tengan la disciplina también se marca como si fuera un parking. Y aquí son la zona de carga, pero ellos saben que tienen que ponerlo así. Todas las palets están afuera también la posición donde están los pales, donde están las máquinas, todo tiene que ceder su posición.
+S4: Hay un proceso que existe en Venezuela, que me imagino aquí también llegó un cliente que quiero mi logo de la empresa en los termos y son mil.
+S1: Eso es lo que te dije. Se procesa la orden allá del otro lado se procesa la orden y se empieza el timbrado, estampado, como lo queramos llamar. Pero eso se hace aquí. Cuando son grandes se hace aquí porque allá no hay espacio. ¿Dónde es allá o barrio también tiene dos máquinas?
+S6: Pero más que todo si esta exportación se tiene que hacer aquí, no se puede hacer en Panamá.
+S5: No vas a pagar el arancel para entrar a Panamá. Todo lo que sale aquí tiene para arancel.
+S6: Mira, revísate bien lo del lobo, porque abrimos tres cajas que tienen el logo. Bien.
+S1: Es que por eso que la inspeccionamos nosotros ya le mandamos fotos también a.
+S6: Pero entonces hay cajas que tienen el lobo bien. Las tres cajas que nosotros abrimos son termo.
+S1: Por eso cuando Nai lo agarramos, lo sacamos y lo vimos. Y yo veo coño, pero yo no veo esto que está . Matamos las motos y lo están atravesando.
+S6: Deben de haber varias que sí tienen el logo al revés, que son los que donamos. Pero tres cajas que abrimos estaban correctas. Chequealas de vuelta para ver si las.
+S5: Meten en el inventario. Aquí adentro es donde tenemos la. Toda la mercancía. Toda la mercancía individual, sin caja, en unidades para hacer el picking.
+S1: Aquí todo lo que sea, como le dije antes, todo lo que esté abierto ya tiene que pasar acá. Si agarraron y piquearon una caja que tiene 20 y sacaron una unidad, las 19 vienen para adentro, no se quedan afuera. Entonces ya cuando, bueno, todo el proceso de acomodo, recepción, acorde lo que te hablamos aquí entramos en el área donde Venta nos pone un pedido. Venta nos pone un pedido en Odo. Cuando Andrés. Pero eso está vive en o. Cuando Andrés aprueba, Andrés manda automáticamente, manda una interfase a EBS y nosotros recibimos el pedido. Mientras tanto, nosotros no esperamos que tenemos esa antes. Hasta hace un mes, o tal vez menos, Andrés aprobaba y yo recibí el pedido. Pero yo tenía que hacer un proceso de liberación del pedido, porque había como un proceso de que bueno, yo libero este pedido, entonces trabaja en este primero y después el otro. Yo quité esa vaina. Pedido de Andrés es un pedido que va a llegar a Isaac, que es el jefe de Big B. De una yo no tengo que pasar, si estoy en una reunión, no se atrasan. Todo llega directo un momento que le da clic aprobado. Para mí es una orden. Ellos tienen que preparar de una vez el que sea. Entonces llega directo, Isaac ya puede ver, me entró este pedido, no tengo que yo liberarlo, ni tengo que decirle haga este primero, porque eso no es eficiente. Entonces Isaac, Andrés aprueba, llega el pedido, Isaac y cuando llega. Buenos días, señor. Buenos días. Ellos son las personas que están con los cuerpos de consultoría de Venezuela, Son las personas con que van a hablar ahora más tarde. Bueno, estamos dando un recorrido primero y después van a hablar con ustedes. Entonces Isaac recibe . Isaac háganme un favor y coloque progreso. Estos son todos los pedidos que nosotros ahorita tenemos en bodega y este es el avance que tiene cada pedido. Entonces tú más o menos eso dele para que veas las líneas aquí te va a dar líneas, ubicaciones y tú más o menos sabes la complejidad de cada pedido. Isaac va a asignar al ticket porque todavía no tenemos la parte sorte, que es lo queremos hacer más adelante, que es barrido completo por ítem y no por pedido. Entonces esta parte que tiene Isaac, él va a controlar, obviamente a veces salen unas excepciones, necesitamos un cliente que una orden. Son excepciones que se han disminuido muchísimo, pero normalmente trabajamos acorde a lo que va saliendo el pedido y la complejidad que tiene. Va a haber pedidos que pueden salir antes, que son más nuevos, pero es porque de pronto para cerrar el avance de ese pedido que está abierto necesita máquina de altura y esas máquinas de altura están trabajando en otro pedido, por decir algo. Puede ser uno de los mil casos que puede pasar. Pero él va viendo la base acá y él tiene la asignación de cada picker. El picker llega, tiene su PDT, el la coloque, la agarra y él va a hacer lo que el sistema le está diciendo. Hoy en día ya nosotros estamos teniendo, tenemos el ticket dirigido y estamos mejorando un proceso para hacer el zig zag y ese que antes no lo tenía, pero hay que reconfigurarlo todo que ya lo tenemos para casi cuando él asigna, él va a decir tengo operación de picking en rack y tengo operación de picking en mezzanine.
+S3: Adelante,.
+S1: Permiso. Buenas ciudades.
+S3: Hola, qué tal, ¿Cómo está?
+S1: Uno de los Monster pickers. Entonces aquí cada uno de ellos está de acuerdo a la zona que se le asignó para piquear y obviamente como ven, él tiene la mayor cantidad de productos completos.
+S7: Que abriste la caja completa aquí cuando.
+S1: Ya no sólo que abrimos la caja completa, si yo recibo una caja que viene surtida, yo la voy a colocar aquí. Por eso mi proceso de alocación es más lento para Casio que para Cubi, porque yo tengo que alocar.
+S7: Muchas cosas aquí hay más de Casio que realmente.
+S1: Sí, claro, aquí hay mucho más caso que Cubi porque Casio viene segregado, entonces. Pero esto va acorde. Si están viendo los operadores están 1 2 3 4 o 5 y están aquí abajo. Están abajo y está en la parte cerca porque ya acomodamos acá acorde a movimiento y no llega la última parte de allá o arriba. Nosotros teníamos movimiento. 55% De picking estaba en la parte de arriba del mezanín y solamente 45 abajo. Entonces tiene que ser todo lo contrario. Ni siquiera 55. 45 Tiene que ser 70 o todo lo quepa.
+S3: ¿Todo lo que?
+S1: Entonces si vamos arriba los. Lo que hablamos del orden, lo que es la disciplina, ya ellos saben que esto tiene que estar así. Las cajas no tienen que estar sueltas, no tienen que estar abiertas, no tienen que estar tiradas. Va a pasar, pero ahorita. Y sobre todo que estos espacios están llenos. Antes tú veías aquí el medio estaba vacío. Yo quiero llenar más esto para que mi capacidad dentro de aquí sea más grande y nosotros tengamos menos cosas que ir a buscar afuera. OK, entonces eso es más o menos lo que estamos haciendo, porque tenemos más productos adentro. Y el llenado del mezzanine es diferente, es de mayor cantidad, porque la orden de reposición que teníamos la hacían una vez a la semana, la disparaba los viernes y la hacían los lunes en la mañana.
+S5: Eso te lo pide el EBS. El EBS te dice mira, tienes que rellenar. Tú vas y rellena y traes la.
+S1: Pero teníamos una programación en el cual un ítem A, un C o un B tenía la misma cantidad para llenar en el mezzanine. Entonces resulta que si yo tengo un ítem que tiene mil piezas, por decir algo al día, y yo pongo 200, yo a las dos horas de arrancar la operación ya no tengo y no la voy a tener hasta el otro lunes rellena. Entonces lo que nosotros hacemos es que acorde a la cantidad de movimiento es acorde a cantidad que llenamos de ese aire.
+S4: Esa es tu categorización.
+S5: ABC que está haciendo ABC Tiene tres piezas, tiene mil.
+S1: ¿Y qué carajo yo metiendo tres mil piezas que voy a mover dos al mes?
+S3: ¿Y cuánto optimizaste el despacho?
+S5: Recurrencia de llenado aquí adentro se perdió mucho tiempo.
+S6: Antes estábamos nada más llenando una vez a la semana, no hacía sentido. ¿Y tope como ABC miércoles ya estaba sin mercancía aquí, tenía que esperar qué pasaba? Te mandaba a buscar mercancía afuera. Arriba una piedra, esas dos piezas era ineficiente.
+S3: Claro, total.
+S6: Un montacarga para sacar dos piezas. Creo que esas sean como tareas recurrentes, al igual que sacar un pedido.
+S1: Es rellenar acá, pero vivo.
+S5: Pero eso te das cuenta.
+S1: Y no es cuando se acabe, que era lo que pasaba ahorita no, ahorita es que Yo necesito tener 7 días de inventario aquí a cobrar de la cantidad demandas. No necesito una cantidad, necesito unos días de movimiento. Entonces Como nosotros operamos 5 días, normalmente cuando ya dispara que tengo menos de 5 días, ya va la orden de reproducción de 2 días que yo estoy operando mientras otro está piqueando, pero no tengo que piquear afuera.
+S5: Entonces te das cuenta en la operación porque originalmente cuando te presentan el EBS y te enseñan y te dan la instrucción, te dicen una vez a la semana el Nos dimos cuenta aquí que no tiene sentido. Entonces se cambió. Te das cuenta operando y mejorando.
+S1: Y el picking también es otra cosa. Nosotros tenemos el picking, empezamos y él le dice ve al pasillo, aquí están las posiciones, que es lo que le estaba diciendo antes. ¿Aquí KM, que es el mezzanín, allá era acá solo, Entonces ya los operadores seguían por nivel, por cosas, Entonces el picking tú lo hacías que empezaba, si tú ves aquí hay un A, un B, un C y un D entonces el carrito iba así y agarraba del K, el A, el B, el C, el D, entonces aquí está el A y él piquea el A, chévere, pero le va a mandar para el D, verdad? Pero el D está allá, entonces tenía que regresar aquí. Y así cada posición. Lo que hicimos ahorita es que él piquea aquí, aquí, aquí, aquí él está en Zig zag, entonces él va pasando el limpie, llega al final y ya cuando llegaba al final nosotros teníamos qué. Pasa que la orden siguiente después que él termine en este pasillo, era el número uno.
+S4: Claro, tú aquí no estás piqueando por orden, sino por numeraciones de los productos.
+S1: Como está dónde está aquí No. Ubicación a mí no existe producto a mí existe el código Barça.
+S6: Le dijeron que vaya a esta ubicación y saque 3. Lo que él arregló fue la ruta de piqueo, porque tú bailabas vals, tú.
+S1: Estabas así en una vaina sin importar.
+S5: El orden del pedido. El pedido viene en un orden para.
+S1: Mí llega el pedido y esa vaina explota y se convierte en línea. Ya yo pongo otra vez el pedido cuando voy a facturar, tú haces.
+S4: Una explosión de código para el piqueo.
+S3: Totalmente iba en zig zag.
+S1: Cuando vas en zig zag. Pero cuando llegas allá, a él, el picker le ordenaba volver al 1, pero del pasillo al lado. Pero él tenía que venir todo esto para allá y volver aquí. Ahorita no. Ahorita él termina allá y empieza con que tenga de allá. Entonces él va a ir en eso. No tiene que regresar y perder el tiempo que está perdiendo. El tiempo doble. El tiempo prácticamente en que tengas que venir hacia.
+S3: Si haces el diagrama recorrido es.
+S5: Te das cuenta en la operación de eso y se ve eso no era así.
+S1: Exacto. Entonces si ves arriba, por ejemplo, esa zona que está , es una zona que como está la escalera, es una zona de acceso jodido. Entonces que hicimos esta zona que está más jodida, lo que hicimos fue ubicar los dañados. Entonces cualquier cosa que esté dañada en la bodega está . Y no va a tener más espacio que solamente esa posición. Porque eso deberías limpiarlo cada mes que cierra. Lo que pasa que todavía estamos haciendo ese proceso de baja de inventario. Todas esas cosas las tenemos, pero está ubicado . Entonces, como no va a venir a piquear nadie, Está en una parte donde está difícil acceso.
+S5: ¿El aire está funcionando aquí?
+S1: Sí, por el calor que esto ya ha hecho más.
+S5: Nosotros hablamos ese tema, el tema de la circulación aquí del aire, si era suficiente o no era suficiente. Yo lo digo que no haya humedad. Yo lo digo por los productos, no.
+S1: Por uno ahorita temperatura que daña el producto, no creo. Lo que pasa que también a veces hay ocho días.
+S3: Pero si se siente humedad. La verdad que sí se siente humedad.
+S1: Hicimos como unas pruebas para ver si ponemos en cada extremo de la. Hay que ponerlos así. Lo ideal es que tú pongas por área. Lo que hacemos es que podemos poner en la entrada, en el medio y al final. Entonces pone solamente tal vez así en dos partes de la bolsa.
+S5: Porque hay que ir midiendo eso. No, creemos que no. Y la vaina hay humedad y.
+S6: Subimos.
+S1: Menos recurrentes. Ya empiezan a haber menos recurrencia salida. Aunque lo que esté para acá tiene un poquito más de recurrencia. Pero a medida que va yéndote para allá, vas a ver que vas a ver rack de pronto más vacío. A medida que va pasando, vas a ver rack más vacío. Vacío, vacío, vacío, vacío. Porque esta es la más lejana. Entonces vas a ir viendo que a medida que vas caminando allá para acá, vas a ver más ubicaciones vacías, porque son ubicaciones que no tengo unidad o no necesito llenar, me los traigo para acá, porque esta es la parte más lejana. ¿Porque el picking como lo hacen? Le hacen el carrito, lo ponen , lo colocan y lo meten en la gaveta y lo lanza por la rampa.
+S5: O cerrado, semiabierto. Se agarra una.
+S1: Ahorita nosotros estamos tratando de llenar para que tú tengas menos. Esta no, porque son cajas más grandes, pero si ves en estos, si tú pones en el medio, todo eso espacio muerto que tienes capacidad almacenaje, pero no lo estás llenando. Entonces hay unas bandejas. Obviamente ahorita no tenemos el problema porque no tenemos tal vez esa necesidad de tenerlos completamente lleno, pero cuando la operación vaya creciendo, hay que poner bandejas o cajas en el cual tú llenes esto, esté en una caja, pero la caja llega hasta aquí. Entonces esta posición es de aquí hasta aquí. Está llena completa.
+S4: Te limitas entre partes.
+S1: Pero ahorita la verdad yo fue una de las primeras cosas que vi, pero realmente no amerita ahorita.
+S2: Exacto.
+S1: Todo eso es vacío.
+S5: Nos hace falta, pero va a hacer falta.
+S4: Claro, claro.
+S1: Se puede también solucionar que lleno con caja llena, o sea con bulto cerrado lleno aquí y cuando esto se acabe, hago reposición, porque esta posición, las posiciones que están pegadas a la pared tienen la misma ancho que tiene. Debieron ser más angostas porque pierde más tiempo, pierde más.
+S3: Movilidad.
+S5: Esto es Cuicu, marca barata de Citizen. También vendemos y distribuimos. Es más o menos un 1%, 2% del negocio, pero bueno, seguimos porque tienen margencito y hay clientes metidos. Yo compro de a poquito. Cui cuy. Tenemos más o menos inventario para poder vender bien todo estoy bus. Que son los relojes baratos de Citizen. Nosotros hablamos de quién fuerte, pero yo lo tengo por chiquita, pero lo manejo yo.
+S4: ¿Y que lo llaman que como cucú?
+S5: No es cucú de la marca. Es Cucú. Por ejemplo, son relojes de seis, siete dólares, cinco dólares de costo. Siete dólares de costo.$1,120 $25 al público, al mayor brand de 14 12,.
+S4: Con.
+S1: Lo que el piqueo y agarra lo lanza Bueno ahorita las cajas deben estar abajo porque ya se vieron lanzarla todas. Según las cajas ahorita las ves, él las mete en la caja y lanza por y el carrito tiene que estar aquí. El acceso al misanín hay tres puertas enfrente, dos puertas detrás y en el medio también se comparte cuando hace el llenado con el montacarre, esa está habilitada pero las salidas y entradas de la puerta de atrás de esta está bloqueada. La bloqueamos Hace ya como dos semanas.
+S5: ¿Esto se está usando?
+S1: Sí, sí, cuando la hacen la tiran por la bandeja, las cajitas negras porque por seguridad tú no puedes dejar acceso a zona ciega de ningún otro. Solamente queda la puerta de carga arriba para alimentar cómo carga el piso arriba. ¿El resto todo está cerrado y esta también lo que vamos a hacer?
+S3: ¿La verdad que está muy bien una.
+S6: Operación a recha te digo.
+S7: No?
+S3: El cambio en eficiencia en todo el diagrama de recorrido y toda esa vaina se nota que está pensado, está bajo.
+S1: Parámetros de calidad los procesos que vas.
+S5: A ver,.
+S1: Esas son las cajas las que van arriba que las tiran por allá y después las ponen y las vuelven. Eso no está muy bien,.
+S3: Ahorita hablamos de eso,.
+S1: Eso no vale ni arder porque nosotros estamos trabajando en un plan de incentivo acorde productividad. ¿Entonces para que ellos sepan que cuando se vean su nombre dice coño me están viendo entonces cuando yo no estaba ni siquiera aquí ahorita va a aparecer? ¿Entonces claro dice coño pero por qué yo? Si yo lo que pasa que yo estaba descargando contenedor. Tranquilo marico eso no sirve nada, eso simplemente marcó lo que estaba . Si quieres seguir. Está malo desde siempre, lo que pasa que porque eso no te registra eso. Lo que estamos es cambiando el dato para que aparezca lo que nosotros le mostramos eso aparece nombre, entonces cuando se le puso fue remoto y después.
+S3: Empezaron a llamar, me están midiendo aquí la productividad.
+S6: Pero lo que no soldó, lo que él quiere es que nosotros podamos hacer esto nosotros y no depender de un dashboard que me dan ellos. Para eso está buscando la conexión del API y aparte poder darle visibilidad en vivo a nuestros vendedores de qué está pasando hoy en día medio que lo solucionamos con una barra de progreso de picking y packing en la aprobación de pedidos de los vendedores pero si pudieran tener un dashboard en vivo conectado a mi dasor de ya resolvemos todo. Eso, despacho que no sirve, dale, ve, llámalo y dile que te lo arreglen.
+S1: tiene un año el pedo qué necesito yo, por ejemplo, despacho, yo tengo mis niñas llenas y ya yo tengo órdenes producidas que viste, antes teníamos antigüedad hasta de 200 días, teníamos de órdenes de que no despachábamos. Ahorita la más vieja es del 11 y hay un par creo que en julio, pero es un caso especial.
+S5: Pero eso se tarda, no por nosotros, se tarda por el tema logístico despacho, porque dice, no, espérate, vamos a sacar un contenedor, entonces yo lo quiero para octubre, contenedor, aguántame la mercancía.
+S1: Pero tú aprietas y tú le dices con el gaso, le digo, mi stage está al 110% hermano, o tengo el stage con 80% y tengo 2000 líneas por hacer, yo necesito espacio para poner mis líneas. Vendedor, presione a su cliente para que saque esa vaina. Pero entonces, y ellos saben, coño, me voy a quedar sin espacio, aunque saquen, todavía me hace falta. Yo voy ubicando detrás y hago esas suposiciones aparte para que no tranque el proceso con el juego. Entonces después que ellos piquean, la orden llega. Aquí estábamos en el piqui, ahora vamos al parque. Las órdenes llegan a cada estación. Como ven, todas las mesas tienen un código, porque el piqueador, cuando él entrega el pic, él tiene que marcar en la mesa 3, en la poción tal. Y el packer pasa la misma función,.
+S6: Más todo es trazabilidad, nunca mercancía, nunca. Él no puede estar urca. es cuando perdemos el control de todo. Antes nos pasaba mucho eso. Está buscando el producto y no tiene.
+S1: Entonces aquí el packer agarra y él recibe la orden. Ahorita él recibe la orden y él puede ver que va el package. El proceso que viene adelante es él no va a ver que va, él va a ver el ítem y él tiene que leer los ítems que tenga de ese producto. Si él mete la cantidad y dice 10, el sistema no lo va a seguir avanzando porque el pedido era de 11, fuera de 9. Pero ese freno de auditoría tiene que ser este el primer paso entonces. Porque el primer paso sería si tuviéramos orter y todos ellos llegaran a y depositaran en bandeja para que el paque se lo traiga. ¿Entonces puede haber un inspector que haga aleatorio, auditoría aleatoria, tome y diga cuánto hay aquí? Ta, ta, Esto está malo. Y ya no llega al packer eso. Ya disminuiste algo. Pero eso es poco a poco, porque eso hay que meter mucha cultura. Entonces llega el pack y él empieza a leer. Él tiene la máquina allí y él agarra y empieza pa correcto, lo pone y está al lado Él como está allá, ellos agarran, le pegan la etiqueta, lo meten y lo van cargando hasta que agarren, cierran eso. Ellos generan completo lo que está, lo que El bulto, el ID del bulto y eso tiene el ID. Eso es otra cosa que estamos cambiando ahorita. Que la información que está en la etiqueta sea de funcionalidad, de visibilidad. Fácil para cualquier persona. Porque ahorita tú agarras esto, por ejemplo, aquí está, aquí está la orden, está el bulto, total de bulto, por decirte algo, está un código, tiene fecha, no sé qué tal. Tú no sabes que hay aquí adentro. Entonces si tú vas a hacer auditoría, que tú agarres y abre una caja. ¿Pero que hay adentro de la caja? No hay porque está la hoja.
+S6: No, pero no está físicamente no lo ves. Pero tú escaneas la etiqueta y te.
+S1: Lo da Sí, pero tú puedes hacer como la que recibimos en caso se acuerdan que tiene el código y tiene un paquete.
+S6: El bulto no puede salir con eso.
+S1: Podríamos verlo, pero lo que me interesa.
+S6: Más es cliente no quieren que tú identifiques que hay , por eso le piden que lo forres con el tape de seguridad.
+S5: Cualquiera en la que se mete .
+S6: Con el reloj, tiene una ventaja y desventaja. Son productos muy pequeños, de muy alto valor. Por lo tanto un bulto puede tener un valor de 3.000 y 4.000 dólares, cuando un bulto de ropa vale 25 dólares. Nosotros sufrimos mucho hasta hoy en día de robos pequeños. Sacando estos relojes te sacaron $500. Eso pasa. Los clientes hoy en día ya se eliminaron muchas maneras de empaque, pero nosotros llegamos hasta empacar con latas adentro. A la caja le tenían que montar.
+S5: Latas a los lados y arriba, porque.
+S6: Cuando le metan la cuchilla ya no pueden abrir más. A veces también con una bolsa de tela y afuera de la bolsa de tela Suncho. Esos temas de identificar que hayan dentro de la caja, para nosotros es un tema de seguridad complicado.
+S1: Aquí, por ejemplo, nosotros deberíamos tener el pedido, tenemos que tener la fecha de recepción de pedido y la fecha de culminación del pedido, por decir algo. Puede que tenga el nombre del cliente, depende de lo que digan, porque cuando vayan a despachar, el error del despacho también se minimiza, pero aquí no ves nada.
+S3: Ahora, una cosa, aquí toda esta reorganización de proceso, etcétera, no está todavía compaginado con el tema del personal, o sea, te falta un tema de utilización de la lógica de personal, porque hay unas posiciones, unos cargos que vienen de la bodega antigua.
+S1: Si, se puede decir, pero ya se lo presentamos a.
+S3: Correcto.
+S1: Yo tengo la estructura que deseo y nada.
+S3: ¿Puedes compartir esa estructura?
+S1: Tenemos ahorita, después que me la pruebe mi jefe, que la vamos a ver hoy más tarde, deploy, agarramos, le damos eso y ya te la puedo contar.
+S3: Parte del trabajo estructura actual de cargo Roller versus estructura propuesta. Exactamente. Ayudantes auxiliares. No, pero hay varias denominaciones de cargo, pero me interesa ver cuál es la estructura. Perfecto. Ese perfil. bueno, está hecho. OK, perfecto.
+S1: Ya lo hicimos todo eso lo presentamos.
+S3: Sí. OK, entonces ya lo que necesito eso para contrastar con el actor y hacer la propuesta de estructura de campo.
+S1: Pero la de la estructura sí lo estaba trabajando, pero lo estaba trabajando yo aparte y después Andrés se fue. Bien, y después lo tomamos otra vez, reestructuramos lo que hablamos con Andrés y está seteado. Eso fue lo que le pregunté, si.
+S3: Esa reestructuración de todo el proceso de bodega está en línea con la toma personal. Y dice, bueno, esa es la idea, ya está lista la propuesta.
+S1: No, no, el de nosotros no sabíamos que tenían ustedes. Excelente. Pero ya,.
+S6: Claro, esa limpieza ya lo.
+S3: Hablamos, habrán dos, tres cargos, unos perfiles definidos, después ve el perfil de cada uno.
+S1: Vamos a hablar eso de tu. Sí, no, totalmente.
+S3: Yo estaba esperando.
+S1: Entonces, bueno, terminas de empacar y vaina, haces tu cosa, cierras tu. Estas son cajas que vienen de allá. Aquí se consolida, aquí vean unas vainas, hacíamos unas vainas medio locas, que era que estos relojes, pero eran cerros, mesas enteras y el cliente quería que lo metiéramos en bolsa. Después te muestro unas bolsas plásticas.
+S7: Precisamente,.
+S1: Yo no voy a hacer eso, o sea, dile al cliente que se arrec, o sea. Claro, yo jugándome me formó un peo, pero se acabó el peo, no hay más, eso se mete así y ya. Imagínate meter todo este trabajón y en vez de meterlo en caja tienes que agarrar, abrir, meter esto y meter los libritos, porque esta vaina tiene unos libritos y tienes que meter esa mierda en bolsita, después poner yo marico, ¿Sabes que? Si no Tiene para pagada 100 dólares más de flete, que no venda. Esa es una vaina muy loca. Claro, porque la ineficiencia que te está.
+S3: Trayendo es muy grande, vale mucho más eso que ya.
+S1: No, porque aquí acuérdate que mucha carga es aérea y tú puedes tener la mezclada, lo que tienes la identificación de dónde está ubicada ahorita si ves allá la posición, estas posiciones van a ir en piso, porque esto no existía la bodega, si ven aquí, miren, las líneas estaban así, eran tres líneas creo, pero de aquí a , ¿Cuál es tu flujo? La clave logística es que tú siempre mantengas flujo sin interrupción. ¿Entonces tú recibiste, alojaste, tupiaste, bichaste, empacaste, despachaste, alocaste en el stage, y que viene? Despacharlo dónde lo a vas hacia acá, para allá, porque estoy mirando para acá.
+S3: Claro, bajan una L, una carga que.
+S1: Viene, Si tengo una carga que va a salir, tengo que venir para acá, meterla así, después tengo que venir para acá. Entonces primero por espacio, o sea, la proporción del outdoor con el inbound no iba, o sea, mi outgón debe ser más grande que mi inbound, y antes teníamos, era bueno, tienen las rayas, no me crea nada. Hasta aquí era el audio y ese pedacito aquí y mira toda el área del.
+S3: Si, era un cuello de botella, obvio, porque al final tenías que dar una vuelta en L cuando podías sacarlo del.
+S1: Recto, además que tampoco es el espacio, entonces tenía carga de lado, metida hasta la pared, hasta la puerta, otra por allá, en cambio ya la carga está aquí para. Claro, si necesito. Y el camión, tú abres y cargas.
+S3: Derechito, o sea, descargas allá, aquí.
+S1: ¿Cuál es el próximo paso? Que ya lo seteamos y ya lo puso EBS, que estamos clasificando las órdenes en aérea, terrestre y marítimo. Entonces yo tengo una línea, si yo voy a cargar Rower. Yo empiezo a piquear y yo sé que esto Rower empieza, él termina empacar, empieza desde allá y él va alimentando esto. Y entonces esta línea es mi contenedor. Mi contenedor por citar, o dos líneas, la otra que es aérea, que es de.
+S5: Y tal. Esta semana, el viernes. Entonces saque rápido cambio contenedor, coño, no hay para esta semana, hay dentro de dos semanas. Barco para Venezuela.
+S1: El tránsito, el tiempo que demoramos desde que está el pedido hasta que está despachado, el 70% se lo consume el retraso en despacho.
+S3: Verga.
+S1: Entonces es una cagada, porque yo voy a 160 en tener un pedido y baja 40. ¿Pero para qué tú quieres un pedido para hoy si lo vas a despachar en 5 días? ¿Para qué me está jodiendo y jodiendo si tú me vas a despachar esa vaina en ocho días?
+S5: Mucha gente consolida mercancía, se agarran como a Kennex Trading y hacen un pedido de 20 mil dólares y agarran a cinco compañías más y le hacen otro pedido de 20.000 dólares cada bodega. Entonces hacen traslado. ¿Entonces dice, mira, sabes que? Esta bodega mándala para no sé dónde, otra bodega que él que va a consolidar el contenedor. Son días que se tarda, porque uno depende también de otras empresas y otros pedidos no son nuestros.
+S7: Y la bodega que estás viendo tampoco quiere llenarse de tu inventario. Mándamelo un día antes que vaya.
+S5: El mismo día. El mismo día, porque el cargo a las tratas que está aquí a las 11.
+S1: Pero eso es lo que estamos, lo que nosotros hemos presionado a venta. Es decir, si él va a consolidar la carga y él está esperando la salida, él va a ganar por flete, que él agarre su carga y él vea cuánto para, porque yo no soy una bodega almacenada.
+S3: Claro. Tú despachas cuando te conviene a ti, no cuando le conviene a.
+S1: Yo pongo raga .
+S7: Debería cobrarte por almacenaje.
+S1: Claro. No, pero es que yo te la.
+S7: Recibí hace 15 días de nuevo, yo.
+S1: No quiero abrir esa veda.
+S7: Claro, pero eso no es tuyo.
+S1: Entonces decir, papá, sácame esta vaina y dile a tu forwarder que venga para acá y me saque la carga porque me está formando un peo en la bodega. Entonces luego que está aquí todo, se prepara el despacho y ahorita nosotros tenemos ya documentación fotográfica. Va el jefe, el supervisor despacho y empieza a leer. Le hacen igualito que. Igualito que hicieron el ASN para que entrara el contenedor. Hay una orden de salida que viene, porque esa orden, después que él cierra el picking allá, el packing, eso genera un packing list. Ese packing list viaja a Odoo y ellas son de tráfico, pero también facturación. Entonces ellas reciben ese packing list. Basado en ese packing list, ellas agarran y generan la factura draft y se la comparten al vendedor. Eso lo hemos ido bajando un montón para que el vendedor se asegure que el precio está correcto por el facturó a otra lista precio. Porque cualquier vaina que puede pasar. Y también que puede pasar, hay 100 unidades, bueno, por 100. Pero encontramos que solamente había 90 y él va a tirar en el packing list 90, pero en Odoo le va a aparecer 100. Entonces ellas tienen que decirle al vendedor, este pedido tiene 10 menos, la verdad es 90. Pero ellas no tocan precio. Entonces lo que ajustan es la cantidad. Y lo que le está facturando es lo que está saliendo de aquí de la bodega. Ahora, que falte o no, lo que hay que ajustar, ver por qué falta, eso es otra vaina. Pero puede pasar.
+S5: Si existe un cuello botella en el tema logístico con los clientes, hay que ver cómo se puede mejorar. Eso no está en nuestras manos. A veces lo que está en nuestra mano es el vendedor que manda a hacer el pedido y no está seguro si sale esta semana o salen tres semanas. Si hay un coyote de que hay que ver, analizar cómo resolver.
+S7: De repente tiene que ser un tema,.
+S5: Temas de tiempo de los hijos.
+S7: Cuando monto el pedido para que me chance de que eso va a salir el miércoles de la semana, que no.
+S5: Pierde tiempo en la teoría ellos saben. Pero yo creo que hay que fortalecer el proceso para mejorar el tema de tiempo. Y no tener mercancía en bodega.
+S6: También, que lo hemos hablado desde el principio. Cuando nosotros nos mudamos a esta bodega, nosotros veníamos con un sueño. El sueño era que nosotros íbamos a empacar pedido y de empacar y despachar pedidos aéreos en 48 horas, pedidos marítimos en 4 o 5 días. Y nosotros vendimos ese sueño y ese sueño nunca se cumplió.
+S5: En realidad yo me quedé con ese.
+S7: Sueño, no por lo que tú querías,.
+S6: Era por nuestra operación, era culpa nuestra, no logró. Cuando entra Fernando y le digo Brujer, una de las vainas que nosotros prometimos a los clientes y coño no les cumplimos, entonces los clientes también ya de una vez se la juegan y te dicen mándalo a preparar que eso va a salir. Ellos saben que esa vaina se están cubriendo tres, cuatro, cinco días porque tú no preparas en dos días. Nosotros creamos esa cultura en el cliente, yo te voy a mandar prepararlo antes diciéndote que va a salir aunque yo sé que va a demorar cinco días. Ahora, ahora no estamos al, pero estamos al 90 o al 85 cumpliendo con los tiempos. Yo creo que mientras más nos acerquemos a esos tiempos más podemos presionar a los clientes de mira que los pedidos están saliendo así, no, él lo va a lograr, ya no le falta nada para lograrlo. Cuando estemos nosotros podemos voltearnos al cliente, empezar a presionar de nuevo, pero yo no quiero llegar allá hasta que yo no esté 100% él me diga mira brother, no hay maneras, un pedido no demore más de esto, no depende de él. La mayoría de los casos o muchos no dependen de él. Hemos tenido problemas de la interfaz esta semana. La semana pasada me llamó un cliente que mandó un pedido hace 2 semanas, como no está listo para acá, para allá, el vendedor me llama, meto en el sistema, Fer, ¿Qué pasó? Ese pedido no me llegó. Entonces bueno empieza. No es un problema de la conexión, fue temas también que hicimos nosotros por ejemplo en Odoo, una de las cosas que pasó es que nosotros creamos una función nueva de merge, dos pedidos, un cliente que reservó mercancía y estaba esperando un tránsito, entonces coño, mándame a trabajar un pedido, no me mandes dos, Creamos una función de merge antes de mandar a trabajar eso pedido. Esos pedos estaban creando un conflicto con la interfaz, por ejemplo la de esta semana no sé cuál fue, eso era.
+S1: Enrique está trabajando, es una vaina técnica que no.
+S6: Bueno, entonces hubo otro pedo igualito, coño nos pedió que al señor no le aparece que mis clientes me están diciendo tengo 12 matos. Hasta que nosotros no bajemos esa brecha yo no puedo todavía exigirle tanto a los clientes de quiero un día tu pedido en mi bodega, porque ellos vienen para atrás y coño, yo cuadro un booking y tú no lo tienes listo.
+S1: El mejor indicador con lo que está diciendo Andrés en los cuatro días es que hoy en día si hay un pedo con un pedido, a veces no tiene ni siquiera los cuatro días, pero él por ejemplo lo está presionando porque tengo que pegarlo, No es que tengo un pedido aquí del 11 que hay de los casos que estoy diciendo, el 11 de agosto tengo un pedido, pongo un pedido el 31 que es el cierre a la una de la tarde. Entonces la excusa de él para no sacarlo es que iba junto con este otro.
+S6: Ahora, hay otro tema también, hay otro tema también que me encantaría meterlo de alguna manera porque para mí la información es oro. Dependo de los vendedores qué tipo de información y cuando se la dan a los clientes. Puede ser que a un vendedor le llegó una lista de empaque hoy en la mañana y el huevón no la vio y la mandó mañana. Yo perdí un día. Tiene un día listo el señor, tiene un día esperando para despachar y no.
+S7: Hay forma de automatizar eso. Una vez que él está listo, picho a Kipak y al cliente lo que.
+S1: Debería pasar es dejar una huella en el sistema en el cual ellas manden y él tenga que darle un clic. Cuando le da el clic aparece.
+S6: Qué fecha, no, yo pienso más automatizado. Al cliente le llega su lista de empaque al cliente o le llega un estatus capaz y no la lista empaque porque puede ser que la lista de empaque tuvo un error, lo que tú quieras, un estatus señor, tu pedido está en preparación, tu pedido está listo para despacho. De tal manera que el cliente tiene demasiada información, bajan las ansias de todo. Mis vendedores también viajan mucho, entre que viajan y va la lista de empaque que llegó ayer, la mandé mañana,.
+S3: Dice.
+S4: Que está listo, él reportó en EBS, eso se actualizó.
+S6: Cuando él cierra el pedido, de una vez se le manda a los vendedores una lista de empaque.
+S1: Nosotros lo tenemos automático, o sea él el paquete con la lista de empaque en el correo y no la lista de empaque y la factura draft que ellas montan.
+S4: Y ese vendedor entonces ya él se.
+S1: Encarga de hablar con el cliente, mira,.
+S6: Está listo el pedido, pero el proceso tiene que ser mucho más automatizado. ¿Por qué? Porque el sueño es que cuando tú me mandas a preparar un pedido, ya tú me dijiste quién se va a llevar tu carga, cómo y cuándo. Yo no tengo que esperar autorización por nadie porque ya tú me lo mandaste y ya me dijiste a quién se lo voy a mandar.
+S4: Pero eso es un simple correo, porque en vez del vendedor no se lo mandamos al cliente directo.
+S1: Es que tenemos un pedo que nosotros por ejemplo, nosotros no tenemos Las Vegas, siempre trabajaba yo. Yo tengo un acuerdo con el carrier que me la va a sacar aéreo, si tengo aéreo, si tengo terrestre, lo que sea, ya yo lo tengo con anticipación. Yo no tengo que esperar aprobación de un cliente, sino que ya sabe cuánto va a tener. Entonces yo a veces tengo aquí carga y ya una cosa que quitamos hace ya como mes y algo fue que antes tenía el vendedor decía necesito tres cotizaciones, no sé qué. Yo papá, yo no soy una agencia de carga. Si la carga y lo que le va a decir es el cliente, que el cliente vea con quién carajo lo tiene y me mande el camión aquí yo se la despacio.
+S5: Hay que hacer como Casio hace. Yo compro en Casio, Ventas sale de la jugada. En el momento que me mandan la proforma y se encarga Logística, me llegan los emails de logística de Casio Directo, no pasan por ventas. A mí Logística me dice aquí está, tú me dijiste que mande con este forwarder, yo le mando la instrucción, habla con este forward, Logística me manda. Entonces no eliminas el tema de que bodega le mande al vendedor, el vendedor le mande al cliente Logística, una estructura.
+S6: De tráfico a red.
+S5: Cómo hace Casio. Yo hago el pedido, me manda la proforma, digo voy a pagar tal día, sale comercial y entra Logística. Logística me dice mira, aquí hay salida para tal día, me apruebas, ya hablé con tu forwarder, aprobado un email, listo, ya me manda el packing list, la factura y todo. Logística ya se acabó venta. De hecho le pregunto algo a ventas de Logística, me dice no, habla con Logística.
+S1: De hecho para nosotros la idea, eso.
+S6: Sería una belleza, tiene que tener una estructura recha de tráfico.
+S1: Para nosotros la idea es, por eso nos reunimos con DHL Express con DHL, Una negociación en el cual mi pie depende del área, depende del país destino, tienes una ruta en el cual dice yo con esto voy para Centroamérica. Y a ti te cuesta el pie cúbico o la libra, como sea, depende del modo que lo vas a enviar, te cuesta 10 dólares. Ya tú sabes que si el packing list te dice que tiene 100 metros cúbicos, te va a contar mil palos en el flete.
+S3: Ya.
+S5: Ahora, el que habla con el forwarder, estoy pensando en Casio, es el cliente, soy yo. Casio no me busca forwarder, ni me busca tarifa ni nada. Yo soy el que consigo a mi forwarder. Mira, forwarder, habla con Casio, dale el green light para este control que sale tal día, ya lo puedo contar con ellos.
+S6: Nosotros tenemos un mil, porque los clientes, muchos tienen su forwarder y su logística, como yo otro, yo les ofrezco el servicio, te puedo cotizar aquí, allá. El problema que estaba pasando es que pedían cotízame tres. Ahora ya se estandarizó, estos son los que yo trabajo y ya están pre negociados, ya saben mi volumen también le doy un beneficio. Ahora eso se convierte en un negocio también interesante. Pero antes de explicarte ese negocio, para cerrar el punto de antes, ¿Cuál es el peo con los emails que le lleguen directo? Que nuestra base de datos de los clientes no la tenemos al día, porque los vendedores tienen al WhatsApp, la tienen aquí, la tienen allá, no sé. Si se. Entonces pasa el mismo peo con Cobranza y con todo lo que tú quieras hacer comunicando al cliente.
+S5: Correcto, Pero te voy a hacer una vaina.
+S6: En Odoo nosotros tenemos campo de el cliente Fernando, este es el señor de venta, este es el señor de cobranza, este señor de logística. Pregúntame si están llenos los cables. No tan lleno. Entonces el peo se origina procesos. Tú vas a crear un cliente, señor, si no tienes todos los campos, no lo creas. La persona que está en cobranza o el que audita la información que tengo en Odoo, se tiene encargado de que la información esté. Pero es un tema proceso allá, el tema de los fletes, porque a mí no me molesta ofrecer el servicio de cotizar, porque se vuelve un negocio. No sé, ya tenemos un año, ocho meses que no trabajo con DHL por otras razones, pero con DHL Express, que es puerta a puerta, nosotros negociamos una tarifa a otro nivel. Y como te dije, antes de las desventajas y ventajas, que mi producto sea pequeño y de valor. Una de las ventajas es que en pocos bultos puedo tener mucho valor. Entonces la incidencia de flete es bien baja. Nosotros somos uno de los pocos proveedores en zona libre que pueden volar su carga con DHL. Negociamos en base a volúmenes, unos costos por kilo bien bajo. Y nosotros hicimos una tabla que la usa tráfico hasta hoy en día. Hay que ver si la estamos usando y como, donde.
+S1: Si el flete.
+S6: Debajo del 3% del valor del pedido, mi calculadora le dice súbelo 2.94. 2.91 Y esa diferencia me la gano yo. ¿Qué quiere decir?
+S5: Se la metemos al cliente en la factura.
+S6: Un pedido de 10 mil dólares que el flete sume 200 dólares, me lo van a subir a 294. Yo tengo esa utilidad de 94 dólares. Yo le decía a Fer en algún momento, con esa utilidad yo pago mi departamento de tráfico. Y es una ventaja para todos. El mundo se usa. Pero por ejemplo, yo no tengo ni.
+S4: Idea ese cálculo de dónde sucede,.
+S6: Bien básica.
+S4: Ellas deciden como que tengo esta brecha,.
+S6: Se la meto, ellas ponen el pedido, suma 40 mil dólares y la gente me cotizó mil dólares. Y la tabla te dice deja el flete así o cóbrale esto. El cóbrale esto. Tienes diferentes variedades que nosotros pusimos para.
+S5: Que nunca sea exactamente el mismo porcentaje.
+S6: No te puedo siempre subir al 2.90 porque el cliente tampoco es bruto. A veces al 287, a veces el.
+S4: 292 Y eso está en un Excel.
+S6: Que lo podemos hacer con Ian Dos huevonadas.
+S5: Por eso también. Sí conviene. Entonces nosotros cotizar y manejar el tema.
+S6: Del hablando que de un día para otro sacaste una unidad de negocio que te puede facturar 50.60 mil dólares al año que te paga todo ese departamento. Ahora tenemos que hacerlo mejor. Lo podemos mejorar.
+S5: Seguro, 100% podemos mejorar.
+S6: Bueno, casi todo tiene su razón de ser. Casi todo.
+S4: Todos nacen en un sitio.
+S7: Por ejemplo, los chinos sí trabajan mucho con UPS. Yo ahorita, de hecho ayer me llegó algo a Caracas, unos motores de persianos. COP Se pagó ayer 30 dólares en impuestos locales, pero me cobraron 200 dólares de China vía aérea hasta Caracas.
+S4: Seguimos. Estaba bueno el café.
+S5: Café limonada. Frapeo con hielo.
+S3: A mí se me ha olvidado la vaina.
+S1: La primera ya va.
+S4: Terminamos.
+S3: Estaba concentrado. ¿Lo sacaste de la vaina?
+S1: Esta parte también. Nosotros hicimos. Aquí no tocan nada, por eso le puse esta vaina aquí. Sí. ¿Esto se abre cuando se va a despachar? Justo, solo cuando está despachado. ¿Y esa área es cross do? Eso es. Llegó de un contenedor, pero se va a ir directamente. Ya está delimitado. No tengo que meter la operación, no tengo que hacer picky, no tengo que hacer nada. está y trae Marcan Suárez. está en su vaina de instrumentos.
+S3: Tiene su.
+S1: Man, Le pasan la lista despacho y él tiene que empezar a pistolear le debe decir, este pedido está ubicado en tal. ¿Ahorita solamente tiene el número de líneas como está, ya ven? 1 2 3 4 5. Pero él va a poder saber 1 a o 1, 2 1, 3. Entonces el pedido está en el 1.4. OK, yo me vengo para acá, 1.4, aquí está, agarro mi vaina, la saco, Aquí está Leo va, escane una que no es papá. Esto no va papá. OK, Pino agarra y el señor tiene que tomarle foto, que eso también lo hacemos ahora. Todos los pedidos que salen tienen foto. Toma foto, registra vaina tal, carga, cuando carga allá firma su hoja despacho, cierran el camino. Cuatro meses.
+S3: ¿Cuánto tiempo ha tardado exacto justo cambiar la bodega antigua a esta bodega?
+S1: La antigua no, yo no estaba con la vieja, o sea.
+S3: Pero cuando tú llegaste, el funcionario ya estaba.
+S1: Sí, pero no era así. No quiero echarme flores, pero, o sea.
+S3: ¿Pero qué porcentaje de avance tenía con.
+S1: Respecto a los Binance de los que estaban haciendo? No, el sistema está la que te voy a hacer fácil. Lo que pasa a mí no me gusta hablar nada de para atrás, porque yo siempre veo de aquí para adelante.
+S3: No, no estoy de acuerdo.
+S1: El seteo, el sistema si le dije, resetean esa mierda, quítenle clic a todo,.
+S7: Logística.
+S1: Yo recibí un contenedor de cubic, necesitaba 50 pale posición, vamos a suponer que no tenía y tenía, esta vacío, pero no podía ubicar porque es que ese pasillo lo hicieron para. Casi están comiendo mierda o que se yo. No voy a poner cúbica y al final los 50 pale position. Si tengo aquí enfrente. No, pero que eso está bloqueado. Quita todas las reglas, quita toda la categorización que tenía la vaina reposición, la vaina de consolidación, no lo tenían, o compactación, que es que de pronto tengo el ítem 1 y tengo allá en el otro lado, papá, usted tiene una orden de trabajo como si fuera un picking. Usted va a traer el que está allá, que está allá y lo va a poner en un solo lugar. Entonces esta vaina, todo eso, el solito tiene producto de hiking. Todo eso hasta allá era destinado para. Porque de bola no se daban abasto. No, eso es un común, como un buffer despacho. Yo no quiero eso. Como yo le decía a ellos, eso es como cuando está peladito y tu mamá llega al cuarto y se arregla en el cuarto y tú agarras toda mierda y lo metes a la cama. Sigue teniendo basura.
+S6: Eso es basura.
+S1: Entonces llega la pasa las cobas, como hacía mi mamá. Un palo la verga. No ordenaste nada. Es lo mismo. ¿Por qué tengo que tener? ¿Por qué voy a crearme la medicina si no necesito tener la enfermedad?
+S6: Mira, nosotros nos vamos. Te felicito.
+S1: Gracias.
+S6: Muy bueno todo.
+S1: Estamos pendientes de otras cosas.
+S6: Nos vemos más tarde nosotros en la oficina.
+S4: Ya.
+S3: Refresca todo. Está.
+S1: Limonada se lo hice yo mismo.
+S3: ¿Y tu limonada te la dieron?
+S5: No, no.
+S1: Entonces no jodía la vaina y por.
+S4: Eso es que no vengo.
+S1: Eso para que no vengan más.
+S7: En la bodega.
+S1: Estos carajos bajan al café. El café que hicimos ahorita, a prueba del tan ese. Le iba a ofrecer unas galletas, pero la vaina está aquí desde la mudanza de la otra bodega.
+S3: ¿Está en la vaina vieja allá?
+S1: No, en los viejos. es una cosa.
+S5: Cada vez que viene, maneja esa vaina.
+S1: Otra vaina, otra vaina.
+S6: Coño, ahora es un influencer, ¿Oíste?
+S1: Otra vaina importante. A la par que hemos cambiado lo que es operaciones. Operaciones, operaciones, logística y todas esas cosas. A la misma par hemos cambiado. Por ejemplo, teníamos un solo camión operativo, hoy en día tenemos dos. Hay otras cosas que hemos impactado.
+S5: Viene un montacarga nuevo. Sí, ya me dijo Rick Max me.
+S1: Presionó, yo le había pasado.
+S6: Bueno, está bien.
+S1: Eso es a combustión, ¿No?
+S5: Sí.
+S1: No el calor o fue Bernardo que.
+S3: Quiere manejar otro nuevo.
+S5: Cuando le digo ¿Cómo eso?
+S7: ¿Cuánto eso?
+S1: Yo quiero salir de las bombonas del carajo. Esa que no son seguros, Sí no, no vamos, estamos cotizando la bodega desde ayer está corriendo el consumo Lu, ya pusimos.
+S5: Tiempo una semana, o sea.
+S1: Acaba de arrancar desde que dijo sí hasta que está listo pasó un mes y ahorita está ejecutado solamente oficiales para que conectemos al por.
+S5: Cabe destacar que Panamá es muy caro, ustedes saben muy caro, pero muy caro.
+S7: Sabes que Dominicana que gana de verdad, Dominicana le gana pero,.
+S1: Pero que la recha que nosotros le vendemos de electricidad a costa.
+S7: Mira yo pagaba en el apartamento aquí 250, 200 y pico de luz en Dominicana el mes mínimo son 500 verga.
+S3: ¿Cuántos metros tiene el departamento? Mil.
+S1: Vamos a unir la foto para.
+S2: Mike, aquí depende por zona, alteraron botones y todo.
+S1: Aquí llega Mike, que Jordan tome la foto. Para que Maya actualice la foto que tiene en su oficina y para los.
+S3: Comercios voy a parar este K.

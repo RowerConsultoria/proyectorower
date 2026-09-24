@@ -1,0 +1,390 @@
+S1: Entonces no sé si quieres ver primero que hice y después algo levantado.
+S2: Y una pregunta, el señor Vladimir y según Márquez ellos estaban convocados también. Bueno, pero pensamos contigo. Tenés que ver lo de los sistemas, integraciones, los temas logísticos.
+S3: Sí, sí. No entendí full esa parte,.
+S2: Después la cargo del paraplan. Entonces tienes ya algo preparado.
+S1: Este que tú ves aquí, Qué involucro aquí o qué es lo que vemos para que conozca, no sé, sueño. Has visto varias áreas del proceso. Aquí simplemente actuamos como un centro de distribución. La mercancía la compran allá en China, llega a Panamá. De Panamá la gente de aquí de compras es la misma gerencia de operaciones, estamos dividiendo, hay un coordinador de compras y mi persona que es la gerente de aquí de logística. La persona de compras está junto con Vladimir, que es una muchacha. Jimena.
+S3: No,.
+S1: Ella está junto con Alejandro viendo todas las cosas que van a comprar y que van a traer. Llega aquí, una vez llega, ya me involucro yo y empiezo a hacer la logística de recibir lo que son. Son todos los contenedores. Se recibe el contenedor. Una vez se recibe el contenedor de una vez selecciona la mercancía cómo la vamos a empezar a colocar en cada uno de los aqueles de los pasillos. Las cosas que estamos ahorita levantando. Una vez tenemos esto, ya quedan disponibles en el sistema. Se pasa al disponible de que ya tenemos disponible.
+S2: Claro,.
+S1: Hay dos procesos. entran dos procesos. Los pedidos que entran al mayor que todo lo que se distribuyen al mayor para nuestros clientes. Y los que van a tiendas. A todas las tiendas. Las tiendas, la misma gente de compras monitorea qué es lo que le hace falta a las tiendas y nos envían los pedidos. Toma que tiene la gente de venta, hace todas sus ventas y dice toma si tiene de una vez entra en el proceso aquí que lo estoy colocando, que es el de picking. Empezamos el proceso de picking, después va un proceso de verificación que es el packing y después pasa ya después que ya esté listo en el packing por el WMS, pasa a una zona de embalaje que ya es donde se hace el proceso de distribución. Y tenemos tres vertientes. Puede ser que le despachemos con nuestros camiones al cliente puerta a puerta, o lo mandamos con un courier o el cliente retira todo esto, lo vas a ver aquí en este proceso. Perfecto, entonces justamente te lo iba a ir mostrando, va justamente en ese mismo orden. Tenemos el proceso de P, cuál es el propósito, el alcance, la responsabilidad y cuál es el procedimiento paso a paso. Esto yo lo vi con la gente ya de proyecto que lo levantó. Después pasamos al proceso de packing y el control de calidad. Hay cosas que en packing se pueden devolver porque bueno, mira, este código no estaba pegado, no era el color o si estaba todo OK, buenísimo. También pasa con todo esto. Después tenemos el proceso de embalaje, ya después que sale todo lo que se hizo allá adentro, sale a una zona de embalaje, que esta zona que está aquí, que ya llegan todas las cargas y ya todo viene con su etiqueta. Hay un líder despacho que va posicionando todo lo que son los temas despacho, quién viene, quién retira, cómo se manda todo y el supervisor de tráfico que se encarga de toda esta cosa que es segundo, pues empieza hacer las guías o asignar las rutas.
+S2: Esto por cierto, tú dices China, quiere decir que esto solamente no estamos tocando,.
+S1: Todo se centraliza en Panamá. Listo, perfecto. Bueno, si es entre el cliente, ¿Cómo sería el proceso? Y aquí establezco cómo es el proceso. Si entrega el cliente debería venir y se le despachan por esta puerta de aquí o se le lleva directamente a la zona de carga dependiendo la cantidad de bultos. Hemos cambiado algunas cosas junto con el gerente de ventas. ¿Por qué? Porque anteriormente pues el vendedor hacía todo, el vendedor se sacaba el despacho, el vendedor se pedía al cliente, el vendedor hacía eso, el vendedor iba a colgar al cliente, el vendedor le recibía el dinero al cliente y el mismo vendedor le iba a despachar el cliente.
+S3: Ese es un real todero.
+S1: Y es lo que estaba posicionando para que cada quien tenga una labor. Por lo menos aquí yo tengo 20 horas aquí trabajando aquí en el almacén tenía el jefe de servicio general, estaba hablando y bueno, todo el mundo como si nada, entonces estaba como posicionando cada cosa en su lugar, ¿No? Bueno, pero es que veamos así ya teniéndolo en claro con su responsabilidad, con su cosa, pues la gente se ha ido a centrar, poner un poco de.
+S2: Orden en el asunto.
+S1: Ahorita ya por lo menos aquí le he puesto Zapatero ya a partir del lunes ya posiciono al jefe de servicio general que por fin lo sacó almacén ya los tipos de su puesto de trabajo con tareas claras, le hice una matriz DOFA de qué es lo que tiene que hacer con un gama de todas las cosas de que tiene que verificar, cómo lo vamos a verificar, los tiempos de recorrido, o sea todo ese tipo de cosas tiene muchos años que no lo hace y entonces como que perro tranquilo y le damos una mentira para que pueda salir adelante. Claro, totalmente. Bueno, este cuando entrega el cliente, este cuando es con flota propia que nosotros mismos lo despachamos. ¿Cómo ese proceso? Este es cuando es un courier, es un MRW, o sea, ¿Cuáles son las especificaciones específicas de allí y de qué.
+S2: Está dependiendo un poco seleccionar un camino u otro? ¿Cuál es el criterio? Es un tema con el cliente, el.
+S1: Cliente te dice, mira yo tengo un casillero, todos los pedidos me lo van a mandar aquí, mira no, yo mismo estoy Cerca, yo mismo voy y retiro porque son pocas cantidades, no voy a pagar un flete o mira si yo voy a querer que ustedes mismos me despachen, Esas son especificaciones que directamente le hacen al vendedor y el vendedor de una vez no. Ya teniendo esto en cuenta, pues están los flujos de cada uno.
+S2: Perfecto.
+S1: ¿Cómo inicia y dónde termina? ¿Cuáles son los involucrados? ¿Donde estaría? Ventas, almacén, despacho, traslado y cliente. Y que sería la planeación, la revisión, el desarrollo, la conclusión y los responsables de cada uno. Este es el flujo desarrollo logístico completo. Inicia cuando el vendedor monta expedido, pasa a verificar. ¿Quién hace esa verificación? La hace la misma venta, que en este caso están involucrados los vendedores y el gerente de venta. Si no procede, se revisa y todo hasta que se vuelva a proceder. Si procede entonces baja almacén, hacen la rectificación y todo aquello, entonces bueno, viene aquí, se distribuye, si es normal o es urgente.
+S2: ¿De qué dependería cada por ejemplo, verifica que hay un nodo sí o no?
+S1: Exacto.
+S2: Por cuál le podría ser sí y por cuál no.
+S1: En este caso, bueno, eso ya como te dije parte de ventas, pero qué es lo que coordiné con ventas, de que a mí me tienen que llegar aquí pedido listos para armar y despachar si el cliente no pagó, si el cliente tengo una deuda, a mí no me tiene que interesar, pero tú primero tienes que hacer un filtro, ya el vendedor levantó el pedido. Ahora el gerente tiene que hacer un filtro. Una vez pasa, mira si Elvis pueden hacer el pedido y despacharle y las condiciones son estas y esta listo procedo. Si no contiene eso mismo, el mismo gerente de venta es el que le va a decir al vendedor, mira, no procede y lo mismo lo devuelve en su departamento. Eso queda allí. Lo que yo no quiero es que yo enterarme de eso. No tengo necesidad. Eso aguas adentro es ellos. Una vez me llega.
+S3: Perdona que yo imagináis.
+S1: ¿Te voy preguntando.
+S3: Cómo te enteras de lo que viene, dónde entra?
+S1: OK, yo aquí no sé si el cliente está en una negociación. Yo no sé si el cliente no sé de una vez. Yo me voy a enterar cuándo en el WMS a mí me aparezca un pedido y allí me va a decir la especificación si es normal o es urgente. OK, Si es normal, él llega pedido corriente del cliente tiene 48 horas para yo despachar. Si es urgente, tengo el tipo aquí abajo. Mire muchachos, esta es prioridad. Aquí el supervisor que tengo en el almacén tiene un administrador de WMS. De una vez le llegan todos los pedidos y él los va asignando a cada uno del equipo. Fulanito, cada uno tiene un tablet.
+S3: ¿Quién ese persona?
+S1: El Sr. Rogelio. Él es el supervisor de almacén.
+S3: ¿Él está viendo el WMS todo el día?
+S4: Exacto.
+S1: Yo tengo aquí dos supervisores. Tengo a Segundo que es el supervisor despacho y tengo un supervisor de almacén que es el Rogelio.
+S2: Rogelio está con WMS y II.
+S1: Ya WMS, pero tema despacho. Tema despacho porque hasta.
+S3: Los choferes.
+S1: Las entrega, la van certificando y todo por el Lark y le va llegando aquí por un correo de que mira si ya fue entregado y todo. Se está enterando el conductor, el supervisor, el líder. ¿Y el vendedor también se enteró de que le entregaron el cliente?
+S2: Claro, él es el señor Segundo.
+S1: Él es el despacho. Segundo.
+S5: Segundo.
+S1: Entonces bueno, ya una vez esto, yo tengo aquí dividido unos grupos. Tengo los inés por tareas, tengo unas personas que se encargan de hacer todos los pedidos normales, cantidad. Y tengo a dos personas. Uno se encarga de atender los despacho internos y el otro lo que son urgentes. ¿Cuáles serían los internos y cuáles son los urgentes? Ese cliente que necesita tres cosas que ya está allí, lo armó una vez, porque eso es otra cosa, si es urgente no le vas a pedir medio camión, o sea si es urgente porque es algo puntual, porque lo demás puede esperar, entonces eso hay una persona que lo puede hacer rapidito y no interfiere y la tengo aparte, entonces puedo atenderte como persona. Por cierto tengo el señor Abraham y el señor que cristiano, o sea que hay mucha urgencia.
+S5: ¿Tienes a dos?
+S1: Sí, sí, ¿Por qué? Porque hay dos cosas por lo menos Cristian yo lo tengo en el área de garantías, entonces aquí llegan garantías por montón, quinientos, cuatrocientos garantías, trescientos garantías. Garantía sí pueden llegar, dependiendo. Entonces aquí yo manejo los almacenes que van a mantener para las garantías, ejemplo mira no sé, se dañó este teléfono, OK, dame este teléfono, toma uno nuevo y ya, pero eso yo tengo que estar constantemente, ojo, yo tengo cortes diarios, porque si no tengo, entonces tenemos más cortes diarios, tenemos unas 2 de la tarde, uno a las 10 de la mañana y ellos están monitoreando, porque sí que ser inventario mensualmente somos en SC donde se bota todo eso se manda directamente allá a un botadero y si no están haciendo los dos, también me apoyan en aquella área, pero ellos siempre son los que van a estar turno al bate, no los puedo distraer en otra cosa, porque si sale algo urgente.
+S2: Y eso suele pasar con frecuencia, tiene esos temas diariamente, los temas urgentes, lo.
+S1: Que son garantías y cosas pedidas que son urgente que salen de aquí. Ejemplo que puede también pasar en los internos en marketing, llegó un influencer, ay elui, le vamos a dar 2 termos y 1 llavero, es urgente o mira llegaron los muchachos, cada uno salió un Termo, bueno muchachos saquen a alguien, yo no los voy a poner en la.
+S3: Cola que lo estoy esperando,.
+S1: Mira. Claro, no lo voy a poner en la cola porque tiene 50 pivots por delante. Bueno muchachos, experiencia para dentro de dos días, no puedo, tengo que tener a alguien que sea urgente, que cualquier cosa, eventualidad que salga, pues esas personas puedan, pero lo normal es que salga todo corriente, fluidos, bajo los procesos, pero como sabemos de que siempre puede pasar algo, entonces normalizamos. ¿Pasa algo? Tengo una, no me pongo como que bueno, espérate, no, OK, dame lo que tengo que hacer, fulanito, tome y.
+S3: Ya pregunta que me sale. ¿Esas garantías entran otra vez en el WMS, alguna cosa, las registras?
+S1: Sí, tenemos inventarios por separado. El inventario global está en un almacén.
+S3: Que se llama.
+S1: El inventario de Garantía. Está en un. ¿Que hace la persona de Garantía? La persona de Garantía llega, se mete mira, vamos a solicitar dos reloj, dos terras, hace una solicitud y aquí se le hace un traslado del al 37 y él ya queda a disposición, ya está listo, toma, le va entregando a su cliente. Ya todo lo que él me devuelva, ya no va a entrar en la 37, sino que entra en la 38, que es para votar. Para votar que ya. Sí, claro. Me está dando un reloj que no sirve. No hay nada que hacer. Tal vez los Casio es diferente, porque los casos si se reparan. Hay personas especializadas allí. Que tsunami. Pero todo esto reloj así son desechables.
+S2: No se están buscando reparar ningún tipo de lotecito.
+S1: No, más fácil. No, no. Y hay un software, o se le daña una corneta o eso lo hacen en China, o sea, no se. Te dije los casos aparte. Los Casios si tienen reparaciones. Hay relojeros. Si tú bajas allá abajo al piso 1 con garantías, hay relojeros especializados. Hay personas que se especializan en micas y todo ese tipo de cosas, porque esto es algo que es electrónico, pero el otro es algo más de engranaje de otro tipo de cosas, que es una correa. Por supuesto, es mucho más costoso. Un reloj de te puede costar dinero X, pero si tiene una Garantía que te da.
+S2: ¿Cómo se le da esa relojería a.
+S1: Los Nosotros lo tenemos aquí y hay una persona encargada de relojería y que es el Sr. Gilbert, y él te dice mira, necesito esto, algo específico? De resto, él maneja un inventario. De resto, el manejo de un inventario de piezas, porque son muchas piezas chiquiticas, o sea que tú las puedes ver todas iguales, pero todas son diferentes diámetros. Se pone con unas bromas y entonces van como operando el reloj.
+S3: ¿Quiero decir, esas piecitas de repuestos para Casio están aquí?
+S1: No, las pide directamente de Japón. Y le llegan a él directamente, porque es que él sabe las especificaciones.
+S3: ¿Tienes producto completo?
+S1: Sí, yo tengo un producto completo.
+S2: Las órdenes que él debe pedir allá.
+S1: Para Joseph, como él la maneja, el gerente del área, el sugerente que son los dos que son los que piden su vaina aparte, le llega cosa aparte, o sea todo. Y si llega algo dentro de los pedidos de nosotros, pues llega una cosa que dice el nombre de él y lo que hace es que lo aparta.
+S3: Sigamos,.
+S1: Sacan el pedido, entonces bueno, de una vez le asignan eso a la persona lo prepara y de una vez hacen lo que es el picking y el packing. Si lo revisaron y todo el pedido está OK, buenísimo. Entonces pasa a todo lo que es la parte de la zona de embalaje y una vez que está en la zona de embalaje, se plejan las cajas, ya se colocan y ya están listos para la zona despacho. pasa Tránsito, que aquí es donde está segundo y allí él ve que van a hacer con el pedido o se lo lleva el cliente o lo separa el chofer o es un courier. ¿Y dependiendo de estos, por lo menos aquí estos dos se realiza despacho, no?
+S3: Leo de aquí se notifica la entrega por sistema.
+S1: Exactamente. Y si el cliente retira despacho y.
+S3: Se notifica la entrega.
+S1: Exacto. Y todos van y terminan aquí.
+S3: Vendedor recibe notificación de entrega del pedido.
+S1: Exacto. Él empezó aquí. Bueno, es como bien explícito el.
+S2: Interesante.
+S5: Está muy bueno.
+S3: Estas cosas aquí, a ver si yo entiendo porque hay una venta que es Gabriel compró online, digamos. ¿Interesante,.
+S4: No?
+S1: Para mí eso es una tienda y yo le despacho semanal todos los lunes y miércoles como una tienda. Ellos me hacen un pedido como una tienda y yo le preparo sus pedidos tal cual, entro como una tienda más y toma, aquí tienen que esta cosa ellos mismos se tienen que administrar. Si en dado caso entramos en lo urgente, si en dado caso ellos se quedaron sin un stop o un cliente pidió más de lo debido o llegó un cliente a comprar aquí, porque ellos también tienen una tiendita, o sea llegan clientes a buscar aquí y dice mira, yo necesito un Termo dorado y ellos no tienen eso porque eso no es tan común muchachos. ¿Ustedes tienen allá esto? Si tenemos. OK, voy a montar un pedido. Te montan un pedido urgente. Toma que tiene. Por eso es que existe la urgencia normal. En algún momento si se planteó hacerlo parte como nosotros mismos para administrar eso como parte de los almacenes que está necesitando, pero sí se hizo un poquito cuesta arriba en temas procesos, porque es que aquí hay distancias Entonces hacer picking y packing en un sitio que es alejado de allí es complejo. ¿Por qué? Porque el cliente está mira, dame el dorado. ya no lo quiero, ahora quiero el azul, ¿No? Si, bueno, estás cambiando, No, ya te van. Eso puede cambiar. Entonces pasan ese tipo de cosas. Entonces lo que hicimos es no, mira, vamos a manejarlo como una tienda y que ellos como una tienda se pueda.
+S2: Manejar como una tienda.
+S3: Hay una cosita que estamos juntos, pero no revuelve. Hay una cosita que es, por ejemplo, ellos allá en e commerce ven Odoo.
+S1: Ellos.
+S3: Y por lo menos ellos ven cantidad 100, pero ellos tienen que confirmar con ustedes esa cantidad porque hay disparidad y algo está pasando en disparidad que a veces no lo tiene.
+S1: ¿Que es lo que puede suceder? Son muchas cosas pidiendo al mismo tiempo. Yo puedo tener un pedido de venta de tienda, la cual nos da en WMS. Sino que me estás entregando una hoja de un pedido. Yo Puedo entregando un pedido ventas al mayor que me está pidiendo de 180 y tengo 100 para una tienda. Ya va todavía hay, porque dice que hay 80. Sí, pero que todavía no lo Facturas. Hasta que no lo facture no se libera el sistema. Tampoco hay un apartado.
+S3: Lo que te pide tienda no entra en WMS. ¿Y dónde entra?
+S1: No, por eso te expliqué al principio, la muchacha de compra, ella le compra por a cada una de las tiendas, pues le hace una distribución de lo que va a llegar y de una vez ya tiene ya todo parametrizado y apenas llega que ya está listo, muchachos, ya ten sistema, toma, sácame estos pedidos. Es diferente como ventaja mayor o Garantía o la web commerce que llegue y te lo puede montar por un sistema. ¿Pero capaz que tengo o no tengo las cantidades deficientes por.
+S2: Jimena previamente quien tomó los pedidos?
+S1: Sí, claro, porque ella le despacha directamente. Ella es la que controla esos pedidos de atienda. ¿Los gerentes de tienda no montan sus pedidos?
+S4: No, no.
+S1: Ellos aquí le controlan sus pedidos.
+S3: Es Jimena quien hace eso.
+S2: Ya hablaremos con ella pronto.
+S3: OK, entonces claro, Jimena está aparte de lo que se puede ver en sistema. Y lo del mayoreo que me dijiste, cómo es algo del mayor.
+S1: OK. Ellos van montando lo que los clientes van pidiendo. Ellos van.
+S3: Pero lo hacen por el doble.
+S1: Si, ellos lo hacen por sistema y nos aparece en el doble para poderlo sacar de allí empezamos a tomar los pedidos. E commerce igual como una tienda, si no lo hace y menos. si lo hace directamente la gerente de la tienda de e commerce, ella misma monta por ella misma hace su inventario, mira, si me hace falta esto, bueno, por las ventas voy a hacer ta. Lo que pasa es que su almacén es como la mitad de todo este cuartico, tú haces así, hasta la caja es muy pequeño, no se puede llenar de tantas cosas. Por eso te digo, capaz que le falte algo y lo solicita una vez al instante y te lo mandamos.
+S2: Eso es con ICO.
+S3: Te pregunto, pero e commerce puede ver.
+S1: Tus almacenes, tiendas también pueden ver almacenes. Yo me puedo ver en el almacén de todas las tiendas y las tiendas también se pueden meter Produ. Es más, muchas veces te pueden decir, mira, tú eres la Trinidad y él es Chacao, conchale, mira, yo hice una venta aquí de 300 unidades, tú tienes 500, ¿Será que tú me puedes mandar dos una, sabes? Te puede hacer exactamente. Y entonces le dicen al gerente de operaciones, el gerente de operaciones llega, aprueba, no aprueba, bueno, aquí en el centro de distribución yo tengo 200, déjaselas a ellos y yo te las mando otras aparte o ejemplo que puede pasar, que pasa frecuente, que llega una venta grande de venta al mayor grande y entonces llegas con toda la capacidad que tenemos aquí y entonces bueno, faltan más, bueno, vamos a ver qué tienda hay, entonces dame tú, dame tú, dame tú, dame tú. Llegan todas esas, hago todo un picking packing y una vez lo mando aquí. Claro, porque es una venta completa. En cambio en una tienda tienes que esperar a que se vaya vendiendo una por una.
+S2: Tú vas supervisando todo eso.
+S1: Movimiento directamente con Vladimir, que es el evento de prestaciones, que es el que está de cara a los tiendas, la.
+S2: Línea diferente de operaciones de cara a la tienda.
+S3: ¿Hay algo fuera aparte de esto de Jimena que no se maneje por el WMS como un pedido?
+S1: No, todo WMS, lo único que no se maneja así por el WMS, temas de tienda, pero por esto mismo que ella ve como los inventarios de cada uno va supervisando, habla con cada uno de ellos, mira, más se te está moviendo que esto y ya le damos.
+S2: De todas maneras, cuando Jimena hace eso y toma los pedidos o sea la mercancía sale de aquí. El de Jimena se conecta con el WMS entonces lo que ella hace no es.
+S1: Exacto, pero hay algo en particular que yo lo he hablado con la gente del sistema que es.
+S4: Porque.
+S1: Yo digo pero porque no se puede montar directamente para que me aparezca. Entonces aquí estamos próximos el doble DMS porque aquí no había nada de esto, todo era Excel y todo. Entonces se hizo como un in house de Vladimir, viene Vladimir hizo un in house del sistema de un doble máximo. Entonces es como muy básico, te permite nada más hacer picking y packing. Entonces claro, hay cosas que todavía tiene fallas, cosas que todavía estamos haciendo. Entonces todavía como que es un bucle que no me permite montar nada de tienda.
+S3: Panamá lo.
+S1: Pero ahorita va a venir otro.
+S2: Se mueve bastante en el edificio, siempre.
+S5: Lo veo, siempre ando corriendo. Yo me iba a conectar, pero qué raro que no hay nadie conectado.
+S1: Si, no estábamos viendo el primer procedimiento porque ellos querían estar ya en caliente.
+S5: Para verlo con quédate tranquilo. Venía a eso. Si se va a hacer la reunión tarde ahorita después que ustedes terminen ,.
+S2: Quizás nos da un recorrido algo. Sí, porque vemos que tiene ya mucho acá.
+S5: Sí, este muchacho adelantó muchísimo aquí de documentación interesante.
+S2: No lo tiene todo el mundo.
+S1: No, es que justamente eso es lo que le está diciendo. Yo le decía, bueno, nosotros hemos adelantado bastante pues por esta área no le veo tanto mayor tema, cosa de que ellos puedan revisar, puedan ver qué cosas podemos, pero hemos adelantado. Diferencia de otros departamentos, almacén y usted.
+S5: Se lo Yo el panorama un poquito más enredado a pesar de que pertenecemos al mismo, al mismo departamento. Yo me encargo de otras que él se estaba encargando de la parte operativa. Yo me encargo de toda la parte operativa de toda la empresa, o sea, importación, suministros a tienda, desde reparar las camionetas un poco más extenso, compras, precio. Hay cosas que se me escapan de la mente, pero toda la operatividad de la empresa recae sombra. Él ahorita está abocado, lo que es el almacén no tiene que ver con tienda, él no compra, él no analiza las ventas, eso lo hago yo junto con otra gente que también se encarga.
+S1: Mencionando de Jimena que también trabaja contigo Exactamente.
+S5: Todo lo que él hace, lo que hace Jimena lo hacía yo solo antes, pero ya yo no podía, tenía que trabajar de lunes a domingo y de 8 a 8 de la noche para que pudiera fluir el trabajo con todo y eso a veces se me hacía cuesta arriba. Entonces buscamos la figura de Elvis y buscamos la figura de Jimena para que. Jimena es la que me apoya, ella es la que se encarga de hacer las compras, ella es la que ahorita el análisis, pero igualmente ella construye el trabajo, me lo pasa a ver si está correcto o le digo, mira, esta compra está muy baja, hay que levantarla por A o por B, porque como yo tengo tanto tiempo trabajando aquí, más o menos, yo sé que algunas cosas a veces los números no la muestran, un ejemplo, ella de repente ella ve dos números de tres meses, pero resulta que en ese número de tres meses hubo mes y medio donde una mercancía no estaba. Entonces ya le dice, Hay que comprar 150 nada más. Y yo cuando le hago el análisis, no, ven acá Jiménez, pasa esto de las ventas de este mismo el mes anterior que se había el producto y vendimos 300. No pide 150, tienes que pedir 500 o 450 el número. Exacto, 450 por el crecimiento de la empresa. Entonces, OK, tienes razón, igual que Elvis a veces hace las cosas y vengo yo y le veo y le hago, pero por la experiencia. Eso es por la experiencia. Y yo le digo a Elvis, mira Elvis, aquí anótate esto, no está aquí, le falta esto. Entonces viene, monta el trabajo, lo corrige y realmente es mi función, aparte de que soy representante de la empresa, cuando hay un contrato, yo también voy, yo soy el que lo firmo. De repente aquí hay un almacén que vamos a comprar, yo soy el que voy y veo el almacén, si tiene las medidas que necesitamos, la apertura de una tienda, mira, yo si ve que le exijo, mira al arquitecto, yo no necesito una tienda que tenga 40 metros cuadrados y lo que tengo son 5 metros cuadrados, no me sirve, ¿Como yo voy a estar enviando mercancía? Nosotros manejamos esto que requiere cierto volumen de almacenaje, entonces la tienda realmente debería ser 50% almacén y 50% tienda, no sé, generalmente no se cumple porque no hay forma con los espacios limitados y tampoco puedo tener una tienda de reducción donde la gente tenga que pedir permiso para pasar el siguiente artículo. Pero bueno, no las arreglamos, hacemos espacio en otros sitios donde necesitemos. Aquí 34. 34 Cumplido.
+S2: ¿Ha visto ya todo lo que contestaba.
+S5: Desde que se facturaba aquí? Así LTPA, donde uno sabía los colores de memoria. Ese es el 9 a 1. 9 A 2. Todo eso hasta ahorita. Que bueno. Miren estos cambios que a mí me sorprenden porque no estaba habituado y donde.
+S2: En su opinión, con esa experiencia que tiene hoy en día, están esos cuellos de botella dónde está ese dolor del proceso, lo que se retrabaja, lo que no funciona tan bien a veces.
+S5: La mayoría de los problemas son porque no completamos los problemas. Es la realidad. Hay procedimientos que por ejemplo, él tiene que sacar esto de aquí y ponerlo aquí. Entonces él lo saca, pero lo deja aquí. Eso es un ejemplo. ¿Hay que concluir una Facturas y por A, por B, porque qué pasa? Aquí nos interrumpimos. Así como yo vine y los acabo de interrumpir, aquí nos interrumpimos porque llega mucha gente con requerimiento. Yo estoy trabajando en una área en particular, entonces llega mira, necesito que me echen una mano aquí. Yo me paro, voy a hacer eso y desatiendo. Cuando me vuelvo a sentar, viene otra persona con otro requerimiento.
+S1: Por eso le explica normal. Y lo urgente. Yo tuve que poner a alguien por urgente porque tengo que dejar que la gente continúe, pero parar. Así es lo que te dice él ahorita.
+S5: Yo estaba ahorita con un colaborador de venta que tiene un problema con una facturación. Mira, este producto lo despachamos ya lo despachamos, ya el cliente se lo llevó, no lo puedo facturar porque dice que no hay. Entonces yo me aboco a ver cuál es el problema. ¿Me pongo a ver y le pregunto, por ejemplo, mira, esto se despachó? Si. ¿Salió el pedido completo? Sí, pero resulta que ese pedido anteriormente había tenido dos anulaciones. Entonces si tú no concluyes las anulaciones, la mercancía la tiene reservada el mismo pedido tres veces. Entonces, claro, yo me dedico.
+S1: Ahorita.
+S3: Le dije cerrar ese paso para que el otro corri.
+S5: Exactamente. Eso es lo que yo creo que nos tranca más el cerru. Porque aquí pasa mucho. De repente él dice, mira, pero yo tengo el producto, está aquí. Si está, no lo puedo montar en pedido. Entro yo a ver, mira chamo, lo que pasa es que tú con este producto tienes tres pedidos más montados. ¿Entonces los pedidos van o no van? ¿Cuál es el de la prioridad, este o los anteriores? No, este fue una cotización que me hizo un señor y no la eliminó ese tipo.
+S2: Eso es la que lo está detectando.
+S5: Claro. Cuando viene alguien con el problema. Cuando viene alguien con el problema, claro. Yo no me doy cuenta en el momento porque es imposible saberlo, pero es.
+S3: Una situación que ya he escuchado, que justo te la estaba nombrando ahorita e commerce ve que hay 100, pero a Luis le dice no hay 100, hay menos. Me imagino son pronósticos que están amarrados.
+S1: Claro.
+S5: Porque ¿Qué pasa? El cliente se mete, ajá, yo quiero este reloj. Lo compra, pero no concreta la venta. Y como los muchachos están abocados a vender, a vender, este artículo que es el único quedaba, ellos no lo venden porque está atrapado en un pedido. Entonces hay que organizar una forma de que ellos semanalmente, diariamente, o sea, cerramos a las 3 y de 3 a 4 hay que eliminar. Está reservado, entonces no permite que monte más pedido. Entonces la mercancía la tiene, pero no la pueden vender, o sea, no se exhibe porque dice que no hay. Ese para mí es el principal problema que tenemos, porque la operación aquí funciona, aquí los pedidos salen. Eso fluye. Eso fluye. El tema realmente es una cuestión de que no hemos logrado integrar la parte operativa con el sistema de que la gente concluya la operación. El que tiene que anular un pedido, que lo termine de anular. El que tiene que validar un pedido, que lo termine de validar. Yo tengo un problema con mi muchacha de facturación, porque la verdad es que ella está saturada, tiene mucho trabajo. ¿Qué pasa? Ella se encarga de lo que es. Las quieren y se encarga de lo que es la facturación. Ya yo hice la solicitud para una persona. Él también hace los pedidos internos de todos los departamentos.
+S1: Mira, yo quiero pedir almacén, se lo pasan al requerimiento de ella y ella monta un pedido. Entonces también quita un tiempo.
+S5: Claro. Entonces eso se va trazando.
+S4: Ya.
+S3: Recibe los requerimientos.
+S4: Claro.
+S1: Dentro de los procesos, yo tuve que poner procesos a ella. Mira, están los procesos de facturación, cómo es lo que te está diciendo la M, cómo viene el procedimiento, el asistente administrativo, cómo pasa por despacho, está la señora Yoli y todos los involucrados vamos.
+S3: Viendo este por ejemplo, este que es asistente administrativo de logística, que es solicitud de pedido para facturar verificado por almacén. ¿Pero y dónde nace esta solicitud de.
+S1: Pedido de un departamento?
+S5: El de venta. Venta genera el pedido. Aquí se trabaja, la solicitud sale completa, mire salió, eso lo tiene que facturar la Sra. Jo.
+S3: Venta. Yo soy vendedor, yo tengo el lodo en orden, aquí lo preparo y aquí lo preparan. ¿Y dónde entra yo en el juego cuando Facturas? Después que despachan.
+S1: Fíjate aquí, después que se prepare, ella verifica si tiene los parámetros correspondiente ese cliente, si no, fíjate lo que dice aquí.
+S3: Se revisan nuevamente las condiciones con el almacén y pedido.
+S1: Exactamente. Si no procede, se revisa, ella vuelve.
+S3: Pedidos de toda la organización.
+S1: Si procede.
+S5: Bueno, por eso que ella se le atrasa el trabajo. Necesitamos una persona para que ocupe su. ¿Ella se va de vacaciones, de paso ahorita imagínate el nivel de colapso, porque ella conoce por qué los revisa?
+S3: Por si el cliente tiene demasiado crédito.
+S1: Capaz que el cliente, mira, también tiene unas deudas pendiente o tiene Facturas pendiente o tiene una.
+S5: Pero realmente es más porque el pedido salga completo o no salga completo, tener que verificar el pedido está completo, entonces procede a facturar.
+S4: Exacto.
+S5: ¿Entonces qué pasa? Muchas veces los clientes también pagan un dinero y resulta que tú Facturas tres días después. Entonces ellos hicieron un depósito y yo tengo que adaptar los precios a lo real, porque el cliente hizo un depósito por 5.000. ¿Pero como voy a facturar la tasa de hoy? Eso está amarrado que los precios son en dólares, me va a decir que son 5200.
+S1: Mira, ella es la señora Joli, estamos hablando de ti.
+S3: Era la que faltaba en esta ecuación. Que si ya yo vi que si la siento dos minutos, aquí se cayó todo.
+S2: La llamamos prácticamente.
+S5: Un placer.
+S1: ¿Cómo está?
+S3: Miren, para entender esta parte, las tiendas, o sea, las tiendas están vendiendo en el punto de venta. De eso no entra usted señor.
+S1: Están vendiendo.
+S3: Entonces, ¿Qué pedidos entran con usted cuando es un mayoreo?
+S4: Todas las pedidos de mayor, o sea todo lo que se genera por aquí por la oficina.
+S3: ¿Y usted qué hace? Le chequea si no debe, Si entró la.
+S4: No, esa parte no la manejo yo, porque para eso está el departamento de cuentas por cobrar, pues. Y es gerente de venta como tal. Él es el que cuando le pasan el pedido mismo antes de. Man que me debe, no me debe.
+S1: X, eso es 20. Si ya pasó, es cuando entro yo en el PE. Exactamente.
+S3: ¿Qué verifica?
+S4: Yo verifico en el pedido, cuando subo en el pedido que los muchachos hacen el lo sacan, lo pistolean, todo eso yo verifico en el LAR, porque eso me llega por LARgo, si tiene alguna modificación tanto en.
+S1: Cantidad, eso es lo que ella verifica.
+S4: A veces color y que eso cuadre con lo que está despachando para emitir mi Facturas.
+S3: Está verificando que.
+S1: No. Ella hace varias funciones. ¿Varias funciones pues porque fíjate, por eso que te digo y existen unas condiciones, fíjate esta condición que existe aquí? ¿Y si a ella le cae en backorder no puede facturar verdad? Y entonces ella lo verifica porque tiene que cambiar. Pero si todo procede, entonces se procede.
+S3: A facturar y usted Facturas cuando usted dice me lo presiono bien, usted chequeó calidad, esto es lo que era, ejecuta facturación y después que se ejecuta configuración es que va a delivery, es que.
+S1: Va despacho a Tránsito. Eso lo hace Tránsito aquí llega, pasa por Tránsito, se entrega la logística despacho, cómo va a ser. Acuérdate que tenemos tres logísticas y bueno, de tránsito hace la confirmación de entrevistor y una vez se le genera aquí a la persona que ya se entregó, está ese y está otro proceso que también hace ella, que es el desarrollo de los procesos. ¿Cuando es como algo interno se pide ella también e commerce, no? Marketing. Exacto. Ellos hacen el pedido y eso se le entrega a ella. Aquí mismo te dice.
+S3: ¿Y para que hace un pedido Marketing? Para regalar para un evento.
+S4: Yo tengo aquí uno, Ellos están haciendo una solicitud, Ellos hacen esto, ellos pasan esto. Nosotros normalmente primero se mandar a sacar los productos, porque si no hay el color, como en este caso, los muchachos aquí sacan otro color, hacemos los cambios y yo les monto el traslado para la bodega de ellos, innovan, corregido.
+S3: Y.
+S1: Ya se le después ella tiene que hacer una revisión de los colores, si los hay, no los hay. las cantidades no es la cantidad para hacer el pedido, aparte de toda la facturación que tiene, o sea cumple varias funciones.
+S3: Toda la facturación que no es por tienda, paso por su marca.
+S1: Exactamente. Tienes ese de marketing. Está esta que es otra solicitud para. Cómo hacen los traslados de solicitudes cómo tienen que decirle a ella que tienen que hacerlo.
+S2: Está ese traslado de solicitud o solicitudes de traslado más bien.
+S5: Adicional a eso ella carga las compras.
+S1: Exactamente.
+S5: Las importaciones o las compras.
+S1: Aquí está también el proceso de la.
+S5: Recepción.
+S1: En el fluido de la recepción, como ella misma carga las alturas y todo eso.
+S5: Funciona como este tema de marketing. Eso es una salida de inventario, es lo que estamos nosotros con este tema. Lo sacamos de una bodega que es la principal, que esta, y lo carga una bodega de marketing y luego sacamos a costo. Todavía no hemos hecho la primera salida de costo, porque un sistema que está reciente con nosotros, antes nosotros con el otro hacíamos lo que nos daba la gana realmente, o sea, simplemente tú quieres el reloj, tú me hiciste la publicidad, yo agarro el relojito, te lo mando y le decía al muchacho rebájame, eso no va, es nacida, el levantamiento fin, le entregaba la mercancía al cliente y ella hacía el traslado o la salida directa de esa mercancía. Ya no funcionamos así, ahorita lo vamos a hacer, deberíamos hacerlo trimestral, bimensual, hay que buscar, pero todavía no la hemos conseguido. A esa mercancía hay que darle de baja.
+S1: Exactamente.
+S5: Por un costo, algo que represente. Todavía no lo hemos hecho. Primero no lo hemos hecho de esa manera. Ajuste de inventario tampoco lo hemos hecho todavía, salvo algunos casos que eran muy.
+S3: Importantes.
+S5: Cuando pasamos de un sistema a.
+S1: Otro,.
+S5: En el momento que había más trabajo, no había forma, entonces los errores que estaban en el inventario pasado se trasladaron para acá.
+S1: Exactamente. Qué es lo queremos ahorita evitar con el nuevo LMS que le estoy comentando, vamos a hacer todo un inventario, toda una modificación, si tú pasas vas a ver que las cosas han cambiado muchísimo. Estamos poniendo unas ubicaciones con una nomenclatura, todo específico para una vez tengamos el nuevo LMS pasar en aquí y que no meter ese mismo rojo para que.
+S5: Sea lo más real posible.
+S1: Exactamente. Y bueno, yo al llegar aquí vi que hay muchas cosas que dependían de la señora Joli, entonces lo que hice fue montar flujo como para poder conocer qué es lo que ella se. Pero como ustedes ven son muchas cosas que también involucra.
+S3: Si nos vamos un poquito más arriba en el tema, porque aquí ya llegó la mercancía, de para adelante. Elvis procesa, pero me dice que la parte de compra. ¿Incidimos en algo en Panamá o simplemente Panamá nos notifica? Allá va lo que va.
+S5: Ellos nos hacen una Facturas y nos mandan la información. Muchas veces lo que llega aquí no es lo que nos facturaron. Por ejemplo, yo pedí 10.000 relojes. De esos 10.000 relojes que ellos me patinaron, 10.000 es muy probablemente lleguen 9.700 oro por B.
+S3: Paréntesis fallón. Usted pide misterios, man.
+S5: No, nosotros hacemos.
+S3: Yo quiero 10.000.
+S5: Nosotros hacemos nuestro mismo análisis de lo que necesitamos. De hecho aquí se está llevando parte de Latinoamérica. Aquí mismo se hace el análisis. Sí, por ejemplo, lo que necesita Colombia es. Colombia necesita para ayudar al departamento de compra de allá para que ellos soliciten lo correcto. Ahorita sí, de eso se encarga Jimena. Ella es la que está apoyando. Aparte de Venezuela, surgido de Venezuela, también está apoyando con los requerimientos de Costa Rica, Colombia, Dominicana, todo ese. Claro, el nivel de venta de la corporación. La que más. Vamos a hablar del 50% para no irnos al detalle, pero el 50% de la venta global la maneja Venezuela. El trámite más complejo es el de Venezuela. Aparte que es el que tiene más detalles. Seguimos expandiendo. Ahorita nos vamos con. Para Guaná. sí, creo que vamos. Creo no, porque ya me mandaron por unos correos. Hay que firmar los locales para Guaná, Lechería y va usted para allá y hacer.
+S1: No, no, si se hace aquí no.
+S5: En la oficina del Sanvil.
+S2: Correcto.
+S3: ¿Y quién se sienta para? ¿Para armar la compra? Vamos a pedirle a Panamá. Ustedes como Venezuela. Vamos a ver.
+S5: Solo analiza. Jimena primera es la que analiza la venta, tanto de mayor de tal. Luego que ella analiza, ella me manda la información a mí y yo termino de darle el visto bueno y le digo súbele más o mira, no pidas tanto de esto estamos casi que de salida. No interesa quedarme con una mercancía para tratar de tener el inventario más óptimo posible.
+S2: Y eso puede generar algún ruido porque usted hace una modificación o sugiere cosas. Eso se devuelve atrás y se cumple.
+S5: Porque es que antes de que ella lo envíe, nosotros lo ajustamos y mandamos lo real. A veces Roberto, que es el que se encarga de. ¿Me dice mira, pero por qué estás pidiendo esto así? Listo, Ya entendí. Vamos a mandarlo con tu bici.
+S1: Ya.
+S3: Si Roberto tiene que llamar a alguien,.
+S5: Lo llama usted me llama a mí,.
+S3: Ella hace la compra, Panamá hace su gestión. Mira, allá va.
+S5: Es muy probable que Panamá te diga, mira, ¿Sabes que? Este teléfono no te lo puedo mandar. Tú pediste mil, yo tengo mil doscientos, entonces te voy a mandar ochocientos, setecientos. Bueno, está bien. negociamos y ya queda así pues, porque es verdad, yo pido para cumplir mis necesidades. Ahora, a lo mejor ellos también tienen ciertas necesidades que cumplir. Ellos me dan un parado.
+S2: ¿Quién le dice eso de mira, esto.
+S3: Es mucho.
+S5: Andrés o el mismo Roberto, pero lo que es Cuy, Andrés y lo que es Casio?
+S3: Entonces le envían. Y después de ir, ¿Qué pasa?
+S5: Bueno, manda la facturación, la naviera, todo el cuento de los barcos. De eso me encargo yo con alguien de.
+S3: Para.
+S5: Es el. El tráfico. Yo hablo con la gente de tráfico en Panamá y ellos me dicen, mira, tenemos esta fecha, esto va a salir en tal fecha. Jimena está involucrada en el tema. Pero después entran otros temas que son permisología. Tienen el permiso porque te monta un reloj de.
+S1: Y dile que ya está lista la mesa.
+S5: Eso lo gestiono yo a través de la recepción. Permiso. Hay una persona de Panamá que era mi enlace, pero como yo me deshice ciertas cosas, yo lo que hago es supervisar que mira, tenemos los permisos. no tengo este permiso, esto no puede venir todavía, aguántamelo si mi mamá me lo puede comisar.
+S3: En todo el proceso de importación que necesita permisos en camer, semiana, biela, los camiones, la logística está gimer y usted y recepción que le ayuden.
+S5: En el 90% de lo que tú dijiste, entro yo. El otro 10%.
+S3: Su máximo tiempo.
+S5: Normalmente mi tiempo está en eso. Y el día a día, el día que venga el vendedor, se siente conmigo, tengo un problema con esto. Viene John y me dice, mira, tengo un problema con esto. Viene él y me dice, y la gente de la página web del taller.
+S2: Y toda esa documentación legal, las aduanas, el freight forward, toda esa parte, las alcabalas logísticas. Porque una cosa es que Panamá tiene su proceso para la salida legal de Panamá y nosotros recibirle también Venezuela.
+S5: Todo eso lo manejo el.
+S2: Lo maneja usted. Y eso por casualidad está documentado ese detalle, porque eso es muy de paso uno. ¿El documento tal va para la gente aduanal?
+S5: No, eso no está documentado, pero yo te lo puedo documentar, porque como yo siempre lo manejo, cómo se maneja, digamos,.
+S2: Un poco el cuento en esa parte.
+S5: A mí me llega la información. Me llega la información de Panamá. Aquí está el mail. El BL es el documento que avala que eso va a salir en el vapor X. Yo reviso si está todo correcto, si coincide lo que está con la Facturas. Luego viene la Facturas y adicional a la Facturas viene un documento que se llama Documento electrónico de salida de mercancía. No me acuerdo ahorita cuál es el nombre, pero ese documento coincide con la Facturas. Y el B, te dice los códigos arancelarios, la cantidad, los costos, todo eso yo se lo hago llegar a la gente y a la gente aduanal. La gente aduanal empieza a revisar su cosa.
+S4: Correcto.
+S5: Y empiezo ya a gestionar mis permisos, por ejemplo, de comer, todo lo que es térmico necesitado, los bolsos, coales, morrales, todo eso necesita. Y otros artículos, display, todo eso necesita. Eso lo gestiono yo con una muchacha que se llama Verónica, es la que me ayuda con ese tema, que es.
+S3: La chica de recepción, no.
+S5: Verónica, ella no tiene nada que ver, pero se queda conmigo después de las 5 de la tarde a hacer del área de finanzas. Trabaja en tesorería, finanzas, todo eso, están involucrados. Entonces ella es la que me colabora, porque ya como fue la ficha que yo agarré en principio, esta es la que me va a ayudar.
+S4: Ella se quedó, ya parecía el jefe personal, más.
+S5: Yo me apropio de la gente. Claro, yo veo los espacios, la recepcionista esta le puede servir para. Y le endoce ese trabajo. Ya ella directamente habla con el de Panamá, él le manda la certificación de los productos para sacar los permisos del Panatel. Ya eso lo hace ya. Y me dice, mire, ya aprobaron eso. Y luego va, mire que pagar. Se encarga tesorería de pagar de esos impuestos para que ella le entreguen su.
+S3: Eso detiene que llegue la mercancía sin esas cosas.
+S5: Y en eso no es otra vez.
+S3: No sale de Panamá.
+S5: No sale de Panamá, evidentemente, hasta que yo no tengo el permiso, yo le doy un stop. Mira, esto no me lo manden, esto no me lo manden, porque. Todo esto está aquí, esto no está homologado. Tú no puedes salir, esto está decomisado hasta que tú me traigas la homologación.
+S4: Bueno, al principio nos pasó con las fechas corporales.
+S5: Bueno, pero eso fue un problema de ellos, no fue un problema de nosotros. A nosotros nos detuvieron un cargamento en la aduana porque ellos decían, la cosa es así, eso necesita un certificado. Certificado. Ellos decían que lo que yo tenía no era el certificado, era la palabra del SEMIA contra la mía. ¿Qué hice yo? Fui contra Sencamel, me dijo, ese es el certificado. Bueno, total que tuve que ponerlos a hablar entre ellos para que pudieran soltarme la mercancía. Igual tuve que pagar una multa, igual tuve que pagar otro para que ellos me dijeran, no, usted tenía la razón. Pero bueno, disculpe, pague aquí, disculpe, pero pague aquí. Ellos son los que mandan, no puedo ir contra lo que yo digo.
+S3: Y entra mercancía y de para adelante está el. ¿Llegó el contenedor?
+S5: Sí. Después que el contenedor yo llego hasta los trámites de aduana. Ya cuando llegue aquí la mercancía, ellos.
+S1: Se.
+S5: Y decir, esta mercancía vino, esta mercancía no vino.
+S3: ¿Eso está , verdad?
+S5: A ellos entro otra vez en acción con la gente de Panamá. Me está faltando esto. Ella es la que organiza el faltante. Me dice de la Facturas número tal, faltó esto. Yo certifico de verdad de que eso sea así, porque también se pueden equivocar. Puede pasar. Weder zeit geht. Recibieron un bulto que decía B, pero B con B alto, y resulta que el que llevó fue el B pero con B pequeño. Entonces ya eso es otro tema. Yo lo puedo ajustar sin problema porque el cuesta lo mismo, cambian la Facturas y no pasa nada. Pero si en vez de llegar 100 no lleg 90, ya esa es otra cosa. Pero también puede pasar que de uno que llegaban 100 también lleguen 110. Eso también puede pasar. Esos 10 compensan el otro. Bueno, salga 110 de este y este salga 90 para no crear tanto puntito. A larga llegaron los mismos 10.000 productos que yo pedí, pero con una diferencia que digamos que es de color.
+S3: Una pregunta más, no sé si tú tienes una, pero tanto Panamá como Venezuela estaba en Odo.
+S1: Ustedes hicieron un pedido.
+S3: ¿Ese pedido cómo salió? ¿Salió como una orden de compra en Odo o es un pedido?
+S5: No, eso sale facturado todavía. Eso está en solicitud para que cuando generen la Facturas ya se convierta aquí automáticamente y entra en orden. Debería ser así toda.
+S1: Exactamente.
+S5: Ahorita es un Excel para allá.
+S3: Entonces cuando llegue la mercancía hay que hacer una carga de inicio en un.
+S5: Inventario, al igual que los productos. Los productos que están allá deberían ser lo mismo de aquí deberían ser. En algunas casas no son por ciertas condiciones que había, pero el 99.9% son los mismos, salvo algún caso. Por ejemplo, las pilas que yo compro aquí, ellos las tienen allá cargada con una referencia y yo los manejo aquí con otra referencia. Hay otro tema también, El tercero, qué quiere decir que hay otras empresas que tienen la permisología. Yo puedo traer relojes a través de.
+S1: Una empresa que se llama Mundo Reloj.
+S5: Ella se encarga de traer esa mercancía y los pedidos los montamos nosotros. Pero serían compras nacional, Entonces compramos, yo le compro a Mundo.
+S2: Eso está pasando actualmente. ¿Qué porcentaje se le compra a ellos del total?
+S5: Solamente cuando tenemos una necesidad extrema, muy puntual. Pero sí, pero sí, sí le compramos.
+S2: ¿Si le están comprando con qué frecuencia más o menos en este año?
+S5: Mensual.
+S1: Mensual.
+S5: Porque no le compro total. Él me suministra y yo le voy haciendo compras parciales. Por ejemplo, un embarque de 10.000 productos, yo le compro 2.500 este mes y así sucesivamente.
+S3: ¿Pero son sus productos los 10.000 o son de.
+S5: Él?
+S3: Está haciendo una gestión de almacenamiento, un tercero. él solo está facturando él solamente.
+S1: No exactamente. Porque tiene la permiso la mercancía.
+S5: Sí, para mí es compra, porque claro, están ellos .
+S1: Exactamente.
+S5: Ahorita modificamos algo porque los costos de lodo se basan en lo que uno compra. Yo hice una solicitud porque a mí no me interesa tener costos en Bolívar, yo a ellos le compro. Yo necesito mis costos en dólares. Entonces hicimos una modificación en las órdenes de compra para que entren los costos reales, que son independientemente. Porque eso es otro motivo que hacemos ese tercer. Esa tercera es por otro motivo.
+S2: Vale, vale. Por cierto, hablando un poco del tema de gobernanza, ¿Hay comités con los que ustedes con cierta frecuencia se unen, se reúnen a nivel con Panamá, por ejemplo, hay comités específicos para la parte logística e inventario?
+S1: ¿Más allá de las reuniones, hablamos directamente? Son más conversaciones directamente. Mira esto.
+S2: ¿Hay algo tipo Mirac, último viernes del menos con Roberto con Andrés o algo así?
+S1: No, en su momento, bueno, yo momentos.
+S5: Puntuales, yo me reúno con.
+S1: A mí por lo menos me escriben.
+S5: Queremos bajar los precios de ciertos productos. Mientras él estuvo aquí yo hice un análisis y bajamos los precios de caso en algunos casos. Hay otros casos que no los puede bajar tanto. Por ejemplo una calculadora o la pude bajar 30%, pero un reloj lo bajé 3% porque los aranceles de aduana cambiaron, entonces la idea era bajar todo 30%, 10%, 20%, pero no se pudo porque yo tuve que sincerar los aranceles de algunos productos. La relojería pasó de 20 que pagan a 35 de la o sea que un producto que me cuesta 100 dólares y yo lo vendía, o sea calculaba mis precios con un factor, ese factor tuve que modificar cuando quise hacer la bajada de precio no pude bajar lo.
+S3: Que se lo comió esa subida.
+S2: ¿Y se apoya de alguna herramienta o lo hace usted mismo viendo acá, viendo allá, analizando por su cuenta, o se apoya en alguna herramienta para ese análisis? No, no, Excel, la misma data del Excel se lo permite. Perfecto.
+S5: Saco mis productos, veo mis cotos, pongo mis aranceles, tengo mi tabla, lo que hago es alimentarle.
+S3: Está como la tabla de Roberto tiene una matriz tabla.
+S5: Exactamente lo mismo.
+S3: Esta con un color y aquella con otro color.
+S5: Exactamente lo mismo. ¿Roberto le mostró la tablita?
+S2: Sí, la Gran Sábana.
+S5: Sí, más o menos lo mismo. Somos la misma escuela. Cuando él se va es que yo tomo lo que yo hago ahorita es básicamente lo mismo que hacía Roberto en su momento. Él se fue y me dio toma y te dejo. Yo tomé la batuta en ese.
+S2: Claro, claro.
+S5: Se.
+S2: ¿Señor Vladimir, además de esto, participa usted o tiene influencia en algún otro subproceso, además de lo que nos ha comentado, algo más que se nos está escapando, usted considera relevante?
+S5: En general ya son cosas como puntuales. Por ejemplo, la gente de la web necesita las cajas para el embalaje, esas las comp. No involucro más nadie el tema de los gastos, lo que te dije, mandar reparar los carros, ese tipo de cosas.
+S1: Actualmente no está con nada de cross,.
+S5: Solamente firma de contrato y eso, Solamente la parte firma, más nada. Antes estaba más involucrado, pero ya no me involucro con solamente firmar que si se van a comprar un contrato. Ellos me dicen, mira, viene el contrato de la tienda tal. Yo antes lo hacía aquí, pero ya ellos se mudaron. Ahora yo me muevo hasta. Comprendo.
+S2: ¿Hay algún tipo de informe formal que haya que emitir y generar a nivel directivo para dar algún tipo de reporte? Balance, status, informes formales. Cada cierto tiempo eso se hace. ¿No hablo de la información de ustedes, sino, por ejemplo, hacia Panamá tienen que enviar alguna data con algún formato?
+S5: Solamente los reportes de venta.
+S3: ¿Pero que se encargará de eso?
+S5: Los reportes de venta lo manejamos con Jiménez. Y yo solamente lo que hago es ver si lo que está subiendo es lo correcto. Hay algún detalle. Nosotros hacemos una venta directa, como quien.
+S3: Dice, que pasan por la mano,.
+S4: Que.
+S5: Tienen que ver con el inventario de aquí. Yo lo que hago es venderlo como con una nota. Ella lo canaliza hacia una bodega. Luego yo compro esa mercancía directa y es reponérsela a la bodega. Es como si fuera una consignación, un préstamo o algo de esa mercancía. Sale por un lado, pero luego entra por otro lado. Mucho de eso lo usamos con esa compañía que ya trae esa mercancía. Una parte me Facturas y la otra parte la devuelvo. Eso lo estoy haciendo. No lo vamos a volver. Es medio rengorroso.
+S1: Es engorroso.
+S3: A usted todavía no se puede ir porque tengo más pedido, pero a la señora yo le para soltarla. Algo más que nos haya faltado, Lo que sea. Toda facturación pasó por su mano. Y calidad de que el pedido salga como es.
+S4: Exacto. Y cuando llega la mercancía, una vez que se revisa, se chequea y eso, cargo yo mi orden de compra y le doy entrada a los artículos que.
+S3: Al final lo tenemos. Aquí es el proceso. Hablamos de arriba, hablamos del medio, ahora vamos para abajo. Porque para abajo, si usted está pendiente del carro, está pendiente abajo. ¿Qué pasa en logística? Una vez él dice va para tránsito, el asunto va para tránsito. ¿Quién está ? Gracias. ¿Y cómo son los despacho? ¿Los despacho para ti?
+S5: No, todo eso se maneja entre esto. El señor Segundo. El que realmente se encarga con ello de que la mercancía fluya. Yo solamente entro en acción cuando yo necesito un tercero. Porque él aplica para lo que tiene su personal a cargo, con las camionetas propias, de la empresa, pero hay un tercero y yo soy el que reviso si puedo. Sí.
+S4: ¿Por qué?
+S5: Porque el tercero me cobra un flete y tengo que ver que el flete esté en el rango de lo que estoy despachando. Yo no puedo, por ejemplo, me va a cobrar dos mil dólares, pues ya me la mercancía para Maracay, yo no puedo mandar 3 mil dólares porque la ganancia se come.
+S1: Exactamente.
+S5: Veo que es viable para mandar eso lo montas y me casualmente le mira, hay que hacer unos despacho para Valencia por A, por B y Barquisimeto y Maracaibo no tiene los montos reales de lo que vamos a despachar. Ella me pasa los montes, saco la cuentica rapidito y le digo Jaime, venga buscar la mercancía, el tercero, que es como una empresa de transporte que nosotros usamos.
+S3: Pero entonces no es segundo que llama Jaime.
+S5: No, no sanó yo lo puede llamar segundo, pero después que yo reviso que los datos son correctos, que lo que voy a mandar es viable, enviar él.
+S1: Como el de distribución, Él hace la distribución de terceros.
+S3: Entonces delineamos algo. Todo lo que sale a Caracas II ni pregunte porque usa la flota propia de l sale. Los despacho son a tiendas y a mayoreos en Caracas. Cuando el asunto sale de Caracas tiene que pasar por si es Valencia, si.
+S1: Es Barquisime, si son tiendas. Si son tiendas. Entonces si un cliente al mayor ya entra por un courier,.
+S3: Si es un mayorista en Barquisimeto que está pidiendo, pide su mercancía.
+S5: Yo quiero que me mande mi mercancía por Tealca, nosotros le damos por Tealca, ya les paga su currera, ya todo.
+S3: Lo que es fuera de Caracas es Sus tiendas que ustedes están solamente.
+S5: Si el cliente compra 300 dólares y le van a cobrar 300 dólares por el envío. Ese cuento de él. Pero lo de nosotros es porque nosotros tenemos que garantizar de que sea rentable fuera del contexto.
+S2: ¿Y eso pasa por ustedes, esa verificación.
+S3: Pasa por y entonces suelta ese tercero.
+S5: Que va a después mira, esta mercancía que está , para que se meto? No va a salir esta semana, vamos a esperar que llegue la próxima mercancía. retomamos lo que haga falta, vemos el monto de lo que va a salir y le damos luz verde. Generalmente cuando preparamos sabemos si sale el valor de esa mercancía si cumple con los estándares para poder enviar por lo menos Valencia no tengo tanto problema, pero habido casos en el cual yo le he dicho a uno de los choferes aquí necesito que me lleve esto porque viene un lanzamiento de un producto y hay que llevarlo para Valencia Roler o que es poco y los de aquí de Valencia se los envío yo. Ha pasado una o dos veces.
+S1: entra, por eso te mencionaba de que entra lo que te dice tal cual es porque la misma Jimena hace los pedidos para las tiendas por sus inventarios, por sus stops, ella monta y de una vez ellos pueden evaluar, mira si lo podemos evaluar.
+S5: Y si es y si es necesario que salga, yo le digo sabes que, no vamos a mandar cantidades, hazme un resumen de eso y mandamos un solo paquete por.
+S2: M.
+S5: Para salir de la coyuntura y luego le preparamos un pedido formal con la suficiente mercancía, porque eso al menos cuidamos el inventario que maneja. Por ejemplo la tienda de Maracaibo no tiene nada que ver con el inventario que maneja a la cual yo le rebo a una tienda de Caracas yo puedo manejar por decir un motor, eso es lo que tiene que tener 35. 30, 40, 35 Pares puede tener 52, porque una temporada buena puede tener 52, pero Margarita yo tengo que tener por ejemplo el triple, porque enviar para Margarita es mucho más costoso, para decirte es 100% más costoso que para Maracaibo, porque entra el pago y los gastos de que se tiene quedar el señor allá durmiendo y Maracayo me cuesta otro y por ejemplo Maracayu serían, si aquí es 40, Maracayo 80 y si es Margarita 120 y la de Caracas según el espacio que tengan es lo que se les pasa, porque más o menos de eso está aquí, que yo sé los espacios que hay en cada tienda y yo sé que Robert tiene un alcance gigante, le puedo mandar un 20 pies de mercancía, pero para que mande un 20 pies de mercancía si venden un 20 pies, pero si yo tengo falta de espacio aquí, yo organizo 20 pies, se los despacho, los muchachos lo llevan en 3350, lo descargan allá y me sirve almacenado y a medida que voy necesitando me voy trayendo para ir surtiendo. Lo mismo me pasó con el CCT, yo tengo costo más o menos grande a los cuales les puedo enviar. Y las tiendas son grandes, ellos tienen capacidad de almacenaje.
+S3: Y al final usted maneja como un almacén.
+S5: Lo tengo como un tercer almacén, un cuarto almacén, un quinto.
+S1: Sirve.
+S3: Vaya, está el hombre rodando para Valencia. Lo para la guardia. De lo que. ¿A quién llama ese hombre?
+S5: Él está suficientemente en contexto para resolver.
+S3: Pero si hay un problema.
+S5: Si hay un problema, llama. ¿Por qué? Porque antes de que suceda, yo le entrego a él la documentación necesaria para que no tengan ningún tipo de problema. Él maneja tanto los comics como los encamer y cualquier otra permisología. Él está pendiente que tenía un permiso. Producto nuevo. Producto nuevo. Va con una liquidación de aduana donde dice que ese producto fue comprado legalmente y él viaja con esa liquidación. Entonces si lo llegan a parar, él está bien, pero bien capacitado para resolver. De hecho ha sucedido que lo par y le dicen, mira, pero es que esto yo no lo veo aquí, esto le salen con un cuento chino. Entonces vas a tener que dejar esa mercancía. ¿Sabes qué? Tú me das esa mercancía, está bien, déjame la mercancía, pero me vas a tener que agarrar el camión completo. No, pero solamente. No, no, aquí me detienes el camión completo. No le voy a llegar al cliente diciéndole que me instaron una sí y otra no. No me detiene. Claro, ellos ven que el volumen del problema en que se van a meter es grande. Dice, no vale, anda a ver cuando es carrera, eso me traes un reflejo, un pan dulce.
+S1: Claro, el señor tiene muchos años aquí y sabe muy bien este negocio, lo conoce muy.
+S5: Por ese lado yo estoy. Tal vez me sale más caro trabajo, pero yo estoy. Yo tengo 30 años trabajando con. Tú le preguntas a Bernardo, o sea, en el último viaje que tú. Él fue el que le hizo el viaje para llevar para el aeropuerto. Tanta la confianza que se le tenía a él que hasta en eso, hasta eso. De hecho, para Margarita estábamos viendo, él estuvo averiguando para enviar un courier, esto, lo otro, si sale más, si sale más barato. ¿Pero qué pasa? Yo con él tengo la que él se para afuera con su ayudante a esperar, mira, son las 11 de la noche, vamos a meter la mercancía. Entonces eso para mí muy valioso. Aparte que él me dice, me va diciendo, mira, voy por el camino, ya me monté en el ferry, mira, ya salí, estoy en la puerta del Zamil entrando a entregar tu mercancía.
+S2: Igual tiene su documentación. Tiene todo. ¿Esa documentación la preparó usted? La revisó y la probó, pero no la preparó.
+S5: ¿Quién la preparó?
+S2: Toda esta papelería, la documentación,.
+S5: Llegó la mercancía nueva. Hay que prepararle esto a Jaime para.
+S1: Que cuando él venga, tenga, pase igual como la tiene.
+S5: Una cuestión así de papelería, que si le dice OK, hay productos que son del año pasado y hay productos que son de este año. Él tiene toda la documentación. Él le dice al Guardia Nacional, párase con su rema tiene revista. Claro, cuando el tipo de no vale, anda, vete, anda, vete. Pero sí, pero si tiene los pares, empiezan a revisar y ¿Dónde está esto? Bueno, yo no soy muy ducho con esto, pero bueno, yo te puedo ayudar aquí. Eso que está buscando, Mira, yo creo que esto. Tiene razón.
+S3: Claro.
+S5: ¿Como se encuentra que dos o tres coinciden? Ya lo deja tranquilo. Esta gente tiene su.
+S3: Los vehículos, mantenimiento de los vehículos, los que los manejan. ¿Es usted?
+S5: Si. El tema de los vehículos generalmente mira, tengo un problemita, o el escape, cabrón, yo bajo, lo reviso yo mismo y llévalo para tal lado, llévalo para tal lado, hazle esto, hazle lo otro. Eso sí me encargo. Siempre ha sido así. No es que lo tengo que hacer.
+S1: De igual manera aquí yo le llevo un registro, de igual manera que yo le llevo un registro de cada uno por carro, día que se le hizo la revisión, la aproximación, cada uno, o sea, de cada uno de los.
+S3: le tiene su Excel con los.
+S1: Mantenimientos que le hace falta.
+S5: Más o menos él sabe con un.
+S2: Recurso interno, si es algo más grande.
+S5: Bueno, está sonando medio raro. Yo creo que la base del motor.
+S2: Y si es algo más grave, algo que él no pueda manejar.
+S5: Tenemos un taller aquí que se encarga de sacarnos los ojos. De sacarnos los ojos, Literalmente nos saca los ojos carísimo. Gente súper confiable.
+S2: bueno, eso está bien. ¿Y la gestión con ellos es con usted?
+S5: Es conmigo. Yo tengo trato con dueño.
+S2: Usted trata con el dueño.
+S3: La última pregunta, ¿En legal tenemos a alguien de legal que lo apoye?
+S5: No, no tenemos nada legal que nos apoye porque.
+S3: Algún apoyo legal, toda esa permisología y todo eso.
+S5: Sí, porque en el caso de Jaime, realmente él es el que me asesora a mí, porque la anda para arriba con los tienes que tener este permiso, voy a comprar un camión, él es el que me va a tramitar todo. Yo hablo con él y él me dice, bueno, yo tengo una persona que me tramita el permiso de rock, un permiso para tránsito de mercadería y todas mis camionetas los tiene. Él fue el que lo gestionó para que no tuviera rol. Esto se hace así. Le conviene ayudar porque yo a veces le doy trabajo en Caracas, tengo tanto trabajo aquí. Mira, llámate a Jaime que haga el despacho de candelaria. Candelaria tenemos dos tiendas, la de San Vi. Bueno, ya tenemos tres, tenemos una Calcio y dos CU. Y las CU manejan mucho volumen cero. Entonces ellos tienen que tener 20 termos, 15 termos de cada uno. Tenemos no sé cuánta referencia de termos, unos 150 referencias, no sé cuánta, pero multiplícalo por 15. El año pasado me tuvo que apoyar en diciembre porque yo hice un pedido muy grande. Las tres camionetas aquí no daban abajo. Aparte que también tenemos que hacer el despacho afro. ¿Sabes que Jaime? Vente para acá, cárgame en tus dos camiones y me llevas la mercancía para la CI. En diciembre aquí esto es atropellado. Atropellado, Atropellado que estamos aquí, entramos a las 8 y salimos a las 8 todos los días de lunes a domingo. El domingo si no vamos. Pero. Hay que calatar. No, pero este año para mí ha sido un poquito más ligero. Ayuda de Elvis y de Jimena.
+S2: ¿Llega usted aún así? Bastante. Aún así.
+S3: Coño, yo creo que sí.
+S2: Sí, sí, yo creo que vamos bien. Creo que estamos bien. Gracias Sr. Vladimir.
+S5: Esperando la poluca.
+S3: Millones de gracias. ¿Y esto me lo puedo llevar?
+S2: Esa pregunta. ¿Esto está en digital? ¿Cómo podemos tener acceso a esto? ¿Elvis?
+S1: Sí, bueno, yo esto lo revisé con la gente de proyectos y bueno, ellos lo revisaron y no a todo fino, igualmente se lo pasé a Vladimir, Pero bueno, está casi todo. Yo lo tengo en DI.
+S3: A los flujitos que tiene, porque ese sí, para tomar fotico.
+S1: También tengo los flujos.
+S3: Si, mándanos eso digital porque tú lo tengas y lo montes.
+S1: Dale, dale, pero es justamente lo que necesitan.
+S3: Coño, me faltó una pregunta, acaba de.
+S4: Llegar,.
+S3: ¿Cómo estamos con la IA? ¿Hacemos algún proceso con IA? ¿Utilizas alguna de las herramientas?
+S5: Bueno, yo la he usado, te voy a ser sincero, hace ahorita tengo la gente de Sencamera haciendo un buen procedimiento y me mandaron a cambiar las etiquetas. ¿Las etiquetas las hice con la guía.
+S3: Con cuál.
+S5: Es la que tengo acceso ahorita? Esa es la que tengo acceso ahorita.
+S3: ¿Y le funcionó bien, papá?
+S5: Sí, bueno, hice varios intentos porque hay una cosa que no me gusta. Está pasando algo raro. Entraba modificada ahora sí.
+S1: ¿Y estamos con el curso de Maya, pues todavía está con Maya, no? Esperando a ver si ya lo instalan y vamos a.
+S3: OK. Y creo que este ya. Esto está buenísimo porque.
+S1: Listo, listo.
+S3: Nos da una luz en el proceso.
+S5: El de la inteligencia es. Y pongo los números allá y eso debería coincidir hasta que el hombre agarre ya la.
+S3: ¿Y dónde está usted?
+S5: Yo estoy en Presidencia, Bernardo, la oficina de Alejandro, la mía y la de Jaime. Yo estoy entre Jaime y el.
+S1: Soy. Y esto, trabajar con procedimientos manuales es natural. Y por eso habla de una vez. Apenas llegué una vez empecé a mostrar para poder conocer el proceso.
+S5: Claro, porque eso era lo que realmente nosotros estábamos buscando. Necesitamos una persona profesional en este departamento para que manejara y le diera lo que realmente necesitaba la empresa. Y él ha ido, hemos ido avanzando, hay ciertas cosas que todavía no hemos conseguido, pero estamos trabajando en eso. Bueno, yo lo dejo porque el deber llama.
+S2: Con planas, o sea, escribe planas después.
+S3: De Jesús.
+S2: Malabé, con B de Venezuela, Cs de Ciencias Sociales, Cs arroba email.

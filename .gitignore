@@ -34,3 +34,4 @@ supabase/.temp/
 .dev.vars*
 !.dev.vars.example
 !.env.example
+.borradores-fase2-macros1-5/

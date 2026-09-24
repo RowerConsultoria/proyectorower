@@ -209,6 +209,14 @@
 // recibe; y el % de garantías sobre sell-out viene subiendo de menos de 1,5%
 // histórico a cerca de 3,5% en algunos productos.
 //
+// Macros 1 a 5 (los estratégicos) — COMPLETOS en versión To-Be, 24-sep-2026: los
+// 32 procesos + N0 de cada macro, rederivados con el corpus completo (incluidas
+// las 44 entrevistas recuperadas de Supabase) y los documentos de Lark de PMO,
+// pruebas de producto, sistemas, cultura y compras. Dueños corregidos con
+// evidencia donde el mapa v18 fallaba (p. ej. macro 3: la dirección de marca
+// propia, no marketing — corrección de la Presidencia, SC-10). Se validan en la
+// Junta Directiva, no solo con los gerentes (SC-10).
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
@@ -7705,90 +7713,332 @@ window.MANUAL_CONTENIDO = {
 
  "1": {
   "n0": {
-
    "introduccion": {
     "estado": "borrador",
     "proposito": "Este manual describe cómo se dirige y se gobierna Grupo Kenex: cómo se define el rumbo a tres años, cómo se convierte en metas e indicadores, cómo se reúnen y deciden sus órganos, cómo se le da seguimiento a lo acordado y cómo se ordena la relación entre la familia propietaria y la empresa. Sirve como referencia única para que la Junta Directiva, los directores y la primera línea gerencial compartan las mismas reglas de gobierno y no dependan de lo que cada quien recuerde.",
     "alcance": "Desde la sesión estratégica anual de los accionistas hasta el cierre de los acuerdos de gobierno, incluidos el modelo organizativo y la línea rectora corporativa, la sucesión de la línea directiva, el gobierno de los socios y de las operaciones tercerizadas, y la comunicación institucional y la cultura. No incluye la operación de las funciones —ventas, compras, finanzas, talento— que este macroproceso orienta pero que documentan sus propios manuales.",
     "audiencia": [
      "Presidente de Junta Directiva",
-     "Accionistas y Directores de la familia",
+     "Comité Directivo",
      "Director(a) Externo(a) de Junta Directiva",
      "Director(a) de Finanzas del Grupo",
      "Asistente Ejecutivo(a) de la Presidencia",
-     "Gerentes regionales por función",
+     "Gerentes de primera línea",
      "Gerente de Recursos Humanos",
-     "Gerente de Proyectos"
+     "Gerente de Proyectos (PMO)"
     ]
    },
-
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "Dirección y Gobierno Corporativo es el macroproceso estratégico que orienta a todos los demás. Fija hacia dónde va el grupo —hacer crecer Cubitt, la marca propia, y volver a hacer crecer Casio, la marca representada, en un horizonte de tres años—, decide cómo se organiza para llegar allí y le da seguimiento a lo decidido. Los macroprocesos operativos y de soporte reciben de él el plan, las metas y el modelo organizativo, y le devuelven los resultados que le permiten revisarlos.\n\nGrupo Kenex es una empresa familiar con operación en Venezuela, Panamá, Colombia, Costa Rica, Guatemala y Estados Unidos, dirigida por los hermanos y los sobrinos de la familia propietaria y acompañada por directores externos y asesores. Esa condición marca el gobierno: las decisiones se toman con rapidez y en conversaciones directas, los directores están conectados casi de forma permanente aunque estén en países distintos, y las instancias formales —Junta Directiva, comités— conviven con espacios informales que hoy son los que más deciden.\n\nEl grupo está pasando de esa forma de decidir a un gobierno corporativo más estructurado: se formalizan las sesiones, se ordena el registro de los acuerdos, se actualiza el protocolo familiar y se define qué se rige desde el centro y qué desde cada país. Este manual recoge tanto lo que ya existe como lo que está por implementarse, y distingue cada caso en la ficha de cada proceso.",
+    "ubicacion": "Dirección y Gobierno Corporativo es el macroproceso estratégico que orienta a todos los demás. Fija hacia dónde va el grupo —hacer crecer Cubitt, la marca propia, y volver a hacer crecer Casio, la marca representada, en un horizonte de tres años—, decide cómo se organiza para llegar allí y le da seguimiento a lo decidido. Los macroprocesos operativos y de soporte reciben de él el plan, las metas y el modelo organizativo, y le devuelven los resultados que le permiten revisarlos.\n\nGrupo Kenex es una empresa familiar con operación en Venezuela, Panamá, Colombia, Costa Rica, Guatemala y Estados Unidos, dirigida por los hermanos y los sobrinos de la familia propietaria y acompañada por directores externos y asesores. Esa condición marca el gobierno: las decisiones se toman con rapidez y en conversaciones directas, los directores están conectados casi de forma permanente aunque estén en países distintos, y las instancias formales —Junta Directiva, comités— conviven con espacios informales que hoy son los que más deciden.\n\nEl grupo está pasando de esa forma de decidir a un gobierno corporativo más estructurado: se formalizan las sesiones, se ordena el registro de los acuerdos, se actualiza el protocolo familiar y se define qué se rige desde el centro y qué desde cada país. Este manual describe cómo deben operar sus procesos: parte de lo que ya existe —la sesión estratégica de enero, el Comité de Finanzas quincenal, el registro de pendientes de la Presidencia— y le suma lo que falta para que funcione sin depender de la memoria de cada quien. Cada proceso aclara qué parte ya ocurre y qué parte se incorpora.\n\nPor ser estratégico, este macroproceso se valida en la Junta Directiva y no solo con los gerentes: así lo pidió la Presidencia para los macroprocesos de dirección, planeación comercial, desarrollo de producto, portafolio de proyectos y adopción de inteligencia artificial.",
     "duenos": [
-     ["Grupo", "Presidente de Junta Directiva", "Preside la Junta Directiva, convoca la sesión estratégica anual, conduce las sesiones y emite los mensajes institucionales del grupo."],
-     ["Grupo", "Accionistas y Directores de la familia", "Definen y aprueban el plan estratégico, deciden en la Junta y en el Comité Directivo y ejecutan cada uno la ruta del plan en el frente que dirigen."],
-     ["Grupo", "Director(a) Externo(a) de Junta Directiva", "Modera la sesión estratégica y redacta el plan, custodia el protocolo familiar y facilita los ejercicios de sucesión y de modelo organizativo."],
-     ["Grupo", "Director(a) de Finanzas del Grupo", "Preside la preparación del Comité de Finanzas, propone el cuadro de indicadores de la Junta y recibe el reporte de los socios y las filiales."],
-     ["Presidencia", "Asistente Ejecutivo(a) de la Presidencia", "Arma las agendas, convoca las sesiones, registra las decisiones y da seguimiento a los pendientes de la Presidencia y de la Junta."],
-     ["Función", "Gerente de Recursos Humanos", "Mantiene el organigrama, evalúa el ajuste de los ocupantes de las posiciones críticas y conduce la actualización de la identidad; su rol corporativo aún no está constituido."]
+     [
+      "Grupo",
+      "Presidente de Junta Directiva",
+      "Preside la Junta Directiva, convoca la sesión estratégica anual, conduce las sesiones y emite los mensajes institucionales del grupo."
+     ],
+     [
+      "Grupo",
+      "Comité Directivo",
+      "Los cinco directores de la familia: definen el plan dentro de la Junta, dirigen cada uno un frente —compras, comercial, desarrollo de producto, administración— y coordinan entre sí las decisiones del día a día."
+     ],
+     [
+      "Grupo",
+      "Director(a) Externo(a) de Junta Directiva",
+      "Modera la sesión estratégica y redacta el plan, custodia el protocolo familiar y facilita los ejercicios de sucesión y de modelo organizativo."
+     ],
+     [
+      "Grupo",
+      "Director(a) de Finanzas del Grupo",
+      "Preside la preparación del Comité de Finanzas, propone el cuadro de indicadores de la Junta y recibe el reporte de los socios y las filiales."
+     ],
+     [
+      "Presidencia",
+      "Asistente Ejecutivo(a) de la Presidencia",
+      "Arma las agendas, convoca las sesiones, registra las decisiones y da seguimiento a los pendientes de la Presidencia y de la Junta."
+     ],
+     [
+      "Función",
+      "Gerente de Recursos Humanos",
+      "Mantiene el organigrama y las descripciones de cargo, conduce el mapa de posiciones críticas y la identidad del grupo; la gerencia corporativa de la función se incorpora en octubre de 2026."
+     ]
     ],
     "entidades": [
-     ["Kenex (compañía madre del grupo)", "Panamá", "Holding", "Concentra el financiamiento del grupo y de sus operaciones; su endeudamiento es un tema recurrente del Comité de Finanzas."],
-     ["Distribuidora Rower, C.A.", "Venezuela", "Operación propia", "Sede de la Presidencia y de buena parte de las decisiones del grupo; opera con un régimen cambiario propio."],
-     ["Kenex Trading, S.A.", "Panamá (Zona Libre de Colón)", "Operación propia — exportación", "Solo puede vender al exterior por su licencia de Zona Libre; no puede facturar directo al mercado panameño."],
-     ["Casiolandia (Panamá), S.A.", "Panamá", "Operación propia — retail", "Opera las tiendas propias de Panamá."],
-     ["Deltadir SAS", "Colombia", "Operación propia", "Opera Cubitt Colombia desde Bogotá y no tiene empleados directos: sus 40 personas en nómina están vinculadas a través de GOLD RH, la empresa de servicios de personal que las contrata en su propio nombre. Cuenta con una reunión semanal de seguimiento con la Presidencia y la dirección financiera y comercial, y con un plan estratégico de país 2026–2028."],
-     ["Importbel, S.A.", "Costa Rica", "Socio al 50 %", "Opera su propio negocio con ERP propio, le compra al grupo como cliente y rinde reportes financieros; el grupo busca que lleguen en sus formatos."],
-     ["Kenex USA", "Estados Unidos", "Filial con personalidad jurídica propia", "Opera con estructura y sistemas propios y reporta sus estados financieros a la Junta."],
-     ["Operador tercerizado de Guatemala", "Guatemala", "Operación tercerizada bajo marca", "El operador administra las tiendas bajo las políticas del grupo a cambio de un fee; el grupo mantiene un country manager para las ventas al mayor."]
+     [
+      "Kenex (compañía madre del grupo)",
+      "Panamá",
+      "Holding",
+      "Concentra el financiamiento del grupo y de sus operaciones; su endeudamiento es un tema recurrente del Comité de Finanzas."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Operación propia",
+      "Sede de la Presidencia y de buena parte de las decisiones del grupo; opera con un régimen cambiario propio."
+     ],
+     [
+      "Kenex Trading, S.A.",
+      "Panamá (Zona Libre de Colón)",
+      "Operación propia — exportación",
+      "Solo puede vender al exterior por su licencia de Zona Libre; no puede facturar directo al mercado panameño."
+     ],
+     [
+      "Casiolandia (Panamá), S.A.",
+      "Panamá",
+      "Operación propia — retail",
+      "Opera las tiendas propias de Panamá."
+     ],
+     [
+      "Deltadir SAS",
+      "Colombia",
+      "Operación propia",
+      "Opera Cubitt Colombia desde Bogotá y no tiene empleados directos: sus 40 personas en nómina están vinculadas a través de GOLD RH, la empresa de servicios de personal que las contrata en su propio nombre. Cuenta con una reunión semanal de seguimiento con la Presidencia y la dirección financiera y comercial, y con un plan estratégico de país 2026–2028."
+     ],
+     [
+      "Importbel, S.A.",
+      "Costa Rica",
+      "Socio al 50 %",
+      "Opera su propio negocio con ERP propio, le compra al grupo como cliente y rinde reportes financieros; el grupo busca que lleguen en sus formatos."
+     ],
+     [
+      "Kenex USA",
+      "Estados Unidos",
+      "Filial con personalidad jurídica propia",
+      "Opera con estructura y sistemas propios y reporta sus estados financieros a la Junta."
+     ],
+     [
+      "Operador tercerizado de Guatemala",
+      "Guatemala",
+      "Operación tercerizada bajo marca",
+      "El operador administra las tiendas bajo las políticas del grupo a cambio de un fee; el grupo mantiene un country manager para las ventas al mayor."
+     ]
     ],
     "sistemas": [
-     ["WhatsApp", "Canal principal de convocatoria a las sesiones, de circulación de agendas y resúmenes, y de comunicación de las decisiones; el grupo mantiene unos 300 grupos sin un orden común. Es una aplicación de un tercero; no hay evidencia de un canal oficial distinto para las decisiones de gobierno.", "1.3 · 1.4 · 1.9"],
-     ["Lark", "Comunicación interna, reuniones y documentos donde la asistente de la Presidencia lleva tareas con recordatorios; la Junta lo usa poco y sigue prefiriendo la mensajería.", "1.3 · 1.4 · 1.9"],
-     ["Base de seguimiento de la Presidencia", "Registro tipo grilla, con dueños por tema, donde la asistente de la Presidencia sigue los pendientes de la Presidencia y de la Junta; lo consultan pocos directores. No hay evidencia de en qué herramienta vive ni de quién más tiene acceso.", "1.3 · 1.4"],
-     ["Lark Base de la oficina de proyectos", "Registro de todos los proyectos, iniciativas y tareas, con fechas, avance, hito de la semana y responsable; de allí sale cada viernes a las 4 de la tarde un resumen automático de estado que se envía por correo a la Junta Directiva.", "1.4"],
-     ["Claude", "La asistente de la Presidencia lo usa para redactar las minutas de algunas reuniones; el grupo paga licencias y la Junta lo impulsa como herramienta de trabajo. Hay una preocupación abierta sobre qué datos del grupo se cargan en la herramienta.", "1.3 · 1.4"],
-     ["Excel", "Formato en que se presenta a la Junta el resultado financiero y el seguimiento de los países; hoy suele abrirse en la propia sesión, sin una presentación preparada.", "1.2 · 1.3"],
-     ["Odoo", "Fuente de los estados financieros al día con que se revisa el presupuesto; Venezuela aún completa su implantación.", "1.2 · 1.8"]
+     [
+      "WhatsApp",
+      "Canal principal de convocatoria a las sesiones, de circulación de agendas y resúmenes, y de comunicación de las decisiones; el grupo mantiene unos 300 grupos sin un orden común. Es una aplicación de un tercero; no hay evidencia de un canal oficial distinto para las decisiones de gobierno.",
+      "1.3 · 1.4 · 1.9"
+     ],
+     [
+      "Lark",
+      "Comunicación interna, reuniones y documentos donde la asistente de la Presidencia lleva tareas con recordatorios; la Junta lo usa poco y sigue prefiriendo la mensajería.",
+      "1.3 · 1.4 · 1.9"
+     ],
+     [
+      "Base de seguimiento de la Presidencia",
+      "Registro tipo grilla, con dueños por tema, donde la asistente de la Presidencia sigue los pendientes de la Presidencia y de la Junta; lo consultan pocos directores. No hay evidencia de en qué herramienta vive ni de quién más tiene acceso.",
+      "1.3 · 1.4"
+     ],
+     [
+      "Lark Base de la oficina de proyectos",
+      "Registro de todos los proyectos, iniciativas y tareas, con fechas, avance, hito de la semana y responsable; de allí sale cada viernes a las 4 de la tarde un resumen automático de estado que se envía por correo a la Junta Directiva.",
+      "1.4"
+     ],
+     [
+      "Claude",
+      "La asistente de la Presidencia lo usa para redactar las minutas de algunas reuniones; el grupo paga licencias y la Junta lo impulsa como herramienta de trabajo. Hay una preocupación abierta sobre qué datos del grupo se cargan en la herramienta.",
+      "1.3 · 1.4"
+     ],
+     [
+      "Excel",
+      "Formato en que se presenta a la Junta el resultado financiero y el seguimiento de los países; hoy suele abrirse en la propia sesión, sin una presentación preparada.",
+      "1.2 · 1.3"
+     ],
+     [
+      "Odoo",
+      "Fuente de los estados financieros al día con que se revisa el presupuesto; Venezuela aún completa su implantación.",
+      "1.2 · 1.8"
+     ]
     ],
     "interfaces": [
-     ["Todos los macroprocesos funcionales", "Salida", "El plan estratégico, los objetivos, el cuadro de indicadores y el modelo organizativo vigente; reciben a cambio los resultados con que la Junta revisa el avance."],
-     ["Administración y Finanzas / Contabilidad", "Entrada", "Estados financieros, presupuesto, forecast, caja y endeudamiento que se revisan en el Comité de Finanzas y en la Junta."],
-     ["Gestión del Talento Humano", "Salida / coordinación", "Organigrama aprobado, mapa de posiciones críticas y planes de sucesión, e identidad y cultura del grupo."],
-     ["Gobierno de Portafolio (PMO)", "Salida", "Acuerdos de la Junta que derivan en proyecto, con su prioridad; la PMO devuelve un resumen de avance."],
-     ["Adopción de IA y Transformación Digital", "Salida", "La orientación estratégica y los valores de la organización con que debe vincularse la política de adopción de inteligencia artificial."],
-     ["Gestión de Mercadeo y Comunicaciones", "Salida / coordinación", "Mensaje institucional y material de identidad para su difusión."],
-     ["Socios, operadores tercerizados y distribuidores", "Entrada", "Reportes financieros y comerciales mensuales de las unidades que no son de operación propia directa."]
+     [
+      "Todos los macroprocesos funcionales",
+      "Salida",
+      "El plan estratégico, los objetivos, el cuadro de indicadores y el modelo organizativo vigente; reciben a cambio los resultados con que la Junta revisa el avance."
+     ],
+     [
+      "Administración y Finanzas / Contabilidad",
+      "Entrada",
+      "Estados financieros, presupuesto, forecast, caja y endeudamiento que se revisan en el Comité de Finanzas y en la Junta."
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Salida / coordinación",
+      "Organigrama aprobado, mapa de posiciones críticas y planes de sucesión, e identidad y cultura del grupo."
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Salida",
+      "Acuerdos de la Junta que derivan en proyecto, con su prioridad; la PMO devuelve un resumen de avance."
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Salida",
+      "La orientación estratégica y los valores de la organización con que debe vincularse la política de adopción de inteligencia artificial."
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Salida / coordinación",
+      "Mensaje institucional y material de identidad para su difusión."
+     ],
+     [
+      "Socios, operadores tercerizados y distribuidores",
+      "Entrada",
+      "Reportes financieros y comerciales mensuales de las unidades que no son de operación propia directa."
+     ]
     ]
    },
-
    "gobernanza": {
     "estado": "borrador",
     "actores": [
-     ["Presidente de Junta Directiva", "Grupo", "Preside la Junta Directiva y el Comité Directivo, convoca la sesión estratégica anual y emite los comunicados institucionales.", "Temas de agenda, convocatoria y conducción de las sesiones, y el mensaje institucional.", "Las decisiones de fondo se llevan a la Junta Directiva o al Comité Directivo."],
-     ["Accionistas y Directores de la familia", "Grupo", "Definen el plan, deciden en la Junta y en el Comité Directivo y dirigen los frentes de compras, comercial y desarrollo de producto.", "Decisiones de su frente y las que se acuerdan en Junta o Comité; el plan se aprueba entre ellos.", "Al Comité Directivo o a la Junta cuando la decisión cruza frentes o países."],
-     ["Director(a) Externo(a) de Junta Directiva", "Grupo", "Modera la sesión estratégica y redacta el plan, custodia el protocolo familiar y facilita los ejercicios de sucesión y de modelo organizativo.", "Sin decisión propia sobre el negocio; propone y facilita.", "A la Junta Directiva."],
-     ["Asesor(a) Externo de Finanzas y Auditoría", "Grupo", "Participa en la Junta y en los comités de finanzas de los países, revisa documentos legales y participa en la selección del personal administrativo y contable.", "Sin decisión propia; asesora.", "A la Junta y al Comité de Finanzas."],
-     ["Director(a) de Finanzas del Grupo", "Grupo", "Propone el cuadro de indicadores, presenta los estados financieros y el endeudamiento, y recibe el reporte de socios y filiales.", "Formato y contenido del reporte financiero que se exige a las unidades.", "Al Comité de Finanzas y a la Junta."],
-     ["Asistente Ejecutivo(a) de la Presidencia", "Presidencia", "Arma las agendas, convoca, registra las decisiones y da seguimiento a los pendientes; canaliza los comunicados de la Presidencia.", "Orden de los temas dentro de la agenda, con el criterio que le indica la Presidencia.", "A la Presidencia."],
-     ["Country Manager", "País", "Responde por los resultados del país y por los equipos locales que le reportan; en la matriz del grupo comparte la autoridad sobre esos equipos con los líderes regionales de cada función.", "Decisiones del país que no requieren alinearse con una función regional.", "A la Junta Directiva."],
-     ["Gerente de Proyectos", "Grupo", "Recibe los requerimientos de la Junta que derivan en proyecto, evalúa su factibilidad y asigna gerente de proyecto.", "Si un requerimiento es proyecto, iniciativa o tarea, según el criterio de la oficina de proyectos.", "A la Junta cuando el requerimiento exige recursos o prioridad."],
-     ["Gerente de Recursos Humanos", "Grupo", "Mantiene el organigrama, evalúa el ajuste de los ocupantes de posiciones críticas y conduce la actualización de la identidad.", "Sin decisión de nombramiento sobre posiciones clave.", "A la Junta Directiva."]
+     [
+      "Presidente de Junta Directiva",
+      "Grupo",
+      "Preside la Junta Directiva y el Comité Directivo, convoca la sesión estratégica anual y emite los comunicados institucionales.",
+      "Temas de agenda, convocatoria y conducción de las sesiones, y el mensaje institucional.",
+      "Las decisiones de fondo se llevan a la Junta Directiva o al Comité Directivo."
+     ],
+     [
+      "Comité Directivo",
+      "Grupo",
+      "Los cinco directores de la familia; definen el plan dentro de la Junta y dirigen los frentes de compras, comercial, desarrollo de producto y administración.",
+      "Decisiones de su frente y las que acuerdan entre ellos; toda decisión tomada fuera de sesión se informa al registro de acuerdos el mismo día.",
+      "A la Junta Directiva cuando la decisión compromete inversión, cruza frentes o países, o debe conocerla un miembro externo."
+     ],
+     [
+      "Director(a) Externo(a) de Junta Directiva",
+      "Grupo",
+      "Modera la sesión estratégica y redacta el plan, custodia el protocolo familiar y facilita los ejercicios de sucesión y de modelo organizativo.",
+      "Sin decisión propia sobre el negocio; propone y facilita.",
+      "A la Junta Directiva."
+     ],
+     [
+      "Asesor(a) Externo de Finanzas y Auditoría",
+      "Grupo",
+      "Participa en la Junta y en los comités de finanzas de los países, revisa documentos legales y participa en la selección del personal administrativo y contable.",
+      "Sin decisión propia; asesora.",
+      "A la Junta y al Comité de Finanzas."
+     ],
+     [
+      "Director(a) de Finanzas del Grupo",
+      "Grupo",
+      "Propone el cuadro de indicadores, presenta los estados financieros y el endeudamiento, y recibe el reporte de socios y filiales.",
+      "Formato y contenido del reporte financiero que se exige a las unidades.",
+      "Al Comité de Finanzas y a la Junta."
+     ],
+     [
+      "Asistente Ejecutivo(a) de la Presidencia",
+      "Presidencia",
+      "Arma las agendas, convoca, registra las decisiones y da seguimiento a los pendientes; canaliza los comunicados de la Presidencia.",
+      "Orden de los temas dentro de la agenda, con el criterio que le indica la Presidencia.",
+      "A la Presidencia."
+     ],
+     [
+      "Country Manager",
+      "País",
+      "Responde por los resultados del país y por los equipos locales que le reportan; en la matriz del grupo comparte la autoridad sobre esos equipos con los líderes regionales de cada función.",
+      "Decisiones del país que no requieren alinearse con una función regional.",
+      "A la Junta Directiva."
+     ],
+     [
+      "Gerente de Proyectos",
+      "Grupo",
+      "Recibe los requerimientos de la Junta que derivan en proyecto, evalúa su factibilidad y asigna gerente de proyecto.",
+      "Si un requerimiento es proyecto, iniciativa o tarea, según el criterio de la oficina de proyectos.",
+      "A la Junta cuando el requerimiento exige recursos o prioridad."
+     ],
+     [
+      "Gerente de Recursos Humanos",
+      "Grupo",
+      "Gerencia corporativa que se incorpora en octubre de 2026: mantiene el organigrama y las descripciones de cargo, conduce el mapa de posiciones críticas y coordina el comité de cultura.",
+      "Propuestas de estructura y de sucesión; no nombra posiciones clave.",
+      "A la Presidencia y a la Junta Directiva."
+     ]
     ],
     "comites": [
-     ["Junta Directiva", "Decidir el rumbo del grupo, revisar el avance frente al plan y aprobar lo que el grupo decide como órgano colegiado.", "Mensual o cada dos semanas como deber ser; en la práctica, sin frecuencia fija", "Accionistas y Directores de la familia (cinco) · Director(a) Externo(a) de Junta Directiva · Asesor(a) Externo de Finanzas y Auditoría · Director(a) de Finanzas del Grupo", "Rumbo del grupo, aprobación del presupuesto y del endeudamiento, modelo organizativo, sucesión", "Agenda de una página y resumen de temas pendientes", "Decisiones comunicadas por mensajería; sin acta formal"],
-     ["Comité Directivo", "Coordinar el día a día de las decisiones entre los directores de la familia y decidir lo que no espera a la Junta.", "Sin frecuencia fija; se convoca por mensajería cuando hay un tema", "Los cinco accionistas y directores de la familia", "Decisiones operativas y estratégicas de los frentes de la familia", "Temas planteados en el grupo de mensajería", "Cada quien asume su parte; sin registro formal"],
-     ["Comité de Finanzas", "Revisar los estados financieros, el endeudamiento, la caja y las proyecciones.", "Quincenal", "Presidente de Junta Directiva · Director(a) de Finanzas del Grupo · directores externos · Asesor(a) Externo de Finanzas y Auditoría", "Endeudamiento, caja, presupuesto y su ajuste", "Estados financieros y proyección de caja", "Decisiones financieras y seguimiento de pendientes"],
-     ["Comité de Compras", "Decidir las compras y el desarrollo de producto, y evaluar las propuestas de los proveedores antes de negociar; funciona de manera informal.", "Sin evidencia de frecuencia", "Director(a) de R&D y Producto (preside) · Gerencia Comercial · Product Managers · Gerentes de Venta", "Compras internacionales, desarrollos de producto y decisiones de alto impacto", "Propuestas de proveedores que presentan los Product Managers", "Órdenes de compra y desarrollos aprobados; sus conversaciones no quedan en un formato registrado"],
-     ["Comité Comercial", "Coordinar la actividad comercial del grupo.", "No está formalizado", "Directores de la familia a cargo de lo comercial y gerentes comerciales", "Decisiones comerciales entre países y canales", "Seguimiento comercial", "Sin registro formal"],
-     ["Reunión de gerentes de primera línea", "Reunir a los gerentes que reportan a la Junta —Finanzas, Sistemas, Marketing, Proyectos, Ventas al Detal, Ventas al Mayor y Recursos Humanos— para coordinar la gestión.", "Sin evidencia de frecuencia", "Gerentes de primera línea", "Coordinación entre funciones", "Temas de cada gerencia", "Sin evidencia de registro"],
-     ["Reunión semanal de seguimiento de Colombia", "Dar seguimiento a la operación de Colombia.", "Semanal", "Gerente general de la operación de Colombia · Presidente · Director(a) de Finanzas del Grupo · directores de compras y comercial · marketing", "Ajustes a la operación de Colombia", "Resultados semanales de la operación", "Acuerdos con seguimiento de la asistente de la Presidencia"],
-     ["Consejo de familia y consejo de accionistas", "Regular la relación entre la familia y la empresa según el protocolo familiar.", "Una o dos veces al año como deber ser; aún en definición", "Accionistas y miembros de la familia consanguíneos", "Asuntos de la relación familia-empresa", "Protocolo familiar", "Información de la marcha de la empresa a la familia"],
-     ["Comité de Cultura (en conformación)", "Actualizar la identidad y la cultura del grupo como Kenex, más allá de cada marca.", "Por definir", "Recursos Humanos, Marketing y directores de la familia", "Misión, visión y valores", "Documento de cultura vigente, hoy desactualizado", "Identidad actualizada del grupo"]
+     [
+      "Junta Directiva",
+      "Decidir el rumbo del grupo, revisar cada mes el cuadro de indicadores y aprobar lo que compromete inversión, estructura o sucesión.",
+      "Mensual, con calendario anual publicado en enero; hoy sin frecuencia fija",
+      "Los cinco directores de la familia · dos directores externos · Director(a) de Finanzas del Grupo; asesor jurídico cuando se le convoca",
+      "Rumbo del grupo, aprobación del presupuesto y del endeudamiento, modelo organizativo, sucesión",
+      "Agenda de una página y resumen de temas pendientes",
+      "Acta con decisión, responsable y fecha, distribuida en 48 horas; hoy las decisiones se comunican por mensajería"
+     ],
+     [
+      "Comité Directivo",
+      "Coordinar las decisiones del día a día entre los cinco directores de la familia.",
+      "Sin frecuencia fija; se convoca por mensajería cuando hay un tema",
+      "Los cinco accionistas y directores de la familia",
+      "Decisiones de los frentes que dirigen; lo que compromete inversión o cruza países va a la Junta",
+      "Temas planteados en el grupo de mensajería",
+      "Toda decisión se informa el mismo día al registro de acuerdos; hoy cada quien asume su parte sin registro"
+     ],
+     [
+      "Comité de Finanzas",
+      "Revisar los estados financieros, el endeudamiento, la caja y las proyecciones.",
+      "Quincenal, los miércoles; se reprograma dentro de la semana pero no se suspende",
+      "Los cinco directores de la familia · dos directores externos · Director(a) de Finanzas del Grupo · jefatura de contabilidad del país que presenta",
+      "Endeudamiento, caja, presupuesto y su ajuste",
+      "Cierre contable alterno de las entidades de Panamá, proyección de caja y endeudamiento",
+      "Decisiones financieras y seguimiento de pendientes"
+     ],
+     [
+      "Comité de Compras (marca propia)",
+      "Decidir las compras y el desarrollo de producto, y evaluar las propuestas de los proveedores antes de negociar; funciona de manera informal.",
+      "Sin frecuencia fija; se reúne cuando coinciden sus miembros",
+      "Director(a) de Marca Propia (Cubitt) (preside) · directores comerciales · gerencia regional de planificación comercial · coordinación de planificación de Venezuela cuando se le convoca",
+      "Compras internacionales, desarrollos de producto y decisiones de alto impacto",
+      "Propuestas de proveedores que presentan los Product Managers",
+      "Órdenes de compra y desarrollos aprobados; sus conversaciones no quedan en un formato registrado"
+     ],
+     [
+      "Comité de Estrategia Comercial",
+      "Decidir precio por mercado, curación del portafolio y apuestas comerciales de la marca propia con la visión de mercado, de números y de producto en la misma mesa.",
+      "Sin frecuencia fija",
+      "Director(a) Comercial del Grupo · Director(a) de Marca Propia (Cubitt) · gerencia comercial regional · Director(a) Comercial Mayorista (Cubitt) · gerencia regional de planificación comercial",
+      "Precios por mercado, portafolio, calendario de lanzamientos",
+      "Datos de mercado y competencia, márgenes y costos",
+      "Decisiones que hoy no quedan registradas"
+     ],
+     [
+      "Reunión de gerentes de primera línea",
+      "Reunir a los gerentes que reportan a la Junta —Finanzas, Sistemas, Marketing, Proyectos, Ventas al Detal, Ventas al Mayor y Recursos Humanos— para coordinar la gestión.",
+      "Sin evidencia de frecuencia",
+      "Gerentes de primera línea",
+      "Coordinación entre funciones",
+      "Temas de cada gerencia",
+      "Sin evidencia de registro"
+     ],
+     [
+      "Reunión semanal de seguimiento de Colombia",
+      "Dar seguimiento a la operación de Colombia.",
+      "Semanal, los martes",
+      "Gerente general de la operación de Colombia · Presidente · Director(a) de Finanzas del Grupo · directores de compras y comercial · marketing",
+      "Ajustes a la operación de Colombia",
+      "Cuadro de metas del año por canal, mes a mes, con acumulado y semáforo",
+      "Acuerdos con seguimiento de la asistente de la Presidencia"
+     ],
+     [
+      "Consejo de familia y consejo de accionistas",
+      "Regular la relación entre la familia y la empresa según el protocolo familiar.",
+      "Una o dos veces al año como deber ser; aún en definición",
+      "Accionistas y miembros de la familia consanguíneos",
+      "Asuntos de la relación familia-empresa",
+      "Protocolo familiar",
+      "Información de la marcha de la empresa a la familia"
+     ],
+     [
+      "Comité de Cultura (en conformación)",
+      "Actualizar la identidad y la cultura del grupo como Kenex, más allá de cada marca.",
+      "Por definir",
+      "Recursos Humanos, Marketing y directores de la familia",
+      "Misión, visión y valores",
+      "Documento de cultura vigente, hoy desactualizado",
+      "Identidad actualizada del grupo"
+     ]
     ]
    },
-
    "marco": {
     "estado": "borrador",
     "principios": [
@@ -7800,11 +8050,11 @@ window.MANUAL_CONTENIDO = {
     ],
     "politicas": [
      "Sesión estratégica anual: los accionistas y directores de la familia se reúnen en las primeras semanas del año, con un director externo como moderador, para preparar la estrategia del año y el plan a tres años.",
-     "Comité de Finanzas quincenal: se revisan los estados financieros, el endeudamiento y la caja, y se hace seguimiento de los pendientes de la sesión anterior.",
+     "Comité de Finanzas quincenal: sesiona cada dos semanas los miércoles, con el cierre contable y la caja de las entidades; si no puede celebrarse el día previsto se reprograma dentro de la semana, pero no se suspende.",
      "Presupuesto anual y forecast: el presupuesto se define para los doce meses, se revisa mensualmente y a mitad de año se ajusta con los estados financieros disponibles.",
      "Reporte financiero de socios y filiales: el socio de Costa Rica y la filial de Estados Unidos entregan reporte financiero al grupo, en el formato que el grupo define.",
      "Acuerdos de confidencialidad: el equipo firma acuerdos de confidencialidad y el grupo firma contratos con las fábricas, como parte del ordenamiento legal que la Presidencia impulsó.",
-     "Seguimiento semanal de Colombia: la operación de Colombia se revisa en una reunión semanal con participación de la Presidencia y de las direcciones financiera y comercial.",
+     "Seguimiento semanal de Colombia: la operación de Colombia se revisa todos los martes con la Presidencia y las direcciones financiera y comercial, sobre un cuadro de metas del año por canal con semáforo.",
      "Requerimientos de la Junta a la oficina de proyectos: lo que la Junta Directiva decide que debe implementarse se canaliza a la oficina de proyectos con su prioridad, y esta evalúa su factibilidad y asigna un gerente de proyecto.",
      "Reporte semanal de proyectos a la Junta: cada viernes a las 4 de la tarde la oficina de proyectos envía por correo a los miembros de la Junta un resumen automático del estado de los proyectos y de los lanzamientos, generado desde su base de proyectos."
     ],
@@ -7817,659 +8067,11693 @@ window.MANUAL_CONTENIDO = {
      "Buena práctica de registro de decisiones (guías de secretaría de juntas, como las de NACD y Diligent): las actas recogen decisiones, responsables y plazos, se distribuyen dentro de las 48 horas siguientes y su seguimiento se reporta en la sesión siguiente."
     ]
    },
-
    "agenda": {
     "estado": "borrador",
-    "nota": "De los 9 procesos, 5 son to-be (1.2, 1.4, 1.5, 1.6 y 1.9) y 4 son híbridos (1.1, 1.3, 1.7 y 1.8); ninguno es as-is. El macroproceso no parte de cero —hay una sesión estratégica anual, un Comité de Finanzas que se reúne con regularidad y una capa corporativa en varias funciones—, pero lo que falta es dejar por escrito, registrar y sostener lo que hoy ocurre de manera informal. Las acciones no llevan fecha porque el equipo no las ha acordado.",
+    "nota": "De los 9 procesos, 5 son a implementar (1.2, 1.4, 1.5, 1.6 y 1.9) y 4 están en transición (1.1, 1.3, 1.7 y 1.8); ninguno opera hoy completo. El macroproceso no parte de cero —hay una sesión estratégica anual, un Comité de Finanzas que no se suspende, un registro de pendientes de la Presidencia y una capa corporativa en varias funciones—, pero lo que falta es dejar por escrito, registrar y sostener lo que hoy ocurre de manera informal. Las acciones no llevan fecha porque la Junta no las ha acordado; por ser un macroproceso estratégico, su validación corresponde a la propia Junta.",
     "por_implementar": [
-     ["1.2 Despliegue de objetivos e indicadores de gestión del grupo", "Solo las áreas comerciales miden con una batería de indicadores; Recursos Humanos, Tecnología y Administración y Finanzas no miden objetivos, y no hay un cuadro único que revise la Junta.", "Construir el cuadro de indicadores partiendo de lo ya medido —presupuesto, forecast y margen— e incorporar las funciones de apoyo con al menos dos indicadores cada una."],
-     ["1.4 Registro, seguimiento y cierre de los acuerdos de gobierno", "Hay una base de seguimiento que lleva la asistente de la Presidencia, pero la consultan pocos directores, las decisiones fuera de sesión no siempre llegan a todos y no hay un cierre formal de acuerdos.", "Ampliar el uso de la base a toda la Junta, exigir dueño y fecha en cada acuerdo y definir un cierre o reescalamiento formal."],
-     ["1.5 Gobierno de la relación familia-empresa", "El protocolo familiar lleva años en preparación, está sin terminar y sin revisión legal; la asamblea anual se celebra pero sin evidencia de acta, y el consejo de familia no tiene un calendario.", "Terminar el protocolo, revisarlo legalmente, firmarlo y definir el calendario y el registro de sus instancias."],
-     ["1.6 Planificación de la sucesión y del relevo de la línea directiva", "No existe un plan de sucesión ni un plan de desarrollo por persona; las posiciones críticas no están mapeadas y la función corporativa de talento no está constituida.", "Definir el mapa de posiciones críticas, abrir la conversación con la tercera generación y decidir quién asume la función corporativa de talento."],
-     ["1.9 Comunicación institucional interna y gestión de la cultura", "El personal de todos los países nunca se ha reunido, el mensaje se queda en la primera línea, la identidad está desactualizada y hay unos 300 grupos de mensajería sin orden.", "Constituir el comité de cultura, definir un encuentro anual con el personal, un cascadeo con confirmación de alcance y los canales oficiales de comunicación."]
+     [
+      "1.2 Despliegue de objetivos e indicadores de gestión del grupo",
+      "Solo las áreas comerciales miden con una batería de indicadores; Recursos Humanos, Tecnología y Administración y Finanzas no miden objetivos, y no hay un cuadro único que revise la Junta.",
+      "Construir el cuadro de indicadores desde el presupuesto de doce meses, con cifras cerradas por contabilidad, e incorporar las funciones de apoyo con al menos dos indicadores cada una."
+     ],
+     [
+      "1.4 Registro, seguimiento y cierre de los acuerdos de gobierno",
+      "Hay una base de seguimiento que lleva la asistente de la Presidencia, pero la consultan pocos directores, las decisiones fuera de sesión no siempre llegan a todos y no hay un cierre formal de acuerdos.",
+      "Ampliar el uso de la base a toda la Junta, exigir dueño y fecha en cada acuerdo y definir un cierre o reescalamiento formal."
+     ],
+     [
+      "1.5 Gobierno de la relación familia-empresa",
+      "El protocolo familiar lleva años en preparación, está sin terminar y sin revisión legal; la asamblea anual se celebra pero sin evidencia de acta, y el consejo de familia no tiene un calendario.",
+      "Terminar el protocolo, revisarlo legalmente, firmarlo y definir el calendario y el registro de sus instancias."
+     ],
+     [
+      "1.6 Planificación de la sucesión y del relevo de la línea directiva",
+      "No existe un plan de sucesión ni un plan de desarrollo por persona; las posiciones críticas no están mapeadas y la función corporativa de talento no está constituida.",
+      "Incluir el mapa de posiciones críticas en el primer plan de trabajo de la gerencia corporativa de Recursos Humanos, que se incorpora en octubre de 2026, y tratar la sucesión de la Presidencia en una sesión específica de la Junta."
+     ],
+     [
+      "1.9 Comunicación institucional interna y gestión de la cultura",
+      "El personal de todos los países nunca se ha reunido, el mensaje se queda en la primera línea, la identidad está desactualizada y hay unos 300 grupos de mensajería sin orden.",
+      "Constituir el comité de cultura, definir un encuentro anual con el personal, un cascadeo con confirmación de alcance y los canales oficiales de comunicación."
+     ]
     ],
     "por_formalizar": [
-     ["1.1 Formulación y revisión del plan estratégico del grupo", "La sesión anual y la redacción del plan ocurren con regularidad, pero el plan no queda en un documento accesible, no se comunica a la primera línea gerencial y las revisiones de avance son irregulares.", "Documentar el plan y las decisiones de cada sesión, comunicarlo a la primera línea y fijar una cadencia de revisión, al menos semestral."],
-     ["1.3 Preparación y conducción de las sesiones de los órganos de gobierno", "La agenda y el resumen los prepara la asistente de la Presidencia y el Comité de Finanzas se reúne con regularidad; la Junta no tiene frecuencia fija, las sesiones no siempre llegan preparadas y no hay acta.", "Fijar un calendario de sesiones, exigir presentación previa por punto y emitir un acta mínima con decisión, responsable y fecha."],
-     ["1.7 Diseño del modelo organizativo y de la línea rectora corporativa", "Existe capa corporativa en Finanzas, Marketing, Ventas, Tecnología y Servicio al Cliente; Recursos Humanos y la función jurídica no la tienen, no hay una revisión periódica de qué se rige desde el centro y, en los países, la autoridad sobre los equipos locales se reparte sin reglas escritas entre el Country Manager y los líderes regionales (caso documentado en Colombia).", "Documentar por función qué decisiones rige el centro y cuáles el país, publicar una matriz de responsabilidades para las decisiones críticas, resolver las funciones sin capa corporativa e incluir todas las entidades en el organigrama."],
-     ["1.8 Gobierno de socios, distribuidores y operaciones tercerizadas", "El grupo recibe reporte del socio y de la filial, pero no hay un formato ni una periodicidad únicos, las reuniones periódicas con el socio se programan y no se realizan, y hay unidades que quedan fuera de los ejercicios de procesos y de estructura.", "Fijar un formato y una fecha de reporte por unidad y decidir qué políticas del grupo aplican a cada tipo de unidad."]
+     [
+      "1.1 Formulación y revisión del plan estratégico del grupo",
+      "La sesión anual y la redacción del plan ocurren con regularidad, pero el plan no queda en un documento accesible, no se comunica a la primera línea gerencial y las revisiones de avance son irregulares.",
+      "Documentar el plan y las decisiones de cada sesión, comunicarlo a la primera línea y fijar una cadencia de revisión, al menos semestral."
+     ],
+     [
+      "1.3 Preparación y conducción de las sesiones de los órganos de gobierno",
+      "La agenda y el resumen los prepara la asistente de la Presidencia y el Comité de Finanzas se reúne con regularidad; la Junta no tiene frecuencia fija, las sesiones no siempre llegan preparadas y no hay acta.",
+      "Fijar un calendario de sesiones, exigir presentación previa por punto y emitir un acta mínima con decisión, responsable y fecha."
+     ],
+     [
+      "1.7 Diseño del modelo organizativo y de la línea rectora corporativa",
+      "Existe capa corporativa en Finanzas, Marketing, Ventas, Tecnología y Servicio al Cliente; Recursos Humanos y la función jurídica no la tienen, no hay una revisión periódica de qué se rige desde el centro y, en los países, la autoridad sobre los equipos locales se reparte sin reglas escritas entre el Country Manager y los líderes regionales (caso documentado en Colombia).",
+      "Documentar por función qué decisiones rige el centro y cuáles el país, publicar una matriz de responsabilidades para las decisiones críticas, resolver las funciones sin capa corporativa e incluir todas las entidades en el organigrama."
+     ],
+     [
+      "1.8 Gobierno de socios, distribuidores y operaciones tercerizadas",
+      "El grupo recibe reportes del socio y de la filial, pero la Junta no ha decidido si cada unidad opera con los procesos del grupo o como negocio independiente, hay franquicias sin contrato y el socio de Costa Rica percibe que solo se le visita por temas financieros.",
+      "Decidir en Junta el modelo de relación de cada unidad, formalizarlo por contrato con metas y reporte, y sostener una revisión comercial trimestral."
+     ]
     ],
     "brechas": [
-     ["Transversal — registro y documentación", "Las decisiones se toman en sesión, en chat y en conversaciones directas; no hay un acta ni un repositorio común, y los miembros externos a veces conocen tarde lo decidido.", "Adoptar un registro único de decisiones, con dueño y fecha, y hacer que toda decisión fuera de sesión se informe a la asistente de la Presidencia el mismo día."],
-     ["Transversal — seguimiento", "El seguimiento de lo acordado no es una de las fortalezas del grupo: las revisiones estratégicas de avance se han intentado sin sostenerse.", "Asignar a una persona la preparación de la agenda y el registro del seguimiento, y llevarlo a una cadencia fija."],
-     ["Transversal — decisiones sin diligencia", "Algunas decisiones de mayor riesgo se han tomado de forma rápida sin una revisión previa, como ilustra un caso de adquisición en otro país que terminó mal.", "Definir para las decisiones de inversión o de entrada a un país una revisión previa mínima antes de decidir."],
-     ["Transversal — dependencia de personas", "La conducción de la sesión, la redacción del plan, el protocolo y el seguimiento dependen cada uno de una sola persona, sin respaldo documentado.", "Documentar la metodología de cada actividad y designar un respaldo."]
+     [
+      "Transversal — registro y documentación",
+      "Las decisiones se toman en sesión, en chat y en conversaciones directas; no hay un acta ni un repositorio común, y los miembros externos a veces conocen tarde lo decidido.",
+      "Adoptar un registro único de decisiones, con dueño y fecha, y hacer que toda decisión fuera de sesión se informe a la asistente de la Presidencia el mismo día."
+     ],
+     [
+      "Transversal — seguimiento",
+      "El seguimiento de lo acordado no es una de las fortalezas del grupo: las revisiones estratégicas de avance se han intentado sin sostenerse.",
+      "Asignar a una persona la preparación de la agenda y el registro del seguimiento, y llevarlo a una cadencia fija."
+     ],
+     [
+      "Transversal — decisiones sin diligencia",
+      "Algunas decisiones de mayor riesgo se han tomado de forma rápida sin una revisión previa, como ilustra un caso de adquisición en otro país que terminó mal.",
+      "Definir para las decisiones de inversión o de entrada a un país una revisión previa mínima antes de decidir."
+     ],
+     [
+      "Transversal — dependencia de personas",
+      "La conducción de la sesión, la redacción del plan, el protocolo y el seguimiento dependen cada uno de una sola persona, sin respaldo documentado.",
+      "Documentar la metodología de cada actividad y designar un respaldo."
+     ]
     ]
    },
-
    "anexos": {
     "estado": "borrador",
     "glosario": [
-     ["Asamblea de accionistas", "Reunión anual de los accionistas tras el cierre de resultados, donde se rinden las cuentas del año."],
-     ["Cascadeo", "Traslado de un mensaje o de una meta desde la Presidencia a los gerentes de primera línea, y de estos a sus equipos."],
-     ["Capa corporativa", "Función que agrupa y consolida a los equipos de un mismo tema en los países y define la línea rectora para todos."],
-     ["Comité de Finanzas", "Instancia quincenal que revisa los estados financieros, el endeudamiento, la caja y las proyecciones del grupo."],
-     ["Country Manager", "Responsable de los resultados de un país y de sus equipos locales."],
-     ["Comité Directivo", "Reunión de los cinco accionistas y directores de la familia, más informal que la Junta Directiva."],
-     ["Consejo de accionistas / consejo de familia", "Instancias que prevé el protocolo familiar para regular la relación entre la familia propietaria y la empresa."],
-     ["Director(a) externo(a)", "Miembro de la Junta Directiva que no pertenece a la familia; se suman a los cinco directores de la familia, y las personas entrevistadas cuentan dos o tres según se incluya o no a la dirección de finanzas."],
-     ["Línea rectora", "Criterio corporativo, por función, sobre qué decisiones se toman desde el centro y cuáles en el país."],
-     ["Matriz funcional y geográfica", "Esquema en que un equipo local reporta a la vez al Country Manager, por el país, y al líder regional de su función."],
-     ["Primera línea gerencial", "Conjunto de unos veinticinco gerentes a quienes la Presidencia dirige sus comunicados institucionales."],
-     ["Protocolo familiar", "Documento que define las relaciones entre la familia y la empresa: ingreso de familiares, cambios de estado civil, vacaciones y las instancias de la familia."],
-     ["Sesión estratégica anual", "Reunión cerrada de dos días, en las primeras semanas del año, donde los accionistas definen la estrategia con un director externo como moderador."],
-     ["Tercera generación", "Miembros más jóvenes de la familia propietaria, con quienes se prevé una conversación de proyección de carrera."]
+     [
+      "Asamblea de accionistas",
+      "Reunión anual de los accionistas tras el cierre de resultados, donde se rinden las cuentas del año."
+     ],
+     [
+      "Cascadeo",
+      "Traslado de un mensaje o de una meta desde la Presidencia a los gerentes de primera línea, y de estos a sus equipos."
+     ],
+     [
+      "Capa corporativa",
+      "Función que agrupa y consolida a los equipos de un mismo tema en los países y define la línea rectora para todos."
+     ],
+     [
+      "Comité de Finanzas",
+      "Instancia quincenal que revisa los estados financieros, el endeudamiento, la caja y las proyecciones del grupo."
+     ],
+     [
+      "Country Manager",
+      "Responsable de los resultados de un país y de sus equipos locales."
+     ],
+     [
+      "Comité Directivo",
+      "Los cinco directores de la familia. La Junta Directiva son ellos más los dos directores externos y la dirección de finanzas; el grupo adoptó esta nomenclatura recientemente y algunos todavía usan los nombres al revés."
+     ],
+     [
+      "Consejo de accionistas / consejo de familia",
+      "Instancias que prevé el protocolo familiar para regular la relación entre la familia propietaria y la empresa."
+     ],
+     [
+      "Director(a) externo(a)",
+      "Miembro de la Junta Directiva que no pertenece a la familia; se suman a los cinco directores de la familia, y las personas entrevistadas cuentan dos o tres según se incluya o no a la dirección de finanzas."
+     ],
+     [
+      "Línea rectora",
+      "Criterio corporativo, por función, sobre qué decisiones se toman desde el centro y cuáles en el país."
+     ],
+     [
+      "Matriz funcional y geográfica",
+      "Esquema en que un equipo local reporta a la vez al Country Manager, por el país, y al líder regional de su función."
+     ],
+     [
+      "Primera línea gerencial",
+      "Conjunto de unos veinticinco gerentes a quienes la Presidencia dirige sus comunicados institucionales."
+     ],
+     [
+      "Protocolo familiar",
+      "Documento que define las relaciones entre la familia y la empresa: ingreso de familiares, cambios de estado civil, vacaciones y las instancias de la familia."
+     ],
+     [
+      "Sesión estratégica anual",
+      "Reunión cerrada de dos días, en las primeras semanas del año, donde los accionistas definen la estrategia con un director externo como moderador."
+     ],
+     [
+      "Tercera generación",
+      "Miembros más jóvenes de la familia propietaria, con quienes se prevé una conversación de proyección de carrera."
+     ],
+     [
+      "Registro de acuerdos",
+      "Base única donde cada decisión de gobierno queda con su responsable, su fecha compromiso y su estado hasta el cierre."
+     ],
+     [
+      "Posición crítica",
+      "Cargo cuya ausencia detendría una decisión o una relación clave del grupo y que por eso necesita sucesor o reemplazo temporal documentado."
+     ]
     ],
     "raci": [
-     ["1.1 Formulación y revisión del plan estratégico del grupo", "Director(a) Externo(a) de Junta Directiva", "Presidente de Junta Directiva", "Accionistas y Directores de la familia", "Junta Directiva"],
-     ["1.2 Despliegue de objetivos e indicadores de gestión del grupo", "Director(a) de Finanzas del Grupo", "Junta Directiva", "Gerentes regionales por función · Director(a) Externo(a) de Junta Directiva", "Gerentes de país"],
-     ["1.3 Preparación y conducción de las sesiones de los órganos de gobierno", "Asistente Ejecutivo(a) de la Presidencia", "Presidente de Junta Directiva", "Director(a) de Finanzas del Grupo · gerentes invitados", "Miembros de la Junta"],
-     ["1.4 Registro, seguimiento y cierre de los acuerdos de gobierno", "Asistente Ejecutivo(a) de la Presidencia", "Presidente de Junta Directiva", "Gerente de Proyectos · Directores de la familia", "Gerentes responsables de la ejecución"],
-     ["1.5 Gobierno de la relación familia-empresa", "Director(a) Externo(a) de Junta Directiva", "Accionistas y miembros de la familia", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Miembros de la familia"],
-     ["1.6 Planificación de la sucesión y del relevo de la línea directiva", "Director(a) Externo(a) de Junta Directiva", "Junta Directiva", "Gerente de Recursos Humanos · Directores de la familia", "Ocupantes y candidatos de las posiciones críticas"],
-     ["1.7 Diseño del modelo organizativo y de la línea rectora corporativa", "Gerente de Recursos Humanos", "Junta Directiva", "Gerentes regionales por función · Director(a) Externo(a) de Junta Directiva · Gerente de Proyectos", "Coordinador(a) de Recursos Humanos"],
-     ["1.8 Gobierno de socios, distribuidores y operaciones tercerizadas", "Director(a) de Finanzas del Grupo", "Junta Directiva", "Gerente Regional Comercial / Retail · Gerente Regional de Marketing", "Socios, operadores y distribuidores"],
-     ["1.9 Comunicación institucional interna y gestión de la cultura", "Gerente de Recursos Humanos", "Presidente de Junta Directiva", "Gerente Regional de Marketing · Asistente Ejecutivo(a) de la Presidencia · Coordinador(a) de Sistemas", "Gerentes de primera línea"]
+     [
+      "1.1 Formulación y revisión del plan estratégico del grupo",
+      "Director(a) Externo(a) de Junta Directiva",
+      "Presidente de Junta Directiva",
+      "Director(a) de Finanzas del Grupo · Gerentes de primera línea",
+      "Junta Directiva"
+     ],
+     [
+      "1.2 Despliegue de objetivos e indicadores de gestión del grupo",
+      "Director(a) de Finanzas del Grupo",
+      "Junta Directiva",
+      "Gerentes regionales por función · Director(a) Externo(a) de Junta Directiva",
+      "Gerentes de país"
+     ],
+     [
+      "1.3 Preparación y conducción de las sesiones de los órganos de gobierno",
+      "Asistente Ejecutivo(a) de la Presidencia",
+      "Presidente de Junta Directiva",
+      "Director(a) de Finanzas del Grupo · gerentes invitados",
+      "Miembros de la Junta"
+     ],
+     [
+      "1.4 Registro, seguimiento y cierre de los acuerdos de gobierno",
+      "Asistente Ejecutivo(a) de la Presidencia",
+      "Presidente de Junta Directiva",
+      "Gerente de Proyectos · Directores de la familia",
+      "Gerentes responsables de la ejecución"
+     ],
+     [
+      "1.5 Gobierno de la relación familia-empresa",
+      "Director(a) Externo(a) de Junta Directiva",
+      "Accionistas y miembros de la familia",
+      "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+      "Miembros de la familia"
+     ],
+     [
+      "1.6 Planificación de la sucesión y del relevo de la línea directiva",
+      "Director(a) Externo(a) de Junta Directiva",
+      "Junta Directiva",
+      "Gerente de Recursos Humanos · Directores de la familia",
+      "Ocupantes y candidatos de las posiciones críticas"
+     ],
+     [
+      "1.7 Diseño del modelo organizativo y de la línea rectora corporativa",
+      "Gerente de Recursos Humanos",
+      "Presidente de Junta Directiva",
+      "Gerentes de primera línea · Junta Directiva",
+      "Colaboradores afectados"
+     ],
+     [
+      "1.8 Gobierno de socios, distribuidores y operaciones tercerizadas",
+      "Director(a) de Finanzas del Grupo",
+      "Presidente de Junta Directiva",
+      "Director(a) Comercial del Grupo · Asesor(a) Jurídico(a) Externo(a) del Grupo",
+      "Socios, operadores y distribuidores"
+     ],
+     [
+      "1.9 Comunicación institucional interna y gestión de la cultura",
+      "Gerente de Recursos Humanos",
+      "Presidente de Junta Directiva",
+      "Comité de Cultura · Asistente Ejecutivo(a) de la Presidencia · Coordinador(a) de Sistemas",
+      "Gerentes de primera línea"
+     ]
     ],
     "catalogo_sistemas": [
-     ["WhatsApp", "Convocatoria, agendas, resúmenes y comunicación de decisiones", "1.3 · 1.4 · 1.9", "Sin responsable formal"],
-     ["Lark", "Comunicación interna, reuniones y documentos con tareas y recordatorios", "1.3 · 1.4 · 1.9", "Coordinador(a) de Sistemas"],
-     ["Base de seguimiento de la Presidencia", "Registro de temas, dueños y estado de los pendientes de la Presidencia y la Junta", "1.3 · 1.4", "Asistente Ejecutivo(a) de la Presidencia"],
-     ["Lark Base de la oficina de proyectos", "Registro de proyectos, iniciativas y tareas, y resumen semanal de estado a la Junta", "1.4", "Gerente de Proyectos"],
-     ["Claude", "Redacción de minutas de algunas reuniones", "1.3 · 1.4", "Sin responsable formal"],
-     ["Excel", "Presentación del resultado financiero y del seguimiento de los países", "1.2 · 1.3", "Director(a) de Finanzas del Grupo"],
-     ["Odoo", "Estados financieros al día para la revisión del presupuesto", "1.2 · 1.8", "Coordinador(a) de Sistemas"]
+     [
+      "WhatsApp",
+      "Convocatoria, agendas, resúmenes y comunicación de decisiones",
+      "1.3 · 1.4 · 1.9",
+      "Sin responsable formal"
+     ],
+     [
+      "Lark",
+      "Comunicación interna, reuniones y documentos con tareas y recordatorios",
+      "1.3 · 1.4 · 1.9",
+      "Coordinador(a) de Sistemas"
+     ],
+     [
+      "Base de seguimiento de la Presidencia",
+      "Registro de temas, dueños y estado de los pendientes de la Presidencia y la Junta",
+      "1.3 · 1.4",
+      "Asistente Ejecutivo(a) de la Presidencia"
+     ],
+     [
+      "Lark Base de la oficina de proyectos",
+      "Registro de proyectos, iniciativas y tareas, y resumen semanal de estado a la Junta",
+      "1.4",
+      "Gerente de Proyectos"
+     ],
+     [
+      "Claude",
+      "Redacción de minutas de algunas reuniones",
+      "1.3 · 1.4",
+      "Sin responsable formal"
+     ],
+     [
+      "Excel",
+      "Presentación del resultado financiero y del seguimiento de los países",
+      "1.2 · 1.3",
+      "Director(a) de Finanzas del Grupo"
+     ],
+     [
+      "Odoo",
+      "Estados financieros al día para la revisión del presupuesto",
+      "1.2 · 1.8",
+      "Coordinador(a) de Sistemas"
+     ]
     ],
     "interfaces_detalle": [
-     ["Todos los macroprocesos funcionales", "Plan y metas", "Plan estratégico, objetivos, cuadro de indicadores y modelo organizativo vigente"],
-     ["Administración y Finanzas / Contabilidad", "Información financiera", "Estados financieros, presupuesto, forecast, caja y endeudamiento"],
-     ["Gestión del Talento Humano", "Organización y cultura", "Organigrama, mapa de posiciones críticas, planes de sucesión e identidad del grupo"],
-     ["Gobierno de Portafolio (PMO)", "Requerimientos de la Junta", "Acuerdos que derivan en proyecto, con prioridad y resumen de avance"],
-     ["Adopción de IA y Transformación Digital", "Orientación estratégica", "Estrategia y valores de la organización para vincular la política de adopción de IA"],
-     ["Gestión de Mercadeo y Comunicaciones", "Mensaje institucional", "Comunicado, material de identidad y difusión"],
-     ["Socios, operadores tercerizados y distribuidores", "Reporte", "Reporte financiero y comercial mensual en el formato del grupo"]
+     [
+      "Todos los macroprocesos funcionales",
+      "Plan y metas",
+      "Plan estratégico, objetivos, cuadro de indicadores y modelo organizativo vigente"
+     ],
+     [
+      "Administración y Finanzas / Contabilidad",
+      "Información financiera",
+      "Estados financieros, presupuesto, forecast, caja y endeudamiento"
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Organización y cultura",
+      "Organigrama, mapa de posiciones críticas, planes de sucesión e identidad del grupo"
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Requerimientos de la Junta",
+      "Acuerdos que derivan en proyecto, con prioridad y resumen de avance"
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Orientación estratégica",
+      "Estrategia y valores de la organización para vincular la política de adopción de IA"
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Mensaje institucional",
+      "Comunicado, material de identidad y difusión"
+     ],
+     [
+      "Socios, operadores tercerizados y distribuidores",
+      "Reporte",
+      "Reporte financiero y comercial mensual en el formato del grupo"
+     ]
     ],
     "variaciones_pais": [
-     ["Venezuela", "Sede de la Presidencia y de buena parte de las decisiones; el personal ha cambiado poco en años y hay una figura de administración de recursos humanos sin función estratégica.", "La Presidencia decide desde allí y coordina con los demás países por mensajería y videollamada."],
-     ["Panamá", "Reside allí parte de los directores de la familia y a Panamá llega la mercancía que compra el grupo.", "Los horarios de las sesiones se fijan en la franja común con Venezuela."],
-     ["Colombia", "Tiene una reunión semanal de seguimiento con la Presidencia y la dirección financiera y comercial, un plan estratégico de país 2026–2028 y nueve reportes directos al Country Manager; la matriz entre lo regional y lo local no está articulada.", "Es el país donde más claramente se ve la tensión entre la función regional y el Country Manager."],
-     ["Costa Rica", "Sociedad al 50 % desde 2013, con negocio y ERP propios; casi el 90 % de sus ventas son productos que le vende el grupo. Envía reportes de venta diarios y su contabilidad, y recibe la visita de un director cada seis meses; las reuniones periódicas previstas no se realizan.", "El socio dice que el grupo a veces se olvida de tomarlo en cuenta, y no conoce a quien redacta el plan estratégico."],
-     ["Guatemala", "Operación tercerizada a un operador bajo marca, con un country manager del grupo para las ventas al mayor.", "El control de las políticas de marca se ejerce a distancia."],
-     ["Estados Unidos", "Filial con personalidad jurídica, estructura y sistemas propios que reporta sus estados financieros a la Junta.", "Ha quedado fuera de parte de los ejercicios de estructura y procesos."]
+     [
+      "Venezuela",
+      "Sede de la Presidencia y de buena parte de las decisiones; el personal ha cambiado poco en años y hay una figura de administración de recursos humanos sin función estratégica.",
+      "La Presidencia decide desde allí y coordina con los demás países por mensajería y videollamada."
+     ],
+     [
+      "Panamá",
+      "Reside allí parte de los directores de la familia y a Panamá llega la mercancía que compra el grupo.",
+      "Los horarios de las sesiones se fijan en la franja común con Venezuela."
+     ],
+     [
+      "Colombia",
+      "Tiene una reunión semanal de seguimiento, los martes, con la Presidencia y las direcciones financiera y comercial, sobre un cuadro de metas del año por canal; un plan estratégico de país 2026–2028; y reportes directos al Country Manager que a la vez responden a líderes regionales.",
+      "Es el país donde más claramente se ve la tensión entre la función regional y el Country Manager."
+     ],
+     [
+      "Costa Rica",
+      "Sociedad al 50 % desde 2013, con negocio y ERP propios; casi el 90 % de sus ventas son productos que le vende el grupo. Envía reportes de venta diarios y su contabilidad, y recibe la visita de un director cada seis meses; las reuniones periódicas previstas no se realizan.",
+      "El socio dice que el grupo a veces se olvida de tomarlo en cuenta, y no conoce a quien redacta el plan estratégico."
+     ],
+     [
+      "Guatemala",
+      "Operación tercerizada a un operador bajo marca, con un country manager del grupo para las ventas al mayor.",
+      "El control de las políticas de marca se ejerce a distancia."
+     ],
+     [
+      "Estados Unidos",
+      "Filial con personalidad jurídica, estructura y sistemas propios que reporta sus estados financieros a la Junta.",
+      "Ha quedado fuera de parte de los ejercicios de estructura y procesos."
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Código de Cultura 2025 (marca propia)",
+      "Regional",
+      "Misión, valores y fundadores; se usa en la inducción y es la base para la identidad única del grupo",
+      "1.9"
+     ],
+     [
+      "Formulario de solicitud de proyecto – PMO",
+      "Panamá",
+      "Canal por el que un acuerdo de la Junta que deriva en proyecto entra a la oficina de proyectos",
+      "1.4"
+     ],
+     [
+      "Procesos del departamento de Sistemas",
+      "Regional",
+      "Incluye el seguimiento de actividades de tecnología con reporte a la Junta y la administración de credenciales y canales",
+      "1.9"
+     ]
     ]
    }
   },
   "procesos": {
-
    "1.1": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el ejercicio anual con el que los accionistas y directores de la familia, moderados por un director externo de la Junta Directiva, definen hacia dónde va el grupo en un horizonte de tres años, dejan el plan por escrito, lo aprueban y le dan seguimiento a lo largo del año. Es la hoja de ruta desde la cual cada frente del grupo fija su propia ruta.",
-     "nota_estado": "El proceso está en transición: la sesión anual de formulación, la redacción y la aprobación del plan ocurren hoy con regularidad, pero el plan no se comunica de forma estructurada a la primera línea gerencial, no queda un acta o documento de acuerdos de acceso general, y las revisiones de avance se convocan de manera irregular en lugar de seguir una cadencia formal."
+     "texto": "Cubre el ciclo anual con el que el grupo fija su rumbo a tres años: la preparación de la sesión estratégica con el cierre de cada área y de finanzas, la definición de objetivos y focos del año, la redacción y aprobación del plan en un documento único, su comunicación a la primera línea gerencial y las revisiones formales de avance durante el año.",
+     "nota_estado": "Proceso en transición: la sesión anual de enero, su moderación externa y la redacción del plan ya ocurren. Lo que este manual incorpora es la presencia de finanzas al fijar objetivos, la aprobación con acta, la comunicación a la primera línea y una revisión semestral con fecha fija."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Presidente de Junta Directiva",
+     "participantes": [
+      "Junta Directiva — define los objetivos a tres años y los focos del año, y aprueba el plan en sesión formal.",
+      "Director(a) Externo(a) de Junta Directiva — modera la sesión anual y redacta el plan a partir de lo acordado.",
+      "Director(a) de Finanzas del Grupo — presenta el cierre financiero y la capacidad de inversión, y valida que cada objetivo tenga respaldo financiero.",
+      "Asistente Ejecutivo(a) de la Presidencia — convoca la sesión, custodia el documento vigente y agenda las revisiones de avance.",
+      "Gerentes de primera línea — presentan el cierre del año de su área y reciben el plan para derivar sus metas."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-20",
+      "E-05",
+      "E-12"
+     ],
+     "sin_evidencia": "No consta que el plan aprobado quede hoy en un documento de acceso general; el único ejemplar identificado lo conserva uno de los directores."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-08",
+      "E-12",
+      "E-15",
+      "E-20",
+      "E-24",
+      "E-55"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Presidente de Junta Directiva", "texto": "Convoca la sesión estratégica anual —una reunión cerrada de dos días en las primeras semanas del año— con los accionistas y directores de la familia, e invita al director externo de la Junta Directiva para que la modere."},
-      {"id": "a2", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Modera la sesión: conduce la revisión de dónde está cada marca y de las prioridades del año, y mantiene la conversación enfocada en decisiones y no solo en el diagnóstico de la situación."},
-      {"id": "a3", "rol": "Accionistas y Directores de la familia", "texto": "Revisan la situación de las marcas Casio y Cubitt y de los países donde opera el grupo, y definen las prioridades y objetivos de crecimiento a tres años, incluidas las líneas de transformación y profesionalización de la organización."},
-      {"id": "a4", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Redacta el plan estratégico a partir de lo definido en la sesión y lo circula entre los accionistas y directores para su revisión."},
-      {"id": "a5", "rol": "Accionistas y Directores de la familia", "texto": "Revisan el borrador en reuniones posteriores a la sesión, piden los ajustes que consideren necesarios y aprueban el plan entre ellos."},
-      {"id": "a6", "rol": "Accionistas y Directores de la familia", "texto": "Asumen cada uno su ruta dentro del plan aprobado —el frente o la función que dirigen— y la ejecutan; el plan se mantiene en el círculo de los accionistas y directores y no se baja de forma estructurada al resto de la gerencia."},
-      {"id": "a7", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Da seguimiento a los pendientes que la Presidencia le indica, incluidos los temas que deben llevarse a la agenda de la Junta Directiva, y le recuerda a la Presidencia los compromisos y reuniones que se aproximan."},
-      {"id": "a8", "rol": "Presidente de Junta Directiva", "texto": "Revisa con los demás directores, en las reuniones de la Junta Directiva, el avance frente al plan y los cambios relevantes del entorno o del portafolio de marcas que hayan surgido desde la última revisión."},
-      {"id": "a9", "rol": "Presidente de Junta Directiva", "texto": "Determina si el avance registrado o un cambio del entorno exigen ajustar el plan; de ser así, lo lleva de nuevo a los accionistas y directores para su revisión, y si no, el plan vigente continúa sin cambios."},
-      {"id": "a10", "rol": "Accionistas y Directores de la familia", "texto": "Acuerdan el ajuste al plan cuando la revisión lo exige y lo integran al documento vigente, de modo que cada ruta se corrija a partir de la versión actualizada."}
+      {
+       "id": "a1",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Convoca la sesión estratégica anual —dos días en las primeras semanas de enero— y pide a cada gerente de primera línea y a la dirección de finanzas el cierre del año de su área con fecha de entrega previa."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerentes de primera línea",
+       "texto": "Preparan el cierre del año de su área: resultados frente a lo planificado, lo que funcionó y lo que no, y las prioridades que proponen para el año siguiente, en un formato común para todas las áreas."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Presenta el cierre financiero del grupo, la proyección del año y la capacidad de inversión y de endeudamiento disponible, para que los objetivos se fijen conociendo cuánto se puede financiar."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) Externo(a) de Junta Directiva",
+       "texto": "Modera la sesión: repasa el avance del plan vigente, conduce el análisis de fortalezas, debilidades, oportunidades y amenazas por marca y país, y mantiene la conversación orientada a decisiones concretas."
+      },
+      {
+       "id": "a5",
+       "rol": "Junta Directiva",
+       "texto": "Define los objetivos a tres años y los focos del año —por marca, país y canal— y nombra un responsable por objetivo; las iniciativas de inversión llegan con su análisis comercial y financiero juntos."
+      },
+      {
+       "id": "a6",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Verifica que cada objetivo tenga respaldo financiero; si alguno no lo tiene, la Junta lo ajusta al escenario disponible o lo difiere, en lugar de aprobarlo sin fuente de fondos identificada."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) Externo(a) de Junta Directiva",
+       "texto": "Redacta el plan en un documento único con objetivos, focos, responsables, criterios de inversión y fechas de revisión, y lo circula a los miembros de la Junta antes de su aprobación."
+      },
+      {
+       "id": "a8",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba el plan en sesión formal y deja la aprobación en acta; el documento vigente queda en el repositorio de la Junta, accesible a sus miembros y a la dirección de finanzas."
+      },
+      {
+       "id": "a9",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Comunica el plan aprobado a los gerentes de primera línea en una reunión dedicada, con los objetivos que corresponden a cada área y el calendario de revisiones del año."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerentes de primera línea",
+       "texto": "Traducen los objetivos del plan a metas de su área, que se incorporan al cuadro de indicadores del grupo mediante el proceso de despliegue de objetivos e indicadores."
+      },
+      {
+       "id": "a11",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Agenda desde enero las revisiones formales de avance del plan —al menos una semestral— y prepara para cada una el estado de cada objetivo con su responsable."
+      },
+      {
+       "id": "a12",
+       "rol": "Junta Directiva",
+       "texto": "Revisa el avance frente al plan y los cambios del entorno o del portafolio de marcas; decide si el plan se mantiene o se ajusta, y aprueba en acta la versión corregida cuando corresponde."
+      }
      ],
      "diagrama": {
-      "carriles": ["Presidente de Junta Directiva", "Director(a) Externo(a) de Junta Directiva", "Accionistas y Directores de la familia", "Asistente Ejecutivo(a) de la Presidencia"],
+      "carriles": [
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "Gerentes de primera línea",
+       "Director(a) de Finanzas del Grupo",
+       "Director(a) Externo(a) de Junta Directiva",
+       "Junta Directiva",
+       "Presidente de Junta Directiva"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Presidente de Junta Directiva", "tipo": "inicio", "n": "Inicio del ciclo anual del grupo"},
-       {"id": "n1", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Convocar la sesión estratégica anual"},
-       {"id": "n2", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Moderar la sesión de formulación"},
-       {"id": "n3", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Definir prioridades y objetivos a tres años"},
-       {"id": "n4", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Redactar el plan estratégico"},
-       {"id": "n5", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Revisar y aprobar el plan"},
-       {"id": "n6", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Asumir y ejecutar la ruta de cada frente"},
-       {"id": "n7", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Dar seguimiento a pendientes y agenda"},
-       {"id": "n8", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Revisar el avance frente al plan"},
-       {"id": "n9", "carril": "Presidente de Junta Directiva", "tipo": "decision", "n": "¿El avance o el entorno exigen ajustar el plan?"},
-       {"id": "n10", "carril": "Accionistas y Directores de la familia", "tipo": "tarea", "n": "Acordar e integrar el ajuste al plan"},
-       {"id": "n11", "carril": "Accionistas y Directores de la familia", "tipo": "fin", "n": "Plan ajustado y vigente"},
-       {"id": "n12", "carril": "Presidente de Junta Directiva", "tipo": "fin", "n": "Plan vigente continúa sin cambios"}
+       {
+        "id": "i",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "inicio",
+        "n": "Inicio del ciclo anual del grupo"
+       },
+       {
+        "id": "t1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Convocar la sesión estratégica anual",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Preparar el cierre anual del área"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Presentar cierre financiero y capacidad de inversión",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) Externo(a) de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Moderar la sesión estratégica"
+       },
+       {
+        "id": "t5",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Definir objetivos a tres años y focos del año"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "decision",
+        "n": "¿Objetivos con respaldo financiero?"
+       },
+       {
+        "id": "t6",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Ajustar o diferir los objetivos sin fondos"
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) Externo(a) de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Redactar el plan en un documento único"
+       },
+       {
+        "id": "t8",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el plan y registrarlo en acta"
+       },
+       {
+        "id": "t9",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Comunicar el plan a la primera línea"
+       },
+       {
+        "id": "t10",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Traducir los objetivos a metas del área"
+       },
+       {
+        "id": "t11",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Agendar las revisiones semestrales",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t12",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Revisar el avance frente al plan"
+       },
+       {
+        "id": "d2",
+        "carril": "Junta Directiva",
+        "tipo": "decision",
+        "n": "¿El plan requiere ajuste?"
+       },
+       {
+        "id": "t13",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar la versión ajustada del plan"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Plan ajustado y vigente"
+       },
+       {
+        "id": "f2",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "fin",
+        "n": "Plan vigente sin cambios"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"},
-       {"de": "n9", "a": "n10", "etq": "Sí"}, {"de": "n9", "a": "n12", "etq": "No"},
-       {"de": "n10", "a": "n11"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "t10"
+       },
+       {
+        "de": "t10",
+        "a": "t11"
+       },
+       {
+        "de": "t11",
+        "a": "t12"
+       },
+       {
+        "de": "t12",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t13",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "f2",
+        "etq": "No"
+       },
+       {
+        "de": "t13",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-08",
+      "E-12",
+      "E-15",
+      "E-20",
+      "E-24",
+      "E-55"
+     ],
      "filas": [
-      ["Plan sin documento ni acta accesible", "Las decisiones de la sesión anual no quedan en un documento de acuerdos de acceso general: quien se incorpora a la Presidencia después de la sesión no tiene el plan a la vista, y su versión completa la conserva una sola persona.", "Alta", "Alto", "Cerrar cada sesión con un documento del plan y un acta de decisiones, custodiados en un repositorio común al que accedan la Presidencia y su asistente."],
-      ["Estrategia que no se baja a la organización", "El plan se queda en el círculo de accionistas y directores; los gerentes regionales y de función ejecutan sin conocer la visión a tres años, y el socio de Costa Rica no conoce a quien redacta el plan. Colombia, por su parte, tiene un plan estratégico de país 2026–2028 y no hay evidencia de cómo se articula con el del grupo.", "Alta", "Alto", "Definir un momento anual de comunicación del plan a la primera línea gerencial, con un resumen de prioridades por marca y por país."],
-      ["Seguimiento irregular de lo decidido", "Las revisiones de avance se intentan pero no se sostienen: al considerar que el diagnóstico y la estrategia ya están definidos, el tema pierde prioridad frente a los asuntos operativos del día a día.", "Alta", "Alto", "Fijar una cadencia de revisión —semestral como mínimo— y asignar a una persona la preparación de la agenda y el registro de lo revisado."],
-      ["Decisiones estratégicas tomadas fuera de la sesión", "Algunas decisiones de fondo se toman en conversaciones informales entre los directores, por fuera del plan y de las reuniones, y pueden contradecirlo sin que se registre el cambio.", "Media", "Alto", "Llevar toda decisión que modifique el rumbo a la siguiente revisión formal, dejando constancia del ajuste al plan."],
-      ["Dependencia de una sola persona para moderar y redactar", "La conducción de la sesión y la redacción del plan recaen en un único director externo, sin una metodología escrita que permita replicar el ejercicio si esa persona no está disponible.", "Media", "Medio", "Documentar la metodología de la sesión —agenda, insumos y estructura del plan— y designar un respaldo."]
+      [
+       "El plan no llega a la organización",
+       "La estrategia se define entre los directores pero no se baja de forma estructurada a los departamentos; una prioridad como crecer en línea puede quedar comunicada a una sola área cuando involucra a varias.",
+       "Alta",
+       "Alto",
+       "Reunión dedicada de comunicación del plan a la primera línea y metas derivadas por área en el cuadro de indicadores."
+      ],
+      [
+       "Revisiones de avance que no se sostienen",
+       "Los intentos de revisar la estrategia durante el año no se han mantenido; pasan meses sin tocar el tema y el plan deja de guiar decisiones.",
+       "Alta",
+       "Alto",
+       "Fechas de revisión fijadas en enero, con el estado de cada objetivo preparado por la asistencia de la Presidencia."
+      ],
+      [
+       "Objetivos e inversiones sin respaldo financiero",
+       "Iniciativas como abrir tiendas u oficinas llegan a decisión con el análisis comercial pero sin el financiero, y la capacidad comercial avanza más rápido que la del respaldo administrativo.",
+       "Media",
+       "Alto",
+       "Dirección de finanzas presente en la sesión y verificación explícita de fuente de fondos por objetivo antes de aprobar."
+      ],
+      [
+       "Plan sin documento accesible",
+       "La versión acordada queda en notas personales; si no hay un documento único y un acta, cada director recuerda una versión distinta y los miembros externos no pueden darle seguimiento.",
+       "Media",
+       "Medio",
+       "Documento único redactado por el director externo, aprobado en acta y guardado en el repositorio de la Junta."
+      ],
+      [
+       "Dependencia de una sola persona para conducir el ejercicio",
+       "La moderación y la redacción del plan descansan en un director externo; su ausencia dejaría el ciclo sin metodología documentada.",
+       "Baja",
+       "Medio",
+       "Dejar escrita la metodología de la sesión y del documento para que otro miembro pueda conducirla."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Sesión estratégica anual realizada en fecha", "Sesión realizada dentro de las primeras semanas del año (sí / no)", "Anual", "Presidente de Junta Directiva", "En las primeras semanas del año, como se practica hoy"],
-      ["Plan documentado y aprobado", "Plan escrito y aprobado por los accionistas y directores, con acta de decisiones archivada (sí / no)", "Anual", "Director(a) Externo(a) de Junta Directiva", "Por definir — hoy no hay acta accesible"],
-      ["Revisiones formales de avance realizadas", "Revisiones de avance realizadas ÷ revisiones programadas en el año", "Semestral", "Presidente de Junta Directiva", "Dos por año, la cadencia que el proceso reconoce como deber ser"],
-      ["Alcance de la comunicación del plan", "Gerentes de primera línea que recibieron el plan ÷ total de gerentes de primera línea", "Anual", "Presidente de Junta Directiva", "Por definir — hoy no hay comunicación estructurada"]
+      [
+       "Plan aprobado a tiempo",
+       "Plan aprobado en acta antes del cierre de febrero (sí / no)",
+       "Anual",
+       "Director(a) Externo(a) de Junta Directiva",
+       "100 %"
+      ],
+      [
+       "Revisiones de avance celebradas",
+       "Revisiones realizadas ÷ revisiones programadas en el año",
+       "Semestral",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "100 %"
+      ],
+      [
+       "Cobertura del despliegue",
+       "Gerentes de primera línea con metas derivadas del plan ÷ total de gerentes de primera línea",
+       "Anual",
+       "Presidente de Junta Directiva",
+       "100 %"
+      ],
+      [
+       "Objetivos con dueño y respaldo financiero",
+       "Objetivos con responsable y fuente de fondos identificada ÷ objetivos del plan",
+       "Anual",
+       "Director(a) de Finanzas del Grupo",
+       "100 %"
+      ]
      ]
     }
    },
-
    "1.2": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Traduce el plan estratégico en un cuadro de indicadores de la Junta Directiva con metas por nivel, lo cascadea hacia las gerencias regionales y de país, y lo revisa cada mes frente al presupuesto y al forecast. Busca que la Junta pueda saber, con las mismas reglas para todas las funciones, si el grupo va hacia lo que decidió.",
-     "nota_estado": "Es un proceso a implementar como cuadro único. Hoy existen indicadores en las áreas comerciales, y el presupuesto y el forecast de compra, venta y margen se siguen y ajustan cada mes; en cambio, funciones de apoyo como Recursos Humanos, Tecnología y Administración y Finanzas no miden objetivos, y no hay un set común ni una revisión de conjunto."
+     "texto": "Convierte el plan estratégico y el presupuesto aprobados en un cuadro de indicadores de la Junta Directiva, lo despliega en metas por función, país y equipo, y lo revisa cada mes con cifras de fuente oficial para decidir acciones cuando el resultado se aparta de la meta.",
+     "nota_estado": "Proceso a implementar. Ya existen piezas que se aprovechan: el presupuesto de doce meses con revisión de mitad de año, la batería de indicadores de las áreas comerciales y el seguimiento semanal por metas de Colombia. Falta el cuadro único y que las funciones de apoyo midan."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Finanzas del Grupo",
+     "participantes": [
+      "Junta Directiva — aprueba el cuadro de indicadores y las metas anuales, y decide las acciones ante desvíos.",
+      "Gerente de Contabilidad / Administración — consolida cada mes el resultado real contra la meta, a partir de las cifras que cierra contabilidad.",
+      "Gerentes de primera línea — definen los indicadores de su función, los despliegan a sus equipos y explican sus desvíos.",
+      "Director(a) Externo(a) de Junta Directiva — acompaña la definición del cuadro para que refleje los objetivos del plan."
+     ],
+     "evidencia": [
+      "E-15",
+      "E-20",
+      "E-12",
+      "E-01",
+      "E-11"
+     ],
+     "sin_evidencia": "No hay evidencia de que exista hoy un cuadro de indicadores de la Junta: la propia asistencia de la Presidencia afirma que no hay indicadores a los que la Junta dé seguimiento."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-11",
+      "E-12",
+      "E-15",
+      "E-20",
+      "E-47",
+      "E-58"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Junta Directiva", "texto": "Toma el plan estratégico aprobado y señala las prioridades y objetivos del año que deben medirse, de modo que el cuadro de indicadores responda a lo decidido y no a lo que ya resulta fácil de medir."},
-      {"id": "a2", "rol": "Director(a) de Finanzas del Grupo", "texto": "Propone el cuadro de indicadores de la Junta a partir de lo que ya se mide con regularidad —presupuesto, forecast de compra y venta, y margen—, y define cómo se consolidará la información de cada país."},
-      {"id": "a3", "rol": "Gerentes regionales por función", "texto": "Aportan los indicadores que su función ya lleva, como la batería de Ventas al Detal y de Ventas al Mayor, y proponen los que hoy no existen en las funciones de apoyo, con la fórmula y la frecuencia con que podrían medirse."},
-      {"id": "a4", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Contrasta el conjunto de indicadores con el plan estratégico y señala vacíos o excesos, para que el set sea homologado entre funciones y no crezca con métricas sin relación con el rumbo del grupo."},
-      {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba el set de indicadores y asigna las metas por nivel: las que la Junta sigue directamente y las que se trasladan a cada gerencia regional y de país."},
-      {"id": "a6", "rol": "Gerentes regionales por función", "texto": "Cascadean las metas hacia las gerencias de país y sus equipos, y confirman con cada gerente los indicadores que le corresponden y la fuente de donde saldrá su dato."},
-      {"id": "a7", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Consolida cada mes los resultados que reportan las gerencias en el formato definido y los entrega al Director de Finanzas del Grupo para su análisis, dando seguimiento a quienes no han reportado."},
-      {"id": "a8", "rol": "Director(a) de Finanzas del Grupo", "texto": "Presenta en la revisión mensual el avance de los indicadores frente al presupuesto y al forecast, con las desviaciones relevantes explicadas."},
-      {"id": "a9", "rol": "Junta Directiva", "texto": "Revisa el avance y decide si alguna desviación exige una acción correctiva; de ser así, acuerda la acción y su responsable, y de no serlo, el cuadro sigue vigente hasta la siguiente revisión."}
+      {
+       "id": "a1",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Con el plan aprobado, propone el cuadro de indicadores de la Junta: un conjunto corto de indicadores de venta, margen, inventario, caja y endeudamiento, más al menos uno por cada función, alineados con los objetivos del plan."
+      },
+      {
+       "id": "a2",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba el cuadro de indicadores y las metas anuales de cada uno, con su responsable y su tolerancia, y ordena que el presupuesto de doce meses se construya con esas mismas metas."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerentes de primera línea",
+       "texto": "Definen los indicadores de su función con fórmula, fuente del dato y meta; las funciones que hoy no miden —tecnología, talento, administración— proponen al menos dos indicadores cada una."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Revisa que cada indicador tenga fuente oficial y responsable del dato; cuando la cifra sale de un reporte no verificado, pide definir la fuente antes de incluirlo en el cuadro."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerentes de primera línea",
+       "texto": "Despliegan las metas a sus equipos y países con el mismo formato, como ya se hace con las metas por tienda o con el cuadro semanal por canal de Colombia."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Al cierre de cada mes consolida el resultado real contra la meta de cada indicador, usando las cifras cerradas por contabilidad y no las de reportes paralelos, con semáforo por nivel de cumplimiento."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Presenta el cuadro en la sesión mensual de la Junta —o en el Comité de Finanzas cuando coincida— con los desvíos fuera de tolerancia y la explicación de su responsable."
+      },
+      {
+       "id": "a8",
+       "rol": "Junta Directiva",
+       "texto": "Decide la acción correctiva para cada desvío relevante, con responsable y fecha, y la registra como acuerdo; a mitad de año revisa las metas de los meses restantes con los estados financieros disponibles."
+      }
      ],
      "diagrama": {
-      "carriles": ["Junta Directiva", "Director(a) de Finanzas del Grupo", "Gerentes regionales por función", "Director(a) Externo(a) de Junta Directiva", "Asistente Administrativo(a) / Servicios Generales"],
+      "carriles": [
+       "Director(a) de Finanzas del Grupo",
+       "Junta Directiva",
+       "Gerentes de primera línea",
+       "Gerente de Contabilidad / Administración"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Plan estratégico aprobado"},
-       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Señalar prioridades que deben medirse"},
-       {"id": "n2", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Proponer el cuadro de indicadores"},
-       {"id": "n3", "carril": "Gerentes regionales por función", "tipo": "tarea", "n": "Aportar y proponer indicadores por función"},
-       {"id": "n4", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Contrastar el set con el plan"},
-       {"id": "n5", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar indicadores y metas por nivel"},
-       {"id": "n6", "carril": "Gerentes regionales por función", "tipo": "tarea", "n": "Cascadear metas a gerencias de país"},
-       {"id": "n7", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Consolidar resultados mensuales"},
-       {"id": "n8", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Presentar avance frente a presupuesto y forecast"},
-       {"id": "n9", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Alguna desviación exige acción correctiva?"},
-       {"id": "n10", "carril": "Junta Directiva", "tipo": "tarea", "n": "Acordar acción y responsable"},
-       {"id": "n11", "carril": "Junta Directiva", "tipo": "fin", "n": "Acción correctiva acordada"},
-       {"id": "n12", "carril": "Junta Directiva", "tipo": "fin", "n": "Cuadro vigente hasta la próxima revisión"}
+       {
+        "id": "i",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "inicio",
+        "n": "Plan estratégico y presupuesto aprobados"
+       },
+       {
+        "id": "t1",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Proponer el cuadro de indicadores de la Junta"
+       },
+       {
+        "id": "t2",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar indicadores, metas y tolerancias"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Definir los indicadores de cada función"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "decision",
+        "n": "¿Indicador con fuente oficial?"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Definir la fuente y el responsable del dato"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Desplegar las metas a equipos y países",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Consolidar el resultado real contra la meta",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Presentar el cuadro con sus desvíos"
+       },
+       {
+        "id": "d2",
+        "carril": "Junta Directiva",
+        "tipo": "decision",
+        "n": "¿Desvío fuera de tolerancia?"
+       },
+       {
+        "id": "t8",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Acordar la acción correctiva con responsable"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Acción correctiva registrada"
+       },
+       {
+        "id": "f2",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "fin",
+        "n": "Cuadro revisado sin desvíos"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"},
-       {"de": "n9", "a": "n10", "etq": "Sí"}, {"de": "n9", "a": "n12", "etq": "No"}, {"de": "n10", "a": "n11"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t8",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "f2",
+        "etq": "No"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-11",
+      "E-12",
+      "E-15",
+      "E-20",
+      "E-47",
+      "E-58"
+     ],
      "filas": [
-      ["Funciones de apoyo sin indicadores", "Recursos Humanos, Tecnología y Administración y Finanzas no miden hoy objetivos propios, de modo que la Junta no puede saber qué rinden ni cómo se comparan con lo planeado.", "Alta", "Medio", "Incluir a cada función de apoyo en el set inicial con al menos dos indicadores acordados con su gerente."],
-      ["Indicadores desalineados del plan", "El set puede crecer con métricas heredadas de cada área que no responden a las prioridades definidas en el plan estratégico.", "Media", "Medio", "Validar cada indicador contra una prioridad del plan antes de incluirlo en el cuadro."],
-      ["Dato disperso entre países y sistemas", "La información sale de sistemas y de formatos distintos por país, lo que dificulta consolidar cifras comparables cada mes. Los reportes mensuales que algunas áreas presentan a la Junta se arman todavía a mano, integrando datos de varios canales.", "Alta", "Alto", "Definir un formato único de reporte y una fuente por indicador antes de la primera consolidación."],
-      ["Revisión mensual que se pierde entre lo operativo", "Los asuntos del día a día desplazan la reunión de revisión, como ya ocurre con otras instancias de seguimiento del grupo.", "Media", "Alto", "Fijar la revisión dentro de una sesión ya existente de la Junta y registrar sus resultados."],
-      ["Metas sin dueño identificable", "Un indicador sin un gerente responsable de su resultado deja de revisarse porque nadie responde por su desvío.", "Media", "Medio", "Asignar a cada indicador un dueño con nombre de cargo en el cuadro aprobado."]
+      [
+       "Cifras no verificadas en la mesa de decisión",
+       "En Venezuela la Presidencia recibe información de ventas que no sale de contabilidad y no está conciliada por el tema cambiario; decidir sobre ella puede llevar a conclusiones erradas.",
+       "Alta",
+       "Alto",
+       "Solo entran al cuadro cifras cerradas por contabilidad; las demás se muestran como provisionales."
+      ],
+      [
+       "Funciones que no miden",
+       "Ventas y marketing tienen indicadores, pero tecnología y talento no; la Junta no puede saber cómo va una función que no reporta resultados.",
+       "Alta",
+       "Medio",
+       "Mínimo de dos indicadores por función y acompañamiento para construirlos, sin exigir una batería completa desde el primer año."
+      ],
+      [
+       "Varias versiones de la misma cifra",
+       "Coexisten tableros personales, reportes en Excel y dashboards construidos por fuera de los sistemas oficiales; cada reunión puede discutir un número distinto.",
+       "Media",
+       "Alto",
+       "Un solo cuadro oficial por mes, preparado por finanzas, como referencia de toda discusión de la Junta."
+      ],
+      [
+       "Reportes que no se consumen",
+       "Hay tableros que ya se envían a la Junta cada mes y nadie abre; el esfuerzo de reportar no se traduce en decisiones.",
+       "Media",
+       "Medio",
+       "El cuadro se revisa dentro de la sesión, con los desvíos en el orden del día y una decisión por desvío."
+      ],
+      [
+       "Resistencia a medir",
+       "En varias áreas la palabra indicador genera recelo y se vive como control; un despliegue impuesto sin adaptación por función puede quedar en el papel.",
+       "Media",
+       "Medio",
+       "Indicadores diseñados con cada gerente y presentados como herramienta de gestión propia, no como fiscalización."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cobertura del cuadro de indicadores", "Funciones con indicadores y metas aprobados ÷ total de funciones del grupo", "Anual", "Director(a) de Finanzas del Grupo", "Por definir — hoy las funciones de apoyo no miden"],
-      ["Revisiones mensuales realizadas", "Revisiones de presupuesto y forecast realizadas ÷ 12", "Mensual", "Director(a) de Finanzas del Grupo", "Cada mes, como se practica hoy con el forecast"],
-      ["Indicadores reportados a tiempo", "Indicadores reportados en la fecha de corte ÷ indicadores del cuadro", "Mensual", "Asistente Administrativo(a) / Servicios Generales", "Por definir — no hay línea base"]
+      [
+       "Funciones con indicadores vigentes",
+       "Funciones con al menos dos indicadores activos ÷ funciones del grupo",
+       "Trimestral",
+       "Director(a) de Finanzas del Grupo",
+       "100 % al cierre del primer año"
+      ],
+      [
+       "Puntualidad del cuadro mensual",
+       "Días hábiles entre el cierre contable del mes y la entrega del cuadro",
+       "Mensual",
+       "Gerente de Contabilidad / Administración",
+       "≤ 10 días hábiles"
+      ],
+      [
+       "Indicadores con fuente oficial",
+       "Indicadores alimentados desde una fuente oficial ÷ indicadores del cuadro",
+       "Mensual",
+       "Gerente de Contabilidad / Administración",
+       "≥ 90 %"
+      ],
+      [
+       "Desvíos con acción asignada",
+       "Desvíos fuera de tolerancia con acción, responsable y fecha ÷ desvíos detectados",
+       "Mensual",
+       "Junta Directiva",
+       "100 %"
+      ]
      ]
     }
    },
-
    "1.3": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el ciclo de las sesiones de la Junta Directiva, del Comité Directivo y de los comités especializados: la convocatoria, la agenda, la circulación previa de los temas, la conducción de la sesión y el registro de lo decidido. Busca que cada reunión llegue preparada y termine con decisiones que alguien pueda seguir.",
-     "nota_estado": "El proceso está en transición: la agenda y el resumen de cada reunión los prepara hoy la asistente de la Presidencia y los circula por mensajería, y el Comité de Finanzas se reúne con regularidad; en cambio, la Junta Directiva no tiene una frecuencia fija, las sesiones no siempre llegan con presentación previa y no se emite un acta formal."
+     "texto": "Cubre el ciclo de cada sesión de los órganos de gobierno —Junta Directiva, Comité Directivo, Comité de Finanzas y comités funcionales—: el calendario anual en las tres zonas horarias, la agenda de una página con soportes enviados antes, la conducción con tiempo por punto y el cierre de cada punto con una decisión registrada.",
+     "nota_estado": "Proceso en transición: el Comité de Finanzas ya sesiona cada dos semanas con regularidad y la asistencia de la Presidencia arma agendas de una página. Lo que se incorpora es un calendario fijo para la Junta, soportes previos obligatorios y el registro de la decisión de cada punto."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Presidente de Junta Directiva",
+     "participantes": [
+      "Asistente Ejecutivo(a) de la Presidencia — mantiene el calendario, arma la agenda, circula los soportes y registra las decisiones; actúa como secretaría de los órganos.",
+      "Junta Directiva — cinco directores de la familia, dos directores externos y la dirección de finanzas; delibera y decide cada punto.",
+      "Gerentes de primera línea — preparan y presentan los puntos de su área cuando son invitados, con el soporte enviado antes de la sesión."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-12",
+      "E-20",
+      "E-15",
+      "E-23",
+      "E-05"
+     ],
+     "notas": "Los entrevistados usan los nombres de los órganos de forma cruzada. Este manual sigue la nomenclatura que el grupo adoptó recientemente: Comité Directivo son los cinco directores de la familia; Junta Directiva son ellos más los dos directores externos y la dirección de finanzas."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-08",
+      "E-11",
+      "E-12",
+      "E-15",
+      "E-20",
+      "E-23",
+      "E-26"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Presidente de Junta Directiva", "texto": "Indica los temas que deben llevarse a la siguiente sesión de la Junta Directiva o del Comité Directivo, y señala cuáles requieren una decisión y no solo información."},
-      {"id": "a2", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Mantiene el registro de los temas pendientes, actualiza su estado y arma la agenda priorizada en una página con los puntos que requieren decisión y un resumen breve de cada uno."},
-      {"id": "a3", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Busca la franja horaria que permita reunir a los participantes de Panamá y Venezuela, que suele ser el mediodía, y convoca la sesión."},
-      {"id": "a4", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Circula la agenda por mensajería a los participantes, les pregunta si falta algún tema y emite una segunda versión con los puntos que ellos agregan."},
-      {"id": "a5", "rol": "Director(a) de Finanzas del Grupo", "texto": "Prepara, para el Comité de Finanzas, la presentación de los estados financieros, el endeudamiento y la caja, y la deja disponible antes de la reunión."},
-      {"id": "a6", "rol": "Presidente de Junta Directiva", "texto": "Conduce la sesión: recorre los puntos de la agenda, escucha a los directores familiares y a los directores externos y a los gerentes invitados por punto, y cierra cada tema con una decisión o con un pendiente."},
-      {"id": "a7", "rol": "Presidente de Junta Directiva", "texto": "Determina, al cierre de cada punto, si quedó resuelto; si no lo está, lo deja como tema pendiente con quien debe ocuparse de él, para llevarlo a la siguiente sesión."},
-      {"id": "a8", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Captura las decisiones y los pendientes de la sesión y los envía como resumen a los participantes por mensajería, para que cada quien confirme o corrija lo registrado."}
+      {
+       "id": "a1",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Mantiene el calendario anual de sesiones —Junta mensual, Comité de Finanzas cada dos semanas los miércoles, Comité Directivo y comités funcionales— en la franja común de Venezuela, Panamá y Miami, publicado a inicio de año."
+      },
+      {
+       "id": "a2",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Arma la agenda de una página a partir de los acuerdos pendientes y de los puntos que elevan directores o gerentes, indicando para cada punto si es informativo o de decisión y quién lo presenta."
+      },
+      {
+       "id": "a3",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Revisa y aprueba la agenda, define qué gerentes se invitan por punto y confirma que los temas decididos fuera de sesión por el Comité Directivo entren a la Junta para informarse o ratificarse."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerentes de primera línea",
+       "texto": "Preparan una presentación breve de su punto —no el archivo de trabajo— con la decisión que se solicita, y la envían a la asistencia de la Presidencia al menos dos días hábiles antes."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Circula la agenda y los soportes a los miembros; el punto cuyo soporte no llegó a tiempo pasa a la sesión siguiente, salvo que la Presidencia lo declare urgente."
+      },
+      {
+       "id": "a6",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Conduce la sesión dentro de su tiempo, cuida que cada punto termine en una decisión, un pedido de análisis o una toma de conocimiento, y no permite que la sesión derive a temas fuera de agenda."
+      },
+      {
+       "id": "a7",
+       "rol": "Junta Directiva",
+       "texto": "Delibera cada punto de decisión y adopta la decisión o, si falta información, asigna a un responsable el análisis que falta y fija la sesión en que volverá el punto."
+      },
+      {
+       "id": "a8",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Registra al cierre cada decisión con su responsable, fecha y nivel de urgencia, y la pasa al registro de acuerdos para su distribución y seguimiento."
+      }
      ],
      "diagrama": {
-      "carriles": ["Presidente de Junta Directiva", "Asistente Ejecutivo(a) de la Presidencia", "Director(a) de Finanzas del Grupo"],
+      "carriles": [
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "Presidente de Junta Directiva",
+       "Gerentes de primera línea",
+       "Junta Directiva"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Presidente de Junta Directiva", "tipo": "inicio", "n": "Se acerca la sesión del órgano"},
-       {"id": "n1", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Indicar los temas para la agenda"},
-       {"id": "n2", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Armar la agenda de una página", "sistemas": ["Lark"]},
-       {"id": "n3", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Convocar en franja Panamá–Venezuela"},
-       {"id": "n4", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Circular la agenda e integrar temas nuevos", "sistemas": ["WhatsApp"]},
-       {"id": "n5", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Preparar la presentación financiera"},
-       {"id": "n6", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Conducir la sesión"},
-       {"id": "n7", "carril": "Presidente de Junta Directiva", "tipo": "decision", "n": "¿El punto queda resuelto?"},
-       {"id": "n8", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Dejar el tema como pendiente con responsable"},
-       {"id": "n9", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Enviar resumen de decisiones y pendientes", "sistemas": ["WhatsApp"]},
-       {"id": "n10", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "fin", "n": "Sesión cerrada con decisiones registradas"}
+       {
+        "id": "i",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "inicio",
+        "n": "Fecha de sesión del calendario o punto urgente"
+       },
+       {
+        "id": "t1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Armar la agenda de una página",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar la agenda y los invitados"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Enviar la presentación del punto"
+       },
+       {
+        "id": "d1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "decision",
+        "n": "¿Soporte recibido a tiempo?"
+       },
+       {
+        "id": "t4",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Pasar el punto a la sesión siguiente"
+       },
+       {
+        "id": "t5",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Circular agenda y soportes",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Conducir la sesión por agenda"
+       },
+       {
+        "id": "d2",
+        "carril": "Junta Directiva",
+        "tipo": "decision",
+        "n": "¿Se decide en la sesión?"
+       },
+       {
+        "id": "t7",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Adoptar la decisión"
+       },
+       {
+        "id": "t8",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Asignar el análisis que falta"
+       },
+       {
+        "id": "t9",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Registrar decisión, responsable y fecha",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "fin",
+        "n": "Sesión cerrada con decisiones registradas"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n9", "etq": "Sí"}, {"de": "n7", "a": "n8", "etq": "No"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t7",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "t8",
+        "etq": "No"
+       },
+       {
+        "de": "t7",
+        "a": "t9"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-08",
+      "E-11",
+      "E-12",
+      "E-15",
+      "E-20",
+      "E-23",
+      "E-26"
+     ],
      "filas": [
-      ["Sesiones sin frecuencia fija", "La Junta Directiva debería reunirse cada mes o cada dos semanas, pero las reuniones se ubican donde hay un espacio libre en las agendas y no en fechas establecidas. El mismo patrón se observa en las reuniones con los socios: se programan y no se realizan.", "Alta", "Alto", "Fijar un calendario anual de sesiones con fecha y hora recurrentes en la franja común de los países."],
-      ["Miembros que se enteran de las decisiones después", "Algunas decisiones se conversan entre los directores familiares por fuera de la sesión, y los directores externos las conocen tarde, cuando no las conocen por terceros.", "Alta", "Alto", "Llevar a la siguiente sesión toda decisión tomada fuera de ella para que quede registrada y sea conocida por todos."],
-      ["Reuniones sin preparación previa", "Cuando el material no está listo, la sesión se conduce abriendo hojas de cálculo en el momento y se pierde tiempo en ordenar la información en lugar de decidir.", "Media", "Medio", "Exigir una presentación breve por cada punto financiero antes de la sesión."],
-      ["Ausencia de acta formal", "El registro de lo decidido se limita a un resumen enviado por mensajería, sin un documento que permita reconstruir después qué se acordó y con qué responsable.", "Alta", "Alto", "Adoptar un acta mínima —decisión, responsable y fecha— archivada en un repositorio común."],
-      ["Órganos con nombres y miembros que se confunden", "La Junta Directiva y el Comité Directivo comparten agenda, canal y buena parte de sus miembros, y no siempre queda claro cuál de los dos toma cada decisión.", "Media", "Medio", "Definir por escrito la composición y las atribuciones de cada órgano."]
+      [
+       "Junta sin frecuencia fija",
+       "La Junta se reúne cuando la agenda de sus miembros lo permite; hay semanas de encuentros casi diarios y meses sin sesión formal, y los externos pierden continuidad.",
+       "Alta",
+       "Alto",
+       "Calendario anual publicado en enero y reprogramación dentro de la misma semana, como ya hace el Comité de Finanzas."
+      ],
+      [
+       "Sesiones sin preparación previa",
+       "Los datos se abren en la propia sesión sin una presentación preparada; se pierde tiempo leyendo cifras y se decide con menos análisis.",
+       "Alta",
+       "Medio",
+       "Soporte obligatorio dos días hábiles antes y regla de pasar a la sesión siguiente el punto sin soporte."
+      ],
+      [
+       "Decisiones que llegan como hechos consumados",
+       "Temas decididos entre los directores de la familia en espacios informales llegan a la Junta ya resueltos, y los miembros externos se enteran tarde.",
+       "Media",
+       "Alto",
+       "Todo tema decidido fuera de sesión entra a la siguiente Junta para informarse o ratificarse."
+      ],
+      [
+       "Sesiones que se vuelven informales",
+       "Reuniones que empiezan con agenda derivan a temas sueltos y terminan sin cerrar los puntos previstos.",
+       "Media",
+       "Medio",
+       "Tiempo por punto y cierre explícito de cada punto con decisión, análisis asignado o toma de conocimiento."
+      ],
+      [
+       "Sin constancia de lo decidido",
+       "Las conclusiones se toman de notas personales y se comunican por mensajería; no queda un registro que otros puedan consultar.",
+       "Alta",
+       "Alto",
+       "Registro de cada decisión al cierre de la sesión y distribución del acta dentro de las 48 horas."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cumplimiento de la frecuencia de sesiones", "Sesiones celebradas ÷ sesiones previstas en el calendario del órgano", "Trimestral", "Presidente de Junta Directiva", "Junta Directiva mensual y Comité de Finanzas quincenal, según el deber ser reconocido"],
-      ["Agenda circulada antes de la sesión", "Sesiones con agenda circulada al menos un día antes ÷ total de sesiones", "Trimestral", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"],
-      ["Sesiones con decisiones registradas", "Sesiones con resumen de decisiones enviado en las 48 horas siguientes ÷ total de sesiones", "Trimestral", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"]
+      [
+       "Cumplimiento del calendario",
+       "Sesiones celebradas ÷ sesiones programadas, por órgano",
+       "Trimestral",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "≥ 90 %"
+      ],
+      [
+       "Puntos con soporte previo",
+       "Puntos de decisión con soporte recibido dos días hábiles antes ÷ puntos de decisión",
+       "Mensual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "≥ 90 %"
+      ],
+      [
+       "Puntos cerrados en sesión",
+       "Puntos de decisión con decisión o análisis asignado ÷ puntos de decisión tratados",
+       "Mensual",
+       "Presidente de Junta Directiva",
+       "100 %"
+      ],
+      [
+       "Asistencia de los miembros",
+       "Asistencias ÷ (miembros × sesiones)",
+       "Trimestral",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "≥ 85 %"
+      ]
      ]
     }
    },
-
    "1.4": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre lo que ocurre con una decisión de gobierno después de tomada, en cualquier instancia y también fuera de sesión: su registro con dueño y urgencia, la comunicación a los participantes, el seguimiento de su avance y su cierre formal o su reescalamiento al órgano.",
-     "nota_estado": "Es un proceso a implementar. Hoy la asistente de la Presidencia lleva una base de temas con dueños y hace seguimiento frecuente de los que le indica el Presidente, pero el registro no lo consulta toda la Junta, no siempre queda definido quién responde por el seguimiento, y las decisiones tomadas fuera de sesión no llegan siempre a todos los miembros."
+     "texto": "Asegura que cada decisión de gobierno —tomada en sesión o fuera de ella— quede registrada con responsable, fecha y urgencia, llegue a quienes deben conocerla, tenga seguimiento periódico y termine cerrada o reescalada al órgano que la tomó.",
+     "nota_estado": "Proceso a implementar sobre una base que ya existe: la asistencia de la Presidencia lleva un registro de pendientes en Lark con dueños por tema y recordatorios. Lo que se incorpora es que toda la Junta use ese registro, que lo decidido fuera de sesión entre el mismo día y que cada acuerdo tenga cierre formal."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Asistente Ejecutivo(a) de la Presidencia",
+     "participantes": [
+      "Comité Directivo — informa al registro el mismo día las decisiones que sus miembros toman fuera de sesión.",
+      "Gerente de Proyectos (PMO) — recibe los acuerdos que derivan en proyecto y los gestiona con su propio método.",
+      "Gerentes responsables de la ejecución — ejecutan el acuerdo y actualizan su avance en el registro.",
+      "Junta Directiva — cierra los acuerdos cumplidos o reasigna plazo y responsable de los que no avanzan."
+     ],
+     "evidencia": [
+      "E-12",
+      "E-04",
+      "E-20",
+      "E-23",
+      "E-26"
+     ],
+     "notas": "La frontera con la oficina de proyectos quedó acordada entre ambas: las tareas las sigue la asistencia de la Presidencia y los proyectos los sigue la PMO, con copia de los resúmenes a la asistencia."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-04",
+      "E-12",
+      "E-20",
+      "E-23",
+      "E-26"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Directores de la familia", "texto": "Informan a la asistente de la Presidencia toda decisión tomada, sea en una sesión o fuera de ella, con el detalle de lo que se acordó y de quién se hará cargo."},
-      {"id": "a2", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Registra el acuerdo en la base de seguimiento con su dueño, el nivel de urgencia y la fecha esperada de cumplimiento, y mantiene ese registro actualizado."},
-      {"id": "a3", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Comunica el acuerdo registrado a todos los participantes del órgano, incluidos los directores externos, para que nadie lo conozca por terceros."},
-      {"id": "a4", "rol": "Gerente de Proyectos", "texto": "Evalúa los acuerdos que pueden convertirse en proyecto según el criterio de la oficina de proyectos, los registra como tales, les asigna un gerente de proyecto y mantiene la base de proyectos de la que sale cada viernes el resumen automático de estado que recibe la Junta."},
-      {"id": "a5", "rol": "Gerentes responsables de la ejecución", "texto": "Ejecutan el acuerdo que les corresponde y actualizan su estado en la base de seguimiento para que el avance quede visible sin depender de mensajes sueltos."},
-      {"id": "a6", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Revisa la base al inicio y al cierre de cada semana y antes de cada sesión del órgano, y recuerda a los dueños los acuerdos con plazo próximo o vencido."},
-      {"id": "a7", "rol": "Directores de la familia", "texto": "Revisan los acuerdos abiertos en la siguiente sesión y determinan si cada uno se cumplió o sigue en curso."},
-      {"id": "a8", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Cierra formalmente en la base el acuerdo cumplido, y reescala al órgano el que no se cumplió, con el motivo del retraso y una nueva fecha propuesta."}
+      {
+       "id": "a1",
+       "rol": "Comité Directivo",
+       "texto": "Informa a la asistencia de la Presidencia, el mismo día, toda decisión que sus miembros tomen fuera de sesión —por llamada, en persona o por mensajería— para que entre al registro como cualquier otro acuerdo."
+      },
+      {
+       "id": "a2",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Registra cada acuerdo en el registro único de la Junta con la decisión, el responsable, la fecha compromiso, el nivel de urgencia y el órgano o la conversación de la que salió."
+      },
+      {
+       "id": "a3",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Distribuye el acta o el resumen de acuerdos dentro de las 48 horas a los miembros del órgano y a los responsables, por el canal oficial y no solo por mensajería."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Revisa si el acuerdo exige coordinar a varios departamentos, entregables y fechas; en ese caso lo remite a la oficina de proyectos como requerimiento de la Junta con su prioridad."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Recibe el requerimiento, lo evalúa y lo gestiona en su base de proyectos; el avance vuelve a la Junta por el reporte semanal de la oficina de proyectos."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerentes responsables de la ejecución",
+       "texto": "Ejecutan el acuerdo y actualizan su avance en el registro antes de cada revisión semanal, señalando lo que bloquea su cumplimiento."
+      },
+      {
+       "id": "a7",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Revisa los vencimientos los lunes y los viernes, envía recordatorios a los responsables y prepara el resumen semanal de pendientes para la Presidencia."
+      },
+      {
+       "id": "a8",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Antes de cada sesión lleva a la agenda los acuerdos vencidos o bloqueados, para que el órgano decida sobre ellos en lugar de dejarlos abiertos."
+      },
+      {
+       "id": "a9",
+       "rol": "Junta Directiva",
+       "texto": "Da por cumplido el acuerdo, que se cierra en el registro, o reasigna su plazo o su responsable dejando constancia del motivo."
+      }
      ],
      "diagrama": {
-      "carriles": ["Directores de la familia", "Asistente Ejecutivo(a) de la Presidencia", "Gerente de Proyectos", "Gerentes responsables de la ejecución"],
+      "carriles": [
+       "Comité Directivo",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "Gerente de Proyectos (PMO)",
+       "Gerentes responsables de la ejecución",
+       "Junta Directiva"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Directores de la familia", "tipo": "inicio", "n": "Decisión tomada en sesión o fuera de ella"},
-       {"id": "n1", "carril": "Directores de la familia", "tipo": "tarea", "n": "Informar la decisión y su responsable"},
-       {"id": "n2", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Registrar acuerdo con dueño y urgencia", "sistemas": ["Lark"]},
-       {"id": "n3", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Comunicar el acuerdo a los participantes"},
-       {"id": "n4", "carril": "Gerente de Proyectos", "tipo": "decision", "n": "¿El acuerdo se convierte en proyecto?"},
-       {"id": "n5", "carril": "Gerente de Proyectos", "tipo": "tarea", "n": "Registrar como proyecto y asignar gerente"},
-       {"id": "n6", "carril": "Gerentes responsables de la ejecución", "tipo": "tarea", "n": "Ejecutar y actualizar el estado"},
-       {"id": "n7", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Revisar la base y recordar plazos"},
-       {"id": "n8", "carril": "Directores de la familia", "tipo": "decision", "n": "¿El acuerdo se cumplió?"},
-       {"id": "n9", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Cerrar el acuerdo en la base"},
-       {"id": "n10", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Reescalar al órgano con nueva fecha"},
-       {"id": "n11", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "fin", "n": "Acuerdo cerrado"},
-       {"id": "n12", "carril": "Directores de la familia", "tipo": "fin", "n": "Acuerdo reescalado al órgano"}
+       {
+        "id": "i",
+        "carril": "Comité Directivo",
+        "tipo": "inicio",
+        "n": "Decisión tomada en sesión o fuera de ella"
+       },
+       {
+        "id": "t1",
+        "carril": "Comité Directivo",
+        "tipo": "tarea",
+        "n": "Informar la decisión tomada fuera de sesión"
+       },
+       {
+        "id": "t2",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Registrar el acuerdo con dueño y fecha",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t3",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Distribuir el acta en 48 horas",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "decision",
+        "n": "¿El acuerdo deriva en proyecto?"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Evaluar y gestionar el requerimiento",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t5",
+        "carril": "Gerentes responsables de la ejecución",
+        "tipo": "tarea",
+        "n": "Ejecutar y actualizar el avance",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Revisar vencimientos y recordar",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Llevar los vencidos a la agenda"
+       },
+       {
+        "id": "d2",
+        "carril": "Junta Directiva",
+        "tipo": "decision",
+        "n": "¿El acuerdo se cumplió?"
+       },
+       {
+        "id": "t8",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Cerrar el acuerdo en el registro"
+       },
+       {
+        "id": "t9",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Reasignar plazo o responsable"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Acuerdo cerrado"
+       },
+       {
+        "id": "f2",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Acuerdo reescalado"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n6", "etq": "No"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n10", "etq": "No"},
-       {"de": "n9", "a": "n11"}, {"de": "n10", "a": "n12"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t6"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t8",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "t9",
+        "etq": "No"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       },
+       {
+        "de": "t9",
+        "a": "f2"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-04",
+      "E-12",
+      "E-20",
+      "E-23",
+      "E-26"
+     ],
      "filas": [
-      ["Acuerdos sin responsable de seguimiento", "Cuando un tema se conversa sin definir quién le hará seguimiento, queda en el aire y no vuelve a la agenda.", "Alta", "Alto", "No dar por registrado un acuerdo hasta que tenga un dueño y una fecha."],
-      ["Decisiones fuera de sesión que no se registran", "Las decisiones que los directores toman en conversaciones directas no llegan siempre a los demás miembros, y algunos se enteran cuando ya se ejecutan.", "Alta", "Alto", "Establecer que toda decisión de gobierno se informa a la asistente de la Presidencia el mismo día."],
-      ["Registro consultado por pocos", "La base de seguimiento la consultan solo algunos directores, y el resto depende de mensajes por mensajería para saber el estado de cada tema.", "Alta", "Medio", "Acordar con la Junta que el estado de los acuerdos se revisa en la base y no por mensajes."],
-      ["Traslape entre la iniciativa de la Presidencia y la oficina de proyectos", "No hay un criterio escrito que separe lo que lleva la asistente de la Presidencia de lo que lleva la oficina de proyectos, y la frontera se define caso por caso.", "Media", "Medio", "Documentar el criterio de la oficina de proyectos para distinguir proyectos, iniciativas y tareas, y aplicarlo a los acuerdos."],
-      ["Dependencia de una sola persona para el registro", "El registro y el seguimiento dependen de la asistente de la Presidencia y de su criterio para decidir qué requiere una decisión.", "Media", "Alto", "Documentar el procedimiento y designar un respaldo con acceso a la base."]
+      [
+       "Decisiones que no se registran",
+       "Buena parte de las decisiones se toma por teléfono o en conversaciones directas y no queda constancia; después nadie recuerda con precisión qué se acordó.",
+       "Alta",
+       "Alto",
+       "Regla de informar el mismo día toda decisión fuera de sesión y registro único de acuerdos."
+      ],
+      [
+       "Acuerdos sin dueño",
+       "El seguimiento falla cuando no se define un responsable o cuando la decisión se tomó en una conversación; el acuerdo queda en el aire.",
+       "Alta",
+       "Alto",
+       "Ningún acuerdo entra al registro sin responsable y fecha compromiso."
+      ],
+      [
+       "Registro que la Junta no consulta",
+       "El registro existe pero lo usan pocos directores; la mensajería sigue siendo el canal preferido y el avance no se ve en un solo lugar.",
+       "Media",
+       "Medio",
+       "Revisión del registro dentro de cada sesión y resumen semanal generado desde él."
+      ],
+      [
+       "Duplicidad entre la asistencia y la oficina de proyectos",
+       "Sin un criterio escrito, el mismo pedido puede seguirse en dos lugares o en ninguno.",
+       "Media",
+       "Medio",
+       "Criterio escrito: tareas en el registro de la Junta, proyectos en la base de la PMO, con copia cruzada de resúmenes."
+      ],
+      [
+       "Dependencia de una sola persona",
+       "Todo el seguimiento descansa en la asistencia de la Presidencia; su ausencia detendría el cierre de los acuerdos.",
+       "Media",
+       "Medio",
+       "Registro compartido con la Junta y procedimiento escrito para que otra persona pueda sostenerlo."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Acuerdos con dueño y fecha", "Acuerdos registrados con dueño y fecha ÷ total de acuerdos registrados", "Mensual", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"],
-      ["Acuerdos cerrados en el plazo", "Acuerdos cerrados dentro de la fecha comprometida ÷ acuerdos con fecha vencida en el período", "Trimestral", "Presidente de Junta Directiva", "Por definir — no hay línea base"],
-      ["Acuerdos reescalados", "Acuerdos reescalados al órgano ÷ total de acuerdos abiertos en el período", "Trimestral", "Asistente Ejecutivo(a) de la Presidencia", "Por definir — no hay línea base"]
+      [
+       "Acuerdos con dueño y fecha",
+       "Acuerdos registrados con responsable y fecha ÷ acuerdos registrados",
+       "Mensual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "100 %"
+      ],
+      [
+       "Cierre en plazo",
+       "Acuerdos cerrados a más tardar en su fecha compromiso ÷ acuerdos vencidos en el período",
+       "Mensual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "≥ 80 %"
+      ],
+      [
+       "Acuerdos envejecidos",
+       "Acuerdos abiertos con más de 30 días de vencidos",
+       "Mensual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "0"
+      ],
+      [
+       "Distribución oportuna del acta",
+       "Actas distribuidas dentro de 48 horas ÷ sesiones celebradas",
+       "Mensual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "100 %"
+      ]
      ]
     }
    },
-
    "1.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el mantenimiento y la aplicación del protocolo familiar, que define las relaciones entre la familia y la empresa, y el funcionamiento de sus instancias: el consejo de familia, el consejo de accionistas y la asamblea anual de accionistas con la rendición de resultados del año.",
-     "nota_estado": "Es un proceso a implementar en su forma completa: el protocolo familiar lleva años en preparación (desde 2018) y se está cerrando con apoyo de un director externo, pero falta su terminación y la revisión del abogado; la asamblea anual de accionistas se celebra, y el consejo de familia con reuniones periódicas se está definiendo dentro del propio protocolo."
+     "texto": "Ordena la relación entre la familia propietaria y la empresa mediante el protocolo familiar: su actualización, revisión legal y firma; la celebración de la asamblea anual de accionistas y del consejo de familia; y la separación entre los asuntos familiares y patrimoniales y los que corresponden al gobierno de la empresa.",
+     "nota_estado": "Proceso a implementar. El protocolo familiar existe desde hace años y está en simplificación con un director externo, y la asamblea de accionistas se celebra una vez al año. Falta cerrar el protocolo, firmarlo, dar calendario al consejo de familia y registrar sus acuerdos."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Accionistas y miembros de la familia",
+     "participantes": [
+      "Director(a) Externo(a) de Junta Directiva — custodia el protocolo, conduce su actualización y facilita el consejo de familia.",
+      "Asesor(a) Jurídico(a) Externo(a) del Grupo — revisa legalmente el protocolo antes de su firma.",
+      "Director(a) de Finanzas del Grupo — presenta a la asamblea los resultados del ejercicio.",
+      "Asistente Ejecutivo(a) de la Presidencia — convoca la asamblea y el consejo de familia y custodia sus actas."
+     ],
+     "evidencia": [
+      "E-20",
+      "E-17",
+      "E-01",
+      "E-24"
+     ],
+     "sin_evidencia": "No hay evidencia de que la asamblea de accionistas deje un acta, ni de la fecha de firma prevista del protocolo actualizado."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-17",
+      "E-20",
+      "E-24"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Actualiza y simplifica el protocolo familiar para que sea usable por sus destinatarios, e incorpora los temas que la familia requiere que regule, como el ingreso de familiares y los cambios de estado civil."},
-      {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Revisa el texto del protocolo desde el punto de vista legal y señala los ajustes necesarios antes de someterlo a la familia."},
-      {"id": "a3", "rol": "Accionistas y miembros de la familia", "texto": "Revisan el protocolo revisado, lo aprueban y lo firman, dejando constituidos el consejo de accionistas y el consejo de familia con sus reglas de funcionamiento."},
-      {"id": "a4", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Convoca el consejo de familia una o dos veces al año y registra su celebración y sus conclusiones."},
-      {"id": "a5", "rol": "Accionistas y miembros de la familia", "texto": "Se reúnen en el consejo de familia con los miembros consanguíneos para informarles cómo va la empresa y atender lo que la familia plantee."},
-      {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Convoca la asamblea anual de accionistas una vez cerrados los resultados del año y prepara el registro de la reunión."},
-      {"id": "a7", "rol": "Accionistas y miembros de la familia", "texto": "Celebran la asamblea, reciben la rendición de los resultados del año y adoptan las decisiones que corresponden a los accionistas."},
-      {"id": "a8", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Ante un evento que el protocolo regula —ingreso o salida de un familiar, matrimonio, divorcio— revisa qué establece el protocolo y determina si el caso requiere modificarlo."},
-      {"id": "a9", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Revisa legalmente la modificación propuesta al protocolo cuando el evento la requiere, antes de que los accionistas la aprueben."}
+      {
+       "id": "a1",
+       "rol": "Director(a) Externo(a) de Junta Directiva",
+       "texto": "Conduce la actualización del protocolo familiar en una versión más simple que la anterior: instancias de la familia, reglas de ingreso y permanencia de familiares consanguíneos y políticos, y separación entre patrimonio familiar y empresa."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "texto": "Revisa legalmente el borrador del protocolo, verifica su coherencia con los estatutos de las sociedades del grupo y devuelve las observaciones que deben incorporarse antes de la firma."
+      },
+      {
+       "id": "a3",
+       "rol": "Accionistas y miembros de la familia",
+       "texto": "Revisan el protocolo final, lo aprueban y lo firman; a partir de la firma, todo ingreso de un familiar o evento familiar previsto se resuelve según sus reglas y no caso por caso."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Convoca con anticipación la asamblea anual de accionistas —entre enero y febrero— y el consejo de familia, una o dos veces al año, con su orden del día."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Presenta a la asamblea los resultados del ejercicio del grupo, su situación financiera y la propuesta de aplicación de resultados, con los estados financieros cerrados."
+      },
+      {
+       "id": "a6",
+       "rol": "Accionistas y miembros de la familia",
+       "texto": "Sesionan la asamblea y el consejo de familia; allí se tratan también los nuevos negocios patrimoniales y los asuntos familiares, de modo que no ocupen las sesiones de la Junta de la empresa."
+      },
+      {
+       "id": "a7",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Registra las actas de la asamblea y del consejo de familia y las guarda en un repositorio de acceso restringido a los accionistas y a los directores externos."
+      },
+      {
+       "id": "a8",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Identifica los acuerdos familiares que tocan a la empresa —por ejemplo, el ingreso de un familiar a un cargo— y los remite a la Junta Directiva para su tratamiento con las reglas de la empresa."
+      }
      ],
      "diagrama": {
-      "carriles": ["Director(a) Externo(a) de Junta Directiva", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Accionistas y miembros de la familia", "Asistente Administrativo(a) / Servicios Generales"],
+      "carriles": [
+       "Director(a) Externo(a) de Junta Directiva",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "Accionistas y miembros de la familia",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "Director(a) de Finanzas del Grupo"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "inicio", "n": "Protocolo por actualizar o evento familiar"},
-       {"id": "n1", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Actualizar y simplificar el protocolo"},
-       {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Revisar el protocolo legalmente"},
-       {"id": "n3", "carril": "Accionistas y miembros de la familia", "tipo": "tarea", "n": "Aprobar y firmar el protocolo"},
-       {"id": "n4", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Convocar el consejo de familia"},
-       {"id": "n5", "carril": "Accionistas y miembros de la familia", "tipo": "tarea", "n": "Reunirse en consejo de familia"},
-       {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Convocar la asamblea anual tras el cierre"},
-       {"id": "n7", "carril": "Accionistas y miembros de la familia", "tipo": "tarea", "n": "Celebrar asamblea y recibir resultados"},
-       {"id": "n8", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "decision", "n": "¿Un evento exige modificar el protocolo?"},
-       {"id": "n9", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Revisar la modificación propuesta"},
-       {"id": "n10", "carril": "Accionistas y miembros de la familia", "tipo": "fin", "n": "Protocolo modificado y vigente"},
-       {"id": "n11", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "fin", "n": "Protocolo vigente se aplica sin cambios"}
+       {
+        "id": "i",
+        "carril": "Director(a) Externo(a) de Junta Directiva",
+        "tipo": "inicio",
+        "n": "Cierre del ejercicio o evento familiar previsto"
+       },
+       {
+        "id": "t1",
+        "carril": "Director(a) Externo(a) de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Actualizar el protocolo familiar"
+       },
+       {
+        "id": "t2",
+        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+        "tipo": "tarea",
+        "n": "Revisar legalmente el protocolo"
+       },
+       {
+        "id": "t3",
+        "carril": "Accionistas y miembros de la familia",
+        "tipo": "tarea",
+        "n": "Aprobar y firmar el protocolo"
+       },
+       {
+        "id": "t4",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Convocar asamblea y consejo de familia"
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Presentar los resultados del ejercicio",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Accionistas y miembros de la familia",
+        "tipo": "tarea",
+        "n": "Sesionar la asamblea y el consejo de familia"
+       },
+       {
+        "id": "t7",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Registrar actas y acuerdos"
+       },
+       {
+        "id": "d1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "decision",
+        "n": "¿Algún acuerdo toca a la empresa?"
+       },
+       {
+        "id": "t8",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Remitir el acuerdo a la Junta Directiva"
+       },
+       {
+        "id": "f1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "fin",
+        "n": "Acuerdo llevado al gobierno de la empresa"
+       },
+       {
+        "id": "f2",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "fin",
+        "n": "Acuerdos familiares registrados"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
-       {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n11", "etq": "No"}, {"de": "n9", "a": "n10"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t8",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "f2",
+        "etq": "No"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-17",
+      "E-20",
+      "E-24"
+     ],
      "filas": [
-      ["Protocolo inconcluso o sin revisión legal", "El protocolo no está terminado y aún debe revisarlo un abogado, por lo que no puede aplicarse ni consultarse como referencia.", "Alta", "Alto", "Terminar el texto, cerrar la revisión legal y firmarlo con fecha."],
-      ["Instancias sin registro de su funcionamiento", "La asamblea se celebra una vez al año, pero no hay evidencia de un acta, y el consejo de familia no tiene un calendario definido; algunos directores ni siquiera mencionan la asamblea como instancia del grupo.", "Media", "Alto", "Dejar acta de cada asamblea y definir el calendario del consejo de familia."],
-      ["Mezcla de asuntos familiares y de la empresa", "Decisiones de la empresa se toman en encuentros familiares o en conversaciones informales, sin pasar por las instancias de gobierno.", "Alta", "Alto", "Distinguir en el protocolo qué se decide en cada instancia y llevar a la Junta lo que afecta a la empresa."],
-      ["Dependencia de una sola persona como custodio", "El protocolo se redactó y se mantiene por un único director externo, sin un respaldo que lo custodie.", "Media", "Medio", "Definir quién custodia el protocolo y dónde se guarda la versión vigente."],
-      ["Reglas sin criterios para familiares políticos", "Hay miembros de la familia que no son consanguíneos, y los criterios de ingreso y permanencia pueden no cubrir sus casos.", "Media", "Medio", "Incorporar al protocolo criterios explícitos para cada categoría de familiar."]
+      [
+       "Protocolo que no se cierra ni se lee",
+       "El protocolo se empezó hace años, la versión anterior resultó demasiado compleja y nadie la había leído; sin firma no obliga a nadie.",
+       "Alta",
+       "Alto",
+       "Versión simplificada, revisión legal con fecha y firma de todos los accionistas."
+      ],
+      [
+       "Asuntos patrimoniales en la agenda de la empresa",
+       "Nuevos negocios familiares y decisiones sobre activos se tratan a veces en las reuniones de la empresa como puntos no planificados.",
+       "Media",
+       "Medio",
+       "Instancia propia para lo patrimonial —asamblea o consejo de familia— y filtro al armar la agenda de la Junta."
+      ],
+      [
+       "Ingreso de familiares sin criterio escrito",
+       "Sin reglas de ingreso y permanencia, cada incorporación de un familiar se resuelve caso por caso y puede generar tensiones.",
+       "Media",
+       "Alto",
+       "Reglas de ingreso en el protocolo y tratamiento en la Junta con los mismos criterios que para cualquier cargo."
+      ],
+      [
+       "Instancias sin registro",
+       "No hay evidencia de acta de la asamblea anual ni de un consejo de familia con calendario; los acuerdos dependen de la memoria de los presentes.",
+       "Media",
+       "Medio",
+       "Acta de cada sesión, custodiada por la asistencia de la Presidencia."
+      ],
+      [
+       "Continuidad del custodio",
+       "El avance del protocolo depende de un director externo; si se ausenta, el trabajo puede volver a detenerse.",
+       "Baja",
+       "Medio",
+       "Borrador y calendario de trabajo compartidos con el asesor jurídico y con un accionista designado."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Protocolo vigente y firmado", "Protocolo aprobado, con revisión legal y firmado por los accionistas (sí / no)", "Anual", "Director(a) Externo(a) de Junta Directiva", "Por definir — hoy está en actualización"],
-      ["Consejo de familia celebrado", "Sesiones del consejo de familia celebradas en el año", "Anual", "Accionistas y miembros de la familia", "Una o dos por año, según lo que se plantea en el protocolo"],
-      ["Asamblea anual celebrada con registro", "Asamblea celebrada tras el cierre de resultados y con acta archivada (sí / no)", "Anual", "Asistente Administrativo(a) / Servicios Generales", "Una por año, tras el cierre de resultados"]
+      [
+       "Protocolo firmado",
+       "Protocolo actualizado firmado por todos los accionistas (sí / no)",
+       "Anual",
+       "Director(a) Externo(a) de Junta Directiva",
+       "Sí"
+      ],
+      [
+       "Asamblea con acta",
+       "Asamblea anual celebrada con acta registrada (sí / no)",
+       "Anual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "Sí"
+      ],
+      [
+       "Sesiones del consejo de familia",
+       "Sesiones del consejo de familia celebradas en el año",
+       "Anual",
+       "Director(a) Externo(a) de Junta Directiva",
+       "≥ 1"
+      ],
+      [
+       "Asuntos patrimoniales fuera de la Junta",
+       "Asuntos patrimoniales tratados en la Junta de la empresa en el año",
+       "Anual",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "0"
+      ]
      ]
     }
    },
-
    "1.6": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la identificación de las posiciones críticas del grupo y de sus posibles sucesores, la conversación de proyección de carrera con la tercera generación de la familia, la evaluación del ajuste de quienes ocupan hoy esas posiciones, y la decisión de nombramiento o relevo de la primera línea gerencial.",
-     "nota_estado": "Es un proceso a implementar: hoy no existe un plan de sucesión ni un plan de desarrollo por persona, y las decisiones de nombramiento las toman los directores familiares sin un proceso estructurado. La Junta Directiva reconoce la sucesión como una de sus mayores responsabilidades y se ha planteado comenzar por la conversación con la tercera generación."
+     "texto": "Identifica las posiciones críticas del grupo —incluida la Presidencia—, evalúa si cada una tiene un sucesor o un reemplazo temporal preparado, conduce la conversación de proyección de carrera con la tercera generación de la familia y lleva a la Junta las decisiones de nombramiento o relevo.",
+     "nota_estado": "Proceso a implementar: hoy no existe un plan de sucesión y la Junta no ha tratado el tema. Se apoya en dos piezas nuevas: la gerencia corporativa de Recursos Humanos que se incorpora en octubre de 2026 y las descripciones de cargo que cada colaborador está firmando."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Junta Directiva",
+     "participantes": [
+      "Gerente de Recursos Humanos — corporativo; propone el mapa de posiciones críticas, evalúa el ajuste de sus ocupantes y da seguimiento a los planes de desarrollo.",
+      "Director(a) Externo(a) de Junta Directiva — facilita la conversación de proyección de carrera con la tercera generación y la sesión anual de sucesión.",
+      "Presidente de Junta Directiva — preside la sesión en que se trata su propia sucesión y la de la primera línea."
+     ],
+     "evidencia": [
+      "E-20",
+      "SC-10",
+      "E-08",
+      "E-15",
+      "E-17"
+     ],
+     "sin_evidencia": "No consta qué posiciones considera críticas la Junta; la lista de este proceso se deriva de las dependencias de una sola persona que describen los propios entrevistados."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-15",
+      "E-17",
+      "E-20",
+      "E-23",
+      "SC-10"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Junta Directiva", "texto": "Encarga el ejercicio de sucesión y designa a quien lo facilita, y define qué posiciones —de la familia y de la gerencia— quedan dentro de su alcance."},
-      {"id": "a2", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Facilita el ejercicio: propone el mapa de posiciones críticas del grupo, aquellas cuya ausencia o desajuste pondría en riesgo la operación."},
-      {"id": "a3", "rol": "Directores de la familia", "texto": "Identifican, para cada posición crítica, a los posibles sucesores dentro y fuera de la organización y señalan las posiciones cuyo ocupante actual no tiene el perfil que se espera."},
-      {"id": "a4", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Conversa de forma estructurada con los miembros de la tercera generación sobre lo que quieren hacer y hacia dónde proyectan su carrera dentro del grupo."},
-      {"id": "a5", "rol": "Gerente de Recursos Humanos", "texto": "Evalúa el ajuste de quienes ocupan hoy las posiciones críticas al perfil requerido, con base en la descripción del cargo y en la trayectoria de cada persona."},
-      {"id": "a6", "rol": "Junta Directiva", "texto": "Revisa el mapa de posiciones con sus sucesores y la evaluación de ajuste, y determina si hay brecha entre el ocupante y el perfil requerido."},
-      {"id": "a7", "rol": "Junta Directiva", "texto": "Acuerda, cuando hay brecha, la decisión de desarrollo, relevo o nombramiento para cada posición, y ratifica al ocupante cuando no la hay."},
-      {"id": "a8", "rol": "Gerente de Recursos Humanos", "texto": "Da seguimiento al plan de desarrollo acordado para cada sucesor y lo actualiza al revisar el mapa de posiciones cada año."}
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Propone el mapa de posiciones críticas: la Presidencia, la compra de cada marca, la dirección de finanzas, la gerencia de sistemas, la relación con los bancos y las demás funciones que hoy dependen de una sola persona."
+      },
+      {
+       "id": "a2",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba el mapa de posiciones críticas en la sesión anual de sucesión y define para cada posición el horizonte en que debe contar con un sucesor o un reemplazo temporal."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Evalúa a cada ocupante contra el perfil del cargo, apoyándose en la descripción de cargo firmada, e identifica candidatos internos y la necesidad de buscar fuera cuando no los hay."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Cuando existe sucesor, documenta el reemplazo temporal —quién cubre, qué decide y con qué acceso—; cuando no existe, define un plan de desarrollo con plazo o la búsqueda externa del perfil."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) Externo(a) de Junta Directiva",
+       "texto": "Conduce con cada integrante de la tercera generación una conversación de proyección de carrera y de desarrollo, cuyas conclusiones alimentan el plan de sucesión de la línea directiva."
+      },
+      {
+       "id": "a6",
+       "rol": "Junta Directiva",
+       "texto": "Trata en sesión específica la sucesión de la Presidencia y de la primera línea, con el mapa, los reemplazos y los planes de desarrollo a la vista, y deja las decisiones en acta."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Da seguimiento a los planes de desarrollo y a la vigencia de los reemplazos temporales, y actualiza el mapa cuando cambia una posición, un ocupante o la estructura."
+      }
      ],
      "diagrama": {
-      "carriles": ["Junta Directiva", "Director(a) Externo(a) de Junta Directiva", "Directores de la familia", "Gerente de Recursos Humanos"],
+      "carriles": [
+       "Gerente de Recursos Humanos",
+       "Junta Directiva",
+       "Director(a) Externo(a) de Junta Directiva"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Revisión anual o vacante crítica"},
-       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Encargar el ejercicio y su alcance"},
-       {"id": "n2", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Proponer el mapa de posiciones críticas"},
-       {"id": "n3", "carril": "Directores de la familia", "tipo": "tarea", "n": "Identificar sucesores potenciales"},
-       {"id": "n4", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Conversar con la tercera generación"},
-       {"id": "n5", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Evaluar ajuste de ocupantes al perfil"},
-       {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Hay brecha entre ocupante y perfil?"},
-       {"id": "n7", "carril": "Junta Directiva", "tipo": "tarea", "n": "Acordar desarrollo, relevo o nombramiento"},
-       {"id": "n8", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento al plan de desarrollo"},
-       {"id": "n9", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Mapa de posiciones con sucesores vigente"},
-       {"id": "n10", "carril": "Junta Directiva", "tipo": "fin", "n": "Ocupante ratificado"}
+       {
+        "id": "i",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Revisión anual o vacante en una posición clave"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Proponer el mapa de posiciones críticas"
+       },
+       {
+        "id": "t2",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el mapa y sus horizontes"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Evaluar ocupantes y candidatos"
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Hay sucesor preparado?"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Documentar el reemplazo temporal"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Definir plan de desarrollo o búsqueda"
+       },
+       {
+        "id": "t6",
+        "carril": "Director(a) Externo(a) de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Conversar la carrera con la tercera generación"
+       },
+       {
+        "id": "t7",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Decidir la sucesión en sesión específica"
+       },
+       {
+        "id": "t8",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Dar seguimiento a planes y reemplazos"
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Plan de sucesión vigente"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n10", "etq": "No"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t6"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-15",
+      "E-17",
+      "E-20",
+      "E-23",
+      "SC-10"
+     ],
      "filas": [
-      ["Ausencia de plan de sucesión", "No existe hoy un plan para el relevo de quienes ocupan las posiciones de mayor peso, de modo que una salida imprevista no tendría un sustituto definido.", "Media", "Alto", "Construir el mapa de posiciones críticas con al menos un sucesor identificado por posición."],
-      ["Nombramientos decididos sin proceso", "La ocupación de cargos relevantes se decide entre los directores familiares por valoración personal, sin evaluación contra un perfil.", "Alta", "Alto", "Evaluar a candidatos y ocupantes contra el perfil del cargo antes de decidir."],
-      ["Ocupantes que no cubren el perfil de la posición", "Algunas posiciones clave tienen un ocupante sin el perfil que la organización necesita en su etapa actual, y no hay un proceso para tratarlo.", "Media", "Alto", "Incorporar la evaluación de ajuste al ejercicio anual y acordar plan de desarrollo o relevo."],
-      ["Función corporativa de Recursos Humanos sin constituir", "No existe una capa corporativa de Recursos Humanos que sostenga la evaluación y el seguimiento del talento de las posiciones críticas.", "Alta", "Medio", "Definir quién asume en el grupo la función corporativa de talento."],
-      ["Conversación con la tercera generación sin estructura", "La proyección de carrera de los miembros más jóvenes de la familia no tiene un formato ni un responsable definidos.", "Media", "Medio", "Definir el formato de la conversación y quién la conduce."]
+      [
+       "Sin plan de sustitución de la Presidencia",
+       "La Junta nunca ha hablado de sucesión y no existe plan para reemplazar al Presidente; un miembro externo lo considera la mayor responsabilidad pendiente de la Junta.",
+       "Media",
+       "Alto",
+       "Sesión anual específica de sucesión, empezando por la Presidencia."
+      ],
+      [
+       "Posiciones clave sin segundo",
+       "La compra de la marca representada, la dirección de finanzas y la relación con los bancos dependen de una persona sin respaldo formal.",
+       "Alta",
+       "Alto",
+       "Reemplazo temporal documentado para cada posición crítica mientras se prepara el sucesor."
+      ],
+      [
+       "Función de talento recién constituida",
+       "La gerencia corporativa de Recursos Humanos se incorpora en octubre de 2026; hasta entonces nadie tiene el mandato de sostener este proceso.",
+       "Alta",
+       "Medio",
+       "Incluir el mapa de posiciones críticas en el primer plan de trabajo de la gerencia corporativa."
+      ],
+      [
+       "Ajuste de ocupantes decidido por confianza",
+       "Varias posiciones se han cubierto por confianza más que por perfil, y la evaluación de desempeño no existe como proceso.",
+       "Media",
+       "Medio",
+       "Evaluar contra la descripción de cargo firmada y con criterios comunes para familiares y no familiares."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Posiciones críticas con sucesor identificado", "Posiciones críticas con al menos un sucesor identificado ÷ total de posiciones críticas", "Anual", "Director(a) Externo(a) de Junta Directiva", "Por definir — hoy no hay mapa de posiciones"],
-      ["Planes de desarrollo acordados", "Sucesores con plan de desarrollo acordado ÷ sucesores identificados", "Anual", "Gerente de Recursos Humanos", "Por definir — hoy no hay planes"],
-      ["Revisión anual del mapa realizada", "Revisión del mapa de posiciones críticas realizada en el año (sí / no)", "Anual", "Junta Directiva", "Una por año"]
+      [
+       "Posiciones críticas con sucesor",
+       "Posiciones críticas con sucesor identificado ÷ posiciones críticas",
+       "Anual",
+       "Gerente de Recursos Humanos",
+       "≥ 70 %"
+      ],
+      [
+       "Reemplazos temporales documentados",
+       "Posiciones críticas con reemplazo temporal documentado ÷ posiciones críticas",
+       "Semestral",
+       "Gerente de Recursos Humanos",
+       "100 %"
+      ],
+      [
+       "Planes de desarrollo al día",
+       "Planes de desarrollo con avance revisado en el semestre ÷ planes vigentes",
+       "Semestral",
+       "Gerente de Recursos Humanos",
+       "100 %"
+      ],
+      [
+       "Sesión anual de sucesión",
+       "Sesión de sucesión celebrada con acta (sí / no)",
+       "Anual",
+       "Junta Directiva",
+       "Sí"
+      ]
      ]
     }
    },
-
    "1.7": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la definición de qué decisiones rige la capa corporativa y cuáles quedan en cada país, la constitución de la línea rectora por función, la resolución de las funciones que hoy carecen de capa corporativa, y la aprobación y mantenimiento del organigrama del grupo con todas sus entidades legales.",
-     "nota_estado": "El proceso está en transición: existe una capa corporativa en Finanzas, Marketing, Ventas, Tecnología y Servicio al Cliente, y se está incorporando una para el comercio electrónico; en cambio, Recursos Humanos y la función jurídica no la tienen, y no hay un ejercicio periódico que defina qué se rige desde el centro. Además, en los países la autoridad sobre los equipos locales se reparte entre el Country Manager y los líderes regionales de cada función sin reglas escritas, como muestra el caso de Colombia."
+     "texto": "Define cómo se organiza el grupo: qué decisiones se rigen desde la capa corporativa y cuáles quedan en cada país, qué funciones tienen línea rectora regional, cómo se resuelve la doble dependencia entre un líder regional y la dirección de un país, y cómo se aprueba y se mantiene el organigrama de todas las entidades.",
+     "nota_estado": "Proceso en transición: ya hay capa corporativa en finanzas, marketing, ventas, tecnología y servicio al cliente, la de Recursos Humanos se incorpora en octubre de 2026 y el grupo cambió buena parte de sus mandos en seis meses. Falta dejar escrita la línea rectora por función y un circuito único para aprobar cambios."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Presidente de Junta Directiva",
+     "participantes": [
+      "Gerente de Recursos Humanos — corporativo; mantiene el organigrama de todas las entidades, analiza los cambios propuestos y actualiza las descripciones de cargo.",
+      "Junta Directiva — aprueba los cambios que afectan a la primera línea, a una entidad o a una capa corporativa.",
+      "Gerentes de primera línea — proponen cambios de estructura en su función y aplican la línea rectora en los países."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-25",
+      "SC-10",
+      "E-66",
+      "E-26"
+     ],
+     "notas": "El grupo llama gerencias regionales a su capa corporativa: una dirección general regional y, debajo, el organigrama de cada país."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-11",
+      "E-12",
+      "E-20",
+      "E-25",
+      "E-26",
+      "E-66",
+      "SC-10"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Junta Directiva", "texto": "Decide iniciar la revisión del modelo organizativo, ya sea en el ciclo anual o por un evento como la creación de una gerencia regional, la incorporación de una entidad o un cambio de reporte."},
-      {"id": "a2", "rol": "Gerentes regionales por función", "texto": "Describen, para su función, qué decisiones se rigen hoy desde el centro y cuáles se toman en cada país, y, junto con cada Country Manager, señalan los puntos donde la autoridad sobre los equipos locales no está clara."},
-      {"id": "a3", "rol": "Director(a) Externo(a) de Junta Directiva", "texto": "Facilita la definición de la línea rectora por función y señala las funciones sin capa corporativa, para que la Junta resuelva cómo se cubrirán."},
-      {"id": "a4", "rol": "Gerente de Recursos Humanos", "texto": "Actualiza el organigrama del grupo con las posiciones y los reportes vigentes, incluidas todas las entidades legales, incluso las que operan con estructura propia."},
-      {"id": "a5", "rol": "Gerente de Proyectos", "texto": "Evalúa el alcance del cambio propuesto y define un plan de implantación con responsables y fechas cuando la propuesta modifica reportes o crea posiciones."},
-      {"id": "a6", "rol": "Junta Directiva", "texto": "Revisa la propuesta de modelo organizativo, la línea rectora y el organigrama actualizado, y decide si los aprueba o pide ajustes."},
-      {"id": "a7", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Publica el organigrama aprobado y lo comunica a los gerentes, y mantiene la versión vigente accesible para toda la organización."}
+      {
+       "id": "a1",
+       "rol": "Gerentes de primera línea",
+       "texto": "Proponen un cambio de estructura —crear o fusionar una gerencia regional, cambiar una línea de reporte, incorporar una entidad— con el motivo, las posiciones afectadas y el costo estimado."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Analiza el cambio contra la línea rectora de la función: qué decide el centro y qué el país, cómo queda la doble dependencia entre el líder regional y la dirección del país, y qué capas corporativas faltan."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Redacta la propuesta con el organigrama resultante y una matriz de decisiones que asigna, para cada decisión crítica de la función, quién la propone, quién decide y a quién se informa."
+      },
+      {
+       "id": "a4",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Revisa la propuesta y determina su alcance: los cambios dentro de una gerencia los aprueba directamente; los que tocan a la primera línea, a una entidad o a una capa corporativa los lleva a la Junta."
+      },
+      {
+       "id": "a5",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba la propuesta o pide ajustes, y deja la decisión en acta con la fecha de entrada en vigor y los responsables de comunicarla."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Actualiza el organigrama del grupo con todas sus entidades —incluidas la filial de Estados Unidos, el socio de Costa Rica y la operación de Guatemala— y las descripciones de cargo que firma cada ocupante."
+      },
+      {
+       "id": "a7",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Comunica el cambio a la primera línea y a los equipos afectados antes de su entrada en vigor, explicando el motivo, para reducir la incertidumbre que generan los cambios de mando."
+      }
      ],
      "diagrama": {
-      "carriles": ["Junta Directiva", "Gerentes regionales por función", "Director(a) Externo(a) de Junta Directiva", "Gerente de Recursos Humanos", "Gerente de Proyectos", "Coordinador(a) de Recursos Humanos"],
+      "carriles": [
+       "Gerentes de primera línea",
+       "Gerente de Recursos Humanos",
+       "Presidente de Junta Directiva",
+       "Junta Directiva"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Revisión anual o cambio estructural"},
-       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Decidir iniciar la revisión"},
-       {"id": "n2", "carril": "Gerentes regionales por función", "tipo": "tarea", "n": "Describir decisiones del centro y de cada país"},
-       {"id": "n3", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "tarea", "n": "Definir línea rectora y funciones sin capa corporativa"},
-       {"id": "n4", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Actualizar el organigrama con todas las entidades"},
-       {"id": "n5", "carril": "Gerente de Proyectos", "tipo": "tarea", "n": "Definir plan de implantación"},
-       {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿La Junta aprueba la propuesta?"},
-       {"id": "n7", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Publicar y comunicar el organigrama"},
-       {"id": "n8", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "fin", "n": "Modelo organizativo vigente"},
-       {"id": "n9", "carril": "Director(a) Externo(a) de Junta Directiva", "tipo": "fin", "n": "Propuesta devuelta con ajustes"}
+       {
+        "id": "i",
+        "carril": "Gerentes de primera línea",
+        "tipo": "inicio",
+        "n": "Cambio de estructura propuesto o revisión anual"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Proponer el cambio con su motivo y costo"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Analizar el cambio contra la línea rectora"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Redactar propuesta y matriz de decisiones"
+       },
+       {
+        "id": "d1",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "decision",
+        "n": "¿Toca primera línea o una entidad?"
+       },
+       {
+        "id": "t4",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el cambio en acta"
+       },
+       {
+        "id": "t5",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el cambio dentro de la gerencia"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Actualizar organigrama y descripciones",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Comunicar el cambio a los afectados"
+       },
+       {
+        "id": "f1",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "fin",
+        "n": "Modelo organizativo vigente y comunicado"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7", "etq": "Sí"}, {"de": "n6", "a": "n9", "etq": "No"}, {"de": "n7", "a": "n8"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t6"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-11",
+      "E-12",
+      "E-20",
+      "E-25",
+      "E-26",
+      "E-66",
+      "SC-10"
+     ],
      "filas": [
-      ["Funciones sin capa corporativa", "Recursos Humanos y la función jurídica se manejan por país o con un asesor externo, sin una línea rectora del grupo que homologue criterios.", "Alta", "Alto", "Definir para cada función sin capa corporativa quién la ejerce y qué decisiones rige."],
-      ["Límite difuso entre lo corporativo y lo local", "No hay un criterio escrito de qué decisiones se toman en el centro y cuáles en el país, y se resuelve caso por caso.", "Alta", "Alto", "Documentar por función las decisiones que se rigen desde el centro."],
-      ["Entidades fuera del organigrama", "Una entidad que opera con estructura propia puede no aparecer en el organigrama, con lo que sus reportes y responsabilidades no se ven.", "Media", "Medio", "Incluir todas las entidades legales del grupo en el organigrama vigente y revisarlo cada año."],
-      ["Cambios de estructura sin plan de implantación", "Una gerencia nueva o un cambio de reporte se anuncia sin definir cómo se implanta, y sus efectos sobre las demás funciones no se anticipan.", "Media", "Medio", "Exigir un plan de implantación breve antes de aprobar todo cambio de estructura."],
-      ["Organigrama desactualizado", "Los cambios de reporte y de cargos ocurren más rápido que la actualización del documento, y este deja de reflejar la realidad.", "Media", "Medio", "Actualizar el organigrama ante cada cambio de reporte y fijar una revisión anual."],
-      ["Autoridad fragmentada del Country Manager", "El Country Manager responde por los resultados del país, pero los equipos de algunas funciones reportan al líder regional, lo que genera choques entre líneas y lentitud cuando un tema exige alinear a ambos.", "Alta", "Alto", "Definir, por decisión y por proceso, quién tiene la línea directa, quién la funcional y quién solo es consultado, y publicarlo en una matriz de responsabilidades."]
+      [
+       "Doble dependencia sin reglas",
+       "En los países los equipos reportan a la vez a la dirección del país y al líder regional de su función sin un criterio escrito; en Colombia y en formación ya se viven fricciones por esa causa.",
+       "Alta",
+       "Alto",
+       "Matriz de decisiones por función que diga quién propone, quién decide y a quién se informa."
+      ],
+      [
+       "Organigrama incompleto o desactualizado",
+       "El organigrama no incluye a todas las entidades y la estructura real no está escrita en ningún lado; la filial de Estados Unidos queda fuera de los ejercicios.",
+       "Alta",
+       "Medio",
+       "Un organigrama único de todas las entidades, actualizado a los 30 días de cada cambio aprobado."
+      ],
+      [
+       "Funciones sin capa corporativa",
+       "Recursos Humanos no tiene capa corporativa hasta octubre de 2026 y la función jurídica descansa en un asesor externo.",
+       "Media",
+       "Alto",
+       "Resolver en la revisión anual qué funciones necesitan capa corporativa y con qué alcance."
+      ],
+      [
+       "Cambios de mando que generan tensión",
+       "El grupo cambió muchos mandos en poco tiempo; comunicar tarde o sin explicación eleva la tensión en los equipos.",
+       "Media",
+       "Medio",
+       "Comunicación previa a la entrada en vigor, con el motivo del cambio."
+      ],
+      [
+       "Una persona en varias posiciones",
+       "Hay personas que ocupan dos cajas del organigrama; sus decisiones se mezclan y la carga no se ve.",
+       "Media",
+       "Medio",
+       "Marcar en el organigrama las posiciones cubiertas de forma interina y fijar plazo para separarlas."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Funciones con línea rectora definida", "Funciones con línea rectora documentada ÷ total de funciones del grupo", "Anual", "Junta Directiva", "Por definir — hoy hay funciones sin capa corporativa"],
-      ["Entidades legales en el organigrama", "Entidades legales incluidas en el organigrama vigente ÷ total de entidades del grupo", "Anual", "Gerente de Recursos Humanos", "Todas las entidades del grupo"],
-      ["Vigencia del organigrama", "Días desde la última actualización del organigrama aprobado", "Semestral", "Coordinador(a) de Recursos Humanos", "Por definir — no hay línea base"],
-      ["Decisiones críticas con matriz de responsabilidades", "Procesos críticos con matriz de responsabilidades publicada ÷ total de procesos críticos definidos", "Anual", "Junta Directiva", "Por definir — hoy no existe la matriz"]
+      [
+       "Actualización del organigrama",
+       "Días entre la aprobación de un cambio y su reflejo en el organigrama",
+       "Por evento",
+       "Gerente de Recursos Humanos",
+       "≤ 30 días"
+      ],
+      [
+       "Funciones con línea rectora escrita",
+       "Funciones regionales con matriz de decisiones publicada ÷ funciones regionales",
+       "Trimestral",
+       "Gerente de Recursos Humanos",
+       "100 % al cierre del primer año"
+      ],
+      [
+       "Cargos con descripción firmada",
+       "Colaboradores con descripción de cargo firmada ÷ colaboradores",
+       "Trimestral",
+       "Gerente de Recursos Humanos",
+       "≥ 95 %"
+      ],
+      [
+       "Entidades en el organigrama",
+       "Entidades del grupo representadas en el organigrama ÷ entidades del grupo",
+       "Anual",
+       "Gerente de Recursos Humanos",
+       "100 %"
+      ]
      ]
     }
    },
-
    "1.8": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el gobierno de las unidades que no son de operación propia directa: la sociedad al cincuenta por ciento en un país, la operación tercerizada bajo marca en otro, los distribuidores en mercados sin presencia y la filial de Estados Unidos, que opera con estructura y sistemas propios. Define qué reporte se les exige, con qué periodicidad, y cómo se revisa la relación.",
-     "nota_estado": "El proceso está en transición: el grupo recibe reporte financiero del socio y de la filial y busca que lleguen en los formatos del grupo, pero no hay un formato ni una periodicidad únicos para todos, algunas unidades operan con sistemas distintos y la filial de Estados Unidos ha quedado fuera de parte de los ejercicios de estructura y de procesos. El socio de Costa Rica envía reportes de venta diarios y su contabilidad, y recibe la visita de un director cada seis meses, pero las reuniones periódicas que se programan con él no llegan a realizarse."
+     "texto": "Gobierna las unidades que no son operación propia directa —la sociedad al cincuenta por ciento en Costa Rica, la operación tercerizada de Guatemala, las franquicias y distribuidores, y la filial de Estados Unidos—: decide su modelo de relación, lo formaliza por contrato, fija el reporte que entregan y revisa periódicamente la relación.",
+     "nota_estado": "Proceso en transición: ya hay reporte financiero del socio y de la filial y visitas periódicas de un director. Falta que la Junta decida para cada unidad si opera con los procesos del grupo o como negocio independiente con lineamientos, y que ese modelo quede escrito."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Presidente de Junta Directiva",
+     "participantes": [
+      "Junta Directiva — decide el modelo de relación de cada unidad y revisa la relación cada año.",
+      "Director(a) de Finanzas del Grupo — define el formato y la fecha del reporte de cada unidad y lo revisa.",
+      "Director(a) Comercial del Grupo — sostiene la revisión comercial periódica con el socio o el operador.",
+      "Asesor(a) Jurídico(a) Externo(a) del Grupo — formaliza el contrato con metas y obligaciones de reporte.",
+      "Socio, operador tercerizado o distribuidor — entrega el reporte y aplica las políticas que le corresponden según su modelo."
+     ],
+     "evidencia": [
+      "E-67",
+      "E-01",
+      "E-08",
+      "E-19",
+      "E-20"
+     ],
+     "sin_evidencia": "No consta la razón social del operador de Guatemala ni si la filial de Estados Unidos tiene contrato de gestión con el grupo."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-08",
+      "E-19",
+      "E-20",
+      "E-30",
+      "E-59",
+      "E-67"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Junta Directiva", "texto": "Define, para cada socio, operador tercerizado, distribuidor y filial, el formato del reporte financiero y comercial que se le exige y la periodicidad con que debe entregarlo."},
-      {"id": "a2", "rol": "Socio, operador tercerizado o distribuidor", "texto": "Envía cada mes el reporte financiero y comercial de su operación, en el formato acordado con el grupo, aunque opere con un sistema distinto al del resto de las entidades."},
-      {"id": "a3", "rol": "Director(a) de Finanzas del Grupo", "texto": "Recibe el reporte, verifica que llegue completo y en el formato estándar, y lo analiza junto a las compras que la unidad le hace al grupo."},
-      {"id": "a4", "rol": "Director(a) de Finanzas del Grupo", "texto": "Devuelve al socio el reporte que llega incompleto o en otro formato, con la indicación de lo que falta, cuando no cumple lo acordado."},
-      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa la operación comercial de la unidad y verifica que se ajuste a las políticas de comercialización del grupo, en lo que se vende y cómo se vende."},
-      {"id": "a6", "rol": "Gerente Regional de Marketing", "texto": "Verifica que la unidad aplique la imagen y las políticas de marca del grupo en sus tiendas, canales y materiales, e indica los ajustes cuando no es así."},
-      {"id": "a7", "rol": "Junta Directiva", "texto": "Revisa una vez al año la relación con cada socio, operador y distribuidor: el desempeño, el reporte recibido y las condiciones acordadas, y acuerda las acciones que correspondan."}
+      {
+       "id": "a1",
+       "rol": "Junta Directiva",
+       "texto": "Decide para cada unidad su modelo de relación: unidad integrada que opera con los procesos del grupo o negocio independiente que recibe lineamientos de marca, y deja la decisión en acta."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "texto": "Formaliza el modelo en un contrato con metas de venta, obligaciones de reporte, políticas de marca aplicables y causales de revisión; las franquicias que hoy operan sin contrato son la primera prioridad."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Define para cada unidad el formato del reporte financiero y comercial y su fecha de entrega mensual, compatible con el formato del grupo aunque la unidad use su propio sistema."
+      },
+      {
+       "id": "a4",
+       "rol": "Socio, operador tercerizado o distribuidor",
+       "texto": "Entrega cada mes su reporte financiero y comercial en el formato acordado, incluidos el inventario y el sell-out cuando su modelo lo exige."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Revisa que el reporte llegue completo y a tiempo; cuando falta información o llega fuera de plazo, la solicita formalmente y registra el incumplimiento para la revisión anual."
+      },
+      {
+       "id": "a6",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Sostiene una revisión comercial trimestral con la unidad —inventario, sell-out, lanzamientos que vienen— y le anticipa los productos nuevos antes de que lleguen, no después."
+      },
+      {
+       "id": "a7",
+       "rol": "Junta Directiva",
+       "texto": "Revisa cada año la relación con cada unidad a partir de los reportes y de las revisiones trimestrales, y decide mantener, ajustar o cambiar su modelo."
+      }
      ],
      "diagrama": {
-      "carriles": ["Junta Directiva", "Socio, operador tercerizado o distribuidor", "Director(a) de Finanzas del Grupo", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing"],
+      "carriles": [
+       "Junta Directiva",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "Director(a) de Finanzas del Grupo",
+       "Socio, operador tercerizado o distribuidor",
+       "Director(a) Comercial del Grupo"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Nuevo socio o corte mensual"},
-       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Definir formato y periodicidad del reporte"},
-       {"id": "n2", "carril": "Socio, operador tercerizado o distribuidor", "tipo": "tarea", "n": "Enviar el reporte mensual"},
-       {"id": "n3", "carril": "Director(a) de Finanzas del Grupo", "tipo": "decision", "n": "¿El reporte llega completo y en el formato?"},
-       {"id": "n4", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Devolver el reporte con lo que falta"},
-       {"id": "n5", "carril": "Director(a) de Finanzas del Grupo", "tipo": "tarea", "n": "Analizar el reporte"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Revisar alineación comercial"},
-       {"id": "n7", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Verificar políticas de marca"},
-       {"id": "n8", "carril": "Junta Directiva", "tipo": "tarea", "n": "Revisar la relación cada año"},
-       {"id": "n9", "carril": "Junta Directiva", "tipo": "fin", "n": "Relación revisada con acciones acordadas"},
-       {"id": "n10", "carril": "Director(a) de Finanzas del Grupo", "tipo": "fin", "n": "Reporte devuelto al socio"}
+       {
+        "id": "i",
+        "carril": "Junta Directiva",
+        "tipo": "inicio",
+        "n": "Nueva unidad o revisión de la relación"
+       },
+       {
+        "id": "t1",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Decidir el modelo de relación de la unidad"
+       },
+       {
+        "id": "t2",
+        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+        "tipo": "tarea",
+        "n": "Formalizar el contrato con metas y reporte"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Definir formato y fecha del reporte"
+       },
+       {
+        "id": "t4",
+        "carril": "Socio, operador tercerizado o distribuidor",
+        "tipo": "tarea",
+        "n": "Entregar el reporte mensual"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "decision",
+        "n": "¿Reporte completo y a tiempo?"
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Solicitar la corrección y registrarla"
+       },
+       {
+        "id": "t6",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Revisar la relación comercial trimestral"
+       },
+       {
+        "id": "t7",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Revisar la relación anual"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Relación revisada con acciones acordadas"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
-       {"de": "n3", "a": "n5", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n4", "a": "n10"},
-       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-08",
+      "E-19",
+      "E-20",
+      "E-30",
+      "E-59",
+      "E-67"
+     ],
      "filas": [
-      ["Reporte sin formato ni periodicidad únicos", "Cada socio u operador entrega su información de forma distinta, y el grupo no puede comparar ni consolidar con las demás unidades.", "Alta", "Alto", "Fijar un formato estándar de reporte y una fecha de entrega mensual para cada unidad."],
-      ["Unidad que queda fuera de los procesos del grupo", "Una operación con sistemas y estructura propios puede quedar sin incluir en los ejercicios de procesos y de organización, y sus prácticas se desconocen desde el centro.", "Alta", "Medio", "Incluir a cada unidad en el alcance de los ejercicios de estructura y decidir qué procesos del grupo aplican a ella."],
-      ["Dependencia comercial del socio como cliente", "La unidad del socio le compra al grupo casi el 90 % de lo que vende y a la vez le rinde cuentas, y las dos relaciones no se separan ni se revisan por igual.", "Media", "Medio", "Revisar en la relación anual tanto la sociedad como la condición de cliente, con sus condiciones."],
-      ["Operación tercerizada sin mecanismo de control", "El operador administra tiendas bajo la marca y el grupo paga un fee, sin un mecanismo periódico de revisión del cumplimiento de las políticas de marca.", "Media", "Alto", "Definir una revisión periódica del cumplimiento de políticas de marca por parte del operador."],
-      ["Unidades sin claridad sobre lo que les aplica", "Parte de lo que el grupo define para sus procesos no aplica a socios independientes, y nadie decide caso por caso qué se les pide.", "Media", "Medio", "Documentar, por tipo de unidad, qué políticas del grupo se les exigen."],
-      ["Reuniones de seguimiento que no se realizan", "Las reuniones periódicas con el socio se programan y no llegan a celebrarse, y el socio percibe que el grupo a veces no lo toma en cuenta en sus decisiones; cuando necesitó apoyo de sistemas, el equipo del grupo estaba saturado y contrató a su propio programador.", "Alta", "Medio", "Fijar un calendario de seguimiento con cada socio y proteger esas reuniones dentro de la agenda de la Junta."]
+      [
+       "Modelo de relación ambiguo",
+       "En unas reuniones se trata a una unidad como socia y en otras como independiente; el socio no sabe qué procesos debe seguir y el grupo no sabe qué exigir.",
+       "Alta",
+       "Alto",
+       "Decisión explícita de la Junta sobre el modelo de cada unidad, escrita en su contrato."
+      ],
+      [
+       "Franquicias sin contrato",
+       "Hay tiendas franquiciadas que operan sin contrato, sin metas y sin obligaciones de reporte.",
+       "Alta",
+       "Alto",
+       "Contrato con metas de venta y reporte, y supervisión asignada a la gerencia regional de retail."
+      ],
+      [
+       "Relación que solo se activa por lo financiero",
+       "El socio percibe que el grupo aparece cada tres o cuatro meses por temas financieros y no le anticipa los productos nuevos.",
+       "Media",
+       "Medio",
+       "Revisión comercial trimestral con agenda que incluye los lanzamientos por venir."
+      ],
+      [
+       "Unidades fuera de los ejercicios del grupo",
+       "La filial de Estados Unidos no aparece en los organigramas y queda fuera de los procesos; es fácil olvidarla.",
+       "Media",
+       "Medio",
+       "Incluir cada unidad en el organigrama y en el calendario de reportes del grupo."
+      ],
+      [
+       "Decisiones de entrada sin diligencia previa",
+       "La experiencia de una empresa recibida en otro país sin revisión previa terminó mal.",
+       "Baja",
+       "Alto",
+       "Revisión previa mínima —financiera, legal y comercial— antes de incorporar una unidad nueva."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Reportes recibidos en el formato estándar", "Reportes mensuales recibidos completos y en el formato ÷ reportes esperados", "Mensual", "Director(a) de Finanzas del Grupo", "Todos los reportes esperados"],
-      ["Puntualidad del reporte", "Reportes recibidos en la fecha acordada ÷ reportes esperados", "Mensual", "Director(a) de Finanzas del Grupo", "Por definir — no hay fecha común acordada"],
-      ["Revisiones anuales de la relación realizadas", "Relaciones con socios, operadores y distribuidores revisadas en el año ÷ total de relaciones", "Anual", "Junta Directiva", "Todas las relaciones, una vez al año"],
-      ["Reuniones de seguimiento con el socio realizadas", "Reuniones realizadas con socios y operadores ÷ reuniones programadas", "Semestral", "Junta Directiva", "Por definir — hoy no se realizan con regularidad"]
+      [
+       "Unidades con contrato vigente",
+       "Unidades con contrato vigente que refleja su modelo ÷ unidades",
+       "Trimestral",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "100 %"
+      ],
+      [
+       "Reportes a tiempo",
+       "Reportes recibidos completos en la fecha acordada ÷ reportes esperados",
+       "Mensual",
+       "Director(a) de Finanzas del Grupo",
+       "≥ 90 %"
+      ],
+      [
+       "Revisiones comerciales realizadas",
+       "Revisiones trimestrales realizadas ÷ programadas",
+       "Trimestral",
+       "Director(a) Comercial del Grupo",
+       "100 %"
+      ],
+      [
+       "Revisión anual de la relación",
+       "Unidades con revisión anual registrada en acta ÷ unidades",
+       "Anual",
+       "Junta Directiva",
+       "100 %"
+      ]
      ]
     }
    },
-
    "1.9": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la definición y emisión del mensaje institucional del grupo hacia la organización, su cascadeo a través de la primera línea gerencial, los encuentros con el personal de todos los países, la actualización y difusión de la identidad, la misión, la visión y los valores del grupo, y el orden de los canales internos de comunicación.",
-     "nota_estado": "Es un proceso a implementar: hoy el grupo no ha reunido al personal de todos sus países, los mensajes de la Presidencia se envían a un grupo reducido de gerentes de primera línea, el documento de misión, visión y valores está desactualizado y se está conformando un comité de cultura para actualizarlo, y la comunicación por mensajería ha derivado en muchos grupos sin orden."
+     "texto": "Define la identidad del grupo y la hace llegar a todos: la actualización de misión, visión y valores como grupo y no por marca, la emisión de los mensajes institucionales de la Presidencia, su cascadeo por la primera línea con confirmación, su incorporación a la inducción y el gobierno de los canales oficiales de comunicación interna.",
+     "nota_estado": "Proceso a implementar. Existen piezas en uso: un código de cultura de la marca propia que se usa en la inducción, los comunicados de la Presidencia a unos veinticinco gerentes y la universidad corporativa en marcha. Falta una identidad única de grupo, confirmar que el mensaje llega y ordenar los canales."
     },
-    "dueno": {"estado": "borrador"},
-    "disparador": {"estado": "borrador"},
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Presidente de Junta Directiva",
+     "participantes": [
+      "Comité de Cultura — Recursos Humanos, marketing y directores de la familia; actualiza la identidad del grupo.",
+      "Gerente de Recursos Humanos — corporativo; incorpora la identidad a la inducción y a la formación, y coordina el comité de cultura.",
+      "Gerentes de primera línea — cascadean los mensajes a sus equipos y confirman su alcance.",
+      "Asistente Ejecutivo(a) de la Presidencia — canaliza los comunicados de la Presidencia y consolida las confirmaciones.",
+      "Coordinador(a) de Sistemas — administra los canales oficiales y sus grupos."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-12",
+      "E-24",
+      "E-66",
+      "SC-10"
+     ],
+     "sin_evidencia": "No hay evidencia de un encuentro de todo el personal ni de una encuesta de clima; se incluyen como deber ser, no como práctica existente."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
     "flujo": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-12",
+      "E-24",
+      "E-52",
+      "E-66",
+      "SC-09",
+      "SC-10"
+     ],
      "actividades": [
-      {"id": "a1", "rol": "Presidente de Junta Directiva", "texto": "Define el mensaje institucional que el grupo quiere transmitir a su organización y decide si se emite desde la Presidencia o a través de otra instancia, como la Universidad Cubitt, según convenga."},
-      {"id": "a2", "rol": "Asistente Ejecutivo(a) de la Presidencia", "texto": "Canaliza el mensaje, prepara el comunicado y coordina su envío, de modo que quien lo reciba reconozca que viene de la Presidencia."},
-      {"id": "a3", "rol": "Gerente Regional de Marketing", "texto": "Da forma al comunicado y al material de apoyo con la identidad del grupo, para que el mensaje sea coherente con la marca y con lo definido para la cultura."},
-      {"id": "a4", "rol": "Presidente de Junta Directiva", "texto": "Emite el comunicado a los gerentes de primera línea, con la indicación de que lo trasladen a sus equipos con lo que ellos consideren pertinente."},
-      {"id": "a5", "rol": "Gerentes de primera línea", "texto": "Trasladan el mensaje a sus equipos de trabajo y lo adaptan a lo que es relevante para cada área y país."},
-      {"id": "a6", "rol": "Gerente de Recursos Humanos", "texto": "Confirma el alcance del mensaje consultando a los gerentes de primera línea si llegó a sus equipos, e identifica los que aún no lo han recibido."},
-      {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Convoca cada año al comité de cultura para actualizar la identidad del grupo —misión, visión, valores— bajo una sola identidad para todas las marcas y países."},
-      {"id": "a8", "rol": "Coordinador(a) de Sistemas", "texto": "Define, con Recursos Humanos, los canales oficiales de comunicación interna y cuáles son los grupos de mensajería vigentes, y da de baja los que ya no tienen razón de existir."}
+      {
+       "id": "a1",
+       "rol": "Comité de Cultura",
+       "texto": "Actualiza la identidad del grupo —misión, visión y valores— partiendo del código de cultura vigente de la marca propia y de la presentación de cultura de Panamá, para que exista una sola versión para todas las marcas y países."
+      },
+      {
+       "id": "a2",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba la identidad del grupo y el calendario institucional del año: el encuentro con el personal, las visitas de la Presidencia a los países y los hitos que se comunicarán."
+      },
+      {
+       "id": "a3",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Emite el mensaje institucional cuando hay una decisión o un hito que la organización debe conocer, dirigido a los gerentes de primera línea y canalizado por su asistencia."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerentes de primera línea",
+       "texto": "Cascadean el mensaje a sus equipos en un plazo de cinco días hábiles, por reunión o por el canal oficial, y confirman a la asistencia de la Presidencia que lo hicieron."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente Ejecutivo(a) de la Presidencia",
+       "texto": "Consolida las confirmaciones del cascadeo, recuerda a quienes no confirmaron y reporta a la Presidencia qué áreas recibieron el mensaje y cuáles no."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Incorpora la identidad del grupo a la inducción de todo ingreso y a los contenidos de la universidad corporativa, de modo que cada persona la reciba desde su primer día."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Administra los canales oficiales: lo institucional y lo confidencial circula por Lark y el correo corporativo, no por grupos de mensajería personales, y los grupos oficiales tienen administrador y propósito."
+      },
+      {
+       "id": "a8",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Encabeza el encuentro anual con el personal y las visitas a los países, donde presenta el rumbo del grupo y recoge preguntas que vuelven al comité de cultura."
+      }
      ],
      "diagrama": {
-      "carriles": ["Presidente de Junta Directiva", "Asistente Ejecutivo(a) de la Presidencia", "Gerente Regional de Marketing", "Gerentes de primera línea", "Gerente de Recursos Humanos", "Coordinador(a) de Sistemas"],
+      "carriles": [
+       "Comité de Cultura",
+       "Junta Directiva",
+       "Presidente de Junta Directiva",
+       "Gerentes de primera línea",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "Gerente de Recursos Humanos",
+       "Coordinador(a) de Sistemas"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Presidente de Junta Directiva", "tipo": "inicio", "n": "Mensaje institucional por comunicar"},
-       {"id": "n1", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Definir el mensaje y quién lo emite"},
-       {"id": "n2", "carril": "Asistente Ejecutivo(a) de la Presidencia", "tipo": "tarea", "n": "Preparar el comunicado"},
-       {"id": "n3", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Dar forma al comunicado con la identidad"},
-       {"id": "n4", "carril": "Presidente de Junta Directiva", "tipo": "tarea", "n": "Emitir a los gerentes de primera línea"},
-       {"id": "n5", "carril": "Gerentes de primera línea", "tipo": "tarea", "n": "Trasladar el mensaje a los equipos"},
-       {"id": "n6", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Confirmar el alcance del mensaje"},
-       {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "decision", "n": "¿El mensaje llegó a todos los equipos?"},
-       {"id": "n8", "carril": "Gerentes de primera línea", "tipo": "tarea", "n": "Reforzar el cascadeo donde faltó"},
-       {"id": "n9", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Actualizar la identidad con el comité de cultura"},
-       {"id": "n10", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Ordenar los canales internos", "sistemas": ["Lark", "WhatsApp"]},
-       {"id": "n11", "carril": "Coordinador(a) de Sistemas", "tipo": "fin", "n": "Mensaje cascadeado e identidad vigente"},
-       {"id": "n12", "carril": "Gerentes de primera línea", "tipo": "fin", "n": "Cascadeo reforzado"}
+       {
+        "id": "i",
+        "carril": "Comité de Cultura",
+        "tipo": "inicio",
+        "n": "Ciclo anual o hito institucional"
+       },
+       {
+        "id": "t1",
+        "carril": "Comité de Cultura",
+        "tipo": "tarea",
+        "n": "Actualizar la identidad del grupo"
+       },
+       {
+        "id": "t2",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar identidad y calendario institucional"
+       },
+       {
+        "id": "t3",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Emitir el mensaje institucional",
+        "sistemas": [
+         "Correo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "t4",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Cascadear el mensaje a los equipos"
+       },
+       {
+        "id": "t5",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Consolidar las confirmaciones",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "decision",
+        "n": "¿Cascadeo confirmado por todos?"
+       },
+       {
+        "id": "t6",
+        "carril": "Asistente Ejecutivo(a) de la Presidencia",
+        "tipo": "tarea",
+        "n": "Recordar a quienes no confirmaron"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Incorporar la identidad a la inducción"
+       },
+       {
+        "id": "t8",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Gobernar los canales oficiales",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t9",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Encabezar el encuentro anual con el personal"
+       },
+       {
+        "id": "f1",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "fin",
+        "n": "Mensaje e identidad presentes en toda la organización"
+       }
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
-       {"de": "n7", "a": "n9", "etq": "Sí"}, {"de": "n7", "a": "n8", "etq": "No"}, {"de": "n8", "a": "n12"},
-       {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "f1"
+       }
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-12",
+      "E-24",
+      "E-52",
+      "E-66",
+      "SC-09",
+      "SC-10"
+     ],
      "filas": [
-      ["Mensaje que no llega más allá de la primera línea", "La estrategia y los mensajes se comunican a un grupo reducido de gerentes y no se bajan de forma estructurada al resto del personal.", "Alta", "Alto", "Definir un encuentro anual con el personal y un mecanismo de cascadeo con confirmación de alcance."],
-      ["Identidad desactualizada y no unificada", "El documento de misión, visión y valores está desactualizado y responde a la marca original más que al grupo, y no ha sido adaptado a todos los países.", "Alta", "Medio", "Actualizar la identidad como grupo, con un comité de cultura, y publicarla en todos los países."],
-      ["Canales de mensajería sin orden", "Hay una gran cantidad de grupos de mensajería sin nombres organizados y con participantes desactualizados, y la información se dispersa o llega a quien no corresponde. Además, Lark no ha calado por igual en todos los países: donde la conectividad es limitada, el equipo sigue reportando por mensajería.", "Alta", "Medio", "Definir los canales oficiales por tipo de comunicación y depurar los grupos existentes."],
-      ["Personal que nunca ha sido reunido", "Nunca se ha reunido al personal de todos los países, y los equipos de cada país conocen poco a los directivos y a la visión del grupo.", "Media", "Medio", "Programar un encuentro anual con el personal y visitas de la Presidencia a cada país."],
-      ["Comunicación que depende de una sola vía", "Buena parte de la comunicación institucional depende de la Presidencia y de su asistente, sin un plan de comunicación con calendario.", "Media", "Medio", "Definir un calendario anual de comunicaciones institucionales con responsables."],
-      ["Comunicación interna sin dueño definido", "No hay evidencia de un responsable definido de la comunicación interna ni de la cultura: Recursos Humanos y Marketing tocan el tema sin un acuerdo escrito sobre quién lo conduce.", "Media", "Medio", "Definir el dueño de la comunicación interna; la propuesta de estructura que se revisa con la Presidencia la ubica en la Dirección Regional de Experiencia de Marcas."]
+      [
+       "El mensaje se queda en la primera línea",
+       "Los comunicados llegan a unos veinticinco gerentes y la bajada a los equipos depende de cada uno; nadie verifica si llegó.",
+       "Alta",
+       "Alto",
+       "Cascadeo con plazo y confirmación consolidada por la asistencia de la Presidencia."
+      ],
+      [
+       "Identidad fragmentada",
+       "Conviven dos presentaciones de cultura con información distinta y las marcas y entidades se viven como culturas separadas.",
+       "Alta",
+       "Medio",
+       "Una identidad única de grupo aprobada por la Junta y usada en toda la inducción."
+      ],
+      [
+       "Canales desordenados",
+       "Unos trescientos grupos de mensajería sin orden común; información confidencial circula por canales personales.",
+       "Alta",
+       "Alto",
+       "Canales oficiales definidos por tipo de información, con administrador y regla de no usar mensajería personal para lo confidencial."
+      ],
+      [
+       "Sin inducción",
+       "No hay un proceso de inducción que transmita la identidad a quien ingresa.",
+       "Media",
+       "Medio",
+       "Inducción obligatoria con los contenidos de identidad en la universidad corporativa."
+      ],
+      [
+       "Tensión por cambios de mando",
+       "La renovación de mandos en poco tiempo generó un ambiente tenso que la comunicación institucional debe atender.",
+       "Media",
+       "Medio",
+       "Mensajes de la Presidencia que expliquen los cambios y encuentros presenciales con los equipos."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Alcance del mensaje institucional", "Gerentes de primera línea que confirman haber trasladado el mensaje ÷ total de gerentes de primera línea", "Por evento", "Gerente de Recursos Humanos", "Por definir — hoy no hay confirmación de alcance"],
-      ["Encuentros con el personal realizados", "Encuentros con personal de todos los países realizados en el año", "Anual", "Presidente de Junta Directiva", "Uno por año"],
-      ["Identidad del grupo vigente y publicada", "Misión, visión y valores actualizados y publicados en los canales internos (sí / no)", "Anual", "Gerente de Recursos Humanos", "Por definir — hoy el documento está desactualizado"]
+      [
+       "Cascadeo confirmado",
+       "Gerentes que confirman el cascadeo en cinco días hábiles ÷ gerentes de primera línea",
+       "Por evento",
+       "Asistente Ejecutivo(a) de la Presidencia",
+       "≥ 90 %"
+      ],
+      [
+       "Ingresos con inducción",
+       "Ingresos que completan la inducción en su primer mes ÷ ingresos del período",
+       "Mensual",
+       "Gerente de Recursos Humanos",
+       "100 %"
+      ],
+      [
+       "Encuentro anual realizado",
+       "Encuentro con el personal y visitas a países realizados según calendario (sí / no)",
+       "Anual",
+       "Presidente de Junta Directiva",
+       "Sí"
+      ],
+      [
+       "Grupos oficiales con administrador",
+       "Grupos oficiales con administrador y propósito definidos ÷ grupos oficiales",
+       "Semestral",
+       "Coordinador(a) de Sistemas",
+       "100 %"
+      ]
+     ]
+    }
+   }
+  }
+ },
+
+ "2": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual describe cómo Grupo Kenex planifica lo que vende: cómo lee el mercado, cuánto espera vender, a qué precio, con qué portafolio, en qué calendario y cómo reparte el inventario entre mercados y canales, y cómo revisa el resultado para ajustar el plan. Es el marco común que usan la venta al mayor, las tiendas propias y el comercio electrónico de las dos marcas.",
+    "alcance": "Cubre la inteligencia de mercado, el forecast, la política de precios y márgenes, el portafolio y el surtido, el calendario promocional, la asignación de inventario y la preventa, y la lectura del desempeño comercial, para Casio y Cubitt en todos los mercados. No incluye la ejecución de la venta en cada canal, la compra a las fábricas ni la ejecución de las campañas, que documentan sus propios manuales.",
+    "audiencia": [
+     "Director(a) Comercial del Grupo",
+     "Director(a) Comercial Mayorista (Cubitt)",
+     "Gerente Regional Comercial / Retail",
+     "Gerente Comercial (País / Canal)",
+     "Coordinador(a) de Logística y Bodega",
+     "Analista de Sistemas / Datos",
+     "Gerente Regional de Marketing",
+     "Director(a) de Marca Propia (Cubitt)",
+     "Director(a) de Finanzas del Grupo"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Planeación Comercial es el macroproceso estratégico que traduce el plan del grupo en decisiones de venta: qué se vende, cuánto, dónde y a qué precio. Recibe de la dirección los objetivos y el presupuesto, y entrega a compras el forecast y el surtido, a los canales las listas de precio, el calendario y la asignación, y a la Junta la lectura del resultado.\n\nHoy esas decisiones las toman los directores comerciales de la familia y el director comercial del mayor de la marca propia, apoyados en un equipo de planificación, en una unidad de datos que normaliza el sell-out de los clientes y construye modelos de inventario, y en mucho Excel. La marca representada y la marca propia se planifican con métodos distintos: la primera con un ciclo mensual fijo marcado por la oferta de la fábrica, que asigna una fracción de lo pedido; la segunda con un forecast por mercado y un comité que decide precio y portafolio.\n\nEste manual describe cómo deberían operar estos procesos. Parte de lo que ya funciona —el forecast anual con revisión trimestral, el precio por mercado, la sesión mensual de promociones de Venezuela, el tablero diario del mayor— y le suma lo que falta: un solo forecast versionado, un margen mínimo escrito que evite escalar cada decisión, una regla de reparto cuando no alcanza el inventario y el registro de lo que se decide. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "duenos": [
+     [
+      "Macroproceso",
+      "Director(a) Comercial del Grupo",
+      "Aprueba precios, asignación en escasez y promociones fuera de margen; lleva el plan de venta de la marca representada."
+     ],
+     [
+      "Macroproceso",
+      "Comité de Estrategia Comercial",
+      "Decide precio por mercado, portafolio, forecast consolidado y calendario anual de la marca propia."
+     ],
+     [
+      "Procesos",
+      "Gerente Regional Comercial / Retail",
+      "Dueño de inteligencia de mercado, forecast, calendario promocional y lectura del desempeño; consolida y publica."
+     ],
+     [
+      "Procesos",
+      "Director(a) Comercial Mayorista (Cubitt)",
+      "Lleva la lectura de la competencia y el precio de la marca propia en el mayor, y las campañas con cadenas ancla."
+     ]
+    ],
+    "entidades": [
+     [
+      "Kenex Trading, S.A.",
+      "Panamá (Zona Libre de Colón)",
+      "Hub regional y venta al mayor internacional",
+      "Desde su bodega se asigna y despacha la mercancía a los demás mercados; solo puede vender al exterior."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Operación propia — mayor, tiendas y web",
+      "El cliente interno de mayor volumen; planifica su reposición con cobertura de tres a cuatro meses y tiene sesión mensual de promociones."
+     ],
+     [
+      "Casiolandia (Panamá), S.A.",
+      "Panamá",
+      "Operación propia — tiendas y mayor local",
+      "Recibe reposición quincenal desde el hub para su venta al mayor y semanal para sus tiendas."
+     ],
+     [
+      "Deltadir SAS",
+      "Colombia",
+      "Operación propia",
+      "Sigue sus metas por canal en un cuadro semanal y tiene una reunión de calendario comercial con todos los canales."
+     ],
+     [
+      "Importbel, S.A.",
+      "Costa Rica",
+      "Socio al 50 % y cliente",
+      "Compra al grupo con su propia hoja de pedido y modela su forecast mensual con herramientas propias."
+     ],
+     [
+      "Kenex USA",
+      "Estados Unidos",
+      "Filial — comercio electrónico",
+      "Vende por plataformas en línea con su propia administración."
+     ]
+    ],
+    "sistemas": [
+     [
+      "Odoo",
+      "Venta cerrada, pedidos, listas de precio e inventario por país; fuente oficial de la cifra de venta. No tiene reposición automática: el pedido se arma fuera del sistema.",
+      "2.2 · 2.3 · 2.6 · 2.7"
+     ],
+     [
+      "Plataforma de datos y modelos (Power BI / Fabric)",
+      "Tabla normalizada del sell-out de los clientes y modelos de salud de inventario, de sugerido de compra y de rebalanceo, que opera la unidad de datos con licencias para unas diez personas.",
+      "2.1 · 2.2 · 2.4 · 2.6"
+     ],
+     [
+      "Excel",
+      "Herramienta principal de forecast, archivo de compra y reposición, y cálculo de márgenes; en varios casos con la extensión de Claude.",
+      "2.2 · 2.3 · 2.6"
+     ],
+     [
+      "Tablero comercial del mayor",
+      "Aplicación construida por la gerencia comercial con inteligencia artificial, alojada en un servicio externo con usuario y clave, que cruza la venta de Odoo con metas y semáforo. No es un sistema administrado por sistemas.",
+      "2.7"
+     ],
+     [
+      "Lark",
+      "Formularios de solicitud a marketing, comunicación con los equipos y registro de reuniones; algunos flujos de pedidos recurrentes.",
+      "2.5 · 2.6"
+     ],
+     [
+      "Data de sell-out de terceros",
+      "Servicio externo que vende, por categoría y país, la venta de los minoristas que le reportan; se usa de forma puntual.",
+      "2.1"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Dirección y Gobierno Corporativo",
+      "Entrada",
+      "Objetivos del plan y presupuesto; a cambio recibe el resumen mensual del desempeño comercial."
+     ],
+     [
+      "R&D y Desarrollo de Producto (Cubitt)",
+      "Salida / coordinación",
+      "Oportunidades de producto y decisiones de portafolio; recibe la factibilidad de sustitutos y la grilla de lanzamientos."
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Salida",
+      "Forecast aprobado, surtido y asignación; recibe lo confirmado por la marca representada y el tránsito."
+     ],
+     [
+      "Ventas Mayor, Ventas Retail y Ventas Web",
+      "Salida / entrada",
+      "Listas, calendario, promociones y asignación; devuelven sell-out, desempeño y retroalimentación de clientes."
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Salida",
+      "Calendario y brief de promociones para su ejecución en comunicación."
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Coordinación",
+      "Clasificación y fechas de los lanzamientos."
+     ],
+     [
+      "Administración y Finanzas",
+      "Salida",
+      "Forecast mensualizado para presupuesto y caja; recibe rentabilidad por país y efecto cambiario."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Director(a) Comercial del Grupo",
+      "Grupo",
+      "Aprueba precios nuevos, la asignación cuando la demanda excede la oferta y las promociones fuera de margen; lleva el plan de la marca representada.",
+      "Precio, asignación en escasez, excepciones de margen.",
+      "Al Comité de Estrategia Comercial y a la Junta cuando compromete el plan."
+     ],
+     [
+      "Director(a) Comercial Mayorista (Cubitt)",
+      "Regional — mayor de la marca propia",
+      "Decide en qué mercados del mayor concentrarse, propone el precio por mercado y lleva las cuentas y campañas con cadenas.",
+      "Foco de mercados del mayor y propuesta de precio.",
+      "Al Comité de Estrategia Comercial."
+     ],
+     [
+      "Gerente Regional Comercial / Retail",
+      "Regional",
+      "Consolida el forecast, la inteligencia de mercado, el calendario y la lectura del desempeño; aprueba promociones dentro de margen.",
+      "Promociones dentro del margen mínimo; publicación de listas.",
+      "Al Director Comercial del Grupo."
+     ],
+     [
+      "Coordinador(a) de Logística y Bodega",
+      "Venezuela y reposición regional",
+      "Planifica la reposición de Venezuela y de las tiendas, propone promociones sobre inventario estancado y comunica la asignación.",
+      "Cantidades de reposición propuestas.",
+      "Al Director Comercial del Grupo."
+     ],
+     [
+      "Analista de Sistemas / Datos",
+      "Grupo",
+      "Normaliza el sell-out, mantiene los modelos y el tablero oficial, y valida la calidad de la cifra.",
+      "Calidad del dato publicado.",
+      "A la gerencia regional comercial y a sistemas."
+     ],
+     [
+      "Gerente Regional de Marketing",
+      "Regional",
+      "Aporta tendencias y ejecuta la comunicación de campañas y promociones.",
+      "Plan de comunicación y presupuesto de marketing.",
+      "Al Comité de Estrategia Comercial."
+     ]
+    ],
+    "comites": [
+     [
+      "Comité de Estrategia Comercial",
+      "Decidir precio por mercado, portafolio, forecast consolidado y calendario de la marca propia.",
+      "Mensual como deber ser; hoy por evento",
+      "Director(a) Comercial del Grupo · Director(a) de Marca Propia (Cubitt) · gerencia comercial regional · Director(a) Comercial Mayorista (Cubitt) · Gerente Regional Comercial / Retail",
+      "Precios, portafolio, forecast, calendario, ajustes del plan",
+      "Informe de mercado, forecast, márgenes y lectura del desempeño",
+      "Decisiones registradas con responsable; hoy sin registro"
+     ],
+     [
+      "Sesión mensual de promociones por país",
+      "Proponer y aprobar las promociones del mes sobre el inventario que necesita rotar.",
+      "Mensual",
+      "Planificación · retail regional · tiendas del país · comercio electrónico · mercadeo",
+      "Promociones del mes dentro del margen mínimo",
+      "Inventario por referencia y margen",
+      "Promociones aprobadas o elevadas al único aprobador"
+     ],
+     [
+      "Convención con la marca representada",
+      "Revisar con la marca la venta por país y el cumplimiento del forecast comprometido.",
+      "Dos veces al año",
+      "Dirección comercial y equipo de datos e informes del grupo; marketing presenta",
+      "Forecast comprometido ante la marca",
+      "Venta por país y cumplimiento",
+      "Forecast del período siguiente"
+     ],
+     [
+      "Reunión de calendario comercial de Colombia",
+      "Coordinar el calendario de promociones de todos los canales del país y los problemas de importación y precio.",
+      "Periódica",
+      "Country Manager · líderes comerciales · marketing · finanzas",
+      "Calendario y promociones del país",
+      "Calendario regional y llegadas",
+      "Acuerdos del país"
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "Vender con salud del cliente, no por vender: el pedido de un cliente se ajusta si compromete su rotación, aunque eso reduzca la venta del mes.",
+     "La palabra final sobre una decisión comercial la tiene el equipo comercial; el análisis y las herramientas de inteligencia artificial la preparan, no la sustituyen.",
+     "El mercado manda sobre el portafolio: lo que los clientes piden a un precio y lo que dejan de pedir guía qué se incorpora y qué se depura.",
+     "Una sola cifra: el desempeño se lee sobre la venta cerrada en Odoo, en moneda y tasa declaradas.",
+     "Marketing comunica y aporta tendencias; la definición de promociones y de producto es comercial."
+    ],
+    "politicas": [
+     "Inventario de seguridad: mantener siempre en bodega tres meses de inventario además de lo que se va a vender, y un mes y medio adicional para los lanzamientos.",
+     "Cobertura de reposición de Venezuela de tres a cuatro meses, ajustada al alza con anticipación antes de la temporada de fin de año.",
+     "El forecast se revisa cada trimestre y se ajusta cuando el mercado se desvía de forma sostenida.",
+     "Precio por mercado: el precio de la marca propia se fija según lo que sostiene la competencia de cada mercado, una vez aplicado el impuesto local.",
+     "Todo pedido del mayor se autoriza revisando margen por lista de mercado, cantidad por referencia y crédito del cliente.",
+     "Las promociones de Venezuela se proponen en una sesión mensual sobre el inventario que necesita rotar y se elevan a la dirección para su aprobación.",
+     "Con los clientes clave se conversa todos los meses.",
+     "Toda solicitud a marketing —campañas, piezas, lanzamientos— entra por el formulario de Lark."
+    ],
+    "normativo": [
+     "Permisos regulatorios de promociones en Venezuela: cada promoción requiere su trámite antes de publicarse.",
+     "Compromisos con la marca representada: el forecast presentado en sus convenciones semestrales se revisa contra la venta real, y el presupuesto de marketing de la marca se rinde cada seis meses.",
+     "Buena práctica de referencia (planificación de ventas y operaciones, ASCM/APICS): un ciclo mensual que revisa demanda, suministro y finanzas en un solo número, con una reunión ejecutiva que decide los ajustes."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "Los 7 procesos están en transición: todos ocurren hoy de alguna forma, pero dependen de pocas personas, no dejan registro de lo que se decide y usan métodos distintos para cada marca. Las acciones no llevan fecha porque la Junta no las ha acordado.",
+    "por_implementar": [
+     [
+      "2.1 Inteligencia de mercado y análisis competitivo",
+      "No hay un responsable de recibir el sell-out de los clientes con fecha fija ni un informe periódico que llegue a la mesa de decisión.",
+      "Asignar la recepción de la data por cuenta y emitir un informe trimestral de oportunidades."
+     ],
+     [
+      "2.7 Consolidación del desempeño comercial",
+      "El tablero diario con meta y semáforo existe solo para el mayor y corre fuera de los sistemas oficiales.",
+      "Construir el tablero oficial sobre la cifra de Odoo para todos los canales, administrado por sistemas."
+     ]
+    ],
+    "por_formalizar": [
+     [
+      "2.2 Forecast comercial regional",
+      "Conviven tres ejercicios de forecast y el número cambió tres veces en un año sin versión.",
+      "Consolidar un solo forecast versionado, aprobado en comité y publicado a compras."
+     ],
+     [
+      "2.3 Política de precios y márgenes",
+      "El precio por mercado ya se aplica, pero no hay margen mínimo escrito y cada precio o pedido sube a un director.",
+      "Escribir el margen mínimo por canal y los rangos de descuento por nivel."
+     ],
+     [
+      "2.5 Calendario promocional",
+      "Las promociones llegan desordenadas y reciben aprobaciones contradictorias.",
+      "Margen mínimo, un único aprobador por encima de él y el mayor dentro del calendario anual."
+     ],
+     [
+      "2.6 Asignación de inventario y preventa",
+      "La asignación se decide pedido por pedido y la demanda no atendida no se registra.",
+      "Regla de reparto escrita y registro de lo pedido frente a lo asignado."
+     ]
+    ],
+    "brechas": [
+     [
+      "Transversal — planificación de la demanda",
+      "No hay una función de planificación de la demanda; el cálculo se reparte entre comerciales, planificación de Venezuela y la unidad de datos.",
+      "Definir quién consolida y quién calcula, con el forecast como su producto."
+     ],
+     [
+      "Transversal — registro de decisiones",
+      "El comité de estrategia y las aprobaciones de la dirección no dejan registro.",
+      "Registro de decisiones del comité con responsable."
+     ],
+     [
+      "Transversal — dependencia de personas",
+      "La asignación de la marca representada y varios reportes clave dependen de una sola persona.",
+      "Documentar métodos y formar respaldos."
+     ],
+     [
+      "Transversal — herramientas fuera de gobierno",
+      "Tableros y herramientas construidos por las áreas corren fuera de los sistemas oficiales con credenciales propias.",
+      "Llevar las herramientas útiles al entorno administrado por sistemas."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "Sell-out",
+      "Venta del cliente al consumidor final; se distingue del sell-in, que es la venta del grupo al cliente."
+     ],
+     [
+      "Allocation",
+      "Fracción de lo pedido que la marca representada asigna al grupo cada mes."
+     ],
+     [
+      "Cobertura",
+      "Tiempo que el inventario disponible alcanza a cubrir la venta esperada, en semanas o meses."
+     ],
+     [
+      "Preventa",
+      "Venta comprometida con un cliente contra mercancía en tránsito, a veces con pago anticipado."
+     ],
+     [
+      "Margen mínimo",
+      "Margen por debajo del cual un precio o una promoción requiere la aprobación del único aprobador."
+     ],
+     [
+      "Cadena ancla",
+      "Cliente de alto volumen y visibilidad en un mercado con el que se planifican campañas y reservas de mercancía."
+     ],
+     [
+      "Pareto",
+      "Conjunto reducido de referencias que concentra la mayor parte de la venta."
+     ],
+     [
+      "Forecast versionado",
+      "Forecast con fecha y número de versión, aprobado en comité, que reemplaza formalmente al anterior."
+     ]
+    ],
+    "raci": [
+     [
+      "2.1 Inteligencia de mercado y análisis competitivo",
+      "Gerente Regional Comercial / Retail",
+      "Comité de Estrategia Comercial",
+      "Gerente Comercial (País / Canal) · Analista de Sistemas / Datos · Gerente Regional de Marketing",
+      "Director(a) de Marca Propia (Cubitt)"
+     ],
+     [
+      "2.2 Forecast comercial regional",
+      "Gerente Regional Comercial / Retail",
+      "Comité de Estrategia Comercial",
+      "Director(a) Comercial del Grupo · Gerente Comercial (País / Canal) · Coordinador(a) de Logística y Bodega · Analista de Sistemas / Datos",
+      "Director(a) de Finanzas del Grupo · Compras"
+     ],
+     [
+      "2.3 Política de precios y márgenes",
+      "Gerente Regional Comercial / Retail",
+      "Director(a) Comercial del Grupo",
+      "Director(a) Comercial Mayorista (Cubitt) · Director(a) de Finanzas del Grupo",
+      "Gerente Comercial (País / Canal)"
+     ],
+     [
+      "2.4 Portafolio y depuración del surtido",
+      "Gerente Regional Comercial / Retail",
+      "Comité de Estrategia Comercial",
+      "Analista de Sistemas / Datos · Gerente Comercial (País / Canal) · Director(a) de Marca Propia (Cubitt)",
+      "Compras · canales"
+     ],
+     [
+      "2.5 Calendario promocional y campañas",
+      "Gerente Regional Comercial / Retail",
+      "Director(a) Comercial del Grupo",
+      "Gerente Regional de Marketing · Director(a) Comercial Mayorista (Cubitt) · Coordinador(a) de Logística y Bodega",
+      "Canales"
+     ],
+     [
+      "2.6 Asignación de inventario y preventa",
+      "Coordinador(a) de Logística y Bodega",
+      "Director(a) Comercial del Grupo",
+      "Analista de Sistemas / Datos · Gerente Regional Comercial / Retail",
+      "Mercados · bodega del hub"
+     ],
+     [
+      "2.7 Desempeño comercial y ajuste del plan",
+      "Gerente Regional Comercial / Retail",
+      "Comité de Estrategia Comercial",
+      "Analista de Sistemas / Datos · Gerente Comercial (País / Canal)",
+      "Junta Directiva"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "Odoo",
+      "Venta, pedidos, listas e inventario",
+      "2.2 · 2.3 · 2.6 · 2.7",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Plataforma de datos y modelos (Power BI / Fabric)",
+      "Sell-out normalizado y modelos de inventario",
+      "2.1 · 2.2 · 2.4 · 2.6",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Excel",
+      "Forecast, archivo de compra, márgenes",
+      "2.2 · 2.3 · 2.6",
+      "Sin responsable formal"
+     ],
+     [
+      "Tablero comercial del mayor",
+      "Desempeño diario con meta y semáforo",
+      "2.7",
+      "Gerencia comercial (fuera de sistemas)"
+     ],
+     [
+      "Lark",
+      "Solicitudes a marketing y comunicación",
+      "2.5 · 2.6",
+      "Coordinador(a) de Sistemas"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Compras y Abastecimiento",
+      "Forecast y asignación",
+      "Forecast aprobado y versionado, surtido del ciclo y asignación por mercado"
+     ],
+     [
+      "R&D y Desarrollo de Producto (Cubitt)",
+      "Portafolio",
+      "Oportunidades de producto, depuraciones y grilla de lanzamientos"
+     ],
+     [
+      "Ventas Mayor, Retail y Web",
+      "Marco comercial",
+      "Listas de precio, promociones, calendario y asignación; retorno de sell-out y desempeño"
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Ejecución",
+      "Brief de promociones y calendario de campañas"
+     ],
+     [
+      "Administración y Finanzas",
+      "Presupuesto",
+      "Forecast mensualizado; rentabilidad por país y efecto cambiario"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Levantamiento de procesos de Compras (planificación de Venezuela)",
+      "Venezuela",
+      "Frecuencias de reposición, cobertura objetivo y circuito de asignación de la mercancía a Venezuela",
+      "2.2 · 2.6"
+     ],
+     [
+      "Reporte de entrevistas de adopción de Claude",
+      "Venezuela",
+      "Uso de inteligencia artificial en forecast, márgenes y sell-out por el equipo comercial y de datos",
+      "2.2 · 2.3 · 2.7"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Venezuela",
+      "Sesión mensual de promociones con planificación, retail, tiendas y comercio electrónico; permisos regulatorios para promociones; lista de precios afectada por la brecha cambiaria.",
+      "Es el mercado de mayor volumen y el que más ajusta la asignación."
+     ],
+     [
+      "Panamá",
+      "Hub de Zona Libre desde el que se asigna a todos los mercados; reposición quincenal al mayor local y semanal a tiendas.",
+      "Concentra la venta al mayor internacional."
+     ],
+     [
+      "Colombia",
+      "Cuadro semanal de metas por canal y reunión de calendario comercial con todos los canales.",
+      "La práctica de seguimiento más estructurada del grupo."
+     ],
+     [
+      "Costa Rica",
+      "El socio arma su propia hoja de pedido y su forecast; no participa en el comité del grupo.",
+      "Se coordina por grupos de mensajería."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+   "2.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Reúne y ordena la información de mercado que necesitan las decisiones comerciales: el sell-out que reportan los clientes, la data de terceros que se compra por categoría y país, los precios y propuestas de la competencia y las tendencias de consumo, y la convierte en un informe periódico de oportunidades para el comité de estrategia comercial.",
+     "nota_estado": "Proceso en transición: ya existe una tabla normalizada de sell-out de unos cuarenta clientes, se compra data de mercado por categoría y país, y los directores comerciales traen la lectura de la competencia. Lo que se incorpora es un responsable de recibir la data con fecha fija y un informe trimestral que llegue a la mesa de decisión."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial / Retail",
+     "participantes": [
+      "Gerente Comercial (País / Canal) — los vendedores y ejecutivos de cuenta recogen el sell-out de sus clientes y los precios de la competencia en el punto de venta.",
+      "Analista de Sistemas / Datos — normaliza el sell-out en la tabla única y valida su calidad.",
+      "Gerente Regional de Marketing — aporta las tendencias de consumo y de comunicación que observa marketing; no decide sobre producto ni cantidades.",
+      "Comité de Estrategia Comercial — recibe el informe y decide qué oportunidades pasan a precio, portafolio o desarrollo de producto."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-63",
+      "E-60",
+      "SC-10",
+      "E-22"
+     ],
+     "notas": "La Presidencia precisó que el estudio de mercado lo hace hoy el área comercial y que marketing aporta tendencias, no la detección de la necesidad de compra."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-10",
+      "E-18",
+      "E-22",
+      "E-60",
+      "E-63",
+      "E-66",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Define el calendario de insumos de mercado del año: qué clientes reportan sell-out y en qué fecha, qué data de terceros se compra por categoría y país, y qué precios de la competencia se levantan cada mes."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Comercial (País / Canal)",
+       "texto": "Recogen cada mes el sell-out y el inventario de sus clientes, en el formato que cada cliente ya maneja, y registran los precios y promociones de la competencia observados en los puntos de venta de su mercado."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Normaliza el sell-out en la tabla única del grupo —país, fecha, cliente, tienda, producto y unidades— y revisa ceros, faltantes, productos sin homologar y valores atípicos."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Cuando la data de un cliente llega incompleta o fuera de fecha, marca el faltante en la tabla y lo avisa al responsable de la cuenta, en lugar de completar el dato por estimación sin dejar constancia."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Analiza la participación de la marca, el ticket promedio por categoría y país, los rangos de precio con más volumen y los huecos donde la competencia vende y el grupo no tiene producto."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional de Marketing",
+       "texto": "Aporta las tendencias de consumo, de color y de comunicación que marketing detecta en sus canales, como insumo de la lectura de mercado y no como decisión de producto."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Consolida cada trimestre el informe de inteligencia de mercado con las oportunidades priorizadas por valor esperado, y lo presenta en el comité de estrategia comercial."
+      },
+      {
+       "id": "a8",
+       "rol": "Comité de Estrategia Comercial",
+       "texto": "Decide qué oportunidades se trabajan y a qué proceso pasan: ajuste de precio, cambio de surtido o evaluación de un producto nuevo con la dirección de marca propia."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Gerente Comercial (País / Canal)",
+       "Analista de Sistemas / Datos",
+       "Gerente Regional de Marketing",
+       "Comité de Estrategia Comercial"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "inicio",
+        "n": "Ciclo trimestral o movimiento relevante del mercado"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Definir el calendario de insumos de mercado"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente Comercial (País / Canal)",
+        "tipo": "tarea",
+        "n": "Recoger sell-out y precios de competencia",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "t3",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Normalizar el sell-out en la tabla única",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Data completa y validada?"
+       },
+       {
+        "id": "t4",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Marcar el faltante y avisar al responsable"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Analizar participación, precios y huecos",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente Regional de Marketing",
+        "tipo": "tarea",
+        "n": "Aportar tendencias de consumo"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Consolidar el informe trimestral"
+       },
+       {
+        "id": "t8",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "tarea",
+        "n": "Decidir qué oportunidades se trabajan"
+       },
+       {
+        "id": "f1",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "fin",
+        "n": "Oportunidades asignadas a precio, surtido o producto"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-10",
+      "E-18",
+      "E-22",
+      "E-60",
+      "E-63",
+      "E-66",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Sell-out incompleto y sin responsable",
+       "Unos cuarenta clientes nombran los productos de cuarenta maneras y envían su data sin fecha fija; sin un responsable de recibirla, el análisis parte de datos incompletos.",
+       "Alta",
+       "Alto",
+       "Responsable de cuenta por cliente con fecha mensual de entrega y marca visible de faltantes en la tabla."
+      ],
+      [
+       "Decisiones de producto por intuición",
+       "El propio grupo reconoce que casi todo se ha decidido por olfato y que el único estudio con data real fue la compra de sell-out para una categoría.",
+       "Alta",
+       "Alto",
+       "Informe trimestral con oportunidades cuantificadas como insumo obligatorio de portafolio y precio."
+      ],
+      [
+       "Análisis que nadie usa",
+       "Un modelo de detección de oportunidades acertó el producto estrella y aun así se abandonó por falta de uso.",
+       "Media",
+       "Medio",
+       "El informe se presenta en el comité y cada oportunidad sale con decisión y responsable."
+      ],
+      [
+       "Inteligencia repartida sin dueño",
+       "Comercial, marketing y desarrollo de producto miran el mercado por separado; nadie consolida y cada área puede sacar conclusiones distintas.",
+       "Media",
+       "Medio",
+       "Un dueño del informe en la gerencia regional comercial, con aportes definidos de marketing y de marca propia."
+      ],
+      [
+       "Data comprada cara y parcial",
+       "La data de terceros es costosa, se compra por categoría y país y solo cubre a los minoristas que reportan.",
+       "Media",
+       "Medio",
+       "Comprar solo la data que responde una pregunta del plan y declarar su cobertura en el informe."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Sell-out recibido en fecha",
+       "Clientes que reportan sell-out en la fecha acordada ÷ clientes con reporte pactado",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "≥ 85 %"
+      ],
+      [
+       "Informe trimestral emitido",
+       "Informes presentados al comité ÷ trimestres del año",
+       "Trimestral",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ],
+      [
+       "Oportunidades con decisión",
+       "Oportunidades presentadas con decisión y responsable ÷ oportunidades presentadas",
+       "Trimestral",
+       "Comité de Estrategia Comercial",
+       "100 %"
+      ],
+      [
+       "Precios de competencia al día",
+       "Categorías con precio de competencia actualizado en el mes ÷ categorías activas",
+       "Mensual",
+       "Gerente Comercial (País / Canal)",
+       "≥ 90 %"
+      ]
+     ]
+    }
+   },
+   "2.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Construye y mantiene el forecast de venta del grupo: la base histórica, el crecimiento esperado por mercado, la mensualización por el peso de cada mes, la desagregación por país, canal, cliente y familia, la aprobación en el comité de estrategia comercial, su entrega a compras y a finanzas, y la revisión trimestral con ajuste documentado.",
+     "nota_estado": "Proceso en transición: el forecast anual ya se prepara entre diciembre y enero —por marca, con base histórica y crecimiento por mercado— y se revisa cada trimestre. Lo que se incorpora es un solo forecast consolidado y versionado, que los países presenten el suyo y que compras lo use como insumo explícito."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial / Retail",
+     "participantes": [
+      "Analista de Sistemas / Datos — prepara la base histórica y el cálculo de referencia a partir de Odoo y del sell-out.",
+      "Director(a) Comercial del Grupo — construye el plan de venta de la marca representada y aprueba sus cifras.",
+      "Gerente Comercial (País / Canal) — validan el forecast de su mercado cliente por cliente y, en retail, tienda por tienda.",
+      "Coordinador(a) de Logística y Bodega — presenta la necesidad de reposición de Venezuela, el cliente interno de mayor volumen.",
+      "Comité de Estrategia Comercial — revisa unidades, modelos y colores y aprueba el forecast consolidado.",
+      "Director(a) de Finanzas del Grupo — recibe el forecast mensualizado para el presupuesto y la proyección de caja."
+     ],
+     "evidencia": [
+      "E-63",
+      "E-08",
+      "E-10",
+      "E-55",
+      "E-40"
+     ],
+     "notas": "Hoy conviven tres ejercicios: el de la marca propia en el mayor, el de la marca representada y el de metas de las tiendas propias. Este proceso los consolida en un solo número por marca, país y canal."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Cierre del año comercial: el forecast del año siguiente se prepara entre noviembre y enero; reforecast cuando un mercado se desvía de forma sostenida o cambia el entorno.",
+     "cadencia": "Anual (construcción, noviembre a enero); trimestral (revisión y ajuste); por evento (desvío sostenido o cambio del entorno).",
+     "output": "Forecast regional aprobado y versionado, mensualizado por marca, país, canal y familia, entregado a compras y a finanzas.",
+     "evidencia": [
+      "E-08",
+      "E-10",
+      "E-55",
+      "E-63"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-10",
+      "E-18",
+      "E-40",
+      "E-55",
+      "E-60",
+      "E-63"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Prepara la base histórica de uno a dos años por país, canal, cliente, familia y producto desde Odoo y la tabla de sell-out, con un cálculo de referencia de la demanda validado con el área comercial."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Construye el forecast de la marca propia: venta del año anterior más el crecimiento esperado en cada mercado, distribuida por el peso histórico de cada mes y con la política de inventario de seguridad aplicada."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Construye el plan de venta de la marca representada con su historial por línea, margen y estrategias del año, coherente con el forecast que se comprometerá ante la marca en sus convenciones."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Comercial (País / Canal)",
+       "texto": "Validan el forecast de su mercado cliente por cliente y, en tiendas propias, tienda por tienda con su estacionalidad; señalan aperturas, cierres y clientes nuevos que la base histórica no refleja."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador(a) de Logística y Bodega",
+       "texto": "Presenta el forecast de necesidades de Venezuela, el cliente interno de mayor volumen, con su cobertura objetivo, para que el pedido del país deje de construirse sin proyección."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Consolida los ejercicios en un solo forecast regional por marca, país, canal, familia y mes, con una versión fechada y la explicación de cada diferencia frente al año anterior."
+      },
+      {
+       "id": "a7",
+       "rol": "Comité de Estrategia Comercial",
+       "texto": "Revisa el forecast consolidado en unidades, modelos y colores; lo aprueba o pide ajustes con el motivo, que el responsable incorpora en una nueva versión antes de la aprobación."
+      },
+      {
+       "id": "a8",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Recibe el forecast aprobado, mensualizado en unidades y montos, y lo usa para el presupuesto del año y para la proyección de compras y de caja."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Publica la versión aprobada para compras y para marca propia como insumo explícito del plan de compra, y cada trimestre compara lo real contra lo previsto y propone el ajuste documentado cuando el desvío se sostiene."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Gerente Regional Comercial / Retail",
+       "Director(a) Comercial del Grupo",
+       "Gerente Comercial (País / Canal)",
+       "Coordinador(a) de Logística y Bodega",
+       "Comité de Estrategia Comercial",
+       "Director(a) de Finanzas del Grupo"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Cierre del año comercial o desvío sostenido"
+       },
+       {
+        "id": "t1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Preparar la base histórica y la referencia",
+        "sistemas": [
+         "Odoo",
+         "Power BI"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Construir el forecast de la marca propia",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Construir el plan de la marca representada",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente Comercial (País / Canal)",
+        "tipo": "tarea",
+        "n": "Validar el forecast de cada mercado"
+       },
+       {
+        "id": "t5",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "tarea",
+        "n": "Presentar la necesidad de Venezuela"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Consolidar el forecast regional versionado"
+       },
+       {
+        "id": "d1",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "decision",
+        "n": "¿Forecast aprobado?"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Incorporar los ajustes pedidos"
+       },
+       {
+        "id": "t8",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "tarea",
+        "n": "Aprobar la versión ajustada"
+       },
+       {
+        "id": "t9",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Incorporar el forecast al presupuesto y a la caja"
+       },
+       {
+        "id": "t10",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Publicar para compras y revisar cada trimestre",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "fin",
+        "n": "Forecast vigente y versionado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t1",
+        "a": "t3"
+       },
+       {
+        "de": "t2",
+        "a": "t4"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t9",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "No"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "t10"
+       },
+       {
+        "de": "t10",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-10",
+      "E-18",
+      "E-40",
+      "E-55",
+      "E-60",
+      "E-63"
+     ],
+     "filas": [
+      [
+       "Forecast que cambia sin versión",
+       "El forecast comercial cambió tres veces en un año; si no queda versión fechada, compras y finanzas no saben con qué número trabajan.",
+       "Alta",
+       "Alto",
+       "Versión fechada y aprobada en comité en cada cambio, con el motivo."
+      ],
+      [
+       "Compra que no usa el forecast",
+       "La dirección de marca propia no tiene certeza de que el forecast de los comerciales se use al decidir la compra.",
+       "Alta",
+       "Alto",
+       "Publicación formal del forecast aprobado como insumo del plan de compra."
+      ],
+      [
+       "Mercados que piden sin proyección",
+       "Venezuela, el mayor cliente interno, pedía sin forecast propio; el primero se construyó este año.",
+       "Media",
+       "Alto",
+       "Cada mercado presenta su forecast de necesidades antes de la consolidación."
+      ],
+      [
+       "Sin planificador de demanda",
+       "No hay una función dedicada a planificar la demanda; el cálculo se reparte entre comerciales, planificación de Venezuela y la unidad de datos.",
+       "Alta",
+       "Medio",
+       "Asignar la consolidación a la gerencia regional comercial y el cálculo de referencia a la unidad de datos."
+      ],
+      [
+       "Data de origen deficiente",
+       "Datos de venta con errores de moneda o productos sin homologar llevan a conclusiones erradas.",
+       "Media",
+       "Alto",
+       "Base histórica validada por la unidad de datos antes de construir el forecast."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Precisión del forecast",
+       "1 − (|venta real − forecast| ÷ venta real), por familia y mercado",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "≥ 80 %"
+      ],
+      [
+       "Forecast aprobado a tiempo",
+       "Forecast del año aprobado antes del 31 de enero (sí / no)",
+       "Anual",
+       "Gerente Regional Comercial / Retail",
+       "Sí"
+      ],
+      [
+       "Mercados con forecast propio",
+       "Mercados que presentan su forecast de necesidades ÷ mercados activos",
+       "Anual",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ],
+      [
+       "Ajustes documentados",
+       "Cambios de forecast con versión y motivo aprobados en comité ÷ cambios de forecast",
+       "Trimestral",
+       "Comité de Estrategia Comercial",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "2.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Fija el precio de cada producto en cada mercado y la estructura de márgenes: el costo y el margen por producto, la lectura del precio de la competencia y del efecto cambiario, las listas por mercado y tipología de cliente con su margen mínimo y su rango de descuento, y la regla para aprobar un precio fuera de lista.",
+     "nota_estado": "Proceso en transición: el grupo ya pasó de un precio único regional a un precio por mercado según la competencia, y existen listas por tipología de cliente. Lo que se incorpora es un margen mínimo escrito por canal, para que cada precio o descuento dentro de rango no tenga que subir a un director."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) Comercial del Grupo",
+     "participantes": [
+      "Comité de Estrategia Comercial — aprueba la estructura de precios por mercado y la política de márgenes.",
+      "Director(a) Comercial Mayorista (Cubitt) — lee el precio de la competencia en cada mercado del mayor y propone el precio de la marca propia.",
+      "Gerente Regional Comercial / Retail — calcula costos y márgenes por producto y mercado, y publica las listas vigentes.",
+      "Director(a) de Finanzas del Grupo — analiza la rentabilidad por país y el efecto cambiario sobre las listas.",
+      "Gerente Comercial (País / Canal) — aplica las listas y solicita, con motivo, cualquier precio fuera de rango."
+     ],
+     "evidencia": [
+      "E-08",
+      "E-63",
+      "E-05",
+      "E-15",
+      "E-40"
+     ],
+     "notas": "Hoy los precios nuevos los revisa y aprueba la dirección comercial, y cada pedido pasa por su revisión de margen; este proceso deja esa revisión solo para lo que sale del rango autorizado."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-15",
+      "E-18",
+      "E-35",
+      "E-40",
+      "E-63"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Calcula el costo aterrizado y el margen de cada producto por mercado —costo de fábrica, flete, aranceles e impuestos locales— cada vez que cambia un costo o entra un producto nuevo."
+      },
+      {
+       "id": "a2",
+       "rol": "Director(a) Comercial Mayorista (Cubitt)",
+       "texto": "Levanta el precio de la competencia para cada categoría y mercado del mayor y propone el precio de la marca propia que ese mercado sostiene una vez aplicado el impuesto local."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Finanzas del Grupo",
+       "texto": "Analiza la rentabilidad por país y el efecto de la brecha cambiaria sobre las listas, y señala los mercados donde la lista vigente ya no cubre el margen objetivo."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Propone las listas por mercado y tipología de cliente, con el margen mínimo por canal y el rango de descuento que cada nivel puede autorizar sin escalar."
+      },
+      {
+       "id": "a5",
+       "rol": "Comité de Estrategia Comercial",
+       "texto": "Aprueba la estructura de precios y márgenes; cuando un precio no sostiene el margen mínimo pero se justifica por estrategia, lo aprueba como excepción con motivo y plazo."
+      },
+      {
+       "id": "a6",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Documenta cada excepción aprobada —mercado, cliente o producto, motivo y fecha de revisión— para que no se convierta en precio de lista por costumbre."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Publica las listas vigentes con su fecha en Odoo, las comunica a los canales y prepara la lista de disponibilidad y precio que se envía cada semana a los clientes del mayor."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente Comercial (País / Canal)",
+       "texto": "Aplican las listas; todo precio fuera del rango autorizado se solicita con motivo y se aprueba antes de facturar, y cada trimestre se revisa el margen realizado contra el objetivo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Director(a) Comercial Mayorista (Cubitt)",
+       "Director(a) de Finanzas del Grupo",
+       "Director(a) Comercial del Grupo",
+       "Comité de Estrategia Comercial",
+       "Gerente Comercial (País / Canal)"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "inicio",
+        "n": "Cambio de costo, lanzamiento o movimiento de competencia"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Calcular costo aterrizado y margen",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Director(a) Comercial Mayorista (Cubitt)",
+        "tipo": "tarea",
+        "n": "Levantar precio de competencia y proponer"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) de Finanzas del Grupo",
+        "tipo": "tarea",
+        "n": "Analizar rentabilidad y efecto cambiario"
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Proponer listas, margen mínimo y rangos"
+       },
+       {
+        "id": "d1",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "decision",
+        "n": "¿Sostiene el margen mínimo?"
+       },
+       {
+        "id": "t5",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "tarea",
+        "n": "Aprobar la estructura de precios"
+       },
+       {
+        "id": "t6",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Documentar la excepción aprobada"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Publicar las listas y comunicarlas",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t8",
+        "carril": "Gerente Comercial (País / Canal)",
+        "tipo": "tarea",
+        "n": "Aplicar las listas y solicitar excepciones",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente Comercial (País / Canal)",
+        "tipo": "fin",
+        "n": "Listas vigentes aplicadas por los canales"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t1",
+        "a": "t3"
+       },
+       {
+        "de": "t2",
+        "a": "t4"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-15",
+      "E-18",
+      "E-35",
+      "E-40",
+      "E-63"
+     ],
+     "filas": [
+      [
+       "Precios fuera de lista sin regla",
+       "Hay precios negociados fuera de las listas —a costo más un margen— para clientes específicos, sin una regla que diga quién puede autorizarlos.",
+       "Alta",
+       "Alto",
+       "Rangos de descuento por nivel y excepciones documentadas con motivo y plazo."
+      ],
+      [
+       "Cuello de botella en la aprobación",
+       "Cada pedido y cada precio nuevo pasa por la revisión de un director; los pedidos esperan y la dirección pierde tiempo en revisiones de bajo valor.",
+       "Alta",
+       "Medio",
+       "Margen mínimo escrito por canal: lo que está dentro del rango no escala."
+      ],
+      [
+       "Erosión por efecto cambiario",
+       "En Venezuela la brecha cambiaria altera la rentabilidad real de una lista en poco tiempo.",
+       "Alta",
+       "Alto",
+       "Revisión de rentabilidad por país con finanzas y ajuste de lista con fecha."
+      ],
+      [
+       "Precio fijado con información parcial",
+       "La lectura de la competencia depende de lo que cada director observa y de data comprada que no cubre todo el mercado.",
+       "Media",
+       "Medio",
+       "Levantamiento mensual de precios de competencia dentro de la inteligencia de mercado."
+      ],
+      [
+       "Descuentos tardíos",
+       "El grupo reconoce tener miedo a los descuentos; cuando por fin se aplican, el inventario ya lleva meses parado.",
+       "Media",
+       "Medio",
+       "Rangos de descuento preaprobados por antigüedad de inventario, vinculados al plan de salida del surtido."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Margen realizado frente a objetivo",
+       "Margen bruto real ÷ margen objetivo, por mercado y canal",
+       "Mensual",
+       "Director(a) Comercial del Grupo",
+       "≥ 100 %"
+      ],
+      [
+       "Venta dentro de rango autorizado",
+       "Venta facturada a precio de lista o dentro del rango ÷ venta total",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "≥ 95 %"
+      ],
+      [
+       "Excepciones documentadas",
+       "Excepciones con motivo y fecha de revisión ÷ excepciones aprobadas",
+       "Trimestral",
+       "Director(a) Comercial del Grupo",
+       "100 %"
+      ],
+      [
+       "Publicación oportuna de listas",
+       "Días entre el cambio de costo y la publicación de la lista ajustada",
+       "Por evento",
+       "Gerente Regional Comercial / Retail",
+       "≤ 5 días hábiles"
+      ]
+     ]
+    }
+   },
+   "2.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Decide qué ofrece el grupo en cada mercado: qué referencias se incorporan, cuáles se refuerzan por su peso en la venta, cuáles se depuran por baja rotación y con qué peso se planifica cada color y variante, a partir de la rotación, la salud del inventario y la retroalimentación de los clientes.",
+     "nota_estado": "Proceso en transición: el portafolio de la marca propia ya se cura con lo que piden los mercados y el comité de estrategia lo discute. Lo que se incorpora es un análisis de rotación y de inventario estancado como punto de partida, y que la depuración salga con un plan de salida."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Comité de Estrategia Comercial",
+     "participantes": [
+      "Analista de Sistemas / Datos — prepara el análisis de rotación, Pareto y salud del inventario por mercado.",
+      "Gerente Regional Comercial / Retail — propone el surtido por mercado y el plan de salida de lo que se depura.",
+      "Gerente Comercial (País / Canal) — traen lo que piden y rechazan los clientes de su mercado.",
+      "Director(a) de Marca Propia (Cubitt) — evalúa con las fábricas la factibilidad de sustitutos y productos nuevos."
+     ],
+     "evidencia": [
+      "E-63",
+      "E-60",
+      "E-08",
+      "SC-10",
+      "E-18"
+     ],
+     "notas": "La decisión de portafolio es comercial y de marca propia; marketing no decide qué se produce ni cuánto, aunque aporta tendencias y participa en el lanzamiento."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-10",
+      "E-18",
+      "E-60",
+      "E-63",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Prepara cada trimestre el análisis de rotación, Pareto de venta y salud del inventario por mercado, señalando las referencias con más de seis meses de inventario y las que se agotan antes de reponerse."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Propone el surtido de cada mercado: referencias a incorporar, a reforzar y a depurar, y el peso planificado por color, modelo y variante para el ciclo siguiente."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Comercial (País / Canal)",
+       "texto": "Aportan la retroalimentación de sus clientes —qué producto piden a qué precio, cuál ya no quieren— y cuidan que el surtido de cada cliente no se reduzca a las pocas referencias que rotan."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Evalúa con las fábricas la factibilidad y el tiempo de los sustitutos o productos nuevos que el surtido requiere, y lo que implica retirar una referencia en producción."
+      },
+      {
+       "id": "a5",
+       "rol": "Comité de Estrategia Comercial",
+       "texto": "Decide el surtido del ciclo por mercado y deja registrada cada decisión de incorporar, reforzar o depurar con su responsable."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Para cada referencia depurada define el plan de salida —promoción, liquidación o traslado a otro mercado— que se lleva al calendario promocional antes de que el inventario envejezca."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Publica el surtido aprobado a compras, a marca propia y a los canales, como base del forecast y de la asignación del ciclo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Gerente Regional Comercial / Retail",
+       "Gerente Comercial (País / Canal)",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Comité de Estrategia Comercial"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Ciclo trimestral o referencia con desempeño atípico"
+       },
+       {
+        "id": "t1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Analizar rotación, Pareto y salud del inventario",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Proponer el surtido por mercado"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente Comercial (País / Canal)",
+        "tipo": "tarea",
+        "n": "Aportar la retroalimentación de clientes"
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Evaluar sustitutos y productos nuevos"
+       },
+       {
+        "id": "t5",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "tarea",
+        "n": "Decidir el surtido del ciclo"
+       },
+       {
+        "id": "d1",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "decision",
+        "n": "¿Hay referencias a depurar?"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Definir el plan de salida"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Publicar el surtido aprobado",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "fin",
+        "n": "Surtido vigente por mercado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-08",
+      "E-10",
+      "E-18",
+      "E-60",
+      "E-63",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Inventario estancado",
+       "El análisis de datos detectó cerca de un millón de dólares de mercancía estacionada, y hay referencias con más de seis meses de inventario sin tiempo para analizar su salida.",
+       "Alta",
+       "Alto",
+       "Análisis trimestral de salud del inventario y plan de salida obligatorio para cada referencia depurada."
+      ],
+      [
+       "Surtido reducido a lo que rota",
+       "Los clientes tienden a llevarse solo las referencias de mayor rotación, lo que deja el resto del portafolio sin salida.",
+       "Media",
+       "Medio",
+       "Surtido mínimo por tipo de cliente definido en la decisión de portafolio."
+      ],
+      [
+       "Decisiones sin registro",
+       "Las conversaciones del comité de marca propia no dejan registro, y la decisión se vuelve a discutir o se olvida.",
+       "Alta",
+       "Medio",
+       "Registro de cada decisión de portafolio con responsable."
+      ],
+      [
+       "Confusión de roles sobre producto",
+       "Se llegó a representar a marketing como quien decide la necesidad de producto; la Presidencia lo corrigió: esa decisión es comercial y de marca propia.",
+       "Media",
+       "Medio",
+       "Roles escritos: marketing aporta tendencias, el comité decide."
+      ],
+      [
+       "Dependencia de la fábrica para sustituir",
+       "Retirar o sustituir una referencia depende de los tiempos de la fábrica, que el grupo no controla.",
+       "Media",
+       "Medio",
+       "Evaluación de factibilidad con marca propia antes de decidir la depuración."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Inventario envejecido",
+       "Valor del inventario con más de seis meses ÷ valor del inventario total",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "≤ 15 %"
+      ],
+      [
+       "Depuraciones con plan de salida",
+       "Referencias depuradas con plan de salida en el calendario ÷ referencias depuradas",
+       "Trimestral",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ],
+      [
+       "Concentración de la venta",
+       "Venta de las referencias Pareto ÷ venta total, por mercado",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Decisiones registradas",
+       "Decisiones de portafolio registradas con responsable ÷ decisiones tomadas",
+       "Trimestral",
+       "Comité de Estrategia Comercial",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "2.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Construye el calendario comercial del año —temporadas, lanzamientos, campañas con cadenas ancla y ventanas de descuento— y gobierna las promociones mensuales de cada país: quién las propone con base en el inventario, con qué margen mínimo se aprueban sin escalar, quién es el único aprobador cuando no, y cómo se mide su resultado.",
+     "nota_estado": "Proceso en transición: marketing ya mapea al inicio del año las campañas de temporada y en Venezuela hay una sesión mensual de promociones con planificación, retail y tiendas. Lo que se incorpora es un calendario único acordado con el mayor, un margen mínimo que evite escalar cada promoción y un solo aprobador por encima de ese umbral."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial / Retail",
+     "participantes": [
+      "Gerente Regional de Marketing — mapea las campañas de comunicación sobre el calendario y ejecuta las piezas; no define las promociones ni decide sobre el stock.",
+      "Director(a) Comercial Mayorista (Cubitt) — incorpora al calendario las campañas con las cadenas ancla de cada mercado y la reserva de mercancía que requieren.",
+      "Comité de Estrategia Comercial — aprueba el calendario anual.",
+      "Coordinador(a) de Logística y Bodega — detecta el inventario que necesita rotación y propone las promociones del mes en cada país.",
+      "Director(a) Comercial del Grupo — único aprobador de las promociones que no cumplen el margen mínimo."
+     ],
+     "evidencia": [
+      "E-22",
+      "E-42",
+      "E-16",
+      "E-40",
+      "E-63",
+      "E-08"
+     ],
+     "notas": "Hoy una misma promoción puede recibir aprobaciones contradictorias de distintos directores; el área de mercadeo de Venezuela pidió expresamente que un solo miembro de la dirección sea el responsable de aprobar."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-08",
+      "E-14",
+      "E-16",
+      "E-22",
+      "E-40",
+      "E-42",
+      "E-49",
+      "E-60",
+      "E-63"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Arma a inicio de año el calendario comercial: temporadas fuertes, fechas especiales por país, la grilla anual de lanzamientos de producto y las ventanas de descuento por cambio de línea, sin que dos lanzamientos compitan entre sí."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Regional de Marketing",
+       "texto": "Mapea sobre ese calendario las campañas de comunicación y su presupuesto por canal, y señala los plazos mínimos que necesita el equipo creativo para cada una."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) Comercial Mayorista (Cubitt)",
+       "texto": "Incorpora las campañas con las cadenas ancla de cada mercado y la reserva de mercancía para ellas antes del lanzamiento, de modo que el mayor participe desde el inicio y no se entere después."
+      },
+      {
+       "id": "a4",
+       "rol": "Comité de Estrategia Comercial",
+       "texto": "Aprueba el calendario anual y resuelve los conflictos de fecha entre canales —por ejemplo, entre lanzar en el primer trimestre o en la temporada de fin de año— con el criterio de clasificación de lanzamientos."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador(a) de Logística y Bodega",
+       "texto": "Cada mes, en la sesión de promociones de cada país con retail, tiendas y comercio electrónico, propone las promociones sobre el inventario que necesita rotar, con su margen resultante."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Aprueba directamente las promociones que respetan el margen mínimo escrito y el stock disponible, y verifica los permisos regulatorios que exige cada país antes de publicarlas."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Aprueba o rechaza, como único aprobador, las promociones por debajo del margen mínimo, en un plazo máximo de dos días hábiles y sin reabrir las ya aprobadas."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente Regional de Marketing",
+       "texto": "Ejecuta la comunicación de la promoción aprobada en los canales del país, con el brief que recibe de comercial y sin cambios a mitad de la campaña salvo quiebre de stock."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Mide el resultado de cada promoción —venta en el período frente a un período comparable sin promoción— y lo lleva a la sesión siguiente para ajustar las próximas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Gerente Regional de Marketing",
+       "Director(a) Comercial Mayorista (Cubitt)",
+       "Comité de Estrategia Comercial",
+       "Coordinador(a) de Logística y Bodega",
+       "Director(a) Comercial del Grupo"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "inicio",
+        "n": "Inicio del año o sesión mensual de promociones"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Armar el calendario comercial anual"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente Regional de Marketing",
+        "tipo": "tarea",
+        "n": "Mapear campañas y presupuesto de comunicación"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) Comercial Mayorista (Cubitt)",
+        "tipo": "tarea",
+        "n": "Incorporar campañas con cadenas ancla"
+       },
+       {
+        "id": "t4",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "tarea",
+        "n": "Aprobar el calendario y resolver conflictos"
+       },
+       {
+        "id": "t5",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "tarea",
+        "n": "Proponer las promociones del mes",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "decision",
+        "n": "¿Respeta el margen mínimo?"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Aprobar y verificar permisos"
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Aprobar como único aprobador"
+       },
+       {
+        "id": "t8",
+        "carril": "Gerente Regional de Marketing",
+        "tipo": "tarea",
+        "n": "Ejecutar la comunicación de la promoción",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t9",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Medir el resultado de la promoción",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "fin",
+        "n": "Promoción ejecutada y medida"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "t8"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-08",
+      "E-14",
+      "E-16",
+      "E-22",
+      "E-40",
+      "E-42",
+      "E-49",
+      "E-60",
+      "E-63"
+     ],
+     "filas": [
+      [
+       "Aprobaciones contradictorias",
+       "Una promoción aprobada por un director puede ser revertida semanas después por otro; nadie sabe quién aprobó y se reevalúa lo ya evaluado.",
+       "Alta",
+       "Alto",
+       "Margen mínimo escrito y un solo aprobador para lo que queda por debajo."
+      ],
+      [
+       "Promociones desordenadas",
+       "Llegan unas cinco promociones por país al mes, sin orden y con cambios a mitad; marketing ejecuta sin ver el stock.",
+       "Alta",
+       "Medio",
+       "Sesión mensual por país con propuesta basada en inventario y congelamiento de la promoción aprobada."
+      ],
+      [
+       "El mayor fuera del calendario",
+       "Las campañas llegan hasta las tiendas propias, pero el canal mayor no se involucra y las cadenas no reciben mercancía reservada.",
+       "Media",
+       "Alto",
+       "Campañas con cadenas ancla y reserva de mercancía dentro del calendario anual."
+      ],
+      [
+       "Lanzamientos que compiten",
+       "Una colección opacó el lanzamiento de otra categoría por salir al mismo tiempo; comercial y marketing discuten la fecha de cada lanzamiento.",
+       "Media",
+       "Medio",
+       "Grilla anual de lanzamientos y clasificación por tipo antes del calendario de marketing."
+      ],
+      [
+       "Requisitos regulatorios por país",
+       "En Venezuela las promociones requieren permisos previos; publicarlas sin ellos expone al grupo.",
+       "Media",
+       "Alto",
+       "Verificación de permisos antes de publicar cada promoción."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Calendario aprobado a tiempo",
+       "Calendario comercial anual aprobado antes de iniciar el año (sí / no)",
+       "Anual",
+       "Gerente Regional Comercial / Retail",
+       "Sí"
+      ],
+      [
+       "Tiempo de aprobación",
+       "Días hábiles entre la propuesta y la aprobación de una promoción",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "≤ 2 días"
+      ],
+      [
+       "Promociones modificadas en curso",
+       "Promociones cambiadas después de publicadas ÷ promociones publicadas",
+       "Mensual",
+       "Gerente Regional de Marketing",
+       "≤ 10 %"
+      ],
+      [
+       "Efecto de la promoción",
+       "Venta del período con promoción ÷ venta de un período comparable sin promoción",
+       "Por promoción",
+       "Gerente Regional Comercial / Retail",
+       "> 1,0"
+      ]
+     ]
+    }
+   },
+   "2.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Reparte el inventario disponible y el que viene en camino entre mercados, canales y clientes: consolida los pedidos con su cobertura objetivo, los cruza con el disponible real y lo asignado por la marca representada, aplica una regla de reparto escrita cuando la demanda excede la oferta, registra lo pedido frente a lo asignado y gestiona la preventa contra tránsito.",
+     "nota_estado": "Proceso en transición: la asignación ya ocurre cada mes y la deciden los directores comerciales pedido por pedido. Lo que se incorpora es una regla de reparto escrita, el registro de la demanda que no se atiende y que la dirección revise solo los conflictos, no cada pedido."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) Comercial del Grupo",
+     "participantes": [
+      "Coordinador(a) de Logística y Bodega — consolida los pedidos de reposición de países, tiendas y clientes especiales con su cobertura objetivo, y comunica la asignación.",
+      "Analista de Sistemas / Datos — cruza la demanda con el inventario del hub, el tránsito y lo confirmado por la marca representada.",
+      "Gerente Regional Comercial / Retail — gestiona la preventa contra tránsito y las reservas para cuentas clave y campañas."
+     ],
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-10",
+      "E-40",
+      "E-63"
+     ],
+     "notas": "Hoy todo pedido pasa por la revisión de la dirección comercial, que autoriza por margen, por cantidad de cada referencia y por crédito; en la marca representada el recorte frente a lo pedido es la norma, porque la fábrica asigna una fracción de lo solicitado."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-10",
+      "E-18",
+      "E-40",
+      "E-63"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinador(a) de Logística y Bodega",
+       "texto": "Consolida cada mes los pedidos de reposición de los países, las tiendas propias y los clientes especiales, cada uno con su cobertura objetivo —de tres a cuatro meses para Venezuela— y la venta que lo respalda."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Cruza la demanda consolidada con el inventario disponible en el hub de Zona Libre, lo que viene en tránsito con su fecha estimada y lo que la marca representada confirmó para el período."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Determina si la demanda excede lo disponible; cuando no la excede, la asignación se libera tal como fue pedida y solo se revisan los pedidos que rompen el margen o el crédito."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Cuando la demanda excede lo disponible, aplica la regla de reparto escrita: primero los compromisos firmados y las preventas pagadas, luego las reservas nominales, los mínimos por mercado y el resto en proporción a la venta."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) Comercial del Grupo",
+       "texto": "Registra para cada mercado y referencia lo pedido frente a lo asignado, de modo que la demanda que no se atendió quede visible para el forecast y para la negociación con la marca representada."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Gestiona la preventa con los clientes clave contra la mercancía en tránsito, con pago anticipado cuando corresponde, y separa las reservas para campañas y cadenas antes de liberar el resto."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Logística y Bodega",
+       "texto": "Comunica la asignación aprobada a cada mercado y a la bodega del hub para la preparación del despacho, con las cantidades por referencia y la fecha estimada."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinador(a) de Logística y Bodega",
+       "Analista de Sistemas / Datos",
+       "Director(a) Comercial del Grupo",
+       "Gerente Regional Comercial / Retail"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "inicio",
+        "n": "Ciclo mensual o llegada de mercancía"
+       },
+       {
+        "id": "t1",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "tarea",
+        "n": "Consolidar pedidos con su cobertura",
+        "sistemas": [
+         "Excel",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Cruzar demanda con disponible y tránsito",
+        "sistemas": [
+         "Odoo",
+         "Power BI"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿La demanda excede lo disponible?"
+       },
+       {
+        "id": "t3",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Liberar la asignación pedida"
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Aplicar la regla de reparto escrita"
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) Comercial del Grupo",
+        "tipo": "tarea",
+        "n": "Registrar lo pedido frente a lo asignado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Gestionar preventa y reservas"
+       },
+       {
+        "id": "t7",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "tarea",
+        "n": "Comunicar la asignación a mercados y bodega",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "fin",
+        "n": "Asignación comunicada y registrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t3",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t3",
+        "a": "t6"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-10",
+      "E-18",
+      "E-40",
+      "E-63"
+     ],
+     "filas": [
+      [
+       "Demanda no atendida invisible",
+       "Cuando lo pedido excede lo disponible, la diferencia se pierde: el grupo no sabe cuánto dejó de vender, y el recorte a los mercados no queda registrado.",
+       "Alta",
+       "Alto",
+       "Registro obligatorio de lo pedido frente a lo asignado por mercado y referencia."
+      ],
+      [
+       "Asignación concentrada en una persona",
+       "La asignación de la marca representada a los clientes especiales y los recortes de pedidos los decide una sola persona, que además revisa cada pedido.",
+       "Alta",
+       "Alto",
+       "Regla de reparto escrita y revisión de la dirección solo sobre los conflictos."
+      ],
+      [
+       "Oferta de la marca representada decreciente",
+       "La fracción de lo pedido que asigna la marca representada ha caído en los últimos meses y deja referencias clave sin cubrir.",
+       "Alta",
+       "Alto",
+       "Prioridad a compromisos y referencias clave en la regla, y registro de la brecha para negociar con la marca."
+      ],
+      [
+       "Pedidos detenidos en revisión",
+       "Los pedidos de reposición esperan la revisión de la dirección antes de prepararse, y la mercancía se atrasa.",
+       "Media",
+       "Medio",
+       "Liberación directa de lo que no excede lo disponible ni rompe margen o crédito."
+      ],
+      [
+       "Datos de reserva desactualizados",
+       "La información que identifica piezas especiales y reservas se lleva a mano y queda desactualizada.",
+       "Media",
+       "Medio",
+       "Reservas registradas en el sistema al momento de asignarse."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Nivel de atención de la demanda",
+       "Unidades asignadas ÷ unidades pedidas, por mercado y referencia",
+       "Mensual",
+       "Director(a) Comercial del Grupo",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Demanda no atendida registrada",
+       "Mercados con registro de lo pedido frente a lo asignado ÷ mercados que pidieron",
+       "Mensual",
+       "Director(a) Comercial del Grupo",
+       "100 %"
+      ],
+      [
+       "Tiempo de aprobación del pedido",
+       "Días entre la recepción del pedido y su liberación a bodega",
+       "Mensual",
+       "Coordinador(a) de Logística y Bodega",
+       "≤ 2 días hábiles"
+      ],
+      [
+       "Cobertura frente a objetivo",
+       "Semanas de inventario por mercado ÷ semanas objetivo",
+       "Mensual",
+       "Coordinador(a) de Logística y Bodega",
+       "0,9 – 1,2"
+      ]
+     ]
+    }
+   },
+   "2.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Lee el desempeño comercial consolidado de los canales y las marcas contra el plan —avance frente a la meta anual y a la fecha, proyección de cierre, comparación con el año anterior y semáforo por país, canal, vendedor, cliente y familia— y decide los ajustes al forecast, al surtido o al calendario.",
+     "nota_estado": "Proceso en transición: ya existen un tablero diario del mayor con meta y semáforo, reportes mensuales a la Junta y un cuadro semanal por canal en Colombia. Lo que se incorpora es un tablero oficial sobre la cifra cerrada de Odoo para todos los canales y un ajuste del plan que se decide y se registra."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional Comercial / Retail",
+     "participantes": [
+      "Analista de Sistemas / Datos — mantiene el tablero oficial y la calidad de la cifra que lo alimenta.",
+      "Gerente Comercial (País / Canal) — leen cada semana el desempeño de su mercado o canal con su equipo y explican los desvíos.",
+      "Comité de Estrategia Comercial — decide los ajustes al forecast, al surtido o al calendario."
+     ],
+     "evidencia": [
+      "E-63",
+      "E-10",
+      "E-11",
+      "E-55",
+      "E-18"
+     ],
+     "notas": "El tablero diario del mayor lo construyó la gerencia comercial con herramientas de inteligencia artificial y corre fuera de Odoo y de Lark; este proceso lo toma como referencia de contenido para el tablero oficial."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-10",
+      "E-11",
+      "E-18",
+      "E-47",
+      "E-52",
+      "E-55",
+      "E-58",
+      "E-63"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Actualiza cada día el tablero oficial con la venta cerrada de Odoo por marca, país, canal, vendedor, cliente y familia, con meta anual, meta a la fecha y semáforo, sobre la infraestructura que administra sistemas."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Comercial (País / Canal)",
+       "texto": "Leen cada semana el desempeño de su mercado o canal con su equipo, explican los desvíos frente a la meta y registran las acciones comerciales que toman, como ya hacen las tiendas en su reunión de los lunes."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Consolida cada mes el desempeño regional: avance frente a la meta anual y a la fecha, proyección de cierre, comparación con el año anterior y desvíos por país, canal y familia."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Evalúa si algún desvío se sostiene lo suficiente para afectar el plan y, en ese caso, prepara la propuesta de ajuste del forecast, del surtido o del calendario con su efecto en compras."
+      },
+      {
+       "id": "a5",
+       "rol": "Comité de Estrategia Comercial",
+       "texto": "Decide el ajuste propuesto y deja registrada la decisión con su responsable; el forecast ajustado se publica como nueva versión."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Entrega el resumen mensual del desempeño comercial para el cuadro de indicadores de la Junta, con la misma cifra que muestra el tablero oficial."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Gerente Comercial (País / Canal)",
+       "Gerente Regional Comercial / Retail",
+       "Comité de Estrategia Comercial"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Cierre del día, de la semana o del mes"
+       },
+       {
+        "id": "t1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Actualizar el tablero oficial",
+        "sistemas": [
+         "Odoo",
+         "Power BI"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente Comercial (País / Canal)",
+        "tipo": "tarea",
+        "n": "Leer el desempeño con el equipo"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Consolidar el desempeño regional",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "decision",
+        "n": "¿Desvío sostenido frente al plan?"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Proponer el ajuste del plan"
+       },
+       {
+        "id": "t5",
+        "carril": "Comité de Estrategia Comercial",
+        "tipo": "tarea",
+        "n": "Decidir y registrar el ajuste"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Entregar el resumen a la Junta"
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "fin",
+        "n": "Desempeño leído y plan ajustado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-10",
+      "E-11",
+      "E-18",
+      "E-47",
+      "E-52",
+      "E-55",
+      "E-58",
+      "E-63"
+     ],
+     "filas": [
+      [
+       "Tableros paralelos fuera de los sistemas oficiales",
+       "Hay tableros construidos por las propias áreas que corren fuera de Odoo y de Lark, con credenciales propias; sistemas no sabe quién accede a esa data.",
+       "Alta",
+       "Alto",
+       "Un tablero oficial administrado por sistemas, que reemplace a los paralelos."
+      ],
+      [
+       "Reportes que no se leen",
+       "Tableros enviados cada mes a la Junta no se abren; el reporte existe pero no produce decisiones.",
+       "Media",
+       "Medio",
+       "Lectura mensual en el comité con decisión registrada, y resumen integrado al cuadro de la Junta."
+      ],
+      [
+       "Cifras erróneas por moneda",
+       "En Venezuela se presentaron reportes con bolívares y dólares mezclados en la misma columna.",
+       "Media",
+       "Alto",
+       "Cifra en moneda y tasa declaradas, validada por la unidad de datos antes de publicar."
+      ],
+      [
+       "La fuerza de venta no usa el análisis",
+       "Los vendedores no usan los tableros; los modelos se generan y nadie los consulta.",
+       "Media",
+       "Medio",
+       "Lectura semanal guiada por el gerente de cada mercado con un plan simple por vendedor."
+      ],
+      [
+       "Reportes que dependen de una persona",
+       "Parte de los reportes a la dirección y a la marca representada los arma una sola persona con conocimiento que nadie más tiene.",
+       "Media",
+       "Alto",
+       "Documentar el método de cada reporte y formar un respaldo."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Oportunidad del tablero",
+       "Días con el tablero actualizado antes de las 9:00 ÷ días hábiles",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "≥ 95 %"
+      ],
+      [
+       "Cobertura del tablero oficial",
+       "Canales y mercados incluidos en el tablero oficial ÷ canales y mercados activos",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ],
+      [
+       "Lecturas semanales realizadas",
+       "Lecturas semanales registradas ÷ semanas del período, por mercado",
+       "Mensual",
+       "Gerente Comercial (País / Canal)",
+       "≥ 90 %"
+      ],
+      [
+       "Ajustes decididos y registrados",
+       "Desvíos sostenidos con decisión registrada ÷ desvíos sostenidos detectados",
+       "Mensual",
+       "Comité de Estrategia Comercial",
+       "100 %"
+      ]
+     ]
+    }
+   }
+  }
+ },
+
+ "3": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual describe cómo Grupo Kenex desarrolla los productos de su marca propia, Cubitt: cómo nace y se evalúa una idea de producto, cómo se eligen y homologan las fábricas, cómo se diseña y especifica, cómo se prueban y aprueban las muestras, cómo evoluciona el software de la marca y cómo se gestionan las colecciones bajo licencia.",
+    "alcance": "Desde la oportunidad de producto hasta la especificación congelada para producción, incluidos el software de la marca y las licencias de terceros. No incluye la compra recurrente a las fábricas, la logística de importación ni el lanzamiento comercial, que documentan Compras y Abastecimiento, Logística y Gobierno de Portafolio. La marca representada no tiene desarrollo propio: lo hace su fabricante.",
+    "audiencia": [
+     "Director(a) de Marca Propia (Cubitt)",
+     "Especialista de Producto / Proyecto",
+     "Encargado(a) de Sourcing (China)",
+     "Diseñador(a) / Analista de Contenido",
+     "Gerente Regional Comercial / Retail",
+     "Gerente Regional de Marketing",
+     "Gerente de Servicio Técnico"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "R&D y Desarrollo de Producto es el macroproceso estratégico que sostiene la apuesta central del grupo: consolidar una marca propia que ya compite en más de veinte países y que el grupo considera el futuro de la empresa. Recibe de Planeación Comercial las oportunidades y la lectura del mercado, y entrega a Compras y a Gobierno de Portafolio productos especificados, listos para producir y lanzar.\n\nHoy el área está en plena construcción. La dirección de marca propia concentra la relación con las fábricas y las decisiones de producto; tiene una persona en China para buscar fábricas y seguir la producción, un especialista de producto en Panamá que prueba los equipos y canaliza las fallas, una coordinación de producto que crea los códigos y lleva las licencias, y una diseñadora industrial recién incorporada. No existe todavía un analista de mercado ni un equipo propio de software: la aplicación y el firmware dependen de la fábrica.\n\nLa Presidencia fijó un criterio que este manual respeta en todos sus procesos: la necesidad de producto la detecta el área comercial y la decide la dirección de marca propia con su comité; marketing acompaña con tendencias, empaque y campaña, pero no aprueba muestras ni confirma órdenes. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "duenos": [
+     [
+      "Macroproceso",
+      "Director(a) de Marca Propia (Cubitt)",
+      "Decide qué se desarrolla, con qué fábrica y cuándo se aprueba cada muestra; conduce la relación con las fábricas y la estrategia de software."
+     ],
+     [
+      "Macroproceso",
+      "Comité de R&D (Cubitt)",
+      "Decide en colegiado desarrollar, aplazar o descartar cada oportunidad de producto."
+     ],
+     [
+      "Procesos",
+      "Especialista de Producto / Proyecto",
+      "Registra oportunidades y muestras, prueba productos y versiones, crea los códigos y gestiona las licencias."
+     ],
+     [
+      "Procesos",
+      "Encargado(a) de Sourcing (China)",
+      "Busca y homologa fábricas en origen y lleva su control de producción, tránsito y pagos."
+     ]
+    ],
+    "entidades": [
+     [
+      "Kenex Trading, S.A.",
+      "Panamá (Zona Libre de Colón)",
+      "Sede del equipo de producto y del hub",
+      "Allí llegan y se prueban la mayoría de las muestras y se concentra la mercancía que producen las fábricas."
+     ],
+     [
+      "Kenex USA",
+      "Estados Unidos",
+      "Filial dirigida por la dirección de marca propia",
+      "Vende en línea y recibe reseñas de producto que retroalimentan la calidad."
+     ],
+     [
+      "Fábricas en China (actores externos)",
+      "China",
+      "Proveedores de desarrollo y producción",
+      "Una fábrica o más por categoría: relojería de adulto y de niño, audio, básculas, termos y accesorios; la de relojería de adulto desarrolla además el software."
+     ]
+    ],
+    "sistemas": [
+     [
+      "Lark",
+      "Carpetas por fábrica con el control de producción, tránsito y pagos; base de muestras desde agosto de 2026; formulario de prueba del especialista de producto; tabla de fallas compartida con la fábrica de relojería.",
+      "3.2 · 3.4 · 3.5 · 3.6"
+     ],
+     [
+      "Odoo",
+      "Creación de los códigos de producto y registro de la producción y el tránsito cuando la orden entra al sistema.",
+      "3.3"
+     ],
+     [
+      "WeChat y grupos de mensajería",
+      "Comunicación con varias fábricas fuera de Lark; no deja registro accesible al grupo.",
+      "3.2 · 3.4"
+     ],
+     [
+      "Plataforma de tendencias",
+      "Servicio externo de tendencias de color y consumo que la coordinación de producto propone usar; no hay evidencia de que esté contratado.",
+      "3.1 · 3.3"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Planeación Comercial",
+      "Entrada",
+      "Oportunidades de producto con precio y volumen objetivo, y decisiones de portafolio."
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Salida",
+      "Especificación congelada y fábrica homologada para la orden de producción."
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Salida",
+      "Producto aprobado con fecha objetivo para el lanzamiento."
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Salida / coordinación",
+      "Información del producto para empaque, manual y campaña; recibe tendencias."
+     ],
+     [
+      "Postventa y Experiencia de Cliente",
+      "Entrada",
+      "Fallas de software y hardware, garantías por producto y reseñas."
+     ],
+     [
+      "Gestión Legal y Cumplimiento",
+      "Coordinación",
+      "Acuerdos de confidencialidad y contratos con fábricas y licenciantes."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Director(a) de Marca Propia (Cubitt)",
+      "Grupo — marca propia",
+      "Dirige el desarrollo de producto y la relación con las fábricas; aprueba muestras y fábricas.",
+      "Qué fábrica se homologa, qué muestra se aprueba, qué entra al backlog de software.",
+      "Al Comité de R&D y a la Junta para la estrategia de software y las inversiones."
+     ],
+     [
+      "Comité de R&D (Cubitt)",
+      "Grupo — marca propia",
+      "Evalúa y decide las oportunidades de producto.",
+      "Desarrollar, aplazar o descartar.",
+      "A la Junta cuando la inversión lo requiere."
+     ],
+     [
+      "Especialista de Producto / Proyecto",
+      "Panamá",
+      "Prueba productos y versiones, registra muestras y oportunidades, crea códigos y gestiona licencias.",
+      "Resultado de la prueba técnica.",
+      "A la dirección de marca propia."
+     ],
+     [
+      "Encargado(a) de Sourcing (China)",
+      "China",
+      "Busca fábricas, solicita cotizaciones y sigue la producción, el tránsito y los pagos.",
+      "Preselección de fábricas.",
+      "A la dirección de marca propia."
+     ],
+     [
+      "Gerente Regional de Marketing",
+      "Regional",
+      "Aporta tendencias y diseña empaque y campaña.",
+      "Empaque y comunicación.",
+      "A la dirección de marca propia en lo que toca al producto."
+     ]
+    ],
+    "comites": [
+     [
+      "Comité de R&D (Cubitt)",
+      "Evaluar y decidir las oportunidades de producto de la marca propia.",
+      "Mensual como deber ser; hoy cuando coinciden sus miembros",
+      "Director(a) de Marca Propia (Cubitt) · directores comerciales · gerencia regional de planificación comercial · coordinación de producto",
+      "Desarrollar, aplazar o descartar; grilla de lanzamientos",
+      "Base de oportunidades con evaluación",
+      "Decisión registrada; hoy sin registro"
+     ],
+     [
+      "Revisión de cierre de lanzamiento",
+      "Analizar el resultado de un lanzamiento: venta al cliente y al consumidor, costo total y tiempos, para ajustar los siguientes.",
+      "Al tercer mes de cada lanzamiento",
+      "Coordinación de producto · planificación comercial · dirección de marca propia · gerencia comercial",
+      "Ajustes de tiempos de muestra y de inversión",
+      "Venta, costo del lanzamiento y duración",
+      "Presentación a la Junta; primer caso en 2026"
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "La necesidad de producto la detecta el área comercial y la decide la dirección de marca propia; marketing acompaña.",
+     "Somos dueños de una marca: diseños, costos y fábricas son información de la empresa y se protegen.",
+     "No depender del proveedor en lo que define a la marca: el software y el diseño son capacidades a construir de forma gradual.",
+     "Cada decisión de producto debería poder auditarse: qué se decidió, con qué información y por quién."
+    ],
+    "politicas": [
+     "Acuerdo de confidencialidad antes de compartir información: todo externo con acceso a información del producto firma, y las fábricas firman contrato.",
+     "Prueba de producto antes del lanzamiento: equipo de cinco a diez personas, lista de verificación técnica e informe con evidencia en un máximo de diez días.",
+     "Las fallas de software se reportan a la fábrica en la tabla compartida y su corrección llega por actualización; las de hardware se resuelven con reemplazo.",
+     "La marca propia no repara: asiste técnicamente y reemplaza bajo carta de garantía de un año, aplicada en todos los países.",
+     "Cuando el porcentaje de garantías de un producto de relojería supera el 1 %, se envían muestras a la fábrica para su análisis.",
+     "Las muestras no conformes se corrigen con la fábrica hasta aprobarse; la producción defectuosa se trata con el proveedor según el defecto."
+    ],
+    "normativo": [
+     "Contratos de licencia de marcas de terceros: condiciones de uso de logos y personajes que exigen aprobación del licenciante antes de producir.",
+     "Requisitos de introducción de productos en cada país —serialización, normativas y licencias— que Gobierno de Portafolio coordina en los lanzamientos.",
+     "Buena práctica de referencia (proceso de desarrollo por etapas y puertas de decisión, tipo Stage-Gate): cada etapa termina en una decisión documentada de seguir, corregir o detener, con criterios conocidos de antemano."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "Los 6 procesos están en transición: todos ocurren hoy, pero descansan en la dirección de marca propia, casi no dejan registro y dependen de las fábricas para el diseño y el software. El área se está construyendo —sourcing en China, especialista de producto, diseño industrial— y le faltan el análisis de mercado y el equipo técnico de software. Las acciones no llevan fecha porque la Junta no las ha acordado.",
+    "por_implementar": [
+     [
+      "3.1 Oportunidades de producto",
+      "No existe un analista de mercado ni un registro de oportunidades; las decisiones se toman por intuición y sin registro.",
+      "Base de oportunidades, evaluación con precio y volumen objetivo y decisión registrada del comité."
+     ],
+     [
+      "3.5 Software y aplicación de marca",
+      "No hay equipo propio de software; el código y los datos de los usuarios los tiene la fábrica.",
+      "Evaluación semestral de la dependencia y decisión de la Junta sobre el desarrollo propio."
+     ]
+    ],
+    "por_formalizar": [
+     [
+      "3.2 Sourcing y homologación de fábricas",
+      "La búsqueda de fábricas y el control por proveedor ya existen, pero no hay evaluación técnica común ni evaluación anual.",
+      "Evaluación técnica antes de homologar y evaluación anual de la cartera."
+     ],
+     [
+      "3.3 Diseño y especificación",
+      "El diseño propio es incipiente y los moldes se deciden sin presupuesto.",
+      "Paquete de diseño cerrado y decisión de molde con presupuesto."
+     ],
+     [
+      "3.4 Muestras y aprobación",
+      "La base de muestras empezó en agosto de 2026; no hay plazo de prueba ni política para las muestras sobrantes.",
+      "Plazo de diez días, opinión comercial consolidada y política de disposición."
+     ],
+     [
+      "3.6 Licencias de terceros",
+      "La gestión cambió de manos recientemente y no hay control de vigencia.",
+      "Expediente de la licencia y aviso anticipado de vencimiento."
+     ]
+    ],
+    "brechas": [
+     [
+      "Transversal — concentración de decisiones",
+      "La comunicación con las fábricas y la decisión final descansan en la dirección de marca propia, sin equipo que dé seguimiento.",
+      "Registro de decisiones y roles de apoyo con funciones escritas."
+     ],
+     [
+      "Transversal — sin presupuesto de desarrollo",
+      "La única inversión en desarrollo son muestras y moldes, sin un presupuesto del área.",
+      "Presupuesto anual de desarrollo aprobado con el plan."
+     ],
+     [
+      "Transversal — sin indicadores",
+      "El área no tiene indicadores medibles.",
+      "Productos planificados frente a desarrollados, cumplimiento de tiempos y garantías por producto."
+     ],
+     [
+      "Transversal — dependencia jerárquica del diseño",
+      "La diseñadora industrial figura bajo marketing aunque trabaja para producto.",
+      "Decidir su dependencia en el modelo organizativo."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "Sourcing",
+      "Búsqueda y selección de fábricas capaces de desarrollar y producir un producto."
+     ],
+     [
+      "Homologación",
+      "Aprobación formal de una fábrica para producir para la marca, tras evaluar su capacidad técnica y comercial."
+     ],
+     [
+      "Muestra",
+      "Unidad física que produce la fábrica para verificar el diseño y la especificación antes de la producción."
+     ],
+     [
+      "Especificación congelada",
+      "Versión aprobada del producto que ya no cambia y con la que se coloca la orden."
+     ],
+     [
+      "Firmware",
+      "Software interno del dispositivo, que desarrolla la fábrica."
+     ],
+     [
+      "Backlog",
+      "Lista priorizada de fallas y funciones pendientes para las próximas versiones del software."
+     ],
+     [
+      "Licencia de terceros",
+      "Derecho de usar una marca o personajes ajenos en una colección, bajo las condiciones del licenciante."
+     ]
+    ],
+    "raci": [
+     [
+      "3.1 Generación y evaluación de oportunidades",
+      "Especialista de Producto / Proyecto",
+      "Comité de R&D (Cubitt)",
+      "Gerente Regional Comercial / Retail · Gerente Regional de Marketing",
+      "Director(a) de Marca Propia (Cubitt)"
+     ],
+     [
+      "3.2 Sourcing y homologación de fábricas",
+      "Encargado(a) de Sourcing (China)",
+      "Director(a) de Marca Propia (Cubitt)",
+      "Especialista de Producto / Proyecto · Asesor(a) Jurídico(a) Externo(a) del Grupo",
+      "Compras"
+     ],
+     [
+      "3.3 Diseño y especificación",
+      "Diseñador(a) / Analista de Contenido · Especialista de Producto / Proyecto",
+      "Director(a) de Marca Propia (Cubitt)",
+      "Gerente Regional de Marketing",
+      "Compras · PMO"
+     ],
+     [
+      "3.4 Muestras y aprobación",
+      "Especialista de Producto / Proyecto",
+      "Director(a) de Marca Propia (Cubitt)",
+      "Gerente Regional Comercial / Retail",
+      "Compras · PMO"
+     ],
+     [
+      "3.5 Software y aplicación de marca",
+      "Especialista de Producto / Proyecto",
+      "Director(a) de Marca Propia (Cubitt)",
+      "Gerente de Servicio Técnico",
+      "Junta Directiva"
+     ],
+     [
+      "3.6 Licencias de terceros",
+      "Especialista de Producto / Proyecto",
+      "Director(a) de Marca Propia (Cubitt)",
+      "Gerente Regional Comercial / Retail · Asesor(a) Jurídico(a) Externo(a) del Grupo",
+      "Diseñador(a) / Analista de Contenido"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "Lark",
+      "Control por fábrica, base de muestras, pruebas, fallas de software",
+      "3.2 · 3.4 · 3.5 · 3.6",
+      "Coordinador(a) de Sistemas"
+     ],
+     [
+      "Odoo",
+      "Códigos de producto y tránsito",
+      "3.3",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "WeChat y mensajería",
+      "Comunicación con fábricas",
+      "3.2 · 3.4",
+      "Sin responsable formal"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Planeación Comercial",
+      "Oportunidades",
+      "Oportunidades con precio y volumen objetivo; decisiones de portafolio"
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Especificación",
+      "Especificación congelada y fábrica homologada"
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Lanzamiento",
+      "Producto aprobado con fecha objetivo"
+     ],
+     [
+      "Postventa y Experiencia de Cliente",
+      "Calidad",
+      "Fallas, garantías por producto y reseñas"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Manual de procedimientos: pruebas de productos, pre-lanzamiento",
+      "Panamá",
+      "Equipo de pruebas, lista de verificación técnica, informe con evidencia y aprobación del lanzamiento",
+      "3.4 · 3.5"
+     ],
+     [
+      "Pruebas del sistema de comunicación de garantías",
+      "Panamá",
+      "Registro de garantías que retroalimenta la calidad del producto",
+      "3.5"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Panamá",
+      "Allí se reciben y prueban las muestras y trabaja el equipo de producto.",
+      "Concentra la capacidad de desarrollo del grupo."
+     ],
+     [
+      "Venezuela",
+      "Es el mayor comprador interno de la marca propia; su planificación opina sobre las cantidades de las órdenes.",
+      "El servicio técnico reporta fallas a la fábrica por Lark."
+     ],
+     [
+      "China",
+      "Sourcing y seguimiento de la producción en origen.",
+      "Parte de la comunicación con fábricas ocurre fuera de Lark."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+   "3.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Capta las ideas de producto de sus tres fuentes —lo que piden los clientes y detecta el área comercial, la lectura de mercado y las propuestas de las fábricas—, las registra, evalúa su encaje en el ecosistema de la marca y su viabilidad técnica y comercial, y decide en comité si se desarrollan, se aplazan o se descartan.",
+     "nota_estado": "Proceso en transición: las ideas ya llegan de los comerciales, de las fábricas y de tendencias, y se discuten entre la dirección de marca propia y los directores comerciales. Lo que se incorpora es un registro de oportunidades, una evaluación con datos de mercado y la decisión documentada del comité."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "participantes": [
+      "Comité de R&D (Cubitt) — dirección de marca propia, directores comerciales y planificación comercial; decide desarrollar, aplazar o descartar.",
+      "Gerente Regional Comercial / Retail — trae las oportunidades que piden los clientes y las que surgen del análisis de mercado, con volumen y precio objetivo.",
+      "Gerente Regional de Marketing — aporta tendencias de consumo, color y comunicación; no decide sobre producto.",
+      "Especialista de Producto / Proyecto — registra las oportunidades y las propuestas de las fábricas y prepara su ficha."
+     ],
+     "evidencia": [
+      "SC-10",
+      "E-60",
+      "E-64",
+      "E-63",
+      "E-06"
+     ],
+     "notas": "La Presidencia corrigió expresamente que marketing no detecta la necesidad de producto, no aprueba muestras ni confirma órdenes: esas decisiones son de la dirección de marca propia con el área comercial. Marketing acompaña con tendencias y con el empaque y la campaña."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-06",
+      "E-60",
+      "E-63",
+      "E-64",
+      "E-66",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Trae las oportunidades que surgen de los clientes y del análisis de mercado —un producto a cierto precio, una categoría con hueco— con el volumen y el precio objetivo que el mercado sostiene."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Regional de Marketing",
+       "texto": "Aporta las tendencias de consumo y de color que marketing detecta, como insumo de la evaluación y no como decisión de qué producto desarrollar."
+      },
+      {
+       "id": "a3",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Registra cada oportunidad y cada propuesta recibida de las fábricas en la base de oportunidades, con una ficha común: categoría, fuente, precio y volumen objetivo, y fecha de llegada."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Evalúa cada oportunidad: encaje con el ecosistema de la marca, viabilidad técnica con las fábricas, costo estimado incluidos moldes y muestras, y margen esperado frente al precio objetivo."
+      },
+      {
+       "id": "a5",
+       "rol": "Comité de R&D (Cubitt)",
+       "texto": "Decide en su sesión si la oportunidad se desarrolla, se aplaza o se descarta, con la evaluación a la vista, y deja registrada la decisión con su motivo."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Registra el aplazamiento o el descarte con su motivo en la base, para que la oportunidad no se vuelva a discutir desde cero ni se pierda si cambian las condiciones."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Para cada oportunidad aprobada emite el brief inicial y la ubica en la grilla anual de lanzamientos, para que no compita con otro lanzamiento ni sature a los equipos de marketing y retail."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Gerente Regional de Marketing",
+       "Especialista de Producto / Proyecto",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Comité de R&D (Cubitt)"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "inicio",
+        "n": "Idea de producto o propuesta de fábrica"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Traer oportunidades de clientes y mercado"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente Regional de Marketing",
+        "tipo": "tarea",
+        "n": "Aportar tendencias de consumo"
+       },
+       {
+        "id": "t3",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Registrar la oportunidad con su ficha",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Evaluar encaje, viabilidad y margen"
+       },
+       {
+        "id": "d1",
+        "carril": "Comité de R&D (Cubitt)",
+        "tipo": "decision",
+        "n": "¿Se desarrolla la oportunidad?"
+       },
+       {
+        "id": "t5",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Registrar aplazamiento o descarte",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Emitir el brief y ubicarlo en la grilla"
+       },
+       {
+        "id": "f1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "fin",
+        "n": "Oportunidad aprobada con brief"
+       },
+       {
+        "id": "f2",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "fin",
+        "n": "Oportunidad aplazada o descartada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "f1"
+       },
+       {
+        "de": "t5",
+        "a": "f2"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-06",
+      "E-60",
+      "E-63",
+      "E-64",
+      "E-66",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Decisiones por intuición",
+       "La dirección de marca propia reconoce que casi todo el desarrollo se ha decidido por olfato y que no hay estudio de mercado por producto.",
+       "Alta",
+       "Alto",
+       "Evaluación con precio y volumen objetivo del área comercial antes de decidir."
+      ],
+      [
+       "Decisiones sin registro",
+       "Las conversaciones del comité no dejan registro; una idea descartada puede volver sin memoria de por qué se descartó.",
+       "Alta",
+       "Medio",
+       "Base de oportunidades con decisión y motivo."
+      ],
+      [
+       "Roles confundidos entre marketing y producto",
+       "Llegó a describirse a marketing como quien detecta la necesidad de producto; la Presidencia lo corrigió.",
+       "Media",
+       "Medio",
+       "Roles escritos: comercial detecta, marketing aporta tendencias, marca propia decide con el comité."
+      ],
+      [
+       "Dependencia de las propuestas de las fábricas",
+       "Buena parte del portafolio sale de lo que las fábricas ofrecen o de copiar diseños existentes.",
+       "Media",
+       "Medio",
+       "Oportunidades con origen en el mercado y diseño propio en las categorías prioritarias."
+      ],
+      [
+       "Lanzamientos que compiten entre sí",
+       "Sin grilla anual, dos lanzamientos pueden coincidir y uno opacar al otro.",
+       "Media",
+       "Medio",
+       "Ubicar cada oportunidad aprobada en la grilla anual antes de desarrollarla."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Oportunidades con decisión registrada",
+       "Oportunidades con decisión y motivo ÷ oportunidades registradas",
+       "Trimestral",
+       "Comité de R&D (Cubitt)",
+       "100 %"
+      ],
+      [
+       "Tiempo de evaluación",
+       "Días entre el registro de la oportunidad y la decisión del comité",
+       "Trimestral",
+       "Director(a) de Marca Propia (Cubitt)",
+       "≤ 30 días"
+      ],
+      [
+       "Productos planificados frente a desarrollados",
+       "Productos lanzados ÷ productos aprobados para el año",
+       "Anual",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Oportunidades con evaluación de mercado",
+       "Oportunidades aprobadas con precio y volumen objetivo del área comercial ÷ oportunidades aprobadas",
+       "Trimestral",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "3.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Busca, evalúa y homologa las fábricas que desarrollan y producen cada categoría de la marca propia, formaliza la relación con acuerdo de confidencialidad y contrato, las incorpora a la cartera con su control de producción, tránsito y pagos, y evalúa cada año su desempeño.",
+     "nota_estado": "Proceso en transición: ya hay una persona en China que busca fábricas y lleva el control por proveedor, y el grupo empezó a firmar acuerdos de confidencialidad y contratos con fábricas. Lo que se incorpora es una evaluación técnica común antes de homologar y una evaluación anual del desempeño de cada fábrica."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "participantes": [
+      "Encargado(a) de Sourcing (China) — busca y preselecciona fábricas en origen, solicita cotizaciones y lleva el control de producción, tránsito y pagos por fábrica.",
+      "Especialista de Producto / Proyecto — evalúa técnicamente las muestras y la capacidad de la fábrica con su lista de verificación.",
+      "Asesor(a) Jurídico(a) Externo(a) del Grupo — formaliza el acuerdo de confidencialidad y el contrato con la fábrica."
+     ],
+     "evidencia": [
+      "E-60",
+      "E-06",
+      "E-64",
+      "E-01",
+      "E-12"
+     ],
+     "notas": "La Presidencia corrigió expresamente que marketing no detecta la necesidad de producto, no aprueba muestras ni confirma órdenes: esas decisiones son de la dirección de marca propia con el área comercial. Marketing acompaña con tendencias y con el empaque y la campaña."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-06",
+      "E-12",
+      "E-60",
+      "E-64"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Define la necesidad de una fábrica nueva: una categoría que ninguna fábrica actual cubre, una capacidad técnica que falta o una fábrica con desempeño insuficiente en calidad o en tiempos."
+      },
+      {
+       "id": "a2",
+       "rol": "Encargado(a) de Sourcing (China)",
+       "texto": "Busca y preselecciona fábricas en origen por referencias, ferias y visitas, y les solicita cotización, pedido mínimo, tiempos, certificaciones y muestras de su capacidad."
+      },
+      {
+       "id": "a3",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Evalúa técnicamente las muestras y la capacidad de cada fábrica con la lista de verificación del producto, y reporta los hallazgos a la dirección de marca propia."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Decide si la fábrica se homologa, con la evaluación técnica, las condiciones comerciales y el riesgo de depender de ella para una categoría completa."
+      },
+      {
+       "id": "a5",
+       "rol": "Encargado(a) de Sourcing (China)",
+       "texto": "Registra el descarte con su motivo cuando la fábrica no se homologa, para que la búsqueda siguiente no repita la evaluación."
+      },
+      {
+       "id": "a6",
+       "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "texto": "Formaliza con la fábrica homologada el acuerdo de confidencialidad y el contrato: propiedad de diseños y moldes, calidad esperada, plazos y tratamiento de la producción defectuosa."
+      },
+      {
+       "id": "a7",
+       "rol": "Encargado(a) de Sourcing (China)",
+       "texto": "Incorpora la fábrica a la cartera con su carpeta de control compartida: órdenes, producción, tránsito, llegada estimada, destino y pagos."
+      },
+      {
+       "id": "a8",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Evalúa cada año el desempeño de las fábricas de la cartera —calidad medida por garantías, cumplimiento de tiempos, respuesta a fallas— y decide mantener, desarrollar o sustituir cada una."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director(a) de Marca Propia (Cubitt)",
+       "Encargado(a) de Sourcing (China)",
+       "Especialista de Producto / Proyecto",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "inicio",
+        "n": "Categoría nueva o desempeño insuficiente"
+       },
+       {
+        "id": "t1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Definir la necesidad de fábrica"
+       },
+       {
+        "id": "t2",
+        "carril": "Encargado(a) de Sourcing (China)",
+        "tipo": "tarea",
+        "n": "Buscar y preseleccionar fábricas",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t3",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Evaluar muestras y capacidad técnica"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "decision",
+        "n": "¿Se homologa la fábrica?"
+       },
+       {
+        "id": "t4",
+        "carril": "Encargado(a) de Sourcing (China)",
+        "tipo": "tarea",
+        "n": "Registrar el descarte con su motivo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t5",
+        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+        "tipo": "tarea",
+        "n": "Formalizar confidencialidad y contrato"
+       },
+       {
+        "id": "t6",
+        "carril": "Encargado(a) de Sourcing (China)",
+        "tipo": "tarea",
+        "n": "Incorporar la fábrica con su control",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Evaluar el desempeño anual de la cartera"
+       },
+       {
+        "id": "f1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "fin",
+        "n": "Fábrica homologada y evaluada"
+       },
+       {
+        "id": "f2",
+        "carril": "Encargado(a) de Sourcing (China)",
+        "tipo": "fin",
+        "n": "Fábrica descartada con motivo"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "f2"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-06",
+      "E-12",
+      "E-60",
+      "E-64"
+     ],
+     "filas": [
+      [
+       "Información sensible con terceros sin confidencialidad",
+       "Los equipos comparten con fábricas y proveedores información de producto, costos y diseños; hasta hace poco sin acuerdos de confidencialidad.",
+       "Alta",
+       "Alto",
+       "Acuerdo de confidencialidad firmado antes de compartir información con cualquier fábrica."
+      ],
+      [
+       "Relación con fábricas en una sola persona",
+       "La comunicación y las decisiones con las fábricas las concentra la dirección de marca propia, sin equipo de apoyo que dé seguimiento.",
+       "Alta",
+       "Alto",
+       "Carpeta de control por fábrica y evaluación documentada que otros puedan seguir."
+      ],
+      [
+       "Homologación sin evaluación técnica",
+       "Sin una evaluación común, la calidad de una fábrica se descubre en el mercado, por las garantías.",
+       "Media",
+       "Alto",
+       "Evaluación técnica con lista de verificación antes de homologar."
+      ],
+      [
+       "Sourcing mezclado con logística",
+       "La persona en origen terminó llevando además envíos, consolidación y pagos, y la búsqueda de fábricas nuevas queda relegada.",
+       "Media",
+       "Medio",
+       "Separar en el plan de trabajo la búsqueda de fábricas del seguimiento logístico."
+      ],
+      [
+       "Propiedad de moldes y diseños indefinida",
+       "Los moldes son caros y algunas fábricas los conservan; sin contrato, la propiedad y el uso quedan abiertos.",
+       "Media",
+       "Medio",
+       "Cláusula de propiedad de moldes y diseños en el contrato."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Fábricas con contrato y confidencialidad",
+       "Fábricas activas con contrato y acuerdo de confidencialidad ÷ fábricas activas",
+       "Semestral",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "100 %"
+      ],
+      [
+       "Cumplimiento de tiempos",
+       "Órdenes entregadas en la fecha comprometida ÷ órdenes entregadas, por fábrica",
+       "Trimestral",
+       "Encargado(a) de Sourcing (China)",
+       "≥ 85 %"
+      ],
+      [
+       "Calidad por fábrica",
+       "Unidades en garantía ÷ unidades vendidas, por fábrica",
+       "Trimestral",
+       "Director(a) de Marca Propia (Cubitt)",
+       "≤ 1 % en relojería"
+      ],
+      [
+       "Evaluación anual realizada",
+       "Fábricas evaluadas en el año ÷ fábricas activas",
+       "Anual",
+       "Director(a) de Marca Propia (Cubitt)",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "3.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Convierte el brief aprobado en un producto especificado: diseño propio o adaptación de la propuesta de la fábrica, especificaciones técnicas y de materiales, colores y variantes con criterio de tendencia, empaque e información de producto, decisión sobre moldes, creación del código del producto y envío del paquete a la fábrica con el calendario de la muestra.",
+     "nota_estado": "Proceso en transición: la marca propia empezó a diseñar con una diseñadora industrial recién incorporada y define materiales y colores con las fábricas; hasta ahora dependía de los diseños de las fábricas. Lo que se incorpora es un paquete de diseño cerrado, una decisión explícita sobre moldes con presupuesto y un calendario de muestra con cuenta regresiva."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "participantes": [
+      "Diseñador(a) / Analista de Contenido — en su función de diseño industrial: diseña el producto o adapta la propuesta de la fábrica, con colores y variantes.",
+      "Especialista de Producto / Proyecto — define las especificaciones técnicas y funcionales y crea los códigos del producto.",
+      "Gerente Regional de Marketing — recibe la información del producto y diseña el empaque y los argumentos de venta."
+     ],
+     "evidencia": [
+      "E-60",
+      "E-06",
+      "E-22",
+      "E-64",
+      "SC-10"
+     ],
+     "notas": "La diseñadora industrial figura hoy bajo marketing; la propia dirección de marketing considera que el desarrollo de producto no debería pertenecerle. El manual la ubica en el proceso de marca propia sin decidir su dependencia jerárquica."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-06",
+      "E-22",
+      "E-60",
+      "E-64",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Asigna el brief aprobado al equipo de diseño y de producto, con el precio objetivo, la fecha de la grilla de lanzamientos y el presupuesto de muestras y moldes disponible."
+      },
+      {
+       "id": "a2",
+       "rol": "Diseñador(a) / Analista de Contenido",
+       "texto": "Diseña el producto desde cero o adapta la propuesta de la fábrica, y define colores, estampados y variantes con base en las tendencias de temporada y en lo que ya se vende de la familia."
+      },
+      {
+       "id": "a3",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Define las especificaciones técnicas y funcionales —materiales, batería, sensores, conectividad y compatibilidad con la aplicación— y las valida con la fábrica que producirá la muestra."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Regional de Marketing",
+       "texto": "Recibe del equipo de producto la información detallada y diseña el empaque, el manual y los argumentos de venta, con el plazo que exige la producción del empaque."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Decide si el producto requiere molde propio; cuando lo requiere, aprueba la inversión con su presupuesto y la cláusula de propiedad del molde, en lugar de decidirlo sin cuantificar."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Crea los códigos del producto y sus variantes —referencia interna y código de barras— y la ficha maestra que usarán compras, logística y los canales."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Cierra el paquete de diseño y lo envía a la fábrica con el calendario de la muestra en cuenta regresiva, de modo que la orden pueda colocarse al menos tres meses antes del lanzamiento."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director(a) de Marca Propia (Cubitt)",
+       "Diseñador(a) / Analista de Contenido",
+       "Especialista de Producto / Proyecto",
+       "Gerente Regional de Marketing"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "inicio",
+        "n": "Oportunidad aprobada con brief"
+       },
+       {
+        "id": "t1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Asignar el brief al equipo"
+       },
+       {
+        "id": "t2",
+        "carril": "Diseñador(a) / Analista de Contenido",
+        "tipo": "tarea",
+        "n": "Diseñar o adaptar el producto y sus variantes"
+       },
+       {
+        "id": "t3",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Definir especificaciones técnicas"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente Regional de Marketing",
+        "tipo": "tarea",
+        "n": "Diseñar empaque y argumentos de venta"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "decision",
+        "n": "¿Requiere molde propio?"
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Aprobar la inversión del molde"
+       },
+       {
+        "id": "t6",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Crear códigos y ficha maestra",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Enviar el paquete con calendario de muestra",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "fin",
+        "n": "Paquete de diseño enviado a fábrica"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-06",
+      "E-22",
+      "E-60",
+      "E-64",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Diseño dependiente de la fábrica",
+       "Hasta ahora el grupo no diseñaba: tomaba los diseños de las fábricas o les pedía copiar un producto de la competencia.",
+       "Alta",
+       "Alto",
+       "Diseño propio en las categorías prioritarias, empezando por accesorios y colecciones."
+      ],
+      [
+       "Moldes sin presupuesto",
+       "No hay presupuesto de desarrollo; la única inversión son muestras y moldes, y los moldes caros se deciden sin cuantificar.",
+       "Media",
+       "Alto",
+       "Decisión explícita de molde con presupuesto y propiedad definida."
+      ],
+      [
+       "Empaque tardío",
+       "Marketing recibe la información del producto cuando el desarrollo ya avanzó y el empaque se vuelve la ruta crítica del lanzamiento.",
+       "Media",
+       "Medio",
+       "Información del producto a marketing en cuanto se cierran las especificaciones."
+      ],
+      [
+       "Colores por intuición",
+       "La elección de colores se hacía por lo que parecía estar de moda, y algunas variantes no rotan.",
+       "Media",
+       "Medio",
+       "Tendencias de temporada y venta histórica de la familia como criterio."
+      ],
+      [
+       "Códigos creados sin control",
+       "Los códigos de producto los crea una persona sin un circuito de validación, y un error se arrastra a compras y a los canales.",
+       "Baja",
+       "Medio",
+       "Ficha maestra validada antes de usarse en órdenes."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Paquetes cerrados a tiempo",
+       "Paquetes enviados a fábrica en la fecha de la cuenta regresiva ÷ paquetes del período",
+       "Trimestral",
+       "Director(a) de Marca Propia (Cubitt)",
+       "≥ 90 %"
+      ],
+      [
+       "Productos con diseño propio",
+       "Productos lanzados con diseño propio ÷ productos lanzados",
+       "Anual",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Moldes con decisión documentada",
+       "Moldes con presupuesto y propiedad definidos ÷ moldes encargados",
+       "Semestral",
+       "Director(a) de Marca Propia (Cubitt)",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "3.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre el ciclo de la muestra física: su solicitud y registro con fecha estimada, la prueba técnica con la lista de verificación y un equipo de pruebas, la opinión del área comercial, la aprobación o la corrección con la fábrica hasta dejar la especificación congelada, y la disposición de las muestras que no se usan.",
+     "nota_estado": "Proceso en transición: las muestras ya llegan a Panamá, las prueba el especialista de producto con su lista de verificación y la dirección de marca propia decide. Desde agosto de 2026 hay una base en Lark para registrarlas. Lo que se incorpora es el plazo de prueba, la retroalimentación comercial ordenada y una política para las muestras sobrantes."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "participantes": [
+      "Especialista de Producto / Proyecto — solicita y registra las muestras, coordina el equipo de pruebas y aplica la lista de verificación.",
+      "Gerente Regional Comercial / Retail — reúne la opinión del equipo comercial sobre la muestra.",
+      "Fábrica (actor externo) — produce las muestras y aplica las correcciones pedidas."
+     ],
+     "evidencia": [
+      "E-60",
+      "E-64",
+      "SC-10",
+      "E-25"
+     ],
+     "notas": "La Presidencia corrigió que la aprobación de muestras y la confirmación de la orden no corresponden a marketing sino a la dirección de marca propia, que conserva las muestras y decide qué va y qué no."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-25",
+      "E-60",
+      "E-64",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Solicita la muestra a la fábrica y la registra en la base de muestras con lo pedido, el ajuste solicitado, la fecha estimada de llegada y un recordatorio, para que ninguna muestra se pierda ni se olvide."
+      },
+      {
+       "id": "a2",
+       "rol": "Fábrica (actor externo)",
+       "texto": "Produce y envía la muestra con la especificación acordada, o con la corrección pedida en la iteración anterior, dentro del plazo del calendario de la muestra."
+      },
+      {
+       "id": "a3",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Prueba la muestra con un equipo de cinco a diez personas y la lista de verificación del producto —funciones, conectividad, sensores, batería, aplicación, resistencia— y entrega el informe con evidencia en un máximo de diez días."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Reúne en un solo documento la opinión del equipo comercial sobre diseño, colores y precio percibido, en lugar de opiniones sueltas de cada persona que ve la muestra."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Decide con el informe técnico y la opinión comercial si la muestra es conforme; si lo es, la aprueba y congela la especificación para producción."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Cuando la muestra no es conforme, solicita a la fábrica la corrección con los hallazgos documentados y la registra como nueva iteración en la base de muestras."
+      },
+      {
+       "id": "a7",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Dispone las muestras que ya no se usan según la política de muestras —donación rotulada, reciclaje o uso interno— y retira de circulación las que llevan marcas licenciadas no aprobadas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Especialista de Producto / Proyecto",
+       "Fábrica (actor externo)",
+       "Gerente Regional Comercial / Retail",
+       "Director(a) de Marca Propia (Cubitt)"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "inicio",
+        "n": "Paquete de diseño enviado o corrección pedida"
+       },
+       {
+        "id": "t1",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Solicitar y registrar la muestra",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Fábrica (actor externo)",
+        "tipo": "tarea",
+        "n": "Producir y enviar la muestra"
+       },
+       {
+        "id": "t3",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Probar con la lista de verificación",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Reunir la opinión comercial"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "decision",
+        "n": "¿La muestra es conforme?"
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Aprobar y congelar la especificación"
+       },
+       {
+        "id": "t6",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Solicitar la corrección a la fábrica",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Disponer las muestras sobrantes"
+       },
+       {
+        "id": "f1",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "fin",
+        "n": "Especificación congelada para producción"
+       },
+       {
+        "id": "f2",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "fin",
+        "n": "Muestra en corrección"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t5",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       },
+       {
+        "de": "t6",
+        "a": "f2"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-25",
+      "E-60",
+      "E-64",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Muestras que se pierden",
+       "Llegan tantas muestras que se pierden o se olvidan; hasta agosto de 2026 no había registro.",
+       "Alta",
+       "Medio",
+       "Base de muestras con fecha estimada y recordatorio para cada una."
+      ],
+      [
+       "Pruebas sin plazo",
+       "Sin un plazo para la prueba, la aprobación se demora y consume el tiempo del lanzamiento.",
+       "Media",
+       "Alto",
+       "Informe de prueba en un máximo de diez días."
+      ],
+      [
+       "Opinión dispersa",
+       "Alrededor de diez personas opinan sobre cada muestra sin un formato común, y la decisión pesa opiniones sueltas.",
+       "Media",
+       "Medio",
+       "Opinión comercial consolidada en un solo documento."
+      ],
+      [
+       "Defectos detectados en el mercado",
+       "Un defecto que no se detecta en la muestra aparece en la producción; hubo lotes que terminaron donados por un error de impresión.",
+       "Media",
+       "Alto",
+       "Lista de verificación completa y especificación congelada antes de la orden."
+      ],
+      [
+       "Muestras sobrantes sin política",
+       "Se acumulan muestras sin destino, incluidas algunas con marcas licenciadas que no pueden circular.",
+       "Media",
+       "Medio",
+       "Política de disposición de muestras con destino definido."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Muestras registradas",
+       "Muestras con registro completo en la base ÷ muestras recibidas",
+       "Mensual",
+       "Especialista de Producto / Proyecto",
+       "100 %"
+      ],
+      [
+       "Plazo de prueba",
+       "Días entre la llegada de la muestra y el informe de prueba",
+       "Mensual",
+       "Especialista de Producto / Proyecto",
+       "≤ 10 días"
+      ],
+      [
+       "Iteraciones por producto",
+       "Número promedio de muestras hasta la aprobación",
+       "Trimestral",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Aprobación a tiempo",
+       "Productos con especificación congelada antes de la fecha de orden ÷ productos del período",
+       "Trimestral",
+       "Director(a) de Marca Propia (Cubitt)",
+       "≥ 90 %"
+      ]
+     ]
+    }
+   },
+   "3.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Gestiona la evolución del software de la marca —la aplicación y el firmware de los dispositivos—: el registro de fallas que llegan del campo, el backlog de funciones nuevas e integraciones, el desarrollo con los programadores de la fábrica, las pruebas antes de liberar cada versión y la evaluación periódica de la dependencia del código que hoy tiene el proveedor.",
+     "nota_estado": "Proceso en transición: ya existe una tabla compartida con la fábrica para reportar fallas de software, con corrección en unos siete días, y se desarrollan funciones nuevas con sus programadores. Lo que se incorpora es un backlog priorizado, pruebas formales antes de liberar y una decisión de la Junta sobre el desarrollo propio."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "participantes": [
+      "Gerente de Servicio Técnico — registra las fallas de software reportadas por los clientes y verifica la corrección con los afectados.",
+      "Especialista de Producto / Proyecto — prueba cada versión antes de liberarla y coordina con los desarrolladores de la fábrica.",
+      "Fábrica (actor externo) — desarrolla las versiones de la aplicación y del firmware.",
+      "Junta Directiva — decide la estrategia de desarrollo propio frente a la dependencia del proveedor."
+     ],
+     "evidencia": [
+      "E-06",
+      "E-64",
+      "E-20",
+      "E-01",
+      "E-05"
+     ],
+     "notas": "La aplicación y el firmware dependen hoy del proveedor: el grupo compra y vende hardware, y la data de los usuarios de la aplicación solo se ve en la vista genérica que ofrece la fábrica."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-06",
+      "E-20",
+      "E-51",
+      "E-64"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Servicio Técnico",
+       "texto": "Registra las fallas de software que reportan los clientes en la tabla compartida con la fábrica —dispositivo, versión, síntoma y archivos del equipo— y distingue las de software de las de hardware, que van a reemplazo."
+      },
+      {
+       "id": "a2",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Consolida y prioriza el backlog de la versión siguiente: fallas abiertas, funciones pedidas por el mercado e integraciones con aplicaciones deportivas, según su efecto en garantías y en la experiencia del usuario."
+      },
+      {
+       "id": "a3",
+       "rol": "Fábrica (actor externo)",
+       "texto": "Desarrolla la versión de la aplicación o del firmware con las fallas y funciones priorizadas, y la entrega para prueba con la lista de cambios."
+      },
+      {
+       "id": "a4",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Prueba la versión con la lista de verificación y en dispositivos reales antes de liberarla, incluida la compatibilidad con los sistemas operativos y las aplicaciones de terceros que se integran."
+      },
+      {
+       "id": "a5",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Cuando la versión no pasa las pruebas, devuelve los hallazgos documentados a los desarrolladores de la fábrica y la versión no se libera hasta corregirlos."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Libera la versión aprobada y comunica a servicio técnico y a atención al cliente qué corrige y qué funciones incorpora, para que puedan responder a los usuarios."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Servicio Técnico",
+       "texto": "Verifica con los clientes afectados que la falla quedó corregida y cierra el registro en la tabla compartida con la fábrica."
+      },
+      {
+       "id": "a8",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Evalúa cada semestre la dependencia del proveedor —código, acceso a los datos de usuarios, costo y tiempos— y presenta a la Junta las alternativas de desarrollo propio con su costo."
+      },
+      {
+       "id": "a9",
+       "rol": "Junta Directiva",
+       "texto": "Decide la estrategia de desarrollo del software de la marca —continuar con el proveedor, desarrollo interno gradual o mixto— y su presupuesto."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Servicio Técnico",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Fábrica (actor externo)",
+       "Especialista de Producto / Proyecto",
+       "Junta Directiva"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Servicio Técnico",
+        "tipo": "inicio",
+        "n": "Falla reportada o función pedida"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Servicio Técnico",
+        "tipo": "tarea",
+        "n": "Registrar la falla en la tabla compartida",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Priorizar el backlog de la versión"
+       },
+       {
+        "id": "t3",
+        "carril": "Fábrica (actor externo)",
+        "tipo": "tarea",
+        "n": "Desarrollar la versión"
+       },
+       {
+        "id": "t4",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Probar la versión en dispositivos reales"
+       },
+       {
+        "id": "d1",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "decision",
+        "n": "¿La versión pasa las pruebas?"
+       },
+       {
+        "id": "t5",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Devolver los hallazgos a la fábrica",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Liberar y comunicar la versión"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Servicio Técnico",
+        "tipo": "tarea",
+        "n": "Verificar la corrección con los clientes",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t8",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Evaluar la dependencia del proveedor"
+       },
+       {
+        "id": "t9",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Decidir la estrategia de software"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Versión liberada y estrategia vigente"
+       },
+       {
+        "id": "f2",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "fin",
+        "n": "Versión devuelta para corrección"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t5",
+        "a": "f2"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-05",
+      "E-06",
+      "E-20",
+      "E-51",
+      "E-64"
+     ],
+     "filas": [
+      [
+       "Dependencia total del proveedor de software",
+       "La aplicación y el firmware los controla la fábrica; el grupo no tiene el código ni acceso directo a los datos de sus usuarios.",
+       "Alta",
+       "Alto",
+       "Evaluación semestral de la dependencia y decisión de la Junta sobre el desarrollo propio."
+      ],
+      [
+       "Versiones liberadas sin prueba",
+       "Sin pruebas formales, una versión puede corregir una falla y abrir otra en el campo.",
+       "Media",
+       "Alto",
+       "Ninguna versión se libera sin pasar la lista de verificación."
+      ],
+      [
+       "Límite de la herramienta de registro",
+       "La tabla compartida tiene un tope de registros por tabla que obliga a partirla.",
+       "Media",
+       "Bajo",
+       "Archivar por período y mantener el tablero de fallas sobre el total."
+      ],
+      [
+       "Aplicaciones separadas por proveedor",
+       "Cada proveedor tiene su propia aplicación —básculas, relojes de adulto, relojes de niño— y el usuario no ve un solo ecosistema.",
+       "Media",
+       "Medio",
+       "Considerar la integración en la evaluación de la estrategia de software."
+      ],
+      [
+       "Decisiones de alto impacto sin equipo",
+       "Decisiones muy importantes sobre el futuro del software se toman sin equipo de apoyo ni seguimiento.",
+       "Media",
+       "Alto",
+       "Incorporar el perfil técnico de producto previsto y documentar las decisiones."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Tiempo de corrección",
+       "Días entre el registro de una falla de software y la liberación de su corrección",
+       "Mensual",
+       "Director(a) de Marca Propia (Cubitt)",
+       "≤ 7 días para fallas críticas"
+      ],
+      [
+       "Versiones liberadas con prueba",
+       "Versiones liberadas con informe de prueba ÷ versiones liberadas",
+       "Por versión",
+       "Especialista de Producto / Proyecto",
+       "100 %"
+      ],
+      [
+       "Fallas reabiertas",
+       "Fallas reabiertas tras la liberación ÷ fallas cerradas",
+       "Trimestral",
+       "Gerente de Servicio Técnico",
+       "≤ 5 %"
+      ],
+      [
+       "Calificación de la aplicación",
+       "Promedio de calificación en las tiendas de aplicaciones",
+       "Mensual",
+       "Director(a) de Marca Propia (Cubitt)",
+       "≥ 4 estrellas"
+      ]
+     ]
+    }
+   },
+   "3.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Gestiona las colecciones bajo licencia de marcas de terceros: la selección de personajes y modelos según el desempeño de las colecciones anteriores, la aprobación interna, el arte conforme a la guía del licenciante, la aprobación del licenciante, el control de las condiciones de uso durante la producción y la vigencia del contrato.",
+     "nota_estado": "Proceso en transición: el grupo lleva dos años de colecciones bajo licencia y desde agosto de 2026 la gestiona la coordinación de producto, con retroalimentación comercial de qué funcionó. Lo que se incorpora es la aprobación interna del volumen, el control de vigencia del contrato y el tratamiento de lo que el licenciante no aprueba."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Especialista de Producto / Proyecto",
+     "participantes": [
+      "Gerente Regional Comercial / Retail — analiza el desempeño de las colecciones anteriores por modelo y personaje.",
+      "Director(a) de Marca Propia (Cubitt) — aprueba la colección y su volumen.",
+      "Diseñador(a) / Analista de Contenido — prepara el arte según la guía del licenciante.",
+      "Licenciante (actor externo) — aprueba el arte y las muestras.",
+      "Asesor(a) Jurídico(a) Externo(a) del Grupo — controla la vigencia y las condiciones del contrato de licencia."
+     ],
+     "evidencia": [
+      "E-60",
+      "E-22"
+     ],
+     "notas": "La gestión de licencias la llevó antes el área de cuentas clave de marketing y pasó a producto; la dirección de marketing considera que no le corresponde."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-22",
+      "E-60"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Analiza el desempeño de las colecciones licenciadas anteriores —qué modelo y qué personaje vendió, cuáles merecen reedición— y lo entrega como insumo de la colección siguiente."
+      },
+      {
+       "id": "a2",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Propone la colección: personajes, modelos, variantes y cantidades, con el calendario que exige la aprobación del licenciante y la producción."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Marca Propia (Cubitt)",
+       "texto": "Aprueba la colección y su volumen, verificando que encaje en la grilla anual de lanzamientos y en el presupuesto del período."
+      },
+      {
+       "id": "a4",
+       "rol": "Diseñador(a) / Analista de Contenido",
+       "texto": "Prepara el arte de cada pieza conforme a la guía del licenciante, cuidando el uso correcto de los logos y personajes."
+      },
+      {
+       "id": "a5",
+       "rol": "Licenciante (actor externo)",
+       "texto": "Revisa el arte y las muestras conforme a su guía de uso de marca, y aprueba por escrito o pide cambios dentro de sus plazos de revisión."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Cuando el licenciante no aprueba, corrige el arte y lo vuelve a someter; ninguna pieza con marca licenciada se produce ni circula sin aprobación escrita."
+      },
+      {
+       "id": "a7",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Libera a producción la colección aprobada, controla que la fábrica respete las condiciones de uso y registra las aprobaciones en el expediente de la licencia."
+      },
+      {
+       "id": "a8",
+       "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "texto": "Controla la vigencia del contrato de licencia, sus condiciones y su renovación, y avisa con anticipación a la coordinación de producto antes de su vencimiento."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Especialista de Producto / Proyecto",
+       "Director(a) de Marca Propia (Cubitt)",
+       "Diseñador(a) / Analista de Contenido",
+       "Licenciante (actor externo)",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "inicio",
+        "n": "Nueva colección o renovación de la licencia"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Analizar el desempeño de colecciones previas",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Proponer la colección"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) de Marca Propia (Cubitt)",
+        "tipo": "tarea",
+        "n": "Aprobar la colección y su volumen"
+       },
+       {
+        "id": "t4",
+        "carril": "Diseñador(a) / Analista de Contenido",
+        "tipo": "tarea",
+        "n": "Preparar el arte según la guía"
+       },
+       {
+        "id": "t5",
+        "carril": "Licenciante (actor externo)",
+        "tipo": "tarea",
+        "n": "Revisar el arte y las muestras"
+       },
+       {
+        "id": "d1",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "decision",
+        "n": "¿Aprobado por el licenciante?"
+       },
+       {
+        "id": "t6",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Corregir y volver a someter"
+       },
+       {
+        "id": "t7",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Liberar a producción y registrar",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t8",
+        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+        "tipo": "tarea",
+        "n": "Controlar vigencia y renovación"
+       },
+       {
+        "id": "f1",
+        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+        "tipo": "fin",
+        "n": "Colección producida con licencia vigente"
+       },
+       {
+        "id": "f2",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "fin",
+        "n": "Arte en corrección"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "f2"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-22",
+      "E-60"
+     ],
+     "filas": [
+      [
+       "Producto licenciado sin aprobación",
+       "Piezas con marcas licenciadas que no obtuvieron aprobación pueden circular si no hay control, con riesgo contractual.",
+       "Media",
+       "Alto",
+       "Ninguna pieza se produce sin aprobación escrita; las no aprobadas se retiran."
+      ],
+      [
+       "Traspaso reciente de la función",
+       "La gestión cambió de manos en agosto de 2026 y parte del conocimiento de las colecciones anteriores quedó con quien la llevaba.",
+       "Media",
+       "Medio",
+       "Expediente de la licencia con aprobaciones y contratos."
+      ],
+      [
+       "Colecciones decididas sin datos",
+       "Sin el análisis de las colecciones previas, se repiten personajes o modelos que no vendieron.",
+       "Media",
+       "Medio",
+       "Análisis comercial como insumo obligatorio de cada colección."
+      ],
+      [
+       "Vencimiento de la licencia sin aviso",
+       "Si el contrato vence sin renovarse, la producción en curso queda sin respaldo.",
+       "Baja",
+       "Alto",
+       "Control de vigencia con aviso anticipado."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Piezas con aprobación del licenciante",
+       "Piezas producidas con aprobación escrita ÷ piezas producidas",
+       "Por colección",
+       "Especialista de Producto / Proyecto",
+       "100 %"
+      ],
+      [
+       "Venta de la colección frente al plan",
+       "Unidades vendidas ÷ unidades planificadas, por colección",
+       "Trimestral",
+       "Gerente Regional Comercial / Retail",
+       "≥ 90 %"
+      ],
+      [
+       "Tiempo de aprobación",
+       "Días entre el envío del arte y la aprobación del licenciante",
+       "Por colección",
+       "Especialista de Producto / Proyecto",
+       "Referencia de seguimiento"
+      ]
+     ]
+    }
+   }
+  }
+ },
+
+ "4": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual describe cómo Grupo Kenex gobierna su portafolio de proyectos: cómo entra y se prioriza una solicitud, cómo se planifica, ejecuta y cierra un proyecto, cómo se acompañan las iniciativas entre dos áreas, cómo se lanzan los productos, cómo se informa a la Junta, cómo se cuida la capacidad de la oficina y cómo se controla el presupuesto de cada proyecto.",
+    "alcance": "Todos los proyectos, iniciativas y tareas que pasan por la oficina de proyectos en los países donde opera el grupo, incluidos los lanzamientos de producto y las aperturas de tiendas. No incluye la operación que un proyecto deja instalada, que documenta el macroproceso de cada área.",
+    "audiencia": [
+     "Director(a) de Proyectos (PMO)",
+     "Gerente de Proyectos (PMO)",
+     "Gerentes de primera línea",
+     "Junta Directiva",
+     "Presidente de Junta Directiva",
+     "Gerente de Contabilidad / Administración",
+     "Especialista de Producto / Proyecto"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Gobierno de Portafolio es el macroproceso estratégico que convierte las decisiones de la Junta y las necesidades de las áreas en proyectos con dueño, plan, presupuesto y fecha. Nació a inicios de 2026, cuando el hoy director de proyectos —que había entrado como gerente de producto— propuso a la Presidencia una oficina de proyectos porque los lanzamientos nunca salían en fecha y un país se enteraba cuando otro ya había lanzado.\n\nEn pocos meses la oficina instaló un formulario de solicitud, una clasificación en proyecto, iniciativa y tarea, una regla de prioridad por impacto, una base del portafolio en Lark con reporte automático a la Junta y una metodología con cronograma, matriz de responsables, riesgos y lecciones aprendidas. También vivió la saturación: 52 proyectos inscritos para tres gerentes de proyecto. Las áreas reconocen que desde su llegada la comunicación entre departamentos fluye mejor.\n\nEste manual describe cómo deben operar sus procesos. Lo que falta no es metodología sino cierre de circuitos: que la Junta pida por el mismo canal y apruebe en una sesión mensual, que cada proyecto tenga presupuesto y su desviación se siga, y que la carga de la oficina se mida antes de aceptar más. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "duenos": [
+     [
+      "Macroproceso",
+      "Director(a) de Proyectos (PMO)",
+      "Evalúa, categoriza y prioriza las solicitudes, aprueba los planes, gobierna la capacidad y responde por el portafolio ante la Junta."
+     ],
+     [
+      "Procesos",
+      "Gerente de Proyectos (PMO)",
+      "Planifican y ejecutan los proyectos, acompañan las iniciativas y conducen los lanzamientos; uno con base en Venezuela y otra para lanzamientos y productos en Panamá."
+     ],
+     [
+      "Grupo",
+      "Junta Directiva",
+      "Aprueba los proyectos que comprometen recursos y decide qué se pausa cuando la capacidad no alcanza."
+     ]
+    ],
+    "entidades": [
+     [
+      "Kenex Trading, S.A.",
+      "Panamá",
+      "Sede de la dirección de proyectos",
+      "Concentra cerca del 60 % de los proyectos."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Sede de una gerencia de proyectos",
+      "Cerca del 30 % de los proyectos, entre ellos aperturas de tiendas y el almacén."
+     ],
+     [
+      "Deltadir SAS",
+      "Colombia",
+      "Sin proyectos exclusivos",
+      "Participa en los proyectos regionales."
+     ],
+     [
+      "Importbel, S.A.",
+      "Costa Rica",
+      "Fuera del portafolio",
+      "La oficina no tiene visibilidad de sus proyectos por ser una sociedad aparte."
+     ]
+    ],
+    "sistemas": [
+     [
+      "Lark",
+      "Formulario de solicitud, base del portafolio con estado y prioridad, automatizaciones de notificación, reporte automático de los viernes y flujo de aprobación de pagos con código de proyecto.",
+      "4.1 · 4.2 · 4.5 · 4.7"
+     ],
+     [
+      "Odoo",
+      "Registro contable del gasto con su código de proyecto.",
+      "4.7"
+     ],
+     [
+      "WhatsApp",
+      "Canal por el que hoy llegan requerimientos de la Junta y por el que se envían resúmenes a algunos de sus miembros.",
+      "4.1 · 4.5"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Dirección y Gobierno Corporativo",
+      "Entrada / salida",
+      "Requerimientos de la Junta con su prioridad; la oficina devuelve el estado del portafolio y los escalamientos."
+     ],
+     [
+      "R&D y Desarrollo de Producto (Cubitt)",
+      "Entrada",
+      "Producto aprobado con fecha estimada de llegada, que dispara el lanzamiento."
+     ],
+     [
+      "Planeación Comercial",
+      "Coordinación",
+      "Grilla anual de lanzamientos y plan comercial de cada lanzamiento."
+     ],
+     [
+      "Administración y Finanzas",
+      "Coordinación",
+      "Código de proyecto, aprobación del presupuesto y reporte del consumo."
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Coordinación",
+      "Los casos de uso de inteligencia artificial que exigen coordinar áreas entran como proyectos."
+     ],
+     [
+      "Todos los macroprocesos",
+      "Entrada",
+      "Solicitudes de proyecto de los gerentes de primera línea."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Director(a) de Proyectos (PMO)",
+      "Grupo",
+      "Evalúa y prioriza solicitudes, aprueba planes, conduce el comité interno y gobierna la capacidad.",
+      "Categoría y prioridad de una solicitud; presupuestos dentro de su umbral.",
+      "A la Presidencia y a la Junta."
+     ],
+     [
+      "Gerente de Proyectos (PMO)",
+      "País o línea",
+      "Planifica y ejecuta proyectos, acompaña iniciativas y conduce lanzamientos.",
+      "Cronograma y acciones de su proyecto.",
+      "A la dirección de proyectos."
+     ],
+     [
+      "Gerentes de primera línea",
+      "Área",
+      "Levantan las solicitudes, validan su necesidad y ejecutan entregables e iniciativas.",
+      "Si una necesidad de su área se convierte en solicitud.",
+      "A la oficina de proyectos."
+     ],
+     [
+      "Gerente de Contabilidad / Administración",
+      "Grupo",
+      "Asigna el código de proyecto, valida el presupuesto y reporta el consumo.",
+      "Disponibilidad de fondos.",
+      "A la dirección de finanzas."
+     ],
+     [
+      "Junta Directiva",
+      "Grupo",
+      "Aprueba proyectos con recursos y decide pausas y capacidad.",
+      "Prioridad y recursos del portafolio.",
+      "—"
+     ]
+    ],
+    "comites": [
+     [
+      "Comité interno de la oficina de proyectos",
+      "Revisar avances, cuellos de botella, riesgos y presupuesto de todo el portafolio.",
+      "Semanal, los jueves",
+      "Director(a) de Proyectos (PMO) · Gerentes de Proyectos (PMO)",
+      "Acciones de la semana y escalamientos",
+      "Base del portafolio actualizada",
+      "Reporte automático del viernes a la Junta"
+     ],
+     [
+      "Sesión mensual de la Junta con la oficina de proyectos",
+      "Aprobar proyectos nuevos, decidir sobre los proyectos en rojo y revisar el portafolio.",
+      "Mensual como deber ser; hoy no existe",
+      "Junta Directiva · Director(a) de Proyectos (PMO)",
+      "Aprobación de proyectos, pausas y capacidad",
+      "Portafolio y solicitudes pendientes",
+      "Decisiones en el registro de acuerdos"
+     ],
+     [
+      "Reunión de la Presidencia con la dirección de proyectos",
+      "Alinear la visión y las necesidades de la oficina con la Presidencia.",
+      "Cada dos semanas",
+      "Presidente de Junta Directiva · Director(a) de Proyectos (PMO)",
+      "Escalamientos y prioridades",
+      "Situación del portafolio",
+      "Acuerdos de la Presidencia"
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "Toda iniciativa que cruza áreas tiene un dueño, un plan y una fecha; la oficina de proyectos existe para que cada departamento sepa cómo trabaja el otro.",
+     "La Junta baja decisiones, no ideas: prioridad, presupuesto, tiempo y resultado esperado.",
+     "Planificar antes de actuar, y aprender de lo que se cerró antes de abrir lo siguiente.",
+     "La oficina de proyectos es estratégica; lo operativo lo resuelven las áreas."
+    ],
+    "politicas": [
+     "Las solicitudes se hacen por el formulario de Lark y solo las levantan los gerentes de primera línea o la Junta, tras validar necesidad, presupuesto y tiempo.",
+     "Toda solicitud se categoriza como proyecto (más de dos departamentos, entregables y fechas), iniciativa (dos departamentos) o tarea (un departamento).",
+     "Prioridad alta es lo que genera venta o evita perderla; media, lo que mejora la experiencia del cliente o la eficiencia; baja, lo que prepara a la empresa para el futuro.",
+     "Los equipos están disponibles para la reunión semanal de seguimiento y cada responsable actualiza la base antes de la reunión.",
+     "Cada viernes a las 4 de la tarde se envía a la Junta el reporte automático del portafolio desde la base.",
+     "Todo gasto de proveedor se aprueba en el flujo de Lark indicando su proyecto, y cada compra relevante exige tres cotizaciones.",
+     "Los lanzamientos se clasifican en producto nuevo (salida simultánea en todos los países), mejora de producto y variante de color.",
+     "Cada proyecto cierra con una sesión de lecciones aprendidas que se aplica al siguiente."
+    ],
+    "normativo": [
+     "Metodología de dirección de proyectos de referencia (PMI): cronograma, entregables, responsables, riesgos e indicadores por proyecto.",
+     "Marco ágil (Scrum) para los proyectos de datos y de marketing que se entregan por iteraciones, con definición de terminado y revisión con el dueño del producto.",
+     "Requisitos de introducción de productos por país —serialización, normativas y licencias— que se incorporan al cronograma de cada lanzamiento."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "De los 7 procesos, 3 operan hoy como se describen (4.1, 4.2 y 4.3, con mejoras puntuales), 2 están en transición (4.4 y 4.5) y 2 son a implementar (4.6 y 4.7). La oficina tiene metodología; lo que falta es cerrar sus circuitos con la Junta y con finanzas. Las acciones no llevan fecha porque la Junta no las ha acordado.",
+    "por_implementar": [
+     [
+      "4.6 Demanda y capacidad del portafolio",
+      "La carga por gerente de proyecto no se mide y la recepción se cerró por decisión propia de la oficina.",
+      "Umbral de carga, medición mensual y decisión de la Junta sobre pausas y capacidad."
+     ],
+     [
+      "4.7 Presupuesto de proyecto",
+      "Existe el código de proyecto, pero nadie sigue la desviación entre lo presupuestado y lo gastado.",
+      "Reporte mensual de consumo y escalamiento cuando el desvío supera el 10 %."
+     ]
+    ],
+    "por_formalizar": [
+     [
+      "4.1 Recepción y evaluación de solicitudes",
+      "Los requerimientos de la Junta llegan por mensajería, sin prioridad ni resultado esperado.",
+      "Formulario también para la Junta y aprobación en su sesión mensual."
+     ],
+     [
+      "4.4 Lanzamientos de producto",
+      "No se verifica que todas las áreas estén listas y el cierre al tercer mes se hizo por primera vez en 2026.",
+      "Verificación de preparación y cierre en todos los lanzamientos."
+     ],
+     [
+      "4.5 Seguimiento y reportería a la Junta",
+      "El reporte del viernes se lee poco y no hay un espacio para proponer decisiones a la Junta.",
+      "Sesión mensual con la Junta y escalamiento de proyectos en rojo."
+     ]
+    ],
+    "brechas": [
+     [
+      "Transversal — roles de la oficina",
+      "El director de proyectos cumple también funciones de gerente de proyecto y de producto.",
+      "Separar los roles al sumar capacidad."
+     ],
+     [
+      "Transversal — visibilidad de socios",
+      "La oficina no tiene visibilidad de los proyectos de la sociedad de Costa Rica.",
+      "Decidir, con el modelo de relación de cada unidad, si sus proyectos entran al portafolio."
+     ],
+     [
+      "Transversal — procura",
+      "No hay una función de procura; cada proyecto cotiza por su cuenta.",
+      "Evaluar la propuesta de una función de procura ligada a la oficina."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "Proyecto",
+      "Solicitud que involucra más de dos departamentos, con entregables y fechas de inicio y fin, conducida por un gerente de proyecto."
+     ],
+     [
+      "Iniciativa",
+      "Solicitud que involucra a dos departamentos; la oficina entrega un plan inicial y la ejecución queda en los gerentes."
+     ],
+     [
+      "Tarea",
+      "Solicitud de un solo departamento que el área resuelve con el visto bueno de la oficina."
+     ],
+     [
+      "Línea base",
+      "Fechas y costo aprobados del proyecto contra los que se miden las desviaciones."
+     ],
+     [
+      "Código de proyecto",
+      "Identificador enlazado con finanzas al que se atribuye cada gasto del proyecto."
+     ],
+     [
+      "Lecciones aprendidas",
+      "Sesión de cierre donde cada participante aporta qué repetir y qué evitar en el siguiente proyecto."
+     ]
+    ],
+    "raci": [
+     [
+      "4.1 Recepción, categorización y evaluación",
+      "Director(a) de Proyectos (PMO)",
+      "Director(a) de Proyectos (PMO)",
+      "Gerentes de primera línea",
+      "Junta Directiva"
+     ],
+     [
+      "4.2 Planificación, ejecución y cierre",
+      "Gerente de Proyectos (PMO)",
+      "Director(a) de Proyectos (PMO)",
+      "Gerente de Contabilidad / Administración · Gerentes de las áreas involucradas",
+      "Junta Directiva"
+     ],
+     [
+      "4.3 Acompañamiento a iniciativas",
+      "Gerente de Proyectos (PMO)",
+      "Director(a) de Proyectos (PMO)",
+      "Gerentes de las áreas involucradas",
+      "—"
+     ],
+     [
+      "4.4 Lanzamientos de producto",
+      "Gerente de Proyectos (PMO)",
+      "Director(a) de Proyectos (PMO)",
+      "Especialista de Producto / Proyecto · marketing · comercial · servicio técnico",
+      "Junta Directiva"
+     ],
+     [
+      "4.5 Seguimiento y reportería a la Junta",
+      "Director(a) de Proyectos (PMO)",
+      "Director(a) de Proyectos (PMO)",
+      "Gerente de Proyectos (PMO)",
+      "Junta Directiva · Presidente de Junta Directiva"
+     ],
+     [
+      "4.6 Demanda y capacidad",
+      "Director(a) de Proyectos (PMO)",
+      "Junta Directiva",
+      "Gerente de Recursos Humanos",
+      "Gerente de Proyectos (PMO)"
+     ],
+     [
+      "4.7 Presupuesto de proyecto",
+      "Gerente de Proyectos (PMO)",
+      "Director(a) de Proyectos (PMO)",
+      "Gerente de Contabilidad / Administración · Gerente de Tesorería",
+      "Junta Directiva"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "Lark",
+      "Formulario, base del portafolio, reporte automático y aprobación de pagos",
+      "4.1 · 4.2 · 4.5 · 4.7",
+      "Director(a) de Proyectos (PMO)"
+     ],
+     [
+      "Odoo",
+      "Gasto contable por código de proyecto",
+      "4.7",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "WhatsApp",
+      "Requerimientos y resúmenes a la Junta (a reemplazar por el formulario)",
+      "4.1 · 4.5",
+      "Sin responsable formal"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Dirección y Gobierno Corporativo",
+      "Requerimientos",
+      "Requerimientos de la Junta, sesión mensual y escalamientos"
+     ],
+     [
+      "R&D y Desarrollo de Producto (Cubitt)",
+      "Lanzamientos",
+      "Producto aprobado con fecha de llegada"
+     ],
+     [
+      "Administración y Finanzas",
+      "Presupuesto",
+      "Código de proyecto, aprobación y consumo"
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Casos de uso",
+      "Casos de uso transversales que entran como proyectos"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Formulario de solicitud de proyecto – PMO",
+      "Panamá",
+      "Solicitante, objetivo, alcance y entregables, fechas, recursos, riesgos, prioridad con justificación y firma del gerente",
+      "4.1"
+     ],
+     [
+      "PMO flujo de trabajo (Híbrido)",
+      "Panamá",
+      "Solicitante → dirección de proyectos → gerente de proyecto → finanzas: evaluación, plan, presupuesto, ejecución y cierre con lecciones aprendidas",
+      "4.1 · 4.2 · 4.7"
+     ],
+     [
+      "PMO flujo de trabajo SCRUM",
+      "Panamá",
+      "Variante por sprints para proyectos de software y de datos",
+      "4.2"
+     ],
+     [
+      "Roadmap para proyectos BI",
+      "Panamá",
+      "Roles, backlog, definición de terminado e indicadores de la oficina para proyectos de datos",
+      "4.2 · 4.5"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Panamá",
+      "Sede de la dirección de proyectos y de la gerencia de lanzamientos y productos.",
+      "Concentra la mayoría de los proyectos."
+     ],
+     [
+      "Venezuela",
+      "Una gerencia de proyectos lleva las aperturas de tiendas, el almacén y la optimización de la web del país.",
+      "Cerca del 30 % del portafolio."
+     ],
+     [
+      "Colombia",
+      "Sin proyectos exclusivos; participa en los regionales.",
+      "—"
+     ],
+     [
+      "Costa Rica",
+      "Sin visibilidad de sus proyectos.",
+      "Depende del modelo de relación que decida la Junta."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+   "4.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Cubre la entrada de toda solicitud a la oficina de proyectos: el formulario que levanta un gerente de primera línea o el requerimiento de la Junta, la evaluación de viabilidad y de duplicidad, la categorización como proyecto, iniciativa o tarea, la prioridad según su impacto y la aprobación de la Junta para los proyectos que comprometen recursos.",
+     "nota_estado": "El circuito ya opera: formulario en Lark solo para gerentes de primera línea, evaluación en la oficina, tres categorías y una regla de prioridad comunicada a los gerentes. Lo que se incorpora es que los requerimientos de la Junta entren por el mismo canal, con prioridad y resultado esperado, y una sesión mensual para aprobarlos."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Proyectos (PMO)",
+     "participantes": [
+      "Gerentes de primera línea — validan con su equipo la necesidad, el presupuesto y el tiempo, y levantan el formulario.",
+      "Gerente de Proyectos (PMO) — reciben el proyecto asignado y lo arrancan.",
+      "Junta Directiva — aprueba en su sesión mensual con la oficina los proyectos que comprometen recursos y fija su prioridad."
+     ],
+     "evidencia": [
+      "E-09",
+      "E-04",
+      "E-25"
+     ],
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan. Hoy el director de proyectos cumple además funciones de gerente de proyecto y de producto."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-52",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerentes de primera línea",
+       "texto": "Validan con su equipo la necesidad, el presupuesto estimado y el tiempo, y levantan el formulario de solicitud de proyecto en Lark con objetivo, alcance, entregables, fechas, recursos, riesgos y prioridad propuesta."
+      },
+      {
+       "id": "a2",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Evalúa la solicitud: viabilidad, alineación con el plan del grupo y duplicidad con proyectos o iniciativas ya en curso en otras áreas o países, que hoy es frecuente en promociones y colaboraciones."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Devuelve al solicitante, con el criterio explicado, la solicitud que no es viable o que ya está cubierta por otro proyecto, y lo vincula al responsable de ese proyecto cuando corresponde."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Categoriza la solicitud viable —proyecto si involucra más de dos departamentos con entregables y fechas, iniciativa si involucra dos, tarea si es de un departamento— y le asigna prioridad alta, media o baja según su impacto."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerentes de primera línea",
+       "texto": "Ejecutan en su propia área las tareas, con el visto bueno de la oficina de proyectos y sin un gerente de proyecto asignado."
+      },
+      {
+       "id": "a6",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba en su sesión mensual con la oficina de proyectos los proyectos que comprometen recursos, confirma su prioridad y resultado esperado, y registra por el mismo formulario sus propios requerimientos."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Recibe el proyecto aprobado o la iniciativa asignada, lo registra en la base del portafolio y convoca el arranque con las áreas involucradas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerentes de primera línea",
+       "Director(a) de Proyectos (PMO)",
+       "Junta Directiva",
+       "Gerente de Proyectos (PMO)"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerentes de primera línea",
+        "tipo": "inicio",
+        "n": "Solicitud de un gerente o requerimiento de la Junta"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Validar y levantar el formulario",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Evaluar viabilidad y duplicidad",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Viable y sin duplicar?"
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Categorizar y asignar prioridad"
+       },
+       {
+        "id": "d2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Qué categoría tiene?"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Ejecutar la tarea en el área"
+       },
+       {
+        "id": "t6",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar prioridad y recursos"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Registrar y convocar el arranque",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t8",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Registrar y asignar la iniciativa",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Proyecto en marcha"
+       },
+       {
+        "id": "f4",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Iniciativa en acompañamiento"
+       },
+       {
+        "id": "f2",
+        "carril": "Gerentes de primera línea",
+        "tipo": "fin",
+        "n": "Solicitud devuelta con su criterio"
+       },
+       {
+        "id": "f3",
+        "carril": "Gerentes de primera línea",
+        "tipo": "fin",
+        "n": "Tarea resuelta en el área"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "f2",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t6",
+        "etq": "Proyecto"
+       },
+       {
+        "de": "d2",
+        "a": "t8",
+        "etq": "Iniciativa"
+       },
+       {
+        "de": "d2",
+        "a": "t5",
+        "etq": "Tarea"
+       },
+       {
+        "de": "t5",
+        "a": "f3"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "f1"
+       },
+       {
+        "de": "t8",
+        "a": "f4"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-52",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Requerimientos informales de la Junta",
+       "Los pedidos de la Junta llegan por un grupo de mensajería o se conocen por pasillo, sin prioridad, presupuesto ni resultado esperado.",
+       "Alta",
+       "Alto",
+       "Los requerimientos de la Junta entran por el formulario y se confirman en su sesión mensual."
+      ],
+      [
+       "Proyectos duplicados",
+       "Departamentos arrancan proyectos por su cuenta que otra área ya lleva, sobre todo en promociones y colaboraciones.",
+       "Media",
+       "Medio",
+       "Revisión de duplicidad contra la base del portafolio antes de categorizar."
+      ],
+      [
+       "Poco uso del formulario",
+       "Solo tres o cuatro gerentes usan el formulario; lo demás llega por otros canales y queda fuera del control.",
+       "Media",
+       "Medio",
+       "Ninguna solicitud se atiende fuera del formulario, salvo urgencia declarada por la Presidencia."
+      ],
+      [
+       "Junta sin alinear antes de pedir",
+       "Distintos directores piden cosas que los demás no conocen, y la oficina recibe ideas en lugar de decisiones.",
+       "Alta",
+       "Alto",
+       "Sesión mensual donde la Junta aprueba en conjunto prioridad, presupuesto y tiempo."
+      ],
+      [
+       "Saturación por entrada abierta",
+       "En su arranque la oficina recibió más proyectos de los que podía atender y tuvo que cerrar la recepción.",
+       "Media",
+       "Alto",
+       "Evaluación de capacidad antes de aceptar nuevos proyectos."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Solicitudes por el formulario",
+       "Solicitudes recibidas por el formulario ÷ solicitudes atendidas",
+       "Mensual",
+       "Director(a) de Proyectos (PMO)",
+       "≥ 95 %"
+      ],
+      [
+       "Tiempo de evaluación",
+       "Días hábiles entre el formulario y la categorización",
+       "Mensual",
+       "Director(a) de Proyectos (PMO)",
+       "≤ 5 días hábiles"
+      ],
+      [
+       "Proyectos con aprobación de la Junta",
+       "Proyectos con recursos aprobados en sesión ÷ proyectos iniciados",
+       "Mensual",
+       "Junta Directiva",
+       "100 %"
+      ],
+      [
+       "Duplicidades detectadas",
+       "Solicitudes devueltas por duplicar un proyecto existente",
+       "Trimestral",
+       "Director(a) de Proyectos (PMO)",
+       "Referencia de seguimiento"
+      ]
+     ]
+    }
+   },
+   "4.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Conduce un proyecto de principio a fin: el arranque con las áreas, el plan con cronograma, responsables, riesgos y presupuesto, su validación con finanzas y la aprobación de la dirección de proyectos, la ejecución con seguimiento semanal, la puesta en marcha y la sesión de lecciones aprendidas que alimenta al proyecto siguiente.",
+     "nota_estado": "El proceso ya opera con metodología de proyectos: arranque, cronograma con hitos, reunión semanal de seguimiento y lecciones aprendidas al cierre. Lo que se incorpora es el presupuesto validado por finanzas antes de ejecutar y la regla de escalar las desviaciones relevantes."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Proyectos (PMO)",
+     "participantes": [
+      "Director(a) de Proyectos (PMO) — aprueba el plan y su línea base y decide ante las desviaciones relevantes.",
+      "Gerente de Contabilidad / Administración — valida el presupuesto y asigna el código de proyecto.",
+      "Gerentes de las áreas involucradas — ejecutan los entregables de su área y actualizan su avance.",
+      "Junta Directiva — invitada a la sesión de lecciones aprendidas."
+     ],
+     "evidencia": [
+      "E-09",
+      "E-04"
+     ],
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan. Hoy el director de proyectos cumple además funciones de gerente de proyecto y de producto."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-20"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Convoca el arranque con todas las áreas involucradas, presenta el objetivo y el alcance aprobados y acuerda los entregables de cada área y el canal de seguimiento."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Elabora el plan del proyecto: cronograma con hitos, matriz de responsables, riesgos y presupuesto estimado por rubros, con al menos tres cotizaciones cuando hay compras."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Valida el presupuesto contra la disponibilidad de caja y asigna el código de proyecto con el que se registrará cada gasto; si no hay fondos, devuelve el plan para ajustar alcance o fuente."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Aprueba el plan del proyecto y su línea base de fechas y costo, contra la que se medirán las desviaciones."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerentes de las áreas involucradas",
+       "texto": "Ejecutan los entregables de su área y actualizan su avance en la base del portafolio antes de cada reunión semanal de seguimiento."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Conduce la reunión semanal de seguimiento: avance por hito, bloqueos, riesgos y consumo del presupuesto, y reporta a la dirección de proyectos las desviaciones relevantes."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Ante una desviación relevante de fecha, alcance o costo, decide el ajuste del plan o lo escala a la Presidencia con una propuesta."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Coordina la puesta en marcha con las áreas y obtiene del solicitante la aceptación formal de los entregables, registrada en la base del portafolio antes de dar el proyecto por terminado."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Conduce la sesión de lecciones aprendidas con los participantes, invita a la Junta y registra las conclusiones en la base para aplicarlas al siguiente proyecto del mismo tipo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Proyectos (PMO)",
+       "Gerente de Contabilidad / Administración",
+       "Director(a) de Proyectos (PMO)",
+       "Gerentes de las áreas involucradas"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Proyecto aprobado con gestor asignado"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Convocar el arranque con las áreas"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Elaborar el plan con presupuesto",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "decision",
+        "n": "¿Presupuesto con fondos?"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Devolver el plan para ajuste"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Asignar el código de proyecto",
+        "sistemas": [
+         "Odoo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Aprobar el plan y su línea base"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerentes de las áreas involucradas",
+        "tipo": "tarea",
+        "n": "Ejecutar y actualizar el avance",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Conducir el seguimiento semanal",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Desviación relevante?"
+       },
+       {
+        "id": "t8",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Ajustar el plan o escalar"
+       },
+       {
+        "id": "t9",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Poner en marcha y obtener aceptación"
+       },
+       {
+        "id": "t10",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Registrar lecciones aprendidas",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Proyecto cerrado"
+       },
+       {
+        "id": "f2",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "fin",
+        "n": "Plan devuelto al gestor"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t3",
+        "etq": "No"
+       },
+       {
+        "de": "t3",
+        "a": "f2"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t8",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "t9",
+        "etq": "No"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "t10"
+       },
+       {
+        "de": "t10",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-20"
+     ],
+     "filas": [
+      [
+       "Actuar antes de planificar",
+       "Hay casos en que se ejecuta antes de planificar y se descubre tarde un error de diseño costoso.",
+       "Media",
+       "Alto",
+       "Plan aprobado con línea base antes de ejecutar."
+      ],
+      [
+       "Proyectos sin presupuesto",
+       "Se aprende apenas que un proyecto necesita presupuesto; se toma la primera cotización y el costo final se conoce al terminar.",
+       "Alta",
+       "Alto",
+       "Presupuesto por rubros, tres cotizaciones y validación de finanzas."
+      ],
+      [
+       "Base desactualizada",
+       "Cerca del 70 % de los responsables actualiza su avance antes de la reunión; el resto obliga a reconstruir el estado.",
+       "Media",
+       "Medio",
+       "Actualización obligatoria antes de la reunión semanal."
+      ],
+      [
+       "Disponibilidad de las áreas",
+       "Las áreas no siempre reservan tiempo para el seguimiento, y los hitos se atrasan por falta de respuesta.",
+       "Media",
+       "Medio",
+       "Compromiso de disponibilidad mínima semanal en el arranque."
+      ],
+      [
+       "Lecciones que no se aplican",
+       "Las lecciones aprendidas se discuten pero no siempre se consultan en el proyecto siguiente.",
+       "Baja",
+       "Medio",
+       "Revisar las lecciones del mismo tipo de proyecto en cada arranque."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Cumplimiento de fecha",
+       "Proyectos cerrados en la fecha de la línea base ÷ proyectos cerrados",
+       "Trimestral",
+       "Director(a) de Proyectos (PMO)",
+       "≥ 80 %"
+      ],
+      [
+       "Desviación de costo",
+       "(Costo real − presupuesto) ÷ presupuesto, por proyecto",
+       "Por proyecto",
+       "Gerente de Proyectos (PMO)",
+       "≤ 10 %"
+      ],
+      [
+       "Base al día",
+       "Proyectos con avance actualizado antes de la reunión semanal ÷ proyectos activos",
+       "Semanal",
+       "Gerente de Proyectos (PMO)",
+       "≥ 95 %"
+      ],
+      [
+       "Cierres con lecciones aprendidas",
+       "Proyectos cerrados con lecciones registradas ÷ proyectos cerrados",
+       "Trimestral",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "4.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Acompaña como consultoría interna las iniciativas en las que dos departamentos necesitan ponerse de acuerdo: la oficina los reúne, levanta lo que cada uno necesita del otro y lo que lo ha impedido, entrega un plan inicial acordado, devuelve la ejecución a los gerentes y verifica a los treinta y a los sesenta días que avanza.",
+     "nota_estado": "El proceso ya opera como consultoría interna y termina con la entrega del plan. Lo que se incorpora es un punto de verificación posterior, para que una iniciativa que no avanza se detecte y se reconvierta en proyecto o se cierre."
+    },
+    "dueno": {
+     "estado": "borrador"
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Reúne a los gerentes de los dos departamentos involucrados y les presenta el objetivo de la iniciativa y lo que la oficina de proyectos aportará y lo que no."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerentes de las áreas involucradas",
+       "texto": "Exponen lo que cada departamento necesita del otro, los entregables que se cruzan entre áreas y los bloqueos que hasta ahora han impedido avanzar."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Elabora el plan inicial con los entregables entre áreas, sus responsables, la secuencia y las fechas, en un documento breve que ambos gerentes puedan seguir sin acompañamiento continuo."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerentes de las áreas involucradas",
+       "texto": "Aprueban el plan, asumen su ejecución y el reporte de resultados, y designan a quién de cada área le toca cada entregable."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Registra la iniciativa en la base del portafolio con sus fechas de verificación a los treinta y a los sesenta días."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Verifica en cada fecha si la iniciativa avanza según el plan; cuando avanza, la cierra en la base con el resultado reportado por los gerentes."
+      },
+      {
+       "id": "a7",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Cuando la iniciativa no avanza, decide con los gerentes si se reconvierte en proyecto con gestor asignado, se replantea o se cierra con su motivo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Proyectos (PMO)",
+       "Gerentes de las áreas involucradas",
+       "Director(a) de Proyectos (PMO)"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Solicitud categorizada como iniciativa"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reunir a los dos departamentos"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerentes de las áreas involucradas",
+        "tipo": "tarea",
+        "n": "Exponer necesidades y bloqueos"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Elaborar el plan inicial"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerentes de las áreas involucradas",
+        "tipo": "tarea",
+        "n": "Aprobar el plan y asumir la ejecución"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Registrar con fechas de verificación",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Avanza según el plan?"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Cerrar la iniciativa con su resultado",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reconvertir, replantear o cerrar"
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Iniciativa cerrada"
+       },
+       {
+        "id": "f2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Iniciativa reconvertida o cerrada con motivo"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "f1"
+       },
+       {
+        "de": "t7",
+        "a": "f2"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09"
+     ],
+     "filas": [
+      [
+       "Sin cultura de planificación escrita",
+       "Los departamentos no acostumbran planificar ni dejar nada por escrito; el plan puede quedarse en la reunión.",
+       "Alta",
+       "Medio",
+       "Plan breve firmado por ambos gerentes y registrado en la base."
+      ],
+      [
+       "Iniciativas que se abandonan",
+       "Al devolver la ejecución, nadie verifica si avanza, y la iniciativa puede morir sin que se note.",
+       "Media",
+       "Medio",
+       "Verificación a los treinta y a los sesenta días."
+      ],
+      [
+       "Conflicto entre áreas sin árbitro",
+       "Si los gerentes no se ponen de acuerdo, la oficina no tiene autoridad para decidir por ellos.",
+       "Media",
+       "Medio",
+       "Escalamiento a la dirección de proyectos y, si hace falta, a la Presidencia."
+      ],
+      [
+       "Tareas estancadas",
+       "Pendientes pequeños quedan detenidos meses —como la actualización de una web— sin que nadie los reactive.",
+       "Media",
+       "Bajo",
+       "Revisar en la base las tareas sin avance y averiguar la causa."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Iniciativas con plan firmado",
+       "Iniciativas con plan aprobado por ambos gerentes ÷ iniciativas asignadas",
+       "Trimestral",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Verificaciones realizadas",
+       "Verificaciones a 30 y 60 días realizadas ÷ programadas",
+       "Mensual",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Iniciativas cerradas con resultado",
+       "Iniciativas cerradas con resultado reportado ÷ iniciativas cerradas",
+       "Trimestral",
+       "Gerente de Proyectos (PMO)",
+       "≥ 80 %"
+      ]
+     ]
+    }
+   },
+   "4.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Conduce cada lanzamiento de producto como un proyecto transversal: su clasificación según sea producto nuevo, mejora o variante de color, el cronograma por país con marketing, comercial, visual, logística y soporte, la verificación de que todas las áreas estén listas, la salida al mercado y el cierre al tercer mes con su venta y su costo.",
+     "nota_estado": "Proceso en transición: la oficina de proyectos ya clasifica los lanzamientos en tres categorías, los sigue por trimestre y la coordinación de producto avisa cuándo llega cada producto. Lo que se incorpora es la verificación de preparación de todas las áreas antes de salir y el cierre al tercer mes como práctica de todos los lanzamientos."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Proyectos (PMO)",
+     "participantes": [
+      "Especialista de Producto / Proyecto — coordinación de producto: avisa la llegada del producto y conduce el cierre del lanzamiento con su venta y su costo.",
+      "Gerente Regional de Marketing — campaña, empaque y contenido del lanzamiento.",
+      "Gerente Regional Comercial / Retail — plan comercial: preventa, reservas para cadenas y reparto a tiendas.",
+      "Gerente de Servicio Técnico — manuales, formación del personal y soporte listos antes de la salida.",
+      "Director(a) de Proyectos (PMO) — aprueba la reprogramación de una fecha de lanzamiento."
+     ],
+     "evidencia": [
+      "E-09",
+      "E-04",
+      "E-60",
+      "E-63",
+      "E-22"
+     ],
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-22",
+      "E-42",
+      "E-60",
+      "E-63",
+      "E-64"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Avisa a la oficina de proyectos y a las áreas que un producto aprobado está en producción, con su fecha estimada de llegada, para que el lanzamiento se planifique con anticipación y no cuando ya llegó."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Clasifica el lanzamiento: producto nuevo, con salida simultánea en todos los países; mejora de un producto existente; o variante de color, que es sobre todo trabajo de marketing y no exige simultaneidad."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Arma el cronograma por país con los hitos de cada área —campaña, empaque, exhibición, preventa, llegada a tiendas, soporte— dentro de la grilla anual de lanzamientos."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Regional de Marketing",
+       "texto": "Prepara la campaña, el contenido y el material de punto de venta con los argumentos de venta del producto y los plazos que acordó en el cronograma."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Prepara el plan comercial: preventa con clientes, reserva de mercancía para cadenas, reparto a tiendas y comunicación a la fuerza de venta."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Servicio Técnico",
+       "texto": "Deja listos los manuales, la formación del personal de venta y de soporte, y las respuestas a las consultas frecuentes antes de la salida."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Verifica antes de la fecha que todas las áreas estén listas; cuando alguna no lo está, la dirección de proyectos decide si se reprograma la fecha o se sale con un alcance reducido."
+      },
+      {
+       "id": "a8",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Aprueba la reprogramación de la fecha o del alcance cuando un área no llega, y la comunica a todas las áreas y países involucrados."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Ejecuta la salida al mercado según el cronograma y registra la desviación de fecha frente al plan en cada país."
+      },
+      {
+       "id": "a10",
+       "rol": "Especialista de Producto / Proyecto",
+       "texto": "Conduce al tercer mes el cierre del lanzamiento con planificación comercial: venta al cliente y al consumidor, costo total —campaña, fletes aéreos, moldes, licencias— y tiempos, y lo presenta a la Junta."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Especialista de Producto / Proyecto",
+       "Gerente de Proyectos (PMO)",
+       "Gerente Regional de Marketing",
+       "Gerente Regional Comercial / Retail",
+       "Gerente de Servicio Técnico",
+       "Director(a) de Proyectos (PMO)"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "inicio",
+        "n": "Producto aprobado en producción"
+       },
+       {
+        "id": "t1",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Avisar la llegada estimada del producto",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Clasificar el lanzamiento"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Armar el cronograma por país",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente Regional de Marketing",
+        "tipo": "tarea",
+        "n": "Preparar campaña y contenido"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Preparar preventa, reservas y reparto"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Servicio Técnico",
+        "tipo": "tarea",
+        "n": "Preparar manuales, formación y soporte"
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Todas las áreas listas?"
+       },
+       {
+        "id": "t7",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reprogramar fecha o alcance"
+       },
+       {
+        "id": "t8",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Ejecutar la salida y medir la fecha",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t9",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "tarea",
+        "n": "Cerrar el lanzamiento al tercer mes",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Especialista de Producto / Proyecto",
+        "tipo": "fin",
+        "n": "Lanzamiento cerrado y presentado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t3",
+        "a": "t5"
+       },
+       {
+        "de": "t3",
+        "a": "t6"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "t6",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t8",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "No"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-22",
+      "E-42",
+      "E-60",
+      "E-63",
+      "E-64"
+     ],
+     "filas": [
+      [
+       "Lanzamientos fuera de fecha",
+       "Antes de la oficina de proyectos los lanzamientos nunca salían en fecha y un país se enteraba cuando otro ya había lanzado.",
+       "Media",
+       "Alto",
+       "Cronograma por país y verificación de preparación antes de salir."
+      ],
+      [
+       "Conflicto de fechas entre comercial y marketing",
+       "Marketing propone lanzar en un trimestre y comercial en la temporada fuerte; un cambio de color se trata como lanzamiento completo.",
+       "Alta",
+       "Medio",
+       "Clasificación del lanzamiento y grilla anual acordada."
+      ],
+      [
+       "El mayor fuera del lanzamiento",
+       "Las campañas llegan a las tiendas propias pero el canal mayor no se involucra desde el inicio.",
+       "Media",
+       "Medio",
+       "Plan comercial con reservas para cadenas dentro del cronograma."
+      ],
+      [
+       "Aviso tardío a marketing y tiendas",
+       "Mercadeo local reacciona sin tiempo porque se entera tarde de la llegada del producto.",
+       "Media",
+       "Medio",
+       "Aviso de llegada estimada en cuanto el producto entra a producción."
+      ],
+      [
+       "Costo del lanzamiento desconocido",
+       "Hasta 2026 no se había medido cuánto costó un lanzamiento ni cuánto vendió.",
+       "Media",
+       "Medio",
+       "Cierre al tercer mes con venta y costo total."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Lanzamientos en fecha",
+       "Lanzamientos que salen en la fecha del cronograma ÷ lanzamientos del trimestre",
+       "Trimestral",
+       "Gerente de Proyectos (PMO)",
+       "≥ 85 %"
+      ],
+      [
+       "Simultaneidad de productos nuevos",
+       "Países que lanzan un producto nuevo en la semana prevista ÷ países del lanzamiento",
+       "Por lanzamiento",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Cierres realizados",
+       "Lanzamientos con cierre al tercer mes ÷ lanzamientos de más de tres meses",
+       "Trimestral",
+       "Especialista de Producto / Proyecto",
+       "100 %"
+      ],
+      [
+       "Venta frente a plan",
+       "Venta de los tres primeros meses ÷ venta planificada del lanzamiento",
+       "Por lanzamiento",
+       "Gerente Regional Comercial / Retail",
+       "≥ 90 %"
+      ]
+     ]
+    }
+   },
+   "4.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Mantiene el portafolio de proyectos en un repositorio único y lo convierte en información para decidir: la actualización semanal de cada proyecto, el comité interno de la oficina, el escalamiento de los proyectos en rojo, el reporte automático a la Junta y la sesión mensual de la Junta con la oficina de proyectos.",
+     "nota_estado": "El proceso ya opera: base del portafolio en Lark, comité interno semanal y un reporte automático a la Junta cada viernes a las 4 de la tarde. Lo que se incorpora es el escalamiento formal de los proyectos en rojo y una sesión mensual con la Junta, porque el correo del viernes se lee poco y la oficina no tiene hoy un espacio para proponerle decisiones."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Proyectos (PMO)",
+     "participantes": [
+      "Gerente de Proyectos (PMO) — actualizan cada semana sus proyectos en la base y preparan el resumen para cada miembro de la Junta.",
+      "Presidente de Junta Directiva — se reúne cada dos semanas con la dirección de proyectos y recibe los escalamientos.",
+      "Junta Directiva — sesiona una vez al mes con la oficina de proyectos para revisar el portafolio y decidir."
+     ],
+     "evidencia": [
+      "E-09",
+      "E-04",
+      "E-12"
+     ],
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-12",
+      "E-58"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Actualizan antes de cada jueves el estado de sus proyectos en la base del portafolio: avance, hito de la semana, estatus, prioridad, riesgos y consumo del presupuesto."
+      },
+      {
+       "id": "a2",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Conduce el comité interno semanal de la oficina: revisa avances, cuellos de botella, riesgos y desviaciones de presupuesto o cronograma, y define las acciones de la semana."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Escala a la Presidencia, con una propuesta concreta, los proyectos en rojo que la oficina no puede destrabar por sí misma, en lugar de dejarlos esperar al reporte."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Emite el reporte automático del viernes a las 4 de la tarde desde la base, y lo acompaña de un resumen de dos líneas por proyecto en el canal que cada miembro de la Junta efectivamente lee."
+      },
+      {
+       "id": "a5",
+       "rol": "Presidente de Junta Directiva",
+       "texto": "Revisa cada dos semanas con la dirección de proyectos la situación del portafolio, las necesidades de la oficina y los escalamientos recibidos."
+      },
+      {
+       "id": "a6",
+       "rol": "Junta Directiva",
+       "texto": "Sesiona una vez al mes con la oficina de proyectos: revisa el portafolio, decide sobre los proyectos en rojo y las propuestas nuevas de los gerentes, y deja las decisiones en el registro de acuerdos."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Proyectos (PMO)",
+       "Director(a) de Proyectos (PMO)",
+       "Presidente de Junta Directiva",
+       "Junta Directiva"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Corte semanal del portafolio"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Actualizar los proyectos en la base",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Conducir el comité interno semanal"
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Hay proyectos en rojo?"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Escalar con propuesta a la Presidencia"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Emitir el reporte automático del viernes",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t5",
+        "carril": "Presidente de Junta Directiva",
+        "tipo": "tarea",
+        "n": "Revisar el portafolio cada dos semanas"
+       },
+       {
+        "id": "t6",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Sesionar mensualmente con la oficina"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Portafolio revisado con decisiones registradas"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t3",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "No"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-12",
+      "E-58"
+     ],
+     "filas": [
+      [
+       "Reporte que no se lee",
+       "El correo automático del viernes se lee poco; la oficina lo complementa con resúmenes por mensajería según quién lee qué.",
+       "Alta",
+       "Medio",
+       "Sesión mensual con la Junta y resumen de dos líneas por proyecto."
+      ],
+      [
+       "Sin espacio para proponer a la Junta",
+       "La oficina no tiene un espacio fijo para llevar a la Junta las propuestas que llegan por el formulario.",
+       "Alta",
+       "Medio",
+       "Sesión mensual de la Junta con la oficina de proyectos."
+      ],
+      [
+       "Hitos no actualizados",
+       "Cuando un responsable falta o no actualiza, el hito de la semana queda desactualizado y el reporte engaña.",
+       "Media",
+       "Medio",
+       "Actualización obligatoria antes del comité y respaldo designado por proyecto."
+      ],
+      [
+       "Seguimiento duplicado con la Presidencia",
+       "La asistencia de la Presidencia y la oficina de proyectos seguían los mismos temas sin criterio común.",
+       "Media",
+       "Bajo",
+       "Criterio acordado: tareas en el registro de la Junta, proyectos en la base del portafolio."
+      ],
+      [
+       "Logros invisibles para la Junta",
+       "Áreas que avanzan con la oficina perciben que la Junta no conoce lo que se ha logrado.",
+       "Media",
+       "Medio",
+       "Espacio en la sesión mensual para los proyectos cerrados y sus resultados."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Proyectos actualizados a tiempo",
+       "Proyectos actualizados antes del comité semanal ÷ proyectos activos",
+       "Semanal",
+       "Gerente de Proyectos (PMO)",
+       "≥ 95 %"
+      ],
+      [
+       "Proyectos en rojo escalados",
+       "Proyectos en rojo escalados con propuesta en la semana ÷ proyectos en rojo",
+       "Mensual",
+       "Director(a) de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Sesiones mensuales con la Junta",
+       "Sesiones celebradas ÷ meses del período",
+       "Trimestral",
+       "Director(a) de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Portafolio en verde",
+       "Proyectos en verde ÷ proyectos activos",
+       "Mensual",
+       "Director(a) de Proyectos (PMO)",
+       "Referencia de seguimiento"
+      ]
+     ]
+    }
+   },
+   "4.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Controla que el volumen de proyectos no supere la capacidad de la oficina: mide cada mes la carga por gerente de proyecto, compara con un umbral, decide suspender la recepción o repriorizar con la Junta cuando se satura, distingue el pico de la tendencia y sustenta cuándo hace falta incorporar capacidad.",
+     "nota_estado": "Proceso a implementar. La oficina ya vivió la saturación —52 proyectos inscritos para tres gerentes de proyecto— y cerró la recepción de nuevos proyectos por decisión propia. Lo que se incorpora es la medición mensual, un umbral acordado y la decisión de la Junta sobre repriorizar o sumar capacidad."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director(a) de Proyectos (PMO)",
+     "participantes": [
+      "Junta Directiva — decide repriorizar o pausar proyectos y aprueba la incorporación de capacidad.",
+      "Gerente de Recursos Humanos — gestiona la incorporación del perfil aprobado."
+     ],
+     "evidencia": [
+      "E-09",
+      "E-04",
+      "E-01"
+     ],
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-04",
+      "E-09",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Mide cada mes la carga de cada gerente de proyecto: proyectos activos por complejidad, iniciativas en acompañamiento y horas comprometidas, desde la base del portafolio."
+      },
+      {
+       "id": "a2",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Compara la carga con el umbral acordado; cuando se supera, propone suspender temporalmente la recepción de nuevos proyectos o pausar los de menor prioridad."
+      },
+      {
+       "id": "a3",
+       "rol": "Junta Directiva",
+       "texto": "Decide qué proyectos se pausan o se difieren según la regla de prioridad —primero lo que genera o protege venta—, en lugar de mantener todo abierto a la vez."
+      },
+      {
+       "id": "a4",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Analiza la serie histórica de solicitudes para distinguir un pico pasajero de una tendencia, y sustenta con ella si hace falta capacidad permanente."
+      },
+      {
+       "id": "a5",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Presenta a la Junta la necesidad de capacidad con su caso: perfil —gerente de proyecto junior, gerente por área o controlador de proyectos—, costo y proyectos que libera."
+      },
+      {
+       "id": "a6",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba o rechaza la incorporación de capacidad con su presupuesto, y deja la decisión en el registro de acuerdos."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Gestiona la búsqueda y la incorporación del perfil aprobado, y coordina su inducción a la metodología y a las herramientas de la oficina de proyectos."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director(a) de Proyectos (PMO)",
+       "Junta Directiva",
+       "Gerente de Recursos Humanos"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Corte mensual de carga"
+       },
+       {
+        "id": "t1",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Medir la carga por gerente de proyecto",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿La carga supera el umbral?"
+       },
+       {
+        "id": "t2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Proponer suspender o pausar"
+       },
+       {
+        "id": "t3",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Decidir qué se pausa o difiere"
+       },
+       {
+        "id": "t4",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Analizar la serie histórica"
+       },
+       {
+        "id": "t5",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Presentar el caso de capacidad"
+       },
+       {
+        "id": "d2",
+        "carril": "Junta Directiva",
+        "tipo": "decision",
+        "n": "¿Se aprueba más capacidad?"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Incorporar el perfil aprobado"
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Capacidad ampliada"
+       },
+       {
+        "id": "f2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Carga dentro del umbral"
+       },
+       {
+        "id": "f3",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Portafolio ajustado a la capacidad"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t2",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "f2",
+        "etq": "No"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "f3",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-04",
+      "E-09",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Saturación de la oficina",
+       "Con 52 proyectos inscritos y tres gerentes de proyecto, cada uno llevaba siete u ocho proyectos simultáneos.",
+       "Alta",
+       "Alto",
+       "Umbral de carga y suspensión de la recepción cuando se supera."
+      ],
+      [
+       "No saber decir que no",
+       "A quien asume proyectos le llegan demasiados porque nadie filtra; la calidad de todos cae.",
+       "Alta",
+       "Medio",
+       "Decisión de la Junta sobre qué se pausa, con la regla de prioridad."
+      ],
+      [
+       "Director que ejecuta",
+       "El director de proyectos cumple también funciones de gerente de proyecto y de producto, y le queda poco tiempo para gobernar el portafolio.",
+       "Alta",
+       "Medio",
+       "Liberar la dirección de proyectos con capacidad adicional."
+      ],
+      [
+       "Pico confundido con tendencia",
+       "Sin serie histórica no se sabe si la avalancha de solicitudes fue un pico inicial o la nueva normalidad.",
+       "Media",
+       "Medio",
+       "Análisis de la serie antes de pedir capacidad permanente."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Carga por gerente de proyecto",
+       "Proyectos activos ponderados por complejidad ÷ gerentes de proyecto",
+       "Mensual",
+       "Director(a) de Proyectos (PMO)",
+       "≤ umbral acordado"
+      ],
+      [
+       "Meses sobre el umbral",
+       "Meses con carga sobre el umbral en el año",
+       "Anual",
+       "Director(a) de Proyectos (PMO)",
+       "≤ 2"
+      ],
+      [
+       "Tiempo de espera de solicitudes",
+       "Días entre la categorización y el arranque de un proyecto aprobado",
+       "Mensual",
+       "Director(a) de Proyectos (PMO)",
+       "Referencia de seguimiento"
+      ]
+     ]
+    }
+   },
+   "4.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Da a cada proyecto un presupuesto y lo controla: la estimación por rubros con cotizaciones múltiples, el código de proyecto enlazado con finanzas, la aprobación según su monto, el registro de cada gasto contra el código, el reporte mensual de consumo y el escalamiento cuando se desvía.",
+     "nota_estado": "Proceso a implementar sobre piezas recientes: desde mediados de 2026 cada proyecto tiene un código enlazado con finanzas y todo pago a proveedores se aprueba en Lark indicando el proyecto, y se exige tres cotizaciones. Lo que falta es el seguimiento de la desviación, que hoy no hacen ni la oficina ni finanzas."
+    },
+    "dueno": {
+     "estado": "borrador"
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-15"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Estima el presupuesto del proyecto por rubros —obra, mobiliario, transporte, personal, tecnología— con al menos tres cotizaciones de tres proveedores para cada compra relevante."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Asigna el código de proyecto enlazado con finanzas y registra el presupuesto aprobado, para que todo gasto se pueda atribuir al proyecto que lo originó."
+      },
+      {
+       "id": "a3",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Aprueba el presupuesto de los proyectos dentro de su umbral; los que lo superan los lleva a la Junta con su justificación."
+      },
+      {
+       "id": "a4",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba el presupuesto de los proyectos que superan el umbral de la dirección de proyectos, en su sesión mensual con la oficina."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Tesorería",
+       "texto": "Paga cada factura de proveedor a través del flujo de aprobación de Lark con su código de proyecto, sin excepción, de modo que ningún gasto quede sin atribuir."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Reporta cada mes el consumo de cada proyecto contra su presupuesto y lo entrega a la oficina de proyectos para el comité semanal."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Cuando el consumo proyectado supera el presupuesto en más de un diez por ciento, lo escala a la dirección de proyectos con la causa y la propuesta de ajuste, antes de comprometer más gasto."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Al cierre del proyecto compara el costo real con el presupuestado y registra la diferencia y su causa en las lecciones aprendidas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Proyectos (PMO)",
+       "Gerente de Contabilidad / Administración",
+       "Director(a) de Proyectos (PMO)",
+       "Junta Directiva",
+       "Gerente de Tesorería"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Proyecto aprobado que requiere desembolso"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Estimar por rubros con tres cotizaciones"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Asignar el código de proyecto",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Supera el umbral de la dirección?"
+       },
+       {
+        "id": "t3",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Aprobar el presupuesto"
+       },
+       {
+        "id": "t4",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el presupuesto en sesión"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente de Tesorería",
+        "tipo": "tarea",
+        "n": "Pagar con código de proyecto",
+        "sistemas": [
+         "Lark",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Reportar el consumo mensual",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "d2",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Desvío mayor al 10 %?"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Escalar con causa y ajuste"
+       },
+       {
+        "id": "t8",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Comparar costo real al cierre"
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Costo del proyecto cerrado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t3",
+        "etq": "No"
+       },
+       {
+        "de": "t3",
+        "a": "t5"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "t6"
+       },
+       {
+        "de": "t6",
+        "a": "d2"
+       },
+       {
+        "de": "d2",
+        "a": "t7",
+        "etq": "Sí"
+       },
+       {
+        "de": "d2",
+        "a": "t8",
+        "etq": "No"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-15"
+     ],
+     "filas": [
+      [
+       "Proyectos sin presupuesto",
+       "Hasta hace poco los proyectos no tenían presupuesto: se tomaba la primera cotización y se abrían tiendas sin saber cuánto costarían.",
+       "Alta",
+       "Alto",
+       "Presupuesto por rubros aprobado antes de ejecutar."
+      ],
+      [
+       "Desviación sin seguimiento",
+       "Aunque existe el código de proyecto, nadie sigue hoy la desviación entre lo presupuestado y lo gastado.",
+       "Alta",
+       "Alto",
+       "Reporte mensual de consumo y escalamiento sobre el 10 %."
+      ],
+      [
+       "Gastos sin atribuir",
+       "Un pago aprobado sin código de proyecto hace invisible el costo real del proyecto.",
+       "Media",
+       "Medio",
+       "Ningún pago de proveedor sin código de proyecto."
+      ],
+      [
+       "Compras sin procura",
+       "No existe una función de procura que licite y mantenga proveedores fijos; cada proyecto cotiza por su cuenta.",
+       "Media",
+       "Medio",
+       "Tres cotizaciones obligatorias mientras se decide la función de procura."
+      ],
+      [
+       "Caja no informada de compras previstas",
+       "Tesorería proyecta el flujo de caja sin conocer siempre las compras que vienen.",
+       "Media",
+       "Medio",
+       "Presupuesto aprobado del proyecto como insumo de la proyección de caja."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Proyectos con presupuesto aprobado",
+       "Proyectos con presupuesto aprobado antes de ejecutar ÷ proyectos iniciados",
+       "Mensual",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Pagos con código de proyecto",
+       "Pagos de proveedores de proyectos con código ÷ pagos de proveedores de proyectos",
+       "Mensual",
+       "Gerente de Contabilidad / Administración",
+       "100 %"
+      ],
+      [
+       "Desviación de costo",
+       "(Costo real − presupuesto) ÷ presupuesto, por proyecto cerrado",
+       "Por proyecto",
+       "Gerente de Proyectos (PMO)",
+       "≤ 10 %"
+      ],
+      [
+       "Compras con tres cotizaciones",
+       "Compras relevantes con tres cotizaciones ÷ compras relevantes",
+       "Trimestral",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ]
+     ]
+    }
+   }
+  }
+ },
+
+ "5": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Este manual describe cómo Grupo Kenex adopta la inteligencia artificial de forma ordenada: con qué reglas se usa y se protege la información, cómo se encauzan y se aprueban las iniciativas de automatización que nacen en las áreas, y cómo se forma a las personas para que la usen con criterio.",
+    "alcance": "El uso de herramientas de inteligencia artificial y los desarrollos de automatización en todas las áreas y países del grupo, la asignación de licencias y accesos, y la formación en competencias digitales. No incluye la operación diaria de los sistemas del grupo ni el plan completo de ciberseguridad, que corresponden a la gestión de tecnología, salvo en lo que toca a la inteligencia artificial.",
+    "audiencia": [
+     "Gerente de Tecnología / Sistemas",
+     "Coordinador(a) de Sistemas",
+     "Gerente de Proyectos (PMO)",
+     "Gerente de Recursos Humanos (Formación y Desarrollo)",
+     "Gerentes de primera línea",
+     "Junta Directiva"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Adopción de IA y Transformación Digital es el macroproceso estratégico que el grupo considera urgente: la Junta la ve como la principal fuente de ventaja competitiva de los próximos años. La adopción ya empezó y va rápido. El grupo paga licencias de inteligencia artificial, la primera línea y la Junta recibieron talleres prácticos, y en las áreas nacieron tableros, aplicaciones de garantías, centros de mando de atención y herramientas de márgenes construidas por los propios gerentes.\n\nEsa velocidad dejó a la vista lo que falta. Sistemas advierte que la inteligencia artificial se le escapó de las manos: hubo desarrollos conectados a Odoo con credenciales de administrador que no pasaron por su revisión, datos del grupo cargados en herramientas externas sin restricción, licencias pagadas por la empresa junto a otras pagadas por cada persona, y ningún inventario de lo que está construido. Una auditoría de ciberseguridad reciente dejó un plan de trabajo que incluye el gobierno de la inteligencia artificial generativa y el licenciamiento corporativo.\n\nEste manual describe cómo deben operar sus tres procesos, partiendo de lo que ya existe: la formación en la universidad corporativa, el circuito de desarrollos de sistemas y la evaluación del uso de licencias por el líder de cada equipo. Sigue la tesis del informe de diagnóstico —el dato antes que el agente— y el principio que los propios usuarios expresan: la herramienta prepara, la persona decide. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "duenos": [
+     [
+      "Macroproceso",
+      "Gerente de Tecnología / Sistemas",
+      "Dueño de la política de uso, del inventario de licencias y accesos y de la validación técnica de todo desarrollo."
+     ],
+     [
+      "Procesos",
+      "Gerente de Proyectos (PMO)",
+      "Lleva el inventario y la cartera de casos de uso de inteligencia artificial."
+     ],
+     [
+      "Procesos",
+      "Gerente de Recursos Humanos (Formación y Desarrollo)",
+      "Conduce la formación en competencias digitales dentro de la universidad corporativa."
+     ],
+     [
+      "Grupo",
+      "Junta Directiva",
+      "Aprueba la política y el presupuesto de licencias y decide su ampliación con el retorno medido."
+     ]
+    ],
+    "entidades": [
+     [
+      "Kenex Trading, S.A.",
+      "Panamá",
+      "Sede de la gerencia de tecnología",
+      "Allí se realizaron la auditoría de ciberseguridad y los talleres de inteligencia artificial de 2026."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Operación propia",
+      "Tiene su propia persona de ciberseguridad y su propia instancia de Odoo; el plan de ciberseguridad debe extenderse a ella."
+     ],
+     [
+      "Deltadir SAS",
+      "Colombia",
+      "Operación propia",
+      "Base de la líder regional de formación y desarrollo."
+     ]
+    ],
+    "sistemas": [
+     [
+      "Claude",
+      "Herramienta de inteligencia artificial con licencias corporativas; se usa sobre todo como extensión de Excel, para informes, análisis y construcción de herramientas. Conviven cuentas pagadas por la empresa, cuentas personales y cuentas con dominios distintos.",
+      "5.1 · 5.2 · 5.3"
+     ],
+     [
+      "Otras herramientas de inteligencia artificial",
+      "Versiones gratuitas y de pago de otras herramientas generativas y el asistente integrado en la plataforma de datos, usadas fuera de un inventario.",
+      "5.1"
+     ],
+     [
+      "Odoo",
+      "Sistema central al que se conectan los desarrollos; sistemas acordó un solo canal de integración y un estándar común.",
+      "5.2"
+     ],
+     [
+      "Lark",
+      "Tareas de sistemas, formularios y registro de desarrollos; resúmenes automáticos de reuniones para algunos usuarios.",
+      "5.1 · 5.2"
+     ],
+     [
+      "Momentum (universidad corporativa)",
+      "Plataforma y marca de la formación del grupo, lanzada en 2026 con el respaldo de la Junta.",
+      "5.3"
+     ],
+     [
+      "Servicios externos donde corren desarrollos de las áreas",
+      "Tableros y aplicaciones construidos por gerentes y alojados fuera de la infraestructura del grupo. No hay un inventario de cuáles son ni de quién accede.",
+      "5.2"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Dirección y Gobierno Corporativo",
+      "Entrada",
+      "Valores, código de ética y prioridades con que se vincula la política de uso."
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Coordinación",
+      "Los casos de uso que cruzan áreas se gestionan como proyectos."
+     ],
+     [
+      "Gestión de Tecnología y Sistemas",
+      "Coordinación",
+      "Plan de ciberseguridad, credenciales, integraciones con Odoo y ambientes de prueba."
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Coordinación",
+      "Formación, perfiles de cargo y la universidad corporativa."
+     ],
+     [
+      "Todos los macroprocesos",
+      "Entrada / salida",
+      "Proponen casos de uso y reciben herramientas validadas y personas formadas."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Gerente de Tecnología / Sistemas",
+      "Grupo",
+      "Redacta la política, asigna licencias, valida técnicamente los desarrollos y reporta a la Junta.",
+      "Si una solicitud cumple la política; si un desarrollo pasa a producción.",
+      "A la Junta Directiva."
+     ],
+     [
+      "Coordinador(a) de Sistemas",
+      "Grupo",
+      "Otorga y retira credenciales, administra el gestor de contraseñas y el inventario de accesos.",
+      "Nivel de privilegio de cada credencial.",
+      "A la gerencia de tecnología."
+     ],
+     [
+      "Comité de Inteligencia Artificial",
+      "Grupo",
+      "Comparte buenas prácticas, revisa la política y prioriza los casos de uso.",
+      "Prioridad de los casos y quién los construye.",
+      "A la Junta cuando requiere presupuesto."
+     ],
+     [
+      "Gerente de Recursos Humanos (Formación y Desarrollo)",
+      "Regional",
+      "Detecta necesidades, ejecuta las cohortes y mide la adopción.",
+      "Contenidos y calendario de formación.",
+      "A la gerencia de Recursos Humanos."
+     ],
+     [
+      "Gerentes de primera línea",
+      "Área",
+      "Proponen casos de uso, solicitan licencias y evalúan su uso como dueños de la data de su área.",
+      "A quién de su equipo se asigna una licencia.",
+      "Al Comité de Inteligencia Artificial."
+     ]
+    ],
+    "comites": [
+     [
+      "Comité de Inteligencia Artificial",
+      "Compartir buenas prácticas, revisar la política y priorizar los casos de uso de inteligencia artificial.",
+      "Mensual como deber ser; hoy no está constituido",
+      "Gerente de Tecnología / Sistemas · Gerente de Proyectos (PMO) · formación y desarrollo · los gerentes con mayor uso de la herramienta",
+      "Prioridad de casos de uso y ajustes de la política",
+      "Inventario de casos y de licencias",
+      "Casos aprobados o descartados con motivo"
+     ],
+     [
+      "Seguimiento del plan de ciberseguridad",
+      "Ejecutar el plan de la auditoría de ciberseguridad, incluido el gobierno de la inteligencia artificial generativa.",
+      "Según el plan de trabajo a 3 meses, 6 meses y un año",
+      "Gerencia de tecnología · seguridad de sistemas · oficina de proyectos",
+      "Acciones del plan y su secuencia",
+      "Informe de la auditoría",
+      "Avance reportado a la Junta"
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El dato antes que el agente: sin información de origen confiable, automatizar multiplica el error.",
+     "La herramienta prepara, la persona decide: la palabra final sobre una decisión de negocio es humana.",
+     "No hay adopción sin formación, ni formación sin licencia y sin un caso de uso real.",
+     "Todo lo que se conecta a los sistemas del grupo pasa por sistemas, lo haya construido quien lo haya construido.",
+     "La adopción es gradual y acompañada: cada persona aprende a su ritmo y sabe qué se espera de ella."
+    ],
+    "politicas": [
+     "La información confidencial no circula por mensajería personal; el trabajo se hace en Lark.",
+     "Las solicitudes a sistemas se canalizan por sus tareas y se priorizan en la gerencia de tecnología; un desarrollo se construye solo si está alineado con la empresa y validado con las áreas afectadas.",
+     "La creación y el retiro de credenciales de correo, Lark, Shopify y Odoo los gestiona seguridad de sistemas para todos los países.",
+     "La evaluación del uso de las licencias la hace el líder de cada equipo, como dueño de la data de su área.",
+     "La próxima formación práctica se imparte solo a quienes tienen licencia y la van a usar.",
+     "Todo externo con acceso a información del grupo firma un acuerdo de confidencialidad.",
+     "La atención al cliente no se delega a un agente de inteligencia artificial, salvo como apoyo en picos de demanda, por criterio de marca."
+    ],
+    "normativo": [
+     "Plan de trabajo de la auditoría de ciberseguridad de 2026 (0–3 meses, 6 meses y un año), que incluye gestor de contraseñas, respaldos con prueba de restauración, canal corporativo para datos de clientes y el gobierno de la inteligencia artificial generativa y del licenciamiento.",
+     "Buena práctica de referencia (marco de gestión de riesgos de inteligencia artificial del NIST, AI RMF 1.0): gobernar, mapear, medir y gestionar el riesgo de cada uso, con responsables definidos y revisión periódica.",
+     "Buena práctica de referencia (norma ISO/IEC 42001 de sistemas de gestión de inteligencia artificial): política, inventario de sistemas de inteligencia artificial, evaluación de impacto y mejora continua."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "Los 3 procesos son a implementar: ninguno opera hoy como proceso, aunque cada uno tiene piezas en marcha —licencias pagadas, un circuito de desarrollos en sistemas, talleres y una universidad corporativa—. La secuencia importa: la política y el inventario (5.1) condicionan lo que se aprueba (5.2) y a quién se forma (5.3). Las acciones no llevan fecha porque la Junta no las ha acordado.",
+    "por_implementar": [
+     [
+      "5.1 Gobierno de la adopción de IA y de la información",
+      "No hay política de uso escrita, inventario de licencias ni de accesos, y se entregaron credenciales de administrador a desarrollos no gobernados.",
+      "Política aprobada por la Junta, inventario único y credenciales de mínimo privilegio."
+     ],
+     [
+      "5.2 Casos de uso de IA y automatización",
+      "Los desarrollos nacen en cada área, varios no pasaron por sistemas y nadie tiene la lista completa.",
+      "Inventario único, validación de sistemas antes de producción y priorización en comité."
+     ],
+     [
+      "5.3 Formación en competencias digitales y de IA",
+      "La formación se hizo sin medir el uso posterior ni ligarla a la asignación de licencias.",
+      "Cohortes por caso de uso dentro de la universidad corporativa y medición a 30–60 días."
+     ]
+    ],
+    "brechas": [
+     [
+      "Transversal — calidad del dato",
+      "Los usuarios señalan como primer bloqueo la calidad de la data de origen, no la herramienta.",
+      "Priorizar los casos que dependen de datos ya certificados."
+     ],
+     [
+      "Transversal — comité sin constituir",
+      "La idea de un comité de inteligencia artificial existe pero no está constituido.",
+      "Constituirlo con los gerentes de mayor uso y la gerencia de tecnología."
+     ],
+     [
+      "Transversal — terceros con acceso",
+      "Consultores y programadores externos trabajan con acceso amplio a los datos sin auditoría.",
+      "Accesos acotados y revisión semestral en el inventario."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "Caso de uso",
+      "Aplicación concreta de la inteligencia artificial o de la automatización a una tarea de un área, con su dato, su usuario y su beneficio esperado."
+     ],
+     [
+      "Autoservicio",
+      "Caso de uso que construye la propia área con una herramienta autorizada, sin tocar los sistemas centrales."
+     ],
+     [
+      "Mínimo privilegio",
+      "Criterio de otorgar a cada credencial solo los permisos que su uso requiere."
+     ],
+     [
+      "Inventario de licencias",
+      "Registro único de las licencias de inteligencia artificial que paga el grupo, a quién están asignadas y su uso."
+     ],
+     [
+      "Multiplicador",
+      "Persona formada y certificada que acompaña la adopción en su equipo."
+     ],
+     [
+      "Validación humana",
+      "Revisión por una persona de todo resultado de la herramienta antes de usarlo para decidir o reportar."
+     ]
+    ],
+    "raci": [
+     [
+      "5.1 Gobierno de la adopción de IA y de la información",
+      "Gerente de Tecnología / Sistemas",
+      "Junta Directiva",
+      "Comité de Inteligencia Artificial · Coordinador(a) de Sistemas · asesor jurídico",
+      "Gerentes de primera línea"
+     ],
+     [
+      "5.2 Casos de uso de IA y automatización",
+      "Gerente de Proyectos (PMO)",
+      "Comité de Inteligencia Artificial",
+      "Gerente de Tecnología / Sistemas · Gerentes de primera línea",
+      "Junta Directiva"
+     ],
+     [
+      "5.3 Formación en competencias digitales y de IA",
+      "Gerente de Recursos Humanos (Formación y Desarrollo)",
+      "Junta Directiva",
+      "Gerentes de primera línea · Gerente de Tecnología / Sistemas",
+      "Colaboradores formados"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "Claude",
+      "Herramienta de inteligencia artificial corporativa",
+      "5.1 · 5.2 · 5.3",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Odoo",
+      "Sistema central al que se integran los desarrollos",
+      "5.2",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Lark",
+      "Tareas, formularios e inventario",
+      "5.1 · 5.2",
+      "Coordinador(a) de Sistemas"
+     ],
+     [
+      "Momentum",
+      "Universidad corporativa",
+      "5.3",
+      "Gerente de Recursos Humanos (Formación y Desarrollo)"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Gestión de Tecnología y Sistemas",
+      "Seguridad",
+      "Plan de ciberseguridad, credenciales, integraciones y entornos de prueba"
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Cartera",
+      "Casos de uso transversales gestionados como proyectos"
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Formación",
+      "Universidad corporativa y perfiles de cargo"
+     ],
+     [
+      "Todos los macroprocesos",
+      "Adopción",
+      "Casos de uso propuestos y herramientas validadas"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Reporte de entrevistas: adopción y uso de Claude",
+      "Venezuela",
+      "Uso real de la herramienta por el equipo comercial y de datos, casos de construcción propia y bloqueos: calidad del dato y restricciones de red",
+      "5.1 · 5.2 · 5.3"
+     ],
+     [
+      "Procesos del departamento de Sistemas",
+      "Regional",
+      "Desarrollo de aplicaciones con análisis de inteligencia artificial, atención de errores, compras de licencias, alta y baja de credenciales y revisión de seguridad",
+      "5.1 · 5.2"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Panamá",
+      "Sede de la gerencia de tecnología; allí se hizo la auditoría de ciberseguridad.",
+      "El plan de acción corporativo requiere auditar también Venezuela y Colombia."
+     ],
+     [
+      "Venezuela",
+      "Cuenta con una persona de ciberseguridad y su propia instancia de Odoo.",
+      "Parte de los desarrollos de las áreas afectaron datos de la operación del país."
+     ],
+     [
+      "Colombia",
+      "Base de la formación y desarrollo regional.",
+      "Primera instancia de Odoo del grupo."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+   "5.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Establece las reglas con que el grupo usa la inteligencia artificial y protege su información: la política de uso vinculada a los valores del grupo, qué datos pueden cargarse en qué herramienta, cómo se asignan y se revisan las licencias corporativas, cómo se otorgan las credenciales que conectan esas herramientas a los sistemas y cómo se revisa todo cada semestre.",
+     "nota_estado": "Proceso a implementar. El grupo ya paga licencias de inteligencia artificial, hizo entrevistas sobre su uso real, formó a la primera línea y tiene un plan de ciberseguridad que incluye el gobierno de la inteligencia artificial generativa. Lo que falta es la política escrita, el inventario de licencias y accesos, y un criterio único para asignarlos."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tecnología / Sistemas",
+     "participantes": [
+      "Junta Directiva — aprueba la política de uso y el presupuesto de licencias.",
+      "Comité de Inteligencia Artificial — revisa la política, comparte buenas prácticas entre áreas y prioriza los casos de uso.",
+      "Coordinador(a) de Sistemas — otorga y retira credenciales con mínimo privilegio y administra el inventario de accesos.",
+      "Gerentes de primera línea — solicitan licencias con su caso de uso y evalúan cada trimestre el uso real en su equipo, como dueños de la data de su área."
+     ],
+     "evidencia": [
+      "E-52",
+      "SC-04",
+      "E-12",
+      "SC-10",
+      "E-18"
+     ],
+     "notas": "La idea de un comité de inteligencia artificial para compartir buenas prácticas la propuso la gerencia comercial del grupo; no consta que esté constituido."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-12",
+      "E-18",
+      "E-20",
+      "E-24",
+      "E-25",
+      "E-44",
+      "E-52",
+      "E-70",
+      "SC-04",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Redacta la política de uso de inteligencia artificial: herramientas autorizadas, qué datos se pueden cargar según su sensibilidad, validación humana de todo resultado, uso solo con cuentas corporativas y reglas para los desarrollos que hagan las áreas."
+      },
+      {
+       "id": "a2",
+       "rol": "Comité de Inteligencia Artificial",
+       "texto": "Revisa la política con la mirada de las áreas que más usan la herramienta, propone ajustes para que sea aplicable y la eleva a la Junta con el presupuesto de licencias del año."
+      },
+      {
+       "id": "a3",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba la política de uso y el presupuesto de licencias, y la vincula a los valores y al código de ética del grupo para que sea parte de la cultura y no solo una norma técnica."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerentes de primera línea",
+       "texto": "Solicitan licencias para su equipo con el caso de uso de cada persona y los datos que va a utilizar, en lugar de que cada quien pague la suya o use cuentas personales."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Evalúa cada solicitud contra la política: si el caso de uso y los datos están autorizados, asigna la licencia corporativa y la registra en el inventario; si no, la devuelve con el criterio."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Otorga las credenciales que el caso requiere con el mínimo privilegio —nunca de administrador—, las guarda en el gestor de contraseñas y registra cada acceso en el inventario."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerentes de primera línea",
+       "texto": "Evalúan cada trimestre el uso real de las licencias de su equipo y proponen reasignar las que no se usan, como dueños de la data de su área."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Revisa cada semestre la política, el inventario de licencias y de accesos, y los incidentes, y presenta a la Junta el resultado junto con el avance del plan de ciberseguridad."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tecnología / Sistemas",
+       "Comité de Inteligencia Artificial",
+       "Junta Directiva",
+       "Gerentes de primera línea",
+       "Coordinador(a) de Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "inicio",
+        "n": "Revisión semestral o solicitud de licencia"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Redactar la política de uso"
+       },
+       {
+        "id": "t2",
+        "carril": "Comité de Inteligencia Artificial",
+        "tipo": "tarea",
+        "n": "Revisar la política con las áreas"
+       },
+       {
+        "id": "t3",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar política y presupuesto"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Solicitar licencias con su caso de uso",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Caso y datos autorizados?"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Devolver la solicitud con el criterio"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Asignar la licencia y registrarla"
+       },
+       {
+        "id": "t7",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Otorgar credenciales de mínimo privilegio",
+        "sistemas": [
+         "Gestor de contraseñas"
+        ]
+       },
+       {
+        "id": "t8",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Evaluar el uso trimestral de licencias"
+       },
+       {
+        "id": "t9",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Revisar y reportar a la Junta"
+       },
+       {
+        "id": "f1",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Política vigente con inventario al día"
+       },
+       {
+        "id": "f2",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Solicitud devuelta"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t5",
+        "etq": "No"
+       },
+       {
+        "de": "t5",
+        "a": "f2"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "t9"
+       },
+       {
+        "de": "t9",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-12",
+      "E-18",
+      "E-20",
+      "E-24",
+      "E-25",
+      "E-44",
+      "E-52",
+      "E-70",
+      "SC-04",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Filtración de datos por la inteligencia artificial",
+       "No hay restricción ni filtro sobre lo que se carga en las herramientas; un área cargó toda su data de compras en una herramienta externa.",
+       "Alta",
+       "Alto",
+       "Política con niveles de sensibilidad del dato y uso solo con cuentas corporativas."
+      ],
+      [
+       "Credenciales de administrador en desarrollos no gobernados",
+       "Para conectar herramientas de inteligencia artificial a Odoo se entregaron credenciales de administrador, y sistemas no sabe quién accede a esa data.",
+       "Alta",
+       "Alto",
+       "Credenciales de mínimo privilegio, gestor de contraseñas e inventario de accesos."
+      ],
+      [
+       "Licencias dispersas",
+       "Hay licencias pagadas por la empresa, otras pagadas por cada persona, tarjetas dedicadas a pagar servicios y cuentas con dominios distintos que no se pueden conectar.",
+       "Alta",
+       "Medio",
+       "Inventario único de licencias y asignación solo por solicitud con caso de uso."
+      ],
+      [
+       "Resultados sin verificar",
+       "Usuarios reconocen que la herramienta a veces se equivoca en cálculos contables y fiscales, y hay exceso de confianza.",
+       "Media",
+       "Alto",
+       "Validación humana obligatoria de todo resultado que se use para decidir o para reportar."
+      ],
+      [
+       "Terceros con acceso a toda la data",
+       "Consultores y programadores externos trabajan por horas con acceso amplio a los datos del grupo, sin control ni auditoría de su trabajo.",
+       "Media",
+       "Alto",
+       "Acuerdo de confidencialidad, accesos acotados y revisión en el inventario semestral."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Licencias en inventario",
+       "Licencias de inteligencia artificial registradas en el inventario ÷ licencias pagadas por el grupo",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Uso de las licencias",
+       "Licencias con uso activo en el trimestre ÷ licencias asignadas",
+       "Trimestral",
+       "Gerentes de primera línea",
+       "≥ 80 %"
+      ],
+      [
+       "Accesos con mínimo privilegio",
+       "Credenciales de conexión sin privilegios de administrador ÷ credenciales de conexión otorgadas",
+       "Semestral",
+       "Coordinador(a) de Sistemas",
+       "100 %"
+      ],
+      [
+       "Revisión semestral realizada",
+       "Revisión de política, inventario e incidentes presentada a la Junta (sí / no)",
+       "Semestral",
+       "Gerente de Tecnología / Sistemas",
+       "Sí"
+      ]
+     ]
+    }
+   },
+   "5.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Encauza las iniciativas de inteligencia artificial y automatización que hoy nacen dispersas en cada área: su registro y el inventario de lo que ya está construido, la revisión de duplicidad, la evaluación técnica y de riesgo por sistemas, la priorización por valor y riesgo, la decisión de quién lo construye, la validación antes de producción y la medición del beneficio.",
+     "nota_estado": "Proceso a implementar. Hay muchos desarrollos en curso —tableros, aplicaciones de garantías, centros de mando de atención, herramientas de márgenes— construidos por las propias áreas, y sistemas ya tiene un circuito para sus desarrollos. Lo que se incorpora es un inventario único y que todo desarrollo pase por sistemas antes de producción."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Proyectos (PMO)",
+     "participantes": [
+      "Gerentes de primera línea — proponen los casos de uso de su área, los construyen cuando son de autoservicio y miden su beneficio.",
+      "Gerente de Tecnología / Sistemas — evalúa el riesgo y la arquitectura, construye con su equipo o con el partner y valida todo desarrollo antes de producción.",
+      "Comité de Inteligencia Artificial — prioriza los casos por valor y riesgo y decide quién los construye."
+     ],
+     "evidencia": [
+      "E-52",
+      "SC-04",
+      "E-58",
+      "E-63",
+      "E-64",
+      "SC-09"
+     ],
+     "notas": "La oficina de proyectos lleva el inventario y la cartera; la validación técnica y la puesta en producción son de sistemas, que ya acordó con las áreas un solo estándar de seguridad y un solo canal de integración con Odoo."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-12",
+      "E-52",
+      "E-58",
+      "E-63",
+      "E-64",
+      "SC-04",
+      "SC-09"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerentes de primera línea",
+       "texto": "Registran en el formulario cada caso de uso de su área —el problema, los datos que usa, quién lo usará, el beneficio esperado y la herramienta—, incluidos los que ya construyeron y están en uso."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Incorpora el caso al inventario de casos de uso y verifica si otra área ya resolvió lo mismo, para que dos gerentes no construyan por separado la misma herramienta."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Evalúa el riesgo y la arquitectura: qué datos toca, qué credenciales necesita, cómo se integra con Odoo por el canal único y si respeta la política de uso."
+      },
+      {
+       "id": "a4",
+       "rol": "Comité de Inteligencia Artificial",
+       "texto": "Prioriza los casos por valor y riesgo y decide si se aprueba cada uno; los descartados se registran con su motivo, como la atención automatizada que se descartó por criterio de marca."
+      },
+      {
+       "id": "a5",
+       "rol": "Comité de Inteligencia Artificial",
+       "texto": "Para cada caso aprobado decide quién lo construye: sistemas o su partner cuando toca los sistemas centrales, o la propia área con una herramienta autorizada cuando es de autoservicio."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Construye y prueba en un entorno de prueba los casos asignados a sistemas o a su partner, con el mismo estándar técnico de sus demás desarrollos."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerentes de primera línea",
+       "texto": "Construyen con la herramienta autorizada los casos de autoservicio de su área, sin credenciales de administrador y sin sacar datos confidenciales del entorno corporativo."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Valida todo desarrollo antes de pasar a producción —seguridad, datos, integración y efecto sobre contabilidad e inventario— sin importar quién lo construyó."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerentes de primera línea",
+       "texto": "Miden a los noventa días el beneficio real del caso frente al esperado y lo reportan al inventario; la decisión final sobre el negocio sigue siendo de la persona, la herramienta la prepara."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerentes de primera línea",
+       "Gerente de Proyectos (PMO)",
+       "Gerente de Tecnología / Sistemas",
+       "Comité de Inteligencia Artificial"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerentes de primera línea",
+        "tipo": "inicio",
+        "n": "Caso de uso propuesto o desarrollo detectado"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Registrar el caso de uso",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t2",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Inventariar y revisar duplicidad",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Evaluar riesgo y arquitectura"
+       },
+       {
+        "id": "d1",
+        "carril": "Comité de Inteligencia Artificial",
+        "tipo": "decision",
+        "n": "¿Se aprueba el caso de uso?"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Registrar el descarte con su motivo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "d2",
+        "carril": "Comité de Inteligencia Artificial",
+        "tipo": "decision",
+        "n": "¿Quién lo construye?"
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Construir y probar en entorno de prueba",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "t6",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Construir con la herramienta autorizada",
+        "sistemas": [
+         "Claude"
+        ]
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Validar antes de producción"
+       },
+       {
+        "id": "t8",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Medir el beneficio a los 90 días",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "f1",
+        "carril": "Gerentes de primera línea",
+        "tipo": "fin",
+        "n": "Caso en producción con beneficio medido"
+       },
+       {
+        "id": "f2",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Caso descartado con motivo"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "d2",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t4",
+        "etq": "No"
+       },
+       {
+        "de": "t4",
+        "a": "f2"
+       },
+       {
+        "de": "d2",
+        "a": "t5",
+        "etq": "Sistemas o partner"
+       },
+       {
+        "de": "d2",
+        "a": "t6",
+        "etq": "El área"
+       },
+       {
+        "de": "t5",
+        "a": "t7"
+       },
+       {
+        "de": "t6",
+        "a": "t7"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-12",
+      "E-52",
+      "E-58",
+      "E-63",
+      "E-64",
+      "SC-04",
+      "SC-09"
+     ],
+     "filas": [
+      [
+       "Desarrollos que se escapan de sistemas",
+       "Áreas no técnicas construyeron herramientas con inteligencia artificial que no pasaron por sistemas y llegaron a afectar contabilidad e inventario.",
+       "Alta",
+       "Alto",
+       "Validación de sistemas obligatoria antes de producción para todo desarrollo."
+      ],
+      [
+       "Duplicidad entre áreas",
+       "Cada gerente puede querer su propia herramienta; sin inventario, dos áreas construyen lo mismo.",
+       "Media",
+       "Medio",
+       "Inventario único y revisión de duplicidad antes de aprobar."
+      ],
+      [
+       "Herramientas sin dueño",
+       "Tableros y aplicaciones construidos por una persona quedan sin mantenimiento si esa persona cambia de rol.",
+       "Media",
+       "Medio",
+       "Responsable registrado en el inventario por cada caso en producción."
+      ],
+      [
+       "Automatizar sin dato limpio",
+       "El principal bloqueo que reportan los usuarios no es la herramienta sino la calidad de la data de origen.",
+       "Alta",
+       "Alto",
+       "Evaluar la calidad del dato como parte del riesgo de cada caso."
+      ],
+      [
+       "Deshumanizar la relación comercial",
+       "Los comerciales temen que la automatización sustituya el trato con el cliente, y la marca descartó la atención por robot.",
+       "Media",
+       "Medio",
+       "La herramienta prepara y la persona decide; los casos que tocan al cliente se evalúan con criterio de marca."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Casos en el inventario",
+       "Desarrollos en uso registrados en el inventario ÷ desarrollos en uso detectados",
+       "Trimestral",
+       "Gerente de Proyectos (PMO)",
+       "100 %"
+      ],
+      [
+       "Validación antes de producción",
+       "Casos en producción validados por sistemas ÷ casos en producción",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Beneficio medido",
+       "Casos con beneficio medido a los 90 días ÷ casos con más de 90 días en producción",
+       "Trimestral",
+       "Gerentes de primera línea",
+       "≥ 90 %"
+      ],
+      [
+       "Tiempo de decisión",
+       "Días entre el registro del caso y la decisión del comité",
+       "Mensual",
+       "Gerente de Proyectos (PMO)",
+       "≤ 30 días"
+      ]
+     ]
+    }
+   },
+   "5.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Desarrolla en la organización las competencias para usar la inteligencia artificial y las herramientas digitales: la detección de necesidades por rol, la selección de quienes van a usar la herramienta con sus datos, la verificación de licencias y accesos, las cohortes por nivel dentro de la universidad corporativa, la medición del uso real, la certificación de multiplicadores y la decisión de ampliar las licencias según el retorno.",
+     "nota_estado": "Proceso a implementar sobre una base reciente: la primera línea y la Junta recibieron talleres prácticos, la universidad corporativa Momentum se lanzó con el respaldo de la Junta y la formación y desarrollo ya tiene líder regional. Lo que se incorpora es formar solo a quien usará la herramienta, medir el uso real y decidir las licencias con ese dato."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+     "participantes": [
+      "Gerentes de primera línea — validan la pertinencia y proponen a quienes van a usar la herramienta con los datos de su área.",
+      "Gerente de Tecnología / Sistemas — deja listas las licencias y los accesos antes de cada cohorte.",
+      "Junta Directiva — patrocina el programa y decide la ampliación de licencias con el retorno medido."
+     ],
+     "evidencia": [
+      "E-66",
+      "SC-09",
+      "SC-10",
+      "E-27",
+      "E-24"
+     ],
+     "notas": "La formación en inteligencia artificial de 2026 la impartió el equipo consultor; este proceso describe cómo la sostiene el grupo con su propia función de formación."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-00",
+      "E-02",
+      "E-07",
+      "E-24",
+      "E-27",
+      "E-58",
+      "E-62",
+      "E-66",
+      "SC-09",
+      "SC-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "texto": "Detecta con los líderes de área las necesidades de formación en inteligencia artificial por rol, con una línea base de lo que cada persona sabe hacer y de lo que su puesto le exige."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerentes de primera línea",
+       "texto": "Validan la pertinencia y proponen a quienes van a usar la herramienta con los datos de su área, con criterio de quién puede ver qué información, en lugar de formar a personas que no la usarán."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Verifica que cada participante tenga la licencia y los accesos listos antes del taller, porque la formación práctica se hace sobre la herramienta y los datos reales de cada quien."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "texto": "Ejecuta la cohorte en la universidad corporativa por niveles —Junta y comités, gerencias, multiplicadores—, con práctica sobre datos propios y la política de uso del grupo como contenido obligatorio."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "texto": "Mide entre treinta y sesenta días después el uso real de la licencia y los casos de uso que cada graduado aplica, con una encuesta y los datos de uso de la herramienta."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerentes de primera línea",
+       "texto": "Cuando el uso no se sostiene, deciden con formación si se refuerza a la persona o se reasigna su licencia a quien la aprovechará."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "texto": "Certifica a quienes sostienen el uso y designa como multiplicadores a los que pueden formar a sus equipos, para que la adopción se extienda sin depender de talleres externos."
+      },
+      {
+       "id": "a8",
+       "rol": "Junta Directiva",
+       "texto": "Decide la ampliación de licencias y de cohortes con el retorno medido de las anteriores, como pidió la Presidencia antes de pagar licencias a más personas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "Gerentes de primera línea",
+       "Gerente de Tecnología / Sistemas",
+       "Junta Directiva"
+      ],
+      "nodos": [
+       {
+        "id": "i",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "inicio",
+        "n": "Nueva cohorte o ingreso a un puesto que lo requiere"
+       },
+       {
+        "id": "t1",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "tarea",
+        "n": "Detectar necesidades por rol"
+       },
+       {
+        "id": "t2",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Proponer a quienes usarán la herramienta"
+       },
+       {
+        "id": "t3",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Dejar listas licencias y accesos"
+       },
+       {
+        "id": "t4",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "tarea",
+        "n": "Ejecutar la cohorte por niveles",
+        "sistemas": [
+         "Momentum"
+        ]
+       },
+       {
+        "id": "t5",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "tarea",
+        "n": "Medir el uso real a 30–60 días"
+       },
+       {
+        "id": "d1",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "decision",
+        "n": "¿El uso se sostiene?"
+       },
+       {
+        "id": "t6",
+        "carril": "Gerentes de primera línea",
+        "tipo": "tarea",
+        "n": "Reforzar o reasignar la licencia"
+       },
+       {
+        "id": "t7",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "tarea",
+        "n": "Certificar y designar multiplicadores",
+        "sistemas": [
+         "Momentum"
+        ]
+       },
+       {
+        "id": "t8",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Decidir la ampliación con el retorno"
+       },
+       {
+        "id": "f1",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Cohorte formada con adopción medida"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "i",
+        "a": "t1"
+       },
+       {
+        "de": "t1",
+        "a": "t2"
+       },
+       {
+        "de": "t2",
+        "a": "t3"
+       },
+       {
+        "de": "t3",
+        "a": "t4"
+       },
+       {
+        "de": "t4",
+        "a": "t5"
+       },
+       {
+        "de": "t5",
+        "a": "d1"
+       },
+       {
+        "de": "d1",
+        "a": "t7",
+        "etq": "Sí"
+       },
+       {
+        "de": "d1",
+        "a": "t6",
+        "etq": "No"
+       },
+       {
+        "de": "t6",
+        "a": "t8"
+       },
+       {
+        "de": "t7",
+        "a": "t8"
+       },
+       {
+        "de": "t8",
+        "a": "f1"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-00",
+      "E-02",
+      "E-07",
+      "E-24",
+      "E-27",
+      "E-58",
+      "E-62",
+      "E-66",
+      "SC-09",
+      "SC-10"
+     ],
+     "filas": [
+      [
+       "Formar sin licencia ni caso de uso",
+       "Sin licencia no hay práctica, y formar a quien no usará la herramienta con sus datos no produce adopción.",
+       "Alta",
+       "Medio",
+       "Selección por caso de uso y licencias listas antes de cada cohorte."
+      ],
+      [
+       "Adopción que no se mide",
+       "Se pagan licencias sin saber si se usan; la Presidencia pidió medir el retorno antes de ampliar.",
+       "Alta",
+       "Alto",
+       "Medición a 30–60 días y decisión de licencias con ese dato."
+      ],
+      [
+       "Iniciativas de formación aisladas",
+       "La plataforma de formación que creó un área quedó sin dueño corporativo y hoy la retoma formación y desarrollo.",
+       "Media",
+       "Medio",
+       "Toda formación digital dentro de la universidad corporativa, con dueño."
+      ],
+      [
+       "Cambio vivido como amenaza",
+       "Sistemas advierte que la gente puede sentirse atacada si la inteligencia artificial entra sin acompañamiento ni claridad sobre lo que se espera de cada persona.",
+       "Media",
+       "Medio",
+       "Formación gradual, al ritmo de cada persona, con expectativas claras por puesto."
+      ],
+      [
+       "Información sensible en la práctica",
+       "Practicar con datos reales expone información sensible a personas que no deberían verla.",
+       "Media",
+       "Alto",
+       "Cohortes formadas según quién puede ver qué datos."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Uso sostenido tras la formación",
+       "Graduados con uso activo de la licencia a 60 días ÷ graduados de la cohorte",
+       "Por cohorte",
+       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "≥ 80 %"
+      ],
+      [
+       "Participantes con licencia lista",
+       "Participantes con licencia y accesos antes del taller ÷ participantes",
+       "Por cohorte",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Multiplicadores certificados",
+       "Multiplicadores certificados por área",
+       "Semestral",
+       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "≥ 1 por área"
+      ],
+      [
+       "Casos de uso aplicados",
+       "Graduados que reportan al menos un caso de uso aplicado ÷ graduados",
+       "Por cohorte",
+       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "≥ 70 %"
+      ]
      ]
     }
    }

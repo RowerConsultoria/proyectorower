@@ -1,0 +1,341 @@
+S1: OK, o sea, venía detrás de nosotros, creo que había bajado un momentico y cuando nosotros estábamos subiendo estaba .
+S2: Y tanto Ricardo como Leonardo trabajan contigo en tu equipo. Hola, ¿Cómo estás Leonardo? Un placer, Jesmir, un placer.
+S1: Sí, el equipo realmente el equipo es bastante grande.
+S2: Vale.
+S1: Pero Ricardo es como quien se encarga de todo el tema de chequeos de mercancías.
+S2: Excelente.
+S1: Los traslados, aceptación de traslado, y entre los dos hacen todo el tema de los despachos.
+S2: Vale, vale. Si. ¿Les comentaron a los tres cuál es el propósito, la razón de ser de esta sesión? ¿Saben por qué están aquí?
+S1: Documentar como los procesos y ver cómo es el trabajo de todos.
+S2: Van bien, ¿No van así? Van bien. Sí, mira, les comento, nosotros ya terminamos la primera fase del proyecto, que fue el diagnóstico. Ahora mismo sí estamos entrando en la fase de procesos y la idea es documentar a profundidad toda la cadena de actividades que va desde el evento de. De inicio que origina todo el tema de ventas, hasta la salida que es ya el despacho, la venta final, o sea, que hay en el medio. Entender un poco esa cadena. Por supuesto, ustedes son personas clave dentro de esta cadena de proceso y era un poco entenderlo con ustedes. Vale. Que conversemos un poco. Yo voy tomando notas, registrando acá y bueno, iniciar un poco conociéndolos. ¿Cuánto tiempo llevan acá, por cierto, en Rosa?
+S3: Bueno, yo tengo trabajando acá, voy para tres años.
+S2: ¿Vas para tres años, llevas tiempo?
+S3: Claro, lo que pasa es que yo anteriormente trabajaba en la parte de soporte técnico, atendía cliente, verificaba órdenes de servicio, verificaba los equipos y todo eso antes de que. Bueno, ya tengo ya un año.
+S2: ¿Un año?
+S1: No, o sea, tienes tres años aquí, pero un año dentro de la web.
+S2: Ya tengo como un año y medio.
+S3: Prácticamente en la web.
+S2: Listo, yo estoy. Ricardo, ¿Cuánto tiempo llevas acá? ¿Ricardo? Leonardo. ¿Que? Leonardo llegó al final.
+S4: Ricardo.
+S2: Ricardo y Leonardo. Perdón, Leonardo llevo como.
+S4: Creo que son siete meses.
+S2: ¿ lleva, o sea, primera vez, no vienes de otra área?
+S4: No.
+S2: OK, vale, de acuerdo.
+S1: Yo tengo un año.
+S2: Un año.
+S1: Yo llegué en julio del año pasado, tengo un año y un mes.
+S2: Vale, vale, perfecto, excelente. Vale, está muy bien. Un poco para conocer sus roles, ¿No? Cuéntenme un poco, hoy en día, ¿Cuál es la denominación formal del cargo que ustedes tienen? Si es que hay una denominación formal.
+S1: Sí, creo que somos uno de los pocos departamentos que cuando iniciamos, o sea, como que cuando se comenzó a estructurar, comenzamos a darle como que nombres a cada cargo.
+S2: Muy bien.
+S1: El mío de Gerencia de Ventas Web.
+S2: Tú eres la Gerente de Ventas Web. Correcto.
+S1: Ricardo tiene Supervisor de Operaciones y Logística.
+S2: Supervisor de Operaciones y Logística, perfecto.
+S1: Y Leo es ayudante.
+S4: Ayudante de Logística.
+S2: Vale, vale, buenísimo.
+S1: Y como ellos, el resto también tiene su cargo.
+S2: Su cargo, Chévere.
+S1: Somos bastante, la verdad.
+S2: Vale, vale.
+S1: Somos como tres.
+S2: De acuerdo. Ahora bien, si tuviésemos que hacer un mapa, un diagrama, una identificación de los subprocesos claves que ustedes manejan, ¿Cuáles son esos procesos clave que llevan diariamente, que arropan su agenda diaria, ¿Cómo se estructura su trabajo hoy en día como para hacer un poco un inventario? Un inventario, por lo menos. Les pongo un ejemplo. En recursos Humanos es más o menos sencillo porque está Reclutamiento y selección, eso es una cosa. Capacitación y Desarrollo, eso es otra cosa. Salud Ocupacional y riesgo de trabajo, eso es otra cosa. En su caso, ¿Cómo está ese tema en ventas, en la parte comercial online?
+S1: Bueno, creo que el mio es más amplio porque yo, aparte del tema de entrada y salida y ellos que despachan, yo tengo que estar pendiente de toda la parte de la mensajería y atención al cliente. Entonces tengo el equipo tanto de Casio como de Juli. Básicamente al llegar es revisar que todos los chats estén asignados, que todos estén conectados, que ellos estén como respondiendo. Otra de las cosas que yo tengo asignadas es que yo valido los pagos del equipo.
+S2: Valide los pagos del equipo, pagos de.
+S1: Comisiones, pagos de los clientes.
+S2: perdón, pagos a clientes de los clientes.
+S1: Alguien que vendió, le cobraron y yo soy quien valida los pagos de esas transacciones.
+S2: ¿Y por qué lo haces tú y no lo hace cuentas? Por, o sea, el tema no sé pregunto por.
+S1: No, realmente sé que eso es un proceso que debería llevarse en contabilidad, administración. Eso yo lo sé porque así es en otros lugares donde he trabajado. Pero aquí como que la cultura fue. Demoraba en validar los pagos y la solución más rápida fue como, bueno, nada, que eso baje abajo y en su momento lo hacía Jose, que es el de soporte técnico, el otro gerente abajo. Y bueno, hicieron cambios en los bancos, no sé qué broma. Bernardo me aperturó una cuenta como para la web, que hizo un Y comencé a llevarlo yo. Entonces desde allí ya tengo como creo que todo este año yo validando los pagos en las ventas validas los pagos.
+S2: ¿Cómo validas esos pagos? ¿Cuál es el proceso de validación?
+S1: Los asesores lo mandan a un grupo en LARC que se llama Confirmaciones, colocan el número de pedido por si hay que rastrearlo en algún punto o buscar. Todos nuestros pedidos están rastreados por número de pedido. Internamente hablamos por número de pedido. Yo tengo en el banco está como únicamente para consultas, al recibir el pago voy por orden en que los va mandando, tengo que entrar en el banco, chequeo referencias versus referencias y monto y les voy pasando como fecha, pago, referencia y toda la info bancaria dentro de ese grupo para que eso quede allí registrado.
+S2: OK, ¿A quién cuando dices le paso eso, a quién se lo pasas?
+S1: Lo paso en el grupo.
+S2: ¿OK, lo montas en el mismo grupo Y eso quién lo lee realmente? ¿Quién recibe eso?
+S1: Los mismos chamos, los mismos. Y claro, igual obviamente por la cercanía es fácil que si estoy revisando algo y no lo encuentro, me es fácil mira esto no cayó, mira, revisa esta orden porque no cayó.
+S2: Eso es dentro del arco, en una sección me imagino particular, es un grupo.
+S1: Donde hay 45 personas, están las tiendas, pero si te soy muy honesta, creo que lo usamos nosotros nada más pocas veces las tiendas mandan cosas aquí, pero yo básicamente copio la info del banco y la paso para acá.
+S2: Entiendo. ¿Y vas haciendo eso caso por caso? Sí, claro, caso por caso. ¿Cuánto tiempo más o menos te lleva de la agenda esta actividad concretamente?
+S1: Eso toma tiempo, por lo menos hoy, ahorita no lo hecho y ahorita tendría que sentarme y validar todos los pagos que estén. Pueden haber diez, pueden haber quin. Si venimos del fin de semana que no laboramos, yo por lo general siempre hay un chance del domingo donde yo me conecto un momentito, vaya hasta los domingos, imagínate, y como que los validos para no tener esa presión el lunes entiendo como lo adelanto y después el lunes aquí llego y ya sé que la mayor parte del fin de semana está lista, pero sí, obviamente hay algo que hay que hacer, muchas veces en el día, varias veces, si ves que hay 10, tengo que meterme y validarlos, o si los muchachos vendieron algo muy alto es como revísame este pago. Pero si ocurre que muchas veces, a veces ellos mismos es como me validas este pago, o sea, se vendieron 300 dólares, puedes meterte y revisar. Y yo bueno, está bien.
+S2: OK, esto respecto a las ventas online. Claro. ¿Cuántas tiendas online o cuántos canales online estamos manejando hoy en día? ¿Cuáles son, por cierto? Eso es.
+S1: Tenemos las dos marcas, casi Cubi manejan las dos marcas.
+S2: Chévere.
+S1: Las dos tienen página web, las dos están en caché, las dos están en mercado Libre. Mercado Libre no vende mucho, la web de Qubit vende full, pero nada se compara a lo que vende caché.
+S2: Nada se compara a lo que vende caché con caché.
+S1: El 80% no en las ventas en el 80% es caché.
+S4: Acud.
+S2: Vale, vale.
+S4: En la forma tenemos 6 reventa y.
+S1: Ahorita vamos a aperturar Yomi.
+S2: Van a aperturar Yomi, o sea, a través de Yomi vamos a ofrecer también productos de las dos líneas, vamos a.
+S1: Iniciar con Cubis primero y después vamos a casa.
+S2: Y cómo va a funcionar, o sea, cómo con Yomi, ¿Cómo funcionaría eso? Yomi Delivery, el tema de alguien pide y se lo lleva.
+S1: Están abriendo una sección que dice Marketplace, pero no tienen muchas tiendas, tienen como dos, tres tienen que decir soy tecno y otras dos más. Entonces, bueno, ellos han querido mejorar las relaciones con Bernado antes, como que están en ese proceso y lo hablamos como retrasado, porque no creemos que vendamos tanto , porque está hecho para comida, no tanto para productos. Entonces hacer todo este esfuerzo de entrar allí. Claro que Sí, para vender 10, no sé, 500 dólares en el mes. Nos fuimos retrasando, retrasando, pero ya llegamos a un punto donde retorno. Ya la mamá de Vicente habló con Bernardo, ya Bernardo está contento porque quiere ser pionero y quiere inaugurar el market y él quiere ser el principal y ya no hay retorno, ya es un.
+S2: Proyecto, es un hecho. Vamos para allá. Comprendo. Listo. Ahora bien, se me ocurría algo respecto a esta. Al tema que me muestras acá. Esto es bolívares solamente, porque claro, por Internet puedes comprar en divisas, ¿Verdad?
+S1: Con Paypal solamente los bolívares.
+S2: Otros medios de pago, digamos, los valida Verónica. ¿Quién es Verónica, disculpa?
+S1: Una chica que está haciendo valores.
+S2: no hemos hablado con ella todavía.
+S1: Seguramente si, no, yo estoy consciente de que esta es una tarea que yo no debería de realizar. ¿También existe el hecho de que nuestro Odoo, como está relativamente nuevo, faltan como muchas opciones para que el trabajo pudiese llevarse solamente desde allí, cierto?
+S2: ¿Ustedes tienen Odoo, pero aprovechan Odoo realmente se utiliza hoy la herramienta?
+S1: No, con toda la honestidad puedo decirte.
+S2: Que no, o sea, pero Odoo tiene su módulo de ventas, su módulo comercial, lo usan en. ¿Qué lo usan para qué lo usan? Para facturación. Claro, pero no como para comerciales, no.
+S1: Tenemos paneles como logísticos o despachos, lo cual hace que ellos cuando tengan que hacer sus labores y sus trabajos, tienen que estar orientando de un archivo a otro, porque no hay manera de que el asesor pueda rastrear si un pedido salió. No existe una forma de que el asesor revise un pedido y tenga la info completa de si el pago está aprobado, cuando se aprobó o cuándo se envió, o si se envió, o que tenga la info del día, no existe.
+S2: Eso no se puede conseguir por. Ellos manejan un Excel, un largo trabajo.
+S1: De caché, porque hay que registrar todo lo que va saliendo durante el día,.
+S2: Eso hay que resolverlo de alguna forma. Un poco el proyecto apunta también a identificar esas oportunidades de automatización con IA vamos a intentar buscar espacios donde algunas actividades se puedan que resulten tan largas o tan repetitivas, ocupen tiempo de la agenda, tratar de simplificarlas un poco entonces.
+S1: Sí, y lo mismo, ojo, yo esto lo conversé con Oraní, ella me dijo que fuéramos haciendo como todo lo que tenemos pensado para conversarlo ahorita con Mariela, porque ahorita ellos están haciendo el tema de métodos de pagos en la web para ver qué cosas podíamos pasar a Odoo para ir mejorando esto, porque mi mundo ideal en un pedido en Odoo yo no debería entrar, primero no debería hacerlo yo la validación, segundo, no deberíamos de estar atados a un grupo en LAR, sino aquí un pedido debería de existir un botón o algo donde tú marques está aprobado y eso debería llegar a un panel donde ellos puedan ver lo que realmente está aprobado.
+S2: OK, y no se ha conversado con el partner Odoo, o sea, no sé si se ha tocado el punto con Odoo directamente, porque ellos pueden.
+S1: No hemos tocado ese punto, estábamos full enfocados en que es que la web tiene como un mes o dos meses como mucho que está teniendo todo el tema de métodos de pago, porque anterior a este tiempo todo era como que la gente compraba y había que escribirle, y entonces cuando escribiera que le pasaba el pago móvil, entonces era había muchas ventas y poca conversión, había muchas pedidas, pero realmente convertidas de 30 convertidas,.
+S2: Muy manual el proceso posterior.
+S1: Que enfocaban en aperturar todos los métodos de pago. Hablamos con bancos, se abrieron todos en Qubit, falta ahora migrar a Casio.
+S2: Perfecto.
+S1: Hicimos integraciones de envíos con MRW, con Zoom y solo me falta migrarlo a Casio. Y las tarjetas de débito crédito también ya están en Cubi, falta migrarlo a Casio. Por eso Arani fue que me dijo vete haciendo, ya que estamos terminando, vete haciendo como lo que tú esperas en el mundo ideal, como Odoo. Y bueno, ir viendo cuando Mariela puede asignar alguien para ir viendo cómo mejoramos esas cosas.
+S2: Perfecto, listo. Cuando al principio hablabas de la parte de atención, ¿Qué canales de atención también se usan? WhatsApp, me imagino. WhatsApp, tienen canales de WhatsApp, ¿Cómo un cliente puede interactuar con ustedes o potencial cliente? Instagram, correo, Facebook. Pero muy raro.
+S1: Lo que pasa es que Instagram y Facebook no los manejamos nosotros, o sea.
+S2: En Meta tenemos las dos vías, está.
+S1: Fuera como de nuestro organigrama. Eso lo atiende alguien del organigrama de.
+S2: Valentina, o sea, si se atiende, pero se atiende por ese lado, más no.
+S3: Es responsabilidad de nosotros.
+S2: Entiendo, es correcto. ¿Ustedes sí gestionan el WhatsApp? El WhatsApp. Mercateli, Mercateli, me suena familiar. Eso es.
+S1: Recuérdame, el CRM que estamos usando.
+S2: Tiene Mercateli ustedes,.
+S1: Pero sí lo hacemos a través de Mercatel. Todos tienen su usuario, todos tienen sus canales asignados y siempre te llega el cliente como una botonera, quiere comprar soporte o caché y allí se va distribuyendo.
+S2: Vale, vale. Y normalmente el caso o todo lo que el cliente plantea lo puede resolver el asesor al cliente o hay cosas que se escalan, quizá dudas, preguntas, casos complicados tipo mira pagué y no sé, no me ha llegado un correo con la confirmación, o tienes, no sé, algo, lo que es difícil realmente cómo se maneja si hay algún caso complicado, te reportan a ti y te dicen mira Jesmir, tengo un cliente aquí, oye no sé qué decirle por ejemplo, o cómo atenderlo.
+S1: Sí, por lo general ellos ya lo más que nos puede pasar es o que se mandó algo errado, o que.
+S2: Faltó algo, o que faltó algo, pedí dos, me llegó uno, algo así, realmente.
+S1: Como que lo más complejo que pueda suceder. Hay un grado de complejidad de algo.
+S2: Que no se puede resolver o que haya que escalarlo algo mayor.
+S1: Sí, en tal caso, eso es cuando el asesor beso, lo que hace es preguntarle, vemos que se facturó, cómo estaba el pedido realmente hecho, ver si coincide, si la orden. A veces pasaba. Cuando montamos una orden manual, puede que se te olvide, Pero eso es como lo más que pueda suceder. Lo otro que puede pasar es que la guía no tiene avance en MRW. Me quedó pegada en tránsito.
+S2: Esa guía es automática, se genera automática ya con las integraciones de las que.
+S1: Me hablaron, las de la web, pero tiene como una semana o menos. Pero no, realmente antes de eso. Y lo que sucede cuando luchamos, venden por WhatsApp, ellos tienen que hacer la guía manual. Ellos son los que pasan el día haciendo.
+S2: ¿Y cómo hacen esa guía? ¿Cómo se hace, por cierto? Cuéntame, échame el cuento. ¿Cómo se hACE?
+S3: Nosotros tenemos como un archivo que está compartido entre todos los vendedores de la web. Cada uno coloca la información de su pedido y en base a esos pedidos, nosotros tenemos nuestra cuenta afiliada con MRW y todo eso. Y nosotros en base a los datos que los chicos nos colocan , esos datos los pasamos y vamos armando la guía de cada uno de los pedidos.
+S2: Van armando la guía y cabrón, los.
+S3: Pedidos sabemos que le dan toma el nombre, cédula, teléfono, a dónde va un correo, el peso del producto, las dimensiones, se genera la guía, se le pega.
+S1: Y se va anexando.
+S3: Y esa misma guía se le tomó una foto y se pega justamente en el renglón donde te lo coloca el vendedor, en el mismo archivo.
+S2: Y tienen la guía, básicamente.
+S1: Los vendedores saben que para anotar algo allí tienen que ponerle el número de pedido, nombre del cliente, cédula, teléfono y de quién. Es como la regla no escrita.
+S2: Se entiende, se entiende.
+S1: En el archivo tiene que el número de pedido, el nombre del cliente, el teléfono, la cédula. Eso lo hacen con los pedidos que son por WhatsApp o antes de que se crearan en la web. Y también pasa con los de caché, porque en Cacha, a pesar de que tienen la opción de envío nacional, a.
+S3: Veces falla.
+S1: O la gente retiro en oficina y cuando nosotros contactamos no estoy. Entonces hay que cambiarlo de oficina, de un retiro, meterlo en caja y pasarlo a preparar.
+S2: Listo, listo. OK, Vale, comprendo. ¿Y en general ese proceso cuánto tiempo más o menos les lleva a ustedes, o sea están todo el día de un día corriente promedio o una semana corriente, cuánto les ocupa porcentualmente? No hablemos de diciembre, hablemos de algo más. Por lo menos hoy, digamos este mes más o menos tipo agosto.
+S1: Lo que pasa es que entramos en el 0% de caché desde julio 15 y estamos ahorita no es un buen provecho.
+S2: Más de cincuenta manuales. Manuales.
+S3: Manuales. Hay veces que pueden ser ciento treinta, cien junto con las que se escanean.
+S1: Por las de Cacha. Son diferentes. Lo pasa es que ellos manejan distintas cosas, tienen que hacerlas ya nosotros ahorita somos abajo como una agencia más de Zoom, de MRW y vamos por la ETAL. Ellos mismos ingresan sus paquetes dentro de las agencias, ellos son los que te contabilizan, tienen que llevar el registro porque es nuestro aval, cuánto se despachó, entonces tiene que estar pendiente que se lo firmen. ¿Pero lo de cachea hace un tiempo tenemos como cuánto tiempo? ¿Como desde marzo? Como desde junio.
+S4: Mayo. Junio.
+S1: Antes Cacha era embalar, guardar, contabilizaban y eso se quedaba allá abajo hasta que arriba lo buscaban.
+S2: Correcto.
+S1: Ya ahorita desde mayo ellos tienen abajo como tiene lo de MRW, se activó que ellos cada caja que se arma es una caja que tienen que meter en el sistema con cachato imprimes una guía que se le pega a la caja. Ellos abajo tienen ya las pistolas, tienen todo y tienen que escanear cada una de las cajas. Hablamos que un fin vinimos y sacamos casi 800 envíos. Fueron 800 envíos que se tuvieron que escanear.
+S2: 800 Envíos que se vieron que escanear. ¿Y cuántos son ustedes hoy en día? Despacho son dos. En despacho son ellos dos. Son ustedes dos.
+S1: En realidad ellos llevaban los deliveries, pero ingresó un muchacho y está encargándose de los deliveries para que ellos tuviesen más tiempo. Había también una sola máquina y ahora tienen las dos. Bueno, que de hecho creo que todas las laptops ya están configuradas para poder escanear por si es necesario, como necesitamos una lampe que escanear.
+S2: Y por ejemplo, claro, en Internet las ventas son. ¿Puedes vender no sé qué cantidad, no? Pero los despachos son desde aquí, ocurren desde aquí hacia el cliente.
+S3: ¿Viene un transporte de las agencias.
+S2: Retiran.
+S3: La recolecta y la transportan hacia la.
+S2: Principal para que pueda ser distribuido o cuánto tiempo? ¿Ellos tienen un proceso, tienen un día específico MW Todos los días?
+S3: Todos los días, si pasa martes, jueves y viernes.
+S1: Nosotros.
+S2: Ellos lo pidieron así, ustedes lo customizaron así les funciona a ustedes así por.
+S3: El movimiento por Zoom no es tanto, últimamente sí ha tenido bastante movimiento, pero no es tanto como para asignar todos los días una colecta, porque incluso han llegado los días que nosotros hemos fijado y no tenemos nada que despachar.
+S2: Claro, claro. ¿Y eso como lo decidieron? Imagino viendo las estadísticas, sabiendo que se ve cómo van los números.
+S3: Claro, más que todo lo enfocamos en tratar de que no pasara mucho tiempo esperando a que viniera el día indicado para poder hacer el envío. Entonces por lo menos los lunes es como para sacar todos los pedidos del fin de semana y tenerlo todo listo para el día martes. Ya después el jueves, lo que haya salido durante la semana que no se pudo ir el martes pueda salir el jueves y el viernes como bueno, para que no pase viernes, sábado, domingo, lunes, hasta el martes.
+S1: El viernes es como bueno, por si acaso, para que no quede un comodín. Si tenemos de repente dos pedias, no pasa aquí tanto tiempo, lo compraron el.
+S3: Jueves y así, la persona tiene que esperar viernes, sábado, domingo, lunes, martes, más los días que tarde en llegar.
+S2: OK. ¿Y Consum o MRW no han tenido problemas, verdad, Con ellos como operadores logísticos? Porque una cosa es que ustedes se lo ven a ellos y otra cosa es que ellos, bueno, se supone que son gente confiable, son empresas responsables, pero bueno, todos sabemos que nadie es perfecto y puede haber.
+S3: 97% De las ocasiones va todo bien.
+S2: ¿Pero cuéntame cómo esa gestión? A ver, por lo menos un cliente te dice, mira, no sé cómo triangulas, porque eso es triangular entre cliente, tú y Mr.
+S3: Los clientes a veces le piden a los vendedores, yo hice esta compra hace dos semanas, todavía no me ha llegado, quiero saber qué pasó. Los vendedores revisan ellos mismos el sistema o nos preguntan a nosotros, mira, aquí hay una guía que se envió la semana pasada y no le ha llegado todavía. El cliente se revisa, oye mira, si se envió el día 5 y estamos a día 15 y todavía no ha llegado y revisamos el estatus y todo se muestra así como que todavía está en movimiento de tránsito. Claro, en esos casos se contacta directamente con un error para que nos dé una información sobre ese mismo, ese paquete. Puede ser que hay un error con la página, no esté mostrando la información correcta y preferible directamente comunicarnos con ellos para que ellos directamente vean dónde se encuentra el paquete. En algunos casos si nos han dicho así como que mira, el paquete está en la agencia, lo pueden pasar a retirar. En otro caso, recientemente nos pasó de que nos dijeron así como que mira, los clientes deben tener paciencia porque hay muchos envíos, hay muchísima demanda en algunas agencias nos damos abasto y estamos manejándolo como poco a poco, pero deben tener paciencia. Pero si está en tránsito y si han llegado a puntos. Algunos no suelen ser, no es mucho realmente, de vez en cuando, pero si hay casos donde mira, paquete salió de acá, ingresó en la central de mar, se dirige a Valencia, te dicen tránsito hacia Valencia, pasaron dos semanas y el paquete no ha llegado. Se le pregunta a ellos y nos dan con el paquete. Entonces ves donde como que claro, si ya nosotros lo despachamos, ustedes lo recibieron, lo movieron y en el trayecto se perdió. Ya es como que ya es algo que se sale de la mano de nosotros.
+S1: Pero si tenemos con ellos, hemos tenido que. Ellos lo contabilizan, pero entonces no tiene movimiento y yo a veces siento que es una batalla donde siempre perdemos. Es una batalla donde siempre perdemos.
+S2: Después aparece más adelante. Como en un aeropuerto se perdió y.
+S1: Bueno, tenemos que asumir esas pérdidas.
+S2: Claro, se asume la pérdida y nada que hacer .
+S1: Últimamente se ha reducido, supongo que no.
+S2: Es todos los días. Claro. Pero bueno, cuando pasa. Sí, sí, sí, sí, entiendo.
+S1: Lo último que sucedió así fue que un cliente recibió, él dice que lo abrió en el carro y habían sacado los audífonos de la caja. Él se devolvió a la agencia y como él firmó que estaba conforme y no lo abrió dentro de la agencia,.
+S2: listo, ya perdió él. Sí, sí, porque él firmó.
+S1: Yo me puse y me puse como mira, pero ustedes le dicen a los clientes eso porque soy un cliente y yo voy y tú me dices que si lo abro fuera no, ya sea responsable entonces lo va a abrir adentro. Por supuesto, nuestros clientes lo saben.
+S2: Claro, validar eso no es difícil. Es complicado que tú valides eso.
+S1: El otro tema que ahorita tenemos con MRW es que los carros que traen para las colectas son pequeños y nosotros de verdad enviamos. Ahorita estamos enviando entre 150 y 200 envíos todo el día.
+S2: Y por qué es más pequeño ahora, o sea, porque les envían algo más pequeño. ¿Pero no le genera un problema a ustedes eso?
+S1: Pero hay que estar como avisándole, les tenemos tantas. Ojo en prevención de que a lo mejor manden uno pequeño, pero sepa que tienes que devolverte, porque nos ha pasado que si no avisamos y mandas uno pequeño y se queda a la mitad, es como no, ya va carro al día siguiente. Entonces es como prevención de que si mandas uno pequeño y se quedó algo, tienes que mandar otro carro o devolverte.
+S2: ¿Cómo le comunican eso al proveedor? ¿Y quién lo hace? ¿Lo hacen ustedes muchachos o lo hace si usted? Eso es logística de operación, el que.
+S3: Pueda donar algún momento, ella lo hace. Yo lo hago.
+S2: OK, vale. Es algo que se puede distribuir de acuerdo a solicitud. Entiendo. Por cierto, ¿Manejan garantías el tema cómo se está manejando, digamos, si algo llegó, hay garantías en los productos online?
+S1: Eso lo lleva ya soporte.
+S2: Soporte lo lleva. Si hay una queja, un producto defectuoso, por ejemplo, con soporte estamos como dedicados.
+S1: Simplemente a vender hasta la venta.
+S2: Venta y despacho.
+S1: Ha pasado que alguien se despachó ahorita y no prendió. Y cuando ese cliente llega para acá o lo manda, ya eso se encarga. Se tiene que encargar el soporte.
+S2: Entiendo. Porque claro, un cliente puede escribir por la misma web, mira, me llegó algo malo y eso le llegas a ustedes. Ustedes reenvían eso o también aquellos ven lo mismo por.
+S3: A través del mercatel. Lo mismo, si le cae un vendedor, agarre, mira, te va a pasar un chat de soporte que no le enciende el producto y le cae directamente a uno de los chicos de soporte.
+S2: OK, OK, perfecto. ¿Cuántos son de soporte ahorita? Más o menos tienen una idea, o sea, el gol,.
+S1: Ellos son uno atendiendo los chats, uno de los chats, no caen tantos. Está Gustavo haciendo todo lo del detalle.
+S2: OK.
+S1: Y está Joan haciendo al mayor. Eso de Covid.
+S2: Sí lo sé, con caso. Creo que hay un tema de que el relojero no, porque son piecitas más. Hay un relojero que intenta.
+S1: Está el técnico de los teclados.
+S2: El técnico de los teclados.
+S1: Y vende cosas de soporte.
+S2: Exacto.
+S1: Corre.
+S2: OK. Si les pregunto ahora mismo, ¿Cuál es el mayor cuello de botella que tiene el proceso hoy en día? ¿Cuál sería ese dolor, el dolor del proceso? ¿Dónde está la mayor oportunidad de mejora a nivel de la gestión de ventas online?
+S3: Yo creo.
+S2: En la parte,.
+S3: Si fuese todo automatizado, directamente escanea.
+S2: Puede ser varias. Esa puede ser una. Podemos hacer un listado.
+S3: Únicamente de que.
+S2: Quizá reducir un poco los tiempos de esa actividad, o sea, automatizar algunas cosas, porque claro, el error humano también se puede mitigar mucho.
+S1: Para mí ese montón de archivos que usamos.
+S2: Claro, vas a traer uno para el.
+S3: Otro papel, información de aquí, pégala acá, que no.
+S2: Mucho, trae muchas nubes, donde tenemos que.
+S4: Pasar de un lado a otro. Por ejemplo, cuando nosotros vamos a montarlo de lo de caché, lo de caché está montado en un archivo de Excel en donde aparecen los datos de todos los clientes, el pedido en específico, y ese mismo pedido, la información, pasarla a otro cuadro que es donde vamos a montar el capture que nosotros hacemos al momento de escanear, porque pasamos como de tres cuadros diferentes para hacer todo ese.
+S1: Llevamos los de caché en un archivo. Esto ya está hablando con ellos. El tema de esto es que como no depende 100 de nosotros, involucra un caché donde tenemos integración, todos los pedidos llegan a Odoo. El tema está en que lo que ellos muestran o la data visible hace que nos lleguen a nosotros a Odoo. Hasta los pedidos que están cancelados, o sea, los intentos de compra que metí, revisé y lo agregué al carrito, ya eso hace que yo tenga un pedido en Odoo. Entonces, hacerlo directo en Odoo es imposible, porque vamos a preparar cosas que están canceladas. Entonces, ¿Qué hace? Yo tengo un muchacho que está dedicado a extraer todo lo de Odoo, a montarlo en Odoo, a mandarlo a preparación, por eso trabajamos con el WMS. ¿Y el que hace? Él va haciéndose un cruce entre la data de caché y la data que tenemos en el archivo, y él va cruzando para poder extraer lo que realmente es trabajable. Por eso es que no podemos guiarnos por Odoo, Pero igual ese es un proceso que no depende como de nosotros. Supuestamente Cachea lo iba a acomodar para el Q de ellos, que debía ser ahorita a finales de septiembre, donde me iba a traer únicamente lo pagado le pedimos también que me traiga todas las infos del cliente porque tampoco la trae completa, no me trae teléfono, no me trae correo, y ahorita estoy pasando o vamos a pasar a tener facturación digital. Entonces hace que el chamo tenga que meterse dentro del cliente, ponerle la broma. Además está existiendo también una exigencia por parte de mercadeo de extraerse esa data de clientes para hacer email marketing, hacer activaciones. Entonces, bueno, es un trabajo adicional el estar como metiéndote cada pedido, está acomodándolo y por eso es que no podemos simplemente llegar y abrir Odoo y bueno, hay 300 pedidos, vamos a pasarlos. No se puede, hay que extraerlo, lo tienen acá. Y como en Odoo no existe forma de que el vendedor sepa si esto salió o no, ellos aquí les tienen que ir marcando si salió, si no salió, y el vendedor tiene acceso a todos los archivos y va buscando con su numerito de pedido, si está en el de caché, si está en el otro, si está aquí, si está allá, y así es como ellos realmente saben. Y obviamente se van segundos, pero cuando tú sumas todos los segundos del día, fácilmente fue una hora que pasaran el día buscando o persiguiendo un pedido a ver si salió o no salió.
+S2: Sí, sí, Sí, entiendo totalmente. ¿Quién ese muchacho del que hablas que tienes exclusivo para eso?
+S1: Se llama Martínez.
+S2: Él se encarga sólo de eso. Está enfocado.
+S1: Él se encarga de montar los pedidos. Claro, en un inicio comenzó el IJ como caché, pero de verdad que el flujo de cacha es demasiado y era o daba las órdenes o respondía a los chats o se dedicaba a esto o hacía lo otro. Entonces entró Jake y comenzaron como. Bueno, el indie solo responde chat, da soporte y Jaker pasa a ser el que monta todos los pedidos, los manda a preparar, él es el que acomoda todo dentro de Odo y el quien se encarga como entre dar el soporte y coordinarse, hay que hacer un delivery, no sé qué. Todo eso lo hace el, pero si no, J. Bueno, J también. En teoría yo debería tener. Yo a veces tengo que activar nueces, pero yo tengo que activar los motorizados de cachera y aquí llega un montón de motorizados de. Pero la verdad ahorita están apagados. Los tengo apagados porque realmente a veces, primero, el espacio de abajo es muy pequeño, tú no has bajado y no has visto nuestro espacio que es minúsculo y abajo se acumulan las personas, el espacio como para poder embalar también tuvo que salirse del almacén, Está afuera. Es muy complejo, hay demasiadas órdenes y como que no los tengo activos, pero en el momento cuando nos mudemos y tengamos como la disponibilidad del espacio, la distribución, si tú bajas abajo hay una mesa atravesada donde están un montón de muchachos, ellos ya no tienen puesto, Pero de quieres quien atienda los motorizados y los clientes cuando vienen, Porque vienen clientes también, vienen clientes de caché. Mira, yo puse retiro de maquina y vine, entonces a ese pedido hay que buscarlo en el almacén, hay que entregárselo al cliente y eso lo hacer para que el no descuide los chances. Entiendo los pedidos y si viene alguien por cualquier cosa, J es quien sale, habla con el cliente, lo atiende, no sé qué.
+S2: ¿En qué parte está su almacén? En la almacén de ustedes abajo también, pero tipo en el sótano, o sea cuando entras yo sé que hay una puerta. ¿En el mismo almacén donde está? ¿En el mismo taller? ¿A dónde está Elvi, el señor Vladimir trabajando por ?
+S3: No, no, ese es arriba en el piso 3.
+S4: Nosotros estamos abajo en el piso 1.
+S2: Está en el piso 1. ya me voy, cosillo, pasé por una vez por fuera. listo, el piso 1 chévere y OK. ¿Pero ustedes tienen un inventario propio o se lo bajan cuando se hacen compras?
+S1: Yo soy como una tienda. Yo soy como una tienda física.
+S2: Como una tienda física. ¿Pero aquí quién toma tus pedidos y cómo gestionas esos pedidos? ¿Lo que tú necesitas cómo lo gestionas?
+S1: Lo hago yo.
+S2: OK. Eso es con Jimena.
+S1: Lo hace Jimena en teoría, pero yo realmente me adelanto a full a ver.
+S2: Cómo funciona esa parte. ¿Cómo lo haces?
+S1: Lo que tengo disponible lo cruzo versus alimentario arriba y lo que no estoy teniendo lo voy pidiendo o por lo menos viene una promoción y yo sé que vamos a vender hidros de tal color. Yo por lo general trato de surtirme antes de que inicie, evitando que durante ese proceso que estamos en promo haya que estar bajando tanta mercancía porque hace que la gente de almacén deje de sacar pedidos o uno tenga que dejar de sacar pedidos para poderse a chequear. Hace tiempo, hace unos meses, un Leonardo, un Ricardo podían chequear, pero con todo lo que hay que hacer ahora con caché, escanear cada caja y todo eso, ya ellos no tienen como ese espacio de ay, bueno, vamos a chequear. Entonces siempre alguien del almacén tiene que dejar esa parte de Dios como para chequear. Pero básicamente yo vivo cruzándome el inventario.
+S2: Vives cruzando el inventario. Porque tú mencionaste el WMS. ¿Trabajan con eso, no? Eso a través de una plataforma también.
+S1: Creo que es una aplicación.
+S2: Es una aplicación.
+S1: Es una aplicación. También la tienen arriba. Es una aplicación donde nosotros, cada pedido hay que llenar el campo para mostrar. Aquí los chamos lo mandan a preparar, o sea, el vendedor manda a preparar, cachea, lo manda a preparar J, lo pone en preparación y automáticamente eso aparece en la tablet.
+S2: Aparece en la tablet directamente.
+S1: Entonces el almacén lo que hace es saca pedido, escanea, y cuando ellos lo finalizan, él pasa como a la facturación.
+S2: listo, perfecto.
+S4: En sí, el proceso completo como de todo, vendría siendo, por ejemplo, las compras de caché caen directamente al mercatering, que es el mercater, son los chats, el merchant. El merchant es donde cae absolutamente toda la información de las compras de caché, en donde uno de los muchachos en este caso, va sacando toda esa data para poder ingresarnos en. En el cuadro que tenemos nosotros de Excel, de Calcea, y a su vez hacer la confirmación en el Odo. Ya eso queda automáticamente en el Odo, la compra. Pero tenemos que hacer el proceso de la confirmación del pedido, para nosotros saber, por ejemplo, en el caso de los pagos. Claro, ya eso es con la web, pero saber de que está pago, de que si está aceptado el caché, caen todas las órdenes canceladas y las que están operativas. Tenemos que verificar eso. Se hace la confirmación del pedido, ese pedido pasa directamente cuando uno lo pone en preparación, cae en la tablet del almacén, en donde ellos ven toda la información, si va por MRW, si es cachea, si es zoom, el producto, la cantidad, proceden a sacar el pedido, la cantidad, todo eso, el escaneo del producto para chequear, sepa si es correcto o no lo que están sacando. Y ya al finalizar eso, está con una impresora, una etiqueta, donde nosotros tenemos un grupo que se pase la foto, para que así la persona de facturación sepa, este pedido está listo para poder facturar, porque de no pasar por ese proceso,.
+S2: No se factura.
+S4: Que creo que pronto también vamos a tener algo de una vez. Cuando se saca el producto, se factura.
+S1: No vamos a pasar la facturación digital. Al escuchar facturación digital creemos que es automática, pero no, es exactamente lo mismo, solo que digital. Y eso es uno de los cuellos que teníamos, porque como la factura era física, teníamos o tenemos porque no hemos pasado la digital. Todas las cajas que se saben son cajas quedan abiertas hasta que Alexandra facture, porque hay que mandar la factura física dentro del pedido. Entonces al pasar a la digital, básicamente almacén va a poder sacar todo, va a cerrar y Alexandra tiene que de su lado como que ir facturando, pero no existe como ese tema que a veces pasa porque almacén se frustra cuando tiene un montón de cajas abiertas. Entonces Alexandra factura en la medida de lo que va haciendo, porque además de eso, cada caja de caché necesita una guía impresa. Entonces Alexandra factura, ella termina las facturas, le deja las facturas a Jaker y Jaker va imprimiendo cada una de esas facturas, le va buscando la guía, la va imprimiendo y le va poniendo como un clic y él llega con su paca de guías allá. Entonces el almacén tiene que poner ese ver factura hoja versus la caja y el pedir. Entonces como el 32425. 32425 Y la pone. Toma un súper tiempo el organizar que todo salga perfecto.
+S2: Sin duda, sin duda. Vale, vale. Por cierto, ¿Ustedes solo es a personas naturales? ¿El cliente de una venta web siempre es persona natural? ¿Puede una empresa hacer un pedido grande online? ¿Se le maneja de forma diferente? Me refiero, por ejemplo, no sé si hay temas de días de crédito, págame luego por ser. Mientras sea el contado, tú le puedes vender.
+S4: Que son ya empresas que ya con nosotros comprando.
+S2: Una empresa así, por ejemplo.
+S1: Si, no, pero nosotros, o sea, una venta crédito tiene que pasar a juro al mayor.
+S3: Listo.
+S2: Ya es un criterio de negocio.
+S1: Nosotros hemos vendido full cosas. Creo que a mí me preocupa. Hubo una vez un tema donde había que vender mil termos y como que era amigo de Alejandro, algo así, el hijo de Bernardo, y fue como ¿Quién le dio los descuentos? ¿De dónde salió eso? ¿Y bromita y yo como, me preocupa, comenta a vender todo esto y cuando vean los números, como que esta chama que está haciendo? ¿De dónde sacó su poco de monto?
+S2: Claro.
+S1: Y yo subí a. Hablé con Bernabé, me dijo lo que te carga tu canal, véndelo. No haces como que tú estés en una tienda y llega una señora porque tiene 78 nietos y quiera comprar 78 bicicletas. Tú le decís, no señora, por aquí no. Tú lo vendes.
+S2: Claro, si lo tiene, lo vendes.
+S1: Y yo bueno, que fino. Y a partir de allí nosotros ven,.
+S2: Incluso si te queda en cero, o sea, tú vendes lo que tienes, yo pido arriba. Tú vas pidiendo. Claro, arriba siempre van a tener más.
+S1: Cuando a nosotros nos llega una venta alta, por lo menos en estos días, bueno, no siempre lo hacemos así. La semana pasada, el viernes se vendieron 200 coffee MOOC, no los tenía.
+S2: A veces puedo tener 200 de golpe, o sea, un pedido de 200. Sí, un corporativo, me imagino.
+S1: Corporativo Paraguay.
+S2: OK.
+S1: Y nosotros lo que hacemos subirlos, pedirlos de arriba para no desbancarme abajo. Lo que hago es que llamamos arriba, preguntamos y tal, no sé qué, y nos bajan.
+S2: Los bajan y lo que ya tú tienes sigue estando.
+S1: Me hacen el traslado para poderlo facturar en mi punto y listo.
+S2: ¿Tú haces esa petición de traslado por el sistema?
+S1: No, eso sí lo está haciendo él 100%.
+S2: Él 100%. Los traslados de movilización de inventario. perfecto.
+S1: Yo pudiese hacer, pero realmente me la pasa que ocupada o tengo que subir a una reunión y cada vez que alguien de los muchachos me dice mira, hay que pedir tal cosa, dile Ricardo, dile a Ricardo, escríbele a Ricardo porque se me va a olvidar, se me va a pasar. Y a veces arriba no responden tan rápido.
+S2: Ahora que mencionamos, mencionaste Andrés, me acordé algo de Panamá y de otras regiones. ¿Ustedes interactúan, o sea, esto es Venezuela, por supuesto, 100%, pero tienen interacción con gerentes comerciales online de otras de Colombia, Panamá, Costa Rica, USA, interactuando de alguna forma? Por ejemplo, en un comité, ¿Hay alguna especie de comité donde vamos a ver las líneas de negocio, las políticas? No hay.
+S1: Puedo tener reuniones con gente de Panamá porque no lo sé, el boyet de los asignados para las cosas en las que yo invierto dinero de publicidad, lo lleva Clara que es de Panamá, es como la social media de Panamá. Entonces yo tengo reuniones con ella semanal para ver, mira cómo va julio, cuánto se vendió, cuánto es invertido, pon o para cuadrar como mira, tenemos esto y te vamos a cobrar, puedo pasar esto y esto, pero que exista una reunión entre los departamentos y otros países que son igualitos a nosotros para algún.
+S2: Propósito, no pasa ni por un propósito,.
+S1: Ni por estatus, ni para ver qué cosas estás haciendo tú que quizás funcionen aquí o para que tú veas cómo nosotros que somos los que más vendemos,.
+S2: Sí no el consumo online aquí somos.
+S1: La tienda que más vende de todos los países donde estamos.
+S3: Wow.
+S1: Está bien incluida. Somos la tienda que más vende incluso de las físicas de aquí. Muy bien, pero no existe eso, o sea, podemos tener cierta comunidad con Patrick, pero realmente Patrick está más atado a soporte técnico, justo Mercedes, que a la parte del e commerce. Entonces él como yo me puedo comunicar con él de cierta manera para temas del mercatel, porque es quien lleva como ese proyecto, quien lo inauguró con Estefanía, pero temas donde yo tenga que pasarle a alguien a quien yo le puedo pasar información. En parte es que sí Andrés, que yo le voy mostrando como mira si cerró el mes o le muestro como tengo un reporte en Odo que me muestra cuánto se vendió por cada canal, me lo mandé a hacer con el señor José y eso es lo que le muestro a él, como si cerró, que la habíamos querido vender full por WhatsApp, entonces cuando cerramos el mes le digo mira cuánto vendes por WhatsApp, como para que lo vea que está funcionando. Él tenía personas dedicadas porque nosotros tuvimos que meter a tres personas más en abril más o menos, porque la cantidad de chats que nosotros nos caen tampoco es normal, nosotros nos caen como 6.000 chats en qubit mensual, en caso como 2.000, pero en el resto de los países caen 900.000 mensual.
+S2: Una fracción. Sí, una fracción. Una fracción de eso. Entiendo, OK. No, no era para saber eso. Y eso con Andrés es recurrente, normalmente lo haces con Andrés, ese reporte o.
+S1: Ese informe es súper informal, no existe una. Yo tengo un archivo en LAR donde tengo que anotar lo que se va vendiendo mes a mes, entra cualquiera que lo quiera ver y donde está el tema del budget asignado, cuánto se encachea, cuánto se usó acá, pero realmente como que como empresa no existe una reportería que haya que hacer, no existe una entrega de resultados del mes o sea no existe y no ha existido.
+S2: Eso, Eso es lo quería verificar.
+S1: Todo es realmente muy proactivo de tu parte si lo quieres hacer. Yo tengo ese reporte que es súper sencillo, literal me lo descargo de Odoo porque está súper resumido así por origen y yo soy quien se lo muestra como fijo y ya importa. Ni siquiera sabe cuántas de esas órdenes que están son envíos nacionales. Yo a veces siento que nadie sabe nada. Saben que vendemos full, pero no se sabe realmente cuántos delivery sacamos en el mes. No saben que un sábado tuvimos 100 delivery o que el fin de semana sacamos 800 envíos. No lo saben. Yo lo que hago es como ese fin. Le mandé un bidón a Bernardo, le dije tenemos 21 bolsas en vista. Exacto. No existe eso y creo que no existe mi área ninguna otra área. Y como te digo, es como algo de empresa porque vengo de lugares donde tú al finalizar el mes tienes que lanzarte tu presentación de niveles de servicio, de cuánto fue, si creciste o no creciste, si funcionó tu promoción, no funcionó y eso no lo hacemos.
+S2: Entiendo. ¿Si les pregunto ahora mismo cómo se mide la gestión de la gestión e commerce? ¿Cuáles serían los indicadores más relevantes para tú medir? Estamos hablando un poco de eso. Las métricas para calificar el desempeño del departamento. ¿Cuáles serían las métricas más importantes para tú demostrarle a un tercero, oye, mira, de verdad que hacemos un buen trabajo.
+S1: Para las personas que responden los chats es el tiempo de respuesta? Primera respuesta, tiempo promedio. Debería de existir una meta por persona. Digo debería porque realmente como ellos venden por WhatsApp, pero realmente tenemos como una meta grupal. Sí, como una meta que me pusieron a principios de año que había que lograr, pero ya se lo pasamos también.
+S2: ¿Quién se las puso?
+S1: Andrés.
+S2: Andrés.
+S1: Andrés no las pone, pero este fue mi primer año completo aquí.
+S2: Sí, sí lo sé.
+S1: Él la establece con el 10% adicional. La establece con el presente adicional, pero eso es como lo que existe, no hay como una meta. Y ojo, y esa meta fue enfocada como en ventas en Shopify y Cachea. No se contempló nada de lo que hemos anexado que es vender corporativo. No se toma en cuenta que íbamos a tener personas como para vender un poco más por WhatsApp, pero esas metas como por persona o quizás perfilando más. Mira, estos van a ser nada más soporte caché, vamos a tener a tres vendedores netamente para vender, no se tiene. Es como grupal, es del departamento, es como que lo que vende a tienda.
+S2: Entiendo. Listo, listo. Herramientas adicionales, por ejemplo, inteligencia artificial. ¿Manejan inteligencia artificial o la utilizan en el trabajo, en alguna parte del trabajo, algo de ella, no sé si incluso hasta para responder de repente a los clientes, tener algún tipo?
+S1: Los vendedores. Sí, los vendedores sí, o sea tengo, hay dos chicas abajo que es el Iris y Angeli, que ellas responden con macros, se crean macros y allí van armando sus mensajes y usan su inteligencia artificial para crearse cualquier situación que ocurra o por la gente que participe, cualquier evento que ocurra, cualquier cosa, cualquier cliente que sea difícil, complejo, ellos usan su inteligencia artificial con su pro y su detalle a lo mejor a su forma, pero para crearse su mensaje de cómo responderle o qué le dime y muchas veces ellas me lo pasan como que voy a decir esto, si ella me lo pasa me puedo decir esto y yo lo leo y yo sí, o digo bueno, quítale esta partecita porque no sé, o bueno, sí yo le agregaría esto, pero si ellas responden con macros, ellas tienen sus macros, ellas crean sus mensajes por ese lado, como que no es algo que yo tenga que hacer ahorita como al 100%, ellas de verdad que. Claro, también lo hace la experiencia que han tenido, ellas han trabajado en otros lugares de atención al cliente, una trabaja en cachea, respondiendo atención al cliente, la otra ha trabajado en redes sociales, trabajé en canguro respondiendo, atendiendo clientes, tienen como esa experiencia y ya saben cómo es que se responde o cómo puedo hacerlo y crean sus mensajes ahorita.
+S2: Excelente, excelente. ¿Sabes qué herramienta utilizan específicamente de ella? Gemini, principalmente licencias. ¿Tienen Gemini licencia paga o es la genérica? Y con esa va bien, digamos más que suficiente para.
+S1: No, no, hasta se han creado esas imágenes del proceso. Se han creado una imagen del proceso de cómo comprar en caché. No, de verdad que ella gusta full su tema de su inteligencia y de.
+S2: Verdad crean su mensaje que es muy útil, la verdad.
+S1: ¿Al chico de casa lo ayudan como Luis, pero te pasó este mensaje o cuando de repente yo digo muchachos no sé, tal cosa, broma, pasó algo, ella es como que OK, iba una y crea un mensaje, lo pasé por el grupo muchachos, lo pasé por el grupo, saben lo que utilizan?
+S2: Perfecto.
+S1: Y es como que. Pero sí con eso se llevan full, Perfecto. Yo también la uso full si para responder un correo, están pidiendo algo. A veces lo he usado para organizar, por lo menos yo lo usé, algo que me parece importante, lo usé el año pasado para poder organizarla temporada alta.
+S2: OK, perfecto. ¿A ver cómo lo hiciste? Ese caso me llama la atención.
+S1: Mapeé cantidad de ventas por canal en los últimos tres meses. Lo hice como en septiembre, ver sus cantidades de chat asignado a cada uno durante los últimos tres meses. Esa era la base. Comenzamos, comencé como a calcular cuánto demora un chat promedio dentro de la normativa de calidad que debería de ser como entre 7 a 10 minutos, sacando tiempo de almuerzo, sacando así como que las pausas activas, tomando en cuenta que en noviembre el porcentaje de crecimiento es como un 33% y en diciembre es un 160. Sumando todo eso, como que la base me daba que para responder los chats necesitaba, no me acuerdo ahorita, cinco personas.
+S2: Más o menos cinco personas.
+S1: Ese diciembre fallé en algo cuando lo hice porque decidí confiar en que podía disponer de las personas de almacén de arriba. Entonces también aquí era como muy escéptico la cantidad de ventas que teníamos. Entonces realmente conseguir esos cinco perfiles para responder a los chats fue muy difícil. De hecho no me van a dar nadie. Y yo como ven, cuando los tenga que llamar a todos para responder los chats o para sacar los pedidos, iremos a bajar todos al piso. Y bueno, al final Bernardo como que aceptó, dijo bueno, sí, está bien, es verdad. Y bueno, metimos a las cinco personas, pero no teníamos personas de apoyo en almacén. Yo contaba con que arriba me iban a bajar persona, podían bajar en las noches porque esos días nos quedamos hasta tarde, podía bajar, bajaba que si uno era Cristian y después salió de vacaciones una semana antes como que no quiso quedarse más, después salió de vacaciones y realmente como te digo, Leonardo y Ricardo siempre han sido como que personas muy, muy importantes en la corazón allá abajo y ellos cuando no hay, no había guías o cosas para escanear, ellos eran quienes se ponían a sacar los pedidos, a embalarlos. ¿Y así fue como avanzamos todo diciembre para mí creo que lo hicimos tan bien que la gente era como, no se movió, verdad? Diciembre estuvo.
+S2: Like.
+S1: ¿No, es que diciembre estuvo malísimo, verdad? ¿Porque el año pasado estaba ni un.
+S2: Número otro, si supieran, no?
+S1: Y yo como, claro, se movió pero no se nota, no se percibe pues no bajas y no ves a todo.
+S2: El mundo estresado, moviendo caja, tirando broma. Claro, porque se organizaron.
+S1: Eso mismo lo hice para la cosecha.
+S2: En marzo, La cosecha en marzo y.
+S1: Bueno ahorita se acerca otra vez temporada alza y bueno, lo tengo que volver a hacer porque no es lo mismo este año. El año pasado, El año pasado fueron cinco personas adicionales para yo a sus caritas deberían de ser como una siete.
+S2: Vale, vale. Y si está creciendo el consumo online, o sea sigue creciendo año tras año y más en sus ventas.
+S1: Es demasiado, es demasiadamente absurdo.
+S2: No, El consumidor venezolano le gusta, le gusta, le agarramos el gustico a eso de comprar online.
+S1: No eso, es como. Es que es raro, o sea, gracias a Dios que vendemos lo que vendemos pero sabes, no es un artículo de primera necesidad eso también.
+S2: Sí, es correcto. Aquí en Venezuela consumimos mucho smartphone, somos muy consumidores de lo que es inteligencia,.
+S1: Pero no, pero es que en la canción te hablo de que nosotros En diciembre hicimos 5.000 órdenes. Todo diciembre fue una locura y ahorita en estos meses hemos hecho cercana esa cantidad. Siempre vamos a hacer como siete mil.
+S2: Sí, adelante. Creo que tocaron Carmela. Hola, ¿Cómo estás? Tranquila. No, no, adelante, adelante. OK. Wow, cinco mil es altísimo.
+S1: Muy bien porque se me impresionó.
+S2: Sí, me imagino cuando.
+S1: Mira, hicimos 5063 órdenes.
+S2: 5063 Órdenes.
+S1: Esto es lo que hicimos en todo julio. Y lo tienes en bolívares, lo tienes en dólares, aquí las órdenes. Este es el reporte que digo que es básico y rápido.
+S2: Sí, sí, sí.
+S1: Donde claro, el hala por origen me dice, fíjate, en Cacha Juve fueron 2.900 órdenes en todo el mes. Son tus órdenes no contabilizadas cuando alguien quiere ver algo rápido. Mira, aquí está rápido. Pero hicimos 5063 órdenes, julio. Por eso digo yo creo que en diciembre vamos a hacer como 7.000, 8.000.
+S2: Y estás previendo alguna acción, o sea, porque claro, esto es como un forecast que tú estás haciendo hacia más o menos lo que tú estimas. Diciembre va a ser muy alto. Sientes que tienes la capacidad instalada para eso ahorita hoy en día, para atender esa temporada que viene, tanto en recursos, sistema, inventario, ¿Hay algo que estés previendo que pueda hacer falta a nivel de recursos en general?
+S1: Sí, por lo menos ahorita que tenemos 0%, tengo dos personas adicionales para ayudar en el almacén.
+S2: 0% Caché. ¿Eso es como una meta de tener un cero acumulado?
+S1: No, eso es que la gente que es nivel 6 puede ir a la tienda o bueno, a nosotros puede meterse en el marketplace y comprar sin pagar. Paga a los 14 días.
+S2: Sí, sí, entiendo. Usando entonces.
+S1: Si, o sea, ahorita nos están Cayendo bien. 150. 120 Órdenes por día. En diciembre del año pasado nos caían 350 por día. Creo que lo que además de los chats, este año sí metería personas en el almacén y quizás para ellos dos, porque claro, en diciembre solamente embalábamos y ya estabas en muriendo. No es lo mismo tener que escanear 500 cajas un día.
+S2: Por supuesto, individuales y todo el tema.
+S1: Una por una tenés que sentarte.
+S2: Correcto, correcto. Claro.
+S1: Y bueno, te soy muy honesta, le tengo 100 la fe a la remodelación camino, porque yo siento que en el espacio de abajo un diciembre no vamos a poder. Yo estaba preocupada porque en agosto se supone que era la cosecha y yo estaba Bernardo, se va remodelando antes de la cosecha. Se va a remodelar antes cosecha, ¿No? Sí, claro que sí. No se ha hecho, No se ha hecho.
+S2: Pero le tiene fe, o sea.
+S1: Sí, bueno, yo espero que se me. Sí, o sea, mi mente esto debería estar listo, aprobado esta semana. Porque eso, el tema bajo del espacio. De hecho, ahorita en el fin que vinimos, que sacamos como 800, tuvimos que sacar todas esas bolsas y meterlas en la otra oficina porque abajo no hay espacio donde vamos a tener 21 bolsas abajo, como te digo, el almacén es como este tamaño. El almacén y ya adentro no se puede embalar mi nada dentro no se puede. ¿Todo eso salió.
+S3: O llega mercancía? Nosotros.
+S2: Totalmente, totalmente. Vale. Por cierto, ¿Tienen algo de procesos documentados? No les toqué ese punto todavía. ¿Documentación?
+S1: Lo más que tengo son las descripciones de cargo de cada uno.
+S2: Esas yo creo, no sé si tú las cargaste en Lari, ¿No? Si, me suena que las cargaste en Lari, pero manuales o flujogramas, diagramas de flujo no hay. De procesos como tal de activar, no hay documentación ni siquiera obsoleta, o sea que tú me digas, no, bueno, si hay pero es de hace 7 años, algo así. No, no, tranquilo, es para mapear nada más. Chévere, chévere. ¿Hay algo más muchachos que consideren que no hemos tocado, que sea parte importante del proceso, algún eslabón que no hayamos abordado, que vean complementario a esto que ya, bueno, por supuesto han hablado de muchas cosas y todo muy importante, pero hay algo que se está escapando quizás?
+S1: No, yo creo que lo que más nos hace falta, que es lo que hemos tratado como de trabajar estos últimos meses es más automatización, sabes Que todo no hay que estarse moviendo de un archivo a otro, que no hayan que estar. Sí, eso principalmente diciendo que. ¿Y han trabajado en eso y es manual, sabes? Y que al ser manual hay margen de error, o sea, somos humanos y obviamente de cierta manera puede existir un 1% de nada, siempre pasa. Claro, pero al tenerlo tan manual ese 1 aumenta. Sin duda, yo creo que eso es como lo más, lo más que necesitamos.
+S2: Y el avance más importante en esa materia. ¿Cuál ha sido esa automatización? ¿Ha habido algún avance que tú me digas, oye mira, se logró hacer esa automatización o esa integración?
+S1: Creo que la de los pagos.
+S2: ¿Cómo se hizo? A ver, ¿En qué parte se automatizó exactamente?
+S1: Me reduce una validación de pagos porque la gente paga directo en la web, entonces ya no hay tantos pagos móviles que validar, los únicos pago móviles que hay que validar es los muchachos que venden por WhatsApp, Vendí por WhatsApp, no obviamente ni cómo validarlo, entonces lo reduce porque en todo momento, o sea, eso eran 30 pagos en el día, 40 pagos en el día, nada más. Lo mío es los de soporte también los de Gilbert, la señora Evelia entonces.
+S3: Iba a comer, entonces tenía quedarse Yuse validando pago y a veces no estaba Yuse.
+S1: Sí, creo que ese es el avance. Pusimos el botón de caché en la web, Muy bien. Pusimos las tarjetas de crédito y débito, débito inmediato, pago móvil, todo eso está con Banco Plaza en la web, creo que son lo más que se ha avanzado.
+S2: Perfecto, perfecto.
+S1: Bueno, el WMS porque al principio era con hoja. Los principios aquí eran. ¿Tú los viste, no? Aquí el principio era imprimir las hojas y uno iba con nuestra Paquita almacén como que bueno, todo esto hay que sacarlo y había que estar tachando la hoja y esas hojas viajaban a la cajera y llegaba un momento en el que era cosas facturadas, pero las hojas perdidas. Horrible ese momento. Yo creo que el WMS es de las mejores cosas que hemos hecho. Y lo de los pagos, el WMS, porque realmente ellos lograron homologarlo entre ellos. Ellos ya saben qué instrucción colocar para que el almacén entienda. Si le ponen vía cachea, el almacén ya saben que eso tiene un test para la guía de cach. Si, es una guía que tiene que hacerse manual. Ellos le ponen el MRW, le dicen que es una guía que está en largo y ellos ya saben que esto es una guía que no necesita solamente la factura y ya todo eso se.
+S3: Incluso nosotros grabamos los términos,.
+S2: Entonces el.
+S4: Mismo vendedor le pone, mira, el termo.
+S3: Tiene que ser rotulado, vamos delivery, es rotulado, ya sabemos, se lo tenemos que.
+S2: Entregar chicos, ¿Para que lo grabo?
+S3: Y después nos los entregan para poder despachar.
+S2: Toda esa instrucción está . Vale, vale, OK.
+S1: Creo que ese es como el mayor logro que hemos tenido como que en este año. Después los métodos de pago, no tengamos Odo. Digo que Odoo, o sea, cuando Odoo no funcione, como te digo, o sea, usamos demasiado drive, o sea, cuadrar una ruta, no podemos cuadrar una ruta normal de Odoo pasándonos en odontología porque todo hay que, o sea, motivo que ni siquiera usamos los campos de dirección de Odo. El cliente da la dirección y el que anota número.
+S2: Sin duda, sin duda, eso es así, es una oportunidad de mejora.
+S1: hay que estar imprimiendo la hoja para dárselo motorizado.
+S2: Listo. No, no, está bien. Vale, vale, excelente. No, bueno, yo creo que, bueno, personalmente me doy por satisfecho con la información que me han dado, de verdad les agradezco muchísimo el tiempo, sé que tienen una agenda full, más bien yo siento que les estoy como robando tiempo a ustedes, tipo, bueno, sé que tienen muchos pendientes, así que de verdad muchachos, les agradezco. De todas maneras hay un entregable, muchachos, también luego se los vamos a hacer llegar para que, bueno, revisen. No hay manuales la idea es construir ese manual y bueno, que ustedes le echen la revisión, luego lo vemos y bueno, vamos validando si todo está incluido.
+S1: Sé que somos uno de los que más cosas tenemos.
+S2: Sí, bueno, hay varias cosas, no sé si de repente lo que sí veo que tienes me puede servir, si tú estás de acuerdo. Hay formatos que quisiéramos incluir en el manual, las plantillas, algunas capturas de pantalla quizá o Excel vacío, sin datos Por supuesto, totalmente anónimo, de repente puedo trabajar contigo eso luego a ver si me puedes dar de repente un inventario de cuáles son los más frecuentes y me haces llegar por la. ¿Puede ser? Dale, déjame organizar un poco los apuntes y te digo, mira por lo menos estos. Vale, muchas gracias. Y bueno, Ricardo, Leonardo, gracias a los tres de verdad. Ya lo visitaré en el almacén a ver cómo es allá. Oye, ¿Verdad que sí?
+S3: ¿Verdad que sí?
+S2: Vamos a hacer el lugar, ¿Vale? Vale, gracias muchachos.

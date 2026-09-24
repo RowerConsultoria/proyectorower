@@ -1,0 +1,465 @@
+S1: Hola Yajaira. Yajaira ¿Cómo estás? ¿Qué tal? Un placer. Jesús Plana. ¿Cómo estás? Adelante. ¿Cómo sientes? ¿Qué tal? Creo haberte visto. Me suena tu cara, me suena familiar. Sí, bueno, de aquí de la oficina creo haberte visto. Vale, vale. ¿Qué tal?
+S2: ¿Con un bolsito?
+S1: Sí, sí, el mismo, ese mismo. ¿Cómo estás? ¿Cómo te va? Qué bien. Qué bueno. Vale, mira ya voy a entrar ahorita para que también se conecte Noel un poco. ¿Te comentaron el propósito de esta sesión? ¿Sabes por qué estás aquí?
+S2: Bueno, lo que dice es que bueno, ya nos habían dicho hace unos meses, hace un tiempito que se querían como levantar los procesos de cómo se venían haciendo las cosas en el departamento. Bueno, no sé si sabes que yo soy relativamente nueva, tengo dos meses, casi tres meses. Entonces claro, yo levantaba algunas cosas que veían que no se hacían porque prácticamente allí lo que se hacía era que se registraban los cobros y ya.
+S1: OK, OK.
+S2: Más nada. Había una serie de cosas que no se estaban haciendo y yo la estoy como ya empezando hacer. No las hice. Ya yo tengo casi tres meses para ver cosas que no podía hacer porque la cobranza no estaba al día.
+S1: Tranquila. Vale, vale. Sí, en efecto eso, es levantar los procesos. Déjame porque claro, la idea ahora es conversar con los dos contabilidad, con cobranzas de tanto Panamá como Venezuela y no tanto para encontrar como lo que es y lo que no, sino como para entender cómo funciona cada uno.
+S2: Lo que entendí es que como que no es porque yo esté haciendo las cosas mal sino como que levantar los procedimientos Si algo no se está haciendo se empieza a implementar, se busque como la vida de qué se debe hacer por lo general en un departamento de contacto.
+S1: Exactamente. Te lo comentaron bien chévere, Chévere. Si quieres me conecto yo solo porque si no se genera como un ruido. Vamos a ver si está. Ya tú conoces a Noel, ¿No? OK. Aunque claro, puede decir que este. Puedes conectar con él pero apaga el micrófono porque el micrófono es el que genera el eco. Si hay dos a la vez se pone raro. Si te puedes unir a la reunión y aprendes. Cámara para apagar micrófono. Vamos a ver si se conecta. Bueno, no vi que colocar el check como tú que si aceptaste el no, sin embargo, bueno, a veces pasa igual se conecta. Vamos a darle un chance. Mientras tanto voy hablando contigo. Vale. Cuando le entre. Bueno, retomamos. Cuéntame un poco. Bueno, sé que llevas poco tiempo, pero tranquila, igual lo que tú sepas, lo que estés viendo en estos dos meses es muy valioso. Actualmente, ¿Cómo se estructura la cobranza de Rower Venezuela? Cuéntame, ¿Qué procesos estás llevando hoy en día?
+S2: Bueno, empezamos con registrar. Nosotros creamos clientes, o sea, registramos los clientes en el sistema, o sea, nos llevan el RIF, que es la única documentación que se está pidiendo.
+S1: Perfecto.
+S2: Y principalmente registrar esos clientes.
+S1: ¿De qué cliente estamos hablando para hacer un stop?
+S2: Ventas al mayor solamente Mayor. Solamente estamos llevando ventas al mayor. Son seis vendedores actualmente. Empezamos por . Ya el resto, lo primero que hacemos es por lo menos actualizar un archivo que tenemos de tipo de cambio. Es lo primero que. Aquí lo tenemos.
+S1: Buenísimo. Me imagino que eso lo actualiza diariamente.
+S2: Si, es lo primero que hacemos. Es una de las primeras cosas que hacemos. Eso no estaba, Ese archivo no se estaba llevando. Yo hice este archivo. Aquí tenemos las tasas en todo lo que.
+S1: Adelante, tú vas tomando diariamente del BCB y pones la tasa.
+S2: Ponemos la tasa. Es lo primero que. Que hacemos. Luego, ¿Qué hacemos? Yo creé este cuadro que tampoco estaba. Este es un cuadro. ¿Qué hacemos en este cuadro? Este cuadro tiene como varias modalidades de pago. ¿Por qué? Porque aquí los clientes pagan en varias modalidades. Hay clientes que pagan la base indexada y te paga el 100% del IVA sin indexar contra factura.
+S1: listo.
+S2: Hay clientes que te pagan una parte en bolívares, una parte en sele, una parte en efectivo, así.
+S1: Eso porque cada vendedor lo acuerda así con su cliente. Eso es una negociación.
+S2: Exacto, eso es. Ya. Y nosotros no tenemos, no sabemos esos acuerdos que tienen ellos con él, sino que nosotros simplemente recibimos el pago. Nosotros lo que validamos es que ese pago que nos estén trayendo cubra la totalidad de la factura. Entonces, este cuadro yo lo diseñé como para facilidad de nosotros los analistas, de que al momento de registrar el pago tengamos la información pertinente. Entonces, ¿Qué hice yo? Por medio de una data que bajo del sistema, ¿Verdad? Esa data yo la agrego aquí. ¿Y esa data que hace? Por ejemplo, si yo quiero saber como me deben de pagar, por ejemplo, me están diciendo, no me van a pagar la factura 612, entonces yo coloco aquí la factura 612 inmediatamente este archivo me jala, me trae cuánto es el subtotal en dólares, cuánto es en bolívares, el 100% del IVA en dólares en bolívares, el total en dólares en bolívares, me trae la retención, el neto a pagar, me da tanto el total como el neto a pagar, tanto en dólares como en Bolívares. ¿Qué hacemos aquí? Aquí solamente colocamos si el cliente por ejemplo, pagó en bolívares, por ejemplo, y este por ejemplo, el cliente me pagó 100.000. El cliente me pagó 100.000 y me lo pagó por ejemplo, el 11 de agosto. El 11 de agosto él me dice automáticamente cuántos dólares me está pagando.
+S1: Claro, está amarrado a fórmulas ya.
+S2: Exacto, exacto. Este archivo yo lo creé como para facilidad de que nosotros hiciéramos el cálculo de manera más rápida.
+S1: Antes existía, antes de ti. OK, eso lo montaste tú.
+S2: Eso lo monté, exacto, eso lo monté yo como. Porque aquí no había sino que se calculaba manual o la persona en Excel formulaba pues.
+S1: Claro, claro.
+S2: Pero lo que yo vi que hacía era que con la misma factura, el documento en físico colocaban cuánto era en bolívares y eso lo llevaban a dólares. ¿Por qué? Porque las facturas de aquí son solamente te dice el total en dólares, no te especifica cuánto es el subtotal en dólares. Si lo especifique en bolívares, pero no en dólares.
+S1: En dólares.
+S2: Claro, claro. Con este archivo lo creé, fue para eso, para que tuviéramos todos los datos.
+S1: ¿Por qué?
+S2: Porque hay clientes que pagan solo el subtotal indexado y pagan el 100% del IVA. Entonces como la factura no te dice el subtotal en dólares, solo te lo dice en bolívares. Entonces la persona tenía que calcular cuánto era el subtotal en bolívares y en dólares. En bolívares lo tenía, pero en dólares no lo tenía. Con este archivo ya lo tenemos pues.
+S1: Si.
+S2: Llenamos todo. Entonces, ¿Qué hacemos nosotros? Todos los días yo cambio la tasa y esta data la tenemos que llenar todos los días, que son todos los documentos que tenemos pendiente por pagar.
+S1: Esta es la parte pendiente por pagar.
+S2: Si, esto es todo lo pendiente.
+S1: Esto lo bajamos por cobrar.
+S2: Claro, esto lo bajamos por el overlock, por un reporte que tenemos aquí, que también este reporte también lo tuve que hacer una plantilla porque el reporte que me da el ODO sale como todas las cuentas, todo junto. Ese reporte no mira ni que venga, nunca lo entendí. Y de hecho muchas personas aquí el mismo Jaime me dice que no, que se reporta, está todo mezclado porque lo que pasan por cachea está todo. ¿Entonces qué hicimos? Hicimos una plantilla, nos metemos en factura de cliente, vemos lo que no está pagado y yo creé una plantilla. Aquí está la plantilla que creamos. Creamos esta plantilla que dice Reporte de cuentas por cobrar, Ventas al mayor, con los campos que yo necesitaba como para llenar esa data. Entonces. Sí, porque o sea aquí tú puedes crear tu plantillas de acuerdo a la información que tú quieres, los campos, los.
+S1: Alas de aquí tú creas las plantillas.
+S2: Exacto, tú creas plantillas con los campos que tú necesitas según lo que esté aquí. Esta pantilla la hicimos con ese fin, porque los datos que necesitaba eran esto, el vendedor, el nombre que sale en la factura, el número de factura, la fecha de factura, fecha de vencimiento, el subtotal en bolívares, el impuesto en bolívares, el total en bolívares, la tasa en que se originó el documento y la cantidad que tiene pendiente por pagar.
+S1: Correcto.
+S2: Al generar esa plantilla verdad, Esa plantilla la trasladamos aquí.
+S1: Tú generas a la plantilla y la descargas de Odu, la copas y la pegas acá.
+S2: Exactamente. ¿Entonces qué hice yo?
+S1: Y esta que me estás.
+S2: Indiqué a los analistas que por ejemplo los campos en blanco se llenaban a mano. Exacto. Se copia y pega.
+S1: Si, por ejemplo copias y pegas.
+S2: Listo. ¿Por lo menos aquí yo genero mi plantilla, verdad? Exporto mi plantilla de reporte de cuentas por cobrar, aquí me la generó. Entonces yo lo que hago que copio y pego los datos hasta por lo menos aquí hasta encuesta. Sí, porque tiene que ser todo, porque ellos salen como que la primera página, mira, por lo menos aquí hay 960 documentos sin cobrar.
+S1: Tenemos ahorita sin cobrar.
+S2: Aquí ya tenemos la plantilla, entonces lo que hacemos es que copiamos aquí copiamos hasta impuesto hay 962, copiamos aquí y nos vamos a el archivo que usamos y aquí reemplazamos.
+S1: Perfecto. ¿Cada cuánto tiempo hace?
+S2: Todos los días.
+S1: Todos los días.
+S2: Claro, porque todos los días eso se va actualizando. ¿Por qué? Porque pueden facturar.
+S1: Claro. Y si alguien factura, duda, actualícese.
+S2: Exactamente, eso hay que actualizarlo todos los días. ¿Por qué? Porque todos los días se va facturando y así como se va facturando se va aplicando cobranza. Entonces lo que a mí me sale hoy, mañana quizás no me salga.
+S1: Oye, ¿Y esas cobranzas son a tiempos específicos? ¿Hay fechas de corte donde el cliente debe pagar o son cobranzas que vamos recibiendo? Tipo cuando ellos pueden pagar no se.
+S2: Está llevando ese control. Precisamente una de las cosas que me contrataron a mí fue como para llevar ese control de darle seguimiento esas cuentas por cobrar, porque hay muchos saldos viejos, muchos saldos con antigüedad de más de 120 días que no se le ha dado seguimiento. Exacto. Ni había una persona de que les enviara a ellos como un archivo de mira que me debes tanto, tienes tanto. Porque según lo que tengo entendido es que ellos por odoo, el vendedor no puede ver, sabe esas deudas o esos documentos que tiene abiertos por cobrar si no se le hace un seguimiento. Por parte de cuentas por cobrar. Por parte de cuentas por cobrar no se le estaba haciendo ese seguimiento anteriormente. Exacto, se le está haciendo. Aproximadamente tengo como dos semanas haciendo ese seguimiento porque no lo había hecho antes, porque las deudas no están sin señal, porque había mucha cobranza atrasada. Entonces ahora que la cobranza sí está relativamente al día, ya yo le estoy haciendo seguimiento, le estoy pasando estos correos.
+S1: OK,.
+S2: Aquí hay varios correos. Por lo menos esto se lo mandé ahorita al gerente de venta. Mira, estos son documentos de 2024 y 2025 que no están cobrados. ¿Y el vendedor que tiene? Estos son saldos del 2024, 2025 y 2026. ¿Qué pasa? Estos vendedores que están aquí asignados no están, no tienen vendedor asignado y las deudas están abiertas, tienen más de 120 días. Entonces. Entonces ¿Qué hago yo? Yo le estoy pasando un correo a la parte de venta diciéndole cuánto esto en dólares, ¿Verdad? Y diciéndole que, o sea, que se haga la gestión, ¿Verdad? De si son documentos que están por conciliar o es que están por cobrar. ¿Por qué lo digo por conciliar? Porque como yo no estaba en su momento en cuentas por cobrar, ¿Sabes? No sé si fue que ellos sí cobraron esa factura, pero no se concilió.
+S1: Entiendo. El dinero entró, pero de repente no estás.
+S2: Exactamente. Yo le estoy mandando un correo diciéndoles como que me digan el estatus de ese documento, si el cliente está en mora, o sea que hagan la gestión si no tienen respuesta. ¿Y le ha enviado el requerimiento vía correo, vía telefónica o por visita? Si, intentó acuerdo de pagos parciales sin éxito, si es que el cliente está cerrado, si es que la empresa está en proceso de liquidación o está sin soporte para validar. No tiene soporte porque como son personas que ya no están aquí.
+S1: Si no hay manera de trackear entonces.
+S2: Exacto, entonces ahorita si se le está como dos semanas para acá estoy haciendo seguimiento más que todo en los saldos que tienen más de 120 días.
+S1: Más de 120 días. ¿Y cómo estás haciendo ese seguimiento, esos saldos, o sea, cómo lo estás poniendo al día?
+S2: Bueno, ahorita los estaba mandando por correo, pero en vista de que no he tenido respuesta, no ha sido muy afectiva.
+S1: Pero has recibido respuesta, solo que no es efectiva.
+S2: Un solo vendedor fue que me respondió el correo porque les pedí por favor respóndame el correo y por lo menos colóqueme el estatus según usted si fue entregado, o sea si es que el cliente no ha pagado. Entonces un solo vendedor se tomó la tarea, me respondió y había muchos que me dicen por ejemplo te traigo el pago en junio, en julio fui para donde él y me senté y le ¿Cuáles son esos pagos que pasaste en junio, en julio que no los tengo? Se hizo el feedback.
+S1: OK, OK, se hizo el feedback, exacto.
+S2: Y así voy a empezar con todos.
+S1: ¿Vas a ir caso por caso?
+S2: Sí, porque como te dije no sé había este trabajo de pasarle las cuentas que ellos tienen por cobrar no se había hecho porque las cuentas, los pagos están atrasados. Ya cuando yo llegué había un atraso importante en la cobranza.
+S1: Un atraso en la cobranza.
+S2: Sí, exactamente. Ya gracias a Dios la cobranza se ha ido poniendo paulatinamente al día y ya se puede como más sincerizar la cuenta o por lo menos como les digo yo, por lo menos con ese archivo, si ya ustedes de verdad pasaron esos pagos, buscar quién tiene esos pagos o por lo menos sin mirar. Pablo se traspapeló porque sabes que antes se entregaba en físico.
+S1: Sí, sí, sí, exacto.
+S2: Que esa fue una de las propuestas que también di, que no se hiciera más vía física, sino vía correcta.
+S1: Claro que da soporte.
+S2: Exacto. Muchas de las respuestas de ellos era ya la entregué, ya lo entregué, ya la entregué. Entonces era como que ¿A quién le echamos la culpa?
+S1: Y eso se perdió. Y si, se perdió.
+S2: Exactamente. Y así como tengo muchos casos.
+S1: Vaya, vaya. Y cuéntame algo, Yajaira. ¿Cuando tú actualizas entonces, por ejemplo, un saldo que lograste recuperar o algo así, lo subes en Odoo directamente? ¿Cómo actualizas eso a nivel de sistema? ¿Cuando compruebas a través de qué panel? Para ver.
+S2: Mira, nosotros primero, lo primero que tenemos que hacer es validar en banco. Con los cortes bancarios.
+S1: ¿Tú haces eso? ¿Tú tienes acceso?
+S2: No, el muchacho de tesorería, Ali, él me está apoyando con eso.
+S1: Pero ¿Cómo le comunicas? ¿Cómo le solicitas a Lieso?
+S2: Él me lo está colocando diario. Tenemos una carpeta compartida que me hizo aquí en Google, en Drive. Aquí tenemos los bancos. Entonces yo, por ejemplo, meto en Vanesco, porque aquí se utilizan ciertas cuentas para ventas al mayor. Lo que más utilizamos es Vanesco Bolívares, tenemos una de Mercantil en Bolívares, algunos, casi todos en Amenceles. Entonces él me actualiza esos bancos diariamente.
+S1: Claro, él hace eso.
+S2: Sí. Y yo se los envío por correo al analista. Yo le envío con el corte bancario todos los días. Se lo envía por correo y ella ya empieza a validar. Entonces lo primero que hacemos es cuando tenemos un pago, bueno, ahorita no lo están enviando por aquí, los pagos se están enviando por. Para no hacerlo más. Ya, aquí está. Ellos están enviando esto por aquí.
+S1: Chévere, chévere. Por conversaciones en Odoo.
+S2: Exactamente.
+S1: ¿Y les está funcionando?
+S2: Sí, yo les mandé a ellos como una planilla, una plantilla que yo quería que ellos me llenaran. Bueno, casi que todo lo hace, pero hay unos rebeldes que no. Entonces, ¿Qué le pedí? Yo le dije que me pusieran el nombre de la razón social, que es el nombre del cliente, el número de factura, la modalidad de pago, la fecha, el tipo de cambio. ¿Por qué? Porque hay muchos que cobran tasa promedio, hay unos que cobran a tasa Binance. Yo le dije que me especificaran a qué tipo de tasa estaban cobrando para yo poder calcular.
+S1: Por supuesto.
+S2: ¿Y estaban cobrando por qué? Porque hay uno que cobran la base indexada y el 100% del IVA sin indexar. Hay unos que cobran el total indexado, hay unos que cobran el neto indexado. Todo depende de cómo me esté cobrando. Entonces eso también se los pedí especificado. Claro. Yo le dije que me trataran de dar como la mayor información como para yo no perder tanto en tiempo en adivinar que estaba pagando el cliente. Sin embargo, independientemente de la información que ustedes me den, yo tengo que validar que sea así lo que están en.
+S1: Este chat o en estas conversaciones los vendedores. Todos los vendedores.
+S2: Todos los vendedores. Aquí está. Es la analista respondiéndole que está procesado.
+S1: Analista de cobranza. De cobranza.
+S2: Esta es Tatiana. Esta es la otra vendedora. Sí. Génesis también reporta por aquí. Aquí está el Sr. Henry reportando. Ya ahorita se está haciendo por aquí ya eso de físico. Si, hemos recibido físico, pero ya no se está recibiendo el volumen de antes, sino que hay casos de casos que ellos, por ejemplo, tienen que no, que si ese pago es viejo y lo tenía por allí.
+S1: Claro, claro.
+S2: Entonces me lo llevan. Me lo llevan de una vez en físico.
+S1: Sí, sí, sí.
+S2: Entonces ahorita ellos me lo montan por aquí. ¿Qué hago yo, por ejemplo, montan sus.
+S1: Comprobantes acá, porque claro, a veces el cliente se los manda a ellos? Ellos te lo mandan a ti.
+S2: Ellos lo mandan así. Este es el comprobante de pago. Estos son dos pagos, tres pagos. Aquí no monto retención. Las retenciones también me las montan por aquí.
+S1: OK. Porque eso le llega a los muchachos también, al equipo de comercial, de ventas.
+S2: Sí es que toda la información le.
+S1: Llega a por la relación que tiene con cliente vendedor.
+S2: Claro, exacto. Nosotros no tenemos contacto hasta los momentos, en los meses que yo he estado aquí, no he tenido contacto con ningún cliente.
+S1: Porque son ventajas mayores.
+S2: Todo se comunica con ello. Entonces, a nosotros recibir esto aquí, ¿Qué hacemos? Nos metemos en el banco, ¿Verdad? Y empezamos a validar este monto, esté en banco.
+S1: Pero como tú no tienes acceso al banco, en realidad tú lo que haces es montarlo. ¿Cómo validas si no tienes el acceso al banco?
+S2: No, porque yo no tengo acceso al banco, pero los cortes bancarios me los.
+S1: Monta es con el corte bancario que monta en el drive que me dijiste.
+S2: Exactamente, exacto. Nosotros dependemos de esos cortes bancarios. Cuando no me lo colocan, yo vengo para donde Ali y le digo. Exacto. Mira Ali, júntame los cortes que los necesito. Tengo un pago de no sé qué día y necesito validar, entonces me monta los cortes. ¿Al yo validar que ya está en banco, que ya sé que le puedo dar play, verdad? No metemos aquí.
+S1: ¿Muy bien,.
+S2: Nos metemos en contabilidad, verdad? ¿Buscamos por ejemplo la factura que no.
+S1: Te pregunte por cierto, tú entraste con cuál denominación de cargo acá?
+S2: Coordinador. Coordinadora de cuentas por cobrar.
+S1: ¿Y tu equipo, el equipo que tienes,.
+S2: Cuántas personas son ahorita? Cuando yo entré era una sola persona que era la que estaba, era Olga, pero debido a los acontecimientos que ya venía arrastrando el departamento, la inconformidad de que los pagos no se estaban pasando el día, entonces bueno, una de las cosas que también decidieron colocarme allí fue como para que yo viera cómo se estaba haciendo el proceso, de qué manera lo estaba haciendo la persona que estaba y ver si esa persona era competente o no para seguir yo vi que los procesos no se estaban llevando bien, no se están revisando las cuentas bien y pedí una persona que estuviera, tuviera los conocimientos, que tuviera experiencia y cuentas por cobrar. Esa muchacha ya tiene, va a cumplir.
+S1: Un mes tú y entró un mes después.
+S2: Sí, exacto. Entonces estábamos, estaba yo con Olga por los momentos hasta que llegó ella y bueno, ella estuvo conmigo hasta ayer, cambiaron la Olga departamento y ya me dejaron a la muchacha que entró nueva, ella se llama Laura. Entonces bueno, ella aquí lo que hacemos es, por ejemplo, si van a pagar, por lo menos colocamos el número de.
+S1: Factura,.
+S2: Por ejemplo, me van a pagar la factura, colocar aquí. Me están pagando por ejemplo, la factura. Treinta y cuatro cuarenta. Treinta y cuatro cuarentA. No se conecta, ¿Verdad?
+S1: No, no, tranquila, luego vemos qué pasó, de repente se complicó.
+S2: Entonces me están pagando la factura 3040, entonces por ejemplo, me hicieron un depósito de 550 mil que ya yo validé en mi banco y todo está bien y cayó el 11 de agosto. ¿Qué hago? Yo busco la factura en el odo, la 3040, me voy por el número de factura, reviso que la factura no tenga aplicado nada, la cantidad por pagar es la misma que el total, o sea que no tiene aplicado nada. Entonces ponte si tiene que. Si tengo que registrar una retención, me voy al módulo de retenciones y le registro la retención.
+S1: Tú misma la montas.
+S2: Sí, exacto. Nosotros colocamos el número de comprobante, colocamos la fecha del día y aquí sólo modificamos esto si la base tiene algún, o sea algunos céntimos más o menos, del resto lo dejamos tal cual, solamente modificamos la fecha, el número de comprobante y la base si lo amerita, si no, si no, entonces ya se registra la retención, se le da guardar y se publica, luego me vuelvo a la factura y valido de que esa retención se haya aplicado, o sea de que el documento aquí me haya rebajado, tienes que verificar eso. Exacto, luego que ya valido eso y ya tengo validado mi pago, me voy a registrar pago y es donde empiezo a llenar, por lo menos aquí se pone el banco que voy a registrar, el monto en bolívares, aquí se escoge si es en dólares o en bolívares, la que usamos es bolívar y dólares, dependiendo donde sea, si euro no. OK, aquí colocamos la fecha del pago, la fecha en que cayó en banco,.
+S1: La fecha en la que cayó en.
+S2: Bajo, aquí colocamos el número de factura que está pagando y cómo está pagando, por ejemplo me canceló la factura 3040, aquí con este monto me canceló un abono o con ese monto de 500 mil me canceló la base, entonces yo pongo factura 34.40 o así imponible.
+S1: Eso lo calcula por cierto, esos impuestos según el tipo de empresa que sea, o sea la retención que le tienes que hacer o siempre es un.
+S2: Todas, casi todas son 75, casi todas, hay unas que retienen impuestos sobre.
+S1: La renta por eso que son las.
+S2: Que ellos le hacen rotulado, o sea son facturas muy poquitas. Muy poquitas y hay algunas que me han traído un impuesto de la alcaldía y siempre se valida contabilidad si amerita o no amerita, si se le puede registrar o no. Listo, listo, antes de pues contener eso y tenemos que hacer el cálculo, aquí tenemos una parte que dice impuesto municipal o impuesto alcaldía, ¿Verdad? Y colocamos de acuerdo a lo que, al monto que vamos a calcular 1.25, porque sabes que todos los impuestos no son igual, hay unos que son 1.25, uno que son el 2% saca, vamos formulando esto también tenemos aquí también tenemos para calcular el diferencial cambiario, casi por lo general nos da que si, unos céntimos más, unos céntimos menos, pero también hacemos revisión de eso. El diferencial cambiario, el Holo te da un diferencial.
+S1: Eso por los decimales.
+S2: Exacto. Casi nunca nos da igual si lo no céntimos por arriba, no sé céntimos por debajo, pero validamos por si acaso estamos colocando de repente el monto en bolívares mal estamos haciendo, tenemos un error dedo.
+S1: Podría pasar. Sí, sí puede pasar. Humanamente puede pasar.
+S2: Eso en sí es lo que se está haciendo ahorita. Así que te puedo decir que son más los procesos. Registrar la tasa diario, bajar esa data, estar pendiente cuando ellos lleguen, si nos traen el RIF, registrar el cliente, eso validamos primero si el cliente está registrado o no. Si el cliente no está registrado, validamos ese RIF en la página del portal del CENIA. Luego que validemos eso, si nos procedemos a observar. Yo tengo manual aquí. Más o menos.
+S1: Tú tienes un.
+S2: Sí, yo hice un manual.
+S1: Que bien. Lo hiciste llegando.
+S2: Sí, eso me lo pidieron.
+S1: ¿Te lo pidieron al llegar?
+S2: Sí, al llegar.
+S1: ¿Quién te lo pidió?
+S2: Jaime. Si, Jaime me dijo necesito que me hagas un manual. Eso lo hicimos. Bueno, eso lo hice yo.
+S1: ¿Tú le reportas directamente a Jaime? Sí, yo le reporté que no tenés. Porque Jaime. Claro, él es como el regional, él.
+S2: Es gerente financiero, pero él está llevando por los momentos está a cargo del departamento de cuentas por cobrar.
+S1: Correcto.
+S2: Y una de las cosas que me pidió nueva fue un levantamiento de un manual, porque me dice aquí no hay manual de cuentas por cobro.
+S1: Muy bien, listo.
+S2: Yo hice el manual.
+S1: ¿Ya lo revisó?
+S2: Sí, sí, él lo revisó y me dio el PLE. coloque la creación de clientes, cómo lo hacemos, los procesos, los campos que se llenan en Odoo coloqué que primero revisamos si ya está el cliente sistema, luego validamos si el cliente está creado o no. Si no está creado, nos metemos en el portal para validar si el cliente es agente de retención. En Odo llenamos, nos metemos aquí esta ficha y llenamos los campos que están de amarillo. Aquí colocamos el nombre del vendedor. Mira, aquí te estoy colocando que actualizamos la tasa diaria de la tasa cambiaria, que es otro proceso. Así me voy acordando de todo para que no se me olvide nada. Muy bien, muy bien, aquí te estoy colocando, este es cuando bajamos el reporte que te mencioné para poder llenar esa data. Eso lo hacemos, eso como te dije, hay que hacerlo diario para poder llenar, o sea, para que esa data me suministre los datos para yo validar los números de factura que me está pagando. OK, esa data hay que llenarla diario, es lo primero que hacemos, llenar esa data. Bueno, aquí cuando ya tenemos la data, aquí está el cuadrito que nosotros usamos. Claro, yo puse uno de los ejemplos porque aquí hay muchas modalidades de pago y el tema moneda también, que siempre se lo he dicho también a Jaime, o sea, los pagos no son tan sencillos, porque hay pagos sencillos que bueno, el cliente nada más hizo una sola transferencia, pero el tema es cuando el cliente paga el impuesto en bolívares, paga la base en. De hecho nosotros hemos cargado hasta 20 abonos. Wow.
+S1: OK. Bastante, un número alto.
+S2: Exacto.
+S1: Sí, sí, sí. Wow. Trabajo en eso.
+S2: Sí. Entonces aquí yo le estoy. Aquí te estoy colocando, coloqué el cuadrito que se hizo que no estaba. Esto aquí es para cargar retenciones, cómo registramos las retenciones, de qué manera se hace, pues, cómo se registra, qué campo se llena, que fue el que te comenté que se llenó, la fecha, el número de comprobante y la base si lo amerita. Aquí es cuando registramos el pago, que fue la fichita que te enseñé, que nos metemos en factura de cliente, seleccionamos la factura, le damos a registrar pago y empezamos a llenar. Llenamos el diario de pago, que es el banco, la moneda, que si es en bolívares o si es en divisas, la fecha de pago y circular memo, que es donde colocamos, por ejemplo, que pagó la factura tal que se pagó el neto, el total, colocamos como una indicación, un tip de que está pagando. Exacto, para saber muy bien. Aquí es igualito, registro, aquí está cómo se llena, la fichita que tenemos que llenar, que es el diario, el importe, la fecha, el mismo. Aquí está cuando nos llamamos, el diferencial, todos estos campos tenemos que llenar.
+S1: Todo lo que está en amarillo.
+S2: Todo lo que está en amarillo. Y esto es algo en un implemento, esto lo tengo allí, de hecho ahorita lo estaba viendo, ¿Por qué? Porque en el momento que yo llegué, como te dije, esas cuentas estaban tan volteadas y había muchos errores y bueno, ahorita todavía he conseguido, o sea, errores de facturas que no se anularon o que las facturas estaban en borrador cuando bajo la data yo he ido como limpiando esos errores. Ayer hice una prueba y bajé una data cruda y la información se ve a mejor. ¿Este es como un KPI que yo sugerí, que le sugerí a Jaime, pero este no lo he implementado porque le dije quisiera como que las cuentas estuvieran más reales, sabes? Como para llegar más ordenadas, más clarificadas. Aquí lo tengo porque justamente ayer lo estaba revisando porque ya estoy que ya para, como para darse, mandársela enseñar para que más o menos vea.
+S1: ¿Eso fue una propuesta que trabajaste con él en conjunto?
+S2: No, esa propuesta yo la hice y se la pasé fue a Jaime como para que Jaime me la revisara.
+S1: Pero es algo que él ya revisó.
+S2: Sí, sí, Jaime ya lo revisó. ¿Sí, Jaime ya me revisó y me dio su punto de vista quería que le quitara, que le pusiera, sabes? Muy bien, aquí está, mira ve, aquí está. Yo lleno esta base de datos de igual manera, o sea, con esa misma información, con ese mismo reporte que esa misma plantilla.
+S1: Con la misma plantilla.
+S2: Con la misma plantilla, si. Eso también lo lleno aquí, lo jalas, lo pegas acá y aquí pongo mi fecha, por ejemplo, yo ayer bajé una, le puse fecha 11 de agosto, ¿Verdad? Esto tengo que hablarlo con el de ventas porque esto por lo menos es meta porcentaje cartera vencida, o sea el porcentaje del total de cartera que se acepta como vencida. ¿Estos son parámetros que yo tengo que.
+S1: Hablar con ventas, con Andrés será por eso?
+S2: Yo tengo como el modelo, pero no lo he querido llevar a cabo porque primero porque teníamos las cuentas atrasadas y por lo menos este modelo tengo que comenzar también con André. Por estos parámetros debe de darme luego, porque fíjate, dice días promedios, objetivo entre factura y cobro, yo le puse 30 días, pero eso lo estábamos conversando hoy de que los clientes no tienen día crédito, o sea, no tienen día.
+S1: No se está manejando eso.
+S2: No se está manejando, no se está manejando límites de crédito día, o sea, mira, de que el cliente no tenga días, tiene 30 días para pagar, no tienen día, yo manejo los 30 días y para mí más de 30 días. Ya tú personalmente. Exacto. Pero bueno, de hecho tuvimos una reunión y estábamos conversando eso de que primero ya las cobranzas relativamente se pusieron al día, pero una de las cosas que se tiene que hacer es colocar, asignarle y también empezar a bloquear los clientes, porque los clientes no se están bloqueando.
+S1: Sería bueno porque. Claro, es una medida, tú sabes.
+S2: Exacto. Una medida para presionar a los vendedores, porque los vendedores están facturando y no están pendientes como de que no, que si el cliente tiene factura sin pagar, ¿Sabes? Sino que factura y ya.
+S1: ¿Pero eso de que no se les da vías crédito es algo que bueno que tú sepas, no? Anteriormente se hacía, no sé.
+S2: No.
+S1: OK. No, tranquilo.
+S2: Sí, sí. No maneja información porque como Andrés también. Andrés también sabe que es relativamente nuevo. Andrés también está así como que. Como yo, como que sabes que Andrés está así como que. Cuando yo llegué, Andrés también me dijo mira, aquí no hay límite de crédito, no hay esto, no hay lo otro, no sé qué, no sé qué.
+S1: Y tú te quedaste.
+S2: Sí. Entonces hoy me está diciendo, por ejemplo, mira, yo necesito quedarte pesado lo que es sus clientes.
+S1: pero ya tenés la. Ya te lo comenté.
+S2: Nosotros hemos hablado. Si, lo hemos conversado los dos y él me dijo quiero que. Él quiere que yo le pase el listado de las comisiones, o sea, de qué cliente él puede. Cuál es. Mira, yo quiero estos clientes si le pueden pagar las comisiones de esta factura, porque él me dice que ellos tienen su control. Sí, pero me dice que él quiere un control de mi parte, como que me dice, mira, yo quiero que tú me pases un. Todas esas facturas si la cobran hoy en el mes. Fue algo que me pidió.
+S1: Eso sería un trabajo para ti adicional. Salvo que hubiese una forma de hacerlo automático, quizás.
+S2: Sí, pero.
+S1: ¿Y cómo Tú bloqueas clientes? ¿Cómo se hace eso?
+S2: No sé cómo hacerlo.
+S1: listo.
+S2: Me lo pidió, pero para mí es conocido.
+S1: Imagino que podría ser por el mismo sistema.
+S2: Sí, debe ser por el sistema, pero no sé. Claro, él me lo propuso, pero yo también dije lo mismo. Tengo que preguntar cómo se bloquea el cliente. También tengo que preguntar cómo asignarle límite de crédito, porque tampoco sé ni cómo asignar el límite de crédito, ni sé cómo asignarle los días crédito. Una cosa es límite y una cosa es día. Y aparte pienso por lo menos ese tiene que ser un trabajo en conjunto, porque por lo menos yo no estoy al tanto de saber cuál es el límite de crédito adecuado para tal cliente.
+S1: Porque si tú tenías esos parámetros, bueno, a este le ponen 30 60, ¿Quién te los podría dar?
+S2: Debería de ser venta.
+S1: El vendedor, o sea venta pues.
+S2: Exacto. Porque yo desconozco los clientes. Yo veo aquí, sé que FBK, que es una de las cadenas que maneja aquí, que es el fuerte, que es una cadena que vive comprando y vive. Sí. Entonces por lo menos sé que es una cadena. Pero por ejemplo, hay muchos clientes que yo ni queda ni idea, no sé si es un abatico, yo no sé nada. Sí, porque me dice, Andrés me ha comentado, me dice, mira, nosotros le vendemos a esta gente que no tiene ni computadora,.
+S1: Desde grandes empresas hasta pequeños emprendedores.
+S2: Entonces él me estaba comentando, por ejemplo, ellos son los que tienen la Este cliente no se le puede asignar sino más de entre tanto y tanto. Es mi punto de vista, porque los clientes no los conozco yo.
+S1: No, tú no los conoces. Claro. Y esto lo has conversado con ellos ya.
+S2: Sí, lo hemos conversado Andrés y yo. De hecho Andrés está así como que quiere que sea para allá, pero como yo no tenía las cuentas al día, bueno, lo primero que vamos a hacer es, por lo menos hoy tuvimos una reunión y chequear esos saldos que tienen más de 120 días de antigüedad para empezar a revisar por qué siguen así, qué ha pasado, si se ha hecho la gestión por parte de ventas y los que no se van a poder.
+S1: Cobrar cuentas ya incobrables.
+S2: Exactamente, porque Hay cosas del 2024 y 2025.
+S1: Hay que ver qué estatus tiene.
+S2: Exactamente. Hay que saber qué ha pasado con sus clientes. Sé que están cerrados. Entonces esa es la primera gestión que vamos a empezar a hacer. Porque lo primero que en realidad estaba haciendo yo era primero poner las cuentas.
+S1: Al vi ordenar la casa, levantar los.
+S2: Procesos que no había nada, sino que solamente se estaba registrando y ya. Y validando que esa persona que está lo que hacía era validar, mira, si me pagó bien la base, me pagó bien el neto y ya, pero proceso como tal va bien. Entonces yo lo primero que estaba haciendo era levantar un procedimiento de que necesitaba según mi visión, cuentas por cobrar. Y tengo ideas como por ejemplo este KDP que mira, ves aquí hay unas gráficas que me arroja. ¿Que me arroja? La cantidad total, la deuda total, la cartera vencida en porcentaje, el índice de vejez mayor de 90 días, los documentos vencidos, los clientes y las facturas incompletas. Bueno, esto salió en desastre. Ahorita ya fíjate que sale 0%, o sea que eran facturas incompletas, facturas que tenían, porque habían facturas que por lo menos estaban emiteadas, no tenían la fecha de emisión en el report, ¿Sabes? Entonces, bueno, yo veía esos errores, iba viendo y íbamos arreglando. Aquí tenemos un gráfico de la cartula. Cartera vencida más la vigente, por lo menos vencido, aquí tienen 610 mil dólares. 600, Exacto. Y vigente sin versión se tienen un millón 14 mil 116 dólares.
+S1: Claro, ya tú vas notando y vas viendo.
+S2: Aquí tenemos el top 10, la mayor facturación, el monto de doble tiene que FBK. ¿Qué pasa? Yo llegué aquí en el mes de mayo y no se había registrado nada de FBK de pagos desde noviembre del año pasado. Entonces ahorita actualmente tenemos los pagos registrados hasta mayo. Si logramos ponerlo hasta mayo, nos falta junio, nos falta mayo junto y julio.
+S1: ¿Y tú montaste esta información? ¿La montaste, la procesaste tú?
+S2: Exacto, sí, pero eso nada más se lo mostraba Jaime, es lo único que lo ha visto. Aquí está por vendedor, el mayor porcentaje lo tiene Henry. Luego le siguen José Ramón, Tatiana, Reinaldo, Ta, Wolf, está Génesis. Este administrador, como te dije, es un vendedor que no sabemos qué pasó allí, que lo pusieron como vendedor administrador, que son cuentas de 2024 y 2025 sería.
+S1: Que era el administrador, no se.
+S2: Le cambiaron. Claro, me imagino que ellos cambiaron, me imagino que fue ventas.
+S1: Ahora no se sabe quién es.
+S2: Yo no sé quién es administrador. Alguien de ventas tuvo que haber cambiado, cambiar el vendedor porque le estaba afectando la ruta de él. Porque ellos tienen acceso a cambiar el vendedor. Ellos no tienen acceso a varias cositas, pero una de las cosas que tienen es cambiar el vendedor.
+S1: Si tiene ese acceso.
+S2: Si tienen acceso. Yo le hice ese comentario. Alguien cambió porque esa ruta yo me acuerdo que estaban a nombre de un vendedor que votaron este año que se llama Wolf.
+S1: Eso podría verse por sistema. Bueno, creo.
+S2: Claro, yo le dije a él y todo. Alguien cambió eso. Administrador, se ve la IP porque eso no estaba. Y ahora está, mire, aquí está un estatus vencido. Tenemos 610.000, que es lo que te dice la gráfica aquí. 610.000 Vigente. Tenemos 1.014.000. Que es lo que te dice aquí el gráfico por rango. Aquí está de 0 a 30 días, de 31 a 60, de 61 a 90, de 91 a 120 días y más de 120 días. Tenemos 113 mil dólares. Aquí está por cliente. El peso lo tiene más que todo Corporación FBK, que es la que te estoy diciendo que tenemos atrás en el pago. Y este cliente que se llama Glow Cosmetics.
+S1: Y de esa no tienen un contacto en particular. De esa que pesa bastante, pero ese cliente está en.
+S2: Me dijeron que está en Puerto la Cruz. Ya yo he tenido contacto con el cliente vía telefónica. Es el único cliente con que he tenido contacto realmente. ¿Por qué? Porque ¿Qué pasa? Ellos le vendían a ellos por una tasa muy por encima.
+S1: Muy por encima.
+S2: Una tasa promediada que ellos, una negociación que ellos tuvieron, no sé si le daban unos días crédito y lo promediaban tasas. Ellos pagaban por una tasa por encima. Entonces pasaron todos estos meses y resulta ser que esa cadena quiere que se le haga nota de débito fiscal por todas esas indexaciones de esa factura. Y esa persona me estaba pidiendo eso ahorita. Entonces yo le expliqué que yo era nueva y levanté la mano contra el procedimiento de que aquí lo que tengo entendido es que la mano fiscal no emite nota de débito fiscal. No está configurada para eso.
+S1: No lo hace.
+S2: Exacto. No lo hace. Ya levantamos la mano de parte del sistema. Ya levantamos el punto de que no se hace. De cómo lo podemos hacer. Exacto. Ya se reportó, pero a mí me causó ruido y le dije a la persona que me estaba pidiendo las notas que por qué esperaron tanto tiempo para pedir esas notas. Bueno, yo le dije, estamos ya. Ya estamos a tercer trimestre del año y me están pidiendo esas notas que ya tú pagaste desde enero.
+S1: Yo le dije, ¿Como que genera ruido?
+S2: ¿Yo le dije, porque tú me estás pidiendo esa nota o tú se la venías pidiendo al vendedor que estaba, que ya no está y él nunca te hizo caso? Porque yo le dije, me causa ruido que me vengas a pedir esas notas ahorita.
+S1: Correcto.
+S2: Entonces, bueno, esa persona me explicó que ya había empezado también como que en mayo donde estaba en FBK que empezó nueva y me dijo que habían cambiado los procesos internos y que por eso ella estaba pidiendo las notas ahorita.
+S1: Y tiene posibilidades de responder ese requerimiento. Es muy manual recopilar eso es muy.
+S2: Porque son muchas facturas. Ella me envió una relación bien detallada donde. Porque si tengo un pago, ven a ver 60 facturas y el monto de lo que era la indexación. Pero es un trabajo difícil porque primero yo tendría que confiar la información que ella me está pasando porque. Porque como yo se lo dije a ella, yo no puedo romper conciliación de todos esos documentos. Fíjate, ya nosotros pasamos hasta mayo hasta romper conciliación de todos esos documentos. Porque. Porque ese saldo quedó allí sobrando nosotros lo llamamos a otros ingresos y se supone que si yo le hago una nota de débito yo tengo que cruzar con ese saldo quedó.
+S1: Entiendo.
+S2: Porque ese saldo es la indexación, entonces ese saldo sobrante tú lo cruzas con esa nota de débito. Entonces yo le dije también a ella, si yo hago la nota de débito con que yo cruzo internamente eso, el documento fiscal me va a quedar allí abierto y con una deuda, porque en la nota de débito son deudas que ya administrativamente para mí eso era un caos.
+S1: Claro. Y no hay manera, o no sé si lo han conversado con Jaime, de automatizar un poco esa parte cuando ese tipo de solicitud, por ejemplo, de que el sistema con esa data te. Algo de inteligencia artificial quizás.
+S2: No, lo único que hemos hablado es que se hablado de que yo llegué al acuerdo con ellos de que no me pidieran por documentos, sino que lo hiciéramos por mes.
+S1: Es más sencillo.
+S2: Sí, claro, es mucho más sencillo. ¿Por lo menos llegué a este acuerdo con ella, no? Hablando y hablando. ¿Y como? Porque ella me dijo, no, yo también te entiendo porque yo le dije, imagínate, yo revisé y eran 100 documentos, entonces yo le dije, imagínate, te vamos a hacer 100 documentos fiscales, entonces eso genera IVA. Le dimos, o sea, le digo, administrativamente eso es un desastre. Entonces quedamos el acuerdo como que iba a ser una nota por mes, o sea que ya si es de enero para acá eran seis notas. Sí, exacto. ¿Quedamos a ese acuerdo, pero todavía no se ha concretado cómo se va a hacer la nota derecho no se.
+S1: Llegó a ese acuerdo?
+S2: No, no. Ayer estábamos hablando con alguien del ODO, tuvimos un chat por allí, el señor José, que es de sistema, el señor Víctor de contabilidad y mi persona. Hablamos con Mariana de qué se podía hacer y le hablaron de la máquina, que se la habían llevado una vez para allá y que ellos mismos habían dicho que no se podía. No se podía hacer. Notas de débito se pueden hacer, pero cuando salen fiscalmente, salen como factura. Entonces le explicamos como que lo queríamos era que no saliera factura, sino que dijera nota de débito.
+S1: Nota de débito.
+S2: Bueno, es uno de los requisitos que tenemos en stand by. Bueno, el FBK no me ha presionado más por esa parte, no me lo ha vuelto a pedir, pero es una de las solicitudes que tengo en julio.
+S1: Mira que te iba a consultar. Está bien. ¿Tú participas ahora mismo en algún comité o estás yendo a reuniones de comités con la gerencia y con Jaime? Tiene reuniones, pero no me refiero a reuniones esporádicas, sino como un plan de seguimiento tipo todos los viernes nos estamos sentando.
+S2: No, tampoco. No, no, porque cuando yo inicié aquí, lo que le dimos prioridad fue a rebajar todo eso que estaba atrasado. Entonces él estaba como esperando de que ya yo terminara como de ponerme al día. Bueno, de hecho hoy estamos hablando de este CAE PAY, por cierto. Por eso, porque me ¿Sabes que ya está llegando el momento como que ya te tienes que enviar tu comité, me dijo, tu respectivo resumen por correo para que Bernardo lo vea de cómo van las cuentas por cobrar?
+S1: OK, OK.
+S2: Y por eso yo le había sugerido este KPI. Él me lo revisó, yo le dije más o menos de que aquí sale por lo menos también igualito la cantidad total, lo vencido, lo vigente, sale lo de él me faltó comentando. Bueno, una de las cosas que quiero es que me lo pongas por día. Por día, por lo menos de 0 a 30 días, de 31 a 60.
+S1: Está muy bien.
+S2: Aquí tenemos los top 10 por monto adeudado, los 10 clientes. ¿Que más? Que más que todo estos dos.
+S1: Sí, sí, sí, se nota.
+S2: Esto es por facturas emitidas. El mayor volumen no tiene CBK.
+S1: Sí, sí, aquí está.
+S2: Los 10 clientes por antigüedad deuda, por lo menos este tiene una factura 800 un día. Hay muchas cosas viejas. Y aquí está por vendedor el monto de la cartera. Aquí tiene el porcentaje de facturas vencidas. El número de facturas vencidas son 250. Sí, exacto. Hay mucha, hay mucha cosas que hay.
+S1: Que depurar y eso lleva tiempo, lleva trabajo.
+S2: Exacto. Yo por los momentos tengo, hasta los momentos tengo esto más esta propuesta que él la revisó, esto lo revisó Jaime y Jaime me dijo, mira, por los momentos que le gustaban era esto KPI que están estas gráficas, está, esta el top 10. Me dijo que yo le había puesto otras cositas y me dijo, por los momentos déjamelo así. Pero no estamos reuniéndonos. Si yo voy diariamente decirle más o menos cómo van las cosas del departamento.
+S1: Claro.
+S2: Mira, la cobranza vamos a tal día.
+S1: OK.
+S2: Yo sí mantengo contacto con él informándole de cómo Vamos.
+S1: Exacto, exacto. ¿Te ha pasado que algo del sistema Du falle, que la data se pierde?
+S2: No, si me ha pasado que por ejemplo, la otra vez tuvimos un problema de que cuando íbamos a cargar el cobro, ¿Verdad? Cuando íbamos a registrar el cobro aquí y registramos en dólares, ¿Verdad? Por ejemplo, aquí ponemos mayor. Esta es una cuenta para registrar los IGTF. Teníamos un problema al registrar los IGTF. ¿Por qué? Porque cuando registrábamos aquí el monto del IGTF, por ejemplo, de aquí nos salía en dólares y aquí en dólares.
+S1: salía dos veces en dólares.
+S2: Entonces eso fue un error que tuvimos y tuvimos que reportarlo y tuvimos que durar unos días sin pasar nada que tuviera.
+S1: Se les acumula eso.
+S2: Dos días sin hacer. Si, pasábamos todo lo que era en bolívares, pero no podíamos pasar nada que tuviéramos que registrar IGTF.
+S1: Correcto.
+S2: Porque teníamos ese inconveniente y si no lo podíamos registrar, eso no los arreglaron. Otra cosa que pasó en estos días fue los comprobantes de retención que nos habían indicado que cuando íbamos a registrar un comprobante, cambiamos esta fecha, la fecha de retención y que esto se dejaba igual. Aquí sale es la fecha de la.
+S1: Factura, fecha de movimiento y aquí tú.
+S2: Le ponías la fecha que estás aprovechando comprobante. Pero en la segunda quincena de julio, cuando fueron a bajar los comprobantes pasados resulta ser que no viajó nada del libro de ventas. Entonces fue porque supuestamente era que había que cambiar en esta fecha y no está claro. A mí me causó ruido ayer la reunión fue por eso, porque yo les comenté que porque si antes se venía haciendo inverso y viajar libre de venta, ¿Por qué pasó? El problema fue ahorita en la segunda quincena de julio, porque yo les comenté, yo tengo casi tres meses aquí y nunca había pasado eso. Y pasó justamente ahorita la segunda quincena de julio y no se ha cambiado la manera en que se estaba registrando.
+S1: ¿Y que te comentaron? ¿Cuál fue el argumento de aquel lado?
+S2: Que no, que eso no se registraba así perdimos la batalla y bueno, entonces lo que hicimos fue, ellos van a todas esas retenciones que se pasaron en ese corte por medio de una plantilla, la misma gente de Odo iba a acomodar esa retención por una plantilla y le iba a poner a toda la misma fecha.
+S1: El agente de Odo dice el proveedor.
+S2: Sí, el proveedor. Ellos iban a hacer la modificación porque ya nosotros aquí ya no, eran aproximadamente 300 retenciones, ya no se podía hacer nada.
+S1: Y ese estatus que tiene ya se hizo. Ya ellos hicieron ese trabajo.
+S2: Eso lo sabe Víctor ya. Sí, sí, porque ese problema lo atajó fue Víctor, pues. Entonces lo que estamos haciendo ya en Cuentas por Cobrar es registrándolo como ellos indicaron ahora. Y yo, bueno, yo le dije hoy casualmente a Leonardo, que también de contabilidad, que por favor todas las semanas me rebajaron reporte a ver si todas esas retenciones que estamos cargando de parte de Cuentas por Cobrar le están viajando el libro de venta, como yo te dije, para no dejarlo para el último día, porque yo le dije, ellos me dijeron, eso fue el día que iban a declarar. Entonces le dije que como que no quería que pasara más ese suceso, sino que yo le estaba haciendo una revisión de que mira, me están viajando las retenciones, chévere, no hay problema. Si, yo le dije que hacerle más seguimiento, esa parte de que las retenciones estén viajando al libro de venta y no dejarlo para el último día.
+S1: Correcto. Mira, tú tienes iteración con otro sistema de más de Bad. ¿Utilizas algún otro software o sistema? Principalmente Odoo, Excel, LAR también, pero más para.
+S2: Más que todo por correo o Messenger. Si uno va a conversar con alguien de aquí mismo.
+S1: Habrá que tener su parte interna. ¿No hay otro sistema con el que se cruce, Odoo?
+S2: No, no, por manejamos también la información de cuando nos lo pasan por correo, como te enseñé. Se está manejando también por el open, o sea, los pagos.
+S1: Los pagos, exacto.
+S2: ¿Reportar los pagos a través del o para que? Eso también lo hacemos. Vamos a buscar una factura que esté paga. Para que eso quede en la factura. Vamos a buscar una que esté paga. Porque ¿Qué pasa? Cuando ellos montan esto por aquí, eso queda grabado en la misma factura. Mira, esta es la factura. La factura. 33. 33. 40. 33. 80. En la orden de venta queda guardado toda esa documentación del pago que reportó el vendedor.
+S1: Listo, listo.
+S2: Que por eso también se tomó la decisión de hacerlo así como que mira, eso va a quedar todo en el manera de que mira, si esta persona ya no está, se fue, duró un mes trabajando aquí y entonces en su.
+S1: Correo sabes si se pierde.
+S2: Entonces Andrés, entre Andrés y yo llegamos como a este acuerdo de que mira, vamos a hacer lo mejor por Odo, de que para que todo quede en Odo y no quede en que una persona que trabajaba aquí, que todo se.
+S1: Le mandaba esa persona un riesgo.
+S2: Entonces por eso también decidimos hacerlo así. ¿Que más te puedo decir? Así nosotros todo lo. Todo se hace a través de.
+S1: Y les va bien, digamos, lo que han podido avanzar.
+S2: Si, todo se maneja a través de aquí. Todo lo manejamos por este cuadrito y por la data. Exacto. Cualquier información que nos van a pasar, cualquier información que nos pidan, estado de cuenta, lo manejamos con esa data. Porque a veces también. A veces pasa así. Mira, dime cuánto debe corporación FBK, ¿Cuánto tiene? ¿Que te digo que busco yo aquí?
+S1: ¿Cuánto tione, por ejemplo, deuda pendiente?
+S2: Sí, sí, me lo han pedido.
+S1: OK, imagínate.
+S2: Aquí yo tengo.
+S1: Con el peso que tiene.
+S2: Sí, mira todo lo que tiene eso es muchísimo.
+S1: No lo estoy sumando, pero es mucho. Sí, sí, sí, claro. Todo ese columnero , chorrero.
+S2: Entonces, más que todo, lo que más usamos en cuentas por cobrar es.
+S1: Esto,.
+S2: 130 Mil dólares.
+S1: Claro. Rescatar eso, ¿Cómo se rescata?
+S2: Lo de los comités no lo hemos llevado a cabo porque como te dije, no estábamos al día con Ant, pero si es un proyecto a futuro, porque de hecho hoy lo estaba conversando con Jaime, casualmente ya yo le había ya esos KPI puse en el manual de cobranza.
+S1: Muy bien. Ese que me mostraste.
+S2: Si, ese manual de cobranza está. Ese lo levanté también yo porque él me lo pidió.
+S1: Perfecto.
+S2: Bueno, son los procesos, así que se ha levantado hasta momento en lo que yo he estado aquí cuando yo llegué.
+S1: Por lo menos ahora hay algo.
+S2: Sí, sí, exacto. Por lo menos ya hay un procedimiento como tal de B.
+S1: Tú me comentaste en un punto que Tesorería, Ali te daba un insumo, ¿Con quién más puedes interactuar?
+S2: La Sra. Zaida.
+S1: Zaida. Recuérdame la posición de ella, el cargo o el área.
+S2: Ellas están aquí junto con Tesorería.
+S1: listo.
+S2: Aquí hay una carpeta compartida, esta carpeta de administración. En esta carpeta ellas también alimentan aquí conciliaciones. RO Aquí están todos los estados de.
+S1: Cuenta también eso lo alimenta, o sea, lo va actualizando. Z,.
+S2: Verónica Ellas dos ZO Lo van actualizando, o sea que si yo no tengo información aparte, si por ejemplo Ali no viene o algo así, yo también puedo apoyar en ellas y meterme. Lo que pasa que a mí no me gustan mucho usar estas carpetas. ¿Por qué?
+S1: Porque tienes que poner una clave de seguridad.
+S2: Sí. Y si una persona tiene el archivo abierto, yo no lo puedo usar, o sea, me sale como que es solo lectura. Tenemos ese tema. Entonces yo por eso también le sugería Jaime, mira, no puedo estar así porque ¿Qué pasa? Que otra. Eso fue otra de las cosas que yo le dije a Jaime que veía que no se estaba haciendo aquí, que se lo comenté una preocupación para mí es un problema. Como nosotros cargábamos, cargamos, cargábamos, cargábamos pagos, yo le dije que si no había alguien que conciliaba, le dije esos pagos. ¿Por qué? Porque ¿Qué pasa? Yo me puedo equivocar registrando un monto, me puedo equivocar registrando un banco. Y yo le dije que yo no veía que aquí se hacía esa parte. Yo le dije, debe haber alguien que se encargue de revisar y conciliar todos esos. Que esos depósitos que yo esté pasando estén en el banco correcto, que yo lo haya pasado al banco correcto y un monto que haya sido correcto. Entonces yo le dije, bueno, por lo menos de donde yo venía lo hacía Tesorería.
+S1: Tú vienes de dónde yo vengo de.
+S2: Chocobru y tuve antes en Galletas Pui,.
+S1: Chévere, o sea, vienes de la parte de alimentos.
+S2: Entonces yo le dije que, o sea, que me preocupaba que nosotros registramos porque era mucha cantidad de coin. Nadie nos dice mira y puede pasarte que algunas por error dedo nos equivoquemos colocando motos. Entonces yo también le comenté eso que me preocupaba que yo veía que esa parte aquí no se manejaba. Yo le dije eso tiene que ser porque sí eso tiene que ser mensual, yo veo que esa parte aquí no se maneja. En estos días fue que fue alguien de contabilidad y nos dijo, por ejemplo, de varios que estaban haciendo borrador, que estaban los pagos duplicados, pero había uno que estaba aplicado y el otro no.
+S1: ¿Y por qué están duplicados?
+S2: No sé qué pasó . Estaban duplicados, pero había uno que estaba aplicado y el otro no estaba aplicado, estaba en borrador, quizás de repente se montó en borrador, no se eliminó y se montó otro nuevo. Sí, eso fue lo que yo debe ser por eso, pero lo importante que no estaba conciliado. Pero esa fue una de las cosas que yo le comenté a Jaime que veía que aquí no se manejaba eso. Yo le debe haber alguien que me diga a mí, por ejemplo, mira, te equivocaste aquí colocando el monto, ¿Sabes? Entonces me preguntó que si yo lo podía hacer y yo le yo no puedo hacer eso porque eso tiene que ser alguien que maneje los bancos, que tenga acceso a los bancos. Yo tengo acceso a los bancos porque yo por los cortes, pero yo le el mismo sistema debe darte como la información de todos esos foros que nosotros pasamos y todo lo que está en banco, o sea, el mismo sistema y ese acceso como tal no lo tengo yo, debes tener, yo le dije, o tesorería o contabilidad, no sé. Esa fue una de las cosas también que yo le comenté a Jaime que no se estaba haciendo y que a mi parecer debe hacerse por el modo de que podemos repetir el cobro o el vendedor puede darme porque aquí hay muchos montos similares. Entonces por ejemplo, cuatro seles de 500 dólares, entonces cuando tú te vas a meter sabe que eso es por nombre, entonces no, que si van y lo validan allá, entonces si salió uno de fulanito de tal y si así se lo cargo a este y ese mismo lo puedo usar para otro. Entonces eso también yo le dije, tiene que haber alguien de tesorería, de contabilidad, de donde sea, que me levante la mano cuando yo que esté revisando. Y yo debería ser por lo menos semanal para que al final de mes ya me. Ya yo sepa, mira, tantos cobros pasé mal y esos cobros se corrijan para cerrar el mes como debe ser.
+S1: Correcto, correcto. Vale. ¿Ustedes han utilizado en algún momento herramientas de lo que es Power BI o Inteligencia Artificial para integrarlo en algo de.
+S2: Eso, de la Inteligencia Artificial? Yo utilicé más que todo cuando levanté.
+S1: Los procedimientos para sí,.
+S2: Hice el curso. Sí, pero en el departamento como tal no lo hemos utilizado.
+S1: No lo usan en alguna operación del proceso, ¿Tú ves alguna oportunidad ahora mismo? ¿Visualizas una posibilidad de incluirla? ¿Hay algo que tú digas, oye, esto.
+S2: Se podría quizás, bueno, quizás por lo menos en esto de los comités, a.
+S1: Ver, más o menos cómo sería la idea,.
+S2: Porque también lo hecho, también lo he practicado, de cómo pedirle a la IA, como la sugerencia de los KPI que son recomendables o necesarios? ¿Una gestión en cuanto por cobrar, para dar los números exactos y el porcentaje más sensibilizado en cuanto? Eso es lo que así me puedo imaginar.
+S1: Muy bien. Y si te preguntara, Yajaira, ¿Cuál sería el proceso de lo que me has mencionado, que tú dices, oye, este tiene el principal problema, ¿Cuál es el cuello de botella más fuerte que tú quisieras resolver si tuviese la forma de hacerlo.
+S2: Hoy mismo en cuenta por cobrar?
+S1: Sí, sí, sí. ¿Cuál es el de los problemas que tú has visualizado, cuál es el que tú primero quisieras desaparecer? Oye, esto de verdad me quita mucho tiempo, es muy complicado.
+S2: Lo que quisiera de verdad la antigüedad, esas facturas de más de 120 días, o sea que siento que es como ilógico que tenga más de 120 días. Te acepto que por ejemplo los clientes, porque es como todo, como hizo una persona un comentario hoy ninguna empresa está a salvo de eso, si no voy a tener la cobranza sí eficaz, menos de 30 días, es muy difícil. Pero sí por lo menos quisiera de que eso, de que no estuviéramos, o sea, de sincerizar, que de verdad todo eso documento que tenía más de 120 días no es tan caro, es como mi prioridad ahorita, o sea, como quisiera como sincerizar todas esas facturas que yo tengo en odo, o sea toda esa deuda que yo tengo, quisiera saber si de verdad todos esos documentos que yo tengo más de 120 días, si de verdad es porque me muevo.
+S1: Claro, saber es importante.
+S2: Exacto, porque yo tengo como la duda.
+S1: Ni que será, no la puede saber sin como indagar, ¿Verdad? Sin investigar a fondo cada.
+S2: Tiene que ser con apoyo de ventas.
+S1: Con apoyo que es el contacto.
+S2: Exactamente, ellos son los que tienen el contacto. De hecho yo le sugerí a Andrés que si ellos necesitaban, le dije que nosotros nos comunicamos también con clientes para nosotros también saber ejercer presión de que y como nosotros administrativamente sabemos más o menos cómo pedir las cosas en cuanto a lo que nosotros necesitamos, porque yo le digo a ustedes que Sam dice no, mira le el pago de no sé qué, entonces yo por lo menos indagar, sabe, le dije apoyarlos a ellos de cierta parte, si ustedes me dan los contactos, los números, nosotros los podemos apoyar de nuestra parte para que ustedes por su parte tengan su presión y nosotros también presionemos al cliente como que mira, necesito los soportes de esta factura, le dije que estamos atrasados, le dije buscar las maneras técnicas de nuestra parte de cuentas por cobrar y ustedes su.
+S1: Parte técnica en cuanto a venta, como una estrategia combinada. Y ha tenido esa idea, ha calado bien, se va a progresar con esa idea.
+S2: Eso se lo dije hoy fue Andrés en una reunión. Sí, porque hoy fue que si, ¿Por qué? ¿Porque si yo he pasado muchos correos y entonces no se estaba viendo como el feedback, entonces hoy hicimos una reunión como para conversar eso de que se está viendo de que por parte de cuentas por cobrar, sabes, se está enviando los correos, se le está haciendo seguimiento a las cuentas y de parte de ventas estamos teniendo como la receptividad, sabes qué está pasando con esto? No me responden los correos, entonces yo le comenté, mira, una sola persona se ha sentado conmigo, entonces le dije no me dan respuesta, he comentado bastante de los documentos 2024-2025, ya me dieron una fecha para que ya tengo que cerrar esa fecha. Eso bien sea eso también se lo comentaba y se lo comenté, si son documentos que no se pueden cobrar, por lo menos que ellos me pasen un correo y me mira, yo pasé por el cliente, está cerrado. De hecho le dije a una de ventas que me dijo, le dije si le tienes que tomar una foto al local que ya está cerrado, usted le toma una foto, me la pasa por correo. Le dije te apoyas con tu gerente. Claro, pasan un correo con una foto y diga mira ya he visitado el cliente recurrentemente, cliente no está en operaciones comerciales.
+S1: ¿Difícil?
+S2: Sí, está un poquito difícil, eso es como el embotellamiento que siento que hay ahorita allí porque esto ya, por lo menos el comité, los KPI, veo que es como más, se va a llegar a eso, es como más viable, pero veo que lo más difícil esto porque no, lo que le dije, no quisiera entregar un comité que no es real porque estoy diciendo no, si mira tiene 6 millones y pico de dólares por cobrar, pero que los vendedores digan, pero es que ya yo cobre todo eso porque sabe que ha pasado mucho y fue una de las cosas que se conversó que dicen, que ellos dicen de su parte que por lo menos hay facturas de enero, que sí ya entregué el soporte en pago y como se trata físico. OK, entonces hay ese problema que yo se lo entregué a fulanita, que yo se lo entregué a sutanita, que eso se trapa peló, que no sé qué. Tenemos ese embotellamiento en esa parte que no tenemos la cuenta sincerizada porque no se le estaba haciendo el seguimiento.
+S1: No se venía haciendo seguimiento.
+S2: No se venía haciendo seguimiento, no se venía.
+S1: Tranquila. Está bien. ¿Que otro proceso así estamos manejando Yajair, en cuanto a la parte de cobranza, además de lo que me has comentado, ¿Hay algún otro proceso que se esté manejando o que esté por activarse quizás con tu llegada? ¿Que se esté planeando activar?
+S2: Lo primero que yo propuse fue, bueno, lo de digitalizar la cobranza, que todo fuera digital, ya gris, ya avanzamos en esa parte, ya se están adaptando como a enviarlo por correo.
+S1: Excelente. Con lo del grupo, la parte o DU que me comentaba.
+S2: Fue una de las cosas que yo pedí. Lo del comité, bueno, eso sí lo tengo en stand by porque por lo que te comenté, porque primero lo que quisiera bajar es FBK que todavía tengo cosas reemplazadas como se lo dije en mayo, junio. Entonces como para entregar un comité más real. Me gustaría que me dijeran que me falta.
+S1: Vale, vale, tranquila, eso lo vamos a.
+S2: Ir recopilando porque él también me dijo eso, como que es bueno que yo supiera que hacían en Panamá. Sí, como que para yo ver qué puedo yo implementar que allá se haga, que me sirva a mí pues.
+S1: Sí, sí, sí, sin duda.
+S2: Exacto. Porque yo más o menos tengo los parámetros, ideas, cosas, pero hay más cosas que hacer.
+S1: Lo vamos a ir viendo.
+S2: Otra cosa que como te digo, las conciliaciones bancarias, que eso también sí me gustaría.
+S1: Sí, sí, sí. Eso Contabilidad no está apoyando en eso ahora mismo. No es algo que Contabilidad asume.
+S2: No, o sea, sí me dicen que sí lo hacen, pero como que ellos tienen un atraso en eso, fue lo que me comentaba.
+S1: Yo también escuché eso cuando.
+S2: Sí, exacto. Es lo que yo. Es una cosa, es algo que también me preocupa.
+S1: Claro, si está atrasado allá para ti no es funcional porque.
+S2: ¿Exacto, No, porque nosotros estamos pasando, pasando y nadie nos dice mira, entonces qué pasa?
+S1: Como yo digo, no quiero que después.
+S2: De seis meses me digan mira, tú pasaste un pago en eso, es lo que no quiero que pase. ¿Y eso se lo comenta Jaime? Es que eso me pregunta.
+S1: ¿Y qué razón te dan por allá o si te han dicho algo lo del Pol que está atrasado?
+S2: No me han dicho nada. No me han dicho nada porque yo, bueno, ese comentario se lo hice a Jaime y se lo hacía mucho a la persona que estaba conmigo que ya tenía ya tiempo aquí. Yo le pregunté el proceso, yo le dije de parte Contabilidad no sé quién es que hace eso aquí y se lo comenté Fajaime. Entonces Jaime me dijo eso no lo puedes hacer tú. Yo le dije no puedo hacer eso, o sea, operativamente no lo puedo hacer porque no tengo acceso a la información. Puedo bajar por. Hay una parte que tú, un reporte que tú vas de los pagos, pero no tengo acceso a esa parte, que nosotros conciliamos todos esos registros en banco. Le dije, no sé, yo me imagino que los estados de cuenta, te dije eso, no sé, de alguna manera ellos concilian. Hay que conciliar esos estados de cuenta con lo que yo estoy cargando.
+S1: Debería. Claro.
+S2: No tengo acceso a eso. Creo que esa es otra, no es como función de cuentas por cobrar, o sea no lo veo, nunca lo he visto como función de cuentas por cobrar y Yo tengo ya 20 años de experiencia.
+S1: Claro, claro, yo le dije, nunca he.
+S2: Visto que cuenta por cobrar asume esa parte.
+S1: Eso también es importante. ¿Te lo iba a consultar, tú que vienes de escuelas, tienes escuela en el área de cobranza, qué práctica que tú hayas visto que se hace bien en otros lugares donde tú vienes, quisieras o pudieras pensar en aplicar acá? ¿Hay alguna práctica buena? Oye, esto se hizo bien acá y se podría aplicar bien acá, ¿Hay algo en particular que cumpla con eso?
+S2: Mira lo que veo, lo que sí siempre, por lo menos ahorita que vengo de Chocoblu, una de las cosas que aprendí que hay que hacer auditoría las cuentas y amarle, o sea, hacerle seguimiento a las cuentas y no engavetar, o sea no hay que. ¿Bueno, ya le pasé esta cuenta que eso también se lo comenté al gerente de venta, digo yo si no me responde los correos igualito voy a ir, me lo voy a sentar, sabes? Porque yo le digo, se van dejando pasar las cosas, entonces digo, por eso es que hay esa antigüedad tan grande, porque yo no se le ha hecho el seguimiento oportuno. Entonces por lo menos yo pienso que es una de las herramientas fundamentales de cobranza, hacerle seguimiento a las deudas que tienen mayor antigüedad, como que lo más básico de cuentas por cobrar, si no tienes eso, no tienes nada. Sí, sí, sí, esa parte es lo que más he aprendido. ¿Por lo menos este cuadrito que yo hice me parece súper práctico porque aquí era demasiado manual eso de que no, que llené el cuadrito en Excel de los bolívares, entonces yo qué eso? De verdad que son. Bueno, la persona que estaba sentada cuando le dijo eso es una maravilla.
+S1: Porque ya sin duda sabe,.
+S2: Entonces yo le dije no, o sea, yo le dije, yo estoy para ver qué más se puede hacer. Ya con toda esta experiencia que yo he adquirido en la dos empresas, aunque esta empresa donde estuve ya estaba más modernizada, Galletas Cuy es como más, trabaja como más a la antigua, listo. El proceso de Galletas es súper más antiguo que el de aquí, el de Chocolu, donde yo estaba el chocolu, era más actualizado. Aunque sin embargo allá no hay nada de inteligencia artificial. Eso sí, Eso más bien lo estoy viendo en.
+S1: Correcto.
+S2: ¿Esa inteligencia artificial no la viste por allá?
+S1: ¿No?
+S2: No, no, eso no. Allá más que todo era Excel. Exacto. Todo se manejaba con Excel. Estados de cuenta y darle seguimiento a las cuentas. Seguimiento. Está pendiente. Revisar, revisar y revisar.
+S1: Mira, ¿Será que te iba a preguntar? Nos podríamos meter en largo momento para. Yo creo que Jaime no los pasó porque nosotros se lo pedimos, pero ese manual si nos podrías compartir por lar. Me lo puedes pasar por el chat, yo comparo si veo que lo tenemos. Bueno, no pasa nada porque está muy bueno y es bastante completo. Sí, ese soy yo. Estaba justo . Te lo envío por aquí adjuntado y lo manejamos confidencialmente.
+S2: Tranquila, yo nunca he pasado nada por aquí.
+S1: Al tranque. Creo que activaste un zoom. porque creo que si quieres sal de la reunión porque ya por supuesto no creo que se conecte la persona por la hora. Dale a noto. Activa.
+S2: La reunión. Aquí está. No, pero no estoy.
+S1: No, ya creo que ya saliste de la. ¿Más en signo más en dónde? Aquí creo que hay una opción de adjuntar archivo local. Debe ser archivo local, o sea, si lo tienes en tu computadora.
+S2: Sí, sí. A qué esc. Manual de Procedimiento Operativo.
+S1: ¿Y tienes algún otro, por casualidad, algún otro manual que tú pudieras compartir con nosotros? Eso sería muy valioso.
+S2: Creo que yo le suma puntos, sea.
+S1: Formal o informal, así sea un borrador.
+S2: Tranquilo, no los tengo. Fue como que. Ya, déjame ver si lo veo.
+S1: Seguro, seguro.
+S2: Yo le hice a Jaime un diagnóstico de cuentas por cobrar, como un informe de cómo yo conseguí el departamento y las sugerencias que yo le daba, como que en cuanto a mejorar algunas cosas.
+S1: Bueno, eso sirve. Eso está bien.
+S2: Es de seis páginas.
+S1: Buenísimo. Eso nos va.
+S2: Es como el diagnóstico de lo que yo conseguí cuando yo llegué y más o menos qué ideas tenía para implementar.
+S1: Bueno, todo eso es valioso.
+S2: Claro, déjame ver, porque yo. Si,.
+S1: Vale, vale. Si, cualquier otro documento que maneje es bueno. Como complemento de la.
+S2: Te pasé el Manual de Procedimientos Operativos, te voy a pasar diagnóstico con.
+S1: Perfecto. OK, aquí está.
+S2: Si, más o menos está como que la situación que yo vi cuando llegué.
+S1: Pues eso está bien. Claro, están tus puntos de vista, tus observaciones, tus alertas, las alertas que tú levantas.
+S2: Una de las cosas que yo comenté fue eso, lo de la conciliación de los band. Muy bien. Que veía que no se hacía. levanté lo del proceso de mencionar lo del físico, que se entregaba todo en físico y que, o sea que eso era un gasto fuerte, porque eso, mire, eso es impresiones. Impresiones.
+S1: Y no sólo gasto sino que se puede perder.
+S2: Exacto. Yo coloqué allí como que todos los contra de esa manera en que se venía trabajando.
+S1: Muy bien.
+S2: Porque me pasó muchos casos que a veces cuando tenía eso yo decí que como todo estaba junto, a veces veía como que esto que como que no correspondía al juego de lo que tenía, entonces.
+S1: Sí, claro, como la antigua, pues.
+S2: Es que ni siquiera lo engrapan, decían yo, entonces todo se salía, saben, Entonces yo dije, claro, por eso me preocupa esa antigüedad más de 120 días, porque yo sí digo que tuvo que haber pasado miles de cosas que se traspapelaron, que se votaron, que se sabe.
+S1: En tu experiencia, la práctica llega a estar que los 90 días o 60 días, 120 es mucho. Qué es lo máximo recomendable que tú hayas visto dos meses, 60 días o 90 días, bueno, tres hábiles si son.
+S2: De 20 días, que tú digas que verdad, la cuenta no está tan. Sí, que tenga documentos de 90 días más que no es que el 100% de las carteras representa esos 90 días, no, sino que bueno, tenga algún porcentaje de 90 días.
+S1: Bueno,.
+S2: Por muchas cosas. Exacto. Pero el 120 es excesivo. Exacto.
+S1: Es demasiado y muy riesgoso también.
+S2: Exacto. Bueno, una de las cosas que le estaba comentando Jaime, que si, no sé si nos pueden ayudar, le dije que sabes que aquí para crear un cliente solo piden el, entonces yo le estaba comentando a él que me parecía un poco riesgoso que solo pidieron el turismo.
+S1: Qué pedirías tú, o sea, o qué.
+S2: Recomendaría, o sea, yo le dije a él, claro, yo le dije, sería bueno averiguar como en la parte legal qué documentos así son necesarios, yo digo el RIF, la cédula de la persona y el registro mercantil. Exacto. Por lo menos digital.
+S1: Sí, sí, claro, exacto.
+S2: Le digo, no que lo van a traer, pero si le dije porque lo veo como que le dan apertura a cualquier persona, porque yo le dije cualquiera puede tener un grifo sin saber de que esa persona tenía una empresa conformada, sabe, que tenga algo legal, o sea, lo veo como muy informal. Yo le hice ese comentario también me lo preguntó el señor Vi, yo le dije donde yo estaba antes pedían todo eso, conversé con una persona que está todavía allá como para ver qué pedí, me dijo que también solo estaban viendo en RIF. Sí. ¿Entonces yo dije bueno, será que nos quedamos así? Pero si le dije a Jaime, sería bueno averiguar si estamos bien, si validar.
+S1: Un poco ese punto, vamos a tomar nota de ello.
+S2: Esa parte si no la tengo en el diagnóstico, pero si te lo estoy comentando a ti porque sí me gustaría como que hiciéramos una revisión si ese proceso está bien así o si sería bueno pedir una documentación adicional que no debería faltar.
+S1: Y de las cobranzas que no están tan vencidas o que son recientes, estás manejando algo como alertas de vencimiento, o sea, tienes identificadas las que están tomando en el OUCB. En el OUCB, las alertas de vencimiento y tomas alguna acción respecto a esos clientes mientras tanto no hace falta. Mientras no se venza, no.
+S2: Exacto. Porque ahorita tengo el ojo.
+S1: Sí, sí, sí. En lo prioritario.
+S2: Exacto. En las antiguas. Y como te dije, como vengo haciendo yo vengo pasando correos de auditoría, es como de la semana pasada porque no había podido, porque yo estaba apoyando a las muchachas con la cobranza, mi gestión como coordinadora como tal, estaba haciendo como poco creé el archivo, hacía como cosas poco a poco, pero estaba pendiente como ayudar también a registrar.
+S1: Claro. Para adelantar eso.
+S2: Exacto. Estaba como en todo estaba tratando como de que no descuidar nada, pero sí a ayudar a. De hecho nos quedábamos varias veces de noche, pero gracias a Dios ya estamos relativamente bien. Nos falta FBK.
+S1: Listo. Listo, está bien. Bueno, mira, por mi parte creo que ya estamos, me siento satisfecho de que hemos levantado una buena información, ya de nuestra parte queda más bien en el trabajo de procesar o de darte a ti, a tu equipo un entregable para revisar eso. Lo van a revisar tranquila. No sé si por parte tuya hay algo más que quieras comentar, algo que consideres relevante, aportar en el marco de.
+S2: Lo más relevante es, bueno, como te comenté, la conciliación de los bancos. ¿Que me preocupa? Me preocupa eso de que estamos registrando nada más con RIF sin saber la credibilidad de la persona que quiere aperturar la cuenta, aperturar el código, el cliente, o sea, no sé cómo está tomando esa parte de venta. También se me comentó uno de los vendedores que van a vender a consignación al mayor y le comenté a Jaime que eso era algo muy delicado. ¿Sabes que eso es delicado, hay que hacer un seguimiento porque una factura que tú le entregas al cliente con nota de entrega, nunca la paga al momento? Entonces. Exacto, ellos venden, entonces que venden, tú le facturas lo que venden. ¿Y eso se lo comenté fue al vendedor, porque el vendedor se acercó y me che, yo le dije, sabes? Yo le dije, ¿Sabes cómo es el proceso de conciliación? Entonces él me explicó, yo le dije bueno, sabes que eso hay que hacer un seguimiento al inventario y es súper importante por libre. Acuérdate que él te puede decir mira, yo vendí tanto esta semana y se supone que la siguiente semana tiene que tener la misma cantidad que te dijo que la semana pasada le quedó en inventario y no vendió. Entonces yo eso se lo dije, le dije que por favor me copiaren todos los correos para yo saber cuál es el inventario inicial y ver viendo como toda la semana que le facturas tú y que va quedando, aunque ya quedaron. Sí, sí, sí. Pero bueno, él se llama Jefferson. Sí, porque él es el que va a vender a cadenas.
+S1: Jefferson a cadena.
+S2: Pero él me dijo que están negociando consignación y que poco van a pagar de contar o se le va a dar 30 días de crédito porque no manejo los días. Pero lo que sí me preocupó eso y eso también levanté la mano. Sabe que eso es delicado.
+S1: Hay que saber hacerlo.
+S2: Exacto, hay que saber hacerlo. Y bueno, el gerente de venta sí veo que también tiene bastante conocimiento de eso, parte de consignación, porque dijo que aquí eso era un desastre. La consignación que él vio cuando llegó aquí.
+S1: ¿Ya lo vio?
+S2: Sí, sí, él ya. Porque hay un cliente por que se le dio consignación, que se le facturó, que se hizo un desastre, no.
+S1: Se hicieron los procedimientos, como pagó el precio y se aprendió de.
+S2: Exacto. Y todavía tiene facturas pendientes, pero bueno, en sí lo que veo es que mi preocupación así ahorita de cuentas por cobrar es las facturas que representan que tienen más de 120 años de antigüedad, o sea, más que todo depurar lo más antiguo. Eso lo de los bancos que me preocupa que veo que no hay conciliación, no tenemos un cierre mensual y eso existe en todos lados, de que uno diga mira, ya se registró los el mes, vamos a empezar con. Aquí no se ve eso, no se hace cierre. Exacto. Y eso también lo veo desde mi punto de vista está mal, debería haber un cierre donde mira, ya yo concilié, todo está bien, sabes qué contabilidad me de que mira, todo está bien, todo está. Che, me gustaría que me ayudaran con eso de la creación de clientes, que me asesorara si estamos bien, si es viable así, si había que agregar otra documentación, hacer otro chequeo de nuestra parte y bueno, si saber también si hay algún otro procedimiento que no se está aplicando, alguna sugerencia de cosas que se pueden implementar.
+S1: La imagen completa, pero sí, sí, tranquila, eso bien.
+S2: Sí, bueno, porque la idea es que trabajemos en conjunto, por lo menos yo me tengo que apoyar Contabilidad y con venta, entonces. Exacto, la idea es que mejore también el proceso de contabilidad y el de venta como para que los tres trabajemos en equipo.
+S1: Sí, sí. Que son con los que más interactúan.
+S2: Exacto, sí, exacto. Porque la parte tesorería no la tengo así tan. No está grave porque como tengo aquí y si no está allí, están los cortes de ese lado. Sí, exacto. no tengo tanto problema con los cortes, que lo necesitamos todos los días en realidad, porque la muchacha tiene que, antes de cargar, tiene que validar que los depósitos tengan el banco.
+S1: Correcto, correcto.
+S2: Entonces, bueno, es lo que ven.
+S1: ¿Y cuando toca hacer alguna llamada cliente, normalmente eres tú quien lo hace?
+S2: No, bueno, yo. Yo solamente he hablado con un cliente que he hablado con FBK, que es la cadena que te dije que me había cadena y ayer casualmente una muchacha de tesorería me llamó y había un cliente quería usar un saldo a favor. Un saldo a favor de una factura, quería como que aplicárselo a una factura. Entonces ella me comentó el caso, yo revisé el sistema, ella me dijo dame un estado, pues dice cuando revisamos, el cliente quería cruzar ese saldo a favor con la factura de julio y tenía facturas de junio. Entonces yo le comenté, yo le dije, yo no puedo cruzar ese saldo a favor, le dije, porque yo le dije ¿Qué pasó con las facturas de junio? Yo solamente que la vendedora no me haya pasado los pagos. Yo le dije, dame el número del cliente porque me gustaría hablar con el cliente, porque, para saber, porque es como raro que. Y bueno, tuve comunicación con el cliente, hablé con el cliente me dijo que quería mi contacto como para comunicarse directamente conmigo para pasarme los pagos. Y yo le ay bueno, chévere, buenísimo. Me envió el correo, yo le dije que cualquier cosa, cualquier eventualidad se podía comunicar conmigo. Me presenté y es con lo único de un cliente que tengo contacto.
+S1: ¿Y las personas de tu equipo tienen la capacidad de hacerle también contacto con cliente o principalmente tú por tu experiencia?
+S2: No, la muchacha sí ella tiene experiencia. Sí ella viene de cuentas por cobrar,.
+S1: También tienen esa trayectoria.
+S2: Exacto. De hecho yo se los mandé y le dije, mira, si nos toca hablar con clientes, tocará porque yo le dije, hay que rescatar esa cartera que tenemos en sí. Yo le dije que tenemos que apoyar a venta. Le dije, si, tenemos que apoyar.
+S1: Se apoya que están alineados en esa.
+S2: Sí, sí, sí, ella dijo que sí, que no,.
+S1: Está muy bien. Bueno, listo, Yajaira, excelente. No, claro que sí, súper bien, agradecido de verdad, vale, porque tú tienes una imagen muy completa del proceso, veo que tienes experiencia, así que todo lo que nos has dicho es clave. De verdad agradecido igual si luego más bien nosotros tenemos alguna consulta, seguro te contestaré una cosa adicional, pero bueno, agradecido de momento. Además tiene mucho trabajo adelantado y en el poco tiempo que tiene, gracias a Dios.
+S2: Escucha, comentarios positivos de parte de otras áreas. Escuchado que se ha visto el cambio desde que yo estoy aquí.
+S1: Listo, muy bien.
+S2: No he terminado la tarea, pero vamos bien.
+S1: Empezaste bien y lo que empieza bien termina bien.
+S2: Yo dije, bueno, se ha visto el trabajo y era lo que yo quería. Exacto. Porque, o sea, con ese año tú te vendiste y te vendiste, te contrataron. Te contratamos porque te vendiste bien. Entonces bueno, gracias a Dios estoy dando la talla por los momentos.
+S1: Excelente. Y le seguirás dando.
+S2: Claro que sí y espero también que como te dije, me ayuden ustedes también. Seguro, porque ya Jaime me había comentado más o menos a qué venían ustedes.
+S1: Un poco alinear también lo que se puede alinear con Panamá, Costa Rica.
+S2: Bueno, buenísimo porque eso también por lo menos a mí me sirve de aprendizaje. Sin duda, sin duda, porque hay otras cosas que implementar de cuentas por cobrar y de repente yo un dislay que se me acuerdo. Ay verdad, yo debí haber implementado eso, por lo menos ustedes me ayudan y eso me retroalimenta.
+S1: Igual de tu lado si ves hay algo nuevo que te acuerdes,.
+S2: Uno no se acuerda en el momento, de repente yo le dije a Jesús que se me olvidó que aquí esto.
+S1: No te preocupes, me avisas por largo un momentico, por aquí vamos a estar y nos vas a ver.
+S2: Sí, ya me habían dicho que ustedes iban a estar, me dijo primero montar los manuales, después van a venir personalmente.
+S1: Sí, sí,.
+S2: Ya Jaime me había dicho muy bien, ayer me dijo, me dio risa pero yo le dije sabes que mañana tengo una Entrevista, suerte. Me dijo sí, yo le dije, ay, yo le dije como que si me mandaran a. Entonces se echó a reír.
+S1: Hablaremos bien de ti, tranquila.
+S2: Yo le dije suerte, no porque yo esté en lo que.
+S1: Así es, así es. Gracias Ñajaira, muy amable. Tranquila, gracias por todo de verdad Y bueno, cualquier cosa estaremos en contacto, seguro nos toca tarea a nosotros ahora y bueno porque. Bueno, gracias porque tomé mucho tiempo también ¿No?
+S2: Que fluyan las ideas y que pueda.
+S1: Recuperar todas esas escenas. Gracias. Gracias a ti, seguro.

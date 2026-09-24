@@ -1,0 +1,222 @@
+S1: Relativamente lento y poco informativo para nosotros. ¿En qué sentido? En que nosotros una vez que realizamos el pedido en el sistema, a partir de allí, la siguiente información que nos llega es cuando ya el pedido está embalado. Previo a este proceso, ya el pedido tiene un proceso que es la primera etapa, que es cuando ya llega arriba del depósito, la persona encargada se lo selecciona a alguien para que lo saque.
+S2: ¿A quien? ¿A quién?
+S1: A cualquiera de los chicos que están allí.
+S3: De repente mejor contarte el proceso del pedido desde que el vendedor recibimos el pedido del cliente para que vea los pasos y después te hablamos de los cuellos de botella que podemos llevar. No sé si. El proceso es. Nosotros recibimos el pedido del cliente en Excel. El sistema tenemos una plantilla que generamos el pedido rápidamente en Excel. Perfecto. Si hay disponible o no, da una alerta en rojo. Si está disponible o no, pasa almacén.
+S2: Bien.
+S1: Y , al momento de montar pedido, hay una traba que el inventario arriba no es real. Estamos trabajando con un inventario a pesar de que nos diga que hay disponibilidad. Muchas veces sucede que.
+S2: Eso lo comentó Andrés justamente. Correcto.
+S3: Llega almacén, el almacén tiene una tablet, por decir, pero una computadora central donde le asigna a los despachadores quien está libre, el proceso de generar el pedido o de sacar el pedido. Sacan el pedido cuando está listo, nos llega a nosotros o al PED, le llega un correo de que ya se procesó el pedido, que va a la fase de facturación.
+S1: Pero entre ese proceso de que les llega ellos el pedido, allá arriba asignan a alguien para que lo saque. Hay otro proceso que cuando ya el vendedor, el despachador los está sacando, él pistolea lo que hay y en ese momento ya él aparecer en su tablet qué artículos no hay, ese proceso a nosotros nos llega. Ese proceso va directamente al central de allá arriba. Al gerente.
+S2: Sí, sí, lo sé. El gerente.
+S1: OK. Después que él saca ese pedido, él lo coloca en un mesón para el siguiente proceso de chequeo. Cuando hacen ese siguiente proceso de chequeo, es que a nosotros nos informan que ya ese pedido se chequeó.
+S3: Listo.
+S1: OK. Y con su diferencia y todo esto, ¿Qué pasa?
+S2: Vale, vale.
+S3: Luego de eso pasa a Jolie, que es la que factura, y cuando genera una factura también nos llega una respuesta de que ya está facturado. termina el proceso pasa a despacho que generamos la guía según vaya al interior, si lo vienen a buscar, eso pasa una información arriba y se despacha, se entrega el pedido, termina el proceso. Pero el proceso de todo ese proceso tiene cuellos de botella. Te ha nombrado algunos, pero el mayor cuello de botella es cuando pasan pedido de tiendas nuestras, se paraliza el almacén.
+S2: Para el mayor,.
+S3: Empiezan colas de pedidos esperando que arriba. Claro, no es culpa de proceso que yo en reuniones pasadas comenté o sugerí que se hicieran dos grupos, grupo para las tiendas, en ese caso un grupo para que no se paren los pedidos del mayor, le sigan sacando y procesando los pedidos del mayor, entonces se paraliza. hay botellas que.
+S1: Otro cuello botella es cuando llegan los contenedores de mercancía, el depósito en general, separado el primer día por la recepción de la mercancía, está bajando, está checheando arriba, subiendo la mercancía. El segundo día para chequeo de esa mercancía que llegó, ya son dos días que el mayor no tiene. No tiene disparo.
+S3: El tercer día para sacar los pedidos.
+S1: De las tiendas, el tercer día prioridad los pedidos de las tiendas con la mercancía nueva que llegó. Cuarto y quinto día. Entre el cuarto y el quinto día puede que empiecen a sacar los pedidos nosotros, o sea que ya una semana se ha perdido, se han perdido los clientes nuestros de tener la mercancía en su tienda y de venderla. Claro, y normalmente los días más fuertes de los clientes son los fines de semana. Se desaprovecha esa idea de venta tanto para ellos como para nosotros, porque si ellos venden esa mercancía el fin de semana,.
+S2: Su reposición. Entiendo, entiendo.
+S1: Ahora iba a comentar otro cuello de botella. ¿Ya una vez sacaron los pedidos de nosotros, empieza cuáles son los que van a ser despachados al interior? MRW, ZOOM, TE, ARCA, cualquier. Antes se trabajaba de que nosotros hacíamos la guía de los pedidos y nuestro mismo personal se encargaba de llevarlo.
+S3: De alcaba.
+S1: Eso normalmente era el mismo día que nosotros le damos las guías, ellos se reunían y al final de la tarde se despachaban. Ahora no, ahora se está contando con una remesa que se llama, que ellos vienen a buscar todos los pedidos, los.
+S3: Courier ahora vienen a buscar con su.
+S1: Transporte y no es todos los días, sino que son un día sí, un día no o de repente un día a la semana igualmente vuelve a pasar lo mismo, ya son días que se pierde el cliente de tener su mercancía en la tienda, nos retrasa el trabajo nosotros y no le sacamos el provecho que debíamos de sacar Ahora claro, esto.
+S2: Lo estamos hablando con los clientes actuales, todo proceso comercial también tiene una etapa inicial, no sé en qué medida sea bueno, prospección de nuevos clientes, intentar un primer contacto, eso lo estamos manejando o nos arropa lo que tenemos es demasiado,.
+S1: Lo que necesitamos es que esto se.
+S3: Mejore para poder nosotros buscar este tema. Entiendo, nosotros todo el día se nos pasa los vendedores resolviendo todo eso cuello botilla para poder responder a nuestro cliente, o sea en vez de ocuparnos de buscar nuevos clientes o tener nuevas propuestas nos todo el tiempo a eso les.
+S2: Arropa, les consume mucho tiempo.
+S1: Esto es solamente la parte despacho de mercancía dónde viene la parte administrativa, cuenta por cobro, los clientes nos envían a nosotros los soportes de pago una vez que por lo menos en mi caso mayormente estamos nosotros encima de los clientes para pago, retención y todo esto OK. Una vez que recibimos los pagos todo se hace bueno antes se le engrapaba a la factura fiscal, retención y el pago y lo pasaba a la administración, ahora no, ahora hay que hacerlo todo, descargar todo en la computadora, los soportes de pago para ingresarlo nosotros en el.
+S2: O Wow y eso está funcionando digamos.
+S1: Hoy en día Bien, estamos realmente arrancamos fuerte. Bien, claro, arrancaron este mes y es un trabajo de verdad tedioso, el vendedor.
+S3: en vez de hacer su trabajo en venta está generando mucho trabajo.
+S2: Administrativo. ¿Mucho administrativo, entonces nosotros al momento de.
+S1: Agregar toda esta información a la U nosotros debemos conciliar todo esto y ya.
+S2: Es un trabajo Sí, sí no, o sea en qué medida se ha pensado automatizar o utilizar alguna herramienta para eso? ¿Porque creo que hay form, debe haber.
+S1: La.
+S2: Apunta hacia eso pero ustedes internamente no han hecho un ejercicio todavía de automatizar o no ha pasado por esa etapa? Bueno, es muy nuevo también.
+S3: Y de paso que el departamento de cuenta por cobrar prácticamente es nuevo, no existe porque.
+S2: Ustedes le ordenan la información a cobrar, o sea cobranza no recibe todo usted como que la procesan y le envían directo un desastre.
+S1: Nosotros organizamos Concilia.
+S2: Correcto, Bernardo.
+S3: Ya ve. ¿Cuánto, cuánto me dejan?
+S1: Que se yo.
+S2: No se puede, no se puede. Eso se hace por Odoo.
+S3: 100% Solo.
+S2: Tanto ustedes como cobranzas. Cobranzas, perfecto. Ustedes lo precargan y ellos jalan del sistema y ejecutan la cobranza. Entiendo. OK, OK. ¿Y eso lo hace cada vendedor? Cada vendedor lo está haciendo con sus propios clientes. Andrés me habla de todas las líneas. ¿Cuál es la línea hoy en día que más demanda trabajo? Más que Casio, naturalmente. Y la línea está el grande, superficie, está el mayor, están las pequeñas tiendas. Las cadenas. Cadenas, correcto. ¿Cuál está demandando más atención hoy en día?
+S3: Creo que las pequeñas tiendas electrónicas.
+S1: Las pequeñas, porque de repente las grandes cadenas te hacen pedido una vez al mes.
+S2: Ya están como más estandarizados.
+S1: En cambio las pequeñas semanal y a veces hasta dos o tres veces.
+S2: Pero ojo, las pequeñas vienen para acá, no les despachamos, ¿Verdad?
+S3: Ellos vienen y pagan aquí algunas que son del interior.
+S1: Si, alguna.
+S2: Claro, les despachamos a sus tiendas o a un courier por donde ellos digan,.
+S1: Pero va.
+S3: Por courier. Al interior.
+S2: Al interior, entiendo. OK. Vale, vale, está bien. ¿Y digamos el último ejercicio de prospección cuál fue? Para nuevos clientes, un poco para entender cómo lo hacen. Si es que bueno, hay una lista de clientes o es referido de alguno lo llama tocamos, Bueno, tocamos puerta, no.
+S1: Creo, pero sí en base a esto metieron dos personas más.
+S2: Buenísimo.
+S1: Sí.
+S2: Los leads, pues los interesados. ¿Quién lo está haciendo hoy en día?
+S3: Jefferson y Génesis.
+S2: Jefferson y Génesis. Ellos son ejecutivos comerciales.
+S1: Son ejecutivos comerciales, pero tienen poco tiempo,.
+S3: Están nuevos, pero vienen ya referidos que trabajan sobre esa manera.
+S2: Perfecto. OK. Se consigue un cliente. Perfecto. Y cuando alguna cadena necesita algo, ustedes tienen que levantar el pedido o ya por experiencia más o menos conocen lo que.
+S1: No, bueno, hay clientes, por lo menos en mi caso, cuando veo que ya ha pasado 15 días y el cliente no me ha hecho pedido, le mando el listado, le pregunto cómo están las rentas, cómo vamos con el inventario, cómo es, y me responden. Sí, bueno, prepara un sugerido de tanto.
+S2: De tanto.
+S3: Yo tengo un cliente PBK, una cadena manda los inventarios, yo por paso los pedidos.
+S2: perfecto. Eso tú dices 15 días, pero es porque. Claro, es por el olfato que ya tú sabes que más o menos dos semanas por ese otro quizás lo manejas de otra forma.
+S1: ¿Los clientes pequeños toda la semana?
+S2: La mayoría. Vale. La mayoría. ¿Te pasan el pedido, lo montan en Odoo?
+S1: Primero lo pasamos en una plantilla de Excel.
+S2: En una plantilla Excel y ese Excel lo cargan en Odoo. Perfecto. ¿Hacen algún ejercicio de forecast formal hoy en día? ¿Forecast de venta?
+S3: Sí, sí, sí. Pero se hace anual. Pero el FORCA, el proyecto del FORCA lo hacíamos anual.
+S2: Lo hacían anual y porque es cambio trimestral. ¿Perdón, me está diciendo quiénes son ellos?
+S3: La herencia, la directiva. ¿Por qué? Porque siempre hay fallas. Entonces anualmente muy difícil corregir la falla. Usted tiene que ser trimestral.
+S2: ¿Y se está haciendo ahora mismo así?
+S3: Creo que sí, pero eso es parte de Andrés.
+S2: Eso lo lleva Andrés. OK, vale. No, no, es para saber si lo estaba manejando. ¿Qué otro elemento forma parte del proceso en general, a nivel de venta tenemos la prospección, tenemos nuestros clientes regulares y hay un proceso de atención y reposición dependiendo si es particular o es grande, cadena, en fin? ¿Alguna actividad intermedia que ustedes hagan de seguimiento? Bueno, tú me hablas de los 15 días, son un seguimiento de otra forma se puede hacer seguimiento. ¿Hace visitas formalmente para ver si el visual está bien puesto? Sabes,.
+S3: Con este tema de no poder salir por el tema administrativo que tenemos.
+S2: El vendedor, hay que arreglar eso de alguna forma, hay que resolver eso porque el ejecutivo tiene que estar en lo que tiene que estar, pues lo comercial. Claro, ustedes son comerciales, no pueden estar. Si se puede, pero no tanto. No es concebible que les arrope eso. Habla de un cuello. Entiendo. Listo, listo. ¿Y lo del visual, cómo se está haciendo?
+S1: ¿En mi caso, como yo tengo varias cadenas que están en centros comerciales donde también tenemos tienda, mi esposa, la gente de las tiendas a veces cuando los fines de semana que tenemos que sacar al cine, a cualquier cosa, aprovechamos ella por las tiendas, yo me encargo de los locales que tengo allí y cualquier cosa que tengo con viso, alguna vez le mando fotos, mira qué pasó con esto, por qué tenemos estación, o si es que falta mercancía, le escribo directamente al león de contacto que me pasa con agua y le escribo, mira, aquí tiene una fallita aquí por qué se da? Entonces él se comunica, ve que es lo que pase y me responde y resuelve de una vez.
+S3: Creo que el tema de con el crecimiento de las tiendas nuestras para su visita, para el mayor. Yo ando para el mayor porque se le dedica mucho tiempo a las tiendas nuestras.
+S2: Y si están abriendo más. Se abrió una en Paraguaná, no creo, la de Margarita.
+S1: Y otro tema importante es soporte técnico, la garantía, la atención rápida del soporte técnico.
+S3: Claro, no le está pasando la culpa, sino que creo que necesita gente para que se aboque a eso. No se dan abasto.
+S1: Están cuatro personas para todas las tiendas Casu y para 300 y pico de clientes que hay.
+S3: Entonces UBI demanda mucho servicio, mucho cambio, mucho soporte.
+S2: ¿Y esas cuatro personas, Sr. Henry, es donde están ubicadas? Es un centro de soporte y todo llega a ese centro de soporte. ¿Quién supervisa ese centro de soporte? Hoy en día se llama Josep. Sí, sí, lo tenemos pendiente también comercial con él. Vale, vale, de acuerdo.
+S1: Y allí un cuello muy importante porque normalmente cuando va el cliente final al cliente, nosotros con una queja, un reclamo, él necesita respuesta inmediata, que no sucede porque todo es por un chat. Entonces ellos tienen que esperar que le responda y mayormente la solución es cambiarle la mercancía, que te deje este y le das el otro. Entonces el cliente al hacer ese cambio, ya ese reloj le va del stop. Y mientras le responden si, mandamelo, mandame la guía. Pueden pasar quince, veinte días. En este caso no hay problema porque es un reloj del stock de él. Pero si es una garantía que él recibe para hacerse cargo y enviarla para acá para que le resuelvan a ese cliente. Ya el cliente cuando ve que pasan 15 días y no le han dado respuesta, ya empezando a presionar, nosotros mira que tengo un cliente aquí, que tengo esto. Entonces uno tiene que bajar allá, hablar con los muchachos a ver qué pasó con esto, hacerle uno mismo seguimiento a ver qué ha pasado con esto, que suele suceder mucho.
+S2: Comprendo, comprendo. Vale. ¿Y hoy en día cuál sería? Hablamos de los cuellos de botella, pero qué es lo que sí está funcionando bien, digamos, ¿Cuáles son las áreas del proceso que ustedes dicen, oye, mira, acá nos estamos entendiendo bien y está fluyendo bien esta parte del proceso? ¿Qué parte, digamos, tiene esa calificación? Si tuviésemos que elegir algún tramo del proceso que dice, bueno, mira, esto con todo y todo es efectivo lo que.
+S3: Veo el cambio efectivo es con Jimena que lleva las compras en Panamá, es la que ella si no hay mercancía, mira, será que podemos pedir esto cuándo llega, podemos hacer un pedido especial para que esto llegue. Que antes no existía esa imagen.
+S2: ¿Ella qué hace? ¿Ella qué hace?¿Ella toma los pedidos de las tiendas?
+S1: No, ella coordina la mercancía. ¿Que falta aquí para hacer los pedidos en Panamá?
+S3: Solicitarlo.
+S2: Para las dos líneas Casio Pubi.
+S3: Y tanto en tienda propia como para el Mayor.
+S2: Como para el Mayor también. A pesar que era tiendas propias.
+S3: No, no, ella también genera las exposiciones de las tiendas semanalmente. Y también nosotros aprovechamos y solicitamos mercancía. Un pedido especial de mi pieza, un cliente. Ella coordina eso para más para que. Eso hace una.
+S1: Y que antes no tenía información de lo que podía venir en camino. Si venía mercancía en camino, nosotros no teníamos ella, sino que nos enteramos a los dos días que cargaban la mercancía del sistema. Entonces a veces hasta una semana antes. Ya una semana antes ya sabemos lo que viene.
+S2: ¿Que?
+S1: Un arma de doble filo. Porque si los montamos en pedido, le decimos a los clientes, mira, me va a llegar esta mercancía que necesitas aquí para montarte pedido, para tenerte en cuenta. Entonces todo este proceso que tarda en que llegue mercancía, chequen mercancía, despachen a las tiendas y nos presten atención a nosotros, puede pasar una semana. Semana. Y entonces muchas veces las tiendas tienen ya la mercancía nueva que llegó. Y a nosotros, a los clientes, nosotros les puede llegar una semana después, que ya es bastante.
+S2: ¿Bastante, no? Vale, vale. Y me imagino, eso ha sido un problema con Jimena. Entiendo que se ha mejorado bastante. Alguna otra elemento del proceso. Además,.
+S3: Como te dije, no existía un departamento de cuenta por cobrar. Esta otra señora, Josefina, que administra todos los pagos, era con ella. Ahora formaron un equipo de tres personas en cuenta por cobrar. Eso creo que no se ha visto la mejora porque te pasa, están atendiendo todo lo que estaba cinco meses de atrás. Entonces, por supuesto, ahorita no la vemos, pero creo que eso va a ser la mejor.
+S2: OK. Hay que darle como chance de que saquen lo viejo y comiencen a hacer lo que entiendan. Entiendo. Listo, listo. ¿En cuanto a obstáculos o debilidades, alguna que consideren prioritaria del proceso? Temas despacho y almacén. Porque el almacén, lógico, no corresponde con el.
+S1: Proceso.
+S3: Se cumpla y se despacha. Eso es lo más clave ahorita en.
+S2: El Mayor, creo es lo más clave en el Mayor.
+S3: Ya tenemos mercancía, que antes el año pasado era la mercancía. No tenemos mercancía y gente esperando mercancía. Y no había, no llegábamos.
+S2: Había que manejarlo, darle explicación.
+S3: Pero ahora queremos responder con los despachos.
+S2: Correcto.
+S3: Han pedido que llegue al IVA el miércoles. Hoy no lo despachaba, no lo he podido despachar y es posible que se quede para el lunes. Eso es primordial para mayor tener vídeo, asilar ese proceso.
+S2: Miren, una consulta. ¿Ustedes tienen que generar algún informe de manera así formal? Un informe, una documentación de forma periódica, quizás semanal o mensual o quincenal.
+S3: Tenemos que generar para las cobranzas, para que puedan sacar. Nosotros ganamos las comisiones de lo que se cobra, no lo que se vende.
+S1: Claro.
+S3: Una vez se cobra diariamente tenemos que llevar un Excel, que ya eso debería ser automático. ¿Quien me pagó? Fecha, tasa, bolívares, dólares, todos los días. Cada vez que te paguen para después el reporte entregarlo a la gerencia todos los meses para que aquí puedan revisar.
+S2: Y pagar cada cuánto se está haciendo.
+S3: ¿Qué pasa? Ya en el DUDO existe sacar eso, pero como tiene un atraso cuentas por cobrar, no se ha podido actualizar eso todavía. Nosotros andamos.
+S1: Ese reporte se entrega mensual, pero se llena a diario cada vez que te pagan. Para no perder el hilo, me imagino.
+S2: ¿Cómo se enteran ustedes de que ya se efectuó un pago? ¿El cliente les escribe por WhatsApp? Mira, te manda, no sé, el pago móvil o te dice pagado.
+S3: No le paga a un departamento de cuenta por cobrar.
+S2: Sí, sí, sí. Hay una relación con el vendedor, con el comercial.
+S3: Nosotros que hacemos el proceso de.
+S1: Tenemos nosotros el poco de factura en el donde ya tú sabes, mira esta fecha, entonces pum, le escribo a fulano, mira, ya se te pasó la fecha.
+S3: Sí, no sé. Otras compañías, por lo menos atrás, mi esposa tiene un departamento de cuenta por cobrar, pero tienen creado un correo y la persona que vende no solamente lo ven sistema si está cobrado, no. Si alguien te pagó, todo llega por ese correo Y hay una persona que se encarga de hacer esa información. Y el vendedor lo que hace ver nada más llamarlo. Pero no recibe depósito, no recibe retención, no. Todo va a ese correo que lo maneja esa persona de cuenta.
+S2: Si, no, si sirve. Claro. Y esto de la cobranza es porque la mercancía solo consignación en general. En general se entregan, luego me pagan.
+S3: O hay clientes que tienen 15 días, tienen 30 días, que es lo máximo.
+S2: Que da, va a preguntar los días y no hay nada que lo.
+S1: Haga automático, tenemos que estar nosotros viendo la fecha de la factura y escribiendo.
+S3: Creo que este lo hace este sistema tiene una alerta y le pasa un correo al cliente, o sea algo automático. Como todo está la traza cuesta por coraje.
+S2: Hay un tema . Un cuello, justamente un cuello. listo, está bien. Esa cobranza entonces ustedes la organizan y hacen ustedes mismos ese seguimiento de cobranza, Si hay algún cliente que tardando se pase de los días, por ejemplo, cómo se está haciendo, pero no se despacha, Independientemente sea antiguo, el cliente tenga antigüedad, se trata, porque también hay un tema .
+S3: Depende, hay temas que conocen a la. Entonces uno lo trata con más cuidado, porque si no te mira porque no les despacha, porque no ha pasado, ¿Por qué no le despacha? Bueno, porque no vale despachura, entonces uno sabe cómo manejarse con eso.
+S2: Claro, claro. Otra consulta que les iba a hacer, está manejando indicadores, manejan indicadores para medir el rendimiento o la efectividad del área, ¿Cuáles son o cuáles son los más recurrentes?
+S3: Metas, tenemos metas. Perfecto, creo que vienen metas por cliente,.
+S2: Por marca, perdón, por vendedor, o sea por lo que genera la meta debe.
+S3: Diferente a la mía.
+S2: Entiendo, entiendo.
+S3: Y ahora viene, me enteré que viene por ahora por marcas y por cuatro.
+S1: Si, todo esto para subir la venta de caso en comparación con Cubia, recuerden,.
+S3: Nosotros antes de éramos casos. Sí, sí, sí, claro, toda la vida. Pero eso ha tenido un poco de.
+S2: Mer, o sea se le está incentivando a impulsar caso, promover un poco más a CAS. ¿OK, cómo se piensa hacer eso, o sea, qué estrategia comercial están pensando?
+S3: Nosotros ya tenemos la propuesta, nos reunimos con mejores descuentos, tener mejor material pop, que hace falta mucho porque clientes nuevos queremos captar. OK, cómo viene, cómo lo exijo, no tengo caballete, no tengo exhibidores, no tengo. Mientras esto no se dé, ya la agencia sabe que se está moviendo con eso para tener eso y poder imposar,.
+S2: Sabes, Me dice que hay un informe sobre eso, que se hizo un estudio.
+S3: Pues sí, y por qué, o sea, podemos mejorar con este cliente, pero siempre y cuando tengamos o mejor crédito o mejor descuento que a veces más o menos se maneja.
+S2: ¿Cómo se definieron esa estrategia? ¿Ustedes se reunieron?
+S1: Bueno, nos reunimos con la gerencia y.
+S3: La gerencia se reunió con Andrea y.
+S2: Perfecto. Y está aprobada ya. Esa es la vía, no está en discusión.
+S3: Eso fue hace una semana.
+S2: OK, OK, perfecto. Eso en cuanto a los indicadores. ¿Algún otro indicador que esté manejando ahora mismo para medir la? Bueno, las cobranzas son una. Cuántas cobranzas pendientes, etcétera. ¿Alguna otra o esas son las principales dirían ustedes? Son las principales. Hay documentación, por cierto, no les pregunté algo ya existente de cómo hacer las ventas. ¿Cuáles son los procesos o políticas? Puede ser política tipo las normativas.
+S3: Nosotros tenemos más de 20 años existía, pero cuando estábamos en la tienda, nosotros venimos en la tienda aquí en el mayor. Nunca he visto un manual de procedimiento.
+S2: Sí, un manual como tal. Entiendo. OK, OK. No, está bien. ¿Además de Odoo, por casualidad están apoyándose en Power BI y alguna otra herramienta para procesar la data? Odoo te datos, pero bueno, no te los procesa necesariamente, es información y ya. El procesamiento de eso se hace con IA, con Power BI. Si Andrés tiene corporativo y allá para tomar decisiones. Procesa y tú tomas decisiones. mira, la tendencia esta o la cosa va por aquí. El dato no te da eso. El dato es un dato, un número. OK. Andrés se encarga de esa parte, de ese análisis. OK. ¿Y normalmente le baja a ustedes algún tipo de directriz cuando hace esa información, ese procesamiento?
+S3: Bueno, Z comenzó hacer eso. Recuerda que Andrés también tiene dos meses, entonces. Claro, se estaba como adaptando a.
+S2: Sí, me comentó, me comentó el tema del tiempo reciente. ¿Cuántos son ahorita Uds? ¿En ventas? En el área la fuerza de venta son cinco miembros. Cinco en la fuerza de venta. ¿Y cómo se están distribuyendo? ¿Es por región, occidente, oriente? No están zonificados, se dice un sexto avisado. ¿Cómo se distribuyen esas carteras? Me da curiosidad,.
+S3: Muy deportivamente, porque antes solamente estamos tres vendedores. Por supuesto no estábamos domesticados. Tú agarras estos clientes y eran clientes que dejaron el equipo de venta de hace años. Aquí dejaron esos clientes, nosotros retomamos y empezamos a. También en la zona Yamato,.
+S1: Nosotros agarramos esto porque el departamento se quedó sin.
+S3: Vendedores aquí cuando vino la debacle se dejó de importar aquí habían siete vendedores, al Mayor, que era otro tipo de estructura. Ellos todos se fueron, o sea cuando hubo la debacle todos se fueron y aquí no quedó nadie. Yo era supervisor de franquicia, él era gerente de tienda, nos llamaron cuando empezó a activarse, mira, vamos a hacer trabajo, tienen estos clientes que están llamando, que empezamos con el trabajo, no es que somos nosotros somos ejecutivos de venta y.
+S1: No lo hicimos zonificando los clientes, sino que fuimos activando cliente poco a poco.
+S3: Y bueno,.
+S2: Esa debacle la que menciona Sr. Henry, ¿A qué se debió?
+S3: Económica del país, empezó cuando se acabaron los dólares que daban la empresa para importar 2018,.
+S2: Un poco antes de la.
+S3: Pandemia, dos años antes, no se trajo más contenedores aquí se dejó casi un año, más de dos años sin recibir mercancía. Toda la mercancía queda en el almacén era para nuestras tiendas, no para el Mayor. Entonces desapareció Mayor y ellos pues buscaron qué hacer todo el mundo del país.
+S2: Y luego vino esa labor de recuperar al Mayor y comenzamos nosotros, que nos llamaron cuando empezó, por eso están ustedes ahora, los colocaron pues en la parte mayor. ¿Y cómo hicieron esa recuperación?
+S3: Uno por uno y clientes que llamaban.
+S2: Y fue sencillo entrar de nuevo con ellos, porque los teníamos, los perdimos y los recuperamos. Fue sencillo, o sea, no hubo alguien que nos ocupó ese espacio.
+S1: Bueno, sí hubo, se perdió cierta parte de las clientelas.
+S2: Claro, siempre hay una. Claro, el mapa cambió bastante. José Armado, tú fuiste gerente de tienda, estoy escuchando cómo se manejaba la tienda también quiero un poco entender para documentar eso, el manejo de tienda, tú eres una persona que estuvo .
+S1: El manejo de tienda era mucho más sencillo y era mucho. La cajera se encargaba en su caja, los vendedores de vender, yo de que todo engranara, todo funcionara. La parte de inventario, teníamos supervisores que iban y hacían inventario, uno se ponía con ellos a chequear a ver cuáles eran las diferencias y todo tenía un proceso, todo era sencillo, todo fluía, porque.
+S2: tiene como una estructura base ingerente, está la cajera o el cajero, que.
+S1: También en los tiempos buenos había un gerente, un subgerente, estaba la cajera auxiliar de caja, estaban los vendedores y en temporadas altas que diciembre había toma pedidos, que era de alguna manera los que estaban afuera. ¿Quiere ver este? Entonces el vendedor adentro terminaba de atender al cliente. Eso en aquella época. Después empezaron a quitar los extra como auxiliar de caja, su gerente toma pedido. Y el trabajo siguió fluyendo a pesar de que no estaba en esta figura, pero si era como mucho más organizado, no tenía mayor cosa.
+S2: OK. ¿Fuiste hasta qué año estuviste en tienda cuándo pasaste para acá?
+S1: ¿Vendedor? Desde el 91, como hasta el 2007. Hasta el 2007 que me pusieron de gerente. Duré hasta el 2021 como gerente, que me la dieron. Bueno, me encargué de la parte de gerencia y. Y de la página web. ¿Eso fue antes de la pandemia? Un poco antes de la pandemia, que quisieron levantar.
+S3: Una. Antes estaba desatendida, existía, pero no se atendía.
+S1: Entonces volvieron a llamar nosotros para que reabrocáramos.
+S3: Fue tan locura que el departamento creció.
+S2: Claro, la tendencia digital. Sí, sí, sí. El tema digital.
+S1: Después vino la pandemia. Casualmente habían traído la marca Cubi. Fue cuando arrancó la marca Cubi. Entonces todo el mundo en su casa no había nada. De vez en cuando se hacían por eventos, promociones de la marca, y nosotros íbamos, montábamos un stand con la gente fitness. Había un influencer que se llama Firme, que hacía eventos arriba en el Humboldt, y nosotros era marca que se iba para allá a patrocinar. Y la vaina era una venta loca que tú decías. Y durante toda la pandemia eso fue lo que sostuvo prácticamente la empresa, las ventas en línea, los eventos que se hacían, patrocinando este tipo de eventos. Y eso fue lo que me sostuvo la empresa. Después terminó la pandemia, me trajeron para acá, al mayor y.
+S2: Pero cuando, por ejemplo, una tienda recibe mercancía, ellos registran eso también en un sistema, o sea, porque. Claro, sale de acá, va a la tienda y ellos.
+S3: Ya. Es automático.
+S1: Ellos mandan traslado.
+S2: lo escuché.
+S1: Lo que hace es chequea la mercancía que te está llegando contra la factura, si todo concuerda, descarga, actualiza el traslado que mandaron y carga toda la mercancía.
+S2: OK.
+S1: Es muchísimo más sencillo.
+S2: Es más sencillo, ¿Verdad? Perfecto. Claro. está cruzado y no hay. No hay error de que una cosa dé por acá y otra por allá. Perfecto, listo. No, no, está bien, está bien. ¿Qué otro elemento ustedes consideran podrían agregar para enriquecer todo lo que es la mejora de los procesos hoy en día a nivel de ventas, ¿Qué más se les viene ahora mismo a memoria?
+S1: Yo pienso que falta personal. Se pensó lo de arriba en las bodegas, que todos se abocaban a sacar pedidos de tienda. Cuando había que sacar pedidos de tienda, se habló con la gerencia, metieron tres personas en ese mismo tiempo que estaban buscando estas tres personas, se abrieron dos tiendas más. Entonces ya cuando metieron a dos personas más, ya el depósito no se daba abasto para las tiendas se tarda mucho más de dos, tres días. Estas personas que mintieron que supuestamente iban a apoyarnos a nosotros, la absorbieron ellos por la demanda que tenían y nos volvieron a buscar otras tres personas para que volvieran a esta, por esa parte que es uno de los cuellos botella que tenemos. El otro es la parte de los envíos al interior. Antes se despachaba, como te comenté, nosotros hacemos la guía, ellos todos los días iban una gran día a entregar todos esos pedidos que se habían despachado ese día. Ahora no tenemos que esperar que ellos vengan a buscar la mercancía, eso puede tardarse dos días, tres días para ellos y se van acumulando, que lo peor ya nos pasó, ya nos pasó varias veces que cuando llega el camión a buscar la mercancía ya no cabe, entonces esa mercancía queda para otro día.
+S3: Yo creo que de verdad la estructura del Mayor está muy informal. ¿Por qué muy informal? Porque todo empezó, ya te comentamos como todo empezó y cada quien agarró, empezamos a crear nuestros clientes dentro de una línea. Ideal sería que el Mayor la estructura fuera zonificada, eso es lo ideal, vendedores por zona. Pero por supuesto, ya nosotros sacrificar nuestra cartera de cliente para entregársela a un vendedor que sea persona, está un poco difícil. Nos presenten unas propuestas. Pero lo ideal de un Mayor sería esa estructura, zonificación, vendedores por zona, como.
+S2: El deber ser, por decirlo así, el teórico. Esa es la práctica.
+S1: Curiosidad, saber cómo hacen otras empresas, por lo menos en este caso yo tengo varias tiendas que tiene varias empresas que tienen tiendas en Caracas, Valencia, Maracaibo, Parquisimeto, en varias ciudades del país. ¿Cómo haces tú para zonificar eso?
+S2: Un reto, un desafío, eso.
+S3: Se va a tener. Un vendedor para Caracas, un vendedor para acá interior.
+S2: Es un reto. Buena pregunta. OK, OK. No, no, está muy bien, está bien. ¿Hay alguien adicional con que ustedes se apoyen externamente? ¿Hay alguien externo que les brinde? No se manejan promotores de ventas externos, lo que llaman por comisión, o sea que no se han empleado, o sea colaboradores. Mercaderista es el nombre, mercaderista,.
+S3: No sé qué porcentaje y ellos se encargan de arreglar. Solo en Farmatoide no puede entrar el.
+S2: Visual de aquí no pueden entrar, solamente en ese caso Farmató. OK, OK, listo. Sí he visto la marca en el Farmató, ellos se encargan de eso. OK, está muy bien, ese es un.
+S3: Buen detalle, pero así externo no tenemos los influencer.
+S2: Claro, a nivel de marketing ya de mercadeo. Y usted se relaciona con el tipo de visual, o sea, porque hay alguien que lleva a nivel corporativo, todas las líneas de visual de mercadeo se relacionan con ellos. ¿En qué tipo de actividad?
+S1: A ver, por ejemplo, cada vez que hace promociones en las tiendas, ellos nos comunican, hablemos con los que, a ver quiénes quieren participar en ese como para.
+S2: Hacer un sondeo,.
+S1: Le damos la información, quienes quieren, quiénes no. Al momento que aplican la promoción, ellos nos hacen llegar material pop para nosotros.
+S3: Enviárselo a los o un arte, de repente el cliente quiere, mira quiero poner una valla aquí, lo ponemos en contacto con marketing o visual y ellos engranan eso, una parte lo paga Distribuidor Rover, otra parte lo paga el cliente, pero hacemos.
+S1: Trato directo con ellos, información constante,.
+S3: Porque también hacemos muebles para las tiendas.
+S2: verdad, hacer la muelería, eso entra.
+S3: Visual y entra marketing.
+S2: OK, OK.
+S1: Y cuando ellos hacen su recorrido, su visita a los clientes, pasan información, fotos.
+S2: OK, listo.
+S3: No, no, a ese departamento también tu cliente le falta.
+S2: Tres personas.
+S3: No sean abasto con todo el país. La cantidad de clientes, cantidad tienda.
+S2: Vale, vale, No, está bien. Bueno, no, yo lo veo bastante claro. No sé si de parte de ustedes hay algo más que quisieran comentar, o sea, entre lo que Andrés me comentó y lo que estoy recolectando con ustedes, de verdad que es bastante valiosa la información para tener al menos un bosquejo del proceso. No sé si más bien se me está escapando algo a mí que ustedes quieran indicar respecto al proceso que podamos.
+S3: Imponer en ese proceso.
+S1: Tipo que siempre se te pasa algo, pero siempre pasa.
+S2: Es que siempre a todo el mundo pasa. Bueno, igual va a haber una segunda ronda desde un documento que se va a revisar de repente aparecen esos detalles. Sí, sí, sí. No, claro, esto hay que validarlo y en la validación lo podemos atajar cualquier cosa. Listo. No, bueno, de verdad les agradezco mucho su valioso tiempo.
+S1: Henry, cosa que pueda hacer por nosotros es bienvenidos.
+S2: Gracias a ustedes, muchachos. Muy llamado. Gracias, que estén bien. Igual, igual.
+S3: Gracias.

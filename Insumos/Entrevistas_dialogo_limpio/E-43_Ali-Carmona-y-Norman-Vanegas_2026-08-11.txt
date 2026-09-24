@@ -1,0 +1,410 @@
+S1: Ver con ustedes los temas de tesorería. Sí, sí te puedes unir, así estamos los tres. Si no traías computadora iba a ser esto.
+S2: Si prendo el micrófono se va a escuchar el eco.
+S1: Claro. Si quieres para que te vean más nuevo que te escuch.
+S2: Ahorita se llama La carrera ya no.
+S1: Es en relación industrial. Sí, no, está la Escuela de Ciencias Sociales y tiene dos Sociología y Relaciones Industriales. Son dos profesiones en la misma escuela.
+S3: Claro.
+S1: Sociología está cerrada por default, está disponible, no se ha cerrado, pero no hay demanda, entonces creo que todo está raro.
+S2: Yo sé que yo estoy ingeniero industrial de la Católica.
+S1: tú eres ingeniero industrial de la Católica, qué bien, qué bueno. Si, vale, eso es. Más precio. Está fuerte, la verdad que sí. Bueno, vamos, si quieres vamos a comenzar nosotros y si, bueno, el señor Norman, bueno, de repente luego se une y actualizamos con él. Y si, bueno, se complicó por alguna razón, yo luego retomo con él en otro momento. No hay problema. La idea era un poco tratar de tenerlos a ustedes para conversar, porque tú cuéntame algo, ¿Cuánto tiempo llevas acá, por cierto?
+S2: Tengo tres meses.
+S1: Tiene tres meses.
+S2: Wow.
+S1: Tú estás en la inducción. ¿De dónde vienes, Alí? ¿Cuál es tu historia?
+S2: Yo trabajé, bueno, en un principio trabajé en cadena de suministro, ajeno a esto.
+S1: OK, OK.
+S2: Y en pandemia empecé a trabajar en una casa de bolsa y estuve seis años y salí ya de , quería un cambio y trabajé seis años en la tesorería y conseguí aquí en RO y me dieron el chance y que me gustó y hasta ahora muy bien.
+S1: Vale. En estos tres meses ya.
+S2: Sí, sí, totalmente distinto. En retail, allá era servicio financiero, eran en infinidad de operaciones, tema financiero, bancario, mucho relacionamiento. Aquí es proceso un poco más establecido. Vamos a decir que en las casas de bolsa hay un sector regulado y un sector no regulado, porque lastimosamente el sector regulado no da fruto. Entonces todas las casas de bolsa desde hace unos años ahorita están volviendo al sector regulado, porque por el tema coyuntura se está desgastando y tiene que volver a la realidad, pero es un hecho. Entonces bueno, el brinco. No fuerte, pero es distinto. Pero de verdad que el ritmo es otro. Me ha sido cómodo, la verdad.
+S1: Qué bueno, qué bueno. Y hoy en día acá en RO, ¿Cuál es tu posición, tu denominación de cargo formal?
+S2: Y ahorita como coordinador de tesorería.
+S1: ¿Tú eres coordinador de tesorería acá, lo que es Venezuela, robot propiamente, ¿Incidencia con otras regiones del continente, Costa Rica, Colombia?
+S2: No, no. Un poco. En todo caso, todas esas incidencias las maneja mi jefe que.
+S1: Jaime.
+S3: Jaime.
+S1: Jaime, sí, claro, lo conocimos.
+S3: Que bueno.
+S2: Jaime es el director de finanzas de todo lo que es CU. Nuestro trabajo aquí, lo que tiene que ver con Panamá, es básicamente repatriar el dinero a Panamá para el ciclo de compra de mercancía continúa.
+S1: Ya me vas a echar el cuento de eso. Claro que sí. Entonces tú tienes una visión más local y no tanto corporativa, transversal, ¿No?
+S2: Sí, bueno, al final el proceso, eso sí es correcto.
+S1: Eso sí lo hemos notado acá. Y ven acá tú, o sea, maneja esta tesorería tanto para Qubit como para Casio, para ambas líneas de negocio. Al final, todo eso es otra línea adicional de negocio que manejes.
+S2: Asistimos al exento que es Crocs, pero muy poco esporádico de repente, porque no consiguieron a la persona encargada del éxito, que es Alexandra, no sé. Si. Y de repente el banco nos llama y nosotros comunicamos, ayudamos con ciertos temas de las mesas de.
+S3: Listo.
+S1: Y Alí, en tu coordinación o en la unidad donde tú estás adscrito, ¿Cuántas personas están tú como coordinador y quiénes más forman pasos?
+S2: 3.000 Personas. Y Zaides y Verónica, que serían las asistentes de tesorería.
+S1: Zaides y Verónica, asistentes de tesorería. OK. Le reportas a Jaime directamente. ¿Otros coordinadores aparte de ti? Tesorería, tú eres el coordinador perfecto. Dentro de administración, claramente sí hay, porque está la contabilidad. Listo. OK. Ahora bien, fíjate, el ejercicio, claro, no está aquí ahora mismo, Norma, que la idea era cómo hacerlo en conjunto, pero bueno, lo comienzo contigo. Quisiera que trabajáramos un poco en una definición de una especie de inventario de procesos. Vamos a hacer un ejercicio de un mapa, como un mapa de simplemente cuáles son los nombres de esos procesos, para luego entrar en cada uno. Claro, en Tesorería hay procesos más o menos estandarizados, en industrias está el flujo de caja proyectado, etc. En el caso de Rowell, bueno, llevas tres meses, tampoco de repente, no sé si ha visto todo el detalle, pero ¿Cómo has visto tú cuáles son los procesos que estás manejando hoy en día?
+S2: La mecánica en Venezuela no varía mucho.
+S3: Tratar de comprar las mayores.
+S2: Bueno, ahorita se ha frenado el trabajo, anteriormente era tratar deshacerse de los bolívares en Excelente. Actualmente se ha bajado gracias a que el tema inflacionario. Sí existe oferta de divisas.
+S1: Existe más oferta de divisas, pero.
+S2: Te narraría mi día a día, eso.
+S1: También me puede servir. Claro que sí. Sí, sí. Hablemos de una semana corrida.
+S2: Colocamos los saldos iniciales.
+S1: Te estoy escuchando para tomar nota acá.
+S2: Colocamos los saldos iniciales. Ya obviamente tenemos más o menos un club proyectado, tenemos un archivo donde tenemos más o menos proyectado la semana, posiblemente el mes, con ciertos restos fijos que sabemos que vienen, por ejemplo, más que todos los compromisos que tenemos de préstamos bancarios, que obviamente es donde se va uno de los ingresos fijo de la recaudación, imagino. Y bueno, tenemos actualmente dos vías de caja, que serían los martes y los jueves, y un día anterior ya vamos recopilando lo que hay por pagar. A proveedores.
+S1: A proveedores,.
+S2: Eso sería. Eso sería. Recapitulo, teníamos la disponibilidad, Bueno, obviamente todos los tenemos que estar comprando en mesa, de eso me encargo yo más que todo para estar con los. Con todos los ejecutivos bancarios que tenemos a nuestra disposición. Una vez que se construyan las divisas, en la tarde viene la caja, que serían todas las mejores por pagar, que deberían pasarse entre martes y jueves, pero siempre hay una que otra cosita que resbala y se pagan, que eso debería arreglarse. Y bueno, básicamente toda la tarde pagando y bueno, solventando cualquier tema operativo que requiera el banco de nosotros, ya sea planilla, extensiones, líneas de crédito, vencimiento, líneas de crédito, pago de los rendimientos que salen, Bueno, revisión constante de las cuentas.
+S1: claro, Monitoreo.
+S2: Muy bien los compromisos que tengamos pendiente. En el caso de Said y de Verónica, que son las encargadas de pagar, ellas están en constante movimiento ingresando a las diferentes cuentas, descargando los soportes y anexándolos a las facturas correspondientes que manda cuentas por pagar. Llega ya al final de la tarde, montamos, cogemos el saldo final, lo reportamos y ya en función a eso tenemos un archivo donde vamos armando el flujo proyectado de los siguientes días.
+S1: OK,.
+S2: Perfecto.
+S1: Flujo proyectado de los siguientes días.
+S3: Perfecto.
+S1: Está interesante. Este inventario. Muy bien, la apertura de caja. Cuando me habla de apertura de caja, específicamente ¿Qué tareas comprende esa etapa inicial de apertura?
+S2: Barrer todos los bancos que se manejan. Barrer me refiero a revisarlo. ¿Cuál fue el ingreso? Bueno, obviamente se compara el saldo final del día anterior con el saldo inicial y tenemos más o menos cuánto fue que ingresó. Porque después de que nosotros hacemos el cierre a las 5 o 6 de la tarde, las tiendas siguen trabajando hasta las 10 de la noche, hasta las 9, dependiendo del centro comercial. Eso si no está muy claro. Pero obviamente en esas tres, cuatro horas extra hay ingresos que vamos a ver al día siguiente.
+S1: ¿Eso qué porcentaje de tu tiempo ocupan normalmente de tu día?
+S2: No, mi momento más fuerte creo que sería las mañanas, cuando estoy hablando con la gente de los bancos, pactando, descargando estados de cuenta. Para eso si no te lo dije. Descargando estados de cuenta para cuentas por cobrar y para contabilidad, que dependen de.
+S1: Para contabilidad y cuentas por pagar. ¿Para contabilidad me decías?
+S2: Para contabilidad y para cuentas por cobrar.
+S1: Y cuentas por cobrar, Perfecto. Muy bien. Listo, Perfecto. Esto es con respecto a la apertura. Ahora, el tema de las mesas de cambio, te escuché decir que es recurrente todos los días. Ustedes como persona jurídica tienen un acceso a mesa de cambio donde tiene acceso a liquidez. ¿Se les está otorgando lo que piden?
+S2: No lo que pedimos, pero te diría que, no sé, el 60% de lo.
+S1: Que se pide suele ser más o menos.
+S2: Sí, no, de verdad, la oferta está.
+S1: No te sale el aviso de mira.
+S2: No, no. Y bueno, Robert es un jurídico que tiene un buen flujo y obviamente los bancos lo van a tratar.
+S1: Eso cuenta. Totalmente, eso cuenta mucho. Chévere. ¿Tú eres la persona que ejecuta la operación de mesa y bajo qué parámetros lo hace? A ver, ¿Cómo se define cuánto vas a adquirir toda esa parte,.
+S2: Más o menos? Si, tengo un indicador que sería más o menos en teoría deberíamos adquirir, porque eso es lo que viene pasando desde mayo, que entré de todo lo que ingresa, el 80% debería ser comprado. Por encima. Sí, por encima del 80, pero no. Claro. Mayo creo que llegamos como al 70 y algo, pero ya junio y julio, por temas que ya conocemos, disminuyó. ¿Qué pasa? Hay que comprar porque hay que mandar a Panamá, que es el proveedor principal de Rover, toda la mercancía de caso y Qubit se manda desde ya y se le paga a Kennex. Entonces, por eso es que hay que estar recomprando dólares continuamente. ¿Van a poder pagar esa factura otra.
+S1: Divisa euro en este caso no solo dólares? Perfecto. Una vez adquieres y se te adjudica, esa adquisición cambiará. Tú eres la persona que transfiere a Panamá, ¿No?
+S2: Ya. Esos fondos entran a una cuenta custodio y Verónica en este caso es la encargada de hacer los pagos correspondientes a las facturas que vayan llegando.
+S1: OK, perfecto. Verónica apoya en esa pago. Listo, listo.
+S2: Bueno, Verónica aquí tiene muchísimo tiempo en función de ella.
+S1: sí.
+S2: Verónica Isaías tiene creo que más de 15 años.
+S1: Por lo menos conocerán el antes, el después, toda la evolución. Perfecto. Vale, vale. Esto todos los días me está diciendo que te aproximas a la Mesa de Cambio. Mesa de Cambio tiene dos mecanismos, ¿Verdad? Está la.
+S2: Sí, está.
+S1: Bueno, no sé si subasta.
+S2: Ya la subasta creo que no se maneja. Intervención. Antes era una tasa de intervención que coloca el Banco Central, pero ya que ahorita se achicó la brecha, es la tasa del día.
+S3: Perfecto.
+S1: Entonces desde los bolívares haces eso. Tienes una sola cuenta, lo haces desde varias cuentas.
+S2: Hacemos en paralelo diferentes cuentas. Algo que se me olvidó es que, bueno, al final del día, antes de pasar los saldos finales o de tomarlos, se distribuye el dinero en función al día siguiente. Importante, se distribuye el dinero, si de repente nosotros tenemos cuenta, vamos a decir que receptora de fondo, por lo menos cache, todo eso entra en una sola cuenta y la cuenta que va a estar más gruesa. Y después se distribuye el dinero a otras cuentas para poder tener Internet el día siguiente, porque también a los bancos les interesa tener fondos el día anterior para tener su. Complementar su encaje o los saldos que ellos reportan a bancos.
+S1: Listo, listo. ¿Y esto lo recibe, por cierto, Norman es quien se da cuenta de estas recepciones de ingresos?
+S2: ¿Norman? Debería ser que sí. Tengo entendido que sí.
+S1: Claro, claro. No es un pago en realidad, o sea, no es cuentas por pagar de.
+S2: Allá, sino cuentas por cobrar de.
+S1: Ya, bueno, claro, exacto. OK. Para entender como el ciclo completo. Listo, listo. Bueno, perfecto. Eso respecto a Mesa de Cambio. Me hablaste también de la parte de los gastos generales. Que tienes como unos gastos estándar. ¿Cuáles son esos gastos, esos conceptos de gastos?
+S2: Más que todo. Nómina. Más que todo alquileres. Nómina y gastos logísticos de personal y transporte de mercancía para el interior del país.
+S3: Perfecto. OK.
+S1: Esa mercadeo y otros departamentos que todo tipo de gastos. Es variado. Es variado, perfecto. ¿Dónde obtienes esa información, o sea, cómo sabes los gastos que hay, los números?
+S2: Esa información en teoría debería provenir de cuentas por pagar, pero si he sentido que cuentas por pagar no maneja toda la información, sino que.
+S1: Hola, buenos días.
+S3: Sí, buenos días Sr. Norman.
+S1: No te preocupes. ¿Cómo estás? ¿Cómo te va?
+S3: Bien, bien, bastante bien.
+S1: Qué bueno. Vale, no te preocupes. Estoy acá con Alí un poco conversando. Sí, vale. Estamos acá conversando, Norman, sobre los procesos de tesorería. No sé si te comentaron a ti de qué se trata esta reunión, si te dieron alguna información del propósito.
+S3: Bueno, básicamente para también conocer un poco acerca de los proceso, de cómo se está llevando a cabo las funciones diarias para ir viendo, como quien dice, la funcionalidad del área y conocer más de los procesos.
+S1: Sí, excelente, muy bien. Te comento un poco lo que le estaba hablando con Alí cuando él llegó. Mira, nosotros estamos ya en una fase 2. Esta fase 2 consiste en el levantamiento de procesos. Nosotros tenemos como objetivo documentar los subprocesos de cada departamento, de cada área y para ello se han constituido mesas de trabajo, eso es por grupo o por área o por región, dependiendo del caso. En este caso están Aline y tú como personas clave que han sido seleccionadas para documentar los procesos de tesorería por el conocimiento, por la experiencia que tienen y un poco la idea era conversar con ustedes sobre esos procesos para que me cuenten un poco como es su dinámica, su día a día, las actividades que manejan, todo eso. Vale, vale. Ahorita, antes de que llegaras, Norma me estaba dando un inventario, perdón, Alí, me estaba dando un inventario como un mapa, vamos a llamarlo así, de los nombres de los procesos que manejan. Si quieres Norma, nos puedes comentar un poco para yo tomar nota de ambos. ¿Cuáles son esos procesos en términos generales que estás llevando tú? Por lo menos dame un listado y ahorita vamos hablando de ellos, ¿Te parece?
+S3: Claro que sí. Bueno, está lo que sería el pago de nuestras. Básicamente nuestras obligaciones. Teníamos proveedores que ser un proceso por el que llevamos a cabo sería también los movimientos entre cuesta que tenemos también. Adicional, pues también tenemos lo que sería todo lo que es la parte de reposición de todas las entradas de fondo. Perfecto, bueno y si sería que dice todo el ciclo desde que ingresan los fondos hasta el registro contable.
+S1: Desde que ingresan los fondos hasta el registro contable. Excelente, muy bien, perfecto. Con esto vamos bien para entonces ya ahora entrar un poco más en detalle. Estoy notando de hecho que lo que me estás comentando coincide en buena medida con lo que ya Alí venía narrando, dado que bueno, estos manuales, la intención es que si bien hay particularidades, naturalmente legislación panameña, la legislación venezolana, queremos, como decíamos en la primera sesión con Bernardo, hacer una autopista común de documentar una suerte de políticas normativas que pudieran ser generales, aún cuando se pueden respetar ciertas particularidades dependiendo del caso, eso se entiende. Pero claro, la tesorería por ejemplo, tiene muchos temas comunes, es decir, no hay mucha diferencia, por ejemplo, acá también hay pagos a proveedores, aquí también hay movimientos de cuenta, son procesos que están ya estandarizados de alguna forma. Entonces un poco bueno, Alí me comentaba ahora mismo estábamos hablando de la apertura de caja, acá, bueno, en Venezuela manejamos el tema de las mesas de cambio, como bien saben, para la adquisición de divisas por los canales regulares. Por supuesto, eso es algo muy particular de Venezuela, por supuesto que es algo de acá nada más. Pero bueno, ahorita iba a entrar justamente con el tema de los gastos generales, me imagino que en el caso de Panamá también tú tienes tus obligaciones de gastos, lo que es nómina, digamos, todo tipo de gastos, quizá marketing, toda esa parte.
+S3: Correcto, Sí, así es.
+S1: Para un poco emparejar la entrevista, porque ya Alí me comentó, cuéntame un poco de esa parte de gastos, ¿Cómo la manejas Norman?
+S3: Bueno, básicamente nosotros usamos, dentro de la herramienta, usamos la parte de aplicación de solicitudes de pago, en donde claro, obviamente la organización como quien dice, lleva ese flujo, ese workflow de lo que serían los magos, su ingreso con su documentación que respalda el pago de la factura, los datos bancarios del beneficiario en este caso. Y ese flujo pues pasa por mi parte, en parte pasa por mi aprobación básicamente. De nosotros como quien dice, agendamos una programación de pago para cumplir con estos pagos que están ingresando mediante esta herramienta.
+S2: Esa herramienta creo que la quieren implementar aquí en Venezuela, el flujo de largo.
+S1: ¿Pero esa herramienta de flujo de largo ustedes la utilizan en Panamá? ¿Me estás comentando el flujo de larga, correcto? Sí, sí, yo creo que eso también va por acá prontamente. Perfecto Norma, muy bien. Y en cuanto a esa parte, ¿Eres tú la persona que se encarga de montar estos y ejecutar estos pagos de gastos generales? ¿Tú te encargas de eso básicamente?
+S3: Bueno, acá hay todo un equipo que son los que ingresan los pagos, acá lo que básicamente se revisan estas solicitudes de pago, se valida que cumpla con los requerimientos y todo lo demás que tengan, su facturación, su documento soporte y luego entonces se procede con el pago. El pago lo estaría realizando parte del equipo de tesorería que son los que están ingresando los pagos en este caso. Y luego entonces pasa por la aprobación de estos pagos.
+S1: Y luego pasa la aprobación de esos pagos. Perfecto, muy bien. Listo, listo, queda bastante claro. ¿Normalmente cada cuánto estás realizando este proceso Norman? Allá,.
+S3: Bueno, básicamente a nosotros nos ingresan solicitudes todos los días, pero tratamos de agendar para realizar un día esta programación, un día a la semana para realizar todos estos pagos, como quien dice lo anulamos y los programamos para en este caso un miércoles. ¿Cómo está también el tema de la prioridad? ¿Se realizan los pagos acuerdo a las solicitudes que nos manda?
+S1: De acuerdo a las solicitudes que les manda. Perfecto, muy bien.
+S3: Porque hay algunas que sí requieren como quien dice prioridad y obviamente claro, hay que sacarlas.
+S1: Sí, sí, sí, sin duda alguna. Vale, perfecto. Muy bien. ¿Ahora, de qué dimensión tiene el equipo que estás manejando allá Norman? ¿Cuántos son en el departamento? ¿Ya sé, por acá en Venezuela cuántos son allá? ¿Cuántos tienen?
+S3: Sí, acá en el área somos cuatro y mi persona sería un cinco. Serían dos por cuentas por pagar y dos por cuenta por cobrar.
+S1: Dos por cuenta pagar y dos por cobrar.
+S3: Perfecto.
+S1: ¿Tú supervisas tu denominación de cargo formal cuál es allá Norman?
+S3: Gerente de tesorería.
+S1: Vale, tu gerencia es la tesorería. Muy bien. ¿A quién reportas directamente? A Jaime González. Perfecto, entonces en esa parte estamos ya. Sí, sí, se comprende la estructura . Listo, muy bien. Cuéntame algo un poco también para escucharte a ti y también escuchar a Lee ahora que me comente, hablando del monitoreo, me interesa saber cómo ese proceso de monitoreo de cuentas, es decir, cómo lo administran allá en Panamá, la verificación de saldo.
+S3: Nosotros como quien dice el pan nuestro de cada nadie, básicamente realizamos toda la verificación de saldo lo primero del día queramos todos los saldos de la cuenta, se arma pues una actualización de todos los saldos y se maneja una proyección de un flujo, cosa de que se van evaluando, se tira un flujo proyectado al mes y claro, se va evaluando los saldos día a día junto con todas las obligaciones que se le va incluyendo. Lo importante es que no se nos escape nada y como quien dice mantener básicamente una programación lo más adecuada posible para poder cumplir con todas estas obligaciones, pago proveedores, pago de nómina, cumplir con algunos financiamientos que tenemos y básicamente pues las compras que tenemos todavía de mercancía obviamente y pagos de frente que es lo más importante.
+S1: Perfecto. Vale. ¿Esa planificación por cierto, de todos estos conceptos que estás mencionando, tú tienes fechas específicas para cada uno de estos conceptos? ¿Ya tienes todo eso bien definido previamente como una programación?
+S3: Sí, así es.
+S1: ¿Vale, de dónde se origina esa información?
+S3: ¿Bueno, básicamente, bueno, o dónde vive más.
+S1: Bien, porque claro, se entiende que quizá las nóminas, bueno, ya existen pues por legislación, unas fechas, etcétera, pero tienes eso en algún Excel, digamos, como la organización de esos montos y fechas?
+S3: Sí, claro, se lleva pues un documento, un archivo de Excel, es donde se meten pues se recopila la información como la gente de recursos humanos. Para el tema de pago a nómina, que son los que me refrescan básicamente hay un estimado por encima, pero si hay ingresos nuevos, hay temas de vacaciones, temas puntuales, que sale esa estimación, obviamente tratar de que sea lo más certera para que entonces lo tenga uno como quien dice en el panorama y pues luego de llegue la fecha de pago de nómina sea lo certero esa estimación para quien dice enviar los fondos para cumplir con ese pago.
+S1: Perfecto, excelente, muy bien. En el caso, no sé Alí, cómo ocurre acá, pero hablando de ese monitoreo de cuenta de los que estamos hablando acá, luego de que ya se hacen los movimientos entre cuentas, como para en función de la programación que se tenga, eso luego tienes que reportar. Hay alguna especie de informe o reporte que se hace sobre el estatus final diario o algo así, o sea, ahorita.
+S2: Actualmente tesorería en Odoo, nosotros aquí en Venezuela registramos como tal traspasos que hacemos entre cuentas, registramos las compras de divisas y todo compromiso que tenemos de financiamiento con los bancos, las amortizaciones y los intereses se registran también en Odoo, no sé si eso responde a tu pregunta. Como tal, eso es lo que se reporta en sistema administrativo, o sea, se monta una disponibilidad, ciertos grupos que tenemos para que tanto Bernardo como Jaime estén enterados y bueno, lo demás, la verdad que la tesorería aquí en Venezuela yo me imagino que un poco más dinámica que en cualquier otro país por las condiciones que se llegan aquí y bueno, con el tema por lo menos de las cuentas por pagar, lo que si te podría decir es que actualmente yo no tengo definido, siempre estimo y me voy por encima, pero nunca tengo atajado el monto exacto que voy a desembolsar en los días de caja, porque no todo pasa por cuentas por pagar.
+S1: Directamente, en este caso no todo pasa por cuentas por pa.
+S2: Por el pasa postmortem, una vez que se pagó, llegan posiblemente, o llegan a la tesorería una vez ya registradas o posiblemente cosas que ya se pagaron, pero después se registran el mismo día, pero bueno, son cosas que todavía se tienen aquí que trata de solucionar. Cuando hablas con el de cuentas por pagar, que es Andrés Largo, yo he hablado con él y he tratado decirle, mira, vamos a tratar, yo necesito que tú puedas por hogar, tú me digas, mira, vamos a pagar tanto y lo meta en mi club y te diga, mira, sí es por mi, claro, pero que no me vienen con su casita.
+S1: Sí, sí, no, exacto, te entiendo totalmente. Vale, de acuerdo. Eso son cosas de acá, Norma, no te asustes,.
+S3: Mira que no estoy escuchando.
+S1: Bien al instituto, pero a mí estás escuchando. Claro. Estamos usando dos laptops al mismo tiempo. No sé si. Déjame acercarme yo más bien para acá, porque él y yo estamos en la misma sala, no sé si ahora tú me estabas escuchando bien ahora.
+S3: No, a ti si te escucho perfecto,.
+S1: ¿Verdad? Claro, cierto. Es que si prendemos los dos micrófonos. Listo, listo. ¿Me voy a acercar más bien para acá, Norman, y disculpa, para que entonces puedas escuchar muy bien, vale? Listo. ¿Fíjate, quería consultarte también algo Norman, respecto a justamente por ejemplo, estos compromisos bancarios, por ejemplo acá tenemos, me estaba comentando Alí sobre los vencimientos de líneas de crédito, verdad?
+S2: Tú me comentaste amortizaciones de capital, eso.
+S1: Son deudas que tenemos, son créditos que hemos pedido y bueno, tenemos compromisos con esas líneas. ¿En el caso de Panamá se maneja así también, o sea, cómo se maneja más bien allá?
+S3: Totalmente igual, totalmente igual.
+S1: Cuéntame cómo se maneja diferentes bancos.
+S3: En donde básicamente tenemos lo que son el financiamiento para cumplir con que serían las compras y claro, quedan esas deudas pues dependiendo de los lanzamientos y términos y las condiciones que se den con cada.
+S1: Correcto. ¿Quién define, o sea, quién se encarga de esas solicitudes de líneas de crédito allá?
+S3: Bueno, básicamente dependiendo de la necesidad se evalúa directamente con el jefe en este caso para la necesidad del uso de las líneas o que para el pago ya sea de compras de mercancía, principalmente.
+S1: Es para eso, comprar mercancías en el.
+S3: Caso de Panamá básicamente. Sí.
+S1: Vale, vale.
+S3: Lo demás lo usamos pues del flujo de caja que manejamos.
+S1: Claro, claro. Por cierto, no te pregunté algo Norman, algo que me hace clic ahora mismo. Panamá por supuesto es el corporativo, o sea, ustedes son el punto donde llega la mercancía y ustedes distribuyen a las distintas regiones. ¿Estas líneas de crédito son reposiciones de Panamá o son líneas de crédito que van para otras regiones también para quizá apoyar a otros lugares? Solo de Panamá. Perfecto. ¿Tú interactúas o tienes incidencia en otras regiones de apoyo a nivel de tesorería, Costa Rica, Colombia? No lo sé todo por ahora no,.
+S3: Porque obviamente hasta el momento los pagos son puntuales a los proveedores que manejamos y como quien dice, la relación que manejamos hasta el momento y las obligaciones que manejamos hasta el momento son las que llevamos a cabo acá en Panamá.
+S1: Perfecto. OK, vale. De acuerdo. Me imagino que tú tienes para estas líneas de crédito plazos específicos y basado en eso tú programas los pagos o no sé si se debitan automáticos estos pagos para las líneas.
+S3: Sí, claro, obviamente cada institución tiene, maneja su librito y algunos si la deuda la tengo venciendo el día 12, el día 12 van a debitar. Otros que se le pida la instrucción.
+S1: Para cumplir con el pago, también puede ser ese caso que se pide la.
+S3: Instrucción cada banco tiene su manejación, su libertad.
+S1: Por casualidad ya le voy a consultar. Alí, lo mismo. ¿Tienes documentación de cómo se manejan estas relaciones con cada banco? Pregunto. ¿Alguna especie de instructivo o una guía quizás? ¿Eso se ha documentado en el caso Panamá?
+S3: Bueno, guía, básicamente como quien dice cuadros de informe con información bancaria. Cuando dices te refieres a como quien dice paso 1.
+S1: Sí, sí, sí, un paso a paso. Correcto. El paso a paso.
+S3: Hay un manual de procedimiento que se realizó a inicios de cuando yo entré.
+S1: Vale, vale.
+S3: Funciona tal cual para ver los procesos.
+S1: Excelente, excelente. Tomo nota de eso por acá de repente para revisarlo luego contigo. Vale, OK. ¿Me estás escuchando ahorita? No sé si se cortó.
+S3: Sí,.
+S1: Vale, Norman, excelente. Listo, muy bien. Fíjate, también quería consultarles a ustedes por el punto de Escuché por acá que manejamos Odoo. ¿Tú manejas Odoo también por allá? ¿Para qué procesos maneja Odoo concretamente?
+S3: Bueno, básicamente todo lo que se registre de lo que se lleva a cabo, básicamente, registro contable de todas estas transacciones.
+S1: Perfecto, perfecto. Es igual por acá.
+S2: Lo que pasa es que obviamente Norman tiene un. Lleva el proceso más macro que puedes por favor cobrar y la tesorería. Entonces nosotros aquí en este caso en tesorería, lo que te dije, registramos nada más operaciones de tesorería, todos los asientos contables de cuentas por pagar y todo.
+S3: El tema de facturación.
+S2: Eso lo lleva Andrés.
+S1: OK, Andrés, directamente no sé si escuchaste esa parte, Norman. Si se escucha esta vez No, lo.
+S3: Que pasa es que a alguien no le escucho.
+S1: Vale, vale, claro.
+S3: Yo estoy un poco más cerca que la posición.
+S1: Tranquilo de la. Puede ser, puede ser. De acuerdo. Mira, te iba a preguntar. Pregunto primero a ti, Norman. ¿Tú tienes, además de Odum, te apoyas en alguna otra herramienta de tecnología, un sistema, software? Aplicación.
+S3: Aplicación como tal. Básicamente nosotros tenemos lo que son las plataformas de banco donde llevamos parte de la operatividad, ya sea de pago y demás. Claro, la herramienta donde llevamos a cabo contablemente todos estos registros. Es todo.
+S1: OK.
+S3: Y bueno, con los reportes que hacemos compartidos en la. Y básicamente llevamos como utilicé. ¿Hacemos los reportes y como que dice? Cuadro control.
+S1: Cuadro control, perfecto. Sí, sí, claro. Adelante.
+S3: Perfecto.
+S1: OK, eso respecto a LAR, hablaste de flujos. Ahora mismo mencionaste flujos, ¿Cuáles flujos está manejando dentro del ARC? Flujo de caja principalmente. Cash flow. Exactamente, muy bien. ¿Ese cash flow, claro, ustedes hacen una proyección también, verdad? De flujo de caja proyectado. ¿Me llama la atención cómo se hace ese procedimiento allá, qué actividades implica el hacer un flujo de caja proyectado?
+S3: No es tuvieras estimando todo lo que tienes por pagar y por recibir este tiempo, básicamente como si estuvieras haciendo un ejercicio personal, corporativo en este caso, de lo que tú puedes llegar a pago, que dice realizar por decirlo así, las compras que tenemos nosotros de mercancía también eso se van negociando así mismo vamos recibiendo la información dentro de estas compras y obviamente vamos haciendo una planificación para poder realizar un pago de compras y asimismo se va estimando pues ya sea los fletes de estas mercancías, adicional algunos gastos que puedan incurrir, la traída de esta mercancía, adicional pues el pago que nosotros podemos tener a nivel ya sea de local y claro, ya dice temas de proveedores, temas de nómina, obviamente son estimaciones que uno la va a realizar con el tiempo y tratando de que sea lo más certero para poder entonces, como quien se contaba con el nivel efectivo para cumplir de cuando manera todas las entradas que nosotros vamos recibiendo, vamos a estar atento a todos nuestros clientes, tenemos por decirlo así, para decir pago a 30 días, 60 días, tirando una estimación y lo vamos monitoreando en el tiempo, cosa de que se vayan dando también estas entradas de fondo.
+S1: Perfecto, excelente. Vale, muy clara la narrativa en este caso. Chévere, me queda claro. ¿Por cierto, les iba a consultar Norman, allá en Panamá tienen algún comité o hay alguna regularización de espacios para hacer una especie de reportería, rendir cuentas o presentar pues en un comité balances del tema de tesorería?
+S3: Estamos como quien dice, dándole fuerza al área. Esto es bastante nuevo, no sé si tiene conocimiento.
+S1: vale, no sabía.
+S3: Está bien, Sí.
+S1: Entonces, ¿Cuánto tiempo llevas, por cierto? ¿Disculpa? ¿Cuánto tiempo llevas?
+S3: Bueno, ya voy para. Tengo tres meses ya.
+S1: Tres meses. Oye, hay una coincidencia aquí también. Vale, vale, Muy bien, adelante. ¿Me decías?
+S3: Sí, entonces, bueno, básicamente como quien dice, a medida que vaya pasando el tiempo hemos estado como quien dice, mejorando ya más las reporterías, haciendo reuniones más constantes para como quien dice, darle más forma pues a esta casualmente lo que estás comentando de que se puedan dar sesiones para revisiones y también evaluaciones de cómo se está llevando la tesorería y adicional pues que estos reportes no sean solamente para dice control, sino más bien para como que dice informativo de toda la organización.
+S1: Correcto, perfecto. ¿Alí, en el caso Venezuela estamos participando en espacios de comités, no?
+S2: Eso participa Jaime en este caso.
+S1: OK. ¿Pero Jaime y tú tienen alguna especie de reunión periódica? Pero no hablo de informar, sino como que mira, todos los viernes o todos los miércoles tenemos una sesión. Actualmente no está normalizado. Sí, digamos algo un poco más estandarizado. Vale, en cuenta. En cuenta. De acuerdo. ¿Y en tu opinión Norman, o basado en tu experiencia allá en Panamá, cuáles son los indicadores? Quiero hablar un poco de indicadores para medir la gestión de la efectividad de la tesorería allá. ¿Cómo tú estás midiendo la efectividad de la tesorería hoy en día? ¿Cómo se mide la calidad de la eficiencia de los procesos?
+S3: Bueno, básicamente indicador como quien dice principal o primordial es el nivel de efectivo. Dos, conversando acá con el analista, contamos con cobrar, tratar de tener un indicador de día de cobros, cosa de que este indicador nos pueda dar una orientación más acerca de los días de cobro que tenemos nosotros. Nosotros manejamos lo que sería reportería de todo lo que ingresa, pero sería como quien dice hacer un ratio, cosa de que ese ratio lo pueda como quien dice meterle más lupa de lo que ya se le está dando para tener pues información más certera, pero de igual manera se sigue haciendo la misma reportería en cuanto a cuentas por cobrar, lo que tenemos también de información de cuenta por y pues la herramienta pues que como usamos las solicitudes de pago, esa solicitud de pago estamos como quien dice sacando, extrayendo información de para tener también el mapa o el mapeo de todos estos pagos que hemos realizado durante el mes y así de igual manera verificarlo versus el flujo de caja que nosotros manejamos acá.
+S1: Correcto, perfecto. ¿En el caso Venezuela está manejando, no sé si con Jaime has definido indicadores, el tema de indicadores ha trabajado acá? Indicadores para.
+S2: ¿Sí, o sea, básicamente nuestros indicadores actualmente?
+S1: ¿Alguna referencia que pudieran manejar sobre el tema?
+S2: Actualmente en verdad tenemos, todo está involucrado, funciona a la mesa de cambio,.
+S3: El.
+S2: Porcentaje de compra de divisas en función de los ingresos que es utilizar diciendo que debería ser, vamos a decir que por encima del 70%.
+S1: Correcto.
+S2: Bueno, obviamente siempre evaluando la tasa de cambio, el incremento de la tasa de cambio y la inflación semanal. Pero eso es más que todo como un indicador que nos va a avisar, o sea, que nos va avisando más o menos, mira, esta semana tenemos que estar muy activos en la búsqueda de divisas o bien qué compromisos hay para poder desarrollar sus bolívares de una manera rápida.
+S1: Claro, el tema inflacionario,.
+S2: Básicamente esos son ahorita los indicadores que manejamos. La rotación de la caja.
+S1: Rotación de la caja, perfecto. Ese está interesante. Ese el 80% no lo conocía. Me parece que está bien, o sea,.
+S2: O sea, no es algo que esté establecido, pero tácitamente lo está manejando así. Para acercarme aquí nosotros tenemos que comprar una mayor cantidad de divisas para poder ir a pagarle a Kennex las cuentas por cobrar que tienen ellos con nosotros de la mercancía.
+S1: Claro, eso se hace en dólares, en divisa y claro, esas son las cuentas que tenemos pendientes con Kemex.
+S2: Actualmente el proceso es mucho más expedito y más simpático porque por el tema de que los bancos ya no tienen el tema de las provisiones económicas con Estados Unidos, entonces ellos mismos pueden tener banco corresponsales afuera.
+S1: OK.
+S2: Y ya no hay que estar dando esas huelgas como terceros no regulados.
+S1: Sí, por el tema de las sanciones.
+S2: Que había actualmente comprando en tu banco de confianza y ellos se encargan de hacer llegar el dinero a bien sea,.
+S1: No importa Banca Amiga o sea cualquier.
+S2: Bueno, hay bancos que tienen mejores. Sí, bueno, pero hay un grupo, hasta ahora nuestros bancos hacen llegar el dinero.
+S1: Perfecto, muy bien, excelente. Está muy bien. Norman, hablando justamente de este punto, hablando ya sobre esta fase, en tu opinión, ¿Cuáles son los cuellos de botella o lo que llamamos acá en consultoría el dolor del proceso? Donde tú sientes o percibes. Claro, me comentas que estás reciente, pero quizá en lo que has podido ver o notar, ¿Dónde están los cuellos de botella del proceso? ¿Donde se retrabaja un poco más? ¿Donde se retrasa el trabajo actualmente?
+S3: Bueno, básicamente como nosotros usamos la herramienta de lo que sería el pago de. De las solicitudes de pago que manejamos por lar y el cuello de botella sería más que todo como quien dice un poco el orden en cuanto a la organización, porque igual nosotros estamos tratando de realizar una campaña cosa de que los pagos salgan X día, pero bueno, cosas que suceden del día a día, se le fue a la gente marketing, este pago corre por acá, de que sepan cuando ya cosas que de repente pudieron hacerse dentro de la planificación no se hacen por tema y motivo, diferentes áreas que mandan su pago un poco más tarde de lo establecido y obviamente nos ponen a nosotros un poco en correo. Pero básicamente eso, esas cositas que estamos como quien dice haciendo una campaña para tratar pues de que se den las cosas dentro de los tiempos establecidos.
+S1: OK, una campaña más de concientización quizás. Es correcto, pero en este caso, claro, me lo comentas, pero es más por la dinámica, no tanto porque el proceso esté estructurado de mala forma o tengo una debilidad estructural, es más la dinámica.
+S3: Organizacional tal cual como lo mencionas. Así es.
+S1: Claro, claro, te entiendo. No, no, pero muy válido, es válido lo que me comentas, claro que sí. No sé si acá se comparte la misma opinión o hay algún. ¿Acá por la dinámica nuestros procesos tienen estos bemoles de mesa de cambio, etc. Hay alguna fricción a nivel de proceso, algún dolor, algún cuello de botella en procesos de tesorería, algo que no funcione bien?
+S2: Lo que te comenté antes, no saber al 100% o lo más certero posible lo que se va a pagar. Salen por lo menos en este caso remodelaciones de tienda o cosas así, que esas cosas por lo menos, OK, todavía son manejadas, no a la ligera, pero sale de momento y entonces son mundos importantes que gracias a Dios tenemos el flujo necesario para aguantarlo, pero son cosas que no tenías atajadas.
+S1: Entiendo, te entiendo. Eso cuando me dicen claro que no saber con más especificidad, básicamente no se.
+S2: Respetan los días de casa.
+S1: Claro, claro, no se respeta, correcto.
+S2: Pero para eso obviamente yo no puedo arreglar eso de la noche a la mañana, eso ya sin duda dependo de muchas otras áreas y si yo me pongo a.
+S1: Claro, claro, sí, porque claro, me indicas que tenemos el flujo para responder a eso, sin embargo la idea, lo teóricamente ideal es que eso funcionara de una forma más ordenada.
+S2: Bueno, eso ya de repente también puede ser por el tipo de proveedores que se tienen, que trabajan así, vaya a.
+S1: Saber ¿Qué sucede a nivel del sistema? ¿Tú sientes que hay algo dentro de los sistemas que no funcione óptimamente? ¿Información financiera que esté retrasada, datos que sean incongruentes? Oye, por lo menos con logística conversamos, hay algunos temas que, bueno, no coinciden los inventarios, etc. ¿Con tesorería pasa algo similar?
+S2: La verdad es que en Tesorería no pasa porque nosotros, nuestro input, Nuestro diario es el portal bancario. Nosotros drenamos toda la información y está hecha como nosotros la configuramos. Yo básicamente para el Odoo meto nada más para verificar qué tanto capital hemos pagado en las líneas de crédito, por ejemplo, o para hacer el conteo de cuántas divisas hemos comprado en el mes o en los últimos tres meses. Y todo eso se registró, lo registró el equipo, lo registré yo. Entonces eso. Y no dependemos de otra en ese sentido. Pero Contabilidad, cuentas por pagar y cuentas por cobrar, en ese caso si dependen de nosotros, pero contabilidad hace el trabajo de. Básicamente hace el trabajo pesado del sistema administrativo, que es subir estados de cuenta y todas las conciliaciones.
+S1: De acuerdo, de acuerdo. Listo, listo. Muy bien. En el caso de Panamá, Norman, algo a nivel de sistema que no sé si existe alguna oportunidad de mejora que tú estés viendo con información que se maneja o funcionan normalmente. Bien,.
+S3: Hasta el momento lo que he visto, lo que estoy sacando le provecho a la ramioca, sacándole provecho, tratando de buscar mecanismos que ya están dentro de la herramienta, lo único que hay que, como quien dice, hacer esas iniciativas de levantamiento de cambios, pero por ahora todo bien hasta el momento. Vale.
+S1: Por cierto, Norma, cuando hay pagos que salen de Venezuela hacia Panamá, a nivel de tesorería, ¿Tú verificas eso? ¿Lo verifica tu equipo?
+S3: Lo verifica el equipo.
+S1: Lo verifica el equipo, perfecto. ¿Quién lo verifica concretamente hoy en día?
+S3: Bueno, no sé si conoce a Noel.
+S1: Y a Víctor, los he escuchado.
+S3: Sí, sí, sí, sí. Son parte del equipo acá, que son los que básicamente. Llévame ese control.
+S1: Perfecto. Ellos están en el área de. ¿Me repites?
+S3: Cuentas por cobrar.
+S1: OK, se recibe por cuentas por cobrar. Perfecto. ¿Ellos lo verifican y te reportan a ti, te dan algún estatus a ti, correcto?
+S3: Así es.
+S1: Buenísimo, excelente. Listo. Miren, por cierto, justamente este proyecto también tiene un ala que es el tema de automatización, la documentación de procesos no es el objetivo final del proyecto, sino es una fase del proyecto para luego entender oportunidades de automatización donde podamos incluir por ejemplo la inteligencia artificial, que es una herramienta vital hoy en día. Ya ustedes allá en Panamá han comenzado a explorar temas de IA, de inteligencia artificial en temas de tesorería, administración o finanzas.
+S3: Sí, por ahora como para tener sustento de lo que sería reporte de los cobros, hemos estado con lo que dice, realizándole tema de resumen para sustento de los pagos que hemos estado recibiendo.
+S1: De los pagos que han recibido. ¿Con cuál herramienta te estás apoyando, Norman o Claudia? Vale, vale, perfecto. Tiene, me imagino, una licencia paga para ello. Correcto,.
+S3: Hay un colaborador que tiene licencia y por ahora le hemos estado usando.
+S1: Le sacan provecho a esa herramienta por allá.
+S3: Claro, y la calidad nos apoya mucho en el tema de que sería la antigüedad de PA, nos hace un resumen bastante robusto que está muy buena la verdad.
+S1: OK, pero el resultado de la inteligencia artificial en este caso es bueno, o sea, no hay imprecisiones, suele ser precisa la respuesta que les dan porque a veces claro, la IA puede delirar o.
+S3: Desvariar un poco, todo va a depender de la información, por como tú se la des, así mismo te la va a ir como quien dice sustentando. Pero bueno, hemos estado incursionando en eso y hemos como quien dice, mejorado sobre la marcha en eso también.
+S1: Sin duda, sin duda. Acá se ha manejado algo de eso todavía.
+S2: Bueno, recibimos ahorita lo de Maya,.
+S3: Por.
+S1: Lo menos en mi caso,.
+S2: Básicamente para hacer temas administrativos he usado la IA para solventar temas de compromiso con bancos, algunos cálculos que hago con el flujo.
+S3: De caja,.
+S2: Lo que está diciendo Norman, para revisión de fechas de.
+S1: Compromisos, Correcto, sí, sí,.
+S2: Cálculos muy puntuales para la automatización del proceso como tal. Lo que me encantaría es que la idea sacara los pagos, pero sé que eso es posible actualmente, lo único es que creo que la banca nacional no, o la banca de por sí en varios países, creo que por.
+S1: A eso iba justamente. Si yo te preguntara ahorita, lee de la lista deseo que tú pudieras tener, oye, yo quiero que la IA me ayude en esto y en esto, ¿Cuál es la prioridad? ¿Cuál sería la actividad prioritaria que tú quisieras recibir apoyo de la IA, que.
+S2: La IA sacara los pagos? Yo le pusieron las coordenadas de pago y que la ia lo sacara.
+S1: ¿Te refieres a la ejecución?
+S2: La ejecución, sí, porque eso le quita tiempo al equipo, por lo menos a uno de los integrantes, y podría destinar ese tiempo sobrante a otras actividades administrativas o de análisis.
+S1: Perfecto, perfecto. Qué vendría en segundo y tercer lugar.
+S2: Si pudieses, o también hay otros mecanismos. Lo único es que ya dependo desde mi punto de vista, dependo de mis cuentas por pagar, de que me manden por lo menos, no sé si consciente, y hay archivos que se mandan y se cargan al banco, típico archivo txt con la lista de proveedores, eso lo debería armar cuentas por pagar y lo paso a tesorería y se procesa.
+S1: Perfecto, perfecto.
+S2: Y no que un usuario esté pagando pago por pago a mano, así eligiendo el beneficiario, que sea una sola corrida.
+S1: Sí, sí, sí. Un poco minimizar lo que es la intervención humana en este caso, a virtud de mejorar la calidad del proceso. Entiendo, entiendo. Muy bien. Vale. No sé si en el caso tuyo, Norman, tienes alguna idea diferente o compartes o tienes alguna preferencia por algún proceso que te gustaría automatizar con inteligencia artificial o mejorar.
+S3: Compacto un poco la opinión del uso de la guía, la herramienta en este caso sí me parece bastante uniforme seguir ese paso y lo que puedo agregar sería básicamente que nos proporcionas de, como quien dice, guía o básicamente para temas de controles, que nosotros podamos tener esas automatizaciones de, como quien dice, formación adicional que nosotros pudiéramos darle, brindarle para que ellos la puedan, asimismo viceversa, extra de pagos puntuales, básicamente como para tener una programación que en el calendario me pueda extraer. Sí, sé que actualmente adicional a la IA hay herramientas que te la puede traer el mismo sistema, pero adicional, pues como quien dice, si yo quiero tener un reporte que me sustente esa información, introducimos la IMC.
+S1: De acuerdo, muy bien. ¿Ustedes allá utilizan alguna herramienta de Power BI, Norman, para procesamiento de datos?
+S3: Realmente no, realmente no.
+S1: OK, vale.
+S3: Sí, como quien dice, no ha sido necesario hasta el momento, pero sí se pudiera usar.
+S1: De acuerdo, de acuerdo. Acá con Glodasgo.
+S3: Perdón, me decías hasta el momento, como quien dice para alimentación. Básicamente sí, pero como quien dice, hasta el momento no he tenido como quien dice el chance de manejar esos KPI de pantallas de dashboard para temas de toma decisión.
+S1: Vale, vale.
+S3: Como somos del día a día, más que todo el flow, básicamente es como quien dice el mapeo que tenemos , pero si se le puede dar el uso de BI para ya tema de pantalla, tener esos dashboard que uno quiere como quien dice tener al día.
+S1: Correcto, correcto. Normal. ¿Hay algún proceso en el caso tuyo que digamos adicionalmente estés manejando del cual no te haya consultado, no hayamos hablado ahora mismo?
+S3: Bueno, básicamente no.
+S1: OK.
+S3: Así diferente a lo que por ahora.
+S1: Sí, quizá algo más excepcional, que no sea rutinario, sino algo más esporádico. ¿Hay algún proceso digamos eventual que se esté manejando a nivel de Panamá?
+S3: Puede ser en su momento que se dé para tema de auditoría.
+S1: Perfecto, Muy bien. OK. ¿Que se está llevando en esa parte?
+S3: No, la información que soliciten ellos de parte de ellos, nosotros como empresa, pues darle ese sustento.
+S1: Claro, eso me imagino son las auditorías anuales o algo así cuando ocurren en la empresa.
+S3: Exacto, perfecto, exacto. Dependiendo de si son periódicas, si son anuales se están haciendo y bueno, lo que solicite, pues.
+S1: Perfecto. ¿Quiénes atienden a los auditores formalmente allá?
+S3: Bueno, formalmente contabilidad, pero si en este caso nosotros algún pago, algún puntual que ellos requieran, obviamente entramos nosotros para darle ese apoyo con los soportes.
+S1: Perfecto, Si, lo que necesiten, claro, se le va suministrando en el caso de la tesorería. Listo, perfecto. Acá no sé, en el caso Venezuela, tú me habías comentado algo, creo Alí, sobre, bueno, me hablaste de los pacos urgentes, me acuerdo que bueno, como tal es una actividad que tenemos acá. ¿Algún proceso adicional que no se esté mencionando, que tú creas relevante indicar o señalar fuera de lo que ya hemos hablado en términos generales, algún bemol o subproceso que esté quedando por fuera.
+S3: De.
+S1: Lo que sea tu rutina o la rutina del departamento a nivel semanal, mensual? Qué bueno que te acuerdes de nuevo, a veces uno se acuerda en el.
+S2: Camino y si me corto te escribo.
+S1: Claro, claro.
+S2: Podríamos, pero la verdad es que ahorita no me viene nada.
+S1: Seguramente igual cuando nosotros le. Porque claro, esto conduce un entregable a un manual en una primera versión, luego lo vamos a revisar y podemos detectar, mirar, oye esta está chévere pero faltó una cosa aquí o algo por allá, eso lo podemos ir revisando válvulas,.
+S2: Pero realmente está también el tema de nosotros en la tesorería manejamos diferentes aplicaciones que una gestiona todo lo que es punto de venta, serían los ingresos, que sería el mayor ingreso de Robert. Los puntos en retail.
+S1: En retail, sí.
+S2: Y en este caso también Cachea, Caché.
+S3: Es particular de nosotros, tanto formas distintas.
+S2: Entonces mis famosas me quedaron siempre y está sondeando eso ya justamente voy a.
+S1: Hablar contigo algo, o sea, te va a hacer una consulta de caché ahora, pero bueno. Vale, de acuerdo, está muy bien. Vale Alí, Norman. Bueno, de verdad, de momento, fíjense, yo creo que con este primer abordaje al menos tenemos cubierto un primer borrador para poder ya trabajar nosotros como consultores en una documentación. Yo me comprometo a hacerles llegar a ustedes una versión para que luego la podamos revisar, validar y bueno, de momento quería agradecerles a ambos este tiempo, este espacio, sé que están con muchos compromisos y creo que les tomé un poco más de una hora, entonces agradecerles por supuesto por este espacio a los dos. Yo creo que ya por hoy estamos bien e igualmente si yo veo que en el camino se me pasó algo de consultar, les escribiría individualmente para cualquier cosa, agendar algo corto, unos quince, veinte minutos y profundizar un poco más en algún aspecto.
+S3: Vale, perfecto. Estamos a la orden. Cualquier posibilidad.
+S1: Perfecto Norman, Vale, te agradezco mucho. Te agradecemos, muchísimas gracias y bueno, conversamos.
+S3: Gracias. Un gusto Alí.
+S1: Chao Norman, que esté muy bien. Gracias Norman. Gracias Alí. Seguro, igualmente, gracias. Sí, claro, Caché es algo más que como que tomarte 10 minuticos más para con caché. ¿Cómo está funcionando tu proceso con Caché ahorita lo de Cachea, porque mucho volumen entra por , porque es un pago.
+S2: Diferido y la verdad es que lo acabo de tomar, no estaba, vamos a decir que atajado, tiene muchas cosas encima y entonces ahorita fue que me mira, toma el portal de Cachea? Cachea es una empresa que está creciendo muy rápido, digamos que no tiene la mejor atención al cliente, pero bueno, va. Y nada, obviamente ahorita lo que estoy es tratando de ver que yo, que en verdad hacerlo yo sería como que un poco tedioso estar pendiente con el ejecutivo y estar atento a cuando Kashea llegue a ese punto porque va a tener que llegar en algún momento decirte cuándo te va a entrar en tu cuenta de aquí a una semana.
+S1: Eso no está pasando ahora.
+S2: Eso no está pasando.
+S1: Pero se prevé que pase.
+S2: Sí, yo creo que sí. Y si no, más o menos.
+S1: Un.
+S2: Estimado, cuándo podré yo recibir esa entrada.
+S1: OK. Tú estás haciendo eso ahora mismo. Me imagino entrando al portal, viendo las.
+S2: Fechas, porque eso va a ser función a la cuota. Si pagaron hoy, si pueden comprar un caché en 15 días, es que esa cuota va a estar en el banco de Ro. Pero es una bola cada 15 días de hacer un mes cada 15 días. En algún momento van a terminar en los próximos días de la semana. Lo que esa gente maneja.
+S3: Sí, claro.
+S1: Y engorroso para ellos y para ustedes también.
+S2: Siempre hay entrada de dinero. Lo único es que no tengo algo definido. Hay un monto promedio, pero la página como tal, el portal te lo muestra, pero no está claro. Yo ya he dado mi feedback, he hablado con gente, he hablado con varios ejecutivos de caché y me dice sí, bueno, puedo mostrar. Pero bueno, eso es una de las cosas que se maneja ahorita. Nos quita mucho tiempo porque claro, en.
+S1: Mi imaginoso está consolidado en. En el portal.
+S2: Eso también lo usa Contabilidad para hacer los cierres.
+S1: Sí, lo recuerdo. Víctor nos comentó Padovani de eso. Sí, sí, claro, de acuerdo. Por sucursal. Claro, no es que ves todo individual. ¿Tú lo ves consolidado?
+S2: Yo veo el consolidado. Ellos ven por sucursal.
+S1: Ellos ven por sucursal.
+S2: Sí. Yo veo nada más lo que entra en la cuenta, es lo que me interesa.
+S1: Claro. No, no, totalmente. Pero a nivel de tesorería, claro, ellos pagan a una tasa, tú recibes días después ese dinero está un poco. No vas a creer. Yo no he usado cachea todavía.
+S2: No, yo tampoco.
+S1: No se cachea. Pero eso es a valor. Al valor de la tasa.
+S2: Al valor de la tasa.
+S1: El día que se apagó la.
+S2: Pero bueno, claro, posiblemente sea. Si Cachea tiene una cuenta por cobrar contigo de 100 dólares. Ellos van a ir abonando todos los días por el cliente y el cliente después les va a pagar a ellos y ellos abonan el monto que te tienen a ti como cuenta por cobrar menos su fees, que es la comisión de ellos por el servicio que brindan.
+S1: Correcto, correcto. Ahora mismo Cacha está presente en todas las tiendas retail.
+S2: Correcto.
+S1: ¿En todas las tiendas retail a nivel de web, sabes si está también en Web Mayoreo? Bueno, obviamente otra línea de negocio diferente. Perfecto. Claro. Y por cierto, a nivel de lo que es el mayor, las ventas al mayor, cuando se recibe dinero, porque también hay cuentas por cobrar, entra dinero por . ¿Eso lo manejan en cuentas diferentes?
+S2: Cuentas por cobrar se manejan cuentas diferentes. Estamos tratando de llevarlo en un solo banco.
+S1: OK. Así.
+S2: Es más cómodo. Las cuentas por cobrar aquí no son las cuentas por cobrar del mayor no son muchas. Entonces simplificar el trabajo que ahorita está Yajaira, no sé, tú ya hablaste con ella te explicará mejor. Pero si es lo que se está tratando de dar una sola cuenta para que Cuentas por Cobrar lleve ,.
+S3: Sea.
+S2: Mucho más fácil la conciliación para ella y la aplicación de partida.
+S1: ¿Sabes si eso se va a implementar a corto plazo realmente?
+S2: Bueno, creo que ya está en eso,.
+S1: Ya está conversado, ya está probado eso.
+S2: Yo le comparto a ella, por eso es que le comparto los estados de cuenta para que ellos todos los días vean que entró, porque yo veo entradas y es fácil diferenciar. En el estado de cuenta sale todo lo que es por punto de venta, que es pago por y transferencia. Y nosotros también cuentas recaudadoras y pagadoras. Y en las cuentas recaudadoras, transferencias que veas jurídico, obviamente. Eso es de.
+S1: Por supuesto, es muy sencilla la definición.
+S2: Perfecto.
+S1: No hay error . OK. No, está bien. Era para entender un poco cómo manejaban el tema. Cachea. No sé, en el caso de Venezuela, quería tomarme estos minutos extra contigo porque sé que Venezuela tiene más cosas, pero mitos específicos, pues. ¿Hay algo más particularidad que tengamos acá en los procesos de tesorería con Venezuela, algo que quieras mencionar?
+S2: Bueno, hay algo que yo por lo menos en mi caso aún no he atajado, que es el efectivo se maneja poco, pero obviamente me he mantenido el margen porque el efectivo se mueve mucho directamente desde el señor Bernardo, entonces es algo que. OK. Y muchos de esos pagos no se registran porque salen como tal del prototipo contable. Entonces son cosas que. Todo lo que entra por tienda sí se registra. Sí, pero hay acuerdos, cosas que tiene la empresa que necesitan efectivo. Entonces se compra por fuera porque los bancos no están dando efectivo.
+S1: Eso sí.
+S2: Claro.
+S1: Sin embargo hay acá alguna custodia de efectivo y Eso va por tesorería.
+S2: Y eso va por Tesorería. La Sra. Marv.
+S1: Sra. Marvis es la custodia del efectivo.
+S3: Perfecto.
+S1: ¿Pero acá pueden pagar efectivo aquí en el edificio? Ro puede venir un.
+S2: Sí, sí, podrían. Y se le da de Marvin y ella lo contabiliza.
+S1: Lo contabiliza.
+S2: ¿Pero todo eso, muchas de esas cosas se llevan por fuera de o por fuera?
+S1: Por fuera de Odo. Pero igual entra en la contabilidad.
+S2: Claro, entra dentro del efectivo, pero bueno, es por un tema de no generar factura, sino una nota. Creo que eso ahorita no se está tratando dejar, pero bueno, así lo agarré yo en mayo y se ha tratado dejar, pero.
+S1: OK, OK. Sin embargo, tú tienes o no sé si Jaime. Bueno, Jaime seguro sí, pero a nivel de la coordinación tienes acceso, te reportan a ti. Mira, se ingresó tanto por efectivo, se recibió tanto hoy o esta semana.
+S2: Yo pido cortes, pero como tal eso está muy individualizado. Gente que tiene mucho tiempo en la empresa y obviamente también meterme en ese terreno y quitar responsable.
+S1: Sí, sí, entiendo. Muy lodo, te entiendo eso.
+S2: Gente que tiene quince, veinte años,.
+S1: Lleva un proceso.
+S2: Estoy nuevo.
+S1: No, no, tranquilo. Era para ver si lo estaba manejando así. Chévere, chévere. De acuerdo.
+S2: Eso al final también es una oportunidad de mejora. Pero bueno, no sé si la anotarán o no, porque estoy diciendo, porque creo que eso sí hay que, sí hay.
+S1: Que anotarlo porque objetivamente, y no creo.
+S2: Que sea yo nada más que te.
+S1: Lo vaya a decir, ni más allá del ocupante. La idea es que esto funcione de acuerdo a a los roles, no tanto a la persona. Las personas pasan, la gente, los roles quedan. La institución es la que prevalece en el tiempo. Entonces. Pero sí, no, claro que es válido totalmente. Y eso, además de eso, ¿Habría algo más que tú consideres, algo adicional? Eso me parece bien hacer comentar el efectivo, lo de caché también. ¿Algo más en Tesorería que tú estés llevando, monitoreando, supervisando, fuera de lo que me has dicho?
+S2: No, creo que no. Eso es básicamente. Claro, obviamente me consultan cuando vienen con pago que no están contemplados, me consultan, mira, tenemos un pago para. Tenemos un pago de tanto. En verdad, yo siempre tengo un estimado, digo, no, dale, vamos a pagar.
+S1: Pero.
+S2: También una mala costumbre, bueno, no sé si mal acostumbré, también depende de los proveedores, factura que llegue, factura que se tiene que pagar. Obviamente estamos entrando en una dinámica totalmente distinta, donde ya la devaluación sigue siendo un problema. Pero no como en octubre del año pasado que el bolígrafo está subiendo 50 dólares, eran 50 dólares diarios. Ahorita está controlado. Y es como que decirle enseñar a otros proveedores, es como que mira, tú trabajas para mí, yo no trabajo para ti. Y decir yo pago aquí se paga cuando yo diga.
+S1: Por la norma de la empresa.
+S2: Por la norma de la empresa, Robert. Es una empresa grande. Hay políticas y hay políticas y que la verdad es que es un beneficio. Trabaj para acá y no para los diferentes proveedores. Y suena crudo, pero si no buscar otros proveedores que se acopien. Pero hacer eso es complicado. Proveedores de tantos años y confianza.
+S1: ¿Donde se mete ese tema? Entiendo. Tú manejas también. Claro, me hablaste mucho de los bolívares, que es la moneda de acá, pero tú llevas cuentas en divisas, no Las.
+S2: Nacionales en Mon, en la empresa si las llevamos. Y bueno, la dinámica es, nosotros compramos divisas, esas divisas obviamente la van a pasar de una, las divisas de Rover que se compran aquí en Venezuela se van a pasar a una cuenta RO en el extranjero. Es el primer paso. Y después una vez que tenemos el dinero en los fondos en la cuenta RO en Panamá o Estados Unidos, se transfiere a Ken.
+S1: Perfecto. Es cuando se transfiere. Pero antes. Esa la manejan ustedes, son de RO, pero en estos países.
+S2: Y exacto. Y bueno, como mercantil, como Vanesco, que ellos te hacen la gestión, el mismo ejecutivo que te atiende en Venezuela te ayuda con la gestión.
+S1: Totalmente.
+S2: Y de le pagamos a Kennex en Panoa.
+S1: Exacto, exacto. Otros medios de pagos, por ejemplo, criptomonedas se está manejando USDT.
+S2: Te hablo que el primer trimestre del año seguramente lo manejaba, pero poco a poco se ha ido dejando de manejar. De hecho yo donde trabajaba antes le brindaba servicios a robo y por eso yo llegué aquí. Pero esa cartera, todo ese tema de cripto lo manejaba Jaime y actualmente no desconozco eso porque creo que era Bernardo y Jaime directamente.
+S1: Claro, claro. No es algo que esté normalizado en la contabilidad, la tesorería.
+S2: Eso está por fuera. Extrabancal, digamos.
+S1: Sistema parte.
+S2: En verdad, solo por lo poder preguntar yo eso es área, un área súper gris y muy nueva.
+S1: De acuerdo, Alí. Bueno, chévere Alí, listo. De verdad te agradezco mucho también el tiempo, creo que te lo está dos horas a ti, no sé, pero bueno, de verdad te agradezco porque ha sido muy válido solo la información. De todas maneras, como le decía Norma, yo reviso y después la primera versión seguro lo revisamos.
+S3: ¿Vale?
+S1: Cualquier detalle, documentación. ¿Ustedes tienen algo para que le pregunte a Norman?
+S2: Jaime nos mandó a todos hacer un archivo.
+S1: OK, me faltaba preguntar, pero no sé si se le.
+S2: Eso fue antes del terremoto y después del terremoto.
+S1: Tengo que verificar si está en la. Déjame chequear. Seguramente está en LA.
+S2: Eso lo compartía Jaime y yo me.
+S3: Imagino que.
+S1: Solo para saber, ¿Tienes por casualidad para revisar contigo hace un momento? Porque aquí tengo el LAR y podemos ver rápidamente.
+S3: Eso. Fueron.
+S2: Fotos de más que todo para. No fue un flujo de trabajo, sino más que todo un manual de proceso de.
+S1: Ajá, perfecto. Creo que no lo tenemos acá, no sé si tiene forma de compartir. ¿Compartirlo conmigo, Alí? Si te facilitó un correo.
+S2: No, si, te lo comparto, o en.
+S1: El mismo sistema, como prefieras. Estoy checando acá están en Finanzas, Tesorería. Acá no lo tenemos en el drive. Tesorería de Finanzas no es de Venezuela porque está por país, No lo tenemos, pero bueno, me lo puedes compartir aparte igual o.
+S2: Yo creo que ya tipo cuentas por cobrar, otras por pagar y Tesorería tienen uno. Todos se los compartimos a Jaime.
+S1: Para.
+S2: Que englobes todo eso una vez y tengas eso antes de las entrevistas con ellos y todo eso tampoco pasa sin problema, pero creo que Jaime tenía eso.
+S1: Vale, vale, déjame. OK, déjame chequearlo con él entonces. Igual esto es de Odoo, ¿Verdad?
+S2: Me estás comentando un pequeño manual de las operaciones que se ejecutan diariamente en Tesorería, más allá del día a día.
+S1: Perfecto. Y ese por casualidad. Bueno, no sé si para ese me lo puedes adelantar. Si no, igual si luego me confirma Jaime que él tiene eso más las otras áreas, bueno, chévere. Ya por lo menos puedo ir adelantando con este manual más lo que tenemos acá. Lo manejamos igual, súper confidencial eso.
+S2: No te preocupes,.
+S1: Estamos bajo acuerdo de confianza. Si lo vas a hacer por LAR, puedes pasarlo, te vas a Drive, a UCAP, Optimización de procesos y una carpeta, un drive . ¿Eso como te digo, me lo puedes pasar al correo? Si, a nosotros nos crearon un correo casiovenezuela. Com que está linkeado en realidad con nuestro gmail. El director. Claro, claro. Yo no lo conozco mucho, pero sé quién es porque bueno, tipo tiene años y sí sé que ha participado en algunos proyectos con nosotros, incluso en Consultores UCA. Él ha estado involucrado en algunos proyectos de Gobella, ¿No? Oye, no sé su rol actualmente, eso sí me quedó. No, no, o sea, bueno, yo egresé y trabajo en consultorios UCAP. Yo fui preparador y estuve como asistente de cátedra, pero como estudiante ya cuando me gradué no me dediqué a la docencia porque bueno, me han ofrecido, pero.
+S2: No pensaba que todos los. Tenía esa idea de que todos los consultores, las personas que trabajaban en la.
+S1: Consultoría eran profesores activos. Casi todos. Hay unos que no están activos. Por lo menos casi todos tienen experiencia docente, eso sí es verdad. Lo que sí es que todos somos ucavistas. Si, no me imagino. No somos excluyentes, podemos trabajar con Alianza, con la Simón, con Central, no hay rollo. Pero principalmente son consultores de LOCAP. Pero sí, Joao sigue, imagino él te dio clase en algunas cátedras.
+S2: Al finalizar una lectiva, pero siempre estaba en todos lados. Lastimosamente cuando yo me grabé, Yo me grabé 2019. Los laboratorios que hay ahorita o los salones o las prácticas que hay. Pero bueno, por lo menos en el momento donde yo me gradué había un salón de impresión D, pero que no estaba su funcionamiento. Y ahorita creo que compro como 50 máquinas de.
+S1: Sí, sí, sí, sí, sí. vale. ¿Y él fue tu instructor de tesis o algo así también?
+S2: Gutiérrez, uno que es como calvito y se mete un chalequito.
+S1: Uy, ese sí no lo conozco.
+S2: Tiene toda la vida.
+S1: Aunque seguro lo he visto y lo reconocería. En Lucaya uno conoce los rostros después de varios años.
+S2: Él sí, no sé si trabaja en la consultoría.
+S1: OK.
+S2: ¿Pero la consultoría tiende? Cualquier consultoría, lo que sea, ¿No?
+S1: Bueno, de las áreas sí, las áreas sí, sí, sí. Pero tipo de clientes sí. Hemos trabajado con alcaldías, incluso sector público. Alcaldía de Sucre, me acuerdo. Tuvimos un proyecto con don Carlos Bucari, era alcalde. Distintos tipos de proyectos, eso sí, casi siempre de las áreas de la universidad. Ingeniería, proceso, implementación tecnológica, puede haber algo de simplemente talento humano, depende. Gracias, Alí. No, vale, gracias a ti. Y disculpa todo el tiempo que te robé. Conversamos, pues. Seguro. Cuídate.
