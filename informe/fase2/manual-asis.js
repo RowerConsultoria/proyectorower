@@ -3937,5 +3937,3495 @@ window.MANUAL_ASIS = {
   }
  }
   }
+ },
+ "8": {
+  "procesos": {
+   "8.1": {
+    "nota_version": "Versión As-Is: describe cómo se planifica hoy la venta al mayor y se bajan las cuotas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La construcción del forecast de venta al mayor por vendedor, cliente, marca y país, la bajada de cuotas y su revisión durante el año. No incluye la planificación de compra (macro 6) ni la asignación de inventario entre frentes.",
+     "texto": "El forecast se construye **sobre la venta del año anterior**. La dirección fija en enero el foco del año en una junta de socios de dos días, y a partir de ahí cada vendedor recibe su venta histórica por marca y cliente y propone cuánto venderá. La gerencia comercial se sienta con cada uno, ajusta el porcentaje de crecimiento, consolida por país con un peso mensual tomado del histórico y lo entrega a finanzas para el flujo de caja.\n\nPara Cubitt el ejercicio lo hace la dirección comercial de la marca con el mismo método —venta del año anterior por mes más el crecimiento esperado— y se revisa cada trimestre; en el año en curso el forecast se rehízo tres veces porque las metas del primer trimestre se superaron. La venta real se carga mes a mes en un archivo compartido que mantiene la analista de datos.\n\nEl seguimiento no tiene la misma forma en cada país. En Venezuela la gerencia de ventas al mayor arma su presupuesto y lo envía a la dirección, pero reconoce que no recibe retroalimentación; el propio equipo señala que el ciclo anual no permite corregir a tiempo y se está moviendo a trimestral. En Colombia la jefatura de cuentas clave reporta cada semana a Panamá el cumplimiento contra la meta anual y trimestral. **No existe un planificador de demanda** ni herramienta de pronóstico estadístico: el forecast es aritmética sobre el histórico."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Internacional",
+     "participantes": [
+      "Gerente de Ventas Internacional — se sienta con cada vendedor, ajusta el crecimiento, consolida por país y entrega el resultado a finanzas. En las entrevistas se le llama gerente comercial.",
+      "Director Comercial y de Compras (socio) — fija con los socios el foco del año y hace el plan de negocio de venta por marca.",
+      "Gerente de Ventas Mayor (país) — envía a sus vendedores la venta del año anterior y revisa sus propuestas.",
+      "Vendedor(a) al por Mayor — propone cuánto venderá por categoría, marca y cliente.",
+      "Analista de Datos e Informes — carga la venta real de cada mes en el archivo del forecast.",
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — hace el forecast de Cubitt con la Regional Cubitt Manager y lo revisa cada trimestre.",
+      "KAM · Cadenas (Colombia) — reporta cada semana a Panamá la meta, lo ejecutado y la diferencia."
+     ],
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-39",
+      "E-10",
+      "E-63",
+      "E-35",
+      "E-36",
+      "E-14",
+      "E-40"
+     ],
+     "notas": "Cargos tomados de la columna «cargo actual» del V4 donde constan: Gerente de Ventas Internacional, Gerente de Ventas Mayor PTY, Gerente de Ventas al Mayor (Venezuela), Regional Cubitt Manager y KAM · Cadenas. En Venezuela el vendedor figura como «Asesor(a) de Ventas al Mayor»; aquí se usa la denominación común «Vendedor(a) al por Mayor» en todo el macroproceso.",
+     "sin_evidencia": "No consta un calendario formal de revisión trimestral fuera de Cubitt, ni qué pasa con el forecast de un país cuando la dirección no lo comenta. Tampoco consta cómo se reparte la meta entre Casio y Cubitt en los países donde las vende el mismo vendedor."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre del año y la junta de socios de enero, donde se fija el foco del año.",
+     "cadencia": "Anual, con revisión trimestral en Cubitt y reajuste cuando la venta se aparta del plan. La venta real se carga cada mes.",
+     "output": "Forecast por vendedor, cliente, marca y país, con cuotas mensuales, trimestrales y anuales, entregado a finanzas.",
+     "evidencia": [
+      "E-08",
+      "E-05",
+      "E-63",
+      "E-10"
+     ],
+     "notas": "Venezuela declara que está pasando de revisión anual a trimestral; al momento de las entrevistas no estaba claro que ya ocurriera."
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-08",
+      "E-39",
+      "E-10",
+      "E-63",
+      "E-35"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Fija con los socios, en la junta de dos días de enero, el foco del año y el crecimiento que se espera por marca."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Envía a cada vendedor su venta del año anterior por marca y cliente."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Indica cuánto va a vender por categoría, marca y cliente."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Se sienta con cada vendedor, ajusta el porcentaje de crecimiento y consolida el total del país, con un peso mensual sacado del histórico."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Baja las cuotas mensuales, trimestrales y anuales y entrega el forecast a finanzas para el flujo de caja."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Datos e Informes",
+       "texto": "Carga cada mes la venta real en el archivo compartido del forecast, que la dirección revisa cuando lo necesita."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Si la venta se aparta del plan, rehace el forecast. En Cubitt esto ocurrió tres veces en el año en curso; en Venezuela no consta una revisión con retroalimentación de la dirección."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director Comercial y de Compras (socio)",
+       "Gerente de Ventas Internacional",
+       "Gerente de Ventas Mayor (país)",
+       "Vendedor(a) al por Mayor",
+       "Analista de Datos e Informes"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "inicio",
+        "n": "Junta de socios de enero"
+       },
+       {
+        "id": "n1",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "tarea",
+        "n": "Fijar foco y crecimiento del año"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Enviar la venta del año anterior",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Proponer venta por marca y cliente",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Ajustar y consolidar por país"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Bajar cuotas y pasar a finanzas"
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "tarea",
+        "n": "Cargar la venta real del mes",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "decision",
+        "n": "¿Se aparta del plan?"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Rehacer el forecast"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "fin",
+        "n": "Forecast vigente"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "8.2": {
+    "nota_version": "Versión As-Is: describe cómo se fijan hoy los precios, los descuentos y las condiciones de crédito de los clientes al mayor, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La fijación de listas de precios por mercado, los descuentos, la clasificación de clientes y la asignación de condiciones de crédito al cliente mayorista. No incluye la aprobación de cada pedido (8.5) ni la cobranza (8.15).",
+     "texto": "La política comercial del mayor la diseña **una capa corporativa**, no cada país: la dirección comercial y la gerencia comercial deciden, con un comité de estrategia que reúne a los socios y a la dirección comercial de Cubitt. Ese comité no tiene cadencia ni actas; funciona porque sus miembros conviven a diario. Los precios dejaron de ser uniformes por país y hoy se ajustan a lo que soporta cada mercado.\n\nLas listas viven en Odoo. En Venezuela son tres —en bolívares, en divisas y el precio al público, que además sirve para decirle al cliente a cuánto debe revender—, con descuentos de entre el 10 % y el 25 % según la modalidad de pago y el cliente. El vendedor asigna el descuento arrancando siempre por el más bajo, y el margen de las cuentas grandes se negocia caso a caso. **No hay margen mínimo escrito**: toda promoción o descuento fuera de lista se eleva a la dirección.\n\nLa clasificación A/B/C/D por volumen, frecuencia y capacidad de inversión existe, pero no es un dato comercial gobernado: en Venezuela la mantiene a mano el equipo de visual y está desactualizada —registra unos 230 clientes cuando son cerca de 400—, y en Colombia no existía hasta que la jefatura comercial la creó este año.\n\nEl crédito es la parte más débil. En Panamá los cambios de plazo o monto se tramitan en Lark y la coordinación de cuentas por cobrar tiene la última palabra; un manual de crédito redactado hace dos años nunca se implantó, no hay comité de crédito, y el documento que el cliente firma al pedir crédito se creó hace poco. En Venezuela el cliente se crea solo con el RIF, **no hay límites ni días de crédito asignados** por cliente, nadie sabe bloquear un cliente en Odoo y los vendedores pueden reasignarse la cartera sin que quede rastro de quién hizo el cambio."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director Comercial y de Compras (socio)",
+     "participantes": [
+      "Director Comercial y de Compras (socio) — con la gerencia comercial, diseña la política de venta al mayor; aprueba descuentos y promociones fuera de lista.",
+      "Gerente de Ventas Internacional — mantiene las listas por mercado y la línea rectora comercial de todos los países.",
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — segmenta los clientes de Cubitt por capacidad de compra e inversión y negocia su margen caso a caso.",
+      "Vendedor(a) al por Mayor — da de alta al cliente, le asigna lista y descuento y tramita la solicitud de crédito.",
+      "Gerente de Ventas Mayor (país) — revisa las solicitudes de crédito de su equipo en Lark.",
+      "Supervisor(a) de Coordinación y Planificación de CxC (Panamá) — decide el plazo y el monto de crédito; en la práctica tiene la última palabra.",
+      "Coordinador(a) Visual (Venezuela) — mantiene a mano la base de clientes categorizados A a D.",
+      "Coordinadora de Cuentas por Cobrar (Venezuela) — aplica de memoria una regla de 30 días a falta de límites asignados."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-63",
+      "E-35",
+      "E-05",
+      "E-40",
+      "E-62",
+      "E-48",
+      "E-39",
+      "E-31",
+      "E-14",
+      "E-57",
+      "Lark: Proceso Ventas al Mayor Rower (VE)",
+      "Lark: Procesos de Ventas al Mayor (PA)"
+     ],
+     "notas": "La coordinación de crédito de Panamá figura en el V4 como «Sup. Coord. y Plani. de CxC». El director comercial y el presidente no figuran en el V4; se nombran por su función, como en los demás manuales. Algunos vendedores aplican además criterios propios para dar crédito —antigüedad y venta mensual mínimas—, que no están escritos en ningún documento.",
+     "sin_evidencia": "No consta quién carga o cambia las listas de precios en Odoo, ni cada cuánto. Tampoco consta un criterio escrito para pasar a un cliente de una categoría a otra."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente nuevo, una petición de crédito o de más descuento, o una decisión de precios del comité.",
+     "cadencia": "Continua y a demanda; no hay revisión periódica de la política ni de la clasificación de clientes.",
+     "output": "Cliente creado en Odoo con su lista de precios, su descuento y, si procede, sus condiciones de crédito.",
+     "evidencia": [
+      "E-01",
+      "E-62",
+      "E-48",
+      "E-40"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-01",
+      "E-63",
+      "E-35",
+      "E-40",
+      "E-62",
+      "E-48",
+      "Lark: Procesos de Ventas al Mayor (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Fija los precios por mercado con el comité de estrategia, sin cadencia ni acta."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Mantiene las listas por mercado en Odoo, de donde las descargan los vendedores."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Da de alta al cliente en Odoo. En Venezuela basta con el RIF."
+      },
+      {
+       "id": "a4",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Le asigna la lista que le corresponde y el descuento según el tipo de cliente y la compra, empezando siempre por el más bajo."
+      },
+      {
+       "id": "a5",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Si el cliente pide más descuento o un margen especial, lo decide caso a caso. No hay margen mínimo escrito que permita resolverlo sin escalar."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Si el cliente pide crédito, revisa la solicitud que el vendedor tramita en Lark."
+      },
+      {
+       "id": "a7",
+       "rol": "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)",
+       "texto": "Decide el plazo y el monto del crédito. En Venezuela este paso no existe: no se asignan límites ni días por cliente."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director Comercial y de Compras (socio)",
+       "Gerente de Ventas Internacional",
+       "Vendedor(a) al por Mayor",
+       "Gerente de Ventas Mayor (país)",
+       "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "inicio",
+        "n": "Comité fija precios por mercado"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Mantener las listas por mercado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Dar de alta al cliente",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Asignar lista y descuento inicial"
+       },
+       {
+        "id": "n4",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "decision",
+        "n": "¿Pide más descuento?"
+       },
+       {
+        "id": "n5",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "tarea",
+        "n": "Decidir el margen caso a caso"
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "decision",
+        "n": "¿Pide crédito?"
+       },
+       {
+        "id": "n7",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Cliente de contado"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Revisar la solicitud",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)",
+        "tipo": "tarea",
+        "n": "Fijar plazo y monto"
+       },
+       {
+        "id": "n10",
+        "carril": "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)",
+        "tipo": "fin",
+        "n": "Crédito asignado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "8.3": {
+    "nota_version": "Versión As-Is: describe cómo se le hace llegar hoy al cliente mayorista la lista de precios y disponibilidad, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El envío al cliente de la lista de precios y disponibilidad sobre la que devuelve su pedido. No incluye el montaje del pedido (8.4) ni los materiales de marketing (8.13).",
+     "texto": "La norma declarada es que cada vendedor mande los lunes a sus clientes la lista con referencia, imagen, precio, disponible y tránsito. **En la práctica unos lo hacen los lunes y otros no.** El envío es manual: el vendedor descarga de Odoo las listas vigentes de cada línea —en Venezuela son unas seis: Casio, Q&Q, Cubitt, teclados, calculadoras y otras—, les quita las columnas que no son para el cliente y las manda por WhatsApp a quien la pide o tiene un pedido pendiente. Un vendedor la envía además cuando un cliente lleva unos quince días sin comprar, y le pregunta por su rotación.\n\nLa disponibilidad no se comunica en cifras exactas sino en rangos —de 0 a 10 piezas, de 10 a 20, de 20 a 50—, y un cliente mayorista lo señala como la causa de que su pedido se cumpla entre el 70 % y el 80 %: pide dentro de un rango y otros clientes se adelantan. Algunos vendedores han construido por su cuenta un enlace por cliente con su lista personalizada, que actualizan a mano.\n\nEl envío automático semanal desde Odoo está en desarrollo con el área de sistemas; al cierre de las entrevistas no estaba en uso."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Vendedor(a) al por Mayor",
+     "participantes": [
+      "Vendedor(a) al por Mayor — descarga, adapta y envía la lista; decide cuándo y a quién.",
+      "Cliente mayorista (externo) — revisa la lista y devuelve cantidades, un sugerido o nada.",
+      "Gerente de Ventas Internacional — impulsa con sistemas el envío automático semanal, todavía en desarrollo."
+     ],
+     "evidencia": [
+      "E-05",
+      "E-36",
+      "E-19",
+      "E-07",
+      "E-63",
+      "SC Taller de IA y arquitectura de datos (Panamá)",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "notas": "La pauta de los lunes la dan la gerencia comercial y el mapa v18; ningún vendedor entrevistado la describe como rutina propia.",
+     "sin_evidencia": "No consta quién define que la disponibilidad se publique en rangos, ni si aplica a todos los clientes o solo a los internacionales. Tampoco consta cómo se hace este envío en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El lunes, para quien lo aplica; la petición del cliente; o un cliente que lleva unos quince días sin comprar.",
+     "cadencia": "Semanal en la norma; irregular en la práctica. Los clientes pequeños piden cada semana y las cadenas, más o menos una vez al mes.",
+     "output": "Lista de precios y disponibilidad en manos del cliente, sobre la que devuelve su pedido.",
+     "evidencia": [
+      "E-05",
+      "E-36"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-36",
+      "E-19",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Decide cuándo enviar: el lunes si aplica la pauta, cuando el cliente la pide o cuando lleva unos quince días sin pedir."
+      },
+      {
+       "id": "a2",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Descarga de Odoo las listas vigentes de cada línea."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Quita las columnas internas y deja el formato que ve el cliente."
+      },
+      {
+       "id": "a4",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "La envía por WhatsApp; algunos la dejan en un enlace propio por cliente."
+      },
+      {
+       "id": "a5",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "Revisa precios y disponibilidad, que le llega en rangos y no en cifras exactas."
+      },
+      {
+       "id": "a6",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "Devuelve el Excel con cantidades o un sugerido, que pasa a la toma de pedido (8.4); o no responde, y el vendedor lo retoma en su siguiente contacto."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor",
+       "Cliente mayorista (externo)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "inicio",
+        "n": "Lunes, petición o 15 días sin compra"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Descargar las listas",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Quitar las columnas internas",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Enviar la lista al cliente",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "tarea",
+        "n": "Revisar precios y rangos"
+       },
+       {
+        "id": "n5",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "decision",
+        "n": "¿Devuelve cantidades?"
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Pedido recibido (pasa a 8.4)"
+       },
+       {
+        "id": "n7",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Se retoma en otro contacto"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       }
+      ]
+     }
+    }
+   },
+   "8.4": {
+    "nota_version": "Versión As-Is: describe cómo se toma y se monta hoy el pedido mayorista en Odoo, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el cliente envía su pedido hasta que queda confirmado en Odoo y listo para aprobación. No incluye la aprobación (8.5) ni la preparación y el despacho (macro 7).",
+     "texto": "El pedido llega de muchas formas: el Excel de la lista devuelto con cantidades, un mensaje de WhatsApp, un «mándame lo que me falta» de un cliente con veinte años de relación, el pedido tomado en una visita o, en consignación, lo que el cliente vendió. El vendedor lo pasa a una plantilla de Excel —en Venezuela la plantilla marca en rojo lo que no hay— y lo carga de golpe en Odoo, que lo convierte en pedido sin cargar producto por producto.\n\nLa carga entra como **presupuesto, que no reserva inventario**; al convertirla en orden de venta sí reserva. La carga falla a menudo por referencias mal escritas, por el nombre del cliente escrito a mano en vez de elegido del maestro o por celdas con formato incompatible, y hay que corregir y recargar. Lo que no se puede cubrir queda en otro presupuesto o se borra. En Panamá, Odoo le manda al cliente un correo con el detalle para que confirme; en los pedidos de contado el vendedor sube además el comprobante de pago.\n\nEl dolor principal es que **lo que dice el sistema no es lo que hay**. El vendedor monta un pedido con una disponibilidad que luego no encuentra en el color o la variante prometidos y tiene que renegociar en vivo con el cliente. Las anulaciones parciales que no se cierran dejan la misma mercancía reservada varias veces, y las reservas que no se retiran siguen apareciendo como disponibles en el canal web, que las vende de nuevo. Las instrucciones de empaque que pone el vendedor no siempre corresponden a las cajas que existen, y el almacén tiene que rehacer pedidos ya armados.\n\nEn Venezuela, hasta mediados de 2026 el vendedor hacía todo el ciclo: vendía, cobraba, buscaba la factura, armaba la caja y la bajaba. Desde julio el proceso está homologado al de Panamá y el vendedor deja de intervenir físicamente una vez confirmado el pedido."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Vendedor(a) al por Mayor",
+     "participantes": [
+      "Vendedor(a) al por Mayor — recibe el pedido, lo monta, lo carga en Odoo, corrige los errores y lo confirma con sus instrucciones.",
+      "Cliente mayorista (externo) — envía el pedido y confirma el detalle que le llega por correo.",
+      "Gerente de Operaciones y Logística (Venezuela) — recibe el pedido con sus observaciones una vez aprobado; señala las reservas que no se liberan como el mayor cuello de botella."
+     ],
+     "evidencia": [
+      "E-05",
+      "E-35",
+      "E-36",
+      "E-57",
+      "E-34",
+      "E-16",
+      "E-68",
+      "E-04",
+      "E-24",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "notas": "El paso de presupuesto a orden de venta, y su efecto sobre la reserva, lo describe la gerencia comercial; los errores de carga los recoge el documento de Lark de Venezuela.",
+     "sin_evidencia": "No consta cómo se toma el pedido en Colombia más allá de que todo el ciclo vive en Odoo. Tampoco consta una regla sobre cuándo borrar el remanente y cuándo conservarlo como presupuesto."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cliente envía su pedido, o el vendedor le propone uno sobre lo que le falta.",
+     "cadencia": "Continua. Los clientes pequeños piden cada semana, a veces dos o tres veces; las cadenas, más o menos una vez al mes.",
+     "output": "Orden de venta confirmada en Odoo, con sus instrucciones, lista para aprobación.",
+     "evidencia": [
+      "E-35",
+      "E-36",
+      "E-05"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-35",
+      "E-36",
+      "E-57",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "Envía su pedido: la lista devuelta con cantidades, un mensaje o la indicación de reponer lo que le falta."
+      },
+      {
+       "id": "a2",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Lo pasa a la plantilla de Excel, que en Venezuela marca en rojo lo que no hay."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Lo carga de golpe en Odoo, donde queda como presupuesto sin reservar inventario."
+      },
+      {
+       "id": "a4",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Si la carga falla, corrige referencias, cliente o formato y vuelve a cargar."
+      },
+      {
+       "id": "a5",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Anota las instrucciones especiales de empaque, despacho o urgencia y convierte el presupuesto en orden de venta, que reserva."
+      },
+      {
+       "id": "a6",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Lo que no alcanza lo deja en otro presupuesto o lo borra."
+      },
+      {
+       "id": "a7",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "En Panamá recibe por correo el detalle y lo confirma o pide cambios; si es de contado, el vendedor sube su comprobante de pago."
+      },
+      {
+       "id": "a8",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Solicita la aprobación del pedido (8.5)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Cliente mayorista (externo)",
+       "Vendedor(a) al por Mayor"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "inicio",
+        "n": "Envía su pedido"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Pasar a la plantilla",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Cargar como presupuesto",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "decision",
+        "n": "¿La carga da error?"
+       },
+       {
+        "id": "n4",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Corregir y volver a cargar",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Anotar instrucciones y confirmar orden",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "decision",
+        "n": "¿Cubre todo el pedido?"
+       },
+       {
+        "id": "n7",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Dejar el resto en presupuesto o borrarlo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "tarea",
+        "n": "Confirmar el detalle recibido",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Pedido enviado a aprobación"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "8.5": {
+    "nota_version": "Versión As-Is: describe cómo se aprueba hoy el pedido mayorista antes de prepararlo y facturarlo, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La revisión y autorización del pedido confirmado, desde que el vendedor pide la aprobación hasta que se factura. No incluye la preparación física ni el despacho (macro 7).",
+     "texto": "La aprobación tiene **dos llaves en Odoo**: una para trabajar el pedido —que el almacén lo prepare— y otra para facturarlo. En Panamá, la gerencia de ventas mayor revisa el margen, los productos que van con margen bajo y la deuda del cliente: si hay deuda no aprueba, salvo que el vendedor diga cuándo va a pagar. Los pedidos de contado pueden no pasar por ella. La gerencia comercial revisa en una vista propia de Odoo el margen, el reparto por referencia —para que un cliente no se lleve todas las más vendidas— y un indicador de riesgo sacado del historial de pagos; es una tarea diaria que resuelve en unos treinta segundos por pedido. Según la dirección, **todos los pedidos de la empresa pasan por sus manos o por las de la gerencia comercial.**\n\nAl aprobarse, el pedido baja solo al almacén —en el hub, por la interfaz entre Odoo y el sistema de bodega— sin que nadie lo libere a mano, paso que existía y se eliminó. Tras la preparación, facturación genera un borrador de factura que el vendedor confirma en precio; si se preparó menos de lo pedido se ajusta la cantidad, nunca el precio. En los pedidos de contado, finanzas verifica antes que el pago esté acreditado en el banco.\n\nEn Venezuela el modelo se homologó al de Panamá en julio de 2026: la gerencia de ventas al mayor aprueba en dos niveles, retiene el pedido si la cartera no está al día y lo clasifica como urgente (24 horas), regular (48 horas) o caso especial. En Colombia la aprobación es local, con la gerencia comercial regional aprobando ofertas en tiempo real por WhatsApp. Una decena de clientes especiales del hub sigue un circuito aparte: su pedido va a un archivo maestro que la dirección revisa a diario y decide qué se le da, y solo entonces se carga en Odoo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Internacional",
+     "participantes": [
+      "Gerente de Ventas Internacional — aprueba a diario en la vista de Odoo; su aprobación es la que baja el pedido al almacén.",
+      "Gerente de Ventas Mayor (país) — revisa margen, productos de margen bajo y deuda del cliente; en Venezuela aprueba los dos niveles y clasifica la prioridad.",
+      "Director Comercial y de Compras (socio) — aprueba también pedidos y decide caso a caso en los clientes especiales.",
+      "Vendedor(a) al por Mayor — pide la aprobación y confirma el precio del borrador de factura.",
+      "Jefe de Bodega — recibe el pedido aprobado para preparar.",
+      "Responsable de facturación (país) — verifica el pago de los pedidos de contado y emite la factura."
+     ],
+     "evidencia": [
+      "E-39",
+      "E-05",
+      "E-08",
+      "E-10",
+      "E-11",
+      "E-57",
+      "E-34",
+      "SC Recorrido de bodega Panamá (04-sep)",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "notas": "En el hub la factura la emite contabilidad; en Venezuela, la analista de logística (ver 7.4). Por eso el carril se llama «Responsable de facturación (país)».",
+     "sin_evidencia": "No consta si la segunda aprobación, la de facturar, la da siempre la misma persona que la primera, ni qué criterio distinto aplica. Tampoco consta cuándo un pedido de contado sí pasa por la gerencia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El vendedor confirma el pedido y pide la aprobación en Odoo.",
+     "cadencia": "Diaria.",
+     "output": "Pedido aprobado para trabajar, preparado y facturado; o retenido hasta que el cliente regularice.",
+     "evidencia": [
+      "E-05",
+      "E-39"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-39",
+      "E-05",
+      "E-57",
+      "SC Recorrido de bodega Panamá (04-sep)",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Pide la aprobación del pedido confirmado en Odoo."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Revisa si el cliente tiene deuda vencida; si la tiene, retiene el pedido salvo que el vendedor diga cuándo pagará."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Revisa el margen y los productos que van con margen bajo."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Revisa en la vista de Odoo el reparto por referencia y el indicador de riesgo, y aprueba trabajar el pedido."
+      },
+      {
+       "id": "a5",
+       "rol": "Jefe de Bodega",
+       "texto": "Recibe el pedido automáticamente y lo prepara (macro 7)."
+      },
+      {
+       "id": "a6",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Confirma el precio del borrador de factura; si se preparó menos, se ajusta la cantidad."
+      },
+      {
+       "id": "a7",
+       "rol": "Responsable de facturación (país)",
+       "texto": "En los pedidos de contado verifica que el pago esté acreditado, y emite la factura."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor",
+       "Gerente de Ventas Mayor (país)",
+       "Gerente de Ventas Internacional",
+       "Jefe de Bodega",
+       "Responsable de facturación (país)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "inicio",
+        "n": "Pide la aprobación"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "decision",
+        "n": "¿Tiene deuda vencida?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "fin",
+        "n": "Retenido hasta regularizar"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Revisar margen del pedido",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Revisar reparto y riesgo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "decision",
+        "n": "¿Aprueba trabajarlo?"
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Devuelto al vendedor"
+       },
+       {
+        "id": "n7",
+        "carril": "Jefe de Bodega",
+        "tipo": "tarea",
+        "n": "Recibir y preparar el pedido",
+        "sistemas": [
+         "EBS"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Confirmar precio del borrador",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Responsable de facturación (país)",
+        "tipo": "tarea",
+        "n": "Verificar pago y facturar",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Responsable de facturación (país)",
+        "tipo": "fin",
+        "n": "Pedido facturado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "8.6": {
+    "nota_version": "Versión As-Is: describe cómo se vende hoy mercancía en tránsito y qué pasa con la demanda que no se cubre, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La venta contra mercancía que todavía no llegó (preventa) y el tratamiento del pedido que no se puede cubrir. No incluye la compra internacional (macro 6) ni la recepción (7.1).",
+     "texto": "Cuando el pedido pide más de lo que hay, el vendedor mira lo que viene en camino. La preventa es **un desarrollo a medida**: una pantalla de Odoo donde el vendedor marca el pedido como preventa, y entonces el sistema descuenta del tránsito en vez del disponible. La visibilidad del tránsito depende de la marca: Casio llega planificada con alrededor de un mes de aviso; Cubitt llega con frecuencia sin aviso suficiente. En Venezuela el tránsito se sigue en un tablero de Lark —con seis etapas, de solicitado a finalizado— y la coordinación de planificación avisa con una semana de antelación; hasta hace poco los vendedores se enteraban cuando la mercancía ya estaba cargada.\n\nLa preventa no queda asegurada al llegar el contenedor. Ninguna unidad aparece disponible hasta que se recibe la última caja, y es la gerencia de inventarios la que tiene que confirmar la preventa para amarrar la mercancía. **Si el sistema de bodega libera la disponibilidad antes de esa confirmación, la mercancía queda libre y la toma el primer vendedor que la vea.** La confirmación automática al cerrar el contenedor está pedida y no existe.\n\nLa segunda mitad del proceso no existe. Lo que no se cubre queda como presupuesto o se borra, y si el tránsito no llega o llega incompleto —Casio ha estado asignando entre el 20 % y el 30 % de lo pedido— se pierde la cuenta de lo que se dejó de vender y de hasta dónde llega la demanda. La gerencia comercial lo señala como la prioridad número uno de la organización. Un vendedor lo describe desde el terreno: el producto estrella se le agota en la bodega del mayor mientras hay miles de unidades en la bodega grande, sin que nadie lo sepa a tiempo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Vendedor(a) al por Mayor",
+     "participantes": [
+      "Vendedor(a) al por Mayor — marca la preventa, comunica la fecha al cliente y decide qué hacer con el remanente.",
+      "Gerente de Inventario y Precios — confirma las preventas al cerrar la recepción para amarrar la mercancía.",
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) — avisa a ventas lo que viene en camino, alrededor de una semana antes.",
+      "Gerente de Ventas Internacional — define la brecha como prioridad, sin que exista todavía un registro de la demanda no cubierta."
+     ],
+     "evidencia": [
+      "E-05",
+      "E-39",
+      "E-07",
+      "E-03",
+      "E-36",
+      "E-35",
+      "E-57",
+      "E-10",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "notas": "La demanda no cubierta no tiene dueño: nadie la registra ni la consolida. En Venezuela el tablero de Lark permite registrar un faltante con compromiso de cliente como «backorder», que es el único registro que consta.",
+     "sin_evidencia": "No consta cómo se hace la preventa en Colombia, ni qué pasa con un faltante que el vendedor borra: si se le avisa a compras por otra vía o se pierde."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un pedido pide más de lo que hay disponible.",
+     "cadencia": "Continua; se concentra en la llegada de cada contenedor.",
+     "output": "Pedido cubierto con mercancía en tránsito y fecha comunicada al cliente; o remanente en presupuesto o borrado, sin registro de la demanda perdida.",
+     "evidencia": [
+      "E-05",
+      "E-03"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-05",
+      "E-07",
+      "E-03",
+      "E-36",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Consulta lo que viene en tránsito: en la pantalla de Odoo, en el tablero de Lark o por el aviso de planificación."
+      },
+      {
+       "id": "a2",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Si no hay tránsito visible, deja el remanente como presupuesto o lo borra. La demanda perdida no se registra en ningún sitio."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Si hay tránsito, marca el pedido como preventa para que descuente del tránsito."
+      },
+      {
+       "id": "a4",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Le comunica al cliente la fecha estimada."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Inventario y Precios",
+       "texto": "Al cerrar la recepción del contenedor, confirma la preventa y amarra la mercancía."
+      },
+      {
+       "id": "a6",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Si la confirmación llegó a tiempo, el pedido sigue a aprobación (8.5). Si el sistema de bodega liberó antes, la mercancía ya la tomó otro pedido."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor",
+       "Gerente de Inventario y Precios"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "inicio",
+        "n": "Pedido excede lo disponible"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Consultar lo que viene en tránsito",
+        "sistemas": [
+         "Odoo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "decision",
+        "n": "¿Hay tránsito visible?"
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Dejar el resto en presupuesto o borrarlo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Demanda perdida sin registrar"
+       },
+       {
+        "id": "n5",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Marcar como preventa",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Comunicar fecha al cliente",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "tarea",
+        "n": "Confirmar la preventa al recibir",
+        "sistemas": [
+         "EBS"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Inventario y Precios",
+        "tipo": "decision",
+        "n": "¿Confirmó antes de liberar?"
+       },
+       {
+        "id": "n9",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Pedido cubierto (pasa a 8.5)"
+       },
+       {
+        "id": "n10",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Mercancía tomada por otro pedido"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n10",
+        "etq": "No"
+       }
+      ]
+     }
+    }
+   },
+   "8.7": {
+    "nota_version": "Versión As-Is: describe cómo se atienden hoy las cuentas clave y las grandes superficies, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La atención dedicada a los clientes de alto volumen o de alto reconocimiento: grandes superficies, cadenas y clientes especiales. No incluye el pedido en sí (8.4), el mobiliario (8.13) ni las franquicias (8.8).",
+     "texto": "No hay un modelo de cuenta clave común: **cada país lo resuelve con quien tiene**. El más estructurado es Colombia, que desde enero vende directo a las cadenas —antes pasaba por un distribuidor intermediario— y lo notó en el cumplimiento de meta. La jefatura de cuentas clave negocia con el comprador de cada cadena un acuerdo anual, arma un calendario de campañas para que las cadenas no se canibalicen entre sí en el mismo mes, y sigue el inventario y las semanas de cobertura de cada tienda para decidir dónde poner promotores: a la tienda que no tiene inventario suficiente no se le asigna, porque no va a vender. Un líder de impulsadores coordina a unos diecisiete promotores, cuya asistencia se controla con un formulario creado este año.\n\nEn Venezuela la cuenta clave no se define por facturación sino por lo estratégico —reconocimiento de marca, crecimiento, relación con la junta— y la atiende la coordinación de ventas al mayor. Una gran superficie recibe en un solo punto; una cadena, tienda por tienda y con mueble propio, lo que obliga a elegir qué tiendas y qué portafolio. En el hub, la dirección atiende en persona a unos doscientos clientes especiales revisando sus pedidos cada dos a cuatro días, la analista de datos lleva una decena de clientes fuera de zona —alrededor del 10 % de la venta— y la dirección comercial de Cubitt se reserva los mercados grandes y guarda stock adicional para sus clientes principales.\n\nEl sellout que reportan las cadenas llega en formatos distintos y lo normaliza el equipo de datos; ese trabajo nació justamente porque nadie podía ordenar la información de las cadenas. Marketing tiene un equipo de cuentas clave con presupuesto por cliente, pero sus solicitudes entran en cola con las de todos los mercados."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño regional: KAM · Cadenas (Colombia), Coordinador de Ventas al Mayor (Venezuela) y la dirección en el hub",
+     "participantes": [
+      "KAM · Cadenas (Colombia) — negocia el acuerdo anual con cada cadena, fija el calendario de campañas y decide la asignación de promotores según la cobertura de cada tienda.",
+      "Líder de impulsadores (Colombia) — coordina a los promotores en las tiendas de las cadenas.",
+      "Data Scientist / Líder de BI — normaliza el sellout que envía cada cadena en su propio formato.",
+      "Cadena (cliente externo) — reporta sellout e inventario por tienda.",
+      "Coordinador de Ventas al Mayor (Venezuela) — atiende las cuentas estratégicas.",
+      "Director Comercial y de Compras (socio) — atiende en persona a unos doscientos clientes especiales del hub.",
+      "Analista de Datos e Informes — única persona de contacto de una decena de clientes fuera de zona.",
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — se reserva los mercados grandes de Cubitt.",
+      "Gerente de Cuentas Clave y Proyectos — dirige el equipo de marketing de cuentas clave, con presupuesto por cliente y país."
+     ],
+     "evidencia": [
+      "E-14",
+      "E-11",
+      "E-35",
+      "E-08",
+      "E-10",
+      "E-63",
+      "E-49",
+      "E-22",
+      "E-01",
+      "E-18"
+     ],
+     "notas": "Cargos tomados de la columna «cargo actual» del V4: KAM · Cadenas, Líder impulsadores, Coordinador de Ventas al Mayor y Gerente de Cuentas Clave y Proyectos. El diagrama sigue el circuito de Colombia, el único que las entrevistas describen de punta a punta.",
+     "sin_evidencia": "No consta qué criterio convierte a un cliente en cuenta clave fuera de Venezuela, ni cómo se reparten las cuentas entre la dirección, la analista de datos y la dirección de Cubitt en el hub."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El inicio del año comercial para el acuerdo con cada cadena; después, el reporte de sellout de cada una.",
+     "cadencia": "Anual para el acuerdo; mensual para el calendario de campañas; semanal para el seguimiento en Colombia.",
+     "output": "Cuenta atendida en el ciclo: acuerdo vigente, campañas calendarizadas, promotores asignados y reposición pedida.",
+     "evidencia": [
+      "E-14"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-14",
+      "E-11",
+      "E-01",
+      "E-18"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "KAM · Cadenas (Colombia)",
+       "texto": "Negocia con el comprador de la cadena el acuerdo comercial del año."
+      },
+      {
+       "id": "a2",
+       "rol": "KAM · Cadenas (Colombia)",
+       "texto": "Fija el calendario de campañas por cadena para que no coincidan apuestas que se canibalicen."
+      },
+      {
+       "id": "a3",
+       "rol": "Cadena (cliente externo)",
+       "texto": "Reporta su sellout e inventario por tienda, en su propio formato."
+      },
+      {
+       "id": "a4",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Normaliza el sellout de cada cadena a una tabla común."
+      },
+      {
+       "id": "a5",
+       "rol": "KAM · Cadenas (Colombia)",
+       "texto": "Revisa el inventario y las semanas de cobertura de cada tienda."
+      },
+      {
+       "id": "a6",
+       "rol": "Líder de impulsadores (Colombia)",
+       "texto": "Asigna promotor a las tiendas con inventario suficiente."
+      },
+      {
+       "id": "a7",
+       "rol": "KAM · Cadenas (Colombia)",
+       "texto": "A las que no lo tienen, les pide reposición (8.4)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "KAM · Cadenas (Colombia)",
+       "Cadena (cliente externo)",
+       "Data Scientist / Líder de BI",
+       "Líder de impulsadores (Colombia)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "inicio",
+        "n": "Inicio del año comercial"
+       },
+       {
+        "id": "n1",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "tarea",
+        "n": "Negociar el acuerdo anual"
+       },
+       {
+        "id": "n2",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "tarea",
+        "n": "Fijar el calendario de campañas"
+       },
+       {
+        "id": "n3",
+        "carril": "Cadena (cliente externo)",
+        "tipo": "tarea",
+        "n": "Reportar sellout e inventario"
+       },
+       {
+        "id": "n4",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Normalizar el sellout",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "tarea",
+        "n": "Revisar cobertura por tienda",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "decision",
+        "n": "¿Tiene inventario suficiente?"
+       },
+       {
+        "id": "n7",
+        "carril": "Líder de impulsadores (Colombia)",
+        "tipo": "tarea",
+        "n": "Asignar promotor a la tienda"
+       },
+       {
+        "id": "n8",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "tarea",
+        "n": "Pedir reposición (8.4)",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "KAM · Cadenas (Colombia)",
+        "tipo": "fin",
+        "n": "Cuenta atendida en el ciclo"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "8.8": {
+    "nota_version": "Versión As-Is: describe cómo se atiende hoy a los franquiciados Casio, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La relación con los franquiciados Casio. No incluye las tiendas propias (macro 9) ni el mobiliario (8.13).",
+     "texto": "La gestión de franquicias **se abandonó con el tiempo**. En Venezuela, de las 39 que hubo quedan dos activas, y la relación se reduce a que llegan, piden otro pedido y se les despacha, como a cualquier cliente del mayor. La coordinación de ventas al mayor las visita y les envía material. No hay contrato vigente con regalía, no hay acceso pactado a los datos de venta del franquiciado, no se negocian remodelaciones y no se le trasladan a Casio las necesidades para pedirle apoyo. La propia gerencia lo resume: *«Eso debería suceder. No está sucediendo»*.\n\nSe está retomando por las aperturas nuevas: se redacta un contrato con regalía, empezando por Nicaragua. Pero ese trabajo no lo lleva ventas al mayor sino la gerencia regional de retail, que reconoce que debería ser del mayor porque es quien le vende el producto al franquiciado. **El proceso queda en una zona gris entre los dos macroprocesos.**"
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Ventas al Mayor (Venezuela)",
+     "participantes": [
+      "Coordinador de Ventas al Mayor (Venezuela) — tramita los pedidos de las dos franquicias activas, las visita y les envía material.",
+      "Franquiciado (externo) — pide mercancía como cualquier cliente mayorista.",
+      "Regional Manager Retail — prepara el contrato con regalía de las aperturas nuevas, aunque considera que la función le corresponde al mayor."
+     ],
+     "evidencia": [
+      "E-35",
+      "E-55"
+     ],
+     "notas": "Cargos tomados de la columna «cargo actual» del V4: Coordinador de Ventas al Mayor y Regional Manager Retail.",
+     "sin_evidencia": "No consta cómo se atienden las franquicias fuera de Venezuela, ni con qué condiciones comerciales compran las dos activas: si tienen lista o descuento propios."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El franquiciado necesita reponer mercancía.",
+     "cadencia": "A demanda del franquiciado; no hay revisión periódica de la relación.",
+     "output": "Pedido despachado. No se genera contrato, reporte de venta ni plan de remodelación.",
+     "evidencia": [
+      "E-35"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-35",
+      "E-55"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Franquiciado (externo)",
+       "texto": "Pide mercancía cuando necesita reponer."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Ventas al Mayor (Venezuela)",
+       "texto": "Monta y tramita el pedido como el de cualquier cliente mayorista (8.4 y 8.5)."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador de Ventas al Mayor (Venezuela)",
+       "texto": "Visita la franquicia y le envía material."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador de Ventas al Mayor (Venezuela)",
+       "texto": "No se revisa contrato, no se cobra regalía y no se recogen datos de venta del franquiciado."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Franquiciado (externo)",
+       "Coordinador de Ventas al Mayor (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Franquiciado (externo)",
+        "tipo": "inicio",
+        "n": "Necesita reponer"
+       },
+       {
+        "id": "n1",
+        "carril": "Franquiciado (externo)",
+        "tipo": "tarea",
+        "n": "Pedir mercancía"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador de Ventas al Mayor (Venezuela)",
+        "tipo": "tarea",
+        "n": "Tramitar el pedido (8.4)",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Ventas al Mayor (Venezuela)",
+        "tipo": "tarea",
+        "n": "Visitar y enviar material"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador de Ventas al Mayor (Venezuela)",
+        "tipo": "fin",
+        "n": "Despachado, sin contrato ni datos"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       }
+      ]
+     }
+    }
+   },
+   "8.9": {
+    "nota_version": "Versión As-Is: describe cómo se vende hoy a empresas que compran para su personal o para regalar con su marca, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La venta a empresas que compran para consumo propio, para sus colaboradores o para repartir con su marca o en co-branding. No incluye la marca privada completa (8.11) ni las promociones con cadenas (8.10).",
+     "texto": "En Panamá la venta corporativa tiene **un vendedor dedicado**, figura creada durante la pandemia. Busca por internet empresas con muchos colaboradores, arma una lista de las diez primeras y contacta a su área de recursos humanos, a veces a través de conocidos. La oferta es estándar: un correo que dice que la empresa califica como cliente corporativo, con un 25 % de descuento; el colaborador paga en cuatro quincenas y la empresa le paga a Kenex a sesenta días. También atiende ferias dentro de las empresas: lleva muestras, toma pedidos sin entregar nada y despacha dos o tres días después contra el consolidado que manda la empresa. Concesionarios de autos, constructoras y marcas de consumo compran para regalar con su venta; una de estas cuentas factura entre 10.000 y 15.000 dólares al mes.\n\nCuando el producto lleva logo, el vendedor lo pide al área interna de grabado con una plantilla de Lark —datos del cliente, pedido, posición del logo, cantidad y fecha—, con plazos de un día para pocas piezas y hasta quince para volúmenes grandes. En el co-branding con varias marcas a la vez, **cada gerente de marketing de cada marca patrocinante tiene que aprobar color, forma y arte**, lo que alarga la venta. Aquí no se usan las listas: se negocia sobre el costo con el margen que el volumen permite.\n\nEn Venezuela no consta un vendedor dedicado; el canal web ha resuelto pedidos corporativos grandes con autorización verbal de la dirección. En Colombia la venta corporativa se está montando: están contratando a alguien para eso."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Vendedor(a) al por Mayor (Panamá)",
+     "participantes": [
+      "Vendedor(a) al por Mayor (Panamá) — dedicado a corporativo: prospecta, oferta, toma el pedido y pide el grabado.",
+      "Empresa cliente (externo) — acepta la oferta y, si el producto lleva su marca, envía y aprueba el arte.",
+      "Área de grabado (Customer Service) — graba el logo sobre el producto.",
+      "Gerente de Ventas Internacional — aprueba, con administración, el pago a proveedores de personalización cuando interviene uno externo.",
+      "Gerente de Cuentas Clave y Proyectos — activa en marketing las alianzas de co-branding con un presupuesto proporcional a la venta."
+     ],
+     "evidencia": [
+      "E-57",
+      "E-39",
+      "E-63",
+      "E-35",
+      "E-49",
+      "E-58",
+      "E-41"
+     ],
+     "notas": "El vendedor dedicado figura en el V4 como «Vendedor» del departamento Ventas Mayor PTY. El área de grabado depende de la gerencia de Customer Service.",
+     "sin_evidencia": "No consta quién aprueba el margen de una venta a costo más margen, ni cómo se decide que un pedido corporativo grande vaya por el canal web o por el mayor."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El vendedor identifica una empresa objetivo, o una empresa pide una propuesta.",
+     "cadencia": "Continua; las alianzas de co-branding llegan por campaña.",
+     "output": "Pedido corporativo entregado —con o sin grabado— y cobrado a sesenta días.",
+     "evidencia": [
+      "E-57"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-57",
+      "E-63",
+      "E-35"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor (Panamá)",
+       "texto": "Busca empresas con muchos colaboradores y arma su lista de las diez primeras."
+      },
+      {
+       "id": "a2",
+       "rol": "Vendedor(a) al por Mayor (Panamá)",
+       "texto": "Envía la oferta corporativa: 25 % de descuento y pago del colaborador en cuatro quincenas."
+      },
+      {
+       "id": "a3",
+       "rol": "Empresa cliente (externo)",
+       "texto": "Revisa la oferta y decide si el producto lleva su logo o su marca."
+      },
+      {
+       "id": "a4",
+       "rol": "Empresa cliente (externo)",
+       "texto": "Si lleva marca, envía el arte y lo aprueba; en co-branding aprueba cada marca patrocinante."
+      },
+      {
+       "id": "a5",
+       "rol": "Vendedor(a) al por Mayor (Panamá)",
+       "texto": "Pide el grabado con la plantilla de Lark, con posición, cantidad y fecha de entrega."
+      },
+      {
+       "id": "a6",
+       "rol": "Área de grabado (Customer Service)",
+       "texto": "Graba el producto."
+      },
+      {
+       "id": "a7",
+       "rol": "Vendedor(a) al por Mayor (Panamá)",
+       "texto": "Monta el pedido (8.4); la empresa paga a sesenta días."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor (Panamá)",
+       "Empresa cliente (externo)",
+       "Área de grabado (Customer Service)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor (Panamá)",
+        "tipo": "inicio",
+        "n": "Empresa identificada"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor (Panamá)",
+        "tipo": "tarea",
+        "n": "Enviar la oferta corporativa",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Empresa cliente (externo)",
+        "tipo": "tarea",
+        "n": "Revisar la oferta"
+       },
+       {
+        "id": "n3",
+        "carril": "Empresa cliente (externo)",
+        "tipo": "decision",
+        "n": "¿Lleva logo o marca?"
+       },
+       {
+        "id": "n4",
+        "carril": "Empresa cliente (externo)",
+        "tipo": "tarea",
+        "n": "Enviar y aprobar el arte"
+       },
+       {
+        "id": "n5",
+        "carril": "Vendedor(a) al por Mayor (Panamá)",
+        "tipo": "tarea",
+        "n": "Pedir el grabado",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Área de grabado (Customer Service)",
+        "tipo": "tarea",
+        "n": "Grabar el producto"
+       },
+       {
+        "id": "n7",
+        "carril": "Vendedor(a) al por Mayor (Panamá)",
+        "tipo": "tarea",
+        "n": "Montar el pedido (8.4)",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Vendedor(a) al por Mayor (Panamá)",
+        "tipo": "fin",
+        "n": "Entregado; cobro a 60 días"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "8.10": {
+    "nota_version": "Versión As-Is: describe cómo se deciden y ejecutan hoy las campañas de alto volumen y las promociones tácticas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Las campañas cortas de volumen alto con cadenas de consumo masivo y las promociones de descuento para rotar producto. No incluye el co-branding corporativo (8.9) ni la ejecución gráfica completa, que es de marketing.",
+     "texto": "La campaña que sirve de referencia es la de diciembre de 2025: con la mecánica de «por la compra de 40 dólares, llévate un producto Cubitt a mitad de precio» en cadenas de consumo masivo, se comprometieron 85.000 unidades y se vendieron 70.000 en mes y medio. La marca, según su dirección comercial, *«tenía miedo de los descuentos»*; una rebaja del 40 % por cambio de línea vendió más que nunca y desde entonces el descuento agresivo se usa a propósito para mover volumen.\n\nLa aprobación se concentró en una sola persona tras un episodio en que distintos miembros de la junta aprobaban y desaprobaban la misma promoción, incluso ya publicada: **hoy la aprueba el director comercial**, caso a caso, porque no hay un margen mínimo que permita decidir sin escalar. En Venezuela las propuestas salen cada mes de mercadeo y planificación, sobre los productos que necesitan rotación, y van a la junta.\n\nLa ejecución es la parte desordenada. Comercial declara cada promoción en un formulario de Lark para que marketing la ejecute; llegan unas cinco por país al mes y la información cambia a mitad del proceso. Hay un doble filtro —la aprobación interna y la aceptación de la cadena— que impide automatizarlo, y marketing señala un vacío de responsabilidad: se le pidió definir promociones sin tener acceso al inventario."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+     "participantes": [
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — identifica la oportunidad, propone la mecánica y el volumen y negocia con la cadena.",
+      "Director Comercial y de Compras (socio) — aprueba cada promoción.",
+      "Gerente de Cuentas Clave y Proyectos — recibe la promoción por el formulario de Lark y la ejecuta desde marketing.",
+      "Cadena (cliente externo) — acepta la promoción con su propio proceso.",
+      "Gerente de Mercadeo (Venezuela) — propone cada mes, con planificación, las promociones para los productos que necesitan rotar."
+     ],
+     "evidencia": [
+      "E-63",
+      "E-42",
+      "E-40",
+      "E-49",
+      "E-22"
+     ],
+     "notas": "La dirección comercial de Cubitt no figura en el V4; se nombra por la función que describe en su entrevista.",
+     "sin_evidencia": "No consta cómo se reserva el inventario para una campaña de volumen, ni cómo se mide después si la promoción dejó margen."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una oportunidad de volumen con una cadena, o un producto que necesita rotar.",
+     "cadencia": "Mensual para las promociones —unas cinco por país—; las campañas de volumen, por temporada.",
+     "output": "Promoción aprobada, declarada a marketing y en curso, con el pedido de volumen montado.",
+     "evidencia": [
+      "E-49",
+      "E-22",
+      "E-42"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-63",
+      "E-42",
+      "E-49",
+      "E-22"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "texto": "Propone la mecánica y el volumen de la promoción."
+      },
+      {
+       "id": "a2",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Aprueba o descarta la promoción, caso a caso."
+      },
+      {
+       "id": "a3",
+       "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "texto": "La declara en el formulario de Lark para que marketing la ejecute."
+      },
+      {
+       "id": "a4",
+       "rol": "Cadena (cliente externo)",
+       "texto": "La acepta o la rechaza con su propio proceso."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Cuentas Clave y Proyectos",
+       "texto": "Produce las piezas y la activación. Con frecuencia la información cambia a mitad del proceso."
+      },
+      {
+       "id": "a6",
+       "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "texto": "Monta el pedido de volumen (8.4). Si la cadena no acepta, se renegocia o se cae."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "Director Comercial y de Compras (socio)",
+       "Cadena (cliente externo)",
+       "Gerente de Cuentas Clave y Proyectos"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "inicio",
+        "n": "Oportunidad o producto por rotar"
+       },
+       {
+        "id": "n1",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "tarea",
+        "n": "Proponer mecánica y volumen"
+       },
+       {
+        "id": "n2",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "decision",
+        "n": "¿Aprueba la promoción?"
+       },
+       {
+        "id": "n3",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "fin",
+        "n": "Promoción descartada"
+       },
+       {
+        "id": "n4",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "tarea",
+        "n": "Declararla para marketing",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Cadena (cliente externo)",
+        "tipo": "decision",
+        "n": "¿La acepta la cadena?"
+       },
+       {
+        "id": "n6",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "fin",
+        "n": "Se renegocia o se cae"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Cuentas Clave y Proyectos",
+        "tipo": "tarea",
+        "n": "Producir piezas y activación"
+       },
+       {
+        "id": "n8",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "tarea",
+        "n": "Montar el pedido de volumen",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "fin",
+        "n": "Promoción en curso"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "8.11": {
+    "nota_version": "Versión As-Is: describe cómo se atiende hoy al cliente que pide producto fabricado con su propia marca, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un cliente pide un producto con su marca hasta que se le factura y despacha. No incluye la compra a fábrica, que sigue el circuito de compras de marca propia (macro 6).",
+     "texto": "La marca privada es un negocio real: el año pasado facturó **casi dos millones de dólares** con clientes de ropa deportiva y consumo que piden audífonos, termos o bocinas con su marca. El circuito que describe la dirección comercial de Cubitt es corto: se le diseña el producto al cliente, ve la muestra, la aprueba, firma la proforma, se produce, se le factura y se despacha. Para armarlo intervienen varias áreas internas, sin que se detalle cuáles ni en qué orden.\n\nEs el proceso con menos evidencia del macroproceso: las entrevistas lo confirman como negocio pero no lo describen paso a paso."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+     "participantes": [
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — lleva la relación con el cliente, le presenta el diseño y le hace firmar la proforma.",
+      "Cliente de marca privada (externo) — aprueba la muestra y firma la proforma.",
+      "Áreas internas de producto y compras — diseñan, hacen la muestra y gestionan la producción."
+     ],
+     "evidencia": [
+      "E-63"
+     ],
+     "notas": "Una sola entrevista describe el proceso; el carril de áreas internas agrupa lo que ella misma no desglosa.",
+     "sin_evidencia": "No consta quién diseña el producto, si se cobra anticipo, cuánto tarda el ciclo, cómo se costea ni qué pasa si el cliente no aprueba la muestra."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente pide un producto fabricado con su propia marca.",
+     "cadencia": "A demanda.",
+     "output": "Producto con la marca del cliente, facturado y despachado.",
+     "evidencia": [
+      "E-63"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-63"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Cliente de marca privada (externo)",
+       "texto": "Pide un producto con su marca."
+      },
+      {
+       "id": "a2",
+       "rol": "Áreas internas de producto y compras",
+       "texto": "Diseñan el producto y hacen la muestra."
+      },
+      {
+       "id": "a3",
+       "rol": "Cliente de marca privada (externo)",
+       "texto": "Revisa y aprueba la muestra."
+      },
+      {
+       "id": "a4",
+       "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "texto": "Le hace firmar la proforma."
+      },
+      {
+       "id": "a5",
+       "rol": "Áreas internas de producto y compras",
+       "texto": "Gestionan la producción del pedido."
+      },
+      {
+       "id": "a6",
+       "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "texto": "Se factura y se despacha (8.4 y 8.5)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Cliente de marca privada (externo)",
+       "Áreas internas de producto y compras",
+       "Director Comercial Wholesale y Nuevos Negocios (Cubitt)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Cliente de marca privada (externo)",
+        "tipo": "inicio",
+        "n": "Pide producto con su marca"
+       },
+       {
+        "id": "n1",
+        "carril": "Áreas internas de producto y compras",
+        "tipo": "tarea",
+        "n": "Diseñar y hacer la muestra"
+       },
+       {
+        "id": "n2",
+        "carril": "Cliente de marca privada (externo)",
+        "tipo": "tarea",
+        "n": "Aprobar la muestra"
+       },
+       {
+        "id": "n3",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "tarea",
+        "n": "Hacer firmar la proforma"
+       },
+       {
+        "id": "n4",
+        "carril": "Áreas internas de producto y compras",
+        "tipo": "tarea",
+        "n": "Producir el pedido"
+       },
+       {
+        "id": "n5",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "tarea",
+        "n": "Facturar y despachar",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "fin",
+        "n": "Entregado al cliente"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "8.12": {
+    "nota_version": "Versión As-Is: describe cómo se consiguen y se abren hoy los clientes nuevos del mayor, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que aparece un prospecto hasta que hace su primera compra y queda creado como cliente. No incluye la asignación de condiciones de crédito (8.2).",
+     "texto": "La mayor parte de los clientes nuevos **llega por referidos**: de otros distribuidores, de clientes existentes o por consultas en la web que se canalizan al vendedor de esa línea. En Panamá el prospecto que escribe por WhatsApp se asigna por Lark, según su ubicación, al vendedor de la zona, y el tiempo desde el primer contacto hasta el cierre se ha empezado a medir hace poco. En Venezuela el canal desapareció entre 2018 y 2021 —se fueron los siete vendedores del mayor— y se reconstruyó cliente a cliente, sin zonificar: un cliente nuevo se le daba a quien estuviera; dos ejecutivos recién incorporados trabajan también sobre referidos.\n\nLa búsqueda activa depende de cada vendedor. La dirección comercial de Cubitt usa su propia «escalera» de cinco pasos —analizar al prospecto, acercarse, venderle empezando por sus cinco mejores puntos de venta, expandirse al resto de tiendas y crecer en volumen—. Otros prospectan por correo masivo a empresas, y un vendedor ha probado a buscar prospectos por zona con una herramienta de IA sobre mapas y a llevarlos en un registro propio, que el propio equipo califica de *«muy verde todavía»*.\n\nLa apertura es sencilla: en Panamá la primera compra de un revendedor se pide surtida, de unos 700 a 800 dólares, con un margen de reventa del 35 % y siempre de contado; en Venezuela el cliente se crea en Odoo solo con el RIF. Arranca siempre con el descuento más bajo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Vendedor(a) al por Mayor",
+     "participantes": [
+      "Vendedor(a) al por Mayor — analiza al prospecto, se acerca, le hace la primera venta y lo da de alta.",
+      "Gerente de Ventas Mayor (país) — asigna el prospecto al vendedor; en Panamá por Lark y según la ubicación.",
+      "Prospecto (externo) — escribe, llega referido o es buscado.",
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — aplica su escalera de cinco pasos con los clientes grandes de Cubitt."
+     ],
+     "evidencia": [
+      "E-57",
+      "E-36",
+      "E-35",
+      "E-63",
+      "E-58",
+      "E-48",
+      "SC Taller de IA y arquitectura de datos (Panamá)",
+      "Lark: Procesos de Ventas al Mayor (PA)"
+     ],
+     "notas": "El monto de primera compra y el margen de reventa son los que aplica un vendedor del hub con sus revendedores; no constan escritos como política.",
+     "sin_evidencia": "No consta cómo se asigna el prospecto en Venezuela y Colombia, ni un criterio para descartarlo. En Colombia solo consta que la jefatura de cuentas clave negocia directamente con los compradores de cada cadena antes de entrar."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un prospecto escribe, llega referido o el vendedor lo encuentra.",
+     "cadencia": "Continua; sin meta de prospección declarada.",
+     "output": "Cliente creado en Odoo, de contado, con su primera compra hecha.",
+     "evidencia": [
+      "E-57",
+      "E-36"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-57",
+      "E-63",
+      "E-36",
+      "Lark: Procesos de Ventas al Mayor (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Prospecto (externo)",
+       "texto": "Escribe por WhatsApp o por la web, llega referido o es buscado por el vendedor."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Asigna el prospecto a un vendedor; en Panamá, por Lark y según la ubicación. En Venezuela no hay zonificación."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Analiza al prospecto: sus puntos de venta, sus redes y su tamaño."
+      },
+      {
+       "id": "a4",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Se acerca y le ofrece una primera compra surtida, con el descuento más bajo."
+      },
+      {
+       "id": "a5",
+       "rol": "Prospecto (externo)",
+       "texto": "Hace o no la primera compra."
+      },
+      {
+       "id": "a6",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Si compra, lo da de alta en Odoo, de contado."
+      },
+      {
+       "id": "a7",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Amplía después a más puntos de venta y más volumen."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Prospecto (externo)",
+       "Gerente de Ventas Mayor (país)",
+       "Vendedor(a) al por Mayor"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Prospecto (externo)",
+        "tipo": "inicio",
+        "n": "Escribe, es referido o es buscado"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Asignar a un vendedor",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Analizar al prospecto"
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Ofrecer la primera compra",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Prospecto (externo)",
+        "tipo": "decision",
+        "n": "¿Hace la primera compra?"
+       },
+       {
+        "id": "n5",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Queda como prospecto"
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Dar de alta, de contado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Ampliar puntos y volumen"
+       },
+       {
+        "id": "n8",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Cliente activo"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "8.13": {
+    "nota_version": "Versión As-Is: describe cómo se piden y se producen hoy el mobiliario, el material POP y las activaciones para clientes del mayor, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el vendedor pide un mueble, material POP o una activación para un cliente mayorista hasta que queda instalado. No incluye el mobiliario de las tiendas propias (macro 9).",
+     "texto": "El pedido nace del vendedor, y por dónde llega depende del país. **Solo Panamá usa de forma sistemática el formulario de Lark**: la solicitud llega a la coordinación regional de visual, que la asigna a una ejecutiva, y el vendedor puede seguir su estado. En Venezuela y en los demás países se pide por WhatsApp o por correo, y las solicitudes se pierden. Antes de aprobar, visual mira cuánto compra el cliente al mes, si está al día en sus pagos y cuánto espacio tiene; en Colombia, desde este año, toda solicitud tiene que venir con un plan de compra que justifique la inversión. El cliente se «cría»: primero recibe un apoyo mínimo, y solo con volumen sostenido llega el mueble.\n\nHay un catálogo interno con los muebles estándar del año y su costo aproximado; lo que no está en catálogo requiere visita, medición y diseño a medida. Los tiempos que describe la dirección comercial de Cubitt son largos: de uno a tres días para levantar la solicitud, de tres a seis para las propuestas, y de 25 a 37 días hábiles para un mueble nuevo u 8 a 15 para uno de catálogo. **El mismo circuito se aplica a pedir tres muebles más de un modelo ya aprobado.** La producción depende de proveedores externos que no trabajan en exclusiva, y en Venezuela todo diseño pasa por Panamá, con un plazo nominal de cinco días hábiles que en la práctica llega a ocho.\n\nEn Venezuela el mayor queda desatendido: dos o tres personas de visual cubren también veinte tiendas propias, que tienen prioridad, y un cliente mayorista puede pasar cinco o seis meses sin visita. El control es un Excel semanal que va atrasado, y el presupuesto del año no se había comunicado a agosto. Se ha dado al menos un caso en que un proveedor llevó su presupuesto directamente a administración, saltándose el circuito, y bloqueó la salida de un mueble ya asignado. El material digital de campaña se comparte con los clientes por Drive o Dropbox."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional de Visual Merchandising",
+     "participantes": [
+      "Gerente Regional de Visual Merchandising — aprueba en Lark los pagos de las solicitudes y fija los criterios de inversión.",
+      "Coordinadora Regional de Visual — recibe las solicitudes del formulario, las asigna a una ejecutiva y decide si la inversión se justifica.",
+      "Equipo de Visual (país) — evalúa al cliente, propone o diseña el mueble, lo instala y deja evidencia. En Venezuela lo lleva el Coordinador(a) Visual con dos asistentes.",
+      "Vendedor(a) al por Mayor — detecta la necesidad y hace la solicitud.",
+      "Proveedor de mobiliario (externo) — produce el mueble o el material.",
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — convoca la reunión inicial con comercial y visual en las solicitudes de Cubitt."
+     ],
+     "evidencia": [
+      "E-50",
+      "E-31",
+      "E-63",
+      "E-14",
+      "E-39",
+      "E-42",
+      "E-36"
+     ],
+     "notas": "Cargos tomados de la columna «cargo actual» del V4: Gerente Regional de Visual Merchandising, Coordinador(a) Visual y Asistente de Visual. En Venezuela visual depende de la gerencia de ventas al mayor.",
+     "sin_evidencia": "No consta quién responde por la reparación de un mueble ya instalado, ni cuál es el presupuesto de visual por país ni quién lo asigna."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente del mayor necesita mueble, material POP o una activación, o una campaña requiere material en su punto de venta.",
+     "cadencia": "A demanda; el seguimiento en Venezuela es un Excel semanal.",
+     "output": "Mueble o material instalado en el punto de venta del cliente, con fotografía de antes y después.",
+     "evidencia": [
+      "E-50",
+      "E-31"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-50",
+      "E-31",
+      "E-63",
+      "E-14"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Pide el mueble o el material: por el formulario de Lark en Panamá, por WhatsApp o correo en los demás países."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinadora Regional de Visual",
+       "texto": "Recibe la solicitud y la asigna a una ejecutiva."
+      },
+      {
+       "id": "a3",
+       "rol": "Equipo de Visual (país)",
+       "texto": "Evalúa cuánto compra el cliente, si está al día y cuánto espacio tiene; en Colombia exige además un plan de compra."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinadora Regional de Visual",
+       "texto": "Decide si la inversión se justifica; si no, la solicitud no sigue."
+      },
+      {
+       "id": "a5",
+       "rol": "Equipo de Visual (país)",
+       "texto": "Si se justifica, propone un mueble del catálogo o, si no lo hay, visita, mide y diseña a medida."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional de Visual Merchandising",
+       "texto": "Aprueba el pago en Lark."
+      },
+      {
+       "id": "a7",
+       "rol": "Proveedor de mobiliario (externo)",
+       "texto": "Produce el mueble, en turnos compartidos con otros clientes."
+      },
+      {
+       "id": "a8",
+       "rol": "Equipo de Visual (país)",
+       "texto": "Lo instala y lo fotografía antes y después, cuando hay tiempo para hacerlo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor",
+       "Coordinadora Regional de Visual",
+       "Equipo de Visual (país)",
+       "Gerente Regional de Visual Merchandising",
+       "Proveedor de mobiliario (externo)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "inicio",
+        "n": "El cliente necesita mueble o POP"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Hacer la solicitud",
+        "sistemas": [
+         "Lark",
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinadora Regional de Visual",
+        "tipo": "tarea",
+        "n": "Asignar la solicitud",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Equipo de Visual (país)",
+        "tipo": "tarea",
+        "n": "Evaluar compra, cartera y espacio"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinadora Regional de Visual",
+        "tipo": "decision",
+        "n": "¿Justifica la inversión?"
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinadora Regional de Visual",
+        "tipo": "fin",
+        "n": "Solicitud no aprobada"
+       },
+       {
+        "id": "n6",
+        "carril": "Equipo de Visual (país)",
+        "tipo": "decision",
+        "n": "¿Hay mueble de catálogo?"
+       },
+       {
+        "id": "n7",
+        "carril": "Equipo de Visual (país)",
+        "tipo": "tarea",
+        "n": "Proponer el de catálogo"
+       },
+       {
+        "id": "n8",
+        "carril": "Equipo de Visual (país)",
+        "tipo": "tarea",
+        "n": "Medir y diseñar a medida"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente Regional de Visual Merchandising",
+        "tipo": "tarea",
+        "n": "Aprobar el pago",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Proveedor de mobiliario (externo)",
+        "tipo": "tarea",
+        "n": "Producir el mueble"
+       },
+       {
+        "id": "n11",
+        "carril": "Equipo de Visual (país)",
+        "tipo": "tarea",
+        "n": "Instalar y fotografiar"
+       },
+       {
+        "id": "n12",
+        "carril": "Equipo de Visual (país)",
+        "tipo": "fin",
+        "n": "Mueble instalado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "8.14": {
+    "nota_version": "Versión As-Is: describe cómo se calculan, aprueban y pagan hoy las comisiones de los vendedores del mayor, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde el cierre de mes hasta el pago de la comisión al vendedor del mayor. No incluye las comisiones de tienda ni de venta web, que pasan por recursos humanos.",
+     "texto": "La regla es la misma en todos los países que la describen: **la comisión se paga sobre lo cobrado, no sobre lo facturado.** Lo que cambia es la mecánica. En Venezuela cada vendedor lleva a mano un Excel diario de quién le pagó, con fecha, tasa, bolívares y dólares, y lo entrega al cierre de mes; el propio equipo reconoce que eso debería ser automático. La gerencia de ventas al mayor calcula la comisión sobre lo cobrado, pide a cuentas por cobrar un listado de las facturas cobradas por cliente para contrastarlo —un pedido suyo, no un paso establecido— y envía el reporte por correo a la presidencia y a la dirección. La presidencia tiene que aprobarlo, y la gerencia tiene que recordárselo *«insistentemente»* hasta que lo hace; con esa aprobación, administración ejecuta el pago.\n\n**Recursos humanos no interviene** en las comisiones del mayor, a diferencia de las de tienda, web y servicio técnico: en Venezuela y en Panamá las lleva la línea comercial. En Colombia la comisión tiene techo y una tabla de tramos según el descuento dado al cliente, y se paga completa solo si el vendedor recauda completo; se conversa con cada vendedor a solas, y se usa para empujar la cobranza mostrándole lo que deja de ganar por sus cuentas vencidas. En Panamá la gerencia comparte cada lunes el avance contra la meta «por el tema del bono». No hay un esquema común entre países."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas al Mayor (Venezuela)",
+     "participantes": [
+      "Gerente de Ventas al Mayor (Venezuela) — calcula la comisión sobre lo cobrado, la contrasta y envía el reporte.",
+      "Vendedor(a) al por Mayor — lleva su Excel diario de cobros y lo entrega al cierre.",
+      "Coordinadora de Cuentas por Cobrar (Venezuela) — entrega, a pedido de la gerencia, el listado de facturas cobradas por cliente.",
+      "Presidente (socio) — aprueba el reporte de comisiones.",
+      "Gerente de Administración (Venezuela) — ejecuta el pago una vez aprobado.",
+      "KAM · Cadenas (Colombia) — en Colombia aplica la tabla de tramos y conversa la comisión con cada vendedor."
+     ],
+     "evidencia": [
+      "E-35",
+      "E-36",
+      "E-48",
+      "E-37",
+      "E-54",
+      "E-14",
+      "E-39",
+      "E-05"
+     ],
+     "notas": "El diagrama sigue el circuito de Venezuela, el único descrito de punta a punta. En Panamá consta solo que el cálculo lo lleva el gerente de ventas de cada equipo.",
+     "sin_evidencia": "No consta la tabla de comisión de Venezuela ni la de Panamá, ni cómo se resuelve una diferencia entre el Excel del vendedor y el listado de cobranza."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre de mes.",
+     "cadencia": "Mensual. La aprobación no tiene plazo y depende de que la presidencia responda al correo.",
+     "output": "Comisión del mes pagada al vendedor.",
+     "evidencia": [
+      "E-35",
+      "E-36"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-35",
+      "E-36",
+      "E-48"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Entrega al cierre de mes el Excel en el que anotó a diario quién le pagó, con fecha, tasa y moneda."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinadora de Cuentas por Cobrar (Venezuela)",
+       "texto": "Entrega, a pedido de la gerencia, el listado de facturas cobradas por cliente."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas al Mayor (Venezuela)",
+       "texto": "Calcula la comisión sobre lo cobrado, contrastando las dos fuentes."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas al Mayor (Venezuela)",
+       "texto": "Envía el reporte por correo a la presidencia y a la dirección, y recuerda la aprobación hasta obtenerla."
+      },
+      {
+       "id": "a5",
+       "rol": "Presidente (socio)",
+       "texto": "Aprueba el reporte."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Administración (Venezuela)",
+       "texto": "Ejecuta el pago de las comisiones."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor",
+       "Coordinadora de Cuentas por Cobrar (Venezuela)",
+       "Gerente de Ventas al Mayor (Venezuela)",
+       "Presidente (socio)",
+       "Gerente de Administración (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "inicio",
+        "n": "Cierre de mes"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Entregar su Excel de cobros",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinadora de Cuentas por Cobrar (Venezuela)",
+        "tipo": "tarea",
+        "n": "Listar facturas cobradas",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas al Mayor (Venezuela)",
+        "tipo": "tarea",
+        "n": "Calcular sobre lo cobrado",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas al Mayor (Venezuela)",
+        "tipo": "tarea",
+        "n": "Enviar el reporte y recordarlo",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Presidente (socio)",
+        "tipo": "tarea",
+        "n": "Aprobar el reporte",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Administración (Venezuela)",
+        "tipo": "tarea",
+        "n": "Pagar las comisiones"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Administración (Venezuela)",
+        "tipo": "fin",
+        "n": "Comisiones pagadas"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "8.15": {
+    "nota_version": "Versión As-Is: describe cómo se cobra hoy al cliente mayorista y cómo se registran sus pagos, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que se emite la factura a crédito hasta que el pago queda registrado y la factura saldada. No incluye la conciliación bancaria ni el cierre contable (macro 12).",
+     "texto": "**El cobro lo hace el vendedor.** En Panamá no hay departamento de cobranza en ventas: el vendedor vende, cobra, tramita notas de crédito y devoluciones, y la gerencia revisa con cada uno, los lunes, un cuadro de deudas viejas y próximas a vencer; si el vendedor no puede ese lunes, se pierden dos días. No hay alertas automáticas de vencimiento: el vendedor y cobranza llevan las fechas a mano.\n\nEl cliente paga por muchas vías —transferencia local o internacional, pago móvil, efectivo en dólares, bolívares indexados, con retenciones— y a veces combina varias en una misma factura, según lo que negoció con su vendedor sin que cobranza conozca el acuerdo. Por eso es el vendedor quien le explica a cobranza cómo se compone cada pago; una factura ha llegado a tener veinte abonos. El comprobante viaja por caminos distintos: en Venezuela por el chat de la propia orden de venta en Odoo —decisión deliberada para que la información no se vaya con el vendedor—; en Panamá por una plantilla de Lark, que un vendedor de Zona Libre convirtió en un circuito que la gerencia califica de impecable, mientras otro sigue mandando fotos y correos.\n\nCuentas por cobrar valida contra el banco y registra. En Panamá entran a mano entre quince y veinte pagos al día, y cuando llega menos de lo esperado por una comisión bancaria queda un saldo pendiente que se ha vuelto costumbre. En Venezuela cobranza no tiene acceso a los bancos: valida contra los cortes diarios que tesorería sube a una carpeta compartida, y ha construido su propio Excel porque la factura de Odoo no muestra el subtotal en dólares ni el reporte de cartera se entendía. Hasta hace pocos meses allí solo se registraban los cobros, sin seguimiento de antigüedad, y los comprobantes acumulados sin rebajar hacían que la deuda del sistema fuera, en palabras de la gerencia, *«ficticia»*. Hoy cobranza envía al gerente los vencidos de más de 120 días, con poca respuesta."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Vendedor(a) al por Mayor",
+     "participantes": [
+      "Vendedor(a) al por Mayor — sigue la deuda de su cartera, recuerda al cliente, recibe el comprobante y explica a cobranza cómo se compone el pago.",
+      "Cliente mayorista (externo) — paga y envía el comprobante.",
+      "Coordinación de Cuentas por Cobrar (país) — valida el pago contra el banco y lo registra. En Panamá es el Supervisor(a) de Coordinación y Planificación de CxC con dos analistas; en Venezuela, la Coordinadora de Cuentas por Cobrar.",
+      "Coordinador(a) de Tesorería (Venezuela) — sube cada día los cortes bancarios a una carpeta compartida.",
+      "Gerente de Ventas Mayor (país) — revisa la cartera vencida con cada vendedor."
+     ],
+     "evidencia": [
+      "E-39",
+      "E-48",
+      "E-62",
+      "E-35",
+      "E-36",
+      "E-57",
+      "E-59",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "notas": "El dueño se atribuye al vendedor porque las entrevistas lo sitúan a él al frente del cobro; cuentas por cobrar registra y valida, pero no gestiona al cliente.",
+     "sin_evidencia": "No consta un procedimiento común para hacer llegar el comprobante en Panamá continental, ni cómo se cobra en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La emisión de una factura a crédito.",
+     "cadencia": "Continua. En Panamá, revisión de cartera los lunes; en Venezuela, cortes bancarios diarios y aviso de vencidos de más de 120 días.",
+     "output": "Pago registrado en Odoo y factura saldada, o abono con saldo pendiente en seguimiento.",
+     "evidencia": [
+      "E-39",
+      "E-48"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-39",
+      "E-48",
+      "E-62",
+      "E-35"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Le recuerda el pago al cliente; no hay alerta automática de vencimiento."
+      },
+      {
+       "id": "a2",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "Paga por una o varias vías y envía el comprobante."
+      },
+      {
+       "id": "a3",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Pasa el comprobante a cobranza —por el chat de la orden en Odoo, por Lark o por correo— y le explica cómo se compone el pago."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador(a) de Tesorería (Venezuela)",
+       "texto": "Sube los cortes bancarios del día a la carpeta compartida."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinación de Cuentas por Cobrar (país)",
+       "texto": "Valida el pago contra el banco o contra los cortes."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinación de Cuentas por Cobrar (país)",
+       "texto": "Si cubre la factura, registra el cobro en Odoo; si no, registra el abono y deja el saldo pendiente."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Revisa los vencidos con cada vendedor: en Panamá los lunes, en Venezuela cuando cobranza le envía los de más de 120 días."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor(a) al por Mayor",
+       "Cliente mayorista (externo)",
+       "Coordinador(a) de Tesorería (Venezuela)",
+       "Coordinación de Cuentas por Cobrar (país)",
+       "Gerente de Ventas Mayor (país)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "inicio",
+        "n": "Factura a crédito emitida"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Recordar el pago",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "tarea",
+        "n": "Pagar y enviar comprobante"
+       },
+       {
+        "id": "n3",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Pasar el comprobante a cobranza",
+        "sistemas": [
+         "Odoo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador(a) de Tesorería (Venezuela)",
+        "tipo": "tarea",
+        "n": "Subir los cortes bancarios",
+        "sistemas": [
+         "Google Drive"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinación de Cuentas por Cobrar (país)",
+        "tipo": "tarea",
+        "n": "Validar contra el banco",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinación de Cuentas por Cobrar (país)",
+        "tipo": "decision",
+        "n": "¿Cubre la factura?"
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinación de Cuentas por Cobrar (país)",
+        "tipo": "tarea",
+        "n": "Registrar el cobro",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinación de Cuentas por Cobrar (país)",
+        "tipo": "fin",
+        "n": "Factura saldada"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinación de Cuentas por Cobrar (país)",
+        "tipo": "tarea",
+        "n": "Registrar abono con saldo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Revisar vencidos con el vendedor",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "fin",
+        "n": "Saldo en seguimiento"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "8.16": {
+    "nota_version": "Versión As-Is: describe cómo se tramitan hoy las devoluciones de clientes mayoristas y sus notas de crédito, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el cliente pide devolver mercancía hasta que se emite la nota de crédito y, si procede, se refactura la reposición. No incluye las garantías por defecto de producto, que van a servicio técnico (macro 11).",
+     "texto": "En Panamá **la devolución tiene un circuito formal en Lark**, y es de los pocos del macroproceso que coinciden con lo que describe el mapa. El vendedor la monta con cliente, factura, referencia, motivo y cantidad; la primera parada es la gerencia de ventas mayor, que revisa qué pasó; la bodega recibe el producto y lo confirma en el sistema con observaciones; y contabilidad emite la nota de crédito, la aplica y devuelve el dinero si corresponde. Después el vendedor puede refacturar el pedido de reposición. El ciclo toma hasta cuatro días e involucra a cuatro áreas.\n\nEl circuito tiene un ajuste que no está escrito: desde que los vendedores trabajan en otro piso, entregan el producto directamente en bodega y lo anotan en las observaciones, de modo que la gerencia aprueba sabiendo que la mercancía ya está recibida. Se aceptan devoluciones por simple cambio de preferencia —otro color—, algo que los propios vendedores cuestionan para un distribuidor mayorista; alguno ha ido educando a sus clientes para que planifiquen mejor.\n\nEn Venezuela, desde julio de 2026, toda devolución de un cliente mayorista se envía por un único courier, desde su oficina más cercana a un casillero de la empresa, con el flete a cargo de Rower."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Mayor (Panamá)",
+     "participantes": [
+      "Gerente de Ventas Mayor (Panamá) — aprueba la devolución tras revisar qué pasó con el producto.",
+      "Vendedor(a) al por Mayor — monta la solicitud en Lark y, si procede, refactura la reposición.",
+      "Cliente mayorista (externo) — pide la devolución y entrega o envía el producto.",
+      "Jefe de Bodega — recibe el producto y lo confirma en el sistema.",
+      "Contabilidad (país) — emite y aplica la nota de crédito y devuelve el dinero si corresponde."
+     ],
+     "evidencia": [
+      "E-39",
+      "E-57",
+      "Lark: Proceso Ventas al Mayor Rower (VE)",
+      "Lark: Procesos de Ventas al Mayor (PA)"
+     ],
+     "notas": "Cargo tomado de la columna «cargo actual» del V4: Gerente de Ventas Mayor PTY.",
+     "sin_evidencia": "No consta qué motivos se rechazan, ni si existe plazo máximo para pedir una devolución. Tampoco consta quién aprueba en Venezuela ni cómo se tramita en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cliente pide devolver mercancía: por error de despacho, por defecto o por cambio de preferencia.",
+     "cadencia": "A demanda.",
+     "output": "Nota de crédito aplicada al cliente y, si procede, reposición refacturada.",
+     "evidencia": [
+      "E-39",
+      "E-57"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-39",
+      "E-57",
+      "Lark: Proceso Ventas al Mayor Rower (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "Pide devolver la mercancía."
+      },
+      {
+       "id": "a2",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Monta la devolución en Lark con cliente, factura, referencia, motivo y cantidad."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Mayor (Panamá)",
+       "texto": "Revisa qué pasó con el producto y aprueba o no la devolución."
+      },
+      {
+       "id": "a4",
+       "rol": "Cliente mayorista (externo)",
+       "texto": "Entrega el producto, o en Venezuela lo envía por el courier único al casillero de la empresa."
+      },
+      {
+       "id": "a5",
+       "rol": "Jefe de Bodega",
+       "texto": "Recibe el producto y lo confirma en el sistema con observaciones."
+      },
+      {
+       "id": "a6",
+       "rol": "Contabilidad (país)",
+       "texto": "Emite y aplica la nota de crédito y devuelve el dinero si corresponde."
+      },
+      {
+       "id": "a7",
+       "rol": "Vendedor(a) al por Mayor",
+       "texto": "Si hay reposición, la refactura."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Cliente mayorista (externo)",
+       "Vendedor(a) al por Mayor",
+       "Gerente de Ventas Mayor (Panamá)",
+       "Jefe de Bodega",
+       "Contabilidad (país)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "inicio",
+        "n": "Pide devolver mercancía"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Montar la devolución",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas Mayor (Panamá)",
+        "tipo": "decision",
+        "n": "¿Aprueba la devolución?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Mayor (Panamá)",
+        "tipo": "fin",
+        "n": "Devolución no aprobada"
+       },
+       {
+        "id": "n4",
+        "carril": "Cliente mayorista (externo)",
+        "tipo": "tarea",
+        "n": "Entregar o enviar el producto"
+       },
+       {
+        "id": "n5",
+        "carril": "Jefe de Bodega",
+        "tipo": "tarea",
+        "n": "Recibir y confirmar en el sistema"
+       },
+       {
+        "id": "n6",
+        "carril": "Contabilidad (país)",
+        "tipo": "tarea",
+        "n": "Emitir la nota de crédito",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "decision",
+        "n": "¿Hay reposición?"
+       },
+       {
+        "id": "n8",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "tarea",
+        "n": "Refacturar la reposición",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Vendedor(a) al por Mayor",
+        "tipo": "fin",
+        "n": "Devolución cerrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "8.17": {
+    "nota_version": "Versión As-Is: describe cómo se produce hoy la información comercial del mayor y quién la usa para decidir, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La extracción, el procesamiento y la presentación de la información de venta al mayor para la toma de decisiones. No incluye la reportería contable (macro 12) ni la de tiendas propias.",
+     "texto": "La información comercial **no sale de un tablero único sino de varias piezas construidas por quien las necesitaba**. La principal es un dashboard de ventas que hizo la gerencia comercial con ayuda de IA: se conecta a Odoo de los cuatro países, separa mayor, retail y comercio electrónico, se refresca cada mañana a las seis, y muestra por vendedor, país, cliente y familia la venta del año, la meta, el avance y un semáforo. Vive en un servicio de alojamiento externo con cuentas personales, no corporativas, sin respaldo ni control de acceso central, y el propio equipo lo señala como algo a resolver antes de seguir construyendo encima.\n\nAlrededor hay más piezas. La gerencia de ventas mayor del hub saca su Excel de Odoo, lo comparte con los vendedores cada lunes y envía cada mes a la dirección un informe de unas once láminas —productos y clientes principales, negociaciones pendientes, ranking de vendedores—. La analista de datos mantiene el forecast contra la venta real y prepara los reportes para la junta de cada país. En Colombia, un Excel maestro con metas y venta real por canal se presenta cada martes en la junta regional, y la jefatura de cuentas clave automatizó con IA la actualización semanal de sus tablas. Cobranza en Venezuela armó su propio tablero de cartera.\n\nEl equipo de datos recibe el sellout de unos cuarenta clientes por correo, cada uno en su formato, y lo lleva a una tabla común; sus dolores son que la información llega sin calendario, que un mismo producto aparece nombrado de decenas de formas y que las licencias de la herramienta de análisis son pocas. Un tablero en Power BI para la venta local de Panamá está en desarrollo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Internacional",
+     "participantes": [
+      "Gerente de Ventas Internacional — construyó y mantiene el dashboard de ventas conectado a Odoo.",
+      "Gerente de Ventas Mayor (país) — saca su Excel de Odoo, lo comparte los lunes y envía el informe mensual a la dirección.",
+      "Analista de Datos e Informes — mantiene el forecast contra la venta real y prepara los reportes para la junta.",
+      "Data Scientist / Líder de BI — normaliza el sellout de los clientes y mantiene modelos de inventario.",
+      "Country Manager Colombia — presenta cada martes el Excel maestro en la junta regional.",
+      "Junta Directiva — recibe las distintas piezas y decide sobre ellas."
+     ],
+     "evidencia": [
+      "E-63",
+      "E-39",
+      "E-10",
+      "E-18",
+      "E-11",
+      "E-14",
+      "E-48",
+      "E-01",
+      "SC Taller de IA y arquitectura de datos (Panamá)"
+     ],
+     "notas": "Se atribuye el dueño a quien construyó y mantiene la pieza central; no hay un responsable designado de la información comercial.",
+     "sin_evidencia": "No consta qué pieza manda cuando dos dan cifras distintas, ni quién valida los números antes de que lleguen a la junta."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La venta registrada cada día en Odoo y los reportes de sellout que envían los clientes.",
+     "cadencia": "Diaria para el dashboard; semanal los lunes en el hub y los martes en la junta de Colombia; mensual para el informe a la dirección y a las juntas.",
+     "output": "Tableros e informes que la dirección y las juntas usan para decidir.",
+     "evidencia": [
+      "E-63",
+      "E-39",
+      "E-11"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-63",
+      "E-39",
+      "E-10",
+      "E-18",
+      "E-11",
+      "SC Taller de IA y arquitectura de datos (Panamá)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Mantiene el dashboard de ventas, que se refresca cada mañana desde Odoo."
+      },
+      {
+       "id": "a2",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Recibe por correo el sellout de los clientes y lo normaliza a una tabla común."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Saca su Excel de Odoo y lo comparte cada lunes con los vendedores."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Mayor (país)",
+       "texto": "Arma el informe mensual para la dirección."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Datos e Informes",
+       "texto": "Pone la venta real contra el forecast y prepara los reportes para la junta."
+      },
+      {
+       "id": "a6",
+       "rol": "Country Manager Colombia",
+       "texto": "Consolida el Excel maestro de metas y venta por canal y lo presenta cada martes en la junta regional."
+      },
+      {
+       "id": "a7",
+       "rol": "Junta Directiva",
+       "texto": "Revisa las piezas que le llegan, cada una por su lado, y decide."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Ventas Internacional",
+       "Data Scientist / Líder de BI",
+       "Gerente de Ventas Mayor (país)",
+       "Analista de Datos e Informes",
+       "Country Manager Colombia",
+       "Junta Directiva"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "inicio",
+        "n": "Venta registrada en Odoo"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Refrescar el dashboard",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Normalizar el sellout",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Compartir avance los lunes",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Mayor (país)",
+        "tipo": "tarea",
+        "n": "Armar el informe mensual"
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "tarea",
+        "n": "Cruzar venta real y forecast",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Country Manager Colombia",
+        "tipo": "tarea",
+        "n": "Presentar el Excel maestro",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Revisar y decidir"
+       },
+       {
+        "id": "n8",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Cada pieza llega por su lado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n0",
+        "a": "n2"
+       },
+       {
+        "de": "n0",
+        "a": "n3"
+       },
+       {
+        "de": "n0",
+        "a": "n5"
+       },
+       {
+        "de": "n0",
+        "a": "n6"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n1",
+        "a": "n7"
+       },
+       {
+        "de": "n2",
+        "a": "n7"
+       },
+       {
+        "de": "n4",
+        "a": "n7"
+       },
+       {
+        "de": "n5",
+        "a": "n7"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };
