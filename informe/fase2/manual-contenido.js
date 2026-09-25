@@ -11212,12 +11212,12 @@ window.MANUAL_CONTENIDO = {
      "Analista de Sistemas / Datos",
      "Gerente Regional de Marketing",
      "Director(a) de Marca Propia (Cubitt)",
-     "Director(a) de Finanzas del Grupo"
+     "Gerentes Regionales/Gerentes Corporativos"
     ]
    },
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "Planeación Comercial es el macroproceso estratégico que traduce el plan del grupo en decisiones de venta: qué se vende, cuánto, dónde y a qué precio. Recibe de la dirección los objetivos y el presupuesto, y entrega a compras el forecast y el surtido, a los canales las listas de precio, el calendario y la asignación, y a la Junta la lectura del resultado.\n\nHoy esas decisiones las toman los directores comerciales de la familia y el director comercial del mayor de la marca propia, apoyados en un equipo de planificación, en una unidad de datos que normaliza el sell-out de los clientes y construye modelos de inventario, y en mucho Excel. La marca representada y la marca propia se planifican con métodos distintos: la primera con un ciclo mensual fijo marcado por la oferta de la fábrica, que asigna una fracción de lo pedido; la segunda con un forecast por mercado y un comité que decide precio y portafolio.\n\nEste manual describe cómo deberían operar estos procesos. Parte de lo que ya funciona —el forecast anual con revisión trimestral, el precio por mercado, la sesión mensual de promociones de Venezuela, el tablero diario del mayor— y le suma lo que falta: un solo forecast versionado, un margen mínimo escrito que evite escalar cada decisión, una regla de reparto cuando no alcanza el inventario y el registro de lo que se decide. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "ubicacion": "Planeación Comercial es el macroproceso estratégico que traduce el plan del grupo en decisiones de venta: qué se vende, cuánto, dónde y a qué precio. Recibe de la dirección los objetivos y el presupuesto, y entrega a compras el forecast y el surtido, a los canales las listas de precio, el calendario y la asignación, y a la Junta la lectura del resultado.\n\nHoy esas decisiones las toman los directores comerciales de la familia y el/la Director(a) Comercial Mayorista (Cubitt), apoyados en un equipo de planificación, en una unidad de datos que normaliza el sell-out de los clientes y construye modelos de inventario, y en mucho Excel. La marca representada y la marca propia se planifican con métodos distintos: la primera con un ciclo mensual fijo marcado por la oferta de la fábrica, que asigna una fracción de lo pedido; la segunda con un forecast por mercado y un comité que decide precio y portafolio.\n\nEste manual describe cómo deberían operar estos procesos. Parte de lo que ya funciona —el forecast anual con revisión trimestral, el precio por mercado, la sesión mensual de promociones de Venezuela, el tablero diario del mayor— y le suma lo que falta: un solo forecast versionado, un margen mínimo escrito que evite escalar cada decisión, una regla de reparto cuando no alcanza el inventario y el registro de lo que se decide. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
     "duenos": [
      [
       "Macroproceso",
@@ -11426,7 +11426,7 @@ window.MANUAL_CONTENIDO = {
       "Reunión de calendario comercial de Colombia",
       "Coordinar el calendario de promociones de todos los canales del país y los problemas de importación y precio.",
       "Periódica",
-      "Country Manager · líderes comerciales · marketing · finanzas",
+      "Gerente/Director(a) General País · líderes comerciales · marketing · finanzas",
       "Calendario y promociones del país",
       "Calendario regional y llegadas",
       "Acuerdos del país"
@@ -11567,13 +11567,13 @@ window.MANUAL_CONTENIDO = {
       "Gerente Regional Comercial / Retail",
       "Comité de Estrategia Comercial",
       "Director(a) Comercial del Grupo · Gerente Comercial (País / Canal) · Coordinador(a) de Logística y Bodega · Analista de Sistemas / Datos",
-      "Director(a) de Finanzas del Grupo · Compras"
+      "Gerentes Regionales/Gerentes Corporativos · Compras"
      ],
      [
       "2.3 Política de precios y márgenes",
       "Gerente Regional Comercial / Retail",
       "Director(a) Comercial del Grupo",
-      "Director(a) Comercial Mayorista (Cubitt) · Director(a) de Finanzas del Grupo",
+      "Director(a) Comercial Mayorista (Cubitt) · Gerentes Regionales/Gerentes Corporativos",
       "Gerente Comercial (País / Canal)"
      ],
      [
@@ -12016,7 +12016,7 @@ window.MANUAL_CONTENIDO = {
       "Gerente Comercial (País / Canal) — validan el forecast de su mercado cliente por cliente y, en retail, tienda por tienda.",
       "Coordinador(a) de Logística y Bodega — presenta la necesidad de reposición de Venezuela, el cliente interno de mayor volumen.",
       "Comité de Estrategia Comercial — revisa unidades, modelos y colores y aprueba el forecast consolidado.",
-      "Director(a) de Finanzas del Grupo — recibe el forecast mensualizado para el presupuesto y la proyección de caja."
+      "Gerentes Regionales/Gerentes Corporativos — reciben el forecast mensualizado para el presupuesto, la proyección de caja y la de compras."
      ],
      "evidencia": [
       "E-63",
@@ -12089,8 +12089,8 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a8",
-       "rol": "Director(a) de Finanzas del Grupo",
-       "texto": "Recibe el forecast aprobado, mensualizado en unidades y montos, y lo usa para el presupuesto del año y para la proyección de compras y de caja."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Reciben el forecast aprobado, mensualizado en unidades y montos, y lo usan en sus áreas: la gerencia corporativa de finanzas, para el presupuesto del año y la proyección de caja, y compras, para la proyección de compras."
       },
       {
        "id": "a9",
@@ -12106,7 +12106,7 @@ window.MANUAL_CONTENIDO = {
        "Gerente Comercial (País / Canal)",
        "Coordinador(a) de Logística y Bodega",
        "Comité de Estrategia Comercial",
-       "Director(a) de Finanzas del Grupo"
+       "Gerentes Regionales/Gerentes Corporativos"
       ],
       "nodos": [
        {
@@ -12181,7 +12181,7 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t9",
-        "carril": "Director(a) de Finanzas del Grupo",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Incorporar el forecast al presupuesto y a la caja"
        },
@@ -12360,7 +12360,7 @@ window.MANUAL_CONTENIDO = {
       "Comité de Estrategia Comercial — aprueba la estructura de precios por mercado y la política de márgenes.",
       "Director(a) Comercial Mayorista (Cubitt) — lee el precio de la competencia en cada mercado del mayor y propone el precio de la marca propia.",
       "Gerente Regional Comercial / Retail — calcula costos y márgenes por producto y mercado, y publica las listas vigentes.",
-      "Director(a) de Finanzas del Grupo — analiza la rentabilidad por país y el efecto cambiario sobre las listas.",
+      "Gerentes Regionales/Gerentes Corporativos — por la gerencia corporativa de finanzas, analizan la rentabilidad por país y el efecto cambiario sobre las listas.",
       "Gerente Comercial (País / Canal) — aplica las listas y solicita, con motivo, cualquier precio fuera de rango."
      ],
      "evidencia": [
@@ -12399,8 +12399,8 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a3",
-       "rol": "Director(a) de Finanzas del Grupo",
-       "texto": "Analiza la rentabilidad por país y el efecto de la brecha cambiaria sobre las listas, y señala los mercados donde la lista vigente ya no cubre el margen objetivo."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Analizan, a través de la gerencia corporativa de finanzas, la rentabilidad por país y el efecto de la brecha cambiaria sobre las listas, y señalan los mercados donde la lista vigente ya no cubre el margen objetivo."
       },
       {
        "id": "a4",
@@ -12432,7 +12432,7 @@ window.MANUAL_CONTENIDO = {
       "carriles": [
        "Gerente Regional Comercial / Retail",
        "Director(a) Comercial Mayorista (Cubitt)",
-       "Director(a) de Finanzas del Grupo",
+       "Gerentes Regionales/Gerentes Corporativos",
        "Director(a) Comercial del Grupo",
        "Comité de Estrategia Comercial",
        "Gerente Comercial (País / Canal)"
@@ -12462,7 +12462,7 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t3",
-        "carril": "Director(a) de Finanzas del Grupo",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Analizar rentabilidad y efecto cambiario"
        },
@@ -13760,7 +13760,7 @@ window.MANUAL_CONTENIDO = {
        "Los vendedores no usan los tableros; los modelos se generan y nadie los consulta.",
        "Media",
        "Medio",
-       "Lectura semanal guiada por el gerente de cada mercado con un plan simple por vendedor."
+       "Lectura semanal guiada por el/la Gerente Comercial (País / Canal) de cada mercado con un plan simple por vendedor."
       ],
       [
        "Reportes que dependen de una persona",
@@ -13826,7 +13826,7 @@ window.MANUAL_CONTENIDO = {
    },
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "R&D y Desarrollo de Producto es el macroproceso estratégico que sostiene la apuesta central del grupo: consolidar una marca propia que ya compite en más de veinte países y que el grupo considera el futuro de la empresa. Recibe de Planeación Comercial las oportunidades y la lectura del mercado, y entrega a Compras y a Gobierno de Portafolio productos especificados, listos para producir y lanzar.\n\nHoy el área está en plena construcción. La dirección de marca propia concentra la relación con las fábricas y las decisiones de producto; tiene una persona en China para buscar fábricas y seguir la producción, un especialista de producto en Panamá que prueba los equipos y canaliza las fallas, una coordinación de producto que crea los códigos y lleva las licencias, y una diseñadora industrial recién incorporada. No existe todavía un analista de mercado ni un equipo propio de software: la aplicación y el firmware dependen de la fábrica.\n\nLa Presidencia fijó un criterio que este manual respeta en todos sus procesos: la necesidad de producto la detecta el área comercial y la decide la dirección de marca propia con su comité; marketing acompaña con tendencias, empaque y campaña, pero no aprueba muestras ni confirma órdenes. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "ubicacion": "R&D y Desarrollo de Producto es el macroproceso estratégico que sostiene la apuesta central del grupo: consolidar una marca propia que ya compite en más de veinte países y que el grupo considera el futuro de la empresa. Recibe de Planeación Comercial las oportunidades y la lectura del mercado, y entrega a Compras y a Gobierno de Portafolio productos especificados, listos para producir y lanzar.\n\nHoy el área está en plena construcción. La dirección de marca propia concentra la relación con las fábricas y las decisiones de producto; tiene un(a) Encargado(a) de Sourcing (China) para buscar fábricas y seguir la producción, un especialista de producto en Panamá que prueba los equipos y canaliza las fallas, una coordinación de producto que crea los códigos y lleva las licencias, y una diseñadora industrial recién incorporada. No existe todavía un analista de mercado ni un equipo propio de software: la aplicación y el firmware dependen de la fábrica.\n\nLa Presidencia fijó un criterio que este manual respeta en todos sus procesos: la necesidad de producto la detecta el área comercial y la decide la dirección de marca propia con su comité; marketing acompaña con tendencias, empaque y campaña, pero no aprueba muestras ni confirma órdenes. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
     "duenos": [
      [
       "Macroproceso",
@@ -14496,7 +14496,7 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "texto": "Busca, evalúa y homologa las fábricas que desarrollan y producen cada categoría de la marca propia, formaliza la relación con acuerdo de confidencialidad y contrato, las incorpora a la cartera con su control de producción, tránsito y pagos, y evalúa cada año su desempeño.",
-     "nota_estado": "Proceso en transición: ya hay una persona en China que busca fábricas y lleva el control por proveedor, y el grupo empezó a firmar acuerdos de confidencialidad y contratos con fábricas. Lo que se incorpora es una evaluación técnica común antes de homologar y una evaluación anual del desempeño de cada fábrica."
+     "nota_estado": "Proceso en transición: ya hay un(a) Encargado(a) de Sourcing (China) que busca fábricas y lleva el control por proveedor, y el grupo empezó a firmar acuerdos de confidencialidad y contratos con fábricas. Lo que se incorpora es una evaluación técnica común antes de homologar y una evaluación anual del desempeño de cada fábrica."
     },
     "dueno": {
      "estado": "borrador",
@@ -15934,14 +15934,14 @@ window.MANUAL_CONTENIDO = {
      "Gerente de Proyectos (PMO)",
      "Gerentes de primera línea",
      "Junta Directiva",
-     "Presidente de Junta Directiva",
+     "Presidente(a) de Junta Directiva",
      "Gerente de Contabilidad / Administración",
      "Especialista de Producto / Proyecto"
     ]
    },
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "Gobierno de Portafolio es el macroproceso estratégico que convierte las decisiones de la Junta y las necesidades de las áreas en proyectos con dueño, plan, presupuesto y fecha. Nació a inicios de 2026, cuando el hoy director de proyectos —que había entrado como gerente de producto— propuso a la Presidencia una oficina de proyectos porque los lanzamientos nunca salían en fecha y un país se enteraba cuando otro ya había lanzado.\n\nEn pocos meses la oficina instaló un formulario de solicitud, una clasificación en proyecto, iniciativa y tarea, una regla de prioridad por impacto, una base del portafolio en Lark con reporte automático a la Junta y una metodología con cronograma, matriz de responsables, riesgos y lecciones aprendidas. También vivió la saturación: 52 proyectos inscritos para tres gerentes de proyecto. Las áreas reconocen que desde su llegada la comunicación entre departamentos fluye mejor.\n\nEste manual describe cómo deben operar sus procesos. Lo que falta no es metodología sino cierre de circuitos: que la Junta pida por el mismo canal y apruebe en una sesión mensual, que cada proyecto tenga presupuesto y su desviación se siga, y que la carga de la oficina se mida antes de aceptar más. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
+    "ubicacion": "Gobierno de Portafolio es el macroproceso estratégico que convierte las decisiones de la Junta y las necesidades de las áreas en proyectos con dueño, plan, presupuesto y fecha. Nació a inicios de 2026, cuando se propuso a la Presidencia crear una oficina de proyectos porque los lanzamientos nunca salían en fecha y un país se enteraba cuando otro ya había lanzado.\n\nEn pocos meses la oficina instaló un formulario de solicitud, una clasificación en proyecto, iniciativa y tarea, una regla de prioridad por impacto, una base del portafolio en Lark con reporte automático a la Junta y una metodología con cronograma, matriz de responsables, riesgos y lecciones aprendidas. También vivió la saturación: 52 proyectos inscritos para tres gerentes de proyecto. Las áreas reconocen que desde su llegada la comunicación entre departamentos fluye mejor.\n\nEste manual describe cómo deben operar sus procesos. Lo que falta no es metodología sino cierre de circuitos: que la Junta pida por el mismo canal y apruebe en una sesión mensual, que cada proyecto tenga presupuesto y su desviación se siga, y que la carga de la oficina se mida antes de aceptar más. Por ser un macroproceso estratégico, su validación corresponde a la Junta Directiva.",
     "duenos": [
      [
       "Macroproceso",
@@ -16064,7 +16064,7 @@ window.MANUAL_CONTENIDO = {
       "Grupo",
       "Asigna el código de proyecto, valida el presupuesto y reporta el consumo.",
       "Disponibilidad de fondos.",
-      "A la dirección de finanzas."
+      "A la gerencia corporativa de finanzas."
      ],
      [
       "Junta Directiva",
@@ -16097,7 +16097,7 @@ window.MANUAL_CONTENIDO = {
       "Reunión de la Presidencia con la dirección de proyectos",
       "Alinear la visión y las necesidades de la oficina con la Presidencia.",
       "Cada dos semanas",
-      "Presidente de Junta Directiva · Director(a) de Proyectos (PMO)",
+      "Presidente(a) de Junta Directiva · Director(a) de Proyectos (PMO)",
       "Escalamientos y prioridades",
       "Situación del portafolio",
       "Acuerdos de la Presidencia"
@@ -16163,7 +16163,7 @@ window.MANUAL_CONTENIDO = {
     "brechas": [
      [
       "Transversal — roles de la oficina",
-      "El director de proyectos cumple también funciones de gerente de proyecto y de producto.",
+      "El/la Director(a) de Proyectos (PMO) cumple también funciones de gerente de proyecto y de producto.",
       "Separar los roles al sumar capacidad."
      ],
      [
@@ -16240,13 +16240,13 @@ window.MANUAL_CONTENIDO = {
       "Director(a) de Proyectos (PMO)",
       "Director(a) de Proyectos (PMO)",
       "Gerente de Proyectos (PMO)",
-      "Junta Directiva · Presidente de Junta Directiva"
+      "Junta Directiva · Presidente(a) de Junta Directiva"
      ],
      [
       "4.6 Demanda y capacidad",
       "Director(a) de Proyectos (PMO)",
       "Junta Directiva",
-      "Gerente de Recursos Humanos",
+      "Gerentes Regionales/Gerentes Corporativos",
       "Gerente de Proyectos (PMO)"
      ],
      [
@@ -16369,7 +16369,7 @@ window.MANUAL_CONTENIDO = {
       "E-04",
       "E-25"
      ],
-     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan. Hoy el director de proyectos cumple además funciones de gerente de proyecto y de producto."
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan. Hoy el/la Director(a) de Proyectos (PMO) cumple además funciones de gerente de proyecto y de producto."
     },
     "disparador": {
      "estado": "borrador"
@@ -16684,7 +16684,7 @@ window.MANUAL_CONTENIDO = {
       "E-09",
       "E-04"
      ],
-     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan. Hoy el director de proyectos cumple además funciones de gerente de proyecto y de producto."
+     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan. Hoy el/la Director(a) de Proyectos (PMO) cumple además funciones de gerente de proyecto y de producto."
     },
     "disparador": {
      "estado": "borrador"
@@ -17592,7 +17592,7 @@ window.MANUAL_CONTENIDO = {
      "dueno": "Director(a) de Proyectos (PMO)",
      "participantes": [
       "Gerente de Proyectos (PMO) — actualizan cada semana sus proyectos en la base y preparan el resumen para cada miembro de la Junta.",
-      "Presidente de Junta Directiva — se reúne cada dos semanas con la dirección de proyectos y recibe los escalamientos.",
+      "Presidente(a) de Junta Directiva — se reúne cada dos semanas con la dirección de proyectos y recibe los escalamientos.",
       "Junta Directiva — sesiona una vez al mes con la oficina de proyectos para revisar el portafolio y decidir."
      ],
      "evidencia": [
@@ -17636,7 +17636,7 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a5",
-       "rol": "Presidente de Junta Directiva",
+       "rol": "Presidente(a) de Junta Directiva",
        "texto": "Revisa cada dos semanas con la dirección de proyectos la situación del portafolio, las necesidades de la oficina y los escalamientos recibidos."
       },
       {
@@ -17649,7 +17649,7 @@ window.MANUAL_CONTENIDO = {
       "carriles": [
        "Gerente de Proyectos (PMO)",
        "Director(a) de Proyectos (PMO)",
-       "Presidente de Junta Directiva",
+       "Presidente(a) de Junta Directiva",
        "Junta Directiva"
       ],
       "nodos": [
@@ -17697,7 +17697,7 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t5",
-        "carril": "Presidente de Junta Directiva",
+        "carril": "Presidente(a) de Junta Directiva",
         "tipo": "tarea",
         "n": "Revisar el portafolio cada dos semanas"
        },
@@ -17788,7 +17788,7 @@ window.MANUAL_CONTENIDO = {
       ],
       [
        "Seguimiento duplicado con la Presidencia",
-       "La asistencia de la Presidencia y la oficina de proyectos seguían los mismos temas sin criterio común.",
+       "El/la Asistente Ejecutivo(a) de la Presidencia y la oficina de proyectos seguían los mismos temas sin criterio común.",
        "Media",
        "Bajo",
        "Criterio acordado: tareas en el registro de la Junta, proyectos en la base del portafolio."
@@ -17847,7 +17847,7 @@ window.MANUAL_CONTENIDO = {
      "dueno": "Director(a) de Proyectos (PMO)",
      "participantes": [
       "Junta Directiva — decide repriorizar o pausar proyectos y aprueba la incorporación de capacidad.",
-      "Gerente de Recursos Humanos — gestiona la incorporación del perfil aprobado."
+      "Gerentes Regionales/Gerentes Corporativos — por la gerencia corporativa de recursos humanos, gestionan la incorporación del perfil aprobado."
      ],
      "evidencia": [
       "E-09",
@@ -17900,15 +17900,15 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a7",
-       "rol": "Gerente de Recursos Humanos",
-       "texto": "Gestiona la búsqueda y la incorporación del perfil aprobado, y coordina su inducción a la metodología y a las herramientas de la oficina de proyectos."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Gestionan, a través de la gerencia corporativa de recursos humanos, la búsqueda y la incorporación del perfil aprobado, y coordinan su inducción a la metodología y a las herramientas de la oficina de proyectos."
       }
      ],
      "diagrama": {
       "carriles": [
        "Director(a) de Proyectos (PMO)",
        "Junta Directiva",
-       "Gerente de Recursos Humanos"
+       "Gerentes Regionales/Gerentes Corporativos"
       ],
       "nodos": [
        {
@@ -17964,13 +17964,13 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t6",
-        "carril": "Gerente de Recursos Humanos",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Incorporar el perfil aprobado"
        },
        {
         "id": "f1",
-        "carril": "Gerente de Recursos Humanos",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "fin",
         "n": "Capacidad ampliada"
        },
@@ -18064,7 +18064,7 @@ window.MANUAL_CONTENIDO = {
       ],
       [
        "Director que ejecuta",
-       "El director de proyectos cumple también funciones de gerente de proyecto y de producto, y le queda poco tiempo para gobernar el portafolio.",
+       "El/la Director(a) de Proyectos (PMO) cumple también funciones de gerente de proyecto y de producto, y le queda poco tiempo para gobernar el portafolio.",
        "Alta",
        "Medio",
        "Liberar la dirección de proyectos con capacidad adicional."
@@ -18410,7 +18410,7 @@ window.MANUAL_CONTENIDO = {
      "Gerente de Tecnología / Sistemas",
      "Coordinador(a) de Sistemas",
      "Gerente de Proyectos (PMO)",
-     "Gerente de Recursos Humanos (Formación y Desarrollo)",
+     "Gerentes Regionales/Gerentes Corporativos",
      "Gerentes de primera línea",
      "Junta Directiva"
     ]
@@ -18431,8 +18431,8 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "Procesos",
-      "Gerente de Recursos Humanos (Formación y Desarrollo)",
-      "Conduce la formación en competencias digitales dentro de la universidad corporativa."
+      "Gerentes Regionales/Gerentes Corporativos",
+      "Conducen, a través de la gerencia corporativa de recursos humanos en su función de formación y desarrollo, la formación en competencias digitales dentro de la universidad corporativa."
      ],
      [
       "Grupo",
@@ -18457,7 +18457,7 @@ window.MANUAL_CONTENIDO = {
       "Deltadir SAS",
       "Colombia",
       "Operación propia",
-      "Base de la líder regional de formación y desarrollo."
+      "Base de la función regional de formación y desarrollo."
      ]
     ],
     "sistemas": [
@@ -18545,11 +18545,11 @@ window.MANUAL_CONTENIDO = {
       "A la Junta cuando requiere presupuesto."
      ],
      [
-      "Gerente de Recursos Humanos (Formación y Desarrollo)",
+      "Gerentes Regionales/Gerentes Corporativos",
       "Regional",
-      "Detecta necesidades, ejecuta las cohortes y mide la adopción.",
+      "Por la gerencia corporativa de recursos humanos en su función de formación y desarrollo, detectan necesidades, ejecutan las cohortes y miden la adopción.",
       "Contenidos y calendario de formación.",
-      "A la gerencia de Recursos Humanos."
+      "A la Presidencia y a la Junta Directiva."
      ],
      [
       "Gerentes de primera línea",
@@ -18687,7 +18687,7 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "5.3 Formación en competencias digitales y de IA",
-      "Gerente de Recursos Humanos (Formación y Desarrollo)",
+      "Gerentes Regionales/Gerentes Corporativos",
       "Junta Directiva",
       "Gerentes de primera línea · Gerente de Tecnología / Sistemas",
       "Colaboradores formados"
@@ -18716,7 +18716,7 @@ window.MANUAL_CONTENIDO = {
       "Momentum",
       "Universidad corporativa",
       "5.3",
-      "Gerente de Recursos Humanos (Formación y Desarrollo)"
+      "Gerentes Regionales/Gerentes Corporativos"
      ]
     ],
     "interfaces_detalle": [
@@ -19437,7 +19437,7 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+     "dueno": "Gerentes Regionales/Gerentes Corporativos",
      "participantes": [
       "Gerentes de primera línea — validan la pertinencia y proponen a quienes van a usar la herramienta con los datos de su área.",
       "Gerente de Tecnología / Sistemas — deja listas las licencias y los accesos antes de cada cohorte.",
@@ -19472,8 +19472,8 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
-       "texto": "Detecta con los líderes de área las necesidades de formación en inteligencia artificial por rol, con una línea base de lo que cada persona sabe hacer y de lo que su puesto le exige."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Detectan con los líderes de área, a través de la gerencia corporativa de recursos humanos en su función de formación y desarrollo, las necesidades de formación en inteligencia artificial por rol, con una línea base de lo que cada puesto exige."
       },
       {
        "id": "a2",
@@ -19487,13 +19487,13 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a4",
-       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
-       "texto": "Ejecuta la cohorte en la universidad corporativa por niveles —Junta y comités, gerencias, multiplicadores—, con práctica sobre datos propios y la política de uso del grupo como contenido obligatorio."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Ejecutan la cohorte en la universidad corporativa por niveles —Junta y comités, gerencias, multiplicadores—, con práctica sobre datos propios y la política de uso del grupo como contenido obligatorio."
       },
       {
        "id": "a5",
-       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
-       "texto": "Mide entre treinta y sesenta días después el uso real de la licencia y los casos de uso que cada graduado aplica, con una encuesta y los datos de uso de la herramienta."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Miden entre treinta y sesenta días después el uso real de la licencia y los casos de uso que cada graduado aplica, con una encuesta y los datos de uso de la herramienta."
       },
       {
        "id": "a6",
@@ -19502,8 +19502,8 @@ window.MANUAL_CONTENIDO = {
       },
       {
        "id": "a7",
-       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
-       "texto": "Certifica a quienes sostienen el uso y designa como multiplicadores a los que pueden formar a sus equipos, para que la adopción se extienda sin depender de talleres externos."
+       "rol": "Gerentes Regionales/Gerentes Corporativos",
+       "texto": "Certifican a quienes sostienen el uso y designan como multiplicadores a los que pueden formar a sus equipos, para que la adopción se extienda sin depender de talleres externos."
       },
       {
        "id": "a8",
@@ -19513,7 +19513,7 @@ window.MANUAL_CONTENIDO = {
      ],
      "diagrama": {
       "carriles": [
-       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "Gerentes Regionales/Gerentes Corporativos",
        "Gerentes de primera línea",
        "Gerente de Tecnología / Sistemas",
        "Junta Directiva"
@@ -19521,13 +19521,13 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {
         "id": "i",
-        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "inicio",
         "n": "Nueva cohorte o ingreso a un puesto que lo requiere"
        },
        {
         "id": "t1",
-        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Detectar necesidades por rol"
        },
@@ -19545,7 +19545,7 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t4",
-        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Ejecutar la cohorte por niveles",
         "sistemas": [
@@ -19554,13 +19554,13 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t5",
-        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Medir el uso real a 30–60 días"
        },
        {
         "id": "d1",
-        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "decision",
         "n": "¿El uso se sostiene?"
        },
@@ -19572,7 +19572,7 @@ window.MANUAL_CONTENIDO = {
        },
        {
         "id": "t7",
-        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "carril": "Gerentes Regionales/Gerentes Corporativos",
         "tipo": "tarea",
         "n": "Certificar y designar multiplicadores",
         "sistemas": [
@@ -19701,7 +19701,7 @@ window.MANUAL_CONTENIDO = {
        "Uso sostenido tras la formación",
        "Graduados con uso activo de la licencia a 60 días ÷ graduados de la cohorte",
        "Por cohorte",
-       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "Gerentes Regionales/Gerentes Corporativos",
        "≥ 80 %"
       ],
       [
@@ -19715,14 +19715,14 @@ window.MANUAL_CONTENIDO = {
        "Multiplicadores certificados",
        "Multiplicadores certificados por área",
        "Semestral",
-       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "Gerentes Regionales/Gerentes Corporativos",
        "≥ 1 por área"
       ],
       [
        "Casos de uso aplicados",
        "Graduados que reportan al menos un caso de uso aplicado ÷ graduados",
        "Por cohorte",
-       "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "Gerentes Regionales/Gerentes Corporativos",
        "≥ 70 %"
       ]
      ]
