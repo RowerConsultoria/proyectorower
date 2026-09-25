@@ -19858,7 +19858,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe la confirmación de la fecha de ingreso acordada al cierre de la contratación y prepara la agenda del primer día del colaborador, coordinando con el gerente del área receptora la hora de llegada."},
       {"id": "a2", "rol": "Coordinador(a) de Sistemas", "texto": "Prepara antes del ingreso los accesos y el equipo del colaborador —correo, usuario en Lark y en Odoo si aplica, computador— a partir de la solicitud que le traslada Recursos Humanos."},
       {"id": "a3", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe al colaborador el primer día, le asigna estacionamiento cuando aplica y le da la bienvenida institucional."},
-      {"id": "a4", "rol": "Gerente de Recursos Humanos", "texto": "Explica la cultura organizacional y las normas de convivencia, y hace entrega por correo del código de cultura, el reglamento interno y la descripción del cargo."},
+      {"id": "a4", "rol": "Gerente / Coordinador(a) de Recursos Humanos", "texto": "Explica la cultura organizacional y las normas de convivencia, y hace entrega por correo del código de cultura, el reglamento interno y la descripción del cargo. Lo hace la Gerencia o la Coordinación de Recursos Humanos según el nivel del cargo que ingresa."},
       {"id": "a5", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Hace firmar los documentos de ingreso —formulario de datos personales y contrato de trabajo—, toma la foto para el carné y para el registro del reloj de marcación y, en el caso de tienda, le entrega el uniforme."},
       {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Envía por correo a toda la organización la presentación del colaborador que ingresa, con su nombre, su cargo y su área."},
       {"id": "a7", "rol": "gerente del área receptora", "texto": "Presenta al colaborador al equipo de trabajo y le entrega la descripción de su cargo, su puesto de trabajo y los insumos de oficina."},
@@ -19870,13 +19870,13 @@ window.MANUAL_CONTENIDO = {
       {"id": "a13", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Una vez superado el periodo de prueba, tramita la apertura de la cuenta bancaria de nómina del colaborador y su incorporación definitiva a la planilla, cerrando el proceso de incorporación."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Recursos Humanos", "Coordinador(a) de Sistemas", "Gerente de Recursos Humanos", "gerente del área receptora", "Gerente de Recursos Humanos (Formación y Desarrollo)"],
+      "carriles": ["Coordinador(a) de Recursos Humanos", "Coordinador(a) de Sistemas", "Gerente / Coordinador(a) de Recursos Humanos", "Gerente de Recursos Humanos", "gerente del área receptora", "Gerente de Recursos Humanos (Formación y Desarrollo)"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Fecha de ingreso confirmada"},
        {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Preparar la agenda del primer día"},
        {"id": "n2", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Preparar accesos y equipo", "sistemas": ["Lark", "Odoo"]},
        {"id": "n3", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Recibir al colaborador y dar la bienvenida"},
-       {"id": "n4", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Explicar la cultura y entregar los documentos"},
+       {"id": "n4", "carril": "Gerente / Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Explicar la cultura y entregar los documentos"},
        {"id": "n5", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Firmar documentos de ingreso, tomar foto para el carné y entregar el uniforme"},
        {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Anunciar el ingreso a la organización"},
        {"id": "n7", "carril": "gerente del área receptora", "tipo": "tarea", "n": "Presentar al colaborador al equipo y entregar su puesto"},
