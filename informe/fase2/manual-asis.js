@@ -7427,5 +7427,3469 @@ window.MANUAL_ASIS = {
     }
    }
   }
+ },
+ "10": {
+  "procesos": {
+   "10.1": {
+    "nota_version": "Versión As-Is: describe cómo se fija hoy la meta del canal web y cómo se reparte la pauta digital, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La fijación de la meta anual de venta web, su comunicación y el seguimiento de la inversión en pauta digital. La planificación de las temporadas altas va en 10.15 y la reportería de cierre de mes en 10.16.",
+     "texto": "El canal web no tiene un forecast propio. En la junta de socios de enero se fija el foco del año —en 2026, crecer el e-commerce en Estados Unidos y en el resto de los países—, y la meta anual la baja la Gerencia de Ventas Internacional como **la venta del año anterior más un 10 %**. Es una meta **grupal**, del departamento: no se desglosa por canal (web, Cashea, Mercado Libre, WhatsApp, venta corporativa) ni por persona, y en Venezuela se calculó solo sobre Shopify y Cashea, sin contar la venta por WhatsApp ni la corporativa que el equipo sumó después.\n\nLa estrategia se bajó solo al departamento de e-commerce, aunque la ejecutan también logística, mercadeo y sistemas. Hasta septiembre de 2026 la Gerencia de Ventas Internacional seguía el canal país por país, sin una cabeza regional; esa gerencia regional de e-commerce se acaba de crear y está en su primer mes.\n\nLa pauta digital sí tiene seguimiento: la Gerencia de Paid Media regional lleva el presupuesto de inversión y se reúne cada semana con la Gerencia de Ventas Web de Venezuela para ver cuánto se vendió contra cuánto se invirtió. En Estados Unidos el cálculo se hace sobre la venta del año anterior y, desde hace dos meses, con una herramienta de proyección de inventario que dio la agencia de Amazon; quien lo lleva reconoce que hoy se mira «muy por encima»."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Internacional",
+     "participantes": [
+      "Socios (junta de enero) — fijan el foco del año para el canal online dentro de la planificación anual del grupo.",
+      "Gerente de Ventas Internacional — fija la meta anual del canal (año anterior + 10 %) y recibe los resultados de cierre de mes. Hasta la creación de la gerencia regional de e-commerce, supervisaba el canal país por país.",
+      "Gerente de Ventas Web (Venezuela) — recibe la meta grupal, registra lo vendido y el presupuesto en un archivo de Lark y hace el seguimiento semanal de la pauta.",
+      "Gerente de Paid Media y Performance (regional) — lleva el presupuesto de pauta digital de los países y cruza semanalmente inversión contra venta con cada país.",
+      "Responsable de Operación y Administración (Kenex USA, sin cargo formal) — proyecta la compra y la venta de Amazon sobre el año anterior y la herramienta de la agencia."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-05",
+      "E-08",
+      "E-16",
+      "E-30",
+      "E-24",
+      "SC-03",
+      "Lark: Manual 03 Reportería y Análisis de Paid Media (regional, borrador jun-2026)"
+     ],
+     "notas": "La meta no distingue canales ni personas: el área tiene una sola cifra de departamento. La gerencia regional de e-commerce se creó en septiembre de 2026 y todavía no consta cómo cambia la fijación de metas.",
+     "sin_evidencia": "No consta que exista un forecast por canal digital ni quién construye el «forecast del mes por país» que el manual de Paid Media usa como insumo. Tampoco consta cómo se fija la meta en Colombia, Panamá o Costa Rica."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La junta de socios de enero fija el foco del año.",
+     "cadencia": "Anual para la meta; seguimiento semanal de la pauta y registro mensual de lo vendido.",
+     "output": "Una meta anual grupal del departamento (año anterior + 10 %), sin desglose por canal ni por persona.",
+     "evidencia": [
+      "E-08",
+      "E-41"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-05",
+      "E-08",
+      "E-16"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Socios (junta de enero)",
+       "texto": "En la junta de enero fijan el foco del año para el canal online (en 2026, crecer en Estados Unidos y en el resto de los países)."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Fija la meta anual del departamento como la venta del año anterior más un 10 %."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "La comunica al departamento de e-commerce de cada país; no se baja a logística, mercadeo ni sistemas."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Reparte la operación del año sin metas por persona: la meta es del departamento."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Paid Media y Performance (regional)",
+       "texto": "Asigna el presupuesto de pauta y revisa cada semana con el país lo vendido contra lo invertido."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Registra mes a mes en un archivo de Lark lo vendido y el presupuesto usado; el cierre pasa a 10.16."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Socios (junta de enero)",
+       "Gerente de Ventas Internacional",
+       "Gerente de Ventas Web (Venezuela)",
+       "Gerente de Paid Media y Performance (regional)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Socios (junta de enero)",
+        "tipo": "inicio",
+        "n": "Junta de socios de enero"
+       },
+       {
+        "id": "n1",
+        "carril": "Socios (junta de enero)",
+        "tipo": "tarea",
+        "n": "Fijar el foco del año para el canal online"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Fijar meta: año anterior + 10 %"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Comunicar la meta al departamento de e-commerce"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Operar con meta grupal, sin metas por persona"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Paid Media y Performance (regional)",
+        "tipo": "tarea",
+        "n": "Asignar pauta y revisar venta contra inversión",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Registrar lo vendido y el presupuesto del mes",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "fin",
+        "n": "Cierre de mes (pasa a 10.16)"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "10.2": {
+    "nota_version": "Versión As-Is: describe cómo se entra hoy a un marketplace nuevo y cómo se abre una web propia en un país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La entrada a un marketplace nuevo (postulación, listings, conexión bancaria y con Shopify, atención al cliente del canal) y la apertura de una web propia en un país nuevo. La operación diaria de cada canal va en 10.3, 10.4 y 10.5.",
+     "texto": "Entrar a un canal nuevo no tiene un procedimiento común; lo hace **quien lleva el canal en cada país**. En Estados Unidos lo lleva de principio a fin quien dirige la operación de Kenex USA: postula al marketplace, espera la aceptación, sube uno por uno todos los listings —cada plataforma pide características distintas, «no es que tienes un Excel y lo subes»—, conecta la cuenta bancaria, lo engancha a Shopify, que es donde confluyen las ventas, y activa la atención al cliente propia de ese canal. Hoy son quince marketplaces (Amazon, Walmart, Target, Macy's, Nordstrom, Kohl's, Lowe's, JCPenney, TikTok, Whatnot, QVC y otros). No hay sistema EDI: se evaluó y se descartó por costo, así que cada marketplace que no lo exige se opera desde su propio portal.\n\nEn Venezuela la entrada a Cashea y Mercado Libre la llevó la Gerencia de Ventas Web, que es también quien carga el producto en esas dos plataformas. La entrada al marketplace de Yummy se decidió en la presidencia tras la conversación con la plataforma, aunque el área le veía poco retorno; empieza por Cubitt y después seguirá Casio. En Colombia la coordinación de marketplaces busca de forma continua plataformas nuevas (hoy son nueve además de Mercado Libre), conectadas por un agregador integrado a Odoo. Panamá no opera marketplaces.\n\nAbrir una web propia sí sigue una secuencia repetida: Mercadeo lo pide por un formulario de Lark, Sistemas compra el dominio y crea la tienda dentro de Shopify, y un desarrollador hace el diseño y la carga del catálogo antes de las pruebas y el lanzamiento. Guatemala acaba de abrir la suya, y Honduras y El Salvador están en curso."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño único: el responsable del canal en cada país (Kenex USA, Gerencia de Ventas Web en Venezuela, coordinación de marketplaces en Colombia)",
+     "participantes": [
+      "Responsable de Operación y Administración (Kenex USA, sin cargo formal) — hace toda la entrada a los marketplaces de Estados Unidos, desde la postulación hasta la operación.",
+      "Gerente de Ventas Web (Venezuela) — llevó la entrada a Cashea y Mercado Libre y carga el producto en ambos.",
+      "Coordinadora de Marketplaces (Colombia) — busca y abre plataformas nuevas para Cubitt.",
+      "Presidente — decidió la entrada al marketplace de Yummy en Venezuela.",
+      "Mercadeo (país) — pide la apertura de una web propia por el formulario de Lark (antes lo pedía la junta directiva).",
+      "Web Master (Sistemas) — compra el dominio, crea la tienda en Shopify y la agrega a la organización.",
+      "Desarrollador web / Asistente de E-commerce — hace el diseño, la carga de inventario y la configuración de la tienda nueva."
+     ],
+     "evidencia": [
+      "E-30",
+      "E-06 pt.1",
+      "E-41",
+      "E-16",
+      "E-56",
+      "E-11",
+      "E-07",
+      "E-52",
+      "E-58",
+      "E-22"
+     ],
+     "notas": "Cada país abre sus canales por su cuenta y no consta un criterio común para decidir la entrada (volumen esperado, costo, capacidad de atenderlo).",
+     "sin_evidencia": "No consta cómo se decidió entrar a cada uno de los quince marketplaces de Estados Unidos ni quién lo aprueba; tampoco cómo se entra a un marketplace en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se decide entrar a un marketplace o abrir la web de un país nuevo.",
+     "cadencia": "Por evento.",
+     "output": "Canal operativo, con listings publicados, cuenta bancaria y Shopify conectados y atención al cliente activa; o tienda web del país lanzada.",
+     "evidencia": [
+      "E-30",
+      "E-52"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-30",
+      "E-06 pt.1",
+      "E-52",
+      "E-41"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable del canal (Kenex USA o Ventas Web)",
+       "texto": "Recibe la decisión de abrir un canal y distingue si es un marketplace o una web propia."
+      },
+      {
+       "id": "a2",
+       "rol": "Responsable del canal (Kenex USA o Ventas Web)",
+       "texto": "Si es un marketplace, postula y espera la aceptación de la plataforma."
+      },
+      {
+       "id": "a3",
+       "rol": "Responsable del canal (Kenex USA o Ventas Web)",
+       "texto": "Sube los listings de todos los productos con los requisitos propios de esa plataforma."
+      },
+      {
+       "id": "a4",
+       "rol": "Responsable del canal (Kenex USA o Ventas Web)",
+       "texto": "Conecta la cuenta bancaria y engancha el canal a Shopify."
+      },
+      {
+       "id": "a5",
+       "rol": "Responsable del canal (Kenex USA o Ventas Web)",
+       "texto": "Activa la atención al cliente del canal y queda operativo."
+      },
+      {
+       "id": "a6",
+       "rol": "Mercadeo (país)",
+       "texto": "Si es una web propia, pide la apertura por el formulario de Lark."
+      },
+      {
+       "id": "a7",
+       "rol": "Web Master (Sistemas)",
+       "texto": "Compra el dominio y crea la tienda nueva dentro de Shopify."
+      },
+      {
+       "id": "a8",
+       "rol": "Desarrollador web / Asistente de E-commerce",
+       "texto": "Hace el diseño, carga el catálogo y el inventario, prueba y lanza la tienda."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable del canal (Kenex USA o Ventas Web)",
+       "Mercadeo (país)",
+       "Web Master (Sistemas)",
+       "Desarrollador web / Asistente de E-commerce"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "inicio",
+        "n": "Se decide abrir un canal"
+       },
+       {
+        "id": "n1",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Marketplace o web propia?"
+       },
+       {
+        "id": "n2",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "tarea",
+        "n": "Postular y esperar aceptación"
+       },
+       {
+        "id": "n3",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "tarea",
+        "n": "Subir listings con los requisitos del canal"
+       },
+       {
+        "id": "n4",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "tarea",
+        "n": "Conectar cuenta bancaria y Shopify",
+        "sistemas": [
+         "Shopify"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "tarea",
+        "n": "Activar la atención al cliente del canal"
+       },
+       {
+        "id": "n6",
+        "carril": "Responsable del canal (Kenex USA o Ventas Web)",
+        "tipo": "fin",
+        "n": "Marketplace operativo"
+       },
+       {
+        "id": "n7",
+        "carril": "Mercadeo (país)",
+        "tipo": "tarea",
+        "n": "Pedir la web por formulario",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Web Master (Sistemas)",
+        "tipo": "tarea",
+        "n": "Comprar dominio y crear la tienda",
+        "sistemas": [
+         "Shopify"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Desarrollador web / Asistente de E-commerce",
+        "tipo": "tarea",
+        "n": "Diseñar, cargar catálogo y probar",
+        "sistemas": [
+         "Shopify"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Desarrollador web / Asistente de E-commerce",
+        "tipo": "fin",
+        "n": "Web del país lanzada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Marketplace"
+       },
+       {
+        "de": "n1",
+        "a": "n7",
+        "etq": "Web propia"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "10.3": {
+    "nota_version": "Versión As-Is: describe cómo se mantienen hoy las webs propias en Shopify —producto, precio, promociones y medios de pago—, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La publicación de producto, precio y promociones en las webs propias de Casio y Cubitt por país, y la puesta en marcha de medios de pago y envíos en ellas. El montaje del pedido que entra por la web va en 10.7.",
+     "texto": "Todas las webs propias están en **Shopify**, una por marca y por país, y comparten plantilla y contenido: cambia el precio, no la página. Odoo sincroniza la existencia y el precio hacia la web y de la web bajan las órdenes. El producto nace en el Odoo de Panamá, que hace de matriz del catálogo, y un proceso automático lo replica en el de Venezuela; crearlo a mano en Venezuela es posible y ya ha roto códigos.\n\nLa carga en las webs la hace **una sola persona de e-commerce que trabaja en remoto** y atiende, entre otras, las webs de Venezuela y Colombia: sube el producto de forma masiva y activa las promociones que Mercadeo le notifica. El aviso de que algo ya se puede publicar no tiene un circuito: en Venezuela la Gerencia de Ventas Web se entera casi siempre cuando el producto ya está en el almacén, avisa a quien carga las webs y le consulta a Mercadeo si hay un lanzamiento previsto. Mercadeo reconoce que no está claro **quién responde de que un producto que ya está en bodega aparezca activo en la web**. Los banners los produce Mercadeo y se replican en todas las tiendas online de todos los países. En Colombia la cadena es Mercadeo → la administración crea el código en Odoo → quien carga las webs lo enlaza en Shopify.\n\nEn Venezuela la web de Cubitt dejó de ser un catálogo que se cerraba por WhatsApp: desde mediados de 2026 el cliente paga en la propia web (pago móvil, débito inmediato y tarjetas, validados por el banco), con el botón de Cashea y con las guías de MRW y Zoom generadas por la integración. En la web de Casio faltaba migrar esos cambios. En Estados Unidos quien dirige la operación mantiene personalmente inventario, reglas de envío y ajustes de Shopify, y desde agosto una agencia se encarga del diseño."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Asistente de E-commerce (carga de las webs)",
+     "participantes": [
+      "Asistente de E-commerce (carga de las webs) — carga de forma masiva el producto en todas las webs y activa las promociones que le notifica Mercadeo.",
+      "Responsable del canal (país) — en Venezuela, la Gerencia de Ventas Web; en Colombia, la coordinación de mercadeo. Avisa que el producto llegó y pide que se publique.",
+      "Gerente de Mercadeo (país) — produce los banners y las campañas, decide si hay lanzamiento y notifica las promociones que deben estar activas.",
+      "Web Master (Sistemas, Panamá) — administra Shopify a nivel de sistemas y las integraciones con Odoo, a través de la Gerencia de Sistemas.",
+      "Responsable de Operación y Administración (Kenex USA, sin cargo formal) — mantiene inventario, reglas de envío y ajustes de la web de Estados Unidos."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-07",
+      "E-32",
+      "E-16",
+      "E-42",
+      "E-56",
+      "E-04",
+      "E-41",
+      "E-30",
+      "E-52",
+      "E-15"
+     ],
+     "notas": "Quien carga las webs depende de que alguien le avise; ninguna regla dice quién debe hacerlo ni en qué plazo desde que el producto llega.",
+     "sin_evidencia": "No consta quién crea el producto en el Odoo de Panamá ni cómo se ajustan los precios de la web cuando cambian en tienda."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llega un producto nuevo, cambia un precio o Mercadeo lanza una promoción.",
+     "cadencia": "Continua; se concentra en la llegada de contenedores y en las fechas promocionales.",
+     "output": "Producto publicado y promociones activas en la web; precio y existencia sincronizados desde Odoo.",
+     "evidencia": [
+      "E-16",
+      "E-42"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-16",
+      "E-42",
+      "E-56",
+      "E-07"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable del canal (país)",
+       "texto": "Se entera de que el producto llegó —casi siempre cuando ya está en el almacén— y avisa a quien carga las webs."
+      },
+      {
+       "id": "a2",
+       "rol": "Responsable del canal (país)",
+       "texto": "Le consulta a Mercadeo si hay un lanzamiento o una campaña prevista para ese producto."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Mercadeo (país)",
+       "texto": "Si hay campaña, indica la fecha y prepara el banner; si no, autoriza publicar."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente de E-commerce (carga de las webs)",
+       "texto": "Carga el producto de forma masiva en Shopify; el precio y la existencia llegan sincronizados desde Odoo."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente de E-commerce (carga de las webs)",
+       "texto": "Activa en la fecha indicada las promociones y los banners que le notifica Mercadeo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable del canal (país)",
+       "Gerente de Mercadeo (país)",
+       "Asistente de E-commerce (carga de las webs)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable del canal (país)",
+        "tipo": "inicio",
+        "n": "Llega un producto nuevo"
+       },
+       {
+        "id": "n1",
+        "carril": "Responsable del canal (país)",
+        "tipo": "tarea",
+        "n": "Avisar para publicar y consultar a Mercadeo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Mercadeo (país)",
+        "tipo": "decision",
+        "n": "¿Hay lanzamiento previsto?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Mercadeo (país)",
+        "tipo": "tarea",
+        "n": "Fijar fecha y preparar banner"
+       },
+       {
+        "id": "n4",
+        "carril": "Asistente de E-commerce (carga de las webs)",
+        "tipo": "tarea",
+        "n": "Cargar el producto en Shopify",
+        "sistemas": [
+         "Shopify",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Asistente de E-commerce (carga de las webs)",
+        "tipo": "tarea",
+        "n": "Activar promoción y banner en la fecha",
+        "sistemas": [
+         "Shopify"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Asistente de E-commerce (carga de las webs)",
+        "tipo": "fin",
+        "n": "Producto visible en la web"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "10.4": {
+    "nota_version": "Versión As-Is: describe cómo se operan hoy los marketplaces de Latinoamérica —sobre todo Cashea en Venezuela—, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La recepción y depuración diaria de las órdenes de Cashea, la atención de Mercado Libre y la operación de marketplaces en Colombia. El montaje del pedido en Odoo va en 10.7 y la conciliación de lo que paga Cashea, en 10.8.",
+     "texto": "En Venezuela **Cashea es el canal**: alrededor del 80 % de la venta web pasa por ahí —2.900 de las 5.063 órdenes de julio de 2026—, con 120 a 130 órdenes diarias de Cashea en meses normales; en diciembre de 2025 el canal llegó a 350 órdenes al día. La integración hace llegar todas las órdenes a Odoo, pero **también las canceladas y los simples intentos de compra**, y sin los datos completos del cliente (ni teléfono ni correo). Por eso no se puede trabajar desde Odoo: una persona dedicada extrae cada día las ventas del portal de Cashea, las anota en un registro de Excel por marca, las cruza contra lo que llegó a Odoo para quedarse con lo que «realmente es trabajable», elimina lo cancelado, completa a mano los datos del cliente —que además pide Mercadeo para sus campañas— y le escribe al cliente para confirmarle el pedido. Cashea tiene previsto enviar solo lo pagado y con los datos completos a finales de septiembre de 2026; a la fecha de la entrevista seguía llegando todo.\n\nLa presencia en Cashea también se paga: la Gerencia de Ventas Web compra espacios de publicidad en la plataforma y participa en sus promociones (la «cosecha», el 0 % de inicial), que son las que disparan los picos. Las condiciones de pago de Cashea que afectan el ingreso a caja, como la inicial, las decide la presidencia.\n\nMercado Libre vende poco: lo lleva uno de los asesores, que responde cada día las preguntas de preventa de las dos marcas, cuida que la reputación siga en verde y califica las ventas que no se concretan para que no cobren comisión. En Colombia, la coordinación de marketplaces opera nueve plataformas además de Mercado Libre, conectadas por un agregador integrado a Odoo. Panamá no tiene marketplaces."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Web (Venezuela)",
+     "participantes": [
+      "Gestor(a) de Pedidos Cashea — formalmente Asesor(a) de Ventas Web. Extrae, depura y confirma cada día las órdenes de Cashea y le escribe al cliente. Apareció porque la persona que atendía Cashea no podía responder chats y montar órdenes a la vez.",
+      "Asesor(a) de Ventas Web (Mercado Libre) — atiende las preguntas de preventa de Mercado Libre de las dos marcas, cuida la reputación y califica las ventas no concretadas.",
+      "Gerente de Ventas Web (Venezuela) — compra la publicidad en Cashea y decide la participación en sus promociones.",
+      "Presidente — decide las condiciones de Cashea que afectan la caja, como la inicial.",
+      "Coordinadora de Marketplaces (Colombia) — opera los marketplaces de Colombia."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-58",
+      "E-56",
+      "E-07",
+      "E-11",
+      "Lark: Procesos Activos (e-commerce, VE)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "El registro de Excel existe porque la integración con Cashea trae ruido: la depuración es trabajo manual de una persona a tiempo completo.",
+     "sin_evidencia": "No consta cómo se operan en el día a día los marketplaces de Colombia ni quién responde allí las preguntas de preventa."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Entran órdenes nuevas en Cashea o preguntas en Mercado Libre.",
+     "cadencia": "Diaria; todo lo aprobado debe quedar procesado al final de la jornada.",
+     "output": "Órdenes de Cashea depuradas, con datos completos y confirmadas en Odoo; preguntas de Mercado Libre respondidas.",
+     "evidencia": [
+      "E-41",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)",
+      "Lark: Procesos Activos (e-commerce, VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "Extrae del portal de Cashea las ventas del día y las anota en el registro de Excel de la marca."
+      },
+      {
+       "id": "a2",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "Las cruza contra las órdenes que la integración dejó en Odoo."
+      },
+      {
+       "id": "a3",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "Elimina de Odoo las órdenes canceladas, rechazadas o con errores."
+      },
+      {
+       "id": "a4",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "En las vigentes, completa a mano los datos del cliente y confirma la orden; el montaje sigue en 10.7."
+      },
+      {
+       "id": "a5",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "Le escribe al cliente por WhatsApp para confirmarle el pedido y el tiempo de despacho."
+      },
+      {
+       "id": "a6",
+       "rol": "Asesor(a) de Ventas Web (Mercado Libre)",
+       "texto": "En Mercado Libre, responde las preguntas de preventa de las dos marcas."
+      },
+      {
+       "id": "a7",
+       "rol": "Asesor(a) de Ventas Web (Mercado Libre)",
+       "texto": "Califica las ventas que no se concretaron para que la plataforma no cobre comisión."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gestor(a) de Pedidos Cashea",
+       "Asesor(a) de Ventas Web (Mercado Libre)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "inicio",
+        "n": "Entran órdenes o preguntas"
+       },
+       {
+        "id": "n1",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "decision",
+        "n": "¿Qué marketplace?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Extraer ventas del portal a Excel",
+        "sistemas": [
+         "Cashea",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Cruzar contra lo que llegó a Odoo",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "decision",
+        "n": "¿Orden vigente?"
+       },
+       {
+        "id": "n5",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Eliminar la orden de Odoo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "fin",
+        "n": "Orden descartada"
+       },
+       {
+        "id": "n7",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Completar datos y confirmar la orden",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Confirmar el pedido al cliente",
+        "sistemas": [
+         "WhatsApp",
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "fin",
+        "n": "Orden lista para montar (10.7)"
+       },
+       {
+        "id": "n10",
+        "carril": "Asesor(a) de Ventas Web (Mercado Libre)",
+        "tipo": "tarea",
+        "n": "Responder preguntas de preventa",
+        "sistemas": [
+         "Mercado Libre"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Asesor(a) de Ventas Web (Mercado Libre)",
+        "tipo": "tarea",
+        "n": "Calificar ventas no concretadas",
+        "sistemas": [
+         "Mercado Libre"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Asesor(a) de Ventas Web (Mercado Libre)",
+        "tipo": "fin",
+        "n": "Tienda al día"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Cashea"
+       },
+       {
+        "de": "n1",
+        "a": "n10",
+        "etq": "Mercado Libre"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "10.5": {
+    "nota_version": "Versión As-Is: describe cómo se operan hoy los marketplaces de Estados Unidos, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La operación diaria de los quince marketplaces de Kenex USA, donde solo se vende Cubitt: órdenes, envío de inventario a Amazon, inventario por canal y conciliación de pagos. Las devoluciones van en 10.14 y la atención al cliente, en 10.13.",
+     "texto": "Kenex USA funciona con **una sola persona que concentra la operación**, sin cargo formal, a cargo de la operación y la administración. Cada mañana revisa las órdenes del día anterior en todos los marketplaces. Las que entran por Shopify el almacén las ve; las de Amazon y Whatnot no, porque el almacén no tiene acceso a esas plataformas, así que las imprime y se las manda. Después responde el servicio al cliente de Amazon, que lleva personalmente desde hace siete años porque solo esa persona y un socio tienen acceso a la cuenta.\n\nSin sistema EDI, cada marketplace se opera desde su propio portal, con su usuario y sus reglas; en los que no se integran, órdenes y guías se descargan a mano cada día. Amazon se abastece desde el almacén de Miami varias veces por semana, y una agencia contratada hace dos meses lleva la publicidad y avisa cuándo el inventario en Amazon no va a alcanzar. Cuando un producto se agota, lo pone en cero en todos los marketplaces uno por uno. Whatnot, la plataforma de subastas en vivo, suma dos o tres transmisiones por semana, con sus mensajes y sus órdenes.\n\nLa conciliación de los pagos de cada marketplace la hace desde hace dos meses un asistente administrativo remoto; para algunos canales ya tiene acceso y para otros todavía depende de que le pasen los reportes. En la contabilidad, la venta que llega por Shopify se registra **a nombre del cliente final y no del marketplace**, de modo que no se puede saber cuánto vende cada canal. Un pasante está programando etiquetas para corregirlo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Responsable de Operación y Administración (Kenex USA)",
+     "participantes": [
+      "Responsable de Operación y Administración (Kenex USA) — sin cargo formal. Revisa las órdenes de todos los marketplaces, imprime las de Amazon y Whatnot, atiende el servicio al cliente de Amazon, mantiene el inventario por canal y pasa los reportes para conciliar.",
+      "Personal de almacén (Miami) — dos personas. Imprimen, preparan y despachan las órdenes y arman los envíos de inventario a Amazon.",
+      "Asistente administrativo y contable (Kenex USA, remoto) — concilia los pagos de los marketplaces desde hace dos meses.",
+      "Director de Compras de Marca Propia (socio) — tiene el otro acceso a la cuenta de Amazon y llevaba la publicidad antes de la agencia.",
+      "Agencia de Amazon (externa) — lleva la publicidad y recomienda cuándo reponer el inventario en Amazon."
+     ],
+     "evidencia": [
+      "E-30",
+      "E-06 pt.1",
+      "E-01"
+     ],
+     "notas": "Todo el conocimiento de la operación de marketplaces está en una persona, que además señala como delegables la impresión de órdenes y el servicio al cliente de Amazon.",
+     "sin_evidencia": "No consta cuánto vende cada marketplace ni si alguien revisa la rentabilidad por canal."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El inicio de cada jornada, con las órdenes que entraron el día anterior.",
+     "cadencia": "Diaria; envíos de inventario a Amazon varias veces por semana; subastas de Whatnot dos o tres veces por semana.",
+     "output": "Órdenes enviadas al almacén, Amazon abastecido, inventario al día en cada marketplace y pagos conciliados.",
+     "evidencia": [
+      "E-30"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-30",
+      "E-06 pt.1"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable de Operación y Administración (Kenex USA)",
+       "texto": "Al llegar, revisa las órdenes del día anterior en todos los marketplaces."
+      },
+      {
+       "id": "a2",
+       "rol": "Responsable de Operación y Administración (Kenex USA)",
+       "texto": "Las de Amazon y Whatnot las imprime y se las manda al almacén, que no tiene acceso a esas plataformas."
+      },
+      {
+       "id": "a3",
+       "rol": "Personal de almacén (Miami)",
+       "texto": "Imprime las órdenes que entran por Shopify, prepara y despacha todas (10.9 y 10.11)."
+      },
+      {
+       "id": "a4",
+       "rol": "Responsable de Operación y Administración (Kenex USA)",
+       "texto": "Revisa el inventario en Amazon y, si hace falta, pide al almacén un envío."
+      },
+      {
+       "id": "a5",
+       "rol": "Personal de almacén (Miami)",
+       "texto": "Arma el envío de inventario a Amazon con las cajas tal como llegan de fábrica."
+      },
+      {
+       "id": "a6",
+       "rol": "Responsable de Operación y Administración (Kenex USA)",
+       "texto": "Pone en cero en todos los marketplaces lo que se agotó."
+      },
+      {
+       "id": "a7",
+       "rol": "Asistente administrativo y contable (Kenex USA, remoto)",
+       "texto": "Concilia los pagos de cada marketplace; los reportes que no puede descargar se los pasa la responsable de la operación."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable de Operación y Administración (Kenex USA)",
+       "Personal de almacén (Miami)",
+       "Asistente administrativo y contable (Kenex USA, remoto)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable de Operación y Administración (Kenex USA)",
+        "tipo": "inicio",
+        "n": "Inicio de jornada"
+       },
+       {
+        "id": "n1",
+        "carril": "Responsable de Operación y Administración (Kenex USA)",
+        "tipo": "tarea",
+        "n": "Revisar órdenes de todos los marketplaces"
+       },
+       {
+        "id": "n2",
+        "carril": "Responsable de Operación y Administración (Kenex USA)",
+        "tipo": "decision",
+        "n": "¿Entró por Shopify?"
+       },
+       {
+        "id": "n3",
+        "carril": "Responsable de Operación y Administración (Kenex USA)",
+        "tipo": "tarea",
+        "n": "Imprimir y mandar órdenes al almacén",
+        "sistemas": [
+         "Amazon",
+         "Whatnot"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Personal de almacén (Miami)",
+        "tipo": "tarea",
+        "n": "Preparar y despachar las órdenes",
+        "sistemas": [
+         "Shopify"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Responsable de Operación y Administración (Kenex USA)",
+        "tipo": "decision",
+        "n": "¿Falta inventario en Amazon?"
+       },
+       {
+        "id": "n6",
+        "carril": "Personal de almacén (Miami)",
+        "tipo": "tarea",
+        "n": "Armar el envío a Amazon"
+       },
+       {
+        "id": "n7",
+        "carril": "Responsable de Operación y Administración (Kenex USA)",
+        "tipo": "tarea",
+        "n": "Poner en cero lo agotado en cada canal"
+       },
+       {
+        "id": "n8",
+        "carril": "Asistente administrativo y contable (Kenex USA, remoto)",
+        "tipo": "tarea",
+        "n": "Conciliar pagos por marketplace",
+        "sistemas": [
+         "QuickBooks"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Asistente administrativo y contable (Kenex USA, remoto)",
+        "tipo": "fin",
+        "n": "Jornada cerrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "10.6": {
+    "nota_version": "Versión As-Is: describe cómo se vende hoy por WhatsApp, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La venta que se cierra en el chat: atención del cliente en Mercately, cotización, montaje directo en Odoo o envío del enlace de Cashea, y validación del pago antes de preparar. La atención de posventa va en 10.13 y la conciliación de pagos, en 10.8.",
+     "texto": "El e-commerce del grupo nació en Panamá, en la pandemia, por WhatsApp, y la venta por chat sigue siendo un canal propio. En Venezuela todo entra por **Mercately**, el CRM de chats: el cliente elige en una botonera si quiere comprar, soporte o Cashea, y el chat cae al asesor que tiene asignado ese canal. Son unos 6.000 chats al mes en Cubitt y 2.000 en Casio, atendidos por seis asesores dedicados. Los asesores responden con mensajes predefinidos y se apoyan en IA generativa por su cuenta para redactar los difíciles, que a veces le pasan a la gerencia antes de enviarlos.\n\nSi el cliente quiere comprar, **no se le redirige a la web**: o se le envía un enlace de Cashea, o el asesor toma los datos y monta el pedido directamente en Odoo. El pago directo (pago móvil o transferencia) no lo valida el asesor ni Contabilidad: el asesor publica el número de pedido en un grupo de Lark llamado «Confirmaciones» y **la Gerencia de Ventas Web entra al banco**, verifica referencia y monto y deja los datos del pago en el mismo grupo; recién entonces el pedido pasa a preparación. En abril de 2026 se vendió más por WhatsApp que por la web de Cubitt. La venta corporativa también pasa por aquí, siempre de contado: lo que se vende a crédito tiene que ir por el mayor.\n\nEn Panamá el asesor cierra la venta en el chat, pero **el pago lo verifica Contabilidad** antes de que se prepare el pedido, con un flujo de aprobación en Lark. En Colombia la venta por WhatsApp la cierra el equipo de servicio al cliente, que depende de la gerencia de Customer Services de Panamá. Se probó responder chats con IA dentro de Mercately y se frenó: la marca decidió que el cliente latinoamericano quiere hablar con una persona."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Web (Venezuela)",
+     "participantes": [
+      "Asesor(a) de Ventas Web — atiende el chat, cotiza, envía el enlace de Cashea o monta el pedido en Odoo y lo pasa a preparación una vez validado el pago.",
+      "Gerente de Ventas Web (Venezuela) — revisa cada mañana que los chats estén asignados y valida en el banco los pagos directos, también en fin de semana.",
+      "Asesor de Ventas Online (Panamá) — cierra la venta en el chat; el pago lo verifica Contabilidad.",
+      "Customer Services Manager (Panamá) — supervisa la atención por chat de Panamá y Colombia y la herramienta Mercately.",
+      "Community manager de Mercadeo — atiende Instagram y Facebook, que no gestiona el equipo de ventas web."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-02",
+      "E-39",
+      "E-56",
+      "E-58",
+      "E-64",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "En Venezuela la persona que dirige la venta es la misma que valida el cobro; en Panamá y Colombia esa validación está en Contabilidad. La gerencia del área reconoce que esa tarea «debería llevarse en contabilidad».",
+     "sin_evidencia": "No consta quién valida en Venezuela los pagos en divisas ni por PayPal: la entrevista menciona a otra persona sin precisar su cargo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente escribe por WhatsApp (desde la web, las redes o directamente).",
+     "cadencia": "Continua, en horario de atención; la validación de pagos se hace varias veces al día.",
+     "output": "Pedido montado en Odoo con el pago validado y enviado a preparación, o cliente redirigido a Cashea.",
+     "evidencia": [
+      "E-41",
+      "E-16"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Atiende el chat que le asigna Mercately y resuelve la preventa: disponibilidad, precio y forma de pago."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si el cliente prefiere Cashea, le envía el enlace; la orden sigue como cualquier orden de Cashea (10.4)."
+      },
+      {
+       "id": "a3",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si paga directo, toma los datos y monta el pedido en Odoo."
+      },
+      {
+       "id": "a4",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Publica el número de pedido en el grupo «Confirmaciones» de Lark."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Entra al banco y verifica referencia y monto contra el pedido."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Si el pago no aparece, le pide al asesor que revise la orden con el cliente."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Si aparece, deja en el grupo la fecha, la referencia y los datos del pago."
+      },
+      {
+       "id": "a8",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Pasa el pedido a preparación en Odoo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asesor(a) de Ventas Web",
+       "Gerente de Ventas Web"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "inicio",
+        "n": "Cliente escribe por WhatsApp"
+       },
+       {
+        "id": "n1",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Atender la preventa",
+        "sistemas": [
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "decision",
+        "n": "¿Paga con Cashea?"
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Enviar enlace de Cashea",
+        "sistemas": [
+         "Cashea"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Orden de Cashea (10.4)"
+       },
+       {
+        "id": "n5",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Montar el pedido en Odoo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Publicar el pedido en «Confirmaciones»",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Verificar referencia y monto en el banco",
+        "sistemas": [
+         "Banca en línea"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "decision",
+        "n": "¿El pago aparece?"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Pedir al asesor que revise la orden",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Pedido detenido hasta aclarar"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Registrar los datos del pago",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Pasar el pedido a preparación",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Pedido en preparación (10.9)"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    }
+   },
+   "10.7": {
+    "nota_version": "Versión As-Is: describe cómo se monta hoy el pedido web en Odoo y cómo llega al almacén, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El montaje del pedido en Odoo, venga de la web, de Cashea, de WhatsApp o de un cliente que retira, hasta la orden de preparación que llega al almacén. La preparación física va en 10.9.",
+     "texto": "En Venezuela todo pedido del canal termina en **Odoo**, que el área usa desde 2026; antes se montaban en el sistema anterior y se imprimían hojas que viajaban al almacén y a la caja, y que se perdían. El pedido de la web llega solo por la integración y lo revisa quien atiende Shopify; el de WhatsApp lo monta a mano el asesor; el de Cashea lo confirma quien depura esas órdenes (10.4). Cada pedido lleva su **origen**, que es lo que permite saber después cuánto vende cada canal.\n\nPara que el almacén se entere hay que darle al pedido la orden de «mandar a preparación» y llenar el campo de instrucciones, que el equipo **homologó sin escribirlo**: «vía Cashea» quiere decir guía de Cashea; «MRW», guía automática; también se indica si va por delivery, si se retira o si el producto va grabado. Con esa orden el pedido aparece en la tableta del almacén web (el WMS). Lo que Odoo no tiene es un panel de despacho: ni el asesor ni la logística pueden ver ahí si el pedido salió, y la dirección del cliente no se carga en los campos de Odoo sino en archivos aparte.\n\nEn Panamá el vendedor ingresa el pedido de Shopify, WhatsApp o venta directa en Odoo una vez que Contabilidad confirma el pago; la lista de empaque se imprime sola en la bodega de Obarrio y el administrador de bodega llena un formulario de control con el almacenista y el vendedor responsables. En Estados Unidos las órdenes de Amazon y Whatnot se imprimen y se entregan al almacén (10.5). Cuando un cliente que compró en la web se presenta en una tienda de Venezuela, la tienda consulta caso por caso con el área de e-commerce si despacha de su propio inventario."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Asesor(a) de Ventas Web",
+     "participantes": [
+      "Asesor(a) de Ventas Web — revisa el pedido que entra por Shopify o monta el de WhatsApp, indica forma de envío e instrucciones y lo manda a preparación.",
+      "Gestor(a) de Pedidos Cashea — confirma en Odoo las órdenes de Cashea ya depuradas y las manda a preparación.",
+      "Gerente de Ventas Web (Venezuela) — definió con el equipo las instrucciones homologadas para el almacén.",
+      "Vendedor y administrador de bodega (Panamá, bodega de Obarrio) — el vendedor ingresa el pedido; el administrador registra en un formulario quién lo procesa.",
+      "Gerente de Ventas al Detal (Venezuela) — su tienda consulta con e-commerce cuando un cliente de la web se presenta a retirar."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-47",
+      "E-39",
+      "SC-03",
+      "Lark: Manual de Procesos Pedidos E-Commerce Bodega Obarrio (PA)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "Las instrucciones para el almacén son una convención oral del equipo; no hay un catálogo escrito de qué significa cada rótulo.",
+     "sin_evidencia": "No consta cómo se monta el pedido web en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un pedido queda confirmado en cualquier canal: web, Cashea, WhatsApp o retiro.",
+     "cadencia": "Continua.",
+     "output": "Pedido en Odoo con origen, forma de envío e instrucciones, visible en la tableta del almacén.",
+     "evidencia": [
+      "E-41",
+      "E-16"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Identifica por qué canal entró el pedido."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si viene de la web, lo revisa en Odoo, donde llegó por la integración con Shopify."
+      },
+      {
+       "id": "a3",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si viene de WhatsApp, lo monta a mano en Odoo con los datos del cliente."
+      },
+      {
+       "id": "a4",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Indica el origen, la forma de envío y las instrucciones homologadas para el almacén."
+      },
+      {
+       "id": "a5",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Le da la orden de «mandar a preparación»."
+      },
+      {
+       "id": "a6",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "Si viene de Cashea, confirma la orden ya depurada, indica la guía de Cashea y la manda a preparación."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asesor(a) de Ventas Web",
+       "Gestor(a) de Pedidos Cashea"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "inicio",
+        "n": "Pedido confirmado"
+       },
+       {
+        "id": "n1",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "decision",
+        "n": "¿Por qué canal entró?"
+       },
+       {
+        "id": "n2",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Revisar el pedido web en Odoo",
+        "sistemas": [
+         "Shopify",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Montar el pedido a mano",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Indicar origen, envío e instrucciones",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Mandar a preparación",
+        "sistemas": [
+         "Odoo",
+         "WMS"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Confirmar la orden e indicar guía Cashea",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Mandar a preparación",
+        "sistemas": [
+         "Odoo",
+         "WMS"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Pedido en la tableta del almacén"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Web"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "WhatsApp"
+       },
+       {
+        "de": "n1",
+        "a": "n6",
+        "etq": "Cashea"
+       },
+       {
+        "de": "n2",
+        "a": "n4"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n8"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "10.8": {
+    "nota_version": "Versión As-Is: describe cómo se validan y concilian hoy los pagos del canal web, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La validación de cada pago antes de preparar el pedido, el cierre diario de caja del canal y la conciliación posterior de bancos, Cashea y marketplaces. La facturación va en 10.10.",
+     "texto": "En Venezuela la validación la hace **la Gerencia de Ventas Web**, no Contabilidad. Empezó como solución rápida porque la validación se demoraba: primero la hacía el área de soporte, y cuando se abrió una cuenta bancaria para la web pasó a la Gerencia de Ventas Web, con acceso de solo consulta. Los asesores publican cada pedido en el grupo «Confirmaciones» de Lark y la gerencia lo busca en el banco por referencia y monto, caso por caso, varias veces al día y también el domingo para no llegar al lunes con la cola llena. Desde que la web de Cubitt cobra con validación automática del banco quedan por validar sobre todo las ventas de WhatsApp, que eran 30 o 40 pagos diarios. La propia gerencia del área dice que esa tarea no debería ser suya.\n\nFacturación abre y cierra la caja del canal cada día, hace el arqueo y entrega el cierre a Contabilidad, y cada mes reporta el ingreso de cada orden de la web de Cubitt en los primeros cinco días. La conciliación posterior la hace Contabilidad y Tesorería y va atrasada: **a julio de 2026 se estaban conciliando pagos de abril**, con ocho a diez personas dedicadas. La causa más citada es la **tasa**: lo que se vende el viernes o el sábado se factura el lunes con otra tasa, y el pago ya no cuadra con la factura. **Cashea se concilia a mano** porque deposita las transacciones agrupadas y sin detalle por cliente; su monto y su fecha de abono no son predecibles, y Contabilidad lo registra como ingreso diferido y no como cuenta por cobrar. Los reintegros por devoluciones de Cashea los registra Tesorería en Odoo.\n\nEn Panamá los pagos de la web llegan a Contabilidad, que verifica que sean reales antes de que el vendedor mande a preparar, y las ventas de la web entran por el comercio afiliado de cubitt.com.pa. En Colombia una persona de Contabilidad concilia a tiempo completo las plataformas en Excel, cruzando el reporte de Odoo con el de cada plataforma, que llega cada una en un formato distinto. En Estados Unidos concilia el asistente administrativo remoto (10.5)."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Web (validación, Venezuela); Contabilidad (conciliación)",
+     "participantes": [
+      "Asesor(a) de Ventas Web — publica cada pedido pagado en el grupo «Confirmaciones».",
+      "Gerente de Ventas Web (Venezuela) — valida en el banco referencia y monto de cada pago directo.",
+      "Analista de Facturación (Ventas Web) — abre y cierra la caja, hace el arqueo, entrega el cierre a Contabilidad y reporta mensualmente el ingreso de las órdenes de la web de Cubitt.",
+      "Contabilidad y Tesorería (Venezuela) — concilia bancos y Cashea; Tesorería registra los reintegros de Cashea. Contabilidad prepara un memorando sobre órdenes de junio sin facturar y duplicadas.",
+      "Contabilidad (Panamá) — verifica los pagos de la web antes de la preparación.",
+      "Contabilidad (Colombia) — una persona concilia a tiempo completo las plataformas en Excel."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-04",
+      "E-38",
+      "E-15",
+      "E-43",
+      "E-07",
+      "E-39",
+      "E-46",
+      "E-02",
+      "SC-05",
+      "Lark: Manual de Procesos de Tesorería (VE)",
+      "Lark: Manual Conciliaciones Bancarias Casiolandia (PA)",
+      "Lark: Procesos Activos (e-commerce, VE)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "En Venezuela un mismo equipo vende, valida el cobro, factura y despacha; en Panamá y Colombia la validación del pago está en Contabilidad. El atraso de la conciliación es de varios meses.",
+     "sin_evidencia": "No consta un procedimiento escrito para conciliar Cashea en Venezuela; en Panamá existe un módulo a medida sobre Odoo para esa conciliación, pero no consta que se use en Venezuela."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente reporta un pago directo; al cierre de cada día, la caja; al cierre de mes, la conciliación.",
+     "cadencia": "Validación continua; cierre de caja diario; reporte de ingresos mensual; conciliación mensual, con atraso.",
+     "output": "Pedido con el pago validado; cierre de caja entregado a Contabilidad; pagos conciliados meses después.",
+     "evidencia": [
+      "E-41",
+      "E-04",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-04",
+      "E-07",
+      "E-15",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)",
+      "Lark: Procesos Activos (e-commerce, VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Publica el número de pedido en el grupo «Confirmaciones» de Lark."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Busca el pago en el banco por referencia y monto."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Si no aparece, le avisa al asesor para que lo revise con el cliente; el pedido no avanza."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Si aparece, copia en el grupo la fecha, la referencia y los datos del pago."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Facturación (Ventas Web)",
+       "texto": "Al final del día cierra la caja, hace el arqueo y entrega el cierre a Contabilidad."
+      },
+      {
+       "id": "a6",
+       "rol": "Contabilidad y Tesorería (Venezuela)",
+       "texto": "Concilia los bancos contra Odoo y Cashea a mano contra su portal, con meses de atraso."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asesor(a) de Ventas Web",
+       "Gerente de Ventas Web",
+       "Analista de Facturación (Ventas Web)",
+       "Contabilidad y Tesorería (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "inicio",
+        "n": "Cliente reporta un pago"
+       },
+       {
+        "id": "n1",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Publicar el pedido en «Confirmaciones»",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Buscar el pago en el banco",
+        "sistemas": [
+         "Banca en línea"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "decision",
+        "n": "¿Coinciden referencia y monto?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Avisar al asesor",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Pedido detenido"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Copiar los datos del pago en el grupo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Cerrar caja y entregar el cierre",
+        "sistemas": [
+         "Odoo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Contabilidad y Tesorería (Venezuela)",
+        "tipo": "tarea",
+        "n": "Conciliar bancos y Cashea",
+        "sistemas": [
+         "Odoo",
+         "Cashea",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Contabilidad y Tesorería (Venezuela)",
+        "tipo": "fin",
+        "n": "Pagos conciliados, con atraso"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "10.9": {
+    "nota_version": "Versión As-Is: describe cómo se prepara y embala hoy el pedido web, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La preparación física del pedido en el almacén web: sacar el producto, verificarlo, embalarlo, avisar a facturación y cerrar la caja con su factura y su guía. La factura va en 10.10 y la salida, en 10.11.",
+     "texto": "En Venezuela el e-commerce tiene **su propio almacén**, separado del principal y funcionando como una tienda más: está en el primer piso, es tan pequeño que el embalaje tuvo que salir a unas mesas del pasillo, y no tiene ubicaciones rotuladas —quien trabaja ahí sabe dónde está cada cosa, quien viene a ayudar no—. Los pedidos aparecen en la tableta del WMS con el canal, el courier, el producto y la cantidad. El almacenista saca el producto, lo escanea para verificar que es el correcto, lo embala e imprime una etiqueta; luego **publica la foto de la etiqueta en un grupo de Lark** para que facturación sepa que ese pedido ya se puede facturar.\n\nLa caja **no se puede cerrar hasta que llega la factura física**, que va dentro del paquete; con cientos de pedidos al día, el almacén queda lleno de cajas abiertas esperando. Los pedidos de Cashea suman un paso: desde mayo de 2026 cada caja se registra en el sistema de Cashea, lleva una guía impresa y se escanea con pistola —un fin de semana fueron casi 800 cajas—. La persona que gestiona Cashea imprime las facturas, busca la guía de cada una y se las lleva al almacén, que junta factura, guía y caja por número de pedido. Si el producto va grabado, el pedido pasa antes por el rotulado.\n\nEn Panamá, en la bodega de Obarrio, la lista de empaque se imprime sola al confirmarse el pedido, el administrador registra en un formulario quién lo procesa, los empleados empacan y escanean cada producto, y el sistema manda un correo de pedido completado al vendedor y a la bodega. El empaque cambia según la entrega: prioritario, courier o retiro en oficina (con la bolsa abierta para que el cliente verifique). En Estados Unidos preparan dos personas en el almacén de Miami."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Supervisor de Operaciones y Logística (Ventas Web, Venezuela)",
+     "participantes": [
+      "Almacenista (Ventas Web) — formalmente Asistente o Ayudante de Almacén. Saca el producto, lo verifica, lo embala, avisa a facturación y cierra la caja.",
+      "Analista de Facturación (Ventas Web) — factura el pedido cuando ve la foto de la etiqueta (10.10).",
+      "Gestor(a) de Pedidos Cashea — imprime las facturas y las guías de Cashea y se las lleva al almacén.",
+      "Supervisor de Operaciones y Logística (Ventas Web) — supervisa el embalaje, prepara las guías y ayuda a sacar pedidos en los picos.",
+      "Administrador y empleados de bodega (Panamá, Obarrio) — controlan y empacan los pedidos web de Panamá."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-04",
+      "E-51",
+      "Lark: Manual de Procesos Pedidos E-Commerce Bodega Obarrio (PA)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)",
+      "E-30"
+     ],
+     "notas": "La factura física obliga a dejar la caja abierta; la facturación digital, en pruebas, busca quitar esa espera (10.10).",
+     "sin_evidencia": "No consta cómo se prepara el pedido web en Colombia, donde no hay una bodega aparte para la web."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El pedido aparece en la tableta del almacén web.",
+     "cadencia": "Continua; de 150 a 200 envíos diarios en meses normales, con picos de cientos de cajas por día.",
+     "output": "Caja cerrada con su factura, y con su guía cuando corresponde, lista para despacho.",
+     "evidencia": [
+      "E-41"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "Ve el pedido en la tableta, busca el producto y lo saca."
+      },
+      {
+       "id": "a2",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "Lo escanea para verificar producto y cantidad, lo embala e imprime la etiqueta."
+      },
+      {
+       "id": "a3",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "Publica la foto de la etiqueta en el grupo de Lark y deja la caja abierta."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Facturación (Ventas Web)",
+       "texto": "Factura el pedido y entrega la factura física (10.10)."
+      },
+      {
+       "id": "a5",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "En los pedidos de Cashea, imprime la guía y la junta con su factura por número de pedido."
+      },
+      {
+       "id": "a6",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "En Cashea, pega la guía, mete la factura y escanea la caja en el sistema de Cashea."
+      },
+      {
+       "id": "a7",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "En los demás, mete la factura y cierra la caja."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Almacenista (Ventas Web)",
+       "Analista de Facturación (Ventas Web)",
+       "Gestor(a) de Pedidos Cashea"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "inicio",
+        "n": "Pedido en la tableta"
+       },
+       {
+        "id": "n1",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Buscar y sacar el producto",
+        "sistemas": [
+         "WMS"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Escanear, embalar e imprimir etiqueta",
+        "sistemas": [
+         "WMS"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Publicar foto de la etiqueta",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Facturar el pedido (10.10)",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Es de Cashea?"
+       },
+       {
+        "id": "n6",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Imprimir guía y juntarla con la factura",
+        "sistemas": [
+         "Cashea"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Pegar guía, meter factura y escanear",
+        "sistemas": [
+         "Cashea"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Meter la factura y cerrar la caja"
+       },
+       {
+        "id": "n9",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "fin",
+        "n": "Caja lista para despacho (10.11)"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "10.10": {
+    "nota_version": "Versión As-Is: describe cómo se factura hoy el pedido web, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La emisión de la factura del pedido web una vez que el almacén avisa que está preparado, y su entrega al almacén para cerrar la caja. La validación del pago va en 10.8 y el despacho, en 10.11.",
+     "texto": "En Venezuela factura **una sola persona**, que depende de la Gerencia de Ventas Web y no de Contabilidad. Factura cada orden de la web, Cashea y Mercado Libre, y también las ventas de repuestos del área de soporte, las devoluciones y los cambios; además abre y cierra la caja, maneja el efectivo en divisas y cierra los pedidos en Odoo para que el inventario quede real. Factura cuando ve en el grupo de Lark la foto de la etiqueta del pedido preparado, y antes comprueba que el pago corresponde al pedido. La factura sale **en físico** de la máquina fiscal y va dentro de la caja, así que el ritmo de la facturación marca el del almacén.\n\nLo que se vende en fin de semana se factura el lunes, con la tasa del lunes, y la diferencia entre el pago y la factura queda para la conciliación (10.8). Contabilidad ha señalado además órdenes de junio sin facturar y órdenes duplicadas. La **facturación digital**, que la normativa ya exige a la venta en línea, está en camino a través de un proveedor autorizado: Contabilidad preveía arrancarla el 17 de agosto de 2026 solo para la web, pero en las entrevistas de Sistemas seguía en pruebas y sin resolver cómo numerar las facturas. La gerencia del área advierte que no quita trabajo: la factura se sigue emitiendo a mano, solo que ya no hace falta imprimirla para cerrar la caja.\n\nEn Panamá la facturación de la web la hace Contabilidad, que la centralizó después de perder comprobantes y de entregas sin factura; la factura electrónica se sube a la autoridad fiscal por un proveedor integrado a Odoo, y se imprime en la bodega. En Colombia también factura Contabilidad, y la bodega la recibe automáticamente."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Facturación (Ventas Web)",
+     "participantes": [
+      "Analista de Facturación (Ventas Web) — factura cada pedido del canal, procesa devoluciones y cambios, maneja la caja y cierra los pedidos en Odoo.",
+      "Almacenista (Ventas Web) — avisa con la foto de la etiqueta y mete la factura en la caja.",
+      "Gestor(a) de Pedidos Cashea — recibe las facturas de Cashea para juntarlas con su guía.",
+      "Gerente de Contabilidad (Venezuela) — lleva el paso a la facturación digital y el seguimiento de las órdenes sin facturar.",
+      "Coordinador de Sistemas (Venezuela) — prueba la facturación digital con el proveedor y el partner de Odoo.",
+      "Contabilidad (Panamá y Colombia) — factura la venta web en esos países."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-04",
+      "E-38",
+      "E-32",
+      "E-15",
+      "E-44",
+      "E-07",
+      "SC-03",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)",
+      "Lark: Procesos Activos (e-commerce, VE)"
+     ],
+     "notas": "La fecha de arranque de la facturación digital que dio Contabilidad (17-ago-2026) no está confirmada por las entrevistas de Sistemas, que la sitúan todavía en pruebas.",
+     "sin_evidencia": "No consta si la facturación digital de la web ya está en producción."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El almacén publica la foto de la etiqueta de un pedido preparado.",
+     "cadencia": "Continua en días hábiles; lo del fin de semana, el lunes.",
+     "output": "Factura fiscal impresa entregada al almacén para cerrar la caja.",
+     "evidencia": [
+      "E-41",
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-38",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "Publica la foto de la etiqueta del pedido preparado en el grupo de Lark."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Facturación (Ventas Web)",
+       "texto": "Ubica el pedido en Odoo y comprueba que el pago corresponde al pedido."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Facturación (Ventas Web)",
+       "texto": "Si no corresponde, lo retiene y lo consulta con el asesor."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Facturación (Ventas Web)",
+       "texto": "Si corresponde, emite la factura en la máquina fiscal con la tasa del día."
+      },
+      {
+       "id": "a5",
+       "rol": "Gestor(a) de Pedidos Cashea",
+       "texto": "Si es de Cashea, recibe las facturas e imprime la guía de cada una."
+      },
+      {
+       "id": "a6",
+       "rol": "Almacenista (Ventas Web)",
+       "texto": "Mete la factura en la caja y la cierra (10.9)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Almacenista (Ventas Web)",
+       "Analista de Facturación (Ventas Web)",
+       "Gestor(a) de Pedidos Cashea"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "inicio",
+        "n": "Pedido preparado"
+       },
+       {
+        "id": "n1",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Publicar foto de la etiqueta",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Ubicar el pedido y revisar el pago",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿El pago corresponde?"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Retener y consultar al asesor",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "fin",
+        "n": "Pedido sin facturar"
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Emitir factura con la tasa del día",
+        "sistemas": [
+         "Odoo",
+         "Máquina fiscal"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Es de Cashea?"
+       },
+       {
+        "id": "n8",
+        "carril": "Gestor(a) de Pedidos Cashea",
+        "tipo": "tarea",
+        "n": "Recibir facturas e imprimir guías",
+        "sistemas": [
+         "Cashea"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Meter la factura y cerrar la caja"
+       },
+       {
+        "id": "n10",
+        "carril": "Almacenista (Ventas Web)",
+        "tipo": "fin",
+        "n": "Caja cerrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "10.11": {
+    "nota_version": "Versión As-Is: describe cómo sale hoy el pedido web hacia el cliente, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La salida del pedido web: envío nacional por agencia, delivery en la ciudad y retiro en el punto de operación, más el seguimiento de las guías que no avanzan. La preparación va en 10.9 y los reclamos de posventa, en 10.13.",
+     "texto": "En Venezuela hay tres salidas. **Envío nacional**: MRW —con el que van gratis los pedidos de Cashea—, Zoom y Tealca. El área funciona como una agencia más de MRW y de Zoom: registra cada paquete, la agencia lo cuenta y firma el conteo, que es el aval de lo despachado. MRW recoge todos los días y Zoom martes, jueves y viernes, fechas que el equipo eligió para que nada espere todo un fin de semana. Hay que avisar a MRW cuántos paquetes hay (hoy entre 150 y 200 diarios), porque si manda un vehículo pequeño lo que no cabe se queda para el día siguiente. Las guías de la web salen solas por la integración desde agosto de 2026; las de WhatsApp —y las de Cashea cuando falla su envío o el cliente cambia la oficina— se hacen a mano: el vendedor anota número de pedido, nombre, cédula y teléfono en un archivo compartido, y logística arma la guía en la cuenta de la empresa y pega su foto en esa misma fila.\n\n**Delivery** en Caracas: los pedidos se agendan en una hoja compartida y los reparten la flota propia y la de Yummy; el asistente de operaciones agrupa por zona, arma la ruta, imprime la hoja con la dirección —que no se carga en Odoo—, verifica con el motorizado la mercancía contra la factura y recoge su firma. Los motorizados de Cashea están desactivados por falta de espacio. **Retiro**: el cliente o el motorizado de Cashea viene al punto, y alguien del equipo busca el pedido en el almacén y se lo entrega. Cuando una guía no avanza, logística consulta a la agencia; si el paquete se pierde o llega abierto, la empresa asume la pérdida.\n\nEn Panamá uno de los couriers está integrado a Shopify y le manda al cliente la guía y el seguimiento; otro no, y sus guías llegan por WhatsApp a los vendedores para que se las reenvíen al cliente. Hay mensajero para la ciudad y transporte externo para el interior. En Estados Unidos sale por Amazon (FBA) o desde el almacén de Miami."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Supervisor de Operaciones y Logística (Ventas Web)",
+     "participantes": [
+      "Supervisor de Operaciones y Logística (Ventas Web) — prepara las guías de los envíos nacionales, coordina la recogida con las agencias y supervisa a los motorizados.",
+      "Asistente de Operaciones (Ventas Web) — formalmente Asistente de Operaciones; arma las rutas de delivery, valida la mercancía con el motorizado, entrega los retiros y ayuda con las guías.",
+      "Asesor(a) de Ventas Web — anota en el archivo compartido los datos de los envíos que no tienen guía automática.",
+      "Agencias de envío y flotas de delivery (externas) — recogen, cuentan y firman los paquetes o los reparten."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-04",
+      "E-02",
+      "E-39",
+      "E-65",
+      "E-30",
+      "Lark: Procesos Activos (e-commerce, VE)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)",
+      "Lark: Manual de Procesos Pedidos E-Commerce Bodega Obarrio (PA)"
+     ],
+     "notas": "Ni el asesor ni la logística pueden ver en Odoo si un pedido salió: lo marcan en archivos aparte, que es donde el asesor busca cuando el cliente pregunta.",
+     "sin_evidencia": "No consta cómo se reclama a la agencia una pérdida ni si alguna vez se ha recuperado su valor."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una caja queda cerrada y lista para salir.",
+     "cadencia": "Diaria; MRW todos los días y Zoom martes, jueves y viernes.",
+     "output": "Paquete entregado a la agencia con el conteo firmado, entregado por el motorizado o retirado por el cliente.",
+     "evidencia": [
+      "E-41"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "Lark: Procesos Activos (e-commerce, VE)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Ve cómo sale el pedido: envío nacional, delivery o retiro."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si es un envío sin guía automática, anota los datos del cliente en el archivo compartido."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Arma la guía en la cuenta de la agencia y pega su foto en el archivo."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Entrega los paquetes a la recogida de la agencia y se asegura de que firme el conteo."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente de Operaciones (Ventas Web)",
+       "texto": "Si es delivery, agrupa por zona, arma la ruta e imprime la hoja con la dirección."
+      },
+      {
+       "id": "a6",
+       "rol": "Asistente de Operaciones (Ventas Web)",
+       "texto": "Verifica con el motorizado la mercancía contra la factura y recoge su firma."
+      },
+      {
+       "id": "a7",
+       "rol": "Asistente de Operaciones (Ventas Web)",
+       "texto": "Si es retiro, busca el pedido en el almacén y lo entrega."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Supervisor de Operaciones y Logística (Ventas Web)",
+       "Asesor(a) de Ventas Web",
+       "Asistente de Operaciones (Ventas Web)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "inicio",
+        "n": "Caja lista para salir"
+       },
+       {
+        "id": "n1",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Cómo sale?"
+       },
+       {
+        "id": "n2",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Tiene guía automática?"
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Anotar datos en el archivo compartido",
+        "sistemas": [
+         "Hoja compartida"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Armar la guía en la agencia",
+        "sistemas": [
+         "MRW",
+         "Zoom"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Entregar a la agencia con conteo firmado"
+       },
+       {
+        "id": "n6",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "fin",
+        "n": "Paquete en la agencia"
+       },
+       {
+        "id": "n7",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Armar ruta e imprimir la dirección",
+        "sistemas": [
+         "Hoja compartida"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Verificar con el motorizado y firmar"
+       },
+       {
+        "id": "n9",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "fin",
+        "n": "Entregado por delivery"
+       },
+       {
+        "id": "n10",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Buscar el pedido y entregarlo"
+       },
+       {
+        "id": "n11",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "fin",
+        "n": "Retirado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Nacional"
+       },
+       {
+        "de": "n1",
+        "a": "n7",
+        "etq": "Delivery"
+       },
+       {
+        "de": "n1",
+        "a": "n10",
+        "etq": "Retiro"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "10.12": {
+    "nota_version": "Versión As-Is: describe cómo se repone hoy el almacén web y cómo se cuida su inventario, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La reposición del almacén web desde el almacén principal, la recepción de esos traslados, la sincronización del inventario con los canales y los conteos de ajuste. La compra internacional va en el macro 6.",
+     "texto": "En Venezuela el almacén principal trata al almacén web **como una tienda más**: le despacha lo que pide los lunes y los miércoles, y lo urgente en el momento. En teoría la reposición la calcula la planificación de compras; en la práctica **la adelanta la Gerencia de Ventas Web**: descarga de Odoo el inventario del almacén principal y el suyo, los cruza, y pide lo que está por acabarse o lo que sabe que va a necesitar en la próxima promoción, para no bajar mercancía en medio de un pico. Desconfía de lo que el sistema muestra arriba —«lo que yo veo menos de 100, para mí es sospechoso»— y a veces pide y no llega porque no estaba. Planificación, por su lado, dice que los pedidos de la web son a veces enormes y que su propia herramienta de cálculo le da resultados raros para ese canal. Cuando llega un contenedor, el lado principal le monta un pedido automático sin que la gerencia sepa antes qué viene. El traslado lo pide el supervisor de operaciones; al llegar, el almacén web **cuenta la mercancía a mano**, sin pistola, y acepta el traslado en Odoo.\n\nEl inventario del almacén web está sincronizado con todos los canales digitales, y ahí está su punto débil: cuando el mayor reserva mercancía en el almacén principal sin sacarla del inventario, sigue apareciendo disponible y **se vende lo que no hay**, que termina en devolución y retrabajo. Para contener los descuadres el almacén web hace al menos un inventario al mes. El gerente del mayor percibe que la mercancía que llega se reparte primero a las tiendas, luego «un poquito» a la web y lo que sobra al mayor.\n\nEn Panamá la web no tiene almacén propio: comparte la bodega de Obarrio con el mayor, la reposición a cuatro meses no distingue canal y, cuando falta algo, se pide prestado a una tienda. En Colombia tampoco hay bodega aparte y el mayor se lleva a veces el inventario del que vive la web. En Estados Unidos el almacén de Miami se repone desde China y, en urgencias, desde Panamá."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Web (Venezuela)",
+     "participantes": [
+      "Gerente de Ventas Web (Venezuela) — cruza inventarios y arma el sugerido de reposición, anticipándose a las promociones.",
+      "Supervisor de Operaciones y Logística (Ventas Web) — pide los traslados, recibe y cuenta la mercancía y acepta el traslado.",
+      "Gerente de Almacén (Venezuela) — despacha al almacén web como a una tienda, los lunes y los miércoles.",
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) — en teoría calcula la reposición; monta el pedido automático cuando llega un contenedor.",
+      "Gerente de Ventas al Mayor (Venezuela) — sus reservas sin facturar dejan disponible mercancía que ya no lo está."
+     ],
+     "evidencia": [
+      "E-16",
+      "E-41",
+      "E-34",
+      "E-40",
+      "E-35",
+      "E-05",
+      "E-53",
+      "E-14",
+      "E-30",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "La sincronización hace que el almacén web venda lo que el sistema dice que hay, y el sistema no descuenta las reservas del mayor hasta que se facturan.",
+     "sin_evidencia": "No consta un mínimo o un máximo definido por producto para el almacén web."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La revisión propia del inventario, una promoción próxima o la llegada de un contenedor.",
+     "cadencia": "Despachos los lunes y los miércoles; revisión continua; inventario de ajuste al menos una vez al mes.",
+     "output": "Mercancía trasladada, contada y aceptada en el almacén web, con el inventario sincronizado en los canales.",
+     "evidencia": [
+      "E-34",
+      "E-16"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-16",
+      "E-41",
+      "E-34",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Descarga de Odoo el inventario del almacén principal y el de la web y los cruza."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Arma el sugerido con lo que está por acabarse y lo que pedirá la próxima promoción."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "texto": "Cuando llega un contenedor, monta un pedido automático para la web."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Pide el traslado al almacén principal."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Almacén (Venezuela)",
+       "texto": "Lo prepara y lo despacha como a una tienda, los lunes y los miércoles."
+      },
+      {
+       "id": "a6",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Cuenta a mano lo recibido; lo que no llegó queda pendiente de volver a pedir."
+      },
+      {
+       "id": "a7",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Acepta el traslado en Odoo y el inventario se sincroniza con los canales."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Ventas Web (Venezuela)",
+       "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "Supervisor de Operaciones y Logística (Ventas Web)",
+       "Gerente de Almacén (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "inicio",
+        "n": "Hace falta reponer"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Llegó un contenedor?"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "tipo": "tarea",
+        "n": "Montar el pedido automático",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Cruzar inventario principal y web",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Armar el sugerido de reposición"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Pedir el traslado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Almacén (Venezuela)",
+        "tipo": "tarea",
+        "n": "Preparar y despachar como a una tienda",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Contar a mano lo recibido"
+       },
+       {
+        "id": "n8",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Llegó lo pedido?"
+       },
+       {
+        "id": "n9",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Dejar el faltante para el próximo pedido"
+       },
+       {
+        "id": "n10",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Aceptar el traslado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "fin",
+        "n": "Stock sincronizado en los canales"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n6"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "10.13": {
+    "nota_version": "Versión As-Is: describe cómo se atiende hoy al cliente digital antes y después de la compra, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La atención por chat de preventa y posventa —estado del pedido, errores de despacho, paquetes demorados— y el paso a soporte técnico de lo que es garantía. La garantía en sí va en el macro 11 y las devoluciones, en 10.14.",
+     "texto": "En Venezuela la atención y la venta son **el mismo equipo y el mismo chat**. Cada mañana la gerencia revisa que todos los chats estén asignados y los asesores conectados en Mercately. Buena parte de lo que entra es posventa: con 130 órdenes al día, son 130 clientes que escriben para saber si su pedido salió, aunque Cashea ya les haya confirmado todo. Como Odoo no muestra si un pedido se despachó, el asesor **lo busca por número en varios archivos** —el de Cashea, el de guías, el de delivery—; son segundos por consulta que al día suman fácilmente una hora.\n\nLos casos más comunes son que se envió algo errado o que faltó algo, y que la guía de MRW no avanza; en ese caso logística llama a la agencia. Si el paquete se perdió o llegó abierto, la empresa asume la pérdida: la gerencia lo describe como «una batalla donde siempre perdemos». Si el producto no enciende o tiene un defecto, el asesor **transfiere el chat a soporte** dentro de Mercately y el caso deja de ser del e-commerce. Instagram y Facebook los atiende la community manager de Mercadeo. Los asesores tienen una meta de tiempo de respuesta, pero es grupal: no hay meta por persona.\n\nFuera de Venezuela la atención depende de la gerencia de Customer Services de Panamá, que coordina los agentes de cada país (dos en Colombia, un agente remoto para Estados Unidos) y mide tiempos de respuesta con un tablero propio conectado a Mercately, fuera de las herramientas corporativas. Mercately está en Venezuela y Panamá, y Colombia y Costa Rica tienen las licencias pero no lo usan todavía. En Estados Unidos, además, quien dirige la operación responde personalmente el servicio al cliente de Amazon."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Web (Venezuela); Customer Services Manager (Panamá, para el resto de los países)",
+     "participantes": [
+      "Asesor(a) de Ventas Web — atiende el chat, busca el estado del pedido en los archivos y transfiere a soporte lo que es garantía.",
+      "Supervisor de Operaciones y Logística (Ventas Web) — consulta a la agencia cuando una guía no avanza.",
+      "Soporte Web (Servicio Técnico) — recibe en Mercately los chats de producto defectuoso y los lleva como garantía.",
+      "Gerente de Ventas Web (Venezuela) — revisa cada mañana la asignación de chats y resuelve los casos que escalan.",
+      "Customer Services Manager (Panamá) — dirige la atención de Panamá, Colombia y Estados Unidos y sus métricas.",
+      "Community manager de Mercadeo — atiende Instagram y Facebook."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-16",
+      "E-02",
+      "E-58",
+      "E-64",
+      "E-56",
+      "E-30",
+      "E-11",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "La consulta más frecuente —¿salió mi pedido?— no se puede contestar desde el sistema; depende de archivos que se marcan a mano.",
+     "sin_evidencia": "No consta cuántas consultas son de preventa y cuántas de posventa, ni cuánto tarda en resolverse un caso."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente escribe por WhatsApp o por la web.",
+     "cadencia": "Continua, en horario de atención.",
+     "output": "Consulta respondida, reclamo gestionado con la agencia o caso transferido a soporte técnico.",
+     "evidencia": [
+      "E-41",
+      "E-16"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-16"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Recibe el chat en Mercately e identifica el motivo."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si es preventa, informa disponibilidad y precio; si el cliente compra, sigue en 10.6."
+      },
+      {
+       "id": "a3",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si pregunta por su pedido, lo busca por número en los archivos de Cashea, guías y delivery."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
+       "texto": "Si la guía no avanza, consulta a la agencia y le pasa la respuesta al asesor."
+      },
+      {
+       "id": "a5",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Responde al cliente con el estado del pedido."
+      },
+      {
+       "id": "a6",
+       "rol": "Soporte Web (Servicio Técnico)",
+       "texto": "Si el producto tiene un defecto, recibe el chat transferido y lo lleva como garantía."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asesor(a) de Ventas Web",
+       "Supervisor de Operaciones y Logística (Ventas Web)",
+       "Soporte Web (Servicio Técnico)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "inicio",
+        "n": "Cliente escribe"
+       },
+       {
+        "id": "n1",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "decision",
+        "n": "¿Qué necesita?"
+       },
+       {
+        "id": "n2",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Informar disponibilidad y precio",
+        "sistemas": [
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Venta por chat (10.6)"
+       },
+       {
+        "id": "n4",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Buscar el pedido en los archivos",
+        "sistemas": [
+         "Hoja compartida",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "decision",
+        "n": "¿La guía avanza?"
+       },
+       {
+        "id": "n6",
+        "carril": "Supervisor de Operaciones y Logística (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Consultar a la agencia",
+        "sistemas": [
+         "MRW"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Responder el estado del pedido",
+        "sistemas": [
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Consulta cerrada"
+       },
+       {
+        "id": "n9",
+        "carril": "Soporte Web (Servicio Técnico)",
+        "tipo": "tarea",
+        "n": "Atender el caso como garantía",
+        "sistemas": [
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Soporte Web (Servicio Técnico)",
+        "tipo": "fin",
+        "n": "Caso en garantía (macro 11)"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Preventa"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "Estado del pedido"
+       },
+       {
+        "de": "n1",
+        "a": "n9",
+        "etq": "Defecto"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "10.14": {
+    "nota_version": "Versión As-Is: describe cómo se gestiona hoy un pedido web que vuelve, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La devolución o el cambio de un pedido web que no es garantía: producto no disponible, cambio de color, error de despacho, y las devoluciones de los marketplaces de Estados Unidos. El producto defectuoso va a soporte técnico (macro 11).",
+     "texto": "En Venezuela la devolución no tiene un circuito propio: es un encargo más de las personas del canal. Facturación procesa la devolución o el cambio en Odoo; el supervisor y el asistente de operaciones se aseguran de que el artículo quede en el estante correcto; y si el cliente había pagado con Cashea, Tesorería registra el reintegro en Odoo contra la cuenta donde abona Cashea. Una fuente recurrente de devoluciones es propia: **se vende lo que no hay** porque las reservas del mayor no se descuentan del inventario sincronizado (10.12). Cuando el paquete llega abierto o se pierde en la agencia, la empresa repone y asume la pérdida, y el faltante obliga a volver a contar el almacén.\n\nEn Estados Unidos las devoluciones de Amazon son **miles al mes** y no se registran en ningún sistema: se van apartando, cada cierto tiempo se revisan, lo que se puede vender vuelve al inventario y lo usado o invendible se manda a Panamá para venderlo como usado. Las dos personas del almacén no dan abasto para llevar ese control; hay una idea de rastrear el estado de cada devolución con código de barras en Odoo, sin implementar. En Colombia, devolverle el dinero al cliente cuando el producto comprado no estaba disponible llegaba a tardar hasta 30 días; hoy hay un flujo de aprobación en Lark con un plazo de 48 horas."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño formal: lo reparten facturación, operaciones y tesorería (Venezuela)",
+     "participantes": [
+      "Asesor(a) de Ventas Web — recibe la solicitud del cliente y registra el motivo.",
+      "Analista de Facturación (Ventas Web) — procesa la devolución o el cambio en Odoo.",
+      "Asistente de Operaciones (Ventas Web) — junto con el supervisor, ubica el artículo devuelto en su estante.",
+      "Coordinador(a) de Tesorería (Venezuela) — registra en Odoo los reintegros de las devoluciones pagadas con Cashea.",
+      "Responsable de Operación y Administración y personal de almacén (Kenex USA) — apartan, revisan y reenvían las devoluciones de Amazon.",
+      "Customer Services Manager (Panamá) — fijó el flujo de aprobación de reembolsos de Colombia."
+     ],
+     "evidencia": [
+      "E-16",
+      "E-41",
+      "E-06 pt.2",
+      "E-30",
+      "E-02",
+      "Lark: Manual de Procesos de Tesorería (VE)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "notas": "En Estados Unidos no hay registro de qué se devolvió, en qué condición ni qué se hizo con ello.",
+     "sin_evidencia": "No consta cómo se reembolsa en Venezuela un pago que no fue por Cashea, ni si existe un plazo para hacerlo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente pide devolver o cambiar un pedido web.",
+     "cadencia": "Por evento; en Estados Unidos, revisión periódica de lo apartado.",
+     "output": "Artículo reintegrado al inventario y, si aplica, reintegro registrado; o pérdida asumida.",
+     "evidencia": [
+      "E-16",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-16",
+      "E-41",
+      "Lark: Manual de Procesos de Tesorería (VE)",
+      "Lark: descripciones de cargo de la Gerencia de Ventas Web (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Recibe la solicitud del cliente y registra el motivo."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) de Ventas Web",
+       "texto": "Si es un defecto de producto, lo transfiere a soporte técnico (macro 11)."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Facturación (Ventas Web)",
+       "texto": "Si es un cambio o una devolución, la procesa en Odoo."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente de Operaciones (Ventas Web)",
+       "texto": "Ubica el artículo devuelto en el estante correcto."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador(a) de Tesorería (Venezuela)",
+       "texto": "Si el cliente pagó con Cashea, registra el reintegro en Odoo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asesor(a) de Ventas Web",
+       "Analista de Facturación (Ventas Web)",
+       "Asistente de Operaciones (Ventas Web)",
+       "Coordinador(a) de Tesorería (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "inicio",
+        "n": "Cliente pide devolver o cambiar"
+       },
+       {
+        "id": "n1",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "tarea",
+        "n": "Registrar el motivo",
+        "sistemas": [
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "decision",
+        "n": "¿Es un defecto?"
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor(a) de Ventas Web",
+        "tipo": "fin",
+        "n": "Pasa a garantía (macro 11)"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Facturación (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Procesar la devolución o el cambio",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "tarea",
+        "n": "Ubicar el artículo en su estante"
+       },
+       {
+        "id": "n6",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "decision",
+        "n": "¿Pagó con Cashea?"
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador(a) de Tesorería (Venezuela)",
+        "tipo": "tarea",
+        "n": "Registrar el reintegro de Cashea",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador(a) de Tesorería (Venezuela)",
+        "tipo": "fin",
+        "n": "Reintegro registrado"
+       },
+       {
+        "id": "n9",
+        "carril": "Asistente de Operaciones (Ventas Web)",
+        "tipo": "fin",
+        "n": "Devolución cerrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "10.15": {
+    "nota_version": "Versión As-Is: describe cómo se prepara hoy el canal web para las temporadas altas y las promociones grandes, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La preparación de los picos —noviembre y diciembre, la «cosecha» de marzo y las promociones de Cashea—: elección de la promoción, cálculo del personal adicional y reposición anticipada. La operación durante el pico sigue los procesos 10.4 a 10.11.",
+     "texto": "Las promociones se deciden **un mes antes** en una reunión donde entran Mercadeo con la idea de comunicación, la Gerencia de Operaciones y Logística y la Coordinación de Planificación con lo que el inventario permite —desde 2026 la promoción se hace sobre lo que tiene inventario y no rota, no sobre todo el catálogo—, más la gerencia regional de tiendas, la de ventas al detal y, últimamente, la del mayor. Lo que sale de ahí lo aprueba o lo ajusta el Director Comercial y de Compras. Las condiciones de Cashea que afectan la caja las decide la presidencia.\n\nEl cálculo de la capacidad es **iniciativa de la Gerencia de Ventas Web**, sin un método de la empresa. Para su primera temporada alta cronometró cuánto tarda cada persona, tomó las ventas por canal y los chats asignados de los tres meses previos, un estándar de 7 a 10 minutos por chat y el crecimiento esperado (+33 % en noviembre y más del doble en diciembre), y con ayuda de IA generativa calculó que necesitaba cinco personas más para los chats. Contaba con que el almacén principal le prestaría gente en las noches y no ocurrió; la presidencia aprobó las cinco contrataciones y el almacén lo cubrieron las dos personas de logística. Repitió el cálculo para la cosecha de marzo (tres personas, 5.000 órdenes en el mes), y esas tres personas se quedaron después para vender por WhatsApp. Antes de cada promoción se adelanta la reposición para no bajar mercancía en pleno pico (10.12).\n\nPara el diciembre de 2026 prevé entre 7.000 y 8.000 órdenes y unas siete personas para los chats, además de refuerzos en el almacén; la limitante es el espacio, y la remodelación seguía sin aprobarse. Recursos Humanos ya tuvo que incorporar personal de urgencia para una activación de Cashea. En Estados Unidos la preparación del último trimestre se apoya en la herramienta de proyección de la agencia de Amazon."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas Web (Venezuela)",
+     "participantes": [
+      "Comité de promociones — Mercadeo, Gerencia de Operaciones y Logística, Coordinación de Planificación de Compras y gerencias de tiendas, detal y mayor. Propone la promoción según lo que el inventario permite.",
+      "Director Comercial y de Compras (socio) — aprueba o ajusta la promoción propuesta.",
+      "Gerente de Ventas Web (Venezuela) — calcula órdenes, chats y personal adicional, pide las contrataciones y adelanta la reposición.",
+      "Presidente — aprueba el personal temporal y las condiciones de Cashea que afectan la caja.",
+      "Gerencia de Recursos Humanos (Venezuela) — incorpora el personal adicional, a veces con muy poco margen."
+     ],
+     "evidencia": [
+      "E-16",
+      "E-41",
+      "E-37",
+      "E-30"
+     ],
+     "notas": "El dimensionamiento lo hace la gerencia del área por su cuenta; no hay un procedimiento de la empresa para preparar un pico ni un responsable de coordinar almacén, chats y reposición.",
+     "sin_evidencia": "No consta cómo se preparan los picos en Panamá o en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se acerca una temporada alta o una promoción grande de Cashea.",
+     "cadencia": "Varias veces al año; la promoción se decide un mes antes.",
+     "output": "Promoción aprobada, personal adicional incorporado y almacén repuesto antes del pico.",
+     "evidencia": [
+      "E-16"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-16",
+      "E-41"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Comité de promociones",
+       "texto": "Un mes antes propone la promoción y los productos según el inventario disponible y lo que no rota."
+      },
+      {
+       "id": "a2",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Aprueba la promoción o la ajusta."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Estima órdenes y chats con el histórico de tres meses, el tiempo por chat y el crecimiento esperado, apoyándose en IA."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Calcula el personal adicional y lo solicita."
+      },
+      {
+       "id": "a5",
+       "rol": "Presidente",
+       "texto": "Aprueba o no las contrataciones temporales."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Si no se aprueban, cuenta con el personal de logística y con el apoyo del almacén principal, que no siempre llega."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Ventas Web",
+       "texto": "Adelanta la reposición del almacén web antes del arranque (10.12)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Comité de promociones",
+       "Director Comercial y de Compras (socio)",
+       "Gerente de Ventas Web",
+       "Presidente"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Comité de promociones",
+        "tipo": "inicio",
+        "n": "Se acerca un pico"
+       },
+       {
+        "id": "n1",
+        "carril": "Comité de promociones",
+        "tipo": "tarea",
+        "n": "Proponer promoción según inventario"
+       },
+       {
+        "id": "n2",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "tarea",
+        "n": "Aprobar o ajustar la promoción"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Estimar órdenes y chats con IA",
+        "sistemas": [
+         "Gemini",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Calcular y pedir personal adicional"
+       },
+       {
+        "id": "n5",
+        "carril": "Presidente",
+        "tipo": "decision",
+        "n": "¿Aprueba el personal?"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Incorporar los temporales"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Cubrir con logística y apoyo del almacén"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "tarea",
+        "n": "Adelantar la reposición (10.12)",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Ventas Web",
+        "tipo": "fin",
+        "n": "Canal listo para el pico"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "10.16": {
+    "nota_version": "Versión As-Is: describe qué reportería tiene hoy el canal web, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Los reportes que existen sobre la venta web al cierre de cada mes, quién los arma y a quién llegan. La fijación de la meta va en 10.1.",
+     "texto": "El canal web **no tiene una entrega formal de resultados**. En Venezuela la Gerencia de Ventas Web descarga de Odoo un reporte de ventas por origen —que pidió a Sistemas— y al cerrar el mes se lo muestra de manera informal a la Gerencia de Ventas Internacional; además anota mes a mes en un archivo de Lark lo vendido y el presupuesto usado, abierto a quien quiera verlo. Nadie más sabe, por ejemplo, cuántos deliveries o envíos salieron en el mes: «saben que vendemos full», resume la gerencia, pero no mucho más. Es un reporte por iniciativa propia; la empresa no lo pide.\n\nOtros reportes tocan el canal por los lados. La analista de datos e informes arma cada mes, desde Odoo y Power BI, el reporte de ventas para Mercadeo y la junta, con la venta por internet separada de la de tiendas. Paid Media consolida al cierre de cada mes, del 1 al 5, una base en Lark con la inversión y la venta web por país —retorno de la inversión, costo por cliente, conversión—, según su manual en borrador. En Colombia el Country Manager presenta cada martes a la junta un Excel con la venta por canal, online incluida, y Mercadeo reparte sus reportes por correo. En Estados Unidos hay una reunión mensual con la presidencia y la dirección de finanzas con los números sacados de QuickBooks, donde no se distingue la venta de cada marketplace (10.5).\n\nHay además tableros hechos por iniciativa individual —el de Paid Media, que une Shopify con la pauta; uno personal con pestaña de e-commerce sobre el Odoo de los cuatro países; el de Customer Services sobre la atención—, que no forman parte de la reportería oficial. De este último, su responsable dice que se muestra a la junta «y tampoco lo ven»."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño formal; en Venezuela, por iniciativa propia, la Gerente de Ventas Web",
+     "participantes": [
+      "Gerente de Ventas Web (Venezuela) — descarga el reporte por origen, lo registra en Lark y lo muestra al cierre de mes.",
+      "Gerente de Ventas Internacional — recibe el cierre de mes del canal, de manera informal.",
+      "Analista de Datos e Informes — arma el reporte mensual de ventas con la venta por internet separada, para Mercadeo y la junta.",
+      "Gerente de Paid Media y Performance (regional) — consolida cada mes la inversión y la venta web por país en la base de Lark.",
+      "Country Manager (Colombia) — presenta cada semana a la junta la venta por canal.",
+      "Responsable de Operación y Administración (Kenex USA) — responde en la reunión mensual por los números de Estados Unidos."
+     ],
+     "evidencia": [
+      "E-41",
+      "E-10",
+      "E-11",
+      "E-56",
+      "E-30",
+      "E-06 pt.1",
+      "E-58",
+      "E-22",
+      "SC-08",
+      "Lark: Manual 03 Reportería y Análisis de Paid Media (regional, borrador jun-2026)"
+     ],
+     "notas": "Hay varias piezas sueltas, cada una con su fuente y su destinatario, y ninguna reúne operación, venta e inversión del canal en un mismo lugar.",
+     "sin_evidencia": "No consta ningún indicador operativo del canal que se reporte con regularidad: tiempos de despacho, pedidos con error, devoluciones o tiempos de respuesta."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre de cada mes.",
+     "cadencia": "Mensual; semanal en Colombia.",
+     "output": "Reporte por origen mostrado de manera informal; reporte mensual de ventas con la venta por internet; base de Paid Media; presentaciones de Colombia y Estados Unidos.",
+     "evidencia": [
+      "E-41",
+      "E-10",
+      "Lark: Manual 03 Reportería y Análisis de Paid Media (regional, borrador jun-2026)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-41",
+      "E-10",
+      "Lark: Manual 03 Reportería y Análisis de Paid Media (regional, borrador jun-2026)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Datos e Informes",
+       "texto": "Arma el reporte mensual de ventas con la venta por internet separada y lo envía a Mercadeo y a la junta."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Paid Media y Performance (regional)",
+       "texto": "Consolida del 1 al 5 la inversión y la venta web del mes por país en la base de Lark."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Descarga de Odoo el reporte de ventas por origen."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Lo anota en su archivo de Lark junto con el presupuesto usado."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas Web (Venezuela)",
+       "texto": "Se lo muestra de manera informal a la Gerencia de Ventas Internacional."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Lo recibe sin que exista una entrega formal de resultados del canal."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Datos e Informes",
+       "Gerente de Paid Media y Performance (regional)",
+       "Gerente de Ventas Web (Venezuela)",
+       "Gerente de Ventas Internacional"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "inicio",
+        "n": "Cierre de mes"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "tarea",
+        "n": "Armar reporte de ventas con la venta web",
+        "sistemas": [
+         "Odoo",
+         "Power BI"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Paid Media y Performance (regional)",
+        "tipo": "tarea",
+        "n": "Consolidar inversión y venta web",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Descargar el reporte por origen",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Anotar venta y presupuesto",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas Web (Venezuela)",
+        "tipo": "tarea",
+        "n": "Mostrarlo de manera informal"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Recibir el cierre del canal"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "fin",
+        "n": "Sin entrega formal de resultados"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };
