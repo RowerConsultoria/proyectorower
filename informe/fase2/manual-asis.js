@@ -15,6 +15,2337 @@
 // Un proceso aparece aquí => al entrar en él por #/p/<codigo> se ofrece
 // elegir entre As-Is (#/asis/<codigo>) y To-Be (#/tobe/<codigo>).
 window.MANUAL_ASIS = {
+ "11": {
+  "procesos": {
+   "11.1": {
+    "nota_version": "Versión As-Is: describe cómo entra y se reparte hoy el contacto del cliente, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el cliente escribe o se presenta hasta que su caso queda cerrado o derivado al circuito de garantía. Cubre los canales digitales (WhatsApp, correo, chat web, redes) y los presenciales (oficina de Obarrio, el café de la planta baja, tiendas y kioscos). La resolución técnica del caso va en 11.2 a 11.8.",
+     "texto": "Hoy toda la conversación con el cliente final entra por **una sola plataforma de omnicanalidad, Mercately**, que el grupo estrenó a mediados de 2026 después de dos intentos anteriores: primero una herramienta propia y después Freshworks, que se descartó porque estaba pensada para el mercado de Estados Unidos. Cada país tiene su número conectado y cada agente su usuario y sus canales asignados. Al cliente le llega **una botonera** donde elige si quiere comprar, si quiere soporte o si escribe por Cashea, y según lo que marque el caso cae en la cola de ventas o en la de soporte del país.\n\nQuién atiende depende de dónde esté el cliente. Panamá, Venezuela y Colombia tienen agentes propios; Ecuador tiene un solo agente externo; Guatemala lo atienden muchachos contratados como freelance que están físicamente en Venezuela; República Dominicana lo atiende el distribuidor; y México, Brasil, Argentina y Chile se atienden directamente desde Panamá. Costa Rica, que es sociedad y no filial, **no usa Lark y se comunica por WhatsApp, sin registro**.\n\nEl agente intenta primero la solución en remoto —una configuración, una actualización pendiente, un problema de uso— y solo si no sale por ahí manda al cliente al punto de venta más cercano o a la oficina. El gerente regional entra todos los días a revisar una muestra de chats, unos cinco por país, y saca las métricas de tiempo de respuesta con un asistente de IA que paga él de su bolsillo. Además mantiene un panel propio, construido por él y alojado fuera de los sistemas del grupo, que lee la interfaz de Mercately y le marca tiempo de respuesta, sentimiento del cliente y hasta faltas de ortografía del agente, con un correo de coaching automático a quien las comete.\n\nLa plataforma trae su propio chatbot y se intentó activarlo: **el piloto se echó atrás**. Hubo resistencia de los agentes, que temieron que los desplazara, y además la marca concluyó que en la región el cliente no quiere que lo atienda un bot. Las pruebas siguen en frío y el proyecto quedó en suspenso."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Customer Services Manager (gerente regional de Customer Service y postventa, Panamá)",
+     "participantes": [
+      "Coordinador de Soporte Técnico (Panamá) — mano derecha del gerente regional; lleva la operativa de todos los países y conduce la reunión mensual del equipo de soporte de la región.",
+      "Soporte Técnico (Panamá) — atiende los chats y los correos entrantes, y además los de los mercados que no tienen agente propio.",
+      "Asesores de Ventas Online (Panamá) — dos, uno por marca; atienden la cola comercial y las ventas corporativas.",
+      "Gerente de Servicio Técnico (Venezuela) y su equipo de Soporte Web — atienden la cola de soporte de Venezuela.",
+      "Líder de Servicio al Cliente y Auxiliar de Servicio al Cliente (Colombia) — dos personas.",
+      "Agente de servicio de Ecuador — externo, una sola persona para todo el país.",
+      "Agentes freelance de Guatemala — contratados directamente por el gerente regional; residen en Venezuela.",
+      "Distribuidor de República Dominicana — atiende por su cuenta los contactos de ese mercado.",
+      "Gerencia de Ventas Web (Venezuela) — su equipo atiende la cola comercial de ese país, fuera del alcance del gerente regional."
+     ],
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64",
+      "E-41",
+      "E-16",
+      "SC-03"
+     ],
+     "notas": "El gerente regional figura en el organigrama de Panamá por debajo del Gerente de Ventas al Mayor, aunque a nivel regional está en la primera línea de gerencia; ambos coinciden en que no comparten ningún proceso. En la cola comercial de Venezuela el gerente regional declara no tener acceso ni visibilidad.",
+     "sin_evidencia": "No consta un criterio escrito de qué caso debe atender cada cola ni quién reasigna un caso que el propio cliente enrutó mal en la botonera."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cliente escribe por WhatsApp, correo, chat web o redes, o se presenta en la oficina, el café, una tienda o un kiosco.",
+     "cadencia": "Continua, en horario de lunes a viernes de 8:00 a 17:00; el volumen se dispara en Black Friday y diciembre.",
+     "output": "Caso atendido y cerrado en la plataforma, o derivado al punto de venta o a la oficina para la gestión de garantía.",
+     "evidencia": [
+      "E-02",
+      "E-41",
+      "Lark: Manual Regional de Operaciones — Departamento de Customer Service, v1.0 junio 2026 (PA)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64",
+      "E-41"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Recibe el contacto en la plataforma de omnicanalidad. El cliente ya eligió en la botonera si quiere comprar, si necesita soporte o si escribe por Cashea, y el caso entra en esa cola."
+      },
+      {
+       "id": "a2",
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Si el caso es comercial, cotiza, ofrece las modalidades de pago y cierra la venta o manda el enlace para que el cliente compre en la web."
+      },
+      {
+       "id": "a3",
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Si el caso es de soporte, intenta la solución en remoto: revisa configuración, actualización pendiente o uso del producto, guiando al cliente paso a paso por el chat."
+      },
+      {
+       "id": "a4",
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Si no se resuelve en el chat, deriva al cliente al punto de venta o al kiosco más cercano, o a la oficina, y el caso pasa al circuito de garantía."
+      },
+      {
+       "id": "a5",
+       "rol": "Customer Services Manager",
+       "texto": "Revisa a diario una muestra de unos cinco chats por país, saca las métricas de tiempo de respuesta con su asistente de IA y consulta su panel propio, que marca sentimiento del cliente y errores de redacción."
+      },
+      {
+       "id": "a6",
+       "rol": "Customer Services Manager",
+       "texto": "Manda al agente el correo de coaching cuando el panel marca un fallo de redacción o un tiempo de respuesta fuera de lo esperado."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Agente del país (soporte o ventas online)",
+       "Customer Services Manager"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "inicio",
+        "n": "Entra un contacto del cliente"
+       },
+       {
+        "id": "n1",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "tarea",
+        "n": "Tomar el caso de la cola que marcó el cliente",
+        "sistemas": [
+         "Mercately"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "decision",
+        "n": "¿Es consulta comercial?"
+       },
+       {
+        "id": "n3",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "tarea",
+        "n": "Cotizar y cerrar la venta o enviar el enlace de pago"
+       },
+       {
+        "id": "n4",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "tarea",
+        "n": "Intentar la solución en remoto por el chat"
+       },
+       {
+        "id": "n5",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "decision",
+        "n": "¿Resuelto en el chat?"
+       },
+       {
+        "id": "n6",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "tarea",
+        "n": "Cerrar el caso con recomendaciones de uso"
+       },
+       {
+        "id": "n7",
+        "carril": "Agente del país (soporte o ventas online)",
+        "tipo": "tarea",
+        "n": "Derivar al punto de venta, al kiosco o a la oficina"
+       },
+       {
+        "id": "n8",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Revisar la muestra de chats y sacar las métricas",
+        "sistemas": [
+         "Mercately",
+         "Panel propio"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Enviar el correo de coaching al agente"
+       },
+       {
+        "id": "n10",
+        "carril": "Customer Services Manager",
+        "tipo": "fin",
+        "n": "Caso cerrado y atención medida"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Comercial"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Soporte"
+       },
+       {
+        "de": "n3",
+        "a": "n8"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "11.2": {
+    "nota_version": "Versión As-Is: describe cómo se honra hoy una garantía de la marca propia, con los cargos actuales y con las dos rutas —oficina y tienda— tal y como las dejó definidas la gerencia regional. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el cliente presenta el producto reclamado hasta que se lleva el reemplazo y el caso queda cuadrado en el cierre de mes. La corrección por software va en 11.3, la disposición final del producto retirado en 11.9 y el reembolso en 11.8.",
+     "texto": "El producto de marca propia **no se repara**: la fábrica no vende repuestos ni autoriza abrir el equipo, así que la garantía se honra con reemplazo directo, producto por producto, durante los doce meses que cubre la carta de garantía. Quien recibe pide la factura y el serial, descarta las causales de exclusión —maltrato, modificación por alguien ajeno al soporte oficial, factura ausente, plazo vencido— y diagnostica con dos pruebas: reinicio forzoso y prueba de carga en el hub, que debe marcar entre 0,25 y 0,28 amperios. Si es hardware, el cambio se resuelve el mismo día, en cinco o diez minutos; si es software, el equipo queda en espera siete días.\n\nHay **dos rutas**, y la diferencia entre ellas es quién audita. En la de oficina y mayoristas, el equipo de soporte monta un traslado en Odoo hacia la bodega de desecho, con el número de orden; Bodega recibe el producto dañado, valida que sea el que dice el traslado y solo entonces entrega el nuevo. La regla es explícita: no sale un equipo nuevo hasta que entra el viejo, porque es la única forma de que el inventario cuadre. En la de tienda el traslado lo hace la propia tienda y quien audita, en vez de Bodega, es el gerente de servicio técnico del país. En ambas, después del cambio se llena el formulario de garantías de Lark —catorce campos: país, sede, cliente, fecha de compra, foto de la factura, serial, motivo, subcategoría, color, quién recibió la queja, cómo se resolvió, fecha del cambio, país y tienda de compra—, con una regla que el equipo repite: el reporte no se llena si el producto no se cambió.\n\nEl volumen manda. En Panamá se reciben entre veinte y veinticinco casos diarios solo en la oficina de Obarrio y unos treinta contando las tiendas. En Venezuela, que es el país con más garantías porque es el que más vende, entraron **más de 1.400 órdenes de servicio entre junio y julio de 2026** —unas setecientas al mes, y cada orden puede traer cinco o seis productos—. Allí la tienda abre la orden en SysCore con cédula, nombre, teléfono, falla y modelo, el equipo espera hasta 48 horas a que pase el despacho, y en el taller de Caracas se vuelve a abrir una entrada en NAV: **cuatro sistemas para un solo cambio** —SysCore, NAV, Odoo y Lark—, con el nombre del cliente tecleado de nuevo en cada uno. El reporte que viaja con el equipo desde la tienda sigue siendo **una hoja de papel**, y de ahí salen los errores de transcripción que hacen que un cliente que ha vuelto cinco veces aparezca con dos registros.\n\nLas cadenas grandes —las tiendas clase A y los duty free— son un punto ciego reconocido: reciben garantías del cliente final y no hay forma de saberlo hasta que las mandan todas juntas en un viaje. Por ley pueden reemplazar sin consultar dentro de los primeros quince o treinta días; pasado ese plazo necesitan autorización por correo o por chat."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Customer Services Manager (regional); en Venezuela lo ejecuta la Gerencia de Servicio Técnico de Rower",
+     "participantes": [
+      "Soporte Técnico (Panamá) — recibe, diagnostica, monta el traslado en Odoo, entrega el reemplazo y carga el formulario de Lark.",
+      "Coordinador de Soporte Técnico (Panamá) — estandariza el paso a paso y forma a los nuevos ingresos.",
+      "Gerente de Servicio Técnico (Venezuela) — autoriza los cambios que le consultan las tiendas y audita el cierre de mes de la ruta de tienda.",
+      "Subgerente de Servicio Técnico y personal de Soporte Web (Venezuela) — revisan equipo por equipo lo que llega de tiendas y de ventas al mayor.",
+      "Gerente de Tienda, Supervisor de Tienda y Cajera — reciben el producto, abren la orden de servicio y deciden si resuelven en el punto de venta.",
+      "Supervisor de Bodega / Despacho — valida el producto dañado contra el traslado y libera el nuevo.",
+      "Personal de despacho — recoge en las tiendas las garantías y los papeles y los lleva a la sede."
+     ],
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64",
+      "E-51",
+      "E-47",
+      "E-53",
+      "SC-03",
+      "Lark: Carta de Garantía Cubitt (PA)",
+      "Lark: Manual Regional de Operaciones — Departamento de Customer Service, v1.0 junio 2026 (PA)"
+     ],
+     "notas": "Los cargos de Venezuela son los de la Gerencia de Servicio Técnico de Rower según la columna de cargo actual del patrón V4 (Gerente de Servicio Técnico, Subgerente de Servicio Técnico, Soporte Web, Técnico Relojero). El manual regional exige además que toda aprobación de cambio la confirme el gerente regional o uno de los dos responsables designados en Panamá.",
+     "sin_evidencia": "No consta cuántas garantías reciben al año las cadenas grandes sin reportarlas, ni cómo se cierran los casos que ellas resuelven por su cuenta dentro del plazo legal."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cliente presenta un producto de marca propia con falla, en tienda, en la oficina o por envío.",
+     "cadencia": "Continua durante todo el horario operativo; el cotejo y la aprobación del cierre son mensuales, el día 28 o 29.",
+     "output": "Cliente con producto nuevo, traslado registrado en Odoo, caso cargado en el formulario de garantías de Lark y producto retirado en la bodega de desecho.",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64",
+      "E-51",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Recibe el producto, pide la factura y el serial y verifica la elegibilidad contra la carta de garantía: doce meses, sin maltrato y sin modificación por personal ajeno al soporte oficial."
+      },
+      {
+       "id": "a2",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Si no aplica la garantía, se lo informa al cliente y le ofrece el cambio con descuento fuera de garantía, que es la salida habitual cuando no hay repuesto ni reparación posible."
+      },
+      {
+       "id": "a3",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Diagnostica con reinicio forzoso y prueba de carga en el hub, y clasifica la falla como de hardware o de software."
+      },
+      {
+       "id": "a4",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Si la falla es de software, carga el caso en la tabla compartida con la fábrica y deja el equipo en espera; el circuito sigue en el proceso de casos técnicos."
+      },
+      {
+       "id": "a5",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Si la falla es de hardware, monta el traslado en Odoo hacia la bodega de desecho anotando en la observación el número de la orden de servicio."
+      },
+      {
+       "id": "a6",
+       "rol": "Supervisor de Bodega / Despacho",
+       "texto": "Recibe el producto dañado, valida que sea el que declara el traslado y solo entonces libera el producto nuevo. No entrega un equipo nuevo sin recibir el viejo."
+      },
+      {
+       "id": "a7",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Entrega el producto nuevo al cliente, en mano si está presente o por courier si está en el interior del país."
+      },
+      {
+       "id": "a8",
+       "rol": "Soporte Técnico / Servicio Técnico del país",
+       "texto": "Llena el formulario de garantías de Lark con los catorce campos. El formulario solo se llena cuando el producto ya se cambió."
+      },
+      {
+       "id": "a9",
+       "rol": "Customer Services Manager",
+       "texto": "El día 28 o 29 de cada mes coteja el extracto de traslados de Odoo contra el físico de la bodega de desecho y contra el reporte de Lark, y aprueba el cierre para que el lote pase a disposición final."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Soporte Técnico / Servicio Técnico del país",
+       "Supervisor de Bodega / Despacho",
+       "Customer Services Manager"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "inicio",
+        "n": "El cliente presenta un producto con falla"
+       },
+       {
+        "id": "n1",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Pedir factura y serial y verificar la carta de garantía"
+       },
+       {
+        "id": "n2",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "decision",
+        "n": "¿Aplica la garantía?"
+       },
+       {
+        "id": "n3",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Ofrecer el cambio con descuento fuera de garantía"
+       },
+       {
+        "id": "n4",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "fin",
+        "n": "Caso cerrado sin garantía"
+       },
+       {
+        "id": "n5",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Diagnosticar con reinicio forzoso y prueba de carga"
+       },
+       {
+        "id": "n6",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "decision",
+        "n": "¿La falla es de hardware?"
+       },
+       {
+        "id": "n7",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Cargar el caso en la tabla de la fábrica",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "fin",
+        "n": "Equipo en espera de corrección de fábrica"
+       },
+       {
+        "id": "n9",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Montar el traslado a la bodega de desecho",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Supervisor de Bodega / Despacho",
+        "tipo": "tarea",
+        "n": "Validar el dañado contra el traslado y liberar el nuevo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Entregar el producto nuevo al cliente"
+       },
+       {
+        "id": "n12",
+        "carril": "Soporte Técnico / Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Llenar el formulario de garantías",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Cotejar traslados contra físico y reporte en el cierre de mes",
+        "sistemas": [
+         "Odoo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n14",
+        "carril": "Customer Services Manager",
+        "tipo": "fin",
+        "n": "Mes cuadrado; el lote pasa a disposición final"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Software"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n6",
+        "a": "n9",
+        "etq": "Hardware"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       }
+      ]
+     }
+    }
+   },
+   "11.3": {
+    "nota_version": "Versión As-Is: describe cómo se trata hoy el caso de software y cómo se le reporta a la fábrica lo que sale mal, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el diagnóstico clasifica la falla como de software hasta que el equipo se devuelve al cliente corregido o se convierte en un reemplazo, más la consolidación de los defectos recurrentes que se le reportan a la fábrica. El reemplazo directo va en 11.2 y la compra de repuestos en 11.5.",
+     "texto": "Cuando la falla es de software el equipo no se cambia: **se pone en espera siete días**. Soporte Técnico extrae del dispositivo los archivos que pide la fábrica, toma el serial y carga el caso en una tabla de Lark que la fábrica tiene compartida —Lark es una aplicación china y la fábrica trabaja dentro de ella—. Un técnico de fábrica lee el error y manda la corrección por actualización remota, que entra al reloj por Bluetooth; el equipo se vuelve a probar y se le devuelve al cliente sin reemplazo. Si el plazo se cumple sin respuesta, se procede con el cambio; la propia tabla tiene alarmas y automatizaciones que avisan cuando llega el vencimiento.\n\nHay **dos tablas y no una**: la de casos de software y la de garantías ya ejecutadas. De la segunda cuelga un tablero que muestra el país con más garantías, el producto con más reemplazos, el motivo y hasta el color, y de ahí sale el reporte que se le pasa a la fábrica cuando hace falta. La tabla anterior se llenó —Lark aguanta veinte mil registros— y hubo que abrir una nueva; la vieja guarda 2024 y 2025, la nueva 2026.\n\nLa comunicación es diaria y estructurada **solo con la fábrica de relojes de adulto**, que es la que más volumen y más desarrollo tiene; con las de relojes de niño, audífonos, bocinas, básculas y termos se habla por WeChat, sin registro. Quien lleva esa relación no es soporte sino la persona de producto y desarrollo, que recibe de los agentes lo que está saliendo mal y lo traslada a la fábrica.\n\nCuando el defecto afecta a una referencia entera, el circuito se convierte en **una acción de contención**: en diciembre de 2025 se emitió un comunicado oficial por la referencia CT-PWANC1 que obligó a abrir todo el stock de esa referencia, aplicar una prueba explicada en video, volver a sellar el empaque con un sticker transparente y reportar los dañados con evidencia fotográfica por un formulario de Lark. En Venezuela la señal de alerta llega por otro lado y más tarde: «cuando sale algo mal, explota el problema» en varias tiendas de varias ciudades a la vez, y ahí es cuando el equipo se entera de que hay un lote con problema; el propio equipo pide que se le avise antes, desde la casa matriz.\n\nEn la marca representada el circuito es distinto y más simple: cada producto trae número de serie, el serial del producto defectuoso se le pasa a la persona que lleva el enlace con la casa matriz y la marca emite **una nota de crédito** por la unidad reportada. La **trazabilidad por serial y por lote no existía** en la marca propia hasta hace poco: entró en producción de la mano del director de proyectos, y es lo que ahora permite mirar un lote completo cuando a un cliente se le cambia dos veces el mismo producto."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño único: Soporte Técnico (Panamá) carga los casos y el responsable de Producto y Desarrollo lleva la relación con la fábrica",
+     "participantes": [
+      "Soporte Técnico (Panamá) — extrae los archivos del equipo, carga el caso en la tabla de la fábrica y prueba la corrección antes de devolver.",
+      "Responsable de Producto y Desarrollo — traslada a la fábrica lo que reportan los agentes de todos los países y conduce las reuniones periódicas con la fábrica de relojes de adulto.",
+      "Customer Services Manager — emite los comunicados de contención y aprueba el reporte que sale hacia la fábrica.",
+      "Gerente de Servicio Técnico (Venezuela) — reporta desde Venezuela los lotes con defecto y hace el reporte a la fábrica de la marca representada.",
+      "Gerente de Tienda y vendedores — detectan la reincidencia en el punto de venta y pasan el serial al agente de soporte del país.",
+      "Enlace de producto y logística (Panamá) — reporta a la casa matriz de la marca representada los seriales defectuosos que devuelven la nota de crédito.",
+      "Director de Proyectos (PMO) — puso en producción la serialización y la lotificación de producto."
+     ],
+     "evidencia": [
+      "E-64",
+      "E-02",
+      "E-58",
+      "E-51",
+      "E-53",
+      "Lark: Comunicado oficial por la referencia CT-PWANC1 (regional)"
+     ],
+     "notas": "El circuito de software nació informal y así sigue en buena parte: el gerente regional declaraba en junio de 2026 que estaba construyendo con su equipo un flujo de Lark con aprobación para darle forma, y ese flujo todavía no consta cerrado.",
+     "sin_evidencia": "No consta cuántos casos de software se resuelven dentro del plazo de siete días ni cuántos terminan en reemplazo por vencimiento del plazo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El diagnóstico clasifica la falla como de software, o varias tiendas reportan la misma falla en el mismo producto.",
+     "cadencia": "Por caso, con plazo de siete días para la respuesta de la fábrica; la consolidación del tablero es mensual y la contención por referencia es por evento.",
+     "output": "Equipo corregido y devuelto al cliente, o convertido en reemplazo; y reporte de defecto cargado en la tabla compartida con la fábrica.",
+     "evidencia": [
+      "E-64",
+      "E-02"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-64",
+      "E-02",
+      "E-51",
+      "E-53"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Recibe del agente del país o de la tienda el serial del equipo cuya falla se clasificó como de software."
+      },
+      {
+       "id": "a2",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Extrae del dispositivo los archivos que pide la fábrica y carga el caso con el serial en la tabla de Lark compartida con ella; el equipo queda en espera con plazo de siete días."
+      },
+      {
+       "id": "a3",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Si la fábrica manda la corrección, la aplica por actualización remota, vuelve a probar el equipo y lo devuelve al cliente sin reemplazo. Si el plazo vence sin respuesta, procede con el cambio."
+      },
+      {
+       "id": "a4",
+       "rol": "Responsable de Producto y Desarrollo",
+       "texto": "Consolida en el tablero de la tabla de garantías el producto, el motivo, el color y el país con más incidencias y le pasa el reporte a la fábrica."
+      },
+      {
+       "id": "a5",
+       "rol": "Customer Services Manager",
+       "texto": "Cuando el defecto afecta a una referencia entera, emite el comunicado de contención: apertura obligatoria de todo el stock de esa referencia, prueba según el video adjunto y resellado del empaque."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Tienda",
+       "texto": "Abre las unidades de la referencia afectada, aplica la prueba, vuelve a sellar las que están buenas y reporta las dañadas con evidencia fotográfica por el formulario de Lark."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Soporte Técnico (Panamá)",
+       "Responsable de Producto y Desarrollo",
+       "Customer Services Manager",
+       "Gerente de Tienda"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "inicio",
+        "n": "La falla se clasifica como de software"
+       },
+       {
+        "id": "n1",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Extraer los archivos y cargar el caso con el serial",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "decision",
+        "n": "¿Respondió la fábrica en siete días?"
+       },
+       {
+        "id": "n3",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Aplicar la actualización, probar y devolver al cliente"
+       },
+       {
+        "id": "n4",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Proceder con el reemplazo por vencimiento del plazo"
+       },
+       {
+        "id": "n5",
+        "carril": "Responsable de Producto y Desarrollo",
+        "tipo": "tarea",
+        "n": "Consolidar el tablero por producto, motivo y país",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Responsable de Producto y Desarrollo",
+        "tipo": "decision",
+        "n": "¿El defecto afecta a toda una referencia?"
+       },
+       {
+        "id": "n7",
+        "carril": "Responsable de Producto y Desarrollo",
+        "tipo": "fin",
+        "n": "Reporte entregado a la fábrica"
+       },
+       {
+        "id": "n8",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Emitir el comunicado de contención de la referencia"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Abrir el stock, probar y resellar las unidades buenas"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Reportar las dañadas con foto por el formulario",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Tienda",
+        "tipo": "fin",
+        "n": "Stock de la referencia contenido"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "11.4": {
+    "nota_version": "Versión As-Is: describe cómo se repara hoy el producto de la marca representada, con los cargos actuales de taller. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que entra a la tienda o al taller un producto reparable de la marca representada hasta que se devuelve al cliente reparado y cobrado. La compra de los repuestos que consume va en 11.5.",
+     "texto": "Aquí sí se repara, y se repara casi todo. La marca representada tiene líneas que en su catálogo figuran como no reparables, pero el taller de Venezuela las abre igual: «Japón no sabe, pero nosotros reparamos todo». El criterio es comercial y explícito —un reloj de treinta dólares se resuelve por doce o quince, uno de ciento setenta por ochenta— porque la alternativa, decirle al cliente que compre uno nuevo, se considera inaceptable para una marca que se vende sobre su respaldo.\n\nEl circuito empieza en la tienda. La cajera o el gerente reciben el producto, comprueban si hay falla y abren **la orden de servicio en SysCore** con la cédula, el nombre, el teléfono, la falla y el modelo. El equipo espera en tienda hasta 48 horas a que pase el despacho, que recorre las más de veinte tiendas; el fin de semana se acumula y el lunes llega todo junto. En el taller de Caracas dos personas reciben y abren la entrada **en NAV**, se revisa producto por producto, se comprueba si está en garantía y se llama al cliente por WhatsApp. Si no viene factura se pregunta al vendedor cuándo fue la última venta a ese cliente, porque un mayorista puede haber tenido el producto un año en su tienda antes de venderlo y la garantía del cliente final empieza cuando él lo compra.\n\nLa valoración la hace el relojero. El grupo tiene dos relojeros internos en Venezuela, más una persona dedicada a calculadoras una vez por semana y otra que atiende por chat todo lo que es correas y accesorios. Si el producto está fuera de garantía se cotiza la reparación y se cobra al cliente; el precio no lo fija el taller libremente sino que respeta **un tope que dicta el responsable regional del servicio de la marca**, que les dice a los países cuánto es lo máximo que pueden cobrar por tipo de intervención. Cuando el cliente declina el presupuesto, la salida que se le ofrece es un descuento sobre un equipo nuevo.\n\nEn Panamá no hay taller propio: la reparación se apoya en **un relojero externo que trabaja dentro de la tienda especializada de la marca** en uno de los centros comerciales grandes, y las garantías las gestiona el agente de ventas de esa marca, que hace llegar el producto a la tienda para que lo reparen. En Costa Rica el socio sigue un protocolo equivalente: se recibe el reloj, se le dice al cliente que hay que valorarlo, se le cobra un adelanto que después se descuenta de la valoración si el producto está fuera de garantía, y el proveedor dicta si procede el cambio o hay que esperar el repuesto."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Servicio Técnico (Venezuela), que además asesora el servicio de la marca representada en Panamá, Costa Rica y República Dominicana",
+     "participantes": [
+      "Técnicos Relojeros y Técnico Electrónico (Venezuela) — tres relojeros y un técnico electrónico según el patrón V4; hacen la valoración y la reparación.",
+      "Agente de accesorios y correas (Venezuela) — atiende por chat las solicitudes de correas, cajas y accesorios de la marca representada, del detal y del mayor.",
+      "Gerente de Tienda y Cajera — reciben el producto y abren la orden de servicio en el punto de venta.",
+      "Personal de despacho — recoge y devuelve los equipos en su recorrido por las tiendas.",
+      "Relojero externo de la tienda especializada (Panamá) — repara los productos de la marca representada; no pertenece al equipo de postventa.",
+      "Agente de ventas de la marca representada (Panamá) — gestiona la garantía y lleva el producto hasta el relojero.",
+      "Taller del socio (Costa Rica) — opera su propio protocolo de valoración y cobro."
+     ],
+     "evidencia": [
+      "E-51",
+      "E-02",
+      "E-64",
+      "E-47",
+      "E-19"
+     ],
+     "notas": "El conocimiento del circuito de la marca representada está concentrado en una sola persona, que además compra los repuestos y hace los reportes a la casa matriz: dentro de la propia organización se reconoce que nadie más sabe cómo se hace y que se ha intentado sin éxito extraer esa información.",
+     "sin_evidencia": "No consta el volumen de reparaciones de la marca representada en Panamá ni en Costa Rica, ni qué porcentaje de las órdenes de servicio de Venezuela termina en reparación cobrada frente a las que terminan en cambio."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cliente lleva a una tienda o al taller un producto de la marca representada con una falla.",
+     "cadencia": "Continua; el despacho recoge en tiendas en días fijos de la semana y el lunes concentra lo acumulado del fin de semana.",
+     "output": "Producto reparado y devuelto al cliente con la orden de servicio cerrada, y cobro de la reparación cuando está fuera de garantía.",
+     "evidencia": [
+      "E-51",
+      "E-47"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-51",
+      "E-47",
+      "E-02",
+      "E-19"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda / Cajera",
+       "texto": "Recibe el producto, comprueba con un vendedor si la falla es real y abre la orden de servicio con cédula, nombre, teléfono, falla y modelo. Le entrega al cliente la hoja de la orden."
+      },
+      {
+       "id": "a2",
+       "rol": "Personal de despacho",
+       "texto": "Recoge el equipo en su recorrido por las tiendas y lo lleva al taller, junto con el resto de garantías y papeles de esa tienda."
+      },
+      {
+       "id": "a3",
+       "rol": "Personal de recepción del taller",
+       "texto": "Abre la entrada del equipo en el sistema del taller, comprueba que la mercancía que llegó coincide con lo declarado y reparte lo de tienda, lo de ventas al mayor y lo que hay que reportar."
+      },
+      {
+       "id": "a4",
+       "rol": "Técnico Relojero",
+       "texto": "Valora el equipo y determina si está en garantía. Si no hay factura, consulta con el vendedor la fecha de la última venta a ese cliente antes de decidir."
+      },
+      {
+       "id": "a5",
+       "rol": "Técnico Relojero",
+       "texto": "Si está fuera de garantía, cotiza la reparación respetando el tope de precio que fija el responsable regional del servicio y se lo comunica al cliente para que decida."
+      },
+      {
+       "id": "a6",
+       "rol": "Técnico Relojero",
+       "texto": "Repara el equipo con el repuesto correspondiente, lo prueba y cierra la orden de servicio."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Servicio Técnico (Venezuela)",
+       "texto": "Si el cliente declina el presupuesto, negocia con él la salida: un descuento sobre un equipo nuevo a cambio de dejar el dañado."
+      },
+      {
+       "id": "a8",
+       "rol": "Personal de despacho",
+       "texto": "Devuelve el equipo reparado a la tienda de origen o lo despacha al cliente del interior."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda / Cajera",
+       "Personal de despacho",
+       "Personal de recepción del taller",
+       "Técnico Relojero",
+       "Gerente de Servicio Técnico (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda / Cajera",
+        "tipo": "inicio",
+        "n": "El cliente lleva un producto con falla"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda / Cajera",
+        "tipo": "tarea",
+        "n": "Abrir la orden de servicio y entregar la hoja al cliente",
+        "sistemas": [
+         "SysCore"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Personal de despacho",
+        "tipo": "tarea",
+        "n": "Recoger el equipo en la tienda y llevarlo al taller"
+       },
+       {
+        "id": "n3",
+        "carril": "Personal de recepción del taller",
+        "tipo": "tarea",
+        "n": "Abrir la entrada del equipo en el taller",
+        "sistemas": [
+         "NAV"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Técnico Relojero",
+        "tipo": "tarea",
+        "n": "Valorar el equipo y verificar la garantía"
+       },
+       {
+        "id": "n5",
+        "carril": "Técnico Relojero",
+        "tipo": "decision",
+        "n": "¿Está en garantía?"
+       },
+       {
+        "id": "n6",
+        "carril": "Técnico Relojero",
+        "tipo": "tarea",
+        "n": "Cotizar la reparación con el tope de precio vigente"
+       },
+       {
+        "id": "n7",
+        "carril": "Técnico Relojero",
+        "tipo": "decision",
+        "n": "¿El cliente acepta el presupuesto?"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Negociar el descuento sobre un equipo nuevo"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "fin",
+        "n": "Caso cerrado sin reparación"
+       },
+       {
+        "id": "n10",
+        "carril": "Técnico Relojero",
+        "tipo": "tarea",
+        "n": "Reparar, probar y cerrar la orden de servicio"
+       },
+       {
+        "id": "n11",
+        "carril": "Personal de despacho",
+        "tipo": "tarea",
+        "n": "Devolver el equipo a la tienda o despacharlo al cliente"
+       },
+       {
+        "id": "n12",
+        "carril": "Personal de despacho",
+        "tipo": "fin",
+        "n": "Producto reparado y entregado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n10",
+        "etq": "Acepta"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Declina"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "11.5": {
+    "nota_version": "Versión As-Is: describe cómo se consiguen hoy los repuestos y los accesorios de servicio, con los cargos actuales y con la diferencia entre las dos marcas. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el taller o un país detecta que necesita un repuesto o un accesorio hasta que el pedido se coloca y llega, más la definición del tope de precio al que se le vende al cliente. La reparación que lo consume va en 11.4.",
+     "texto": "Para la marca representada hay un canal de repuestos formal y una sola persona que lo opera. El Gerente de Servicio Técnico de Venezuela **tiene las claves del portal de servicio de la marca** y coloca él mismo los pedidos, no solo los de Venezuela sino también los de Panamá, Costa Rica y República Dominicana. Los países le mandan su solicitud en un Excel con código de repuesto, cantidad y destinatario; él la filtra antes de cursarla, y ese filtro es también un control: cuando ve una cantidad que no cuadra —cincuenta correas de un modelo que no rota— llama a preguntar para quién es. Los pedidos grandes los aprueba la dirección, y el interlocutor en la marca es el encargado regional del servicio, con más de veinte años en el puesto. Él mismo fija el tope que cada país puede cobrar por tipo de intervención.\n\nPara la marca propia **no hay canal de repuestos, y esa es la carencia que el equipo declara como la más grave de todo el macroproceso**. La fábrica no vende piezas y no autoriza abrir el producto. Lo que existe en su lugar es una economía de recuperación montada sobre la propia garantía: cuando se cambia un reloj, la correa nueva se guarda, se empaqueta y se vende como repuesto; de una báscula dañada se saca la tapa para reponerle la tapa a otro cliente; el año en que la fábrica dejó de mandar correas, el taller armó bolsas con las que tenía y se agotaron en tres días. El propio responsable lo resume: «somos una máquina de hacer repuestos». Cuando hace falta pedirle algo a la fábrica —tapas de termo, almohadillas de audífono— la solicitud sube por la gerencia regional hasta la dirección de producto y **tarda entre seis y ocho meses en llegar**.\n\nLa consecuencia visible es el descuento. Como no hay pieza ni reparación, lo que se le ofrece al cliente es un porcentaje sobre un equipo nuevo a cambio de dejar el dañado —en Venezuela ronda el 30 %—, y se lleva en **un Excel maestro** donde el técnico anota la orden de servicio a la que se le otorgó descuento; cuando el cliente vuelve a activarlo, busca la orden en ese Excel y manda el correo de activación. El equipo advierte que la salida se está agotando: el cliente ya no quiere el descuento, quiere que le reparen su reloj.\n\nEl otro insumo del proceso es la disponibilidad del reemplazo. El stock de garantías no está en manos del taller sino de Inventarios: desde mediados de 2026 hay que pedirlo por traslado en Odoo y dos personas de almacén lo bajan **dos veces al día**. El propio responsable defiende la regla —da estadística y da control— pero señala el efecto: depende de un departamento que no trabaja fines de semana ni se queda tarde, y su propuesta es que una persona de almacén quede fija con el taller para que el control siga existiendo sin el cuello de botella. Cuando falta producto en Venezuela, la reposición se pide a Panamá, que manda lotes para abastecer la bodega de soporte."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Servicio Técnico (Venezuela) para la marca representada; para la marca propia no hay dueño ni canal, y la necesidad se escala por la gerencia regional",
+     "participantes": [
+      "Técnicos Relojeros (Venezuela) — declaran qué repuesto necesitan y recuperan piezas de los equipos retirados.",
+      "Agente de accesorios y correas (Venezuela) — recoge por chat las solicitudes de correas y accesorios del detal y del mayor y las consolida en el pedido.",
+      "Customer Services Manager — canaliza hacia la dirección de producto las peticiones de repuesto de la marca propia y coordina el envío de lotes de reposición desde Panamá.",
+      "Dirección de Producto y Desarrollo — es quien habla con la fábrica cuando hace falta que mande accesorios o piezas.",
+      "Enlace de producto y logística (Panamá) — canaliza las solicitudes de repuesto de los clientes del mayor de Panamá.",
+      "Personal de almacén asignado al taller (Venezuela) — dos personas; bajan los traslados dos veces al día.",
+      "Encargado regional del servicio de la marca representada — interlocutor externo para los pedidos y la asesoría técnica."
+     ],
+     "evidencia": [
+      "E-51",
+      "E-02",
+      "E-58",
+      "E-53",
+      "SC-03"
+     ],
+     "notas": "El Gerente de Servicio Técnico de Venezuela ejerce este rol regional sin que figure como tal en su cargo: él mismo aclara que no es el gerente del servicio de la marca representada en esos países, sino que centraliza la compra de repuestos y la asesoría porque es quien tiene las claves y el histórico.",
+     "sin_evidencia": "No consta el monto anual de compra de repuestos ni un inventario de repuestos con existencias y costos; los países trabajan con una lista de precios aproximada que se transmite de palabra cuando entra personal nuevo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El taller o un país detecta que le falta un repuesto o un accesorio para resolverle a un cliente, o se agota el stock de reemplazo de garantías.",
+     "cadencia": "Por evento para la marca representada; para la marca propia la petición a fábrica es esporádica y tarda de seis a ocho meses.",
+     "output": "Pedido de repuestos colocado y recibido, o pieza recuperada de un equipo retirado, y tope de precio de venta comunicado a los países.",
+     "evidencia": [
+      "E-51"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-51",
+      "E-02",
+      "SC-03"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Técnico Relojero / agente del país",
+       "texto": "Detecta que necesita un repuesto o un accesorio y lo solicita al Gerente de Servicio Técnico, en Excel con código de repuesto, cantidad y destinatario cuando se trata de otro país."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Servicio Técnico (Venezuela)",
+       "texto": "Revisa la solicitud y verifica la razonabilidad de la cantidad. Si pide una cantidad inusual de una pieza que no rota, llama para confirmar para quién es antes de cursar el pedido."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Servicio Técnico (Venezuela)",
+       "texto": "Si el repuesto es de la marca representada, entra al portal de servicio con sus claves y coloca el pedido; si supera cierto monto, lo aprueba la dirección."
+      },
+      {
+       "id": "a4",
+       "rol": "Dirección de Producto y Desarrollo",
+       "texto": "Si el repuesto es de la marca propia, no hay canal de compra: recibe la necesidad escalada por la gerencia regional y se la traslada a la fábrica, con una espera de seis a ocho meses."
+      },
+      {
+       "id": "a5",
+       "rol": "Técnico Relojero / agente del país",
+       "texto": "Mientras tanto recupera la pieza de los equipos retirados por garantía —correas, tapas, almohadillas— y la acondiciona para reponerla o venderla."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Servicio Técnico (Venezuela)",
+       "texto": "Fija y comunica a los países el tope máximo que pueden cobrarle al cliente por cada tipo de intervención, sobre el costo del repuesto."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Técnico Relojero / agente del país",
+       "Gerente de Servicio Técnico (Venezuela)",
+       "Dirección de Producto y Desarrollo"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Técnico Relojero / agente del país",
+        "tipo": "inicio",
+        "n": "Falta un repuesto para resolverle al cliente"
+       },
+       {
+        "id": "n1",
+        "carril": "Técnico Relojero / agente del país",
+        "tipo": "tarea",
+        "n": "Solicitar el repuesto con código, cantidad y destinatario"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Revisar la solicitud y verificar la cantidad pedida"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Es de la marca representada?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Colocar el pedido en el portal de servicio de la marca"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Fijar el tope de precio al cliente y comunicarlo a los países"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Servicio Técnico (Venezuela)",
+        "tipo": "fin",
+        "n": "Repuesto pedido y precio acordado"
+       },
+       {
+        "id": "n7",
+        "carril": "Dirección de Producto y Desarrollo",
+        "tipo": "tarea",
+        "n": "Escalar la necesidad a la fábrica de la marca propia"
+       },
+       {
+        "id": "n8",
+        "carril": "Técnico Relojero / agente del país",
+        "tipo": "tarea",
+        "n": "Recuperar la pieza de los equipos retirados por garantía"
+       },
+       {
+        "id": "n9",
+        "carril": "Técnico Relojero / agente del país",
+        "tipo": "fin",
+        "n": "Cliente resuelto con pieza recuperada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n3",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "11.6": {
+    "nota_version": "Versión As-Is: describe cómo se le honra hoy la garantía a un cliente de un mercado donde no hay operación, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La atención de garantías de clientes de mercados sin operación propia ni socio local —México, Brasil, Argentina, Chile— y de aquellos donde todo depende de un único agente externo, como Ecuador. Incluye el envío del reemplazo por courier y la reposición de stock al agente. La evaluación de la falla es la misma de 11.2.",
+     "texto": "La casa matriz de Panamá **cubre garantías de países donde el grupo no vende**. El origen habitual es el aeropuerto: un cliente en tránsito compra en la tienda de Tocumen, se le ofrece garantía internacional, y cuando el producto falla escribe desde Brasil, Argentina o Chile. También pasa al revés —alguien compra en Panamá o en Colombia y reclama en Venezuela—, y entonces se le honra donde esté y se registra como reporte internacional. El circuito es el mismo de cualquier garantía hasta la entrega; lo que cambia es que el reemplazo **sale por DHL desde Panamá** y lo paga la casa matriz.\n\nEcuador es un caso aparte y el más caro. El país opera partido en dos empresas distintas: Quito lleva las tiendas y Guayaquil el mayoreo, y ninguna de las dos quiere cubrir las garantías de la otra. La salida ha sido poner un agente propio, una sola persona que no es ni siquiera personal del grupo, y **mandarle stock desde Panamá cada dos o tres meses por DHL**, o llevárselo en maleta cuando alguien viaja —una vez con consecuencias, porque en el aeropuerto pararon al gerente regional por contrabando—. Mercately no llegó a Ecuador; ahí se sigue trabajando desde WhatsApp.\n\nEl costo de sostener esto **no tenía visibilidad hasta hace poco**. El gerente regional armó un flujo en Lark con la persona de logística de Panamá para seguirle la pista a cada envío, y con esos números sacó la cifra: más de **5.000 dólares en el año solo en flete**, y del orden de **12.000 a 13.000** sumando la mercancía. Él mismo dice que no ha encontrado la salida correcta y que quizá no la haya mientras no se abra oficina en esos países. La reposición al agente no tiene calendario: se manda cuando se agota."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Customer Services Manager (regional)",
+     "participantes": [
+      "Soporte Técnico (Panamá) — atiende el chat del cliente del mercado sin operación y monta la orden por garantía en el ERP.",
+      "Agente de servicio de Ecuador — externo, una sola persona; recibe el stock y resuelve las garantías de los dos frentes del país.",
+      "Enlace de logística (Panamá) — coordina los envíos por courier y lleva con el gerente regional el control de lo gastado.",
+      "Supervisor de Bodega / Despacho (Panamá) — procesa la orden y prepara el envío.",
+      "Distribuidor de República Dominicana y operador tercerizado de Guatemala — atienden sus mercados por su cuenta y escalan a Panamá lo que no resuelven."
+     ],
+     "evidencia": [
+      "E-58",
+      "E-64",
+      "E-02"
+     ],
+     "notas": "El agente de Ecuador no figura en el patrón de cargos del grupo: el propio gerente regional aclara que no es una persona de plantilla sino un operador, y aun así es quien sostiene todas las garantías del país.",
+     "sin_evidencia": "No consta cuántas garantías al año corresponden a estos mercados ni qué proporción del costo logístico se lleva cada uno; la cifra disponible es agregada."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente de un mercado sin operación propia reclama la garantía de un producto que compró en tránsito o en otro país, o el agente de Ecuador se queda sin stock de reemplazo.",
+     "cadencia": "Por evento; la reposición de stock al agente de Ecuador ocurre cada dos o tres meses, sin calendario fijo.",
+     "output": "Producto de reemplazo entregado al cliente por courier, y costo del envío registrado en el flujo de seguimiento.",
+     "evidencia": [
+      "E-58",
+      "E-64"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-58",
+      "E-64",
+      "E-02"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Recibe por chat o por correo el reclamo de un cliente de un mercado sin operación propia, verifica la elegibilidad y le pide la evidencia de la falla y la factura."
+      },
+      {
+       "id": "a2",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Si el mercado tiene agente propio, le deriva el caso y le pasa los datos del cliente para que lo resuelva localmente con el stock que tiene."
+      },
+      {
+       "id": "a3",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Si no lo tiene, monta la orden por garantía en el ERP para que Bodega libere el producto de reemplazo."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor de Bodega / Despacho (Panamá)",
+       "texto": "Procesa la orden, prepara el paquete y lo entrega al courier internacional."
+      },
+      {
+       "id": "a5",
+       "rol": "Soporte Técnico (Panamá)",
+       "texto": "Pasa al cliente la guía de rastreo y registra el envío en el flujo de Lark que sigue el costo de estos despachos."
+      },
+      {
+       "id": "a6",
+       "rol": "Customer Services Manager",
+       "texto": "Repone el stock del agente del país cuando se agota, por courier o en maleta cuando alguien viaja, y revisa con el enlace de logística cuánto se lleva gastado en el año."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Soporte Técnico (Panamá)",
+       "Supervisor de Bodega / Despacho (Panamá)",
+       "Customer Services Manager"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "inicio",
+        "n": "Reclamo de un cliente sin operación en su país"
+       },
+       {
+        "id": "n1",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Verificar la elegibilidad y pedir evidencia y factura"
+       },
+       {
+        "id": "n2",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "decision",
+        "n": "¿Hay agente en ese país?"
+       },
+       {
+        "id": "n3",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Derivar el caso al agente con los datos del cliente"
+       },
+       {
+        "id": "n4",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Montar la orden por garantía en el ERP",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor de Bodega / Despacho (Panamá)",
+        "tipo": "tarea",
+        "n": "Preparar el paquete y entregarlo al courier"
+       },
+       {
+        "id": "n6",
+        "carril": "Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Pasar la guía al cliente y registrar el envío",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Reponer el stock del agente y revisar el costo del año"
+       },
+       {
+        "id": "n8",
+        "carril": "Customer Services Manager",
+        "tipo": "fin",
+        "n": "Cliente resuelto y costo logístico registrado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n7"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "11.7": {
+    "nota_version": "Versión As-Is: describe cómo se trata hoy al cliente que ya no se conforma con la respuesta estándar, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un caso excede lo que puede resolver el agente que lo recibió hasta que se acuerda con el cliente una salida excepcional —cambio por otra generación o color, espera, descuento o devolución del dinero—. La ejecución del reembolso va en 11.8.",
+     "texto": "El escalamiento existe, pero **descansa en el criterio y en el teléfono de quien lo atiende**, no en un procedimiento. En Panamá el coordinador de soporte armó hace poco un archivo que clasifica los casos por colores —rojo cuando hace falta que intervenga el gerente de la marca, naranja cuando lo resuelve el coordinador o el encargado de soporte, amarillo para la atención de primera línea—; él mismo reconoce que está esbozado y que le falta trabajo, y no consta que se haya extendido a los demás países.\n\nEn Venezuela la ruta es más corta y más personal: el gerente de tienda llama al Gerente de Servicio Técnico cuando tiene delante a un cliente molesto, y a partir de ahí lo toma él. Lo que hace primero es abrir el historial del cliente por cédula en el sistema del taller para ver cuántas veces ha vuelto, y ahí aparece un problema recurrente: el reporte de tienda se llena a mano, los nombres se transcriben mal —una letra cambiada convierte al mismo cliente en dos— y un cliente que ha vuelto cinco veces figura con dos registros. La reconstrucción la hace el cliente enseñándole sus propios videos.\n\nLas salidas que se ofrecen cuando el cambio estándar ya no basta son tres, y se le plantean al cliente para que elija: **cambiar por otro modelo o color que sí haya, esperar a que llegue el producto —diez, quince, veinte días, a veces un mes— o devolver el dinero**. También se sustituye por una generación posterior cuando la del cliente ya no se produce, decisión que en Venezuela pasa por el Gerente de Servicio Técnico. La retail de Venezuela coordina caso por caso con él lo que se hace con esos clientes que vuelven una y otra vez; y advierte que después nadie le devuelve la información: no recibe ningún reporte de las garantías resueltas.\n\nHay un detalle que el equipo repite y que conviene registrar tal cual: **el canal cambia el desenlace**. Varias veces un cliente que por chat estaba furioso llega tranquilo cuando alguien lo llama por teléfono o lo recibe en persona. La gerencia de servicio lo formula como criterio de trabajo —al cliente hay que llamarlo— y lo usa como argumento para pedir una persona con experiencia en trato con público dedicada a eso, que hoy no existe: quienes reciben la mercancía hacen un trabajo excelente con los equipos pero no tienen ese oficio."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño formal del escalamiento: lo asume el gerente del país —Customer Services Manager en Panamá, Gerente de Servicio Técnico en Venezuela— cuando el caso llega hasta él",
+     "participantes": [
+      "Coordinador de Soporte Técnico (Panamá) — desarrolló el archivo de niveles por colores y resuelve el nivel intermedio.",
+      "Soporte Técnico (Panamá) — atiende la primera línea y decide cuándo levanta el caso.",
+      "Gerente de Servicio Técnico (Venezuela) — toma personalmente los casos extremos, revisa el historial y negocia la salida con el cliente.",
+      "Gerente de Tienda y Supervisor de Tienda — detectan al cliente molesto y llaman al gerente de servicio; algunos resuelven el cambio en el punto de venta para no hacerlo esperar.",
+      "Gerente de Ventas Retail (Venezuela) — coordina con servicio técnico qué se hace con los clientes reincidentes.",
+      "Customer Services Manager — interviene en los casos de los mercados que atiende Panamá y en los que le escalan los países."
+     ],
+     "evidencia": [
+      "E-64",
+      "E-51",
+      "E-47",
+      "E-58"
+     ],
+     "notas": "El archivo de niveles de escalamiento es un desarrollo local y reciente de Panamá; en el resto de los países el escalamiento no tiene forma escrita y funciona por llamada directa al gerente.",
+     "sin_evidencia": "No consta cuántos casos se escalan ni cuánto tardan en cerrarse, ni existe registro de las salidas excepcionales acordadas más allá del Excel de descuentos del taller."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cliente rechaza la solución estándar, reincide con la misma falla o manifiesta molestia por el trato o por la espera.",
+     "cadencia": "Por evento.",
+     "output": "Salida excepcional acordada con el cliente: cambio por otro modelo, color o generación, espera comprometida, descuento sobre un equipo nuevo o devolución del dinero.",
+     "evidencia": [
+      "E-51",
+      "E-47"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-51",
+      "E-47",
+      "E-64"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Soporte Técnico / Gerente de Tienda",
+       "texto": "Detecta que el caso excede lo que puede resolver: el cliente rechaza la solución, reincide con la misma falla o está molesto por el trato o la espera."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Soporte Técnico (Panamá)",
+       "texto": "Clasifica el caso según el archivo de niveles por colores y lo resuelve si le corresponde, o lo levanta al gerente cuando es de nivel crítico."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "Llama al cliente y abre su historial en el sistema del taller para ver cuántas veces ha vuelto y con qué producto, reconstruyendo con él los casos que no aparecen bien registrados."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "Le plantea al cliente las salidas disponibles: cambiar por otro modelo, color o generación posterior, esperar a que llegue el producto con un plazo comprometido, o la devolución del dinero."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "Ejecuta la salida acordada: coordina el cambio con la tienda, avisa por correo a la tienda para que lo entregue, o levanta la solicitud de reembolso."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas Retail",
+       "texto": "Coordina con servicio técnico el tratamiento de los clientes reincidentes y decide con él si se cambia otra vez o se busca otra salida."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Soporte Técnico / Gerente de Tienda",
+       "Coordinador de Soporte Técnico (Panamá)",
+       "Gerente de Servicio Técnico del país",
+       "Gerente de Ventas Retail"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Soporte Técnico / Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "El caso excede la solución estándar"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinador de Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Clasificar el caso según el archivo de niveles"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador de Soporte Técnico (Panamá)",
+        "tipo": "decision",
+        "n": "¿Requiere al gerente?"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Resolver el caso en el nivel intermedio"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador de Soporte Técnico (Panamá)",
+        "tipo": "fin",
+        "n": "Caso cerrado sin escalar al gerente"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Llamar al cliente y revisar su historial"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas Retail",
+        "tipo": "tarea",
+        "n": "Acordar con servicio técnico qué se hace con el reincidente"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Plantear al cliente cambio, espera o devolución del dinero"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Ejecutar la salida acordada y avisar a la tienda"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "fin",
+        "n": "Cliente recuperado con salida excepcional"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "11.8": {
+    "nota_version": "Versión As-Is: describe cómo se devuelve hoy el dinero o se emite la nota de crédito, con los cargos actuales y con las diferencias entre países. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que se acepta que no procede el reemplazo hasta que el cliente recibe su dinero o el cliente del mayor recibe la nota de crédito. El registro contable de la operación pertenece a los macroprocesos de Contabilidad y Tesorería.",
+     "texto": "Hay dos circuitos distintos según quién es el cliente. Para el **cliente final** —el que compró por la web o en tienda y no hay stock, o se le cambió el producto varias veces y ya no lo quiere— la solicitud sube por **un flujo de aprobación de Lark** hasta Contabilidad, que valida y ordena el pago. En Panamá el flujo está rodado y se resuelve en un plazo de horas. En Colombia no era así: se descubrió que Contabilidad estaba tardando **hasta treinta días** en devolverle el dinero a un cliente que había comprado un producto que no había; la intervención del gerente regional con el country manager y el equipo contable montó allí el mismo flujo de aprobación y **lo bajó a cinco días**, con la intención declarada de seguir bajándolo. No consta que ese plazo esté formalizado ni que se mida en los demás países.\n\nPara el **cliente del mayor** el instrumento no es el dinero sino la nota de crédito, y el circuito también va por Lark: el vendedor monta la devolución, la primera parada es el Gerente de Ventas al Mayor, que revisa qué pasó con el producto y por qué lo devuelven; una vez aprueba, baja a Bodega, que recibe físicamente la mercancía, la retorna al inventario y lo anota en la observación; y solo cuando Contabilidad tiene esa confirmación **emite la nota de crédito** y la aplica al estado de cuenta del cliente, o le devuelve el dinero si eso es lo acordado. El vendedor no puede facturar el siguiente pedido hasta que la nota de crédito está aplicada, lo que convierte el plazo en un problema comercial además de uno de servicio.\n\nEn la marca propia hay una tercera figura que la carta de garantía recoge: la nota de crédito por cambio en garantía, que **solo aplica después del diagnóstico y de la aprobación expresa del cambio**, y que ejecuta el ejecutivo de ventas de la marca, con la condición de que el producto reemplazado vuelva a él.\n\nY hay una salida que en la práctica sustituye al reembolso cuando el cliente la acepta: **el descuento**. Como no hay repuesto ni reparación posible en la marca propia, al cliente se le ofrece dejar el dañado y llevarse uno nuevo con un porcentaje —en Venezuela ronda el 30 %—; el descuento otorgado se anota en un Excel del taller y se activa por correo cuando el cliente vuelve a reclamarlo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño único: lo levanta el agente o el vendedor, lo aprueba el gerente del canal y lo ejecuta Contabilidad",
+     "participantes": [
+      "Soporte Técnico / Asesor de Ventas Online — levanta la solicitud de devolución del cliente final en el flujo de aprobación.",
+      "Gerente de Ventas al Mayor (Panamá) — primera aprobación de toda devolución del canal mayorista; verifica el motivo antes de dejarla bajar.",
+      "Supervisor de Bodega / Despacho — recibe la mercancía devuelta, la retorna al inventario y lo deja anotado en la observación.",
+      "Coordinador de Supervisión de Créditos y Cobros (Panamá) — procesa la nota de crédito una vez Bodega confirma.",
+      "Gerente de Contabilidad del país — valida la solicitud y ordena el pago o la emisión de la nota de crédito.",
+      "Customer Services Manager — interviene cuando el plazo se dispara y monta el flujo de aprobación en el país donde falta.",
+      "Gerente de Servicio Técnico (Venezuela) — concede el descuento en lugar del reembolso y lleva su registro."
+     ],
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-39",
+      "E-57",
+      "E-51",
+      "Lark: Carta de Garantía Cubitt (PA)"
+     ],
+     "notas": "El flujo de aprobación de devoluciones es el mismo de Lark que ya se usaba en Panamá para confirmar pagos del comercio electrónico; se replicó a Colombia tal cual.",
+     "sin_evidencia": "No consta un plazo comprometido de reembolso para Venezuela ni para el resto de los países, ni el volumen anual de reembolsos y notas de crédito originados en postventa."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "No procede el reemplazo —no hay stock, la falla reincide o el cliente ya no quiere el producto— o el cliente del mayor devuelve mercancía.",
+     "cadencia": "Por evento.",
+     "output": "Dinero devuelto al cliente final, o nota de crédito emitida y aplicada al estado de cuenta del cliente del mayor.",
+     "evidencia": [
+      "E-58",
+      "E-39",
+      "E-57"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-39",
+      "E-57"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Agente de postventa / Vendedor del mayor",
+       "texto": "Levanta la solicitud de devolución en el flujo de aprobación, indicando el motivo, el pedido y si el cliente pide el dinero o el cambio."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas al Mayor",
+       "texto": "Revisa la devolución del canal mayorista: qué pasó con el producto, por qué lo devuelve el cliente y si procede. Aprueba o la rechaza."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor de Bodega / Despacho",
+       "texto": "Recibe físicamente la mercancía devuelta, verifica su estado, la retorna al inventario y deja anotado en la observación que ya está en su poder."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador de Créditos y Cobros / Contabilidad",
+       "texto": "Con la confirmación de Bodega, emite la nota de crédito y la aplica al estado de cuenta del cliente del mayor, o tramita la devolución del dinero al cliente final."
+      },
+      {
+       "id": "a5",
+       "rol": "Agente de postventa / Vendedor del mayor",
+       "texto": "Confirma al cliente que el reembolso o la nota de crédito está aplicada; en el mayor, recién entonces puede facturarle el siguiente pedido."
+      },
+      {
+       "id": "a6",
+       "rol": "Customer Services Manager",
+       "texto": "Cuando detecta que un país está tardando fuera de lo razonable, se sienta con Contabilidad y el country manager y monta allí el mismo flujo de aprobación con plazo acotado."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Agente de postventa / Vendedor del mayor",
+       "Gerente de Ventas al Mayor",
+       "Supervisor de Bodega / Despacho",
+       "Coordinador de Créditos y Cobros / Contabilidad",
+       "Customer Services Manager"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Agente de postventa / Vendedor del mayor",
+        "tipo": "inicio",
+        "n": "No procede el reemplazo o el cliente devuelve"
+       },
+       {
+        "id": "n1",
+        "carril": "Agente de postventa / Vendedor del mayor",
+        "tipo": "tarea",
+        "n": "Levantar la solicitud en el flujo de aprobación",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas al Mayor",
+        "tipo": "decision",
+        "n": "¿Procede la devolución?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas al Mayor",
+        "tipo": "tarea",
+        "n": "Informar al vendedor el rechazo y el motivo"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas al Mayor",
+        "tipo": "fin",
+        "n": "Solicitud rechazada"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor de Bodega / Despacho",
+        "tipo": "tarea",
+        "n": "Recibir la mercancía y retornarla al inventario",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinador de Créditos y Cobros / Contabilidad",
+        "tipo": "tarea",
+        "n": "Emitir la nota de crédito o tramitar el pago"
+       },
+       {
+        "id": "n7",
+        "carril": "Agente de postventa / Vendedor del mayor",
+        "tipo": "tarea",
+        "n": "Confirmar al cliente que ya está aplicada"
+       },
+       {
+        "id": "n8",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Revisar el plazo del país y corregirlo si se dispara"
+       },
+       {
+        "id": "n9",
+        "carril": "Customer Services Manager",
+        "tipo": "fin",
+        "n": "Cliente reembolsado y plazo bajo control"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "11.9": {
+    "nota_version": "Versión As-Is: describe el ciclo mensual de scrap tal y como lo dejó escrito y firmado la gerencia regional de postventa, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el producto retirado por garantía se acumula en la bodega de desecho hasta que la empresa recicladora se lo lleva y devuelve el certificado. La recuperación de piezas que vuelven a servicio alimenta a 11.5.",
+     "texto": "El ciclo es mensual y tiene fecha fija: **el día 28 de cada mes**. Se coteja lo físico contra el sistema —las unidades que hay en la bodega de desecho contra las solicitudes cargadas en Lark Base—, se verifica que el reporte que se le cargó a la fábrica refleja lo que hay, y el supervisor técnico clasifica y aprueba unidad por unidad. De ahí salen dos caminos: lo que está en buen estado se revisa funcionalmente, se limpia, se etiqueta y va a **una feria interna** donde se le vende al equipo a precio especial; lo que está dañado se clasifica, se embala y se registra como lote de scrap en Lark Base. El día 1 o 2 del mes siguiente **la empresa recicladora pasa a retirar las unidades**, emite el certificado de destrucción, el certificado se archiva en Lark Base y el ciclo se cierra con un reporte por correo al gerente regional de postventa. El procedimiento está firmado por la dirección de operaciones y por el supervisor de postventa de Venezuela.\n\nAntes del ciclo hay una revisión que no está escrita. En Panamá llega todo el producto defectuoso de todas las tiendas, y el encargado de soporte y el coordinador le dan **una segunda pasada a lo que llega, por si algo puede volver a la vida**; lo que no, se clasifica y se empaqueta para el reciclador. Es una práctica reciente y no hay criterio escrito de cuándo una unidad se recupera y cuándo se desecha.\n\nDonde el ciclo se traba es en la conciliación. En Venezuela, cuando se intentó ejecutar el scrap, los números de Bodega cuadraban —«tiene todo limpio, organizadito»— y los del servicio técnico no. La causa está identificada y es anterior al ciclo: hasta mediados de 2026 el servicio técnico de Venezuela pedía mercancía a la bodega principal y la trasladaba a una bodega suya, sin segregación física; el producto estaba encima de los agentes, que **tomaban lo que necesitaban a criterio y se lo entregaban al cliente**, registrándolo en un sistema manual no integrado al ERP. No había trazabilidad ni conciliación, y el reporte que subía a Lark no cuadraba con el volumen de ventas. La regla que zanjó aquello es la que sostiene hoy todo el proceso: **nada se entrega sin traslado**.\n\nEl marco es una exigencia de marca, no una preferencia local: lo que se desecha tiene que ir a una recicladora autorizada, con certificado, porque hay componentes peligrosos, y así se le transmite también a los socios."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Servicio Técnico del país (en Venezuela firma como Supervisor Post Venta), con reporte de ejecución al Customer Services Manager regional",
+     "participantes": [
+      "Soporte Técnico y Coordinador de Soporte Técnico (Panamá) — dan la segunda revisión a lo que llega de las tiendas y clasifican y embalan lo que va al reciclador.",
+      "Supervisor Técnico — valida y aprueba la clasificación de cada unidad antes de que se bifurque a feria interna o a reciclaje.",
+      "Supervisor de Bodega / Despacho — custodia la bodega de desecho y aporta el conteo físico con el que se coteja el sistema.",
+      "Dirección de Operaciones (Venezuela) — aprueba y firma el procedimiento.",
+      "Customer Services Manager — recibe el reporte de ejecución del ciclo por correo y aprueba el cierre mensual.",
+      "Empresa recicladora certificada — retira las unidades, las destruye y emite el certificado."
+     ],
+     "evidencia": [
+      "E-58",
+      "E-02",
+      "E-64",
+      "E-51",
+      "SC-03",
+      "E-59",
+      "Lark: Proceso SCRAP / RAEE — ciclo mensual, v1.0 junio 2026 (VE)"
+     ],
+     "notas": "El procedimiento firmado prevé que el reporte de confirmación al gerente regional se genere una vez ejecutado el primer ciclo, lo que sitúa el documento en el arranque del proceso y no en su régimen.",
+     "sin_evidencia": "No consta un criterio escrito para decidir qué unidad se recupera para la feria interna y cuál se desecha; la clasificación depende del juicio del supervisor técnico."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llega el día 28 del mes y arranca la revisión del ciclo.",
+     "cadencia": "Mensual: revisión el día 28, retiro por la recicladora el día 1 o 2 del mes siguiente.",
+     "output": "Lote entregado a la recicladora con certificado de destrucción archivado, unidades recuperadas disponibles en la feria interna y reporte de ejecución enviado al gerente regional.",
+     "evidencia": [
+      "Lark: Proceso SCRAP / RAEE — ciclo mensual, v1.0 junio 2026 (VE)",
+      "E-58"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "Lark: Proceso SCRAP / RAEE — ciclo mensual, v1.0 junio 2026 (VE)",
+      "E-58",
+      "E-64",
+      "E-51"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "El día 28 coteja las unidades físicas que hay en la bodega de desecho contra las solicitudes cargadas en el sistema."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "Verifica que el reporte que se le cargó a la fábrica refleja correctamente lo que hay físicamente."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor Técnico",
+       "texto": "Clasifica y aprueba unidad por unidad, separando lo que está en buen estado de lo que va a reciclaje. En Panamá esta revisión incluye una segunda pasada para rescatar lo que pueda volver a servicio."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor Técnico",
+       "texto": "Lo que está en buen estado se revisa funcionalmente, se limpia y se etiqueta, y queda disponible en la feria interna para venta a precio especial al equipo."
+      },
+      {
+       "id": "a5",
+       "rol": "Supervisor Técnico",
+       "texto": "Lo dañado se clasifica, se embala y se registra como lote de scrap en el sistema."
+      },
+      {
+       "id": "a6",
+       "rol": "Supervisor de Bodega / Despacho",
+       "texto": "Entrega el lote a la empresa recicladora el día 1 o 2 del mes siguiente, que pesa las unidades y las retira."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "Archiva el certificado de destrucción y cierra el ciclo con el reporte de ejecución por correo al gerente regional de postventa."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Servicio Técnico del país",
+       "Supervisor Técnico",
+       "Supervisor de Bodega / Despacho"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "inicio",
+        "n": "Día 28: arranca el ciclo mensual"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Cotejar las unidades físicas contra las solicitudes",
+        "sistemas": [
+         "Lark",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Verificar que el reporte a fábrica refleja el físico",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Supervisor Técnico",
+        "tipo": "tarea",
+        "n": "Clasificar y aprobar unidad por unidad"
+       },
+       {
+        "id": "n4",
+        "carril": "Supervisor Técnico",
+        "tipo": "decision",
+        "n": "¿La unidad está en buen estado?"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor Técnico",
+        "tipo": "tarea",
+        "n": "Revisar, limpiar y etiquetar para la feria interna"
+       },
+       {
+        "id": "n6",
+        "carril": "Supervisor Técnico",
+        "tipo": "fin",
+        "n": "Unidad disponible en la feria interna"
+       },
+       {
+        "id": "n7",
+        "carril": "Supervisor Técnico",
+        "tipo": "tarea",
+        "n": "Clasificar, embalar y registrar el lote de scrap",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Supervisor de Bodega / Despacho",
+        "tipo": "tarea",
+        "n": "Entregar el lote a la recicladora el día 1 o 2"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Archivar el certificado y reportar el cierre por correo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "fin",
+        "n": "Ciclo cerrado con certificado de destrucción"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "11.10": {
+    "nota_version": "Versión As-Is: describe quién define hoy el estándar de servicio y dónde vive, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La creación y el mantenimiento de la carta de garantía, los protocolos de atención, los manuales y la base de conocimiento, y su homologación entre países propios, socios y distribuidores. La ejecución diaria de cada proceso va en 11.1 a 11.9.",
+     "texto": "El estándar existe, está escrito y está razonablemente completo. Vive en **el wiki de Lark del departamento**, que es uno de los dos únicos wikis que se usan en toda la organización, y contiene la carta de garantía, los motivos de garantía por categoría de producto con las pruebas diagnósticas obligatorias, el manual regional de operaciones, la guía de comunicación corporativa con las plantillas de respuesta, la guía de llenado del formulario de garantías, el organigrama del departamento, los diagramas de flujo de postventa, el manual de rotulado y el de capacitación a puntos de venta, más una base de preguntas frecuentes.\n\nEl problema no es que falte: **es que casi nadie fuera del departamento lo usa, y la dirección no sabe que existe**. El propio gerente regional lo dice sin rodeos —«tenemos todo esto creado pero a nivel de empresa nadie lo usa»— y atribuye la causa a que no hay lineamiento que obligue a seguirlo. Una conversación con Recursos Humanos le confirmó que en la dirección se creía que nada de eso existía.\n\nTodo lo que hay ahí lo escribió el mismo equipo, por iniciativa propia y sin que nadie se lo pidiera. Lo mismo pasó con **la Universidad Cubitt**, una plataforma de formación que el gerente regional montó hace tres años con la idea de que todas las gerencias crearan sus cursos; solo la crearon él y su equipo, la usan unas doscientas veinte personas y hoy solo sirve para soporte técnico y atención al cliente. La formación de producto, que llevaba también este departamento desde el principio, **se está traspasando a una posición dedicada de Recursos Humanos** creada a mediados de 2026: el equipo reconoce que con el crecimiento ya era insostenible cargar con ella.\n\nLa homologación entre países es desigual y el propio responsable la describe así: el modelo se ha implantado en casi todos los países menos en Venezuela, donde hay liderazgos más antiguos y la autoridad del cargo regional se diluye. Costa Rica, que es sociedad, **no usa Lark en absoluto** y se comunica por WhatsApp sin dejar registro, aunque sigue el protocolo que le transmite Panamá y recibe visitas del gerente regional dos veces al año; Guatemala está tercerizada y tampoco está en Lark, así que su información la recoge el equipo de Panamá por WhatsApp y la vuelca a mano. **No hay comité de ningún tipo**. Lo que sí hay es una reunión mensual con todo el equipo de soporte de la región, que últimamente conduce el coordinador, y una intención de reunión individual semanal con cada persona que no siempre se cumple."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Customer Services Manager (regional), por iniciativa propia y sin mandato formal",
+     "participantes": [
+      "Coordinador de Soporte Técnico (Panamá) — redacta manuales, estandariza el paso a paso y conduce la reunión mensual regional.",
+      "Soporte Técnico y Asesores de Ventas Online (Panamá) — construyen materiales y prototipos de herramienta junto con el gerente.",
+      "Responsable de Producto y Desarrollo — aporta el contenido técnico de producto y el checklist de prueba de producto nuevo.",
+      "Líder de Formación y Desarrollo Regional (Recursos Humanos) — posición creada a mediados de 2026; recibe el traspaso de la formación de producto y de habilidades.",
+      "Gerentes de Servicio Técnico de cada país — adoptan o no el estándar en su operación.",
+      "Socio de Costa Rica y operador tercerizado de Guatemala — siguen el protocolo sin estar en las herramientas del grupo.",
+      "Director de Proyectos (PMO) — desde su entrada, la comunicación entre departamentos mejoró y varias de estas prácticas empezaron a formalizarse."
+     ],
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64",
+      "E-55",
+      "E-19",
+      "Lark: Manual Regional de Operaciones — Departamento de Customer Service, v1.0 junio 2026 (PA)",
+      "Lark: Carta de Garantía Cubitt (PA)",
+      "Lark: Motivos de garantía (PA)"
+     ],
+     "notas": "El gerente regional paga de su bolsillo las herramientas con las que construye estos materiales, y su equipo también paga las suyas.",
+     "sin_evidencia": "No consta un calendario de revisión de los manuales ni un responsable designado de mantenerlos al día; tampoco quién aprueba un cambio de la carta de garantía."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se detecta un vacío en el estándar, entra personal nuevo, se abre un mercado o el gerente regional decide formalizar una práctica.",
+     "cadencia": "Por evento; la reunión regional del equipo de soporte es mensual.",
+     "output": "Manual, protocolo o carta publicada en el wiki del departamento y agentes formados en el estándar.",
+     "evidencia": [
+      "E-02",
+      "E-58"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-64"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Customer Services Manager",
+       "texto": "Detecta el vacío —un desperfecto nuevo, un mercado que se abre, una forma de responder que conviene fijar— y decide que hace falta dejarlo escrito."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Soporte Técnico (Panamá)",
+       "texto": "Redacta el manual, el protocolo o el diagrama de flujo y lo publica en el wiki del departamento."
+      },
+      {
+       "id": "a3",
+       "rol": "Customer Services Manager",
+       "texto": "Lo comunica en la reunión mensual con el equipo de soporte de la región y lo transmite a socios y distribuidores por el canal que cada uno use, que en varios casos es WhatsApp."
+      },
+      {
+       "id": "a4",
+       "rol": "Líder de Formación y Desarrollo Regional",
+       "texto": "Incorpora el contenido a la plataforma de formación y lo usa en la inducción de los nuevos ingresos y en las capacitaciones a puntos de venta."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Servicio Técnico del país",
+       "texto": "Adopta el estándar en su operación, o lo adapta cuando su contexto no lo permite, sin que exista un mecanismo que verifique la adopción."
+      },
+      {
+       "id": "a6",
+       "rol": "Customer Services Manager",
+       "texto": "Viaja al país una o dos veces al año para ver de primera mano lo que los reportes no muestran y corregir lo que encuentre."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Customer Services Manager",
+       "Coordinador de Soporte Técnico (Panamá)",
+       "Líder de Formación y Desarrollo Regional",
+       "Gerente de Servicio Técnico del país"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Customer Services Manager",
+        "tipo": "inicio",
+        "n": "Se detecta un vacío en el estándar"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinador de Soporte Técnico (Panamá)",
+        "tipo": "tarea",
+        "n": "Redactar el manual o el protocolo y publicarlo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Comunicarlo en la reunión mensual regional"
+       },
+       {
+        "id": "n3",
+        "carril": "Customer Services Manager",
+        "tipo": "decision",
+        "n": "¿El país está en las herramientas del grupo?"
+       },
+       {
+        "id": "n4",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Transmitirlo por WhatsApp al socio o al tercerizado"
+       },
+       {
+        "id": "n5",
+        "carril": "Líder de Formación y Desarrollo Regional",
+        "tipo": "tarea",
+        "n": "Llevar el contenido a la formación y a la inducción"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Servicio Técnico del país",
+        "tipo": "tarea",
+        "n": "Adoptar o adaptar el estándar en su operación"
+       },
+       {
+        "id": "n7",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Visitar el país y corregir lo que los reportes no muestran"
+       },
+       {
+        "id": "n8",
+        "carril": "Customer Services Manager",
+        "tipo": "fin",
+        "n": "Estándar publicado y desigualmente adoptado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "11.11": {
+    "nota_version": "Versión As-Is: describe qué se mide hoy en postventa, con qué herramientas y hasta dónde llega el dato. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La medición del macroproceso: tiempos de respuesta, índice de garantías, reputación digital y el reporte mensual que sube a la Junta. La corrección de lo que la medición revela pertenece a los procesos 11.1 a 11.10.",
+     "texto": "Se mide bastante, y se mide **porque el gerente regional decidió medir**, no porque alguien se lo haya pedido. Él lo dice literalmente: los indicadores de gestión no existen en la organización, no tiene ninguno asignado y no sabe qué espera la dirección de su parte. Los tres que sigue por convicción propia son el tiempo de respuesta al cliente, el porcentaje de garantías y el tiempo de respuesta de la fábrica.\n\nLas herramientas son tres y ninguna es de inteligencia de negocio. La primera es **el tablero de garantías**, que se alimenta solo del formulario de Lark que llenan los agentes después de cada cambio, y que permite filtrar por país, sede, producto, motivo y color; está en una pantalla de setenta y cinco pulgadas frente al puesto del gerente. La segunda es **el centro de mando de omnicanalidad**, un desarrollo propio, alojado fuera de los sistemas del grupo, que lee la interfaz de Mercately y saca tráfico, número de personas que escriben, tiempo de respuesta, sentimiento del cliente y errores de ortografía, con correo de coaching automático. La tercera es **un tablero que construyó la propia fábrica** de relojes, que muestra las piezas activadas —del orden de 31.000 relojes activos— y que el gerente considera más preciso que el sell-out comercial, porque el sell-out solo dice lo que se le vendió al mayorista, no lo que el mayorista vendió.\n\nEl cálculo que de verdad importa —el porcentaje de garantías sobre lo vendido— **se hace a mano y con un dato que hay que pedir**: no hay acceso automático al sell-out, así que se le solicita a la persona de ventas que lo suministre y se cruza aparte. El resultado que arroja es que históricamente el índice estuvo por debajo del 1,5 % y que ahora está en 3,5 % en algunos productos, contra un rango de referencia de 4 a 6 % que el propio gerente investigó en marcas comparables. En reputación digital, la valoración en las tiendas de aplicaciones está en cuatro estrellas o más.\n\nEl reporte sube, pero el circuito no se cierra. Los tableros son automáticos y la Junta tiene acceso desde hace tiempo; como nadie preguntaba, el gerente asumió que los miraban, hasta que Recursos Humanos le dijo que no hacía reportes. Desde hace un año los manda mensualmente, condensados y cruzados con el sell-out, **y admite que tampoco los ven**: recibe algún mensaje suelto y no tiene retroalimentación de si esos datos sirven para decidir algo. En la otra dirección el mismo hueco: la gerencia de retail de Venezuela dice no recibir ningún reporte de las garantías que resuelve el taller."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Customer Services Manager (regional), por iniciativa propia y sin indicadores asignados por la organización",
+     "participantes": [
+      "Soporte Técnico y agentes de cada país — alimentan el tablero al llenar el formulario de garantías después de cada cambio.",
+      "Responsable de Producto y Desarrollo — explota el tablero para identificar el producto y el defecto con más incidencias y llevarlo a la fábrica.",
+      "Responsable comercial que suministra el sell-out — entrega el dato a petición, sin un circuito establecido.",
+      "Fábrica de relojes de adulto — mantiene el tablero de piezas activadas al que el grupo accede.",
+      "Junta Directiva — destinataria del reporte mensual."
+     ],
+     "evidencia": [
+      "E-58",
+      "E-02",
+      "E-64",
+      "E-47"
+     ],
+     "notas": "El gerente regional trabaja con objetivos que él mismo fijó a su equipo después de documentarse por su cuenta; señala que no existe una estructura de indicadores bajando desde la dirección.",
+     "sin_evidencia": "No consta un catálogo de indicadores del macroproceso, ni umbrales, ni quién revisa el reporte mensual en la Junta; tampoco hay medición formal de satisfacción del cliente más allá de las reseñas públicas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Cierre de mes, o la necesidad puntual de explicar un salto en el índice de garantías de un producto.",
+     "cadencia": "Los tableros se actualizan en tiempo real; la revisión de chats es diaria y el reporte a la Junta es mensual.",
+     "output": "Reporte mensual de postventa enviado a la Junta Directiva, con el índice de garantías cruzado contra el sell-out.",
+     "evidencia": [
+      "E-58"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-58",
+      "E-02",
+      "E-64"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Agente de postventa del país",
+       "texto": "Al cerrar cada cambio llena el formulario de garantías, que es lo que alimenta el tablero por país, sede, producto, motivo y color."
+      },
+      {
+       "id": "a2",
+       "rol": "Customer Services Manager",
+       "texto": "Revisa a diario el tablero de garantías y el centro de mando de omnicanalidad, que le dan tráfico, tiempo de respuesta, sentimiento y errores de redacción."
+      },
+      {
+       "id": "a3",
+       "rol": "Customer Services Manager",
+       "texto": "Al cierre de mes pide el sell-out al responsable comercial, porque no tiene acceso directo al dato, y lo cruza a mano con el número de garantías reportadas."
+      },
+      {
+       "id": "a4",
+       "rol": "Customer Services Manager",
+       "texto": "Contrasta el resultado con el tablero de piezas activadas que mantiene la fábrica, que considera más preciso que el sell-out para saber cuánto producto está realmente en manos de clientes."
+      },
+      {
+       "id": "a5",
+       "rol": "Customer Services Manager",
+       "texto": "Condensa los tableros en un reporte más corto y digerible y lo envía a la Junta Directiva."
+      },
+      {
+       "id": "a6",
+       "rol": "Responsable de Producto y Desarrollo",
+       "texto": "Usa el mismo tablero para identificar el producto y el defecto con más incidencias y llevarlo a la fábrica como reclamo de calidad."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Agente de postventa del país",
+       "Customer Services Manager",
+       "Responsable de Producto y Desarrollo"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Agente de postventa del país",
+        "tipo": "inicio",
+        "n": "Se cierra un cambio en garantía"
+       },
+       {
+        "id": "n1",
+        "carril": "Agente de postventa del país",
+        "tipo": "tarea",
+        "n": "Llenar el formulario que alimenta el tablero",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Revisar a diario el tablero y el centro de mando",
+        "sistemas": [
+         "Lark",
+         "Panel propio"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Pedir el sell-out al responsable comercial"
+       },
+       {
+        "id": "n4",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Cruzar a mano garantías contra sell-out y piezas activadas"
+       },
+       {
+        "id": "n5",
+        "carril": "Customer Services Manager",
+        "tipo": "tarea",
+        "n": "Condensar el reporte mensual y enviarlo a la Junta"
+       },
+       {
+        "id": "n6",
+        "carril": "Responsable de Producto y Desarrollo",
+        "tipo": "decision",
+        "n": "¿Hay un producto fuera de rango?"
+       },
+       {
+        "id": "n7",
+        "carril": "Responsable de Producto y Desarrollo",
+        "tipo": "tarea",
+        "n": "Llevar el defecto a la fábrica como reclamo de calidad"
+       },
+       {
+        "id": "n8",
+        "carril": "Responsable de Producto y Desarrollo",
+        "tipo": "fin",
+        "n": "Mes medido y reportado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+,
  "6": {
   "procesos": {
 
