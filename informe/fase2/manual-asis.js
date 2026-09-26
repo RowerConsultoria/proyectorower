@@ -15,6 +15,1776 @@
 // Un proceso aparece aquí => al entrar en él por #/p/<codigo> se ofrece
 // elegir entre As-Is (#/asis/<codigo>) y To-Be (#/tobe/<codigo>).
 window.MANUAL_ASIS = {
+ "13": {
+  "procesos": {
+   "13.1": {
+    "nota_version": "Versión As-Is: describe cómo se recibe, registra y prepara hoy el pago a un proveedor en cada país, con los cargos actuales del patrón V4. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que llega la factura del proveedor hasta que el expediente queda listo para que Tesorería desembolse, incluidas las retenciones, el cálculo del neto, el control de anticipos y el costeo de las importaciones. La ejecución del pago en el banco es el proceso siguiente.",
+     "texto": "El circuito es el mismo en los dos países grandes —recibir, validar, registrar, calcular el neto y entregar a Tesorería— pero **dónde vive el expediente y quién autoriza es completamente distinto**.\n\nEn **Panamá la solicitud nace en Lark**: cada departamento la levanta con su soporte, la aprueba su jefe directo y, **según el monto**, la aprueba el director comercial o el Gerente de Tesorería. El analista descarga las solicitudes con sus adjuntos a carpetas por día, monta el archivo digital con el comprobante y el movimiento del banco, y da seguimiento a la factura fiscal cuando lo que se aprobó era una cotización —la necesita para el reporte a la autoridad tributaria—. Los alquileres, que se pagan los primeros días del mes, no llevan solicitud: se montan directamente y se marcan como recurrentes.\n\nEn **Venezuela no hay flujo de aprobación**. Las facturas llegan al correo de la Gerencia de Administración, que las valida, y de ahí pasan a Cuentas por Pagar —dos personas: el coordinador y una asistente— que las registran en el ERP **una por una, a mano**: proveedor (si es nuevo hay que crearlo con su número fiscal, consultando en el portal de la autoridad cuánto se le retiene), número de factura, número de control, referencia, fecha contable, producto —que es lo que determina el impuesto—, cuenta contable, **distribución analítica por centro de costo** e importe. La retención de renta la calcula el sistema cuando el producto está bien elegido. Se cargan **entre 30 y 40 facturas diarias**, unas 150 semanales.\n\nY hay una pieza que conviene mirar de frente: **el neto a pagar se calcula a mano, con calculadora, en un papelito que viaja grapado a la factura**. Es la única segunda verificación antes del desembolso, y el propio coordinador señala el riesgo —«por error de cálculo te puedes equivocar»— y propone lo que tenía en su empleo anterior: seleccionar las facturas, generar un archivo que valide el coordinador y subirlo al banco, «y se acaba el error humano». Las diferencias de céntimos que produce ese cálculo se mandan a otros egresos con el concepto de diferencia de pago.\n\nSe paga el neto y no el bruto por una razón práctica: si se paga completo, el proveedor debería devolver la retención y muchos no lo hacen; además el **comprobante de retención** es lo que algunos proveedores exigen para entregar la mercancía.\n\nDos rasgos más. El primero: **todo se paga al momento** en Venezuela, para que no se genere diferencia cambiaria entre la factura que llega y la que se paga, de modo que **no existe una cartera de proveedores propiamente dicha**. El segundo: **el expediente viaja a Tesorería en físico**, y no se digitaliza; solo el coordinador fotografía y adjunta al sistema los de monto considerable —remodelaciones, aperturas de tienda— «por si los piden meses después». Y cada factura se imprime con su pago y sus dos comprobantes de retención para archivarse en carpeta, previendo una fiscalización.\n\nLas **importaciones** van aparte: llega de Panamá el expediente con aranceles y gastos, se carga la factura, se vigila que no genere impuesto al valor agregado —al principio se cargaban con impuesto por error— y las partidas de seguro, flete y manejo se llevan a una cuenta de anticipo de importaciones para que el sistema distribuya el costo en destino del producto. Hay manual propio para eso."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Cuentas por Pagar (Venezuela) y Gerente de Tesorería con su Analista de Cuentas por Pagar (Panamá)",
+     "participantes": [
+      "Gerente de Administración (Venezuela) — recibe y valida las facturas de los proveedores y lleva su propio control de los anticipos.",
+      "Asistente de Cuentas por Pagar (Venezuela) — carga facturas, prepara los expedientes y reenvía los soportes de pago a los proveedores.",
+      "Analista de Cuentas por Pagar y Tesorería (Panamá) — descarga las solicitudes de Lark con sus soportes, monta la programación y da seguimiento a la factura fiscal.",
+      "Jefes de cada departamento (Panamá) — aprueban la solicitud de su área antes de que baje.",
+      "Director Comercial y Gerente de Tesorería (Panamá) — aprueban según el monto.",
+      "Dirección de Finanzas del grupo — interviene en lo estratégico y en las importaciones.",
+      "Coordinación de Sistemas y partner del ERP — responsables de las automatizaciones de carga que no están activas."
+     ],
+     "evidencia": [
+      "E-65",
+      "E-61",
+      "E-43",
+      "E-15"
+     ],
+     "notas": "El ERP permite escanear la factura y generar un preborrador; no se usa. El motivo que da el equipo de Venezuela es que el partner prefiere no tocarlo: «ya se ha dado que acomodan por un lado y por el otro se daña todo».",
+     "sin_evidencia": "No consta una matriz de aprobación por monto en Venezuela equivalente a la de Panamá, ni quién autoriza allí un desembolso por encima de cierta cifra."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llega la factura de un proveedor, o un área levanta la solicitud de pago de un servicio o una compra.",
+     "cadencia": "Continua para la recepción; la preparación del lote se concentra el día anterior al día de caja.",
+     "output": "Factura registrada en el ERP con sus retenciones y su centro de costo, y expediente con el neto calculado entregado a Tesorería.",
+     "evidencia": [
+      "E-65",
+      "E-61"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-65",
+      "E-61",
+      "E-43"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Área solicitante / Gerencia de Administración",
+       "texto": "Levanta la solicitud de pago con su soporte en el flujo de Lark (Panamá) o hace llegar la factura a la Gerencia de Administración, que la valida (Venezuela)."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Revisa que la factura esté bien emitida —número fiscal, dirección, cálculos— y la devuelve al área cuando no lo está, porque así no la puede procesar."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Registra la factura en el ERP a mano: proveedor, número y control, referencia, fecha contable, producto que determina el impuesto, cuenta contable y distribución analítica por centro de costo."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Calcula el neto a pagar deduciendo las retenciones de impuesto al valor agregado y de renta, y lo anota a mano en el papel que acompaña a la factura como segunda verificación."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Si es una importación, carga el expediente que llega de la casa matriz y lleva seguro, flete y manejo a la cuenta de anticipo de importaciones para que el sistema distribuya el costo en destino del producto, vigilando que no se le aplique impuesto al valor agregado. Si no lo es, confirma que el impuesto que trae el producto elegido es el que corresponde al servicio o la compra."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Arma el expediente físico —factura, cálculo del neto y datos bancarios del beneficiario— y lo entrega a Tesorería antes del corte del día de caja."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Área solicitante / Gerencia de Administración",
+       "Coordinador / Analista de Cuentas por Pagar"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Área solicitante / Gerencia de Administración",
+        "tipo": "inicio",
+        "n": "Llega la factura o la solicitud de pago"
+       },
+       {
+        "id": "n1",
+        "carril": "Área solicitante / Gerencia de Administración",
+        "tipo": "tarea",
+        "n": "Levantar la solicitud con su soporte o validar la factura",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "decision",
+        "n": "¿La factura está bien emitida?"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Devolverla al área para que la corrija"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "fin",
+        "n": "Factura devuelta sin procesar"
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Registrar la factura a mano con su centro de costo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "decision",
+        "n": "¿Es una importación?"
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Llevar flete y seguro al costo en destino del producto",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7b",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Confirmar el impuesto que corresponde al servicio o compra"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Calcular el neto a pagar deduciendo las retenciones"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Armar el expediente y entregarlo a Tesorería"
+       },
+       {
+        "id": "n10",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "fin",
+        "n": "Expediente listo para desembolso"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7b",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n7b",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "13.2": {
+    "nota_version": "Versión As-Is: describe el día de tesorería en los dos países y dónde se rompe la previsión. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde la apertura de caja y el monitoreo de saldos hasta el cierre diario con el reporte de disponibilidad, pasando por la programación y la ejecución de los desembolsos. La preparación del expediente es el proceso anterior.",
+     "texto": "El día de Tesorería tiene una forma clara en ambos países. **Abre barriendo los bancos**: se revisan todas las cuentas, se compara el saldo final del día anterior contra el inicial para ver cuánto entró —en Venezuela ese salto es real, porque el cierre se hace a las cinco o seis de la tarde y las tiendas siguen vendiendo hasta las nueve o diez—, y se descargan los estados de cuenta que necesitan Contabilidad y Cuentas por Cobrar. Cierra al revés: se toma el saldo final, se reporta, y se alimenta el archivo del flujo proyectado de los días siguientes.\n\n**Los días de caja son una regla explícita y distinta en cada país**: martes y jueves en Venezuela, miércoles en Panamá. En Panamá el analista monta el martes un borrador de la programación en una hoja de cálculo —monto, número de solicitud, descripción, facturas y proveedor—, se lo presenta al Gerente de Tesorería con el total a desembolsar, y el miércoles lo completa con lo que se aprobó, **monta los pagos en el banco a mano** y envía el listado de autorizaciones para que coincida con su cuadro; el gerente pide entonces la aprobación de los directivos. Son entre treinta y cien pagos por miércoles.\n\nEl flujo de caja proyectado no vive en el ERP: vive en **una hoja de cálculo compartida** con una pestaña por mes y los treinta días, una pestaña de saldos de banco que se actualiza a diario, y las solicitudes de pago, proyecciones de ingresos, préstamos y desembolsos. La ven la Dirección de Finanzas, la Presidencia y el equipo de Tesorería; se actualiza el saldo por la mañana y los egresos se cargan a medida que ocurren.\n\n**Donde se rompe es en la previsión, y los dos países lo dicen con las mismas palabras.** En Panamá el cuello es que las áreas mandan su solicitud más tarde de lo establecido y desordenan el miércoles: «no es que el proceso esté mal estructurado, es la dinámica organizacional», y están haciendo una campaña para corregirlo. En Venezuela es más agudo: **no se respetan los días de caja** y, sobre todo, el Coordinador de Tesorería **nunca sabe con certeza cuánto va a desembolsar**, porque no todo pasa por Cuentas por Pagar —hay pagos que llegan ya hechos y se registran después— y porque salen montos importantes no previstos, como una remodelación de tienda. Su petición al área es directa: «necesito que me digas cuánto vamos a pagar y lo meta en mi flujo».\n\nUn detalle propio de Venezuela: al final del día, **antes de tomar los saldos finales, se redistribuye el dinero entre cuentas** para tener fondos donde harán falta al día siguiente. Y una observación sobre el sistema: Tesorería no depende del ERP para operar —«nuestro diario es el portal bancario»— y solo entra a él a registrar traspasos, compras de divisas y los compromisos de financiamiento."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Tesorería (Venezuela) y Gerente de Tesorería (Panamá), ambos bajo la Dirección de Finanzas del grupo",
+     "participantes": [
+      "Asistentes de Tesorería (Venezuela) — tres personas; ejecutan los pagos, descargan los soportes y los anexan a las facturas que manda Cuentas por Pagar.",
+      "Analista de Cuentas por Pagar y Tesorería (Panamá) — monta la programación del miércoles y carga los pagos en el banco.",
+      "Cuentas por Pagar — entrega el expediente con el neto calculado antes del corte.",
+      "Directivos — aprueban el listado de pagos del día en Panamá.",
+      "Dirección de Finanzas del grupo — revisa el flujo compartido y define prioridades.",
+      "Contabilidad y Cuentas por Cobrar — reciben de Tesorería los estados de cuenta que necesitan para conciliar."
+     ],
+     "evidencia": [
+      "E-43",
+      "E-61",
+      "E-65",
+      "E-15"
+     ],
+     "notas": "Panamá tiene un manual de procedimiento de tesorería elaborado al inicio de la gestión del gerente actual; en Venezuela no consta uno equivalente.",
+     "sin_evidencia": "No consta qué proporción del desembolso mensual entra fuera de los días de caja ni cuánto representan los pagos que llegan a Tesorería ya ejecutados."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Abre el día bancario, o llega el día de caja con el lote de pagos preparado.",
+     "cadencia": "Diaria para la apertura, el monitoreo y el cierre; los desembolsos se concentran los martes y jueves en Venezuela y los miércoles en Panamá.",
+     "output": "Pagos ejecutados con su comprobante, saldo final reportado y flujo proyectado actualizado.",
+     "evidencia": [
+      "E-43",
+      "E-61"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-43",
+      "E-61",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinador / Gerente de Tesorería",
+       "texto": "Abre el día barriendo todas las cuentas bancarias, compara el saldo final del día anterior con el inicial y descarga los estados de cuenta que necesitan Contabilidad y Cuentas por Cobrar."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador / Gerente de Tesorería",
+       "texto": "Monta la programación del día de caja con lo que entregó Cuentas por Pagar y la contrasta contra la disponibilidad del flujo proyectado."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador / Gerente de Tesorería",
+       "texto": "Si la disponibilidad no alcanza, prioriza: los compromisos con vencimiento fijo —financiamiento, nómina, impuestos— antes que el resto, y difiere lo que puede esperar al siguiente día de caja."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente de Tesorería",
+       "texto": "Carga los pagos en el portal bancario, uno a uno o agrupando las facturas de un mismo proveedor en una sola transferencia."
+      },
+      {
+       "id": "a5",
+       "rol": "Directivo aprobador",
+       "texto": "Aprueba en el banco el listado de pagos del día, que debe coincidir con el cuadro de programación presentado."
+      },
+      {
+       "id": "a6",
+       "rol": "Asistente de Tesorería",
+       "texto": "Descarga los comprobantes, los anexa a cada factura y devuelve el expediente a Cuentas por Pagar, que registra el pago en el sistema."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador / Gerente de Tesorería",
+       "texto": "Cierra el día: redistribuye el dinero entre cuentas según lo que hará falta mañana, toma el saldo final, lo reporta y actualiza el flujo proyectado de los días siguientes."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinador / Gerente de Tesorería",
+       "Asistente de Tesorería",
+       "Directivo aprobador"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "inicio",
+        "n": "Abre el día bancario"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "tarea",
+        "n": "Barrer las cuentas y descargar los estados de cuenta",
+        "sistemas": [
+         "Portal bancario"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "tarea",
+        "n": "Montar la programación del día de caja",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "decision",
+        "n": "¿Alcanza la disponibilidad?"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "tarea",
+        "n": "Priorizar vencimientos fijos y diferir el resto"
+       },
+       {
+        "id": "n5",
+        "carril": "Asistente de Tesorería",
+        "tipo": "tarea",
+        "n": "Cargar los pagos en el portal bancario",
+        "sistemas": [
+         "Portal bancario"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Directivo aprobador",
+        "tipo": "tarea",
+        "n": "Aprobar en el banco el listado de pagos del día"
+       },
+       {
+        "id": "n7",
+        "carril": "Asistente de Tesorería",
+        "tipo": "tarea",
+        "n": "Anexar los comprobantes y devolver el expediente"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "tarea",
+        "n": "Redistribuir cuentas, tomar el saldo y actualizar el flujo"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "fin",
+        "n": "Día cerrado y disponibilidad reportada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "13.3": {
+    "nota_version": "Versión As-Is: proceso exclusivo de Venezuela. Describe cómo se compran hoy las divisas y cómo se le paga a la casa matriz. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La adquisición de divisas en mesa de cambio con la banca, la distribución de los fondos entre cuentas y el pago a la casa matriz por la mercancía comprada. Es un proceso propio de Venezuela, sin equivalente en los demás países del grupo.",
+     "texto": "Este proceso existe por una razón de negocio muy concreta: **la casa matriz de Panamá es el proveedor principal de la operación venezolana**. Toda la mercancía de las dos marcas se le compra a ella, y la factura está en divisa mientras el ingreso de la operación está en moneda local. De ahí que la compra de divisas sea, literalmente, la condición para que el ciclo de compra de mercancía continúe.\n\nLa mecánica es diaria y la lleva el Coordinador de Tesorería en persona. Habla cada mañana con los ejecutivos de los bancos con los que se opera y **pacta en mesa de cambio en paralelo desde varias cuentas**. Ya no hay subasta ni tasa de intervención: se opera a la tasa del día, porque la brecha se cerró. No se adjudica todo lo que se pide —ronda el 60 % de lo solicitado—, aunque el equipo atribuye una buena posición a que la empresa maneja un flujo sólido y los bancos la tratan en consecuencia. La operación se cursa hoy directamente con los bancos de confianza, que se encargan de hacer llegar los fondos.\n\nLas divisas adquiridas **entran a una cuenta custodia** y desde ahí una asistente de Tesorería paga las facturas de la casa matriz a medida que van llegando. En el ERP se registran los traspasos entre cuentas, las compras de divisas y los compromisos de financiamiento con sus amortizaciones e intereses.\n\nLo que sí está definido es **el criterio de cuánto comprar**, y no es un número escrito sino una regla de trabajo: **del total que ingresa, debería comprarse por encima del 80 %**. Es el indicador que el equipo usa para saber si la semana exige estar activo en la búsqueda de divisas. Se cumple de forma desigual —alrededor del 70 % en mayo, por debajo en junio y julio— y el propio coordinador lo matiza: «no es algo que esté establecido, pero tácitamente se maneja así». A ese criterio lo acompañan la observación de la tasa de cambio, su incremento y la inflación semanal, y la rotación de la caja.\n\nUn apunte sobre lo que este proceso empuja hacia arriba: la Dirección de Finanzas describe que lo que de verdad se evalúa de la operación venezolana es **con qué sostenibilidad se están comprando las divisas, a qué costo, con qué frecuencia y dentro de qué marco normativo**, y que de ese análisis sale después la propuesta de lista de precios para el mercado."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Tesorería (Venezuela)",
+     "participantes": [
+      "Asistentes de Tesorería (Venezuela) — ejecutan los pagos a la casa matriz contra la cuenta custodia.",
+      "Ejecutivos de las entidades bancarias — contraparte de la mesa de cambio.",
+      "Dirección de Finanzas del grupo — evalúa el costo y la sostenibilidad de la operación y decide con el coordinador los temas de banca y proyecciones.",
+      "Coordinador de Cuentas por Pagar (Venezuela) — registra las facturas de la casa matriz y su costeo.",
+      "Cuentas por Cobrar de la casa matriz (Panamá) — verifica la recepción de los fondos y reporta al Gerente de Tesorería.",
+      "Contabilidad — registra el efecto del diferencial cambiario que genera la operación."
+     ],
+     "evidencia": [
+      "E-43",
+      "E-15",
+      "E-65",
+      "E-62"
+     ],
+     "notas": "El levantamiento recoge prácticas de esta materia que no se documentan aquí por la regla cliente-facing sobre sensibilidades cambiarias; están a disposición del equipo consultor.",
+     "sin_evidencia": "No consta que el porcentaje de compra sobre ingresos, la tasa promedio de adquisición ni la rotación de caja se calculen y reporten de forma periódica: son criterios que el coordinador observa, no indicadores que se emitan."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Abre la mesa de cambio del día, o vence una factura de la casa matriz por la mercancía recibida.",
+     "cadencia": "Diaria para la compra; por vencimiento para el pago a la casa matriz.",
+     "output": "Divisas adquiridas y depositadas en la cuenta custodia, factura de la casa matriz pagada y operación registrada en el ERP.",
+     "evidencia": [
+      "E-43"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-43",
+      "E-15"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinador de Tesorería",
+       "texto": "Revisa los ingresos del día y estima cuántas divisas debería comprar, con el criterio de que sobre el 80 % de lo que ingresa debería convertirse."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Tesorería",
+       "texto": "Contacta a los ejecutivos de los bancos y pacta en mesa de cambio en paralelo desde varias cuentas, a la tasa del día."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador de Tesorería",
+       "texto": "Si no se adjudica lo solicitado, ajusta la prioridad de lo que se pagará y mantiene la búsqueda con las demás entidades en los días siguientes."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador de Tesorería",
+       "texto": "Recibe las divisas adjudicadas en la cuenta custodia y registra la compra y los traspasos entre cuentas en el ERP."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente de Tesorería",
+       "texto": "Ejecuta el pago de las facturas de la casa matriz contra la cuenta custodia, a medida que van venciendo."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador de Tesorería",
+       "texto": "Observa la evolución de la tasa, su incremento y la inflación de la semana para decidir cuánta presión poner en la búsqueda de divisas y cuánto conviene mover."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinador de Tesorería",
+       "Asistente de Tesorería"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "inicio",
+        "n": "Abre la mesa de cambio del día"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Estimar cuántas divisas comprar sobre lo que ingresó"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Pactar en mesa con los ejecutivos de los bancos"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "decision",
+        "n": "¿Se adjudicó lo solicitado?"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Ajustar prioridades y mantener la búsqueda"
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Recibir en la cuenta custodia y registrar la compra",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Asistente de Tesorería",
+        "tipo": "tarea",
+        "n": "Pagar las facturas de la casa matriz al vencer",
+        "sistemas": [
+         "Portal bancario"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Observar tasa e inflación y ajustar la presión de compra"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador de Tesorería",
+        "tipo": "fin",
+        "n": "Ciclo de compra de mercancía sostenido"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "13.4": {
+    "nota_version": "Versión As-Is: describe cómo se gestiona hoy el financiamiento bancario en los dos países que lo usan. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La gestión de las líneas de crédito y los pagarés, sus renovaciones, amortizaciones e intereses, la entrega de información financiera a la banca y la relación con las entidades. La ejecución del pago de la cuota es el proceso 13.2.",
+     "texto": "El financiamiento bancario del grupo tiene un destino dominante y declarado: **financiar la compra de mercancía**. En Panamá se dice sin rodeos —las líneas se usan «principalmente para el pago de compras de mercancía», y lo demás se cubre con el flujo de caja—, y en Venezuela los compromisos de préstamo son el desembolso fijo que abre cualquier proyección.\n\n**La decisión de usar la línea no tiene un procedimiento formal: se evalúa con el jefe según la necesidad.** El Gerente de Tesorería de Panamá lo describe así, y el detonante habitual es conocido de antemano: la compra del mes se estima entre cinco días y dos semanas antes del cierre, y con ese estimado se prepara la línea —se trabaja con el banco, se pide el pagaré— para que al momento del desembolso ya esté lista.\n\nCada entidad bancaria impone su propia mecánica de cobro y hay que conocerla una por una: unas debitan automáticamente el día del vencimiento, otras esperan la instrucción. «Cada banco tiene su librito». En Venezuela las líneas, sus amortizaciones y sus intereses **se registran en el ERP**, y el Coordinador de Tesorería entra al sistema justamente para verificar cuánto capital se lleva pagado.\n\nLa contrapartida de todo esto es la información que hay que entregar. La Dirección de Finanzas lo formula como la razón de que la reportería se haya vuelto más exigente: **«dependemos de la línea de crédito, dependemos de los bancos»**. Se han entregado estados financieros a la banca y se han renovado líneas; los paquetes —estados financieros del corte y flujo de caja proyectado— los arma la Gerencia de Contabilidad de cada país, y el flujo proyectado para el banco se construye expresamente para esa solicitud, no existe antes. En Colombia el trámite lo lleva la contadora junto con el responsable del país.\n\nHay un rasgo estructural que conviene registrar: **las líneas son de cada entidad, para su propia operación**. Panamá confirma que no financia a otras regiones; su relación y sus obligaciones son las que lleva allí. No consta una gestión consolidada de la deuda del grupo ni una negociación conjunta de condiciones."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tesorería (Panamá) y Coordinador de Tesorería (Venezuela), con la Dirección de Finanzas del grupo",
+     "participantes": [
+      "Dirección de Finanzas del grupo — es con quien se evalúa la necesidad de usar la línea y quien sostiene la relación con la banca.",
+      "Gerente de Contabilidad de cada entidad — arma los estados financieros y el flujo proyectado que exige el banco.",
+      "Contadora y responsable del país (Colombia) — llevan entre los dos el contacto y el trámite con la entidad financiera.",
+      "Responsable de la compra internacional — entrega el estimado de la compra del mes, que es lo que dispara la preparación de la línea.",
+      "Entidades bancarias — fijan las condiciones, el pagaré y la mecánica de cobro de cada línea.",
+      "Junta Directiva — decide sobre el endeudamiento."
+     ],
+     "evidencia": [
+      "E-43",
+      "E-15",
+      "E-44",
+      "E-46"
+     ],
+     "notas": "La evidencia recogida es más rica del lado de la ejecución —cómo se registra y se paga una línea— que del de la negociación de condiciones con la banca, que en la práctica sostiene la Dirección de Finanzas.",
+     "sin_evidencia": "No consta el monto total de las líneas vigentes, ni un criterio escrito de cuánto endeudamiento se considera aceptable, ni quién aprueba una línea nueva por encima de cierto importe."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se estima la compra de mercancía del mes y hace falta financiarla, o vence una amortización de una línea existente.",
+     "cadencia": "Por ciclo de compra —el estimado llega entre cinco días y dos semanas antes del cierre de mes— y por vencimiento.",
+     "output": "Línea preparada y desembolsada para pagar la compra, amortizaciones e intereses registrados, e información financiera entregada al banco.",
+     "evidencia": [
+      "E-43",
+      "E-15"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-43",
+      "E-15",
+      "E-44"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable de la compra internacional",
+       "texto": "Pasa el estimado de la compra del mes con varios días de antelación al cierre, que es lo que permite anticipar la necesidad de financiamiento."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente / Coordinador de Tesorería",
+       "texto": "Evalúa con la Dirección de Finanzas si la compra se cubre con el flujo de caja disponible o si hay que recurrir a una línea."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Si el banco pide información, arma el paquete: estados financieros del corte y flujo de caja proyectado construido para esa solicitud."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente / Coordinador de Tesorería",
+       "texto": "Trabaja la línea con el banco —pagaré, condiciones y plazo— hasta dejar el desembolso listo para cuando se necesite."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente / Coordinador de Tesorería",
+       "texto": "Registra la línea en el ERP y programa las amortizaciones e intereses según la mecánica de cada entidad: unas debitan solas el día del vencimiento y otras exigen la instrucción."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente / Coordinador de Tesorería",
+       "texto": "Verifica periódicamente en el sistema cuánto capital se lleva pagado y cuánto queda vivo por cada línea."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable de la compra internacional",
+       "Gerente / Coordinador de Tesorería",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable de la compra internacional",
+        "tipo": "inicio",
+        "n": "Llega el estimado de la compra del mes"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "decision",
+        "n": "¿El flujo cubre la compra?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Pagar con el flujo disponible sin recurrir a la línea"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "fin",
+        "n": "Compra cubierta sin financiamiento"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Armar los estados financieros y el flujo para el banco"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Trabajar la línea con el banco y firmar el pagaré"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Registrar la línea y programar amortizaciones e intereses",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "tarea",
+        "n": "Verificar el capital pagado y el saldo vivo de cada línea"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente / Coordinador de Tesorería",
+        "tipo": "fin",
+        "n": "Financiamiento vigente y controlado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "13.5": {
+    "nota_version": "Versión As-Is: describe cómo se le da crédito hoy a un cliente, y la diferencia grande que hay entre los dos países. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La afiliación del cliente a crédito, la debida diligencia y el análisis de riesgo, la definición de la línea y el control de crédito sobre los pedidos. La gestión de cobro una vez otorgado el crédito es el proceso siguiente.",
+     "texto": "Este es el proceso donde **la distancia entre los dos países es mayor de todo el macroproceso**, porque en uno existe y en el otro prácticamente no.\n\nEn **Panamá hay circuito**. El vendedor conversa con el cliente, completa **los formularios de afiliación y la documentación en Lark** y los carga; al llegar, Créditos y Cobros revisa que esté completo y hace la **debida diligencia**. Y hay una herramienta propia construida hace cosa de un año: **una ficha de análisis de riesgo dentro del ERP** que reúne todos los documentos del cliente del año, cuándo se le facturó, cuándo pagó y en cuántos días, saca un **promedio de días de pago** y lo compara con el término que se le aprobó, devolviendo un semáforo —riesgo bajo, medio o alto— que aparece en la pantalla de aprobación con la posibilidad de profundizar. Costó afinarla: al principio no traía las facturas viejas abiertas del sistema anterior, de modo que un moroso antiguo aparecía como buen pagador, y hubo que pedirle al programador que trajera también los documentos vencidos.\n\nSobre esa ficha, el control del pedido lo ejerce la parte comercial: se mira que el cliente no tenga saldo vencido y, si lo tiene, que haya una explicación conocida —una demora en aduana que corrió la facturación—. Cuando algo está fuera de orden, **se para el pedido hasta que paguen**. Pesa además la antigüedad de la relación: hay clientes de veinte y veinticinco años. Recientemente el coordinador empezó a apoyarse en inteligencia artificial para la debida diligencia de un cliente nuevo, pidiéndole que actuara como director de riesgo y devolviera un análisis con recomendación.\n\nEn **Venezuela no hay nada de eso**. La documentación que se pide para dar de alta a un cliente es **únicamente su número fiscal**. Y lo más relevante, dicho por las dos personas que ocupan los cargos: **no hay límites de crédito ni días de crédito asignados**. La Coordinadora de Cuentas por Cobrar lo trabaja con un criterio propio —«yo manejo los 30 días y para mí más de 30 días ya está vencido»— y el Coordinador de Cuentas por Pagar le confirmó al llegar que «aquí no hay límite de crédito, no hay esto, no hay lo otro». **Tampoco se bloquean clientes**: los vendedores facturan sin mirar si el cliente tiene facturas sin pagar. Ambos coinciden en que hay que empezar a asignar límites y a bloquear, y ella añade dos cosas honestas: que **no sabe cómo se asigna un límite ni cómo se bloquea en el sistema**, y que definir el límite adecuado de cada cliente no puede ser una decisión suya sino un trabajo conjunto con la parte comercial.\n\nY queda constancia de un intento anterior: cuando entró el actual coordinador de Panamá se hicieron **varias propuestas de manual de crédito, de política y de formularios**, y no prosperaron porque, en sus palabras, el grupo no estaba entonces preparado para un cambio tan radical."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Supervisión de Créditos y Cobros (Panamá); en Venezuela no hay dueño del crédito y la Coordinadora de Cuentas por Cobrar lo asume con criterio propio",
+     "participantes": [
+      "Vendedores y fuerza comercial — recogen la documentación del cliente y son quienes conocen el contexto de un saldo vencido.",
+      "Analista de Cuentas por Cobrar (Panamá) — apoya la debida diligencia y el mantenimiento de la ficha de riesgo.",
+      "Director Comercial / Gerente de Ventas al Mayor — aprueba o detiene el pedido sobre la información de riesgo.",
+      "Coordinadora de Cuentas por Cobrar (Venezuela) — da de alta al cliente y verifica en el portal de la autoridad si es agente de retención.",
+      "Gerente de Tesorería (Panamá) — es la línea de reporte de Créditos y Cobros.",
+      "Coordinación de Sistemas — desarrolló la ficha de análisis de riesgo del ERP y la afinó cuando dejaba fuera la deuda antigua."
+     ],
+     "evidencia": [
+      "E-62",
+      "E-48",
+      "E-65"
+     ],
+     "notas": "La ficha de riesgo de Panamá es un desarrollo local sobre el ERP, no una funcionalidad estándar, y no consta que se haya replicado a las otras entidades.",
+     "sin_evidencia": "No consta ningún umbral de aprobación escalonado por monto ni un comité de crédito en ninguna entidad; tampoco cómo se evalúa a un cliente internacional más allá del criterio de quien lo atiende."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un vendedor quiere afiliar a un cliente nuevo a condiciones de crédito, o entra un pedido de un cliente que ya lo tiene.",
+     "cadencia": "Por evento.",
+     "output": "Cliente afiliado con su condición de crédito y su ficha de riesgo, o pedido liberado o detenido según el estado de su cartera.",
+     "evidencia": [
+      "E-62",
+      "E-48"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-62",
+      "E-48"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor",
+       "texto": "Conversa con el cliente, completa con él los formularios de afiliación y la documentación y los carga en el flujo, o simplemente aporta el número fiscal donde no hay formulario."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "texto": "Revisa que el expediente esté completo, verifica en el portal de la autoridad la condición fiscal del cliente y hace la debida diligencia sobre la información disponible."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "texto": "Da de alta al cliente en el sistema con sus datos y su vendedor asignado."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "texto": "Donde existe la ficha de riesgo, la consulta: promedio de días de pago del cliente contra el término aprobado, con su semáforo de riesgo."
+      },
+      {
+       "id": "a5",
+       "rol": "Director Comercial / Gerente de Ventas al Mayor",
+       "texto": "Al entrar un pedido, mira si el cliente tiene saldo vencido y si hay una explicación conocida. Si algo está fuera de orden, para el pedido hasta que paguen."
+      },
+      {
+       "id": "a6",
+       "rol": "Director Comercial / Gerente de Ventas al Mayor",
+       "texto": "Si no hay motivo para detenerlo, libera el pedido y el cliente pasa a la gestión de cobro."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor",
+       "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "Director Comercial / Gerente de Ventas al Mayor"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor",
+        "tipo": "inicio",
+        "n": "Un cliente pide crédito o entra un pedido"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor",
+        "tipo": "tarea",
+        "n": "Completar el formulario y la documentación del cliente",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Revisar el expediente y hacer la debida diligencia"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Dar de alta al cliente con su vendedor asignado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "decision",
+        "n": "¿Hay ficha de riesgo disponible?"
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Consultar el promedio de pago y el semáforo de riesgo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Resolver con el criterio de quien atiende, sin límite asignado"
+       },
+       {
+        "id": "n7",
+        "carril": "Director Comercial / Gerente de Ventas al Mayor",
+        "tipo": "decision",
+        "n": "¿Tiene saldo vencido sin explicación?"
+       },
+       {
+        "id": "n8",
+        "carril": "Director Comercial / Gerente de Ventas al Mayor",
+        "tipo": "tarea",
+        "n": "Parar el pedido hasta que el cliente pague"
+       },
+       {
+        "id": "n9",
+        "carril": "Director Comercial / Gerente de Ventas al Mayor",
+        "tipo": "tarea",
+        "n": "Liberar el pedido y pasarlo a gestión de cobro"
+       },
+       {
+        "id": "n10",
+        "carril": "Director Comercial / Gerente de Ventas al Mayor",
+        "tipo": "fin",
+        "n": "Crédito resuelto para ese pedido"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n10"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "13.6": {
+    "nota_version": "Versión As-Is: describe cómo se registra y se persigue hoy el cobro, con la brecha real entre los dos países. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El registro y la aplicación de los cobros, la gestión de la cartera por antigüedad, la emisión de estados de cuenta, el escalamiento de saldos vencidos y el tratamiento de los incobrables. La aprobación de la línea de crédito es el proceso anterior.",
+     "texto": "**Panamá tiene el proceso rodado.** La regla es «lo que llega en el día se registra en el día»; se trabaja el banco **dos veces al día** y se cierra el siguiente con todo registrado. Antes se esperaba a fin de mes. Sobre eso, hay dos herramientas: la **antigüedad de cartera nativa** del ERP y un **estado de cuenta desarrollado a medida**, porque el libro mayor nativo era ilegible para un cliente —ahora es una sola columna de débitos en negro y créditos en rojo, con el saldo al lado y rango de fechas—, más un listado de **documentos adeudados** que se pidió vincular a PDF para poder mandárselo al cliente. El seguimiento se hace con una proyección mensual **por vendedor y por cliente**, marcada como un semáforo: amarillo lo que hay que cobrar, verde lo cobrado, verde claro el abono parcial. El estado de cartera se le manda a los vendedores **dos o tres veces al mes**, y el resultado se sostiene **por encima del 80-85 %** de lo proyectado. El coordinador describe además un cambio cultural deliberado: «antes veían al departamento de cobro como el enemigo de la venta».\n\n**Venezuela venía de mucho más atrás.** Hasta hace unos meses «lo que se hacía era registrar los cobros y ya»; había saldos de 2024 y 2025 con más de 120 días sin seguimiento y **documentos sin vendedor asignado**. La actual Coordinadora de Cuentas por Cobrar construyó lo que no existía: un archivo de **tasa de cambio que se actualiza cada mañana**, y un cuadro que, dado un número de factura, devuelve subtotal, impuesto, total, retención y **neto a pagar en las dos monedas**. Ese cuadro resuelve un problema concreto: **la factura solo muestra el total en divisa, no el subtotal**, y hay clientes que pagan la base indexada y el impuesto sin indexar, así que antes había que calcularlo a mano factura por factura. También tuvo que **crear una plantilla propia de reporte** en el ERP, porque el nativo saca todas las cuentas mezcladas con las de la financiadora de consumo.\n\nEl cobro allí es **multi-instrumento y negociado cliente por cliente**: cada vendedor acuerda con el suyo cómo paga —parte en moneda local, parte en divisa electrónica, parte en efectivo— y Cobranzas no conoce el acuerdo: «nosotros simplemente recibimos el pago, y lo que validamos es que cubra la totalidad de la factura». Se han llegado a cargar **veinte abonos** para una sola factura.\n\nEl escalamiento existe desde hace poco y es por correo: se le pide al vendedor el estatus documento por documento —si está por conciliar o por cobrar, si el cliente está en mora, si se intentó un acuerdo, si la empresa cerró—. **De ese primer envío respondió un solo vendedor.** El soporte de pago, que antes viajaba en físico y se traspapelaba, hoy se reporta mayormente por chat.\n\nLos incobrables de Panamá son pocos y con nombre: clientes que cerraron o desaparecieron. En el resto, la vía ha sido acordar abonos."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Supervisión de Créditos y Cobros (Panamá) y Coordinadora de Cuentas por Cobrar (Venezuela)",
+     "participantes": [
+      "Analista de Cuentas por Cobrar (Panamá) — registra los cobros del día y mantiene los desarrollos del estado de cuenta.",
+      "Asistente y Analista de Cuentas por Cobrar (Venezuela) — registran los pagos multi-instrumento con la tasa del día.",
+      "Vendedores — negocian la modalidad de pago con su cliente, trasladan los soportes y son a quienes se escala el saldo vencido.",
+      "Gerente de Ventas al Mayor — recibe el reporte de los saldos antiguos sin vendedor asignado y empuja la gestión.",
+      "Gerente de Tesorería (Panamá) — línea de reporte y destinatario del estado de la cartera.",
+      "Contabilidad — concilia lo cobrado contra el extracto bancario.",
+      "Coordinación de Sistemas — desarrolló el estado de cuenta y el listado de documentos adeudados en PDF."
+     ],
+     "evidencia": [
+      "E-62",
+      "E-48",
+      "E-15"
+     ],
+     "notas": "La Coordinadora de Cuentas por Cobrar de Venezuela documentó su propio procedimiento —alta de cliente, verificación de condición fiscal, actualización de la tasa y bajada del reporte— y lo hizo revisar y aprobar por su jefatura.",
+     "sin_evidencia": "No consta la rotación de cartera de ninguna de las dos entidades, ni un criterio escrito para declarar un saldo incobrable."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Entra un pago del cliente, o un documento cumple su vencimiento sin haberse cobrado.",
+     "cadencia": "Diaria para el registro —dos veces al día en Panamá—; el estado de cartera se envía a los vendedores dos o tres veces al mes.",
+     "output": "Cobro aplicado a la factura correcta, cartera actualizada por antigüedad, estado de cuenta emitido y saldo vencido escalado al vendedor.",
+     "evidencia": [
+      "E-62",
+      "E-48"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-62",
+      "E-48"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista / Asistente de Cuentas por Cobrar",
+       "texto": "Actualiza al abrir el día la tasa de cambio del archivo y baja del ERP el reporte de documentos pendientes con la plantilla propia."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista / Asistente de Cuentas por Cobrar",
+       "texto": "Revisa los movimientos del banco y el aviso del vendedor, e identifica a qué factura corresponde cada pago recibido."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista / Asistente de Cuentas por Cobrar",
+       "texto": "Calcula con el cuadro el neto esperado de esa factura en las dos monedas y valida que lo recibido cubra la totalidad, aunque llegue en varios instrumentos y en varios abonos."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista / Asistente de Cuentas por Cobrar",
+       "texto": "Aplica el cobro a la factura en el sistema y la cierra; si no cubre el total, la deja abierta por el saldo."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "texto": "Actualiza la cartera por antigüedad y arma la proyección de cobro del mes por vendedor y por cliente, marcando con colores lo cobrado y lo pendiente."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "texto": "Envía a cada vendedor el estado de su cartera y, sobre los documentos vencidos, le pide el estatus: si está por conciliar, si el cliente está en mora o si hay acuerdo de pago."
+      },
+      {
+       "id": "a7",
+       "rol": "Vendedor",
+       "texto": "Gestiona el cobro con su cliente y devuelve el estatus o el soporte del pago; cuando el saldo no se recupera, se escala al gerente comercial."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista / Asistente de Cuentas por Cobrar",
+       "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+       "Vendedor"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista / Asistente de Cuentas por Cobrar",
+        "tipo": "inicio",
+        "n": "Abre el día de cobranza"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista / Asistente de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Actualizar la tasa y bajar los documentos pendientes",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Analista / Asistente de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Identificar a qué factura corresponde cada pago"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista / Asistente de Cuentas por Cobrar",
+        "tipo": "decision",
+        "n": "¿El pago cubre la factura?"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista / Asistente de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Aplicar el cobro y cerrar la factura",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista / Asistente de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Aplicar el abono y dejar la factura abierta por el saldo"
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Actualizar la antigüedad y la proyección por vendedor"
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador de Créditos y Cobros / Coordinadora de Cuentas por Cobrar",
+        "tipo": "tarea",
+        "n": "Enviar el estado de cartera y pedir el estatus del vencido"
+       },
+       {
+        "id": "n8",
+        "carril": "Vendedor",
+        "tipo": "tarea",
+        "n": "Gestionar el cobro y devolver el estatus o el soporte"
+       },
+       {
+        "id": "n9",
+        "carril": "Vendedor",
+        "tipo": "fin",
+        "n": "Cartera gestionada y saldos escalados"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "13.7": {
+    "nota_version": "Versión As-Is: describe cómo se cuadran hoy las cuentas entre las compañías del grupo, y de dónde venía el desorden. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La conciliación periódica de los saldos y operaciones entre las compañías del grupo —compras a la casa matriz, pagos y notas— emparejando las cuentas por pagar de un país contra las cuentas por cobrar del otro. El registro de cada operación pertenece a 13.1 y 13.6.",
+     "texto": "La operación intercompañía es continua porque la casa matriz de Panamá le vende a las filiales, así que **cada país tiene la foto espejo del otro**: lo que en Venezuela es cuenta por pagar, en Panamá es cuenta por cobrar.\n\nDe dónde venía el problema está documentado con claridad. Antes lo llevaba **una sola persona, en exclusiva, sin visibilidad cruzada**; el equipo de cobros de Panamá lo resume así: «nosotros no sabíamos si se pagaban entre ellas». El resultado fue que **los pagos no se aplicaban a las facturas**: la misma compañía tenía por un lado millones en crédito y por otro millones en débito, algo que el propio coordinador califica de ilógico. Y del lado venezolano pasó algo paralelo: cuando la coordinadora de tesorería anterior salió de forma repentina, su equipo no manejaba el sistema y **se generaron pagos duplicados** a comienzos de año.\n\nLa salida fue un **ejercicio de dos meses** para balancear la cuenta: repartir los pagos contra las facturas, dejar abiertas las más recientes de cada compañía y comprobar el saldo. El hallazgo fue mejor de lo temido —los saldos más antiguos estaban dentro de los treinta días—. Desde entonces **quedó un patrón**: cada vez que se hace un pago se indica a qué factura se aplica y cuánto queda, y ese patrón se replicó con Venezuela y también con Costa Rica, donde se cuadró «al centavo», incluyendo un crédito de trescientos dólares que llevaba tiempo dando vueltas.\n\nHoy la conciliación es **directa entre las dos áreas**: el Coordinador de Cuentas por Pagar de Venezuela, en vez de esperar el reclamo, baja los estados de cuenta de todos los meses y valida por su cuenta las empresas relacionadas para adelantarse a los descuadres —«puedo ahorrarme ese dolor de cabeza»—. Del lado de Panamá se usa **inteligencia artificial para acelerar el cruce** de cientos de transacciones y armar el reporte. El resultado se manda a la dirección con el estado de la cuenta.\n\nHay un efecto colateral que se redujo pero sigue: **los pagos cruzados entre compañías**. Un gasto de una empresa que se paga con la tarjeta de otra obliga a cuatro asientos por un solo movimiento —el pago, la cuenta por cobrar, el gasto y la cuenta por pagar—. El equipo de Panamá señala que «ha ido mejorando un montón» desde que se asignó cada gasto a la tarjeta de su propia entidad, «pero antes teníamos muchos movimientos entre compañía»."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador de Supervisión de Créditos y Cobros (Panamá) y Coordinador de Cuentas por Pagar (Venezuela), cada uno por su lado de la cuenta",
+     "participantes": [
+      "Analista de Cuentas por Cobrar (Panamá) — mantiene el detalle de facturas abiertas de las compañías relacionadas.",
+      "Gerente de Contabilidad de cada entidad — incorpora el resultado de la conciliación a las cuentas de balance.",
+      "Gerente de Tesorería (Panamá) — recibe el estado de la cuenta intercompañía.",
+      "Dirección de Finanzas del grupo y accionistas — destinatarios del reporte de saldos entre compañías.",
+      "Analista de Cuentas por Pagar y Tesorería (Panamá) — identifica los pagos cruzados de tarjeta que generan movimientos entre compañías."
+     ],
+     "evidencia": [
+      "E-62",
+      "E-65",
+      "E-61"
+     ],
+     "notas": "El patrón de aplicación —indicar a qué factura se aplica cada pago y cuánto queda— es un acuerdo de trabajo entre las dos áreas, no un procedimiento escrito del grupo.",
+     "sin_evidencia": "No consta una cadencia formal de conciliación intercompañía ni quién arbitra cuando los dos países no coinciden en el saldo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se ejecuta un pago a una compañía relacionada, o toca revisar el saldo de la cuenta intercompañía.",
+     "cadencia": "Continua para la aplicación de cada pago; la revisión del saldo se hace mes a mes desde el ejercicio de balanceo.",
+     "output": "Saldos intercompañía emparejados factura por factura y reporte del estado de la cuenta a la dirección.",
+     "evidencia": [
+      "E-62",
+      "E-65"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-62",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinador de Cuentas por Pagar (Venezuela)",
+       "texto": "Baja los estados de cuenta del período y revisa por su cuenta los movimientos con las compañías relacionadas, adelantándose al descuadre en vez de esperar el reclamo."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Cuentas por Pagar (Venezuela)",
+       "texto": "Al ejecutar un pago, indica a qué factura se aplica y cuánto queda pendiente, siguiendo el patrón acordado entre las dos áreas."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador de Créditos y Cobros (Panamá)",
+       "texto": "Aplica el pago recibido contra las facturas señaladas y cruza el detalle de ambos lados, apoyándose en inteligencia artificial para acelerar el emparejamiento de cientos de transacciones."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador de Créditos y Cobros (Panamá)",
+       "texto": "Si los saldos no coinciden, identifica la causa —un pago duplicado, una nota sin aplicar, un movimiento cruzado entre compañías— y lo conversa directamente con su contraparte."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Incorpora el resultado del cruce a las cuentas de balance de su entidad y ajusta lo que corresponda."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador de Créditos y Cobros (Panamá)",
+       "texto": "Manda a la dirección el reporte con el estado de la cuenta entre compañías."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinador de Cuentas por Pagar (Venezuela)",
+       "Coordinador de Créditos y Cobros (Panamá)",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Coordinador de Cuentas por Pagar (Venezuela)",
+        "tipo": "inicio",
+        "n": "Hay movimiento con una compañía relacionada"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinador de Cuentas por Pagar (Venezuela)",
+        "tipo": "tarea",
+        "n": "Bajar los estados de cuenta y revisar los movimientos"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador de Cuentas por Pagar (Venezuela)",
+        "tipo": "tarea",
+        "n": "Indicar a qué factura se aplica el pago y el saldo restante"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Créditos y Cobros (Panamá)",
+        "tipo": "tarea",
+        "n": "Aplicar el pago y cruzar el detalle de ambos lados"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador de Créditos y Cobros (Panamá)",
+        "tipo": "decision",
+        "n": "¿Coinciden los saldos?"
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinador de Créditos y Cobros (Panamá)",
+        "tipo": "tarea",
+        "n": "Identificar la causa y conversarla con la contraparte"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Incorporar el cruce a las cuentas de balance y ajustar"
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador de Créditos y Cobros (Panamá)",
+        "tipo": "tarea",
+        "n": "Reportar a la dirección el estado de la cuenta"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador de Créditos y Cobros (Panamá)",
+        "tipo": "fin",
+        "n": "Cuenta intercompañía cuadrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "13.8": {
+    "nota_version": "Versión As-Is: describe qué se proyecta y qué se reporta hoy desde finanzas, y con qué herramientas. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La elaboración de proyecciones y de la situación financiera a partir de los cierres contables, el análisis de rentabilidad y de márgenes —incluido el efecto cambiario— y la preparación de la reportería a la Junta y a la banca. El cierre contable en sí es el proceso 12.8.",
+     "texto": "La planificación financiera del grupo la concentra **una sola persona**: la Dirección de Finanzas recibe los cierres mensuales de cada entidad, los trabaja y genera las proyecciones y la situación financiera que se lleva a la Junta. El reparto interno lo describe él mismo sin ambigüedad: para lo contable habla con el Gerente de Contabilidad de cada país, y para tesorería, banca, líneas de crédito, proyecciones y flujo de caja, con el Coordinador de Tesorería.\n\nEl instrumento central **no es el ERP sino una hoja de cálculo compartida**: una pestaña por mes con sus treinta días, una pestaña de saldos de banco que se actualiza cada mañana, y ahí dentro las solicitudes de pago, las proyecciones de ingresos, los préstamos, los créditos y los desembolsos. La comparten la Dirección de Finanzas, la Presidencia y el equipo de Tesorería, de modo que **todos ven la situación en vivo**; los egresos se cargan a medida que se hacen.\n\nLa reportería a la Junta y al Comité de Finanzas ya es **disciplina quincenal**: se sesiona los miércoles cada quince días, alternando entidad, y quien expone es la Dirección de Finanzas después de haber revisado los números en privado con la Gerencia de Contabilidad de cada país. Los bancos son el otro destinatario, y el que impone la exigencia: «la formalidad de la reportería es más exigente porque dependemos de la línea de crédito».\n\nHay dos limitaciones que el propio responsable reconoce. La primera es **el desfase**: puede estar reportando en abril la situación de enero, porque depende de que cada entidad cierre, y los primeros meses del año se solapan con la declaración de renta. La segunda es **la herramienta**: trabaja con sus propios modelos en hoja de cálculo y hace un año estuvo averiguando software de visualización y proyección más robusto —«en vez de llenar yo unos modelos, lleno un software de premisas, y queda como producto para la empresa a largo plazo»—, pero cuestan dinero y no se ha dado el paso.\n\nEn el análisis, el caso venezolano exige una capa extra: lo que se evalúa allí es la sostenibilidad y el costo de la compra de divisas, y después **la rentabilidad por efecto del diferencial cambiario**, de donde sale la siguiente propuesta de lista de precios para ese mercado."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Dirección de Finanzas del grupo",
+     "participantes": [
+      "Gerente de Contabilidad de cada entidad — entrega el cierre y revisa los números en privado antes del comité.",
+      "Coordinador y Gerente de Tesorería — alimentan el flujo compartido con saldos, desembolsos y proyecciones de ingreso.",
+      "Presidencia — accede al flujo compartido en vivo.",
+      "Junta Directiva y Comité de Finanzas — destinatarios de la situación financiera y de las proyecciones.",
+      "Asesor externo de finanzas y auditoría — participa en la Junta y en los comités de finanzas.",
+      "Entidades bancarias — receptoras de los paquetes de información que sostienen las líneas de crédito."
+     ],
+     "evidencia": [
+      "E-15",
+      "E-44",
+      "E-43",
+      "E-23"
+     ],
+     "notas": "El Comité de Finanzas sesiona cada quince días alternando la entidad que se revisa: un miércoles la mayorista, el siguiente la de retail.",
+     "sin_evidencia": "No consta un catálogo de indicadores financieros del grupo ni un formato común de reportería entre entidades; cada país arma su propia hoja de cálculo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Cierra el mes en las entidades, se acerca la sesión del comité o un banco pide información.",
+     "cadencia": "Mensual para la situación financiera, quincenal para el comité y diaria para el flujo compartido.",
+     "output": "Situación financiera y proyecciones presentadas a la Junta, y paquetes de información entregados a la banca.",
+     "evidencia": [
+      "E-15",
+      "E-44"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-15",
+      "E-44",
+      "E-43"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Entrega el cierre mensual de su entidad y lo revisa en privado con la Dirección de Finanzas, explicando las variaciones y la rentabilidad por tienda o canal."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador / Gerente de Tesorería",
+       "texto": "Mantiene actualizado el flujo compartido con los saldos del día, los desembolsos ejecutados y las proyecciones de ingreso y de compromiso."
+      },
+      {
+       "id": "a3",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Trabaja los cierres recibidos y construye la proyección y la situación financiera del grupo sobre sus propios modelos en hoja de cálculo."
+      },
+      {
+       "id": "a4",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Analiza el margen y, en el caso venezolano, aísla el efecto del diferencial cambiario para que la comparación entre períodos sea legible."
+      },
+      {
+       "id": "a5",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Expone la situación financiera y las proyecciones en el Comité de Finanzas, que sesiona cada quince días alternando entidad."
+      },
+      {
+       "id": "a6",
+       "rol": "Junta Directiva",
+       "texto": "Revisa los números, toma las decisiones que correspondan —entre ellas la propuesta de lista de precios que sale del análisis de margen— y las devuelve a las áreas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Contabilidad",
+       "Coordinador / Gerente de Tesorería",
+       "Dirección de Finanzas del grupo",
+       "Junta Directiva"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "inicio",
+        "n": "Cierra el mes en la entidad"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Entregar el cierre y revisarlo en privado con Finanzas"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador / Gerente de Tesorería",
+        "tipo": "tarea",
+        "n": "Actualizar el flujo compartido con saldos y desembolsos",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Construir la proyección y la situación financiera del grupo"
+       },
+       {
+        "id": "n4",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "decision",
+        "n": "¿Hay efecto cambiario que distorsione?"
+       },
+       {
+        "id": "n5",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Aislar el efecto para que el margen sea comparable"
+       },
+       {
+        "id": "n6",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Exponer los números en el Comité de Finanzas"
+       },
+       {
+        "id": "n7",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Decidir sobre precios, financiamiento y prioridades"
+       },
+       {
+        "id": "n8",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "Decisiones tomadas y devueltas a las áreas"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "13.9": {
+    "nota_version": "Versión As-Is: describe qué hay hoy de presupuesto y de control del gasto, que es menos de lo que el nombre del proceso sugiere. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La formulación del presupuesto, el seguimiento de presupuesto contra ejecución y el control del gasto por centro de costo y por rubro. El registro contable del gasto pertenece al macroproceso de Contabilidad, del que este toma la clasificación ya aplicada.",
+     "texto": "Lo que existe hoy no es un ciclo presupuestario completo: es **un control del gasto apoyado en la clasificación analítica y una comparación contra presupuesto que se hace donde hay un proyecto acotado**.\n\nLa pieza sólida es **el centro de costo**. Se aplica en el momento del registro —Cuentas por Pagar lo asigna factura por factura al cargarla, en el campo de distribución analítica— y es lo que después permite mirar el gasto por tienda o por área. En Panamá esa clasificación sostiene el análisis de rentabilidad de la entidad de retail: se revisa **mensualmente que todas las operaciones tengan su centro de costo**, y cuando una tienda tiene gastos que superan sus ventas, la Gerencia de Contabilidad pregunta directamente al contador qué está pasando. El sentido de esa disciplina lo explica ella misma: es lo que se le presenta a la Junta para que decida si una tienda es rentable o no.\n\nLa **comparación contra presupuesto sí ocurre**, pero la evidencia la sitúa sobre estructuras acotadas: la Dirección de Finanzas la describe como un corte sobre una obra o proyecto tratado como centro de costo —«ya hicimos la estructura, vamos a hacer corte, cómo va el presupuesto, cuánto fue, cuánto nos gastamos»—. No hay evidencia de un presupuesto operativo anual del grupo formulado con los líderes de área, ni de un reporte estándar de desviaciones que se emita con una cadencia fija.\n\nY hay un punto donde el control del gasto se rompe de forma reconocida: **las tarjetas de crédito**. En Panamá hay cinco, y tienen acceso Sistemas, los directivos y marketing. Como **no se levanta solicitud de pago cuando se paga con tarjeta**, hay compras de las que Contabilidad no se entera hasta que aparecen en el estado de cuenta. El analista que las registra lo plantea sin rodeos —«hay pagos que se realizan y ni por enterado»— y su objeción no es el importe sino la trazabilidad: «no por el monto, sino que necesito saber de quién es». Contrapone su experiencia anterior, donde nadie tenía acceso a la tarjeta salvo Tesorería y el dueño, y toda compra pasaba por la solicitud aunque después se pagara con tarjeta. A eso se suma que los soportes llegan incompletos y hay que perseguirlos comprobante por comprobante.\n\nTampoco hay indicadores. Ninguna de las áreas de este macroproceso mide su propia gestión con un cuadro: en Panamá se sigue el nivel de efectivo y hay intención de construir un ratio de días de cobro que todavía no existe; en Venezuela el criterio de compra de divisas y la rotación de caja se observan pero no se emiten; el Coordinador de Cuentas por Pagar tiene **indicadores propuestos en su manual —tasa de pago a tiempo, días de cuentas por pagar, tiempo de procesamiento de factura— que no se calculan**; y la Coordinadora de Cuentas por Cobrar tiene un modelo con días promedio de cobro y porcentaje de cartera vencida que no ha implementado porque antes quiere las cuentas depuradas."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño único del ciclo presupuestario: la Dirección de Finanzas hace el corte contra presupuesto donde existe, y el control del gasto recae en la Gerencia de Contabilidad de cada entidad",
+     "participantes": [
+      "Coordinador y Analista de Cuentas por Pagar — asignan el centro de costo en el momento de registrar la factura.",
+      "Gerente de Contabilidad — revisa mensualmente que toda operación tenga su centro de costo y explica las desviaciones por tienda.",
+      "Contadores Senior — analizan el gasto de cada centro y responden por él.",
+      "Líderes de área y directivos — originan el gasto y son quienes usan las tarjetas de crédito corporativas.",
+      "Gerente de Tesorería — aprueba las solicitudes de pago según el monto y es quien podría cerrar el circuito de las tarjetas.",
+      "Junta Directiva — recibe el análisis de rentabilidad por tienda y decide sobre él."
+     ],
+     "evidencia": [
+      "E-61",
+      "E-44",
+      "E-15",
+      "E-65",
+      "E-48",
+      "E-43"
+     ],
+     "notas": "El Coordinador de Cuentas por Pagar de Venezuela redactó un manual de procesos de su área que incluye una propuesta de indicadores; se lo entregó a la Dirección de Finanzas y los indicadores no se calculan.",
+     "sin_evidencia": "No consta un presupuesto operativo anual del grupo formulado con los líderes de área, ni un reporte de desviaciones homologado entre entidades, ni el volumen del gasto que se ejecuta hoy por tarjeta de crédito sin solicitud previa."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se registra un gasto y hay que clasificarlo, o llega el corte mensual en el que se revisa la ejecución contra lo previsto.",
+     "cadencia": "Continua para la clasificación; mensual para la revisión de centros de costo y el análisis de rentabilidad.",
+     "output": "Gasto clasificado por centro de costo, análisis de rentabilidad por tienda o área, y desviaciones planteadas al responsable.",
+     "evidencia": [
+      "E-44",
+      "E-65",
+      "E-15"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-61",
+      "E-65",
+      "E-15"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Líder de área o directivo",
+       "texto": "Origina el gasto: levanta la solicitud de pago con su soporte, o lo ejecuta directamente con la tarjeta corporativa sin que medie solicitud."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Al registrar la factura, le asigna la cuenta contable y el centro de costo en el campo de distribución analítica."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador / Analista de Cuentas por Pagar",
+       "texto": "Si el gasto llegó por tarjeta y sin solicitud, persigue el comprobante y el destino con quien lo ejecutó para poder clasificarlo."
+      },
+      {
+       "id": "a4",
+       "rol": "Contador Senior",
+       "texto": "Revisa mensualmente que todas las operaciones del período tengan su centro de costo asignado y corrige las que no lo tienen."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Analiza el gasto por tienda y por área y contrasta contra lo previsto donde existe presupuesto; identifica las tiendas cuyos gastos superan sus ventas."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Plantea la desviación al responsable del centro de costo y la lleva al análisis de rentabilidad que se revisa con la Dirección de Finanzas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Líder de área o directivo",
+       "Coordinador / Analista de Cuentas por Pagar",
+       "Contador Senior",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Líder de área o directivo",
+        "tipo": "inicio",
+        "n": "Se origina un gasto"
+       },
+       {
+        "id": "n1",
+        "carril": "Líder de área o directivo",
+        "tipo": "decision",
+        "n": "¿Pasó por solicitud de pago?"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Perseguir el comprobante y el destino del gasto"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador / Analista de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Asignar cuenta contable y centro de costo al registrar",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Contador Senior",
+        "tipo": "tarea",
+        "n": "Revisar que todo el período tenga su centro de costo"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Analizar el gasto por tienda y por área"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "decision",
+        "n": "¿Hay desviación relevante?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Plantear la desviación al responsable del centro de costo"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Gasto clasificado y rentabilidad analizada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+,
  "12": {
   "procesos": {
    "12.1": {
