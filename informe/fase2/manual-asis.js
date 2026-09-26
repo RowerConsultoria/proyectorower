@@ -7428,6 +7428,3621 @@ window.MANUAL_ASIS = {
    }
   }
  },
+ "9": {
+  "procesos": {
+   "9.1": {
+    "nota_version": "Versión As-Is: describe cómo se construyen hoy el presupuesto y las metas de las tiendas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La construcción del presupuesto anual de venta de las tiendas propias, su aprobación, su bajada a metas por tienda y su reajuste durante el año. El seguimiento diario va en 9.2 y la planificación de promociones, con el comité comercial, en 9.6.",
+     "texto": "El presupuesto de las tiendas lo construye **la gerencia regional de retail**, que llegó hace año y medio y desde entonces concentra la planificación de los países con tienda propia. Parte de los históricos de venta de cada país, que extrae de Odoo por consultas y guarda en Excel porque cada país trae la información en un formato distinto. Mira qué vendió cada tienda, la estacionalidad y el crecimiento del año anterior; para las tiendas nuevas toma una tienda parecida. La regla que se pone es que la meta sea exigente pero alcanzable. El presupuesto lo **aprueba el Director Comercial y de Compras**, que a veces pide cambiar líneas concretas. El foco del año lo fija antes la junta de socios de enero —en 2026, fortalecer el retail y abrir tiendas—, sin indicadores formales de seguimiento.\n\nUna vez aprobado, la gerencia regional pasa a cada país lo macro y la **gerencia de ventas al detal lo reparte por tienda**. En Venezuela lo hace la Gerente de Ventas al Detal, que ajusta lo que no cuadra con la realidad local, manda las metas a cada tienda y las discute en la reunión de los lunes, donde los gerentes pueden objetar («me pusieron mucho»). Cuando algo externo cambia el año —el terremoto, una restricción de mercancía—, la gerencia regional consulta a los gerentes de país qué creen que pasará, rehace los números y los lleva otra vez a aprobación. En 2026 se reajustaron los últimos cuatro meses porque varias tiendas iban por encima de lo previsto, y la dirección fijó que ese es el número del cierre.\n\nLa compra que alimenta a las tiendas va por otro carril (macro 6): un forecast de compra por marca y país que los socios arman en Excel, sin distinguir entre tienda y mayor."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Regional Manager Retail",
+     "participantes": [
+      "Regional Manager Retail — construye el presupuesto por país y tienda desde los históricos, lo reajusta durante el año y presenta cada mes a la junta cómo va.",
+      "Director Comercial y de Compras (socio) — aprueba el presupuesto y sus reajustes.",
+      "Socios (junta de enero) — fijan el foco del año para el retail.",
+      "Gerente de Ventas al Detal (Venezuela) — reparte las metas por tienda, las ajusta al contexto del país y las discute con los gerentes en la reunión semanal.",
+      "Gerente de Tienda — recibe la meta de su tienda y puede objetarla en la reunión semanal."
+     ],
+     "evidencia": [
+      "E-55",
+      "E-47",
+      "E-08",
+      "E-05",
+      "Lark: Guía de procesos Retail LATAM de la gerencia regional, agosto 2026"
+     ],
+     "notas": "El presupuesto se arma con archivos por país que no comparten formato; la gerencia regional lo describe como la parte más desgastante del trabajo.",
+     "sin_evidencia": "No consta cómo se reparten las metas por tienda en Panamá ni en Colombia, ni si existe una meta por asesor más allá de la de la tienda."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre del año y la fijación del foco en la junta de socios de enero.",
+     "cadencia": "Anual, con reajustes cuando cambia el contexto; revisión mensual ante la junta.",
+     "output": "Presupuesto aprobado por país y metas mensuales comunicadas a cada tienda.",
+     "evidencia": [
+      "E-55",
+      "E-08"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-55",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Regional Manager Retail",
+       "texto": "Analiza los históricos de venta por tienda —estacionalidad, crecimiento, tiendas comparables para las nuevas— desde consultas a Odoo."
+      },
+      {
+       "id": "a2",
+       "rol": "Regional Manager Retail",
+       "texto": "Arma el presupuesto anual por país y tienda."
+      },
+      {
+       "id": "a3",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Lo aprueba o pide cambiar líneas concretas."
+      },
+      {
+       "id": "a4",
+       "rol": "Regional Manager Retail",
+       "texto": "Si hay cambios, los ajusta; luego carga el presupuesto en el cuadro regional y pasa a cada país lo macro."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Reparte la meta por tienda, la ajusta al contexto local y la envía a cada tienda."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Tienda",
+       "texto": "Recibe la meta y la discute en la reunión semanal; el seguimiento diario sigue en 9.2."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Regional Manager Retail",
+       "Director Comercial y de Compras (socio)",
+       "Gerente de Ventas al Detal (Venezuela)",
+       "Gerente de Tienda"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Regional Manager Retail",
+        "tipo": "inicio",
+        "n": "Nuevo ciclo anual"
+       },
+       {
+        "id": "n1",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Analizar históricos por tienda",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Armar el presupuesto por tienda",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "decision",
+        "n": "¿Aprueba sin cambios?"
+       },
+       {
+        "id": "n4",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Ajustar las líneas indicadas",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Cargar y pasar lo macro al país",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Repartir la meta por tienda",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Recibir y discutir la meta"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tienda",
+        "tipo": "fin",
+        "n": "Meta en la tienda (sigue 9.2)"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "9.2": {
+    "nota_version": "Versión As-Is: describe cómo se consolidan hoy las ventas diarias de las tiendas y sus indicadores, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La carga diaria de la venta de cada tienda en el cuadro regional, su lectura por la gerencia regional y el cierre mensual ante la junta. El cuadre de caja va en 9.5.",
+     "texto": "La consolidación regional existe, pero **a mano y a propósito**. Cada noche, al cerrar, las tiendas descargan su cierre de ventas del sistema y cargan tres datos —venta, unidades y transacciones— en un cuadro compartido; con eso el cuadro calcula el ticket promedio, las unidades por transacción y, donde hay contador de tráfico (Follow Up), la conversión. La gerencia regional no quiere automatizar ese paso: sostiene que el gerente tiene que ver cada noche cómo le fue para que «le duela» un mal día. En Venezuela las tiendas no cargan directo: mandan por correo un resumen del cierre y es el equipo de la gerencia de ventas al detal quien lo vacía en el cuadro a la mañana siguiente. Donde el país u operador no permite compartir el cuadro, se le arma uno aparte que alimenta el principal.\n\nCon eso la gerencia regional revisa cada día cómo va cada tienda frente a su meta y llama al gerente de país o de tienda cuando alguna se queda corta. Cada mes presenta a la junta el cierre por región, país y tienda, los productos más vendidos y, donde ya existe, el resultado por tienda; ese estado de resultados por tienda está hecho para Colombia y Guatemala, y seguía pendiente en Panamá y Venezuela.\n\nLa **torre de control regional** que reuniría todo esto está en construcción y no en producción: hoy es un Excel maestro por país, pesado, con nomenclaturas de tienda distintas en cada país. En paralelo hay otros tableros —el de inteligencia de negocios, un reporte mensual de ventas por tienda para la junta, uno de la gerencia comercial— que no se cruzan entre sí."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Regional Manager Retail",
+     "participantes": [
+      "Gerente de Tienda — descarga el cierre del día y lo carga en el cuadro o lo manda por correo.",
+      "Supervisor(a) de Tiendas (Venezuela) — en Venezuela, vacía cada mañana los resúmenes de cierre en el cuadro regional.",
+      "Regional Manager Retail — revisa cada día los indicadores, llama a los países con tiendas por debajo de la meta y presenta el cierre mensual a la junta.",
+      "Analista de Datos e Informes — prepara por su lado el reporte mensual de ventas por tienda para la junta y Mercadeo."
+     ],
+     "evidencia": [
+      "E-55",
+      "E-47",
+      "SC-11",
+      "E-18",
+      "E-10",
+      "E-05",
+      "E-33",
+      "Lark: Guía de procesos Retail LATAM de la gerencia regional, agosto 2026"
+     ],
+     "notas": "Varios tableros miden lo mismo sin una fuente común; la gerencia regional perdió además el acceso al tablero de inteligencia de negocios al vencerle la licencia de prueba.",
+     "sin_evidencia": "No consta un indicador de tienda que se reporte con regla escrita: las definiciones de cada KPI no están documentadas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre diario de cada tienda.",
+     "cadencia": "Diaria; semanal en la reunión con gerentes; mensual ante la junta.",
+     "output": "Cuadro regional al día con venta, unidades, transacciones y conversión por tienda; presentación mensual a la junta.",
+     "evidencia": [
+      "E-55",
+      "E-47"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-55",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Al cierre, descarga del sistema la venta, las unidades y las transacciones del día."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tienda",
+       "texto": "Donde el país carga directo, las anota en el cuadro regional."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tienda",
+       "texto": "En Venezuela, manda por correo el resumen del cierre."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor(a) de Tiendas (Venezuela)",
+       "texto": "En Venezuela, vacía a la mañana siguiente los resúmenes en el cuadro."
+      },
+      {
+       "id": "a5",
+       "rol": "Regional Manager Retail",
+       "texto": "Revisa los indicadores de cada tienda frente a su meta."
+      },
+      {
+       "id": "a6",
+       "rol": "Regional Manager Retail",
+       "texto": "Si alguna se queda corta, llama al gerente de país o de tienda para acordar acciones."
+      },
+      {
+       "id": "a7",
+       "rol": "Regional Manager Retail",
+       "texto": "Al cierre de mes, presenta a la junta el resultado por país y tienda."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Supervisor(a) de Tiendas (Venezuela)",
+       "Regional Manager Retail"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Cierre de la tienda"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Descargar venta, unidades y transacciones",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tienda",
+        "tipo": "decision",
+        "n": "¿Carga directo en el cuadro?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Anotar en el cuadro regional",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Mandar resumen por correo"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor(a) de Tiendas (Venezuela)",
+        "tipo": "tarea",
+        "n": "Vaciar resúmenes en el cuadro",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Revisar KPIs contra la meta",
+        "sistemas": [
+         "Excel",
+         "Follow Up"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Regional Manager Retail",
+        "tipo": "decision",
+        "n": "¿Tienda por debajo?"
+       },
+       {
+        "id": "n8",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Llamar al país para acordar acciones"
+       },
+       {
+        "id": "n9",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Presentar el cierre mensual a la junta",
+        "sistemas": [
+         "PowerPoint"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Regional Manager Retail",
+        "tipo": "fin",
+        "n": "Cierre presentado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "9.3": {
+    "nota_version": "Versión As-Is: describe cómo se reponen hoy las tiendas y los kioscos, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El ciclo semanal que va del cálculo del sugerido por tienda a la mercancía disponible en el punto de venta. Las transferencias puntuales entre tiendas van en 9.4 y la compra internacional, en el macro 6.",
+     "texto": "La reposición se calcula **centralizada en Venezuela**: la coordinación de planificación de compras arma cada semana un sugerido por tienda con un Excel propio conectado a Odoo, que ordena los productos por venta (A/B/C) y apunta a tres o cuatro semanas de cobertura; se apoya en IA para aplicar reglas por tienda (qué no le va a un outlet, qué no cabe en un kiosco). Las tiendas no piden salvo excepciones; lo que sí existe es el «ojo clínico» de quien las supervisa, que corrige el sugerido.\n\nEn **Panamá** el sugerido lo recibe el supervisor de tienda, que lo revisa con su conocimiento del punto: una venta especial de cien termos no significa que haya que reponer cien, y un kiosco de 2,5 por 2,5 metros no puede recibir treinta. Carga los pedidos en Odoo con una plantilla masiva y sus observaciones, y el pedido no le aparece a la bodega hasta que **lo autoriza la Gerencia de Ventas Internacional**. Desde un piloto reciente la mercancía sale directo de la bodega de Zona Libre a cada tienda, sin pasar por la bodega de la ciudad: el plazo bajó de ocho a doce días a dos o tres. Las tiendas cotejan lo recibido contra la lista y el supervisor valida en Odoo los traslados, que ya dejó preparados en borrador. Lo que llega de más o de menos se reporta a la bodega.\n\nEn **Venezuela** el pedido de tienda no pasa por el WMS: la coordinación lo monta a mano en Odoo tienda por tienda —no se pueden importar las veinte a la vez—, lo imprime y lo lleva en físico al almacén. Si Odoo muestra existencias que el almacén no tiene, se quitan del traslado antes de que llegue. La gerencia de ventas al detal percibe que las tiendas «comen primero»; la del mayor, que recibe el remanente. En Colombia no hay bodega separada por canal y el mayor puede dejar a las tiendas sin inventario."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "participantes": [
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) — calcula cada semana el sugerido por tienda para Venezuela y Panamá; en Venezuela, además, monta los pedidos en Odoo.",
+      "Supervisor de Tienda (Panamá) — revisa el sugerido, carga los pedidos en Odoo, valida los traslados al recibir y atiende las diferencias.",
+      "Gerente de Ventas Internacional — autoriza el pedido de las tiendas de Panamá para que la bodega lo vea.",
+      "Jefe de Bodega — prepara y despacha los pedidos de las tiendas de Panamá.",
+      "Encargado(a) de Tienda (Panamá) — coteja lo recibido contra la lista y reporta diferencias.",
+      "Gerente de Almacén (Venezuela) — despacha a las tiendas lo que la coordinación montó en Odoo.",
+      "Gerente de Ventas al Detal (Venezuela) — corrige el sugerido con lo que ve en las visitas."
+     ],
+     "evidencia": [
+      "E-40",
+      "E-53",
+      "E-03",
+      "SC-02",
+      "E-47",
+      "E-34",
+      "E-35",
+      "E-14",
+      "E-05"
+     ],
+     "notas": "En Venezuela el pedido de tienda se monta y se entrega a mano; la coordinación dice que le anunciaron hace meses que dejaría de hacerlo y sigue igual.",
+     "sin_evidencia": "No consta un mínimo o máximo definido por producto y tienda; la meta de cobertura estaba en revisión porque la fijada para todas no cabía físicamente en los kioscos."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El ciclo semanal de reposición.",
+     "cadencia": "Semanal; en Panamá, pedido el lunes y entrega el miércoles.",
+     "output": "Mercancía recibida, cotejada y cargada al inventario de cada tienda.",
+     "evidencia": [
+      "E-53",
+      "E-40",
+      "SC-02"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-53",
+      "E-40",
+      "E-03",
+      "SC-02"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "texto": "Calcula el sugerido semanal por tienda y lo envía."
+      },
+      {
+       "id": "a2",
+       "rol": "Supervisor de Tienda (Panamá)",
+       "texto": "Lo revisa según el espacio de cada punto y las ventas especiales, y lo ajusta."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor de Tienda (Panamá)",
+       "texto": "Carga los pedidos en Odoo con la plantilla masiva y sus observaciones."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas Internacional",
+       "texto": "Autoriza los pedidos para que la bodega los vea."
+      },
+      {
+       "id": "a5",
+       "rol": "Jefe de Bodega",
+       "texto": "Prepara los pedidos y los despacha a cada tienda."
+      },
+      {
+       "id": "a6",
+       "rol": "Encargado(a) de Tienda (Panamá)",
+       "texto": "Coteja lo recibido contra la lista."
+      },
+      {
+       "id": "a7",
+       "rol": "Encargado(a) de Tienda (Panamá)",
+       "texto": "Si hay diferencias, las reporta para que la bodega las revise."
+      },
+      {
+       "id": "a8",
+       "rol": "Supervisor de Tienda (Panamá)",
+       "texto": "Valida en Odoo el traslado que ya tenía en borrador y la mercancía queda disponible."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "Supervisor de Tienda (Panamá)",
+       "Gerente de Ventas Internacional",
+       "Jefe de Bodega",
+       "Encargado(a) de Tienda (Panamá)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "tipo": "inicio",
+        "n": "Ciclo semanal"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "tipo": "tarea",
+        "n": "Calcular el sugerido por tienda",
+        "sistemas": [
+         "Excel",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Supervisor de Tienda (Panamá)",
+        "tipo": "tarea",
+        "n": "Revisar y ajustar el sugerido"
+       },
+       {
+        "id": "n3",
+        "carril": "Supervisor de Tienda (Panamá)",
+        "tipo": "tarea",
+        "n": "Cargar los pedidos en Odoo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas Internacional",
+        "tipo": "tarea",
+        "n": "Autorizar los pedidos",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Jefe de Bodega",
+        "tipo": "tarea",
+        "n": "Preparar y despachar a tiendas",
+        "sistemas": [
+         "EBS"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Encargado(a) de Tienda (Panamá)",
+        "tipo": "tarea",
+        "n": "Cotejar contra la lista"
+       },
+       {
+        "id": "n7",
+        "carril": "Encargado(a) de Tienda (Panamá)",
+        "tipo": "decision",
+        "n": "¿Llegó completo?"
+       },
+       {
+        "id": "n8",
+        "carril": "Encargado(a) de Tienda (Panamá)",
+        "tipo": "tarea",
+        "n": "Reportar la diferencia a bodega"
+       },
+       {
+        "id": "n9",
+        "carril": "Supervisor de Tienda (Panamá)",
+        "tipo": "tarea",
+        "n": "Validar el traslado en Odoo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Supervisor de Tienda (Panamá)",
+        "tipo": "fin",
+        "n": "Mercancía disponible"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "9.4": {
+    "nota_version": "Versión As-Is: describe cómo se mueve hoy mercancía entre tiendas del mismo país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El traslado puntual de mercancía de una tienda a otra para cerrar una venta o cubrir un faltante. La reposición semanal va en 9.3.",
+     "texto": "Cada tienda ve en Odoo el inventario de todas las del país, pero **solo puede mover el suyo**. Cuando a una le falta algo para cerrar una venta —un cliente que pide cinco relojes, una venta corporativa de cien calculadoras, un domingo con la oficina cerrada—, el gerente se lo pide a la supervisión, casi siempre por teléfono o por chat y a veces por correo. La supervisión busca qué tienda lo tiene y hace el traslado en Odoo; si está de visita en una tienda, lo hace desde su computadora y queda como hecho por la tienda. En Panamá se ha propuesto que los gerentes hagan sus propios traslados, sin decidir todavía.\n\nDentro del mismo centro comercial el producto se lleva a mano el mismo día. Entre centros comerciales depende de la ruta de transporte: el que va al este no es el que va al centro, y en Venezuela la coordinación de planificación reconoce que no ha logrado resolver un traslado entre centros comerciales en el día. Desde el interior hay un límite propio: sacar mercancía de Margarita exige declararla y pagar un impuesto de salida, algo que el equipo descubrió en plena operación. Cuando llega el traslado, el sistema coteja lo recibido contra la factura y lo carga, un tramo que el personal califica de eficaz.\n\nCuando el producto no está en ninguna tienda, **la demanda no queda registrada** en ningún sitio."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Supervisor(a) de Tiendas (país)",
+     "participantes": [
+      "Gerente de Tienda (solicitante) — pide el producto que le falta.",
+      "Supervisor(a) de Tiendas (país) — en Venezuela, la gerencia de ventas al detal y su equipo de supervisión; en Panamá, el supervisor de tienda. Busca quién lo tiene y hace el traslado en Odoo.",
+      "Gerente de Tienda (cedente) — entrega el producto o lo envía con el mensajero o la ruta.",
+      "Gerente de Operaciones y Logística (Venezuela) — aprueba los traslados que necesitan transporte del almacén."
+     ],
+     "evidencia": [
+      "SC-02",
+      "E-53",
+      "E-47",
+      "E-40",
+      "E-34",
+      "E-36"
+     ],
+     "notas": "La demanda que no se cubre con ninguna tienda se pierde sin registro.",
+     "sin_evidencia": "No consta cómo se hacen los traslados entre tiendas en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "A una tienda le falta un producto para cerrar una venta.",
+     "cadencia": "Por evento.",
+     "output": "Producto trasladado y cargado en el inventario de la tienda que lo pidió, o venta perdida sin registro.",
+     "evidencia": [
+      "SC-02",
+      "E-53"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "SC-02",
+      "E-53",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda (solicitante)",
+       "texto": "Pide el producto que le falta, por teléfono, chat o correo."
+      },
+      {
+       "id": "a2",
+       "rol": "Supervisor(a) de Tiendas (país)",
+       "texto": "Busca en Odoo qué tienda lo tiene."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor(a) de Tiendas (país)",
+       "texto": "Si no lo tiene ninguna, la venta se pierde y no queda registro."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor(a) de Tiendas (país)",
+       "texto": "Si lo tiene otra, hace el traslado en Odoo."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Tienda (cedente)",
+       "texto": "Si está en el mismo centro comercial, lo entrega en mano; si no, lo envía con el mensajero o la ruta."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Tienda (solicitante)",
+       "texto": "Recibe el producto; el sistema coteja el traslado contra la factura y lo carga."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda (solicitante)",
+       "Supervisor(a) de Tiendas (país)",
+       "Gerente de Tienda (cedente)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda (solicitante)",
+        "tipo": "inicio",
+        "n": "Falta un producto para vender"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda (solicitante)",
+        "tipo": "tarea",
+        "n": "Pedir el producto",
+        "sistemas": [
+         "WhatsApp",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "tarea",
+        "n": "Buscar qué tienda lo tiene",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "decision",
+        "n": "¿Lo tiene otra tienda?"
+       },
+       {
+        "id": "n4",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "fin",
+        "n": "Venta perdida, sin registro"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "tarea",
+        "n": "Hacer el traslado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Tienda (cedente)",
+        "tipo": "decision",
+        "n": "¿Mismo centro comercial?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Tienda (cedente)",
+        "tipo": "tarea",
+        "n": "Entregar en mano"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tienda (cedente)",
+        "tipo": "tarea",
+        "n": "Enviar con mensajero o ruta"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Tienda (solicitante)",
+        "tipo": "tarea",
+        "n": "Recibir y cargar el traslado",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Tienda (solicitante)",
+        "tipo": "fin",
+        "n": "Producto disponible"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "9.5": {
+    "nota_version": "Versión As-Is: describe cómo se cuadra hoy la caja de cada tienda y cómo llega esa información a la oficina, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El cuadre de caja al cierre de cada tienda, el reporte de la venta del día y su revisión por Contabilidad. El traslado físico del efectivo va en 9.15.",
+     "texto": "En **Venezuela**, al cierre, la tienda cuadra la caja contra el reporte Z de la máquina fiscal y los cierres de los puntos de venta, y esa misma noche manda por correo un resumen: monto vendido, facturas, divisas recibidas, lo cobrado con Cashea y lo vendido por línea. Con ese resumen el equipo de la gerencia de ventas al detal alimenta a la mañana siguiente el cuadro regional (9.2). Las anomalías se detectan a ojo: un monto o un número de facturas que no cuadra, o un reporte que no llegó, hacen que la gerencia llame a la tienda y revise con Sistemas; así apareció una vez un cierre inflado por facturas que habían quedado pendientes durante un cambio de precios. Si Odoo cae, la tienda factura en contingencia y carga esas facturas cuando vuelve el sistema.\n\nLos soportes físicos —reporte Z, vouchers de los puntos de venta, soportes de depósito— viajan en la valija, y en Contabilidad **la revisión de las cajas es manual**: un analista vuelca en Excel lo que llega de cada tienda para comprobar que todo lo vendido se cobró. Con Odoo se evalúa que el cierre de caja apunte directo a una cuenta contable, sin implementar. Tesorería cierra a las cinco o seis de la tarde, pero las tiendas venden hasta las nueve o las diez, así que esas horas se ven al día siguiente.\n\nEn **Panamá** el procedimiento está escrito: la caja tiene un fondo fijo que se cuenta al cerrar y al abrir, y cada tienda entrega un expediente diario —voucher del depósito, detalle de ventas por medio de pago, cierres de los terminales y gastos de caja— que la asistente contable de conciliación cruza contra el reporte de venta de Odoo en una plantilla de revisión, antes de conciliar con el banco."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tienda",
+     "participantes": [
+      "Gerente de Tienda — cuadra la caja al cierre y envía el resumen y los soportes; en Venezuela el cuadre lo hace con la cajera.",
+      "Supervisor(a) de Tiendas (Venezuela) — revisa cada mañana los resúmenes, detecta anomalías y las carga en el cuadro regional.",
+      "Analista de Contabilidad (Venezuela) — revisa a mano en Excel cada caja con los soportes físicos.",
+      "Asistente contable de conciliación (Panamá) — cruza el expediente de cada tienda contra el reporte de venta de Odoo.",
+      "Coordinador(a) de Tesorería (Venezuela) — recibe la venta de las tiendas con un día de rezago."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-38",
+      "E-43",
+      "E-32",
+      "SC-02",
+      "Lark: Manual Análisis Reporte de Venta de Tienda Casiolandia (PA)",
+      "Lark: Procedimiento de Conciliación Bancaria (VE)"
+     ],
+     "notas": "En Venezuela el control del cierre depende de que alguien note a ojo que un número es raro; no hay un cruce automático entre lo que dice el resumen y lo que llega a Contabilidad.",
+     "sin_evidencia": "No consta un plazo para que Contabilidad termine la revisión de cada caja ni qué se hace con una diferencia que no se explica."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre de cada tienda.",
+     "cadencia": "Diaria.",
+     "output": "Caja cuadrada, resumen enviado, cuadro regional al día y caja revisada por Contabilidad.",
+     "evidencia": [
+      "E-47",
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-38",
+      "Lark: Manual Análisis Reporte de Venta de Tienda Casiolandia (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Cuadra la caja contra el reporte Z de la máquina fiscal y los cierres de los puntos de venta."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tienda",
+       "texto": "Manda esa noche por correo el resumen del cierre."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tienda",
+       "texto": "Arma la valija con el reporte Z y los vouchers para Contabilidad."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor(a) de Tiendas (Venezuela)",
+       "texto": "A la mañana revisa los resúmenes; si algo no cuadra, llama a la tienda y revisa con Sistemas."
+      },
+      {
+       "id": "a5",
+       "rol": "Supervisor(a) de Tiendas (Venezuela)",
+       "texto": "Vacía los resúmenes en el cuadro regional (9.2)."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Contabilidad (Venezuela)",
+       "texto": "Cuando llegan los soportes, revisa la caja a mano en Excel."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Supervisor(a) de Tiendas (Venezuela)",
+       "Analista de Contabilidad (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Cierre de la tienda"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Cuadrar caja con el reporte Z",
+        "sistemas": [
+         "Odoo",
+         "Máquina fiscal"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Mandar el resumen del cierre",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Armar la valija con los soportes"
+       },
+       {
+        "id": "n4",
+        "carril": "Supervisor(a) de Tiendas (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Algo anormal?"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor(a) de Tiendas (Venezuela)",
+        "tipo": "tarea",
+        "n": "Llamar a la tienda y revisar"
+       },
+       {
+        "id": "n6",
+        "carril": "Supervisor(a) de Tiendas (Venezuela)",
+        "tipo": "tarea",
+        "n": "Cargar en el cuadro regional",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Contabilidad (Venezuela)",
+        "tipo": "tarea",
+        "n": "Revisar la caja con los soportes",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Contabilidad (Venezuela)",
+        "tipo": "fin",
+        "n": "Caja revisada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "9.6": {
+    "nota_version": "Versión As-Is: describe cómo funciona hoy un día en la tienda, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La apertura de la tienda, la atención y la venta al cliente y el cobro. El cierre de caja va en 9.5, la falla de un producto en 9.13 y la falta de un producto en 9.4.",
+     "texto": "La apertura tiene sus comprobaciones, aunque no estén escritas: que el sistema tenga la fecha del día, que **la tasa esté actualizada**, que el fondo de caja cuadre con el cierre anterior y que la exhibición esté en orden. En Venezuela los precios tienen que estar en físico por exigencia legal, así que cada cambio de precio obliga a reimprimir etiquetas desde Odoo, según un instructivo de la supervisión, y la tienda coteja que la etiqueta diga lo mismo que el sistema.\n\nLa estructura de la tienda cambia por país. En Venezuela hay gerente, subgerente, asesores de ventas y cajeras —veinte gerentes, ocho subgerentes, setenta asesores y veintiséis cajeras— y, en algunas tiendas, relojero y seguridad. En **Panamá** el cargo de cajero desapareció: hay un encargado y vendedores, y los dos venden y cobran; en los kioscos son siempre dos personas. El contador de tráfico en la entrada (Follow Up) permite calcular la conversión. Casio se exhibe por línea y Cubitt por degradación de color, y en Venezuela el personal que rota entre tiendas de las dos marcas se cambia el uniforme, aunque se han visto mezclas.\n\nEl asesor atiende y asesora; si el producto no está, se busca en otra tienda (9.4) o la venta se pierde **sin dejar registro de lo que el cliente pidió**. Se factura en Odoo y, en Venezuela, se imprime por la máquina fiscal; se cobra en efectivo, tarjeta, pago móvil o Cashea. Si el producto falla en las primeras 24 horas, se cambia en el acto (9.13). Las cámaras las monitorea un proveedor externo que avisa si ve algo raro, y la gerencia de ventas al detal las revisa cuando hace falta. El uso del celular y la puntualidad se corrigen con llamados de atención del gerente."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tienda",
+     "participantes": [
+      "Gerente de Tienda — abre, verifica sistema, tasa y fondo de caja, supervisa la venta y corrige la disciplina del equipo; en Panamá, el encargado de tienda, que también vende y cobra.",
+      "Asesor(a) de Ventas — atiende, asesora y cierra la venta; en Panamá, también cobra.",
+      "Cajero(a) — en Venezuela, factura y cobra.",
+      "Supervisor(a) de Tienda e Inventario (Venezuela) — mantiene el instructivo para imprimir etiquetas de precio desde Odoo."
+     ],
+     "evidencia": [
+      "E-47",
+      "SC-02",
+      "E-31",
+      "E-42",
+      "SC-13",
+      "E-33",
+      "E-32",
+      "Lark: Departamento de Ventas al Detal, junio 2026 (VE)",
+      "Lark: instructivos de inventario y etiquetas en Odoo de la Supervisión de Tienda e Inventario (VE)",
+      "Lark: descripciones de cargo de Gerente de Tienda, Asesor(a) de Ventas y Cajero(a) (VE)"
+     ],
+     "notas": "La apertura y la rutina del día no están escritas; las cumplen los gerentes con antigüedad «por inercia», y la gerencia de ventas al detal lo señala como una debilidad para quien entra nuevo.",
+     "sin_evidencia": "No consta un protocolo de atención escrito que se use en piso; el protocolo de servicio de la gerencia regional está en desarrollo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La apertura diaria de la tienda.",
+     "cadencia": "Diaria, en horario del centro comercial.",
+     "output": "Ventas facturadas y cobradas; cierre listo para el cuadre (9.5).",
+     "evidencia": [
+      "E-47",
+      "SC-02"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "SC-02",
+      "Lark: descripciones de cargo de Gerente de Tienda, Asesor(a) de Ventas y Cajero(a) (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Abre y verifica la fecha y la tasa del sistema, el fondo de caja y la exhibición."
+      },
+      {
+       "id": "a2",
+       "rol": "Asesor(a) de Ventas",
+       "texto": "Recibe al cliente y lo asesora."
+      },
+      {
+       "id": "a3",
+       "rol": "Asesor(a) de Ventas",
+       "texto": "Si el producto no está, lo busca en otra tienda (9.4) o la venta se pierde sin registro."
+      },
+      {
+       "id": "a4",
+       "rol": "Asesor(a) de Ventas",
+       "texto": "Si el cliente decide comprar, lo pasa a caja."
+      },
+      {
+       "id": "a5",
+       "rol": "Cajero(a)",
+       "texto": "Factura en Odoo, imprime por la máquina fiscal y cobra."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Tienda",
+       "texto": "Al final del día, cuadra la caja (9.5)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Asesor(a) de Ventas",
+       "Cajero(a)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Apertura de la tienda"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Verificar sistema, tasa y fondo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Asesor(a) de Ventas",
+        "tipo": "tarea",
+        "n": "Recibir y asesorar al cliente",
+        "sistemas": [
+         "Follow Up"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor(a) de Ventas",
+        "tipo": "decision",
+        "n": "¿Hay el producto?"
+       },
+       {
+        "id": "n4",
+        "carril": "Asesor(a) de Ventas",
+        "tipo": "fin",
+        "n": "Venta perdida o traslado (9.4)"
+       },
+       {
+        "id": "n5",
+        "carril": "Asesor(a) de Ventas",
+        "tipo": "decision",
+        "n": "¿El cliente compra?"
+       },
+       {
+        "id": "n6",
+        "carril": "Asesor(a) de Ventas",
+        "tipo": "fin",
+        "n": "Sin venta, sin registro"
+       },
+       {
+        "id": "n7",
+        "carril": "Cajero(a)",
+        "tipo": "tarea",
+        "n": "Facturar y cobrar",
+        "sistemas": [
+         "Odoo",
+         "Máquina fiscal"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Cuadrar la caja al cierre (9.5)"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Tienda",
+        "tipo": "fin",
+        "n": "Día cerrado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "9.7": {
+    "nota_version": "Versión As-Is: describe cómo se supervisan hoy las tiendas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Las visitas a tiendas, la revisión semanal con los gerentes y la corrección de lo que se encuentra. La auditoría con acta de la gerencia regional va en 9.12.",
+     "texto": "En **Venezuela** la supervisión la hace la gerencia de ventas al detal con tres supervisores, uno orientado a formación y aperturas, otro a inventarios y otro al piso; todos los gerentes le reportan directo. La gerente visita personalmente, a veces sin aviso y a veces de noche; los supervisores están en la calle y se comunican por WhatsApp porque en los centros comerciales la señal no da para Lark. En la visita se mira que el personal cumpla con el uniforme y los días libres, que conozca las promociones y el manejo de garantías, que la caja cuadre, que el sistema funcione, el visual, los displays y el inventario. Los gerentes mandan cada semana un reporte de fotos, y **todos los lunes** hay reunión con gerentes, subgerentes y supervisión para promociones, pendientes y problemas.\n\nLo que se encuentra se reparte por tipo: lo visual va al equipo de Visual Merchandising por foto o chat; lo de personal lo resuelve primero el gerente de tienda con llamados de atención verbales, que pasan a escritos si hay reincidencia y solo después suben a la gerencia y a Recursos Humanos; lo de infraestructura va a mantenimiento (9.18). Las visitas al interior dependen de la logística del viaje.\n\nEn **Panamá** hay un solo supervisor para todas las tiendas, que las visita todas cada semana —dos por día, según el tráfico—, revisa uniforme, carné, exhibición por línea, limpieza, etiquetas, iluminación y daños, y hace de puente con los demás departamentos. La gerencia regional, además, revisa los viernes fotos de las tiendas, lo que genera roces con Visual cuando la foto muestra precios sobrepuestos o vitrinas que no se pudieron resolver."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas al Detal (Venezuela); Supervisor de Tienda (Panamá)",
+     "participantes": [
+      "Supervisor(a) de Tiendas (país) — en Venezuela, la gerencia de ventas al detal y sus tres supervisores; en Panamá, el supervisor de tienda. Recorre las tiendas y reparte lo que encuentra.",
+      "Gerente de Tienda — corrige lo de su personal y su operación, y manda el reporte semanal de fotos.",
+      "Coordinador(a) de Visual Merchandising (Venezuela) — corrige la exhibición y los artes que la supervisión le reporta.",
+      "Gerente de Ventas al Detal (Venezuela) — revisa en la reunión de los lunes lo que quedó pendiente.",
+      "Regional Manager Retail — revisa las fotos semanales de las tiendas."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-53",
+      "E-31",
+      "E-42",
+      "SC-02",
+      "Lark: Departamento de Ventas al Detal, junio 2026 (VE)"
+     ],
+     "notas": "Los hallazgos de las visitas no se registran en un sistema: viajan por chat y se siguen en la reunión semanal.",
+     "sin_evidencia": "No consta una lista de verificación escrita para la visita ni una frecuencia mínima por tienda en Venezuela."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El calendario semanal de visitas o un aviso de la tienda.",
+     "cadencia": "Semanal; reunión con gerentes los lunes.",
+     "output": "Hallazgos corregidos o asignados, y pendientes revisados en la reunión semanal.",
+     "evidencia": [
+      "E-47",
+      "E-53"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-53"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Supervisor(a) de Tiendas (país)",
+       "texto": "Recorre las tiendas y revisa personal, exhibición, limpieza, etiquetas, caja y sistema."
+      },
+      {
+       "id": "a2",
+       "rol": "Supervisor(a) de Tiendas (país)",
+       "texto": "Si encuentra algo, lo reparte según su tipo."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador(a) de Visual Merchandising (Venezuela)",
+       "texto": "Si es visual, corrige la exhibición o el arte."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Tienda",
+       "texto": "Si es del personal o la operación, lo corrige con llamado de atención, escrito si reincide."
+      },
+      {
+       "id": "a5",
+       "rol": "Supervisor(a) de Tiendas (país)",
+       "texto": "Si es infraestructura, lo pasa a mantenimiento (9.18)."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Revisa los pendientes en la reunión de los lunes."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Supervisor(a) de Tiendas (país)",
+       "Gerente de Tienda",
+       "Coordinador(a) de Visual Merchandising (Venezuela)",
+       "Gerente de Ventas al Detal (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "inicio",
+        "n": "Semana de visitas"
+       },
+       {
+        "id": "n1",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "tarea",
+        "n": "Recorrer y revisar las tiendas",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "decision",
+        "n": "¿Qué se encontró?"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador(a) de Visual Merchandising (Venezuela)",
+        "tipo": "tarea",
+        "n": "Corregir exhibición o arte"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Corregir con llamado de atención"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "tarea",
+        "n": "Pasar a mantenimiento (9.18)"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Revisar pendientes el lunes",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "fin",
+        "n": "Pendientes en seguimiento"
+       },
+       {
+        "id": "n8",
+        "carril": "Supervisor(a) de Tiendas (país)",
+        "tipo": "fin",
+        "n": "Visita sin hallazgos"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Visual"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Personal"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Infraestructura"
+       },
+       {
+        "de": "n2",
+        "a": "n8",
+        "etq": "Nada"
+       },
+       {
+        "de": "n3",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "9.8": {
+    "nota_version": "Versión As-Is: describe cómo se abre hoy una tienda o un kiosco propio, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que aparece un local hasta la tienda abierta: evaluación, proyecto, diseño, permisos, personal, sistemas, montaje y apertura. Las remodelaciones de tiendas existentes van en 9.9.",
+     "texto": "La decisión de abrir la toman **los socios de la dirección comercial**, que a veces negocian personalmente con las administradoras de los centros comerciales; en Panamá el supervisor de tienda aporta los contactos con esas administradoras para encontrar locales. La gerencia regional de retail arma un análisis de la apertura —ventas esperadas, gastos, margen y recuperación de la inversión, con la regla de no pasar de tres años— y a veces Finanzas lo revisa; pero la gerencia comercial señala que **no hay un paso formal que junte el análisis comercial con el financiero** antes de decidir, y la gerencia regional cuenta que la junta ha abierto tiendas que su análisis desaconsejaba.\n\nDecidida la apertura, la oficina de proyectos la lleva como proyecto: tabla de hitos en Lark, reunión semanal con Visual, supervisión, Sistemas, el arquitecto y Administración, y un resumen a la junta los viernes. El arquitecto, externo, manda renders que revisan la gerencia de ventas al detal, Visual, la gerencia regional y la junta hasta llegar a un acuerdo; Visual reclama no ser consultado siempre. La gerencia de ventas al detal define la plantilla según el horario del centro comercial, pide el personal a Recursos Humanos y lo entrena en una tienda cercana o en Caracas; Administración saca patentes y permisos de alcaldía y bomberos, y Tesorería gestiona los puntos de venta con el banco. Sistemas instala equipos, usuarios y la caja, y prueba la facturación en un laboratorio antes de llevarla a la tienda. La coordinación de planificación arma el surtido inicial con tiendas comparables.\n\nEl montaje suele tener ajustes en caliente, que se corrigen en el sitio y **se aprenden de palabra** para la próxima. En Panamá un kiosco cuesta unos 15.000 dólares y una tienda unos 60.000, y se abren en alrededor de un mes. Mantenimiento no participa, y en una apertura de Venezuela la instalación eléctrica del contratista no aguantó la carga real y hubo que rehacerla con la tienda ya abierta."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Proyectos (PMO)",
+     "participantes": [
+      "Dirección comercial (socios) — deciden la apertura y a veces negocian el local.",
+      "Regional Manager Retail — evalúa la apertura, coordina los renders y da los parámetros de exhibición.",
+      "Gerente de Proyectos (PMO) — lleva la apertura como proyecto con hitos, reunión semanal y reporte a la junta.",
+      "Gerente de Ventas al Detal (Venezuela) — define la plantilla, pide el personal, coordina permisos y dirige el montaje y la apertura; en Panamá, el supervisor de tienda.",
+      "Técnico de Sistemas (Venezuela) — instala equipos, usuarios y caja, y prueba la facturación.",
+      "Arquitecto o contratista (externo) — diseña, mide y ejecuta la obra y el mobiliario."
+     ],
+     "evidencia": [
+      "E-55",
+      "E-05",
+      "E-08",
+      "E-53",
+      "E-47",
+      "E-04",
+      "E-09",
+      "E-52",
+      "E-33",
+      "E-32",
+      "E-37",
+      "E-40",
+      "E-31",
+      "E-45",
+      "SC-02",
+      "E-50"
+     ],
+     "notas": "El análisis de la apertura llega a la junta solo con la mirada comercial; la gerencia comercial pide que se defina cómo entra Finanzas antes de decidir.",
+     "sin_evidencia": "No consta una lista de verificación de apertura ni que se revise la instalación eléctrica del contratista antes de abrir."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Aparece un local o la dirección decide entrar a una plaza.",
+     "cadencia": "Por proyecto; en 2026 hubo varias aperturas al mismo tiempo.",
+     "output": "Tienda abierta con personal, sistemas, permisos y surtido inicial.",
+     "evidencia": [
+      "E-55",
+      "E-04"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-55",
+      "E-47",
+      "E-04",
+      "E-33",
+      "E-05"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Dirección comercial (socios)",
+       "texto": "Detecta el local o la plaza y decide evaluarlo."
+      },
+      {
+       "id": "a2",
+       "rol": "Regional Manager Retail",
+       "texto": "Arma el análisis de la apertura: ventas, gastos, margen y recuperación de la inversión."
+      },
+      {
+       "id": "a3",
+       "rol": "Dirección comercial (socios)",
+       "texto": "Decide si se abre; puede hacerlo aunque el análisis la desaconseje."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Abre el proyecto con su tabla de hitos y la reunión semanal."
+      },
+      {
+       "id": "a5",
+       "rol": "Regional Manager Retail",
+       "texto": "Revisa los renders del arquitecto con Visual, la gerencia del país y la junta hasta llegar a un acuerdo."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Define la plantilla, pide el personal y coordina permisos y puntos de venta."
+      },
+      {
+       "id": "a7",
+       "rol": "Técnico de Sistemas (Venezuela)",
+       "texto": "Instala equipos, usuarios y caja, y prueba la facturación."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Dirige el montaje, el entrenamiento y la apertura, corrigiendo en el sitio lo que falla."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Dirección comercial (socios)",
+       "Regional Manager Retail",
+       "Gerente de Proyectos (PMO)",
+       "Gerente de Ventas al Detal (Venezuela)",
+       "Técnico de Sistemas (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Dirección comercial (socios)",
+        "tipo": "inicio",
+        "n": "Aparece un local"
+       },
+       {
+        "id": "n1",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Evaluar la apertura",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Dirección comercial (socios)",
+        "tipo": "decision",
+        "n": "¿Se abre?"
+       },
+       {
+        "id": "n3",
+        "carril": "Dirección comercial (socios)",
+        "tipo": "fin",
+        "n": "No se abre"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Abrir el proyecto con hitos",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Acordar los renders"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Plantilla, permisos y puntos de venta"
+       },
+       {
+        "id": "n7",
+        "carril": "Técnico de Sistemas (Venezuela)",
+        "tipo": "tarea",
+        "n": "Instalar y probar sistemas",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Montar, entrenar y abrir"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "fin",
+        "n": "Tienda abierta"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "9.9": {
+    "nota_version": "Versión As-Is: describe cómo se remodelan hoy las tiendas existentes, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Las intervenciones sobre tiendas que ya operan: iluminación, paneles, mobiliario, cerramientos y reubicaciones. La apertura de una tienda nueva va en 9.8.",
+     "texto": "En Venezuela las remodelaciones pendientes las lleva **la gerencia de ventas al detal en un cuaderno**: el cambio de iluminación blanca y azul a cálida —decidido a nivel regional—, paneles, un baño, un televisor. La regla que se aplica es no intervenir dos veces la misma tienda: si el material no ha llegado, se espera para hacerlo todo junto. El presupuesto lo arma el mismo arquitecto externo que hace las aperturas, que ya sabe qué se usa, y la aprobación la da la dirección. Tesorería señala que las remodelaciones le llegan como gasto no previsto en el flujo de caja.\n\nVisual Merchandising ejecuta la parte de exhibición pero reclama que no la consultan en el diseño: se entera por el proveedor de un mueble rediseñado y tiene que improvisar. Los cerramientos de las obras son otro punto de fricción: Mercadeo propone algo simple y la dirección pide algo más vistoso, lo que encarece la pieza y obliga a montarla de un día para otro. En Panamá, el hundimiento del piso de un centro comercial dañó puertas y vitrinas de una tienda, y reubicarla dentro del mismo centro no ha sido posible por falta de locales."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas al Detal (Venezuela)",
+     "participantes": [
+      "Gerente de Ventas al Detal (Venezuela) — lleva la lista de pendientes, pide el presupuesto y decide cuándo intervenir.",
+      "Arquitecto o contratista (externo) — cotiza y ejecuta la obra.",
+      "Presidente — aprueba la remodelación; en los cerramientos opina la dirección.",
+      "Coordinador(a) de Visual Merchandising (Venezuela) — rearma la exhibición después de la obra.",
+      "Regional Manager Retail — fija los cambios de imagen que se aplican en todos los países."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-43",
+      "E-31",
+      "E-42",
+      "E-55",
+      "SC-02"
+     ],
+     "notas": "La planificación de las remodelaciones vive en un cuaderno personal de la gerencia; no hay una cola compartida ni aviso a Tesorería.",
+     "sin_evidencia": "No consta con precisión quién aprueba el presupuesto de una remodelación —las entrevistas lo sitúan en la dirección—, cómo se decide el orden de las intervenciones ni cómo se remodela en Panamá o en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una tienda necesita refrescar su imagen o se aplica un cambio regional.",
+     "cadencia": "Por evento.",
+     "output": "Tienda intervenida y exhibición rearmada, o pendiente en espera de aprobación o material.",
+     "evidencia": [
+      "E-47"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-31"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Anota el pendiente y le pide el presupuesto al arquitecto."
+      },
+      {
+       "id": "a2",
+       "rol": "Arquitecto o contratista (externo)",
+       "texto": "Cotiza y propone la intervención."
+      },
+      {
+       "id": "a3",
+       "rol": "Presidente",
+       "texto": "Aprueba o no la remodelación."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Si falta material, espera para intervenir la tienda una sola vez."
+      },
+      {
+       "id": "a5",
+       "rol": "Arquitecto o contratista (externo)",
+       "texto": "Ejecuta la obra."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador(a) de Visual Merchandising (Venezuela)",
+       "texto": "Rearma la exhibición."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Ventas al Detal (Venezuela)",
+       "Arquitecto o contratista (externo)",
+       "Presidente",
+       "Coordinador(a) de Visual Merchandising (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "inicio",
+        "n": "Tienda por intervenir"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Anotar y pedir presupuesto"
+       },
+       {
+        "id": "n2",
+        "carril": "Arquitecto o contratista (externo)",
+        "tipo": "tarea",
+        "n": "Cotizar la intervención"
+       },
+       {
+        "id": "n3",
+        "carril": "Presidente",
+        "tipo": "decision",
+        "n": "¿Aprueba?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "fin",
+        "n": "Pendiente sin aprobar"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Llegó el material?"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Esperar para intervenir una vez"
+       },
+       {
+        "id": "n7",
+        "carril": "Arquitecto o contratista (externo)",
+        "tipo": "tarea",
+        "n": "Ejecutar la obra"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador(a) de Visual Merchandising (Venezuela)",
+        "tipo": "tarea",
+        "n": "Rearmar la exhibición"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador(a) de Visual Merchandising (Venezuela)",
+        "tipo": "fin",
+        "n": "Tienda renovada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "9.10": {
+    "nota_version": "Versión As-Is: describe cómo se gestionan hoy las franquicias de Cubitt, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La incorporación y el seguimiento de las franquicias de Cubitt. Las franquicias de Casio del canal mayor van en 8.8.",
+     "texto": "Hasta 2026 las franquicias eran asunto del canal mayor: se les vendía, sin contrato vigente, sin regalía definida y sin acceso a lo que vendían. Este año **la gerencia regional de retail las está tomando bajo su gestión**, mientras el mayor sigue negociando y vendiéndoles la mercancía con los estándares que retail le va fijando. El primer contrato de franquicia se redactó para Nicaragua, que estaba por abrir; para las que ya operan —República Dominicana y Honduras— el trabajo es meterlas «en el sistema»: la gerencia regional les diseña una plantilla de reportería, porque no tienen los sistemas del grupo, para poder auditar su información y cobrarles una cuota a cambio de herramientas de gestión.\n\nPara una franquicia nueva la gerencia regional hace el mismo análisis que para una tienda propia (9.8): visita el local si puede, proyecta ventas, gastos y margen, y opina si es un buen negocio; la decisión final no es suya."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Regional Manager Retail",
+     "participantes": [
+      "Regional Manager Retail — evalúa las franquicias nuevas, redacta el contrato y diseña la reportería de las existentes.",
+      "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — negocia con las franquicias y les vende la mercancía.",
+      "Franquiciado (externo) — opera la tienda y reporta sus ventas en la plantilla que le da la gerencia regional."
+     ],
+     "evidencia": [
+      "E-55",
+      "E-35",
+      "E-08",
+      "E-63"
+     ],
+     "notas": "El modelo está en construcción: a la fecha de las entrevistas había un solo contrato y la reportería estaba en diseño.",
+     "sin_evidencia": "No consta el monto de la cuota ni cómo se auditará a las franquicias."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Aparece una franquicia nueva o se regulariza una existente.",
+     "cadencia": "Por evento; reporte periódico de la franquicia, en diseño.",
+     "output": "Franquicia con contrato y reportería, o incorporada al seguimiento regional.",
+     "evidencia": [
+      "E-55"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-55",
+      "E-35",
+      "E-08"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Regional Manager Retail",
+       "texto": "Distingue si es una franquicia nueva o una que ya opera sin contrato."
+      },
+      {
+       "id": "a2",
+       "rol": "Regional Manager Retail",
+       "texto": "Si es nueva, evalúa el local y el negocio y redacta el contrato."
+      },
+      {
+       "id": "a3",
+       "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "texto": "Negocia y vende la mercancía a la franquicia."
+      },
+      {
+       "id": "a4",
+       "rol": "Franquiciado (externo)",
+       "texto": "Opera y reporta sus ventas en la plantilla."
+      },
+      {
+       "id": "a5",
+       "rol": "Regional Manager Retail",
+       "texto": "Incorpora la información al seguimiento regional."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Regional Manager Retail",
+       "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+       "Franquiciado (externo)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Regional Manager Retail",
+        "tipo": "inicio",
+        "n": "Franquicia por incorporar"
+       },
+       {
+        "id": "n1",
+        "carril": "Regional Manager Retail",
+        "tipo": "decision",
+        "n": "¿Nueva o existente?"
+       },
+       {
+        "id": "n2",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Evaluar el negocio",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Redactar el contrato"
+       },
+       {
+        "id": "n4",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Diseñar su reportería",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
+        "tipo": "tarea",
+        "n": "Negociar y vender la mercancía",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Franquiciado (externo)",
+        "tipo": "tarea",
+        "n": "Operar y reportar ventas"
+       },
+       {
+        "id": "n7",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Incorporar al seguimiento regional",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Regional Manager Retail",
+        "tipo": "fin",
+        "n": "Franquicia en seguimiento"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Nueva"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "Existente"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "9.11": {
+    "nota_version": "Versión As-Is: describe cómo se trabaja hoy con los socios y operadores que llevan tiendas de las marcas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La relación operativa con las tiendas que no son propiedad plena ni franquicia: el socio de Costa Rica y el operador tercerizado de Guatemala. La venta que el grupo les hace va por el macro 8.",
+     "texto": "**Costa Rica** es una sociedad a partes iguales con un socio local que lleva unas cien personas y catorce puntos de venta de Casio y Cubitt, con su propio sistema de gestión —no Odoo— y, además, marcas que no son del grupo. Durante casi veinte años se manejó como un cliente al que la dirección visitaba una vez al año; desde la pandemia el equipo de Panamá interviene más, con viajes varias veces al año. La relación sigue sin definirse: **a veces se la trata como socio y a veces como cliente**, y el propio equipo de Costa Rica dice sentirse más cliente que socio. El socio manda cada día su venta y su contabilidad; la gerencia regional de retail tiene una consulta para ver sus números, les pasa los mismos cuadros de meta que al resto y mantiene un chat diario con sus supervisoras. Los pedidos los arma el área de compras del socio, que los aprueba su dirección general, y la gerencia de ventas al mayor de Panamá confirma la disponibilidad y los manda a alistar; el transporte llega puerta a puerta. La comunicación de garantías con Costa Rica va por WhatsApp, sin registro.\n\n**Guatemala** no tiene entidad propia: un operador local abre y administra las tiendas, lleva la logística y el personal a su nombre y cobra una cuota sobre la venta, bajo las políticas del grupo, que mantiene allí una gerencia de país propia. Como el operador no permite compartir el cuadro regional, se le arma uno aparte. El resto de los mercados sin operación propia se atiende como clientes del mayor."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Regional Manager Retail",
+     "participantes": [
+      "Regional Manager Retail — sigue la venta de los socios con los mismos cuadros que al resto y les sugiere acciones.",
+      "Socio u operador local (externo) — el socio de Costa Rica o el operador de Guatemala; opera las tiendas, reporta su venta y arma sus pedidos.",
+      "Gerente de Ventas Mayor (Panamá) — confirma la disponibilidad de los pedidos del socio y los manda a alistar.",
+      "Director Comercial y de Compras (socio) — es el interlocutor de la dirección con Costa Rica."
+     ],
+     "evidencia": [
+      "E-67",
+      "E-19",
+      "E-59",
+      "E-01",
+      "E-05",
+      "E-55",
+      "E-64",
+      "E-02"
+     ],
+     "notas": "No hay una decisión sobre qué procesos del grupo aplican al socio de Costa Rica; se propuso una instancia periódica de coordinación, sin implementar.",
+     "sin_evidencia": "No consta qué información reporta el operador de Guatemala ni con qué frecuencia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La operación diaria del socio y cada pedido que hace a Panamá.",
+     "cadencia": "Reporte de venta diario; visitas varias veces al año; pedidos según necesidad.",
+     "output": "Venta del socio consolidada en el seguimiento regional y pedidos despachados.",
+     "evidencia": [
+      "E-19",
+      "E-55"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-19",
+      "E-55",
+      "E-59"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Socio u operador local (externo)",
+       "texto": "Vende y reporta cada día su venta."
+      },
+      {
+       "id": "a2",
+       "rol": "Regional Manager Retail",
+       "texto": "La revisa junto con la del resto de los países."
+      },
+      {
+       "id": "a3",
+       "rol": "Regional Manager Retail",
+       "texto": "Si hay desviación, le sugiere acciones por el chat diario."
+      },
+      {
+       "id": "a4",
+       "rol": "Socio u operador local (externo)",
+       "texto": "Arma su pedido a Panamá y lo aprueba su dirección."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas Mayor (Panamá)",
+       "texto": "Confirma la disponibilidad y lo manda a alistar; el transporte llega puerta a puerta."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Socio u operador local (externo)",
+       "Regional Manager Retail",
+       "Gerente de Ventas Mayor (Panamá)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Socio u operador local (externo)",
+        "tipo": "inicio",
+        "n": "Operación del socio"
+       },
+       {
+        "id": "n1",
+        "carril": "Socio u operador local (externo)",
+        "tipo": "tarea",
+        "n": "Vender y reportar la venta diaria",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Revisar junto con los países",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Regional Manager Retail",
+        "tipo": "decision",
+        "n": "¿Hay desviación?"
+       },
+       {
+        "id": "n4",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Sugerir acciones por chat",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Socio u operador local (externo)",
+        "tipo": "tarea",
+        "n": "Armar y aprobar su pedido"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas Mayor (Panamá)",
+        "tipo": "tarea",
+        "n": "Confirmar y mandar a alistar",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas Mayor (Panamá)",
+        "tipo": "fin",
+        "n": "Pedido despachado al socio"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "9.12": {
+    "nota_version": "Versión As-Is: describe cómo se audita hoy el estándar de las tiendas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La verificación periódica del estándar operativo, visual y de mantenimiento de las tiendas, más las inspecciones externas. La supervisión semanal va en 9.7.",
+     "texto": "La auditoría de tienda **no tiene un formato común**. Lo más parecido es el acta de visita que deja la gerencia regional de retail cuando viaja a un país con el que no tiene contacto frecuente: anota lo que encuentra —tiendas que piden una adecuación, una remodelación, un cambio— y los responsables, para darle seguimiento en la próxima visita. Los gerentes mandan cada semana fotos de su tienda y la gerencia regional las revisa los viernes. Visual Merchandising hace sus propias auditorías de exhibición. La aplicación de autoauditoría —que cada gerente se audite y que avise cuándo una tienda lleva meses sin hacerlo— es una idea de la gerencia regional, todavía no desarrollada.\n\nLas inspecciones externas llegan sin aviso: la administración del centro comercial inspecciona antes de renovar el contrato y deja una orden de chequeo con plazo; y en Venezuela, cuando hay inspección laboral o del seguro social, Recursos Humanos avisa a los gerentes por WhatsApp para que tengan la documentación a mano, que a veces no está impresa. No hay un área de auditoría interna que haga revisiones sorpresa de cajas o activos."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Regional Manager Retail",
+     "participantes": [
+      "Regional Manager Retail — revisa las fotos semanales y deja actas de visita con responsables.",
+      "Gerente de Tienda — manda las fotos, corrige lo observado y atiende las inspecciones externas.",
+      "Gerente de Ventas al Detal (Venezuela) — asigna las correcciones que salen de las actas.",
+      "Coordinador(a) de Visual Merchandising — audita la exhibición.",
+      "Gerente de Recursos Humanos (Venezuela) — avisa a las tiendas de las inspecciones laborales."
+     ],
+     "evidencia": [
+      "E-55",
+      "E-47",
+      "E-31",
+      "E-37",
+      "E-38",
+      "Lark: Procesos Visual Merchandising (VE)",
+      "Lark: Guía de procesos Retail LATAM de la gerencia regional, agosto 2026"
+     ],
+     "notas": "Las actas y las fotos no se consolidan en un registro que permita ver el estado de todas las tiendas.",
+     "sin_evidencia": "No consta una frecuencia de auditoría por tienda ni criterios escritos de qué se evalúa."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La revisión semanal de fotos, una visita regional o una inspección externa.",
+     "cadencia": "Fotos semanales; actas por visita; inspecciones sin fecha fija.",
+     "output": "Observaciones asignadas y corregidas, con seguimiento en la visita siguiente.",
+     "evidencia": [
+      "E-55",
+      "E-47"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-55",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Manda las fotos semanales de la tienda."
+      },
+      {
+       "id": "a2",
+       "rol": "Regional Manager Retail",
+       "texto": "Revisa las fotos o visita la tienda y deja un acta con responsables."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Si hay observaciones, asigna la corrección."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Tienda",
+       "texto": "Corrige y reporta."
+      },
+      {
+       "id": "a5",
+       "rol": "Regional Manager Retail",
+       "texto": "Le da seguimiento en la próxima visita."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Regional Manager Retail",
+       "Gerente de Ventas al Detal (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Semana o visita regional"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Mandar fotos de la tienda",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Revisar y dejar acta de visita"
+       },
+       {
+        "id": "n3",
+        "carril": "Regional Manager Retail",
+        "tipo": "decision",
+        "n": "¿Hay observaciones?"
+       },
+       {
+        "id": "n4",
+        "carril": "Regional Manager Retail",
+        "tipo": "fin",
+        "n": "Sin observaciones"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Asignar la corrección"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Corregir y reportar"
+       },
+       {
+        "id": "n7",
+        "carril": "Regional Manager Retail",
+        "tipo": "tarea",
+        "n": "Seguir en la próxima visita"
+       },
+       {
+        "id": "n8",
+        "carril": "Regional Manager Retail",
+        "tipo": "fin",
+        "n": "Observación cerrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "9.13": {
+    "nota_version": "Versión As-Is: describe cómo se atiende hoy en tienda un producto con falla, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La recepción en tienda del reclamo, la decisión de cambio o envío a taller y el retorno al cliente. El proceso completo de garantías, fábrica y desecho va en el macro 11.",
+     "texto": "La tienda es la primera puerta y **recibe la garantía sin importar dónde se compró el producto**. El cajero o el gerente hace la primera evaluación —batería, encendido, cargador— y resuelve lo que puede: si el producto se compró en las últimas 24 horas y no enciende, se cambia en el acto; si es una actualización o un cargador, se resuelve allí. La regla, dice la gerencia de ventas al detal, admite excepciones según el cliente.\n\nEn **Venezuela**, si no se resuelve en tienda, el gerente registra una orden de servicio en el sistema del taller —distinto de Odoo—, le da al cliente la hoja de la orden y envía el producto al taller central por el transporte. Allí se verifica la garantía en otro sistema, se decide el cambio y se reporta a la fábrica, en papel; la unidad de cambio sale por un traslado en Odoo. Son **cuatro sistemas sin integración** para un mismo caso, con más de 1.400 órdenes de servicio entre junio y julio. **Cubitt no se repara**: se cambia o, si no hay unidad, se ofrece un descuento sobre uno nuevo dejando el dañado; **Casio sí**, con relojeros y un presupuesto que el cliente paga si está fuera de garantía. El conocimiento del proceso de Casio está concentrado en una sola persona del taller.\n\nEn **Panamá** la tienda funciona como filtro: registra el caso en el flujo de Lark de Servicio Técnico, hace un traslado a una bodega lógica de garantías y, una vez al mes, lo recibido se concilia en bodega contra lo registrado antes del desecho. En los primeros 15 a 30 días desde la compra, la tienda cambia directamente; después se centraliza en la oficina."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tienda",
+     "participantes": [
+      "Gerente de Tienda — evalúa la falla, resuelve lo que puede en tienda y registra y envía el resto; en Venezuela, también la cajera.",
+      "Servicio Técnico (Venezuela) — verifica la garantía, decide el cambio o la reparación, reporta a la fábrica y devuelve la unidad a la tienda.",
+      "Customer Services Manager (Panamá) — mantiene el flujo de garantías de Lark que usan las tiendas de Panamá y de otros países.",
+      "Supervisor(a) de Tiendas (Venezuela) — entrena al personal para reconocer las fallas que se cambian en tienda."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-51",
+      "E-53",
+      "E-58",
+      "E-64",
+      "E-02",
+      "SC-03",
+      "E-33",
+      "E-34",
+      "E-01"
+     ],
+     "notas": "En Venezuela el caso se vuelve a teclear en cada sistema; el propio taller estima que integrarlos le ahorraría la mayor parte del trabajo repetitivo.",
+     "sin_evidencia": "No consta un plazo de respuesta al cliente en Venezuela ni cómo se le informa del estado de su caso."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un cliente trae a la tienda un producto con falla.",
+     "cadencia": "Por evento; volumen alto y creciente.",
+     "output": "Producto resuelto en tienda, o reparado o cambiado y devuelto a la tienda.",
+     "evidencia": [
+      "E-47",
+      "E-51"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-51"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Evalúa la falla: batería, encendido, cargador."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tienda",
+       "texto": "Si se resuelve en tienda, o si falló en las primeras 24 horas, lo resuelve o lo cambia en el acto."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tienda",
+       "texto": "Si no, registra la orden de servicio en el sistema del taller y envía el producto."
+      },
+      {
+       "id": "a4",
+       "rol": "Servicio Técnico (Venezuela)",
+       "texto": "Verifica la garantía en su sistema."
+      },
+      {
+       "id": "a5",
+       "rol": "Servicio Técnico (Venezuela)",
+       "texto": "Si es Casio, lo repara; si es Cubitt, lo cambia o ofrece un descuento."
+      },
+      {
+       "id": "a6",
+       "rol": "Servicio Técnico (Venezuela)",
+       "texto": "Reporta a la fábrica y hace el traslado de la unidad en Odoo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Servicio Técnico (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Cliente trae una falla"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Evaluar la falla en tienda"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tienda",
+        "tipo": "decision",
+        "n": "¿Se resuelve en tienda?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Tienda",
+        "tipo": "fin",
+        "n": "Resuelto o cambiado en tienda"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Registrar la orden y enviar",
+        "sistemas": [
+         "Sistema del taller"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Verificar la garantía",
+        "sistemas": [
+         "NAF"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Servicio Técnico (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Qué marca es?"
+       },
+       {
+        "id": "n7",
+        "carril": "Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Reparar (Casio)"
+       },
+       {
+        "id": "n8",
+        "carril": "Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Cambiar o descontar (Cubitt)"
+       },
+       {
+        "id": "n9",
+        "carril": "Servicio Técnico (Venezuela)",
+        "tipo": "tarea",
+        "n": "Reportar a fábrica y trasladar",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Servicio Técnico (Venezuela)",
+        "tipo": "fin",
+        "n": "Producto de vuelta en tienda"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Casio"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Cubitt"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "9.14": {
+    "nota_version": "Versión As-Is: describe cómo se cuenta hoy el inventario de las tiendas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Los conteos selectivos por línea de producto, el inventario general y el ajuste de diferencias en tienda. El inventario de las bodegas va en el macro 7.",
+     "texto": "En **Venezuela** cada tienda tiene un calendario semanal de qué líneas se cuentan, y se cuenta además antes y después de los días fuertes, como el Día de la Madre. La supervisora de tienda e inventario dejó instructivos para sacar de Odoo la existencia de la tienda, contarla en una hoja con columnas de vitrina, depósito y dañado, archivar cada conteo y llevar un cuaderno de novedades; su instructivo pide un selectivo cada mes. En la práctica el conteo sigue siendo **manual**, lo que la dirección ha cuestionado, y la coordinación de planificación dice que las diferencias aparecen cuando se arma un traslado y «arriba no hay». Casi todas son cambios de color —se vendió uno azul por uno amarillo— y se ajustan uno por otro. Cuando hay un faltante real, **la tienda lo paga**: se factura el producto con el descuento de empleado y el monto se divide entre el personal de la sucursal, una regla que se comunica el primer día.\n\nEn **Panamá** las tiendas hacen dos o tres conteos cortos por semana con una tablet en el WMS; antes de contar, el supervisor saca la existencia del día para que la venta no altere la comparación, descarga lo contado y devuelve las diferencias en el momento. Con la misma herramienta se hace el inventario general de fin de año."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Supervisor(a) de Tienda e Inventario (Venezuela); Supervisor de Tienda (Panamá)",
+     "participantes": [
+      "Supervisor(a) de Tienda e Inventario (Venezuela) — en Panamá, el supervisor de tienda. Saca la existencia teórica, compara lo contado y ajusta.",
+      "Gerente de Tienda — cuenta con su equipo las líneas del calendario y responde por los faltantes.",
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) — detecta diferencias cuando arma traslados sobre existencias que no están."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-53",
+      "E-42",
+      "E-40",
+      "SC-02",
+      "Lark: instructivos de inventario y etiquetas en Odoo de la Supervisión de Tienda e Inventario (VE)",
+      "Lark: Departamento de Ventas al Detal, junio 2026 (VE)"
+     ],
+     "notas": "En Venezuela conviven un calendario de conteos y la percepción de otras áreas de que el inventario de tienda no se cuenta con regularidad.",
+     "sin_evidencia": "No consta cuántos ajustes por diferencia se hacen al mes ni un registro consolidado de faltantes."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El calendario de conteos, un día fuerte próximo o el cierre del año.",
+     "cadencia": "Semanal o mensual por línea; inventario general anual.",
+     "output": "Inventario ajustado en el sistema y faltantes cobrados al equipo de la tienda.",
+     "evidencia": [
+      "E-47",
+      "E-53",
+      "Lark: instructivos de inventario y etiquetas en Odoo de la Supervisión de Tienda e Inventario (VE)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-53",
+      "Lark: instructivos de inventario y etiquetas en Odoo de la Supervisión de Tienda e Inventario (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "texto": "Saca de Odoo la existencia teórica de la línea que toca contar."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tienda",
+       "texto": "Cuenta la línea con su equipo: vitrina, depósito y dañado."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "texto": "Compara lo contado contra el sistema."
+      },
+      {
+       "id": "a4",
+       "rol": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "texto": "Si la diferencia es un cambio de color, ajusta uno por otro."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Tienda",
+       "texto": "Si es un faltante, se factura con descuento de empleado y lo paga el equipo de la tienda."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "Gerente de Tienda"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "tipo": "inicio",
+        "n": "Toca contar una línea"
+       },
+       {
+        "id": "n1",
+        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "tipo": "tarea",
+        "n": "Sacar la existencia teórica",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Contar la línea",
+        "sistemas": [
+         "Excel",
+         "WMS"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "tipo": "tarea",
+        "n": "Comparar contra el sistema",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Qué diferencia hay?"
+       },
+       {
+        "id": "n5",
+        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "tipo": "fin",
+        "n": "Inventario cuadrado"
+       },
+       {
+        "id": "n6",
+        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "tipo": "tarea",
+        "n": "Ajustar el cambio de color",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Cobrar el faltante al equipo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tienda",
+        "tipo": "fin",
+        "n": "Diferencia cerrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Ninguna"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "Color"
+       },
+       {
+        "de": "n4",
+        "a": "n7",
+        "etq": "Faltante"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "9.15": {
+    "nota_version": "Versión As-Is: describe cómo sale hoy el efectivo de las tiendas hasta el banco o la oficina, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El traslado y el depósito del efectivo de la venta de las tiendas. El cuadre de caja va en 9.5 y la conciliación bancaria, en el macro 12.",
+     "texto": "En **Venezuela**, las tiendas de Caracas no depositan: el efectivo, con su cuadre, viaja en la valija que lleva el personal del almacén en sus rutas de reparto —lunes, miércoles y viernes para todas las tiendas— y lo recibe en la oficina una sola persona de Administración, que concentra todas esas operaciones y avisa si lo recibido no coincide con lo declarado. En la misma valija van los vouchers de los puntos de venta para Contabilidad, y el transporte trae y lleva también mercancía, reparaciones y material de oficina. Las tiendas del interior depositan en el banco y mandan los documentos por courier, que lleva el gerente o el subgerente a la agencia. En los kioscos, la norma de depositar al día siguiente no siempre se cumple. Parte del efectivo que se usa fuera de las tiendas se custodia sin pasar por Odoo, algo que Tesorería señala como mejorable.\n\nEn **Panamá** casi todas las tiendas tienen banco en el centro comercial y depositan el mismo día; los papeles van físicamente a Contabilidad. Una tienda sin banco cercano entrega el efectivo, anotado en un cuaderno, al supervisor o a alguien de Contabilidad, y un mensajero lo deposita. Los pagos por transferencia inmediata llegan notificados a la tienda; las transferencias grandes las confirma Contabilidad antes de entregar el producto."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Administración (Venezuela)",
+     "participantes": [
+      "Gerente de Tienda — arma la valija con el efectivo y el cuadre, o deposita cuando la tienda está en el interior; en Panamá, deposita en el banco del centro comercial.",
+      "Personal de almacén (rutas de reparto) — lleva la valija de las tiendas de Caracas a la oficina.",
+      "Administración (Venezuela) — recibe y cuenta el efectivo y avisa las diferencias.",
+      "Contabilidad (Panamá) — confirma transferencias grandes y retira el efectivo de la tienda sin banco."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-38",
+      "E-43",
+      "E-53",
+      "Lark: Manual Análisis Reporte de Venta de Tienda Casiolandia (PA)"
+     ],
+     "notas": "En Venezuela el efectivo viaja con la mercancía, en las rutas del almacén, y lo custodia una sola persona.",
+     "sin_evidencia": "No consta un límite de efectivo por tienda ni un plazo máximo entre la venta y la llegada del efectivo a la oficina."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre con efectivo en caja.",
+     "cadencia": "Rutas lunes, miércoles y viernes en Caracas; depósito diario en Panamá.",
+     "output": "Efectivo depositado o en custodia de Administración, con sus soportes en Contabilidad.",
+     "evidencia": [
+      "E-47",
+      "E-53"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-38"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Si la tienda es del interior, deposita en el banco y manda los soportes por courier."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tienda",
+       "texto": "Si es de Caracas, arma la valija con el efectivo, el cuadre y los vouchers."
+      },
+      {
+       "id": "a3",
+       "rol": "Personal de almacén (rutas de reparto)",
+       "texto": "Lleva la valija a la oficina en la ruta de reparto."
+      },
+      {
+       "id": "a4",
+       "rol": "Administración (Venezuela)",
+       "texto": "Recibe y cuenta el efectivo contra el cuadre."
+      },
+      {
+       "id": "a5",
+       "rol": "Administración (Venezuela)",
+       "texto": "Si no coincide, avisa la diferencia a la tienda."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Personal de almacén (rutas de reparto)",
+       "Administración (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Efectivo al cierre"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "decision",
+        "n": "¿Tienda del interior?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Depositar y enviar soportes",
+        "sistemas": [
+         "Banca en línea",
+         "MRW"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Tienda",
+        "tipo": "fin",
+        "n": "Efectivo depositado"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Armar la valija con el cuadre"
+       },
+       {
+        "id": "n5",
+        "carril": "Personal de almacén (rutas de reparto)",
+        "tipo": "tarea",
+        "n": "Llevarla en la ruta de reparto"
+       },
+       {
+        "id": "n6",
+        "carril": "Administración (Venezuela)",
+        "tipo": "tarea",
+        "n": "Recibir y contar el efectivo"
+       },
+       {
+        "id": "n7",
+        "carril": "Administración (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Coincide con el cuadre?"
+       },
+       {
+        "id": "n8",
+        "carril": "Administración (Venezuela)",
+        "tipo": "tarea",
+        "n": "Avisar la diferencia a la tienda"
+       },
+       {
+        "id": "n9",
+        "carril": "Administración (Venezuela)",
+        "tipo": "fin",
+        "n": "Efectivo en custodia"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "9.16": {
+    "nota_version": "Versión As-Is: describe cómo se gestiona hoy el día a día del personal de las tiendas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La cobertura de turnos, las vacaciones, las vacantes, el ingreso y las faltas del personal de tienda. Las comisiones van en 9.17 y el proceso completo de talento, en el macro 17.",
+     "texto": "En **Venezuela** la gerencia de ventas al detal cuida que las plantillas estén completas. Aprueba las vacaciones y las pasa a Recursos Humanos, porque es ella quien sabe si chocan con un permiso o con otra ausencia; cuando alguien falta, mueve personal entre tiendas, y el que rota entre Casio y Cubitt se cambia el uniforme. Cuando hay una vacante o una apertura, avisa por correo a Recursos Humanos, que publica en portales de empleo, hace una preselección telefónica y le manda una terna; la gerencia entrevista y **decide con Recursos Humanos**. Al ingreso se piden los usuarios de Lark y Odoo y se entrega un kit; no hay una inducción institucional formal. El entrenamiento de producto lo da la supervisión en la tienda y queda en la universidad corporativa. Las faltas las atiende primero el gerente de tienda con llamados de atención verbales; si hay reincidencia, por escrito, y solo después interviene la gerencia con Recursos Humanos.\n\nNo hay evaluación de desempeño individual: desde mayo de 2026 hay un bono grupal por tienda, que se paga a todo el equipo si la tienda llega a su meta y a nadie si no llega. En **Panamá** el supervisor de tienda revisa los horarios que cada tienda sube a Lark, cubre las ausencias y es el puente con Recursos Humanos, que controla la asistencia con un reloj biométrico. Cuando se abre una tienda, el gerente de ventas avisa con antelación para contratar antes de la apertura."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas al Detal (Venezuela)",
+     "participantes": [
+      "Gerente de Tienda — pide vacaciones y cobertura y atiende en primera instancia las faltas de su equipo.",
+      "Gerente de Ventas al Detal (Venezuela) — aprueba vacaciones, cubre ausencias, pide personal y decide los ingresos con Recursos Humanos; en Panamá, el supervisor de tienda.",
+      "Gerente de Recursos Humanos (Venezuela) — publica, preselecciona, incorpora y registra; en Panamá, la gerencia de RRHH del país."
+     ],
+     "evidencia": [
+      "E-47",
+      "E-37",
+      "E-21",
+      "E-53",
+      "E-54",
+      "SC-13",
+      "E-64"
+     ],
+     "notas": "Los criterios para cubrir turnos y mover personal entre tiendas no están escritos: dependen de la gerencia.",
+     "sin_evidencia": "No consta cómo se gestiona el personal de tienda en Colombia ni si existe un plan de desarrollo para el personal de piso."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una ausencia, una solicitud de vacaciones o una vacante.",
+     "cadencia": "Continua; picos de contratación de octubre a diciembre.",
+     "output": "Turno cubierto, vacaciones aprobadas o personal incorporado.",
+     "evidencia": [
+      "E-47",
+      "E-37"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-37",
+      "E-21"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Identifica la novedad: una ausencia, unas vacaciones o una vacante."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Si es una ausencia, mueve personal de otra tienda."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tienda",
+       "texto": "Si son vacaciones, las solicita."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Revisa que no choquen con la plantilla y las aprueba."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Registra las vacaciones."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Si es una vacante, avisa a Recursos Humanos por correo."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Publica, preselecciona y envía una terna."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Entrevista y decide con Recursos Humanos."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Incorpora a la persona: usuarios y kit de ingreso."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Gerente de Ventas al Detal (Venezuela)",
+       "Gerente de Recursos Humanos (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "inicio",
+        "n": "Novedad de personal"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Qué novedad es?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Mover personal de otra tienda"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "fin",
+        "n": "Turno cubierto"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Solicitar vacaciones"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Revisar plantilla y aprobar"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Registrar las vacaciones"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "fin",
+        "n": "Vacaciones aprobadas"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Avisar la vacante a RRHH",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Publicar y preseleccionar"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Entrevistar y decidir con RRHH"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Incorporar a la persona",
+        "sistemas": [
+         "Lark",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "fin",
+        "n": "Personal incorporado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Ausencia"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "Vacaciones"
+       },
+       {
+        "de": "n1",
+        "a": "n8",
+        "etq": "Vacante"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "9.17": {
+    "nota_version": "Versión As-Is: describe cómo se calculan y pagan hoy las comisiones del personal de tienda, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El cálculo, la validación y el pago de las comisiones e incentivos del personal de tienda. Las comisiones del canal mayor van en 8.14.",
+     "texto": "Cada país paga **un esquema distinto**, y la gerencia regional de retail ha propuesto uno único para toda la región, que la gerencia comercial está evaluando. En **Venezuela** Recursos Humanos baja cada mes, del módulo de comisiones de Odoo, un reporte por cargo —asesores, cajeras, gerentes, supervisores— y manda el de las tiendas a la gerencia de ventas al detal para que lo valide. Con las novedades de la quincena que cada gerencia le manda por correo en Excel, arma a mano el consolidado que termina en la nómina: un trabajo que le toma casi una semana por quincena y que la propia responsable describe como propenso a errores, y que señala como lo primero a automatizar. Desde mayo de 2026 hay además un bono grupal por tienda atado a la meta. La comisión por vender Cubitt es mayor que la de Casio, algo que Visual Merchandising señala porque inclina al vendedor hacia una marca.\n\nEn **Panamá** la venta queda registrada con el código de cada vendedor en la caja; el supervisor de tienda calcula el porcentaje y se lo pasa a Recursos Humanos, que lo carga en el sistema de nómina, y la gerencia de RRHH aprueba el pago en el banco. En los kioscos cobran comisión tanto el encargado como el vendedor."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela)",
+     "participantes": [
+      "Gerente de Recursos Humanos (Venezuela) — baja el reporte de comisiones de Odoo, lo consolida con las novedades y lo carga en la nómina; en Panamá, la gerencia de RRHH aprueba el pago.",
+      "Gerente de Ventas al Detal (Venezuela) — valida las comisiones de las tiendas antes del pago; en Panamá, el supervisor de tienda calcula el porcentaje.",
+      "Regional Manager Retail — propuso un esquema regional único, en evaluación."
+     ],
+     "evidencia": [
+      "E-21",
+      "E-37",
+      "E-54",
+      "E-05",
+      "E-55",
+      "E-31",
+      "SC-02"
+     ],
+     "notas": "El consolidado de comisiones y novedades se arma a mano en Excel en cada quincena.",
+     "sin_evidencia": "No consta la regla de cálculo de las comisiones de tienda en ningún país ni quién calcula el bono grupal."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre del mes y el de cada quincena.",
+     "cadencia": "Mensual para las comisiones; quincenal para las novedades de nómina.",
+     "output": "Comisiones validadas y pagadas con la nómina.",
+     "evidencia": [
+      "E-21",
+      "E-37"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-21",
+      "E-37"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Baja del módulo de comisiones de Odoo el reporte por cargo."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Manda el reporte de las tiendas a la gerencia de ventas al detal."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Lo valida o pide corregirlo."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Si hay observaciones, corrige el reporte."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "texto": "Consolida en Excel las comisiones con las novedades de la quincena y lo carga a la nómina."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Recursos Humanos (Venezuela)",
+       "Gerente de Ventas al Detal (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "inicio",
+        "n": "Cierre del mes"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Bajar comisiones por cargo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Enviar el reporte de tiendas",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "decision",
+        "n": "¿Lo valida?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Corregir el reporte",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "tarea",
+        "n": "Consolidar y cargar a nómina",
+        "sistemas": [
+         "Excel",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "tipo": "fin",
+        "n": "Comisiones pagadas"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "9.18": {
+    "nota_version": "Versión As-Is: describe cómo se atienden hoy las fallas de infraestructura de las tiendas, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La atención de fallas de infraestructura de las tiendas y la relación con los centros comerciales por temas del local. La remodelación va en 9.9 y el mantenimiento de la sede, en el macro 19.",
+     "texto": "En **Venezuela** el mantenimiento de las tiendas **se pide por teléfono** y no deja registro. Lo que es electricidad y alarmas en Caracas lo atiende el único jefe de servicios generales: si tiene el insumo en su depósito, lo cambia; si no, pide autorización de palabra a la gerencia de ventas al detal, que decide la compra y el proveedor, y Administración paga por correo. No hay tickets, ni indicadores, ni respaldo cuando él falta, y el mantenimiento preventivo que se hacía hace años de noche, con la tienda cerrada, se dejó de hacer. Pintura, plomería y obra civil las hace un contratista coordinado por la gerencia de ventas al detal, que a menudo contrata a los mismos técnicos del centro comercial fuera de su horario, porque conocen sus reglas. Con la administración del centro comercial se usa el canal regular; solo cuando no responde se llama al gerente, con quien la relación es personal. El centro comercial inspecciona antes de renovar el contrato y deja observaciones con plazo.\n\nEn **Panamá** todo pasa por el supervisor de tienda: cuotas de mantenimiento, requerimientos del centro comercial —como conectar la alarma contra incendios al sistema del centro—, búsqueda del proveedor y coordinación del pago con Contabilidad. Las urgencias también: una noche una puerta no cerró y fue él quien consiguió un proveedor que trabajó hasta la madrugada. Las cámaras y la red dependen de Sistemas."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas al Detal (Venezuela); Supervisor de Tienda (Panamá)",
+     "participantes": [
+      "Gerente de Tienda — avisa la falla por teléfono.",
+      "Jefe de Servicios Generales — atiende electricidad y alarmas de las tiendas de Caracas.",
+      "Gerente de Ventas al Detal (Venezuela) — autoriza las compras, elige el proveedor y coordina a los contratistas; en Panamá, el supervisor de tienda.",
+      "Técnico de Sistemas (Venezuela) — atiende cámaras, red y equipos."
+     ],
+     "evidencia": [
+      "E-45",
+      "E-47",
+      "E-53",
+      "E-52",
+      "E-33",
+      "SC-02"
+     ],
+     "notas": "La atención depende de una persona sin respaldo y de acuerdos de palabra; nada queda registrado.",
+     "sin_evidencia": "No consta cuánto se gasta en mantenimiento por tienda ni cuánto tarda en resolverse una falla."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una falla en la tienda o un requerimiento del centro comercial.",
+     "cadencia": "Por evento; sin mantenimiento preventivo.",
+     "output": "Falla reparada, sin registro de lo hecho.",
+     "evidencia": [
+      "E-45"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-45",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Avisa la falla por teléfono."
+      },
+      {
+       "id": "a2",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Si es electricidad o alarma en Caracas, busca el insumo en su depósito y, si lo tiene, repara."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Si no tiene el insumo, autoriza la compra de palabra y define el proveedor."
+      },
+      {
+       "id": "a4",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Con el insumo comprado, repara."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "texto": "Si es otra falla o una tienda del interior, contrata a un proveedor, a menudo del propio centro comercial."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Jefe de Servicios Generales",
+       "Gerente de Ventas al Detal (Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Falla en la tienda"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Avisar por teléfono"
+       },
+       {
+        "id": "n2",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "decision",
+        "n": "¿Electricidad o alarma?"
+       },
+       {
+        "id": "n8",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Buscar el insumo en su depósito"
+       },
+       {
+        "id": "n3",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "decision",
+        "n": "¿Tiene el insumo?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Autorizar la compra de palabra"
+       },
+       {
+        "id": "n5",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Reparar"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "tarea",
+        "n": "Contratar a un proveedor"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "tipo": "fin",
+        "n": "Reparado, sin registro"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n7"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
  "10": {
   "procesos": {
    "10.1": {
