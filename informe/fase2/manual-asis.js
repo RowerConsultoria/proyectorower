@@ -15,6 +15,2322 @@
 // Un proceso aparece aquí => al entrar en él por #/p/<codigo> se ofrece
 // elegir entre As-Is (#/asis/<codigo>) y To-Be (#/tobe/<codigo>).
 window.MANUAL_ASIS = {
+ "12": {
+  "procesos": {
+   "12.1": {
+    "nota_version": "Versión As-Is: describe cómo se registra hoy la operación en cada una de las tres entidades contables del grupo, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El registro de lo que nace en el propio departamento —asientos de diario, provisiones, ajustes por diferencial cambiario, caja menuda— y la validación de lo que llega registrado desde otras áreas: ventas de tienda y web, cuentas por pagar, nómina, inventario e importaciones. La ejecución del pago pertenece a Tesorería.",
+     "texto": "Las tres entidades trabajan hoy sobre **Odoo**, pero no sobre la misma versión ni con el mismo recorrido: **Colombia fue la primera en implantarlo, en 2023** —«el conejillo de Indias», dicen allí—, Panamá lleva poco más de un año y Venezuela acaba de salir de un sistema propio desarrollado sobre Oracle que tenía veinte años encima. La consecuencia práctica es que el mismo proceso se ejecuta de tres maneras distintas y con tres grados de automatización distintos.\n\nLo que sí comparten es el mecanismo: **todo registro cae primero en una cuenta transitoria** y lo que se concilia son esas transitorias. La Gerencia de Contabilidad de Panamá lo describe como el rasgo que distingue a Odoo de otros ERP —«usa puras transitorias, y las transitorias hay que limpiarlas»—, y avisó a Venezuela al arrancar que no creara demasiadas, porque después cuesta analizar qué quedó dentro.\n\nLo que llega de otras áreas se registra donde nace. Las ventas de tienda viajan desde el sistema de facturación del punto de venta y alimentan Odoo solas. Las compras las registra Cuentas por Pagar, y cuando son importaciones hay un equipo aparte que espera el conocimiento de embarque y la factura del proveedor para **costear todos los gastos adicionales** antes de darle vida al asiento. La nómina es el caso más desigual: en Venezuela el registro contable ya es automático desde que se implantó Odoo —antes había que sacar un reporte de otra plataforma y adaptarlo—, en Panamá Recursos Humanos comparte quincenalmente los reportes de planilla y los contadores los plasman a mano, cuadrando siempre contra lo que se le declara a la caja de seguro social, y en Colombia **no hay nómina contable en absoluto**: todo el personal está contratado por una empresa temporal que factura el total como un servicio, y se registra como un único concepto global.\n\nLa caja menuda de Panamá es el ejemplo de un circuito pequeño bien cerrado: se entrega el dinero, se llena un vale a mano, lo revisa un contador senior, se registra en Odoo y se sube al flujo de aprobación de Lark, donde pasa primero por la Gerencia de Contabilidad y después por Tesorería para el reembolso.\n\nDonde la imputación llega mal, la corrección no la hace Contabilidad: se levanta un ticket a Sistemas, que asigna desarrollador y asesor, y desde ahí se negocia con el partner qué debería hacer el sistema. Es un circuito lento y con cola —el propio equipo de Venezuela reconoce que en la fila de prioridades del ERP «quedamos de último», porque primero iban los procesos administrativos—."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad (Rower en Venezuela, Kenex Trading y Casiolandia en Panamá, Deltadir en Colombia), bajo la Dirección de Finanzas del grupo",
+     "participantes": [
+      "Coordinador Contable y Auxiliares Contables (Venezuela) — un coordinador y seis analistas al momento del levantamiento, en plena reestructuración del equipo.",
+      "Contadores Senior y Asistentes de Contabilidad (Panamá) — dos contadores para las dos entidades grandes y dos asistentes que cargan extractos y hacen registros.",
+      "Contadora, Auxiliares Contables y Facturación (Colombia) — cuatro personas contables más una administrativa.",
+      "Cuentas por Pagar — registra las facturas de proveedor; en Panamá depende de Tesorería, no de Contabilidad.",
+      "Equipo de registro de importaciones — costea la mercancía que entra por vía marítima antes del asiento.",
+      "Recursos Humanos — entrega los reportes de planilla; el cálculo lo conserva como información confidencial.",
+      "Coordinación de Sistemas — levanta el ticket y canaliza con el partner del ERP la corrección de la parametrización."
+     ],
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46",
+      "E-15",
+      "SC-05"
+     ],
+     "notas": "En Venezuela el departamento estaba en reestructuración declarada al momento de la entrevista: se reconoce un equipo con muchos años de oficio pero con formación incompleta —«conocen el cómo, no el porqué»— y con un coordinador que no podía firmar un balance por no estar colegiado. En Panamá el equipo contable se renovó por completo un año antes.",
+     "sin_evidencia": "No consta si el catálogo de cuentas y los centros de costo son realmente los mismos en las tres entidades: la Gerencia de Contabilidad de Panamá dice que «debemos ser iguales», pero nadie lo ha verificado."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Ocurre una operación que debe quedar registrada: una venta, una compra, un pago, una nómina, un movimiento de inventario o un ajuste que nace en el propio departamento.",
+     "cadencia": "Diaria y continua; los ajustes de cierre son mensuales.",
+     "output": "Asiento registrado en el ERP con su imputación contable, y ticket a Sistemas cuando la parametrización entrega la imputación equivocada.",
+     "evidencia": [
+      "E-38",
+      "E-44"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Área que origina la operación",
+       "texto": "Registra en el ERP lo que nace en su ámbito: la tienda su venta, Cuentas por Pagar la factura del proveedor, el equipo de importaciones el costeo del embarque, Recursos Humanos entrega los reportes de planilla."
+      },
+      {
+       "id": "a2",
+       "rol": "Auxiliar / Asistente Contable",
+       "texto": "Registra lo que nace en el departamento —asientos de diario, provisiones, reclasificaciones, la caja menuda— y comprueba que el asiento cayó en la cuenta transitoria que le corresponde."
+      },
+      {
+       "id": "a3",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Revisa la imputación de lo que llegó de otras áreas y decide si el asiento es correcto o si la parametrización del sistema lo está mandando a una cuenta que no toca."
+      },
+      {
+       "id": "a4",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Si el registro está mal imputado, lo reclasifica con un asiento de diario y avisa al área que lo originó para que no se repita."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Si el error viene de la parametrización y no de quien registró, levanta el ticket a Sistemas explicando qué hace el sistema y qué debería hacer, para que se escale al partner del ERP."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Aprueba los flujos que suben por Lark —caja menuda, solicitudes de pago— antes de que pasen a Tesorería."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Área que origina la operación",
+       "Auxiliar / Asistente Contable",
+       "Contador Senior / Coordinador Contable",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Área que origina la operación",
+        "tipo": "inicio",
+        "n": "Ocurre una operación registrable"
+       },
+       {
+        "id": "n1",
+        "carril": "Área que origina la operación",
+        "tipo": "tarea",
+        "n": "Registrar la operación en el ERP",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Auxiliar / Asistente Contable",
+        "tipo": "tarea",
+        "n": "Registrar lo del departamento y verificar la transitoria",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Revisar la imputación contable del asiento"
+       },
+       {
+        "id": "n4",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "decision",
+        "n": "¿La imputación es correcta?"
+       },
+       {
+        "id": "n5",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Reclasificar y avisar al área que lo originó"
+       },
+       {
+        "id": "n6",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "decision",
+        "n": "¿El error viene del sistema?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Levantar el ticket a Sistemas para el partner del ERP"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Aprobar los flujos que suben por el gestor interno",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Operación registrada e imputada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "12.2": {
+    "nota_version": "Versión As-Is: describe cómo se comprueba hoy que lo vendido en tienda fue cobrado, con la brecha real entre los países. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que la tienda cierra su caja hasta que el ingreso queda validado y liberado hacia la cuenta transitoria que alimenta la conciliación bancaria. El cruce contra el extracto del banco es el proceso siguiente.",
+     "texto": "El principio es el mismo en todas partes y lo formula la Gerencia de Contabilidad de Venezuela en dos frases: primero hay que verificar que **todo lo que se vendió se cobró**, y después que **todo lo que se cobró entró al banco**. Este proceso es la primera mitad.\n\nLa diferencia entre países no está en el qué sino en el cuánto se hace a mano. En **Venezuela la revisión de cajas es estrictamente manual**: la tienda manda el reporte de cierre de caja, el reporte Z de la máquina fiscal con sus facturas, los soportes por cada medio de pago y el comprobante de los depósitos, y un analista lo vacía todo en una hoja de cálculo para comprobar que cuadra. «Este es un proceso que ha sido así per se», y el propio responsable lo califica de no rentable: la intención declarada es trabajar solo a nivel de reporte, de modo que el cierre de caja apunte a su cuenta y se cierre automáticamente dejando el reporte en cero, pero eso depende de que el sistema dé la herramienta.\n\n**Panamá ya cruzó esa línea, y hace muy poco**: unas dos semanas antes del levantamiento pusieron en producción dentro de Odoo la revisión de caja por tienda. Ahora la parte de venta y la parte contable llegan automatizadas desde el sistema y el equipo solo completa el físico y coteja; los gastos diarios de la tienda —viáticos, un artículo que hizo falta—, que antes se anotaban a mano y se perdían porque no había dónde dejarlos, también se cargan solos y el contador únicamente valida a qué cuenta de gasto van. Si en el día hubo un cruce entre medios de pago, el sistema lo señala. Colombia sigue con el cruce manual.\n\nEl efectivo y las divisas son un capítulo aparte. En Venezuela las divisas que se reciben en tienda viajan a la oficina principal **en la valija que recoge el personal de almacén en su recorrido, cada dos días**, y las recibe la administración. Fuera del área metropolitana la norma es depositar al día siguiente en la cuenta custodia del banco, pero **no existe nada escrito** y el propio gerente lo formula como «es el deber ser, no lo hemos conseguido»: se han encontrado puntos de venta que llevaban tiempo con dinero acumulado en la caja porque nadie les explicó por qué había que depositarlo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad; la ejecución diaria recae en los auxiliares y asistentes contables de ingresos",
+     "participantes": [
+      "Gerente de Tienda y Cajera — hacen el cierre de caja, emiten el reporte Z y reúnen los soportes por medio de pago.",
+      "Auxiliar Contable de ingresos (Venezuela) — vacía en la hoja de cálculo el reporte de cada tienda y comprueba que lo vendido se cobró.",
+      "Contador Senior (Panamá) — valida en el módulo de revisión de caja de Odoo el físico contra lo que trae el sistema y asigna la cuenta de gasto de los consumos de tienda.",
+      "Personal de almacén y despacho — traslada la valija con el efectivo y las divisas desde las tiendas a la oficina principal.",
+      "Administración (Venezuela) — recibe en la oficina principal la totalidad del efectivo y las divisas que llegan de tienda.",
+      "Gerente de Contabilidad — aprueba la liberación del ingreso hacia la conciliación."
+     ],
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46"
+     ],
+     "notas": "El módulo de revisión de caja de Panamá es un desarrollo propio muy reciente; el propio equipo señala que «en otros países no lo tienen». No consta que se haya replicado.",
+     "sin_evidencia": "No consta un plazo comprometido para que la tienda entregue su cierre ni una medición de cuántos cierres llegan incompletos o descuadrados."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La tienda cierra su caja del día y remite el reporte con sus soportes.",
+     "cadencia": "Diaria por tienda; el efectivo y las divisas se recogen en la valija cada dos días en Venezuela.",
+     "output": "Ingreso validado y liberado a la cuenta transitoria que alimenta la conciliación bancaria; diferencias identificadas y devueltas a la tienda.",
+     "evidencia": [
+      "E-38",
+      "E-44"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-38",
+      "E-44"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda / Cajera",
+       "texto": "Cierra la caja del día, emite el reporte Z de la máquina fiscal y reúne los soportes de cada medio de pago y los comprobantes de depósito."
+      },
+      {
+       "id": "a2",
+       "rol": "Personal de almacén y despacho",
+       "texto": "Recoge en su recorrido la valija con el efectivo y las divisas de la tienda y la lleva a la oficina principal, donde la recibe Administración."
+      },
+      {
+       "id": "a3",
+       "rol": "Auxiliar / Asistente Contable de ingresos",
+       "texto": "Coteja el cierre de caja contra el detalle de ventas: en Venezuela y Colombia vaciando los soportes en una hoja de cálculo; en Panamá validando en el módulo de revisión de caja del ERP, que ya trae la venta y el apunte contable."
+      },
+      {
+       "id": "a4",
+       "rol": "Auxiliar / Asistente Contable de ingresos",
+       "texto": "Clasifica los consumos y gastos diarios de la tienda y les asigna la cuenta de gasto que corresponde."
+      },
+      {
+       "id": "a5",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Si el cierre no cuadra, devuelve la diferencia a la tienda para que la aclare y no libera el ingreso hasta tener la explicación."
+      },
+      {
+       "id": "a6",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Libera el ingreso validado hacia la cuenta transitoria, que queda pendiente de cruzarse contra el extracto bancario."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda / Cajera",
+       "Personal de almacén y despacho",
+       "Auxiliar / Asistente Contable de ingresos",
+       "Contador Senior / Coordinador Contable"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda / Cajera",
+        "tipo": "inicio",
+        "n": "La tienda cierra la caja del día"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda / Cajera",
+        "tipo": "tarea",
+        "n": "Emitir el reporte Z y reunir los soportes de pago"
+       },
+       {
+        "id": "n2",
+        "carril": "Personal de almacén y despacho",
+        "tipo": "tarea",
+        "n": "Llevar la valija de efectivo y divisas a la oficina"
+       },
+       {
+        "id": "n3",
+        "carril": "Auxiliar / Asistente Contable de ingresos",
+        "tipo": "tarea",
+        "n": "Cotejar el cierre contra el detalle de ventas"
+       },
+       {
+        "id": "n4",
+        "carril": "Auxiliar / Asistente Contable de ingresos",
+        "tipo": "tarea",
+        "n": "Clasificar los gastos diarios de la tienda"
+       },
+       {
+        "id": "n5",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "decision",
+        "n": "¿El cierre cuadra?"
+       },
+       {
+        "id": "n6",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Devolver la diferencia a la tienda para que la aclare"
+       },
+       {
+        "id": "n7",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Liberar el ingreso a la cuenta transitoria",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "fin",
+        "n": "Ingreso validado, listo para conciliar"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.3": {
+    "nota_version": "Versión As-Is: describe cómo se concilia hoy el banco y las plataformas de recaudo en cada país, que es donde más se separan los tres modelos. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que se dispone del extracto bancario y de los reportes de las plataformas de recaudo hasta que las cuentas transitorias quedan cerradas y el resumen de conciliación identifica lo que no se pudo emparejar. La validación previa del ingreso en el punto de venta es el proceso anterior.",
+     "texto": "La lógica es común —una transitoria que tiene que quedar en cero cuando el movimiento contable empareja con el del banco— pero **el método es distinto en los tres países, y la distancia entre ellos es grande**.\n\n**Panamá es el caso maduro.** Se carga el extracto bancario en Odoo: el extracto alimenta la cuenta contable de bancos y abre la transitoria de conciliación; lo que se concilia son las transitorias y lo que queda vivo en la cuenta bancaria es lo que trajo el extracto. Se concilia **todos los días**, y desde la semana del levantamiento está en productivo un **modelo de conciliación** que busca el asiento y propone el emparejamiento en vez de obligar a buscarlo a mano: «en vez de hacerlo un día conciliando, lo hacen veinte minutos». La validación sigue siendo humana a propósito, porque transacciones parecidas —tres transferencias del mismo monto— se emparejarían mal solas. Al cierre de mes los contadores llevan **físicamente** a la Gerencia la conciliación según banco y según libros. Fue así de duro llegar: al entrar el equipo actual había **seis meses de atraso**, sin conciliaciones ni activos fijos en el sistema, y el primer año se fue en deshacer y rehacer, porque un error en tienda creaba un asiento que afectaba transitorias y otras cuentas «que por desconocimiento no sabíamos que una cuenta afectaba a otra».\n\n**Colombia no concilia en el ERP: lo hace en Excel**, y en tres pasos encadenados —el extracto del intermediario contra Excel, el intermediario contra el banco, y el banco contra lo que se baja de Odoo—. El egreso se asienta directamente sobre la cuenta de banco, sin subir el extracto. Lo sostiene **una sola persona**, dedicada a eso a tiempo completo porque el país vende en muchas plataformas y marketplaces y **cada una entrega la información en un formato distinto**. Llevan dos años con Odoo y las conciliaciones siguen fuera de él; Panamá les dio soporte y la propia contadora señala la automatización de la conciliación como lo primero que pediría.\n\n**Venezuela** tiene el cuello de botella en otro sitio: no hay una referencia que permita asociar el movimiento del banco con el de la contabilidad, y **cada banco opera distinto** —uno abona el neto de la transacción, de modo que una venta de 100 llega al banco como 95 y hay que hacer a mano la aritmética y el asiento que explica la diferencia—. A eso se suma la financiadora de consumo, que es cerca del 60 % de la venta: el dinero entra todo a una cuenta bancaria dedicada, la plataforma entrega el detalle línea por línea de cada comprador del período, y el sistema genera tantas cuentas por cobrar como cuotas, de modo que limpiarlas obliga a ir **una por una**."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad; la ejecución recae en los asistentes contables de conciliación",
+     "participantes": [
+      "Asistentes de Contabilidad (Panamá) — dos personas; cargan el extracto y concilian a diario por entidad.",
+      "Contadores Senior (Panamá) — revisan que la conciliación se esté haciendo y piden por correo el registro que falte a quien corresponda.",
+      "Auxiliar Contable de conciliación (Colombia) — una sola persona, dedicada exclusivamente a cruzar en Excel los reportes de todas las plataformas.",
+      "Auxiliares Contables de conciliación (Venezuela) — cruzan las partidas, registran comisiones, intereses y retenciones y arman el resumen de partidas pendientes.",
+      "Coordinación de Sistemas — construyó el módulo de conciliación de Panamá y es con quien se ha venido conversando la automatización en Colombia.",
+      "Tesorería y Cuentas por Pagar — originan los desembolsos que después hay que emparejar."
+     ],
+     "evidencia": [
+      "E-44",
+      "SC-05",
+      "E-38",
+      "E-46",
+      "E-15"
+     ],
+     "notas": "El modelo de conciliación de Panamá es un módulo añadido sobre el ERP, no una función nativa configurada: replicarlo en otro país exige copiar el desarrollo, y el grupo convive con versiones distintas del ERP, lo que compromete que sobreviva a una migración.",
+     "sin_evidencia": "No consta cuántas partidas quedan sin identificar al cierre de cada mes en ninguno de los tres países, ni cuánto tiempo permanecen abiertas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se dispone del extracto bancario del día o del período y de los reportes de las plataformas de recaudo.",
+     "cadencia": "Diaria en Panamá; en Colombia y Venezuela por corte, con el cierre de mes como hito.",
+     "output": "Cuentas transitorias cerradas, comisiones, intereses y retenciones registrados, y resumen de conciliación con las partidas que no se pudieron identificar.",
+     "evidencia": [
+      "E-44",
+      "SC-05",
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "SC-05",
+      "E-38",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asistente / Auxiliar Contable de conciliación",
+       "texto": "Obtiene el extracto bancario y los reportes de cada plataforma de recaudo del período."
+      },
+      {
+       "id": "a2",
+       "rol": "Asistente / Auxiliar Contable de conciliación",
+       "texto": "En Panamá carga el extracto en el ERP, que alimenta la cuenta de bancos y abre la transitoria de conciliación; en Colombia descarga el reporte del ERP y el de la plataforma y los cruza en una hoja de cálculo con fórmulas."
+      },
+      {
+       "id": "a3",
+       "rol": "Asistente / Auxiliar Contable de conciliación",
+       "texto": "Empareja el movimiento del banco con el asiento contable. Donde existe el modelo de conciliación, el sistema propone el emparejamiento y la persona lo valida; donde no, lo busca partida por partida."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente / Auxiliar Contable de conciliación",
+       "texto": "Registra lo que el banco descontó y la contabilidad no tenía: comisiones, intereses, retenciones y la diferencia cuando el banco abona el neto de la transacción."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente / Auxiliar Contable de conciliación",
+       "texto": "Arma el resumen con las partidas que quedaron sin emparejar y pide por correo el registro que falta al área que lo originó."
+      },
+      {
+       "id": "a6",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Revisa que las transitorias del período hayan quedado cerradas y analiza las que conservan saldo para entender qué las mantiene abiertas."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Recibe al cierre de mes la conciliación según banco y según libros y la revisa antes de dar el período por conciliado."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asistente / Auxiliar Contable de conciliación",
+       "Contador Senior / Coordinador Contable",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asistente / Auxiliar Contable de conciliación",
+        "tipo": "inicio",
+        "n": "Hay extracto bancario y reportes de plataformas"
+       },
+       {
+        "id": "n1",
+        "carril": "Asistente / Auxiliar Contable de conciliación",
+        "tipo": "tarea",
+        "n": "Cargar el extracto en el ERP o cruzarlo en hoja de cálculo",
+        "sistemas": [
+         "Odoo",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Asistente / Auxiliar Contable de conciliación",
+        "tipo": "decision",
+        "n": "¿La partida empareja?"
+       },
+       {
+        "id": "n3",
+        "carril": "Asistente / Auxiliar Contable de conciliación",
+        "tipo": "tarea",
+        "n": "Validar el emparejamiento y cerrar la transitoria",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Asistente / Auxiliar Contable de conciliación",
+        "tipo": "tarea",
+        "n": "Registrar comisiones, intereses, retenciones y neteos"
+       },
+       {
+        "id": "n5",
+        "carril": "Asistente / Auxiliar Contable de conciliación",
+        "tipo": "tarea",
+        "n": "Listar la partida pendiente y pedir el registro que falta"
+       },
+       {
+        "id": "n6",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Revisar las transitorias y analizar las que siguen con saldo"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Revisar la conciliación según banco y según libros"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Período conciliado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.4": {
+    "nota_version": "Versión As-Is: describe cómo se revisan y depuran hoy las cuentas de balance, incluida la herencia que nadie ha podido limpiar. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La revisión periódica de los auxiliares y de las cuentas de balance —cuentas por cobrar, cuentas por pagar, anticipos, transitorias de inventario y de recaudo— para verificar que el auxiliar concilie con el mayor y ordenar el ajuste con el área responsable. La conciliación bancaria es el proceso anterior.",
+     "texto": "La revisión existe y tiene una cadencia declarada, pero descansa en una sola cosa: que el contador entienda qué cuenta afecta a cuál. En **Panamá** un contador senior revisa las transitorias **dos veces al mes** —semanalmente a medida que la asistente va conciliando, y una revisión completa al cierre para entregar el mes—. No todas quedan en cero a propósito: en la entidad de retail hay transacciones que el banco hace efectivas al día siguiente y que pertenecen ya a la conciliación del mes siguiente.\n\nEse aprendizaje costó. Durante 2025 las cuentas fueron «bastante difíciles de analizar»: el ERP era nuevo también para las tiendas, un registro mal hecho en el punto de venta creaba un asiento que inflaba transitorias y tocaba otras cuentas de balance, y **«por desconocimiento no sabíamos que una cuenta afectaba a otra»**. Se depuraron a base de entrar en la tienda, reconstruir qué se hizo mal y corregirlo con asiento de diario, apoyándose en la gerencia cuando la causa no aparecía.\n\nEn **Venezuela** el proceso se describe como la razón de ser del departamento —«en contabilidad todo el universo de operaciones termina por decantarse aquí»— y se concreta en conciliar lo que generan Cuentas por Cobrar y Cuentas por Pagar contra el mayor, con un centenar de socios de negocio que deben quedar analizados al cierre. Hay además un tema propio: el **diferencial cambiario**. La factura se emite en moneda local referenciada a dólares y el cliente paga al cambio del día, de modo que sobre el 60 % de la venta se genera una diferencia. Existen dos posiciones sobre cómo tratarla —la fiscalista, que pide emitir nota de débito, y la financiera, que la trata como otros ingresos— y tradicionalmente se ha seguido la segunda. La primera no se puede seguir aunque se quiera, **porque el sistema no emite notas de débito**: ni el anterior ni el actual, por un problema de homologación con el partner que sigue sin resolverse. La salida que se ideó es crear en el sistema un producto llamado «ajuste por diferencial cambiario», facturarlo por masa monetaria y cruzar la operación internamente después.\n\nY hay un límite que las tres entidades reconocen y ninguna ha cruzado: **quedan saldos históricos que nadie puede depurar**. La Gerencia de Contabilidad de Panamá lo dice sin rodeos —«no puedo llegar y limpiar todo este balance porque entonces mataría el resultado de la empresa»— y en Venezuela pasa lo mismo con activos que figuran desde hace años."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Contador Senior / Coordinador Contable de cada entidad, con revisión del Gerente de Contabilidad",
+     "participantes": [
+      "Contadores Senior (Panamá) — revisan las transitorias dos veces al mes y las cuentas de balance al cierre.",
+      "Coordinador Contable y Auxiliares Contables (Venezuela) — concilian los auxiliares de cuentas por cobrar y por pagar contra el mayor.",
+      "Contadora (Colombia) — revisa las cuentas y, cuando algo no cuadra, va directamente a la persona responsable del registro.",
+      "Analista de Cuentas por Cobrar y Cuentas por Pagar — explican el origen del saldo y ejecutan el reproceso cuando el error nació en su área.",
+      "Gerente de Tienda — aporta la reconstrucción de qué se registró mal en el punto de venta cuando el asiento vino de ahí.",
+      "Gerente de Contabilidad — decide qué se ajusta y qué queda como saldo heredado."
+     ],
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-46",
+      "SC-05"
+     ],
+     "notas": "La revisión funciona por conocimiento acumulado del contador, no por un procedimiento escrito: la propia contadora de Colombia describe que quien llega aprende porque «el uno le explica al otro y el otro le explica al otro como lo aprendió», con los vicios que eso arrastra.",
+     "sin_evidencia": "No consta el monto ni la antigüedad de los saldos históricos que no se pueden depurar en ninguna de las tres entidades."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Avanza la conciliación del período, o aparece un saldo en una cuenta de balance que no debería estar ahí.",
+     "cadencia": "Semanal y de cierre en Panamá (dos revisiones al mes); mensual al cierre en Venezuela y Colombia.",
+     "output": "Auxiliares conciliados contra el mayor, transitorias cerradas o explicadas, y ajustes ordenados al área responsable del registro.",
+     "evidencia": [
+      "E-44",
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Revisa los auxiliares y las cuentas de balance del período y compara el auxiliar contra el saldo del mayor."
+      },
+      {
+       "id": "a2",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Identifica las transitorias y las cuentas que conservan saldo y separa las que están abiertas por un desfase normal —una transacción que el banco hace efectiva al día siguiente— de las que esconden un error."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Cuentas por Cobrar / por Pagar / Gerente de Tienda",
+       "texto": "Reconstruye con el contador qué operación originó el saldo: qué se registró, quién lo hizo y con qué documento."
+      },
+      {
+       "id": "a4",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Si el origen es un error de registro, ordena el reproceso al área y corrige con asiento de diario."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Si el saldo es histórico y no se puede identificar, decide conservarlo: depurarlo de golpe distorsionaría el resultado del ejercicio."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Da por revisado el período y traslada al cierre contable las cuentas que quedan cuadradas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Contador Senior / Coordinador Contable",
+       "Analista de Cuentas por Cobrar / por Pagar / Gerente de Tienda",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "inicio",
+        "n": "Toca revisar las cuentas de balance"
+       },
+       {
+        "id": "n1",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Comparar el auxiliar contra el saldo del mayor",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "decision",
+        "n": "¿Hay un saldo indebido?"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Cuentas por Cobrar / por Pagar / Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Reconstruir qué operación originó el saldo"
+       },
+       {
+        "id": "n4",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "decision",
+        "n": "¿Se identificó el origen?"
+       },
+       {
+        "id": "n5",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Ordenar el reproceso y corregir con asiento de diario"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Conservar el saldo histórico sin depurar"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Dar por revisado el período"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Cuentas revisadas para el cierre"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.5": {
+    "nota_version": "Versión As-Is: describe cómo se emite hoy la factura en cada país y por qué la facturación acabó dentro de Contabilidad. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La emisión de la factura de venta una vez validados el pedido, el pago y la preparación en bodega; la emisión de notas de crédito y de débito; y la operación del medio de facturación autorizado en cada país y su enlace con la autoridad tributaria.",
+     "texto": "La facturación está hoy dentro de Contabilidad, y en Panamá se sabe exactamente por qué: **antes estaba en Ventas y se perdían los comprobantes**, no llegaban a tiempo los depósitos y se despachaban pedidos sin factura desde la bodega. Al entrar la Gerencia de Contabilidad actual la posición se trasladó a su equipo para separar a quien vende de quien factura y cobra. La regla que quedó es breve: «ellos venden, y Contabilidad hace la factura y cobra». El circuito diario es: el vendedor monta el pedido y adjunta el pago en el ERP, la bodega lo trabaja, y solo cuando la bodega termina la analista factura; si el cliente pagó por transferencia, Tesorería verifica que el dinero esté en el banco y Contabilidad hace un **segundo control** antes de facturar. La venta a crédito no se frena: la condición viene marcada en el ERP y el caso pasa a cobranza.\n\nEl medio de emisión es donde los tres países divergen del todo. **Panamá factura electrónicamente** desde hace tiempo a través de un proveedor autorizado que hace de enlace con la Dirección General de Ingresos: la factura viaja de Odoo al proveedor y del proveedor a la autoridad, que por eso no necesita que se le presente informe de ventas —lo arma con las facturas que ya recibió—. **Colombia** tiene la facturación **estructurada por canal de venta**, con estado de resultados separado por cada uno; la propia contadora lo señala como lo más maduro de su área y también como lo más reciente, de este mismo año.\n\n**Venezuela sigue en máquina fiscal.** Por la actividad y los medios de impresión que usa, es el único medio autorizado, y la factura se emite con su reporte Z. La normativa obligó a las ventas en línea a pasar a facturación digital y ahí sí se dio el paso: se contrató una imprenta digital y la entrada en producción se fijó para mediados de agosto de 2026, aprovechando el corte de quincena —**con retraso reconocido**, porque se usó el cambio de sistema para darse margen—. El circuito es: se genera la orden de venta en Odoo, se valida que entró el pago, y con esos dos puntos cumplidos la información viaja al proveedor digital, que lleva el control electrónico y le manda la factura al cliente por correo. La expectativa declarada es que la autoridad extienda la obligación a los contribuyentes especiales antes de fin de año y que toda la facturación acabe migrando.\n\nQueda un hueco en los documentos accesorios: **el sistema emite facturas y notas de crédito, pero no notas de débito**, y eso lleva años sin resolverse."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad; ejecuta la Analista de Facturación",
+     "participantes": [
+      "Analista de Facturación (Panamá y Venezuela) / Facturación (Colombia) — emite la factura y las notas de crédito.",
+      "Vendedor — monta el pedido y adjunta el comprobante de pago en el ERP.",
+      "Supervisor de Bodega — trabaja el pedido; hasta que no termina, no se factura.",
+      "Tesorería — verifica que el pago por transferencia entró al banco antes de liberar la facturación.",
+      "Proveedor autorizado de facturación electrónica o digital — hace de enlace entre el ERP y la autoridad tributaria.",
+      "Coordinación de Sistemas y partner del ERP — responsables del desarrollo pendiente de las notas de débito.",
+      "Departamento de cobranza — recibe el caso cuando la venta es a crédito."
+     ],
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-46"
+     ],
+     "notas": "El traslado de la facturación desde Ventas a Contabilidad está documentado con detalle en Panamá; no consta que en las otras dos entidades haya habido el mismo movimiento ni por la misma razón.",
+     "sin_evidencia": "No consta si la facturación digital de la venta en línea de Venezuela llegó efectivamente a producción en la fecha prevista, ni si se inició el trámite para migrar el resto de la facturación."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El pedido está montado, el pago validado y la bodega terminó de trabajarlo; o el cliente compra en el punto de venta.",
+     "cadencia": "Continua durante el horario operativo; la venta en línea entra a toda hora y se factura cuando abre la administración.",
+     "output": "Factura emitida y transmitida al cliente y, donde aplica, a la autoridad tributaria; nota de crédito cuando corresponde.",
+     "evidencia": [
+      "E-44",
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor",
+       "texto": "Monta el pedido en el ERP y adjunta el comprobante del pago del cliente."
+      },
+      {
+       "id": "a2",
+       "rol": "Tesorería",
+       "texto": "Si el pago fue por transferencia, verifica que el dinero entró efectivamente al banco y lo aprueba."
+      },
+      {
+       "id": "a3",
+       "rol": "Supervisor de Bodega",
+       "texto": "Trabaja y termina el pedido; hasta ese momento la factura no se emite."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Facturación",
+       "texto": "Comprueba que el pago está confirmado y que la bodega terminó, y emite la factura por el medio autorizado del país: máquina fiscal, proveedor de facturación digital o proveedor de facturación electrónica."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Facturación",
+       "texto": "Si la venta es a crédito, factura con la condición que ya trae marcada el cliente en el ERP y traslada el caso al departamento de cobranza."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Facturación",
+       "texto": "Emite la nota de crédito cuando hay devolución o ajuste. Para el ajuste por diferencial cambiario, que exigiría nota de débito, factura un concepto creado para ello porque el sistema no emite ese documento."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor",
+       "Tesorería",
+       "Supervisor de Bodega",
+       "Analista de Facturación"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor",
+        "tipo": "inicio",
+        "n": "El cliente confirma su pedido"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor",
+        "tipo": "tarea",
+        "n": "Montar el pedido y adjuntar el comprobante de pago",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Tesorería",
+        "tipo": "decision",
+        "n": "¿El pago entró al banco?"
+       },
+       {
+        "id": "n3",
+        "carril": "Tesorería",
+        "tipo": "tarea",
+        "n": "Dejar el pedido en espera y avisar al vendedor"
+       },
+       {
+        "id": "n3f",
+        "carril": "Tesorería",
+        "tipo": "fin",
+        "n": "Pedido sin facturar por pago no confirmado"
+       },
+       {
+        "id": "n4",
+        "carril": "Supervisor de Bodega",
+        "tipo": "tarea",
+        "n": "Trabajar y terminar el pedido"
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Facturación",
+        "tipo": "tarea",
+        "n": "Emitir la factura por el medio autorizado del país",
+        "sistemas": [
+         "Odoo",
+         "Proveedor de facturación"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Facturación",
+        "tipo": "decision",
+        "n": "¿La venta es a crédito?"
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Facturación",
+        "tipo": "tarea",
+        "n": "Trasladar el caso al departamento de cobranza"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Facturación",
+        "tipo": "fin",
+        "n": "Factura emitida y entregada al cliente"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n3f"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.6": {
+    "nota_version": "Versión As-Is: describe cómo se determinan y presentan hoy los impuestos en los tres países, con los calendarios y los defectos de reporte que el propio equipo declara. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La determinación, declaración y control del pago de las obligaciones tributarias nacionales, municipales y parafiscales de cada país, y el archivo de las declaraciones y comprobantes. La ejecución del pago pertenece a Tesorería.",
+     "texto": "Es el proceso que corre de forma más consistente en las tres entidades, porque el calendario no admite improvisación; y es también donde el reporte que da el sistema **no siempre es de fiar**.\n\nEl calendario, que es distinto en cada país, manda. En **Venezuela** conviven el impuesto sobre la renta anual —la entidad es contribuyente especial y declara antes del 31 de marzo—, el impuesto al valor agregado **quincenal** con las retenciones que se le practican a los proveedores, la declaración de grandes patrimonios de período irregular, las patentes municipales, que tienen un aforo distinto por localidad y una fecha de pago distinta según la alcaldía, y los compromisos parafiscales. En **Panamá** el impuesto sobre transferencia de bienes se declara **todos los días 15** con una declaración jurada de ventas y compras; la renta se presenta en marzo; el impuesto complementario se paga cuando no se distribuyen dividendos; y se suman la tasa única anual, los impuestos municipales de enero y el impuesto de inmueble de las sociedades que tienen edificio. En **Colombia** las retenciones a proveedores son mensuales, el IVA y el impuesto de industria y comercio bimestrales, la renta anual, y a eso se añade la **información exógena**: alrededor de diez formatos abiertos por tercero que deben coincidir con la renta.\n\nEl paso a paso es el mismo: se extrae la información del ERP, se depura, se arma el formulario en la plataforma de la autoridad y se presenta. Lo que cambia es cuánto hay que rehacer a mano. **Panamá** tiene la ventaja de que las ventas las toma la autoridad directamente de la facturación electrónica, pero el informe de compras hay que **armarlo a mano** —número de identificación del proveedor, dígito verificador, nombre, tipo de gasto— en un cuadro que después se carga en la plataforma; y los anexos de la declaración de renta se desarrollaron a medida pero «no quedó al cien por ciento: no extrae la información correcta». En **Venezuela** el libro que genera el sistema presenta diferencias con la contabilidad —un régimen de exención estadal salió con el impuesto calculado igualmente— y el analista de impuestos **verifica a mano para determinar la venta real** antes de declarar, corrigiendo el archivo y reportando la novedad a Sistemas. En **Colombia** no hay conexión entre el ERP y la autoridad: se descarga, se organiza y se sube al prevalidador, que trabaja sobre hoja de cálculo.\n\nUna vez determinado el monto, Contabilidad **no paga**: notifica a Tesorería la cifra y la fecha para que haga el apartado, y solo declara cuando la disponibilidad está confirmada, porque declarar sin pagar tiene consecuencias. Y hay una norma que se está estableciendo y todavía no es hábito: conservar declaraciones y comprobantes en **archivo electrónico**, porque las autoridades vuelven años después a pedir copia y la relación de ingresos que sustenta cada localidad."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad; ejecuta el Asistente de Impuestos o el Contador Senior según el país",
+     "participantes": [
+      "Asistente de Impuestos (Venezuela) — extrae y depura los libros y verifica a mano la venta real cuando el reporte del sistema no cuadra.",
+      "Contadores Senior (Panamá) — preparan la declaración jurada mensual y el informe de compras para la autoridad.",
+      "Contadora (Colombia) — lleva toda la materia tributaria; está traspasando parte a un contador que se incorporó para eso.",
+      "Revisoría Fiscal (Colombia) — revisa cada declaración con sus libros de trabajo y soportes y da el visto bueno antes de presentarla.",
+      "Tesorería — recibe el monto y la fecha y ejecuta el pago dentro del plazo.",
+      "Recursos Humanos — genera las contribuciones sociales; Contabilidad solo levanta la alerta del vencimiento.",
+      "Asesor tributario externo (Panamá) — se consulta puntualmente, sin contrato de servicio."
+     ],
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46",
+      "E-15"
+     ],
+     "notas": "En Venezuela el puesto de analista de impuestos estaba en reemplazo al momento del levantamiento, dentro de la reestructuración del departamento.",
+     "sin_evidencia": "No consta un calendario tributario único del grupo ni un responsable que verifique el cumplimiento de las tres entidades a la vez; cada país gestiona el suyo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llega la fecha de corte de una obligación según el calendario de la autoridad tributaria del país.",
+     "cadencia": "Quincenal, mensual, bimestral y anual según el impuesto y el país.",
+     "output": "Declaración presentada en la plataforma de la autoridad, monto notificado a Tesorería y comprobante archivado.",
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Asistente de Impuestos / Contador Senior",
+       "texto": "Extrae del ERP los libros o reportes de ventas y compras del período que exige la obligación."
+      },
+      {
+       "id": "a2",
+       "rol": "Asistente de Impuestos / Contador Senior",
+       "texto": "Depura la información: comprueba que el reporte coincide con la contabilidad y corrige a mano lo que el sistema calculó mal, como un régimen de exención al que el libro le aplicó impuesto igualmente."
+      },
+      {
+       "id": "a3",
+       "rol": "Asistente de Impuestos / Contador Senior",
+       "texto": "Reporta a Sistemas la novedad de parametrización que produjo la diferencia, para que se corrija con el partner del ERP."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente de Impuestos / Contador Senior",
+       "texto": "Arma el formulario en la plataforma de la autoridad y calcula el impuesto a pagar."
+      },
+      {
+       "id": "a5",
+       "rol": "Revisoría Fiscal",
+       "texto": "En Colombia revisa el expediente antes de que se presente —pide los libros de trabajo y los soportes—, hace sus observaciones y da el visto bueno. En Panamá y Venezuela este paso no existe."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Revisa y aprueba la determinación, y notifica a Tesorería el monto y la fecha de vencimiento para que aparte los fondos."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Presenta la declaración una vez confirmada la disponibilidad, y archiva electrónicamente la declaración y el comprobante para futuras fiscalizaciones."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Asistente de Impuestos / Contador Senior",
+       "Revisoría Fiscal",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Asistente de Impuestos / Contador Senior",
+        "tipo": "inicio",
+        "n": "Llega la fecha de corte de la obligación"
+       },
+       {
+        "id": "n1",
+        "carril": "Asistente de Impuestos / Contador Senior",
+        "tipo": "tarea",
+        "n": "Extraer del ERP los libros de ventas y compras",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Asistente de Impuestos / Contador Senior",
+        "tipo": "decision",
+        "n": "¿El reporte cuadra con la contabilidad?"
+       },
+       {
+        "id": "n3",
+        "carril": "Asistente de Impuestos / Contador Senior",
+        "tipo": "tarea",
+        "n": "Corregir a mano y reportar la novedad a Sistemas"
+       },
+       {
+        "id": "n4",
+        "carril": "Asistente de Impuestos / Contador Senior",
+        "tipo": "tarea",
+        "n": "Armar el formulario y calcular el impuesto",
+        "sistemas": [
+         "Plataforma de la autoridad tributaria"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Revisoría Fiscal",
+        "tipo": "tarea",
+        "n": "Revisar los soportes y dar el visto bueno"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Aprobar y notificar el monto y la fecha a Tesorería"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Presentar la declaración y archivar el comprobante"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Obligación declarada y soportada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.7": {
+    "nota_version": "Versión As-Is: describe cómo se controlan hoy los activos fijos, con la brecha de madurez entre los tres países. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "El alta del activo al comprarlo, su clasificación, el cálculo y registro de la depreciación, las bajas y el mantenimiento del cuadro que sustenta la auditoría y la declaración fiscal. La compra del activo pertenece a Compras.",
+     "texto": "Los tres países hacen lo mismo con tres niveles de automatización que no se parecen.\n\n**Panamá lo tiene en el ERP.** Hay un módulo de activos fijos por categoría —equipo de cómputo, máquinas, circuito cerrado— con método de **línea recta**: al crear el activo se indica en cuántos meses se deprecia y qué cuentas se afectan, y el sistema arroja la tabla de amortización y lo que falta hasta terminar. Cuando Tesorería compra, el gasto entra a una cuenta de activos en proceso y Contabilidad lo convierte en activo. El umbral es **quinientos dólares**, y por debajo va a gasto; pero ese umbral lo fijó la propia Gerencia de Contabilidad y ella misma lo dice: «este es mi criterio, no necesariamente debe ser así», **no hay política de activo fijo del grupo**. El razonamiento que da es operativo: diez sillas de cincuenta dólares no se pueden crear como grupo porque después no se puede dar de baja una sola, ni una por una porque no compensa depreciarlas. Antes de este módulo todo se llevaba en una hoja de cálculo.\n\n**Colombia lo lleva a mano.** La contadora **levantó la base de activos al llegar porque no existía**, y mes a mes abre su archivo, agrega lo que entró, calcula la depreciación con su prorrateo según el tipo de activo y **la sube a Odoo manualmente**. Ella lo describe sin adornos: «muy arcaica la cosa». Lo ha hablado muchas veces con la Dirección de Finanzas —«hay que hacerlo automático»— y no le ha podido sacar el tiempo. El cuadro no se le reporta a nadie más que a la Revisoría Fiscal cuando lo pide; lo guarda «para compartirlo cuando lo podamos automatizar».\n\n**Venezuela lo controla por masa monetaria.** Existe el grupo de activos y forma parte de los estados financieros, pero **no es un inventario preciso**: hay registros históricos que ya no corresponden a lo que está físicamente en cada tienda. Se intentó fijar un umbral de capitalización en divisas y no resultó funcional. La toma de inventario físico para levantar las existencias reales por localidad está declarada como algo que se hará, no como algo que se hace.\n\nHay una carencia que comparten los tres y que ninguno disimula: **ningún activo está etiquetado**. Panamá lo tiene identificado como mejora pendiente —«ponerle plaquita a los activos»— y reconoce que le falta levantar sobre todo lo antiguo, porque al implantar el módulo se cargó la data que ya existía sin poder dar de baja lo que seguía teniendo vida útil.\n\nY hay un cuadro que se arma fuera del sistema incluso donde el módulo existe: para la auditoría hace falta la tabla que muestre valor de compra, meses de depreciación, depreciación del año y valor final, **y esa tabla el módulo no la da**; se pide el detalle de todos los asientos de depreciación y se monta en una hoja de cálculo aparte."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad; en Colombia lo ejecuta directamente la Contadora",
+     "participantes": [
+      "Contador Senior (Panamá) — crea el activo en el módulo, define la categoría y los meses de depreciación y mantiene el cuadro paralelo para auditoría.",
+      "Contadora (Colombia) — lleva la base de datos de activos, calcula la depreciación mes a mes y la sube al ERP a mano.",
+      "Coordinador Contable y Auxiliares Contables (Venezuela) — mantienen el control por masa monetaria de los activos históricos.",
+      "Tesorería / Cuentas por Pagar — registra la compra en la cuenta de activos en proceso.",
+      "Sistemas / Tecnología — recibe el activo comprado antes de que se capitalice y es quien tendría que desarrollar la tabla de amortización que falta.",
+      "Auditores externos y Revisoría Fiscal — destinatarios del cuadro de activos al cierre de cada ejercicio."
+     ],
+     "evidencia": [
+      "E-44",
+      "E-46",
+      "E-38",
+      "SC-05"
+     ],
+     "notas": "El umbral de capitalización de quinientos dólares de Panamá es una decisión local sin respaldo en una política escrita; la propia responsable plantea que haría falta un consenso entre países sobre el monto.",
+     "sin_evidencia": "No consta el valor total del activo fijo registrado en ninguna de las tres entidades ni cuánto de lo registrado en Venezuela corresponde a bienes que siguen existiendo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se compra un bien que puede capitalizarse, llega el cierre del mes para correr la depreciación, o un activo se daña y hay que darlo de baja.",
+     "cadencia": "El alta es por evento; la depreciación es mensual; el cuadro para auditoría es anual.",
+     "output": "Activo dado de alta con su categoría y su plazo, depreciación registrada del período y cuadro de activos disponible para la auditoría y la declaración fiscal.",
+     "evidencia": [
+      "E-44",
+      "E-46"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-46",
+      "E-38"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Tesorería / Cuentas por Pagar",
+       "texto": "Registra la compra del bien y la imputa a la cuenta de activos en proceso a la espera de que Contabilidad decida su tratamiento."
+      },
+      {
+       "id": "a2",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Evalúa si el bien supera el umbral de capitalización que usa su entidad y si tiene sentido depreciarlo por separado o en grupo."
+      },
+      {
+       "id": "a3",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Si no lo supera, lo lleva directamente al gasto del período."
+      },
+      {
+       "id": "a4",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Si lo supera, lo da de alta con su categoría, su plazo de depreciación y las cuentas que afecta: en el módulo del ERP donde existe, y en un archivo propio donde no."
+      },
+      {
+       "id": "a5",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Corre la depreciación del período: automática por línea recta donde el módulo está configurado, o calculada y cargada a mano mes a mes donde no lo está."
+      },
+      {
+       "id": "a6",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Registra la baja cuando un activo se daña o se retira, y actualiza el cuadro."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Al cierre del ejercicio arma el cuadro de activos —valor de compra, meses, depreciación del año y valor final— pidiendo el detalle de los asientos de depreciación, porque el módulo no lo entrega montado, y lo entrega a la auditoría."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Tesorería / Cuentas por Pagar",
+       "Contador Senior / Contadora",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Tesorería / Cuentas por Pagar",
+        "tipo": "inicio",
+        "n": "Se compra un bien"
+       },
+       {
+        "id": "n1",
+        "carril": "Tesorería / Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Registrarlo en la cuenta de activos en proceso",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "decision",
+        "n": "¿Supera el umbral de capitalización?"
+       },
+       {
+        "id": "n3",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Llevarlo al gasto del período"
+       },
+       {
+        "id": "n4",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "fin",
+        "n": "Bien registrado como gasto"
+       },
+       {
+        "id": "n5",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Dar de alta el activo con categoría y plazo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Correr la depreciación del período"
+       },
+       {
+        "id": "n7",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Registrar las bajas por daño o retiro"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Armar el cuadro de activos para la auditoría"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Cuadro de activos entregado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "12.8": {
+    "nota_version": "Versión As-Is: describe cómo se cierra hoy el período en cada entidad y por qué el cierre de una de ellas todavía no llega completo. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La ejecución del cierre del período: verificar que los procesos alimentadores están cerrados, registrar los ajustes y provisiones, cuadrar los auxiliares contra el mayor y emitir el estado de resultados y el estado de situación financiera de la entidad.",
+     "texto": "El criterio de cierre que usa el grupo lo formula la Dirección de Finanzas con una frase que resume todo el macroproceso: **«tengo el cierre porque mis cuentas transitorias quedaron cerradas»**. Mientras haya una transitoria viva no se sabe si todos los documentos están registrados, así que la conciliación bancaria funciona como la puerta del cierre.\n\nCon esa vara, la distancia entre entidades es medible. **Panamá cierra.** La entidad mayorista queda conciliada **entre siete y diez días** después de terminar el mes y la de retail alrededor de tres semanas; ambas emiten estado de resultados y balance general, y el de retail se analiza **por tienda mediante centros de costo**, con revisión mensual de que todas las operaciones tengan el suyo asignado. Llegar ahí costó: el equipo entró con seis meses de atraso heredado y se volcó primero sobre la entidad mayorista para ponerla al día.\n\n**Venezuela todavía no.** El propio Gerente de Contabilidad lo dice: el cierre «no ha sido de la forma regular que desearíamos», hay un retraso importante, y a la dirección se le presenta **solo el estado de ganancias y pérdidas**, no la estructura financiera completa con cuentas por cobrar, cuentas por pagar y bancos. El objetivo declarado es cortar dentro de los **primeros cinco días de cada mes**, con el argumento de que si durante el mes se viene analizando, el cierre es apretar un botón. No se alcanza todavía.\n\n**Colombia cierra mensualmente** y firma sus estados financieros la contadora junto con la Revisoría Fiscal y el responsable del país.\n\nEl efecto del retraso se ve arriba: la Dirección de Finanzas describe que puede estar reportando a la Junta una situación financiera **de tres meses atrás** —«estás en abril y estás viendo enero»—, y que los primeros meses del año son los más pesados porque se solapan el día a día y la declaración de renta."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad, con revisión de la Dirección de Finanzas del grupo",
+     "participantes": [
+      "Contadores Senior y Coordinador Contable — verifican que conciliación, cuentas de balance y activos fijos están cerrados antes de tocar el cierre.",
+      "Auxiliares y Asistentes Contables — registran los ajustes y provisiones del período.",
+      "Cuentas por Pagar, Cuentas por Cobrar, Tesorería, Recursos Humanos e Inventarios — son los procesos alimentadores; el cierre no avanza hasta que entregan.",
+      "Revisoría Fiscal (Colombia) — firma los estados financieros junto con la contadora y el responsable del país.",
+      "Dirección de Finanzas del grupo — recibe los cierres de cada entidad y construye sobre ellos la situación financiera y las proyecciones."
+     ],
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46",
+      "E-15"
+     ],
+     "notas": "La nómina es el alimentador que más se demora según la Dirección de Finanzas: «siempre hay que contabilizarla».",
+     "sin_evidencia": "No consta un calendario de cierre escrito ni acordado entre las tres entidades; cada Gerencia de Contabilidad fija su propia meta."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Termina el mes y los procesos alimentadores dan por entregado su período.",
+     "cadencia": "Mensual.",
+     "output": "Estado de resultados y estado de situación financiera de la entidad, con los auxiliares cuadrados contra el mayor.",
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-15"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-15"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Verifica que los procesos alimentadores del período están cerrados: ingresos validados, conciliación bancaria terminada, cuentas de balance revisadas y depreciación corrida."
+      },
+      {
+       "id": "a2",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Si falta un alimentador —típicamente la contabilización de la nómina— lo reclama al área y retiene el cierre hasta tenerlo."
+      },
+      {
+       "id": "a3",
+       "rol": "Auxiliar / Asistente Contable",
+       "texto": "Registra los ajustes y las provisiones de cierre del período."
+      },
+      {
+       "id": "a4",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Cuadra los auxiliares contra el mayor y comprueba que las transitorias quedaron cerradas, que es el criterio con el que el grupo da un mes por cerrado."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Emite el estado de resultados y el estado de situación financiera de la entidad. En el retail el resultado se abre por tienda mediante centros de costo."
+      },
+      {
+       "id": "a6",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Recibe el cierre de cada entidad, lo revisa con su Gerencia de Contabilidad y construye la situación financiera y las proyecciones que se llevan al comité."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Contador Senior / Coordinador Contable",
+       "Auxiliar / Asistente Contable",
+       "Gerente de Contabilidad",
+       "Dirección de Finanzas del grupo"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "inicio",
+        "n": "Termina el mes"
+       },
+       {
+        "id": "n1",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Verificar que los alimentadores están cerrados"
+       },
+       {
+        "id": "n2",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "decision",
+        "n": "¿Falta algún alimentador?"
+       },
+       {
+        "id": "n3",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Reclamar el período al área y retener el cierre"
+       },
+       {
+        "id": "n4",
+        "carril": "Auxiliar / Asistente Contable",
+        "tipo": "tarea",
+        "n": "Registrar ajustes y provisiones de cierre",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Cuadrar auxiliares contra mayor y cerrar transitorias"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Emitir el estado de resultados y el balance",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Revisar el cierre y construir la situación financiera"
+       },
+       {
+        "id": "n8",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "fin",
+        "n": "Período cerrado y reportado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.9": {
+    "nota_version": "Versión As-Is: describe qué información financiera sale hoy del departamento, hacia dónde y con qué herramientas. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La información financiera que se prepara fuera del cierre estándar: la revisión previa con la Dirección de Finanzas, el material del comité, la rentabilidad por tienda y por canal, y los paquetes que piden los bancos. El cierre contable es el proceso anterior.",
+     "texto": "La reportería sale de dos sitios y va a dos destinos muy distintos: **adentro, al comité; afuera, a los bancos**. Y el segundo es el que impone el ritmo: la Dirección de Finanzas lo dice explícitamente, «la formalidad de la reportería es más exigente porque dependemos de la línea de crédito, dependemos de los bancos».\n\nHacia adentro el circuito está claro. La Gerencia de Contabilidad de cada país **revisa antes, en privado, con la Dirección de Finanzas**: estados financieros, rentabilidad, gastos, qué tienda no está rindiendo. Después es la Dirección de Finanzas quien expone en el comité; la Gerencia de Contabilidad no presenta. El comité de la Junta con finanzas se reúne **cada quince días, los miércoles**, y alterna entidad: un miércoles el cierre de la mayorista, el siguiente el del retail. En Colombia existe además un comité local de todos los líderes de área que convoca el responsable del país, programado semanal y en la práctica quincenal.\n\nHacia afuera, los paquetes para bancos los arma la propia Gerencia de Contabilidad, y el flujo de caja proyectado es un entregable que **solo se construye cuando un banco lo pide** para una línea de crédito: se estima la venta, se estiman los gastos sobre los desembolsos reales del corte, se calcula el costo de los préstamos y sus intereses, y se estructura en una hoja de cálculo. La gestión de la disponibilidad del día a día no está aquí, está en Tesorería.\n\nLa herramienta es la misma en todas partes y es la hoja de cálculo. En Venezuela el informe a la dirección es un Excel donde se condensa lo que se baja del sistema, con la composición de las partidas más representativas. En Colombia lo que se mira mensualmente es el balance y el estado de resultados, **el flujo de caja se revisa a diario** y la cartera tiene **seguimiento y reporte semanal**. En Panamá el análisis por tienda se hace con centros de costo dentro del ERP, pero el material del comité se arma aparte. **Ninguna entidad usa una herramienta de inteligencia de negocio**: preguntado directamente, el equipo de Panamá responde que no y que convendría cuando exista la conexión entre lo comercial y lo contable; en Colombia no se han preparado tableros.\n\nY hay un punto donde la información se detiene: la contadora de Colombia mantiene el cuadro de activos fijos **sin compartirlo con nadie** salvo la Revisoría Fiscal, a la espera de poder automatizarlo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad para la preparación; la Dirección de Finanzas del grupo para la presentación al comité",
+     "participantes": [
+      "Dirección de Finanzas del grupo — revisa con cada país antes del comité y es quien expone a la Junta.",
+      "Contadores Senior — mantienen los centros de costo asignados y explican las variaciones por tienda.",
+      "Contadora (Colombia) — arma los paquetes para bancos y gestiona con el responsable del país el contacto con la entidad financiera.",
+      "Junta Directiva y Comité de Finanzas — destinatarios de la información y quienes deciden sobre ella.",
+      "Tesorería — lleva la disponibilidad diaria y la proyección de fondos, que no se elabora en Contabilidad.",
+      "Asesor externo de finanzas y auditoría — participa en la Junta y en los comités de finanzas."
+     ],
+     "evidencia": [
+      "E-44",
+      "E-38",
+      "E-46",
+      "E-15",
+      "E-23"
+     ],
+     "notas": "La Dirección de Finanzas describe que el reporte de situación financiera a la Junta puede ir con hasta tres meses de desfase respecto del mes que informa, consecuencia del retraso de cierre de una de las entidades.",
+     "sin_evidencia": "No consta un formato común de reportería entre entidades ni un plazo comprometido de entrega: cada país arma su propia hoja de cálculo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se cierra el período, se acerca la sesión del comité, o un banco solicita información para una línea de crédito.",
+     "cadencia": "Mensual para el cierre; quincenal para el comité de finanzas; por evento para los bancos; diaria para el flujo de caja y semanal para la cartera en Colombia.",
+     "output": "Material revisado para el comité, análisis de rentabilidad por tienda y por canal, y paquete de información entregado al banco.",
+     "evidencia": [
+      "E-44",
+      "E-46",
+      "E-15"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-46",
+      "E-15",
+      "E-38"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Baja del ERP la información del período cerrado y comprueba que todas las operaciones tengan su centro de costo asignado."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Condensa la información en su hoja de cálculo: composición de las partidas más representativas, variaciones del período y rentabilidad por tienda o por canal."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Revisa el material en privado con la Dirección de Finanzas y le explica lo que llama la atención —una tienda cuyos gastos superan sus ventas, una variación que no tiene razón lógica—."
+      },
+      {
+       "id": "a4",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Expone los números en el comité de la Junta con finanzas, que sesiona cada quince días alternando entidad, y recoge las decisiones que salgan de ahí."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Cuando un banco pide información para una línea de crédito, arma el paquete: estados financieros del corte y flujo de caja proyectado construido sobre la estimación de ventas, los desembolsos reales y el costo de los préstamos."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Entrega el paquete al banco y coordina con el responsable del país lo que haga falta para el trámite."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Contador Senior / Contadora",
+       "Gerente de Contabilidad",
+       "Dirección de Finanzas del grupo"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "inicio",
+        "n": "Hay período cerrado o lo pide un banco"
+       },
+       {
+        "id": "n1",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Bajar la información y verificar los centros de costo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Condensar variaciones y rentabilidad en la hoja de cálculo",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "decision",
+        "n": "¿El destinatario es un banco?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Armar el flujo de caja proyectado y el paquete del banco"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Entregar el paquete y acompañar el trámite"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Información entregada al banco"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Revisar el material en privado con la Dirección de Finanzas"
+       },
+       {
+        "id": "n8",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Exponer los números en el comité de finanzas"
+       },
+       {
+        "id": "n9",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "fin",
+        "n": "Comité informado y decisiones recogidas"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n3",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "12.10": {
+    "nota_version": "Versión As-Is: describe cómo se atiende hoy la revisión externa, que no es la misma figura en los tres países. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "La coordinación del ciclo de revisión externa: entrega del balance de comprobación, atención del listado de requerimientos y de las muestras, respuesta a las observaciones y recepción de los estados financieros auditados con su empalme con la declaración de renta.",
+     "texto": "La figura que revisa desde fuera **no es la misma en los tres países, y esa es la diferencia estructural del proceso**.\n\nEn **Colombia** es la **Revisoría Fiscal**, una figura legal continua y no un encargo anual: revisa cada declaración antes de que se presente —pide los libros de trabajo y los soportes, hace observaciones, se le responde y da el último visto bueno—, firma los estados financieros junto con la contadora y el responsable del país, y es a quien se le entrega el cuadro de activos fijos. Es también **la única revisión externa que Colombia recibe**: no hay ninguna auditoría privada contratada aparte. Su alcance, como describe la propia contadora, va hacia las cifras y los estados financieros, no hacia los procesos internos.\n\nEn **Panamá** es una **auditoría externa contratada**, anual pero ejecutada en dos tramos: se trabaja el primer semestre y al cerrarlo los auditores emiten su reporte de hallazgos; a partir de enero se ataca el segundo semestre, muy amarrado a la declaración de renta por los ajustes que haya que hacer antes del 31 de marzo. El mecanismo es conocido: se les entrega el **balance de comprobación** y ellos devuelven un listado de requerimientos y después muestras —de gastos, de cuentas por pagar, de tesorería y hasta de salarios con Recursos Humanos—. Lo relevante de cómo está organizado es que **cada contador senior lidera la auditoría de su entidad** y coordina con las áreas que tienen la información, sin que la Gerencia de Contabilidad haga de intermediaria salvo en las dudas puntuales. Al cerrar, los auditores emiten los estados financieros auditados, que se asocian directamente con la declaración de renta.\n\nHay un punto de gobierno que el propio equipo de Panamá pone sobre la mesa: **la firma auditora es la misma desde hace muchísimos años**, viene con la familia fundadora, y este año —por primera vez— se están recibiendo cotizaciones de otras firmas para evaluar un cambio y «darle otra visión a los resultados». No hay un procedimiento de selección; es una evaluación que se abrió a pedido.\n\nEn **Venezuela** la revisión externa se apoya en un asesor fiscal-contable de muy largo recorrido con el grupo, que además es miembro de la Junta Directiva y de los comités de finanzas de varias entidades. Él mismo describe haber ejercido «como una especie de contralor»."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Contabilidad de cada entidad; en Panamá cada Contador Senior lidera la auditoría de su empresa",
+     "participantes": [
+      "Contadores Senior (Panamá) — lideran el ciclo de su entidad, reúnen las muestras y coordinan con las áreas que tienen la información.",
+      "Contadora (Colombia) — atiende a la Revisoría Fiscal y le entrega los libros de trabajo, los soportes y el cuadro de activos.",
+      "Revisoría Fiscal (Colombia) — revisa cada declaración antes de presentarla y firma los estados financieros.",
+      "Firma de auditoría externa (Panamá) — emite el listado de requerimientos, pide muestras y produce los estados financieros auditados.",
+      "Asesor externo de finanzas y auditoría del grupo — acompaña la revisión y participa en la Junta y en los comités de finanzas.",
+      "Cuentas por Pagar, Tesorería y Recursos Humanos — aportan las muestras que la auditoría solicita de su ámbito.",
+      "Dirección de Finanzas del grupo — recibe los estados financieros auditados."
+     ],
+     "evidencia": [
+      "E-44",
+      "E-46",
+      "E-23",
+      "E-38"
+     ],
+     "notas": "El levantamiento del macroproceso recoge varias prácticas de esta materia que no se documentan aquí por la regla de despersonalización y de no exponer sensibilidades fiscales del cliente; están disponibles para el equipo consultor.",
+     "sin_evidencia": "No consta un procedimiento de selección o rotación de la firma auditora, ni quién decide el cambio; la evaluación en curso en Panamá es una iniciativa de la propia Gerencia de Contabilidad."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Arranca el ciclo de revisión del semestre o del ejercicio, o la Revisoría Fiscal requiere la información de una declaración antes de su presentación.",
+     "cadencia": "En Panamá semestral dentro de un ciclo anual; en Colombia continua, obligación por obligación; en Venezuela anual.",
+     "output": "Estados financieros auditados, observaciones respondidas y ajustes incorporados antes de la declaración de renta.",
+     "evidencia": [
+      "E-44",
+      "E-46"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-44",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Entrega al revisor externo el balance de comprobación del período que se va a revisar."
+      },
+      {
+       "id": "a2",
+       "rol": "Revisor externo",
+       "texto": "Devuelve el listado de requerimientos y, sobre él, las muestras que quiere examinar: gastos, cuentas por pagar, activos fijos, tesorería y salarios."
+      },
+      {
+       "id": "a3",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Lidera la atención del requerimiento: va a las personas clave de cada área, reúne la información y la entrega al revisor."
+      },
+      {
+       "id": "a4",
+       "rol": "Revisor externo",
+       "texto": "Examina la muestra y emite sus observaciones sobre lo que encuentra."
+      },
+      {
+       "id": "a5",
+       "rol": "Contador Senior / Contadora",
+       "texto": "Responde la observación con su explicación y, si procede, registra el ajuste contable antes de que se cierre el ejercicio."
+      },
+      {
+       "id": "a6",
+       "rol": "Revisor externo",
+       "texto": "Emite los estados financieros auditados, o da el visto bueno a la declaración cuando se trata de la revisión continua."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Empalma los estados financieros auditados con la declaración de renta y los traslada a la Dirección de Finanzas del grupo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Contabilidad",
+       "Revisor externo",
+       "Contador Senior / Contadora"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "inicio",
+        "n": "Arranca el ciclo de revisión externa"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Entregar el balance de comprobación del período"
+       },
+       {
+        "id": "n2",
+        "carril": "Revisor externo",
+        "tipo": "tarea",
+        "n": "Emitir el listado de requerimientos y pedir muestras"
+       },
+       {
+        "id": "n3",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Reunir la información con las áreas y entregarla"
+       },
+       {
+        "id": "n4",
+        "carril": "Revisor externo",
+        "tipo": "decision",
+        "n": "¿Hay observaciones?"
+       },
+       {
+        "id": "n5",
+        "carril": "Contador Senior / Contadora",
+        "tipo": "tarea",
+        "n": "Responder la observación y registrar el ajuste"
+       },
+       {
+        "id": "n6",
+        "carril": "Revisor externo",
+        "tipo": "tarea",
+        "n": "Emitir los estados financieros auditados"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Empalmar con la declaración de renta y trasladarlos"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Ejercicio auditado y conciliado con la renta"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "12.11": {
+    "nota_version": "Versión As-Is: este proceso no existe hoy como función. Lo que se describe es lo que ocurre en su lugar, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Lo que hoy cumple, de hecho, la función de verificación interna sobre los procesos que alimentan la contabilidad. No cubre la auditoría externa ni la Revisoría Fiscal, que son verificaciones de un tercero.",
+     "texto": "**No existe una función de auditoría interna en ninguna entidad del grupo.** Lo dice sin matices el Gerente de Contabilidad de Venezuela —«no existe un departamento de auditoría como tal que valide el cumplimiento de esos procesos»— y nada en el levantamiento lo contradice.\n\nLo que ocurre en su lugar es que **el control aparece como subproducto de la revisión contable**. Cuando un contador analiza una cuenta y el saldo no tiene explicación, va a buscarla; cuando encuentra que el origen es una práctica y no un error puntual, levanta la alerta. Los casos que el propio equipo cita son de ese tipo: un punto de venta que llevaba tiempo acumulando efectivo sin depositarlo porque nadie le había explicado por qué debía hacerlo; una factura vencida de un cliente al que se le vuelve a facturar sin que nadie lo frene; un activo que figura en los libros y no coincide con lo que hay en la tienda; una liquidación de personal que Contabilidad solo ve **cuando el hecho ya está consumado**, sin haber podido verificar antes el cálculo ni los descuentos pendientes.\n\nHay además tres cosas que sí funcionan como verificación, aunque no sean auditoría interna. La primera es el **muestreo de la auditoría externa**, que en Panamá entra a gastos, cuentas por pagar, tesorería y salarios y es la única revisión sistemática que atraviesa áreas. La segunda es el **plan de revisión que Colombia acordó** de aquí a cierre de año y hasta el primer trimestre siguiente, para mirar cartera, inventario y proveedores con más detalle. Y la tercera es el propio mecanismo de la conciliación: mientras la transitoria no cierre, alguien tiene que explicar por qué.\n\nLo que existe formulado y no ejecutado es una lista de objetivos de la Gerencia de Contabilidad de Venezuela: **arqueos sorpresivos** de efectivo en sede, resguardo de la **factura original** en cuentas por cobrar una vez el cliente paga, control físico de activos fijos, y un **checklist de línea de crédito a cliente nuevo** —documento constitutivo, estado financiero, referencia bancaria— que hoy no existe y que determina cuánto crédito se le puede dar a quien entra. Son objetivos declarados, sin función ni calendario que los ejecute."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: no existe función de auditoría interna. De hecho lo asume la Gerencia de Contabilidad de cada entidad cuando la revisión de cuentas destapa algo",
+     "participantes": [
+      "Gerente de Contabilidad — detecta el hallazgo al revisar y decide a quién se lo plantea.",
+      "Contador Senior / Coordinador Contable — es quien tropieza con el saldo que no cuadra y reconstruye su origen.",
+      "Dueño del proceso donde nació el hallazgo — cuentas por cobrar, cuentas por pagar, tienda, tesorería o recursos humanos.",
+      "Auditoría externa y Revisoría Fiscal — su muestreo es hoy la única verificación sistemática que atraviesa varias áreas.",
+      "Dirección de Finanzas del grupo — destinataria de los memorandos cuando el hallazgo excede lo que la entidad puede resolver sola."
+     ],
+     "evidencia": [
+      "E-38",
+      "E-44",
+      "E-46"
+     ],
+     "notas": "El Gerente de Contabilidad de Venezuela formula explícitamente que su intención es que el departamento se mueva «más a un departamento de auditoría contable» y abarque otras unidades de negocio; es una intención, no una función constituida.",
+     "sin_evidencia": "No consta que se haya ejecutado ningún arqueo sorpresivo, ninguna toma física de activos fijos ni ninguna verificación de segregación de funciones en ninguna de las tres entidades."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una revisión contable destapa un saldo, una práctica o una ausencia de control que no se explica por un error puntual de registro.",
+     "cadencia": "Por evento; no hay calendario de verificación.",
+     "output": "Alerta levantada al dueño del proceso, o memorando dirigido a la Dirección de Finanzas cuando el asunto excede a la entidad.",
+     "evidencia": [
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-38",
+      "E-44"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Al revisar una cuenta encuentra un saldo, un movimiento o una ausencia que no se explica por un error de registro."
+      },
+      {
+       "id": "a2",
+       "rol": "Contador Senior / Coordinador Contable",
+       "texto": "Reconstruye el origen: qué se hizo, quién lo hizo y si es un hecho aislado o una forma de trabajar que se viene repitiendo."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Decide el alcance. Si es puntual, lo plantea directamente al dueño del proceso para que lo corrija."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Si excede lo que la entidad resuelve sola, prepara un memorando con los casos documentados y lo dirige a la Dirección de Finanzas antes de sentarse con el área."
+      },
+      {
+       "id": "a5",
+       "rol": "Dueño del proceso donde nació el hallazgo",
+       "texto": "Explica qué está pasando en su área y acuerda con Contabilidad el cambio, sin que exista un plan de acción formal ni una fecha comprometida."
+      },
+      {
+       "id": "a6",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Toma conocimiento del memorando y decide si el asunto escala; no hay un seguimiento sistemático del cierre de los hallazgos."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Contador Senior / Coordinador Contable",
+       "Gerente de Contabilidad",
+       "Dueño del proceso donde nació el hallazgo",
+       "Dirección de Finanzas del grupo"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "inicio",
+        "n": "Una revisión destapa algo que no se explica"
+       },
+       {
+        "id": "n1",
+        "carril": "Contador Senior / Coordinador Contable",
+        "tipo": "tarea",
+        "n": "Reconstruir el origen y ver si se viene repitiendo"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "decision",
+        "n": "¿Excede a la entidad?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Plantearlo directamente al dueño del proceso"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Preparar el memorando con los casos documentados"
+       },
+       {
+        "id": "n5",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Tomar conocimiento y decidir si el asunto escala"
+       },
+       {
+        "id": "n6",
+        "carril": "Dueño del proceso donde nació el hallazgo",
+        "tipo": "tarea",
+        "n": "Explicar qué ocurre y acordar el cambio"
+       },
+       {
+        "id": "n7",
+        "carril": "Dueño del proceso donde nació el hallazgo",
+        "tipo": "fin",
+        "n": "Hallazgo planteado, sin seguimiento formal"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n3",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "12.12": {
+    "nota_version": "Versión As-Is: este proceso no existe hoy como tal. Lo que se describe es cómo se fijan de hecho los criterios contables y cómo viajan —o no— de un país a otro. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Cómo se definen hoy los criterios contables comunes, cómo se documentan los procedimientos y qué mecanismo existe para que una práctica madura de una filial se convierta en la del grupo.",
+     "texto": "**No hay una política contable escrita y común a las tres entidades.** Cada Gerencia de Contabilidad fija sus criterios y los sostiene con su propio razonamiento profesional, y los ejemplos son concretos: el umbral de capitalización de activos lo puso la responsable de Panamá en quinientos dólares y ella misma dice «este es mi criterio, no necesariamente debe ser así»; el tratamiento del diferencial cambiario en Venezuela sigue la posición financiera y no la fiscalista, por tradición; y la cantidad de cuentas transitorias que se crea la decidió cada país por su cuenta —Panamá recomendó a Venezuela al arrancar que no creara demasiadas y admite no saber si se hizo caso—.\n\nLo que existe en lugar del mecanismo es **la recomendación entre pares**. La Gerencia de Contabilidad de Panamá considera que sus procesos deberían replicarse en toda la región y, preguntada por si tiene potestad de fijar una línea rectora, responde que ella dice que se tiene que hacer; pero Colombia lleva dos años con el ERP y sigue conciliando fuera de él, y eso mismo se lo ha advertido. La Dirección de Finanzas empuja en la misma dirección —«la idea es que nos unifiquemos»— y va país por país, cambiando primero el formato y después el hábito. El resultado hoy es que **conviven tres modelos**, sobre versiones distintas del ERP, con desarrollos a medida que se construyeron por separado en cada país y que no se copian solos.\n\nLa documentación de procedimientos está igual de repartida. **Panamá** levantó los suyos y se los pasó a la Dirección de Finanzas —caja menuda, conciliaciones bancarias, registro de anticipos, presentación de informes a la autoridad— y los ha ido mejorando añadiendo las pantallas del sistema, con la facturación como el más detallado. **Venezuela** los está escribiendo ahora, junto con Cuentas por Pagar: el instructivo de registro de importaciones y el paso a paso de la conciliación bancaria; el Gerente de Contabilidad lo señala como «una de las mayores carencias a nivel de actividades en todos los espacios» y argumenta el motivo con precisión: cuando el conocimiento vive solo en el usuario, se va la persona y se va el trabajo. **Colombia** lo intentó a principios de año y se quedó en un básico: «no avanzamos mucho con eso».\n\nY hay un hueco de formación que alimenta el problema: **nadie capacita en el sistema**. Quien llega aprende porque «el uno le explica al otro y el otro le explica al otro como lo aprendió», con los vicios que eso arrastra; la contadora de Colombia lo pide explícitamente —material sencillo, un video, algo a la mano— y describe haber tardado meses en entender cómo funcionaba el ajuste de costos de inventario."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: no existe la función. De hecho la ejerce cada Gerencia de Contabilidad para su entidad, con la Dirección de Finanzas empujando la unificación",
+     "participantes": [
+      "Gerente de Contabilidad de cada entidad — fija los criterios de su país y documenta sus procedimientos cuando le da el tiempo.",
+      "Dirección de Finanzas del grupo — es quien plantea la unificación y va cambiando los formatos país por país.",
+      "Coordinador Contable y Cuentas por Pagar (Venezuela) — redactan conjuntamente los instructivos de importaciones y de conciliación bancaria.",
+      "Coordinación de Sistemas y partner del ERP — construyen los desarrollos a medida que después no viajan de un país a otro.",
+      "Asesor externo de finanzas y auditoría — señala las políticas contables entre las materias con debilidades.",
+      "Junta Directiva y Comité de Finanzas — espacio donde se conocen las decisiones, no donde se fija la política contable."
+     ],
+     "evidencia": [
+      "SC-05",
+      "E-44",
+      "E-38",
+      "E-46",
+      "E-15",
+      "E-23"
+     ],
+     "notas": "El asesor externo describe además un desfase de gobierno que afecta a este proceso: asuntos que se deciden en un espacio reducido llegan a la Junta como hechos consumados, y hay temas que quedan inconclusos sin seguimiento.",
+     "sin_evidencia": "No consta ningún documento de política contable del grupo, ni un acta donde se haya acordado un criterio común entre las tres entidades."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una entidad resuelve algo que las otras no tienen, o la Dirección de Finanzas detecta que el mismo asunto se está tratando de tres maneras distintas.",
+     "cadencia": "Por evento; no hay revisión periódica de criterios ni calendario de actualización de procedimientos.",
+     "output": "Criterio adoptado localmente y, en el mejor caso, recomendado a las otras entidades; instructivos de trabajo redactados de forma desigual por país.",
+     "evidencia": [
+      "SC-05",
+      "E-15"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "SC-05",
+      "E-44",
+      "E-38",
+      "E-46",
+      "E-15"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Se enfrenta a un asunto que exige un criterio —un umbral de capitalización, el tratamiento de una diferencia, cuántas transitorias crear— y lo resuelve con su propio razonamiento profesional."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Aplica el criterio en su entidad y, cuando le da el tiempo, lo deja escrito como instructivo de trabajo con las pantallas del sistema."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Si considera que su solución sirve para las demás, se la muestra y se la recomienda a las otras Gerencias de Contabilidad, sin que haya un mecanismo que obligue a adoptarla."
+      },
+      {
+       "id": "a4",
+       "rol": "Dirección de Finanzas del grupo",
+       "texto": "Detecta que el mismo asunto se está tratando de tres maneras y plantea la unificación, empezando por cambiar el formato de trabajo del país que va más atrás."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Contabilidad de la otra entidad",
+       "texto": "Adopta el criterio, lo adapta o sigue con el suyo: no hay instancia que resuelva la discrepancia ni consecuencia por no adoptarlo."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinación de Sistemas",
+       "texto": "Cuando la adopción exige el desarrollo que ya tiene otro país, hay que volver a construirlo o copiar el código en la versión del ERP de esa entidad."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Contabilidad",
+       "Dirección de Finanzas del grupo",
+       "Gerente de Contabilidad de la otra entidad",
+       "Coordinación de Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "inicio",
+        "n": "Hace falta un criterio contable"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Resolverlo con criterio profesional propio y aplicarlo"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "decision",
+        "n": "¿Se deja escrito como instructivo?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Redactar el instructivo con las pantallas del sistema"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Recomendar la solución a las otras entidades"
+       },
+       {
+        "id": "n5",
+        "carril": "Dirección de Finanzas del grupo",
+        "tipo": "tarea",
+        "n": "Plantear la unificación al país que va más atrás"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad de la otra entidad",
+        "tipo": "decision",
+        "n": "¿Adopta el criterio?"
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinación de Sistemas",
+        "tipo": "tarea",
+        "n": "Reconstruir el desarrollo en la versión del ERP de esa entidad"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad de la otra entidad",
+        "tipo": "tarea",
+        "n": "Seguir con su propio criterio, sin instancia que lo resuelva"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Contabilidad de la otra entidad",
+        "tipo": "fin",
+        "n": "Criterio adoptado o conviviendo con otros dos"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+,
  "11": {
   "procesos": {
    "11.1": {
