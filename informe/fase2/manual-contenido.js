@@ -217,6 +217,54 @@
 // propia, no marketing — corrección de la Presidencia, SC-10). Se validan en la
 // Junta Directiva, no solo con los gerentes (SC-10).
 //
+// Macro 14 (Gestión de Tecnología de Información) — COMPLETO en las dos
+// versiones, 27-sep-2026: los 7 procesos To-Be + N0 (Contexto, Gobernanza,
+// Marco de referencia, Agenda de mejora y Anexos) y los 7 As-Is. Sin procesos
+// «to-be»: 3 as-is (14.3 desarrollo y despliegue, 14.5 soporte y parque,
+// 14.6 habilitación de tiendas) y 4 híbridos (14.1, 14.2, 14.4, 14.7).
+//
+// Fuentes cruzadas: las 87 entrevistas y sesiones de Supabase, leídas en 9
+// lotes con foco en TI y datos — núcleo en E-07 y E-52 (gerencia de sistemas
+// y seguridad, PA), E-32 y E-33 (coordinación y técnico de sistemas, VE),
+// SC-04 (auditoría de ciberseguridad y migración de versión), SC-05 y SC-08
+// (personalizaciones y herramientas de las áreas) — + los docs de Lark del
+// Dpto. de TI: «Procesos» (nueve procedimientos, tres copias PA/VE/CO) y el
+// blueprint técnico del ERP de Kenex Trading, más cargos, onboarding,
+// desvinculación y el acuerdo de confidencialidad + ITIL 4, COBIT 2019,
+// ISO/IEC 27001/27002, NIST CSF 2.0, CIS v8.1 y la protección de datos por
+// país. Hallazgo transversal: la tecnología del grupo funciona, pero su
+// conocimiento vive en muy pocas personas y casi ninguna rutina está escrita;
+// unos 140 desarrollos propios sobre el ERP frenan la migración de versión, y
+// las áreas construyen herramientas conectadas a los datos fuera de TI.
+// ⚠️ Repositorio público: 14.4 describe la seguridad solo en términos
+// genéricos, sin sistemas, cuentas ni controles faltantes por sistema.
+// Frontera con el macro 15: 14.1 entrega interfaces y maestros sincronizados;
+// 14.4 ejecuta los permisos de tableros que define 15.5.
+//
+// Macro 15 (Gestión de Datos e Inteligencia de Negocio) — COMPLETO en las
+// dos versiones, 27-sep-2026: los 6 procesos To-Be + N0 (Contexto,
+// Gobernanza, Marco, Agenda y Anexos) y los 6 As-Is. Madurez: cinco
+// híbridos y un «to-be», 15.3, el calendario de entrega con las fuentes,
+// que hoy no existe.
+//
+// Fuentes cruzadas: las 87 entrevistas de Supabase leídas en 9 lotes, con
+// E-18 (célula de BI, VE) como fuente principal y E-10, E-08, E-09, E-40,
+// E-55, E-63, E-26 y SC-11 como contraste; los docs de Lark «Levantamiento
+// Procesos Compras» (VE), «Roadmap para proyectos BI» (PMO), la guía de la
+// gerencia regional de retail, «Cuellos de botella Cubitt Colombia», el
+// reporte de uso de Claude, el Blueprint de Odoo 16 y las descripciones de
+// cargo de Kenex Trading; y DAMA-DMBOK2, ISO 8000-150, COBIT APO14/APO09,
+// GS1 SLSRPT/INVRPT y la guía de ciclo de vida y uso de tableros.
+//
+// Arquitectura: el To-Be nombra el entorno por su función (repositorio
+// analítico, herramienta de tableros); Fabric y Power BI solo figuran en
+// contexto.sistemas. Frontera con el 14: 14.1 diseña interfaces y maestros,
+// 14.4 ejecuta accesos, 15.5 define quién ve qué.
+//
+// Hallazgo transversal: la célula de datos es técnicamente sólida, pero el
+// circuito que la rodea no le entrega el dato con fecha ni usa lo que produce,
+// y la célula no tiene un lugar descrito en la estructura.
+//
 // Estado de este contenido: BORRADOR — pendiente de revisión del equipo.
 // No editar a mano el árbol (eso sale de manual-procesos-datos.js); este
 // archivo solo aporta el contenido de las secciones. Ver checklist de
@@ -26505,5 +26553,6185 @@ window.MANUAL_CONTENIDO = {
    }
   }
  }
-}
+},
+ "14": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Describir cómo el grupo decide, construye, protege y sostiene su tecnología: qué plataformas usa y cómo se conectan, cómo se pide y se entrega un cambio en el ERP, cómo se pasa a producción sin detener la venta, quién entra a qué sistema y cómo se atiende un incidente de seguridad, cómo se da soporte a oficinas, tiendas y bodegas, cómo se equipa un punto de venta nuevo y cómo se gobierna a los terceros de los que depende la operación tecnológica. Es el macroproceso que mantiene en pie los sistemas sobre los que corren todos los demás.",
+    "alcance": "Cubre los siete procesos del macroproceso: arquitectura de sistemas e integraciones; requerimientos y evolución funcional del ERP; ciclo de desarrollo y despliegue a producción; accesos, ciberseguridad y protección de la información; soporte a usuario y parque tecnológico; habilitación tecnológica de puntos de venta y sedes nuevas, y gestión de proveedores y partners tecnológicos. Aplica a las operaciones propias de Panamá, Venezuela y Colombia, que comparten el equipo regional de sistemas y el ERP; Costa Rica y Kenex USA operan con plataformas propias y entran solo en lo que tocan al grupo. No cubre la captación, normalización y calidad del dato analítico ni la publicación de tableros, que son del macroproceso de Gestión de Datos e Inteligencia de Negocio; ni la política de uso de la inteligencia artificial y su licenciamiento, que son del macroproceso de Adopción de IA y Transformación Digital; ni la apertura de una tienda como proyecto, que conducen la PMO y Ventas Retail; ni el mantenimiento físico de las sedes, que es de Servicios Generales.",
+    "audiencia": [
+     "Gerente de Tecnología / Sistemas",
+     "Coordinador(a) de Sistemas",
+     "Especialista de Tecnología (Web/Infraestructura)",
+     "Encargado(a) de Soporte Técnico",
+     "Analista de Sistemas / Datos",
+     "Gerente de Proyectos",
+     "Gerente de Contabilidad / Administración",
+     "Gerente de Recursos Humanos",
+     "Coordinador(a) de Recursos Humanos",
+     "Gerente de Operaciones y Logística",
+     "Gerente de E-commerce / Ventas Web",
+     "Gerente Regional de Marketing",
+     "Gerente de Tienda",
+     "Country Manager",
+     "Junta Directiva"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "Tecnología es un macroproceso de soporte que atraviesa a todos los demás: cada venta en tienda, cada pedido al mayor, cada factura fiscal y cada conciliación pasa por un sistema que este macroproceso configura, conecta o mantiene. Lo sostiene un equipo pequeño y regional: una gerencia de sistemas en Panamá que atiende a los tres países con ERP, una coordinación en Venezuela con técnicos de campo y un soporte remoto de tiendas de siete días, y ningún personal de TI propio en Colombia, que se atiende desde Panamá. El desarrollo lo hacen programadores independientes, contratados por honorarios y repartidos en varios países, y el partner del ERP de cada país conserva la localización fiscal y contable.\n\nEl grupo opera una instancia del ERP por país, con versiones distintas y del orden de ciento cuarenta desarrollos propios construidos en año y medio para cubrir lo que el estándar no traía. Esos desarrollos resolvieron necesidades reales —la preventa sobre mercancía en tránsito, la réplica de productos entre países, el avance de preparación del almacén visible para los vendedores—, pero hoy frenan la migración de versión: cada módulo propio hay que rehacerlo en la versión siguiente, y la dirección ya pidió no personalizar más. A la par, desde que la inteligencia artificial se volvió accesible, las áreas construyen sus propias herramientas —tableros, aplicaciones, bases— conectadas a los datos por su cuenta, fuera del perímetro que TI administra.\n\nLa arquitectura de IA que propone este mismo informe ordena ese paisaje en dos capas: el ERP y el WMS quedan como sistemas de registro, sin módulos personalizados nuevos, y la lógica nueva y las integraciones van en la plataforma del grupo, a la que se conectan también las herramientas de las áreas. En ese modelo este macroproceso opera la plataforma —cuentas de servicio, conectores y permisos por país y rol— y conserva lo que ya hace bien: el soporte de tiendas de siete días, la ventana de despliegue que no interrumpe la venta y la verificación previa de todo cambio que toca contabilidad o inventario.",
+    "duenos": [
+     [
+      "Macroproceso / regional",
+      "Gerente de Tecnología / Sistemas",
+      "Responde por la arquitectura de plataformas, la evolución del ERP, el pase a producción, la seguridad y los proveedores tecnológicos de los tres países con ERP; es el punto de escalamiento de todo el equipo."
+     ],
+     [
+      "País (Venezuela)",
+      "Coordinador(a) de Sistemas",
+      "Conduce el soporte de segundo nivel y la configuración del ERP en el país con más tiendas, parametriza los puntos de venta, certifica los desarrollos con el usuario y habilita la tecnología de las aperturas."
+     ],
+     [
+      "Regional / seguridad",
+      "Especialista de Tecnología (Web/Infraestructura)",
+      "Ejecuta las altas, cambios y bajas de acceso, custodia las credenciales de servicio, revisa la consola de seguridad, administra dominios y sitios web y compra los equipos de la región."
+     ],
+     [
+      "Operativo / soporte",
+      "Encargado(a) de Soporte Técnico",
+      "Opera el canal único de soporte: registra, clasifica y resuelve en primer nivel las incidencias de equipos, redes, cámaras y conectividad, y lleva el inventario del parque."
+     ],
+     [
+      "Operativo / campo",
+      "Analista de Sistemas / Datos",
+      "Atiende en sitio equipos, redes, puntos de venta e impresoras fiscales, y habilita la infraestructura de las tiendas nuevas; en las bodegas, los usuarios expertos del WMS ocupan este mismo cargo."
+     ],
+     [
+      "Grupo",
+      "Junta Directiva",
+      "Aprueba las plataformas nuevas, los partners estratégicos, el gasto tecnológico por encima del umbral y la política del macroproceso; recibe su reporte trimestral."
+     ]
+    ],
+    "entidades": [
+     [
+      "Kenex Trading, S.A.",
+      "Panamá (Zona Libre de Colón)",
+      "Hub regional",
+      "Una de las compañías del ERP multiempresa de Panamá; en su bodega opera el WMS integrado al ERP en los dos sentidos. Es la sede de la gerencia regional de sistemas."
+     ],
+     [
+      "Casiolandia, S.A.",
+      "Panamá",
+      "Operación propia",
+      "Tiendas y comercio electrónico de Panamá sobre el mismo ERP multiempresa; su bodega de ciudad está en transición al WMS regional."
+     ],
+     [
+      "Basaidai, S.A.",
+      "Panamá (Zona Libre de Colón)",
+      "Intermediaria",
+      "Compañía del ERP de Panamá por la que pasa la venta de Zona Libre al mercado local; la integración entre compañías del ERP ejecuta esa triangulación."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Operación propia",
+      "Instancia propia del ERP, con la nómina integrada, facturación digital en la venta web y máquinas fiscales en unas veinte tiendas; es el mayor volumen de soporte del grupo."
+     ],
+     [
+      "Deltadir, S.A.S.",
+      "Colombia",
+      "Operación propia",
+      "Instancia propia del ERP, la primera que se implantó; no tiene personal de TI local y se atiende desde Panamá."
+     ],
+     [
+      "Importbel, S.A.",
+      "Costa Rica",
+      "Socio local",
+      "Opera un ERP de un proveedor local, fuera del ERP del grupo, con su propio personal de sistemas; la gerencia regional lo asesora y no lo administra."
+     ],
+     [
+      "Kenex USA",
+      "Estados Unidos",
+      "Operación propia",
+      "Opera con plataformas propias de comercio electrónico y contabilidad, conectadas por su propio equipo, sin intervención del área de sistemas regional."
+     ]
+    ],
+    "sistemas": [
+     [
+      "ERP (Odoo), una instancia por país",
+      "Ventas, compras, inventario, contabilidad, facturación y punto de venta; en Venezuela, también la nómina. Panamá opera varias compañías en una misma instancia. Cada país está en una versión distinta, con desarrollos propios que no se trasladan solos entre versiones.",
+      "Todos"
+     ],
+     [
+      "WMS (EBS) y WMS anterior",
+      "Ubicaciones, preparación y despacho en la bodega de Zona Libre, integrado al ERP en los dos sentidos; se extiende a la bodega de ciudad de Panamá y a Venezuela, mientras un WMS anterior sigue en transición.",
+      "14.1 · 14.2 · 14.7"
+     ],
+     [
+      "Lark",
+      "Plataforma colaborativa: mensajería, correo, tareas, aprobaciones, formularios y bases. Es el canal de los requerimientos a sistemas y de los grupos de soporte, y recibe avisos automáticos del ERP.",
+      "14.1 · 14.2 · 14.4 · 14.5"
+     ],
+     [
+      "Tiendas web (Shopify) y marketplaces",
+      "Una tienda web por país, conectada al ERP para existencias, precios y pedidos, e integradores de marketplaces en Colombia y Venezuela.",
+      "14.1 · 14.4"
+     ],
+     [
+      "Facturación electrónica y equipos fiscales",
+      "Proveedor autorizado de facturación electrónica enlazado al ERP en Panamá; imprenta digital para la venta web en Venezuela y máquinas fiscales en sus tiendas.",
+      "14.1 · 14.6 · 14.7"
+     ],
+     [
+      "Integración bancaria del punto de venta y pasarelas de pago",
+      "Datáfonos de varios bancos por tienda, un procesador de pagos entre el ERP y el cobro en Venezuela, la plataforma de pagos diferidos y los enlaces de pago.",
+      "14.6 · 14.7"
+     ],
+     [
+      "Correo corporativo y dominios",
+      "Correo de la empresa y dominios de las marcas por país, administrados de forma central.",
+      "14.4"
+     ],
+     [
+      "Consola de seguridad de los equipos",
+      "Antivirus y filtros de seguridad de los equipos del grupo, con revisión recurrente de alertas.",
+      "14.4 · 14.5"
+     ],
+     [
+      "Power BI / Microsoft Fabric",
+      "Tableros y modelos del equipo de inteligencia de negocio, conectados al ERP. La arquitectura de IA propuesta en este informe lleva esta función a la plataforma del grupo; la herramienta final la decide la Junta.",
+      "14.1 · 14.4"
+     ],
+     [
+      "Herramientas construidas por las áreas",
+      "Tableros, aplicaciones y agentes hechos con inteligencia artificial, bases de Lark y hojas conectadas al ERP. Parte de ellas vive en servicios en la nube contratados por la propia persona; no consta un inventario de cuáles son ni de dónde vive cada una. La arquitectura de IA propuesta en este informe lleva su conexión a la plataforma del grupo; la herramienta final la decide la Junta.",
+      "14.1 · 14.4"
+     ],
+     [
+      "Sistemas cuya naturaleza no consta",
+      "La herramienta de conciliación bancaria de Panamá se describe a la vez como sistema en adquisición y como desarrollo propio; el sistema de días de inventario que compró Colombia no se identifica; el registro de órdenes de servicio técnico de las tiendas de Venezuela no consta si es un producto comercial o un desarrollo local.",
+      "14.1 · 14.7"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Dirección y Gobierno Corporativo",
+      "Entrada / salida",
+      "Recibe de la Junta Directiva la aprobación de plataformas nuevas, partners estratégicos y gasto sobre el umbral; le entrega el reporte trimestral de tecnología."
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Coordinación",
+      "Los requerimientos que involucran varias áreas o presupuesto propio se gestionan como proyecto; las aperturas llegan como proyecto con su plano y su fecha."
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Coordinación",
+      "La política de uso de la IA y el licenciamiento se deciden allí; este macroproceso da las cuentas corporativas, conecta las herramientas a la plataforma del grupo y valida técnicamente cada desarrollo."
+     ],
+     [
+      "Compras y Abastecimiento / Logística y Operaciones",
+      "Coordinación",
+      "Integración del WMS con el ERP, alta de productos y réplica del maestro de productos entre países."
+     ],
+     [
+      "Ventas Retail",
+      "Entrada / salida",
+      "Las tiendas reportan sus incidencias al canal único y reciben el punto de venta habilitado en cada apertura."
+     ],
+     [
+      "Ventas Web (E-Commerce)",
+      "Coordinación",
+      "Tiendas web por país, marketplaces y pasarelas integrados al ERP."
+     ],
+     [
+      "Contabilidad",
+      "Coordinación",
+      "Diarios contables del punto de venta, facturación electrónica, alta de equipos como activo fijo y validación del efecto contable de toda interfaz o cambio."
+     ],
+     [
+      "Administración y Finanzas",
+      "Coordinación",
+      "Aprobación y pago a proveedores tecnológicos, e integración bancaria de los puntos de venta."
+     ],
+     [
+      "Gestión de Datos e Inteligencia de Negocio",
+      "Salida",
+      "Este macroproceso entrega las interfaces, los puntos de conexión y los maestros sincronizados entre países; la captación, la normalización y la calidad del dato analítico son del macroproceso de datos. Quién ve qué en los tableros lo define ese macroproceso y aquí se ejecuta."
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Entrada",
+      "Solicitud de dominios y sitios web por país, y accesos a las plataformas del área."
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Entrada",
+      "Aviso de cada ingreso, cambio de rol y salida, que dispara el alta o la baja de accesos y la entrega o recuperación de equipos."
+     ],
+     [
+      "Gestión Legal y Cumplimiento",
+      "Coordinación",
+      "Contratos y acuerdos de confidencialidad con proveedores; acompañamiento del aviso legal de un incidente con datos personales."
+     ],
+     [
+      "Gestión de Servicios Generales y Administración",
+      "Coordinación",
+      "Frontera física: cámaras, red y equipos del lado de Sistemas; edificio, electricidad y alarmas del lado de Servicios Generales."
+     ],
+     [
+      "Gestión de Procesos y Mejora Continua",
+      "Coordinación",
+      "Publicación y control de cambios de la documentación de los procesos y de los sistemas."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Gerente de Tecnología / Sistemas",
+      "Regional (Panamá, Venezuela, Colombia)",
+      "Mantiene el mapa de plataformas e interfaces, evalúa y prioriza los requerimientos, aprueba cada pase a producción, autoriza los accesos privilegiados, conduce la respuesta a incidentes y coordina a partners y desarrolladores.",
+      "Viabilidad y vía de cada requerimiento; prioridad y asignación de desarrolladores; aprobación y clasificación de cada cambio; gasto tecnológico dentro de su umbral.",
+      "Plataformas nuevas, partners estratégicos y gasto sobre el umbral escalan a la Junta Directiva; un incidente que compromete datos personales, a la Junta con la asesoría jurídica del grupo."
+     ],
+     [
+      "Coordinador(a) de Sistemas",
+      "Venezuela, con alcance regional en aperturas",
+      "Clasifica la entrada, atiende el segundo nivel del ERP, parametriza los puntos de venta, certifica con el usuario, programa los pases y recibe el primer reporte de un incidente de seguridad.",
+      "Clasificación de un pedido; programación del pase dentro de la ventana; reversión ante una falla; habilitación de una tienda cuando la lista de verificación está completa.",
+      "Lo que no resuelve escala a la Gerencia de Tecnología; lo que es localización, al partner del país con ticket."
+     ],
+     [
+      "Especialista de Tecnología (Web/Infraestructura)",
+      "Regional",
+      "Ejecuta altas, cambios y bajas en todas las plataformas, custodia las credenciales de servicio, revisa la consola de seguridad, administra dominios y sitios, compra equipos y da acceso a los proveedores.",
+      "Perfil estándar según la matriz de perfiles; bloqueo inmediato de una cuenta ante sospecha.",
+      "Accesos privilegiados y excepciones a la matriz escalan a la Gerencia de Tecnología."
+     ],
+     [
+      "Encargado(a) de Soporte Técnico",
+      "Por país",
+      "Opera el canal único, registra y clasifica cada caso, resuelve el primer nivel y lleva el inventario del parque.",
+      "Prioridad del caso según impacto; activación de la factura de contingencia en tienda.",
+      "Fallas de aplicación, a la coordinación; fallas de proveedor, a quien lleva la relación."
+     ],
+     [
+      "Analista de Sistemas / Datos",
+      "Por país y bodegas",
+      "Atiende en sitio equipos, redes, puntos de venta e impresoras fiscales; inspecciona y equipa las tiendas nuevas; en bodega, opera como usuario experto del WMS.",
+      "Reemplazo de un equipo dentro del parque disponible; correcciones de red menores.",
+      "Lo que excede su nivel, a la coordinación del país."
+     ],
+     [
+      "Gerentes de las áreas solicitantes",
+      "Todas las áreas",
+      "Registran sus requerimientos, definen el perfil de acceso de su equipo con la matriz y validan en pruebas lo que pidieron.",
+      "Valor y prioridad relativa de sus propios requerimientos.",
+      "Los conflictos de prioridad entre áreas, a la Gerencia de Tecnología y, si persisten, a la Junta."
+     ],
+     [
+      "Junta Directiva",
+      "Grupo",
+      "Aprueba plataformas nuevas, partners estratégicos y gasto sobre el umbral, y la política del macroproceso; recibe el reporte trimestral y decide el aviso legal de un incidente con datos personales.",
+      "Todo lo anterior.",
+      "—"
+     ]
+    ],
+    "comites": [
+     [
+      "Reunión quincenal del equipo de sistemas",
+      "Poner en común el avance de cada país, la cola de requerimientos y el calendario de cambios, y enterarse a tiempo de las aperturas y de los cambios de las áreas.",
+      "Quincenal, de una a dos horas",
+      "Gerente de Tecnología / Sistemas · Coordinador(a) de Sistemas · Especialista de Tecnología (Web/Infraestructura) · Encargado(a) de Soporte Técnico · Analista de Sistemas / Datos",
+      "Prioridades operativas, reasignación de tareas y cambios de la quincena.",
+      "Tablero de tareas, cola de requerimientos y registro de soporte.",
+      "Existe hoy como reunión de avances; el calendario de cambios y los indicadores del soporte son lo que se le añade."
+     ],
+     [
+      "Seguimiento semanal con los desarrolladores externos",
+      "Revisar el avance de cada desarrollo, las fechas comprometidas y las horas consumidas.",
+      "Semanal",
+      "Gerente de Tecnología / Sistemas · Coordinador(a) de Sistemas · desarrolladores externos",
+      "Aceptación de lo culminado, que habilita el pago, y reajuste de fechas.",
+      "Tareas asignadas y solicitudes de pago.",
+      "Existe hoy; se le añade el contraste de horas contra tareas culminadas."
+     ],
+     [
+      "Revisión mensual con la dirección comercial",
+      "Revisar con la dirección los requerimientos de mayor impacto y su prioridad, para que los pedidos de la dirección entren a la misma cola que los demás.",
+      "Mensual",
+      "Gerente de Tecnología / Sistemas · Gerente Comercial (País / Canal)",
+      "Prioridad de los requerimientos de alto impacto.",
+      "Cola de requerimientos con su estado.",
+      "Existe hoy como encuentro individual mensual; se formaliza con la cola a la vista."
+     ],
+     [
+      "Revisión trimestral de tecnología con la Junta",
+      "Presentar los indicadores del macroproceso —soporte, cambios, accesos, incidentes, proveedores—, el avance del plan de seguridad y las decisiones pendientes de plataforma y gasto.",
+      "Trimestral",
+      "Gerente de Tecnología / Sistemas · Junta Directiva",
+      "Aprobación de plataformas, partners estratégicos y gasto; prioridad del plan de seguridad.",
+      "Tablero de indicadores del macroproceso.",
+      "No existe hoy con indicadores: el seguimiento del equipo termina en un reporte a la Junta sin medidas acordadas, y la propia dirección dice no saber qué hace TI por falta de ellas."
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "El ERP registra; la plataforma del grupo innova: el ERP y el WMS quedan en su versión estándar más la localización de cada país, y lo nuevo se construye fuera y se conecta por la API estándar.",
+     "Un dato, una fuente: cada dominio de información —producto, cliente, precio, inventario, contabilidad— tiene un sistema que manda, y los demás lo leen.",
+     "Todo pedido deja registro: ninguna solicitud a TI se atiende sin quedar como caso o tarea con responsable y fecha.",
+     "Acceso mínimo, nominal y a nombre de la empresa: cada persona entra con su cuenta, con el permiso que su función necesita, y el acceso se retira el día en que deja de corresponder.",
+     "Nadie es el único que sabe: configuraciones, credenciales, personalizaciones y procedimientos viven documentados y con suplente.",
+     "La tienda no se detiene: la venta tiene prioridad en la ventana de cambios, en el soporte y en el horario de atención."
+    ],
+    "politicas": [
+     "Pase a producción en ventana: los desarrollos pasan a producción al final de la noche, de lunes a jueves y nunca en viernes, para no interrumpir la operación, y solo después de certificarse con el usuario en el ambiente de pruebas.",
+     "Verificación previa de todo cambio: ningún desarrollo pasa a producción sin la verificación de la Gerencia de Tecnología / Sistemas, porque puede afectar contabilidad o inventario; la regla alcanza también a lo que construyen las áreas.",
+     "La localización es del partner: la adaptación fiscal y contable del ERP de cada país la mantiene su partner y no se modifica internamente; el plan de cuentas, los bancos y los métodos de pago los configura el equipo interno.",
+     "Sin personalizaciones nuevas en el ERP: lo que el estándar no resuelve se construye fuera y se conecta por la API estándar, en línea con la instrucción de la dirección de no personalizar más y de volver al ERP nativo.",
+     "Todo pedido a TI se registra en Lark: lo que llega por chat, llamada o en persona se convierte en tarea, y nada confidencial se envía por WhatsApp.",
+     "Los productos nacen en Panamá: el maestro de productos se crea en la instancia de Panamá y se replica a los demás países, que no crean productos por su cuenta.",
+     "Salida con retiro de accesos: al retirarse un colaborador o un desarrollador se le quitan los accesos y se cambian las credenciales que conocía; Recursos Humanos avisa a TI para congelar o programar la baja, y todo externo con acceso a información firma un acuerdo de confidencialidad.",
+     "Aprobación de compras tecnológicas: la compra de equipos, licencias y dominios la aprueban la Junta Directiva y la Gerencia de Sistemas; los pagos de Sistemas hasta un monto los aprueba la gerencia del área y, por encima, además la dirección."
+    ],
+    "normativo": [
+     "Panamá — protección de datos: la Ley 81 de 2019 y su reglamento, el Decreto Ejecutivo 285 de 2021 (número de Gaceta por verificar), exigen medidas técnicas y organizativas con referencia a estándares reconocidos (art. 36), documentar cada violación (art. 38) y contratar con el custodio garantías suficientes (art. 47). Ante una violación hay que notificar de inmediato a la autoridad (ANTAI) y a los titulares, a estos en un máximo de 72 horas (art. 37).",
+     "Colombia — protección de datos: la Ley 1581 de 2012 obliga a conservar la información con seguridad e informar a la autoridad las violaciones a los códigos de seguridad (art. 17), y restringe la transferencia a países sin nivel adecuado (art. 26; si Panamá figura en la lista de la SIC queda por verificar). Según la Circular Única de la SIC, el incidente se reporta al Registro Nacional de Bases de Datos dentro de los 15 días hábiles siguientes a su detección. La propia operación de Colombia propone implantar la política de tratamiento y el registro.",
+     "Costa Rica — la Ley 8968 de 2011 exige medidas técnicas y organizativas y autorización expresa del titular para transferir datos (arts. 10 y 14); el plazo de notificación de vulneraciones de su reglamento queda por verificar.",
+     "Estados Unidos (Kenex USA, Florida) — la sección 501.171 de los estatutos de Florida obliga a notificar a los afectados en un máximo de 30 días y a la autoridad si hay 500 o más afectados; los terceros avisan a la empresa en 10 días (nombre oficial de la ley por verificar).",
+     "Venezuela — la Constitución reconoce el derecho de habeas data (art. 28) y la Ley Especial contra los Delitos Informáticos tipifica el acceso indebido y la violación de la privacidad de los datos; no hay una ley general de protección de datos, y las novedades de 2025-2026 quedan por verificar.",
+     "Facturación electrónica y equipos fiscales — en Panamá la factura electrónica rige en la Zona Libre desde el 30 de junio de 2023: se emite desde el sistema contable, la autoriza un proveedor autorizado y se adjunta al documento de movimiento comercial (texto del acta y de la Ley 256 de 2021 por verificar). En Colombia el tiquete del punto de venta es documento equivalente electrónico desde 2024 (Resolución DIAN 000165 de 2023; ajustes del calendario por verificar). En Venezuela la venta web ya se factura por imprenta digital y las tiendas usan máquinas fiscales, bajo providencias del SENIAT cuyo número y fecha quedan por verificar. En Costa Rica rigen los comprobantes electrónicos de Hacienda (versión vigente por verificar).",
+     "Ciberdelito y preservación de evidencia — la ley panameña de medidas contra la ciberdelincuencia de 2025 (número definitivo por verificar) permite al Ministerio Público ordenar a cualquier empresa la conservación rápida de datos informáticos, y en Colombia la Ley 1273 de 2009 protege la información y los datos; ambas exigen poder preservar registros y evidencia de un incidente.",
+     "Pagos con tarjeta — PCI DSS v4.0.1 es una obligación contractual con el banco adquirente, no una ley: exige mantener la lista de datáfonos con su ubicación y serie, inspeccionarlos y formar al personal para detectar manipulaciones, y listar a los proveedores que tocan datos de tarjeta."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "Ninguno de los siete procesos es enteramente nuevo: tres operan hoy de punta a punta —el ciclo de desarrollo, el soporte y la habilitación de tiendas— y cuatro son híbridos, con una parte que funciona y otra que no existe. Por eso la agenda no trae procesos por implementar completos, sino las piezas que faltan dentro de los híbridos, y mucho por formalizar en lo que ya se hace.\n\nEl rasgo que atraviesa todo el macroproceso es la concentración: el conocimiento transversal del ERP, las credenciales y la seguridad, el soporte de tiendas de fin de semana y la relación con los partners descansan cada uno en una o dos personas, y lo que no está en su memoria está en tareas de Lark sueltas. La agenda empieza por documentar y nombrar suplentes, porque todo lo demás —la migración de versión, la plataforma del grupo, la respuesta a incidentes— depende de que ese conocimiento esté escrito.",
+    "por_implementar": [
+     [
+      "14.4 Gestión de accesos, ciberseguridad y protección de la información",
+      "No consta un procedimiento de respuesta a incidentes de seguridad: ni registro, ni clasificación, ni aviso a la autoridad y a los titulares dentro de los plazos legales de cada país. Tampoco una matriz de perfiles por cargo ni un tratamiento aparte de los accesos privilegiados.",
+      "Escribir el procedimiento de incidentes con responsable y suplente y la tabla de plazos por país; construir la matriz de perfiles con cada gerencia; generalizar el doble factor en los accesos privilegiados y probar la recuperación una vez al año."
+     ],
+     [
+      "14.1 Gestión de la arquitectura de sistemas y de las integraciones",
+      "El mapa de plataformas e integraciones solo existe para el ERP de Panamá. No hay ficha por interfaz con su dueño y su credencial, ni una regla escrita de fuente de verdad por dominio, ni vigilancia diaria del cuadre entre sistemas.",
+      "Levantar el catálogo de interfaces de los tres países sobre el modelo del documento de Panamá, fijar con cada dueño de dominio qué sistema manda y activar la cola de errores y el cuadre diario."
+     ],
+     [
+      "14.7 Gestión de proveedores y partners tecnológicos",
+      "No constan contratos con nivel de servicio, inventario de proveedores por criticidad ni evaluación periódica de desempeño; la dependencia del partner se gestiona por presión y no por acuerdo.",
+      "Inventariar los proveedores críticos, renegociar sus contratos con nivel de servicio, confidencialidad y salida, y evaluarlos una vez al año."
+     ]
+    ],
+    "por_formalizar": [
+     [
+      "14.2 Gestión de requerimientos y evolución funcional del ERP",
+      "La evaluación de impacto cruzado y el registro en tareas ya operan, pero los pedidos entran por cinco canales, sin contenido mínimo ni criterio escrito de prioridad, y hay pedidos de meses sin fecha que las áreas terminan resolviendo por su cuenta.",
+      "Abrir un formulario único con contenido mínimo, publicar la cola con su estado y adoptar un criterio escrito de prioridad."
+     ],
+     [
+      "14.3 Gestión del ciclo de desarrollo y despliegue a producción",
+      "Los tres ambientes, la certificación con el usuario y la ventana nocturna operan, pero hay configuraciones que se hacen directamente en producción, desarrollos de las áreas que no pasaron por la verificación y personalizaciones sin documentar que frenan la migración de versión.",
+      "Llevar toda configuración por el ambiente de pruebas, clasificar los cambios, completar el inventario de personalizaciones de los tres países y planificar la migración anual con su costo."
+     ],
+     [
+      "14.5 Soporte a usuario y gestión del parque tecnológico",
+      "El canal por grupos de Lark y el soporte de tiendas de siete días funcionan, pero no hay nivel de servicio acordado, las fallas repetidas no se tratan como problema y el inventario de equipos existe solo en Venezuela.",
+      "Añadir al canal la clasificación y la prioridad, acordar el nivel de servicio por horario, revisar cada mes los problemas repetidos y unificar el inventario del parque con el registro contable."
+     ],
+     [
+      "14.6 Habilitación tecnológica de puntos de venta y sedes nuevas",
+      "La secuencia de Venezuela —inspección, laboratorio, instalación, configuración— es sólida, pero no está escrita: no hay lista de verificación de apertura, el punto de venta se configura en producción y la prueba previa a abrir se hace por inercia.",
+      "Adoptar la secuencia de Venezuela como estándar regional con una lista de verificación y una prueba integral obligatoria antes de abrir."
+     ],
+     [
+      "14.1 · 14.4 · 14.7 (partes que ya operan)",
+      "La réplica de productos entre países, las altas y bajas, la revisión de la consola de seguridad, el plan de la auditoría externa y la coordinación de partners y desarrolladores funcionan, pero dependen de personas y no de procedimientos escritos.",
+      "Documentar cada rutina con su responsable y su suplente dentro del manual de sistemas."
+     ]
+    ],
+    "brechas": [
+     [
+      "Conocimiento concentrado en pocas personas",
+      "La gerencia de sistemas concentra el conocimiento transversal del ERP y de sus personalizaciones, y reconoce que los procesos están en la memoria del equipo; la seguridad, el soporte de tiendas de siete días y el soporte en Colombia dependen cada uno de una persona.",
+      "Afecta a todo el macroproceso; se ataca con documentación y suplentes nombrados."
+     ],
+     [
+      "Personalizaciones que frenan la migración",
+      "Unos ciento cuarenta desarrollos propios sobre el ERP deben rehacerse en cada versión; la migración está detenida sin costo conocido y permanecer en una versión antigua genera un cargo anual que no se conocía.",
+      "Afecta a 14.1, 14.2 y 14.3; es decisión de la Junta con la arquitectura propuesta."
+     ],
+     [
+      "Herramientas de las áreas fuera del perímetro",
+      "En una sola formación aparecieron catorce aplicativos creados por usuarios, conectados a los datos por su cuenta y alojados en servicios que paga cada persona.",
+      "Afecta a 14.1 y 14.4; se ordena conectándolas a la plataforma del grupo."
+     ],
+     [
+      "Canales informales para pedidos e información sensible",
+      "Buena parte de los pedidos a TI y de la información de clientes circula por WhatsApp y por chats personales, pese a la política de usar Lark.",
+      "Afecta a 14.2, 14.4 y 14.5."
+     ],
+     [
+      "Operaciones sin cobertura técnica propia",
+      "Colombia no tiene personal de TI y sus aperturas las apoya personal no técnico; Costa Rica y Kenex USA operan fuera del ERP y del soporte regional.",
+      "Afecta a 14.5 y 14.6; es decisión de estructura."
+     ],
+     [
+      "Documentación de sistemas desigual",
+      "Solo el ERP de Panamá tiene documento técnico de arquitectura; Venezuela y Colombia no tienen equivalente, y los manuales de uso del ERP los escriben las áreas.",
+      "Afecta a 14.1, 14.3 y 14.5."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "Localización",
+      "Adaptación legal, fiscal y contable del ERP a un país, que mantiene el partner de ese país."
+     ],
+     [
+      "Personalización",
+      "Módulo o desarrollo propio añadido al ERP para cubrir lo que su versión estándar no trae; hay que rehacerlo en cada migración de versión."
+     ],
+     [
+      "Partner del ERP",
+      "Empresa implantadora del ERP en un país, que mantiene la localización y en algunos países ejecuta el pase a producción."
+     ],
+     [
+      "Plataforma del grupo",
+      "Capa propia, propuesta en la arquitectura de IA de este informe, que refleja los datos del ERP y del WMS y aloja la lógica nueva y las integraciones."
+     ],
+     [
+      "Interfaz",
+      "Conexión automática por la que un dato viaja de un sistema a otro, con su origen, destino, frecuencia y credencial de servicio."
+     ],
+     [
+      "Fuente única de verdad",
+      "Sistema que manda sobre un dominio de información; los demás sistemas lo leen y no lo capturan de nuevo."
+     ],
+     [
+      "Sincronización de maestros",
+      "Réplica automática de los datos maestros —productos, precios— desde la instancia que los crea hacia las de los demás países."
+     ],
+     [
+      "Ambiente de pruebas",
+      "Copia del ERP con datos reales donde se certifica un desarrollo antes de pasarlo a producción."
+     ],
+     [
+      "Ventana de cambios",
+      "Horario pactado para pasar cambios a producción sin interrumpir la operación: de noche, de lunes a jueves."
+     ],
+     [
+      "Cambio estándar, normal y de emergencia",
+      "El estándar es de bajo riesgo y está preautorizado; el normal se aprueba y se programa en la ventana; el de emergencia se aprueba de inmediato y se revisa después."
+     ],
+     [
+      "Credencial de servicio",
+      "Cuenta técnica con la que una interfaz o una herramienta se conecta a un sistema, distinta de las cuentas de las personas."
+     ],
+     [
+      "Acceso privilegiado",
+      "Acceso de administración, a producción o a una conexión por API, que se da solo en cuentas dedicadas y por tiempo definido."
+     ],
+     [
+      "Canal único de soporte",
+      "Punto por el que entran todas las incidencias y solicitudes de un país, con registro, clasificación y prioridad."
+     ],
+     [
+      "Factura de contingencia",
+      "Factura que emite la tienda mientras el sistema está caído y que se carga en el ERP cuando se restablece."
+     ],
+     [
+      "Laboratorio de equipos",
+      "Montaje en la oficina de las cajas y equipos de una tienda nueva para probarlos, incluida la facturación, antes de instalarlos."
+     ],
+     [
+      "Proveedor autorizado de facturación electrónica",
+      "Intermediario que valida y transmite la factura electrónica a la autoridad fiscal."
+     ]
+    ],
+    "raci": [
+     [
+      "14.1 Gestión de la arquitectura de sistemas y de las integraciones",
+      "Gerente de Tecnología / Sistemas",
+      "Junta Directiva",
+      "Coordinador(a) de Sistemas · Gerente de Contabilidad / Administración · Gerente de Operaciones y Logística · Gerente de E-commerce / Ventas Web",
+      "Especialista de Tecnología (Web/Infraestructura) · Analista de Sistemas / Datos"
+     ],
+     [
+      "14.2 Gestión de requerimientos y evolución funcional del ERP",
+      "Gerente de Tecnología / Sistemas",
+      "Gerente de Tecnología / Sistemas (la Junta Directiva cuando requiere sistema o gasto nuevo)",
+      "Coordinador(a) de Sistemas · gerentes de las áreas solicitantes · Gerente de Proyectos",
+      "Gerente Comercial (País / Canal)"
+     ],
+     [
+      "14.3 Gestión del ciclo de desarrollo y despliegue a producción",
+      "Coordinador(a) de Sistemas",
+      "Gerente de Tecnología / Sistemas",
+      "usuario funcional del área solicitante · desarrolladores externos · partner del ERP",
+      "Gerente de Tienda · gerentes de las áreas afectadas"
+     ],
+     [
+      "14.4 Gestión de accesos, ciberseguridad y protección de la información",
+      "Especialista de Tecnología (Web/Infraestructura)",
+      "Gerente de Tecnología / Sistemas",
+      "Coordinador(a) de Recursos Humanos · gerentes de área · asesoría jurídica del grupo",
+      "Junta Directiva"
+     ],
+     [
+      "14.5 Soporte a usuario y gestión del parque tecnológico",
+      "Encargado(a) de Soporte Técnico",
+      "Gerente de Tecnología / Sistemas",
+      "Coordinador(a) de Sistemas · Analista de Sistemas / Datos · Analista Contable Senior / Contador(a)",
+      "Gerente de Tienda"
+     ],
+     [
+      "14.6 Habilitación tecnológica de puntos de venta y sedes nuevas",
+      "Coordinador(a) de Sistemas",
+      "Gerente de Tecnología / Sistemas",
+      "Gerente de Proyectos · Analista de Sistemas / Datos · Gerente de Contabilidad / Administración · Especialista de Tecnología (Web/Infraestructura)",
+      "Gerente de Tienda · Gerente Regional Comercial / Retail"
+     ],
+     [
+      "14.7 Gestión de proveedores y partners tecnológicos",
+      "Gerente de Tecnología / Sistemas",
+      "Junta Directiva",
+      "Coordinador(a) de Sistemas · Gerente de Contabilidad / Administración · asesoría jurídica del grupo",
+      "Especialista de Tecnología (Web/Infraestructura)"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "ERP (Odoo), una instancia por país",
+      "Ventas, compras, inventario, contabilidad, facturación, punto de venta y, en Venezuela, nómina",
+      "14.1 · 14.2 · 14.3 · 14.4 · 14.5 · 14.6",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "WMS",
+      "Operación de bodega integrada al ERP",
+      "14.1 · 14.7",
+      "Gerente de Operaciones y Logística (proceso) · Gerente de Tecnología / Sistemas (integración)"
+     ],
+     [
+      "Lark",
+      "Requerimientos, tareas, grupos de soporte, formularios y avisos del ERP",
+      "14.2 · 14.4 · 14.5 · 14.6",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Plataforma del grupo (propuesta)",
+      "Lógica nueva, integraciones y conexión de las herramientas de las áreas",
+      "14.1 · 14.3 · 14.4",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Catálogo de interfaces",
+      "Ficha de cada interfaz con origen, destino, dueño, frecuencia y credencial",
+      "14.1",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Repositorio de código",
+      "Código de las personalizaciones y de los desarrollos, bajo control de la empresa",
+      "14.3 · 14.7",
+      "Coordinador(a) de Sistemas"
+     ],
+     [
+      "Custodia de credenciales",
+      "Credenciales de servicio y de administración, con suplente",
+      "14.1 · 14.4",
+      "Especialista de Tecnología (Web/Infraestructura)"
+     ],
+     [
+      "Consola de seguridad de los equipos",
+      "Antivirus, filtros y alertas",
+      "14.4 · 14.5",
+      "Especialista de Tecnología (Web/Infraestructura)"
+     ],
+     [
+      "Registro de soporte",
+      "Casos con clasificación, prioridad, nivel de servicio y cierre",
+      "14.5",
+      "Encargado(a) de Soporte Técnico"
+     ],
+     [
+      "Inventario del parque",
+      "Equipos con serie, ubicación, responsable y ciclo de vida, incluidos datáfonos e impresoras fiscales",
+      "14.5 · 14.6",
+      "Encargado(a) de Soporte Técnico"
+     ],
+     [
+      "Inventario de proveedores",
+      "Proveedores tecnológicos con criticidad, contacto interno, contrato y fecha de revisión",
+      "14.7",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Tiendas web, facturación electrónica e integración bancaria",
+      "Canales digitales, documentos fiscales y cobro en el punto de venta",
+      "14.1 · 14.6 · 14.7",
+      "Gerente de Tecnología / Sistemas"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Dirección y Gobierno Corporativo",
+      "Aprobación de plataforma, partner o gasto; reporte trimestral",
+      "Propuesta con costo total y de mantenimiento; tablero de indicadores de tecnología"
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Requerimiento derivado como proyecto; apertura convocada",
+      "Requerimiento con su análisis de impacto; plano, fecha y lista de verificación de apertura"
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Política de uso y licencias de IA",
+      "Cuentas corporativas, conexión a la plataforma del grupo y validación técnica de cada desarrollo"
+     ],
+     [
+      "Logística y Operaciones",
+      "Interfaz del WMS con el ERP",
+      "Pedidos, avance de preparación, recepciones y existencias, con cuadre diario"
+     ],
+     [
+      "Ventas Retail",
+      "Incidencia de tienda; tienda habilitada",
+      "Caso en el canal único con su prioridad; punto de venta probado de punta a punta"
+     ],
+     [
+      "Contabilidad",
+      "Validación del efecto contable; diarios del punto de venta; activo fijo",
+      "Visto bueno de toda interfaz o cambio que genera asientos o documentos fiscales; diarios, centro de costo y configuración fiscal de la tienda; alta y baja de equipos"
+     ],
+     [
+      "Administración y Finanzas",
+      "Pago a proveedores tecnológicos",
+      "Contrato registrado y entregable aceptado por la gerencia de tecnología"
+     ],
+     [
+      "Gestión de Datos e Inteligencia de Negocio",
+      "Punto de conexión y maestros sincronizados; permisos de tableros",
+      "Interfaces y credenciales de servicio para la captación (15.1); maestros replicados entre países; ejecución de las altas y bajas que define 15.5"
+     ],
+     [
+      "Gestión de Mercadeo y Comunicaciones",
+      "Solicitud de dominio o sitio",
+      "País, marca y fecha de lanzamiento; accesos del desarrollador por tiempo definido"
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Ingreso, cambio de rol y salida",
+      "Persona, cargo, fecha efectiva; equipo entregado o recuperado"
+     ],
+     [
+      "Gestión Legal y Cumplimiento",
+      "Contrato con proveedor; incidente con datos personales",
+      "Cláusulas de nivel de servicio, confidencialidad, código y salida; hechos del incidente, datos afectados y plazo legal del país"
+     ],
+     [
+      "Gestión de Servicios Generales y Administración",
+      "Frontera física de la infraestructura",
+      "Cámaras, red y equipos del lado de Sistemas; edificio, electricidad y alarmas del lado de Servicios Generales"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Procesos — Dpto. de TI (tres copias idénticas en Panamá, Venezuela y Colombia)",
+      "Regional",
+      "Nueve procedimientos del área: seguimiento de actividades, desarrollo, errores de partners y de desarrollos internos, compras, alta y baja de credenciales, revisión de seguridad y atención a problemas de tecnología",
+      "14.1 · 14.2 · 14.3 · 14.4 · 14.5 · 14.7"
+     ],
+     [
+      "Blueprint técnico del ERP de Kenex Trading",
+      "Panamá",
+      "Arquitectura, personalizaciones, integraciones, seguridad, gestión de cambios, respaldo y riesgos de la instancia de Panamá (documento de uso interno, julio de 2026)",
+      "14.1 · 14.3 · 14.4 · 14.7"
+     ],
+     [
+      "Descripción de cargos (hojas de Sistemas y de BI)",
+      "Panamá",
+      "Funciones de los cargos de sistemas y de las funciones de datos en otras áreas",
+      "14.4 · 14.5 · 14.7"
+     ],
+     [
+      "Organigrama Kenex Trading 2026 y posiciones por departamento",
+      "Panamá",
+      "Estructura del área de Sistemas y posiciones de usuarios expertos en bodega",
+      "14 (actores)"
+     ],
+     [
+      "Organigramas Rower (julio de 2026)",
+      "Venezuela",
+      "Gerencia de Sistemas de Distribuidora Rower con sus cargos",
+      "14 (actores) · 14.5"
+     ],
+     [
+      "Soporte Técnico (IT Support)",
+      "Venezuela",
+      "Perfil del soporte a puntos de venta, impresoras fiscales, conectividad, soporte fiscal y respaldos",
+      "14.5 · 14.6"
+     ],
+     [
+      "Acuerdo de confidencialidad de empleados",
+      "Venezuela",
+      "Confidencialidad, uso de activos tecnológicos, credenciales y propiedad de los desarrollos",
+      "14.4 · 14.7"
+     ],
+     [
+      "Política corporativa de desvinculación",
+      "Venezuela",
+      "Aviso de Recursos Humanos a TI para congelar o programar la baja del usuario",
+      "14.4"
+     ],
+     [
+      "Plantillas de onboarding y offboarding",
+      "Panamá",
+      "Herramientas y accesos listos antes del ingreso; entrega de activos a la salida",
+      "14.4 · 14.5"
+     ],
+     [
+      "Manual 04 · Setup técnico y accesos (pauta digital)",
+      "Regional (marketing)",
+      "Reparto de accesos entre TI y el área, siempre sobre el correo de empresa",
+      "14.4"
+     ],
+     [
+      "Formulario de solicitud de proyecto y flujos de la PMO",
+      "Panamá",
+      "Entrada, aprobación y ciclo de pruebas de los proyectos, incluidos los de BI",
+      "14.2 · 14.3"
+     ],
+     [
+      "Departamento de Ventas al Detal",
+      "Venezuela",
+      "Rutina diaria de revisión de puntos de venta, facturación y equipos en tienda",
+      "14.5 · 14.6"
+     ],
+     [
+      "Procedimientos de Almacén y Despacho",
+      "Venezuela",
+      "Hardware del almacén y operación del WMS con lectores y tabletas",
+      "14.1 · 14.5"
+     ],
+     [
+      "Manual de análisis del reporte de venta de Casiolandia",
+      "Panamá",
+      "Puntos de venta por tienda, medios de pago y efecto de la conectividad en el cuadre",
+      "14.5 · 14.6"
+     ],
+     [
+      "Procedimiento de funciones de Cuentas por Pagar",
+      "Panamá",
+      "Límites de aprobación de pagos de Sistemas y de BI",
+      "14.7"
+     ],
+     [
+      "Procesos de Logística — Inventario",
+      "Panamá",
+      "Creación de productos y precios en el ERP",
+      "14.1"
+     ],
+     [
+      "Diagnóstico y plan de acción de Cuentas por Cobrar",
+      "Venezuela",
+      "Requerimientos formales a TI de reportes segmentados y soportes digitales",
+      "14.2"
+     ],
+     [
+      "Reporte de entrevistas sobre el uso de Claude",
+      "Regional",
+      "Herramientas construidas por las áreas y sus bloqueos",
+      "14.1 · 14.4"
+     ],
+     [
+      "Descripción de cargo del gestor de pedidos de la plataforma de pagos diferidos",
+      "Venezuela",
+      "Carga manual al ERP de las ventas aprobadas en la plataforma, a falta de integración",
+      "14.1"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Panamá",
+      "Sede de la gerencia regional. Opera varias compañías en una misma instancia del ERP, el WMS integrado en la bodega de Zona Libre y la facturación electrónica por proveedor autorizado. El pase a producción lo ejecutan los propios desarrolladores tras la aprobación de la gerencia, y el punto de venta lo configura hoy la gerencia; el primer nivel de soporte lo cubre el Encargado(a) de Soporte Técnico.",
+      "Rol de hub, estructura multiempresa y régimen de Zona Libre."
+     ],
+     [
+      "Venezuela",
+      "País con más tiendas y mayor volumen de soporte. Tiene coordinación de sistemas propia, soporte remoto de tiendas de siete días y técnicos de campo que ocupan el cargo de Analista de Sistemas / Datos. El partner retiene el pase a producción. Máquinas fiscales, facturación digital en la web, pago móvil y varias monedas condicionan la configuración del punto de venta.",
+      "Régimen fiscal, cambiario y de conectividad propio."
+     ],
+     [
+      "Colombia",
+      "Primera instancia del ERP del grupo, con el mismo partner que Panamá. No tiene personal de TI local: se atiende desde Panamá, y en las aperturas apoya personal no técnico.",
+      "Tamaño de la operación; la cobertura técnica local es decisión de estructura."
+     ],
+     [
+      "Costa Rica",
+      "Socio con su propio ERP y su propio personal de sistemas; la gerencia regional lo asesora. No usa el ERP ni la plataforma colaborativa del grupo, y su información llega por reportes.",
+      "Relación societaria que no impone plataformas."
+     ],
+     [
+      "Estados Unidos",
+      "Kenex USA opera con plataformas propias de comercio electrónico y contabilidad, conectadas por su equipo, con accesos concentrados en pocas personas.",
+      "Modelo de canal distinto, solo en línea."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+   "14.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Mantiene el mapa de plataformas del grupo y las conexiones entre ellas: decide qué sistema manda sobre cada dato, cómo viaja de un sistema a otro y quién responde por cada interfaz, incluida la réplica de los maestros entre las instancias de los países.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Cada interfaz tiene ficha y dueño antes de construirse.** Origen, destino, dato, frecuencia, credencial de servicio y dueño del proceso quedan registrados en el catálogo de interfaces. Hoy el único mapa formal es el del ERP de Panamá; el de Venezuela y el de Colombia viven en la memoria del equipo.\n2. **Lo nuevo no se construye dentro del ERP.** El ERP queda como sistema de registro, en su versión estándar más la localización del país, y la lógica y las integraciones nuevas van en la plataforma del grupo, conectada por la API estándar. Hoy cada interfaz que el proveedor externo no admite termina como otra personalización del ERP.\n3. **La interfaz se vigila, no se descubre.** Una cola de errores y un cuadre diario entre origen y destino avisan antes de que un usuario note que algo no llegó.\n\nQuedan fuera la captación, la normalización y la calidad del dato para análisis (15.1 y 15.2), la evolución funcional que pide un área (14.2) y el ciclo de construcción y pase a producción (14.3).",
+     "nota_estado": "Proceso en transición: las interfaces operan y el ERP de Panamá ya tiene su mapa documentado; la ficha por interfaz, la fuente de verdad por dominio y la vigilancia diaria están por instalarse en los tres países."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tecnología / Sistemas",
+     "participantes": [
+      "Gerente de Tecnología / Sistemas — dueño del proceso: mantiene el mapa de plataformas e interfaces, decide con el dueño de cada dominio qué sistema manda sobre el dato y aprueba el diseño de cada interfaz.",
+      "Coordinador(a) de Sistemas — levanta el impacto de la interfaz en su país y coordina su construcción y su prueba.",
+      "Especialista de Tecnología (Web/Infraestructura) — crea y custodia la credencial de servicio de cada interfaz y revisa que no exponga datos.",
+      "Analista de Sistemas / Datos — vigila en producción la cola de errores y el cuadre diario entre origen y destino.",
+      "Gerente de Contabilidad / Administración — valida el efecto contable y fiscal de toda interfaz que genere asientos o documentos.",
+      "Gerente de Operaciones y Logística y Gerente de E-commerce / Ventas Web — dueños de los dominios de almacén y de canal digital, acuerdan la fuente de verdad de su dato.",
+      "Junta Directiva — aprueba la incorporación de una plataforma nueva o el gasto de una integración.",
+      "Desarrolladores externos y partners del ERP de cada país (actores externos) — construyen la interfaz y mantienen la localización."
+     ],
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-03",
+      "SC-01",
+      "SC-04",
+      "E-26",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "sin_evidencia": "La ficha por interfaz y la vigilancia diaria del cuadre entre sistemas son propuestas: hoy las fallas de una interfaz se conocen cuando un usuario nota que algo no llegó."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-03",
+      "SC-01",
+      "SC-04",
+      "SC-05",
+      "E-26",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Registra el disparador en el catálogo de interfaces —una plataforma o una entidad que se incorpora, o un dato que un área copia a mano entre sistemas— y abre su ficha con origen, destino, dato, frecuencia y dueño del proceso."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Decide con el dueño del dominio qué sistema es la fuente única de verdad para ese dato —producto, cliente, precio, inventario, contabilidad— y en qué sentido viaja, de modo que nadie lo capture dos veces ni lo cree fuera de su origen."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Levanta con las áreas afectadas de cada país el impacto de la interfaz en contabilidad, inventario, facturación y logística, y deja escrita la regla de réplica cuando el dato es un maestro que se sincroniza entre las instancias."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Decide dónde se construye: por la API estándar del ERP y de la otra plataforma, con la lógica nueva en la plataforma del grupo, nunca como módulo adicional del ERP. Si exige una plataforma o un gasto nuevo, lo eleva a la Junta."
+      },
+      {
+       "id": "a5",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba la incorporación de una plataforma nueva o el gasto de la integración con su costo total a la vista, incluido lo que costará mantenerla en cada cambio de versión, o la devuelve para ajustar el alcance."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Crea la credencial de servicio de la interfaz a nombre de la empresa, con el mínimo permiso que necesita y nunca con el perfil de una persona; la guarda en la custodia de credenciales y anota en la ficha quién la administra."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Coordina la construcción con el desarrollador asignado y la prueba de punta a punta en el ambiente de pruebas, con datos de cada país e incluido el caso de error, siguiendo el ciclo de desarrollo y despliegue de 14.3."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Valida, antes del pase a producción, que la interfaz no genere asientos, documentos fiscales ni movimientos que Contabilidad no reconozca, sobre todo cuando toca facturación electrónica, operaciones entre compañías o diarios del punto de venta."
+      },
+      {
+       "id": "a9",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Vigila la interfaz en producción: revisa cada día la cola de errores y el cuadre entre origen y destino —por ejemplo, existencias del WMS contra el ERP— y abre una incidencia en soporte cuando algo no cuadra o no llegó."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Mantiene al día el catálogo de interfaces y lo revisa completo una vez al año, o cuando entra un país o una plataforma, retirando las interfaces que ya nadie usa y registrando las herramientas de las áreas que se conectan a la plataforma."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tecnología / Sistemas",
+       "Coordinador(a) de Sistemas",
+       "Junta Directiva",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "Gerente de Contabilidad / Administración",
+       "Analista de Sistemas / Datos"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "inicio",
+        "n": "Plataforma nueva o dato que no viaja entre sistemas"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Abrir la ficha de la interfaz",
+        "sistemas": [
+         "Catálogo de interfaces"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Fijar la fuente de verdad del dato"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Levantar el impacto en cada país"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Requiere plataforma o gasto nuevo?"
+       },
+       {
+        "id": "n5",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar la plataforma o el gasto"
+       },
+       {
+        "id": "n6",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Crear la credencial de servicio",
+        "sistemas": [
+         "Custodia de credenciales"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Construir y probar la interfaz (14.3)",
+        "sistemas": [
+         "Plataforma del grupo",
+         "ERP"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Validar el efecto contable y fiscal",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Cuadran origen y destino?"
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Abrir incidencia en soporte (14.5)",
+        "sistemas": [
+         "Registro de soporte"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Actualizar el catálogo de interfaces",
+        "sistemas": [
+         "Catálogo de interfaces"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Interfaz documentada y vigilada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n9",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "SC-01",
+      "SC-05",
+      "E-32",
+      "E-03",
+      "SC-13",
+      "E-26",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ],
+     "filas": [
+      [
+       "Una interfaz se rompe por un cambio en otro sistema",
+       "Una función nueva para fusionar pedidos en el ERP entró en conflicto con la interfaz del almacén: un cliente esperó dos semanas un pedido que nunca llegó a bodega. Los desarrollos se agregan como piezas independientes, sin ver de qué dependen.",
+       "Alta",
+       "Alto",
+       "Registrar cada interfaz como elemento del catálogo y evaluar en 14.3 el impacto de todo cambio sobre las interfaces que toca, con prueba de regresión antes del pase."
+      ],
+      [
+       "El mismo dato se crea en dos lugares",
+       "Hubo productos creados a mano en un país con el código mal, versiones distintas de un producto con el mismo código y proveedores con tres o cuatro contactos en el ERP. Cada réplica manual reabre la puerta a la duplicación.",
+       "Alta",
+       "Alto",
+       "Fijar la fuente única por dominio, bloquear la creación del maestro fuera de su origen y dejar la réplica entre países en manos de la interfaz, nunca de una carga manual."
+      ],
+      [
+       "Cada integración suma una personalización al ERP",
+       "El ERP acumula del orden de ciento cuarenta desarrollos propios, y cada uno hay que rehacerlo en la siguiente versión; la migración está detenida y permanecer en una versión antigua genera un cargo anual.",
+       "Alta",
+       "Alto",
+       "Construir toda integración nueva por la API estándar, con la lógica en la plataforma del grupo; ninguna interfaz nueva como módulo del ERP."
+      ],
+      [
+       "Una arquitectura paralela crece fuera de TI",
+       "En una sola formación aparecieron catorce aplicativos creados por usuarios, conectados a los datos por su cuenta y alojados en servicios que paga cada persona; la gerencia de sistemas los conoce solo en parte.",
+       "Alta",
+       "Alto",
+       "Conectar toda herramienta de las áreas a la plataforma del grupo por el mismo contrato de conexión, con credencial de servicio y registro en el catálogo."
+      ],
+      [
+       "La interfaz existe pero el proceso no la usa",
+       "La interfaz de inventario del almacén hacia el ERP se mantiene desactivada para proteger las preventas, y el inventario recibido se acepta a mano; ventas de la plataforma de pagos diferidos se cargan una a una por falta de integración.",
+       "Media",
+       "Medio",
+       "Asignar a cada interfaz un dueño de proceso que decida su uso y resolver la regla de negocio que hoy obliga al paso manual."
+      ],
+      [
+       "Datos personales cruzan fronteras sin base legal",
+       "Las instancias de cada país intercambian datos con Panamá y con servicios en otros países; las leyes de Colombia, Panamá y Costa Rica restringen la transferencia de datos personales sin garantías o sin autorización.",
+       "Media",
+       "Alto",
+       "Marcar en la ficha si la interfaz lleva datos personales, de qué país y con qué base legal, y revisarlo con la asesoría jurídica antes de construirla."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Interfaces con ficha completa",
+       "Interfaces en producción con dueño, fuente de verdad y credencial de servicio registrados ÷ interfaces en producción",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Diferencias de cuadre sin explicar entre sistemas",
+       "Diferencias entre origen y destino no explicadas al cierre del día (por ejemplo, existencias del WMS contra el ERP)",
+       "Diaria",
+       "Analista de Sistemas / Datos",
+       "0 al cierre del día"
+      ],
+      [
+       "Incidencias por falla de interfaz",
+       "Casos del registro de soporte cuya causa es una interfaz ÷ total de casos",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "A fijar tras tres meses de medición"
+      ],
+      [
+       "Personalizaciones nuevas en el ERP",
+       "Módulos propios nuevos incorporados al ERP fuera de la localización",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "0"
+      ],
+      [
+       "Herramientas de las áreas conectadas a la plataforma",
+       "Herramientas de las áreas conectadas por la plataforma del grupo ÷ herramientas de las áreas inventariadas",
+       "Semestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 % al cierre de la primera ola de la plataforma"
+      ]
+     ]
+    }
+   },
+   "14.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Convierte la necesidad de un área —o un cambio normativo— en una mejora del ERP evaluada, priorizada y validada por quien la pidió, o en un descarte con su motivo. Es la puerta de entrada de toda evolución funcional del ERP.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Una sola puerta.** Todo pedido entra por un formulario con contenido mínimo, y lo que llega por chat, llamada o pasillo se registra antes de evaluarse. Hoy entra por cinco canales, y los pedidos de la dirección hay que buscarlos después en todos.\n2. **Una cola visible con criterio escrito.** La prioridad sigue un criterio conocido —dinero que genera o evita perder, cumplimiento legal, usuarios afectados— y cada pedido tiene fecha o motivo de espera. Hoy hay pedidos de meses sin fecha que las áreas terminan resolviendo por su cuenta.\n3. **La vía se decide antes de construir.** Configuración estándar del ERP, localización del partner o componente en la plataforma del grupo; nunca un módulo nuevo sobre el ERP.\n\nQuedan fuera los proyectos que involucran varias áreas o presupuesto propio, que gestiona la PMO (4.1); las incidencias y solicitudes preacordadas, que atiende soporte (14.5), y la construcción y el pase a producción (14.3).",
+     "nota_estado": "Proceso en transición: la evaluación del impacto cruzado y el registro en tareas ya operan; el canal único, el criterio escrito de prioridad y la cola visible para las áreas están por instalarse."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tecnología / Sistemas",
+     "participantes": [
+      "Gerente de Tecnología / Sistemas — dueño del proceso: valida el valor con el área, evalúa el impacto cruzado, decide la vía y la prioridad, y asigna al desarrollador.",
+      "Coordinador(a) de Sistemas — clasifica la entrada, deriva lo que no es evolución funcional y lleva los tickets al partner del país.",
+      "gerente del área solicitante — registra el requerimiento, confirma su valor y valida el resultado con el usuario funcional.",
+      "Gerente de Proyectos — recibe lo que resulta ser un proyecto de varias áreas o con presupuesto propio.",
+      "Junta Directiva — aprueba lo que requiere un sistema nuevo, una conexión nueva o un gasto fuera del presupuesto.",
+      "Desarrolladores externos y partner del ERP de cada país (actores externos) — construyen el cambio o resuelven la localización."
+     ],
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-38",
+      "E-61",
+      "E-65",
+      "E-51",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Formulario de solicitud de proyecto (PA)"
+     ],
+     "sin_evidencia": "No consta un contenido mínimo del requerimiento ni un criterio escrito de prioridad: los que se proponen siguen la práctica de ingeniería de requerimientos."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-38",
+      "E-61",
+      "E-65",
+      "E-51",
+      "E-40",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "gerente del área solicitante",
+       "texto": "Registra el requerimiento en el formulario único de Lark con su contenido mínimo: problema, resultado esperado, áreas y países afectados, urgencia y un ejemplo. Lo que llega por chat, llamada o en persona lo registra TI antes de evaluarlo, también si viene de la dirección."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Clasifica la entrada: si es una incidencia o una solicitud preacordada, la deriva a soporte (14.5); si involucra varias áreas o presupuesto propio, a la PMO como proyecto; si es evolución funcional del ERP, sigue en este proceso."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Valida con el gerente del área que el pedido responde a una necesidad del negocio y no a una preferencia personal, y convoca a las áreas que el cambio toca —contabilidad, inventario, logística, fiscal— para medir su impacto cruzado."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Evalúa si otro país necesitará lo mismo, para construirlo una sola vez, y decide si el pedido es viable; si no lo es, lo descarta con una justificación escrita que se comunica al solicitante."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Decide la vía y deja escrito su motivo: configuración estándar del ERP, localización del partner del país o componente en la plataforma del grupo. Nunca un módulo nuevo sobre el ERP. Si requiere un sistema o un gasto nuevo, lo eleva a la Junta."
+      },
+      {
+       "id": "a6",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba el sistema, la conexión o el gasto nuevo con su costo total y su beneficio a la vista, o lo devuelve; lo que cabe en el presupuesto del área de tecnología no necesita pasar por aquí."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Cuando la vía es la localización, levanta el ticket al partner del país con evidencias, explicación, ejemplos y posibles soluciones, y le da seguimiento hasta la fecha comprometida, registrando cada incumplimiento para la evaluación del partner (14.7)."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Prioriza el requerimiento en la cola con el criterio escrito —dinero que genera o evita perder, cumplimiento legal, usuarios afectados— y lo asigna al desarrollador con competencia en el módulo, con fecha comprometida visible para el área."
+      },
+      {
+       "id": "a9",
+       "rol": "gerente del área solicitante",
+       "texto": "Valida el resultado con el usuario funcional en el ambiente de pruebas, dentro del ciclo de 14.3, y confirma que resuelve lo que pidió; si no, lo devuelve con observaciones concretas para su corrección."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Cierra el requerimiento en su registro, resuelto y validado o descartado con justificación, y presenta una vez al mes el estado de la cola —abiertos, cerrados, antigüedad— en la revisión con la dirección comercial."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "gerente del área solicitante",
+       "Coordinador(a) de Sistemas",
+       "Gerente de Tecnología / Sistemas",
+       "Junta Directiva"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "gerente del área solicitante",
+        "tipo": "inicio",
+        "n": "Necesidad funcional o cambio normativo"
+       },
+       {
+        "id": "n1",
+        "carril": "gerente del área solicitante",
+        "tipo": "tarea",
+        "n": "Registrar el requerimiento con su contenido mínimo",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "decision",
+        "n": "¿Es evolución funcional?"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Derivar a soporte o a la PMO"
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "fin",
+        "n": "Derivado a 14.5 o a la PMO"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Validar el valor y el impacto cruzado"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Es viable?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Decidir la vía: estándar, localización o plataforma"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Requiere sistema o gasto nuevo?"
+       },
+       {
+        "id": "n9",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el sistema o el gasto"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Priorizar y asignar con fecha",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "gerente del área solicitante",
+        "tipo": "tarea",
+        "n": "Validar el resultado en pruebas (14.3)",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Cerrar con registro o justificación"
+       },
+       {
+        "id": "n13",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Requerimiento validado o descartado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n12",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "E-07",
+      "E-61",
+      "E-51",
+      "E-65",
+      "E-40",
+      "SC-05",
+      "E-62",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "filas": [
+      [
+       "El pedido se pierde entre canales",
+       "Los requerimientos llegan por Lark, WhatsApp, correo, reuniones y visitas; los de la dirección llegan por varios a la vez, y después de dos o tres meses hay que buscarlos en todos los medios.",
+       "Alta",
+       "Medio",
+       "Formulario único con contenido mínimo; TI registra todo pedido verbal o por chat antes de evaluarlo, sin excepción para la dirección."
+      ],
+      [
+       "Pedidos sin fecha que las áreas resuelven por su cuenta",
+       "El archivo de pago al banco y la carga masiva de pagos llevan meses pedidos; el módulo de servicio técnico no tiene fecha; ante la espera, las áreas corrigen a mano o construyen su propia herramienta.",
+       "Alta",
+       "Alto",
+       "Cola visible con fecha o motivo de espera para cada pedido, revisada cada mes con la dirección; lo que supera 90 días sin fecha se reprioriza o se descarta con motivo."
+      ],
+      [
+       "Cada sí suma una personalización",
+       "Buena parte de lo que se aprueba se construye como módulo del ERP, y cada módulo encarece la migración siguiente.",
+       "Alta",
+       "Alto",
+       "Decidir la vía antes de construir, con la regla de no agregar módulos al ERP; lo que el estándar no resuelve va a la plataforma del grupo."
+      ],
+      [
+       "La evaluación depende de una sola persona",
+       "El análisis del impacto cruzado entre contabilidad, inventario y logística lo hace la gerencia de sistemas de memoria; nadie más tiene hoy esa visión de conjunto.",
+       "Alta",
+       "Alto",
+       "Escribir el análisis de impacto en el registro de cada requerimiento y formar a la coordinación como suplente."
+      ],
+      [
+       "Funcionalidad distinta por país",
+       "Un desarrollo hecho en un país no sirve directamente en otro: hay reportes y controles que Panamá tiene y Venezuela no, y replicarlos exige copiar código y volver a probar.",
+       "Media",
+       "Medio",
+       "Preguntar en cada evaluación qué otro país lo necesitará y construirlo una vez, en la plataforma del grupo cuando sea posible."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Requerimientos registrados en el canal único",
+       "Requerimientos atendidos con registro en el formulario ÷ requerimientos atendidos",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Tiempo hasta la decisión",
+       "Fecha de la decisión (vía o descarte) − fecha de registro, en días hábiles",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "10 días hábiles o menos"
+      ],
+      [
+       "Cumplimiento de la fecha comprometida",
+       "Requerimientos cerrados en su fecha ÷ requerimientos cerrados",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "Más del 80 %"
+      ],
+      [
+       "Validación al primer intento",
+       "Requerimientos validados por el área sin devolución ÷ requerimientos validados",
+       "Trimestral",
+       "Coordinador(a) de Sistemas",
+       "Más del 80 %"
+      ],
+      [
+       "Requerimientos abiertos sin fecha con más de 90 días",
+       "Conteo al cierre del mes",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "0"
+      ]
+     ]
+    }
+   },
+   "14.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Lleva un desarrollo aprobado desde su construcción hasta producción sin interrumpir la venta: se construye en el ambiente de desarrollo, se certifica con el usuario en el ambiente de pruebas, se aprueba, se despliega en la ventana nocturna y queda documentado en el inventario de personalizaciones que sostiene la siguiente migración de versión.\n\n**Tres puntos que se formalizan respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Otra persona revisa antes de certificar.** El código y su efecto sobre interfaces y reportes existentes se revisan por alguien distinto del autor, con prueba de regresión. Hoy ha pasado que al subir un reporte deja de funcionar otro.\n2. **Nada llega a producción sin pasar por pruebas.** Tampoco la configuración de una tienda ni lo que construyen las áreas; hoy ambas cosas se hacen a veces directamente en producción.\n3. **Cada cambio se clasifica y se registra.** Estándar, normal o de emergencia, y siempre en el inventario de personalizaciones, que es la base para planificar cada año la migración de versión con su costo.\n\nQuedan fuera la evaluación y la priorización del requerimiento (14.2) y la atención de la incidencia que deja un pase fallido (14.5)."
+    },
+    "dueno": {
+     "estado": "borrador"
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-32",
+      "E-52",
+      "SC-04",
+      "SC-05",
+      "SC-08",
+      "E-07",
+      "E-65",
+      "E-26",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "desarrollador asignado",
+       "texto": "Construye el desarrollo en el ambiente de desarrollo, en una rama propia del repositorio de la empresa y con pruebas unitarias; no toca la localización del partner, y lo que no es configuración estándar lo construye en la plataforma del grupo."
+      },
+      {
+       "id": "a2",
+       "rol": "desarrollador asignado",
+       "texto": "Pasa el desarrollo al ambiente de pruebas, con copia de datos reales, y documenta el cambio: qué hace, qué módulos e interfaces toca, cómo se revierte y con qué casos se certifica. Sin esa ficha el cambio no avanza."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Revisa el código y su impacto antes de certificar, siempre alguien distinto del autor, y corre la prueba de regresión sobre las interfaces y los reportes que el cambio toca; luego agenda la certificación con el usuario funcional."
+      },
+      {
+       "id": "a4",
+       "rol": "usuario funcional del área solicitante",
+       "texto": "Certifica en el ambiente de pruebas con sus propios casos, incluidos los de otro país cuando aplica, y deja constancia de aprobado u observado. Lo observado vuelve al desarrollador como corrección, sin reabrir el requerimiento."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Aprueba formalmente el pase y lo clasifica: estándar, de bajo riesgo y preautorizado; normal, que se programa en la ventana, o de emergencia, que se aprueba de inmediato y se revisa después. Ningún pase se ejecuta sin esta aprobación."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Programa el pase normal en el calendario de cambios, dentro de la ventana nocturna de lunes a jueves, avisa a las áreas y tiendas afectadas y confirma que hay respaldo reciente y plan de reversión."
+      },
+      {
+       "id": "a7",
+       "rol": "desarrollador asignado",
+       "texto": "Ejecuta el pase en la ventana —o lo solicita al partner del país donde este conserva esa potestad— y comprueba en producción que el cambio funciona. El acceso de escritura a producción lo tiene solo quien ejecuta pases."
+      },
+      {
+       "id": "a8",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Verifica a primera hora del día siguiente con las tiendas y las áreas que la operación sigue normal; ante una falla, ejecuta la reversión prevista, abre la incidencia en soporte y avisa de quién era el módulo."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Hace la revisión posterior al pase y registra el desarrollo en el inventario de personalizaciones de su país, con la ficha del cambio y su código en el repositorio de la empresa; sin ese registro el requerimiento no se cierra."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Planifica cada año con el partner la actualización de versión del ERP, con su costo, usando el inventario de personalizaciones para decidir qué se migra, qué se retira y qué pasa a la plataforma del grupo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "desarrollador asignado",
+       "Coordinador(a) de Sistemas",
+       "usuario funcional del área solicitante",
+       "Gerente de Tecnología / Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "desarrollador asignado",
+        "tipo": "inicio",
+        "n": "Requerimiento aprobado y asignado (14.2)"
+       },
+       {
+        "id": "n1",
+        "carril": "desarrollador asignado",
+        "tipo": "tarea",
+        "n": "Construir, probar y documentar el cambio",
+        "sistemas": [
+         "Repositorio de código",
+         "ERP (desarrollo)"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Revisar el código y correr la regresión",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "usuario funcional del área solicitante",
+        "tipo": "tarea",
+        "n": "Certificar con casos propios",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "usuario funcional del área solicitante",
+        "tipo": "decision",
+        "n": "¿Queda certificado?"
+       },
+       {
+        "id": "n5",
+        "carril": "desarrollador asignado",
+        "tipo": "tarea",
+        "n": "Corregir y recertificar lo observado",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Aprobar y clasificar el cambio"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Es de emergencia?"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Programar en la ventana y avisar"
+       },
+       {
+        "id": "n9",
+        "carril": "desarrollador asignado",
+        "tipo": "tarea",
+        "n": "Ejecutar el pase a producción",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "decision",
+        "n": "¿Opera normal al día siguiente?"
+       },
+       {
+        "id": "n11",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Revertir y abrir la incidencia",
+        "sistemas": [
+         "Registro de soporte"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Registrar en el inventario de personalizaciones",
+        "sistemas": [
+         "Repositorio de código"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Cambio documentado y revisado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n12",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-32",
+      "SC-05",
+      "E-65",
+      "E-13",
+      "SC-04",
+      "E-25",
+      "E-26",
+      "E-07",
+      "SC-13"
+     ],
+     "filas": [
+      [
+       "Un pase rompe lo que ya funcionaba",
+       "Al subir un reporte nuevo empezó a fallar otro; los arreglos del partner arreglan por un lado y dañan por otro; ha habido caídas completas por fallas en el paso de pruebas a producción.",
+       "Alta",
+       "Alto",
+       "Revisión por alguien distinto del autor y prueba de regresión sobre interfaces y reportes antes de certificar; plan de reversión obligatorio para todo pase normal."
+      ],
+      [
+       "Cambios directos en producción",
+       "La configuración de una tienda se hace a veces directamente en producción, y un proveedor de un sistema de planilla hizo un cambio sin guardar que dejó a cuatro personas sin cobrar.",
+       "Media",
+       "Alto",
+       "Restringir la escritura en producción a quien ejecuta pases, con registro; todo cambio, también de configuración, pasa por pruebas."
+      ],
+      [
+       "Personalizaciones sin documentar traban la migración",
+       "La propia dirección no sabía que cada personalización había que rehacerla en cada versión; el grupo ya va retrasado de versión y la migración no está planificada por falta de costo.",
+       "Alta",
+       "Alto",
+       "Inventario de personalizaciones completo en los tres países como condición de cierre de cada cambio, y plan anual de actualización de versión con su costo."
+      ],
+      [
+       "Código fuera del control de la empresa",
+       "Las personalizaciones las construyen desarrolladores externos y partners; la dirección las describe como hechas fuera de la organización y sin control de su trabajo.",
+       "Media",
+       "Alto",
+       "Todo código en el repositorio de la empresa, con cesión de la propiedad de los desarrollos por contrato (14.7)."
+      ],
+      [
+       "Desarrollos de las áreas sin verificación",
+       "La verificación previa de la gerencia no alcanzó a lo que construyeron las áreas, que tuvieron libertad absoluta para desarrollar desde que la IA se volvió accesible.",
+       "Alta",
+       "Medio",
+       "Extender la verificación previa a todo desarrollo que se conecte a los datos del grupo, por la plataforma del grupo."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Tasa de cambios con falla",
+       "Cambios que causan una incidencia en producción ÷ cambios desplegados",
+       "Mensual",
+       "Coordinador(a) de Sistemas",
+       "Menos del 10 %"
+      ],
+      [
+       "Cambios certificados antes del pase",
+       "Cambios con certificación del usuario en pruebas ÷ cambios desplegados (excluidos los de emergencia)",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Pases fuera de ventana sin ser de emergencia",
+       "Conteo de pases fuera de la ventana nocturna de lunes a jueves no clasificados como emergencia",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "0"
+      ],
+      [
+       "Personalizaciones documentadas",
+       "Personalizaciones con ficha y código en el repositorio ÷ personalizaciones en producción",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Tiempo de recuperación tras un pase fallido",
+       "Hora de operación normal restablecida − hora de detección de la falla",
+       "Por evento",
+       "Coordinador(a) de Sistemas",
+       "A fijar tras medir los primeros pases"
+      ]
+     ]
+    }
+   },
+   "14.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Asegura que cada persona y cada sistema entren solo a lo que necesitan, que el acceso se retire el día en que deja de corresponder, que los dominios y sitios del grupo estén inventariados, que un incidente de seguridad se contenga y se avise dentro del plazo legal de cada país, y que los usuarios conozcan las prácticas seguras.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **El acceso sigue al movimiento de personal.** Recursos Humanos notifica ingresos, cambios de rol y salidas por un solo formulario, y la baja se ejecuta el mismo día en todas las plataformas donde se dio el alta. Hoy hay salidas que el resto de la organización conoce por el pasillo.\n2. **Lo privilegiado se trata aparte.** Administración, producción y conexiones por API solo en cuentas dedicadas, con doble factor y por tiempo definido; ningún usuario de negocio trabaja con perfil de administrador.\n3. **El incidente tiene procedimiento.** Registro, contención, preservación de evidencia, clasificación y aviso legal por país. Hoy no consta un procedimiento de respuesta a incidentes.\n\nQuedan fuera la definición de quién ve qué en los tableros y productos analíticos (15.5), que este proceso ejecuta pero no decide; la política de uso de la inteligencia artificial y su licenciamiento (5.1), y la seguridad física de las sedes (19.5).",
+     "nota_estado": "Proceso en transición: las altas, las bajas y la revisión recurrente de la consola de seguridad ya operan, y hay un plan de auditoría externa en curso; la matriz de perfiles, el tratamiento aparte de los accesos privilegiados y la respuesta a incidentes están por instalarse."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tecnología / Sistemas",
+     "participantes": [
+      "Gerente de Tecnología / Sistemas — dueño del proceso: autoriza los accesos privilegiados, conduce la respuesta a incidentes y el aviso legal, y responde por el plan de seguridad.",
+      "Especialista de Tecnología (Web/Infraestructura) — ejecuta altas, cambios y bajas en todas las plataformas, custodia las credenciales, revisa la consola de seguridad y administra dominios y sitios.",
+      "Coordinador(a) de Sistemas — suplente en la ejecución de accesos en Venezuela y primer receptor, por el canal de soporte, del reporte de un posible incidente.",
+      "Coordinador(a) de Recursos Humanos — notifica cada ingreso, cambio de rol y salida con su fecha efectiva.",
+      "gerente del área del colaborador — define el perfil de acceso de su equipo con la matriz de perfiles por cargo.",
+      "Gerente Regional de Marketing — solicita los dominios y sitios nuevos por país.",
+      "Asesoría jurídica del grupo y asesor externo de seguridad (actores de apoyo) — acompañan el aviso legal de un incidente y la auditoría periódica."
+     ],
+     "evidencia": [
+      "E-52",
+      "SC-04",
+      "E-07",
+      "E-37",
+      "E-54",
+      "E-42",
+      "E-12",
+      "E-24",
+      "E-56",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Política corporativa de desvinculación (VE)",
+      "Lark: Acuerdo de confidencialidad de empleados (VE)",
+      "Lark: Manual 04 · Setup técnico y accesos (marketing regional)"
+     ],
+     "sin_evidencia": "La titularidad de la gerencia, con el cargo especializado como ejecutor, es una propuesta: hoy la ejecución y la responsabilidad de las cuentas recaen en el cargo especializado de seguridad. No constan una matriz de perfiles por cargo ni un procedimiento de respuesta a incidentes."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "SC-04",
+      "E-07",
+      "E-37",
+      "E-54",
+      "E-42",
+      "E-12",
+      "E-24",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Política corporativa de desvinculación (VE)",
+      "Lark: Acuerdo de confidencialidad de empleados (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinador(a) de Recursos Humanos",
+       "texto": "Notifica a TI por el formulario de accesos cada ingreso, cambio de rol y salida, con el cargo y la fecha efectiva; la salida se avisa antes o el mismo día, nunca después, para que la baja no dependa de enterarse por el pasillo."
+      },
+      {
+       "id": "a2",
+       "rol": "gerente del área del colaborador",
+       "texto": "Define el perfil de acceso que requiere el cargo a partir de la matriz de perfiles por cargo y justifica por escrito lo que se salga de ella; quién ve qué en los tableros lo decide el proceso de tableros (15.5)."
+      },
+      {
+       "id": "a3",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Ejecuta el alta, el cambio o la baja en todas las plataformas del grupo —correo, colaboración, ERP, tiendas web, tableros— con cuenta nominal y mínimo privilegio; en la baja deshabilita en lugar de borrar, para conservar el rastro, y gestiona la recuperación del equipo."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Autoriza los accesos privilegiados —administración, producción, conexiones por API— solo en cuentas dedicadas, con doble factor y por tiempo definido; toda herramienta de un área se conecta con credencial de servicio, nunca con la cuenta de una persona."
+      },
+      {
+       "id": "a5",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Revisa con una frecuencia fija, al menos semanal, la consola de seguridad de los equipos y los filtros, y cada trimestre recorre con cada gerente la lista de cuentas activas de su área para deshabilitar las que ya no corresponden."
+      },
+      {
+       "id": "a6",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Administra los dominios y sitios de cada país como activos inventariados, con dueño, fecha de renovación y credencial en custodia; configura el sitio nuevo que pide Mercadeo y da acceso al desarrollador externo por tiempo definido."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Recibe por el canal de soporte el reporte o la alerta de un posible incidente de seguridad, lo registra, contiene el daño —bloquea la cuenta, aísla el equipo— y preserva la evidencia y los registros para su análisis."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Clasifica el incidente por gravedad y determina si comprometió datos personales y de qué país; si es así, activa el aviso legal con la asesoría jurídica del grupo (18.5), y si el incidente vino de un proveedor, le exige su informe según el contrato."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Avisa dentro del plazo legal de cada país: en Panamá, de inmediato a la autoridad y en 72 horas a los titulares; en Colombia, a la SIC en 15 días hábiles; en Florida, a los afectados en 30 días; en Costa Rica, plazo por verificar."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Documenta cada incidente —fecha, causa, hechos, datos afectados y medidas— y lo cierra con sus acciones correctivas; una vez al año prueba la recuperación de los sistemas críticos y revisa el avance del plan de la auditoría de seguridad."
+      },
+      {
+       "id": "a11",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Difunde las prácticas seguras —información confidencial solo por el canal corporativo, cuentas de la empresa para las herramientas de IA, credenciales que no se comparten— y las refuerza en la inducción (17.2) y después de cada incidente."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinador(a) de Recursos Humanos",
+       "gerente del área del colaborador",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "Coordinador(a) de Sistemas",
+       "Gerente de Tecnología / Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Coordinador(a) de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Ingreso, cambio de rol o salida notificado"
+       },
+       {
+        "id": "n1",
+        "carril": "gerente del área del colaborador",
+        "tipo": "tarea",
+        "n": "Definir el perfil según la matriz"
+       },
+       {
+        "id": "n2",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "decision",
+        "n": "¿Pide acceso privilegiado?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Autorizar cuenta dedicada con doble factor"
+       },
+       {
+        "id": "n4",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Ejecutar el alta, el cambio o la baja",
+        "sistemas": [
+         "Correo",
+         "Lark",
+         "ERP",
+         "Tableros"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "fin",
+        "n": "Acceso vigente o retirado, con registro"
+       },
+       {
+        "id": "n6",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "inicio",
+        "n": "Revisión trimestral de cuentas activas"
+       },
+       {
+        "id": "n7",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Recorrer las cuentas con cada gerente",
+        "sistemas": [
+         "Custodia de credenciales"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "inicio",
+        "n": "Alerta o reporte de posible incidente"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Registrar, contener y preservar evidencia",
+        "sistemas": [
+         "Registro de soporte"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Compromete datos personales?"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Avisar según el plazo legal del país"
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Documentar causa y medidas correctivas"
+       },
+       {
+        "id": "n13",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Incidente contenido, avisado y documentado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n4"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n12",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-42",
+      "E-52",
+      "SC-04",
+      "E-12",
+      "E-24",
+      "SC-12",
+      "E-37",
+      "Lark: Plantilla de offboarding (PA)"
+     ],
+     "filas": [
+      [
+       "Accesos que sobreviven a la salida",
+       "Hay salidas de personal que no se comunican y que el resto conoce por el pasillo, con el riesgo de compartir información con quien ya no está; la plantilla de salida de un país prevé la entrega de activos pero no la baja de accesos.",
+       "Alta",
+       "Alto",
+       "Aviso de Recursos Humanos antes o el mismo día de la salida, baja en todas las plataformas del alta y revisión trimestral de cuentas activas con cada gerente."
+      ],
+      [
+       "Conexiones a los datos fuera de la gestión de accesos",
+       "Herramientas creadas por las áreas se conectan a los datos por fuera de la gestión de accesos de TI, sin heredar los permisos de cada usuario, y la autorización de esas conexiones se da caso por caso.",
+       "Media",
+       "Alto",
+       "Conexión de toda herramienta por la plataforma del grupo con credencial de servicio de mínimo privilegio; accesos privilegiados solo en cuentas dedicadas, con doble factor y autorización de la gerencia."
+      ],
+      [
+       "Credenciales críticas en la memoria de una persona",
+       "La auditoría externa recomendó centralizar la custodia de credenciales, con suplente, y documentar las configuraciones críticas que hoy dependen de la memoria de quien las administra.",
+       "Media",
+       "Alto",
+       "Custodia centralizada de credenciales con suplente nombrado, y documentación de las configuraciones críticas."
+      ],
+      [
+       "Un incidente con datos personales no se avisa a tiempo",
+       "No consta un procedimiento de respuesta a incidentes, y los plazos legales son cortos: en Panamá el aviso a la autoridad es inmediato y a los titulares en 72 horas.",
+       "Media",
+       "Alto",
+       "Procedimiento de incidentes con responsable, suplente y la tabla de plazos por país, ensayado una vez al año."
+      ],
+      [
+       "Información de la empresa en cuentas personales y canales no corporativos",
+       "Hay equipos que cargan toda su información en cuentas personales de IA, datos de clientes que circulan por WhatsApp personal y respaldos hechos por cuenta propia en servicios gratuitos.",
+       "Alta",
+       "Alto",
+       "Cuentas corporativas para las herramientas de IA (en coordinación con 5.1), canal corporativo obligatorio para información confidencial y difusión de las prácticas seguras en la inducción."
+      ],
+      [
+       "Respaldo cuya recuperación no se ha probado",
+       "La auditoría externa pidió respaldo automático con prueba de restauración documentada; sin una prueba, el tiempo real de recuperación se desconoce.",
+       "Media",
+       "Alto",
+       "Probar la recuperación de los sistemas críticos una vez al año, con resultado y tiempo documentados."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Bajas ejecutadas el día de la salida",
+       "Bajas completas en todas las plataformas el día efectivo de la salida ÷ salidas del periodo",
+       "Mensual",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "100 %"
+      ],
+      [
+       "Cuentas sin titular vigente",
+       "Cuentas activas sin titular o sin función que las justifique, detectadas en la revisión trimestral",
+       "Trimestral",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "0 al cierre de la revisión"
+      ],
+      [
+       "Accesos privilegiados con doble factor",
+       "Cuentas privilegiadas con doble factor ÷ cuentas privilegiadas",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Incidentes con datos personales avisados en plazo",
+       "Incidentes con datos personales avisados dentro del plazo legal del país ÷ incidentes con datos personales",
+       "Por evento",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Prueba anual de recuperación",
+       "Sistemas críticos con prueba de recuperación documentada en el año ÷ sistemas críticos",
+       "Anual",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "14.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Atiende las incidencias y las solicitudes tecnológicas de oficinas, tiendas y bodegas por un canal único por país, con prioridad para la tienda que no puede facturar, escalamiento por niveles y cierre confirmado por el usuario; y lleva el inventario y el ciclo de vida de los equipos del grupo.\n\n**Tres puntos que se formalizan respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Un registro, no solo un chat.** Los grupos de Lark por área ya son el canal y el soporte de tiendas atiende los siete días; se añaden la clasificación, la prioridad y un nivel de servicio distinto para el horario de tiendas y el de oficina.\n2. **Lo que se repite se trata como problema.** Las fallas recurrentes —impresora fiscal, conectividad, cierres de caja— se analizan hasta su causa y se resuelven por un cambio, no caso por caso.\n3. **Un solo inventario del parque.** Con datáfonos, impresoras fiscales y equipos de red, conciliado con el registro contable de activos. Hoy el registro de equipos existe en Venezuela y el de activos fijos, en la contabilidad de Panamá.\n\nQuedan fuera las fallas de infraestructura del edificio (19.1), el soporte técnico de producto a los clientes (macroproceso de Postventa) y el cambio funcional que resuelve la causa de un problema (14.2)."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tecnología / Sistemas",
+     "participantes": [
+      "Gerente de Tecnología / Sistemas — dueño del proceso: fija el nivel de servicio, atiende el tercer nivel y revisa cada mes los indicadores del soporte.",
+      "Encargado(a) de Soporte Técnico — opera el canal único: registra, clasifica y prioriza cada caso, resuelve el primer nivel en remoto y lleva el inventario del parque.",
+      "Analista de Sistemas / Datos — atiende en sitio equipos, redes, puntos de venta e impresoras fiscales.",
+      "Coordinador(a) de Sistemas — atiende el segundo nivel del ERP, escala al partner o al proveedor y analiza los problemas repetidos.",
+      "Especialista de Tecnología (Web/Infraestructura) — compra y prepara los equipos con la configuración estándar.",
+      "Gerente de Tienda — reporta la incidencia del punto de venta y confirma el cierre.",
+      "Analista Contable Senior / Contador(a) — da de alta y de baja los equipos como activo fijo.",
+      "Proveedores de conectividad, equipos y el partner del ERP (actores externos) — atienden lo que se les escala."
+     ],
+     "evidencia": [
+      "E-52",
+      "E-32",
+      "E-33",
+      "E-07",
+      "E-15",
+      "E-44",
+      "E-45",
+      "E-56",
+      "E-38",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Soporte Técnico (IT Support) (VE)",
+      "Lark: Departamento de Ventas al Detal (VE)"
+     ],
+     "sin_evidencia": "No consta un nivel de servicio acordado ni un inventario único del parque; el registro de casos existe como tareas de Lark y no como registro con clasificación y prioridad."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "E-32",
+      "E-33",
+      "E-07",
+      "E-44",
+      "E-45",
+      "E-38",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Soporte Técnico (IT Support) (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tienda",
+       "texto": "Reporta la incidencia o la solicitud en el canal único de soporte de su país, con tienda, equipo, síntoma y foto; el usuario de oficina o de bodega hace lo mismo, y lo que llegue por WhatsApp o chat personal se reencamina al canal."
+      },
+      {
+       "id": "a2",
+       "rol": "Encargado(a) de Soporte Técnico",
+       "texto": "Registra y clasifica cada caso como incidente, solicitud preacordada o problema repetido, y le asigna prioridad por su impacto —una tienda que no puede facturar va primero— con el nivel de servicio que corresponde al horario de tiendas o al de oficina."
+      },
+      {
+       "id": "a3",
+       "rol": "Encargado(a) de Soporte Técnico",
+       "texto": "Resuelve en remoto lo que es de acceso, configuración del equipo o uso; si la tienda no puede facturar, activa la factura de contingencia y deja constancia de que se cargará en el ERP cuando el sistema vuelva."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Atiende en sitio lo que no se resuelve en remoto —equipo, red, periférico de caja, impresora fiscal, datáfono— y reemplaza el equipo dañado con uno del parque ya preparado, actualizando el inventario."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Atiende en segundo nivel lo que es de configuración o de programa del ERP; lo que es de localización o del WMS lo escala al partner o al proveedor con ticket, evidencias y fecha comprometida, y vigila que se cumpla."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Tienda",
+       "texto": "Confirma que la operación quedó normal antes de que se cierre el caso; un caso cerrado sin la confirmación del usuario no cuenta como resuelto en los indicadores del soporte."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Revisa cada mes los incidentes repetidos —impresora fiscal, conectividad, cierres de caja, pedidos que no llegan al almacén— como problemas: busca la causa, documenta una solución provisional y propone el cambio definitivo por 14.2."
+      },
+      {
+       "id": "a8",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Compra el equipo que se pide por ingreso, daño u obsolescencia, con la aprobación que corresponde a su monto, y lo entrega preparado con la configuración estándar del grupo y con la consola de seguridad instalada."
+      },
+      {
+       "id": "a9",
+       "rol": "Encargado(a) de Soporte Técnico",
+       "texto": "Registra cada equipo en el inventario del parque —serie, ubicación, responsable, fecha de compra y garantía—, incluidos datáfonos, impresoras fiscales y equipos de red, y lo actualiza con cada entrega, traslado o retiro."
+      },
+      {
+       "id": "a10",
+       "rol": "Analista Contable Senior / Contador(a)",
+       "texto": "Da de alta como activo fijo el equipo que supera el umbral del grupo, con su responsable, y lo da de baja cuando el parque lo retira; el inventario del parque y el registro contable se concilian una vez al año."
+      },
+      {
+       "id": "a11",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Revisa cada mes los indicadores del soporte por país —tiempo de respuesta, cumplimiento del nivel de servicio, casos por tienda, problemas abiertos— y los lleva a la revisión trimestral de tecnología con la Junta."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tienda",
+       "Encargado(a) de Soporte Técnico",
+       "Analista de Sistemas / Datos",
+       "Coordinador(a) de Sistemas",
+       "Gerente de Tecnología / Sistemas",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "Analista Contable Senior / Contador(a)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tienda",
+        "tipo": "inicio",
+        "n": "Falla o solicitud en tienda, oficina o bodega"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Reportar en el canal único",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Encargado(a) de Soporte Técnico",
+        "tipo": "tarea",
+        "n": "Registrar, clasificar y priorizar",
+        "sistemas": [
+         "Registro de soporte"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Encargado(a) de Soporte Técnico",
+        "tipo": "decision",
+        "n": "¿Es de equipo, red o acceso?"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Resolver en remoto o en sitio",
+        "sistemas": [
+         "Inventario del parque"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Resolver o escalar la falla del ERP",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Confirmar que la operación quedó normal"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Revisar los indicadores del soporte",
+        "sistemas": [
+         "Registro de soporte"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Caso cerrado con nivel de servicio medido"
+       },
+       {
+        "id": "n9",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "inicio",
+        "n": "Ingreso, daño u obsolescencia de un equipo"
+       },
+       {
+        "id": "n10",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Comprar y preparar el equipo"
+       },
+       {
+        "id": "n11",
+        "carril": "Encargado(a) de Soporte Técnico",
+        "tipo": "tarea",
+        "n": "Registrar el equipo en el inventario",
+        "sistemas": [
+         "Inventario del parque"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Analista Contable Senior / Contador(a)",
+        "tipo": "tarea",
+        "n": "Dar de alta el activo fijo",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Analista Contable Senior / Contador(a)",
+        "tipo": "fin",
+        "n": "Equipo entregado, inventariado y contabilizado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "E-07",
+      "E-32",
+      "E-45",
+      "E-33",
+      "E-44",
+      "E-01",
+      "Lark: Soporte Técnico (IT Support) (VE)"
+     ],
+     "filas": [
+      [
+       "Lo urgente desplaza lo importante",
+       "Quien lleva la seguridad deja de hacer sus tareas importantes por atender lo urgente, y la dirección envía pedidos por WhatsApp y otros canales a la vez; sin registro no hay forma de ver la carga.",
+       "Alta",
+       "Medio",
+       "Canal único con clasificación y prioridad; los pedidos que llegan por fuera se reencaminan al canal antes de atenderse."
+      ],
+      [
+       "Soporte que depende de una persona",
+       "El soporte de tiendas de Venezuela lo cubre una persona siete días a la semana; en Caracas, una sola persona de servicios generales atiende además equipos en tienda, sin reemplazo en vacaciones; Colombia no tiene personal de TI.",
+       "Alta",
+       "Alto",
+       "Suplente nombrado para cada función de soporte y cobertura de fin de semana acordada por país; en Colombia, cobertura propia o contratada."
+      ],
+      [
+       "La tienda no puede facturar",
+       "Cada minuto sin sistema es venta perdida; ante una caída del ERP la tienda factura en contingencia, y esas facturas deben cargarse después sin perderse.",
+       "Media",
+       "Alto",
+       "Prioridad máxima para la tienda que no factura, procedimiento de contingencia conocido por cada tienda y control de que toda factura de contingencia se cargue."
+      ],
+      [
+       "Fallas repetidas atendidas una por una",
+       "Las fallas de impresora fiscal, de conectividad y de cierre se atienden caso por caso; el propio equipo de campo se fijó la meta de reducir las incidencias en tienda en torno al 90 %.",
+       "Media",
+       "Medio",
+       "Revisión mensual de problemas con análisis de causa y cambio definitivo por 14.2."
+      ],
+      [
+       "Parque sin inventario único",
+       "El inventario de equipos existe en Venezuela; en Panamá los equipos de valor están en el activo fijo, todavía sin placa, y el inventario antiguo está por levantar.",
+       "Alta",
+       "Medio",
+       "Un solo inventario del parque con datáfonos e impresoras fiscales, conciliado una vez al año con el activo fijo."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Cumplimiento del nivel de servicio",
+       "Casos resueltos dentro del nivel de servicio ÷ casos cerrados, separado por tienda y oficina",
+       "Mensual",
+       "Encargado(a) de Soporte Técnico",
+       "Más del 90 %"
+      ],
+      [
+       "Tiempo de restablecimiento de una tienda sin facturar",
+       "Hora en que la tienda vuelve a facturar en el sistema − hora del reporte",
+       "Por evento",
+       "Coordinador(a) de Sistemas",
+       "A fijar tras tres meses de medición"
+      ],
+      [
+       "Casos cerrados con confirmación del usuario",
+       "Casos cerrados con confirmación ÷ casos cerrados",
+       "Mensual",
+       "Encargado(a) de Soporte Técnico",
+       "100 %"
+      ],
+      [
+       "Incidencias por tienda",
+       "Casos de tiendas ÷ tiendas en operación",
+       "Mensual",
+       "Gerente de Tecnología / Sistemas",
+       "Tendencia a la baja trimestre a trimestre"
+      ],
+      [
+       "Equipos inventariados",
+       "Equipos en el inventario del parque conciliados con el activo fijo ÷ equipos en uso",
+       "Anual",
+       "Encargado(a) de Soporte Técnico",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "14.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Prepara la tecnología de una tienda, un kiosco o una sede nueva —o de una remodelación que la afecte— desde el plano hasta la primera venta: dotación, inspección de la infraestructura, conectividad, equipos probados en laboratorio, accesos del personal y punto de venta configurado en el ERP con sus métodos de pago, diarios y reglas fiscales.\n\n**Tres puntos que se formalizan respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **TI entra desde el plano, con una lista de verificación.** La secuencia que hoy sigue Venezuela —inspección en obra, laboratorio, instalación— se vuelve el estándar regional, con responsable y fecha por punto. Hoy la verificación final se hace por inercia, sin manual de apertura.\n2. **El punto de venta se configura en pruebas.** Métodos de pago, diarios y numeración fiscal pasan por el ambiente de pruebas y el ciclo de 14.3; hoy se configuran directamente en producción.\n3. **Se prueba de punta a punta antes de abrir.** Una venta con cada medio de pago, el documento fiscal, el cierre de caja, la fecha y la tasa del sistema.\n\nQuedan fuera la decisión de abrir y la gestión del proyecto de apertura (9.8 y 4.2), la obra y el mobiliario, y el soporte a la tienda después de abierta (14.5)."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Coordinador(a) de Sistemas",
+     "participantes": [
+      "Coordinador(a) de Sistemas — dueño del proceso: define la dotación con el estándar de tienda, configura el punto de venta y da por habilitada la tienda cuando la lista de verificación está completa.",
+      "Gerente de Proyectos — conduce la apertura como proyecto y convoca a TI desde el plano, con la fecha de apertura.",
+      "Analista de Sistemas / Datos — inspecciona el local en obra, arma y prueba el laboratorio de equipos e instala; en Panamá lo hace el Encargado(a) de Soporte Técnico.",
+      "Especialista de Tecnología (Web/Infraestructura) — compra los equipos, contrata la conectividad y crea los usuarios y accesos del personal de la tienda.",
+      "Gerente de Contabilidad / Administración — crea los diarios de los métodos de pago, el centro de costo y la configuración fiscal de la localidad.",
+      "Gerente de Tienda — hace con TI la prueba integral y recibe el entrenamiento en los sistemas.",
+      "Gerente de Tecnología / Sistemas — aprueba las compras dentro de su umbral y resuelve lo que la coordinación escala.",
+      "Proveedores de conectividad, cableado, cámaras, telefonía e integración bancaria (actores externos)."
+     ],
+     "evidencia": [
+      "E-33",
+      "E-32",
+      "E-52",
+      "E-07",
+      "E-47",
+      "E-38",
+      "E-45",
+      "E-65",
+      "E-55",
+      "Lark: Manual de análisis del reporte de venta de Casiolandia (PA)"
+     ],
+     "sin_evidencia": "No existen hoy una lista de verificación tecnológica de apertura ni un estándar de dotación por tipo de tienda: ambos son propuestas sobre la secuencia que ya sigue Venezuela."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-33",
+      "E-32",
+      "E-52",
+      "E-07",
+      "E-47",
+      "E-38",
+      "E-45",
+      "E-65",
+      "SC-02"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Proyectos",
+       "texto": "Convoca a TI en cuanto la apertura o la remodelación se aprueba, con el plano y la fecha de apertura, y abre en la base del proyecto la lista de verificación tecnológica de apertura, con responsable y fecha por punto."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Define con el proyecto la dotación tecnológica de la tienda —cajas, datáfonos, equipo fiscal, tableta de inventario, cámaras, red, sonido— a partir del estándar de tienda del grupo, y la convierte en orden de compra y en lista de proveedores a coordinar."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Inspecciona el local durante la obra sobre el plano: puntos eléctricos y de datos, acometida de internet y ruta del cableado; deja por escrito lo que el arquitecto debe corregir antes de cerrar paredes, para no rehacer la red después de inaugurar."
+      },
+      {
+       "id": "a4",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Compra los equipos con la aprobación que corresponde a su monto, contrata la conectividad principal y la de respaldo, y crea los usuarios y accesos nominales del personal de la tienda antes de la fecha de apertura."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Arma y prueba en el laboratorio las cajas y los equipos con la configuración estándar, incluidas pruebas de facturación y de cobro; luego instala en la tienda con cableado certificado y la red del punto de venta separada de la de invitados."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Crea, antes de que se configure el punto de venta, los diarios contables de los métodos de pago, el centro de costo de la tienda y la configuración fiscal que corresponde a su localidad, como un régimen especial o una zona exenta."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Configura el punto de venta en el ambiente de pruebas —métodos de pago, diarios, numeración fiscal, datos maestros, datáfonos— y lo pasa a producción por el ciclo de 14.3, nunca directamente en producción."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Tienda",
+       "texto": "Hace con TI la prueba integral antes de abrir: una venta con cada medio de pago, el documento fiscal, el cierre de caja, la fecha y la tasa del sistema; y recibe con su equipo el entrenamiento en los sistemas de la tienda."
+      },
+      {
+       "id": "a9",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Da por habilitada la tienda cuando la lista de verificación está completa y la prueba integral pasó; registra los equipos en el inventario del parque y entrega la tienda al soporte regular (14.5) con su ficha tecnológica."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Proyectos",
+       "Coordinador(a) de Sistemas",
+       "Analista de Sistemas / Datos",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "Gerente de Contabilidad / Administración",
+       "Gerente de Tienda"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Proyectos",
+        "tipo": "inicio",
+        "n": "Apertura o remodelación aprobada"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Proyectos",
+        "tipo": "tarea",
+        "n": "Convocar a TI con plano y fecha",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Definir la dotación con el estándar"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Inspeccionar el local sobre el plano"
+       },
+       {
+        "id": "n4",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Comprar equipos, conectividad y accesos"
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Probar en laboratorio e instalar"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Crear diarios, centro de costo y fiscal",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Configurar el punto de venta en pruebas",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Tienda",
+        "tipo": "tarea",
+        "n": "Probar de punta a punta antes de abrir",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Tienda",
+        "tipo": "decision",
+        "n": "¿Pasa la prueba integral?"
+       },
+       {
+        "id": "n10",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Corregir y repetir la prueba"
+       },
+       {
+        "id": "n11",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Habilitar y entregar a soporte",
+        "sistemas": [
+         "Inventario del parque"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "fin",
+        "n": "Tienda lista para facturar"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n2",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n6"
+       },
+       {
+        "de": "n3",
+        "a": "n5"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n5",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n9",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-45",
+      "E-32",
+      "E-38",
+      "E-65",
+      "E-33",
+      "E-55",
+      "E-52",
+      "E-47"
+     ],
+     "filas": [
+      [
+       "La infraestructura se corrige después de inaugurar",
+       "Hubo una tienda con la red eléctrica mal dimensionada que hubo que rehacer después de abierta; los muebles tampoco quedan siempre como en el plano.",
+       "Media",
+       "Alto",
+       "Inspección de TI sobre el plano durante la obra, con correcciones por escrito antes de cerrar paredes."
+      ],
+      [
+       "Punto de venta configurado directamente en producción",
+       "La creación de la tienda en el ERP se hace hoy en producción, y si la importación falla se elimina y se repite.",
+       "Media",
+       "Medio",
+       "Configurar en el ambiente de pruebas y pasar por el ciclo de 14.3."
+      ],
+      [
+       "Configuración fiscal o contable no prevista",
+       "Al abrir en una zona exenta el libro de ventas calculó un impuesto que no correspondía y hubo que corregir en hojas de cálculo; los centros de costo de las tiendas nuevas no se asignan solos.",
+       "Media",
+       "Alto",
+       "Diarios, centro de costo y configuración fiscal de la localidad creados por Contabilidad antes de configurar el punto de venta, como punto de la lista de verificación."
+      ],
+      [
+       "Proveedores únicos que retrasan la apertura",
+       "La integración bancaria del punto de venta y algunos servicios de la tienda dependen de un único proveedor, y la coordinación se vuelve una batalla.",
+       "Media",
+       "Medio",
+       "Coordinar a los proveedores desde la definición de la dotación, con fecha comprometida en la lista de verificación, y buscar alternativa para los críticos (14.7)."
+      ],
+      [
+       "Ritmo de aperturas por encima de la capacidad",
+       "Hubo meses con cerca de ocho aperturas y cuatro en curso a la vez, sobre un equipo de campo pequeño; Colombia no tiene personal de TI para las suyas.",
+       "Media",
+       "Alto",
+       "Convocatoria a TI con no menos de cuatro semanas de anticipación y estándar de dotación que permita preparar equipos por lote."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Aperturas con lista de verificación completa",
+       "Aperturas con todos los puntos cerrados antes de la fecha ÷ aperturas del periodo",
+       "Por apertura",
+       "Coordinador(a) de Sistemas",
+       "100 %"
+      ],
+      [
+       "Anticipación de la convocatoria a TI",
+       "Fecha de apertura − fecha en que TI recibe plano y fecha, en semanas",
+       "Por apertura",
+       "Gerente de Proyectos",
+       "Cuatro semanas o más"
+      ],
+      [
+       "Prueba integral superada al primer intento",
+       "Aperturas que pasan la prueba integral sin correcciones ÷ aperturas",
+       "Por apertura",
+       "Coordinador(a) de Sistemas",
+       "Más del 80 %"
+      ],
+      [
+       "Incidencias de TI en los primeros 30 días",
+       "Casos del registro de soporte de la tienda en su primer mes",
+       "Por apertura",
+       "Coordinador(a) de Sistemas",
+       "A fijar tras las primeras aperturas medidas"
+      ]
+     ]
+    }
+   },
+   "14.7": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Gobierna a los terceros de los que depende la operación tecnológica —partners del ERP, desarrolladores independientes, proveedores del almacén, de facturación electrónica, de integración bancaria, de conectividad y de equipos—: cómo se eligen, qué se les exige por contrato, cómo se les da acceso, cómo se les paga y cómo se evalúan o sustituyen.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Cada proveedor crítico tiene contrato con nivel de servicio.** Con alcance delimitado frente al equipo interno, confidencialidad, entrega del código y de la documentación, y plan de salida. Hoy la dependencia del partner se gestiona por presión y no por acuerdo.\n2. **Se paga contra entregable aceptado.** Las horas facturadas se contrastan con las tareas culminadas; hoy ya se detectaron cargos por encima de lo contratado.\n3. **Cada proveedor crítico se evalúa una vez al año.** Con la decisión de renovar, corregir o sustituir.\n\nQuedan fuera la contratación de personal propio de TI (17.1), la redacción jurídica del contrato (18.2) y la ejecución del pago (macroproceso de Administración y Finanzas).",
+     "nota_estado": "Proceso en transición: la coordinación diaria de partners y desarrolladores y el pago contra solicitud aprobada ya operan; los contratos con nivel de servicio, el inventario de proveedores por criticidad y la evaluación anual están por instalarse."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Tecnología / Sistemas",
+     "participantes": [
+      "Gerente de Tecnología / Sistemas — dueño del proceso: clasifica a los proveedores por criticidad, evalúa las opciones, formaliza el contrato y evalúa cada año a los críticos.",
+      "Coordinador(a) de Sistemas — coordina en el día a día los tickets y las horas del partner de su país y de los desarrolladores.",
+      "Especialista de Tecnología (Web/Infraestructura) — da y retira los accesos de los proveedores y lleva la relación con los de equipos, dominios y licencias.",
+      "Analista de Sistemas / Datos — coordina a los proveedores locales de conectividad, cámaras y equipos fiscales.",
+      "Gerente de Contabilidad / Administración — registra el contrato y paga contra entregable aceptado.",
+      "Junta Directiva — aprueba los partners estratégicos y el gasto por encima del umbral.",
+      "Asesoría jurídica del grupo (actor de apoyo) — revisa las cláusulas del contrato.",
+      "Partners, desarrolladores y proveedores (actores externos)."
+     ],
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-04",
+      "E-25",
+      "SC-04",
+      "E-33",
+      "E-54",
+      "E-19",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Procedimiento de funciones de Cuentas por Pagar (PA)"
+     ],
+     "sin_evidencia": "No constan contratos con nivel de servicio, evaluación periódica de desempeño ni inventario de proveedores por criticidad: son propuestas."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-04",
+      "E-25",
+      "SC-04",
+      "E-33",
+      "E-54",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Procedimiento de funciones de Cuentas por Pagar (PA)",
+      "Lark: Acuerdo de confidencialidad de empleados (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Registra la necesidad de un tercero —una capacidad técnica que el equipo no cubre o el desempeño insuficiente de uno vigente— y la clasifica por criticidad: si su falla detiene la venta, la facturación o el acceso a los datos, el proveedor es crítico."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Evalúa al menos dos opciones con criterio escrito —capacidad técnica, integración por API estándar con las plataformas del grupo, costo total, soporte en el horario de tiendas, seguridad y condiciones de salida— y con el área usuaria cuando la toca."
+      },
+      {
+       "id": "a3",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba los partners estratégicos y toda contratación por encima del umbral, con la evaluación de las opciones a la vista; lo que queda por debajo lo aprueba la gerencia de tecnología dentro de su presupuesto."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Formaliza el contrato con la revisión de la asesoría jurídica (18.2): alcance frente al equipo interno, nivel de servicio, confidencialidad, entrega del código y de la documentación, cesión de la propiedad de los desarrollos y aviso de incidentes."
+      },
+      {
+       "id": "a5",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Da al proveedor solo los accesos que su alcance necesita, con cuenta nominal y por tiempo definido, y lo registra en el inventario de proveedores con su contacto interno, su criticidad y su fecha de revisión."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador(a) de Sistemas",
+       "texto": "Coordina en el día a día los tickets y las horas del partner y de los desarrolladores, contrasta las horas facturadas con las tareas culminadas y registra cada incumplimiento del nivel de servicio para la evaluación anual."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Contabilidad / Administración",
+       "texto": "Registra el contrato y paga contra tareas o entregables aceptados por la gerencia de tecnología, y reporta cada trimestre el gasto tecnológico por proveedor y por país."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Evalúa una vez al año a cada proveedor crítico —cumplimiento del nivel de servicio, incidentes, costo, dependencia— y decide renovar, corregir o sustituir; la sustitución arranca con el plan de salida pactado en el contrato."
+      },
+      {
+       "id": "a9",
+       "rol": "Especialista de Tecnología (Web/Infraestructura)",
+       "texto": "Cuando la relación termina, retira los accesos del proveedor ese mismo día, cambia las credenciales que conocía y confirma la recepción del código, los datos y la documentación antes de cerrar el registro."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Tecnología / Sistemas",
+       "Junta Directiva",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "Coordinador(a) de Sistemas",
+       "Gerente de Contabilidad / Administración"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "inicio",
+        "n": "Capacidad no cubierta o proveedor con bajo desempeño"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Clasificar la necesidad por criticidad"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Evaluar opciones con criterio escrito"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Supera el umbral o es estratégico?"
+       },
+       {
+        "id": "n4",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar el partner o el gasto"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Formalizar el contrato con nivel de servicio"
+       },
+       {
+        "id": "n6",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Dar accesos por tiempo y registrar",
+        "sistemas": [
+         "Inventario de proveedores"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador(a) de Sistemas",
+        "tipo": "tarea",
+        "n": "Coordinar tickets y contrastar horas",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Contabilidad / Administración",
+        "tipo": "tarea",
+        "n": "Pagar contra entregables aceptados",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Evaluar al proveedor cada año"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "decision",
+        "n": "¿Se renueva?"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "fin",
+        "n": "Proveedor renovado con su evaluación"
+       },
+       {
+        "id": "n12",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "tarea",
+        "n": "Ejecutar la salida y retirar accesos"
+       },
+       {
+        "id": "n13",
+        "carril": "Especialista de Tecnología (Web/Infraestructura)",
+        "tipo": "fin",
+        "n": "Proveedor sustituido con código y accesos devueltos"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n12",
+        "etq": "No"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-15",
+      "E-32",
+      "E-25",
+      "SC-04",
+      "E-33",
+      "E-54",
+      "E-58",
+      "E-26",
+      "E-12"
+     ],
+     "filas": [
+      [
+       "Dependencia de un partner sobrecargado",
+       "El partner de un país está sobrecargado, con meses en que no respondía y una actitud defensiva ante los reclamos; el equipo interno evita pedirle cambios porque sus arreglos dañan otras funciones.",
+       "Alta",
+       "Alto",
+       "Contrato con nivel de servicio y registro de cada incumplimiento; evaluación anual con alternativa identificada para el partner crítico."
+      ],
+      [
+       "Horas facturadas por encima de lo contratado",
+       "Sobre un paquete de horas de consultoría se detectaron cargos por encima de lo contratado, como un consultor con quince horas en un solo día.",
+       "Media",
+       "Medio",
+       "Contraste de las horas facturadas con las tareas culminadas antes de aprobar cada pago."
+      ],
+      [
+       "Código y conocimiento en manos de terceros",
+       "Las personalizaciones del ERP las construyen desarrolladores independientes y partners, sin control de su trabajo según la propia dirección; la aplicación de un producto propio es propiedad de la fábrica.",
+       "Alta",
+       "Alto",
+       "Cláusulas de entrega de código, documentación y cesión de la propiedad de los desarrollos en todo contrato; código siempre en el repositorio de la empresa."
+      ],
+      [
+       "Proveedor único de un servicio crítico",
+       "La integración bancaria del punto de venta de un país depende de un único proveedor, y lo mismo pasa con algunos servicios de tienda.",
+       "Media",
+       "Alto",
+       "Identificar en el inventario los servicios críticos con proveedor único y preparar para cada uno una alternativa o un plan de contingencia."
+      ],
+      [
+       "Áreas que contratan software sin criterio técnico",
+       "Un área cambió su software de planilla y ella misma lo considera una mala decisión; otras pagan de su bolsillo servicios en la nube y licencias de IA para sus herramientas.",
+       "Media",
+       "Medio",
+       "Toda contratación de software pasa por la evaluación de este proceso, con integración por API estándar como requisito."
+      ],
+      [
+       "Terceros con acceso a datos sin acuerdo firmado",
+       "Hubo proveedores externos que recibían mucha información de la empresa, lo que llevó a exigir acuerdos de confidencialidad; el diagnóstico señaló desarrolladores externos sin ese acuerdo.",
+       "Media",
+       "Alto",
+       "Ningún acceso para un tercero sin acuerdo de confidencialidad firmado y registrado en el inventario de proveedores."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Proveedores críticos con contrato y nivel de servicio",
+       "Proveedores críticos con contrato vigente y nivel de servicio ÷ proveedores críticos",
+       "Semestral",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Cumplimiento del nivel de servicio del partner",
+       "Tickets resueltos por el partner dentro del plazo pactado ÷ tickets cerrados",
+       "Mensual",
+       "Coordinador(a) de Sistemas",
+       "Más del 85 %"
+      ],
+      [
+       "Horas conciliadas antes del pago",
+       "Horas facturadas conciliadas con tareas culminadas ÷ horas facturadas",
+       "Mensual",
+       "Coordinador(a) de Sistemas",
+       "100 %"
+      ],
+      [
+       "Proveedores críticos evaluados en el año",
+       "Proveedores críticos con evaluación anual registrada ÷ proveedores críticos",
+       "Anual",
+       "Gerente de Tecnología / Sistemas",
+       "100 %"
+      ],
+      [
+       "Terceros con acceso y acuerdo de confidencialidad",
+       "Terceros con acceso activo y acuerdo firmado ÷ terceros con acceso activo",
+       "Trimestral",
+       "Especialista de Tecnología (Web/Infraestructura)",
+       "100 %"
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "15": {
+  "n0": {
+   "introduccion": {
+    "estado": "borrador",
+    "proposito": "Describir cómo el grupo convierte los datos que nacen en sus sistemas y en los de sus clientes en una cifra única y confiable, y cómo esa cifra llega, en forma de modelos y tableros, a quien tiene que decidir con ella. Es el macroproceso que sostiene la tesis de este informe de que el dato va antes que el agente: sin un dato certificado, ninguna automatización seria puede desplegarse sin multiplicar los errores.",
+    "alcance": "Cubre los seis procesos del macroproceso: captación y normalización de los datos de origen, control de calidad y gobierno de la fuente de la verdad, calendario de entrega con las fuentes, desarrollo de modelos analíticos y reglas de negocio, construcción y publicación de tableros, y documentación, habilitación y medición del uso. Aplica a todas las entidades del grupo y a las cuentas de terceros que reportan su venta. No cubre la arquitectura de plataformas, el diseño de las interfaces ni la sincronización de maestros entre países, que son de Tecnología (14.1); tampoco la ejecución de las altas y bajas de acceso (14.4), el gobierno de la inteligencia artificial (5) ni las decisiones de negocio que se toman con el dato, que viven en cada macroproceso usuario.",
+    "audiencia": [
+     "Analista de Sistemas / Datos",
+     "Gerente de Tecnología / Sistemas",
+     "Director(a) de Proyectos (PMO)",
+     "Gerente Regional Comercial / Retail",
+     "Gerente Comercial (País / Canal)",
+     "Analista/Ejecutivo(a) Comercial",
+     "Asistente Comercial",
+     "Coordinador(a) de Logística y Bodega",
+     "Gerente de Recursos Humanos (Formación y Desarrollo)",
+     "Junta Directiva"
+    ]
+   },
+   "contexto": {
+    "estado": "borrador",
+    "ubicacion": "La gestión de datos e inteligencia de negocio es un macroproceso de soporte, hermanado con el de tecnología: no mueve mercancía ni dinero, mueve la cifra con la que se decide qué comprar, qué reponer y qué liquidar. Hoy la sostiene una célula de tres personas que opera desde Venezuela y tiene cerca de un año: una especialista en extracción y transformación, un analista que revisa el dato y prepara las métricas, y un líder que modela. Recibe lo que produce el ERP de cada país por puntos de conexión y lo que envían cuarenta y un clientes con varios cientos de tiendas —más de mil orígenes—, lo normaliza en una tabla única y construye sobre ella modelos de salud del inventario, rebalanceo y reposición.\n\nAlrededor de esa célula, las áreas construyeron sus propios circuitos de datos: cuadros diarios que las tiendas digitan al cierre, hojas de cálculo conectadas al ERP, bases en Lark y tableros hechos con asistentes de IA. El diagnóstico de la Fase 1 lo resumió en que el dato del grupo no está certificado ni gobernado, y que ninguna automatización seria puede desplegarse sobre él sin que se multipliquen los errores. Ese es el problema que este macroproceso ordena.\n\nEn la arquitectura de IA propuesta en este mismo informe, el repositorio analítico del grupo —la réplica del ERP de cada país con un modelo canónico de las cifras— es el núcleo de la plataforma, y todos los agentes corren sobre él. Este macroproceso es el que lo alimenta y lo certifica. La propuesta ubica en su primera ola la réplica, el catálogo de productos con sus alias, los conectores y la recepción del sell-out de los clientes; la herramienta final de cada función la decide la Junta.",
+    "duenos": [
+     [
+      "Macroproceso",
+      "Analista de Sistemas / Datos",
+      "Lidera la célula de datos: responde por la tabla normalizada, su calidad, los modelos, los tableros y la documentación de cada producto analítico."
+     ],
+     [
+      "Procesos",
+      "Gerente de Tecnología / Sistemas",
+      "Habilita los puntos de conexión sobre el ERP, ejecuta los accesos y acuerda con la célula la prioridad de sus pedidos a Tecnología."
+     ],
+     [
+      "Procesos",
+      "Director(a) de Proyectos (PMO)",
+      "Planifica la cartera de productos analíticos y decide si una solicitud justifica un producto nuevo."
+     ],
+     [
+      "Procesos",
+      "Gerente Regional Comercial / Retail",
+      "Es el área usuaria principal: plantea los problemas de decisión, fija las heurísticas, aprueba quién ve qué y decide reforzar o retirar un producto."
+     ],
+     [
+      "Grupo",
+      "Junta Directiva",
+      "Aprueba la política de datos y el presupuesto de licencias y capacidad, y recibe la cifra certificada del grupo."
+     ]
+    ],
+    "entidades": [
+     [
+      "Kenex Trading, S.A.",
+      "Panamá",
+      "Hub regional",
+      "Titular del entorno analítico actual y de la instancia del ERP desde la que se replican los productos a los demás países; concentra el mayoreo regional y buena parte de las cuentas de terceros que reportan sell-out."
+     ],
+     [
+      "Casiolandia, S.A.",
+      "Panamá",
+      "Operación propia",
+      "Tiendas propias y mayoreo local de Panamá; su venta diaria alimenta los tableros de tiendas."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Operación propia",
+      "Mercado de mayor peso en el ingreso del grupo, con la mayor parte de su venta en tiendas propias; factura en dos monedas y es la sede de trabajo de la célula de datos."
+     ],
+     [
+      "Deltadir, S.A.S.",
+      "Colombia",
+      "Operación propia",
+      "Sin personal de datos local; el sell-out de las cadenas se lee en los portales de cada una y el país tiene pendiente su tablero consolidado."
+     ],
+     [
+      "Importbel, S.A.",
+      "Costa Rica",
+      "Socio local",
+      "Sistema administrativo propio fuera del ERP del grupo, con analista de negocio y tableros locales; reporta sus ventas al grupo cada día."
+     ]
+    ],
+    "sistemas": [
+     [
+      "Odoo (una instancia por país)",
+      "Origen de venta, inventario, compras y contabilidad. Expone a la célula puntos de conexión de solo lectura, tiene un módulo de extracción de ventas y contabilidad para analítica y unos cuarenta reportes exportables a hoja de cálculo.",
+      "15.1 · 15.2 · 15.4"
+     ],
+     [
+      "Microsoft Fabric (flujos de datos y automatización)",
+      "Entorno analítico actual: extracción y transformación hacia la tabla normalizada y cómputo de los modelos, sobre la suite corporativa de la empresa y con licencia de pago por uso. La arquitectura de IA propuesta en este informe lleva esta función a la plataforma del grupo; la herramienta final la decide la Junta.",
+      "15.1 · 15.2 · 15.4"
+     ],
+     [
+      "Power BI",
+      "Herramienta de tableros actual de la célula: publicación, actualización programada, licencias por usuario y métricas de uso. La arquitectura de IA propuesta en este informe lleva esta función a la plataforma del grupo; la herramienta final la decide la Junta.",
+      "15.5 · 15.6"
+     ],
+     [
+      "Correo electrónico",
+      "Canal por el que las cuentas de terceros envían su sell-out, reenviado por el vendedor de cada cuenta, y por el que algunos países envían sus ventas.",
+      "15.1 · 15.3"
+     ],
+     [
+      "Hojas de cálculo conectadas a Odoo",
+      "Consultas y exportaciones que cada área refresca para sus propios análisis —reposición, compras, cuadro diario de tiendas, cartera—; son fuentes de verdad paralelas a la tabla normalizada.",
+      "15.1 · 15.2"
+     ],
+     [
+      "Lark",
+      "Tareas de la célula hacia Tecnología con fecha de vencimiento, recepción de reportes de algunos países y bases y tableros que las áreas construyen por su cuenta.",
+      "15.1 · 15.3 · 15.5"
+     ],
+     [
+      "Tableros y aplicaciones construidos por las áreas",
+      "Hechos con asistentes de IA, alojados en servicios externos o en equipos locales, algunos con usuario y contraseña propios; no hay evidencia de un inventario de ellos ni de quién custodia su dato. La arquitectura de IA propuesta en este informe lleva esta función a la plataforma del grupo; la herramienta final la decide la Junta.",
+      "15.5 · 15.6"
+     ],
+     [
+      "Asistentes de IA de uso individual",
+      "Usados sobre hojas de cálculo para consolidar, limpiar y analizar. Parte de las licencias son corporativas y parte personales o de otro dominio del grupo, que no se pueden conectar al entorno analítico corporativo.",
+      "15.2 · 15.4 · 15.6"
+     ]
+    ],
+    "interfaces": [
+     [
+      "Gestión de Tecnología de Información (TI)",
+      "Entrada",
+      "Puntos de conexión de solo lectura sobre el ERP y sincronización de maestros entre países, según el diseño de interfaces de 14.1; altas y bajas de acceso a los tableros, que ejecuta 14.4."
+     ],
+     [
+      "Gestión de Tecnología de Información (TI)",
+      "Salida",
+      "Pedidos de puntos de conexión con sus campos y fecha; matriz aprobada de quién ve qué; defectos que nacen en un maestro del ERP."
+     ],
+     [
+      "Ventas Mayor",
+      "Entrada",
+      "Sell-out de las cuentas de terceros, que el ejecutivo de cada cuenta obtiene y se compromete a entregar en calendario (8.7 y 8.8)."
+     ],
+     [
+      "Ventas Mayor",
+      "Salida",
+      "Sell-out normalizado por cliente, tienda y producto, y señales de sobrestock y de producto estancado por cuenta (8.17)."
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Salida",
+      "Modelos de proyección, salud del inventario, rebalanceo y venta perdida para la planificación de la demanda y la reposición (6.1 y 6.7)."
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Entrada",
+      "Parámetros que no viven en ningún sistema: pedido mínimo y tiempo de tránsito por fábrica, y asignación histórica de la marca representada."
+     ],
+     [
+      "Ventas Retail",
+      "Entrada / salida",
+      "Cierre diario por tienda hacia la tabla normalizada; tablero de tiendas y torre de control regional (9.2 y 9.5)."
+     ],
+     [
+      "Planeación Comercial",
+      "Salida",
+      "Cifra certificada para el forecast y para el tablero oficial de desempeño comercial (2.2 y 2.7)."
+     ],
+     [
+      "Dirección y Gobierno Corporativo",
+      "Salida",
+      "Cifra certificada para el cuadro de indicadores de la Junta (1.2)."
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Coordinación",
+      "Cartera y priorización de los productos analíticos y método de trabajo por ciclos cortos (4.1 y 4.6)."
+     ],
+     [
+      "Adopción de IA y Transformación Digital",
+      "Coordinación",
+      "Los agentes y casos de uso corren sobre el dato certificado; política de licencias y formación en inteligencia artificial (5.1, 5.2 y 5.3)."
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Coordinación",
+      "Formación práctica de los usuarios clave dentro del plan de formación del grupo (17.8)."
+     ],
+     [
+      "Gestión Legal y Cumplimiento",
+      "Coordinación",
+      "Base legal del tratamiento de datos personales por país y acuerdos de confidencialidad (18.5)."
+     ],
+     [
+      "Administración y Finanzas",
+      "Entrada / salida",
+      "Próximo dominio del análisis: margen, costo y cartera; moneda y tasa oficial para toda cifra de valor (13.8)."
+     ]
+    ]
+   },
+   "gobernanza": {
+    "estado": "borrador",
+    "actores": [
+     [
+      "Analista de Sistemas / Datos",
+      "Grupo",
+      "Lidera la célula de datos: catálogo de fuentes, tabla normalizada, controles de calidad, modelos, tableros y su documentación.",
+      "El método estadístico de cada modelo, las reglas de control de calidad, la certificación de un lote y la frecuencia técnica de actualización.",
+      "Las heurísticas las fija el área usuaria; la ampliación de licencias o de capacidad escala a Tecnología y a la Junta."
+     ],
+     [
+      "Gerente de Tecnología / Sistemas",
+      "Grupo",
+      "Habilita los puntos de conexión sobre el ERP, asigna las licencias de la herramienta de tableros y tramita las altas y bajas de acceso, que ejecuta el Especialista de Tecnología por la vía de 14.4.",
+      "La fecha y la prioridad de los pedidos de la célula a Tecnología, y el diseño de las interfaces (14.1).",
+      "La compra de licencias y de capacidad, a la Junta."
+     ],
+     [
+      "Director(a) de Proyectos (PMO)",
+      "Grupo",
+      "Planifica la cartera de productos analíticos y la capacidad de la célula.",
+      "Si una solicitud justifica un producto nuevo o se resuelve con uno existente, y su prioridad.",
+      "Los conflictos de prioridad entre áreas, a la Junta."
+     ],
+     [
+      "Gerente Regional Comercial / Retail",
+      "Regional",
+      "Área usuaria principal: plantea los problemas de decisión, fija las heurísticas, aprueba la matriz de permisos y designa a los usuarios clave.",
+      "Las heurísticas de su dominio, quién ve qué en sus tableros y si un producto se refuerza o se retira.",
+      "Los cambios de política comercial que afectan a un modelo, a la Junta."
+     ],
+     [
+      "Analista/Ejecutivo(a) Comercial",
+      "País / cuenta",
+      "Interlocutor único de cada cuenta de tercero: acuerda la entrega, gestiona los faltantes y resuelve los nombres de producto.",
+      "La fecha de entrega con la cuenta, dentro del mínimo mensual.",
+      "La entrega que no se resuelve en plazo, a la gerencia regional comercial."
+     ],
+     [
+      "Coordinador(a) de Logística y Bodega",
+      "País",
+      "Usuaria clave de planificación y reposición: prueba en paralelo los modelos y reparte su resultado aguas abajo.",
+      "El paso a producción de un modelo de reposición tras su ciclo de prueba.",
+      "Las recomendaciones que no son accionables, a la célula y a la gerencia regional."
+     ],
+     [
+      "Junta Directiva",
+      "Grupo",
+      "Aprueba la política de datos y el presupuesto de licencias y capacidad, y recibe la cifra certificada.",
+      "La política de datos, el presupuesto y la herramienta final del entorno analítico.",
+      "—"
+     ]
+    ],
+    "comites": [
+     [
+      "Mesa semanal de datos e inteligencia de negocio",
+      "Revisar el avance de los productos en curso, los proyectos nuevos y los pedidos a Tecnología: lo que funciona hay que mantenerlo funcionando.",
+      "Semanal; ya se reúne con estos tres roles",
+      "Analista de Sistemas / Datos · Gerente de Tecnología / Sistemas · Director(a) de Proyectos (PMO)",
+      "Prioridad de la cartera y fechas de los pedidos a Tecnología",
+      "Cartera de productos y tareas abiertas con Tecnología",
+      "Acuerdos registrados con responsable y fecha"
+     ],
+     [
+      "Revisión mensual con el área comercial",
+      "Escuchar a la célula de datos: cumplimiento del calendario de fuentes, heurísticas por validar y las pocas acciones que cada producto pide para el mes.",
+      "Mensual; hoy no existe como rutina",
+      "Analista de Sistemas / Datos · Gerente Regional Comercial / Retail · Analista/Ejecutivo(a) Comercial · Coordinador(a) de Logística y Bodega",
+      "Ajustes de calendario, tratamiento de incumplimientos y validación de heurísticas",
+      "Cumplimiento del calendario por fuente y plan de acción de los productos",
+      "Compromisos con responsable y fecha"
+     ],
+     [
+      "Revisión trimestral de uso y cartera analítica",
+      "Decidir con la medición de uso qué producto se refuerza y cuál se retira, y revisar licencias y capacidad.",
+      "Trimestral; hoy no existe",
+      "Analista de Sistemas / Datos · Director(a) de Proyectos (PMO) · Gerente Regional Comercial / Retail · Gerente de Tecnología / Sistemas",
+      "Refuerzo o retiro de cada producto bajo el umbral; reasignación o ampliación de licencias",
+      "Métricas de uso, acciones registradas y consumo de licencias y capacidad",
+      "Catálogo de productos analíticos actualizado con cada decisión"
+     ]
+    ]
+   },
+   "marco": {
+    "estado": "borrador",
+    "principios": [
+     "Una sola cifra: todo producto analítico nace de la tabla normalizada del grupo, y una cifra que no pasa por ella no se presenta como oficial.",
+     "El dato antes que el modelo: ningún modelo, tablero ni agente se construye sobre un dato que no pasó el control de calidad.",
+     "Adaptarse a la fuente, exigir el contenido: a la cuenta se le pide lo mínimo que debe traer su reporte, no que cambie su formato; hay que hacérselo tan fácil como sea posible.",
+     "La regla la fija el negocio y la valida la estadística: el área usuaria aporta las heurísticas y la célula las contrasta con la historia antes de adoptarlas.",
+     "Un producto vale por la decisión que habilita: menos reportería descriptiva y más gestión por excepción; lo que nadie usa se retira.",
+     "Pocos usuarios clave, bien habilitados: la información llega aguas abajo por quienes la entienden, no por dar acceso a todos."
+    ],
+    "politicas": [
+     "Documentación obligatoria de cada producto: todo proyecto analítico se entrega con manual de usuario, diccionario de medidas y las heurísticas que lo gobiernan, como ya hace la célula de datos en cada uno de sus proyectos.",
+     "Pedidos a Tecnología por tarea con fecha: los pedidos de la célula de datos a Tecnología —puntos de conexión, campos, accesos— se registran como tarea con fecha de vencimiento y con la gerencia de tecnología en copia.",
+     "Granularidad según el uso: el punto de venta se actualiza varias veces al día; el resto, en la actualización programada de madrugada; y los modelos trabajan con consolidación mensual para no desbordar la capacidad de cómputo.",
+     "El dato incompleto no se asume: se devuelve al origen con el defecto identificado, como fija la guía de procesos de la gerencia regional de retail («no asumir; solicitar corrección»).",
+     "Ninguna cifra sin cuadrar: ningún número se usa para reportar ni para decidir sin haberse cuadrado contra su fuente autorizada, la regla que ya aplica la reportería de pauta contra las ventas reales.",
+     "Solicitud por la primera línea: un producto analítico nuevo lo solicita un gerente de primera línea por el formulario de la oficina de proyectos, que decide si se justifica y administra la capacidad de la célula.",
+     "Licencias para usuarios clave: el acceso con licencia se reserva a los usuarios clave de cada producto, y los demás reciben el informe que les corresponde por envío programado.",
+     "Propiedad y confidencialidad de lo analítico: los tableros, reportes, modelos y algoritmos que construyen los colaboradores son información confidencial y propiedad de la empresa, según el acuerdo de confidencialidad vigente para el personal."
+    ],
+    "normativo": [
+     "Panamá — Ley 81 de 2019 sobre protección de datos personales y su reglamento, el Decreto Ejecutivo 285 de 2021: medidas técnicas y organizativas con referencia a estándares reconocidos, registro de las transferencias de datos a terceros, responsabilidad solidaria cuando varias empresas alimentan una misma base, y derecho a no ser objeto de decisiones basadas solo en un tratamiento automatizado.",
+     "Colombia — Ley 1581 de 2012 y Decreto 1377 de 2013 (habeas data): deberes de seguridad del responsable, registro de las bases de datos ante la autoridad, límites a la transferencia internacional de datos y contrato de transmisión con quien los trate por encargo. La operación del país ya identificó la política y el registro como tareas pendientes.",
+     "Costa Rica — Ley 8968 de 2011 de protección de la persona frente al tratamiento de sus datos: medidas de seguridad sobre las bases y transferencia de datos personales solo con autorización del titular, lo que condiciona que el grupo reciba datos de clientes del socio.",
+     "Venezuela — Constitución, artículo 28 (habeas data), y Ley Especial contra los Delitos Informáticos, artículo 20: no hay una ley general de protección de datos, pero sí el derecho de acceso y rectificación y la sanción a la violación de la privacidad de la data personal.",
+     "Venezuela — régimen cambiario y facturación en dos monedas: las operaciones se registran en bolívares y en dólares con la tasa oficial del día, de modo que toda cifra de valor del repositorio debe llevar su moneda y su tasa fechada."
+    ]
+   },
+   "agenda": {
+    "estado": "borrador",
+    "nota": "El reparto por madurez ordena la agenda: cinco de los seis procesos son híbridos y uno es «to-be» (15.3, el calendario con las fuentes). La célula de datos ya hace, con solvencia técnica, casi todo lo que el macroproceso describe —normaliza, controla, modela, publica y documenta—; lo que falta es lo que la ata al resto del negocio: que las fuentes entreguen con fecha, que las medidas signifiquen lo mismo en todos los países y que alguien decida qué pasa con lo que no se usa.\n\nEl contraste que atraviesa el macroproceso: el grupo tiene una tabla normalizada que trata como su fuente de la verdad y, en paralelo, hojas de cálculo conectadas al ERP, cuadros diarios de tiendas y tableros construidos por las áreas con asistentes de IA, sin que ninguna fuente diga cuál manda. Por eso el primer punto de la agenda es certificar el dato, como proponía el diagnóstico de la Fase 1.",
+    "por_implementar": [
+     [
+      "15.3 Gestión del calendario de entrega de datos con las fuentes",
+      "No existe hoy: cada cuenta entrega con la periodicidad que decide y la falta se persigue por mensaje. Es la primera fricción que señala la propia célula de datos, y sin ella el control de calidad (15.2) trabaja sobre lo que llega y no sobre lo que debería llegar.",
+      "Designar un interlocutor por cuenta, fijar un corte mensual mínimo con contenido mínimo y empezar por las cuentas con más tiendas. La arquitectura de IA propuesta en este informe sitúa la recepción del sell-out y los conectores en su primera ola."
+     ]
+    ],
+    "por_formalizar": [
+     [
+      "15.1 Captación y normalización de datos de origen",
+      "Opera con solvencia técnica, pero el dato de terceros llega por el reenvío de cada vendedor, en cuarenta y un formatos, y la traducción de nombres de producto vive en el conocimiento de una persona.",
+      "Levantar el catálogo de fuentes con responsable, habilitar el canal único de recepción y convertir las equivalencias de producto en una tabla con dueño."
+     ],
+     [
+      "15.2 Control de calidad y gobierno de la fuente de la verdad",
+      "La revisión diaria, la validación de cálculos y el diccionario existen, pero por proyecto y sin plazo de devolución; fuera de la célula, cada usuario controla por su cuenta.",
+      "Publicar el diccionario único del grupo con dueño por medida, fijar plazo a toda devolución y certificar el dato antes de publicarlo."
+     ],
+     [
+      "15.4 Desarrollo de modelos analíticos y reglas de negocio",
+      "Las heurísticas se validan con estadística y hay modelos en uso, pero sin inventario de modelos, sin fecha de calibración y sin un compromiso de uso de quien los pide.",
+      "Abrir el inventario de modelos, exigir un usuario clave nombrado antes de construir y fijar la calibración con validación fuera de muestra."
+     ],
+     [
+      "15.5 Construcción, publicación y mantenimiento de tableros",
+      "La célula diseña, publica y programa sus tableros; faltan la matriz de quién ve qué, la verificación antes de publicar y una gestión de licencias con fecha y responsable.",
+      "Adoptar la lista de verificación de publicación, aplicar permisos por fila y llevar un inventario de licencias con vencimiento y responsable."
+     ],
+     [
+      "15.6 Documentación, habilitación y medición del uso de los productos analíticos",
+      "Cada producto sale con manual, diccionario, heurísticas y un asistente, y la herramienta muestra quién accede; nadie decide qué hacer con lo que no se usa.",
+      "Formalizar la red de usuarios clave con formación práctica y la revisión trimestral de uso con decisión de refuerzo o retiro."
+     ]
+    ],
+    "brechas": [
+     [
+      "Todo el macroproceso · La célula de datos no tiene un lugar descrito en la estructura",
+      "El organigrama de Panamá muestra inteligencia de negocio sin cargos descritos, su hoja de descripción de cargo está vacía y la lista de posiciones no la registra como departamento, aunque la matriz de aprobación de pagos sí la trata como uno. Tres documentos de la organización dan tres respuestas distintas sobre quién responde por ella.",
+      "Decidir dónde se ubica la célula y describir sus cargos; es decisión de estructura y de talento (1.7 y 17.6)."
+     ],
+     [
+      "15.2 y 15.5 · Fuentes de verdad paralelas",
+      "La tabla normalizada, las hojas de cálculo conectadas al ERP, el cuadro diario de tiendas, los tableros construidos por las áreas y el sistema propio del socio de Costa Rica conviven sin que ninguna fuente diga cuál manda.",
+      "Declarar la tabla normalizada como fuente oficial por medida y retirar o integrar los tableros paralelos en la revisión trimestral."
+     ],
+     [
+      "15.5 · Acceso amplio a la data de analítica",
+      "El documento técnico del ERP de Panamá registra con riesgo alto que quienes trabajan la analítica ven toda la data de inventario y ventas y que la exportación no restringe campos; algunos tableros paralelos se conectaron con credenciales de administración.",
+      "Aplicar la matriz de quién ve qué por fila y cruzarla con la revisión trimestral de cuentas de 14.4, que ejecuta Tecnología."
+     ],
+     [
+      "15.5 y 15.6 · Licencias que se pierden sin aviso",
+      "Usuarios clave perdieron el acceso a los modelos al vencer una prueba o al retirárseles la licencia sin que la célula lo supiera, y no consta quién administra esas licencias.",
+      "Llevar un inventario de licencias con vencimiento y responsable, revisado cada trimestre."
+     ],
+     [
+      "15.1 y 15.3 · Cuentas sin obligación de reportar",
+      "Franquicias sin contrato vigente y redistribuidores de los que no se sabe cómo sigue la mercancía dejan fuera de la tabla una parte del canal; tampoco es visible la producción en fábrica.",
+      "Incorporar la entrega de datos con fecha y contenido mínimo en los acuerdos comerciales (8.7, 8.8 y 1.8)."
+     ],
+     [
+      "15.4 · Cuentas y dominios no unificados",
+      "La licencia de asistente de IA de la célula está en el dominio de una empresa del grupo y el entorno analítico en el de otra, por lo que no se pueden conectar; buena parte de los usuarios paga su propio asistente.",
+      "Unificar identidades y licencias bajo el dominio corporativo; es decisión de 14.4 y de la política de 5.1."
+     ]
+    ]
+   },
+   "anexos": {
+    "estado": "borrador",
+    "glosario": [
+     [
+      "Tabla normalizada",
+      "Tabla única del grupo con país, fecha, cliente, tienda, producto, venta e inventario, a la que se llevan los datos de todos los orígenes y de la que nacen los modelos y los tableros."
+     ],
+     [
+      "Fuente de la verdad",
+      "La cifra que el grupo acepta como oficial para una medida; en este macroproceso, la que sale certificada de la tabla normalizada."
+     ],
+     [
+      "Catálogo de fuentes",
+      "Registro de cada origen de datos con su responsable, formato, frecuencia, contenido mínimo, fecha de corte y última carga."
+     ],
+     [
+      "Contenido mínimo",
+      "Lo que debe traer el reporte de una fuente, sin imponer formato: país, período, punto de venta, producto, unidades y valor vendidos, e inventario."
+     ],
+     [
+      "Tabla de equivalencias",
+      "Traducción del nombre con que cada cliente, marca o canal designa un producto al código interno del grupo."
+     ],
+     [
+      "Sell-in / sell-out",
+      "Lo que el grupo vende al canal / lo que el canal vende al consumidor final."
+     ],
+     [
+      "Punto de conexión",
+      "Salida de solo lectura que Tecnología habilita sobre el ERP para que la célula de datos extraiga un conjunto definido de campos."
+     ],
+     [
+      "Heurística",
+      "Regla de negocio que aporta el área usuaria —una cobertura objetivo, un umbral de estancado— y que gobierna un modelo una vez validada."
+     ],
+     [
+      "Diccionario de medidas",
+      "Definición única de cada indicador: fórmula, fuente autorizada, corte y responsable."
+     ],
+     [
+      "Dato certificado",
+      "Lote que pasó los controles de calidad y cuadró contra su fuente autorizada; solo él se publica como cifra oficial."
+     ],
+     [
+      "Salud del inventario",
+      "Modelo que clasifica cada producto por estado —estancado, en quiebre, sano— y propone mantener, promocionar o liquidar, con el plan de los próximos 30 días."
+     ],
+     [
+      "Rebalanceo",
+      "Redistribución de existencias entre tiendas para cubrir la demanda sin comprar más."
+     ],
+     [
+      "Validación fuera de muestra",
+      "Medición de la exactitud de un modelo con datos que no se usaron para ajustarlo."
+     ],
+     [
+      "Usuario clave",
+      "Persona designada por país y canal que usa un producto analítico para decidir y reparte lo necesario a su equipo."
+     ],
+     [
+      "Matriz de quién ve qué",
+      "Definición aprobada de qué datos ve cada rol, país y compañía en un tablero, aplicada por fila."
+     ],
+     [
+      "Repositorio analítico del grupo",
+      "Entorno donde viven la réplica del ERP de cada país, la tabla normalizada y los modelos; su herramienta final la decide la Junta."
+     ]
+    ],
+    "raci": [
+     [
+      "15.1 Captación y normalización de datos de origen",
+      "Analista de Sistemas / Datos",
+      "Gerente de Tecnología / Sistemas",
+      "Analista/Ejecutivo(a) Comercial · Asistente Comercial",
+      "Gerente Regional Comercial / Retail"
+     ],
+     [
+      "15.2 Control de calidad y gobierno de la fuente de la verdad",
+      "Analista de Sistemas / Datos",
+      "Gerente de Tecnología / Sistemas",
+      "Gerente Regional Comercial / Retail · Analista/Ejecutivo(a) Comercial",
+      "Junta Directiva"
+     ],
+     [
+      "15.3 Gestión del calendario de entrega de datos con las fuentes",
+      "Analista de Sistemas / Datos · Analista/Ejecutivo(a) Comercial",
+      "Gerente Regional Comercial / Retail",
+      "Asistente Comercial",
+      "Gerente Comercial (País / Canal)"
+     ],
+     [
+      "15.4 Desarrollo de modelos analíticos y reglas de negocio",
+      "Analista de Sistemas / Datos",
+      "Gerente Regional Comercial / Retail",
+      "Coordinador(a) de Logística y Bodega · Gerente Comercial (País / Canal)",
+      "Director(a) de Proyectos (PMO)"
+     ],
+     [
+      "15.5 Construcción, publicación y mantenimiento de tableros",
+      "Analista de Sistemas / Datos",
+      "Director(a) de Proyectos (PMO)",
+      "Gerente Regional Comercial / Retail · Gerente de Tecnología / Sistemas",
+      "Junta Directiva"
+     ],
+     [
+      "15.6 Documentación, habilitación y medición del uso de los productos analíticos",
+      "Analista de Sistemas / Datos",
+      "Gerente Regional Comercial / Retail",
+      "Gerente de Recursos Humanos (Formación y Desarrollo) · Director(a) de Proyectos (PMO)",
+      "Junta Directiva"
+     ]
+    ],
+    "catalogo_sistemas": [
+     [
+      "Repositorio analítico del grupo",
+      "Réplica del ERP de cada país y modelo canónico con la tabla normalizada, la moneda con tasa fechada y la bitácora de cargas",
+      "15.1 · 15.2 · 15.4",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Catálogo de fuentes",
+      "Registro de cada fuente con responsable, formato, frecuencia, contenido mínimo, calendario y fecha de última carga",
+      "15.1 · 15.3",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Tabla de equivalencias de producto",
+      "Alias de cada cliente, de la marca y de los canales traducidos al código interno",
+      "15.1 · 15.2",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Canal único de recepción de reportes",
+      "Buzón y portal por el que las cuentas de terceros entregan su sell-out tal como lo exporta su sistema",
+      "15.1 · 15.3",
+      "Analista/Ejecutivo(a) Comercial"
+     ],
+     [
+      "ERP de cada país",
+      "Origen de venta, inventario, compras y contabilidad; expone puntos de conexión de solo lectura",
+      "15.1 · 15.2",
+      "Gerente de Tecnología / Sistemas"
+     ],
+     [
+      "Herramienta de tableros",
+      "Diseño, publicación, actualización programada, permisos por fila, licencias y métricas de uso",
+      "15.5 · 15.6",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Inventario de modelos",
+      "Modelos en producción con su dueño de negocio, supuestos, heurísticas, versión y fecha de calibración",
+      "15.4",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Portal de documentación de productos analíticos",
+      "Manual, diccionario de medidas, heurísticas, preguntas frecuentes, catálogo de productos y el asistente que responde con ese contenido",
+      "15.2 · 15.6",
+      "Analista de Sistemas / Datos"
+     ],
+     [
+      "Lark",
+      "Tareas hacia Tecnología con fecha de vencimiento y recordatorios del calendario de fuentes",
+      "15.1 · 15.3 · 15.5",
+      "Gerente de Tecnología / Sistemas"
+     ]
+    ],
+    "interfaces_detalle": [
+     [
+      "Gestión de Tecnología de Información (TI)",
+      "Punto de conexión de solo lectura",
+      "Campos pedidos, fuente, frecuencia y fecha comprometida"
+     ],
+     [
+      "Gestión de Tecnología de Información (TI)",
+      "Alta y baja de acceso a un tablero",
+      "Usuario, tablero y permisos según la matriz aprobada"
+     ],
+     [
+      "Gestión de Tecnología de Información (TI)",
+      "Defecto en un maestro del ERP",
+      "Registro afectado, regla incumplida y recurrencia"
+     ],
+     [
+      "Ventas Mayor",
+      "Sell-out de la cuenta de tercero",
+      "País, período, punto de venta, producto, unidades, valor e inventario"
+     ],
+     [
+      "Ventas Mayor",
+      "Señales por cuenta",
+      "Sobrestock, producto estancado y oportunidad por cliente y tienda"
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Resultado de los modelos",
+      "Proyección por producto, país y canal; plan de salud a 30 días; rebalanceo; venta perdida"
+     ],
+     [
+      "Compras y Abastecimiento",
+      "Parámetros de compra",
+      "Pedido mínimo, tiempo de tránsito y asignación histórica de la marca"
+     ],
+     [
+      "Ventas Retail",
+      "Cierre diario de tienda",
+      "Venta, unidades y transacciones por tienda"
+     ],
+     [
+      "Planeación Comercial / Dirección y Gobierno Corporativo",
+      "Cifra certificada",
+      "Medidas del diccionario con su fecha de corte"
+     ],
+     [
+      "Gobierno de Portafolio (PMO)",
+      "Solicitud de producto analítico",
+      "Problema de decisión, usuario clave y prioridad"
+     ],
+     [
+      "Gestión del Talento Humano",
+      "Formación de usuarios clave",
+      "Usuarios, producto, fecha y resultado"
+     ],
+     [
+      "Gestión Legal y Cumplimiento",
+      "Tratamiento de datos personales",
+      "Bases con datos personales, transferencias y base legal por país"
+     ]
+    ],
+    "docs_lark": [
+     [
+      "Roadmap para proyectos BI",
+      "Panamá (oficina de proyectos)",
+      "Método de trabajo por ciclos cortos para tableros: roles, lista priorizada, definición de terminado con validación de datos e indicadores de calidad del dato",
+      "15.4 · 15.5"
+     ],
+     [
+      "Levantamiento de procesos de Compras",
+      "Venezuela",
+      "Reposición fuera del ERP con hojas de cálculo conectadas; tablero de reposición en prueba que aún no sustituye el proceso manual; herramientas de planificación descartadas por no integrarse",
+      "15.1 · 15.4 · 15.5"
+     ],
+     [
+      "Guía de procesos de la gerencia regional de retail",
+      "Colombia / regional",
+      "Fuente única regional con reglas homogéneas, diccionario único de indicadores, cadencia de reportería con cortes y responsables, y reporte orientado a la acción",
+      "15.1 · 15.2 · 15.3 · 15.6"
+     ],
+     [
+      "Cuellos de botella de Cubitt Colombia",
+      "Colombia",
+      "Sin tablero consolidado de sell-out de los cuatro canales; propuesta de pasar de un tablero manual a uno semiautomatizado; habeas data pendiente",
+      "15.1 · 15.5"
+     ],
+     [
+      "Reporte de entrevistas sobre el uso de Claude",
+      "Regional",
+      "La calidad de la data de origen es el bloqueo principal; sell-out cargado a mano; inventario de cliente de hasta seis meses como regla de negocio",
+      "15.1 · 15.2 · 15.6"
+     ],
+     [
+      "Blueprint técnico del Odoo 16 de Kenex Trading",
+      "Panamá",
+      "Integración unidireccional a demanda con la herramienta de tableros, módulo de extracción para analítica y riesgo alto por el acceso de la analítica a toda la data",
+      "15.1 · 15.5"
+     ],
+     [
+      "Descripciones de cargo de Kenex Trading",
+      "Panamá",
+      "Solicitud y seguimiento del sell-out por el asistente comercial y el analista comercial y de cuentas clave; la hoja del cargo de inteligencia de negocio está sin desarrollar",
+      "15.1 · 15.3"
+     ],
+     [
+      "Organigrama de Kenex Trading 2026 y posiciones por departamento",
+      "Panamá",
+      "Inteligencia de negocio aparece en el organigrama sin cargos descritos y no figura como departamento en la lista de posiciones",
+      "15 (actores)"
+     ],
+     [
+      "Procedimiento de funciones de cuentas por pagar",
+      "Panamá",
+      "Matriz de aprobación de pagos en la que inteligencia de negocio figura como departamento con aprobación directa de la dirección",
+      "15.5"
+     ],
+     [
+      "Procesos del Departamento de TI",
+      "Regional",
+      "La compra de equipos, licencias y dominios la aprueban la Junta y la gerencia de sistemas",
+      "15.5"
+     ],
+     [
+      "Manual 03 · Reportería y análisis de pauta",
+      "Regional",
+      "Ventana fija del 1 al 5 de cada mes, no mezclar canales y base completa antes de calcular",
+      "15.2 · 15.3"
+     ],
+     [
+      "Manual 04 · Setup técnico y accesos de pauta",
+      "Regional",
+      "Ningún número se reporta sin cuadrarlo contra las ventas reales",
+      "15.2"
+     ],
+     [
+      "Acuerdo de confidencialidad de empleados",
+      "Venezuela",
+      "Tableros, reportes, modelos y algoritmos como información confidencial y propiedad de la empresa",
+      "15.5 · 15.6"
+     ],
+     [
+      "Proceso Ventas al Mayor Rower",
+      "Venezuela",
+      "Errores de carga por nombres escritos a mano en lugar de tomarlos del maestro; base de compras y ventas en Lark con el maestro importado del ERP",
+      "15.1 · 15.2"
+     ],
+     [
+      "Diagrama de flujo de los procesos de postventa",
+      "Venezuela / Panamá",
+      "Corte del día 28 y conciliación del día 29 entre el reporte manual y el ERP",
+      "15.2 · 15.3"
+     ],
+     [
+      "Manual de análisis del reporte de venta de Casiolandia",
+      "Panamá",
+      "Cuadre diario de la venta de tiendas contra tres fuentes",
+      "15.2"
+     ]
+    ],
+    "variaciones_pais": [
+     [
+      "Venezuela",
+      "Sede de trabajo de la célula de datos y mercado con mayor peso en tiendas propias. La facturación en dos monedas exige controlar moneda y tasa en cada cifra, y las restricciones de red limitan el uso de algunos asistentes de IA.",
+      "Régimen cambiario y volumen de la operación."
+     ],
+     [
+      "Panamá",
+      "Hub con la mayor parte de las cuentas de terceros que reportan sell-out y titular del entorno analítico actual; allí están las usuarias clave de la compra de la marca representada.",
+      "Rol de hub regional y de la instancia principal del ERP."
+     ],
+     [
+      "Colombia",
+      "Sin personal de datos local: el sell-out de las cadenas se lee en los portales de cada una y se consolida a mano, y el tablero de país está pendiente.",
+      "Estructura de país sin capacidad analítica propia."
+     ],
+     [
+      "Costa Rica",
+      "Sistema administrativo propio fuera del ERP del grupo, con analista de negocio y tableros locales; al socio se le consultan cantidades por falta de acceso directo al inventario del grupo, y recibir datos de sus clientes exige autorización.",
+      "Socio con sistema propio y marco de protección de datos distinto."
+     ],
+     [
+      "Guatemala y franquicias",
+      "Un operador tercerizado y franquicias que reportan en cuadros propios o no reportan; las franquicias no tienen hoy contrato vigente que les exija entregar su venta.",
+      "Relación contractual distinta de la de una operación propia."
+     ],
+     [
+      "Estados Unidos",
+      "La venta por marketplaces se analiza con las herramientas del propio canal y hojas locales, fuera de la célula de datos.",
+      "Canal y sistemas propios de la operación."
+     ]
+    ]
+   }
+  },
+  "procesos": {
+   "15.1": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Convierte lo que llega de cada origen —el ERP de cada país, las tiendas propias y las cuentas de terceros que reportan su venta— en filas de una tabla normalizada única, que el grupo trata como su fuente de la verdad. Empieza cuando llega la data del período o se da de alta una fuente, y termina cuando el lote queda cargado y listo para su control de calidad.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Cada fuente tiene ficha y responsable.** Un catálogo registra quién la entrega, en qué formato, cada cuánto y qué contenido mínimo trae: país, período, punto de venta, producto, unidades y valor vendidos, e inventario, que es lo que recogen los mensajes estándar de reporte de ventas e inventario entre minoristas y proveedores. Hoy la célula de datos no sabe quién está detrás de muchos de los correos que recibe.\n2. **Las cuentas de terceros reportan por un canal único.** El archivo llega tal como lo exporta el sistema del cliente —sin plantilla impuesta, porque hay que hacérselo tan fácil como sea posible—, pero a un solo buzón y portal de reporte, y no por el reenvío de cada vendedor.\n3. **La traducción de nombres de producto es un activo, no una memoria.** Una tabla de equivalencias guarda cómo nombra cada cliente cada producto, y la fila que no casa se retiene para resolverla en vez de quedar fuera sin que nadie lo note.\n\nLa arquitectura de IA propuesta en este informe sitúa esta captación en el repositorio analítico del grupo, con la réplica del ERP de cada país y la recepción del sell-out de los clientes entre sus primeros módulos. Quedan fuera el diseño de las interfaces y la sincronización de maestros entre países (14.1), el control de calidad del lote (15.2) y el calendario de entrega con cada fuente (15.3).",
+     "nota_estado": "Proceso en transición: la célula de datos ya normaliza en una tabla única lo que llega del ERP por puntos de conexión y lo que envían más de cuarenta cuentas de terceros. Lo que se incorpora es el catálogo de fuentes con responsable, la recepción por un canal único y la tabla de equivalencias de producto mantenida como activo del grupo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Sistemas / Datos",
+     "participantes": [
+      "Analista de Sistemas / Datos — dueño del proceso: mantiene el catálogo de fuentes, extrae y transforma cada período, traduce los nombres de producto y carga la tabla normalizada.",
+      "Gerente de Tecnología / Sistemas — habilita los puntos de conexión de solo lectura sobre el ERP, según el diseño de interfaces que gobierna 14.1.",
+      "Analista/Ejecutivo(a) Comercial — responde por cada cuenta de tercero: acuerda que su reporte llegue al canal único y resuelve con ella los nombres de producto sin equivalencia.",
+      "Asistente Comercial — solicita periódicamente el sell-out a los clientes y consolida lo recibido para la célula de datos.",
+      "Cuenta de tercero (externa) — entrega su reporte tal como lo exporta su propio sistema."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-26",
+      "E-55",
+      "Lark: Descripciones de cargo de Kenex Trading, hoja Comercial (PA)",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-26",
+      "E-10",
+      "E-55",
+      "Lark: Descripciones de cargo de Kenex Trading, hoja Comercial (PA)",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Registra cada fuente nueva —punto de conexión del ERP, tienda propia o cuenta de tercero— en el catálogo de fuentes, con su responsable, formato, frecuencia pactada y contenido mínimo: país, período, punto de venta, producto, unidades, valor e inventario."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Decide la vía de captación. Si la fuente vive en el ERP del grupo, pide a Tecnología un punto de conexión de solo lectura con los campos necesarios, como tarea con fecha de vencimiento; si es externa, habilita su recepción por el canal único."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Habilita el punto de conexión de solo lectura según el diseño de interfaces que gobierna 14.1, con solo los campos pedidos para no desbordar la capacidad de cómputo, y confirma en la tarea que quedó disponible con todas sus columnas."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista/Ejecutivo(a) Comercial",
+       "texto": "Acuerda con cada cuenta de tercero que su reporte llegue al canal único tal como lo exporta su sistema, sin plantilla impuesta, y deja anotadas en el catálogo las columnas de producto, venta e inventario de ese formato."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Extrae la data del período de cada fuente —de madrugada las conectadas al ERP, al recibirse las externas— y la transforma con las claves de cada fuente registradas en el catálogo, sin retocar filas a mano."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Traduce los nombres de producto de cada fuente al código interno con la tabla de equivalencias. La fila cuyo nombre no tiene equivalencia se retiene en una cola de pendientes en lugar de quedar fuera de la tabla."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista/Ejecutivo(a) Comercial",
+       "texto": "Resuelve con la cuenta los nombres nuevos o ambiguos de la cola de pendientes; la célula incorpora cada equivalencia a la tabla para que el mismo nombre no vuelva a detenerse en el período siguiente."
+      },
+      {
+       "id": "a8",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Carga las filas homologadas en la tabla normalizada —país, fecha, cliente, tienda, producto, venta, inventario y cierre de mes en unidades—, con moneda y tasa fechada en toda cifra de valor, y descarta cualquier dato personal que la fuente traiga."
+      },
+      {
+       "id": "a9",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Marca el lote como listo para el control de calidad (15.2) y registra en el catálogo la fecha de la última carga de cada fuente, que es la señal con la que 15.3 sigue el cumplimiento del calendario."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Gerente de Tecnología / Sistemas",
+       "Analista/Ejecutivo(a) Comercial"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Llega data del período o una fuente nueva"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Es una fuente nueva?"
+       },
+       {
+        "id": "n2",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Registrar la fuente en el catálogo",
+        "sistemas": [
+         "Catálogo de fuentes"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿La fuente vive en el ERP?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Habilitar el punto de conexión",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista/Ejecutivo(a) Comercial",
+        "tipo": "tarea",
+        "n": "Acordar el envío al canal único",
+        "sistemas": [
+         "Canal de recepción"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Extraer y transformar el período",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Traducir los nombres de producto",
+        "sistemas": [
+         "Tabla de equivalencias"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Todo tiene equivalencia?"
+       },
+       {
+        "id": "n9",
+        "carril": "Analista/Ejecutivo(a) Comercial",
+        "tipo": "tarea",
+        "n": "Resolver los nombres pendientes",
+        "sistemas": [
+         "Tabla de equivalencias"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Cargar la tabla normalizada",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "fin",
+        "n": "Lote listo para control de calidad"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-26",
+      "E-09",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)"
+     ],
+     "filas": [
+      [
+       "La fuente sin responsable deja de llegar",
+       "Cuando nadie en el grupo responde por una fuente, su data llega tarde o no llega y nadie lo reclama: la célula no habla con los clientes y no sabe quién está detrás de muchos correos. El diagnóstico lo resumió así: esa data no llega porque no se ha pensado cómo debe llegar.",
+       "Alta",
+       "Alto",
+       "No dar de alta ninguna fuente en el catálogo sin un responsable nombrado por su cargo y un suplente, y revisar cada trimestre las fuentes sin carga reciente."
+      ],
+      [
+       "Productos que quedan fuera por su nombre",
+       "Cada cliente nombra los productos a su manera; si un nombre no está en la traducción, ese producto desaparece del sell-out sin aviso y los modelos leen como falta de venta lo que es falta de dato.",
+       "Alta",
+       "Alto",
+       "Retener en una cola de pendientes toda fila sin equivalencia, medir su volumen por lote y resolverla con la cuenta antes del período siguiente."
+      ],
+      [
+       "La extracción desborda la capacidad de cómputo",
+       "El entorno analítico se paga por uso y el grupo mueve millones de filas al día solo en lo comercial; extraer de más encarece y frena todo lo que corre encima.",
+       "Media",
+       "Medio",
+       "Pedir en cada punto de conexión solo los campos que el catálogo justifica y consolidar en mensual lo que los modelos no necesitan a diario."
+      ],
+      [
+       "Toda la captación depende de una persona",
+       "Una sola especialista transforma hoy lo que llega de todas las fuentes, con las claves de cada cliente en su conocimiento; su ausencia detiene la carga de todo el grupo.",
+       "Alta",
+       "Alto",
+       "Documentar en el catálogo las claves de transformación de cada fuente y formar un suplente que ejecute la carga completa al menos una vez por trimestre."
+      ],
+      [
+       "Un punto de conexión incompleto frena los modelos",
+       "Una columna olvidada en un punto de conexión ya detuvo un modelo una semana, porque el cambio lo despliega un tercero y la falta se descubre tarde.",
+       "Media",
+       "Medio",
+       "Comprobar el punto de conexión contra los campos del catálogo antes de cerrar la tarea con Tecnología, y avisar a la célula de todo cambio del ERP que lo afecte."
+      ],
+      [
+       "Datos personales que entran sin necesidad",
+       "Un reporte de tercero puede traer datos de consumidores o de vendedores; recibirlos y guardarlos sin necesidad expone al grupo ante las leyes de protección de datos de cada país.",
+       "Baja",
+       "Alto",
+       "Excluir los datos personales del contenido mínimo y descartarlos en la captación; si un producto analítico los requiere, acordar antes su base legal con Legal (18.5)."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Fuentes activas con ficha completa",
+       "Fuentes con responsable, formato, frecuencia y contenido mínimo registrados ÷ fuentes activas",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ],
+      [
+       "Filas retenidas por falta de equivalencia",
+       "Filas en la cola de pendientes ÷ filas recibidas en el período",
+       "Por lote",
+       "Analista de Sistemas / Datos",
+       "Tendencia a la baja; meta a fijar tras medir los primeros ciclos"
+      ],
+      [
+       "Tiempo de resolución de nombres pendientes",
+       "Fecha de la equivalencia incorporada − fecha de retención de la fila, en días hábiles",
+       "Mensual",
+       "Analista/Ejecutivo(a) Comercial",
+       "5 días hábiles o menos"
+      ],
+      [
+       "Cuentas que reportan por el canal único",
+       "Cuentas de terceros que entregan por el canal único ÷ cuentas de terceros que reportan sell-out",
+       "Trimestral",
+       "Analista/Ejecutivo(a) Comercial",
+       "100 % al cabo del primer año"
+      ],
+      [
+       "Cargas sin intervención manual",
+       "Lotes cargados sin reproceso a mano ÷ lotes cargados",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "95 % o más"
+      ]
+     ]
+    }
+   },
+   "15.2": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Verifica cada lote que entra en la tabla normalizada, lo corrige o lo devuelve a quien lo originó, valida cálculos y monedas, y certifica el dato antes de que un modelo o un tablero lo use. Mantiene además el diccionario de medidas que define cada indicador del grupo.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Un diccionario de medidas del grupo, no uno por proyecto.** Hoy cada producto analítico trae su propio diccionario, y fuera de la célula las mismas medidas se nombran en cada país sin una definición común. La propia gerencia regional de retail pide un diccionario único de indicadores y reglas de cálculo para todos los países.\n2. **El defecto vuelve a su dueño con plazo y queda registrado.** Un solo aviso consolidado por fuente, con la fila y la regla incumplida, en lugar de preguntar «20 veces lo mismo». Si el defecto nace en un maestro del ERP, se deriva a quien lo gobierna.\n3. **Nada se publica como cifra oficial sin cuadrar contra su fuente autorizada.** El dato queda certificado o expresamente marcado como no certificado. Es la regla que ya aplica la reportería de pauta, donde ningún número se reporta sin cuadrar contra las ventas reales.\n\nLos controles siguen las dimensiones habituales de calidad de datos: completitud y validez para ceros y nulos, exactitud para los atípicos, oportunidad para los períodos, unicidad para los duplicados y consistencia para los cálculos. Queda fuera la corrección de los maestros en el ERP, que es de su dueño y de la sincronización entre países (14.1).",
+     "nota_estado": "Proceso en transición: la revisión diaria de ceros, nulos y atípicos, la validación de cálculos y el diccionario por proyecto ya existen en la célula de datos. Lo que se incorpora es un diccionario único del grupo, la devolución con plazo al responsable del origen y la certificación del dato antes de publicarlo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Sistemas / Datos",
+     "participantes": [
+      "Analista de Sistemas / Datos — dueño del proceso: corre los controles, valida cálculos y monedas, devuelve los defectos, certifica el lote y mantiene el diccionario de medidas.",
+      "Analista/Ejecutivo(a) Comercial — corrige con la cuenta de tercero el dato devuelto dentro del plazo; en una fuente interna lo hace el responsable del área que la origina.",
+      "Gerente Regional Comercial / Retail — aprueba la definición de las medidas de su dominio antes de que entren al diccionario.",
+      "Gerente de Tecnología / Sistemas — recibe los defectos que nacen en un maestro del ERP para su corrección en el origen, dentro de la sincronización de maestros que gobierna 14.1."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-55",
+      "E-26",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)",
+      "Lark: Manual 04 · Setup técnico y accesos de pauta (regional)",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-08",
+      "E-53",
+      "E-55",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)",
+      "Lark: Manual 04 · Setup técnico y accesos de pauta (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Corre sobre cada lote cargado las reglas de completitud, validez y oportunidad: que no haya ceros ni nulos sin explicación, que el período sea el esperado y que ninguna fila llegue incompleta o duplicada."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Ejecuta la detección de valores atípicos y separa el atípico real —una venta especial, un cero por quiebre de stock— del error de origen, dejando anotada la causa de cada atípico que acepta."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Valida los cálculos y los tipos de dato: decimales, moneda y tasa fechada de cada cifra, y que ninguna columna mezcle monedas, el error que en Venezuela pudo llegar a reportes ya presentados."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Si el lote no pasa, devuelve el defecto a su responsable en un solo aviso por fuente, con la fila, la regla incumplida y un plazo; si nace en un maestro del ERP, lo deriva a quien lo gobierna (14.1)."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista/Ejecutivo(a) Comercial",
+       "texto": "Corrige o reenvía el dato con la cuenta dentro del plazo acordado. Cuando la fuente es interna, la corrección la hace el responsable del área que origina el dato, con el mismo plazo."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Si la corrección no llega en plazo, carga la fuente marcada como no certificada para ese período, de modo que todo modelo y tablero que la use lo muestre, y lo registra para el seguimiento de 15.3."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Cuadra los totales del lote contra su fuente autorizada —el ERP para la venta propia, el reporte de la cuenta para el sell-out— antes de marcarlo como certificado, y deja constancia de la diferencia que acepta."
+      },
+      {
+       "id": "a8",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Cuando un producto requiere una medida nueva o cambia una regla de cálculo, redacta la definición con su fórmula, su fuente autorizada, su corte y su responsable, y la propone al área usuaria."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Aprueba la definición de las medidas de su dominio antes de que entren al diccionario, de modo que un mismo indicador signifique lo mismo en todos los países y en todos los tableros del grupo."
+      },
+      {
+       "id": "a10",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Certifica el lote y publica el diccionario actualizado con su versión; solo lo certificado alimenta los modelos y los tableros como cifra oficial del grupo, y lo demás se muestra con su marca."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Analista/Ejecutivo(a) Comercial",
+       "Gerente Regional Comercial / Retail"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Lote cargado o alerta de atípico"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Correr controles de completitud y atípicos",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Validar cálculos, moneda y tasa",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿El lote pasa los controles?"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Devolver el defecto con plazo",
+        "sistemas": [
+         "Catálogo de fuentes"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista/Ejecutivo(a) Comercial",
+        "tipo": "tarea",
+        "n": "Corregir el dato en el origen",
+        "sistemas": [
+         "Canal de recepción"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Llegó la corrección en plazo?"
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Marcar la fuente como no certificada",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Cuadrar contra la fuente autorizada",
+        "sistemas": [
+         "ERP",
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Hace falta una medida nueva?"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Aprobar la definición de la medida",
+        "sistemas": [
+         "Portal de documentación"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Certificar el lote y el diccionario",
+        "sistemas": [
+         "Repositorio analítico",
+         "Portal de documentación"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "fin",
+        "n": "Lote publicado con su marca de certificación"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n12",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       },
+       {
+        "de": "n7",
+        "a": "n13"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-55",
+      "E-32",
+      "SC-01",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)"
+     ],
+     "filas": [
+      [
+       "La revisión manual no alcanza el volumen",
+       "Con millones de filas y más de mil orígenes, revisar uno a uno es insostenible, y los errores pasan justo cuando más carga hay.",
+       "Alta",
+       "Alto",
+       "Automatizar las reglas de control y dejar a revisión humana solo las excepciones que superan un umbral, registradas con su causa."
+      ],
+      [
+       "Monedas mezcladas en una misma cifra",
+       "En Venezuela se registraron en una misma columna montos en bolívares y en dólares, y la cifra errónea pudo llegar a reportes ya presentados antes de detectarse.",
+       "Media",
+       "Alto",
+       "Rechazar en el control toda cifra de valor sin moneda y sin tasa fechada, y validar su rango contra el histórico de la misma fuente."
+      ],
+      [
+       "Defectos devueltos que nadie corrige",
+       "Si el aviso no tiene plazo ni dueño, la corrección no llega y la cifra se usa igual, sin que nadie sepa que estaba incompleta.",
+       "Alta",
+       "Medio",
+       "Fijar plazo en cada devolución, publicar como no certificada la fuente que no corrige y llevar la reincidencia a la revisión mensual de 15.3."
+      ],
+      [
+       "La misma medida con dos definiciones",
+       "Cada país nombra y calcula a su manera indicadores como la cobertura o las unidades por transacción, y dos tableros muestran cifras distintas para la misma pregunta.",
+       "Alta",
+       "Alto",
+       "Publicar un solo diccionario de medidas del grupo, con dueño de negocio por medida, y no certificar un tablero que use una medida fuera de él."
+      ],
+      [
+       "Maestros del ERP que nadie corrige en el origen",
+       "Productos creados con errores, un mismo código para dos versiones o clientes con datos incompletos obligan a corregir en cada período, en la transformación, lo que nadie corrige en el origen.",
+       "Media",
+       "Medio",
+       "Derivar cada defecto de maestro a su dueño dentro de la sincronización que gobierna 14.1 y medir su recurrencia por maestro."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Lotes certificados a la primera",
+       "Lotes que pasan los controles sin devolución ÷ lotes recibidos",
+       "Semanal",
+       "Analista de Sistemas / Datos",
+       "90 % o más"
+      ],
+      [
+       "Defectos corregidos en plazo",
+       "Defectos corregidos dentro del plazo ÷ defectos devueltos",
+       "Mensual",
+       "Analista/Ejecutivo(a) Comercial",
+       "95 % o más"
+      ],
+      [
+       "Medidas publicadas con definición aprobada",
+       "Medidas en uso en tableros con definición aprobada en el diccionario ÷ medidas en uso",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ],
+      [
+       "Fuentes publicadas como no certificadas",
+       "Fuentes-período publicadas como no certificadas ÷ fuentes-período del mes",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "5 % o menos"
+      ]
+     ]
+    }
+   },
+   "15.3": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Acuerda con cada fuente —cada cuenta de tercero y cada responsable interno que entrega datos— una fecha de entrega y un contenido mínimo, sigue su cumplimiento y escala la entrega que no llega, llega tarde o llega incompleta. Es, en la práctica, un acuerdo de nivel de servicio con cada fuente.\n\n**Es un proceso que hoy no existe.** La propia célula de datos lo pone como su principal fricción: que cada responsable fije un cronograma para su información, aunque sea mensual. Hoy cada cliente entrega con la periodicidad que decide, la falta se advierte cuando alguien la nota y se persigue con un mensaje suelto a una gerencia que viaja por toda la región.\n\nTres decisiones de diseño:\n\n1. **Mensual como piso, no como techo.** Donde la cuenta ya entrega semanal o quincenal se conserva; donde no entrega nada, lo mínimo es una vez al mes, con fecha de corte.\n2. **Contenido mínimo, no plantilla.** Se comunica qué debe traer el reporte, no un formato: las cuentas exportan de sus propios sistemas, y exigirles una plantilla les agrega trabajo y reduce la entrega.\n3. **Un interlocutor por cuenta.** Un ejecutivo comercial que entiende la data responde ante la célula por cada cuenta; la gerencia regional queda como instancia de escalamiento, no como primer contacto.\n\nQuedan fuera la captación del archivo una vez recibido (15.1) y la negociación comercial con la cuenta, que es de Ventas Mayor (8.7).",
+     "nota_estado": "Proceso a implementar: hoy no existe un cronograma con las fuentes. Se apoya en lo que ya funciona: los cortes fijos que algunas áreas cumplen —del 1 al 5 de cada mes en la reportería de pauta, el día 28 en postventa— y un ejecutivo de cuenta que ya reúne, revisa y entiende la data de su grupo de clientes."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Sistemas / Datos",
+     "participantes": [
+      "Analista de Sistemas / Datos — dueño del proceso: propone los cortes y el contenido mínimo, publica el calendario, registra el cumplimiento y lo consolida cada mes.",
+      "Analista/Ejecutivo(a) Comercial — interlocutor único de cada cuenta de tercero: acuerda la fecha, gestiona la entrega que falta y deja constancia del compromiso.",
+      "Asistente Comercial — apoya al interlocutor en la solicitud periódica del sell-out y en la consolidación de lo recibido.",
+      "Gerente Regional Comercial / Retail — recibe el escalamiento cuando la entrega no se resuelve y revisa cada mes las fuentes que incumplen.",
+      "Cuenta de tercero (externa) — entrega su reporte en la fecha acordada."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-63",
+      "Lark: Descripciones de cargo de Kenex Trading, hoja Comercial (PA)",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)",
+      "Lark: Manual 03 · Reportería y análisis de pauta (regional)"
+     ],
+     "sin_evidencia": "Ninguna fuente describe hoy un calendario acordado con las cuentas: el diseño recoge la propuesta de la propia célula de datos y los cortes que otras áreas ya cumplen."
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-26",
+      "E-63",
+      "Lark: Descripciones de cargo de Kenex Trading, hoja Comercial (PA)",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)",
+      "Lark: Manual 03 · Reportería y análisis de pauta (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Propone para cada fuente del catálogo la fecha de corte y la frecuencia —mensual como piso, semanal o quincenal donde la cuenta ya lo permite— junto con el contenido mínimo que debe traer su reporte."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista/Ejecutivo(a) Comercial",
+       "texto": "Acuerda la fecha con cada cuenta a su cargo y le comunica el contenido mínimo, aceptando el archivo como lo exporta su sistema; con los responsables internos, la célula acuerda la fecha directamente."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Publica el calendario acordado en el catálogo de fuentes y programa el recordatorio automático que llega al interlocutor de cada cuenta unos días antes de cada fecha de corte."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Al vencer cada fecha, registra el cumplimiento de la entrega —a tiempo, tarde, incompleta o no recibida— a partir de la señal de carga que deja 15.1, sin depender de que alguien advierta la falta."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista/Ejecutivo(a) Comercial",
+       "texto": "Gestiona con la cuenta la entrega que falta o llegó incompleta dentro de un plazo corto y deja constancia del compromiso con su fecha; un mensaje suelto sin fecha no cuenta como gestión."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Recibe el escalamiento cuando la entrega no se resuelve en plazo, lo trata con la cuenta desde la relación comercial y decide si el período se recupera en la entrega siguiente o se da por perdido."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Consolida cada mes el cumplimiento por fuente y por interlocutor —atrasos, faltantes y períodos perdidos— y lo lleva a la revisión mensual con el área comercial, donde se ajustan las fechas que no funcionan."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Revisa en la reunión mensual las fuentes que incumplen de forma repetida, acuerda con cada interlocutor la acción correspondiente e incorpora al calendario las cuentas nuevas que empiezan a reportar sell-out."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Analista/Ejecutivo(a) Comercial",
+       "Gerente Regional Comercial / Retail"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Vence una fecha o entra una cuenta nueva"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Es una cuenta nueva?"
+       },
+       {
+        "id": "n2",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Proponer corte y contenido mínimo",
+        "sistemas": [
+         "Catálogo de fuentes"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista/Ejecutivo(a) Comercial",
+        "tipo": "tarea",
+        "n": "Acordar la fecha con la cuenta"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Publicar calendario y recordatorio",
+        "sistemas": [
+         "Catálogo de fuentes",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Registrar el cumplimiento de la entrega",
+        "sistemas": [
+         "Catálogo de fuentes"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Llegó completa y a tiempo?"
+       },
+       {
+        "id": "n7",
+        "carril": "Analista/Ejecutivo(a) Comercial",
+        "tipo": "tarea",
+        "n": "Gestionar la entrega con plazo",
+        "sistemas": [
+         "Catálogo de fuentes"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Analista/Ejecutivo(a) Comercial",
+        "tipo": "decision",
+        "n": "¿Se resolvió en plazo?"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Tratar el incumplimiento con la cuenta"
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Consolidar el cumplimiento del mes",
+        "sistemas": [
+         "Catálogo de fuentes"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Revisar incumplimientos repetidos"
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "fin",
+        "n": "Calendario cumplido o excepción decidida"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-35",
+      "E-08",
+      "E-26"
+     ],
+     "filas": [
+      [
+       "El calendario existe pero nadie da la cara",
+       "Si el interlocutor no está disponible —la gerencia que hoy recibe los pedidos viaja por toda la región—, la entrega vuelve a depender de mensajes sueltos.",
+       "Alta",
+       "Alto",
+       "Designar un interlocutor y un suplente por cuenta, y dejar a la gerencia regional solo como instancia de escalamiento."
+      ],
+      [
+       "Una plantilla impuesta reduce la entrega",
+       "Las cuentas exportan de sus propios sistemas; pedirles que rehagan el archivo les agrega trabajo y les da un motivo para no enviarlo.",
+       "Media",
+       "Alto",
+       "Exigir contenido mínimo y fecha, nunca formato, y absorber la variedad de formatos en la captación (15.1)."
+      ],
+      [
+       "Cuentas sin obligación de reportar",
+       "Hay franquicias sin contrato vigente y redistribuidores de los que no se sabe cómo sigue la mercancía; sin un compromiso escrito no hay calendario que cumplir.",
+       "Alta",
+       "Medio",
+       "Incorporar la entrega de sell-out, con fecha y contenido mínimo, en los acuerdos con las cuentas clave y las franquicias (8.7 y 8.8)."
+      ],
+      [
+       "El período entregado no es el esperado",
+       "Una cuenta puede entregar un mes que no corresponde al corte; sin registro por período declarado, el hueco se descubre en el modelo y no en la entrega.",
+       "Media",
+       "Medio",
+       "Registrar cada entrega por período declarado y verificarlo contra el calendario al recibirla, con el control de oportunidad de 15.2."
+      ],
+      [
+       "El seguimiento vuelve a lo informal",
+       "Si el registro de cumplimiento no se usa, la persecución de datos vuelve a hacerse por chat y se pierde la trazabilidad de qué se pidió y cuándo.",
+       "Media",
+       "Medio",
+       "Hacer del registro del calendario la única constancia válida de gestión y revisarlo cada mes con el área comercial."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Cumplimiento del calendario",
+       "Entregas completas y a tiempo ÷ entregas programadas",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "90 % o más"
+      ],
+      [
+       "Cuentas con calendario acordado",
+       "Cuentas de terceros con fecha y contenido mínimo acordados ÷ cuentas que reportan sell-out",
+       "Trimestral",
+       "Analista/Ejecutivo(a) Comercial",
+       "100 %"
+      ],
+      [
+       "Atraso promedio de entrega",
+       "Suma de días de atraso ÷ entregas tardías del mes",
+       "Mensual",
+       "Analista/Ejecutivo(a) Comercial",
+       "3 días o menos"
+      ],
+      [
+       "Escalamientos con decisión registrada",
+       "Escalamientos cerrados con entrega recuperada o decisión registrada ÷ escalamientos del mes",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "15.4": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Convierte un problema de decisión del negocio —qué comprar, qué reponer, qué rebalancear, qué liquidar— en un modelo en producción, con reglas de negocio escritas, validación estadística antes de adoptarlo y calibración periódica. Cubre los modelos de proyección y de salud del inventario en los tres niveles de negocio: mayor, tienda propia y tienda de tercero.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Ningún modelo se construye sin un usuario que vaya a actuar sobre él.** Quien lo pide nombra al usuario clave que lo usará. Hoy un modelo que anticipó el producto estrella quedó abandonado porque nadie actuó sobre él, y otro ocupó dos meses sin usarse después.\n2. **La exactitud se mide con datos que el modelo no vio.** Se separa la historia en ajuste y prueba, y se usan medidas que toleran los ceros de la venta por tienda y producto, en lugar de porcentajes que se indefinen con ellos.\n3. **Todo modelo figura en un inventario, con dueño y fecha de calibración.** Sus supuestos, heurísticas y versión quedan escritos, de modo que un segundo pueda revisarlo y recalibrarlo sin depender de quien lo construyó.\n\nSigue el criterio de la arquitectura de IA propuesta en este informe: el número lo pone el modelo estadístico validado; la inteligencia artificial lo explica y convierte lo cualitativo —campañas, asignaciones de la marca, lanzamientos— en ajustes con motivo; la decisión la firma una persona. Quedan fuera la decisión de compra y de reparto, que es de Compras y Abastecimiento (6.1, 6.6 y 6.7), y la publicación del resultado, que es de 15.5.",
+     "nota_estado": "Proceso en transición: la célula de datos ya valida con estadística las reglas que da el área usuaria y tiene en uso modelos de salud del inventario y de reposición. Lo que se incorpora es el inventario de modelos, la validación con datos no usados en el ajuste y la calibración con fecha fija."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Sistemas / Datos",
+     "participantes": [
+      "Analista de Sistemas / Datos — dueño del proceso: traduce el problema en un plan de modelo, contrasta las heurísticas con la historia, construye, documenta y calibra.",
+      "Gerente Regional Comercial / Retail — plantea el problema de decisión, fija las heurísticas de su dominio y decide la regla final a la vista de la evidencia.",
+      "Coordinador(a) de Logística y Bodega — usuaria clave de planificación y reposición: prueba el modelo en paralelo con su método vigente y aprueba su paso a producción.",
+      "Gerente Comercial (País / Canal) — aporta las heurísticas de su canal y los parámetros de compra que no viven en ningún sistema.",
+      "Director(a) de Proyectos (PMO) — registra la solicitud en la cartera y administra la capacidad de la célula (4.1 y 4.6)."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-09",
+      "E-10",
+      "E-08",
+      "E-40",
+      "Lark: Levantamiento de procesos de Compras (VE)"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-08",
+      "E-40",
+      "Lark: Levantamiento de procesos de Compras (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Plantea el problema de decisión que el modelo debe resolver —qué comprar, qué reponer, qué rebalancear o qué liquidar— y nombra al usuario clave que actuará sobre el resultado; la solicitud entra a la cartera por la oficina de proyectos (4.1)."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Traduce el problema en un plan de modelo: nivel de negocio —mayor, tienda propia o tienda de tercero—, granularidad, variables y datos certificados que necesita; lo que falte lo abre como fuente nueva en 15.1."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Define con la célula las heurísticas que gobernarán el modelo —coberturas objetivo por canal, umbrales de estancado, reglas de reparto— y los parámetros que no viven en ningún sistema, como el pedido mínimo o el tránsito por fábrica."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Contrasta cada heurística con la serie histórica y prueba varios métodos de proyección, midiendo la exactitud con datos no usados en el ajuste y con medidas que toleran los ceros de la venta por tienda y producto."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Cuando la prueba no respalda una heurística, decide la regla final a la vista de la evidencia, como cuando un valor propuesto del 80 % se sustituyó por el 50 a 60 % que el modelo sostenía en la historia."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Construye el modelo sobre el repositorio analítico —proyección, salud del inventario con plan de acción a 30 días, rebalanceo entre tiendas— y registra en el inventario de modelos sus supuestos, heurísticas, datos de entrada y versión."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador(a) de Logística y Bodega",
+       "texto": "Prueba el modelo en paralelo con su método vigente durante al menos un ciclo completo, incluidos los picos de temporada, y aprueba su paso a producción solo si sus recomendaciones son accionables."
+      },
+      {
+       "id": "a8",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Si la prueba en paralelo no lo respalda, devuelve el modelo a desarrollo con las observaciones de la usuaria clave; reingresa como ajuste del mismo modelo y no como un proyecto nuevo de la cartera."
+      },
+      {
+       "id": "a9",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Pone el modelo en producción con fecha de calibración y umbral de error; si el error lo supera o el negocio cambia, lo recalibra, registra la nueva versión y avisa a sus usuarios clave."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Analista de Sistemas / Datos",
+       "Coordinador(a) de Logística y Bodega"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "inicio",
+        "n": "Problema de decisión o ajuste degradado"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Plantear el problema y nombrar al usuario"
+       },
+       {
+        "id": "n2",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Traducir el problema en plan de modelo",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Definir heurísticas y parámetros por escrito",
+        "sistemas": [
+         "Inventario de modelos"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Probar métodos con datos no usados",
+        "sistemas": [
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿La prueba respalda la regla?"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Decidir la regla con la evidencia"
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Construir y documentar el modelo",
+        "sistemas": [
+         "Repositorio analítico",
+         "Inventario de modelos"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "tarea",
+        "n": "Probar en paralelo un ciclo completo",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador(a) de Logística y Bodega",
+        "tipo": "decision",
+        "n": "¿Recomendaciones accionables?"
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "fin",
+        "n": "Modelo devuelto con observaciones"
+       },
+       {
+        "id": "n11",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Poner en producción con calibración",
+        "sistemas": [
+         "Inventario de modelos"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "fin",
+        "n": "Modelo en producción y calibrado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n9",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-08",
+      "E-10",
+      "E-40",
+      "Lark: Levantamiento de procesos de Compras (VE)"
+     ],
+     "filas": [
+      [
+       "Modelos que nadie usa",
+       "Un modelo que anticipó el producto estrella quedó abandonado porque nadie actuó sobre él, y otro ocupó dos meses de la célula sin usarse después.",
+       "Alta",
+       "Alto",
+       "No iniciar un modelo sin un usuario clave nombrado y un compromiso de uso, y revisar su adopción a los 90 días en 15.6."
+      ],
+      [
+       "Una heurística adoptada por autoridad y no por evidencia",
+       "La experiencia del área es insustituible, pero una regla que no resiste la historia se traslada al modelo y multiplica su error en cada recomendación.",
+       "Media",
+       "Alto",
+       "Contrastar toda heurística con la serie histórica antes de adoptarla y dejar escrita la decisión final con su evidencia."
+      ],
+      [
+       "Exactitud medida con los datos del ajuste",
+       "Un modelo evaluado con la misma historia con que se ajustó parece mejor de lo que es, y los porcentajes de error se indefinen con los ceros de la venta por tienda.",
+       "Media",
+       "Alto",
+       "Medir fuera de muestra, con medidas que toleran ceros, y comparar siempre contra un método ingenuo de referencia."
+      ],
+      [
+       "Lo que el modelo no puede saber",
+       "La asignación de la marca representada, el pedido mínimo de cada fábrica o un pedido extraordinario no están en ningún sistema; si el modelo los ignora, siempre queda una persona ajustando detrás sin registro.",
+       "Alta",
+       "Medio",
+       "Registrar esos parámetros por escrito como insumo del modelo y documentar cada ajuste humano con su motivo, para que el modelo aprenda de ellos."
+      ],
+      [
+       "Varios sugeridos para la misma decisión",
+       "Hoy conviven la hoja de reposición de un área, el modelo de la célula y otros cálculos propios, y cada uno puede recomendar una cantidad distinta.",
+       "Alta",
+       "Medio",
+       "Mantener un solo modelo por decisión en el inventario de modelos y retirar los paralelos cuando el oficial pase su prueba (6.1 y 6.7)."
+      ],
+      [
+       "Modelos que califican a clientes o personas",
+       "Un modelo que puntúa el riesgo de un cliente o fija un precio produce efectos sobre terceros; la ley panameña reconoce el derecho a no ser objeto de decisiones solo automatizadas.",
+       "Baja",
+       "Alto",
+       "Que toda decisión con efecto sobre un cliente o un colaborador la firme una persona, con la recomendación del modelo como insumo."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Error de pronóstico fuera de muestra",
+       "Error absoluto medio del modelo ÷ error del método ingenuo, en datos no usados en el ajuste",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "Menor que 1 en cada modelo en producción"
+      ],
+      [
+       "Modelos con calibración vigente",
+       "Modelos en producción calibrados dentro de su fecha ÷ modelos en producción",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ],
+      [
+       "Modelos en uso a los 90 días",
+       "Modelos con su usuario clave activo a los 90 días de publicados ÷ modelos publicados",
+       "Trimestral",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ],
+      [
+       "Heurísticas documentadas y validadas",
+       "Heurísticas en uso con prueba estadística registrada ÷ heurísticas en uso",
+       "Por modelo",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "15.5": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Diseña, publica y mantiene los tableros por los que los modelos y la cifra certificada llegan a quien decide: interfaz, frecuencia de actualización, quién ve qué, capacidad de cómputo y licencias del entorno. Recorre el ciclo de vida de un tablero: planificar, desarrollar con control de versiones, validar, publicar y monitorear; el retiro se decide en 15.6.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Ningún tablero se publica sin su matriz de quién ve qué.** El área usuaria aprueba qué ve cada rol, país y compañía, y el tablero aplica esa matriz por fila. Hoy el propio documento técnico del ERP de Panamá registra como riesgo alto que quienes trabajan la analítica ven toda la data de inventario y ventas.\n2. **Una lista de verificación antes de publicar.** Cifra cuadrada contra su fuente, medidas con definición aprobada en el diccionario, rendimiento aceptable y actualización programada con aviso de falla.\n3. **Licencias para usuarios clave, envío programado para los demás.** Hoy una licencia de prueba que vence deja sin acceso a un usuario clave sin que la célula lo sepa; la asignación y su uso se revisan con fecha.\n\nLa arquitectura de IA propuesta en este informe lleva la herramienta de tableros a la plataforma del grupo y retira los tableros paralelos conectados con credenciales de administración; la herramienta final la decide la Junta. Quedan fuera la ejecución de las altas y bajas de acceso (14.4) y el uso que las áreas hacen de sus tableros en sus propios procesos de decisión (2.7, 8.17 y 9.2).",
+     "nota_estado": "Proceso en transición: la célula de datos ya diseña, publica y programa la actualización de sus tableros, y la oficina de proyectos planifica esa cartera. Lo que se incorpora es la matriz de quién ve qué antes de publicar, la lista de verificación de publicación y la administración de capacidad y licencias con revisión periódica."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Sistemas / Datos",
+     "participantes": [
+      "Analista de Sistemas / Datos — dueño del proceso: diseña, desarrolla, verifica y publica cada tablero, programa su actualización y vigila la capacidad y las licencias.",
+      "Director(a) de Proyectos (PMO) — decide si una solicitud justifica un tablero nuevo o si ya existe uno que la resuelve, y la prioriza en la cartera.",
+      "Gerente Regional Comercial / Retail — como área usuaria dueña del tablero, aprueba la matriz de quién ve qué antes de publicar.",
+      "Gerente de Tecnología / Sistemas — asigna las licencias de los usuarios clave y tramita las altas de acceso, que ejecuta 14.4.",
+      "Junta Directiva — aprueba, con la gerencia de tecnología, la compra de licencias y la ampliación de la capacidad."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-09",
+      "E-63",
+      "SC-11",
+      "Lark: Blueprint técnico del Odoo 16 de Kenex Trading (PA)",
+      "Lark: Roadmap para proyectos BI (PA)",
+      "Lark: Procesos del Departamento de TI (regional)"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-09",
+      "E-63",
+      "SC-11",
+      "Lark: Blueprint técnico del Odoo 16 de Kenex Trading (PA)",
+      "Lark: Roadmap para proyectos BI (PA)",
+      "Lark: Procesos del Departamento de TI (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director(a) de Proyectos (PMO)",
+       "texto": "Recibe la solicitud de un gerente de primera línea o el modelo listo para publicar, comprueba si ya existe un producto que resuelve la misma decisión y, si hace falta uno nuevo, lo incorpora a la cartera con su prioridad."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Diseña con el área usuaria una interfaz orientada a la acción —pocas cosas que hacer, gestión por excepción— sobre medidas del diccionario y dato certificado, y fija la frecuencia de actualización según el uso."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Como dueño del tablero, define quién ve qué por país, compañía, canal y rol, y aprueba la matriz de permisos antes de la publicación; ningún tablero sale con acceso abierto a toda la data."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Desarrolla el tablero con control de versiones en el entorno de prueba de la herramienta de tableros y aplica en él la matriz aprobada como seguridad por fila."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Lo valida con una lista de verificación antes de publicar: cifras cuadradas contra la fuente autorizada, medidas con definición aprobada, carga de la primera página en pocos segundos y actualización programada con aviso de falla."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Corrige los hallazgos de la verificación y lo publica en producción; programa la actualización —varias veces al día para el punto de venta, de madrugada o con consolidación mensual para los modelos— y el envío a quien no requiere licencia."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Tecnología / Sistemas",
+       "texto": "Asigna las licencias de los usuarios clave y tramita las altas de acceso de los usuarios autorizados según la matriz aprobada, que ejecuta el Especialista de Tecnología por la vía de 14.4; la compra de licencias nuevas la aprueba con la Junta."
+      },
+      {
+       "id": "a8",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Monitorea la capacidad de cómputo y el uso de licencias con alertas de sobrecarga; ante saturación o licencias sin uso, propone reasignar, consolidar la granularidad o ampliar, y lo lleva a la revisión trimestral."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director(a) de Proyectos (PMO)",
+       "Analista de Sistemas / Datos",
+       "Gerente Regional Comercial / Retail",
+       "Gerente de Tecnología / Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Solicitud de tablero o modelo listo"
+       },
+       {
+        "id": "n1",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Hace falta un tablero nuevo?"
+       },
+       {
+        "id": "n2",
+        "carril": "Director(a) de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Remitido al producto vigente"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Diseñar la interfaz orientada a la acción",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Aprobar la matriz de quién ve qué"
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Desarrollar en el entorno de prueba",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Pasa la verificación?"
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Corregir los hallazgos",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Publicar y programar la actualización",
+        "sistemas": [
+         "Herramienta de tableros",
+         "Repositorio analítico"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Tecnología / Sistemas",
+        "tipo": "tarea",
+        "n": "Tramitar accesos y licencias (14.4)",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Monitorear capacidad y licencias",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "fin",
+        "n": "Tablero vigente con accesos autorizados"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "No"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-63",
+      "SC-11",
+      "E-52",
+      "Lark: Blueprint técnico del Odoo 16 de Kenex Trading (PA)"
+     ],
+     "filas": [
+      [
+       "Tableros con acceso a toda la data",
+       "El documento técnico del ERP de Panamá registra como riesgo alto que quienes trabajan la analítica ven toda la data de inventario y ventas, y que la exportación no restringe campos.",
+       "Alta",
+       "Alto",
+       "No publicar sin matriz aprobada, aplicarla por fila en el tablero y cruzarla con la revisión trimestral de cuentas de 14.4."
+      ],
+      [
+       "Dos tableros, dos cifras",
+       "Las áreas construyen tableros propios sobre sus hojas y descargas, y dos lecturas de la misma venta llegan a la dirección con números distintos.",
+       "Alta",
+       "Alto",
+       "Un solo tablero oficial por decisión, sobre dato certificado; los paralelos se integran o se retiran en la revisión de 15.6."
+      ],
+      [
+       "Licencias que vencen sin aviso",
+       "Una licencia de prueba que vence o se retira deja sin acceso a un usuario clave, y nadie lo detecta hasta que deja de usar el producto.",
+       "Media",
+       "Medio",
+       "Llevar un inventario de licencias con fecha de vencimiento y responsable, con aviso previo al vencimiento."
+      ],
+      [
+       "La capacidad de cómputo se desborda",
+       "Con pago por uso y millones de filas, un tablero mal diseñado o una actualización demasiado frecuente frena a los demás y dispara el costo.",
+       "Media",
+       "Medio",
+       "Fijar criterios de publicación por frecuencia y volumen, alertas de sobrecarga y una revisión anual del costo de capacidad y licencias."
+      ],
+      [
+       "Una foto del momento presentada como tablero",
+       "Un tablero armado sobre una descarga puntual no se actualiza y se sigue leyendo como si estuviera vigente.",
+       "Media",
+       "Medio",
+       "Publicar como oficial solo lo que se actualiza desde el repositorio analítico, con la fecha de la última actualización visible."
+      ],
+      [
+       "Actualización que falla en silencio",
+       "Si la carga programada falla de madrugada y nadie recibe aviso, el tablero muestra la cifra de ayer como si fuera la de hoy.",
+       "Media",
+       "Alto",
+       "Configurar aviso de falla en toda actualización programada y mostrar en el tablero la fecha y la hora del último dato."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Tableros con matriz de permisos aprobada",
+       "Tableros publicados con matriz aprobada ÷ tableros publicados",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ],
+      [
+       "Actualizaciones programadas exitosas",
+       "Actualizaciones completadas ÷ actualizaciones programadas",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "98 % o más"
+      ],
+      [
+       "Licencias con uso reciente",
+       "Licencias asignadas con acceso en los últimos 30 días ÷ licencias asignadas",
+       "Trimestral",
+       "Gerente de Tecnología / Sistemas",
+       "90 % o más"
+      ],
+      [
+       "Tiempo de carga de la primera página",
+       "Segundos hasta que carga la primera página del tablero",
+       "Por publicación",
+       "Analista de Sistemas / Datos",
+       "5 segundos o menos"
+      ],
+      [
+       "Tiempo de publicación",
+       "Fecha de publicación − fecha de aprobación de la solicitud, en semanas",
+       "Por tablero",
+       "Director(a) de Proyectos (PMO)",
+       "A fijar tras medir los primeros ciclos"
+      ]
+     ]
+    }
+   },
+   "15.6": {
+    "proposito": {
+     "estado": "borrador",
+     "texto": "Asegura que cada producto analítico llegue documentado, que sus usuarios clave sepan usarlo y que su uso real se mida, para decidir con evidencia si se refuerza su habilitación o se retira el producto que nadie consume.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **Una red de usuarios clave, no acceso para todos.** Pocos usuarios por país y canal, formados en lo que el producto les pide hacer y no en sus fundamentos, reparten aguas abajo lo necesario. Hoy el producto avanza donde hay una usuaria que lo empuja y se detiene donde no la hay.\n2. **El uso se mide cada trimestre contra lo declarado.** Quién entra, con qué frecuencia y si se hizo lo que el plan recomendaba, con un umbral y una acción definidos, no solo un recuento de vistas.\n3. **Retirar es una decisión, no un abandono.** El producto que nadie consume se retira, se archiva y libera sus accesos y licencias. Hoy lo que no se usa queda sin mantenimiento sin que nadie lo haya decidido.\n\nQuedan fuera la formación general en inteligencia artificial y competencias digitales, que es de 5.3, y el plan de formación del grupo, que es de 17.8.",
+     "nota_estado": "Proceso en transición: cada producto de la célula de datos ya se entrega con manual, diccionario, heurísticas y un asistente que responde con el mismo contenido, y la herramienta muestra quién accede. Lo que se incorpora es la red formal de usuarios clave, la revisión trimestral del uso y la decisión explícita de reforzar o retirar."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Sistemas / Datos",
+     "participantes": [
+      "Analista de Sistemas / Datos — dueño del proceso: documenta cada producto, forma a los usuarios clave, mide el uso y ejecuta el refuerzo o el retiro.",
+      "Gerente Regional Comercial / Retail — designa a los usuarios clave de cada producto y decide, con la medición, si se refuerza o se retira.",
+      "Gerente de Recursos Humanos (Formación y Desarrollo) — programa la formación práctica de los usuarios clave dentro del plan de formación del grupo.",
+      "Coordinador(a) de Logística y Bodega y Asistente Comercial — usuarios clave por país en planificación, reposición y compras.",
+      "Director(a) de Proyectos (PMO) — recibe las decisiones de retiro y de refuerzo para la revisión de la cartera."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-62",
+      "E-58",
+      "E-35",
+      "E-08",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador"
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-62",
+      "E-58",
+      "E-59",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Entrega con cada producto publicado el manual de usuario, el diccionario de medidas y las heurísticas que lo gobiernan en un portal único de documentación, y habilita el asistente que responde con ese mismo contenido."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Designa por país y canal a los usuarios clave de cada producto —quienes lo usarán para decidir y repartirán lo necesario aguas abajo— y confirma que tengan acceso y licencia antes de la formación."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+       "texto": "Programa con la célula una formación práctica de los usuarios clave, dirigida a qué hacer con el producto y no a sus fundamentos, y la incorpora al plan de formación del grupo (17.8)."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Imparte la formación con los datos reales de cada usuario, abre una hora de consulta periódica y avisa cada publicación o cambio relevante, sin depender de que el usuario lo recuerde."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Mide cada trimestre el uso real en la herramienta de tableros —usuarios activos, frecuencia, páginas vistas, informes sin uso reciente— frente al uso declarado, y lo contrasta con las acciones registradas en el propio producto."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional Comercial / Retail",
+       "texto": "Cuando el uso queda bajo el umbral, decide con esa evidencia si el producto se refuerza —otra formación, un ajuste de diseño, otro usuario clave— o se retira porque ya no sirve a una decisión."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Si se refuerza, ejecuta el refuerzo acordado y fija la fecha en que se volverá a medir; el producto sigue en la misma revisión trimestral hasta que supere el umbral de uso."
+      },
+      {
+       "id": "a8",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Si se retira, lo archiva, pide a Tecnología la baja de sus accesos (14.4) y libera la capacidad y las licencias que ocupaba, de modo que nadie siga viendo una cifra que ya no se mantiene."
+      },
+      {
+       "id": "a9",
+       "rol": "Analista de Sistemas / Datos",
+       "texto": "Registra cada decisión y el uso del trimestre en el catálogo de productos analíticos, que alimenta la revisión trimestral de la cartera con la oficina de proyectos."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Sistemas / Datos",
+       "Gerente Regional Comercial / Retail",
+       "Gerente de Recursos Humanos (Formación y Desarrollo)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "inicio",
+        "n": "Producto publicado o uso marginal detectado"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Entregar manual, diccionario y heurísticas",
+        "sistemas": [
+         "Portal de documentación"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "tarea",
+        "n": "Designar a los usuarios clave"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)",
+        "tipo": "tarea",
+        "n": "Programar la formación práctica"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Formar y abrir hora de consulta",
+        "sistemas": [
+         "Herramienta de tableros",
+         "Portal de documentación"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Medir el uso real del trimestre",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "decision",
+        "n": "¿Uso bajo el umbral?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente Regional Comercial / Retail",
+        "tipo": "decision",
+        "n": "¿Se refuerza el producto?"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Reforzar la habilitación",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Retirar y archivar el producto",
+        "sistemas": [
+         "Herramienta de tableros"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "tarea",
+        "n": "Registrar la decisión en el catálogo",
+        "sistemas": [
+         "Portal de documentación"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Analista de Sistemas / Datos",
+        "tipo": "fin",
+        "n": "Producto habilitado, medido y decidido"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n10"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-62",
+      "E-58"
+     ],
+     "filas": [
+      [
+       "Productos que nadie consume ocupan capacidad",
+       "Un producto sin uso sigue actualizándose, ocupa licencias y cómputo, y transmite la idea de que su cifra está vigente.",
+       "Alta",
+       "Medio",
+       "Retirar y archivar, con decisión registrada, todo producto bajo el umbral que no se refuerce."
+      ],
+      [
+       "Formación que no se traduce en uso",
+       "Explicar fundamentos a quien solo necesita saber qué hacer con el resultado deja dudas que el manual y el asistente no disipan.",
+       "Media",
+       "Medio",
+       "Formar en la tarea concreta del usuario con sus propios datos y medir su uso en el trimestre siguiente."
+      ],
+      [
+       "La adopción depende de dos o tres personas",
+       "El producto avanza donde una usuaria clave lo empuja y se detiene donde no la hay; su ausencia lo deja sin uso.",
+       "Alta",
+       "Alto",
+       "Designar al menos un usuario clave y un suplente por país y canal para cada producto."
+      ],
+      [
+       "Medir vistas y no decisiones",
+       "Un tablero muy visitado puede no mover ninguna acción; contar entradas no dice si el plan recomendado se ejecutó.",
+       "Media",
+       "Medio",
+       "Contrastar el uso con las acciones registradas en el propio producto y con la satisfacción de los usuarios clave."
+      ],
+      [
+       "La historia de uso se pierde",
+       "Las métricas de uso de una herramienta de tableros suelen guardar una ventana corta; sin registro propio, la revisión trimestral no tiene con qué comparar.",
+       "Media",
+       "Bajo",
+       "Guardar cada trimestre el uso medido en el catálogo de productos analíticos, con su fecha de corte."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Productos con documentación completa",
+       "Productos publicados con manual, diccionario y heurísticas en el portal ÷ productos publicados",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "100 %"
+      ],
+      [
+       "Usuarios clave activos",
+       "Usuarios clave con uso en el mes ÷ usuarios clave designados",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "90 % o más"
+      ],
+      [
+       "Productos bajo umbral con decisión tomada",
+       "Productos bajo el umbral con decisión de refuerzo o retiro registrada ÷ productos bajo el umbral",
+       "Trimestral",
+       "Gerente Regional Comercial / Retail",
+       "100 %"
+      ],
+      [
+       "Recomendaciones ejecutadas",
+       "Acciones del plan registradas como ejecutadas ÷ acciones recomendadas por el producto",
+       "Mensual",
+       "Gerente Regional Comercial / Retail",
+       "A fijar tras medir los primeros ciclos"
+      ],
+      [
+       "Satisfacción de los usuarios clave",
+       "Promedio de la encuesta trimestral de utilidad del producto, de 1 a 5",
+       "Trimestral",
+       "Analista de Sistemas / Datos",
+       "4 o más"
+      ]
+     ]
+    }
+   }
+  }
+ }
 };

@@ -20923,5 +20923,3212 @@ window.MANUAL_ASIS = {
     }
    }
   }
+ },
+ "14": {
+  "procesos": {
+   "14.1": {
+    "nota_version": "Versión As-Is: describe cómo se deciden, se construyen y se vigilan hoy las integraciones entre los sistemas del grupo, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que aparece la necesidad de conectar dos sistemas —una plataforma o un país que se incorpora, o un dato que un área copia a mano— hasta que la interfaz está en producción. Cubre las instancias del ERP de Panamá, Venezuela y Colombia, el WMS, la plataforma colaborativa y las tiendas web, y la réplica de productos entre países. Quedan fuera la construcción y el pase a producción en sí, que se describen en el proceso de desarrollo, y la extracción de datos para análisis.",
+     "texto": "El grupo no tiene hoy un mapa de plataformas e interfaces mantenido para los tres países. El único documento formal es el blueprint técnico del ERP de Panamá, que la gerencia regional de sistemas elaboró en julio de 2026 con el mapa de integraciones —almacén, tienda web, facturación electrónica, plataforma colaborativa, campañas de correo, reportería— y el inventario de desarrollos propios; no hay documento equivalente para las instancias de Venezuela y Colombia. Lo demás vive en el conocimiento del equipo, y la propia gerencia lo dice sin rodeos: «todos nuestros procesos están en nuestra mente».\n\nLas interfaces que existen funcionan y resolvieron necesidades concretas. Los productos se crean en la instancia de Panamá y una tarea programada los replica a Venezuela y Colombia, avisando por Lark al grupo de logística; el pedido aprobado en el ERP viaja solo al WMS, y el avance de su preparación se ve desde el ERP; la tienda web sincroniza existencias, precios y pedidos. Pero **casi todas se construyeron como desarrollos dentro del ERP** —del orden de ciento cuarenta—, en parte porque el proveedor del WMS es difícil de convencer para cambiar lo suyo. Y hay interfaces que existen y el proceso no usa: el inventario que recibe el WMS no pasa solo al ERP, sino que se acepta a mano para proteger las preventas.\n\nNo hay una regla escrita de qué sistema manda sobre cada dato. En la bodega de Zona Libre se dice que para ella el ERP no existe y que manda el WMS; las ventas de la plataforma de pagos diferidos se cargan a mano en el ERP por falta de integración, y en paralelo, desde que la IA se volvió accesible, **las áreas conectan sus propias herramientas a los datos**: en una sola formación aparecieron catorce aplicativos creados por usuarios. Las fallas se descubren cuando algo no llega: una función nueva para fusionar pedidos rompió la interfaz del almacén, y un cliente esperó dos semanas un pedido que nunca llegó a bodega."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional de Sistemas",
+     "participantes": [
+      "Gerente Regional de Sistemas — evalúa con las áreas el impacto de cada interfaz, decide cómo se construye y a quién se asigna, y elaboró el blueprint del ERP de Panamá. En el censo figura como Gerente de Tecnologías.",
+      "Presidente — da la última palabra cuando la integración supone un sistema nuevo, una conexión por API o un gasto.",
+      "Programadores independientes (externos) — construyen las interfaces como desarrollos sobre el ERP; la conexión con el WMS se desarrolló junto con los programadores de su proveedor.",
+      "Encargado de Seguridad de Sistemas — revisa las integraciones nuevas para que no haya filtración de datos y da acceso a los desarrolladores. En el censo figura como Web Master.",
+      "Gerente de Inventario y Precios (Panamá) — acepta a mano en el ERP el inventario que llega del WMS, después de confirmar las preventas.",
+      "Usuarios de las áreas — plantean la necesidad, detectan las fallas y, en paralelo, conectan herramientas propias a los datos."
+     ],
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-03",
+      "SC-01",
+      "SC-04",
+      "SC-13",
+      "E-41",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "sin_evidencia": "No consta un mapa de interfaces para Venezuela y Colombia ni una regla escrita de fuente de verdad por dominio de información."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un área que copia un dato a mano entre sistemas, la incorporación de una plataforma o de un país, o una propuesta de la dirección. Llega por llamada, visita, WhatsApp o tarea de Lark.",
+     "cadencia": "Por evento, sin revisión periódica del conjunto de interfaces.",
+     "output": "Interfaz en producción, construida casi siempre como desarrollo propio sobre el ERP y documentada solo en el caso de Panamá.",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "SC-04",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-03",
+      "SC-01",
+      "SC-07",
+      "SC-13",
+      "E-41",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Usuarios de las áreas",
+       "texto": "Plantean la necesidad de conectar dos sistemas cuando copian un dato a mano o cuando entra una plataforma o un país nuevo —un almacén, la web de un país, un marketplace—. Llega por llamada, visita, WhatsApp o tarea de Lark, sin ficha de interfaz."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Reúne a las áreas afectadas y hace de mediadora: revisa qué pasa en contabilidad y qué pasa en inventario, dónde afecta y a quién. El análisis queda en su conocimiento y en la tarea de Lark, no en un mapa de interfaces del grupo."
+      },
+      {
+       "id": "a3",
+       "rol": "Presidente",
+       "texto": "Da la última palabra cuando la integración supone un sistema nuevo, una conexión por API o un gasto. No hay una cita regular para decidirlo: la gerencia describe la relación como de acción y reacción."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Decide cómo se construye y la asigna a un programador. Cuando la plataforma externa no admite cambios —al proveedor del WMS es difícil convencerlo—, la interfaz se resuelve como desarrollo propio dentro del ERP."
+      },
+      {
+       "id": "a5",
+       "rol": "Programadores independientes (externos)",
+       "texto": "Construyen la interfaz sobre el ERP: la réplica de productos de Panamá hacia Venezuela y Colombia, el avance de preparación del almacén visible para los vendedores, los avisos de producto nuevo en Lark. Luego la pasan a producción por el ciclo de desarrollo."
+      },
+      {
+       "id": "a6",
+       "rol": "Encargado de Seguridad de Sistemas",
+       "texto": "Revisa las integraciones nuevas para que no haya filtración de datos y da acceso a los desarrolladores externos que las construyen, igual que hace con las páginas web nuevas de cada país."
+      },
+      {
+       "id": "a7",
+       "rol": "Usuarios de las áreas",
+       "texto": "Detectan la falla de una interfaz cuando algo no llega: tras una función nueva para fusionar pedidos, un cliente esperó dos semanas un pedido que nunca llegó a bodega. Lo reportan por el grupo de Lark de sistemas; nadie vigila la cola de sincronización."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Documenta la arquitectura en el blueprint técnico del ERP de Panamá, elaborado en julio de 2026 con el mapa de integraciones y el inventario de personalizaciones; no hay documento equivalente para las instancias de Venezuela y Colombia."
+      },
+      {
+       "id": "a9",
+       "rol": "Usuarios de las áreas",
+       "texto": "En paralelo, construyen sus propias conexiones a los datos —tableros, aplicaciones y agentes hechos con inteligencia artificial, alojados en servicios que contrata cada persona—, que la gerencia de sistemas conoce solo en parte."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Usuarios de las áreas",
+       "Gerente Regional de Sistemas",
+       "Presidente",
+       "Programadores independientes (externos)",
+       "Encargado de Seguridad de Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Usuarios de las áreas",
+        "tipo": "inicio",
+        "n": "Dato que se copia a mano o plataforma nueva"
+       },
+       {
+        "id": "n1",
+        "carril": "Usuarios de las áreas",
+        "tipo": "tarea",
+        "n": "Plantear la necesidad por chat o tarea",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Mediar el impacto con las áreas"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "decision",
+        "n": "¿Requiere sistema o gasto nuevo?"
+       },
+       {
+        "id": "n4",
+        "carril": "Presidente",
+        "tipo": "tarea",
+        "n": "Aprobar el sistema, la conexión o el gasto"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Asignar la interfaz a un programador",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Programadores independientes (externos)",
+        "tipo": "tarea",
+        "n": "Construir la interfaz dentro del ERP",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "tarea",
+        "n": "Revisar filtración de datos y dar accesos"
+       },
+       {
+        "id": "n8",
+        "carril": "Usuarios de las áreas",
+        "tipo": "tarea",
+        "n": "Detectar la falla cuando algo no llega",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Documentar en el blueprint de Panamá"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "fin",
+        "n": "Interfaz en uso, documentada solo en Panamá"
+       },
+       {
+        "id": "n11",
+        "carril": "Usuarios de las áreas",
+        "tipo": "tarea",
+        "n": "Conectar herramientas propias a los datos"
+       },
+       {
+        "id": "n12",
+        "carril": "Usuarios de las áreas",
+        "tipo": "fin",
+        "n": "Herramienta del área fuera del mapa de TI"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n0",
+        "a": "n11"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "14.2": {
+    "nota_version": "Versión As-Is: describe cómo entra, se evalúa y se asigna hoy un requerimiento sobre el ERP, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un área pide un cambio o una mejora del ERP —o un cambio normativo obliga a adaptarlo— hasta que el cambio queda en producción o en espera. Cubre a los tres países con ERP. Quedan fuera la construcción y el pase a producción, que se describen en el proceso siguiente, y los proyectos que conduce la PMO.",
+     "texto": "Los requerimientos llegan a la gerencia regional de sistemas o a su equipo por la vía que tenga a mano quien pide: llamada, visita a la oficina, correo, WhatsApp, el pasillo —«vas a tomarte un café y regresaste con cuatro tareas»— o las solicitudes de requerimientos de sistemas y de tecnología de Lark. No hay un formato con preguntas: los formularios se evitan porque se sienten engorrosos, y la gerencia prefiere reunirse con el usuario porque «no todas las personas saben escribir al detalle». Lo que se levanta se convierte en tarea de Lark con fecha y responsable, un hábito que el equipo describe como un cambio cultural ya ganado.\n\nEl valor del proceso está en la evaluación. La gerencia hace de mediadora entre áreas —qué pasa en contabilidad, qué pasa en inventario—, valida con el gerente del área o con la dirección comercial que la idea responda al negocio y no a un deseo, mide el impacto cruzado —facturar directo desde la web se frenó por el riesgo de fraude y su efecto en bodega y contabilidad— y pregunta si otro país lo necesitará. Lo que es localización no lo toca: va al partner del país por ticket. **En Venezuela el primer filtro es la coordinación de sistemas**, que escala a la gerencia lo que no resuelve; Colombia va directo a la gerencia.\n\nLo que falta es la cola. No hay criterio escrito de prioridad ni indicadores de los desarrollos —«no tenemos indicadores», admite la gerencia—, y los pedidos de la dirección llegan por varios canales a la vez y hay que buscarlos meses después. Hay pedidos que llevan meses sin fecha, como el archivo de pago a proveedores para el banco o la carga masiva de pagos, y áreas que terminan corrigiendo a mano porque les resulta más rápido que esperar."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional de Sistemas",
+     "participantes": [
+      "Gerente Regional de Sistemas — levanta el requerimiento con el usuario, lo convierte en tarea, media el impacto entre áreas, decide la vía y asigna al programador. Regla del equipo: no se hace nada que no pase por ella.",
+      "Coordinador de Sistemas (Venezuela) — recibe primero los pedidos del país, resuelve lo que puede y escala a la gerencia regional lo complejo, y al partner lo que es de programa.",
+      "Gerente del área solicitante o Gerente de Ventas Internacional — valida que la idea responda al negocio antes de desarrollarla.",
+      "Usuario solicitante — pide el cambio y lo valida en la demostración.",
+      "Director de Proyectos y Gerentes de Proyectos — reciben lo que, por su tamaño, pasa a ser un proyecto.",
+      "Presidente — aprueba lo que supone un sistema nuevo o una conexión por API.",
+      "Programadores independientes y partner del ERP de cada país (externos) — desarrollan el cambio o resuelven la localización."
+     ],
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-11",
+      "E-38",
+      "E-61",
+      "E-65",
+      "E-51",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "sin_evidencia": "No consta un criterio escrito de prioridad ni un contenido mínimo del requerimiento, y la decisión entre desarrollo interno y localización del partner solo tiene la regla de que la localización no se toca."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una idea de mejora o una falla funcional que plantea un área, un pedido de la dirección o un cambio normativo que obliga a adaptar la localización.",
+     "cadencia": "Continua, por solicitud; seguimiento semanal a los programadores y quincenal al equipo.",
+     "output": "Cambio en producción validado con el usuario en la demostración, o pedido en espera sin fecha; no hay descarte formal con justificación.",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-61",
+      "E-65",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-38",
+      "E-61",
+      "E-65",
+      "E-51",
+      "E-04",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Usuario solicitante",
+       "texto": "Pide el cambio por la vía que tenga a mano: llamada, visita a la oficina, correo, WhatsApp, el pasillo o la solicitud de requerimientos de sistemas de Lark. En Lark no hay un formato con preguntas, y los formularios se evitan porque se sienten engorrosos."
+      },
+      {
+       "id": "a2",
+       "rol": "Coordinador de Sistemas",
+       "texto": "En Venezuela recibe primero el pedido y lo resuelve si puede; lo complejo lo escala a la gerencia regional, y lo que es de programa, al partner. Contabilidad de Venezuela, por ejemplo, reporta la novedad con un Excel de soporte y se levanta un ticket."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Se reúne con el usuario para levantar la idea y la convierte en tarea de Lark con fecha y responsable. A la dirección no se le pide que la escriba: el pedido llega de viva voz o por chat y se registra después."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente del área solicitante",
+       "texto": "Valida con la gerencia de sistemas que la idea responde al negocio y no a un deseo personal antes de desarrollarla; en asuntos comerciales la valida el Gerente de Ventas Internacional, que además propone mejoras en un encuentro mensual con la gerencia."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Convoca a las áreas que el cambio toca para medir el impacto cruzado —facturar directo desde la web se frenó por el riesgo de fraude y su efecto en bodega y contabilidad— y evalúa si otro país lo necesitará después."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Decide la vía: la localización no la toca y va al partner del país; plan de cuentas, bancos y métodos de pago se configuran internamente; el resto se asigna a un programador. Lo que supone un sistema nuevo o una conexión va a la Presidencia."
+      },
+      {
+       "id": "a7",
+       "rol": "Partner del ERP (externo)",
+       "texto": "Recibe el ticket con evidencias, explicación, ejemplos y posibles soluciones, y responde por ticket o video. En Venezuela está sobrecargado y hubo meses sin respuesta; el equipo interno evita pedirle cambios porque sus arreglos dañan otras funciones."
+      },
+      {
+       "id": "a8",
+       "rol": "Programadores independientes (externos)",
+       "texto": "Reciben la tarea —el que esté desocupado o el que más conozca el módulo—, acuerdan el plazo según su carga y desarrollan. No atienden usuarios directamente: la regla es que todo pase por la gerencia de sistemas."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Hace seguimiento semanal a los programadores y quincenal al equipo, y reporta a la Junta. No hay indicadores de los desarrollos ni una cola visible para las áreas: pedidos como el archivo de pago al banco o la carga masiva de pagos siguen sin fecha."
+      },
+      {
+       "id": "a10",
+       "rol": "Usuario solicitante",
+       "texto": "Valida el resultado en la demostración y confirma si era lo que quería. Cuando el pedido no avanza, el área lo resuelve por su cuenta: corrige a mano, arma su propia hoja o construye una herramienta."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Usuario solicitante",
+       "Coordinador de Sistemas",
+       "Gerente Regional de Sistemas",
+       "Gerente del área solicitante",
+       "Partner del ERP (externo)",
+       "Programadores independientes (externos)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Usuario solicitante",
+        "tipo": "inicio",
+        "n": "Idea de mejora o falla del ERP"
+       },
+       {
+        "id": "n1",
+        "carril": "Usuario solicitante",
+        "tipo": "tarea",
+        "n": "Pedir por llamada, chat, pasillo o Lark",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "decision",
+        "n": "¿Lo resuelve el país?"
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Resolver en el país",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Levantar la idea y crear la tarea",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente del área solicitante",
+        "tipo": "tarea",
+        "n": "Validar que responde al negocio"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Medir el impacto con las áreas"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "decision",
+        "n": "¿Es localización del país?"
+       },
+       {
+        "id": "n8",
+        "carril": "Partner del ERP (externo)",
+        "tipo": "tarea",
+        "n": "Resolver por ticket o video"
+       },
+       {
+        "id": "n9",
+        "carril": "Programadores independientes (externos)",
+        "tipo": "tarea",
+        "n": "Desarrollar con el plazo acordado",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Usuario solicitante",
+        "tipo": "tarea",
+        "n": "Validar en la demostración"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "fin",
+        "n": "Cambio en producción o pedido en espera sin fecha"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n11"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n10"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "14.3": {
+    "nota_version": "Versión As-Is: describe cómo pasa hoy un desarrollo del ambiente de desarrollo a producción, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un programador tiene asignado un desarrollo hasta que queda en producción y, en el mejor de los casos, documentado. Cubre las instancias del ERP de los tres países; la variación principal es quién ejecuta el pase. Quedan fuera la evaluación del requerimiento y la atención de las incidencias posteriores.",
+     "texto": "El ciclo existe y es reconocible. Hay tres ambientes —desarrollo, pruebas y producción—: los programadores trabajan en desarrollo, pasan su módulo a pruebas y allí se certifica con el usuario. En Panamá el blueprint describe además un flujo de cambio con aprobación formal de la gerencia y revisión posterior, y el código de los desarrollos se versiona con ramas separadas. La gerencia regional es tajante en un punto: ningún desarrollo pasa a producción sin su verificación, porque puede afectar contabilidad o inventario.\n\n**El pase lo ejecuta quien tiene la potestad en cada país.** En Venezuela el equipo interno no puede subir a producción lo que desarrolla: se lo pide al partner, que lo hace al final de la noche, de lunes a jueves y nunca en viernes, porque hay que parar la operación. En Panamá lo ejecutan los propios programadores. Si una actualización falla, la coordinación desinstala el módulo, refresca y sigue hasta que el responsable corrija; ha habido caídas completas por fallas en ese paso, y arreglos del partner que dañan otras funciones.\n\nTres grietas atraviesan el ciclo. La configuración de las tiendas se hace a veces directamente en producción. Los desarrollos que construyeron las áreas por su cuenta no pasaron por la verificación —«eso se escapó de mis manos», dice la gerencia—. Y la documentación es desigual: el blueprint de Panamá lista las personalizaciones activas, pero no hay equivalente para los otros países, y **la migración de versión está detenida**, sin costo conocido y con un cargo anual por permanecer en una versión antigua que el grupo no conocía."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional de Sistemas",
+     "participantes": [
+      "Gerente Regional de Sistemas — verifica todo desarrollo antes del pase, documenta las personalizaciones de Panamá y lleva la planificación de la migración de versión.",
+      "Programadores independientes (externos) — desarrollan, pasan a pruebas y, en Panamá, ejecutan el pase a producción.",
+      "Coordinador de Sistemas (Venezuela) — certifica con el usuario, pide el pase al partner y revierte el módulo cuando la actualización falla.",
+      "Usuario funcional del área — prueba el desarrollo con sus casos y confirma si hace lo que pidió.",
+      "Partner del ERP de Venezuela (externo) — ejecuta el pase a producción, de noche y de lunes a jueves."
+     ],
+     "evidencia": [
+      "E-32",
+      "E-52",
+      "SC-04",
+      "SC-08",
+      "E-07",
+      "E-65",
+      "E-26",
+      "SC-05",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ],
+     "sin_evidencia": "No consta un inventario de personalizaciones para Venezuela y Colombia ni una clasificación de los cambios según su riesgo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Desarrollo terminado por el programador y listo para certificarse en el ambiente de pruebas.",
+     "cadencia": "Continua; en Venezuela, pases solo de noche, de lunes a jueves.",
+     "output": "Desarrollo en producción; documentado en el blueprint cuando es de Panamá.",
+     "evidencia": [
+      "E-32",
+      "SC-04",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-32",
+      "E-52",
+      "SC-04",
+      "SC-08",
+      "E-07",
+      "E-65",
+      "SC-05",
+      "Lark: Blueprint técnico del ERP de Kenex Trading (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Programadores independientes (externos)",
+       "texto": "Desarrollan en el ambiente de desarrollo —sobre el ERP, varios con asistentes de IA— y pasan el módulo al ambiente de pruebas; en Panamá el código se versiona en un repositorio con ramas separadas para pruebas y producción."
+      },
+      {
+       "id": "a2",
+       "rol": "Usuario funcional del área",
+       "texto": "Prueba el desarrollo con sus casos y confirma si hace lo que pidió; Contabilidad de Venezuela, por ejemplo, probó en el ambiente de pruebas los impuestos municipales de una ordenanza antes de aplicarlos."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador de Sistemas",
+       "texto": "Certifica en el ambiente de pruebas junto con el usuario que pidió el cambio. Así se hace con cada desarrollo, aunque la parametrización de las tiendas se hace directamente en producción: si falla, se elimina y se repite."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Verifica el desarrollo antes del pase, porque puede afectar contabilidad o inventario: sin esa verificación no pasa a producción. La verificación no alcanzó a los desarrollos que hicieron las áreas por su cuenta."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinador de Sistemas",
+       "texto": "En Venezuela pide el pase al partner, porque el equipo interno no tiene la potestad de subir a producción lo que desarrolla; en Panamá lo ejecutan los propios programadores tras la aprobación de la gerencia."
+      },
+      {
+       "id": "a6",
+       "rol": "Partner del ERP (externo)",
+       "texto": "Sube el desarrollo a producción al final de la noche, de lunes a jueves y nunca en viernes, porque el pase exige detener la operación. Sus propios arreglos se despliegan por la misma vía."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador de Sistemas",
+       "texto": "Si la actualización falla, desinstala el módulo, refresca y sigue hasta que el responsable corrija, e informa si el módulo era del equipo propio o del partner. Ha habido caídas completas por fallas en el paso de pruebas a producción."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Documenta lo desarrollado: el blueprint de Panamá lista las personalizaciones activas con su propósito. Para los otros países no hay documento equivalente, y en el día a día la gerencia reconoce que los procesos están en la memoria del equipo."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Lleva la migración de versión: los módulos propios se trasladaron a la versión de Venezuela al entrar en producción, pero la migración a la versión siguiente está detenida, sin costo conocido y con la instrucción de la dirección de no personalizar ni migrar por ahora."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Programadores independientes (externos)",
+       "Usuario funcional del área",
+       "Coordinador de Sistemas",
+       "Gerente Regional de Sistemas",
+       "Partner del ERP (externo)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Programadores independientes (externos)",
+        "tipo": "inicio",
+        "n": "Tarea de desarrollo asignada"
+       },
+       {
+        "id": "n1",
+        "carril": "Programadores independientes (externos)",
+        "tipo": "tarea",
+        "n": "Desarrollar y pasar a pruebas",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Usuario funcional del área",
+        "tipo": "tarea",
+        "n": "Probar con casos propios",
+        "sistemas": [
+         "ERP (pruebas)"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Certificar con el usuario"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Verificar el impacto antes del pase"
+       },
+       {
+        "id": "n5",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "decision",
+        "n": "¿Quién tiene la potestad del pase?"
+       },
+       {
+        "id": "n6",
+        "carril": "Partner del ERP (externo)",
+        "tipo": "tarea",
+        "n": "Subir de noche, de lunes a jueves",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Programadores independientes (externos)",
+        "tipo": "tarea",
+        "n": "Ejecutar el pase tras la aprobación",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "decision",
+        "n": "¿Falla el pase?"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Desinstalar, refrescar y avisar",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Documentar la personalización (Panamá)"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "fin",
+        "n": "Desarrollo en producción; migración detenida"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Partner (VE)"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Equipo interno (PA)"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n8",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "14.4": {
+    "nota_version": "Versión As-Is: describe cómo se dan y se retiran hoy los accesos y cómo se vigila la seguridad de la información, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Por tratarse de seguridad, las debilidades se describen de forma general, sin detalle técnico por sistema. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que Recursos Humanos o un área pide un acceso —o avisa una salida— hasta que la cuenta queda creada o retirada, más la revisión recurrente de la seguridad de los equipos, la administración de dominios y sitios, y el plan de la auditoría externa. Cubre a Panamá, Venezuela y Colombia.",
+     "texto": "Las altas funcionan por solicitud. Recursos Humanos pide a sistemas por Lark el equipo y las plataformas del ingreso —correo, Lark y, para contables y administrativos, el ERP—; Recursos Humanos no crea cuentas. El encargado de seguridad de sistemas crea los usuarios del ERP de los tres países y los correos, y sabe qué dominio y qué perfil corresponde; en Venezuela la coordinación también puede crearlos y verifica después los parámetros de seguridad del punto de venta. Algunas áreas reparten ellas mismas los accesos a sus plataformas: en pauta digital, TI solo crea el correo y la cuenta de Lark, y todo lo demás lo da la gerencia del área, siempre sobre el correo de empresa «para poder dar de baja limpio».\n\n**Las bajas son el punto débil.** Hay un procedimiento escrito del área de sistemas y formularios de Recursos Humanos que avisan a sistemas —en Panamá, para bloquear el correo y recuperar equipos; en Venezuela, para congelar o programar la baja—, pero hay salidas que no se comunican y que el resto conoce por el pasillo. Con los programadores externos el protocolo es claro: se les quitan los accesos y se cambian las contraseñas, y firmaron acuerdo de confidencialidad.\n\nLa seguridad descansa en rutinas y en un plan. El encargado revisa de forma recurrente la consola de seguridad de los equipos y avisa a soporte técnico, y compra y renueva los dominios de toda la región. Panamá acaba de pasar una auditoría externa de ciberseguridad que dejó un plan de acción por nivel de riesgo, a tres meses y a un año, y Venezuela tiene una persona de ciberseguridad contratada aparte. Lo que no existe es un marco para el uso de la IA —«no tenemos una gobernanza sobre ese tema»— ni un procedimiento de respuesta a incidentes."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Encargado de Seguridad de Sistemas (en el censo, Web Master)",
+     "participantes": [
+      "Encargado de Seguridad de Sistemas — crea los usuarios del ERP de los tres países y los correos, instala el antivirus, suspende credenciales, revisa la consola de seguridad y administra dominios y sitios.",
+      "Gerente Regional de Sistemas — ejecuta la salida de los programadores externos y coordina el plan de la auditoría de ciberseguridad.",
+      "Coordinador de Sistemas (Venezuela) — puede crear usuarios en el país y verifica los parámetros de seguridad del punto de venta.",
+      "Gerente y Coordinadora de Recursos Humanos — piden las altas y avisan las salidas por Lark o por formulario.",
+      "Gerente del área del colaborador — en algunas áreas, reparte los accesos a las plataformas propias del área.",
+      "Presidente — contrató a la persona de ciberseguridad de Venezuela.",
+      "Consultor externo de seguridad de la información (externo) — hizo la auditoría de Panamá."
+     ],
+     "evidencia": [
+      "E-52",
+      "SC-04",
+      "E-07",
+      "E-37",
+      "E-54",
+      "E-42",
+      "E-56",
+      "E-21",
+      "E-12",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Política corporativa de desvinculación (VE)",
+      "Lark: Manual 04 · Setup técnico y accesos (marketing regional)"
+     ],
+     "sin_evidencia": "La ficha del mapa da el proceso a la coordinación de sistemas de Venezuela; las entrevistas sitúan la ejecución y la responsabilidad de las cuentas de los tres países en el encargado de seguridad de Panamá. No consta un procedimiento de respuesta a incidentes."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La solicitud de alta de Recursos Humanos o de un área, el aviso de una salida, el pedido de un dominio o un sitio nuevo, o la revisión recurrente de la consola de seguridad.",
+     "cadencia": "Por evento; revisión recurrente de la consola de seguridad.",
+     "output": "Cuenta creada o suspendida y notificada al usuario y a Contabilidad; alertas notificadas a soporte técnico.",
+     "evidencia": [
+      "E-37",
+      "E-54",
+      "E-52",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "SC-04",
+      "E-07",
+      "E-37",
+      "E-54",
+      "E-42",
+      "E-56",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Política corporativa de desvinculación (VE)",
+      "Lark: Manual 04 · Setup técnico y accesos (marketing regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Coordinadora de Recursos Humanos",
+       "texto": "Pide a sistemas por Lark el equipo y las plataformas del ingreso —correo, Lark y, para contables y administrativos, el ERP—; la solicitud la aprueba sistemas. En Colombia, sin Recursos Humanos local, la coordinación del área escribe directo a sistemas en Panamá."
+      },
+      {
+       "id": "a2",
+       "rol": "Encargado de Seguridad de Sistemas",
+       "texto": "Crea los usuarios del ERP de los tres países y los correos, con el dominio y el perfil que corresponden; instala el antivirus en el equipo y, cuando hace falta, compra la licencia de la plataforma y lo notifica a Contabilidad."
+      },
+      {
+       "id": "a3",
+       "rol": "Coordinador de Sistemas",
+       "texto": "En Venezuela puede crear usuarios, aunque la responsabilidad es del encargado de seguridad; verifica después que el usuario del punto de venta cumpla los parámetros de seguridad definidos."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente del área del colaborador",
+       "texto": "En algunas áreas otorga él mismo los accesos a las plataformas propias: en pauta digital, TI solo crea el correo y la cuenta de Lark, y la gerencia da el resto, siempre sobre el correo de empresa."
+      },
+      {
+       "id": "a5",
+       "rol": "Coordinadora de Recursos Humanos",
+       "texto": "Avisa la salida: en Panamá el formulario de baja incluye pedir a sistemas que bloquee el correo y recupere computadora y celular; en Venezuela la política de desvinculación prevé avisar a TI. En la práctica, hay salidas que el resto conoce por el pasillo."
+      },
+      {
+       "id": "a6",
+       "rol": "Encargado de Seguridad de Sistemas",
+       "texto": "Suspende las credenciales del colaborador y notifica al usuario y a Contabilidad. Con los programadores externos que se retiran, la gerencia regional quita los accesos y cambia las contraseñas."
+      },
+      {
+       "id": "a7",
+       "rol": "Encargado de Seguridad de Sistemas",
+       "texto": "Revisa de forma recurrente la consola de seguridad de los equipos y la de los dominios, y avisa a soporte técnico; compra y renueva los dominios de la región y configura las páginas web nuevas de cada país."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Coordina el plan de la auditoría externa de ciberseguridad hecha en Panamá, con acciones a tres meses y a un año por nivel de riesgo; en Venezuela la Presidencia contrató a otra persona de ciberseguridad. El plan está por encajarse con la arquitectura del grupo."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Atiende el uso de la IA sin un marco escrito: hay personas que trabajan con cuentas personales y conectan herramientas propias a los datos, y la autorización de esas conexiones se da caso por caso. No consta un procedimiento de respuesta a incidentes."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Coordinadora de Recursos Humanos",
+       "Encargado de Seguridad de Sistemas",
+       "Coordinador de Sistemas",
+       "Gerente del área del colaborador",
+       "Gerente Regional de Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Coordinadora de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Ingreso o salida de un colaborador"
+       },
+       {
+        "id": "n1",
+        "carril": "Coordinadora de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Es un ingreso?"
+       },
+       {
+        "id": "n2",
+        "carril": "Coordinadora de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Pedir equipo y plataformas por Lark",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "tarea",
+        "n": "Crear usuarios, correo y antivirus",
+        "sistemas": [
+         "ERP",
+         "Correo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Verificar los parámetros del punto de venta",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente del área del colaborador",
+        "tipo": "tarea",
+        "n": "Otorgar los accesos propios del área"
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinadora de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Avisar la salida a sistemas",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "tarea",
+        "n": "Suspender credenciales y notificar"
+       },
+       {
+        "id": "n8",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "fin",
+        "n": "Acceso otorgado o retirado"
+       },
+       {
+        "id": "n9",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "inicio",
+        "n": "Revisión recurrente de seguridad"
+       },
+       {
+        "id": "n10",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "tarea",
+        "n": "Revisar la consola de seguridad",
+        "sistemas": [
+         "Consola de seguridad"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Llevar lo detectado al plan de la auditoría"
+       },
+       {
+        "id": "n12",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "fin",
+        "n": "Alertas notificadas a soporte técnico"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n8"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "14.5": {
+    "nota_version": "Versión As-Is: describe cómo se atienden hoy las fallas tecnológicas de oficinas, tiendas y bodegas y cómo se compran y registran los equipos, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un usuario de oficina, tienda o bodega reporta una falla o se necesita un equipo hasta que la falla se resuelve o el equipo se entrega. Cubre a Panamá, Venezuela y Colombia; Costa Rica tiene su propio personal de sistemas.",
+     "texto": "El canal de soporte es Lark. Hay grupos por área —sistemas y contabilidad, sistemas y bodega, sistemas y tiendas— y un grupo único con todas las tiendas, creado al arrancar el ERP en Panamá para que lo que se resuelve a una tienda sirva a todas. «Alguien toma el ticket» y, si no se resuelve, se llama al proveedor. Quien escribe por privado o por WhatsApp es remitido al grupo, aunque los fines de semana los pedidos llegan al chat personal de la coordinación.\n\n**La cobertura cambia por país.** En Venezuela las veinte tiendas se atienden de lunes a domingo desde el exterior, «como el call center», por una persona que registra cada caso como tarea de Lark; lo que no resuelve pasa a la coordinación de sistemas y, si es de programa, al partner, mientras la tienda factura en contingencia. Los técnicos de sistemas atienden equipos, redes, cámaras, impresoras fiscales y puntos bancarios, y vigilan la red de las tiendas en tiempo real. En Panamá las nueve tiendas las atienden el encargado de redes y soporte técnico, el encargado de seguridad y la gerencia. Colombia no tiene personal de TI y se atiende desde Panamá.\n\nNo hay nivel de servicio ni indicadores, y la dirección reconoce que por eso no sabe qué hace TI; lo urgente desplaza a lo importante. Los equipos los compra para toda la región el encargado de seguridad, con aprobación de la Junta y de la gerencia; Venezuela compra localmente la red y las cámaras. El inventario de equipos existe en Lark en Venezuela, y en Panamá los equipos de valor están en el activo fijo de Contabilidad, todavía sin placa."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional de Sistemas; en Venezuela, el Coordinador de Sistemas",
+     "participantes": [
+      "Soporte de tiendas (remoto, Venezuela) — primer nivel de las tiendas del país de lunes a domingo, desde el exterior; registra cada caso como tarea de Lark. No figura en el censo de Venezuela.",
+      "Técnico de Sistemas y Auxiliar Técnico (Venezuela) — equipos, laptops, internet, redes, cámaras, impresoras fiscales y puntos de venta bancarios de oficina y tiendas.",
+      "Encargado de Redes y Soporte Técnico (Panamá) — equipos, cámaras, fibra, router y alarmas de oficina, tiendas y la bodega de Colón.",
+      "Coordinador de Sistemas (Venezuela) — segundo nivel de las fallas del ERP y del punto de venta.",
+      "Gerente Regional de Sistemas — tercer nivel; atiende directamente Panamá y Colombia y escala al partner o al proveedor.",
+      "Encargado de Seguridad de Sistemas — compra los equipos de la región y sigue su envío.",
+      "Gerente de Contabilidad (Panamá) — registra como activo fijo los equipos de valor.",
+      "Jefe de Servicios Generales (Caracas) — atiende también conexiones de equipos en tiendas de Caracas, sin registro.",
+      "Usuarios de tiendas, oficinas y bodegas — reportan en los grupos de Lark."
+     ],
+     "evidencia": [
+      "E-52",
+      "E-32",
+      "E-33",
+      "E-07",
+      "E-15",
+      "E-44",
+      "E-45",
+      "E-56",
+      "E-01",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Soporte Técnico (IT Support) (VE)"
+     ],
+     "sin_evidencia": "No consta un acuerdo de nivel de servicio, una matriz de escalamiento escrita ni un inventario único de equipos."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una falla reportada en un grupo de Lark de sistemas por un usuario de oficina, tienda o bodega, o la necesidad de un equipo por ingreso, daño u obsolescencia.",
+     "cadencia": "Continua; el soporte de tiendas de Venezuela atiende de lunes a domingo, y en Panamá se atiende de lunes a viernes con emergencias en fin de semana.",
+     "output": "Caso marcado como culminado en Lark, o equipo entregado; sin medición del tiempo de respuesta.",
+     "evidencia": [
+      "E-52",
+      "E-07",
+      "E-32",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-52",
+      "E-32",
+      "E-33",
+      "E-07",
+      "E-44",
+      "E-45",
+      "E-15",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Usuarios de tiendas, oficinas y bodegas",
+       "texto": "Reportan la falla en el grupo de Lark que corresponde —sistemas y tiendas, sistemas y contabilidad, sistemas y bodega—. Quien escribe por privado o por WhatsApp es remitido al grupo, y los fines de semana los pedidos llegan también a chats personales."
+      },
+      {
+       "id": "a2",
+       "rol": "Soporte de tiendas (remoto, Venezuela)",
+       "texto": "Atiende de lunes a domingo las tiendas de Venezuela desde el exterior: contactos, errores al emitir la factura fiscal, impresoras. Registra cada incidencia como tarea de Lark y la marca culminada; lo técnico en sitio lo pasa a los técnicos."
+      },
+      {
+       "id": "a3",
+       "rol": "Técnico de Sistemas / Encargado de Redes",
+       "texto": "Atiende equipos, laptops, internet, redes, cámaras, alarmas, telefonía, impresoras fiscales y puntos de venta bancarios. En Venezuela vigila en tiempo real la red de las tiendas; en Panamá recorre las tiendas y la bodega de Colón."
+      },
+      {
+       "id": "a4",
+       "rol": "Coordinador de Sistemas",
+       "texto": "Recibe lo que el primer nivel no resuelve —fallas de configuración o de programa del ERP— y lo atiende, a veces conectándose a distancia al equipo de la tienda. Mientras tanto la tienda factura en contingencia y carga esas facturas cuando el sistema vuelve."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Recibe lo que Venezuela no resuelve y atiende directamente Panamá y Colombia; si es del programa, escala al partner del país, y si es del almacén, al soporte de su proveedor. Los lunes no agenda reuniones, para atender lo del fin de semana."
+      },
+      {
+       "id": "a6",
+       "rol": "Encargado de Seguridad de Sistemas",
+       "texto": "Compra computadoras, tablets y monitores para toda la región, con la aprobación de la Junta y de la gerencia, y sigue el envío cuando queda retenido en tránsito; en Venezuela los técnicos compran localmente la red y las cámaras."
+      },
+      {
+       "id": "a7",
+       "rol": "Técnico de Sistemas / Encargado de Redes",
+       "texto": "En Venezuela lleva en Lark el inventario de equipos con orden de compra, seguimiento, llegada, quién recibió y a quién se asignó. En Panamá no hay un registro equivalente de sistemas."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Contabilidad",
+       "texto": "En Panamá registra como activo fijo el equipo que supera los 500 dólares, con su responsable, a partir de la compra que hace el área de sistemas; los equipos todavía no tienen placa y el inventario antiguo está por levantar."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Sigue las tareas desde la base de Lark que el encargado de seguridad enlazó, con avisos de creación y de cierre, y revisa los avances en la reunión quincenal del equipo. No hay nivel de servicio ni indicadores del soporte."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Usuarios de tiendas, oficinas y bodegas",
+       "Soporte de tiendas (remoto, Venezuela)",
+       "Técnico de Sistemas / Encargado de Redes",
+       "Coordinador de Sistemas",
+       "Gerente Regional de Sistemas",
+       "Encargado de Seguridad de Sistemas",
+       "Gerente de Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Usuarios de tiendas, oficinas y bodegas",
+        "tipo": "inicio",
+        "n": "Falla en tienda, oficina o bodega"
+       },
+       {
+        "id": "n1",
+        "carril": "Usuarios de tiendas, oficinas y bodegas",
+        "tipo": "tarea",
+        "n": "Reportar en el grupo de Lark",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Soporte de tiendas (remoto, Venezuela)",
+        "tipo": "decision",
+        "n": "¿Es de equipo o de red?"
+       },
+       {
+        "id": "n3",
+        "carril": "Técnico de Sistemas / Encargado de Redes",
+        "tipo": "tarea",
+        "n": "Atender equipo, red o conectividad"
+       },
+       {
+        "id": "n4",
+        "carril": "Soporte de tiendas (remoto, Venezuela)",
+        "tipo": "tarea",
+        "n": "Atender en remoto y registrar la tarea",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Soporte de tiendas (remoto, Venezuela)",
+        "tipo": "decision",
+        "n": "¿Lo resuelve el primer nivel?"
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Resolver la falla del ERP",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Escalar al partner o al proveedor"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Seguir las tareas en la base de Lark",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "fin",
+        "n": "Caso culminado, sin nivel de servicio medido"
+       },
+       {
+        "id": "n10",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "inicio",
+        "n": "Ingreso, daño u obsolescencia de un equipo"
+       },
+       {
+        "id": "n11",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "tarea",
+        "n": "Comprar el equipo para la región"
+       },
+       {
+        "id": "n12",
+        "carril": "Técnico de Sistemas / Encargado de Redes",
+        "tipo": "tarea",
+        "n": "Registrar y entregar el equipo (VE)",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Registrar el activo fijo (PA)",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n14",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "fin",
+        "n": "Equipo entregado y registrado según el país"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n8"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n11",
+        "a": "n13"
+       },
+       {
+        "de": "n12",
+        "a": "n14"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       }
+      ]
+     }
+    }
+   },
+   "14.6": {
+    "nota_version": "Versión As-Is: describe cómo se prepara hoy la tecnología de una tienda nueva, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que se aprueba la apertura de una tienda o un kiosco —o una remodelación— hasta que la tienda factura. El flujo detallado es el de Venezuela, que es donde la evidencia alcanza para describirlo paso a paso; en Panamá la misma función la cubren el encargado de redes y soporte técnico, en la infraestructura, y la gerencia regional de sistemas, en el punto de venta.",
+     "texto": "La apertura es un proyecto de la PMO, que la sigue en una base de Lark con cronograma y reuniones semanales a las que asiste Sistemas junto con Visual, Mercadeo, Supervisión y el arquitecto. El ritmo es alto: una región llegó a tener cuatro aperturas a la vez y cerca de ocho en un mes.\n\n**En Venezuela la secuencia está clara en la cabeza de quien la ejecuta.** El técnico de sistemas recibe el plano, hace la primera inspección en obra —internet, electricidad, puntos eléctricos—, define con el gerente de proyecto cuántas cajas lleva la tienda, levanta la orden de compra de equipos y coordina telefonía, alarmas, cámaras y el centro comercial; arma en la oficina un laboratorio con las cajas para hacer pruebas de facturación antes de conectar, e instala con cableado certificado. El encargado de seguridad compra los equipos regionales y crea usuarios y accesos. La coordinación crea el punto de venta en el ERP exportando los métodos de pago de una tienda que ya opera e importándolos con una plantilla; si Contabilidad no ha creado los diarios, la importación falla.\n\nNada de eso está escrito. No hay manual de apertura: la fecha del sistema y la tasa se verifican «por inercia», y el personal nuevo no lo sabe. El punto de venta se configura directamente en producción. Y hay configuraciones que no se prevén: al abrir en una zona exenta el libro de ventas calculó un impuesto que no correspondía, los centros de costo de las tiendas nuevas no se asignan solos, y una tienda tuvo que rehacer su red eléctrica después de inaugurada."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Técnico de Sistemas (infraestructura) y Coordinador de Sistemas (punto de venta) en Venezuela; en Panamá, Encargado de Redes y Soporte Técnico y Gerente Regional de Sistemas",
+     "participantes": [
+      "Gerente de Proyectos — sigue la apertura como proyecto en una base de Lark, con cronograma y reuniones semanales.",
+      "Técnico de Sistemas y Auxiliar Técnico (Venezuela) — inspeccionan la obra, piden los equipos, coordinan proveedores, arman el laboratorio e instalan; el técnico figura en el censo con ese cargo, aunque coordina.",
+      "Encargado de Seguridad de Sistemas — compra los equipos regionales y crea los usuarios, los accesos al ERP, a Lark y al correo, y el dominio si aplica.",
+      "Coordinador de Sistemas (Venezuela) — crea el punto de venta en el ERP con sus métodos de pago.",
+      "Gerente de Contabilidad — crea los diarios contables que se enlazan a los métodos de pago.",
+      "Gerente de Administración (Venezuela) — tramita con los bancos los puntos de venta bancarios según el número de cajas.",
+      "Gerente de Ventas al Detal — prepara al personal de la tienda nueva, que recibe entrenamiento de sistema antes de abrir.",
+      "Arquitecto, contratistas y proveedores de conectividad, cámaras y telefonía (externos)."
+     ],
+     "evidencia": [
+      "E-33",
+      "E-32",
+      "E-52",
+      "E-07",
+      "E-47",
+      "E-38",
+      "E-45",
+      "E-65",
+      "E-55",
+      "E-04",
+      "Lark: Descripción de cargo del Gerente de Administración (VE)"
+     ],
+     "sin_evidencia": "No existe manual ni lista de verificación de apertura; en Colombia las aperturas las apoya personal no técnico."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La aprobación de la apertura de una tienda, kiosco o sede —el arquitecto, la supervisión y la Junta aprueban el proyecto— o de una remodelación.",
+     "cadencia": "Por apertura; en los picos, varias aperturas en paralelo.",
+     "output": "Tienda facturando, con los equipos instalados y el punto de venta configurado directamente en producción.",
+     "evidencia": [
+      "E-33",
+      "E-55",
+      "E-04"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-33",
+      "E-32",
+      "E-52",
+      "E-07",
+      "E-47",
+      "E-38",
+      "E-65",
+      "E-04"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Proyectos",
+       "texto": "Recibe la apertura aprobada y la sigue en su base de Lark con cronograma, hitos y responsables, en reuniones semanales a las que asiste Sistemas junto con Visual, Mercadeo, Supervisión y el arquitecto."
+      },
+      {
+       "id": "a2",
+       "rol": "Técnico de Sistemas",
+       "texto": "Recibe el plano de la tienda y hace la primera inspección durante la obra —internet, electricidad y puntos eléctricos—; con el gerente de proyecto define cuántas cajas lleva la tienda y qué se quiere hacer en ella."
+      },
+      {
+       "id": "a3",
+       "rol": "Técnico de Sistemas",
+       "texto": "Levanta la orden de compra de equipos, que pasa por aprobación y compras, y coordina telefonía, alarmas, cámaras y los permisos del centro comercial, con proveedores que muchas veces son únicos."
+      },
+      {
+       "id": "a4",
+       "rol": "Encargado de Seguridad de Sistemas",
+       "texto": "Compra computadoras, tablets y monitores para la tienda y crea los usuarios y los accesos al ERP, a Lark y al correo, y el dominio si aplica; en Venezuela los técnicos compran localmente la red y las cámaras."
+      },
+      {
+       "id": "a5",
+       "rol": "Técnico de Sistemas",
+       "texto": "Arma en la oficina un laboratorio con las cajas y los equipos de la tienda y hace pruebas de facturación para certificarlos antes de conectarlos; luego instala el cableado certificado, el sonido y los equipos junto con la carpintería."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Contabilidad",
+       "texto": "Crea los diarios contables que se enlazan a los métodos de pago de la tienda. Si no existen cuando se configura el punto de venta, la importación de los métodos de pago falla."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador de Sistemas",
+       "texto": "Crea el punto de venta en el ERP: exporta los métodos de pago de una tienda que ya opera, les cambia número y nombre y los importa con una plantilla, conservando el prefijo numérico de tienda heredado. Lo hace directamente en producción."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Prepara al personal, que recibe entrenamiento de sistema antes de abrir; la fecha del sistema y la tasa se verifican por inercia, sin manual. Los puntos de venta bancarios los tramita Administración con el banco según el número de cajas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Proyectos",
+       "Técnico de Sistemas",
+       "Encargado de Seguridad de Sistemas",
+       "Gerente de Contabilidad",
+       "Coordinador de Sistemas",
+       "Gerente de Ventas al Detal"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Proyectos",
+        "tipo": "inicio",
+        "n": "Apertura aprobada por la Junta"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Proyectos",
+        "tipo": "tarea",
+        "n": "Seguir la apertura en reuniones semanales",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Técnico de Sistemas",
+        "tipo": "tarea",
+        "n": "Inspeccionar la obra sobre el plano"
+       },
+       {
+        "id": "n3",
+        "carril": "Técnico de Sistemas",
+        "tipo": "tarea",
+        "n": "Pedir equipos y coordinar proveedores"
+       },
+       {
+        "id": "n4",
+        "carril": "Encargado de Seguridad de Sistemas",
+        "tipo": "tarea",
+        "n": "Comprar equipos y crear usuarios",
+        "sistemas": [
+         "ERP",
+         "Lark",
+         "Correo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Técnico de Sistemas",
+        "tipo": "tarea",
+        "n": "Certificar en el laboratorio e instalar"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Contabilidad",
+        "tipo": "tarea",
+        "n": "Crear los diarios contables",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "decision",
+        "n": "¿Existen los diarios?"
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Esperar los diarios y reintentar"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Configurar el punto de venta en producción",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Preparar al personal y verificar por inercia",
+        "sistemas": [
+         "ERP"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "fin",
+        "n": "Tienda facturando"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n1",
+        "a": "n6"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n5",
+        "a": "n10"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "14.7": {
+    "nota_version": "Versión As-Is: describe cómo se eligen, se coordinan y se pagan hoy los terceros de los que depende la tecnología del grupo, con los cargos que usan las entrevistas y la columna de cargo actual del patrón V4. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que hace falta un tercero hasta que opera y se le paga: partners del ERP, programadores independientes, proveedores del WMS, de facturación electrónica, de integración bancaria, de conectividad y de equipos. Cubre a los tres países con ERP.",
+     "texto": "El grupo depende de terceros en casi toda su tecnología, y lo sabe: la dirección plantea desarrollar capacidad propia para dejar de depender del proveedor. El ERP lo sostienen dos partners —uno compartido por Panamá y Colombia, otro en Venezuela— que conservan la localización; el desarrollo lo hacen programadores independientes contratados por honorarios, «para evitarle pasivos a la empresa», que trabajan desde varios países y firmaron acuerdo de confidencialidad. El WMS y la facturación electrónica son de proveedores externos, y en Venezuela la integración bancaria del punto de venta tiene un único proveedor.\n\n**La coordinación diaria funciona.** La gerencia regional lleva la relación con los partners y con el proveedor del WMS, asigna y sigue cada semana a los programadores y aprueba sus solicitudes de pago en Lark después de revisar qué tareas culminaron; los programadores no atienden usuarios. La compra de sistemas, licencias y equipos la aprueban la Junta y la gerencia de sistemas, y los pagos del área siguen un límite por monto. En Venezuela la coordinación revisa las horas que consume el partner sobre su paquete de consultoría y detectó cargos por encima de lo contratado.\n\nLo que falta es el marco. No constan contratos con nivel de servicio, evaluación periódica ni un inventario de proveedores; el partner de Venezuela, sobrecargado, pasó meses sin responder, y el equipo evita pedirle cambios porque sus arreglos dañan otras funciones. Y las áreas contratan por su cuenta software y servicios —un sistema de planilla que la propia área considera una mala decisión, servicios en la nube y licencias de IA pagadas por cada persona— sin pasar por un criterio técnico."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente Regional de Sistemas",
+     "participantes": [
+      "Gerente Regional de Sistemas — identifica la necesidad, contrata y coordina a partners, proveedores y programadores, y aprueba los pagos de los programadores.",
+      "Coordinador de Sistemas (Venezuela) — coordina los tickets del partner del país y revisa las horas que consume.",
+      "Técnico de Sistemas (Venezuela) — coordina a los proveedores de internet, sensores, cámaras, alarmas, impresoras fiscales y la integración bancaria del punto de venta.",
+      "Junta Directiva y Presidente — aprueban la compra de sistemas, licencias y equipos; la Presidencia da la última palabra en sistemas nuevos.",
+      "Gerente de Ventas Internacional y Dirección de Finanzas del grupo — aprueban los pagos de Sistemas por encima del límite del área.",
+      "Programadores independientes, partners del ERP y proveedores (externos).",
+      "Áreas usuarias — contratan por su cuenta parte del software que usan."
+     ],
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-04",
+      "E-25",
+      "SC-04",
+      "E-33",
+      "E-54",
+      "E-58",
+      "E-01",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Procedimiento de funciones de Cuentas por Pagar (PA)"
+     ],
+     "sin_evidencia": "No constan contratos con nivel de servicio, evaluación de desempeño ni inventario de proveedores."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una capacidad que el equipo no tiene —un sistema, una localización, un desarrollo— o un servicio de tienda que hay que contratar.",
+     "cadencia": "Continua en la coordinación; por evento en la contratación.",
+     "output": "Tercero operando y pagado contra solicitud aprobada, sin contrato con nivel de servicio ni evaluación.",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-07",
+      "E-52",
+      "E-32",
+      "E-15",
+      "E-04",
+      "SC-04",
+      "E-33",
+      "E-54",
+      "E-58",
+      "Lark: Procesos.pdf — Dpto. de TI (regional)",
+      "Lark: Procedimiento de funciones de Cuentas por Pagar (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Identifica la necesidad de un tercero cuando el equipo no tiene la capacidad —un almacén, la facturación electrónica, un integrador de marketplaces— o el país exige una localización; la evalúa con las áreas, y el área usuaria evalúa las integraciones que la tocan."
+      },
+      {
+       "id": "a2",
+       "rol": "Junta Directiva",
+       "texto": "Aprueba la compra de sistemas, licencias y equipos junto con la gerencia de sistemas; la Presidencia da la última palabra en sistemas nuevos y conexiones. Los pagos de Sistemas hasta 1.000 dólares los aprueba la gerencia del área; por encima, además, la dirección."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Contrata a los programadores como independientes por honorarios, para evitar pasivos a la empresa y porque no se sabía cuánto duraría el desarrollo; firman acuerdo de confidencialidad y trabajan desde varios países, casi todos con asistentes de IA."
+      },
+      {
+       "id": "a4",
+       "rol": "Programadores independientes (externos)",
+       "texto": "Suben su solicitud de pago en Lark con las horas trabajadas, y la gerencia revisa qué tareas culminaron antes de aprobarla. No atienden usuarios: todo pedido pasa por la gerencia de sistemas."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "Lleva la relación con los partners del ERP —uno compartido por Panamá y Colombia, otro en Venezuela— y con el proveedor del WMS, al que es difícil convencer de cambios; la localización es del partner y no se toca."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinador de Sistemas",
+       "texto": "Coordina con el partner de Venezuela los tickets y el paquete de horas de consultoría, y revisa en su portal en qué se consumen: detectó cargos por encima de lo contratado, como un consultor con quince horas en un solo día."
+      },
+      {
+       "id": "a7",
+       "rol": "Técnico de Sistemas",
+       "texto": "Coordina en Venezuela a los proveedores de internet principal y de respaldo, sensores, cámaras, alarmas, impresoras fiscales y la integración bancaria del punto de venta, que tiene un único proveedor; con los proveedores únicos la negociación es cuesta arriba."
+      },
+      {
+       "id": "a8",
+       "rol": "Áreas usuarias",
+       "texto": "Contratan por su cuenta software y servicios —el sistema de planilla de Panamá, que la propia área considera una mala decisión; servicios en la nube y licencias de IA que pagan las personas— sin un criterio técnico documentado."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente Regional de Sistemas",
+       "texto": "No hay contratos con nivel de servicio, evaluación periódica de desempeño ni inventario de proveedores; la dependencia del partner se maneja por presión, y la propia dirección plantea desarrollar capacidad técnica interna."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Regional de Sistemas",
+       "Junta Directiva",
+       "Programadores independientes (externos)",
+       "Coordinador de Sistemas",
+       "Técnico de Sistemas",
+       "Áreas usuarias"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "inicio",
+        "n": "Capacidad técnica que el equipo no tiene"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Evaluar el tercero con las áreas"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "decision",
+        "n": "¿Es sistema nuevo o supera el límite?"
+       },
+       {
+        "id": "n3",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Aprobar la compra o la contratación"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "tarea",
+        "n": "Contratar partner, proveedor o programador"
+       },
+       {
+        "id": "n5",
+        "carril": "Programadores independientes (externos)",
+        "tipo": "tarea",
+        "n": "Cobrar las horas por solicitud en Lark",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinador de Sistemas",
+        "tipo": "tarea",
+        "n": "Revisar las horas del partner"
+       },
+       {
+        "id": "n7",
+        "carril": "Técnico de Sistemas",
+        "tipo": "tarea",
+        "n": "Coordinar proveedores de tienda (VE)"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente Regional de Sistemas",
+        "tipo": "fin",
+        "n": "Terceros operando sin contrato ni evaluación"
+       },
+       {
+        "id": "n9",
+        "carril": "Áreas usuarias",
+        "tipo": "inicio",
+        "n": "Necesidad propia de un área"
+       },
+       {
+        "id": "n10",
+        "carril": "Áreas usuarias",
+        "tipo": "tarea",
+        "n": "Contratar software por su cuenta"
+       },
+       {
+        "id": "n11",
+        "carril": "Áreas usuarias",
+        "tipo": "fin",
+        "n": "Herramienta fuera del inventario de TI"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n7"
+       },
+       {
+        "de": "n5",
+        "a": "n8"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "15": {
+  "procesos": {
+   "15.1": {
+    "nota_version": "Versión As-Is: describe la operación actual —cómo la célula de BI capta y normaliza los datos de origen—, con los cargos como se nombran en las entrevistas. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un dato sale de su origen —el Odoo de cada país por un endpoint, o el archivo que exporta una cuenta de tercero— hasta que queda cargado en la tabla normalizada de la célula de BI. Describe el circuito de la célula; las capturas paralelas de las áreas se mencionan sin detallarse. Quedan fuera el control de calidad del lote y la construcción de los endpoints dentro de Odoo.",
+     "texto": "La célula de BI es un equipo de tres personas que trabaja desde Venezuela: una ingeniera dedicada solo a la ETL, un analista que revisa los datos y prepara las métricas, y el líder, que modela y programa. Todo lo que viene de tiendas propias, de mayor y de tiendas de terceros pasa por la ingeniera, que lo convierte en una tabla normalizada de pocas columnas —país, fecha, cliente, tienda, producto, venta e inventario, con el cierre de mes en unidades— de la que, en palabras de la célula, «nace todo lo demás».\n\nEl proceso tiene dos entradas que no se parecen. **Lo que viene de Odoo** entra por endpoints: el líder pide cada uno a Sistemas con una tarea en Lark y fecha de vencimiento, un desarrollador lo crea y la célula lo ajusta para extraer solo lo que interesa, porque la licencia de pago por uso del entorno analítico se desborda con el volumen del grupo. **Lo que viene de terceros** entra por correo: cuarenta y un clientes, varios cientos de tiendas, más de mil orígenes en total, cada uno en su formato y reenviado por el vendedor de cada cuenta. Ningún cliente da acceso a su sistema y la célula nunca habla con ellos.\n\nTres rasgos marcan el proceso tal como opera. El primero es que **el dato de terceros llega por reenvío**, a veces a destiempo o incompleto, sin un contenido mínimo exigido. El segundo es que **la traducción de nombres depende de una persona**: cada cliente llama a los productos a su manera, y el producto cuyo nombre no está en la traducción queda fuera de la tabla. El tercero es que **la tabla normalizada no es la única fuente**: las tiendas digitan cada noche su cierre en un cuadro compartido, compras arma su archivo mensual desde un reporte de Odoo con una hoja propia de equivalencias de códigos, planificación refresca consultas de Odoo en Excel, Colombia lee el sell-out en los portales de cada cadena y algunos países mandan sus ventas por correo o por Lark."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Ingeniera de ETL (equipo de BI)",
+     "participantes": [
+      "Ingeniera de ETL (equipo de BI) — recibe todo lo que llega y lo convierte en la tabla normalizada; arma la ETL según las claves de cada cliente con los flujos de datos del entorno analítico.",
+      "Data Scientist / Líder de BI — pide los endpoints a Sistemas por tarea en Lark, los ajusta a lo necesario y define la estructura de la tabla.",
+      "Desarrollador de Odoo (Sistemas) — crea el endpoint y lo envía a la célula; el despliegue lo hace el partner.",
+      "Gerente de Sistemas — va en copia de cada tarea, prioriza y acuerda las fechas con el líder de BI.",
+      "Vendedor responsable de la cuenta — recaba el archivo de su cliente, lo reenvía por correo e indica qué columna es el producto y cuál la venta.",
+      "Cuenta de tercero (externa) — exporta los datos de su propio sistema con la periodicidad que decide."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-14",
+      "E-40",
+      "E-55",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)",
+      "Lark: Descripciones de cargo de Kenex Trading, hoja Comercial (PA)"
+     ],
+     "sin_evidencia": "La ficha del mapa v18 da el proceso al «Analista de Sistemas / Datos (ETL)», que es este mismo rol con su denominación del patrón V4. No consta un registro de las fuentes ni de sus responsables: más allá de tres o cuatro personas que recogen la data, la célula solo conoce la dirección de correo de quien envía."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La actualización diaria de lo conectado a Odoo y la llegada del correo que reenvía el vendedor con el archivo de su cliente. Una fuente nueva de Odoo arranca con una tarea en Lark a Sistemas.",
+     "cadencia": "Diaria para lo conectado a Odoo; para terceros, la que decide cada cliente —semanal, quincenal o mensual—, y hay clientes que mandan la data diaria al vendedor, que la reenvía después.",
+     "output": "La tabla normalizada actualizada con lo que llegó, sobre la que corre un proceso automatizado de promedios. Lo que no se pudo traducir o no llegó queda fuera, sin registro de la falta.",
+     "evidencia": [
+      "E-18"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-14",
+      "E-40",
+      "E-55",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Crea en Lark una tarea para el desarrollador de Sistemas con las características del endpoint que necesita y una fecha de vencimiento, con la gerente de sistemas en copia; hoy también le escribe directo a ella para acordar la fecha."
+      },
+      {
+       "id": "a2",
+       "rol": "Desarrollador de Odoo (Sistemas)",
+       "texto": "Crea el endpoint sobre Odoo y lo envía a la célula. El despliegue lo hace el partner, y una columna olvidada en un endpoint llegó a frenar un modelo una semana."
+      },
+      {
+       "id": "a3",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Ajusta el endpoint para extraer solo lo que interesa, porque la licencia de pago por uso del entorno analítico se sobrepasa con el volumen de datos que genera el grupo."
+      },
+      {
+       "id": "a4",
+       "rol": "Vendedor responsable de la cuenta",
+       "texto": "Recibe el archivo que el cliente exporta de su propio sistema y lo reenvía por correo a la célula; cuando el formato es nuevo, indica qué columna es el producto, cuál la venta acumulada y cuál no tomar en cuenta."
+      },
+      {
+       "id": "a5",
+       "rol": "Ingeniera de ETL (equipo de BI)",
+       "texto": "Extrae con los flujos de datos de Fabric lo conectado a Odoo y transforma cada archivo de tercero según las claves de ese cliente: cuarenta y un clientes, cuarenta y un formatos."
+      },
+      {
+       "id": "a6",
+       "rol": "Ingeniera de ETL (equipo de BI)",
+       "texto": "Traduce los nombres de producto de cada cliente al código interno. Si un cliente llama a un producto de una forma que la traducción no conoce, ese producto queda fuera de la tabla."
+      },
+      {
+       "id": "a7",
+       "rol": "Ingeniera de ETL (equipo de BI)",
+       "texto": "Si el archivo viene incompleto, avisa al vendedor lo que falta —«le falta una columna»—; el aviso se repite de un período a otro, y la célula prepara un informe para no volver a preguntar lo mismo."
+      },
+      {
+       "id": "a8",
+       "rol": "Ingeniera de ETL (equipo de BI)",
+       "texto": "Carga lo recibido en la tabla normalizada, que la célula trata como su fuente de la verdad, y deja corriendo sobre ella el proceso automatizado de promedios móviles."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Data Scientist / Líder de BI",
+       "Desarrollador de Odoo (Sistemas)",
+       "Vendedor responsable de la cuenta",
+       "Ingeniera de ETL (equipo de BI)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "inicio",
+        "n": "Hace falta un dato o llega el del período"
+       },
+       {
+        "id": "n1",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "decision",
+        "n": "¿Viene de Odoo?"
+       },
+       {
+        "id": "n2",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "decision",
+        "n": "¿Existe ya el endpoint?"
+       },
+       {
+        "id": "n3",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Pedir el endpoint por tarea",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Desarrollador de Odoo (Sistemas)",
+        "tipo": "tarea",
+        "n": "Crear y enviar el endpoint",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Ajustar el endpoint a lo necesario",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor responsable de la cuenta",
+        "tipo": "tarea",
+        "n": "Reenviar el archivo del cliente",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Extraer y transformar por cliente",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Traducir nombres de producto",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "decision",
+        "n": "¿Viene completo?"
+       },
+       {
+        "id": "n10",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Avisar al vendedor lo que falta",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n11",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Cargar la tabla normalizada",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "fin",
+        "n": "Tabla actualizada; lo no traducido queda fuera"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n7"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n9",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       }
+      ]
+     }
+    }
+   },
+   "15.2": {
+    "nota_version": "Versión As-Is: describe la operación actual —cómo se controla la calidad del dato que entra en la tabla normalizada—, con los cargos como se nombran en las entrevistas. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un lote entra en la tabla normalizada hasta que queda disponible para los modelos, con los defectos detectados corregidos o absorbidos. Incluye los controles de la célula de BI y, sin detallarlos paso a paso, los que cada área hace por su cuenta sobre la cifra que recibe. Quedan fuera la corrección de los maestros en Odoo y el control contable de cada país.",
+     "texto": "El control de la célula de BI es real y diario, y lo hace una sola persona. Lo conectado a Odoo se revisa todos los días porque el maestro cambia sin aviso —un producto creado con una letra mal, una clase que pasó de 6 a 7, una marca nueva, los productos que la marca representada saca cada mes—, y se verifica que no haya ceros, nulos ni atípicos que desbalanceen los modelos. El mismo analista comprueba que el procesamiento no altere los decimales y que tipos de cambio y monedas se interpreten bien.\n\nTres rasgos marcan el proceso tal como opera. El primero es que **el volumen supera a la revisión**: con millones de filas, la célula se apoya en algoritmos de detección de atípicos, porque revisar uno a uno es, en sus palabras, «un trabajo muy fuerte». El segundo es que **el defecto vuelve por el mismo canal por el que llegó**: se avisa al vendedor, sin plazo ni registro, y el mismo reclamo se repite de un período a otro. El tercero es que **no hay una definición común de las medidas**: cada proyecto de la célula lleva su propio diccionario, pero fuera de ella los mismos indicadores se nombran en cada país sin una definición compartida.\n\nFuera de la célula, el control es de cada usuario. La analista que prepara los reportes a la dirección y a la marca representada revisa la cifra con sus propios archivos —un número grandísimo le reveló una columna de Odoo con bolívares y dólares mezclados—; la coordinadora de planificación revisa lo que arroja su hoja y lo que le dice su asistente de IA; la gerencia regional de tiendas revisa los valores al hacer su cierre ejecutivo. Ninguna fuente describe quién corrige en Odoo el defecto de un maestro: la célula lo absorbe en su transformación."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Datos (equipo de BI)",
+     "participantes": [
+      "Analista de Datos (equipo de BI) — revisa a diario que los datos vengan bien, verifica cálculos, decimales y monedas, y hace el diccionario de medidas de cada proyecto.",
+      "Data Scientist / Líder de BI — mantiene los algoritmos de detección de atípicos sobre los que se apoya la revisión.",
+      "Vendedor responsable de la cuenta — recibe el aviso del defecto y reenvía el archivo corregido cuando el cliente lo manda.",
+      "Analista de Datos e Informes — revisa por su cuenta la cifra que usa en los reportes a la dirección y a la marca representada.",
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) y Regional Manager Retail — revisan también, cada una con su criterio, lo que usan para decidir."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-40",
+      "E-55",
+      "Lark: Reporte de entrevistas sobre el uso de Claude (VE)"
+     ],
+     "sin_evidencia": "No consta un diccionario de medidas común al grupo ni una regla escrita de devolución al origen: la propia gerencia regional de retail propone ese diccionario en su guía de procesos como algo que todavía no existe."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La carga diaria de lo conectado a Odoo y la llegada de cada lote de tercero; en lo de terceros, también el aviso de los algoritmos de detección de atípicos.",
+     "cadencia": "Diaria para lo conectado a Odoo; por lote para lo que envían los clientes.",
+     "output": "Datos limpios para los modelos. El dato que no se pudo corregir se usa con lo disponible, sin una marca que lo distinga de lo verificado.",
+     "evidencia": [
+      "E-18"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-40",
+      "E-55",
+      "Lark: Guía de procesos de la gerencia regional de retail (CO)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Revisa a diario lo conectado a Odoo, porque el maestro cambia sin aviso: productos creados con una letra mal, cambios de clase, marcas nuevas y los productos que la marca representada saca cada mes."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Verifica que no haya ceros, nulos ni atípicos que desbalanceen los modelos; en lo de terceros se apoya en los algoritmos de detección de atípicos de la célula, porque revisar uno a uno no alcanza."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Comprueba los cálculos: que el procesamiento no altere los decimales y que los tipos de cambio y las monedas se interpreten bien."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Si encuentra un defecto de origen —falta una columna, llegó junio cuando se está en abril—, avisa al vendedor de la cuenta, sin plazo y sin registro de lo ya reclamado."
+      },
+      {
+       "id": "a5",
+       "rol": "Vendedor responsable de la cuenta",
+       "texto": "Reenvía el archivo corregido cuando el cliente lo manda. Si no llega, la célula sigue con los datos disponibles, sin marcar que ese período quedó incompleto."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Deja la data limpia para los modelos y elabora, en cada proyecto, el diccionario de medidas junto con el manual y las heurísticas; no hay un diccionario común del grupo."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista de Datos e Informes",
+       "texto": "Toma la data de la célula y la cruza con sus propios archivos antes de usarla en los reportes a la dirección y a la marca: «yo creo que está bien», pero admite que puede haber errores."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Datos (equipo de BI)",
+       "Vendedor responsable de la cuenta",
+       "Analista de Datos e Informes"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "inicio",
+        "n": "Carga diaria o lote de tercero recibido"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Revisar ceros, nulos y atípicos",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Verificar cálculos, decimales y monedas",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "decision",
+        "n": "¿Hay un defecto de origen?"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Avisar al vendedor lo que falta",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Vendedor responsable de la cuenta",
+        "tipo": "decision",
+        "n": "¿Llega la corrección?"
+       },
+       {
+        "id": "n6",
+        "carril": "Vendedor responsable de la cuenta",
+        "tipo": "tarea",
+        "n": "Reenviar el archivo corregido",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Seguir con los datos disponibles"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Dejar la data limpia para los modelos",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "tarea",
+        "n": "Revisar la salida con sus archivos",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "fin",
+        "n": "Cifra usada sin certificación común"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "15.3": {
+    "nota_version": "Versión As-Is: describe la operación actual —cómo se consigue que las fuentes entreguen su data—, con los cargos como se nombran en las entrevistas. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Cómo se consigue hoy que las cuentas de terceros y los países entreguen su data a la célula de BI, y qué pasa cuando no la entregan. No hay un calendario acordado: lo que se describe es el seguimiento informal que ocurre en su lugar.",
+     "texto": "No existe un cronograma de entrega con las fuentes, y la célula de BI lo pone como su principal fricción: que cada responsable fije una fecha para su información, «hazlo una vez al mes es suficiente, pero hazlo». Cada cliente entrega con la periodicidad que decide —cada quince días, mensual o semanal— y hay quienes mandan la data diaria al vendedor, que la reenvía después. Tres o cuatro personas recogen la mayor parte de la data, y la mayor parte llega bien; lo que falla, falla a destiempo o incompleto.\n\nCuando falta un cliente, la célula acude al Regional Cubitt Manager, que es quien más sabe del tema pero viaja constantemente por la región; el pedido va por un mensaje de WhatsApp, que la propia célula considera insuficiente. La célula propone como interlocutor único a un ejecutivo de cuentas de Centroamérica, el que mejor reúne, revisa y entiende la data, y una revisión mensual con el área comercial; ninguna de las dos cosas existe hoy.\n\nLas áreas sí tienen cortes propios, pero aislados. La compra de la marca representada gira alrededor de la oferta mensual de la fábrica —el día 15 para calculadoras y el 20 para relojes— y del archivo de compras que se arma hacia el día 18; el reporte de ventas a la marca ocupa los primeros diez días del mes; la reportería de pauta se trabaja del 1 al 5; postventa cierra el día 28; las tiendas cargan su cierre cada noche. Ninguno de esos calendarios conversa con el de la célula."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Data Scientist / Líder de BI",
+     "participantes": [
+      "Data Scientist / Líder de BI — advierte la falta cuando un cliente no aparece o llega con un período que no corresponde, y la persigue.",
+      "Regional Cubitt Manager — recibe el pedido de la célula cuando falta un cliente y lo gestiona con los vendedores de su región.",
+      "Vendedor responsable de la cuenta — recibe la data de su cliente y la reenvía; algunos la envían a destiempo o incompleta.",
+      "Ingeniera de ETL (equipo de BI) — carga lo que llega, cuando llega.",
+      "Cuenta de tercero (externa) — decide su propia periodicidad de entrega."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-08",
+      "E-10",
+      "E-55",
+      "E-63",
+      "Lark: Manual 03 · Reportería y análisis de pauta (regional)",
+      "Lark: Diagrama de flujo de los procesos de postventa (VE / PA)"
+     ],
+     "sin_evidencia": "La ficha del mapa v18 da el proceso al «Analista de Sistemas / Datos» y lo rotula como «to-be»: no hay un dueño formal, y la atribución al líder de BI recoge quién persigue hoy la falta, no quién responde por un calendario que no existe. No consta ninguna plantilla ni contenido mínimo comunicado a las cuentas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "No hay disparador programado: la falta de un cliente se advierte cuando alguien nota que no llegó su data o que llegó un período que no corresponde.",
+     "cadencia": "Irregular: la que decide cada cliente.",
+     "output": "La data del cliente conseguida por gestión informal, o el período sin dato en la tabla. No queda registro de lo pedido ni de lo prometido.",
+     "evidencia": [
+      "E-18"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Vendedor responsable de la cuenta",
+       "texto": "Recibe la data de su cliente con la periodicidad que el cliente decide y la reenvía a la célula cuando puede; no hay una fecha acordada ni un contenido mínimo comunicado a la cuenta."
+      },
+      {
+       "id": "a2",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Advierte la falta cuando un cliente no aparece en el período o llega con un período que no corresponde; no hay un calendario contra el cual comprobarlo."
+      },
+      {
+       "id": "a3",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Si falta la data de un cliente, acude al Regional Cubitt Manager, casi siempre con un mensaje de WhatsApp, que la propia célula considera insuficiente."
+      },
+      {
+       "id": "a4",
+       "rol": "Regional Cubitt Manager",
+       "texto": "Pide la data a los vendedores de su región. Como viaja constantemente, el seguimiento se diluye: la célula lo describe como un mensaje cada dos o tres meses, cuando haría falta alguien que lo haga con frecuencia."
+      },
+      {
+       "id": "a5",
+       "rol": "Ingeniera de ETL (equipo de BI)",
+       "texto": "Carga lo que llega. Si no llega, el período del cliente queda sin dato en la tabla y nadie registra la falta."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Vendedor responsable de la cuenta",
+       "Data Scientist / Líder de BI",
+       "Regional Cubitt Manager",
+       "Ingeniera de ETL (equipo de BI)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Vendedor responsable de la cuenta",
+        "tipo": "inicio",
+        "n": "El cliente envía cuando lo decide"
+       },
+       {
+        "id": "n1",
+        "carril": "Vendedor responsable de la cuenta",
+        "tipo": "tarea",
+        "n": "Reenviar la data a la célula",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Advertir si falta un cliente o período"
+       },
+       {
+        "id": "n3",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "decision",
+        "n": "¿Falta la data de un cliente?"
+       },
+       {
+        "id": "n4",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Pedirla al Regional Cubitt Manager",
+        "sistemas": [
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Regional Cubitt Manager",
+        "tipo": "tarea",
+        "n": "Pedirla a los vendedores de su región"
+       },
+       {
+        "id": "n6",
+        "carril": "Regional Cubitt Manager",
+        "tipo": "decision",
+        "n": "¿Llega la data?"
+       },
+       {
+        "id": "n7",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Cargar lo recibido",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "fin",
+        "n": "Período cargado o sin dato"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "15.4": {
+    "nota_version": "Versión As-Is: describe la operación actual —cómo la célula de BI desarrolla sus modelos y fija las reglas de negocio que los gobiernan—, con los cargos como se nombran en las entrevistas. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un área pide a la célula de BI resolver un problema de decisión, o la célula propone un modelo, hasta que el modelo queda en uso o se abandona. El foco hoy es comercial —compra, venta e inventario—; finanzas, marketing y logística son las siguientes áreas previstas. Quedan fuera la decisión de compra y la publicación del tablero.",
+     "texto": "La célula de BI construye modelos que van más allá de lo descriptivo: uno de salud del inventario que clasifica cada producto por estado y propone el plan de los próximos treinta días —mantener, promocionar o liquidar, y cuánto—; un algoritmo que rebalancea las tiendas para no tener que comprar; modelos de inventario en los tres niveles de negocio, mayor, tienda propia y tienda de tercero; y un tablero de reposición que en Venezuela se estrenó en prueba. El método es el de la ciencia de datos: el área da las heurísticas y la célula las comprueba con modelos matemáticos antes de adoptarlas.\n\nTres rasgos marcan el proceso tal como opera. El primero es que **las heurísticas vienen de muy pocas personas**: las comerciales las dicta el director comercial y de compras, las de tienda la gerencia regional de retail, y no quedan escritas fuera del proyecto. El segundo es que **los parámetros de la marca propia no existen en ningún sistema**: el pedido mínimo y el tiempo de tránsito de cada fábrica están por definir, y la asignación que hace la marca representada «no lo sabe el sistema», así que siempre queda una persona ajustando. El tercero es que **un modelo puede quedar sin uso sin que nadie lo decida**: el de detección de oportunidades comerciales anticipó el producto estrella y quedó abandonado porque nadie actuó sobre él.\n\nEn paralelo, planificación de Venezuela mantiene su propia hoja de reposición conectada a Odoo, que el tablero de la célula aún no sustituye, y otras áreas calculan sus propios pronósticos en hojas de cálculo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Data Scientist / Líder de BI",
+     "participantes": [
+      "Data Scientist / Líder de BI — arma el plan, elige el método, prueba las heurísticas con modelos matemáticos y programa el modelo.",
+      "Analista de Datos (equipo de BI) — prepara las métricas que alimentan los modelos: promedios móviles, comparación con el año anterior, estacionalidad, tendencia y penetración por tienda.",
+      "Director Comercial y de Compras (socio) — dicta las heurísticas comerciales y los parámetros de compra, y acepta el ajuste cuando la evidencia es válida.",
+      "Regional Manager Retail — fija las heurísticas de tienda.",
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) y Analista de Datos e Informes — usuarias clave que prueban el modelo contra sus propios archivos y piden ajustes.",
+      "Director de Proyectos (PMO) — se reúne cada semana con la célula y la gerencia de sistemas para ver los proyectos nuevos y su avance."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-08",
+      "E-09",
+      "E-10",
+      "E-40",
+      "Lark: Levantamiento de procesos de Compras (VE)"
+     ],
+     "sin_evidencia": "No consta un registro de los modelos en uso, de sus supuestos ni de su fecha de calibración, ni un criterio escrito para retirar un modelo."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El pedido de un área —hoy casi siempre comercial— o una idea de la célula para resolver un problema de negocio.",
+     "cadencia": "Por modelo: un desarrollo toma a veces una semana y a veces más, y un modelo pedido llegó a ocupar dos meses.",
+     "output": "Un modelo en uso junto al método manual de su usuaria, o un modelo sin uso que queda sin mantenimiento.",
+     "evidencia": [
+      "E-18",
+      "E-09"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-08",
+      "E-10",
+      "E-40",
+      "Lark: Levantamiento de procesos de Compras (VE)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Arma el plan del modelo a partir de la idea que se hace del negocio, y tiene varias reuniones con el usuario para entenderlo."
+      },
+      {
+       "id": "a2",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Da las heurísticas que gobernarán el modelo —«5 % aquí, 3 veces aquí»— y los parámetros de compra: meses de inventario, tiempo de transporte y cuándo una mercancía se considera obsoleta. Las de tienda las fija la gerencia regional de retail."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Prepara las métricas que alimentan el modelo: promedios de 3, 6, 9 y 12 meses, comparación con el año anterior, estacionalidad, variabilidad, tendencia y en cuántas tiendas se vende cada producto."
+      },
+      {
+       "id": "a4",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Comprueba cada heurística con modelos matemáticos y prueba varios métodos de proyección; la demanda terminó prediciéndose con una media móvil exponencial de seis períodos."
+      },
+      {
+       "id": "a5",
+       "rol": "Director Comercial y de Compras (socio)",
+       "texto": "Si el modelo no respalda su regla, escucha la evidencia y acepta el ajuste cuando las razones son válidas: un valor que él ponía en 80 % quedó en 50 a 60 %."
+      },
+      {
+       "id": "a6",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Construye el modelo —salud del inventario, rebalanceo entre tiendas, reposición— y lo entrega en Power BI."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "texto": "Prueba el modelo contra su propio archivo y pide ajustes; el tablero de reposición en prueba aún no refleja bien los aumentos de diciembre y todavía no sustituye el proceso manual."
+      },
+      {
+       "id": "a8",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Si el usuario no lo adopta, el modelo queda sin uso y sin mantenimiento, sin que nadie decida retirarlo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Data Scientist / Líder de BI",
+       "Director Comercial y de Compras (socio)",
+       "Analista de Datos (equipo de BI)",
+       "Coordinadora de Planificación de Compras (Rower, Venezuela)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "inicio",
+        "n": "Pedido de un área o idea de la célula"
+       },
+       {
+        "id": "n1",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Armar el plan del modelo"
+       },
+       {
+        "id": "n2",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "tarea",
+        "n": "Dictar heurísticas y parámetros"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Preparar las métricas base",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Probar la heurística con modelos",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "decision",
+        "n": "¿El modelo respalda la regla?"
+       },
+       {
+        "id": "n6",
+        "carril": "Director Comercial y de Compras (socio)",
+        "tipo": "tarea",
+        "n": "Aceptar el ajuste con evidencia"
+       },
+       {
+        "id": "n7",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Construir y entregar el modelo",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "tipo": "tarea",
+        "n": "Probar contra su propio archivo",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "tipo": "decision",
+        "n": "¿Lo adopta el usuario?"
+       },
+       {
+        "id": "n10",
+        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "tipo": "fin",
+        "n": "Modelo en uso junto al método manual"
+       },
+       {
+        "id": "n11",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "fin",
+        "n": "Modelo sin uso, sin decisión de retiro"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n9",
+        "a": "n11",
+        "etq": "No"
+       }
+      ]
+     }
+    }
+   },
+   "15.5": {
+    "nota_version": "Versión As-Is: describe la operación actual —cómo se construyen, publican y mantienen los tableros de la célula de BI—, con los cargos como se nombran en las entrevistas. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un modelo está listo o un área pide un tablero hasta que el tablero queda publicado y consultado por sus usuarios. Describe los tableros de la célula de BI; los que las áreas construyen por su cuenta se mencionan sin detallarse. Queda fuera la administración de las cuentas y licencias en la plataforma de Microsoft, cuyo responsable no consta.",
+     "texto": "La célula de BI publica sus tableros en Power BI, dentro del entorno de Fabric que corre sobre la suite corporativa de Microsoft de la empresa, con licencia de pago por uso. La dirección de proyectos gestiona esa cartera: planifica los proyectos, decide si realmente hace falta un tablero y ve las cargas de la célula, con ciclos cortos de desarrollo. Cuando el modelo está listo, la ingeniera de ETL, que también es diseñadora web, le da estructura y experiencia de uso; la actualización se programa de madrugada, a la una o dos, salvo las tiendas, que se actualizan varias veces al día.\n\nTres rasgos marcan el proceso tal como opera. El primero es que **el acceso depende de una licencia paga que no siempre está**: la gratuita no permite conectarse a Odoo y la de prueba vence; la gerencia regional de tiendas perdió así el acceso a los modelos, y al Regional Cubitt Manager se la retiraron hace tiempo sin que la célula lo supiera. Quién administra esas licencias no consta. El segundo es que **la capacidad no alcanza para todo al detalle diario**: los modelos se consolidan en mensual porque la capacidad de cómputo se sobrepasa. El tercero es que **el acceso de quienes trabajan la analítica es amplio**: el documento técnico del Odoo de Panamá registra con riesgo alto que ven toda la data de inventario y ventas.\n\nEn paralelo, las áreas construyen sus propios tableros. La gerencia de ventas internacional tiene un tablero comercial hecho con un asistente de IA, publicado en un servicio externo con usuario y contraseña y alimentado cada día con exportaciones de Odoo y hojas de cálculo; otras áreas llevan tableros en bases de Lark o en hojas de cálculo, y la torre de control de tiendas se solapa con el tablero comercial. Ninguno de ellos pasa por la célula."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Data Scientist / Líder de BI",
+     "participantes": [
+      "Data Scientist / Líder de BI — pasa el modelo a diseño, programa la actualización y publica en el espacio de trabajo.",
+      "Ingeniera de ETL (equipo de BI) — como diseñadora web, da estructura y experiencia de uso al tablero.",
+      "Director de Proyectos (PMO) — planifica los proyectos de tableros, decide si hace falta uno y ve las cargas de la célula.",
+      "Analista de Datos e Informes — usuaria clave: consulta los tableros varias veces al día y exporta el plan a hoja de cálculo.",
+      "Gerente de Sistemas — se reúne cada semana con la célula y la dirección de proyectos; no consta que administre las licencias."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-09",
+      "E-63",
+      "SC-11",
+      "Lark: Blueprint técnico del Odoo 16 de Kenex Trading (PA)",
+      "Lark: Roadmap para proyectos BI (PA)"
+     ],
+     "sin_evidencia": "La ficha del mapa v18 da la administración de licencias a un «Planificador Financiero», y no hay evidencia de esa atribución: consta que las licencias se piden y que a usuarios clave se les vencieron o retiraron, pero no quién las administra. La dirección de proyectos declara estos proyectos como de su entera responsabilidad; el líder de BI dice que las líneas las dicta la dirección comercial."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un modelo terminado o el pedido de un tablero de un área.",
+     "cadencia": "Por producto para la construcción; la actualización programada es diaria, de madrugada, y varias veces al día para las tiendas.",
+     "output": "Tablero publicado y actualizándose, visible solo para quien tiene licencia paga; a los demás se les puede enviar un informe específico por correo o WhatsApp.",
+     "evidencia": [
+      "E-18",
+      "E-09"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-09",
+      "Lark: Roadmap para proyectos BI (PA)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director de Proyectos (PMO)",
+       "texto": "Planifica los proyectos de tableros, decide si realmente hace falta un tablero y revisa las cargas de trabajo de la célula; los proyectos de BI se gestionan con ciclos cortos de desarrollo."
+      },
+      {
+       "id": "a2",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Terminado el modelo, lo pasa a la ingeniera de ETL para que le dé estructura y experiencia de uso."
+      },
+      {
+       "id": "a3",
+       "rol": "Ingeniera de ETL (equipo de BI)",
+       "texto": "Diseña la interfaz del tablero en Power BI, incluidos textos que cambian según las métricas y un botón que muestra si se hizo lo que el plan pedía."
+      },
+      {
+       "id": "a4",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Programa la actualización —las tiendas varias veces al día, el resto a la una o dos de la mañana— y consolida en mensual lo que usan los modelos, porque la capacidad no alcanza para diario."
+      },
+      {
+       "id": "a5",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Publica en el espacio de trabajo. Solo accede quien tiene licencia paga, porque la gratuita no permite conectarse a Odoo y la de prueba vence."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista de Datos e Informes",
+       "texto": "Con licencia, consulta el tablero —los estancados, varias veces al día— y exporta el plan a hoja de cálculo en dos o tres clics; el tiempo de su tarea bajó de ocho días a minutos."
+      },
+      {
+       "id": "a7",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Al usuario sin licencia se le puede enviar un informe específico por correo o WhatsApp; cuando a un usuario clave se le vence o retira la licencia, la célula se entera tarde."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director de Proyectos (PMO)",
+       "Data Scientist / Líder de BI",
+       "Ingeniera de ETL (equipo de BI)",
+       "Analista de Datos e Informes"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Modelo listo o pedido de tablero"
+       },
+       {
+        "id": "n1",
+        "carril": "Director de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Hace falta el tablero?"
+       },
+       {
+        "id": "n2",
+        "carril": "Director de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Pedido no atendido como tablero"
+       },
+       {
+        "id": "n3",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Pasar el modelo a diseño"
+       },
+       {
+        "id": "n4",
+        "carril": "Ingeniera de ETL (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Diseñar la interfaz del tablero",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Programar la actualización",
+        "sistemas": [
+         "Power BI",
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Publicar en el espacio de trabajo",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "decision",
+        "n": "¿El usuario tiene licencia paga?"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "tarea",
+        "n": "Consultar y exportar el plan",
+        "sistemas": [
+         "Power BI",
+         "Excel"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "fin",
+        "n": "Tablero en uso por quien tiene licencia"
+       },
+       {
+        "id": "n10",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "fin",
+        "n": "Usuario sin acceso al tablero"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "No"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "15.6": {
+    "nota_version": "Versión As-Is: describe la operación actual —cómo se documentan, se entregan y se usan los productos de la célula de BI—, con los cargos como se nombran en las entrevistas. No incorpora mejoras; donde algo falta, se dice que falta. Esta versión no lleva matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del propio flujo.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un producto de la célula de BI está listo para entregarse hasta que se usa o deja de usarse. Incluye la documentación que acompaña a cada producto, el aviso a los usuarios y la forma en que hoy se sabe si alguien lo usa.",
+     "texto": "Cada producto de la célula de BI sale documentado: manual de usuario, diccionario de medidas y heurísticas, y además un asistente que responde con el mismo contenido del manual. Aun así, entre los usuarios «todavía hay duda»: la célula sostiene que el producto se entiende cuando se usa, no cuando se lee.\n\nTres rasgos marcan el proceso tal como opera. El primero es que **el uso depende de dos o tres usuarias clave**: la analista que prepara los reportes de compras en Panamá y la coordinadora de planificación en Venezuela empujan los productos, y donde están, el producto avanza; con la marca propia todavía no ha habido ocasión de sentarse con quienes compran y comercializan. El segundo es que **el uso se sabe pero no se gestiona**: el entorno analítico muestra quién entra y quién no, y un botón de seguimiento dice si se hizo lo que el plan pedía —«ya sé que no»—, pero no hay una rutina para actuar sobre eso. El tercero es que **no hay formación para los usuarios clave**: la célula propone una práctica, directa a lo que cada uno necesita, para unas pocas personas por país.\n\nLo que se deja de usar no se retira: se abandona, como el modelo de detección de oportunidades comerciales. Cuando algo se retira, lo retira el propio usuario: el director comercial dejó un reporte de BI anterior porque «no me está quitando trabajo», y un supervisor de cobros dejó de hacer sus tableros en Lark porque nadie los usaba."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Analista de Datos (equipo de BI)",
+     "participantes": [
+      "Analista de Datos (equipo de BI) — elabora el manual de usuario, el diccionario de medidas y las heurísticas de cada proyecto.",
+      "Data Scientist / Líder de BI — prepara el asistente que responde con el contenido del manual, avisa que el producto está listo y revisa quién accede.",
+      "Analista de Datos e Informes — usuaria clave en Panamá: usa el producto a diario y traduce su lectura para la dirección comercial.",
+      "Coordinadora de Planificación de Compras (Rower, Venezuela) — usuaria clave en Venezuela.",
+      "Director Comercial y de Compras (socio) — principal impulsor del uso en la dirección."
+     ],
+     "evidencia": [
+      "E-18",
+      "E-10",
+      "E-62",
+      "E-08"
+     ],
+     "sin_evidencia": "No consta una formación dirigida a los usuarios de los productos analíticos, una medición periódica del uso ni una decisión formal de retiro."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El producto terminado; no hay un disparador por uso bajo o nulo.",
+     "cadencia": "Por producto.",
+     "output": "Producto documentado y avisado, usado por las usuarias clave; el que no se usa queda sin mantenimiento y sin decisión registrada.",
+     "evidencia": [
+      "E-18"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-18",
+      "E-10"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista de Datos (equipo de BI)",
+       "texto": "Elabora con cada proyecto el manual de usuario, el diccionario de medidas y las heurísticas del producto."
+      },
+      {
+       "id": "a2",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Prepara un asistente que responde con los mismos datos del manual, para que el usuario pueda preguntar sin esperar a la célula."
+      },
+      {
+       "id": "a3",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Avisa por mensaje que el producto está listo, «porque se les olvida»."
+      },
+      {
+       "id": "a4",
+       "rol": "Analista de Datos e Informes",
+       "texto": "Usa el producto a diario y traduce su lectura para la dirección comercial; en Venezuela lo hace la coordinadora de planificación. Los vendedores, en cambio, no lo usan."
+      },
+      {
+       "id": "a5",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Revisa en el entorno analítico quién accede y quién no, y en el botón de seguimiento si se ejecutó lo que el plan pedía."
+      },
+      {
+       "id": "a6",
+       "rol": "Data Scientist / Líder de BI",
+       "texto": "Si el producto no se usa, deja de mantenerlo sin una decisión formal: el modelo de detección de oportunidades comerciales quedó abandonado así."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista de Datos (equipo de BI)",
+       "Data Scientist / Líder de BI",
+       "Analista de Datos e Informes"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "inicio",
+        "n": "Producto listo para entregar"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista de Datos (equipo de BI)",
+        "tipo": "tarea",
+        "n": "Elaborar manual, diccionario y heurísticas"
+       },
+       {
+        "id": "n2",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Preparar el asistente del manual"
+       },
+       {
+        "id": "n3",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Avisar por mensaje que está listo"
+       },
+       {
+        "id": "n4",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "tarea",
+        "n": "Usar y traducir para la dirección",
+        "sistemas": [
+         "Power BI"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "tarea",
+        "n": "Revisar quién accede y qué se hizo",
+        "sistemas": [
+         "Fabric"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "decision",
+        "n": "¿Se usa el producto?"
+       },
+       {
+        "id": "n7",
+        "carril": "Data Scientist / Líder de BI",
+        "tipo": "fin",
+        "n": "Producto sin uso, abandonado sin decisión"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista de Datos e Informes",
+        "tipo": "fin",
+        "n": "Producto en uso por las usuarias clave"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };
