@@ -130,17 +130,39 @@ def copia_sin_guardia():
 
 
 def codigos(prefijo):
-    js = ("global.window={};require(%r);"
-          "var M=window.MANUAL_CONTENIDO,o=[];"
-          "Object.keys(M).forEach(function(p){if(!M[p].procesos)return;"
-          "Object.keys(M[p].procesos).forEach(function(k){"
-          "var f=M[p].procesos[k].flujo;"
-          "if(f&&f.diagrama&&f.diagrama.nodos&&f.diagrama.nodos.length)o.push(k);});});"
-          "console.log(o.join(' '));") % os.path.join(F2, 'manual-contenido.js').replace('\\', '/')
-    out = subprocess.check_output(['node', '-e', js], cwd=RAIZ).decode('utf-8').split()
+    """Rutas a medir, como «tobe/<código>» y «asis/<código>».
+
+    Se entra por la ruta de cada versión y no por #/p/<código>: con As-Is, esa
+    ruta pinta la pantalla de elegir versión, sin flujograma, y hasta el 27-sep
+    este guion se saltaba en silencio todos esos procesos. Por la misma razón
+    se miden también los diagramas del As-Is, que nunca se habían medido."""
+    out = []
+    for archivo, glob, ruta in (('manual-contenido.js', 'MANUAL_CONTENIDO', 'tobe'),
+                                ('manual-asis.js', 'MANUAL_ASIS', 'asis')):
+        src = os.path.join(F2, archivo)
+        if not os.path.exists(src):
+            continue
+        js = ("global.window={};require(%r);"
+              "var M=window.%s,o=[];"
+              "Object.keys(M).forEach(function(p){if(!M[p].procesos)return;"
+              "Object.keys(M[p].procesos).forEach(function(k){"
+              "var f=M[p].procesos[k].flujo;"
+              "if(f&&f.diagrama&&f.diagrama.nodos&&f.diagrama.nodos.length)o.push(k);});});"
+              "console.log(o.join(' '));") % (src.replace('\\', '/'), glob)
+        cods = subprocess.check_output(['node', '-e', js], cwd=RAIZ).decode('utf-8').split()
+        out += [ruta + '/' + c for c in cods]
     if prefijo:
-        out = [c for c in out if c.split('.')[0] == prefijo]
+        out = [r for r in out if r.split('/')[1].split('.')[0] == prefijo]
     return out
+
+
+# Desde el 27-sep las secciones arrancan cerradas (cuerpo con `hidden`): un SVG
+# oculto mide 0×0 y no hay trazado que comprobar. Se abren con la misma regla
+# que usa la impresión.
+ABRIR_SECCIONES = ("document.addEventListener('DOMContentLoaded',function(){"
+                   "var s=document.createElement('style');"
+                   "s.textContent='.f2-sec-cuerpo[hidden]{display:block!important}';"
+                   "document.head.appendChild(s);});")
 
 
 def main():
@@ -156,11 +178,17 @@ def main():
         with sync_playwright() as pw:
             nav = pw.chromium.launch()
             pg = nav.new_page(viewport={'width': 1600, 'height': 1000})
+            pg.add_init_script(ABRIR_SECCIONES)
             for cod in procs:
-                pg.goto(url + '#/p/' + cod)
+                pg.goto(url + '#/' + cod)
                 pg.wait_for_timeout(450)
                 r = pg.evaluate(MEDIR)
-                if not r or not r['rombos']:
+                # el proceso tiene diagrama en el dato: si no se dibujó, es un fallo,
+                # no algo que saltarse (así se escondieron los procesos con As-Is)
+                if not r:
+                    fallos.append('%s :: EL FLUJOGRAMA NO SE DIBUJÓ' % cod)
+                    continue
+                if not r['rombos']:
                     continue
 
                 # 1 y 2 — cada etiqueta, junto a su rombo y sin tapar a su hermana
@@ -210,7 +238,9 @@ def main():
     avis = sorted(set(avisos))
     ambito = 'macro ' + prefijo if prefijo else 'todo el manual'
     print()
-    print('%d flujograma(s) medido(s) (%s) — %d problema(s) de trazado.' % (len(procs), ambito, len(unicos)))
+    print('%d flujograma(s) medido(s) (%s: %d To-Be, %d As-Is) — %d problema(s) de trazado.'
+          % (len(procs), ambito, sum(1 for r in procs if r.startswith('tobe/')),
+             sum(1 for r in procs if r.startswith('asis/')), len(unicos)))
     for f in unicos:
         print('  ' + f)
     if avis:

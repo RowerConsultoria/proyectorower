@@ -102,7 +102,7 @@ html = (SRC / "informe-fase2.html").read_text(encoding="utf-8").replace(
     '<script src="../../supabase/sesion.js"></script>')
 (tmp / "informe" / "fase2" / "informe-fase2.html").write_text(html, encoding="utf-8")
 for f in ("manual-procesos-datos.js", "manual-contenido.js",
-          "mapa-procesos-flujos.js", "flujo-render.js"):
+          "mapa-procesos-flujos.js", "flujo-render.js", "circuito-datos.js", "circuito-render.js"):
     shutil.copy(SRC / f, tmp / "informe" / "fase2" / f)
 
 H = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(tmp))
@@ -114,9 +114,18 @@ BASE = f"http://127.0.0.1:{srv.server_address[1]}/informe/fase2/informe-fase2.ht
 fallas = []
 errores = []
 
+ABRIR_SECCIONES = ("document.addEventListener('DOMContentLoaded',function(){"
+                   "var s=document.createElement('style');"
+                   "s.textContent='.f2-sec-cuerpo[hidden]{display:block!important}';"
+                   "document.head.appendChild(s);});")
+
 with sync_playwright() as pw:
     nav = pw.chromium.launch()
     pg = nav.new_page(viewport={"width": 1360, "height": 1000})
+    # Desde el 27-sep las secciones arrancan cerradas (cuerpo con `hidden`), e
+    # innerText no incluye lo oculto: sin esto, TODA sección daba «no declara de
+    # qué evidencia sale». Se abren con la misma regla que usa la impresión.
+    pg.add_init_script(ABRIR_SECCIONES)
     pg.on("console", lambda m: errores.append(m.text)
           if m.type == "error" and "Failed to load resource" not in m.text else None)
     pg.on("pageerror", lambda e: errores.append(str(e)))

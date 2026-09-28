@@ -71,7 +71,8 @@ html = (SRC / "informe-fase2.html").read_text(encoding="utf-8").replace(
     '<script src="../../supabase/sesion.js"></script>',
 )
 (tmp / "informe" / "fase2" / "informe-fase2.html").write_text(html, encoding="utf-8")
-for f in ("manual-procesos-datos.js", "manual-contenido.js", "mapa-procesos-flujos.js", "flujo-render.js"):
+for f in ("manual-procesos-datos.js", "manual-contenido.js", "mapa-procesos-flujos.js", "flujo-render.js",
+          "circuito-datos.js", "circuito-render.js"):
     shutil.copy(SRC / f, tmp / "informe" / "fase2" / f)
 
 Handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(tmp))
