@@ -41,7 +41,21 @@
   a.card p{font-size:.92rem; color:var(--tinta-media);}
   a.card.admin{border-left-color:var(--cian);}
   a.card.front{border-left-color:var(--ok);}
-  a.card .llave{
+  /* Tarjeta-módulo: no es un enlace, contiene uno por producto */
+  .card.modulo h3{color:var(--tinta); font-size:1.05rem; margin-bottom:6px; font-weight:650;}
+  .card.modulo > p{font-size:.92rem; color:var(--tinta-media);}
+  .accesos{display:flex; flex-direction:column; gap:8px; margin-top:12px;}
+  a.acceso{
+    display:flex; flex-direction:column; gap:2px; padding:10px 13px; text-decoration:none; color:inherit;
+    background:var(--panel-alto); border:1px solid var(--borde); border-radius:var(--r-campo);
+    transition:border-color var(--rapido) var(--curva), transform var(--rapido) var(--curva);
+  }
+  a.acceso:hover{border-color:var(--ok); transform:translateX(2px);}
+  a.acceso:focus-visible{outline:2px solid var(--cian); outline-offset:2px;}
+  a.acceso b{color:var(--tinta); font-size:.95rem; font-weight:650;}
+  a.acceso b::after{content:" →"; color:var(--ok);}
+  a.acceso span{font-size:.84rem; color:var(--tinta-media);}
+  .card .llave{
     display:block; margin-top:10px; font-size:.8rem; color:var(--tinta-tenue);
     border-top:1px dashed var(--borde); padding-top:8px;
   }
@@ -102,12 +116,23 @@
       <p>El entregable maestro: sitio navegable autocontenido (13 secciones, anexos y diagrama de arquitectura de IA). La cara del proyecto para la Junta Directiva del 24-jul.</p>
       <span class="llave">🔒 Requiere iniciar sesión</span>
     </a>
-    <a class="card front tarjeta pulsable" id="cFase2" href="acceso/?destino=informe%2Ffase2%2Finforme-fase2.html">
-      <span class="marca-estado e-ok">Front · el informe</span>
-      <h3>Manual de Procesos — Fase 2</h3>
-      <p>Los manuales de proceso de Kenex sobre el mapa de procesos del grupo: 20 macroprocesos y 182 procesos, con flujogramas BPMN y mapa interactivo. En construcción — se llena macroproceso a macroproceso.</p>
+    <!-- Fase 2: un módulo con sus dos productos, cada uno con su acceso -->
+    <div class="card front tarjeta modulo" id="cFase2">
+      <span class="marca-estado e-ok">Front · los productos de la fase</span>
+      <h3>Fase 2 — Procesos y estructura</h3>
+      <p>Los dos productos de la fase, para navegarlos y validarlos.</p>
+      <div class="accesos">
+        <a class="acceso" id="cF2Manual" href="acceso/?destino=informe%2Ffase2%2Finforme-fase2.html">
+          <b>Manual de procesos</b>
+          <span>20 macroprocesos y 182 procesos, en sus versiones As-Is y To-Be, con flujogramas BPMN y mapa interactivo.</span>
+        </a>
+        <a class="acceso" id="cF2Estructura" href="acceso/?destino=informe%2Ffase2%2Finforme-fase2.html%23%2Festructura">
+          <b>Estructura organizativa propuesta</b>
+          <span>Direcciones corporativas, gerencias corporativas y gerencias país, con sus ocupantes y las premisas del diseño.</span>
+        </a>
+      </div>
       <span class="llave">🔒 Requiere iniciar sesión</span>
-    </a>
+    </div>
     <a class="card admin tarjeta pulsable" id="cAdmin" href="acceso/?destino=admin%2F">
       <span class="marca-estado e-neutro">Admin · Interno</span>
       <h3>Panel administrativo</h3>
@@ -129,7 +154,8 @@
   const $ = (s)=>document.querySelector(s);
   const CAMINOS = {
     cInforme: 'informe/fase1/informe-diagnostico-fase1.html',
-    cFase2:   'informe/fase2/informe-fase2.html',
+    cF2Manual:     'informe/fase2/informe-fase2.html',
+    cF2Estructura: 'informe/fase2/informe-fase2.html#/estructura',
     cAdmin:   'admin/',
   };
   const caja = $('#sesionBox');
@@ -155,7 +181,7 @@
   b.addEventListener('click', ()=> rowerSesion.salir(false));
   $('#sesAcciones').appendChild(b);
   Object.keys(CAMINOS).forEach(id => { const a = $('#'+id); if(a) a.href = CAMINOS[id]; });
-  document.querySelectorAll('a.card .llave').forEach(el => { el.textContent = '🔓 Acceso verificado — entra directo'; });
+  document.querySelectorAll('.card .llave').forEach(el => { el.textContent = '🔓 Acceso verificado — entra directo'; });
 })();
 </script>
 </body>
