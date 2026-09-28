@@ -205,6 +205,8 @@
     margin:8px 0 14px;padding:10px 14px;border-radius:var(--r-tarjeta);font-size:12px;line-height:1.55;
     background:rgba(255,201,74,.08);border:1px solid rgba(255,201,74,.3);color:var(--tinta-media);
   }
+  .f2-nota p{margin:0}
+  .f2-nota p+p{margin-top:8px}
   .f2-num-list{margin:6px 0 16px;padding-left:22px;display:flex;flex-direction:column;gap:9px}
   .f2-num-list li{font-size:13px;line-height:1.55;color:var(--tinta)}
   .f2-num-list b{color:var(--tinta);font-weight:650}
@@ -1425,7 +1427,7 @@
 
   function renderN1Seccion(id, c, tituloProc){
     var h = '';
-    if(c.nota_estado) h += '<div class="f2-nota">'+esc(c.nota_estado)+'</div>';
+    if(c.nota_estado) h += '<div class="f2-nota"><p>'+String(c.nota_estado).split(/\n\s*\n/).map(esc).join('</p><p>')+'</p></div>';
     if(id==='proposito'){
       h += prosa(c.texto);
     } else if(id==='dueno'){
