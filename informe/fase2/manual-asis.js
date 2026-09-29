@@ -26526,5 +26526,1162 @@ window.MANUAL_ASIS = {
     }
    }
   }
+ },
+ "18": {
+  "procesos": {
+   "18.1": {
+    "nota_version": "Versión As-Is: el grupo no tiene una política jurídica escrita ni un área legal. Describe cómo se fija hoy un criterio jurídico común, con el caso de los acuerdos de confidencialidad, que es el que la evidencia documenta. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Cómo se decide hoy un criterio jurídico que aplica a más de una entidad —un modelo de acuerdo, una regla de firma— y cómo llega a cada país.",
+     "texto": "**No existe un área legal** en ninguna entidad del grupo. Lo dicen la gerencia comercial, mercadeo, operaciones y planificación, cada uno desde su área, y la propia dirección lo reconoce como una debilidad.\n\nLa figura más cercana es un **asesor legal externo** que actúa como consultor jurídico del grupo. Tiene su base en Estados Unidos, participa a veces en la Junta Directiva y solo trata con el **Presidente**; desde hace poco también con su asistente ejecutiva. La Presidencia lo describe como quien *«dirige políticas jurídicas»*, aunque reconoce que al tema no se le ha dado la importancia que tiene. En Panamá un **bufete externo** atiende las sociedades del grupo, y en Venezuela Recursos Humanos trabaja con **abogados laborales externos** que cobran por honorarios.\n\nNo hay criterios escritos de contratación con terceros, ni umbrales de aprobación ni delegación de firma por monto. Un criterio común nace **caso a caso**, cuando un hecho lo hace necesario. El ejemplo documentado son los **acuerdos de confidencialidad**: tras un episodio con proveedores externos que manejaban mucha información de la empresa, el Presidente lo habló con el asesor legal, la asistente ejecutiva preparó un borrador con ayuda de IA y el abogado lo aprobó. El modelo de Venezuela incluye además la **cesión a la empresa de lo que el empleado desarrolle**.\n\nLa asistente ejecutiva hace llegar los modelos a Recursos Humanos de cada país y da seguimiento a las firmas, que se guardan en carpetas compartidas y en el expediente. **Cada país lo aplica a su manera**: en Venezuela, por ejemplo, Recursos Humanos explicó primero a los gerentes por qué se pedía la firma."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Presidente del grupo, con el asesor legal externo; no hay un dueño formal",
+     "participantes": [
+      "Asesor legal externo del grupo",
+      "Asistente Ejecutiva de la Presidencia",
+      "Gerencias de Recursos Humanos de cada país",
+      "Bufete externo de Panamá",
+      "Abogados laborales externos (Venezuela)"
+     ],
+     "evidencia": [
+      "E-01",
+      "E-12",
+      "E-05",
+      "E-20",
+      "E-37",
+      "E-44"
+     ],
+     "sin_evidencia": "Ninguna entrevista ni documento describe una política de contratación con terceros, umbrales de aprobación o delegación de firma por monto."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un hecho puntual hace visible un vacío —p. ej., información de la empresa en manos de terceros sin acuerdo firmado— y la Presidencia pide al asesor legal un criterio.",
+     "cadencia": "Por evento; no hay revisión periódica.",
+     "output": "Un modelo de documento aprobado por el asesor legal y distribuido a los países, que cada uno aplica a su manera.",
+     "evidencia": [
+      "E-12",
+      "E-01"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-12",
+      "E-01",
+      "E-21",
+      "E-13"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Presidente del grupo",
+       "texto": "Detecta el vacío —a partir de un incidente o de una alerta de su equipo— y lo plantea al asesor legal externo."
+      },
+      {
+       "id": "a2",
+       "rol": "Asistente Ejecutiva de la Presidencia",
+       "texto": "Prepara un primer borrador del documento, a veces con ayuda de IA."
+      },
+      {
+       "id": "a3",
+       "rol": "Asesor legal externo del grupo",
+       "texto": "Revisa el borrador y lo aprueba como modelo."
+      },
+      {
+       "id": "a4",
+       "rol": "Asistente Ejecutiva de la Presidencia",
+       "texto": "Envía el modelo a Recursos Humanos de cada país y da seguimiento a que se firme y se archive."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Recursos Humanos (cada país)",
+       "texto": "Explica el documento a los gerentes, recoge las firmas y las guarda en el expediente y en la carpeta compartida, según la práctica de su país."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Presidente del grupo",
+       "Asistente Ejecutiva de la Presidencia",
+       "Asesor legal externo del grupo",
+       "Gerente de Recursos Humanos (cada país)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Presidente del grupo",
+        "tipo": "inicio",
+        "n": "Se hace visible un vacío jurídico"
+       },
+       {
+        "id": "n1",
+        "carril": "Presidente del grupo",
+        "tipo": "tarea",
+        "n": "Plantear el caso al asesor legal"
+       },
+       {
+        "id": "n2",
+        "carril": "Asistente Ejecutiva de la Presidencia",
+        "tipo": "tarea",
+        "n": "Preparar un borrador",
+        "sistemas": [
+         "IA generativa"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Asesor legal externo del grupo",
+        "tipo": "tarea",
+        "n": "Revisar y aprobar el modelo"
+       },
+       {
+        "id": "n4",
+        "carril": "Asistente Ejecutiva de la Presidencia",
+        "tipo": "tarea",
+        "n": "Distribuir el modelo y dar seguimiento"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Recursos Humanos (cada país)",
+        "tipo": "tarea",
+        "n": "Recoger firmas y archivar",
+        "sistemas": [
+         "Nube compartida"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Recursos Humanos (cada país)",
+        "tipo": "fin",
+        "n": "Modelo aplicado en cada país a su manera"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "18.2": {
+    "nota_version": "Versión As-Is: describe cómo se redactan, revisan, firman y guardan hoy los contratos con terceros, que cada área resuelve por su cuenta. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un área acuerda condiciones con un tercero hasta que el contrato se firma y se guarda: influencers y alianzas de marca, vallas, clientes del mayor, franquicias, fábricas y arrendamientos.",
+     "texto": "Sin un área legal, **cada área redacta sus propios contratos**. Un documento de mejora del propio mercadeo de Venezuela lo resume: el área asume el rol de legal para cerrar contratos.\n\n**Mercadeo** es donde más se nota. En Venezuela contrata influencers, derechos de imagen para sesiones de fotos y vallas publicitarias. Lee los contratos alguien del equipo con nociones jurídicas y, cuando el contrato es nuevo, se pide ayuda. Antes, la Presidencia los mandaba a revisar a una persona de su confianza fuera del área, con respuestas de alrededor de una semana. En **Colombia**, la líder de mercadeo pidió hace dos años un modelo a Panamá y desde entonces redacta todos sus acuerdos sobre esa base, con ayuda de un asistente de IA; ambas partes firman, los guarda en carpetas por año y renueva cada año los contratos de embajadoras. En **Panamá**, mercadeo redacta los de influencers y los contrasta con un director comercial que es abogado de profesión.\n\nEn **ventas al mayor** de Venezuela, el equipo redacta los contratos con clientes, a veces con IA, y el gerente los revisa. Las **franquicias** operaron durante años sin contrato: la gerencia regional de retail redactó hace poco el primero, para Nicaragua, y la dirección comercial anunció que las franquicias existentes firmarán uno con metas de venta y reporte. Con clientes de **crédito internacional** no hay contrato; los abogados externos rehicieron hace poco el formato de solicitud de crédito. La Presidencia indica que **ya se firman contratos con las fábricas**.\n\nFirma el **representante legal** de cada entidad. En Colombia es el Country Manager, que es además la única persona autorizada a mover fondos. Los **arrendamientos** de las tiendas los negocia en Venezuela la Gerencia de Administración con los centros comerciales. Los originales quedan **dispersos**: en Venezuela una asistente administrativa los tiene en su computador y las demás áreas se los piden; en Panamá cuentas por pagar lleva un archivo digital de los contratos de arrendamiento. **No hay un registro común de vencimientos**: cada área sigue los suyos."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Cada gerente del área que contrata; firma el representante legal de la entidad",
+     "participantes": [
+      "Gerente de Mercadeo (Venezuela, Panamá, Colombia)",
+      "Gerente de Ventas al Mayor",
+      "Gerencia regional de retail",
+      "Gerente de Administración (Venezuela)",
+      "Representante legal de cada entidad",
+      "Asesor legal externo o colaborador con formación en derecho",
+      "Asistente administrativa (Venezuela)"
+     ],
+     "evidencia": [
+      "E-42",
+      "E-56",
+      "E-49",
+      "E-35",
+      "E-55",
+      "E-08",
+      "E-62",
+      "E-01",
+      "E-11",
+      "E-65",
+      "E-61"
+     ],
+     "sin_evidencia": "No hay evidencia de un registro central de contratos ni de un control de vencimientos fuera de lo que cada área lleva por su cuenta."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un área acuerda de palabra una relación con un tercero —una campaña, un cliente, una franquicia, un local— y necesita ponerla por escrito.",
+     "cadencia": "Por evento; las renovaciones, cuando el área que lleva el contrato lo recuerda (p. ej., anual en los acuerdos de embajadoras de Colombia).",
+     "output": "Contrato firmado y guardado por el área que lo originó.",
+     "evidencia": [
+      "E-42",
+      "E-56",
+      "E-35"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-42",
+      "E-56",
+      "E-49",
+      "E-35",
+      "E-55",
+      "E-11",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente del área que contrata",
+       "texto": "Acuerda las condiciones con el tercero y decide ponerlas por escrito."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente del área que contrata",
+       "texto": "Redacta el contrato sobre un modelo previo, con ayuda de IA o sobre el borrador que manda la contraparte."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente del área que contrata",
+       "texto": "Cuando el contrato es nuevo o le genera dudas, lo pasa a revisión; si no, sigue adelante."
+      },
+      {
+       "id": "a4",
+       "rol": "Revisor jurídico (asesor externo o colaborador con formación en derecho)",
+       "texto": "Revisa el texto y señala lo que expone a la empresa."
+      },
+      {
+       "id": "a5",
+       "rol": "Contraparte",
+       "texto": "Revisa el contrato y lo firma."
+      },
+      {
+       "id": "a6",
+       "rol": "Representante legal de la entidad",
+       "texto": "Firma por la entidad."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente del área que contrata",
+       "texto": "Guarda el contrato en sus propias carpetas y sigue su renovación."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente del área que contrata",
+       "Revisor jurídico (asesor externo o colaborador con formación en derecho)",
+       "Contraparte",
+       "Representante legal de la entidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente del área que contrata",
+        "tipo": "inicio",
+        "n": "Se acuerda una relación con un tercero"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente del área que contrata",
+        "tipo": "tarea",
+        "n": "Redactar el contrato",
+        "sistemas": [
+         "IA generativa",
+         "Modelo previo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente del área que contrata",
+        "tipo": "decision",
+        "n": "¿Pasa a revisión?"
+       },
+       {
+        "id": "n3",
+        "carril": "Revisor jurídico (asesor externo o colaborador con formación en derecho)",
+        "tipo": "tarea",
+        "n": "Revisar el texto"
+       },
+       {
+        "id": "n4",
+        "carril": "Contraparte",
+        "tipo": "tarea",
+        "n": "Revisar y firmar"
+       },
+       {
+        "id": "n5",
+        "carril": "Representante legal de la entidad",
+        "tipo": "tarea",
+        "n": "Firmar por la entidad"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente del área que contrata",
+        "tipo": "tarea",
+        "n": "Guardar y seguir la renovación",
+        "sistemas": [
+         "Carpetas del área"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente del área que contrata",
+        "tipo": "fin",
+        "n": "Contrato firmado y guardado por el área"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "18.3": {
+    "nota_version": "Versión As-Is: describe cómo se mantienen hoy las sociedades del grupo y sus documentos, que dependen de la memoria de un director y de bufetes externos. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Constitución y mantenimiento de las sociedades del grupo, sus representantes legales y la custodia de sus documentos.",
+     "texto": "El grupo opera con **35 a 40 sociedades**, según uno de los directores y accionistas, que es quien las conoce: las lleva *«en la cabeza»*, sin un registro estructurado, y él mismo pide tenerlas ordenadas. Los inmuebles y las sociedades patrimoniales los atiende con **abogados externos**; en Panamá un bufete lleva las muchas sociedades relacionadas. Cada entidad tiene su **representante legal**: en Venezuela es el Presidente y en Colombia el Country Manager.\n\nHay además **sociedades con socios**. En Costa Rica el grupo opera a través de una sociedad con un socio local, que tiene su propia razón social y sus propios sistemas.\n\nLos **documentos societarios** —registro mercantil, contratos, documentos de las sociedades— los custodia en Venezuela una asistente administrativa en su computador. Los piden la asistente ejecutiva de la Presidencia, operaciones y los vendedores cuando un cliente o un banco los exige, y ella los entrega."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista), de hecho; no hay un responsable formal",
+     "participantes": [
+      "Bufete externo de Panamá y abogados externos de cada país",
+      "Representante legal de cada entidad",
+      "Administración de cada entidad",
+      "Asistente administrativa (Venezuela)"
+     ],
+     "evidencia": [
+      "E-17",
+      "E-01",
+      "E-11",
+      "E-19",
+      "E-65"
+     ],
+     "sin_evidencia": "Ninguna fuente describe cómo se renuevan los poderes ni cómo se controlan las obligaciones societarias anuales de cada sociedad."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se constituye o se modifica una sociedad, cambia un representante, o un área necesita un documento societario para un cliente, un banco o un trámite.",
+     "cadencia": "Por evento.",
+     "output": "Sociedad constituida o actualizada por el bufete, y documento entregado al área que lo pidió.",
+     "evidencia": [
+      "E-17",
+      "E-65"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-17",
+      "E-01",
+      "E-11",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+       "texto": "Decide constituir, modificar o dar de baja una sociedad, o atender un asunto de un inmueble del grupo."
+      },
+      {
+       "id": "a2",
+       "rol": "Bufete externo de cada país",
+       "texto": "Tramita la constitución, la modificación o los poderes ante el registro del país."
+      },
+      {
+       "id": "a3",
+       "rol": "Administración de cada entidad",
+       "texto": "Recibe y guarda los documentos de la sociedad."
+      },
+      {
+       "id": "a4",
+       "rol": "Área que necesita el documento",
+       "texto": "Pide un documento societario cuando un cliente, un banco o un trámite lo exige."
+      },
+      {
+       "id": "a5",
+       "rol": "Administración de cada entidad",
+       "texto": "Busca el documento en su archivo y lo entrega."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+       "Bufete externo de cada país",
+       "Administración de cada entidad",
+       "Área que necesita el documento"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+        "tipo": "inicio",
+        "n": "Hay un cambio societario o se pide un documento"
+       },
+       {
+        "id": "n1",
+        "carril": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+        "tipo": "decision",
+        "n": "¿Qué se necesita?"
+       },
+       {
+        "id": "n2",
+        "carril": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+        "tipo": "tarea",
+        "n": "Decidir el cambio en la sociedad"
+       },
+       {
+        "id": "n3",
+        "carril": "Bufete externo de cada país",
+        "tipo": "tarea",
+        "n": "Tramitar ante el registro del país"
+       },
+       {
+        "id": "n4",
+        "carril": "Administración de cada entidad",
+        "tipo": "tarea",
+        "n": "Guardar los documentos"
+       },
+       {
+        "id": "n5",
+        "carril": "Área que necesita el documento",
+        "tipo": "tarea",
+        "n": "Pedir el documento societario"
+       },
+       {
+        "id": "n6",
+        "carril": "Administración de cada entidad",
+        "tipo": "tarea",
+        "n": "Buscar y entregar el documento",
+        "sistemas": [
+         "Archivo del computador"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Administración de cada entidad",
+        "tipo": "fin",
+        "n": "Sociedad al día o documento entregado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Cambio societario"
+       },
+       {
+        "de": "n1",
+        "a": "n5",
+        "etq": "Documento"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n7"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "18.4": {
+    "nota_version": "Versión As-Is: describe cómo se registran hoy las marcas propias y cómo se administran las licencias de terceros, que corren por vías separadas y sin intervención de un área legal. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Registro de la marca propia, administración de las licencias de marcas de terceros y derechos sobre los desarrollos y las imágenes que usa la empresa.",
+     "texto": "La **marca propia está registrada en casi todos los países** donde se vende, a través de **abogados externos**. El director accionista que lo lleva señala que cada país tiene su propia regla, que con abogados externos cuesta más y que convendría llevarlo desde dentro.\n\nLas **licencias de marcas de terceros** —colecciones con personajes de una gran marca de entretenimiento, colaboraciones con otras marcas— se manejan como un asunto **comercial y de producto**, no legal. La gerencia comercial cierra la colaboración, y la **responsable de lanzamientos y licencias** administra la licencia: arma las propuestas con la información de venta, crea los códigos de producto y avisa a comercial para abrir la preventa. Las **muestras deben ser aprobadas por el licenciante**; si no lo están, no se pueden vender, y la empresa no tiene definido qué hacer con ellas. La responsable asumió la licencia hace un mes, tras dos años en manos de otra persona.\n\nSobre los **desarrollos propios**, el modelo de acuerdo de confidencialidad de Venezuela cede a la empresa lo que cada empleado desarrolle. **Con terceros no hay un mecanismo equivalente**: el proveedor que desarrolla la aplicación del reloj conserva el código y se ha negado a venderlo, y la dirección de desarrollo de producto considera que un acuerdo de confidencialidad no bastaría para protegerlo. En **derechos de imagen**, mercadeo de Venezuela señala que faltan contratos de uso de imagen para sus sesiones, y tuvo que retirar un video de las tiendas por un problema legal con una modelo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "No hay un dueño único: la marca propia la lleva un director accionista con abogados externos, y las licencias, la gerencia comercial con desarrollo de producto",
+     "participantes": [
+      "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+      "Abogados externos de cada país",
+      "Gerente Comercial",
+      "Responsable de lanzamientos y licencias",
+      "Licenciante",
+      "Director de Research and Development"
+     ],
+     "evidencia": [
+      "E-17",
+      "E-60",
+      "E-49",
+      "E-09",
+      "E-06",
+      "E-42",
+      "E-31"
+     ],
+     "sin_evidencia": "No hay evidencia de cómo se vigila el uso indebido de la marca ni de cómo se atiende un caso de producto no autorizado en circulación."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se entra en un país nuevo con la marca propia, o se acuerda una colección o colaboración bajo licencia de un tercero.",
+     "cadencia": "Por evento; las licencias, por temporada de lanzamientos.",
+     "output": "Marca registrada en el país, o colección bajo licencia con sus muestras aprobadas y lista para la preventa.",
+     "evidencia": [
+      "E-17",
+      "E-60",
+      "E-09"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-17",
+      "E-60",
+      "E-49",
+      "E-09"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+       "texto": "Cuando la marca propia entra en un país, encarga su registro a los abogados externos."
+      },
+      {
+       "id": "a2",
+       "rol": "Abogados externos de cada país",
+       "texto": "Tramitan el registro ante la autoridad de propiedad industrial del país."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente Comercial",
+       "texto": "Cierra con la marca licenciante la colaboración o la colección."
+      },
+      {
+       "id": "a4",
+       "rol": "Responsable de lanzamientos y licencias (desarrollo de producto)",
+       "texto": "Arma la propuesta de la colección con la información de venta y crea los códigos de producto."
+      },
+      {
+       "id": "a5",
+       "rol": "Licenciante",
+       "texto": "Revisa las muestras y las aprueba o las rechaza."
+      },
+      {
+       "id": "a6",
+       "rol": "Responsable de lanzamientos y licencias (desarrollo de producto)",
+       "texto": "Con las muestras aprobadas, avisa a comercial para abrir la preventa; las no aprobadas quedan retenidas sin un destino definido."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+       "Abogados externos de cada país",
+       "Gerente Comercial",
+       "Responsable de lanzamientos y licencias (desarrollo de producto)",
+       "Licenciante"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+        "tipo": "inicio",
+        "n": "Se necesita proteger o usar una marca"
+       },
+       {
+        "id": "n1",
+        "carril": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+        "tipo": "decision",
+        "n": "¿Marca propia o licencia?"
+       },
+       {
+        "id": "n2",
+        "carril": "Director de Desarrollo de Negocios y Gestión Patrimonial (accionista)",
+        "tipo": "tarea",
+        "n": "Encargar el registro en el país"
+       },
+       {
+        "id": "n3",
+        "carril": "Abogados externos de cada país",
+        "tipo": "tarea",
+        "n": "Tramitar el registro de la marca"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente Comercial",
+        "tipo": "tarea",
+        "n": "Cerrar la colaboración con el licenciante"
+       },
+       {
+        "id": "n5",
+        "carril": "Responsable de lanzamientos y licencias (desarrollo de producto)",
+        "tipo": "tarea",
+        "n": "Armar la propuesta y crear los códigos",
+        "sistemas": [
+         "Excel",
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Licenciante",
+        "tipo": "decision",
+        "n": "¿Aprueba las muestras?"
+       },
+       {
+        "id": "n7",
+        "carril": "Responsable de lanzamientos y licencias (desarrollo de producto)",
+        "tipo": "tarea",
+        "n": "Avisar a comercial para la preventa"
+       },
+       {
+        "id": "n8",
+        "carril": "Responsable de lanzamientos y licencias (desarrollo de producto)",
+        "tipo": "tarea",
+        "n": "Retener las muestras sin destino definido"
+       },
+       {
+        "id": "n9",
+        "carril": "Responsable de lanzamientos y licencias (desarrollo de producto)",
+        "tipo": "fin",
+        "n": "Marca registrada o colección resuelta"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Propia"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "Licencia"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n9"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "18.5": {
+    "nota_version": "Versión As-Is: no hay un inventario común de obligaciones regulatorias. Describe cómo cada área atiende hoy las que le tocan. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Obligaciones regulatorias no tributarias —laborales, de importación, de funcionamiento de las sedes y de protección al consumidor— y la atención de inspecciones.",
+     "texto": "No hay un inventario común de obligaciones ni un responsable que las vea juntas: **cada área atiende las suyas**, y en Venezuela buena parte de ese peso recae en quien conoce el trámite.\n\n**Laborales.** En Venezuela, Recursos Humanos hace las declaraciones mensuales y trimestrales ante los entes de seguridad social, vivienda, formación y trabajo. Registra y da seguimiento a las inspecciones que llegan a las tiendas, que son frecuentes. Reconoce que el informe ante el ente de formación y lo relativo a seguridad y salud laboral no están del todo al día, y está organizando con bomberos el plan de brigadistas. En Panamá, Recursos Humanos registra el contrato de cada ingreso ante el Ministerio de Trabajo, inscribe a la persona en la Caja de Seguro Social y mantiene al día los permisos de trabajo de los extranjeros; la gerente de Recursos Humanos gestiona además los permisos de bomberos de las sedes. Lo hace **sin tenerlo escrito**.\n\n**Importación.** En Venezuela los permisos de producto los lleva el **Gerente de Operaciones y Logística**, que asumió ese rol a falta de un área legal. Si falta un permiso, **retiene el envío en Panamá** hasta tenerlo; aun así ha habido mercancía detenida y multas. Cuando la necesidad es urgente, se compra a través de un importador local que ya tiene los permisos. Mercadeo ayuda a armar las carpetas de permisología de cada producto.\n\n**Sedes y tiendas.** En Venezuela la Gerencia de Administración supervisa los permisos comerciales —alcaldías, bomberos, certificaciones— de todas las sucursales. En cada apertura, retail sigue la patente, los permisos de la alcaldía y de bomberos, y la oficina de proyectos lo revisa en su reunión semanal.\n\n**Consumidor.** Las promociones en Venezuela requieren permiso ante el ente de protección al consumidor. Lo tramitaba una persona de contabilidad que acaba de salir, y mercadeo no sabe quién lo asumirá. Cuando los plazos se cruzan con las aprobaciones internas, **la campaña puede salir antes del permiso**. En Panamá, visual merchandising revisa las piezas contra las normas del ente de protección al consumidor, aunque no le corresponde."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "No hay un dueño único: cada área responde por sus obligaciones",
+     "participantes": [
+      "Recursos Humanos de Venezuela y Panamá",
+      "Gerente de Operaciones y Logística (Venezuela)",
+      "Gerente de Administración (Venezuela)",
+      "Mercadeo y Visual Merchandising",
+      "Retail y Oficina de Proyectos (aperturas)",
+      "Entes reguladores"
+     ],
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-54",
+      "E-13",
+      "E-34",
+      "E-40",
+      "E-42",
+      "E-47",
+      "E-04",
+      "E-50"
+     ],
+     "sin_evidencia": "No hay evidencia de un calendario o inventario común de vencimientos, ni de cómo se atienden estas obligaciones en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Vence una declaración o un permiso, llega un embarque o se prepara una apertura o una promoción, o un ente se presenta a inspeccionar.",
+     "cadencia": "Mensual y trimestral en las declaraciones laborales; por evento en permisos, aperturas, promociones e inspecciones.",
+     "output": "Obligación cumplida o inspección atendida por el área a la que le toca, sin un registro común.",
+     "evidencia": [
+      "E-37",
+      "E-54",
+      "E-34",
+      "E-42"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-37",
+      "E-54",
+      "E-34",
+      "E-42",
+      "E-47"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Recursos Humanos de cada país",
+       "texto": "Hace las declaraciones y registros ante los entes laborales y mantiene al día contratos y permisos de trabajo."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Operaciones y Logística (Venezuela)",
+       "texto": "Verifica que cada producto tenga su permiso de importación; si falta, retiene el envío hasta obtenerlo."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Administración (Venezuela)",
+       "texto": "Supervisa los permisos de funcionamiento de las sedes y, en las aperturas, los que sigue retail."
+      },
+      {
+       "id": "a4",
+       "rol": "Mercadeo y Visual Merchandising",
+       "texto": "Tramita el permiso de las promociones y revisa las piezas contra las normas de protección al consumidor."
+      },
+      {
+       "id": "a5",
+       "rol": "Ente regulador",
+       "texto": "Se presenta a inspeccionar o pide información."
+      },
+      {
+       "id": "a6",
+       "rol": "Recursos Humanos de cada país",
+       "texto": "Atiende la inspección en su materia, la registra y da seguimiento a lo que pida el ente."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Recursos Humanos de cada país",
+       "Gerente de Operaciones y Logística (Venezuela)",
+       "Gerente de Administración (Venezuela)",
+       "Mercadeo y Visual Merchandising",
+       "Ente regulador"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Recursos Humanos de cada país",
+        "tipo": "inicio",
+        "n": "Vence una obligación o llega una inspección"
+       },
+       {
+        "id": "n1",
+        "carril": "Recursos Humanos de cada país",
+        "tipo": "decision",
+        "n": "¿De qué se trata?"
+       },
+       {
+        "id": "n2",
+        "carril": "Recursos Humanos de cada país",
+        "tipo": "tarea",
+        "n": "Declarar y mantener al día lo laboral",
+        "sistemas": [
+         "Portales de los entes"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Operaciones y Logística (Venezuela)",
+        "tipo": "decision",
+        "n": "¿El producto tiene permiso?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Operaciones y Logística (Venezuela)",
+        "tipo": "tarea",
+        "n": "Liberar el envío"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Operaciones y Logística (Venezuela)",
+        "tipo": "tarea",
+        "n": "Retener el envío en Panamá"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Administración (Venezuela)",
+        "tipo": "tarea",
+        "n": "Supervisar los permisos de las sedes"
+       },
+       {
+        "id": "n7",
+        "carril": "Mercadeo y Visual Merchandising",
+        "tipo": "tarea",
+        "n": "Tramitar el permiso de la promoción"
+       },
+       {
+        "id": "n11",
+        "carril": "Recursos Humanos de cada país",
+        "tipo": "decision",
+        "n": "¿Llega una inspección?"
+       },
+       {
+        "id": "n8",
+        "carril": "Ente regulador",
+        "tipo": "tarea",
+        "n": "Inspeccionar o pedir información"
+       },
+       {
+        "id": "n9",
+        "carril": "Recursos Humanos de cada país",
+        "tipo": "tarea",
+        "n": "Atender y registrar la inspección"
+       },
+       {
+        "id": "n10",
+        "carril": "Recursos Humanos de cada país",
+        "tipo": "fin",
+        "n": "Obligación atendida por cada área"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Laboral"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "Importación"
+       },
+       {
+        "de": "n1",
+        "a": "n6",
+        "etq": "Sedes"
+       },
+       {
+        "de": "n1",
+        "a": "n7",
+        "etq": "Promoción"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n11",
+        "a": "n10",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n4",
+        "a": "n10"
+       },
+       {
+        "de": "n5",
+        "a": "n10"
+       },
+       {
+        "de": "n6",
+        "a": "n10"
+       },
+       {
+        "de": "n7",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "18.6": {
+    "nota_version": "Versión As-Is: no hay un procedimiento común para contingencias legales. Describe cómo se atienden hoy según su tipo, en el área donde surgen. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Reclamos y conflictos con exposición legal —laborales, de cobro y ante autoridades— desde que surgen hasta que se cierran.",
+     "texto": "Cada contingencia la atiende **el área donde surge**, y se acude a **abogados externos** cuando no se resuelve dentro. No hay un registro común de casos ni un seguimiento centralizado.\n\n**Laborales.** Son las mejor resueltas. En Panamá, si un trabajador cuestiona el cálculo de su liquidación, puede acudir al Ministerio de Trabajo, que puede multar a la empresa; Recursos Humanos **negocia o corrige antes** para que no llegue ahí. En Venezuela, la Gerencia de Recursos Humanos coordina con los abogados externos las inspecciones y las salidas complejas, que se firman ante la Inspectoría del Trabajo. La dirección y Recursos Humanos coinciden en que **no ha habido conflictos laborales**. Existe además un formulario interno de queja y denuncia entre colaboradores.\n\n**Cobro.** En Panamá, los clientes que no pagan se pasan a una firma externa; en cuatro años se han enviado dos casos. Con clientes de crédito internacional no hay contrato que respalde el cobro, y la gerencia del mayor en Panamá se pregunta cómo respaldarse si hubiera que ir por la vía legal.\n\n**Ante autoridades.** En Colombia, la retención de embarques por la autoridad aduanera se atendió **contratando abogados externos** después de meses de espera, cuando el Country Manager logró que la dirección aprobara el costo."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "El gerente del área donde surge el caso; Recursos Humanos en lo laboral",
+     "participantes": [
+      "Gerentes de Recursos Humanos (Venezuela y Panamá)",
+      "Coordinador de Supervisión de Créditos y Cobros (Panamá)",
+      "Country Manager (Colombia)",
+      "Presidencia",
+      "Abogados externos y firma de cobranza"
+     ],
+     "evidencia": [
+      "E-54",
+      "E-13",
+      "E-37",
+      "E-01",
+      "E-62",
+      "E-39",
+      "E-11"
+     ],
+     "sin_evidencia": "No hay evidencia de un registro de casos abiertos, de provisiones por contingencias ni de un análisis posterior para evitar que se repitan."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un trabajador, un cliente o una autoridad plantea un reclamo, o un caso deja de poder resolverse dentro del área.",
+     "cadencia": "Por evento; son pocos casos (dos de cobro en cuatro años en Panamá).",
+     "output": "Caso negociado internamente o puesto en manos de abogados externos, sin un registro común.",
+     "evidencia": [
+      "E-54",
+      "E-62",
+      "E-11"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-54",
+      "E-37",
+      "E-62",
+      "E-11"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente del área afectada",
+       "texto": "Recibe el reclamo o detecta la contingencia en su área."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Si es laboral, revisa el caso con el trabajador y negocia o corrige para que no llegue al ente."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente del área afectada",
+       "texto": "Si es de cobro o ante una autoridad y no se resuelve en el área, lo eleva a la dirección."
+      },
+      {
+       "id": "a4",
+       "rol": "Presidencia o Country Manager",
+       "texto": "Aprueba acudir a abogados externos y su costo."
+      },
+      {
+       "id": "a5",
+       "rol": "Abogados externos",
+       "texto": "Llevan el caso ante la contraparte, el ente o el tribunal; en lo laboral, asisten la firma ante la Inspectoría."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente del área afectada",
+       "Gerente de Recursos Humanos",
+       "Presidencia o Country Manager",
+       "Abogados externos"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente del área afectada",
+        "tipo": "inicio",
+        "n": "Surge un reclamo con exposición legal"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente del área afectada",
+        "tipo": "decision",
+        "n": "¿Es laboral?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Negociar o corregir con el trabajador"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Se resuelve?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente del área afectada",
+        "tipo": "tarea",
+        "n": "Elevar el caso a la dirección"
+       },
+       {
+        "id": "n5",
+        "carril": "Presidencia o Country Manager",
+        "tipo": "tarea",
+        "n": "Aprobar abogados externos y su costo"
+       },
+       {
+        "id": "n6",
+        "carril": "Abogados externos",
+        "tipo": "tarea",
+        "n": "Llevar el caso ante la contraparte o el ente"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Caso cerrado sin registro común"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n3",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };
