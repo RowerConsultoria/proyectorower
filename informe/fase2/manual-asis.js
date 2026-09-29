@@ -25346,7 +25346,7 @@ window.MANUAL_ASIS = {
         "id": "n0",
         "carril": "Gerente de Recursos Humanos",
         "tipo": "inicio",
-        "n": "Ingresa alguien o se plantea un cambio"
+        "n": "Ingreso, ajuste, reconocimiento o cierre del año"
        },
        {
         "id": "n1",
@@ -25380,13 +25380,13 @@ window.MANUAL_ASIS = {
         "id": "n5",
         "carril": "Gerentes de área",
         "tipo": "tarea",
-        "n": "Plantear el ajuste de su equipo"
+        "n": "Plantear un ajuste o pedir el detalle de la compensación"
        },
        {
         "id": "n6",
         "carril": "Finanzas",
         "tipo": "tarea",
-        "n": "Evaluar el ajuste con Recursos Humanos"
+        "n": "Evaluar el ajuste en reunión con Recursos Humanos"
        },
        {
         "id": "n7",
@@ -25398,13 +25398,13 @@ window.MANUAL_ASIS = {
         "id": "n8",
         "carril": "Analista / Coordinador(a) de Recursos Humanos",
         "tipo": "tarea",
-        "n": "Registrar el ajuste en la acción de personal"
+        "n": "Registrar el ajuste en la nómina y, en Panamá, en la acción de personal"
        },
        {
         "id": "n9",
         "carril": "Gerente de Recursos Humanos",
         "tipo": "tarea",
-        "n": "Acordar un reconocimiento no monetario"
+        "n": "Acordar con cada gerente un reconocimiento no monetario (Panamá)"
        },
        {
         "id": "n10",
@@ -25417,6 +25417,12 @@ window.MANUAL_ASIS = {
         "carril": "Gerente de Recursos Humanos",
         "tipo": "fin",
         "n": "Compensación aplicada"
+       },
+       {
+        "id": "n12",
+        "carril": "Presidencia y socios",
+        "tipo": "tarea",
+        "n": "Decidir la bonificación de fin de año según el resultado"
        }
       ],
       "aristas": [
@@ -25437,7 +25443,16 @@ window.MANUAL_ASIS = {
        {
         "de": "n1",
         "a": "n9",
-        "etq": "Reconocimiento"
+        "etq": "Reconocimiento (Panamá)"
+       },
+       {
+        "de": "n1",
+        "a": "n12",
+        "etq": "Cierre del año"
+       },
+       {
+        "de": "n12",
+        "a": "n11"
        },
        {
         "de": "n2",
