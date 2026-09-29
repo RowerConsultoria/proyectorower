@@ -25685,8 +25685,8 @@ window.MANUAL_ASIS = {
     "nota_version": "Versión As-Is: describe cómo se evalúa hoy el desempeño hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
     "proposito": {
      "estado": "borrador",
-     "alcance": "Las evaluaciones que existen hoy —la del período de prueba y la anual de Panamá— y lo que se hace con su resultado.",
-     "texto": "**No hay un ciclo de desempeño formal en ningún país**, y el propio grupo lo reconoce: la dirección señala que no hay medición y la Junta nunca ha tratado la sucesión de las posiciones clave. Las promociones las deciden los socios caso a caso.\n\nEn **Panamá** hay dos piezas. Al colaborador nuevo se le evalúa **antes de que venzan sus tres meses de prueba**: hacia los dos meses la Gerente de Recursos Humanos llama al jefe, le envía el formulario y conversa con él la valoración —*«no para que cambien el puntaje»*, sino para que la afine—. Según la gerente, esa evaluación se repite **a los seis meses y al año**; la coordinación confirma solo la del período de prueba. Al resto del personal se le aplica, cuando se logra, un **formulario anual de fortalezas, oportunidades de mejora y plan de acción**: se hizo el año pasado y este no. En 2026 se hizo por primera vez una **evaluación 360**: el gerente llama a cada colaborador, este se autoevalúa en cada característica del instrumento, el gerente le da su retroalimentación y conversan qué mejorar. Recursos Humanos la revisa y la **archiva en el expediente, y ahí termina**: *«no se hace más nada»*. La coordinación describe la evaluación anual como algo que se hace *«a veces, no siempre»*.\n\nEn **Venezuela no hay evaluación formal**. La única valoración es la del **período de prueba**, que el gerente responde por correo, y en tiendas, desde mayo de 2026, un **bono grupal** cuando la tienda cumple su meta. En **Colombia** tampoco hay evaluaciones formales."
+     "alcance": "Las evaluaciones que existen hoy —la del período de prueba y la del resto del personal en Panamá— y lo que se hace con su resultado.",
+     "texto": "**No hay un ciclo de desempeño formal en ningún país**, y el propio grupo lo reconoce: la dirección señala que no hay medición y la Junta nunca ha tratado la sucesión de las posiciones clave. Las promociones las deciden los socios caso a caso.\n\nEn **Panamá** hay dos piezas. Al colaborador nuevo se le evalúa **antes de que venzan sus tres meses de prueba**: hacia los dos meses la Gerente de Recursos Humanos llama al jefe, le envía el formulario y conversa con él la valoración. Según la gerente, esa evaluación se repite **a los seis meses y al año**. El resto del personal es evaluado de forma poco sistemática y sin frecuencia establecida a través de un **formulario de fortalezas y oportunidades con un plan de acción**. En 2026 se hizo por primera vez una **evaluación 360**: el gerente llama a cada colaborador, este se autoevalúa en cada característica del instrumento, el gerente le da su retroalimentación y conversan qué mejorar. Recursos Humanos la revisa y la **archiva en el expediente, y ahí termina**: *«no se hace más nada»*. La coordinación describe esta evaluación como algo que se hace *«a veces, no siempre»*.\n\nEn **Venezuela no hay evaluación formal**. La única valoración es la del **período de prueba**, que el gerente responde por correo, y en tiendas, desde mayo de 2026, un **bono grupal** cuando la tienda cumple su meta. En **Colombia** tampoco hay evaluaciones formales."
     },
     "dueno": {
      "estado": "borrador",
@@ -25709,8 +25709,8 @@ window.MANUAL_ASIS = {
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Se acerca el fin del período de prueba de un ingreso, o Recursos Humanos programa la evaluación anual (Panamá).",
-     "cadencia": "Por evento para el período de prueba; anual —y no todos los años— para la evaluación general de Panamá.",
+     "disparador": "Se acerca el fin del período de prueba de un ingreso, o Recursos Humanos programa la evaluación del resto del personal (Panamá).",
+     "cadencia": "Por evento para el período de prueba; sin frecuencia establecida para la evaluación del resto del personal en Panamá.",
      "output": "Evaluación archivada en el expediente del colaborador, sin decisión de desarrollo, movimiento ni compensación asociada.",
      "evidencia": [
       "E-13",
@@ -25745,7 +25745,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a4",
        "rol": "Gerente de Recursos Humanos",
-       "texto": "Para el resto del personal, convoca a los gerentes a la evaluación anual —formulario de fortalezas y plan de acción, o evaluación 360— en los años en que se programa."
+       "texto": "Para el resto del personal, convoca a los gerentes a la evaluación del resto del personal —formulario de fortalezas y plan de acción, o evaluación 360— cuando se programa."
       },
       {
        "id": "a5",
@@ -25775,7 +25775,7 @@ window.MANUAL_ASIS = {
         "id": "n0",
         "carril": "Gerente de Recursos Humanos",
         "tipo": "inicio",
-        "n": "Vence la prueba o se programa la evaluación anual"
+        "n": "Vence la prueba o se programa la evaluación del resto del personal"
        },
        {
         "id": "n1",
@@ -25808,7 +25808,7 @@ window.MANUAL_ASIS = {
         "id": "n5",
         "carril": "Gerente de Recursos Humanos",
         "tipo": "tarea",
-        "n": "Convocar la evaluación anual"
+        "n": "Convocar la evaluación del resto del personal"
        },
        {
         "id": "n6",
