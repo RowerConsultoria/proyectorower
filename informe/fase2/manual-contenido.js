@@ -1687,19 +1687,17 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "nota_estado": "Proceso PROPUESTO. Hoy no existe una planificación de demanda consolidada: cada marca planifica en su propia rutina de compra (6.3 y 6.4), el país de mayor peso lleva su archivo de reposición aparte y los socios proyectan una vez al año. Lo que sigue describe cómo debería operar, no cómo opera.",
-     "texto": "Cubre la consolidación periódica de la demanda estimada, el inventario disponible, la mercancía en tránsito y el techo presupuestario del ciclo, y la decisión colegiada del plan de suministro por marca y país. El plan que produce es el punto de partida de las dos compras internacionales (6.3 y 6.4), y por eso ambas se cierran aquí: quien compra cada marca participa en la decisión y sale de ella con el plan que ejecutará. No incluye la ejecución de esas compras ni la reposición física a cada país o punto de venta (6.6 y 6.7)."
+     "texto": "Cubre la consolidación periódica de la demanda estimada, el inventario disponible, la mercancía en tránsito y el techo presupuestario del ciclo, y la decisión colegiada del plan de suministro por marca y país. El plan que produce es el punto de partida de las dos compras internacionales (6.3 y 6.4), y por eso ambas se cierran aquí: el Comité Comercial aprueba un solo plan y lo entrega separado por marca a quien ejecuta cada compra. No incluye la ejecución de esas compras ni la reposición física a cada país o punto de venta (6.6 y 6.7)."
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Junta Directiva / Director de Compras",
+     "dueno": "Comité Comercial",
      "participantes": [
-      "Junta Directiva / Director de Compras — convoca el ciclo y sale de la decisión con el plan de la marca representada, que ejecuta en 6.3. Es dueño del proceso por autoridad, no por tenencia del dato.",
-      "Director(a) de Marca Propia (Cubitt) — participa en la decisión y sale de ella con el plan de la marca propia, que ejecuta en 6.4.",
-      "Comité de Planificación de Suministro — instancia colegiada que contrasta los insumos y decide el plan. La integran los dos anteriores más quienes aportan dato, demanda y presupuesto.",
+      "Comité Comercial — convoca la sesión, contrasta los insumos, decide el plan de suministro y lo entrega separado por marca a los dos procesos de compra. Es dueño del proceso por autoridad, no por tenencia del dato.",
       "Coordinador(a) de Logística y Bodega — aporta el inventario disponible y la mercancía en tránsito; no arbitra la decisión.",
       "Analista de Sistemas / Datos — aporta la demanda estimada por SKU, país y canal a partir del modelo.",
       "Gerente Comercial (País / Canal) — aporta el forecast de los tres canales y las campañas previstas del ciclo.",
-      "Planificador Financiero — aporta el techo presupuestario del ciclo antes de la decisión, no después."
+      "Gerente de Administración y Finanzas — aporta el techo presupuestario del ciclo antes de la decisión, no después."
      ],
      "evidencia": ["E-40", "E-08", "E-10", "E-18", "E-05"],
      "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un cargo de Coordinación II no puede convocar, arbitrar y dar por aprobado un plan a dos Gerencias Corporativas y a la capa de dirección; y la persona que ocupa ese cargo patrón declara además ser «del departamento de planificación, ni compra ni logística». Queda como quien aporta inventario y tránsito, que es lo que la evidencia le atribuye. ⚠️ El ajuste por marca tampoco recae ya en «Gerente Regional de Marketing» (mapa v18): ese cargo lo ocupa paid media, y la marca propia la decide su director, según quedó establecido en 6.4. «Comité de Planificación de Suministro» y «Director(a) de Marca Propia (Cubitt)» son denominaciones propuestas: ni la instancia ni el cargo existen hoy, y el patrón de cargos V4 tampoco contempla «Planificador Financiero».",
@@ -1707,7 +1705,7 @@ window.MANUAL_CONTENIDO = {
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Cierre del ciclo comercial: el dueño del proceso convoca la sesión de planificación del siguiente ciclo.",
+     "disparador": "Cierre del ciclo comercial: el Comité Comercial convoca la sesión de planificación del siguiente ciclo.",
      "cadencia": "Mensual (propuesta). Debe anteceder a la fecha en que la marca representada recibe su oferta y a la revisión de compra de la marca propia, o el plan llega tarde para ambas.",
      "output": "Plan de suministro del ciclo aprobado por marca y país, entregado a los dos procesos de compra internacional.",
      "evidencia": ["E-08", "E-40"],
@@ -1718,29 +1716,27 @@ window.MANUAL_CONTENIDO = {
      "nota_estado": "Flujo propuesto. Ningún paso describe una práctica vigente.",
      "evidencia": ["E-40", "E-08", "E-10", "E-18"],
      "actividades": [
-      {"id": "a1", "rol": "Junta Directiva / Director de Compras", "texto": "Convoca la sesión de planificación del ciclo al cierre del ciclo comercial anterior."},
+      {"id": "a1", "rol": "Comité Comercial", "texto": "Convoca la sesión de planificación del ciclo al cierre del ciclo comercial anterior."},
       {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta el inventario disponible por SKU y país y la mercancía ya comprometida en tránsito, con su fecha estimada de arribo."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta la demanda estimada por SKU, país y canal. ⚠️ La estimación corrige la venta de los períodos sin existencias: proyectar sobre la venta registrada arrastra el quiebre, porque se vendió poco por no haber, no por no haber demanda."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Aporta el forecast de los tres canales —mayoreo, detal y comercio electrónico— y las campañas y lanzamientos previstos del ciclo."},
-      {"id": "a5", "rol": "Planificador Financiero", "texto": "Aporta el techo presupuestario del ciclo antes de que se componga el plan, para que la restricción sea un insumo de la decisión y no un filtro que obligue a rehacerla."},
-      {"id": "a6", "rol": "Comité de Planificación de Suministro", "texto": "Contrasta demanda estimada, inventario, tránsito y techo presupuestario, y compone el plan de suministro por marca y país."},
-      {"id": "a7", "rol": "Comité de Planificación de Suministro", "texto": "Cuando la demanda estimada excede el techo, prioriza por cobertura crítica y rotación, dejando constancia de qué quedó fuera del plan y por qué."},
-      {"id": "a8", "rol": "Junta Directiva / Director de Compras", "texto": "Toma la parte del plan correspondiente a la marca representada como base de su compra del ciclo (proceso 6.3)."},
-      {"id": "a9", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Toma la parte del plan correspondiente a la marca propia como base de su compra del ciclo (proceso 6.4)."}
+      {"id": "a5", "rol": "Gerente de Administración y Finanzas", "texto": "Aporta el techo presupuestario del ciclo antes de que se componga el plan, para que la restricción sea un insumo de la decisión y no un filtro que obligue a rehacerla."},
+      {"id": "a6", "rol": "Comité Comercial", "texto": "Contrasta demanda estimada, inventario, tránsito y techo presupuestario, y compone el plan de suministro por marca y país."},
+      {"id": "a7", "rol": "Comité Comercial", "texto": "Cuando la demanda estimada excede el techo, prioriza por cobertura crítica y rotación, dejando constancia de qué quedó fuera del plan y por qué."},
+      {"id": "a8", "rol": "Comité Comercial", "texto": "Aprueba el plan del ciclo y lo entrega separado por marca: la parte de la marca representada es la base de la compra de 6.3 y la de la marca propia, la de 6.4."}
      ],
      "diagrama": {
-      "carriles": ["Junta Directiva / Director de Compras", "Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Comercial (País / Canal)", "Planificador Financiero", "Comité de Planificación de Suministro", "Director(a) de Marca Propia (Cubitt)"],
+      "carriles": ["Comité Comercial", "Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Comercial (País / Canal)", "Gerente de Administración y Finanzas"],
       "nodos": [
-       {"id": "n0", "carril": "Junta Directiva / Director de Compras", "tipo": "inicio", "n": "Se convoca la sesión de planificación"},
+       {"id": "n0", "carril": "Comité Comercial", "tipo": "inicio", "n": "Se convoca la sesión de planificación"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar inventario y mercancía en tránsito", "sistemas": ["Odoo", "Tablas de inventario"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar la demanda estimada por SKU y país", "sistemas": ["Power BI"]},
        {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Aportar el forecast de los tres canales"},
-       {"id": "n4", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aportar el techo presupuestario del ciclo"},
-       {"id": "n5", "carril": "Comité de Planificación de Suministro", "tipo": "tarea", "n": "Componer el plan por marca y país"},
-       {"id": "n6", "carril": "Comité de Planificación de Suministro", "tipo": "tarea", "n": "Priorizar por cobertura y rotación si excede el techo"},
-       {"id": "n7", "carril": "Junta Directiva / Director de Compras", "tipo": "tarea", "n": "Tomar el plan de la marca representada"},
-       {"id": "n8", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Tomar el plan de la marca propia"},
-       {"id": "n9", "carril": "Comité de Planificación de Suministro", "tipo": "fin", "n": "Plan del ciclo aprobado"}
+       {"id": "n4", "carril": "Gerente de Administración y Finanzas", "tipo": "tarea", "n": "Aportar el techo presupuestario del ciclo"},
+       {"id": "n5", "carril": "Comité Comercial", "tipo": "tarea", "n": "Componer el plan por marca y país"},
+       {"id": "n6", "carril": "Comité Comercial", "tipo": "tarea", "n": "Priorizar por cobertura y rotación si excede el techo"},
+       {"id": "n7", "carril": "Comité Comercial", "tipo": "tarea", "n": "Aprobar y entregar el plan separado por marca"},
+       {"id": "n8", "carril": "Comité Comercial", "tipo": "fin", "n": "Plan del ciclo aprobado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -1753,9 +1749,7 @@ window.MANUAL_CONTENIDO = {
        {"de": "n4", "a": "n5"},
        {"de": "n5", "a": "n6"},
        {"de": "n6", "a": "n7"},
-       {"de": "n6", "a": "n8"},
-       {"de": "n7", "a": "n9"},
-       {"de": "n8", "a": "n9"}
+       {"de": "n7", "a": "n8"}
       ]
      }
     },
@@ -1775,11 +1769,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Apego de la compra al plan", "Líneas compradas que estaban en el plan ÷ líneas compradas del ciclo", "Por ciclo", "Junta Directiva / Director de Compras", "Alto — mide si el plan gobierna la compra"],
+      ["Apego de la compra al plan", "Líneas compradas que estaban en el plan ÷ líneas compradas del ciclo", "Por ciclo", "Comité Comercial", "Alto — mide si el plan gobierna la compra"],
       ["Cobertura en semanas por SKU y país", "Inventario disponible + tránsito ÷ demanda estimada semanal", "Por ciclo", "Coordinador(a) de Logística y Bodega", "Dentro del rango definido por categoría"],
       ["Error de la demanda estimada", "|demanda estimada − demanda real| ÷ demanda real", "Por ciclo", "Analista de Sistemas / Datos", "A la baja, con línea base del primer ciclo"],
-      ["Plan ajustado al techo sin reproceso", "Ciclos cerrados sin rehacer el plan ÷ ciclos del período", "Trimestral", "Planificador Financiero", "100%"],
-      ["Demanda no atendida por falta de existencias", "Unidades pedidas y no servidas ÷ unidades pedidas", "Por ciclo", "Comité de Planificación de Suministro", "A la baja"]
+      ["Plan ajustado al techo sin reproceso", "Ciclos cerrados sin rehacer el plan ÷ ciclos del período", "Trimestral", "Gerente de Administración y Finanzas", "100%"],
+      ["Demanda no atendida por falta de existencias", "Unidades pedidas y no servidas ÷ unidades pedidas", "Por ciclo", "Comité Comercial", "A la baja"]
      ]
     }
    },

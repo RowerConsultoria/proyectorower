@@ -6993,192 +6993,162 @@ window.MANUAL_ASIS = {
    }
   }
  },
- "6.1": {
-  "nota_version": "Versión As-Is: describe cómo se planifica hoy la demanda, con los cargos que usan las propias entrevistas y el patrón V4 en su columna de cargo actual. No incorpora mejoras; donde algo falta, se dice que falta. Sin matriz de riesgos ni indicadores: los cuellos de botella se describen dentro del flujo.",
-  "proposito": {
-   "estado": "borrador",
-   "alcance": "Desde que se cierra el mes hasta que existe una proyección de cuánto habrá que reponer. Cubre la extracción del inventario, la construcción manual de la proyección y el forecast anual que hace la dirección. No incluye el armado del pedido ni su aprobación, que son 6.6.",
-   "texto": "**No hay proceso de planificación de demanda ni S&OP.** Los términos con los que el To-Be describe este proceso —«S&OP», «plan de suministro», «planificación de demanda»— no aparecen ni una vez en las 87 entrevistas, y la propia coordinadora que sostiene la función declara que no existen indicadores formalizados ni reporte periódico: los cálculos de cobertura y de rotación se hacen «de forma manual y puntual», nadie los recibe y no se revisan de forma sistemática.\n\nLo que sí ocurre son dos ejercicios que no se hablan entre sí. Uno es anual y estratégico: la dirección comercial prepara en diciembre o enero el plan de negocio del año —cuánto se venderá por marca, con qué margen y con qué estrategia— guiándose por los históricos de uno o dos años, y lo manda a finanzas. El otro es mensual y operativo: la coordinación de planificación construye a mano, en hoja de cálculo, la proyección de cada mes tomando la venta del mismo mes del año anterior y ajustándola por el crecimiento real del año en curso.\n\nEl sistema no ayuda. El ERP no tiene reposición automatizada ni reglas: como mucho avisa cuando el inventario baja de un nivel fijado a mano. Por eso **todo el ciclo de planificación se hace fuera del ERP**, en hojas de cálculo conectadas a él para extraer el inventario, con fórmulas propias y apoyo de inteligencia artificial. Se evaluaron tres herramientas de planificación y ninguna llegó a implementarse: unas daban una predicción puntual y otras no se integraban con el ERP."
-  },
-  "dueno": {
-   "estado": "borrador",
-   "dueno": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-   "participantes": [
-    "Coordinadora de Planificación de Compras (Rower, Venezuela) — construye la proyección mensual a mano y sostiene la función para Venezuela y Panamá, con apoyo puntual a Colombia, Guatemala y Costa Rica. No tiene personal a su cargo.",
-    "Director Comercial y de Compras (socio) — prepara una vez al año el plan de negocio de venta por marca, margen y estrategia, y lo remite a finanzas. Es también quien aprueba después cada reposición.",
-    "Data Scientist / Líder de BI — desarrolló un módulo que sugiere reposición automática, en prueba desde hace pocas semanas al momento del levantamiento, y entrega los reportes donde puede consultarse la venta perdida."
-   ],
-   "evidencia": [
-    "Lark: Levantamiento de Procesos de Compras (VE)",
-    "E-08",
-    "E-40",
-    "E-10",
-    "E-18"
-   ],
-   "notas": "Cargos tomados de la columna «cargo actual» del V4 donde la persona figura (Coordinador(a) Planificación de Compras). El director no figura en el patrón: pertenece a la capa de socios, que el V4 no contempla, y se usa la denominación con la que lo nombran las entrevistas, igual que en 6.3 y 6.4.",
-   "sin_evidencia": "No consta que exista una instancia donde la proyección mensual se revise con ventas, logística o finanzas. La coordinadora propone crear una revisión operativa mensual, lo que confirma que hoy no la hay."
-  },
-  "disparador": {
-   "estado": "borrador",
-   "disparador": "El cierre de mes, que es cuando la coordinación revisa inventario y arma la proyección. El ejercicio anual lo dispara el cambio de año.",
-   "cadencia": "Mensual la proyección operativa; anual el plan de negocio. Ninguno de los dos tiene reunión ni reporte asociado.",
-   "output": "Una proyección de demanda en hoja de cálculo, que alimenta directamente el armado del pedido. No se publica ni se contrasta con nadie.",
-   "evidencia": [
-    "Lark: Levantamiento de Procesos de Compras (VE)",
-    "E-08"
-   ],
-   "notas": "El módulo de sugerido automático existe pero no sustituye el proceso manual: al momento del levantamiento todavía no reflejaba bien los ajustes fuera de rutina, como el incremento de pedido de cara a diciembre."
-  },
-  "flujo": {
-   "estado": "borrador",
-   "evidencia": [
-    "Lark: Levantamiento de Procesos de Compras (VE)",
-    "E-08",
-    "E-40",
-    "E-18"
-   ],
-   "actividades": [
-    {
-     "id": "a1",
-     "rol": "Director Comercial y de Compras (socio)",
-     "texto": "Prepara a fin de año el plan de negocio de venta: cuánto venderá cada marca, con qué margen y con qué estrategia, guiándose por los históricos de uno o dos años anteriores, y lo remite a finanzas. No baja como objetivo al ciclo mensual."
+   "6.1": {
+    "nota_version": "Versión As-Is: describe la única planificación de demanda que existe hoy, que es anual y la hacen los socios. El cálculo mensual de reposición no está aquí: es el arranque de 6.6. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que cierra el año hasta que el plan de negocio queda en manos de Finanzas. Cubre la sesión anual de socios y la construcción del plan por marca, margen y estrategia. No incluye el cálculo mensual de la reposición, que arranca 6.6, ni la compra a la marca representada, que es 6.3, ni la planificación de la marca propia, que ocurre dentro de su propia reunión de compra (6.4).",
+     "texto": "**No hay proceso de planificación de demanda ni S&OP.** Los términos con los que el To-Be describe este proceso —«S&OP», «plan de suministro», «planificación de demanda»— no aparecen ni una vez en las entrevistas, y no existe ninguna instancia periódica donde se consolide la demanda del grupo.\n\nLo que sí existe es **un ejercicio anual y de socios**. Al cierre de cada año la junta se reúne dos días —trabajo, operativa y socios, con Finanzas invitada por tramos—, repasa el cierre de cada departamento, hace un análisis de situación y fija las proyecciones y el foco del año siguiente. Sobre esa base, el Director Comercial y Compras arma el plan de negocio: cuánto venderá cada marca, con qué margen y con qué estrategia, guiándose por los históricos de uno o dos años. El número no sale de una fórmula: lo sostiene una revisión cliente por cliente y país por país que hace con el Gerente Comercial, sentándose con cada vendedor. Después reparte el total anual entre los meses dándole a cada uno el peso que tuvo en años anteriores, y se lo manda a Finanzas, que lo usa para el flujo de caja del año.\n\n**Ahí se detiene.** El plan no baja como objetivo al ciclo mensual: quien calcula cada mes la reposición no lo recibe ni lo usa, y proyecta por su cuenta sobre la venta del mismo mes del año anterior (6.6). Son dos ejercicios que no se hablan entre sí, y esa desconexión es el hallazgo de este proceso.\n\nEl plan se arma **por marca**, pero solo la marca representada tiene después un ciclo de compra que pueda tomarlo como referencia. **Para la marca propia no hay planificación de demanda separada**: qué pedir y cuánto se decide dentro de la propia reunión de compra (6.4), que el director de esa marca convoca cuando detecta que hay que reponer, y donde el forecast de canales y la necesidad de cada país se aportan en el mismo acto. Él mismo lo describe así: «no está muy bien planificado este proceso, yo tengo mi mente y trato de revisar cada cierto tiempo».\n\nEl sistema tampoco ayuda: el ERP no tiene reposición automatizada ni reglas, y se evaluaron tres herramientas de planificación sin que ninguna llegara a implementarse —unas daban una predicción puntual y otras no se integraban con el ERP—."
     },
-    {
-     "id": "a2",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-     "texto": "Al cierre de cada mes actualiza las tablas de la hoja de cálculo conectadas al ERP y extrae el inventario disponible del país, el que está en tránsito y el que hay en el hub."
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director Comercial y Compras",
+     "participantes": [
+      "Junta de Socios — los socios, con Finanzas invitada por tramos. Se reúne dos días al cierre del año, repasa el cierre por departamento y fija las proyecciones y el foco del año siguiente.",
+      "Director Comercial y Compras — así lo nombran de forma unánime las entrevistas. Es socio de la empresa y lleva la dirección comercial del grupo, con el foco puesto en la compra de la marca representada. Arma el plan de negocio del año y lo reparte por meses.",
+      "Gerente Comercial — se sienta con cada vendedor y revisa la venta cliente por cliente y país por país, que es lo que da base al número del plan.",
+      "Director Financiero — recibe el plan y lo usa para proyectar el flujo de caja del año.",
+      "Coordinador(a) de Planificación de Compras — calcula cada mes la reposición del país, pero no recibe este plan ni lo usa como objetivo; su cálculo arranca 6.6.",
+      "Director de Compras de Marca Propia (socio) — no participa en la construcción de este plan. La planificación de su marca la resuelve dentro de la reunión de compra (6.4), donde decidir qué pedir y comprarlo ocurren en el mismo acto."
+     ],
+     "evidencia": [
+      "E-08",
+      "E-10",
+      "E-40",
+      "E-15"
+     ],
+     "notas": "Ni el Director Comercial y Compras ni el Director Financiero figuran en el patrón de cargos: pertenecen a la capa de socios y de dirección del grupo, que el V4 no contempla, y se usan las denominaciones con las que los nombran las entrevistas. En 6.3 y 6.6 el mismo cargo aparece todavía como «Director Comercial y Compras y de Compras (socio)». El Gerente Comercial figura en el V4 con el cargo actual «GERENTE DE VENTAS INTERNACIONAL»; aquí se usa la denominación con la que lo nombran de forma unánime las entrevistas, que lo emparejan con el Director Comercial.",
+     "sin_evidencia": "No consta que el plan anual se revise ni se corrija durante el año, ni que exista instancia donde se contraste con la venta real. Tampoco consta que llegue a quien planifica la reposición mensual."
     },
-    {
-     "id": "a3",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-     "texto": "Construye la proyección de demanda a mano: toma la venta del mismo mes del año anterior y la ajusta por el crecimiento real o esperado del año en curso. Todo el cálculo vive fuera del ERP, en la hoja de cálculo, con fórmulas propias y apoyo de inteligencia artificial."
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El cierre del año: la junta de socios se reúne para revisar el año que termina y fijar el siguiente.",
+     "cadencia": "Anual, en diciembre o enero. No tiene revisión intermedia.",
+     "output": "Plan de negocio del año por marca, margen y estrategia, repartido por meses y entregado a Finanzas.",
+     "evidencia": [
+      "E-08",
+      "E-15"
+     ],
+     "notas": "La cadencia es la del ejercicio, no la del negocio: la reposición se decide cada mes y el plan que debería orientarla se fija una vez al año."
     },
-    {
-     "id": "a4",
-     "rol": "Data Scientist / Líder de BI",
-     "texto": "Mantiene el módulo que sugiere reposición automática y entrega los reportes en los que puede consultarse la venta perdida."
-    },
-    {
-     "id": "a5",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-     "texto": "Contrasta el sugerido del módulo con su propia proyección y decide con cuál se queda. El sugerido todavía no recoge los ajustes fuera de rutina, como el aumento de pedido previo a diciembre, así que el cálculo manual sigue mandando."
-    },
-    {
-     "id": "a6",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-     "texto": "Calcula de forma puntual la cobertura promedio y la clasificación por rotación cuando le hacen falta. No hay reporte periódico, nadie los recibe y no se revisan de forma sistemática."
-    },
-    {
-     "id": "a7",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-     "texto": "Entrega la proyección al armado del pedido de reposición, que es el paso siguiente. No hay instancia donde la proyección se discuta con ventas, logística o finanzas antes de convertirse en pedido."
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-08",
+      "E-10",
+      "E-40",
+      "E-15"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Junta de Socios",
+       "texto": "Se reúne dos días al cierre del año —sesión de trabajo, operativa y de socios, con Finanzas invitada por tramos—, repasa el cierre de cada departamento, hace el análisis de situación y fija las proyecciones y el foco del año siguiente."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente Comercial",
+       "texto": "Se sienta con cada vendedor y revisa la venta cliente por cliente y país por país, para dar base al número: cuánto compra cada cliente, cuánto suma cada país y qué margen deja."
+      },
+      {
+       "id": "a3",
+       "rol": "Director Comercial y Compras",
+       "texto": "Arma el plan de negocio del año: cuánto venderá cada marca, con qué margen y con qué estrategia, guiándose por los históricos de uno o dos años anteriores."
+      },
+      {
+       "id": "a4",
+       "rol": "Director Comercial y Compras",
+       "texto": "Reparte el total anual entre los meses dándole a cada uno el peso que tuvo en años anteriores, de modo que quede una cifra de compra estimada por mes."
+      },
+      {
+       "id": "a5",
+       "rol": "Director Financiero",
+       "texto": "Recibe el plan y lo incorpora a la proyección de flujo de caja del año. A partir de ahí el plan no vuelve a revisarse: no baja como objetivo al ciclo mensual de reposición."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Junta de Socios",
+       "Gerente Comercial",
+       "Director Comercial y Compras",
+       "Director Financiero"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Junta de Socios",
+        "tipo": "inicio",
+        "n": "Cierre del año"
+       },
+       {
+        "id": "n1",
+        "carril": "Junta de Socios",
+        "tipo": "tarea",
+        "n": "Sesión anual de socios: proyecciones y foco"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente Comercial",
+        "tipo": "tarea",
+        "n": "Revisar la venta por cliente y país con cada vendedor"
+       },
+       {
+        "id": "n3",
+        "carril": "Director Comercial y Compras",
+        "tipo": "tarea",
+        "n": "Armar el plan por marca, margen y estrategia",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Director Comercial y Compras",
+        "tipo": "tarea",
+        "n": "Repartir el total anual entre los meses"
+       },
+       {
+        "id": "n5",
+        "carril": "Director Financiero",
+        "tipo": "tarea",
+        "n": "Incorporar el plan al flujo de caja del año"
+       },
+       {
+        "id": "n6",
+        "carril": "Director Financiero",
+        "tipo": "fin",
+        "n": "Plan del año en manos de Finanzas"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
     }
-   ],
-   "diagrama": {
-    "carriles": [
-     "Director Comercial y de Compras (socio)",
-     "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-     "Data Scientist / Líder de BI"
-    ],
-    "nodos": [
-     {
-      "id": "n0",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-      "tipo": "inicio",
-      "n": "Cierre de mes"
-     },
-     {
-      "id": "n1",
-      "carril": "Director Comercial y de Compras (socio)",
-      "tipo": "tarea",
-      "n": "Preparar el plan de negocio anual"
-     },
-     {
-      "id": "n2",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-      "tipo": "tarea",
-      "n": "Extraer inventario, tránsito y hub",
-      "sistemas": [
-       "Excel",
-       "Odoo"
-      ]
-     },
-     {
-      "id": "n3",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-      "tipo": "tarea",
-      "n": "Proyectar a mano sobre el año anterior",
-      "sistemas": [
-       "Excel"
-      ]
-     },
-     {
-      "id": "n4",
-      "carril": "Data Scientist / Líder de BI",
-      "tipo": "tarea",
-      "n": "Mantener el sugerido automático",
-      "sistemas": [
-       "Power BI"
-      ]
-     },
-     {
-      "id": "n5",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-      "tipo": "decision",
-      "n": "¿El sugerido recoge los ajustes?"
-     },
-     {
-      "id": "n6",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-      "tipo": "tarea",
-      "n": "Mantener el cálculo manual"
-     },
-     {
-      "id": "n7",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
-      "tipo": "fin",
-      "n": "Proyección lista para armar el pedido"
-     }
-    ],
-    "aristas": [
-     {
-      "de": "n0",
-      "a": "n2"
-     },
-     {
-      "de": "n1",
-      "a": "n2"
-     },
-     {
-      "de": "n2",
-      "a": "n3"
-     },
-     {
-      "de": "n4",
-      "a": "n5"
-     },
-     {
-      "de": "n3",
-      "a": "n5"
-     },
-     {
-      "de": "n5",
-      "a": "n6",
-      "etq": "No"
-     },
-     {
-      "de": "n5",
-      "a": "n7",
-      "etq": "Sí"
-     },
-     {
-      "de": "n6",
-      "a": "n7"
-     }
-    ]
-   }
-  }
- },
+   },
  "6.2": {
   "nota_version": "Versión As-Is: describe qué ocurre hoy en lugar de una gestión del ciclo de vida del proveedor, que no existe. Cargos actuales; sin matriz de riesgos ni indicadores.",
   "proposito": {
