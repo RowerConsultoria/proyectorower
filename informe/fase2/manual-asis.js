@@ -24130,5 +24130,2416 @@ window.MANUAL_ASIS = {
     }
    }
   }
+ },
+ "17": {
+  "procesos": {
+   "17.1": {
+    "nota_version": "Versión As-Is: describe cómo se recluta, se selecciona y se formaliza el ingreso hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un área pide cubrir una vacante hasta que la persona queda contratada, con sus accesos pedidos y registrada ante la seguridad social. La recepción del primer día y el período de prueba son el proceso siguiente (17.2).",
+     "texto": "La secuencia es parecida en Venezuela y Panamá —pedido del área, búsqueda, filtro, entrevistas, decisión y formalización—, pero **cada país la ejecuta a su manera** y ninguno sabe cómo lo hace el otro.\n\nEn **Venezuela** el pedido llega **por correo**: el gerente del área —o la Gerente de Ventas al Detal, cuando es para una tienda— avisa que falta alguien o que se abre una tienda. Si el cargo ya tiene perfil, Recursos Humanos publica en LinkedIn y en un portal de empleo nacional; los **referidos internos**, históricamente el canal principal, siguen pesando mucho en tiendas. La Analista de Recursos Humanos filtra los currículos y hace un **sondeo telefónico** —experiencia, zona donde vive, aspiración salarial, motivo de la búsqueda— y descarta a quien queda fuera del rango. Con la Gerente de Recursos Humanos arma las ternas y se las envía al gerente solicitante por correo, con el resumen de cada sondeo y el currículo. El gerente elige a quién ver; las entrevistas se agendan por Lark y la gerente de Recursos Humanos entrevista antes o después, según la agenda. En tiendas deciden la Gerente de Ventas al Detal y la Gerente de Recursos Humanos; en las áreas administrativas, el gerente de cada una.\n\nEn **Panamá** el pedido entra con un **formulario de requisición** que aprueban la dirección y el gerente. El gerente suele buscar primero una semana en su propia red; si no aparece nadie, la Gerente de Recursos Humanos publica en LinkedIn dos o tres días, busca perfiles sin costo en la misma red, revisa la base de hojas de vida que llegan por correo y por la página web y, cuando la búsqueda es urgente, estratégica o difícil, **la encarga a una empresa de reclutamiento**. Hace una primera entrevista, aplica pruebas técnicas o psicométricas según el cargo, y el jefe del área entrevista después. El personal operativo —bodega, ayudantes— lo decide Recursos Humanos; lo demás se eleva a la gerencia. Hay además colaboradores por honorarios: los identifica el gerente por sus habilidades técnicas, la gerente los entrevista y se firma un contrato por proyecto o por días.\n\nEn las **posiciones gerenciales o clave** decide la Presidencia con los socios. A menudo son ellos quienes identifican y entrevistan al candidato, y **Recursos Humanos entra a mitad del proceso** para dar su opinión. En Venezuela, en esos casos, el candidato pasa por una entrevista con la Presidencia y el gerente del área, y es la Presidencia quien decide.\n\nAntes de fijar la fecha de ingreso se piden **referencias laborales**, por escrito cuando se puede, y Recursos Humanos solicita a Sistemas —por Lark— el correo, el equipo y los accesos a Lark u Odoo que requiera el cargo. La **formalización es distinta**: en Panamá se firma el contrato y se registra en el Ministerio de Trabajo y en la Caja de Seguro Social; en Venezuela el ingreso se formaliza con la inscripción en el Seguro Social y en la póliza de salud, sin contrato escrito —su adopción está en evaluación con los abogados—.\n\nEn **Colombia** no hay área de Recursos Humanos: todo el personal se vincula a través de una empresa de servicios temporales, GOLD RH, que contrata en su nombre, y la búsqueda la llevan el Country Manager y los líderes de área."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá); en Colombia, el Country Manager con GOLD RH",
+     "participantes": [
+      "Gerentes de área solicitantes",
+      "Gerente de Ventas al Detal (Venezuela)",
+      "Analista de Recursos Humanos (Venezuela)",
+      "Coordinador(a) de Recursos Humanos",
+      "Presidencia y socios",
+      "Coordinación de Sistemas",
+      "Empresa de reclutamiento externa (Panamá)",
+      "GOLD RH (Colombia)"
+     ],
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-13",
+      "E-54",
+      "E-12",
+      "E-46"
+     ],
+     "sin_evidencia": "No consta en las entrevistas cómo se hace hoy la búsqueda en Colombia más allá de que la contratación pasa por GOLD RH."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un gerente pide cubrir una vacante —por correo en Venezuela, con el formulario de requisición en Panamá— o la dirección identifica directamente a un candidato para una posición clave.",
+     "cadencia": "Por evento; se concentra en las aperturas de tienda y en la temporada alta de fin de año.",
+     "output": "Persona seleccionada, con su fecha de ingreso, sus accesos solicitados y su registro ante la seguridad social.",
+     "evidencia": [
+      "E-37",
+      "E-13",
+      "E-54"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-13",
+      "E-54",
+      "E-12"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente del área solicitante",
+       "texto": "Pide cubrir la vacante —por correo en Venezuela, con el formulario de requisición en Panamá— y envía o confirma el perfil del cargo."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Publica la vacante en LinkedIn y en portales de empleo, activa los referidos internos y la base de hojas de vida; en Panamá, las búsquedas urgentes o estratégicas se encargan a una empresa de reclutamiento."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Filtra los currículos y hace un sondeo telefónico —experiencia, zona de residencia, aspiración salarial y motivo de la búsqueda—, descartando a quien queda fuera del rango."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Arma la terna y la envía al gerente con el resumen de cada candidato y su currículo; en Panamá, antes, hace una primera entrevista y aplica pruebas técnicas o psicométricas."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente del área solicitante",
+       "texto": "Elige a quién entrevistar y entrevista en persona o por Lark; la Gerente de Recursos Humanos entrevista antes o después, según la agenda."
+      },
+      {
+       "id": "a6",
+       "rol": "Presidencia y socios",
+       "texto": "En las posiciones gerenciales o clave, entrevista al candidato con el gerente del área y decide su ingreso; con frecuencia es quien lo identifica."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "En el resto de las posiciones decide el ingreso con el gerente del área —en tiendas, con la Gerente de Ventas al Detal—; en Panamá, el personal operativo lo decide Recursos Humanos."
+      },
+      {
+       "id": "a8",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Verifica las referencias laborales del candidato elegido, por escrito cuando es posible."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Presenta la propuesta —cargo, salario y horario— y acuerda con el gerente la fecha de ingreso."
+      },
+      {
+       "id": "a10",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Solicita a Sistemas, por Lark, el correo, el equipo y los accesos a Lark u Odoo que requiere el cargo."
+      },
+      {
+       "id": "a11",
+       "rol": "Coordinación de Sistemas",
+       "texto": "Aprueba la solicitud y prepara el correo, el equipo y los accesos para el día de ingreso."
+      },
+      {
+       "id": "a12",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Formaliza el ingreso: en Panamá, firma del contrato y registro en el Ministerio de Trabajo y la Caja de Seguro Social; en Venezuela, inscripción en el Seguro Social y en la póliza de salud, sin contrato escrito."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente del área solicitante",
+       "Gerente de Recursos Humanos",
+       "Analista / Coordinador(a) de Recursos Humanos",
+       "Presidencia y socios",
+       "Coordinación de Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente del área solicitante",
+        "tipo": "inicio",
+        "n": "El área necesita cubrir una vacante"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente del área solicitante",
+        "tipo": "tarea",
+        "n": "Pedir la vacante y enviar el perfil",
+        "sistemas": [
+         "Correo",
+         "Lark"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Publicar la vacante y activar referidos",
+        "sistemas": [
+         "LinkedIn"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Filtrar currículos y hacer el sondeo telefónico"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Armar la terna y enviarla al gerente"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente del área solicitante",
+        "tipo": "tarea",
+        "n": "Entrevistar a los candidatos",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Es una posición clave?"
+       },
+       {
+        "id": "n7",
+        "carril": "Presidencia y socios",
+        "tipo": "tarea",
+        "n": "Entrevistar y decidir el ingreso"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Decidir el ingreso con el gerente"
+       },
+       {
+        "id": "n9",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Verificar referencias laborales"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Presentar la propuesta y fijar el ingreso"
+       },
+       {
+        "id": "n11",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Pedir correo, equipo y accesos",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n12",
+        "carril": "Coordinación de Sistemas",
+        "tipo": "tarea",
+        "n": "Preparar correo, equipo y accesos"
+       },
+       {
+        "id": "n13",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Formalizar el ingreso ante los entes"
+       },
+       {
+        "id": "n14",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Persona contratada y registrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n9"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       }
+      ]
+     }
+    }
+   },
+   "17.2": {
+    "nota_version": "Versión As-Is: describe cómo se recibe al colaborador que ingresa y se cierra su período de prueba hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde el primer día de la persona en la empresa hasta que su jefe confirma que continúa, al vencer el período de prueba: recibimiento, presentación, entrega de normas y herramientas, formación inicial y paso a la nómina o planilla de la empresa.",
+     "texto": "**Panamá tiene el procedimiento escrito** y lo conduce la propia Gerente de Recursos Humanos, que se ocupa en persona salvo cuando está de vacaciones. Recibe al colaborador —hasta la asignación del estacionamiento—, le explica de palabra la cultura, las normas de convivencia y cómo se trabaja, y le cuenta quién es la empresa. Después la coordinación o la asistente completan la ficha de datos para el contrato, le toman la **foto para el carné y el reloj de asistencia**, anuncian su ingreso por correo a toda la empresa y lo llevan por todos los departamentos. Por correo le llegan el **código de cultura, el reglamento interno y la descripción de su cargo**. El jefe del área lo presenta a su equipo, y lo que tiene que hacer se lo enseña él o un compañero, **de palabra**.\n\nEn **Venezuela la inducción es sencilla** y el propio equipo reconoce que no se hace como debería. El salario, la forma de pago, los beneficios y el período de prueba se hablan ya en la entrevista. El primer día recibe la Gerente de Recursos Humanos o la analista que hizo la selección, que presenta a la persona en las áreas y la deja en la suya; en los últimos ingresos se añadió un pequeño kit de bienvenida. Al personal de tienda se le entrega uniforme y carné temporal, y el **entrenamiento de producto lo da el supervisor de marca sobre la marcha**, con registro en la Universidad Cubitt; Recursos Humanos no interviene en esa parte.\n\nEn ningún país hay una inducción a los sistemas de trabajo: Odoo y Lark se aprenden con el jefe o con un compañero. La formación de producto para los ingresos de cualquier área la ha dado históricamente el área de Servicio al Cliente.\n\nEl **período de prueba es de un mes en Venezuela y de tres en Panamá**. En Venezuela, al acercarse el vencimiento, Recursos Humanos escribe al gerente pidiendo los resultados y basta con **un correo de respuesta**, que se archiva en el expediente; con ese aval se da el ingreso formal —cuenta de nómina, tarjetas y carné fijo con el cargo—. En Panamá la gerente llama al jefe hacia los dos meses y le envía el formulario de evaluación para que la haga antes de que venza la prueba. En ambos países, mientras dura la prueba el pago va a la cuenta personal del colaborador y la cuenta de la empresa se abre al superarla.\n\nNo consta cómo se recibe hoy al personal en Colombia, que se vincula a través de GOLD RH."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá)",
+     "participantes": [
+      "Coordinador(a) de Recursos Humanos",
+      "Asistente de Recursos Humanos (Panamá)",
+      "Analista de Recursos Humanos (Venezuela)",
+      "Jefe del área",
+      "Supervisores de marca y de tiendas",
+      "Servicio al Cliente"
+     ],
+     "evidencia": [
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-21",
+      "E-02",
+      "E-50"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La persona seleccionada llega a su primer día de trabajo.",
+     "cadencia": "Por evento, con cada ingreso; la valoración se pide al acercarse el fin del período de prueba (un mes en Venezuela, tres en Panamá).",
+     "output": "Colaborador presentado, con sus normas y su descripción de cargo (Panamá), y su ingreso confirmado o terminado al cierre del período de prueba.",
+     "evidencia": [
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-21"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-21",
+      "E-02"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Recibe a la persona el primer día y le explica la empresa, la cultura y las normas de convivencia; en Venezuela, el salario, la forma de pago y los beneficios ya se hablaron en la entrevista."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Completa la ficha de datos, toma la foto para el carné y el reloj de asistencia y anuncia el ingreso por correo a toda la empresa (Panamá); al personal de tienda le entrega uniforme y carné temporal (Venezuela)."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Presenta a la persona en todos los departamentos y la deja en su área."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Le envía por correo el código de cultura, el reglamento interno y la descripción de su cargo (Panamá)."
+      },
+      {
+       "id": "a5",
+       "rol": "Jefe del área",
+       "texto": "La presenta a su equipo y le enseña sus funciones y herramientas —él o un compañero—, de palabra."
+      },
+      {
+       "id": "a6",
+       "rol": "Supervisión de tiendas y Servicio al Cliente",
+       "texto": "Si ingresa a una tienda, la entrena en producto sobre la marcha y la registra en la Universidad Cubitt."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Antes de que venza el período de prueba pide al jefe su valoración: por correo en Venezuela, con el formulario de evaluación en Panamá."
+      },
+      {
+       "id": "a8",
+       "rol": "Jefe del área",
+       "texto": "Valora a la persona y responde si procede su ingreso."
+      },
+      {
+       "id": "a9",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Si el jefe lo aprueba, da el ingreso formal —abre la cuenta de nómina o planilla de la empresa y, en Venezuela, entrega el carné fijo y las tarjetas— y archiva la valoración en el expediente."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Si no lo aprueba, habla con la persona y da por terminada la relación dentro del período de prueba."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Recursos Humanos",
+       "Analista / Coordinador(a) de Recursos Humanos",
+       "Jefe del área",
+       "Supervisión de tiendas y Servicio al Cliente"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "La persona llega a su primer día"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Recibirla y explicarle la empresa y sus normas"
+       },
+       {
+        "id": "n2",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Completar ficha, foto y aviso de ingreso"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Presentarla en todos los departamentos"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Enviarle código, reglamento y descripción",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Jefe del área",
+        "tipo": "tarea",
+        "n": "Presentarla al equipo y enseñarle el puesto"
+       },
+       {
+        "id": "n6",
+        "carril": "Jefe del área",
+        "tipo": "decision",
+        "n": "¿Ingresa a una tienda?"
+       },
+       {
+        "id": "n7",
+        "carril": "Supervisión de tiendas y Servicio al Cliente",
+        "tipo": "tarea",
+        "n": "Entrenarla en producto sobre la marcha",
+        "sistemas": [
+         "Universidad Cubitt"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Pedir la valoración al cierre de la prueba",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Jefe del área",
+        "tipo": "tarea",
+        "n": "Valorar a la persona"
+       },
+       {
+        "id": "n10",
+        "carril": "Jefe del área",
+        "tipo": "decision",
+        "n": "¿Aprueba el ingreso?"
+       },
+       {
+        "id": "n11",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Dar el ingreso formal y archivar la valoración"
+       },
+       {
+        "id": "n12",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Ingreso confirmado"
+       },
+       {
+        "id": "n13",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Comunicarle que no continúa"
+       },
+       {
+        "id": "n14",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Relación terminada en período de prueba"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n13",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       }
+      ]
+     }
+    }
+   },
+   "17.3": {
+    "nota_version": "Versión As-Is: describe cómo se calcula y se paga la nómina hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde el corte de novedades de cada quincena hasta el pago a los colaboradores, la entrega del registro a Contabilidad y la declaración de las contribuciones ante los entes de seguridad social. Las comisiones de las ventas al mayor e internacionales quedan fuera: las liquidan sus propias direcciones comerciales.",
+     "texto": "Se paga **el 15 y el 30** en los dos países con área de Recursos Humanos, pero el ciclo es muy distinto.\n\nEn **Venezuela** el ciclo **ocupa casi una semana por quincena**. La Gerente de Recursos Humanos fija el corte de comisiones —por ejemplo, del 23 de un mes al 6 del siguiente— y lo comunica por correo a todas las tiendas y a las fuerzas de venta de Ventas Web y Servicio Técnico. Cada tienda devuelve sus **novedades en una hoja de cálculo** —asistencia, domingos trabajados, horas nocturnas, reposos, faltas—; son unas veinte por quincena, y hay que esperarlas. La coordinación las consolida en un solo archivo y lo carga en el **módulo de nómina de Odoo, en uso desde enero de 2026**. En paralelo, la gerente descarga las comisiones del módulo de Odoo por cargo —asesores, relojeros, ventas web, y un reporte de «otros» con cajeras, gerentes y seguridad— y las envía a las gerencias de Ventas al Detal, Servicio Técnico y Ventas Web, que responden si las aprueban o si hay algo que corregir. Parte del cálculo se sostiene todavía en un reporte complementario en hoja de cálculo, que la gerente revisa con la Gerente de Ventas al Detal.\n\nLa Analista de Nómina genera las **prenóminas** en Odoo y se **imprimen**, porque Administración **revisa en papel** —cantidad de trabajadores y montos— y la aprueba. El reporte aprobado se envía por correo a Administración con copia a la Presidencia, que vigila el costo de la nómina, **un día antes del pago**. Odoo genera los archivos que van al banco. Un error se corrige en el momento con una transferencia o en la quincena siguiente. Contabilidad toma el registro directamente de Odoo al cierre. Las contribuciones —Seguro Social, política habitacional, INCES— las genera Recursos Humanos, mensuales o trimestrales, y Contabilidad solo avisa cuando un pago está por vencer.\n\nEn **Panamá** la coordinación programa el corte **una semana antes** de cada pago, descarga las marcaciones del **reloj biométrico** y, de tres a cinco días antes, revisa las incidencias —incapacidades, horas extra, permisos justificados o no— y pregunta a la gerente si un sobretiempo está autorizado. Las comisiones de tienda **las calcula el supervisor de tiendas** y se las pasa. La coordinadora y la asistente se reparten a los trabajadores y calculan **uno por uno** en el sistema de planilla, **Fonseca**, en uso desde mayo de 2026 tras veinte años con otro; el cambio ha traído fallas —pagos que no salieron y reportes que antes eran automáticos y ahora hay que construir— y el propio equipo lo considera una mala decisión. El día del pago se carga el listado en la banca en línea, que genera un lote; Tesorería transfiere a la cuenta de planilla los fondos que Recursos Humanos le pide por correo, y la **Gerente de Recursos Humanos revisa el cálculo impreso y aprueba el lote con su token**. Los comprobantes salen por correo a cada colaborador y se abren **dos o tres días de reclamos**. Luego se cierra el período, se descargan los asientos por departamento y cuenta y se envían a Contabilidad por el chat de Lark —que los pide al día siguiente, cuando aún hay reclamos abiertos—. Al mes, se presenta la cuota a la Caja de Seguro Social por **SIPE** y se pasa el comprobante a Tesorería, y se solicita por Lark el pago de los descuentos a acreedores.\n\nEn **Colombia** no se calcula nómina: la persona administrativa —con la Contadora como respaldo— reporta las novedades a **GOLD RH**, que liquida, devuelve el cálculo para su revisión, paga a cada trabajador y **factura el total** a la empresa.\n\nEn los dos países el proceso **depende de muy pocas personas**: en Venezuela, las comisiones solo las descarga la gerente, y en Panamá nunca se ha pensado qué pasaría si faltaran a la vez la coordinadora y la asistente."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá); en Colombia, la Contadora ante GOLD RH",
+     "participantes": [
+      "Coordinador(a) de Recursos Humanos",
+      "Analista de Nómina (Venezuela)",
+      "Asistente de Recursos Humanos (Panamá)",
+      "Gerentes de tienda y de las fuerzas de venta",
+      "Supervisor de tiendas (Panamá)",
+      "Gerente de Administración (Venezuela)",
+      "Tesorería",
+      "Contabilidad",
+      "GOLD RH (Colombia)"
+     ],
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-54",
+      "E-13",
+      "E-61",
+      "E-44",
+      "E-38",
+      "E-46"
+     ],
+     "notas": "Colombia no calcula nómina: reporta novedades a GOLD RH, que liquida y factura el total."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se acerca la fecha de pago del 15 o del 30, y con ella el corte de novedades y de comisiones.",
+     "cadencia": "Quincenal; en Venezuela el ciclo ocupa casi una semana por quincena. Declaración de contribuciones mensual (y trimestral en Venezuela).",
+     "output": "Nómina pagada con sus comprobantes, registro entregado a Contabilidad y contribuciones declaradas ante la seguridad social.",
+     "evidencia": [
+      "E-37",
+      "E-54"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-54",
+      "E-13",
+      "E-61",
+      "E-44"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Fija el corte de novedades y lo comunica a tiendas y fuerzas de venta (Venezuela), o lo programa una semana antes de cada pago (Panamá)."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerentes de área y de tienda",
+       "texto": "Envían sus novedades —asistencia, domingos, horas nocturnas, reposos y faltas— en una hoja de cálculo por tienda (Venezuela); en Panamá, el supervisor de tiendas calcula y pasa las comisiones de tienda."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Consolida las novedades y las carga en el sistema de nómina; en Panamá, descarga las marcaciones del biométrico y revisa incapacidades, horas extra y permisos."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "En Venezuela, descarga las comisiones del módulo de Odoo por cargo y las envía a las gerencias de Ventas al Detal, Servicio Técnico y Ventas Web; en Panamá, autoriza o no el sobretiempo que le consultan."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerentes de área y de tienda",
+       "texto": "Validan las comisiones de su equipo y devuelven las correcciones."
+      },
+      {
+       "id": "a6",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Calcula la nómina en el sistema y genera las prenóminas (Venezuela) o carga el listado en la banca en línea y genera el lote (Panamá)."
+      },
+      {
+       "id": "a7",
+       "rol": "Administración / Tesorería",
+       "texto": "En Venezuela, Administración revisa la prenómina impresa y la aprueba; en Panamá, Tesorería transfiere a la cuenta de planilla los fondos que Recursos Humanos le pide por correo."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "En Panamá, revisa el cálculo impreso y aprueba el lote con su token; en Venezuela, envía el reporte aprobado a Administración con copia a la Presidencia."
+      },
+      {
+       "id": "a9",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Ejecuta el pago —archivo al banco generado por Odoo o distribución del lote— y envía los comprobantes por correo (Panamá)."
+      },
+      {
+       "id": "a10",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Atiende los reclamos de los días siguientes y los corrige con una transferencia o en la quincena siguiente."
+      },
+      {
+       "id": "a11",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Cierra el período y entrega a Contabilidad los asientos por departamento y cuenta (Panamá, por Lark); en Venezuela, Contabilidad los toma de Odoo."
+      },
+      {
+       "id": "a12",
+       "rol": "Contabilidad",
+       "texto": "Registra la nómina en la contabilidad."
+      },
+      {
+       "id": "a13",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Declara las contribuciones —Caja de Seguro Social por SIPE en Panamá; Seguro Social, política habitacional e INCES en Venezuela— y pasa los comprobantes a Tesorería para su pago."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Analista / Coordinador(a) de Recursos Humanos",
+       "Gerentes de área y de tienda",
+       "Gerente de Recursos Humanos",
+       "Administración / Tesorería",
+       "Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Se acerca el pago del 15 o del 30"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Fijar y comunicar el corte de novedades",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerentes de área y de tienda",
+        "tipo": "tarea",
+        "n": "Enviar novedades y comisiones de tienda",
+        "sistemas": [
+         "Excel"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Consolidar y cargar las novedades",
+        "sistemas": [
+         "Odoo",
+         "Fonseca",
+         "Biométrico"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Descargar y enviar las comisiones por cargo",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerentes de área y de tienda",
+        "tipo": "tarea",
+        "n": "Validar las comisiones del equipo"
+       },
+       {
+        "id": "n6",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Calcular y generar prenóminas o el lote",
+        "sistemas": [
+         "Odoo",
+         "Fonseca",
+         "Banca en línea"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Administración / Tesorería",
+        "tipo": "tarea",
+        "n": "Revisar la prenómina o transferir fondos"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Aprobar el lote o enviar el reporte aprobado",
+        "sistemas": [
+         "Banca en línea"
+        ]
+       },
+       {
+        "id": "n9",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Ejecutar el pago y enviar comprobantes",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Hay reclamos?"
+       },
+       {
+        "id": "n11",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Corregir con transferencia o en la próxima quincena"
+       },
+       {
+        "id": "n12",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Cerrar el período y entregar los asientos",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Contabilidad",
+        "tipo": "tarea",
+        "n": "Registrar la nómina en la contabilidad",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n14",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Declarar las contribuciones y pasar el pago",
+        "sistemas": [
+         "SIPE"
+        ]
+       },
+       {
+        "id": "n15",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Nómina pagada y declarada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n12",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       },
+       {
+        "de": "n14",
+        "a": "n15"
+       }
+      ]
+     }
+    }
+   },
+   "17.4": {
+    "nota_version": "Versión As-Is: describe cómo se atienden las solicitudes y las incidencias de la relación laboral hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Hechos que ocurren mientras dura la relación laboral: permisos, vacaciones, cartas de trabajo, adelantos y compras a crédito, incapacidades, llamados de atención y amonestaciones, el expediente de cada colaborador y la atención de las inspecciones de los entes laborales.",
+     "texto": "En **Panamá** casi todas las solicitudes llegan por **formularios de Lark**: permisos, cartas de trabajo, prima de antigüedad, insumos y compras a crédito de mercancía de la empresa. En este último caso el formulario lo tramita otra área y a Recursos Humanos le llega **impreso**, con el monto que hay que descontar por planilla. En tiendas, los avisos de ausencia o incapacidad pasan primero por el supervisor de tiendas, que informa a Recursos Humanos y cubre el hueco. Un accidente laboral se atiende llevando a la persona a un centro médico por cuenta de la empresa, y la incapacidad se tramita con la Caja de Seguro Social. Con los trabajadores también se habla mucho por WhatsApp, aunque se intenta que usen la plataforma para que quede registro.\n\nEn el caso de los llamados de atención, la Gerente de Recursos Humanos **guía a los gerentes en cada paso disciplinario**, según el reglamento interno: primero de palabra, luego por escrito, con un formato que ella misma les da, porque eso puede terminar en días sin pago o en causal de despido. Los conflictos se intentan resolver primero entre las partes y el jefe; si no se resuelven, Recursos Humanos media y da seguimiento. Los ajustes salariales y otros movimientos quedan en un formulario de **acción de personal** que va al expediente.\n\nEn **Venezuela** las vacaciones, los permisos y los adelantos de prestaciones se tramitan en **formatos que el trabajador firma en físico**, con la aprobación de su gerente, porque la inspección los exige firmados. En cada tienda hay un **libro de amonestaciones**; los conflictos los atienden primero el equipo de supervisión y la Gerencia de Ventas al Detal con el gerente de tienda, y solo si la situación escala llegan a Recursos Humanos, que evalúa si corresponde una amonestación escrita. Las **inspecciones** —Inspectoría del Trabajo, Seguro Social, seguridad laboral— son frecuentes en tiendas: Recursos Humanos avisa a los gerentes por WhatsApp para que tengan la documentación a mano y, cada vez que paga las contribuciones, les envía los comprobantes. Tras el terremoto se hizo un simulacro de evacuación, se eligieron brigadistas con apoyo de bomberos y se está poniendo al día la seguridad laboral, que estaba desactualizada.\n\nEn los dos países **el expediente es físico**, como exige la ley. Lo que no se comunica a las demás áreas son las ausencias ni las salidas: otras gerencias se enteran de que alguien está de reposo, o de que ya no trabaja en la empresa, cuando lo van a buscar.\n\nEn **Colombia** el colaborador acude a la persona administrativa o a la Contadora, que traslada todo —vacaciones, incapacidades, permisos— a GOLD RH con sus formatos, porque legalmente el empleador es el tercero."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá); en Colombia, la Contadora ante GOLD RH",
+     "participantes": [
+      "Coordinador(a) de Recursos Humanos",
+      "Asistente de Recursos Humanos (Panamá)",
+      "Analista de Recursos Humanos (Venezuela)",
+      "Jefes de área y gerentes de tienda",
+      "Supervisión de tiendas y Gerente de Ventas al Detal (Venezuela)",
+      "Supervisor de tiendas (Panamá)",
+      "GOLD RH (Colombia)"
+     ],
+     "evidencia": [
+      "E-54",
+      "E-13",
+      "E-37",
+      "E-21",
+      "E-53",
+      "E-42",
+      "E-46"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un colaborador presenta una solicitud —permiso, vacaciones, carta, adelanto— o un jefe detecta una falta o un conflicto.",
+     "cadencia": "Continua, por evento.",
+     "output": "Solicitud atendida o incidencia registrada, con su soporte firmado en el expediente del colaborador.",
+     "evidencia": [
+      "E-54",
+      "E-37",
+      "E-21"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-54",
+      "E-13",
+      "E-37",
+      "E-21",
+      "Plantillas de Relaciones Laborales (Lark, Panamá)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Colaborador",
+       "texto": "Presenta su solicitud —permiso, vacaciones, carta de trabajo, prima, adelanto o compra a crédito—: por formulario de Lark en Panamá, en formato físico firmado en Venezuela."
+      },
+      {
+       "id": "a2",
+       "rol": "Jefe del área / gerente de tienda",
+       "texto": "Aprueba la solicitud de su colaborador; ningún permiso ni vacación se tramita sin esa aprobación."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Tramita la solicitud, la refleja en la nómina cuando corresponde y archiva el soporte en el expediente."
+      },
+      {
+       "id": "a4",
+       "rol": "Jefe del área / gerente de tienda",
+       "texto": "Ante una falta o un conflicto, hace primero el llamado de atención de palabra o intenta resolverlo con las partes; en las tiendas de Venezuela intervienen la supervisión y la Gerencia de Ventas al Detal."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Si la falta persiste o es grave, guía al gerente para dejarla por escrito según el reglamento interno, con el formato de amonestación, o media en el conflicto."
+      },
+      {
+       "id": "a6",
+       "rol": "Jefe del área / gerente de tienda",
+       "texto": "Entrega la amonestación escrita y da seguimiento; en Venezuela, la asienta en el libro de amonestaciones de la tienda."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Colaborador",
+       "Jefe del área / gerente de tienda",
+       "Gerente de Recursos Humanos",
+       "Analista / Coordinador(a) de Recursos Humanos"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Colaborador",
+        "tipo": "inicio",
+        "n": "Surge una solicitud o una incidencia"
+       },
+       {
+        "id": "n1",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Es una solicitud del colaborador?"
+       },
+       {
+        "id": "n2",
+        "carril": "Colaborador",
+        "tipo": "tarea",
+        "n": "Presentar la solicitud",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Jefe del área / gerente de tienda",
+        "tipo": "tarea",
+        "n": "Aprobar la solicitud"
+       },
+       {
+        "id": "n4",
+        "carril": "Jefe del área / gerente de tienda",
+        "tipo": "tarea",
+        "n": "Llamar la atención de palabra"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿La falta persiste o es grave?"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Guiar la amonestación escrita"
+       },
+       {
+        "id": "n7",
+        "carril": "Jefe del área / gerente de tienda",
+        "tipo": "tarea",
+        "n": "Entregar la amonestación y dar seguimiento"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Tramitar y archivar en el expediente"
+       },
+       {
+        "id": "n9",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Solicitud atendida o incidencia registrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n8"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "17.5": {
+    "nota_version": "Versión As-Is: describe cómo se fija el salario, se ajusta y se administran los beneficios hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Ubicación del colaborador en la escala al ingresar, ajustes salariales, compensación no monetaria y administración de los beneficios —póliza de salud, beneficio de alimentación, descuentos, préstamos—. El cálculo y el pago quincenal son el proceso 17.3.",
+     "texto": "El salario se fija con una **escala aprobada por Finanzas**, que la Dirección de Finanzas ordenó con Recursos Humanos en abril de 2026 a partir de un estudio interno, sin referencia de mercado: Recursos Humanos ubica en ella al colaborador que ingresa. La compensación combina un componente garantizado con un **bono de productividad y un bono de meta**, y **no está ligada al desempeño**, porque no hay evaluación que la sostenga.\n\nLos **ajustes** se evalúan en reuniones con Finanzas —un gerente puede pedir antes el detalle de la compensación de su equipo—, y Recursos Humanos ejecuta lo que se decide. En Panamá todo ajuste se eleva a la gerencia y queda en el formulario de **acción de personal**, con el motivo, en el expediente. La bonificación de fin de año la decide la Presidencia según cómo fue el año.\n\nLos beneficios son la **póliza de salud corporativa** —con una parte del costo a cargo del colaborador y la opción de afiliar a familiares cercanos; en Venezuela se cambió de aseguradora en mayo de 2026 y se dio una charla a todos—, el beneficio de alimentación, el **descuento de colaborador** en tiendas y, en Venezuela, una **plataforma de préstamos en línea** incorporada en 2026, cuyos reclamos atiende Recursos Humanos. En Panamá hay compras a crédito de mercancía de la empresa y préstamos con acreedores que se descuentan por planilla.\n\nEn **Panamá** la gerente se sienta además con cada gerente, varias veces al año, a acordar **compensaciones no monetarias**: un día libre, una llegada después del mediodía, un desayuno o una salida del equipo. Tiene un repertorio de opciones que usa con frecuencia y deja que el gerente proponga; no está escrito como política de la empresa.\n\nLas **comisiones** se liquidan por separado según el canal: las de tienda en la nómina de cada país, y las de ventas al mayor e internacionales, fuera del circuito de Recursos Humanos, por sus propias direcciones comerciales."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos, con Finanzas y la Presidencia",
+     "participantes": [
+      "Finanzas",
+      "Presidencia y socios",
+      "Gerentes de área",
+      "Coordinador(a) de Recursos Humanos",
+      "Aseguradora de la póliza de salud",
+      "Plataforma de préstamos (Venezuela)"
+     ],
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-13",
+      "E-54",
+      "E-01",
+      "E-61"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Ingresa una persona, un gerente o Finanzas plantean un ajuste salarial, o se acuerda un reconocimiento para un equipo.",
+     "cadencia": "Por evento; los reconocimientos no monetarios, varias veces al año en Panamá; la bonificación de fin de año, anual.",
+     "output": "Salario ubicado en la escala o ajustado y registrado, beneficios activos y reconocimientos otorgados.",
+     "evidencia": [
+      "E-37",
+      "E-13",
+      "E-54"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-13",
+      "E-54"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Ubica en la escala aprobada por Finanzas a la persona que ingresa, según su cargo."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Registra el salario en la nómina, la afilia a la póliza de salud y activa sus beneficios."
+      },
+      {
+       "id": "a3",
+       "rol": "Aseguradora y plataforma de préstamos",
+       "texto": "Presta el beneficio —póliza o préstamo— y atiende los reclamos que Recursos Humanos le canaliza."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerentes de área",
+       "texto": "Plantean un ajuste para alguien de su equipo, o piden a Recursos Humanos el detalle de la compensación de su gente."
+      },
+      {
+       "id": "a5",
+       "rol": "Finanzas",
+       "texto": "Evalúa el ajuste en reunión con Recursos Humanos."
+      },
+      {
+       "id": "a6",
+       "rol": "Presidencia y socios",
+       "texto": "Aprueba los ajustes y decide la bonificación de fin de año según el resultado."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Registra el ajuste en la nómina y, en Panamá, en el formulario de acción de personal del expediente."
+      },
+      {
+       "id": "a8",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "En Panamá, acuerda con cada gerente una compensación no monetaria para su equipo."
+      },
+      {
+       "id": "a9",
+       "rol": "Gerentes de área",
+       "texto": "Otorgan el reconocimiento a su equipo."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Recursos Humanos",
+       "Analista / Coordinador(a) de Recursos Humanos",
+       "Aseguradora y plataforma de préstamos",
+       "Gerentes de área",
+       "Finanzas",
+       "Presidencia y socios"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Ingresa alguien o se plantea un cambio"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Qué se plantea?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Ubicar a la persona en la escala"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Registrar el salario y activar beneficios",
+        "sistemas": [
+         "Odoo",
+         "Fonseca"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Aseguradora y plataforma de préstamos",
+        "tipo": "tarea",
+        "n": "Prestar el beneficio y atender reclamos"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Plantear el ajuste de su equipo"
+       },
+       {
+        "id": "n6",
+        "carril": "Finanzas",
+        "tipo": "tarea",
+        "n": "Evaluar el ajuste con Recursos Humanos"
+       },
+       {
+        "id": "n7",
+        "carril": "Presidencia y socios",
+        "tipo": "tarea",
+        "n": "Aprobar el ajuste"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Registrar el ajuste en la acción de personal"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Acordar un reconocimiento no monetario"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Otorgar el reconocimiento"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Compensación aplicada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Ingreso"
+       },
+       {
+        "de": "n1",
+        "a": "n5",
+        "etq": "Ajuste"
+       },
+       {
+        "de": "n1",
+        "a": "n9",
+        "etq": "Reconocimiento"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n11"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n11"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "17.6": {
+    "nota_version": "Versión As-Is: describe cómo se crean las posiciones y se mantienen las descripciones de cargo y el organigrama hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Creación o modificación de una posición, redacción y actualización de su descripción de cargo, y mantenimiento del organigrama de cada país.",
+     "texto": "**Panamá tiene descripciones para cerca del 90 % de sus cargos**. Empezaron en presentaciones, pasaron a Lark y ahora la asistente las está llevando a un **formato más corporativo con ayuda de IA**, pensado para que otro país pueda replicarlas. La descripción se hace desde que se crea el perfil: los gerentes ya piden sentarse con Recursos Humanos a redactarla antes de buscar a nadie. El organigrama está al día salvo los ingresos más recientes. Una posición nueva entra con el mismo **formulario de requisición** que aprueban la dirección y el gerente. La gerente de Panamá revisa además, por iniciativa propia, las descripciones de Colombia, para que sigan los mismos lineamientos.\n\nEn **Venezuela** las descripciones del personal de tienda, Ventas Web, almacén y parte de administración se hicieron en 2025 —también con IA— y la propia gerente pide actualizarlas, porque los cargos se han movido mucho. Cuando se abre un área —como Tesorería o Cuentas por Cobrar—, Recursos Humanos se sienta con el gerente, redacta el perfil y lo publica. Las del equipo de Recursos Humanos se firmaron en junio de 2026. El organigrama de la empresa se actualizó en julio de 2026.\n\n**Colombia** formalizó en junio de 2026 las descripciones de sus 18 cargos en un formato único de cuatro bloques —misión, requisitos, autoridad y autonomía, confidencialidad— con banda salarial.\n\nEn ningún país hay un **diccionario de competencias**: se buscan según el puesto. Y la diferencia entre el cargo formal y lo que la persona hace de verdad se detecta en el trato diario, cuando alguien lo menciona."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá)",
+     "participantes": [
+      "Gerentes de área",
+      "Presidencia y socios",
+      "Asistente de Recursos Humanos (Panamá)",
+      "Coordinador(a) de Recursos Humanos",
+      "Country Manager (Colombia)"
+     ],
+     "evidencia": [
+      "E-13",
+      "E-21",
+      "E-37"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un gerente necesita una posición nueva o cambian las funciones de un cargo existente.",
+     "cadencia": "Por evento.",
+     "output": "Descripción de cargo redactada o actualizada y organigrama al día.",
+     "evidencia": [
+      "E-13",
+      "E-21"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-13",
+      "E-21"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerentes de área",
+       "texto": "Solicita la posición nueva —con el formulario de requisición en Panamá, por correo en Venezuela— o avisa que cambiaron las funciones de un cargo."
+      },
+      {
+       "id": "a2",
+       "rol": "Presidencia y socios",
+       "texto": "Aprueba la creación de la posición nueva."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Se sienta con el gerente a redactar el perfil y la descripción del cargo, con apoyo de IA."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Si el cargo ya existía, actualiza su descripción con lo que el gerente le cuenta."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Pasa la descripción al formato vigente y la guarda en Lark (Panamá) o en el archivo del área (Venezuela)."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Actualiza el organigrama del país."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerentes de área",
+       "Presidencia y socios",
+       "Gerente de Recursos Humanos",
+       "Analista / Coordinador(a) de Recursos Humanos"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerentes de área",
+        "tipo": "inicio",
+        "n": "Se necesita una posición o cambia un cargo"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Solicitar la posición o avisar el cambio",
+        "sistemas": [
+         "Lark",
+         "Correo"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Es una posición nueva?"
+       },
+       {
+        "id": "n3",
+        "carril": "Presidencia y socios",
+        "tipo": "tarea",
+        "n": "Aprobar la posición nueva"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Redactar el perfil con el gerente",
+        "sistemas": [
+         "IA"
+        ]
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Actualizar la descripción existente"
+       },
+       {
+        "id": "n6",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Pasarla al formato y guardarla",
+        "sistemas": [
+         "Lark"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Actualizar el organigrama"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Descripción y organigrama al día"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n6"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "17.7": {
+    "nota_version": "Versión As-Is: describe cómo se evalúa hoy el desempeño hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Las evaluaciones que existen hoy —la del período de prueba y la anual de Panamá— y lo que se hace con su resultado.",
+     "texto": "**No hay un ciclo de desempeño formal en ningún país**, y el propio grupo lo reconoce: la dirección señala que no hay medición y la Junta nunca ha tratado la sucesión de las posiciones clave. Las promociones las deciden los socios caso a caso.\n\nEn **Panamá** hay dos piezas. Al colaborador nuevo se le evalúa **antes de que venzan sus tres meses de prueba**: hacia los dos meses la Gerente de Recursos Humanos llama al jefe, le envía el formulario y conversa con él la valoración —*«no para que cambien el puntaje»*, sino para que la afine—. Según la gerente, esa evaluación se repite **a los seis meses y al año**; la coordinación confirma solo la del período de prueba. Al resto del personal se le aplica, cuando se logra, un **formulario anual de fortalezas, oportunidades de mejora y plan de acción**: se hizo el año pasado y este no. En 2026 se hizo por primera vez una **evaluación 360**: el gerente llama a cada colaborador, este se autoevalúa en cada característica del instrumento, el gerente le da su retroalimentación y conversan qué mejorar. Recursos Humanos la revisa y la **archiva en el expediente, y ahí termina**: *«no se hace más nada»*. La coordinación describe la evaluación anual como algo que se hace *«a veces, no siempre»*.\n\nEn **Venezuela no hay evaluación formal**. La única valoración es la del **período de prueba**, que el gerente responde por correo, y en tiendas, desde mayo de 2026, un **bono grupal** cuando la tienda cumple su meta. En **Colombia** tampoco hay evaluaciones formales."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Panamá); en Venezuela y Colombia no hay dueño porque no hay proceso",
+     "participantes": [
+      "Gerentes de área",
+      "Coordinador(a) de Recursos Humanos",
+      "Colaboradores",
+      "Presidencia y socios"
+     ],
+     "evidencia": [
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-21",
+      "E-20",
+      "E-01",
+      "E-50"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se acerca el fin del período de prueba de un ingreso, o Recursos Humanos programa la evaluación anual (Panamá).",
+     "cadencia": "Por evento para el período de prueba; anual —y no todos los años— para la evaluación general de Panamá.",
+     "output": "Evaluación archivada en el expediente del colaborador, sin decisión de desarrollo, movimiento ni compensación asociada.",
+     "evidencia": [
+      "E-13",
+      "E-54",
+      "E-37"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-21"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Para un ingreso reciente, llama al jefe hacia los dos meses y le envía el formulario de evaluación (Panamá); en Venezuela, le pide por correo su valoración al cierre del mes de prueba."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerentes de área",
+       "texto": "Evalúa al colaborador y comenta la valoración con Recursos Humanos."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "En Panamá, según la gerente, repite la evaluación a los seis meses y al año del ingreso."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Para el resto del personal, convoca a los gerentes a la evaluación anual —formulario de fortalezas y plan de acción, o evaluación 360— en los años en que se programa."
+      },
+      {
+       "id": "a5",
+       "rol": "Colaborador",
+       "texto": "Se autoevalúa con su gerente en cada característica del instrumento."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerentes de área",
+       "texto": "Le da retroalimentación y acuerda con él fortalezas, oportunidades de mejora y plan de acción."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Revisa la evaluación y la archiva en el expediente del colaborador."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Recursos Humanos",
+       "Gerentes de área",
+       "Colaborador",
+       "Analista / Coordinador(a) de Recursos Humanos"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Vence la prueba o se programa la evaluación anual"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Es un ingreso reciente?"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Enviar al jefe el formulario de evaluación",
+        "sistemas": [
+         "Correo"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Evaluar al colaborador"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Repetir a los seis y a los doce meses"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Convocar la evaluación anual"
+       },
+       {
+        "id": "n6",
+        "carril": "Colaborador",
+        "tipo": "tarea",
+        "n": "Autoevaluarse con su gerente"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Dar retroalimentación y acordar mejoras"
+       },
+       {
+        "id": "n8",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Revisar y archivar en el expediente"
+       },
+       {
+        "id": "n9",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Evaluación archivada, sin decisión asociada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n8"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "17.8": {
+    "nota_version": "Versión As-Is: describe cómo se detectan las necesidades de formación y se imparten las capacitaciones hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un área detecta una necesidad de formación hasta que la capacitación se imparte, incluida la formación de producto y de sistemas. Incluye la puesta en marcha de la universidad corporativa.",
+     "texto": "Hasta agosto de 2026 **no había una función de formación**: la capacitación cubría el conocimiento de **producto y de plataformas**, y la daban las propias áreas. Servicio al Cliente forma en producto a los ingresos de cualquier área y a clientes; los supervisores de marca entrenan a los vendedores en tienda; Visual Merchandising tiene su propio manual para quien entra al departamento. La **Universidad Cubitt**, creada hace tres años desde Servicio al Cliente con la idea de que todos los gerentes crearan cursos, se quedó sin apoyo y la usa sobre todo Servicio Técnico, aunque tiene cursos básicos —Excel, inglés, atención al cliente— que casi nadie aprovecha. Cuando llega una herramienta nueva —un sistema de facturación, uno de inventario— se capacita a quien la va a usar.\n\nFuera de eso, la formación es **puntual y a pedido**. En Panamá, la Gerente de Recursos Humanos conversa con el gerente sobre las habilidades que le faltan a su equipo y busca un facilitador externo, o la coordinación da temas que domina, como manejo del estrés; hizo un diagnóstico de necesidades y lo dejó en pausa a la espera de la nueva figura. En Venezuela se organizan talleres puntuales —primeros auxilios, evacuación, extinción de incendios tras el terremoto— y, como Recursos Humanos **no tiene presupuesto**, cada capacitación con costo se presenta a Administración o a la Presidencia para su aprobación. **No hay un plan de formación con presupuesto** en ningún país.\n\nEn agosto de 2026 se incorporó una **Gerente de Formación y Desarrollo regional**, para todos los países y las dos marcas, con base en Colombia y doble jefatura. En sus primeras semanas levantó y priorizó las necesidades y diseñó la **universidad corporativa Momentum**, con tres escuelas —comercial, negocio y liderazgo— y una biblioteca abierta; la escuela comercial está en construcción y **el lanzamiento se comunicó oficialmente en septiembre**, con el respaldo de la Junta. Mientras tanto, las necesidades le llegan por un formulario o por el correo de Momentum y ella valida su pertinencia con el líder del área; el circuito de aprobación está todavía por construir."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Formación y Desarrollo (regional, desde agosto de 2026); antes, cada área para su formación de producto y la Gerente de Recursos Humanos para las capacitaciones puntuales",
+     "participantes": [
+      "Gerentes de área",
+      "Servicio al Cliente",
+      "Supervisores de marca",
+      "Gerente de Recursos Humanos",
+      "Presidencia y Administración",
+      "Proveedores de formación"
+     ],
+     "evidencia": [
+      "E-66",
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-02",
+      "E-50",
+      "SC-09"
+     ],
+     "sin_evidencia": "No consta que se registre la asistencia ni que se evalúe el aprovechamiento de las capacitaciones."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un área detecta una necesidad de formación, llega una herramienta nueva o se crea una capacitación de producto.",
+     "cadencia": "Por evento; sin calendario anual.",
+     "output": "Capacitación impartida.",
+     "evidencia": [
+      "E-66",
+      "E-13",
+      "E-54"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-66",
+      "E-13",
+      "E-54",
+      "E-37",
+      "E-02"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerentes de área",
+       "texto": "Detecta la necesidad de formación de su equipo y la plantea a Recursos Humanos o, desde septiembre, a Momentum por formulario o correo."
+      },
+      {
+       "id": "a2",
+       "rol": "Servicio al Cliente y supervisión de marca",
+       "texto": "Si es formación de producto o de un sistema, la da el área que lo conoce —Servicio al Cliente, el supervisor de marca o quien implanta la herramienta—, en parte a través de la Universidad Cubitt."
+      },
+      {
+       "id": "a3",
+       "rol": "Formación y Desarrollo / Recursos Humanos",
+       "texto": "Si es de otro tipo, valida su pertinencia con el líder del área y decide si la da el equipo interno o un facilitador externo."
+      },
+      {
+       "id": "a4",
+       "rol": "Presidencia / Administración",
+       "texto": "Aprueba el costo cuando la capacitación lo tiene, porque Recursos Humanos no dispone de presupuesto propio."
+      },
+      {
+       "id": "a5",
+       "rol": "Proveedor externo de formación",
+       "texto": "Imparte la capacitación."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerentes de área",
+       "Servicio al Cliente y supervisión de marca",
+       "Formación y Desarrollo / Recursos Humanos",
+       "Presidencia / Administración",
+       "Proveedor externo de formación"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerentes de área",
+        "tipo": "inicio",
+        "n": "Se detecta una necesidad de formación"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Plantear la necesidad",
+        "sistemas": [
+         "Correo",
+         "Momentum"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerentes de área",
+        "tipo": "decision",
+        "n": "¿Es de producto o de un sistema?"
+       },
+       {
+        "id": "n3",
+        "carril": "Servicio al Cliente y supervisión de marca",
+        "tipo": "tarea",
+        "n": "Dar la formación de producto o sistema",
+        "sistemas": [
+         "Universidad Cubitt"
+        ]
+       },
+       {
+        "id": "n4",
+        "carril": "Formación y Desarrollo / Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Validar y decidir cómo se imparte"
+       },
+       {
+        "id": "n5",
+        "carril": "Formación y Desarrollo / Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Tiene costo?"
+       },
+       {
+        "id": "n6",
+        "carril": "Presidencia / Administración",
+        "tipo": "tarea",
+        "n": "Aprobar el costo"
+       },
+       {
+        "id": "n7",
+        "carril": "Proveedor externo de formación",
+        "tipo": "tarea",
+        "n": "Impartir la capacitación"
+       },
+       {
+        "id": "n8",
+        "carril": "Formación y Desarrollo / Recursos Humanos",
+        "tipo": "fin",
+        "n": "Capacitación impartida"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n8"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       }
+      ]
+     }
+    }
+   },
+   "17.9": {
+    "nota_version": "Versión As-Is: describe cómo se organizan las actividades de bienestar y se mide el clima hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Actividades de bienestar y de clima, su presupuesto y la medición del clima organizacional.",
+     "texto": "En **Panamá** hay un **código de cultura escrito** desde hace uno o dos años, que se entrega a cada colaborador al ingresar. Las actividades se planifican cada **semestre con un presupuesto que se aprueba de antemano**, y eso le permite a Recursos Humanos decidir sin consultar durante el período. Se alinean con **una línea que la empresa fija para el año** —inclusión, salud, educación— y van desde lo cotidiano —cumpleaños, pausas activas, un desayuno o una dinámica por departamento— hasta un taller con un psicólogo. Recursos Humanos se encarga también de los insumos de oficina, cafetería y aseo, y pide a Tesorería el pago de todo. La **encuesta de clima** tiene procedimiento escrito —anual, anónima, con una semana para responder— pero se aplica *«muy pocas veces»*: la gerente la organiza con practicantes universitarios de psicología cuando los hay, y la coordinación reconoce que casi nunca se hace. Las actividades se deciden **por percepción, sin indicadores**.\n\nEn **Venezuela** las actividades se concentran en las **fechas especiales** —Día de la Madre, del Padre, de la Mujer— y en acciones puntuales, como las charlas con psicólogos y el simulacro de evacuación tras el terremoto. **No hay presupuesto propio**: cada actividad se presenta con su costo a Administración —antes a la Presidencia— para que la apruebe, y las piezas de comunicación se piden a Mercadeo, a veces sin planificación. El propio equipo reconoce que la metodología es la de cuando la empresa era más pequeña. **No se mide el clima.**\n\nCada país lo hace por su cuenta, sin coordinación entre ellos. No consta cómo se atiende hoy el bienestar en Colombia."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá)",
+     "participantes": [
+      "Coordinador(a) de Recursos Humanos",
+      "Asistente de Recursos Humanos (Panamá)",
+      "Gerente de Administración (Venezuela)",
+      "Tesorería (Panamá)",
+      "Mercadeo (Venezuela)",
+      "Colaboradores"
+     ],
+     "evidencia": [
+      "E-54",
+      "E-13",
+      "E-37",
+      "E-21",
+      "E-42"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Se planifica el semestre (Panamá) o se acerca una fecha especial (Venezuela).",
+     "cadencia": "Semestral la planificación en Panamá; por fecha especial en Venezuela. La encuesta de clima, irregular.",
+     "output": "Actividad realizada y, rara vez, una encuesta de clima aplicada.",
+     "evidencia": [
+      "E-54",
+      "E-37"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-54",
+      "E-13",
+      "E-37",
+      "E-21"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Planifica las actividades del semestre según la línea que la empresa fija para el año (Panamá), o prepara la actividad de la próxima fecha especial (Venezuela)."
+      },
+      {
+       "id": "a2",
+       "rol": "Administración / Tesorería",
+       "texto": "En Venezuela, aprueba el costo de cada actividad que Recursos Humanos le presenta; en Panamá, aprueba al inicio el presupuesto del semestre."
+      },
+      {
+       "id": "a3",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Organiza la actividad —proveedores, insumos, alimentos— y pide a Tesorería los pagos."
+      },
+      {
+       "id": "a4",
+       "rol": "Colaboradores",
+       "texto": "Participan en la actividad."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Cuando se logra, aplica la encuesta de clima y revisa sus resultados (Panamá)."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Recursos Humanos",
+       "Administración / Tesorería",
+       "Analista / Coordinador(a) de Recursos Humanos",
+       "Colaboradores"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "inicio",
+        "n": "Se planifica el semestre o llega una fecha especial"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Planificar las actividades"
+       },
+       {
+        "id": "n2",
+        "carril": "Administración / Tesorería",
+        "tipo": "tarea",
+        "n": "Aprobar el costo o el presupuesto"
+       },
+       {
+        "id": "n3",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Organizar la actividad y pedir los pagos"
+       },
+       {
+        "id": "n4",
+        "carril": "Colaboradores",
+        "tipo": "tarea",
+        "n": "Participar en la actividad"
+       },
+       {
+        "id": "n5",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Se aplica la encuesta de clima?"
+       },
+       {
+        "id": "n6",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Aplicar la encuesta y revisar resultados",
+        "sistemas": [
+         "Google Forms"
+        ]
+       },
+       {
+        "id": "n7",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Actividad realizada, sin medición de su efecto"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "17.10": {
+    "nota_version": "Versión As-Is: describe cómo se tramita la salida de un colaborador y se paga su liquidación hoy en cada país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde la renuncia o la decisión de terminar la relación hasta el pago de la liquidación, la baja ante los entes y el archivo del expediente.",
+     "texto": "En **Venezuela** la renuncia se pide **escrita a puño y letra, firmada y con las huellas**. En un despido se busca siempre un acuerdo —la organización no registra conflictos laborales hasta la fecha— y la carta la redacta la Gerencia de Recursos Humanos con los abogados externos. Recursos Humanos avisa a Sistemas, a seguridad y a Tesorería para programar la baja. La **Analista de Nómina calcula la liquidación en Odoo** conforme a la ley —salarios pendientes, vacaciones y utilidades fraccionadas, prestaciones por la metodología más favorable y, en un mutuo acuerdo, la indemnización—, y el Coordinador de Recursos Humanos la audita y pide los fondos a Tesorería con el estado del fideicomiso, para descontar los anticipos. La firma se hace en la oficina de Recursos Humanos o, en los casos complejos, **ante la Inspectoría del Trabajo con los abogados**. A quien se va por su cuenta se le hace una **breve entrevista** sobre sus motivos. **Contabilidad ve el detalle de la liquidación solo cuando el pago ya se hizo**, y a veces un préstamo interno queda sin descontar.\n\nEn **Panamá** la ley obliga a avisar el despido con una semana, o a pagar esa semana; la empresa la paga. Se calcula la liquidación y la **Gerente de Recursos Humanos** habla con la persona, le presenta el cálculo y **muchas veces negocia**; a veces eso lleva días. La coordinación sigue un **formulario propio de pasos de salida**: avisar al gerente, pedir a Sistemas que bloquee el correo y recupere computador o teléfono, recibir carné y uniforme, reportar la salida en la plataforma de la Caja de Seguro Social, registrarla en el sistema de planilla para que no genere más pagos y pasar ese registro a Contabilidad. El pago va por transferencia, el colaborador firma el recibido y su conformidad, y el expediente pasa al archivo de cesantes. Cuando la salida no es un despido, la gerente hace casi siempre una **entrevista de salida**.\n\nLa salida **no se comunica formalmente al resto de la organización**: otras áreas se enteran por el pasillo o porque la persona sale de un grupo de mensajería.\n\nEn **Colombia** todo lo relativo a la salida pasa por GOLD RH, que es legalmente el empleador."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Recursos Humanos (Venezuela y Panamá); en Colombia, GOLD RH",
+     "participantes": [
+      "Coordinador(a) de Recursos Humanos",
+      "Analista de Nómina (Venezuela)",
+      "Jefe del área",
+      "Coordinación de Sistemas",
+      "Tesorería",
+      "Contabilidad",
+      "Asesoría laboral externa (Venezuela)"
+     ],
+     "evidencia": [
+      "E-37",
+      "E-21",
+      "E-54",
+      "E-38",
+      "E-42",
+      "E-46"
+     ]
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El colaborador entrega su renuncia, o la empresa decide terminar la relación.",
+     "cadencia": "Por evento.",
+     "output": "Liquidación pagada y firmada, accesos revocados, baja registrada ante la seguridad social y expediente archivado.",
+     "evidencia": [
+      "E-37",
+      "E-54"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-37",
+      "E-54",
+      "E-38",
+      "Política corporativa de desvinculación (Lark, Venezuela)"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Colaborador / gerente del área",
+       "texto": "El colaborador entrega su renuncia escrita y firmada, o el gerente plantea la salida de alguien de su equipo."
+      },
+      {
+       "id": "a2",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Recibe la renuncia y verifica que traiga los datos, la firma y, en Venezuela, las huellas."
+      },
+      {
+       "id": "a3",
+       "rol": "Asesoría laboral externa",
+       "texto": "En un despido o mutuo acuerdo en Venezuela, redacta con la Gerencia de Recursos Humanos la carta de notificación."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "En un despido o mutuo acuerdo, presenta a la persona las condiciones de salida y las negocia cuando hace falta."
+      },
+      {
+       "id": "a5",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Avisa al gerente, a Sistemas y a Tesorería de la salida y recibe el carné y el uniforme."
+      },
+      {
+       "id": "a6",
+       "rol": "Coordinación de Sistemas",
+       "texto": "Bloquea el correo y los accesos y recupera el computador o el teléfono de la empresa."
+      },
+      {
+       "id": "a7",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Calcula la liquidación en el sistema de nómina y, en Venezuela, la audita y pide los fondos a Tesorería con el estado del fideicomiso."
+      },
+      {
+       "id": "a8",
+       "rol": "Tesorería",
+       "texto": "Transfiere el pago de la liquidación."
+      },
+      {
+       "id": "a9",
+       "rol": "Colaborador / gerente del área",
+       "texto": "El colaborador firma el recibido y su conformidad; en Venezuela, los casos complejos se firman ante la Inspectoría del Trabajo."
+      },
+      {
+       "id": "a10",
+       "rol": "Gerente de Recursos Humanos",
+       "texto": "Si la salida fue voluntaria, hace la entrevista de salida sobre sus motivos."
+      },
+      {
+       "id": "a11",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Reporta la baja ante la seguridad social, la registra en el sistema de nómina y pasa el registro a Contabilidad."
+      },
+      {
+       "id": "a12",
+       "rol": "Contabilidad",
+       "texto": "Registra la liquidación, ya pagada, en la contabilidad."
+      },
+      {
+       "id": "a13",
+       "rol": "Analista / Coordinador(a) de Recursos Humanos",
+       "texto": "Archiva el expediente del colaborador cesante."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Colaborador / gerente del área",
+       "Gerente de Recursos Humanos",
+       "Analista / Coordinador(a) de Recursos Humanos",
+       "Asesoría laboral externa",
+       "Coordinación de Sistemas",
+       "Tesorería",
+       "Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Colaborador / gerente del área",
+        "tipo": "inicio",
+        "n": "Renuncia o decisión de terminar la relación"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Es una renuncia?"
+       },
+       {
+        "id": "n2",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Recibir la renuncia escrita y firmada"
+       },
+       {
+        "id": "n3",
+        "carril": "Asesoría laboral externa",
+        "tipo": "tarea",
+        "n": "Redactar la carta de notificación"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Presentar y negociar las condiciones"
+       },
+       {
+        "id": "n5",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Avisar la salida y recibir carné y uniforme"
+       },
+       {
+        "id": "n6",
+        "carril": "Coordinación de Sistemas",
+        "tipo": "tarea",
+        "n": "Bloquear accesos y recuperar equipos"
+       },
+       {
+        "id": "n7",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Calcular la liquidación",
+        "sistemas": [
+         "Odoo",
+         "Fonseca"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Tesorería",
+        "tipo": "tarea",
+        "n": "Transferir el pago de la liquidación"
+       },
+       {
+        "id": "n9",
+        "carril": "Colaborador / gerente del área",
+        "tipo": "tarea",
+        "n": "Firmar el recibido y la conformidad"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "decision",
+        "n": "¿Fue una salida voluntaria?"
+       },
+       {
+        "id": "n11",
+        "carril": "Gerente de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Hacer la entrevista de salida"
+       },
+       {
+        "id": "n12",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Reportar la baja y registrar la salida",
+        "sistemas": [
+         "SIPE",
+         "Odoo",
+         "Fonseca"
+        ]
+       },
+       {
+        "id": "n13",
+        "carril": "Contabilidad",
+        "tipo": "tarea",
+        "n": "Registrar la liquidación ya pagada"
+       },
+       {
+        "id": "n14",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "tarea",
+        "n": "Archivar el expediente del cesante"
+       },
+       {
+        "id": "n15",
+        "carril": "Analista / Coordinador(a) de Recursos Humanos",
+        "tipo": "fin",
+        "n": "Salida cerrada y expediente archivado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n5"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10",
+        "a": "n12",
+        "etq": "No"
+       },
+       {
+        "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       },
+       {
+        "de": "n13",
+        "a": "n14"
+       },
+       {
+        "de": "n14",
+        "a": "n15"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };
