@@ -429,7 +429,7 @@ window.MANUAL_CONTENIDO = {
      ["9.12 Auditoría y autoauditoría de tienda", "Gerente de Tienda", "Gerente Regional de Retail", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)"],
      ["9.13 Garantías y servicio postventa", "Gerente de Tienda", "Gerente de Servicio Técnico", "Técnico(a) de Servicio / Relojero(a) · Especialista de Producto", "Cliente"],
      ["9.14 Inventarios selectivos y general", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Supervisor(a) de Bodega / Despacho", "Gerente de Ventas al Detal (País)"],
-     ["9.15 Manejo de efectivo", "Gerente de Tienda", "Coordinador(a) de Tesorería y Cobranzas", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
+     ["9.15 Manejo de efectivo", "Gerente de Tienda", "Coordinador(a) de Tesorería / Cobranzas", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
      ["9.16 Gestión operativa del personal", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Recursos Humanos", "Gerente Regional de Retail"],
      ["9.17 Comisiones e incentivos", "Analista de Recursos Humanos / Nómina", "Gerente Regional de Retail", "Planificador Financiero · Gerente de Tienda", "—"],
      ["9.18 Mantenimiento e incidencias", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Sistemas · Contabilidad", "Administración del Centro Comercial"]
@@ -1307,10 +1307,10 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Gerente de Tienda", "texto": "Deposita el efectivo el mismo día cuando el centro comercial tiene banco: el trayecto es corto y no sale del recinto, que es lo que lo hace practicable."},
       {"id": "a3", "rol": "Gerente de Tienda", "texto": "Cuando no hay banco en el centro comercial, entrega la recaudación al servicio de traslado de valores en la frecuencia establecida y la resguarda hasta entonces. ⚠️ El traslado de efectivo no debe hacerse en la ruta ordinaria de mensajería ni por personal de bodega: expone a la persona y al dinero, y la evidencia describe esa ruta expresamente para documentos, no para efectivo."},
       {"id": "a4", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Traslada los documentos del punto —facturas, comprobantes de depósito y garantías— aprovechando la ruta de mensajería que ya pasa por la tienda a entregar mercancía. Es lo que hoy se hace y es lo que esa ruta puede cubrir sin riesgo."},
-      {"id": "a5", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Concilia lo efectivamente depositado contra el cuadre de caja y los documentos recibidos, y persigue la diferencia cuando la hay."}
+      {"id": "a5", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Concilia lo efectivamente depositado contra el cuadre de caja y los documentos recibidos, y persigue la diferencia cuando la hay."}
       ],
      "diagrama": {
-      "carriles": ["Gerente de Tienda", "Auxiliar / Ayudante de Bodega y Tráfico", "Coordinador(a) de Tesorería y Cobranzas"],
+      "carriles": ["Gerente de Tienda", "Auxiliar / Ayudante de Bodega y Tráfico", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Cierre de caja del día"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Cuadrar y separar efectivo de otros medios"},
@@ -1318,8 +1318,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n2alt", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Resguardar y entregar a traslado de valores"},
        {"id": "n3", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Depositar el efectivo el mismo día"},
        {"id": "n4", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Trasladar los documentos del punto"},
-       {"id": "n5", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Conciliar lo depositado contra el cuadre"},
-       {"id": "n6", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "fin", "n": "Efectivo depositado y conciliado"}
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Conciliar lo depositado contra el cuadre"},
+       {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Efectivo depositado y conciliado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
@@ -1341,8 +1341,8 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Efectivo depositado el mismo día del cierre", "Depósitos el mismo día ÷ total de cierres", "Diaria", "Gerente de Tienda", "100% donde hay banco propio"],
-      ["Tiempo entre cierre y conciliación en tesorería", "Fecha de conciliación − fecha de cierre", "Semanal", "Coordinador(a) de Tesorería y Cobranzas", "Según frecuencia de transporte del país"],
-      ["Incidencias de descuadre depositado vs. declarado", "Descuadres detectados por mes", "Mensual", "Coordinador(a) de Tesorería y Cobranzas", "Tendencia descendente"]
+      ["Tiempo entre cierre y conciliación en tesorería", "Fecha de conciliación − fecha de cierre", "Semanal", "Coordinador(a) de Tesorería / Cobranzas", "Según frecuencia de transporte del país"],
+      ["Incidencias de descuadre depositado vs. declarado", "Descuadres detectados por mes", "Mensual", "Coordinador(a) de Tesorería / Cobranzas", "Tendencia descendente"]
      ]
     }
    },
@@ -2722,8 +2722,8 @@ window.MANUAL_CONTENIDO = {
      ["8.11 Gestión de línea blanca / marca privada", "Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing", "Sourcing en China · Gerente de Contabilidad / Administración", "—"],
      ["8.12 Prospección y apertura de nuevo cliente", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Legal Corporativo", "—"],
      ["8.13 Gestión de mobiliario, POP y activaciones en punto de venta", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Visual Merchandising · Planificador Financiero", "—"],
-     ["8.14 Cálculo, aprobación y pago de comisiones", "Gerente Comercial (País / Canal)", "Country Manager", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería y Cobranzas"],
-     ["8.15 Cobranza comercial y conciliación multi-instrumento", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Tesorería y Cobranzas", "—"],
+     ["8.14 Cálculo, aprobación y pago de comisiones", "Gerente Comercial (País / Canal)", "Country Manager", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería / Cobranzas"],
+     ["8.15 Cobranza comercial y conciliación multi-instrumento", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Tesorería / Cobranzas", "—"],
      ["8.16 Devoluciones y notas de crédito comerciales", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega · Gerente de Contabilidad / Administración", "—"],
      ["8.17 Reportería comercial y toma de decisión basada en data", "Analista de Sistemas / Datos", "Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Junta / Comité Directivo"]
     ],
@@ -2774,7 +2774,7 @@ window.MANUAL_CONTENIDO = {
       "Gerente Regional Comercial (Mayoreo) — fija la base y el crecimiento del ciclo, consolida el plan regional y lo revisa cada trimestre contra el cumplimiento real.",
       "Gerente Comercial (País / Canal) — consolida el forecast de su mercado con su equipo de vendedores y baja después la cuota individual con el calendario comercial.",
       "Country Manager — avala el forecast de su mercado antes de que suba a consolidación regional y responde por ese número. Aporta el contexto local que la región no ve: reglas del mercado, calendario propio y capacidad de la estructura del país.",
-      "Comité Comercial / Director Comercial — revisa y aprueba el plan comercial regional antes de que se convierta en cuota. Es el nivel donde se fijan las políticas de venta al mayor y a quien reporta la gerencia comercial regional.",
+      "Comité Comercial — revisa y aprueba el plan comercial regional antes de que se convierta en cuota. Es el nivel donde se fijan las políticas de venta al mayor y a quien reporta la gerencia comercial regional.",
       "Analista/Ejecutivo(a) Comercial — aporta el detalle de su cartera —movimiento de cada cliente, oportunidades abiertas, clientes nuevos del año— como insumo del forecast del país. No lo construye: lo alimenta."
      ],
      "evidencia": ["E-39", "E-05", "E-01", "E-63", "E-14", "E-31"],
@@ -2798,13 +2798,13 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Country Manager", "texto": "Avala el forecast de su mercado antes de que suba a consolidación regional: lo contrasta contra el contexto local —reglas del mercado, calendario propio, capacidad de la estructura del país— y queda como responsable del número que su país compromete."},
       {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Mide la brecha antes de consolidar nada: compara el objetivo que bajó al arrancar el ciclo contra la suma de los forecast que los países avalaron, y la abre por país y por marca. Esa diferencia —cuánto falta o cuánto sobra, y de dónde viene— es lo que el comité tiene que decidir; sin ella, la aprobación es una firma sobre un número ya cuadrado."},
       {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Consolida el plan comercial regional con cuotas mensuales, trimestrales y anuales, y deja constancia de cómo se cerró la brecha: qué se pidió de más a cada mercado, qué se aceptó por debajo del objetivo y con qué razón."},
-      {"id": "a6", "rol": "Comité Comercial / Director Comercial", "texto": "Revisa el plan regional con todos los canales en la mesa —la brecha a la vista, no solo el resultado— y lo aprueba, o lo devuelve con el ajuste que corresponda. Es el punto donde el forecast deja de ser una propuesta de la gerencia y pasa a ser el compromiso de venta del grupo: sin él, quien construye el plan es el mismo que lo da por bueno."},
+      {"id": "a6", "rol": "Comité Comercial", "texto": "Revisa el plan regional con todos los canales en la mesa —la brecha a la vista, no solo el resultado— y lo aprueba, o lo devuelve con el ajuste que corresponda. Es el punto donde el forecast deja de ser una propuesta de la gerencia y pasa a ser el compromiso de venta del grupo: sin él, quien construye el plan es el mismo que lo da por bueno."},
       {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Recibe la devolución y rehace el plan: cuando el ajuste pedido cabe en lo que los países ya avalaron, reconsolida; cuando no cabe, reabre el ciclo a los mercados afectados, y entonces el forecast vuelve a construirse y a avalarse. Lo que se devuelve es el plan regional, así que lo recibe quien lo armó, no el país que ya había cerrado su parte."},
       {"id": "a8", "rol": "Gerente Comercial (País / Canal)", "texto": "Baja la cuota individual a cada vendedor —mensual, trimestral y anual— junto con el calendario comercial de campañas del canal."},
       {"id": "a9", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Ajusta el plan cada trimestre según el cumplimiento real contra la meta, con el seguimiento que el sistema entrega en continuo. El ajuste dentro del año es lo normal, no la excepción."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Country Manager", "Comité Comercial / Director Comercial"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Country Manager", "Comité Comercial"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre del ciclo comercial"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Definir la base y el crecimiento del ciclo", "sistemas": ["Odoo"]},
@@ -2812,7 +2812,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n3", "carril": "Country Manager", "tipo": "tarea", "n": "Avalar el forecast del mercado"},
        {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Medir la brecha contra el objetivo del ciclo"},
        {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Consolidar el plan comercial regional"},
-       {"id": "n6", "carril": "Comité Comercial / Director Comercial", "tipo": "decision", "n": "¿Aprueba el plan regional?"},
+       {"id": "n6", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Aprueba el plan regional?"},
        {"id": "n6alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Rehacer el plan con el ajuste pedido"},
        {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Bajar cuota individual con calendario comercial"},
        {"id": "n8", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Ajustar el plan cada trimestre por cumplimiento", "sistemas": ["Odoo", "Tablero comercial de seguimiento"]},
@@ -2842,7 +2842,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Precisión del forecast", "Venta real ÷ venta pronosticada, por vendedor y por país, con moneda y tasa fechada", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "±15%"],
       ["Países con revisión trimestral adoptada", "Países en cadencia trimestral ÷ total de países", "Trimestral", "Gerente Regional Comercial (Mayoreo)", "100%"],
-      ["Plan regional aprobado antes del inicio del período", "Ciclos con aprobación del comité antes del arranque ÷ ciclos del año", "Trimestral", "Comité Comercial / Director Comercial", "100%"],
+      ["Plan regional aprobado antes del inicio del período", "Ciclos con aprobación del comité antes del arranque ÷ ciclos del año", "Trimestral", "Comité Comercial", "100%"],
       ["Cuotas comunicadas antes del inicio del período", "Vendedores notificados a tiempo ÷ total de vendedores", "Trimestral", "Gerente Comercial (País / Canal)", "100%"]
      ]
     }
@@ -2861,7 +2861,7 @@ window.MANUAL_CONTENIDO = {
       "Gerente Regional Comercial (Mayoreo) — propone y mantiene la política comercial del canal: segmentación, listas, matriz de descuento y crédito, y esquema de comisiones. Es donde hoy se llevan las propuestas de cambio de alcance regional.",
       "Gerente Comercial (País / Canal) — aporta el comportamiento de su mercado y propone los ajustes que su plaza necesita; después aplica la política y responde por las excepciones que pide.",
       "Gerente de Contabilidad / Administración — contrasta el efecto de las listas y de la matriz de descuento sobre el margen, y fija las condiciones de crédito con las que se puede vender a plazo.",
-      "Comité Comercial / Director Comercial — aprueba la política del ciclo. Compromete margen del grupo, así que la decisión no puede quedar en quien la propone ni en un solo mercado."
+      "Comité Comercial — aprueba la política del ciclo. Compromete margen del grupo, así que la decisión no puede quedar en quien la propone ni en un solo mercado."
      ],
      "evidencia": ["E-05", "E-35", "E-63", "E-14", "E-39"],
      "notas": "⚠️ Se aparta de la ficha del mapa en tres puntos. (1) El mapa pone al «Country Manager como aprobador de política de comisiones y descuentos estratégicos». La evidencia dice lo contrario y por una razón estructural: una política regional no la puede aprobar la cabeza de un país. Cuando se quiso cambiar el esquema de comisiones de toda la región, la propuesta subió a la gerencia comercial regional, no a un país. El Country Manager aplica la política y pide excepciones para su mercado; no la fija. (2) El armazón atribuía la validación de margen a un «Planificador Financiero», cargo que no existe en el patrón V4. Quien lleva esa función es el Gerente de Contabilidad / Administración, que es además a quien se acudió para intentar formalizar el respaldo del crédito. (3) Se incorpora el Comité Comercial como aprobador, por la misma razón que en 8.1: la política compromete el margen del grupo y quien la propone no puede ser quien la da por buena. ⚠️ El flujo se reescribió además porque recorría un solo objeto —las listas de precios— cuando el alcance promete cuatro: la segmentación, las listas, el descuento y crédito, y las comisiones. Ahora cada uno tiene su paso y su responsable.",
@@ -2884,12 +2884,12 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Contrasta las listas y la matriz de descuento propuestas contra el margen que dejan, y fija las condiciones con las que se puede vender a crédito: a quién, hasta cuánto, a qué plazo y con qué respaldo documental."},
       {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Arma la matriz de aprobación: hasta qué descuento decide el vendedor, hasta cuál el gerente del país, y a partir de qué punto sube. Es el paso que convierte el criterio en regla, porque hoy la excepción se resuelve conversándola con el nivel directivo."},
       {"id": "a5", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Propone el esquema de comisiones del ciclo, con el tramo que corresponde a cada nivel de descuento aplicado y la condición de recaudo. Lo propone en regional, y no cada país por su cuenta, porque hoy cada mercado paga con una regla distinta y esa es la brecha que este paso viene a cerrar."},
-      {"id": "a6", "rol": "Comité Comercial / Director Comercial", "texto": "Aprueba la política del ciclo como un solo cuerpo —segmentación, listas, descuento y crédito, comisiones— o devuelve lo que deba revisarse. Aprobar las piezas por separado es lo que permite que un descuento aprobado en un sitio convierta en pérdida una comisión pactada en otro."},
+      {"id": "a6", "rol": "Comité Comercial", "texto": "Aprueba la política del ciclo como un solo cuerpo —segmentación, listas, descuento y crédito, comisiones— o devuelve lo que deba revisarse. Aprobar las piezas por separado es lo que permite que un descuento aprobado en un sitio convierta en pérdida una comisión pactada en otro."},
       {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Rehace la pieza devuelta con el ajuste pedido y la vuelve a presentar. Lo que se devuelve es la política regional, así que la rehace quien la armó."},
       {"id": "a8", "rol": "Gerente Comercial (País / Canal)", "texto": "Publica la política aprobada donde tiene que estar para surtir efecto: cargada en el sistema con el que se cotiza, comunicada a la fuerza de ventas con la matriz de aprobación a la vista, y la lista de precios enviada a cada cliente. Mientras la lista no llega sola y a fecha fija, el vendedor cotiza de memoria y la política es papel."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Gerente de Contabilidad / Administración", "Comité Comercial / Director Comercial"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Comercial (País / Canal)", "Gerente de Contabilidad / Administración", "Comité Comercial"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cierre de la planificación comercial"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Revisar la segmentación de clientes"},
@@ -2897,7 +2897,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Contrastar margen y fijar condiciones de crédito"},
        {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Armar la matriz de aprobación por nivel"},
        {"id": "n5", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Proponer el esquema de comisiones del ciclo"},
-       {"id": "n6", "carril": "Comité Comercial / Director Comercial", "tipo": "decision", "n": "¿Aprueba la política del ciclo?"},
+       {"id": "n6", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Aprueba la política del ciclo?"},
        {"id": "n6alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Rehacer la pieza devuelta y re-presentar"},
        {"id": "n7", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Publicar, cargar en sistema y comunicar", "sistemas": ["Odoo"]},
        {"id": "n8", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Política comercial vigente y aplicada"}
@@ -2924,7 +2924,7 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Política del ciclo aprobada antes de su entrada en vigor", "Ciclos con política aprobada por el comité antes del arranque ÷ ciclos del año", "Anual", "Comité Comercial / Director Comercial", "100%"],
+      ["Política del ciclo aprobada antes de su entrada en vigor", "Ciclos con política aprobada por el comité antes del arranque ÷ ciclos del año", "Anual", "Comité Comercial", "100%"],
       ["Ventas dentro de la matriz de aprobación", "Pedidos cerrados dentro del nivel de descuento autorizado ÷ pedidos del período", "Mensual", "Gerente Comercial (País / Canal)", "A la alza"],
       ["Excepciones de precio con motivo y autorización registrados", "Excepciones con registro completo ÷ excepciones concedidas", "Mensual", "Gerente Regional Comercial (Mayoreo)", "100%"],
       ["Países con esquema de comisiones homologado", "Países en el esquema regional ÷ total de países", "Anual", "Gerente Regional Comercial (Mayoreo)", "100%"],
@@ -3487,7 +3487,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el contacto del cliente corporativo, por primer contacto o por cuenta recurrente."},
-      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Elabora la cotización especial fuera de las listas corrientes: la venta corporativa se cotiza sobre el precio de referencia al público con el descuento que se negocie, porque el comprador no revende sino que consume o regala el producto."},
+      {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Elabora la cotización fuera de las listas corrientes: la venta corporativa se cotiza sobre el precio de referencia al público con el descuento que se negocie, porque el comprador no revende sino que consume o regala el producto."},
       {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba la cotización antes de que salga al cliente. Un precio fuera de lista es una excepción a la política comercial y compromete margen: pasa por la misma autoridad que aprueba cualquier otra excepción, y escala a la gerencia regional cuando supera el umbral del país."},
       {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Coordina el arte del producto personalizado y lo lleva a aprobación de cada marca patrocinante. ⚠️ Aquí no aprobamos nosotros: cuando el pedido lleva varias marcas invitadas, cada una aprueba su color, su forma y su aplicación por separado. Es lo que alarga y complica esta venta, y es la parte del plazo que no controlamos."},
       {"id": "a5", "rol": "Proveedor de personalización", "texto": "Ejecuta el grabado, la personalización o el empaque especial del producto según el arte aprobado."},
@@ -3497,7 +3497,7 @@ window.MANUAL_CONTENIDO = {
       "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional de Marketing", "Proveedor de personalización", "Gerente de Contabilidad / Administración"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Contacto de cliente corporativo (nuevo o recurrente)"},
-       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Elaborar la cotización especial"},
+       {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Elaborar la cotización"},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Aprueba el precio?"},
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la cotización con el cliente"},
        {"id": "n3", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Lleva marcas invitadas?"},
@@ -3546,18 +3546,18 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Identifica y dimensiona la oportunidad de volumen con una cadena o supermercado para una temporada fuerte: unidades, precio, mecánica de la promoción y ventana de ejecución. La venta de alto volumen la mete la línea comercial sobre su lectura del mercado; marketing la comunica después, no la origina."},
       {"id": "a2", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Negocia directamente el acuerdo con la cadena — no delegable a nivel país."},
       {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Reserva el volumen específico comprometido, más un colchón adicional para clientes preferentes."},
-      {"id": "a4", "rol": "Comité Comercial / Director Comercial", "texto": "Aprueba la campaña por el volumen y el monto que compromete. Es el mismo órgano que aprueba el plan comercial y la política de precios, y no la Junta: lo que se decide aquí es comercial —cuánta mercancía se compromete a qué precio— y cabe dentro del gobierno de la dirección comercial."},
+      {"id": "a4", "rol": "Comité Comercial", "texto": "Aprueba la campaña por el volumen y el monto que compromete. Es el mismo órgano que aprueba el plan comercial y la política de precios, y no la Junta: lo que se decide aquí es comercial —cuánta mercancía se compromete a qué precio— y cabe dentro del gobierno de la dirección comercial."},
       {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina con la cadena la comunicación de la promoción: la pieza, el material en el punto y la mecánica que verá el comprador. Entra cuando la campaña ya está aprobada, porque lo que comunica es un acuerdo cerrado, no una intención."},
       {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina la concentración del despacho para el volumen comprometido y su entrega en la ventana acordada con la cadena."},
       {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Sigue la salida real de la campaña contra lo comprometido y la cierra: cuánto se facturó, cuánto se vendió al público y qué quedó en el punto. Es el dato que dice si la siguiente campaña se dimensiona igual."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Comité Comercial / Director Comercial", "Gerente Regional de Marketing"],
+      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Comité Comercial", "Gerente Regional de Marketing"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Oportunidad de volumen"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Dimensionar y negociar la campaña"},
        {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reservar el volumen y el colchón preferente"},
-       {"id": "n3", "carril": "Comité Comercial / Director Comercial", "tipo": "decision", "n": "¿Aprueba la campaña?"},
+       {"id": "n3", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Aprueba la campaña?"},
        {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Renegociar volumen y condiciones"},
        {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar la comunicación con la cadena"},
        {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar el despacho concentrado"},
@@ -3721,11 +3721,12 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Contrasta la inversión contra el retorno que el plan de venta proyecta y aprueba o devuelve según la matriz de aprobación vigente (proceso 8.2)."},
       {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Reajusta la propuesta con el cliente cuando el retorno no da: sube el compromiso de compra, reduce el alcance del mobiliario, cambia el material por una alternativa más barata o reparte el costo con el punto. Una solicitud que no cuadra a la primera es una negociación abierta, no una oportunidad perdida."},
       {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Vuelve a evaluar la propuesta reajustada con los números nuevos. Solo si tampoco así se sostiene, la solicitud se cierra — y se cierra con el motivo escrito, para que el vendedor sepa qué tendría que cambiar la próxima vez."},
+      {"id": "a5b", "rol": "Gerente Regional de Visual Merchandising", "texto": "Valida el diseño aprobado contra el estándar de marca —materiales, medidas, artes y coherencia con lo que ya está montado en la región— antes de mandarlo a producir. Una pieza que se sostiene en números puede no sostenerse en marca, y rehacerla después cuesta lo mismo que hacerla."},
       {"id": "a6", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Produce el mueble o material aprobado y coordina la entrega y el montaje en el punto de venta."},
       {"id": "a7", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Da seguimiento al rendimiento del punto tras la instalación, para saber si la inversión devolvió lo que el plan de venta prometía."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente de Contabilidad / Administración", "Coordinador(a) de Visual Merchandising"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente de Contabilidad / Administración", "Gerente Regional de Visual Merchandising", "Coordinador(a) de Visual Merchandising"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Solicitud de mueble, POP o activación del vendedor o KAM"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Evaluar contra plan de compras o retorno proyectado"},
@@ -3733,6 +3734,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la propuesta con el cliente"},
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Aprueba lo reajustado?"},
        {"id": "n3alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cerrar la solicitud con su motivo"},
+       {"id": "n3b", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Validar el diseño contra el estándar de marca"},
        {"id": "n4", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Producir el mueble o el material"},
        {"id": "n5", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Entregar y montar en el punto de venta"},
        {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Seguir el rendimiento tras la instalación"},
@@ -3741,8 +3743,9 @@ window.MANUAL_CONTENIDO = {
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
-       {"de": "n2", "a": "n4", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
-       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n8"},
+       {"de": "n2", "a": "n3b", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n3b", "etq": "Sí"},
+       {"de": "n3b", "a": "n4"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n8"},
        {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
@@ -3780,10 +3783,10 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Aplica la tabla vigente de comisiones —tramos por descuento aplicado, tope por techo— sobre lo cobrado."},
       {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Consolida el reporte de comisiones por vendedor del país."},
       {"id": "a4", "rol": "Country Manager", "texto": "Aprueba las condiciones y el monto total a pagar del reporte de comisiones."},
-      {"id": "a5", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Ejecuta el pago de comisiones una vez aprobado el reporte."}
+      {"id": "a5", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Ejecuta el pago de comisiones una vez aprobado el reporte."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Contabilidad / Administración", "Gerente Comercial (País / Canal)", "Country Manager", "Coordinador(a) de Tesorería y Cobranzas"],
+      "carriles": ["Gerente de Contabilidad / Administración", "Gerente Comercial (País / Canal)", "Country Manager", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Contabilidad / Administración", "tipo": "inicio", "n": "Cierre contable del mes"},
        {"id": "n1", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Confirmar facturas efectivamente cobradas del mes"},
@@ -3791,8 +3794,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Consolidar reporte de comisiones por vendedor"},
        {"id": "n4", "carril": "Country Manager", "tipo": "decision", "n": "¿Reporte de comisiones aprobado?"},
        {"id": "n4alt", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Insistir o corregir el reporte para su aprobación"},
-       {"id": "n5", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Ejecutar el pago de comisiones"},
-       {"id": "n6", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "fin", "n": "Comisiones pagadas del mes"}
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Ejecutar el pago de comisiones"},
+       {"id": "n6", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Comisiones pagadas del mes"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
@@ -3833,17 +3836,17 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el comprobante de pago del cliente en cualquiera de sus instrumentos y monedas."},
       {"id": "a3", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Carga el soporte de pago en Odoo, informando a Contabilidad los datos necesarios para descargar la factura."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Concilia formalmente la factura contra el pago recibido y aplica la indexación cuando corresponde."},
-      {"id": "a5", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Confirma el ingreso del pago en tesorería."},
+      {"id": "a5", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Confirma el ingreso del pago en tesorería."},
       {"id": "a6", "rol": "Gerente Comercial (País / Canal)", "texto": "Revisa la cobranza todos los lunes, uno a uno con cada vendedor, y puede suspender el crédito de un cliente por mal comportamiento de pago."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería y Cobranzas", "Gerente Comercial (País / Canal)"],
+      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería / Cobranzas", "Gerente Comercial (País / Canal)"],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Vencimiento de factura o recepción de pago del cliente"},
        {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Recibir comprobante de pago (instrumento y moneda)"},
        {"id": "n2", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cargar soporte de pago e informar a Contabilidad", "sistemas": ["Odoo (ERP)"]},
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Conciliar factura contra pago y aplicar indexación"},
-       {"id": "n4", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Confirmar ingreso del pago en tesorería"},
+       {"id": "n4", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Confirmar ingreso del pago en tesorería"},
        {"id": "n5", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Revisar semanalmente la deuda vigente con cada vendedor"},
        {"id": "n6", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Factura descargada correctamente, deuda actualizada"}
       ],
@@ -4125,7 +4128,7 @@ window.MANUAL_CONTENIDO = {
      ["10.5 Gestión operativa de marketplaces USA", "Gerente de E-commerce / Ventas Web (USA)", "Gerente Regional de Marketing", "Agencia externa especializada · Asistente de E-commerce / Almacén Web", "Junta / Comité Directivo"],
      ["10.6 Venta asistida por chat multiplataforma", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "—"],
      ["10.7 Toma y montaje del pedido en Odoo/WMS", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Supervisor(a) de Bodega / Despacho", "—"],
-     ["10.8 Validación de pagos y conciliación multi-instrumento", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Cuentas por Cobrar · Contabilidad", "Coordinador(a) de Tesorería y Cobranzas"],
+     ["10.8 Validación de pagos y conciliación multi-instrumento", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Cuentas por Cobrar · Contabilidad", "Coordinador(a) de Tesorería / Cobranzas"],
      ["10.9 Preparación, embalaje y escaneo de pedidos e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Asistente de E-commerce / Almacén Web", "—"],
      ["10.10 Facturación fiscal del pedido web", "Analista de Facturación", "Gerente de E-commerce / Ventas Web", "Asesor(a) de Ventas Web · Coordinador(a) de Sistemas", "—"],
      ["10.11 Despacho, retiro en tienda y última milla e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Auxiliar / Ayudante de Bodega y Tráfico", "—"],
@@ -4454,16 +4457,16 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Recibe al cliente por WhatsApp Business o por DM de red social redirigido; si es un revendedor/minorista (canal documentado en Panamá), registra primero su perfil como interesado."},
       {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Cotiza con la lista de precios vigente usando el CRM de chats."},
       {"id": "a3", "rol": "Asesor(a) de Ventas Web", "texto": "Monta el pedido directamente en Odoo, sin redirigir al cliente a la web, para no perder la venta."},
-      {"id": "a4", "rol": "Coordinador(a) de Tesorería y Cobranzas", "texto": "Valida el pago móvil o la transferencia informada por el cliente."},
+      {"id": "a4", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Valida el pago móvil o la transferencia informada por el cliente."},
       {"id": "a5", "rol": "Asesor(a) de Ventas Web", "texto": "Cierra la venta e informa la promesa de entrega al cliente."}
      ],
      "diagrama": {
-      "carriles": ["Asesor(a) de Ventas Web", "Coordinador(a) de Tesorería y Cobranzas"],
+      "carriles": ["Asesor(a) de Ventas Web", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
        {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Cliente escribe por WhatsApp Business, DM redirigido o Cachea Link"},
        {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Cotizar con la lista de precios vigente", "sistemas": ["Mercateli (CRM de chats)"]},
        {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Montar el pedido directamente en Odoo"},
-       {"id": "n3", "carril": "Coordinador(a) de Tesorería y Cobranzas", "tipo": "tarea", "n": "Validar pago móvil o transferencia"},
+       {"id": "n3", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Validar pago móvil o transferencia"},
        {"id": "n4", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Pago validado?"},
        {"id": "n4alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Solicitar comprobante de pago adicional al cliente"},
        {"id": "n5", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Cerrar la venta e informar la promesa de entrega"},

@@ -8148,9 +8148,9 @@ window.MANUAL_ASIS = {
   },
   "dueno": {
    "estado": "borrador",
-   "dueno": "Gerente de Operaciones y Logística (Venezuela)",
+   "dueno": "Gerente de Operaciones y Logística",
    "participantes": [
-    "Gerente de Operaciones y Logística (Venezuela) — certifica la diferencia reportada antes de aceptarla y la gestiona con la contraparte del hub.",
+    "Gerente de Operaciones y Logística — certifica la diferencia reportada antes de aceptarla y la gestiona con la contraparte del hub.",
     "Gerente de Almacén (Venezuela) — detecta la diferencia al recibir y la reporta con el número de factura y la referencia.",
     "Gerente de Ventas Mayor (Panamá) — contraparte en el hub: organiza el faltante y confirma qué salió realmente.",
     "Coordinador(a) de Planificación de Compras — sufre la consecuencia en el ciclo siguiente, porque la mercancía no recibida vuelve a pedirse desde cero."
@@ -8188,18 +8188,18 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a2",
-     "rol": "Gerente de Operaciones y Logística (Venezuela)",
+     "rol": "Gerente de Operaciones y Logística",
      "texto": "Certifica que la diferencia sea real antes de aceptarla. Puede tratarse de un error de lectura —dos bultos rotulados de forma parecida— y no de un faltante."
     },
     {
      "id": "a3",
-     "rol": "Gerente de Operaciones y Logística (Venezuela)",
-     "texto": "Comprueba si lo recibido equivale en costo a lo facturado."
+     "rol": "Gerente de Operaciones y Logística",
+     "texto": "Comprueba si lo que llegó **vale lo mismo** que lo facturado, que es lo que separa un ajuste de un reclamo. Detrás de una diferencia hay dos situaciones muy distintas. Si es de **referencia y no de valor** —llegó otro modelo o color del mismo precio, o faltan unidades de una referencia pero sobran de otra que la compensa— el dinero cuadra: «a la larga llegaron los mismos productos que yo pedí, pero con una diferencia que digamos que es de color». Si hay **pérdida de valor** —se pidieron cien y llegaron noventa, sin nada que lo compense— el caso escala al hub."
     },
     {
      "id": "a4",
-     "rol": "Gerente de Operaciones y Logística (Venezuela)",
-     "texto": "Ajusta la factura cuando la diferencia es de referencia pero no de costo, y el asunto se cierra sin mayor trámite."
+     "rol": "Gerente de Operaciones y Logística",
+     "texto": "Ajusta la factura para que refleje lo que de verdad llegó, cuando la diferencia es de referencia pero no de costo, y el asunto se cierra sin reclamo: «lo puedo ajustar sin problema porque cuesta lo mismo, cambian la factura y no pasa nada»."
     },
     {
      "id": "a5",
@@ -8208,7 +8208,7 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a6",
-     "rol": "Gerente de Operaciones y Logística (Venezuela)",
+     "rol": "Gerente de Operaciones y Logística",
      "texto": "Acepta la diferencia certificada y la registra en el inventario del país."
     },
     {
@@ -8220,7 +8220,7 @@ window.MANUAL_ASIS = {
    "diagrama": {
     "carriles": [
      "Gerente de Almacén (Venezuela)",
-     "Gerente de Operaciones y Logística (Venezuela)",
+     "Gerente de Operaciones y Logística",
      "Gerente de Ventas Mayor (Panamá)",
      "Coordinador(a) de Planificación de Compras"
     ],
@@ -8233,31 +8233,31 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n1",
-      "carril": "Gerente de Operaciones y Logística (Venezuela)",
+      "carril": "Gerente de Operaciones y Logística",
       "tipo": "tarea",
       "n": "Certificar que la diferencia sea real"
      },
      {
       "id": "n2",
-      "carril": "Gerente de Operaciones y Logística (Venezuela)",
+      "carril": "Gerente de Operaciones y Logística",
       "tipo": "decision",
-      "n": "¿Equivale en costo a lo facturado?"
+      "n": "¿Lo recibido vale lo mismo que lo facturado?"
      },
      {
       "id": "n3",
-      "carril": "Gerente de Operaciones y Logística (Venezuela)",
+      "carril": "Gerente de Operaciones y Logística",
       "tipo": "tarea",
-      "n": "Ajustar la factura y cerrar"
+      "n": "Ajustar la factura a lo recibido"
      },
      {
       "id": "n4",
       "carril": "Gerente de Ventas Mayor (Panamá)",
       "tipo": "tarea",
-      "n": "Verificar en el hub qué salió"
+      "n": "Verificar en el hub el contenido del embarque"
      },
      {
       "id": "n5",
-      "carril": "Gerente de Operaciones y Logística (Venezuela)",
+      "carril": "Gerente de Operaciones y Logística",
       "tipo": "tarea",
       "n": "Aceptar y registrar en inventario",
       "sistemas": [
@@ -10582,7 +10582,7 @@ window.MANUAL_ASIS = {
       "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — segmenta los clientes de Cubitt por capacidad de compra e inversión y negocia su margen caso a caso.",
       "Vendedor(a) al por Mayor — da de alta al cliente, le asigna lista y descuento y tramita la solicitud de crédito.",
       "Gerente de Ventas Mayor (país) — revisa las solicitudes de crédito de su equipo en Lark.",
-      "Supervisor(a) de Coordinación y Planificación de CxC (Panamá) — decide el plazo y el monto de crédito; en la práctica tiene la última palabra.",
+      "Supervisor(a) de Cuentas por Cobrar — decide el plazo y el monto de crédito; en la práctica tiene la última palabra.",
       "Coordinador(a) Visual (Venezuela) — mantiene a mano la base de clientes categorizados A a D.",
       "Coordinadora de Cuentas por Cobrar (Venezuela) — aplica de memoria una regla de 30 días a falta de límites asignados."
      ],
@@ -10601,7 +10601,7 @@ window.MANUAL_ASIS = {
       "Lark: Proceso Ventas al Mayor Rower (VE)",
       "Lark: Procesos de Ventas al Mayor (PA)"
      ],
-     "notas": "La coordinación de crédito de Panamá figura en el V4 como «Sup. Coord. y Plani. de CxC». El director comercial y el presidente no figuran en el V4; se nombran por su función, como en los demás manuales. Algunos vendedores aplican además criterios propios para dar crédito —antigüedad y venta mensual mínimas—, que no están escritos en ningún documento.",
+     "notas": "Quien decide el crédito en Panamá figura en el V4 con el cargo actual «Sup. Coord. y Plani. de CxC», que se nombra aquí como Supervisor(a) de Cuentas por Cobrar porque la abreviatura del censo no se entiende fuera de contabilidad; su cargo patrón es «Supervisor(a) de Cuentas por Cobrar/Pagar». El director comercial y el presidente no figuran en el V4; se nombran por su función, como en los demás manuales. Algunos vendedores aplican además criterios propios para dar crédito —antigüedad y venta mensual mínimas—, que no están escritos en ningún documento.",
      "sin_evidencia": "No consta quién carga o cambia las listas de precios en Odoo, ni cada cuánto. Tampoco consta un criterio escrito para pasar a un cliente de una categoría a otra."
     },
     "disparador": {
@@ -10660,7 +10660,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a7",
-       "rol": "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)",
+       "rol": "Supervisor(a) de Cuentas por Cobrar",
        "texto": "Decide el plazo y el monto del crédito. En Venezuela este paso no existe: no se asignan límites ni días por cliente."
       }
      ],
@@ -10670,7 +10670,7 @@ window.MANUAL_ASIS = {
        "Gerente de Ventas Internacional",
        "Vendedor(a) al por Mayor",
        "Gerente de Ventas Mayor (país)",
-       "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)"
+       "Supervisor(a) de Cuentas por Cobrar"
       ],
       "nodos": [
        {
@@ -10738,13 +10738,13 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n9",
-        "carril": "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)",
+        "carril": "Supervisor(a) de Cuentas por Cobrar",
         "tipo": "tarea",
         "n": "Fijar plazo y monto"
        },
        {
         "id": "n10",
-        "carril": "Supervisor(a) de Coordinación y Planificación de CxC (Panamá)",
+        "carril": "Supervisor(a) de Cuentas por Cobrar",
         "tipo": "fin",
         "n": "Crédito asignado"
        }
@@ -11278,7 +11278,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a4",
        "rol": "Gerente de Ventas Internacional",
-       "texto": "Revisa en la vista de Odoo el reparto por referencia y el indicador de riesgo, y aprueba trabajar el pedido."
+       "texto": "Revisa en la vista de Odoo el reparto por referencia y el indicador de riesgo, y decide si el pedido sigue adelante."
       },
       {
        "id": "a5",
@@ -11345,7 +11345,7 @@ window.MANUAL_ASIS = {
         "id": "n5",
         "carril": "Gerente de Ventas Internacional",
         "tipo": "decision",
-        "n": "¿Aprueba trabajarlo?"
+        "n": "¿Se aprueba el pedido?"
        },
        {
         "id": "n6",
@@ -11494,7 +11494,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a2",
        "rol": "Vendedor(a) al por Mayor",
-       "texto": "Si no hay tránsito visible, deja el remanente como presupuesto o lo borra. La demanda perdida no se registra en ningún sitio."
+       "texto": "Si no hay tránsito visible, deja el remanente como presupuesto o lo borra. **Lo que el cliente quiso comprar y no se le pudo vender no queda anotado en ninguna parte**: no hay registro de demanda no cubierta, así que esa venta no aparece luego en ningún reporte y no entra al cálculo de cuánto habría que reponer. El faltante se vuelve invisible en el mismo acto en que se produce."
       },
       {
        "id": "a3",
@@ -11509,12 +11509,12 @@ window.MANUAL_ASIS = {
       {
        "id": "a5",
        "rol": "Gerente de Inventario y Precios",
-       "texto": "Al cerrar la recepción del contenedor, confirma la preventa y amarra la mercancía."
+       "texto": "Al cerrar la recepción del contenedor confirma las preventas, que es lo que amarra cada unidad al pedido que la reservó. **Hasta esa confirmación la reserva no es firme**: al cerrar la recepción el sistema de bodega pasa la mercancía a disponible, y entre ese momento y la confirmación hay una ventana en la que cualquier vendedor puede montar un pedido y llevarse lo que otro cliente esperaba desde hacía semanas."
       },
       {
        "id": "a6",
        "rol": "Vendedor(a) al por Mayor",
-       "texto": "Si la confirmación llegó a tiempo, el pedido sigue a aprobación (8.5). Si el sistema de bodega liberó antes, la mercancía ya la tomó otro pedido."
+       "texto": "Si la confirmación llegó antes que la liberación, el pedido sigue a aprobación (8.5) con su mercancía asegurada. Si no, el cliente pierde lo que tenía reservado y hay que rehacerle el pedido o darle una fecha nueva. Quién se queda con la mercancía **no lo decide un criterio comercial, lo decide el orden en que se tocó el sistema**."
       }
      ],
      "diagrama": {
@@ -11558,7 +11558,7 @@ window.MANUAL_ASIS = {
         "id": "n4",
         "carril": "Vendedor(a) al por Mayor",
         "tipo": "fin",
-        "n": "Demanda perdida sin registrar"
+        "n": "El pedido se cae y nadie anota lo que se dejó de vender"
        },
        {
         "id": "n5",
@@ -11582,7 +11582,7 @@ window.MANUAL_ASIS = {
         "id": "n7",
         "carril": "Gerente de Inventario y Precios",
         "tipo": "tarea",
-        "n": "Confirmar la preventa al recibir",
+        "n": "Confirmar la preventa al cerrar la recepción",
         "sistemas": [
          "EBS"
         ]
@@ -11591,7 +11591,7 @@ window.MANUAL_ASIS = {
         "id": "n8",
         "carril": "Gerente de Inventario y Precios",
         "tipo": "decision",
-        "n": "¿Confirmó antes de liberar?"
+        "n": "¿Se confirmó antes de que bodega liberara?"
        },
        {
         "id": "n9",
@@ -11603,7 +11603,7 @@ window.MANUAL_ASIS = {
         "id": "n10",
         "carril": "Vendedor(a) al por Mayor",
         "tipo": "fin",
-        "n": "Mercancía tomada por otro pedido"
+        "n": "La mercancía se liberó y la tomó otro pedido"
        }
       ],
       "aristas": [
@@ -11664,10 +11664,10 @@ window.MANUAL_ASIS = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Sin dueño regional: KAM · Cadenas (Colombia), Coordinador de Ventas al Mayor (Venezuela) y la dirección en el hub",
+     "dueno": "Sin dueño regional: KAM · Cadenas, Coordinador de Ventas al Mayor (Venezuela) y la dirección en el hub",
      "participantes": [
-      "KAM · Cadenas (Colombia) — negocia el acuerdo anual con cada cadena, fija el calendario de campañas y decide la asignación de promotores según la cobertura de cada tienda.",
-      "Líder de impulsadores (Colombia) — coordina a los promotores en las tiendas de las cadenas.",
+      "KAM · Cadenas — negocia el acuerdo anual con cada cadena, fija el calendario de campañas y decide la asignación de promotores según la cobertura de cada tienda.",
+      "Líder de impulsadores — coordina a los promotores en las tiendas de las cadenas.",
       "Data Scientist / Líder de BI — normaliza el sellout que envía cada cadena en su propio formato.",
       "Cadena (cliente externo) — reporta sellout e inventario por tienda.",
       "Coordinador de Ventas al Mayor (Venezuela) — atiende las cuentas estratégicas.",
@@ -11711,12 +11711,12 @@ window.MANUAL_ASIS = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "KAM · Cadenas (Colombia)",
+       "rol": "KAM · Cadenas",
        "texto": "Negocia con el comprador de la cadena el acuerdo comercial del año."
       },
       {
        "id": "a2",
-       "rol": "KAM · Cadenas (Colombia)",
+       "rol": "KAM · Cadenas",
        "texto": "Fija el calendario de campañas por cadena para que no coincidan apuestas que se canibalicen."
       },
       {
@@ -11731,43 +11731,43 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a5",
-       "rol": "KAM · Cadenas (Colombia)",
-       "texto": "Revisa el inventario y las semanas de cobertura de cada tienda."
+       "rol": "KAM · Cadenas",
+       "texto": "Revisa el inventario y las semanas de cobertura de cada punto de venta de la cadena —no de las tiendas propias del grupo, que son otro canal—, para saber dónde hay mercancía que empujar y dónde falta."
       },
       {
        "id": "a6",
-       "rol": "Líder de impulsadores (Colombia)",
-       "texto": "Asigna promotor a las tiendas con inventario suficiente."
+       "rol": "Líder de impulsadores",
+       "texto": "Asigna promotor a los puntos que tienen inventario suficiente. El promotor es la fuerza de venta propia dentro de la tienda del cliente: es quien saca el producto al consumidor final. Por eso se pone donde hay mercancía que vender — «no mande mucho promotor allí, porque el promotor no va a perder ventas porque no tiene suficiente»."
       },
       {
        "id": "a7",
-       "rol": "KAM · Cadenas (Colombia)",
+       "rol": "KAM · Cadenas",
        "texto": "A las que no lo tienen, les pide reposición (8.4)."
       }
      ],
      "diagrama": {
       "carriles": [
-       "KAM · Cadenas (Colombia)",
+       "KAM · Cadenas",
        "Cadena (cliente externo)",
        "Data Scientist / Líder de BI",
-       "Líder de impulsadores (Colombia)"
+       "Líder de impulsadores"
       ],
       "nodos": [
        {
         "id": "n0",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "inicio",
         "n": "Inicio del año comercial"
        },
        {
         "id": "n1",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "tarea",
         "n": "Negociar el acuerdo anual"
        },
        {
         "id": "n2",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "tarea",
         "n": "Fijar el calendario de campañas"
        },
@@ -11788,28 +11788,28 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n5",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "tarea",
-        "n": "Revisar cobertura por tienda",
+        "n": "Revisar la cobertura en los puntos de la cadena",
         "sistemas": [
          "Odoo"
         ]
        },
        {
         "id": "n6",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "decision",
         "n": "¿Tiene inventario suficiente?"
        },
        {
         "id": "n7",
-        "carril": "Líder de impulsadores (Colombia)",
+        "carril": "Líder de impulsadores",
         "tipo": "tarea",
-        "n": "Asignar promotor a la tienda"
+        "n": "Asignar promotor a los puntos con inventario"
        },
        {
         "id": "n8",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "tarea",
         "n": "Pedir reposición (8.4)",
         "sistemas": [
@@ -11818,7 +11818,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n9",
-        "carril": "KAM · Cadenas (Colombia)",
+        "carril": "KAM · Cadenas",
         "tipo": "fin",
         "n": "Cuenta atendida en el ciclo"
        }
@@ -11926,7 +11926,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a4",
        "rol": "Coordinador de Ventas al Mayor (Venezuela)",
-       "texto": "No se revisa contrato, no se cobra regalía y no se recogen datos de venta del franquiciado."
+       "texto": "El ciclo se cierra con el despacho y nada más: **no se revisa contrato, no se cobra regalía y no se recogen los datos de venta del franquiciado**, así que la relación es la de un cliente mayorista cualquiera y no la de una tienda que lleva la marca."
       }
      ],
      "diagrama": {
@@ -11960,13 +11960,13 @@ window.MANUAL_ASIS = {
         "id": "n3",
         "carril": "Coordinador de Ventas al Mayor (Venezuela)",
         "tipo": "tarea",
-        "n": "Visitar y enviar material"
+        "n": "Visitar la franquicia y enviarle material"
        },
        {
         "id": "n4",
         "carril": "Coordinador de Ventas al Mayor (Venezuela)",
         "tipo": "fin",
-        "n": "Despachado, sin contrato ni datos"
+        "n": "Despacho efectuado"
        }
       ],
       "aristas": [
@@ -12236,7 +12236,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a1",
        "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
-       "texto": "Propone la mecánica y el volumen de la promoción."
+       "texto": "Propone en qué consiste la promoción —qué producto entra, con qué descuento y bajo qué condición de compra— y el volumen que se compromete con la cadena."
       },
       {
        "id": "a2",
@@ -12282,7 +12282,7 @@ window.MANUAL_ASIS = {
         "id": "n1",
         "carril": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
         "tipo": "tarea",
-        "n": "Proponer mecánica y volumen"
+        "n": "Proponer la promoción y su volumen"
        },
        {
         "id": "n2",
@@ -12397,7 +12397,7 @@ window.MANUAL_ASIS = {
      "participantes": [
       "Director Comercial Wholesale y Nuevos Negocios (Cubitt) — lleva la relación con el cliente, le presenta el diseño y le hace firmar la proforma.",
       "Cliente de marca privada (externo) — aprueba la muestra y firma la proforma.",
-      "Áreas internas de producto y compras — diseñan, hacen la muestra y gestionan la producción."
+      "Desarrollo de Producto / Compras — diseñan el producto con la marca del cliente, hacen la muestra y gestionan la producción con la fábrica. ⚠️ La entrevista no precisa qué áreas ni en qué orden intervienen: se nombran por la función, no por el cargo."
      ],
      "evidencia": [
       "E-63"
@@ -12427,7 +12427,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a2",
-       "rol": "Áreas internas de producto y compras",
+       "rol": "Desarrollo de Producto / Compras",
        "texto": "Diseñan el producto y hacen la muestra."
       },
       {
@@ -12442,7 +12442,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a5",
-       "rol": "Áreas internas de producto y compras",
+       "rol": "Desarrollo de Producto / Compras",
        "texto": "Gestionan la producción del pedido."
       },
       {
@@ -12454,7 +12454,7 @@ window.MANUAL_ASIS = {
      "diagrama": {
       "carriles": [
        "Cliente de marca privada (externo)",
-       "Áreas internas de producto y compras",
+       "Desarrollo de Producto / Compras",
        "Director Comercial Wholesale y Nuevos Negocios (Cubitt)"
       ],
       "nodos": [
@@ -12466,7 +12466,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n1",
-        "carril": "Áreas internas de producto y compras",
+        "carril": "Desarrollo de Producto / Compras",
         "tipo": "tarea",
         "n": "Diseñar y hacer la muestra"
        },
@@ -12484,7 +12484,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n4",
-        "carril": "Áreas internas de producto y compras",
+        "carril": "Desarrollo de Producto / Compras",
         "tipo": "tarea",
         "n": "Producir el pedido"
        },
@@ -12614,7 +12614,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a7",
        "rol": "Vendedor(a) al por Mayor",
-       "texto": "Amplía después a más puntos de venta y más volumen."
+       "texto": "Una vez que el cliente compra con regularidad, lo hace crecer: le vende para más puntos de venta suyos y le sube el volumen por pedido, que es lo que le va dando mejor descuento y, con el tiempo, condiciones de crédito."
       }
      ],
      "diagrama": {
@@ -12628,7 +12628,7 @@ window.MANUAL_ASIS = {
         "id": "n0",
         "carril": "Prospecto (externo)",
         "tipo": "inicio",
-        "n": "Escribe, es referido o es buscado"
+        "n": "Contacto, referido o prospección"
        },
        {
         "id": "n1",
@@ -12679,7 +12679,7 @@ window.MANUAL_ASIS = {
         "id": "n7",
         "carril": "Vendedor(a) al por Mayor",
         "tipo": "tarea",
-        "n": "Ampliar puntos y volumen"
+        "n": "Ampliar a más puntos de venta y más volumen"
        },
        {
         "id": "n8",
@@ -12985,13 +12985,13 @@ window.MANUAL_ASIS = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Gerente de Ventas al Mayor (Venezuela)",
+     "dueno": "Gerente de Ventas al Mayor",
      "participantes": [
-      "Gerente de Ventas al Mayor (Venezuela) — calcula la comisión sobre lo cobrado, la contrasta y envía el reporte.",
+      "Gerente de Ventas al Mayor — calcula la comisión sobre lo cobrado, la contrasta y envía el reporte.",
       "Vendedor(a) al por Mayor — lleva su Excel diario de cobros y lo entrega al cierre.",
-      "Coordinadora de Cuentas por Cobrar (Venezuela) — entrega, a pedido de la gerencia, el listado de facturas cobradas por cliente.",
+      "Coordinador(a) de Cuentas por Cobrar — entrega, a pedido de la gerencia, el listado de facturas cobradas por cliente.",
       "Presidente (socio) — aprueba el reporte de comisiones.",
-      "Gerente de Administración (Venezuela) — ejecuta el pago una vez aprobado.",
+      "Gerente de Administración — ejecuta el pago una vez aprobado.",
       "KAM · Cadenas (Colombia) — en Colombia aplica la tabla de tramos y conversa la comisión con cada vendedor."
      ],
      "evidencia": [
@@ -13032,17 +13032,17 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a2",
-       "rol": "Coordinadora de Cuentas por Cobrar (Venezuela)",
+       "rol": "Coordinador(a) de Cuentas por Cobrar",
        "texto": "Entrega, a pedido de la gerencia, el listado de facturas cobradas por cliente."
       },
       {
        "id": "a3",
-       "rol": "Gerente de Ventas al Mayor (Venezuela)",
+       "rol": "Gerente de Ventas al Mayor",
        "texto": "Calcula la comisión sobre lo cobrado, contrastando las dos fuentes."
       },
       {
        "id": "a4",
-       "rol": "Gerente de Ventas al Mayor (Venezuela)",
+       "rol": "Gerente de Ventas al Mayor",
        "texto": "Envía el reporte por correo a la presidencia y a la dirección, y recuerda la aprobación hasta obtenerla."
       },
       {
@@ -13052,17 +13052,17 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a6",
-       "rol": "Gerente de Administración (Venezuela)",
+       "rol": "Gerente de Administración",
        "texto": "Ejecuta el pago de las comisiones."
       }
      ],
      "diagrama": {
       "carriles": [
        "Vendedor(a) al por Mayor",
-       "Coordinadora de Cuentas por Cobrar (Venezuela)",
-       "Gerente de Ventas al Mayor (Venezuela)",
+       "Coordinador(a) de Cuentas por Cobrar",
+       "Gerente de Ventas al Mayor",
        "Presidente (socio)",
-       "Gerente de Administración (Venezuela)"
+       "Gerente de Administración"
       ],
       "nodos": [
        {
@@ -13082,7 +13082,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n2",
-        "carril": "Coordinadora de Cuentas por Cobrar (Venezuela)",
+        "carril": "Coordinador(a) de Cuentas por Cobrar",
         "tipo": "tarea",
         "n": "Listar facturas cobradas",
         "sistemas": [
@@ -13091,7 +13091,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n3",
-        "carril": "Gerente de Ventas al Mayor (Venezuela)",
+        "carril": "Gerente de Ventas al Mayor",
         "tipo": "tarea",
         "n": "Calcular sobre lo cobrado",
         "sistemas": [
@@ -13100,7 +13100,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n4",
-        "carril": "Gerente de Ventas al Mayor (Venezuela)",
+        "carril": "Gerente de Ventas al Mayor",
         "tipo": "tarea",
         "n": "Enviar el reporte y recordarlo",
         "sistemas": [
@@ -13118,13 +13118,13 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n6",
-        "carril": "Gerente de Administración (Venezuela)",
+        "carril": "Gerente de Administración",
         "tipo": "tarea",
         "n": "Pagar las comisiones"
        },
        {
         "id": "n7",
-        "carril": "Gerente de Administración (Venezuela)",
+        "carril": "Gerente de Administración",
         "tipo": "fin",
         "n": "Comisiones pagadas"
        }
@@ -13176,7 +13176,7 @@ window.MANUAL_ASIS = {
       "Vendedor(a) al por Mayor — sigue la deuda de su cartera, recuerda al cliente, recibe el comprobante y explica a cobranza cómo se compone el pago.",
       "Cliente mayorista (externo) — paga y envía el comprobante.",
       "Coordinación de Cuentas por Cobrar (país) — valida el pago contra el banco y lo registra. En Panamá es el Supervisor(a) de Coordinación y Planificación de CxC con dos analistas; en Venezuela, la Coordinadora de Cuentas por Cobrar.",
-      "Coordinador(a) de Tesorería (Venezuela) — sube cada día los cortes bancarios a una carpeta compartida.",
+      "Coordinador(a) de Tesorería — sube cada día los cortes bancarios a una carpeta compartida.",
       "Gerente de Ventas Mayor (país) — revisa la cartera vencida con cada vendedor."
      ],
      "evidencia": [
@@ -13228,7 +13228,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a4",
-       "rol": "Coordinador(a) de Tesorería (Venezuela)",
+       "rol": "Coordinador(a) de Tesorería",
        "texto": "Sube los cortes bancarios del día a la carpeta compartida."
       },
       {
@@ -13251,7 +13251,7 @@ window.MANUAL_ASIS = {
       "carriles": [
        "Vendedor(a) al por Mayor",
        "Cliente mayorista (externo)",
-       "Coordinador(a) de Tesorería (Venezuela)",
+       "Coordinador(a) de Tesorería",
        "Coordinación de Cuentas por Cobrar (país)",
        "Gerente de Ventas Mayor (país)"
       ],
@@ -13289,7 +13289,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n4",
-        "carril": "Coordinador(a) de Tesorería (Venezuela)",
+        "carril": "Coordinador(a) de Tesorería",
         "tipo": "tarea",
         "n": "Subir los cortes bancarios",
         "sistemas": [
@@ -13777,7 +13777,7 @@ window.MANUAL_ASIS = {
         "id": "n8",
         "carril": "Junta Directiva",
         "tipo": "fin",
-        "n": "Cada pieza llega por su lado"
+        "n": "Se decide sobre informes no consolidados"
        }
       ],
       "aristas": [
