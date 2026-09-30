@@ -7559,9 +7559,9 @@ window.MANUAL_ASIS = {
    "dueno": "Coordinador(a) de Planificación de Compras",
    "participantes": [
     "Coordinador(a) de Planificación de Compras — arma el pedido de reposición del país y lo envía a aprobar. Su función termina con la solicitud: no maneja permisología, aduana ni nacionalización, no tiene contacto con proveedores ni con fábrica y no gestiona pagos.",
-    "Director Comercial y de Compras (socio) — asigna y aprueba las cantidades finales, decidiendo qué puede liberar el hub sin desabastecer a los demás países.",
+    "Director Comercial y Compras — asigna y aprueba las cantidades finales, decidiendo qué puede liberar el hub sin desabastecer a los demás países.",
     "Gerente de Ventas Mayor (Panamá) — gestiona con la bodega del hub la preparación del pedido y el armado del contenedor, e informa de tiempos y retrasos.",
-    "Gerente de Operaciones y Logística (Venezuela) — recibe la mercancía al llegar al país; de ahí en adelante la gestión logística es suya.",
+    "Gerente de Operaciones y Logística — recibe la mercancía al llegar al país; de ahí en adelante la gestión logística es suya.",
     "Data Scientist / Líder de BI — provee el reporte donde puede consultarse la venta perdida."
    ],
    "evidencia": [
@@ -7609,7 +7609,7 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a4",
-     "rol": "Director Comercial y de Compras (socio)",
+     "rol": "Director Comercial y Compras",
      "texto": "Asigna las cantidades finales según lo que el hub puede liberar sin desabastecer a los demás países, y aprueba. Tarda alrededor de una semana, y es habitual que asigne menos de lo pedido."
     },
     {
@@ -7629,12 +7629,12 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a8",
-     "rol": "Gerente de Operaciones y Logística (Venezuela)",
+     "rol": "Gerente de Operaciones y Logística",
      "texto": "Sigue el embarque en tránsito —alrededor de tres semanas— y su nacionalización, que toma otra semana."
     },
     {
      "id": "a9",
-     "rol": "Gerente de Operaciones y Logística (Venezuela)",
+     "rol": "Gerente de Operaciones y Logística",
      "texto": "Recibe la mercancía en la bodega del país. A partir de aquí la gestión logística deja de ser de planificación y pasa a operaciones."
     },
     {
@@ -7646,9 +7646,9 @@ window.MANUAL_ASIS = {
    "diagrama": {
     "carriles": [
      "Coordinador(a) de Planificación de Compras",
-     "Director Comercial y de Compras (socio)",
+     "Director Comercial y Compras",
      "Gerente de Ventas Mayor (Panamá)",
-     "Gerente de Operaciones y Logística (Venezuela)"
+     "Gerente de Operaciones y Logística"
     ],
     "nodos": [
      {
@@ -7672,7 +7672,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n2",
-      "carril": "Director Comercial y de Compras (socio)",
+      "carril": "Director Comercial y Compras",
       "tipo": "tarea",
       "n": "Asignar cantidades y aprobar (~1 semana)"
      },
@@ -7696,13 +7696,13 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n6",
-      "carril": "Gerente de Operaciones y Logística (Venezuela)",
+      "carril": "Gerente de Operaciones y Logística",
       "tipo": "tarea",
       "n": "Tránsito (~3 sem.) y nacionalización (~1 sem.)"
      },
      {
       "id": "n7",
-      "carril": "Gerente de Operaciones y Logística (Venezuela)",
+      "carril": "Gerente de Operaciones y Logística",
       "tipo": "tarea",
       "n": "Recibir en la bodega del país"
      },
