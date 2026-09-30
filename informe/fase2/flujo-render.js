@@ -180,12 +180,17 @@
     return out;
   }
 
-  function aristaSVG(e, L, rama) {
+  function aristaSVG(e, L, rama, entrada) {
     var a = L.pos[e.de], b = L.pos[e.a];
     if (!a || !b) return "";
     var na = L.idx[e.de], nb = L.idx[e.a];
     var ax = a.x + anchoNodo(na) / 2, bx = b.x - anchoNodo(nb) / 2;
     var d, etqP;
+    // Si al nodo de destino ya llega otra arista, esta entra por arriba en vez de
+    // por el borde izquierdo: si no, las dos comparten el último tramo horizontal
+    // y se ven como una sola flecha doble.
+    var porArriba = entrada > 0 && b.col > a.col;
+    var byTop = b.y - altoNodo(nb) / 2;
     // Rama que no sale por la derecha: usa el vértice de arriba o el de abajo, con
     // su escalón si a ese lado le tocó más de una.
     if (rama && rama.lado !== "der" && b.col > a.col) {
@@ -193,7 +198,9 @@
       var ey = sube ? a.y - altoNodo(na) / 2 : a.y + altoNodo(na) / 2;
       var sep = 24 + rama.k * 34;
       var y1 = sube ? ey - sep : ey + sep;
-      d = "M" + a.x + "," + ey + " V" + y1 + " H" + (bx - 14) + " V" + b.y + " H" + bx;
+      d = porArriba
+        ? "M" + a.x + "," + ey + " V" + y1 + " H" + b.x + " V" + byTop
+        : "M" + a.x + "," + ey + " V" + y1 + " H" + (bx - 14) + " V" + b.y + " H" + bx;
       etqP = { x: a.x + 22, y: y1 + (sube ? -7 : 15) };
       var etq2 = '<text class="fx-etq" x="' + etqP.x + '" y="' + etqP.y + '" text-anchor="middle">' + esc(e.etq) + '</text>';
       return '<path class="fx-arista" d="' + d + '" marker-end="url(#fxflecha)"/>' + etq2;
@@ -204,26 +211,35 @@
       // El trazado lleva dos tramos horizontales, uno a la altura de salida y otro
       // a la de llegada. Basta con que un nodo intermedio estorbe UNO de los dos
       // para que la rama lo atraviese y su flecha quede tapada detrás de la caja.
-      var choca = false;
-      Object.keys(L.pos).forEach(function (id) {
-        if (id === e.de || id === e.a) return;
-        var p = L.pos[id];
-        if (p.col <= a.col || p.col >= b.col) return;
-        // El trazado son tres tramos: sale en horizontal a la altura de salida,
-        // baja o sube en vertical por el centro, y entra en horizontal a la de
-        // llegada. Un nodo intermedio puede estorbar cualquiera de los tres, y el
-        // vertical es el que se escapaba: un nodo en un carril de en medio queda
-        // justo sobre esa bajada.
-        var cerca = Math.abs(p.y - a.y) < 34 || Math.abs(p.y - b.y) < 34;
-        var enMedio = p.y > Math.min(a.y, b.y) && p.y < Math.max(a.y, b.y);
-        if (cerca || enMedio) choca = true;
-      });
+      // El trazado son tres tramos: sale en horizontal a la altura de salida, sube o
+      // baja en vertical por el centro, y entra en horizontal a la de llegada. Se
+      // comprueba la GEOMETRÍA de los tres contra la caja de cada nodo, no la columna:
+      // mirar solo las columnas intermedias dejaba pasar el caso que de verdad se ve,
+      // que es la bajada rozando un nodo de la MISMA columna del destino en un carril
+      // de en medio. Ahí la flecha atraviesa la caja de lado a lado.
+      var midx0 = (ax + bx) / 2, excl = [e.de, e.a];
+      var choca = !tramoLibre(L, excl, ax, a.y, midx0, a.y) ||
+                  !tramoLibre(L, excl, midx0, a.y, midx0, b.y) ||
+                  !tramoLibre(L, excl, midx0, b.y, bx, b.y);
       if (choca) {
         var yr = Math.min(a.y, b.y) - 40;  // rodea por encima de las dos alturas
-        d = "M" + ax + "," + a.y + " h10 V" + yr + " H" + (bx - 10) + " V" + b.y + " H" + bx;
+        // La bajada tampoco puede caer sobre una caja: se prueban posiciones cada vez
+        // más a la izquierda hasta dar con una libre. Bajar siempre pegado al destino
+        // metía la flecha por dentro del nodo que ocupa esa columna en otro carril.
+        var xd = porArriba ? b.x : bx - 10;
+        for (var k = 0; k < 14; k++) {
+          var cand = (porArriba ? b.x : bx - 10) - k * 16;
+          if (cand <= ax + 12) break;
+          if (tramoLibre(L, excl, cand, yr, cand, porArriba ? byTop : b.y)) { xd = cand; break; }
+        }
+        d = porArriba
+          ? "M" + ax + "," + a.y + " h10 V" + yr + " H" + xd + " V" + byTop
+          : "M" + ax + "," + a.y + " h10 V" + yr + " H" + xd + " V" + b.y + " H" + bx;
       } else {
         var midx = (ax + bx) / 2;
-        d = "M" + ax + "," + a.y + " H" + midx + " V" + b.y + " H" + bx;
+        d = porArriba
+          ? "M" + ax + "," + a.y + " H" + b.x + " V" + byTop
+          : "M" + ax + "," + a.y + " H" + midx + " V" + b.y + " H" + bx;
       }
       // La etiqueta se ancla SIEMPRE a la salida del nodo, también cuando la rama
       // rodea: si viaja con el trazado acaba a dos carriles de su propio rombo.
@@ -245,6 +261,21 @@
 
   function anchoNodo(n) { if (n.tipo === "decision") { medidaRombo(n); return n._rw; } return n.tipo === "inicio" || n.tipo === "fin" ? EVT : NODE_W; }
   function altoNodo(n) { if (n.tipo === "decision") { medidaRombo(n); return n._rh; } return n.tipo === "inicio" || n.tipo === "fin" ? EVT : NODE_H; }
+  // ¿Estorba algún nodo a un tramo recto? Se mide contra la CAJA, no contra la columna:
+  // una bajada puede rozar un nodo que está en la misma columna del destino, en un
+  // carril de en medio, y ahí la flecha atraviesa la caja de lado a lado.
+  function tramoLibre(L, excl, x0, y0, x1, y1) {
+    var ok = true;
+    Object.keys(L.pos).forEach(function (id) {
+      if (!ok || excl.indexOf(id) >= 0) return;
+      var p = L.pos[id], q = L.idx[id];
+      var hw = anchoNodo(q) / 2 + 8, hh = altoNodo(q) / 2 + 8;
+      if (Math.max(x0, x1) > p.x - hw && Math.min(x0, x1) < p.x + hw &&
+          Math.max(y0, y1) > p.y - hh && Math.min(y0, y1) < p.y + hh) ok = false;
+    });
+    return ok;
+  }
+
   function svg(flujo) {
     if (!flujo || !flujo.nodos || !flujo.nodos.length) return "";
     var L = disponer(flujo);
@@ -257,13 +288,20 @@
       var y = PAD_T + i * LANE_H;
       s += '<rect class="fx-lane" x="' + PAD_L + '" y="' + y + '" width="' + (L.w - PAD_L - 20) + '" height="' + LANE_H + '"/>';
       s += '<rect class="fx-lane-cab" x="' + (PAD_L - 150) + '" y="' + y + '" width="150" height="' + LANE_H + '"/>';
-      lineas(c, 20).forEach(function (t, k, arr) {
+      // Cuatro líneas, no tres: el carril tiene 132 px de alto y un cargo con país
+      // se come cuatro renglones. Con tres, la última quedaba reducida a «…».
+      lineas(c, 20, 4).forEach(function (t, k, arr) {
         s += '<text class="fx-lane-t" x="' + (PAD_L - 75) + '" y="' + (y + LANE_H / 2 - (arr.length - 1) * 7 + k * 13) + '" text-anchor="middle">' + esc(t) + '</text>';
       });
     });
 
     var ramas = ramasDecision(flujo, L);
-    flujo.aristas.forEach(function (e, i) { s += aristaSVG(e, L, ramas[i]); });
+    var llegadas = {};
+    flujo.aristas.forEach(function (e, i) {
+      var k = llegadas[e.a] || 0;
+      s += aristaSVG(e, L, ramas[i], k);
+      llegadas[e.a] = k + 1;
+    });
     flujo.nodos.forEach(function (n) { s += nodoSVG(n, L.pos[n.id]); });
     s += "</svg>";
     return s;

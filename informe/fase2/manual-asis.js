@@ -7692,7 +7692,7 @@ window.MANUAL_ASIS = {
       "id": "n5",
       "carril": "Gerente de Ventas Mayor (Panamá)",
       "tipo": "tarea",
-      "n": "Dejar fuera lo que no entra, sin avisar"
+      "n": "Dejar fuera lo que no entra"
      },
      {
       "id": "n6",
