@@ -1880,7 +1880,7 @@ window.MANUAL_CONTENIDO = {
    "6.3": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre cómo se compone y se coloca cada mes la compra internacional de la marca representada: la recepción de la oferta mensual de la fábrica, la preparación del archivo de compras que cruza venta histórica, inventario y tránsito, la decisión de qué pedir de esa oferta, la colocación de la orden, la aprobación del flete y la reconciliación posterior. No incluye la recepción física ni la nacionalización (macro 7, Logística y Operaciones) ni la distribución a cada país (procesos 6.6 y 6.7)."
+     "texto": "Cubre cómo se compone y se coloca cada mes la compra internacional de la marca representada: la recepción de la oferta mensual de la fábrica, la preparación del archivo de compras que cruza venta histórica, inventario y tránsito, la decisión de qué pedir de esa oferta, la colocación de la orden, la instrucción del pago según el calendario de la fábrica, la aprobación del flete y la reconciliación posterior. El pago va dentro del proceso porque condiciona el embarque: el flete se arma después de pagar, no antes. No incluye la recepción física ni la nacionalización (macro 7, Logística y Operaciones); ni la distribución a cada país (procesos 6.6 y 6.7); ni la ejecución del pago y la consecución de los fondos, que son 13.1 (cuentas por pagar a proveedores) y 13.2 (flujo de caja y ejecución de pagos)."
     },
     "dueno": {
      "estado": "borrador",
@@ -1889,6 +1889,7 @@ window.MANUAL_CONTENIDO = {
       "Comité Comercial — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
       "Analista de Compras (externo) — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.",
       "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.",
+      "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.",
       "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.",
       "Especialista de Marketing / Brand (Casio) — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."
      ],
@@ -1913,19 +1914,23 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el sugerido de pedido que produce el modelo, como apoyo a la decisión."},
       {"id": "a4", "rol": "Comité Comercial", "texto": "Compone la compra decidiendo qué pedir de la oferta, cruzando la venta pasada, el inventario, lo que ya viene en camino y el sugerido."},
       {"id": "a5", "rol": "Comité Comercial", "texto": "Coloca la orden de compra con la fábrica."},
+      {"id": "a5b", "rol": "Comité Comercial", "texto": "Instruye el pago de la orden en la fecha que fija el calendario acordado con la fábrica, indicando a qué orden corresponde. Es lo que habilita el embarque: la fábrica no despacha hasta que la orden está pagada."},
+      {"id": "a5c", "rol": "Gerente de Contabilidad / Administración", "texto": "Verifica que el pago corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta. La consecución de los fondos y el registro de la obligación con la fábrica son 13.2 y 13.1."},
       {"id": "a6", "rol": "Gerente de Operaciones y Logística", "texto": "Solicita a la fábrica la cotización del flete, con el número de contenedores y la mercancía que va en cada uno."},
       {"id": "a7", "rol": "Comité Comercial", "texto": "Aprueba la cotización del flete: cuántos contenedores son y qué mercancía lleva cada uno."},
       {"id": "a8", "rol": "Gerente de Operaciones y Logística", "texto": "Da seguimiento al embarque hasta el hub de Zona Libre, donde se recibe toda la mercancía del grupo."},
       {"id": "a9", "rol": "Analista de Compras (externo)", "texto": "Actualiza el archivo de compras con lo efectivamente confirmado y reconcilia lo pedido contra la venta real del período."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial", "Analista de Compras (externo)", "Analista de Sistemas / Datos", "Gerente de Operaciones y Logística"],
+      "carriles": ["Comité Comercial", "Analista de Compras (externo)", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
       "nodos": [
        {"id": "n0", "carril": "Comité Comercial", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
        {"id": "n1", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Preparar el archivo de compras del mes", "sistemas": ["Archivo de compras (Excel)"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar el sugerido de pedido del modelo", "sistemas": ["Power BI"]},
        {"id": "n3", "carril": "Comité Comercial", "tipo": "tarea", "n": "Componer la compra: qué pedir de la oferta"},
        {"id": "n4", "carril": "Comité Comercial", "tipo": "tarea", "n": "Colocar la orden con la fábrica"},
+       {"id": "n4b", "carril": "Comité Comercial", "tipo": "tarea", "n": "Instruir el pago según el calendario"},
+       {"id": "n4c", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Verificar y ejecutar el pago a la fábrica"},
        {"id": "n5", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Solicitar la cotización del flete"},
        {"id": "n6", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
        {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Ajustar contenedores y su contenido"},
@@ -1939,7 +1944,9 @@ window.MANUAL_CONTENIDO = {
        {"de": "n1", "a": "n3"},
        {"de": "n2", "a": "n3"},
        {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5"},
+       {"de": "n4", "a": "n4b"},
+       {"de": "n4b", "a": "n4c"},
+       {"de": "n4c", "a": "n5"},
        {"de": "n5", "a": "n6"},
        {"de": "n6", "a": "n7", "etq": "Sí"},
        {"de": "n6", "a": "n6alt", "etq": "No"},
@@ -1977,7 +1984,7 @@ window.MANUAL_CONTENIDO = {
    "6.4": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre cómo se decide y se coloca la compra internacional de la marca propia Cubitt a las fábricas de China: la revisión periódica de qué pedir y cuánto en el comité de compras, el recojo del requerimiento de los países, la selección de fábrica y la gestión de muestras, la segunda confirmación antes de proceder, la colocación de la orden y la decisión de qué parte se embarca por aire y qué parte por mar. No incluye el desarrollo del producto en sí (macro 3, R&D y Desarrollo de Producto — Cubitt), que es anterior, ni la recepción física en el hub de Colón (macro 7, Logística y Operaciones)."
+     "texto": "Cubre cómo se decide y se coloca la compra internacional de la marca propia Cubitt a las fábricas de China: la revisión periódica de qué pedir y cuánto en el comité de compras, el recojo del requerimiento de los países, la selección de fábrica y la gestión de muestras, la segunda confirmación antes de proceder, la colocación de la orden y la decisión de qué parte se embarca por aire y qué parte por mar. Incluye la instrucción del anticipo que la fábrica exige para arrancar la producción, porque sin él la orden no se activa. No incluye el desarrollo del producto en sí (macro 3, R&D y Desarrollo de Producto — Cubitt), que es anterior; ni la recepción física en el hub de Colón (macro 7, Logística y Operaciones); ni la ejecución del pago y la consecución de los fondos, que son 13.1 (cuentas por pagar a proveedores) y 13.2 (flujo de caja y ejecución de pagos)."
     },
     "dueno": {
      "estado": "borrador",
@@ -1988,6 +1995,7 @@ window.MANUAL_CONTENIDO = {
       "Gerente Comercial (País / Canal) — aporta el forecast de los canales y la venta esperada de sus clientes.",
       "Coordinador(a) de Logística y Bodega (Venezuela) — incorporada recientemente al comité; aporta el requerimiento del país que concentra la mayor parte de la compra.",
       "Encargado(a) de Sourcing (China) — busca proveedores nuevos y mantiene el control por fábrica de qué está en producción, qué viene en camino y el estado de los pagos.",
+      "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que la orden esté aprobada y el anticipo encaje en el ciclo de caja, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.",
       "Gerente de Operaciones y Logística — recibe la mercancía en el hub de Colón y requiere aviso anticipado del embarque."
      ],
      "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
@@ -2014,12 +2022,14 @@ window.MANUAL_CONTENIDO = {
       {"id": "a6", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Selecciona la fábrica —o busca una nueva con el Encargado(a) de Sourcing (China)—, negocia condiciones y revisa las muestras del lote."},
       {"id": "a7", "rol": "Comité Comercial", "texto": "Confirma las condiciones finales —fábrica, cantidades y términos— antes de que se coloque la orden. No vuelve a decidir qué pedir: revisa lo que cambió al negociar respecto de lo que se decidió al principio del ciclo."},
       {"id": "a8", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Coloca la orden de compra con la fábrica seleccionada."},
+      {"id": "a8b", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Instruye el pago del anticipo que la fábrica exige para iniciar la producción, indicando la orden a la que corresponde y las condiciones pactadas con ese proveedor. El anticipo no es un trámite posterior: sin él la fábrica no arranca."},
+      {"id": "a8c", "rol": "Gerente de Contabilidad / Administración", "texto": "Verifica que la orden esté aprobada por el comité y que el anticipo encaje en el ciclo de caja, y ejecuta el pago. La consecución de los fondos y el registro de la obligación con el proveedor son 13.2 y 13.1."},
       {"id": "a9", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Cuando la mercancía está lista, decide con el equipo de comercialización qué parte se embarca por aire —solo los productos de tamaño pequeño lo permiten— y qué parte por mar."},
       {"id": "a10", "rol": "Encargado(a) de Sourcing (China)", "texto": "Mantiene el control por fábrica de qué está en producción, qué viene en camino, cuándo se estima que llegue y el estado de los pagos."},
       {"id": "a11", "rol": "Gerente de Operaciones y Logística", "texto": "Recibe la mercancía en el hub de Colón y le da visibilidad a los canales de venta."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial", "Gerente Regional Comercial / Retail (Cubitt)", "Gerente Comercial (País / Canal)", "Director(a) de Marca Propia (Cubitt)", "Encargado(a) de Sourcing (China)", "Gerente de Operaciones y Logística"],
+      "carriles": ["Comité Comercial", "Gerente Regional Comercial / Retail (Cubitt)", "Gerente Comercial (País / Canal)", "Director(a) de Marca Propia (Cubitt)", "Encargado(a) de Sourcing (China)", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
       "nodos": [
        {"id": "n0", "carril": "Comité Comercial", "tipo": "inicio", "n": "Se convoca la revisión periódica de compra"},
        {"id": "n1", "carril": "Gerente Regional Comercial / Retail (Cubitt)", "tipo": "tarea", "n": "Aportar venta, inventario y sugerido de pedido", "sistemas": ["Power BI", "Archivos propios de seguimiento"]},
@@ -2034,6 +2044,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n9", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se confirma proceder?"},
        {"id": "n9alt", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Ajustar cantidades o condiciones"},
        {"id": "n10", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Colocar la orden de compra con la fábrica"},
+       {"id": "n10b", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Instruir el anticipo que activa la producción"},
+       {"id": "n10c", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Verificar y ejecutar el pago del anticipo"},
        {"id": "n11", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Decidir aéreo o marítimo por producto"},
        {"id": "n12", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Controlar producción, tránsito y pagos por fábrica", "sistemas": ["Documentos de control por proveedor"]},
        {"id": "n13", "carril": "Gerente de Operaciones y Logística", "tipo": "fin", "n": "Mercancía recibida en el hub de Colón"}
@@ -2054,7 +2066,9 @@ window.MANUAL_CONTENIDO = {
        {"de": "n9", "a": "n10", "etq": "Sí"},
        {"de": "n9", "a": "n9alt", "etq": "No"},
        {"de": "n9alt", "a": "n10"},
-       {"de": "n10", "a": "n11"},
+       {"de": "n10", "a": "n10b"},
+       {"de": "n10b", "a": "n10c"},
+       {"de": "n10c", "a": "n11"},
        {"de": "n11", "a": "n12"},
        {"de": "n12", "a": "n13"}
       ]
@@ -2090,7 +2104,7 @@ window.MANUAL_CONTENIDO = {
    "6.5": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la compra que cada país resuelve con proveedores locales: insumos de operación, mantenimiento, servicios y activos menores —desde el material de tienda y el mantenimiento del almacén hasta el trámite de un permiso o la contratación de un servicio—. Va desde la detección de la necesidad y la cotización hasta la aprobación según umbral, el registro en el sistema del país y su consolidación en la visibilidad regional. ⚠️ No cubre la mercancía de las marcas del grupo: esa llega exclusivamente por la compra internacional (6.3 y 6.4) y la reposición desde el hub (6.6 y 6.7). Un país no puede resolver localmente un faltante de producto de marca, porque ningún proveedor local lo tiene. Tampoco incluye la recepción física ni el alta en inventario (macro 7, Logística y Operaciones): lo que compra este proceso no es mercancía y no entra al inventario del grupo — el proveedor entrega directamente al área que lo pidió, y es esa área la que da la conformidad. La excepción es lo que sí entra a bodega —un activo, o una compra de volumen—: ahí la recepción física sí es de Logística."
+     "texto": "Cubre la compra que cada país resuelve con proveedores locales: insumos de operación, mantenimiento, servicios y activos menores —desde el material de tienda y el mantenimiento del almacén hasta el trámite de un permiso o la contratación de un servicio—. Va desde la detección de la necesidad y la cotización hasta la aprobación según umbral, el registro en el sistema del país, la autorización del pago contra la conformidad recibida y su consolidación en la visibilidad regional. No cubre la ejecución del pago ni la consecución de los fondos, que son 13.2, ni el registro contable de la obligación, que es 13.1. ⚠️ No cubre la mercancía de las marcas del grupo: esa llega exclusivamente por la compra internacional (6.3 y 6.4) y la reposición desde el hub (6.6 y 6.7). Un país no puede resolver localmente un faltante de producto de marca, porque ningún proveedor local lo tiene. Tampoco incluye la recepción física ni el alta en inventario (macro 7, Logística y Operaciones): lo que compra este proceso no es mercancía y no entra al inventario del grupo — el proveedor entrega directamente al área que lo pidió, y es esa área la que da la conformidad. La excepción es lo que sí entra a bodega —un activo, o una compra de volumen—: ahí la recepción física sí es de Logística."
     },
     "dueno": {
      "estado": "borrador",
@@ -2099,11 +2113,11 @@ window.MANUAL_CONTENIDO = {
       "Área solicitante del país — detecta y solicita la necesidad, y después confirma que el bien llegó o el servicio se cumplió. Cada departamento tiene identificado quién firma por él.",
       "Asistente Administrativo(a) / Servicios Generales — canaliza la solicitud, cotiza con proveedores locales y registra la orden en el sistema del país. Es quien ejecuta el proceso en el día a día.",
       "Gerente de Contabilidad / Administración — aprueba la compra dentro del umbral del país y responde por el gasto local del período.",
-      "Comité de Compras / Director de Compras — autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente.",
+      "Comité Comercial — autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente.",
       "Coordinador(a) de Logística y Bodega — consolida las compras locales de los países para que el gasto tenga visibilidad regional y no quede solo en el sistema de cada uno."
      ],
      "evidencia": ["E-34", "E-59", "E-50"],
-     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función a la administración del país —quien ejecuta la compra no puede ser quien la aprueba—, y no al Country Manager: la evidencia sitúa la compra y el pago en quien lleva «compras, administración y finanzas» del país, y hacer firmar al máximo responsable cada insumo de oficina no es proporcionado. ⚠️ Se incorpora además el área solicitante, que en la versión anterior no aparecía: la necesidad nace donde se tiene, y es el área la que después confirma la conformidad del bien o servicio — el único control de recepción que la evidencia documenta. «Comité de Compras / Director de Compras» es denominación propuesta, sin equivalencia en el patrón V4.",
+     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función a la administración del país —quien ejecuta la compra no puede ser quien la aprueba—, y no al Country Manager: la evidencia sitúa la compra y el pago en quien lleva «compras, administración y finanzas» del país, y hacer firmar al máximo responsable cada insumo de oficina no es proporcionado. ⚠️ Se incorpora además el área solicitante, que en la versión anterior no aparecía: la necesidad nace donde se tiene, y es el área la que después confirma la conformidad del bien o servicio — el único control de recepción que la evidencia documenta. «Comité Comercial» es denominación propuesta, sin equivalencia en el patrón V4.",
      "sin_evidencia": "No consta el umbral de aprobación de ningún país — el proceso lo incorpora como control, pero el monto lo tiene que fijar el equipo. Tampoco consta qué conceptos quedan dentro y cuáles escalan por naturaleza y no por monto (activos, contratos de arrendamiento, vehículos), aunque la evidencia muestra que hoy se deciden por la misma vía. El «proveedor Mundo» que el mapa cita para Venezuela se retiró: no aparece en ninguna de las 59 entrevistas."
     },
     "disparador": {
@@ -2121,25 +2135,27 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Área solicitante del país", "texto": "Detecta y solicita el bien o servicio que necesita para operar: insumo, mantenimiento, servicio, trámite o activo menor. La necesidad nace donde se tiene, no en la función que compra."},
       {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Canaliza la solicitud, identifica los proveedores locales disponibles y pide cotización, verificando que el proveedor siga activo y sostenga el precio."},
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Aprueba la compra cuando no necesita subir al hub —proveedor ya habitual para ese concepto y monto dentro del umbral del país— y responde por ella ante el consolidado del período."},
-      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Autoriza la compra cuando escala al hub, por cualquiera de dos vías: porque implica cambiar de proveedor en un concepto recurrente —lo único que hoy escala de hecho, según la evidencia— o porque el monto supera el umbral del país, que es un control propuesto y cuyo importe queda por fijar."},
+      {"id": "a4", "rol": "Comité Comercial", "texto": "Autoriza la compra cuando escala al hub, por cualquiera de dos vías: porque implica cambiar de proveedor en un concepto recurrente —lo único que hoy escala de hecho, según la evidencia— o porque el monto supera el umbral del país, que es un control propuesto y cuyo importe queda por fijar."},
       {"id": "a5", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Coloca la orden con el proveedor elegido una vez aprobada, confirmando precio, plazo de entrega y condiciones de pago. Es el paso que compromete al grupo frente al proveedor, y por eso va después de la aprobación y nunca antes."},
       {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden en el sistema administrativo del país, con el concepto que permita clasificarla después y con el proveedor identificado para el ciclo de pago."},
       {"id": "a7", "rol": "Proveedor local", "texto": "Entrega el bien o presta el servicio contratado, directamente al área que lo solicitó. En este circuito la mercancía no pasa por la bodega ni entra al inventario del grupo, así que no hay recepción logística que intermedie; la excepción es lo que sí entra a bodega —un activo, o una compra de volumen—, donde la recepción física es de Logística y aplica el macro 7."},
       {"id": "a8", "rol": "Área solicitante del país", "texto": "Confirma por escrito que el bien llegó o que el servicio se cumplió, antes de que se autorice el pago. Es el único control de conformidad del proceso: sin él se paga contra factura y no contra entrega."},
+      {"id": "a8b", "rol": "Gerente de Contabilidad / Administración", "texto": "Autoriza y tramita el pago una vez recibida la conformidad del área solicitante, y no antes. Es la diferencia con el circuito actual, donde se paga para poder retirar el bien y la conformidad llega después, cuando ya no puede condicionar nada. La ejecución del pago y la consecución de los fondos son 13.2, y el registro de la obligación con el proveedor, 13.1."},
       {"id": "a9", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida la compra local en la visibilidad regional del gasto, para que el grupo pueda ver qué se compra fuera del circuito central y dónde se repite."}
      ],
      "diagrama": {
-      "carriles": ["Área solicitante del país", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Contabilidad / Administración", "Comité de Compras / Director de Compras", "Proveedor local", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Área solicitante del país", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Contabilidad / Administración", "Comité Comercial", "Proveedor local", "Coordinador(a) de Logística y Bodega"],
       "nodos": [
        {"id": "n0", "carril": "Área solicitante del país", "tipo": "inicio", "n": "Un área necesita un bien o servicio"},
        {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Canalizar la solicitud y cotizar proveedores"},
        {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Requiere autorización del hub?"},
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aprobar dentro del umbral del país"},
-       {"id": "n4", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Autorizar la compra desde el hub"},
+       {"id": "n4", "carril": "Comité Comercial", "tipo": "tarea", "n": "Autorizar la compra desde el hub"},
        {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Colocar la orden con el proveedor"},
        {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el sistema del país", "sistemas": ["Sistema administrativo del país"]},
        {"id": "n7", "carril": "Proveedor local", "tipo": "tarea", "n": "Entregar el bien o prestar el servicio"},
        {"id": "n8", "carril": "Área solicitante del país", "tipo": "tarea", "n": "Confirmar que se recibió o se cumplió"},
+       {"id": "n8b", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Autorizar el pago contra la conformidad"},
        {"id": "n9", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar en la visibilidad regional"},
        {"id": "n10", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Compra registrada y conforme"}
       ],
@@ -2153,7 +2169,8 @@ window.MANUAL_CONTENIDO = {
        {"de": "n5", "a": "n6"},
        {"de": "n6", "a": "n7"},
        {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n9"},
+       {"de": "n8", "a": "n8b"},
+       {"de": "n8b", "a": "n9"},
        {"de": "n9", "a": "n10"}
       ]
      }
@@ -2175,7 +2192,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Gasto en compra local por país y período", "Monto de compras locales del país en el período, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "Referencia de seguimiento"],
-      ["Compras que superaron el umbral", "Compras escaladas al hub ÷ compras locales del período", "Mensual", "Comité de Compras / Director de Compras", "Referencia — si tiende a cero, el umbral está alto"],
+      ["Compras que superaron el umbral", "Compras escaladas al hub ÷ compras locales del período", "Mensual", "Comité Comercial", "Referencia — si tiende a cero, el umbral está alto"],
       ["Recurrencia por concepto", "Conceptos comprados localmente en más de dos ciclos seguidos ÷ conceptos del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "A la baja — la recurrencia delata una falla del circuito central"],
       ["Cobertura del consolidado regional", "Compras locales que llegan al consolidado ÷ compras locales registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
       ["Tiempo desde la detección hasta la aprobación", "Fecha de aprobación − fecha de detección de la necesidad", "Por compra", "Gerente de Contabilidad / Administración", "Referencia — mide si el control entorpece la urgencia"]

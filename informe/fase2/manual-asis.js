@@ -7340,13 +7340,14 @@ window.MANUAL_ASIS = {
   "nota_version": "Versión As-Is: describe cómo se compra hoy localmente en el país, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
   "proposito": {
    "estado": "borrador",
-   "alcance": "La compra de bienes y servicios que el país necesita para operar —insumos, materiales, reparaciones, servicios de terceros— y que no son mercancía para vender. Desde que un área detecta la necesidad hasta que administración aprueba la compra. No incluye la compra de mercancía (6.3 y 6.4) ni su pago, que es de administración y finanzas.",
+   "alcance": "La compra de bienes y servicios que el país necesita para operar —insumos, materiales, reparaciones, servicios de terceros— y que no son mercancía para vender. Desde que un área detecta la necesidad hasta que el bien se recibe o el servicio se ejecuta y se da la conformidad, pasando por el pago al proveedor, que en este circuito ocurre **antes** de retirar el bien. No incluye la compra de mercancía para vender (6.3 y 6.4), ni el registro contable de la obligación ni la consecución de los fondos (13.1 y 13.2).",
    "texto": "La compra local no pertenece a ningún departamento de compras, porque el grupo no lo tiene: la ejecuta quien necesita el bien, y la aprueba la gerencia de administración del país. El circuito es corto y funciona, pero descansa entero en el criterio de quien cotiza.\n\nQuien detecta la necesidad busca presupuestos y los lleva a administración, que decide. La práctica declarada es traer «uno, dos o tres» presupuestos; y cuando quien compra ya conoce al proveedor que le parece mejor en precio y calidad, va directo a él y se lo plantea a administración como la mejor opción, por ganar tiempo. **No hay número mínimo de cotizaciones, ni umbral por monto que obligue a comparar, ni registro del criterio con el que se eligió.**\n\nNo consta procedimiento escrito para esta compra en ninguna de las operaciones."
   },
   "dueno": {
    "estado": "borrador",
    "dueno": "Gerente de Administración (país)",
    "participantes": [
+    "Administración (país) — ejecuta el pago al proveedor por transferencia en línea, a partir del correo con los datos. Lo hace una persona del área distinta de quien autoriza; su cargo no consta en las entrevistas.",
     "Gerente de Administración (país) — decide y aprueba la compra local; es quien cierra el circuito.",
     "Jefe de Servicios Generales — detecta la necesidad de insumos, materiales y reparaciones, busca los presupuestos y los lleva a administración. Es el solicitante más frecuente.",
     "Área solicitante — cualquier otra área que necesite un bien o servicio sigue el mismo camino.",
@@ -7356,8 +7357,8 @@ window.MANUAL_ASIS = {
     "E-45",
     "Lark: Levantamiento de Procesos de Compras (VE)"
    ],
-   "notas": "Cargos tomados de la columna «cargo actual» del V4, donde ambos figuran: Gerente de Administración y Jefe de Servicios Generales, los dos en la operación de Venezuela. El mapa v18 atribuye el proceso a un asistente administrativo o de servicios generales; la evidencia sitúa la decisión en la gerencia de administración y la gestión en la jefatura de servicios generales.",
-   "sin_evidencia": "No consta cómo opera este circuito en las operaciones distintas de Venezuela, ni si existe un umbral de monto por encima del cual la aprobación suba de nivel. Tampoco consta quién lo ejecuta cuando la necesidad la detecta un área sin relación con servicios generales."
+   "notas": "Cargos tomados de la columna «cargo actual» del V4, donde ambos figuran: Gerente de Administración y Jefe de Servicios Generales, los dos en la operación de Venezuela. El mapa v18 atribuye el proceso a un asistente administrativo o de servicios generales; la evidencia sitúa la decisión en la gerencia de administración y la gestión en la jefatura de servicios generales. ⚠️ Quien ejecuta el pago no está identificada por cargo: la entrevista la nombra por su nombre de pila y no dice qué puesto ocupa, así que se la nombra por el área.",
+   "sin_evidencia": "No consta cómo opera este circuito en las operaciones distintas de Venezuela, ni si existe un umbral de monto por encima del cual la aprobación suba de nivel. Tampoco consta quién lo ejecuta cuando la necesidad la detecta un área sin relación con servicios generales. Tampoco consta si el pago anticipado es la regla o solo la práctica con los proveedores habituales de ese país."
   },
   "disparador": {
    "estado": "borrador",
@@ -7412,9 +7413,14 @@ window.MANUAL_ASIS = {
      "texto": "Decide y aprueba la compra. No hay umbral por monto declarado que cambie quién aprueba."
     },
     {
+     "id": "a7b",
+     "rol": "Administración (país)",
+     "texto": "Ejecuta el pago al proveedor por transferencia en línea, con los datos que le pasan por correo. El pago va **antes** de retirar el bien: el proveedor no entrega hasta que está pagado, y la factura se emite en ese momento."
+    },
+    {
      "id": "a8",
      "rol": "Proveedor local (externo)",
-     "texto": "Entrega el bien o ejecuta el servicio."
+     "texto": "Entrega el bien o ejecuta el servicio una vez pagado, y emite la factura correspondiente."
     },
     {
      "id": "a9",
@@ -7427,6 +7433,7 @@ window.MANUAL_ASIS = {
      "Área solicitante",
      "Jefe de Servicios Generales",
      "Proveedor local (externo)",
+     "Administración (país)",
      "Gerente de Administración (país)"
     ],
     "nodos": [
@@ -7473,6 +7480,12 @@ window.MANUAL_ASIS = {
       "n": "Compra no aprobada; se rehace o se deja"
      },
      {
+      "id": "n6b",
+      "carril": "Administración (país)",
+      "tipo": "tarea",
+      "n": "Pagar al proveedor por transferencia"
+     },
+     {
       "id": "n7",
       "carril": "Proveedor local (externo)",
       "tipo": "tarea",
@@ -7482,7 +7495,7 @@ window.MANUAL_ASIS = {
       "id": "n8",
       "carril": "Jefe de Servicios Generales",
       "tipo": "fin",
-      "n": "Conformidad dada de lo recibido"
+      "n": "Conformidad del bien o del servicio"
      }
     ],
     "aristas": [
@@ -7519,8 +7532,12 @@ window.MANUAL_ASIS = {
      },
      {
       "de": "n5",
-      "a": "n7",
+      "a": "n6b",
       "etq": "Sí"
+     },
+     {
+      "de": "n6b",
+      "a": "n7"
      },
      {
       "de": "n7",
