@@ -8049,25 +8049,25 @@ window.MANUAL_ASIS = {
       "id": "n2",
       "carril": "Director Comercial y de Compras (socio)",
       "tipo": "tarea",
-      "n": "Decidir solo, sin umbral ni segunda firma"
+      "n": "Decidir la compra de la marca representada"
      },
      {
       "id": "n3",
       "carril": "Director de Compras de Marca Propia (socio)",
       "tipo": "tarea",
-      "n": "Decidir con el grupo informal, sin registro"
+      "n": "Decidir con el grupo de la marca propia"
      },
      {
       "id": "n4",
       "carril": "Director de Compras de Marca Propia (socio)",
       "tipo": "tarea",
-      "n": "Consultar al otro socio por costumbre"
+      "n": "Consultar los puntos con el otro director"
      },
      {
       "id": "n5",
       "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "tarea",
-      "n": "Calcular métricas a mano, sin destinatario",
+      "n": "Calcular las métricas a mano",
       "sistemas": [
        "Excel"
       ]
