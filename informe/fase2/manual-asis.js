@@ -6452,11 +6452,11 @@ window.MANUAL_ASIS = {
       "Agente de carga (Marlin Logistics, externo) — recibe el contacto con la fábrica, cotiza el flete, arma los contenedores y confirma la salida del embarque.",
       "Gerente de Inventario y Precios (Casiolandia Panamá) — recibe el aviso de salida y carga la orden de compra en Odoo, con la que el tránsito queda visible y empieza a prevenderse.",
       "Grte. de Ope. y Exc. Logística (Casiolandia Panamá) — recibe el mismo aviso de salida para preparar la llegada a la bodega de Zona Libre.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) — no interviene en el pedido a la fábrica: arma la reposición de Venezuela desde el inventario del hub, y el Director la ajusta según lo que haya. Según la documentación de Lark, da apoyo puntual a la planificación de compras a fábrica, sin contacto con ella.",
+      "Coordinador(a) de Planificación de Compras — no interviene en el pedido a la fábrica: arma la reposición de Venezuela desde el inventario del hub, y el Director la ajusta según lo que haya. Según la documentación de Lark, da apoyo puntual a la planificación de compras a fábrica, sin contacto con ella.",
       "Brand Manager Casio (Casiolandia Panamá) — recién incorporado; a la fecha de las entrevistas aún no participaba en el pedido, y la intención declarada es que asuma la reportería y los requisitos de la marca."
      ],
      "evidencia": ["E-08", "E-10", "E-05", "E-03", "E-40", "E-70", "Lark: Levantamiento Procesos Compras (VE)"],
-     "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él (Gerente de Inventario y Precios; Grte. de Ope. y Exc. Logística; Coordinadora de Planificación de Compras; Brand Manager Casio). El dueño, la analista y el líder de BI no figuran en el V4: el primero pertenece a la capa de socios, que el patrón no contempla. Para los tres se usa la denominación que dan las propias entrevistas; «director de compras» es como lo nombra otro socio, «aunque en teoría», porque no existe un departamento de compras.",
+     "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él (Gerente de Inventario y Precios; Grte. de Ope. y Exc. Logística; Coordinador(a) de Planificación de Compras; Brand Manager Casio). El dueño, la analista y el líder de BI no figuran en el V4: el primero pertenece a la capa de socios, que el patrón no contempla. Para los tres se usa la denominación que dan las propias entrevistas; «director de compras» es como lo nombra otro socio, «aunque en teoría», porque no existe un departamento de compras.",
      "sin_evidencia": "No consta quién ejecuta materialmente el pago a la fábrica (el Director dice «cuando yo pago»; no se sabe si interviene Tesorería). Tampoco hay segundo a bordo: el propio Director lo reconoce, y señala a la analista como la persona que tiene la información, pero no la experiencia de compra."
     },
     "disparador": {
@@ -6575,13 +6575,13 @@ window.MANUAL_ASIS = {
    "dueno": "Director de Compras de Marca Propia (socio)",
    "participantes": [
     "Director de Compras de Marca Propia (socio) — decide qué y cuánto pedir, es el único contacto permanente con las fábricas, negocia, coloca la orden, instruye los pagos, decide el modo de envío y aprueba las muestras. Lleva además la creación de producto y la operación de Estados Unidos, así que la compra compite con todo lo demás.",
-    "Product Manager / Project Manager (Panamá) — mantiene el archivo con venta mensual, inventario y sugerido por producto, y hace los cálculos sobre los que el grupo decide cuánto pedir. Es la única base cuantitativa de la reunión.",
-    "Gerente de Ventas Internacional — aporta el forecast de los canales y lo que sus clientes van a comprar; el dueño del proceso declara no estar empapado de ese dato y no poder decidirlo solo.",
+    "Equipo comercial y de producto — alguien de este equipo prepara los cálculos de venta y forecast con los que se llega a la reunión. **Quién los hace y cómo se construyen no está establecido**: el propio dueño del proceso lo enuncia en condicional.",
+    "Gerente Comercial Regional — aporta el forecast de los canales y lo que sus clientes van a comprar; el dueño del proceso declara no estar empapado de ese dato y no poder decidirlo solo.",
     "Gerente Regional de Ventas de Marca Propia — «no se mete tanto en la compra, pero ayuda porque sabe lo que se vende»: es el vendedor principal de la marca y participa en la definición de qué pedir.",
     "Director Comercial y de Compras (socio) — segunda mirada: el grupo le lleva los puntos que quiere que revise antes de proceder. Es el mismo socio que compra la marca representada, y declara querer «organizar un poco mejor la compra y las proyecciones» de esta.",
     "Gerente de Sourcing y Logística (China) — entró hace un año como gerente de sourcing para buscar fábricas y su rol derivó a una mezcla de sourcing y logística: coordina envíos y consolidaciones desde China, sigue producciones y pagos por proveedor, y organizó el control que antes no existía.",
     "Product Specialist — prueba las muestras de electrónica y da su visto antes de la aprobación, hace el seguimiento de fallas con la fábrica y la inspección en fábrica.",
-    "Coordinadora de Planificación de Compras (Rower, Venezuela) — aporta cuánto va a necesitar Venezuela, que toma gran parte de la compra; su incorporación al proceso es reciente y parcial.",
+    "Coordinador(a) de Planificación de Compras — aporta cuánto va a necesitar Venezuela, que toma gran parte de la compra; su incorporación al proceso es reciente y parcial.",
     "Gerencia de Administración y Finanzas — recibe por correo la instrucción de pago y consigue los fondos; no participa en la decisión de compra.",
     "Fábricas de China (externo) — una decena de proveedores distintos por línea de producto (relojes, básculas, audífonos, cocina, relojes de niño, accesorios). Aportan el diseño y, en los productos conectados, el firmware y la aplicación, cuyo código no es del grupo."
    ],
@@ -6594,8 +6594,8 @@ window.MANUAL_ASIS = {
     "E-05",
     "E-25"
    ],
-   "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él: Gerente de Ventas Internacional, Product Manager / Project Manager y Coordinadora de Planificación de Compras. El dueño del proceso, el Director Comercial y de Compras, el Gerente Regional de Ventas de Marca Propia, el Gerente de Sourcing y Logística en China y el Product Specialist no figuran en el V4 —los dos primeros pertenecen a la capa de socios, que el patrón no contempla, y los tres últimos están fuera del censo—; para ellos se usa la denominación que dan las propias entrevistas («product specialist, ese es su cargo»; «entró como gerente de sourcing»). La sesión de revisión del organigrama sitúa al dueño bajo «compras», junto al otro socio que compra.",
-   "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: él mismo dice que podría delegarlo mandando un correo con la referencia y las cantidades, y que la gerencia de ventas internacional y la coordinación de accesorios tienen contacto con casi todas las fábricas, pero no hay un segundo formalmente designado. Tampoco consta el umbral de monto a partir del cual una compra requeriría otra aprobación: no existe ninguno."
+   "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él: Coordinador(a) de Planificación de Compras. ⚠️ «Equipo comercial y de producto» no es un cargo: es la forma de nombrar una función que hoy no tiene titular declarado. La versión anterior de este manual la atribuía al Product Manager / Project Manager del censo, cruzando un nombre de pila con ese cargo; la evidencia no lo sostiene y la atribución se retiró. El Gerente Comercial Regional figura en el V4 como «GERENTE DE VENTAS INTERNACIONAL»; se usa «Gerente Comercial Regional» porque su ámbito es el del grupo entero y no el de un país. El dueño del proceso, el Director Comercial y de Compras, el Gerente Regional de Ventas de Marca Propia, el Gerente de Sourcing y Logística en China y el Product Specialist no figuran en el V4 —los dos primeros pertenecen a la capa de socios, que el patrón no contempla, y los tres últimos están fuera del censo—; para ellos se usa la denominación que dan las propias entrevistas («product specialist, ese es su cargo»; «entró como gerente de sourcing»). La sesión de revisión del organigrama sitúa al dueño bajo «compras», junto al otro socio que compra.",
+   "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: él mismo dice que podría delegarlo mandando un correo con la referencia y las cantidades, y que la gerencia de ventas internacional y la coordinación de accesorios tienen contacto con casi todas las fábricas, pero no hay un segundo formalmente designado. Tampoco consta el umbral de monto a partir del cual una compra requeriría otra aprobación: no existe ninguno. No consta quién mantiene la base de venta, inventario y sugerido con la que se decide la compra: el dueño del proceso la menciona sin identificarla y ninguna otra sesión la reclama."
   },
   "disparador": {
    "estado": "borrador",
@@ -6620,8 +6620,8 @@ window.MANUAL_ASIS = {
    "actividades": [
     {
      "id": "a1",
-     "rol": "Product Manager / Project Manager (Panamá)",
-     "texto": "Mantiene el control de venta mensual, inventario y sugerido por producto: cuánto se ha vendido en promedio los últimos meses, cuánto hay y cuánto debería pedirse. Es la única base cuantitativa con la que cuenta el grupo."
+     "rol": "Equipo comercial y de producto",
+     "texto": "Alguien del equipo prepara los cálculos con los que se llega a la reunión: cuánto se ha vendido en los últimos meses y cuánto se espera vender en el periodo. Es la única base cuantitativa de la decisión. **No hay responsable declarado de esa base, ni formato acordado, ni constancia de cómo se calcula**: el dueño del proceso la atribuye en condicional —«yo me imagino que sí los hace»— y no participa en su construcción."
     },
     {
      "id": "a2",
@@ -6630,12 +6630,12 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a3",
-     "rol": "Gerente de Ventas Internacional",
+     "rol": "Gerente Comercial Regional",
      "texto": "Aporta el forecast de los canales y lo que sus clientes van a comprar en el periodo."
     },
     {
      "id": "a4",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Aporta cuánto va a necesitar Venezuela de los productos en cuestión, por ser el mercado que toma la mayor parte de la compra. Su participación es reciente y no está en todos los pedidos."
     },
     {
@@ -6716,9 +6716,9 @@ window.MANUAL_ASIS = {
    ],
    "diagrama": {
     "carriles": [
-     "Product Manager / Project Manager (Panamá)",
-     "Gerente de Ventas Internacional",
-     "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "Equipo comercial y de producto",
+     "Gerente Comercial Regional",
+     "Coordinador(a) de Planificación de Compras",
      "Director de Compras de Marca Propia (socio)",
      "Director Comercial y de Compras (socio)",
      "Gerente de Sourcing y Logística (China)",
@@ -6735,22 +6735,22 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n1",
-      "carril": "Product Manager / Project Manager (Panamá)",
+      "carril": "Equipo comercial y de producto",
       "tipo": "tarea",
-      "n": "Actualizar venta, inventario y sugerido",
+      "n": "Preparar los cálculos de venta y forecast",
       "sistemas": [
        "Excel"
       ]
      },
      {
       "id": "n2",
-      "carril": "Gerente de Ventas Internacional",
+      "carril": "Gerente Comercial Regional",
       "tipo": "tarea",
       "n": "Aportar el forecast de los canales"
      },
      {
       "id": "n3",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "tarea",
       "n": "Aportar la necesidad de Venezuela"
      },
@@ -6764,7 +6764,7 @@ window.MANUAL_ASIS = {
       "id": "n5",
       "carril": "Director de Compras de Marca Propia (socio)",
       "tipo": "tarea",
-      "n": "Definir qué pedir y cuánto, sin registro",
+      "n": "Recorrer el catálogo y definir qué pedir y cuánto",
       "sistemas": [
        "Excel"
       ]
@@ -6998,7 +6998,7 @@ window.MANUAL_ASIS = {
     "proposito": {
      "estado": "borrador",
      "alcance": "Desde que cierra el año hasta que el plan de negocio queda en manos de Finanzas. Cubre la sesión anual de socios y la construcción del plan por marca, margen y estrategia. No incluye el cálculo mensual de la reposición, que arranca 6.6, ni la compra a la marca representada, que es 6.3, ni la planificación de la marca propia, que ocurre dentro de su propia reunión de compra (6.4).",
-     "texto": "**No hay proceso de planificación de demanda ni S&OP.** Los términos con los que el To-Be describe este proceso —«S&OP», «plan de suministro», «planificación de demanda»— no aparecen ni una vez en las entrevistas, y no existe ninguna instancia periódica donde se consolide la demanda del grupo.\n\nLo que sí existe es **un ejercicio anual y de socios**. Al cierre de cada año la junta se reúne dos días —trabajo, operativa y socios, con Finanzas invitada por tramos—, repasa el cierre de cada departamento, hace un análisis de situación y fija las proyecciones y el foco del año siguiente. Sobre esa base, el Director Comercial y Compras arma el plan de negocio: cuánto venderá cada marca, con qué margen y con qué estrategia, guiándose por los históricos de uno o dos años. El número no sale de una fórmula: lo sostiene una revisión cliente por cliente y país por país que hace con el Gerente Comercial, sentándose con cada vendedor. Después reparte el total anual entre los meses dándole a cada uno el peso que tuvo en años anteriores, y se lo manda a Finanzas, que lo usa para el flujo de caja del año.\n\n**Ahí se detiene.** El plan no baja como objetivo al ciclo mensual: quien calcula cada mes la reposición no lo recibe ni lo usa, y proyecta por su cuenta sobre la venta del mismo mes del año anterior (6.6). Son dos ejercicios que no se hablan entre sí, y esa desconexión es el hallazgo de este proceso.\n\nEl plan se arma **por marca**, pero solo la marca representada tiene después un ciclo de compra que pueda tomarlo como referencia. **Para la marca propia no hay planificación de demanda separada**: qué pedir y cuánto se decide dentro de la propia reunión de compra (6.4), que el director de esa marca convoca cuando detecta que hay que reponer, y donde el forecast de canales y la necesidad de cada país se aportan en el mismo acto. Él mismo lo describe así: «no está muy bien planificado este proceso, yo tengo mi mente y trato de revisar cada cierto tiempo».\n\nEl sistema tampoco ayuda: el ERP no tiene reposición automatizada ni reglas, y se evaluaron tres herramientas de planificación sin que ninguna llegara a implementarse —unas daban una predicción puntual y otras no se integraban con el ERP—."
+     "texto": "**No hay proceso de planificación de demanda ni S&OP.** Los términos con los que el To-Be describe este proceso —«S&OP», «plan de suministro», «planificación de demanda»— no aparecen ni una vez en las entrevistas, y no existe ninguna instancia periódica donde se consolide la demanda del grupo.\n\nLo que sí existe es **un ejercicio anual y de socios**. Al cierre de cada año la junta se reúne dos días —trabajo, operativa y socios, con Finanzas invitada por tramos—, repasa el cierre de cada departamento, hace un análisis de situación y fija las proyecciones y el foco del año siguiente. Sobre esa base, el Director Comercial y Compras arma el plan de negocio: cuánto venderá cada marca, con qué margen y con qué estrategia, guiándose por los históricos de uno o dos años. El número no sale de una fórmula: lo sostiene una revisión cliente por cliente y país por país que hace con el Gerente Comercial Regional, sentándose con cada vendedor. Después reparte el total anual entre los meses dándole a cada uno el peso que tuvo en años anteriores, y se lo manda a Finanzas, que lo usa para el flujo de caja del año.\n\n**Ahí se detiene.** El plan no baja como objetivo al ciclo mensual: quien calcula cada mes la reposición no lo recibe ni lo usa, y proyecta por su cuenta sobre la venta del mismo mes del año anterior (6.6). Son dos ejercicios que no se hablan entre sí, y esa desconexión es el hallazgo de este proceso.\n\nEl plan se arma **por marca**, pero solo la marca representada tiene después un ciclo de compra que pueda tomarlo como referencia. **Para la marca propia no hay planificación de demanda separada**: qué pedir y cuánto se decide dentro de la propia reunión de compra (6.4), que el director de esa marca convoca cuando detecta que hay que reponer, y donde el forecast de canales y la necesidad de cada país se aportan en el mismo acto. Él mismo lo describe así: «no está muy bien planificado este proceso, yo tengo mi mente y trato de revisar cada cierto tiempo».\n\nEl sistema tampoco ayuda: el ERP no tiene reposición automatizada ni reglas, y se evaluaron tres herramientas de planificación sin que ninguna llegara a implementarse —unas daban una predicción puntual y otras no se integraban con el ERP—."
     },
     "dueno": {
      "estado": "borrador",
@@ -7006,10 +7006,10 @@ window.MANUAL_ASIS = {
      "participantes": [
       "Junta de Socios — los socios, con Finanzas invitada por tramos. Se reúne dos días al cierre del año, repasa el cierre por departamento y fija las proyecciones y el foco del año siguiente.",
       "Director Comercial y Compras — así lo nombran de forma unánime las entrevistas. Es socio de la empresa y lleva la dirección comercial del grupo, con el foco puesto en la compra de la marca representada. Arma el plan de negocio del año y lo reparte por meses.",
-      "Gerente Comercial — se sienta con cada vendedor y revisa la venta cliente por cliente y país por país, que es lo que da base al número del plan.",
+      "Gerente Comercial Regional — se sienta con cada vendedor y revisa la venta cliente por cliente y país por país, que es lo que da base al número del plan.",
       "Director Financiero — recibe el plan y lo usa para proyectar el flujo de caja del año.",
       "Coordinador(a) de Planificación de Compras — calcula cada mes la reposición del país, pero no recibe este plan ni lo usa como objetivo; su cálculo arranca 6.6.",
-      "Director de Compras de Marca Propia (socio) — no participa en la construcción de este plan. La planificación de su marca la resuelve dentro de la reunión de compra (6.4), donde decidir qué pedir y comprarlo ocurren en el mismo acto."
+      "Director de Compras de Marca Propia — no participa en la construcción de este plan. La planificación de su marca la resuelve dentro de la reunión de compra (6.4), donde decidir qué pedir y comprarlo ocurren en el mismo acto."
      ],
      "evidencia": [
       "E-08",
@@ -7017,7 +7017,7 @@ window.MANUAL_ASIS = {
       "E-40",
       "E-15"
      ],
-     "notas": "Ni el Director Comercial y Compras ni el Director Financiero figuran en el patrón de cargos: pertenecen a la capa de socios y de dirección del grupo, que el V4 no contempla, y se usan las denominaciones con las que los nombran las entrevistas. En 6.3 y 6.6 el mismo cargo aparece todavía como «Director Comercial y Compras y de Compras (socio)». El Gerente Comercial figura en el V4 con el cargo actual «GERENTE DE VENTAS INTERNACIONAL»; aquí se usa la denominación con la que lo nombran de forma unánime las entrevistas, que lo emparejan con el Director Comercial.",
+     "notas": "Ni el Director Comercial y Compras ni el Director Financiero figuran en el patrón de cargos: pertenecen a la capa de socios y de dirección del grupo, que el V4 no contempla, y se usan las denominaciones con las que los nombran las entrevistas. En 6.3 y 6.6 el mismo cargo aparece todavía como «Director Comercial y de Compras (socio)». El Gerente Comercial Regional figura en el V4 con el cargo actual «GERENTE DE VENTAS INTERNACIONAL»; se usa «Gerente Comercial Regional» porque las entrevistas lo describen llevando el comercial de todo el grupo y no el de un país, y porque lo emparejan de forma unánime con el Director Comercial.",
      "sin_evidencia": "No consta que el plan anual se revise ni se corrija durante el año, ni que exista instancia donde se contraste con la venta real. Tampoco consta que llegue a quien planifica la reposición mensual."
     },
     "disparador": {
@@ -7047,7 +7047,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a2",
-       "rol": "Gerente Comercial",
+       "rol": "Gerente Comercial Regional",
        "texto": "Se sienta con cada vendedor y revisa la venta cliente por cliente y país por país, para dar base al número: cuánto compra cada cliente, cuánto suma cada país y qué margen deja."
       },
       {
@@ -7069,7 +7069,7 @@ window.MANUAL_ASIS = {
      "diagrama": {
       "carriles": [
        "Junta de Socios",
-       "Gerente Comercial",
+       "Gerente Comercial Regional",
        "Director Comercial y Compras",
        "Director Financiero"
       ],
@@ -7088,7 +7088,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n2",
-        "carril": "Gerente Comercial",
+        "carril": "Gerente Comercial Regional",
         "tipo": "tarea",
         "n": "Revisar la venta por cliente y país con cada vendedor"
        },
@@ -7158,12 +7158,12 @@ window.MANUAL_ASIS = {
   },
   "dueno": {
    "estado": "borrador",
-   "dueno": "Director de Compras de Marca Propia (socio)",
+   "dueno": "Director de Compras de Marca Propia",
    "participantes": [
-    "Director de Compras de Marca Propia (socio) — decide con qué fábricas se trabaja, negocia y mantiene la relación. Es el único contacto permanente con la decena de proveedores de la marca propia.",
-    "Gerente de Sourcing y Logística (China) — entró hace un año como gerente de sourcing para encontrar fábricas; su rol derivó a una mezcla de sourcing y logística, y organizó el control por proveedor que antes no existía.",
-    "Director Comercial y de Compras (socio) — para la marca representada no hay proveedor que gestionar: hay un solo fabricante y la relación es de representación.",
-    "Coordinación de accesorios (Panamá) — mantiene el contacto con las fábricas de accesorios y su detalle de muestras y colores. ⚠️ Sin equivalencia en el patrón V4."
+    "Director de Compras de Marca Propia — decide con qué fábricas se trabaja, negocia y mantiene la relación. Es el único contacto permanente con la decena de proveedores de la marca propia.",
+    "Gerente de Sourcing (China) — entró hace un año con ese cargo para encontrar fábricas; su rol derivó después a una mezcla de sourcing y logística de los envíos desde China, y organizó el control por proveedor que antes no existía.",
+    "Director Comercial y Compras — para la marca representada no hay proveedor que gestionar: hay un solo fabricante y la relación es de representación, no de compra competitiva.",
+    "Gerente de Proyectos — desde Panamá mantiene el contacto con las fábricas de accesorios y su detalle de muestras, colores y creación de referencias, para descargar de esa gestión al director que compra."
    ],
    "evidencia": [
     "E-06 (partes 1 y 2)",
@@ -7171,7 +7171,7 @@ window.MANUAL_ASIS = {
     "E-08",
     "E-20"
    ],
-   "notas": "Ninguno de los cuatro figura en el patrón V4: los dos directores pertenecen a la capa de socios, que el patrón no contempla, y las otras dos personas están fuera del censo por operar en China y en Panamá sin cargo registrado. Se usan las denominaciones que dan las propias entrevistas, igual que en 6.4.",
+   "notas": "Los dos directores pertenecen a la capa de socios, que el patrón de cargos V4 no contempla, y se usan las denominaciones con que los nombran las entrevistas, igual que en 6.1 y 6.4. La persona de sourcing está fuera del censo por operar en China, y su cargo es el que ella misma declara haber tenido al entrar. El Gerente de Proyectos sí figura en el censo, en Panamá, con ese cargo actual: lleva las fábricas de accesorios por encargo del director que compra, no porque el cargo lo contemple.",
    "sin_evidencia": "No consta ningún criterio —ni escrito ni declarado— para decidir incorporar o abandonar un proveedor, ni ninguna medición de su desempeño. Tampoco consta quién tomaría esa decisión si el director que compra no estuviera."
   },
   "disparador": {
@@ -7196,103 +7196,103 @@ window.MANUAL_ASIS = {
    "actividades": [
     {
      "id": "a1",
-     "rol": "Director de Compras de Marca Propia (socio)",
+     "rol": "Director de Compras de Marca Propia",
      "texto": "Detecta que hace falta un producto que ninguna fábrica actual hace, o decide desarrollar una línea nueva."
     },
     {
      "id": "a2",
-     "rol": "Gerente de Sourcing y Logística (China)",
+     "rol": "Gerente de Sourcing (China)",
      "texto": "Busca fábricas candidatas en China y gestiona el primer contacto. Es la función para la que fue contratada, aunque su trabajo derivó después hacia la logística de los envíos."
     },
     {
      "id": "a3",
-     "rol": "Gerente de Sourcing y Logística (China)",
+     "rol": "Gerente de Sourcing (China)",
      "texto": "Solicita muestras a las fábricas candidatas y coordina su envío."
     },
     {
      "id": "a4",
-     "rol": "Director de Compras de Marca Propia (socio)",
+     "rol": "Director de Compras de Marca Propia",
      "texto": "Decide con qué fábrica se trabaja a partir de la muestra y de lo que el proveedor ofrece. No hay criterio escrito ni comparación formal: el grupo depende en buena medida de lo que cada proveedor propone, porque no existe un estudio propio por producto."
     },
     {
      "id": "a5",
-     "rol": "Director de Compras de Marca Propia (socio)",
+     "rol": "Director de Compras de Marca Propia",
      "texto": "Coloca la primera orden, con lo que la fábrica queda incorporada de hecho. No hay alta formal, expediente ni condiciones pactadas por escrito más allá de los términos de pago."
     },
     {
      "id": "a6",
-     "rol": "Gerente de Sourcing y Logística (China)",
+     "rol": "Gerente de Sourcing (China)",
      "texto": "Abre y mantiene el control por proveedor: qué está en producción, qué viene en camino, cuándo se estima que llegue y hacia dónde va, más el registro de pagos. Antes de existir este control había que preguntárselo al director y buscarlo en su correo."
     },
     {
      "id": "a7",
-     "rol": "Coordinación de accesorios (Panamá)",
-     "texto": "Lleva el contacto del día a día con las fábricas de accesorios —muestras, colores y detalle de producto— para descargar de esa gestión al director."
+     "rol": "Gerente de Proyectos",
+     "texto": "Lleva desde Panamá el contacto del día a día con las fábricas de accesorios —termos, bolsos, gorras—: muestras, colores nuevos y creación de referencias, para descargar de esa gestión al director que compra. Es un encargo personal, no una atribución del cargo."
     },
     {
      "id": "a8",
-     "rol": "Director de Compras de Marca Propia (socio)",
+     "rol": "Director de Compras de Marca Propia",
      "texto": "Mantiene la relación por contacto directo y continuo con cada fábrica. No hay evaluación de cumplimiento, calidad ni plazo, ni revisión periódica del panel de proveedores."
     }
    ],
    "diagrama": {
     "carriles": [
-     "Director de Compras de Marca Propia (socio)",
-     "Gerente de Sourcing y Logística (China)",
-     "Coordinación de accesorios (Panamá)"
+     "Director de Compras de Marca Propia",
+     "Gerente de Sourcing (China)",
+     "Gerente de Proyectos"
     ],
     "nodos": [
      {
       "id": "n0",
-      "carril": "Director de Compras de Marca Propia (socio)",
+      "carril": "Director de Compras de Marca Propia",
       "tipo": "inicio",
       "n": "Hace falta un producto que nadie fabrica"
      },
      {
       "id": "n1",
-      "carril": "Gerente de Sourcing y Logística (China)",
+      "carril": "Gerente de Sourcing (China)",
       "tipo": "tarea",
       "n": "Buscar fábricas candidatas en China"
      },
      {
       "id": "n2",
-      "carril": "Gerente de Sourcing y Logística (China)",
+      "carril": "Gerente de Sourcing (China)",
       "tipo": "tarea",
       "n": "Pedir muestras y coordinar el envío"
      },
      {
       "id": "n3",
-      "carril": "Director de Compras de Marca Propia (socio)",
+      "carril": "Director de Compras de Marca Propia",
       "tipo": "decision",
       "n": "¿Sirve lo que ofrece la fábrica?"
      },
      {
       "id": "n4",
-      "carril": "Director de Compras de Marca Propia (socio)",
+      "carril": "Director de Compras de Marca Propia",
       "tipo": "fin",
       "n": "Se descarta; no queda registro del descarte"
      },
      {
       "id": "n5",
-      "carril": "Director de Compras de Marca Propia (socio)",
+      "carril": "Director de Compras de Marca Propia",
       "tipo": "tarea",
       "n": "Colocar la primera orden, sin alta formal"
      },
      {
       "id": "n6",
-      "carril": "Gerente de Sourcing y Logística (China)",
+      "carril": "Gerente de Sourcing (China)",
       "tipo": "tarea",
       "n": "Abrir el control de producción y pagos"
      },
      {
       "id": "n7",
-      "carril": "Coordinación de accesorios (Panamá)",
+      "carril": "Gerente de Proyectos",
       "tipo": "tarea",
-      "n": "Llevar el día a día de accesorios"
+      "n": "Llevar el contacto con las fábricas de accesorios"
      },
      {
       "id": "n8",
-      "carril": "Director de Compras de Marca Propia (socio)",
+      "carril": "Director de Compras de Marca Propia",
       "tipo": "fin",
       "n": "Relación sostenida por contacto directo"
      }
@@ -7539,9 +7539,9 @@ window.MANUAL_ASIS = {
   },
   "dueno": {
    "estado": "borrador",
-   "dueno": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+   "dueno": "Coordinador(a) de Planificación de Compras",
    "participantes": [
-    "Coordinadora de Planificación de Compras (Rower, Venezuela) — arma el pedido de reposición del país y lo envía a aprobar. Su función termina con la solicitud: no maneja permisología, aduana ni nacionalización, no tiene contacto con proveedores ni con fábrica y no gestiona pagos.",
+    "Coordinador(a) de Planificación de Compras — arma el pedido de reposición del país y lo envía a aprobar. Su función termina con la solicitud: no maneja permisología, aduana ni nacionalización, no tiene contacto con proveedores ni con fábrica y no gestiona pagos.",
     "Director Comercial y de Compras (socio) — asigna y aprueba las cantidades finales, decidiendo qué puede liberar el hub sin desabastecer a los demás países.",
     "Gerente de Ventas Mayor (Panamá) — gestiona con la bodega del hub la preparación del pedido y el armado del contenedor, e informa de tiempos y retrasos.",
     "Gerente de Operaciones y Logística (Venezuela) — recibe la mercancía al llegar al país; de ahí en adelante la gestión logística es suya.",
@@ -7577,17 +7577,17 @@ window.MANUAL_ASIS = {
    "actividades": [
     {
      "id": "a1",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Al cierre de mes revisa el inventario disponible del país, la mercancía en tránsito hacia él y el inventario disponible en el hub."
     },
     {
      "id": "a2",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Arma el pedido buscando sostener la cobertura objetivo del destino: tres a cuatro meses para el mayorista del país por el tiempo de tránsito, uno a mes y medio para el mayorista de Panamá. En temporada alta el pedido se ajusta al alza con anticipación."
     },
     {
      "id": "a3",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Envía el pedido a aprobar y a preparar."
     },
     {
@@ -7622,13 +7622,13 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a10",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Descubre al llegar el contenedor qué mercancía no viajó, y rehace el pedido desde cero en el ciclo siguiente: no hay mecanismo que reserve automáticamente lo que quedó pendiente."
     }
    ],
    "diagrama": {
     "carriles": [
-     "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "Coordinador(a) de Planificación de Compras",
      "Director Comercial y de Compras (socio)",
      "Gerente de Ventas Mayor (Panamá)",
      "Gerente de Operaciones y Logística (Venezuela)"
@@ -7636,7 +7636,7 @@ window.MANUAL_ASIS = {
     "nodos": [
      {
       "id": "n0",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "inicio",
       "n": "Cierre de mes: revisar inventario y tránsito",
       "sistemas": [
@@ -7646,7 +7646,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n1",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "tarea",
       "n": "Armar el pedido por cobertura objetivo",
       "sistemas": [
@@ -7691,7 +7691,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n8",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "fin",
       "n": "Se descubre lo que no viajó; se rehace el pedido"
      }
@@ -7748,9 +7748,9 @@ window.MANUAL_ASIS = {
   },
   "dueno": {
    "estado": "borrador",
-   "dueno": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+   "dueno": "Coordinador(a) de Planificación de Compras",
    "participantes": [
-    "Coordinadora de Planificación de Compras (Rower, Venezuela) — calcula el sugerido de reposición de cada tienda y arma el traslado, para Venezuela y Panamá.",
+    "Coordinador(a) de Planificación de Compras — calcula el sugerido de reposición de cada tienda y arma el traslado, para Venezuela y Panamá.",
     "Gerente de Almacén (Venezuela) — depura el traslado contra lo que hay físicamente y organiza su preparación y despacho.",
     "Encargado(a) de Tienda — recibe la mercancía, verifica contra el documento y reporta lo que falta.",
     "Gerente de Ventas al Detal (País) — resuelve la urgencia cuando una tienda necesita algo que no está en su reposición."
@@ -7785,12 +7785,12 @@ window.MANUAL_ASIS = {
    "actividades": [
     {
      "id": "a1",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Revisa semanalmente la venta y el inventario de cada tienda y calcula el sugerido de reposición, buscando la cobertura de unas tres semanas que admite el depósito del punto."
     },
     {
      "id": "a2",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Arma el traslado por tienda y lo envía al almacén."
     },
     {
@@ -7820,13 +7820,13 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a8",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Recoge lo no cubierto para el ciclo siguiente. No hay reserva automática de lo pendiente: se vuelve a calcular desde cero."
     }
    ],
    "diagrama": {
     "carriles": [
-     "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "Coordinador(a) de Planificación de Compras",
      "Gerente de Almacén (Venezuela)",
      "Gerente de Ventas al Detal (País)",
      "Encargado(a) de Tienda"
@@ -7834,7 +7834,7 @@ window.MANUAL_ASIS = {
     "nodos": [
      {
       "id": "n0",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "inicio",
       "n": "Ciclo semanal: calcular el sugerido",
       "sistemas": [
@@ -7844,7 +7844,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n1",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "tarea",
       "n": "Armar el traslado por tienda"
      },
@@ -7883,7 +7883,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n7",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "fin",
       "n": "Lo no cubierto vuelve al cálculo siguiente"
      }
@@ -7941,7 +7941,7 @@ window.MANUAL_ASIS = {
     "Director Comercial y de Compras (socio) — decide la compra de la marca representada sin umbral ni segunda firma, y aprueba las reposiciones de los países y todas las promociones, caso por caso.",
     "Director de Compras de Marca Propia (socio) — decide la compra de la marca propia con la misma autonomía, apoyado en un grupo informal de cuatro personas.",
     "Junta Directiva — no ejerce hoy control sobre la compra. Es donde tendría que residir cualquier regla, porque ambos directores son miembros suyos.",
-    "Coordinadora de Planificación de Compras (Rower, Venezuela) — señala la ausencia de indicadores y de un departamento de compras formal, y declara tener clara cómo debería estructurarse."
+    "Coordinador(a) de Planificación de Compras — señala la ausencia de indicadores y de un departamento de compras formal, y declara tener clara cómo debería estructurarse."
    ],
    "evidencia": [
     "E-08",
@@ -7994,12 +7994,12 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a5",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Calcula de forma manual y puntual las métricas que necesita —cobertura promedio, clasificación por rotación— sin reporte periódico ni destinatario."
     },
     {
      "id": "a6",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Comprueba si existe una meta contra la que medir el resultado, y no la encuentra: se sabe informalmente que la cobertura del mayorista debe estar entre tres y cuatro meses, pero no hay reporte que lo contraste."
     },
     {
@@ -8012,7 +8012,7 @@ window.MANUAL_ASIS = {
     "carriles": [
      "Director Comercial y de Compras (socio)",
      "Director de Compras de Marca Propia (socio)",
-     "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "Coordinador(a) de Planificación de Compras",
      "Junta Directiva"
     ],
     "nodos": [
@@ -8048,7 +8048,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n5",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "tarea",
       "n": "Calcular métricas a mano, sin destinatario",
       "sistemas": [
@@ -8057,7 +8057,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n6",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "decision",
       "n": "¿Hay meta contra la que medir?"
      },
@@ -8069,7 +8069,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n8",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "fin",
       "n": "Métrica queda sin contraste"
      }
@@ -8133,7 +8133,7 @@ window.MANUAL_ASIS = {
     "Gerente de Operaciones y Logística (Venezuela) — certifica la diferencia reportada antes de aceptarla y la gestiona con la contraparte del hub.",
     "Gerente de Almacén (Venezuela) — detecta la diferencia al recibir y la reporta con el número de factura y la referencia.",
     "Gerente de Ventas Mayor (Panamá) — contraparte en el hub: organiza el faltante y confirma qué salió realmente.",
-    "Coordinadora de Planificación de Compras (Rower, Venezuela) — sufre la consecuencia en el ciclo siguiente, porque la mercancía no recibida vuelve a pedirse desde cero."
+    "Coordinador(a) de Planificación de Compras — sufre la consecuencia en el ciclo siguiente, porque la mercancía no recibida vuelve a pedirse desde cero."
    ],
    "evidencia": [
     "E-34",
@@ -8193,7 +8193,7 @@ window.MANUAL_ASIS = {
     },
     {
      "id": "a7",
-     "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "rol": "Coordinador(a) de Planificación de Compras",
      "texto": "Vuelve a incluir en el pedido siguiente la mercancía que no llegó. No hay reserva del pendiente: el pedido se rehace desde cero."
     }
    ],
@@ -8202,7 +8202,7 @@ window.MANUAL_ASIS = {
      "Gerente de Almacén (Venezuela)",
      "Gerente de Operaciones y Logística (Venezuela)",
      "Gerente de Ventas Mayor (Panamá)",
-     "Coordinadora de Planificación de Compras (Rower, Venezuela)"
+     "Coordinador(a) de Planificación de Compras"
     ],
     "nodos": [
      {
@@ -8246,7 +8246,7 @@ window.MANUAL_ASIS = {
      },
      {
       "id": "n6",
-      "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+      "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "fin",
       "n": "Lo no recibido vuelve al pedido siguiente"
      }
@@ -11429,7 +11429,7 @@ window.MANUAL_ASIS = {
      "participantes": [
       "Vendedor(a) al por Mayor — marca la preventa, comunica la fecha al cliente y decide qué hacer con el remanente.",
       "Gerente de Inventario y Precios — confirma las preventas al cerrar la recepción para amarrar la mercancía.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) — avisa a ventas lo que viene en camino, alrededor de una semana antes.",
+      "Coordinador(a) de Planificación de Compras — avisa a ventas lo que viene en camino, alrededor de una semana antes.",
       "Gerente de Ventas Internacional — define la brecha como prioridad, sin que exista todavía un registro de la demanda no cubierta."
      ],
      "evidencia": [
@@ -14252,9 +14252,9 @@ window.MANUAL_ASIS = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+     "dueno": "Coordinador(a) de Planificación de Compras",
      "participantes": [
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) — calcula cada semana el sugerido por tienda para Venezuela y Panamá; en Venezuela, además, monta los pedidos en Odoo.",
+      "Coordinador(a) de Planificación de Compras — calcula cada semana el sugerido por tienda para Venezuela y Panamá; en Venezuela, además, monta los pedidos en Odoo.",
       "Supervisor de Tienda (Panamá) — revisa el sugerido, carga los pedidos en Odoo, valida los traslados al recibir y atiende las diferencias.",
       "Gerente de Ventas Internacional — autoriza el pedido de las tiendas de Panamá para que la bodega lo vea.",
       "Jefe de Bodega — prepara y despacha los pedidos de las tiendas de Panamá.",
@@ -14298,7 +14298,7 @@ window.MANUAL_ASIS = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "rol": "Coordinador(a) de Planificación de Compras",
        "texto": "Calcula el sugerido semanal por tienda y lo envía."
       },
       {
@@ -14339,7 +14339,7 @@ window.MANUAL_ASIS = {
      ],
      "diagrama": {
       "carriles": [
-       "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "Coordinador(a) de Planificación de Compras",
        "Supervisor de Tienda (Panamá)",
        "Gerente de Ventas Internacional",
        "Jefe de Bodega",
@@ -14348,13 +14348,13 @@ window.MANUAL_ASIS = {
       "nodos": [
        {
         "id": "n0",
-        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "carril": "Coordinador(a) de Planificación de Compras",
         "tipo": "inicio",
         "n": "Ciclo semanal"
        },
        {
         "id": "n1",
-        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "carril": "Coordinador(a) de Planificación de Compras",
         "tipo": "tarea",
         "n": "Calcular el sugerido por tienda",
         "sistemas": [
@@ -16471,7 +16471,7 @@ window.MANUAL_ASIS = {
      "participantes": [
       "Supervisor(a) de Tienda e Inventario (Venezuela) — en Panamá, el supervisor de tienda. Saca la existencia teórica, compara lo contado y ajusta.",
       "Gerente de Tienda — cuenta con su equipo las líneas del calendario y responde por los faltantes.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) — detecta diferencias cuando arma traslados sobre existencias que no están."
+      "Coordinador(a) de Planificación de Compras — detecta diferencias cuando arma traslados sobre existencias que no están."
      ],
      "evidencia": [
       "E-47",
@@ -19852,7 +19852,7 @@ window.MANUAL_ASIS = {
       "Gerente de Ventas Web (Venezuela) — cruza inventarios y arma el sugerido de reposición, anticipándose a las promociones.",
       "Supervisor de Operaciones y Logística (Ventas Web) — pide los traslados, recibe y cuenta la mercancía y acepta el traslado.",
       "Gerente de Almacén (Venezuela) — despacha al almacén web como a una tienda, los lunes y los miércoles.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) — en teoría calcula la reposición; monta el pedido automático cuando llega un contenedor.",
+      "Coordinador(a) de Planificación de Compras — en teoría calcula la reposición; monta el pedido automático cuando llega un contenedor.",
       "Gerente de Ventas al Mayor (Venezuela) — sus reservas sin facturar dejan disponible mercancía que ya no lo está."
      ],
      "evidencia": [
@@ -19901,7 +19901,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a3",
-       "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "rol": "Coordinador(a) de Planificación de Compras",
        "texto": "Cuando llega un contenedor, monta un pedido automático para la web."
       },
       {
@@ -19928,7 +19928,7 @@ window.MANUAL_ASIS = {
      "diagrama": {
       "carriles": [
        "Gerente de Ventas Web (Venezuela)",
-       "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "Coordinador(a) de Planificación de Compras",
        "Supervisor de Operaciones y Logística (Ventas Web)",
        "Gerente de Almacén (Venezuela)"
       ],
@@ -19947,7 +19947,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n2",
-        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "carril": "Coordinador(a) de Planificación de Compras",
         "tipo": "tarea",
         "n": "Montar el pedido automático",
         "sistemas": [
@@ -23057,7 +23057,7 @@ window.MANUAL_ASIS = {
       "Data Scientist / Líder de BI — mantiene los algoritmos de detección de atípicos sobre los que se apoya la revisión.",
       "Vendedor responsable de la cuenta — recibe el aviso del defecto y reenvía el archivo corregido cuando el cliente lo manda.",
       "Analista de Datos e Informes — revisa por su cuenta la cifra que usa en los reportes a la dirección y a la marca representada.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) y Regional Manager Retail — revisan también, cada una con su criterio, lo que usan para decidir."
+      "Coordinador(a) de Planificación de Compras y Regional Manager Retail — revisan también, cada una con su criterio, lo que usan para decidir."
      ],
      "evidencia": [
       "E-18",
@@ -23477,7 +23477,7 @@ window.MANUAL_ASIS = {
       "Analista de Datos (equipo de BI) — prepara las métricas que alimentan los modelos: promedios móviles, comparación con el año anterior, estacionalidad, tendencia y penetración por tienda.",
       "Director Comercial y de Compras (socio) — dicta las heurísticas comerciales y los parámetros de compra, y acepta el ajuste cuando la evidencia es válida.",
       "Regional Manager Retail — fija las heurísticas de tienda.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) y Analista de Datos e Informes — usuarias clave que prueban el modelo contra sus propios archivos y piden ajustes.",
+      "Coordinador(a) de Planificación de Compras y Analista de Datos e Informes — usuarias clave que prueban el modelo contra sus propios archivos y piden ajustes.",
       "Director de Proyectos (PMO) — se reúne cada semana con la célula y la gerencia de sistemas para ver los proyectos nuevos y su avance."
      ],
      "evidencia": [
@@ -23542,7 +23542,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a7",
-       "rol": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+       "rol": "Coordinador(a) de Planificación de Compras",
        "texto": "Prueba el modelo contra su propio archivo y pide ajustes; el tablero de reposición en prueba aún no refleja bien los aumentos de diciembre y todavía no sustituye el proceso manual."
       },
       {
@@ -23556,7 +23556,7 @@ window.MANUAL_ASIS = {
        "Data Scientist / Líder de BI",
        "Director Comercial y de Compras (socio)",
        "Analista de Datos (equipo de BI)",
-       "Coordinadora de Planificación de Compras (Rower, Venezuela)"
+       "Coordinador(a) de Planificación de Compras"
       ],
       "nodos": [
        {
@@ -23618,7 +23618,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n8",
-        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "carril": "Coordinador(a) de Planificación de Compras",
         "tipo": "tarea",
         "n": "Probar contra su propio archivo",
         "sistemas": [
@@ -23627,13 +23627,13 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n9",
-        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "carril": "Coordinador(a) de Planificación de Compras",
         "tipo": "decision",
         "n": "¿Lo adopta el usuario?"
        },
        {
         "id": "n10",
-        "carril": "Coordinadora de Planificación de Compras (Rower, Venezuela)",
+        "carril": "Coordinador(a) de Planificación de Compras",
         "tipo": "fin",
         "n": "Modelo en uso junto al método manual"
        },
@@ -23934,7 +23934,7 @@ window.MANUAL_ASIS = {
       "Analista de Datos (equipo de BI) — elabora el manual de usuario, el diccionario de medidas y las heurísticas de cada proyecto.",
       "Data Scientist / Líder de BI — prepara el asistente que responde con el contenido del manual, avisa que el producto está listo y revisa quién accede.",
       "Analista de Datos e Informes — usuaria clave en Panamá: usa el producto a diario y traduce su lectura para la dirección comercial.",
-      "Coordinadora de Planificación de Compras (Rower, Venezuela) — usuaria clave en Venezuela.",
+      "Coordinador(a) de Planificación de Compras — usuaria clave en Venezuela.",
       "Director Comercial y de Compras (socio) — principal impulsor del uso en la dirección."
      ],
      "evidencia": [
