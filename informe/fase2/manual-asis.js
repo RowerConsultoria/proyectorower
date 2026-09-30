@@ -7958,15 +7958,16 @@ window.MANUAL_ASIS = {
     "Director Comercial y de Compras (socio) — decide la compra de la marca representada sin umbral ni segunda firma, y aprueba las reposiciones de los países y todas las promociones, caso por caso.",
     "Director de Compras de Marca Propia (socio) — decide la compra de la marca propia con la misma autonomía, apoyado en un grupo informal de cuatro personas.",
     "Junta Directiva — no ejerce hoy control sobre la compra. Es donde tendría que residir cualquier regla, porque ambos directores son miembros suyos.",
-    "Coordinador(a) de Planificación de Compras — señala la ausencia de indicadores y de un departamento de compras formal, y declara tener clara cómo debería estructurarse."
+    "Coordinador(a) de Planificación de Compras — es quien calcula la cobertura y la rotación con las que decide la reposición del país, en su propia hoja de cálculo. Señala la ausencia de indicadores y de un departamento de compras formal, y declara tener clara cómo debería estructurarse."
    ],
    "evidencia": [
     "E-08",
+    "E-40",
     "E-06 (partes 1 y 2)",
     "E-60",
     "Lark: Levantamiento de Procesos de Compras (VE)"
    ],
-   "notas": "Los dos directores no figuran en el patrón V4: pertenecen a la capa de socios, que el patrón no contempla. Se usan las denominaciones de las entrevistas, las mismas de 6.3 y 6.4.",
+   "notas": "Los dos directores no figuran en el patrón V4: pertenecen a la capa de socios, que el patrón no contempla. Se usan las denominaciones de las entrevistas, las mismas de 6.3 y 6.4. El tramo de medición —cobertura, rotación y la falta de meta contra la que contrastarlas— procede de la coordinación de planificación de compras de Venezuela (E-40), que es quien las calcula.",
    "sin_evidencia": "No consta ningún umbral de monto, ninguna política de compras escrita, ninguna matriz de aprobación ni ningún indicador de compras formalizado. La ausencia es el hallazgo, no un hueco de la investigación."
   },
   "disparador": {
@@ -7976,6 +7977,7 @@ window.MANUAL_ASIS = {
    "output": "Decisiones de compra tomadas individualmente, sin registro del criterio ni medición posterior.",
    "evidencia": [
     "E-08",
+    "E-40",
     "Lark: Levantamiento de Procesos de Compras (VE)"
    ],
    "notas": "El único control recurrente documentado es que cada descuento de promoción pasa por el visto de un socio, lo que en la práctica convierte una decisión comercial rutinaria en un cuello de botella."
@@ -7984,6 +7986,7 @@ window.MANUAL_ASIS = {
    "estado": "borrador",
    "evidencia": [
     "E-08",
+    "E-40",
     "E-06 (partes 1 y 2)",
     "E-60",
     "Lark: Levantamiento de Procesos de Compras (VE)"
@@ -8012,12 +8015,12 @@ window.MANUAL_ASIS = {
     {
      "id": "a5",
      "rol": "Coordinador(a) de Planificación de Compras",
-     "texto": "Calcula de forma manual y puntual las métricas que necesita —cobertura promedio, clasificación por rotación— sin reporte periódico ni destinatario."
+     "texto": "Calcula en su propia hoja de cálculo las dos cifras con las que decide cuánto reponer: la **cobertura** —cuántos meses de venta cubre el inventario que hay— y la **clasificación por rotación** (Pareto A, B o C), que fija qué cobertura le corresponde a cada producto. «A mano» quiere decir tres cosas a la vez: **el ERP no las produce** —salen de fórmulas suyas, fuera del sistema—, **las hace cuando las necesita** y no con una periodicidad, y **nadie las recibe**: no hay reporte que las publique ni instancia que las revise. Ella lo dice así: «no tengo un reporte periódico que diga las coberturas, no tengo nada»."
     },
     {
      "id": "a6",
      "rol": "Coordinador(a) de Planificación de Compras",
-     "texto": "Comprueba si existe una meta contra la que medir el resultado, y no la encuentra: se sabe informalmente que la cobertura del mayorista debe estar entre tres y cuatro meses, pero no hay reporte que lo contraste."
+     "texto": "Busca una meta contra la que contrastar el resultado y no la encuentra escrita en ninguna parte. Circulan dos referencias de palabra —que el mayorista debería moverse entre tres y cuatro meses de cobertura, y que cada tienda debería tener cuatro meses de inventario, regla esta última que alguien mandó incorporar a un tablero—, pero ninguna está fijada como objetivo del proceso ni se compara periódicamente con lo que ocurre. **La cifra se calcula y ahí se queda.**"
     },
     {
      "id": "a7",
@@ -8067,7 +8070,7 @@ window.MANUAL_ASIS = {
       "id": "n5",
       "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "tarea",
-      "n": "Calcular las métricas a mano",
+      "n": "Calcular la cobertura y la rotación",
       "sistemas": [
        "Excel"
       ]
@@ -8088,7 +8091,7 @@ window.MANUAL_ASIS = {
       "id": "n8",
       "carril": "Coordinador(a) de Planificación de Compras",
       "tipo": "fin",
-      "n": "Métrica queda sin contraste"
+      "n": "La cifra no se compara con ninguna meta"
      }
     ],
     "aristas": [

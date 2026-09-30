@@ -1884,9 +1884,9 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Comité Comercial",
+     "dueno": "Comité Comercial / Gerente Corporativo - Línea Casio",
      "participantes": [
-      "Comité Comercial — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
+      "Comité Comercial / Gerente Corporativo - Línea Casio — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
       "Analista de Compras (externo) — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.",
       "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.",
       "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.",
@@ -1894,7 +1894,7 @@ window.MANUAL_CONTENIDO = {
       "Especialista de Marketing / Brand (Casio) — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."
      ],
      "evidencia": ["E-08", "E-10", "E-05", "E-03"],
-     "notas": "El dueño de este proceso es el mismo director que en 6.4 revisa la compra de la marca propia antes de proceder: aquí la lleva él directamente y allí solo confirma, según la división que el propio equipo describe —una marca por cada director, con métodos que reconocen como no unificados—. ⚠️ Ni él ni quien prepara el archivo de compras figuran en el censo del patrón de cargos V4: el primero por pertenecer a la capa de gobierno, que el patrón no contempla, y la segunda por no ser personal propio. «Analista de Compras» es una denominación funcional propuesta, no un cargo existente — el patrón no tiene ninguno de compras.",
+     "notas": "El dueño de este proceso es el mismo director que en 6.4 revisa la compra de la marca propia antes de proceder: aquí la lleva él directamente y allí solo confirma, según la división que el propio equipo describe —una marca por cada director, con métodos que reconocen como no unificados—. ⚠️ Ni él ni quien prepara el archivo de compras figuran en el censo del patrón de cargos V4: el primero por pertenecer a la capa de gobierno, que el patrón no contempla, y la segunda por no ser personal propio. «Analista de Compras» y «Gerente Corporativo - Línea Casio» son denominaciones propuestas, no cargos existentes: el patrón V4 no tiene ninguno de compras ni una gerencia corporativa por línea de marca. El rótulo del dueño nombra a la vez el cuerpo que decide —el mismo Comité Comercial de 6.1 a 6.6— y la gerencia que responde por la línea de la marca representada dentro de él.",
      "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: el corpus dice que lleva esta marca solo. Tampoco consta el alcance definitivo del perfil de marca recién incorporado, que a la fecha de las entrevistas estaba en incorporación."
     },
     "disparador": {
@@ -1909,34 +1909,34 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-08", "E-10", "E-03"],
      "actividades": [
-      {"id": "a1", "rol": "Comité Comercial", "texto": "Recibe de la fábrica el «order sheet» del mes con la mercancía disponible para pedir."},
+      {"id": "a1", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Recibe de la fábrica el «order sheet» del mes con la mercancía disponible para pedir."},
       {"id": "a2", "rol": "Analista de Compras (externo)", "texto": "Prepara el archivo de compras del mes, que reúne la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el sugerido de pedido que produce el modelo, como apoyo a la decisión."},
-      {"id": "a4", "rol": "Comité Comercial", "texto": "Compone la compra decidiendo qué pedir de la oferta, cruzando la venta pasada, el inventario, lo que ya viene en camino y el sugerido."},
-      {"id": "a5", "rol": "Comité Comercial", "texto": "Coloca la orden de compra con la fábrica."},
-      {"id": "a5b", "rol": "Comité Comercial", "texto": "Instruye el pago de la orden en la fecha que fija el calendario acordado con la fábrica, indicando a qué orden corresponde. Es lo que habilita el embarque: la fábrica no despacha hasta que la orden está pagada."},
+      {"id": "a4", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Compone la compra decidiendo qué pedir de la oferta, cruzando la venta pasada, el inventario, lo que ya viene en camino y el sugerido."},
+      {"id": "a5", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Coloca la orden de compra con la fábrica."},
+      {"id": "a5b", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Instruye el pago de la orden en la fecha que fija el calendario acordado con la fábrica, indicando a qué orden corresponde. Es lo que habilita el embarque: la fábrica no despacha hasta que la orden está pagada."},
       {"id": "a5c", "rol": "Gerente de Contabilidad / Administración", "texto": "Verifica que el pago corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta. La consecución de los fondos y el registro de la obligación con la fábrica son 13.2 y 13.1."},
       {"id": "a6", "rol": "Gerente de Operaciones y Logística", "texto": "Solicita a la fábrica la cotización del flete, con el número de contenedores y la mercancía que va en cada uno."},
-      {"id": "a7", "rol": "Comité Comercial", "texto": "Aprueba la cotización del flete: cuántos contenedores son y qué mercancía lleva cada uno."},
+      {"id": "a7", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Aprueba la cotización del flete: cuántos contenedores son y qué mercancía lleva cada uno."},
       {"id": "a8", "rol": "Gerente de Operaciones y Logística", "texto": "Da seguimiento al embarque hasta el hub de Zona Libre, donde se recibe toda la mercancía del grupo."},
       {"id": "a9", "rol": "Analista de Compras (externo)", "texto": "Actualiza el archivo de compras con lo efectivamente confirmado y reconcilia lo pedido contra la venta real del período."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial", "Analista de Compras (externo)", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
+      "carriles": ["Comité Comercial / Gerente Corporativo - Línea Casio", "Analista de Compras (externo)", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Comité Comercial", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
+       {"id": "n0", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
        {"id": "n1", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Preparar el archivo de compras del mes", "sistemas": ["Archivo de compras (Excel)"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar el sugerido de pedido del modelo", "sistemas": ["Power BI"]},
-       {"id": "n3", "carril": "Comité Comercial", "tipo": "tarea", "n": "Componer la compra: qué pedir de la oferta"},
-       {"id": "n4", "carril": "Comité Comercial", "tipo": "tarea", "n": "Colocar la orden con la fábrica"},
-       {"id": "n4b", "carril": "Comité Comercial", "tipo": "tarea", "n": "Instruir el pago según el calendario"},
+       {"id": "n3", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "tarea", "n": "Componer la compra: qué pedir de la oferta"},
+       {"id": "n4", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "tarea", "n": "Colocar la orden con la fábrica"},
+       {"id": "n4b", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "tarea", "n": "Instruir el pago según el calendario"},
        {"id": "n4c", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Verificar y ejecutar el pago a la fábrica"},
        {"id": "n5", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Solicitar la cotización del flete"},
-       {"id": "n6", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
+       {"id": "n6", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
        {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Ajustar contenedores y su contenido"},
        {"id": "n7", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Seguir el embarque hasta Zona Libre"},
        {"id": "n8", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Actualizar y reconciliar el archivo de compras"},
-       {"id": "n9", "carril": "Comité Comercial", "tipo": "fin", "n": "Compra recibida y reconciliada"}
+       {"id": "n9", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "fin", "n": "Compra recibida y reconciliada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -1972,7 +1972,7 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de ciclo de la compra mensual", "Fecha de colocación de la orden − fecha de recepción de la oferta", "Mensual", "Comité Comercial", "Referencia de seguimiento"],
+      ["Tiempo de ciclo de la compra mensual", "Fecha de colocación de la orden − fecha de recepción de la oferta", "Mensual", "Comité Comercial / Gerente Corporativo - Línea Casio", "Referencia de seguimiento"],
       ["Cierre del archivo de compras dentro del mes", "Archivos cerrados antes de la fecha de pedido ÷ meses del período", "Mensual", "Analista de Compras (externo)", "100%"],
       ["Apego al sugerido del modelo", "Líneas pedidas que coinciden con el sugerido ÷ líneas pedidas", "Mensual", "Analista de Sistemas / Datos", "Referencia — mide cuánto aporta el modelo, no cuánto se le obedece"],
       ["Órdenes con aviso anticipado a Logística", "Órdenes notificadas al hub antes del embarque ÷ total de órdenes", "Mensual", "Gerente de Operaciones y Logística", "100%"],
@@ -2393,16 +2393,16 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Comité de Compras / Director de Compras",
+     "dueno": "Comité Comercial / Director de Compras",
      "participantes": [
-      "Comité de Compras / Director de Compras — convoca la revisión, contrasta el cumplimiento de la política y propone los ajustes; después publica lo aprobado a los países.",
+      "Comité Comercial / Director de Compras — convoca la revisión, contrasta el cumplimiento de la política y propone los ajustes; después publica lo aprobado a los países.",
       "Junta Directiva — aprueba la política, la matriz de aprobación y el margen preaprobado de promociones.",
       "Coordinador(a) de Logística y Bodega — aporta el dato de ejecución del período: qué se pidió, qué se recibió, con qué cobertura se cerró y qué quedó fuera.",
-      "Planificador Financiero — aporta el dato económico: gasto por marca y país, desviación contra lo previsto y margen con el que se cerraron las promociones aplicadas.",
+      "Gerente de Administración y Finanzas — aporta el dato económico: gasto por marca y país, desviación contra lo previsto y margen con el que se cerraron las promociones aplicadas.",
       "Gerente de Contabilidad / Administración — revisa el cumplimiento de la política cuando se practica una auditoría interna, con independencia del ciclo de revisión."
      ],
      "evidencia": ["E-05", "E-08", "E-40"],
-     "notas": "⚠️ La aprobación se sitúa en la Junta y no en una gerencia, como proponía el mapa. La razón no es jerárquica sino de eficacia: hoy quienes compran son dos directores de la propia Junta —uno por marca—, y una política que los gobierna no puede aprobarse por debajo de ellos. El comité prepara y propone; la Junta aprueba. ⚠️ El mapa daba la titularidad a «Gerente Regional Comercial / Retail»: es la sexta vez en este macroproceso que sitúa una decisión de compras en una gerencia regional. «Comité de Compras» y «Director(a) de Compras» son denominaciones propuestas y «Planificador Financiero» no existe en el patrón de cargos V4.",
+     "notas": "⚠️ La aprobación se sitúa en la Junta y no en una gerencia, como proponía el mapa. La razón no es jerárquica sino de eficacia: hoy quienes compran son dos directores de la propia Junta —uno por marca—, y una política que los gobierna no puede aprobarse por debajo de ellos. El comité prepara y propone; la Junta aprueba. ⚠️ El mapa daba la titularidad a «Gerente Regional Comercial / Retail»: es la sexta vez en este macroproceso que sitúa una decisión de compras en una gerencia regional. «Comité de Compras» y «Director(a) de Compras» son denominaciones propuestas y «Gerente de Administración y Finanzas» no existe en el patrón de cargos V4.",
      "sin_evidencia": "El diseño proviene de un marco de referencia externo, no del levantamiento. Quedan por definir con el equipo: los umbrales de la matriz —en moneda y con tasa fechada—, la cadencia real de la revisión, qué indicadores entran al tablero y quién practica la auditoría interna, que hoy no tiene periodicidad conocida."
     },
     "disparador": {
@@ -2418,24 +2418,24 @@ window.MANUAL_CONTENIDO = {
      "nota_estado": "Flujo propuesto. Describe el ciclo de revisión del gobierno, no la aplicación diaria de las reglas, que ocurre dentro de los procesos operativos.",
      "evidencia": ["E-40", "E-05", "E-08"],
      "actividades": [
-      {"id": "a1", "rol": "Comité de Compras / Director de Compras", "texto": "Convoca la revisión periódica del gobierno de compras y fija qué se pone sobre la mesa: cumplimiento de la política, umbrales de la matriz, margen de promociones e indicadores del período."},
+      {"id": "a1", "rol": "Comité Comercial / Director de Compras", "texto": "Convoca la revisión periódica del gobierno de compras y fija qué se pone sobre la mesa: cumplimiento de la política, umbrales de la matriz, margen de promociones e indicadores del período."},
       {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta el dato de ejecución del período: qué se pidió y qué se recibió por marca y país, con qué cobertura se cerró, qué quedó fuera del reparto y qué tuvo que resolverse con compra local."},
-      {"id": "a3", "rol": "Planificador Financiero", "texto": "Aporta el dato económico: gasto de compra por marca y país, desviación frente a lo previsto y margen con el que se cerraron las promociones aplicadas en el período."},
-      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Contrasta lo ejecutado con lo que la política y la matriz dicen, identifica dónde se decidió fuera de regla —o sin ninguna— y propone los ajustes: umbrales, margen preaprobado, indicadores y estructura del área."},
+      {"id": "a3", "rol": "Gerente de Administración y Finanzas", "texto": "Aporta el dato económico: gasto de compra por marca y país, desviación frente a lo previsto y margen con el que se cerraron las promociones aplicadas en el período."},
+      {"id": "a4", "rol": "Comité Comercial / Director de Compras", "texto": "Contrasta lo ejecutado con lo que la política y la matriz dicen, identifica dónde se decidió fuera de regla —o sin ninguna— y propone los ajustes: umbrales, margen preaprobado, indicadores y estructura del área."},
       {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba la política, la matriz de aprobación por monto y tipo, y el margen preaprobado de promociones, o devuelve la propuesta con observaciones. Aprueba la Junta porque quienes compran hoy son dos de sus propios directores: una regla que los alcanza no puede fijarse por debajo de ellos."},
-      {"id": "a6", "rol": "Comité de Compras / Director de Compras", "texto": "Publica a los países la política y la matriz vigentes y el tablero de indicadores del período, para que cada proceso operativo sepa con qué reglas trabaja."}
+      {"id": "a6", "rol": "Comité Comercial / Director de Compras", "texto": "Publica a los países la política y la matriz vigentes y el tablero de indicadores del período, para que cada proceso operativo sepa con qué reglas trabaja."}
      ],
      "diagrama": {
-      "carriles": ["Comité de Compras / Director de Compras", "Coordinador(a) de Logística y Bodega", "Planificador Financiero", "Junta Directiva"],
+      "carriles": ["Comité Comercial / Director de Compras", "Coordinador(a) de Logística y Bodega", "Gerente de Administración y Finanzas", "Junta Directiva"],
       "nodos": [
-       {"id": "n0", "carril": "Comité de Compras / Director de Compras", "tipo": "inicio", "n": "Se convoca la revisión del gobierno"},
+       {"id": "n0", "carril": "Comité Comercial / Director de Compras", "tipo": "inicio", "n": "Se convoca la revisión del gobierno"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar el dato de ejecución del período"},
-       {"id": "n2", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aportar el dato económico del período"},
-       {"id": "n3", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Revisar cumplimiento y proponer ajustes"},
+       {"id": "n2", "carril": "Gerente de Administración y Finanzas", "tipo": "tarea", "n": "Aportar el dato económico del período"},
+       {"id": "n3", "carril": "Comité Comercial / Director de Compras", "tipo": "tarea", "n": "Revisar cumplimiento y proponer ajustes"},
        {"id": "n4", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Se aprueba la política?"},
        {"id": "n4alt", "carril": "Junta Directiva", "tipo": "fin", "n": "Propuesta devuelta al comité"},
-       {"id": "n5", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Publicar la política y el tablero"},
-       {"id": "n6", "carril": "Comité de Compras / Director de Compras", "tipo": "fin", "n": "Gobierno de compras vigente"}
+       {"id": "n5", "carril": "Comité Comercial / Director de Compras", "tipo": "tarea", "n": "Publicar la política y el tablero"},
+       {"id": "n6", "carril": "Comité Comercial / Director de Compras", "tipo": "fin", "n": "Gobierno de compras vigente"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -2465,11 +2465,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Política y matriz vigentes y publicadas", "Existe versión aprobada en el período y está accesible a los países (sí / no)", "Por ciclo", "Comité de Compras / Director de Compras", "Sí, desde el primer ciclo"],
-      ["Decisiones tomadas fuera de la matriz", "Compras aprobadas fuera del umbral o sin la firma que corresponde ÷ compras del período", "Por ciclo", "Comité de Compras / Director de Compras", "A la baja — incluye las de la propia dirección"],
-      ["Promociones resueltas sin consulta", "Promociones cerradas por encima del margen preaprobado ÷ promociones del período", "Mensual", "Planificador Financiero", "A la alza — mide si el margen liberó la decisión"],
+      ["Política y matriz vigentes y publicadas", "Existe versión aprobada en el período y está accesible a los países (sí / no)", "Por ciclo", "Comité Comercial / Director de Compras", "Sí, desde el primer ciclo"],
+      ["Decisiones tomadas fuera de la matriz", "Compras aprobadas fuera del umbral o sin la firma que corresponde ÷ compras del período", "Por ciclo", "Comité Comercial / Director de Compras", "A la baja — incluye las de la propia dirección"],
+      ["Promociones resueltas sin consulta", "Promociones cerradas por encima del margen preaprobado ÷ promociones del período", "Mensual", "Gerente de Administración y Finanzas", "A la alza — mide si el margen liberó la decisión"],
       ["Indicadores del tablero efectivamente alimentados", "Indicadores con dato del período ÷ indicadores definidos", "Por ciclo", "Coordinador(a) de Logística y Bodega", "100% — un indicador sin dato es un indicador que sobra"],
-      ["Riesgos del macroproceso revisados en el ciclo", "Riesgos declarados por los procesos que se revisan ÷ riesgos declarados", "Por ciclo", "Comité de Compras / Director de Compras", "100%"]
+      ["Riesgos del macroproceso revisados en el ciclo", "Riesgos declarados por los procesos que se revisan ÷ riesgos declarados", "Por ciclo", "Comité Comercial / Director de Compras", "100%"]
      ]
     }
    },
