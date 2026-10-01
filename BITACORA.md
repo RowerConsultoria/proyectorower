@@ -452,7 +452,7 @@ Las tres vistas son cliente-facing: sin nombres propios en los hallazgos, ni pag
   - Pasarela de mercadeo (opción A), con 11 toques L, P o C.
 - ⚠️ **Códigos de trombo fijos en el dato.** Hasta hoy eran estación + posición, y el parser de la arquitectura descartaba en silencio los que no reconocía: renumerar habría dejado módulos sin sus trombos sin dar error. Ahora el `id` va en cada trombo, `volcar-trombos.js` genera `trombos.txt` y el parser falla. La arquitectura se regeneró con el mapa viejo → nuevo, y los 85 módulos conservan exactamente sus trombos (33 altos).
 - **Arquitectura → demo:** botón «Ver» en 31 de 85 módulos. El demo acepta `?rol=` y muestra el aviso de datos de demostración también al entrar por enlace directo.
-- **Permiso:** `schema.sql` siembra `ver.sistema` (y `admin.asistente`, que ya tenía en la base viva) para Junta. ⚠️ **En la base viva, pendiente de confirmación**: sin ese permiso, el botón «Ver» rebota a la Junta.
+- **Permiso:** el rol Junta gana `ver.sistema` en la base viva (aplicado con OK del usuario; 7 cuentas), para que el botón «Ver» no la rebote. `schema.sql` lo siembra, junto con `admin.asistente`, que la base ya tenía y la semilla no.
 - `circuito-datos.js` pasa a ser **generado** por `construir-circuito.py`, fuera del repo.
 
 Verificado:
