@@ -1138,7 +1138,7 @@ window.MANUAL_CONTENIDO = {
    "9.12": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre la verificación periódica del estándar operativo, visual y de mantenimiento de cada punto de venta, hoy como acta de visita del Gerente Regional y en desarrollo como autoauditoría digital del propio gerente de tienda. No incluye la visita semanal de supervisión de rutina (proceso 9.7), que es más frecuente y de menor alcance que esta auditoría.",
+     "texto": "Cubre la verificación periódica del estándar operativo, visual y de mantenimiento de cada punto de venta, con **dos fuentes que se complementan y que el diseño conserva**: la autoauditoría digital del propio gerente de tienda, que da frecuencia porque no depende de que nadie viaje, y la auditoría en sitio del Gerente Regional, que aporta la mirada externa. El país consolida los hallazgos de ambas en una sola cola de intervención. No incluye la visita semanal de supervisión de rutina (proceso 9.7), que es más frecuente y de menor alcance que esta auditoría.",
      "nota_estado": "La autoauditoría por aplicación todavía está en desarrollo; hoy el control real es el acta de visita en papel que deja el Gerente Regional de Retail al viajar al país."
     },
     "dueno": {"estado": "borrador"},
@@ -1146,8 +1146,8 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente de Tienda", "texto": "En la autoauditoría (to-be), sube fotos del estado de la tienda y marca en la aplicación el mantenimiento pendiente y las remodelaciones que ve necesarias."},
-      {"id": "a2", "rol": "Gerente Regional de Retail", "texto": "En la auditoría externa (as-is), deja un acta de visita cuando viaja al país, con los hallazgos y las responsabilidades de seguimiento."},
+      {"id": "a1", "rol": "Gerente de Tienda", "texto": "Realiza la autoauditoría del punto en la fecha que le toca: sube a la aplicación fotos del estado de la tienda y marca el mantenimiento pendiente y las remodelaciones que ve necesarias. Es la fuente que da frecuencia al control, porque no depende de que alguien viaje."},
+      {"id": "a2", "rol": "Gerente Regional de Retail", "texto": "Deja acta de visita cuando viaja al país, con los hallazgos y las responsabilidades de seguimiento. No desaparece con la autoauditoría y no es su sustituto: es la mirada externa sobre lo que el propio punto no ve o no reporta."},
       {"id": "a3", "rol": "Gerente de Ventas al Detal (País)", "texto": "Cuando la aplicación (una vez en producción) señale que una tienda excede el intervalo sin autoauditarse, alerta y programa la visita pendiente."},
       {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Prioriza la cola de mantenimiento y remodelación con base en los hallazgos de ambas fuentes, alimentando los procesos 9.9 y 9.18."}
      ],
@@ -1155,8 +1155,8 @@ window.MANUAL_CONTENIDO = {
       "carriles": ["Gerente de Tienda", "Gerente Regional de Retail", "Gerente de Ventas al Detal (País)"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Programación mensual de autoauditoría / visita regional"},
-       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Subir fotos y marcar pendientes en la aplicación", "sistemas": ["Aplicación de autoauditoría (en desarrollo)"]},
-       {"id": "n2", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Dejar acta de visita al viajar al país"},
+       {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Autoauditar el punto en la aplicación", "sistemas": ["Aplicación de autoauditoría (en desarrollo)"]},
+       {"id": "n2", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Auditar el punto en visita al país"},
        {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿La tienda excede el intervalo sin auditar?"},
        {"id": "n3alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Alertar y programar la visita pendiente"},
        {"id": "n4", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Priorizar mantenimiento y remodelación según hallazgos"},
@@ -1406,7 +1406,7 @@ window.MANUAL_CONTENIDO = {
    "9.17": {
     "proposito": {
      "estado": "borrador",
-     "texto": "Cubre el cálculo y pago mensual de comisiones e incentivos del personal de tienda, y el diseño del esquema homologado regional que sustituirá los esquemas heredados por país. No incluye la definición de las metas y KPI sobre los que se calcula la comisión (proceso 9.1 para el forecast, 9.2 para los KPI de la torre de control).",
+     "texto": "Cubre el cálculo y pago mensual de comisiones e incentivos del personal de tienda, y el diseño del esquema regional único con el que se calculan. ⚠️ Los esquemas heredados por país quedan fuera del proceso a propósito: su sustitución es una transición, no una bifurcación del cálculo mensual. No incluye la definición de las metas y KPI sobre los que se calcula la comisión (proceso 9.1 para el forecast, 9.2 para los KPI de la torre de control).",
      "nota_estado": "El esquema de comisiones homologado a nivel regional está en diseño, con lanzamiento previsto para fin de 2026; hasta entonces cada país sigue con su esquema heredado."
     },
     "dueno": {"estado": "borrador"},
@@ -1414,26 +1414,25 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Al cierre mensual, calcula la comisión de cada asesor y gerente bajo el esquema vigente del país, con base en venta y KPI de conversión del tablero regional."},
-      {"id": "a2", "rol": "Gerente de Tienda", "texto": "Valida el cálculo contra la meta y el resultado real de conversión de su tienda antes de que pase a nómina."},
-      {"id": "a3", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Aplica el esquema heredado del país mientras el esquema homologado regional no esté vigente; una vez lanzado, aplica el nuevo esquema único."},
-      {"id": "a4", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Procesa el pago de comisiones e incentivos dentro de la nómina del mes."},
-      {"id": "a5", "rol": "Gerente Regional de Retail", "texto": "Diseña y aprueba el esquema homologado regional, con el Planificador Financiero validando el impacto en costos antes de lanzarlo."}
+      {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Diseña y mantiene el esquema de comisiones de la región —tramos, pesos de venta y de conversión, y techos—, con validación del impacto en costos antes de lanzarlo o de modificarlo. Es **un solo esquema para toda la región**: el objetivo del proceso es que ningún país calcule con reglas propias."},
+      {"id": "a2", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Al cierre mensual, calcula la comisión de cada asesor y gerente con ese esquema, sobre la venta y el KPI de conversión del tablero regional."},
+      {"id": "a3", "rol": "Gerente de Tienda", "texto": "Valida el cálculo contra la meta y el resultado real de conversión de su tienda antes de que pase a nómina."},
+      {"id": "a4", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Procesa el pago de comisiones e incentivos dentro de la nómina del mes."}
      ],
      "diagrama": {
       "carriles": ["Analista de Recursos Humanos / Nómina", "Gerente de Tienda", "Gerente Regional de Retail"],
       "nodos": [
        {"id": "n0", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "inicio", "n": "Cierre mensual de venta y KPI por tienda y asesor"},
-       {"id": "n1", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Calcular la comisión bajo el esquema vigente", "sistemas": ["Tablero regional retail"]},
+       {"id": "nA", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Revisión del esquema de comisiones"},
+       {"id": "nB", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Diseñar y aprobar el esquema regional"},
+       {"id": "n1", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Calcular la comisión con el esquema regional", "sistemas": ["Tablero regional retail"]},
        {"id": "n2", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Validar el cálculo contra meta y conversión"},
-       {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Aplica el esquema homologado regional?"},
-       {"id": "n3alt", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Aplicar el esquema heredado del país"},
        {"id": "n4", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Procesar el pago en la nómina del mes"},
        {"id": "n5", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "fin", "n": "Comisiones e incentivos pagados"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"},
-       {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}
+       {"de": "nA", "a": "nB"}, {"de": "nB", "a": "n1"}, {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n4"}, {"de": "n4", "a": "n5"}
       ]
      }
     },
@@ -1479,9 +1478,9 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Gerente de Tienda", "tipo": "inicio", "n": "Incidencia o notificación de infraestructura"},
        {"id": "n1", "carril": "Gerente de Tienda", "tipo": "tarea", "n": "Reportar la incidencia con su evidencia"},
-       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Deja el punto expuesto?"},
+       {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Compromete la seguridad o impide operar?"},
        {"id": "n2alt", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Resolver ya con proveedor calificado"},
-       {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Derivar según su naturaleza"},
+       {"id": "n3", "carril": "Gerente de Ventas al Detal (País)", "tipo": "decision", "n": "¿Es técnica o económica?"},
        {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Resolver cámaras, punto de venta o red"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Gestionar la cuota, el permiso y el pago"},
        {"id": "n6", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Cerrar la incidencia del punto"},
@@ -1490,7 +1489,9 @@ window.MANUAL_CONTENIDO = {
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
        {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"}, {"de": "n2alt", "a": "n6"},
-       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n3", "a": "n4", "etq": "Técnica"},
+       {"de": "n3", "a": "n5", "etq": "Económica"},
+       {"de": "n4", "a": "n6"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
     },

@@ -243,7 +243,9 @@
       }
       // La etiqueta se ancla SIEMPRE a la salida del nodo, también cuando la rama
       // rodea: si viaja con el trazado acaba a dos carriles de su propio rombo.
-      etqP = { x: ax + 26, y: a.y - 8 };
+      etqP = { x: ax + 14, y: a.y - 8 };  // pegada a SU rombo: con dos rombos seguidos,
+      // una etiqueta a 26 px del borde de uno ancho cae casi a medio camino del otro
+      // y deja de poder atribuirse, ni a ojo ni midiendo.
     } else if (b.col === a.col) {
       // mismo nivel, distinto carril
       d = "M" + a.x + "," + (a.y + altoNodo(na) / 2) + " V" + (b.y - altoNodo(nb) / 2);

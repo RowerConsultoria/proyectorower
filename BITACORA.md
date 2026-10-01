@@ -440,27 +440,49 @@ Las tres vistas son cliente-facing: sin nombres propios en los hallazgos, ni pag
 **2026-09-30** — Jesús (vía Claude Code) — **6.9 cerrado y primera tanda de revisión del macro 8 (Ventas Mayor).** **6.9 As-Is:** fuera el «(Venezuela)» del carril de operaciones; «Verificar en el hub qué salió» → «Verificar en el hub el contenido del embarque»; y el rombo `¿Equivale en costo a lo facturado?` → **`¿Lo recibido vale lo mismo que lo facturado?`**, que es lo que de verdad pregunta: **no si llegó lo mismo, sino si vale lo mismo**. La actividad explica ahora los dos casos con las palabras del gerente de operaciones —diferencia de referencia sin pérdida de valor («llegaron los mismos productos que yo pedí, pero con una diferencia que digamos que es de color») frente a faltante real— porque de eso depende que haya reclamo o solo un ajuste de factura. **Macro 8 — catorce procesos tocados.** Denominaciones: `Comité Comercial / Director Comercial` → **Comité Comercial** en 8.1, 8.2 y 8.10 To-Be; `Supervisor(a) de Coordinación y Planificación de CxC (Panamá)` → **`Supervisor(a) de Cuentas por Cobrar`** (el V4 lo abrevia «SUP. COORD. Y PLANI, DE CXC», ilegible fuera de contabilidad); fuera «(Colombia)» en 8.7 y «(Venezuela)» en 8.14 y 8.15; y `Coordinador(a) de Tesorería y Cobranzas` → **`Coordinador(a) de Tesorería / Cobranzas`**, que es la grafía del patrón —el cargo sí existe, con dos ocupantes—. Rótulos que no se entendían: «¿Aprueba trabajarlo?» (8.5), «Revisar cobertura por tienda» (8.7, se confundía con las tiendas propias: ahora dice «en los puntos de la cadena» y el texto lo deslinda), «Asignar promotor a la tienda» (8.7, con la explicación de qué es un promotor y por qué se pone donde hay inventario), «Visitar y enviar material» y «Despachado, sin contrato ni datos» (8.8), «Proponer mecánica y volumen» (8.10), «Escribe, es referido o es buscado» y «Ampliar puntos y volumen» (8.12), «Cada pieza llega por su lado» (8.17). `Áreas internas de producto y compras` → **`Desarrollo de Producto / Compras`** (8.11). ⚠️ **8.13 To-Be gana un control que no tenía:** la solicitud de mueble o POP se aprobaba **solo por retorno económico** y se producía sin que nadie mirara si la pieza representa bien a la marca. Se añade la validación del **Gerente Regional de Visual Merchandising** —cargo del patrón, con ocupante— entre la aprobación y la producción. ⚠️ **Dos huecos detectados y no cerrados:** **8.13 To-Be no tiene ficha propia de «Dueño y participantes»** (su `dueno` solo trae el estado, así que se ve la del mapa v18 sin rederivar), y **8.11 se apoya en una sola entrevista** que no precisa qué áreas intervienen — se dejó la denominación funcional en vez de deducir los cargos, que es la regla que dejó el caso Candanedo. Verificado: `validar-html.py`, `verificar-diagramas-fase2.js 8`, `comprobar-flujogramas-fase2.py 8` (34 flujogramas, 0 de trazado, 0 cruces y 0 rótulos recortados medidos aparte) y `comprobar-fase2.py 8`. El sitio no se redesplegó — falta `CLOUDFLARE_API_TOKEN`.
 
 **2026-09-30** — Gabriel (vía Claude Code) — **Circuito y arquitectura de Fase 2, tras la revisión con Jesús.** Los cambios salen de la sesión de ese día y de una segunda pasada por las 87 entrevistas (seis informes y plan en `Rower/analisis-circuito-27sep/mejoras-30sep/`, fuera del repo).
+
 - **Numeración del circuito:** el mismo número era una etapa distinta en cada carril (9c era la venta en tienda; 9d, la validación del pago). Ahora el número es la etapa: 8 pedido y liberación, 9 despacho y 10 llegada en los cuatro carriles, más 11 venta y 12 caja en tiendas. Las columnas se dibujan al pie. Hay cuatro estaciones nuevas: despacho a tienda, recepción en tienda, entrega al cliente web y surtido de la bodega web. Se fundieron el pedido y el pago web, y la vía principal pasa a 13–17.
+
 - **Contenido verificado:**
+
   - «Al final Venezuela» en el reparto no se sostenía: salía de una sola fuente, E-35, contradicha por E-63, E-60, E-06 y E-34. Se retira, y «somos el hoyo» pasa a 10b, que es el reparto dentro de Venezuela.
+
   - El plan de demanda se separa por marca. El forecast de Cubitt sí existe, en Excel y revisado cada trimestre.
+
   - Entra el cobro de Colombia.
+
   - Se responden las preguntas abiertas que el corpus sí resuelve: pago a Casio, allocation, proveedores de Cubitt y puntos de venta.
+
 - **Capas:**
+
   - Sistemas en tres colores, con 288 traspasos de información contados: el 59 % viaja por canales informales y el 71 % fuera de Odoo, Lark y EBS. La cifra lleva la nota de que cuenta traspasos, no volumen.
+
   - Personas en formato «rol · nombre» en las 33 estaciones, con la ortografía del censo.
+
   - Pasarela de mercadeo (opción A), con 11 toques L, P o C.
+
 - ⚠️ **Códigos de trombo fijos en el dato.** Hasta hoy eran estación + posición, y el parser de la arquitectura descartaba en silencio los que no reconocía: renumerar habría dejado módulos sin sus trombos sin dar error. Ahora el `id` va en cada trombo, `volcar-trombos.js` genera `trombos.txt` y el parser falla. La arquitectura se regeneró con el mapa viejo → nuevo, y los 85 módulos conservan exactamente sus trombos (33 altos).
+
 - **Arquitectura → demo:** botón «Ver» en 31 de 85 módulos. El demo acepta `?rol=` y muestra el aviso de datos de demostración también al entrar por enlace directo.
+
 - **Permiso:** el rol Junta gana `ver.sistema` en la base viva (aplicado con OK del usuario; 7 cuentas), para que el botón «Ver» no la rebote. `schema.sql` lo siembra, junto con `admin.asistente`, que la base ya tenía y la semilla no.
+
 - `circuito-datos.js` pasa a ser **generado** por `construir-circuito.py`, fuera del repo.
 
 Verificado:
+
 - `validar-html.py`;
+
 - las 33 estaciones y los dos alias abiertos por enlace;
+
 - los 11 nudos de mercadeo y el botón que la oculta;
+
 - temas claro y oscuro sin errores de consola;
+
 - comparación de la arquitectura antes y después, por equivalencia;
+
 - 31 botones «Ver», con su prueba en navegador.
 
 El sitio no se redesplegó.
+
+**2026-10-01** — Jesús (vía Claude Code) — **Tres arreglos de modelado en el To-Be del macro 9, y el cuarto defecto del motor de flujogramas.** **9.12:** el To-Be rotulaba sus propias actividades como «(to-be)» y «(as-is)» — un To-Be describe el estado objetivo, y ahí **las dos fuentes de auditoría conviven por diseño**: la autoauditoría digital del gerente de tienda, que da frecuencia porque no depende de que nadie viaje, y la visita del Gerente Regional, que aporta la mirada externa. El paralelismo del flujo se conserva, ahora con el porqué dicho. **9.17:** fuera el rombo `¿Aplica el esquema homologado regional?` y su rama heredada — **un To-Be que ya decidió un esquema único no puede preguntarlo cada mes**; la sustitución de los esquemas por país es una transición, no una bifurcación del cálculo, y así queda declarado en el alcance. De paso se arregló que **la actividad que diseña el esquema no tenía nodo**: estaba escrita y no dibujada. Ahora encabeza el flujo con su propio disparador anual, que converge con el cierre mensual en el cálculo. **9.18:** la derivación a Sistemas y a Administración estaba **en secuencia**, así que toda incidencia pasaba por las dos; pasa a rombo con ramas excluyentes. Y dos rótulos opacos: `¿Deja el punto expuesto?` → **`¿Compromete la seguridad o impide operar?`**, y `Derivar según su naturaleza` → **`¿Es técnica o económica?`**. ⚠️ **Cuarto defecto del motor, destapado por ese rombo:** las etiquetas de rama se anclaban a 26 px del **borde** del rombo, así que con un rombo ancho caían casi equidistantes entre dos rombos seguidos y **dejaban de poder atribuirse, ni midiendo ni a ojo**. Se acercan a su propio rombo. Al corregirlo **el macro 19 pasó de 1 problema a 0**: arrastraba ese mismo fallo desde antes. Con esto van **cuatro defectos del motor en dos días** —carril truncado, flechas convergentes superpuestas, detección de cruce por columnas en vez de geometría, y etiqueta a medio camino— y **los cuatro los detectó el consultor mirando el dibujo, ninguno los guiones**. Verificado: **los 20 macroprocesos, 281 flujogramas, 0 problemas de trazado**, más `verificar-diagramas-fase2.js 9`, 0 cruces y 0 solapes medidos aparte en los tres procesos tocados, y `validar-html.py`. El sitio no se redesplegó.
