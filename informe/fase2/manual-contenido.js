@@ -4575,21 +4575,21 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Envía el número de pedido al grupo de notificación de pagos cuando recibe la confirmación del cliente."},
-      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Entra al portal del banco y verifica referencia contra referencia y monto. **La verificación del cobro queda fuera del área que vende**: quien confirma que el dinero entró no es quien hizo la venta."},
-      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Responde en el grupo con la fecha, la referencia y el monto validados, que es lo que libera el pedido a preparación."},
+      {"id": "a2", "rol": "Asistente de Tesorería / Cobranzas", "texto": "Entra al portal del banco y verifica referencia contra referencia y monto. **La verificación del cobro queda fuera del área que vende**: quien confirma que el dinero entró no es quien hizo la venta."},
+      {"id": "a3", "rol": "Asistente de Tesorería / Cobranzas", "texto": "Responde en el grupo con la fecha, la referencia y el monto validados, que es lo que libera el pedido a preparación."},
       {"id": "a4", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Hace seguimiento a la cola de pagos pendientes de validación y escala los que se atascan, para que ningún pedido se quede parado esperando confirmación. **No valida pagos**: su responsabilidad es que la cola fluya, no comprobar cobros de su propia venta."},
-      {"id": "a5", "rol": "Contabilidad", "texto": "Ejecuta la conciliación mensual de cada marketplace (en EE. UU., sobre QuickBooks)."}
+      {"id": "a5", "rol": "Analista Contable Senior / Contador(a)", "texto": "Ejecuta la conciliación mensual de cada marketplace (en EE. UU., sobre QuickBooks)."}
      ],
      "diagrama": {
-      "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Cuentas por Cobrar", "Contabilidad"],
+      "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Asistente de Tesorería / Cobranzas", "Analista Contable Senior / Contador(a)"],
       "nodos": [
        {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pago recibido notificado por el asesor"},
        {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enviar número de pedido al grupo de notificación", "sistemas": ["LARK (grupo \"Confirmaciones\")"]},
-       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Validar el pago contra el banco"},
-       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Responder con fecha, referencia y monto validados"},
+       {"id": "n2", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "tarea", "n": "Validar el pago contra el banco"},
+       {"id": "n3", "carril": "Asistente de Tesorería / Cobranzas", "tipo": "tarea", "n": "Responder con fecha, referencia y monto validados"},
        {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Seguir la cola y escalar lo atascado"},
-       {"id": "n5", "carril": "Contabilidad", "tipo": "tarea", "n": "Ejecutar conciliación mensual de cada marketplace"},
-       {"id": "n6", "carril": "Contabilidad", "tipo": "fin", "n": "Pago verificado y pedido liberado a preparación"}
+       {"id": "n5", "carril": "Analista Contable Senior / Contador(a)", "tipo": "tarea", "n": "Ejecutar conciliación mensual de cada marketplace"},
+       {"id": "n6", "carril": "Analista Contable Senior / Contador(a)", "tipo": "fin", "n": "Pago verificado y pedido liberado a preparación"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
@@ -4600,9 +4600,9 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Actividad reconocida como fuera de lugar, sin fecha de migración fijada", "El propio equipo señala que esto debería estar en Contabilidad, pero no hay fecha comprometida de traspaso.", "Alta", "Alto", "Fijar una fecha objetivo para migrar la validación de pagos a Contabilidad/Tesorería."],
+      ["Actividad reconocida como fuera de lugar, sin fecha de migración fijada", "El propio equipo señala que esto debería estar en Contabilidad, pero no hay fecha comprometida de traspaso.", "Alta", "Alto", "Fijar una fecha objetivo para que la verificación de los pagos del canal pase a Tesorería."],
       ["Validación depende de un canal externo a Odoo (grupo de LARK)", "El pago se confirma por chat en vez de un flujo dentro del sistema transaccional.", "Alta", "Medio", "Evaluar el botón de aprobación dentro de Odoo, ya identificado como mejora deseada."],
-      ["Analista de Cuentas por Cobrar es una figura todavía en construcción", "El rol que debería absorber esta tarea apenas se está formando.", "Media", "Alto", "Acelerar la consolidación del rol para dejar de depender de la gerencia de e-commerce."],
+      ["La validación del canal web no está asignada hoy a Tesorería", "El cargo existe y está ocupado en los dos países, pero su alcance no cubre el comercio electrónico: nadie le ha asignado formalmente la verificación de estos pagos, y hoy la asume la gerencia que vende.", "Media", "Alto", "Ampliar formalmente el alcance del cargo al canal web y dimensionar la carga: son del orden de treinta a cuarenta pagos diarios, varias veces al día."],
       ["Conciliación mensual de marketplace en EE. UU. depende de una sola persona remota", "El cierre mensual sobre QuickBooks recae en un solo puesto administrativo remoto.", "Media", "Medio", "Documentar el proceso de conciliación y formar un respaldo."]
      ]
     },
@@ -4610,8 +4610,8 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Tiempo de validación del pago", "Fecha de validación − fecha de notificación del asesor", "Por pago", "Gerente de E-commerce / Ventas Web", "Mismo día"],
-      ["Pagos validados sin discrepancia de monto o referencia", "Pagos sin discrepancia ÷ total de pagos validados", "Mensual", "Analista de Cuentas por Cobrar", "≥98%"],
-      ["Conciliaciones mensuales de marketplace cerradas a tiempo", "Conciliaciones cerradas a tiempo ÷ total de marketplaces", "Mensual", "Contabilidad", "100%"]
+      ["Pagos validados sin discrepancia de monto o referencia", "Pagos sin discrepancia ÷ total de pagos validados", "Mensual", "Asistente de Tesorería / Cobranzas", "≥98%"],
+      ["Conciliaciones mensuales de marketplace cerradas a tiempo", "Conciliaciones cerradas a tiempo ÷ total de marketplaces", "Mensual", "Analista Contable Senior / Contador(a)", "100%"]
      ]
     }
    },
