@@ -4197,22 +4197,23 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define el incremento esperado sobre el año anterior como base del forecast regional."},
       {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Construye el forecast del país por canal digital, con el histórico de venta y de chats como base."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el histórico de venta y de chats por canal para dimensionar la proyección."},
-      {"id": "a4", "rol": "Planificador Financiero", "texto": "Valida el presupuesto de pauta digital asignado a cada país."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Valida el presupuesto de pauta digital asignado a cada país."},
       {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina la asignación de pauta digital con el plan de campañas regional."},
+      {"id": "a5b", "rol": "Comité Comercial", "texto": "Revisa el forecast del canal digital junto con el del resto de los canales y lo aprueba o lo devuelve para ajuste. Es la misma instancia que aprueba el plan comercial del grupo: el canal digital deja de fijar su meta por su cuenta."},
       {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Comunica las metas al equipo de e-commerce del país."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Gerente de E-commerce / Ventas Web", "Planificador Financiero", "Gerente Regional de Marketing"],
+      "carriles": ["Gerente Regional Comercial / Retail", "Comité Comercial", "Gerente de E-commerce / Ventas Web", "Gerente de Contabilidad / Administración", "Gerente Regional de Marketing"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Cierre del ciclo anual — inicia la planificación del canal digital"},
+       {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Arranca la planificación anual del canal"},
        {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir incremento esperado sobre el año anterior"},
        {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Construir el forecast por canal digital"},
-       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Validar presupuesto de pauta digital"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar presupuesto de pauta digital"},
        {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar pauta digital con el plan de campañas"},
-       {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Forecast por canal aprobado?"},
+       {"id": "n5", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se aprueba el forecast?"},
        {"id": "n5alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ajustar el forecast y re-presentar"},
        {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Comunicar metas al equipo del país"},
-       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Forecast vigente comunicado al equipo"}
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Forecast vigente y comunicado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
@@ -4233,7 +4234,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Precisión del forecast por canal", "Venta real ÷ forecast, por canal digital", "Trimestral", "Gerente de E-commerce / Ventas Web", "±20%"],
-      ["Presupuesto de pauta ejecutado ÷ asignado", "Proporción del gasto real sobre el presupuesto de pauta digital", "Mensual", "Planificador Financiero", "90%-110%"],
+      ["Presupuesto de pauta ejecutado ÷ asignado", "Proporción del gasto real sobre el presupuesto de pauta digital", "Mensual", "Gerente de Contabilidad / Administración", "90%-110%"],
       ["Metas comunicadas antes del inicio del ciclo", "Equipos notificados a tiempo ÷ total de equipos de país", "Anual", "Gerente de E-commerce / Ventas Web", "100%"]
      ]
     }
@@ -4259,17 +4260,18 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Diseñador(a) / Analista de Contenido", "Coordinador(a) de Sistemas"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Oportunidad de marketplace nuevo o necesidad de reactivación"},
+       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Marketplace nuevo o por reactivar"},
        {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Entrada o reactivación aprobada?"},
        {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Descartar o posponer la oportunidad"},
        {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Completar postulación y gestionar aceptación"},
        {"id": "n3", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Subir listings con los campos específicos del marketplace"},
        {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Conectar cuenta bancaria e integración con Shopify"},
        {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ejecutar pruebas de flujo end-to-end"},
+       {"id": "n1fin", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Oportunidad descartada o diferida"},
        {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Marketplace operativo con primer pedido procesado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n6"},
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n1fin"},
        {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
       ]
      }
@@ -4313,13 +4315,13 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Diseñador(a) / Analista de Contenido", "Gestión de Mercadeo y Comunicaciones", "Coordinador(a) de Sistemas", "Gerente de E-commerce / Ventas Web"],
       "nodos": [
-       {"id": "n0", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "inicio", "n": "Llegada de mercancía nueva o campaña programada"},
-       {"id": "n1", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Cargar producto nuevo a todas las webs desde Odoo"},
+       {"id": "n0", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "inicio", "n": "Mercancía nueva o campaña"},
+       {"id": "n1", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Cargar producto nuevo en la web"},
        {"id": "n2", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Actualizar banners y contenido visual"},
-       {"id": "n3", "carril": "Coordinador(a) de Sistemas", "tipo": "decision", "n": "¿Requiere activar método de pago o integración nueva?"},
+       {"id": "n3", "carril": "Coordinador(a) de Sistemas", "tipo": "decision", "n": "¿Hay método de pago nuevo?"},
        {"id": "n3alt", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Activar el método de pago o la integración"},
        {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Monitorear disponibilidad, precios y reglas de envío"},
-       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Web operativa con catálogo, banners y pagos vigentes"}
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Web al día"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
@@ -4366,8 +4368,8 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Gestión de Mercadeo y Comunicaciones", "Supervisor(a) de Operaciones E-commerce"],
       "nodos": [
-       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pedido entrante en el marketplace o anuncio de promoción estructural"},
-       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Es un pedido individual o una promoción estructural?"},
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pedido o promoción del marketplace"},
+       {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Pedido o promoción?"},
        {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Evaluar participación en la promoción estructural"},
        {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Registrar en la base de Lark del marketplace y cruzar contra Odoo", "sistemas": ["Lark (Cachea Cubitt / Cachea Casio)"]},
        {"id": "n3", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Coordinar comunicación de la promoción cuando aplica"},
@@ -4410,7 +4412,8 @@ window.MANUAL_CONTENIDO = {
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Revisa e imprime diariamente las órdenes entrantes de los marketplaces sin acceso directo del almacén."},
+      {"id": "a1", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Revisa cada día las órdenes entrantes de los marketplaces y libera para preparación las que están completas y pagadas."},
+      {"id": "a1b", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Imprime las órdenes de los marketplaces a los que el almacén no tiene acceso directo y arma con ellas la cola de preparación del día. ⚠️ Es un puente, no un diseño: el objetivo es **dar al almacén acceso de lectura a esas plataformas** y que la cola entre sola."},
       {"id": "a2", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Prepara y envía el pedido según la instrucción impresa."},
       {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web (USA)", "texto": "Atiende el customer service de Amazon y de los demás marketplaces."},
       {"id": "a4", "rol": "Agencia externa especializada", "texto": "Recomienda niveles de inventario a enviar a FBA según la analítica de Sellerboard."},
@@ -4421,17 +4424,18 @@ window.MANUAL_CONTENIDO = {
       "carriles": ["Gerente de E-commerce / Ventas Web (USA)", "Asistente de E-commerce / Almacén Web", "Agencia externa especializada"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "inicio", "n": "Pedidos entrantes diarios en los 15 marketplaces"},
-       {"id": "n1", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Revisar e imprimir órdenes del día"},
+       {"id": "n1", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Revisar y liberar las órdenes del día"},
+       {"id": "n1b", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Imprimir la cola de preparación"},
        {"id": "n2", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Preparar y enviar el pedido"},
        {"id": "n3", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Atender customer service de Amazon y otros marketplaces"},
        {"id": "n4", "carril": "Agencia externa especializada", "tipo": "tarea", "n": "Recomendar niveles de inventario a enviar a FBA", "sistemas": ["Sellerboard"]},
        {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "decision", "n": "¿Producto agotado en algún marketplace?"},
        {"id": "n5alt", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Poner el producto en cero en todos los marketplaces"},
        {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "tarea", "n": "Enviar inventario a Amazon FBA"},
-       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "fin", "n": "Pedidos despachados, customer service atendido, inventario FBA repuesto"}
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web (USA)", "tipo": "fin", "n": "Jornada cerrada: pedidos, atención e inventario"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1b"}, {"de": "n1b", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
        {"de": "n5", "a": "n5alt", "etq": "Sí"}, {"de": "n5", "a": "n6", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
       ]
      }
@@ -4475,14 +4479,14 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Asesor(a) de Ventas Web", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
-       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Cliente escribe por WhatsApp Business, DM redirigido o Cachea Link"},
+       {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Cliente escribe por un canal digital"},
        {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Cotizar con la lista de precios vigente", "sistemas": ["Mercateli (CRM de chats)"]},
        {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Montar el pedido directamente en Odoo"},
        {"id": "n3", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Validar pago móvil o transferencia"},
        {"id": "n4", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Pago validado?"},
        {"id": "n4alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Solicitar comprobante de pago adicional al cliente"},
        {"id": "n5", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Cerrar la venta e informar la promesa de entrega"},
-       {"id": "n6", "carril": "Asesor(a) de Ventas Web", "tipo": "fin", "n": "Pedido montado con pago validado, listo para preparación"}
+       {"id": "n6", "carril": "Asesor(a) de Ventas Web", "tipo": "fin", "n": "Pedido montado y pagado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
@@ -4536,7 +4540,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n3alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Esperar confirmación de validación de pago (proceso 10.8)"},
        {"id": "n4", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enviar comando de preparación al WMS", "sistemas": ["Odoo / WMS"]},
        {"id": "n5", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Recibir en tablet y asignar a un preparador"},
-       {"id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Pedido en preparación con timer de SLA activado"}
+       {"id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Pedido en preparación"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
@@ -4637,12 +4641,12 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Supervisor(a) de Bodega / Despacho", "Auxiliar / Ayudante de Bodega y Tráfico", "Asistente de E-commerce / Almacén Web"],
       "nodos": [
-       {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido en la tablet WMS listo para preparar"},
+       {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido listo para preparar"},
        {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Asignar el pedido a un preparador"},
-       {"id": "n1b", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Registrar almacenista y vendedor responsable en el formulario de control (Panamá)"},
+       {"id": "n1b", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Registrar quién prepara y quién vendió"},
        {"id": "n2", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Buscar el producto y armar el paquete según el método de entrega"},
        {"id": "n2b", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Escanear cada producto y verificar contra la lista de empaque"},
-       {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "decision", "n": "¿Guía automática por integración?"},
+       {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "decision", "n": "¿La guía la genera la integración?"},
        {"id": "n3alt", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Generar guía manual con datos del cliente"},
        {"id": "n4", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Pegar la guía a la caja"},
        {"id": "n5", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "decision", "n": "¿Marketplace exige escaneo de caja?"},
@@ -4693,18 +4697,18 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Analista de Facturación", "texto": "Emite la factura física del pedido."},
       {"id": "a3", "rol": "Asesor(a) de Ventas Web", "texto": "Enlaza la factura con la guía impresa en el caso de marketplaces que la exigen."},
       {"id": "a4", "rol": "Asistente de E-commerce / Almacén Web", "texto": "Cierra la caja una vez recibida la factura enlazada."},
-      {"id": "a5", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Monitorea el cuello de botella de cajas abiertas esperando factura."}
+      {"id": "a5", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Vigila cuántos pedidos quedan empacados pero sin cerrar porque todavía esperan su factura, y destraba la cola cuando se acumula. Es donde el flujo se detiene: el paquete está listo y no puede salir."}
      ],
      "diagrama": {
       "carriles": ["Asistente de E-commerce / Almacén Web", "Analista de Facturación", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web"],
       "nodos": [
-       {"id": "n0", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "inicio", "n": "Foto de la etiqueta enviada al grupo de facturación"},
+       {"id": "n0", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "inicio", "n": "Etiqueta enviada a facturación"},
        {"id": "n1", "carril": "Analista de Facturación", "tipo": "tarea", "n": "Emitir la factura física del pedido"},
-       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿El marketplace exige guía enlazada a la factura?"},
+       {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Exige guía con la factura?"},
        {"id": "n2alt", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enlazar la factura con la guía impresa"},
        {"id": "n3", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Cerrar la caja con la factura recibida"},
-       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Monitorear el cuello de botella de cajas abiertas"},
-       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Factura emitida y caja cerrada, lista para despacho"}
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Vigilar los pedidos que esperan factura"},
+       {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Facturado y listo para despacho"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
@@ -4752,13 +4756,13 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "inicio", "n": "Pedido facturado y físicamente listo"},
        {"id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Modalidad de salida asignada?"},
-       {"id": "n1a", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Entregar a la flota interna o a la flota de terceros de respaldo (Yummy Rides en Venezuela)"},
+       {"id": "n1a", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Entregar a la flota propia o de respaldo"},
        {"id": "n1b", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Coordinar entrega en el punto de operación (retiro)"},
-       {"id": "n1c", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Preparar la colecta para el courier nacional (MRW, Zoom — casillero corporativo en Venezuela)"},
+       {"id": "n1c", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Preparar la colecta del courier nacional"},
        {"id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Contabilizar el envío y confirmar firma de recepción"},
        {"id": "n3", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Hubo pérdida o daño en tránsito?"},
        {"id": "n3alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Gestionar el reclamo con el courier"},
-       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Pedido entregado al cliente o al courier, SLA cumplido"}
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Pedido entregado a tiempo"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1a", "etq": "Delivery"}, {"de": "n1", "a": "n1b", "etq": "Retiro"}, {"de": "n1", "a": "n1c", "etq": "Courier"},
@@ -4808,7 +4812,7 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Gerente de E-commerce / Ventas Web", "Analista de Logística", "Gerente de Operaciones y Logística", "Asistente de E-commerce / Almacén Web"],
       "nodos": [
-       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Cruce diario que detecta niveles bajos o promoción anunciada"},
+       {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Nivel bajo detectado o promoción"},
        {"id": "n1", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Cruzar inventario del almacén web contra el principal", "sistemas": ["Odoo / WMS"]},
        {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Generar pedido sugerido proactivo"},
        {"id": "n3", "carril": "Analista de Logística", "tipo": "tarea", "n": "Evaluar el sugerido contra la disponibilidad regional"},
@@ -4816,7 +4820,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n4alt", "carril": "Analista de Logística", "tipo": "tarea", "n": "Ajustar cantidad del sugerido"},
        {"id": "n5", "carril": "Asistente de E-commerce / Almacén Web", "tipo": "tarea", "n": "Recibir el traslado y cargarlo al inventario"},
        {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ejecutar inventario mensual de ajuste"},
-       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Inventario sincronizado en todos los canales digitales"}
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Inventario sincronizado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
@@ -4856,7 +4860,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Atiende la consulta de preventa: producto, disponibilidad, ayuda para completar la compra."},
       {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Atiende el seguimiento postventa del pedido (\"¿ya salió?\", \"¿cuándo llega?\")."},
       {"id": "a3", "rol": "Coordinador(a) de Soporte / Servicio al Cliente", "texto": "Evalúa si el reclamo postventa es de garantía técnica."},
-      {"id": "a4", "rol": "Asesor(a) de Ventas Web", "texto": "Resuelve con macro predefinida o con respuesta armada con apoyo de IA."},
+      {"id": "a4", "rol": "Asesor(a) de Ventas Web", "texto": "Resuelve con una respuesta de plantilla ya preparada o, si el caso no encaja en ninguna, redactándola con apoyo de IA. Las dos vías evitan escribir cada respuesta desde cero."},
       {"id": "a5", "rol": "Analista de Sistemas / Datos", "texto": "Actualiza la métrica de tiempo de primera respuesta y tiempo promedio."}
      ],
      "diagrama": {
@@ -4868,7 +4872,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n1b", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Atender seguimiento postventa del pedido"},
        {"id": "n2", "carril": "Coordinador(a) de Soporte / Servicio al Cliente", "tipo": "decision", "n": "¿Es reclamo de garantía técnica?"},
        {"id": "n2alt", "carril": "Coordinador(a) de Soporte / Servicio al Cliente", "tipo": "tarea", "n": "Escalar el reclamo a Servicio Técnico"},
-       {"id": "n3", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Resolver con macro o respuesta armada con IA"},
+       {"id": "n3", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Responder con plantilla o con apoyo de IA"},
        {"id": "n4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Actualizar la métrica de tiempo de respuesta"},
        {"id": "n5", "carril": "Analista de Sistemas / Datos", "tipo": "fin", "n": "Consulta resuelta o escalada, métrica actualizada"}
       ],
@@ -4926,7 +4930,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n3", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Reingresar al inventario con estado marcado", "sistemas": ["Odoo / WMS"]},
        {"id": "n4", "carril": "Contabilidad", "tipo": "tarea", "n": "Emitir nota de crédito cuando corresponde"},
        {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Decidir rehabilitar, reponer, desechar o reportar a fábrica"},
-       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Mercancía reingresada, nota de crédito emitida, decisión tomada"}
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Devolución cerrada y acreditada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n2alt", "etq": "Sí"}, {"de": "n2", "a": "n3", "etq": "No"},
@@ -4965,22 +4969,22 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Analista de Sistemas / Datos", "texto": "Proyecta el volumen esperado del pico cruzando venta histórica, chats promedio y tiempo por chat con apoyo de IA."},
       {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Determina el headcount adicional necesario para chat y almacén, y sincroniza la fecha con Marketing."},
-      {"id": "a3", "rol": "Planificador Financiero", "texto": "Aprueba el presupuesto de contratación temporal."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Aprueba el presupuesto de contratación temporal."},
       {"id": "a4", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Ejecuta la contratación de personal temporal según el headcount determinado."},
       {"id": "a5", "rol": "Analista de Logística", "texto": "Adelanta la reposición de mercancía estrella antes del pico."},
       {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Adecúa el espacio del almacén web para el volumen esperado del pico."}
      ],
      "diagrama": {
-      "carriles": ["Analista de Sistemas / Datos", "Gerente de E-commerce / Ventas Web", "Planificador Financiero", "Coordinador(a) de Recursos Humanos", "Analista de Logística"],
+      "carriles": ["Analista de Sistemas / Datos", "Gerente de E-commerce / Ventas Web", "Gerente de Contabilidad / Administración", "Coordinador(a) de Recursos Humanos", "Analista de Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Proximidad de temporada alta o campaña estructural anunciada"},
+       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Temporada alta o campaña a la vista"},
        {"id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Proyectar volumen esperado con histórico + IA"},
        {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Determinar headcount adicional y sincronizar con Marketing"},
-       {"id": "n3", "carril": "Planificador Financiero", "tipo": "tarea", "n": "Aprobar presupuesto de contratación temporal"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aprobar presupuesto de contratación temporal"},
        {"id": "n4", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Ejecutar la contratación de personal temporal"},
        {"id": "n5", "carril": "Analista de Logística", "tipo": "tarea", "n": "Adelantar reposición de mercancía estrella"},
-       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Adecuar el espacio del almacén web para el pico"},
-       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Plan de capacidad ejecutado antes del pico"}
+       {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Adecuar el almacén web a la temporada"},
+       {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Capacidad lista antes de la temporada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
@@ -5026,13 +5030,13 @@ window.MANUAL_CONTENIDO = {
      "diagrama": {
       "carriles": ["Analista de Sistemas / Datos", "Supervisor(a) de Operaciones E-commerce", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail"],
       "nodos": [
-       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre semanal (KPI de servicio) o cierre mensual (revisión ejecutiva)"},
+       {"id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre semanal o mensual del canal"},
        {"id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Extraer el reporte básico de Odoo por origen"},
        {"id": "n2", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "tarea", "n": "Alimentar el dashboard de pauta digital y e-commerce"},
        {"id": "n3", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Presentar el reporte al cierre de mes"},
        {"id": "n4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Consolidar KPI de servicio semanalmente"},
        {"id": "n5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Priorizar acciones correctivas por canal"},
-       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Reporte mensual entregado y acciones correctivas priorizadas"}
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Reporte entregado y acciones abiertas"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}

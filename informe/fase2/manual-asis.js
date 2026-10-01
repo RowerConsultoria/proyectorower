@@ -17522,7 +17522,7 @@ window.MANUAL_ASIS = {
       "SC-03",
       "Lark: Manual 03 Reportería y Análisis de Paid Media (regional, borrador jun-2026)"
      ],
-     "notas": "La meta no distingue canales ni personas: el área tiene una sola cifra de departamento. La gerencia regional de e-commerce se creó en septiembre de 2026 y todavía no consta cómo cambia la fijación de metas.",
+     "notas": "La meta no distingue canales ni personas: el área tiene una sola cifra de departamento. La gerencia regional de e-commerce se creó en septiembre de 2026 y todavía no consta cómo cambia la fijación de metas. ⚠️ «Gerente de Paid Media y Performance (regional)» **no es un cargo del censo**: la función existe y hay quien la ejerce desde marketing, y el propio equipo discute crear la posición («se tiene que contratar a una persona para paid media»). Se nombra por la función, no por un cargo vigente.",
      "sin_evidencia": "No consta que exista un forecast por canal digital ni quién construye el «forecast del mes por país» que el manual de Paid Media usa como insumo. Tampoco consta cómo se fija la meta en Colombia, Panamá o Costa Rica."
     },
     "disparador": {
@@ -17552,7 +17552,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a2",
        "rol": "Gerente de Ventas Internacional",
-       "texto": "Fija la meta anual del departamento como la venta del año anterior más un 10 %."
+       "texto": "Fija la meta anual del departamento como la venta del año anterior más un 10 %. ⚠️ El propio equipo no la vive como meta —«eso es como lo que existe, no hay como una meta»— y **se fijó sobre dos canales**, Shopify y Cashea, sin contemplar lo que se ha anexado después, como la venta corporativa: nace desfasada del negocio que tiene que medir."
       },
       {
        "id": "a3",
@@ -18152,6 +18152,11 @@ window.MANUAL_ASIS = {
        "texto": "En Mercado Libre, responde las preguntas de preventa de las dos marcas."
       },
       {
+       "id": "a6b",
+       "rol": "Asesor(a) de Ventas Web (Mercado Libre)",
+       "texto": "Si la pregunta termina en venta, monta el pedido en Odoo con los datos de la plataforma y el montaje sigue en 10.7."
+      },
+      {
        "id": "a7",
        "rol": "Asesor(a) de Ventas Web (Mercado Libre)",
        "texto": "Califica las ventas que no se concretaron para que la plataforma no cobre comisión."
@@ -18251,6 +18256,18 @@ window.MANUAL_ASIS = {
         ]
        },
        {
+        "id": "n10b",
+        "carril": "Asesor(a) de Ventas Web (Mercado Libre)",
+        "tipo": "decision",
+        "n": "¿Se concretó la venta?"
+       },
+       {
+        "id": "n10c",
+        "carril": "Asesor(a) de Ventas Web (Mercado Libre)",
+        "tipo": "tarea",
+        "n": "Montar el pedido en Odoo (10.7)"
+       },
+       {
         "id": "n11",
         "carril": "Asesor(a) de Ventas Web (Mercado Libre)",
         "tipo": "tarea",
@@ -18313,10 +18330,24 @@ window.MANUAL_ASIS = {
        },
        {
         "de": "n10",
-        "a": "n11"
+        "a": "n10b"
        },
        {
         "de": "n11",
+        "a": "n12"
+       },
+       {
+        "de": "n10b",
+        "a": "n10c",
+        "etq": "Sí"
+       },
+       {
+        "de": "n10b",
+        "a": "n11",
+        "etq": "No"
+       },
+       {
+        "de": "n10c",
         "a": "n12"
        }
       ]
@@ -18535,7 +18566,7 @@ window.MANUAL_ASIS = {
     "nota_version": "Versión As-Is: describe cómo se vende hoy por WhatsApp, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
     "proposito": {
      "estado": "borrador",
-     "alcance": "La venta que se cierra en el chat: atención del cliente en Mercately, cotización, montaje directo en Odoo o envío del enlace de Cashea, y validación del pago antes de preparar. La atención de posventa va en 10.13 y la conciliación de pagos, en 10.8.",
+     "alcance": "La venta que se cierra en el chat: atención del cliente en Mercately, cotización, montaje directo en Odoo o envío del enlace de Cashea, y validación del pago antes de preparar. La atención de posventa va en 10.13. ⚠️ **La verificación del pago contra el banco se describe aquí porque es parte del cierre de la venta por chat, pero el proceso que la gobierna —con su cierre de caja y su conciliación— es 10.8**: si los dos difieren, manda 10.8.",
      "texto": "El e-commerce del grupo nació en Panamá, en la pandemia, por WhatsApp, y la venta por chat sigue siendo un canal propio. En Venezuela todo entra por **Mercately**, el CRM de chats: el cliente elige en una botonera si quiere comprar, soporte o Cashea, y el chat cae al asesor que tiene asignado ese canal. Son unos 6.000 chats al mes en Cubitt y 2.000 en Casio, atendidos por seis asesores dedicados. Los asesores responden con mensajes predefinidos y se apoyan en IA generativa por su cuenta para redactar los difíciles, que a veces le pasan a la gerencia antes de enviarlos.\n\nSi el cliente quiere comprar, **no se le redirige a la web**: o se le envía un enlace de Cashea, o el asesor toma los datos y monta el pedido directamente en Odoo. El pago directo (pago móvil o transferencia) no lo valida el asesor ni Contabilidad: el asesor publica el número de pedido en un grupo de Lark llamado «Confirmaciones» y **la Gerencia de Ventas Web entra al banco**, verifica referencia y monto y deja los datos del pago en el mismo grupo; recién entonces el pedido pasa a preparación. En abril de 2026 se vendió más por WhatsApp que por la web de Cubitt. La venta corporativa también pasa por aquí, siempre de contado: lo que se vende a crédito tiene que ir por el mayor.\n\nEn Panamá el asesor cierra la venta en el chat, pero **el pago lo verifica Contabilidad** antes de que se prepare el pedido, con un flujo de aprobación en Lark. En Colombia la venta por WhatsApp la cierra el equipo de servicio al cliente, que depende de la gerencia de Customer Services de Panamá. Se probó responder chats con IA dentro de Mercately y se frenó: la marca decidió que el cliente latinoamericano quiere hablar con una persona."
     },
     "dueno": {
@@ -19008,7 +19039,7 @@ window.MANUAL_ASIS = {
     "nota_version": "Versión As-Is: describe cómo se validan y concilian hoy los pagos del canal web, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
     "proposito": {
      "estado": "borrador",
-     "alcance": "La validación de cada pago antes de preparar el pedido, el cierre diario de caja del canal y la conciliación posterior de bancos, Cashea y marketplaces. La facturación va en 10.10.",
+     "alcance": "La validación de cada pago antes de preparar el pedido, el cierre diario de caja del canal y la conciliación posterior de bancos, Cashea y marketplaces. La facturación va en 10.10. ⚠️ El mismo paso de verificación aparece descrito dentro de la venta por chat (10.6), por ser parte de su cierre; **este proceso es el que lo gobierna**.",
      "texto": "En Venezuela la validación la hace **la Gerencia de Ventas Web**, no Contabilidad. Empezó como solución rápida porque la validación se demoraba: primero la hacía el área de soporte, y cuando se abrió una cuenta bancaria para la web pasó a la Gerencia de Ventas Web, con acceso de solo consulta. Los asesores publican cada pedido en el grupo «Confirmaciones» de Lark y la gerencia lo busca en el banco por referencia y monto, caso por caso, varias veces al día y también el domingo para no llegar al lunes con la cola llena. Desde que la web de Cubitt cobra con validación automática del banco quedan por validar sobre todo las ventas de WhatsApp, que eran 30 o 40 pagos diarios. La propia gerencia del área dice que esa tarea no debería ser suya.\n\nFacturación abre y cierra la caja del canal cada día, hace el arqueo y entrega el cierre a Contabilidad, y cada mes reporta el ingreso de cada orden de la web de Cubitt en los primeros cinco días. La conciliación posterior la hace Contabilidad y Tesorería y va atrasada: **a julio de 2026 se estaban conciliando pagos de abril**, con ocho a diez personas dedicadas. La causa más citada es la **tasa**: lo que se vende el viernes o el sábado se factura el lunes con otra tasa, y el pago ya no cuadra con la factura. **Cashea se concilia a mano** porque deposita las transacciones agrupadas y sin detalle por cliente; su monto y su fecha de abono no son predecibles, y Contabilidad lo registra como ingreso diferido y no como cuenta por cobrar. Los reintegros por devoluciones de Cashea los registra Tesorería en Odoo.\n\nEn Panamá los pagos de la web llegan a Contabilidad, que verifica que sean reales antes de que el vendedor mande a preparar, y las ventas de la web entran por el comercio afiliado de cubitt.com.pa. En Colombia una persona de Contabilidad concilia a tiempo completo las plataformas en Excel, cruzando el reporte de Odoo con el de cada plataforma, que llega cada una en un formato distinto. En Estados Unidos concilia el asistente administrativo remoto (10.5)."
     },
     "dueno": {
@@ -20213,7 +20244,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a4",
        "rol": "Supervisor de Operaciones y Logística (Ventas Web)",
-       "texto": "Si la guía no avanza, consulta a la agencia y le pasa la respuesta al asesor."
+       "texto": "Si el envío lleva días sin moverse en el seguimiento del transportista, consulta a la agencia y le pasa la respuesta al asesor."
       },
       {
        "id": "a5",
@@ -20274,7 +20305,7 @@ window.MANUAL_ASIS = {
         "id": "n5",
         "carril": "Asesor(a) de Ventas Web",
         "tipo": "decision",
-        "n": "¿La guía avanza?"
+        "n": "¿El envío se mueve?"
        },
        {
         "id": "n6",
@@ -20678,8 +20709,7 @@ window.MANUAL_ASIS = {
         "tipo": "tarea",
         "n": "Estimar órdenes y chats con IA",
         "sistemas": [
-         "Gemini",
-         "Excel"
+                  "Excel"
         ]
        },
        {
@@ -20844,12 +20874,12 @@ window.MANUAL_ASIS = {
       {
        "id": "a5",
        "rol": "Gerente de Ventas Web (Venezuela)",
-       "texto": "Se lo muestra de manera informal a la Gerencia de Ventas Internacional."
+       "texto": "Comparte el cierre con la Gerencia de Ventas Internacional por el canal que haya a mano, sin formato ni periodicidad pactada: no hay una entrega de resultados del canal con fecha, contenido y destinatario definidos."
       },
       {
        "id": "a6",
        "rol": "Gerente de Ventas Internacional",
-       "texto": "Lo recibe sin que exista una entrega formal de resultados del canal."
+       "texto": "Recibe ese cierre sin que medie una rendición de cuentas del canal: nadie contrasta el resultado contra la meta ni queda constancia de lo acordado."
       }
      ],
      "diagrama": {
@@ -20907,7 +20937,7 @@ window.MANUAL_ASIS = {
         "id": "n5",
         "carril": "Gerente de Ventas Web (Venezuela)",
         "tipo": "tarea",
-        "n": "Mostrarlo de manera informal"
+        "n": "Compartir el cierre con la gerencia"
        },
        {
         "id": "n6",
@@ -20919,7 +20949,7 @@ window.MANUAL_ASIS = {
         "id": "n7",
         "carril": "Gerente de Ventas Internacional",
         "tipo": "fin",
-        "n": "Sin entrega formal de resultados"
+        "n": "El canal cierra sin rendición de cuentas"
        }
       ],
       "aristas": [
