@@ -4575,9 +4575,9 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Envía el número de pedido al grupo de notificación de pagos cuando recibe la confirmación del cliente."},
-      {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Entra al portal del banco y verifica referencia contra referencia y monto."},
-      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Asume la validación cuando está disponible, como parte de la transición hacia Contabilidad."},
-      {"id": "a4", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Responde en el grupo con fecha, referencia y monto validados."},
+      {"id": "a2", "rol": "Analista de Cuentas por Cobrar", "texto": "Entra al portal del banco y verifica referencia contra referencia y monto. **La verificación del cobro queda fuera del área que vende**: quien confirma que el dinero entró no es quien hizo la venta."},
+      {"id": "a3", "rol": "Analista de Cuentas por Cobrar", "texto": "Responde en el grupo con la fecha, la referencia y el monto validados, que es lo que libera el pedido a preparación."},
+      {"id": "a4", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Hace seguimiento a la cola de pagos pendientes de validación y escala los que se atascan, para que ningún pedido se quede parado esperando confirmación. **No valida pagos**: su responsabilidad es que la cola fluya, no comprobar cobros de su propia venta."},
       {"id": "a5", "rol": "Contabilidad", "texto": "Ejecuta la conciliación mensual de cada marketplace (en EE. UU., sobre QuickBooks)."}
      ],
      "diagrama": {
@@ -4585,16 +4585,15 @@ window.MANUAL_CONTENIDO = {
       "nodos": [
        {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pago recibido notificado por el asesor"},
        {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Enviar número de pedido al grupo de notificación", "sistemas": ["LARK (grupo \"Confirmaciones\")"]},
-       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "decision", "n": "¿Analista de Cuentas por Cobrar disponible?"},
-       {"id": "n2alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Validar el pago directamente contra el banco"},
-       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Validar el pago directamente contra el banco"},
-       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Responder con fecha, referencia y monto validados"},
+       {"id": "n2", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Validar el pago contra el banco"},
+       {"id": "n3", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Responder con fecha, referencia y monto validados"},
+       {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Seguir la cola y escalar lo atascado"},
        {"id": "n5", "carril": "Contabilidad", "tipo": "tarea", "n": "Ejecutar conciliación mensual de cada marketplace"},
        {"id": "n6", "carril": "Contabilidad", "tipo": "fin", "n": "Pago verificado y pedido liberado a preparación"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"},
-       {"de": "n2alt", "a": "n4"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
       ]
      }
     },
