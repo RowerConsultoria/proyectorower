@@ -222,8 +222,26 @@ const EVENTOS = [
 
 /* ------------------------------------------------------------------ ESTADO */
 
+/* El rol puede venir en la URL: sistema/index.html?rol=direccion#/compras/casio
+   (así llegan los botones «Ver» de la arquitectura de IA). Sin él se entraría
+   con el rol guardado en este navegador, que quizá no ve el módulo pedido, y
+   navega() caería en otro sin avisar. Un rol válido se usa y se guarda como si
+   se hubiera elegido en el selector; uno que no existe se ignora. Una vez leído
+   se quita de la URL: si siguiera ahí, recargar desharía lo que se elija luego
+   en el selector. */
+const ROL_URL = (() => {
+  const q = new URLSearchParams(location.search);
+  const r = q.get('rol');
+  if (!r || !Object.prototype.hasOwnProperty.call(ROLES, r)) return null;
+  try { localStorage.setItem('kx.rol', r); } catch (e) { /* sin almacenamiento: vale para esta visita */ }
+  q.delete('rol');
+  const resto = q.toString();
+  try { history.replaceState(history.state, '', location.pathname + (resto ? '?' + resto : '') + location.hash); } catch (e) { /* la URL queda como llegó */ }
+  return r;
+})();
+
 const ESTADO = {
-  rol: localStorage.getItem('kx.rol') || 'compras',
+  rol: ROL_URL || localStorage.getItem('kx.rol') || 'compras',
   modulo: 'compras',
   tema: localStorage.getItem('kx.tema') || 'oscuro',
   pendientes: 4,      // lo que espera firma del rol activo
@@ -494,6 +512,46 @@ function pintaHud() {
     </div>`;
 }
 
+/* ------------------------------------------ AVISO DE DATOS DE DEMOSTRACIÓN
+
+   Lo dice la portada, y la portada solo sale al llegar SIN hash. Quien entra
+   por un enlace profundo —los «Ver» de la arquitectura de IA— se la salta, así
+   que recibe el mismo aviso en una nota discreta abajo a la izquierda, que se
+   puede cerrar. Se aparta durante el recorrido, cuya barra ocupa ese borde.
+   El texto se toma del pie de la portada: una sola redacción, no dos.       */
+
+function avisaDemostracion() {
+  if ($('#aviso-demo')) return;
+  const pie = $('.portada-pie');
+  const txt = (pie && pie.textContent.trim()) ||
+    'Prototipo de propuesta · UCAB Consultores para Grupo Kenex · los datos son de demostración';
+  if (!$('#aviso-demo-estilo')) {
+    const st = document.createElement('style');
+    st.id = 'aviso-demo-estilo';
+    st.textContent = `
+      .aviso-demo{position:fixed;left:calc(var(--menu) + 22px);bottom:22px;z-index:39;
+        display:flex;align-items:center;gap:6px;max-width:min(640px,calc(100vw - var(--menu) - 320px));
+        padding:4px 5px 4px 14px;border-radius:16px;font-size:11.5px;line-height:1.4;color:var(--tinta-media);
+        background:var(--panel-vidrio);border:1px solid var(--borde);box-shadow:var(--sombra);
+        backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}
+      .aviso-demo-x{all:unset;box-sizing:border-box;flex:none;width:24px;height:24px;display:grid;place-items:center;
+        border-radius:50%;cursor:pointer;font-size:15px;line-height:1;color:var(--tinta-tenue)}
+      .aviso-demo-x:hover{color:var(--tinta);background:var(--panel-alto)}
+      .aviso-demo-x:focus-visible{outline:2px solid var(--cian);outline-offset:1px}
+      body.con-recorrido .aviso-demo,body.en-portada .aviso-demo{display:none}
+      @media (max-width:860px){.aviso-demo{left:16px;right:16px;bottom:84px;max-width:none}}`;
+    document.head.appendChild(st);
+  }
+  const nota = document.createElement('div');
+  nota.className = 'aviso-demo';
+  nota.id = 'aviso-demo';
+  nota.setAttribute('role', 'note');
+  nota.innerHTML = `<span>${esc(txt)}</span>
+    <button type="button" class="aviso-demo-x" aria-label="Cerrar el aviso de datos de demostración" title="Cerrar">×</button>`;
+  nota.querySelector('button').onclick = () => nota.remove();
+  document.body.appendChild(nota);
+}
+
 /* -------------------------------------------------------------- ARRANQUE */
 
 function arranca() {
@@ -562,6 +620,7 @@ function arranca() {
   window.cierraPortada = cierraPortada;
   if (location.hash) {
     portada.hidden = true;
+    avisaDemostracion();
   } else {
     document.body.classList.add('en-portada');
     /* la cifra sale del guion real: si el recorrido crece, esto cambia solo */

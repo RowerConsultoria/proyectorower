@@ -5,6 +5,11 @@
 // estación. Las clases van con prefijo `cx-` y los estilos viven en
 // informe-fase2.html, con los tokens de estilo/app.css.
 //
+// Desde el 30-sep también pinta, si el dato las trae: las columnas de etapa de los
+// carriles de venta (`via.columnas`), la pasarela de mercadeo (`via.mercadeo`, con
+// su botón para ocultarla), la capa Sistemas en tres colores (`trasp` por estación y
+// `sistemasColor`), el código fijo de cada trombo y los `alias` de ids viejos.
+//
 // API: CircuitoRender.montar(section) · .abrir(id) · .cerrar()
 (function(){
   "use strict";
@@ -44,13 +49,18 @@
     montado = true;
     capa = leerCapa();
 
-    var totTr = 0, altos = 0, aprob = 0, bucles = 0;
+    var totTr = 0, altos = 0, aprob = 0, bucles = 0, tr = {ofi:0, lim:0, ext:0, inf:0};
     C.estaciones.forEach(function(s){
       totTr += s.trombos.length;
       altos += s.trombos.filter(function(t){ return t.s === "alta"; }).length;
       if(s.aprob) aprob++;
       if(["loop","acc","exit"].indexOf(s.lane) >= 0) bucles++;
+      if(s.trasp){ tr.ofi += s.trasp.ofi; tr.lim += s.trasp.lim; tr.ext += s.trasp.ext; tr.inf += s.trasp.inf; }
     });
+    var totTrasp = tr.ofi + tr.ext + tr.inf;
+    var pInf = totTrasp ? Math.round(100 * tr.inf / totTrasp) : 0;
+    var pFuera = totTrasp ? Math.round(100 * (tr.inf + tr.ext) / totTrasp) : 0;
+    var viewBox = (C.via && C.via.viewBox) || "86 10 1250 830";
 
     host.innerHTML =
       '<div class="mp-bar">' +
@@ -64,6 +74,7 @@
         '</div>' +
         '<button type="button" class="mp-btn on" id="cxHaz" aria-pressed="true">Trombos</button>' +
         '<button type="button" class="mp-btn on" id="cxApr" aria-pressed="true">Aprobaciones</button>' +
+        (C.via && C.via.mercadeo ? '<button type="button" class="mp-btn on" id="cxMkBtn" aria-pressed="true">Mercadeo</button>' : '') +
       '</div>' +
       '<div class="cx-cuerpo" id="cxCuerpo">' +
         '<div class="cx-scroll" id="cxScroll"><div class="cx-wrap">' +
@@ -72,27 +83,28 @@
           '<p class="f2-lead">Así opera Grupo Kenex hoy, desde que se evalúa un producto hasta que se cobra la venta. La vía se abre en dos carriles por marca durante la compra, se une en la Zona Libre de Colón, se abre en cuatro carriles por canal para vender y vuelve a unirse en el cobro. Cada estación se construyó con lo que contaron las personas en las ' + esc(C.meta.entrevistas) + ' entrevistas del levantamiento, y cada dato lleva su fuente.</p>' +
           '<div class="cx-stats">' +
             stat(C.estaciones.length - bucles, "estaciones en la vía, más " + bucles + " bucles y accesos") +
-            stat("2 + 4", "carriles: por marca en la compra, por canal en la venta") +
             stat(totTr, "trombos detectados, " + altos + " de impacto alto") +
             stat(aprob, "puntos donde el flujo espera una aprobación de la dirección") +
+            (totTrasp ? stat(pInf + " %", "de los traspasos de información viaja por Excel, correo, WhatsApp, WeChat, de palabra o en papel") : stat("2 + 4", "carriles: por marca en la compra, por canal en la venta")) +
           '</div>' +
           '<div class="cx-tramos" aria-label="Tramos del circuito">' +
             '<span><b>1–4</b>Compra</span><i>→</i><span><b>5–7</b>Hub Panamá</span><i>→</i>' +
-            '<span><b>8–10</b>Venta por canal</span><i>→</i><span><b>11–15</b>Dinero</span><i>→</i><span><b>1</b>vuelve al plan</span>' +
+            '<span><b>8–12</b>Venta por canal</span><i>→</i><span><b>13–17</b>Dinero</span><i>→</i><span><b>1</b>vuelve al plan</span>' +
           '</div>' +
           '<figure class="cx-fig">' +
-            '<div class="cx-mapa"><svg id="cxSvg" viewBox="86 10 1250 830" role="group" aria-labelledby="cxCap">' +
+            '<div class="cx-mapa"><svg id="cxSvg" viewBox="' + esc(viewBox) + '" role="group" aria-labelledby="cxCap">' +
               '<defs>' +
                 '<marker id="cx-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="cx-punta" d="M0,0 L10,5 L0,10 z"/></marker>' +
                 '<pattern id="cx-rayas" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#ffffff"/><rect width="3" height="6" fill="#C53C2C"/></pattern>' +
               '</defs>' +
-              '<g id="cxVias"></g><g id="cxExtras"></g><g id="cxEst"></g>' +
+              '<g id="cxCols"></g><g id="cxVias"></g><g id="cxExtras"></g><g id="cxMk"></g><g id="cxEst"></g><g id="cxMkNudos"></g>' +
             '</svg></div>' +
-            '<figcaption id="cxCap">El circuito se recorre en el sentido de las agujas del reloj. Arriba se compra, a la derecha está el hub de Panamá, abajo se vende y a la izquierda corre el dinero hasta que el sell-out vuelve al plan. Toca una estación para abrir su detalle.</figcaption>' +
+            '<figcaption id="cxCap">El circuito se recorre en el sentido de las agujas del reloj. Arriba se compra, a la derecha está el hub de Panamá, abajo se vende y a la izquierda corre el dinero hasta que el sell-out vuelve al plan. En la venta cada columna es una etapa y vale lo mismo en los cuatro carriles: 8 pedido y liberación, 9 despacho, 10 llegada; las tiendas siguen con 11 venta y 12 caja. Toca una estación para abrir su detalle.</figcaption>' +
           '</figure>' +
+          '<p class="cx-sisnota" id="cxSisNota" hidden>En esta capa cada estación muestra por dónde viaja su información: en azul lo que pasa por Odoo, Lark o EBS; en violeta, las plataformas externas como Cashea, Shopify o la banca; en naranja, Excel, correo, WhatsApp, WeChat, lo que se dice de palabra y el papel. De los ' + totTrasp + ' puntos donde la información cambia de manos, el ' + pInf + ' % viaja por esos canales informales y el ' + pFuera + ' % corre fuera de Odoo, Lark y EBS. La cifra cuenta traspasos, no volumen de transacciones.</p>' +
           leyenda() +
           '<section class="cx-bloque"><h2 class="cx-h2">Recorrido en orden</h2>' +
-            '<p class="cx-sub">Las mismas estaciones del mapa, leídas de corrido. El número indica la posición en la vía; la letra, el carril cuando la vía se abre.</p>' +
+            '<p class="cx-sub">Las mismas estaciones del mapa, leídas de corrido. El número indica la etapa: en la venta, el mismo número es la misma etapa en los cuatro carriles. La letra indica el carril cuando la vía se abre.</p>' +
             '<div class="cx-ruta" id="cxRuta"></div></section>' +
           '<section class="cx-bloque"><h2 class="cx-h2">Qué tan firme es cada tramo</h2>' +
             '<p class="cx-sub">Sólida: varias entrevistas coinciden. Parcial: hay evidencia pero faltan piezas, que se completan en la validación.</p>' +
@@ -129,6 +141,7 @@
     });
     alternar("#cxHaz", "cx-sin-haz");
     alternar("#cxApr", "cx-sin-apr");
+    if(host.querySelector("#cxMkBtn")) alternar("#cxMkBtn", "cx-sin-mk");
     host.querySelector("#cxDx").addEventListener("click", function(){ cerrar(true); });
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape" && !host.hidden && drawer.classList.contains("abierto")) cerrar(true);
@@ -144,8 +157,32 @@
       '<span><svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M10,2 L18,16 L2,16 Z" class="cx-ley-haz"/></svg>Trombo: cuello de botella (el número es cuántos)</span>' +
       '<span><svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true"><rect x="1" y="3" width="20" height="6" fill="url(#cx-rayas)" stroke="#C53C2C"/></svg>Aprobación: el flujo espera a la dirección</span>' +
       '<span><svg width="38" height="10" viewBox="0 0 38 10" aria-hidden="true"><line x1="2" y1="5" x2="36" y2="5" class="cx-info"/></svg>Flujo de información, no de mercancía</span>' +
+      (C.via && C.via.mercadeo ?
+        '<span><svg width="38" height="14" viewBox="0 0 38 14" aria-hidden="true"><line x1="4" y1="7" x2="34" y2="7" class="cx-mk-cinta"/><line x1="4" y1="7" x2="34" y2="7" class="cx-mk-hueco"/></svg>Pasarela de mercadeo: <b class="cx-mkpas">L</b> lanzamiento · <b class="cx-mkpas">P</b> promoción · <b class="cx-mkpas">C</b> co-marketing</span>' : '') +
+      '<span class="cx-ley-sis"><i class="cx-cuadro ofi"></i>Odoo, Lark o EBS</span>' +
+      '<span class="cx-ley-sis"><i class="cx-cuadro ext"></i>Plataforma externa</span>' +
+      '<span class="cx-ley-sis"><i class="cx-cuadro inf"></i>Excel, correo, WhatsApp, WeChat, palabra o papel</span>' +
     '</div>';
   }
+
+  // Parte un título en dos líneas, sin cortar palabras.
+  function partir(t, max){
+    if(!max || t.length <= max) return [t];
+    var pal = t.split(" "), a = "", b = "";
+    pal.forEach(function(p){
+      var prueba = a ? a + " " + p : p;
+      if(!b && prueba.length <= max) a = prueba; else b = b ? b + " " + p : p;
+    });
+    return b ? [a, b] : [a];
+  }
+
+  // Categoría de una herramienta: ofi · lim · ext · sc · inf (se busca sin el paréntesis).
+  function colorSis(n){
+    var M = C.sistemasColor || {};
+    var b = String(n).replace(/\s*\(.*$/, "").trim();
+    return M[n] || M[b] || "";
+  }
+  function familia(cat){ return cat === "lim" ? "ofi" : cat === "sc" ? "ext" : cat; }
 
   function alternar(sel, clase){
     var b = host.querySelector(sel);
@@ -177,6 +214,43 @@
       el("path", a, extras);
     });
     V.notas.forEach(function(n){ el("text", {x:n[1], y:n[2], "text-anchor":n[3], "class":"cx-nota"}, extras).textContent = n[0]; });
+
+    // columnas de etapa de los carriles de venta: guía vertical y rótulo al pie
+    if(V.columnas){
+      var K = V.columnas, cols = svg.querySelector("#cxCols");
+      K.cols.forEach(function(c){
+        el("line", {x1:c[0], y1:K.y0, x2:c[0], y2:K.y1, "class":"cx-guia"}, cols);
+        el("text", {x:c[0], y:K.yn, "text-anchor":"middle", "class":"cx-col-n"}, cols).textContent = c[1];
+        el("text", {x:c[0], y:K.yt, "text-anchor":"middle", "class":"cx-col-t"}, cols).textContent = c[2];
+      });
+    }
+    if(V.mercadeo) pintarMercadeo(V.mercadeo);
+  }
+
+  // Pasarela de mercadeo: una cinta que nace en la compra, pasa por la estación de
+  // mercadeo y cruza los carriles de venta; hilos punteados hasta las estaciones que
+  // toca y un nudo con el tipo de toque (L, P o C) que abre esa estación.
+  function pintarMercadeo(M){
+    var capaMk = svg.querySelector("#cxMk"), nudos = svg.querySelector("#cxMkNudos");
+    M.cinta.forEach(function(d){ el("path", {d:d, "class":"cx-mk-aire"}, capaMk); });
+    M.cinta.forEach(function(d){ el("path", {d:d, "class":"cx-mk-cinta"}, capaMk); });
+    M.cinta.forEach(function(d){ el("path", {d:d, "class":"cx-mk-hueco"}, capaMk); });
+    M.hilos.forEach(function(d){ el("path", {d:d, "class":"cx-mk-hilo"}, capaMk); });
+    var porId = {};
+    C.estaciones.forEach(function(s){ porId[s.id] = s; });
+    M.nudos.forEach(function(n){
+      var ests = n[2].map(function(id){ return porId[id]; }).filter(function(s){ return s && s.mk; });
+      if(!ests.length) return;
+      var tipo = ests[0].mk.tipo, w = Math.max(18, 8 + tipo.length * 6.2);
+      var g = el("g", {"class":"cx-mk-pas", tabindex:"0", role:"button",
+        "aria-label":"Mercadeo en " + ests.map(function(s){ return s.id + " " + s.t; }).join(" y ")}, nudos);
+      el("title", {}, g).textContent = ests.map(function(s){ return s.id + " · " + s.t + ": " + s.mk.t; }).join("\n");
+      el("rect", {x:n[0] - w/2, y:n[1] - 9, width:w, height:18, rx:9}, g);
+      el("text", {x:n[0], y:n[1] + 3.4, "text-anchor":"middle"}, g).textContent = tipo;
+      var ir = function(){ abrir(ests[0].id, true); };
+      g.addEventListener("click", ir);
+      g.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); ir(); } });
+    });
   }
 
   var OFF = {r:[26,0], l:[-26,0], d:[0,26], u:[0,-26]};
@@ -203,25 +277,63 @@
       }
       el("circle", {cx:s.x, cy:s.y, r:21, "class":"cx-halo"}, g);
       el("circle", {cx:s.x, cy:s.y, r:13, "class":"cx-anillo"}, g);
+      if(s.trasp) dona(s, g);
       el("text", {x:s.x, y:s.y + 3.4, "text-anchor":"middle", "class":"cx-cod"}, g).textContent = s.id;
-      var lx = s.x, ly = s.y, anc = "middle", dy = 0;
-      if(s.lab === "above"){ ly = s.y - 22; dy = -14; }
-      else if(s.lab === "below"){ ly = s.y + 32; dy = 14; }
-      else if(s.lab === "right"){ lx = s.x + (s.lx || 22); ly = s.y + 4; anc = "start"; dy = 14; }
-      else if(s.lab === "left"){ lx = s.x - 22; ly = s.y + 4; anc = "end"; dy = 14; }
-      else if(s.lab === "custom"){ lx = s.lxy[0]; ly = s.lxy[1]; anc = s.lxy[2]; dy = 14; }
-      el("text", {x:lx, y:ly, "text-anchor":anc, "class":"cx-lbl"}, g).textContent = s.t;
-      var t2 = el("text", {x:lx, y:ly + dy, "text-anchor":anc, "class":"cx-lbl2"}, g);
+      // el título puede ir en dos líneas; el subtítulo de la capa va por encima del
+      // título cuando el rótulo está arriba y por debajo en los demás casos
+      var lineas = partir(s.t, s.wrap), n = lineas.length, PASO = 13;
+      var lx = s.x, ly = s.y, anc = "middle", y2;
+      if(s.lab === "above"){ ly = s.y - 22 - (n - 1) * PASO; y2 = ly - 14; }
+      else {
+        if(s.lab === "below"){ ly = s.y + 32; }
+        else if(s.lab === "right"){ lx = s.x + (s.lx || 22); ly = s.y + 4; anc = "start"; }
+        else if(s.lab === "left"){ lx = s.x - 22; ly = s.y + 4; anc = "end"; }
+        else if(s.lab === "custom"){ lx = s.lxy[0]; ly = s.lxy[1]; anc = s.lxy[2]; }
+        y2 = ly + (n - 1) * PASO + 14;
+      }
+      lineas.forEach(function(txt, i){
+        el("text", {x:lx, y:ly + i * PASO, "text-anchor":anc, "class":"cx-lbl"}, g).textContent = txt;
+      });
+      var t2 = el("text", {x:lx, y:y2, "text-anchor":anc, "class":"cx-lbl2"}, g);
       nodos[s.id] = {g:g, t2:t2};
       g.addEventListener("click", function(){ abrir(s.id, true); });
       g.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); abrir(s.id, true); } });
     });
   }
 
+  // Anillo de tres colores para la capa Sistemas: la proporción de traspasos de la
+  // estación que viaja por Odoo/Lark/EBS, por plataformas externas y por canales informales.
+  function dona(s, g){
+    var r = 13, L = 2 * Math.PI * r, t = s.trasp, tot = t.ofi + t.ext + t.inf, ac = 0;
+    if(!tot) return;
+    var d = el("g", {"class":"cx-dona", transform:"rotate(-90 " + s.x + " " + s.y + ")"}, g);
+    [["ofi", t.ofi], ["ext", t.ext], ["inf", t.inf]].forEach(function(p){
+      if(!p[1]) return;
+      var largo = L * p[1] / tot;
+      el("circle", {cx:s.x, cy:s.y, r:r, "class":"cx-don " + p[0],
+        "stroke-dasharray":largo.toFixed(2) + " " + (L - largo).toFixed(2), "stroke-dashoffset":(-ac).toFixed(2)}, d);
+      ac += largo;
+    });
+  }
+
   function aplicarCapa(){
     host.querySelectorAll(".cx-seg button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-capa") === capa ? "true" : "false"); });
+    svg.classList.toggle("cx-capa-sis", capa === "sis");
+    host.classList.toggle("cx-en-sis", capa === "sis");
+    var nota = host.querySelector("#cxSisNota");
+    if(nota) nota.hidden = capa !== "sis" || !C.estaciones.some(function(s){ return s.trasp; });
     C.estaciones.forEach(function(s){
-      nodos[s.id].t2.textContent = capa === "sis" ? s.sis : capa === "gente" ? s.gente : s.depto;
+      var t2 = nodos[s.id].t2;
+      while(t2.firstChild) t2.removeChild(t2.firstChild);
+      if(capa === "sis" && C.sistemasColor){
+        // cada canal en el color de su categoría
+        s.sis.split(" · ").forEach(function(tok, i){
+          if(i) el("tspan", {"class":"cx-tk sep"}, t2).textContent = " · ";
+          el("tspan", {"class":"cx-tk " + familia(colorSis(tok))}, t2).textContent = tok;
+        });
+      } else {
+        t2.textContent = capa === "sis" ? s.sis : capa === "gente" ? s.gente : s.depto;
+      }
     });
   }
 
@@ -257,6 +369,37 @@
     return '<' + tag + '>' + items.map(function(i){ return '<li>' + refs(i) + '</li>'; }).join("") + '</' + tag + '>';
   }
   function chips(items){ return '<div class="cx-chips">' + items.map(function(p){ return '<span class="cx-chip">' + esc(p) + '</span>'; }).join("") + '</div>'; }
+  function chipsSis(items){
+    return '<div class="cx-chips">' + items.map(function(p){
+      var c = familia(colorSis(p));
+      return '<span class="cx-chip' + (c ? ' sis-' + c : '') + '">' + esc(p) + '</span>';
+    }).join("") + '</div>';
+  }
+  function plural(n, uno, varios){ return n + " " + (n === 1 ? uno : varios); }
+  function traspasos(t){
+    var tot = t.ofi + t.ext + t.inf;
+    if(!tot) return "";
+    var barra = [["ofi", t.ofi], ["ext", t.ext], ["inf", t.inf]].filter(function(p){ return p[1]; })
+      .map(function(p){ return '<i class="' + p[0] + '" style="flex:' + p[1] + '"></i>'; }).join("");
+    var partes = [];
+    if(t.ofi) partes.push(plural(t.ofi, "por Odoo, Lark o EBS", "por Odoo, Lark o EBS") + (t.lim ? " (" + plural(t.lim, "en un chat o calendario de Lark", "en chats o calendarios de Lark") + ")" : ""));
+    if(t.ext) partes.push(plural(t.ext, "por una plataforma externa", "por plataformas externas") + (t.sc ? " (" + plural(t.sc, "se teclea a mano", "se teclean a mano") + ")" : ""));
+    if(t.inf) partes.push(plural(t.inf, "por un canal informal", "por canales informales"));
+    return '<section><h3>Por dónde viaja la información</h3><div class="cx-tbar" aria-hidden="true">' + barra + '</div>' +
+      '<p class="cx-tdesc">' + plural(tot, "traspaso", "traspasos") + ' de información en esta estación: ' + esc(partes.join(", ")) + '.</p></section>';
+  }
+  function seccionMercadeo(s){
+    var h = "";
+    if(s.mk) h += '<section><h3>Mercadeo en esta estación</h3><p class="cx-mkp"><b class="cx-mkpas">' + esc(s.mk.tipo) + '</b> ' +
+      esc(s.mk.t) + ' <span class="cx-ref">' + esc(s.mk.ev) + '</span></p></section>';
+    if(s.id === "MK"){
+      var toques = C.estaciones.filter(function(x){ return x.mk; });
+      if(toques.length) h += '<section><h3>Dónde entra en el circuito</h3><ul class="cx-mklista">' + toques.map(function(x){
+        return '<li><button type="button" data-ir="' + esc(x.id) + '"><code>' + esc(x.id) + '</code><b class="cx-mkpas">' + esc(x.mk.tipo) + '</b><span>' + esc(x.t) + '</span></button></li>';
+      }).join("") + '</ul></section>';
+    }
+    return h;
+  }
 
   function pintarPanel(s){
     host.querySelector("#cxDcod").textContent = s.id;
@@ -270,16 +413,19 @@
     h += '<section><h3>Paso a paso</h3>' + lista(s.pasos, true) + '</section>';
     if(s.variantes) h += '<section><h3>Dónde se abre la vía</h3><p>' + esc(s.variantes) + '</p></section>';
     h += '<section><h3>Trombos</h3><ul class="cx-trombos">' + tr.map(function(x){
-      return '<li><span class="cx-sev ' + x.s + '">' + x.s + '</span><span>' + esc(x.t) + ' <span class="cx-ref">' + esc(x.ev) + '</span></span></li>';
+      return '<li><span class="cx-sev ' + x.s + '">' + x.s + '</span><span>' + (x.id ? '<span class="cx-tid">' + esc(x.id) + '</span>' : '') +
+        esc(x.t) + ' <span class="cx-ref">' + esc(x.ev) + '</span></span></li>';
     }).join("") + '</ul></section>';
+    h += seccionMercadeo(s);
     if(s.aprob) h += '<section><h3>Aprobación</h3><div class="cx-aprob"><svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true"><rect x="1" y="2" width="28" height="6" fill="url(#cx-rayas)" stroke="#C53C2C"/></svg><span>' + esc(s.aprob) + '</span></div></section>';
     if(s.confirmar) h += '<section><h3>Por confirmar en la validación</h3><div class="cx-confirmar">' + esc(s.confirmar) + '</div></section>';
     if(s.cifras && s.cifras.length) h += '<section><h3>Cifras que se dieron</h3>' + lista(s.cifras, false) + '</section>';
     h += '<div class="cx-tres">' +
       '<section><h3>Departamentos</h3>' + chips(deptos) + '</section>' +
       '<section><h3>Personas</h3>' + chips(s.personas) + '</section>' +
-      '<section><h3>Sistemas</h3>' + chips(s.sistemas) + '</section>' +
+      '<section><h3>Sistemas</h3>' + chipsSis(s.sistemas) + '</section>' +
     '</div>';
+    if(s.trasp) h += traspasos(s.trasp);
     h += '<section><h3>Procesos del manual</h3><ul class="cx-procs">' + s.proc.map(function(c){
       var p = procInfo(c);
       return '<li><code>' + esc(c) + '</code><span>' + esc(p.n) + '</span><span class="cx-plinks">' +
@@ -288,9 +434,18 @@
     h += '<section><h3>Fuentes</h3><p class="cx-src">' + esc(s.src) + '</p></section>';
     dbody.innerHTML = h;
     dbody.scrollTop = 0;
+    dbody.querySelectorAll("[data-ir]").forEach(function(b){
+      b.addEventListener("click", function(){ abrir(b.getAttribute("data-ir"), true); });
+    });
   }
 
   function abrir(id, desdeClic){
+    // ids que la renumeración del 30-sep dejó sin estación: llevan a la nueva
+    var nuevo = C && C.alias && C.alias[id];
+    if(nuevo){
+      id = nuevo;
+      try{ history.replaceState(null, "", "#/circuito/" + encodeURIComponent(id)); }catch(e){}
+    }
     var s = C && C.estaciones.filter(function(x){ return x.id === id; })[0];
     if(!s) return;
     actual = id;

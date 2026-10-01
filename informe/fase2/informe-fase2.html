@@ -456,8 +456,10 @@
   }
 
   /* ── circuito del negocio (#/circuito) ── motor en circuito-render.js ── */
-  :root{ --cx-asfalto:#2C3845; --cx-borde-via:#1B2530; --cx-marca:#C9D3DC; --cx-pit:#3A4757; }
-  :root[data-tema="claro"]{ --cx-asfalto:#3A434D; --cx-borde-via:#C5CDD5; --cx-marca:#F3F5F7; --cx-pit:#5B6570; }
+  :root{ --cx-asfalto:#2C3845; --cx-borde-via:#1B2530; --cx-marca:#C9D3DC; --cx-pit:#3A4757;
+         --cx-mk:#F27AC6; --cx-mk-tinta:#1A0612; --cx-sis-ofi:#32C6F4; --cx-sis-ext:#B9A6FF; --cx-sis-inf:#FF9F45; }
+  :root[data-tema="claro"]{ --cx-asfalto:#3A434D; --cx-borde-via:#C5CDD5; --cx-marca:#F3F5F7; --cx-pit:#5B6570;
+         --cx-mk:#B0257A; --cx-mk-tinta:#FFFFFF; --cx-sis-ofi:#0B769E; --cx-sis-ext:#6A55C9; --cx-sis-inf:#B85C00; }
   #circuito{flex:1;min-height:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--fondo)}
   #circuito[hidden]{display:none}
   /* ── arquitectura de IA (#/arquitectura) ── página propia en arquitectura-ia.html,
@@ -739,6 +741,44 @@
   .cx-dbody ul.cx-procs{list-style:none;padding:0;gap:6px}
   .cx-procs li{display:grid;grid-template-columns:42px 1fr auto;gap:8px;align-items:baseline;font-size:13px}
   .cx-procs code{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--menta)}
+  /* columnas de etapa de los carriles de venta (30-sep) */
+  .cx-guia{stroke:var(--cian);stroke-opacity:.3;stroke-width:1.4;stroke-dasharray:2 5}
+  .cx-col-n{fill:var(--cian);font:800 15px var(--mono);font-variant-numeric:tabular-nums}
+  .cx-col-t{fill:var(--tinta-media);font:600 11px var(--fuente)}
+  /* pasarela de mercadeo */
+  .cx-mk-aire{fill:none;stroke:var(--panel);stroke-width:15;stroke-linecap:round;stroke-linejoin:round}
+  .cx-mk-cinta{fill:none;stroke:var(--cx-mk);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+  .cx-mk-hueco{fill:none;stroke:var(--panel);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+  .cx-mk-hilo{fill:none;stroke:var(--cx-mk);stroke-width:1.8;stroke-dasharray:2 4;stroke-linecap:round}
+  .cx-mk-pas{cursor:pointer;outline:none}
+  .cx-mk-pas rect{fill:var(--cx-mk);stroke:var(--panel);stroke-width:2}
+  .cx-mk-pas text{fill:var(--cx-mk-tinta);font:800 9.5px var(--mono);pointer-events:none}
+  .cx-mk-pas:hover rect,.cx-mk-pas:focus-visible rect{stroke:var(--tinta);stroke-width:2.4}
+  .cx-sin-mk #cxMk,.cx-sin-mk #cxMkNudos{display:none}
+  .cx-mkpas{display:inline-flex;align-items:center;justify-content:center;min-width:18px;padding:1px 6px;border-radius:var(--r-pildora);background:var(--cx-mk);color:var(--cx-mk-tinta);font:800 10px var(--mono);vertical-align:1px}
+  .cx-leyenda svg .cx-mk-cinta{stroke-width:8}
+  .cx-leyenda svg .cx-mk-hueco{stroke-width:2.6}
+  .cx-dbody p.cx-mkp{font-size:13.5px;line-height:1.5}
+  .cx-dbody ul.cx-mklista{list-style:none;padding:0;gap:4px}
+  .cx-mklista button{display:grid;grid-template-columns:38px auto 1fr;gap:8px;align-items:center;width:100%;text-align:left;font:inherit;font-size:13px;color:var(--tinta);background:transparent;border:0;border-radius:9px;padding:5px 6px;cursor:pointer}
+  .cx-mklista button:hover{background:var(--realce)}
+  .cx-mklista code{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--menta)}
+  /* capa Sistemas: anillo de tres colores, canales coloreados y nota de método */
+  .cx-don{fill:none;stroke-width:3.6;display:none}
+  .cx-don.ofi{stroke:var(--cx-sis-ofi)} .cx-don.ext{stroke:var(--cx-sis-ext)} .cx-don.inf{stroke:var(--cx-sis-inf)}
+  .cx-capa-sis .cx-don{display:inline}
+  .cx-capa-sis .cx-st:not(.on) .cx-anillo{stroke:var(--borde)}
+  .cx-tk.ofi{fill:var(--cx-sis-ofi)} .cx-tk.ext{fill:var(--cx-sis-ext)} .cx-tk.inf{fill:var(--cx-sis-inf)} .cx-tk.sep{fill:var(--tinta-tenue)}
+  .cx-sisnota{font-size:12.5px;color:var(--tinta-media);max-width:92ch;margin:0}
+  .cx-ley-sis{display:none!important}
+  .cx-en-sis .cx-ley-sis{display:inline-flex!important}
+  .cx-cuadro{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .cx-cuadro.ofi{background:var(--cx-sis-ofi)} .cx-cuadro.ext{background:var(--cx-sis-ext)} .cx-cuadro.inf{background:var(--cx-sis-inf)}
+  .cx-chip.sis-ofi{border-color:var(--cx-sis-ofi)} .cx-chip.sis-ext{border-color:var(--cx-sis-ext)} .cx-chip.sis-inf{border-color:var(--cx-sis-inf);border-style:dashed}
+  .cx-tbar{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--borde);gap:2px}
+  .cx-tbar i.ofi{background:var(--cx-sis-ofi)} .cx-tbar i.ext{background:var(--cx-sis-ext)} .cx-tbar i.inf{background:var(--cx-sis-inf)}
+  .cx-dbody p.cx-tdesc{font-size:13px;color:var(--tinta-media);margin-top:6px}
+  .cx-tid{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--tinta-tenue);margin-right:7px}
   .cx-plinks{display:flex;gap:6px}
   .cx-plinks a{font-size:11px;font-weight:700;padding:3px 8px;border-radius:var(--r-pildora);border:1px solid var(--borde);text-decoration:none;color:var(--tinta-media)}
   .cx-plinks a:hover{border-color:var(--menta);color:var(--tinta)}

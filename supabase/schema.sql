@@ -610,7 +610,10 @@ select 'consultor', clave from public.permisos
                  'admin.personal','admin.fichas','admin.validacion')
 on conflict do nothing;
 
-insert into public.roles_permisos (rol, permiso) values ('junta','ver.informe')
+-- La Junta ve el informe, usa el asistente y, desde el 30-sep-2026, entra al demo
+-- (`ver.sistema`): la arquitectura de IA de Fase 2 enlaza a él con el botón «Ver».
+insert into public.roles_permisos (rol, permiso) values
+  ('junta','ver.informe'), ('junta','admin.asistente'), ('junta','ver.sistema')
 on conflict do nothing;
 -- 'pendiente' se queda a propósito sin ninguna fila.
 
