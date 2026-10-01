@@ -13851,7 +13851,7 @@ window.MANUAL_ASIS = {
       "Regional Manager Retail — construye el presupuesto por país y tienda desde los históricos, lo reajusta durante el año y presenta cada mes a la junta cómo va.",
       "Director Comercial y de Compras (socio) — aprueba el presupuesto y sus reajustes.",
       "Socios (junta de enero) — fijan el foco del año para el retail.",
-      "Gerente de Ventas al Detal (Venezuela) — reparte las metas por tienda, las ajusta al contexto del país y las discute con los gerentes en la reunión semanal.",
+      "Gerente de Ventas al Detal (País) — reparte las metas por tienda, las ajusta al contexto del país y las discute con los gerentes en la reunión semanal.",
       "Gerente de Tienda — recibe la meta de su tienda y puede objetarla en la reunión semanal."
      ],
      "evidencia": [
@@ -13903,7 +13903,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a5",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "rol": "Gerente de Ventas al Detal (País)",
        "texto": "Reparte la meta por tienda, la ajusta al contexto local y la envía a cada tienda."
       },
       {
@@ -13916,7 +13916,7 @@ window.MANUAL_ASIS = {
       "carriles": [
        "Regional Manager Retail",
        "Director Comercial y de Compras (socio)",
-       "Gerente de Ventas al Detal (Venezuela)",
+       "Gerente de Ventas al Detal (País)",
        "Gerente de Tienda"
       ],
       "nodos": [
@@ -13971,7 +13971,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n6",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Repartir la meta por tienda",
         "sistemas": [
@@ -14046,7 +14046,7 @@ window.MANUAL_ASIS = {
      "dueno": "Regional Manager Retail",
      "participantes": [
       "Gerente de Tienda — descarga el cierre del día y lo carga en el cuadro o lo manda por correo.",
-      "Supervisor(a) de Tiendas (Venezuela) — en Venezuela, vacía cada mañana los resúmenes de cierre en el cuadro regional.",
+      "Supervisor(a) de Tiendas (País) — en Venezuela, vacía cada mañana los resúmenes de cierre en el cuadro regional.",
       "Regional Manager Retail — revisa cada día los indicadores, llama a los países con tiendas por debajo de la meta y presenta el cierre mensual a la junta.",
       "Analista de Datos e Informes — prepara por su lado el reporte mensual de ventas por tienda para la junta y Mercadeo."
      ],
@@ -14097,8 +14097,13 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a4",
-       "rol": "Supervisor(a) de Tiendas (Venezuela)",
+       "rol": "Supervisor(a) de Tiendas (País)",
        "texto": "En Venezuela, vacía a la mañana siguiente los resúmenes en el cuadro."
+      },
+      {
+       "id": "a4b",
+       "rol": "Gerente de Ventas al Detal (País)",
+       "texto": "Revisa el consolidado de su país antes de que suba al cuadro regional: comprueba que estén todas las tiendas y que las cifras del día cuadren con lo que conoce de cada punto."
       },
       {
        "id": "a5",
@@ -14119,7 +14124,8 @@ window.MANUAL_ASIS = {
      "diagrama": {
       "carriles": [
        "Gerente de Tienda",
-       "Supervisor(a) de Tiendas (Venezuela)",
+       "Supervisor(a) de Tiendas (País)",
+       "Gerente de Ventas al Detal (País)",
        "Regional Manager Retail"
       ],
       "nodos": [
@@ -14161,12 +14167,18 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n5",
-        "carril": "Supervisor(a) de Tiendas (Venezuela)",
+        "carril": "Supervisor(a) de Tiendas (País)",
         "tipo": "tarea",
         "n": "Vaciar resúmenes en el cuadro",
         "sistemas": [
          "Excel"
         ]
+       },
+       {
+        "id": "n5b",
+        "carril": "Gerente de Ventas al Detal (País)",
+        "tipo": "tarea",
+        "n": "Validar el consolidado del país"
        },
        {
         "id": "n6",
@@ -14226,16 +14238,8 @@ window.MANUAL_ASIS = {
         "etq": "No"
        },
        {
-        "de": "n3",
-        "a": "n6"
-       },
-       {
         "de": "n4",
         "a": "n5"
-       },
-       {
-        "de": "n5",
-        "a": "n6"
        },
        {
         "de": "n6",
@@ -14258,6 +14262,18 @@ window.MANUAL_ASIS = {
        {
         "de": "n9",
         "a": "n10"
+       },
+       {
+        "de": "n3",
+        "a": "n5b"
+       },
+       {
+        "de": "n5",
+        "a": "n5b"
+       },
+       {
+        "de": "n5b",
+        "a": "n6"
        }
       ]
      }
@@ -14275,10 +14291,10 @@ window.MANUAL_ASIS = {
      "dueno": "Coordinador(a) de Planificación de Compras",
      "participantes": [
       "Coordinador(a) de Planificación de Compras — calcula cada semana el sugerido por tienda para Venezuela y Panamá; en Venezuela, además, monta los pedidos en Odoo.",
-      "Supervisor de Tienda (Panamá) — revisa el sugerido, carga los pedidos en Odoo, valida los traslados al recibir y atiende las diferencias.",
-      "Gerente de Ventas Internacional — autoriza el pedido de las tiendas de Panamá para que la bodega lo vea.",
+      "Supervisor de Tienda (País) — revisa el sugerido, carga los pedidos en Odoo, valida los traslados al recibir y atiende las diferencias.",
+      "Gerente de Ventas Internacional / Gerente de Ventas al Detal (País) — autoriza el pedido de las tiendas de Panamá para que la bodega lo vea.",
       "Jefe de Bodega — prepara y despacha los pedidos de las tiendas de Panamá.",
-      "Encargado(a) de Tienda (Panamá) — coteja lo recibido contra la lista y reporta diferencias.",
+      "Encargado(a) de Tienda (País) — coteja lo recibido contra la lista y reporta diferencias.",
       "Gerente de Almacén (Venezuela) — despacha a las tiendas lo que la coordinación montó en Odoo.",
       "Gerente de Ventas al Detal (Venezuela) — corrige el sugerido con lo que ve en las visitas."
      ],
@@ -14323,17 +14339,17 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a2",
-       "rol": "Supervisor de Tienda (Panamá)",
+       "rol": "Supervisor de Tienda (País)",
        "texto": "Lo revisa según el espacio de cada punto y las ventas especiales, y lo ajusta."
       },
       {
        "id": "a3",
-       "rol": "Supervisor de Tienda (Panamá)",
+       "rol": "Supervisor de Tienda (País)",
        "texto": "Carga los pedidos en Odoo con la plantilla masiva y sus observaciones."
       },
       {
        "id": "a4",
-       "rol": "Gerente de Ventas Internacional",
+       "rol": "Gerente de Ventas Internacional / Gerente de Ventas al Detal (País)",
        "texto": "Autoriza los pedidos para que la bodega los vea."
       },
       {
@@ -14343,27 +14359,27 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a6",
-       "rol": "Encargado(a) de Tienda (Panamá)",
+       "rol": "Encargado(a) de Tienda (País)",
        "texto": "Coteja lo recibido contra la lista."
       },
       {
        "id": "a7",
-       "rol": "Encargado(a) de Tienda (Panamá)",
+       "rol": "Encargado(a) de Tienda (País)",
        "texto": "Si hay diferencias, las reporta para que la bodega las revise."
       },
       {
        "id": "a8",
-       "rol": "Supervisor de Tienda (Panamá)",
+       "rol": "Supervisor de Tienda (País)",
        "texto": "Valida en Odoo el traslado que ya tenía en borrador y la mercancía queda disponible."
       }
      ],
      "diagrama": {
       "carriles": [
        "Coordinador(a) de Planificación de Compras",
-       "Supervisor de Tienda (Panamá)",
-       "Gerente de Ventas Internacional",
+       "Supervisor de Tienda (País)",
+       "Gerente de Ventas Internacional / Gerente de Ventas al Detal (País)",
        "Jefe de Bodega",
-       "Encargado(a) de Tienda (Panamá)"
+       "Encargado(a) de Tienda (País)"
       ],
       "nodos": [
        {
@@ -14384,13 +14400,13 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n2",
-        "carril": "Supervisor de Tienda (Panamá)",
+        "carril": "Supervisor de Tienda (País)",
         "tipo": "tarea",
         "n": "Revisar y ajustar el sugerido"
        },
        {
         "id": "n3",
-        "carril": "Supervisor de Tienda (Panamá)",
+        "carril": "Supervisor de Tienda (País)",
         "tipo": "tarea",
         "n": "Cargar los pedidos en Odoo",
         "sistemas": [
@@ -14399,7 +14415,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n4",
-        "carril": "Gerente de Ventas Internacional",
+        "carril": "Gerente de Ventas Internacional / Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Autorizar los pedidos",
         "sistemas": [
@@ -14417,25 +14433,25 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n6",
-        "carril": "Encargado(a) de Tienda (Panamá)",
+        "carril": "Encargado(a) de Tienda (País)",
         "tipo": "tarea",
         "n": "Cotejar contra la lista"
        },
        {
         "id": "n7",
-        "carril": "Encargado(a) de Tienda (Panamá)",
+        "carril": "Encargado(a) de Tienda (País)",
         "tipo": "decision",
         "n": "¿Llegó completo?"
        },
        {
         "id": "n8",
-        "carril": "Encargado(a) de Tienda (Panamá)",
+        "carril": "Encargado(a) de Tienda (País)",
         "tipo": "tarea",
         "n": "Reportar la diferencia a bodega"
        },
        {
         "id": "n9",
-        "carril": "Supervisor de Tienda (Panamá)",
+        "carril": "Supervisor de Tienda (País)",
         "tipo": "tarea",
         "n": "Validar el traslado en Odoo",
         "sistemas": [
@@ -14444,7 +14460,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n10",
-        "carril": "Supervisor de Tienda (Panamá)",
+        "carril": "Supervisor de Tienda (País)",
         "tipo": "fin",
         "n": "Mercancía disponible"
        }
@@ -14509,11 +14525,11 @@ window.MANUAL_ASIS = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Supervisor(a) de Tiendas (país)",
+     "dueno": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
      "participantes": [
       "Gerente de Tienda (solicitante) — pide el producto que le falta.",
-      "Supervisor(a) de Tiendas (país) — en Venezuela, la gerencia de ventas al detal y su equipo de supervisión; en Panamá, el supervisor de tienda. Busca quién lo tiene y hace el traslado en Odoo.",
-      "Gerente de Tienda (cedente) — entrega el producto o lo envía con el mensajero o la ruta.",
+      "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País) — en Venezuela, la gerencia de ventas al detal y su equipo de supervisión; en Panamá, el supervisor de tienda. Busca quién lo tiene y hace el traslado en Odoo.",
+      "Gerente de Tienda (que entrega) — entrega el producto o lo envía con el mensajero o la ruta.",
       "Gerente de Operaciones y Logística (Venezuela) — aprueba los traslados que necesitan transporte del almacén."
      ],
      "evidencia": [
@@ -14552,22 +14568,22 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a2",
-       "rol": "Supervisor(a) de Tiendas (país)",
+       "rol": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
        "texto": "Busca en Odoo qué tienda lo tiene."
       },
       {
        "id": "a3",
-       "rol": "Supervisor(a) de Tiendas (país)",
+       "rol": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
        "texto": "Si no lo tiene ninguna, la venta se pierde y no queda registro."
       },
       {
        "id": "a4",
-       "rol": "Supervisor(a) de Tiendas (país)",
+       "rol": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
        "texto": "Si lo tiene otra, hace el traslado en Odoo."
       },
       {
        "id": "a5",
-       "rol": "Gerente de Tienda (cedente)",
+       "rol": "Gerente de Tienda (que entrega)",
        "texto": "Si está en el mismo centro comercial, lo entrega en mano; si no, lo envía con el mensajero o la ruta."
       },
       {
@@ -14579,8 +14595,8 @@ window.MANUAL_ASIS = {
      "diagrama": {
       "carriles": [
        "Gerente de Tienda (solicitante)",
-       "Supervisor(a) de Tiendas (país)",
-       "Gerente de Tienda (cedente)"
+       "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
+       "Gerente de Tienda (que entrega)"
       ],
       "nodos": [
        {
@@ -14601,7 +14617,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n2",
-        "carril": "Supervisor(a) de Tiendas (país)",
+        "carril": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Buscar qué tienda lo tiene",
         "sistemas": [
@@ -14610,19 +14626,19 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n3",
-        "carril": "Supervisor(a) de Tiendas (país)",
+        "carril": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
         "tipo": "decision",
         "n": "¿Lo tiene otra tienda?"
        },
        {
         "id": "n4",
-        "carril": "Supervisor(a) de Tiendas (país)",
+        "carril": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
         "tipo": "fin",
         "n": "Venta perdida, sin registro"
        },
        {
         "id": "n5",
-        "carril": "Supervisor(a) de Tiendas (país)",
+        "carril": "Supervisor(a) de Tiendas / Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Hacer el traslado",
         "sistemas": [
@@ -14631,19 +14647,19 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n6",
-        "carril": "Gerente de Tienda (cedente)",
+        "carril": "Gerente de Tienda (que entrega)",
         "tipo": "decision",
         "n": "¿Mismo centro comercial?"
        },
        {
         "id": "n7",
-        "carril": "Gerente de Tienda (cedente)",
+        "carril": "Gerente de Tienda (que entrega)",
         "tipo": "tarea",
         "n": "Entregar en mano"
        },
        {
         "id": "n8",
-        "carril": "Gerente de Tienda (cedente)",
+        "carril": "Gerente de Tienda (que entrega)",
         "tipo": "tarea",
         "n": "Enviar con mensajero o ruta"
        },
@@ -14836,7 +14852,7 @@ window.MANUAL_ASIS = {
         "id": "n4",
         "carril": "Supervisor(a) de Tiendas (Venezuela)",
         "tipo": "decision",
-        "n": "¿Algo anormal?"
+        "n": "¿Se detecta no conformidad?"
        },
        {
         "id": "n5",
@@ -14994,8 +15010,8 @@ window.MANUAL_ASIS = {
      ],
      "diagrama": {
       "carriles": [
-       "Gerente de Tienda",
        "Asesor(a) de Ventas",
+       "Gerente de Tienda",
        "Cajero(a)"
       ],
       "nodos": [
@@ -15776,6 +15792,11 @@ window.MANUAL_ASIS = {
        "texto": "Si es nueva, evalúa el local y el negocio y redacta el contrato."
       },
       {
+       "id": "a2b",
+       "rol": "Regional Manager Retail",
+       "texto": "Decide si se avanza con ese franquiciado. Si el local, el operador o el negocio no convencen, la conversación se cierra ahí."
+      },
+      {
        "id": "a3",
        "rol": "Director Comercial Wholesale y Nuevos Negocios (Cubitt)",
        "texto": "Negocia y vende la mercancía a la franquicia."
@@ -15818,6 +15839,18 @@ window.MANUAL_ASIS = {
         "sistemas": [
          "Excel"
         ]
+       },
+       {
+        "id": "n2b",
+        "carril": "Regional Manager Retail",
+        "tipo": "decision",
+        "n": "¿Se aprueba al franquiciado?"
+       },
+       {
+        "id": "n2alt",
+        "carril": "Regional Manager Retail",
+        "tipo": "fin",
+        "n": "No se avanza con el franquiciado"
        },
        {
         "id": "n3",
@@ -15872,17 +15905,13 @@ window.MANUAL_ASIS = {
        },
        {
         "de": "n1",
-        "a": "n2",
-        "etq": "Nueva"
-       },
-       {
-        "de": "n1",
         "a": "n4",
         "etq": "Existente"
        },
        {
-        "de": "n2",
-        "a": "n3"
+        "de": "n1",
+        "a": "n2",
+        "etq": "Nueva"
        },
        {
         "de": "n3",
@@ -15903,6 +15932,20 @@ window.MANUAL_ASIS = {
        {
         "de": "n7",
         "a": "n8"
+       },
+       {
+        "de": "n2",
+        "a": "n2b"
+       },
+       {
+        "de": "n2b",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2b",
+        "a": "n2alt",
+        "etq": "No"
        }
       ]
      }
@@ -15973,7 +16016,7 @@ window.MANUAL_ASIS = {
       {
        "id": "a4",
        "rol": "Socio u operador local (externo)",
-       "texto": "Arma su pedido a Panamá y lo aprueba su dirección."
+       "texto": "En su ciclo de reposición arma el pedido de mercancía a Panamá —lo que necesita para sostener su venta— y lo aprueba su propia dirección antes de enviarlo."
       },
       {
        "id": "a5",
@@ -16031,7 +16074,7 @@ window.MANUAL_ASIS = {
         "id": "n5",
         "carril": "Socio u operador local (externo)",
         "tipo": "tarea",
-        "n": "Armar y aprobar su pedido"
+        "n": "Armar el pedido de reposición y aprobarlo"
        },
        {
         "id": "n6",
@@ -16276,9 +16319,9 @@ window.MANUAL_ASIS = {
      "dueno": "Gerente de Tienda",
      "participantes": [
       "Gerente de Tienda — evalúa la falla, resuelve lo que puede en tienda y registra y envía el resto; en Venezuela, también la cajera.",
-      "Servicio Técnico (Venezuela) — verifica la garantía, decide el cambio o la reparación, reporta a la fábrica y devuelve la unidad a la tienda.",
+      "Servicio Técnico (País) — verifica la garantía, decide el cambio o la reparación, reporta a la fábrica y devuelve la unidad a la tienda.",
       "Customer Services Manager (Panamá) — mantiene el flujo de garantías de Lark que usan las tiendas de Panamá y de otros países.",
-      "Supervisor(a) de Tiendas (Venezuela) — entrena al personal para reconocer las fallas que se cambian en tienda."
+      "Supervisor(a) de Tiendas (País) — entrena al personal para reconocer las fallas que se cambian en tienda."
      ],
      "evidencia": [
       "E-47",
@@ -16329,24 +16372,24 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a4",
-       "rol": "Servicio Técnico (Venezuela)",
+       "rol": "Servicio Técnico (País)",
        "texto": "Verifica la garantía en su sistema."
       },
       {
        "id": "a5",
-       "rol": "Servicio Técnico (Venezuela)",
+       "rol": "Servicio Técnico (País)",
        "texto": "Si es Casio, lo repara; si es Cubitt, lo cambia o ofrece un descuento."
       },
       {
        "id": "a6",
-       "rol": "Servicio Técnico (Venezuela)",
+       "rol": "Servicio Técnico (País)",
        "texto": "Reporta a la fábrica y hace el traslado de la unidad en Odoo."
       }
      ],
      "diagrama": {
       "carriles": [
        "Gerente de Tienda",
-       "Servicio Técnico (Venezuela)"
+       "Servicio Técnico (País)"
       ],
       "nodos": [
        {
@@ -16384,7 +16427,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n5",
-        "carril": "Servicio Técnico (Venezuela)",
+        "carril": "Servicio Técnico (País)",
         "tipo": "tarea",
         "n": "Verificar la garantía",
         "sistemas": [
@@ -16393,25 +16436,25 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n6",
-        "carril": "Servicio Técnico (Venezuela)",
+        "carril": "Servicio Técnico (País)",
         "tipo": "decision",
         "n": "¿Qué marca es?"
        },
        {
         "id": "n7",
-        "carril": "Servicio Técnico (Venezuela)",
+        "carril": "Servicio Técnico (País)",
         "tipo": "tarea",
         "n": "Reparar (Casio)"
        },
        {
         "id": "n8",
-        "carril": "Servicio Técnico (Venezuela)",
+        "carril": "Servicio Técnico (País)",
         "tipo": "tarea",
         "n": "Cambiar o descontar (Cubitt)"
        },
        {
         "id": "n9",
-        "carril": "Servicio Técnico (Venezuela)",
+        "carril": "Servicio Técnico (País)",
         "tipo": "tarea",
         "n": "Reportar a fábrica y trasladar",
         "sistemas": [
@@ -16420,7 +16463,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n10",
-        "carril": "Servicio Técnico (Venezuela)",
+        "carril": "Servicio Técnico (País)",
         "tipo": "fin",
         "n": "Producto de vuelta en tienda"
        }
@@ -16487,9 +16530,9 @@ window.MANUAL_ASIS = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Supervisor(a) de Tienda e Inventario (Venezuela); Supervisor de Tienda (Panamá)",
+     "dueno": "Supervisor(a) de Tienda e Inventario (País); Supervisor de Tienda (Panamá)",
      "participantes": [
-      "Supervisor(a) de Tienda e Inventario (Venezuela) — en Panamá, el supervisor de tienda. Saca la existencia teórica, compara lo contado y ajusta.",
+      "Supervisor(a) de Tienda e Inventario (País) — en Panamá, el supervisor de tienda. Saca la existencia teórica, compara lo contado y ajusta.",
       "Gerente de Tienda — cuenta con su equipo las líneas del calendario y responde por los faltantes.",
       "Coordinador(a) de Planificación de Compras — detecta diferencias cuando arma traslados sobre existencias que no están."
      ],
@@ -16526,7 +16569,7 @@ window.MANUAL_ASIS = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "rol": "Supervisor(a) de Tienda e Inventario (País)",
        "texto": "Saca de Odoo la existencia teórica de la línea que toca contar."
       },
       {
@@ -16536,12 +16579,12 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a3",
-       "rol": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "rol": "Supervisor(a) de Tienda e Inventario (País)",
        "texto": "Compara lo contado contra el sistema."
       },
       {
        "id": "a4",
-       "rol": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "rol": "Supervisor(a) de Tienda e Inventario (País)",
        "texto": "Si la diferencia es un cambio de color, ajusta uno por otro."
       },
       {
@@ -16552,19 +16595,19 @@ window.MANUAL_ASIS = {
      ],
      "diagrama": {
       "carriles": [
-       "Supervisor(a) de Tienda e Inventario (Venezuela)",
+       "Supervisor(a) de Tienda e Inventario (País)",
        "Gerente de Tienda"
       ],
       "nodos": [
        {
         "id": "n0",
-        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "carril": "Supervisor(a) de Tienda e Inventario (País)",
         "tipo": "inicio",
         "n": "Toca contar una línea"
        },
        {
         "id": "n1",
-        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "carril": "Supervisor(a) de Tienda e Inventario (País)",
         "tipo": "tarea",
         "n": "Sacar la existencia teórica",
         "sistemas": [
@@ -16583,7 +16626,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n3",
-        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "carril": "Supervisor(a) de Tienda e Inventario (País)",
         "tipo": "tarea",
         "n": "Comparar contra el sistema",
         "sistemas": [
@@ -16592,19 +16635,19 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n4",
-        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "carril": "Supervisor(a) de Tienda e Inventario (País)",
         "tipo": "decision",
         "n": "¿Qué diferencia hay?"
        },
        {
         "id": "n5",
-        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "carril": "Supervisor(a) de Tienda e Inventario (País)",
         "tipo": "fin",
         "n": "Inventario cuadrado"
        },
        {
         "id": "n6",
-        "carril": "Supervisor(a) de Tienda e Inventario (Venezuela)",
+        "carril": "Supervisor(a) de Tienda e Inventario (País)",
         "tipo": "tarea",
         "n": "Ajustar el cambio de color",
         "sistemas": [
@@ -16866,15 +16909,15 @@ window.MANUAL_ASIS = {
     "proposito": {
      "estado": "borrador",
      "alcance": "La cobertura de turnos, las vacaciones, las vacantes, el ingreso y las faltas del personal de tienda. Las comisiones van en 9.17 y el proceso completo de talento, en el macro 17.",
-     "texto": "En **Venezuela** la gerencia de ventas al detal cuida que las plantillas estén completas. Aprueba las vacaciones y las pasa a Recursos Humanos, porque es ella quien sabe si chocan con un permiso o con otra ausencia; cuando alguien falta, mueve personal entre tiendas, y el que rota entre Casio y Cubitt se cambia el uniforme. Cuando hay una vacante o una apertura, avisa por correo a Recursos Humanos, que publica en portales de empleo, hace una preselección telefónica y le manda una terna; la gerencia entrevista y **decide con Recursos Humanos**. Al ingreso se piden los usuarios de Lark y Odoo y se entrega un kit; no hay una inducción institucional formal. El entrenamiento de producto lo da la supervisión en la tienda y queda en la universidad corporativa. Las faltas las atiende primero el gerente de tienda con llamados de atención verbales; si hay reincidencia, por escrito, y solo después interviene la gerencia con Recursos Humanos.\n\nNo hay evaluación de desempeño individual: desde mayo de 2026 hay un bono grupal por tienda, que se paga a todo el equipo si la tienda llega a su meta y a nadie si no llega. En **Panamá** el supervisor de tienda revisa los horarios que cada tienda sube a Lark, cubre las ausencias y es el puente con Recursos Humanos, que controla la asistencia con un reloj biométrico. Cuando se abre una tienda, el gerente de ventas avisa con antelación para contratar antes de la apertura."
+     "texto": "En **Venezuela** la gerencia de ventas al detal cuida que las plantillas estén completas. Aprueba las vacaciones y las pasa a Talento Humano, porque es ella quien sabe si chocan con un permiso o con otra ausencia; cuando alguien falta, mueve personal entre tiendas, y el que rota entre Casio y Cubitt se cambia el uniforme. Cuando hay una vacante o una apertura, avisa por correo a Talento Humano, que publica en portales de empleo, hace una preselección telefónica y le manda una terna; la gerencia entrevista y **decide con Talento Humano**. Al ingreso se piden los usuarios de Lark y Odoo y se entrega un kit; no hay una inducción institucional formal. El entrenamiento de producto lo da la supervisión en la tienda y queda en la universidad corporativa. Las faltas las atiende primero el gerente de tienda con llamados de atención verbales; si hay reincidencia, por escrito, y solo después interviene la gerencia con Talento Humano.\n\nNo hay evaluación de desempeño individual: desde mayo de 2026 hay un bono grupal por tienda, que se paga a todo el equipo si la tienda llega a su meta y a nadie si no llega. En **Panamá** el supervisor de tienda revisa los horarios que cada tienda sube a Lark, cubre las ausencias y es el puente con Talento Humano, que controla la asistencia con un reloj biométrico. Cuando se abre una tienda, el gerente de ventas avisa con antelación para contratar antes de la apertura."
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Gerente de Ventas al Detal (Venezuela)",
+     "dueno": "Gerente de Ventas al Detal (País)",
      "participantes": [
       "Gerente de Tienda — pide vacaciones y cobertura y atiende en primera instancia las faltas de su equipo.",
-      "Gerente de Ventas al Detal (Venezuela) — aprueba vacaciones, cubre ausencias, pide personal y decide los ingresos con Recursos Humanos; en Panamá, el supervisor de tienda.",
-      "Gerente de Recursos Humanos (Venezuela) — publica, preselecciona, incorpora y registra; en Panamá, la gerencia de RRHH del país."
+      "Gerente de Ventas al Detal (País) — aprueba vacaciones, cubre ausencias, pide personal y decide los ingresos con Talento Humano; en Panamá, el supervisor de tienda.",
+      "Gerente de Talento Humano (País) — publica, preselecciona, incorpora y registra; en Panamá, la gerencia de RRHH del país."
      ],
      "evidencia": [
       "E-47",
@@ -16908,12 +16951,12 @@ window.MANUAL_ASIS = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "rol": "Gerente de Ventas al Detal (País)",
        "texto": "Identifica la novedad: una ausencia, unas vacaciones o una vacante."
       },
       {
        "id": "a2",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "rol": "Gerente de Ventas al Detal (País)",
        "texto": "Si es una ausencia, mueve personal de otra tienda."
       },
       {
@@ -16923,63 +16966,63 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a4",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "rol": "Gerente de Ventas al Detal (País)",
        "texto": "Revisa que no choquen con la plantilla y las aprueba."
       },
       {
        "id": "a5",
-       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "rol": "Gerente de Talento Humano (País)",
        "texto": "Registra las vacaciones."
       },
       {
        "id": "a6",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
-       "texto": "Si es una vacante, avisa a Recursos Humanos por correo."
+       "rol": "Gerente de Ventas al Detal (País)",
+       "texto": "Si es una vacante, avisa a Talento Humano por correo."
       },
       {
        "id": "a7",
-       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "rol": "Gerente de Talento Humano (País)",
        "texto": "Publica, preselecciona y envía una terna."
       },
       {
        "id": "a8",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
-       "texto": "Entrevista y decide con Recursos Humanos."
+       "rol": "Gerente de Ventas al Detal (País)",
+       "texto": "Entrevista y decide con Talento Humano."
       },
       {
        "id": "a9",
-       "rol": "Gerente de Recursos Humanos (Venezuela)",
+       "rol": "Gerente de Talento Humano (País)",
        "texto": "Incorpora a la persona: usuarios y kit de ingreso."
       }
      ],
      "diagrama": {
       "carriles": [
        "Gerente de Tienda",
-       "Gerente de Ventas al Detal (Venezuela)",
-       "Gerente de Recursos Humanos (Venezuela)"
+       "Gerente de Ventas al Detal (País)",
+       "Gerente de Talento Humano (País)"
       ],
       "nodos": [
        {
         "id": "n0",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "inicio",
         "n": "Novedad de personal"
        },
        {
         "id": "n1",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "decision",
         "n": "¿Qué novedad es?"
        },
        {
         "id": "n2",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Mover personal de otra tienda"
        },
        {
         "id": "n3",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "fin",
         "n": "Turno cubierto"
        },
@@ -16991,25 +17034,25 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n5",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Revisar plantilla y aprobar"
        },
        {
         "id": "n6",
-        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "carril": "Gerente de Talento Humano (País)",
         "tipo": "tarea",
         "n": "Registrar las vacaciones"
        },
        {
         "id": "n7",
-        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "carril": "Gerente de Talento Humano (País)",
         "tipo": "fin",
         "n": "Vacaciones aprobadas"
        },
        {
         "id": "n8",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Avisar la vacante a RRHH",
         "sistemas": [
@@ -17018,19 +17061,19 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n9",
-        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "carril": "Gerente de Talento Humano (País)",
         "tipo": "tarea",
         "n": "Publicar y preseleccionar"
        },
        {
         "id": "n10",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Entrevistar y decidir con RRHH"
        },
        {
         "id": "n11",
-        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "carril": "Gerente de Talento Humano (País)",
         "tipo": "tarea",
         "n": "Incorporar a la persona",
         "sistemas": [
@@ -17040,7 +17083,7 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n12",
-        "carril": "Gerente de Recursos Humanos (Venezuela)",
+        "carril": "Gerente de Talento Humano (País)",
         "tipo": "fin",
         "n": "Personal incorporado"
        }
@@ -17277,11 +17320,11 @@ window.MANUAL_ASIS = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Gerente de Ventas al Detal (Venezuela); Supervisor de Tienda (Panamá)",
+     "dueno": "Gerente de Ventas al Detal (País); Supervisor de Tienda (Panamá)",
      "participantes": [
       "Gerente de Tienda — avisa la falla por teléfono.",
       "Jefe de Servicios Generales — atiende electricidad y alarmas de las tiendas de Caracas.",
-      "Gerente de Ventas al Detal (Venezuela) — autoriza las compras, elige el proveedor y coordina a los contratistas; en Panamá, el supervisor de tienda.",
+      "Gerente de Ventas al Detal (País) — autoriza las compras, elige el proveedor y coordina a los contratistas; en Panamá, el supervisor de tienda.",
       "Técnico de Sistemas (Venezuela) — atiende cámaras, red y equipos."
      ],
      "evidencia": [
@@ -17323,8 +17366,8 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a3",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
-       "texto": "Si no tiene el insumo, autoriza la compra de palabra y define el proveedor."
+       "rol": "Gerente de Ventas al Detal (País)",
+       "texto": "Si no tiene el insumo, autoriza la compra verbalmente y define el proveedor."
       },
       {
        "id": "a4",
@@ -17333,7 +17376,7 @@ window.MANUAL_ASIS = {
       },
       {
        "id": "a5",
-       "rol": "Gerente de Ventas al Detal (Venezuela)",
+       "rol": "Gerente de Ventas al Detal (País)",
        "texto": "Si es otra falla o una tienda del interior, contrata a un proveedor, a menudo del propio centro comercial."
       }
      ],
@@ -17341,7 +17384,7 @@ window.MANUAL_ASIS = {
       "carriles": [
        "Gerente de Tienda",
        "Jefe de Servicios Generales",
-       "Gerente de Ventas al Detal (Venezuela)"
+       "Gerente de Ventas al Detal (País)"
       ],
       "nodos": [
        {
@@ -17360,7 +17403,7 @@ window.MANUAL_ASIS = {
         "id": "n2",
         "carril": "Jefe de Servicios Generales",
         "tipo": "decision",
-        "n": "¿Electricidad o alarma?"
+        "n": "¿Es eléctrica o de alarma?"
        },
        {
         "id": "n8",
@@ -17376,9 +17419,9 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n4",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
-        "n": "Autorizar la compra de palabra"
+        "n": "Autorizar la compra verbalmente"
        },
        {
         "id": "n5",
@@ -17388,13 +17431,13 @@ window.MANUAL_ASIS = {
        },
        {
         "id": "n6",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "tarea",
         "n": "Contratar a un proveedor"
        },
        {
         "id": "n7",
-        "carril": "Gerente de Ventas al Detal (Venezuela)",
+        "carril": "Gerente de Ventas al Detal (País)",
         "tipo": "fin",
         "n": "Reparado, sin registro"
        }

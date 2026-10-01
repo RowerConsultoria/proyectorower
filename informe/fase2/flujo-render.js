@@ -109,7 +109,9 @@
     });
 
     var w = PAD_L + (maxC + 1) * COL_W + 30;
-    var h = PAD_T + flujo.carriles.length * LANE_H + 20;
+    var h = PAD_T + flujo.carriles.length * LANE_H + 60;  // margen abajo: la rama de un rombo
+    // del ÚLTIMO carril se desvía por debajo, y con 20 px su etiqueta caía fuera del lienzo
+    // y no se dibujaba — el rombo parecía tener una sola salida rotulada.
     return { pos: pos, w: w, h: h, maxC: maxC, carrilIdx: carrilIdx, idx: idx };
   }
 
@@ -222,7 +224,22 @@
                   !tramoLibre(L, excl, midx0, a.y, midx0, b.y) ||
                   !tramoLibre(L, excl, midx0, b.y, bx, b.y);
       if (choca) {
-        var yr = Math.min(a.y, b.y) - 40;  // rodea por encima de las dos alturas
+        // Rodea por encima de las dos alturas, pero dejando pasar al nodo MÁS ALTO que hay
+        // en medio: con 40 px fijos, un rombo con la pregunta larga sigue sobresaliendo y
+        // la flecha le pasa por dentro.
+        var alto = 0;
+        Object.keys(L.pos).forEach(function (id) {
+          if (id === e.de || id === e.a) return;
+          var p = L.pos[id];
+          if (p.col <= a.col || p.col > b.col) return;
+          if (Math.abs(p.y - Math.min(a.y, b.y)) > LANE_H / 2) return;
+          alto = Math.max(alto, altoNodo(L.idx[id]) / 2);
+        });
+        var yr = Math.min(a.y, b.y) - Math.max(40, alto + 22);
+        // Si por arriba no cabe, se rodea por DEBAJO de las dos alturas: salirse del
+        // lienzo deja la flecha sin dibujar, que es peor que un desvío largo.
+        var porDebajo = yr < PAD_T + 10;
+        if (porDebajo) yr = Math.max(a.y, b.y) + Math.max(40, alto + 22);
         // La bajada tampoco puede caer sobre una caja: se prueban posiciones cada vez
         // más a la izquierda hasta dar con una libre. Bajar siempre pegado al destino
         // metía la flecha por dentro del nodo que ocupa esa columna en otro carril.
