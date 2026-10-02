@@ -36,6 +36,12 @@
   .f2-top .crece{flex:1;min-width:0}
   .f2-top .lnk{font-size:12px;font-weight:600;color:var(--tinta-media);text-decoration:none;padding:6px 10px;border-radius:var(--r-pildora)}
   .f2-top .lnk:hover{background:var(--realce);color:var(--tinta)}
+  /* Presentación y Funcionamiento caben en el cintillo sin partir rótulos solo por encima de 1180 px;
+     por debajo siguen en el menú lateral */
+  @media (min-width:1181px){ .f2-top .lnk{white-space:nowrap} }
+  @media (min-width:1181px) and (max-width:1300px){ .f2-top .lnk{padding:6px 7px} }
+  /* sin sitio para la marca: los dos siguen a mano en el menú lateral */
+  @media (max-width:1180px){ .f2-top #lnkPresentacion,.f2-top #lnkFuncionamiento{display:none} }
   .f2-icbtn{
     flex:none;width:34px;height:34px;border-radius:var(--r-pildora);border:1px solid var(--borde);
     background:var(--panel-alto);color:var(--tinta-media);font-size:15px;cursor:pointer;
@@ -489,7 +495,7 @@
   .eo-cima{display:flex;align-items:center;justify-content:center;gap:64px;padding-top:4px}
   .eo-gob,.eo-staff{display:flex;flex-direction:column;gap:10px}
   .eo-hueco{height:0}
-  /* staff a los costados, unidades de negocio al centro: bloque tenue + rótulo y
+  /* unidades de negocio de un lado y staff del otro: bloque tenue + rótulo y
      acento de color propio (ámbar el staff, menta el negocio), como en el borrador de julio */
   .eo-grupo{margin:-6px -8px -6px 6px;border-radius:24px;pointer-events:none}
   .eo-grupo.eo-g-negocio{background:color-mix(in srgb,var(--menta) 6%,transparent);border:1px solid color-mix(in srgb,var(--menta) 28%,transparent)}
@@ -538,6 +544,68 @@
   .eo-pais .eo-onom{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .eo-pcargo{flex:none;margin-left:auto;font-size:10px;color:var(--tinta-tenue)}
   .eo-sinocup .eo-ocup,.eo-sinocup .eo-pcargo{display:none}
+  /* vista «Capas» (#/estructura/capas): la lógica de conformación sin unidades ni ocupantes */
+  .eo-capas{flex:1;min-height:0;overflow:auto;background:var(--lienzo)}
+  .eo-capas[hidden]{display:none}
+  .eo-modo-capas .eo-vp,.eo-modo-capas .eo-zoom,.eo-modo-capas #eoOcup,.eo-modo-capas #eoVac{display:none!important}
+  .eo-k-int{max-width:1180px;margin:0 auto;padding:28px 28px 56px}
+  .eo-k-ceja{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .eo-k-cab h2{margin:4px 0 8px;font-size:26px;font-weight:700;letter-spacing:-.02em}
+  .eo-k-cab p{margin:0;max-width:760px;font-size:14.5px;line-height:1.55;color:var(--tinta-media)}
+  .eo-k-pila{display:grid;grid-template-columns:34px minmax(0,1fr) 34px;grid-template-rows:repeat(var(--eo-k-n),auto);column-gap:14px;row-gap:10px;margin-top:24px}
+  .eo-k-eje{grid-row:1 / -1;position:relative;display:flex;align-items:center;justify-content:center}
+  .eo-k-baja{grid-column:1}
+  .eo-k-sube{grid-column:3}
+  .eo-k-eje::before{content:"";position:absolute;top:2px;bottom:2px;left:50%;width:2px;margin-left:-1px;background:var(--tinta-tenue);opacity:.45}
+  .eo-k-eje::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:7px solid transparent}
+  .eo-k-baja::after{bottom:-4px;border-top:10px solid var(--tinta-tenue);border-bottom:0}
+  .eo-k-sube::after{top:-4px;border-bottom:10px solid var(--tinta-tenue);border-top:0}
+  .eo-k-eje span{position:relative;z-index:1;writing-mode:vertical-rl;padding:10px 0;background:var(--lienzo);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-media)}
+  .eo-k-sube span{transform:rotate(180deg)}
+  .eo-k-capa{grid-column:2;display:grid;grid-template-columns:200px minmax(0,1fr) 300px;gap:20px;align-items:center;padding:16px 20px;background:var(--panel);border:1px solid var(--borde);border-radius:18px;box-shadow:var(--sombra)}
+  .eo-k-rot{display:flex;flex-direction:column;gap:3px}
+  .eo-k-num{font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .eo-k-rot h3{margin:0;font-size:16px;font-weight:700;line-height:1.2}
+  .eo-k-verbo{font-size:13px;font-weight:600;color:var(--menta)}
+  .eo-k-esc{align-self:flex-start;margin-top:4px;padding:2px 9px;border-radius:999px;border:1px solid var(--borde-tenue);background:var(--realce);font-size:10.5px;color:var(--tinta-media)}
+  .eo-k-d{margin:0;font-size:13px;line-height:1.5;color:var(--tinta-media)}
+  .eo-k-esq{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+  .eo-k-fila{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
+  .eo-k-grupo{display:flex;gap:6px;padding:6px;border-radius:10px}
+  .eo-k-gneg{background:color-mix(in srgb,var(--menta) 8%,transparent);border:1px solid color-mix(in srgb,var(--menta) 30%,transparent)}
+  .eo-k-gst{background:color-mix(in srgb,var(--alerta) 7%,transparent);border:1px dashed color-mix(in srgb,var(--alerta) 50%,transparent)}
+  .eo-k-col{padding:0 2px;gap:4px}
+  .eo-k-b{display:block;height:22px;border-radius:6px;border:1.5px solid var(--borde);background:var(--panel-alto)}
+  .eo-k-gob{width:70px;border-style:dashed;border-color:var(--tinta-tenue);background:transparent}
+  .eo-k-ceo{width:96px;height:26px;background:var(--tinta);border-color:var(--tinta)}
+  .eo-k-st{width:48px;border-style:dashed;border-color:var(--alerta);background:transparent}
+  .eo-k-lazo{width:22px;border-top:1.5px dashed var(--alerta)}
+  .eo-k-dir{width:44px;height:24px}
+  .eo-k-staff{border-top:4px solid var(--alerta)}
+  .eo-k-neg{border-top:4px solid var(--menta)}
+  .eo-k-ger{width:20px;height:16px}
+  .eo-k-pais{display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 8px;border:1px dashed var(--borde);border-radius:10px}
+  .eo-k-pcod{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--tinta-tenue)}
+  .eo-k-gp{width:22px;height:16px}
+  .eo-k-ley{gap:16px;font-size:10.5px;color:var(--tinta-tenue)}
+  .eo-k-lst{color:var(--alerta)}
+  .eo-k-lneg{color:var(--menta)}
+  .eo-k-escalera{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0;padding:0;list-style:none}
+  .eo-k-escalera li{padding:3px 9px;border:1px solid var(--borde);border-radius:999px;background:var(--panel-alto);font-size:11px;color:var(--tinta)}
+  .eo-k-subt{margin:30px 0 10px 48px;font-size:15px;font-weight:700}
+  .eo-k-cruzan{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 48px}
+  .eo-k-cruza{padding:14px 16px;border:1px dashed var(--borde);border-radius:14px;background:var(--panel)}
+  .eo-k-cruza h4{margin:0 0 4px;font-size:14px}
+  .eo-k-cruza p{margin:0;font-size:13px;line-height:1.5;color:var(--tinta-media)}
+  .eo-k-pie{margin:24px 48px 0}
+  @media (max-width:900px){
+    .eo-k-int{padding:20px 16px 40px}
+    .eo-k-pila{grid-template-columns:minmax(0,1fr)}
+    .eo-k-eje{display:none}
+    .eo-k-capa{grid-column:1;grid-template-columns:minmax(0,1fr);gap:12px}
+    .eo-k-cruzan{grid-template-columns:1fr;margin:0}
+    .eo-k-subt,.eo-k-pie{margin-left:0;margin-right:0}
+  }
   .eo-sinocup .eo-paises{flex-direction:row;gap:12px}
   .eo-vac .eo-card{opacity:.32}
   .eo-vac .eo-card:has(.eo-e-vacante,.eo-e-pordefinir,.eo-e-validar){opacity:1;border-color:var(--alerta)}
@@ -828,7 +896,9 @@
     <a class="lnk" href="#/circuito" id="lnkCircuito">Circuito</a>
     <a class="lnk" href="#/mapa" id="lnkMapa">Mapa</a>
     <a class="lnk" href="#/estructura" id="lnkEstructura">Estructura</a>
+    <a class="lnk" href="estructura-funcionamiento.html" id="lnkFuncionamiento" title="Capas de la estructura To-Be y cómo funcionan sus unidades, paso a paso">Funcionamiento</a>
     <a class="lnk" href="#/arquitectura" id="lnkArquitectura">Arquitectura de IA</a>
+    <a class="lnk" href="presentacion-validacion.html" id="lnkPresentacion" title="Un decálogo, cinco premisas: la presentación que guía las sesiones de validación">Presentación</a>
     <a class="lnk" href="../fase1/informe-diagnostico-fase1.html">← Fase 1</a>
     <button class="f2-icbtn" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
   </header>
@@ -1003,6 +1073,7 @@
     h += '<a class="f2-navhome" href="#/circuito" id="navCircuito">Circuito del negocio</a>';
     h += '<a class="f2-navhome" href="#/mapa" id="navMapa">Mapa de procesos</a>';
     h += '<a class="f2-navhome" href="#/estructura" id="navEstructura">Estructura organizativa To-Be</a>';
+    h += '<a class="f2-navhome" href="estructura-funcionamiento.html">Capas y funcionamiento</a>';
     D.categorias.forEach(function(cat){
       var ms = D.macros.filter(function(m){return m.cat===cat.id;});
       if(!ms.length) return;
@@ -1030,7 +1101,8 @@
       });
       h += '</div></div>';
     });
-    h += '<div class="f2-navfin"><a class="f2-navhome" href="#/arquitectura" id="navArquitectura">Arquitectura de IA</a></div>';
+    h += '<div class="f2-navfin"><a class="f2-navhome" href="#/arquitectura" id="navArquitectura">Arquitectura de IA</a>' +
+         '<a class="f2-navhome" href="presentacion-validacion.html">Presentación de validación</a></div>';
     h += '<div class="f2-nada" id="navNada" hidden>Sin coincidencias.</div>';
     nav.innerHTML = h;
 

@@ -73,60 +73,6 @@ window.ESTRUCTURA_TOBE = {
   /* ------------------------------------------------------- las direcciones */
   DIRECCIONES: [
     {
-      id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff',
-      ocupante:{nombre:'María Elvira', estado:'propuesto', nota:'Se incorpora al grupo como responsable corporativa de talento.'},
-      funciones:[
-        'Gestiona la organización como socia del negocio: el talento, los proyectos, la formación, el soporte jurídico y los servicios que hacen funcionar a las operaciones.',
-        'Lidera los procesos de cambio organizacional; es la dueña operativa de la implantación de los manuales de proceso.',
-        'Lidera y convoca el Comité de Calidad y Mejora Continua.'
-      ],
-      nota:'En el boceto se llamó «Gestión Organizacional». La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Reúne lo que en julio eran tres gerencias separadas: Talento Humano, PMO y Mantenimiento y Servicios.',
-      hijos:[
-        {id:'proyectos', n:'Proyectos (PMO)', nivel:'n2',
-         ocupante:{nombre:'Ricardo Candanedo', estado:'propuesto'},
-         funciones:[
-           'Equipo nuclear de gerentes de proyecto que atiende a toda la corporación: aperturas de tienda, obras, proyectos de transformación.',
-           'Distribuye la cartera según la demanda; en los picos subcontrata gerentes de proyecto por proyecto, con principio y fin.'
-         ],
-         nota:'Un solo perfil generalista, no dos alas fijas: un gerente de proyecto aborda un proyecto físico o uno de transformación, y así no quedan capacidades ociosas entre picos. No se replica por país.'},
-        {id:'juridica', n:'Consultoría Jurídica', nivel:'n2',
-         ocupante:{nombre:'Vacante', estado:'vacante', nota:'Hoy la cubre un asesor externo de la Junta Directiva.'},
-         funciones:[
-           'Una oficina corporativa con visión de todos los países: contratos con marcas y proveedores, gestión de los bufetes locales.',
-           'Un responsable y su asistencia; el trabajo especializado por país se contrata.'
-         ]},
-        {id:'formacion', n:'Formación · Universidad Corporativa', nivel:'n2',
-         ocupante:{nombre:'Lilibeth Olivar', estado:'actual', nota:'Incorporada recientemente como líder regional de formación y desarrollo; opera desde Colombia.'},
-         funciones:['Formación y desarrollo de competencias de todo el grupo, con el programa de la Universidad Cubitt.']},
-        {id:'rrhh', n:'Recursos Humanos', nivel:'n3',
-         paises:{
-           PA:{nombre:'Nuria Asbhy', estado:'actual'},
-           VE:{nombre:'Evelia Manzo', estado:'actual'},
-           CO:{nombre:'Vacante', estado:'vacante'}
-         },
-         funciones:['Gestión del talento con el marco laboral de cada país: el especialista local que la normativa exige.'],
-         interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.']},
-        {id:'ti', n:'Tecnología de Información', nivel:'n3',
-         paises:{
-           PA:{nombre:'Mariela Castro', estado:'actual', cargo:'Gerencia'},
-           VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
-           CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
-         },
-         funciones:[
-           'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
-           'Sigue los lineamientos que fija Gobierno de IA para que el dato fluya entre países.'
-         ],
-         nota:'No hay una dirección corporativa de tecnología: el grupo no es una empresa de tecnología. Lo que se gobierna una sola vez —el dato y la IA— sube a Gobierno de IA; la operación de TI queda en cada país. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'},
-        {id:'ssgg', n:'Servicios Generales', nivel:'n3',
-         paises:{
-           PA:{nombre:'Por confirmar', estado:'pordefinir'},
-           VE:{nombre:'Williams Porras', estado:'actual', cargo:'Jefatura'},
-           CO:{nombre:'Por confirmar', estado:'pordefinir'}
-         },
-         funciones:['Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.']}
-      ]
-    },
-    {
       id:'id', n:'Investigación y Desarrollo', caracter:'negocio',
       ocupante:{nombre:'Alejandro Roizental', estado:'propuesto'},
       funciones:[
@@ -184,9 +130,6 @@ window.ESTRUCTURA_TOBE = {
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
          hijos:[
-           {id:'ecommerce', n:'E-commerce', nivel:'n2',
-            ocupante:{nombre:'Patrick Corujo', estado:'propuesto'},
-            funciones:['Página web y canales digitales de venta de todo el grupo. Uno solo para todos los países: no hace falta una gerencia web por país.']},
            {id:'mayorcorp', n:'Ventas al Mayor · mercados sin operación propia', nivel:'n2',
             ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
@@ -194,13 +137,9 @@ window.ESTRUCTURA_TOBE = {
               'Fija la línea rectora de la venta al mayor para todo el grupo.'
             ],
             nota:'Se separa de la venta al mayor de cada país, que atiende a los mayoristas locales. La frontera entre las dos se acuerda con la Dirección Comercial.'},
-           {id:'retail', n:'Retail · tiendas', nivel:'n3',
-            paises:{
-              PA:{nombre:'Blas García', estado:'propuesto'},
-              VE:{nombre:'Por definir', estado:'pordefinir'},
-              CO:{nombre:'Por definir', estado:'pordefinir'}
-            },
-            funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']},
+           {id:'ecommerce', n:'E-commerce', nivel:'n2',
+            ocupante:{nombre:'Patrick Corujo', estado:'propuesto'},
+            funciones:['Página web y canales digitales de venta de todo el grupo. Uno solo para todos los países: no hace falta una gerencia web por país.']},
            {id:'mayorpais', n:'Ventas al Mayor', nivel:'n3',
             paises:{
               PA:{nombre:'Edumar Escalona', estado:'actual'},
@@ -208,6 +147,13 @@ window.ESTRUCTURA_TOBE = {
               CO:{nombre:'Santiago Ramírez', estado:'actual'}
             },
             funciones:['Mayoristas y cadenas del país donde el grupo tiene operación propia.']},
+           {id:'retail', n:'Retail · tiendas', nivel:'n3',
+            paises:{
+              PA:{nombre:'Blas García', estado:'propuesto'},
+              VE:{nombre:'Por definir', estado:'pordefinir'},
+              CO:{nombre:'Por definir', estado:'pordefinir'}
+            },
+            funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']},
            {id:'postventa', n:'Postventa', nivel:'n3',
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir'},
@@ -282,6 +228,60 @@ window.ESTRUCTURA_TOBE = {
       ]
     },
     {
+      id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff',
+      ocupante:{nombre:'María Elvira', estado:'propuesto', nota:'Se incorpora al grupo como responsable corporativa de talento.'},
+      funciones:[
+        'Gestiona la organización como socia del negocio: el talento, los proyectos, la formación, el soporte jurídico y los servicios que hacen funcionar a las operaciones.',
+        'Lidera los procesos de cambio organizacional; es la dueña operativa de la implantación de los manuales de proceso.',
+        'Lidera y convoca el Comité de Calidad y Mejora Continua.'
+      ],
+      nota:'En el boceto se llamó «Gestión Organizacional». La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Reúne lo que en julio eran tres gerencias separadas: Talento Humano, PMO y Mantenimiento y Servicios.',
+      hijos:[
+        {id:'proyectos', n:'Proyectos (PMO)', nivel:'n2',
+         ocupante:{nombre:'Ricardo Candanedo', estado:'propuesto'},
+         funciones:[
+           'Equipo nuclear de gerentes de proyecto que atiende a toda la corporación: aperturas de tienda, obras, proyectos de transformación.',
+           'Distribuye la cartera según la demanda; en los picos subcontrata gerentes de proyecto por proyecto, con principio y fin.'
+         ],
+         nota:'Un solo perfil generalista, no dos alas fijas: un gerente de proyecto aborda un proyecto físico o uno de transformación, y así no quedan capacidades ociosas entre picos. No se replica por país.'},
+        {id:'juridica', n:'Consultoría Jurídica', nivel:'n2',
+         ocupante:{nombre:'Vacante', estado:'vacante', nota:'Hoy la cubre un asesor externo de la Junta Directiva.'},
+         funciones:[
+           'Una oficina corporativa con visión de todos los países: contratos con marcas y proveedores, gestión de los bufetes locales.',
+           'Un responsable y su asistencia; el trabajo especializado por país se contrata.'
+         ]},
+        {id:'formacion', n:'Formación · Universidad Corporativa', nivel:'n2',
+         ocupante:{nombre:'Lilibeth Olivar', estado:'actual', nota:'Incorporada recientemente como líder regional de formación y desarrollo; opera desde Colombia.'},
+         funciones:['Formación y desarrollo de competencias de todo el grupo, con el programa de la Universidad Cubitt.']},
+        {id:'rrhh', n:'Recursos Humanos', nivel:'n3',
+         paises:{
+           PA:{nombre:'Nuria Asbhy', estado:'actual'},
+           VE:{nombre:'Evelia Manzo', estado:'actual'},
+           CO:{nombre:'Vacante', estado:'vacante'}
+         },
+         funciones:['Gestión del talento con el marco laboral de cada país: el especialista local que la normativa exige.'],
+         interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.']},
+        {id:'ti', n:'Tecnología de Información', nivel:'n3',
+         paises:{
+           PA:{nombre:'Mariela Castro', estado:'actual', cargo:'Gerencia'},
+           VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
+           CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
+         },
+         funciones:[
+           'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
+           'Sigue los lineamientos que fija Gobierno de IA para que el dato fluya entre países.'
+         ],
+         nota:'No hay una dirección corporativa de tecnología: el grupo no es una empresa de tecnología. Lo que se gobierna una sola vez —el dato y la IA— sube a Gobierno de IA; la operación de TI queda en cada país. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'},
+        {id:'ssgg', n:'Servicios Generales', nivel:'n3',
+         paises:{
+           PA:{nombre:'Por confirmar', estado:'pordefinir'},
+           VE:{nombre:'Williams Porras', estado:'actual', cargo:'Jefatura'},
+           CO:{nombre:'Por confirmar', estado:'pordefinir'}
+         },
+         funciones:['Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.']}
+      ]
+    },
+    {
       id:'ia', n:'Gobierno de IA', caracter:'staff',
       ocupante:{nombre:'Vacante', estado:'vacante', nota:'Perfil a contratar.'},
       funciones:[
@@ -349,7 +349,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'La cadena de valor ordena las direcciones',
      d:'El negocio empieza con Investigación y Desarrollo, que compra; Operaciones y Logística lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, en el centro del dibujo y bajo la Presidencia. Desarrollo Corporativo, Finanzas y Negocios y Gobierno de IA son staff: sostienen a las tres, se dibujan a los costados y se enlazan a la Presidencia por su propia línea.'},
+     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, a un lado del dibujo y en el orden de la cadena de valor, de la compra a la postventa. Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA son staff: sostienen a las tres, se agrupan al otro lado y se enlazan a la Presidencia por su propia línea.'},
     {t:'Equipos nucleares que se asignan por demanda',
      d:'Proyectos y Consultoría Jurídica no se replican por país: son un equipo central que se reparte según lo que pida la corporación, y que subcontrata en los picos.'},
     {t:'Cogobierno por comités',
@@ -357,6 +357,35 @@ window.ESTRUCTURA_TOBE = {
     {t:'Tercerizar lo que no es núcleo',
      d:'Diseño, contenido y redes se contratan; la gerencia corporativa se asegura de que el tercero funcione. Así el tamaño de mercadeo deja de crecer con cada campaña.'}
   ],
+
+  /* La lógica de conformación, sin unidades ni ocupantes: la vista «Capas»
+     (#/estructura/capas) se presenta antes que el organigrama. Las capas
+     n1–n3 toman su descripción de NIVELES y suman aquí lo propio. */
+  CAPAS: {
+    titulo: 'Capas de la estructura',
+    bajada: 'Antes de las unidades y de quién ocupa cada cargo, la lógica con que se compone la estructura: seis capas, de quien decide el rumbo a quien opera, y dos piezas que las cruzan.',
+    ejes: {baja:'Línea rectora', sube:'Ejecución e indicadores'},
+    lista: [
+      {id:'gobierno', n:'Gobierno', verbo:'Decide el rumbo',
+       d:'Accionistas y Junta Directiva. Aprueban el rumbo y reciben el cuadro de indicadores de las direcciones. Son gobierno, no línea de mando.'},
+      {id:'presidencia', n:'Presidencia', verbo:'Conduce el grupo',
+       d:'Una sola cabeza ejecutiva, con las direcciones corporativas como reportes directos en un tramo de 4 a 7. A su lado, un staff que sirve a toda la organización sin gestionar un proceso propio.'},
+      {id:'n1', nivel:'n1', verbo:'Fijan la línea rectora', escalon:'Director(a) corporativo(a)',
+       d:'Son de dos clases: las unidades de negocio, que siguen la cadena de valor, y el staff, que las sostiene desde el otro lado.'},
+      {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
+       d:'Solo existen donde una especialidad conviene llevarla una vez para todos los países.'},
+      {id:'n3', nivel:'n3', verbo:'Ejecutan en cada país', escalon:'Gerente (país)',
+       d:'Cada país reproduce el mismo espejo; abrir un país nuevo es replicarlo.'},
+      {id:'equipos', n:'Equipos', verbo:'Operan', escalon:'De coordinador(a) a operario(a)',
+       d:'Debajo de cada gerencia, los escalones de la estructura patrón, iguales en toda la organización. Cada unidad usa solo los que necesita.'}
+    ],
+    cruzan: [
+      {n:'Comités de cogobierno',
+       d:'Lo que atraviesa varias direcciones no crea un área más: lo resuelve un comité que lidera una dirección y convoca a sus pares.'},
+      {n:'Equipos centrales por demanda',
+       d:'Algunas especialidades no se replican por país. Un solo equipo se asigna según lo que pida la organización y se refuerza en los picos.'}
+    ]
+  },
 
   PATRON: [
     'Director(a) corporativo(a)',
@@ -397,7 +426,7 @@ window.ESTRUCTURA_TOBE = {
     conserva:[
       'Holding y Junta Directiva como gobierno —consulta y decisión—, no como línea de mando.',
       'Una capa corporativa rectora que se despliega en cada país.',
-      'La distinción visual entre staff y unidades de negocio: el staff a los costados, el negocio en el flujo.',
+      'La distinción visual entre staff y unidades de negocio, ahora cada grupo de un lado: el negocio en el orden de la cadena de valor, el staff aparte.',
       'Los comités transversales como forma de cogobierno: el de excelencia tecnológica e IA de julio se formaliza como Comité de Gobierno del Dato e IA, el Comité Comercial se mantiene, y se suman los de Calidad y Mejora Continua, Cultura Organizacional y Finanzas y Riesgos.',
       'Experiencia del Cliente y Experiencia Digital como frentes de mercadeo.',
       'Una unidad de gobierno de la IA.'

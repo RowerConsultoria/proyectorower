@@ -12,7 +12,10 @@
 // después de maquetar, midiendo las cajas: peine vertical por el margen
 // izquierdo de cada subcolumna.
 //
-// API: EstructuraRender.montar(section) · .abrir(id) · .premisas(pestaña) · .cerrar()
+// Vista «Capas» (#/estructura/capas): la lógica de conformación sin unidades
+// ni ocupantes, para explicarla antes del organigrama. Sale de E.CAPAS.
+//
+// API: EstructuraRender.montar(section) · .abrir(id) · .premisas(pestaña) · .capas() · .cerrar()
 (function(){
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
@@ -120,10 +123,12 @@
            '<a class="mp-btn" href="#/">‹ Índice</a>' +
            '<div class="mp-tit">' + esc(E.titulo) + ' <span class="eo-corte">borrador · ' + esc(E.corte) + '</span></div>' +
            '<div class="mp-sp"></div>' +
+           '<a class="mp-btn" id="eoCapasBtn" href="#/estructura/capas" aria-pressed="false">Capas</a>' +
            '<button class="mp-btn" id="eoOcup" aria-pressed="true">Ocupantes</button>' +
            '<button class="mp-btn" id="eoVac" aria-pressed="false">Resaltar abiertas</button>' +
            '<a class="mp-btn eo-btn-prem" href="#/estructura/premisas">Premisas del diseño</a>' +
          '</div>';
+    h += '<div class="eo-capas" id="eoCapas" hidden></div>';
     h += '<div class="eo-vp" id="eoVp"><div class="eo-world" id="eoWorld"><div class="eo-lienzo" id="eoLienzo"></div></div></div>';
     h += '<div class="mp-zoom eo-zoom">' +
            '<button id="eoZin" aria-label="Acercar">+</button>' +
@@ -202,7 +207,8 @@
     });
 
     // Columna de inicio de cada dirección y tramos contiguos de un mismo carácter:
-    // staff a los costados, unidades de negocio al centro (principio del borrador de julio).
+    // Cada carácter de un lado: las unidades de negocio primero, en el orden de la
+    // cadena de valor que trae E.DIRECCIONES, y el staff agrupado después.
     var inicio = [], c0 = 2, grupos = [];
     E.DIRECCIONES.forEach(function(dr, i){
       inicio.push(c0);
@@ -211,7 +217,6 @@
       else grupos.push({car:dr.caracter, ini:c0, fin:c0 + cols[i].length});
       c0 += cols[i].length;
     });
-    var neg = grupos.filter(function(g){ return g.car === "negocio"; })[0] || {ini:2, fin:c0};
 
     // bloques de grupo (detrás de todo) y su rótulo
     grupos.forEach(function(g){
@@ -220,8 +225,9 @@
              (g.car === "negocio" ? '<b>Unidades de negocio</b> · la cadena de valor' : '<b>Staff</b> · apoyo a la Presidencia') + '</div>';
     });
 
-    // cima: gobierno · Presidencia · staff, centrada sobre las unidades de negocio
-    h += '<div class="eo-cima" style="grid-row:1;grid-column:' + neg.ini + ' / ' + neg.fin + '">';
+    // cima: gobierno · Presidencia · staff, centrada sobre todas las direcciones
+    // (negocio y staff ya no comparten centro: cada grupo va de un lado)
+    h += '<div class="eo-cima" style="grid-row:1;grid-column:2 / ' + c0 + '">';
     h += '<div class="eo-gob">';
     E.GOBIERNO.forEach(function(g){ h += '<button type="button" class="eo-card eo-c-gob" data-id="' + esc(g.id) + '"><span class="eo-tag">Gobierno</span><span class="eo-ttl">' + esc(g.n) + '</span></button>'; });
     h += '</div>';
@@ -295,7 +301,7 @@
     var C = caja2(ceo);
     var dirs = E.DIRECCIONES.map(function(d){ return caja2(NODOS[d.id].el); });
     // Dos líneas desde la Presidencia: el bus de las unidades de negocio baja
-    // al centro; el staff sale de costado por una línea propia, más arriba.
+    // a las unidades de negocio; el staff sale por una línea propia, más arriba.
     var busY = dirs[0].y - 24, stY = dirs[0].y - 48, sx = C.x + C.w / 2;
     ruta("M" + sx + "," + (C.y + C.h) + " V" + busY, "eo-h-linea eo-h-bus");
     ["negocio", "staff"].forEach(function(car){
@@ -379,6 +385,7 @@
   }
   function cerrar(){
     if(!panel) return;
+    ocultarCapas();
     panel.hidden = true; host.classList.remove("eo-con-panel");
     lienzo.querySelectorAll(".eo-sel").forEach(function(x){ x.classList.remove("eo-sel"); });
   }
@@ -419,6 +426,8 @@
   function abrir(id){
     if(!montado) return;
     if(id === "premisas") return premisas();
+    if(id === "capas") return capas();
+    ocultarCapas();
     var n = NODOS[id]; if(!n) return cerrar();
     lienzo.querySelectorAll(".eo-sel").forEach(function(x){ x.classList.remove("eo-sel"); });
     var d = n.d, h = '';
@@ -526,10 +535,82 @@
     abrirPanel("Premisas del diseño", E.titulo, h);
   }
 
+  // ----------------------------------------------------------------- capas
+  // Esquemas abstractos: cajas sin nombre, salvo los códigos de país y los
+  // escalones del patrón, que son parte de la lógica y no unidades.
+  function cajas(n, clase){ var h = ''; for(var i = 0; i < n; i++) h += '<span class="eo-k-b ' + clase + '"></span>'; return h; }
+  function esquema(c){
+    var staff = E.DIRECCIONES.filter(function(d){ return d.caracter === "staff"; }).length;
+    var negocio = E.DIRECCIONES.length - staff;
+    if(c.id === "gobierno")
+      return '<div class="eo-k-fila">' + cajas(2, "eo-k-gob") + '</div>';
+    if(c.id === "presidencia")
+      return '<div class="eo-k-fila"><span class="eo-k-b eo-k-ceo"></span><span class="eo-k-lazo"></span><span class="eo-k-b eo-k-st"></span></div>' +
+             '<div class="eo-k-fila eo-k-ley"><span>cabeza ejecutiva</span><span>staff</span></div>';
+    if(c.id === "n1")
+      return '<div class="eo-k-fila">' +
+               '<div class="eo-k-grupo eo-k-gneg">' + cajas(negocio, "eo-k-dir eo-k-neg") + '</div>' +
+               '<div class="eo-k-grupo eo-k-gst">' + cajas(staff, "eo-k-dir eo-k-staff") + '</div>' +
+             '</div>' +
+             '<div class="eo-k-fila eo-k-ley"><span class="eo-k-lneg">unidades de negocio · cadena de valor →</span><span class="eo-k-lst">staff · apoyo</span></div>';
+    if(c.id === "n2")
+      return '<div class="eo-k-fila">' + E.DIRECCIONES.map(function(){ return '<div class="eo-k-grupo eo-k-col">' + cajas(2, "eo-k-ger") + '</div>'; }).join("") + '</div>' +
+             '<div class="eo-k-fila eo-k-ley"><span>alcance regional</span></div>';
+    if(c.id === "n3")
+      return '<div class="eo-k-fila">' + E.PAISES.map(function(p){
+               return '<div class="eo-k-pais"><span class="eo-k-pcod">' + esc(p.id) + '</span><div class="eo-k-fila">' + cajas(3, "eo-k-gp") + '</div></div>';
+             }).join("") + '</div>' +
+             '<div class="eo-k-fila eo-k-ley"><span>el mismo espejo en cada país</span></div>';
+    if(c.id === "equipos")
+      return '<ol class="eo-k-escalera">' + E.PATRON.slice(3).map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("") + '</ol>';
+    return '';
+  }
+  function capasHtml(){
+    var K = E.CAPAS, nv = {};
+    E.NIVELES.forEach(function(x){ nv[x.id] = x; });
+    var h = '<div class="eo-k-int">';
+    h += '<header class="eo-k-cab"><div class="eo-k-ceja">' + esc(E.titulo) + '</div><h2>' + esc(K.titulo) + '</h2><p>' + esc(K.bajada) + '</p></header>';
+    h += '<div class="eo-k-pila" style="--eo-k-n:' + K.lista.length + '">';
+    h += '<div class="eo-k-eje eo-k-baja" aria-hidden="true"><span>' + esc(K.ejes.baja) + '</span></div>';
+    K.lista.forEach(function(c, i){
+      var base = c.nivel ? nv[c.nivel] : null, nombre = base ? base.n : c.n;
+      h += '<section class="eo-k-capa eo-k-c-' + esc(c.id) + '" style="grid-row:' + (i + 1) + '">' +
+             '<div class="eo-k-rot"><span class="eo-k-num">Capa ' + (i + 1) + '</span><h3>' + esc(nombre) + '</h3>' +
+               '<span class="eo-k-verbo">' + esc(c.verbo) + '</span>' +
+               (c.escalon ? '<span class="eo-k-esc">' + esc(c.escalon) + '</span>' : '') + '</div>' +
+             '<div class="eo-k-esq" aria-hidden="true">' + esquema(c) + '</div>' +
+             '<p class="eo-k-d">' + (base ? esc(base.d) + ' ' : '') + esc(c.d) + '</p>' +
+           '</section>';
+    });
+    h += '<div class="eo-k-eje eo-k-sube" aria-hidden="true"><span>' + esc(K.ejes.sube) + '</span></div>';
+    h += '</div>';
+    h += '<h3 class="eo-k-subt">Lo que cruza las capas</h3><div class="eo-k-cruzan">' +
+           K.cruzan.map(function(x){ return '<div class="eo-k-cruza"><h4>' + esc(x.n) + '</h4><p>' + esc(x.d) + '</p></div>'; }).join("") + '</div>';
+    h += '<p class="eo-k-pie"><a class="btn btn-marca" href="#/estructura">Ver la estructura con sus unidades →</a></p>';
+    return h + '</div>';
+  }
+  function capas(){
+    if(!montado || !E.CAPAS) return;
+    cerrar();
+    var v = host.querySelector("#eoCapas");
+    if(!v.firstChild) v.innerHTML = capasHtml();
+    v.hidden = false; v.scrollTop = 0;
+    host.classList.add("eo-modo-capas");
+    host.querySelector("#eoCapasBtn").setAttribute("aria-pressed", "true");
+  }
+  function ocultarCapas(){
+    if(!host) return;
+    var v = host.querySelector("#eoCapas"); if(!v || v.hidden) return;
+    v.hidden = true; host.classList.remove("eo-modo-capas");
+    host.querySelector("#eoCapasBtn").setAttribute("aria-pressed", "false");
+    requestAnimationFrame(trazar);
+  }
+
   window.EstructuraRender = {
     montar: montar,
     abrir: abrir,
     premisas: premisas,
+    capas: capas,
     cerrar: cerrar,
     retrazar: function(){ if(montado) trazar(); }
   };
