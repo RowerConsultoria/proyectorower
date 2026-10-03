@@ -541,6 +541,7 @@ Verificado con Playwright sobre el manual servido en local (primero con el guard
 - **Comprobado:**
   - `scripts/comprobar-validacion-comite.py`: 25 casos contra la base viva, revertidos;
   - 34 casos de punta a punta con Playwright, con una cuenta temporal ya borrada;
+  - 50 casos más en una segunda pasada: alta del integrante desde «Usuarios», dictado, anclas en la tabla de riesgos, registro a nombre de otro, deshabilitar, impresión, tema oscuro, móvil y borrado de cuentas desde la interfaz. Esa pasada destapó que la secretaría no veía lo nuevo sin recargar: se sumaron «↻ actualizar» y la recarga al volver a la pestaña;
   - `comprobar-atribucion-fase2.py` y `comprobar-fase2.py 6` en verde, y `validar-html.py` valida.
 - ⚠️ **Pendientes:**
   - El instructivo todavía dice «entregar las notas a la secretaría» y «la lista no se guarda», y que los 182 procesos tienen As-Is (son 130). Lo decide Clemencia.

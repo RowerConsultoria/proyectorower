@@ -3600,6 +3600,8 @@ async function renderSecretaria(){
         <div class="sobretitulo">procesos · fase 2 · comité de validación</div>
         <div class="titulo-seccion" style="margin-top:4px">secretaría técnica</div>
       </div>
+      <div style="display:flex;align-items:center;gap:10px"><span class="conteo" id="stAlDia"></span>
+        <button class="btn btn-mini" id="stRefrescar" title="Traer lo que los integrantes enviaron desde que abriste el módulo">↻ actualizar</button></div>
     </div>
     <div class="rejilla rejilla-4 gap-12" id="stKpis" style="margin-bottom:16px"></div>
     <div class="st-tabs" role="tablist" aria-label="Vistas de la secretaría">
@@ -3612,7 +3614,16 @@ async function renderSecretaria(){
     <div class="modal-fondo" id="stModalFondo"><div class="modal-caja grande" id="stModalCaja"></div></div>`;
   $$('[data-st-vista]').forEach(b=> b.addEventListener('click', ()=>{ ST.vista = b.dataset.stVista; pintarSecretaria(); }));
   $('#stModalFondo').addEventListener('click', (e)=>{ if(e.target.id==='stModalFondo') stCerrarModal(); });
+  $('#stRefrescar').addEventListener('click', ()=> recargarSecretaria());
   document.addEventListener('keydown', stEscape);
+  // En una sesión en vivo el panel queda abierto mientras los integrantes envían:
+  // al volver a la pestaña se trae lo nuevo (si no hay una ventana encima).
+  if(!renderSecretaria._vis){
+    renderSecretaria._vis = true;
+    document.addEventListener('visibilitychange', ()=>{
+      if(!document.hidden && currentRoute()==='secretaria' && ST.datos && !$('#stModalFondo')?.classList.contains('on')) recargarSecretaria();
+    });
+  }
   if(!db){ $('#stWrap').innerHTML = `<div class="card">${errBox('No hay conexión con la base de datos.')}</div>`; return; }
   await recargarSecretaria();
 }
@@ -3650,6 +3661,7 @@ async function recargarSecretaria(){
   window.MANUAL_FASE2.macros.forEach(m=> m.procesos.forEach(p=> procesos.push({codigo:p.codigo, nombre:p.n, macro:m.prefijo, macro_nombre:m.n})));
   const estados = {}; (es.data||[]).forEach(x=> estados[x.proceso] = x);
   ST.datos = { procesos, estados, validaciones: va.data||[], notas: no.data||[], usuarios: us.data||[] };
+  const al = $('#stAlDia'); if(al) al.textContent = 'al día a las ' + new Date().toLocaleTimeString('es', {hour:'2-digit', minute:'2-digit'});
   pintarSecretaria();
 }
 
