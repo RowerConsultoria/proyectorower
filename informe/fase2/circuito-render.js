@@ -255,6 +255,8 @@
       // rótulo
       var anchor = lado === "right" ? "start" : (lado === "left" ? "end" : "middle");
       var tx = lado === "right" ? x + 15 : (lado === "left" ? x - 16 : x);
+      // tope de líneas bajo el código, para estaciones con poco aire (`via.maxLineas`)
+      var tope = (V.maxLineas && V.maxLineas[s.id]) || 3;
       var bloque;
       if(capa === "sis"){
         var T2 = reparto([s]), vis = {}, herr = [];
@@ -263,10 +265,11 @@
         var corto = function(h){ return h.length > 17 ? h.slice(0, 15).trim() + "…" : h; };
         var filas = [[]], largo = 0;
         herr.forEach(function(h){ if(largo + h.length > 19 && filas[filas.length-1].length){ filas.push([]); largo = 0; } filas[filas.length-1].push(h); largo += h.length + 3; });
-        if(filas.length > 2){ filas = filas.slice(0, 2); filas[1].push("…"); }
+        var maxF = Math.min(2, tope);
+        if(filas.length > maxF){ filas = filas.slice(0, maxF); filas[maxF-1].push("…"); }
         bloque = [{t:s.id, c:"cx-cod", pct:T2.tot ? pct(T2.inf, T2.tot) + " %" : ""}].concat(filas.map(function(f){ return {herr:f}; }));
       } else {
-        var lns = partir(capa === "gente" ? (s.jefe || "") : s.t, capa === "gente" ? 20 : 17, 3);
+        var lns = partir(capa === "gente" ? (s.jefe || "") : s.t, capa === "gente" ? 22 : 17, Math.min(capa === "gente" ? 2 : 3, tope));
         bloque = [{t:s.id, c:"cx-cod"}].concat(lns.map(function(t){ return {t:t, c:capa === "gente" ? "cx-gen" : "cx-tit"}; }));
       }
       var alto = bloque.length * 14;
@@ -301,7 +304,7 @@
       }
       // señal de paso
       if(s.senal){
-        var sx = lado === "right" ? x - 17 : x - 14, sy = lado === "above" ? y + 13 : (lado === "right" ? y + 5 : y - 21);
+        var sx = lado === "right" ? x - 17 : (lado === "left" ? x + 16 : x - 14), sy = lado === "above" ? y + 13 : ((lado === "right" || lado === "left") ? y + 5 : y - 21);
         var sg = el("g", {"class":"cx-senal"}, g);
         el("title", {}, sg, "Señal de paso: " + s.senal);
         el("line", {x1:sx, y1:sy+8, x2:sx, y2:sy+13, stroke:"var(--tinta)", "stroke-width":1.5}, sg);
