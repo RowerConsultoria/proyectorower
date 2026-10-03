@@ -1,32 +1,68 @@
 // Motor del módulo «Circuito del negocio» (#/circuito) del manual de Fase 2.
-// Pinta window.CIRCUITO (circuito-datos.js) dentro de <section id="circuito">:
-// barra propia, mapa SVG con carriles, estaciones, trombos y aprobaciones, y un
-// panel que entra desde la derecha a media pantalla con el detalle de la
-// estación. Las clases van con prefijo `cx-` y los estilos viven en
-// informe-fase2.html, con los tokens de estilo/app.css.
+// Pinta window.CIRCUITO (circuito-datos.js) dentro de <section id="circuito"> como
+// una vía de tren (03-oct-2026): línea troncal, ramales Mayor y Países, sub-ramales
+// de tiendas, mayor local y web dentro de cada país, cambios de agujas, frenos,
+// señales de paso, vías de retorno y la catenaria de mercadeo. Un clic abre la
+// ficha de la estación en un panel que entra desde la derecha a media pantalla.
 //
-// Desde el 30-sep también pinta, si el dato las trae: las columnas de etapa de los
-// carriles de venta (`via.columnas`), la pasarela de mercadeo (`via.mercadeo`, con
-// su botón para ocultarla), la capa Sistemas en tres colores (`trasp` por estación y
-// `sistemasColor`), el código fijo de cada trombo y los `alias` de ids viejos.
+// Tres capas: Proceso (título de cada estación), Tripulación (jefe de estación) y
+// Sistemas (reparto de la información entre Odoo/Lark/EBS, plataformas externas y
+// sin sistema, con un panel de cuánto queda fuera). La capa elegida se guarda en
+// `rower.fase2.circuito.capa`. La geometría vive en el dato (`via`); las clases
+// llevan prefijo `cx-` y los estilos están en informe-fase2.html.
 //
 // API: CircuitoRender.montar(section) · .abrir(id) · .cerrar()
 (function(){
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
   var C = null, host = null, svg = null, drawer = null, dbody = null, cuerpo = null;
-  var nodos = {}, actual = null, capa = "proceso", montado = false;
-  var RANK = {alta:3, media:2, baja:1};
+  var EST = {}, capa = "proceso", montado = false, actual = null;
+  var gEst = null;
+  var LS_CAPA = "rower.fase2.circuito.capa";
+
+  var COLOR = {troncal:"--cx-troncal", cubitt:"--cx-cubitt", casio:"--cx-casio", mayor:"--cx-mayor", paises:"--cx-paises",
+    tiendas:"--cx-tiendas", mayorlocal:"--cx-mayorlocal", web:"--cx-web", alimentacion:"--cx-web", retorno:"--cx-retorno",
+    catenaria:"--cx-wire", independiente:"--cx-troncal", socio:"--cx-paises"};
 
   function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function refs(s){ return esc(s).replace(/\s*\[([^\]]+)\]/g, ' <span class="cx-ref">$1</span>'); }
-  function el(tag, attrs, padre){
+  function el(tag, at, padre, txt){
     var n = document.createElementNS(NS, tag);
-    for(var k in attrs) n.setAttribute(k, attrs[k]);
+    for(var k in at) n.setAttribute(k, at[k]);
+    if(txt != null) n.textContent = txt;
     if(padre) padre.appendChild(n);
     return n;
   }
-  function maxSev(tr){ var m = "baja"; tr.forEach(function(x){ if(RANK[x.s] > RANK[m]) m = x.s; }); return m; }
+  function col(r){ return "var(" + (COLOR[r] || COLOR.troncal) + ")"; }
+  function partir(t, max, lim){
+    var out = [], cur = "";
+    String(t || "").split(/\s+/).forEach(function(w){
+      if((cur + " " + w).trim().length > max && cur){ out.push(cur); cur = w; } else cur = (cur + " " + w).trim();
+    });
+    if(cur) out.push(cur);
+    if(out.length > lim){ out = out.slice(0, lim); out[lim-1] = out[lim-1].replace(/[,.;:]?$/, "…"); }
+    return out;
+  }
+  function cuenta(s){ var d = 0, l = 0; (s.frenos || []).forEach(function(f){ if(f.grado === "detiene") d++; else l++; }); return {d:d, l:l}; }
+
+  // ---- sistemas
+  function base(t){ return String(t).replace(/\s*\(.*\)\s*$/, ""); }
+  function clase(t){
+    var SC = C.sistemasColor || {}, b = base(t), k = SC[b];
+    if(!k){ var lb = b.toLowerCase(); for(var x in SC){ if(x.toLowerCase() === lb){ k = SC[x]; break; } } }
+    return k || "inf";
+  }
+  function grupoCl(k){ return (k === "ofi" || k === "lim") ? "ofi" : ((k === "ext" || k === "sc") ? "ext" : "inf"); }
+  function reparto(lista){
+    var T = {ofi:0, ext:0, inf:0, lim:0, sc:0};
+    lista.forEach(function(s){ var t = s.trasp || {}; T.ofi += t.ofi||0; T.ext += t.ext||0; T.inf += t.inf||0; T.lim += t.lim||0; T.sc += t.sc||0; });
+    T.tot = T.ofi + T.ext + T.inf; return T;
+  }
+  function pct(a, b){ return b ? Math.round(100 * a / b) : 0; }
+  function barra(T){
+    if(!T.tot) return '<div class="cx-barra"></div>';
+    return '<div class="cx-barra" aria-hidden="true"><i style="width:' + (100*T.ofi/T.tot) + '%;background:var(--cx-s-ofi)"></i><i style="width:' + (100*T.ext/T.tot) + '%;background:var(--cx-s-ext)"></i><i style="width:' + (100*T.inf/T.tot) + '%;background:var(--cx-s-inf)"></i></div>';
+  }
 
   // Nombre y existencia de As-Is de cada proceso, leídos del propio manual.
   function procInfo(cod){
@@ -36,9 +72,7 @@
     var asis = !!(A[pref] && A[pref].procesos && A[pref].procesos[cod]);
     return {n:n, asis:asis};
   }
-
-  var LS_CAPA = "rower.fase2.circuito.capa";
-  function leerCapa(){ try{ return localStorage.getItem(LS_CAPA) || "proceso"; }catch(e){ return "proceso"; } }
+  function leerCapa(){ try{ var v = localStorage.getItem(LS_CAPA); return (v === "sis" || v === "gente") ? v : "proceso"; }catch(e){ return "proceso"; } }
   function guardarCapa(v){ try{ localStorage.setItem(LS_CAPA, v); }catch(e){} }
 
   // ---------------------------------------------------------------- montaje
@@ -47,80 +81,66 @@
     C = window.CIRCUITO; host = section;
     if(!C){ host.innerHTML = '<div class="f2-nada">No se encontraron los datos del circuito.</div>'; return; }
     montado = true;
+    C.estaciones.forEach(function(s){ EST[s.id] = s; });
     capa = leerCapa();
 
-    var totTr = 0, altos = 0, aprob = 0, bucles = 0, tr = {ofi:0, lim:0, ext:0, inf:0};
+    var est = 0, fr = 0, det = 0, sen = 0;
     C.estaciones.forEach(function(s){
-      totTr += s.trombos.length;
-      altos += s.trombos.filter(function(t){ return t.s === "alta"; }).length;
-      if(s.aprob) aprob++;
-      if(["loop","acc","exit"].indexOf(s.lane) >= 0) bucles++;
-      if(s.trasp){ tr.ofi += s.trasp.ofi; tr.lim += s.trasp.lim; tr.ext += s.trasp.ext; tr.inf += s.trasp.inf; }
+      if(["retorno","catenaria","independiente","alimentacion"].indexOf(s.ramal) < 0) est++;
+      var c = cuenta(s); fr += c.d + c.l; det += c.d; if(s.senal) sen++;
     });
-    var totTrasp = tr.ofi + tr.ext + tr.inf;
-    var pInf = totTrasp ? Math.round(100 * tr.inf / totTrasp) : 0;
-    var pFuera = totTrasp ? Math.round(100 * (tr.inf + tr.ext) / totTrasp) : 0;
-    var viewBox = (C.via && C.via.viewBox) || "86 10 1250 830";
+    var T = reparto(C.estaciones);
 
     host.innerHTML =
       '<div class="mp-bar">' +
         '<a class="mp-btn" href="#/">‹ Índice</a>' +
-        '<div class="mp-tit">Circuito del negocio · cómo opera hoy</div>' +
+        '<div class="mp-tit">Circuito del negocio · así corre hoy el tren</div>' +
         '<div class="mp-sp"></div>' +
         '<div class="cx-seg" role="group" aria-label="Capa del circuito">' +
           '<button type="button" data-capa="proceso">Proceso</button>' +
+          '<button type="button" data-capa="gente">Tripulación</button>' +
           '<button type="button" data-capa="sis">Sistemas</button>' +
-          '<button type="button" data-capa="gente">Personas</button>' +
         '</div>' +
-        '<button type="button" class="mp-btn on" id="cxHaz" aria-pressed="true">Trombos</button>' +
-        '<button type="button" class="mp-btn on" id="cxApr" aria-pressed="true">Aprobaciones</button>' +
-        (C.via && C.via.mercadeo ? '<button type="button" class="mp-btn on" id="cxMkBtn" aria-pressed="true">Mercadeo</button>' : '') +
+        '<button type="button" class="mp-btn on" id="cxFrenos" aria-pressed="true">Frenos</button>' +
+        '<button type="button" class="mp-btn on" id="cxSenal" aria-pressed="true">Señales de paso</button>' +
+        '<button type="button" class="mp-btn on" id="cxCat" aria-pressed="true">Catenaria</button>' +
       '</div>' +
       '<div class="cx-cuerpo" id="cxCuerpo">' +
         '<div class="cx-scroll" id="cxScroll"><div class="cx-wrap">' +
           '<div class="f2-kicker">Fase 2 · versión As-Is · corte ' + esc(C.meta.corte) + '</div>' +
-          '<h1 class="f2-h1">circuito del negocio</h1>' +
-          '<p class="f2-lead">Así opera Grupo Kenex hoy, desde que se evalúa un producto hasta que se cobra la venta. La vía se abre en dos carriles por marca durante la compra, se une en la Zona Libre de Colón, se abre en cuatro carriles por canal para vender y vuelve a unirse en el cobro. Cada estación se construyó con lo que contaron las personas en las ' + esc(C.meta.entrevistas) + ' entrevistas del levantamiento, y cada dato lleva su fuente.</p>' +
+          '<h1 class="f2-h1">así corre hoy el tren</h1>' +
+          '<p class="f2-lead">El mapa muestra cómo fluye hoy la operación de todo el grupo, desde el plan de demanda hasta el cobro. La vía sale del plan, se abre en dos ramales de compra por marca y se une en la estación central de Zona Libre. Allí, el primer cambio de agujas reparte entre el ramal <b>Mayor</b>, que atiende a clientes terceros, y el ramal <b>Países</b>, que abastece a las operaciones propias. Dentro de cada país, un segundo cambio de agujas reparte entre tiendas, mayor local y web. Todos los ramales empalman en el cobro, y el sell-out vuelve al plan. Cada estación se construyó con lo que contaron las personas en las ' + esc(C.meta.entrevistas) + ' entrevistas del levantamiento, y cada dato lleva su fuente.</p>' +
           '<div class="cx-stats">' +
-            stat(C.estaciones.length - bucles, "estaciones en la vía, más " + bucles + " bucles y accesos") +
-            stat(totTr, "trombos detectados, " + altos + " de impacto alto") +
-            stat(aprob, "puntos donde el flujo espera una aprobación de la dirección") +
-            (totTrasp ? stat(pInf + " %", "de los traspasos de información viaja por Excel, correo, WhatsApp, WeChat, de palabra o en papel") : stat("2 + 4", "carriles: por marca en la compra, por canal en la venta")) +
+            stat(est, "estaciones en la vía, más " + (C.estaciones.length - est) + " de retorno, alimentación, catenaria y línea independiente") +
+            stat(fr, "frenos detectados; " + det + " detienen el tren", "cx-stat-fr") +
+            stat(sen, "señales de paso: estaciones donde el flujo espera una aprobación") +
+            stat(pct(T.inf, T.tot) + " %", "de los traspasos de información no pasa por ningún sistema: Excel, correo, mensajería, papel o de palabra") +
+            stat(2, "cambios de agujas: en el hub se elige entre Mayor y Países; en cada país, entre tiendas, mayor local y web") +
           '</div>' +
-          '<div class="cx-tramos" aria-label="Tramos del circuito">' +
-            '<span><b>1–4</b>Compra</span><i>→</i><span><b>5–7</b>Hub Panamá</span><i>→</i>' +
-            '<span><b>8–12</b>Venta por canal</span><i>→</i><span><b>13–17</b>Dinero</span><i>→</i><span><b>1</b>vuelve al plan</span>' +
-          '</div>' +
+          '<section class="cx-sispanel" id="cxSisPanel" hidden aria-label="Sistemas en el flujo"></section>' +
           '<figure class="cx-fig">' +
-            '<div class="cx-mapa"><svg id="cxSvg" viewBox="' + esc(viewBox) + '" role="group" aria-labelledby="cxCap">' +
-              '<defs>' +
-                '<marker id="cx-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="cx-punta" d="M0,0 L10,5 L0,10 z"/></marker>' +
-                '<pattern id="cx-rayas" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#ffffff"/><rect width="3" height="6" fill="#C53C2C"/></pattern>' +
-              '</defs>' +
-              '<g id="cxCols"></g><g id="cxVias"></g><g id="cxExtras"></g><g id="cxMk"></g><g id="cxEst"></g><g id="cxMkNudos"></g>' +
-            '</svg></div>' +
-            '<figcaption id="cxCap">El circuito se recorre en el sentido de las agujas del reloj. Arriba se compra, a la derecha está el hub de Panamá, abajo se vende y a la izquierda corre el dinero hasta que el sell-out vuelve al plan. En la venta cada columna es una etapa y vale lo mismo en los cuatro carriles: 8 pedido y liberación, 9 despacho, 10 llegada; las tiendas siguen con 11 venta y 12 caja. Toca una estación para abrir su detalle.</figcaption>' +
+            '<div class="cx-mapa"><svg id="cxSvg" viewBox="' + esc(C.via.viewBox) + '" role="group" aria-labelledby="cxCap"></svg></div>' +
+            '<figcaption id="cxCap">Se recorre en el sentido de las agujas del reloj. Arriba se compra; a la derecha está la estación central; en el centro corren los ramales de venta; a la izquierda, el dinero sube hasta el plan. En la venta, cada columna es una etapa: el mismo número es la misma etapa en todos los ramales de su nivel. Toca una estación para abrir su ficha.</figcaption>' +
           '</figure>' +
-          '<p class="cx-sisnota" id="cxSisNota" hidden>En esta capa cada estación muestra por dónde viaja su información: en azul lo que pasa por Odoo, Lark o EBS; en violeta, las plataformas externas como Cashea, Shopify o la banca; en naranja, Excel, correo, WhatsApp, WeChat, lo que se dice de palabra y el papel. De los ' + totTrasp + ' puntos donde la información cambia de manos, el ' + pInf + ' % viaja por esos canales informales y el ' + pFuera + ' % corre fuera de Odoo, Lark y EBS. La cifra cuenta traspasos, no volumen de transacciones.</p>' +
-          leyenda() +
+          '<div class="cx-leyenda" id="cxLeyenda"></div>' +
           '<section class="cx-bloque"><h2 class="cx-h2">Recorrido en orden</h2>' +
-            '<p class="cx-sub">Las mismas estaciones del mapa, leídas de corrido. El número indica la etapa: en la venta, el mismo número es la misma etapa en los cuatro carriles. La letra indica el carril cuando la vía se abre.</p>' +
+            '<p class="cx-sub">Las mismas estaciones del mapa, leídas de corrido por tramo. El número indica la etapa; la letra, el ramal cuando la vía se abre. A la derecha, los frenos de cada estación: en rojo los que detienen el tren.</p>' +
             '<div class="cx-ruta" id="cxRuta"></div></section>' +
           '<section class="cx-bloque"><h2 class="cx-h2">Qué tan firme es cada tramo</h2>' +
-            '<p class="cx-sub">Sólida: varias entrevistas coinciden. Parcial: hay evidencia pero faltan piezas, que se completan en la validación.</p>' +
+            '<p class="cx-sub">Sólida: varias entrevistas coinciden. Parcial: hay evidencia, pero faltan piezas que se completan en la validación.</p>' +
             '<div class="f2-tabla-wrap"><table class="f2-tabla cx-cob"><thead><tr><th>Tramo</th><th>Estaciones</th><th>Cobertura</th><th>Por completar</th></tr></thead><tbody id="cxCob"></tbody></table></div></section>' +
           '<section class="cx-cols">' +
             '<div class="cx-tarjeta"><h3>Preguntas para la validación</h3><ol id="cxPreg"></ol></div>' +
             '<div class="cx-tarjeta"><h3>Cifras que hay que confirmar</h3><ul id="cxCifras"></ul></div>' +
           '</section>' +
           '<section class="cx-bloque"><h2 class="cx-h2">Cómo se construyó</h2>' +
-            '<p class="cx-prosa">Se leyeron completas las ' + esc(C.meta.entrevistas) + ' entrevistas y sesiones del levantamiento, en doce lotes temáticos y con un mismo esquema de diecinueve tramos, desde la planificación de la demanda hasta el reporte de sell-out. Cada afirmación conserva el código de la entrevista de la que sale. Las cifras son las que dieron los entrevistados y se confirman en la validación.</p>' +
-            '<p class="cx-prosa">Este es el circuito tal como opera hoy. La capa de proceso muestra el departamento que opera cada estación; la de sistemas y la de personas recorren el mismo circuito con otra mirada. Los procesos que toca cada estación enlazan a su manual, en versión As-Is y To-Be.</p>' +
+            '<p class="cx-prosa">Se leyeron completas las ' + esc(C.meta.entrevistas) + ' entrevistas y sesiones del levantamiento, en doce lotes temáticos con un mismo esquema de diecinueve tramos, desde la planificación de la demanda hasta el reporte de sell-out. Cada afirmación conserva el código de la entrevista de la que sale. Las cifras son las que dieron los entrevistados y se confirman en la validación.</p>' +
+            '<p class="cx-prosa">El circuito usa una sola analogía, la del tren: los frenos son los puntos donde el flujo se detiene o pierde velocidad; las señales de paso, los puntos donde espera una aprobación; la catenaria, el mercadeo que alimenta toda la línea. Los procesos que toca cada estación enlazan a su manual, en versión As-Is y To-Be.</p>' +
           '</section>' +
         '</div></div>' +
-        '<aside class="cx-drawer" id="cxDrawer" aria-label="Detalle de la estación" aria-hidden="true">' +
-          '<header class="cx-dhead"><span class="cx-dcod" id="cxDcod"></span><div class="cx-dtit"><div class="cx-dtramo" id="cxDtramo"></div><h2 id="cxDtit"></h2></div>' +
-          '<button type="button" class="cx-dx" id="cxDx" aria-label="Cerrar el detalle">✕</button></header>' +
+        '<aside class="cx-drawer" id="cxDrawer" aria-label="Ficha de la estación" aria-hidden="true">' +
+          '<header class="cx-dhead"><span class="cx-dcod" id="cxDcod"></span><div class="cx-dtit"><div class="cx-dtramo" id="cxDtramo"></div><h2 id="cxDtit"></h2><div class="cx-ddep" id="cxDdep"></div></div>' +
+          '<button type="button" class="cx-dx" id="cxDx" aria-label="Cerrar la ficha">✕</button></header>' +
           '<div class="cx-dbody" id="cxDbody"></div>' +
         '</aside>' +
       '</div>';
@@ -130,8 +150,10 @@
     dbody = host.querySelector("#cxDbody");
     cuerpo = host.querySelector("#cxCuerpo");
 
-    pintarVias();
+    pintarVia();
     pintarEstaciones();
+    pintarLeyenda();
+    pintarSisPanel();
     pintarRuta();
     pintarTablas();
     aplicarCapa();
@@ -139,324 +161,295 @@
     host.querySelectorAll(".cx-seg button").forEach(function(b){
       b.addEventListener("click", function(){ capa = b.getAttribute("data-capa"); guardarCapa(capa); aplicarCapa(); });
     });
-    alternar("#cxHaz", "cx-sin-haz");
-    alternar("#cxApr", "cx-sin-apr");
-    if(host.querySelector("#cxMkBtn")) alternar("#cxMkBtn", "cx-sin-mk");
+    alternar("#cxFrenos", "cx-sin-frenos");
+    alternar("#cxSenal", "cx-sin-senal");
+    alternar("#cxCat", "cx-sin-cat");
     host.querySelector("#cxDx").addEventListener("click", function(){ cerrar(true); });
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape" && !host.hidden && drawer.classList.contains("abierto")) cerrar(true);
     });
   }
 
-  function stat(n, t){ return '<div class="cx-stat"><b>' + esc(n) + '</b><span>' + esc(t) + '</span></div>'; }
-
-  function leyenda(){
-    return '<div class="cx-leyenda" aria-label="Leyenda">' +
-      '<span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" class="cx-ley-anillo"/></svg>Evidencia sólida</span>' +
-      '<span><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" class="cx-ley-anillo parcial"/></svg>Evidencia parcial</span>' +
-      '<span><svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M10,2 L18,16 L2,16 Z" class="cx-ley-haz"/></svg>Trombo: cuello de botella (el número es cuántos)</span>' +
-      '<span><svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true"><rect x="1" y="3" width="20" height="6" fill="url(#cx-rayas)" stroke="#C53C2C"/></svg>Aprobación: el flujo espera a la dirección</span>' +
-      '<span><svg width="38" height="10" viewBox="0 0 38 10" aria-hidden="true"><line x1="2" y1="5" x2="36" y2="5" class="cx-info"/></svg>Flujo de información, no de mercancía</span>' +
-      (C.via && C.via.mercadeo ?
-        '<span><svg width="38" height="14" viewBox="0 0 38 14" aria-hidden="true"><line x1="4" y1="7" x2="34" y2="7" class="cx-mk-cinta"/><line x1="4" y1="7" x2="34" y2="7" class="cx-mk-hueco"/></svg>Pasarela de mercadeo: <b class="cx-mkpas">L</b> lanzamiento · <b class="cx-mkpas">P</b> promoción · <b class="cx-mkpas">C</b> co-marketing</span>' : '') +
-      '<span class="cx-ley-sis"><i class="cx-cuadro ofi"></i>Odoo, Lark o EBS</span>' +
-      '<span class="cx-ley-sis"><i class="cx-cuadro ext"></i>Plataforma externa</span>' +
-      '<span class="cx-ley-sis"><i class="cx-cuadro inf"></i>Excel, correo, WhatsApp, WeChat, palabra o papel</span>' +
-    '</div>';
-  }
-
-  // Parte un título en dos líneas, sin cortar palabras.
-  function partir(t, max){
-    if(!max || t.length <= max) return [t];
-    var pal = t.split(" "), a = "", b = "";
-    pal.forEach(function(p){
-      var prueba = a ? a + " " + p : p;
-      if(!b && prueba.length <= max) a = prueba; else b = b ? b + " " + p : p;
-    });
-    return b ? [a, b] : [a];
-  }
-
-  // Categoría de una herramienta: ofi · lim · ext · sc · inf (se busca sin el paréntesis).
-  function colorSis(n){
-    var M = C.sistemasColor || {};
-    var b = String(n).replace(/\s*\(.*$/, "").trim();
-    return M[n] || M[b] || "";
-  }
-  function familia(cat){ return cat === "lim" ? "ofi" : cat === "sc" ? "ext" : cat; }
-
-  function alternar(sel, clase){
+  function stat(n, t, cls){ return '<div class="cx-stat' + (cls ? " " + cls : "") + '"><b>' + esc(n) + '</b><span>' + esc(t) + '</span></div>'; }
+  function alternar(sel, cls){
     var b = host.querySelector(sel);
     b.addEventListener("click", function(){
-      var on = b.getAttribute("aria-pressed") === "true";
-      b.setAttribute("aria-pressed", on ? "false" : "true");
-      b.classList.toggle("on", !on);
-      svg.classList.toggle(clase, on);
+      var on = b.getAttribute("aria-pressed") !== "true";
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.classList.toggle("on", on);
+      svg.classList.toggle(cls, !on);
+    });
+  }
+  function aplicarCapa(){
+    host.querySelectorAll(".cx-seg button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-capa") === capa ? "true" : "false"); });
+    svg.classList.toggle("cx-capa-sis", capa === "sis");
+    host.querySelector("#cxSisPanel").hidden = capa !== "sis";
+    pintarEstaciones();
+  }
+
+  // ---------------------------------------------------------------- la vía
+  function pintarVia(){
+    var V = C.via;
+    var gGuias = el("g", {}, svg), gLin = el("g", {}, svg), gCat = el("g", {"class":"cx-cat"}, svg), gRot = el("g", {}, svg);
+    gEst = el("g", {}, svg);
+    var gAg = el("g", {}, svg);
+    V.columnas.forEach(function(c){
+      el("line", {x1:c[0], y1:c[3], x2:c[0], y2:905, "class":"cx-guia"}, gGuias);
+      el("text", {x:c[0], y:930, "text-anchor":"middle", "class":"cx-colnum"}, gGuias, c[1]);
+      partir(c[2], 12, 2).forEach(function(ln, i){ el("text", {x:c[0], y:946 + i*13, "text-anchor":"middle", "class":"cx-colnom"}, gGuias, ln); });
+    });
+    el("text", {x:1075, y:984, "text-anchor":"middle", "class":"cx-nivel"}, gGuias, "NIVEL 1 · EN LA ESTACIÓN CENTRAL");
+    el("text", {x:550, y:984, "text-anchor":"middle", "class":"cx-nivel"}, gGuias, "NIVEL 2 · DENTRO DE CADA PAÍS");
+    V.lineas.forEach(function(l){ el("path", {d:l[1], "class":"cx-lin " + l[0]}, gLin); });
+    // final del ramal del socio y origen de los retornos
+    el("line", {x1:995, y1:574, x2:1015, y2:574, stroke:col("paises"), "stroke-width":3}, gLin);
+    el("circle", {cx:V.origenRetorno[0], cy:V.origenRetorno[1], r:6, fill:"var(--panel)", stroke:col("retorno"), "stroke-width":2.5}, gLin);
+    V.notas.forEach(function(n){ el("text", {x:n[1], y:n[2], "text-anchor":n[3], "class":"cx-etq cx-halo"}, gRot, n[0]); });
+    V.rotulos.forEach(function(r){
+      el("text", {x:r[1], y:r[2], "text-anchor":"middle", "class":"cx-rotulo cx-halo", fill:col(r[3])}, gRot, r[0]);
+      if(r[4]) el("text", {x:r[1], y:r[2] + 14, "text-anchor":"middle", "class":"cx-rotulo-sub cx-halo"}, gRot, r[4]);
+    });
+    // catenaria: cable, postes y péndolas hacia las estaciones que toca
+    var toca = C.estaciones.filter(function(s){ return s.catenaria && V.pos[s.id] && s.id !== "MK"; });
+    var xs = toca.map(function(s){ return V.pos[s.id][0]; }).concat([V.pos.MK[0]]);
+    var x0 = Math.min.apply(null, xs) - 20, x1 = Math.max.apply(null, xs) + 20, y = V.catenariaY;
+    el("path", {d:"M" + x0 + "," + (y-3) + " L" + x1 + "," + (y-3), "class":"cx-wire"}, gCat);
+    el("path", {d:"M" + x0 + "," + (y+3) + " L" + x1 + "," + (y+3), "class":"cx-wire"}, gCat);
+    for(var x = x0; x <= x1; x += 80) el("line", {x1:x, y1:y-9, x2:x, y2:y+9, "class":"cx-poste"}, gCat);
+    toca.forEach(function(s){ var p = V.pos[s.id]; el("line", {x1:p[0], y1:y+3, x2:p[0], y2:p[1] + (p[1] < y ? 10 : -10), "class":"cx-drop"}, gCat); });
+    el("text", {x:x0 + 40, y:y - 14, "class":"cx-etq cx-halo"}, gCat, "catenaria · mercadeo alimenta la línea");
+    // cambios de agujas
+    V.agujas.forEach(function(a){
+      var g = el("g", {"class":"cx-agujas"}, gAg), x = a[0], y = a[1];
+      el("rect", {x:x-9, y:y-9, width:18, height:18, transform:"rotate(45 " + x + " " + y + ")"}, g);
+      el("path", {d:"M" + (x-4) + "," + (y+3) + " L" + x + "," + (y-4) + " L" + (x+4) + "," + (y+3), fill:"none", stroke:"var(--cx-troncal)", "stroke-width":1.8}, g);
+      el("text", {x:a[4], y:y-4, "text-anchor":a[5], "class":"cx-halo"}, g, a[2]);
+      el("text", {x:a[4], y:y+10, "text-anchor":a[5], "class":"cx-halo"}, g, a[3]);
     });
   }
 
-  // ---------------------------------------------------------------- dibujo
-  function pintarVias(){
-    var V = C.via, vias = svg.querySelector("#cxVias"), extras = svg.querySelector("#cxExtras");
-    V.pits.forEach(function(d){ el("path", {d:d, "class":"cx-pit-borde"}, vias); });
-    V.pits.forEach(function(d){ el("path", {d:d, "class":"cx-pit"}, vias); });
-    V.pits.forEach(function(d){ el("path", {d:d, "class":"cx-pit-marca"}, vias); });
-    V.roads.forEach(function(d){ el("path", {d:d, "class":"cx-borde"}, vias); });
-    V.roads.forEach(function(d){ el("path", {d:d, "class":"cx-asfalto"}, vias); });
-    V.roads.forEach(function(d){ el("path", {d:d, "class":"cx-marca"}, vias); });
-    V.flechas.forEach(function(p){ el("polyline", {points:p, "class":"cx-flecha"}, vias); });
-    V.pintado.forEach(function(x){
-      var w = x[0].length * 9 + 14;
-      el("rect", {x:x[1] - w/2, y:x[2] - 8, width:w, height:16, "class":"cx-pintado-fondo"}, vias);
-      el("text", {x:x[1], y:x[2] + 4, "text-anchor":"middle", "class":"cx-pintado"}, vias).textContent = x[0];
-    });
-    V.info.forEach(function(i){
-      var a = {d:i.d, "class":"cx-info"}; if(i.arrow) a["marker-end"] = "url(#cx-arr)";
-      el("path", a, extras);
-    });
-    V.notas.forEach(function(n){ el("text", {x:n[1], y:n[2], "text-anchor":n[3], "class":"cx-nota"}, extras).textContent = n[0]; });
-
-    // columnas de etapa de los carriles de venta: guía vertical y rótulo al pie
-    if(V.columnas){
-      var K = V.columnas, cols = svg.querySelector("#cxCols");
-      K.cols.forEach(function(c){
-        el("line", {x1:c[0], y1:K.y0, x2:c[0], y2:K.y1, "class":"cx-guia"}, cols);
-        el("text", {x:c[0], y:K.yn, "text-anchor":"middle", "class":"cx-col-n"}, cols).textContent = c[1];
-        el("text", {x:c[0], y:K.yt, "text-anchor":"middle", "class":"cx-col-t"}, cols).textContent = c[2];
-      });
-    }
-    if(V.mercadeo) pintarMercadeo(V.mercadeo);
-  }
-
-  // Pasarela de mercadeo: una cinta que nace en la compra, pasa por la estación de
-  // mercadeo y cruza los carriles de venta; hilos punteados hasta las estaciones que
-  // toca y un nudo con el tipo de toque (L, P o C) que abre esa estación.
-  function pintarMercadeo(M){
-    var capaMk = svg.querySelector("#cxMk"), nudos = svg.querySelector("#cxMkNudos");
-    M.cinta.forEach(function(d){ el("path", {d:d, "class":"cx-mk-aire"}, capaMk); });
-    M.cinta.forEach(function(d){ el("path", {d:d, "class":"cx-mk-cinta"}, capaMk); });
-    M.cinta.forEach(function(d){ el("path", {d:d, "class":"cx-mk-hueco"}, capaMk); });
-    M.hilos.forEach(function(d){ el("path", {d:d, "class":"cx-mk-hilo"}, capaMk); });
-    var porId = {};
-    C.estaciones.forEach(function(s){ porId[s.id] = s; });
-    M.nudos.forEach(function(n){
-      var ests = n[2].map(function(id){ return porId[id]; }).filter(function(s){ return s && s.mk; });
-      if(!ests.length) return;
-      var tipo = ests[0].mk.tipo, w = Math.max(18, 8 + tipo.length * 6.2);
-      var g = el("g", {"class":"cx-mk-pas", tabindex:"0", role:"button",
-        "aria-label":"Mercadeo en " + ests.map(function(s){ return s.id + " " + s.t; }).join(" y ")}, nudos);
-      el("title", {}, g).textContent = ests.map(function(s){ return s.id + " · " + s.t + ": " + s.mk.t; }).join("\n");
-      el("rect", {x:n[0] - w/2, y:n[1] - 9, width:w, height:18, rx:9}, g);
-      el("text", {x:n[0], y:n[1] + 3.4, "text-anchor":"middle"}, g).textContent = tipo;
-      var ir = function(){ abrir(ests[0].id, true); };
-      g.addEventListener("click", ir);
-      g.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); ir(); } });
-    });
-  }
-
-  var OFF = {r:[26,0], l:[-26,0], d:[0,26], u:[0,-26]};
   function pintarEstaciones(){
-    var g0 = svg.querySelector("#cxEst");
+    gEst.textContent = "";
+    var V = C.via, grandes = {};
+    V.grandes.forEach(function(i){ grandes[i] = 1; });
     C.estaciones.forEach(function(s){
-      var g = el("g", {"class":"cx-st " + (s.ev === "parcial" ? "parcial" : "solida"), tabindex:"0", role:"button",
-        "aria-label": s.id + ". " + s.t + ". " + s.trombos.length + " trombos"}, g0);
-      // aprobación: antes de la estación, en el sentido de la marcha
-      if(s.aprob){
-        var o = OFF[s.dir], ax = s.x - o[0], ay = s.y - o[1];
-        if(s.id === "MK"){ ax = s.x; ay = s.y - 26; }
-        if(s.id === "PV"){ ax = s.x - 26; ay = s.y - 2; }
-        var ag = el("g", {"class":"cx-apr"}, g);
-        if(s.dir === "r" || s.dir === "l") el("rect", {x:ax - 3, y:ay - 15, width:6, height:30, fill:"url(#cx-rayas)"}, ag);
-        else el("rect", {x:ax - 15, y:ay - 3, width:30, height:6, fill:"url(#cx-rayas)"}, ag);
+      var p = V.pos[s.id]; if(!p) return;
+      var x = p[0], y = p[1], lado = p[2], r0 = grandes[s.id] ? 10 : 8;
+      var g = el("g", {"class":"cx-est" + (grandes[s.id] ? " grande" : "") + (s.id === actual ? " on" : ""), tabindex:0, role:"button", "data-id":s.id, "aria-label":s.id + " " + s.t}, gEst);
+      if(capa === "sis"){
+        var T = reparto([s]), RR = r0 + 1.5, partes = [["ofi",T.ofi],["ext",T.ext],["inf",T.inf]].filter(function(q){ return q[1] > 0; });
+        el("circle", {cx:x, cy:y, r:RR + 1.5, "class":"cx-p", stroke:"var(--panel)", fill:"var(--borde)"}, g);
+        if(partes.length === 1) el("circle", {cx:x, cy:y, r:RR, fill:"var(--cx-s-" + partes[0][0] + ")"}, g);
+        else {
+          var a0 = -Math.PI/2;
+          partes.forEach(function(q){
+            var a1 = a0 + 2*Math.PI*q[1]/T.tot, gr = (a1 - a0) > Math.PI ? 1 : 0;
+            el("path", {d:"M" + x + "," + y + " L" + (x + RR*Math.cos(a0)).toFixed(2) + "," + (y + RR*Math.sin(a0)).toFixed(2) + " A" + RR + "," + RR + " 0 " + gr + " 1 " + (x + RR*Math.cos(a1)).toFixed(2) + "," + (y + RR*Math.sin(a1)).toFixed(2) + " Z", fill:"var(--cx-s-" + q[0] + ")"}, g);
+            a0 = a1;
+          });
+        }
+      } else {
+        el("circle", {cx:x, cy:y, r:r0, "class":"cx-p", stroke:col(s.ramal), fill:"var(--cx-st)"}, g);
+        if(s.id === "MK") el("circle", {cx:x, cy:y, r:3, fill:"var(--cx-wire)"}, g);
       }
-      // trombos: después de la estación
-      if(s.trombos.length){
-        var h = s.hz || OFF[s.dir], hx = s.x + h[0], hy = s.y + h[1];
-        var hg = el("g", {"class":"cx-haz " + (maxSev(s.trombos) === "alta" ? "alta" : "media")}, g);
-        el("path", {d:"M" + hx + "," + (hy - 9) + " L" + (hx + 9) + "," + (hy + 7) + " L" + (hx - 9) + "," + (hy + 7) + " Z"}, hg);
-        el("text", {x:hx, y:hy + 5, "text-anchor":"middle"}, hg).textContent = s.trombos.length;
+      // rótulo
+      var anchor = lado === "right" ? "start" : (lado === "left" ? "end" : "middle");
+      var tx = lado === "right" ? x + 15 : (lado === "left" ? x - 16 : x);
+      var bloque;
+      if(capa === "sis"){
+        var T2 = reparto([s]), vis = {}, herr = [];
+        (s.senalizacion || []).forEach(function(h){ var b = base(h); if(vis[b.toLowerCase()]) return; vis[b.toLowerCase()] = 1; herr.push(b); });
+        // en el mapa los nombres largos se recortan; la ficha los muestra completos
+        var corto = function(h){ return h.length > 17 ? h.slice(0, 15).trim() + "…" : h; };
+        var filas = [[]], largo = 0;
+        herr.forEach(function(h){ if(largo + h.length > 19 && filas[filas.length-1].length){ filas.push([]); largo = 0; } filas[filas.length-1].push(h); largo += h.length + 3; });
+        if(filas.length > 2){ filas = filas.slice(0, 2); filas[1].push("…"); }
+        bloque = [{t:s.id, c:"cx-cod", pct:T2.tot ? pct(T2.inf, T2.tot) + " %" : ""}].concat(filas.map(function(f){ return {herr:f}; }));
+      } else {
+        var lns = partir(capa === "gente" ? (s.jefe || "") : s.t, capa === "gente" ? 20 : 17, 3);
+        bloque = [{t:s.id, c:"cx-cod"}].concat(lns.map(function(t){ return {t:t, c:capa === "gente" ? "cx-gen" : "cx-tit"}; }));
       }
-      el("circle", {cx:s.x, cy:s.y, r:21, "class":"cx-halo"}, g);
-      el("circle", {cx:s.x, cy:s.y, r:13, "class":"cx-anillo"}, g);
-      if(s.trasp) dona(s, g);
-      el("text", {x:s.x, y:s.y + 3.4, "text-anchor":"middle", "class":"cx-cod"}, g).textContent = s.id;
-      // el título puede ir en dos líneas; el subtítulo de la capa va por encima del
-      // título cuando el rótulo está arriba y por debajo en los demás casos
-      var lineas = partir(s.t, s.wrap), n = lineas.length, PASO = 13;
-      var lx = s.x, ly = s.y, anc = "middle", y2;
-      if(s.lab === "above"){ ly = s.y - 22 - (n - 1) * PASO; y2 = ly - 14; }
-      else {
-        if(s.lab === "below"){ ly = s.y + 32; }
-        else if(s.lab === "right"){ lx = s.x + (s.lx || 22); ly = s.y + 4; anc = "start"; }
-        else if(s.lab === "left"){ lx = s.x - 22; ly = s.y + 4; anc = "end"; }
-        else if(s.lab === "custom"){ lx = s.lxy[0]; ly = s.lxy[1]; anc = s.lxy[2]; }
-        y2 = ly + (n - 1) * PASO + 14;
-      }
-      lineas.forEach(function(txt, i){
-        el("text", {x:lx, y:ly + i * PASO, "text-anchor":anc, "class":"cx-lbl"}, g).textContent = txt;
+      var alto = bloque.length * 14;
+      var y0 = lado === "above" ? y - 16 - alto + 11 : (lado === "below" ? y + 26 : y - alto/2 + 10);
+      bloque.forEach(function(b, i){
+        if(b.herr){
+          var t = el("text", {x:tx, y:y0 + i*14, "text-anchor":anchor, "class":"cx-herrt cx-halo"}, g);
+          b.herr.forEach(function(h, j){
+            if(j) el("tspan", {fill:"var(--tinta-tenue)"}, t, " · ");
+            el("tspan", {fill:h === "…" ? "var(--tinta-tenue)" : "var(--cx-s-" + grupoCl(clase(h)) + ")"}, t, h === "…" ? h : corto(h));
+          });
+        } else if(b.pct){
+          var t2 = el("text", {x:tx, y:y0 + i*14, "text-anchor":anchor, "class":"cx-cod cx-halo"}, g, b.t + "  ");
+          el("tspan", {"class":"cx-pct"}, t2, b.pct);
+        } else el("text", {x:tx, y:y0 + i*14, "text-anchor":anchor, "class":b.c + " cx-halo"}, g, b.t);
       });
-      var t2 = el("text", {x:lx, y:y2, "text-anchor":anc, "class":"cx-lbl2"}, g);
-      nodos[s.id] = {g:g, t2:t2};
+      // frenos
+      var c = cuenta(s), n = c.d + c.l;
+      if(n){
+        var bx = lado === "left" ? x + 16 : (lado === "right" ? x - 17 : x + 13);
+        var by = lado === "above" ? y + 15 : (lado === "right" ? y - 13 : y - 15);
+        var bg = el("g", {"class":"cx-badge"}, g);
+        el("title", {}, bg, (c.d ? c.d + " frenos que detienen el tren" : "") + (c.d && c.l ? " · " : "") + (c.l ? c.l + " que lo hacen ir lento" : ""));
+        if(c.d){
+          var pts = [];
+          for(var i = 0; i < 8; i++){ var a = Math.PI/8 + i*Math.PI/4; pts.push((bx + 8*Math.cos(a)).toFixed(1) + "," + (by + 8*Math.sin(a)).toFixed(1)); }
+          el("polygon", {points:pts.join(" "), fill:"var(--cx-detiene)"}, bg);
+        } else {
+          el("polygon", {points:bx + "," + (by-8) + " " + (bx+8.5) + "," + (by+6) + " " + (bx-8.5) + "," + (by+6), fill:"var(--cx-lento)"}, bg);
+        }
+        el("text", {x:bx, y:by + (c.d ? 3.4 : 4.2), "text-anchor":"middle", "class":c.d ? "" : "lento"}, bg, String(n));
+      }
+      // señal de paso
+      if(s.senal){
+        var sx = lado === "right" ? x - 17 : x - 14, sy = lado === "above" ? y + 13 : (lado === "right" ? y + 5 : y - 21);
+        var sg = el("g", {"class":"cx-senal"}, g);
+        el("title", {}, sg, "Señal de paso: " + s.senal);
+        el("line", {x1:sx, y1:sy+8, x2:sx, y2:sy+13, stroke:"var(--tinta)", "stroke-width":1.5}, sg);
+        el("rect", {x:sx-3.5, y:sy-2, width:7, height:11, rx:2, fill:"var(--tinta)"}, sg);
+        el("circle", {cx:sx, cy:sy+1.5, r:1.7, fill:"var(--cx-lento)"}, sg);
+        el("circle", {cx:sx, cy:sy+5.6, r:1.7, fill:"var(--panel)"}, sg);
+      }
       g.addEventListener("click", function(){ abrir(s.id, true); });
       g.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); abrir(s.id, true); } });
     });
   }
 
-  // Anillo de tres colores para la capa Sistemas: la proporción de traspasos de la
-  // estación que viaja por Odoo/Lark/EBS, por plataformas externas y por canales informales.
-  function dona(s, g){
-    var r = 13, L = 2 * Math.PI * r, t = s.trasp, tot = t.ofi + t.ext + t.inf, ac = 0;
-    if(!tot) return;
-    var d = el("g", {"class":"cx-dona", transform:"rotate(-90 " + s.x + " " + s.y + ")"}, g);
-    [["ofi", t.ofi], ["ext", t.ext], ["inf", t.inf]].forEach(function(p){
-      if(!p[1]) return;
-      var largo = L * p[1] / tot;
-      el("circle", {cx:s.x, cy:s.y, r:r, "class":"cx-don " + p[0],
-        "stroke-dasharray":largo.toFixed(2) + " " + (L - largo).toFixed(2), "stroke-dashoffset":(-ac).toFixed(2)}, d);
-      ac += largo;
-    });
+  // ---------------------------------------------------------------- leyenda y panel de sistemas
+  function pintarLeyenda(){
+    function sw(inner){ return '<svg width="34" height="18" viewBox="0 0 34 18" aria-hidden="true">' + inner + '</svg>'; }
+    var items = [
+      [sw('<path d="M2,9 L32,9" stroke="var(--cx-troncal)" stroke-width="6" stroke-linecap="round"/>'), "Línea troncal: plan, compra, estación central y dinero"],
+      [sw('<path d="M2,9 L32,9" stroke="var(--cx-mayor)" stroke-width="6" stroke-linecap="round"/>'), "Ramal Mayor: clientes terceros servidos desde Zona Libre"],
+      [sw('<path d="M2,9 L32,9" stroke="var(--cx-paises)" stroke-width="6" stroke-linecap="round"/>'), "Ramal Países: operaciones propias del grupo"],
+      [sw('<path d="M2,5 L32,5" stroke="var(--cx-tiendas)" stroke-width="3.5"/><path d="M2,9 L32,9" stroke="var(--cx-mayorlocal)" stroke-width="3.5"/><path d="M2,13 L32,13" stroke="var(--cx-web)" stroke-width="3.5"/>'), "Sub-ramales de cada país: tiendas, mayor local y web"],
+      [sw('<path d="M2,9 L32,9" stroke="var(--cx-retorno)" stroke-width="3" stroke-dasharray="7 5"/>'), "Vía de retorno: sell-out a Casio, postventa y devoluciones"],
+      [sw('<path d="M2,6 L32,6 M2,11 L32,11" stroke="var(--cx-wire)" stroke-width="1.2"/><path d="M10,2 L10,15 M24,2 L24,15" stroke="var(--cx-wire)" stroke-width="1.3"/>'), "Catenaria: el mercadeo que alimenta la línea y las estaciones que toca"],
+      [sw('<rect x="8" y="0" width="18" height="18" transform="rotate(45 17 9) translate(2.6 2.6) scale(.7)" fill="var(--panel)" stroke="var(--cx-troncal)" stroke-width="3"/>'), "Cambio de agujas: alguien decide a qué ramal va la mercancía"],
+      [sw('<polygon points="10.7,2.6 15.3,2.6 18.4,5.7 18.4,10.3 15.3,13.4 10.7,13.4 7.6,10.3 7.6,5.7" fill="var(--cx-detiene)"/><polygon points="26,2 33,14 19,14" fill="var(--cx-lento)"/>'), "Frenos: rojo detiene el tren, ámbar lo hace ir lento"],
+      [sw('<rect x="13" y="1" width="8" height="12" rx="2" fill="var(--tinta)"/><circle cx="17" cy="4.5" r="1.8" fill="var(--cx-lento)"/><circle cx="17" cy="9" r="1.8" fill="var(--panel)"/><line x1="17" y1="13" x2="17" y2="17" stroke="var(--tinta)" stroke-width="1.5"/>'), "Señal de paso: el flujo espera una aprobación"],
+      [sw('<circle cx="17" cy="9" r="8" fill="var(--cx-s-inf)"/><path d="M17,9 L17,1 A8,8 0 0 1 24.6,11.5 Z" fill="var(--cx-s-ofi)"/><path d="M17,9 L24.6,11.5 A8,8 0 0 1 20,16.4 Z" fill="var(--cx-s-ext)"/>'), "Capa Sistemas: Odoo, Lark o EBS · plataforma externa · sin sistema; el % junto al código es la parte que opera sin sistema"]
+    ];
+    host.querySelector("#cxLeyenda").innerHTML = items.map(function(i){ return '<div>' + i[0] + '<span>' + i[1] + '</span></div>'; }).join("");
   }
 
-  function aplicarCapa(){
-    host.querySelectorAll(".cx-seg button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-capa") === capa ? "true" : "false"); });
-    svg.classList.toggle("cx-capa-sis", capa === "sis");
-    host.classList.toggle("cx-en-sis", capa === "sis");
-    var nota = host.querySelector("#cxSisNota");
-    if(nota) nota.hidden = capa !== "sis" || !C.estaciones.some(function(s){ return s.trasp; });
+  function pintarSisPanel(){
+    var T = reparto(C.estaciones);
+    var h = '<div class="cx-sis-cab">' +
+      '<div class="cx-sis-big inf"><b>' + pct(T.inf, T.tot) + ' %</b><span>de la información que cambia de manos en el flujo no pasa por ningún sistema: viaja por Excel, correo, mensajería, papel o de palabra.</span></div>' +
+      '<div class="cx-sis-big ext"><b>' + pct(T.inf + T.ext, T.tot) + ' %</b><span>queda fuera de los sistemas del grupo (Odoo, Lark y EBS) al sumar las plataformas externas, como Shopify, Cashea o la banca; ' + T.sc + ' de esos traspasos van por plataformas sin conexión con el grupo.</span></div>' +
+      '<div class="cx-sis-big ofi"><b>' + pct(T.ofi, T.tot) + ' %</b><span>pasa por Odoo, Lark o EBS; ' + T.lim + ' de esos traspasos se resuelven por el chat o el calendario de Lark.</span></div>' +
+    '</div>' + barra(T) +
+    '<div class="cx-sis-cols"><div><h3>Por tramo · qué parte opera sin sistema</h3>' +
+      C.grupos.map(function(g){
+        var t = reparto(g[2].map(function(i){ return EST[i]; }).filter(Boolean));
+        return '<div class="cx-tramo-sis"><span>' + esc(g[0].replace(" y línea independiente", "")) + '</span>' + barra(t) + '<em>' + pct(t.inf, t.tot) + ' % sin</em></div>';
+      }).join("") +
+    '</div><div class="cx-herr"><h3>Qué opera en el flujo</h3>';
+    var cnt = {}, nom = {};
     C.estaciones.forEach(function(s){
-      var t2 = nodos[s.id].t2;
-      while(t2.firstChild) t2.removeChild(t2.firstChild);
-      if(capa === "sis" && C.sistemasColor){
-        // cada canal en el color de su categoría
-        s.sis.split(" · ").forEach(function(tok, i){
-          if(i) el("tspan", {"class":"cx-tk sep"}, t2).textContent = " · ";
-          el("tspan", {"class":"cx-tk " + familia(colorSis(tok))}, t2).textContent = tok;
-        });
-      } else {
-        t2.textContent = capa === "sis" ? s.sis : capa === "gente" ? s.gente : s.depto;
-      }
-    });
-  }
-
-  function pintarRuta(){
-    var ruta = host.querySelector("#cxRuta");
-    C.grupos.forEach(function(gn){
-      var box = document.createElement("div"); box.className = "cx-rgrupo";
-      box.innerHTML = '<h3>' + esc(gn) + '</h3>';
-      C.estaciones.filter(function(s){ return s.grp === gn; }).forEach(function(s){
-        var b = document.createElement("button");
-        b.type = "button"; b.className = "cx-item"; b.setAttribute("data-id", s.id);
-        b.innerHTML = '<span class="c">' + esc(s.id) + '</span><span><span class="t">' + esc(s.t) + '</span><span class="d">' +
-          esc(s.depto) + ' · ' + esc(C.carriles[s.lane]) + '</span></span><span class="n ' + maxSev(s.trombos) + '">' + s.trombos.length + ' ▲</span>';
-        b.addEventListener("click", function(){ abrir(s.id, true); });
-        box.appendChild(b);
+      var vistos = {};
+      (s.senalizacion || []).forEach(function(x){
+        var b = base(x), k = b.toLowerCase();
+        if(vistos[k]) return; vistos[k] = 1;
+        cnt[k] = (cnt[k] || 0) + 1; if(!nom[k]) nom[k] = b.charAt(0).toUpperCase() + b.slice(1);
       });
-      ruta.appendChild(box);
     });
+    [["ofi","Sistemas del grupo"],["ext","Plataformas externas"],["inf","Sin sistema"]].forEach(function(gr){
+      var ks = Object.keys(cnt).filter(function(k){ return grupoCl(clase(nom[k])) === gr[0]; }).sort(function(a, b){ return cnt[b] - cnt[a]; });
+      if(!ks.length) return;
+      h += '<h4>' + gr[1] + '</h4><div class="cx-chips">' + ks.map(function(k){ return '<span class="cx-chip ' + gr[0] + '" title="opera en ' + cnt[k] + ' estaciones">' + esc(nom[k]) + '<b>' + cnt[k] + '</b></span>'; }).join("") + '</div>';
+    });
+    h += '<p class="cx-sisnota">El número junto a cada herramienta es la cantidad de estaciones en las que opera.</p></div></div>' +
+      '<p class="cx-sisnota">Se cuentan traspasos de información, es decir, cada vez que un dato cambia de manos dentro de una estación; no es volumen de transacciones. En el mapa, cada estación muestra su reparto como un círculo en tres colores, sus herramientas y, junto a su código, qué parte de su información opera sin sistema.</p>';
+    host.querySelector("#cxSisPanel").innerHTML = h;
   }
 
-  function pintarTablas(){
-    host.querySelector("#cxCob").innerHTML = C.cobertura.map(function(r){
-      return '<tr><td class="cx-td-cod">' + esc(r[0]) + '</td><td><b>' + esc(r[1]) + '</b><br><span class="cx-ref">' + esc(r[2]) + '</span></td>' +
-        '<td><span class="cx-cov ' + r[3] + '"><i></i>' + (r[3] === "solida" ? "Sólida" : "Parcial") + '</span></td><td>' + esc(r[4] || "—") + '</td></tr>';
+  // ---------------------------------------------------------------- recorrido y tablas
+  function pintarRuta(){
+    host.querySelector("#cxRuta").innerHTML = C.grupos.map(function(g){
+      return '<div class="cx-rgrupo"><h3><i style="background:' + col(g[1]) + '"></i>' + esc(g[0]) + '</h3>' +
+        g[2].filter(function(id){ return EST[id]; }).map(function(id){
+          var s = EST[id], c = cuenta(s);
+          return '<button type="button" class="cx-item" data-id="' + esc(id) + '" aria-current="false"><span class="c">' + esc(id) + '</span><span><span class="t">' + esc(s.t) + '</span><span class="d">' + esc(s.depto || "") + '</span></span>' +
+            '<span class="n">' + (c.d ? '<b>' + c.d + '</b> · ' : '') + ((c.d + c.l) ? (c.d + c.l) + ' frenos' : '') + '</span></button>';
+        }).join("") + '<p class="cx-rnota">' + esc(g[3]) + '</p></div>';
     }).join("");
-    host.querySelector("#cxPreg").innerHTML = C.preguntas.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("");
-    host.querySelector("#cxCifras").innerHTML = C.cifrasConfirmar.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("");
+    host.querySelectorAll("#cxRuta .cx-item").forEach(function(b){ b.addEventListener("click", function(){ abrir(b.getAttribute("data-id"), true); }); });
+  }
+  function pintarTablas(){
+    host.querySelector("#cxCob").innerHTML = (C.cobertura || []).map(function(r){
+      return '<tr><td>' + esc(r[0]) + ' · ' + esc(r[1]) + '</td><td class="cx-td-cod">' + esc(r[2]) + '</td><td><span class="cx-cov ' + esc(r[3]) + '"><i></i>' + (r[3] === "solida" ? "Sólida" : "Parcial") + '</span></td><td>' + esc(r[4] || "") + '</td></tr>';
+    }).join("");
+    host.querySelector("#cxPreg").innerHTML = (C.preguntas || []).map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("");
+    host.querySelector("#cxCifras").innerHTML = (C.cifrasConfirmar || []).map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("");
   }
 
-  // ---------------------------------------------------------------- panel
-  function lista(items, ordenada){
-    var tag = ordenada ? "ol" : "ul";
-    return '<' + tag + '>' + items.map(function(i){ return '<li>' + refs(i) + '</li>'; }).join("") + '</' + tag + '>';
-  }
-  function chips(items){ return '<div class="cx-chips">' + items.map(function(p){ return '<span class="cx-chip">' + esc(p) + '</span>'; }).join("") + '</div>'; }
-  function chipsSis(items){
-    return '<div class="cx-chips">' + items.map(function(p){
-      var c = familia(colorSis(p));
-      return '<span class="cx-chip' + (c ? ' sis-' + c : '') + '">' + esc(p) + '</span>';
-    }).join("") + '</div>';
-  }
-  function plural(n, uno, varios){ return n + " " + (n === 1 ? uno : varios); }
-  function traspasos(t){
-    var tot = t.ofi + t.ext + t.inf;
-    if(!tot) return "";
-    var barra = [["ofi", t.ofi], ["ext", t.ext], ["inf", t.inf]].filter(function(p){ return p[1]; })
-      .map(function(p){ return '<i class="' + p[0] + '" style="flex:' + p[1] + '"></i>'; }).join("");
-    var partes = [];
-    if(t.ofi) partes.push(plural(t.ofi, "por Odoo, Lark o EBS", "por Odoo, Lark o EBS") + (t.lim ? " (" + plural(t.lim, "en un chat o calendario de Lark", "en chats o calendarios de Lark") + ")" : ""));
-    if(t.ext) partes.push(plural(t.ext, "por una plataforma externa", "por plataformas externas") + (t.sc ? " (" + plural(t.sc, "se teclea a mano", "se teclean a mano") + ")" : ""));
-    if(t.inf) partes.push(plural(t.inf, "por un canal informal", "por canales informales"));
-    return '<section><h3>Por dónde viaja la información</h3><div class="cx-tbar" aria-hidden="true">' + barra + '</div>' +
-      '<p class="cx-tdesc">' + plural(tot, "traspaso", "traspasos") + ' de información en esta estación: ' + esc(partes.join(", ")) + '.</p></section>';
-  }
-  function seccionMercadeo(s){
-    var h = "";
-    if(s.mk) h += '<section><h3>Mercadeo en esta estación</h3><p class="cx-mkp"><b class="cx-mkpas">' + esc(s.mk.tipo) + '</b> ' +
-      esc(s.mk.t) + ' <span class="cx-ref">' + esc(s.mk.ev) + '</span></p></section>';
-    if(s.id === "MK"){
-      var toques = C.estaciones.filter(function(x){ return x.mk; });
-      if(toques.length) h += '<section><h3>Dónde entra en el circuito</h3><ul class="cx-mklista">' + toques.map(function(x){
-        return '<li><button type="button" data-ir="' + esc(x.id) + '"><code>' + esc(x.id) + '</code><b class="cx-mkpas">' + esc(x.mk.tipo) + '</b><span>' + esc(x.t) + '</span></button></li>';
-      }).join("") + '</ul></section>';
-    }
-    return h;
-  }
-
+  // ---------------------------------------------------------------- ficha
+  function sec(t, h){ return h ? '<section><h3>' + t + '</h3>' + h + '</section>' : ''; }
   function pintarPanel(s){
-    host.querySelector("#cxDcod").textContent = s.id;
-    host.querySelector("#cxDtramo").textContent = C.carriles[s.lane] + " · " + s.tramo;
+    var cod = host.querySelector("#cxDcod");
+    cod.textContent = s.id;
+    cod.style.background = col(s.ramal);
+    cod.style.color = (s.ramal === "troncal" || s.ramal === "independiente" || s.ramal === "catenaria") ? "var(--panel)" : "#fff";
+    host.querySelector("#cxDtramo").textContent = (C.ramales[s.ramal] || "") + (s.tramo ? " · " + s.tramo : "");
     host.querySelector("#cxDtit").textContent = s.t;
-    var tr = s.trombos.slice().sort(function(a, b){ return RANK[b.s] - RANK[a.s]; });
-    var deptos = s.depto.split(" · ");
-    var h = '<div class="cx-chips"><span class="cx-chip ev-' + s.ev + '">' + (s.ev === "solida" ? "Evidencia sólida" : "Evidencia parcial") + '</span>' +
-            '<span class="cx-chip">' + s.trombos.length + ' trombos</span></div>';
-    h += '<section><h3>Qué pasa hoy</h3><p class="cx-hoy">' + esc(s.hoy) + '</p></section>';
-    h += '<section><h3>Paso a paso</h3>' + lista(s.pasos, true) + '</section>';
-    if(s.variantes) h += '<section><h3>Dónde se abre la vía</h3><p>' + esc(s.variantes) + '</p></section>';
-    h += '<section><h3>Trombos</h3><ul class="cx-trombos">' + tr.map(function(x){
-      return '<li><span class="cx-sev ' + x.s + '">' + x.s + '</span><span>' + (x.id ? '<span class="cx-tid">' + esc(x.id) + '</span>' : '') +
-        esc(x.t) + ' <span class="cx-ref">' + esc(x.ev) + '</span></span></li>';
-    }).join("") + '</ul></section>';
-    h += seccionMercadeo(s);
-    if(s.aprob) h += '<section><h3>Aprobación</h3><div class="cx-aprob"><svg width="30" height="10" viewBox="0 0 30 10" aria-hidden="true"><rect x="1" y="2" width="28" height="6" fill="url(#cx-rayas)" stroke="#C53C2C"/></svg><span>' + esc(s.aprob) + '</span></div></section>';
-    if(s.confirmar) h += '<section><h3>Por confirmar en la validación</h3><div class="cx-confirmar">' + esc(s.confirmar) + '</div></section>';
-    if(s.cifras && s.cifras.length) h += '<section><h3>Cifras que se dieron</h3>' + lista(s.cifras, false) + '</section>';
-    h += '<div class="cx-tres">' +
-      '<section><h3>Departamentos</h3>' + chips(deptos) + '</section>' +
-      '<section><h3>Personas</h3>' + chips(s.personas) + '</section>' +
-      '<section><h3>Sistemas</h3>' + chipsSis(s.sistemas) + '</section>' +
-    '</div>';
-    if(s.trasp) h += traspasos(s.trasp);
-    h += '<section><h3>Procesos del manual</h3><ul class="cx-procs">' + s.proc.map(function(c){
+    host.querySelector("#cxDdep").innerHTML = esc(s.depto || "") + (s.ev ? ' <span class="cx-ev ' + esc(s.ev) + '">evidencia ' + (s.ev === "solida" ? "sólida" : "parcial") + '</span>' : '');
+    var h = "";
+    h += sec("Cómo funciona hoy", '<p>' + refs(s.hoy) + '</p>');
+    h += sec("Recorrido", (s.pasos && s.pasos.length) ? '<ol>' + s.pasos.map(function(x){ return '<li>' + refs(x) + '</li>'; }).join("") + '</ol>' : "");
+    h += sec("Variantes", s.variantes ? '<p>' + refs(s.variantes) + '</p>' : "");
+    h += sec("Señal de paso", s.senal ? '<div class="cx-senal-box">' + refs(s.senal) + '</div>' : "");
+    if(s.frenos && s.frenos.length){
+      var fr = s.frenos.slice().sort(function(a, b){ return (a.grado === "detiene" ? 0 : 1) - (b.grado === "detiene" ? 0 : 1); });
+      h += sec("Frenos", '<ul class="cx-frenos">' + fr.map(function(f){
+        return '<li><span class="cx-grado ' + esc(f.grado) + '">' + (f.grado === "detiene" ? "detiene" : "lento") + '</span><div>' + refs(f.t) + ' <span class="cx-ref">' + esc(f.ev || "") + '</span><div class="cx-fid">' + esc(f.id) + (f.antes && f.antes !== f.id ? ' · antes ' + esc(f.antes) : '') + '</div></div></li>';
+      }).join("") + '</ul>');
+    }
+    h += sec("Cifras", (s.cifras && s.cifras.length) ? '<ul>' + s.cifras.map(function(c){ return '<li>' + refs(c) + '</li>'; }).join("") + '</ul>' : "");
+    if(s.catenaria) h += sec("Catenaria · toque de mercadeo", '<div class="cx-cat-box">' + refs(s.catenaria.t) + (s.catenaria.ev ? ' <span class="cx-ref">' + esc(s.catenaria.ev) + '</span>' : '') + '</div>');
+    var T3 = reparto([s]), sisH = "";
+    if(T3.tot) sisH += '<p><b class="cx-pct-b">' + pct(T3.inf, T3.tot) + ' %</b> de la información de esta estación opera sin sistema.</p>' + barra(T3) +
+      '<p class="cx-src">De ' + T3.tot + ' traspasos de información: ' + T3.ofi + ' por Odoo, Lark o EBS · ' + T3.ext + ' por plataformas externas · ' + T3.inf + ' sin sistema.</p>';
+    if(s.senalizacion && s.senalizacion.length){
+      [["ofi","Sistemas del grupo"],["ext","Plataformas externas"],["inf","Sin sistema"]].forEach(function(gr){
+        var xs = s.senalizacion.filter(function(x){ return grupoCl(clase(x)) === gr[0]; });
+        if(xs.length) sisH += '<div class="cx-grupo-sis"><span class="cx-src">' + gr[1] + '</span><div class="cx-chips">' + xs.map(function(x){ return '<span class="cx-chip ' + gr[0] + '">' + esc(x) + '</span>'; }).join("") + '</div></div>';
+      });
+    }
+    h += sec("Sistemas", sisH);
+    h += sec("Tripulación", (s.tripulacion && s.tripulacion.length) ? '<ul>' + s.tripulacion.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("") + '</ul>' : "");
+    if(s.proc && s.proc.length) h += sec("Procesos del manual", '<ul class="cx-procs">' + s.proc.map(function(c){
       var p = procInfo(c);
       return '<li><code>' + esc(c) + '</code><span>' + esc(p.n) + '</span><span class="cx-plinks">' +
         (p.asis ? '<a href="#/asis/' + esc(c) + '">As-Is</a>' : '') + '<a href="#/tobe/' + esc(c) + '">To-Be</a></span></li>';
-    }).join("") + '</ul></section>';
-    h += '<section><h3>Fuentes</h3><p class="cx-src">' + esc(s.src) + '</p></section>';
+    }).join("") + '</ul>');
+    h += sec("Por confirmar en la validación", s.confirmar ? '<div class="cx-confirmar">' + refs(s.confirmar) + '</div>' : "");
+    if(s.src) h += sec("Fuentes", '<p class="cx-src">' + esc(s.src) + '</p>');
     dbody.innerHTML = h;
     dbody.scrollTop = 0;
-    dbody.querySelectorAll("[data-ir]").forEach(function(b){
-      b.addEventListener("click", function(){ abrir(b.getAttribute("data-ir"), true); });
-    });
+  }
+
+  function marcar(id){
+    gEst.querySelectorAll(".cx-est").forEach(function(g){ g.classList.toggle("on", g.getAttribute("data-id") === id); });
+    host.querySelectorAll(".cx-item").forEach(function(i){ i.setAttribute("aria-current", i.getAttribute("data-id") === id ? "true" : "false"); });
   }
 
   function abrir(id, desdeClic){
-    // ids que la renumeración del 30-sep dejó sin estación: llevan a la nueva
+    // rutas viejas (#/circuito/8c, #/circuito/13…) llevan a la estación que las reemplaza
     var nuevo = C && C.alias && C.alias[id];
     if(nuevo){
       id = nuevo;
       try{ history.replaceState(null, "", "#/circuito/" + encodeURIComponent(id)); }catch(e){}
     }
-    var s = C && C.estaciones.filter(function(x){ return x.id === id; })[0];
+    var s = EST[id];
     if(!s) return;
     actual = id;
-    C.estaciones.forEach(function(x){ nodos[x.id].g.classList.toggle("on", x.id === id); });
-    host.querySelectorAll(".cx-item").forEach(function(i){ i.setAttribute("aria-current", i.getAttribute("data-id") === id ? "true" : "false"); });
+    marcar(id);
     pintarPanel(s);
     drawer.classList.add("abierto"); drawer.setAttribute("aria-hidden", "false");
     cuerpo.classList.add("con-panel");
     if(desdeClic){
       try{ history.replaceState(null, "", "#/circuito/" + encodeURIComponent(id)); }catch(e){}
-      // en pantalla estrecha el panel tapa el mapa: se lleva el foco a él
       host.querySelector("#cxDx").focus({preventScroll:true});
     }
   }
@@ -467,11 +460,11 @@
     actual = null;
     drawer.classList.remove("abierto"); drawer.setAttribute("aria-hidden", "true");
     cuerpo.classList.remove("con-panel");
-    C.estaciones.forEach(function(x){ nodos[x.id].g.classList.remove("on"); });
-    host.querySelectorAll(".cx-item").forEach(function(i){ i.setAttribute("aria-current", "false"); });
+    marcar(null);
     if(desdeUsuario){
       try{ history.replaceState(null, "", "#/circuito"); }catch(e){}
-      if(previo && nodos[previo]) nodos[previo].g.focus({preventScroll:true});
+      var g = previo && gEst.querySelector('.cx-est[data-id="' + previo + '"]');
+      if(g) g.focus({preventScroll:true});
     }
   }
 
