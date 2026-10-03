@@ -36,12 +36,15 @@
   .f2-top .crece{flex:1;min-width:0}
   .f2-top .lnk{font-size:12px;font-weight:600;color:var(--tinta-media);text-decoration:none;padding:6px 10px;border-radius:var(--r-pildora)}
   .f2-top .lnk:hover{background:var(--realce);color:var(--tinta)}
-  /* Presentación y Funcionamiento caben en el cintillo sin partir rótulos solo por encima de 1180 px;
+  /* acceso temporal (se retira al cerrar la validación): el mismo naranja claro que la cajita de la presentación en el portal */
+  .f2-top .lnk.lnk-temporal{background:color-mix(in srgb, var(--alerta) 13%, var(--panel-alto));box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--alerta) 45%, transparent);color:var(--tinta)}
+  .f2-top .lnk.lnk-temporal:hover{box-shadow:inset 0 0 0 1px var(--alerta)}
+  /* Presentación, Funcionamiento e Instructivo caben en el cintillo sin partir rótulos solo por encima de 1360 px;
      por debajo siguen en el menú lateral */
-  @media (min-width:1181px){ .f2-top .lnk{white-space:nowrap} }
-  @media (min-width:1181px) and (max-width:1300px){ .f2-top .lnk{padding:6px 7px} }
+  @media (min-width:1361px){ .f2-top .lnk{white-space:nowrap} }
+  @media (min-width:1361px) and (max-width:1460px){ .f2-top .lnk{padding:6px 7px} }
   /* sin sitio para la marca: los dos siguen a mano en el menú lateral */
-  @media (max-width:1180px){ .f2-top #lnkPresentacion,.f2-top #lnkFuncionamiento{display:none} }
+  @media (max-width:1360px){ .f2-top #lnkPresentacion,.f2-top #lnkFuncionamiento,.f2-top #lnkInstructivo{display:none} }
   .f2-icbtn{
     flex:none;width:34px;height:34px;border-radius:var(--r-pildora);border:1px solid var(--borde);
     background:var(--panel-alto);color:var(--tinta-media);font-size:15px;cursor:pointer;
@@ -228,6 +231,29 @@
   table.f2-tabla tbody tr:hover{background:var(--realce)}
   .f2-subtit{font-size:12px;font-weight:700;color:var(--tinta-media);margin:16px 0 4px;text-transform:uppercase;letter-spacing:.06em}
   .f2-subtit:first-child{margin-top:2px}
+
+  /* ── madurez documental (#/madurez) ── datos en madurez-datos.js ── */
+  .md-premisa{margin:4px 0 16px;padding:12px 16px;border-radius:var(--r-tarjeta);font-size:13px;line-height:1.6;
+    background:rgba(255,201,74,.08);border:1px solid rgba(255,201,74,.3);border-left:5px solid var(--alerta);color:var(--tinta)}
+  .md-premisa b{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-media);margin-bottom:4px}
+  .md-escala{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 10px;font-size:12px;color:var(--tinta-media)}
+  .md-escala span{display:inline-flex;align-items:center;gap:6px}
+  .md-n{display:inline-grid;place-items:center;font-style:normal;min-width:24px;height:24px;padding:0 6px;border-radius:var(--r-pildora);
+    font-weight:700;font-size:12px;font-variant-numeric:tabular-nums;border:1px solid var(--borde);color:var(--tinta-media)}
+  .md-n.n1{background:rgba(255,107,90,.14);border-color:rgba(255,107,90,.4);color:var(--riesgo)}
+  .md-n.n2{background:rgba(255,201,74,.14);border-color:rgba(255,201,74,.4);color:var(--alerta)}
+  .md-n.n3{background:rgba(46,212,122,.13);border-color:rgba(46,212,122,.35);color:var(--ok)}
+  table.md-tabla{min-width:760px}
+  table.md-tabla td:first-child{width:22%}
+  table.md-tabla td:first-child b{display:block;font-size:12.5px}
+  table.md-tabla td:first-child small{color:var(--tinta-tenue);font-size:11px}
+  table.md-tabla td:nth-child(2){width:25%;color:var(--tinta-media)}
+  table.md-tabla td:nth-child(4){width:64px;text-align:center}
+  table.md-tabla th:nth-child(4){text-align:center}
+  table.md-tabla q{font-style:italic;quotes:"«" "»"}
+  table.md-tabla tr.md-base td{background:rgba(46,212,122,.06)}
+  .md-pie{margin:6px 0 18px;font-size:11.5px;line-height:1.6;color:var(--tinta-tenue);max-width:100ch}
+  .md-pie a{color:var(--cian)}
 
   /* ── flujograma embebido ── */
   .fx-marco{position:relative;margin:6px 0 16px;border:1px solid var(--borde);border-radius:var(--r-tarjeta);background:var(--panel);overflow:hidden}
@@ -505,6 +531,16 @@
   .eo-grupotit.eo-g-negocio b{color:var(--menta)}
   .eo-grupotit.eo-g-staff b{color:var(--alerta)}
   .eo-hilos .eo-h-staff{stroke:var(--alerta)}
+  /* zona del staff: a los costados de la línea de la Presidencia, por encima de las
+     unidades de negocio, con sus tres niveles identificados al margen como el negocio */
+  .eo-staffila{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr);align-items:stretch}
+  .eo-staffila-1{padding-top:26px}
+  .eo-st-lado{display:flex;gap:14px;align-items:stretch}
+  .eo-st-izq{justify-content:flex-end}
+  .eo-st-der{justify-content:flex-start}
+  .eo-stcol{width:var(--eo-col);flex:none}
+  .eo-franja.eo-f-staff{background:color-mix(in srgb,var(--alerta) 5%,transparent);border-color:color-mix(in srgb,var(--alerta) 22%,transparent)}
+  .eo-rot-staff .eo-rnum{color:var(--alerta)}
   .eo-celda{display:flex;flex-direction:column;gap:26px;padding:18px 0 18px 22px}
   .eo-c1{align-items:center;padding:18px 0 30px}
   .eo-c1 .eo-card{width:min(100%,262px)}
@@ -580,6 +616,10 @@
   .eo-k-ceo{width:96px;height:26px;background:var(--tinta);border-color:var(--tinta)}
   .eo-k-st{width:48px;border-style:dashed;border-color:var(--alerta);background:transparent}
   .eo-k-lazo{width:22px;border-top:1.5px dashed var(--alerta)}
+  .eo-k-linea{align-self:stretch;width:0;border-left:2px solid var(--tinta-tenue);margin:-14px 6px 0}
+  .eo-k-ejes{display:grid;grid-template-columns:1fr auto 1fr;width:100%}
+  .eo-k-ejes > .eo-k-grupo:first-child{justify-self:end}
+  .eo-k-ejes > .eo-k-grupo:last-child{justify-self:start}
   .eo-k-dir{width:44px;height:24px}
   .eo-k-staff{border-top:4px solid var(--alerta)}
   .eo-k-neg{border-top:4px solid var(--menta)}
@@ -633,6 +673,18 @@
   .eo-lsw.eo-sw-neg{background:var(--menta)}
   .eo-lsw.eo-sw-staff{background:var(--alerta)}
   .eo-lsw.eo-sw-pun{height:0;border-top:1.5px dashed var(--tinta-tenue);border-radius:0}
+  /* leyenda flotante: se arrastra por la cabecera, se oculta con ✕ o con «Leyenda» en la barra */
+  .eo-leyenda.eo-leyflot{display:block;left:16px;top:64px;z-index:6;padding:0;box-shadow:var(--sombra)}
+  .eo-leyflot[hidden]{display:none}
+  .eo-leyasa{display:flex;align-items:center;gap:8px;padding:7px 8px 6px 14px;border-bottom:1px solid var(--borde-tenue);cursor:grab;user-select:none;touch-action:none;border-radius:14px 14px 0 0}
+  .eo-leyasa:focus-visible{outline:2px solid var(--cian);outline-offset:-2px}
+  .eo-ley-arrastra .eo-leyasa{cursor:grabbing}
+  .eo-leyasa b{flex:1;grid-column:auto}
+  .eo-leyasa::before{content:"⠿";color:var(--tinta-tenue);font-size:12px;margin-right:2px}
+  .eo-leyx{border:0;background:transparent;color:var(--tinta-tenue);font:inherit;font-size:12px;width:24px;height:24px;border-radius:7px;cursor:pointer}
+  .eo-leyx:hover{background:var(--realce);color:var(--tinta)}
+  .eo-leycuerpo{display:grid;grid-template-columns:auto auto;gap:6px 22px;padding:10px 14px 12px}
+  .eo-modo-capas .eo-leyflot{display:none!important}
   .eo-panel{
     position:absolute;top:58px;right:12px;bottom:12px;width:440px;max-width:calc(100% - 24px);z-index:8;
     display:flex;flex-direction:column;overflow:hidden;
@@ -892,13 +944,14 @@
       </div>
     </div>
     <div class="crece"></div>
-    <a class="lnk" href="#/" id="lnkManual">Manual de procesos</a>
+    <a class="lnk" href="presentacion-validacion.html" id="lnkPresentacion" title="Un decálogo, cinco premisas: la presentación que guía las sesiones de validación">Presentación</a>
     <a class="lnk" href="#/circuito" id="lnkCircuito">Circuito</a>
     <a class="lnk" href="#/mapa" id="lnkMapa">Mapa</a>
-    <a class="lnk" href="#/estructura" id="lnkEstructura">Estructura</a>
+    <a class="lnk" href="#/" id="lnkManual">Manual de procesos</a>
     <a class="lnk" href="estructura-funcionamiento.html" id="lnkFuncionamiento" title="Capas de la estructura To-Be y cómo funcionan sus unidades, paso a paso">Funcionamiento</a>
+    <a class="lnk" href="#/estructura" id="lnkEstructura">Estructura</a>
+    <a class="lnk lnk-temporal" href="instructivo-comite.html" id="lnkInstructivo" title="Instructivo del Comité de Validación del modelo To-Be · acceso temporal: se eliminará al cerrar la validación">Instructivo de validación</a>
     <a class="lnk" href="#/arquitectura" id="lnkArquitectura">Arquitectura de IA</a>
-    <a class="lnk" href="presentacion-validacion.html" id="lnkPresentacion" title="Un decálogo, cinco premisas: la presentación que guía las sesiones de validación">Presentación</a>
     <a class="lnk" href="../fase1/informe-diagnostico-fase1.html">← Fase 1</a>
     <button class="f2-icbtn" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
   </header>
@@ -967,6 +1020,7 @@
 <script src="manual-contenido.js"></script>
 <script src="manual-asis.js"></script>
 <script src="mapa-procesos-flujos.js"></script>
+<script src="madurez-datos.js"></script>
 <script src="flujo-render.js"></script>
 <script src="circuito-datos.js"></script>
 <script src="circuito-render.js"></script>
@@ -1070,6 +1124,7 @@
     var abiertos = leerAbiertos();
     var h = '<input class="f2-buscar" id="buscar" type="search" placeholder="Buscar macroproceso o proceso…" autocomplete="off">';
     h += '<a class="f2-navhome" href="#/">Inicio</a>';
+    h += '<a class="f2-navhome" href="#/madurez" id="navMadurez">Madurez documental</a>';
     h += '<a class="f2-navhome" href="#/circuito" id="navCircuito">Circuito del negocio</a>';
     h += '<a class="f2-navhome" href="#/mapa" id="navMapa">Mapa de procesos</a>';
     h += '<a class="f2-navhome" href="#/estructura" id="navEstructura">Estructura organizativa To-Be</a>';
@@ -1102,7 +1157,8 @@
       h += '</div></div>';
     });
     h += '<div class="f2-navfin"><a class="f2-navhome" href="#/arquitectura" id="navArquitectura">Arquitectura de IA</a>' +
-         '<a class="f2-navhome" href="presentacion-validacion.html">Presentación de validación</a></div>';
+         '<a class="f2-navhome" href="presentacion-validacion.html">Presentación de validación</a>' +
+         '<a class="f2-navhome" href="instructivo-comite.html">Instructivo del Comité de Validación</a></div>';
     h += '<div class="f2-nada" id="navNada" hidden>Sin coincidencias.</div>';
     nav.innerHTML = h;
 
@@ -1191,6 +1247,7 @@
     nav.querySelectorAll('.f2-mrow.on').forEach(function(n){n.classList.remove('on');});
     nav.querySelectorAll('.f2-msub a.on').forEach(function(n){n.classList.remove('on');});
     $('.f2-navhome').classList.toggle('on', tipo==='inicio');
+    var nm = $('#navMadurez'); if(nm) nm.classList.toggle('on', tipo==='madurez');
     if(tipo==='macro'){
       var r = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(id)+'"]');
       if(r) r.classList.add('on');
@@ -1317,6 +1374,43 @@
     doc.innerHTML = h;
     marcarNav('inicio');
     document.title = 'Manual de Procesos — Fase 2 | Proyecto Rower';
+    if(spy) spy.disconnect();
+    main.scrollTop = 0;
+  }
+  // ---------- vista: madurez documental (#/madurez) ----------
+  // El punto de partida de la validación: sostiene la premisa central de la
+  // lámina 2 de la presentación. El contenido vive en madurez-datos.js.
+  function vistaMadurez(){
+    var M = window.MADUREZ;
+    if(!M) return vistaInicio();
+    // «…» en el dato es una cita textual: se pinta como <q> (las comillas las pone el CSS)
+    var citas = function(t){ return esc(t).replace(/«([^»]+)»/g, '<q>$1</q>'); };
+    var celdas = function(x, ultima){
+      return '<td><b>'+esc(x.c)+'</b><small>'+esc(x.ref)+'</small></td><td>'+esc(x.exige)+'</td><td>'+citas(x.hallado)+'</td><td>'+ultima+'</td>';
+    };
+    var h = '<div class="f2-kicker">Grupo Kenex · Fase 2 · punto de partida</div>';
+    h += '<h1 class="f2-h1">madurez documental de la organización: dónde estamos</h1>';
+    h += '<div class="md-premisa"><b>Premisa central · el punto de partida en madurez documental es bajo</b>'+esc(M.premisa)+'</div>';
+    h += '<div class="md-escala" aria-label="Escala de madurez">';
+    // los tres niveles que usa la tabla, con su pastilla; el 4 y el 5 solo se nombran
+    M.escala.forEach(function(e){
+      if(e.n<=3) h += '<span><i class="md-n n'+e.n+'">'+e.n+'</i>'+esc(e.r)+': '+esc(e.d)+'</span>';
+    });
+    h += '<span>'+M.escala.filter(function(e){return e.n>3;}).map(function(e){return e.n+' '+esc(e.r);}).join(' · ')+'</span>';
+    h += '</div>';
+    h += '<div class="f2-tabla-wrap"><table class="f2-tabla md-tabla"><thead><tr><th>Criterio de verificación</th><th>Qué exige un nivel maduro</th><th>Qué encontramos en Kenex (Fase 1 y Fase 2)</th><th>Nivel</th></tr></thead><tbody>';
+    M.criterios.forEach(function(x){
+      h += '<tr>'+celdas(x, '<i class="md-n n'+x.nivel+'" title="Nivel '+x.nivel+'">'+x.nivel+'</i>')+'</tr>';
+    });
+    if(M.base) h += '<tr class="md-base">'+celdas(M.base, '<i class="md-n n3" title="Base para escalar">✓</i>')+'</tr>';
+    h += '</tbody></table></div>';
+    h += '<p class="f2-prosa"><b>Lectura.</b> '+esc(M.lectura)+'</p>';
+    h += '<p class="md-pie">Evidencia: '+esc(M.evidencia)+'<br>Criterios de referencia: '+
+         M.fuentes.map(function(f){ return '<a href="'+esc(f.u)+'" target="_blank" rel="noopener">'+esc(f.t)+'</a>'; }).join(' · ')+'</p>';
+    h += '<div style="margin:0 0 20px;display:flex;flex-wrap:wrap;gap:8px"><a class="btn btn-marca" href="#/">Ir al manual de procesos →</a><a class="btn btn-suave" href="presentacion-validacion.html#2">Volver a la presentación</a></div>';
+    doc.innerHTML = h;
+    marcarNav('madurez');
+    document.title = 'Madurez documental — Fase 2 | Proyecto Rower';
     if(spy) spy.disconnect();
     main.scrollTop = 0;
   }
@@ -1919,6 +2013,7 @@
     salirCircuito();
     salirMapa();
     if(!parts.length) return vistaInicio();
+    if(parts[0]==='madurez') return vistaMadurez();
     if(parts[0]==='m') return vistaMacro(parts[1], parts[2]);
     if(parts[0]==='p'){
       // Con As-Is, entrar al proceso ofrece elegir versión. Un enlace con sección

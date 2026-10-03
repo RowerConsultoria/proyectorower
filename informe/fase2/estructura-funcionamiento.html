@@ -103,6 +103,8 @@ button{font:inherit;color:inherit}
 .escalera{display:flex;flex-wrap:wrap;gap:6px;counter-reset:esc 3;list-style:none;margin:0;padding:0}
 .escalera li{counter-increment:esc;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:13.5px}
 .escalera li::before{content:counter(esc) " ";font-variant-numeric:tabular-nums;color:var(--ink-3);font-size:12px}
+.nota-fase3{display:flex;gap:12px;align-items:flex-start;margin-top:18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--flow);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--ink-2);max-width:none}
+.nota-fase3 b{color:var(--ink)}
 .cruzan{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-left:44px;margin-right:44px}
 .cruza{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
 .cruza h4{margin:0 0 6px;font-size:14.5px}
@@ -436,7 +438,9 @@ function chipUnidad(id){
 
 /* ================================================================ capas: pila */
 function pila(){
-  var h = '<div class="pila">';
+  // Nota: las capas son la base de la estructura patrón de cargos (Fase 3).
+  var h = '<p class="nota-fase3"><span><b>Nota.</b> Estas capas son la base de la <b>estructura patrón de cargos</b>, un aspecto de la Fase 3: la puerta de entrada al manual de cargos y a sus descripciones. Cada capa fija un nivel de responsabilidad; los escalones del patrón ordenan los cargos dentro de cada unidad.</span></p>';
+  h += '<div class="pila">';
   h += '<div class="eje baja" aria-hidden="true"><span>Línea rectora</span></div>';
   var capas = [
     {n:"Gobierno", v:"Decide el rumbo", d:"Gobierna; no es línea de mando.",

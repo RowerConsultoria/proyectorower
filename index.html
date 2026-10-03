@@ -55,6 +55,11 @@
   a.acceso b{color:var(--tinta); font-size:.95rem; font-weight:650;}
   a.acceso b::after{content:" →"; color:var(--ok);}
   a.acceso span{font-size:.84rem; color:var(--tinta-media);}
+  /* acceso temporal (presentación de validación): naranja claro, con aviso debajo */
+  a.acceso.temporal{background:color-mix(in srgb, var(--alerta) 13%, var(--panel-alto)); border-color:color-mix(in srgb, var(--alerta) 45%, transparent);}
+  a.acceso.temporal:hover{border-color:var(--alerta);}
+  a.acceso.temporal b::after{color:var(--alerta);}
+  .nota-temporal{margin:4px 2px 0; font-size:.76rem; font-style:italic; color:var(--tinta-tenue);}
   .card .llave{
     display:block; margin-top:10px; font-size:.8rem; color:var(--tinta-tenue);
     border-top:1px dashed var(--borde); padding-top:8px;
@@ -120,8 +125,16 @@
     <div class="card front tarjeta modulo" id="cFase2">
       <span class="marca-estado e-ok">Front · los productos de la fase</span>
       <h3>Fase 2 — Procesos y estructura</h3>
-      <p>Los dos productos de la fase, para navegarlos y validarlos.</p>
+      <p>Los dos productos de la fase y la presentación que guía su validación.</p>
       <div class="accesos">
+        <!-- Temporal: acceso de las sesiones de validación (5 y 9 de octubre); se retira de esta vista después -->
+        <div class="acceso-temporal">
+          <a class="acceso temporal" id="cF2Presentacion" href="acceso/?destino=informe%2Ffase2%2Fpresentacion-validacion.html">
+            <b>Presentación de validación</b>
+            <span>«Un decálogo, cinco premisas»: el método, el As-Is y el To-Be, y la estrategia de validación. Guía de la reunión con la Presidencia (5-oct) y de la Junta Directiva (9-oct).</span>
+          </a>
+          <p class="nota-temporal">Módulo temporal, se eliminará de esta vista</p>
+        </div>
         <a class="acceso" id="cF2Manual" href="acceso/?destino=informe%2Ffase2%2Finforme-fase2.html">
           <b>Manual de procesos</b>
           <span>20 macroprocesos y 182 procesos, en sus versiones As-Is y To-Be, con flujogramas BPMN y mapa interactivo.</span>
@@ -156,6 +169,7 @@
     cInforme: 'informe/fase1/informe-diagnostico-fase1.html',
     cF2Manual:     'informe/fase2/informe-fase2.html',
     cF2Estructura: 'informe/fase2/informe-fase2.html#/estructura',
+    cF2Presentacion: 'informe/fase2/presentacion-validacion.html',
     cAdmin:   'admin/',
   };
   const caja = $('#sesionBox');

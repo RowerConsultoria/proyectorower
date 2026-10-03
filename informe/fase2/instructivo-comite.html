@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructivo del Comité de Validación — Fase 2 | Proyecto Rower</title>
+<!-- Instructivo del Comité de Validación del modelo To-Be. Nació como documento de claude.ai
+     (02-oct-2026) y desde entonces vive aquí y se edita a mano. Lleva nombres propios (los
+     integrantes del comité), con el mismo criterio que la estructura To-Be: nada de salarios,
+     nóminas ni lo político de la discusión. Los cargos son los de estructura-tobe-datos.js. -->
+<script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<!-- Tema: el del manual de Fase 2 (rower.tema), claro por defecto. -->
+<script>(function(){var m='claro';try{m=localStorage.getItem('rower.tema')==='oscuro'?'oscuro':'claro';}catch(e){}
+document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+/* Layout: documento de lectura en una columna, índice lateral fijo en pantallas anchas. */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --surface-2:#EEF2F7; --ink:#14213A; --ink-2:#4A566A; --ink-3:#6B7586;
+  --line:#D8DEE7; --navy:#1F3864; --navy-ink:#FFFFFF; --flow:#2E75B6; --aviso:#A86400; --aviso-soft:rgba(178,106,0,.10);
+  --f-display:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0E141E; --surface:#161E2B; --surface-2:#1C2636; --ink:#E7ECF3; --ink-2:#A7B1C0; --ink-3:#8590A1;
+  --line:#2A3547; --navy:#3C5E9C; --navy-ink:#FFFFFF; --flow:#5EA6EC; --aviso:#E0A046; --aviso-soft:rgba(224,160,70,.12);
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0E141E; --surface:#161E2B; --surface-2:#1C2636; --ink:#E7ECF3; --ink-2:#A7B1C0; --ink-3:#8590A1;
+  --line:#2A3547; --navy:#3C5E9C; --navy-ink:#FFFFFF; --flow:#5EA6EC; --aviso:#E0A046; --aviso-soft:rgba(224,160,70,.12);
+  color-scheme:dark }
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+a{color:var(--flow)}
+:focus-visible{outline:2px solid var(--flow);outline-offset:2px}
+.envoltura{max-width:1180px;margin:0 auto;padding-inline:24px;padding-block:28px 72px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+.indice{position:sticky;top:20px;align-self:start;font-size:14px}
+.indice b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.indice a{display:block;color:var(--ink-2);text-decoration:none;padding:5px 0 5px 10px;border-left:2px solid var(--line)}
+.indice a:hover{color:var(--ink);border-left-color:var(--flow)}
+.doc{min-width:0;max-width:78ch}
+.ceja{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.volver{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(28px,3.2vw,38px);line-height:1.12;margin:8px 0 6px}
+.fecha{font-size:14px;color:var(--ink-3);margin:0 0 8px}
+h2{font-size:24px;line-height:1.2;margin:44px 0 10px;scroll-margin-top:16px}
+p{margin:0 0 12px;color:var(--ink-2)}
+p b,li b{color:var(--ink)}
+ul,ol{margin:0 0 14px;padding-left:22px;color:var(--ink-2)}
+li{margin:4px 0}
+ol ol{list-style:lower-alpha;margin:6px 0}
+.tabla{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+td{color:var(--ink-2)}
+.clave{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--flow);border-radius:10px;padding:14px 18px;margin:14px 0}
+.clave p:last-child{margin:0}
+.aviso{background:var(--aviso-soft);border-left-color:var(--aviso)}
+.check{list-style:none;padding-left:0}
+.check li{display:flex;gap:10px;align-items:flex-start}
+.check input{margin-top:6px;width:18px;height:18px;flex:none;accent-color:var(--navy)}
+.pie{margin-top:40px;font-size:13px;color:var(--ink-3)}
+@media (max-width:860px){
+  .envoltura{grid-template-columns:minmax(0,1fr);padding-inline:16px;gap:16px}
+  .indice{position:static}
+  td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="envoltura">
+<nav class="indice" aria-label="Contenido">
+  <b>Contenido</b>
+  <a href="#para-que">Para qué es</a>
+  <a href="#comite">El comité</a>
+  <a href="#decalogo">El decálogo</a>
+  <a href="#enfoque">El enfoque estratégico</a>
+  <a href="#proceso-departamento">Un proceso no es un departamento</a>
+  <a href="#como-validar">Cómo validar</a>
+  <a href="#consultas">Consultas puntuales</a>
+  <a href="#lista">Lista de verificación</a>
+</nav>
+
+<main class="doc">
+<div class="ceja"><a class="volver" href="informe-fase2.html#/">← Manual de procesos · Fase 2</a> · Comité de Validación</div>
+<h1>Instructivo del Comité de Validación — Modelo To-Be de Grupo Kenex</h1>
+<p class="fecha">Versión del 2 de octubre de 2026 · borrador para acordar con la Presidencia</p>
+
+<h2 id="para-que">Para qué es este instructivo</h2>
+<p>El Comité de Validación confirma si el modelo To-Be describe hacia dónde debe ir el Grupo Kenex: los procesos del manual, la estructura organizativa propuesta y su funcionamiento. Este instructivo explica quién lo integra, con qué criterio valida y cómo trabaja, proceso por proceso.</p>
+<p>El comité no revisa si el manual copia la operación de hoy. Revisa si la propuesta es la correcta para la etapa que empieza. Por eso lo integran quienes deciden e impulsan la transformación, y no quienes ejecutan cada proceso hoy.</p>
+<div class="clave aviso"><p><b>Premisa central: el punto de partida en madurez documental es bajo.</b> El diagnóstico lo muestra en cuatro rasgos:</p>
+<ul>
+  <li>La documentación de procesos es escasa o nula.</li>
+  <li>La que existe usa esquemas y formatos distintos.</li>
+  <li>No hay una política para producirla ni una gobernanza declarada.</li>
+  <li>En consecuencia, hay tantos criterios para organizar los procesos como responsables de área, sin una base de conocimiento común y consolidada, ni una instancia central que responda por su evolución.</li>
+</ul>
+<p>Validar no es revisar la documentación de cada área: es acordar, por primera vez, una sola forma de documentar y de organizar los procesos para todo el grupo.</p></div>
+<p>Qué se valida:</p>
+<ul>
+  <li><b>Los procesos To-Be del manual de procesos:</b> 182 procesos en 20 macroprocesos, cada uno con su versión As-Is como referencia del punto de partida.</li>
+  <li><b>La estructura organizativa To-Be:</b> sus capas, su funcionamiento y sus unidades.</li>
+  <li><b>La coherencia entre ambos:</b> que cada proceso tenga quién lo dirija y quién lo ejecute en la estructura.</li>
+</ul>
+
+<h2 id="comite">El comité y sus integrantes</h2>
+<p>Lo integran perfiles que influyen sobre la ruta estratégica de la organización: los accionistas que dirigen el grupo y quienes encabezan las funciones que la estructura To-Be reorganiza. Valida quien decide hacia dónde va Kenex; los dueños de proceso se consultan en lo puntual.</p>
+<div class="tabla"><table>
+  <thead><tr><th>Integrante</th><th>Papel en el modelo To-Be</th><th>Por qué integra el comité</th></tr></thead>
+  <tbody>
+    <tr><td>Bernardo Roizental</td><td>Presidencia · CEO</td><td>Preside el comité y define la visión del grupo</td></tr>
+    <tr><td>Ricardo Roizental</td><td>Dirección Corporativa de Finanzas y Negocios</td><td>La caja, el riesgo, las inversiones y los negocios nuevos del grupo</td></tr>
+    <tr><td>Alejandro Roizental</td><td>Dirección Corporativa de Investigación y Desarrollo</td><td>La compra de producto y la decisión final sobre los productos nuevos</td></tr>
+    <tr><td>Roberto Roizental</td><td>Gerencia Corporativa de Compras Casio (Línea Casio, Dirección de Investigación y Desarrollo)</td><td>La compra de catálogo y repuestos de la marca representada y la relación con la casa matriz</td></tr>
+    <tr><td>Andrés Roizental</td><td>Dirección Corporativa Comercial (por validar)</td><td>La venta en todos los canales y la demanda que la produce, para las dos marcas</td></tr>
+    <tr><td>Anabel Roizental</td><td>Gerencia Corporativa de Experiencia Digital (Mercadeo, Dirección Comercial)</td><td>El contenido, las redes y la web de todas las marcas y países, con una sola línea visual</td></tr>
+    <tr><td>Stephania Roizental</td><td>Gerencia Corporativa de Desarrollo de Producto (Mercadeo, Dirección Comercial) o Gerencia Corporativa Línea Cubitt (Dirección de Investigación y Desarrollo), por definir</td><td>El producto y las licencias de la marca propia: colores de temporada, lanzamientos y alianzas con otras marcas</td></tr>
+    <tr><td>María Elvira Sabal</td><td>Dirección Corporativa de Desarrollo Corporativo</td><td>El talento, los proyectos y la implantación de los manuales de proceso</td></tr>
+    <tr><td>Ricardo Candanedo</td><td>Gerencia Corporativa de Proyectos (PMO), Dirección de Desarrollo Corporativo</td><td>El portafolio de proyectos y la ejecución de la transformación</td></tr>
+    <tr><td>Fernando Alvarado</td><td>Dirección Corporativa de Operaciones y Logística</td><td>La promesa de entrega: importación, almacén principal y distribución a todos los países</td></tr>
+    <tr><td>Handani Mora</td><td>Gerencia Corporativa de Ventas (Dirección Comercial)</td><td>La línea rectora de todos los canales de venta y de la postventa</td></tr>
+  </tbody>
+</table></div>
+<p><b>Sugeridos, a confirmar con la Presidencia:</b></p>
+<div class="tabla"><table>
+  <thead><tr><th>Perfil</th><th>Papel propuesto en el comité</th></tr></thead>
+  <tbody>
+    <tr><td>Araní González · Gerencia de Proyectos</td><td>Secretaría técnica: agenda, actas y seguimiento de los ajustes</td></tr>
+    <tr><td>Carmela Iribarren · Asistencia Ejecutiva de la Presidencia</td><td>Coordinación de sesiones y enlace con la Presidencia</td></tr>
+    <tr><td>Un asesor externo de la Junta Directiva</td><td>Invitado opcional en procesos de gobierno y finanzas</td></tr>
+  </tbody>
+</table></div>
+<p>El equipo consultor facilita las revisiones con acompañamiento asíncrono o síncrono, a solicitud; recoge los ajustes y los implementa. No vota, pero puede hacer sugerencias sobre lo indicado por el cliente.</p>
+<p><b>Cómo se organiza el trabajo:</b> se asignan los macroprocesos entre los integrantes y se acuerdan dos fechas tope, una para la revisión con comentarios y otra para aplicar los cambios. Los cambios quedan registrados en la interacción de cada responsable con la plataforma durante la validación.</p>
+
+<h2 id="decalogo">Antes de empezar: el decálogo y las cinco ideas centrales</h2>
+<p>Cada integrante debe tener presente el decálogo antes de su primera revisión: explica qué es el manual, qué no es y de dónde sale. Se recorre en la presentación de la Fase 2: <a href="presentacion-validacion.html#5">el decálogo</a> y <a href="presentacion-validacion.html#7">las cinco ideas centrales</a>.</p>
+<p>Las cinco ideas centrales, en resumen:</p>
+<ol>
+  <li><b>Una sola base, muchos documentos.</b> Todo lo que se sabe de Kenex vive en una base de conocimiento; los manuales, normas y políticas salen de ella, y todo cambio entra por ella.</li>
+  <li><b>Un plan para transformar, no una foto del presente.</b> Cada proceso muestra cómo es hoy y cómo debería ser; la distancia entre ambos es el trabajo por hacer.</li>
+  <li><b>Ordena sin atar.</b> El manual llega hasta la actividad, deja margen al criterio de cada responsable y se ajusta al ritmo del cambio.</li>
+  <li><b>Un solo Kenex.</b> Un flujo común para todos los países y procesos escritos por cargo, de la mano de la estructura organizativa.</li>
+  <li><b>Lo valida quien decide el rumbo.</b> Un comité ejecutivo de quienes conducen la transformación, con el apoyo puntual de los dueños de proceso. Desde entonces es de Kenex.</li>
+</ol>
+
+<h2 id="enfoque">El enfoque estratégico, y el sesgo que hay que vigilar</h2>
+<p>La reorganización abre una nueva etapa de madurez organizativa para el Grupo Kenex, orientada a dos fines: <b>el crecimiento comercial</b> y <b>la optimización de la gestión</b>. Ese es el criterio con el que se valida. Cada proceso, cada unidad y cada línea de mando se juzga por si acerca a la organización a esos dos fines, no por si se parece a lo que se hace hoy.</p>
+<div class="clave"><p><b>Hay procesos nuevos, y es parte del cambio.</b> Algunos procesos del To-Be no existen hoy en el modelo de funcionamiento, o existen repartidos entre varias unidades sin un responsable claro. Calidad y Mejora Continua, o Adopción de IA y Transformación Digital, son dos ejemplos. Que un proceso no tenga As-Is, o que su As-Is describa lo que ocurre en su lugar, no es un defecto del manual: es la capacidad nueva que la organización necesita para la etapa que empieza. Se validan con el mismo criterio que el resto.</p></div>
+<p>El criterio se aplica en tres contrastes, que se hacen juntos:</p>
+<ul>
+  <li><b>Estructura contra procesos:</b> ¿cada proceso tiene en la estructura quién lo dirige y quién lo ejecuta?</li>
+  <li><b>Procesos contra funcionamiento:</b> ¿las decisiones y los traspasos del proceso siguen la lógica del modelo (lo corporativo fija la línea, el país ejecuta, lo transversal lo resuelve un comité)? Ver <a href="estructura-funcionamiento.html#funcionamientos">el funcionamiento paso a paso</a>.</li>
+  <li><b>Estructura contra funcionamiento:</b> ¿las capas y los niveles de responsabilidad permiten que el trabajo fluya como el modelo propone? Ver <a href="estructura-funcionamiento.html#capas">las capas</a>.</li>
+</ul>
+<div class="clave aviso"><p><b>El sesgo hacia el As-Is nos alcanza a todos, también al comité.</b> Quien conoce bien la operación tiende a juzgar la propuesta contra lo que ya funciona, y a corregirla para que se parezca al presente. Cuando una observación vaya en ese sentido, conviene preguntarse:</p>
+<ul>
+  <li>¿Lo cambio porque la propuesta está mal, o porque es distinta de lo que hacemos hoy?</li>
+  <li>¿El ajuste acerca o aleja al grupo del crecimiento comercial y de una gestión más ordenada?</li>
+  <li>¿Estoy protegiendo una práctica que funciona, o una costumbre que la propuesta viene a cambiar?</li>
+</ul></div>
+<p>El As-Is de cada proceso está en el manual para ver de dónde se parte, no para volver a él.</p>
+
+<h2 id="proceso-departamento">Un proceso no es un departamento</h2>
+<p>El manual de procesos y la estructura organizativa no se contradicen aunque no coincidan uno a uno. Responden a dos preguntas distintas: <b>la estructura dice quién responde por qué; el mapa de procesos dice cómo fluye el trabajo.</b></p>
+<p>Los macroprocesos agrupan procesos por la naturaleza del trabajo —estratégico, operativo o de soporte—, no por áreas. Por eso un mismo proceso suele recorrer dos o más unidades: la compra internacional, por ejemplo, la decide el Comité Comercial, la paga Finanzas y la recibe Operaciones y Logística. Y una misma unidad participa en procesos de varios macroprocesos.</p>
+<p>Al validar, entonces:</p>
+<ul>
+  <li><b>Que un macroproceso no tenga una dirección con su nombre no es un error.</b> Lo que importa es que cada proceso tenga un dueño claro en la estructura.</li>
+  <li><b>Que un proceso cruce varias unidades es lo esperable.</b> Lo que importa es que cada traspaso tenga quién entrega y quién recibe, y que cada decisión tenga quién la tome.</li>
+  <li><b>Si un proceso no encaja en ninguna unidad, se señala.</b> Puede faltar una unidad, o puede que el proceso esté mal planteado: las dos cosas se resuelven en el comité.</li>
+</ul>
+
+<h2 id="como-validar">Cómo validar, paso a paso</h2>
+<p>Se valida <b>proceso por proceso, no macroproceso por macroproceso.</b> El macroproceso es el índice que ordena la lectura; la decisión se toma sobre cada proceso, que es donde están el dueño, el flujo, los riesgos y los indicadores.</p>
+<ol>
+  <li><b>Abrir el proceso en el <a href="informe-fase2.html#/">manual de la Fase 2</a></b> y leer primero su As-Is, solo para ubicar el punto de partida.</li>
+  <li><b>Pasar al To-Be</b> y recorrerlo sección por sección:
+    <ol><li>Propósito y alcance</li><li>Dueño y participantes</li><li>Disparador, cadencia y resultado</li><li>Flujo de actividades y flujograma</li><li>Matriz de riesgos</li><li>Indicadores</li></ol></li>
+  <li><b>Dar un veredicto por sección:</b> <i>valida</i>, <i>valida con ajustes</i> o <i>no valida</i>. Una sección que no se valida necesita decir por qué y qué propone en su lugar.</li>
+  <li><b>Anotar cada ajuste anclado a su lugar:</b> el código del proceso, la sección y, si es del flujo, el número de la actividad. Una observación sin ancla obliga a adivinar a qué se refiere.</li>
+  <li><b>Contrastar con la estructura y el funcionamiento</b> antes de cerrar el proceso: los tres contrastes de la sección anterior.</li>
+  <li><b>Entregar las notas a la secretaría técnica</b> al cierre de cada revisión, para que el equipo consultor las incorpore a la base de conocimiento.</li>
+</ol>
+<p><b>Notas escritas o notas de voz.</b> Cada integrante puede tomar nota a mano, por escrito o grabando notas de voz. En una nota de voz conviene empezar diciendo el código del proceso y la sección («6.3, flujo, actividad 4»), y explicar después qué ajustaría y por qué. Una nota por sección es más fácil de procesar que una sola grabación larga por proceso.</p>
+<p><b>La pregunta que guía cada sección</b> no es «¿así lo hacemos hoy?» sino «¿así deberíamos hacerlo para crecer y gestionar mejor?».</p>
+
+<h2 id="consultas">Consultas puntuales a los dueños de proceso</h2>
+<p>El comité puede consultar a quienes hoy son dueños de un proceso, y es bueno que lo haga cuando falta un dato que solo la operación conoce. La decisión sigue siendo del comité.</p>
+<p><b>Cuándo consultar:</b> para precisar un dato, no para someter la propuesta a votación. Por ejemplo, un plazo real, una cifra, un control que hoy existe y no aparece, o una secuencia que no se entiende.</p>
+<p><b>Con qué cuidado:</b> quien hoy opera un proceso puede inclinarse, sin mala intención, hacia una de dos salidas:</p>
+<ul>
+  <li><b>Mantener el As-Is:</b> proponer que el To-Be vuelva a como se trabaja hoy, porque es lo conocido.</li>
+  <li><b>Un cambio a conveniencia:</b> proponer un ajuste que mejora su posición o su comodidad, pero no el resultado del grupo.</li>
+</ul>
+<p>Por eso conviene preguntar por hechos concretos y no por opiniones sobre el diseño, y llevar la respuesta al comité con el criterio estratégico a la vista. Una consulta se registra en las notas del proceso, con a quién se hizo y qué se respondió.</p>
+
+<h2 id="lista">Lista de verificación por proceso</h2>
+<p>Antes de dar un proceso por validado:</p>
+<ul class="check">
+  <li><input type="checkbox" id="c1" aria-label="Punto 1"><span>Leí el As-Is para ubicar el punto de partida y validé sobre el To-Be.</span></li>
+  <li><input type="checkbox" id="c2" aria-label="Punto 2"><span>Di un veredicto a cada una de las seis secciones.</span></li>
+  <li><input type="checkbox" id="c3" aria-label="Punto 3"><span>Cada ajuste dice proceso, sección y, si aplica, número de actividad.</span></li>
+  <li><input type="checkbox" id="c4" aria-label="Punto 4"><span>El dueño del proceso existe en la estructura To-Be.</span></li>
+  <li><input type="checkbox" id="c5" aria-label="Punto 5"><span>Cada decisión del flujo tiene quién la tome, y cada traspaso, quién entrega y quién recibe.</span></li>
+  <li><input type="checkbox" id="c6" aria-label="Punto 6"><span>Revisé mis ajustes contra el sesgo hacia el As-Is.</span></li>
+  <li><input type="checkbox" id="c7" aria-label="Punto 7"><span>Las consultas a dueños de proceso quedaron registradas.</span></li>
+  <li><input type="checkbox" id="c8" aria-label="Punto 8"><span>Entregué mis notas escritas o de voz a la secretaría técnica.</span></li>
+</ul>
+<p class="pie">La lista se marca en este navegador como ayuda para cada proceso; no se guarda en el aplicativo. UCAB Consultores · Grupo Kenex · Fase 2.</p>
+</main>
+</div>
+</body>
+</html>
