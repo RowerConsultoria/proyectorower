@@ -39,12 +39,12 @@
   /* acceso temporal (se retira al cerrar la validación): el mismo naranja claro que la cajita de la presentación en el portal */
   .f2-top .lnk.lnk-temporal{background:color-mix(in srgb, var(--alerta) 13%, var(--panel-alto));box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--alerta) 45%, transparent);color:var(--tinta)}
   .f2-top .lnk.lnk-temporal:hover{box-shadow:inset 0 0 0 1px var(--alerta)}
-  /* Presentación, Funcionamiento e Instructivo caben en el cintillo sin partir rótulos solo por encima de 1360 px;
+  /* Presentación, Madurez, Funcionamiento e Instructivo caben en el cintillo sin partir rótulos solo por encima de 1500 px;
      por debajo siguen en el menú lateral */
-  @media (min-width:1361px){ .f2-top .lnk{white-space:nowrap} }
-  @media (min-width:1361px) and (max-width:1460px){ .f2-top .lnk{padding:6px 7px} }
+  @media (min-width:1501px){ .f2-top .lnk{white-space:nowrap} }
+  @media (min-width:1501px) and (max-width:1600px){ .f2-top .lnk{padding:6px 7px} }
   /* sin sitio para la marca: los dos siguen a mano en el menú lateral */
-  @media (max-width:1360px){ .f2-top #lnkPresentacion,.f2-top #lnkFuncionamiento,.f2-top #lnkInstructivo{display:none} }
+  @media (max-width:1500px){ .f2-top #lnkPresentacion,.f2-top #lnkMadurez,.f2-top #lnkFuncionamiento,.f2-top #lnkInstructivo{display:none} }
   .f2-icbtn{
     flex:none;width:34px;height:34px;border-radius:var(--r-pildora);border:1px solid var(--borde);
     background:var(--panel-alto);color:var(--tinta-media);font-size:15px;cursor:pointer;
@@ -72,6 +72,10 @@
   }
   .f2-navhome:hover{background:var(--realce);color:var(--tinta)}
   .f2-navhome.on{background:var(--panel);color:var(--tinta);box-shadow:var(--sombra)}
+  /* acceso de la validación (Madurez documental): el mismo naranja claro que el cintillo y el portal */
+  .f2-navhome.f2-navtemporal{background:color-mix(in srgb, var(--alerta) 13%, var(--panel-alto));box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--alerta) 45%, transparent);color:var(--tinta)}
+  .f2-navhome.f2-navtemporal:hover{box-shadow:inset 0 0 0 1px var(--alerta)}
+  .f2-navhome.f2-navtemporal.on{box-shadow:inset 0 0 0 1px var(--alerta),var(--sombra)}
 
   .f2-cat-tit{
     font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
@@ -945,6 +949,7 @@
     </div>
     <div class="crece"></div>
     <a class="lnk" href="presentacion-validacion.html" id="lnkPresentacion" title="Un decálogo, cinco premisas: la presentación que guía las sesiones de validación">Presentación</a>
+    <a class="lnk lnk-temporal" href="#/madurez" id="lnkMadurez" title="Madurez documental de la organización: el punto de partida de la validación">Madurez documental</a>
     <a class="lnk" href="#/circuito" id="lnkCircuito">Circuito</a>
     <a class="lnk" href="#/mapa" id="lnkMapa">Mapa</a>
     <a class="lnk" href="#/" id="lnkManual">Manual de procesos</a>
@@ -1124,7 +1129,7 @@
     var abiertos = leerAbiertos();
     var h = '<input class="f2-buscar" id="buscar" type="search" placeholder="Buscar macroproceso o proceso…" autocomplete="off">';
     h += '<a class="f2-navhome" href="#/">Inicio</a>';
-    h += '<a class="f2-navhome" href="#/madurez" id="navMadurez">Madurez documental</a>';
+    h += '<a class="f2-navhome f2-navtemporal" href="#/madurez" id="navMadurez">Madurez documental</a>';
     h += '<a class="f2-navhome" href="#/circuito" id="navCircuito">Circuito del negocio</a>';
     h += '<a class="f2-navhome" href="#/mapa" id="navMapa">Mapa de procesos</a>';
     h += '<a class="f2-navhome" href="#/estructura" id="navEstructura">Estructura organizativa To-Be</a>';
