@@ -349,7 +349,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'La cadena de valor ordena las direcciones',
      d:'El negocio empieza con Investigación y Desarrollo, que compra; Operaciones y Logística lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, de la compra a la postventa. Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA son staff: sostienen a las tres y apoyan a la Presidencia, así que no comparten nivel con ellas. Se ubican a los costados de la línea que baja de la Presidencia, por encima de las unidades de negocio.'},
+     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, de la compra a la postventa. Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA son staff: sostienen a las tres y apoyan a la Presidencia, sin mezclarse con ellas. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
      d:'Proyectos y Consultoría Jurídica no se replican por país: son un equipo central que se reparte según lo que pida la corporación, y que subcontrata en los picos.'},
     {t:'Cogobierno por comités',
@@ -426,7 +426,7 @@ window.ESTRUCTURA_TOBE = {
     conserva:[
       'Holding y Junta Directiva como gobierno —consulta y decisión—, no como línea de mando.',
       'Una capa corporativa rectora que se despliega en cada país.',
-      'La distinción visual entre staff y unidades de negocio, ahora en niveles distintos: el staff a los costados de la línea de la Presidencia y el negocio debajo, en el orden de la cadena de valor.',
+      'La distinción visual entre staff y unidades de negocio, cada grupo en su contenedor: el staff a la izquierda de la línea de la Presidencia y el negocio a la derecha, en el orden de la cadena de valor, con sus niveles corporativos agrupados.',
       'Los comités transversales como forma de cogobierno: el de excelencia tecnológica e IA de julio se formaliza como Comité de Gobierno del Dato e IA, el Comité Comercial se mantiene, y se suman los de Calidad y Mejora Continua, Cultura Organizacional y Finanzas y Riesgos.',
       'Experiencia del Cliente y Experiencia Digital como frentes de mercadeo.',
       'Una unidad de gobierno de la IA.'

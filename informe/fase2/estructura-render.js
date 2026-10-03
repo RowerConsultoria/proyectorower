@@ -1,7 +1,7 @@
 // Motor del módulo «Estructura organizativa To-Be» (#/estructura) del manual de Fase 2.
 // Pinta window.ESTRUCTURA_TOBE (estructura-tobe-datos.js) dentro de
-// <section id="estructura">: barra propia, lienzo con pan/zoom en tres bandas
-// (direcciones corporativas · gerencias corporativas · gerencias país), hilos de
+// <section id="estructura">: barra propia, lienzo con pan/zoom con dos contenedores
+// lado a lado —staff a la izquierda, unidades de negocio a la derecha—, hilos de
 // reporte en SVG y un panel lateral con el detalle de cada unidad o con las
 // premisas de diseño. Clases con prefijo `eo-`; los estilos viven en
 // informe-fase2.html con los tokens de estilo/app.css.
@@ -250,47 +250,38 @@
   }
 
   function maquetar(){
-    // El staff no comparte nivel con las unidades de negocio: va en su propia zona,
-    // a los costados de la línea que baja de la Presidencia, con sus tres niveles
-    // identificados al margen igual que el negocio. Filas: 1 cima · 2-4 staff ·
-    // 5 rótulo del negocio · 6-8 negocio · 9 comités.
+    // Dos contenedores lado a lado, a la misma altura: el staff a la izquierda de la
+    // línea que baja de la Presidencia y las unidades de negocio a la derecha, en el
+    // orden de la cadena de valor. Dentro de cada contenedor, un recuadro agrupa los
+    // niveles corporativos (direcciones y gerencias corporativas); debajo quedan las
+    // gerencias país. Filas: 1 cima · 2 título del contenedor · 3 direcciones ·
+    // 4 gerencias corporativas · 5 gerencias país · 6 comités.
     var NEG = E.DIRECCIONES.filter(function(d){ return d.caracter !== "staff"; });
     var STF = E.DIRECCIONES.filter(function(d){ return d.caracter === "staff"; });
-    var cols = [];   // por dirección de negocio: lista de subcolumnas
-    var total = 0;
+    var cols = [], total = 0;   // por dirección de negocio: lista de subcolumnas
     NEG.forEach(function(dr){ var sc = subcolumnas(dr); cols.push(sc); total += sc.length; });
-    lienzo.style.gridTemplateColumns = "150px repeat(" + total + ", var(--eo-col))";
+    var nS = STF.length, hueco = nS + 1, nIni = nS + 2, nFin = nIni + total;
+    lienzo.style.gridTemplateColumns = (nS ? "repeat(" + nS + ", var(--eo-col)) " : "") + "64px repeat(" + total + ", var(--eo-col))";
 
     var h = '';
-    var FS = 2, FN = 6;
-    // franjas y rótulos de nivel: los mismos tres niveles para el staff y para el negocio
-    E.NIVELES.forEach(function(nv, i){
-      [[FS + i, "Staff · Nivel " + (i + 1), " eo-f-staff"], [FN + i, "Nivel " + (i + 1), ""]].forEach(function(b){
-        h += '<div class="eo-franja eo-f-' + nv.id + b[2] + '" style="grid-row:' + b[0] + ';grid-column:1 / -1"></div>';
-        h += '<div class="eo-rotulo' + (b[2] ? ' eo-rot-staff' : '') + '" style="grid-row:' + b[0] + ';grid-column:1" title="' + esc(nv.d) + '">' +
-               '<span class="eo-rnum">' + b[1] + '</span><span class="eo-rnom">' + esc(nv.n) + '</span></div>';
-      });
-    });
+    var R = {tit:2, n1:3, n2:4, n3:5, com:6};
+    // contenedores (detrás de todo): el del grupo, el recuadro corporativo y el título
+    var contenedor = function(car, a, b){
+      if(b <= a) return '';
+      return '<div class="eo-grupo eo-g-' + car + '" style="grid-row:' + R.tit + ' / ' + (R.n3 + 1) + ';grid-column:' + a + ' / ' + b + '"></div>' +
+             '<div class="eo-corp eo-g-' + car + '" style="grid-row:' + R.n1 + ' / ' + (R.n2 + 1) + ';grid-column:' + a + ' / ' + b + '"></div>' +
+             '<div class="eo-grupotit eo-g-' + car + '" style="grid-row:' + R.tit + ';grid-column:' + a + ' / ' + b + '">' +
+               '<span>' + (car === "negocio" ? '<b>Unidades de negocio</b> · la cadena de valor' : '<b>Staff</b> · apoyo a la Presidencia') + '</span>' +
+               '<span class="eo-gnota">recuadro: niveles corporativos · debajo: gerencias país</span>' +
+             '</div>';
+    };
+    h += contenedor("staff", 1, hueco);
+    h += contenedor("negocio", nIni, nFin);
+    // marca del eje: la columna libre entre los dos contenedores, por donde baja la línea de mando
+    h += '<div class="eo-eje" style="grid-row:1 / ' + (R.n3 + 1) + ';grid-column:' + hueco + '" aria-hidden="true"></div>';
 
-    // Columna de inicio de cada dirección de negocio, en el orden de la cadena de valor.
-    var inicio = [], c0 = 2, grupos = [];
-    NEG.forEach(function(dr, i){
-      inicio.push(c0);
-      var g = grupos[grupos.length - 1];
-      if(g && g.car === dr.caracter) g.fin = c0 + cols[i].length;
-      else grupos.push({car:dr.caracter, ini:c0, fin:c0 + cols[i].length});
-      c0 += cols[i].length;
-    });
-
-    // bloques de grupo (detrás de todo) y su rótulo
-    grupos.forEach(function(g){
-      h += '<div class="eo-grupo eo-g-' + g.car + '" style="grid-row:' + FN + ' / ' + (FN + 3) + ';grid-column:' + g.ini + ' / ' + g.fin + '"></div>';
-      h += '<div class="eo-grupotit eo-g-' + g.car + '" style="grid-row:' + (FN - 1) + ';grid-column:' + g.ini + ' / ' + g.fin + '">' +
-             (g.car === "negocio" ? '<b>Unidades de negocio</b> · la cadena de valor' : '<b>Staff</b> · apoyo a la Presidencia') + '</div>';
-    });
-
-    // cima: gobierno · Presidencia · staff de la Presidencia, centrada sobre el negocio
-    h += '<div class="eo-cima" style="grid-row:1;grid-column:2 / ' + c0 + '">';
+    // cima: gobierno · Presidencia · staff de la Presidencia (se centra sobre el eje al final)
+    h += '<div class="eo-cima" style="grid-row:1;grid-column:1 / ' + nFin + '">';
     h += '<div class="eo-gob">';
     E.GOBIERNO.forEach(function(g){ h += '<button type="button" class="eo-card eo-c-gob" data-id="' + esc(g.id) + '"><span class="eo-tag">Gobierno</span><span class="eo-ttl">' + esc(g.n) + '</span></button>'; });
     h += '</div>';
@@ -298,49 +289,45 @@
     h += '<div class="eo-staff">';
     E.STAFF.forEach(function(s){ h += caja(s, "eo-c-staff", "Staff de la Presidencia"); });
     h += '</div></div>';
-    // zona del staff: tres filas (direcciones, gerencias corporativas, gerencias país),
-    // cada unidad en su columna a un costado de la línea; la de más dependencias va
-    // sola a la derecha y las demás a la izquierda, en su orden
-    var cuantas = function(d){ var n = 0; (function c(hs){ (hs || []).forEach(function(k){ n++; c(k.hijos); }); })(d.hijos); return n; };
+
+    // staff: una columna por dirección, en el orden del dato salvo la de más
+    // dependencias, que va al final, junto a la línea de la Presidencia
+    var cuantas = function(d){ var n = 0; (function k(hs){ (hs || []).forEach(function(x){ n++; k(x.hijos); }); })(d.hijos); return n; };
     var mayor = STF.slice().sort(function(a, b){ return cuantas(b) - cuantas(a); })[0];
-    var izq = STF.filter(function(d){ return d !== mayor; }), der = mayor ? [mayor] : [];
+    STF = STF.filter(function(d){ return d !== mayor; }).concat(mayor ? [mayor] : []);
     var deNivel = function(dr, nivel){ var out = []; (function b(hs){ (hs || []).forEach(function(k){ if(k.nivel === nivel) out.push(k); b(k.hijos); }); })(dr.hijos); return out; };
-    var celdaStaff = function(dr, i){
-      if(i === 0) return '<div class="eo-celda eo-c1 eo-stcol">' + caja(dr, "eo-c-dir eo-staff", "Staff · Dirección corporativa") + '</div>';
-      var nivel = i === 1 ? "n2" : "n3";
-      return '<div class="eo-celda eo-stcol eo-c' + (i + 1) + '">' + deNivel(dr, nivel).map(function(k){
-        return caja(k, nivel === "n3" ? "eo-c-n3" : "eo-c-n2", nivel === "n3" ? "Gerencia país · " + E.PAISES.length + " países" : "Gerencia corporativa");
-      }).join("") + '</div>';
-    };
-    [0, 1, 2].forEach(function(i){
-      h += '<div class="eo-staffila eo-staffila-' + (i + 1) + '" style="grid-row:' + (FS + i) + ';grid-column:2 / ' + c0 + '">' +
-             '<div class="eo-st-lado eo-st-izq">' + izq.map(function(d){ return celdaStaff(d, i); }).join("") + '</div>' +
-             '<div class="eo-st-eje" aria-hidden="true"></div>' +
-             '<div class="eo-st-lado eo-st-der">' + der.map(function(d){ return celdaStaff(d, i); }).join("") + '</div>' +
-           '</div>';
+    STF.forEach(function(dr, i){
+      var c = 1 + i;
+      h += '<div class="eo-celda eo-c1" style="grid-row:' + R.n1 + ';grid-column:' + c + '">' + caja(dr, "eo-c-dir eo-staff", "Staff · Dirección corporativa") + '</div>';
+      h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + c + '">' +
+             deNivel(dr, "n2").map(function(k){ return caja(k, "eo-c-n2", "Gerencia corporativa"); }).join("") + '</div>';
+      h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + c + '">' +
+             deNivel(dr, "n3").map(function(k){ return caja(k, "eo-c-n3", "Gerencia país · " + E.PAISES.length + " países"); }).join("") + '</div>';
     });
 
-    // direcciones de negocio y sus subcolumnas
+    // unidades de negocio y sus subcolumnas
+    var c0 = nIni;
     NEG.forEach(function(dr, i){
-      var sc = cols[i], c = inicio[i];
-      h += '<div class="eo-celda eo-c1" style="grid-row:' + FN + ';grid-column:' + c + ' / span ' + sc.length + '">' +
+      var sc = cols[i], c = c0;
+      h += '<div class="eo-celda eo-c1" style="grid-row:' + R.n1 + ';grid-column:' + c + ' / span ' + sc.length + '">' +
              caja(dr, "eo-c-dir eo-" + dr.caracter, (dr.caracter === "negocio" ? "Negocio" : "Staff") + " · Dirección corporativa") +
            '</div>';
       sc.forEach(function(s, k){
-        h += '<div class="eo-celda eo-c2" style="grid-row:' + (FN + 1) + ';grid-column:' + (c + k) + '">';
+        h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">';
         s.n2.forEach(function(n, j){
           var jefe = (j === 0 && n.hijos && n.hijos.length);
           h += caja(n, "eo-c-n2" + (jefe ? " eo-c-jefe" : ""), "Gerencia corporativa");
         });
         h += '</div>';
-        h += '<div class="eo-celda eo-c3" style="grid-row:' + (FN + 2) + ';grid-column:' + (c + k) + '">';
+        h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">';
         s.n3.forEach(function(n){ h += caja(n, "eo-c-n3", "Gerencia país · " + E.PAISES.length + " países"); });
         h += '</div>';
       });
+      c0 += sc.length;
     });
 
     // órganos de cogobierno, al pie: sin hilos que crucen el dibujo
-    h += '<div class="eo-comites" style="grid-row:' + (FN + 3) + ';grid-column:2 / -1">' +
+    h += '<div class="eo-comites" style="grid-row:' + R.com + ';grid-column:1 / -1">' +
            '<div class="eo-comtit">Comités <span>· órganos de cogobierno: los lidera y convoca una dirección, sin línea de mando</span></div><div class="eo-comfila">';
     E.COMITES.forEach(function(k){
       h += '<button type="button" class="eo-comite" data-id="' + esc(k.id) + '"><span class="eo-ttl">' + esc(k.n) + '</span>' +
@@ -354,7 +341,22 @@
     lienzo.querySelectorAll(".eo-card").forEach(function(el){
       var id = el.getAttribute("data-id"); if(NODOS[id]) NODOS[id].el = el;
     });
+    centrarCima();
+  }
 
+  // La Presidencia se alinea con la columna libre entre los dos contenedores, para
+  // que su línea baje entre el staff y el negocio. Se mide sin transformaciones
+  // (offsets), que es como mide también el trazado de los hilos.
+  function centrarCima(){
+    var cima = lienzo.querySelector(".eo-cima"), eje = lienzo.querySelector(".eo-eje"), ceo = NODOS[E.CEO.id].el;
+    if(!cima || !eje || !ceo) return;
+    cima.style.justifyContent = "flex-start"; cima.style.paddingLeft = "0px";
+    var ejeX = caja2(eje).x + eje.offsetWidth / 2;
+    var c = caja2(ceo);
+    cima.style.paddingLeft = Math.max(0, Math.round(ejeX - (c.x + c.w / 2))) + "px";
+    // segunda pasada: corrige lo que haya movido el ajuste de línea de las cajas
+    var c2 = caja2(ceo), d = ejeX - (c2.x + c2.w / 2);
+    if(Math.abs(d) > 1) cima.style.paddingLeft = Math.max(0, parseFloat(cima.style.paddingLeft) + d) + "px";
   }
 
   // ----------------------------------------------------------------- hilos
@@ -365,32 +367,26 @@
   }
   function trazar(){
     if(!svg || host.hidden) return;
+    centrarCima();
     var W = lienzo.scrollWidth, H = lienzo.scrollHeight;
     svg.setAttribute("width", W); svg.setAttribute("height", H);
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     while(svg.firstChild) svg.removeChild(svg.firstChild);
     var ceo = NODOS[E.CEO.id].el; if(!ceo) return;
     var C = caja2(ceo);
-    var NEG = E.DIRECCIONES.filter(function(d){ return d.caracter !== "staff"; });
-    var STF = E.DIRECCIONES.filter(function(d){ return d.caracter === "staff"; });
-    var dirs = NEG.map(function(d){ return caja2(NODOS[d.id].el); });
-    // La línea de mando baja de la Presidencia, pasa entre las cajas del staff y
-    // sigue hasta el bus de las unidades de negocio.
-    var busY = dirs[0].y - 24, sx = C.x + C.w / 2;
+    // La línea de mando baja de la Presidencia por la columna libre entre los dos
+    // contenedores y se abre en un bus: a la izquierda el staff, a la derecha el negocio.
+    var sx = C.x + C.w / 2;
+    var cajas = E.DIRECCIONES.map(function(d){ return {car:d.caracter, b:caja2(NODOS[d.id].el)}; });
+    var busY = Math.min.apply(null, cajas.map(function(k){ return k.b.y; })) - 22;
     ruta("M" + sx + "," + (C.y + C.h) + " V" + busY, "eo-h-linea eo-h-bus");
-    var xs = [sx];
-    dirs.forEach(function(d){ xs.push(d.x + d.w / 2); });
-    ruta("M" + Math.min.apply(null, xs) + "," + busY + " H" + Math.max.apply(null, xs), "eo-h-linea eo-h-negocio");
-    dirs.forEach(function(d){ ruta("M" + (d.x + d.w / 2) + "," + busY + " V" + d.y, "eo-h-linea eo-h-negocio"); });
-    // El staff cuelga de la línea central por un brazo propio, por encima de sus cajas.
-    var st = STF.map(function(d){ return caja2(NODOS[d.id].el); });
-    if(st.length){
-      var armY = Math.min.apply(null, st.map(function(b){ return b.y; })) - 16;
-      st.forEach(function(b){
-        var cx = b.x + b.w / 2;
-        ruta("M" + sx + "," + armY + " H" + cx + " V" + b.y, "eo-h-linea eo-h-staff");
-      });
-    }
+    [["staff", "eo-h-linea eo-h-staff"], ["negocio", "eo-h-linea eo-h-negocio"]].forEach(function(g){
+      var de = cajas.filter(function(k){ return g[0] === "staff" ? k.car === "staff" : k.car !== "staff"; });
+      if(!de.length) return;
+      var xs = de.map(function(k){ return k.b.x + k.b.w / 2; });
+      ruta("M" + Math.min.apply(null, xs.concat([sx])) + "," + busY + " H" + Math.max.apply(null, xs.concat([sx])), g[1]);
+      de.forEach(function(k){ ruta("M" + (k.b.x + k.b.w / 2) + "," + busY + " V" + k.b.y, g[1]); });
+    });
 
     ARISTAS.forEach(function(a){
       var A = NODOS[a.de].el, B = NODOS[a.a].el; if(!A || !B) return;
