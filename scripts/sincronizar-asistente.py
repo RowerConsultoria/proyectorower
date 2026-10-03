@@ -114,7 +114,9 @@ CONCILIACIÓN) · 52 proyectos con 3 PM.
 
 == EL HILO CONDUCTOR ==
 Criterio personal sin procedimiento (s3–s6) → dato sin certificar (s7) → dos
-tesis: "estructura primero" (Parte II) y "el dato antes que el agente" (Parte III).
+tesis: "estructura primero" y "el dato antes que el agente". Hoy el documento tiene
+solo dos partes: Parte I — Diagnóstico organizativo (s1–s10) y Parte II — Síntesis de
+hallazgos y próximos pasos (s11–s12); la "Parte III" de julio ya no existe.
 
 == ESTRUCTURA VIGENTE, SECCIÓN A SECCIÓN ==
 %s
@@ -167,7 +169,7 @@ el Comité del 01-jul y AÚN NO CONSTITUIDO: es el escalón que hoy falta.
 
 == PENDIENTE DE DECISIÓN DEL EQUIPO (no resuelto) ==
   · s1 Resumen ejecutivo — se redacta AL FINAL.
-  · s13 Hoja de ruta — espera insumo de Gabriel.
+  · s12 «Próximos pasos y hoja de ruta» (12.1–12.5) — espera insumo de Gabriel. No hay s13.
   · Destinatario de portada: "Comité Directivo" vs "Junta Directiva".
   · Cifras de Maia sin conciliar (30/60/70/150).
   · Versión cliente: falta el build que ampute el Anexo B y el apartado interno.
@@ -375,15 +377,31 @@ comprobación nueva se ROMPE A PROPÓSITO primero para confirmar que la detecta.
        cuerpo[:7000])
 
 DOCS = [('informe-fase1', 'Estado y estructura vigente del Informe Diagnóstico Fase 1', INFORME),
-        ('arquitectura-ia', 'La arquitectura de IA propuesta: sección 10 y la torre', ARQ),
+        ('arquitectura-ia', 'Fase 1 · la arquitectura de IA de la sección 10 del informe y «la torre» (la de Fase 2 es fase2-arquitectura-ia)', ARQ),
         ('sistema-prototipo', 'El prototipo del sistema /sistema — Fase 2', SIS)]
 
+# ══════════════════════════════════════════════════════════════════════════
+#  3b · LA FASE 2 — manual, circuito, arquitectura (órbita), estructura, validación
+# ══════════════════════════════════════════════════════════════════════════
+# Ver scripts/asistente_fase2.py. Seis síntesis van al contexto (claves fase2-*)
+# y cada pieza de detalle (proceso, N0, estación, módulo, documento) va solo a
+# `fragmentos`, legible entera con la herramienta leer_documento del asistente.
+sys.path.insert(0, os.path.join(RAIZ, 'scripts'))
+import asistente_fase2  # noqa: E402
+
+CTX2, DETALLE = asistente_fase2.generar()
+DOCS += CTX2
+CODIGO_F1 = {'informe-fase1': 'DOC-INFORME', 'arquitectura-ia': 'DOC-ARQUITECTURA', 'sistema-prototipo': 'DOC-SISTEMA'}
+DETALLE = [(CODIGO_F1[k], 'Documento del proyecto — ' + t, c) for k, t, c in DOCS if k in CODIGO_F1] + DETALLE
+
 for k, t, c in DOCS:
-    print('  %-20s %6d car.  %s' % (k, len(c), t[:50]))
-print('  total: %d car. · ~%d tokens que se suman a CADA consulta del asistente'
+    print('  %-24s %7d car.  %s' % (k, len(c), t[:60]))
+print('  total en contexto: %d car. · ~%d tokens que se suman a CADA consulta del asistente'
       % (sum(len(c) for _, _, c in DOCS), sum(len(c) for _, _, c in DOCS) // 3.6))
+print('  detalle a fragmentos: %d documentos · %d car.' % (len(DETALLE), sum(len(c) for _, _, c in DETALLE)))
 for k, t, c in DOCS:
     assert '(no extra' not in c, '%s: quedaron bloques sin extraer del repositorio' % k
+assert len({c for c, _, _ in DETALLE}) == len(DETALLE), 'códigos de detalle repetidos'
 if SECO:
     print('\n  (--seco: no se sube nada)')
     sys.exit(0)
@@ -392,27 +410,38 @@ if SECO:
 #  4 · SUBIDA
 # ══════════════════════════════════════════════════════════════════════════
 print()
-CODIGO = {'informe-fase1': 'DOC-INFORME', 'arquitectura-ia': 'DOC-ARQUITECTURA',
-          'sistema-prototipo': 'DOC-SISTEMA'}
-QUIEN = {'informe-fase1': 'documento del proyecto — informe Fase 1',
-         'arquitectura-ia': 'documento del proyecto — arquitectura de IA',
-         'sistema-prototipo': 'documento del proyecto — prototipo del sistema'}
-
 c = io.open(os.path.join(RAIZ, 'supabase', 'cliente.js'), encoding='utf-8').read()
 URL = re.search(r'https://[\w-]+\.supabase\.co', c).group(0)
+REF = re.search(r'https://([\w-]+)\.supabase\.co', URL).group(1)
 
 # Desde el cierre del acceso anónimo (04-ago-2026) la clave publishable ya NO
 # puede escribir en `conocimiento`/`fragmentos`: hace falta una credencial de
-# servicio, que nunca vive en el repositorio. Se toma del entorno:
-#
-#   PowerShell:  $env:SUPABASE_SERVICE_KEY = "<clave de servicio>"
-#   Git Bash:    export SUPABASE_SERVICE_KEY="<clave de servicio>"
-#
-# (Dashboard → Project Settings → API keys → service_role / secret key.)
-SERVICIO = (os.environ.get('SUPABASE_SERVICE_KEY')
-            or os.environ.get('SUPABASE_SERVICE_ROLE_KEY') or '').strip()
+# servicio, que nunca vive en el repositorio. Dos vías:
+#   1. SUPABASE_SERVICE_KEY en el entorno (la clave secreta, sb_secret_…), o
+#   2. SUPABASE_ACCESS_TOKEN (token de la API de gestión, en el entorno o en el
+#      .env de la raíz): el guion pide la clave secreta en el momento y no la guarda.
+# ⚠️ Usar la clave SECRETA nueva: las Edge Functions ya no aceptan la service_role
+# heredada (responden 401), y es la misma que sirve para REST.
+
+
+def _token_gestion():
+    tok = os.environ.get('SUPABASE_ACCESS_TOKEN', '').strip()
+    if not tok and os.path.exists(os.path.join(RAIZ, '.env')):
+        for linea in io.open(os.path.join(RAIZ, '.env'), encoding='utf-8'):
+            if linea.startswith('SUPABASE_ACCESS_TOKEN='):
+                tok = linea.split('=', 1)[1].strip().strip('"').strip("'")
+    return tok
+
+
+SERVICIO = (os.environ.get('SUPABASE_SERVICE_KEY') or os.environ.get('SUPABASE_SERVICE_ROLE_KEY') or '').strip()
+if not SERVICIO and _token_gestion():
+    r = urllib.request.Request('https://api.supabase.com/v1/projects/%s/api-keys?reveal=true' % REF,
+                               headers={'Authorization': 'Bearer ' + _token_gestion(), 'User-Agent': 'rower-sincronizar'})
+    with urllib.request.urlopen(r, timeout=60) as o:
+        claves = json.loads(o.read().decode())
+    SERVICIO = next((k['api_key'] for k in claves if k.get('type') == 'secret' and k.get('api_key')), '')
 if not SERVICIO:
-    print('\n  FALTA CREDENCIAL: define SUPABASE_SERVICE_KEY en el entorno.')
+    print('\n  FALTA CREDENCIAL: define SUPABASE_SERVICE_KEY (clave secreta) o SUPABASE_ACCESS_TOKEN.')
     print('  Sin ella la subida a `conocimiento` responde 401/0 filas, porque el')
     print('  proyecto ya no admite escritura anónima. Ver CLAUDE.md (Backend — Supabase).')
     sys.exit(2)
@@ -426,43 +455,69 @@ def pedir(path, metodo='GET', cuerpo=None, prefer=None):
     datos = json.dumps(cuerpo, ensure_ascii=False).encode() if cuerpo is not None else None
     r = urllib.request.Request(URL + path, data=datos, headers=h, method=metodo)
     try:
-        with urllib.request.urlopen(r, timeout=60) as o:
+        with urllib.request.urlopen(r, timeout=120) as o:
             b = o.read().decode()
             return o.status, (json.loads(b) if b.strip() else None)
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode()[:400]
 
 
-def trocear(texto, tam=1600, solape=200):
-    partes, i = [], 0
-    while i < len(texto):
-        partes.append(texto[i:i + tam])
-        i += tam - solape
+def trocear(texto, tam=1800):
+    """Trozos por líneas, SIN solape: leer_documento los concatena en orden y el
+    documento sale íntegro. Una línea más larga que el trozo se parte por frases."""
+    partes, cur = [], ''
+    for linea in texto.split('\n'):
+        while len(linea) > tam:
+            corte = linea.rfind('. ', 0, tam)
+            corte = corte + 1 if corte > tam // 2 else tam
+            if cur:
+                partes.append(cur)
+                cur = ''
+            partes.append(linea[:corte])
+            linea = linea[corte:].lstrip()
+        if len(cur) + len(linea) + 1 > tam and cur:
+            partes.append(cur)
+            cur = linea
+        else:
+            cur = (cur + '\n' + linea) if cur else linea
+    if cur.strip():
+        partes.append(cur)
     return partes
 
 
 fallos = []
+# 4.1 · documentos de contexto (siempre en el prompt del asistente)
 for clave, titulo, contenido in DOCS:
     st, resp = pedir('/rest/v1/conocimiento?on_conflict=clave', 'POST',
                      [{'clave': clave, 'titulo': titulo, 'contenido': contenido, 'activo': True}],
-                     'resolution=merge-duplicates,return=representation')
-    ok = st in (200, 201)
-    print('  %s conocimiento  %-20s HTTP %s' % ('OK ' if ok else 'MAL', clave, st))
+                     'resolution=merge-duplicates,return=minimal')
+    ok = st in (200, 201, 204)
+    print('  %s conocimiento  %-24s HTTP %s' % ('OK ' if ok else 'MAL', clave, st))
     if not ok:
         fallos.append('conocimiento %s: %s %s' % (clave, st, resp))
-        continue
-    cod = CODIGO[clave]
-    pedir('/rest/v1/fragmentos?codigo=eq.' + cod, 'DELETE')
-    filas = [{'codigo': cod, 'entrevistado': QUIEN[clave], 'orden': k,
-              'contenido': t, 'activo': True} for k, t in enumerate(trocear(contenido), 1)]
-    st2, resp2 = pedir('/rest/v1/fragmentos', 'POST', filas, 'return=minimal')
-    ok2 = st2 in (200, 201, 204)
-    print('  %s fragmentos    %-20s %d trozos · HTTP %s' % ('OK ' if ok2 else 'MAL', cod, len(filas), st2))
-    if not ok2:
-        fallos.append('fragmentos %s: %s %s' % (cod, st2, resp2))
 
-st, filas = pedir('/rest/v1/conocimiento?select=clave,activo&order=clave')
-print('\n  `conocimiento` tiene ahora %d documentos activos' % sum(1 for f in filas if f['activo']))
+# 4.2 · detalle a fragmentos: se reemplazan enteros los prefijos que administra este guion
+PREFIJOS = ('DOC-', 'PROC-', 'MACRO-', 'CIRC-', 'ARQ-')
+for pre in PREFIJOS:
+    st, resp = pedir('/rest/v1/fragmentos?codigo=like.%s*' % pre, 'DELETE', prefer='return=minimal')
+    if st not in (200, 204):
+        fallos.append('borrar %s*: %s %s' % (pre, st, resp))
+filas = []
+for cod, etiqueta, texto in DETALLE:
+    assert cod.startswith(PREFIJOS), cod
+    for k, trozo in enumerate(trocear(texto), 1):
+        filas.append({'codigo': cod, 'entrevistado': etiqueta[:200], 'orden': k, 'contenido': trozo, 'activo': True})
+subidos = 0
+for i in range(0, len(filas), 300):
+    st, resp = pedir('/rest/v1/fragmentos', 'POST', filas[i:i + 300], 'return=minimal')
+    if st in (200, 201, 204):
+        subidos += len(filas[i:i + 300])
+    else:
+        fallos.append('fragmentos lote %d: %s %s' % (i // 300, st, resp))
+print('  %s fragmentos    %d de %d trozos de %d documentos' % ('OK ' if subidos == len(filas) else 'MAL', subidos, len(filas), len(DETALLE)))
+
+st, filas_k = pedir('/rest/v1/conocimiento?select=clave,activo&order=clave')
+print('\n  `conocimiento` tiene ahora %d documentos activos' % sum(1 for f in filas_k if f['activo']))
 print()
 print(('FALLOS:\n  · ' + '\n  · '.join(fallos)) if fallos
       else 'CONTEXTO DEL ASISTENTE SINCRONIZADO (la caché refresca en ~5 min)')
