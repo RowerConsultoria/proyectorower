@@ -295,49 +295,31 @@ proceso — el aplicativo los capitaliza automáticamente.
 
 ---
 
-## 10. Después de redactar: la ronda de validación con los gerentes
+## 10. Después de redactar: la validación del comité
 
 **Esto NO lo hace quien redacta el manual, pero sí depende de que el manual
 esté terminado.** Va aquí para que nadie lo dé por hecho.
 
-Un macroproceso redactado todavía no está validado. Lo que la Junta va a
-preguntar es *«¿quién de Kenex dijo que esto es así?»*, y la respuesta tiene
-que ser una persona con nombre, no «el equipo consultor lo levantó de las
-entrevistas». Esa ronda se gestiona en el panel: **Admin → Validación de
-procesos** (permiso `admin.validacion`).
-
-### Qué hay que hacer, en orden
-
-1. **Correr `python scripts/cargar-validacion.py`** cada vez que se publique
-   un macroproceso nuevo. Proyecta los procesos redactados a la base y
-   propone, para cada uno, qué persona real del censo debería validarlo
-   —cruzando el dueño que el mapa v18 dejó como texto libre contra los
-   cargos de `personal`—. Volver a correrlo es seguro: no deshace nada de
-   lo que ya se confirmó a mano.
-2. **Confirmar o corregir cada propuesta en el panel.** Esto es lo que hay
-   que hacer y no se puede saltar: lo que el guion siembra son **propuestas**,
-   no asignaciones, y **una propuesta sin confirmar no le llega a nadie**.
-   El dueño del mapa v18 puede traer artefactos de una sustitución automática
-   mal hecha, así que puede haber propuestas equivocadas. Confirmar es `✓`;
-   el `⋯` de cada fila abre la gestión completa —deshacer una confirmación
-   equivocada, quitar a alguien, o elegir a otra persona del censo con el
-   buscador—.
-3. **Generar los enlaces** (botón «🔗 enlaces») y repartirlos. Son enlaces
-   opacos de 45 días, revocables, y **no hay correo automático**: se exportan
-   a CSV y se reparten a mano, igual que los de la ficha de perfil.
-4. El gerente entra sin cuenta, ve sus procesos, marca cada bloque como
-   correcto o con observaciones, y puede comentar **un paso concreto** del
-   flujo. Lo que devuelve se lee en el mismo módulo del panel.
+El modelo To-Be lo valida un comité ejecutivo ad hoc (ver
+`informe/fase2/instructivo-comite.html`), no los gerentes uno por uno. Cada
+integrante entra con su cuenta al manual y valida en el To-Be de cada
+proceso, sección por sección: un veredicto (valida · valida con ajustes · no
+valida) y notas ancladas a la actividad, al riesgo o al indicador, escritas o
+dictadas. Todo llega al panel: **Admin → Secretaría técnica** (permiso
+`admin.validacion`), donde se elige qué cuentas validan, se responde cada nota
+y se sigue el estado de los 182 procesos. En el menú del manual, quien valida
+ve un punto por proceso: gris sin validar, ámbar en validación, verde validado.
 
 ### Por qué importa para quien redacta
 
-- **El validador sale publicado en el informe de Fase 2**, dentro de la
-  sección «Dueño y participantes» de cada proceso (`#/p/<codigo>`). Mientras
-  nadie esté confirmado, ahí no aparece nada.
-- Un proceso cuyo dueño en el mapa v18 esté mal escrito o sea un cargo que
-  no existe en el censo **no se puede asignar sin trabajo manual**. Si al
-  redactar detectas que la ficha del mapa trae un dueño dudoso, dilo en el
-  mensaje de cierre: ahorra tiempo en esta ronda.
-- Un dueño que es **personal de línea** (un asesor, un ayudante) hace que la
-  propuesta escale automáticamente a su gerente — la decisión del equipo es
-  que **validan los gerentes en su cargo de gerentes**.
+- **Las notas apuntan al id de la actividad** (`a4`, `a5b`), no a su
+  posición en la lista. Si insertas una actividad, dale un id nuevo (`a5b`)
+  y no renumeres las demás: así las notas ya recibidas siguen apuntando a la
+  misma actividad. Cada nota guarda además el texto que el integrante leyó.
+- **Una nota no cambia el manual.** Para incorporarla se edita
+  `manual-contenido.js` como siempre; después se marca en la Secretaría
+  técnica como «Se incorpora» (o «No se incorpora», con la respuesta al
+  integrante), y el integrante confirma el ajuste en el propio manual.
+- El documento de observaciones de cada proceso (Secretaría técnica → «Ver» →
+  «Descargar .md») trae todo lo anotado, por sección y con su ancla: es el
+  insumo para la corrección.

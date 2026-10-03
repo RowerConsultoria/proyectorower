@@ -919,8 +919,134 @@
     .f2-conf{padding:14px 18px 22px}
     .f2-riel{position:static}
   }
+  /* ── validación del To-Be por el comité (§15 del esquema, 03-oct-2026) ──
+     Solo existe para quien la secretaría técnica habilitó (o la propia
+     secretaría). Va en el ámbar de los accesos de la validación. */
+  .vt-banda,.vt-panel,.vt-cierre,.vt-leyenda{
+    --vt:var(--alerta);
+    --vt-fondo:color-mix(in srgb, var(--alerta) 8%, var(--panel));
+    --vt-borde:color-mix(in srgb, var(--alerta) 40%, transparent);
+  }
+  .vt-banda{margin:6px 0 16px;padding:12px 14px;border-radius:var(--r-tarjeta);background:var(--vt-fondo);border:1px solid var(--vt-borde);display:flex;flex-direction:column;gap:10px}
+  .vt-banda-fila{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+  .vt-quien{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .vt-quien b{font-size:13.5px}
+  .vt-rot{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vt)}
+  .vt-como{font-size:12.5px;color:var(--tinta-media);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .vt-como select,.vt-campo select{font:inherit;font-size:12.5px;color:var(--tinta);background:var(--panel);border:1px solid var(--borde);border-radius:8px;padding:5px 8px;max-width:100%;min-width:0}
+  .vt-prog{flex:1;min-width:220px}
+  .vt-barras{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+  .vt-barras button{height:8px;min-height:8px;border:0;border-radius:4px;background:var(--borde);cursor:pointer;padding:0}
+  .vt-barras button.vt-b-valida{background:var(--ok)}
+  .vt-barras button.vt-b-ajustes{background:var(--alerta)}
+  .vt-barras button.vt-b-no{background:var(--riesgo)}
+  .vt-prog-t{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:6px;font-size:11.5px;color:var(--tinta-media)}
+  .vt-prog-t b{color:var(--tinta)}
+  .vt-acc{display:flex;gap:8px;flex-wrap:wrap}
+  .vt-aviso{font-size:11.5px;line-height:1.5;color:var(--tinta-media);border-top:1px solid var(--vt-borde);padding-top:8px}
+  .vt-error{font-size:12.5px;font-weight:600;color:var(--riesgo)}
+  .vt-vacio,.vt-cargando{font-size:12.5px;color:var(--tinta-media)}
+  .vt-btn{
+    display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:5px 12px;border-radius:var(--r-pildora);
+    border:1px solid var(--borde);background:var(--panel);color:var(--tinta);font:inherit;font-size:12px;font-weight:650;
+    cursor:pointer;text-decoration:none;white-space:nowrap;
+  }
+  .vt-btn:hover{border-color:var(--tinta-tenue)}
+  .vt-btn:disabled{opacity:.45;cursor:not-allowed}
+  .vt-btn.vt-pri{background:var(--vt, var(--alerta));border-color:var(--vt, var(--alerta));color:var(--tinta-inversa)}
+  .vt-btn.vt-dictar.on{border-color:var(--riesgo);color:var(--riesgo)}
+  .vt-link{border:0;background:transparent;padding:4px 0;min-height:24px;color:var(--cian);font:inherit;font-size:12px;font-weight:650;cursor:pointer;text-align:left}
+  .vt-link:hover{text-decoration:underline}
+
+  .vt-panel{margin:16px 0 4px;padding:14px;border-radius:var(--r-tarjeta);background:var(--vt-fondo);border:1px solid var(--vt-borde);display:flex;flex-direction:column;gap:10px}
+  .vt-panel:empty{display:none}
+  .vt-cab{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .vt-preg{margin:0;font-size:13.5px;font-weight:650;line-height:1.45;max-width:80ch}
+  .vt-preg2{margin:-6px 0 0;font-size:12px;color:var(--tinta-media)}
+  .vt-verds{display:flex;gap:8px;flex-wrap:wrap}
+  .vt-verd{
+    display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:6px 13px;border-radius:10px;
+    border:1.5px solid var(--borde);background:var(--panel);color:var(--tinta);font:inherit;font-size:12.5px;font-weight:700;cursor:pointer;
+  }
+  .vt-verd:hover:not(:disabled){border-color:var(--tinta-tenue)}
+  .vt-verd:disabled{cursor:not-allowed;opacity:.7}
+  .vt-pt{width:9px;height:9px;border-radius:50%;flex:none}
+  .vt-pt.vt-c-valida{background:var(--ok)} .vt-pt.vt-c-ajustes{background:var(--alerta)} .vt-pt.vt-c-no{background:var(--riesgo)}
+  .vt-verd[aria-checked="true"][data-v="valida"]{border-color:var(--ok);background:color-mix(in srgb, var(--ok) 12%, var(--panel))}
+  .vt-verd[aria-checked="true"][data-v="ajustes"]{border-color:var(--alerta);background:color-mix(in srgb, var(--alerta) 14%, var(--panel))}
+  .vt-verd[aria-checked="true"][data-v="no"]{border-color:var(--riesgo);background:color-mix(in srgb, var(--riesgo) 12%, var(--panel))}
+  .vt-chip{display:inline-flex;align-items:center;border-radius:var(--r-pildora);padding:2px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+  .vt-chip.vt-c-valida{color:var(--ok);background:color-mix(in srgb, var(--ok) 13%, transparent)}
+  .vt-chip.vt-c-ajustes{color:var(--alerta);background:color-mix(in srgb, var(--alerta) 15%, transparent)}
+  .vt-chip.vt-c-no{color:var(--riesgo);background:color-mix(in srgb, var(--riesgo) 13%, transparent)}
+  .vt-falta{font-size:12px;font-weight:650;color:var(--riesgo)}
+  .vt-notas{display:flex;flex-direction:column;gap:8px}
+  .vt-nota{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+  .vt-nota-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:11px;color:var(--tinta-tenue)}
+  .vt-ancla{font-family:var(--mono);font-size:10.5px;color:var(--tinta-media);background:var(--panel-alto);border:1px solid var(--borde);border-radius:6px;padding:1px 6px}
+  .vt-tipo{font-weight:700}
+  .vt-est{margin-left:auto;font-weight:700;color:var(--cian)}
+  .vt-est.vt-n-borrador{color:var(--tinta-tenue)}
+  .vt-est.vt-n-se_incorpora,.vt-est.vt-n-confirmada{color:var(--ok)}
+  .vt-est.vt-n-no_se_incorpora{color:var(--riesgo)}
+  .vt-est.vt-n-necesita_consulta{color:var(--alerta)}
+  .vt-nota blockquote{margin:0;border-left:3px solid var(--vt, var(--alerta));padding:1px 0 1px 10px;font-size:13px;line-height:1.5;color:var(--tinta);overflow-wrap:anywhere}
+  .vt-leyo{font-size:11.5px;color:var(--tinta-tenue)}
+  .vt-resp{font-size:12px;line-height:1.5;color:var(--tinta-media);background:var(--panel-alto);border-radius:8px;padding:7px 10px}
+  .vt-mas{align-self:flex-start;min-height:28px;border:1px dashed var(--vt-borde);background:transparent;color:var(--vt);border-radius:var(--r-pildora);padding:4px 12px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+  .vt-comp{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:9px;min-width:0}
+  .vt-campo{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:650;color:var(--tinta-media)}
+  .vt-campo select{flex:1}
+  .vt-comp textarea{width:100%;min-height:76px;resize:vertical;font:inherit;font-size:13px;line-height:1.5;color:var(--tinta);background:var(--panel-alto);border:1px solid var(--borde);border-radius:8px;padding:8px 10px}
+  .vt-comp textarea:focus,.vt-como select:focus,.vt-campo select:focus,.vt-consulta input:focus{outline:2px solid var(--cian);outline-offset:1px}
+  .vt-comp-pie{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .vt-esp{flex:1}
+  .vt-tenue{font-size:11.5px;color:var(--tinta-tenue);margin:0}
+  .vt-sesgo{font-size:12px;color:var(--tinta-media)}
+  .vt-sesgo summary{cursor:pointer;font-weight:650;color:var(--tinta)}
+  .vt-sesgo ul{margin:6px 0 0;padding-left:18px}
+  .vt-sig{border-top:1px solid var(--vt-borde);padding-top:6px}
+
+  .vt-anotar{
+    margin-left:8px;min-height:24px;padding:1px 9px;border-radius:var(--r-pildora);vertical-align:baseline;
+    border:1px solid color-mix(in srgb, var(--alerta) 45%, transparent);background:transparent;
+    color:var(--alerta);font:inherit;font-size:10.5px;font-weight:700;cursor:pointer;white-space:nowrap;
+  }
+  .vt-anotar:hover{background:color-mix(in srgb, var(--alerta) 10%, transparent)}
+  .f2-num-list li.vt-marcada,table.f2-tabla tbody tr.vt-marcada td{background:color-mix(in srgb, var(--alerta) 10%, transparent)}
+  .f2-num-list li.vt-marcada{border-radius:6px;box-shadow:0 0 0 4px color-mix(in srgb, var(--alerta) 10%, transparent)}
+
+  .vt-cierre{margin:22px 0 6px;padding:16px;border-radius:var(--r-tarjeta);background:var(--panel);border:1.5px solid var(--vt-borde);display:flex;flex-direction:column;gap:10px}
+  .vt-cierre:empty{display:none}
+  .vt-h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .vt-sub{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-media);margin-top:6px}
+  .vt-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+  .vt-lista li{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:8px;align-items:start;font-size:13px;padding:5px 6px;border-radius:8px}
+  .vt-lista li:hover{background:var(--realce)}
+  .vt-lista input{margin:3px 0 0;width:15px;height:15px;accent-color:var(--alerta)}
+  .vt-auto{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-tenue);white-space:nowrap}
+  .vt-consulta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:8px;align-items:end}
+  .vt-consulta label{display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:650;color:var(--tinta-media);min-width:0}
+  .vt-consulta input{font:inherit;font-size:12.5px;color:var(--tinta);background:var(--panel-alto);border:1px solid var(--borde);border-radius:8px;padding:6px 8px;min-width:0}
+  .vt-enviar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px}
+  .vt-ok,.vt-enviada{font-size:13px;line-height:1.5;border-radius:12px;padding:10px 12px}
+  .vt-ok{background:color-mix(in srgb, var(--ok) 10%, var(--panel));border:1px solid color-mix(in srgb, var(--ok) 40%, transparent)}
+  .vt-enviada{background:color-mix(in srgb, var(--cian) 9%, var(--panel));border:1px solid color-mix(in srgb, var(--cian) 35%, transparent)}
+
+  /* menú: un punto por proceso, el recuento por macro y la leyenda */
+  .vt-dot{display:inline-block;flex:none;width:8px;height:8px;border-radius:50%;align-self:center;font-style:normal}
+  .vt-dot.vt-sin{box-shadow:inset 0 0 0 1.5px var(--tinta-tenue)}
+  .vt-dot.vt-en_validacion{background:var(--alerta)}
+  .vt-dot.vt-validado{background:var(--ok)}
+  .vt-mcuenta{flex:none;margin-left:auto;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tinta-tenue)}
+  .vt-mcuenta.lleno{color:var(--ok)}
+  .vt-leyenda{display:flex;flex-wrap:wrap;gap:4px 12px;margin:-2px 4px 10px;font-size:11px;color:var(--tinta-media)}
+  .vt-leyenda span{display:inline-flex;align-items:center;gap:6px}
+  @media (max-width:720px){ .vt-consulta{grid-template-columns:1fr} }
+
   @media print{
     .f2-top,.f2-nav,.f2-riel,.f2-pasos,#mapa,#circuito,#arquitectura,#estructura{display:none!important}
+    .vt-ui{display:none!important}
     .f2-sec-cuerpo[hidden]{display:block!important}
     button.f2-sec-tit svg{display:none}
     .f2{height:auto;overflow:visible}
@@ -1506,6 +1632,9 @@
       var nv = ASIS[String(m.prefijo)].procesos[p.codigo].nota_version;
       if(nv) h += '<div class="f2-nota">'+esc(nv)+'</div>';
     }
+    // Validación del comité: solo en el To-Be y solo para quien la secretaría habilitó.
+    var conVt = !esAsis && vtActivo();
+    if(conVt) h += '<div class="vt-banda vt-ui" id="vtBanda"></div>';
 
     // El As-Is es una versión más corta a propósito: solo lleva las secciones que
     // el proceso redactado trae. Si se recorrieran siempre las seis, las omitidas
@@ -1547,7 +1676,6 @@
           }
           h += fichaHtml(rows);
           if(propio) h += notaFuente(cn1);
-          if(!esAsis) h += bloqueValidacion(p.codigo);   // los gerentes validan el To-Be
         } else {
           h += fichaHtml([
             ['Disparador', esc(vDisp||'—')],
@@ -1568,8 +1696,10 @@
       } else {
         h += '<div class="f2-vacio">Contenido pendiente.</div>';
       }
+      if(conVt) h += '<div class="vt-panel vt-ui" data-vt-sec="'+esc(s.id)+'"></div>';
       h += SEC_CIERRA;
     });
+    if(conVt) h += '<section class="vt-cierre vt-ui" id="vtCierre" aria-label="Cierre de la validación"></section>';
 
     // anterior/siguiente proceso (global, en orden de documento)
     var todos = procTodos();
@@ -1587,6 +1717,7 @@
     });
     marcarNav('proceso', p.codigo);
     document.title = p.codigo+' '+p.n+(dos?(esAsis?' (As-Is)':' (To-Be)'):'')+' — Fase 2';
+    if(conVt) vtMontar(p.codigo, m.prefijo); else VT.actual = null;
     activarSpy();
     irASeccion(secId);
   }
@@ -2048,61 +2179,563 @@
   });
   $('#btnMenu').addEventListener('click', function(){ document.body.classList.toggle('f2-menu'); });
 
-  // ---------- validadores ----------
-  // Quién validó cada proceso vive en Supabase, no en el repo: es dato que se
-  // mueve con la ronda de validación, no contenido del manual. Se lee de la
-  // vista `v_validadores_proceso`, que expone solo nombre/cargo/entidad de las
-  // asignaciones ya CONFIRMADAS — no el censo, que el rol Junta no puede ver.
+  // ---------- validación del To-Be por el comité ----------
+  // Quien la secretaría técnica habilitó (tabla `validadores_tobe`, módulo del
+  // panel) ve en el To-Be de cada proceso una banda, un panel por sección y el
+  // cierre: veredicto de tres niveles, notas ancladas (escritas o dictadas) y
+  // consultas a dueños de proceso, según instructivo-comite.html. Nada de lo que
+  // se anota toca el manual: el equipo consultor lo incorpora a mano.
   //
-  // Sin `supabase-js`: un `fetch` al REST con el JWT que ya dejó sesion.js.
-  // Añadir el cliente oficial por CDN a este archivo no compensa por una
-  // consulta. Si falla (sin red, sin permiso) el informe se pinta igual: el
-  // bloque de validación simplemente no aparece.
+  // Sin `supabase-js`: `fetch` al REST con el JWT que ya dejó sesion.js. Quien
+  // cierra el dato es la RLS de la §15 de schema.sql, y las reglas (no editar lo
+  // enviado, qué estado fija quién) viven en sus triggers, no aquí.
   // Mismos valores que supabase/cliente.js y supabase/sesion.js: la clave
-  // publishable es pública por diseño (lo que cierra el dato es la RLS).
-  // Mantenerlos en sintonía con esos dos archivos.
+  // publishable es pública por diseño. Mantenerlos en sintonía con esos dos archivos.
   var SB_URL = 'https://kmhwqybqrcjhjeywjgxj.supabase.co';
   var SB_KEY = 'sb_publishable_a1TB2z327D8lIbeFDij0zg_qewS9ri1';
-  var VALIDADORES = null;
 
-  function cargarValidadores(){
-    if(!(window.rowerSesion && rowerSesion.tokenVivo)) return Promise.resolve(null);
+  var VT = {
+    listo: false, habilitado: false, secretaria: false, uid: null,
+    como: null,          // a nombre de quién se valida (la secretaría puede elegir)
+    validadores: [],     // cuentas habilitadas, solo para la secretaría
+    estados: {},         // proceso → fila de v_estado_tobe
+    proc: {},            // como|proceso → {val, notas, cargando, error}
+    comp: {},            // proceso|sección → borrador de nota (fuera del DOM: el router repinta)
+    actual: null, error: '', ocupado: false, dictando: null
+  };
+  var VT_SEC = {
+    proposito:   '¿El propósito dice lo que este proceso debe lograr, y el alcance empieza y termina donde debe?',
+    dueno:       '¿El dueño es el cargo que debe responder por el resultado y existe en la estructura To-Be? ¿Falta o sobra algún participante?',
+    disparador:  '¿Lo que inicia el proceso, su frecuencia y lo que entrega son los correctos?',
+    flujo:       '¿La secuencia es la que debería ser? ¿Cada decisión tiene quién la tome, y cada traspaso, quién entrega y quién recibe?',
+    riesgos:     '¿Están los riesgos que importan y las mitigaciones son las adecuadas?',
+    indicadores: '¿Con estos indicadores sabrías si el proceso funciona? ¿Las metas son las que pedirías?'
+  };
+  var VT_CORTO = {proposito:'propósito', dueno:'dueño', disparador:'disparador', flujo:'flujo', riesgos:'riesgos', indicadores:'indicadores'};
+  var VT_VER = {valida:'Valida', ajustes:'Valida con ajustes', no:'No valida'};
+  var VT_NOTA = {borrador:'Sin enviar', por_revisar:'Por revisar', se_incorpora:'Se incorpora', no_se_incorpora:'No se incorpora',
+                 necesita_consulta:'Necesita consulta', confirmada:'Confirmada'};
+  var VT_PROC = {sin:'Sin validar', en_validacion:'En validación', validado:'Validado'};
+  var VT_LISTA = [
+    ['asis',  'Leí el As-Is para ubicar el punto de partida y validé sobre el To-Be.'],
+    ['est',   'El dueño del proceso existe en la estructura To-Be.'],
+    ['dec',   'Cada decisión del flujo tiene quién la tome, y cada traspaso, quién entrega y quién recibe.'],
+    ['sesgo', 'Revisé mis ajustes contra el sesgo hacia el As-Is.']
+  ];
+  var VT_SR = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+
+  function vtActivo(){ return VT.listo && (VT.habilitado || VT.secretaria); }
+  function vtClave(cod){ return (VT.como||'') + '|' + cod; }
+  function vtFecha(t){
+    if(!t) return '';
+    var d = new Date(t);
+    return d.toLocaleDateString('es', {day:'numeric', month:'short'}) + ' · ' + d.toLocaleTimeString('es', {hour:'2-digit', minute:'2-digit'});
+  }
+
+  function sb(ruta, opts){
+    opts = opts || {};
     return rowerSesion.tokenVivo().then(function(jwt){
-      if(!jwt) return null;
-      return fetch(SB_URL + '/rest/v1/v_validadores_proceso?select=*', {
-        headers: { apikey: SB_KEY, Authorization: 'Bearer ' + jwt }
-      }).then(function(r){ return r.ok ? r.json() : null; });
-    }).catch(function(){ return null; });
+      if(!jwt) throw new Error('Tu sesión venció. Vuelve a entrar.');
+      var h = { apikey: SB_KEY, Authorization: 'Bearer ' + jwt };
+      if(opts.body !== undefined) h['Content-Type'] = 'application/json';
+      if(opts.prefer) h.Prefer = opts.prefer;
+      return fetch(SB_URL + '/rest/v1/' + ruta, {
+        method: opts.method || 'GET', headers: h,
+        body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined
+      });
+    }).then(function(r){
+      return r.text().then(function(t){
+        var d = null; try{ d = t ? JSON.parse(t) : null; }catch(e){}
+        if(!r.ok) throw new Error((d && (d.message || d.hint)) || ('Error ' + r.status));
+        return d;
+      });
+    });
   }
 
-  function validadoresDe(codigo){
-    if(!VALIDADORES) return [];
-    return VALIDADORES.filter(function(v){ return v.proceso === codigo; });
+  /** Huella del To-Be del proceso: dice sobre qué versión del contenido se anotó. */
+  function vtHuella(pref, cod){
+    var c = CONT[String(pref)], s = JSON.stringify((c && c.procesos && c.procesos[cod]) || {}), h = 5381;
+    for(var i = 0; i < s.length; i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
+    return (h >>> 0).toString(16) + '-' + s.length;
   }
 
-  /** El bloque que se cuela en la sección «Dueño y participantes». */
-  function bloqueValidacion(codigo){
-    var vs = validadoresDe(codigo);
-    if(!vs.length) return '';
-    var enviadas = vs.filter(function(v){ return v.estado_validacion === 'enviada'; });
-    var quien = vs.map(function(v){
-      return '<li>' + esc(v.nombre) + ' <span class="tenue">· ' + esc(v.cargo || 'sin cargo') +
-             (v.entidad ? ' · ' + esc(v.entidad) : '') + '</span></li>';
-    }).join('');
-    var rotulo = enviadas.length === vs.length
-      ? 'Validado por'
-      : (enviadas.length ? 'En validación (' + enviadas.length + ' de ' + vs.length + ')' : 'Pendiente de validar por');
-    return fichaHtml([[rotulo, '<ul>' + quien + '</ul>']]);
+  function vtCargar(){
+    if(!(window.rowerSesion && rowerSesion.tokenVivo)) return Promise.resolve();
+    var u = rowerSesion.usuario && rowerSesion.usuario();
+    if(!u || !u.id) return Promise.resolve();
+    VT.uid = u.id;
+    VT.secretaria = !!(rowerSesion.permiso && rowerSesion.permiso('admin.validacion'));
+    return sb('validadores_tobe?select=activo&perfil_id=eq.' + encodeURIComponent(u.id)).then(function(rows){
+      VT.habilitado = !!(rows && rows[0] && rows[0].activo);
+      VT.como = VT.habilitado ? u.id : null;
+      if(!VT.habilitado && !VT.secretaria) return;
+      return Promise.all([
+        vtRefrescarEstados(true),
+        VT.secretaria ? sb('rpc/secretaria_usuarios', {method:'POST', body:{}}).then(function(us){
+          VT.validadores = (us || []).filter(function(x){ return x.habilitado && x.activo; });
+        }) : null
+      ]);
+    }).then(function(){ VT.listo = true; }, function(){ VT.listo = true; });
   }
+
+  function vtRefrescarEstados(sinPintar){
+    return sb('v_estado_tobe?select=*').then(function(rows){
+      VT.estados = {};
+      (rows || []).forEach(function(x){ VT.estados[x.proceso] = x; });
+      if(!sinPintar) vtPintarNav();
+    }).catch(function(){});
+  }
+
+  // ---- menú: un punto por proceso y el recuento por macro ----
+  function vtPintarNav(){
+    if(!vtActivo()) return;
+    if(!$('#vtLeyenda')){
+      var ley = el('<div class="vt-leyenda vt-ui" id="vtLeyenda"><span><i class="vt-dot vt-sin"></i>Sin validar</span>' +
+                   '<span><i class="vt-dot vt-en_validacion"></i>En validación</span><span><i class="vt-dot vt-validado"></i>Validado</span></div>');
+      var b = $('#buscar'); if(b) b.after(ley);
+    }
+    D.macros.forEach(function(m){
+      var val = 0;
+      m.procesos.forEach(function(p){
+        var e = VT.estados[p.codigo], st = e ? e.estado : 'sin';
+        if(st === 'validado') val++;
+        var a = nav.querySelector('.f2-msub a[data-cod="' + CSS.escape(p.codigo) + '"]');
+        if(!a) return;
+        a.setAttribute('href', '#/tobe/' + p.codigo);   // quien valida trabaja sobre el To-Be
+        var d = a.querySelector('.vt-dot');
+        if(!d){ d = document.createElement('i'); a.insertBefore(d, a.firstChild); }
+        d.className = 'vt-dot vt-ui vt-' + st;
+        d.title = VT_PROC[st];
+      });
+      var row = nav.querySelector('.f2-mrow[data-pref="' + CSS.escape(m.prefijo) + '"] .f2-mlink');
+      if(!row) return;
+      var c = row.querySelector('.vt-mcuenta');
+      if(!c){ c = document.createElement('span'); c.className = 'vt-mcuenta vt-ui'; row.appendChild(c); }
+      c.textContent = val + '/' + m.procesos.length;
+      c.title = val + ' de ' + m.procesos.length + ' procesos validados';
+      c.classList.toggle('lleno', val === m.procesos.length);
+    });
+  }
+
+  // ---- montaje en el To-Be ----
+  function vtMontar(cod, pref){
+    VT.actual = {cod: cod, pref: pref};
+    VT.error = '';
+    vtBotonesAnotar(cod, pref);
+    if(!VT.como){ vtPintar(); return; }
+    var k = vtClave(cod);
+    if(VT.proc[k] && !VT.proc[k].error && !VT.proc[k].cargando){
+      // Pinta lo que hay y lo revalida de fondo: la secretaría pudo responder entretanto.
+      var antes = JSON.stringify(VT.proc[k]);
+      vtPintar();
+      vtRecargar(cod).then(function(){ if(VT.actual && VT.actual.cod === cod && JSON.stringify(VT.proc[k]) !== antes) vtPintar(); });
+      return;
+    }
+    VT.proc[k] = {cargando: true, val: null, notas: []};
+    vtPintar();
+    vtRecargar(cod).then(function(){ vtPintar(); });
+  }
+
+  function vtRecargar(cod){
+    var k = vtClave(cod), como = encodeURIComponent(VT.como), pc = encodeURIComponent(cod);
+    return Promise.all([
+      sb('validaciones_tobe?select=*&proceso=eq.' + pc + '&perfil_id=eq.' + como),
+      sb('notas_tobe?select=*&proceso=eq.' + pc + '&perfil_id=eq.' + como + '&order=creado_en')
+    ]).then(function(r){
+      VT.proc[k] = {val: (r[0] && r[0][0]) || null, notas: r[1] || []};
+    }).catch(function(err){
+      VT.proc[k] = {val: null, notas: [], error: err.message};
+    });
+  }
+
+  function vtEstado(){ return VT.actual && VT.como ? VT.proc[vtClave(VT.actual.cod)] : null; }
+  function vtEditable(){ var e = vtEstado(); return !!(e && !e.cargando && !e.error && (!e.val || e.val.estado === 'en_revision')); }
+
+  /** Lo anclable de una sección, en el orden en que lo ve el lector. */
+  function vtAnclas(pref, cod, sec){
+    var c = contN1(pref, cod, sec, CONT), r = [];
+    if(!c) return r;
+    if(sec === 'flujo') (c.actividades || []).forEach(function(a, i){ r.push({id: a.id || ('a' + (i+1)), n: i+1, rot: 'Actividad ' + (i+1), txt: a.texto || ''}); });
+    if(sec === 'riesgos') (c.filas || []).forEach(function(f, i){ r.push({id: 'r' + (i+1), n: i+1, rot: 'Riesgo ' + (i+1), txt: f[0] || ''}); });
+    if(sec === 'indicadores') (c.filas || []).forEach(function(f, i){ r.push({id: 'i' + (i+1), n: i+1, rot: 'Indicador ' + (i+1), txt: f[0] || ''}); });
+    return r;
+  }
+
+  function vtBotonesAnotar(cod, pref){
+    ['flujo','riesgos','indicadores'].forEach(function(sec){
+      var cuerpo = doc.querySelector('#secb-' + sec);
+      if(!cuerpo) return;
+      var ans = vtAnclas(pref, cod, sec);
+      var items = sec === 'flujo'
+        ? [].slice.call(cuerpo.querySelectorAll('ol.f2-num-list > li'))
+        : [].slice.call(cuerpo.querySelectorAll('table.f2-tabla tbody tr')).map(function(tr){ return tr.cells[0]; });
+      items.forEach(function(it, i){
+        var a = ans[i]; if(!a || !it) return;
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'vt-anotar vt-ui';
+        b.setAttribute('data-vt', 'anotar'); b.setAttribute('data-sec', sec); b.setAttribute('data-ancla', a.id);
+        b.textContent = 'Anotar'; b.title = 'Anotar sobre ' + a.rot.toLowerCase();
+        it.appendChild(b);
+        it.setAttribute('data-vt-ancla', a.id);
+      });
+    });
+  }
+
+  function vtPintar(){
+    if(!VT.actual) return;
+    var cod = VT.actual.cod;
+    var banda = doc.querySelector('#vtBanda'); if(banda) banda.innerHTML = vtBandaHtml(cod);
+    D.seccionesN1.forEach(function(s){
+      var p = doc.querySelector('.vt-panel[data-vt-sec="' + s.id + '"]');
+      if(p) p.innerHTML = vtPanelHtml(cod, s.id);
+    });
+    var cierre = doc.querySelector('#vtCierre'); if(cierre) cierre.innerHTML = vtCierreHtml(cod);
+    var ed = vtEditable();
+    doc.querySelectorAll('.vt-anotar').forEach(function(b){ b.hidden = !ed; });
+    vtMarcarAnclas();
+  }
+
+  function vtMarcarAnclas(){
+    var e = vtEstado(), usadas = {};
+    if(e) (e.notas || []).forEach(function(n){ if(n.ancla_id) usadas[n.seccion + ':' + n.ancla_id] = 1; });
+    Object.keys(VT.comp).forEach(function(k){
+      var c = VT.comp[k]; if(c.abierto && c.ancla && VT.actual && k.indexOf(VT.actual.cod + '|') === 0) usadas[k.split('|')[1] + ':' + c.ancla] = 1;
+    });
+    ['flujo','riesgos','indicadores'].forEach(function(sec){
+      doc.querySelectorAll('#secb-' + sec + ' [data-vt-ancla]').forEach(function(it){
+        var on = !!usadas[sec + ':' + it.getAttribute('data-vt-ancla')];
+        (sec === 'flujo' ? it : it.parentNode).classList.toggle('vt-marcada', on);
+      });
+    });
+  }
+
+  function vtBandaHtml(cod){
+    var e = vtEstado(), val = e && e.val, ver = (val && val.veredictos) || {};
+    var h = '<div class="vt-banda-fila">';
+    h += '<div class="vt-quien"><span class="vt-rot">Validación del comité</span>';
+    if(VT.secretaria){
+      var ops = (VT.habilitado ? '<option value="' + esc(VT.uid) + '"' + (VT.como === VT.uid ? ' selected' : '') + '>Yo</option>' : '') +
+        VT.validadores.filter(function(x){ return x.id !== VT.uid; }).map(function(x){
+          return '<option value="' + esc(x.id) + '"' + (VT.como === x.id ? ' selected' : '') + '>' + esc(x.nombre || x.correo) + '</option>';
+        }).join('');
+      h += '<label class="vt-como">Registrar a nombre de <select id="vtComo" data-vt-campo="como">' +
+           (VT.como ? '' : '<option value="" selected>Elige un integrante…</option>') + ops + '</select></label>';
+    } else {
+      h += '<b>Validas el To-Be de ' + esc(cod) + '</b>';
+    }
+    h += '</div>';
+    if(VT.como && e && !e.cargando){
+      var n = D.seccionesN1.filter(function(s){ return ver[s.id]; }).length;
+      h += '<div class="vt-prog"><div class="vt-barras">' + D.seccionesN1.map(function(s){
+             return '<button type="button" data-vt="ir" data-sec="' + s.id + '" class="vt-b-' + (ver[s.id] || 'sin') + '" title="' + esc(s.n) +
+                    (ver[s.id] ? ' · ' + VT_VER[ver[s.id]] : ' · sin veredicto') + '" aria-label="Ir a ' + esc(s.n) + '"></button>';
+           }).join('') + '</div><div class="vt-prog-t"><span>' + n + ' de 6 secciones con veredicto</span><b>' + vtEstadoRot(val) + '</b></div></div>';
+      h += '<div class="vt-acc"><button type="button" class="vt-btn" data-vt="cierre">Cierre y envío ↓</button>' +
+           '<a class="vt-btn" href="instructivo-comite.html#como-validar">Instructivo</a></div>';
+    }
+    h += '</div>';
+    h += '<div class="vt-aviso">Lo que anotes no cambia el manual. El equipo consultor revisa cada nota, la incorpora al To-Be y te pide confirmarla antes de dar el proceso por validado. El As-Is no se toca.</div>';
+    if(VT.error) h += '<div class="vt-error" role="alert">' + esc(VT.error) + '</div>';
+    if(e && e.error) h += '<div class="vt-error" role="alert">No se pudo cargar la validación: ' + esc(e.error) + '</div>';
+    if(VT.secretaria && !VT.como) h += '<div class="vt-vacio">' + (VT.validadores.length
+      ? 'Eres de la secretaría técnica: elige a nombre de qué integrante registras, por ejemplo en una sesión en vivo.'
+      : 'Todavía no hay integrantes habilitados. Se habilitan en la Secretaría técnica del panel.') + '</div>';
+    return h;
+  }
+
+  function vtEstadoRot(val){
+    if(!val) return 'Sin empezar';
+    if(val.estado === 'validada') return 'Validada el ' + vtFecha(val.validada_en);
+    if(val.estado === 'enviada') return 'Enviada el ' + vtFecha(val.enviada_en);
+    return 'En revisión';
+  }
+
+  function vtNotaHtml(n, editable){
+    var anc = '';
+    if(n.tipo === 'consulta') anc = esc(n.proceso) + ' · consulta';
+    else anc = esc(n.proceso) + ' · ' + VT_CORTO[n.seccion] + (n.ancla_n ? ' · ' + (n.seccion === 'flujo' ? 'actividad ' : n.seccion === 'riesgos' ? 'riesgo ' : 'indicador ') + n.ancla_n : '');
+    var h = '<div class="vt-nota"><div class="vt-nota-meta"><span class="vt-ancla">' + anc + '</span>' +
+            '<span class="vt-tipo">' + ({escrita:'Escrita', voz:'Dictada', consulta:'Consulta'})[n.tipo] + '</span>' +
+            '<span>' + vtFecha(n.creado_en) + '</span><span class="vt-est vt-n-' + n.estado + '">' + VT_NOTA[n.estado] + '</span></div>';
+    if(n.tipo === 'consulta') h += '<blockquote><b>' + esc(n.consulta_a) + '</b> · ' + esc(n.texto) + ' → ' + esc(n.consulta_respuesta) + '</blockquote>';
+    else h += '<blockquote>' + esc(n.texto) + '</blockquote>';
+    if(n.ancla_texto && n.tipo !== 'consulta') h += '<div class="vt-leyo">Leíste: «' + esc(n.ancla_texto.length > 140 ? n.ancla_texto.slice(0, 140) + '…' : n.ancla_texto) + '»</div>';
+    if(n.respuesta) h += '<div class="vt-resp"><b>Secretaría técnica:</b> ' + esc(n.respuesta) + '</div>';
+    if(editable && n.estado === 'borrador') h += '<button type="button" class="vt-link" data-vt="quitar" data-id="' + esc(n.id) + '">Quitar nota</button>';
+    return h + '</div>';
+  }
+
+  function vtComp(cod, sec){
+    var k = cod + '|' + sec;
+    return VT.comp[k] || (VT.comp[k] = {abierto: false, ancla: '', texto: '', tipo: 'escrita'});
+  }
+
+  function vtPanelHtml(cod, sec){
+    if(!VT.como) return '';
+    var e = vtEstado();
+    if(!e || e.cargando) return '<div class="vt-cargando">Cargando tu validación…</div>';
+    if(e.error) return '';
+    var val = e.val, ver = (val && val.veredictos) || {}, v = ver[sec], ed = vtEditable();
+    var notas = (e.notas || []).filter(function(n){ return n.seccion === sec && n.tipo !== 'consulta'; });
+    var falta = (v === 'ajustes' || v === 'no') && !notas.length;
+    var h = '<div class="vt-cab"><span class="vt-rot">Tu validación de esta sección</span>' + (v ? '<span class="vt-chip vt-c-' + v + '">' + VT_VER[v] + '</span>' : '') + '</div>';
+    h += '<p class="vt-preg">' + esc(VT_SEC[sec]) + '</p><p class="vt-preg2">¿Así deberíamos hacerlo para crecer y gestionar mejor?</p>';
+    h += '<div class="vt-verds" role="radiogroup" aria-label="Veredicto">' + ['valida','ajustes','no'].map(function(x){
+      return '<button type="button" class="vt-verd" role="radio" data-vt="veredicto" data-sec="' + sec + '" data-v="' + x + '" aria-checked="' + (v === x) + '"' + (ed ? '' : ' disabled') + '>' +
+             '<i class="vt-pt vt-c-' + x + '"></i>' + VT_VER[x] + '</button>';
+    }).join('') + '</div>';
+    if(falta && ed) h += '<div class="vt-falta">Falta la nota: di qué ajustarías y por qué.</div>';
+    if(notas.length) h += '<div class="vt-notas">' + notas.map(function(n){ return vtNotaHtml(n, ed); }).join('') + '</div>';
+    if(ed){
+      var c = vtComp(cod, sec);
+      if(c.abierto || falta) h += vtCompHtml(cod, sec, c, v);
+      else h += '<button type="button" class="vt-mas" data-vt="abrir" data-sec="' + sec + '">+ Añadir una nota</button>';
+    }
+    var i = D.seccionesN1.map(function(s){ return s.id; }).indexOf(sec), sig = D.seccionesN1[i + 1];
+    if(v && sig) h += '<div class="vt-sig"><button type="button" class="vt-link" data-vt="ir" data-sec="' + sig.id + '">Siguiente: ' + esc(cod + '.' + (i + 2) + ' ' + sig.n) + ' →</button></div>';
+    else if(v && !sig) h += '<div class="vt-sig"><button type="button" class="vt-link" data-vt="cierre">Ir al cierre y envío →</button></div>';
+    return h;
+  }
+
+  function vtCompHtml(cod, sec, c, v){
+    var ans = vtAnclas(VT.actual.pref, cod, sec), k = cod + '|' + sec;
+    var h = '<div class="vt-comp">';
+    if(ans.length){
+      h += '<label class="vt-campo">Sobre <select data-vt-campo="ancla" data-k="' + esc(k) + '"><option value="">Toda la sección</option>' +
+           ans.map(function(a){ return '<option value="' + esc(a.id) + '"' + (a.id === c.ancla ? ' selected' : '') + '>' + esc(a.rot + ' · ' + (a.txt.length > 70 ? a.txt.slice(0, 70) + '…' : a.txt)) + '</option>'; }).join('') +
+           '</select></label>';
+    }
+    h += '<textarea id="vtTa-' + esc(sec) + '" data-vt-campo="texto" data-k="' + esc(k) + '" rows="3" placeholder="Qué ajustarías y por qué" aria-label="Nota sobre ' + esc(VT_CORTO[sec]) + '">' + esc(c.texto) + '</textarea>';
+    var dict = VT.dictando && VT.dictando.k === k;
+    h += '<div class="vt-comp-pie">';
+    if(VT_SR) h += '<button type="button" class="vt-btn vt-dictar' + (dict ? ' on' : '') + '" data-vt="dictar" data-k="' + esc(k) + '">' + (dict ? '■ Detener dictado' : '● Dictar') + '</button>';
+    else h += '<span class="vt-tenue">Para dictar usa Chrome, Edge o Safari.</span>';
+    h += '<span class="vt-esp"></span><button type="button" class="vt-btn" data-vt="cancelar" data-sec="' + sec + '">Cancelar</button>' +
+         '<button type="button" class="vt-btn vt-pri" data-vt="guardar" data-sec="' + sec + '">Guardar nota</button></div>';
+    if(dict) h += '<div class="vt-tenue">Habla con normalidad: el texto aparece mientras dictas y lo puedes corregir antes de guardar.</div>';
+    if(v === 'ajustes' || v === 'no'){
+      h += '<details class="vt-sesgo"><summary>Antes de guardar, tres preguntas contra el sesgo hacia el As-Is</summary><ul>' +
+           '<li>¿Lo cambio porque la propuesta está mal, o porque es distinta de lo que hacemos hoy?</li>' +
+           '<li>¿El ajuste acerca o aleja al grupo del crecimiento comercial y de una gestión más ordenada?</li>' +
+           '<li>¿Estoy protegiendo una práctica que funciona, o una costumbre que la propuesta viene a cambiar?</li></ul></details>';
+    }
+    return h + '</div>';
+  }
+
+  function vtCierreHtml(cod){
+    if(!VT.como) return '';
+    var e = vtEstado();
+    if(!e || e.cargando || e.error) return '';
+    var val = e.val, ver = (val && val.veredictos) || {}, lista = (val && val.lista) || {}, ed = vtEditable();
+    var n = D.seccionesN1.filter(function(s){ return ver[s.id]; }).length;
+    var notas = e.notas || [];
+    var consultas = notas.filter(function(x){ return x.tipo === 'consulta'; });
+    var h = '<div class="vt-rot">Paso final</div><h2 class="vt-h2">Cierre de la validación de ' + esc(cod) + '</h2>';
+
+    if(val && val.estado !== 'en_revision'){
+      var pend = notas.filter(function(x){ return x.tipo !== 'consulta' && (x.estado === 'por_revisar' || x.estado === 'necesita_consulta'); }).length;
+      var porConf = notas.filter(function(x){ return x.estado === 'se_incorpora'; }).length;
+      if(val.estado === 'validada'){
+        h += '<div class="vt-ok"><b>Validada el ' + vtFecha(val.validada_en) + '.</b> El proceso cuenta como validado por ti.</div>';
+      } else {
+        h += '<div class="vt-enviada"><b>Enviada el ' + vtFecha(val.enviada_en) + '.</b> ' +
+             (pend ? 'La secretaría técnica tiene ' + pend + (pend === 1 ? ' nota por responder.' : ' notas por responder.')
+                   : 'La secretaría técnica ya respondió todas tus notas. ' + (porConf ? 'Revisa arriba los ' + porConf + ' ajustes incorporados y confirma.' : 'Confirma para cerrar.')) + '</div>';
+      }
+      h += '<div class="vt-acc">' + (val.estado === 'enviada' && !pend ? '<button type="button" class="vt-btn vt-pri" data-vt="confirmar">Confirmar y dar por validado</button>' : '') +
+           '<button type="button" class="vt-btn" data-vt="reabrir">Reabrir para cambiar</button></div>';
+      if(consultas.length) h += '<div class="vt-sub">Consultas registradas</div><div class="vt-notas">' + consultas.map(function(x){ return vtNotaHtml(x, false); }).join('') + '</div>';
+      return h;
+    }
+
+    h += '<p class="vt-tenue">La lista del instructivo. Las dos primeras casillas se marcan solas; la validación se guarda en la plataforma.</p>';
+    h += '<ul class="vt-lista">' +
+         '<li><input type="checkbox" disabled' + (n === 6 ? ' checked' : '') + ' id="vtL0"><label for="vtL0">Di un veredicto a cada una de las seis secciones (' + n + ' de 6).</label><span class="vt-auto">Automático</span></li>' +
+         '<li><input type="checkbox" disabled checked id="vtL1"><label for="vtL1">Cada ajuste dice proceso, sección y, si aplica, número de actividad.</label><span class="vt-auto">Automático</span></li>' +
+         VT_LISTA.map(function(it){
+           return '<li><input type="checkbox" id="vtL-' + it[0] + '" data-vt-campo="lista" data-l="' + it[0] + '"' + (lista[it[0]] ? ' checked' : '') + (ed ? '' : ' disabled') + '><label for="vtL-' + it[0] + '">' + esc(it[1]) + '</label><span></span></li>';
+         }).join('') + '</ul>';
+
+    h += '<div class="vt-sub">Consultas a dueños de proceso</div>';
+    h += consultas.length ? '<div class="vt-notas">' + consultas.map(function(x){ return vtNotaHtml(x, ed); }).join('') + '</div>'
+                          : '<p class="vt-tenue">Ninguna registrada. Úsalo cuando falte un dato que solo la operación conoce: un plazo, una cifra, un control.</p>';
+    h += '<div class="vt-consulta"><label>A quién<input id="vtCqA" maxlength="200" placeholder="Cargo de quien respondió" autocomplete="off"></label>' +
+         '<label>Qué se preguntó<input id="vtCqP" maxlength="1000" placeholder="Un dato concreto" autocomplete="off"></label>' +
+         '<label>Qué respondió<input id="vtCqR" maxlength="1000" placeholder="La respuesta" autocomplete="off"></label>' +
+         '<button type="button" class="vt-btn" data-vt="consulta">Registrar</button></div>';
+
+    var falta = [];
+    if(n < 6) falta.push((6 - n) + (6 - n === 1 ? ' sección sin veredicto' : ' secciones sin veredicto'));
+    var sinNota = D.seccionesN1.filter(function(s){
+      return (ver[s.id] === 'ajustes' || ver[s.id] === 'no') && !notas.some(function(x){ return x.seccion === s.id && x.tipo !== 'consulta'; });
+    }).length;
+    if(sinNota) falta.push(sinNota + (sinNota === 1 ? ' ajuste sin nota' : ' ajustes sin nota'));
+    var cas = VT_LISTA.filter(function(it){ return !lista[it[0]]; }).length;
+    if(cas) falta.push(cas + (cas === 1 ? ' casilla de la lista' : ' casillas de la lista'));
+    h += '<div class="vt-enviar"><button type="button" class="vt-btn vt-pri" data-vt="enviar"' + (falta.length || VT.ocupado ? ' disabled' : '') + '>Enviar a la secretaría técnica</button>' +
+         (falta.length ? '<span class="vt-falta">Falta: ' + esc(falta.join(' · ')) + '</span>' : '') + '</div>';
+    return h;
+  }
+
+  // ---- escritura ----
+  function vtFallo(err){ VT.error = (err && err.message) || String(err); VT.ocupado = false; vtPintar(); }
+
+  /** Crea o actualiza la validación con los veredictos y la lista que hay en memoria. */
+  function vtGuardarVal(cod, cambios){
+    var e = vtEstado(), val = e.val || {};
+    var cuerpo = {
+      proceso: cod, perfil_id: VT.como,
+      veredictos: Object.assign({}, val.veredictos || {}, cambios.veredictos || {}),
+      lista: Object.assign({}, val.lista || {}, cambios.lista || {})
+    };
+    return sb('validaciones_tobe?on_conflict=proceso,perfil_id', {
+      method: 'POST', body: cuerpo, prefer: 'resolution=merge-duplicates,return=representation'
+    }).then(function(rows){ e.val = rows && rows[0]; return e.val; });
+  }
+
+  function vtTrasCambio(cod){
+    VT.error = ''; VT.ocupado = false;
+    return vtRecargar(cod).then(function(){ vtPintar(); return vtRefrescarEstados(); });
+  }
+
+  function vtAccion(b){
+    if(!VT.actual) return;
+    var cod = VT.actual.cod, pref = VT.actual.pref, accion = b.getAttribute('data-vt'), sec = b.getAttribute('data-sec');
+    var e = vtEstado();
+    if(accion === 'ir'){
+      var t = doc.querySelector('#sec-' + CSS.escape(sec));
+      if(t){ fijarSec(t, true, false); t.scrollIntoView({block: 'start', behavior: 'smooth'}); }
+      return;
+    }
+    if(accion === 'cierre'){ var ci = doc.querySelector('#vtCierre'); if(ci) ci.scrollIntoView({block: 'start', behavior: 'smooth'}); return; }
+    if(!e || VT.ocupado) return;
+    if(accion === 'veredicto'){
+      var v = b.getAttribute('data-v');
+      if(v !== 'valida' && !(e.notas || []).some(function(n){ return n.seccion === sec && n.tipo !== 'consulta'; })) vtComp(cod, sec).abierto = true;
+      var ver = {}; ver[sec] = v;
+      e.val = Object.assign({}, e.val || {}, {veredictos: Object.assign({}, (e.val && e.val.veredictos) || {}, ver)});
+      vtPintar();
+      VT.ocupado = true;
+      vtGuardarVal(cod, {veredictos: ver}).then(function(){ return vtTrasCambio(cod); }, vtFallo);
+      return;
+    }
+    if(accion === 'abrir'){ vtComp(cod, sec).abierto = true; vtPintar(); var ta = doc.querySelector('#vtTa-' + sec); if(ta) ta.focus(); return; }
+    if(accion === 'anotar'){
+      var c = vtComp(cod, sec); c.abierto = true; c.ancla = b.getAttribute('data-ancla');
+      var s = doc.querySelector('#sec-' + CSS.escape(sec)); if(s) fijarSec(s, true, false);
+      vtPintar();
+      var ta2 = doc.querySelector('#vtTa-' + sec);
+      if(ta2){ ta2.scrollIntoView({block: 'center', behavior: 'smooth'}); setTimeout(function(){ ta2.focus({preventScroll: true}); }, 300); }
+      return;
+    }
+    if(accion === 'cancelar'){ vtPararDictado(); VT.comp[cod + '|' + sec] = {abierto: false, ancla: '', texto: '', tipo: 'escrita'}; vtPintar(); return; }
+    if(accion === 'dictar'){ vtDictar(b.getAttribute('data-k')); return; }
+    if(accion === 'guardar'){
+      var cp = vtComp(cod, sec), texto = (cp.texto || '').trim();
+      if(!texto){ var t3 = doc.querySelector('#vtTa-' + sec); if(t3){ t3.focus(); t3.placeholder = 'Escribe o dicta la nota antes de guardarla'; } return; }
+      vtPararDictado();
+      var an = vtAnclas(pref, cod, sec).filter(function(a){ return a.id === cp.ancla; })[0];
+      VT.ocupado = true;
+      (e.val && e.val.id ? Promise.resolve(e.val) : vtGuardarVal(cod, {})).then(function(val){
+        return sb('notas_tobe', {method: 'POST', prefer: 'return=representation', body: {
+          validacion_id: val.id, seccion: sec, tipo: cp.tipo === 'voz' ? 'voz' : 'escrita',
+          ancla_id: an ? an.id : null, ancla_n: an ? an.n : null, ancla_texto: an ? an.txt.slice(0, 600) : null,
+          texto: texto, version: vtHuella(pref, cod)
+        }});
+      }).then(function(){
+        VT.comp[cod + '|' + sec] = {abierto: false, ancla: '', texto: '', tipo: 'escrita'};
+        return vtTrasCambio(cod);
+      }, vtFallo);
+      return;
+    }
+    if(accion === 'quitar'){
+      VT.ocupado = true;
+      sb('notas_tobe?id=eq.' + encodeURIComponent(b.getAttribute('data-id')), {method: 'DELETE'})
+        .then(function(){ return vtTrasCambio(cod); }, vtFallo);
+      return;
+    }
+    if(accion === 'consulta'){
+      var qa = ($('#vtCqA').value || '').trim(), qp = ($('#vtCqP').value || '').trim(), qr = ($('#vtCqR').value || '').trim();
+      if(!qa || !qp || !qr){ VT.error = 'Para registrar una consulta llena a quién, qué se preguntó y qué respondió.'; vtPintar(); return; }
+      VT.ocupado = true;
+      (e.val && e.val.id ? Promise.resolve(e.val) : vtGuardarVal(cod, {})).then(function(val){
+        return sb('notas_tobe', {method: 'POST', body: {
+          validacion_id: val.id, tipo: 'consulta', texto: qp, consulta_a: qa, consulta_respuesta: qr, version: vtHuella(pref, cod)
+        }});
+      }).then(function(){ return vtTrasCambio(cod); }, vtFallo);
+      return;
+    }
+    if(accion === 'enviar' || accion === 'confirmar' || accion === 'reabrir'){
+      if(!e.val) return;
+      var fn = {enviar: 'validacion_tobe_enviar', confirmar: 'validacion_tobe_confirmar', reabrir: 'validacion_tobe_reabrir'}[accion];
+      var body = {p_id: e.val.id}; if(accion === 'enviar') body.p_version = vtHuella(pref, cod);
+      VT.ocupado = true; vtPintar();
+      sb('rpc/' + fn, {method: 'POST', body: body}).then(function(){ return vtTrasCambio(cod); }, vtFallo);
+    }
+  }
+
+  // ---- dictado (Web Speech API: Chrome, Edge y Safari) ----
+  function vtPararDictado(){
+    if(VT.dictando){ try{ VT.dictando.rec.stop(); }catch(e){} VT.dictando = null; }
+  }
+  function vtDictar(k){
+    if(VT.dictando){ var era = VT.dictando.k; vtPararDictado(); vtPintar(); if(era === k) return; }
+    if(!VT_SR) return;
+    var c = VT.comp[k]; if(!c) return;
+    var rec = new VT_SR(), base = c.texto ? c.texto.replace(/\s*$/, ' ') : '';
+    rec.lang = 'es-VE'; rec.continuous = true; rec.interimResults = true;
+    rec.onresult = function(ev){
+      var tmp = '';
+      for(var i = ev.resultIndex; i < ev.results.length; i++){
+        var t = ev.results[i][0].transcript;
+        if(ev.results[i].isFinal) base += t.trim() + ' '; else tmp += t;
+      }
+      c.texto = (base + tmp).replace(/\s+/g, ' ').trim(); c.tipo = 'voz';
+      var ta = doc.querySelector('textarea[data-k="' + CSS.escape(k) + '"]'); if(ta) ta.value = c.texto;
+    };
+    rec.onerror = function(ev){
+      if(ev.error === 'language-not-supported' && rec.lang !== 'es-ES'){ rec.lang = 'es-ES'; try{ rec.start(); }catch(e){} return; }
+      VT.error = ev.error === 'not-allowed' || ev.error === 'service-not-allowed'
+        ? 'El navegador no dio permiso al micrófono. Permítelo en la barra de direcciones y vuelve a intentar.'
+        : (ev.error === 'no-speech' ? '' : 'No se pudo dictar (' + ev.error + '). Puedes escribir la nota.');
+    };
+    rec.onend = function(){ if(VT.dictando && VT.dictando.rec === rec){ VT.dictando = null; vtPintar(); } };
+    try{ rec.start(); VT.dictando = {k: k, rec: rec}; }catch(e){ VT.error = 'No se pudo iniciar el dictado.'; }
+    vtPintar();
+  }
+
+  // ---- eventos (delegados: el router reescribe el documento en cada ruta) ----
+  doc.addEventListener('click', function(ev){
+    var b = ev.target.closest && ev.target.closest('[data-vt]');
+    if(b && doc.contains(b)) vtAccion(b);
+  });
+  doc.addEventListener('input', function(ev){
+    var t = ev.target;
+    if(t.getAttribute && t.getAttribute('data-vt-campo') === 'texto'){
+      var c = VT.comp[t.getAttribute('data-k')]; if(c) c.texto = t.value;
+    }
+  });
+  doc.addEventListener('change', function(ev){
+    var t = ev.target, campo = t.getAttribute && t.getAttribute('data-vt-campo');
+    if(!campo || !VT.actual) return;
+    var cod = VT.actual.cod;
+    if(campo === 'ancla'){ var c = VT.comp[t.getAttribute('data-k')]; if(c){ c.ancla = t.value; vtMarcarAnclas(); } }
+    if(campo === 'como'){ VT.como = t.value || null; vtMontar(cod, VT.actual.pref); }
+    if(campo === 'lista'){
+      var l = {}; l[t.getAttribute('data-l')] = t.checked;
+      VT.ocupado = true;
+      vtGuardarVal(cod, {lista: l}).then(function(){ VT.ocupado = false; vtPintar(); }, vtFallo);
+    }
+  });
 
   // ---------- arranque ----------
   pintarNav();
   window.addEventListener('hashchange', router);
   router();
-  cargarValidadores().then(function(datos){
-    if(!datos || !datos.length) return;
-    VALIDADORES = datos;
-    router();                    // repinta con el bloque ya disponible
+  vtCargar().then(function(){
+    if(!vtActivo()) return;
+    vtPintarNav();
+    router();                    // repinta el proceso abierto con la capa de validación
   });
 })();
 </script>

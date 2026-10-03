@@ -585,7 +585,7 @@ insert into public.permisos (clave, nombre, descripcion, grupo, orden) values
   ('admin.roles',     'Definir roles',         'Crear roles y decidir qué puede hacer cada uno. Permiso delicado.', 'Gobierno del acceso', 100),
   ('admin.personal',  'Censo y enlaces',       'Censo de personal de Kenex, su jerarquía y la generación de enlaces para la ficha de actualización de perfil.', 'Panel', 110),
   ('admin.fichas',    'Fichas recibidas',      'Leer y exportar las fichas de actualización de perfil recibidas. Incluye documento de identidad y nivel educativo.', 'Panel', 120),
-  ('admin.validacion','Validación de procesos','Asignar qué gerente valida cada proceso de Fase 2, generar sus enlaces y leer las observaciones que devuelven.', 'Panel', 130)
+  ('admin.validacion','Secretaría técnica',   'Elegir qué cuentas validan el modelo To-Be de Fase 2, recibir sus notas, responder cada una y seguir el estado de los 182 procesos.', 'Panel', 130)
 on conflict (clave) do update
   set nombre = excluded.nombre, descripcion = excluded.descripcion,
       grupo = excluded.grupo, orden = excluded.orden;
@@ -1536,176 +1536,475 @@ end $$;
 
 
 -- ============================================================
--- 15. Validación de procesos por sus dueños (Fase 2, sep-2026)
+-- 15. Validación del modelo To-Be por el Comité (Fase 2, oct-2026)
 -- ============================================================
--- Los manuales de Fase 2 los redacta el equipo consultor; quien manda sobre si
--- describen la operación real es el gerente dueño de cada proceso. Este bloque
--- sostiene esa ronda de validación: proyecta el manual a filas, resuelve qué
--- PERSONA REAL del censo valida cada proceso, y guarda lo que respondió.
+-- El modelo To-Be lo valida un comité ejecutivo ad hoc (instructivo-comite.html),
+-- no los gerentes uno por uno. Cada integrante entra con SU cuenta al manual,
+-- recorre el To-Be de un proceso sección por sección, da un veredicto de tres
+-- niveles y deja notas ancladas (escritas, dictadas o consultas a dueños de
+-- proceso). La secretaría técnica (permiso `admin.validacion`, módulo del
+-- panel) elige qué cuentas validan, recibe las notas, responde cada una y el
+-- integrante confirma los ajustes incorporados.
 --
--- Mismo patrón de entrega que las fichas de perfil (§11) y por la misma razón:
--- los gerentes de Kenex no tienen cuenta del aplicativo. Enlace opaco de 45
--- días, revocable, sin sesión de Supabase Auth; la puerta es la Edge Function
--- `validacion`, que replica la `puerta()` de `ficha` (revocado · vencido ·
--- titular dado de baja del censo).
+-- Nada de lo que se anota cambia el manual: el To-Be vive en el repo
+-- (`manual-contenido.js`) y lo edita el equipo consultor. Por eso cada nota
+-- guarda el id, el número y el texto de lo que el integrante leyó, y una
+-- huella del contenido del proceso: tras incorporar cambios sigue apuntando a
+-- lo que se vio.
+--
+-- Reemplaza a la validación por gerentes de sep-2026 (enlaces con token,
+-- `procesos_fase2`/`procesos_validadores`/`validaciones`/`validacion_tokens`).
+-- Sus filas quedaron respaldadas fuera del repo el 03-oct-2026 antes de borrarlas.
 
--- ---------- El manual, proyectado a filas ----------
--- GENERADA desde el repo por scripts/cargar-validacion.py. El repo manda: no
--- editar a mano — se borra y recarga entera en cada corrida, igual que las
--- tablas de la §12. `tiene_contenido` distingue los procesos que ya redactó el
--- equipo (hoy 92 de 182) de los que solo tienen la ficha semilla del mapa v18:
--- solo los primeros se pueden mandar a validar.
-create table if not exists public.procesos_fase2 (
-  codigo          text primary key,                      -- «9.3»
-  macro           text not null,                         -- «9»
-  macro_nombre    text not null,
-  nombre          text not null,
-  madurez         text,
-  dueno_texto     text,                                  -- crudo del mapa v18, tal como vino
-  participantes   jsonb not null default '[]'::jsonb,
-  tiene_contenido boolean not null default false,
-  -- El manual del proceso, tal cual lo redactó el equipo. Vive aquí y no solo
-  -- en los .js del repo para que la Edge Function pueda servir SOLO el proceso
-  -- del token: si la página pública leyera el .js completo, el enlace de un
-  -- gerente de Contabilidad enseñaría de paso los 92 procesos redactados.
-  contenido       jsonb,
-  orden           int,
-  actualizado_en  timestamptz not null default now()
+-- ---------- 15.0 Lo que reemplaza ----------
+drop view  if exists public.v_validadores_proceso;
+drop table if exists public.validacion_tokens;
+drop table if exists public.validaciones;
+drop table if exists public.procesos_validadores;
+drop table if exists public.procesos_fase2;
+
+-- ---------- 15.1 Ayudantes ----------
+-- Las seis secciones del N1, en el orden del manual (seccionesN1 en
+-- manual-procesos-datos.js). Un veredicto o una nota con otra clave no entra.
+create or replace function public.secciones_tobe()
+returns text[] language sql immutable as $$
+  select array['proposito','dueno','disparador','flujo','riesgos','indicadores']
+$$;
+
+-- {seccion: valida|ajustes|no}. Se permite parcial: el integrante guarda a
+-- medida que avanza, y el envío exige las seis.
+create or replace function public.veredictos_tobe_validos(v jsonb)
+returns boolean language sql immutable as $$
+  select jsonb_typeof(v) = 'object'
+     and not exists (
+       select 1 from jsonb_each(v) e
+        where e.key <> all (public.secciones_tobe())
+           or jsonb_typeof(e.value) <> 'string'
+           or (e.value #>> '{}') not in ('valida','ajustes','no'))
+$$;
+
+-- Las transiciones de estado (enviar, confirmar, reabrir) solo pasan por sus
+-- funciones, que encienden esta marca dentro de su propia transacción. Un
+-- cliente no puede encenderla: PostgREST no expone set_config.
+create or replace function public.es_transicion_tobe()
+returns boolean language sql stable as $$
+  select coalesce(current_setting('rower.transicion_tobe', true), '') = '1'
+$$;
+
+-- ---------- 15.2 Quién valida ----------
+-- Lo decide la secretaría técnica desde el panel. Habilitar a una cuenta no le
+-- da acceso al manual: eso sigue siendo `ver.informe`, de su rol.
+create table if not exists public.validadores_tobe (
+  perfil_id      uuid primary key references public.perfiles(id) on delete cascade,
+  activo         boolean not null default true,
+  habilitado_por uuid references public.perfiles(id) on delete set null,
+  habilitado_en  timestamptz not null default now(),
+  actualizado_en timestamptz not null default now()
 );
-create index if not exists procesos_fase2_macro_idx on public.procesos_fase2 (macro);
 
--- ---------- Quién valida qué ----------
--- El emparejador siembra filas con origen='auto' y su grado de confianza; esas
--- son PROPUESTAS, no asignaciones. Solo 'confirmado' (un humano aceptó la
--- propuesta) y 'manual' (un humano la eligió desde cero) habilitan la
--- generación de un enlace — así ningún gerente recibe un proceso que no le
--- toca porque un replace mal hecho dejó el cargo sucio en el mapa v18.
-create table if not exists public.procesos_validadores (
-  id             uuid primary key default gen_random_uuid(),
-  proceso        text not null references public.procesos_fase2(codigo) on delete cascade,
-  persona_id     uuid not null references public.personal(id) on delete cascade,
-  origen         text not null default 'auto'
-                 check (origen in ('auto','confirmado','manual')),
-  confianza      numeric,                                -- 0..1 del emparejador; NULL si se puso a mano
-  cargo_sugerido text,                                   -- el cargo del censo con el que casó
-  confirmado_por text,
-  confirmado_en  timestamptz,
-  creado_en      timestamptz not null default now(),
-  unique (proceso, persona_id)
-);
-create index if not exists procesos_validadores_persona_idx on public.procesos_validadores (persona_id);
-
--- ---------- Lo que respondió el gerente ----------
--- `veredictos` es {seccion: ok|observaciones} para las 6 secciones del N1;
--- `comentarios` es una lista de {seccion, ancla, texto, creado_en} donde `ancla`
--- apunta al elemento concreto (id de actividad del flujo, índice de fila de
--- riesgo…) o va en null si el comentario es de la sección entera. Ambos en
--- jsonb: se leen y escriben completos, no se consultan por campo interno.
-create table if not exists public.validaciones (
-  id             uuid primary key default gen_random_uuid(),
-  proceso        text not null references public.procesos_fase2(codigo) on delete cascade,
-  persona_id     uuid not null references public.personal(id) on delete cascade,
-  veredictos     jsonb not null default '{}'::jsonb,
-  comentarios    jsonb not null default '[]'::jsonb,
-  estado         text not null default 'pendiente'
-                 check (estado in ('pendiente','en_progreso','enviada')),
-  enviada_en     timestamptz,
-  creado_en      timestamptz not null default now(),
-  actualizado_en timestamptz not null default now(),
-  unique (proceso, persona_id)
-);
-create index if not exists validaciones_persona_idx on public.validaciones (persona_id);
-
-drop trigger if exists trg_validaciones_touch on public.validaciones;
-create trigger trg_validaciones_touch
-  before update on public.validaciones
+drop trigger if exists trg_validadores_tobe_touch on public.validadores_tobe;
+create trigger trg_validadores_tobe_touch
+  before update on public.validadores_tobe
   for each row execute function public.touch_actualizado_en();
 
--- ---------- Enlaces de acceso público ----------
--- Tabla aparte de `fichas_tokens` a propósito: son dos campañas distintas, con
--- vigencias y revocaciones independientes. Revocar los enlaces de la ficha de
--- perfil no debe apagar los de la validación de procesos, ni al revés.
-create table if not exists public.validacion_tokens (
-  id          uuid primary key default gen_random_uuid(),
-  token       text not null unique,
-  tipo        text not null check (tipo in ('individual','gerente')),
-  persona_id  uuid not null references public.personal(id) on delete cascade,
-  expira_en   timestamptz not null default (now() + interval '45 days'),
-  revocado    boolean not null default false,
-  usos        int not null default 0,
-  ultimo_uso  timestamptz,
-  creado_por  text,
-  creado_en   timestamptz not null default now()
+create or replace function public.puede_validar_tobe()
+returns boolean language sql stable security definer set search_path = public as $$
+  select exists (
+           select 1 from public.validadores_tobe v
+             join public.perfiles pf on pf.id = v.perfil_id
+            where v.perfil_id = auth.uid() and v.activo and pf.activo)
+     and public.tiene_permiso('ver.informe')
+$$;
+
+-- ---------- 15.3 La validación de un proceso por un integrante ----------
+create table if not exists public.validaciones_tobe (
+  id             uuid primary key default gen_random_uuid(),
+  proceso        text not null check (proceso ~ '^[0-9]{1,2}\.[0-9]{1,2}$'),
+  perfil_id      uuid not null references public.perfiles(id) on delete cascade,
+  veredictos     jsonb not null default '{}'::jsonb check (public.veredictos_tobe_validos(veredictos)),
+  -- Lista de verificación del instructivo: {asis, est, dec, sesgo: true|false}.
+  -- Las otras dos casillas (seis veredictos, ajustes anclados) se comprueban solas.
+  lista          jsonb not null default '{}'::jsonb check (jsonb_typeof(lista) = 'object'),
+  estado         text not null default 'en_revision'
+                 check (estado in ('en_revision','enviada','validada')),
+  version        text,                                   -- huella del To-Be al enviar
+  enviada_en     timestamptz,
+  validada_en    timestamptz,
+  registrado_por uuid references public.perfiles(id) on delete set null,
+  creado_en      timestamptz not null default now(),
+  actualizado_en timestamptz not null default now(),
+  unique (proceso, perfil_id)
 );
-create index if not exists validacion_tokens_persona_idx on public.validacion_tokens (persona_id);
+create index if not exists validaciones_tobe_proceso_idx on public.validaciones_tobe (proceso);
+create index if not exists validaciones_tobe_perfil_idx  on public.validaciones_tobe (perfil_id);
 
-alter table public.procesos_fase2       enable row level security;
-alter table public.procesos_validadores enable row level security;
-alter table public.validaciones         enable row level security;
-alter table public.validacion_tokens    enable row level security;
+drop trigger if exists trg_validaciones_tobe_touch on public.validaciones_tobe;
+create trigger trg_validaciones_tobe_touch
+  before update on public.validaciones_tobe
+  for each row execute function public.touch_actualizado_en();
 
--- El manual proyectado se lee con el mismo permiso que el informe; lo escribe
--- el guion de carga con la clave de servicio.
-drop policy if exists procesos_fase2_lectura   on public.procesos_fase2;
-drop policy if exists procesos_fase2_escritura on public.procesos_fase2;
-create policy procesos_fase2_lectura   on public.procesos_fase2 for select to authenticated
-  using (public.tiene_permiso('ver.informe') or public.tiene_permiso('admin.validacion'));
-create policy procesos_fase2_escritura on public.procesos_fase2 for all to authenticated
-  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+-- ---------- 15.4 Las notas ----------
+-- Una fila por nota, no una lista jsonb: la secretaría responde cada una por
+-- separado, y dos notas sobre la misma actividad no deben pisarse.
+create table if not exists public.notas_tobe (
+  id                 uuid primary key default gen_random_uuid(),
+  validacion_id      uuid not null references public.validaciones_tobe(id) on delete cascade,
+  proceso            text not null,                      -- copiados de la validación por el trigger
+  perfil_id          uuid not null,
+  seccion            text check (seccion is null or seccion = any (public.secciones_tobe())),
+  tipo               text not null check (tipo in ('escrita','voz','consulta')),
+  ancla_id           text check (ancla_id is null or length(ancla_id) <= 20),   -- «a5b», «r3», «i2»
+  ancla_n            int,                                                      -- el número que se vio
+  ancla_texto        text check (ancla_texto is null or length(ancla_texto) <= 600),
+  texto              text not null check (length(btrim(texto)) > 0 and length(texto) <= 4000),
+  consulta_a         text check (consulta_a is null or length(consulta_a) <= 200),
+  consulta_respuesta text check (consulta_respuesta is null or length(consulta_respuesta) <= 4000),
+  version            text,
+  estado             text not null default 'borrador'
+                     check (estado in ('borrador','por_revisar','se_incorpora','no_se_incorpora','necesita_consulta','confirmada')),
+  respuesta          text check (respuesta is null or length(respuesta) <= 4000),
+  respondido_por     uuid references public.perfiles(id) on delete set null,
+  respondido_en      timestamptz,
+  registrado_por     uuid references public.perfiles(id) on delete set null,
+  creado_en          timestamptz not null default now(),
+  actualizado_en     timestamptz not null default now(),
+  check (tipo <> 'consulta' or (consulta_a is not null and consulta_respuesta is not null)),
+  check (tipo = 'consulta' or seccion is not null)
+);
+create index if not exists notas_tobe_validacion_idx on public.notas_tobe (validacion_id);
+create index if not exists notas_tobe_proceso_idx    on public.notas_tobe (proceso);
+create index if not exists notas_tobe_estado_idx     on public.notas_tobe (estado);
 
-drop policy if exists procesos_validadores_lectura   on public.procesos_validadores;
-drop policy if exists procesos_validadores_escritura on public.procesos_validadores;
-create policy procesos_validadores_lectura   on public.procesos_validadores for select to authenticated
-  using (public.tiene_permiso('admin.validacion'));
-create policy procesos_validadores_escritura on public.procesos_validadores for all to authenticated
-  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+drop trigger if exists trg_notas_tobe_touch on public.notas_tobe;
+create trigger trg_notas_tobe_touch
+  before update on public.notas_tobe
+  for each row execute function public.touch_actualizado_en();
 
-drop policy if exists validacion_tokens_lectura   on public.validacion_tokens;
-drop policy if exists validacion_tokens_escritura on public.validacion_tokens;
-create policy validacion_tokens_lectura   on public.validacion_tokens for select to authenticated
-  using (public.tiene_permiso('admin.validacion'));
-create policy validacion_tokens_escritura on public.validacion_tokens for all to authenticated
-  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+-- ---------- 15.5 Guardias: las reglas que no dependen de la página ----------
+create or replace function public.guardia_validaciones_tobe()
+returns trigger language plpgsql as $$
+begin
+  -- Las transiciones y el servidor (sin sesión: la clave de servicio, o el
+  -- `on delete set null` al borrar una cuenta) no pasan por estas reglas.
+  if public.es_transicion_tobe() or auth.uid() is null then return new; end if;
+  if tg_op = 'INSERT' then
+    new.estado := 'en_revision';
+    new.enviada_en := null; new.validada_en := null; new.version := null;
+    new.registrado_por := auth.uid();
+    return new;
+  end if;
+  if new.proceso is distinct from old.proceso or new.perfil_id is distinct from old.perfil_id then
+    raise exception 'Una validación no cambia de proceso ni de integrante.';
+  end if;
+  if new.estado is distinct from old.estado or new.enviada_en is distinct from old.enviada_en
+     or new.validada_en is distinct from old.validada_en or new.version is distinct from old.version then
+    raise exception 'El estado cambia al enviar, confirmar o reabrir, no a mano.';
+  end if;
+  if old.estado <> 'en_revision'
+     and (new.veredictos is distinct from old.veredictos or new.lista is distinct from old.lista) then
+    raise exception 'La validación ya se envió. Reábrela para cambiarla.';
+  end if;
+  new.registrado_por := coalesce(auth.uid(), old.registrado_por);
+  return new;
+end;
+$$;
 
--- validaciones: las escribe también la Edge Function `validacion` con la clave
--- de servicio (el gerente responde sin sesión); el panel lee y exporta.
-drop policy if exists validaciones_lectura   on public.validaciones;
-drop policy if exists validaciones_escritura on public.validaciones;
-create policy validaciones_lectura   on public.validaciones for select to authenticated
-  using (public.tiene_permiso('admin.validacion'));
-create policy validaciones_escritura on public.validaciones for all to authenticated
-  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
--- ---------- Los validadores, para el informe de Fase 2 ----------
--- Quién validó cada proceso es parte de la credibilidad del manual, así que
--- se muestra en el propio informe (ruta #/p/<codigo>), no solo en el panel.
---
--- ⚠️ Va como VISTA y no como lectura directa de las tablas a propósito. El
--- informe lo lee el rol **Junta**, que tiene `ver.informe` pero NO
--- `admin.personal`: abrirle `personal` para poner un nombre le abriría el
--- censo entero de 436 personas con sus correos. Esta vista expone solo
--- nombre, cargo y entidad de quien valida, y únicamente de las asignaciones
--- ya CONFIRMADAS — una propuesta del emparejador no es un validador.
---
--- Y va con `security_invoker = off` (al revés que v_cuellos_de_botella): la
--- vista necesita saltarse la RLS de `personal` para resolver el nombre. Lo
--- que la cierra es el `tiene_permiso` del propio WHERE — sin el permiso la
--- vista devuelve cero filas, no un error.
-drop view if exists public.v_validadores_proceso;
-create view public.v_validadores_proceso
+drop trigger if exists trg_validaciones_tobe_guardia on public.validaciones_tobe;
+create trigger trg_validaciones_tobe_guardia
+  before insert or update on public.validaciones_tobe
+  for each row execute function public.guardia_validaciones_tobe();
+
+-- security definer: lee la validación madre aunque la RLS no la mostrara.
+create or replace function public.guardia_notas_tobe()
+returns trigger language plpgsql security definer set search_path = public as $$
+declare
+  v     public.validaciones_tobe;
+  secre boolean := public.tiene_permiso('admin.validacion');
+begin
+  -- Las transiciones y el servidor (sin sesión: la clave de servicio, o el
+  -- borrado de una cuenta con sus `on delete cascade/set null`) pasan siempre.
+  if public.es_transicion_tobe() or auth.uid() is null then return coalesce(new, old); end if;
+
+  if tg_op = 'DELETE' then
+    -- La secretaría y el borrado en cascada de la validación madre, también.
+    if secre then return old; end if;
+    select * into v from public.validaciones_tobe where id = old.validacion_id;
+    if v.id is null then return old; end if;
+    if old.estado <> 'borrador' or v.estado <> 'en_revision' then
+      raise exception 'Solo se quita una nota que todavía no se envió.';
+    end if;
+    return old;
+  end if;
+
+  select * into v from public.validaciones_tobe where id = new.validacion_id;
+  if v.id is null then raise exception 'La validación de esa nota no existe.'; end if;
+
+  if tg_op = 'INSERT' then
+    if v.estado <> 'en_revision' then
+      raise exception 'La validación ya se envió. Reábrela para añadir notas.';
+    end if;
+    new.proceso := v.proceso; new.perfil_id := v.perfil_id;
+    new.estado := 'borrador';
+    new.respuesta := null; new.respondido_por := null; new.respondido_en := null;
+    new.registrado_por := auth.uid();
+    return new;
+  end if;
+
+  if new.validacion_id <> old.validacion_id or new.proceso <> old.proceso or new.perfil_id <> old.perfil_id then
+    raise exception 'Una nota no cambia de validación.';
+  end if;
+  if new.estado is distinct from old.estado or new.respuesta is distinct from old.respuesta then
+    if not secre then
+      raise exception 'El estado y la respuesta de una nota los fija la secretaría técnica.';
+    end if;
+    if old.estado = 'borrador' then raise exception 'Esa nota todavía no se envió.'; end if;
+    if new.estado in ('borrador','confirmada') then raise exception 'Ese estado no se fija a mano.'; end if;
+    if new.estado = 'no_se_incorpora' and coalesce(btrim(new.respuesta), '') = '' then
+      raise exception 'Para no incorporar una nota hay que responder por qué.';
+    end if;
+    new.respondido_por := auth.uid(); new.respondido_en := now();
+  end if;
+  if (new.texto, new.seccion, new.tipo, new.ancla_id, new.ancla_n, new.ancla_texto,
+      new.consulta_a, new.consulta_respuesta, new.version)
+     is distinct from
+     (old.texto, old.seccion, old.tipo, old.ancla_id, old.ancla_n, old.ancla_texto,
+      old.consulta_a, old.consulta_respuesta, old.version) then
+    if old.estado <> 'borrador' or v.estado <> 'en_revision' then
+      raise exception 'Una nota enviada no se edita: se añade otra.';
+    end if;
+  end if;
+  new.registrado_por := old.registrado_por;
+  return new;
+end;
+$$;
+
+drop trigger if exists trg_notas_tobe_guardia on public.notas_tobe;
+create trigger trg_notas_tobe_guardia
+  before insert or update or delete on public.notas_tobe
+  for each row execute function public.guardia_notas_tobe();
+
+-- ---------- 15.6 Transiciones ----------
+-- Quien puede mover una validación: su integrante (si sigue habilitado) o la
+-- secretaría, que registra a nombre de otro en una sesión en vivo.
+create or replace function public.puede_mover_tobe(v public.validaciones_tobe)
+returns boolean language sql stable security definer set search_path = public as $$
+  select (v.perfil_id = auth.uid() and public.puede_validar_tobe())
+      or public.tiene_permiso('admin.validacion')
+$$;
+
+-- Enviar: exige las seis secciones juzgadas, una nota en cada ajuste y las
+-- cuatro casillas de la lista. Las notas pasan de borrador a «por revisar».
+-- Si todo se validó sin notas pendientes, queda validada en el acto.
+create or replace function public.validacion_tobe_enviar(p_id uuid, p_version text default null)
+returns public.validaciones_tobe language plpgsql security definer set search_path = public as $$
+declare
+  v public.validaciones_tobe;
+  s text;
+  falta text[] := '{}';
+  pendientes int;
+  todo_valida boolean;
+begin
+  select * into v from public.validaciones_tobe where id = p_id for update;
+  if v.id is null then raise exception 'La validación no existe.'; end if;
+  if not public.puede_mover_tobe(v) then
+    raise exception 'No puedes enviar esta validación.' using errcode = '42501';
+  end if;
+  if v.estado <> 'en_revision' then raise exception 'La validación ya se envió.'; end if;
+
+  foreach s in array public.secciones_tobe() loop
+    if not (v.veredictos ? s) then
+      falta := falta || ('veredicto de ' || s);
+    elsif v.veredictos->>s in ('ajustes','no') and not exists (
+            select 1 from public.notas_tobe n
+             where n.validacion_id = v.id and n.seccion = s and n.tipo in ('escrita','voz')) then
+      falta := falta || ('nota en ' || s);
+    end if;
+  end loop;
+  if not coalesce((v.lista->>'asis')::boolean, false)
+     or not coalesce((v.lista->>'est')::boolean, false)
+     or not coalesce((v.lista->>'dec')::boolean, false)
+     or not coalesce((v.lista->>'sesgo')::boolean, false) then
+    falta := falta || 'casillas de la lista de verificación'::text;
+  end if;
+  if coalesce(array_length(falta, 1), 0) > 0 then
+    raise exception 'Falta: %', array_to_string(falta, ', ');
+  end if;
+
+  perform set_config('rower.transicion_tobe', '1', true);
+  update public.notas_tobe set estado = 'por_revisar'
+   where validacion_id = v.id and estado = 'borrador';
+  -- Las consultas a dueños de proceso informan, no piden respuesta: no cuentan.
+  select count(*) into pendientes from public.notas_tobe
+   where validacion_id = v.id and tipo <> 'consulta'
+     and estado in ('por_revisar','necesita_consulta','se_incorpora');
+  select not exists (select 1 from jsonb_each_text(v.veredictos) e where e.value <> 'valida')
+    into todo_valida;
+  update public.validaciones_tobe
+     set estado      = case when pendientes = 0 and todo_valida then 'validada' else 'enviada' end,
+         enviada_en  = now(),
+         validada_en = case when pendientes = 0 and todo_valida then now() else null end,
+         version     = coalesce(p_version, version),
+         registrado_por = auth.uid()
+   where id = v.id
+  returning * into v;
+  perform set_config('rower.transicion_tobe', '', true);
+  return v;
+end;
+$$;
+
+-- Confirmar: el integrante acepta lo que hizo la secretaría con sus notas.
+create or replace function public.validacion_tobe_confirmar(p_id uuid)
+returns public.validaciones_tobe language plpgsql security definer set search_path = public as $$
+declare v public.validaciones_tobe;
+begin
+  select * into v from public.validaciones_tobe where id = p_id for update;
+  if v.id is null then raise exception 'La validación no existe.'; end if;
+  if not public.puede_mover_tobe(v) then
+    raise exception 'No puedes confirmar esta validación.' using errcode = '42501';
+  end if;
+  if v.estado <> 'enviada' then raise exception 'Solo se confirma una validación enviada.'; end if;
+  if exists (select 1 from public.notas_tobe
+              where validacion_id = v.id and tipo <> 'consulta'
+                and estado in ('por_revisar','necesita_consulta')) then
+    raise exception 'La secretaría técnica todavía no responde todas las notas.';
+  end if;
+  perform set_config('rower.transicion_tobe', '1', true);
+  update public.notas_tobe set estado = 'confirmada'
+   where validacion_id = v.id and estado = 'se_incorpora';
+  update public.validaciones_tobe
+     set estado = 'validada', validada_en = now(), registrado_por = auth.uid()
+   where id = v.id
+  returning * into v;
+  perform set_config('rower.transicion_tobe', '', true);
+  return v;
+end;
+$$;
+
+-- Reabrir: vuelve a «en revisión» para cambiar veredictos o añadir notas. Lo
+-- ya respondido conserva su estado; al reenviar solo viajan las notas nuevas.
+create or replace function public.validacion_tobe_reabrir(p_id uuid)
+returns public.validaciones_tobe language plpgsql security definer set search_path = public as $$
+declare v public.validaciones_tobe;
+begin
+  select * into v from public.validaciones_tobe where id = p_id for update;
+  if v.id is null then raise exception 'La validación no existe.'; end if;
+  if not public.puede_mover_tobe(v) then
+    raise exception 'No puedes reabrir esta validación.' using errcode = '42501';
+  end if;
+  if v.estado = 'en_revision' then return v; end if;
+  perform set_config('rower.transicion_tobe', '1', true);
+  update public.validaciones_tobe
+     set estado = 'en_revision', validada_en = null, registrado_por = auth.uid()
+   where id = v.id
+  returning * into v;
+  perform set_config('rower.transicion_tobe', '', true);
+  return v;
+end;
+$$;
+
+-- ---------- 15.7 Las cuentas, para la secretaría ----------
+-- `perfiles` solo la lista entera quien tiene admin.usuarios. La secretaría
+-- necesita ver las cuentas para habilitarlas, sin poder tocar sus roles.
+create or replace function public.secretaria_usuarios()
+returns table (id uuid, nombre text, correo text, rol text, rol_nombre text, activo boolean,
+               ve_manual boolean, habilitado boolean, habilitado_en timestamptz)
+language plpgsql stable security definer set search_path = public as $$
+#variable_conflict use_column
+begin
+  if not public.tiene_permiso('admin.validacion') then
+    raise exception 'Hace falta el permiso admin.validacion.' using errcode = '42501';
+  end if;
+  return query
+  select pf.id, pf.nombre, pf.correo, pf.rol, r.nombre, pf.activo,
+         exists (select 1 from public.roles_permisos rp where rp.rol = pf.rol and rp.permiso = 'ver.informe'),
+         coalesce(vt.activo, false), vt.habilitado_en
+    from public.perfiles pf
+    left join public.roles r on r.clave = pf.rol
+    left join public.validadores_tobe vt on vt.perfil_id = pf.id
+   order by coalesce(vt.activo, false) desc, pf.nombre nulls last, pf.correo;
+end;
+$$;
+
+-- ---------- 15.8 El estado de cada proceso, para el menú del manual ----------
+-- gris = sin validar (no aparece aquí) · ámbar = en validación · verde = validado
+-- (al menos una validación cerrada y nada enviado ni pendiente de responder o
+-- de confirmar). Sin nombres: es lo que pinta el menú.
+drop view if exists public.v_estado_tobe;
+create view public.v_estado_tobe
   with (security_invoker = off) as
-select v.proceso,
-       p.nombre,
-       p.cargo,
-       p.entidad,
-       v.origen,
-       coalesce(val.estado, 'pendiente') as estado_validacion,
-       val.enviada_en
-  from public.procesos_validadores v
-  join public.personal p on p.id = v.persona_id and p.activo
-  left join public.validaciones val
-         on val.proceso = v.proceso and val.persona_id = v.persona_id
- where v.origen <> 'auto'
-   and public.tiene_permiso('ver.informe');
+with v as (
+  select proceso,
+         count(*) filter (where estado = 'validada')    as validadas,
+         count(*) filter (where estado = 'enviada')     as enviadas,
+         count(*) filter (where estado = 'en_revision') as en_revision,
+         max(actualizado_en)                            as ultima
+    from public.validaciones_tobe
+   group by proceso
+), n as (
+  select proceso,
+         count(*) filter (where estado in ('por_revisar','necesita_consulta')) as por_responder,
+         count(*) filter (where estado = 'se_incorpora')                       as por_confirmar
+    from public.notas_tobe
+   where tipo <> 'consulta'
+   group by proceso
+)
+select v.proceso, v.validadas, v.enviadas, v.en_revision,
+       coalesce(n.por_responder, 0) as notas_por_responder,
+       coalesce(n.por_confirmar, 0) as notas_por_confirmar,
+       v.ultima,
+       case when v.validadas > 0 and v.enviadas = 0
+                 and coalesce(n.por_responder, 0) = 0 and coalesce(n.por_confirmar, 0) = 0
+            then 'validado' else 'en_validacion' end as estado
+  from v left join n using (proceso)
+ where public.tiene_permiso('ver.informe') or public.tiene_permiso('admin.validacion');
 
-revoke all on public.v_validadores_proceso from anon;
-grant select on public.v_validadores_proceso to authenticated;
+revoke all on public.v_estado_tobe from anon;
+grant select on public.v_estado_tobe to authenticated;
+
+-- ---------- 15.9 RLS ----------
+alter table public.validadores_tobe  enable row level security;
+alter table public.validaciones_tobe enable row level security;
+alter table public.notas_tobe        enable row level security;
+
+drop policy if exists validadores_tobe_lectura   on public.validadores_tobe;
+drop policy if exists validadores_tobe_escritura on public.validadores_tobe;
+create policy validadores_tobe_lectura on public.validadores_tobe for select to authenticated
+  using (perfil_id = auth.uid() or public.tiene_permiso('admin.validacion'));
+create policy validadores_tobe_escritura on public.validadores_tobe for all to authenticated
+  using (public.tiene_permiso('admin.validacion')) with check (public.tiene_permiso('admin.validacion'));
+
+-- Cada integrante ve y escribe lo suyo; la secretaría, todo.
+drop policy if exists validaciones_tobe_lectura on public.validaciones_tobe;
+drop policy if exists validaciones_tobe_alta    on public.validaciones_tobe;
+drop policy if exists validaciones_tobe_cambio  on public.validaciones_tobe;
+drop policy if exists validaciones_tobe_baja    on public.validaciones_tobe;
+create policy validaciones_tobe_lectura on public.validaciones_tobe for select to authenticated
+  using (perfil_id = auth.uid() or public.tiene_permiso('admin.validacion'));
+create policy validaciones_tobe_alta on public.validaciones_tobe for insert to authenticated
+  with check ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'));
+create policy validaciones_tobe_cambio on public.validaciones_tobe for update to authenticated
+  using ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'))
+  with check ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'));
+create policy validaciones_tobe_baja on public.validaciones_tobe for delete to authenticated
+  using (public.tiene_permiso('admin.validacion'));
+
+drop policy if exists notas_tobe_lectura on public.notas_tobe;
+drop policy if exists notas_tobe_alta    on public.notas_tobe;
+drop policy if exists notas_tobe_cambio  on public.notas_tobe;
+drop policy if exists notas_tobe_baja    on public.notas_tobe;
+create policy notas_tobe_lectura on public.notas_tobe for select to authenticated
+  using (perfil_id = auth.uid() or public.tiene_permiso('admin.validacion'));
+create policy notas_tobe_alta on public.notas_tobe for insert to authenticated
+  with check ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'));
+create policy notas_tobe_cambio on public.notas_tobe for update to authenticated
+  using ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'))
+  with check ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'));
+create policy notas_tobe_baja on public.notas_tobe for delete to authenticated
+  using ((perfil_id = auth.uid() and public.puede_validar_tobe()) or public.tiene_permiso('admin.validacion'));
+
+revoke all on function public.puede_validar_tobe()                  from anon;
+revoke all on function public.puede_mover_tobe(public.validaciones_tobe) from anon;
+revoke all on function public.validacion_tobe_enviar(uuid, text)    from anon;
+revoke all on function public.validacion_tobe_confirmar(uuid)       from anon;
+revoke all on function public.validacion_tobe_reabrir(uuid)         from anon;
+revoke all on function public.secretaria_usuarios()                 from anon;

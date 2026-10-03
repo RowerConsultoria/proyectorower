@@ -116,7 +116,7 @@ errores = []
 
 ABRIR_SECCIONES = ("document.addEventListener('DOMContentLoaded',function(){"
                    "var s=document.createElement('style');"
-                   "s.textContent='.f2-sec-cuerpo[hidden]{display:block!important}';"
+                   "s.textContent='.f2-sec-cuerpo[hidden]{display:block!important}.vt-ui{display:none!important}';"
                    "document.head.appendChild(s);});")
 
 with sync_playwright() as pw:

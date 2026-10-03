@@ -94,9 +94,9 @@ with sync_playwright() as pw:
     def registrar_consola(m):
         if m.type not in ("error", "warning"):
             return
-        # La sección de validadores intenta leer v_validadores_proceso contra
+        # La capa de validación del comité intenta leer validadores_tobe contra
         # el Supabase real; sin sesión válida (no la hay en esta previsualización
-        # local) responde 401 y la propia app lo tolera y sigue sin ese bloque —
+        # local) responde 401 y la propia app lo tolera y sigue sin esa capa —
         # es un mensaje de red esperado en este contexto, no un error de la app.
         if "Failed to load resource" in m.text:
             return
