@@ -482,6 +482,7 @@
     if(k.funciones) h += lista(k.funciones);
     h += '<div class="eo-bloque"><h4>Lidera y convoca</h4><p>' + enlace(k.lidera) + '</p></div>';
     var grupos = [
+      {t:"Staff de la Presidencia", f:function(n){ return NODOS[n].d.nivel === "staff"; }},
       {t:"Direcciones corporativas", f:function(n){ return E.DIRECCIONES.some(function(d){ return d.id === n; }); }},
       {t:"Gerencias corporativas", f:function(n){ return NODOS[n].d.nivel === "n2"; }},
       {t:"Gerencias país · en cada país", f:function(n){ return NODOS[n].d.nivel === "n3"; }}

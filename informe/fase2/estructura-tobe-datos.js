@@ -53,6 +53,7 @@ window.ESTRUCTURA_TOBE = {
     ocupante:{nombre:'Bernardo Roizental', estado:'actual'},
     funciones:[
       'Conduce el grupo con seis direcciones corporativas como reportes directos, dentro del tramo de 4 a 7 que fija el principio 3.',
+      'Tiene como staff a Comunicaciones Internas y a Consultoría Jurídica.',
       'Preside los órganos de cogobierno o delega su convocatoria en la dirección que corresponda.'
     ]
   },
@@ -67,7 +68,14 @@ window.ESTRUCTURA_TOBE = {
        'Canal único de comunicación institucional hacia toda la organización.',
        'Recibe de cada dirección qué quiere comunicar (proyectos, talento, cambios) y lo emite con una sola voz.'
      ],
-     nota:'Hoy no existe: cada área comunica lo suyo. Se ubica como staff de la Presidencia —no al nivel de las direcciones— porque sirve a todas y no gestiona un proceso propio.'}
+     nota:'Hoy no existe: cada área comunica lo suyo. Se ubica como staff de la Presidencia —no al nivel de las direcciones— porque sirve a todas y no gestiona un proceso propio.'},
+    {id:'juridica', n:'Consultoría Jurídica', nivel:'staff',
+     ocupante:{nombre:'Vacante', estado:'vacante', nota:'Hoy la cubre un asesor externo de la Junta Directiva.'},
+     funciones:[
+       'Una oficina corporativa con visión de todos los países: contratos con marcas y proveedores, gestión de los bufetes locales.',
+       'Un responsable y su asistencia; el trabajo especializado por país se contrata.'
+     ],
+     nota:'Staff de la Presidencia, como Comunicaciones Internas: no depende de ninguna dirección.'}
   ],
 
   /* ------------------------------------------------------- las direcciones */
@@ -231,7 +239,7 @@ window.ESTRUCTURA_TOBE = {
       id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff',
       ocupante:{nombre:'María Elvira', estado:'propuesto', nota:'Se incorpora al grupo como responsable corporativa de talento.'},
       funciones:[
-        'Gestiona la organización como socia del negocio: el talento, los proyectos, la formación, el soporte jurídico y los servicios que hacen funcionar a las operaciones.',
+        'Gestiona la organización como socia del negocio: el talento, los proyectos, la formación y los servicios que hacen funcionar a las operaciones.',
         'Lidera los procesos de cambio organizacional; es la dueña operativa de la implantación de los manuales de proceso.',
         'Lidera y convoca el Comité de Calidad y Mejora Continua.'
       ],
@@ -244,12 +252,6 @@ window.ESTRUCTURA_TOBE = {
            'Distribuye la cartera según la demanda; en los picos subcontrata gerentes de proyecto por proyecto, con principio y fin.'
          ],
          nota:'Un solo perfil generalista, no dos alas fijas: un gerente de proyecto aborda un proyecto físico o uno de transformación, y así no quedan capacidades ociosas entre picos. No se replica por país.'},
-        {id:'juridica', n:'Consultoría Jurídica', nivel:'n2',
-         ocupante:{nombre:'Vacante', estado:'vacante', nota:'Hoy la cubre un asesor externo de la Junta Directiva.'},
-         funciones:[
-           'Una oficina corporativa con visión de todos los países: contratos con marcas y proveedores, gestión de los bufetes locales.',
-           'Un responsable y su asistencia; el trabajo especializado por país se contrata.'
-         ]},
         {id:'formacion', n:'Formación · Universidad Corporativa', nivel:'n2',
          ocupante:{nombre:'Lilibeth Olivar', estado:'actual', nota:'Incorporada recientemente como líder regional de formación y desarrollo; opera desde Colombia.'},
          funciones:['Formación y desarrollo de competencias de todo el grupo, con el programa de la Universidad Cubitt.']},
@@ -261,17 +263,6 @@ window.ESTRUCTURA_TOBE = {
          },
          funciones:['Gestión del talento con el marco laboral de cada país: el especialista local que la normativa exige.'],
          interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.']},
-        {id:'ti', n:'Tecnología de Información', nivel:'n3',
-         paises:{
-           PA:{nombre:'Mariela Castro', estado:'actual', cargo:'Gerencia'},
-           VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
-           CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
-         },
-         funciones:[
-           'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
-           'Sigue los lineamientos que fija Gobierno de IA para que el dato fluya entre países.'
-         ],
-         nota:'No hay una dirección corporativa de tecnología: el grupo no es una empresa de tecnología. Lo que se gobierna una sola vez —el dato y la IA— sube a Gobierno de IA; la operación de TI queda en cada país. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'},
         {id:'ssgg', n:'Servicios Generales', nivel:'n3',
          paises:{
            PA:{nombre:'Por confirmar', estado:'pordefinir'},
@@ -286,9 +277,23 @@ window.ESTRUCTURA_TOBE = {
       ocupante:{nombre:'Vacante', estado:'vacante', nota:'Perfil a contratar.'},
       funciones:[
         'Asegura que el dato fluya entre las áreas y los países, sin importar el sistema de cada uno.',
-        'Integra a la organización la tecnología disponible y fija los lineamientos de uso de la IA.'
+        'Integra a la organización la tecnología disponible y fija los lineamientos de uso de la IA.',
+        'Fija la línea rectora de la tecnología de información, que ejecutan las gerencias país de TI.'
       ],
-      nota:'No lleva la operación de TI: esa queda en las gerencias país bajo Desarrollo Corporativo. Es un perfil que se mueve entre el negocio y la tecnología, como el de Comercial entre la venta y el mercadeo. Es la unidad de gobierno de IA que el proyecto comprometió desde el arranque.'
+      nota:'La operación de TI sigue en cada país, pero sus gerencias país le reportan: quien gobierna el dato y la IA conduce también a quienes operan los sistemas. Es un perfil que se mueve entre el negocio y la tecnología, como el de Comercial entre la venta y el mercadeo. Es la unidad de gobierno de IA que el proyecto comprometió desde el arranque.',
+      hijos:[
+        {id:'ti', n:'Tecnología de Información', nivel:'n3',
+         paises:{
+           PA:{nombre:'Mariela Castro', estado:'actual', cargo:'Gerencia'},
+           VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
+           CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
+         },
+         funciones:[
+           'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
+           'Ejecuta en su país los lineamientos que fija Gobierno de IA para que el dato fluya entre países.'
+         ],
+         nota:'No hay una dirección corporativa de tecnología aparte: el grupo no es una empresa de tecnología. Lo que se gobierna una sola vez —el dato y la IA— sube a Gobierno de IA; la operación de TI queda en cada país y le reporta a esa dirección, que fija su línea rectora. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'}
+      ]
     }
   ],
 
@@ -349,7 +354,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'La cadena de valor ordena las direcciones',
      d:'El negocio empieza con Investigación y Desarrollo, que compra; Operaciones y Logística lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, de la compra a la postventa. Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA son staff: sostienen a las tres y apoyan a la Presidencia, sin mezclarse con ellas. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
+     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, de la compra a la postventa. Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA son staff: sostienen a las tres y apoyan a la Presidencia, sin mezclarse con ellas. Comunicaciones Internas y Consultoría Jurídica son staff de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
      d:'Proyectos y Consultoría Jurídica no se replican por país: son un equipo central que se reparte según lo que pida la corporación, y que subcontrata en los picos.'},
     {t:'Cogobierno por comités',
@@ -369,7 +374,7 @@ window.ESTRUCTURA_TOBE = {
       {id:'gobierno', n:'Gobierno', verbo:'Decide el rumbo',
        d:'Accionistas y Junta Directiva. Aprueban el rumbo y reciben el cuadro de indicadores de las direcciones. Son gobierno, no línea de mando.'},
       {id:'presidencia', n:'Presidencia', verbo:'Conduce el grupo',
-       d:'Una sola cabeza ejecutiva, con las direcciones corporativas como reportes directos en un tramo de 4 a 7. A los costados de su línea de mando, el staff: las direcciones de apoyo y Comunicaciones Internas, que sirven a toda la organización.'},
+       d:'Una sola cabeza ejecutiva, con las direcciones corporativas como reportes directos en un tramo de 4 a 7. A los costados de su línea de mando, el staff: las direcciones de apoyo, Comunicaciones Internas y Consultoría Jurídica, que sirven a toda la organización.'},
       {id:'n1', nivel:'n1', verbo:'Fijan la línea rectora', escalon:'Director(a) corporativo(a)',
        d:'Aquí están las unidades de negocio, en el orden de la cadena de valor. El staff no comparte esta capa: apoya desde los costados de la Presidencia, en la capa anterior.'},
       {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
@@ -406,8 +411,8 @@ window.ESTRUCTURA_TOBE = {
      como:'Cada gerencia país reporta en línea a una sola dirección corporativa. Las figuras que hoy responden a varias instancias —desarrollo de producto, contenido digital, visual merchandising— quedan dentro de Mercadeo con una sola línea de reporte.',
      tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes).'},
     {n:'Optimización del tramo de control',
-     como:'La Presidencia pasa a seis direcciones corporativas y un staff, dentro del rango de 4 a 7.',
-     tension:'Desarrollo Corporativo y Ventas concentran muchos reportes: tres frentes corporativos más tres gerencias en cada uno de tres países. Son las primeras a revisar si el tramo satura.'},
+     como:'La Presidencia pasa a seis direcciones corporativas y dos unidades de staff, dentro del rango de 4 a 7.',
+     tension:'Desarrollo Corporativo y Ventas concentran muchos reportes: dos frentes corporativos más dos o tres gerencias en cada uno de tres países. Son las primeras a revisar si el tramo satura.'},
     {n:'Equilibrio entre autoridad y responsabilidad',
      como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
@@ -439,7 +444,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Una sola Dirección de Desarrollo Corporativo.',
        porque:'Las tres existen para que la organización funcione. Juntas liberan el tramo de la Presidencia y dan a la función de talento un alcance estratégico.'},
       {antes:'Transformación Tecnológica y Soporte, con la TI y la IA juntas.',
-       ahora:'Gobierno de IA como dirección corporativa, y TI como gerencia por país.',
+       ahora:'Gobierno de IA como dirección corporativa, y TI como gerencia por país que le reporta.',
        porque:'Lo que se gobierna una vez —el dato y la IA— sube; la operación de sistemas se queda cerca de cada país. El grupo no es una empresa de tecnología y no necesita un corporativo de TI.'},
       {antes:'Experiencia de Marcas como gerencia híbrida separada de Comercial.',
        ahora:'Mercadeo dentro de Comercial.',

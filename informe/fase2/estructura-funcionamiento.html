@@ -261,6 +261,7 @@ var NODOS = {
   "junta":   {l:["Junta Directiva"], k:"gob", x:590, y:34, w:120},
   "pres":    {l:["Presidencia"], k:"pres", x:500, y:100, w:120},
   "comint":  {l:["Comunicaciones","Internas"], k:"staff", x:690, y:100, w:120},
+  "jur":     {l:["Consultoría","Jurídica"], k:"staff", x:310, y:100, w:120},
   "ccom":  {l:["Comité Comercial"], k:"com", x:110, y:168, w:150},
   "cfin":  {l:["Comité de Finanzas","y Riesgos"], k:"com", x:305, y:168, w:150},
   "cdato": {l:["Comité de Gobierno","del Dato e IA"], k:"com", x:500, y:168, w:150},
@@ -277,7 +278,6 @@ var NODOS = {
   "ecom":   {l:["E-commerce"], k:"neg", x:315, y:318, w:104},
   "merc":   {l:["Mercadeo"], k:"neg", x:430, y:318, w:104},
   "pmo":    {l:["Proyectos","(PMO)"], k:"apo", x:745, y:318, w:112},
-  "jur":    {l:["Consultoría","Jurídica"], k:"apo", x:865, y:318, w:112},
   "p-cab":  {l:["Cabeza","país *"], k:"cab", x:55, y:420, w:96},
   "p-opl":  {l:["Operaciones","y Logística"], k:"neg", x:154, y:420, w:96},
   "p-may":  {l:["Ventas","al Mayor"], k:"neg", x:253, y:420, w:96},
@@ -286,8 +286,8 @@ var NODOS = {
   "p-merc": {l:["Mercadeo"], k:"neg", x:550, y:420, w:96},
   "p-fin":  {l:["Adm. y","Finanzas"], k:"apo", x:649, y:420, w:96},
   "p-rrhh": {l:["Recursos","Humanos"], k:"apo", x:748, y:420, w:96},
-  "p-ti":   {l:["Tecnología","(TI)"], k:"apo", x:847, y:420, w:96},
-  "p-ssgg": {l:["Servicios","Generales"], k:"apo", x:946, y:420, w:96},
+  "p-ti":   {l:["Tecnología","(TI)"], k:"apo", x:946, y:420, w:96},
+  "p-ssgg": {l:["Servicios","Generales"], k:"apo", x:847, y:420, w:96},
   "ext-fab": {l:["Fábricas","y licenciantes"], k:"ext", x:120, y:514, w:170},
   "ext-cli": {l:["Clientes"], k:"ext", x:360, y:514, w:170},
   "area":    {l:["Cualquier gerencia","(la que solicita)"], k:"gen", x:620, y:514, w:170},
@@ -303,8 +303,8 @@ var NOMBRE = {
 };
 // Líneas de reporte (tenues, de fondo).
 var ESTR = [["pres","id"],["pres","opl"],["pres","com"],["pres","fin"],["pres","dc"],["pres","ia"],
-  ["id","marca"],["com","ventas"],["com","merc"],["ventas","ecom"],["dc","pmo"],["dc","jur"],
-  ["opl","p-opl"],["ventas","p-may"],["ventas","p-ret"],["ventas","p-post"],["merc","p-merc"],["fin","p-fin"],["dc","p-rrhh"],["dc","p-ti"],["dc","p-ssgg"]];
+  ["id","marca"],["com","ventas"],["com","merc"],["ventas","ecom"],["dc","pmo"],
+  ["opl","p-opl"],["ventas","p-may"],["ventas","p-ret"],["ventas","p-post"],["merc","p-merc"],["fin","p-fin"],["dc","p-rrhh"],["ia","p-ti"],["dc","p-ssgg"]];
 
 var PROC = {"1.1":"Formulación y revisión del plan estratégico del grupo","1.2":"Despliegue de objetivos e indicadores de gestión","2.1":"Inteligencia de mercado y análisis competitivo","2.2":"Construcción y aprobación del forecast comercial regional","2.3":"Política de precios y de márgenes por mercado","2.7":"Consolidación del desempeño comercial y ajuste del plan","3.1":"Generación y evaluación de oportunidades de producto","3.2":"Sourcing y homologación de fábricas","3.4":"Gestión de muestras y aprobación del producto","3.6":"Gestión de licencias de marca de terceros","4.1":"Recepción, categorización y evaluación de solicitudes","4.5":"Seguimiento del portafolio y reportería a la Junta","4.7":"Gestión del presupuesto de proyecto","5.1":"Gobierno de la adopción de IA y de la información","5.2":"Casos de uso de IA y automatización","6.1":"Planificación de demanda y S&OP","6.3":"Compra internacional a marca representada","6.4":"Compra internacional a marca propia","6.5":"Compra local de bienes y servicios por país","6.7":"Reposición a punto de venta","6.9":"Devoluciones y no conformidades a proveedor","7.1":"Recepción de mercancía importada y costeo en destino","7.2":"Gestión y control de inventarios","7.5":"Despacho y última milla","7.6":"Tráfico e importaciones","7.7":"Logística inversa: garantías y devoluciones","8.2":"Segmentación de clientes y política comercial","8.5":"Aprobación comercial del pedido","8.12":"Prospección y apertura de nuevo cliente","8.17":"Reportería comercial y decisión basada en data","9.3":"Reposición de tiendas y kioscos","9.7":"Supervisión y visitas a tiendas","11.3":"Casos técnicos y reporte de calidad con fábrica","11.4":"Servicio técnico y reparación","11.5":"Repuestos y accesorios de servicio","11.7":"Escalamiento y recuperación del cliente insatisfecho","12.3":"Conciliación bancaria y de plataformas de recaudo","12.5":"Facturación fiscal","13.4":"Financiamiento bancario","14.2":"Requerimientos y evolución funcional del ERP","15.1":"Captación y normalización de datos de origen","15.2":"Control de calidad y fuente de la verdad","17.1":"Atracción, selección y contratación","18.2":"Ciclo de vida contractual","19.1":"Mantenimiento de infraestructura e instalaciones","20.3":"Publicación, versionado y control de cambios","20.4":"Iniciativas de mejora"};
 
@@ -402,7 +402,7 @@ var FUNC = [
   {t:"Sistemas", d:"TI clasifica el pedido, valida que responda a una necesidad del negocio y decide la vía. Un sistema o gasto nuevo lo aprueba la Junta.", e:[["area","p-ti"],["p-ti","junta"]], dec:{q:"¿Requiere sistema o gasto nuevo?", por:"p-ti"}, p:["14.2"]},
   {t:"Contratos", d:"El área redacta, Consultoría Jurídica revisa y los bufetes locales opinan sobre la norma del país. Firma la cabeza del país dentro de su facultad.", e:[["area","jur"],["jur","ext-ter"],["area","p-cab"]], dec:{q:"¿Dentro de la facultad de firma?", por:"p-cab"}, p:["18.2"]},
   {t:"Instalaciones", d:"Servicios Generales resuelve lo que está en su competencia y contrata lo que la excede.", e:[["area","p-ssgg"],["p-ssgg","ext-ter"]], dec:{q:"¿Dentro de la competencia interna?", por:"p-ssgg"}, p:["19.1"]},
-  {t:"El apoyo rinde cuentas de su cola", d:"Lo abierto, lo resuelto y lo descartado con su motivo, cada mes. La PMO reporta el portafolio a la Junta.", e:[["pmo","junta"],["p-ti","dc"]], p:["4.5","14.2"]}
+  {t:"El apoyo rinde cuentas de su cola", d:"Lo abierto, lo resuelto y lo descartado con su motivo, cada mes. La PMO reporta el portafolio a la Junta.", e:[["pmo","junta"],["p-ti","ia"]], p:["4.5","14.2"]}
  ]},
  {t:"El dato antes que el agente", r:"Cómo el grupo llega a una sola cifra oficial y cómo se aprueba poner IA sobre ella.",
   decide:["ia","cdato"], pasos:[
@@ -445,8 +445,8 @@ function pila(){
   var capas = [
     {n:"Gobierno", v:"Decide el rumbo", d:"Gobierna; no es línea de mando.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Junta Directiva</span><span class="chip gob">Holding · grupo familiar propietario</span></div></div>'},
-    {n:"Presidencia", v:"Conduce el grupo", d:"Seis direcciones como reportes directos, en un tramo de 4 a 7.",
-     c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Comunicaciones Internas · staff</span></div></div>'},
+    {n:"Presidencia", v:"Conduce el grupo", d:"Seis direcciones como reportes directos, en un tramo de 4 a 7, y dos unidades de staff.",
+     c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Comunicaciones Internas · staff</span><span class="chip staff">Consultoría Jurídica · staff</span></div></div>'},
     {n:"Direcciones corporativas", v:"Fijan la línea rectora", d:"Una por gran función del grupo, con baja operatividad.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · cadena de valor →</div><div class="fila"><span class="chip fuerte">Investigación y Desarrollo</span><span class="chip fuerte">Operaciones y Logística</span><span class="chip fuerte">Comercial</span></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="fila"><span class="chip fuerte">Finanzas y Negocios</span><span class="chip fuerte">Desarrollo Corporativo</span><span class="chip fuerte">Gobierno de IA</span></div></div>'},
@@ -455,10 +455,10 @@ function pila(){
        '<div class="subgrupo"><span class="stit">Investigación y Desarrollo</span><div class="fila"><span class="chip">Línea Casio</span><span class="chip">Línea Cubitt</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip fuerte">Ventas</span><span class="chip sub">Ventas al Mayor · mercados sin operación propia</span><span class="chip sub">E-commerce</span></div>' +
        '<div class="fila"><span class="chip fuerte">Mercadeo</span><span class="chip sub">Experiencia del Cliente</span><span class="chip sub">Desarrollo de Producto</span><span class="chip sub">Experiencia Digital</span></div></div></div>' +
-       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Proyectos (PMO)</span><span class="chip">Consultoría Jurídica</span><span class="chip">Formación · Universidad Corporativa</span></div></div></div>'},
+       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Proyectos (PMO)</span><span class="chip">Formación · Universidad Corporativa</span></div></div></div>'},
     {n:"Gerencias país", v:"Ejecutan en cada país", d:"El mismo espejo en cada operación propia; abrir un país es replicarlo.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div><div class="fila"><span class="chip">Operaciones y Logística</span><span class="chip">Ventas al Mayor</span><span class="chip">Retail · tiendas</span><span class="chip">Postventa</span><span class="chip">Mercadeo</span></div></div>' +
-       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="fila"><span class="chip">Administración y Finanzas</span><span class="chip">Recursos Humanos</span><span class="chip">Tecnología (TI)</span><span class="chip">Servicios Generales</span></div></div>' +
+       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="fila"><span class="chip">Administración y Finanzas</span><span class="chip">Recursos Humanos</span><span class="chip">Servicios Generales</span><span class="chip">Tecnología (TI)</span></div></div>' +
        '<div class="grupo neutro"><div class="gtit">En cada país</div><div class="fila"><span class="chip paises">PA</span><span class="chip paises">VE</span><span class="chip paises">CO</span></div></div>'},
     {n:"Equipos", v:"Operan", d:"Los escalones de la estructura patrón, iguales en toda la organización; cada unidad usa los que necesita.",
      c:'<ol class="escalera"><li>Coordinador(a) / Jefe(a)</li><li>Supervisor(a) / Especialista</li><li>Analista III · II · I</li><li>Auxiliar</li><li>Operario(a)</li></ol>'}
@@ -497,6 +497,7 @@ function dibujarMapa(){
   el("path", {d:"M470 34 H530", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   el("path", {d:"M500 34 V82", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   el("path", {d:"M560 100 H630", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
+  el("path", {d:"M440 100 H370", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   capaFlechas = el("g", {}, mapa);
   Object.keys(NODOS).forEach(function(id){
     var n = NODOS[id], w = n.w, hh = 40;
