@@ -27776,5 +27776,1268 @@ window.MANUAL_ASIS = {
     }
    }
   }
+ },
+ "19": {
+  "procesos": {
+   "19.1": {
+    "nota_version": "Versión As-Is: describe cómo se atienden hoy las fallas y el mantenimiento de oficinas, depósitos y tiendas, que en Venezuela sostiene una sola persona y en Panamá coordina Recursos Humanos, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que alguien reporta una falla en una oficina, un depósito o una tienda hasta que queda reparada. Cubre Venezuela (Caracas) y Panamá; no hay evidencia de cómo se resuelve en Colombia. Las fallas de red, cámaras y equipos las atiende Sistemas (14.5). El flujograma describe el circuito de Venezuela; el de Panamá se resume en el texto.",
+     "texto": "**En Venezuela, el mantenimiento eléctrico lo sostiene una sola persona.** El Jefe de Servicios Generales lleva más de veinte años en la compañía, con nombramiento por escrito desde hace seis o siete, y trabaja sin equipo: «yo solo soy jefe de mí mismo». Su competencia, fijada en un memorándum de hace años, es la electricidad, el alumbrado y las centrales de alarma de incendio y de robo. Las cámaras pasaron a Sistemas cuando dejaron de depender de la instalación eléctrica. Atiende las oficinas y el depósito de Caracas, las áreas comunes del edificio a pedido de la Presidencia y las tiendas de Caracas; las franquicias y el interior quedaron fuera por decisión de la Presidencia.\n\nEl pedido llega **por llamada telefónica**: de un gerente de tienda, de un encargado o de cualquier persona de la oficina, directo a él o, si no lo localizan, a la Gerencia de Ventas al Detal o a la de Operaciones y Logística, que se lo trasladan. Si tiene el repuesto en su depósito, va de inmediato. Si no, plantea la necesidad de palabra a la Gerencia de Ventas al Detal, que autoriza la compra con el proveedor que ella maneja; la Gerencia de Administración lo paga en línea contra la factura. Si la compra no se autoriza, la falla queda como está. Al terminar recorre la tienda en busca de otra falla que nadie haya notado y avisa de palabra que está listo.\n\n**No queda registro** de lo hecho, no hay indicadores ni presupuesto propio, y nadie lo cubre en vacaciones o ausencias: en ese caso se llama a contratistas. El correo y un computador se le asignaron en agosto de 2026. Lo que no es eléctrico —plomería, pintura, la estructura de la oficina o de una tienda— lo hace un contratista que coordina la Gerencia de Ventas al Detal (19.6). El mantenimiento de los vehículos lo resuelve la Gerencia de Operaciones y Logística, y en el almacén se lleva un registro por vehículo.\n\n**En Panamá no hay un cargo de servicios generales.** La Gerencia de Recursos Humanos lleva «todos los mantenimientos»: equipo rodante, aires acondicionados, dispensadores de agua y máquinas de limpieza. Se apoya en una asistente que acuerda por correo las fechas con las empresas externas y les da seguimiento. Las alarmas de incendio de la bodega las atiende Sistemas. En las tiendas, el Supervisor de Tienda resuelve las averías del local —una puerta, una vitrina— con un proveedor de confianza, aun de noche."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Jefe de Servicios Generales (Venezuela) y Gerente de Recursos Humanos (Panamá); no hay un dueño común entre países",
+     "participantes": [
+      "Gerentes de tienda y personal de oficina, que reportan las fallas",
+      "Gerente de Ventas al Detal (Venezuela)",
+      "Gerente de Administración (Venezuela)",
+      "Gerente de Operaciones y Logística (Venezuela)",
+      "Asistente administrativa de la Gerencia de Recursos Humanos (Panamá)",
+      "Supervisor de Tienda (Panamá)",
+      "Proveedores y contratistas externos"
+     ],
+     "evidencia": [
+      "E-45",
+      "E-13",
+      "E-53",
+      "E-07",
+      "E-34",
+      "E-25"
+     ],
+     "sin_evidencia": "No hay evidencia de cómo se atiende el mantenimiento en Colombia, ni de un registro de las intervenciones en ningún país."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Una falla que alguien avisa por teléfono —en Venezuela, al Jefe de Servicios Generales— o, en Panamá, la fecha de mantenimiento de un equipo, que Recursos Humanos acuerda con la empresa externa.",
+     "cadencia": "Por evento, sin programación. Más carga en diciembre y en las temporadas del Día del Niño, de la Madre y del Padre. En Panamá, el mantenimiento de equipos sigue las fechas acordadas con cada empresa.",
+     "output": "La falla reparada y avisada de palabra a quien la reportó, sin registro de lo hecho.",
+     "evidencia": [
+      "E-45",
+      "E-13"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-45"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Solicitante (gerente de tienda o personal de oficina)",
+       "texto": "Detecta una falla y llama por teléfono al Jefe de Servicios Generales; si no lo localiza, llama a la Gerencia de Ventas al Detal o a la de Operaciones y Logística, que le trasladan el pedido."
+      },
+      {
+       "id": "a2",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Determina si la falla es eléctrica, de alumbrado o de alarma. Si no lo es —plomería, pintura, estructura—, queda para el contratista que coordina la Gerencia de Ventas al Detal (19.6)."
+      },
+      {
+       "id": "a3",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Revisa si tiene el repuesto en su depósito; si lo tiene, va directo a reparar."
+      },
+      {
+       "id": "a4",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Si no lo tiene, plantea la necesidad de palabra a la Gerencia de Ventas al Detal."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Autoriza la compra con el proveedor que maneja. Si no la autoriza, la falla queda como está."
+      },
+      {
+       "id": "a6",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Retira el material en el proveedor, que emite la factura."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Administración",
+       "texto": "Paga al proveedor en línea contra la factura."
+      },
+      {
+       "id": "a8",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Hace la reparación en el sitio y recorre la tienda o la oficina en busca de otra falla."
+      },
+      {
+       "id": "a9",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Avisa de palabra que terminó, sin dejar registro de lo hecho."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Solicitante (gerente de tienda o personal de oficina)",
+       "Jefe de Servicios Generales",
+       "Gerente de Ventas al Detal",
+       "Gerente de Administración"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Solicitante (gerente de tienda o personal de oficina)",
+        "tipo": "inicio",
+        "n": "Se detecta una falla"
+       },
+       {
+        "id": "n1",
+        "carril": "Solicitante (gerente de tienda o personal de oficina)",
+        "tipo": "tarea",
+        "n": "Llamar al Jefe de Servicios Generales",
+        "sistemas": [
+         "Teléfono"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "decision",
+        "n": "¿Es eléctrica o de alarma?"
+       },
+       {
+        "id": "n3",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "fin",
+        "n": "Queda para un contratista (19.6)"
+       },
+       {
+        "id": "n4",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "decision",
+        "n": "¿Hay repuesto?"
+       },
+       {
+        "id": "n5",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Plantear la necesidad de palabra"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "decision",
+        "n": "¿Autoriza la compra?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "fin",
+        "n": "La falla queda como está"
+       },
+       {
+        "id": "n8",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Retirar el material"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Administración",
+        "tipo": "tarea",
+        "n": "Pagar al proveedor",
+        "sistemas": [
+         "Banca en línea"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Reparar y recorrer la sede"
+       },
+       {
+        "id": "n11",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "fin",
+        "n": "Falla reparada, sin registro"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n4",
+        "a": "n10",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       }
+      ]
+     }
+    }
+   },
+   "19.2": {
+    "nota_version": "Versión As-Is: describe cómo se lleva hoy la relación con los centros comerciales, los arrendadores y el condominio, que se reparten la gerencia de tiendas, la de administración y quien ocupa la sede, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que el centro comercial, el arrendador o el condominio notifica algo —una inspección, una incidencia, un cambio de cuota— o la tienda detecta una falla de servicios en el local, hasta que queda resuelta; incluye el pago recurrente de alquileres, cuotas y servicios. La negociación y la firma del contrato de arrendamiento están en 18.2. El flujograma describe las tiendas de Venezuela.",
+     "texto": "**No hay una función que lleve la relación con los inmuebles: se reparte según de dónde venga el asunto.** En Venezuela, la Gerencia de Administración negocia los arrendamientos y los condominios con los centros comerciales y paga alquileres, cuotas y servicios. La Gerencia de Ventas al Detal lleva el día a día de las tiendas con la administración de cada centro. Antes de renovar un contrato, el centro inspecciona el local y deja, por correo o WhatsApp, una orden con observaciones; la tienda las corrige y el centro vuelve a revisar. Ante una incidencia de servicios —una filtración, una inundación que venía de la tubería de otro local— se avisa a la administración del centro para saber de dónde viene, y cada parte repara lo suyo. La regla de la gerencia es usar el canal regular y llamar al gerente del centro solo cuando ese canal se agota.\n\nEn la sede de Caracas, la relación con el condominio no tiene responsable designado. El Jefe de Servicios Generales atiende instalaciones eléctricas del edificio a pedido de la Presidencia, Sistemas da soporte a áreas del condominio, y la Asistente Ejecutiva de la Presidencia asumió por iniciativa propia el trato con la administración del edificio, por ejemplo para los puestos de estacionamiento.\n\nLas facturas de alquiler, electricidad, agua, aseo y servicios municipales llegan a la Gerencia de Administración, que las paga; Cuentas por Pagar las registra, a menudo después del pago. Como muchos locales son alquilados y sus recibos vienen a nombre de un tercero, se registran como recibo para medir lo que pesa cada tienda.\n\n**En Panamá**, el Supervisor de Tienda es el contacto con las administraciones de los centros, varias de las cuales comparten administración. Canaliza con Contabilidad los aumentos de la cuota de mantenimiento y las exigencias del centro, como conectar la alarma contra incendios del local a la del centro, para lo cual consigue al proveedor. Los alquileres los paga Tesorería en los primeros días del mes como pago recurrente, sin solicitud de pago. Cuando el problema es del inmueble —el piso que se hunde en un centro comercial y descuadra las puertas de la tienda—, la tienda solo puede contenerlo mientras busca otro local."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño único: en Venezuela, Gerente de Administración (contratos y pagos) y Gerente de Ventas al Detal (relación diaria de las tiendas); en Panamá, Supervisor de Tienda",
+     "participantes": [
+      "Administración del centro comercial o del condominio (externa)",
+      "Gerentes de tienda (Venezuela)",
+      "Asistente y Coordinador de Cuentas por Pagar (Venezuela)",
+      "Jefe de Servicios Generales (Venezuela)",
+      "Asistente Ejecutiva de la Presidencia (Venezuela)",
+      "Contabilidad y Asistente de Tesorería (Panamá)"
+     ],
+     "evidencia": [
+      "E-47",
+      "E-45",
+      "E-12",
+      "E-33",
+      "E-65",
+      "E-53",
+      "E-61",
+      "SC-02",
+      "Lark: Descripción de cargo del Gerente de Administración (VE)"
+     ],
+     "sin_evidencia": "No hay evidencia de un registro común de contratos, vencimientos ni contactos de los inmuebles, ni de cómo se lleva esta relación en Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La administración del centro comercial o del condominio notifica una inspección, una incidencia o un cambio de cuota, o la tienda detecta una falla de servicios en el local.",
+     "cadencia": "Por evento; los alquileres, cuotas y servicios, cada mes (en Panamá, en los primeros días del mes).",
+     "output": "La incidencia resuelta o la observación corregida, y la obligación del mes pagada.",
+     "evidencia": [
+      "E-47",
+      "E-53",
+      "E-61",
+      "E-65"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de tienda",
+       "texto": "Recibe del centro comercial, por correo o WhatsApp, una inspección con observaciones, una incidencia o un cambio de cuota, o detecta una falla de servicios en el local."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de tienda",
+       "texto": "Lo reporta a la Gerencia de Ventas al Detal."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Si es un cobro —una cuota, un servicio—, lo pasa a la Gerencia de Administración."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Administración",
+       "texto": "Paga la obligación contra la factura; Cuentas por Pagar la registra después."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Si es una incidencia o una observación, la plantea a la administración del centro por el canal regular para saber de dónde viene; si el canal regular no responde, llama al gerente del centro."
+      },
+      {
+       "id": "a6",
+       "rol": "Administración del centro comercial (externa)",
+       "texto": "Determina el origen y repara lo que corresponde al inmueble."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Hace reparar lo que corresponde al local, a menudo con el personal de mantenimiento del centro fuera de su horario (19.6). Si era una observación de inspección, el centro vuelve a revisar."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de tienda",
+       "Gerente de Ventas al Detal",
+       "Gerente de Administración",
+       "Administración del centro comercial (externa)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de tienda",
+        "tipo": "inicio",
+        "n": "Llega un aviso del centro o se detecta una falla"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de tienda",
+        "tipo": "tarea",
+        "n": "Reportar a Ventas al Detal",
+        "sistemas": [
+         "Correo",
+         "WhatsApp"
+        ]
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "decision",
+        "n": "¿Es un cobro?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Administración",
+        "tipo": "tarea",
+        "n": "Pagar contra la factura"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Administración",
+        "tipo": "fin",
+        "n": "Obligación pagada"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Plantearlo al centro por el canal regular"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "decision",
+        "n": "¿Responde el canal?"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Llamar al gerente del centro",
+        "sistemas": [
+         "Teléfono"
+        ]
+       },
+       {
+        "id": "n8",
+        "carril": "Administración del centro comercial (externa)",
+        "tipo": "tarea",
+        "n": "Ubicar el origen y reparar el inmueble"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Hacer reparar el local"
+       },
+       {
+        "id": "n10",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "fin",
+        "n": "Incidencia resuelta"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n6",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "19.3": {
+    "nota_version": "Versión As-Is: describe cómo se reponen hoy los insumos de oficina, papelería, limpieza y cafetería, que en Venezuela llevan las asistentes de Administración y en Panamá Recursos Humanos, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que falta un insumo de oficina, papelería, limpieza o cafetería en una sede o una tienda hasta que llega a quien lo pidió. Cubre Venezuela y Panamá, con una mención a la oficina de Miami. El flujograma describe Venezuela; el de Panamá se resume en el texto.",
+     "texto": "**En Venezuela, el abastecimiento lo llevan las asistentes del área de Administración**, aunque ninguna lo tiene como función formal. La Asistente de Cuentas por Pagar cotiza a los proveedores y, con otras asistentes del área, lleva el respaldo del inventario en un depósito interno de la oficina. Cuando alguien pide algo, revisan si hay en el depósito; si no, piden directo al proveedor de siempre. La Gerencia de Administración valida la compra, Cuentas por Pagar registra la factura y la asistente recibe la mercancía y la entrega. A las tiendas, el material de oficina viaja con el transporte del depósito que las visita lunes, miércoles y viernes (19.4).\n\nEn agosto de 2026, la Gerencia de Almacén le planteó al Jefe de Servicios Generales que asumiera los insumos de oficina y el personal de limpieza. Él prefirió no invadir un área que otras personas ya llevan, y a la fecha de la entrevista no lo había asumido.\n\n**En Panamá lo lleva Recursos Humanos, con un procedimiento publicado en Lark.** Cada departamento identifica al cierre del mes los artículos de limpieza y de cafetería que necesita y los pide por un formulario de Lark; las tiendas piden igual sus insumos de limpieza. Recursos Humanos consolida los pedidos, prepara los insumos y los entrega en la primera semana del mes. Compra también la papelería, las sillas y los escritorios, repite con los proveedores que ya conoce por precio y pide el pago a Tesorería sobre la cotización. Mercadeo dejó de pedirle sus materiales: hoy maneja su presupuesto y compra por su cuenta.\n\nEn la oficina de Miami no hay rutina: la responsable de la operación compra cuando algo se acaba, y los pedidos le llegan de uno en uno."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño formal: las asistentes de Administración en Venezuela y la Gerencia de Recursos Humanos en Panamá",
+     "participantes": [
+      "Asistente de Cuentas por Pagar y otras asistentes de Administración (Venezuela)",
+      "Gerente de Administración (Venezuela)",
+      "Coordinador de Cuentas por Pagar (Venezuela)",
+      "Gerente de Recursos Humanos y Coordinadora de Recursos Humanos (Panamá)",
+      "Tesorería (Panamá)",
+      "Proveedores habituales (externos)"
+     ],
+     "evidencia": [
+      "E-45",
+      "E-65",
+      "SC-18",
+      "E-47",
+      "E-54",
+      "E-30",
+      "Lark: Solicitud de insumos (PA)"
+     ],
+     "sin_evidencia": "No hay evidencia de un criterio de reposición ni de un registro del inventario de insumos fuera del respaldo que llevan las propias asistentes, ni de cómo se abastece Colombia."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Alguien avisa que falta un insumo o las asistentes lo notan en su respaldo (Venezuela); en Panamá, el cierre del mes, cuando cada departamento envía su formulario.",
+     "cadencia": "En Venezuela, a demanda. En Panamá, mensual: pedidos al cierre del mes y entrega en la primera semana del siguiente.",
+     "output": "El insumo entregado a quien lo pidió y la factura registrada en Cuentas por Pagar.",
+     "evidencia": [
+      "E-45",
+      "E-65",
+      "E-54",
+      "Lark: Solicitud de insumos (PA)"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-45",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Solicitante (área de la oficina o tienda)",
+       "texto": "Avisa a Administración que le falta un insumo."
+      },
+      {
+       "id": "a2",
+       "rol": "Asistentes de Administración",
+       "texto": "Revisan el respaldo del depósito interno; si hay, lo entregan."
+      },
+      {
+       "id": "a3",
+       "rol": "Asistentes de Administración",
+       "texto": "Si no hay, cotizan y piden la reposición al proveedor de siempre."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Administración",
+       "texto": "Valida la compra."
+      },
+      {
+       "id": "a5",
+       "rol": "Proveedor habitual (externo)",
+       "texto": "Despacha el insumo a la oficina y emite la factura."
+      },
+      {
+       "id": "a6",
+       "rol": "Asistentes de Administración",
+       "texto": "Reciben el insumo y lo entregan; a las tiendas lo mandan con el transporte del depósito."
+      },
+      {
+       "id": "a7",
+       "rol": "Coordinador de Cuentas por Pagar",
+       "texto": "Registra la factura."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Solicitante (área de la oficina o tienda)",
+       "Asistentes de Administración",
+       "Gerente de Administración",
+       "Proveedor habitual (externo)",
+       "Coordinador de Cuentas por Pagar"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Solicitante (área de la oficina o tienda)",
+        "tipo": "inicio",
+        "n": "Falta un insumo"
+       },
+       {
+        "id": "n1",
+        "carril": "Solicitante (área de la oficina o tienda)",
+        "tipo": "tarea",
+        "n": "Avisar a Administración"
+       },
+       {
+        "id": "n2",
+        "carril": "Asistentes de Administración",
+        "tipo": "decision",
+        "n": "¿Hay en el depósito?"
+       },
+       {
+        "id": "n3",
+        "carril": "Asistentes de Administración",
+        "tipo": "tarea",
+        "n": "Entregar del depósito"
+       },
+       {
+        "id": "n4",
+        "carril": "Asistentes de Administración",
+        "tipo": "fin",
+        "n": "Insumo entregado"
+       },
+       {
+        "id": "n5",
+        "carril": "Asistentes de Administración",
+        "tipo": "tarea",
+        "n": "Pedir al proveedor de siempre"
+       },
+       {
+        "id": "n6",
+        "carril": "Gerente de Administración",
+        "tipo": "tarea",
+        "n": "Validar la compra"
+       },
+       {
+        "id": "n7",
+        "carril": "Proveedor habitual (externo)",
+        "tipo": "tarea",
+        "n": "Despachar y facturar"
+       },
+       {
+        "id": "n8",
+        "carril": "Asistentes de Administración",
+        "tipo": "tarea",
+        "n": "Recibir y entregar"
+       },
+       {
+        "id": "n9",
+        "carril": "Coordinador de Cuentas por Pagar",
+        "tipo": "tarea",
+        "n": "Registrar la factura",
+        "sistemas": [
+         "Odoo"
+        ]
+       },
+       {
+        "id": "n10",
+        "carril": "Coordinador de Cuentas por Pagar",
+        "tipo": "fin",
+        "n": "Insumo entregado y factura registrada"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "19.4": {
+    "nota_version": "Versión As-Is: describe cómo se mueven hoy el efectivo, los soportes y los documentos entre tiendas y oficina, que viajan en su mayoría con el transporte del depósito, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que una tienda o un área necesita mover efectivo, un soporte o un documento hasta que llega a destino. Cubre Venezuela y Panamá. No cubre el despacho de mercancía a clientes ni las entregas de la venta web, que son de los procesos comerciales y logísticos. El flujograma describe el retorno de las tiendas de Venezuela a la oficina.",
+     "texto": "**En Venezuela, la mensajería administrativa viaja casi toda con el transporte del depósito.** Los choferes y ayudantes del almacén visitan las tiendas de Caracas lunes, miércoles y viernes. Llevan la mercancía y el material de oficina, y traen las devoluciones y reparaciones, el efectivo con su cuadre de caja para Tesorería y una valija con los comprobantes de cierre del punto de venta para Contabilidad. En la oficina, el efectivo lo recibe la Asistente de Tesorería, que avisa si no coincide con lo declarado en el cierre. Para los trámites de la oficina, Administración cuenta con un mensajero motorizado y un chofer.\n\nLas tiendas del interior reúnen varios días de facturas y documentos y los envían en valija por una empresa de encomiendas (MRW; desde Margarita, Zoom). La lleva a la agencia el gerente de la tienda o, si no está, el subgerente. Las garantías urgentes viajan por encomienda, y las demás con el transporte regional, que hace un tercero. Mercadeo despacha también por encomienda: baja a generar la guía y espera su turno. **No hay un registro común** de lo que se envía ni de su recepción.\n\n**En Panamá**, los mensajeros de la bodega de la ciudad, al pasar por las tiendas a entregar un pedido, traen los papeles y las garantías, y el personal de Contabilidad está autorizado a recoger documentos. El efectivo se entrega a Contabilidad y uno de los mensajeros lo deposita de inmediato. La única tienda sin agencia bancaria cerca anota sus depósitos en un cuaderno que revisa el Supervisor de Tienda."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño único: el almacén (ruta a las tiendas) y Administración (mensajería de la oficina) en Venezuela; la bodega y Contabilidad en Panamá",
+     "participantes": [
+      "Gerentes y subgerentes de tienda",
+      "Choferes y ayudantes de almacén (Venezuela)",
+      "Asistente de Tesorería (Venezuela)",
+      "Contabilidad (Venezuela y Panamá)",
+      "Mensajero y chofer de Administración (Venezuela)",
+      "Mensajeros y conductores de bodega (Panamá)",
+      "Supervisor de Tienda (Panamá)",
+      "Empresas de encomienda (externas)"
+     ],
+     "evidencia": [
+      "E-47",
+      "E-38",
+      "E-45",
+      "E-31",
+      "E-53"
+     ],
+     "sin_evidencia": "No hay evidencia de cómo se tramita la correspondencia ante bancos y entes públicos más allá de que existe un mensajero, ni de una constancia de entrega."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Llega el día de ruta del transporte del depósito, o una tienda o un área necesita enviar efectivo, soportes o un documento.",
+     "cadencia": "En Caracas, lunes, miércoles y viernes; en el interior, cada varios días por valija; los trámites de oficina, a demanda. En Panamá, cuando un mensajero pasa por la tienda.",
+     "output": "El efectivo en Tesorería y los soportes en Contabilidad, sin un registro común de envío y recepción.",
+     "evidencia": [
+      "E-47",
+      "E-38",
+      "E-53"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-38"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de tienda",
+       "texto": "Cierra la caja y prepara el efectivo con su cuadre y la valija con los comprobantes del punto de venta y los documentos para la oficina."
+      },
+      {
+       "id": "a2",
+       "rol": "Choferes y ayudantes de almacén",
+       "texto": "En las tiendas de Caracas, recogen el efectivo y la valija en la ruta de lunes, miércoles y viernes y los llevan a la oficina."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de tienda",
+       "texto": "En las tiendas del interior, reúne varios días de documentos y lleva la valija a la agencia de encomiendas; si no está, la lleva el subgerente."
+      },
+      {
+       "id": "a4",
+       "rol": "Empresa de encomienda (externa)",
+       "texto": "Lleva la valija del interior a la oficina."
+      },
+      {
+       "id": "a5",
+       "rol": "Asistente de Tesorería",
+       "texto": "Recibe el efectivo y lo compara con lo declarado en el cierre; si no coincide, avisa."
+      },
+      {
+       "id": "a6",
+       "rol": "Contabilidad",
+       "texto": "Recibe la valija con los comprobantes y los documentos."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de tienda",
+       "Choferes y ayudantes de almacén",
+       "Empresa de encomienda (externa)",
+       "Asistente de Tesorería",
+       "Contabilidad"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de tienda",
+        "tipo": "inicio",
+        "n": "Cierre de caja de la tienda"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de tienda",
+        "tipo": "tarea",
+        "n": "Preparar el cierre y la valija"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de tienda",
+        "tipo": "decision",
+        "n": "¿Tienda de Caracas?"
+       },
+       {
+        "id": "n3",
+        "carril": "Choferes y ayudantes de almacén",
+        "tipo": "tarea",
+        "n": "Recoger en la ruta"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de tienda",
+        "tipo": "tarea",
+        "n": "Llevar la valija a la agencia"
+       },
+       {
+        "id": "n5",
+        "carril": "Empresa de encomienda (externa)",
+        "tipo": "tarea",
+        "n": "Trasladar la valija"
+       },
+       {
+        "id": "n6",
+        "carril": "Asistente de Tesorería",
+        "tipo": "tarea",
+        "n": "Recibir y cotejar el efectivo"
+       },
+       {
+        "id": "n7",
+        "carril": "Asistente de Tesorería",
+        "tipo": "decision",
+        "n": "¿Coincide con el cierre?"
+       },
+       {
+        "id": "n8",
+        "carril": "Asistente de Tesorería",
+        "tipo": "tarea",
+        "n": "Avisar la diferencia"
+       },
+       {
+        "id": "n9",
+        "carril": "Contabilidad",
+        "tipo": "tarea",
+        "n": "Recibir los comprobantes"
+       },
+       {
+        "id": "n10",
+        "carril": "Contabilidad",
+        "tipo": "fin",
+        "n": "Soportes en la oficina, sin registro de envío"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n6"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n9"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       }
+      ]
+     }
+    }
+   },
+   "19.5": {
+    "nota_version": "Versión As-Is: describe cómo se abren y cierran hoy las sedes y las tiendas, cómo se vigilan y cómo se responde a un evento de seguridad, sin un responsable común, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde la apertura diaria de una sede o una tienda hasta su cierre, y la respuesta cuando salta una alarma u ocurre un evento. Cubre Venezuela y Panamá. Las cámaras y los equipos de seguridad conectados a la red los atiende Sistemas (14.5). El flujograma describe la respuesta a un evento en las tiendas de Venezuela.",
+     "texto": "**La seguridad física no tiene un responsable común: cada sede la resuelve con quien la ocupa.** En las tiendas de Venezuela, la apertura y el cierre los hace el gerente de tienda; si falta, abre un vendedor de confianza, sin una lista escrita de lo que hay que revisar —«son cosas que hacemos por inercia». Las tiendas tienen cámaras, incluida una sobre la caja. Una empresa externa las monitorea a diario y avisa si ve algo extraño, y la Gerencia de Ventas al Detal puede verlas a distancia y revisar la grabación cuando un cliente reclama. En la supervisión de tiendas, una persona revisa que los extintores estén vigentes.\n\nEn la oficina de Caracas, el Jefe de Servicios Generales abre los días en que no van los jefes y vigila las conexiones de la central de alarma de incendio y de robo, que monitorea una empresa externa: si algo se suelta, la alarma falla. Las cámaras pasaron a Sistemas. Ante el riesgo de un sismo, Recursos Humanos organizó con la Gerencia de Almacén un simulacro de evacuación, escogió brigadistas y empezó a trabajar el plan con los bomberos, con la idea de sumar al resto del edificio.\n\n**En Panamá**, el Supervisor de Tienda responde a lo que deja una tienda expuesta: una noche en que la puerta de un local no cerraba, fue al centro comercial, llamó a un proveedor de confianza y trabajó con él hasta la madrugada para dejarla cerrada. Se entera de inmediato de un robo, y negocia con la seguridad de cada centro el paso de las entregas. Las alarmas de incendio y las cámaras de la bodega las atiende Sistemas. **No hay registro común de incidentes** en ningún país."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño común: el gerente de cada tienda y, en la oficina de Caracas, el Jefe de Servicios Generales",
+     "participantes": [
+      "Gerente de Ventas al Detal (Venezuela)",
+      "Empresas externas de monitoreo de cámaras y de alarmas",
+      "Sistemas (cámaras y equipos en red)",
+      "Gerente de Recursos Humanos (Venezuela), para la evacuación y las brigadas",
+      "Supervisor de Tienda (Panamá)",
+      "Seguridad del centro comercial (externa)"
+     ],
+     "evidencia": [
+      "E-45",
+      "E-47",
+      "E-21",
+      "E-53",
+      "E-07"
+     ],
+     "sin_evidencia": "No hay evidencia de un protocolo escrito de apertura y cierre, de un control de llaves y claves ni de un registro de incidentes. El patrón de cargos registra puestos de seguridad en Venezuela, pero ninguna entrevista describe su rutina."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La apertura o el cierre diario de la tienda o la sede, o un evento: un aviso de la empresa de monitoreo, una alarma, un robo o un local que no se puede cerrar.",
+     "cadencia": "Diaria, en la apertura y el cierre; los eventos, cuando ocurren.",
+     "output": "La sede abierta o cerrada y el evento atendido, sin registro común de lo ocurrido.",
+     "evidencia": [
+      "E-47",
+      "E-45",
+      "E-53"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-47",
+      "E-45"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Empresa de monitoreo (externa)",
+       "texto": "Revisa a diario las cámaras de las tiendas y avisa a la Gerencia de Ventas al Detal si ve algo extraño."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Revisa la grabación y determina qué pasó."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de tienda",
+       "texto": "Si es un hecho en la tienda —una conducta, un reclamo, una pérdida—, lo atiende con su equipo."
+      },
+      {
+       "id": "a4",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Si es una falla de la alarma o de la instalación eléctrica, la repara."
+      },
+      {
+       "id": "a5",
+       "rol": "Sistemas",
+       "texto": "Si es una falla de la cámara o de la red, la atiende."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Empresa de monitoreo (externa)",
+       "Gerente de Ventas al Detal",
+       "Gerente de tienda",
+       "Jefe de Servicios Generales",
+       "Sistemas"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Empresa de monitoreo (externa)",
+        "tipo": "inicio",
+        "n": "Se ve algo extraño en una tienda"
+       },
+       {
+        "id": "n1",
+        "carril": "Empresa de monitoreo (externa)",
+        "tipo": "tarea",
+        "n": "Avisar a la empresa"
+       },
+       {
+        "id": "n2",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Revisar la grabación",
+        "sistemas": [
+         "Cámaras"
+        ]
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "decision",
+        "n": "¿Qué pasó?"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de tienda",
+        "tipo": "tarea",
+        "n": "Atender el hecho en la tienda"
+       },
+       {
+        "id": "n5",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Reparar la alarma o la instalación"
+       },
+       {
+        "id": "n6",
+        "carril": "Sistemas",
+        "tipo": "tarea",
+        "n": "Atender la cámara o la red"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "fin",
+        "n": "Evento atendido, sin registro común"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4",
+        "etq": "Hecho en tienda"
+       },
+       {
+        "de": "n3",
+        "a": "n5",
+        "etq": "Falla eléctrica"
+       },
+       {
+        "de": "n3",
+        "a": "n6",
+        "etq": "Cámara o red"
+       },
+       {
+        "de": "n4",
+        "a": "n7"
+       },
+       {
+        "de": "n5",
+        "a": "n7"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   },
+   "19.6": {
+    "nota_version": "Versión As-Is: describe cómo se eligen, se aprueban y se reciben hoy los contratistas de mantenimiento y obra, sin un registro de contratistas ni una revisión técnica al recibir, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que hace falta un contratista para un trabajo que el personal propio no cubre —obra, plomería, pintura, mantenimiento— hasta que el trabajo se recibe y se paga. Cubre Venezuela y Panamá. La obra de una tienda nueva, que coordina el área de proyectos, queda como frontera. El flujograma describe Venezuela.",
+     "texto": "**En Venezuela, los contratistas de mantenimiento de oficinas y tiendas los coordina la Gerencia de Ventas al Detal**, que maneja también la infraestructura de las tiendas: trae al contratista, recibe su reporte y le ve el rendimiento. Para el mantenimiento general de la sede se trabaja con una empresa externa de confianza, y una reparación grande en el edificio espera la orden de la Presidencia. En los centros comerciales se prefiere contratar al personal de mantenimiento del propio centro, que trabaja por fuera con factura y conoce sus normas.\n\nEl Jefe de Servicios Generales interviene cuando el trabajo toca su parte: busca uno a tres presupuestos, prioriza la calidad y la durabilidad del material sobre el precio y, si ya conoce al proveedor que mejor responde, va directo a él. **No decide.** Los presupuestos los aprueba la Gerencia de Administración; si son muy altos pasan por la Gerencia de Operaciones y Logística, y los de tiendas, por la de Ventas al Detal. Si la respuesta es no, el trabajo no se hace. Muchos proveedores cobran contra presupuesto, con anticipo, y la Gerencia de Administración controla los anticipos hasta la factura final.\n\n**No hay un registro de contratistas calificados** ni una revisión técnica al recibir el trabajo. En la apertura de una tienda, el contratista conectó el local a una línea pensada para un quiosco, que no soportaba la carga; el Jefe de Servicios Generales tuvo que rehacer la red eléctrica un fin de semana, con la tienda cerrada con autorización de la Presidencia. La obra de una tienda nueva queda fuera de este circuito: la coordina el área de proyectos con un arquitecto y un ingeniero externos de confianza de la Presidencia y con los proveedores de mobiliario y de obra.\n\n**En Panamá**, la limpieza y el mantenimiento de la Zona Libre, las bodegas y las oficinas los hacen empresas externas que supervisa la Gerencia de Recursos Humanos, y sus servicios se pagan como gastos recurrentes. En las tiendas, el Supervisor de Tienda llama a un proveedor de confianza y gestiona su pago con Contabilidad."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Gerente de Ventas al Detal (contratistas de tiendas e infraestructura, Venezuela) y Gerente de Recursos Humanos (empresas de limpieza y mantenimiento, Panamá)",
+     "participantes": [
+      "Jefe de Servicios Generales (Venezuela)",
+      "Gerente de Administración (Venezuela)",
+      "Gerente de Operaciones y Logística (Venezuela)",
+      "Presidencia",
+      "Supervisor de Tienda (Panamá)",
+      "Contratistas y empresas de mantenimiento (externos)"
+     ],
+     "evidencia": [
+      "E-45",
+      "E-47",
+      "E-65",
+      "E-13",
+      "E-61",
+      "E-53",
+      "E-04",
+      "E-05"
+     ],
+     "sin_evidencia": "No hay evidencia de un registro de contratistas, de criterios escritos para calificarlos ni de un umbral de monto que fije quién aprueba."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un trabajo que el personal propio no cubre —una reparación de obra, plomería o pintura, o una falla eléctrica que excede al Jefe de Servicios Generales—, o un servicio externo recurrente que hay que mantener.",
+     "cadencia": "Por evento; los servicios de limpieza y mantenimiento contratados en Panamá, cada mes.",
+     "output": "El trabajo hecho y pagado contra presupuesto o factura, sin una recepción técnica formal.",
+     "evidencia": [
+      "E-45",
+      "E-47",
+      "E-13",
+      "E-61"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-45",
+      "E-47",
+      "E-65"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Identifica un trabajo que el personal propio no cubre en una tienda o en la oficina, o se lo plantea el Jefe de Servicios Generales."
+      },
+      {
+       "id": "a2",
+       "rol": "Jefe de Servicios Generales",
+       "texto": "Si el trabajo es eléctrico o de alarma, busca uno a tres presupuestos, o va directo al proveedor que ya conoce, priorizando la calidad del material."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Si no lo es, llama a un contratista de confianza o al personal de mantenimiento del centro comercial y obtiene su presupuesto."
+      },
+      {
+       "id": "a4",
+       "rol": "Gerente de Administración",
+       "texto": "Aprueba o rechaza el presupuesto; si es muy alto, pasa por la Gerencia de Operaciones y Logística. Si no se aprueba, el trabajo no se hace."
+      },
+      {
+       "id": "a5",
+       "rol": "Contratista (externo)",
+       "texto": "Ejecuta el trabajo, a menudo con un anticipo."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de Ventas al Detal",
+       "texto": "Ve el resultado y da el trabajo por terminado, sin una revisión técnica formal."
+      },
+      {
+       "id": "a7",
+       "rol": "Gerente de Administración",
+       "texto": "Paga el saldo contra la factura final y cierra el control de anticipos."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Ventas al Detal",
+       "Jefe de Servicios Generales",
+       "Gerente de Administración",
+       "Contratista (externo)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "inicio",
+        "n": "Hace falta un contratista"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "decision",
+        "n": "¿Es eléctrico o de alarma?"
+       },
+       {
+        "id": "n2",
+        "carril": "Jefe de Servicios Generales",
+        "tipo": "tarea",
+        "n": "Buscar presupuestos"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Llamar a un contratista de confianza"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Administración",
+        "tipo": "decision",
+        "n": "¿Aprueba el presupuesto?"
+       },
+       {
+        "id": "n5",
+        "carril": "Gerente de Administración",
+        "tipo": "fin",
+        "n": "El trabajo no se hace"
+       },
+       {
+        "id": "n6",
+        "carril": "Contratista (externo)",
+        "tipo": "tarea",
+        "n": "Ejecutar el trabajo"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerente de Ventas al Detal",
+        "tipo": "tarea",
+        "n": "Dar el trabajo por terminado"
+       },
+       {
+        "id": "n8",
+        "carril": "Gerente de Administración",
+        "tipo": "tarea",
+        "n": "Pagar contra la factura final"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de Administración",
+        "tipo": "fin",
+        "n": "Trabajo hecho y pagado"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };
