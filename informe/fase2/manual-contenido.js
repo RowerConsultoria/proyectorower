@@ -22552,7 +22552,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Controla el inventario de insumos de oficina, papelería, consumibles y material de limpieza en cada sede, detecta la necesidad de reposición, solicita y aprueba la compra, recibe y descarga el insumo en el depósito interno, y lo entrega al área solicitante.",
      "nota_estado": "Es un proceso híbrido: opera con regularidad, sostenido por varias asistentes administrativas de sede que llevan su propio respaldo de inventario y contactan directo al proveedor cuando detectan un nivel bajo, pero sin un sistema que lo centralice ni un criterio único de reposición entre sedes — cada una decide con su propio criterio cuándo y cuánto reponer."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Asistente Administrativo(a) / Servicios Generales", "asistentes administrativas de sede", "Gerente de Contabilidad / Administración (validación de la compra)", "Coordinador(a) de Tesorería / Cobranzas (registro de la factura y pago al proveedor)", "proveedores de insumos (actores externos)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -22726,7 +22726,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Identifica y califica a los contratistas que ejecutan lo que el equipo interno no cubre —obra civil, plomería, pintura, limpieza, mantenimiento general y montaje de tienda—, obtiene y compara presupuestos, presenta la propuesta al aprobador con facultad, supervisa la ejecución en sitio, y recibe conforme el trabajo.",
      "nota_estado": "Es un proceso híbrido: hay un criterio claro y aplicado de comparar presupuestos y priorizar la calidad del material sobre el precio más bajo, pero sin un registro de contratistas calificados ni una supervisión técnica sistemática antes de recibir el trabajo por concluido — la apertura de una tienda mostró que un contratista puede entregar una instalación eléctrica subdimensionada y que eso solo se descubre después, cuando falla."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "participantes": ["Asistente Administrativo(a) / Servicios Generales", "Gerente Comercial (País / Canal) al Detal (País) (intervenciones en punto de venta)", "Gerente de Operaciones y Logística (aprobación por encima del umbral)", "Coordinador(a) de Tesorería / Cobranzas (registro de la factura y pago al contratista)", "contratistas (actores externos)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
