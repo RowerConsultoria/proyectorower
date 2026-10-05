@@ -22393,10 +22393,10 @@ window.MANUAL_CONTENIDO = {
     "raci": [
      ["19.1 Mantenimiento de infraestructura e instalaciones", "Asistente Administrativo(a) / Servicios Generales", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Contabilidad / Administración · Analista de Sistemas / Datos", "Gerente de Operaciones y Logística"],
      ["19.2 Gestión de la sede y relación con el arrendador o condominio", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Gerente de Contabilidad / Administración · Supervisor de Ventas y Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Operaciones y Logística"],
-     ["19.3 Gestión de suministros de oficina y consumibles", "asistentes administrativas de sede", "Gerente de Tesorería", "Analista de Cuentas por Cobrar", "Asistente Administrativo(a) / Servicios Generales"],
+     ["19.3 Gestión de suministros de oficina y consumibles", "asistentes administrativas de sede", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería / Cobranzas", "Asistente Administrativo(a) / Servicios Generales"],
      ["19.4 Mensajería, correspondencia y transporte administrativo", "Auxiliar / Ayudante de Bodega y Tráfico", "Gerente de Contabilidad / Administración", "Coordinador(a) de Logística y Bodega · Gerente de Recursos Humanos", "Asistente Administrativo(a) / Servicios Generales"],
      ["19.5 Seguridad física y control de acceso a las sedes", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "empresas de vigilancia y de monitoreo de alarmas · Analista de Sistemas / Datos", "Gerente de Tienda / Supervisor de Ventas"],
-     ["19.6 Gestión de contratistas y proveedores de servicios generales", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "Gerente Comercial (País / Canal) al Detal (País) · Analista de Cuentas por Cobrar", "Country Manager"]
+     ["19.6 Gestión de contratistas y proveedores de servicios generales", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Operaciones y Logística", "Gerente Comercial (País / Canal) al Detal (País) · Coordinador(a) de Tesorería / Cobranzas", "Country Manager"]
     ],
     "catalogo_sistemas": [
      ["Sin sistema de gestión de mantenimiento o de tickets", "Registro de solicitudes, fallas y su resolución", "19.1 · 19.5", "Sin responsable formal"],
@@ -22560,21 +22560,21 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "asistentes administrativas de sede", "texto": "Detecta, mediante el respaldo de inventario que lleva cada sede, que el nivel de un insumo de oficina, papelería, consumible o material de limpieza está bajo, o recibe la solicitud puntual de un área."},
       {"id": "a2", "rol": "asistentes administrativas de sede", "texto": "Verifica si el insumo está disponible en el depósito interno de la sede; si lo está, lo entrega directamente al área solicitante."},
       {"id": "a3", "rol": "asistentes administrativas de sede", "texto": "Contacta directamente al proveedor ya establecido cuando el insumo no está disponible, y solicita la reposición según el consumo habitual de la sede."},
-      {"id": "a4", "rol": "Gerente de Tesorería", "texto": "Aprueba el desembolso para la compra del insumo antes de que el proveedor lo despache."},
+      {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Valida la compra del insumo antes de que el proveedor lo despache."},
       {"id": "a5", "rol": "proveedores de insumos (actores externos)", "texto": "Despachan el insumo a la sede correspondiente."},
-      {"id": "a6", "rol": "Analista de Cuentas por Cobrar", "texto": "Tramita el pago al proveedor una vez recibida la factura correspondiente."},
+      {"id": "a6", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Registra la factura del proveedor como cuenta por pagar y tramita su pago una vez recibido el insumo."},
       {"id": "a7", "rol": "asistentes administrativas de sede", "texto": "Recibe y descarga el insumo en el depósito interno de la sede, y lo entrega al área solicitante."}
      ],
      "diagrama": {
-      "carriles": ["asistentes administrativas de sede", "Gerente de Tesorería", "proveedores de insumos (actores externos)", "Analista de Cuentas por Cobrar"],
+      "carriles": ["asistentes administrativas de sede", "Gerente de Contabilidad / Administración", "proveedores de insumos (actores externos)", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
        {"id": "n0", "carril": "asistentes administrativas de sede", "tipo": "inicio", "n": "Nivel bajo detectado en el inventario interno, o solicitud puntual de un área"},
        {"id": "n1", "carril": "asistentes administrativas de sede", "tipo": "decision", "n": "¿El insumo está disponible en el depósito interno de la sede?"},
        {"id": "n1alt", "carril": "asistentes administrativas de sede", "tipo": "fin", "n": "Insumo entregado directamente al solicitante desde el depósito interno"},
        {"id": "n2", "carril": "asistentes administrativas de sede", "tipo": "tarea", "n": "Contactar al proveedor ya establecido y solicitar la reposición"},
-       {"id": "n3", "carril": "Gerente de Tesorería", "tipo": "tarea", "n": "Aprobar el desembolso para la compra"},
+       {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar la compra"},
        {"id": "n4", "carril": "proveedores de insumos (actores externos)", "tipo": "tarea", "n": "Despachar el insumo a la sede"},
-       {"id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Tramitar el pago al proveedor"},
+       {"id": "n5", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Registrar la factura y tramitar el pago"},
        {"id": "n6", "carril": "asistentes administrativas de sede", "tipo": "tarea", "n": "Recibir y descargar el insumo en el depósito interno"},
        {"id": "n7", "carril": "asistentes administrativas de sede", "tipo": "fin", "n": "Insumo repuesto en el depósito interno de la sede y entregado al solicitante"}
       ],
@@ -22591,7 +22591,7 @@ window.MANUAL_CONTENIDO = {
       ["Criterio de reposición distinto por sede, sin nivel mínimo consolidado", "Cada sede decide cuándo y cuánto reponer con su propio respaldo de inventario, sin un umbral único de reposición entre sedes.", "Media", "Medio", "Definir un nivel mínimo de reposición común por tipo de insumo y por sede."],
       ["Sin sistema que centralice el inventario ni las compras de suministros", "El control es un respaldo interno de cada sede, sin visibilidad consolidada del stock ni del gasto del grupo en suministros.", "Media", "Medio", "Adoptar un registro único de inventario de suministros por sede."],
       ["Relación con el proveedor sostenida por trato directo, sin comparación de presupuestos", "Cada sede contacta directamente a su proveedor ya establecido, sin evidencia de que se comparen alternativas de precio o calidad antes de reponer.", "Media", "Bajo", "Exigir la comparación de al menos dos presupuestos antes de una compra recurrente de mayor monto."],
-      ["Pago tramitado por un cargo sin relación funcional con pagos a proveedores", "El trámite de pago a proveedores de suministros recae en un cargo orientado a la cartera de clientes (Cuentas por Cobrar), no a proveedores.", "Media", "Bajo", "Confirmar con el equipo el cargo real que tramita el pago a proveedores de suministros de oficina."]
+      ["Factura registrada después de la compra, sin solicitud previa", "Cuentas por Pagar conoce la compra cuando ya llegó la factura: la obligación no se registra al pedir el insumo, sino al pagarlo.", "Media", "Bajo", "Registrar la solicitud de compra validada antes de colocar el pedido al proveedor, para que la factura se concilie contra ella."]
      ]
     },
     "indicadores": {
@@ -22738,10 +22738,10 @@ window.MANUAL_CONTENIDO = {
       {"id": "a5", "rol": "Gerente de Operaciones y Logística", "texto": "Aprueba la contratación cuando el presupuesto excede el umbral del gasto ordinario."},
       {"id": "a6", "rol": "contratistas (actores externos)", "texto": "Ejecutan el trabajo en sitio bajo la supervisión del Asistente Administrativo / Servicios Generales."},
       {"id": "a7", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Supervisa la ejecución en sitio y verifica, antes de recibir el trabajo conforme, que cumpla con las especificaciones técnicas necesarias para la operación de la sede."},
-      {"id": "a8", "rol": "Analista de Cuentas por Cobrar", "texto": "Tramita la factura del contratista una vez recibido el trabajo conforme."}
+      {"id": "a8", "rol": "Coordinador(a) de Tesorería / Cobranzas", "texto": "Registra la factura del contratista como cuenta por pagar y tramita su pago una vez recibido el trabajo conforme."}
      ],
      "diagrama": {
-      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Operaciones y Logística", "contratistas (actores externos)", "Analista de Cuentas por Cobrar"],
+      "carriles": ["Asistente Administrativo(a) / Servicios Generales", "Gerente Comercial (País / Canal) al Detal (País)", "Gerente de Operaciones y Logística", "contratistas (actores externos)", "Coordinador(a) de Tesorería / Cobranzas"],
       "nodos": [
        {"id": "n0", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "inicio", "n": "Necesidad de una intervención que excede la competencia interna, o vencimiento de un contrato recurrente"},
        {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Solicitar y comparar presupuestos de contratistas"},
@@ -22752,8 +22752,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n4alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Aprobar la contratación"},
        {"id": "n5", "carril": "contratistas (actores externos)", "tipo": "tarea", "n": "Ejecutar el trabajo en sitio bajo supervisión"},
        {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Supervisar la ejecución y verificar el cumplimiento técnico antes de recibir conforme"},
-       {"id": "n7", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Tramitar la factura del contratista"},
-       {"id": "n8", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Trabajo ejecutado y recibido conforme, con el presupuesto aprobado y la factura tramitada"}
+       {"id": "n7", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "tarea", "n": "Registrar la factura y tramitar el pago"},
+       {"id": "n8", "carril": "Coordinador(a) de Tesorería / Cobranzas", "tipo": "fin", "n": "Trabajo ejecutado y recibido conforme, con el presupuesto aprobado y la factura tramitada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
