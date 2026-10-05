@@ -61,7 +61,7 @@
   function subcolumnas(dr){
     var directos = {n2:[], n3:[]}, extra = [];
     (dr.hijos || []).forEach(function(h){
-      if(h.hijos && h.hijos.length){
+      if(h.hijos && h.hijos.some(function(k){ return k.nivel !== "coord"; })){
         var sc = {n2:[h], n3:[]};
         h.hijos.forEach(function(k){ (k.nivel === "n3" ? sc.n3 : sc.n2).push(k); });
         extra.push(sc);
@@ -85,6 +85,7 @@
     if(esDir) return "Dirección corporativa";
     if(d.nivel === "n2") return "Gerencia corporativa";
     if(d.nivel === "n3") return "Gerencia país";
+    if(d.nivel === "coord") return "Coordinación país";
     if(d.nivel === "staff") return "Staff de la Presidencia";
     return "";
   }
@@ -100,12 +101,22 @@
                '<b class="eo-pcod">' + esc(p.id) + '</b>' + punto(o.estado) +
                '<span class="eo-onom eo-ocup">' + esc(o.nombre) + '</span>' +
                // En la caja el cargo va abreviado para no comerse el nombre; el panel lo da entero.
-               (o.cargo && o.cargo !== "Gerencia" ? '<span class="eo-pcargo">' + esc(CORTO[o.cargo] || o.cargo) + '</span>' : '') +
+               (o.cargo && o.cargo !== "Gerencia" && d.nivel !== "coord" ? '<span class="eo-pcargo">' + esc(CORTO[o.cargo] || o.cargo) + '</span>' : '') +
              '</span>';
       });
       h += '</span>';
     } else h += lineaOcupante(d.ocupante);
     return h + '</button>';
+  }
+
+  // Gerencia país con sus coordinaciones debajo, con sangría: es la única estructura
+  // interna que se dibuja, para las unidades que deben existir con responsable propio.
+  function cajaPais(k){
+    var h = caja(k, "eo-c-n3", "Gerencia país · " + E.PAISES.length + " países");
+    (k.hijos || []).filter(function(x){ return x.nivel === "coord"; }).forEach(function(x){
+      h += caja(x, "eo-c-n3 eo-c-coord", "Coordinación país");
+    });
+    return h;
   }
 
   // --------------------------------------------------------------- montaje
@@ -302,7 +313,7 @@
       h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + c + '">' +
              deNivel(dr, "n2").map(function(k){ return caja(k, "eo-c-n2", "Gerencia corporativa"); }).join("") + '</div>';
       h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + c + '">' +
-             deNivel(dr, "n3").map(function(k){ return caja(k, "eo-c-n3", "Gerencia país · " + E.PAISES.length + " países"); }).join("") + '</div>';
+             deNivel(dr, "n3").map(cajaPais).join("") + '</div>';
     });
 
     // unidades de negocio y sus subcolumnas
@@ -320,7 +331,7 @@
         });
         h += '</div>';
         h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">';
-        s.n3.forEach(function(n){ h += caja(n, "eo-c-n3", "Gerencia país · " + E.PAISES.length + " países"); });
+        s.n3.forEach(function(n){ h += cajaPais(n); });
         h += '</div>';
       });
       c0 += sc.length;
@@ -402,6 +413,11 @@
         return;
       }
       if(a.tipo !== "linea") return;
+      if(NODOS[a.a].d.nivel === "coord"){
+        var kx = pa.x + 14;
+        ruta("M" + kx + "," + (pa.y + pa.h) + " V" + (pb.y + Math.min(pb.h / 2, 26)) + " H" + pb.x, "eo-h-linea");
+        return;
+      }
       // peine: bajo el padre, al margen izquierdo de la subcolumna del hijo
       var celda = B.parentNode, cc = caja2(celda);
       var rail = cc.x + 10, px = pa.x + pa.w / 2, y1 = pa.y + pa.h + 13, cy = pb.y + Math.min(pb.h / 2, 26);
@@ -485,7 +501,8 @@
       {t:"Staff de la Presidencia", f:function(n){ return NODOS[n].d.nivel === "staff"; }},
       {t:"Direcciones corporativas", f:function(n){ return E.DIRECCIONES.some(function(d){ return d.id === n; }); }},
       {t:"Gerencias corporativas", f:function(n){ return NODOS[n].d.nivel === "n2"; }},
-      {t:"Gerencias país · en cada país", f:function(n){ return NODOS[n].d.nivel === "n3"; }}
+      {t:"Gerencias país · en cada país", f:function(n){ return NODOS[n].d.nivel === "n3"; }},
+      {t:"Coordinaciones país · en cada país", f:function(n){ return NODOS[n].d.nivel === "coord"; }}
     ];
     grupos.forEach(function(g){
       var ids = m.filter(g.f); if(!ids.length) return;

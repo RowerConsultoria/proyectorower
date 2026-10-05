@@ -231,19 +231,36 @@ window.ESTRUCTURA_TOBE = {
            VE:{nombre:'Jaime González', estado:'propuesto', nota:'Puede cubrir más de un país mientras se completan las otras.'},
            CO:{nombre:'Vacante', estado:'vacante'}
          },
-         funciones:['La operación financiera del país, con el marco fiscal local.'],
-         interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.']}
+         funciones:[
+           'La operación financiera del país, con el marco fiscal local.',
+           'Los servicios generales que sostienen sedes, tiendas y bodegas, a través de su coordinación.'
+         ],
+         interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.'],
+         hijos:[
+           // Única unidad con estructura interna dibujada: debe existir, con responsables definidos.
+           {id:'ssgg', n:'Servicios Generales', nivel:'coord',
+            paises:{
+              PA:{nombre:'Por confirmar', estado:'pordefinir', cargo:'Coordinación'},
+              VE:{nombre:'Williams Porras', estado:'actual', cargo:'Coordinación', nota:'Hoy ejerce como jefatura de Servicios Generales.'},
+              CO:{nombre:'Por confirmar', estado:'pordefinir', cargo:'Coordinación'}
+            },
+            funciones:[
+              'Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.',
+              'Coordina a los contratistas de mantenimiento y limpieza y verifica su trabajo.'
+            ],
+            nota:'Es la única unidad de la que se dibuja la estructura interna, para resaltar que debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Queda dentro de Administración y Finanzas, que ya lleva la compra interna y los pagos de esos servicios.'}
+         ]}
       ]
     },
     {
       id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff',
       ocupante:{nombre:'María Elvira', estado:'propuesto', nota:'Se incorpora al grupo como responsable corporativa de talento.'},
       funciones:[
-        'Gestiona la organización como socia del negocio: el talento, los proyectos, la formación y los servicios que hacen funcionar a las operaciones.',
+        'Gestiona la organización como socia del negocio: el talento, los proyectos y la formación.',
         'Lidera los procesos de cambio organizacional; es la dueña operativa de la implantación de los manuales de proceso.',
         'Lidera y convoca el Comité de Calidad y Mejora Continua.'
       ],
-      nota:'En el boceto se llamó «Gestión Organizacional». La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Reúne lo que en julio eran tres gerencias separadas: Talento Humano, PMO y Mantenimiento y Servicios.',
+      nota:'En el boceto se llamó «Gestión Organizacional». La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Reúne lo que en julio eran dos gerencias separadas: Talento Humano y PMO. Mantenimiento y Servicios pasa a Administración y Finanzas de cada país, como coordinación de Servicios Generales.',
       hijos:[
         {id:'proyectos', n:'Proyectos (PMO)', nivel:'n2',
          ocupante:{nombre:'Ricardo Candanedo', estado:'propuesto'},
@@ -262,14 +279,7 @@ window.ESTRUCTURA_TOBE = {
            CO:{nombre:'Vacante', estado:'vacante'}
          },
          funciones:['Gestión del talento con el marco laboral de cada país: el especialista local que la normativa exige.'],
-         interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.']},
-        {id:'ssgg', n:'Servicios Generales', nivel:'n3',
-         paises:{
-           PA:{nombre:'Por confirmar', estado:'pordefinir'},
-           VE:{nombre:'Williams Porras', estado:'actual', cargo:'Jefatura'},
-           CO:{nombre:'Por confirmar', estado:'pordefinir'}
-         },
-         funciones:['Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.']}
+         interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.']}
       ]
     },
     {
@@ -412,7 +422,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes).'},
     {n:'Optimización del tramo de control',
      como:'La Presidencia pasa a seis direcciones corporativas y dos unidades de staff, dentro del rango de 4 a 7.',
-     tension:'Desarrollo Corporativo y Ventas concentran muchos reportes: dos frentes corporativos más dos o tres gerencias en cada uno de tres países. Son las primeras a revisar si el tramo satura.'},
+     tension:'Ventas concentra muchos reportes: dos frentes corporativos más tres gerencias en cada uno de tres países. Es la primera a revisar si el tramo satura.'},
     {n:'Equilibrio entre autoridad y responsabilidad',
      como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
@@ -440,9 +450,9 @@ window.ESTRUCTURA_TOBE = {
       {antes:'Tres niveles: Dirección Ejecutiva → Gerencias corporativas → Direcciones.',
        ahora:'Direcciones corporativas → Gerencias corporativas → Gerencias país.',
        porque:'La denominación sube un escalón para que el título refleje el alcance: quien gobierna una función para todo el grupo es dirección; quien la ejecuta en un país es gerencia.'},
-      {antes:'Talento Humano, PMO y Mantenimiento y Servicios, cada una por su lado.',
+      {antes:'Talento Humano y PMO, cada una por su lado.',
        ahora:'Una sola Dirección de Desarrollo Corporativo.',
-       porque:'Las tres existen para que la organización funcione. Juntas liberan el tramo de la Presidencia y dan a la función de talento un alcance estratégico.'},
+       porque:'Las dos existen para que la organización funcione. Juntas liberan el tramo de la Presidencia y dan a la función de talento un alcance estratégico.'},
       {antes:'Transformación Tecnológica y Soporte, con la TI y la IA juntas.',
        ahora:'Gobierno de IA como dirección corporativa, y TI como gerencia por país que le reporta.',
        porque:'Lo que se gobierna una vez —el dato y la IA— sube; la operación de sistemas se queda cerca de cada país. El grupo no es una empresa de tecnología y no necesita un corporativo de TI.'},
@@ -452,6 +462,9 @@ window.ESTRUCTURA_TOBE = {
       {antes:'Direcciones Comerciales Casio y Cubitt, con las ventas colgando de las marcas.',
        ahora:'Ventas organizadas por canal; la marca se separa en Investigación y Desarrollo.',
        porque:'En la tienda y en el mayor la operación es la misma para las dos marcas. Donde la marca sí marca otro ritmo —la compra, el desarrollo, el calendario de mercadeo— se separa ahí.'},
+      {antes:'Mantenimiento y Servicios como gerencia corporativa.',
+       ahora:'Servicios Generales como coordinación de Administración y Finanzas en cada país.',
+       porque:'El mantenimiento de sedes, tiendas y bodegas se resuelve en cada país, y es donde hoy falta un responsable. Al lado de quien compra y paga esos servicios, la función gana un dueño claro.'},
       {antes:'Dirección de Servicio Técnico.',
        ahora:'Postventa por país, bajo Ventas.',
        porque:'Garantías, devoluciones y descuentos tocan el margen: tienen que verse desde la venta.'},
