@@ -749,6 +749,36 @@
   .eo-ahora{font-weight:600}
   .eo-cambio p{color:var(--tinta-media);font-size:12.5px;padding-left:52px}
   .eo-patron{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-weight:600}
+
+  /* consejos y comités: flotante desplegable arriba, fuera del pan/zoom */
+  .eo-cogob{position:absolute;top:58px;left:50%;transform:translateX(-50%);z-index:7;width:max-content;max-width:calc(100% - 32px);
+    background:var(--panel);border:1px solid var(--borde);border-radius:14px;box-shadow:var(--sombra)}
+  .eo-cogcab{display:flex;align-items:center;gap:10px;width:100%;font:inherit;color:var(--tinta);background:transparent;border:0;border-radius:14px;
+    padding:8px 14px;cursor:pointer;text-align:left;min-height:36px}
+  .eo-cogcab b{font-size:13px}
+  .eo-cogcab span{font-size:12px;color:var(--tinta-tenue)}
+  .eo-cogcab i{font-style:normal;color:var(--tinta-tenue);margin-left:auto;transition:transform var(--rapido,.15s)}
+  .eo-cog-abierto .eo-cogcab{border-bottom:1px solid var(--borde-tenue);border-radius:14px 14px 0 0}
+  .eo-cog-abierto .eo-cogcab i{transform:rotate(180deg)}
+  .eo-cogcab:hover{background:var(--realce)}
+  .eo-cogcab:focus-visible{outline:2px solid var(--cian);outline-offset:-2px}
+  .eo-cogcuerpo{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;max-height:min(60vh,520px);overflow:auto;max-width:980px}
+  .eo-cogrupo h4{margin:0 0 8px;font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .eo-cogrupo h4 span{font-weight:500;letter-spacing:0;text-transform:none}
+  .eo-cogob .eo-comfila{gap:10px}
+  .eo-cogob .eo-comite.eo-sel{border-color:var(--cian);box-shadow:0 0 0 2px var(--cian) inset}
+  .eo-consejo{border-style:dashed}
+  .eo-modo-capas .eo-cogob{display:none}
+  @media (max-width:820px){ .eo-cogcab span{display:none} }
+  .eo-cogcuerpo[hidden]{display:none}
+  /* coordinación corporativa: un escalón por debajo de las gerencias corporativas de su fila */
+  .eo-c-ccorp{width:calc(100% - 18px);margin-left:18px;border-top:3px solid var(--alerta)}
+  .eo-celda > .eo-c-ccorp:first-child{margin-top:40px}
+  .eo-k-gung{flex-direction:column;align-items:center;gap:5px;padding:4px 6px;border:1px solid color-mix(in srgb,var(--menta) 30%,transparent);border-radius:10px}
+  .eo-k-gunf{gap:4px}
+  .eo-k-gun{width:18px;height:12px;border-radius:3px;border-color:var(--menta)}
+  .eo-enlinea{display:flex;gap:10px;padding:16px 0 8px}
+  .eo-card .eo-tag:empty{display:none}
   @media (max-width:820px){
     .eo-panel{left:0;right:0;top:auto;bottom:0;width:100%;max-width:none;max-height:62%;border-radius:18px 18px 0 0}
     .eo-bar .eo-corte{display:none}

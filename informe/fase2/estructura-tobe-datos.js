@@ -6,6 +6,12 @@
    (Clemencia Abad, Gabriel Montiel, Josué Bonilla) y del boceto en papel de esa
    sesión, contrastados con el borrador de la sección 4.8 del informe de Fase 1
    (informe/fase1/organigrama-propuesto-datos.js) y con sus siete principios.
+   Ajustada con los acuerdos de la sesión con la Presidencia del 05-oct-2026
+   (Bernardo y Ricardo Roizental, María Elvira Sabal): la compra pasa a
+   Compras y Cadena de Suministro, Desarrollo de Producto a la antigua Investigación y Desarrollo, que pasa a llamarse Innovación y Desarrollo de Productos,
+   Proyectos (PMO) sale de Desarrollo Corporativo y pasa a ser dirección de staff, Finanzas gana una gerencia corporativa, Gobierno de IA y TI suma
+   una gerencia de Tecnología, Gobernanza y Riesgo, y el
+   Consejo de Familia va con los comités, como instancia de cogobierno.
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
@@ -23,9 +29,11 @@
    Los nombres se escriben como figuran en el censo de personal (Supabase).
    ============================================================================ */
 window.ESTRUCTURA_TOBE = {
-  corte: '26-sep-2026',
+  corte: '05-oct-2026',
   titulo: 'Estructura organizativa To-Be',
   bajada: 'Borrador del equipo consultor para validar con el liderazgo. Tres niveles: direcciones corporativas, gerencias corporativas y gerencias país. Lo corporativo fija la línea rectora; cada país la ejecuta con su marco normativo y sus recursos.',
+  // Rótulo del contenedor del staff (acuerdo del 05-oct: apoya al Comité Directivo, no solo a la Presidencia)
+  rotuloStaff: 'apoyo al Comité Directivo',
 
   NIVELES: [
     {id:'n1', n:'Direcciones corporativas', d:'Una por gran función del grupo. Fijan la línea rectora, verifican y orientan; su operatividad debe ser baja.'},
@@ -52,84 +60,156 @@ window.ESTRUCTURA_TOBE = {
     id:'ceo', n:'Presidencia · CEO',
     ocupante:{nombre:'Bernardo Roizental', estado:'actual'},
     funciones:[
-      'Conduce el grupo con seis direcciones corporativas como reportes directos, dentro del tramo de 4 a 7 que fija el principio 3.',
-      'Tiene como staff a Comunicaciones Internas y a Consultoría Jurídica.',
+      'Conduce el grupo con siete direcciones corporativas como reportes directos —tres unidades de negocio y cuatro de staff—, en el límite del tramo de 4 a 7 que fija el principio 3.',
+      'Tiene como unidades propias la Asistencia Ejecutiva a la Presidencia y la Consultoría Jurídica.',
       'Preside los órganos de cogobierno o delega su convocatoria en la dirección que corresponda.'
     ]
   },
   GOBIERNO: [
-    {id:'junta',   n:'Junta Directiva', d:'Órgano de gobierno: aprueba el rumbo y recibe el cuadro de indicadores de las direcciones. No es línea de mando.'},
-    {id:'holding', n:'Holding · grupo familiar propietario', d:'Instancia de los accionistas (hoy «Comité Ejecutivo»). Decide sobre la relación entre la familia y la empresa. No es línea de mando.'}
+    {id:'junta',    n:'Junta Directiva', d:'Órgano de gobierno: aprueba el rumbo y recibe el cuadro de indicadores de las direcciones. No es línea de mando.'},
+  ],
+  // Consejos: instancias de cogobierno de la familia propietaria. Sin línea hacia la
+  // Presidencia: se muestran con los comités, en el flotante de cogobierno.
+  CONSEJOS: [
+    {id:'familia', n:'Consejo de Familia',
+     proposito:'Instancia de cogobierno de la familia propietaria. Decide sobre la relación entre la familia y la empresa: quién entra a trabajar, con qué reglas y cómo se informa a la familia de la marcha del grupo.',
+     integrantes:'Los cuatro hermanos de la familia propietaria.',
+     nota:'No es línea de mando: no se conecta con la Presidencia ni con ninguna dirección. Por eso se muestra con los comités y no en la cima del organigrama.'}
   ],
   STAFF: [
-    {id:'comunicaciones', n:'Comunicaciones Internas', nivel:'staff',
-     ocupante:{nombre:'Por definir', estado:'pordefinir'},
+    {id:'comunicaciones', n:'Asistencia Ejecutiva a la Presidencia', nivel:'staff', etiqueta:'Unidad de la Presidencia',
+     ocupante:{nombre:'Carmela Iribarren', estado:'actual', nota:'Hoy es la asistente ejecutiva de la Presidencia.'},
      funciones:[
-       'Canal único de comunicación institucional hacia toda la organización.',
+       'Asiste a la Presidencia en su agenda, su despacho y el seguimiento de sus decisiones con las direcciones.',
+       'Entre los procesos que atiende están las comunicaciones corporativas: es el canal único de comunicación institucional hacia toda la organización.',
        'Recibe de cada dirección qué quiere comunicar (proyectos, talento, cambios) y lo emite con una sola voz.'
      ],
-     nota:'Hoy no existe: cada área comunica lo suyo. Se ubica como staff de la Presidencia —no al nivel de las direcciones— porque sirve a todas y no gestiona un proceso propio.'},
-    {id:'juridica', n:'Consultoría Jurídica', nivel:'staff',
-     ocupante:{nombre:'Vacante', estado:'vacante', nota:'Hoy la cubre un asesor externo de la Junta Directiva.'},
+     nota:'Antes se llamaba Comunicaciones Internas. Va junto a la Presidencia —no al nivel de las direcciones— porque la asiste directamente y sirve a todas las áreas.'},
+    {id:'juridica', n:'Consultoría Jurídica', nivel:'staff', etiqueta:'', enLinea:true,
+     ocupante:{nombre:'Bernie Weininger', estado:'actual', nota:'Director de la Junta Directiva. Se suma un abogado contratado a tiempo parcial.'},
      funciones:[
        'Una oficina corporativa con visión de todos los países: contratos con marcas y proveedores, gestión de los bufetes locales.',
        'Un responsable y su asistencia; el trabajo especializado por país se contrata.'
      ],
-     nota:'Staff de la Presidencia, como Comunicaciones Internas: no depende de ninguna dirección.'}
+     nota:'Depende directamente de la Presidencia y cuelga de su línea, antes de las direcciones corporativas: no depende de ninguna dirección. Ya está cubierta.'}
   ],
 
   /* ------------------------------------------------------- las direcciones */
   DIRECCIONES: [
     {
-      id:'id', n:'Investigación y Desarrollo', caracter:'negocio',
+      id:'id', n:'Innovación y Desarrollo de Productos', caracter:'negocio',
       ocupante:{nombre:'Alejandro Roizental', estado:'propuesto'},
       funciones:[
-        'Donde empieza el negocio: identifica productos en las fábricas de Asia, negocia con los proveedores, aprueba muestras y emite las órdenes de compra.',
-        'Tiene la decisión final sobre los productos nuevos y concentra toda la compra de producto, repuestos incluidos.',
-        'Trabaja de la mano con Mercadeo (Desarrollo de Producto) y con Comercial en la decisión de la colección.'
+        'Donde empieza el producto: estudia el mercado, identifica productos y fábricas, y desarrolla y aprueba las muestras.',
+        'Hoy está focalizada en Cubitt, la marca propia. En Casio, marca representada, el producto lo define la casa matriz.',
+        'El negocio puede abrir dentro de ella niveles de gerencia —corporativos o por país— para las marcas y los productos que vengan. Por eso su denominación no lleva el nombre de ninguna marca.',
+        'Entrega a Compras y Cadena de Suministro lo que hay que comprar, y a Mercadeo el producto listo para lanzar: concepto, público y posicionamiento.',
+        'Decide la colección con Comercial, en el Comité Comercial.'
       ],
-      nota:'Hoy es una persona con figuras flotantes a su alrededor y sin departamento. La compra de producto está dispersa —los repuestos de una marca se compran desde otra área— y aquí se ordena. La compra interna de la organización (servicios, insumos) no entra: va a Finanzas y Negocios. El know-how no depende de la marca: la línea está abierta a marcas futuras.',
+      nota:'Antes se llamaba Investigación y Desarrollo. Ya no compra: la compra de producto pasa a Compras y Cadena de Suministro. A cambio reúne lo que hace nacer un producto: la innovación y el desarrollo. La denominación recoge la innovación que planteó María Elvira Sabal en la reunión del 05-oct y no se ata a Cubitt, porque la dirección debe poder acoger marcas y productos futuros.',
       hijos:[
-        {id:'casio', n:'Línea Casio', nivel:'n2',
-         ocupante:{nombre:'Roberto Roizental', estado:'propuesto'},
-         funciones:['Compra de catálogo y de repuestos de la marca representada, con sus tiempos y su relación con la casa matriz.']},
-        {id:'cubitt', n:'Línea Cubitt', nivel:'n2',
-         ocupante:{nombre:'Vacante / Stephania Roizental', estado:'vacante', nota:'Sin ocupante: Alejandro Roizental va en la dirección corporativa. Stephania Roizental es la opción planteada para cubrirla.'},
-         funciones:['Desarrollo de la marca propia: tendencias, proveedores, muestras, calidad a través de las garantías.']}
+        {id:'producto', n:'Inteligencia de Mercado y Desarrollo de Productos', nivel:'n2',
+         ocupante:{nombre:'Stephania Roizental', estado:'propuesto', nota:'Hoy lleva el desarrollo de producto junto con Alejandro Roizental.'},
+         funciones:[
+           'Inteligencia de mercado: tendencias, investigación de mercado y estudios de consumidor en todos los países, para saber qué mercado acepta un producto antes de desarrollarlo.',
+           'Desarrollo de productos: ensambla el producto con el concepto de la marca —colores de temporada, lanzamientos, licencias con marcas—.',
+           'Crea los códigos de producto y avisa a Comercial para abrir la preventa: es lo que desata los procesos de venta.',
+           'Comparte con Mercadeo a quién y cómo vender cada producto, y lleva sus hallazgos al Comité Comercial.'
+         ],
+         nota:'Reúne en una sola gerencia lo que el mercado pide y el producto que se desarrolla para responderle. Antes, el desarrollo de producto estaba bajo Mercadeo y la inteligencia de mercado era un proceso que llevaba en persona la gerencia de Mercadeo. Queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct.'},
+        {id:'innotec', n:'Innovación Tecnológica', nivel:'n2',
+         ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición vacante. Equivale a lo que en las corporaciones se denomina CTO (director de tecnología).'},
+         funciones:[
+           'Equivale al CTO de las corporaciones: lleva la tecnología de los productos del grupo.',
+           'Evalúa tecnologías, componentes y plataformas nuevas, y define las especificaciones técnicas de cada desarrollo.',
+           'Patrocina los proyectos de innovación de producto, de la idea al piloto, que gestiona la PMO.'
+         ],
+         nota:'Su campo es la tecnología del producto, no la del grupo: la tecnología de información la lleva la gerencia corporativa de Tecnología, Gobernanza y Riesgo, bajo Gobierno de IA y TI. Va en Innovación y Desarrollo de Productos porque ahí nace el producto y ahí se decide qué tecnología lleva.'}
       ]
     },
     {
-      id:'opl', n:'Operaciones y Logística', caracter:'negocio',
-      ocupante:{nombre:'Fernando Alvarado', estado:'propuesto'},
+      id:'opl', n:'Compras y Cadena de Suministro', caracter:'negocio',
+      ocupante:{nombre:'Roberto Roizental', estado:'propuesto'},
       funciones:[
-        'Dueño único de la promesa de entrega: importación, almacén principal y distribución a todos los países.',
-        'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.',
-        'Absorbe el control de inventario, que en julio era una dirección aparte.'
+        'Dueño de la mercancía de punta a punta: compra a fábrica, importación, almacén principal y distribución a todos los países.',
+        'Concentra toda la compra de producto de todas las marcas —Casio, Cubitt y las que vengan—, repuestos incluidos.',
+        'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.'
       ],
-      nota:'La visión corporativa es de barco, almacén principal y distribución. En cada país hace falta una gerencia que atienda los permisos, la aduana y la bodega local: desde lo corporativo no se puede gobernar la bodega de otro país.',
+      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. La compra interna de la organización (servicios, insumos) sigue en Finanzas y Negocios. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística».',
       hijos:[
-        {id:'oplpais', n:'Operaciones y Logística', nivel:'n3',
-         paises:{
-           PA:{nombre:'Fernando Alvarado', estado:'propuesto', cargo:'Gerencia', nota:'La lleva el mismo director corporativo, además de la dirección.'},
-           VE:{nombre:'Elvis Badillo', estado:'propuesto', cargo:'Gerencia'},
-           CO:{nombre:'Brayan Muñoz', estado:'actual', cargo:'Coordinación'}
-         },
-         funciones:['Operación de bodega, despacho e importación del país.'],
+        {id:'compras', n:'Compras', nivel:'n2',
+         ocupante:{nombre:'Por definir', estado:'pordefinir'},
+         funciones:[
+           'Compra estratégica de todas las marcas: la hoja de pedido y la asignación con Casio, las órdenes a fábrica de Cubitt y los repuestos.',
+           'Negocia las condiciones y sigue cada orden hasta el embarque.'
+         ],
+         nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas.',
+         hijos:[
+           {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'La compra de catálogo de Casio, marca representada: la hoja de pedido y la asignación que define la casa matriz.',
+              'Los repuestos de la marca.',
+              'Sigue cada orden hasta el embarque.'
+            ]},
+           {id:'compcubitt', n:'Compras Cubitt', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'La compra de Cubitt, marca propia: las órdenes a las fábricas, con las muestras y especificaciones que aprueba Innovación y Desarrollo de Productos.',
+              'Los repuestos de la marca.',
+              'Sigue cada orden en producción y hasta el embarque.'
+            ]}
+         ]},
+        {id:'oplcorp', n:'Operaciones y Logística', nivel:'n2',
+         ocupante:{nombre:'Fernando Alvarado', estado:'propuesto'},
+         funciones:[
+           'Dueño único de la promesa de entrega: importación, almacén principal y distribución a todos los países.',
+           'Absorbe el control de inventario, que en julio era una dirección aparte.'
+         ],
+         nota:'La visión corporativa es de barco, almacén principal y distribución. En cada país hace falta una gerencia que atienda los permisos, la aduana y la bodega local: desde lo corporativo no se puede gobernar la bodega de otro país.',
+         hijos:[
+           {id:'oplpais', n:'Operaciones y Logística', nivel:'n3',
+            paises:{
+              PA:{nombre:'Fernando Alvarado', estado:'propuesto', cargo:'Gerencia', nota:'La lleva el mismo gerente corporativo.'},
+              VE:{nombre:'Elvis Badillo', estado:'propuesto', cargo:'Gerencia'},
+              CO:{nombre:'Brayan Muñoz', estado:'actual', cargo:'Coordinación'}
+            },
+            funciones:['Operación de bodega, despacho e importación del país.'],
+            interna:[
+              'Jefatura de Despacho: bodega, movimiento y despacho, con supervisión de entrada y salida.',
+              'Jefatura de Tráfico: la importación — contenedores, liquidaciones y permisos.',
+              'Supervisores, operarios, ayudantes y choferes. Tres perfiles bastan: gerente, jefe o supervisor, operario.'
+            ]}
+         ]},
+        {id:'oplusa', n:'Operaciones y Logística USA', nivel:'n2',
+         ocupante:{nombre:'Isabella Roizental', estado:'propuesto', nota:'Lleva siete años al frente de la operación de Kenex USA, en Miami, sin una denominación formal de cargo.'},
+         funciones:[
+           'La operación de Kenex USA desde Miami, con producto Cubitt y, en las ventas en vivo, también Casio: el almacén, los envíos, las devoluciones y el servicio al cliente.',
+           'Lleva también los componentes comerciales de Kenex USA: la presencia y las ventas en los marketplaces y en la web propia, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web, y el pronóstico de ventas.',
+           'Los marketplaces de Estados Unidos —unos quince: Amazon, Walmart, Target, Macy\'s, TikTok, Whatnot, entre otros—: solicita la entrada a cada uno, sube y mantiene los listados con las exigencias de cada plataforma, los conecta a Shopify y pone en cero lo que se agota.',
+           'Cada mañana revisa las órdenes del día anterior en todas las plataformas, imprime las de Amazon y Whatnot —el almacén no tiene acceso a ellas— y se las envía al almacén para despacharlas.',
+           'Decide qué y cuánto inventario enviar a los almacenes de Amazon, varias veces por semana, con Sellerboard y la herramienta de pronóstico de la agencia que apoya el crecimiento en Amazon; cuando un producto se agota, pide reposición a Panamá.',
+           'Responde el servicio al cliente de Amazon y coordina a la persona de servicio al cliente de las demás plataformas.',
+           'Administra la operación: las compras del almacén y de la oficina, los pagos de la operación y los reportes para la persona de administración, que cada mes presenta los números a la Presidencia y a Finanzas.',
+           'Supervisa a cuatro personas: dos en el almacén de Miami y, en remoto desde Venezuela, una de servicio al cliente y una de administración.',
+           'En el To-Be reporta a la Dirección Corporativa de Compras y Cadena de Suministro.'
+         ],
          interna:[
-           'Jefatura de Despacho: bodega, movimiento y despacho, con supervisión de entrada y salida.',
-           'Jefatura de Tráfico: la importación — contenedores, liquidaciones y permisos.',
-           'Supervisores, operarios, ayudantes y choferes. Tres perfiles bastan: gerente, jefe o supervisor, operario.'
-         ]}
+           'Sistemas: Shopify, que reúne las ventas de todas las plataformas; QuickBooks para la administración; el portal propio de cada marketplace; y Lark para la comunicación. La migración a Odoo empieza con la gerencia de Tecnología, Gobernanza y Riesgo.',
+           'Almacén de Miami: dos personas despachan las órdenes diarias, preparan los envíos a Amazon y empacan los pedidos grandes, como la primera tienda física en Estados Unidos.'
+         ],
+         nota:'Kenex USA es una empresa aparte, con personalidad jurídica propia, que hasta ahora no figuraba en la estructura del grupo. Su operación descansa en una sola persona y no tiene procesos documentados ni cargos formales. Formalizarla es lo que le permite crecer: delegar lo operativo que hoy lleva Isabella (imprimir órdenes, responder a Amazon), registrar el estado de las devoluciones de Amazon —que llegan por miles al mes— y hacer en detalle el pronóstico de ventas. Reporta a Compras y Cadena de Suministro porque lo que lleva es operación y logística. Fuentes: E-30, E-06 y E-01.'}
       ]
     },
     {
       id:'comercial', n:'Comercial', caracter:'negocio',
-      ocupante:{nombre:'Andrés Roizental', estado:'validar', nota:'La propuesta amplía el alcance del cargo que ya ejerce de hecho: la visión que une mercadeo y venta.'},
+      ocupante:{nombre:'Andrés Roizental', estado:'propuesto', nota:'La propuesta formaliza el alcance que ya ejerce de hecho: la visión que une mercadeo y venta.'},
       funciones:[
         'Una sola cabeza para la venta y para la demanda que la produce: dirige Ventas y Mercadeo.',
-        'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.'
+        'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.',
+        'Decide qué tiendas se abren; la PMO gestiona cada apertura.'
       ],
-      nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Y la marca deja de partir la línea comercial: ventas se organiza por canal, y la separación por marca vive en Investigación y Desarrollo y en coordinaciones de mercadeo. Puede denominarse Vicepresidencia; lo decide el cliente.',
+      nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Se evaluó sacarlo de Comercial y quedó dentro. La marca deja de partir la línea comercial: ventas se organiza por canal, y la separación por marca vive en la compra, en el desarrollo de producto y en coordinaciones de mercadeo. Puede denominarse Vicepresidencia; lo decide el cliente.',
       hijos:[
         {id:'ventas', n:'Ventas', nivel:'n2',
          ocupante:{nombre:'Handani Mora', estado:'propuesto'},
@@ -138,14 +218,15 @@ window.ESTRUCTURA_TOBE = {
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
          hijos:[
-           {id:'mayorcorp', n:'Ventas al Mayor · mercados sin operación propia', nivel:'n2',
+           {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
+              'Atiende los mercados sin operación propia.',
               'Cartera de mayoristas de los países donde el grupo no opera (Centroamérica, Caribe y el resto de la región), consolidada y despachada desde Panamá.',
               'Fija la línea rectora de la venta al mayor para todo el grupo.'
             ],
             nota:'Se separa de la venta al mayor de cada país, que atiende a los mayoristas locales. La frontera entre las dos se acuerda con la Dirección Comercial.'},
-           {id:'ecommerce', n:'E-commerce', nivel:'n2',
+           {id:'ecommerce', n:'E-commerce', nivel:'gun',
             ocupante:{nombre:'Patrick Corujo', estado:'propuesto'},
             funciones:['Página web y canales digitales de venta de todo el grupo. Uno solo para todos los países: no hace falta una gerencia web por país.']},
            {id:'mayorpais', n:'Ventas al Mayor', nivel:'n3',
@@ -169,7 +250,7 @@ window.ESTRUCTURA_TOBE = {
               CO:{nombre:'Por definir', estado:'pordefinir'}
             },
             funciones:[
-              'Garantías, devoluciones y servicio técnico, con criterios comunes para todos los países.',
+              'Garantías, devoluciones, servicio técnico y atención al cliente, con criterios comunes para todos los países.',
               'Queda bajo Ventas porque cada garantía o descuento que concede toca el margen de la venta.'
             ],
             interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
@@ -178,25 +259,19 @@ window.ESTRUCTURA_TOBE = {
          ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición clave: la gerencia corporativa anterior dejó el cargo.'},
          funciones:[
            'La mente de la marca en todos los países: concepto, lineamientos, calendario de lanzamientos.',
-           'Lleva personalmente la inteligencia de mercado (tendencias, estudios, reportería): es un proceso, no un área.',
-           'Supervisa lo que se terceriza (diseño, contenido, redes) en vez de producirlo con plantilla propia.'
+           'Recibe de Innovación y Desarrollo de Productos el producto listo para lanzar y define cómo se vende: campaña, canal y mensaje.',
+           'Mantiene en casa el diseño gráfico y el video, y supervisa lo que se terceriza: la producción de material y las productoras.'
          ],
-         nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en tres frentes. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
+         nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en dos frentes: Experiencia del Cliente y Experiencia Digital. Desarrollo de Producto y la inteligencia de mercado pasan a Innovación y Desarrollo de Productos. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
          hijos:[
-           {id:'experiencia', n:'Experiencia del Cliente', nivel:'n2',
+           {id:'experiencia', n:'Experiencia del Cliente', nivel:'gun',
             ocupante:{nombre:'Reyna Barraza', estado:'propuesto'},
             funciones:[
               'La experiencia en vivo del cliente en la tienda propia, en la del mayorista y en los eventos.',
-              'Absorbe el visual merchandising: diseño y montaje de tienda con las normas de la marca, hoy separado de mercadeo.'
+              'Absorbe el visual merchandising: diseño y montaje de tienda con las normas de la marca, hoy separado de mercadeo.',
+              'Trabaja con Desarrollo Corporativo la cultura de marca hacia dentro: el cliente interno también vive la marca.'
             ]},
-           {id:'producto', n:'Desarrollo de Producto', nivel:'n2',
-            ocupante:{nombre:'Vacante / Stephania Roizental', estado:'vacante', nota:'Stephania Roizental es la opción planteada para cubrirla.'},
-            funciones:[
-              'Ensambla el producto que compra Investigación y Desarrollo con el concepto de la marca: colores de temporada, lanzamientos, licencias con marcas.',
-              'Crea los códigos de producto y avisa a comercial para abrir la preventa: es lo que desata los procesos de venta.'
-            ],
-            nota:'Hoy es una figura sin área que responde a varias instancias; aquí queda con una sola línea de reporte y en coordinación directa con Investigación y Desarrollo.'},
-           {id:'digital', n:'Experiencia Digital', nivel:'n2',
+           {id:'digital', n:'Experiencia Digital', nivel:'gun',
             ocupante:{nombre:'Anabel Roizental', estado:'propuesto'},
             funciones:['Contenido, redes sociales y página web de todas las marcas y países, con una alineación visual única; supervisa a los terceros que los producen.']},
            {id:'mercadeopais', n:'Mercadeo', nivel:'n3',
@@ -223,52 +298,55 @@ window.ESTRUCTURA_TOBE = {
         'Desarrolla negocios nuevos para el grupo.',
         'Incluye las compras internas de la organización (no las de producto).'
       ],
-      nota:'La denominación suma el desarrollo de negocios a las finanzas corporativas. La operación financiera vive en cada país.',
+      nota:'La denominación suma el desarrollo de negocios a las finanzas corporativas. La conducción financiera del día a día es de la gerencia corporativa de Finanzas, que responde por los países.',
       hijos:[
-        {id:'finpais', n:'Administración y Finanzas', nivel:'n3',
-         paises:{
-           PA:{nombre:'Vacante', estado:'vacante'},
-           VE:{nombre:'Jaime González', estado:'propuesto', nota:'Puede cubrir más de un país mientras se completan las otras.'},
-           CO:{nombre:'Vacante', estado:'vacante'}
-         },
+        {id:'fincorp', n:'Finanzas', nivel:'n2',
+         ocupante:{nombre:'Jaime González', estado:'propuesto', nota:'Sube desde la gerencia de Administración y Finanzas de Venezuela.'},
          funciones:[
-           'La operación financiera del país, con el marco fiscal local.',
-           'Los servicios generales que sostienen sedes, tiendas y bodegas, a través de su coordinación.'
+           'Conduce las finanzas de todo el grupo: presupuesto, flujo de caja, pagos a fábrica y cierre consolidado.',
+           'Las gerencias país de Administración y Finanzas le reportan.',
+           'Prepara para el Comité de Finanzas y Riesgos lo que sube a la Junta Directiva y a la Presidencia.'
          ],
-         interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.'],
+         nota:'Su relación directa con la Junta Directiva y con la Presidencia se mantiene, y se dibuja en el funcionamiento —el Comité de Finanzas y Riesgos—, no en la línea de mando: el organigrama muestra de quién depende cada unidad, no con quién despacha.',
          hijos:[
-           // Única unidad con estructura interna dibujada: debe existir, con responsables definidos.
-           {id:'ssgg', n:'Servicios Generales', nivel:'coord',
+           {id:'finpais', n:'Administración y Finanzas', nivel:'n3',
             paises:{
-              PA:{nombre:'Por confirmar', estado:'pordefinir', cargo:'Coordinación'},
-              VE:{nombre:'Williams Porras', estado:'actual', cargo:'Coordinación', nota:'Hoy ejerce como jefatura de Servicios Generales.'},
-              CO:{nombre:'Por confirmar', estado:'pordefinir', cargo:'Coordinación'}
+              PA:{nombre:'Vacante', estado:'vacante'},
+              VE:{nombre:'Por definir', estado:'pordefinir', nota:'Jaime González, que la ocupaba, sube a la gerencia corporativa.'},
+              CO:{nombre:'Vacante', estado:'vacante'}
             },
             funciones:[
-              'Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.',
-              'Coordina a los contratistas de mantenimiento y limpieza y verifica su trabajo.'
+              'La operación financiera del país, con el marco fiscal local.',
+              'Los servicios generales que sostienen sedes, tiendas y bodegas, a través de su coordinación.'
             ],
-            nota:'Es la única unidad de la que se dibuja la estructura interna, para resaltar que debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Queda dentro de Administración y Finanzas, que ya lleva la compra interna y los pagos de esos servicios.'}
+            interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.'],
+            hijos:[
+              // Única unidad con estructura interna dibujada: debe existir, con responsables definidos.
+              {id:'ssgg', n:'Servicios Generales', nivel:'coord',
+               paises:{
+                 PA:{nombre:'Por confirmar', estado:'pordefinir', cargo:'Coordinación'},
+                 VE:{nombre:'Williams Porras', estado:'actual', cargo:'Coordinación', nota:'Hoy ejerce como jefatura de Servicios Generales.'},
+                 CO:{nombre:'Por confirmar', estado:'pordefinir', cargo:'Coordinación'}
+               },
+               funciones:[
+                 'Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.',
+                 'Coordina a los contratistas de mantenimiento y limpieza y verifica su trabajo.'
+               ],
+               nota:'Es la única unidad de la que se dibuja la estructura interna, para resaltar que debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Queda dentro de Administración y Finanzas, que ya lleva la compra interna y los pagos de esos servicios; se planteó llevarla a Operaciones y queda por decidir.'}
+            ]}
          ]}
       ]
     },
     {
       id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff',
-      ocupante:{nombre:'María Elvira', estado:'propuesto', nota:'Se incorpora al grupo como responsable corporativa de talento.'},
+      ocupante:{nombre:'María Elvira Sabal', estado:'actual', nota:'Se incorporó al grupo el 05-oct-2026 como responsable corporativa de talento.'},
       funciones:[
-        'Gestiona la organización como socia del negocio: el talento, los proyectos y la formación.',
+        'Gestiona el talento de todo el grupo y de los negocios que se le sumen: estructura, cargos, formación y cultura.',
         'Lidera los procesos de cambio organizacional; es la dueña operativa de la implantación de los manuales de proceso.',
         'Lidera y convoca el Comité de Calidad y Mejora Continua.'
       ],
-      nota:'En el boceto se llamó «Gestión Organizacional». La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Reúne lo que en julio eran dos gerencias separadas: Talento Humano y PMO. Mantenimiento y Servicios pasa a Administración y Finanzas de cada país, como coordinación de Servicios Generales.',
+      nota:'La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Su primer foco es transformar la gestión del talento: por eso la PMO, que en el borrador anterior le reportaba, pasa a ser una dirección aparte. Patrocina los proyectos de transformación organizacional, que gestiona la PMO.',
       hijos:[
-        {id:'proyectos', n:'Proyectos (PMO)', nivel:'n2',
-         ocupante:{nombre:'Ricardo Candanedo', estado:'propuesto'},
-         funciones:[
-           'Equipo nuclear de gerentes de proyecto que atiende a toda la corporación: aperturas de tienda, obras, proyectos de transformación.',
-           'Distribuye la cartera según la demanda; en los picos subcontrata gerentes de proyecto por proyecto, con principio y fin.'
-         ],
-         nota:'Un solo perfil generalista, no dos alas fijas: un gerente de proyecto aborda un proyecto físico o uno de transformación, y así no quedan capacidades ociosas entre picos. No se replica por país.'},
         {id:'formacion', n:'Formación · Universidad Corporativa', nivel:'n2',
          ocupante:{nombre:'Lilibeth Olivar', estado:'actual', nota:'Incorporada recientemente como líder regional de formación y desarrollo; opera desde Colombia.'},
          funciones:['Formación y desarrollo de competencias de todo el grupo, con el programa de la Universidad Cubitt.']},
@@ -283,26 +361,72 @@ window.ESTRUCTURA_TOBE = {
       ]
     },
     {
-      id:'ia', n:'Gobierno de IA', caracter:'staff',
-      ocupante:{nombre:'Vacante', estado:'vacante', nota:'Perfil a contratar.'},
+      id:'ia', n:'Gobierno de IA y TI', caracter:'staff',
+      ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición a la que se aspira: el perfil de gobierno del dato y de la IA aún no existe en el grupo.'},
       funciones:[
         'Asegura que el dato fluya entre las áreas y los países, sin importar el sistema de cada uno.',
         'Integra a la organización la tecnología disponible y fija los lineamientos de uso de la IA.',
-        'Fija la línea rectora de la tecnología de información, que ejecutan las gerencias país de TI.'
+        'Fija la línea rectora de la tecnología de información y la de su gobernanza y su riesgo, que conduce la gerencia corporativa de Tecnología, Gobernanza y Riesgo.',
+        'Aprueba, con el Comité de Gobierno del Dato e IA, los usos de la IA y su nivel de autonomía.'
       ],
-      nota:'La operación de TI sigue en cada país, pero sus gerencias país le reportan: quien gobierna el dato y la IA conduce también a quienes operan los sistemas. Es un perfil que se mueve entre el negocio y la tecnología, como el de Comercial entre la venta y el mercadeo. Es la unidad de gobierno de IA que el proyecto comprometió desde el arranque.',
+      nota:'Antes se llamaba Gobierno de IA; la denominación suma TI porque la dirección conduce también la tecnología de información del grupo, a través de su gerencia corporativa. Es un perfil que se mueve entre el negocio y la tecnología, como el de Comercial entre la venta y el mercadeo. Es la unidad de gobierno de IA que el proyecto comprometió desde el arranque.',
       hijos:[
-        {id:'ti', n:'Tecnología de Información', nivel:'n3',
-         paises:{
-           PA:{nombre:'Mariela Castro', estado:'actual', cargo:'Gerencia'},
-           VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
-           CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
-         },
+        {id:'tgr', n:'Tecnología, Gobernanza y Riesgo', nivel:'n2',
+         ocupante:{nombre:'Mariela Castro', estado:'propuesto', nota:'Sube desde la gerencia de TI de Panamá.'},
          funciones:[
-           'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
-           'Ejecuta en su país los lineamientos que fija Gobierno de IA para que el dato fluya entre países.'
+           'Conduce la tecnología de información de todos los países: las gerencias país de TI le reportan.',
+           'Conduce la gobernanza, el riesgo y el cumplimiento de la IA y de la TI: la política de uso de la IA, el riesgo de cada caso de uso, los controles de acceso y de seguridad de la información, la continuidad y los respaldos, las licencias y los contratos con proveedores, y la protección de datos de cada país.',
+           'Tiene dos coordinaciones corporativas: Datos e IA, y Sistemas y Desarrollo.',
+           'Presenta al Comité de Gobierno del Dato e IA el registro de agentes y modelos, sus riesgos y sus incidentes.'
          ],
-         nota:'No hay una dirección corporativa de tecnología aparte: el grupo no es una empresa de tecnología. Lo que se gobierna una sola vez —el dato y la IA— sube a Gobierno de IA; la operación de TI queda en cada país y le reporta a esa dirección, que fija su línea rectora. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'}
+         nota:'Queda al mismo nivel que la gerencia corporativa de Finanzas. Reúne la operación de la tecnología y su control. Para que quien implanta un sistema o un agente no sea también quien lo aprueba, la aprobación de los usos de IA y de su nivel de autonomía queda en la dirección y en el Comité de Gobierno del Dato e IA. Para crecer hacia el gobierno del dato necesita un equipo más profesional que la libere de la operación diaria.',
+         hijos:[
+           {id:'datosia', n:'Datos e IA', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'Gobierno del dato: qué dato es oficial, sus datos maestros y quién responde por cada uno.',
+              'Integra los sistemas de cada país para que el dato fluya entre ellos.',
+              'Opera y da seguimiento a los agentes de IA en los procesos, y a los tableros de información.'
+            ]},
+           {id:'sisdes', n:'Sistemas y Desarrollo', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'Los sistemas del grupo —el Odoo de cada país, EBS y Lark— y sus configuraciones.',
+              'Los desarrollos internos, y la conducción de los desarrolladores externos.',
+              'Homologa los procesos de TI entre países.'
+            ]},
+           {id:'ti', n:'Tecnología de Información', nivel:'n3',
+            paises:{
+              PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Gerencia', nota:'Mariela Castro, que la ocupaba, sube a la gerencia corporativa.'},
+              VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
+              CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
+            },
+            funciones:[
+              'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
+              'Ejecuta en su país los lineamientos y los controles que fija la gerencia corporativa.'
+            ],
+            nota:'No hay una dirección corporativa de tecnología aparte: el grupo no es una empresa de tecnología. Lo que se gobierna una sola vez —el dato, la IA y sus reglas— sube a Gobierno de IA y TI y a su gerencia corporativa; la operación queda en cada país. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'}
+         ]}
+      ]
+    },
+    {
+      id:'pmo', n:'PMO', caracter:'staff',
+      ocupante:{nombre:'Ricardo Candanedo', estado:'propuesto', nota:'Hoy encabeza la PMO.'},
+      funciones:[
+        'Gobierna la cartera de proyectos de todo el grupo y la presenta al Comité Directivo.',
+        'Es la oficina de método: fija cómo se gestiona un proyecto en toda la organización.',
+        'Rinde cuentas a la Presidencia y al Comité Directivo.'
+      ],
+      nota:'Dirección de staff, junto a Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA y TI, como pidió la Presidencia en la reunión del 05-oct. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación.',
+      hijos:[
+        {id:'pmocorp', n:'PMO', nivel:'n2',
+         ocupante:{nombre:'Arani González', estado:'propuesto', nota:'Hoy es gerente de proyectos de la PMO y lleva los proyectos de Venezuela.'},
+         funciones:[
+           'Equipo de gerentes de proyecto que atiende a toda la corporación: aperturas, remodelaciones y cierres de tienda; proyectos de innovación de producto; proyectos de transformación organizacional.',
+           'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras y Cadena de Suministro en la mercancía inicial y el mobiliario, Experiencia del Cliente en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
+           'Distribuye a los gerentes de proyecto según la demanda; en los picos subcontrata por proyecto, con principio y fin.'
+         ],
+         nota:'Un solo equipo generalista para todos los países, no una gerencia por país ni alas fijas por tipo de proyecto: así no quedan capacidades ociosas entre picos.'}
       ]
     }
   ],
@@ -313,7 +437,7 @@ window.ESTRUCTURA_TOBE = {
   // en cada uno de los países.
   COMITES: [
     {id:'c-cal', n:'Comité de Calidad y Mejora Continua', lidera:'desarrollo',
-     proposito:'Instancia de cogobierno orientada a la revisión de las políticas y los manuales de la gestión corporativa.',
+     proposito:'Instancia de cogobierno orientada a la revisión de las políticas y los manuales de la gestión corporativa, con el cliente como fin último.',
      funciones:[
        'Revisa las políticas y los manuales de la gestión corporativa.',
        'Verifica los estándares de gestión y el cumplimiento de las mejores prácticas.',
@@ -328,7 +452,7 @@ window.ESTRUCTURA_TOBE = {
        'Aprueba los usos de IA en los procesos y el nivel de autonomía de cada uno.',
        'Vela por la privacidad, la protección de datos y la seguridad de la información.'
      ],
-     integrantes:['desarrollo', 'id', 'opl', 'comercial', 'finanzas', 'ecommerce', 'digital', 'juridica', 'ti']},
+     integrantes:['desarrollo', 'id', 'opl', 'comercial', 'finanzas', 'ecommerce', 'digital', 'juridica', 'tgr', 'datosia', 'ti']},
     {id:'c-cultura', n:'Comité de Cultura Organizacional', lidera:'desarrollo',
      proposito:'Instancia de cogobierno que alinea la cultura interna con la promesa de las marcas.',
      funciones:[
@@ -336,7 +460,7 @@ window.ESTRUCTURA_TOBE = {
        'Hace de la formación el vehículo de la cultura, a través de la Universidad Corporativa.',
        'Conecta la experiencia del empleado con la experiencia del cliente: quien vive la marca por dentro la transmite por fuera.'
      ],
-     integrantes:['desarrollo', 'comercial', 'formacion', 'mercadeo']},
+     integrantes:['desarrollo', 'comercial', 'formacion', 'mercadeo', 'experiencia', 'comunicaciones']},
     {id:'c-finanzas', n:'Comité de Finanzas y Riesgos', lidera:'finanzas',
      proposito:'Instancia ejecutiva de cogobierno sobre la caja y el riesgo del grupo. Prepara lo que sube a la Junta Directiva y al Comité de Finanzas del gobierno familiar, que se mantiene como instancia de gobierno.',
      funciones:[
@@ -346,15 +470,16 @@ window.ESTRUCTURA_TOBE = {
        'Revisa el crédito a clientes y la cobranza.',
        'Vigila el riesgo cambiario entre países: ninguna cifra sin moneda y sin tasa fechada.'
      ],
-     integrantes:['finanzas', 'comercial', 'id', 'opl', 'desarrollo', 'finpais', 'juridica']},
+     integrantes:['finanzas', 'fincorp', 'comercial', 'id', 'opl', 'desarrollo', 'finpais', 'juridica']},
     {id:'c-comercial', n:'Comité Comercial', lidera:'comercial',
      proposito:'Instancia de cogobierno que formaliza las decisiones de producto y de venta que hoy toma un grupo informal, sin formato ni registro.',
      funciones:[
-       'Decide la colección y los colores de temporada con Investigación y Desarrollo.',
+       'Decide la colección y los colores de temporada con Innovación y Desarrollo de Productos.',
+       'Aprueba la compra a fábrica que compone Compras y Cadena de Suministro.',
        'Fija el calendario de lanzamientos, sin saturar a mercadeo.',
        'Reparte el producto entre canales y países.'
      ],
-     integrantes:['comercial', 'ventas', 'mercadeo', 'id']}
+     integrantes:['comercial', 'ventas', 'mercadeo', 'producto', 'id', 'opl', 'compras']}
   ],
 
   /* --------------------------------------------------------- premisas */
@@ -362,15 +487,15 @@ window.ESTRUCTURA_TOBE = {
     {t:'Lo corporativo fija la línea, el país la ejecuta',
      d:'Cada dirección corporativa dicta la línea rectora de su función para todo el grupo; la gerencia país es su espejo y la ejecuta con el marco normativo, los recursos y la operación de su país. Un corporativo recibe, verifica y orienta: si se hunde en la operación, deja de supervisar.'},
     {t:'La cadena de valor ordena las direcciones',
-     d:'El negocio empieza con Investigación y Desarrollo, que compra; Operaciones y Logística lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
+     d:'El negocio empieza con Innovación y Desarrollo de Productos, que estudia el mercado y desarrolla el producto; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Investigación y Desarrollo, Operaciones y Logística y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, de la compra a la postventa. Finanzas y Negocios, Desarrollo Corporativo y Gobierno de IA son staff: sostienen a las tres y apoyan a la Presidencia, sin mezclarse con ellas. Comunicaciones Internas y Consultoría Jurídica son staff de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
+     d:'Innovación y Desarrollo de Productos, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. Finanzas y Negocios, Desarrollo Corporativo, Gobierno de IA y TI y la PMO son staff: sostienen a las tres y apoyan al Comité Directivo, sin mezclarse con ellas. La Asistencia Ejecutiva a la Presidencia y la Consultoría Jurídica son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
-     d:'Proyectos y Consultoría Jurídica no se replican por país: son un equipo central que se reparte según lo que pida la corporación, y que subcontrata en los picos.'},
+     d:'La PMO y Consultoría Jurídica no se replican por país: son equipos centrales que se reparten según lo que pida la corporación, y que subcontratan en los picos.'},
     {t:'Cogobierno por comités',
-     d:'Lo que atraviesa varias direcciones no se resuelve creando un área más, sino un comité que lidera y convoca una dirección con sus pares. Se formalizan cinco: Calidad y Mejora Continua, Gobierno del Dato e IA, Cultura Organizacional, Finanzas y Riesgos, y Comercial. Holding y Junta son gobierno, no línea de mando.'},
+     d:'Lo que atraviesa varias direcciones no se resuelve creando un área más, sino un comité que lidera y convoca una dirección con sus pares. Se formalizan cinco: Calidad y Mejora Continua, Gobierno del Dato e IA, Cultura Organizacional, Finanzas y Riesgos, y Comercial. A su lado está el Consejo de Familia, la instancia de cogobierno de la familia propietaria. La Junta Directiva es gobierno. Ninguno de ellos es línea de mando.'},
     {t:'Tercerizar lo que no es núcleo',
-     d:'Diseño, contenido y redes se contratan; la gerencia corporativa se asegura de que el tercero funcione. Así el tamaño de mercadeo deja de crecer con cada campaña.'}
+     d:'La producción de material y las productoras se contratan; el diseño gráfico y el video se quedan en casa, y la gerencia corporativa se asegura de que el tercero funcione. Así el tamaño de mercadeo deja de crecer con cada campaña.'}
   ],
 
   /* La lógica de conformación, sin unidades ni ocupantes: la vista «Capas»
@@ -378,25 +503,27 @@ window.ESTRUCTURA_TOBE = {
      n1–n3 toman su descripción de NIVELES y suman aquí lo propio. */
   CAPAS: {
     titulo: 'Capas de la estructura',
-    bajada: 'Antes de las unidades y de quién ocupa cada cargo, la lógica con que se compone la estructura: seis capas, de quien decide el rumbo a quien opera, y dos piezas que las cruzan.',
+    bajada: 'Antes de las unidades y de quién ocupa cada cargo, la lógica con que se compone la estructura: siete capas, de quien decide el rumbo a quien opera, y dos piezas que las cruzan.',
     ejes: {baja:'Línea rectora', sube:'Ejecución e indicadores'},
     lista: [
       {id:'gobierno', n:'Gobierno', verbo:'Decide el rumbo',
-       d:'Accionistas y Junta Directiva. Aprueban el rumbo y reciben el cuadro de indicadores de las direcciones. Son gobierno, no línea de mando.'},
+       d:'La Junta Directiva. Aprueba el rumbo y recibe el cuadro de indicadores de las direcciones. Es gobierno, no línea de mando.'},
       {id:'presidencia', n:'Presidencia', verbo:'Conduce el grupo',
-       d:'Una sola cabeza ejecutiva, con las direcciones corporativas como reportes directos en un tramo de 4 a 7. A los costados de su línea de mando, el staff: las direcciones de apoyo, Comunicaciones Internas y Consultoría Jurídica, que sirven a toda la organización.'},
+       d:'Una sola cabeza ejecutiva, con las direcciones corporativas como reportes directos en un tramo de 4 a 7. A su lado, la Asistencia Ejecutiva; sobre su línea, la Consultoría Jurídica; y a los costados de la línea de mando, el staff: las direcciones de apoyo al Comité Directivo, que sirven a toda la organización.'},
       {id:'n1', nivel:'n1', verbo:'Fijan la línea rectora', escalon:'Director(a) corporativo(a)',
        d:'Aquí están las unidades de negocio, en el orden de la cadena de valor. El staff no comparte esta capa: apoya desde los costados de la Presidencia, en la capa anterior.'},
       {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
        d:'Solo existen donde una especialidad conviene llevarla una vez para todos los países.'},
+      {id:'gun', n:'Gerencias de unidad de negocio', verbo:'Llevan un canal o un frente', escalon:'Gerente de unidad de negocio',
+       d:'Dentro de una gerencia corporativa del negocio, cada una lleva un canal de venta o un frente de mercadeo para todo el grupo. No se replican por país: la ejecución local sigue en las gerencias país.'},
       {id:'n3', nivel:'n3', verbo:'Ejecutan en cada país', escalon:'Gerente (país)',
        d:'Cada país reproduce el mismo espejo; abrir un país nuevo es replicarlo.'},
       {id:'equipos', n:'Equipos', verbo:'Operan', escalon:'De coordinador(a) a operario(a)',
        d:'Debajo de cada gerencia, los escalones de la estructura patrón, iguales en toda la organización. Cada unidad usa solo los que necesita.'}
     ],
     cruzan: [
-      {n:'Comités de cogobierno',
-       d:'Lo que atraviesa varias direcciones no crea un área más: lo resuelve un comité que lidera una dirección y convoca a sus pares.'},
+      {n:'Consejos y comités de cogobierno',
+       d:'Lo que atraviesa varias direcciones no crea un área más: lo resuelve un comité que lidera una dirección y convoca a sus pares. El Consejo de Familia acompaña a los comités como instancia de la familia propietaria, sin línea de mando.'},
       {n:'Equipos centrales por demanda',
        d:'Algunas especialidades no se replican por país. Un solo equipo se asigna según lo que pida la organización y se refuerza en los picos.'}
     ]
@@ -415,31 +542,31 @@ window.ESTRUCTURA_TOBE = {
 
   PRINCIPIOS: [
     {n:'Especialización y división del trabajo',
-     como:'Mercadeo se abre en tres frentes (experiencia del cliente, desarrollo de producto, experiencia digital) y Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa). Cada responsable deja de saltar entre tareas dispares.',
-     tension:'Proyectos se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
+     como:'Mercadeo se abre en dos frentes (experiencia del cliente, experiencia digital), Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística dentro de Compras y Cadena de Suministro. Cada responsable deja de saltar entre tareas dispares.',
+     tension:'La PMO se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
     {n:'Unidad de mando',
-     como:'Cada gerencia país reporta en línea a una sola dirección corporativa. Las figuras que hoy responden a varias instancias —desarrollo de producto, contenido digital, visual merchandising— quedan dentro de Mercadeo con una sola línea de reporte.',
+     como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; contenido digital y visual merchandising en Mercadeo.',
      tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes).'},
     {n:'Optimización del tramo de control',
-     como:'La Presidencia pasa a seis direcciones corporativas y dos unidades de staff, dentro del rango de 4 a 7.',
-     tension:'Ventas concentra muchos reportes: dos frentes corporativos más tres gerencias en cada uno de tres países. Es la primera a revisar si el tramo satura.'},
+     como:'La Presidencia tiene siete direcciones corporativas —tres de negocio y cuatro de staff— y dos unidades de staff propias. Las direcciones quedan en el límite del rango de 4 a 7.',
+     tension:'Con la PMO como dirección, el tramo de la Presidencia llega al máximo. Ventas concentra muchos reportes: dos frentes corporativos más tres gerencias en cada uno de tres países. Son los primeros a revisar si el tramo satura.'},
     {n:'Equilibrio entre autoridad y responsabilidad',
-     como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen.',
+     como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen. Quien compra responde también por que la mercancía llegue, y quien decide abrir una tienda, por que abra a tiempo.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
     {n:'Homogeneidad operativa',
-     como:'Operaciones y Logística es el único dueño de la promesa de entrega: bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto se concentra en Investigación y Desarrollo.',
-     tension:'Desarrollo de Producto (en Mercadeo) e Investigación y Desarrollo trabajan sobre el mismo producto: se coordinan directamente, sin compartir línea de mando.'},
+     como:'Compras y Cadena de Suministro es el único dueño de la mercancía: compra, bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto, de todas las marcas, se concentra ahí.',
+     tension:'Innovación y Desarrollo de Productos decide qué producto y Compras y Cadena de Suministro lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
     {n:'Flexibilidad y adaptabilidad (híbrida)',
-     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Las líneas de marca de Investigación y Desarrollo admiten marcas futuras, y mercadeo separa coordinaciones por marca solo cuando el ritmo lo exige.',
+     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y mercadeo separa coordinaciones por marca solo cuando el ritmo lo exige.',
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias corporativas dentro de otra gerencia corporativa (E-commerce bajo Ventas, los frentes de Mercadeo) añaden un escalón en Comercial.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, E-commerce) y de Mercadeo (Experiencia del Cliente, Experiencia Digital) añaden un escalón en Comercial.'}
   ],
 
   CAMBIOS: {
     conserva:[
-      'Holding y Junta Directiva como gobierno —consulta y decisión—, no como línea de mando.',
+      'El gobierno —la Junta Directiva— como consulta y decisión, no como línea de mando.',
       'Una capa corporativa rectora que se despliega en cada país.',
       'La distinción visual entre staff y unidades de negocio, cada grupo en su contenedor: el staff a la izquierda de la línea de la Presidencia y el negocio a la derecha, en el orden de la cadena de valor, con sus niveles corporativos agrupados.',
       'Los comités transversales como forma de cogobierno: el de excelencia tecnológica e IA de julio se formaliza como Comité de Gobierno del Dato e IA, el Comité Comercial se mantiene, y se suman los de Calidad y Mejora Continua, Cultura Organizacional y Finanzas y Riesgos.',
@@ -451,17 +578,20 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Direcciones corporativas → Gerencias corporativas → Gerencias país.',
        porque:'La denominación sube un escalón para que el título refleje el alcance: quien gobierna una función para todo el grupo es dirección; quien la ejecuta en un país es gerencia.'},
       {antes:'Talento Humano y PMO, cada una por su lado.',
-       ahora:'Una sola Dirección de Desarrollo Corporativo.',
-       porque:'Las dos existen para que la organización funcione. Juntas liberan el tramo de la Presidencia y dan a la función de talento un alcance estratégico.'},
+       ahora:'Desarrollo Corporativo y PMO como dos direcciones de staff.',
+       porque:'Desarrollo Corporativo da a la función de talento un alcance estratégico. La PMO queda aparte mientras esa función se transforma, para no dispersar su foco.'},
       {antes:'Transformación Tecnológica y Soporte, con la TI y la IA juntas.',
-       ahora:'Gobierno de IA como dirección corporativa, y TI como gerencia por país que le reporta.',
-       porque:'Lo que se gobierna una vez —el dato y la IA— sube; la operación de sistemas se queda cerca de cada país. El grupo no es una empresa de tecnología y no necesita un corporativo de TI.'},
+       ahora:'Gobierno de IA y TI como dirección corporativa, con una gerencia corporativa de Tecnología, Gobernanza y Riesgo que tiene dos coordinaciones —Datos e IA, Sistemas y Desarrollo— y conduce a las gerencias de TI de cada país.',
+       porque:'Lo que se gobierna una vez —el dato, la IA y sus reglas— sube; la TI gana una cabeza regional que homologa sus procesos, y la operación de sistemas se queda cerca de cada país.'},
       {antes:'Experiencia de Marcas como gerencia híbrida separada de Comercial.',
        ahora:'Mercadeo dentro de Comercial.',
        porque:'Mercadeo hoy no ve el efecto de su trabajo en la venta. Con una sola cabeza comercial, la demanda y la venta responden al mismo objetivo.'},
       {antes:'Direcciones Comerciales Casio y Cubitt, con las ventas colgando de las marcas.',
-       ahora:'Ventas organizadas por canal; la marca se separa en Investigación y Desarrollo.',
+       ahora:'Ventas organizadas por canal; la marca se separa en la compra y en el desarrollo de producto.',
        porque:'En la tienda y en el mayor la operación es la misma para las dos marcas. Donde la marca sí marca otro ritmo —la compra, el desarrollo, el calendario de mercadeo— se separa ahí.'},
+      {antes:'La compra de producto repartida: cada marca compraba por su lado y los repuestos de una se compraban desde otra área.',
+       ahora:'Toda la compra de producto en Compras y Cadena de Suministro, junto a la logística.',
+       porque:'Comprar es el primer paso de la cadena: quien compra responde también por que la mercancía llegue.'},
       {antes:'Mantenimiento y Servicios como gerencia corporativa.',
        ahora:'Servicios Generales como coordinación de Administración y Finanzas en cada país.',
        porque:'El mantenimiento de sedes, tiendas y bodegas se resuelve en cada país, y es donde hoy falta un responsable. Al lado de quien compra y paga esos servicios, la función gana un dueño claro.'},
@@ -472,23 +602,30 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Dentro de Operaciones y Logística.',
        porque:'Un solo doliente de la mercancía, desde que llega hasta que sale.'},
       {antes:'PMO con dos alas fijas (desarrollo de producto · transformación).',
-       ahora:'Un equipo de gerentes de proyecto asignado por demanda.',
-       porque:'El mismo perfil atiende las dos clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
+       ahora:'Una dirección de PMO con un equipo de gerentes de proyecto asignado por demanda.',
+       porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'Finanzas y Negocios, Consultoría Jurídica, Formación y Comunicaciones Internas (staff).',
-       porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie.'}
+       ahora:'Finanzas y Negocios con su gerencia corporativa de Finanzas, Consultoría Jurídica, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },
 
   PENDIENTES: [
-    {t:'Dirección Comercial', d:'Validar la propuesta con la Presidencia antes de presentarla al liderazgo.'},
+    {t:'Gerencia corporativa de Compras', d:'Definir quién la ocupa, y quiénes llevan sus coordinaciones de Compras Casio y Compras Cubitt.'},
+    {t:'Gerencias por marca en Innovación y Desarrollo de Productos', d:'Hoy la dirección trabaja para Cubitt. Cuando entre una marca o un producto nuevo, decidir si se abre una gerencia corporativa o una por país.'},
+    {t:'Kenex USA', d:'Confirmar a Isabella Roizental en Operaciones y Logística USA, que lleva también los componentes comerciales de Kenex USA.'},
     {t:'Gerencia corporativa de Mercadeo', d:'Vacante clave: definir perfil y titular.'},
-    {t:'Línea Cubitt y Desarrollo de Producto', d:'Dos gerencias corporativas vacantes para las que se plantea a Stephania Roizental: decidir cuál de las dos cubre.'},
-    {t:'Gobierno de IA', d:'Perfil a contratar; definir su perfil y su alcance frente a Desarrollo Corporativo.'},
+    {t:'Gobierno de IA y TI', d:'La dirección, a contratar, y los titulares de las coordinaciones de Datos e IA y de Sistemas y Desarrollo. Definir sus perfiles y el orden en que se cubren.'},
+    {t:'PMO', d:'Confirmar a Ricardo Candanedo en la dirección y a Arani González en la gerencia corporativa.'},
+    {t:'Innovación Tecnológica', d:'Vacante: definir el perfil de CTO de producto y si se contrata o se forma.'},
+    {t:'Finanzas: línea y funcionamiento', d:'La gerencia corporativa de Finanzas depende de Finanzas y Negocios y despacha con la Junta y la Presidencia a través del Comité de Finanzas y Riesgos. Confirmar que así se lee.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
+    {t:'Servicios Generales', d:'Se planteó llevarla a Operaciones en cada país; hoy queda en Administración y Finanzas. Decidir.'},
+    {t:'Calidad y Mejora Continua', d:'Se planteó una persona dedicada a partir de 2027, apoyada por Desarrollo Corporativo y la PMO. Hasta entonces la conduce el comité con el equipo actual.'},
     {t:'Ventas al mayor', d:'Trazar la frontera entre la cartera corporativa (países sin operación propia) y la de cada país, con quien encabece Comercial.'},
-    {t:'Finanzas país', d:'Cubrir Panamá y Colombia, y decidir si una misma gerencia atiende más de un país mientras tanto.'},
+    {t:'Gerencias país por cubrir', d:'Administración y Finanzas en los tres países y TI en Panamá quedan abiertas al subir sus titulares a lo corporativo; decidir si alguien cubre más de un país mientras tanto.'},
     {t:'Gerencias país: denominación y cabeza', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país; y cuándo una gerencia país basta como coordinación.'},
+    {t:'La familia en la estructura', d:'Para la reunión familiar del 23-oct, cada familiar que trabaja en el grupo debe verse en su caja. Falta revisar las posiciones de familiares que no ocupan una dirección ni una gerencia corporativa.'},
     {t:'Denominaciones', d:'Nombre definitivo de Desarrollo Corporativo, y si la primera línea se llama Dirección o Vicepresidencia.'},
     {t:'Plantilla actual frente a la propuesta', d:'Cerrar con el comparativo de posiciones: cuántas hay hoy, cuántas pide la estructura, dónde sobran y dónde faltan.'}
   ]
