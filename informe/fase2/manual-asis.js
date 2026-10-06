@@ -29039,5 +29039,1071 @@ window.MANUAL_ASIS = {
     }
    }
   }
+ },
+ "20": {
+  "procesos": {
+   "20.1": {
+    "nota_version": "Versión As-Is: este proceso no existe hoy como función. Lo que se describe es cómo se ha construido y cómo se decide de hecho el mapa de procesos del grupo, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Cómo se define hoy qué procesos tiene el grupo, cómo se ordenan y nombran, quién responde por cada uno y en qué orden se documentan. Cubre a todo el grupo. La cartera de proyectos de la Oficina de Proyectos se describe en 20.4.",
+     "texto": "**Hasta 2026 el grupo no tenía un mapa de procesos.** Cada área organizaba su trabajo con su propio criterio y cada país operaba a su manera el mismo proceso. La falta de procesos en algunas áreas llegó a ser tal que la Presidencia envió a Venezuela al equipo de Servicio al Cliente y de Logística de Panamá para ordenarlas antes del diagnóstico. Tampoco había una asignación de dueños: como se reconoció en una reunión de seguimiento con la Presidencia, cuando muchas personas atienden muchas cosas a la vez, «los procesos no tienen ownership».\n\n**El primer mapa lo construyó el equipo consultor.** En la Fase 1 (junio y julio de 2026) levantó un mapa de 22 macroprocesos y 104 procesos. En la Fase 2 lo reordenó en 20 macroprocesos y 182 procesos, en tres bandas (estratégicos, operativos y soporte), que es la versión sobre la que se escribe este manual. La contraparte interna es la Oficina de Proyectos: la Gerente de Proyectos de Venezuela coordinó la lista de entrevistas y abrió en Lark una carpeta compartida, ordenada por país y por área, para que cada una subiera su documentación.\n\n**Las decisiones sobre el mapa las toma la Presidencia, sin una instancia formal.** Al revisarlo en septiembre, la Presidencia pidió llevar a la mesa directiva los macroprocesos estratégicos —gobierno, investigación y desarrollo, proyectos y comercial— y dejar los operativos y de soporte a los gerentes que conocen la operación. Fuera de la que aplica el equipo consultor, no hay una convención escrita de niveles ni de nomenclatura, ni una revisión periódica prevista del mapa."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: no existe la función. De hecho el mapa lo construye el equipo consultor, con la Oficina de Proyectos como contraparte, y lo decide la Presidencia",
+     "participantes": [
+      "Presidencia — revisa el mapa y se reserva la definición de los macroprocesos estratégicos.",
+      "Oficina de Proyectos (Director de Proyectos en Panamá y Gerente de Proyectos en Venezuela) — contraparte interna de la consultoría: coordina las entrevistas y la carpeta de documentación en Lark.",
+      "Gerentes de área — revisan los macroprocesos operativos y de soporte de su ámbito.",
+      "Asistente Ejecutiva de la Presidencia — acompaña con la Oficina de Proyectos el seguimiento del proyecto.",
+      "Equipo consultor externo — levanta, ordena y redacta el mapa (actor externo)."
+     ],
+     "evidencia": [
+      "E-01",
+      "E-04",
+      "E-27",
+      "SC-10",
+      "SC-17"
+     ],
+     "sin_evidencia": "No consta ningún documento interno anterior a la consultoría que defina los procesos del grupo, sus niveles o sus dueños."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La consultoría de 2026: el diagnóstico de la Fase 1 y la documentación de procesos de la Fase 2. No hay un disparador interno previsto para revisar o reorganizar el mapa.",
+     "cadencia": "Una vez por fase del proyecto; no hay revisión periódica.",
+     "output": "El mapa de 20 macroprocesos y 182 procesos en revisión por la dirección, con los dueños propuestos todavía por validar.",
+     "evidencia": [
+      "E-04",
+      "SC-10",
+      "SC-17"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-27",
+      "SC-10",
+      "SC-17"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Oficina de Proyectos (PMO)",
+       "texto": "Al arrancar cada fase de la consultoría, coordina con las áreas la agenda de entrevistas y les pide subir su documentación a la carpeta compartida de Lark."
+      },
+      {
+       "id": "a2",
+       "rol": "Equipo consultor externo",
+       "texto": "Levanta en entrevistas, área por área y en cada país, los procesos que el grupo ejecuta, y los ordena en macroprocesos y procesos."
+      },
+      {
+       "id": "a3",
+       "rol": "Equipo consultor externo",
+       "texto": "Presenta el mapa a la Presidencia y a la Oficina de Proyectos."
+      },
+      {
+       "id": "a4",
+       "rol": "Presidencia",
+       "texto": "Revisa el mapa. Si un macroproceso es estratégico, lo reserva para discutirlo en la mesa directiva."
+      },
+      {
+       "id": "a5",
+       "rol": "Gerentes de área",
+       "texto": "Revisan los macroprocesos operativos y de soporte de su ámbito y hacen sus observaciones."
+      },
+      {
+       "id": "a6",
+       "rol": "Equipo consultor externo",
+       "texto": "Incorpora las observaciones en la versión siguiente del mapa."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Oficina de Proyectos (PMO)",
+       "Equipo consultor externo",
+       "Presidencia",
+       "Gerentes de área"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "inicio",
+        "n": "Arranca una fase de la consultoría"
+       },
+       {
+        "id": "n1",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Coordinar entrevistas y documentación"
+       },
+       {
+        "id": "n2",
+        "carril": "Equipo consultor externo",
+        "tipo": "tarea",
+        "n": "Levantar y ordenar los procesos"
+       },
+       {
+        "id": "n3",
+        "carril": "Equipo consultor externo",
+        "tipo": "tarea",
+        "n": "Presentar el mapa"
+       },
+       {
+        "id": "n4",
+        "carril": "Presidencia",
+        "tipo": "tarea",
+        "n": "Revisar el mapa"
+       },
+       {
+        "id": "n5",
+        "carril": "Presidencia",
+        "tipo": "decision",
+        "n": "¿Es estratégico?"
+       },
+       {
+        "id": "n6",
+        "carril": "Presidencia",
+        "tipo": "tarea",
+        "n": "Discutirlo en la mesa directiva"
+       },
+       {
+        "id": "n7",
+        "carril": "Gerentes de área",
+        "tipo": "tarea",
+        "n": "Revisar los de su ámbito"
+       },
+       {
+        "id": "n8",
+        "carril": "Equipo consultor externo",
+        "tipo": "tarea",
+        "n": "Incorporar las observaciones"
+       },
+       {
+        "id": "n9",
+        "carril": "Equipo consultor externo",
+        "tipo": "fin",
+        "n": "Mapa en revisión, con dueños por validar"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n8"
+       },
+       {
+        "de": "n7",
+        "a": "n8"
+       },
+       {
+        "de": "n8",
+        "a": "n9"
+       }
+      ]
+     }
+    }
+   },
+   "20.2": {
+    "nota_version": "Versión As-Is: describe cómo se documentan hoy los procesos —por iniciativa de cada área—, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que un área decide poner por escrito cómo trabaja hasta que el documento queda en manos de su equipo. Cubre Panamá, Venezuela y Colombia. Dónde se guarda y cómo se actualiza se describe en 20.3. El flujograma describe la documentación por iniciativa de un área.",
+     "texto": "**No hay un método común para documentar procesos: lo hace el área que decide hacerlo.** Lo que existe por escrito nació de la iniciativa de su responsable, sin un encargo de la dirección ni una plantilla del grupo. Servicio al Cliente de Panamá es el caso más avanzado. Su gerente y su equipo escribieron manuales de garantías, comercio electrónico, rotulado, ventas corporativas y comunicación con el cliente, con diagramas de flujo y trivias con examen, y los publicaron en un wiki de Lark. El propio gerente cree que la dirección no los ha visto completos.\n\nHay más casos, todos por iniciativa propia. Sistemas de Panamá arma un wiki con los flujogramas que va levantando, y Visual Merchandising y Marketing tienen manuales regionales. La Gerencia de Contabilidad de Panamá escribió los suyos —facturación, conciliaciones, caja menuda— y los fue completando con las pantallas del sistema. La de Venezuela redacta ahora, con Cuentas por Pagar, los instructivos de importaciones y de conciliación bancaria, y su gerente lo justifica así: cuando el conocimiento vive solo en el usuario, «se te va la persona y se te va quien hacía el trabajo». Recursos Humanos de Panamá usa una plantilla de procedimiento (objetivo, alcance, definiciones y condiciones generales) para sus subprocesos.\n\n**El formato depende de quién escribe.** Entre los documentos que las áreas entregaron hay manuales paso a paso sobre las pantallas de Odoo, procedimientos con objetivo y alcance, presentaciones, flujogramas sueltos en imagen y descripciones de cargo. Algunos indican quién los elaboró y la fecha de emisión; casi ninguno, quién los aprobó.\n\n**La validación se queda dentro del área.** El documento lo revisa el propio equipo, y no hay una aprobación por encima del área. Cuando un proceso cruza dos áreas, a veces interviene la Oficina de Proyectos. Así pasó al llegar a Venezuela los nuevos responsables de Almacén y de Ventas al Mayor: la Gerente de Proyectos se sentó con ambos a definir qué le entrega cada uno al otro y les bajó el proceso nuevo. Desde 2026, el grueso del levantamiento lo hace la consultoría, como se describe en 20.1."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: cada área documenta lo suyo cuando su responsable lo decide; la Oficina de Proyectos interviene cuando el proceso cruza dos áreas",
+     "participantes": [
+      "Responsable de cada área — decide documentar y redacta, solo o con su equipo.",
+      "Customer Services Manager (Panamá) — mantiene el wiki de Servicio al Cliente, el más completo del grupo.",
+      "Gerentes de Contabilidad (Panamá y Venezuela) — escriben los instructivos de sus procesos sobre las pantallas de Odoo.",
+      "Gerente de Proyectos (Venezuela) — rediseña con las áreas los procesos que cruzan dos de ellas.",
+      "Equipo de cada área — revisa el borrador y es quien lo usa."
+     ],
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-04",
+      "E-38",
+      "E-44",
+      "E-52"
+     ],
+     "sin_evidencia": "No consta un inventario de los documentos de proceso que existen ni quién aprobó cada uno."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "El responsable de un área decide poner por escrito cómo trabaja su equipo —por un ingreso, un cambio de sistema o porque el conocimiento vive en una sola persona—, o se rediseña un proceso entre dos áreas.",
+     "cadencia": "Por iniciativa de cada área; sin calendario.",
+     "output": "Manuales, instructivos y flujogramas por área, en formatos distintos y sin aprobación por encima del área.",
+     "evidencia": [
+      "E-02",
+      "E-38",
+      "E-04"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-04",
+      "E-38"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable del área",
+       "texto": "Decide documentar un proceso de su equipo y lo redacta en el formato que conoce: paso a paso sobre las pantallas del sistema, procedimiento, presentación o flujograma."
+      },
+      {
+       "id": "a2",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Cuando el proceso cruza dos áreas y se lo piden, reúne a sus responsables, acuerda qué entrega cada una a la otra y les baja el proceso."
+      },
+      {
+       "id": "a3",
+       "rol": "Equipo del área",
+       "texto": "Revisa el borrador y lo comenta; con eso queda validado."
+      },
+      {
+       "id": "a4",
+       "rol": "Responsable del área",
+       "texto": "Guarda el documento en el wiki o en la carpeta del área, o lo envía a quien lo necesita."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable del área",
+       "Gerente de Proyectos (PMO)",
+       "Equipo del área"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable del área",
+        "tipo": "inicio",
+        "n": "Necesidad de dejar un proceso por escrito"
+       },
+       {
+        "id": "n1",
+        "carril": "Responsable del área",
+        "tipo": "tarea",
+        "n": "Redactar en el formato propio"
+       },
+       {
+        "id": "n2",
+        "carril": "Responsable del área",
+        "tipo": "decision",
+        "n": "¿Cruza a otra área?"
+       },
+       {
+        "id": "n3",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Acordar las entregas entre áreas"
+       },
+       {
+        "id": "n4",
+        "carril": "Equipo del área",
+        "tipo": "tarea",
+        "n": "Revisar y comentar el borrador"
+       },
+       {
+        "id": "n5",
+        "carril": "Responsable del área",
+        "tipo": "tarea",
+        "n": "Guardarlo o enviarlo"
+       },
+       {
+        "id": "n6",
+        "carril": "Responsable del área",
+        "tipo": "fin",
+        "n": "Documento del área, sin aprobación formal"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "Sí"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "No"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "20.3": {
+    "nota_version": "Versión As-Is: este proceso no existe hoy como tal. Lo que se describe es dónde queda la documentación de procesos y qué pasa con ella después, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Dónde se guarda un documento de proceso una vez escrito, quién lo puede consultar y cómo se cambia. Cubre a todo el grupo.",
+     "texto": "**No hay un repositorio único.** La documentación vive donde la dejó cada área: en los wikis de Lark de Servicio al Cliente y de Sistemas de Panamá, en las carpetas de cada departamento o en archivos enviados por correo o por WhatsApp. Desde junio de 2026 existe además una carpeta compartida en Lark, ordenada por país y por área, que la Oficina de Proyectos abrió para la consultoría. La Gerente de Proyectos de Venezuela propone usarla como repositorio y pasar a los wikis lo que quede como oficial.\n\n**El wiki de Lark está disponible para todos y casi nadie lo usa.** El Customer Services Manager de Panamá, que mantiene el más completo, lo resume así: «tenemos todo esto creado, pero a nivel de empresa nadie lo usa». Lo atribuye a que no hay lineamientos que pidan usar las herramientas. Sistemas de Panamá insiste en que la comunicación y los documentos vayan por Lark y no por WhatsApp, empezando por la dirección. Mientras tanto, lo habitual es aprender el trabajo de un compañero: en Colombia, «el uno le explica al otro», con los vicios que eso arrastra.\n\n**No hay control de versiones ni de cambios.** Entre los documentos que las áreas entregaron, los que indican versión están todos en la primera. Ninguno tiene un registro de cambios ni una fecha de vigencia, y solo el blueprint de Odoo de Panamá, elaborado por el implantador, dice quién lo revisó y quién lo aprobó. No consta cómo se actualiza un documento cuando el proceso cambia: no hay solicitud de cambio, ni aviso a los usuarios, ni retiro de la versión anterior."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: no existe la función. Cada área guarda su documentación donde decide; el wiki de Lark lo usan sobre todo Servicio al Cliente y Sistemas de Panamá",
+     "participantes": [
+      "Responsable de cada área — guarda sus documentos y decide si los publica.",
+      "Customer Services Manager (Panamá) — mantiene el wiki de Servicio al Cliente.",
+      "Sistemas (Panamá) — mantiene un wiki con el organigrama y los flujogramas del área, y promueve que la comunicación y los documentos vayan por Lark.",
+      "Gerente de Proyectos (Venezuela) — abrió la carpeta compartida de documentación para la consultoría.",
+      "Usuarios del proceso — consultan el documento, o aprenden de un compañero cuando no saben que existe."
+     ],
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-52",
+      "E-04",
+      "E-46"
+     ],
+     "sin_evidencia": "No hay evidencia de que algún documento de proceso haya pasado a una segunda versión, ni de cómo se avisa a los usuarios de un cambio."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un área termina un documento, o alguien se lo pide (desde 2026, la consultoría).",
+     "cadencia": "A demanda; no hay revisión de vigencia.",
+     "output": "Documentos repartidos entre wikis, carpetas y correos, en su primera versión y sin registro de cambios.",
+     "evidencia": [
+      "E-02",
+      "E-04"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-02",
+      "E-58",
+      "E-52",
+      "E-04",
+      "E-46"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable del área",
+       "texto": "Termina el documento y decide dónde guardarlo."
+      },
+      {
+       "id": "a2",
+       "rol": "Responsable del área",
+       "texto": "Si su área tiene wiki en Lark, lo publica ahí, abierto a toda la empresa; si no, lo guarda en la carpeta del área o lo envía por correo o WhatsApp a quien lo necesita."
+      },
+      {
+       "id": "a3",
+       "rol": "Gerente de Proyectos (PMO)",
+       "texto": "Desde 2026, reúne en la carpeta compartida de Lark la documentación que las áreas suben para la consultoría."
+      },
+      {
+       "id": "a4",
+       "rol": "Usuarios del proceso",
+       "texto": "Aprenden el proceso de un compañero; el documento se consulta poco."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable del área",
+       "Gerente de Proyectos (PMO)",
+       "Usuarios del proceso"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable del área",
+        "tipo": "inicio",
+        "n": "Documento terminado"
+       },
+       {
+        "id": "n1",
+        "carril": "Responsable del área",
+        "tipo": "decision",
+        "n": "¿El área tiene wiki?"
+       },
+       {
+        "id": "n2",
+        "carril": "Responsable del área",
+        "tipo": "tarea",
+        "n": "Publicarlo en el wiki del área"
+       },
+       {
+        "id": "n3",
+        "carril": "Responsable del área",
+        "tipo": "tarea",
+        "n": "Guardarlo en carpeta o enviarlo"
+       },
+       {
+        "id": "n4",
+        "carril": "Gerente de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reunir una copia para la consultoría"
+       },
+       {
+        "id": "n5",
+        "carril": "Usuarios del proceso",
+        "tipo": "tarea",
+        "n": "Aprender el proceso de un compañero"
+       },
+       {
+        "id": "n6",
+        "carril": "Usuarios del proceso",
+        "tipo": "fin",
+        "n": "Documento en su primera versión, sin registro de cambios"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2",
+        "etq": "Sí"
+       },
+       {
+        "de": "n1",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "20.4": {
+    "nota_version": "Versión As-Is: describe cómo se captan, evalúan y siguen hoy las mejoras y los proyectos a través de la Oficina de Proyectos, creada a comienzos de 2026, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que alguien propone una mejora o un proyecto hasta su cierre. Cubre la cartera de la Oficina de Proyectos: Panamá, Venezuela y los proyectos regionales, que alcanzan a Colombia, Guatemala, Estados Unidos y los mercados nuevos. Costa Rica, operada por un socio, queda fuera de su vista. Las mejoras que cada área hace por su cuenta solo se mencionan.",
+     "texto": "**La mejora se canaliza hoy por la Oficina de Proyectos.** Nació a comienzos de 2026 a propuesta del Gerente de Producto de Panamá, que vio que cada área trabajaba por su lado y pasó a dirigirla sin dejar la gerencia de producto. La forman tres personas: el Director de Proyectos, en Panamá, una Gerente de Proyectos en Venezuela y una Gerente de Proyectos para los lanzamientos de producto. A mitad de año llevaban 52 proyectos inscritos, unos treinta en curso: entre siete y ocho por persona.\n\n**La entrada formal es un formulario en Lark**, que solo puede llenar un gerente de primera línea. Pide objetivo, alcance, fechas, recursos, presupuesto estimado, riesgos y prioridad. En la práctica lo han usado tres o cuatro gerentes. La mayoría de los encargos llega de la Junta Directiva por un grupo de WhatsApp o en una llamada, a veces como una idea que sus miembros todavía no han acordado entre sí.\n\nLa Oficina evalúa la viabilidad en su reunión de los jueves y clasifica cada solicitud. Un **proyecto** involucra a más de dos áreas, con entregables y fechas, y la Oficina lo lleva de principio a fin. Una **iniciativa** involucra a dos áreas: la Oficina arma el plan y lo deja en manos de los gerentes. Una **tarea** es de una sola área, y la Oficina solo sigue que se cumpla. La prioridad sigue una regla comunicada a los gerentes: alta, lo que genera dinero o evita perderlo; media, lo que hace volver al cliente o agiliza al equipo; baja, lo que prepara a la empresa para el futuro. En un pico de carga, la dirección de la Oficina cerró la recepción de proyectos nuevos.\n\n**El seguimiento vive en una base de Lark.** Cada responsable actualiza su avance antes de la reunión semanal del proyecto, y todos los viernes a las 4 p. m. sale un correo automático a la Junta Directiva con el estado de la cartera. Como el correo rara vez se lee, la Oficina manda además a cada director una minuta corta con los proyectos que le interesan, por el canal que usa. Los gastos se cargan con el código del proyecto en el flujo de aprobación de pagos de Lark. Pero los proyectos no reciben un presupuesto asignado, así que no se mide la desviación en dinero, solo el retraso contra la fecha comprometida. Al cerrar un proyecto —no una iniciativa ni una tarea— se hace una reunión de lecciones aprendidas, abierta a la Junta.\n\n**Fuera de la Oficina, las áreas mejoran por su cuenta.** Servicio al Cliente de Panamá automatizó la logística de los pedidos web y replicó su rotulado en otros países. A veces dos áreas trabajan la misma idea sin saberlo, como pasó con una alianza promocional que Ventas al Detal y Marketing llevaban por separado."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Director de Proyectos (Panamá), con la Gerente de Proyectos de Venezuela y la de lanzamientos; la Junta Directiva decide qué se ejecuta",
+     "participantes": [
+      "Gerentes de primera línea — proponen por el formulario de Lark y ejecutan las iniciativas y las tareas.",
+      "Junta Directiva — encarga proyectos, aprueba o pospone los propuestos y recibe el reporte semanal.",
+      "Gerente de Proyectos (Venezuela) — lleva los proyectos de Venezuela, como las aperturas de tienda.",
+      "Gerente de Proyectos de lanzamientos (Panamá) — lleva los lanzamientos de producto, regionales.",
+      "Asistente Ejecutiva de la Presidencia — sigue en la misma base de Lark las tareas puntuales que encarga la Presidencia.",
+      "Finanzas — recibe los pagos asociados al código de cada proyecto."
+     ],
+     "evidencia": [
+      "E-04",
+      "E-09",
+      "E-58",
+      "SC-10"
+     ],
+     "notas": "El flujo de trabajo que la Oficina dejó documentado en Lark (Panamá) pone la validación del presupuesto con Finanzas antes de iniciar cada proyecto; en la práctica, los proyectos no reciben un presupuesto asignado.",
+     "sin_evidencia": "No consta un informe de cierre de proyecto ni dónde quedan registradas las lecciones aprendidas."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un gerente de primera línea llena el formulario de solicitud en Lark, o la Junta Directiva encarga un proyecto por WhatsApp o en una llamada.",
+     "cadencia": "Evaluación en la reunión semanal de la Oficina (jueves); seguimiento semanal de cada proyecto; reporte a la Junta los viernes a las 4 p. m.",
+     "output": "El proyecto, la iniciativa o la tarea en la base de Lark, con su seguimiento semanal y, al cerrar un proyecto, la reunión de lecciones aprendidas.",
+     "evidencia": [
+      "E-04",
+      "E-09"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-09"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Gerente de primera línea",
+       "texto": "Valida con su equipo la necesidad, el presupuesto y el tiempo, y propone el proyecto con el formulario de solicitud en Lark."
+      },
+      {
+       "id": "a2",
+       "rol": "Junta Directiva",
+       "texto": "Encarga proyectos directamente a la Oficina por el grupo de WhatsApp o en una llamada."
+      },
+      {
+       "id": "a3",
+       "rol": "Oficina de Proyectos (PMO)",
+       "texto": "En la reunión de los jueves evalúa la viabilidad, clasifica la solicitud como proyecto, iniciativa o tarea, y le asigna prioridad y responsable."
+      },
+      {
+       "id": "a4",
+       "rol": "Junta Directiva",
+       "texto": "Decide sobre las propuestas de los gerentes: las aprueba, las pospone o las une a algo que ya está en marcha."
+      },
+      {
+       "id": "a5",
+       "rol": "Oficina de Proyectos (PMO)",
+       "texto": "Si es proyecto, lo arranca con una reunión de inicio, arma el cronograma con sus responsables y lo sigue en reunión semanal hasta el cierre."
+      },
+      {
+       "id": "a6",
+       "rol": "Gerente de primera línea",
+       "texto": "Si es iniciativa o tarea, la ejecuta con el plan inicial de la Oficina, que solo sigue su avance."
+      },
+      {
+       "id": "a7",
+       "rol": "Oficina de Proyectos (PMO)",
+       "texto": "Cada viernes envía a la Junta el reporte automático de la cartera y una minuta corta a cada director."
+      },
+      {
+       "id": "a8",
+       "rol": "Oficina de Proyectos (PMO)",
+       "texto": "Al cerrar un proyecto, convoca la reunión de lecciones aprendidas."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de primera línea",
+       "Junta Directiva",
+       "Oficina de Proyectos (PMO)"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Gerente de primera línea",
+        "tipo": "inicio",
+        "n": "Necesidad de mejora en un área"
+       },
+       {
+        "id": "n1",
+        "carril": "Gerente de primera línea",
+        "tipo": "tarea",
+        "n": "Llenar el formulario en Lark"
+       },
+       {
+        "id": "n2",
+        "carril": "Junta Directiva",
+        "tipo": "inicio",
+        "n": "Idea de la Junta"
+       },
+       {
+        "id": "n3",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Encargar por WhatsApp o llamada"
+       },
+       {
+        "id": "n4",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Evaluar y clasificar (jueves)"
+       },
+       {
+        "id": "n5",
+        "carril": "Junta Directiva",
+        "tipo": "decision",
+        "n": "¿Se ejecuta ahora?"
+       },
+       {
+        "id": "n6",
+        "carril": "Junta Directiva",
+        "tipo": "fin",
+        "n": "En propuesta o en pausa"
+       },
+       {
+        "id": "n7",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Es proyecto?"
+       },
+       {
+        "id": "n8",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Planificar y seguir el proyecto"
+       },
+       {
+        "id": "n9",
+        "carril": "Gerente de primera línea",
+        "tipo": "tarea",
+        "n": "Ejecutar la iniciativa o la tarea"
+       },
+       {
+        "id": "n10",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reportar a la Junta (viernes)"
+       },
+       {
+        "id": "n11",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "decision",
+        "n": "¿Proyecto cerrado?"
+       },
+       {
+        "id": "n12",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reunión de lecciones aprendidas"
+       },
+       {
+        "id": "n13",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Cerrado en la base de Lark"
+       },
+       {
+        "id": "n14",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "fin",
+        "n": "Sigue en curso"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n4"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "No"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n8",
+        "etq": "Sí"
+       },
+       {
+        "de": "n7",
+        "a": "n9",
+        "etq": "No"
+       },
+       {
+        "de": "n8",
+        "a": "n10"
+       },
+       {
+        "de": "n9",
+        "a": "n10"
+       },
+       {
+        "de": "n10",
+        "a": "n11"
+       },
+       {
+        "de": "n11",
+        "a": "n12",
+        "etq": "Sí"
+       },
+       {
+        "de": "n11",
+        "a": "n14",
+        "etq": "No"
+       },
+       {
+        "de": "n12",
+        "a": "n13"
+       }
+      ]
+     }
+    }
+   },
+   "20.5": {
+    "nota_version": "Versión As-Is: este proceso no existe hoy como tal. Lo que se describe es cómo se verifica de hecho, área por área, que el trabajo se haga como se acordó, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Las verificaciones que existen hoy sobre la ejecución de los procesos. Cubre Panamá, Venezuela y Colombia. El control interno contable se describe en 12.11; aquí se resume lo que toca a la adherencia.",
+     "texto": "**Nadie verifica de forma sistemática que los procesos se cumplan.** En ninguna entidad hay una función de auditoría interna o de calidad. Tampoco hay procesos documentados contra los cuales medir, ni indicadores por área. La Gerencia de Contabilidad de Venezuela dice que de indicadores «no existen documentos formales». El Customer Services Manager de Panamá va más allá: «los KPI no existen en esta organización», y no sabe qué cifras espera la dirección de su área.\n\n**Lo que hay son verificaciones puntuales dentro de cada área, que se quedan en ella.** En Servicio al Cliente de Panamá, cada garantía se monta como traslado en Odoo para que la bodega la valide contra el reporte, a modo de segunda revisión, y al cierre de mes lo dañado se cruza con los reportes de garantía antes de enviarlo a destrucción. En Contabilidad, la conciliación de cuentas destapa prácticas que no se siguen, como un punto de venta que acumulaba efectivo sin depositarlo. La única revisión que atraviesa áreas es el muestreo de la auditoría externa sobre los estados financieros. La Oficina de Proyectos mide el avance y el retraso de sus proyectos, no cómo se ejecutan los procesos.\n\n**Cuando verificar exige ir al sitio, la distancia lo impide.** El Customer Services Manager supervisa a los equipos de los otros países por WhatsApp y en una reunión mensual. Se enteró por la visita de otro directivo de que en Colombia había garantías que tardaban treinta días. De Venezuela dice no saber si lo que le reportan es real, porque no hay una auditoría. La Gerencia de Contabilidad de Venezuela ya formuló arqueos sorpresivos y revisiones de cumplimiento en otras áreas, pero todavía no los ejecuta."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: no existe la función. Cada responsable de área verifica lo suyo cuando su propio control se lo permite",
+     "participantes": [
+      "Customer Services Manager (Panamá) — valida las garantías con la bodega y supervisa a distancia a los equipos de los otros países.",
+      "Bodega (Panamá) — valida el producto dañado contra el reporte de garantía.",
+      "Gerencias de Contabilidad — detectan desvíos al conciliar las cuentas.",
+      "Oficina de Proyectos — mide el avance y el retraso de los proyectos.",
+      "Auditoría externa — revisa por muestreo los estados financieros (actor externo)."
+     ],
+     "evidencia": [
+      "E-38",
+      "E-58",
+      "E-02",
+      "E-44",
+      "E-09"
+     ],
+     "sin_evidencia": "No consta ninguna revisión, programada o sorpresiva, del cumplimiento de un proceso hecha fuera del área que lo ejecuta."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "Un control propio del área —una garantía que llega a la bodega, una conciliación, el cierre de mes— o una queja que llega a la dirección.",
+     "cadencia": "La del control de cada área (diaria o mensual); la auditoría externa, anual. No hay revisiones programadas por proceso.",
+     "output": "Desviaciones que se corrigen dentro del área cuando se detectan, sin registro común ni devolución a un dueño del proceso.",
+     "evidencia": [
+      "E-58",
+      "E-38"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-58",
+      "E-38",
+      "E-44"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Responsable del área que controla",
+       "texto": "Aplica el control propio de su área: el traslado de la garantía a la bodega, la conciliación de una cuenta o el cuadre de cierre de mes."
+      },
+      {
+       "id": "a2",
+       "rol": "Responsable del área que controla",
+       "texto": "Si aparece una diferencia, busca su origen y se lo hace saber al área donde se produjo."
+      },
+      {
+       "id": "a3",
+       "rol": "Área donde se origina la diferencia",
+       "texto": "Corrige el caso; no queda un registro común ni se comprueba después si la práctica cambió."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Responsable del área que controla",
+       "Área donde se origina la diferencia"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Responsable del área que controla",
+        "tipo": "inicio",
+        "n": "Control propio del área"
+       },
+       {
+        "id": "n1",
+        "carril": "Responsable del área que controla",
+        "tipo": "tarea",
+        "n": "Aplicar el control"
+       },
+       {
+        "id": "n2",
+        "carril": "Responsable del área que controla",
+        "tipo": "decision",
+        "n": "¿Hay una diferencia?"
+       },
+       {
+        "id": "n3",
+        "carril": "Responsable del área que controla",
+        "tipo": "fin",
+        "n": "Sin novedad"
+       },
+       {
+        "id": "n4",
+        "carril": "Responsable del área que controla",
+        "tipo": "tarea",
+        "n": "Buscar el origen y avisar"
+       },
+       {
+        "id": "n5",
+        "carril": "Área donde se origina la diferencia",
+        "tipo": "tarea",
+        "n": "Corregir el caso"
+       },
+       {
+        "id": "n6",
+        "carril": "Área donde se origina la diferencia",
+        "tipo": "fin",
+        "n": "Corregido, sin registro común"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n2"
+       },
+       {
+        "de": "n2",
+        "a": "n3",
+        "etq": "No"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Sí"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6"
+       }
+      ]
+     }
+    }
+   },
+   "20.6": {
+    "nota_version": "Versión As-Is: este proceso no existe hoy como tal. Lo que se describe es cómo se instala de hecho un cambio de sistema o de forma de trabajo, con los cargos actuales. Sin matriz de riesgos ni indicadores.",
+    "proposito": {
+     "estado": "borrador",
+     "alcance": "Desde que se decide un cambio —un sistema nuevo, un proceso rediseñado, una herramienta— hasta que el equipo lo usa. Cubre Panamá, Venezuela y Colombia. La formación en general se describe en 17.8 y la inducción, en 17.2.",
+     "texto": "**Los cambios se instalan por decisión de arriba y sobre la marcha.** Cuando el cambio viene de la Junta Directiva —abrir una tienda, cambiar un sistema— se da por aceptado. No hay un plan de comunicación ni un acompañamiento previsto. La Oficina de Proyectos reúne a los involucrados en una reunión de inicio, acuerda con ellos qué entrega cada uno y les baja el proceso nuevo. A partir de ahí, la ejecución queda en manos de las áreas.\n\n**La formación en la herramienta nueva es la parte más débil.** Para el Gerente de Contabilidad de Venezuela, el paso a Odoo 17 ha sido «ensayo y error». En Colombia nadie capacita en el sistema: quien llega aprende de un compañero, y la contadora pide material sencillo, un video, para los que entran. Cuando el área tiene quien lo haga, forma por su cuenta: el Gerente Regional de Retail de Colombia preparó videos instructivos y un manual para los asesores de tienda, y Servicio al Cliente de Panamá capacita en producto a los ingresos de cualquier área.\n\n**La resistencia se atiende de palabra, caso por caso.** El asesor externo de finanzas lo resume en que la gente «quiere un cambio, más no lo admite», y ve la resistencia más fuerte en el área administrativa y contable. Hay ejemplos en los dos sentidos. Servicio al Cliente de Panamá quiso replicar en Venezuela su proceso de comercio electrónico; el equipo de allá lo vivió como una pérdida de terreno y el cambio no prosperó. Su rotulado, en cambio, sí se replicó, porque quien lo recibió vio el beneficio.\n\nPara adoptar la IA, en 2026 se repartieron licencias y se dieron talleres. Al principio las licencias se usaron poco. La Asistente Ejecutiva de la Presidencia entrevistó a los usuarios para saber si las usaban, y la tanda siguiente de talleres se limitó a quienes tenían licencia y la iban a usar. En ningún caso se comprueba después que el cambio quedó instalado."
+    },
+    "dueno": {
+     "estado": "borrador",
+     "dueno": "Sin dueño: no existe la función. De hecho la ejerce quien impulsa el cambio —la Junta Directiva, la Oficina de Proyectos o el área que lo propone—, y la formación la da cada área",
+     "participantes": [
+      "Junta Directiva — decide el cambio y lo comunica, muchas veces por WhatsApp.",
+      "Oficina de Proyectos — reúne a los involucrados y les baja el proceso nuevo.",
+      "Responsable del área que adopta el cambio — lo pone en práctica con su equipo y lo enseña sobre la marcha.",
+      "Gerente de Formación y Desarrollo (regional, desde agosto de 2026) — empieza a recoger las necesidades de formación de las áreas.",
+      "Asistente Ejecutiva de la Presidencia — siguió el uso de las licencias de IA entre sus usuarios.",
+      "Partner de implantación de Odoo (externo) — atiende los desarrollos y los errores del sistema nuevo."
+     ],
+     "evidencia": [
+      "E-04",
+      "E-38",
+      "E-46",
+      "E-23",
+      "E-58",
+      "E-55",
+      "E-66",
+      "SC-10"
+     ],
+     "sin_evidencia": "No consta un plan de comunicación de ningún cambio, ni una verificación posterior de que se adoptó."
+    },
+    "disparador": {
+     "estado": "borrador",
+     "disparador": "La Junta Directiva decide un cambio —un sistema, una apertura, una herramienta—, o un área rediseña un proceso con la Oficina de Proyectos.",
+     "cadencia": "Por cambio; sin acompañamiento posterior previsto.",
+     "output": "El cambio en uso, según la disposición de cada equipo, sin una comprobación de que quedó instalado.",
+     "evidencia": [
+      "E-04",
+      "SC-10"
+     ]
+    },
+    "flujo": {
+     "estado": "borrador",
+     "evidencia": [
+      "E-04",
+      "E-38",
+      "E-46",
+      "E-58"
+     ],
+     "actividades": [
+      {
+       "id": "a1",
+       "rol": "Junta Directiva",
+       "texto": "Decide el cambio y lo comunica a la Oficina de Proyectos o al área, muchas veces por WhatsApp."
+      },
+      {
+       "id": "a2",
+       "rol": "Responsable del área",
+       "texto": "Propone por su cuenta un cambio en su forma de trabajar o en la de un área vecina."
+      },
+      {
+       "id": "a3",
+       "rol": "Oficina de Proyectos (PMO)",
+       "texto": "Reúne a los involucrados en una reunión de inicio, acuerda qué entrega cada uno y les baja el proceso nuevo."
+      },
+      {
+       "id": "a4",
+       "rol": "Responsable del área",
+       "texto": "Pone el cambio en práctica con su equipo. Si trae una herramienta nueva, el equipo la aprende de quien ya la conoce o por ensayo y error."
+      },
+      {
+       "id": "a5",
+       "rol": "Responsable del área",
+       "texto": "Si el equipo se resiste, lo atiende de palabra o lo escala a la dirección."
+      }
+     ],
+     "diagrama": {
+      "carriles": [
+       "Junta Directiva",
+       "Oficina de Proyectos (PMO)",
+       "Responsable del área"
+      ],
+      "nodos": [
+       {
+        "id": "n0",
+        "carril": "Junta Directiva",
+        "tipo": "inicio",
+        "n": "Decisión de cambio"
+       },
+       {
+        "id": "n1",
+        "carril": "Junta Directiva",
+        "tipo": "tarea",
+        "n": "Comunicar el cambio"
+       },
+       {
+        "id": "n2",
+        "carril": "Responsable del área",
+        "tipo": "inicio",
+        "n": "Rediseño propuesto por un área"
+       },
+       {
+        "id": "n3",
+        "carril": "Oficina de Proyectos (PMO)",
+        "tipo": "tarea",
+        "n": "Reunión de inicio con los involucrados"
+       },
+       {
+        "id": "n4",
+        "carril": "Responsable del área",
+        "tipo": "tarea",
+        "n": "Ponerlo en práctica y aprender sobre la marcha"
+       },
+       {
+        "id": "n5",
+        "carril": "Responsable del área",
+        "tipo": "decision",
+        "n": "¿Hay resistencia?"
+       },
+       {
+        "id": "n6",
+        "carril": "Responsable del área",
+        "tipo": "tarea",
+        "n": "Atenderla de palabra o escalarla"
+       },
+       {
+        "id": "n7",
+        "carril": "Responsable del área",
+        "tipo": "fin",
+        "n": "Cambio en uso, sin verificación posterior"
+       }
+      ],
+      "aristas": [
+       {
+        "de": "n0",
+        "a": "n1"
+       },
+       {
+        "de": "n1",
+        "a": "n3"
+       },
+       {
+        "de": "n2",
+        "a": "n3"
+       },
+       {
+        "de": "n3",
+        "a": "n4"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
+        "etq": "Sí"
+       },
+       {
+        "de": "n5",
+        "a": "n7",
+        "etq": "No"
+       },
+       {
+        "de": "n6",
+        "a": "n7"
+       }
+      ]
+     }
+    }
+   }
+  }
  }
 };

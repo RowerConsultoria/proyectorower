@@ -22798,10 +22798,11 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "ubicacion": "Gestión de Procesos y Mejora Continua es el macroproceso que no existe todavía en Grupo Kenex como función instalada: hoy no hay una persona ni un mapa gobernado que decida qué proceso se documenta, quién lo posee, dónde vive su versión vigente y cómo se verifica que la operación lo cumple. Pero eso no significa que nadie lo haya intentado. Contabilidad Venezuela ya numera internamente sus propios procedimientos —«conciliación bancaria, procedimiento operativo número 17»— y su responsable, que trabajó antes en una empresa certificada ISO 9000, describe de memoria cómo era la inducción con un mapa de procesos gobernado por un coordinador de calidad. Contabilidad Panamá levantó y digitalizó procedimientos con capturas de pantalla de Odoo. Contabilidad Colombia lo intentó con ayuda de una colega, pero «no avanzamos mucho». Servicio al Cliente en Panamá construyó, por iniciativa de su propio gerente y sin que nadie se lo pidiera, un repositorio completo en los Wikis de Lark —manuales, diagramas de flujo, organigrama—, con un diagnóstico que resume el problema de fondo: «a nivel de empresa nadie lo usa, y es donde está el fallo». Y Mercadeo Venezuela redactó su propio documento de «Áreas de Mejora y Propuesta de Solución», con seis frentes de coordinación interdepartamental —incluida la confesión de que el área «asume el rol» de Compras y Legal para el cierre de contratos y el pago a proveedores, a falta de una frontera clara— y recomendaciones propias organizadas por horizonte de corto, mediano y largo plazo. Son intentos reales, de al menos cinco áreas y tres países, que nadie ha conectado entre sí. La necesidad no es solo de quien ejecuta: en Costa Rica, el propio gerente general y socio local —ingeniero industrial que trajo las normas ISO 9000 a su tesis— reconoce que no tiene «manuales de puestos, perfiles de puestos, manuales de procesos y procedimientos, trazabilidad» y que «a veces uno necesita a alguien de afuera para que lo empuje a hacerlo».\n\nLa Oficina de Proyectos (PMO) es hoy lo más parecido a una función de gobierno transversal: clasifica el trabajo del grupo en proyectos, iniciativas y tareas según cuántas gerencias involucra, lleva un registro único en una base de Lark con los hitos de cada uno, y envía cada viernes a las 4 de la tarde un resumen automático de avance a la Junta Directiva. Pero su alcance es la ejecución de iniciativas de cambio, no la custodia de un mapa de procesos ni la verificación de que la operación cumple lo documentado; este macroproceso propone extender esa misma disciplina —el registro único, el reporte semanal a la Junta— al gobierno de los procesos del grupo, y sumarle lo que ya falta del todo: encontrar, conectar y dar continuidad a lo que distintas áreas ya vienen intentando por su cuenta.",
     "duenos": [
-     ["Macroproceso", "Gerente de Proyectos (PMO)", "Custodia interina del mapa de procesos y de la cartera de mejoras mientras no exista una función dedicada, aprovechando el mismo registro y el mismo reporte semanal a la Junta que ya usa para proyectos e iniciativas."],
+     ["Macroproceso", "Director(a) de Desarrollo Corporativo", "Dueña operativa de la implantación de los manuales de proceso y del cambio organizacional; convoca el Comité de Calidad y Mejora Continua."],
+     ["Gerencia corporativa", "Gerente de Proyectos (PMO)", "Custodia el mapa de procesos y la cartera de mejoras, con el mismo registro y el mismo reporte semanal a la Junta que ya usa para proyectos e iniciativas."],
      ["Proceso", "dueños de proceso de cada macroproceso", "Responde por la vigencia de su proceso documentado, valida su levantamiento y recibe las desviaciones que la medición de adherencia detecta."],
      ["Grupo", "Junta Directiva", "Aprueba el mapa de procesos del grupo y los procesos críticos que se documentan o se modifican."],
-     ["Función", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Encabeza la gestión del cambio y la incorporación del estándar nuevo a la inducción del personal."]
+     ["Función", "Gerente de Formación (Universidad Corporativa)", "Forma a los equipos en el estándar nuevo e incorpora cada proceso al material de inducción."]
     ],
     "sistemas": [
      ["Lark Base de la oficina de proyectos", "Registro único de proyectos e iniciativas con sus hitos; este macroproceso propone extender la misma base al gobierno del mapa de procesos y de sus versiones.", "20.1 · 20.3 · 20.4"],
@@ -22819,14 +22820,18 @@ window.MANUAL_CONTENIDO = {
    "gobernanza": {
     "estado": "borrador",
     "actores": [
-     ["Gerente de Proyectos (PMO)", "Grupo", "Custodia interina del mapa de procesos, coordina el levantamiento y la publicación de cada manual, y da seguimiento a la cartera de mejoras.", "La priorización de la cola de procesos a documentar o a mejorar.", "A la Junta Directiva para la aprobación del mapa o de un proceso crítico."],
+     ["Director(a) de Desarrollo Corporativo", "Grupo", "Lidera la gestión del cambio organizacional y la implantación de los manuales de proceso; convoca el Comité de Calidad y Mejora Continua.", "Qué cambios de proceso se implantan y en qué orden.", "A la Presidencia, y a la Junta Directiva para la aprobación del mapa o de un proceso crítico."],
+     ["Gerente de Proyectos (PMO)", "Grupo", "Custodia el mapa de procesos, coordina el levantamiento y la publicación de cada manual, y da seguimiento a la cartera de mejoras.", "La priorización de la cola de procesos a documentar o a mejorar.", "Al Director(a) de Desarrollo Corporativo."],
      ["dueños de proceso de cada macroproceso", "Proceso", "Valida el levantamiento de su proceso, recibe las desviaciones de la medición de adherencia y decide si corrige la operación o revisa el estándar.", "Si una desviación se corrige en la operación o si el estándar documentado debe ajustarse.", "Al Gerente de Proyectos (PMO) cuando la corrección excede su propio proceso."],
      ["Country Manager", "País", "Patrocina los cambios transversales que un proceso nuevo o modificado exige en su país.", "Sin decisión propia sobre el contenido del proceso.", "A la Junta Directiva en los cambios de mayor alcance."],
      ["Junta Directiva", "Grupo", "Aprueba el mapa de procesos del grupo y los procesos críticos que se documentan, modifican o publican.", "Las decisiones de mayor alcance sobre la arquitectura de procesos del grupo.", "Sin escalamiento — es la instancia de cierre."],
-     ["Gerente de Recursos Humanos (Formación y Desarrollo)", "Función", "Encabeza la gestión del cambio: comunica, forma e incorpora el estándar nuevo a la inducción del personal.", "El plan de formación y de comunicación de cada cambio.", "Al Gerente de Proyectos (PMO) cuando la resistencia al cambio no se resuelve en el equipo."],
+     ["Gerente de Formación (Universidad Corporativa)", "Función", "Forma a los equipos en el estándar nuevo, lo incorpora a la inducción del personal y acuerda con Comunicaciones Internas qué se comunica de cada cambio.", "El plan de formación de cada cambio.", "Al Director(a) de Desarrollo Corporativo cuando la resistencia al cambio no se resuelve en el equipo."],
+     ["Comunicaciones Internas", "Grupo", "Comunica a los equipos afectados cada proceso nuevo o modificado, con una sola voz, a partir de lo que le trasladan la Oficina de Proyectos y Formación.", "Cómo y por qué canal se comunica el cambio; no decide sobre el contenido del proceso.", "A la Presidencia, de la que es staff."],
      ["equipo consultor externo (actor externo)", "Grupo", "Ejecutó el levantamiento inicial de los macroprocesos de este manual durante la fase de diagnóstico; su participación es temporal, no una función instalada en el grupo.", "El criterio metodológico de cómo se documenta un proceso durante el proyecto.", "Sin escalamiento — su mandato termina con el cierre del proyecto."]
     ],
-    "comites": []
+    "comites": [
+     ["Comité de Calidad y Mejora Continua", "Revisar las políticas y los manuales de la gestión corporativa, y verificar los estándares de gestión y el cumplimiento de las mejores prácticas.", "Por definir", "Director(a) de Desarrollo Corporativo (convoca) · directores corporativos · Ventas · Mercadeo · Tecnología de Información · Recursos Humanos · Administración y Finanzas de cada país", "Aprobación de los manuales y las políticas nuevos o modificados; orientación de las prácticas hacia las certificaciones de calidad", "Manuales propuestos, resultados de la medición de adherencia y cartera de mejoras", "Manuales y políticas revisados, y acuerdos de corrección"]
+    ]
    },
 
    "marco": {
@@ -22855,7 +22860,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "nota": "Los 6 procesos son to-be: ninguno opera hoy en el grupo como función de gestión de procesos. Dos de ellos —20.1 y 20.4— pueden apoyarse en una infraestructura que ya existe (la Oficina de Proyectos, su base de Lark y su canal de solicitud), mientras que el resto —20.2, 20.3, 20.5 y 20.6— parte enteramente de cero. Las acciones no llevan fecha porque el equipo no las ha acordado.",
     "por_implementar": [
-     ["20.1 Gobierno del mapa de procesos y de la arquitectura documental", "El mapa de procesos nació de un proyecto externo con fecha de cierre; nadie queda a cargo de actualizarlo, resolver una frontera confusa entre macroprocesos o reasignar un dueño después.", "Asignar la custodia interina a la Oficina de Proyectos (PMO) antes del cierre del proyecto, con un plan de transición explícito."],
+     ["20.1 Gobierno del mapa de procesos y de la arquitectura documental", "El mapa de procesos nació de un proyecto externo con fecha de cierre; nadie queda a cargo de actualizarlo, resolver una frontera confusa entre macroprocesos o reasignar un dueño después.", "Asignar la custodia del mapa a la gerencia de Proyectos (PMO), dentro de la Dirección de Desarrollo Corporativo, antes del cierre del proyecto, con un plan de transición explícito."],
      ["20.2 Levantamiento, documentación y validación de procesos", "Ningún proceso se documentaba de esta manera antes de este proyecto, y la asignación de dueño puede quedar mal hecha desde el origen.", "Definir el criterio de priorización de la cola y validar la asignación de dueño con la propia operación, no solo con el mapa."],
      ["20.3 Publicación, versionado y control de cambios de la documentación", "No hay un repositorio propio del grupo ni control de versiones; la documentación vive hoy en el sitio del proyecto de consultoría.", "Definir dónde vivirá el repositorio del grupo y adoptar un esquema simple de versión y fecha de vigencia."],
      ["20.4 Identificación, evaluación y ejecución de iniciativas de mejora", "El canal de solicitud de la PMO ya existe para proyectos, pero un hallazgo de auditoría o un indicador fuera de rango no tienen hoy una vía definida para convertirse en una mejora de proceso.", "Habilitar el mismo canal de la PMO para que también reciba mejoras de proceso, con línea base y verificación de cierre."],
@@ -22864,7 +22869,7 @@ window.MANUAL_CONTENIDO = {
     ],
     "por_formalizar": [],
     "brechas": [
-     ["Transversal — sin función instalada", "Los 6 procesos del macro dependen de que alguien los ejecute; hoy la Oficina de Proyectos es la única función existente que podría asumirlos, mientras no exista una posición dedicada a la gestión de procesos.", "Decidir si la función queda en la PMO de forma permanente o si se crea una posición dedicada cuando el volumen de procesos lo justifique."],
+     ["Transversal — función por instalar", "Los 6 procesos del macro dependen de una función que hoy no existe. La estructura To-Be la ubica en la Dirección de Desarrollo Corporativo, con la gerencia de Proyectos (PMO) como brazo ejecutor y el Comité de Calidad y Mejora Continua como instancia de revisión.", "Instalar la Dirección de Desarrollo Corporativo y su comité, y trasladarles la custodia del mapa y de la cartera de mejoras."],
      ["Transversal — evidencia limitada en el corpus de entrevistas", "Varias de las fuentes que el mapa v18 cita para estos procesos no existen en el corpus local disponible; este macroproceso se construyó con menos entrevistas propias que el resto del manual.", "Completar el levantamiento de este macroproceso con el equipo cuando existan las entrevistas o los documentos que hoy faltan."]
     ]
    },
@@ -22884,8 +22889,8 @@ window.MANUAL_CONTENIDO = {
      ["20.2 Levantamiento, documentación y validación de procesos", "Gerente de Proyectos (PMO)", "Dueño del proceso documentado / Junta Directiva (procesos críticos)", "actores del proceso en cada país · Gerente de Tecnología / Sistemas", "equipo consultor externo"],
      ["20.3 Publicación, versionado y control de cambios de la documentación", "Gerente de Tecnología / Sistemas", "Dueño del proceso", "Coordinador(a) de Sistemas", "Gerente de Recursos Humanos"],
      ["20.4 Identificación, evaluación y ejecución de iniciativas de mejora", "Gerente de Proyectos (PMO)", "Junta Directiva (seguimiento) / Dueño del proceso", "Analista de Sistemas / Datos · Gerente de Tecnología / Sistemas", "gerentes de las áreas involucradas"],
-     ["20.5 Medición de la adherencia al proceso", "Gerente de Proyectos (PMO)", "Dueño del proceso", "Gerente de Contabilidad / Administración · Asesor(a) Externo de Finanzas y Auditoría", "gerentes y supervisores de las áreas revisadas"],
-     ["20.6 Gestión del cambio y habilitación del estándar en la operación", "Gerente de Recursos Humanos (Formación y Desarrollo)", "Gerente de Proyectos (PMO)", "Country Manager · Gerente Regional de Marketing", "gerentes de las áreas afectadas"]
+     ["20.5 Medición de la adherencia al proceso", "Gerente de Proyectos (PMO)", "Dueño del proceso", "Comité de Calidad y Mejora Continua · Gerente de Contabilidad / Administración · Asesor(a) Externo de Finanzas y Auditoría", "gerentes y supervisores de las áreas revisadas"],
+     ["20.6 Gestión del cambio y habilitación del estándar en la operación", "Gerente de Formación (Universidad Corporativa) · Gerente de Proyectos (PMO)", "Director(a) de Desarrollo Corporativo", "Country Manager · Comunicaciones Internas", "gerentes de las áreas afectadas"]
     ],
     "catalogo_sistemas": [
      ["Lark Base de la oficina de proyectos", "Registro de iniciativas y su avance; canal real de intake ya usado por la PMO", "20.1 · 20.4", "Gerente de Proyectos (PMO)"],
@@ -22919,7 +22924,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Custodia el mapa de procesos del grupo como artefacto único: define y mantiene los niveles de descomposición, las convenciones de nomenclatura y las fronteras entre macroprocesos, asigna el dueño de cada proceso, y prioriza la cola de macroprocesos por documentar y por actualizar.",
      "nota_estado": "Es un proceso a implementar: el mapa de procesos del grupo —el que sostiene este mismo manual— nació de un proyecto de consultoría externo con fecha de cierre, no de una función instalada en la organización. Sin este proceso, no hay quien decida qué pasa con el mapa cuando el proyecto termine: quién lo actualiza cuando el grupo cambia de estructura, quién resuelve una frontera confusa entre dos macroprocesos, o quién reasigna un dueño cuando alguien deja el cargo. La PMO sí tiene un canal formal para tramitar cualquier iniciativa —el Formulario de Solicitud de Proyecto y el flujo de aprobación con Project Director, Project Manager y Finanzas—, pero ese canal evalúa proyectos uno por uno; no existe todavía una instancia que lo use para gobernar el mapa como un todo."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "evidencia": ["E-04", "E-09", "SC-17"], "notas": "Asignación según la estructura organizativa To-Be: Proyectos (PMO) es una gerencia corporativa de la Dirección de Desarrollo Corporativo, que es la dueña operativa de la implantación de los manuales."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -22954,7 +22959,7 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Sin función instalada que continúe el gobierno del mapa tras el cierre del proyecto", "El mapa de procesos nació de un proyecto de consultoría externo con fecha de cierre; sin este proceso, nadie queda a cargo de actualizarlo, corregir una frontera confusa o reasignar un dueño cuando el proyecto termine.", "Alta", "Alto", "Asignar la custodia interina del mapa a la Oficina de Proyectos (PMO) antes del cierre del proyecto, con un plan de transición explícito."],
+      ["Sin función instalada que continúe el gobierno del mapa tras el cierre del proyecto", "El mapa de procesos nació de un proyecto de consultoría externo con fecha de cierre; sin este proceso, nadie queda a cargo de actualizarlo, corregir una frontera confusa o reasignar un dueño cuando el proyecto termine.", "Alta", "Alto", "Asignar la custodia del mapa a la gerencia de Proyectos (PMO), dentro de la Dirección de Desarrollo Corporativo, antes del cierre del proyecto, con un plan de transición explícito."],
       ["Dueños de proceso mal asignados sin mecanismo de corrección", "La asignación de un dueño a cada proceso puede quedar mal hecha desde el origen —un cargo que no existe, o una persona que ya no ocupa el puesto—, sin un proceso que la revise y la corrija con regularidad.", "Alta", "Medio", "Revisar la asignación de dueños de proceso como parte de la revisión anual del mapa, y ante cada cambio de estructura."],
       ["Sin criterio único de niveles y nomenclatura para procesos futuros", "El criterio de niveles de descomposición y de nomenclatura que ordenó los macroprocesos de este manual no queda documentado como estándar del grupo, y un macroproceso nuevo podría diseñarse con un criterio distinto.", "Media", "Medio", "Documentar como estándar del grupo el criterio de niveles y nomenclatura ya aplicado en este manual."],
       ["Fronteras entre macroprocesos que se descubren confusas solo al operar", "Ya se han identificado procesos de distintos macroprocesos que describen el mismo ciclo desde ángulos distintos, sin que exista una instancia que resuelva a cuál corresponde documentarlo.", "Media", "Medio", "Definir el criterio y la instancia que resuelve una frontera confusa entre dos macroprocesos cuando aparece."],
@@ -22977,7 +22982,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre el ciclo de documentación de un proceso: levantamiento de la operación real con los actores, contraste con las mejores prácticas del sector, diseño de la versión deber ser, redacción del manual con su flujograma y sus instrucciones de trabajo, validación con el dueño del proceso y con las áreas involucradas, y aprobación para su publicación.",
      "nota_estado": "Es un proceso a implementar como función del grupo, aunque no porque nadie lo haya intentado: al menos cuatro áreas ya levantaron algo por su cuenta, con resultados desiguales. Contabilidad Panamá digitalizó procedimientos con capturas de pantalla del propio Odoo; Contabilidad Venezuela redactó instructivos básicos de conciliación bancaria y de declaración de impuestos municipales; Contabilidad Colombia lo intentó con ayuda de una colega, pero «no avanzamos mucho»; y Servicio al Cliente en Panamá construyó un repositorio completo en los Wikis de Lark. Ninguno de estos esfuerzos usó una plantilla común, se contrastó contra mejores prácticas del sector, ni llegó a las demás áreas o países. El levantamiento, el contraste con mejores prácticas y la validación con el dueño real —no con quien el mapa asigna por defecto— fueron además necesarios en la construcción de este mismo manual, donde repetidas veces la persona señalada como dueña de un proceso resultó no ser quien realmente lo decide en la operación."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "evidencia": ["E-04", "E-09", "SC-17"], "notas": "Asignación según la estructura organizativa To-Be: Proyectos (PMO) es una gerencia corporativa de la Dirección de Desarrollo Corporativo, que es la dueña operativa de la implantación de los manuales."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23037,7 +23042,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Administra el repositorio único donde vive la documentación de procesos: publica el manual aprobado, le asigna versión y fecha de vigencia, retira las versiones superadas, controla las modificaciones posteriores mediante solicitud formal, y notifica el cambio a los usuarios del proceso.",
      "nota_estado": "Es un proceso a implementar, aunque no porque falte la herramienta: Lark ya tiene la función de Wikis, y el equipo de Servicio al Cliente en Panamá construyó ahí, por iniciativa propia y sin mandato del grupo, un repositorio completo —manuales, diagramas de flujo, organigrama—. Su propio responsable lo resume así: «a nivel de empresa nadie lo usa, y es donde está el fallo». Lo que falta no es la plataforma, sino que alguien decida que ese —u otro— sea el repositorio único del grupo, lo replique en las demás áreas, y le dé control de versiones y de acceso. Mientras tanto, este manual de Fase 2 vive en el sitio que sostiene el proyecto de consultoría, no en una plataforma administrada por el grupo."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "evidencia": ["E-04", "E-09", "SC-17"], "notas": "Asignación según la estructura organizativa To-Be: Proyectos (PMO) es una gerencia corporativa de la Dirección de Desarrollo Corporativo, que es la dueña operativa de la implantación de los manuales."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23093,7 +23098,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Capta la oportunidad de mejora desde sus fuentes —hallazgo de una auditoría o revisión, dolor reportado por el dueño del proceso, indicador fuera de rango, o propuesta de un colaborador—, evalúa el impacto y el esfuerzo, prioriza, ejecuta el cambio sobre el proceso y verifica el resultado.",
      "nota_estado": "Es un proceso a implementar en el ámbito de mejora de procesos, pero se apoya en un canal que sí existe: la Oficina de Proyectos ya recibe propuestas de mejora a través de un formulario de solicitud, las clasifica según si cruzan más de una gerencia (proyecto), dependen de un solo gerente (iniciativa) o son puntuales (tarea), y las lleva por un flujo de evaluación de viabilidad, planificación, validación de presupuesto y ejecución con seguimiento semanal a la Junta Directiva. Lo que falta es que ese mismo canal reciba también las mejoras que se detectan sobre un proceso documentado —hoy nace de la iniciativa de un gerente, no de un hallazgo de auditoría o de un indicador fuera de rango."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "evidencia": ["E-04", "E-09", "SC-17"], "notas": "Asignación según la estructura organizativa To-Be: Proyectos (PMO) es una gerencia corporativa de la Dirección de Desarrollo Corporativo, que es la dueña operativa de la implantación de los manuales."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23108,7 +23113,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a8", "rol": "Dueño del proceso", "texto": "Actualiza el manual del proceso con la mejora ya implantada, a través del proceso de publicación y control de cambios (20.3)."}
      ],
      "diagrama": {
-      "carriles": ["Dueño del proceso / colaborador proponente", "Gerente de Proyectos (PMO)", "Analista de Sistemas / Datos", "Gerente de Tecnología / Sistemas", "gerentes de las áreas involucradas"],
+      "carriles": ["Dueño del proceso / colaborador proponente", "Gerente de Proyectos (PMO)", "Analista de Sistemas / Datos", "Gerente de Tecnología / Sistemas", "gerentes de las áreas involucradas", "Dueño del proceso"],
       "nodos": [
        {"id": "n0", "carril": "Dueño del proceso / colaborador proponente", "tipo": "inicio", "n": "Hallazgo, dolor reportado, indicador fuera de rango, o propuesta de mejora"},
        {"id": "n1", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Evaluar la viabilidad de la propuesta"},
@@ -23119,8 +23124,8 @@ window.MANUAL_CONTENIDO = {
        {"id": "n5", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Habilitar la herramienta o el ajuste de sistema requerido"},
        {"id": "n6", "carril": "gerentes de las áreas involucradas", "tipo": "tarea", "n": "Ejecutar el cambio sobre el proceso en su área"},
        {"id": "n7", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Reportar el avance a la Junta Directiva y verificar el resultado contra la situación inicial"},
-       {"id": "n8", "carril": "Dueño del proceso / colaborador proponente", "tipo": "tarea", "n": "Actualizar el manual del proceso con la mejora implantada"},
-       {"id": "n9", "carril": "Dueño del proceso / colaborador proponente", "tipo": "fin", "n": "Mejora implantada sobre el proceso con el documento actualizado y el resultado verificado"}
+       {"id": "n8", "carril": "Dueño del proceso", "tipo": "tarea", "n": "Actualizar el manual del proceso con la mejora implantada"},
+       {"id": "n9", "carril": "Dueño del proceso", "tipo": "fin", "n": "Mejora implantada sobre el proceso con el documento actualizado y el resultado verificado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
@@ -23154,7 +23159,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Verifica que la operación se ejecute como el proceso documentado establece: define los puntos de control por proceso, revisa periódica o sorpresivamente su cumplimiento en cada país, registra las desviaciones con su causa, y devuelve el hallazgo al dueño del proceso para su corrección o para revisar el estándar cuando la desviación es razonable.",
      "nota_estado": "Es un proceso a implementar: «no existe un departamento de auditoría como tal», en palabras del propio Gerente de Contabilidad de Venezuela, quien reconoce controles puntuales todavía sin resolver —activos fijos sin control, facturas que deberían resguardarse en Cuentas por Cobrar y no siempre se ubican, un checklist de crédito que no está formalizado— y declara la intención de su área de «desarrollar esos aspectos de control interno, no solamente de los procesos que desarrollamos en contabilidad, sino que efectivamente puedan abarcar distintas unidades de negocio». Ese propósito, ya expresado desde adentro, es exactamente lo que este proceso propone institucionalizar: extender la disciplina de revisión más allá de lo contable, con el acompañamiento puntual de un asesor externo de auditoría."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "evidencia": ["E-04", "E-09", "SC-17"], "notas": "Asignación según la estructura organizativa To-Be: Proyectos (PMO) es una gerencia corporativa de la Dirección de Desarrollo Corporativo, que es la dueña operativa de la implantación de los manuales.", "participantes": ["Dueño del proceso", "Gerente de Contabilidad / Administración (control interno contable)", "gerentes y supervisores de las áreas revisadas", "Asesor(a) Externo de Finanzas y Auditoría", "Comité de Calidad y Mejora Continua (verifica los estándares de gestión)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -23216,30 +23221,30 @@ window.MANUAL_CONTENIDO = {
      "texto": "Acompaña la puesta en uso del proceso documentado: comunica el cambio a los equipos afectados, forma en el estándar nuevo, incorpora el proceso a la inducción del personal que ingresa, atiende la resistencia y los ajustes que surgen en los primeros ciclos, y confirma que el estándar quedó instalado.",
      "nota_estado": "Es un proceso a implementar: publicar un manual no garantiza que el equipo cambie su forma de trabajar. El propio Gerente de Contabilidad de Venezuela, que trabajó antes en una empresa certificada ISO 9000, describe cómo era la inducción allí —el coordinador de gestión de la calidad entregaba el mapa de procesos, la carpeta de instrucciones de trabajo y explicaba el porqué de cada control— y lo contrasta con un caso real que vivió en Kenex: una persona sabía que debía depositar el efectivo del día siguiente por control interno, pero se le olvidaron 2.000 dólares en la caja. En sus palabras: «existía el cómo, pero no el por qué». Ese diagnóstico, no una intuición externa, es la razón de fondo de este proceso: la resistencia y el olvido no se resuelven solo publicando el manual, sino explicando para qué existe cada paso."
     },
-    "dueno": {"estado": "borrador"},
+    "dueno": {"estado": "borrador", "dueno": "Director(a) de Desarrollo Corporativo", "participantes": ["Gerente de Proyectos (PMO)", "Gerente de Formación (Universidad Corporativa)", "dueño del proceso", "gerentes de las áreas afectadas", "Country Manager (patrocinio de los cambios transversales)", "Comunicaciones Internas (comunicación del cambio a la organización)"], "evidencia": ["E-66", "SC-10", "SC-17"], "notas": "Asignación según la estructura organizativa To-Be: la Dirección de Desarrollo Corporativo lidera el cambio organizacional y es la dueña operativa de la implantación de los manuales; Formación · Universidad Corporativa es una de sus gerencias."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente de Proyectos (PMO)", "texto": "Identifica que un proceso nuevo o modificado publicado cambia la forma de trabajar de un equipo, y lo traslada al Gerente de Recursos Humanos."},
+      {"id": "a1", "rol": "Gerente de Proyectos (PMO)", "texto": "Identifica que un proceso nuevo o modificado publicado cambia la forma de trabajar de un equipo, y lo traslada a la Gerencia de Formación y a Comunicaciones Internas."},
       {"id": "a2", "rol": "Country Manager", "texto": "Patrocina el cambio ante los equipos de su país cuando el proceso es transversal a más de un área."},
-      {"id": "a3", "rol": "Gerente Regional de Marketing", "texto": "Apoya la comunicación interna del cambio a los equipos afectados."},
-      {"id": "a4", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Diseña y ejecuta la formación en el estándar nuevo para los equipos afectados."},
+      {"id": "a3", "rol": "Comunicaciones Internas", "texto": "Comunica el cambio a los equipos afectados como canal único de la comunicación institucional, a partir de lo que le trasladan la Oficina de Proyectos y el dueño del proceso."},
+      {"id": "a4", "rol": "Gerente de Formación (Universidad Corporativa)", "texto": "Diseña y ejecuta la formación en el estándar nuevo para los equipos afectados."},
       {"id": "a5", "rol": "gerentes de las áreas afectadas", "texto": "Acompañan a su equipo durante los primeros ciclos de operación bajo el estándar nuevo, y reportan la resistencia o los ajustes que surgen."},
-      {"id": "a6", "rol": "Gerente de Recursos Humanos (Formación y Desarrollo)", "texto": "Incorpora el proceso nuevo o modificado al material de inducción del personal que ingresa."},
+      {"id": "a6", "rol": "Gerente de Formación (Universidad Corporativa)", "texto": "Incorpora el proceso nuevo o modificado al material de inducción del personal que ingresa."},
       {"id": "a7", "rol": "Gerente de Proyectos (PMO)", "texto": "Confirma, tras los primeros ciclos, que el estándar quedó instalado en la operación del equipo."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Proyectos (PMO)", "Country Manager", "Gerente Regional de Marketing", "Gerente de Recursos Humanos (Formación y Desarrollo)", "gerentes de las áreas afectadas"],
+      "carriles": ["Gerente de Proyectos (PMO)", "Country Manager", "Comunicaciones Internas", "Gerente de Formación (Universidad Corporativa)", "gerentes de las áreas afectadas"],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Proyectos (PMO)", "tipo": "inicio", "n": "Publicación de un proceso nuevo o modificado que cambia la forma de trabajar de un equipo"},
        {"id": "n1", "carril": "Country Manager", "tipo": "tarea", "n": "Patrocinar el cambio ante los equipos de su país"},
-       {"id": "n2", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Apoyar la comunicación interna del cambio"},
-       {"id": "n3", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Diseñar y ejecutar la formación en el estándar nuevo"},
+       {"id": "n2", "carril": "Comunicaciones Internas", "tipo": "tarea", "n": "Comunicar el cambio a los equipos afectados"},
+       {"id": "n3", "carril": "Gerente de Formación (Universidad Corporativa)", "tipo": "tarea", "n": "Diseñar y ejecutar la formación en el estándar nuevo"},
        {"id": "n4", "carril": "gerentes de las áreas afectadas", "tipo": "tarea", "n": "Acompañar al equipo durante los primeros ciclos y reportar la resistencia o los ajustes"},
-       {"id": "n5", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "decision", "n": "¿Persiste la resistencia o hacen falta ajustes tras el primer ciclo?"},
-       {"id": "n5alt", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Ajustar la formación o la comunicación y repetir el acompañamiento"},
-       {"id": "n6", "carril": "Gerente de Recursos Humanos (Formación y Desarrollo)", "tipo": "tarea", "n": "Incorporar el proceso al material de inducción del personal que ingresa"},
+       {"id": "n5", "carril": "Gerente de Formación (Universidad Corporativa)", "tipo": "decision", "n": "¿Persiste la resistencia o hacen falta ajustes tras el primer ciclo?"},
+       {"id": "n5alt", "carril": "Gerente de Formación (Universidad Corporativa)", "tipo": "tarea", "n": "Ajustar la formación o la comunicación y repetir el acompañamiento"},
+       {"id": "n6", "carril": "Gerente de Formación (Universidad Corporativa)", "tipo": "tarea", "n": "Incorporar el proceso al material de inducción del personal que ingresa"},
        {"id": "n7", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Confirmar que el estándar quedó instalado en la operación del equipo"},
        {"id": "n8", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Equipo operando bajo el estándar publicado, con el proceso incorporado a la inducción y la adopción confirmada"}
       ],
@@ -23263,7 +23268,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Equipos con adopción confirmada tras el primer ciclo", "Equipos con adopción confirmada ÷ total de equipos afectados por un cambio", "Por cambio", "Gerente de Proyectos (PMO)", "100%"],
-      ["Procesos incorporados a la inducción", "Procesos publicados o modificados incorporados a la inducción ÷ total de procesos publicados o modificados", "Trimestral", "Gerente de Recursos Humanos (Formación y Desarrollo)", "100%"],
+      ["Procesos incorporados a la inducción", "Procesos publicados o modificados incorporados a la inducción ÷ total de procesos publicados o modificados", "Trimestral", "Gerente de Formación (Universidad Corporativa)", "100%"],
       ["Tiempo de acompañamiento hasta confirmar la adopción", "Fecha de confirmación de adopción − fecha de publicación del cambio, en semanas", "Por cambio", "Gerente de Proyectos (PMO)", "Por definir — no hay línea base hoy"]
      ]
     }
