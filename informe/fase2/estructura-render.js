@@ -54,7 +54,7 @@
       (function baja(padre, hijos){
         (hijos || []).forEach(function(h){
           NODOS[h.id] = {d:h, padre:padre, dir:dr.id};
-          ARISTAS.push({de:padre, a:h.id, tipo:"linea"});
+          ARISTAS.push({de:padre, a:h.id, tipo:h.enLinea ? "lateral-dir" : "linea"});
           baja(h.id, h.hijos);
         });
       })(dr.id, dr.hijos);
@@ -70,6 +70,7 @@
   function subcolumnas(dr){
     var out = [];
     (dr.hijos || []).forEach(function(h){
+      if(h.enLinea) return;   // cuelga de la línea de la dirección, en su propia celda
       var sc = h.nivel === "n3" ? {n2:[], n3:[h]} : {n2:[h], n3:[]};
       (h.nivel === "n3" ? [] : (h.hijos || [])).forEach(function(k){
         if(k.nivel === "coord") return;
@@ -79,6 +80,12 @@
     });
     if(!out.length) out.push({n2:[], n3:[]});
     return out;
+  }
+
+  // Unidades que cuelgan de la línea que baja de una dirección (enLinea), a un costado
+  function enLineaDir(dr){
+    var hs = (dr.hijos || []).filter(function(h){ return h.enLinea; });
+    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return caja(h, "eo-c-n2", tagNivel(h)); }).join("") + '</div>' : '';
   }
 
   // ------------------------------------------------------------------ cajas
@@ -373,7 +380,7 @@
     STF.forEach(function(dr, i){
       var sc = colsS[i], c = cS;
       h += '<div class="eo-celda eo-c1" style="grid-row:' + R.n1 + ';grid-column:' + c + ' / span ' + sc.length + '">' +
-             caja(dr, "eo-c-dir eo-staff", "Staff · Dirección corporativa") + '</div>';
+             caja(dr, "eo-c-dir eo-staff", "Staff · Dirección corporativa") + enLineaDir(dr) + '</div>';
       sc.forEach(function(s, k){
         h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">' +
                s.n2.map(function(n, j){ return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n)); }).join("") + '</div>';
@@ -389,7 +396,7 @@
       var sc = cols[i], c = c0;
       h += '<div class="eo-celda eo-c1" style="grid-row:' + R.n1 + ';grid-column:' + c + ' / span ' + sc.length + '">' +
              caja(dr, "eo-c-dir eo-" + dr.caracter, (dr.caracter === "negocio" ? "Negocio" : "Staff") + " · Dirección corporativa") +
-           '</div>';
+             enLineaDir(dr) + '</div>';
       sc.forEach(function(s, k){
         h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">';
         s.n2.forEach(function(n, j){
@@ -497,6 +504,10 @@
         ruta("M" + (C.x + C.w) + "," + (C.y + C.h / 2) + " H" + ((C.x + C.w + pb.x) / 2) + " V" + ys + " H" + pb.x, "eo-h-punteada");
         return;
       }
+      if(a.tipo === "lateral-dir"){       // dirección -> unidad sobre su línea, por un costado
+        ruta("M" + (pa.x + pa.w / 2) + "," + (pb.y + pb.h / 2) + " H" + pb.x, "eo-h-linea");
+        return;
+      }
       if(a.tipo !== "linea") return;
       if(NODOS[a.a].d.nivel === "coord"){
         // la coordinación cuelga con sangría justo debajo: baja recta a su borde superior
@@ -505,6 +516,8 @@
         return;
       }
       var px = pa.x + pa.w / 2, y0 = pa.y + pa.h, y1 = y0 + 13, tx = pb.x + pb.w / 2;
+      var lat = A.parentNode.querySelector(".eo-dirlinea");
+      if(lat && A.parentNode.contains(A) && A.classList.contains("eo-c-dir")){ var cl = caja2(lat); y1 = cl.y + cl.h + 13; }
       if(!cruza(px, y1, tx, y1, [A, B]) && !cruza(tx, y1, tx, pb.y, [A, B])){
         ruta("M" + px + "," + y0 + " V" + y1 + " H" + tx + " V" + pb.y, "eo-h-linea");
         return;

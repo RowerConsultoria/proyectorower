@@ -558,6 +558,9 @@
   .eo-celda{display:flex;flex-direction:column;gap:26px;padding:18px 0 18px 22px}
   .eo-c1{align-items:center;padding:40px 0 30px}
   .eo-c1 .eo-card{width:min(100%,262px)}
+  /* unidad colgada de la línea de su dirección: a la derecha de la línea, que baja por el centro */
+  .eo-dirlinea{align-self:stretch;display:flex;padding-left:calc(50% + 28px);margin-top:-4px}
+  .eo-c1 .eo-dirlinea .eo-card{width:min(100%,200px)}
   .eo-card{
     position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;
     font:inherit;color:var(--tinta);background:var(--panel);border:1px solid var(--borde);border-radius:14px;

@@ -15,7 +15,9 @@
    pasa a ser unidad de la Presidencia, sobre su línea y del lado opuesto a la
    Consultoría Jurídica (lado:'izq'); la dirección queda como Tecnología,
    Gobernanza y Riesgo, sin gerencia corporativa ni coordinaciones: las
-   gerencias de TI de cada país le reportan directo.
+   gerencias de TI de cada país le reportan directo. Kenex USA deja Compras y
+   Cadena de Suministro y cuelga de la línea de Innovación y Desarrollo de
+   Productos, con nivel de gerencia corporativa.
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
@@ -138,7 +140,26 @@ window.ESTRUCTURA_TOBE = {
            'Evalúa tecnologías, componentes y plataformas nuevas, y define las especificaciones técnicas de cada desarrollo.',
            'Patrocina los proyectos de innovación de producto, de la idea al piloto, que gestiona la PMO.'
          ],
-         nota:'Su campo es la tecnología del producto, no la del grupo: la tecnología de información la lleva la Dirección de Tecnología, Gobernanza y Riesgo. Va en Innovación y Desarrollo de Productos porque ahí nace el producto y ahí se decide qué tecnología lleva.'}
+         nota:'Su campo es la tecnología del producto, no la del grupo: la tecnología de información la lleva la Dirección de Tecnología, Gobernanza y Riesgo. Va en Innovación y Desarrollo de Productos porque ahí nace el producto y ahí se decide qué tecnología lleva.'},
+        // enLinea: cuelga de la línea que baja de la dirección a sus gerencias corporativas
+        {id:'oplusa', n:'Kenex USA', nivel:'n2', enLinea:true,
+         ocupante:{nombre:'Isabella Roizental', estado:'propuesto', nota:'Lleva siete años al frente de la operación de Kenex USA, en Miami, sin una denominación formal de cargo.'},
+         funciones:[
+           'La operación de Kenex USA desde Miami, con producto Cubitt y, en las ventas en vivo, también Casio: el almacén, los envíos, las devoluciones y el servicio al cliente.',
+           'Lleva también los componentes comerciales de Kenex USA: la presencia y las ventas en los marketplaces y en la web propia, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web, y el pronóstico de ventas.',
+           'Los marketplaces de Estados Unidos —unos quince: Amazon, Walmart, Target, Macy\'s, TikTok, Whatnot, entre otros—: solicita la entrada a cada uno, sube y mantiene los listados con las exigencias de cada plataforma, los conecta a Shopify y pone en cero lo que se agota.',
+           'Cada mañana revisa las órdenes del día anterior en todas las plataformas, imprime las de Amazon y Whatnot —el almacén no tiene acceso a ellas— y se las envía al almacén para despacharlas.',
+           'Decide qué y cuánto inventario enviar a los almacenes de Amazon, varias veces por semana, con Sellerboard y la herramienta de pronóstico de la agencia que apoya el crecimiento en Amazon; cuando un producto se agota, pide reposición a Panamá.',
+           'Responde el servicio al cliente de Amazon y coordina a la persona de servicio al cliente de las demás plataformas.',
+           'Administra la operación: las compras del almacén y de la oficina, los pagos de la operación y los reportes para la persona de administración, que cada mes presenta los números a la Presidencia y a Finanzas.',
+           'Supervisa a cuatro personas: dos en el almacén de Miami y, en remoto desde Venezuela, una de servicio al cliente y una de administración.',
+           'En el To-Be reporta a la Dirección Corporativa de Innovación y Desarrollo de Productos.'
+         ],
+         interna:[
+           'Sistemas: Shopify, que reúne las ventas de todas las plataformas; QuickBooks para la administración; el portal propio de cada marketplace; y Lark para la comunicación. La migración a Odoo empieza con la Dirección de Tecnología, Gobernanza y Riesgo.',
+           'Almacén de Miami: dos personas despachan las órdenes diarias, preparan los envíos a Amazon y empacan los pedidos grandes, como la primera tienda física en Estados Unidos.'
+         ],
+         nota:'Kenex USA es una empresa aparte, con personalidad jurídica propia, que hasta ahora no figuraba en la estructura del grupo. Su operación descansa en una sola persona y no tiene procesos documentados ni cargos formales. Formalizarla es lo que le permite crecer: delegar lo operativo que hoy lleva Isabella (imprimir órdenes, responder a Amazon), registrar el estado de las devoluciones de Amazon —que llegan por miles al mes— y hacer en detalle el pronóstico de ventas. Lleva la operación y la venta de una empresa entera, por eso se denomina con el nombre de la empresa y no con el de una función. Reporta a Innovación y Desarrollo de Productos, la dirección con la que ya trabaja: Alejandro Roizental emite las órdenes a las fábricas de Kenex USA y revisa con ella el resultado del mes. Se dibuja colgada de la línea de la dirección, con nivel de gerencia corporativa, porque es una empresa del grupo y no una especialidad de esa dirección. Fuentes: E-30, E-06 y E-01.'}
       ]
     },
     {
@@ -194,25 +215,7 @@ window.ESTRUCTURA_TOBE = {
               'Jefatura de Tráfico: la importación — contenedores, liquidaciones y permisos.',
               'Supervisores, operarios, ayudantes y choferes. Tres perfiles bastan: gerente, jefe o supervisor, operario.'
             ]}
-         ]},
-        {id:'oplusa', n:'Operaciones y Logística USA', nivel:'n2',
-         ocupante:{nombre:'Isabella Roizental', estado:'propuesto', nota:'Lleva siete años al frente de la operación de Kenex USA, en Miami, sin una denominación formal de cargo.'},
-         funciones:[
-           'La operación de Kenex USA desde Miami, con producto Cubitt y, en las ventas en vivo, también Casio: el almacén, los envíos, las devoluciones y el servicio al cliente.',
-           'Lleva también los componentes comerciales de Kenex USA: la presencia y las ventas en los marketplaces y en la web propia, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web, y el pronóstico de ventas.',
-           'Los marketplaces de Estados Unidos —unos quince: Amazon, Walmart, Target, Macy\'s, TikTok, Whatnot, entre otros—: solicita la entrada a cada uno, sube y mantiene los listados con las exigencias de cada plataforma, los conecta a Shopify y pone en cero lo que se agota.',
-           'Cada mañana revisa las órdenes del día anterior en todas las plataformas, imprime las de Amazon y Whatnot —el almacén no tiene acceso a ellas— y se las envía al almacén para despacharlas.',
-           'Decide qué y cuánto inventario enviar a los almacenes de Amazon, varias veces por semana, con Sellerboard y la herramienta de pronóstico de la agencia que apoya el crecimiento en Amazon; cuando un producto se agota, pide reposición a Panamá.',
-           'Responde el servicio al cliente de Amazon y coordina a la persona de servicio al cliente de las demás plataformas.',
-           'Administra la operación: las compras del almacén y de la oficina, los pagos de la operación y los reportes para la persona de administración, que cada mes presenta los números a la Presidencia y a Finanzas.',
-           'Supervisa a cuatro personas: dos en el almacén de Miami y, en remoto desde Venezuela, una de servicio al cliente y una de administración.',
-           'En el To-Be reporta a la Dirección Corporativa de Compras y Cadena de Suministro.'
-         ],
-         interna:[
-           'Sistemas: Shopify, que reúne las ventas de todas las plataformas; QuickBooks para la administración; el portal propio de cada marketplace; y Lark para la comunicación. La migración a Odoo empieza con la Dirección de Tecnología, Gobernanza y Riesgo.',
-           'Almacén de Miami: dos personas despachan las órdenes diarias, preparan los envíos a Amazon y empacan los pedidos grandes, como la primera tienda física en Estados Unidos.'
-         ],
-         nota:'Kenex USA es una empresa aparte, con personalidad jurídica propia, que hasta ahora no figuraba en la estructura del grupo. Su operación descansa en una sola persona y no tiene procesos documentados ni cargos formales. Formalizarla es lo que le permite crecer: delegar lo operativo que hoy lleva Isabella (imprimir órdenes, responder a Amazon), registrar el estado de las devoluciones de Amazon —que llegan por miles al mes— y hacer en detalle el pronóstico de ventas. Reporta a Compras y Cadena de Suministro porque lo que lleva es operación y logística. Fuentes: E-30, E-06 y E-01.'}
+         ]}
       ]
     },
     {
@@ -603,7 +606,7 @@ window.ESTRUCTURA_TOBE = {
   PENDIENTES: [
     {t:'Gerencia corporativa de Compras', d:'Definir quién la ocupa, y quiénes llevan sus coordinaciones de Compras Casio y Compras Cubitt.'},
     {t:'Gerencias por marca en Innovación y Desarrollo de Productos', d:'Hoy la dirección trabaja para Cubitt. Cuando entre una marca o un producto nuevo, decidir si se abre una gerencia corporativa o una por país.'},
-    {t:'Kenex USA', d:'Confirmar a Isabella Roizental en Operaciones y Logística USA, que lleva también los componentes comerciales de Kenex USA.'},
+    {t:'Kenex USA', d:'Confirmar a Isabella Roizental en la gerencia de Kenex USA, que lleva la operación y los componentes comerciales de la empresa, y su dependencia de Innovación y Desarrollo de Productos. Aclarar si en Estados Unidos se vende también Casio.'},
     {t:'Gerencia corporativa de Mercadeo', d:'Vacante clave: definir perfil y titular.'},
     {t:'Gobierno de IA y tecnología', d:'La unidad de Gobierno de IA, a contratar: definir su perfil. Confirmar a Mariela Castro en la Dirección de Tecnología, Gobernanza y Riesgo.'},
     {t:'PMO', d:'Confirmar a Ricardo Candanedo en la dirección y a Arani González en la gerencia corporativa.'},
