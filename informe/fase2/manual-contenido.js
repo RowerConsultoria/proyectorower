@@ -1699,25 +1699,25 @@ window.MANUAL_CONTENIDO = {
     "proposito": {
      "estado": "borrador",
      "nota_estado": "Proceso PROPUESTO. Hoy no existe una planificación de demanda consolidada: cada marca planifica en su propia rutina de compra (6.3 y 6.4), el país de mayor peso lleva su archivo de reposición aparte y los socios proyectan una vez al año. Lo que sigue describe cómo debería operar, no cómo opera.",
-     "texto": "Cubre la consolidación periódica de la demanda estimada, el inventario disponible, la mercancía en tránsito y el techo presupuestario del ciclo, y la decisión colegiada del plan de suministro por marca y país. El plan que produce es el punto de partida de las dos compras internacionales (6.3 y 6.4), y por eso ambas se cierran aquí: el Comité Comercial aprueba un solo plan y lo entrega separado por marca a quien ejecuta cada compra. No incluye la ejecución de esas compras ni la reposición física a cada país o punto de venta (6.6 y 6.7)."
+     "texto": "Cubre la consolidación periódica de la demanda estimada, el inventario disponible, la mercancía en tránsito y el techo presupuestario del ciclo, y la decisión colegiada del plan de suministro por marca y país. El plan que produce es el punto de partida de las dos compras internacionales (6.3 y 6.4), y por eso ambas se cierran aquí: el Comité Comercial / Director de Compras y Cadena de Suministros aprueba un solo plan y lo entrega separado por marca a quien ejecuta cada compra. No incluye la ejecución de esas compras ni la reposición física a cada país o punto de venta (6.6 y 6.7)."
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Comité Comercial",
+     "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
      "participantes": [
-      "Comité Comercial — convoca la sesión, contrasta los insumos, decide el plan de suministro y lo entrega separado por marca a los dos procesos de compra. Es dueño del proceso por autoridad, no por tenencia del dato.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — convoca la sesión, contrasta los insumos, decide el plan de suministro y lo entrega separado por marca a los dos procesos de compra. Es dueño del proceso por autoridad, no por tenencia del dato.",
       "Coordinador(a) de Logística y Bodega — aporta el inventario disponible y la mercancía en tránsito; no arbitra la decisión.",
       "Analista de Sistemas / Datos — aporta la demanda estimada por SKU, país y canal a partir del modelo.",
       "Gerente Comercial (País / Canal) — aporta el forecast de los tres canales y las campañas previstas del ciclo.",
-      "Gerente de Administración y Finanzas — aporta el techo presupuestario del ciclo antes de la decisión, no después."
+      "Gerente de Contabilidad / Administración — aporta el techo presupuestario del ciclo antes de la decisión, no después."
      ],
      "evidencia": ["E-40", "E-08", "E-10", "E-18", "E-05"],
-     "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un cargo de Coordinación II no puede convocar, arbitrar y dar por aprobado un plan a dos Gerencias Corporativas y a la capa de dirección; y la persona que ocupa ese cargo patrón declara además ser «del departamento de planificación, ni compra ni logística». Queda como quien aporta inventario y tránsito, que es lo que la evidencia le atribuye. ⚠️ El ajuste por marca tampoco recae ya en «Gerente Regional de Marketing» (mapa v18): ese cargo lo ocupa paid media, y la marca propia la decide su director, según quedó establecido en 6.4. «Comité de Planificación de Suministro» y «Director(a) de Marca Propia (Cubitt)» son denominaciones propuestas: ni la instancia ni el cargo existen hoy, y el patrón de cargos V4 tampoco contempla «Planificador Financiero».",
+     "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un cargo de Coordinación II no puede convocar, arbitrar y dar por aprobado un plan a dos Gerencias Corporativas y a la capa de dirección; y la persona que ocupa ese cargo patrón declara además ser «del departamento de planificación, ni compra ni logística». Queda como quien aporta inventario y tránsito, que es lo que la evidencia le atribuye. ⚠️ El ajuste por marca tampoco recae ya en «Gerente Regional de Marketing» (mapa v18): ese cargo lo ocupa paid media, y la marca propia la decide su director, según quedó establecido en 6.4. «Comité de Planificación de Suministro» y «Director Comercial» son denominaciones propuestas: ni la instancia ni el cargo existen hoy, y el patrón de cargos V4 tampoco contempla «Planificador Financiero».",
      "sin_evidencia": "El corpus no documenta ninguna reunión periódica de planificación: «S&OP», «plan de suministro» y «planificación de demanda» no aparecen en ninguna de las 59 entrevistas, y la coordinadora de planificación declara no tener forecast ni reporte periódico. La composición de la instancia y su cadencia son, por tanto, diseño del equipo consultor, no levantamiento."
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Cierre del ciclo comercial: el Comité Comercial convoca la sesión de planificación del siguiente ciclo.",
+     "disparador": "Cierre del ciclo comercial: el Comité Comercial / Director de Compras y Cadena de Suministros convoca la sesión de planificación del siguiente ciclo.",
      "cadencia": "Mensual (propuesta). Debe anteceder a la fecha en que la marca representada recibe su oferta y a la revisión de compra de la marca propia, o el plan llega tarde para ambas.",
      "output": "Plan de suministro del ciclo aprobado por marca y país, entregado a los dos procesos de compra internacional.",
      "evidencia": ["E-08", "E-40"],
@@ -1728,27 +1728,27 @@ window.MANUAL_CONTENIDO = {
      "nota_estado": "Flujo propuesto. Ningún paso describe una práctica vigente.",
      "evidencia": ["E-40", "E-08", "E-10", "E-18"],
      "actividades": [
-      {"id": "a1", "rol": "Comité Comercial", "texto": "Convoca la sesión de planificación del ciclo al cierre del ciclo comercial anterior."},
+      {"id": "a1", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Convoca la sesión de planificación del ciclo al cierre del ciclo comercial anterior."},
       {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta el inventario disponible por SKU y país y la mercancía ya comprometida en tránsito, con su fecha estimada de arribo."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta la demanda estimada por SKU, país y canal. ⚠️ La estimación corrige la venta de los períodos sin existencias: proyectar sobre la venta registrada arrastra el quiebre, porque se vendió poco por no haber, no por no haber demanda."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Aporta el forecast de los tres canales —mayoreo, detal y comercio electrónico— y las campañas y lanzamientos previstos del ciclo."},
-      {"id": "a5", "rol": "Gerente de Administración y Finanzas", "texto": "Aporta el techo presupuestario del ciclo antes de que se componga el plan, para que la restricción sea un insumo de la decisión y no un filtro que obligue a rehacerla."},
-      {"id": "a6", "rol": "Comité Comercial", "texto": "Contrasta demanda estimada, inventario, tránsito y techo presupuestario, y compone el plan de suministro por marca y país."},
-      {"id": "a7", "rol": "Comité Comercial", "texto": "Cuando la demanda estimada excede el techo, prioriza por cobertura crítica y rotación, dejando constancia de qué quedó fuera del plan y por qué."},
-      {"id": "a8", "rol": "Comité Comercial", "texto": "Aprueba el plan del ciclo y lo entrega separado por marca: la parte de la marca representada es la base de la compra de 6.3 y la de la marca propia, la de 6.4."}
+      {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Aporta el techo presupuestario del ciclo antes de que se componga el plan, para que la restricción sea un insumo de la decisión y no un filtro que obligue a rehacerla."},
+      {"id": "a6", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Contrasta demanda estimada, inventario, tránsito y techo presupuestario, y compone el plan de suministro por marca y país."},
+      {"id": "a7", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Cuando la demanda estimada excede el techo, prioriza por cobertura crítica y rotación, dejando constancia de qué quedó fuera del plan y por qué."},
+      {"id": "a8", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Aprueba el plan del ciclo y lo entrega separado por marca: la parte de la marca representada es la base de la compra de 6.3 y la de la marca propia, la de 6.4."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial", "Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Comercial (País / Canal)", "Gerente de Administración y Finanzas"],
+      "carriles": ["Comité Comercial / Director de Compras y Cadena de Suministros", "Coordinador(a) de Logística y Bodega", "Analista de Sistemas / Datos", "Gerente Comercial (País / Canal)", "Gerente de Contabilidad / Administración"],
       "nodos": [
-       {"id": "n0", "carril": "Comité Comercial", "tipo": "inicio", "n": "Se convoca la sesión de planificación"},
+       {"id": "n0", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "inicio", "n": "Se convoca la sesión de planificación"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar inventario y mercancía en tránsito", "sistemas": ["Odoo", "Tablas de inventario"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar la demanda estimada por SKU y país", "sistemas": ["Power BI"]},
        {"id": "n3", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Aportar el forecast de los tres canales"},
-       {"id": "n4", "carril": "Gerente de Administración y Finanzas", "tipo": "tarea", "n": "Aportar el techo presupuestario del ciclo"},
-       {"id": "n5", "carril": "Comité Comercial", "tipo": "tarea", "n": "Componer el plan por marca y país"},
-       {"id": "n6", "carril": "Comité Comercial", "tipo": "tarea", "n": "Priorizar por cobertura y rotación si excede el techo"},
-       {"id": "n7", "carril": "Comité Comercial", "tipo": "tarea", "n": "Aprobar y entregar el plan separado por marca"},
-       {"id": "n8", "carril": "Comité Comercial", "tipo": "fin", "n": "Plan del ciclo aprobado"}
+       {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aportar el techo presupuestario del ciclo"},
+       {"id": "n5", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Componer el plan por marca y país"},
+       {"id": "n6", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Priorizar por cobertura y rotación si excede el techo"},
+       {"id": "n7", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Aprobar y entregar el plan separado por marca"},
+       {"id": "n8", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Plan del ciclo aprobado"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -1781,11 +1781,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Apego de la compra al plan", "Líneas compradas que estaban en el plan ÷ líneas compradas del ciclo", "Por ciclo", "Comité Comercial", "Alto — mide si el plan gobierna la compra"],
+      ["Apego de la compra al plan", "Líneas compradas que estaban en el plan ÷ líneas compradas del ciclo", "Por ciclo", "Comité Comercial / Director de Compras y Cadena de Suministros", "Alto — mide si el plan gobierna la compra"],
       ["Cobertura en semanas por SKU y país", "Inventario disponible + tránsito ÷ demanda estimada semanal", "Por ciclo", "Coordinador(a) de Logística y Bodega", "Dentro del rango definido por categoría"],
       ["Error de la demanda estimada", "|demanda estimada − demanda real| ÷ demanda real", "Por ciclo", "Analista de Sistemas / Datos", "A la baja, con línea base del primer ciclo"],
-      ["Plan ajustado al techo sin reproceso", "Ciclos cerrados sin rehacer el plan ÷ ciclos del período", "Trimestral", "Gerente de Administración y Finanzas", "100%"],
-      ["Demanda no atendida por falta de existencias", "Unidades pedidas y no servidas ÷ unidades pedidas", "Por ciclo", "Comité Comercial", "A la baja"]
+      ["Plan ajustado al techo sin reproceso", "Ciclos cerrados sin rehacer el plan ÷ ciclos del período", "Trimestral", "Gerente de Contabilidad / Administración", "100%"],
+      ["Demanda no atendida por falta de existencias", "Unidades pedidas y no servidas ÷ unidades pedidas", "Por ciclo", "Comité Comercial / Director de Compras y Cadena de Suministros", "A la baja"]
      ]
     }
    },
@@ -1798,9 +1798,9 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Comité Comercial",
+     "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
      "participantes": [
-      "Comité Comercial — homologa al proveedor, autoriza la relación y decide su continuidad. Es el mismo cuerpo que decide el plan de suministro en 6.1: un solo comité gobierna qué se compra y con quién se trabaja.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — homologa al proveedor, autoriza la relación y decide su continuidad. Es el mismo cuerpo que decide el plan de suministro en 6.1: un solo comité gobierna qué se compra y con quién se trabaja.",
       "Especialista de Producto / Proyecto — detecta la necesidad de proveedor nuevo y evalúa las muestras, la capacidad de producción y la compatibilidad técnica del candidato. Evalúa y propone; no homologa.",
       "Encargado(a) de Sourcing (China) — busca y preselecciona candidatos en origen, y gestiona muestras y cotizaciones.",
       "Coordinador(a) de Logística y Bodega — arma el expediente del proveedor candidato y consolida el scorecard del ciclo. Aporta y ordena, no decide.",
@@ -1808,7 +1808,7 @@ window.MANUAL_CONTENIDO = {
       "Gerente de Operaciones y Logística — aporta, por cada proveedor, si entregó en la fecha comprometida, en qué estado llegó la mercancía y qué incidencias hubo."
      ],
      "evidencia": ["E-06 (partes 1 y 2)", "E-08", "E-05"],
-     "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un proveedor no se homologa contra un expediente sino contra quien negocia con él, y esa decisión es de gobierno: la toma el mismo Comité Comercial que en 6.1 decide el plan de suministro. El coordinador conserva lo que sí le corresponde: armar el expediente y consolidar el scorecard. ⚠️ Se separa deliberadamente quien evalúa de quien autoriza: hoy la misma persona busca al proveedor, lo prueba y decide trabajar con él. ⚠️ Es el mismo Comité Comercial de 6.1, 6.3 y 6.4. Hoy existe un «comité de compras Cubitt» de una sola marca que decide qué pedir; la propuesta lo amplía al grupo y le suma decidir con quién se trabaja. ⚠️ Se retiró el carril de «Planificador Financiero», que en la versión anterior tenía carril y nodo en el flujograma pero ninguna actividad en el texto: la revisión económica la hace Contabilidad / Administración y duplicarla no añadía control. ⚠️ Denominaciones: «Coordinador(a) de Logística y Bodega», «Gerente de Contabilidad / Administración», «Gerente de Operaciones y Logística» y «Especialista de Producto / Proyecto» son cargos del patrón V4. «Comité Comercial» y «Encargado(a) de Sourcing (China)» no lo son: el primero es un órgano, no un cargo, y el segundo es una posición propuesta en origen que el censo no cubre porque no hay personal registrado en China.",
+     "notas": "⚠️ La titularidad cambia respecto al mapa v18, que la ponía en el Coordinador(a) de Logística y Bodega. Un proveedor no se homologa contra un expediente sino contra quien negocia con él, y esa decisión es de gobierno: la toma el mismo Comité Comercial / Director de Compras y Cadena de Suministros que en 6.1 decide el plan de suministro. El coordinador conserva lo que sí le corresponde: armar el expediente y consolidar el scorecard. ⚠️ Se separa deliberadamente quien evalúa de quien autoriza: hoy la misma persona busca al proveedor, lo prueba y decide trabajar con él. ⚠️ Es el mismo Comité Comercial / Director de Compras y Cadena de Suministros de 6.1, 6.3 y 6.4. Hoy existe un «comité de compras Cubitt» de una sola marca que decide qué pedir; la propuesta lo amplía al grupo y le suma decidir con quién se trabaja. ⚠️ Se retiró el carril de «Planificador Financiero», que en la versión anterior tenía carril y nodo en el flujograma pero ninguna actividad en el texto: la revisión económica la hace Contabilidad / Administración y duplicarla no añadía control. ⚠️ Denominaciones: «Coordinador(a) de Logística y Bodega», «Gerente de Contabilidad / Administración», «Gerente de Operaciones y Logística» y «Especialista de Producto / Proyecto» son cargos del patrón V4. «Comité Comercial / Director de Compras y Cadena de Suministros» y «Encargado(a) de Sourcing (China)» no lo son: el primero es un órgano, no un cargo, y el segundo es una posición propuesta en origen que el censo no cubre porque no hay personal registrado en China.",
      "sin_evidencia": "El diseño del proceso proviene de un marco de referencia externo, no del levantamiento: «scorecard», «evaluación de proveedor» y «SRM» no aparecen en ninguna entrevista del corpus, y las once menciones de «homologación» del corpus se refieren a permisos regulatorios y a sistemas, no a proveedores. Quedan por definir con el equipo: qué hace «estratégico» a un proveedor, la cadencia real de evaluación y los criterios del scorecard."
     },
     "disparador": {
@@ -1829,25 +1829,25 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Evalúa las muestras, la capacidad de producción y la compatibilidad técnica del candidato, y propone con cuál avanzar."},
       {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Arma el expediente del proveedor candidato: documentación legal, financiera y de capacidad, y referencias verificables."},
       {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa las condiciones comerciales y de pago propuestas, y su encaje con el ciclo de caja del grupo."},
-      {"id": "a6", "rol": "Comité Comercial", "texto": "Homologa al proveedor y autoriza la relación, o descarta al candidato dejando constancia del motivo."},
+      {"id": "a6", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Homologa al proveedor y autoriza la relación, o descarta al candidato dejando constancia del motivo."},
       {"id": "a7", "rol": "Gerente de Operaciones y Logística", "texto": "Aporta, para cada proveedor con el que se trabajó en el período, si entregó en la fecha que había comprometido, en qué estado llegó la mercancía y qué incidencias hubo. Es el dato con el que se evalúa al proveedor: sin él, el scorecard no tiene con qué llenarse."},
       {"id": "a8", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida ese cumplimiento en el scorecard del ciclo, junto con calidad, cumplimiento de condiciones y concentración de compra."},
-      {"id": "a9", "rol": "Comité Comercial", "texto": "Decide la continuidad, renovación o baja de cada proveedor. Cuando decide una baja, fija el plan de transición antes de ejecutarla."}
+      {"id": "a9", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Decide la continuidad, renovación o baja de cada proveedor. Cuando decide una baja, fija el plan de transición antes de ejecutarla."}
      ],
      "diagrama": {
-      "carriles": ["Especialista de Producto / Proyecto", "Encargado(a) de Sourcing (China)", "Coordinador(a) de Logística y Bodega", "Gerente de Contabilidad / Administración", "Comité Comercial", "Gerente de Operaciones y Logística"],
+      "carriles": ["Especialista de Producto / Proyecto", "Encargado(a) de Sourcing (China)", "Coordinador(a) de Logística y Bodega", "Gerente de Contabilidad / Administración", "Comité Comercial / Director de Compras y Cadena de Suministros", "Gerente de Operaciones y Logística"],
       "nodos": [
        {"id": "n0", "carril": "Especialista de Producto / Proyecto", "tipo": "inicio", "n": "Se detecta la necesidad de un proveedor"},
        {"id": "n1", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Buscar y preseleccionar candidatos"},
        {"id": "n2", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Evaluar muestras y capacidad del candidato"},
        {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Armar el expediente del proveedor candidato"},
        {"id": "n4", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Revisar condiciones comerciales y de pago"},
-       {"id": "n5", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se homologa al proveedor?"},
-       {"id": "n5alt", "carril": "Comité Comercial", "tipo": "fin", "n": "Candidato descartado"},
+       {"id": "n5", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "decision", "n": "¿Se homologa al proveedor?"},
+       {"id": "n5alt", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Candidato descartado"},
        {"id": "n6", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Aportar cómo cumplió cada proveedor sus entregas"},
        {"id": "n7", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Consolidar el scorecard del ciclo"},
-       {"id": "n8", "carril": "Comité Comercial", "tipo": "tarea", "n": "Decidir continuidad, renovación o baja"},
-       {"id": "n9", "carril": "Comité Comercial", "tipo": "fin", "n": "Decisión de continuidad documentada"}
+       {"id": "n8", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Decidir continuidad, renovación o baja"},
+       {"id": "n9", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Decisión de continuidad documentada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -1880,8 +1880,8 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Proveedores críticos con homologación vigente", "Proveedores críticos homologados ÷ total de proveedores críticos", "Semestral", "Comité Comercial", "100% al cierre del primer año"],
-      ["Concentración de compra en el mayor proveedor", "Compra al mayor proveedor ÷ compra total de la marca", "Semestral", "Comité Comercial", "A la baja — es la medida del riesgo de dependencia"],
+      ["Proveedores críticos con homologación vigente", "Proveedores críticos homologados ÷ total de proveedores críticos", "Semestral", "Comité Comercial / Director de Compras y Cadena de Suministros", "100% al cierre del primer año"],
+      ["Concentración de compra en el mayor proveedor", "Compra al mayor proveedor ÷ compra total de la marca", "Semestral", "Comité Comercial / Director de Compras y Cadena de Suministros", "A la baja — es la medida del riesgo de dependencia"],
       ["Proveedores evaluados en el ciclo", "Proveedores con scorecard cerrado ÷ proveedores vigentes", "Semestral", "Coordinador(a) de Logística y Bodega", "100%"],
       ["Cumplimiento de fecha comprometida por proveedor", "Embarques dentro de la fecha ÷ embarques del ciclo", "Por ciclo", "Gerente de Operaciones y Logística", "A la alza, con línea base del primer ciclo"],
       ["Tiempo de homologación de un candidato", "Fecha de homologación − fecha de preselección", "Por candidato", "Coordinador(a) de Logística y Bodega", "Referencia de seguimiento"]
@@ -1896,17 +1896,17 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Comité Comercial / Gerente Corporativo - Línea Casio",
+     "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
      "participantes": [
-      "Comité Comercial / Gerente Corporativo - Línea Casio — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
-      "Analista de Compras (externo) — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
+      "Analista de Compras — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.",
       "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.",
       "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.",
       "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.",
       "Especialista de Marketing / Brand (Casio) — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."
      ],
      "evidencia": ["E-08", "E-10", "E-05", "E-03"],
-     "notas": "El dueño de este proceso es el mismo director que en 6.4 revisa la compra de la marca propia antes de proceder: aquí la lleva él directamente y allí solo confirma, según la división que el propio equipo describe —una marca por cada director, con métodos que reconocen como no unificados—. ⚠️ Ni él ni quien prepara el archivo de compras figuran en el censo del patrón de cargos V4: el primero por pertenecer a la capa de gobierno, que el patrón no contempla, y la segunda por no ser personal propio. «Analista de Compras» y «Gerente Corporativo - Línea Casio» son denominaciones propuestas, no cargos existentes: el patrón V4 no tiene ninguno de compras ni una gerencia corporativa por línea de marca. El rótulo del dueño nombra a la vez el cuerpo que decide —el mismo Comité Comercial de 6.1 a 6.6— y la gerencia que responde por la línea de la marca representada dentro de él.",
+     "notas": "El dueño de este proceso es el mismo director que en 6.4 revisa la compra de la marca propia antes de proceder: aquí la lleva él directamente y allí solo confirma, según la división que el propio equipo describe —una marca por cada director, con métodos que reconocen como no unificados—. ⚠️ Ni él ni quien prepara el archivo de compras figuran en el censo del patrón de cargos V4: el primero por pertenecer a la capa de gobierno, que el patrón no contempla, y la segunda por no ser personal propio. «Analista de Compras» y «Gerente Corporativo - Línea Casio» son denominaciones propuestas, no cargos existentes: el patrón V4 no tiene ninguno de compras ni una gerencia corporativa por línea de marca. El rótulo del dueño nombra a la vez el cuerpo que decide —el mismo Comité Comercial / Director de Compras y Cadena de Suministros de 6.1 a 6.6— y la gerencia que responde por la línea de la marca representada dentro de él.",
      "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: el corpus dice que lleva esta marca solo. Tampoco consta el alcance definitivo del perfil de marca recién incorporado, que a la fecha de las entrevistas estaba en incorporación."
     },
     "disparador": {
@@ -1921,34 +1921,34 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-08", "E-10", "E-03"],
      "actividades": [
-      {"id": "a1", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Recibe de la fábrica el «order sheet» del mes con la mercancía disponible para pedir."},
-      {"id": "a2", "rol": "Analista de Compras (externo)", "texto": "Prepara el archivo de compras del mes, que reúne la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida."},
+      {"id": "a1", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Recibe de la fábrica el «order sheet» del mes con la mercancía disponible para pedir."},
+      {"id": "a2", "rol": "Analista de Compras", "texto": "Prepara el archivo de compras del mes, que reúne la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el sugerido de pedido que produce el modelo, como apoyo a la decisión."},
-      {"id": "a4", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Compone la compra decidiendo qué pedir de la oferta, cruzando la venta pasada, el inventario, lo que ya viene en camino y el sugerido."},
-      {"id": "a5", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Coloca la orden de compra con la fábrica."},
-      {"id": "a5b", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Instruye el pago de la orden en la fecha que fija el calendario acordado con la fábrica, indicando a qué orden corresponde. Es lo que habilita el embarque: la fábrica no despacha hasta que la orden está pagada."},
+      {"id": "a4", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Compone la compra decidiendo qué pedir de la oferta, cruzando la venta pasada, el inventario, lo que ya viene en camino y el sugerido."},
+      {"id": "a5", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Coloca la orden de compra con la fábrica."},
+      {"id": "a5b", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Instruye el pago de la orden en la fecha que fija el calendario acordado con la fábrica, indicando a qué orden corresponde. Es lo que habilita el embarque: la fábrica no despacha hasta que la orden está pagada."},
       {"id": "a5c", "rol": "Gerente de Contabilidad / Administración", "texto": "Verifica que el pago corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta. La consecución de los fondos y el registro de la obligación con la fábrica son 13.2 y 13.1."},
       {"id": "a6", "rol": "Gerente de Operaciones y Logística", "texto": "Solicita a la fábrica la cotización del flete, con el número de contenedores y la mercancía que va en cada uno."},
-      {"id": "a7", "rol": "Comité Comercial / Gerente Corporativo - Línea Casio", "texto": "Aprueba la cotización del flete: cuántos contenedores son y qué mercancía lleva cada uno."},
+      {"id": "a7", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Aprueba la cotización del flete: cuántos contenedores son y qué mercancía lleva cada uno. Si no la aprueba, se ajustan los contenedores y su contenido y **vuelve a cotizarse: el ciclo se repite hasta que la cotización queda aprobada**, y el embarque no avanza sin esa aprobación."},
       {"id": "a8", "rol": "Gerente de Operaciones y Logística", "texto": "Da seguimiento al embarque hasta el hub de Zona Libre, donde se recibe toda la mercancía del grupo."},
-      {"id": "a9", "rol": "Analista de Compras (externo)", "texto": "Actualiza el archivo de compras con lo efectivamente confirmado y reconcilia lo pedido contra la venta real del período."}
+      {"id": "a9", "rol": "Analista de Compras", "texto": "Actualiza el archivo de compras con lo efectivamente confirmado y reconcilia lo pedido contra la venta real del período."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial / Gerente Corporativo - Línea Casio", "Analista de Compras (externo)", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
+      "carriles": ["Comité Comercial / Director de Compras y Cadena de Suministros", "Analista de Compras", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
-       {"id": "n1", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Preparar el archivo de compras del mes", "sistemas": ["Archivo de compras (Excel)"]},
+       {"id": "n0", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
+       {"id": "n1", "carril": "Analista de Compras", "tipo": "tarea", "n": "Preparar el archivo de compras del mes", "sistemas": ["Archivo de compras (Excel)"]},
        {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Aportar el sugerido de pedido del modelo", "sistemas": ["Power BI"]},
-       {"id": "n3", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "tarea", "n": "Componer la compra: qué pedir de la oferta"},
-       {"id": "n4", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "tarea", "n": "Colocar la orden con la fábrica"},
-       {"id": "n4b", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "tarea", "n": "Instruir el pago según el calendario"},
+       {"id": "n3", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Componer la compra: qué pedir de la oferta"},
+       {"id": "n4", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Colocar la orden con la fábrica"},
+       {"id": "n4b", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Instruir el pago según el calendario"},
        {"id": "n4c", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Verificar y ejecutar el pago a la fábrica"},
        {"id": "n5", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Solicitar la cotización del flete"},
-       {"id": "n6", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
-       {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Ajustar contenedores y su contenido"},
+       {"id": "n6", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
+       {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Ajustar y volver a cotizar hasta aprobar"},
        {"id": "n7", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Seguir el embarque hasta Zona Libre"},
-       {"id": "n8", "carril": "Analista de Compras (externo)", "tipo": "tarea", "n": "Actualizar y reconciliar el archivo de compras"},
-       {"id": "n9", "carril": "Comité Comercial / Gerente Corporativo - Línea Casio", "tipo": "fin", "n": "Compra recibida y reconciliada"}
+       {"id": "n8", "carril": "Analista de Compras", "tipo": "tarea", "n": "Actualizar y reconciliar el archivo de compras"},
+       {"id": "n9", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Compra recibida y reconciliada"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -1984,8 +1984,8 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de ciclo de la compra mensual", "Fecha de colocación de la orden − fecha de recepción de la oferta", "Mensual", "Comité Comercial / Gerente Corporativo - Línea Casio", "Referencia de seguimiento"],
-      ["Cierre del archivo de compras dentro del mes", "Archivos cerrados antes de la fecha de pedido ÷ meses del período", "Mensual", "Analista de Compras (externo)", "100%"],
+      ["Tiempo de ciclo de la compra mensual", "Fecha de colocación de la orden − fecha de recepción de la oferta", "Mensual", "Comité Comercial / Director de Compras y Cadena de Suministros", "Referencia de seguimiento"],
+      ["Cierre del archivo de compras dentro del mes", "Archivos cerrados antes de la fecha de pedido ÷ meses del período", "Mensual", "Analista de Compras", "100%"],
       ["Apego al sugerido del modelo", "Líneas pedidas que coinciden con el sugerido ÷ líneas pedidas", "Mensual", "Analista de Sistemas / Datos", "Referencia — mide cuánto aporta el modelo, no cuánto se le obedece"],
       ["Órdenes con aviso anticipado a Logística", "Órdenes notificadas al hub antes del embarque ÷ total de órdenes", "Mensual", "Gerente de Operaciones y Logística", "100%"],
       ["Contenedores recibidos en la ventana estimada", "Contenedores llegados dentro de la ventana ÷ total del período", "Mensual", "Gerente de Operaciones y Logística", "A la alza"]
@@ -2000,10 +2000,10 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Director(a) de Marca Propia (Cubitt)",
+     "dueno": "Director Corporativo Comercial",
      "participantes": [
-      "Comité Comercial — decide qué pedir y cuánto, y confirma las condiciones finales antes de que se coloque la orden. Lo integran el Director(a) de Marca Propia (Cubitt), el Gerente Comercial (País / Canal), el Gerente Regional Comercial / Retail (Cubitt) y el Gerente Regional de Ventas (Cubitt). Es el mismo cuerpo que decide el plan de suministro en 6.1 y homologa proveedores en 6.2: un solo comité gobierna qué se compra, con quién y en qué condiciones.",
-      "Gerente Regional Comercial / Retail (Cubitt) — lleva el control de venta mensual, inventario y sugerido de pedido que alimenta la decisión del comité.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — decide qué pedir y cuánto, y confirma las condiciones finales antes de que se coloque la orden. Lo integran el Director Corporativo Comercial, el Gerente Comercial (País / Canal), el Gerente Regional Comercial / Retail y el Gerente Regional de Ventas (Cubitt). Es el mismo cuerpo que decide el plan de suministro en 6.1 y homologa proveedores en 6.2: un solo comité gobierna qué se compra, con quién y en qué condiciones.",
+      "Gerente Regional Comercial / Retail — lleva el control de venta mensual, inventario y sugerido de pedido que alimenta la decisión del comité.",
       "Gerente Comercial (País / Canal) — aporta el forecast de los canales y la venta esperada de sus clientes.",
       "Coordinador(a) de Logística y Bodega (Venezuela) — incorporada recientemente al comité; aporta el requerimiento del país que concentra la mayor parte de la compra.",
       "Encargado(a) de Sourcing (China) — busca proveedores nuevos y mantiene el control por fábrica de qué está en producción, qué viene en camino y el estado de los pagos.",
@@ -2011,12 +2011,12 @@ window.MANUAL_CONTENIDO = {
       "Gerente de Operaciones y Logística — recibe la mercancía en el hub de Colón y requiere aviso anticipado del embarque."
      ],
      "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
-     "notas": "La evidencia distingue con claridad las dos compras del grupo: la de la marca representada y la de la marca propia las llevan personas distintas, con metodologías que el propio equipo describe como no unificadas. Quien encabeza la marca propia declara hacer la compra, y la gerencia comercial lo confirma y se deslinda expresamente de compras, quedándose con la venta. ⚠️ Tres de los cargos citados —Director(a) de Marca Propia (Cubitt), Gerente Regional de Ventas (Cubitt) y Encargado(a) de Sourcing (China)— NO existen todavía en el patrón de cargos V4, que no contempla ni la capa de propiedad y gobierno ni la función de compras, y cuyo censo cubre Venezuela, Panamá y Colombia pero no Estados Unidos, donde opera el primero de los tres. Están redactados como cargos, no como etiquetas funcionales, para que el manual nombre funciones y no personas; su incorporación formal al patrón corresponde a la Fase 3 y debe ratificarla el área de talento. ⚠️ El «comité de compras Cubitt» que describe el As-Is y la «Junta Directiva / Director de Compras» que revisaba antes de proceder se funden aquí en un solo Comité Comercial, el mismo de 6.1, 6.2 y 6.3. La revisión no desaparece: deja de ser una segunda instancia ajena y pasa a ser la confirmación de las condiciones finales por el propio comité, después de negociar con la fábrica y antes de comprometer el dinero.",
+     "notas": "La evidencia distingue con claridad las dos compras del grupo: la de la marca representada y la de la marca propia las llevan personas distintas, con metodologías que el propio equipo describe como no unificadas. Quien encabeza la marca propia declara hacer la compra, y la gerencia comercial lo confirma y se deslinda expresamente de compras, quedándose con la venta. ⚠️ Tres de los cargos citados —Director Corporativo Comercial, Gerente Regional de Ventas (Cubitt) y Encargado(a) de Sourcing (China)— NO existen todavía en el patrón de cargos V4, que no contempla ni la capa de propiedad y gobierno ni la función de compras, y cuyo censo cubre Venezuela, Panamá y Colombia pero no Estados Unidos, donde opera el primero de los tres. Están redactados como cargos, no como etiquetas funcionales, para que el manual nombre funciones y no personas; su incorporación formal al patrón corresponde a la Fase 3 y debe ratificarla el área de talento. ⚠️ El «comité de compras Cubitt» que describe el As-Is y la «Junta Directiva / Director de Compras» que revisaba antes de proceder se funden aquí en un solo Comité Comercial / Director de Compras y Cadena de Suministros, el mismo de 6.1, 6.2 y 6.3. La revisión no desaparece: deja de ser una segunda instancia ajena y pasa a ser la confirmación de las condiciones finales por el propio comité, después de negociar con la fábrica y antes de comprometer el dinero.",
      "sin_evidencia": "Quién sustituye al dueño del proceso en su ausencia: el corpus no lo recoge y no se infiere. Pendiente de confirmar con el equipo: la transcripción deja el apellido de quien mantiene el control de venta e inventario entre dos personas homónimas de nombre; se resolvió por el departamento que la propia entrevista menciona, pero conviene verificarlo antes de asignar el validador. El cargo patrón V4 «Gerente Regional Comercial / Retail» cubre a la vez la gerencia regional de detal y la de la marca propia, funciones distintas: aquí se precisa entre paréntesis para no confundirlas. Tampoco consta el vínculo laboral de quien lleva el sourcing en China: la entrevista solo dice que «trabaja para» el dueño del proceso, y su ausencia del censo no lo aclara porque este cubre únicamente Venezuela, Panamá y Colombia. Queda por confirmar si es personal propio o externo —de ser externo, no puede actuar como validador de este proceso."
     },
     "disparador": {
      "estado": "borrador",
-     "disparador": "Reunión periódica de compras del comité Cubitt, alimentada por el control de venta mensual, inventario y sugerido de pedido que mantiene el Gerente Regional Comercial / Retail (Cubitt), y por el forecast que aportan los canales. En la práctica se complementa con la revisión que el propio dueño del proceso hace de memoria cuando detecta que el stock está corto.",
+     "disparador": "Reunión periódica de compras del comité Cubitt, alimentada por el control de venta mensual, inventario y sugerido de pedido que mantiene el Gerente Regional Comercial / Retail, y por el forecast que aportan los canales. En la práctica se complementa con la revisión que el propio dueño del proceso hace de memoria cuando detecta que el stock está corto.",
      "cadencia": "Sin periodicidad fija — «cada cierto tiempo», según disponibilidad de agenda de los cuatro integrantes.",
      "output": "Orden de compra colocada con la fábrica en China, con el modo de envío decidido por producto.",
      "evidencia": ["E-06 (partes 1 y 2)"],
@@ -2026,39 +2026,39 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
      "actividades": [
-      {"id": "a1", "rol": "Comité Comercial", "texto": "Convoca la revisión periódica de compra de la marca propia."},
-      {"id": "a2", "rol": "Gerente Regional Comercial / Retail (Cubitt)", "texto": "Aporta el control de venta mensual, inventario disponible y sugerido de cuánto debería pedirse por producto, apoyado en Power BI y archivos propios."},
+      {"id": "a1", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Convoca la revisión periódica de compra de la marca propia."},
+      {"id": "a2", "rol": "Gerente Regional Comercial / Retail", "texto": "Aporta el control de venta mensual, inventario disponible y sugerido de cuánto debería pedirse por producto, apoyado en Power BI y archivos propios."},
       {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aporta el forecast de los tres canales —mayoreo, detal y comercio electrónico— y la venta esperada de sus clientes."},
-      {"id": "a4", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Dimensiona la compra recogiendo de forma prioritaria, con el país que concentra la mayor parte de ella y a través de su Coordinador(a) de Logística y Bodega, un requerimiento explícito producto por producto. La necesidad del resto de países —que la compra también abastece— entra de forma indirecta, por el control de venta e inventario y por el forecast que los equipos de cada país aportan al canal, sin un requerimiento propio por país."},
-      {"id": "a5", "rol": "Comité Comercial", "texto": "Decide qué pedir y cuánto, cruzando los tres insumos: el control de venta e inventario, el forecast de los canales y el dimensionamiento por país."},
-      {"id": "a6", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Selecciona la fábrica —o busca una nueva con el Encargado(a) de Sourcing (China)—, negocia condiciones y revisa las muestras del lote."},
-      {"id": "a7", "rol": "Comité Comercial", "texto": "Confirma las condiciones finales —fábrica, cantidades y términos— antes de que se coloque la orden. No vuelve a decidir qué pedir: revisa lo que cambió al negociar respecto de lo que se decidió al principio del ciclo."},
-      {"id": "a8", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Coloca la orden de compra con la fábrica seleccionada."},
-      {"id": "a8b", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Instruye el pago del anticipo que la fábrica exige para iniciar la producción, indicando la orden a la que corresponde y las condiciones pactadas con ese proveedor. El anticipo no es un trámite posterior: sin él la fábrica no arranca."},
+      {"id": "a4", "rol": "Director Corporativo Comercial", "texto": "Dimensiona la compra recogiendo de forma prioritaria, con el país que concentra la mayor parte de ella y a través de su Coordinador(a) de Logística y Bodega, un requerimiento explícito producto por producto. La necesidad del resto de países —que la compra también abastece— entra de forma indirecta, por el control de venta e inventario y por el forecast que los equipos de cada país aportan al canal, sin un requerimiento propio por país."},
+      {"id": "a5", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Decide qué pedir y cuánto, cruzando los tres insumos: el control de venta e inventario, el forecast de los canales y el dimensionamiento por país."},
+      {"id": "a6", "rol": "Director Corporativo Comercial", "texto": "Selecciona la fábrica —o busca una nueva con el Encargado(a) de Sourcing (China)—, negocia condiciones y revisa las muestras del lote."},
+      {"id": "a7", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Confirma las condiciones finales —fábrica, cantidades y términos— antes de que se coloque la orden. No vuelve a decidir qué pedir: revisa lo que cambió al negociar respecto de lo que se decidió al principio del ciclo."},
+      {"id": "a8", "rol": "Director Corporativo Comercial", "texto": "Coloca la orden de compra con la fábrica seleccionada."},
+      {"id": "a8b", "rol": "Director Corporativo Comercial", "texto": "Instruye el pago del anticipo que la fábrica exige para iniciar la producción, indicando la orden a la que corresponde y las condiciones pactadas con ese proveedor. El anticipo no es un trámite posterior: sin él la fábrica no arranca."},
       {"id": "a8c", "rol": "Gerente de Contabilidad / Administración", "texto": "Verifica que la orden esté aprobada por el comité y que el anticipo encaje en el ciclo de caja, y ejecuta el pago. La consecución de los fondos y el registro de la obligación con el proveedor son 13.2 y 13.1."},
-      {"id": "a9", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Cuando la mercancía está lista, decide con el equipo de comercialización qué parte se embarca por aire —solo los productos de tamaño pequeño lo permiten— y qué parte por mar."},
+      {"id": "a9", "rol": "Director Corporativo Comercial", "texto": "Cuando la mercancía está lista, decide con el equipo de comercialización qué parte se embarca por aire —solo los productos de tamaño pequeño lo permiten— y qué parte por mar."},
       {"id": "a10", "rol": "Encargado(a) de Sourcing (China)", "texto": "Mantiene el control por fábrica de qué está en producción, qué viene en camino, cuándo se estima que llegue y el estado de los pagos."},
       {"id": "a11", "rol": "Gerente de Operaciones y Logística", "texto": "Recibe la mercancía en el hub de Colón y le da visibilidad a los canales de venta."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial", "Gerente Regional Comercial / Retail (Cubitt)", "Gerente Comercial (País / Canal)", "Director(a) de Marca Propia (Cubitt)", "Encargado(a) de Sourcing (China)", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
+      "carriles": ["Comité Comercial / Director de Compras y Cadena de Suministros", "Gerente Regional Comercial / Retail", "Gerente Comercial (País / Canal)", "Director Corporativo Comercial", "Encargado(a) de Sourcing (China)", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
       "nodos": [
-       {"id": "n0", "carril": "Comité Comercial", "tipo": "inicio", "n": "Se convoca la revisión periódica de compra"},
-       {"id": "n1", "carril": "Gerente Regional Comercial / Retail (Cubitt)", "tipo": "tarea", "n": "Aportar venta, inventario y sugerido de pedido", "sistemas": ["Power BI", "Archivos propios de seguimiento"]},
+       {"id": "n0", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "inicio", "n": "Se convoca la revisión periódica de compra"},
+       {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Aportar venta, inventario y sugerido de pedido", "sistemas": ["Power BI", "Archivos propios de seguimiento"]},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Aportar el forecast de los tres canales"},
-       {"id": "n3", "carril": "Comité Comercial", "tipo": "tarea", "n": "Decidir qué pedir y cuánto"},
-       {"id": "n4", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Dimensionar la compra de todos los países, priorizando el mayor"},
-       {"id": "n5", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Quedó decidido qué pedir de este producto?"},
-       {"id": "n5alt", "carril": "Comité Comercial", "tipo": "fin", "n": "Queda para una reunión posterior — sigue sin pedido"},
-       {"id": "n6", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Seleccionar fábrica, negociar y revisar muestras"},
+       {"id": "n3", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Decidir qué pedir y cuánto"},
+       {"id": "n4", "carril": "Director Corporativo Comercial", "tipo": "tarea", "n": "Dimensionar la compra de todos los países, priorizando el mayor"},
+       {"id": "n5", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "decision", "n": "¿Quedó decidido qué pedir de este producto?"},
+       {"id": "n5alt", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Queda para una reunión posterior — sigue sin pedido"},
+       {"id": "n6", "carril": "Director Corporativo Comercial", "tipo": "tarea", "n": "Seleccionar fábrica, negociar y revisar muestras"},
        {"id": "n7", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Buscar proveedor nuevo si hace falta"},
-       {"id": "n8", "carril": "Comité Comercial", "tipo": "tarea", "n": "Confirmar las condiciones finales antes de la orden"},
-       {"id": "n9", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se confirma proceder?"},
-       {"id": "n9alt", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Ajustar cantidades o condiciones"},
-       {"id": "n10", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Colocar la orden de compra con la fábrica"},
-       {"id": "n10b", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Instruir el anticipo que activa la producción"},
+       {"id": "n8", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Confirmar las condiciones finales antes de la orden"},
+       {"id": "n9", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "decision", "n": "¿Se confirma proceder?"},
+       {"id": "n9alt", "carril": "Director Corporativo Comercial", "tipo": "tarea", "n": "Ajustar cantidades o condiciones"},
+       {"id": "n10", "carril": "Director Corporativo Comercial", "tipo": "tarea", "n": "Colocar la orden de compra con la fábrica"},
+       {"id": "n10b", "carril": "Director Corporativo Comercial", "tipo": "tarea", "n": "Instruir el anticipo que activa la producción"},
        {"id": "n10c", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Verificar y ejecutar el pago del anticipo"},
-       {"id": "n11", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Decidir aéreo o marítimo por producto"},
+       {"id": "n11", "carril": "Director Corporativo Comercial", "tipo": "tarea", "n": "Decidir aéreo o marítimo por producto"},
        {"id": "n12", "carril": "Encargado(a) de Sourcing (China)", "tipo": "tarea", "n": "Controlar producción, tránsito y pagos por fábrica", "sistemas": ["Documentos de control por proveedor"]},
        {"id": "n13", "carril": "Gerente de Operaciones y Logística", "tipo": "fin", "n": "Mercancía recibida en el hub de Colón"}
       ],
@@ -2104,11 +2104,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de ciclo de compra Cubitt", "Fecha de colocación de la orden − fecha de la reunión que la decidió", "Por orden", "Director(a) de Marca Propia (Cubitt)", "Referencia de seguimiento"],
-      ["Productos revisados por reunión de comité", "Productos revisados ÷ productos previstos en la agenda de la reunión", "Por reunión", "Comité Comercial", "100% — ningún producto arrastrado dos ciclos"],
-      ["Quiebres de stock atribuibles a revisión tardía", "Productos con quiebre cuyo pedido se decidió después del punto de reposición ÷ total de quiebres", "Mensual", "Gerente Regional Comercial / Retail (Cubitt)", "A la baja"],
+      ["Tiempo de ciclo de compra Cubitt", "Fecha de colocación de la orden − fecha de la reunión que la decidió", "Por orden", "Director Corporativo Comercial", "Referencia de seguimiento"],
+      ["Productos revisados por reunión de comité", "Productos revisados ÷ productos previstos en la agenda de la reunión", "Por reunión", "Comité Comercial / Director de Compras y Cadena de Suministros", "100% — ningún producto arrastrado dos ciclos"],
+      ["Quiebres de stock atribuibles a revisión tardía", "Productos con quiebre cuyo pedido se decidió después del punto de reposición ÷ total de quiebres", "Mensual", "Gerente Regional Comercial / Retail", "A la baja"],
       ["Órdenes con aviso anticipado a Logística", "Órdenes notificadas al hub antes del embarque ÷ total de órdenes colocadas", "Mensual", "Gerente de Operaciones y Logística", "100%"],
-      ["Proporción de envío aéreo vs. marítimo", "Envíos aéreos ÷ total de envíos del período", "Mensual", "Director(a) de Marca Propia (Cubitt)", "Referencia de costo y urgencia"]
+      ["Proporción de envío aéreo vs. marítimo", "Envíos aéreos ÷ total de envíos del período", "Mensual", "Director Corporativo Comercial", "Referencia de costo y urgencia"]
      ]
     }
    },
@@ -2125,11 +2125,11 @@ window.MANUAL_CONTENIDO = {
       "Área solicitante del país — detecta y solicita la necesidad, y después confirma que el bien llegó o el servicio se cumplió. Cada departamento tiene identificado quién firma por él.",
       "Asistente Administrativo(a) / Servicios Generales — canaliza la solicitud, cotiza con proveedores locales y registra la orden en el sistema del país. Es quien ejecuta el proceso en el día a día.",
       "Gerente de Contabilidad / Administración — aprueba la compra dentro del umbral del país y responde por el gasto local del período.",
-      "Comité Comercial — autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — autoriza la compra cuando supera el umbral del país, o cuando implica cambiar de proveedor en un concepto recurrente.",
       "Coordinador(a) de Logística y Bodega — consolida las compras locales de los países para que el gasto tenga visibilidad regional y no quede solo en el sistema de cada uno."
      ],
      "evidencia": ["E-34", "E-59", "E-50"],
-     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función a la administración del país —quien ejecuta la compra no puede ser quien la aprueba—, y no al Country Manager: la evidencia sitúa la compra y el pago en quien lleva «compras, administración y finanzas» del país, y hacer firmar al máximo responsable cada insumo de oficina no es proporcionado. ⚠️ Se incorpora además el área solicitante, que en la versión anterior no aparecía: la necesidad nace donde se tiene, y es el área la que después confirma la conformidad del bien o servicio — el único control de recepción que la evidencia documenta. «Comité Comercial» es denominación propuesta, sin equivalencia en el patrón V4.",
+     "notas": "⚠️ Reencuadre respecto al mapa v18 y a la redacción anterior, que presentó este proceso como la compra que cubre «la necesidad que el hub regional no puede atender a tiempo» — es decir, como reposición de mercancía de urgencia. No lo es, y no puede serlo: el hub surte producto de las dos marcas del grupo y ningún proveedor local lo tiene. Lo que las fuentes describen es otra cosa: pago a proveedores de alquiler, mantenimiento y servicios generales en un país, y compra de locales, vehículos y trámites en otro. Coincide además con el dueño que el propio mapa asigna, una función administrativa y de servicios generales. La titularidad se mueve de esa función a la administración del país —quien ejecuta la compra no puede ser quien la aprueba—, y no al Country Manager: la evidencia sitúa la compra y el pago en quien lleva «compras, administración y finanzas» del país, y hacer firmar al máximo responsable cada insumo de oficina no es proporcionado. ⚠️ Se incorpora además el área solicitante, que en la versión anterior no aparecía: la necesidad nace donde se tiene, y es el área la que después confirma la conformidad del bien o servicio — el único control de recepción que la evidencia documenta. «Comité Comercial / Director de Compras y Cadena de Suministros» es denominación propuesta, sin equivalencia en el patrón V4.",
      "sin_evidencia": "No consta el umbral de aprobación de ningún país — el proceso lo incorpora como control, pero el monto lo tiene que fijar el equipo. Tampoco consta qué conceptos quedan dentro y cuáles escalan por naturaleza y no por monto (activos, contratos de arrendamiento, vehículos), aunque la evidencia muestra que hoy se deciden por la misma vía. El «proveedor Mundo» que el mapa cita para Venezuela se retiró: no aparece en ninguna de las 59 entrevistas."
     },
     "disparador": {
@@ -2147,7 +2147,7 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Área solicitante del país", "texto": "Detecta y solicita el bien o servicio que necesita para operar: insumo, mantenimiento, servicio, trámite o activo menor. La necesidad nace donde se tiene, no en la función que compra."},
       {"id": "a2", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Canaliza la solicitud, identifica los proveedores locales disponibles y pide cotización, verificando que el proveedor siga activo y sostenga el precio."},
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Aprueba la compra cuando no necesita subir al hub —proveedor ya habitual para ese concepto y monto dentro del umbral del país— y responde por ella ante el consolidado del período."},
-      {"id": "a4", "rol": "Comité Comercial", "texto": "Autoriza la compra cuando escala al hub, por cualquiera de dos vías: porque implica cambiar de proveedor en un concepto recurrente —lo único que hoy escala de hecho, según la evidencia— o porque el monto supera el umbral del país, que es un control propuesto y cuyo importe queda por fijar."},
+      {"id": "a4", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Autoriza la compra cuando escala al hub, por cualquiera de dos vías: porque implica cambiar de proveedor en un concepto recurrente —lo único que hoy escala de hecho, según la evidencia— o porque el monto supera el umbral del país, que es un control propuesto y cuyo importe queda por fijar."},
       {"id": "a5", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Coloca la orden con el proveedor elegido una vez aprobada, confirmando precio, plazo de entrega y condiciones de pago. Es el paso que compromete al grupo frente al proveedor, y por eso va después de la aprobación y nunca antes."},
       {"id": "a6", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Registra la orden en el sistema administrativo del país, con el concepto que permita clasificarla después y con el proveedor identificado para el ciclo de pago."},
       {"id": "a7", "rol": "Proveedor local", "texto": "Entrega el bien o presta el servicio contratado, directamente al área que lo solicitó. En este circuito la mercancía no pasa por la bodega ni entra al inventario del grupo, así que no hay recepción logística que intermedie; la excepción es lo que sí entra a bodega —un activo, o una compra de volumen—, donde la recepción física es de Logística y aplica el macro 7."},
@@ -2156,13 +2156,13 @@ window.MANUAL_CONTENIDO = {
       {"id": "a9", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Consolida la compra local en la visibilidad regional del gasto, para que el grupo pueda ver qué se compra fuera del circuito central y dónde se repite."}
      ],
      "diagrama": {
-      "carriles": ["Área solicitante del país", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Contabilidad / Administración", "Comité Comercial", "Proveedor local", "Coordinador(a) de Logística y Bodega"],
+      "carriles": ["Área solicitante del país", "Asistente Administrativo(a) / Servicios Generales", "Gerente de Contabilidad / Administración", "Comité Comercial / Director de Compras y Cadena de Suministros", "Proveedor local", "Coordinador(a) de Logística y Bodega"],
       "nodos": [
        {"id": "n0", "carril": "Área solicitante del país", "tipo": "inicio", "n": "Un área necesita un bien o servicio"},
        {"id": "n1", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Canalizar la solicitud y cotizar proveedores"},
        {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Requiere autorización del hub?"},
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aprobar dentro del umbral del país"},
-       {"id": "n4", "carril": "Comité Comercial", "tipo": "tarea", "n": "Autorizar la compra desde el hub"},
+       {"id": "n4", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Autorizar la compra desde el hub"},
        {"id": "n5", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Colocar la orden con el proveedor"},
        {"id": "n6", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Registrar la orden en el sistema del país", "sistemas": ["Sistema administrativo del país"]},
        {"id": "n7", "carril": "Proveedor local", "tipo": "tarea", "n": "Entregar el bien o prestar el servicio"},
@@ -2204,7 +2204,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Gasto en compra local por país y período", "Monto de compras locales del país en el período, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "Referencia de seguimiento"],
-      ["Compras que superaron el umbral", "Compras escaladas al hub ÷ compras locales del período", "Mensual", "Comité Comercial", "Referencia — si tiende a cero, el umbral está alto"],
+      ["Compras que superaron el umbral", "Compras escaladas al hub ÷ compras locales del período", "Mensual", "Comité Comercial / Director de Compras y Cadena de Suministros", "Referencia — si tiende a cero, el umbral está alto"],
       ["Recurrencia por concepto", "Conceptos comprados localmente en más de dos ciclos seguidos ÷ conceptos del período", "Trimestral", "Coordinador(a) de Logística y Bodega", "A la baja — la recurrencia delata una falla del circuito central"],
       ["Cobertura del consolidado regional", "Compras locales que llegan al consolidado ÷ compras locales registradas", "Mensual", "Coordinador(a) de Logística y Bodega", "100%"],
       ["Tiempo desde la detección hasta la aprobación", "Fecha de aprobación − fecha de detección de la necesidad", "Por compra", "Gerente de Contabilidad / Administración", "Referencia — mide si el control entorpece la urgencia"]
@@ -2222,7 +2222,7 @@ window.MANUAL_CONTENIDO = {
      "dueno": "Coordinador(a) de Logística y Bodega (país)",
      "participantes": [
       "Coordinador(a) de Logística y Bodega (país) — lleva el ciclo completo del país: revisa inventario y tránsito, arma el pedido con el archivo de reposición, sigue el embarque y recibe. Es dueño real del proceso, no solo ejecutor.",
-      "Comité Comercial — revisa el pedido del país y asigna las cantidades finales contra la disponibilidad del hub. Es la misma figura que compone la compra de la marca representada (6.3) y confirma la de la marca propia (6.4).",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — revisa el pedido del país y asigna las cantidades finales contra la disponibilidad del hub. Es la misma figura que compone la compra de la marca representada (6.3) y confirma la de la marca propia (6.4).",
       "Gerente Comercial (País / Canal) — en el hub, recibe las cantidades confirmadas y solicita la preparación del pedido. La reposición del país se tramita por la puerta comercial de la central, como un pedido de mayoreo.",
       "Gerente de Operaciones y Logística — responde por todo el movimiento en Zona Libre: prepara y cubica el pedido en la bodega del hub, contrata el flete, saca la carga y la liquida en aduana. Su procedimiento se describe en el macro 7; aquí se nombra para que el ciclo no tenga un hueco entre el hub y el país."
      ],
@@ -2244,7 +2244,7 @@ window.MANUAL_CONTENIDO = {
      "actividades": [
       {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Al inicio de cada mes revisa el inventario disponible en el país, la mercancía en tránsito y lo que hay disponible en el hub de Zona Libre."},
       {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Arma el pedido con un archivo de reposición formulado que propone cuánto pedir por producto para sostener la cobertura objetivo del país —tres a cuatro meses en los alejados del hub, uno a mes y medio en Panamá—, por separado para cada marca. Revisa la propuesta antes de mandarla en vez de seguirla sin más: la venta histórica sobre la que calcula está deformada por los períodos en que no hubo mercancía."},
-      {"id": "a3", "rol": "Comité Comercial", "texto": "Revisa el pedido contra la disponibilidad del hub y asigna las cantidades finales, recortando lo que dejaría desabastecidos a los demás países. El país pide, pero no siempre recibe lo que pidió."},
+      {"id": "a3", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Revisa el pedido contra la disponibilidad del hub y asigna las cantidades finales, recortando lo que dejaría desabastecidos a los demás países. El país pide, pero no siempre recibe lo que pidió."},
       {"id": "a4", "rol": "Gerente Comercial (País / Canal)", "texto": "Recibe las cantidades ya confirmadas y solicita la preparación del pedido a la bodega del hub. La reposición entra por la puerta comercial de la central y no directamente por la bodega, porque se tramita como un pedido de mayoreo: el país es, a efectos operativos, un cliente del hub."},
       {"id": "a5", "rol": "Gerente de Operaciones y Logística", "texto": "Prepara el pedido y lo cubica en el contenedor. Lo que no entra en el volumen disponible —y casi siempre queda algo, porque el cúbico no cuadra exacto— se queda para el ciclo siguiente."},
       {"id": "a6", "rol": "Gerente de Operaciones y Logística", "texto": "Contrata el flete —marítimo, aéreo o terrestre según el caso—, saca la carga de Zona Libre y la liquida en aduana para despacharla al país. En el movimiento entre empresas del grupo la liquidación es interna, y de ella depende la fecha en que la mercancía queda realmente disponible."},
@@ -2252,12 +2252,12 @@ window.MANUAL_CONTENIDO = {
       {"id": "a8", "rol": "Coordinador(a) de Logística y Bodega (país)", "texto": "Recibe la mercancía en el país y la confirma contra lo asignado, dejando registro de faltantes y discrepancias para el reclamo."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega (país)", "Comité Comercial", "Gerente Comercial (País / Canal)", "Gerente de Operaciones y Logística"],
+      "carriles": ["Coordinador(a) de Logística y Bodega (país)", "Comité Comercial / Director de Compras y Cadena de Suministros", "Gerente Comercial (País / Canal)", "Gerente de Operaciones y Logística"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "inicio", "n": "Inicio de mes: arranca la reposición"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Revisar inventario del país, tránsito y hub"},
        {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega (país)", "tipo": "tarea", "n": "Armar el pedido con el archivo formulado", "sistemas": ["Archivo de reposición (Excel)", "Odoo"]},
-       {"id": "n3", "carril": "Comité Comercial", "tipo": "tarea", "n": "Asignar las cantidades finales"},
+       {"id": "n3", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Asignar las cantidades finales"},
        {"id": "n4", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Solicitar la preparación del pedido al hub"},
        {"id": "n5", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Preparar y cubicar el contenedor"},
        {"id": "n6", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Contratar el flete y despachar al país"},
@@ -2295,7 +2295,7 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "filas": [
       ["Cobertura de inventario del país", "Inventario disponible + tránsito ÷ venta mensual promedio", "Mensual", "Coordinador(a) de Logística y Bodega (país)", "Entre 3 y 4 meses"],
-      ["Proporción asignada sobre lo pedido", "Unidades asignadas ÷ unidades pedidas por el país", "Mensual", "Comité Comercial", "A la alza — mide cuánto del pedido sobrevive al reparto"],
+      ["Proporción asignada sobre lo pedido", "Unidades asignadas ÷ unidades pedidas por el país", "Mensual", "Comité Comercial / Director de Compras y Cadena de Suministros", "A la alza — mide cuánto del pedido sobrevive al reparto"],
       ["Unidades que quedaron fuera por cúbico", "Unidades asignadas y no embarcadas ÷ unidades asignadas", "Por embarque", "Coordinador(a) de Logística y Bodega (hub)", "A la baja"],
       ["Ciclo total del pedido", "Fecha de recepción en el país − fecha de armado del pedido", "Mensual", "Coordinador(a) de Logística y Bodega (país)", "Entre 1 y 1,5 meses"],
       ["Discrepancias detectadas en recepción", "Líneas con faltante o diferencia ÷ líneas recibidas", "Mensual", "Coordinador(a) de Logística y Bodega (país)", "A la baja"]
@@ -2405,16 +2405,16 @@ window.MANUAL_CONTENIDO = {
     },
     "dueno": {
      "estado": "borrador",
-     "dueno": "Comité Comercial / Director de Compras",
+     "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
      "participantes": [
-      "Comité Comercial / Director de Compras — convoca la revisión, contrasta el cumplimiento de la política y propone los ajustes; después publica lo aprobado a los países.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — convoca la revisión, contrasta el cumplimiento de la política y propone los ajustes; después publica lo aprobado a los países.",
       "Junta Directiva — aprueba la política, la matriz de aprobación y el margen preaprobado de promociones.",
       "Coordinador(a) de Logística y Bodega — aporta el dato de ejecución del período: qué se pidió, qué se recibió, con qué cobertura se cerró y qué quedó fuera.",
-      "Gerente de Administración y Finanzas — aporta el dato económico: gasto por marca y país, desviación contra lo previsto y margen con el que se cerraron las promociones aplicadas.",
+      "Gerente de Contabilidad / Administración — aporta el dato económico: gasto por marca y país, desviación contra lo previsto y margen con el que se cerraron las promociones aplicadas.",
       "Gerente de Contabilidad / Administración — revisa el cumplimiento de la política cuando se practica una auditoría interna, con independencia del ciclo de revisión."
      ],
      "evidencia": ["E-05", "E-08", "E-40"],
-     "notas": "⚠️ La aprobación se sitúa en la Junta y no en una gerencia, como proponía el mapa. La razón no es jerárquica sino de eficacia: hoy quienes compran son dos directores de la propia Junta —uno por marca—, y una política que los gobierna no puede aprobarse por debajo de ellos. El comité prepara y propone; la Junta aprueba. ⚠️ El mapa daba la titularidad a «Gerente Regional Comercial / Retail»: es la sexta vez en este macroproceso que sitúa una decisión de compras en una gerencia regional. «Comité de Compras» y «Director(a) de Compras» son denominaciones propuestas y «Gerente de Administración y Finanzas» no existe en el patrón de cargos V4.",
+     "notas": "⚠️ La aprobación se sitúa en la Junta y no en una gerencia, como proponía el mapa. La razón no es jerárquica sino de eficacia: hoy quienes compran son dos directores de la propia Junta —uno por marca—, y una política que los gobierna no puede aprobarse por debajo de ellos. El comité prepara y propone; la Junta aprueba. ⚠️ El mapa daba la titularidad a «Gerente Regional Comercial / Retail»: es la sexta vez en este macroproceso que sitúa una decisión de compras en una gerencia regional. «Comité de Compras» y «Director(a) de Compras» son denominaciones propuestas y «Gerente de Contabilidad / Administración» no existe en el patrón de cargos V4.",
      "sin_evidencia": "El diseño proviene de un marco de referencia externo, no del levantamiento. Quedan por definir con el equipo: los umbrales de la matriz —en moneda y con tasa fechada—, la cadencia real de la revisión, qué indicadores entran al tablero y quién practica la auditoría interna, que hoy no tiene periodicidad conocida."
     },
     "disparador": {
@@ -2430,24 +2430,24 @@ window.MANUAL_CONTENIDO = {
      "nota_estado": "Flujo propuesto. Describe el ciclo de revisión del gobierno, no la aplicación diaria de las reglas, que ocurre dentro de los procesos operativos.",
      "evidencia": ["E-40", "E-05", "E-08"],
      "actividades": [
-      {"id": "a1", "rol": "Comité Comercial / Director de Compras", "texto": "Convoca la revisión periódica del gobierno de compras y fija qué se pone sobre la mesa: cumplimiento de la política, umbrales de la matriz, margen de promociones e indicadores del período."},
+      {"id": "a1", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Convoca la revisión periódica del gobierno de compras y fija qué se pone sobre la mesa: cumplimiento de la política, umbrales de la matriz, margen de promociones e indicadores del período."},
       {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Aporta el dato de ejecución del período: qué se pidió y qué se recibió por marca y país, con qué cobertura se cerró, qué quedó fuera del reparto y qué tuvo que resolverse con compra local."},
-      {"id": "a3", "rol": "Gerente de Administración y Finanzas", "texto": "Aporta el dato económico: gasto de compra por marca y país, desviación frente a lo previsto y margen con el que se cerraron las promociones aplicadas en el período."},
-      {"id": "a4", "rol": "Comité Comercial / Director de Compras", "texto": "Contrasta lo ejecutado con lo que la política y la matriz dicen, identifica dónde se decidió fuera de regla —o sin ninguna— y propone los ajustes: umbrales, margen preaprobado, indicadores y estructura del área."},
+      {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Aporta el dato económico: gasto de compra por marca y país, desviación frente a lo previsto y margen con el que se cerraron las promociones aplicadas en el período."},
+      {"id": "a4", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Contrasta lo ejecutado con lo que la política y la matriz dicen, identifica dónde se decidió fuera de regla —o sin ninguna— y propone los ajustes: umbrales, margen preaprobado, indicadores y estructura del área."},
       {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba la política, la matriz de aprobación por monto y tipo, y el margen preaprobado de promociones, o devuelve la propuesta con observaciones. Aprueba la Junta porque quienes compran hoy son dos de sus propios directores: una regla que los alcanza no puede fijarse por debajo de ellos."},
-      {"id": "a6", "rol": "Comité Comercial / Director de Compras", "texto": "Publica a los países la política y la matriz vigentes y el tablero de indicadores del período, para que cada proceso operativo sepa con qué reglas trabaja."}
+      {"id": "a6", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Publica a los países la política y la matriz vigentes y el tablero de indicadores del período, para que cada proceso operativo sepa con qué reglas trabaja."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial / Director de Compras", "Coordinador(a) de Logística y Bodega", "Gerente de Administración y Finanzas", "Junta Directiva"],
+      "carriles": ["Comité Comercial / Director de Compras y Cadena de Suministros", "Coordinador(a) de Logística y Bodega", "Gerente de Contabilidad / Administración", "Junta Directiva"],
       "nodos": [
-       {"id": "n0", "carril": "Comité Comercial / Director de Compras", "tipo": "inicio", "n": "Se convoca la revisión del gobierno"},
+       {"id": "n0", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "inicio", "n": "Se convoca la revisión del gobierno"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Aportar el dato de ejecución del período"},
-       {"id": "n2", "carril": "Gerente de Administración y Finanzas", "tipo": "tarea", "n": "Aportar el dato económico del período"},
-       {"id": "n3", "carril": "Comité Comercial / Director de Compras", "tipo": "tarea", "n": "Revisar cumplimiento y proponer ajustes"},
+       {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Aportar el dato económico del período"},
+       {"id": "n3", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Revisar cumplimiento y proponer ajustes"},
        {"id": "n4", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Se aprueba la política?"},
        {"id": "n4alt", "carril": "Junta Directiva", "tipo": "fin", "n": "Propuesta devuelta al comité"},
-       {"id": "n5", "carril": "Comité Comercial / Director de Compras", "tipo": "tarea", "n": "Publicar la política y el tablero"},
-       {"id": "n6", "carril": "Comité Comercial / Director de Compras", "tipo": "fin", "n": "Gobierno de compras vigente"}
+       {"id": "n5", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Publicar la política y el tablero"},
+       {"id": "n6", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Gobierno de compras vigente"}
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
@@ -2477,11 +2477,11 @@ window.MANUAL_CONTENIDO = {
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Política y matriz vigentes y publicadas", "Existe versión aprobada en el período y está accesible a los países (sí / no)", "Por ciclo", "Comité Comercial / Director de Compras", "Sí, desde el primer ciclo"],
-      ["Decisiones tomadas fuera de la matriz", "Compras aprobadas fuera del umbral o sin la firma que corresponde ÷ compras del período", "Por ciclo", "Comité Comercial / Director de Compras", "A la baja — incluye las de la propia dirección"],
-      ["Promociones resueltas sin consulta", "Promociones cerradas por encima del margen preaprobado ÷ promociones del período", "Mensual", "Gerente de Administración y Finanzas", "A la alza — mide si el margen liberó la decisión"],
+      ["Política y matriz vigentes y publicadas", "Existe versión aprobada en el período y está accesible a los países (sí / no)", "Por ciclo", "Comité Comercial / Director de Compras y Cadena de Suministros", "Sí, desde el primer ciclo"],
+      ["Decisiones tomadas fuera de la matriz", "Compras aprobadas fuera del umbral o sin la firma que corresponde ÷ compras del período", "Por ciclo", "Comité Comercial / Director de Compras y Cadena de Suministros", "A la baja — incluye las de la propia dirección"],
+      ["Promociones resueltas sin consulta", "Promociones cerradas por encima del margen preaprobado ÷ promociones del período", "Mensual", "Gerente de Contabilidad / Administración", "A la alza — mide si el margen liberó la decisión"],
       ["Indicadores del tablero efectivamente alimentados", "Indicadores con dato del período ÷ indicadores definidos", "Por ciclo", "Coordinador(a) de Logística y Bodega", "100% — un indicador sin dato es un indicador que sobra"],
-      ["Riesgos del macroproceso revisados en el ciclo", "Riesgos declarados por los procesos que se revisan ÷ riesgos declarados", "Por ciclo", "Comité Comercial / Director de Compras", "100%"]
+      ["Riesgos del macroproceso revisados en el ciclo", "Riesgos declarados por los procesos que se revisan ÷ riesgos declarados", "Por ciclo", "Comité Comercial / Director de Compras y Cadena de Suministros", "100%"]
      ]
     }
    },
@@ -2497,7 +2497,7 @@ window.MANUAL_CONTENIDO = {
      "participantes": [
       "Gerente de Operaciones y Logística — determina la naturaleza de la incidencia y abre el canal de reclamo que corresponda; es quien decide si la responsabilidad es del transporte, de la aduana, del proveedor o propia.",
       "Coordinador(a) de Logística y Bodega — detecta y reporta la incidencia en la recepción, con la evidencia del estado en que llegó la mercancía.",
-      "Comité de Compras / Director de Compras — lleva el reclamo cuando la responsabilidad es del proveedor de la mercancía, porque es quien mantiene la relación con la fábrica o con la casa matriz de la marca.",
+      "Comité Comercial / Director de Compras y Cadena de Suministros — lleva el reclamo cuando la responsabilidad es del proveedor de la mercancía, porque es quien mantiene la relación con la fábrica o con la casa matriz de la marca.",
       "Gerente de Contabilidad / Administración — registra la recuperación obtenida o, cuando no la hay, la pérdida asumida."
      ],
      "evidencia": ["E-03", "E-40", "E-06 (parte 2)"],
@@ -2519,19 +2519,19 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Reporta la incidencia detectada al recibir —faltante, sobrante, mercancía dañada o mojada— con la evidencia del estado en que llegó y la referencia del embarque."},
       {"id": "a2", "rol": "Gerente de Operaciones y Logística", "texto": "Determina la naturaleza de la incidencia antes de reclamar nada: si la responsabilidad es del transporte, de la aduana, del proveedor de la mercancía o propia. De esa clasificación depende el canal que se activa, y equivocarla hace perder el plazo de reclamo del canal correcto."},
       {"id": "a3", "rol": "Gerente de Operaciones y Logística", "texto": "Cuando la responsabilidad es del transporte, reclama a la naviera o al proveedor aéreo dentro del plazo que fije el contrato de flete, con el acta de recepción como respaldo."},
-      {"id": "a4", "rol": "Comité de Compras / Director de Compras", "texto": "Cuando la responsabilidad es del proveedor de la mercancía, abre y lleva el reclamo con la fábrica o la casa matriz de la marca, y acuerda la reposición, la nota de crédito o la devolución física del lote."},
+      {"id": "a4", "rol": "Comité Comercial / Director de Compras y Cadena de Suministros", "texto": "Cuando la responsabilidad es del proveedor de la mercancía, abre y lleva el reclamo con la fábrica o la casa matriz de la marca, y acuerda la reposición, la nota de crédito o la devolución física del lote."},
       {"id": "a5", "rol": "Gerente de Operaciones y Logística", "texto": "Cuando la responsabilidad es propia —un error de conteo, de manipulación o de registro—, lo corrige internamente y deja constancia, para que el mismo fallo no se reclame fuera."},
       {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Registra el resultado del caso: la recuperación obtenida en dinero o en mercancía, o la pérdida asumida cuando no se recupera nada."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente de Operaciones y Logística", "Comité de Compras / Director de Compras", "Gerente de Contabilidad / Administración"],
+      "carriles": ["Coordinador(a) de Logística y Bodega", "Gerente de Operaciones y Logística", "Comité Comercial / Director de Compras y Cadena de Suministros", "Gerente de Contabilidad / Administración"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "inicio", "n": "Incidencia en la recepción"},
        {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reportar la incidencia con evidencia"},
        {"id": "n2", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Determinar la naturaleza de la incidencia"},
        {"id": "n3", "carril": "Gerente de Operaciones y Logística", "tipo": "decision", "n": "¿A quién se reclama?"},
        {"id": "n4", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Reclamar al transportista"},
-       {"id": "n5", "carril": "Comité de Compras / Director de Compras", "tipo": "tarea", "n": "Reclamar al proveedor de la mercancía"},
+       {"id": "n5", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Reclamar al proveedor de la mercancía"},
        {"id": "n6", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Corregir internamente y registrar"},
        {"id": "n7", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Registrar la recuperación o la pérdida"},
        {"id": "n8", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Incidencia cerrada"}
@@ -2569,7 +2569,7 @@ window.MANUAL_CONTENIDO = {
       ["Incidencias con canal de reclamo abierto en plazo", "Incidencias clasificadas y reclamadas dentro del plazo ÷ incidencias del período", "Mensual", "Gerente de Operaciones y Logística", "100%"],
       ["Recuperación obtenida sobre lo reclamado", "Monto recuperado ÷ monto reclamado, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "A la alza"],
       ["Tiempo de cierre de la incidencia", "Fecha de cierre − fecha del reporte", "Por incidencia", "Gerente de Operaciones y Logística", "Dentro del plazo que se fije por canal"],
-      ["Incidencias por proveedor y por transportista", "Incidencias del período agrupadas por origen", "Trimestral", "Comité de Compras / Director de Compras", "Referencia — alimenta la evaluación de proveedores"],
+      ["Incidencias por proveedor y por transportista", "Incidencias del período agrupadas por origen", "Trimestral", "Comité Comercial / Director de Compras y Cadena de Suministros", "Referencia — alimenta la evaluación de proveedores"],
       ["Incidencias de causa propia", "Incidencias atribuidas a error interno ÷ incidencias del período", "Mensual", "Coordinador(a) de Logística y Bodega", "A la baja"]
      ]
     }
