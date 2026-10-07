@@ -359,12 +359,13 @@
     h += '<div class="eo-staff">';
     E.STAFF.filter(function(s){ return !s.enLinea; }).forEach(function(s){ h += caja(s, "eo-c-staff", tagNivel(s)); });
     h += '</div></div>';
-    // sobre la línea de mando, antes de las direcciones: sale por un costado de la línea central
+    // sobre la línea de mando, antes de las direcciones: sale por un costado de la
+    // línea central — a la derecha por omisión, a la izquierda con lado:'izq'
     var enLinea = E.STAFF.filter(function(s){ return s.enLinea; });
     if(enLinea.length){
-      h += '<div class="eo-enlinea" style="grid-row:' + R.linea + ';grid-column:1 / ' + nFin + '">';
-      enLinea.forEach(function(s){ h += caja(s, "eo-c-staff", tagNivel(s)); });
-      h += '</div>';
+      var deLado = function(izq){ return enLinea.filter(function(s){ return (s.lado === "izq") === izq; }).map(function(s){ return caja(s, "eo-c-staff", tagNivel(s)); }).join(""); };
+      h += '<div class="eo-enlinea" style="grid-row:' + R.linea + ';grid-column:1 / ' + nFin + '">' +
+             '<div class="eo-enl-izq">' + deLado(true) + '</div><div class="eo-enl-der">' + deLado(false) + '</div></div>';
     }
 
     // staff: cada dirección ocupa sus subcolumnas, como las unidades de negocio
@@ -427,7 +428,12 @@
     if(Math.abs(d) > 1) cima.style.paddingLeft = Math.max(0, parseFloat(cima.style.paddingLeft) + d) + "px";
     // las unidades sobre la línea, a un costado del eje
     var lin = lienzo.querySelector(".eo-enlinea");
-    if(lin){ lin.style.paddingLeft = "0px"; lin.style.paddingLeft = Math.max(0, Math.round(ejeX - caja2(lin).x + 56)) + "px"; }
+    if(lin){
+      var izq = lin.querySelector(".eo-enl-izq"), der = lin.querySelector(".eo-enl-der");
+      izq.style.width = Math.max(0, Math.round(ejeX - caja2(lin).x - 56)) + "px";
+      der.style.marginLeft = "0px";
+      der.style.marginLeft = Math.round(ejeX + 56 - caja2(der).x) + "px";
+    }
   }
 
   // ----------------------------------------------------------------- hilos
@@ -483,7 +489,7 @@
         return;
       }
       if(a.tipo === "lateral"){           // Presidencia -> unidad sobre la línea, por un costado
-        ruta("M" + sx + "," + (pb.y + pb.h / 2) + " H" + pb.x, "eo-h-punteada");
+        ruta("M" + sx + "," + (pb.y + pb.h / 2) + " H" + (pb.x > sx ? pb.x : pb.x + pb.w), "eo-h-punteada");
         return;
       }
       if(a.tipo === "staff"){
