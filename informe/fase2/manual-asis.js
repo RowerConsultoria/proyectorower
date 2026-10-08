@@ -6436,7 +6436,7 @@ window.MANUAL_ASIS = {
   "procesos": {
 
    "6.3": {
-    "nota_version": "Versión As-Is: describe cómo se compra hoy a la marca representada, con los cargos que usan las propias entrevistas y el patrón V4 en su columna de cargo actual. No incorpora mejoras; donde algo falta, se dice que falta.",
+    "nota_version": "Versión As-Is: describe cómo se compra hoy a la marca representada, con los cargos que usan las propias entrevistas y el patrón de cargos en su columna de cargo actual. No incorpora mejoras; donde algo falta, se dice que falta.",
     "proposito": {
      "estado": "borrador",
      "alcance": "Desde que la fábrica envía cada mes su order sheet hasta que el embarque sale hacia la Zona Libre con su orden de compra cargada en Odoo, más el reporte mensual de ventas por país (PCI) que se devuelve a la marca. La recepción física, la nacionalización y la fijación de precios de la mercancía que llega quedan fuera (macro 7 y comercial); el reparto a cada país, en 6.6 y 6.7.",
@@ -6455,9 +6455,6 @@ window.MANUAL_ASIS = {
       "Coordinador(a) de Planificación de Compras — no interviene en el pedido a la fábrica: arma la reposición de Venezuela desde el inventario del hub, y el Director la ajusta según lo que haya. Según la documentación de Lark, da apoyo puntual a la planificación de compras a fábrica, sin contacto con ella.",
       "Brand Manager Casio (Casiolandia Panamá) — recién incorporado; a la fecha de las entrevistas aún no participaba en el pedido, y la intención declarada es que asuma la reportería y los requisitos de la marca."
      ],
-     "evidencia": ["E-08", "E-10", "E-05", "E-03", "E-40", "E-70", "Lark: Levantamiento Procesos Compras (VE)"],
-     "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él (Gerente de Inventario y Precios; Grte. de Ope. y Exc. Logística; Coordinador(a) de Planificación de Compras; Brand Manager Casio). El dueño, la analista y el líder de BI no figuran en el V4: el primero pertenece a la capa de socios, que el patrón no contempla. Para los tres se usa la denominación que dan las propias entrevistas; «director de compras» es como lo nombra otro socio, «aunque en teoría», porque no existe un departamento de compras.",
-     "sin_evidencia": "No consta quién ejecuta materialmente el pago a la fábrica (el Director dice «cuando yo pago»; no se sabe si interviene Tesorería). Tampoco hay segundo a bordo: el propio Director lo reconoce, y señala a la analista como la persona que tiene la información, pero no la experiencia de compra."
     },
     "disparador": {
      "estado": "borrador",
@@ -6513,9 +6510,8 @@ window.MANUAL_ASIS = {
       ],
       "aristas": [
        {"de": "n0", "a": "n1"},
-       {"de": "n0", "a": "n3"},
+       {"de": "n2", "a": "n3"},
        {"de": "n1", "a": "n2"},
-       {"de": "n2", "a": "n4"},
        {"de": "n3", "a": "n4"},
        {"de": "n4", "a": "n5"},
        {"de": "n5", "a": "n6"},

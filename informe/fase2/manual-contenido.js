@@ -1905,9 +1905,6 @@ window.MANUAL_CONTENIDO = {
       "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.",
       "Especialista de Marketing / Brand (Casio) — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."
      ],
-     "evidencia": ["E-08", "E-10", "E-05", "E-03"],
-     "notas": "El dueño de este proceso es el mismo director que en 6.4 revisa la compra de la marca propia antes de proceder: aquí la lleva él directamente y allí solo confirma, según la división que el propio equipo describe —una marca por cada director, con métodos que reconocen como no unificados—. ⚠️ Ni él ni quien prepara el archivo de compras figuran en el censo del patrón de cargos V4: el primero por pertenecer a la capa de gobierno, que el patrón no contempla, y la segunda por no ser personal propio. «Analista de Compras» y «Gerente Corporativo - Línea Casio» son denominaciones propuestas, no cargos existentes: el patrón V4 no tiene ninguno de compras ni una gerencia corporativa por línea de marca. El rótulo del dueño nombra a la vez el cuerpo que decide —el mismo Comité Comercial / Director de Compras y Cadena de Suministros de 6.1 a 6.6— y la gerencia que responde por la línea de la marca representada dentro de él.",
-     "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: el corpus dice que lleva esta marca solo. Tampoco consta el alcance definitivo del perfil de marca recién incorporado, que a la fecha de las entrevistas estaba en incorporación."
     },
     "disparador": {
      "estado": "borrador",
@@ -1944,8 +1941,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n4b", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Instruir el pago según el calendario"},
        {"id": "n4c", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Verificar y ejecutar el pago a la fábrica"},
        {"id": "n5", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Solicitar la cotización del flete"},
-       {"id": "n6", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "decision", "n": "¿Se aprueba la cotización?"},
-       {"id": "n6alt", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Ajustar y volver a cotizar hasta aprobar"},
+       {"id": "n6", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "tarea", "n": "Aprobar la cotización del flete", "sistemas": ["sujeto a ajuste y nueva cotización"]},
        {"id": "n7", "carril": "Gerente de Operaciones y Logística", "tipo": "tarea", "n": "Seguir el embarque hasta Zona Libre"},
        {"id": "n8", "carril": "Analista de Compras", "tipo": "tarea", "n": "Actualizar y reconciliar el archivo de compras"},
        {"id": "n9", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "fin", "n": "Compra recibida y reconciliada"}
@@ -1960,9 +1956,7 @@ window.MANUAL_CONTENIDO = {
        {"de": "n4b", "a": "n4c"},
        {"de": "n4c", "a": "n5"},
        {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7", "etq": "Sí"},
-       {"de": "n6", "a": "n6alt", "etq": "No"},
-       {"de": "n6alt", "a": "n7"},
+       {"de": "n6", "a": "n7"},
        {"de": "n7", "a": "n8"},
        {"de": "n8", "a": "n9"}
       ]
