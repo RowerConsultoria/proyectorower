@@ -2004,9 +2004,6 @@ window.MANUAL_CONTENIDO = {
       "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que la orden esté aprobada y el anticipo encaje en el ciclo de caja, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.",
       "Gerente de Operaciones y Logística — recibe la mercancía en el hub de Colón y requiere aviso anticipado del embarque."
      ],
-     "evidencia": ["E-05", "E-06 (partes 1 y 2)", "E-03"],
-     "notas": "La evidencia distingue con claridad las dos compras del grupo: la de la marca representada y la de la marca propia las llevan personas distintas, con metodologías que el propio equipo describe como no unificadas. Quien encabeza la marca propia declara hacer la compra, y la gerencia comercial lo confirma y se deslinda expresamente de compras, quedándose con la venta. ⚠️ Tres de los cargos citados —Director Corporativo Comercial, Gerente Regional de Ventas (Cubitt) y Encargado(a) de Sourcing (China)— NO existen todavía en el patrón de cargos V4, que no contempla ni la capa de propiedad y gobierno ni la función de compras, y cuyo censo cubre Venezuela, Panamá y Colombia pero no Estados Unidos, donde opera el primero de los tres. Están redactados como cargos, no como etiquetas funcionales, para que el manual nombre funciones y no personas; su incorporación formal al patrón corresponde a la Fase 3 y debe ratificarla el área de talento. ⚠️ El «comité de compras Cubitt» que describe el As-Is y la «Junta Directiva / Director de Compras» que revisaba antes de proceder se funden aquí en un solo Comité Comercial / Director de Compras y Cadena de Suministros, el mismo de 6.1, 6.2 y 6.3. La revisión no desaparece: deja de ser una segunda instancia ajena y pasa a ser la confirmación de las condiciones finales por el propio comité, después de negociar con la fábrica y antes de comprometer el dinero.",
-     "sin_evidencia": "Quién sustituye al dueño del proceso en su ausencia: el corpus no lo recoge y no se infiere. Pendiente de confirmar con el equipo: la transcripción deja el apellido de quien mantiene el control de venta e inventario entre dos personas homónimas de nombre; se resolvió por el departamento que la propia entrevista menciona, pero conviene verificarlo antes de asignar el validador. El cargo patrón V4 «Gerente Regional Comercial / Retail» cubre a la vez la gerencia regional de detal y la de la marca propia, funciones distintas: aquí se precisa entre paréntesis para no confundirlas. Tampoco consta el vínculo laboral de quien lleva el sourcing en China: la entrevista solo dice que «trabaja para» el dueño del proceso, y su ausencia del censo no lo aclara porque este cubre únicamente Venezuela, Panamá y Colombia. Queda por confirmar si es personal propio o externo —de ser externo, no puede actuar como validador de este proceso."
     },
     "disparador": {
      "estado": "borrador",
@@ -2064,13 +2061,13 @@ window.MANUAL_CONTENIDO = {
        {"de": "n2", "a": "n3"},
        {"de": "n4", "a": "n3"},
        {"de": "n3", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"},
        {"de": "n5", "a": "n5alt", "etq": "No"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
        {"de": "n6", "a": "n7"},
        {"de": "n7", "a": "n8"},
        {"de": "n8", "a": "n9"},
-       {"de": "n9", "a": "n10", "etq": "Sí"},
        {"de": "n9", "a": "n9alt", "etq": "No"},
+       {"de": "n9", "a": "n10", "etq": "Sí"},
        {"de": "n9alt", "a": "n10"},
        {"de": "n10", "a": "n10b"},
        {"de": "n10b", "a": "n10c"},

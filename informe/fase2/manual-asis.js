@@ -6580,18 +6580,7 @@ window.MANUAL_ASIS = {
     "Coordinador(a) de Planificación de Compras — aporta cuánto va a necesitar Venezuela, que toma gran parte de la compra; su incorporación al proceso es reciente y parcial.",
     "Gerencia de Administración y Finanzas — recibe por correo la instrucción de pago y consigue los fondos; no participa en la decisión de compra.",
     "Fábricas de China (externo) — una decena de proveedores distintos por línea de producto (relojes, básculas, audífonos, cocina, relojes de niño, accesorios). Aportan el diseño y, en los productos conectados, el firmware y la aplicación, cuyo código no es del grupo."
-   ],
-   "evidencia": [
-    "E-06 (partes 1 y 2)",
-    "E-60",
-    "E-08",
-    "E-15",
-    "E-10",
-    "E-05",
-    "E-25"
-   ],
-   "notas": "Cargos tomados de la columna «cargo actual» del patrón V4 cuando la persona figura en él: Coordinador(a) de Planificación de Compras. ⚠️ «Equipo comercial y de producto» no es un cargo: es la forma de nombrar una función que hoy no tiene titular declarado. La versión anterior de este manual la atribuía al Product Manager / Project Manager del censo, cruzando un nombre de pila con ese cargo; la evidencia no lo sostiene y la atribución se retiró. El Gerente Comercial Regional figura en el V4 como «GERENTE DE VENTAS INTERNACIONAL»; se usa «Gerente Comercial Regional» porque su ámbito es el del grupo entero y no el de un país. El dueño del proceso, el Director Comercial y de Compras, el Gerente Regional de Ventas de Marca Propia, el Gerente de Sourcing y Logística en China y el Product Specialist no figuran en el V4 —los dos primeros pertenecen a la capa de socios, que el patrón no contempla, y los tres últimos están fuera del censo—; para ellos se usa la denominación que dan las propias entrevistas («product specialist, ese es su cargo»; «entró como gerente de sourcing»). La sesión de revisión del organigrama sitúa al dueño bajo «compras», junto al otro socio que compra.",
-   "sin_evidencia": "No consta quién sustituye al dueño del proceso en su ausencia: él mismo dice que podría delegarlo mandando un correo con la referencia y las cantidades, y que la gerencia de ventas internacional y la coordinación de accesorios tienen contacto con casi todas las fábricas, pero no hay un segundo formalmente designado. Tampoco consta el umbral de monto a partir del cual una compra requeriría otra aprobación: no existe ninguno. No consta quién mantiene la base de venta, inventario y sugerido con la que se decide la compra: el dueño del proceso la menciona sin identificarla y ninguna otra sesión la reclama."
+   ]
   },
   "disparador": {
    "estado": "borrador",
@@ -6949,13 +6938,13 @@ window.MANUAL_ASIS = {
      },
      {
       "de": "n13",
-      "a": "n14",
-      "etq": "No"
+      "a": "n15",
+      "etq": "Sí"
      },
      {
       "de": "n13",
-      "a": "n15",
-      "etq": "Sí"
+      "a": "n14",
+      "etq": "No"
      },
      {
       "de": "n15",
