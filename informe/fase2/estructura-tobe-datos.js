@@ -18,6 +18,12 @@
    gerencias de TI de cada país le reportan directo. Kenex USA deja Compras y
    Cadena de Suministro y cuelga de la línea de Innovación y Desarrollo de
    Productos, con nivel de gerencia corporativa.
+   Revisión del 08-oct-2026: Kenex USA deja de ser unidad. Estados Unidos (US)
+   entra como país de alcance parcial: Isabella Roizental queda como gerencia
+   país de Operaciones y Logística y de E-commerce, la gerencia país nueva
+   (VE: Jesmir Flores). La gerencia de unidad de negocio E-commerce pasa a Clara
+   Arosemena, que sustituyó a Patrick Corujo en septiembre (SC-06, SC-13), y
+   Patrick queda en una nueva gerencia de unidad de negocio de Postventa.
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
@@ -25,7 +31,7 @@
    Esquema de un nodo:
      id · n (denominación) · nivel ('n2' gerencia corporativa | 'n3' país)
      ocupante: {nombre, estado, nota}            — unidad de una sola cabeza
-     paises:   {PA|VE|CO: {nombre, estado, cargo}} — unidad que se replica por país
+     paises:   {PA|VE|CO|US: {nombre, estado, cargo}} — unidad que se replica por país
      funciones: [...]  · interna: [...] (lo que cuelga dentro, sin dibujar)
      nota: texto de diseño · hijos: [...] (solo gerencias corporativas)
    Estados del ocupante: ver ESTADOS.
@@ -35,7 +41,7 @@
    Los nombres se escriben como figuran en el censo de personal (Supabase).
    ============================================================================ */
 window.ESTRUCTURA_TOBE = {
-  corte: '07-oct-2026',
+  corte: '08-oct-2026',
   titulo: 'Estructura organizativa To-Be',
   bajada: 'Borrador del equipo consultor para validar con el liderazgo. Tres niveles: direcciones corporativas, gerencias corporativas y gerencias país. Lo corporativo fija la línea rectora; cada país la ejecuta con su marco normativo y sus recursos.',
   // Rótulo del contenedor del staff (acuerdo del 05-oct: apoya al Comité Directivo, no solo a la Presidencia)
@@ -44,13 +50,15 @@ window.ESTRUCTURA_TOBE = {
   NIVELES: [
     {id:'n1', n:'Direcciones corporativas', d:'Una por gran función del grupo. Fijan la línea rectora, verifican y orientan; su operatividad debe ser baja.'},
     {id:'n2', n:'Gerencias corporativas',   d:'Nivel intermedio con alcance regional: especialidades que se gobiernan una sola vez para todo el grupo.'},
-    {id:'n3', n:'Gerencias país',           d:'Espejo de la línea rectora en cada operación propia (Panamá, Venezuela, Colombia): ejecutan con el marco normativo y los recursos del país.'}
+    {id:'n3', n:'Gerencias país',           d:'Espejo de la línea rectora en cada operación propia (Panamá, Venezuela, Colombia): ejecutan con el marco normativo y los recursos del país. Estados Unidos (Kenex USA) tiene solo las posiciones que su operación necesita.'}
   ],
 
   PAISES: [
     {id:'PA', n:'Panamá'},
     {id:'VE', n:'Venezuela'},
-    {id:'CO', n:'Colombia'}
+    {id:'CO', n:'Colombia'},
+    // parcial: no replica el espejo completo; solo aparece donde una unidad la nombra
+    {id:'US', n:'Estados Unidos', parcial:true}
   ],
 
   ESTADOS: {
@@ -133,33 +141,14 @@ window.ESTRUCTURA_TOBE = {
            'Comparte con Mercadeo a quién y cómo vender cada producto, y lleva sus hallazgos al Comité Comercial.'
          ],
          nota:'Reúne en una sola gerencia lo que el mercado pide y el producto que se desarrolla para responderle. Antes, el desarrollo de producto estaba bajo Mercadeo y la inteligencia de mercado era un proceso que llevaba en persona la gerencia de Mercadeo. Queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct.'},
-        {id:'innotec', n:'Innovación Tecnológica', nivel:'n2',
+        {id:'innotec', n:'Innovación y Tecnología de Productos', nivel:'n2',
          ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición vacante. Equivale a lo que en las corporaciones se denomina CTO (director de tecnología).'},
          funciones:[
            'Equivale al CTO de las corporaciones: lleva la tecnología de los productos del grupo.',
            'Evalúa tecnologías, componentes y plataformas nuevas, y define las especificaciones técnicas de cada desarrollo.',
            'Patrocina los proyectos de innovación de producto, de la idea al piloto, que gestiona la PMO.'
          ],
-         nota:'Su campo es la tecnología del producto, no la del grupo: la tecnología de información la lleva la Dirección de Tecnología, Gobernanza y Riesgo. Va en Innovación y Desarrollo de Productos porque ahí nace el producto y ahí se decide qué tecnología lleva.'},
-        // enLinea: cuelga de la línea que baja de la dirección a sus gerencias corporativas
-        {id:'oplusa', n:'Kenex USA', nivel:'n2', enLinea:true,
-         ocupante:{nombre:'Isabella Roizental', estado:'propuesto', nota:'Lleva siete años al frente de la operación de Kenex USA, en Miami, sin una denominación formal de cargo.'},
-         funciones:[
-           'La operación de Kenex USA desde Miami, con producto Cubitt y, en las ventas en vivo, también Casio: el almacén, los envíos, las devoluciones y el servicio al cliente.',
-           'Lleva también los componentes comerciales de Kenex USA: la presencia y las ventas en los marketplaces y en la web propia, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web, y el pronóstico de ventas.',
-           'Los marketplaces de Estados Unidos —unos quince: Amazon, Walmart, Target, Macy\'s, TikTok, Whatnot, entre otros—: solicita la entrada a cada uno, sube y mantiene los listados con las exigencias de cada plataforma, los conecta a Shopify y pone en cero lo que se agota.',
-           'Cada mañana revisa las órdenes del día anterior en todas las plataformas, imprime las de Amazon y Whatnot —el almacén no tiene acceso a ellas— y se las envía al almacén para despacharlas.',
-           'Decide qué y cuánto inventario enviar a los almacenes de Amazon, varias veces por semana, con Sellerboard y la herramienta de pronóstico de la agencia que apoya el crecimiento en Amazon; cuando un producto se agota, pide reposición a Panamá.',
-           'Responde el servicio al cliente de Amazon y coordina a la persona de servicio al cliente de las demás plataformas.',
-           'Administra la operación: las compras del almacén y de la oficina, los pagos de la operación y los reportes para la persona de administración, que cada mes presenta los números a la Presidencia y a Finanzas.',
-           'Supervisa a cuatro personas: dos en el almacén de Miami y, en remoto desde Venezuela, una de servicio al cliente y una de administración.',
-           'En el To-Be reporta a la Dirección Corporativa de Innovación y Desarrollo de Productos.'
-         ],
-         interna:[
-           'Sistemas: Shopify, que reúne las ventas de todas las plataformas; QuickBooks para la administración; el portal propio de cada marketplace; y Lark para la comunicación. La migración a Odoo empieza con la Dirección de Tecnología, Gobernanza y Riesgo.',
-           'Almacén de Miami: dos personas despachan las órdenes diarias, preparan los envíos a Amazon y empacan los pedidos grandes, como la primera tienda física en Estados Unidos.'
-         ],
-         nota:'Kenex USA es una empresa aparte, con personalidad jurídica propia, que hasta ahora no figuraba en la estructura del grupo. Su operación descansa en una sola persona y no tiene procesos documentados ni cargos formales. Formalizarla es lo que le permite crecer: delegar lo operativo que hoy lleva Isabella (imprimir órdenes, responder a Amazon), registrar el estado de las devoluciones de Amazon —que llegan por miles al mes— y hacer en detalle el pronóstico de ventas. Lleva la operación y la venta de una empresa entera, por eso se denomina con el nombre de la empresa y no con el de una función. Reporta a Innovación y Desarrollo de Productos, la dirección con la que ya trabaja: Alejandro Roizental emite las órdenes a las fábricas de Kenex USA y revisa con ella el resultado del mes. Se dibuja colgada de la línea de la dirección, con nivel de gerencia corporativa, porque es una empresa del grupo y no una especialidad de esa dirección. Fuentes: E-30, E-06 y E-01.'}
+         nota:'Su campo es la tecnología del producto, no la del grupo: la tecnología de información la lleva la Dirección de Tecnología, Gobernanza y Riesgo. Va en Innovación y Desarrollo de Productos porque ahí nace el producto y ahí se decide qué tecnología lleva.'}
       ]
     },
     {
@@ -207,7 +196,9 @@ window.ESTRUCTURA_TOBE = {
             paises:{
               PA:{nombre:'Fernando Alvarado', estado:'propuesto', cargo:'Gerencia', nota:'La lleva el mismo gerente corporativo.'},
               VE:{nombre:'Elvis Badillo', estado:'propuesto', cargo:'Gerencia'},
-              CO:{nombre:'Brayan Muñoz', estado:'actual', cargo:'Coordinación'}
+              CO:{nombre:'Brayan Muñoz', estado:'actual', cargo:'Coordinación'},
+              US:{nombre:'Isabella Roizental', estado:'propuesto', cargo:'Gerencia',
+                  nota:'La operación de Kenex USA desde Miami: el almacén, los envíos a los almacenes de Amazon, las devoluciones y el servicio al cliente. Lleva siete años al frente sin una denominación formal de cargo; formalizarla le permite delegar lo operativo y crecer. Fuentes: E-30, E-06 y E-01.'}
             },
             funciones:['Operación de bodega, despacho e importación del país.'],
             interna:[
@@ -244,8 +235,18 @@ window.ESTRUCTURA_TOBE = {
             ],
             nota:'Se separa de la venta al mayor de cada país, que atiende a los mayoristas locales. La frontera entre las dos se acuerda con la Dirección Comercial.'},
            {id:'ecommerce', n:'E-commerce', nivel:'gun',
-            ocupante:{nombre:'Patrick Corujo', estado:'propuesto'},
-            funciones:['Página web y canales digitales de venta de todo el grupo. Uno solo para todos los países: no hace falta una gerencia web por país.']},
+            ocupante:{nombre:'Clara Arosemena', estado:'actual', nota:'Nombrada gerente regional de e-commerce en septiembre de 2026, en sustitución de Patrick Corujo, que pasa a soporte técnico y servicio al cliente. Venía de Mercadeo, donde lideraba la pauta digital. Fuentes: E-24, SC-06 y SC-13.'},
+            funciones:[
+              'Línea rectora de la página web y los canales digitales de venta de todo el grupo: web propia, marketplaces y ventas en vivo.',
+              'Las gerencias de E-commerce de cada país ejecutan su línea.'
+            ]},
+           {id:'postventacorp', n:'Postventa', nivel:'gun',
+            ocupante:{nombre:'Patrick Corujo', estado:'actual', nota:'Hoy es el gerente de soporte técnico y servicio al cliente; dejó E-commerce en septiembre de 2026 para concentrarse en esta área. Fuentes: E-24, SC-06 y E-58.'},
+            funciones:[
+              'Línea rectora de la postventa de todo el grupo: garantías, devoluciones, servicio técnico y atención al cliente, con criterios comunes para todos los países.',
+              'Queda bajo Ventas porque cada garantía o descuento que concede toca el margen de la venta.'
+            ],
+            nota:'Separa la postventa del comercio electrónico, como se acordó al mover a Clara Arosemena a E-commerce. Las gerencias de Postventa de cada país ejecutan su línea.'},
            {id:'mayorpais', n:'Ventas al Mayor', nivel:'n3',
             paises:{
               PA:{nombre:'Edumar Escalona', estado:'actual'},
@@ -260,16 +261,20 @@ window.ESTRUCTURA_TOBE = {
               CO:{nombre:'Por definir', estado:'pordefinir'}
             },
             funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']},
+           {id:'ecommercepais', n:'E-commerce', nivel:'n3',
+            paises:{
+              VE:{nombre:'Jesmir Flores', estado:'actual', nota:'Hoy es la gerente de Ventas Web de Venezuela. Fuentes: E-16 y E-41.'},
+              US:{nombre:'Isabella Roizental', estado:'propuesto',
+                  nota:'La venta en línea de Kenex USA, que hoy lleva sin una denominación formal de cargo: los marketplaces de Estados Unidos —unos quince, de Amazon a Whatnot— y la web propia, con Shopify, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web. Fuentes: E-30, E-06 y E-01.'}
+            },
+            funciones:['La venta en línea del país: web propia, marketplaces, validación de pagos y despacho de los pedidos web, con la línea de la gerencia de E-commerce.']},
            {id:'postventa', n:'Postventa', nivel:'n3',
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir'},
               VE:{nombre:'Por definir', estado:'pordefinir'},
               CO:{nombre:'Por definir', estado:'pordefinir'}
             },
-            funciones:[
-              'Garantías, devoluciones, servicio técnico y atención al cliente, con criterios comunes para todos los países.',
-              'Queda bajo Ventas porque cada garantía o descuento que concede toca el margen de la venta.'
-            ],
+            funciones:['Garantías, devoluciones, servicio técnico y atención al cliente del país, con los criterios que fija la gerencia de Postventa.'],
             interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
          ]},
         {id:'mercadeo', n:'Mercadeo', nivel:'n2',
@@ -554,7 +559,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, E-commerce) y de Mercadeo (Experiencia del Cliente, Experiencia Digital) añaden un escalón en Comercial.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital) añaden un escalón en Comercial.'}
   ],
 
   CAMBIOS: {
@@ -589,7 +594,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Servicios Generales como coordinación de Administración y Finanzas en cada país.',
        porque:'El mantenimiento de sedes, tiendas y bodegas se resuelve en cada país, y es donde hoy falta un responsable. Al lado de quien compra y paga esos servicios, la función gana un dueño claro.'},
       {antes:'Dirección de Servicio Técnico.',
-       ahora:'Postventa por país, bajo Ventas.',
+       ahora:'Postventa como gerencia de unidad de negocio bajo Ventas, con una gerencia por país.',
        porque:'Garantías, devoluciones y descuentos tocan el margen: tienen que verse desde la venta.'},
       {antes:'Dirección de Inventario, junto a la de Operaciones.',
        ahora:'Dentro de Operaciones y Logística.',
@@ -606,11 +611,11 @@ window.ESTRUCTURA_TOBE = {
   PENDIENTES: [
     {t:'Gerencia corporativa de Compras', d:'Definir quién la ocupa, y quiénes llevan sus coordinaciones de Compras Casio y Compras Cubitt.'},
     {t:'Gerencias por marca en Innovación y Desarrollo de Productos', d:'Hoy la dirección trabaja para Cubitt. Cuando entre una marca o un producto nuevo, decidir si se abre una gerencia corporativa o una por país.'},
-    {t:'Kenex USA', d:'Confirmar a Isabella Roizental en la gerencia de Kenex USA, que lleva la operación y los componentes comerciales de la empresa, y su dependencia de Innovación y Desarrollo de Productos. Aclarar si en Estados Unidos se vende también Casio.'},
+    {t:'Kenex USA', d:'Confirmar a Isabella Roizental en sus dos posiciones de Estados Unidos: las gerencias país de Operaciones y Logística y de E-commerce. Aclarar si en Estados Unidos se vende también Casio.'},
     {t:'Gerencia corporativa de Mercadeo', d:'Vacante clave: definir perfil y titular.'},
     {t:'Gobierno de IA y tecnología', d:'La unidad de Gobierno de IA, a contratar: definir su perfil. Confirmar a Mariela Castro en la Dirección de Tecnología, Gobernanza y Riesgo.'},
     {t:'PMO', d:'Confirmar a Ricardo Candanedo en la dirección y a Arani González en la gerencia corporativa.'},
-    {t:'Innovación Tecnológica', d:'Vacante: definir el perfil de CTO de producto y si se contrata o se forma.'},
+    {t:'Innovación y Tecnología de Productos', d:'Vacante: definir el perfil de CTO de producto y si se contrata o se forma.'},
     {t:'Finanzas: línea y funcionamiento', d:'La gerencia corporativa de Finanzas depende de Finanzas y Negocios y despacha con la Junta y la Presidencia a través del Comité de Finanzas y Riesgos. Confirmar que así se lee.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
     {t:'Servicios Generales', d:'Se planteó llevarla a Operaciones en cada país; hoy queda en Administración y Finanzas. Decidir.'},

@@ -130,7 +130,8 @@
   // Gerencia país con sus coordinaciones debajo, con sangría: es la única estructura
   // interna que se dibuja, para las unidades que deben existir con responsable propio.
   function cajaPais(k){
-    var h = caja(k, "eo-c-n3", "Gerencia país · " + E.PAISES.length + " países");
+    var np = E.PAISES.filter(function(p){ return k.paises && k.paises[p.id]; }).length;
+    var h = caja(k, "eo-c-n3", "Gerencia país · " + np + " países");
     (k.hijos || []).filter(function(x){ return x.nivel === "coord"; }).forEach(function(x){
       h += caja(x, "eo-c-n3 eo-c-coord", "Coordinación país");
     });
@@ -779,7 +780,7 @@
              '<div class="eo-k-fila eo-k-ley"><span>dentro de una gerencia corporativa · para todo el grupo</span></div>';
     }
     if(c.id === "n3")
-      return '<div class="eo-k-fila">' + E.PAISES.map(function(p){
+      return '<div class="eo-k-fila">' + E.PAISES.filter(function(p){ return !p.parcial; }).map(function(p){
                return '<div class="eo-k-pais"><span class="eo-k-pcod">' + esc(p.id) + '</span><div class="eo-k-fila">' + cajas(3, "eo-k-gp") + '</div></div>';
              }).join("") + '</div>' +
              '<div class="eo-k-fila eo-k-ley"><span>el mismo espejo en cada país</span></div>';
