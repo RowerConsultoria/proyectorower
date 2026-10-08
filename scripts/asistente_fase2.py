@@ -417,7 +417,7 @@ def generar():
         notas = re.search(r'data-notas="([^"]*)"', mt.group(1))
         cuerpo = html_texto(mt.group(2))
         laminas.append((n.group(1) if n else '?', cuerpo, _html.unescape(notas.group(1)) if notas else ''))
-    pl = ['PRESENTACIÓN DE VALIDACIÓN DE LA FASE 2 — «Un decálogo, cinco premisas» (presentacion-validacion.html), %d láminas.'
+    pl = ['PRESENTACIÓN DE VALIDACIÓN DE LA FASE 2 — «Un decálogo» (presentacion-validacion.html), %d láminas.'
           ' Guía de la reunión con la Presidencia (5-oct) y de la presentación a la Junta (9-oct).' % len(laminas)]
     for n, cuerpo, notas in laminas:
         pl.append('\n### Lámina %s\n%s%s' % (n, cuerpo, ('\nNotas para quien presenta: ' + notas) if notas else ''))
@@ -457,7 +457,7 @@ def generar():
            '== LA VALIDACIÓN ==',
            'Valida el modelo To-Be un COMITÉ EJECUTIVO AD HOC de quienes conducen la transformación, que consulta a los dueños de',
            'proceso solo en lo puntual. Reunión con la Presidencia el 5-oct-2026 y presentación a la Junta el 9-oct-2026, con la',
-           'presentación «Un decálogo, cinco premisas». Los macros estratégicos 1–5 se validan en la Junta Directiva.',
+           'presentación «Un decálogo». Los macros estratégicos 1–5 se validan en la Junta Directiva.',
            '',
            '== LA PREMISA CENTRAL: MADUREZ DOCUMENTAL BAJA ==',
            t(M.get('premisa')),

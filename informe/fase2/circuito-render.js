@@ -5,8 +5,7 @@
 // señales de paso, vías de retorno y la catenaria de mercadeo. Un clic abre la
 // ficha de la estación en un panel que entra desde la derecha a media pantalla.
 //
-// Tres capas: Proceso (título de cada estación), Tripulación (jefe de estación) y
-// Sistemas (reparto de la información entre Odoo/Lark/EBS, plataformas externas y
+// Dos capas: Proceso (título de cada estación) y Sistemas (reparto de la información entre Odoo/Lark/EBS, plataformas externas y
 // sin sistema, con un panel de cuánto queda fuera). La capa elegida se guarda en
 // `rower.fase2.circuito.capa`. La geometría vive en el dato (`via`); las clases
 // llevan prefijo `cx-` y los estilos están en informe-fase2.html.
@@ -72,7 +71,7 @@
     var asis = !!(A[pref] && A[pref].procesos && A[pref].procesos[cod]);
     return {n:n, asis:asis};
   }
-  function leerCapa(){ try{ var v = localStorage.getItem(LS_CAPA); return (v === "sis" || v === "gente") ? v : "proceso"; }catch(e){ return "proceso"; } }
+  function leerCapa(){ try{ var v = localStorage.getItem(LS_CAPA); return v === "sis" ? v : "proceso"; }catch(e){ return "proceso"; } }
   function guardarCapa(v){ try{ localStorage.setItem(LS_CAPA, v); }catch(e){} }
 
   // ---------------------------------------------------------------- montaje
@@ -98,7 +97,6 @@
         '<div class="mp-sp"></div>' +
         '<div class="cx-seg" role="group" aria-label="Capa del circuito">' +
           '<button type="button" data-capa="proceso">Proceso</button>' +
-          '<button type="button" data-capa="gente">Tripulación</button>' +
           '<button type="button" data-capa="sis">Sistemas</button>' +
         '</div>' +
         '<button type="button" class="mp-btn on" id="cxFrenos" aria-pressed="true">Frenos</button>' +
@@ -269,8 +267,8 @@
         if(filas.length > maxF){ filas = filas.slice(0, maxF); filas[maxF-1].push("…"); }
         bloque = [{t:s.id, c:"cx-cod", pct:T2.tot ? pct(T2.inf, T2.tot) + " %" : ""}].concat(filas.map(function(f){ return {herr:f}; }));
       } else {
-        var lns = partir(capa === "gente" ? (s.jefe || "") : s.t, capa === "gente" ? 22 : 17, Math.min(capa === "gente" ? 2 : 3, tope));
-        bloque = [{t:s.id, c:"cx-cod"}].concat(lns.map(function(t){ return {t:t, c:capa === "gente" ? "cx-gen" : "cx-tit"}; }));
+        var lns = partir(s.t, 17, Math.min(3, tope));
+        bloque = [{t:s.id, c:"cx-cod"}].concat(lns.map(function(t){ return {t:t, c:"cx-tit"}; }));
       }
       var alto = bloque.length * 14;
       var y0 = lado === "above" ? y - 16 - alto + 11 : (lado === "below" ? y + 26 : y - alto/2 + 10);
