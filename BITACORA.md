@@ -602,3 +602,32 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
 - **Presentación:** se llama «Un decálogo» y pasa de 19 a 13 láminas, porque salieron las cinco premisas. La lámina 10 se queda solo con las capas («Cómo se compone») y la del circuito habla de dos capas. Del instructivo salieron las cinco ideas centrales.
 - **Circuito:** sin la capa Tripulación. El jefe y la tripulación siguen en la ficha de la estación.
 - ⚠️ **Para revisar:** el censo tiene a Jesmir como «Flores Contreras», pero el mapa v18 (`manual-procesos-datos.js`, generado) la cita como «Jesmir Ojeda»; las gerencias país de E-commerce de PA y CO no se crearon porque no se pidieron. Las credenciales de prueba del entorno (`ROWER_CORREO`/`ROWER_CLAVE`) vuelven a fallar, así que se verificó con Playwright y `sesion.js` sustituido. Sin errores de consola en la estructura, «Capas», el circuito y la presentación; `validar-html.py` en verde. **Asistente IA sin sincronizar:** `sincronizar-asistente.py` necesita Node y aquí no está instalado.
+
+**2026-10-09** — Gabriel (vía Claude Code) — **La Arquitectura de IA pasa a ser la sección de toda la IA de la Fase 2, con submenú.** La barra de `#/arquitectura` lleva ahora estas pestañas:
+- **Propuesta**, que es la órbita, sin cambios;
+- **Documento técnico**, **Política de adopción**, **Casos de uso** y **Prototipos**, que se abren en el mismo marco como `ia/documento.html?d=<doc>`;
+- dos salidas: los procesos de Gobierno de IA (`#/m/5`), cuyo To-Be se queda en el manual de procesos, y el demo `/sistema`.
+
+**Cómo funcionan los documentos:**
+- Su contenido vive en `informe/fase2/ia/<doc>-datos.js`, que es fuente única y se edita a mano. Lo pinta `ia-doc.js`.
+- Cada sección tiene dos capas, «Qué es y por qué» y «Cómo se hace».
+- Llevan índice, estado por sección, una versión para imprimir o guardar en PDF y referencias a módulos, procesos y frenos que mueven el hash del manual.
+- Hoy los cuatro son un armazón: el índice completo y la intención de cada sección.
+
+**Por qué:** cumplir lo prometido en la Fase 1, que es el documento técnico, la política, los casos de uso priorizados y un mínimo de tres prototipos. El plan y las fuentes están fuera del repo, en `Rower/ia-fase2/`. Por decisión de Gabriel, los prototipos se anotan pero no se construyen ahora:
+- P1: el aplicativo;
+- P2: reclutamiento con IA;
+- P3: normalizador del sell-out.
+
+**Login:** `rotulo()` anuncia «Arquitectura de IA — Fase 2» para `informe/fase2/ia/`, para `arquitectura-ia` y para `#/arquitectura`.
+
+**Verificado:**
+- `scripts/comprobar-ia.py`, nuevo, con 29 comprobaciones en verde: pestañas, secciones contra el dato, enlace profundo, índice que mueve el hash del manual, la órbita sigue abriendo por módulo, tema, móvil a 390 px sin scroll horizontal, página suelta e impresión. Con `ROMPER=1` falla, como debe.
+- `validar-html.py` en verde.
+
+⚠️ **Seguridad:** la docstring de `scripts/comprobar-censo.py` llevaba en claro la clave de la cuenta de QA desde el 14-sep, en un repo público, y esa clave funcionaba.
+- Se rotó en Supabase: la vieja da 400 y la nueva 200.
+- La nueva vive solo en el `.env` local, y `sesion_prueba.py` la lee de ahí si el entorno no la trae.
+- **Quien use la cuenta de QA en otra máquina necesita la clave nueva.**
+
+⚠️ **Supabase:** desde el 30-oct-2026, en los proyectos existentes, las tablas nuevas de `public` necesitan un `GRANT` explícito para verse en la API. Toda migración nueva debe traerlo.

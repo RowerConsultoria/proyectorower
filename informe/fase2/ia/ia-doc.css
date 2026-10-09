@@ -1,0 +1,172 @@
+/* Documentos de IA de la Fase 2 (documento técnico, política, casos de uso,
+   prototipos). Misma identidad que la órbita (arquitectura-ia.html): oscuro
+   por defecto, menta y cian de marca, niveles de autonomía 1 cian · 2 menta ·
+   3 ámbar. El tema lo fija documento.html en data-theme siguiendo al manual. */
+:root{
+  color-scheme:dark;
+  --fondo:#0A0E13; --lienzo:#0D131A; --panel:#121A23; --panel-alto:#18222D;
+  --borde:#22303D; --borde-tenue:#1A2632;
+  --tinta:#E9EFF5; --tinta-media:#9AAABA; --tinta-tenue:#7D8C9C;
+  --menta:#36F6BB; --cian:#32C6F4; --alerta:#FFC94A; --riesgo:#FF6B5A;
+  --menta-t:#36F6BB; --cian-t:#32C6F4; --alerta-t:#FFC94A; --riesgo-t:#FF8A7C;
+  --n1:#32C6F4; --n2:#36F6BB; --n3:#FFC94A;
+  --sombra:0 1px 2px rgba(0,0,0,.34),0 12px 32px rgba(0,0,0,.34);
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"DM Mono","Cascadia Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme:light;
+    --fondo:#EDF1F4; --lienzo:#F6F8FA; --panel:#FFFFFF; --panel-alto:#F1F4F7;
+    --borde:#D3DCE4; --borde-tenue:#E3E9EE;
+    --tinta:#0E1822; --tinta-media:#445464; --tinta-tenue:#5D6D7E;
+    --menta-t:#0A8B66; --cian-t:#0A73A0; --alerta-t:#9A6B00; --riesgo-t:#C23B2B;
+    --n1:#0A86B8; --n2:#0FA57A; --n3:#B7860B;
+    --sombra:0 1px 2px rgba(20,40,60,.08),0 12px 32px rgba(20,40,60,.10);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --fondo:#EDF1F4; --lienzo:#F6F8FA; --panel:#FFFFFF; --panel-alto:#F1F4F7;
+  --borde:#D3DCE4; --borde-tenue:#E3E9EE;
+  --tinta:#0E1822; --tinta-media:#445464; --tinta-tenue:#5D6D7E;
+  --menta-t:#0A8B66; --cian-t:#0A73A0; --alerta-t:#9A6B00; --riesgo-t:#C23B2B;
+  --n1:#0A86B8; --n2:#0FA57A; --n3:#B7860B;
+  --sombra:0 1px 2px rgba(20,40,60,.08),0 12px 32px rgba(20,40,60,.10);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fondo);color:var(--tinta);font-family:var(--sans);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+[hidden]{display:none!important}
+a{color:var(--cian-t);text-decoration:none}
+a:hover{text-decoration:underline}
+code,kbd{font-family:var(--mono);font-size:.88em;background:var(--panel-alto);border:1px solid var(--borde-tenue);
+  border-radius:6px;padding:.05em .38em}
+:focus-visible{outline:2px solid var(--cian);outline-offset:2px;border-radius:4px}
+
+/* ── marco general ── */
+.iad{max-width:1240px;margin:0 auto;padding:40px 28px 96px;display:grid;
+  grid-template-columns:232px minmax(0,1fr);gap:48px;align-items:start}
+.iad-fuera{grid-column:1/-1;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;
+  color:var(--tinta-media);border:1px dashed var(--borde);border-radius:12px;padding:10px 14px}
+.iad-cab{grid-column:1/-1;display:grid;gap:12px;max-width:80ch}
+.ceja{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--menta-t);margin:0}
+.iad-cab h1{font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.02em;margin:0;font-weight:700}
+.iad-lede{font-size:17px;color:var(--tinta-media);margin:0;max-width:72ch}
+.iad-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.chip{font-family:var(--mono);font-size:11px;border-radius:999px;padding:3px 10px;border:1px solid var(--borde);
+  color:var(--tinta-media);white-space:nowrap}
+.chip.e-pendiente{border-style:dashed}
+.chip.e-borrador{color:var(--alerta-t);border-color:color-mix(in srgb,var(--alerta) 45%,transparent)}
+.chip.e-revision{color:var(--cian-t);border-color:color-mix(in srgb,var(--cian) 45%,transparent)}
+.chip.e-validado{color:var(--menta-t);border-color:color-mix(in srgb,var(--menta) 45%,transparent)}
+.chip.n1{color:var(--n1);border-color:color-mix(in srgb,var(--n1) 45%,transparent)}
+.chip.n2{color:var(--n2);border-color:color-mix(in srgb,var(--n2) 45%,transparent)}
+.chip.n3{color:var(--n3);border-color:color-mix(in srgb,var(--n3) 45%,transparent)}
+.btn{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--tinta-media);background:var(--panel-alto);
+  border:1px solid var(--borde);border-radius:999px;padding:6px 13px;cursor:pointer}
+.btn:hover{color:var(--tinta);border-color:var(--tinta-tenue)}
+
+/* ── índice lateral ── */
+.iad-toc{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;font-size:13.5px;
+  border-right:1px solid var(--borde-tenue);padding-right:16px}
+.iad-toc .ceja{margin-bottom:10px}
+.iad-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.iad-toc a{display:grid;grid-template-columns:28px 1fr 10px;gap:6px;align-items:baseline;color:var(--tinta-media);
+  padding:5px 8px;border-radius:8px;text-decoration:none}
+.iad-toc a:hover{background:var(--panel);color:var(--tinta)}
+.iad-toc a.on{background:var(--panel-alto);color:var(--tinta);box-shadow:inset 2px 0 0 var(--menta)}
+.iad-toc .num{font-family:var(--mono);font-size:11.5px;color:var(--tinta-tenue)}
+.iad-toc .pto{width:7px;height:7px;border-radius:50%;background:var(--borde);align-self:center}
+.iad-toc .pto.e-borrador{background:var(--alerta)}
+.iad-toc .pto.e-revision{background:var(--cian)}
+.iad-toc .pto.e-validado{background:var(--menta)}
+
+/* ── secciones ── */
+.iad-cuerpo{min-width:0;display:grid;gap:64px}
+.iad-sec{scroll-margin-top:20px}
+.iad-sec-cab{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:14px}
+.iad-sec-cab .num{font-family:var(--mono);font-size:13px;color:var(--menta-t)}
+.iad-sec-cab h2{font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-.02em;margin:0;font-weight:700;flex:0 1 auto}
+.iad-intro{color:var(--tinta-media);max-width:78ch;margin:0 0 16px}
+.capa{max-width:80ch}
+.capa + .capa{margin-top:22px}
+.capa-rot{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-tenue);
+  margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.capa-rot::before{content:"";width:14px;height:2px;background:currentColor;border-radius:2px}
+.capa.como{background:var(--panel);border:1px solid var(--borde);border-left:3px solid var(--menta);border-radius:14px;
+  padding:16px 20px 18px;max-width:none}
+.capa.como .capa-rot{color:var(--menta-t)}
+.pend{border:1px dashed var(--borde);border-radius:14px;padding:16px 20px;color:var(--tinta-media);max-width:80ch;
+  background:color-mix(in srgb,var(--panel) 55%,transparent)}
+.pend b{color:var(--tinta);font-weight:600}
+
+/* ── bloques ── */
+.iad p{margin:0 0 12px}
+.iad ul,.iad ol.lista{margin:0 0 12px;padding-left:20px}
+.iad li{margin:3px 0}
+.iad h3{font-size:16.5px;margin:22px 0 8px;letter-spacing:-.01em}
+.nota{border-radius:12px;padding:12px 16px;margin:0 0 12px;background:color-mix(in srgb,var(--cian) 8%,var(--panel));
+  border:1px solid color-mix(in srgb,var(--cian) 28%,transparent);font-size:14px}
+.nota.alerta{background:color-mix(in srgb,var(--alerta) 8%,var(--panel));border-color:color-mix(in srgb,var(--alerta) 32%,transparent)}
+.nota.decision{background:color-mix(in srgb,var(--menta) 7%,var(--panel));border-color:color-mix(in srgb,var(--menta) 30%,transparent)}
+.nota .nota-t{font-weight:700;display:block;margin-bottom:2px}
+.tabla-env{overflow-x:auto;border:1px solid var(--borde);border-radius:14px;background:var(--panel);margin:0 0 14px}
+.tabla{width:100%;border-collapse:collapse;font-size:13.5px}
+.tabla th{text-align:left;font-weight:600;font-size:11.5px;color:var(--tinta-tenue);text-transform:uppercase;letter-spacing:.06em;
+  padding:11px 14px;border-bottom:1px solid var(--borde);white-space:nowrap}
+.tabla td{padding:10px 14px;border-bottom:1px solid var(--borde-tenue);vertical-align:top}
+.tabla tr:last-child td{border-bottom:0}
+.tabla td.num,.tabla th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+pre.codigo{font-family:var(--mono);font-size:12.5px;line-height:1.55;background:var(--lienzo);border:1px solid var(--borde);
+  border-radius:12px;padding:14px 16px;overflow:auto;margin:0 0 14px;white-space:pre}
+.fig{margin:0 0 16px;border:1px solid var(--borde);border-radius:14px;background:var(--panel);padding:14px}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{font-size:12.5px;color:var(--tinta-tenue);margin-top:8px}
+.pasos{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:12px;counter-reset:paso}
+.paso{counter-increment:paso;border:1px solid var(--borde);border-radius:14px;background:var(--panel-alto);padding:14px 16px 12px 52px;position:relative}
+.paso::before{content:counter(paso);position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:50%;
+  display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--menta-t);
+  border:1px solid color-mix(in srgb,var(--menta) 45%,transparent)}
+.paso-t{font-weight:700;margin:0 0 4px}
+.paso dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:8px 0 0;font-size:13.5px}
+.paso dt{color:var(--tinta-tenue);font-size:12px;white-space:nowrap;padding-top:1px}
+.paso dd{margin:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 14px}
+.kpi{border:1px solid var(--borde);border-radius:14px;background:var(--panel);padding:12px 14px}
+.kpi b{display:block;font-size:24px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12.5px;color:var(--tinta-media)}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:0 0 14px}
+.tarjeta{border:1px solid var(--borde);border-radius:14px;background:var(--panel);padding:14px 16px}
+.tarjeta h4{margin:0 0 6px;font-size:15px}
+.tarjeta p{font-size:13.5px;color:var(--tinta-media);margin:0 0 8px}
+.ref{white-space:nowrap}
+.ref.mod::before,.ref.proc::before,.ref.freno::before{font-family:var(--mono);font-size:10px;margin-right:3px;opacity:.75}
+.ref.mod::before{content:"◎"}
+.ref.proc::before{content:"▤"}
+.ref.freno::before{content:"■";color:var(--riesgo-t)}
+
+/* ── pantallas angostas ── */
+@media (max-width:900px){
+  .iad{grid-template-columns:minmax(0,1fr);gap:28px;padding:24px 16px 72px}
+  .iad-toc{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--borde-tenue);padding:0 0 12px}
+  .iad-toc ol{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;padding-bottom:4px}
+  .iad-toc a{grid-template-columns:auto auto 8px}
+  .capa.como{padding:14px 14px 16px}
+  .paso{padding-left:46px}
+}
+
+/* ── impresión ── */
+@media print{
+  :root{color-scheme:light}
+  body{background:#fff;color:#000;font-size:11pt}
+  .iad{display:block;padding:0;max-width:none}
+  .iad-toc,.iad-fuera,.no-imp{display:none!important}
+  .iad-cuerpo{display:block}
+  .iad-sec{break-before:page;margin-top:0}
+  .iad-sec:first-child{break-before:auto}
+  .capa.como,.paso,.tabla-env,.fig,.kpi,.tarjeta{background:#fff;border-color:#bbb;box-shadow:none}
+  a{color:#000}
+}

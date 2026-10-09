@@ -507,6 +507,12 @@
   #arquitectura{flex:1;min-height:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--fondo)}
   #arquitectura[hidden]{display:none}
   #aqMarco{flex:1;min-height:0;width:100%;border:0;display:block;background:var(--fondo)}
+  /* submenú de la sección de IA: la órbita y los documentos (tecnico, politica, casos, prototipos) */
+  .aq-sub{display:flex;gap:6px;flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+  .aq-sub::-webkit-scrollbar{display:none}
+  .aq-sub .mp-btn{white-space:nowrap}
+  .aq-sal{white-space:nowrap}
+  @media (max-width:1100px){ .aq-bar .mp-sp{display:none} .aq-sub{order:5;flex:1 1 100%} .aq-sal{order:6} }
   /* ── estructura organizativa To-Be (#/estructura) ── motor en estructura-render.js,
      dato en estructura-tobe-datos.js ── */
   #estructura{flex:1;min-height:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--fondo);--eo-col:236px}
@@ -1170,12 +1176,22 @@
   <!-- Estructura organizativa To-Be (#/estructura[/<unidad>|/premisas/<pestaña>]): la pinta estructura-render.js con estructura-tobe-datos.js -->
   <section id="estructura" hidden aria-label="Estructura organizativa To-Be"></section>
 
-  <!-- Arquitectura de IA (#/arquitectura[/<sector o módulo>]): página propia, en su marco -->
+  <!-- Arquitectura de IA: la órbita (#/arquitectura[/<sector o módulo>]) y los documentos de IA
+       (#/arquitectura/tecnico|politica|casos|prototipos[/<sección>]), todo en el mismo marco -->
   <section id="arquitectura" hidden aria-label="Arquitectura de IA">
-    <div class="mp-bar">
+    <div class="mp-bar aq-bar">
       <a class="mp-btn" href="#/">‹ Índice</a>
-      <div class="mp-tit">Arquitectura de IA · la propuesta por sectores y olas</div>
+      <div class="mp-tit">Arquitectura de IA</div>
+      <nav class="aq-sub" aria-label="Secciones de la arquitectura de IA">
+        <a class="mp-btn" href="#/arquitectura" data-aq="">Propuesta</a>
+        <a class="mp-btn" href="#/arquitectura/tecnico" data-aq="tecnico">Documento técnico</a>
+        <a class="mp-btn" href="#/arquitectura/politica" data-aq="politica">Política de adopción</a>
+        <a class="mp-btn" href="#/arquitectura/casos" data-aq="casos">Casos de uso</a>
+        <a class="mp-btn" href="#/arquitectura/prototipos" data-aq="prototipos">Prototipos</a>
+      </nav>
       <div class="mp-sp"></div>
+      <a class="mp-btn aq-sal" href="#/m/5" title="El To-Be de Gobierno de IA vive en el manual de procesos (macro 5)">Procesos de gobierno de IA →</a>
+      <a class="mp-btn aq-sal" href="../../sistema/index.html?rol=direccion" target="_blank" rel="noopener" title="Prototipo navegable del sistema; pide el permiso ver.sistema">Demo del sistema ↗</a>
     </div>
     <iframe id="aqMarco" title="Arquitectura de IA"></iframe>
   </section>
@@ -2142,16 +2158,27 @@
   }
   function salirCircuito(){ circSec.hidden = true; }
 
-  // ---------- arquitectura de IA (#/arquitectura[/<sector o módulo>]) ----------
-  // Vive en su propia página (arquitectura-ia.html) dentro de un marco: trae su motor
-  // 3D y su panel, y así sus estilos no chocan con los del manual.
+  // ---------- arquitectura de IA (#/arquitectura[/<sector o módulo>] y #/arquitectura/<documento>[/<sección>]) ----------
+  // La órbita vive en su propia página (arquitectura-ia.html) dentro de un marco: trae su
+  // motor 3D y su panel, y así sus estilos no chocan con los del manual. Los documentos de
+  // IA (ia/documento.html?d=…) usan el mismo marco. Ningún id de la órbita choca con los
+  // nombres de documento: los módulos son m-…, las áreas a-… y los sectores s-….
   var arqSec = $('#arquitectura'), arqMarco = $('#aqMarco');
-  function activarArquitectura(id){
+  var AQ_DOCS = { tecnico:'Documento técnico', politica:'Política de adopción de IA', casos:'Casos de uso de IA', prototipos:'Prototipos de IA' };
+  function activarArquitectura(a, b){
     fbody.hidden = true; mapaSec.hidden = true; circSec.hidden = true; arqSec.hidden = false;
     document.body.classList.remove('f2-menu');
-    document.title = 'Arquitectura de IA — Fase 2';
-    if(!arqMarco.getAttribute('src')) arqMarco.setAttribute('src', 'arquitectura-ia.html'+(id?'#'+id:''));
-    else if(id){ try{ arqMarco.contentWindow.location.hash = id; }catch(e){ arqMarco.setAttribute('src', 'arquitectura-ia.html#'+id); } }
+    var doc = AQ_DOCS[a] ? a : '';
+    var ancla = doc ? (b || '') : (a || '');
+    var src = doc ? 'ia/documento.html?d=' + doc : 'arquitectura-ia.html';
+    document.title = (doc ? AQ_DOCS[doc] + ' — ' : '') + 'Arquitectura de IA — Fase 2';
+    arqSec.querySelectorAll('.aq-sub [data-aq]').forEach(function(el){
+      var on = el.getAttribute('data-aq') === doc;
+      el.classList.toggle('on', on);
+      if(on) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current');
+    });
+    if((arqMarco.getAttribute('src') || '').split('#')[0] !== src) arqMarco.setAttribute('src', src + (ancla ? '#' + ancla : ''));
+    else if(ancla){ try{ arqMarco.contentWindow.location.hash = ancla; }catch(e){ arqMarco.setAttribute('src', src + '#' + ancla); } }
   }
   function salirArquitectura(){ arqSec.hidden = true; }
 
@@ -2176,7 +2203,7 @@
     document.body.classList.remove('f2-menu');
     if(parts[0]==='estructura'){ salirCircuito(); salirArquitectura(); return activarEstructura(parts[1], parts[2]); }
     salirEstructura();
-    if(parts[0]==='arquitectura'){ salirCircuito(); return activarArquitectura(parts[1]); }
+    if(parts[0]==='arquitectura'){ salirCircuito(); return activarArquitectura(parts[1], parts[2]); }
     salirArquitectura();
     if(parts[0]==='mapa'){ salirCircuito(); return activarMapa(parts[1]); }
     if(parts[0]==='circuito'){ return activarCircuito(parts[1]); }
