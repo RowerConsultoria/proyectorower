@@ -1080,7 +1080,7 @@ window.IA_DOC = {
        "47",
        "[[mod:m-bandeja-de-solicitudes|Bandeja de solicitudes]]",
        "Ola 3",
-       "2",
+       "1·2",
        "3,0",
        "3,0",
        "4,0",
@@ -1540,14 +1540,14 @@ window.IA_DOC = {
        "titulo": "47. Bandeja de solicitudes",
        "chips": [
         "Ola 3",
-        "nivel 2",
+        "nivel 1·2",
         "prioridad 3,25",
         "propuesto"
        ],
        "campos": [
         [
          "Qué hace la IA",
-         "al aprobarse la solicitud, la convierte en el objeto de Odoo que corresponde: traslado, orden de compra o factura de proveedor (2)."
+         "al aprobarse la solicitud, la convierte en el objeto que corresponde: un traslado o una orden de compra en borrador (2); si es una factura de proveedor, arma el expediente y la registra Contabilidad (1)."
         ],
         [
          "Quién firma",
@@ -2557,11 +2557,11 @@ window.IA_DOC = {
        "campos": [
         [
          "Qué hace la IA",
-         "reparte flete, seguro y aranceles y deja el borrador (2)."
+         "reparte flete, seguro y aranceles y arma el expediente del costo (2)."
         ],
         [
          "Quién firma",
-         "lo publica contabilidad."
+         "lo registra Contabilidad en Odoo."
         ],
         [
          "Procesos",
@@ -5360,11 +5360,11 @@ window.IA_DOC = {
        "campos": [
         [
          "Qué hace la IA",
-         "prepara la nota de crédito (2) y propone la resolución (1)."
+         "arma el expediente de la nota de crédito (2) y propone la resolución (1)."
         ],
         [
          "Quién firma",
-         "la nota de crédito."
+         "la nota de crédito, que registra Contabilidad."
         ],
         [
          "Procesos",
@@ -6272,7 +6272,7 @@ window.IA_DOC = {
        "campos": [
         [
          "Qué hace la IA",
-         "arma el lote y registra lo que el banco confirma (2)."
+         "arma el lote y marca en la plataforma lo que el banco confirma (2)."
         ],
         [
          "Quién firma",
