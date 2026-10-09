@@ -92,6 +92,7 @@ def main():
             check('pinta todas las secciones del dato, en orden', ids == datos[doc]['ids'], '%d de %d' % (len(ids), len(datos[doc]['ids'])))
             toc = fr.eval_on_selector_all('.iad-toc a[data-id]', 'l => l.map(a => a.dataset.id)')
             check('el índice lista las mismas secciones', toc == ids)
+            check('dentro del manual no ofrece «Abrir en el manual»', fr.locator('.iad-fuera').count() == 0)
             check('el título de la pestaña del navegador nombra el documento', datos[doc]['titulo'].split()[0] in pg.title(), pg.title())
 
         print('\n--- Enlace profundo e índice dentro del marco ---')
