@@ -6,9 +6,10 @@ aquí es sobre todo que siga siéndolo. Antes de sep-2026 la fila medía 56 px
 —el área («JUNTA DIRECTIVA / DIRECCION GENERAL / GERENCIA DE MARKETING»)
 envolvía a tres líneas— y cabían diez personas en pantalla.
 
-    $env:ROWER_CORREO="qa.validacion@rower.test"
-    $env:ROWER_CLAVE="Prueba-Validacion-2026"
     python scripts/comprobar-censo.py
+
+Las credenciales salen del entorno o, si no están, de `ROWER_CORREO` y
+`ROWER_CLAVE` en el `.env` de la raíz (ver `sesion_prueba.py`). Nunca en el repo.
 
 ⚠️ Este guion NO escribe nada: solo lee, filtra y mide. El censo es dato real
 de personas de Kenex y el equipo puede estar editándolo en otra pestaña.

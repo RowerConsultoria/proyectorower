@@ -10,6 +10,9 @@ literalmente lo que hace la pantalla de acceso cuando alguien entra a mano.
 Credenciales (nunca en el repositorio):
     PowerShell:  $env:ROWER_CORREO="tu@correo"; $env:ROWER_CLAVE="tu clave"
     Git Bash:    export ROWER_CORREO="tu@correo" ROWER_CLAVE="tu clave"
+    o en el `.env` de la raíz (ignorado por git), que se lee si el entorno no
+    las trae. ⚠️ Nunca se escriben en un guion ni en su docstring: el repo es
+    público y el 09-oct-2026 hubo que rotar la clave de QA por eso.
 
 Uso desde un guion:
     import sesion_prueba
@@ -38,13 +41,27 @@ def _proyecto():
     return m.group(0), m.group(1), k.group(1)
 
 
+def _dotenv(nombre):
+    """Valor de `nombre` en el .env de la raíz, o None."""
+    ruta = os.path.join(RAIZ, '.env')
+    if not os.path.exists(ruta):
+        return None
+    for linea in io.open(ruta, encoding='utf-8'):
+        k, sep, v = linea.strip().partition('=')
+        if sep and k.strip() == nombre:
+            return v.strip().strip('"').strip("'") or None
+    return None
+
+
 def token(correo=None, clave=None):
     """Inicia sesión y devuelve {'llave', 'sesion'} con el formato de supabase-js.
 
-    Devuelve None si no hay credenciales en el entorno.
+    Devuelve None si no hay credenciales en el entorno ni en el .env.
     """
-    correo = correo or os.environ.get('ROWER_CORREO') or os.environ.get('SUPABASE_CORREO')
-    clave = clave or os.environ.get('ROWER_CLAVE') or os.environ.get('SUPABASE_CLAVE')
+    correo = (correo or os.environ.get('ROWER_CORREO') or os.environ.get('SUPABASE_CORREO')
+              or _dotenv('ROWER_CORREO'))
+    clave = (clave or os.environ.get('ROWER_CLAVE') or os.environ.get('SUPABASE_CLAVE')
+             or _dotenv('ROWER_CLAVE'))
     if not correo or not clave:
         return None
 
@@ -71,7 +88,7 @@ def exigir():
         print('\n  NO PUDE ENTRAR: %s' % e)
         sys.exit(2)
     if not s:
-        print('\n  FALTAN CREDENCIALES: define ROWER_CORREO y ROWER_CLAVE en el entorno.')
+        print('\n  FALTAN CREDENCIALES: define ROWER_CORREO y ROWER_CLAVE en el entorno o en el .env.')
         print('  El aplicativo está detrás de /acceso/ y el navegador de pruebas')
         print('  necesita sesión, igual que una persona.')
         print('    PowerShell:  $env:ROWER_CORREO="tu@correo"; $env:ROWER_CLAVE="tu clave"')
