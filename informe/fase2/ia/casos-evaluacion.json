@@ -1,0 +1,3178 @@
+{
+ "version": "0.1",
+ "corte": "09-oct-2026",
+ "_nota": "Fuente A MANO de los casos de uso de IA. Calificaciones de 1 a 5 según Rower/ia-fase2/borradores/CASOS-RUBRICA.md; se regenera la página con: node scripts/generar-casos-ia.js",
+ "textos": {
+  "lede": "El inventario de lo que la IA hará en el grupo, ordenado por valor, viabilidad y riesgo: quién responde por cada caso y cómo se mide su beneficio.",
+  "metodo": [
+   "Un **caso de uso** es lo que hace la inteligencia artificial dentro de un módulo de la plataforma: clasificar, proponer, conciliar, explicar o redactar. La [[orbita:inicio|órbita]] propone 85 módulos; 75 tienen una parte de IA. A ellos se suman los usos que viven fuera de la órbita: el asistente del proyecto, que ya está en operación; el uso asistencial con licencias; y la regularización de las herramientas de IA que las áreas ya construyeron por su cuenta.",
+   "Cada caso se califica del 1 al 5 en nueve criterios agrupados en tres dimensiones. Cada calificación lleva su evidencia: el freno del circuito que alivia, la práctica actual con su cifra, la entrevista donde se pidió o la decisión de la que depende.",
+   {
+    "t": "tabla",
+    "cab": [
+     "Dimensión",
+     "Peso",
+     "Criterio",
+     "1",
+     "5"
+    ],
+    "filas": [
+     [
+      "Valor",
+      "40 %",
+      "Frenos que alivia",
+      "no alivia ninguno",
+      "resuelve un freno que detiene el tren"
+     ],
+     [
+      "",
+      "",
+      "Volumen",
+      "ocasional",
+      "diario, varias áreas o alto volumen medido"
+     ],
+     [
+      "",
+      "",
+      "Pedido del cliente",
+      "nadie lo pide",
+      "un directivo o dueño de proceso lo pide"
+     ],
+     [
+      "Viabilidad",
+      "35 %",
+      "Dato disponible",
+      "no existe o no se registra",
+      "existe, ordenado y accesible hoy"
+     ],
+     [
+      "",
+      "",
+      "Dependencias",
+      "decisiones abiertas u otros módulos",
+      "ninguna"
+     ],
+     [
+      "",
+      "",
+      "Esfuerzo (inverso)",
+      "grande, con integraciones nuevas",
+      "pequeño, reutiliza lo que hay"
+     ],
+     [
+      "Riesgo (inverso)",
+      "25 %",
+      "Datos de personas",
+      "decisiones sobre personas",
+      "sin datos personales"
+     ],
+     [
+      "",
+      "",
+      "Exposición hacia fuera",
+      "habla o publica sin firma",
+      "solo uso interno"
+     ],
+     [
+      "",
+      "",
+      "Autonomía",
+      "actúa sobre dinero, precios o inventario sin firma",
+      "prepara y una persona firma"
+     ]
+    ]
+   },
+   "La **prioridad** es la suma ponderada de las tres medias: 0,40 × valor + 0,35 × viabilidad + 0,25 × riesgo, donde en el riesgo un 5 significa riesgo bajo. Es una herramienta para ordenar la conversación, no un veredicto: la decisión de qué se construye y cuándo es del Comité de Gobierno del Dato e IA, según el ciclo de la [[sec:ciclo|sección 5]].",
+   {
+    "t": "nota",
+    "tipo": "alerta",
+    "titulo": "Lo que pesa sobre la viabilidad hoy",
+    "x": "Mientras no lleguen las credenciales de administración de Odoo (requisito pendiente desde la Fase 1), todo caso que necesite leer Odoo tiene la viabilidad del dato acotada. Por eso los primeros puestos los ocupan casos cuyo dato ya existe fuera de Odoo o puede pedirse como archivo."
+   }
+  ],
+  "ciclo": [
+   "El ciclo de un caso de uso está definido en el proceso [[proc:5.2|5.2 · identificación, priorización y aprobación de casos de uso]], que vive en el manual de procesos. Esta sección no lo redefine: lo resume y le agrega lo que un caso de IA necesita además de cualquier otro desarrollo.",
+   {
+    "t": "h",
+    "x": "Lo que establece el proceso 5.2"
+   },
+   {
+    "t": "pasos",
+    "items": [
+     {
+      "t": "Registro",
+      "x": "Quien tiene el problema registra el caso: el problema, los datos que usa, quién lo usará, el beneficio esperado y la herramienta. También se registran los que ya están construidos."
+     },
+     {
+      "t": "Inventario y duplicidad",
+      "x": "La PMO lo incorpora al inventario y verifica que otra área no haya resuelto ya lo mismo."
+     },
+     {
+      "t": "Evaluación técnica y de riesgo",
+      "x": "Tecnología evalúa qué datos toca, qué credenciales necesita, cómo se integra y si respeta la política."
+     },
+     {
+      "t": "Priorización y decisión",
+      "x": "El comité prioriza por valor y riesgo y decide; los descartados quedan registrados con su motivo."
+     },
+     {
+      "t": "Quién lo construye",
+      "x": "Tecnología o su socio cuando toca los sistemas centrales; la propia área con una herramienta autorizada cuando es de autoservicio."
+     },
+     {
+      "t": "Construcción y prueba",
+      "x": "En un entorno de prueba, con el mismo estándar técnico de cualquier desarrollo."
+     },
+     {
+      "t": "Validación antes de producción",
+      "x": "Seguridad, datos, integración y efecto sobre contabilidad e inventario, sin importar quién lo construyó."
+     },
+     {
+      "t": "Medición a 90 días",
+      "x": "El beneficio real frente al esperado, reportado al inventario. La decisión de negocio sigue siendo de la persona."
+     }
+    ]
+   },
+   {
+    "t": "nota",
+    "titulo": "Nombres",
+    "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Dirección de Tecnología, Gobernanza y Riesgo**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
+   },
+   {
+    "t": "h",
+    "x": "Lo que un caso de IA agrega"
+   },
+   {
+    "t": "pasos",
+    "items": [
+     {
+      "t": "Nivel de autonomía declarado",
+      "x": "Cada caso declara su nivel —1 prepara, 2 hace y avisa, 3 decide con firma previa— y quién firma. El nivel lo fija la [[doc:politica/autonomia|política de adopción]]; subir de nivel exige evidencia medida y lo aprueba el comité."
+     },
+     {
+      "t": "Piloto con criterio de salida",
+      "x": "Antes de operar, el caso corre en paralelo con el trabajo actual durante un ciclo completo. Se fija de antemano qué tasa de acierto o qué error lo deja pasar y qué lo devuelve a diseño."
+     },
+     {
+      "t": "Evaluación antes de cada cambio",
+      "x": "Un conjunto de casos reales con su respuesta esperada. Ningún cambio de instrucciones o de modelo pasa a producción si empeora el resultado."
+     },
+     {
+      "t": "Monitoreo",
+      "x": "Costo, aciertos, correcciones humanas y quejas, por caso y por mes, en la sala de agentes de la plataforma."
+     },
+     {
+      "t": "Retiro",
+      "x": "Si la métrica cae bajo su umbral dos meses seguidos, o el proceso cambia, el caso se revisa o se retira, y se liberan sus accesos."
+     }
+    ]
+   }
+  ]
+ },
+ "casos": {
+  "m-catalogo-unico": {
+   "valor": {
+    "frenos": 4,
+    "volumen": 5,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Altas de producto completas a la primera y SKU que llegan sin precio",
+    "base": "BI corrige errores de maestro cada día y hay productos que llegan a tienda sin precio (M09, M29); la tasa está por medir",
+    "meta": "≥ 95 % de altas completas a la primera y ningún SKU sin precio al llegar, a los 6 meses del arranque",
+    "umbral": "< 80 % de altas completas a los 3 meses"
+   },
+   "dueno": "Analista de Sistemas / Datos",
+   "operador": "Analista de datos maestros (inventarios y precios del hub)",
+   "firmante": "Dirección comercial (precio) y Analista de Sistemas / Datos (fusión de terceros)",
+   "estado": "propuesto",
+   "nota": "Alivia frenos lentos (2b.3, 14c.2) con volumen diario en tres países, y sus alias sostienen el sell-out que resuelve 20.1; lo piden TI y un mando de Panamá, no la dirección. Lee y escribe en Odoo, toca identificadores de contactos y propone precios, de ahí la viabilidad y el riesgo medios.",
+   "evidencia": [
+    "M09",
+    "M19",
+    "M29",
+    "M33",
+    "M118",
+    "freno:2b.3",
+    "freno:14c.2",
+    "freno:20.1",
+    "E-07:244",
+    "SC-01:329",
+    "E-53:128",
+    "E-03:136",
+    "E-10:122",
+    "propuestas-to-be.md:49",
+    "propuestas-to-be.md:909",
+    "arquitectura-ia.html:726"
+   ]
+  },
+  "m-pronostico-base": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Error del pronóstico fuera de muestra frente al método ingenuo (indicador 15.4)",
+    "base": "Por medir; hoy conviven tres sugeridos que se pisan (M02)",
+    "meta": "Razón de error < 1 en las series A de Casio y Cubitt tras 3 ciclos mensuales en paralelo con la sábana",
+    "umbral": "Razón ≥ 1 en dos ciclos seguidos, o la mesa de compra no lo usa a los 90 días"
+   },
+   "dueno": "Analista de Sistemas / Datos",
+   "operador": "Planificador(a) de la demanda",
+   "firmante": "Mesa de compra (Dirección de compras)",
+   "estado": "propuesto",
+   "nota": "Es lo más pedido por la dirección («alguien que lea para yo actuar») y por planificación, aunque alivia solo frenos lentos (1.2, 1.3, 1.4). El número lo pone un modelo estadístico y la IA explica, pero necesita el sell-out normalizado, la demanda perdida y las credenciales de Odoo.",
+   "evidencia": [
+    "M02",
+    "freno:1.2",
+    "freno:1.3",
+    "freno:1.4",
+    "E-08:168",
+    "E-05:154",
+    "E-40:174",
+    "E-08:35",
+    "E-10:58",
+    "E-08:143",
+    "propuestas-to-be.md:65",
+    "arquitectura-ia.html:719",
+    "arquitectura-ia.html:857"
+   ]
+  },
+  "m-forecast-comercial": {
+   "valor": {
+    "frenos": 4,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 4,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Versiones del forecast y desvío mensual por vendedor y cliente",
+    "base": "El forecast Cubitt se rehízo 3 veces en 2026 (M01); el desvío mensual está por medir",
+    "meta": "Forecast 2027 aprobado en una sola versión antes del 31-dic-2026 y desvío mensual publicado desde febrero de 2027",
+    "umbral": "Más de una revisión fuera de ciclo en el primer trimestre o < 70 % de vendedores que ajustan su base"
+   },
+   "dueno": "Gerente Regional Comercial / Retail",
+   "operador": "Vendedores (ajustan su base)",
+   "firmante": "Gerencia comercial",
+   "estado": "propuesto",
+   "nota": "Alivia 1.4 y 1.5 (lentos) y la propuesta lo liga a 1.1; es anual, pero urgente porque el forecast 2027 se arma en noviembre y diciembre. El retrabajo está descrito en entrevistas, pero nadie pide cambiar el método.",
+   "evidencia": [
+    "M01",
+    "freno:1.4",
+    "freno:1.5",
+    "freno:1.1",
+    "E-08:37",
+    "E-63:137",
+    "E-60:66",
+    "propuestas-to-be.md:118",
+    "propuestas-to-be.md:911",
+    "decision:17",
+    "arquitectura-ia.html:718"
+   ]
+  },
+  "m-vigia-de-reservas": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 4,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Reservas huérfanas abiertas y tiempo hasta su liberación",
+    "base": "Por medir; hoy hay mercancía «reservada tres veces» (M37)",
+    "meta": "−80 % de reservas huérfanas a los 3 meses y liberación en ≤ 48 h desde la alerta",
+    "umbral": "< 50 % de alertas atendidas en un mes"
+   },
+   "dueno": "Director(a) Comercial del Grupo",
+   "operador": "Vendedores y coordinación de inventarios",
+   "firmante": "Dueño de la reserva con su gerente comercial (liberar una reserva)",
+   "estado": "propuesto",
+   "nota": "Resuelve 10b.2 (detiene) y operaciones de VE pide una rutina diaria de limpieza, que llama «el principal problema». Es una lista con alertas sobre Odoo en todas las instancias y liberar sigue siendo firma.",
+   "evidencia": [
+    "M37",
+    "freno:10b.2",
+    "freno:7.3",
+    "E-34:129",
+    "E-34:121",
+    "E-35:98",
+    "E-16:75",
+    "propuestas-to-be.md:126",
+    "propuestas-to-be.md:906",
+    "arquitectura-ia.html:754"
+   ]
+  },
+  "m-reparto-en-escasez": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Ajustes de reparto con motivo y apego a la regla de la Junta",
+    "base": "Ajustes de 30–40 % sin regla escrita (M36)",
+    "meta": "100 % de ajustes con motivo registrado y el mayor de VE servido según la regla, a los 3 meses de aprobada",
+    "umbral": "< 60 % de propuestas aceptadas sin cambios de fondo tras dos repartos"
+   },
+   "dueno": "Director(a) Comercial del Grupo",
+   "operador": "Planificación comercial",
+   "firmante": "Dirección comercial (reparte); la regla la decide la Junta",
+   "estado": "propuesto",
+   "nota": "Resuelve 11e.1 (detiene) y lo piden quienes reciben menos, aunque la dirección dice que su ajuste ya es «medio automático». Espera la regla de reparto de la Junta (decisión 14) y un libro de reservas que no existe, y propone sobre inventario escaso.",
+   "evidencia": [
+    "M36",
+    "freno:11e.1",
+    "freno:10b.5",
+    "decision:14",
+    "E-35:98",
+    "E-63:135",
+    "E-08:170",
+    "E-08:114",
+    "propuestas-to-be.md:134",
+    "propuestas-to-be.md:920",
+    "arquitectura-ia.html:753"
+   ]
+  },
+  "m-precios-y-promociones-con-margen": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Promociones aprobadas con margen mínimo validado e inventario de más de 6 meses",
+    "base": "USD 1 M de mercancía estacionada y 5–6 promociones por país al mes sin margen mínimo escrito (M04, M111)",
+    "meta": "100 % de promociones con margen y stock validados y −25 % del inventario de más de 6 meses en 12 meses",
+    "umbral": "< 80 % de promociones pasadas por la validación a los 3 meses"
+   },
+   "dueno": "Director(a) Comercial del Grupo",
+   "operador": "Gerentes comerciales de país y Mercadeo (solicitantes)",
+   "firmante": "Director(a) Comercial del Grupo (todo precio)",
+   "estado": "propuesto",
+   "nota": "La dirección pide no poner precios y una lista de qué rematar, y planificación pide un margen mínimo escrito; alivia frenos lentos (14c.4, 19.2). Falta escribir el margen mínimo y el costo real por producto no se calcula, y la validación en nivel 2 toca precios.",
+   "evidencia": [
+    "M04",
+    "M111",
+    "freno:14c.4",
+    "freno:19.2",
+    "E-08:168",
+    "E-08:170",
+    "E-40:182",
+    "E-63:127",
+    "E-01:92",
+    "E-50:131",
+    "propuestas-to-be.md:145",
+    "arquitectura-ia.html:721",
+    "arquitectura-ia.html:827"
+   ]
+  },
+  "m-embudo-de-oportunidades": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 2,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Ideas con ficha completa y decisiones con acta",
+    "base": "Sin acta, sin KPI ni presupuesto de I+D; unas 10 personas opinan cada muestra (M06)",
+    "meta": "100 % de decisiones de desarrollo con ficha y acta a los 3 meses",
+    "umbral": "< 50 % de ideas con ficha completa a los 3 meses"
+   },
+   "dueno": "Director(a) de Marca Propia (Cubitt)",
+   "operador": "Especialista de producto / proyecto",
+   "firmante": "Director(a) de Marca Propia (decisión de desarrollar)",
+   "estado": "propuesto",
+   "nota": "Alivia 2a.3 y 2a.4 (lentos) con poco volumen; la dirección de I+D pide estudio de mercado «dónde está el hueco», pero en forma de personas, no de ficha ni acta. La ficha necesita la venta por categoría y la tasa de garantías, que aún no están estructuradas.",
+   "evidencia": [
+    "M06",
+    "freno:2a.3",
+    "freno:2a.4",
+    "E-60:21",
+    "E-60:24",
+    "E-60:51",
+    "propuestas-to-be.md:157",
+    "arquitectura-ia.html:723"
+   ]
+  },
+  "m-muestras-y-pruebas": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 2,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 4,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Muestras con ETA y estado al día",
+    "base": "Muestras perdidas «a veces meses» y pruebas sin protocolo (M07, M08)",
+    "meta": "Ninguna muestra sin estado por más de 30 días y checklist por categoría en el 100 % de las pruebas, a los 3 meses",
+    "umbral": "Más de 10 % de muestras sin estado a los 3 meses"
+   },
+   "dueno": "Director(a) de Marca Propia (Cubitt)",
+   "operador": "Especialista de producto / proyecto",
+   "firmante": "Director(a) de Marca Propia (aprobar el producto)",
+   "estado": "propuesto",
+   "nota": "Alivia 2a.2 y 4a.4 (lentos) con poco volumen; producto ya empezó una base de muestras en Lark y las pruebas tienen un checklist propio. No depende de Odoo, pero el checklist necesita las fallas de garantías.",
+   "evidencia": [
+    "M07",
+    "M08",
+    "freno:2a.2",
+    "freno:4a.4",
+    "E-60:53",
+    "E-64:19",
+    "propuestas-to-be.md:165",
+    "arquitectura-ia.html:724"
+   ]
+  },
+  "m-lanzamientos-de-producto": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Lanzamientos con aviso de llegada a web, retail y mayor, y retrospectiva al tercer mes",
+    "base": "6 lanzamientos en un mes con aviso por chat y retrospectiva a mano (M10, M11)",
+    "meta": "100 % de lanzamientos con aviso ≥ 15 días antes de la llegada y retrospectiva al tercer mes, en 6 meses",
+    "umbral": "< 70 % de lanzamientos con aviso a tiempo"
+   },
+   "dueno": "Gerente de Proyectos (PMO)",
+   "operador": "Gerente de Proyectos (PMO)",
+   "firmante": "Gerente de Proyectos con la dirección de la marca (plan de lanzamiento)",
+   "estado": "propuesto",
+   "nota": "La responsable de lanzamientos pide la grilla anual, la retrospectiva con costos y que todos sepan cuándo llega cada producto; alivia varios frenos lentos (4a.3, 8a.3, SW.1, 11d.2, MK.2). Depende del tránsito real y de imputar costos que hoy no se registran, como el aéreo.",
+   "evidencia": [
+    "M10",
+    "M11",
+    "freno:4a.3",
+    "freno:8a.3",
+    "freno:SW.1",
+    "freno:11d.2",
+    "freno:MK.2",
+    "E-60:80",
+    "E-60:108",
+    "SC-08:401",
+    "E-49:206",
+    "E-16:118",
+    "propuestas-to-be.md:180",
+    "arquitectura-ia.html:727"
+   ]
+  },
+  "m-bandeja-de-solicitudes": {
+   "valor": {
+    "frenos": 2,
+    "volumen": 3,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Solicitudes aprobadas convertidas sin retipeo y devoluciones por documentos incompletos",
+    "base": "Formularios de Lark «que mueren» y hasta 6 devoluciones de una misma factura (M117, M112)",
+    "meta": "≥ 90 % de solicitudes aprobadas convertidas en su borrador de Odoo sin retipeo, a los 6 meses",
+    "umbral": "< 60 % convertidas sin corrección a los 3 meses"
+   },
+   "dueno": "Director(a) de Proyectos (PMO)",
+   "operador": "Solicitantes de cada área y PMO",
+   "firmante": "Aprobador de cada solicitud según su tipo",
+   "estado": "propuesto",
+   "nota": "TI pide un formulario único que cree el traslado en Odoo y mercadeo de VE, que lo aprobado pase solo a administración, pero toca frenos solo de forma marginal (14c.5, 10b.4). Crea en nivel 2 borradores de traslados, compras o facturas, tras una aprobación previa.",
+   "evidencia": [
+    "M112",
+    "M117",
+    "freno:14c.5",
+    "freno:10b.4",
+    "E-07:238",
+    "E-42:125",
+    "E-42:96",
+    "propuestas-to-be.md:188",
+    "arquitectura-ia.html:833"
+   ]
+  },
+  "m-demanda-y-s-op": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Faltantes registrados con su motivo y demanda no atendida por SKU",
+    "base": "Hoy 0 %: lo que no hay se borra del pedido (M03)",
+    "meta": "≥ 90 % de líneas recortadas o venta perdida registradas con motivo, a los 3 meses",
+    "umbral": "< 50 % de faltantes registrados a los 3 meses"
+   },
+   "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
+   "operador": "Planificador(a) de la demanda",
+   "firmante": "Dirección de compras",
+   "estado": "propuesto",
+   "nota": "Resuelve 1.1 y 7.1 (detienen), toca cada pedido de todos los canales y la gerencia comercial lo llama «la prioridad número uno». El dato hoy no se registra y depende del buzón de sell-out y del registro de venta perdida en tienda.",
+   "evidencia": [
+    "M02",
+    "M03",
+    "M95",
+    "freno:1.1",
+    "freno:7.1",
+    "E-05:154",
+    "E-40:184",
+    "E-08:141",
+    "E-10:164",
+    "propuestas-to-be.md:200",
+    "propuestas-to-be.md:932",
+    "arquitectura-ia.html:720"
+   ]
+  },
+  "m-mesa-de-compra-casio": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Días-persona por ciclo de compra Casio y fecha en que la sábana está lista",
+    "base": "2–3 días al mes, a menudo de noche, que sabe hacer una sola persona (M18)",
+    "meta": "Sábana lista 5 días antes del order sheet y ≤ 1 día-persona por ciclo, tras 3 ciclos",
+    "umbral": "Más de 2 días-persona por ciclo después del tercer ciclo"
+   },
+   "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
+   "operador": "Analista de reportería de compras",
+   "firmante": "Dirección de compras (cantidad y OC)",
+   "estado": "propuesto",
+   "nota": "Resuelve 2b.1 (detiene) y la dirección de compras pide un proceso con «la realidad de lo que debo pedir», aunque no quiere que una máquina decida el allocation. El sistema es grande y espera el pronóstico, el sell-out y los alias; propone cantidades que son dinero.",
+   "evidencia": [
+    "M18",
+    "M20",
+    "M21",
+    "M22",
+    "freno:2b.1",
+    "freno:3b.1",
+    "E-08:41",
+    "E-08:85",
+    "E-10:72",
+    "E-08:143",
+    "propuestas-to-be.md:210",
+    "propuestas-to-be.md:937",
+    "arquitectura-ia.html:735",
+    "arquitectura-ia.html:857"
+   ]
+  },
+  "m-mesa-de-compra-cubitt": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 4,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Mesas Cubitt celebradas en calendario con acta y OC en sistema",
+    "base": "Más de 1 semana sin reunirse y ~1 mes de quiebre; órdenes de 5.000 a 20.000 piezas sin documento de sistema (M12, M13)",
+    "meta": "100 % de mesas en fecha con acta y OC en borrador desde el acta, a los 3 meses",
+    "umbral": "Una mesa aplazada más de una semana o una OC fuera del sistema en un trimestre"
+   },
+   "dueno": "Director Corporativo Comercial",
+   "operador": "Regional Cubitt (calcula las cantidades)",
+   "firmante": "Director(a) de Marca Propia y comité Cubitt (la OC)",
+   "estado": "propuesto",
+   "nota": "Resuelve 3a.1 y 3a.2 (detienen) y la dirección de I+D pide estandarizar las OC con plantilla. El pedido mínimo y el lead time no están en ningún sistema y depende del tránsito Cubitt real.",
+   "evidencia": [
+    "M12",
+    "M13",
+    "M14",
+    "freno:3a.1",
+    "freno:3a.2",
+    "E-60:55",
+    "E-06-pt-1:111",
+    "E-06-pt-2:5",
+    "E-10:150",
+    "E-08:125",
+    "propuestas-to-be.md:222",
+    "propuestas-to-be.md:934",
+    "arquitectura-ia.html:729"
+   ]
+  },
+  "m-reporte-pci-a-casio": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 4,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 3,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Día hábil en que el borrador del PCI está listo y días-persona del cierre",
+    "base": "Los primeros 10 días de cada mes de una sola persona (M98)",
+    "meta": "Borrador listo el día hábil 3 y ≤ 1 día de revisión, tras 3 cierres",
+    "umbral": "Borrador después del día hábil 6 en dos meses seguidos"
+   },
+   "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
+   "operador": "Analista de reportería de compras",
+   "firmante": "Dirección de compras (el envío a Casio)",
+   "estado": "propuesto",
+   "nota": "Resuelve PCI.1 (detiene) y libera 10 días al mes de una persona, pero nadie pide el cambio. Es un informe sobre el espejo que sale a Casio con firma; falta confirmar el formato exigido y es lo primero que baja si se recorta la Ola 1.",
+   "evidencia": [
+    "M98",
+    "freno:PCI.1",
+    "E-10:204",
+    "E-10:210",
+    "E-10:305",
+    "propuestas-to-be.md:235",
+    "propuestas-to-be.md:961",
+    "decision:17",
+    "arquitectura-ia.html:814"
+   ]
+  },
+  "m-transito-internacional": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 3,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 3,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Anticipación con que logística conoce una llegada (indicador 7.1)",
+    "base": "Logística se entera 2 días antes de un contenedor de 60–90 días; el tránsito aparece en Odoo 1–2 semanas antes (M26)",
+    "meta": "Etapa y fecha visibles desde el embarque para ≥ 90 % de las OC, a los 4 meses",
+    "umbral": "< 70 % de OC con etapa actualizada a los 3 meses"
+   },
+   "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
+   "operador": "Analista de compras y Tráfico",
+   "firmante": "No requiere: actualiza etapa y fecha de forma reversible; la petición de estado al proveedor la envía el analista de compras",
+   "estado": "propuesto",
+   "nota": "Resuelve 4a.1 (detiene) y la dirección pide cargar la compra en Odoo desde producción, con logística pidiendo saber a tiempo lo que viene. El dato vive en correos y archivos de Lark, y actualiza en nivel 2 la etapa que define lo prometible.",
+   "evidencia": [
+    "M15",
+    "M17",
+    "M24",
+    "M26",
+    "M52",
+    "freno:4a.1",
+    "freno:4a.2",
+    "freno:5.2",
+    "SC-01:2",
+    "E-60:55",
+    "E-03:156",
+    "E-03:158",
+    "E-40:112",
+    "propuestas-to-be.md:243",
+    "propuestas-to-be.md:936",
+    "arquitectura-ia.html:743"
+   ]
+  },
+  "m-pedido-intragrupo": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 2
+   },
+   "metrica": {
+    "nombre": "Pedidos intragrupo con OC en Odoo y recorte avisado con motivo",
+    "base": "~2 semanas de preparación (M49); Costa Rica recibe 70–80 % de lo pedido (freno 8b.1)",
+    "meta": "100 % de pedidos con OC en sistema y recorte avisado antes del despacho, a los 3 meses",
+    "umbral": "Un recorte sin aviso en un mes"
+   },
+   "dueno": "Coordinador(a) de Logística y Bodega (país)",
+   "operador": "Planificación del país",
+   "firmante": "Gerencia comercial del hub (recortar)",
+   "estado": "propuesto",
+   "nota": "Resuelve 8b.1 (detiene) y operaciones de VE ya pidió que la factura del hub se convierta sola en su compra. Espera que el tránsito funcione, escribe en tres instancias y arma el pedido en nivel 2, con firma solo para el recorte.",
+   "evidencia": [
+    "M49",
+    "M50",
+    "freno:8b.1",
+    "freno:8b.3",
+    "freno:9b.4",
+    "E-34:252",
+    "E-40:180",
+    "E-40:238",
+    "E-19:135",
+    "propuestas-to-be.md:254",
+    "propuestas-to-be.md:921",
+    "arquitectura-ia.html:766"
+   ]
+  },
+  "m-reposicion-a-tiendas-y-web": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Tiempo de preparación del sugerido y quiebres por canal",
+    "base": "Excel formulado que se congela, 10–30 min por tienda en VE (M56); país «en cero» por no separar stock por canal (M55)",
+    "meta": "Sugerido semanal sin Excel y −50 % de quiebres de los SKU A en tiendas y web, a los 6 meses",
+    "umbral": "< 60 % de sugeridos confirmados sin cambios de fondo"
+   },
+   "dueno": "Coordinador(a) de Logística y Bodega",
+   "operador": "Planificación y supervisores de tienda",
+   "firmante": "Supervisor de tiendas o gerente de e-commerce (confirma)",
+   "estado": "propuesto",
+   "nota": "Planificación de VE pide automatizar la reposición y separar el stock por canal, igual que comercial de Colombia; alivia frenos lentos (11c.1, 11c.2, 10b.3). Es semanal en tiendas y web y deja traslados en borrador que confirma el supervisor.",
+   "evidencia": [
+    "M55",
+    "M56",
+    "M73",
+    "freno:11c.1",
+    "freno:11c.2",
+    "freno:10b.3",
+    "E-40:88",
+    "E-40:230",
+    "E-14:31",
+    "E-40:70",
+    "propuestas-to-be.md:265",
+    "arquitectura-ia.html:773"
+   ]
+  },
+  "m-reclamos-a-proveedor": {
+   "valor": {
+    "frenos": 2,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 3,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Faltantes de recepción reclamados con evidencia y monto recuperado",
+    "base": "Por medir; «Pedí 10.000, muy probablemente lleguen 9.700» (M31)",
+    "meta": "100 % de faltantes reclamados en ≤ 15 días con su evidencia, a los 6 meses",
+    "umbral": "< 50 % de faltantes reclamados en plazo"
+   },
+   "dueno": "Gerente de Operaciones y Logística",
+   "operador": "Analista de inventarios (recepción)",
+   "firmante": "Coordinador(a) de Logística y Bodega (el envío)",
+   "estado": "propuesto",
+   "nota": "Vínculo marginal con los frenos del circuito; las diferencias son frecuentes, pero solo se describe el dolor y la bodega virtual ya existe. Sistema pequeño en el que la IA redacta el reclamo y una persona lo envía.",
+   "evidencia": [
+    "M31",
+    "E-34:195",
+    "SC-01:71",
+    "SC-01:73",
+    "propuestas-to-be.md:273",
+    "arquitectura-ia.html:748"
+   ]
+  },
+  "m-llegada-a-zona-libre-y-liberacion": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Horas entre el fin de la descarga y la mercancía disponible en Odoo (indicador 7.1)",
+    "base": "~1 día por contenedor, nada disponible hasta la última caja; 4–5 contenedores al mes y hasta 10 en temporada (M28, M25)",
+    "meta": "≤ 4 h por contenedor y liberación por tramos, a los 4 meses del arranque",
+    "umbral": "> 12 h de media en un mes"
+   },
+   "dueno": "Coordinador(a) de Logística y Bodega",
+   "operador": "Jefatura de Tráfico e inventarios del hub",
+   "firmante": "Coordinación de inventarios del hub (liberar)",
+   "estado": "propuesto",
+   "nota": "Resuelve 6.1 (detiene) y la persona que libera pidió, a través de TI, validar los ingresos al llegar el contenedor. Depende de cómo se refleje EBS (decisión 2, abierta); actualiza la ETA y propone, y liberar sigue siendo firma.",
+   "evidencia": [
+    "M25",
+    "M28",
+    "freno:6.1",
+    "freno:6.3",
+    "decision:2",
+    "E-07:28",
+    "E-03:163",
+    "E-03:161",
+    "E-68:34",
+    "propuestas-to-be.md:285",
+    "propuestas-to-be.md:919",
+    "arquitectura-ia.html:745"
+   ]
+  },
+  "m-costo-en-destino": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Rezago del costo en destino por importación",
+    "base": "2 meses de atraso con expediente físico (M54)",
+    "meta": "≤ 10 días hábiles desde la llegada, a los 4 meses",
+    "umbral": "> 30 días de media en un trimestre"
+   },
+   "dueno": "Coordinador(a) de Logística y Bodega",
+   "operador": "Analista de importaciones y contabilidad de VE",
+   "firmante": "Contabilidad (publica)",
+   "estado": "propuesto",
+   "nota": "Aporta a 19.1 (detiene) y la dirección financiera pide los documentos a tiempo «porque el documento es el que nutre el costo». El expediente hoy es de papel, y el reparto queda en nivel 2 como borrador que publica contabilidad.",
+   "evidencia": [
+    "M54",
+    "freno:19.1",
+    "E-15:341",
+    "E-15:345",
+    "E-65:188",
+    "propuestas-to-be.md:293",
+    "propuestas-to-be.md:917",
+    "arquitectura-ia.html:771"
+   ]
+  },
+  "m-vigia-del-stage": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 4,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Días en stage por orden y órdenes con más de 30 días",
+    "base": "Hasta 200 días en el stage, el 70 % del tiempo es espera y el stage está al 110 % (M46)",
+    "meta": "−50 % de días promedio en stage y ninguna orden de más de 60 días, a los 4 meses",
+    "umbral": "Sin mejora del promedio a los 3 meses"
+   },
+   "dueno": "Analista de Facturación",
+   "operador": "Tráfico y vendedores del mayor",
+   "firmante": "No requiere para avisar; se propone que el analista de facturación revise cada semana las marcas de pago",
+   "estado": "propuesto",
+   "nota": "Resuelve 9a.1 (detiene) a diario y la dirección pide que el despacho sea «mucho más automatizado», sin el vendedor de intermediario. Solo lee Odoo y avisa, pero marca en nivel 2 el pago como confirmado, sin firma.",
+   "evidencia": [
+    "M46",
+    "freno:9a.1",
+    "freno:9a.2",
+    "SC-01:316",
+    "SC-01:309",
+    "SC-01:319",
+    "SC-01:279",
+    "propuestas-to-be.md:301",
+    "propuestas-to-be.md:907",
+    "arquitectura-ia.html:763"
+   ]
+  },
+  "m-despacho-y-exportacion": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Tiempo para la factura borrador de despacho y pedidos reempacados",
+    "base": "Un pedido de 38 cajas reversado para reempacar (M47); el packing list no llega a tiempo a Tráfico (M45)",
+    "meta": "Factura borrador en ≤ 1 h desde el packing y ningún reempaque por instrucción, a los 6 meses",
+    "umbral": "Más de 2 reempaques al mes"
+   },
+   "dueno": "Coordinador(a) de Logística y Bodega",
+   "operador": "Tráfico del hub",
+   "firmante": "Analista de facturación al emitir la factura en Odoo (no hay firma propia)",
+   "estado": "propuesto",
+   "nota": "Alivia 9a.2 y 9a.3 (lentos) a diario; la dirección quiere que logística mande packing list y factura sin intermediarios, pero la validación de empaque no la pide nadie. Depende de EBS (decisión 2) y de los couriers.",
+   "evidencia": [
+    "M45",
+    "M47",
+    "M48",
+    "freno:9a.2",
+    "freno:9a.3",
+    "decision:2",
+    "SC-01:321",
+    "E-70:223",
+    "E-68:82",
+    "propuestas-to-be.md:313",
+    "arquitectura-ia.html:762"
+   ]
+  },
+  "m-inventario-confiable": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Coincidencia de conteo, días hasta el resultado y valor del inventario de más de 6 meses",
+    "base": "~5 días para entregar el resultado de un conteo y 29 % de coincidencia en Cubitt (M30); USD 1 M estacionado (M04)",
+    "meta": "≥ 95 % de coincidencia, resultado en ≤ 2 días y plan de 30 días para todo excedente, en 12 meses",
+    "umbral": "< 80 % de coincidencia al segundo conteo"
+   },
+   "dueno": "Coordinador(a) de Logística y Bodega",
+   "operador": "Supervisión de inventario del hub",
+   "firmante": "Coordinación de logística (ajuste), contabilidad (scrap) y dirección comercial (remate)",
+   "estado": "propuesto",
+   "nota": "Resuelve 6.2 (detiene); inventarios pide automatizar la revisión de diferencias y la dirección, saber qué rematar. Depende de cómo se refleje EBS (decisión 2), y propone ajustes y remates que firma una persona.",
+   "evidencia": [
+    "M04",
+    "M30",
+    "M32",
+    "M34",
+    "freno:6.2",
+    "decision:2",
+    "E-03:154",
+    "E-08:168",
+    "E-40:84",
+    "E-03:213",
+    "SC-06:1",
+    "propuestas-to-be.md:321",
+    "propuestas-to-be.md:940",
+    "arquitectura-ia.html:747"
+   ]
+  },
+  "m-expediente-de-importacion-en-destino": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Embarques retenidos en aduana por documentos faltantes",
+    "base": "Por medir; hubo una retención por un certificado faltante (M53)",
+    "meta": "Ningún embarque retenido por documentos en 12 meses",
+    "umbral": "Una retención atribuible a un documento que el checklist no marcó"
+   },
+   "dueno": "Líder de Administración / Importaciones",
+   "operador": "Operaciones de VE (aduana)",
+   "firmante": "Se propone que la jefatura de importaciones revise el checklist antes de embarcar",
+   "estado": "propuesto",
+   "nota": "Resuelve en parte 9b.2 (detiene) con volumen bajo («dolor bajo», M27), y solo hay dolor en entrevistas. Es un checklist que solo marca, pero faltan las fichas y los permisos por SKU.",
+   "evidencia": [
+    "M27",
+    "M53",
+    "freno:9b.2",
+    "freno:9b.3",
+    "E-34:242",
+    "E-40:282",
+    "E-42:295",
+    "propuestas-to-be.md:333",
+    "propuestas-to-be.md:947",
+    "arquitectura-ia.html:770"
+   ]
+  },
+  "m-cuadre-previo-de-caja": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Rezago de la conciliación de caja de tiendas en VE",
+    "base": "8–10 personas concilian con ~2 meses de atraso (M62)",
+    "meta": "Cuadre por tienda al día siguiente del cierre y rezago ≤ 5 días, a los 4 meses",
+    "umbral": "Rezago > 30 días a los 3 meses"
+   },
+   "dueno": "Gerente de Contabilidad / Administración",
+   "operador": "Analista contable de VE",
+   "firmante": "Contabilidad (valida)",
+   "estado": "propuesto",
+   "nota": "Aporta a 17.1 y 19.1 (detienen) a diario en cada tienda, y la contabilidad de VE pide que el sistema le dé la herramienta para dejar la revisión manual. Depende de los conectores de bancos de VE y del reporte Z; solo cuadra y marca diferencias.",
+   "evidencia": [
+    "M62",
+    "freno:17.1",
+    "freno:19.1",
+    "freno:15c.2",
+    "E-38:52",
+    "E-38:54",
+    "E-07:86",
+    "propuestas-to-be.md:620",
+    "propuestas-to-be.md:917",
+    "arquitectura-ia.html:779"
+   ]
+  },
+  "m-conciliacion-de-plataformas": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Rezago de conciliación por plataforma y partidas emparejadas sin intervención (indicador 12.3)",
+    "base": "Reportes de ~3.000 líneas de Cashea y 9 marketplaces con un mes de atraso (M82, M83)",
+    "meta": "Cierre de cada plataforma ≤ 5 días hábiles tras su reporte y ≥ 85 % de emparejamiento automático, a los 6 meses",
+    "umbral": "< 60 % de emparejamiento a los 3 meses"
+   },
+   "dueno": "Gerente de Contabilidad / Administración",
+   "operador": "Analista contable de conciliación",
+   "firmante": "Contabilidad (publica)",
+   "estado": "propuesto",
+   "nota": "Aporta a 17.1 y 19.1 (detienen) con alto volumen, y la contabilidad de Colombia pide automatizar la conciliación de sus plataformas. Cada plataforma tiene su formato y la vía de reportes de Cashea está por confirmar; deja borradores y propone el cliente de partidas sin identificar.",
+   "evidencia": [
+    "M82",
+    "M83",
+    "M84",
+    "freno:17.1",
+    "freno:17.2",
+    "freno:17.3",
+    "freno:11d.6",
+    "E-46:112",
+    "E-15:267",
+    "E-38:112",
+    "E-11:249",
+    "propuestas-to-be.md:628",
+    "arquitectura-ia.html:799"
+   ]
+  },
+  "m-pagos-a-proveedores-por-lote": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Horas del ciclo de pagos de los miércoles",
+    "base": "30–100 pagos uno por uno cada miércoles (M87); en VE, 30–40 facturas al día (M88)",
+    "meta": "Lote y archivo bancario listos en ≤ 1 h por ciclo, a los 6 meses",
+    "umbral": "Más de 10 % de pagos fuera del lote"
+   },
+   "dueno": "Coordinador(a) de Tesorería / Cobranzas (Cuentas por Pagar)",
+   "operador": "Analista de cuentas por pagar",
+   "firmante": "Tesorería, en el banco (el pago siempre lo hace una persona)",
+   "estado": "propuesto",
+   "nota": "No alivia frenos del circuito, pero tesorería y cuentas por pagar de VE piden el archivo de lote con esas palabras. Arma el lote en nivel 2 y registra lo que el banco confirma, mientras el pago sigue siendo humano.",
+   "evidencia": [
+    "M87",
+    "M88",
+    "E-43:248",
+    "E-65:68",
+    "E-61:72",
+    "E-61:126",
+    "propuestas-to-be.md:640",
+    "arquitectura-ia.html:803"
+   ]
+  },
+  "m-calendario-de-pagos-de-compra": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Pagos de compra previstos con antelación frente a los no planificados",
+    "base": "Monto y pagaré a Finanzas ~5 días antes; las compras no contempladas descuadran la caja (M23, M16)",
+    "meta": "≥ 90 % de pagos de compra previstos con 30 días, a los 6 meses",
+    "umbral": "< 70 % previstos a los 3 meses"
+   },
+   "dueno": "Gerente de Tesorería",
+   "operador": "Analista de tesorería",
+   "firmante": "Finanzas (Gerente de Tesorería)",
+   "estado": "propuesto",
+   "nota": "No alivia frenos del circuito, su volumen es mensual y solo hay dolor en entrevistas («nunca es exacto»). Necesita que las OC existan en el sistema, lo que espera a la mesa Cubitt; prepara en nivel 1.",
+   "evidencia": [
+    "M16",
+    "M23",
+    "E-06-pt-1:115",
+    "E-06-pt-1:117",
+    "E-15:328",
+    "propuestas-to-be.md:648",
+    "arquitectura-ia.html:740"
+   ]
+  },
+  "m-credito-de-clientes": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Clientes con límite y plazo aprobados y saldo vencido",
+    "base": "USD 610.000 vencidos en VE y cartera de USD 6–7 M sin comité de crédito (M77, M76)",
+    "meta": "100 % de clientes del mayor con límite y plazo en 6 meses y −30 % del vencido en 12 meses",
+    "umbral": "Vencido sin baja a los 6 meses de aplicada la política"
+   },
+   "dueno": "Coordinador(a) de Tesorería / Cobranzas (Crédito)",
+   "operador": "Analista de crédito",
+   "firmante": "Comité de crédito o Gerente de Tesorería (el alta y el límite)",
+   "estado": "propuesto",
+   "nota": "Resuelve 16.1 (detiene) y lo piden la dirección («estos cinco clientes puede darle más crédito») y crédito de Panamá, que espera un manual y un comité. Falta la política escrita y un historial de pagos fiable, y es una decisión sobre clientes que siempre firma una persona.",
+   "evidencia": [
+    "M76",
+    "M77",
+    "freno:16.1",
+    "freno:16.3",
+    "E-08:170",
+    "E-62:146",
+    "E-39:122",
+    "E-48:170",
+    "propuestas-to-be.md:656",
+    "propuestas-to-be.md:917",
+    "arquitectura-ia.html:794"
+   ]
+  },
+  "m-cartera-y-cobranza": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Cobros sin registrar de más de 30 días y tiempo de aplicación del pago (indicador 13.6)",
+    "base": "Meses de cobros sin registrar, ~960 documentos al día a un Excel y hasta 20 abonos por factura (M80, M79, M78)",
+    "meta": "Ningún cobro sin registrar de más de 30 días y aplicación el mismo día en ≥ 80 % de los pagos, a los 6 meses",
+    "umbral": "Rezago > 60 días a los 3 meses"
+   },
+   "dueno": "Coordinador(a) de Tesorería / Cobranzas (Cobranza)",
+   "operador": "Analista de cuentas por cobrar y vendedores",
+   "firmante": "Cuentas por cobrar (valida los pagos)",
+   "estado": "propuesto",
+   "nota": "Resuelve 16.2 (detiene) con volumen diario y la dirección pide la cartera analizada y lista para actuar. Lee comprobantes con datos de pagadores y propone desgloses de dinero en nivel 1; los recordatorios van a los vendedores.",
+   "evidencia": [
+    "M78",
+    "M79",
+    "M80",
+    "M81",
+    "freno:16.2",
+    "freno:16.4",
+    "freno:19.1",
+    "E-08:170",
+    "E-39:50",
+    "E-35:120",
+    "E-48:48",
+    "E-62:172",
+    "propuestas-to-be.md:664",
+    "propuestas-to-be.md:956",
+    "arquitectura-ia.html:797"
+   ]
+  },
+  "m-cuadre-entre-empresas": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 4,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Frecuencia y rezago del cuadre entre empresas",
+    "base": "Un ejercicio de 2 meses, manual e irregular (M85)",
+    "meta": "Cuadre mensual cerrado en ≤ 10 días hábiles, desde el tercer mes",
+    "umbral": "Dos meses seguidos sin cuadre"
+   },
+   "dueno": "Coordinador(a) de Tesorería / Cobranzas, bajo el Gerente de Tesorería",
+   "operador": "Analistas de cuentas por cobrar y por pagar",
+   "firmante": "Contabilidad",
+   "estado": "propuesto",
+   "nota": "Resuelve 18.1 (detiene) con volumen mensual y solo hay dolor en entrevistas. Lee las tres instancias de Odoo, cuadra y explica sin cambiar registros.",
+   "evidencia": [
+    "M85",
+    "freno:18.1",
+    "freno:18.3",
+    "E-61:54",
+    "E-61:266",
+    "E-62:184",
+    "propuestas-to-be.md:672",
+    "propuestas-to-be.md:958",
+    "arquitectura-ia.html:802"
+   ]
+  },
+  "m-flujo-de-caja": {
+   "valor": {
+    "frenos": 2,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Desvío entre el flujo proyectado y el real a 4 semanas",
+    "base": "Por medir; hoy en hojas de Lark y Excel personales, revisado cada mañana (M90)",
+    "meta": "Desvío ≤ 10 % a 4 semanas tras 3 meses de uso",
+    "umbral": "Desvío > 25 % durante dos meses"
+   },
+   "dueno": "Gerente de Tesorería",
+   "operador": "Planificador financiero",
+   "firmante": "No requiere: es información de gestión; la revisa el Gerente de Tesorería",
+   "estado": "propuesto",
+   "nota": "Vínculo marginal con 19.3 (lento), aunque se revisa a diario y la dirección financiera pide dejar sus Excel por un software de proyección. Necesita bancos y compromisos de compra que aún no están en el sistema.",
+   "evidencia": [
+    "M90",
+    "freno:19.3",
+    "E-15:369",
+    "E-15:227",
+    "E-43:123",
+    "propuestas-to-be.md:680",
+    "arquitectura-ia.html:806"
+   ]
+  },
+  "m-buzon-de-sell-out-de-clientes": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 3,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Cobertura de clientes con sell-out normalizado en la semana y filas mapeadas sin corrección",
+    "base": "41 clientes en 41 formatos y más de 1.000 tiendas, reenviados por el vendedor a BI (M93); en Colombia ~30 min cada lunes a cargo de una persona (M94)",
+    "meta": "Piloto de 2–3 semanas en paralelo con BI: ≥ 95 % de filas mapeadas sin corrección; a 6 meses, ≥ 80 % de los 41 clientes cargados en su semana",
+    "umbral": "< 90 % de filas correctas frente a la tabla de BI en el piloto"
+   },
+   "dueno": "Analista de Sistemas / Datos (célula de BI), dueño del proceso 15.1",
+   "operador": "Analista de Sistemas / Datos (ETL); el vendedor y el KAM consultan la tabla",
+   "firmante": "Ninguna en la órbita; se propone que el Analista de Sistemas / Datos valide cada formato nuevo y los alias bajo el umbral, porque la tabla alimenta el pronóstico",
+   "estado": "prototipo",
+   "nota": "Resuelve un freno que detiene (20.1), con volumen alto y pedido de la Presidencia y de la dirección comercial, y puede operar sin Odoo. Es el prototipo 3 (P3) de la Fase 2, decidido el 09-oct y documentado sin construir; el traspaso desde Fabric (decisión 7) sigue abierto.",
+   "evidencia": [
+    "freno:20.1",
+    "freno:20.2",
+    "freno:20.3",
+    "M93",
+    "M94",
+    "E-01:87",
+    "E-63:123",
+    "E-05:166",
+    "E-18:33",
+    "E-18:73",
+    "decision:7",
+    "arquitectura-ia.html:857"
+   ]
+  },
+  "m-disponibilidad-y-oferta": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 3,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Clientes activos que reciben su lista de disponibilidad cada lunes",
+    "base": "Un Excel de los lunes que no todos los vendedores mandan; todos ofrecen el mismo stock (M38; E-05:158); cobertura por medir",
+    "meta": "100 % de los clientes activos de cada segmento con su lista el lunes antes de las 10:00, a los 2 meses de operar",
+    "umbral": "< 80 % de cobertura, o listas con disponible que no se puede comprometer"
+   },
+   "dueno": "Gerente Comercial (País / Canal)",
+   "operador": "Analista/Ejecutivo(a) Comercial",
+   "firmante": "Analista/Ejecutivo(a) Comercial, que envía la lista",
+   "estado": "propuesto",
+   "nota": "La dirección comercial pide de forma explícita que todos los clientes reciban la lista cada semana. Alivia frenos lentos (8a.1, 7.3), pero el disponible comprometible depende del Vigía de reservas y de las credenciales de Odoo.",
+   "evidencia": [
+    "M38",
+    "freno:8a.1",
+    "freno:7.3",
+    "E-63:123",
+    "E-07:134",
+    "E-05:158"
+   ]
+  },
+  "m-pedidos-b2b": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Pedidos del mayor registrados en Odoo desde su origen y faltantes avisados antes del picking",
+    "base": "El 80 % de los clientes compra por teléfono y parte de la venta no pasa por Odoo (M39, M41); en VE el faltante aparece al pickear (M43)",
+    "meta": "≥ 90 % de los pedidos del mayor con su presupuesto en Odoo y faltante avisado antes del picking en ≥ 80 %, a los 6 meses",
+    "umbral": "> 15 % de presupuestos convertidos con errores de línea"
+   },
+   "dueno": "Analista/Ejecutivo(a) Comercial, supervisado por el Gerente Comercial (País / Canal) (proceso 8.4)",
+   "operador": "Analista/Ejecutivo(a) Comercial",
+   "firmante": "Gerente Comercial (País / Canal), cuando el pedido compromete crédito o stock asignado",
+   "estado": "propuesto",
+   "nota": "Volumen diario y dolor claro, pero el dato vive fuera de Odoo (chats y Excel) y depende de la política de crédito, del catálogo, del portal y de los números corporativos de WhatsApp. Sistema nuevo con varias integraciones.",
+   "evidencia": [
+    "M39",
+    "M41",
+    "M43",
+    "freno:11e.2",
+    "freno:11e.4",
+    "freno:12e.1",
+    "E-05:158",
+    "E-63:95",
+    "E-36:6",
+    "decision:13"
+   ]
+  },
+  "m-aprobacion-comercial-por-reglas": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Pedidos aprobados por regla y horas de espera por aprobación",
+    "base": "Cada pedido pasa por la gerencia o la dirección comercial y se detiene si el aprobador viaja (M35; freno 7.2); horas de espera por medir",
+    "meta": "≥ 60 % de los pedidos aprobados por regla, espera < 4 h hábiles y cero pedidos parados por viaje, a los 3 meses",
+    "umbral": "Un pedido aprobado por regla que debió ser excepción (margen o crédito) en la auditoría mensual"
+   },
+   "dueno": "Gerente Comercial (País / Canal)",
+   "operador": "Gerente Comercial (País / Canal), que ve solo las excepciones",
+   "firmante": "Gerente Comercial (País / Canal) o Director(a) Comercial, para las excepciones",
+   "estado": "propuesto",
+   "nota": "Resuelve un freno que detiene (7.2) y un directivo pide explícitamente que las aprobaciones no dependan de él. Lee datos que ya están en Odoo, pero espera las credenciales (C#2) y las reglas escritas con la gerencia comercial (decisión 14).",
+   "evidencia": [
+    "freno:7.2",
+    "freno:10b.4",
+    "M35",
+    "E-08:170",
+    "E-05:182",
+    "E-62:58",
+    "decision:14",
+    "propuestas-to-be.md:905"
+   ]
+  },
+  "m-portal-de-clientes": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 1
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 2,
+    "autonomia": 2
+   },
+   "metrica": {
+    "nombre": "Pedidos del portal que llegan a Odoo sin transcripción y con stock y crédito válidos",
+    "base": "Portal paralelo que emite un PDF como OC y se transcribe a mano en Odoo (M40; SC-08:236)",
+    "meta": "100 % de los pedidos del portal sin transcripción y < 2 % rechazados después por stock o crédito, a los 6 meses",
+    "umbral": "> 5 % de pedidos aceptados por el portal que luego no se pueden servir"
+   },
+   "dueno": "Analista/Ejecutivo(a) Comercial, supervisado por el Gerente Comercial (País / Canal) (proceso 8.4)",
+   "operador": "El cliente mayorista, acompañado por su Analista/Ejecutivo(a) Comercial",
+   "firmante": "Ninguna en la órbita; se propone que el Gerente Comercial (País / Canal) firme los pedidos que excedan el crédito o tomen stock asignado, como en Pedidos B2B",
+   "estado": "propuesto",
+   "nota": "La IA valida stock y crédito de cara al cliente sin firma, sobre un stock que hoy no es real y sin política de crédito en VE. Depende de Pedidos B2B y del crédito, y es un portal externo nuevo; la dirección comercial lo plantea con reservas.",
+   "evidencia": [
+    "M40",
+    "freno:11e.5",
+    "freno:16.1",
+    "freno:10b.2",
+    "SC-08:236",
+    "E-05:162"
+   ]
+  },
+  "m-contactos-de-clientes": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Clientes del mayor con contactos de venta, cobro y logística completos en Odoo",
+    "base": "Por medir; los contactos viven en el teléfono del vendedor y una cartera cambió de manos con la salida de un vendedor (M42)",
+    "meta": "≥ 90 % de los clientes activos con los tres contactos a los 6 meses",
+    "umbral": "> 5 % de contactos erróneos en la revisión trimestral, o una queja por el uso de los datos"
+   },
+   "dueno": "Gerente Regional Comercial (Mayoreo)",
+   "operador": "Analista/Ejecutivo(a) Comercial",
+   "firmante": "Ninguna en la órbita; se propone que el Analista/Ejecutivo(a) Comercial confirme cada contacto nuevo antes de guardarlo, por tratarse de datos personales",
+   "estado": "propuesto",
+   "nota": "Alivia la intermediación del vendedor (9a.2), pero extrae datos personales de chats y correos en nivel 2 sin firma: por eso el riesgo de datos personales es alto. Espera los números corporativos de WhatsApp (decisión 13).",
+   "evidencia": [
+    "M42",
+    "freno:9a.2",
+    "SC-01:327",
+    "E-57:74",
+    "decision:13"
+   ]
+  },
+  "m-portal-de-socios-y-franquicias": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 1
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 2,
+    "autonomia": 2
+   },
+   "metrica": {
+    "nombre": "Fulfillment del socio (unidades entregadas sobre pedidas) y franquicias que reportan su venta cada mes",
+    "base": "Fulfillment de 70–80 % al socio de Costa Rica, con el stock publicado por rangos (M51); franquicias sin reporte estándar (M97)",
+    "meta": "Fulfillment ≥ 90 % y 100 % de las franquicias reportando cada mes, a los 6 meses del portal",
+    "umbral": "Disponible publicado que no se puede servir en > 5 % de las líneas"
+   },
+   "dueno": "Coordinador(a) Comercial (proceso 8.8)",
+   "operador": "El socio o franquiciado, con el Coordinador(a) Comercial",
+   "firmante": "Ninguna en la órbita; se propone que el Coordinador(a) Comercial apruebe la publicación inicial del disponible por socio y los ajustes del reporte normalizado",
+   "estado": "propuesto",
+   "nota": "Pocos socios y franquicias; la IA publica el disponible hacia fuera sin firma. Cada conexión pide un acuerdo con el socio y depende del Vigía de reservas y del buzón de sell-out.",
+   "evidencia": [
+    "M51",
+    "M96",
+    "M97",
+    "freno:8b.2",
+    "freno:13e.2",
+    "E-19:135",
+    "E-55:50"
+   ]
+  },
+  "m-displays-y-mobiliario": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Días hábiles desde la solicitud del mueble hasta la decisión",
+    "base": "25–37 días hábiles por mueble nuevo; la macro registra 230 clientes y son unos 400 (M44; E-31:423)",
+    "meta": "Decisión en ≤ 5 días hábiles con la ficha del cliente, a los 6 meses",
+    "umbral": "Fichas con compras o pagos que no cuadran con Odoo"
+   },
+   "dueno": "Gerente Regional Comercial / Retail (proceso 8.13)",
+   "operador": "Coordinador(a) de Visual Merchandising",
+   "firmante": "Gerente Regional Comercial / Retail o el KAM del cliente, según el monto, que aprueba el mueble",
+   "estado": "propuesto",
+   "nota": "Bajo volumen y sin freno del circuito; la IA solo arma la ficha del cliente (nivel 1) y una persona aprueba el mueble. Riesgo bajo.",
+   "evidencia": [
+    "M44",
+    "E-31:423",
+    "E-31:487"
+   ]
+  },
+  "m-recepcion-en-tienda": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Horas desde la llegada de la mercancía a la tienda hasta que queda disponible para la venta",
+    "base": "Toda la mañana del lunes de un supervisor para el doble registro; la mercancía está y no se vende (M57; E-53:122)",
+    "meta": "Mercancía vendible en < 1 h desde el escaneo en el piloto de Panamá, a los 3 meses",
+    "umbral": "> 2 % de diferencias entre factura y pedido no detectadas"
+   },
+   "dueno": "Gerente de Ventas al Detal (País); en Panamá, el Supervisor de Ventas (proceso 9.3)",
+   "operador": "Gerente de Tienda / Supervisor de Ventas",
+   "firmante": "Gerente de Tienda, que valida con el escaneo",
+   "estado": "propuesto",
+   "nota": "Resuelve un freno que detiene (13c.1) con un caso semanal y acotado a Panamá. Espera una app de escaneo en tablet y las credenciales de Odoo; el escaneo actúa como control.",
+   "evidencia": [
+    "freno:13c.1",
+    "M57",
+    "E-53:122",
+    "E-53:110",
+    "propuestas-to-be.md:918"
+   ]
+  },
+  "m-traslados-entre-tiendas": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Descuadres de inventario causados por traslados y tiempo de atención de la solicitud",
+    "base": "Traslados pedidos por correo, típicos del domingo; «se te rompían inventarios» (M58)",
+    "meta": "100 % de los traslados por solicitud en sistema y −50 % de descuadres por traslado, a los 6 meses",
+    "umbral": "Sugerencias de origen rechazadas por el supervisor en > 30 %"
+   },
+   "dueno": "Gerente de Ventas al Detal (País); en Panamá, el Supervisor de Ventas (proceso 9.4)",
+   "operador": "Gerente de Tienda",
+   "firmante": "Supervisor de Ventas, que confirma el traslado",
+   "estado": "propuesto",
+   "nota": "Alivia un freno lento (14c.5) con un caso semanal. Lectura sobre el espejo con confirmación del supervisor: viable y de bajo riesgo.",
+   "evidencia": [
+    "M58",
+    "freno:14c.5",
+    "E-53:202",
+    "E-55:56"
+   ]
+  },
+  "m-torre-retail-y-cuadro-diario": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Hora a la que el cuadro diario de todas las tiendas está listo y alertas útiles de anomalía",
+    "base": "Cada tienda descarga el cierre y lo digita en un cuadro compartido; las anomalías se ven «a ojo» (M61; E-47:269); el reporte de retail toma 3 días (M05)",
+    "meta": "Cuadro regional listo a las 9:00 del día siguiente para el 100 % de las tiendas, a los 2 meses",
+    "umbral": "> 30 % de alertas falsas en un mes"
+   },
+   "dueno": "Gerente Regional Comercial / Retail (proceso 9.2)",
+   "operador": "Gerente de Tienda (visto del cierre) y Gerente Regional Comercial / Retail",
+   "firmante": "No requiere: la alerta es informativa; el gerente de tienda da el visto al cuadro",
+   "estado": "propuesto",
+   "nota": "La dueña del proceso 9.2 lo pide de forma explícita y es diario; sale del POS que ya está en Odoo. Ojo: el área ya construye su propia torre de control (E-55:32), que hay que absorber y no duplicar.",
+   "evidencia": [
+    "M61",
+    "M05",
+    "freno:15c.1",
+    "freno:20.2",
+    "E-55:82",
+    "E-55:56",
+    "E-47:269",
+    "E-55:32"
+   ]
+  },
+  "m-mesa-de-ayuda-de-tiendas": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Consultas recurrentes de tiendas resueltas sin escalar y tiempo de respuesta",
+    "base": "Una sola persona atiende los grupos de Lark y WhatsApp de las 20 tiendas de VE los 7 días (M60; E-07:52); volumen por medir",
+    "meta": "≥ 50 % de las consultas recurrentes resueltas con la base de conocimiento, a los 6 meses",
+    "umbral": "< 30 % resueltas, o una respuesta errónea que detenga una caja"
+   },
+   "dueno": "Gerente de Tienda / Supervisor de Ventas (proceso 9.6); el soporte lo presta Tecnología (14.5)",
+   "operador": "Coordinador(a) de Sistemas de cada país",
+   "firmante": "No requiere para respuestas de la base aprobada; se propone que el Coordinador(a) de Sistemas apruebe cada respuesta nueva antes de sumarla a la base",
+   "estado": "propuesto",
+   "nota": "La gerencia de TI pide explícitamente un asistente que responda lo recurrente, y hoy depende de una sola persona (14c.3). Es de uso interno y bajo riesgo, pero la base de conocimiento no existe y hay que construirla.",
+   "evidencia": [
+    "M60",
+    "freno:14c.3",
+    "E-52:180",
+    "E-07:52"
+   ]
+  },
+  "m-expediente-de-apertura": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Aperturas con expediente y comparable completos antes de la aprobación",
+    "base": "Hasta 8 aperturas simultáneas con checklist disperso y POS configurado copiando otra tienda en producción (M116)",
+    "meta": "100 % de las aperturas con expediente y comparable antes de la decisión, desde la siguiente apertura",
+    "umbral": "Una apertura configurada fuera de la plantilla"
+   },
+   "dueno": "Gerente de Proyectos (PMO) para el proyecto, con el Gerente Regional Comercial / Retail para la decisión (proceso 9.8)",
+   "operador": "Gerente de Proyectos (PMO)",
+   "firmante": "Junta Directiva o Gerente Regional Comercial / Retail, que aprueba la apertura",
+   "estado": "propuesto",
+   "nota": "Sin freno del circuito y de bajo volumen. La dirección comercial pide reforzar el análisis de apertura ante la Junta (E-05:245), más amplio que la plantilla técnica. Nivel 1 con firma: riesgo bajo.",
+   "evidencia": [
+    "M116",
+    "E-05:245",
+    "E-05:254",
+    "E-55:52"
+   ]
+  },
+  "m-panel-unico-del-pedido": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Minutos al día por asesor buscando el estado de los pedidos",
+    "base": "~1 h al día por asesor (M65; freno 13d.1); 5.063 órdenes en julio de 2026",
+    "meta": "≤ 10 min al día por asesor y ≥ 98 % de pedidos con estado al día, a los 3 meses",
+    "umbral": "> 5 % de pedidos con un estado distinto al real en la muestra semanal"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web (por país)",
+   "operador": "Asesor(a) de Ventas Web",
+   "firmante": "No requiere: refleja los eventos de cada canal sin decidir nada",
+   "estado": "propuesto",
+   "nota": "La gerencia web lo pide como su «mundo ideal» y ahorra una hora diaria por asesor; además es la base del copiloto. El dato está repartido en tres lugares y depende de Cashea, de los couriers y de Odoo.",
+   "evidencia": [
+    "M65",
+    "freno:13d.1",
+    "freno:11d.5",
+    "E-41:84",
+    "E-41:88",
+    "E-16:146",
+    "arquitectura-ia.html:839"
+   ]
+  },
+  "m-venta-asistida-por-chat": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 3,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Venta del canal de chat y minutos por presupuesto armado",
+    "base": "WhatsApp vendió USD 37.000 en abril de 2026 frente a USD 30.000 de la web (M66; E-16:139); minutos por presupuesto por medir",
+    "meta": "+15 % de venta del chat frente a la base de abril en igual temporada y presupuesto en < 2 min, a los 6 meses",
+    "umbral": "Descuentos fuera de política en > 2 % de los presupuestos"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web (por país)",
+   "operador": "Asesor(a) de Ventas Web",
+   "firmante": "Ninguna en la órbita; el asesor que envía firma de hecho, y se propone que el Gerente de E-commerce firme los descuentos fuera de lista",
+   "estado": "propuesto",
+   "nota": "Canal diario y que ya vende más que la web, pero depende de Mercately, de los números corporativos y del panel del pedido. La IA arma el presupuesto y el asesor envía, como pide la regla de atención (MC:18665).",
+   "evidencia": [
+    "M66",
+    "freno:11d.3",
+    "E-16:136",
+    "E-16:139",
+    "MC:18665",
+    "decision:1",
+    "decision:13"
+   ]
+  },
+  "m-validacion-de-pagos": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 4,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Pagos emparejados sin intervención y tiempo hasta pasar el pedido a preparación",
+    "base": "10–15 pagos al día confirmados uno a uno en el banco, domingos incluidos, por el mismo equipo que vende (M70; freno 11d.4)",
+    "meta": "≥ 80 % emparejados sin intervención, < 30 min hasta preparación y 100 % de las excepciones firmadas fuera de ventas, a los 3 meses",
+    "umbral": "Un pedido despachado sin pago confirmado"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web (por país), de forma transitoria hasta que el proceso pase a Contabilidad / Tesorería",
+   "operador": "Administración, fuera del equipo que vende",
+   "firmante": "Administración / Contabilidad, fuera del equipo que vende, para lo que no casa",
+   "estado": "propuesto",
+   "nota": "Resuelve un freno que detiene (11d.4: el que vende valida sus pagos) y la gerencia web pide explícitamente dejar de validar. Necesita conectores bancarios y nombrar al firmante (decisión 12); maneja datos de pago de consumidores.",
+   "evidencia": [
+    "freno:11d.4",
+    "freno:11d.5",
+    "M70",
+    "E-41:88",
+    "E-41:50",
+    "E-41:60",
+    "decision:12"
+   ]
+  },
+  "m-limpieza-de-pedidos-cashea": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 4,
+    "autonomia": 2
+   },
+   "metrica": {
+    "nombre": "Pedidos de Cashea depurados sin hoja paralela y con contacto completo",
+    "base": "Excel paralelo de ~4.000 pedidos al mes y una persona dedicada a cruzarlos (M63; E-41:198)",
+    "meta": "Cero hoja paralela y ≥ 95 % de pedidos con contacto completo, a los 3 meses",
+    "umbral": "Un pedido confirmado sin pago, o > 2 % de cancelados que llegan a preparación"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web (por país)",
+   "operador": "Asesor(a) de Ventas Web a cargo del montaje de órdenes",
+   "firmante": "Ninguna en la órbita; se propone que el Gerente de E-commerce revise cada semana una muestra de confirmaciones, porque la IA confirma pedidos en nivel 2",
+   "estado": "propuesto",
+   "nota": "Resuelve un freno que detiene (11d.1) con alto volumen. La vía de reportes de Cashea está por confirmar y Cashea prometió una corrección; si llega, el caso se achica.",
+   "evidencia": [
+    "freno:11d.1",
+    "M63",
+    "E-41:198",
+    "E-16:126",
+    "propuestas-to-be.md:922"
+   ]
+  },
+  "m-publicacion-por-canal": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 1,
+    "autonomia": 1
+   },
+   "metrica": {
+    "nombre": "Días desde la llegada de la mercancía hasta que está publicada en cada canal",
+    "base": "Publicación a mano, canal por canal; productos en bodega sin activar en la web (M64; E-42:144); días por medir",
+    "meta": "Publicado en ≤ 1 día hábil desde la llegada en el 90 % de los SKU, a los 6 meses",
+    "umbral": "Una ficha publicada con un dato erróneo de precio o de producto"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web (por país)",
+   "operador": "Gerente de E-commerce / Ventas Web y el equipo de contenido web",
+   "firmante": "Ninguna en la órbita, en conflicto con la regla de que lo que sale hacia clientes lo envía una persona; se propone que el Gerente de E-commerce apruebe cada ficha nueva y que solo el stock se sincronice solo",
+   "estado": "propuesto",
+   "nota": "Riesgo alto tal como está: la IA redacta y publica hacia fuera en nivel 2 sin firma (choca con propuestas-to-be.md:31). Depende del catálogo único y de tres conectores de tiendas online.",
+   "evidencia": [
+    "M64",
+    "freno:SW.1",
+    "freno:11d.2",
+    "E-42:144",
+    "E-30:51",
+    "E-16:112",
+    "propuestas-to-be.md:31"
+   ]
+  },
+  "m-plan-de-temporada": {
+   "valor": {
+    "frenos": 4,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 4,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Error de la proyección semanal de órdenes de temporada frente a lo real",
+    "base": "Capacidad planificada con una IA personal; 5.063 órdenes en julio y 7.000–8.000 proyectadas para diciembre (M74; E-41:301)",
+    "meta": "Plan semanal de capacidad listo antes del 1-nov-2026 y error ≤ 15 % por semana durante la temporada",
+    "umbral": "Error > 25 % en dos semanas seguidas"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web (por país)",
+   "operador": "Gerente de E-commerce / Ventas Web, con el Supervisor de Operaciones y Logística web",
+   "firmante": "No requiere: es una proyección; el plan de personal y de espacio lo aprueba el Gerente de E-commerce",
+   "estado": "propuesto",
+   "nota": "Urgente para diciembre de 2026 y formaliza un uso de IA personal (isla). Ataca el freno 12d.2, pero la falta de espacio físico no la resuelve la plataforma; sale del histórico diario de pedidos.",
+   "evidencia": [
+    "freno:12d.2",
+    "M74",
+    "E-41:311",
+    "E-41:287",
+    "E-41:301",
+    "E-16:137",
+    "propuestas-to-be.md:910"
+   ]
+  },
+  "m-kenex-usa-y-marketplaces-de-ee-uu": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 1
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Devoluciones de marketplaces con estado y motivo clasificados",
+    "base": "Miles de devoluciones al mes sin registro de su estado, en 15 marketplaces (M115; freno US.2)",
+    "meta": "≥ 90 % de las devoluciones clasificadas en 48 h, a los 6 meses de conectar los marketplaces",
+    "umbral": "> 10 % de clasificaciones corregidas"
+   },
+   "dueno": "Gerente de E-commerce / Ventas Web de Kenex USA (proceso 10.5)",
+   "operador": "Equipo de e-commerce de Kenex USA",
+   "firmante": "Ninguna en la órbita; se propone que el Gerente de E-commerce de Kenex USA revise las devoluciones que se reingresan a stock o se dan de baja",
+   "estado": "propuesto",
+   "nota": "Volumen alto de devoluciones, pero depende de decidir si Kenex USA migra a Odoo y de conectar QuickBooks y 15 marketplaces. La dueña pide delegar otras tareas (impresión de órdenes, respuestas de Amazon), no esta.",
+   "evidencia": [
+    "M114",
+    "M115",
+    "freno:US.1",
+    "freno:US.2",
+    "E-06-pt-2:33",
+    "E-30:45",
+    "E-30:77"
+   ]
+  },
+  "m-copiloto-de-atencion-omnicanal": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 5,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 1
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 3,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Tiempo de primera respuesta y propuestas que el asesor envía sin corregir",
+    "base": "~1.500 conversaciones al día y hasta 6.000 en promoción (M67); SLA medido en una app aparte (M68); tiempo de primera respuesta por medir",
+    "meta": "En un piloto de 6 meses: −30 % en el tiempo de primera respuesta y ≥ 70 % de propuestas enviadas sin corrección",
+    "umbral": "< 50 % de propuestas aceptadas sin corrección a los 90 días, o caída de la satisfacción del cliente"
+   },
+   "dueno": "Gerente de Servicio Técnico (proceso 11.1)",
+   "operador": "Asesor(a) de Servicio al Cliente y Asesor(a) de Ventas Web",
+   "firmante": "El asesor, que envía cada respuesta",
+   "estado": "propuesto",
+   "nota": "El mayor volumen del grupo y alivia la saturación del chat (11d.3), pero depende de Mercately, de los números corporativos y de la decisión 6. Va como copiloto: la IA propone y el asesor envía (MC:18665), porque Postventa retiró un piloto por resistencia y Panamá no quiere un agente que atienda.",
+   "evidencia": [
+    "M67",
+    "M68",
+    "freno:11d.3",
+    "freno:13d.1",
+    "E-41:255",
+    "E-02:268",
+    "E-64:74",
+    "MC:18665",
+    "decision:1",
+    "decision:6",
+    "decision:13",
+    "arquitectura-ia.html:839"
+   ]
+  },
+  "m-bandeja-de-mayoristas": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Chats de mayoristas sin leer y tiempo de primera respuesta al mayorista",
+    "base": "146 chats sin leer en VE (M69; E-31:398)",
+    "meta": "Cero chats sin leer con más de 24 h, a los 3 meses de operar",
+    "umbral": "> 20 chats sin leer con más de 48 h"
+   },
+   "dueno": "Gerente de Servicio Técnico (proceso 11.1)",
+   "operador": "Analista/Ejecutivo(a) Comercial del mayor en VE",
+   "firmante": "No requiere: solo ordena la bandeja; el vendedor responde con su nombre",
+   "estado": "propuesto",
+   "nota": "Dolor medido, aunque la cifra de 146 chats viene de Visual Merchandising de VE y no de la atención a mayoristas. Nadie pide la bandeja y espera la bandeja omnicanal del copiloto y los números corporativos de WhatsApp.",
+   "evidencia": [
+    "M69",
+    "freno:11e.4",
+    "E-31:398",
+    "E-36:93",
+    "decision:1",
+    "decision:13"
+   ]
+  },
+  "m-expediente-unico-de-garantia": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 4,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 3,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Tiempo de ciclo del caso de garantía, sistemas por caso y triages aceptados sin corrección",
+    "base": "25–30 casos al día en PA, hasta 7 días si es software (M99); ~700 órdenes de servicio al mes en VE que pasan por cuatro sistemas (M100)",
+    "meta": "Un solo registro por caso en PA a los 3 meses y en VE a los 9; −30 % de tiempo de ciclo en PA a los 6 meses; ≥ 80 % de triages aceptados sin corrección",
+    "umbral": "< 60 % de triages aceptados sin corrección, o el equipo sigue registrando en paralelo a los 90 días"
+   },
+   "dueno": "Gerente de Servicio Técnico (proceso 11.2)",
+   "operador": "Técnico(a) y asesor(a) de Servicio Técnico de cada país",
+   "firmante": "Gerente de Servicio Técnico del país, para las excepciones de elegibilidad",
+   "estado": "propuesto",
+   "nota": "Resuelve un freno que detiene (PV.1), con volumen medido y pedido explícito de la Presidencia y del dueño de Postventa. En Panamá los casos y las reglas ya existen (Lark Base y manual regional); siguen abiertas la serialización, la lectura de fotos y la política de reembolso de VE.",
+   "evidencia": [
+    "freno:PV.1",
+    "M99",
+    "M100",
+    "E-01:17",
+    "E-58:32",
+    "E-51:123",
+    "E-64:86",
+    "decision:15",
+    "decision:16",
+    "arquitectura-ia.html:848"
+   ]
+  },
+  "m-stock-de-garantia-y-reemplazos": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 2
+   },
+   "metrica": {
+    "nombre": "Días de quiebre del stock de garantía por SKU y país",
+    "base": "VE pide los reemplazos por traslado dos veces al día y tuvo un modelo agotado más de un mes (M101)",
+    "meta": "Ningún modelo con quiebre de garantía de más de 7 días en VE, a los 6 meses",
+    "umbral": "Algún modelo sin stock de garantía más de 15 días"
+   },
+   "dueno": "Gerente de Servicio Técnico (proceso 11.2)",
+   "operador": "Coordinador(a) de Logística y Bodega (proceso 7.7)",
+   "firmante": "Ninguna en la órbita; se propone que el Coordinador(a) de Logística y Bodega confirme la reposición, porque mueve inventario",
+   "estado": "propuesto",
+   "nota": "Alivia un freno lento (PV.3) con pedidos diarios, pero la tasa de garantías que necesita sale del expediente y del sell-out, que aún no existen. La IA pide la reposición en nivel 2 sin firma.",
+   "evidencia": [
+    "M101",
+    "freno:PV.3",
+    "E-58:128"
+   ]
+  },
+  "m-repuestos-y-servicio-casio": {
+   "valor": {
+    "frenos": 5,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 3,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 3,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Tiempo para armar el pedido consolidado y el reporte a Casio, y personas capaces de hacerlo",
+    "base": "~1.000 artículos al mes de cuatro países que pide una sola persona (M102); el reporte a Japón le toma 1–1,5 días (E-51:271)",
+    "meta": "Reporte en borrador en < 2 h y al menos dos personas capaces de emitirlo, a los 4 meses",
+    "umbral": "Más del 30 % de líneas corregidas en el borrador"
+   },
+   "dueno": "Gerente de Servicio Técnico, con alcance regional para Casio (proceso 11.5)",
+   "operador": "Técnico(a) de servicio Casio",
+   "firmante": "Gerente de Servicio Técnico, que firma la OC de repuestos",
+   "estado": "propuesto",
+   "nota": "Resuelve un freno que detiene (PV.2: todo depende de una persona), con nivel 1 y firma de la OC. Nadie lo pide; el dato vive en los archivos de esa persona y el canal de servicio de Casio está por confirmar.",
+   "evidencia": [
+    "freno:PV.2",
+    "M102",
+    "M103",
+    "E-51:147",
+    "E-51:271",
+    "E-02:200"
+   ]
+  },
+  "m-reembolsos-y-cambios-b2b": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 4,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Días desde el reclamo B2B hasta la nota de crédito, y plazo del reembolso web",
+    "base": "Hasta 4 días que bloquean la factura siguiente (M106); reembolso web de ~24–48 h en PA y de 30 a 5 días en CO (M105)",
+    "meta": "≤ 1 día hábil en B2B en PA y estándar del grupo ≤ 48 h en web, a los 4 meses",
+    "umbral": "> 2 días de mediana en B2B"
+   },
+   "dueno": "Gerente de Servicio Técnico (proceso 11.8)",
+   "operador": "Analista/Ejecutivo(a) Comercial y Asesor(a) de Servicio al Cliente",
+   "firmante": "Contabilidad, que emite la nota de crédito; el Gerente Comercial (País / Canal) aprueba la devolución B2B",
+   "estado": "propuesto",
+   "nota": "Alivia frenos lentos (RT.1, RT.2). La nota de crédito queda en borrador hasta su firma; necesita una política de reembolso para VE y maneja datos de pago de consumidores.",
+   "evidencia": [
+    "M105",
+    "M106",
+    "freno:RT.1",
+    "freno:RT.2",
+    "E-57:164",
+    "E-39:90",
+    "E-02:96"
+   ]
+  },
+  "m-calidad-por-lote": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 4,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Tasa de garantías por lote y SKU y días hasta detectar un lote fuera de umbral",
+    "base": "3,5 % en algunos productos frente a < 1,5 % histórico, calculado pidiendo el sell-out a mano (M107)",
+    "meta": "Tasa por lote calculada cada mes para el 100 % de los SKU serializados y detección < 30 días desde la venta del lote, a los 6 meses de la serialización",
+    "umbral": "Tasa no disponible para > 30 % de los casos por falta de serial"
+   },
+   "dueno": "Subgerente de Servicio Técnico (proceso 11.3)",
+   "operador": "Subgerente de Servicio Técnico",
+   "firmante": "No requiere para la alerta; se propone que el Subgerente de Servicio Técnico firme el reclamo a la fábrica",
+   "estado": "propuesto",
+   "nota": "El dueño de Postventa lo pide de forma explícita (cruzar sell-out y garantías por lote). Depende de la serialización (decisión 16), del buzón de sell-out y del expediente de garantía; el cálculo en sí es pequeño.",
+   "evidencia": [
+    "M107",
+    "freno:4a.4",
+    "E-58:166",
+    "E-58:168",
+    "E-01:17",
+    "decision:16"
+   ]
+  },
+  "m-scrap-del-mes": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Diferencias sin explicar entre traslados de garantía, físico y casos en el acta mensual",
+    "base": "Conciliación a mano; en VE apareció mercancía no registrada (M104)",
+    "meta": "Acta mensual con el 100 % de las diferencias explicadas, a los 6 meses",
+    "umbral": "Más del 5 % de unidades sin conciliar dos meses seguidos"
+   },
+   "dueno": "Subgerente de Servicio Técnico (proceso 11.9)",
+   "operador": "Coordinador(a) de Logística y Bodega",
+   "firmante": "Subgerente de Servicio Técnico con Contabilidad, que firman el scrap",
+   "estado": "propuesto",
+   "nota": "Alivia un freno lento (PV.4) una vez al mes. La IA concilia y una persona firma el scrap; espera que el expediente acumule casos.",
+   "evidencia": [
+    "M104",
+    "freno:PV.4",
+    "E-58:32",
+    "E-02:72",
+    "E-04:32"
+   ]
+  },
+  "m-garantias-en-mercados-sin-operacion": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 1,
+    "dependencias": 1,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 2,
+    "autonomia": 2
+   },
+   "metrica": {
+    "nombre": "Casos de garantía de Guatemala y Costa Rica registrados en el expediente",
+    "base": "Hoy sin registro: grupos de WhatsApp (M108)",
+    "meta": "100 % de los casos de los socios registrados, a los 6 meses de abrir el acceso",
+    "umbral": "< 50 % de los casos registrados"
+   },
+   "dueno": "Gerente de Servicio Técnico (proceso 11.6)",
+   "operador": "El socio o distribuidor de cada país, con el equipo de Postventa",
+   "firmante": "Ninguna en la órbita; se propone que el Gerente de Servicio Técnico firme las resoluciones de reemplazo o reembolso",
+   "estado": "propuesto",
+   "nota": "Bajo volumen y sin freno del circuito. Comparte datos de consumidores con terceros y la IA lleva el caso en nivel 2 sin firma; depende de que exista el expediente y de un acuerdo con cada socio.",
+   "evidencia": [
+    "M108",
+    "E-02:172",
+    "E-02:92"
+   ]
+  },
+  "m-mercadeo-con-datos": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Promociones con su resultado medido (venta incremental y margen) en los 7 días siguientes",
+    "base": "Mercadeo pide stock y venta y espera horas (M110); 5–6 promociones por país al mes (M111)",
+    "meta": "≥ 80 % de las promociones medidas, a los 6 meses",
+    "umbral": "< 40 % medidas, o la vista sin uso durante 2 meses"
+   },
+   "dueno": "Gerente Regional de Marketing (proceso 16.8)",
+   "operador": "Gerente de Marketing (país)",
+   "firmante": "No requiere: es lectura; la promoción la aprueba quien firma los precios",
+   "estado": "propuesto",
+   "nota": "Alivia un freno lento (MK.3); la dueña del proceso describe el dolor («no tenemos acceso al stock»). Es solo una vista sobre el espejo: barata y de bajo riesgo.",
+   "evidencia": [
+    "M110",
+    "M111",
+    "freno:MK.3",
+    "E-22:49",
+    "E-42:243",
+    "E-49:77",
+    "propuestas-to-be.md:924"
+   ]
+  },
+  "m-paneles-de-pauta-y-redes": {
+   "valor": {
+    "frenos": 2,
+    "volumen": 2,
+    "pedido": 1
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Panel único de inversión, alcance y conversión cruzado con la venta, en uso mensual",
+    "base": "Por medir: hoy hay reportes separados por plataforma y un tablero propio hecho con IA (E-22:65)",
+    "meta": "Un panel que reemplace los reportes por plataforma, a los 3 meses",
+    "umbral": "El equipo de pauta sigue usando su tablero paralelo a los 3 meses"
+   },
+   "dueno": "Gerente Regional de Marketing (proceso 16.8)",
+   "operador": "Gerente de Marketing de pauta digital",
+   "firmante": "No requiere: es lectura",
+   "estado": "propuesto",
+   "nota": "Propuesta del equipo consultor sin pedido en las entrevistas; el área de pauta ya armó su propio tablero con IA, que conviene regularizar (ver x-islas-de-ia) antes de construir otro. Suma tres conectores nuevos.",
+   "evidencia": [
+    "E-22:65",
+    "freno:MK.3"
+   ]
+  },
+  "m-piezas-y-etiquetas": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 3,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Días desde el brief hasta la pieza aprobada y etiquetas con un precio distinto al del sistema",
+    "base": "Pantallas de 24 tiendas, con 3 cada una, actualizadas con pendrive y etiquetas en dos versiones (M59); días por medir",
+    "meta": "−50 % del tiempo de producción de piezas de promoción y cero etiquetas con precio distinto en la auditoría, a los 6 meses",
+    "umbral": "< 50 % de las piezas generadas aprobadas sin rehacer"
+   },
+   "dueno": "Gerente Regional de Visual Merchandising (proceso 16.7)",
+   "operador": "Diseñador(a) / Analista de Contenido",
+   "firmante": "Gerente de Marketing (país), que aprueba la pieza",
+   "estado": "propuesto",
+   "nota": "Alivia un freno lento (14c.4: de una a cinco o seis promociones por país al mes). La IA genera imágenes de marca que mercadeo aprueba; falta decidir quién genera las imágenes (decisión 15) y respetar las guías del licenciante.",
+   "evidencia": [
+    "M59",
+    "freno:14c.4",
+    "E-04:42",
+    "E-47:278",
+    "decision:15"
+   ]
+  },
+  "m-co-marketing": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 5,
+    "cliente": 3,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Horas para armar el reporte a Casio y saldo del presupuesto por cliente al día",
+    "base": "Presupuesto en Lark y reporte factura por factura; USD 30.000 a un solo cliente de un país (M113; E-49:109); horas por medir",
+    "meta": "Saldo por cliente actualizado cada semana y reporte en borrador en < 1 día, a los 6 meses",
+    "umbral": "Más del 20 % de líneas corregidas en el borrador"
+   },
+   "dueno": "Gerente de Marketing (país) (proceso 16.6)",
+   "operador": "Gerente de Marketing de Cuentas Clave",
+   "firmante": "Contabilidad, que emite la nota de crédito; el Gerente de Marketing (país) firma el reporte a Casio",
+   "estado": "propuesto",
+   "nota": "Sin freno del circuito y de frecuencia mensual o semestral. Pequeño, de nivel 1 y con firma: riesgo bajo.",
+   "evidencia": [
+    "M113",
+    "E-42:114",
+    "E-42:161",
+    "E-49:109"
+   ]
+  },
+  "m-tablero-de-direccion": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 4,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Días desde el cierre hasta el tablero del mes con su texto explicativo",
+    "base": "El reporte de retail toma 3 días (M05); ventas y margen del mes por WhatsApp, sin consolidado del grupo (M91)",
+    "meta": "Tablero por país al tercer día hábil del mes en la Ola 3 y consolidado del grupo en la Ola 4",
+    "umbral": "La Junta sigue pidiendo cifras por WhatsApp a los 3 meses, o > 5 % de diferencia con contabilidad"
+   },
+   "dueno": "Gerentes Regionales / Gerentes Corporativos (proceso 1.2)",
+   "operador": "Junta Directiva y Gerente Regional Comercial / Retail; lo mantiene el Analista de Sistemas / Datos",
+   "firmante": "No requiere: es de gestión, no fiscal; las cifras las certifica Contabilidad al cierre",
+   "estado": "propuesto",
+   "nota": "La Presidencia lo pide de forma explícita («mi sueño es tener un dashboard») y lo usan varias áreas. Lectura en nivel 1 sobre el espejo, pero espera las credenciales de Odoo, la tasa fechada y el plan para la célula de BI sin Power BI (decisión 7).",
+   "evidencia": [
+    "M05",
+    "M91",
+    "freno:20.2",
+    "freno:19.3",
+    "E-01:72",
+    "E-08:170",
+    "E-10:309",
+    "decision:7"
+   ]
+  },
+  "m-registro-de-acuerdos-y-decisiones": {
+   "valor": {
+    "frenos": 2,
+    "volumen": 3,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 4,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Acuerdos de Junta registrados con dueño, fecha y estado",
+    "base": "El 98 % de las solicitudes entra por WhatsApp y las decisiones no tienen acta (M92; E-12:45)",
+    "meta": "100 % de los acuerdos de cada sesión registrados con dueño y fecha en 48 h, desde el primer trimestre",
+    "umbral": "< 70 % de los acuerdos registrados, o minutas corregidas en más del 30 %"
+   },
+   "dueno": "Asistente Ejecutivo(a) de la Presidencia (proceso 1.4)",
+   "operador": "Asistente Ejecutivo(a) de la Presidencia",
+   "firmante": "Junta Directiva, que toma la decisión; el Presidente(a) de Junta Directiva aprueba la minuta",
+   "estado": "propuesto",
+   "nota": "La dueña del proceso busca que la Junta use un registro con dueños (E-12:59). Es pequeño, casi sin dependencias y de nivel 1; aporta poco a los frenos del circuito.",
+   "evidencia": [
+    "M92",
+    "freno:2a.3",
+    "E-12:45",
+    "E-12:59",
+    "E-04:44"
+   ]
+  },
+  "m-descripciones-y-estructura-de-cargos": {
+   "valor": {
+    "frenos": 2,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 4,
+    "dependencias": 3,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Cargos del catálogo con descripción aprobada y enlazada a los procesos del manual",
+    "base": "190 cargos que se reducen a 65; descripciones congeladas en VE (E-69:19; E-21:6)",
+    "meta": "Los 65 cargos con descripción aprobada, a los 4 meses de validar la estructura To-Be",
+    "umbral": "> 40 % de los borradores reescritos por Talento Humano"
+   },
+   "dueno": "Gerente de Recursos Humanos (proceso 17.6)",
+   "operador": "Coordinador(a) de Recursos Humanos",
+   "firmante": "Gerente de Recursos Humanos, que aprueba cada descripción",
+   "estado": "propuesto",
+   "nota": "Su insumo ya existe (manual de procesos y estructura To-Be) y Talento Humano de VE ya redacta perfiles con IA. Trabaja sobre cargos, no sobre personas, y espera la validación de la estructura To-Be.",
+   "evidencia": [
+    "E-21:6",
+    "E-21:106",
+    "E-69:19",
+    "E-16:92",
+    "SC-07:546"
+   ]
+  },
+  "m-repositorio-de-fichas-del-colaborador": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 1,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Colaboradores con ficha digital completa y documentos vigentes",
+    "base": "Por medir: expedientes en papel, repartidos por país (E-54:237)",
+    "meta": "100 % de las fichas de un país piloto digitalizadas en 6 meses, con ≥ 95 % de campos extraídos correctos",
+    "umbral": "< 90 % de campos correctos en la extracción, o un acceso indebido"
+   },
+   "dueno": "Coordinador(a) de Recursos Humanos (proceso 17.4)",
+   "operador": "Analista de Recursos Humanos / Nómina",
+   "firmante": "Gerente de Recursos Humanos, para los cambios de cargo y de contrato",
+   "estado": "propuesto",
+   "nota": "Datos sensibles de empleados (decisión 8) en nivel 2; depende de la firma electrónica (decisión 9) y de leer la nómina de cada país. Sin freno del circuito.",
+   "evidencia": [
+    "E-54:237",
+    "E-24:243",
+    "decision:8",
+    "decision:9"
+   ]
+  },
+  "m-vacantes-y-requisiciones": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 2
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 3,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Días de cobertura de la vacante, desde la requisición aprobada hasta el ingreso",
+    "base": "Por medir; hubo un cargo de contabilidad sin cubrir más de 2 meses (E-24:31)",
+    "meta": "Medir el 100 % de las vacantes desde el primer mes y bajar 20 % el tiempo de cobertura en 6 meses",
+    "umbral": "Avisos corregidos en más del 30 %"
+   },
+   "dueno": "Gerente de Recursos Humanos (proceso 17.1)",
+   "operador": "Analista de Recursos Humanos / Nómina",
+   "firmante": "Gerente del área solicitante con el Gerente de Recursos Humanos, que abren la vacante",
+   "estado": "propuesto",
+   "nota": "Se describe el proceso, casi sin dolor, y no hay freno del circuito. La IA solo redacta el aviso (nivel 1) desde la descripción del cargo, que todavía no existe.",
+   "evidencia": [
+    "E-54:295",
+    "E-54:303",
+    "E-24:31",
+    "M116"
+   ]
+  },
+  "m-reclutamiento-y-lector-de-cv": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 1,
+    "cliente": 2,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Horas de filtrado por vacante y concordancia entre el orden de la IA y la terna que elige la persona",
+    "base": "Por medir: no hay registro ni criterios comunes; un cargo de contabilidad tardó más de 2 meses (E-24:31)",
+    "meta": "En el piloto: −50 % de horas de filtrado por vacante y ≥ 80 % de la terna final dentro del top 10 de la IA, con revisión de sesgos trimestral",
+    "umbral": "Diferencias sistemáticas por sexo, edad u origen en la revisión de sesgos, o < 60 % de concordancia"
+   },
+   "dueno": "Gerente de Recursos Humanos (proceso 17.1)",
+   "operador": "Analista de Recursos Humanos / Nómina",
+   "firmante": "Gerente del área solicitante con el Gerente de Recursos Humanos: deciden a quién se entrevista, a quién se contrata y la oferta",
+   "estado": "prototipo",
+   "nota": "Es el prototipo 2 (P2) de la Fase 2: diseño documentado en la página de Prototipos, sin construir todavía. Toca decisiones de empleo: la IA ordena con el porqué y nunca descarta, y faltan el consentimiento de los candidatos y la revisión de sesgos (decisión 8).",
+   "evidencia": [
+    "E-24:31",
+    "E-37:45",
+    "E-13:227",
+    "decision:8",
+    "IF1:1397"
+   ]
+  },
+  "m-desarrollo-y-carrera": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 1,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 1,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Colaboradores con evaluación de desempeño y plan de desarrollo registrados",
+    "base": "Por medir: la evaluación se hace «a veces, no siempre» (E-54:175)",
+    "meta": "100 % de los cargos de un país piloto evaluados en el ciclo anual siguiente",
+    "umbral": "Planes que los gerentes reescriben en más del 50 %, o un reclamo por trato desigual"
+   },
+   "dueno": "Gerente de Recursos Humanos (proceso 17.7)",
+   "operador": "Gerentes y supervisores de área",
+   "firmante": "Gerente de Recursos Humanos con el gerente del área, que firman la evaluación y la promoción",
+   "estado": "propuesto",
+   "nota": "Toca decisiones sobre personas (evaluación y promoción). No hay registro ni modelo de competencias, y depende de los cargos y de las fichas. Sin freno del circuito.",
+   "evidencia": [
+    "E-54:175",
+    "E-21:122",
+    "decision:8"
+   ]
+  },
+  "m-compensacion-y-percentiles-salariales": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 2
+   },
+   "viabilidad": {
+    "dato": 1,
+    "dependencias": 1,
+    "esfuerzo": 2
+   },
+   "riesgo": {
+    "personales": 1,
+    "cliente": 5,
+    "autonomia": 3
+   },
+   "metrica": {
+    "nombre": "Cargos con banda de compensación definida y posicionados contra el mercado",
+    "base": "Por medir: no hay bandas ni referencia de mercado (decisión 10)",
+    "meta": "Bandas para los 65 cargos del catálogo, en el año siguiente a contar con la encuesta de mercado",
+    "umbral": "Cualquier acceso fuera de Compensación y la Dirección"
+   },
+   "dueno": "Gerente de Recursos Humanos (proceso 17.5)",
+   "operador": "Compensación (Recursos Humanos) y la Dirección",
+   "firmante": "Presidencia con el Director(a) de Finanzas y Negocios, que firman todo cambio de compensación",
+   "estado": "propuesto",
+   "nota": "Datos y decisiones de compensación: el riesgo más alto en datos personales. Depende de la encuesta de mercado (decisión 10), de los permisos por campo (decisión 8) y de leer la nómina; casi nadie lo pide.",
+   "evidencia": [
+    "E-21:122",
+    "E-13:226",
+    "decision:8",
+    "decision:10"
+   ]
+  },
+  "m-analitica-de-talento-en-tiempo-real": {
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 1,
+    "dependencias": 1,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Indicadores de talento publicados cada mes por área y país",
+    "base": "Hoy, reportes trimestrales de asistencia armados a mano; en VE no se llevan indicadores (E-37:363)",
+    "meta": "Rotación, vacantes y tiempo de cobertura mensuales por país, a los 3 meses de existir la ficha del colaborador",
+    "umbral": "Diferencias > 2 % con la nómina, o un acceso indebido"
+   },
+   "dueno": "Gerente de Recursos Humanos (proceso 17.5)",
+   "operador": "Gerente de Recursos Humanos y gerentes de área",
+   "firmante": "No requiere: es lectura; las acciones sobre personas siguen su propio proceso",
+   "estado": "propuesto",
+   "nota": "La dueña del proceso pide reportes con «inteligencia» sobre rotación para gerentes y directiva. Pero el dato no existe: depende de la ficha, de las vacantes y de la nómina, y agrega datos sensibles de personal.",
+   "evidencia": [
+    "E-13:224",
+    "E-13:226",
+    "E-37:363"
+   ]
+  },
+  "m-contratos-digitales": {
+   "valor": {
+    "frenos": 3,
+    "volumen": 3,
+    "pedido": 4
+   },
+   "viabilidad": {
+    "dato": 2,
+    "dependencias": 2,
+    "esfuerzo": 3
+   },
+   "riesgo": {
+    "personales": 4,
+    "cliente": 3,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Contratos vigentes en el repositorio con fechas y obligaciones extraídas, y días de revisión legal",
+    "base": "Clientes del exterior con crédito sin contrato marco y franquicias sin contrato (E-62:54; freno 16.3); revisión de contratos de publicidad de ~1 semana (E-42:267)",
+    "meta": "100 % de los clientes del exterior con crédito y de las franquicias con contrato vigente en 12 meses; revisión legal ≤ 2 días",
+    "umbral": "Un vencimiento no avisado, o cláusulas fuera de estándar que la revisión de legal no recibió marcadas"
+   },
+   "dueno": "Asesor(a) Jurídico(a) Externo(a) del Grupo (proceso 18.2)",
+   "operador": "Consultoría Jurídica y las áreas que contratan (comercial, mercadeo, franquicias)",
+   "firmante": "Consultoría Jurídica aprueba y firma el representante legal",
+   "estado": "propuesto",
+   "nota": "La Presidencia lo señala como un vacío «fatal» de 40 años y la dirección comercial lo confirma; alivia un freno lento (16.3). Los contratos hoy no existen o están dispersos, y depende del proveedor de firma electrónica (decisión 9).",
+   "evidencia": [
+    "freno:16.3",
+    "E-01:28",
+    "E-08:146",
+    "E-62:54",
+    "E-42:267",
+    "E-55:18",
+    "decision:9"
+   ]
+  }
+ },
+ "extras": [
+  {
+   "id": "x-asistente-conocimiento",
+   "nom": "Asistente IA del conocimiento del proyecto",
+   "sector": "s-datos",
+   "ola": 1,
+   "nivel": "1",
+   "ia": "Responde en lenguaje natural sobre todo el conocimiento levantado (entrevistas, documentos, manual de procesos, circuito y arquitectura) y cita la fuente. Usa Claude por API con el corpus en caché y búsqueda de texto en español.",
+   "firma": "Ninguna: es de consulta, en solo lectura; decide quien pregunta.",
+   "procs": [
+    "15.6"
+   ],
+   "estado": "en operación",
+   "valor": {
+    "frenos": 1,
+    "volumen": 2,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 5,
+    "dependencias": 5,
+    "esfuerzo": 5
+   },
+   "riesgo": {
+    "personales": 2,
+    "cliente": 5,
+    "autonomia": 4
+   },
+   "metrica": {
+    "nombre": "Consultas con cita verificable y costo por consulta",
+    "base": "Por medir: no hay registro de uso publicado; cada arranque en frío cuesta del orden de USD 2 (CLAUDE.md:157)",
+    "meta": "Registrar uso y costo por consulta desde nov-2026; ≥ 90 % de respuestas con cita correcta en una muestra mensual de 20",
+    "umbral": "< 80 % de citas correctas, o menos de 10 consultas al mes de la Junta durante dos meses"
+   },
+   "dueno": "Equipo consultor del proyecto mientras dure el encargo; luego, Gobierno de IA",
+   "operador": "Junta Directiva y equipo del proyecto",
+   "firmante": "No requiere: responde en solo lectura y cita la fuente",
+   "nota": "En operación desde el 18-jul-2026 para la Junta (7 cuentas con rol Junta) y el equipo: viabilidad máxima. Su valor para el circuito es indirecto, el uso real está por medir y el corpus incluye material sensible de entrevistas, por eso el riesgo de datos personales es medio-alto.",
+   "evidencia": [
+    "CLAUDE.md:157",
+    "BITACORA.md:468",
+    "BITACORA.md:559",
+    "BITACORA.md:581",
+    "E-01:72"
+   ]
+  },
+  {
+   "id": "x-uso-asistencial",
+   "nom": "Uso asistencial con licencias corporativas de Claude",
+   "sector": "s-gobierno",
+   "ola": 1,
+   "nivel": "1",
+   "ia": "Asistente de uso general para directivos y gerentes (redactar, analizar hojas de cálculo, resumir y preparar reuniones). Funciona con licencias corporativas, formación y la política de uso, y reemplaza las cuentas pagadas por cada persona.",
+   "firma": "Cada usuario responde por lo que produce; nada sale sin la revisión de su autor.",
+   "procs": [
+    "5.3",
+    "5.1"
+   ],
+   "estado": "propuesto",
+   "valor": {
+    "frenos": 1,
+    "volumen": 5,
+    "pedido": 5
+   },
+   "viabilidad": {
+    "dato": 5,
+    "dependencias": 2,
+    "esfuerzo": 5
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 4,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Licencias con uso semanal y casos documentados por área",
+    "base": "Uso individual con cuentas personales; se propone no menos de 50 licencias (SC-10:155) y hay 70 personas formadas como multiplicadores (SC-10:160)",
+    "meta": "≥ 80 % de las licencias con uso semanal a los 60 días (indicador del 5.3) y al menos un caso documentado por área a los 90 días",
+    "umbral": "< 50 % de uso semanal a los 90 días, o un incidente con datos"
+   },
+   "dueno": "Gobierno de IA, unidad de la Presidencia (en el manual, Gerente de Tecnología / Sistemas del 5.1)",
+   "operador": "Directivos y gerentes con licencia",
+   "firmante": "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Dirección de Tecnología, Gobernanza y Riesgo las administra",
+   "nota": "Quick win 2 de la Fase 1: no hay que construir nada y la Presidencia pide definir las licencias y arrancar. Faltan dos decisiones de dirección (cobertura con su presupuesto y política de uso). No alivia un freno concreto del circuito.",
+   "evidencia": [
+    "IF1:2364",
+    "SC-10:155",
+    "SC-10:157",
+    "SC-10:160",
+    "SC-12:53",
+    "SC-09:205",
+    "E-26:601",
+    "M119"
+   ]
+  },
+  {
+   "id": "x-islas-de-ia",
+   "nom": "Inventario y regularización de las islas de IA",
+   "sector": "s-gobierno",
+   "ola": 1,
+   "nivel": "1",
+   "ia": "Prepara la ficha de cada uso de IA y de cada aplicativo que las áreas crearon por su cuenta (las islas de la Fase 1 y los 14 aplicativos), con sus datos, su cuenta y su riesgo. Para cada uno propone conectarlo a la plataforma, pasarlo a licencia corporativa o retirarlo.",
+   "firma": "Gobierno de IA decide el destino de cada herramienta; Tecnología la conecta o la retira.",
+   "procs": [
+    "5.1",
+    "14.1",
+    "14.4"
+   ],
+   "estado": "propuesto",
+   "valor": {
+    "frenos": 1,
+    "volumen": 3,
+    "pedido": 3
+   },
+   "viabilidad": {
+    "dato": 3,
+    "dependencias": 2,
+    "esfuerzo": 4
+   },
+   "riesgo": {
+    "personales": 3,
+    "cliente": 5,
+    "autonomia": 5
+   },
+   "metrica": {
+    "nombre": "Herramientas de IA de las áreas inventariadas y con destino decidido",
+    "base": "6 islas individuales (IF1 8.5c) y 14 aplicativos creados por su lado, con credenciales de administrador e IA pagada por cada empleado (M119; MC:27003)",
+    "meta": "100 % inventariadas a los 60 días y con destino decidido a los 120; ninguna credencial de administrador en uso a los 6 meses",
+    "umbral": "Aparecen herramientas nuevas fuera del registro después del primer trimestre"
+   },
+   "dueno": "Dirección de Tecnología, Gobernanza y Riesgo (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
+   "operador": "Coordinador(a) de Sistemas de cada país",
+   "firmante": "Gobierno de IA, que decide el destino de cada herramienta",
+   "nota": "Ordena un riesgo ya presente (credenciales de administrador y datos en cuentas personales) y se puede hacer sin construir. Para regularizar necesita la política de adopción y la sala de agentes. Varias islas (pauta, postventa, temporada web, torre retail) coinciden con módulos de la órbita.",
+   "evidencia": [
+    "IF1:2150",
+    "M119",
+    "MC:27003",
+    "MC:27522",
+    "SC-13:105",
+    "SC-08:432",
+    "SC-04:163",
+    "E-22:65",
+    "E-58:72",
+    "E-16:137",
+    "E-55:32"
+   ]
+  }
+ ]
+}

@@ -11,6 +11,9 @@
   --menta-t:#36F6BB; --cian-t:#32C6F4; --alerta-t:#FFC94A; --riesgo-t:#FF8A7C;
   --n1:#32C6F4; --n2:#36F6BB; --n3:#FFC94A;
   --sombra:0 1px 2px rgba(0,0,0,.34),0 12px 32px rgba(0,0,0,.34);
+  /* series de gráficos (paleta validada con dataviz/validate_palette.js, todos los pares,
+     sobre --panel; en dispersión, máximo tres series) */
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
   --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:"DM Mono","Cascadia Mono",ui-monospace,Menlo,Consolas,monospace;
 }
@@ -23,6 +26,7 @@
     --menta-t:#0A8B66; --cian-t:#0A73A0; --alerta-t:#9A6B00; --riesgo-t:#C23B2B;
     --n1:#0A86B8; --n2:#0FA57A; --n3:#B7860B;
     --sombra:0 1px 2px rgba(20,40,60,.08),0 12px 32px rgba(20,40,60,.10);
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
   }
 }
 :root[data-theme="light"]{
@@ -33,6 +37,7 @@
   --menta-t:#0A8B66; --cian-t:#0A73A0; --alerta-t:#9A6B00; --riesgo-t:#C23B2B;
   --n1:#0A86B8; --n2:#0FA57A; --n3:#B7860B;
   --sombra:0 1px 2px rgba(20,40,60,.08),0 12px 32px rgba(20,40,60,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
 }
 
 *{box-sizing:border-box}
@@ -85,7 +90,7 @@ code,kbd{font-family:var(--mono);font-size:.88em;background:var(--panel-alto);bo
 .iad-toc .pto.e-validado{background:var(--menta)}
 
 /* ── secciones ── */
-.iad-cuerpo{min-width:0;display:grid;gap:64px}
+.iad-cuerpo{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:64px}
 .iad-sec{scroll-margin-top:20px}
 .iad-sec-cab{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:14px}
 .iad-sec-cab .num{font-family:var(--mono);font-size:13px;color:var(--menta-t)}
@@ -142,11 +147,38 @@ pre.codigo{font-family:var(--mono);font-size:12.5px;line-height:1.55;background:
 .tarjeta{border:1px solid var(--borde);border-radius:14px;background:var(--panel);padding:14px 16px}
 .tarjeta h4{margin:0 0 6px;font-size:15px}
 .tarjeta p{font-size:13.5px;color:var(--tinta-media);margin:0 0 8px}
-.ref{white-space:nowrap}
+.ref{overflow-wrap:anywhere}
 .ref.mod::before,.ref.proc::before,.ref.freno::before{font-family:var(--mono);font-size:10px;margin-right:3px;opacity:.75}
 .ref.mod::before{content:"◎"}
 .ref.proc::before{content:"▤"}
 .ref.freno::before{content:"■";color:var(--riesgo-t)}
+
+/* ── fichas desplegables ── */
+.fichas{display:grid;gap:8px;margin:0 0 14px}
+.ficha{border:1px solid var(--borde);border-radius:12px;background:var(--panel)}
+.ficha summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 14px}
+.ficha summary::-webkit-details-marker{display:none}
+.ficha summary::before{content:"›";font-family:var(--mono);color:var(--tinta-tenue);transition:transform .15s}
+.ficha[open] summary::before{transform:rotate(90deg)}
+.ficha-t{font-weight:600;margin-right:auto}
+.ficha dl{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:6px 14px;margin:0;padding:4px 16px 14px 34px;font-size:13.5px}
+.ficha dt{color:var(--tinta-tenue);font-size:12px}
+.ficha dd{margin:0}
+@media (max-width:640px){ .ficha dl{grid-template-columns:1fr;padding-left:16px} .ficha dt{margin-top:6px} }
+
+/* ── gráficos ── */
+.viz text{font-family:var(--sans);fill:var(--tinta-media);font-size:12px}
+.viz .eje{font-family:var(--mono);font-size:11px;fill:var(--tinta-tenue)}
+.viz .rot{font-family:var(--mono);font-size:11px;font-weight:500;fill:var(--tinta)}
+.viz .cuad{font-size:11.5px;fill:var(--tinta-tenue)}
+.viz .grilla{stroke:var(--borde-tenue);stroke-width:1}
+.viz .guia{stroke:var(--borde);stroke-width:1;stroke-dasharray:4 4}
+.viz .pt{stroke:var(--panel);stroke-width:2}
+.viz .hit{fill:transparent;cursor:default}
+.viz .hit:focus{outline:none}
+.viz .hit:focus-visible{stroke:var(--cian);stroke-width:2;fill:transparent}
+.tip{position:fixed;z-index:20;max-width:280px;pointer-events:none;background:var(--panel-alto);color:var(--tinta);
+  border:1px solid var(--borde);border-radius:10px;padding:8px 10px;font-size:12.5px;line-height:1.4;box-shadow:var(--sombra);white-space:pre-line}
 
 /* ── pantallas angostas ── */
 @media (max-width:900px){
@@ -167,6 +199,7 @@ pre.codigo{font-family:var(--mono);font-size:12.5px;line-height:1.55;background:
   .iad-cuerpo{display:block}
   .iad-sec{break-before:page;margin-top:0}
   .iad-sec:first-child{break-before:auto}
-  .capa.como,.paso,.tabla-env,.fig,.kpi,.tarjeta{background:#fff;border-color:#bbb;box-shadow:none}
+  .ficha{break-inside:avoid}
+  .capa.como,.paso,.tabla-env,.fig,.kpi,.tarjeta,.ficha{background:#fff;border-color:#bbb;box-shadow:none}
   a{color:#000}
 }

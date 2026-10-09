@@ -14,7 +14,8 @@
  * Marcado en línea (sobre el texto ya escapado): **negrita**, `código` y
  * referencias [[tipo:id|texto]] a la órbita (mod, sector, area), al manual
  * (proc → To-Be, asis, macro), al circuito (freno, est), a otro documento de
- * IA (doc: «politica/autonomia») o a la propia página (sec). url abre fuera.
+ * IA (doc: «politica/autonomia») o a la propia página (sec). url abre fuera;
+ * orbita lleva a la órbita misma (el id se ignora: [[orbita:inicio|la órbita]]).
  *
  * Vive en el marco #aqMarco del manual: los enlaces cambian el hash del manual
  * (el enrutador del padre decide). Abierta sola, los enlaces llevan al manual.
@@ -39,6 +40,7 @@
   // Ruta del manual (hash) a la que lleva una referencia, o null si es externa.
   function ruta(tipo, id){
     switch(tipo){
+      case 'orbita': return '#/arquitectura';
       case 'mod': case 'sector': case 'area': return '#/arquitectura/' + id;
       case 'proc': return '#/tobe/' + id;
       case 'asis': return '#/asis/' + id;
@@ -107,9 +109,37 @@
             (k.chips ? '<div class="iad-meta">' + k.chips.map(function(c){ return '<span class="chip">' + linea(c) + '</span>'; }).join('') + '</div>' : '') +
             '</div>';
         }).join('') + '</div>';
+      case 'fichas':
+        // Fichas desplegables: {titulo, chips:[], campos:[[rótulo, texto], …]}
+        return '<div class="fichas">' + b.items.map(function(k){
+          return '<details class="ficha"' + (k.id ? ' id="f-' + esc(k.id) + '"' : '') + '><summary><span class="ficha-t">' + linea(k.titulo) + '</span>' +
+            (k.chips ? k.chips.map(function(c){ return '<span class="chip">' + linea(c) + '</span>'; }).join('') : '') + '</summary>' +
+            '<dl>' + (k.campos || []).filter(function(c){ return c[1]; }).map(function(c){
+              return '<dt>' + esc(c[0]) + '</dt><dd>' + linea(c[1]) + '</dd>';
+            }).join('') + '</dl></details>';
+        }).join('') + '</div>';
       case 'html': return b.x;
     }
     return '';
+  }
+
+  // Ayuda flotante de los gráficos: toda marca con data-tip (y foco de teclado).
+  function ayudas(raiz){
+    var tip = document.createElement('div');
+    tip.className = 'tip no-imp'; tip.hidden = true; tip.setAttribute('role', 'tooltip');
+    document.body.appendChild(tip);
+    function mostrar(el, x, y){
+      tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+      var w = tip.offsetWidth, h = tip.offsetHeight;
+      tip.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, x + 14)) + 'px';
+      tip.style.top = Math.max(8, y - h - 12) + 'px';
+    }
+    raiz.querySelectorAll('[data-tip]').forEach(function(el){
+      el.addEventListener('pointermove', function(e){ mostrar(el, e.clientX, e.clientY); });
+      el.addEventListener('pointerleave', function(){ tip.hidden = true; });
+      el.addEventListener('focus', function(){ var r = el.getBoundingClientRect(); mostrar(el, r.left + r.width / 2, r.top); });
+      el.addEventListener('blur', function(){ tip.hidden = true; });
+    });
   }
   function pintarBloques(l){ return (l || []).map(pintarBloque).join(''); }
 
@@ -159,6 +189,14 @@
     raiz.removeAttribute('aria-busy');
 
     document.getElementById('iadImprimir').addEventListener('click', function(){ window.print(); });
+    ayudas(raiz);
+    // Al imprimir salen todas las fichas abiertas; después vuelven a como estaban.
+    var cerradas = [];
+    window.addEventListener('beforeprint', function(){
+      cerradas = [].slice.call(raiz.querySelectorAll('details:not([open])'));
+      cerradas.forEach(function(d){ d.open = true; });
+    });
+    window.addEventListener('afterprint', function(){ cerradas.forEach(function(d){ d.open = false; }); cerradas = []; });
 
     // Índice: en el marco, la sección queda en el hash del manual (se puede enlazar).
     raiz.querySelector('.iad-toc').addEventListener('click', function(e){

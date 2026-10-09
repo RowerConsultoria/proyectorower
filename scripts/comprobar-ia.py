@@ -128,10 +128,12 @@ def main():
         print('\n--- Móvil (390 px) ---')
         movil = sesion_prueba.pagina(nav, SES, viewport={'width': 390, 'height': 844})
         movil.goto(MANUAL + '#/arquitectura/tecnico', wait_until='networkidle')
-        _, fr = marco(movil, r'ia/documento\.html\?d=tecnico')
-        fr.wait_for_selector('.iad-sec')
-        ancho = fr.evaluate("() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]")
-        check('sin scroll horizontal en el documento', ancho[0] <= ancho[1] + 1, str(ancho))
+        for doc in DOCS:
+            movil.evaluate("h => location.hash = h", '#/arquitectura/' + doc)
+            _, fr = marco(movil, r'ia/documento\.html\?d=' + doc)
+            fr.wait_for_selector('.iad-sec')
+            ancho = fr.evaluate("() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]")
+            check('sin scroll horizontal en %s' % doc, ancho[0] <= ancho[1] + 1, str(ancho))
         ancho = movil.evaluate("() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]")
         check('sin scroll horizontal en el manual', ancho[0] <= ancho[1] + 1, str(ancho))
 
