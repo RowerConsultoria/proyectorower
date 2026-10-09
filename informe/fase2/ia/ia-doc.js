@@ -230,7 +230,10 @@
       var id = decodeURIComponent((location.hash || '').replace(/^#/, ''));
       if(!id) return;
       var s = document.getElementById('sec-' + id);
-      if(s) s.scrollIntoView({ block:'start' });
+      if(s){ s.scrollIntoView({ block:'start' }); return; }
+      // una ficha por su id (p. ej. #/arquitectura/casos/<módulo>): se abre y se enfoca
+      var f = document.getElementById('f-' + id);
+      if(f){ f.open = true; f.scrollIntoView({ block:'start' }); var sm = f.querySelector('summary'); if(sm) sm.focus({ preventScroll:true }); }
     }
     window.addEventListener('hashchange', irA);
     irA();

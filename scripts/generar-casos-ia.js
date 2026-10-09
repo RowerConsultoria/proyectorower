@@ -130,7 +130,7 @@ const secTop = [
   'Los diez casos con mayor prioridad. La métrica y la meta son propuestas para validar con su dueño; la línea base sale de la práctica actual cuando hay cifra, o se mide en el piloto.',
   { t: 'tabla', cab: ['#', 'Caso', 'Sector', 'Ola', 'Prioridad', 'Se mide', 'Meta', 'Dueño'], num: [0, 4],
     filas: top.map(c => [String(c.rank), ref(c), c.sectorNom, olaTxt(c.ola), n2(c.prioridad), c.metrica.nombre, c.metrica.meta || 'por definir', c.dueno]) },
-  { t: 'fichas', items: top.map(ficha) }];
+  { t: 'fichas', items: top.map(c => { const f = ficha(c); delete f.id; return f; }) }];   // el id va solo en el inventario
 
 const secMapa = [
   'Cada punto es un caso: más arriba, más valor; más a la derecha, más viable hoy. El color indica la ola en que la órbita lo construye. Los casos con la misma calificación se muestran juntos alrededor de su posición. Al pasar el puntero o enfocar un punto se ve su detalle.',

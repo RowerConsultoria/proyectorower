@@ -251,7 +251,6 @@ window.IA_DOC = {
      "t": "fichas",
      "items": [
       {
-       "id": "m-vigia-de-reservas",
        "titulo": "1. Vigía de reservas",
        "chips": [
         "Ola 1",
@@ -323,7 +322,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-vigia-del-stage",
        "titulo": "2. Vigía del stage",
        "chips": [
         "Ola 1",
@@ -395,7 +393,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-cuadre-previo-de-caja",
        "titulo": "3. Cuadre previo de caja",
        "chips": [
         "Ola 2",
@@ -467,7 +464,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-buzon-de-sell-out-de-clientes",
        "titulo": "4. Buzón de sell-out de clientes",
        "chips": [
         "Ola 1",
@@ -539,7 +535,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-cartera-y-cobranza",
        "titulo": "5. Cartera y cobranza",
        "chips": [
         "Ola 2",
@@ -611,7 +606,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-demanda-y-s-op",
        "titulo": "6. Demanda y S&OP",
        "chips": [
         "Ola 1",
@@ -683,7 +677,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "x-uso-asistencial",
        "titulo": "7. Uso asistencial con licencias corporativas de Claude",
        "chips": [
         "Ola 1",
@@ -755,7 +748,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-reporte-pci-a-casio",
        "titulo": "8. Reporte PCI a Casio",
        "chips": [
         "Ola 1",
@@ -827,7 +819,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-torre-retail-y-cuadro-diario",
        "titulo": "9. Torre retail y cuadro diario",
        "chips": [
         "Ola 1",
@@ -899,7 +890,6 @@ window.IA_DOC = {
        ]
       },
       {
-       "id": "m-cuadre-entre-empresas",
        "titulo": "10. Cuadre entre empresas",
        "chips": [
         "Ola 4",

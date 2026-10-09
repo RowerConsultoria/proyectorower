@@ -1355,10 +1355,22 @@ document.addEventListener("click",function(e){if(enVerDemo(e)) e.stopPropagation
 ["keydown","keypress","keyup"].forEach(function(tipo){document.addEventListener(tipo,function(e){
   if(enVerDemo(e)&&(e.key===" "||(tipo==="keypress"&&e.key==="Enter"))){e.preventDefault();e.stopPropagation();}
 },true);});
+/* ---------- enlaces a los documentos de IA (#/arquitectura/<doc>) ----------
+   Solo dentro del manual de la Fase 2 (en el artefacto suelto no hay documentos al lado).
+   Navegan el hash del manual, que abre el documento en el mismo marco. Desde el 09-oct-2026. */
+var EN_MANUAL=(function(){try{return window.parent!==window&&/informe-fase2\.html$/.test(window.parent.location.pathname);}catch(e){return false;}})();
+function docsMod(m){
+  if(!EN_MANUAL) return "";
+  var conIA=!/^ninguna/i.test(((m.campos.ia||{}).txt||"").trim());
+  var est='style="display:inline-block;margin:0 16px 6px 0;font-size:13px;font-weight:600"';
+  return '<p class="docs-ia" style="margin:4px 0 0">'+(conIA?'<a href="#" '+est+' data-ir="#/arquitectura/casos/'+esc(m.id)+'">Su caso de uso y su prioridad →</a>':"")+
+    '<a href="#" '+est+' data-ir="#/arquitectura/tecnico/construccion">Cómo se construye →</a></p>';
+}
+document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("[data-ir]"):null;if(!a) return;e.preventDefault();try{window.parent.location.hash=a.getAttribute("data-ir");}catch(err){}});
 function modCuerpo(m){
   var c=m.campos,tr=m.trombos.map(function(t){return D.trombos[t];}).filter(Boolean),prs=m.M.map(function(x){return PIDX[x];}).filter(Boolean);
   return sec("1 · Sistema que se construye",campo(c.sistema))+
-    sec("2 · IA que corre encima",campo(c.ia,true))+
+    sec("2 · IA que corre encima",campo(c.ia,true)+docsMod(m))+
     sec("Firma una persona",campo(c.firma))+
     (tr.length?sec("Frenos del circuito que resuelve",'<ul class="trs">'+tr.map(function(t){return '<li><span class="tid">'+esc(t.id)+'</span><div>'+esc(t.t)+' <span class="sev '+t.s+'">'+t.s+"</span><small>"+esc(t.ev)+"</small></div></li>";}).join("")+"</ul>"):"")+
     sec("Qué reemplaza de hoy",campo(c.reemplaza)+(prs.length?'<details class="prs-det"><summary>Ver '+(prs.length===1?"la práctica":"las "+prs.length+" prácticas")+' de hoy, con sus cifras</summary><ul class="prs">'+prs.map(prHTML).join("")+"</ul></details>":""))+
