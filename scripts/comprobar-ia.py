@@ -75,14 +75,14 @@ def main():
 
         print('\n--- Propuesta (órbita) ---')
         pg.goto(MANUAL + '#/arquitectura', wait_until='networkidle')
-        marco(pg, r'arquitectura-ia\.html')
+        marco(pg, r'arquitectura-ia(\.html)?(#|$)')
         activa = pg.evaluate("() => [...document.querySelectorAll('.aq-sub .on')].map(a => a.dataset.aq)")
         check('la pestaña Propuesta queda marcada', activa == [''], str(activa))
 
         for doc in DOCS:
             print('\n--- %s ---' % doc)
             pg.evaluate("h => location.hash = h", '#/arquitectura/' + doc)
-            _, fr = marco(pg, r'ia/documento\.html\?d=' + doc)
+            _, fr = marco(pg, r'ia/documento(\.html)?\?d=' + doc)
             fr.wait_for_selector('.iad-sec', timeout=15000)
             activa = pg.evaluate("() => [...document.querySelectorAll('.aq-sub .on')].map(a => a.dataset.aq)")
             check('la pestaña queda marcada', activa == [doc], str(activa))
@@ -96,7 +96,7 @@ def main():
 
         print('\n--- Enlace profundo e índice dentro del marco ---')
         pg.evaluate("h => location.hash = h", '#/arquitectura/tecnico/triangulo')
-        _, fr = marco(pg, r'ia/documento\.html\?d=tecnico')
+        _, fr = marco(pg, r'ia/documento(\.html)?\?d=tecnico')
         fr.wait_for_function("() => location.hash === '#triangulo'", timeout=8000)
         pg.wait_for_timeout(400)
         top = fr.evaluate("() => Math.round(document.getElementById('sec-triangulo').getBoundingClientRect().top)")
@@ -108,26 +108,26 @@ def main():
 
         print('\n--- La órbita sigue abriendo por hash ---')
         pg.evaluate("h => location.hash = h", '#/arquitectura/m-espejo')
-        _, fr = marco(pg, r'arquitectura-ia\.html')
+        _, fr = marco(pg, r'arquitectura-ia(\.html)?(#|$)')
         fr.wait_for_function("() => location.hash === '#m-espejo'", timeout=8000)
         check('#/arquitectura/m-espejo vuelve a la órbita con el módulo', True)
 
         print('\n--- Del módulo a su caso de uso ---')
         pg.evaluate("h => location.hash = h", '#/arquitectura/m-vigia-de-reservas')
-        _, fr = marco(pg, r'arquitectura-ia\.html')
+        _, fr = marco(pg, r'arquitectura-ia(\.html)?(#|$)')
         fr.wait_for_function("() => location.hash === '#m-vigia-de-reservas'", timeout=8000)
         enlace = fr.locator('[data-ir="#/arquitectura/casos/m-vigia-de-reservas"]')
         enlace.wait_for(timeout=8000)
         check('el panel del módulo enlaza a su caso de uso', enlace.count() == 1)
         enlace.first.click()
         pg.wait_for_function("() => location.hash === '#/arquitectura/casos/m-vigia-de-reservas'", timeout=5000)
-        _, fr = marco(pg, r'ia/documento\.html\?d=casos')
+        _, fr = marco(pg, r'ia/documento(\.html)?\?d=casos')
         fr.wait_for_function("() => { const f = document.getElementById('f-m-vigia-de-reservas'); return f && f.open; }", timeout=8000)
         check('la ficha del caso se abre', True)
 
         print('\n--- Tema ---')
         pg.evaluate("h => location.hash = h", '#/arquitectura/politica')
-        _, fr = marco(pg, r'ia/documento\.html\?d=politica')
+        _, fr = marco(pg, r'ia/documento(\.html)?\?d=politica')
         fr.wait_for_selector('.iad-sec')
         temas = []
         for t in ('oscuro', 'claro'):
@@ -143,7 +143,7 @@ def main():
         movil.goto(MANUAL + '#/arquitectura/tecnico', wait_until='networkidle')
         for doc in DOCS:
             movil.evaluate("h => location.hash = h", '#/arquitectura/' + doc)
-            _, fr = marco(movil, r'ia/documento\.html\?d=' + doc)
+            _, fr = marco(movil, r'ia/documento(\.html)?\?d=' + doc)
             fr.wait_for_selector('.iad-sec')
             ancho = fr.evaluate("() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]")
             check('sin scroll horizontal en %s' % doc, ancho[0] <= ancho[1] + 1, str(ancho))

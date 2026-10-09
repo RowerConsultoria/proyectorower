@@ -1359,7 +1359,7 @@ document.addEventListener("click",function(e){if(enVerDemo(e)) e.stopPropagation
 /* ---------- enlaces a los documentos de IA (#/arquitectura/<doc>) ----------
    Solo dentro del manual de la Fase 2 (en el artefacto suelto no hay documentos al lado).
    Navegan el hash del manual, que abre el documento en el mismo marco. Desde el 09-oct-2026. */
-var EN_MANUAL=(function(){try{return window.parent!==window&&/informe-fase2\.html$/.test(window.parent.location.pathname);}catch(e){return false;}})();
+var EN_MANUAL=(function(){try{return window.parent!==window&&/informe-fase2(\.html)?$/.test(window.parent.location.pathname);}catch(e){return false;}})();
 function docsMod(m){
   if(!EN_MANUAL) return "";
   var conIA=!/^ninguna/i.test(((m.campos.ia||{}).txt||"").trim());

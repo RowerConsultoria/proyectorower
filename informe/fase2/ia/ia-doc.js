@@ -29,7 +29,7 @@
   if(!DOCS[DOC]) DOC = 'tecnico';
 
   var enMarco = false;
-  try{ enMarco = window.parent !== window && /informe-fase2\.html$/.test(window.parent.location.pathname); }catch(e){}
+  try{ enMarco = window.parent !== window && /informe-fase2(\.html)?$/.test(window.parent.location.pathname); }catch(e){}
 
   function esc(s){
     return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
