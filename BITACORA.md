@@ -664,3 +664,10 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
 **Verificado:** `comprobar-ia.py` en verde (incluye móvil en las cuatro páginas y el recorrido de la órbita al caso) y `validar-html.py`.
 
 ⚠️ **Sin publicar ni sincronizar con el asistente.**
+
+**2026-10-09** — Gabriel (vía Claude Code) — **La sección de IA de la Fase 2 quedó publicada y verificada en producción.**
+- **Regla contable** (decisión de Gabriel): cinco módulos de la órbita dejaban un documento contable en borrador en Odoo. Ahora la plataforma arma el expediente y Contabilidad registra, igual que en el documento técnico.
+- **Lo que solo se vio en producción:** Cloudflare sirve las páginas sin `.html` (redirige con un 307). Por eso los documentos y la órbita se creían fuera del manual: mostraban «Abrir en el manual» y la órbita no ofrecía el enlace al caso de uso.
+  - Ahora reconocen las dos formas de la ruta.
+  - `comprobar-ia.py` lo comprueba y corre contra producción: en verde, con `ROWER_BASE=https://proyectorower.rower.workers.dev`.
+- **Pendiente:** el asistente IA no se sincronizó con los documentos nuevos, por decisión de Gabriel.
