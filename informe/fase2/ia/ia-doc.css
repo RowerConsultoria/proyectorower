@@ -136,9 +136,11 @@ pre.codigo{font-family:var(--mono);font-size:12.5px;line-height:1.55;background:
   display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--menta-t);
   border:1px solid color-mix(in srgb,var(--menta) 45%,transparent)}
 .paso-t{font-weight:700;margin:0 0 4px}
-.paso dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:8px 0 0;font-size:13.5px}
+.paso dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;margin:8px 0 0;font-size:13.5px}
 .paso dt{color:var(--tinta-tenue);font-size:12px;white-space:nowrap;padding-top:1px}
-.paso dd{margin:0}
+.paso dd{margin:0;min-width:0}
+.iad code{overflow-wrap:anywhere}
+.iad td,.iad dd,.iad li,.iad p{overflow-wrap:break-word}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 14px}
 .kpi{border:1px solid var(--borde);border-radius:14px;background:var(--panel);padding:12px 14px}
 .kpi b{display:block;font-size:24px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -188,6 +190,8 @@ pre.codigo{font-family:var(--mono);font-size:12.5px;line-height:1.55;background:
   .iad-toc a{grid-template-columns:auto auto 8px}
   .capa.como{padding:14px 14px 16px}
   .paso{padding-left:46px}
+  .paso dl{grid-template-columns:minmax(0,1fr);gap:2px}
+  .paso dt{margin-top:6px}
 }
 
 /* ── impresión ── */

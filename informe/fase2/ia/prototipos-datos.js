@@ -289,7 +289,7 @@ window.IA_DOC = {
       },
       {
        "t": "El emparejamiento con el catálogo",
-       "x": "Cada código del cliente se empareja con el producto canónico usando los alias ya conocidos; para los nuevos, la IA propone el producto con su grado de seguridad. Por encima del 95 % se acepta y queda como alias; por debajo, va a la cola."
+       "x": "Cada código del cliente se empareja con el producto canónico usando los alias ya conocidos; para los nuevos, la IA propone el producto con su grado de seguridad. Con 95 % o más se acepta y queda como alias; por debajo, va a la cola."
       },
       {
        "t": "La cola de excepciones",

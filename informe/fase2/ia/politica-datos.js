@@ -140,7 +140,7 @@ window.IA_DOC = {
     {
      "t": "nota",
      "titulo": "Nombres",
-     "x": "El manual de procesos todavía asigna la redacción de la política a la Gerencia de Tecnología y nombra a un Comité de Inteligencia Artificial. Esta política usa los nombres de la estructura propuesta, que separan la redacción (Gobierno de IA) de la implantación (Tecnología, Gobernanza y Riesgo)."
+     "x": "El manual de procesos todavía asigna la redacción de la política a la Gerencia de Tecnología y nombra a un Comité de Inteligencia Artificial. Esta política usa los nombres vigentes de la estructura To-Be, que separan la redacción (Gobierno de IA) de la implantación (Tecnología, Gobernanza y Riesgo)."
     }
    ]
   },
@@ -294,8 +294,10 @@ window.IA_DOC = {
     {
      "t": "lista",
      "items": [
-      "**Nunca las ejecuta la IA:** pagos y movimientos de dinero, asientos contables y documentos fiscales. La plataforma no escribe nada de eso en los sistemas de registro; la persona lo hace en su sistema.",
-      "**La IA puede prepararlas, la persona decide y firma:** comprar, aprobar un precio o un crédito, contratar, desvincular, evaluar el desempeño de una persona.",
+      "**Siempre las decide una persona:** comprar, pagar, aprobar un precio, contratar y desvincular, y todo asiento contable o documento fiscal.",
+      "**Pagos, asientos y documentos fiscales:** la IA nunca los ejecuta. La plataforma no escribe nada de eso en los sistemas de registro: puede preparar el expediente, y la persona lo registra en su sistema.",
+      "**Comprar, aprobar un precio, contratar y desvincular:** la IA puede prepararlas; la persona decide y firma. Si la plataforma las ejecuta, es solo después de esa firma, en el nivel 3.",
+      "**Decisiones sobre personas o sobre crédito** (seleccionar, evaluar el desempeño, dar crédito): las toma una persona, con revisión humana significativa (ver la nota).",
       "**Hacia los clientes:** ninguna respuesta sale sin que la envíe una persona. El Comité puede autorizar, por canal y después de un piloto medido, que las respuestas solo informativas (estado de un pedido, horario, disponibilidad) salgan en nivel 2."
      ]
     },
@@ -472,7 +474,7 @@ window.IA_DOC = {
    "titulo": "Datos personales y cumplimiento",
    "estado": "borrador",
    "que": [
-    "El grupo opera en países con reglas distintas sobre datos personales. Panamá, Colombia y Costa Rica tienen ley general, autoridad y plazos para avisar una brecha; Venezuela y Guatemala no tienen ley general, pero sí protecciones constitucionales; en Estados Unidos rigen las reglas de cada estado. Ninguno de esos países tiene todavía una ley específica de inteligencia artificial vigente, aunque hay proyectos en curso.",
+    "El grupo opera en países con reglas distintas sobre datos personales. Panamá, Colombia y Costa Rica tienen ley general, autoridad y plazos para avisar una brecha; Venezuela y Guatemala no tienen ley general, pero sí protecciones constitucionales; en Estados Unidos rigen las reglas de cada estado. Panamá, Colombia, Costa Rica, Guatemala y Venezuela no tienen todavía una ley específica de inteligencia artificial vigente, aunque hay proyectos en curso; en Estados Unidos, Florida no la tiene, aunque otros estados ya regulan su uso en la selección de personal.",
     "La política adopta en todo el grupo la regla más exigente que sea razonable, para que un mismo caso de uso funcione igual en todos los países: consentimiento informado y demostrable, uso limitado a la finalidad, conservación con fecha de borrado y una persona que decide cuando se trata de personas."
    ],
    "como": [
@@ -617,7 +619,7 @@ window.IA_DOC = {
       },
       {
        "t": "Evaluación",
-       "x": "Qué pasó, a quién afecta, qué información salió. Si hay datos personales, Consultoría Jurídica activa los avisos legales: en Panamá de inmediato y en máximo 72 horas; en Costa Rica, 5 días hábiles; en Colombia, 15 días hábiles ([[sec:datos-personales|artículo 10]])."
+       "x": "Qué pasó, a quién afecta, qué información salió. Si hay datos personales, Consultoría Jurídica activa los avisos legales: en Panamá de inmediato y en máximo 72 horas; en Costa Rica, 5 días hábiles; en Colombia, 15 días hábiles; en Florida, 30 días a los afectados ([[sec:datos-personales|artículo 10]])."
       },
       {
        "t": "Corrección y aprendizaje",
@@ -650,7 +652,7 @@ window.IA_DOC = {
       "**Brechas:** el proveedor avisa sin demora y en un plazo compatible con los plazos legales del grupo ([[sec:datos-personales|artículo 10]]).",
       "**Subencargados y auditoría:** lista publicada de subencargados, derecho a objetar los nuevos y evidencia de auditoría o certificación de seguridad.",
       "**Transferencias:** para los datos que salen de Panamá se usan las cláusulas modelo de la Red Iberoamericana, que la autoridad panameña admite sin autorización previa; Estados Unidos ya es país adecuado para Colombia.",
-      "**Condiciones de uso del proveedor:** se cumplen; los principales proveedores exigen revisión humana significativa en decisiones de empleo."
+      "**Condiciones de uso del proveedor:** se cumplen; las de OpenAI, por ejemplo, exigen revisión humana en decisiones de empleo; las de Anthropic, por confirmar con sus términos."
      ]
     },
     {
@@ -905,17 +907,17 @@ window.IA_DOC = {
      "filas": [
       [
        "1 · Prepara",
-       "Informar y recomendar",
+       "Informar; recomendar o preparar, y la persona confirma",
        "Preparé"
       ],
       [
        "2 · Hace y avisa",
-       "Decidir dentro de un margen acotado",
+       "Escritura gobernada: autónoma, acotada y de bajo riesgo (conector a Odoo)",
        "Hice"
       ],
       [
        "3 · Decide con firma previa",
-       "Decidir con aprobación",
+       "Decidir: reservado a la persona; el agente deja todo listo",
        "Tu firma"
       ]
      ]
@@ -990,7 +992,7 @@ window.IA_DOC = {
       ],
       [
        "Firma",
-       "La aprobación registrada de la persona con autoridad antes de que algo se ejecute o salga del grupo."
+       "La aprobación registrada de la persona con autoridad antes de que algo se ejecute o salga del grupo. Es una aprobación interna, no una firma electrónica con validez legal."
       ],
       [
        "Freno",

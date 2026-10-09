@@ -631,3 +631,36 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
 - **Quien use la cuenta de QA en otra máquina necesita la clave nueva.**
 
 ⚠️ **Supabase:** desde el 30-oct-2026, en los proyectos existentes, las tablas nuevas de `public` necesitan un `GRANT` explícito para verse en la API. Toda migración nueva debe traerlo.
+
+**2026-10-09** — Gabriel (vía Claude Code) — **Los documentos de IA de la Fase 2, completos en borrador.** Lo que hay en cada página:
+- **Documento técnico** (17 secciones):
+  - detalla la órbita sobre el triángulo Supabase · Vercel · GitHub;
+  - el paso a paso de la Ola 0 a la 4 trae un paso por cada uno de los 85 módulos, con su entregable, cómo se hace, de qué depende, cuándo se acepta y quién lo hace;
+  - 23 decisiones abiertas, con su recomendación y quién decide;
+  - Cloudflare queda como alternativa de front que decide Kenex.
+- **Política de adopción:**
+  - una declaración para firma de la Junta y 16 artículos con anexos;
+  - una sola escala de autonomía: 1 prepara · 2 hace y avisa · 3 decide con firma previa;
+  - las decisiones reservadas a personas;
+  - el marco legal por país, que debe validar Consultoría Jurídica;
+  - usa los nombres de gobierno vigentes y el To-Be de 5.1–5.3 no se toca.
+- **Casos de uso:**
+  - 78 casos (75 de la órbita y 3 extras) calificados en 9 criterios, cada uno con su evidencia;
+  - los tres primeros son el Vigía de reservas, el Vigía del stage y el Cuadre previo de caja.
+- **Prototipos:**
+  - P1 es el aplicativo, en operación;
+  - P2 (reclutamiento con IA) y P3 (normalizador del sell-out) quedan diseñados y no se construyen por ahora.
+
+**Cómo se hizo:**
+- **Fuentes:** el corpus, la órbita y cuatro investigaciones del 09-oct: Anthropic, verificada con la skill; Odoo, EBS y canales; la plataforma; y lo legal con sus marcos. Están en `Rower/ia-fase2/investigacion/`.
+- **Redacción:** cinco redactores trabajaron en paralelo y un revisor cruzado hizo 43 correcciones. Unificó los costos (Anthropic en unos USD 320 al mes y el stack en unos 515–535, más 100 de PITR), las decisiones reservadas y el tratamiento contable: la plataforma arma el expediente y Contabilidad registra.
+
+**Cambios en otros lugares:**
+- **La órbita**, regenerada:
+  - datos técnicos al 09-oct: soporte de Odoo, webhooks de Mercately, aprobación en GitHub Team, modelos vigentes, transcripción y costos;
+  - cada módulo con IA enlaza a su ficha de caso de uso.
+- **La lámina 13** lleva a las páginas nuevas.
+
+**Verificado:** `comprobar-ia.py` en verde (incluye móvil en las cuatro páginas y el recorrido de la órbita al caso) y `validar-html.py`.
+
+⚠️ **Sin publicar ni sincronizar con el asistente.**
