@@ -731,7 +731,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Dirección de Tecnología, Gobernanza y Riesgo las administra"
+         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento las administra"
         ],
         [
          "Calificación",
@@ -6624,7 +6624,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Dirección de Tecnología, Gobernanza y Riesgo las administra"
+         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento las administra"
         ],
         [
          "Calificación",
@@ -6975,7 +6975,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Dirección de Tecnología, Gobernanza y Riesgo (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)"
+         "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)"
         ],
         [
          "Opera",
@@ -7767,7 +7767,7 @@ window.IA_DOC = {
     {
      "t": "nota",
      "titulo": "Nombres",
-     "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Dirección de Tecnología, Gobernanza y Riesgo**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
+     "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
     },
     {
      "t": "h",
@@ -7949,11 +7949,6 @@ window.IA_DOC = {
        "10. [[mod:m-cuadre-entre-empresas|Cuadre entre empresas]]"
       ],
       [
-       "Dirección de Tecnología, Gobernanza y Riesgo (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
-       "1",
-       "54. Inventario y regularización de las islas de IA"
-      ],
-      [
        "Director Corporativo Comercial",
        "1",
        "29. [[mod:m-mesa-de-compra-cubitt|Mesa de compra Cubitt]]"
@@ -7967,6 +7962,11 @@ window.IA_DOC = {
        "Equipo consultor del proyecto mientras dure el encargo; luego, Gobierno de IA",
        "1",
        "32. Asistente IA del conocimiento del proyecto"
+      ],
+      [
+       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
+       "1",
+       "54. Inventario y regularización de las islas de IA"
       ],
       [
        "Gerente de E-commerce / Ventas Web (por país), de forma transitoria hasta que el proceso pase a Contabilidad / Tesorería",

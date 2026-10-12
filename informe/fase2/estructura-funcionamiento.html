@@ -256,7 +256,9 @@ body.con-panel .mapa-caja{position:sticky;top:12px}
 
 /* ================================================================ datos */
 // Unidades de la estructura To-Be (estructura-tobe-datos.js del manual de Fase 2,
-// revisada con la Presidencia el 05/06-oct-2026). El mapa muestra las unidades que
+// revisada con la Presidencia el 05/06-oct-2026; el 12-oct Desarrollo Corporativo, la PMO y
+// Tecnología, Gobernanza y Cumplimiento pasan a gerencias corporativas de staff que
+// reportan directo a la Presidencia). El mapa muestra las unidades que
 // intervienen en los funcionamientos; las coordinaciones corporativas y las gerencias
 // de unidad de negocio que no aparecen en ningún paso no se dibujan.
 var NODOS = {
@@ -274,9 +276,10 @@ var NODOS = {
   "cs":  {l:["Compras y Cadena","de Suministro"], k:"neg dir", x:237, y:246, w:130},
   "com": {l:["Comercial"], k:"neg dir", x:500, y:246, w:104},
   "fin": {l:["Finanzas","y Negocios"], k:"apo dir", x:745, y:246, w:104},
-  "dc":  {l:["Desarrollo","Corporativo"], k:"apo dir", x:870, y:246, w:108},
-  "pmo": {l:["PMO"], k:"apo dir", x:985, y:246, w:74},
-  "tgr": {l:["Tecnología,","Gob. y Riesgo"], k:"apo dir", x:1110, y:246, w:112},
+  // gerencias corporativas de staff: reportan directo a la Presidencia
+  "dc":  {l:["Desarrollo","Corporativo"], k:"apo", x:850, y:318, w:104},
+  "pmo": {l:["PMO"], k:"apo", x:945, y:318, w:70},
+  "tgr": {l:["Tecnología, Gob.","y Cumplimiento"], k:"apo", x:1170, y:318, w:120},
   "prod":    {l:["Intel. Mercado","y Productos"], k:"neg", x:63, y:318, w:112},
   "compras": {l:["Compras","Casio · Cubitt"], k:"neg", x:181, y:318, w:106},
   "opl":     {l:["Operaciones","y Logística"], k:"neg", x:294, y:318, w:102},
@@ -284,15 +287,15 @@ var NODOS = {
   "ecom":    {l:["E-commerce"], k:"neg", x:500, y:318, w:98},
   "merc":    {l:["Mercadeo"], k:"neg", x:605, y:318, w:92},
   "fincorp": {l:["Finanzas"], k:"apo", x:745, y:318, w:88},
-  "pmocorp": {l:["Gerencia","de PMO"], k:"apo", x:985, y:318, w:88},
+  "pmocorp": {l:["PMO · unidad","de negocio"], k:"apo", x:1045, y:318, w:104},
   "p-cab":  {l:["Cabeza","país *"], k:"cab", x:60, y:420, w:108},
   "p-opl":  {l:["Operaciones","y Logística"], k:"neg", x:180, y:420, w:108},
-  "p-may":  {l:["Ventas","al Mayor"], k:"neg", x:300, y:420, w:108},
-  "p-ret":  {l:["Retail","· tiendas"], k:"neg", x:420, y:420, w:108},
-  "p-post": {l:["Postventa"], k:"neg", x:540, y:420, w:108},
-  "p-merc": {l:["Mercadeo"], k:"neg", x:660, y:420, w:108},
-  "p-fin":  {l:["Adm. y","Finanzas"], k:"apo", x:800, y:420, w:108},
-  "p-ssgg": {l:["Serv. Generales","(coordinación)"], k:"apo", x:920, y:420, w:112},
+  "p-ssgg": {l:["Serv. Generales","(coordinación)"], k:"neg", x:302, y:420, w:112},
+  "p-may":  {l:["Ventas","al Mayor"], k:"neg", x:424, y:420, w:108},
+  "p-ret":  {l:["Retail","· tiendas"], k:"neg", x:544, y:420, w:108},
+  "p-post": {l:["Postventa"], k:"neg", x:664, y:420, w:108},
+  "p-merc": {l:["Mercadeo"], k:"neg", x:784, y:420, w:108},
+  "p-fin":  {l:["Adm. y","Finanzas"], k:"apo", x:920, y:420, w:108},
   "p-rrhh": {l:["Recursos","Humanos"], k:"apo", x:1040, y:420, w:108},
   "p-ti":   {l:["Tecnología","(TI)"], k:"apo", x:1160, y:420, w:108},
   "ext-fab": {l:["Fábricas","y licenciantes"], k:"ext", x:160, y:514, w:170},
@@ -303,10 +306,10 @@ var NODOS = {
 var NOMBRE = {
   "junta":"Junta Directiva","pres":"Presidencia","asist":"Asistencia Ejecutiva a la Presidencia","jur":"Consultoría Jurídica","ia":"Gobierno de IA",
   "ccom":"Comité Comercial","cfin":"Comité de Finanzas y Riesgos","cdato":"Comité de Gobierno del Dato e IA","ccal":"Comité de Calidad y Mejora Continua","ccult":"Comité de Cultura",
-  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Finanzas y Negocios","dc":"Desarrollo Corporativo","pmo":"PMO","tgr":"Tecnología, Gobernanza y Riesgo",
+  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Finanzas y Negocios","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza y Cumplimiento",
   "prod":"Inteligencia de Mercado y Desarrollo de Productos","compras":"Compras (Casio · Cubitt)","opl":"Operaciones y Logística","ventas":"Ventas","ecom":"E-commerce","merc":"Mercadeo",
-  "fincorp":"Finanzas (gerencia corporativa)","pmocorp":"Gerencia corporativa de PMO",
-  "p-cab":"Cabeza país","p-opl":"Operaciones y Logística país","p-may":"Ventas al Mayor país","p-ret":"Retail país","p-post":"Postventa país","p-merc":"Mercadeo país","p-fin":"Administración y Finanzas país","p-rrhh":"Recursos Humanos país","p-ti":"TI país","p-ssgg":"Servicios Generales país · coordinación de Administración y Finanzas",
+  "fincorp":"Finanzas (gerencia corporativa)","pmocorp":"PMO (gerencia de unidad de negocio)",
+  "p-cab":"Cabeza país","p-opl":"Operaciones y Logística país","p-may":"Ventas al Mayor país","p-ret":"Retail país","p-post":"Postventa país","p-merc":"Mercadeo país","p-fin":"Administración y Finanzas país","p-rrhh":"Recursos Humanos país","p-ti":"TI país","p-ssgg":"Servicios Generales país · coordinación de Operaciones y Logística",
   "ext-fab":"Fábricas y licenciantes","ext-cli":"Clientes","area":"Gerencia solicitante","ext-ter":"Bancos, aduanas y asesores"
 };
 // Líneas de reporte (tenues, de fondo).
@@ -324,12 +327,12 @@ var DIRS = ["id","cs","com","fin","dc","pmo","tgr"];
 var FUNC = [
  {t:"Rumbo y despliegue", r:"Cómo el rumbo que fija la Junta llega a cada país convertido en metas, y cómo vuelve el resultado.",
   decide:["junta","fin"], pasos:[
-  {t:"La Presidencia convoca la sesión estratégica", d:"Una vez al año, en enero. Cada dirección prepara el cierre de su área: resultados frente a lo planificado, lo que funcionó y las prioridades que propone.", e:[["pres","id"],["pres","cs"],["pres","com"],["pres","fin"],["pres","dc"],["pres","pmo"],["pres","tgr"]], p:["1.1"]},
+  {t:"La Presidencia convoca la sesión estratégica", d:"Una vez al año, en enero. Cada dirección y cada gerencia corporativa de staff prepara el cierre de su área: resultados frente a lo planificado, lo que funcionó y las prioridades que propone.", e:[["pres","id"],["pres","cs"],["pres","com"],["pres","fin"],["pres","dc"],["pres","pmo"],["pres","tgr"]], p:["1.1"]},
   {t:"Finanzas pone la cifra sobre la mesa", d:"Presenta el cierre financiero del grupo, la proyección del año y la capacidad de inversión y de endeudamiento.", e:[["fin","junta"]], p:["1.1"]},
   {t:"La Junta fija el rumbo", d:"Define los objetivos a tres años y los focos del año, por marca, país y canal, con un responsable por objetivo.", e:[["junta","pres"]], dec:{q:"¿Qué objetivos y focos tiene el grupo?", por:"junta"}, p:["1.1"]},
   {t:"Cada objetivo pasa por Finanzas", d:"Si un objetivo no tiene respaldo financiero, vuelve a la Junta para ajustarlo al escenario posible.", e:[["fin","junta"]], dec:{q:"¿Objetivos con respaldo financiero?", por:"fin"}, p:["1.1"]},
-  {t:"Las direcciones traducen el plan a metas", d:"Cada dirección propone un cuadro corto de indicadores de su área, con fórmula, fuente oficial del dato y responsable. La Junta aprueba el cuadro y las metas.", e:[["id","junta"],["cs","junta"],["com","junta"],["fin","junta"],["dc","junta"],["pmo","junta"],["tgr","junta"]], dec:{q:"¿Cada indicador tiene fuente oficial?", por:"dirs"}, p:["1.2"]},
-  {t:"Las metas bajan a cada país", d:"Con el mismo formato, cada dirección despliega sus metas a las gerencias país, a través de sus gerencias corporativas cuando las tiene.", e:[["cs","p-opl"],["com","p-ret"],["com","p-may"],["fin","p-fin"],["dc","p-rrhh"],["tgr","p-ti"]], p:["1.2"]},
+  {t:"Las direcciones y las gerencias de staff traducen el plan a metas", d:"Cada una propone un cuadro corto de indicadores de su área, con fórmula, fuente oficial del dato y responsable. La Junta aprueba el cuadro y las metas.", e:[["id","junta"],["cs","junta"],["com","junta"],["fin","junta"],["dc","junta"],["pmo","junta"],["tgr","junta"]], dec:{q:"¿Cada indicador tiene fuente oficial?", por:"dirs"}, p:["1.2"]},
+  {t:"Las metas bajan a cada país", d:"Con el mismo formato, cada dirección o gerencia de staff despliega sus metas a las gerencias país, a través de sus gerencias corporativas cuando las tiene.", e:[["cs","p-opl"],["com","p-ret"],["com","p-may"],["fin","p-fin"],["dc","p-rrhh"],["tgr","p-ti"]], p:["1.2"]},
   {t:"El resultado sube con cifras cerradas", d:"Cada mes la gerencia corporativa de Finanzas consolida lo real contra la meta con las cifras cerradas por contabilidad, no con reportes paralelos, y Finanzas y Negocios lo lleva a la Junta.", e:[["p-fin","fincorp"],["fincorp","fin"],["fin","junta"]], p:["1.2"]},
   {t:"La Junta corrige el rumbo", d:"Decide la acción correctiva de cada desvío fuera de tolerancia, con responsable y fecha. En la revisión semestral decide si el plan se mantiene o se ajusta.", e:[["junta","pres"],["pres","com"],["pres","cs"]], dec:{q:"¿Desvío fuera de tolerancia? ¿El plan requiere ajuste?", por:"junta"}, p:["1.1","1.2"]}
  ]},
@@ -406,28 +409,28 @@ var FUNC = [
  {t:"El apoyo como proveedor interno", r:"Cómo una gerencia obtiene lo que no hace ella misma: el apoyo filtra, resuelve y escala lo que excede su competencia.",
   decide:["pmocorp","p-rrhh","p-ti","p-ssgg","junta"], pasos:[
   {t:"Una gerencia necesita algo que no hace", d:"Un proyecto, una persona, un sistema, un contrato o una reparación. Siempre entra por el canal formal de la unidad de apoyo.", n:["area"], p:["4.1","17.1","14.2","18.2","19.1"]},
-  {t:"Proyectos", d:"La gerencia de PMO evalúa viabilidad y duplicidad y categoriza: tarea, iniciativa o proyecto. La dirección de PMO lo eleva y la Junta aprueba lo que compromete recursos.", e:[["area","pmocorp"],["pmocorp","pmo"],["pmo","junta"]], dec:{q:"¿Viable y sin duplicar?", por:"pmocorp"}, p:["4.1"]},
+  {t:"Proyectos", d:"La gerencia de unidad de negocio de la PMO evalúa viabilidad y duplicidad y categoriza: tarea, iniciativa o proyecto. La gerencia corporativa de PMO lo eleva y la Junta aprueba lo que compromete recursos.", e:[["area","pmocorp"],["pmocorp","pmo"],["pmo","junta"]], dec:{q:"¿Viable y sin duplicar?", por:"pmocorp"}, p:["4.1"]},
   {t:"Personas", d:"Recursos Humanos confirma el perfil, recluta y entrega una terna; el gerente entrevista y decide. Las posiciones gerenciales o clave las decide la Presidencia, a propuesta de Desarrollo Corporativo.", e:[["area","p-rrhh"],["p-rrhh","area"],["p-rrhh","dc"],["dc","pres"]], dec:{q:"¿Cargo gerencial o posición clave?", por:"p-rrhh"}, p:["17.1"]},
-  {t:"Sistemas", d:"TI del país clasifica el pedido y la Dirección de Tecnología, Gobernanza y Riesgo valida que responda a una necesidad del negocio y decide la vía. Un sistema o gasto nuevo lo aprueba la Junta.", e:[["area","p-ti"],["p-ti","tgr"],["tgr","junta"]], dec:{q:"¿Requiere sistema o gasto nuevo?", por:"tgr"}, p:["14.2"]},
+  {t:"Sistemas", d:"TI del país clasifica el pedido y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento valida que responda a una necesidad del negocio y decide la vía. Un sistema o gasto nuevo lo aprueba la Junta.", e:[["area","p-ti"],["p-ti","tgr"],["tgr","junta"]], dec:{q:"¿Requiere sistema o gasto nuevo?", por:"tgr"}, p:["14.2"]},
   {t:"Contratos", d:"El área redacta, Consultoría Jurídica revisa y los bufetes locales opinan sobre la norma del país. Firma la cabeza del país dentro de su facultad.", e:[["area","jur"],["jur","ext-ter"],["area","p-cab"]], dec:{q:"¿Dentro de la facultad de firma?", por:"p-cab"}, p:["18.2"]},
   {t:"Instalaciones", d:"Servicios Generales resuelve lo que está en su competencia y contrata lo que la excede.", e:[["area","p-ssgg"],["p-ssgg","ext-ter"]], dec:{q:"¿Dentro de la competencia interna?", por:"p-ssgg"}, p:["19.1"]},
   {t:"El apoyo rinde cuentas de su cola", d:"Lo abierto, lo resuelto y lo descartado con su motivo, cada mes. La PMO reporta el portafolio a la Junta.", e:[["pmo","junta"],["p-ti","tgr"]], p:["4.5","14.2"]}
  ]},
  {t:"El dato antes que el agente", r:"Cómo el grupo llega a una sola cifra oficial y cómo se aprueba poner IA sobre ella.",
   decide:["ia","cdato"], pasos:[
-  {t:"Cada fuente nueva se mapea", d:"Contra el catálogo del grupo: se decide si vive en el ERP o llega por la vía de captación, y qué equivalencias necesita. Lo lleva la Dirección de Tecnología, Gobernanza y Riesgo.", e:[["area","tgr"]], dec:{q:"¿Es una fuente nueva?", por:"tgr"}, p:["15.1"]},
+  {t:"Cada fuente nueva se mapea", d:"Contra el catálogo del grupo: se decide si vive en el ERP o llega por la vía de captación, y qué equivalencias necesita. Lo lleva la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento.", e:[["area","tgr"]], dec:{q:"¿Es una fuente nueva?", por:"tgr"}, p:["15.1"]},
   {t:"Controles sobre cada lote", d:"Completitud, validez, moneda y tasa fechada. El defecto vuelve a su responsable con plazo; si no llega, la fuente se marca como no certificada.", e:[["tgr","area"],["area","tgr"]], dec:{q:"¿El lote pasa los controles?", por:"tgr"}, p:["15.2"]},
   {t:"Las medidas tienen dueño", d:"La definición de cada indicador la aprueba el dueño de su dominio antes de entrar al diccionario, para que signifique lo mismo en todos los países.", e:[["ventas","tgr"]], p:["15.2"]},
   {t:"Una sola cifra oficial", d:"Solo lo certificado alimenta los tableros. Los equipos leen su desempeño con la misma cifra.", e:[["tgr","ventas"],["tgr","p-ret"],["tgr","p-may"]], p:["2.7","8.17"]},
-  {t:"Cada caso de uso de IA se registra", d:"La PMO verifica que otra área no lo haya resuelto ya; la Dirección de Tecnología, Gobernanza y Riesgo evalúa qué datos toca, qué credenciales necesita, cómo se integra y qué riesgo trae.", e:[["area","pmocorp"],["pmocorp","tgr"]], p:["5.2"]},
+  {t:"Cada caso de uso de IA se registra", d:"La PMO verifica que otra área no lo haya resuelto ya; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento evalúa qué datos toca, qué credenciales necesita, cómo se integra y qué riesgo trae.", e:[["area","pmocorp"],["pmocorp","tgr"]], p:["5.2"]},
   {t:"El Comité aprueba y asigna", d:"Gobierno de IA lo lleva al Comité, que lo prioriza por valor y riesgo, lo aprueba o descarta con su motivo, fija el nivel de autonomía y decide quién lo construye: TI o la propia área con una herramienta autorizada. Quien lo implanta no es quien lo aprueba.", e:[["tgr","ia"],["ia","cdato"],["cdato","area"]], dec:{q:"¿Se aprueba el caso de uso?", por:"cdato"}, p:["5.2","5.1"]},
-  {t:"Validación y medición", d:"Tecnología, Gobernanza y Riesgo valida todo desarrollo antes de producción, con credenciales de mínimo privilegio. A los 90 días el área mide el beneficio real contra el esperado.", e:[["tgr","area"]], p:["5.2","5.1"]}
+  {t:"Validación y medición", d:"Tecnología, Gobernanza y Cumplimiento valida todo desarrollo antes de producción, con credenciales de mínimo privilegio. A los 90 días el área mide el beneficio real contra el esperado.", e:[["tgr","area"]], p:["5.2","5.1"]}
  ]},
  {t:"Mejora continua y vida de los manuales", r:"Cómo una mejora se evalúa, se implanta y termina escrita en el manual, que parte de la base de conocimiento.",
   decide:["pmocorp","ccal"], pasos:[
   {t:"Un dueño de proceso detecta una mejora", d:"Un hallazgo de auditoría, un dolor reportado, un indicador fuera de rango o una idea propia.", n:["area"], p:["20.4"]},
   {t:"La PMO la evalúa y la planifica", d:"Si no es viable tal como se presentó, la devuelve con observaciones. Finanzas valida el presupuesto cuando lo hay.", e:[["area","pmocorp"],["pmocorp","fin"]], dec:{q:"¿Es viable tal como se presentó?", por:"pmocorp"}, p:["20.4"]},
-  {t:"El dato y el sistema acompañan", d:"Tecnología, Gobernanza y Riesgo aporta la línea base del indicador y su seguimiento, y habilita la herramienta o el ajuste.", e:[["tgr","pmocorp"],["tgr","area"]], p:["20.4"]},
+  {t:"El dato y el sistema acompañan", d:"Tecnología, Gobernanza y Cumplimiento aporta la línea base del indicador y su seguimiento, y habilita la herramienta o el ajuste.", e:[["tgr","pmocorp"],["tgr","area"]], p:["20.4"]},
   {t:"Las áreas implantan y se verifica", d:"Las áreas ejecutan el cambio con acompañamiento en los primeros ciclos; la PMO reporta a la Junta y compara contra la situación inicial.", e:[["pmocorp","area"],["pmo","junta"]], p:["20.4"]},
   {t:"El cambio entra por la base de conocimiento", d:"El dueño actualiza el proceso mediante el control de cambios; se publica la versión nueva, se retira la anterior y Recursos Humanos actualiza la inducción si hace falta.", e:[["area","dc"],["dc","p-rrhh"]], p:["20.3"]},
   {t:"El Comité de Calidad revisa el estándar", d:"Revisa políticas y manuales, verifica el cumplimiento de las buenas prácticas y orienta hacia certificaciones.", e:[["dc","ccal"]], dec:{q:"¿El estándar debe revisarse?", por:"ccal"}, p:["20.3"]}
@@ -439,7 +442,7 @@ var $ = function(s){ return document.querySelector(s); };
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 var NS = "http://www.w3.org/2000/svg";
 function el(tag, at, padre, txt){ var n = document.createElementNS(NS, tag); for(var k in at) n.setAttribute(k, at[k]); if(txt != null) n.textContent = txt; if(padre) padre.appendChild(n); return n; }
-function nombre(id){ return id === "dirs" ? "Cada dirección" : (NOMBRE[id] || id); }
+function nombre(id){ return id === "dirs" ? "Cada dirección o gerencia de staff" : (NOMBRE[id] || id); }
 function chipUnidad(id){
   var k = id === "dirs" ? "" : (NODOS[id] ? NODOS[id].k.split(" ")[0] : "");
   return '<span class="chip ' + (k === "gob" || k === "pres" ? "gob" : "") + '">' + esc(nombre(id)) + '</span>';
@@ -454,11 +457,11 @@ function pila(){
   var capas = [
     {n:"Gobierno", v:"Decide el rumbo", d:"Gobierna; no es línea de mando.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Junta Directiva</span></div></div>'},
-    {n:"Presidencia", v:"Conduce el grupo", d:"Siete direcciones como reportes directos, en el límite del tramo de 4 a 7, y tres unidades propias.",
+    {n:"Presidencia", v:"Conduce el grupo", d:"Siete reportes directos —cuatro direcciones y tres gerencias corporativas de staff—, en el límite del tramo de 4 a 7, y tres unidades propias.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Asistencia Ejecutiva a la Presidencia</span><span class="chip staff">Consultoría Jurídica</span><span class="chip staff">Gobierno de IA</span></div></div>'},
     {n:"Direcciones corporativas", v:"Fijan la línea rectora", d:"Una por gran función del grupo, con baja operatividad.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · cadena de valor →</div><div class="fila"><span class="chip fuerte">Innovación y Desarrollo de Productos</span><span class="chip fuerte">Compras y Cadena de Suministro</span><span class="chip fuerte">Comercial</span></div></div>' +
-       '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas y Negocios</span><span class="chip fuerte">Desarrollo Corporativo</span><span class="chip fuerte">PMO</span><span class="chip fuerte">Tecnología, Gobernanza y Riesgo</span></div></div>'},
+       '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas y Negocios</span></div></div>'},
     {n:"Gerencias corporativas", v:"Gobiernan una especialidad", d:"Solo donde conviene llevarla una vez para todos los países. Algunas tienen coordinaciones corporativas.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div>' +
        '<div class="subgrupo"><span class="stit">Innovación y Desarrollo de Productos</span><div class="fila"><span class="chip">Inteligencia de Mercado y Desarrollo de Productos</span><span class="chip">Innovación y Tecnología de Productos</span></div></div>' +
@@ -466,16 +469,18 @@ function pila(){
        '<div class="fila"><span class="chip">Operaciones y Logística</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip">Ventas</span><span class="chip">Mercadeo</span></div></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
-       '<div class="subgrupo"><span class="stit">Finanzas y Negocios</span><div class="fila"><span class="chip">Finanzas</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Formación · Universidad Corporativa</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">PMO</span><div class="fila"><span class="chip">PMO</span></div></div></div>'},
-    {n:"Gerencias de unidad de negocio", v:"Llevan un canal o un frente", d:"Dentro de una gerencia corporativa del negocio, para todo el grupo; no se replican por país.",
+       '<div class="subgrupo"><span class="stit">Reportan directo a la Presidencia</span><div class="fila"><span class="chip fuerte">Desarrollo Corporativo</span><span class="chip fuerte">Tecnología, Gobernanza y Cumplimiento</span><span class="chip fuerte">PMO</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Finanzas y Negocios</span><div class="fila"><span class="chip">Finanzas</span></div></div></div>'},
+    {n:"Gerencias de unidad de negocio", v:"Llevan un canal o un frente", d:"Dentro de una gerencia corporativa, para todo el grupo; no se replican por país.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · Comercial</div>' +
        '<div class="subgrupo"><span class="stit">Ventas</span><div class="fila"><span class="chip">Ventas al Mayor</span><span class="chip">E-commerce</span><span class="chip">Postventa</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Mercadeo</span><div class="fila"><span class="chip">Experiencia del Cliente</span><span class="chip">Experiencia Digital</span></div></div></div>'},
+       '<div class="subgrupo"><span class="stit">Mercadeo</span><div class="fila"><span class="chip">Experiencia del Cliente</span><span class="chip">Experiencia Digital</span></div></div></div>' +
+       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
+       '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Formación · Universidad Corporativa</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">PMO</span><div class="fila"><span class="chip">PMO</span></div></div></div>'},
     {n:"Gerencias país", v:"Ejecutan en cada país", d:"El mismo espejo en cada operación propia; abrir un país es replicarlo.",
-     c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div><div class="fila"><span class="chip">Operaciones y Logística</span><span class="chip">Ventas al Mayor</span><span class="chip">Retail · tiendas</span><span class="chip">E-commerce</span><span class="chip">Postventa</span><span class="chip">Mercadeo</span></div></div>' +
-       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="fila"><span class="chip">Administración y Finanzas</span><span class="chip sub">Servicios Generales · coordinación en Administración y Finanzas</span><span class="chip">Recursos Humanos</span><span class="chip">Tecnología (TI)</span></div></div>' +
+     c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div><div class="fila"><span class="chip">Operaciones y Logística</span><span class="chip sub">Servicios Generales · coordinación en Operaciones y Logística</span><span class="chip">Ventas al Mayor</span><span class="chip">Retail · tiendas</span><span class="chip">E-commerce</span><span class="chip">Postventa</span><span class="chip">Mercadeo</span></div></div>' +
+       '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="fila"><span class="chip">Administración y Finanzas</span><span class="chip">Recursos Humanos</span><span class="chip">Tecnología (TI)</span></div></div>' +
        '<div class="grupo neutro"><div class="gtit">En cada país</div><div class="fila"><span class="chip paises">PA</span><span class="chip paises">VE</span><span class="chip paises">CO</span></div></div>'},
     {n:"Equipos", v:"Operan", d:"Los escalones de la estructura patrón, iguales en toda la organización; cada unidad usa los que necesita.",
      c:'<ol class="escalera"><li>Coordinador(a) / Jefe(a)</li><li>Supervisor(a) / Especialista</li><li>Analista III · II · I</li><li>Auxiliar</li><li>Operario(a)</li></ol>'}
@@ -485,7 +490,7 @@ function pila(){
   });
   h += '<div class="eje sube" aria-hidden="true"><span>Ejecución e indicadores</span></div></div>';
   h += '<div class="cruzan">' +
-    '<div class="cruza"><h4>Consejos y comités de cogobierno</h4><p>Lo que atraviesa varias direcciones lo resuelve un comité que lidera una dirección con sus pares, no un área más. El Consejo de Familia acompaña como instancia de la familia propietaria. Ninguno es línea de mando.</p><div class="fila">' +
+    '<div class="cruza"><h4>Consejos y comités de cogobierno</h4><p>Lo que atraviesa varias direcciones lo resuelve un comité que lidera una dirección o una gerencia corporativa con sus pares, no un área más. El Consejo de Familia acompaña como instancia de la familia propietaria. Ninguno es línea de mando.</p><div class="fila">' +
       ['Consejo de Familia','Comité Comercial','Comité de Finanzas y Riesgos','Comité de Gobierno del Dato e IA','Comité de Calidad y Mejora Continua','Comité de Cultura Organizacional'].map(function(x){ return '<span class="chip comite">' + x + '</span>'; }).join('') + '</div></div>' +
     '<div class="cruza"><h4>Equipos centrales por demanda</h4><p>La PMO y Consultoría Jurídica no se replican por país: un solo equipo se asigna según lo que pida la organización y se refuerza en los picos.</p></div>' +
   '</div>';
@@ -504,13 +509,14 @@ function dibujarMapa(){
   el("text", {x:12, y:376, "class":"m-rot"}, mapa, "Gerencias país · el mismo espejo en PA · VE · CO");
   el("text", {x:12, y:482, "class":"m-rot"}, mapa, "Fuera de la estructura y solicitantes");
   el("text", {x:16, y:212, "class":"m-rot"}, mapa, "Unidades de negocio");
-  el("text", {x:1224, y:212, "class":"m-rot", "text-anchor":"end"}, mapa, "Unidades de apoyo");
+  // entre las líneas que bajan a la PMO y a Tecnología, para que ninguna lo cruce
+  el("text", {x:1058, y:212, "class":"m-rot", "text-anchor":"middle"}, mapa, "Unidades de apoyo");
   el("line", {x1:668, y1:220, x2:668, y2:344, "class":"m-div"}, mapa);
   var gE = el("g", {}, mapa);
   ESTR.forEach(function(s){
     var a = NODOS[s[0]], b = NODOS[s[1]];
     // hacia la fila de países, el tramo horizontal va por el hueco bajo las gerencias corporativas
-    var mid = b.y >= 400 ? 366 : (a.y + b.y) / 2;
+    var mid = b.y >= 400 ? 366 : s[0] === "pres" ? 173 : (a.y + b.y) / 2;
     el("path", {d:"M"+a.x+" "+(a.y+20)+" V"+mid+" H"+b.x+" V"+(b.y-20), "class":"m-estr"}, gE);
   });
   // Junta → Presidencia (gobierno, sin mando) y las tres unidades de la Presidencia;
@@ -519,8 +525,8 @@ function dibujarMapa(){
   el("path", {d:"M680 100 H757", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   el("path", {d:"M560 100 H480", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   el("path", {d:"M590 120 V136 H230 V120", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
-  // Servicios Generales: coordinación dentro de Administración y Finanzas del país
-  el("path", {d:"M800 440 V449 H920 V440", "class":"m-estr"}, gE);
+  // Servicios Generales: coordinación dentro de Operaciones y Logística del país
+  el("path", {d:"M180 440 V449 H302 V440", "class":"m-estr"}, gE);
   capaFlechas = el("g", {}, mapa);
   Object.keys(NODOS).forEach(function(id){
     var n = NODOS[id], w = n.w, hh = 40;

@@ -68,6 +68,14 @@
   // unidades hermanas quedan lado a lado y al mismo nivel, cada una colgando de su
   // dirección, y nunca una debajo de otra como si dependiera de ella.
   function subcolumnas(dr){
+    // Gerencia corporativa que reporta directo a la Presidencia (nivel 'n2' en
+    // DIRECCIONES): una sola columna, ella en la fila de las gerencias corporativas
+    // con sus gerencias de unidad de negocio debajo, y sus gerencias país abajo.
+    if(dr.nivel === "n2"){
+      var g = {n2:[dr], n3:[]};
+      (dr.hijos || []).forEach(function(k){ if(k.nivel !== "coord") (k.nivel === "n3" ? g.n3 : g.n2).push(k); });
+      return [g];
+    }
     var out = [];
     (dr.hijos || []).forEach(function(h){
       if(h.enLinea) return;   // cuelga de la línea de la dirección, en su propia celda
@@ -380,11 +388,16 @@
     var cS = 1;
     STF.forEach(function(dr, i){
       var sc = colsS[i], c = cS;
-      h += '<div class="eo-celda eo-c1" style="grid-row:' + R.n1 + ';grid-column:' + c + ' / span ' + sc.length + '">' +
-             caja(dr, "eo-c-dir eo-staff", "Staff · Dirección corporativa") + enLineaDir(dr) + '</div>';
+      // una gerencia corporativa de staff no tiene caja en la fila de las direcciones
+      if(dr.nivel !== "n2")
+        h += '<div class="eo-celda eo-c1" style="grid-row:' + R.n1 + ';grid-column:' + c + ' / span ' + sc.length + '">' +
+               caja(dr, "eo-c-dir eo-staff", "Staff · Dirección corporativa") + enLineaDir(dr) + '</div>';
       sc.forEach(function(s, k){
         h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">' +
-               s.n2.map(function(n, j){ return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n)); }).join("") + '</div>';
+               s.n2.map(function(n, j){
+                 if(n === dr) return caja(n, "eo-c-n2 eo-c-gstaff" + (n.hijos && n.hijos.length ? " eo-c-jefe" : ""), "Staff · Gerencia corporativa");
+                 return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n));
+               }).join("") + '</div>';
         h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">' +
                s.n3.map(cajaPais).join("") + '</div>';
       });
@@ -604,7 +617,7 @@
     h += '<div class="eo-bloque"><h4>Lidera y convoca</h4><p>' + enlace(k.lidera) + '</p></div>';
     var grupos = [
       {t:"Unidades de la Presidencia", f:function(n){ return NODOS[n].d.nivel === "staff"; }},
-      {t:"Direcciones corporativas", f:function(n){ return E.DIRECCIONES.some(function(d){ return d.id === n; }); }},
+      {t:"Direcciones corporativas", f:function(n){ return NODOS[n].d.nivel !== "n2" && E.DIRECCIONES.some(function(d){ return d.id === n; }); }},
       {t:"Gerencias corporativas", f:function(n){ return NODOS[n].d.nivel === "n2"; }},
       {t:"Gerencias de unidad de negocio", f:function(n){ return NODOS[n].d.nivel === "gun"; }},
       {t:"Coordinaciones corporativas", f:function(n){ return NODOS[n].d.nivel === "ccorp"; }},
@@ -651,7 +664,7 @@
     }
 
     var esDir = E.DIRECCIONES.some(function(x){ return x.id === id; });
-    var tag = esDir ? (d.caracter === "negocio" ? "Dirección corporativa · unidad de negocio" : "Dirección corporativa · staff")
+    var tag = esDir ? (d.nivel === "n2" ? "Gerencia corporativa · staff" : d.caracter === "negocio" ? "Dirección corporativa · unidad de negocio" : "Dirección corporativa · staff")
                     : (id === E.CEO.id ? "Presidencia" : tagNivel(d));
     if(n.padre) h += '<div class="eo-reporta">Reporta a ' + enlace(n.padre) + '</div>';
 
@@ -721,7 +734,7 @@
              '<p><b>Cómo lo cumple.</b> ' + esc(p.como) + '</p><p class="eo-tension"><b>Tensión.</b> ' + esc(p.tension) + '</p></div>';
       });
     } else if(tab === "comites"){
-      h += '<p class="eo-tenue">Órganos de cogobierno, sin línea de mando. Los consejos son de la familia propietaria; los comités los lidera y convoca una dirección corporativa y reúnen a sus pares.</p>';
+      h += '<p class="eo-tenue">Órganos de cogobierno, sin línea de mando. Los consejos son de la familia propietaria; los comités los lidera y convoca una dirección o una gerencia corporativa y reúnen a sus pares.</p>';
       (E.CONSEJOS || []).forEach(function(k){ h += '<div class="eo-bloque eo-combloque"><h4 class="eo-comh">' + enlace(k.id) + '</h4>' + htmlConsejo(k) + '</div>'; });
       E.COMITES.forEach(function(k){ h += '<div class="eo-bloque eo-combloque">' + htmlComite(k, true) + '</div>'; });
     } else if(tab === "julio"){
@@ -748,15 +761,17 @@
   // escalones del patrón, que son parte de la lógica y no unidades.
   function cajas(n, clase){ var h = ''; for(var i = 0; i < n; i++) h += '<span class="eo-k-b ' + clase + '"></span>'; return h; }
   function esquema(c){
-    var staff = E.DIRECCIONES.filter(function(d){ return d.caracter === "staff"; }).length;
-    var negocio = E.DIRECCIONES.length - staff;
+    var stf = E.DIRECCIONES.filter(function(d){ return d.caracter === "staff"; });
+    var staff = stf.length, negocio = E.DIRECCIONES.length - staff;
+    // el staff mezcla una dirección y gerencias corporativas: cada una con su caja
+    var cajasStaff = function(lista){ return lista.map(function(d){ return '<span class="eo-k-b ' + (d.nivel === "n2" ? "eo-k-ger" : "eo-k-dir") + ' eo-k-staff"></span>'; }).join(""); };
     if(c.id === "gobierno")
       return '<div class="eo-k-fila">' + cajas(E.GOBIERNO.length, "eo-k-gob") + '</div>';
     if(c.id === "presidencia")
       return '<div class="eo-k-fila"><span class="eo-k-b eo-k-ceo"></span></div>' +
-             '<div class="eo-k-fila eo-k-ejes"><div class="eo-k-grupo eo-k-gst">' + cajas(Math.ceil(staff / 2), "eo-k-dir eo-k-staff") + '</div>' +
+             '<div class="eo-k-fila eo-k-ejes"><div class="eo-k-grupo eo-k-gst">' + cajasStaff(stf.slice(0, Math.ceil(staff / 2))) + '</div>' +
                '<span class="eo-k-linea" aria-hidden="true"></span>' +
-               '<div class="eo-k-grupo eo-k-gst">' + cajas(staff - Math.ceil(staff / 2), "eo-k-dir eo-k-staff") + '</div></div>' +
+               '<div class="eo-k-grupo eo-k-gst">' + cajasStaff(stf.slice(Math.ceil(staff / 2))) + '</div></div>' +
              '<div class="eo-k-fila eo-k-ley"><span>cabeza ejecutiva y, a los costados de su línea, el staff</span></div>';
     if(c.id === "n1")
       return '<div class="eo-k-fila">' +
@@ -773,7 +788,7 @@
         var n = (k.hijos || []).filter(function(x){ return x.nivel === "gun"; }).length;
         if(n) grupos.push(n);
         b(k.hijos);
-      }); })([].concat.apply([], E.DIRECCIONES.map(function(d){ return d.hijos || []; })));
+      }); })([].concat.apply([], E.DIRECCIONES.map(function(d){ return d.nivel === "n2" ? [d] : (d.hijos || []); })));
       return '<div class="eo-k-fila">' + grupos.map(function(n){
                return '<div class="eo-k-grupo eo-k-gung"><span class="eo-k-b eo-k-ger"></span><div class="eo-k-fila eo-k-gunf">' + cajas(n, "eo-k-gun") + '</div></div>';
              }).join("") + '</div>' +

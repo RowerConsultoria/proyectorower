@@ -111,7 +111,7 @@ window.IA_DOC = {
        "Redacta y mantiene la política y sus anexos, lleva el inventario de casos y herramientas, y vela por su cumplimiento. No construye ni opera."
       ],
       [
-       "Dirección de Tecnología, Gobernanza y Riesgo",
+       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento",
        "Implanta y opera: plataforma, agentes, licencias, credenciales y protección de datos. Valida todo desarrollo antes de producción y presenta el registro de agentes, riesgos e incidentes."
       ],
       [
@@ -140,7 +140,7 @@ window.IA_DOC = {
     {
      "t": "nota",
      "titulo": "Nombres",
-     "x": "El manual de procesos todavía asigna la redacción de la política a la Gerencia de Tecnología y nombra a un Comité de Inteligencia Artificial. Esta política usa los nombres vigentes de la estructura To-Be, que separan la redacción (Gobierno de IA) de la implantación (Tecnología, Gobernanza y Riesgo)."
+     "x": "El manual de procesos todavía asigna la redacción de la política a la Gerencia de Tecnología y nombra a un Comité de Inteligencia Artificial. Esta política usa los nombres vigentes de la estructura To-Be, que separan la redacción (Gobierno de IA) de la implantación (Tecnología, Gobernanza y Cumplimiento)."
     }
    ]
   },
@@ -206,7 +206,7 @@ window.IA_DOC = {
       "**Lo que no se permite:** cuentas personales con información del grupo; herramientas gratuitas o extensiones del navegador con información interna o confidencial; conectar una herramienta a Odoo, Lark o cualquier sistema con credenciales personales o de administrador; compartir llaves de API."
      ]
     },
-    "La lista vigente de herramientas autorizadas, con su nivel máximo de datos, está en el [[sec:anexos|anexo C]]. Gobierno de IA la mantiene; incluir una herramienta nueva requiere la evaluación de Tecnología, Gobernanza y Riesgo y, si toca datos personales, de Consultoría Jurídica.",
+    "La lista vigente de herramientas autorizadas, con su nivel máximo de datos, está en el [[sec:anexos|anexo C]]. Gobierno de IA la mantiene; incluir una herramienta nueva requiere la evaluación de Tecnología, Gobernanza y Cumplimiento y, si toca datos personales, de Consultoría Jurídica.",
     {
      "t": "nota",
      "tipo": "alerta",
@@ -322,7 +322,7 @@ window.IA_DOC = {
        "x": "Con la evidencia, el riesgo de equivocarse y cómo se deshace una acción."
       },
       {
-       "t": "Evaluación de Tecnología, Gobernanza y Riesgo",
+       "t": "Evaluación de Tecnología, Gobernanza y Cumplimiento",
        "x": "Comprueba controles, rastro y freno."
       },
       {
@@ -331,7 +331,7 @@ window.IA_DOC = {
       }
      ]
     },
-    "Todo agente tiene un **freno**: Tecnología, Gobernanza y Riesgo puede detenerlo de inmediato, y el freno general detiene a todos. Las equivalencias con las escalas usadas antes están en el [[sec:anexos|anexo E]]."
+    "Todo agente tiene un **freno**: Tecnología, Gobernanza y Cumplimiento puede detenerlo de inmediato, y el freno general detiene a todos. Las equivalencias con las escalas usadas antes están en el [[sec:anexos|anexo E]]."
    ]
   },
   {
@@ -382,7 +382,7 @@ window.IA_DOC = {
      "t": "lista",
      "items": [
       "**Autoservicio:** un área puede construir con una herramienta autorizada lo que use solo dentro de su equipo, con información permitida para su nivel y sin conectarlo a ningún sistema.",
-      "**Todo lo que se conecta pasa por Tecnología:** si lee o escribe en Odoo, Lark, EBS, la plataforma o cualquier sistema del grupo, se registra como caso de uso, lo evalúa Tecnología, Gobernanza y Riesgo y se le dan accesos propios con mínimo privilegio. Nunca credenciales de administrador ni de una persona.",
+      "**Todo lo que se conecta pasa por Tecnología:** si lee o escribe en Odoo, Lark, EBS, la plataforma o cualquier sistema del grupo, se registra como caso de uso, lo evalúa Tecnología, Gobernanza y Cumplimiento y se le dan accesos propios con mínimo privilegio. Nunca credenciales de administrador ni de una persona.",
       "**El código es del grupo:** lo que se construye con información o sistemas del grupo vive en el repositorio del grupo, no en cuentas personales.",
       "**Validación antes de producción:** seguridad, datos, integración y efecto sobre contabilidad e inventario, sin importar quién lo construyó.",
       "**Seguridad y rastro:** todo lo que use IA trata la información de terceros como dato y nunca como instrucción, tiene el mínimo privilegio y topes de consumo, y registra modelo, versión de instrucciones, entrada, salida, costo y decisión humana. Antes de producción se revisa contra la lista de riesgos de seguridad de aplicaciones con IA de referencia ([[sec:anexos|anexo F]])."
@@ -408,7 +408,7 @@ window.IA_DOC = {
       },
       {
        "t": "Evaluación y asignación",
-       "x": "Tecnología, Gobernanza y Riesgo la evalúa contra la política, la asigna con cuenta corporativa y la registra en el inventario."
+       "x": "Tecnología, Gobernanza y Cumplimiento la evalúa contra la política, la asigna con cuenta corporativa y la registra en el inventario."
       },
       {
        "t": "Formación previa",
@@ -611,7 +611,7 @@ window.IA_DOC = {
      "items": [
       {
        "t": "Reporte",
-       "x": "Quien lo detecta lo reporta a Tecnología, Gobernanza y Riesgo en cuanto lo sabe, y siempre antes de 24 horas. Reportar a tiempo nunca se sanciona."
+       "x": "Quien lo detecta lo reporta a Tecnología, Gobernanza y Cumplimiento en cuanto lo sabe, y siempre antes de 24 horas. Reportar a tiempo nunca se sanciona."
       },
       {
        "t": "Contención",
@@ -738,7 +738,7 @@ window.IA_DOC = {
       "Junta",
       "Comité",
       "Gobierno de IA",
-      "Tecnología, Gobernanza y Riesgo",
+      "Tecnología, Gobernanza y Cumplimiento",
       "Jurídica",
       "Dueño del proceso"
      ],
@@ -876,7 +876,7 @@ window.IA_DOC = {
       ]
      ]
     },
-    "Gobierno de IA mantiene esta lista. Una herramienta nueva entra después de la evaluación de Tecnología, Gobernanza y Riesgo y, si toca datos personales, de Consultoría Jurídica.",
+    "Gobierno de IA mantiene esta lista. Una herramienta nueva entra después de la evaluación de Tecnología, Gobernanza y Cumplimiento y, si toca datos personales, de Consultoría Jurídica.",
     {
      "t": "h",
      "x": "D. Registro de un caso de uso"

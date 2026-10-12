@@ -360,7 +360,9 @@ def generar():
         es += unidad(s, 'Staff de la Presidencia', '')
     for d in E.get('DIRECCIONES') or []:
         es.append('')
-        es += unidad(d, 'Dirección corporativa (%s)' % d.get('caracter', ''), '')
+        # nivel 'n2' en DIRECCIONES: gerencia corporativa de staff que reporta directo a la Presidencia
+        es += unidad(d, 'Gerencia corporativa (staff), reporta directo a la Presidencia' if d.get('nivel') == 'n2'
+                     else 'Dirección corporativa (%s)' % d.get('caracter', ''), '')
     es.append('\nCOMITÉS (órganos de cogobierno, sin línea de mando):')
     for k in E.get('COMITES') or []:
         es.append('  · %s — lidera: %s · %s · funciones: %s' % (k['n'], k.get('lidera'), corto(k.get('proposito'), 200), corto(k.get('funciones'), 300)))
