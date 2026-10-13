@@ -307,7 +307,8 @@
     h += '<div class="eo-cogrupo"><h4>Comités <span>· los lidera y convoca una dirección</span></h4><div class="eo-comfila">';
     E.COMITES.forEach(function(k){
       h += '<button type="button" class="eo-comite" data-id="' + esc(k.id) + '"><span class="eo-ttl">' + esc(k.n) + '</span>' +
-           '<span class="eo-cconv">Lidera y convoca: ' + esc(NODOS[k.lidera].d.n) + ' · ' + miembros(k).length + ' unidades integrantes</span></button>';
+           '<span class="eo-cconv">Lidera y convoca: ' + esc(NODOS[k.lidera].d.n) + ' · ' + formato(k, "principal").length + ' en el principal · ' +
+           formato(k, "ampliado").length + ' más en el ampliado</span></button>';
     });
     h += '</div></div></div>';
     cogob.innerHTML = h;
@@ -601,20 +602,35 @@
   function enlace(id){ var n = NODOS[id]; return n ? '<a href="#/estructura/' + encodeURIComponent(id) + '">' + esc(n.d.n) + '</a>' : ''; }
 
   // Integrantes de un comité como ids de nodo, con '@direcciones' expandido.
-  function miembros(k){
+  // formato(k, "principal" | "ampliado"): las unidades de ese formato, sin repetir las del principal.
+  function formato(k, cual){
     var out = [];
-    (k.integrantes || []).forEach(function(x){
+    (k[cual] || []).forEach(function(x){
       if(x === "@direcciones") E.DIRECCIONES.forEach(function(d){ out.push(d.id); });
       else if(NODOS[x]) out.push(x);
     });
-    return out;
+    if(cual === "ampliado"){ var p = formato(k, "principal"); out = out.filter(function(x){ return p.indexOf(x) < 0; }); }
+    return out.filter(function(x, i){ return out.indexOf(x) === i; });
   }
+  function miembros(k){ return formato(k, "principal").concat(formato(k, "ampliado")); }
   function htmlComite(k, conTitulo){
-    var m = miembros(k), h = '';
+    var h = '';
     if(conTitulo) h += '<h4 class="eo-comh">' + enlace(k.id) + '</h4>';
     h += '<p>' + esc(k.proposito) + '</p>';
     if(k.funciones) h += lista(k.funciones);
     h += '<div class="eo-bloque"><h4>Lidera y convoca</h4><p>' + enlace(k.lidera) + '</p></div>';
+    h += '<div class="eo-formato"><h4 class="eo-fmt">Comité principal <span>· ' + formato(k, "principal").length + ' unidades, en todas las sesiones</span></h4>' +
+         htmlUnidades(k, formato(k, "principal")) + '</div>';
+    var amp = formato(k, "ampliado");
+    if(amp.length){
+      h += '<div class="eo-formato eo-amp"><h4 class="eo-fmt">Comité ampliado <span>· se suman ' + amp.length + ' unidades</span></h4>' +
+           (E.NOTA_AMPLIADO ? '<p class="eo-tenue">' + esc(E.NOTA_AMPLIADO) + '</p>' : '') + htmlUnidades(k, amp) + '</div>';
+    }
+    return h;
+  }
+  // Unidades de un formato, agrupadas por nivel.
+  function htmlUnidades(k, m){
+    var h = '';
     var grupos = [
       {t:"Unidades de la Presidencia", f:function(n){ return NODOS[n].d.nivel === "staff"; }},
       {t:"Direcciones corporativas", f:function(n){ return NODOS[n].d.nivel !== "n2" && E.DIRECCIONES.some(function(d){ return d.id === n; }); }},
@@ -691,7 +707,9 @@
     var lid = E.COMITES.filter(function(k){ return k.lidera === id; });
     if(lid.length) h += '<div class="eo-bloque"><h4>Lidera y convoca</h4><ul class="eo-lista eo-hijos">' + lid.map(function(k){ return '<li>' + enlace(k.id) + '</li>'; }).join("") + '</ul></div>';
     var par = E.COMITES.filter(function(k){ return k.lidera !== id && miembros(k).indexOf(id) >= 0; });
-    if(par.length) h += '<div class="eo-bloque"><h4>Integra</h4><ul class="eo-lista eo-hijos">' + par.map(function(k){ return '<li>' + enlace(k.id) + '</li>'; }).join("") + '</ul></div>';
+    if(par.length) h += '<div class="eo-bloque"><h4>Integra</h4><ul class="eo-lista eo-hijos">' + par.map(function(k){
+      return '<li>' + enlace(k.id) + ' <span class="eo-tenue">· ' + (formato(k, "principal").indexOf(id) >= 0 ? 'principal' : 'ampliado') + '</span></li>';
+    }).join("") + '</ul></div>';
     if(d.nota) h += '<div class="eo-bloque eo-nota"><h4>Por qué así</h4><p>' + esc(d.nota) + '</p></div>';
     abrirPanel(tag, d.n, h);
   }
@@ -734,7 +752,7 @@
              '<p><b>Cómo lo cumple.</b> ' + esc(p.como) + '</p><p class="eo-tension"><b>Tensión.</b> ' + esc(p.tension) + '</p></div>';
       });
     } else if(tab === "comites"){
-      h += '<p class="eo-tenue">Órganos de cogobierno, sin línea de mando. Los consejos son de la familia propietaria; los comités los lidera y convoca una dirección o una gerencia corporativa y reúnen a sus pares.</p>';
+      h += '<p class="eo-tenue">Órganos de cogobierno, sin línea de mando. Los consejos son de la familia propietaria; los comités los lidera y convoca una dirección o una gerencia corporativa y reúnen a sus pares. Cada comité tiene un formato principal, de dos a cuatro unidades, y uno ampliado que suma a las demás según el tema.</p>';
       (E.CONSEJOS || []).forEach(function(k){ h += '<div class="eo-bloque eo-combloque"><h4 class="eo-comh">' + enlace(k.id) + '</h4>' + htmlConsejo(k) + '</div>'; });
       E.COMITES.forEach(function(k){ h += '<div class="eo-bloque eo-combloque">' + htmlComite(k, true) + '</div>'; });
     } else if(tab === "julio"){

@@ -365,7 +365,11 @@ def generar():
                      else 'Dirección corporativa (%s)' % d.get('caracter', ''), '')
     es.append('\nCOMITÉS (órganos de cogobierno, sin línea de mando):')
     for k in E.get('COMITES') or []:
-        es.append('  · %s — lidera: %s · %s · funciones: %s' % (k['n'], k.get('lidera'), corto(k.get('proposito'), 200), corto(k.get('funciones'), 300)))
+        es.append('  · %s — lidera: %s · %s · funciones: %s · principal: %s · ampliado: %s' % (
+            k['n'], k.get('lidera'), corto(k.get('proposito'), 200), corto(k.get('funciones'), 300),
+            ', '.join(k.get('principal') or []), ', '.join(k.get('ampliado') or [])))
+    if E.get('NOTA_AMPLIADO'):
+        es.append('  Comité ampliado: ' + t(E['NOTA_AMPLIADO']))
     for clave, tit in (('FUNCIONAMIENTO', 'CÓMO FUNCIONA'), ('PRINCIPIOS', 'PRINCIPIOS DE DISEÑO')):
         if E.get(clave):
             es.append('\n' + tit + ':')

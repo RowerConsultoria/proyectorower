@@ -307,7 +307,7 @@ var NOMBRE = {
   "junta":"Junta Directiva","pres":"Presidencia","asist":"Asistencia Ejecutiva a la Presidencia","jur":"Consultoría Jurídica","ia":"Gobierno de IA",
   "ccom":"Comité Comercial","cfin":"Comité de Finanzas y Riesgos","cdato":"Comité de Gobierno del Dato e IA","ccal":"Comité de Calidad y Mejora Continua","ccult":"Comité de Cultura",
   "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Finanzas y Negocios","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza y Cumplimiento",
-  "prod":"Inteligencia de Mercado y Desarrollo de Productos","compras":"Compras (Casio · Cubitt)","opl":"Operaciones y Logística","ventas":"Ventas","ecom":"E-commerce","merc":"Mercadeo",
+  "prod":"Desarrollo y Calidad de Productos","compras":"Compras (Casio · Cubitt)","opl":"Operaciones y Logística","ventas":"Ventas","ecom":"E-commerce","merc":"Mercadeo",
   "fincorp":"Finanzas (gerencia corporativa)","pmocorp":"PMO (gerencia de unidad de negocio)",
   "p-cab":"Cabeza país","p-opl":"Operaciones y Logística país","p-may":"Ventas al Mayor país","p-ret":"Retail país","p-post":"Postventa país","p-merc":"Mercadeo país","p-fin":"Administración y Finanzas país","p-rrhh":"Recursos Humanos país","p-ti":"TI país","p-ssgg":"Servicios Generales país · coordinación de Operaciones y Logística",
   "ext-fab":"Fábricas y licenciantes","ext-cli":"Clientes","area":"Gerencia solicitante","ext-ter":"Bancos, aduanas y asesores"
@@ -368,8 +368,8 @@ var FUNC = [
  ]},
  {t:"Producto y colección", r:"Cómo una oportunidad del mercado llega a ser un producto aprobado, fabricado y en el calendario de lanzamientos.",
   decide:["ccom","id"], pasos:[
-  {t:"El mercado trae las oportunidades", d:"Ventas trae lo que piden los clientes y los huecos de precio; la gerencia de Inteligencia de Mercado y Desarrollo de Productos aporta las tendencias de consumo y color.", e:[["ventas","prod"],["merc","prod"]], p:["3.1"]},
-  {t:"Se decide qué se desarrolla", d:"Inteligencia de Mercado y Desarrollo de Productos evalúa encaje, viabilidad técnica, costo y margen. La decisión queda registrada con su motivo, también la del descarte.", e:[["prod","ccom"]], dec:{q:"¿Se desarrolla la oportunidad?", por:"ccom"}, p:["3.1"]},
+  {t:"El mercado trae las oportunidades", d:"Ventas trae lo que piden los clientes y los huecos de precio; Mercadeo aporta la inteligencia de mercado —tendencias de consumo, competencia y venta de terceros— y Desarrollo y Calidad de Productos, las tendencias de diseño y color.", e:[["ventas","prod"],["merc","prod"]], p:["3.1"]},
+  {t:"Se decide qué se desarrolla", d:"Desarrollo y Calidad de Productos evalúa encaje, viabilidad técnica, costo y margen. La decisión queda registrada con su motivo, también la del descarte.", e:[["prod","ccom"]], dec:{q:"¿Se desarrolla la oportunidad?", por:"ccom"}, p:["3.1"]},
   {t:"Innovación y Desarrollo de Productos homologa la fábrica", d:"Busca, evalúa muestras y capacidad técnica y decide si la fábrica entra a la cartera.", e:[["id","ext-fab"],["ext-fab","id"]], dec:{q:"¿Se homologa la fábrica?", por:"id"}, p:["3.2"]},
   {t:"Jurídica formaliza", d:"Confidencialidad y contrato: propiedad de diseños y moldes, calidad esperada, plazos.", e:[["jur","ext-fab"]], p:["3.2"]},
   {t:"La muestra se prueba y se aprueba", d:"La fábrica envía; Innovación y Desarrollo de Productos prueba con una lista de verificación y Ventas reúne la opinión comercial en un solo documento. Se congela la especificación.", e:[["ext-fab","id"],["ventas","id"]], dec:{q:"¿La muestra es conforme?", por:"id"}, p:["3.4"]},
@@ -464,7 +464,7 @@ function pila(){
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas y Negocios</span></div></div>'},
     {n:"Gerencias corporativas", v:"Gobiernan una especialidad", d:"Solo donde conviene llevarla una vez para todos los países. Algunas tienen coordinaciones corporativas.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div>' +
-       '<div class="subgrupo"><span class="stit">Innovación y Desarrollo de Productos</span><div class="fila"><span class="chip">Inteligencia de Mercado y Desarrollo de Productos</span><span class="chip">Innovación y Tecnología de Productos</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Innovación y Desarrollo de Productos</span><div class="fila"><span class="chip">Desarrollo y Calidad de Productos</span><span class="chip">Innovación y Tecnología de Productos</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Compras y Cadena de Suministro</span><div class="fila"><span class="chip fuerte">Compras</span><span class="chip sub">Coordinación Compras Casio</span><span class="chip sub">Coordinación Compras Cubitt</span></div>' +
        '<div class="fila"><span class="chip">Operaciones y Logística</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip">Ventas</span><span class="chip">Mercadeo</span></div></div></div>' +
@@ -474,7 +474,7 @@ function pila(){
     {n:"Gerencias de unidad de negocio", v:"Llevan un canal o un frente", d:"Dentro de una gerencia corporativa, para todo el grupo; no se replican por país.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · Comercial</div>' +
        '<div class="subgrupo"><span class="stit">Ventas</span><div class="fila"><span class="chip">Ventas al Mayor</span><span class="chip">E-commerce</span><span class="chip">Postventa</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Mercadeo</span><div class="fila"><span class="chip">Experiencia del Cliente</span><span class="chip">Experiencia Digital</span></div></div></div>' +
+       '<div class="subgrupo"><span class="stit">Mercadeo</span><div class="fila"><span class="chip">Experiencia del Cliente</span><span class="chip">Experiencia Digital</span><span class="chip">Creativa y Diseño</span></div></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
        '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Formación · Universidad Corporativa</span></div></div>' +
        '<div class="subgrupo"><span class="stit">PMO</span><div class="fila"><span class="chip">PMO</span></div></div></div>'},

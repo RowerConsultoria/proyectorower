@@ -33,6 +33,17 @@
    Formación y la gerencia de la PMO bajan a gerencias de unidad de negocio.
    La coordinación de Servicios Generales de cada país deja Administración y
    Finanzas y pasa a responder a la gerencia país de Operaciones y Logística.
+   Revisión del 13-oct-2026: Mercadeo, sin cambiar de nivel, suma la gerencia
+   de unidad de negocio Creativa y Diseño junto a sus dos frentes, y asume como
+   función central —no como unidad— la planificación y la medición de la marca
+   (presupuesto, indicadores y retorno), según lo planteado en la reunión con
+   la Junta del 09-oct. Experiencia Digital suma la pauta digital, la presencia
+   en tienda en línea y marketplaces, y las alianzas con creadores. La
+   inteligencia de mercado pasa a la gerencia corporativa de Mercadeo, y la
+   gerencia de Stephania Roizental se renombra Desarrollo y Calidad de
+   Productos, con las funciones que describe en la E-60. Los cinco comités
+   pasan a tener dos formatos: principal (de 2 a 4 unidades, incluida la que
+   lo lidera) y ampliado (el resto de las sugeridas, convocadas según el tema).
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
@@ -52,7 +63,7 @@
    Los nombres se escriben como figuran en el censo de personal (Supabase).
    ============================================================================ */
 window.ESTRUCTURA_TOBE = {
-  corte: '12-oct-2026',
+  corte: '13-oct-2026',
   titulo: 'Estructura organizativa To-Be',
   bajada: 'Borrador del equipo consultor para validar con el liderazgo. Tres niveles: direcciones corporativas, gerencias corporativas y gerencias país. Lo corporativo fija la línea rectora; cada país la ejecuta con su marco normativo y sus recursos.',
   // Rótulo del contenedor del staff (acuerdo del 05-oct: apoya al Comité Directivo, no solo a la Presidencia)
@@ -135,23 +146,25 @@ window.ESTRUCTURA_TOBE = {
       id:'id', n:'Innovación y Desarrollo de Productos', caracter:'negocio',
       ocupante:{nombre:'Alejandro Roizental', estado:'propuesto'},
       funciones:[
-        'Donde empieza el producto: estudia el mercado, identifica productos y fábricas, y desarrolla y aprueba las muestras.',
+        'Donde empieza el producto: con la lectura del mercado que le entrega Mercadeo, identifica productos y fábricas, y desarrolla y aprueba las muestras.',
         'Hoy está focalizada en Cubitt, la marca propia. En Casio, marca representada, el producto lo define la casa matriz.',
         'El negocio puede abrir dentro de ella niveles de gerencia —corporativos o por país— para las marcas y los productos que vengan. Por eso su denominación no lleva el nombre de ninguna marca.',
-        'Entrega a Compras y Cadena de Suministro lo que hay que comprar, y a Mercadeo el producto listo para lanzar: concepto, público y posicionamiento.',
+        'Entrega a Compras y Cadena de Suministro lo que hay que comprar, y a Mercadeo el producto listo para lanzar: concepto, atributos y argumentos de venta.',
         'Decide la colección con Comercial, en el Comité Comercial.'
       ],
       nota:'Antes se llamaba Investigación y Desarrollo. Ya no compra: la compra de producto pasa a Compras y Cadena de Suministro. A cambio reúne lo que hace nacer un producto: la innovación y el desarrollo. La denominación recoge la innovación que planteó María Elvira Sabal en la reunión del 05-oct y no se ata a Cubitt, porque la dirección debe poder acoger marcas y productos futuros.',
       hijos:[
-        {id:'producto', n:'Inteligencia de Mercado y Desarrollo de Productos', nivel:'n2',
-         ocupante:{nombre:'Stephania Roizental', estado:'propuesto', nota:'Hoy lleva el desarrollo de producto junto con Alejandro Roizental.'},
+        {id:'producto', n:'Desarrollo y Calidad de Productos', nivel:'n2',
+         ocupante:{nombre:'Stephania Roizental', estado:'propuesto', nota:'Hoy lleva, junto con Alejandro Roizental, el desarrollo de producto, las licencias, los códigos y los lanzamientos de Cubitt. Fuente: E-60.'},
          funciones:[
-           'Inteligencia de mercado: tendencias, investigación de mercado y estudios de consumidor en todos los países, para saber qué mercado acepta un producto antes de desarrollarlo.',
-           'Desarrollo de productos: ensambla el producto con el concepto de la marca —colores de temporada, lanzamientos, licencias con marcas—.',
-           'Crea los códigos de producto y avisa a Comercial para abrir la preventa: es lo que desata los procesos de venta.',
-           'Comparte con Mercadeo a quién y cómo vender cada producto, y lleva sus hallazgos al Comité Comercial.'
+           'Desarrollo de productos y colecciones con la diseñadora industrial: diseño, colores de temporada según las tendencias de diseño, variantes, empaques y manuales, con el concepto de la marca.',
+           'Licencias de marcas de terceros: propone modelos y personajes con el resultado de venta de cada licencia y obtiene la aprobación del licenciante.',
+           'Muestras: registra cada muestra hasta su aprobación, con las pruebas técnicas del especialista de producto, y define qué se hace con las que no se aprueban.',
+           'Calidad del producto en el mercado: sigue las fallas por lote con los casos que reporta Postventa, las lleva a la fábrica y propone mejorar o descontinuar.',
+           'Crea los códigos de producto y conduce el lanzamiento hasta la llegada: avisa a Comercial para abrir la preventa, que es lo que desata los procesos de venta.',
+           'Propone cada año el plan de productos nuevos y sus fechas, sobre el que Mercadeo arma el calendario de lanzamientos, y cierra cada lanzamiento con una retrospectiva: lo que costó el desarrollo contra lo que se vendió.'
          ],
-         nota:'Reúne en una sola gerencia lo que el mercado pide y el producto que se desarrolla para responderle. Antes, el desarrollo de producto estaba bajo Mercadeo y la inteligencia de mercado era un proceso que llevaba en persona la gerencia de Mercadeo. Queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct.'},
+         nota:'Lleva lo que hace nacer el producto y cuida que llegue al mercado como se aprobó: diseño, muestras, licencias, códigos y calidad de cada lote. La denominación sigue lo que hoy hace su titular. El desarrollo de producto estaba antes bajo Mercadeo y queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct. La inteligencia de mercado, que hasta el 13-oct compartía esta gerencia, pasa a Mercadeo: quien planifica y mide la marca lee también el mercado, y entrega a esta gerencia dónde está la oportunidad y qué pide el consumidor.'},
         {id:'innotec', n:'Innovación y Tecnología de Productos', nivel:'n2',
          ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición vacante. Equivale a lo que en las corporaciones se denomina CTO (director de tecnología).'},
          funciones:[
@@ -309,10 +322,12 @@ window.ESTRUCTURA_TOBE = {
          ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición clave: la gerencia corporativa anterior dejó el cargo.'},
          funciones:[
            'La mente de la marca en todos los países: concepto, lineamientos, calendario de lanzamientos.',
-           'Recibe de Innovación y Desarrollo de Productos el producto listo para lanzar y define cómo se vende: campaña, canal y mensaje.',
-           'Mantiene en casa el diseño gráfico y el video, y supervisa lo que se terceriza: la producción de material y las productoras.'
+           'Planifica y mide la marca, su función central, que no se delega en una unidad: el plan anual y el presupuesto de mercadeo por marca, país y canal; los indicadores de cada lanzamiento y campaña, que baja a su equipo; y el retorno de la inversión, con la reportería a la Dirección Comercial y a Casio.',
+           'Inteligencia de mercado en todos los países: tendencias de consumo, investigación de mercado, estudios de consumidor, competencia y datos de venta de terceros, para saber qué mercado acepta un producto antes de desarrollarlo. Entrega sus hallazgos a Innovación y Desarrollo de Productos y al Comité Comercial.',
+           'Acompaña cada producto desde el concepto, que define Innovación y Desarrollo de Productos, hasta que está en la calle: recibe el producto listo para lanzar y define cómo se vende —campaña, canal y mensaje—.',
+           'Mantiene en casa el diseño gráfico y el video, en Creativa y Diseño, y supervisa lo que se terceriza: la producción de material y las productoras.'
          ],
-         nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en dos frentes: Experiencia del Cliente y Experiencia Digital. Desarrollo de Producto y la inteligencia de mercado pasan a Innovación y Desarrollo de Productos. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
+         nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en dos frentes, Experiencia del Cliente y Experiencia Digital, y una gerencia de Creativa y Diseño que produce para los dos. La planificación y la medición de la marca no forman una unidad: son el centro del trabajo de la gerencia corporativa, porque hoy las campañas se evalúan sin cifras de inversión ni de retorno (reunión con la Junta del 09-oct). Desarrollo de Producto pasa a Innovación y Desarrollo de Productos; la inteligencia de mercado, que ya llevaba la gerencia de Mercadeo, se queda aquí como insumo de esa planificación. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
          hijos:[
            {id:'experiencia', n:'Experiencia del Cliente', nivel:'gun',
             ocupante:{nombre:'Reyna Barraza', estado:'propuesto'},
@@ -323,7 +338,19 @@ window.ESTRUCTURA_TOBE = {
             ]},
            {id:'digital', n:'Experiencia Digital', nivel:'gun',
             ocupante:{nombre:'Anabel Roizental', estado:'propuesto'},
-            funciones:['Contenido, redes sociales y página web de todas las marcas y países, con una alineación visual única; supervisa a los terceros que los producen.']},
+            funciones:[
+              'Contenido, redes sociales y página web de todas las marcas y países, con una alineación visual única; supervisa a los terceros que los producen.',
+              'La pauta digital y la presencia de las marcas en la tienda en línea y en los marketplaces: el contenido y la campaña. La venta y la operación en línea siguen en E-commerce, dentro de Ventas.',
+              'Las relaciones con creadores de contenido, embajadores y marcas aliadas.'
+            ]},
+           {id:'creativa', n:'Creativa y Diseño', nivel:'gun',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'El concepto y el tono de cada campaña a partir del brief: territorio visual y dirección de arte.',
+              'El estudio interno de diseño gráfico, fotografía, video y producción con IA, al servicio de Experiencia del Cliente, Experiencia Digital y los países.',
+              'Recibe por una sola vía los pedidos de material creativo de todas las áreas, los asigna y entrega las piezas aprobadas.'
+            ],
+            nota:'Reúne dos de las cuatro cabezas en que se repartió el cargo de la gerencia anterior —la creativa y la de arte y diseño—, como lo describió la Dirección Comercial en la reunión con la Junta del 09-oct. Las otras dos, redes sociales y e-commerce, quedan en Experiencia Digital.'},
            {id:'mercadeopais', n:'Mercadeo', nivel:'n3',
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir'},
@@ -444,9 +471,12 @@ window.ESTRUCTURA_TOBE = {
   ],
 
   /* ---------------------------------------------------- órganos de cogobierno */
-  // Los integrantes son ids de nodo; '@direcciones'
-  // significa todas las unidades de DIRECCIONES (direcciones y gerencias de staff). Un id de gerencia país lo incluye
-  // en cada uno de los países.
+  // Cada comité tiene dos formatos: 'principal' (de 2 a 4 unidades, incluida la que lo
+  // lidera) y 'ampliado' (el resto de las unidades sugeridas, que se convocan según el tema).
+  // Los integrantes son ids de nodo; '@direcciones' significa todas las unidades de
+  // DIRECCIONES (direcciones y gerencias de staff). Un id de gerencia país lo incluye en
+  // cada uno de los países.
+  NOTA_AMPLIADO:'La convocatoria del comité ampliado depende de los puntos a tratar y del alcance de cada unidad en las decisiones que la involucran: no todas asisten a cada sesión.',
   COMITES: [
     {id:'c-cal', n:'Comité de Calidad y Mejora Continua', lidera:'desarrollo',
      proposito:'Instancia de cogobierno orientada a la revisión de las políticas y los manuales de la gestión corporativa, con el cliente como fin último.',
@@ -455,7 +485,8 @@ window.ESTRUCTURA_TOBE = {
        'Verifica los estándares de gestión y el cumplimiento de las mejores prácticas.',
        'Orienta esas prácticas hacia las certificaciones de calidad.'
      ],
-     integrantes:['@direcciones', 'ventas', 'mercadeo', 'ti', 'rrhh', 'finpais']},
+     principal:['desarrollo', 'pmo', 'tgr', 'comercial'],
+     ampliado:['id', 'opl', 'finanzas', 'ventas', 'mercadeo', 'ti', 'rrhh', 'finpais']},
     {id:'c-dato', n:'Comité de Gobierno del Dato e IA', lidera:'ia',
      proposito:'Instancia de cogobierno que ordena el dato del grupo antes de ponerle agentes encima: el dato antes que el agente.',
      funciones:[
@@ -464,7 +495,8 @@ window.ESTRUCTURA_TOBE = {
        'Aprueba los usos de IA en los procesos y el nivel de autonomía de cada uno.',
        'Vela por la privacidad, la protección de datos y la seguridad de la información.'
      ],
-     integrantes:['desarrollo', 'id', 'opl', 'comercial', 'finanzas', 'ecommerce', 'digital', 'juridica', 'tgr', 'ti']},
+     principal:['ia', 'tgr', 'finanzas', 'comercial'],
+     ampliado:['desarrollo', 'id', 'opl', 'ecommerce', 'digital', 'juridica', 'ti']},
     {id:'c-cultura', n:'Comité de Cultura Organizacional', lidera:'desarrollo',
      proposito:'Instancia de cogobierno que alinea la cultura interna con la promesa de las marcas.',
      funciones:[
@@ -472,7 +504,8 @@ window.ESTRUCTURA_TOBE = {
        'Hace de la formación el vehículo de la cultura, a través de la Universidad Corporativa.',
        'Conecta la experiencia del empleado con la experiencia del cliente: quien vive la marca por dentro la transmite por fuera.'
      ],
-     integrantes:['desarrollo', 'comercial', 'formacion', 'mercadeo', 'experiencia', 'comunicaciones']},
+     principal:['desarrollo', 'formacion', 'experiencia', 'comunicaciones'],
+     ampliado:['comercial', 'mercadeo']},
     {id:'c-finanzas', n:'Comité de Finanzas y Riesgos', lidera:'finanzas',
      proposito:'Instancia ejecutiva de cogobierno sobre la caja y el riesgo del grupo. Prepara lo que sube a la Junta Directiva y al Comité de Finanzas del gobierno familiar, que se mantiene como instancia de gobierno.',
      funciones:[
@@ -482,7 +515,8 @@ window.ESTRUCTURA_TOBE = {
        'Revisa el crédito a clientes y la cobranza.',
        'Vigila el riesgo cambiario entre países: ninguna cifra sin moneda y sin tasa fechada.'
      ],
-     integrantes:['finanzas', 'fincorp', 'comercial', 'id', 'opl', 'desarrollo', 'finpais', 'juridica']},
+     principal:['finanzas', 'fincorp', 'comercial', 'opl'],
+     ampliado:['id', 'desarrollo', 'finpais', 'juridica']},
     {id:'c-comercial', n:'Comité Comercial', lidera:'comercial',
      proposito:'Instancia de cogobierno que formaliza las decisiones de producto y de venta que hoy toma un grupo informal, sin formato ni registro.',
      funciones:[
@@ -491,7 +525,8 @@ window.ESTRUCTURA_TOBE = {
        'Fija el calendario de lanzamientos, sin saturar a mercadeo.',
        'Reparte el producto entre canales y países.'
      ],
-     integrantes:['comercial', 'ventas', 'mercadeo', 'producto', 'id', 'opl', 'compras']}
+     principal:['comercial', 'id', 'opl', 'mercadeo'],
+     ampliado:['ventas', 'producto', 'compras']}
   ],
 
   /* --------------------------------------------------------- premisas */
@@ -499,7 +534,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'Lo corporativo fija la línea, el país la ejecuta',
      d:'Cada dirección corporativa dicta la línea rectora de su función para todo el grupo; la gerencia país es su espejo y la ejecuta con el marco normativo, los recursos y la operación de su país. Un corporativo recibe, verifica y orienta: si se hunde en la operación, deja de supervisar.'},
     {t:'La cadena de valor ordena las direcciones',
-     d:'El negocio empieza con Innovación y Desarrollo de Productos, que estudia el mercado y desarrolla el producto; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
+     d:'El negocio empieza con Innovación y Desarrollo de Productos, que desarrolla el producto con la lectura del mercado que le da Mercadeo; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
      d:'Innovación y Desarrollo de Productos, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las tres y apoya al Comité Directivo, sin mezclarse con ellas: la Dirección de Finanzas y Negocios y tres gerencias corporativas que reportan directo a la Presidencia, Desarrollo Corporativo, Tecnología, Gobernanza y Cumplimiento y la PMO. La Asistencia Ejecutiva a la Presidencia, la Consultoría Jurídica y el Gobierno de IA son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
@@ -554,7 +589,7 @@ window.ESTRUCTURA_TOBE = {
 
   PRINCIPIOS: [
     {n:'Especialización y división del trabajo',
-     como:'Mercadeo se abre en dos frentes (experiencia del cliente, experiencia digital), Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística dentro de Compras y Cadena de Suministro. Cada responsable deja de saltar entre tareas dispares.',
+     como:'Mercadeo se abre en dos frentes (experiencia del cliente, experiencia digital) y una gerencia creativa que produce para los dos, Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística dentro de Compras y Cadena de Suministro. Cada responsable deja de saltar entre tareas dispares.',
      tension:'La PMO se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
     {n:'Unidad de mando',
      como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; contenido digital y visual merchandising en Mercadeo.',
@@ -573,7 +608,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital) añaden un escalón en Comercial; en el staff lo añaden Formación, en Desarrollo Corporativo, y la gerencia de la PMO.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial; en el staff lo añaden Formación, en Desarrollo Corporativo, y la gerencia de la PMO.'}
   ],
 
   CAMBIOS: {
