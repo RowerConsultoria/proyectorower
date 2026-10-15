@@ -349,9 +349,9 @@ window.ESTRUCTURA_TOBE = {
               {id:'postventa', n:'Postventa', nivel:'n3',
                sub:'Puede haber coordinaciones que se asocien por marca.',
                paises:{
-                 PA:{nombre:'Por definir', estado:'pordefinir'},
-                 VE:{nombre:'Por definir', estado:'pordefinir'},
-                 CO:{nombre:'Por definir', estado:'pordefinir'}
+                 PA:{nombre:'Jesús Arratia', estado:'propuesto', nota:'Hoy es el coordinador de soporte técnico de Panamá.'},
+                 VE:{nombre:'Juseth González', estado:'actual', nota:'Hoy es el gerente de Servicio Técnico de Venezuela.'},
+                 CO:{nombre:'Gabriel Otamendi', estado:'propuesto', nota:'Hoy es el líder de servicio al cliente de Colombia.'}
                },
                funciones:['Garantías, devoluciones, servicio técnico y atención al cliente del país, con los criterios que fija la gerencia de Postventa.'],
                interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
