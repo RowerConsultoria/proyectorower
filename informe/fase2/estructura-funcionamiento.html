@@ -256,9 +256,10 @@ body.con-panel .mapa-caja{position:sticky;top:12px}
 
 /* ================================================================ datos */
 // Unidades de la estructura To-Be (estructura-tobe-datos.js del manual de Fase 2,
-// revisada con la Presidencia el 05/06-oct-2026; el 12-oct Desarrollo Corporativo, la PMO y
-// Tecnología, Gobernanza y Cumplimiento pasan a gerencias corporativas de staff que
-// reportan directo a la Presidencia). El mapa muestra las unidades que
+// revisada con la Presidencia el 05/06-oct-2026; el 12-oct la PMO y Tecnología,
+// Gobernanza y Cumplimiento pasan a gerencias corporativas de staff que reportan
+// directo a la Presidencia, y el 15-oct Desarrollo Corporativo vuelve a ser
+// dirección). El mapa muestra las unidades que
 // intervienen en los funcionamientos; las coordinaciones corporativas y las gerencias
 // de unidad de negocio que no aparecen en ningún paso no se dibujan.
 var NODOS = {
@@ -275,9 +276,9 @@ var NODOS = {
   "id":  {l:["Innovación y Des.","de Productos"], k:"neg dir", x:75, y:246, w:134},
   "cs":  {l:["Compras y Cadena","de Suministro"], k:"neg dir", x:237, y:246, w:130},
   "com": {l:["Comercial"], k:"neg dir", x:500, y:246, w:104},
-  "fin": {l:["Finanzas","y Negocios"], k:"apo dir", x:745, y:246, w:104},
+  "fin": {l:["Dirección","de Finanzas"], k:"apo dir", x:745, y:246, w:104},
+  "dc":  {l:["Desarrollo","Corporativo"], k:"apo dir", x:860, y:246, w:104},
   // gerencias corporativas de staff: reportan directo a la Presidencia
-  "dc":  {l:["Desarrollo","Corporativo"], k:"apo", x:850, y:318, w:104},
   "pmo": {l:["PMO"], k:"apo", x:945, y:318, w:70},
   "tgr": {l:["Tecnología, Gob.","y Cumplimiento"], k:"apo", x:1170, y:318, w:120},
   "prod":    {l:["Intel. Mercado","y Productos"], k:"neg", x:63, y:318, w:112},
@@ -306,7 +307,7 @@ var NODOS = {
 var NOMBRE = {
   "junta":"Junta Directiva","pres":"Presidencia","asist":"Asistencia Ejecutiva a la Presidencia","jur":"Consultoría Jurídica","ia":"Gobierno de IA",
   "ccom":"Comité Comercial","cfin":"Comité de Finanzas y Riesgos","cdato":"Comité de Gobierno del Dato e IA","ccal":"Comité de Calidad y Mejora Continua","ccult":"Comité de Cultura",
-  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Finanzas y Negocios","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza y Cumplimiento",
+  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Dirección de Finanzas","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza y Cumplimiento",
   "prod":"Desarrollo y Calidad de Productos","compras":"Compras (Casio · Cubitt)","opl":"Operaciones y Logística","ventas":"Ventas","ecom":"E-commerce","merc":"Mercadeo",
   "fincorp":"Finanzas (gerencia corporativa)","pmocorp":"PMO (gerencia de unidad de negocio)",
   "p-cab":"Cabeza país","p-opl":"Operaciones y Logística país","p-may":"Ventas al Mayor país","p-ret":"Retail país","p-post":"Postventa país","p-merc":"Mercadeo país","p-fin":"Administración y Finanzas país","p-rrhh":"Recursos Humanos país","p-ti":"TI país","p-ssgg":"Servicios Generales país · coordinación de Operaciones y Logística",
@@ -333,7 +334,7 @@ var FUNC = [
   {t:"Cada objetivo pasa por Finanzas", d:"Si un objetivo no tiene respaldo financiero, vuelve a la Junta para ajustarlo al escenario posible.", e:[["fin","junta"]], dec:{q:"¿Objetivos con respaldo financiero?", por:"fin"}, p:["1.1"]},
   {t:"Las direcciones y las gerencias de staff traducen el plan a metas", d:"Cada una propone un cuadro corto de indicadores de su área, con fórmula, fuente oficial del dato y responsable. La Junta aprueba el cuadro y las metas.", e:[["id","junta"],["cs","junta"],["com","junta"],["fin","junta"],["dc","junta"],["pmo","junta"],["tgr","junta"]], dec:{q:"¿Cada indicador tiene fuente oficial?", por:"dirs"}, p:["1.2"]},
   {t:"Las metas bajan a cada país", d:"Con el mismo formato, cada dirección o gerencia de staff despliega sus metas a las gerencias país, a través de sus gerencias corporativas cuando las tiene.", e:[["cs","p-opl"],["com","p-ret"],["com","p-may"],["fin","p-fin"],["dc","p-rrhh"],["tgr","p-ti"]], p:["1.2"]},
-  {t:"El resultado sube con cifras cerradas", d:"Cada mes la gerencia corporativa de Finanzas consolida lo real contra la meta con las cifras cerradas por contabilidad, no con reportes paralelos, y Finanzas y Negocios lo lleva a la Junta.", e:[["p-fin","fincorp"],["fincorp","fin"],["fin","junta"]], p:["1.2"]},
+  {t:"El resultado sube con cifras cerradas", d:"Cada mes la gerencia corporativa de Finanzas consolida lo real contra la meta con las cifras cerradas por contabilidad, no con reportes paralelos, y la Dirección de Finanzas lo lleva a la Junta.", e:[["p-fin","fincorp"],["fincorp","fin"],["fin","junta"]], p:["1.2"]},
   {t:"La Junta corrige el rumbo", d:"Decide la acción correctiva de cada desvío fuera de tolerancia, con responsable y fecha. En la revisión semestral decide si el plan se mantiene o se ajusta.", e:[["junta","pres"],["pres","com"],["pres","cs"]], dec:{q:"¿Desvío fuera de tolerancia? ¿El plan requiere ajuste?", por:"junta"}, p:["1.1","1.2"]}
  ]},
  {t:"Línea rectora y espejo país", r:"La regla de toda la estructura: lo corporativo fija cómo se hace y cada país lo ejecuta con su marco y sus recursos.",
@@ -457,11 +458,11 @@ function pila(){
   var capas = [
     {n:"Gobierno", v:"Decide el rumbo", d:"Gobierna; no es línea de mando.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Junta Directiva</span></div></div>'},
-    {n:"Presidencia", v:"Conduce el grupo", d:"Siete reportes directos —cuatro direcciones y tres gerencias corporativas de staff—, en el límite del tramo de 4 a 7, y tres unidades propias.",
+    {n:"Presidencia", v:"Conduce el grupo", d:"Siete reportes directos —cinco direcciones y dos gerencias corporativas de staff—, en el límite del tramo de 4 a 7, y tres unidades propias.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Asistencia Ejecutiva a la Presidencia</span><span class="chip staff">Consultoría Jurídica</span><span class="chip staff">Gobierno de IA</span></div></div>'},
     {n:"Direcciones corporativas", v:"Fijan la línea rectora", d:"Una por gran función del grupo, con baja operatividad.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · cadena de valor →</div><div class="fila"><span class="chip fuerte">Innovación y Desarrollo de Productos</span><span class="chip fuerte">Compras y Cadena de Suministro</span><span class="chip fuerte">Comercial</span></div></div>' +
-       '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas y Negocios</span></div></div>'},
+       '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas</span><span class="chip fuerte">Desarrollo Corporativo</span></div></div>'},
     {n:"Gerencias corporativas", v:"Gobiernan una especialidad", d:"Solo donde conviene llevarla una vez para todos los países. Algunas tienen coordinaciones corporativas.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div>' +
        '<div class="subgrupo"><span class="stit">Innovación y Desarrollo de Productos</span><div class="fila"><span class="chip">Desarrollo y Calidad de Productos</span><span class="chip">Innovación y Tecnología de Productos</span></div></div>' +
@@ -469,14 +470,14 @@ function pila(){
        '<div class="fila"><span class="chip">Operaciones y Logística</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip">Ventas</span><span class="chip">Mercadeo</span></div></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
-       '<div class="subgrupo"><span class="stit">Reportan directo a la Presidencia</span><div class="fila"><span class="chip fuerte">Desarrollo Corporativo</span><span class="chip fuerte">Tecnología, Gobernanza y Cumplimiento</span><span class="chip fuerte">PMO</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Finanzas y Negocios</span><div class="fila"><span class="chip">Finanzas</span></div></div></div>'},
+       '<div class="subgrupo"><span class="stit">Reportan directo a la Presidencia</span><div class="fila"><span class="chip fuerte">Tecnología, Gobernanza y Cumplimiento</span><span class="chip fuerte">PMO</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Dirección de Finanzas</span><div class="fila"><span class="chip">Finanzas</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Formación · Universidad Corporativa</span></div></div></div>'},
     {n:"Gerencias de unidad de negocio", v:"Llevan un canal o un frente", d:"Dentro de una gerencia corporativa, para todo el grupo; no se replican por país.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · Comercial</div>' +
-       '<div class="subgrupo"><span class="stit">Ventas</span><div class="fila"><span class="chip">Ventas al Mayor</span><span class="chip">E-commerce</span><span class="chip">Postventa</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Ventas</span><div class="fila"><span class="chip">Ventas al Mayor</span><span class="chip">Retail</span><span class="chip">E-commerce</span><span class="chip">Postventa</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Mercadeo</span><div class="fila"><span class="chip">Experiencia del Cliente</span><span class="chip">Experiencia Digital</span><span class="chip">Creativa y Diseño</span></div></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
-       '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Formación · Universidad Corporativa</span></div></div>' +
        '<div class="subgrupo"><span class="stit">PMO</span><div class="fila"><span class="chip">PMO</span></div></div></div>'},
     {n:"Gerencias país", v:"Ejecutan en cada país", d:"El mismo espejo en cada operación propia; abrir un país es replicarlo.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio</div><div class="fila"><span class="chip">Operaciones y Logística</span><span class="chip sub">Servicios Generales · coordinación en Operaciones y Logística</span><span class="chip">Ventas al Mayor</span><span class="chip">Retail · tiendas</span><span class="chip">E-commerce</span><span class="chip">Postventa</span><span class="chip">Mercadeo</span></div></div>' +

@@ -7415,7 +7415,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "Presidencia con el Director(a) de Finanzas y Negocios, que firman todo cambio de compensación"
+         "Presidencia con el Director(a) de Finanzas, que firman todo cambio de compensación"
         ],
         [
          "Calificación",

@@ -44,18 +44,34 @@
    Productos, con las funciones que describe en la E-60. Los cinco comités
    pasan a tener dos formatos: principal (de 2 a 4 unidades, incluida la que
    lo lidera) y ampliado (el resto de las sugeridas, convocadas según el tema).
+   Revisión del 15-oct-2026 (Ventas): se crea la gerencia de unidad de negocio
+   Retail, y cada gerencia país de Ventas cuelga de la gerencia de unidad de
+   negocio de su canal (Ventas al Mayor, Retail, E-commerce, Postventa), no de la
+   gerencia corporativa.
+   Revisión del 15-oct-2026: Desarrollo Corporativo vuelve a ser dirección
+   corporativa de staff, junto a Finanzas, y Formación vuelve a ser
+   su gerencia corporativa. La PMO y Tecnología, Gobernanza y Cumplimiento
+   siguen como gerencias corporativas que reportan directo a la Presidencia.
+   Finanzas y Negocios pasa a llamarse Dirección Corporativa de Finanzas y
+   queda vacante: Ricardo Roizental participa en el gobierno del grupo desde
+   la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva.
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
 
    Esquema de un nodo:
      id · n (denominación) · nivel ('n2' gerencia corporativa | 'n3' país)
+     sub: línea bajo la denominación, en la caja y en el panel (opcional)
+     marcas: [{marca, nombre, estado, nota}] — unidad con un titular por marca (en vez de ocupante)
+     atiende: [ids] — gerencia país que atiende los lineamientos de esas gerencias de unidad
+       de negocio (hermanas suyas): el dibujo baja una línea de cada una hasta ella
      ocupante: {nombre, estado, nota}            — unidad de una sola cabeza
      paises:   {PA|VE|CO|US: {nombre, estado, cargo}} — unidad que se replica por país
      funciones: [...]  · interna: [...] (lo que cuelga dentro, sin dibujar)
      nota: texto de diseño · hijos: [...] (solo gerencias corporativas)
    En DIRECCIONES, un nodo con nivel:'n2' es una gerencia corporativa que
-   reporta directo a la Presidencia (hoy, las tres del staff salvo Finanzas).
+   reporta directo a la Presidencia (hoy, la PMO y Tecnología, Gobernanza y
+   Cumplimiento).
    Estados del ocupante: ver ESTADOS.
 
    ⚠ Convenciones del informe: «Kenex» con una sola n; nada de salarios,
@@ -63,7 +79,7 @@
    Los nombres se escriben como figuran en el censo de personal (Supabase).
    ============================================================================ */
 window.ESTRUCTURA_TOBE = {
-  corte: '13-oct-2026',
+  corte: '15-oct-2026',
   titulo: 'Estructura organizativa To-Be',
   bajada: 'Borrador del equipo consultor para validar con el liderazgo. Tres niveles: direcciones corporativas, gerencias corporativas y gerencias país. Lo corporativo fija la línea rectora; cada país la ejecuta con su marco normativo y sus recursos.',
   // Rótulo del contenedor del staff (acuerdo del 05-oct: apoya al Comité Directivo, no solo a la Presidencia)
@@ -71,7 +87,7 @@ window.ESTRUCTURA_TOBE = {
 
   NIVELES: [
     {id:'n1', n:'Direcciones corporativas', d:'Una por gran función del grupo. Fijan la línea rectora, verifican y orientan; su operatividad debe ser baja.'},
-    {id:'n2', n:'Gerencias corporativas',   d:'Nivel intermedio con alcance regional: especialidades que se gobiernan una sola vez para todo el grupo. En el staff, tres reportan directo a la Presidencia.'},
+    {id:'n2', n:'Gerencias corporativas',   d:'Nivel intermedio con alcance regional: especialidades que se gobiernan una sola vez para todo el grupo. En el staff, dos reportan directo a la Presidencia.'},
     {id:'n3', n:'Gerencias país',           d:'Espejo de la línea rectora en cada operación propia (Panamá, Venezuela, Colombia): ejecutan con el marco normativo y los recursos del país. Estados Unidos (Kenex USA) tiene solo las posiciones que su operación necesita.'}
   ],
 
@@ -96,7 +112,7 @@ window.ESTRUCTURA_TOBE = {
     id:'ceo', n:'Presidencia · CEO',
     ocupante:{nombre:'Bernardo Roizental', estado:'actual'},
     funciones:[
-      'Conduce el grupo con siete reportes directos, en el límite del tramo de 4 a 7 que fija el principio 3: cuatro direcciones corporativas —las tres unidades de negocio y Finanzas y Negocios— y tres gerencias corporativas de staff —Desarrollo Corporativo, Tecnología, Gobernanza y Cumplimiento y la PMO—.',
+      'Conduce el grupo con siete reportes directos, en el límite del tramo de 4 a 7 que fija el principio 3: cinco direcciones corporativas —las tres unidades de negocio, Finanzas y Desarrollo Corporativo— y dos gerencias corporativas de staff —Tecnología, Gobernanza y Cumplimiento y la PMO—.',
       'Tiene como unidades propias la Asistencia Ejecutiva a la Presidencia, la Consultoría Jurídica y el Gobierno de IA.',
       'Preside los órganos de cogobierno o delega su convocatoria en la dirección que corresponda.'
     ]
@@ -108,8 +124,8 @@ window.ESTRUCTURA_TOBE = {
   // Presidencia: se muestran con los comités, en el flotante de cogobierno.
   CONSEJOS: [
     {id:'familia', n:'Consejo de Familia',
-     proposito:'Instancia de cogobierno de la familia propietaria. Decide sobre la relación entre la familia y la empresa: quién entra a trabajar, con qué reglas y cómo se informa a la familia de la marcha del grupo.',
-     integrantes:'Los cuatro hermanos de la familia propietaria.',
+     proposito:'Instancia de cogobierno de la familia propietaria. Decide sobre la relación entre la familia y la empresa: quién entra a trabajar, con qué reglas y cómo se informa a la familia de la marcha del grupo. El protocolo familiar dicta su propósito y sus reglas de funcionamiento.',
+     integrantes:'Bernardo, Moisés, Ricardo, Roberto, Andrés y Alejandro Roizental.',
      nota:'No es línea de mando: no se conecta con la Presidencia ni con ninguna dirección. Por eso se muestra con los comités y no en la cima del organigrama.'}
   ],
   STAFF: [
@@ -183,7 +199,7 @@ window.ESTRUCTURA_TOBE = {
         'Concentra toda la compra de producto de todas las marcas —Casio, Cubitt y las que vengan—, repuestos incluidos.',
         'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.'
       ],
-      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. La compra interna de la organización (servicios, insumos) sigue en Finanzas y Negocios. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística».',
+      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. La compra interna de la organización (servicios, insumos) sigue en la Dirección de Finanzas. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística».',
       hijos:[
         {id:'compras', n:'Compras', nivel:'n2',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
@@ -258,28 +274,69 @@ window.ESTRUCTURA_TOBE = {
         'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.',
         'Decide qué tiendas se abren; la PMO gestiona cada apertura.'
       ],
-      nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Se evaluó sacarlo de Comercial y quedó dentro. La marca deja de partir la línea comercial: ventas se organiza por canal, y la separación por marca vive en la compra, en el desarrollo de producto y en coordinaciones de mercadeo. Puede denominarse Vicepresidencia; lo decide el cliente.',
+      nota:'Cambio central frente a julio: Mercadeo deja de ser una gerencia aparte («Experiencia de Marcas») y entra bajo Comercial, porque hoy trabaja sin ver el impacto de sus campañas en la venta. Se evaluó sacarlo de Comercial y quedó dentro. Ventas se organiza por canal. En Ventas al Mayor la gerencia de unidad de negocio es una por marca actual, Cubitt y Casio; en los demás canales es una sola, y en los países puede haber coordinaciones por marca. Esa separación por marca puede evaluarse en tanto se analicen las dimensiones de las operaciones que exige cada una por sus procesos. Puede denominarse Vicepresidencia; lo decide el cliente.',
       hijos:[
         {id:'ventas', n:'Ventas', nivel:'n2',
-         ocupante:{nombre:'Handani Mora', estado:'propuesto'},
+         ocupante:{nombre:'Vacante (Andrés Roizental/Roberto Roizental)', estado:'vacante'},
          funciones:[
            'Línea rectora de todos los canales de venta y de la postventa.',
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
          hijos:[
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
-            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            sub:'Una por marca actual: Cubitt y Casio',
+            marcas:[
+              {marca:'Cubitt', nombre:'John Mordoch', estado:'propuesto', nota:'Hoy es el gerente regional de ventas de Cubitt. Fuentes: E-06 y E-63.'},
+              {marca:'Casio', nombre:'Félix Almendral', estado:'propuesto', nota:'Se incorporó en agosto de 2026 como brand manager regional de Casio. Fuentes: E-42 y E-49.'}
+            ],
             funciones:[
               'Atiende los mercados sin operación propia.',
               'Cartera de mayoristas de los países donde el grupo no opera (Centroamérica, Caribe y el resto de la región), consolidada y despachada desde Panamá.',
               'Fija la línea rectora de la venta al mayor para todo el grupo.'
             ],
-            nota:'Se separa de la venta al mayor de cada país, que atiende a los mayoristas locales. La frontera entre las dos se acuerda con la Dirección Comercial.'},
+            nota:'Se separa de la venta al mayor de cada país, que atiende a los mayoristas locales. La frontera entre las dos se acuerda con la Dirección Comercial.',
+            hijos:[
+              {id:'mayorpais', n:'Ventas al Mayor', nivel:'n3',
+               sub:'Puede haber coordinaciones que se asocien por marca.',
+               paises:{
+                 PA:{nombre:'Edumar Escalona', estado:'actual'},
+                 VE:{nombre:'Andrés Márquez', estado:'actual'},
+                 CO:{nombre:'Santiago Ramírez', estado:'actual'}
+               },
+               funciones:['Mayoristas y cadenas del país donde el grupo tiene operación propia.']}
+            ]},
+           {id:'retailcorp', n:'Retail', nivel:'gun',
+            ocupante:{nombre:'Handani Mora', estado:'propuesto'},
+            funciones:[
+              'Línea rectora de las tiendas de todo el grupo: formato y operación de tienda, servicio al cliente y formación de los equipos de tienda, con criterios comunes para todos los países.',
+              'Las gerencias de Retail de cada país ejecutan su línea.'
+            ],
+            nota:'Quita de la gerencia corporativa de Ventas las tareas de tienda que hoy la absorben, como formar a los encargados.',
+            hijos:[
+              {id:'retail', n:'Retail · tiendas', nivel:'n3',
+               sub:'Puede haber coordinaciones que se asocien por marca.',
+               paises:{
+                 PA:{nombre:'Blas García', estado:'propuesto'},
+                 VE:{nombre:'Por definir', estado:'pordefinir'},
+                 CO:{nombre:'Por definir', estado:'pordefinir'}
+               },
+               funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']}
+            ]},
            {id:'ecommerce', n:'E-commerce', nivel:'gun',
             ocupante:{nombre:'Clara Arosemena', estado:'actual', nota:'Nombrada gerente regional de e-commerce en septiembre de 2026, en sustitución de Patrick Corujo, que pasa a soporte técnico y servicio al cliente. Venía de Mercadeo, donde lideraba la pauta digital. Fuentes: E-24, SC-06 y SC-13.'},
             funciones:[
               'Línea rectora de la página web y los canales digitales de venta de todo el grupo: web propia, marketplaces y ventas en vivo.',
               'Las gerencias de E-commerce de cada país ejecutan su línea.'
+            ],
+            hijos:[
+              {id:'ecommercepais', n:'E-commerce', nivel:'n3',
+               sub:'Puede haber coordinaciones que se asocien por marca.',
+               paises:{
+                 VE:{nombre:'Jesmir Flores', estado:'actual', nota:'Hoy es la gerente de Ventas Web de Venezuela. Fuentes: E-16 y E-41.'},
+                 US:{nombre:'Isabella Roizental', estado:'propuesto',
+                     nota:'La venta en línea de Kenex USA, que hoy lleva sin una denominación formal de cargo: los marketplaces de Estados Unidos —unos quince, de Amazon a Whatnot— y la web propia, con Shopify, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web. Fuentes: E-30, E-06 y E-01.'}
+               },
+               funciones:['La venta en línea del país: web propia, marketplaces, validación de pagos y despacho de los pedidos web, con la línea de la gerencia de E-commerce.']}
             ]},
            {id:'postventacorp', n:'Postventa', nivel:'gun',
             ocupante:{nombre:'Patrick Corujo', estado:'actual', nota:'Hoy es el gerente de soporte técnico y servicio al cliente; dejó E-commerce en septiembre de 2026 para concentrarse en esta área. Fuentes: E-24, SC-06 y E-58.'},
@@ -287,36 +344,18 @@ window.ESTRUCTURA_TOBE = {
               'Línea rectora de la postventa de todo el grupo: garantías, devoluciones, servicio técnico y atención al cliente, con criterios comunes para todos los países.',
               'Queda bajo Ventas porque cada garantía o descuento que concede toca el margen de la venta.'
             ],
-            nota:'Separa la postventa del comercio electrónico, como se acordó al mover a Clara Arosemena a E-commerce. Las gerencias de Postventa de cada país ejecutan su línea.'},
-           {id:'mayorpais', n:'Ventas al Mayor', nivel:'n3',
-            paises:{
-              PA:{nombre:'Edumar Escalona', estado:'actual'},
-              VE:{nombre:'Andrés Márquez', estado:'actual'},
-              CO:{nombre:'Santiago Ramírez', estado:'actual'}
-            },
-            funciones:['Mayoristas y cadenas del país donde el grupo tiene operación propia.']},
-           {id:'retail', n:'Retail · tiendas', nivel:'n3',
-            paises:{
-              PA:{nombre:'Blas García', estado:'propuesto'},
-              VE:{nombre:'Por definir', estado:'pordefinir'},
-              CO:{nombre:'Por definir', estado:'pordefinir'}
-            },
-            funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']},
-           {id:'ecommercepais', n:'E-commerce', nivel:'n3',
-            paises:{
-              VE:{nombre:'Jesmir Flores', estado:'actual', nota:'Hoy es la gerente de Ventas Web de Venezuela. Fuentes: E-16 y E-41.'},
-              US:{nombre:'Isabella Roizental', estado:'propuesto',
-                  nota:'La venta en línea de Kenex USA, que hoy lleva sin una denominación formal de cargo: los marketplaces de Estados Unidos —unos quince, de Amazon a Whatnot— y la web propia, con Shopify, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web. Fuentes: E-30, E-06 y E-01.'}
-            },
-            funciones:['La venta en línea del país: web propia, marketplaces, validación de pagos y despacho de los pedidos web, con la línea de la gerencia de E-commerce.']},
-           {id:'postventa', n:'Postventa', nivel:'n3',
-            paises:{
-              PA:{nombre:'Por definir', estado:'pordefinir'},
-              VE:{nombre:'Por definir', estado:'pordefinir'},
-              CO:{nombre:'Por definir', estado:'pordefinir'}
-            },
-            funciones:['Garantías, devoluciones, servicio técnico y atención al cliente del país, con los criterios que fija la gerencia de Postventa.'],
-            interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
+            nota:'Separa la postventa del comercio electrónico, como se acordó al mover a Clara Arosemena a E-commerce. Las gerencias de Postventa de cada país ejecutan su línea.',
+            hijos:[
+              {id:'postventa', n:'Postventa', nivel:'n3',
+               sub:'Puede haber coordinaciones que se asocien por marca.',
+               paises:{
+                 PA:{nombre:'Por definir', estado:'pordefinir'},
+                 VE:{nombre:'Por definir', estado:'pordefinir'},
+                 CO:{nombre:'Por definir', estado:'pordefinir'}
+               },
+               funciones:['Garantías, devoluciones, servicio técnico y atención al cliente del país, con los criterios que fija la gerencia de Postventa.'],
+               interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
+            ]}
          ]},
         {id:'mercadeo', n:'Mercadeo', nivel:'n2',
          ocupante:{nombre:'Vacante', estado:'vacante', nota:'Posición clave: la gerencia corporativa anterior dejó el cargo.'},
@@ -330,6 +369,7 @@ window.ESTRUCTURA_TOBE = {
          nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en dos frentes, Experiencia del Cliente y Experiencia Digital, y una gerencia de Creativa y Diseño que produce para los dos. La planificación y la medición de la marca no forman una unidad: son el centro del trabajo de la gerencia corporativa, porque hoy las campañas se evalúan sin cifras de inversión ni de retorno (reunión con la Junta del 09-oct). Desarrollo de Producto pasa a Innovación y Desarrollo de Productos; la inteligencia de mercado, que ya llevaba la gerencia de Mercadeo, se queda aquí como insumo de esa planificación. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
          hijos:[
            {id:'experiencia', n:'Experiencia del Cliente', nivel:'gun',
+            sub:'Puede haber coordinaciones que se asocien por marca.',
             ocupante:{nombre:'Reyna Barraza', estado:'propuesto'},
             funciones:[
               'La experiencia en vivo del cliente en la tienda propia, en la del mayorista y en los eventos.',
@@ -337,6 +377,7 @@ window.ESTRUCTURA_TOBE = {
               'Trabaja con Desarrollo Corporativo la cultura de marca hacia dentro: el cliente interno también vive la marca.'
             ]},
            {id:'digital', n:'Experiencia Digital', nivel:'gun',
+            sub:'Puede haber coordinaciones que se asocien por marca.',
             ocupante:{nombre:'Anabel Roizental', estado:'propuesto'},
             funciones:[
               'Contenido, redes sociales y página web de todas las marcas y países, con una alineación visual única; supervisa a los terceros que los producen.',
@@ -344,6 +385,7 @@ window.ESTRUCTURA_TOBE = {
               'Las relaciones con creadores de contenido, embajadores y marcas aliadas.'
             ]},
            {id:'creativa', n:'Creativa y Diseño', nivel:'gun',
+            sub:'Puede haber coordinaciones que se asocien por marca.',
             ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
               'El concepto y el tono de cada campaña a partir del brief: territorio visual y dirección de arte.',
@@ -352,6 +394,8 @@ window.ESTRUCTURA_TOBE = {
             ],
             nota:'Reúne dos de las cuatro cabezas en que se repartió el cargo de la gerencia anterior —la creativa y la de arte y diseño—, como lo describió la Dirección Comercial en la reunión con la Junta del 09-oct. Las otras dos, redes sociales y e-commerce, quedan en Experiencia Digital.'},
            {id:'mercadeopais', n:'Mercadeo', nivel:'n3',
+            sub:'Puede haber coordinaciones que se asocien por marca, y por procesos asociados a las gerencias de unidad de negocio.',
+            atiende:['experiencia', 'digital', 'creativa'],
             paises:{
               PA:{nombre:'Por definir', estado:'pordefinir'},
               VE:{nombre:'Valentina Abreu', estado:'actual'},
@@ -362,20 +406,21 @@ window.ESTRUCTURA_TOBE = {
               'Verificación de tienda y visual en sitio: aperturas y montajes según la norma de la marca.',
               'Trafficker de campañas.',
               'Activaciones presenciales y eventos.'
-            ]}
+            ],
+            nota:'Reporta a la gerencia corporativa de Mercadeo y atiende los lineamientos de sus tres gerencias de unidad de negocio: Experiencia del Cliente, Experiencia Digital y Creativa y Diseño.'}
          ]}
       ]
     },
     {
-      id:'finanzas', n:'Finanzas y Negocios', caracter:'staff',
-      ocupante:{nombre:'Ricardo Roizental', estado:'propuesto'},
+      id:'finanzas', n:'Finanzas', caracter:'staff',
+      ocupante:{nombre:'Vacante (Bernardo Roizental)', estado:'vacante', nota:'Ricardo Roizental participa en el gobierno del grupo familiar desde la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva con operaciones por procesos. Mientras se encuentre este cargo vacante, Bernardo Roizental asume responsabilidad en ejecución de horizonte estratégico y decisiones de alto nivel en materia financiera.'},
       funciones:[
         'Consolida la información financiera de todo el grupo, todas las marcas y todos los países.',
         'Lleva la relación con los bancos, las líneas de crédito y la colocación de las inversiones.',
         'Desarrolla negocios nuevos para el grupo.',
         'Incluye las compras internas de la organización (no las de producto).'
       ],
-      nota:'La denominación suma el desarrollo de negocios a las finanzas corporativas. La conducción financiera del día a día es de la gerencia corporativa de Finanzas, que responde por los países.',
+      nota:'Hasta el 15-oct-2026 se llamó Finanzas y Negocios. La conducción financiera del día a día es de la gerencia corporativa de Finanzas, que responde por los países.',
       hijos:[
         {id:'fincorp', n:'Finanzas', nivel:'n2',
          ocupante:{nombre:'Jaime González', estado:'propuesto', nota:'Sube desde la gerencia de Administración y Finanzas de Venezuela.'},
@@ -401,16 +446,16 @@ window.ESTRUCTURA_TOBE = {
       ]
     },
     {
-      id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff', nivel:'n2',
+      id:'desarrollo', n:'Desarrollo Corporativo', caracter:'staff',
       ocupante:{nombre:'María Elvira Sabal', estado:'actual', nota:'Se incorporó al grupo el 05-oct-2026 como responsable corporativa de talento.'},
       funciones:[
         'Gestiona el talento de todo el grupo y de los negocios que se le sumen: estructura, cargos, formación y cultura.',
         'Lidera los procesos de cambio organizacional; es la dueña operativa de la implantación de los manuales de proceso.',
         'Lidera y convoca el Comité de Calidad y Mejora Continua.'
       ],
-      nota:'La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Su primer foco es transformar la gestión del talento: por eso la PMO, que en el borrador anterior le reportaba, va aparte. Patrocina los proyectos de transformación organizacional, que gestiona la PMO. Fue dirección de staff hasta el 12-oct-2026; desde entonces es gerencia corporativa y reporta directo a la Presidencia.',
+      nota:'La denominación busca sacar la función del encasillamiento administrativo de «Recursos Humanos» (nómina y trámite); su titular puede proponer el nombre definitivo. Su primer foco es transformar la gestión del talento: por eso la PMO, que en el borrador anterior le reportaba, va aparte. Patrocina los proyectos de transformación organizacional, que gestiona la PMO. Entre el 12 y el 15-oct-2026 se planteó como gerencia corporativa; vuelve a ser dirección corporativa de staff.',
       hijos:[
-        {id:'formacion', n:'Formación · Universidad Corporativa', nivel:'gun',
+        {id:'formacion', n:'Formación · Universidad Corporativa', nivel:'n2',
          ocupante:{nombre:'Lilibeth Olivar', estado:'actual', nota:'Incorporada recientemente como líder regional de formación y desarrollo; opera desde Colombia.'},
          funciones:['Formación y desarrollo de competencias de todo el grupo, con el programa de la Universidad Cubitt.']},
         {id:'rrhh', n:'Recursos Humanos', nivel:'n3',
@@ -456,7 +501,7 @@ window.ESTRUCTURA_TOBE = {
         'Es la oficina de método: fija cómo se gestiona un proyecto en toda la organización.',
         'Rinde cuentas a la Presidencia y al Comité Directivo.'
       ],
-      nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Desarrollo Corporativo y Tecnología, Gobernanza y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación.',
+      nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación.',
       hijos:[
         {id:'pmocorp', n:'PMO', nivel:'gun',
          ocupante:{nombre:'Arani González', estado:'propuesto', nota:'Hoy es gerente de proyectos de la PMO y lleva los proyectos de Venezuela.'},
@@ -534,9 +579,9 @@ window.ESTRUCTURA_TOBE = {
     {t:'Lo corporativo fija la línea, el país la ejecuta',
      d:'Cada dirección corporativa dicta la línea rectora de su función para todo el grupo; la gerencia país es su espejo y la ejecuta con el marco normativo, los recursos y la operación de su país. Un corporativo recibe, verifica y orienta: si se hunde en la operación, deja de supervisar.'},
     {t:'La cadena de valor ordena las direcciones',
-     d:'El negocio empieza con Innovación y Desarrollo de Productos, que desarrolla el producto con la lectura del mercado que le da Mercadeo; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas y Negocios, desde el staff, cobra y consolida.'},
+     d:'El negocio empieza con Innovación y Desarrollo de Productos, que desarrolla el producto con la lectura del mercado que le da Mercadeo; Compras y Cadena de Suministro lo compra, lo trae y lo almacena; Comercial lo vende —en tienda, al mayor y por la web— y atiende la postventa; Finanzas, desde el staff, cobra y consolida.'},
     {t:'Staff y unidades de negocio',
-     d:'Innovación y Desarrollo de Productos, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las tres y apoya al Comité Directivo, sin mezclarse con ellas: la Dirección de Finanzas y Negocios y tres gerencias corporativas que reportan directo a la Presidencia, Desarrollo Corporativo, Tecnología, Gobernanza y Cumplimiento y la PMO. La Asistencia Ejecutiva a la Presidencia, la Consultoría Jurídica y el Gobierno de IA son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
+     d:'Innovación y Desarrollo de Productos, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las tres y apoya al Comité Directivo, sin mezclarse con ellas: las direcciones de Finanzas y de Desarrollo Corporativo, y dos gerencias corporativas que reportan directo a la Presidencia, Tecnología, Gobernanza y Cumplimiento y la PMO. La Asistencia Ejecutiva a la Presidencia, la Consultoría Jurídica y el Gobierno de IA son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
      d:'La PMO y Consultoría Jurídica no se replican por país: son equipos centrales que se reparten según lo que pida la corporación, y que subcontratan en los picos.'},
     {t:'Cogobierno por comités',
@@ -556,13 +601,13 @@ window.ESTRUCTURA_TOBE = {
       {id:'gobierno', n:'Gobierno', verbo:'Decide el rumbo',
        d:'La Junta Directiva. Aprueba el rumbo y recibe el cuadro de indicadores de las direcciones. Es gobierno, no línea de mando.'},
       {id:'presidencia', n:'Presidencia', verbo:'Conduce el grupo',
-       d:'Una sola cabeza ejecutiva, con un tramo de 4 a 7 reportes directos. A su lado, la Asistencia Ejecutiva; sobre su línea, la Consultoría Jurídica a un lado y el Gobierno de IA al otro; y a un costado de la línea de mando, el staff de apoyo al Comité Directivo, que sirve a toda la organización: una dirección y tres gerencias corporativas que le reportan directo.'},
+       d:'Una sola cabeza ejecutiva, con un tramo de 4 a 7 reportes directos. A su lado, la Asistencia Ejecutiva; sobre su línea, la Consultoría Jurídica a un lado y el Gobierno de IA al otro; y a un costado de la línea de mando, el staff de apoyo al Comité Directivo, que sirve a toda la organización: dos direcciones y dos gerencias corporativas que le reportan directo.'},
       {id:'n1', nivel:'n1', verbo:'Fijan la línea rectora', escalon:'Director(a) corporativo(a)',
        d:'Aquí están las unidades de negocio, en el orden de la cadena de valor. El staff no comparte esta capa: apoya desde los costados de la Presidencia, en la capa anterior.'},
       {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
        d:'Solo existen donde una especialidad conviene llevarla una vez para todos los países.'},
       {id:'gun', n:'Gerencias de unidad de negocio', verbo:'Llevan un canal o un frente', escalon:'Gerente de unidad de negocio',
-       d:'Dentro de una gerencia corporativa, cada una lleva un canal, un frente o una especialidad para todo el grupo: en el negocio, los canales de venta y los frentes de mercadeo; en el staff, la formación y la gestión de proyectos. No se replican por país: la ejecución local sigue en las gerencias país.'},
+       d:'Dentro de una gerencia corporativa, cada una lleva un canal, un frente o una especialidad para todo el grupo: en el negocio, los canales de venta y los frentes de mercadeo; en el staff, la gestión de proyectos. No se replican por país: la ejecución local sigue en las gerencias país.'},
       {id:'n3', nivel:'n3', verbo:'Ejecutan en cada país', escalon:'Gerente (país)',
        d:'Cada país reproduce el mismo espejo; abrir un país nuevo es replicarlo.'},
       {id:'equipos', n:'Equipos', verbo:'Operan', escalon:'De coordinador(a) a operario(a)',
@@ -595,8 +640,8 @@ window.ESTRUCTURA_TOBE = {
      como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; contenido digital y visual merchandising en Mercadeo.',
      tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes).'},
     {n:'Optimización del tramo de control',
-     como:'La Presidencia tiene siete reportes directos —cuatro direcciones corporativas (tres de negocio y Finanzas y Negocios) y tres gerencias corporativas de staff— y tres unidades de staff propias. Queda en el límite del rango de 4 a 7.',
-     tension:'Con tres gerencias de staff que le reportan directo, el tramo de la Presidencia llega al máximo. Ventas concentra muchos reportes: dos frentes corporativos más tres gerencias en cada uno de tres países. Son los primeros a revisar si el tramo satura.'},
+     como:'La Presidencia tiene siete reportes directos —cinco direcciones corporativas (tres de negocio, Finanzas y Desarrollo Corporativo) y dos gerencias corporativas de staff— y tres unidades de staff propias. Queda en el límite del rango de 4 a 7.',
+     tension:'Con dos gerencias de staff que le reportan directo, el tramo de la Presidencia llega al máximo. Ventas concentra muchos reportes: dos frentes corporativos más tres gerencias en cada uno de tres países. Son los primeros a revisar si el tramo satura.'},
     {n:'Equilibrio entre autoridad y responsabilidad',
      como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen. Quien compra responde también por que la mercancía llegue, y quien decide abrir una tienda, por que abra a tiempo.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
@@ -608,7 +653,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial; en el staff lo añaden Formación, en Desarrollo Corporativo, y la gerencia de la PMO.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial; en el staff lo añade la gerencia de la PMO.'}
   ],
 
   CAMBIOS: {
@@ -625,7 +670,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Direcciones corporativas → Gerencias corporativas → Gerencias país.',
        porque:'La denominación sube un escalón para que el título refleje el alcance: quien gobierna una función para todo el grupo es dirección; quien la ejecuta en un país es gerencia.'},
       {antes:'Talento Humano y PMO, cada una por su lado.',
-       ahora:'Desarrollo Corporativo y PMO como dos gerencias corporativas de staff que reportan directo a la Presidencia.',
+       ahora:'Desarrollo Corporativo como dirección corporativa de staff y la PMO como gerencia corporativa de staff que reporta directo a la Presidencia.',
        porque:'Desarrollo Corporativo da a la función de talento un alcance estratégico. La PMO queda aparte mientras esa función se transforma, para no dispersar su foco.'},
       {antes:'Transformación Tecnológica y Soporte, con la TI y la IA juntas.',
        ahora:'El Gobierno de IA como unidad de la Presidencia, sobre su línea; y Tecnología, Gobernanza y Cumplimiento como gerencia corporativa de staff que reporta directo a la Presidencia, y a la que reportan directo las gerencias de TI de cada país.',
@@ -652,7 +697,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda.',
        porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'Finanzas y Negocios con su gerencia corporativa de Finanzas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       ahora:'La Dirección de Finanzas con su gerencia corporativa de Finanzas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
        porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },
@@ -665,7 +710,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'Gobierno de IA y tecnología', d:'La unidad de Gobierno de IA, a contratar: definir su perfil. Confirmar a Mariela Castro en la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento.'},
     {t:'PMO', d:'Confirmar a Ricardo Candanedo en la gerencia corporativa y a Arani González en la gerencia de unidad de negocio.'},
     {t:'Innovación y Tecnología de Productos', d:'Vacante: definir el perfil de CTO de producto y si se contrata o se forma.'},
-    {t:'Finanzas: línea y funcionamiento', d:'La gerencia corporativa de Finanzas depende de Finanzas y Negocios y despacha con la Junta y la Presidencia a través del Comité de Finanzas y Riesgos. Confirmar que así se lee.'},
+    {t:'Finanzas: línea y funcionamiento', d:'La gerencia corporativa de Finanzas depende de la Dirección de Finanzas y despacha con la Junta y la Presidencia a través del Comité de Finanzas y Riesgos. Confirmar que así se lee.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
     {t:'Calidad y Mejora Continua', d:'Se planteó una persona dedicada a partir de 2027, apoyada por Desarrollo Corporativo y la PMO. Hasta entonces la conduce el comité con el equipo actual.'},
     {t:'Ventas al mayor', d:'Trazar la frontera entre la cartera corporativa (países sin operación propia) y la de cada país, con quien encabece Comercial.'},

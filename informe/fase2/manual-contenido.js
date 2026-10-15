@@ -19806,7 +19806,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre la incorporación de personal nuevo a la organización: desde que un gerente formaliza la necesidad de cubrir una vacante hasta que el colaborador queda contratado, registrado ante los entes de seguridad social y laborales del país y con su expediente abierto. No incluye la inducción ni la entrega de accesos y dotación al colaborador ya contratado (proceso 17.2).",
      "nota_estado": "El proceso sigue la misma secuencia general en Venezuela y Panamá —publicación, filtro, entrevistas, oferta y contratación—, pero cada país lo ejecuta con su propio criterio, sin un procedimiento único documentado que lo homologue entre ellos; en Colombia, además, está completamente tercerizado con una empresa de servicios de personal que contrata en su propio nombre. En Panamá la requisición se hace con un formulario que aprueban la dirección y el gerente, y las búsquedas urgentes o estratégicas se encargan a una empresa de reclutamiento; en Venezuela la requisición llega por correo y, además de LinkedIn, se usa un portal de empleo nacional y la red de referidos, históricamente el canal principal. La decisión sobre el personal operativo y de tienda la toman Recursos Humanos y la gerencia solicitante —en tiendas, junto con la Gerencia de Ventas al Detal—; en las posiciones gerenciales o clave decide el Comité Directivo, que con frecuencia identifica y entrevista directamente al candidato y hace entrar a Recursos Humanos a mitad del proceso. La formalización también difiere: en Panamá el contrato se firma y se registra ante el Ministerio de Trabajo; en Venezuela el ingreso se formaliza hoy con el registro ante la seguridad social y la carta de trabajo, y la adopción de un contrato escrito está en evaluación con los abogados. En Colombia, donde no hay área de Recursos Humanos, el Country Manager lleva la contratación del equipo local."
     },
-    "dueno": {"estado": "borrador", "dueno": "Gerente de Recursos Humanos", "participantes": ["Analista de Recursos Humanos / Nómina — publica la vacante, filtra las hojas de vida y hace el primer sondeo telefónico.", "Coordinador(a) de Recursos Humanos — consolida la terna, entrevista junto con la gerencia y formaliza el ingreso.", "Gerente del área solicitante — levanta la requisición, entrevista en lo técnico y decide junto con Recursos Humanos; en tiendas, la Gerencia de Ventas al Detal.", "Presidencia — decide el ingreso en las posiciones gerenciales o clave, a propuesta del Director(a) de Desarrollo Corporativo, que aprueba las posiciones nuevas; en los perfiles de finanzas participa también el Director(a) de Finanzas y Negocios.", "Gerente de Recursos Humanos (Colombia) — posición vacante en la estructura To-Be que llevará la contratación del equipo local; mientras se cubre, la lleva la cabeza del país y la relación laboral la administra GOLD RH.", "Empresa de reclutamiento externa — apoya en Panamá las búsquedas urgentes, estratégicas o difíciles."], "evidencia": ["E-37", "E-21", "E-54", "E-13", "E-01", "E-12", "E-11"], "sin_evidencia": "La ficha del mapa incluía como participante a la Asistente Administrativa / Servicios Generales: ninguna entrevista la sitúa en la selección."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Recursos Humanos", "participantes": ["Analista de Recursos Humanos / Nómina — publica la vacante, filtra las hojas de vida y hace el primer sondeo telefónico.", "Coordinador(a) de Recursos Humanos — consolida la terna, entrevista junto con la gerencia y formaliza el ingreso.", "Gerente del área solicitante — levanta la requisición, entrevista en lo técnico y decide junto con Recursos Humanos; en tiendas, la Gerencia de Ventas al Detal.", "Presidencia — decide el ingreso en las posiciones gerenciales o clave, a propuesta del Director(a) de Desarrollo Corporativo, que aprueba las posiciones nuevas; en los perfiles de finanzas participa también el Director(a) de Finanzas.", "Gerente de Recursos Humanos (Colombia) — posición vacante en la estructura To-Be que llevará la contratación del equipo local; mientras se cubre, la lleva la cabeza del país y la relación laboral la administra GOLD RH.", "Empresa de reclutamiento externa — apoya en Panamá las búsquedas urgentes, estratégicas o difíciles."], "evidencia": ["E-37", "E-21", "E-54", "E-13", "E-01", "E-12", "E-11"], "sin_evidencia": "La ficha del mapa incluía como participante a la Asistente Administrativa / Servicios Generales: ninguna entrevista la sitúa en la selección."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -20108,16 +20108,16 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre la aplicación y el mantenimiento de la escala salarial aprobada por Finanzas: ubicación del colaborador en la escala al ingreso y ante un movimiento, revisión periódica de la equidad interna, administración de la póliza de salud corporativa y del resto de beneficios, y comunicación de los cambios a los colaboradores.",
      "nota_estado": "Es un proceso híbrido. La escala salarial la ordenaron en abril de 2026 Recursos Humanos y el Director de Finanzas del Grupo, a partir de un estudio interno y sin referencia de mercado; la compensación combina un componente garantizado con bonos de productividad y de meta, y la bonificación de fin de año la decide la Presidencia según el resultado del año. Los beneficios formales son la póliza de salud corporativa —con una parte del costo a cargo del colaborador y la opción de afiliar a familiares—, el beneficio de alimentación, el descuento de colaborador en tiendas y, en Venezuela, una plataforma de préstamos en línea incorporada en 2026. En Panamá los ajustes salariales se documentan en un formulario de acción de personal, y la gerente acuerda con cada gerente compensaciones no monetarias —un día libre, una llegada tardía, una actividad del equipo— varias veces al año. La compensación no está ligada al desempeño, y la región de retail prepara un esquema de comisiones homologado para todos los países."
     },
-    "dueno": {"estado": "borrador", "dueno": "Gerente de Recursos Humanos", "participantes": ["Director(a) de Finanzas y Negocios", "Presidencia", "Coordinador(a) de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Gerentes de área", "Aseguradora y plataforma de préstamos (actores externos)"], "evidencia": ["E-37", "E-21", "E-54", "E-13", "E-01", "E-12", "E-55"]},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Recursos Humanos", "participantes": ["Director(a) de Finanzas", "Presidencia", "Coordinador(a) de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Gerentes de área", "Aseguradora y plataforma de préstamos (actores externos)"], "evidencia": ["E-37", "E-21", "E-54", "E-13", "E-01", "E-12", "E-55"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Ubica al colaborador en la escala salarial vigente al momento de su ingreso, de acuerdo con el cargo y el país, y define su paquete de beneficios —póliza de salud corporativa, beneficio de alimentación, descuento de colaborador en tiendas y, cuando aplica, acceso a la plataforma de préstamos."},
       {"id": "a2", "rol": "Gerente de Recursos Humanos", "texto": "Revisa periódicamente la equidad interna de la escala, identificando cargos cuya remuneración se aleja de la banda vigente."},
-      {"id": "a3", "rol": "Gerente de Recursos Humanos", "texto": "Eleva al Director(a) de Finanzas y Negocios la propuesta de ajuste de la escala o de un movimiento salarial individual, con el sustento del caso."},
-      {"id": "a4", "rol": "Presidencia", "texto": "Decide, junto con el Director(a) de Finanzas y Negocios, la compensación de las posiciones gerenciales o clave y los ajustes que se le elevan, así como la bonificación de fin de año."},
-      {"id": "a5", "rol": "Director(a) de Finanzas y Negocios", "texto": "Revisa y aprueba la escala salarial y los movimientos individuales que se proponen, de acuerdo con el presupuesto y la estructura financiera del grupo."},
+      {"id": "a3", "rol": "Gerente de Recursos Humanos", "texto": "Eleva al Director(a) de Finanzas la propuesta de ajuste de la escala o de un movimiento salarial individual, con el sustento del caso."},
+      {"id": "a4", "rol": "Presidencia", "texto": "Decide, junto con el Director(a) de Finanzas, la compensación de las posiciones gerenciales o clave y los ajustes que se le elevan, así como la bonificación de fin de año."},
+      {"id": "a5", "rol": "Director(a) de Finanzas", "texto": "Revisa y aprueba la escala salarial y los movimientos individuales que se proponen, de acuerdo con el presupuesto y la estructura financiera del grupo."},
       {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Comunica al colaborador el ajuste aprobado, actualiza su ubicación en la escala y lo registra en la acción de personal que se archiva en su expediente."},
       {"id": "a7", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Administra la relación con las aseguradoras y los corredores de la póliza de salud corporativa —altas, bajas y reclamos de los colaboradores."},
       {"id": "a8", "rol": "Gerente de Recursos Humanos", "texto": "Evalúa, ante un cambio en las condiciones de un beneficio o de un proveedor, las alternativas disponibles y presenta la recomendación para su aprobación."},
@@ -20125,15 +20125,15 @@ window.MANUAL_CONTENIDO = {
       {"id": "a10", "rol": "Analista de Recursos Humanos / Nómina", "texto": "Ejecuta la administración operativa de los beneficios —carga del beneficio de alimentación, gestión de los préstamos y de los descuentos por compras a crédito— dentro de cada ciclo de nómina."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Recursos Humanos", "Gerente de Recursos Humanos", "Director(a) de Finanzas y Negocios", "Presidencia", "Analista de Recursos Humanos / Nómina"],
+      "carriles": ["Coordinador(a) de Recursos Humanos", "Gerente de Recursos Humanos", "Director(a) de Finanzas", "Presidencia", "Analista de Recursos Humanos / Nómina"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Ingreso o movimiento de un colaborador, o revisión anual de la escala"},
        {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Ubicar al colaborador en la escala y definir beneficios"},
        {"id": "n2", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Revisar la equidad interna de la escala"},
-       {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elevar la propuesta de ajuste a Finanzas y Negocios"},
-       {"id": "n4", "carril": "Director(a) de Finanzas y Negocios", "tipo": "decision", "n": "¿Es una posición gerencial o clave?"},
+       {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elevar la propuesta de ajuste a la Dirección de Finanzas"},
+       {"id": "n4", "carril": "Director(a) de Finanzas", "tipo": "decision", "n": "¿Es una posición gerencial o clave?"},
        {"id": "n4alt", "carril": "Presidencia", "tipo": "tarea", "n": "Decidir la compensación de la posición clave"},
-       {"id": "n5", "carril": "Director(a) de Finanzas y Negocios", "tipo": "tarea", "n": "Aprobar la escala o el movimiento"},
+       {"id": "n5", "carril": "Director(a) de Finanzas", "tipo": "tarea", "n": "Aprobar la escala o el movimiento"},
        {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Comunicar el ajuste al colaborador"},
        {"id": "n7", "carril": "Analista de Recursos Humanos / Nómina", "tipo": "tarea", "n": "Administrar la póliza de salud con aseguradoras y corredores"},
        {"id": "n8", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Evaluar cambios en las condiciones de un beneficio"},
@@ -20164,7 +20164,7 @@ window.MANUAL_CONTENIDO = {
      "filas": [
       ["Cobertura de la póliza de salud", "Colaboradores activos con póliza vigente ÷ total de colaboradores activos", "Mensual", "Analista de Recursos Humanos / Nómina", "100%"],
       ["Ajustes salariales aprobados en el período", "Movimientos salariales aprobados ÷ movimientos propuestos por Recursos Humanos", "Trimestral", "Gerente de Recursos Humanos", "Por definir — no hay línea base hoy"],
-      ["Vigencia de la revisión de la escala", "Tiempo transcurrido desde la última revisión formal de la escala, en meses", "Anual", "Director(a) de Finanzas y Negocios", "≤ 12 meses"]
+      ["Vigencia de la revisión de la escala", "Tiempo transcurrido desde la última revisión formal de la escala, en meses", "Anual", "Director(a) de Finanzas", "≤ 12 meses"]
      ]
     }
    },
@@ -20242,7 +20242,7 @@ window.MANUAL_CONTENIDO = {
      "texto": "Cubre la definición de los objetivos individuales alineados con los indicadores del área, la conversación de seguimiento entre el colaborador y su supervisor durante el período, la evaluación formal del desempeño al cierre del ciclo, y la traducción del resultado en decisiones de desarrollo, movimiento o compensación.",
      "nota_estado": "Es un proceso a implementar. En Panamá se evalúa al colaborador nuevo antes de que venzan sus tres meses de prueba, y de nuevo a los seis y a los doce meses; al resto se le aplica, cuando se logra, un formulario anual de fortalezas, debilidades y plan de acción, y en 2026 se hizo por primera vez una evaluación 360, con un instrumento del uno al cinco cuyo resultado se archiva sin que derive en ninguna decisión. En Venezuela no hay evaluación formal: la única medición es la bonificación grupal por cumplimiento de meta que reciben las tiendas desde mayo de 2026. Las promociones las deciden los socios caso a caso y la Junta nunca ha tratado la sucesión de las posiciones clave. El flujo de esta ficha toma el instrumento ya ensayado en Panamá para llevarlo, una vez revisado, a un ciclo homologado en todo el grupo."
     },
-    "dueno": {"estado": "borrador", "dueno": "Gerente de Recursos Humanos", "participantes": ["Gerentes y supervisores de área", "Coordinador(a) de Recursos Humanos", "Director(a) de Desarrollo Corporativo", "Director(a) de Finanzas y Negocios"], "evidencia": ["E-54", "E-13", "E-37", "E-21", "E-20"], "sin_evidencia": "El vínculo entre el resultado de la evaluación y la compensación es propuesta: hoy ningún país lo aplica."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Recursos Humanos", "participantes": ["Gerentes y supervisores de área", "Coordinador(a) de Recursos Humanos", "Director(a) de Desarrollo Corporativo", "Director(a) de Finanzas"], "evidencia": ["E-54", "E-13", "E-37", "E-21", "E-20"], "sin_evidencia": "El vínculo entre el resultado de la evaluación y la compensación es propuesta: hoy ningún país lo aplica."},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -20255,12 +20255,12 @@ window.MANUAL_CONTENIDO = {
       {"id": "a6", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Recibe el resultado de cada evaluación, lo revisa y lo archiva en el expediente del colaborador."},
       {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Consolida los resultados de todas las evaluaciones del ciclo y presenta al Director(a) de Desarrollo Corporativo los de las posiciones gerenciales y clave."},
       {"id": "a8", "rol": "Director(a) de Desarrollo Corporativo", "texto": "Revisa los resultados de las posiciones gerenciales y clave y decide, junto con Recursos Humanos, promociones, acciones de desarrollo o movimientos."},
-      {"id": "a9", "rol": "Director(a) de Finanzas y Negocios", "texto": "Evalúa, con base en los resultados de desempeño, los casos que ameritan una recomendación de ajuste de compensación."},
+      {"id": "a9", "rol": "Director(a) de Finanzas", "texto": "Evalúa, con base en los resultados de desempeño, los casos que ameritan una recomendación de ajuste de compensación."},
       {"id": "a10", "rol": "Gerente de Recursos Humanos", "texto": "Traslada al proceso de formación y desarrollo las brechas de habilidades que la evaluación identificó por colaborador o por área."},
       {"id": "a11", "rol": "Director(a) de Desarrollo Corporativo", "texto": "Revisa una vez al año con la Presidencia, con los resultados del ciclo, la sucesión de las posiciones clave."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Recursos Humanos", "gerentes y supervisores de área", "Gerente de Recursos Humanos", "Director(a) de Desarrollo Corporativo", "Director(a) de Finanzas y Negocios"],
+      "carriles": ["Coordinador(a) de Recursos Humanos", "gerentes y supervisores de área", "Gerente de Recursos Humanos", "Director(a) de Desarrollo Corporativo", "Director(a) de Finanzas"],
       "nodos": [
        {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Cierre del ciclo anual, o ingreso de un colaborador que requiere fijar objetivos"},
        {"id": "n1", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Fijar los objetivos individuales del período"},
@@ -20271,7 +20271,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n6", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "tarea", "n": "Archivar el resultado en el expediente"},
        {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Consolidar los resultados del ciclo"},
        {"id": "n8", "carril": "Director(a) de Desarrollo Corporativo", "tipo": "tarea", "n": "Definir acciones de desarrollo o movimiento"},
-       {"id": "n9", "carril": "Director(a) de Finanzas y Negocios", "tipo": "tarea", "n": "Evaluar casos de ajuste de compensación"},
+       {"id": "n9", "carril": "Director(a) de Finanzas", "tipo": "tarea", "n": "Evaluar casos de ajuste de compensación"},
        {"id": "n10", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Trasladar brechas de habilidades a formación y desarrollo"},
        {"id": "n11", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Evaluación registrada, con plan de acción y recomendación de desarrollo acordados"}
       ],
@@ -20527,7 +20527,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "proposito": "Este manual documenta cómo Grupo Kenex atrae, incorpora, compensa, desarrolla y, cuando corresponde, desvincula a su personal en cada uno de los países donde opera. Cubre el ciclo completo de la relación laboral: desde que se identifica la necesidad de un colaborador hasta que se cierra su expediente al término de esa relación, pasando por su nómina, su compensación, su desempeño y su formación.",
     "alcance": "Aplica al personal directo de Kenex en Venezuela y Panamá, y a la administración de los contratos por honorarios de personal que apoya la operación de otros países de la región. No cubre la operación de Recursos Humanos de Costa Rica, que funciona como una unidad independiente del socio local, la relación laboral de Colombia —completamente tercerizada con una empresa de servicios de personal externa a Kenex—, ni el cálculo y el pago de las comisiones de los equipos de venta al mayor e internacional, que llevan directamente sus propias direcciones comerciales —el salario base de esos equipos sí pasa por la nómina—.",
-    "audiencia": ["Gerente de Recursos Humanos", "Coordinador(a) de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Presidencia", "Director(a) de Desarrollo Corporativo", "Gerente de Formación (Universidad Corporativa)", "Director(a) de Finanzas y Negocios", "Country Manager (Colombia)", "Director(a) Externo(a) de Junta Directiva"]
+    "audiencia": ["Gerente de Recursos Humanos", "Coordinador(a) de Recursos Humanos", "Analista de Recursos Humanos / Nómina", "Presidencia", "Director(a) de Desarrollo Corporativo", "Gerente de Formación (Universidad Corporativa)", "Director(a) de Finanzas", "Country Manager (Colombia)", "Director(a) Externo(a) de Junta Directiva"]
    },
    "contexto": {
     "estado": "borrador",
@@ -20564,12 +20564,12 @@ window.MANUAL_CONTENIDO = {
    "gobernanza": {
     "estado": "borrador",
     "actores": [
-     ["Gerente de Recursos Humanos","País","Ejecuta y responde por los diez subprocesos de este manual en su país","Contratación de personal operativo, compensación dentro de la escala aprobada, actividades de bienestar dentro del presupuesto asignado","Eleva al Director(a) de Desarrollo Corporativo las contrataciones gerenciales o clave, la creación de posiciones y los ajustes salariales, y al Director(a) de Finanzas y Negocios los cambios de escala"],
+     ["Gerente de Recursos Humanos","País","Ejecuta y responde por los diez subprocesos de este manual en su país","Contratación de personal operativo, compensación dentro de la escala aprobada, actividades de bienestar dentro del presupuesto asignado","Eleva al Director(a) de Desarrollo Corporativo las contrataciones gerenciales o clave, la creación de posiciones y los ajustes salariales, y al Director(a) de Finanzas los cambios de escala"],
      ["Director(a) de Desarrollo Corporativo","Grupo","Gestiona el talento, la formación y los proyectos del grupo como socia del negocio; fija la línea rectora que ejecutan las gerencias país de Recursos Humanos y convoca el Comité de Cultura Organizacional","Creación de posiciones y cambios de estructura; resultados de desempeño de las posiciones gerenciales o clave; sucesión","A la Presidencia"],
      ["Presidencia","Grupo","Decide el ingreso y la compensación de las posiciones gerenciales o clave, a propuesta de la Dirección de Desarrollo Corporativo","Ingreso de posiciones gerenciales o clave; ajustes salariales que se le elevan; bonificación de fin de año","Cabeza de la línea de mando; el Holding (los accionistas) no es línea de mando y solo interviene en lo que toca a la relación entre la familia y la empresa"],
      ["Gerente de Formación (Universidad Corporativa)","Grupo","Conduce la formación y el desarrollo de competencias de todo el grupo a través de Momentum","Plan de formación del período y su priorización","Al Director(a) de Desarrollo Corporativo"],
       ["Gerente de Recursos Humanos (Colombia)","País","Posición vacante en la estructura To-Be: llevará la contratación y la relación laboral del equipo local","Mientras se cubre, la contratación local la lleva la cabeza del país, con el socio director comercial en las posiciones de mayor nivel","La relación laboral la administra GOLD RH"],
-     ["Director(a) de Finanzas y Negocios", "Grupo", "Ordenó con Recursos Humanos la escala salarial vigente y aprueba sus cambios", "Aprobación de la escala y de los ajustes salariales individuales", ""],
+     ["Director(a) de Finanzas", "Grupo", "Ordenó con Recursos Humanos la escala salarial vigente y aprueba sus cambios", "Aprobación de la escala y de los ajustes salariales individuales", ""],
      ["Director(a) Externo(a) de Junta Directiva", "Junta Directiva", "Revisa los cambios relevantes de estructura organizativa", "No ejecuta directamente", "Recibe la información que la Gerencia de Recursos Humanos y la Dirección General le presentan"]
     ],
     "comites": [
@@ -20648,7 +20648,7 @@ window.MANUAL_CONTENIDO = {
     "raci": [
      ["17.1 Atracción, selección y contratación", "Analista de Recursos Humanos / Nómina", "Gerente de Recursos Humanos", "gerente solicitante", "Presidencia (posiciones clave)"],
      ["17.3 Nómina y obligaciones laborales", "Analista de Recursos Humanos / Nómina", "Gerente de Contabilidad / Administración", "Coordinador(a) de Recursos Humanos", "Gerente de Tesorería"],
-     ["17.7 Gestión del desempeño","gerentes y supervisores de área","Gerente de Recursos Humanos","Director(a) de Desarrollo Corporativo","Director(a) de Finanzas y Negocios"],
+     ["17.7 Gestión del desempeño","gerentes y supervisores de área","Gerente de Recursos Humanos","Director(a) de Desarrollo Corporativo","Director(a) de Finanzas"],
      ["17.10 Desvinculación y liquidación", "Analista de Recursos Humanos / Nómina", "Gerente de Contabilidad / Administración", "asesoría laboral externa", "Gerente de Tesorería"]
     ],
     "catalogo_sistemas": [

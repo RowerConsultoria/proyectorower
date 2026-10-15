@@ -8,7 +8,9 @@
 //
 // Maquetación: una rejilla CSS con una columna por «subcolumna». Cada dirección
 // ocupa una subcolumna para sus hijos directos y una más por cada gerencia
-// corporativa que tenga hijos propios (Ventas, Mercadeo). Los hilos se trazan
+// corporativa que tenga hijos propios (Ventas, Mercadeo). Si sus gerencias de unidad
+// de negocio tienen gerencia país propia (Ventas), cada una ocupa su columna y la
+// gerencia corporativa las abarca desde arriba (ramas()). Los hilos se trazan
 // después de maquetar, midiendo las cajas: peine vertical por el margen
 // izquierdo de cada subcolumna.
 //
@@ -54,7 +56,10 @@
       (function baja(padre, hijos){
         (hijos || []).forEach(function(h){
           NODOS[h.id] = {d:h, padre:padre, dir:dr.id};
-          ARISTAS.push({de:padre, a:h.id, tipo:h.enLinea ? "lateral-dir" : "linea"});
+          // con atiende, la línea le llega desde las gerencias de unidad de negocio cuyos
+          // lineamientos atiende, no directo desde su gerencia corporativa
+          ARISTAS.push({de:padre, a:h.id, tipo:h.enLinea ? "lateral-dir" : h.atiende ? "oculta" : "linea"});
+          (h.atiende || []).forEach(function(g){ ARISTAS.push({de:g, a:h.id, tipo:"atiende"}); });
           baja(h.id, h.hijos);
         });
       })(dr.id, dr.hijos);
@@ -79,6 +84,19 @@
     var out = [];
     (dr.hijos || []).forEach(function(h){
       if(h.enLinea) return;   // cuelga de la línea de la dirección, en su propia celda
+      var rs = h.nivel === "n3" ? null : ramas(h);
+      if(rs){
+        // una columna por gerencia de unidad de negocio, con su gerencia país debajo;
+        // la primera lleva la cabeza (la gerencia corporativa), que abarca todas
+        var com = comunes(h);
+        rs.forEach(function(g, i){
+          out.push({n2:[], n3:(g.hijos || []).filter(function(k){ return k.nivel === "n3"; }), rama:g, cabeza:i === 0 ? h : null, span:rs.length,
+                    comun:com.length ? com : null});
+        });
+        var resto = (h.hijos || []).filter(function(k){ return rs.indexOf(k) < 0 && com.indexOf(k) < 0 && k.nivel !== "coord"; });
+        if(resto.length) out.push({n2:resto.filter(function(k){ return k.nivel !== "n3"; }), n3:resto.filter(function(k){ return k.nivel === "n3"; })});
+        return;
+      }
       var sc = h.nivel === "n3" ? {n2:[], n3:[h]} : {n2:[h], n3:[]};
       (h.nivel === "n3" ? [] : (h.hijos || [])).forEach(function(k){
         if(k.nivel === "coord") return;
@@ -88,6 +106,35 @@
     });
     if(!out.length) out.push({n2:[], n3:[]});
     return out;
+  }
+
+  // Gerencias de unidad de negocio que tienen gerencia país propia (en Ventas: la de
+  // cada canal con la de cada país). Si las hay, la gerencia corporativa se abre en
+  // columnas, una por rama, para que se lea que la gerencia país reporta a la de su
+  // canal y no a la gerencia corporativa.
+  // También se abre si una gerencia país suya atiende los lineamientos de esas
+  // gerencias de unidad de negocio (atiende): en Mercadeo, la gerencia país va debajo
+  // de las tres y recibe una línea de cada una.
+  function ramas(h){
+    var gs = (h.hijos || []).filter(function(k){
+      return k.nivel === "gun" && (k.hijos || []).some(function(x){ return x.nivel === "n3"; });
+    });
+    if(gs.length) return gs;
+    if(comunes(h).length) gs = (h.hijos || []).filter(function(k){ return k.nivel === "gun"; });
+    return gs.length ? gs : null;
+  }
+  function comunes(h){ return (h.hijos || []).filter(function(k){ return k.nivel === "n3" && k.atiende && k.atiende.length; }); }
+  // Celda de la gerencia corporativa abierta en ramas: ella arriba, centrada sobre sus
+  // columnas (subgrid), y cada gerencia de unidad de negocio en la suya.
+  function celdaRamas(sc, k, fila, col){
+    var cab = sc[k].cabeza, n = sc[k].span;
+    var h = '<div class="eo-celda eo-c2 eo-ramas" style="grid-row:' + fila + ';grid-column:' + col + ' / span ' + n + '">' +
+            '<div class="eo-rcab">' + caja(cab, "eo-c-n2 eo-c-jefe", tagNivel(cab)) + '</div>';
+    for(var i = 0; i < n; i++){
+      var g = sc[k + i].rama;
+      h += '<div class="eo-rama" style="grid-column:' + (i + 1) + '">' + caja(g, "eo-c-n2", tagNivel(g)) + '</div>';
+    }
+    return h + '</div>';
   }
 
   // Unidades que cuelgan de la línea que baja de una dirección (enLinea), a un costado
@@ -119,6 +166,7 @@
     var h = '<button type="button" class="eo-card ' + clase + '" data-id="' + esc(d.id) + '" aria-haspopup="dialog">';
     h += '<span class="eo-tag">' + esc(extraTag || "") + '</span>';
     h += '<span class="eo-ttl">' + esc(d.n) + '</span>';
+    if(d.sub) h += '<span class="eo-sub">' + esc(d.sub) + '</span>';
     if(d.paises){
       h += '<span class="eo-paises">';
       E.PAISES.forEach(function(p){
@@ -131,6 +179,13 @@
              '</span>';
       });
       h += '</span>';
+    } else if(d.marcas){
+      // un titular por marca, en filas como las de país
+      h += '<span class="eo-paises eo-marcas">' + d.marcas.map(function(o){
+        return '<span class="eo-pais eo-e-' + esc(o.estado) + '" title="' + esc(o.marca + " — " + o.nombre) + '">' +
+               '<b class="eo-pcod eo-mcod">' + esc(o.marca) + '</b>' + punto(o.estado) +
+               '<span class="eo-onom eo-ocup">' + esc(o.nombre) + '</span></span>';
+      }).join("") + '</span>';
     } else h += lineaOcupante(d.ocupante);
     return h + '</button>';
   }
@@ -413,15 +468,25 @@
              caja(dr, "eo-c-dir eo-" + dr.caracter, (dr.caracter === "negocio" ? "Negocio" : "Staff") + " · Dirección corporativa") +
              enLineaDir(dr) + '</div>';
       sc.forEach(function(s, k){
-        h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">';
-        s.n2.forEach(function(n, j){
-          var jefe = (j === 0 && n.hijos && n.hijos.length);
-          h += caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (jefe ? " eo-c-jefe" : ""), tagNivel(n));
-        });
-        h += '</div>';
-        h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">';
-        s.n3.forEach(function(n){ h += cajaPais(n); });
-        h += '</div>';
+        if(s.rama){
+          if(s.cabeza) h += celdaRamas(sc, k, R.n2, c + k);
+        } else {
+          h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">';
+          s.n2.forEach(function(n, j){
+            var jefe = (j === 0 && n.hijos && n.hijos.length);
+            h += caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (jefe ? " eo-c-jefe" : ""), tagNivel(n));
+          });
+          h += '</div>';
+        }
+        if(s.comun){
+          // gerencia país común a las ramas: una celda que las abarca, centrada debajo
+          if(s.cabeza) h += '<div class="eo-celda eo-c3 eo-comun" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + ' / span ' + s.span + '">' +
+                            s.comun.map(cajaPais).join("") + '</div>';
+        } else {
+          h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">';
+          s.n3.forEach(function(n){ h += cajaPais(n); });
+          h += '</div>';
+        }
       });
       c0 += sc.length;
     });
@@ -521,6 +586,11 @@
       }
       if(a.tipo === "lateral-dir"){       // dirección -> unidad sobre su línea, por un costado
         ruta("M" + (pa.x + pa.w / 2) + "," + (pb.y + pb.h / 2) + " H" + pb.x, "eo-h-linea");
+        return;
+      }
+      if(a.tipo === "atiende"){          // gerencia de unidad de negocio -> gerencia país que atiende sus lineamientos
+        var ax = pa.x + pa.w / 2, bx = pb.x + pb.w / 2, ay = pb.y - 13;
+        ruta("M" + ax + "," + (pa.y + pa.h) + " V" + ay + " H" + bx + " V" + pb.y, "eo-h-linea");
         return;
       }
       if(a.tipo !== "linea") return;
@@ -682,11 +752,18 @@
     var esDir = E.DIRECCIONES.some(function(x){ return x.id === id; });
     var tag = esDir ? (d.nivel === "n2" ? "Gerencia corporativa · staff" : d.caracter === "negocio" ? "Dirección corporativa · unidad de negocio" : "Dirección corporativa · staff")
                     : (id === E.CEO.id ? "Presidencia" : tagNivel(d));
+    if(d.sub) h += '<p class="eo-sub">' + esc(d.sub) + '</p>';
     if(n.padre) h += '<div class="eo-reporta">Reporta a ' + enlace(n.padre) + '</div>';
 
     if(d.ocupante){
       h += '<div class="eo-bloque"><h4>Ocupante</h4><div class="eo-ofila"><span class="eo-onomg">' + esc(d.ocupante.nombre) + '</span>' + pill(d.ocupante.estado) + '</div>' +
            (d.ocupante.nota ? '<p class="eo-tenue">' + esc(d.ocupante.nota) + '</p>' : '') + '</div>';
+    }
+    if(d.marcas){
+      h += '<div class="eo-bloque"><h4>Ocupante por marca</h4><table class="eo-tpais"><tbody>' + d.marcas.map(function(o){
+        return '<tr><th>' + esc(o.marca) + '</th><td><span class="eo-onomg">' + esc(o.nombre) + '</span>' + pill(o.estado) +
+               (o.nota ? '<p class="eo-tenue">' + esc(o.nota) + '</p>' : '') + '</td></tr>';
+      }).join("") + '</tbody></table></div>';
     }
     if(d.paises){
       h += '<div class="eo-bloque"><h4>Por país</h4><table class="eo-tpais"><tbody>';
@@ -704,6 +781,13 @@
       h += '<div class="eo-bloque"><h4>' + (id === E.CEO.id ? 'Reportes directos' : 'Le reportan') + '</h4><ul class="eo-lista eo-hijos">' +
            hijos.map(function(k){ return '<li>' + enlace(k.id) + '</li>'; }).join("") + '</ul></div>';
     }
+    if(d.atiende && d.atiende.length)
+      h += '<div class="eo-bloque"><h4>Atiende los lineamientos de</h4><ul class="eo-lista eo-hijos">' +
+           d.atiende.map(function(g){ return '<li>' + enlace(g) + '</li>'; }).join("") + '</ul></div>';
+    var orienta = Object.keys(NODOS).filter(function(x){ var a = NODOS[x].d.atiende; return a && a.indexOf(id) >= 0; });
+    if(orienta.length)
+      h += '<div class="eo-bloque"><h4>Da lineamientos a</h4><ul class="eo-lista eo-hijos">' +
+           orienta.map(function(x){ return '<li>' + enlace(x) + ' <span class="eo-tenue">· gerencia país</span></li>'; }).join("") + '</ul></div>';
     var lid = E.COMITES.filter(function(k){ return k.lidera === id; });
     if(lid.length) h += '<div class="eo-bloque"><h4>Lidera y convoca</h4><ul class="eo-lista eo-hijos">' + lid.map(function(k){ return '<li>' + enlace(k.id) + '</li>'; }).join("") + '</ul></div>';
     var par = E.COMITES.filter(function(k){ return k.lidera !== id && miembros(k).indexOf(id) >= 0; });

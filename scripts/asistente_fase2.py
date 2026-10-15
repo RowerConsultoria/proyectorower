@@ -332,11 +332,24 @@ def generar():
     def ocup(o):
         return '%s (%s)' % (o.get('nombre', ''), est_n.get(o.get('estado'), o.get('estado', ''))) if o else ''
 
+    nombres = {}
+    def _nombres(us):
+        for x in us or []:
+            nombres[x['id']] = x['n']
+            _nombres(x.get('hijos'))
+    _nombres(E.get('DIRECCIONES'))
+
     def unidad(u, nivel_txt, sangria):
         L = ['%s%s · %s%s' % (sangria, nivel_txt, u['n'], (' — ' + ocup(u.get('ocupante'))) if u.get('ocupante') else '')]
         if u.get('paises'):
             L.append(sangria + '    países: ' + ' · '.join('%s %s%s' % (k, ocup(v), (' [' + v['cargo'] + ']') if v.get('cargo') else '')
                                                      for k, v in u['paises'].items()))
+        if u.get('sub'):
+            L.append(sangria + '    ' + t(u['sub']))
+        if u.get('atiende'):
+            L.append(sangria + '    atiende los lineamientos de: ' + ', '.join(nombres.get(i, i) for i in u['atiende']))
+        if u.get('marcas'):
+            L.append(sangria + '    por marca: ' + ' · '.join('%s %s' % (m['marca'], ocup(m)) for m in u['marcas']))
         for f in u.get('funciones') or []:
             L.append(sangria + '    - ' + t(f))
         if u.get('nota'):
