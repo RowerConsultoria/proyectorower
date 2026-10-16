@@ -213,7 +213,7 @@ window.IA_DOC = {
        "3,87",
        "Licencias con uso semanal y casos documentados por área",
        "≥ 80 % de las licencias con uso semanal a los 60 días (indicador del 5.3) y al menos un caso documentado por área a los 90 días",
-       "Gobierno de IA, unidad de la Presidencia (en el manual, Gerente de Tecnología / Sistemas del 5.1)"
+       "Gobierno de IA, gerencia corporativa de staff (en el manual, Gerente de Tecnología / Sistemas del 5.1)"
       ],
       [
        "8",
@@ -723,7 +723,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gobierno de IA, unidad de la Presidencia (en el manual, Gerente de Tecnología / Sistemas del 5.1)"
+         "Gobierno de IA, gerencia corporativa de staff (en el manual, Gerente de Tecnología / Sistemas del 5.1)"
         ],
         [
          "Opera",
@@ -731,7 +731,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento las administra"
+         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento las administra"
         ],
         [
          "Calificación",
@@ -6616,7 +6616,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gobierno de IA, unidad de la Presidencia (en el manual, Gerente de Tecnología / Sistemas del 5.1)"
+         "Gobierno de IA, gerencia corporativa de staff (en el manual, Gerente de Tecnología / Sistemas del 5.1)"
         ],
         [
          "Opera",
@@ -6624,7 +6624,7 @@ window.IA_DOC = {
         ],
         [
          "Firma",
-         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento las administra"
+         "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento las administra"
         ],
         [
          "Calificación",
@@ -6975,7 +6975,7 @@ window.IA_DOC = {
         ],
         [
          "Dueño",
-         "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)"
+         "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)"
         ],
         [
          "Opera",
@@ -7767,7 +7767,7 @@ window.IA_DOC = {
     {
      "t": "nota",
      "titulo": "Nombres",
-     "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
+     "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
     },
     {
      "t": "h",
@@ -7964,7 +7964,7 @@ window.IA_DOC = {
        "32. Asistente IA del conocimiento del proyecto"
       ],
       [
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
        "1",
        "54. Inventario y regularización de las islas de IA"
       ],
@@ -8069,7 +8069,7 @@ window.IA_DOC = {
        "22. [[mod:m-tablero-de-direccion|Tablero de dirección]]"
       ],
       [
-       "Gobierno de IA, unidad de la Presidencia (en el manual, Gerente de Tecnología / Sistemas del 5.1)",
+       "Gobierno de IA, gerencia corporativa de staff (en el manual, Gerente de Tecnología / Sistemas del 5.1)",
        "1",
        "7. Uso asistencial con licencias corporativas de Claude"
       ],

@@ -256,10 +256,11 @@ body.con-panel .mapa-caja{position:sticky;top:12px}
 
 /* ================================================================ datos */
 // Unidades de la estructura To-Be (estructura-tobe-datos.js del manual de Fase 2,
-// revisada con la Presidencia el 05/06-oct-2026; el 12-oct la PMO y Tecnología,
-// Gobernanza y Cumplimiento pasan a gerencias corporativas de staff que reportan
-// directo a la Presidencia, y el 15-oct Desarrollo Corporativo vuelve a ser
-// dirección). El mapa muestra las unidades que
+// revisada con la Presidencia el 05/06-oct-2026; el 12-oct la PMO y la de tecnología
+// pasan a gerencias corporativas de staff que reportan directo a la Presidencia, el
+// 15-oct Desarrollo Corporativo vuelve a ser dirección, y el 16-oct Gobierno de IA
+// pasa a gerencia corporativa de staff junto a Tecnología, Gobernanza del Dato y
+// Cumplimiento). El mapa muestra las unidades que
 // intervienen en los funcionamientos; las coordinaciones corporativas y las gerencias
 // de unidad de negocio que no aparecen en ningún paso no se dibujan.
 var NODOS = {
@@ -267,7 +268,6 @@ var NODOS = {
   "pres":    {l:["Presidencia"], k:"pres", x:620, y:100, w:120},
   "asist":   {l:["Asistencia Ejecutiva","a la Presidencia"], k:"staff", x:835, y:100, w:156},
   "jur":     {l:["Consultoría","Jurídica"], k:"staff", x:420, y:100, w:120},
-  "ia":      {l:["Gobierno","de IA"], k:"staff", x:230, y:100, w:110},
   "ccom":  {l:["Comité Comercial"], k:"com", x:150, y:168, w:164},
   "cfin":  {l:["Comité de Finanzas","y Riesgos"], k:"com", x:385, y:168, w:164},
   "cdato": {l:["Comité de Gobierno","del Dato e IA"], k:"com", x:620, y:168, w:164},
@@ -279,8 +279,9 @@ var NODOS = {
   "fin": {l:["Dirección","de Finanzas"], k:"apo dir", x:745, y:246, w:104},
   "dc":  {l:["Desarrollo","Corporativo"], k:"apo dir", x:860, y:246, w:104},
   // gerencias corporativas de staff: reportan directo a la Presidencia
-  "pmo": {l:["PMO"], k:"apo", x:945, y:318, w:70},
-  "tgr": {l:["Tecnología, Gob.","y Cumplimiento"], k:"apo", x:1170, y:318, w:120},
+  "pmo": {l:["PMO"], k:"apo", x:835, y:318, w:70},
+  "ia":  {l:["Gobierno","de IA"], k:"apo", x:1046, y:318, w:96},
+  "tgr": {l:["Tecnología, Gob.","del Dato y Cumpl."], k:"apo", x:1170, y:318, w:132},
   "prod":    {l:["Intel. Mercado","y Productos"], k:"neg", x:63, y:318, w:112},
   "compras": {l:["Compras","Casio · Cubitt"], k:"neg", x:181, y:318, w:106},
   "opl":     {l:["Operaciones","y Logística"], k:"neg", x:294, y:318, w:102},
@@ -288,7 +289,7 @@ var NODOS = {
   "ecom":    {l:["E-commerce"], k:"neg", x:500, y:318, w:98},
   "merc":    {l:["Mercadeo"], k:"neg", x:605, y:318, w:92},
   "fincorp": {l:["Finanzas"], k:"apo", x:745, y:318, w:88},
-  "pmocorp": {l:["PMO · unidad","de negocio"], k:"apo", x:1045, y:318, w:104},
+  "pmocorp": {l:["PMO · unidad","de negocio"], k:"apo", x:935, y:318, w:104},
   "p-cab":  {l:["Cabeza","país *"], k:"cab", x:60, y:420, w:108},
   "p-opl":  {l:["Operaciones","y Logística"], k:"neg", x:180, y:420, w:108},
   "p-ssgg": {l:["Serv. Generales","(coordinación)"], k:"neg", x:302, y:420, w:112},
@@ -307,21 +308,21 @@ var NODOS = {
 var NOMBRE = {
   "junta":"Junta Directiva","pres":"Presidencia","asist":"Asistencia Ejecutiva a la Presidencia","jur":"Consultoría Jurídica","ia":"Gobierno de IA",
   "ccom":"Comité Comercial","cfin":"Comité de Finanzas y Riesgos","cdato":"Comité de Gobierno del Dato e IA","ccal":"Comité de Calidad y Mejora Continua","ccult":"Comité de Cultura",
-  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Dirección de Finanzas","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza y Cumplimiento",
+  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Dirección de Finanzas","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza del Dato y Cumplimiento",
   "prod":"Desarrollo y Calidad de Productos","compras":"Compras (Casio · Cubitt)","opl":"Operaciones y Logística","ventas":"Ventas","ecom":"E-commerce","merc":"Mercadeo",
   "fincorp":"Finanzas (gerencia corporativa)","pmocorp":"PMO (gerencia de unidad de negocio)",
   "p-cab":"Cabeza país","p-opl":"Operaciones y Logística país","p-may":"Ventas al Mayor país","p-ret":"Retail país","p-post":"Postventa país","p-merc":"Mercadeo país","p-fin":"Administración y Finanzas país","p-rrhh":"Recursos Humanos país","p-ti":"TI país","p-ssgg":"Servicios Generales país · coordinación de Operaciones y Logística",
   "ext-fab":"Fábricas y licenciantes","ext-cli":"Clientes","area":"Gerencia solicitante","ext-ter":"Bancos, aduanas y asesores"
 };
 // Líneas de reporte (tenues, de fondo).
-var ESTR = [["pres","id"],["pres","cs"],["pres","com"],["pres","fin"],["pres","dc"],["pres","pmo"],["pres","tgr"],
+var ESTR = [["pres","id"],["pres","cs"],["pres","com"],["pres","fin"],["pres","dc"],["pres","pmo"],["pres","ia"],["pres","tgr"],
   ["id","prod"],["cs","compras"],["cs","opl"],["com","ventas"],["com","merc"],["ventas","ecom"],
   ["fin","fincorp"],["pmo","pmocorp"],
   ["opl","p-opl"],["ventas","p-may"],["ventas","p-ret"],["ventas","p-post"],["merc","p-merc"],["fincorp","p-fin"],["dc","p-rrhh"],["tgr","p-ti"]];
 
 var PROC = {"1.1":"Formulación y revisión del plan estratégico del grupo","1.2":"Despliegue de objetivos e indicadores de gestión","1.3":"Preparación y conducción de las sesiones de los órganos de gobierno","2.1":"Inteligencia de mercado y análisis competitivo","2.2":"Construcción y aprobación del forecast comercial regional","2.3":"Política de precios y de márgenes por mercado","2.7":"Consolidación del desempeño comercial y ajuste del plan","3.1":"Generación y evaluación de oportunidades de producto","3.2":"Sourcing y homologación de fábricas","3.4":"Gestión de muestras y aprobación del producto","3.6":"Gestión de licencias de marca de terceros","4.1":"Recepción, categorización y evaluación de solicitudes","4.5":"Seguimiento del portafolio y reportería a la Junta","4.7":"Gestión del presupuesto de proyecto","5.1":"Gobierno de la adopción de IA y de la información","5.2":"Casos de uso de IA y automatización","6.1":"Planificación de demanda y S&OP","6.3":"Compra internacional a marca representada","6.4":"Compra internacional a marca propia","6.5":"Compra local de bienes y servicios por país","6.7":"Reposición a punto de venta","6.9":"Devoluciones y no conformidades a proveedor","7.1":"Recepción de mercancía importada y costeo en destino","7.2":"Gestión y control de inventarios","7.4":"Facturación logística y transferencia a despacho","7.5":"Despacho y última milla","7.6":"Tráfico e importaciones","7.7":"Logística inversa: garantías y devoluciones","8.2":"Segmentación de clientes y política comercial","8.5":"Aprobación comercial del pedido","8.12":"Prospección y apertura de nuevo cliente","8.17":"Reportería comercial y decisión basada en data","9.3":"Reposición de tiendas y kioscos","9.7":"Supervisión y visitas a tiendas","11.3":"Casos técnicos y reporte de calidad con fábrica","11.4":"Servicio técnico y reparación","11.5":"Repuestos y accesorios de servicio","11.7":"Escalamiento y recuperación del cliente insatisfecho","12.3":"Conciliación bancaria y de plataformas de recaudo","12.5":"Facturación fiscal","13.4":"Financiamiento bancario","14.2":"Requerimientos y evolución funcional del ERP","15.1":"Captación y normalización de datos de origen","15.2":"Control de calidad y fuente de la verdad","17.1":"Atracción, selección y contratación","18.2":"Ciclo de vida contractual","19.1":"Mantenimiento de infraestructura e instalaciones","20.3":"Publicación, versionado y control de cambios","20.4":"Iniciativas de mejora"};
 
-var DIRS = ["id","cs","com","fin","dc","pmo","tgr"];
+var DIRS = ["id","cs","com","fin","dc","pmo","ia","tgr"];
 
 // Funcionamientos: cada paso dice quién pasa qué a quién (e), quién más participa (n),
 // la decisión del paso si la hay (dec) y los procesos To-Be que lo respaldan (p).
@@ -412,26 +413,26 @@ var FUNC = [
   {t:"Una gerencia necesita algo que no hace", d:"Un proyecto, una persona, un sistema, un contrato o una reparación. Siempre entra por el canal formal de la unidad de apoyo.", n:["area"], p:["4.1","17.1","14.2","18.2","19.1"]},
   {t:"Proyectos", d:"La gerencia de unidad de negocio de la PMO evalúa viabilidad y duplicidad y categoriza: tarea, iniciativa o proyecto. La gerencia corporativa de PMO lo eleva y la Junta aprueba lo que compromete recursos.", e:[["area","pmocorp"],["pmocorp","pmo"],["pmo","junta"]], dec:{q:"¿Viable y sin duplicar?", por:"pmocorp"}, p:["4.1"]},
   {t:"Personas", d:"Recursos Humanos confirma el perfil, recluta y entrega una terna; el gerente entrevista y decide. Las posiciones gerenciales o clave las decide la Presidencia, a propuesta de Desarrollo Corporativo.", e:[["area","p-rrhh"],["p-rrhh","area"],["p-rrhh","dc"],["dc","pres"]], dec:{q:"¿Cargo gerencial o posición clave?", por:"p-rrhh"}, p:["17.1"]},
-  {t:"Sistemas", d:"TI del país clasifica el pedido y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento valida que responda a una necesidad del negocio y decide la vía. Un sistema o gasto nuevo lo aprueba la Junta.", e:[["area","p-ti"],["p-ti","tgr"],["tgr","junta"]], dec:{q:"¿Requiere sistema o gasto nuevo?", por:"tgr"}, p:["14.2"]},
+  {t:"Sistemas", d:"TI del país clasifica el pedido y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento valida que responda a una necesidad del negocio y decide la vía. Un sistema o gasto nuevo lo aprueba la Junta.", e:[["area","p-ti"],["p-ti","tgr"],["tgr","junta"]], dec:{q:"¿Requiere sistema o gasto nuevo?", por:"tgr"}, p:["14.2"]},
   {t:"Contratos", d:"El área redacta, Consultoría Jurídica revisa y los bufetes locales opinan sobre la norma del país. Firma la cabeza del país dentro de su facultad.", e:[["area","jur"],["jur","ext-ter"],["area","p-cab"]], dec:{q:"¿Dentro de la facultad de firma?", por:"p-cab"}, p:["18.2"]},
   {t:"Instalaciones", d:"Servicios Generales resuelve lo que está en su competencia y contrata lo que la excede.", e:[["area","p-ssgg"],["p-ssgg","ext-ter"]], dec:{q:"¿Dentro de la competencia interna?", por:"p-ssgg"}, p:["19.1"]},
   {t:"El apoyo rinde cuentas de su cola", d:"Lo abierto, lo resuelto y lo descartado con su motivo, cada mes. La PMO reporta el portafolio a la Junta.", e:[["pmo","junta"],["p-ti","tgr"]], p:["4.5","14.2"]}
  ]},
  {t:"El dato antes que el agente", r:"Cómo el grupo llega a una sola cifra oficial y cómo se aprueba poner IA sobre ella.",
   decide:["ia","cdato"], pasos:[
-  {t:"Cada fuente nueva se mapea", d:"Contra el catálogo del grupo: se decide si vive en el ERP o llega por la vía de captación, y qué equivalencias necesita. Lo lleva la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento.", e:[["area","tgr"]], dec:{q:"¿Es una fuente nueva?", por:"tgr"}, p:["15.1"]},
+  {t:"Cada fuente nueva se mapea", d:"Contra el catálogo del grupo: se decide si vive en el ERP o llega por la vía de captación, y qué equivalencias necesita. Lo lleva la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento.", e:[["area","tgr"]], dec:{q:"¿Es una fuente nueva?", por:"tgr"}, p:["15.1"]},
   {t:"Controles sobre cada lote", d:"Completitud, validez, moneda y tasa fechada. El defecto vuelve a su responsable con plazo; si no llega, la fuente se marca como no certificada.", e:[["tgr","area"],["area","tgr"]], dec:{q:"¿El lote pasa los controles?", por:"tgr"}, p:["15.2"]},
   {t:"Las medidas tienen dueño", d:"La definición de cada indicador la aprueba el dueño de su dominio antes de entrar al diccionario, para que signifique lo mismo en todos los países.", e:[["ventas","tgr"]], p:["15.2"]},
   {t:"Una sola cifra oficial", d:"Solo lo certificado alimenta los tableros. Los equipos leen su desempeño con la misma cifra.", e:[["tgr","ventas"],["tgr","p-ret"],["tgr","p-may"]], p:["2.7","8.17"]},
-  {t:"Cada caso de uso de IA se registra", d:"La PMO verifica que otra área no lo haya resuelto ya; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento evalúa qué datos toca, qué credenciales necesita, cómo se integra y qué riesgo trae.", e:[["area","pmocorp"],["pmocorp","tgr"]], p:["5.2"]},
+  {t:"Cada caso de uso de IA se registra", d:"La PMO verifica que otra área no lo haya resuelto ya; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento evalúa qué datos toca, qué credenciales necesita, cómo se integra y qué riesgo trae.", e:[["area","pmocorp"],["pmocorp","tgr"]], p:["5.2"]},
   {t:"El Comité aprueba y asigna", d:"Gobierno de IA lo lleva al Comité, que lo prioriza por valor y riesgo, lo aprueba o descarta con su motivo, fija el nivel de autonomía y decide quién lo construye: TI o la propia área con una herramienta autorizada. Quien lo implanta no es quien lo aprueba.", e:[["tgr","ia"],["ia","cdato"],["cdato","area"]], dec:{q:"¿Se aprueba el caso de uso?", por:"cdato"}, p:["5.2","5.1"]},
-  {t:"Validación y medición", d:"Tecnología, Gobernanza y Cumplimiento valida todo desarrollo antes de producción, con credenciales de mínimo privilegio. A los 90 días el área mide el beneficio real contra el esperado.", e:[["tgr","area"]], p:["5.2","5.1"]}
+  {t:"Validación y medición", d:"Tecnología, Gobernanza del Dato y Cumplimiento valida todo desarrollo antes de producción, con credenciales de mínimo privilegio. A los 90 días el área mide el beneficio real contra el esperado.", e:[["tgr","area"]], p:["5.2","5.1"]}
  ]},
  {t:"Mejora continua y vida de los manuales", r:"Cómo una mejora se evalúa, se implanta y termina escrita en el manual, que parte de la base de conocimiento.",
   decide:["pmocorp","ccal"], pasos:[
   {t:"Un dueño de proceso detecta una mejora", d:"Un hallazgo de auditoría, un dolor reportado, un indicador fuera de rango o una idea propia.", n:["area"], p:["20.4"]},
   {t:"La PMO la evalúa y la planifica", d:"Si no es viable tal como se presentó, la devuelve con observaciones. Finanzas valida el presupuesto cuando lo hay.", e:[["area","pmocorp"],["pmocorp","fin"]], dec:{q:"¿Es viable tal como se presentó?", por:"pmocorp"}, p:["20.4"]},
-  {t:"El dato y el sistema acompañan", d:"Tecnología, Gobernanza y Cumplimiento aporta la línea base del indicador y su seguimiento, y habilita la herramienta o el ajuste.", e:[["tgr","pmocorp"],["tgr","area"]], p:["20.4"]},
+  {t:"El dato y el sistema acompañan", d:"Tecnología, Gobernanza del Dato y Cumplimiento aporta la línea base del indicador y su seguimiento, y habilita la herramienta o el ajuste.", e:[["tgr","pmocorp"],["tgr","area"]], p:["20.4"]},
   {t:"Las áreas implantan y se verifica", d:"Las áreas ejecutan el cambio con acompañamiento en los primeros ciclos; la PMO reporta a la Junta y compara contra la situación inicial.", e:[["pmocorp","area"],["pmo","junta"]], p:["20.4"]},
   {t:"El cambio entra por la base de conocimiento", d:"El dueño actualiza el proceso mediante el control de cambios; se publica la versión nueva, se retira la anterior y Recursos Humanos actualiza la inducción si hace falta.", e:[["area","dc"],["dc","p-rrhh"]], p:["20.3"]},
   {t:"El Comité de Calidad revisa el estándar", d:"Revisa políticas y manuales, verifica el cumplimiento de las buenas prácticas y orienta hacia certificaciones.", e:[["dc","ccal"]], dec:{q:"¿El estándar debe revisarse?", por:"ccal"}, p:["20.3"]}
@@ -458,8 +459,8 @@ function pila(){
   var capas = [
     {n:"Gobierno", v:"Decide el rumbo", d:"Gobierna; no es línea de mando.",
      c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Junta Directiva</span></div></div>'},
-    {n:"Presidencia", v:"Conduce el grupo", d:"Siete reportes directos —cinco direcciones y dos gerencias corporativas de staff—, en el límite del tramo de 4 a 7, y tres unidades propias.",
-     c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Asistencia Ejecutiva a la Presidencia</span><span class="chip staff">Consultoría Jurídica</span><span class="chip staff">Gobierno de IA</span></div></div>'},
+    {n:"Presidencia", v:"Conduce el grupo", d:"Ocho reportes directos —cinco direcciones y tres gerencias corporativas de staff—, uno por encima del tramo de 4 a 7, y dos unidades propias.",
+     c:'<div class="grupo neutro"><div class="fila"><span class="chip gob">Presidencia · CEO</span><span class="chip staff">Asistencia Ejecutiva a la Presidencia</span><span class="chip staff">Consultoría Jurídica</span></div></div>'},
     {n:"Direcciones corporativas", v:"Fijan la línea rectora", d:"Una por gran función del grupo, con baja operatividad.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · cadena de valor →</div><div class="fila"><span class="chip fuerte">Innovación y Desarrollo de Productos</span><span class="chip fuerte">Compras y Cadena de Suministro</span><span class="chip fuerte">Comercial</span></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo · apoyo al Comité Directivo</div><div class="fila"><span class="chip fuerte">Finanzas</span><span class="chip fuerte">Desarrollo Corporativo</span></div></div>'},
@@ -470,9 +471,9 @@ function pila(){
        '<div class="fila"><span class="chip">Operaciones y Logística</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Comercial</span><div class="fila"><span class="chip">Ventas</span><span class="chip">Mercadeo</span></div></div></div>' +
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div>' +
-       '<div class="subgrupo"><span class="stit">Reportan directo a la Presidencia</span><div class="fila"><span class="chip fuerte">Tecnología, Gobernanza y Cumplimiento</span><span class="chip fuerte">PMO</span></div></div>' +
+       '<div class="subgrupo"><span class="stit">Reportan directo a la Presidencia</span><div class="fila"><span class="chip fuerte">Gobierno de IA</span><span class="chip fuerte">Tecnología, Gobernanza del Dato y Cumplimiento</span><span class="chip fuerte">PMO</span></div></div>' +
        '<div class="subgrupo"><span class="stit">Dirección de Finanzas</span><div class="fila"><span class="chip">Finanzas</span></div></div>' +
-       '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip">Formación · Universidad Corporativa</span></div></div></div>'},
+       '<div class="subgrupo"><span class="stit">Desarrollo Corporativo</span><div class="fila"><span class="chip sub">Coordinación Formación · Universidad Corporativa</span></div></div></div>'},
     {n:"Gerencias de unidad de negocio", v:"Llevan un canal o un frente", d:"Dentro de una gerencia corporativa, para todo el grupo; no se replican por país.",
      c:'<div class="grupo neg"><div class="gtit">Unidades de negocio · Comercial</div>' +
        '<div class="subgrupo"><span class="stit">Ventas</span><div class="fila"><span class="chip">Ventas al Mayor</span><span class="chip">Retail</span><span class="chip">E-commerce</span><span class="chip">Postventa</span></div></div>' +
@@ -520,12 +521,10 @@ function dibujarMapa(){
     var mid = b.y >= 400 ? 366 : s[0] === "pres" ? 173 : (a.y + b.y) / 2;
     el("path", {d:"M"+a.x+" "+(a.y+20)+" V"+mid+" H"+b.x+" V"+(b.y-20), "class":"m-estr"}, gE);
   });
-  // Junta → Presidencia (gobierno, sin mando) y las tres unidades de la Presidencia;
-  // la de Gobierno de IA pasa por debajo de la Consultoría Jurídica
+  // Junta → Presidencia (gobierno, sin mando) y las dos unidades de la Presidencia
   el("path", {d:"M620 54 V80", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   el("path", {d:"M680 100 H757", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   el("path", {d:"M560 100 H480", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
-  el("path", {d:"M590 120 V136 H230 V120", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
   // Servicios Generales: coordinación dentro de Operaciones y Logística del país
   el("path", {d:"M180 440 V449 H302 V440", "class":"m-estr"}, gE);
   capaFlechas = el("g", {}, mapa);

@@ -85,7 +85,7 @@ window.IA_DOC = {
        "[[sec:principios|1]], [[sec:seguridad|6]], [[sec:ia|7]] y [[sec:operacion|12]], con la [[doc:politica|Política de adopción]]"
       ],
       [
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento; TI de cada país",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento; TI de cada país",
        "Implantar y operar: cuentas, entornos, seguridad, despliegue y continuidad",
        "Todo, con prioridad en [[sec:triangulo|3]], [[sec:seguridad|6]], [[sec:github|10]], [[sec:operacion|12]] y [[sec:construccion|13]]"
       ],
@@ -305,7 +305,7 @@ window.IA_DOC = {
      "t": "h",
      "x": "Quién vela por cada regla"
     },
-    "El Comité de Gobierno del Dato e IA aprueba que un agente suba de nivel y cualquier excepción; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento lo implanta y lo opera. Quien aprueba la IA no es quien la implanta. Las comprobaciones de CI son obligatorias para fusionar en `main` ([[sec:github|sección 10]]).",
+    "El Comité de Gobierno del Dato e IA aprueba que un agente suba de nivel y cualquier excepción; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento lo implanta y lo opera. Quien aprueba la IA no es quien la implanta. Las comprobaciones de CI son obligatorias para fusionar en `main` ([[sec:github|sección 10]]).",
     {
      "t": "h",
      "x": "Criterios de aceptación"
@@ -780,7 +780,7 @@ window.IA_DOC = {
     {
      "t": "lista",
      "items": [
-      "El titular es una cuenta de servicio de la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, nunca el correo personal de alguien; se paga con medio corporativo.",
+      "El titular es una cuenta de servicio de la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, nunca el correo personal de alguien; se paga con medio corporativo.",
       "Al menos dos administradores con doble factor por servicio: nadie es el único que sabe.",
       "La consultora entra como invitada, por tiempo definido, y no es dueña de ninguna cuenta.",
       "Una baja retira el acceso a todos los servicios el mismo día ([[proc:14.4]])."
@@ -1605,7 +1605,7 @@ window.IA_DOC = {
       "**3 · decide con firma previa:** la acción espera hasta que firma la persona con autoridad."
      ]
     },
-    "Comprar, pagar, aprobar un precio, contratar y desvincular, y todo asiento contable o documento fiscal, son decisiones de personas. Un agente sube de nivel solo con aciertos medidos y con la aprobación del Comité de Gobierno del Dato e IA; lo implanta y lo opera la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento. Lo que llega de fuera (un correo, un chat, un archivo) el agente lo lee como dato, nunca como una orden.",
+    "Comprar, pagar, aprobar un precio, contratar y desvincular, y todo asiento contable o documento fiscal, son decisiones de personas. Un agente sube de nivel solo con aciertos medidos y con la aprobación del Comité de Gobierno del Dato e IA; lo implanta y lo opera la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento. Lo que llega de fuera (un correo, un chat, un archivo) el agente lo lee como dato, nunca como una orden.",
     "Sin esta capa, cada agente sería un experimento suelto: sin rastro, sin costo conocido y sin forma de pararlo. El aplicativo del proyecto ya sigue este patrón con su Asistente IA."
    ],
    "como": [
@@ -1672,7 +1672,7 @@ window.IA_DOC = {
      "t": "lista",
      "items": [
       "**El nivel lo fija la base, no el agente**, y la cola vuelve a comprobar estado y firmante antes de escribir en Odoo. Una decisión reservada (comprar, aprobar un precio, contratar, desvincular) solo se ejecuta en Odoo con nivel 3, tras la firma; pagar, los asientos y los documentos fiscales no existen como comando ([[doc:politica/autonomia|artículo 5 de la política]]).",
-      "**Subir de nivel**, por tipo de acción: el dueño presenta la tasa de aciertos y la evaluación; aprueba el Comité de Gobierno del Dato e IA con el umbral que fije (por confirmar); la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento cambia la política por un cambio revisado ([[sec:github|sección 10]]). Si la tasa cae, el agente vuelve al nivel anterior."
+      "**Subir de nivel**, por tipo de acción: el dueño presenta la tasa de aciertos y la evaluación; aprueba el Comité de Gobierno del Dato e IA con el umbral que fije (por confirmar); la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento cambia la política por un cambio revisado ([[sec:github|sección 10]]). Si la tasa cae, el agente vuelve al nivel anterior."
      ]
     },
     {
@@ -1764,7 +1764,7 @@ window.IA_DOC = {
     {
      "t": "lista",
      "items": [
-      "**Freno general:** cada función lo lee al empezar y antes de actuar; la cola, antes de escribir en Odoo. Lo acciona la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, por iniciativa propia o a pedido de Gobierno de IA o del dueño del agente ([[doc:politica/autonomia|artículo 5 de la política]]).",
+      "**Freno general:** cada función lo lee al empezar y antes de actuar; la cola, antes de escribir en Odoo. Lo acciona la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, por iniciativa propia o a pedido de Gobierno de IA o del dueño del agente ([[doc:politica/autonomia|artículo 5 de la política]]).",
       "**Negativa** (`stop_reason` igual a `refusal`), respuesta cortada o JSON inválido: no se actúa, se registra y el caso pasa a una persona. El respaldo `fallbacks` (beta) se evalúa antes de activarlo.",
       "**Caída del proveedor:** tras los reintentos, el trabajo espera en la cola y la pantalla avisa «sin asistencia de IA». El espejo y las firmas no dependen de la IA."
      ]
@@ -2249,7 +2249,7 @@ window.IA_DOC = {
      "t": "codigo",
      "x": "# .github/workflows/produccion.yml (resumen; se omite el checkout)\non:\n  schedule: [{ cron: \"0 4 * * 2-5\" }]   # 23:00 de Panamá, de lunes a jueves\n  workflow_dispatch: {}                 # emergencia: exige ficha y revisión posterior\nconcurrency: produccion\njobs:\n  desplegar:\n    environment: production             # limitado a main, con sus propios secretos\n    steps:\n      - uses: supabase/setup-cli@v1\n      - run: supabase link --project-ref \"$SUPABASE_PROJECT_ID\"\n      - run: supabase db push --dry-run && supabase db push\n      - run: supabase functions deploy --project-ref \"$SUPABASE_PROJECT_ID\""
     },
-    "La hora es un ejemplo: la fija la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento.",
+    "La hora es un ejemplo: la fija la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento.",
     {
      "t": "nota",
      "tipo": "alerta",
@@ -2335,7 +2335,7 @@ window.IA_DOC = {
       ]
      ]
     },
-    "Los indicadores de 14.3 salen de GitHub: menos del 10 % de cambios con falla, el 100 % certificados antes del pase y ningún pase fuera de ventana sin ser de emergencia. El 14.3 usa los nombres de cargo anteriores; aquí corresponden a la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento y a la TI de cada país. Quedan por confirmar la autoridad de cambio de Kenex para cada tipo y quién genera los datos de prueba anonimizados.",
+    "Los indicadores de 14.3 salen de GitHub: menos del 10 % de cambios con falla, el 100 % certificados antes del pase y ningún pase fuera de ventana sin ser de emergencia. El 14.3 usa los nombres de cargo anteriores; aquí corresponden a la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento y a la TI de cada país. Quedan por confirmar la autoridad de cambio de Kenex para cada tipo y quién genera los datos de prueba anonimizados.",
     "**Costo, al 09-oct-2026:** GitHub Team cuesta USD 4 por usuario al mes (USD 20 para 5 usuarios; el precio después de 12 meses está por confirmar) e incluye 3.000 minutos de Actions, que alcanzan para unos 5 desarrolladores con un pipeline de 6 a 8 minutos.",
     "Se acepta cuando un push directo a `main` falla; un PR con una política que deja ver otro país no puede fusionarse; no hay despliegues a producción fuera de la ventana salvo emergencias registradas; y ninguna vista previa tiene llaves del Odoo de producción."
    ]
@@ -2518,12 +2518,12 @@ window.IA_DOC = {
       [
        "1 · Mercately",
        "Evento de mensaje recibido, límites y plan; si no, números a la API directa",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento con Ventas Web y Postventa"
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento con Ventas Web y Postventa"
       ],
       [
        "9 · Firma electrónica",
        "Proveedor con validez en Panamá, Venezuela y Colombia",
-       "Consultoría Jurídica con la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento"
+       "Consultoría Jurídica con la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento"
       ],
       [
        "13 · WhatsApp corporativo",
@@ -2555,7 +2555,7 @@ window.IA_DOC = {
     "Mientras la plataforma guarde solo el espejo, cualquier pérdida se repara volviendo a leer Odoo. Desde la Ola 1 guardará además datos que no existen en otro lugar: casos de garantía, firmas, aprobaciones y, más adelante, contratos y postulaciones. Por eso la base de producción tiene recuperación punto a punto: en el peor caso se pierden unos 2 minutos de trabajo. Los archivos (fotos, documentos) se copian aparte, porque el respaldo de la base no los incluye. Y la recuperación se prueba al menos una vez al año: un respaldo que nunca se restauró no garantiza nada.",
     "La operación se vigila con alertas: si el espejo se atrasa, si una cola se acumula, si falla un proceso nocturno o si un agente gasta más de lo previsto. Cada agente tiene un tope de gasto; al llegar a él, se detiene y avisa a su responsable.",
     "Si cae un proveedor, el negocio no se detiene. Odoo sigue registrando ventas, compras e inventario, y la plataforma se pone al día al volver. Si falla la IA, no llegan los borradores y las personas trabajan como hoy, porque la IA solo prepara y propone.",
-    "El presupuesto de referencia es de unos USD 515–535 al mes, o 615–635 con la recuperación punto a punto (precios del 09-oct-2026). Opera la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con TI de cada país."
+    "El presupuesto de referencia es de unos USD 515–535 al mes, o 615–635 con la recuperación punto a punto (precios del 09-oct-2026). Opera la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con TI de cada país."
    ],
    "como": [
     {
@@ -2925,7 +2925,7 @@ window.IA_DOC = {
        "como": "Se crean con correos corporativos, nunca personales. Cada cuenta tiene al menos dos propietarios de Kenex con doble factor obligatorio. Quien construye, sea equipo interno o proveedor, entra como miembro y nunca como propietario. En Vercel, el plan trae 1 puesto que despliega y se suma uno por desarrollador; los *viewers* son gratis. En GitHub, un usuario por persona y Dependabot activo. Las claves de las API de Anthropic y de OpenAI también nacen en cuentas de la organización de Kenex.",
        "depende": "La elección del front, Vercel o Cloudflare (decisión 19; [[sec:front|sección 9]]); el plan de GitHub (decisión 20); el medio de pago de Kenex.",
        "acepta": "Las cuentas existen a nombre de Kenex, con dos propietarios de Kenex con doble factor; ningún recurso de la plataforma vive en una cuenta personal ni del equipo consultor; la factura llega a Kenex.",
-       "rol": "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento (titular); Consultoría Jurídica revisa los términos.",
+       "rol": "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento (titular); Consultoría Jurídica revisa los términos.",
        "ver": [
         "[[proc:14.7]]",
         "[[proc:14.4]]",
@@ -2939,7 +2939,7 @@ window.IA_DOC = {
        "como": "Producción en Pro con cómputo Small o Medium (la tabla de costos usa Medium como techo) y PITR de 7 días, que exige Small o mayor, encendido antes del primer dato propio. Pruebas en Micro, o como rama persistente con ramas de vista previa por PR. Región propuesta `us-east-1`, por cercanía a Panamá y Colombia; la confirman Tecnología y Consultoría Jurídica antes de crear el proyecto (decisión 21). Auth con el proveedor corporativo de Kenex (Microsoft Entra ID, por confirmar), doble factor TOTP para los roles que firman y correo por Resend desde un subdominio con DKIM, SPF y DMARC. Claves `sb_publishable_…` y `sb_secret_…`, una secreta por componente; las heredadas `anon` y `service_role` no se usan. Copia diaria de Storage a un contenedor externo, porque el respaldo de la base no incluye los archivos.",
        "depende": "Paso 1.",
        "acepta": "Producción tiene PITR activo y un ensayo de restauración a un proyecto aparte con su tiempo medido (Supabase no publica un tiempo de recuperación); la copia de Storage corre y se verifica; pruebas no guarda ninguna llave del Odoo de producción; un usuario de prueba entra con el proveedor corporativo y el doble factor se exige donde corresponde.",
-       "rol": "Equipo de plataforma; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento aprueba región y respaldo.",
+       "rol": "Equipo de plataforma; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento aprueba región y respaldo.",
        "ver": [
         "[[mod:m-espejo|Espejo]]",
         "[[proc:14.4]]",
@@ -2953,7 +2953,7 @@ window.IA_DOC = {
        "como": "La primera migración crea los esquemas vacíos (`odoo_raw`, `core`, `sync`, `cmd`, `api` y `private`) con `authorize()` y `tiene_permiso()`, un rol de prueba por país y su prueba pgTAP. Checks obligatorios: lint, pgTAP, pruebas de funciones, escáner de secretos y `supabase db push --dry-run`. Se conectan GitHub con Supabase (ramas de vista previa) y con el front. El despliegue a producción se programa en la ventana nocturna de lunes a jueves.",
        "depende": "Pasos 1 y 2.",
        "acepta": "Un push directo a `main` falla; un PR de ejemplo pasa los checks y se despliega solo a pruebas; un PR con una tabla expuesta sin RLS o sin `GRANT` no puede fusionarse; el despliegue a producción corre solo desde `main` y dentro de la ventana.",
-       "rol": "Equipo de plataforma; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento aprueba el *ruleset* y los CODEOWNERS.",
+       "rol": "Equipo de plataforma; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento aprueba el *ruleset* y los CODEOWNERS.",
        "ver": [
         "[[proc:14.3]]",
         "[[proc:14.1]]",
@@ -2966,7 +2966,7 @@ window.IA_DOC = {
        "como": "Esquemas `app_<módulo>` en español y sin tildes; claves de país `pa`, `co` y `ve`; toda fila de `core` con `pais`, `compania`, `lote_id` y estado de certificación; todo importe con `moneda` y `tasa_id`; fechas en UTC, mostradas en la zona del país; cada agente con su carpeta `prompts/<agente>/` y `evals/<agente>/`; Edge Functions con nombre de acción (`odoo-pull`, `pronosticar`); una rama por cambio y fichas en español.",
        "depende": "Paso 3.",
        "acepta": "El documento está aprobado y el CI rechaza una migración que cree una tabla de `core` sin `pais` o un importe sin `moneda` (prueba pgTAP sobre el catálogo de la base).",
-       "rol": "Equipo de plataforma con ingeniería de datos; aprueba la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento.",
+       "rol": "Equipo de plataforma con ingeniería de datos; aprueba la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento.",
        "ver": [
         "[[proc:14.1]]",
         "[[proc:15.2]]",
@@ -2979,7 +2979,7 @@ window.IA_DOC = {
        "como": "Usuario interno, no administrador, con lectura en ventas, compras, inventario, contactos y facturas, sin Ajustes ni escritura contable; en Panamá, con acceso a todas las compañías que se sincronizan. En la v16 y la v17 las llaves no vencen: se rotan a mano cada 90 días, con alerta a los 75. Cada usuario es una licencia Custom: unos USD 150–185 al mes por los tres (lista de EE. UU. al 09-oct-2026). Antes de dar de baja usuarios de Odoo que pasarían a usar solo la plataforma, se pide al gerente de cuenta de Odoo confirmación escrita de que no cuentan como *User*.",
        "depende": "Paso 2 (Vault); plan de Odoo con API externa en cada base, por confirmar (decisión 22).",
        "acepta": "Con cada llave, `fields_get` y `search_read` responden en la copia de pruebas y en producción; un intento de escribir en contabilidad o de leer Ajustes falla; ninguna llave aparece en el repositorio ni en el front; la rotación está agendada.",
-       "rol": "Tecnología de Información de cada país crea el usuario y la llave; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento gestiona las licencias.",
+       "rol": "Tecnología de Información de cada país crea el usuario y la llave; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento gestiona las licencias.",
        "ver": [
         "[[mod:m-espejo|Espejo]]",
         "[[mod:m-sala-de-agentes-y-puerta-unica|Sala de agentes]]",
@@ -3006,7 +3006,7 @@ window.IA_DOC = {
        "como": "Para cada Odoo: la versión real (en Venezuela, 17 o 19), Community o Enterprise, y Odoo.sh compartido o dedicado, partner u on-premise. De eso dependen el ritmo de lectura (en la nube de Odoo, 1 llamada por segundo sin paralelismo, salvo hosting dedicado) y si hay réplica de lectura. Para EBS: confirmar que es el WMS de JMS / JMM Solutions y no Oracle E-Business Suite, y pedir a JMS su interfaz (API, tablas, archivos o SFTP), qué intercambia hoy con Odoo y quién es la fuente de verdad del inventario de Colón (decisión 2).",
        "depende": "Nada: es lo primero que se pide.",
        "acepta": "Las cuatro instancias están confirmadas por escrito; para EBS hay un patrón elegido y, si JMS no responde dentro de la Ola 0, la Ola 1 arranca con los patrones 2 y 3 de la [[sec:registro|sección 4]].",
-       "rol": "Tecnología de cada país; la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento con JMS.",
+       "rol": "Tecnología de cada país; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento con JMS.",
        "ver": [
         "[[freno:6.4]]",
         "[[freno:18.3]]",
@@ -3020,7 +3020,7 @@ window.IA_DOC = {
        "como": "Servicios: el DPA de Supabase se incorpora al aceptar el contrato y el de Vercel aplica a Pro; falta confirmar con Anthropic la retención y el uso de los datos para entrenamiento ([[doc:politica/proveedores|artículo 14 de la política]]); OpenAI no retiene la transcripción y retiene las imágenes 30 días. Fuentes: Mercately (evento de mensaje, límites y plan, decisión 1), Lark (plan) y Cashea (vía de reportes, decisión 23), Casio (formato del PCI y canal del servicio), JMS, couriers y bancos (formatos), y la lista de los clientes que reportan sell-out, con país, periodicidad y formato.",
        "depende": "Paso 1.",
        "acepta": "Consultoría Jurídica da su visto bueno escrito a cada acuerdo de servicio; la retención de Anthropic está confirmada o queda como pendiente con fecha en la política; cada fuente externa de la Ola 1 tiene un contacto, un formato y una frecuencia acordados.",
-       "rol": "Consultoría Jurídica y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento; Gobierno de IA lo verifica contra la política; los dueños de proceso gestionan sus fuentes (Compras con Casio, Ventas Mayor con los clientes).",
+       "rol": "Consultoría Jurídica y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento; Gobierno de IA lo verifica contra la política; los dueños de proceso gestionan sus fuentes (Compras con Casio, Ventas Mayor con los clientes).",
        "ver": [
         "[[mod:m-conectores|Conectores]]",
         "[[mod:m-buzon-de-sell-out-de-clientes|Buzón de sell-out]]",
@@ -3034,7 +3034,7 @@ window.IA_DOC = {
        "como": "Bloquean la Ola 1: la 1 (Mercately), la 2 (EBS), la 3 (versión y alojamiento de cada Odoo), la 12 (quién firma cada decisión), la 13 (números corporativos de WhatsApp), la 14 (reglas escritas de aprobación comercial), la 19 (el front), la 20 (el plan de GitHub), la 21 (la región) y la 22 (usuarios de integración y licencias de Odoo). Conviene tomar también la 6 (respuesta informativa del agente de atención), la 7 (traspaso de la célula de BI, porque Power BI y Fabric se retiran), la 15 (quién lee las imágenes), la 16 (serialización) y la 17 (si se recorta la Ola 1). La lista completa está en la [[sec:decisiones|sección 15]].",
        "depende": "Nada.",
        "acepta": "Ninguna decisión que bloquea la Ola 1 queda sin dueño ni fecha; las que no se tomen tienen su camino provisional escrito, por ejemplo el copiloto dentro de la plataforma mientras Mercately no publique eventos de mensaje.",
-       "rol": "La PMO lleva el registro; deciden la Junta Directiva, el Comité de Gobierno del Dato e IA o la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, según la decisión.",
+       "rol": "La PMO lleva el registro; deciden la Junta Directiva, el Comité de Gobierno del Dato e IA o la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, según la decisión.",
        "ver": [
         "[[mod:m-copiloto-de-atencion-omnicanal|Copiloto de atención]]",
         "[[mod:m-aprobacion-comercial-por-reglas|Aprobación comercial por reglas]]",
@@ -3186,7 +3186,7 @@ window.IA_DOC = {
        "como": "Una función compartida en `supabase/functions/_shared/` hace la llamada a `POST /v1/messages`: lee el freno, aplica el tope de gasto y registra modelo, versión del prompt, `usage` y costo. Ningún agente llama a la API por su cuenta. Las firmas por Lark usan el bot de aplicación ([[sec:conectores|sección 11]]). Se inventarían los aplicativos de IA que ya construyeron las áreas, para registrarlos o retirarlos ([[doc:politica/casos|artículo 6 de la política]]).",
        "depende": "La clave de Anthropic en la cuenta de Kenex (Ola 0); el espejo, para los permisos por país.",
        "acepta": "Con el freno puesto, ninguna función llama a la API ni sale ningún comando; un agente sin ficha no puede llamar a la API; las ejecuciones de un mes cuadran con la factura de Anthropic; el tope frena a un agente en el ensayo.",
-       "rol": "Equipo de plataforma; la opera la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento; Gobierno de IA define qué registra la ficha.",
+       "rol": "Equipo de plataforma; la opera la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento; Gobierno de IA define qué registra la ficha.",
        "ver": [
         "[[mod:m-sala-de-agentes-y-puerta-unica|Sala de agentes]]",
         "[[proc:5.1]]",
@@ -4291,7 +4291,7 @@ window.IA_DOC = {
        "entregable": "La firma electrónica con validez en Panamá, Venezuela y Colombia, con su rastro: quién firmó, cuándo y qué versión.",
        "depende": "Proveedor elegido (decisión 9); conector de firma.",
        "acepta": "Un documento firmado guarda quién, cuándo y qué versión; Consultoría Jurídica confirma la validez en cada país.",
-       "rol": "Equipo de plataforma; dueño: Consultoría Jurídica, con la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento.",
+       "rol": "Equipo de plataforma; dueño: Consultoría Jurídica, con la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento.",
        "ver": [
         "[[mod:m-firma-digital|Firma digital]]",
         "[[proc:18.2]]",
@@ -4664,7 +4664,7 @@ window.IA_DOC = {
    "estado": "borrador",
    "intro": "Quién construye y opera la plataforma, cómo se reparte el trabajo entre el negocio, Tecnología y el gobierno de la IA, y cómo se usa Claude Code sin saltarse ningún control.",
    "que": [
-    "La plataforma la construye y la opera un **equipo de plataforma** dentro de la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, que es la que implanta y opera. El negocio pone un **dueño de producto** por sector: decide qué se construye primero y acepta lo entregado. Gobierno de IA y el Comité de Gobierno del Dato e IA aprueban cada uso de la IA y su nivel de autonomía. Así se cumple la regla de la estructura: quien aprueba la IA no es quien la implanta.",
+    "La plataforma la construye y la opera un **equipo de plataforma** dentro de la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, que es la que implanta y opera. El negocio pone un **dueño de producto** por sector: decide qué se construye primero y acepta lo entregado. Gobierno de IA y el Comité de Gobierno del Dato e IA aprueban cada uso de la IA y su nivel de autonomía. Así se cumple la regla de la estructura: quien aprueba la IA no es quien la implanta.",
     "La Fase 1 encontró que la fragilidad del grupo no está en sus herramientas, sino en la falta de un eje que las articule y en la dependencia de terceros sin contraparte interna, como con los partners de Odoo y la app de Cubitt. Por eso pidió un equipo propio, capaz de modificar y mantener el sistema sin depender de un externo para cada cambio.",
     "El equipo programa con **Claude Code**, la herramienta de Anthropic para escribir código con Claude. Ya hay talento interno que trabaja así: en el taller de Panamá se vio cómo se programa con Claude, revisando el plan y el código antes de subirlo. La regla es simple: lo que escribe la herramienta pasa por la misma revisión humana y las mismas pruebas que lo escrito a mano. La herramienta acelera; no aprueba.",
     "Se trabaja por olas, en ciclos cortos. Cada ciclo termina con una demostración al dueño de producto y, si la acepta, con el pase a producción y la formación de quienes van a usar el módulo.",
@@ -4699,7 +4699,7 @@ window.IA_DOC = {
        "No implanta."
       ],
       [
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
        "Implanta y opera: es dueña del repositorio, las cuentas, las llaves y producción; conduce al equipo de plataforma y a los desarrolladores externos; presenta al Comité el registro de agentes, sus riesgos y sus incidentes.",
        "No aprueba los usos de la IA."
       ],
@@ -4778,7 +4778,7 @@ window.IA_DOC = {
     {
      "t": "lista",
      "items": [
-      "**Qué es:** la reunión de trabajo del equipo de plataforma, que convoca la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento. No es un órgano nuevo de la estructura.",
+      "**Qué es:** la reunión de trabajo del equipo de plataforma, que convoca la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento. No es un órgano nuevo de la estructura.",
       "**Quién y cuándo:** el responsable técnico, el equipo, la TI de los países afectados y los dueños de producto del ciclo, al abrir cada ciclo y una vez por semana (propuesta). Gobierno de IA asiste cuando entra un agente o se propone un cambio de nivel.",
       "**Qué decide:** el orden del ciclo, quién toma cada pieza, los cambios del esquema `core` y qué entra a la próxima ventana. Deja acta en `docs/`.",
       "**Qué no decide:** los usos de la IA ni sus niveles, que son del Comité de Gobierno del Dato e IA."
@@ -4829,7 +4829,7 @@ window.IA_DOC = {
       {
        "t": "Poner en operación",
        "x": "Pase en la ventana nocturna, de lunes a jueves, y formación de quienes lo usarán ([[proc:5.3]]). Todo agente arranca en nivel 1.",
-       "rol": "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con TI de cada país."
+       "rol": "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con TI de cada país."
       },
       {
        "t": "Medir",
@@ -4843,7 +4843,7 @@ window.IA_DOC = {
      "t": "h",
      "x": "Formación del equipo"
     },
-    "No hay adopción sin formación, tampoco para quien construye. La organiza el [[proc:5.3]] con Formación · Universidad Corporativa y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, como nivel técnico del [[doc:politica/formacion|artículo 9 de la política]]. Todos aprenden la política, el flujo del [[proc:14.3]] y Claude Code con estas reglas; cada perfil, lo suyo: RLS, colas y la API de Odoo por versión; Edge Functions; la API de Anthropic y su evaluación; pgTAP, secretos e incidentes. Se aprende construyendo: el primer módulo de cada perfil, en pareja con quien ya domina el patrón.",
+    "No hay adopción sin formación, tampoco para quien construye. La organiza el [[proc:5.3]] con Formación · Universidad Corporativa y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, como nivel técnico del [[doc:politica/formacion|artículo 9 de la política]]. Todos aprenden la política, el flujo del [[proc:14.3]] y Claude Code con estas reglas; cada perfil, lo suyo: RLS, colas y la API de Odoo por versión; Edge Functions; la API de Anthropic y su evaluación; pgTAP, secretos e incidentes. Se aprende construyendo: el primer módulo de cada perfil, en pareja con quien ya domina el patrón.",
     {
      "t": "h",
      "x": "Qué se terceriza y qué queda en casa"
@@ -4908,7 +4908,7 @@ window.IA_DOC = {
     "Una decisión abierta es algo que el equipo técnico no puede resolver solo, porque le toca al negocio, a un órgano de gobierno o a un proveedor. Si no se toma a tiempo, detiene una ola u obliga a rehacer lo construido.",
     "Las 18 primeras vienen de la órbita del 27-sep y conservan su número. Las 5 nuevas salieron de la investigación del 09-oct: dónde se sirven las pantallas, el plan de GitHub, la región de la base de datos, los usuarios de integración de Odoo y el plan de Lark con los reportes de Cashea. La investigación también actualizó varias de las 18: Mercately ya avisa de clientes y órdenes, pero no de mensajes; las versiones 16 y 17 de Odoo están fuera del soporte estándar; y hay que confirmar que EBS es el sistema de bodega de JMS.",
     "No se reabren las decisiones tomadas: Power BI y Fabric se retiran; la IA se usa desde la plataforma, también para Venezuela; y a Odoo no se le agregan módulos.",
-    "Las urgentes son las que bloquean la Ola 1: cómo se atiende por chat, cómo se refleja EBS, qué Odoo hay en cada país, quién firma, las reglas comerciales, los números de WhatsApp y las elecciones de la Ola 0. Cada decisión tiene un responsable por rol, con la misma regla de la estructura: el uso de la IA lo aprueba el Comité de Gobierno del Dato e IA; la tecnología, la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento; y lo que es negocio, la Junta Directiva.",
+    "Las urgentes son las que bloquean la Ola 1: cómo se atiende por chat, cómo se refleja EBS, qué Odoo hay en cada país, quién firma, las reglas comerciales, los números de WhatsApp y las elecciones de la Ola 0. Cada decisión tiene un responsable por rol, con la misma regla de la estructura: el uso de la IA lo aprueba el Comité de Gobierno del Dato e IA; la tecnología, la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento; y lo que es negocio, la Junta Directiva.",
     "Sin esta lista, el equipo decidiría por omisión. Por ejemplo, sin firmantes con suplente, el nivel 3 repetiría el freno de los pedidos que esperan a un aprobador de viaje ([[freno:7.2|freno 7.2]])."
    ],
    "como": [
@@ -4930,35 +4930,35 @@ window.IA_DOC = {
        "1",
        "Mercately",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con los dueños del proceso de atención",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con los dueños del proceso de atención",
        "[[mod:m-copiloto-de-atencion-omnicanal|Copiloto de atención]]"
       ],
       [
        "2",
        "Cómo se refleja EBS",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con el dueño del proceso de Zona Libre",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con el dueño del proceso de Zona Libre",
        "[[mod:m-llegada-a-zona-libre-y-liberacion|Llegada a Zona Libre]]"
       ],
       [
        "3",
        "Versión, alojamiento y edición de cada Odoo",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con TI de cada país",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con TI de cada país",
        "[[sec:registro|Sección 4]]"
       ],
       [
        "4",
        "Destino de la migración: v19 o v20",
        "Ola 1",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento; el presupuesto, la Junta Directiva",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento; el presupuesto, la Junta Directiva",
        "[[sec:registro|Sección 4]]"
       ],
       [
        "5",
        "Odoo por país o instancia única †",
        "Ola 2",
-       "Junta Directiva, a propuesta de la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento",
+       "Junta Directiva, a propuesta de la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
        "[[mod:m-espejo|Espejo]]"
       ],
       [
@@ -4972,7 +4972,7 @@ window.IA_DOC = {
        "7",
        "La célula de BI sin Power BI †",
        "Ola 1",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento; el dato oficial, el Comité de Gobierno del Dato e IA",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento; el dato oficial, el Comité de Gobierno del Dato e IA",
        "[[mod:m-tablero-de-direccion|Tablero de dirección]]"
       ],
       [
@@ -4986,7 +4986,7 @@ window.IA_DOC = {
        "9",
        "Proveedor de firma electrónica",
        "Ola 3",
-       "Consultoría Jurídica, con la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento",
+       "Consultoría Jurídica, con la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
        "[[mod:m-firma-digital|Firma digital]]"
       ],
       [
@@ -5000,7 +5000,7 @@ window.IA_DOC = {
        "11",
        "Las 143 personalizaciones",
        "Ola 1",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con los dueños de proceso",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con los dueños de proceso",
        "Decisión 4"
       ],
       [
@@ -5056,28 +5056,28 @@ window.IA_DOC = {
        "19",
        "Front: Vercel o Cloudflare",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
        "[[sec:front|Sección 9]]"
       ],
       [
        "20",
        "GitHub Team o Enterprise",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
        "[[sec:github|Sección 10]]"
       ],
       [
        "21",
        "Región del proyecto Supabase",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con Consultoría Jurídica",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con Consultoría Jurídica",
        "[[sec:nucleo|Sección 5]]"
       ],
       [
        "22",
        "Usuarios de integración y licencias de Odoo",
        "Urgente",
-       "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento, con Consultoría Jurídica",
+       "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, con Consultoría Jurídica",
        "[[sec:anexos|Anexo c]]"
       ],
       [

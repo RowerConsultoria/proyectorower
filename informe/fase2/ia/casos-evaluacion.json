@@ -136,7 +136,7 @@
    {
     "t": "nota",
     "titulo": "Nombres",
-    "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
+    "x": "El manual todavía nombra al Comité de Inteligencia Artificial y a la Gerencia de Tecnología. En la estructura propuesta son el **Comité de Gobierno del Dato e IA** y la **Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento**, con **Gobierno de IA** como unidad que redacta la política y vela por ella. Quien aprueba la IA no es quien la implanta."
    },
    {
     "t": "h",
@@ -3106,9 +3106,9 @@
     "meta": "≥ 80 % de las licencias con uso semanal a los 60 días (indicador del 5.3) y al menos un caso documentado por área a los 90 días",
     "umbral": "< 50 % de uso semanal a los 90 días, o un incidente con datos"
    },
-   "dueno": "Gobierno de IA, unidad de la Presidencia (en el manual, Gerente de Tecnología / Sistemas del 5.1)",
+   "dueno": "Gobierno de IA, gerencia corporativa de staff (en el manual, Gerente de Tecnología / Sistemas del 5.1)",
    "operador": "Directivos y gerentes con licencia",
-   "firmante": "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento las administra",
+   "firmante": "No requiere firma por uso; la Presidencia aprueba la asignación de licencias y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento las administra",
    "nota": "Quick win 2 de la Fase 1: no hay que construir nada y la Presidencia pide definir las licencias y arrancar. Faltan dos decisiones de dirección (cobertura con su presupuesto y política de uso). No alivia un freno concreto del circuito.",
    "evidencia": [
     "IF1:2364",
@@ -3156,7 +3156,7 @@
     "meta": "100 % inventariadas a los 60 días y con destino decidido a los 120; ninguna credencial de administrador en uso a los 6 meses",
     "umbral": "Aparecen herramientas nuevas fuera del registro después del primer trimestre"
    },
-   "dueno": "Gerencia Corporativa de Tecnología, Gobernanza y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
+   "dueno": "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento (en el manual, Gerente de Tecnología / Sistemas, que lleva el registro de herramientas)",
    "operador": "Coordinador(a) de Sistemas de cada país",
    "firmante": "Gobierno de IA, que decide el destino de cada herramienta",
    "nota": "Ordena un riesgo ya presente (credenciales de administrador y datos en cuentas personales) y se puede hacer sin construir. Para regularizar necesita la política de adopción y la sala de agentes. Varias islas (pauta, postventa, temporada web, torre retail) coinciden con módulos de la órbita.",
