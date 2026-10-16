@@ -209,7 +209,7 @@
     var ps = paisesDe(k), np = ps.length;
     var coords = (k.hijos || []).filter(function(x){ return x.nivel === "coord"; });
     if(EXP[k.id] && np) return cajaPaisAbierta(k, ps, coords);
-    var h = '<div class="eo-pwrap">' + caja(k, "eo-c-n3 eo-pila-" + Math.min(np, 4), "Gerencia país · " + np + " países") +
+    var h = '<div class="eo-pwrap">' + caja(k, "eo-c-n3 eo-pila-" + Math.min(np, 4), "Gerencia país · " + np + (np === 1 ? " país" : " países")) +
             (np > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(k.id) + '" aria-expanded="false" title="Ver una caja por país">' +
                       '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
     coords.forEach(function(x){

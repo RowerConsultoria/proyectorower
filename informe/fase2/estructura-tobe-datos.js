@@ -60,6 +60,11 @@
    línea de la Presidencia y pasa a gerencia corporativa de staff, junto a la de
    tecnología, que pasa a llamarse Tecnología, Gobernanza del Dato y
    Cumplimiento. Con eso la Presidencia queda con ocho reportes directos.
+   El mismo día se suprime la gerencia corporativa de Finanzas: Jaime González
+   pasa a la Dirección de Finanzas y las gerencias país de Administración y
+   Finanzas le reportan directo. La gerencia de unidad de negocio de la PMO pasa
+   a gerencia país (Arani González, en Venezuela); en la capa corporativa queda
+   solo la gerencia corporativa de la PMO.
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
@@ -92,7 +97,7 @@ window.ESTRUCTURA_TOBE = {
 
   NIVELES: [
     {id:'n1', n:'Direcciones corporativas', d:'Una por gran función del grupo. Fijan la línea rectora, verifican y orientan; su operatividad debe ser baja.'},
-    {id:'n2', n:'Gerencias corporativas',   d:'Nivel intermedio con alcance regional: especialidades que se gobiernan una sola vez para todo el grupo. En el staff, dos reportan directo a la Presidencia.'},
+    {id:'n2', n:'Gerencias corporativas',   d:'Nivel intermedio con alcance regional: especialidades que se gobiernan una sola vez para todo el grupo. En el staff, tres reportan directo a la Presidencia.'},
     {id:'n3', n:'Gerencias país',           d:'Espejo de la línea rectora en cada operación propia (Panamá, Venezuela, Colombia): ejecutan con el marco normativo y los recursos del país. Estados Unidos (Kenex USA) tiene solo las posiciones que su operación necesita.'}
   ],
 
@@ -408,36 +413,28 @@ window.ESTRUCTURA_TOBE = {
     },
     {
       id:'finanzas', n:'Finanzas', caracter:'staff',
-      ocupante:{nombre:'Vacante (Bernardo Roizental)', estado:'vacante', nota:'Ricardo Roizental participa en el gobierno del grupo familiar desde la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva con operaciones por procesos. Mientras se encuentre este cargo vacante, Bernardo Roizental asume responsabilidad en ejecución de horizonte estratégico y decisiones de alto nivel en materia financiera.'},
+      ocupante:{nombre:'Jaime González', estado:'propuesto', nota:'Sube desde la gerencia de Administración y Finanzas de Venezuela.'},
       funciones:[
         'Consolida la información financiera de todo el grupo, todas las marcas y todos los países.',
+        'Conduce las finanzas del grupo: presupuesto, flujo de caja, pagos a fábrica y cierre consolidado. Las gerencias país de Administración y Finanzas le reportan directo.',
         'Lleva la relación con los bancos, las líneas de crédito y la colocación de las inversiones.',
+        'Prepara para el Comité de Finanzas y Riesgos lo que sube a la Junta Directiva y a la Presidencia.',
         'Desarrolla negocios nuevos para el grupo.',
         'Incluye las compras internas de la organización (no las de producto).'
       ],
-      nota:'Hasta el 15-oct-2026 se llamó Finanzas y Negocios. La conducción financiera del día a día es de la gerencia corporativa de Finanzas, que responde por los países.',
+      nota:'Hasta el 15-oct-2026 se llamó Finanzas y Negocios; desde el 16-oct no tiene gerencia corporativa intermedia: va la dirección y, debajo, sus gerencias por país. Ricardo Roizental participa en el gobierno del grupo desde la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva. Su relación con la Junta Directiva y con la Presidencia se dibuja en el funcionamiento —el Comité de Finanzas y Riesgos—, no en la línea de mando: el organigrama muestra de quién depende cada unidad, no con quién despacha.',
       hijos:[
-        {id:'fincorp', n:'Finanzas', nivel:'n2',
-         ocupante:{nombre:'Jaime González', estado:'propuesto', nota:'Sube desde la gerencia de Administración y Finanzas de Venezuela.'},
+        {id:'finpais', n:'Administración y Finanzas', nivel:'n3',
+         paises:{
+           PA:{nombre:'Vacante', estado:'vacante'},
+           VE:{nombre:'Por definir', estado:'pordefinir', nota:'Jaime González, que la ocupaba, sube a la Dirección de Finanzas.'},
+           CO:{nombre:'Vacante', estado:'vacante'}
+         },
          funciones:[
-           'Conduce las finanzas de todo el grupo: presupuesto, flujo de caja, pagos a fábrica y cierre consolidado.',
-           'Las gerencias país de Administración y Finanzas le reportan.',
-           'Prepara para el Comité de Finanzas y Riesgos lo que sube a la Junta Directiva y a la Presidencia.'
+           'La operación financiera del país, con el marco fiscal local.',
+           'La compra interna y el pago de los servicios que sostienen sedes, tiendas y bodegas.'
          ],
-         nota:'Su relación directa con la Junta Directiva y con la Presidencia se mantiene, y se dibuja en el funcionamiento —el Comité de Finanzas y Riesgos—, no en la línea de mando: el organigrama muestra de quién depende cada unidad, no con quién despacha.',
-         hijos:[
-           {id:'finpais', n:'Administración y Finanzas', nivel:'n3',
-            paises:{
-              PA:{nombre:'Vacante', estado:'vacante'},
-              VE:{nombre:'Por definir', estado:'pordefinir', nota:'Jaime González, que la ocupaba, sube a la gerencia corporativa.'},
-              CO:{nombre:'Vacante', estado:'vacante'}
-            },
-            funciones:[
-              'La operación financiera del país, con el marco fiscal local.',
-              'La compra interna y el pago de los servicios que sostienen sedes, tiendas y bodegas.'
-            ],
-            interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.']}
-         ]}
+         interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.']}
       ]
     },
     {
@@ -507,18 +504,18 @@ window.ESTRUCTURA_TOBE = {
       funciones:[
         'Gobierna la cartera de proyectos de todo el grupo y la presenta al Comité Directivo.',
         'Es la oficina de método: fija cómo se gestiona un proyecto en toda la organización.',
+        'Lleva el equipo de gerentes de proyecto que atiende a toda la corporación: aperturas, remodelaciones y cierres de tienda; proyectos de innovación de producto; proyectos de transformación organizacional. Los distribuye según la demanda y en los picos subcontrata por proyecto, con principio y fin.',
+        'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras y Cadena de Suministro en la mercancía inicial y el mobiliario, Experiencia del Cliente en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
         'Rinde cuentas a la Presidencia y al Comité Directivo.'
       ],
-      nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza del Dato y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación.',
+      nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza del Dato y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación. Desde el 16-oct-2026 lleva ella misma el equipo de gerentes de proyecto —antes en una gerencia de unidad de negocio— y tiene una gerencia país en Venezuela.',
       hijos:[
-        {id:'pmocorp', n:'PMO', nivel:'gun',
-         ocupante:{nombre:'Arani González', estado:'propuesto', nota:'Hoy es gerente de proyectos de la PMO y lleva los proyectos de Venezuela.'},
-         funciones:[
-           'Equipo de gerentes de proyecto que atiende a toda la corporación: aperturas, remodelaciones y cierres de tienda; proyectos de innovación de producto; proyectos de transformación organizacional.',
-           'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras y Cadena de Suministro en la mercancía inicial y el mobiliario, Experiencia del Cliente en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
-           'Distribuye a los gerentes de proyecto según la demanda; en los picos subcontrata por proyecto, con principio y fin.'
-         ],
-         nota:'Un solo equipo generalista para todos los países, no una gerencia por país ni alas fijas por tipo de proyecto: así no quedan capacidades ociosas entre picos.'}
+        {id:'pmopais', n:'PMO', nivel:'n3',
+         paises:{
+           VE:{nombre:'Arani González', estado:'propuesto', nota:'Hoy es gerente de proyectos de la PMO y lleva los proyectos de Venezuela.'}
+         },
+         funciones:['Los proyectos del país, con el método y la cartera que fija la gerencia corporativa de la PMO.'],
+         nota:'Gerencia país desde el 16-oct-2026; antes, gerencia de unidad de negocio. Hoy solo Venezuela la tiene: en los demás países los proyectos los atiende el equipo corporativo.'}
       ]
     }
   ],
@@ -568,7 +565,7 @@ window.ESTRUCTURA_TOBE = {
        'Revisa el crédito a clientes y la cobranza.',
        'Vigila el riesgo cambiario entre países: ninguna cifra sin moneda y sin tasa fechada.'
      ],
-     principal:['finanzas', 'fincorp', 'comercial', 'opl'],
+     principal:['finanzas', 'comercial', 'opl'],
      ampliado:['id', 'desarrollo', 'finpais', 'juridica']},
     {id:'c-comercial', n:'Comité Comercial', lidera:'comercial',
      proposito:'Instancia de cogobierno que formaliza las decisiones de producto y de venta que hoy toma un grupo informal, sin formato ni registro.',
@@ -591,7 +588,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'Staff y unidades de negocio',
      d:'Innovación y Desarrollo de Productos, Compras y Cadena de Suministro y Comercial son las unidades de negocio: la razón de ser del grupo, bajo la línea de mando de la Presidencia y en el orden de la cadena de valor, del producto a la postventa. El staff sostiene a las tres y apoya al Comité Directivo, sin mezclarse con ellas: las direcciones de Finanzas y de Desarrollo Corporativo, y tres gerencias corporativas que reportan directo a la Presidencia: Tecnología, Gobernanza del Dato y Cumplimiento, Gobierno de IA y la PMO. La Asistencia Ejecutiva a la Presidencia y la Consultoría Jurídica son unidades de la propia Presidencia. En el organigrama cada grupo va en su contenedor: el staff a la izquierda de la línea que baja de la Presidencia y las unidades de negocio a la derecha; dentro de cada uno, un recuadro agrupa los niveles corporativos y debajo quedan las gerencias país.'},
     {t:'Equipos nucleares que se asignan por demanda',
-     d:'La PMO y Consultoría Jurídica no se replican por país: son equipos centrales que se reparten según lo que pida la corporación, y que subcontratan en los picos.'},
+     d:'Consultoría Jurídica no se replica por país, y la PMO solo tiene gerencia país donde la cartera lo pide —hoy Venezuela—: son equipos centrales que se reparten según lo que pida la corporación, y que subcontratan en los picos.'},
     {t:'Cogobierno por comités',
      d:'Lo que atraviesa varias direcciones no se resuelve creando un área más, sino un comité que lidera y convoca una dirección o una gerencia corporativa con sus pares. Se formalizan cinco: Calidad y Mejora Continua, Gobierno del Dato e IA, Cultura Organizacional, Finanzas y Riesgos, y Comercial. A su lado está el Consejo de Familia, la instancia de cogobierno de la familia propietaria. La Junta Directiva es gobierno. Ninguno de ellos es línea de mando.'},
     {t:'Tercerizar lo que no es núcleo',
@@ -615,7 +612,7 @@ window.ESTRUCTURA_TOBE = {
       {id:'n2', nivel:'n2', verbo:'Gobiernan una especialidad', escalon:'Gerente corporativo(a)',
        d:'Solo existen donde una especialidad conviene llevarla una vez para todos los países.'},
       {id:'gun', n:'Gerencias de unidad de negocio', verbo:'Llevan un canal o un frente', escalon:'Gerente de unidad de negocio',
-       d:'Dentro de una gerencia corporativa, cada una lleva un canal, un frente o una especialidad para todo el grupo: en el negocio, los canales de venta y los frentes de mercadeo; en el staff, la gestión de proyectos. No se replican por país: la ejecución local sigue en las gerencias país.'},
+       d:'Dentro de una gerencia corporativa, cada una lleva un canal, un frente o una especialidad para todo el grupo: los canales de venta y los frentes de mercadeo. No se replican por país: la ejecución local sigue en las gerencias país.'},
       {id:'n3', nivel:'n3', verbo:'Ejecutan en cada país', escalon:'Gerente (país)',
        d:'Cada país reproduce el mismo espejo; abrir un país nuevo es replicarlo.'},
       {id:'equipos', n:'Equipos', verbo:'Operan', escalon:'De coordinador(a) a operario(a)',
@@ -661,7 +658,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial; en el staff lo añade la gerencia de la PMO.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial.'}
   ],
 
   CAMBIOS: {
@@ -702,10 +699,10 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Dentro de Operaciones y Logística.',
        porque:'Un solo doliente de la mercancía, desde que llega hasta que sale.'},
       {antes:'PMO con dos alas fijas (desarrollo de producto · transformación).',
-       ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda.',
+       ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda, y una gerencia país donde la cartera lo pide (hoy Venezuela).',
        porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'La Dirección de Finanzas con su gerencia corporativa de Finanzas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       ahora:'La Dirección de Finanzas con sus gerencias de Administración y Finanzas por país, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
        porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },
@@ -717,9 +714,9 @@ window.ESTRUCTURA_TOBE = {
     {t:'Gerencia corporativa de Mercadeo', d:'Vacante clave: definir perfil y titular.'},
     {t:'Gobierno de IA y tecnología', d:'La Gerencia Corporativa de Gobierno de IA, a contratar: definir su perfil. Confirmar a Mariela Castro en la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, y deslindar con ella qué parte del gobierno del dato decide el comité y cuál opera su gerencia.'},
     {t:'Tramo de la Presidencia', d:'Con Gobierno de IA como gerencia de staff, la Presidencia tiene ocho reportes directos, uno por encima del rango de 4 a 7. Decidir si se acepta así o si se agrupan dos unidades de staff.'},
-    {t:'PMO', d:'Confirmar a Ricardo Candanedo en la gerencia corporativa y a Arani González en la gerencia de unidad de negocio.'},
+    {t:'PMO', d:'Confirmar a Ricardo Candanedo en la gerencia corporativa y a Arani González en la gerencia país de Venezuela. Decidir si Panamá y Colombia necesitan la suya.'},
     {t:'Innovación y Tecnología de Productos', d:'Vacante: definir el perfil de CTO de producto y si se contrata o se forma.'},
-    {t:'Finanzas: línea y funcionamiento', d:'La gerencia corporativa de Finanzas depende de la Dirección de Finanzas y despacha con la Junta y la Presidencia a través del Comité de Finanzas y Riesgos. Confirmar que así se lee.'},
+    {t:'Finanzas: línea y funcionamiento', d:'La Dirección de Finanzas conduce directo a las gerencias de Administración y Finanzas de cada país, sin gerencia corporativa intermedia, y despacha con la Junta y la Presidencia a través del Comité de Finanzas y Riesgos. Confirmar a Jaime González en la dirección y quién cubre su gerencia en Venezuela.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
     {t:'Calidad y Mejora Continua', d:'Se planteó una persona dedicada a partir de 2027, apoyada por Desarrollo Corporativo y la PMO. Hasta entonces la conduce el comité con el equipo actual.'},
     {t:'Ventas al mayor', d:'Trazar la frontera entre la cartera corporativa (países sin operación propia) y la de cada país, con quien encabece Comercial.'},

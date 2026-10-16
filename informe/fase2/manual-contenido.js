@@ -8460,7 +8460,7 @@ window.MANUAL_CONTENIDO = {
      "participantes": [
       "Junta Directiva — define los objetivos a tres años y los focos del año, y aprueba el plan en sesión formal.",
       "Asesor(a) Externo(a) de Junta Directiva — modera la sesión anual y redacta el plan a partir de lo acordado.",
-      "Gerentes Regionales/Gerentes Corporativos — por la gerencia corporativa de finanzas, presentan el cierre financiero y la capacidad de inversión, y validan que cada objetivo tenga respaldo financiero.",
+      "Gerentes Regionales/Gerentes Corporativos — por la Dirección de Finanzas, presentan el cierre financiero y la capacidad de inversión, y validan que cada objetivo tenga respaldo financiero.",
       "Asistente Ejecutivo(a) de la Presidencia — convoca la sesión, custodia el documento vigente y agenda las revisiones de avance.",
       "Gerentes de primera línea — presentan el cierre del año de su área y reciben el plan para derivar sus metas."
      ],
@@ -8502,7 +8502,7 @@ window.MANUAL_CONTENIDO = {
       {
        "id": "a3",
        "rol": "Gerentes Regionales/Gerentes Corporativos",
-       "texto": "Presentan, a través de la gerencia corporativa de finanzas, el cierre financiero del grupo, la proyección del año y la capacidad de inversión y de endeudamiento disponible, para fijar los objetivos conociendo cuánto se puede financiar."
+       "texto": "Presentan, a través de la Dirección de Finanzas, el cierre financiero del grupo, la proyección del año y la capacidad de inversión y de endeudamiento disponible, para fijar los objetivos conociendo cuánto se puede financiar."
       },
       {
        "id": "a4",
@@ -8517,7 +8517,7 @@ window.MANUAL_CONTENIDO = {
       {
        "id": "a6",
        "rol": "Gerentes Regionales/Gerentes Corporativos",
-       "texto": "Verifican, a través de la gerencia corporativa de finanzas, que cada objetivo tenga respaldo financiero; si no lo tiene, la Junta lo ajusta al escenario disponible o lo difiere, en lugar de aprobarlo sin fuente de fondos."
+       "texto": "Verifican, a través de la Dirección de Finanzas, que cada objetivo tenga respaldo financiero; si no lo tiene, la Junta lo ajusta al escenario disponible o lo difiere, en lugar de aprobarlo sin fuente de fondos."
       },
       {
        "id": "a7",
@@ -9839,7 +9839,7 @@ window.MANUAL_CONTENIDO = {
      "participantes": [
       "Asesor(a) Externo(a) de Junta Directiva — custodia el protocolo, conduce su actualización y facilita el consejo de familia.",
       "Asesor(a) Jurídico(a) Externo(a) del Grupo — revisa legalmente el protocolo antes de su firma.",
-      "Gerentes Regionales/Gerentes Corporativos — por la gerencia corporativa de finanzas, presentan a la asamblea los resultados del ejercicio.",
+      "Gerentes Regionales/Gerentes Corporativos — por la Dirección de Finanzas, presentan a la asamblea los resultados del ejercicio.",
       "Asistente Ejecutivo(a) de la Presidencia — convoca la asamblea y el consejo de familia y custodia sus actas."
      ],
      "evidencia": [
@@ -9885,7 +9885,7 @@ window.MANUAL_CONTENIDO = {
       {
        "id": "a5",
        "rol": "Gerentes Regionales/Gerentes Corporativos",
-       "texto": "Presentan a la asamblea, a través de la gerencia corporativa de finanzas, los resultados del ejercicio del grupo, su situación financiera y la propuesta de aplicación de resultados, con los estados financieros cerrados."
+       "texto": "Presentan a la asamblea, a través de la Dirección de Finanzas, los resultados del ejercicio del grupo, su situación financiera y la propuesta de aplicación de resultados, con los estados financieros cerrados."
       },
       {
        "id": "a6",
@@ -12156,7 +12156,7 @@ window.MANUAL_CONTENIDO = {
       {
        "id": "a8",
        "rol": "Gerentes Regionales/Gerentes Corporativos",
-       "texto": "Reciben el forecast aprobado, mensualizado en unidades y montos, y lo usan en sus áreas: la gerencia corporativa de finanzas, para el presupuesto del año y la proyección de caja, y compras, para la proyección de compras."
+       "texto": "Reciben el forecast aprobado, mensualizado en unidades y montos, y lo usan en sus áreas: la Dirección de Finanzas, para el presupuesto del año y la proyección de caja, y compras, para la proyección de compras."
       },
       {
        "id": "a9",
@@ -12426,7 +12426,7 @@ window.MANUAL_CONTENIDO = {
       "Comité de Estrategia Comercial — aprueba la estructura de precios por mercado y la política de márgenes.",
       "Director(a) Comercial Mayorista (Cubitt) — lee el precio de la competencia en cada mercado del mayor y propone el precio de la marca propia.",
       "Gerente Regional Comercial / Retail — calcula costos y márgenes por producto y mercado, y publica las listas vigentes.",
-      "Gerentes Regionales/Gerentes Corporativos — por la gerencia corporativa de finanzas, analizan la rentabilidad por país y el efecto cambiario sobre las listas.",
+      "Gerentes Regionales/Gerentes Corporativos — por la Dirección de Finanzas, analizan la rentabilidad por país y el efecto cambiario sobre las listas.",
       "Gerente Comercial (País / Canal) — aplica las listas y solicita, con motivo, cualquier precio fuera de rango."
      ],
      "evidencia": [
@@ -12466,7 +12466,7 @@ window.MANUAL_CONTENIDO = {
       {
        "id": "a3",
        "rol": "Gerentes Regionales/Gerentes Corporativos",
-       "texto": "Analizan, a través de la gerencia corporativa de finanzas, la rentabilidad por país y el efecto de la brecha cambiaria sobre las listas, y señalan los mercados donde la lista vigente ya no cubre el margen objetivo."
+       "texto": "Analizan, a través de la Dirección de Finanzas, la rentabilidad por país y el efecto de la brecha cambiaria sobre las listas, y señalan los mercados donde la lista vigente ya no cubre el margen objetivo."
       },
       {
        "id": "a4",
@@ -16130,7 +16130,7 @@ window.MANUAL_CONTENIDO = {
       "Grupo",
       "Asigna el código de proyecto, valida el presupuesto y reporta el consumo.",
       "Disponibilidad de fondos.",
-      "A la gerencia corporativa de finanzas."
+      "A la Dirección de Finanzas."
      ],
      [
       "Junta Directiva",
