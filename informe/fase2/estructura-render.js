@@ -14,6 +14,12 @@
 // después de maquetar, midiendo las cajas: peine vertical por el margen
 // izquierdo de cada subcolumna.
 //
+// Gerencias país y coordinaciones país: plegadas son una caja que resume los países
+// (dibujada como una pila, una hoja por país); con «Por país» se abren en una caja por
+// país, con su ocupante y una línea que baja sin caja: el equipo del país queda por
+// desarrollar. Las abiertas se recuerdan en rower.fase2.estructura (expandidas).
+// La rueda del mouse acerca y aleja; para moverse se arrastra.
+//
 // Consejos y comités: no se dibujan en el lienzo (al pie se perdían de vista). Van en
 // un flotante desplegable fijo en la parte superior de la vista, que no se mueve con
 // el pan/zoom. Los consejos (E.CONSEJOS) no tienen línea hacia la Presidencia.
@@ -192,13 +198,76 @@
 
   // Gerencia país con sus coordinaciones debajo, con sangría: es la única estructura
   // interna que se dibuja, para las unidades que deben existir con responsable propio.
+  // Plegada: una caja que resume los países, con una pestaña para abrirla.
+  // Abierta (EXP[id]): una caja por país, con su ocupante, sus coordinaciones y una
+  // línea que baja sin caja: el equipo del país queda por desarrollar.
+  var EXP = {};
+  var ANCHO_PAIS = 178, HUECO_PAIS = 12;
+  function paisesDe(k){ return E.PAISES.filter(function(p){ return k.paises && k.paises[p.id]; }); }
+  function anchoAbierta(k){ var n = paisesDe(k).length; return n * ANCHO_PAIS + (n - 1) * HUECO_PAIS; }
   function cajaPais(k){
-    var np = E.PAISES.filter(function(p){ return k.paises && k.paises[p.id]; }).length;
-    var h = caja(k, "eo-c-n3", "Gerencia país · " + np + " países");
-    (k.hijos || []).filter(function(x){ return x.nivel === "coord"; }).forEach(function(x){
-      h += caja(x, "eo-c-n3 eo-c-coord", "Coordinación país");
+    var ps = paisesDe(k), np = ps.length;
+    var coords = (k.hijos || []).filter(function(x){ return x.nivel === "coord"; });
+    if(EXP[k.id] && np) return cajaPaisAbierta(k, ps, coords);
+    var h = '<div class="eo-pwrap">' + caja(k, "eo-c-n3 eo-pila-" + Math.min(np, 4), "Gerencia país · " + np + " países") +
+            (np > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(k.id) + '" aria-expanded="false" title="Ver una caja por país">' +
+                      '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
+    coords.forEach(function(x){
+      var px = paisesDe(x);
+      if(EXP[x.id] && px.length){ h += cajaPaisAbierta(x, px, [], true); return; }
+      h += '<div class="eo-pwrap eo-pwrap-coord">' + caja(x, "eo-c-n3 eo-c-coord eo-pila-" + Math.min(px.length, 4), "Coordinación país") +
+           (px.length > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(x.id) + '" aria-expanded="false" title="Ver una caja por país">' +
+                            '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
     });
     return h;
+  }
+  function cargoPais(o){ return o.cargo && o.cargo !== "Gerencia" ? o.cargo + " país" : "Gerencia país"; }
+  function cajaPaisAbierta(k, ps, coords, esCoord){
+    var h = '<div class="eo-pexpand' + (esCoord ? ' eo-pexpand-coord' : '') + '" style="width:' + anchoAbierta(k) + 'px">' +
+            '<button type="button" class="eo-pcab" data-exp="' + esc(k.id) + '" data-ancla="' + esc(k.id) + '" aria-expanded="true" title="Volver a una sola caja">' +
+              '<b>' + esc(k.n) + '</b><span>' + ps.length + (esCoord ? ' coordinaciones país' : ' gerencias país') + '</span><i aria-hidden="true">⊟</i></button>' +
+            '<div class="eo-pfila">';
+    ps.forEach(function(p){
+      var o = k.paises[p.id];
+      h += '<div class="eo-pcol">' +
+             '<button type="button" class="eo-card eo-c-n3 eo-c-pp' + (esCoord ? ' eo-c-pcoord' : '') + '" data-id="' + esc(k.id) + '" data-pais="' + esc(p.id) + '" aria-haspopup="dialog" title="' + esc(p.n + " — " + o.nombre) + '">' +
+               '<span class="eo-tag">' + esc(esCoord ? "Coordinación país" : cargoPais(o)) + '</span>' +
+               '<span class="eo-ttl">' + esc(k.n) + '</span>' +
+               '<span class="eo-ppais"><b class="eo-pcod">' + esc(p.id) + '</b>' + esc(p.n) + '</span>' +
+               lineaOcupante(o) +
+             '</button>';
+      coords.forEach(function(x){
+        var c = x.paises && x.paises[p.id]; if(!c) return;
+        h += '<button type="button" class="eo-card eo-c-n3 eo-c-coord eo-c-pp" data-id="' + esc(x.id) + '" data-pais="' + esc(p.id) + '" aria-haspopup="dialog">' +
+               '<span class="eo-tag">Coordinación país</span><span class="eo-ttl">' + esc(x.n) + '</span>' + lineaOcupante(c) + '</button>';
+      });
+      h += '<span class="eo-pstub" aria-hidden="true"></span><span class="eo-pstubtxt">equipo por desarrollar</span></div>';
+    });
+    return h + '</div></div>';
+  }
+  function alternar(id, abrirla){
+    var n = NODOS[id]; if(!n) return;
+    var antes = n.el ? n.el.getBoundingClientRect() : null;
+    EXP[id] = abrirla === undefined ? !EXP[id] : abrirla;
+    if(!EXP[id]) delete EXP[id];
+    var p = leerPref(); p.expandidas = Object.keys(EXP); guardarPref(p);
+    remaquetar();
+    // la unidad se queda donde estaba en la pantalla
+    var ahora = n.el ? n.el.getBoundingClientRect() : null;
+    if(antes && ahora){ cam.x += (antes.left + antes.width / 2) - (ahora.left + ahora.width / 2); cam.y += antes.top - ahora.top; aplicar(); }
+    if(!panel.hidden && actual === id) abrir(id);
+    actualizarTodas();
+  }
+  function remaquetar(){
+    maquetar(); trazar();
+    if(!panel.hidden && actual) marcar(actual);
+  }
+  function unidadesPais(){ return Object.keys(NODOS).filter(function(id){ var d = NODOS[id].d; return (d.nivel === "n3" || d.nivel === "coord") && paisesDe(d).length > 1; }); }
+  function actualizarTodas(){
+    var b = host.querySelector("#eoExpTodas"); if(!b) return;
+    var todas = unidadesPais(), abiertas = todas.filter(function(id){ return EXP[id]; }).length;
+    b.setAttribute("aria-pressed", String(abiertas === todas.length));
+    b.textContent = abiertas === todas.length ? "Contraer países" : "Abrir todos los países";
   }
 
   // --------------------------------------------------------------- montaje
@@ -220,6 +289,7 @@
            '<button class="mp-btn" id="eoLeyBtn" aria-pressed="true" aria-controls="eoLey">Leyenda</button>' +
            '<button class="mp-btn" id="eoOcup" aria-pressed="true">Ocupantes</button>' +
            '<button class="mp-btn" id="eoVac" aria-pressed="false">Resaltar abiertas</button>' +
+           '<button class="mp-btn" id="eoExpTodas" aria-pressed="false">Abrir todos los países</button>' +
            '<a class="mp-btn eo-btn-prem" href="#/estructura/premisas">Premisas del diseño</a>' +
          '</div>';
     h += '<div class="eo-capas" id="eoCapas" hidden></div>';
@@ -245,7 +315,15 @@
     lienzo = host.querySelector("#eoLienzo");
     panel = host.querySelector("#eoPanel"); pcuerpo = host.querySelector("#eoPcuerpo");
 
+    (pref.expandidas || []).forEach(function(id){ if(NODOS[id]) EXP[id] = true; });
     maquetar();
+    actualizarTodas();
+    host.querySelector("#eoExpTodas").addEventListener("click", function(){
+      var todas = unidadesPais(), abrir = todas.some(function(id){ return !EXP[id]; });
+      EXP = {}; if(abrir) todas.forEach(function(id){ EXP[id] = true; });
+      var p = leerPref(); p.expandidas = Object.keys(EXP); guardarPref(p);
+      remaquetar(); ajustar(); actualizarTodas();
+    });
     montarLeyenda(pref);
     montarCogob(pref);
 
@@ -265,11 +343,15 @@
     // clic en cajas
     lienzo.addEventListener("click", function(e){
       if(arrastro) return;
+      var x = e.target.closest("[data-exp]");
+      if(x){ alternar(x.getAttribute("data-exp")); return; }
       var c = e.target.closest(".eo-card,.eo-comite");
       if(c) location.hash = "#/estructura/" + encodeURIComponent(c.getAttribute("data-id"));
     });
     host.querySelector("#eoPx").addEventListener("click", function(){ location.hash = "#/estructura"; });
     pcuerpo.addEventListener("click", function(e){
+      var x = e.target.closest("[data-exp]");
+      if(x){ alternar(x.getAttribute("data-exp")); return; }
       var t = e.target.closest("[data-tab]");
       if(t){ location.hash = "#/estructura/premisas/" + t.getAttribute("data-tab"); }
     });
@@ -299,6 +381,7 @@
          '<span><i class="eo-lsw eo-sw-neg"></i>Unidad de negocio</span>' +
          '<span><i class="eo-lsw eo-sw-staff"></i>Staff</span>' +
          '<span><i class="eo-lsw eo-sw-pun"></i>Gobierno y staff: sin mando</span>' +
+         '<span><i class="eo-lsw eo-sw-stub"></i>Línea sin caja: equipo por desarrollar</span>' +
          '</div>';
   }
   function montarLeyenda(pref){
@@ -403,18 +486,38 @@
     var colsS = STF.map(subcolumnas), nS = 0;
     colsS.forEach(function(sc){ nS += sc.length; });
     var hueco = nS + 1, nIni = nS + 2, nFin = nIni + total;
-    lienzo.style.gridTemplateColumns = (nS ? "repeat(" + nS + ", var(--eo-col)) " : "") + "64px repeat(" + total + ", var(--eo-col))";
+    // Ancho de cada columna: el de siempre, salvo donde una gerencia país está abierta
+    // por país y no cabe; esa columna (la última de su celda) se ensancha.
+    var COL = parseFloat(getComputedStyle(host).getPropertyValue("--eo-col")) || 236, GAP = 14;
+    var anchos = [];
+    for(var ci = 1; ci < nFin; ci++) anchos[ci] = ci === hueco ? 64 : COL;
+    var pide = function(unidades, col, span){
+      var w = 0;
+      unidades.forEach(function(k){
+        if(EXP[k.id] && paisesDe(k).length) w = Math.max(w, anchoAbierta(k) + 22);
+        else (k.hijos || []).forEach(function(x){ if(x.nivel === "coord" && EXP[x.id] && paisesDe(x).length) w = Math.max(w, anchoAbierta(x) + 22); });
+      });
+      var hay = 0; for(var i = 0; i < span; i++) hay += anchos[col + i]; hay += (span - 1) * GAP;
+      if(w > hay) anchos[col + span - 1] += w - hay;
+    };
+    lienzo.style.gridTemplateColumns = "";
 
     var h = '';
     var R = {linea:2, tit:3, n1:4, n2:5, n3:6};
-    // contenedores (detrás de todo): el del grupo, el recuadro corporativo y el título
+    // contenedores (detrás de todo): el del grupo, la banda corporativa (llena), la
+    // banda país (rayada), el rótulo de cada una y el título del contenedor
+    var plenos = E.PAISES.filter(function(p){ return !p.parcial; }).map(function(p){ return p.id; }).join(" · ");
+    var parciales = E.PAISES.filter(function(p){ return p.parcial; }).map(function(p){ return p.id; });
+    var rotPais = "se repite en " + plenos + (parciales.length ? ", y " + parciales.join(" · ") + " donde se nombra" : "");
     var contenedor = function(car, a, b){
       if(b <= a) return '';
       return '<div class="eo-grupo eo-g-' + car + '" style="grid-row:' + R.tit + ' / ' + (R.n3 + 1) + ';grid-column:' + a + ' / ' + b + '"></div>' +
              '<div class="eo-corp eo-g-' + car + '" style="grid-row:' + R.n1 + ' / ' + (R.n2 + 1) + ';grid-column:' + a + ' / ' + b + '"></div>' +
+             '<div class="eo-paisz eo-g-' + car + '" style="grid-row:' + R.n3 + ';grid-column:' + a + ' / ' + b + '"></div>' +
+             '<div class="eo-capatag eo-ct-corp eo-g-' + car + '" style="grid-row:' + R.n1 + ';grid-column:' + a + ' / ' + b + '"><span><b>Capa corporativa</b> · una sola vez para todo el grupo</span></div>' +
+             '<div class="eo-capatag eo-ct-pais eo-g-' + car + '" style="grid-row:' + R.n3 + ';grid-column:' + a + ' / ' + b + '"><span><b>Capa país</b> · ' + esc(rotPais) + '</span></div>' +
              '<div class="eo-grupotit eo-g-' + car + '" style="grid-row:' + R.tit + ';grid-column:' + a + ' / ' + b + '">' +
                '<span>' + (car === "negocio" ? '<b>Unidades de negocio</b> · la cadena de valor' : '<b>Staff</b> · ' + esc(E.rotuloStaff || 'apoyo a la Presidencia')) + '</span>' +
-               '<span class="eo-gnota">recuadro: niveles corporativos · debajo: gerencias país</span>' +
              '</div>';
     };
     h += contenedor("staff", 1, hueco);
@@ -454,6 +557,7 @@
                  if(n === dr) return caja(n, "eo-c-n2 eo-c-gstaff" + (n.hijos && n.hijos.length ? " eo-c-jefe" : ""), "Staff · Gerencia corporativa");
                  return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n));
                }).join("") + '</div>';
+        pide(s.n3, c + k, 1);
         h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">' +
                s.n3.map(cajaPais).join("") + '</div>';
       });
@@ -480,9 +584,13 @@
         }
         if(s.comun){
           // gerencia país común a las ramas: una celda que las abarca, centrada debajo
-          if(s.cabeza) h += '<div class="eo-celda eo-c3 eo-comun" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + ' / span ' + s.span + '">' +
+          if(s.cabeza){
+            pide(s.comun, c + k, s.span);
+            h += '<div class="eo-celda eo-c3 eo-comun" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + ' / span ' + s.span + '">' +
                             s.comun.map(cajaPais).join("") + '</div>';
+          }
         } else {
+          pide(s.n3, c + k, 1);
           h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">';
           s.n3.forEach(function(n){ h += cajaPais(n); });
           h += '</div>';
@@ -491,11 +599,14 @@
       c0 += sc.length;
     });
 
+    lienzo.style.gridTemplateColumns = anchos.slice(1).map(function(w){ return w + "px"; }).join(" ");
     lienzo.innerHTML = h;
     svg = svgEl("svg", {"class":"eo-hilos", "aria-hidden":"true"});
     lienzo.insertBefore(svg, lienzo.firstChild);
-    lienzo.querySelectorAll(".eo-card").forEach(function(el){
-      var id = el.getAttribute("data-id"); if(NODOS[id]) NODOS[id].el = el;
+    Object.keys(NODOS).forEach(function(id){ if(!NODOS[id].comite && !NODOS[id].consejo) NODOS[id].el = null; });
+    // las cajas por país no son nodos: la unidad abierta se ancla en su cabecera
+    lienzo.querySelectorAll(".eo-card:not([data-pais]),[data-ancla]").forEach(function(el){
+      var id = el.getAttribute("data-ancla") || el.getAttribute("data-id"); if(NODOS[id]) NODOS[id].el = el;
     });
     centrarCima();
   }
@@ -594,7 +705,7 @@
         return;
       }
       if(a.tipo !== "linea") return;
-      if(NODOS[a.a].d.nivel === "coord"){
+      if(NODOS[a.a].d.nivel === "coord" && !B.hasAttribute("data-ancla")){
         // la coordinación cuelga con sangría justo debajo: baja recta a su borde superior
         var kx = Math.max(pa.x, pb.x) + 28;
         ruta("M" + kx + "," + (pa.y + pa.h) + " V" + pb.y, "eo-h-linea");
@@ -611,6 +722,25 @@
       var cc = caja2(B.parentNode), rail = cc.x + 10, ya = pb.y - 13;
       ruta("M" + px + "," + y0 + " V" + y1 + " H" + rail + " V" + ya + " H" + tx + " V" + pb.y, "eo-h-linea");
     });
+
+    // Gerencia país abierta: de la cabecera baja un peine a la caja de cada país, y de
+    // cada caja país a sus coordinaciones (con sangría, como en la caja plegada).
+    lienzo.querySelectorAll(".eo-pexpand").forEach(function(bl){
+      var cab = caja2(bl.querySelector(".eo-pcab")), hx = cab.x + cab.w / 2;
+      var cols = bl.querySelectorAll(".eo-pcol");
+      var tops = [].map.call(cols, function(col){ return caja2(col.querySelector(".eo-card")); });
+      if(!tops.length) return;
+      var by = tops[0].y - 13;
+      var xs = tops.map(function(b){ return b.x + b.w / 2; });
+      ruta("M" + hx + "," + (cab.y + cab.h) + " V" + by, "eo-h-linea");
+      ruta("M" + Math.min.apply(null, xs.concat([hx])) + "," + by + " H" + Math.max.apply(null, xs.concat([hx])), "eo-h-linea");
+      xs.forEach(function(x, i){ ruta("M" + x + "," + by + " V" + tops[i].y, "eo-h-linea"); });
+      [].forEach.call(cols, function(col){
+        var cs = col.querySelectorAll(".eo-card"); if(cs.length < 2) return;
+        var g = caja2(cs[0]);
+        for(var i = 1; i < cs.length; i++){ var b = caja2(cs[i]); ruta("M" + (b.x + 28) + "," + (g.y + g.h) + " V" + b.y, "eo-h-linea"); }
+      });
+    });
   }
   function ruta(d, clase){ svgEl("path", {d:d, "class":clase}, svg); }
 
@@ -619,12 +749,12 @@
   function aplicar(){ world.style.transform = "translate(" + cam.x + "px," + cam.y + "px) scale(" + cam.s + ")"; }
   function ajustar(){
     var W = lienzo.scrollWidth, r = vp.getBoundingClientRect();
-    cam.s = Math.max(.35, Math.min(1, (r.width - 32) / W));
+    cam.s = Math.max(.2, Math.min(1, (r.width - 32) / W));
     cam.x = Math.max(16, (r.width - W * cam.s) / 2); cam.y = 58;
     aplicar();
   }
   function zoomEn(f, cx, cy){
-    var s2 = Math.max(.3, Math.min(1.8, cam.s * f));
+    var s2 = Math.max(.15, Math.min(2.2, cam.s * f));
     cam.x = cx - (cx - cam.x) * (s2 / cam.s); cam.y = cy - (cy - cam.y) * (s2 / cam.s); cam.s = s2; aplicar();
   }
   function camara(){
@@ -641,12 +771,14 @@
     });
     function fin(){ if(ini){ ini = null; vp.classList.remove("eo-arrastra"); setTimeout(function(){ arrastro = false; }, 0); } }
     vp.addEventListener("pointerup", fin); vp.addEventListener("pointercancel", fin);
-    // Rueda desplaza (el organigrama es alto); con Ctrl o pellizco, acerca.
+    // La rueda acerca y aleja alrededor del puntero (también el pellizco del trackpad);
+    // para moverse por el organigrama se arrastra.
     vp.addEventListener("wheel", function(e){
       e.preventDefault();
       var r = vp.getBoundingClientRect();
-      if(e.ctrlKey || e.metaKey) zoomEn(e.deltaY < 0 ? 1.1 : 1 / 1.1, e.clientX - r.left, e.clientY - r.top);
-      else { cam.x -= e.deltaX; cam.y -= e.deltaY; aplicar(); }
+      var dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+      var f = Math.exp(-Math.max(-60, Math.min(60, dy)) * (e.ctrlKey ? 0.01 : 0.0025));
+      zoomEn(f, e.clientX - r.left, e.clientY - r.top);
     }, {passive:false});
     host.querySelector("#eoZin").addEventListener("click", function(){ var r = vp.getBoundingClientRect(); zoomEn(1.2, r.width / 2, r.height / 2); });
     host.querySelector("#eoZout").addEventListener("click", function(){ var r = vp.getBoundingClientRect(); zoomEn(1 / 1.2, r.width / 2, r.height / 2); });
@@ -660,8 +792,14 @@
     pcuerpo.innerHTML = html; pcuerpo.scrollTop = 0;
     panel.hidden = false; host.classList.add("eo-con-panel");
   }
+  var actual = null;
+  // resalta la unidad y, si está abierta por país, sus cajas por país
+  function marcar(id){
+    lienzo.querySelectorAll('[data-id="' + id + '"],[data-ancla="' + id + '"]').forEach(function(x){ x.classList.add("eo-sel"); });
+  }
   function cerrar(){
     if(!panel) return;
+    actual = null;
     ocultarCapas();
     panel.hidden = true; host.classList.remove("eo-con-panel");
     lienzo.querySelectorAll(".eo-sel").forEach(function(x){ x.classList.remove("eo-sel"); });
@@ -735,7 +873,9 @@
     var n = NODOS[id]; if(!n) return cerrar();
     lienzo.querySelectorAll(".eo-sel").forEach(function(x){ x.classList.remove("eo-sel"); });
     var d = n.d, h = '';
-    if(n.el){ n.el.classList.add("eo-sel"); asomar(n.el); }
+    actual = id;
+    marcar(id);
+    if(n.el) asomar(n.el);
     marcarCogob(id);
 
     if(n.comite){
@@ -766,7 +906,9 @@
       }).join("") + '</tbody></table></div>';
     }
     if(d.paises){
-      h += '<div class="eo-bloque"><h4>Por país</h4><table class="eo-tpais"><tbody>';
+      var abrible = (d.nivel === "n3" || d.nivel === "coord") && paisesDe(d).length > 1;
+      h += '<div class="eo-bloque"><h4>Por país' + (abrible ? '<button type="button" class="eo-pexpbtn" data-exp="' + esc(id) + '" aria-pressed="' + !!EXP[id] + '">' +
+             (EXP[id] ? '⊟ Volver a una caja' : '⊞ Ver una caja por país') + '</button>' : '') + '</h4><table class="eo-tpais"><tbody>';
       E.PAISES.forEach(function(p){
         var o = d.paises[p.id]; if(!o) return;
         h += '<tr><th>' + esc(p.n) + (o.cargo ? '<small>' + esc(o.cargo) + '</small>' : '') + '</th><td><span class="eo-onomg">' + esc(o.nombre) + '</span>' + pill(o.estado) +
