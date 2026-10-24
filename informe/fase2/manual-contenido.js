@@ -7326,14 +7326,14 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Gerente de Tienda / Supervisor de Ventas", "Técnico(a) de Servicio / Relojero(a)", "Asesor(a) de Servicio al Cliente"],
     "nodos": [
-     { "id": "n0", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "inicio", "n": "Cliente entrega un producto reparable de la marca representada en tienda, taller o por envío nacional" },
-     { "id": "n1", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "tarea", "n": "Abrir la orden de servicio con los datos del cliente y el producto" },
+     { "id": "n0", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "inicio", "n": "Cliente entrega un Casio para reparar" },
+     { "id": "n1", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "tarea", "n": "Abrir la orden de servicio con cliente y producto" },
      { "id": "n2", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Realizar la valoración técnica de la falla" },
-     { "id": "n3", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "decision", "n": "¿La falla está cubierta por la garantía vigente?" },
+     { "id": "n3", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "decision", "n": "¿La falla está en garantía?" },
      { "id": "n3alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Presentar el presupuesto al cliente y gestionar el cobro" },
      { "id": "n4", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Reparar el producto y probar su funcionamiento" },
      { "id": "n5", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "tarea", "n": "Cerrar la orden de servicio y devolver el producto al cliente" },
-     { "id": "n6", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "fin", "n": "Producto reparado y entregado, con la orden de servicio cerrada" }
+     { "id": "n6", "carril": "Gerente de Tienda / Supervisor de Ventas", "tipo": "fin", "n": "Producto reparado y entregado, orden cerrada" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7385,15 +7385,15 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Técnico(a) de Servicio / Relojero(a)", "Gerente de Servicio Técnico (por país)", "Country Manager"],
     "nodos": [
-     { "id": "n0", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "inicio", "n": "Necesidad de repuesto detectada en taller, o solicitud de otro país o de un cliente mayorista" },
+     { "id": "n0", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "inicio", "n": "Se necesita un repuesto (taller, país o mayorista)" },
      { "id": "n1", "carril": "Técnico(a) de Servicio / Relojero(a)", "tipo": "tarea", "n": "Reportar la necesidad de repuesto al responsable del país" },
-     { "id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Consolidar la solicitud y validar la razonabilidad de la cantidad pedida" },
-     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿El monto o la cantidad supera el umbral de aprobación del país?" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Consolidar la solicitud y validar la cantidad" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿Supera el umbral del país?" },
      { "id": "n3alt", "carril": "Country Manager", "tipo": "tarea", "n": "Aprobar o rechazar el pedido antes de colocarlo" },
-     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Colocar el pedido ante la casa matriz o la fábrica y definir el tope de precio de venta" },
-     { "id": "n5", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿La fábrica puede suministrar el repuesto en el plazo normal?" },
-     { "id": "n5alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Evaluar la recuperación de piezas de unidades ya reemplazadas mientras llega el pedido" },
-     { "id": "n6", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "fin", "n": "Repuesto disponible en el inventario de servicio, con precio de venta topado" }
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Pedir a la fábrica y fijar el tope de precio de venta" },
+     { "id": "n5", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿La fábrica lo surte a tiempo?" },
+     { "id": "n5alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Evaluar piezas recuperables mientras llega el pedido" },
+     { "id": "n6", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "fin", "n": "Repuesto en inventario con precio topado" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7447,13 +7447,13 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Asesor(a) de Servicio al Cliente", "agente de servicio del país (externo o freelance)", "Coordinador(a) de Logística y Bodega"],
     "nodos": [
-     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Reclamo de garantía de un cliente en un mercado sin operación propia, o stock bajo en el agente del país" },
-     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Recibir el reclamo y verificar la elegibilidad de la garantía" },
-     { "id": "n2", "carril": "agente de servicio del país (externo o freelance)", "tipo": "decision", "n": "¿El agente del país tiene el producto de reemplazo en stock?" },
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Reclamo en mercado sin operación o agente sin stock" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Recibir el reclamo y verificar la garantía" },
+     { "id": "n2", "carril": "agente de servicio del país (externo o freelance)", "tipo": "decision", "n": "¿El agente tiene stock de reemplazo?" },
      { "id": "n2alt", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar el despacho internacional del reemplazo por courier" },
      { "id": "n3", "carril": "agente de servicio del país (externo o freelance)", "tipo": "tarea", "n": "Entregar el reemplazo al cliente en el mercado remoto" },
-     { "id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Registrar el costo del envío y de la mercancía en el control de gasto logístico" },
-     { "id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Reemplazo entregado al cliente y costo del envío registrado en el flujo de control" }
+     { "id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Registrar costo de envío y mercancía en el gasto logístico" },
+     { "id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Reemplazo entregado y costo de envío registrado" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7504,13 +7504,14 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Servicio Técnico (por país)", "Gerente Regional de Marketing"],
     "nodos": [
-     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Caso marcado como crítico por reincidencia del producto, cliente molesto o reclamo público" },
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Caso crítico por reincidencia o reclamo" },
      { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el caso según el nivel de escalamiento" },
      { "id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Revisar el historial del cliente y del producto" },
-     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Contactar al cliente de forma personal y presentar las opciones disponibles" },
-     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿La solución requiere una excepción fuera de la política estándar de garantía?" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Contactar al cliente y presentar las opciones" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿Requiere una excepción a la política?" },
      { "id": "n4alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Evaluar y aprobar la solución excepcional" },
-     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso cerrado con la solución acordada y registrada en el historial del cliente" }
+     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso cerrado y solución registrada" },
+     { "id": "n6", "carril": "Gerente Regional de Marketing", "tipo": "fin", "n": "Excepción aprobada y caso cerrado" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7519,7 +7520,7 @@ window.MANUAL_CONTENIDO = {
      { "de": "n3", "a": "n4" },
      { "de": "n4", "a": "n5", "etq": "No" },
      { "de": "n4", "a": "n4alt", "etq": "Sí" },
-     { "de": "n4alt", "a": "n5" }
+     { "de": "n4alt", "a": "n6" }
     ]
    }
   },
@@ -7561,13 +7562,13 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Contabilidad / Administración", "Analista de Cuentas por Cobrar"],
     "nodos": [
-     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Decisión de reembolsar acordada con el cliente en un caso de postventa" },
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Reembolso acordado con el cliente" },
      { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Levantar la solicitud de reembolso en el flujo de aprobación" },
-     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿La solicitud cumple el criterio de reembolso (sin stock, reincidencia o decisión del cliente)?" },
-     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Informar al cliente que el caso no procede y ofrecer una alternativa (reemplazo o reparación)" },
-     { "id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar la solicitud contra el monto de la compra original y autorizar el pago" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿Cumple el criterio de reembolso?" },
+     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Informar que no procede y ofrecer reemplazo o reparación" },
+     { "id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar contra la compra original y autorizar el pago" },
      { "id": "n4", "carril": "Analista de Cuentas por Cobrar", "tipo": "tarea", "n": "Ejecutar el pago del reembolso al cliente" },
-     { "id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Reembolso ejecutado y confirmado al cliente dentro del SLA vigente" }
+     { "id": "n5", "carril": "Analista de Cuentas por Cobrar", "tipo": "fin", "n": "Reembolso ejecutado y confirmado en el SLA" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7618,15 +7619,15 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Supervisor(a) de Bodega / Despacho", "Gerente de Servicio Técnico (por país)"],
     "nodos": [
-     { "id": "n0", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "inicio", "n": "Cierre del mes con la conciliación de los traslados de garantía del período" },
+     { "id": "n0", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "inicio", "n": "Cierre de mes: conciliar traslados de garantía" },
      { "id": "n1", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Acumular el producto reemplazado del mes en la bodega de desecho" },
-     { "id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Alguna unidad o parte es recuperable en la segunda revisión?" },
-     { "id": "n2alt", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Separar la unidad o parte recuperable y registrarla para el proceso de repuestos (11.5)" },
+     { "id": "n2", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "decision", "n": "¿Algo es recuperable?" },
+     { "id": "n2alt", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Separar lo recuperable y registrarlo para repuestos (11.5)" },
      { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Extraer el registro de traslados de garantía del ERP del período" },
-     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿El registro extraído concilia contra los reportes de garantía y el inventario físico?" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿Concilia con garantías e inventario?" },
      { "id": "n4alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Investigar y resolver la diferencia antes de continuar" },
      { "id": "n5", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Entregar el lote conciliado a la empresa de reciclaje certificada" },
-     { "id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Lote desechado con certificado de disposición y conciliación cerrada" }
+     { "id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Lote desechado con certificado y conciliado" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7680,13 +7681,13 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Gerente de Servicio Técnico", "Gerente de Servicio Técnico (por país)", "Gerente de Proyectos (PMO)"],
     "nodos": [
-     { "id": "n0", "carril": "Gerente de Servicio Técnico", "tipo": "inicio", "n": "Apertura de operación en un nuevo mercado, cambio de política de garantía o brecha detectada en la homologación entre países" },
-     { "id": "n1", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Revisar y actualizar la carta de garantía, los protocolos y los manuales del wiki" },
-     { "id": "n2", "carril": "Gerente de Servicio Técnico", "tipo": "decision", "n": "¿La brecha detectada requiere una iniciativa transversal de mejora?" },
+     { "id": "n0", "carril": "Gerente de Servicio Técnico", "tipo": "inicio", "n": "Nuevo mercado, cambio de política o brecha" },
+     { "id": "n1", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Actualizar carta de garantía, protocolos y wiki" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico", "tipo": "decision", "n": "¿Requiere una mejora transversal?" },
      { "id": "n2alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Dar seguimiento a la iniciativa de mejora hasta su cierre" },
-     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Aplicar el estándar vigente y reportar las brechas de homologación en su país" },
-     { "id": "n4", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Inducir a los nuevos agentes en el estándar y el guion de comunicación corporativa" },
-     { "id": "n5", "carril": "Gerente de Servicio Técnico", "tipo": "fin", "n": "Carta de garantía y protocolos vigentes, publicados en el wiki y aplicados de forma homologada" }
+     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Aplicar el estándar y reportar brechas del país" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Inducir a los nuevos agentes en el estándar y el guion" },
+     { "id": "n5", "carril": "Gerente de Servicio Técnico", "tipo": "fin", "n": "Carta y protocolos vigentes y homologados" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
@@ -7737,13 +7738,13 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Analista de Sistemas / Datos", "Gerente de Servicio Técnico", "Junta Directiva"],
     "nodos": [
-     { "id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Carga de casos y garantías en las tablas de origen; cierre mensual del período" },
+     { "id": "n0", "carril": "Analista de Sistemas / Datos", "tipo": "inicio", "n": "Cierre mensual con casos y garantías cargados" },
      { "id": "n1", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Actualizar los tableros de garantías por país, producto y motivo" },
-     { "id": "n2", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Solicitar el sell-out del período y calcular el porcentaje de garantías sobre venta" },
-     { "id": "n3", "carril": "Gerente de Servicio Técnico", "tipo": "decision", "n": "¿El porcentaje de garantías o alguna alerta del centro de mando supera el rango esperado?" },
-     { "id": "n3alt", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Investigar la causa con el proceso correspondiente antes de reportar" },
+     { "id": "n2", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Pedir el sell-out y calcular el % de garantías" },
+     { "id": "n3", "carril": "Gerente de Servicio Técnico", "tipo": "decision", "n": "¿Alguna cifra fuera de rango?" },
+     { "id": "n3alt", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Investigar la causa antes de reportar" },
      { "id": "n4", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar el reporte mensual de postventa" },
-     { "id": "n5", "carril": "Junta Directiva", "tipo": "fin", "n": "Tablero actualizado y reporte mensual de postventa entregado a la Junta Directiva" }
+     { "id": "n5", "carril": "Junta Directiva", "tipo": "fin", "n": "Tablero y reporte mensual entregados a la Junta" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
