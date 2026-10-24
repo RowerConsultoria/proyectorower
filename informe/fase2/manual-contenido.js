@@ -7135,26 +7135,27 @@ window.MANUAL_CONTENIDO = {
     { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el contacto en la plataforma con el resultado y el tiempo de respuesta registrado, o lo deriva al proceso de garantía, reparación o escalamiento correspondiente." }
    ],
    "diagrama": {
-    "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Servicio Técnico (por país)"],
+    "carriles": ["Gerente de Servicio Técnico (por país)", "Asesor(a) de Servicio al Cliente"],
     "nodos": [
-     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Contacto entrante del cliente por cualquier canal habilitado" },
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Entra un contacto del cliente por cualquier canal" },
      { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el contacto en ruta comercial o ruta de soporte" },
-     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿El caso requiere derivar a garantía, reparación o escalamiento?" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿Requiere derivar a otro proceso?" },
+     { "id": "n3", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Atender y responder con el guion corporativo" },
      { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Registrar la derivación y notificar al proceso correspondiente" },
-     { "id": "n3", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Atender y responder el contacto dentro del guion de comunicación corporativo" },
-     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿El caso se acerca al límite del SLA de respuesta?" },
+     { "id": "n2fin", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso derivado a garantía, reparación o escalamiento" },
+     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿Se acerca al límite del SLA?" },
      { "id": "n4alt", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Intervenir directamente o reasignar el caso" },
-     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Contacto cerrado en la plataforma con el tiempo de respuesta registrado" }
+     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Contacto cerrado con el tiempo de respuesta registrado" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
      { "de": "n1", "a": "n2" },
      { "de": "n2", "a": "n3", "etq": "No" },
      { "de": "n2", "a": "n2alt", "etq": "Sí" },
-     { "de": "n2alt", "a": "n5" },
+     { "de": "n2alt", "a": "n2fin" },
      { "de": "n3", "a": "n4" },
-     { "de": "n4", "a": "n5", "etq": "No" },
      { "de": "n4", "a": "n4alt", "etq": "Sí" },
+     { "de": "n4", "a": "n5", "etq": "No" },
      { "de": "n4alt", "a": "n5" }
     ]
    }
