@@ -7198,27 +7198,27 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Asesor(a) de Servicio al Cliente", "Supervisor(a) de Bodega / Despacho"],
     "nodos": [
-     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Cliente presenta un producto Cubitt con falla dentro del período de garantía" },
-     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Verificar la factura de compra y el número de serie contra la carta de garantía" },
+     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Cliente presenta un Cubitt con falla en garantía" },
+     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Verificar factura y serial contra la carta de garantía" },
      { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿El producto es elegible bajo la carta de garantía?" },
-     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Informar al cliente que el caso no aplica y cerrar sin cambio" },
+     { "id": "n2alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "No aplica: cerrado sin cambio" },
      { "id": "n3", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Diagnosticar la falla (reinicio forzoso, prueba de carga)" },
      { "id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "decision", "n": "¿La falla es de hardware?" },
-     { "id": "n4alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Derivar el caso al proceso de gestión de casos técnicos (11.3) por software" },
+     { "id": "n4alt", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Derivar el caso de software a 11.3" },
      { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Abrir el traslado en el ERP hacia la bodega de desecho" },
-     { "id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Validar el producto dañado contra el traslado y liberar el producto nuevo" },
-     { "id": "n7", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Producto reemplazado entregado y caso cargado en el formulario de garantías" }
+     { "id": "n6", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Validar el dañado contra el traslado y liberar el nuevo" },
+     { "id": "n7", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "fin", "n": "Reemplazo entregado y caso cargado en garantías" },
+     { "id": "n4fin", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso derivado a 11.3" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },
      { "de": "n1", "a": "n2" },
-     { "de": "n2", "a": "n3", "etq": "Sí" },
      { "de": "n2", "a": "n2alt", "etq": "No" },
-     { "de": "n2alt", "a": "n7" },
+     { "de": "n2", "a": "n3", "etq": "Sí" },
      { "de": "n3", "a": "n4" },
-     { "de": "n4", "a": "n5", "etq": "Sí" },
      { "de": "n4", "a": "n4alt", "etq": "No" },
-     { "de": "n4alt", "a": "n7" },
+     { "de": "n4", "a": "n5", "etq": "Sí" },
+     { "de": "n4alt", "a": "n4fin" },
      { "de": "n5", "a": "n6" },
      { "de": "n6", "a": "n7" }
     ]
@@ -7264,15 +7264,15 @@ window.MANUAL_CONTENIDO = {
    "diagrama": {
     "carriles": ["Asesor(a) de Servicio al Cliente", "Especialista de Producto / Proyecto", "Subgerente de Servicio Técnico"],
     "nodos": [
-     { "id": "n0", "carril": "Subgerente de Servicio Técnico", "tipo": "inicio", "n": "Caso diagnosticado como falla de software, o patrón de fallas detectado en un producto o lote" },
+     { "id": "n0", "carril": "Subgerente de Servicio Técnico", "tipo": "inicio", "n": "Falla de software o patrón de fallas en un lote" },
      { "id": "n1", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Es un caso individual de falla de software?" },
-     { "id": "n1alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar el caso en el reporte mensual de defectos por producto, serial y lote" },
-     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Cargar el caso en la tabla compartida con la fábrica con el archivo de diagnóstico" },
-     { "id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Coordinar con la fábrica la revisión y el envío de la actualización correctiva" },
-     { "id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Aplicar la actualización, probar el dispositivo y devolverlo al cliente sin reemplazo" },
-     { "id": "n5", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿El patrón consolidado indica un defecto recurrente por lote?" },
+     { "id": "n1alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar en el reporte mensual de defectos por lote" },
+     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Cargar el caso y el diagnóstico en la tabla de la fábrica" },
+     { "id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Coordinar con la fábrica la actualización correctiva" },
+     { "id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Aplicar la actualización, probar y devolver al cliente" },
+     { "id": "n5", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Defecto recurrente por lote?" },
      { "id": "n5alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Solicitar la revisión preventiva o el retiro del lote a la fábrica" },
-     { "id": "n6", "carril": "Subgerente de Servicio Técnico", "tipo": "fin", "n": "Caso cerrado (dispositivo corregido) o reporte de defecto enviado a fábrica con serial y lote" }
+     { "id": "n6", "carril": "Subgerente de Servicio Técnico", "tipo": "fin", "n": "Caso cerrado o defecto reportado a fábrica" }
     ],
     "aristas": [
      { "de": "n0", "a": "n1" },

@@ -4458,7 +4458,7 @@ window.MANUAL_ASIS = {
         "id": "n4",
         "carril": "Soporte Técnico / Servicio Técnico del país",
         "tipo": "fin",
-        "n": "Caso cerrado sin garantía"
+        "n": "Cerrado sin garantía"
        },
        {
         "id": "n5",
