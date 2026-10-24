@@ -4108,7 +4108,7 @@ window.MANUAL_ASIS = {
     "proposito": {
      "estado": "borrador",
      "alcance": "Desde que el cliente escribe o se presenta hasta que su caso queda cerrado o derivado al circuito de garantía. Cubre los canales digitales (WhatsApp, correo, chat web, redes) y los presenciales (oficina de Obarrio, el café de la planta baja, tiendas y kioscos). La resolución técnica del caso va en 11.2 a 11.8.",
-     "texto": "Hoy toda la conversación con el cliente final entra por **una sola plataforma de omnicanalidad, Mercately**, que el grupo estrenó a mediados de 2026 después de dos intentos anteriores: primero una herramienta propia y después Freshworks, que se descartó porque estaba pensada para el mercado de Estados Unidos. Cada país tiene su número conectado y cada agente su usuario y sus canales asignados. Al cliente le llega **una botonera** donde elige si quiere comprar, si quiere soporte o si escribe por Cashea, y según lo que marque el caso cae en la cola de ventas o en la de soporte del país.\n\nQuién atiende depende de dónde esté el cliente. Panamá, Venezuela y Colombia tienen agentes propios; Ecuador tiene un solo agente externo; Guatemala lo atienden muchachos contratados como freelance que están físicamente en Venezuela; República Dominicana lo atiende el distribuidor; y México, Brasil, Argentina y Chile se atienden directamente desde Panamá. Costa Rica, que es sociedad y no filial, **no usa Lark y se comunica por WhatsApp, sin registro**.\n\nEl agente intenta primero la solución en remoto —una configuración, una actualización pendiente, un problema de uso— y solo si no sale por ahí manda al cliente al punto de venta más cercano o a la oficina. El gerente regional entra todos los días a revisar una muestra de chats, unos cinco por país, y saca las métricas de tiempo de respuesta con un asistente de IA que paga él de su bolsillo. Además está construyendo un panel propio, alojado fuera de los sistemas del grupo, que lee la interfaz de Mercately y le marca tiempo de respuesta, sentimiento del cliente y hasta faltas de ortografía del agente; cuando ve una, puede mandarle desde el mismo panel un correo automático de retroalimentación.\n\nLa plataforma trae su propio chatbot y se intentó activarlo: **el piloto se echó atrás**. Hubo resistencia de los agentes, que temieron que los desplazara, y además la marca concluyó que en la región el cliente no quiere que lo atienda un bot. Las pruebas siguen en frío y el proyecto quedó en suspenso."
+     "texto": "Hoy toda la conversación con el cliente final entra por **una sola plataforma de omnicanalidad, Mercately**, que el grupo estrenó a mediados de 2026 después de dos intentos anteriores: primero una herramienta propia y después Freshworks, que se descartó porque estaba pensada para el mercado de Estados Unidos. Cada país tiene su número conectado y cada agente su usuario y sus canales asignados. Al cliente le llega **una botonera** donde elige si quiere comprar, si quiere soporte o si escribe por Cashea, y según lo que marque el caso cae en la cola de ventas o en la de soporte del país.\n\nQuién atiende depende de dónde esté el cliente. Panamá, Venezuela y Colombia tienen agentes propios; Ecuador tiene un solo agente externo; Guatemala lo atienden muchachos contratados como freelance que están físicamente en Venezuela; República Dominicana lo atiende el distribuidor; y México, Brasil, Argentina y Chile se atienden directamente desde Panamá. Costa Rica, que es sociedad y no filial, **no usa Lark y se comunica por WhatsApp, sin registro**.\n\nEl agente intenta primero la solución en remoto —una configuración, una actualización pendiente, un problema de uso— y solo si no sale por ahí manda al cliente al punto de venta más cercano o a la oficina. El gerente regional entra todos los días a revisar una muestra de chats, unos cinco por país, y saca las métricas de tiempo de respuesta con un asistente de IA que paga él de su bolsillo. Además mantiene un panel propio, construido por él y alojado fuera de los sistemas del grupo, que lee la interfaz de Mercately y le marca tiempo de respuesta, sentimiento del cliente y hasta faltas de ortografía del agente, con un correo de coaching automático a quien las comete.\n\nLa plataforma trae su propio chatbot y se intentó activarlo: **el piloto se echó atrás**. Hubo resistencia de los agentes, que temieron que los desplazara, y además la marca concluyó que en la región el cliente no quiere que lo atienda un bot. Las pruebas siguen en frío y el proyecto quedó en suspenso."
     },
     "dueno": {
      "estado": "borrador",
@@ -4157,143 +4157,94 @@ window.MANUAL_ASIS = {
      "actividades": [
       {
        "id": "a1",
-       "rol": "Asesor de ventas online del país",
-       "texto": "Toma de la cola de ventas el contacto del cliente que eligió comprar o pagar con Cashea en la botonera de la plataforma de omnicanalidad."
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Recibe el contacto en la plataforma de omnicanalidad. El cliente ya eligió en la botonera si quiere comprar, si necesita soporte o si escribe por Cashea, y el caso entra en esa cola."
       },
       {
        "id": "a2",
-       "rol": "Asesor de ventas online del país",
-       "texto": "Si el caso es comercial, cotiza, ofrece las modalidades de pago y cierra la venta o manda el enlace para que el cliente compre en la web. Si el chat es en realidad de soporte, lo pasa a la cola de soporte."
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Si el caso es comercial, cotiza, ofrece las modalidades de pago y cierra la venta o manda el enlace para que el cliente compre en la web."
       },
       {
        "id": "a3",
-       "rol": "Agente de soporte del país",
-       "texto": "Toma de la cola de soporte el contacto del cliente que eligió soporte en la botonera, o el que le pasó la cola de ventas, e intenta la solución en remoto: revisa configuración, actualización pendiente o uso del producto, guiando al cliente paso a paso por el chat."
+       "rol": "Agente del país (soporte o ventas online)",
+       "texto": "Si el caso es de soporte, intenta la solución en remoto: revisa configuración, actualización pendiente o uso del producto, guiando al cliente paso a paso por el chat."
       },
       {
        "id": "a4",
-       "rol": "Agente de soporte del país",
+       "rol": "Agente del país (soporte o ventas online)",
        "texto": "Si no se resuelve en el chat, deriva al cliente al punto de venta o al kiosco más cercano, o a la oficina, y el caso pasa al circuito de garantía."
       },
       {
        "id": "a5",
        "rol": "Customer Services Manager",
-       "texto": "Revisa a diario una muestra de unos cinco chats por país, saca las métricas de tiempo de respuesta con su asistente de IA y consulta el panel que está construyendo, que le marca tiempo de respuesta, sentimiento del cliente y errores de ortografía."
+       "texto": "Revisa a diario una muestra de unos cinco chats por país, saca las métricas de tiempo de respuesta con su asistente de IA y consulta su panel propio, que marca sentimiento del cliente y errores de redacción."
       },
       {
        "id": "a6",
        "rol": "Customer Services Manager",
-       "texto": "Cuando el panel le marca un error de ortografía, puede enviarle al agente un correo automático de retroalimentación desde el mismo panel."
+       "texto": "Manda al agente el correo de coaching cuando el panel marca un fallo de redacción o un tiempo de respuesta fuera de lo esperado."
       }
      ],
      "diagrama": {
       "carriles": [
-       "Asesor de ventas online del país",
-       "Agente de soporte del país",
+       "Agente del país (soporte o ventas online)",
        "Customer Services Manager"
       ],
       "nodos": [
        {
-        "id": "v0",
-        "carril": "Asesor de ventas online del país",
+        "id": "n0",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "inicio",
-        "n": "El cliente elige comprar o Cashea en la botonera"
+        "n": "Entra un contacto del cliente"
        },
        {
-        "id": "v1",
-        "carril": "Asesor de ventas online del país",
+        "id": "n1",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "tarea",
-        "n": "Tomar el caso de la cola de ventas",
+        "n": "Tomar el caso de la cola que marcó el cliente",
         "sistemas": [
          "Mercately"
         ]
        },
        {
-        "id": "v2",
-        "carril": "Asesor de ventas online del país",
+        "id": "n2",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "decision",
-        "n": "¿Es una consulta de venta?"
+        "n": "¿Es consulta comercial?"
        },
        {
-        "id": "v3",
-        "carril": "Asesor de ventas online del país",
+        "id": "n3",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "tarea",
         "n": "Cotizar y cerrar la venta o enviar el enlace de pago"
        },
        {
-        "id": "v4",
-        "carril": "Asesor de ventas online del país",
-        "tipo": "tarea",
-        "n": "Pasar el chat a la cola de soporte",
-        "sistemas": [
-         "Mercately"
-        ]
-       },
-       {
-        "id": "v5",
-        "carril": "Asesor de ventas online del país",
-        "tipo": "fin",
-        "n": "Venta cerrada o enlace de pago enviado"
-       },
-       {
-        "id": "s0",
-        "carril": "Agente de soporte del país",
-        "tipo": "inicio",
-        "n": "El cliente elige soporte en la botonera"
-       },
-       {
-        "id": "s1",
-        "carril": "Agente de soporte del país",
-        "tipo": "tarea",
-        "n": "Tomar el caso de la cola de soporte",
-        "sistemas": [
-         "Mercately"
-        ]
-       },
-       {
-        "id": "s2",
-        "carril": "Agente de soporte del país",
+        "id": "n4",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "tarea",
         "n": "Intentar la solución en remoto por el chat"
        },
        {
-        "id": "s3",
-        "carril": "Agente de soporte del país",
+        "id": "n5",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "decision",
         "n": "¿Resuelto en el chat?"
        },
        {
-        "id": "s4",
-        "carril": "Agente de soporte del país",
+        "id": "n6",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "tarea",
         "n": "Cerrar el caso con recomendaciones de uso"
        },
        {
-        "id": "s5",
-        "carril": "Agente de soporte del país",
+        "id": "n7",
+        "carril": "Agente del país (soporte o ventas online)",
         "tipo": "tarea",
         "n": "Derivar al punto de venta, al kiosco o a la oficina"
        },
        {
-        "id": "s6",
-        "carril": "Agente de soporte del país",
-        "tipo": "fin",
-        "n": "Caso cerrado en la plataforma"
-       },
-       {
-        "id": "s7",
-        "carril": "Agente de soporte del país",
-        "tipo": "fin",
-        "n": "Caso derivado al circuito de garantía"
-       },
-       {
-        "id": "c0",
-        "carril": "Customer Services Manager",
-        "tipo": "inicio",
-        "n": "Revisión diaria de la atención"
-       },
-       {
-        "id": "c1",
+        "id": "n8",
         "carril": "Customer Services Manager",
         "tipo": "tarea",
         "n": "Revisar la muestra de chats y sacar las métricas",
@@ -4303,89 +4254,70 @@ window.MANUAL_ASIS = {
         ]
        },
        {
-        "id": "c2",
+        "id": "n9",
         "carril": "Customer Services Manager",
         "tipo": "tarea",
-        "n": "Enviar retroalimentación al agente si hay error de ortografía",
-        "sistemas": [
-         "Panel propio"
-        ]
+        "n": "Enviar el correo de coaching al agente"
        },
        {
-        "id": "c3",
+        "id": "n10",
         "carril": "Customer Services Manager",
         "tipo": "fin",
-        "n": "Atención medida"
+        "n": "Caso cerrado y atención medida"
        }
       ],
       "aristas": [
        {
-        "de": "v0",
-        "a": "v1"
+        "de": "n0",
+        "a": "n1"
        },
        {
-        "de": "v1",
-        "a": "v2"
+        "de": "n1",
+        "a": "n2"
        },
        {
-        "de": "v2",
-        "a": "v3",
+        "de": "n2",
+        "a": "n3",
+        "etq": "Comercial"
+       },
+       {
+        "de": "n2",
+        "a": "n4",
+        "etq": "Soporte"
+       },
+       {
+        "de": "n3",
+        "a": "n8"
+       },
+       {
+        "de": "n4",
+        "a": "n5"
+       },
+       {
+        "de": "n5",
+        "a": "n6",
         "etq": "Sí"
        },
        {
-        "de": "v2",
-        "a": "v4",
+        "de": "n5",
+        "a": "n7",
         "etq": "No"
        },
        {
-        "de": "v3",
-        "a": "v5"
+        "de": "n6",
+        "a": "n8"
        },
        {
-        "de": "v4",
-        "a": "s2"
+        "de": "n7",
+        "a": "n8"
        },
        {
-        "de": "s0",
-        "a": "s1"
+        "de": "n8",
+        "a": "n9"
        },
        {
-        "de": "s1",
-        "a": "s2"
-       },
-       {
-        "de": "s2",
-        "a": "s3"
-       },
-       {
-        "de": "s3",
-        "a": "s4",
-        "etq": "Sí"
-       },
-       {
-        "de": "s3",
-        "a": "s5",
-        "etq": "No"
-       },
-       {
-        "de": "s4",
-        "a": "s6"
-       },
-       {
-        "de": "s5",
-        "a": "s7"
-       },
-       {
-        "de": "c0",
-        "a": "c1"
-       },
-       {
-        "de": "c1",
-        "a": "c2"
-       },
-       {
-        "de": "c2",
-        "a": "c3"
+        "de": "n9",
+        "a": "n10"
        }
       ]
      }
