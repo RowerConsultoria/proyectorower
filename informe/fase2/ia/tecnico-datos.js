@@ -4664,7 +4664,7 @@ window.IA_DOC = {
    "estado": "borrador",
    "intro": "Quién construye y opera la plataforma, cómo se reparte el trabajo entre el negocio, Tecnología y el gobierno de la IA, y cómo se usa Claude Code sin saltarse ningún control.",
    "que": [
-    "La plataforma la construye y la opera un **equipo de plataforma** dentro de la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, que es la que implanta y opera. El negocio pone un **dueño de producto** por sector: decide qué se construye primero y acepta lo entregado. Gobierno de IA y el Comité de Gobierno del Dato e IA aprueban cada uso de la IA y su nivel de autonomía. Así se cumple la regla de la estructura: quien aprueba la IA no es quien la implanta.",
+    "La plataforma la construye y la opera un **equipo de plataforma** dentro de la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento, que es la que implanta y opera. El negocio pone un **dueño de producto** por sector: decide qué se construye primero y acepta lo entregado. Gobierno de IA y el Comité de Gobierno del Dato e IA aprueban cada uso de la IA y su nivel de autonomía. Así se cumple la regla de la estructura: quien aprueba la IA no es quien la implanta. Junto al equipo de plataforma trabaja la **red de constructores**: personas de las áreas que, con Claude Code y bajo el mando funcional de Gobierno de IA, construyen ampliaciones del sistema en este mismo repositorio ([[doc:perfil/constructores|perfil del Líder de Gobierno de IA]]). Tecnología revisa y publica lo que hacen, igual que con el equipo de plataforma: el crecimiento del sistema no recae solo en Tecnología.",
     "La Fase 1 encontró que la fragilidad del grupo no está en sus herramientas, sino en la falta de un eje que las articule y en la dependencia de terceros sin contraparte interna, como con los partners de Odoo y la app de Cubitt. Por eso pidió un equipo propio, capaz de modificar y mantener el sistema sin depender de un externo para cada cambio.",
     "El equipo programa con **Claude Code**, la herramienta de Anthropic para escribir código con Claude. Ya hay talento interno que trabaja así: en el taller de Panamá se vio cómo se programa con Claude, revisando el plan y el código antes de subirlo. La regla es simple: lo que escribe la herramienta pasa por la misma revisión humana y las mismas pruebas que lo escrito a mano. La herramienta acelera; no aprueba.",
     "Se trabaja por olas, en ciclos cortos. Cada ciclo termina con una demostración al dueño de producto y, si la acepta, con el pase a producción y la formación de quienes van a usar el módulo.",
@@ -4694,19 +4694,24 @@ window.IA_DOC = {
        "No construye ni opera."
       ],
       [
-       "Gobierno de IA (Presidencia)",
-       "Redacta la política, lleva el inventario de casos y agentes y convoca al Comité.",
-       "No implanta."
+       "Gobierno de IA (gerencia corporativa de staff)",
+       "Redacta la política, lleva el inventario de casos y agentes, convoca al Comité y dirige la red de constructores: decide quién se suma, qué construye cada uno y en qué orden.",
+       "No publica ni opera producción."
       ],
       [
        "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
-       "Implanta y opera: es dueña del repositorio, las cuentas, las llaves y producción; conduce al equipo de plataforma y a los desarrolladores externos; presenta al Comité el registro de agentes, sus riesgos y sus incidentes.",
+       "Implanta y opera: es dueña del repositorio, las cuentas, las llaves y producción; conduce al equipo de plataforma y a los desarrolladores externos; revisa y publica lo que construye la red de constructores; presenta al Comité el registro de agentes, sus riesgos y sus incidentes.",
        "No aprueba los usos de la IA."
       ],
       [
        "Equipo de plataforma",
        "Construye, prueba y opera módulos, conectores y agentes.",
        "No pasa a producción sin revisión."
+      ],
+      [
+       "Red de constructores",
+       "Personas de las áreas que, bajo el mando funcional de Gobierno de IA, construyen ampliaciones del sistema con Claude Code: en una rama del repositorio, sobre el modelo de datos del espejo y con datos de prueba.",
+       "No conectan nada por fuera ni publican su propio trabajo."
       ],
       [
        "Tecnología de Información de cada país",
@@ -4769,7 +4774,7 @@ window.IA_DOC = {
       ]
      ]
     },
-    "El tamaño se fija con la PMO al planificar la Ola 1 (por confirmar). La Fase 1 propuso empezar con un núcleo mínimo, apoyado en la célula de BI y en sistemas, y crecer con los módulos; el escenario de costos supone 3 personas que despliegan y 5 cuentas de GitHub ([[sec:anexos|anexo c]]).",
+    "El tamaño se fija con la PMO al planificar la Ola 1 (por confirmar). La red de constructores complementa al equipo sin sustituirlo: toma las ampliaciones que nacen en las áreas y le deja lo central, que es el espejo, los conectores y la seguridad. La Fase 1 propuso empezar con un núcleo mínimo, apoyado en la célula de BI y en sistemas, y crecer con los módulos; el escenario de costos supone 3 personas que despliegan y 5 cuentas de GitHub ([[sec:anexos|anexo c]]).",
     {
      "t": "h",
      "x": "El comité de desarrollo"
@@ -4779,8 +4784,8 @@ window.IA_DOC = {
      "t": "lista",
      "items": [
       "**Qué es:** la reunión de trabajo del equipo de plataforma, que convoca la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento. No es un órgano nuevo de la estructura.",
-      "**Quién y cuándo:** el responsable técnico, el equipo, la TI de los países afectados y los dueños de producto del ciclo, al abrir cada ciclo y una vez por semana (propuesta). Gobierno de IA asiste cuando entra un agente o se propone un cambio de nivel.",
-      "**Qué decide:** el orden del ciclo, quién toma cada pieza, los cambios del esquema `core` y qué entra a la próxima ventana. Deja acta en `docs/`.",
+      "**Quién y cuándo:** el responsable técnico, el equipo, los constructores de la red con trabajo en el ciclo, la TI de los países afectados y los dueños de producto del ciclo, al abrir cada ciclo y una vez por semana (propuesta). Gobierno de IA asiste cuando entra un agente o se propone un cambio de nivel.",
+      "**Qué decide:** el orden del ciclo, quién del equipo de plataforma toma cada pieza (las de la red las asigna Gobierno de IA), los cambios del esquema `core` y qué entra a la próxima ventana. Deja acta en `docs/`.",
       "**Qué no decide:** los usos de la IA ni sus niveles, que son del Comité de Gobierno del Dato e IA."
      ]
     },
@@ -4794,6 +4799,7 @@ window.IA_DOC = {
      "t": "lista",
      "items": [
       "**Cuentas corporativas,** nunca personales ([[doc:politica/herramientas|artículo 3 de la política]]).",
+      "**Las mismas reglas para la red de constructores:** cuenta corporativa, rama propia, revisión de Tecnología antes de publicar y ninguna llave de producción en su equipo ([[doc:politica/desarrollo|artículo 7 de la política]]).",
       "**Un `CLAUDE.md` en la raíz** con convenciones, comandos de prueba y lo que no se toca; la herramienta lo lee al empezar cada sesión.",
       "**Primero el plan, después el código:** quien programa revisa el plan antes de aplicarlo y el código antes de subirlo.",
       "**Solo entornos de prueba:** la base local y el proyecto de pruebas. En el equipo de quien programa no hay llaves de producción ni del Odoo de producción.",

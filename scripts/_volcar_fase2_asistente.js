@@ -2,7 +2,8 @@
 // Vuelca el dato de la Fase 2 tal como lo pinta el sitio, para que
 // sincronizar-asistente.py arme con él el conocimiento del Asistente IA:
 // el manual (To-Be y As-Is), el circuito, la estructura To-Be, la madurez
-// documental, los funcionamientos y la arquitectura de IA (la órbita).
+// documental, los funcionamientos, la arquitectura de IA (la órbita) y los
+// documentos de IA (técnico, política, perfil, casos de uso y prototipos).
 // Solo lee archivos del repositorio; no escribe nada.
 const fs = require("fs"), path = require("path");
 const F2 = path.join(__dirname, "..", "informe", "fase2");
@@ -29,6 +30,14 @@ function literal(html, nombre) {
   return eval("(" + html.slice(eq + 1, j) + ")");
 }
 
+// Documentos de IA: cada <doc>-datos.js deja su contenido en window.IA_DOC.
+const IA = {};
+for (const d of ["tecnico", "politica", "perfil", "casos", "prototipos"]) {
+  window.IA_DOC = undefined;
+  eval(fs.readFileSync(path.join(F2, "ia", d + "-datos.js"), "utf8"));
+  IA[d] = window.IA_DOC;
+}
+
 const func = fs.readFileSync(path.join(F2, "estructura-funcionamiento.html"), "utf8");
 const arq = fs.readFileSync(path.join(F2, "arquitectura-ia.html"), "utf8");
 
@@ -41,4 +50,5 @@ process.stdout.write(JSON.stringify({
   madurez: window.MADUREZ,
   funcionamiento: { nodos: literal(func, "NODOS"), func: literal(func, "FUNC") },
   orbita: literal(arq, "D"),
+  ia: IA,
 }));

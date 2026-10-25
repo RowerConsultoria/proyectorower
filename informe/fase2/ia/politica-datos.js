@@ -108,7 +108,7 @@ window.IA_DOC = {
       ],
       [
        "Gobierno de IA (gerencia corporativa de staff)",
-       "Redacta y mantiene la política y sus anexos, lleva el inventario de casos y herramientas, y vela por su cumplimiento. No construye ni opera."
+       "Redacta y mantiene la política y sus anexos, lleva el inventario de casos y herramientas, vela por su cumplimiento y dirige la red de constructores que amplía el sistema desde las áreas. No publica ni opera producción."
       ],
       [
        "Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento",
@@ -129,6 +129,10 @@ window.IA_DOC = {
       [
        "Dueños de proceso",
        "Proponen casos, responden por su beneficio y firman lo que la IA prepara en su proceso."
+      ],
+      [
+       "Red de constructores",
+       "Personas de las áreas que, bajo el mando funcional de Gobierno de IA, construyen ampliaciones del sistema con Claude Code según el artículo 7. No publican su propio trabajo."
       ],
       [
        "Usuarios",
@@ -375,13 +379,15 @@ window.IA_DOC = {
    "titulo": "Desarrollo por las áreas",
    "estado": "borrador",
    "que": [
-    "Que las áreas construyan sus propias herramientas con IA es bueno: conocen su trabajo mejor que nadie. El riesgo aparece cuando lo construido se conecta a los sistemas del grupo con credenciales prestadas, sin respaldo y sin que nadie más sepa que existe. La política no prohíbe construir; pone una regla para conectar."
+    "Que las áreas construyan sus propias herramientas con IA es bueno: conocen su trabajo mejor que nadie. El riesgo aparece cuando lo construido se conecta a los sistemas del grupo con credenciales prestadas, sin respaldo y sin que nadie más sepa que existe. La política no prohíbe construir; pone una regla para conectar.",
+    "Para que ese talento no construya aislado existe la **red de constructores**: personas de las áreas que, bajo el mando funcional de Gobierno de IA, amplían el sistema Kenex con Claude Code desde su propio conocimiento del trabajo. Así lo que nace en un área pasa a ser parte del sistema y no una isla más."
    ],
    "como": [
     {
      "t": "lista",
      "items": [
       "**Autoservicio:** un área puede construir con una herramienta autorizada lo que use solo dentro de su equipo, con información permitida para su nivel y sin conectarlo a ningún sistema.",
+      "**La red de constructores:** quien quiera construir algo que se conecte o que sirva a más de un equipo se suma a la red. Gobierno de IA decide quién entra, le asigna el trabajo según las prioridades del Comité y lo forma ([[sec:formacion|artículo 9]]). Construye con Claude Code en el repositorio del grupo y con datos de prueba; Tecnología revisa y publica, y nadie publica su propio trabajo ([[doc:perfil/constructores|perfil del Líder de Gobierno de IA]]).",
       "**Todo lo que se conecta pasa por Tecnología:** si lee o escribe en Odoo, Lark, EBS, la plataforma o cualquier sistema del grupo, se registra como caso de uso, lo evalúa Tecnología, Gobernanza del Dato y Cumplimiento y se le dan accesos propios con mínimo privilegio. Nunca credenciales de administrador ni de una persona.",
       "**El código es del grupo:** lo que se construye con información o sistemas del grupo vive en el repositorio del grupo, no en cuentas personales.",
       "**Validación antes de producción:** seguridad, datos, integración y efecto sobre contabilidad e inventario, sin importar quién lo construyó.",
@@ -460,7 +466,7 @@ window.IA_DOC = {
       ],
       [
        "Técnica",
-       "Equipo de plataforma y Tecnología",
+       "Equipo de plataforma, Tecnología y la red de constructores",
        "Construcción, evaluación y operación de agentes sobre la arquitectura del grupo."
       ]
      ]
@@ -804,6 +810,15 @@ window.IA_DOC = {
        "C",
        "A/R",
        "R",
+       "C"
+      ],
+      [
+       "Construir una ampliación con la red de constructores",
+       "I",
+       "C",
+       "A/R",
+       "C",
+       "I",
        "C"
       ],
       [

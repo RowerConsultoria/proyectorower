@@ -98,7 +98,9 @@ const HERRAMIENTAS = [
       "Devuelve COMPLETO un documento del proyecto, por partes (~28k caracteres). Úsala cuando pregunten por un proceso, una estación del circuito, " +
       "un módulo de la arquitectura o la estructura, para responder con el contenido real y no de memoria. Códigos: PROC-<proceso>-TOBE / PROC-<proceso>-ASIS " +
       "(p. ej. PROC-6.3-TOBE), MACRO-<prefijo> (N0 del macroproceso, p. ej. MACRO-8), CIRC-<estación> (p. ej. CIRC-11e), ARQ-<módulo> (p. ej. ARQ-m-espejo), " +
-      "DOC-ESTRUCTURA, DOC-FUNCIONAMIENTO, DOC-MADUREZ, DOC-PRESENTACION, DOC-INSTRUCTIVO, DOC-INFORME, DOC-ARQUITECTURA, DOC-SISTEMA. " +
+      "DOC-ESTRUCTURA, DOC-FUNCIONAMIENTO, DOC-MADUREZ, DOC-PRESENTACION, DOC-INSTRUCTIVO, DOC-INFORME, DOC-ARQUITECTURA, DOC-SISTEMA, " +
+      "las secciones de los documentos de IA DOC-IA-<DOCUMENTO>-<SECCIÓN> (TECNICO, POLITICA, PERFIL, CASOS o PROTOTIPOS; p. ej. DOC-IA-PERFIL-CONSTRUCTORES, DOC-IA-PROTOTIPOS-MATRIZ) " +
+      "y cada caso de uso DOC-IA-CASO-<id> (p. ej. DOC-IA-CASO-M-VIGIA-DE-RESERVAS). " +
       "Si el código no existe, devuelve los códigos parecidos.",
     input_schema: {
       type: "object",
@@ -223,10 +225,10 @@ Tus usuarios son la Junta Directiva de Kenex y el equipo consultor. Respondes SI
 Tu conocimiento (en tu contexto):
 1. La síntesis del corpus: resúmenes y hechos destilados de la base (18-jul) y una síntesis por cada entrevista o sesión posterior ("entrevista-E-xx", "entrevista-SC-xx") y por cada archivo cargado ("archivo-…"). El corpus crece solo: cada entrevista o archivo nuevo se indexa y te llega como documento adicional.
 2. La Fase 1: el informe diagnóstico (informe-fase1), su arquitectura de IA de la sección 10 con «la torre» (arquitectura-ia) y el prototipo del sistema propio (sistema-prototipo).
-3. La Fase 2 (documentos fase2-*): el panorama (entregables, validación, premisa de madurez documental, la presentación y el instructivo del comité), el índice de los 182 procesos del manual con sus dueños, la agenda de mejora de cada macroproceso, el circuito del negocio As-Is (vía de tren con sus frenos y sistemas), la arquitectura de IA propuesta («la órbita») y la estructura organizativa To-Be.
+3. La Fase 2 (documentos fase2-*): el panorama (entregables, validación, premisa de madurez documental, la presentación y el instructivo del comité), el índice de los 182 procesos del manual con sus dueños, la agenda de mejora de cada macroproceso, el circuito del negocio As-Is (vía de tren con sus frenos y sistemas), la arquitectura de IA propuesta («la órbita»), sus documentos (técnico, política de adopción, perfil del Líder de Gobierno de IA, casos de uso y prototipos) y la estructura organizativa To-Be.
 
 Herramientas:
-- leer_documento: lee COMPLETO un proceso del manual (PROC-6.3-TOBE / PROC-6.3-ASIS), el N0 de un macroproceso (MACRO-6), una estación del circuito (CIRC-11e), un módulo de la arquitectura (ARQ-m-espejo) o un documento (DOC-ESTRUCTURA, DOC-PRESENTACION…). Úsala SIEMPRE que pregunten por el contenido de un proceso, una estación o un módulo: el índice dice qué existe, el documento dice qué dice.
+- leer_documento: lee COMPLETO un proceso del manual (PROC-6.3-TOBE / PROC-6.3-ASIS), el N0 de un macroproceso (MACRO-6), una estación del circuito (CIRC-11e), un módulo de la arquitectura (ARQ-m-espejo) o un documento (DOC-ESTRUCTURA, DOC-PRESENTACION, una sección de un documento de IA como DOC-IA-POLITICA-DESARROLLO…). Úsala SIEMPRE que pregunten por el contenido de un proceso, una estación o un módulo: el índice dice qué existe, el documento dice qué dice.
 - buscar_pasajes: citas textuales en entrevistas, archivos y documentos del proyecto; sirve para encontrar en qué proceso o estación aparece un tema.
 - leer_entrevista: el diálogo completo de una entrevista o sesión (E-xx, SC-xx).
 - linea_tiempo y listar_archivos: la cronología del proyecto y el inventario de insumos.

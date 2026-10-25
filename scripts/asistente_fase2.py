@@ -56,6 +56,103 @@ def volcar():
     return json.loads(sal.stdout.decode('utf-8'))
 
 
+# ───────────────────────────────────────────────────────────── documentos de IA
+IA_DOCS = (('tecnico', 'TECNICO'), ('politica', 'POLITICA'), ('perfil', 'PERFIL'), ('casos', 'CASOS'), ('prototipos', 'PROTOTIPOS'))
+
+
+def ia_linea(x):
+    """Texto de una línea de un documento de IA: las referencias [[tipo:id|texto]] quedan como su texto."""
+    x = re.sub(r'\[\[(\w+):([^\]|]+)\|([^\]]+)\]\]', r'\3', str(x))
+    x = re.sub(r'\[\[(\w+):([^\]|]+)\]\]', r'\2', x)
+    return t(x)
+
+
+def ia_bloques(lst, out, fichas):
+    """Aplana los bloques de ia-doc.js a texto. Las fichas desplegables se devuelven aparte."""
+    for b in lst or []:
+        if isinstance(b, str):
+            out.append(ia_linea(b))
+            continue
+        tipo = b.get('t')
+        if tipo in ('p', 'h'):
+            out.append(('\n## ' if tipo == 'h' else '') + ia_linea(b.get('x')))
+        elif tipo == 'lista':
+            out += ['  · ' + ia_linea(i) for i in b.get('items') or []]
+        elif tipo == 'tabla':
+            if b.get('cab'):
+                out.append(' | '.join(ia_linea(c) for c in b['cab']))
+            out += [' | '.join(ia_linea(c) for c in f) for f in b.get('filas') or []]
+        elif tipo == 'pasos':
+            for n, p in enumerate(b.get('items') or [], 1):
+                extra = ' · '.join('%s: %s' % (k, ia_linea(' / '.join(p[k]) if isinstance(p[k], list) else p[k]))
+                                   for k in ('entregable', 'como', 'depende', 'acepta', 'rol') if p.get(k))
+                out.append('%d. %s%s%s' % (n, ia_linea(p.get('t')), (' — ' + ia_linea(p['x'])) if p.get('x') else '',
+                                           (' (' + extra + ')') if extra else ''))
+        elif tipo == 'nota':
+            out.append('Nota%s: %s' % ((' · ' + ia_linea(b['titulo'])) if b.get('titulo') else '', ia_linea(b.get('x'))))
+        elif tipo == 'codigo':
+            out.append(str(b.get('x') or ''))
+        elif tipo == 'fig':
+            if b.get('pie'):
+                out.append('Figura: ' + ia_linea(b['pie']))
+        elif tipo == 'kpis':
+            out += ['  · %s — %s' % (k.get('v'), ia_linea(k.get('x'))) for k in b.get('items') or []]
+        elif tipo == 'tarjetas':
+            out += ['  · %s%s%s' % (ia_linea(k.get('titulo')), (' — ' + ia_linea(k['x'])) if k.get('x') else '',
+                                    (' [' + ', '.join(ia_linea(c) for c in k['chips']) + ']') if k.get('chips') else '')
+                    for k in b.get('items') or []]
+        elif tipo == 'fichas':
+            for k in b.get('items') or []:
+                out.append('  · ' + ia_linea(k.get('titulo')))
+                fichas.append(k)
+        elif tipo == 'html':
+            out.append(html_texto(b.get('x') or ''))
+
+
+def ia_documentos(IA):
+    """(síntesis para el contexto, documentos de detalle) de los cinco documentos de IA."""
+    sint = ['LOS DOCUMENTOS DE IA DE LA FASE 2 (pestañas de la Arquitectura de IA, #/arquitectura/<documento>).',
+            'Cada sección se lee entera con leer_documento(«DOC-IA-<DOCUMENTO>-<SECCIÓN>»); cada caso de uso, con «DOC-IA-CASO-<id>».']
+    det = []
+    for d, D in IA_DOCS:
+        doc = IA.get(d)
+        if not doc:
+            continue
+        sint.append('\n== %s (%s · versión %s · corte %s) ==\n%s' % (ia_linea(doc.get('titulo')), doc.get('estado', ''),
+                                                                  doc.get('version', ''), doc.get('corte', ''), ia_linea(doc.get('lede'))))
+        for s in doc.get('secciones') or []:
+            cod = 'DOC-IA-%s-%s' % (D, s['id'].upper())
+            out, fichas = [], []
+            if s.get('intro'):
+                out.append(ia_linea(s['intro']))
+            if s.get('que') or s.get('como'):
+                if s.get('que'):
+                    out.append('\nQué es y por qué:')
+                    ia_bloques(s['que'], out, fichas)
+                if s.get('como'):
+                    out.append('\nCómo se hace:')
+                    ia_bloques(s['como'], out, fichas)
+            elif s.get('bloques'):
+                ia_bloques(s['bloques'], out, fichas)
+            else:
+                out.append('En redacción: ' + ia_linea(s.get('intencion')))
+            cuerpo = '\n'.join(l for l in out if l)
+            cab = '%s — sección %s · %s (ruta #/arquitectura/%s/%s)' % (ia_linea(doc.get('titulo')), s.get('num', ''),
+                                                                    ia_linea(s.get('titulo')), d, s['id'])
+            det.append((cod, '%s · %s' % (ia_linea(doc.get('titulo')), ia_linea(s.get('titulo'))), cab + '\n' + cuerpo))
+            sint.append('  · %s %s → «%s»: %s' % (s.get('num', ''), ia_linea(s.get('titulo')), cod, corto(cuerpo, 240)))
+            for k in fichas:
+                if not k.get('id'):
+                    continue
+                cf = 'DOC-IA-CASO-%s' % k['id'].upper()
+                lineas = ['Caso de uso de IA: %s (ruta #/arquitectura/casos/%s)' % (ia_linea(k.get('titulo')), k['id'])]
+                if k.get('chips'):
+                    lineas.append(' · '.join(ia_linea(c) for c in k['chips']))
+                lineas += ['%s: %s' % (c[0], ia_linea(c[1])) for c in k.get('campos') or [] if c[1]]
+                det.append((cf, 'Caso de uso · ' + ia_linea(k.get('titulo')), '\n'.join(lineas)))
+    return '\n'.join(sint), det
+
+
 # ───────────────────────────────────────────────────────────── el manual
 def ficha_mapa(p):
     return p.get('mapa') or {}
@@ -445,6 +542,11 @@ def generar():
     ins = html_texto(io.open(os.path.join(F2, 'instructivo-comite.html'), encoding='utf-8').read())
     DETALLE.append(('DOC-INSTRUCTIVO', 'Instructivo del Comité de Validación (Fase 2)', 'INSTRUCTIVO DEL COMITÉ DE VALIDACIÓN DE LA FASE 2 (instructivo-comite.html)\n' + ins))
 
+    # ── documentos de IA (técnico, política, perfil, casos y prototipos)
+    sint_ia, det_ia = ia_documentos(D.get('ia') or {})
+    CONTEXTO.append(('fase2-ia-documentos', 'Fase 2 · documentos de IA: técnico, política, perfil del líder de gobierno de IA, casos de uso y prototipos', sint_ia))
+    DETALLE.extend(det_ia)
+
     # ── panorama (siempre en contexto)
     pan = ['LA FASE 2 DEL PROYECTO ROWER — QUÉ ES, QUÉ PRODUJO Y EN QUÉ ESTADO ESTÁ (síntesis derivada del repositorio)',
            '',
@@ -461,10 +563,13 @@ def generar():
            '  · Circuito del negocio (#/circuito): la operación As-Is como vía de tren. → documento fase2-circuito; fichas «CIRC-…».',
            '  · Mapa de procesos (#/mapa): los 20 macroprocesos en tres bandas (estratégicos, operativos, soporte).',
            '  · Arquitectura de IA (#/arquitectura): «la órbita», propuesta. → documento fase2-arquitectura-ia; módulos «ARQ-…».',
+           '    Sus pestañas: documento técnico, política de adopción, perfil del Líder de Gobierno de IA (con la red de constructores),',
+           '    casos de uso priorizados y prototipos (P1 en operación; ocho candidatos a P2 y P3 con su matriz).',
+           '    → documento fase2-ia-documentos; secciones «DOC-IA-<DOCUMENTO>-<SECCIÓN>» y casos «DOC-IA-CASO-<id>».',
            '  · Estructura organizativa To-Be (#/estructura) y su vista «Capas»; página «Capas y funcionamiento» con 11 dinámicas',
            '    entre unidades. → documento fase2-estructura; «DOC-ESTRUCTURA», «DOC-FUNCIONAMIENTO».',
            '  · Madurez documental (#/madurez): diagnóstico que sostiene la premisa central. → «DOC-MADUREZ».',
-           '  · Presentación de validación (19 láminas) e Instructivo del Comité de Validación. → «DOC-PRESENTACION», «DOC-INSTRUCTIVO».',
+           '  · Presentación de validación (%d láminas) e Instructivo del Comité de Validación. → «DOC-PRESENTACION», «DOC-INSTRUCTIVO».' % len(laminas),
            '  · Prototipo del sistema propio (/sistema): ver el documento sistema-prototipo.',
            '',
            '== CÓMO LEER AS-IS Y TO-BE ==',
@@ -490,7 +595,8 @@ def generar():
             '', '== CÓMO CONSULTAR EL DETALLE ==',
             'leer_documento(<código>) devuelve un documento completo; buscar_pasajes encuentra pasajes en todos ellos y en las',
             'entrevistas. Códigos: PROC-<proceso>-TOBE / -ASIS · MACRO-<prefijo> (-ASIS) · CIRC-<estación> · ARQ-<módulo> ·',
-            'DOC-ESTRUCTURA · DOC-FUNCIONAMIENTO · DOC-MADUREZ · DOC-PRESENTACION · DOC-INSTRUCTIVO · DOC-INFORME (Fase 1) ·',
+            'DOC-ESTRUCTURA · DOC-FUNCIONAMIENTO · DOC-MADUREZ · DOC-PRESENTACION · DOC-INSTRUCTIVO · DOC-IA-<DOCUMENTO>-<SECCIÓN> ·',
+            'DOC-IA-CASO-<id> · DOC-INFORME (Fase 1) ·',
             'DOC-ARQUITECTURA (torre de la Fase 1) · DOC-SISTEMA (prototipo). Las entrevistas usan E-xx y SC-xx (sesiones sin',
             'código en origen: SC-01…SC-10 viaje a Panamá y Presidencia, SC-11/12 capacitación en Venezuela, SC-13 validación con',
             'Clemencia, SC-14 reunión de procesos, SC-15 Edumar, SC-16 revisión Gabriel–Jesús 30-sep, SC-17 reunión de estructura',
