@@ -128,7 +128,8 @@
   }
 
   function nodoSVG(n, p) {
-    var cls = "fx-nodo fx-" + n.tipo;
+    // Solo los cuatro tipos conocidos llegan al atributo: el flujo puede venir de la plataforma.
+    var cls = "fx-nodo fx-" + ({ inicio: 1, tarea: 1, decision: 1, fin: 1 }[n.tipo] ? n.tipo : "tarea");
     var out = "";
     if (n.tipo === "inicio" || n.tipo === "fin") {
       out += '<circle class="' + cls + '" cx="' + p.x + '" cy="' + p.y + '" r="' + EVT / 2 + '"/>';

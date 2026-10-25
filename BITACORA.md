@@ -619,6 +619,8 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
 - P2: reclutamiento con IA;
 - P3: normalizador del sell-out.
 
+*(Desde el 25-oct P2 y P3 se eligen entre ocho candidatos; ver esa entrada.)*
+
 **Login:** `rotulo()` anuncia «Arquitectura de IA — Fase 2» para `informe/fase2/ia/`, para `arquitectura-ia` y para `#/arquitectura`.
 
 **Verificado:**
@@ -649,7 +651,7 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
   - los tres primeros son el Vigía de reservas, el Vigía del stage y el Cuadre previo de caja.
 - **Prototipos:**
   - P1 es el aplicativo, en operación;
-  - P2 (reclutamiento con IA) y P3 (normalizador del sell-out) quedan diseñados y no se construyen por ahora.
+  - P2 (reclutamiento con IA) y P3 (normalizador del sell-out) quedan diseñados y no se construyen por ahora. *(Sustituido el 25-oct por ocho candidatos con su matriz.)*
 
 **Cómo se hizo:**
 - **Fuentes:** el corpus, la órbita y cuatro investigaciones del 09-oct: Anthropic, verificada con la skill; Odoo, EBS y canales; la plataforma; y lo legal con sus marcos. Están en `Rower/ia-fase2/investigacion/`.
@@ -719,3 +721,11 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
 **2026-10-24** — Jesús (vía Claude Code) — **11.2 y 11.3: flujogramas sin textos cortados.** To-Be: doce rótulos que salían con «…» se reescriben más cortos sin cambiar el sentido. En 11.2 los tres desenlaces tienen ya su propio fin: no aplica, derivado a 11.3 y reemplazo entregado. Antes los tres llegaban a «reemplazo entregado» y sus líneas tapaban el rótulo. As-Is de 11.2: «Caso cerrado sin garantía» → «Cerrado sin garantía», que quedaba pisado por el rombo vecino; el resto del As-Is no tenía cortes. Verificado: `verificar-diagramas-fase2.js 11` y `comprobar-flujogramas-fase2.py 11`, sin avisos nuevos.
 
 **2026-10-24** — Jesús (vía Claude Code) — **Macro 11: ningún flujograma con texto cortado.** Mismo trabajo que en 11.2 y 11.3, ahora en el To-Be de 11.4 a 11.11: 41 rótulos que salían con «…» se reescriben más cortos sin cambiar el sentido. El detalle sigue en el texto de cada actividad. En 11.7 la excepción aprobada tiene su propio fin, porque su línea tapaba el rótulo del cierre. Los As-Is de esos procesos no tenían cortes. Medido sobre el dibujo: los 22 flujogramas del macro sin «…» ni rótulos tapados, y `comprobar-flujogramas-fase2.py 11` ya no lista ninguna pregunta recortada. `verificar-diagramas-fase2.js 11` sigue con los dos avisos previos (11.3 y 11.8).
+
+**2026-10-25** — Gabriel (vía Claude Code) — **El manual gana su Agente IA, el historial del To-Be, videos tutoriales con voz y dos pestañas de IA.**
+- **Validación del comité:** las notas se publican al enviar y las ve el resto del comité con su autor; bloque «Historial» con las versiones del To-Be, que salen de git (`manual-versiones.js`, generado). Migración `2026-10-25-historial-tobe.sql` (§15.10–15.12).
+- **Agente IA** (Claude Managed Agents, función `agente`): lee lo del proceso, propone cambios al **flujo de actividades** y a la **estructura organizativa** (operaciones validadas, vista previa, «Aplicar»), con versiones append-only que solo publica la función y rechazo de dos «Aplicar» simultáneos. Interruptores «Agente IA» y «Estructura» por cuenta en Usuarios. Migraciones §16–§17 aplicadas. Dos revisiones independientes, todo lo hallado corregido; `comprobar-agente.py` 34 casos y `comprobar-estructura-agente.ts` 27.
+- **Videos tutoriales con voz** (validación del To-Be y estructura), con su botón; narración Higgsfield/ElevenLabs. Menú de perfil en la cabecera.
+- **Arreglos de interfaz:** el botón del agente tapaba el zoom; la leyenda y los comités de la estructura quedaban fijos a 58 px y tapaban «Premisas» cuando la barra se partía en dos filas.
+- **Arquitectura de IA:** pestaña nueva **«Líder de gobierno de IA»** (perfil del cargo vacante de la estructura, con la red de constructores bajo su mando funcional) y la pestaña **Prototipos** rehecha: P1 en operación y **ocho candidatos** a P2/P3 con matriz de puntaje y maqueta de diseño en claude.ai (hay que compartirlas como públicas). Reclutamiento queda como candidato; su aplicativo ya es entregable de la Fase 4.
+- ⚠️ **Pendientes:** el documento técnico (§14) y la política (art. 7) no mencionan aún la red de constructores; Kenex elige P2 y P3; el asistente no está sincronizado con los documentos de IA. Verificado: `validar-html.py`, `comprobar-ia.py`, `comprobar-validacion-comite.py`, `comprobar-agente.py` y los E2E de los tutoriales.

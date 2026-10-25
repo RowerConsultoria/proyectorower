@@ -71,6 +71,7 @@ cuentas = sql("""
           and exists (select 1 from roles_permisos rp where rp.rol = pf.rol and rp.permiso = 'ver.informe')
           and not exists (select 1 from roles_permisos rp where rp.rol = pf.rol and rp.permiso = 'admin.validacion')
           and not exists (select 1 from validadores_tobe v where v.perfil_id = pf.id)
+          and not exists (select 1 from agente_cuentas c where c.perfil_id = pf.id and c.activo)   -- con el agente leerían lo publicado
         order by pf.creado_en limit 2) x) as lectores
 """)
 if not isinstance(cuentas, list) or not cuentas[0]['s'] or not cuentas[0]['lectores'] or len(cuentas[0]['lectores']) < 2:
@@ -114,9 +115,15 @@ begin
      lista = '{"asis":true,"est":true,"dec":true,"sesgo":true}' where id = v.id;
   insert into public.notas_tobe(validacion_id, seccion, tipo, texto) values (v.id, 'indicadores', 'escrita', 'sin meta') returning id into n2;
   insert into public.notas_tobe(validacion_id, tipo, texto, consulta_a, consulta_respuesta) values (v.id, 'consulta', 'plazo', 'Contabilidad', '30 días');
+  select jsonb_array_length(public.notas_publicadas_tobe('PP')) into x; r := r || ' pub_borrador=' || x;
+  begin insert into public.actividad_tobe(proceso, tipo) values ('PP','enviada'); r := r || ' actividad_a_mano=MAL'; exception when others then r := r || ' actividad_a_mano=ok'; end;
+  begin perform public.nombre_perfil('JJ'); r := r || ' nombre_perfil_abierto=MAL'; exception when others then r := r || ' nombre_perfil_abierto=ok'; end;
   v := public.validacion_tobe_enviar(v.id, 'h');
   select count(*) into x from public.notas_tobe where validacion_id = v.id and estado = 'por_revisar';
   r := r || ' tras_enviar=' || v.estado || '/' || x;
+  select count(*) into x from public.notas_tobe where validacion_id = v.id and publicada_en is not null; r := r || ' publicadas=' || x;
+  begin update public.notas_tobe set publicada_en = null where id = n1; exception when others then null; end;
+  select count(*) into x from public.notas_tobe where id = n1 and publicada_en is not null; r := r || ' publicada_fija=' || x;
   begin update public.notas_tobe set estado = 'se_incorpora' where id = n1; r := r || ' integrante_fija_estado=MAL'; exception when others then r := r || ' integrante_fija_estado=ok'; end;
   begin insert into public.notas_tobe(validacion_id, seccion, tipo, texto) values (v.id, 'flujo', 'escrita', 'otra'); r := r || ' nota_tras_envio=MAL'; exception when others then r := r || ' nota_tras_envio=ok'; end;
   begin delete from public.notas_tobe where id = n1; r := r || ' borrar_enviada=MAL'; exception when others then r := r || ' borrar_enviada=ok'; end;
@@ -125,6 +132,7 @@ begin
   execute 'reset role';
   COMO_S
   select count(*) into x from public.notas_tobe where validacion_id = v.id; r := r || ' secretaria_ve=' || x;
+  select count(*) into x from jsonb_array_elements(public.notas_publicadas_tobe('PP')) j(x) where j.x->>'autor' is not null; r := r || ' pub_secretaria=' || x;
   update public.notas_tobe set estado = 'se_incorpora', respuesta = 'hecho' where id = n1;
   begin update public.notas_tobe set estado = 'no_se_incorpora' where id = n2; r := r || ' no_incorporar_sin_motivo=MAL'; exception when others then r := r || ' no_incorporar_sin_motivo=ok'; end;
   update public.notas_tobe set estado = 'no_se_incorpora', respuesta = 'motivo' where id = n2;
@@ -141,7 +149,20 @@ begin
   execute 'reset role';
   COMO_K
   select count(*) into x from public.validaciones_tobe where proceso = 'PP'; r := r || ' ajenas=' || x;
+  select count(*) into x from public.actividad_tobe where proceso = 'PP'; r := r || ' actividad_ajena=' || x;
+  begin perform public.notas_publicadas_tobe('PP'); r := r || ' pub_sin_permiso=MAL'; exception when others then r := r || ' pub_sin_permiso=ok'; end;
   begin perform public.validacion_tobe_reabrir(v.id); r := r || ' mover_ajena=MAL'; exception when others then r := r || ' mover_ajena=ok'; end;
+  execute 'reset role';
+  -- otro integrante habilitado ve lo publicado por J y la línea de tiempo
+  insert into public.validadores_tobe(perfil_id) values ('KK');
+  COMO_K
+  select jsonb_array_length(public.notas_publicadas_tobe('PP')) into x; r := r || ' pub_otro=' || x;
+  select count(*) into x from public.notas_tobe where proceso = 'PP'; r := r || ' rls_notas_otro=' || x;
+  select string_agg(tipo || ':' || c, ',' order by tipo) into e
+    from (select tipo, count(*) c from public.actividad_tobe where proceso = 'PP' group by tipo) a;
+  r := r || ' actividad=' || e;
+  select count(*) into x from public.actividad_tobe where proceso = 'PP' and tipo = 'nota_publicada'
+     and integrante is not null and detalle->>'texto' is not null; r := r || ' actividad_con_nombre=' || x;
   execute 'reset role';
   execute 'set local role anon';
   begin select count(*) into x from public.v_estado_tobe; r := r || ' anon=MAL'; exception when others then r := r || ' anon=ok'; end;
@@ -153,7 +174,7 @@ begin
 end $t$;
 """
 bloque = (BLOQUE.replace('COMO_J', como(J)).replace('COMO_S', como(S)).replace('COMO_K', como(K))
-          .replace('JJ', J).replace('PP', P))
+          .replace('JJ', J).replace('KK', K).replace('PP', P))
 res = sql(bloque)
 # El bloque termina en raise exception: los resultados viajan en el mensaje del error.
 mensaje = ''
@@ -175,6 +196,12 @@ ESPERADO = {
     'lista_cuentas': '1', 'cuentas_sin_permiso': 'ok', 'tras_confirmar': 'validada/confirmada',
     'vista_validada': 'validado', 'tras_reabrir': 'en_revision/en_validacion', 'ajenas': '0', 'mover_ajena': 'ok',
     'anon': 'ok', 'cascada': '0',
+    # 25-oct: notas publicadas con su autor y línea de tiempo
+    'pub_borrador': '0', 'actividad_a_mano': 'ok', 'nombre_perfil_abierto': 'ok', 'publicadas': '3',
+    'publicada_fija': '1', 'pub_secretaria': '3', 'actividad_ajena': '0', 'pub_sin_permiso': 'ok',
+    'pub_otro': '3', 'rls_notas_otro': '0',
+    'actividad': 'enviada:1,nota_publicada:3,nota_respondida:2,reabierta:1,validada:1',
+    'actividad_con_nombre': '3',
 }
 obtenido = dict(par.split('=', 1) for par in m.group(1).split())
 fallos = 0

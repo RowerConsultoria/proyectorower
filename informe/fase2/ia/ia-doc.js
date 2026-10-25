@@ -22,7 +22,7 @@
  */
 (function(){
   'use strict';
-  var DOCS = { tecnico:1, politica:1, casos:1, prototipos:1 };
+  var DOCS = { tecnico:1, politica:1, perfil:1, casos:1, prototipos:1 };
   var ESTADOS = { pendiente:'Pendiente', borrador:'Borrador', revision:'En revisión', validado:'Validado' };
   var params = new URLSearchParams(location.search);
   var DOC = (params.get('d') || '').toLowerCase();

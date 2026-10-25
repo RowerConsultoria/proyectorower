@@ -1,0 +1,9 @@
+{
+  "name": "rower-agente",
+  "private": true,
+  "type": "module",
+  "description": "Configura el Agente IA del manual (Claude Managed Agents). Ver configurar-agente.mjs.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.3.0"
+  }
+}

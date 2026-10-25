@@ -1,0 +1,157 @@
+[
+ {
+  "id": "portada",
+  "voz": "En este video vas a ver cómo validar el modelo To-Be en el manual de procesos: el veredicto de cada sección, las notas, el envío, y cómo usar el Agente IA para despejar dudas y proponer cambios al flujo.",
+  "listo": true
+ },
+ {
+  "id": "menu",
+  "voz": "Al entrar ves el manual con tu nombre arriba a la derecha. En el menú, cada proceso lleva un punto: gris sin validar, ámbar en validación y verde validado.",
+  "listo": true
+ },
+ {
+  "id": "macro",
+  "voz": "Abre la banda y el macroproceso. A la derecha de cada macroproceso ves cuántos de sus procesos ya están validados.",
+  "listo": true
+ },
+ {
+  "id": "proceso",
+  "voz": "Haz clic en el proceso. El enlace te lleva directo a su versión To-Be, que es la que se valida.",
+  "listo": true
+ },
+ {
+  "id": "banda",
+  "voz": "Arriba del proceso aparece la banda de validación: seis barras, una por sección, que se colorean con tu veredicto. También tienes los atajos al cierre, al historial, al instructivo y a este video.",
+  "listo": true
+ },
+ {
+  "id": "banda2",
+  "voz": "Valida sobre el To-Be. Si necesitas el punto de partida, el As-Is está a un clic. Nada de lo que anotes cambia el manual: el equipo consultor lo revisa e incorpora.",
+  "listo": true
+ },
+ {
+  "id": "veredicto",
+  "voz": "Al pie de cada sección hay un panel con la pregunta guía y tres veredictos: valida, valida con ajustes, o no valida.",
+  "listo": true
+ },
+ {
+  "id": "validado",
+  "voz": "Listo: el propósito queda validado y su barra se pone verde.",
+  "listo": true
+ },
+ {
+  "id": "ajustes",
+  "voz": "Si algo debe cambiar, elige valida con ajustes. El panel te pide la nota: qué ajustarías y por qué. Sin nota no se puede enviar.",
+  "listo": true
+ },
+ {
+  "id": "dictar",
+  "voz": "También puedes dictar la nota con el botón Dictar: el texto aparece mientras hablas y lo corriges antes de guardar.",
+  "listo": true
+ },
+ {
+  "id": "sesgo",
+  "voz": "Antes de guardar, revisa las tres preguntas contra el sesgo hacia el As-Is: ¿la propuesta está mal, o solo es distinta de lo que hacemos hoy?",
+  "listo": true
+ },
+ {
+  "id": "guardada",
+  "voz": "La nota queda guardada sin enviar: mientras no envíes la validación, solo la ves tú y la puedes quitar.",
+  "listo": true
+ },
+ {
+  "id": "anotar",
+  "voz": "En el flujo, cada actividad, riesgo e indicador tiene su botón Anotar. La nota queda anclada a esa actividad.",
+  "listo": true
+ },
+ {
+  "id": "anotada",
+  "voz": "La actividad anotada queda resaltada, y el veredicto del flujo es valida con ajustes, porque ya tiene su nota.",
+  "listo": true
+ },
+ {
+  "id": "seis",
+  "voz": "Con un veredicto en las seis secciones, las seis barras quedan de color. Falta el cierre.",
+  "listo": true
+ },
+ {
+  "id": "lista",
+  "voz": "El cierre trae la lista del instructivo. Las dos primeras casillas se marcan solas; las otras cuatro las confirmas tú.",
+  "listo": true
+ },
+ {
+  "id": "consulta",
+  "voz": "Si consultaste un dato puntual con el dueño del proceso, regístralo aquí. Informa, pero no queda como pendiente.",
+  "listo": true
+ },
+ {
+  "id": "enviada",
+  "voz": "Al enviar, tus notas se publican con tu nombre para el resto del comité, y la secretaría técnica las responde.",
+  "listo": true
+ },
+ {
+  "id": "confirmar",
+  "voz": "Cuando la secretaría responde todo, vuelves aquí y confirmas. Si cambias de opinión, puedes reabrir.",
+  "listo": true
+ },
+ {
+  "id": "historial",
+  "voz": "El historial muestra cómo ha cambiado el proceso: las versiones del To-Be y todo lo que el comité publicó, con autor y fecha.",
+  "listo": true
+ },
+ {
+  "id": "agente",
+  "voz": "Ahora, el Agente IA. Conoce el To-Be, el As-Is, las notas del comité y las entrevistas, y solo cambia el flujo si tú lo apruebas.",
+  "listo": true
+ },
+ {
+  "id": "abrir",
+  "voz": "El botón Agente IA abre el chat. Sabe qué proceso tienes abierto, así que puedes preguntar por este proceso.",
+  "listo": true
+ },
+ {
+  "id": "pregunta",
+  "voz": "El agente lee el proceso, sus notas y el As-Is antes de responder.",
+  "listo": true
+ },
+ {
+  "id": "respuesta",
+  "voz": "Responde con lo que hay en la plataforma y cita la fuente. Úsalo para despejar dudas antes de dar tu veredicto.",
+  "listo": true
+ },
+ {
+  "id": "cambio",
+  "voz": "Lo único que el agente puede cambiar de un proceso es el flujo de actividades. Pídele el cambio en tus palabras.",
+  "listo": true
+ },
+ {
+  "id": "armando",
+  "voz": "El agente arma el flujo nuevo y lo valida antes de mostrártelo.",
+  "listo": true
+ },
+ {
+  "id": "propuesta",
+  "voz": "Llega una propuesta con las actividades que cambian y la vista previa del flujograma. Nada se aplica sin tu confirmación.",
+  "listo": true
+ },
+ {
+  "id": "decidir",
+  "voz": "Si no te convence, descártala o escribe qué ajustar. Si está bien, aplícala al manual.",
+  "listo": true
+ },
+ {
+  "id": "aplicado",
+  "voz": "Aplicado: el manual ya muestra el flujo nuevo a todos, y en la sección aparece qué versión es, quién la aplicó y por qué.",
+  "listo": true
+ },
+ {
+  "id": "conversaciones",
+  "voz": "Tus conversaciones se guardan. En Conversaciones retomas cualquiera otro día, con todo su contexto, o empiezas una nueva.",
+  "listo": true
+ },
+ {
+  "id": "cierre",
+  "voz": "En resumen: da un veredicto en las seis secciones, anota cada ajuste, envía a la secretaría técnica, confirma cuando respondan, y usa el agente para dudas y para proponer cambios al flujo.",
+  "listo": true
+ }
+]

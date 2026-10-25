@@ -507,12 +507,13 @@
   #arquitectura{flex:1;min-height:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--fondo)}
   #arquitectura[hidden]{display:none}
   #aqMarco{flex:1;min-height:0;width:100%;border:0;display:block;background:var(--fondo)}
-  /* submenú de la sección de IA: la órbita y los documentos (tecnico, politica, casos, prototipos) */
+  /* submenú de la sección de IA: la órbita y los documentos (tecnico, politica, perfil, casos, prototipos) */
   .aq-sub{display:flex;gap:6px;flex:0 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none}
   .aq-sub::-webkit-scrollbar{display:none}
   .aq-sub .mp-btn{white-space:nowrap}
   .aq-sal{white-space:nowrap}
-  @media (max-width:1100px){ .aq-bar .mp-sp{display:none} .aq-sub{order:5;flex:1 1 100%} .aq-sal{order:6} }
+  /* con cinco documentos el submenú no cabe junto a las salidas por debajo de ~1340 px: pasa a su propia fila */
+  @media (max-width:1340px){ .aq-bar .mp-sp{display:none} .aq-sub{order:5;flex:1 1 100%} .aq-bar .mp-sp + .aq-sal{margin-left:auto} }
   /* ── estructura organizativa To-Be (#/estructura) ── motor en estructura-render.js,
      dato en estructura-tobe-datos.js ── */
   #estructura{flex:1;min-height:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--fondo);--eo-col:236px}
@@ -725,7 +726,7 @@
   .eo-lsw.eo-sw-staff{background:var(--alerta)}
   .eo-lsw.eo-sw-pun{height:0;border-top:1.5px dashed var(--tinta-tenue);border-radius:0}
   /* leyenda flotante: se arrastra por la cabecera, se oculta con ✕ o con «Leyenda» en la barra */
-  .eo-leyenda.eo-leyflot{display:block;left:16px;top:64px;z-index:6;padding:0;box-shadow:var(--sombra)}
+  .eo-leyenda.eo-leyflot{display:block;left:16px;top:calc(var(--eo-bar-h, 50px) + 14px);z-index:6;padding:0;box-shadow:var(--sombra)}
   .eo-leyflot[hidden]{display:none}
   .eo-leyasa{display:flex;align-items:center;gap:8px;padding:7px 8px 6px 14px;border-bottom:1px solid var(--borde-tenue);cursor:grab;user-select:none;touch-action:none;border-radius:14px 14px 0 0}
   .eo-leyasa:focus-visible{outline:2px solid var(--cian);outline-offset:-2px}
@@ -737,7 +738,7 @@
   .eo-leycuerpo{display:grid;grid-template-columns:auto auto;gap:6px 22px;padding:10px 14px 12px}
   .eo-modo-capas .eo-leyflot{display:none!important}
   .eo-panel{
-    position:absolute;top:58px;right:12px;bottom:12px;width:440px;max-width:calc(100% - 24px);z-index:8;
+    position:absolute;top:calc(var(--eo-bar-h, 50px) + 8px);right:12px;bottom:12px;width:440px;max-width:calc(100% - 24px);z-index:8;
     display:flex;flex-direction:column;overflow:hidden;
     background:var(--panel);border:1px solid var(--borde);border-radius:var(--r-panel);box-shadow:var(--sombra-alta);
   }
@@ -793,7 +794,7 @@
   .eo-patron{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-weight:600}
 
   /* consejos y comités: flotante desplegable arriba, fuera del pan/zoom */
-  .eo-cogob{position:absolute;top:58px;left:50%;transform:translateX(-50%);z-index:7;width:max-content;max-width:calc(100% - 32px);
+  .eo-cogob{position:absolute;top:calc(var(--eo-bar-h, 50px) + 8px);left:50%;transform:translateX(-50%);z-index:7;width:max-content;max-width:calc(100% - 32px);
     background:var(--panel);border:1px solid var(--borde);border-radius:14px;box-shadow:var(--sombra)}
   .eo-cogcab{display:flex;align-items:center;gap:10px;width:100%;font:inherit;color:var(--tinta);background:transparent;border:0;border-radius:14px;
     padding:8px 14px;cursor:pointer;text-align:left;min-height:36px}
@@ -1158,6 +1159,53 @@
   .vt-ok{background:color-mix(in srgb, var(--ok) 10%, var(--panel));border:1px solid color-mix(in srgb, var(--ok) 40%, transparent)}
   .vt-enviada{background:color-mix(in srgb, var(--cian) 9%, var(--panel));border:1px solid color-mix(in srgb, var(--cian) 35%, transparent)}
 
+  /* notas publicadas por el resto del comité y el historial del proceso (25-oct) */
+  .vt-autor{font-weight:700;color:var(--tinta)}
+  .vt-otras{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--vt-borde);padding-top:8px}
+  .vt-otras .vt-sub{margin-top:0}
+  .vt-verant{font-size:11.5px;color:var(--alerta);font-weight:650}
+  .vt-hist{margin:14px 0 6px;padding:16px;border-radius:var(--r-tarjeta);background:var(--panel);border:1px solid var(--borde);display:flex;flex-direction:column;gap:8px;
+    --vt:var(--alerta);--vt-borde:color-mix(in srgb, var(--alerta) 40%, transparent)}
+  .vt-hist:empty{display:none}
+  .vt-tl{list-style:none;margin:4px 0 0;padding:0 0 0 18px;border-left:2px solid var(--borde);display:flex;flex-direction:column;gap:12px}
+  .vt-tl li{position:relative;display:flex;flex-direction:column;gap:5px;min-width:0;font-size:13px;line-height:1.5}
+  .vt-tl li::before{content:"";position:absolute;left:-24px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--tinta-tenue);box-shadow:0 0 0 3px var(--panel)}
+  .vt-tl li.vt-tl-ver::before{background:var(--cian)}
+  .vt-tl li.vt-tl-nota::before{background:var(--alerta)}
+  .vt-tl li.vt-tl-ok::before{background:var(--ok)}
+  .vt-tl-cab{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+  .vt-tl-f{margin-left:auto;font-size:11px;color:var(--tinta-tenue);white-space:nowrap}
+  .vt-tl-det{font-size:12px;color:var(--tinta-media)}
+  .vt-tl-verds{display:flex;flex-wrap:wrap;gap:6px}
+  .vt-tl-git{font-family:var(--mono);font-size:11px;color:var(--tinta-tenue);overflow-wrap:anywhere}
+  .vt-tl blockquote{margin:0;border-left:3px solid var(--alerta);padding:1px 0 1px 10px;font-size:13px;color:var(--tinta);overflow-wrap:anywhere}
+
+  .f2-plat{margin:0 0 14px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb, var(--cian) 9%, var(--panel));
+    border:1px solid color-mix(in srgb, var(--cian) 35%, transparent);display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;font-size:12.5px}
+  .f2-plat span{color:var(--tinta-media);font-size:11.5px}
+  .f2-plat p{flex-basis:100%;margin:4px 0 0;color:var(--tinta-media);line-height:1.5}
+
+  /* estructura: versión de la plataforma, vista previa e historial */
+  .eo-plat{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .eo-plat.previa b{font-size:12px;color:var(--alerta);background:color-mix(in srgb, var(--alerta) 14%, var(--panel));border:1px solid color-mix(in srgb, var(--alerta) 50%, transparent);border-radius:999px;padding:5px 10px}
+  .eo-hist{position:fixed;top:118px;right:18px;z-index:60;width:min(440px,calc(100vw - 36px));max-height:calc(100vh - 150px);overflow:auto;background:var(--panel);border:1px solid var(--borde);border-radius:16px;padding:14px;box-shadow:var(--sombra-alta)}
+  .eo-hist-c{margin:4px 0 0;padding-left:18px;font-size:12px;color:var(--tinta-media)}
+  .mp-btn.eo-tutbtn{border-color:color-mix(in srgb, var(--cian) 55%, transparent);background:color-mix(in srgb, var(--cian) 10%, var(--panel))}
+
+  /* video tutorial */
+  .vt-btn.vt-tutbtn{border-color:color-mix(in srgb, var(--cian) 55%, transparent);color:var(--tinta);background:color-mix(in srgb, var(--cian) 10%, var(--panel))}
+  .vt-tut-fondo{position:fixed;inset:0;z-index:500;background:rgba(5,9,14,.72);display:flex;align-items:center;justify-content:center;padding:24px}
+  .vt-tut-caja{width:min(1100px,100%);max-height:100%;overflow:auto;background:var(--panel);border:1px solid var(--borde);border-radius:20px;padding:14px 16px 12px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--sombra-alta)}
+  .vt-tut-cab{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .vt-tut-cab b{display:block;font-size:15px;margin-top:2px}
+  .vt-tut-vid{position:relative}
+  .vt-tut-caja video{display:block;width:100%;aspect-ratio:16/10;background:#000;border-radius:12px}
+  .vt-tut-carga{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:min(360px,80%);background:rgba(10,14,19,.85);color:#fff;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:600}
+  .vt-tut-carga[hidden]{display:none}
+  .vt-tut-carga i{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.2);overflow:hidden}
+  .vt-tut-carga b{display:block;height:100%;width:0;background:var(--menta, #36F6BB);transition:width .2s}
+  @media (max-width:600px){ .vt-tut-fondo{padding:0} .vt-tut-caja{border-radius:0;height:100%} }
+
   /* menú: un punto por proceso, el recuento por macro y la leyenda */
   .vt-dot{display:inline-block;flex:none;width:8px;height:8px;border-radius:50%;align-self:center;font-style:normal}
   .vt-dot.vt-sin{box-shadow:inset 0 0 0 1.5px var(--tinta-tenue)}
@@ -1202,6 +1250,7 @@
     <a class="lnk" href="#/arquitectura" id="lnkArquitectura">Arquitectura de IA</a>
     <a class="lnk" href="../fase1/informe-diagnostico-fase1.html">← Fase 1</a>
     <button class="f2-icbtn" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+    <div id="perfilUsuario" data-rower-perfil></div>
   </header>
 
   <div class="f2-body">
@@ -1254,7 +1303,7 @@
   <section id="estructura" hidden aria-label="Estructura organizativa To-Be"></section>
 
   <!-- Arquitectura de IA: la órbita (#/arquitectura[/<sector o módulo>]) y los documentos de IA
-       (#/arquitectura/tecnico|politica|casos|prototipos[/<sección>]), todo en el mismo marco -->
+       (#/arquitectura/tecnico|politica|perfil|casos|prototipos[/<sección>]), todo en el mismo marco -->
   <section id="arquitectura" hidden aria-label="Arquitectura de IA">
     <div class="mp-bar aq-bar">
       <a class="mp-btn" href="#/">‹ Índice</a>
@@ -1263,6 +1312,7 @@
         <a class="mp-btn" href="#/arquitectura" data-aq="">Propuesta</a>
         <a class="mp-btn" href="#/arquitectura/tecnico" data-aq="tecnico">Documento técnico</a>
         <a class="mp-btn" href="#/arquitectura/politica" data-aq="politica">Política de adopción</a>
+        <a class="mp-btn" href="#/arquitectura/perfil" data-aq="perfil">Líder de gobierno de IA</a>
         <a class="mp-btn" href="#/arquitectura/casos" data-aq="casos">Casos de uso</a>
         <a class="mp-btn" href="#/arquitectura/prototipos" data-aq="prototipos">Prototipos</a>
       </nav>
@@ -1274,12 +1324,15 @@
   </section>
 </div>
 
+<script src="../../estilo/perfil.js"></script>
 <script src="manual-procesos-datos.js"></script>
 <script src="manual-contenido.js"></script>
+<script src="manual-versiones.js"></script>
 <script src="manual-asis.js"></script>
 <script src="mapa-procesos-flujos.js"></script>
 <script src="madurez-datos.js"></script>
 <script src="flujo-render.js"></script>
+<script src="agente.js"></script>
 <script src="circuito-datos.js"></script>
 <script src="circuito-render.js"></script>
 <script src="estructura-tobe-datos.js"></script>
@@ -1293,7 +1346,7 @@
   var main = $('#main'), doc = $('#doc'), nav = $('#nav'), conf = $('#conf');
 
   // ---------- utilidades ----------
-  function esc(t){var d=document.createElement('div');d.textContent=(t==null?'':String(t));return d.innerHTML;}
+  function esc(t){var d=document.createElement('div');d.textContent=(t==null?'':String(t));return d.innerHTML.replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
   function el(html){var t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstChild;}
   function catNombre(id){for(var i=0;i<D.categorias.length;i++)if(D.categorias[i].id===id)return D.categorias[i].n;return id;}
   function macro(pref){return D.macros.filter(function(m){return m.prefijo===String(pref);})[0];}
@@ -1835,6 +1888,7 @@
       h += SEC_CIERRA;
     });
     if(conVt) h += '<section class="vt-cierre vt-ui" id="vtCierre" aria-label="Cierre de la validación"></section>';
+    if(conVt) h += '<section class="vt-hist vt-ui" id="vtHist" aria-label="Historial del proceso"></section>';
 
     // anterior/siguiente proceso (global, en orden de documento)
     var todos = procTodos();
@@ -1848,8 +1902,14 @@
     doc.innerHTML = h;
     flujosMontar.forEach(function(f){
       var el = doc.querySelector('#'+f.id);
-      if(el && window.FlujoRender) window.FlujoRender.montar(el, f.flujo, f.titulo);
+      if(!el || !window.FlujoRender) return;
+      try { window.FlujoRender.montar(el, f.flujo, f.titulo); }
+      catch(e){ el.innerHTML = '<div class="f2-vacio">No se pudo dibujar el flujograma.</div>'; }
     });
+    if(!esAsis && FLUJO_PLAT[p.codigo]){
+      var sf = doc.querySelector('#secb-flujo');
+      if(sf) sf.insertAdjacentHTML('afterbegin', avisoFlujoPlat(p.codigo));
+    }
     marcarNav('proceso', p.codigo);
     document.title = p.codigo+' '+p.n+(dos?(esAsis?' (As-Is)':' (To-Be)'):'')+' — Fase 2';
     if(conVt) vtMontar(p.codigo, m.prefijo); else VT.actual = null;
@@ -2241,7 +2301,7 @@
   // IA (ia/documento.html?d=…) usan el mismo marco. Ningún id de la órbita choca con los
   // nombres de documento: los módulos son m-…, las áreas a-… y los sectores s-….
   var arqSec = $('#arquitectura'), arqMarco = $('#aqMarco');
-  var AQ_DOCS = { tecnico:'Documento técnico', politica:'Política de adopción de IA', casos:'Casos de uso de IA', prototipos:'Prototipos de IA' };
+  var AQ_DOCS = { tecnico:'Documento técnico', politica:'Política de adopción de IA', perfil:'Líder de Gobierno de IA', casos:'Casos de uso de IA', prototipos:'Prototipos de IA' };
   function activarArquitectura(a, b){
     fbody.hidden = true; mapaSec.hidden = true; circSec.hidden = true; arqSec.hidden = false;
     document.body.classList.remove('f2-menu');
@@ -2253,6 +2313,8 @@
       var on = el.getAttribute('data-aq') === doc;
       el.classList.toggle('on', on);
       if(on) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current');
+      // en pantallas angostas el submenú se desplaza de lado: la pestaña activa queda a la vista
+      if(on){ var sub = el.parentNode; sub.scrollLeft = Math.max(0, el.offsetLeft - sub.offsetLeft - 16); }
     });
     if((arqMarco.getAttribute('src') || '').split('#')[0] !== src) arqMarco.setAttribute('src', src + (ancla ? '#' + ancla : ''));
     else if(ancla){ try{ arqMarco.contentWindow.location.hash = ancla; }catch(e){ arqMarco.setAttribute('src', src + '#' + ancla); } }
@@ -2266,12 +2328,28 @@
     fbody.hidden = true; mapaSec.hidden = true; circSec.hidden = true; arqSec.hidden = true; estSec.hidden = false;
     document.body.classList.remove('f2-menu');
     document.title = 'Estructura organizativa To-Be — Fase 2';
-    EstructuraRender.montar(estSec);
-    if(a==='premisas') EstructuraRender.premisas(b);
-    else if(a) EstructuraRender.abrir(a);
-    else EstructuraRender.cerrar();
+    try { EstructuraRender.montar(estSec); }
+    catch(e){
+      // Lo que el motor no sabe pintar no tumba la página. Una vista previa rota solo se
+      // suelta (vuelve la vigente); una versión de la plataforma rota cede ante el archivo.
+      if(EST_PREVIA){ EST_PREVIA = null; window.ESTRUCTURA_TOBE = EST_VIGENTE; }
+      else { EST_VIGENTE = EST_ARCHIVO; EST_PLAT = null; window.ESTRUCTURA_TOBE = EST_ARCHIVO; }
+      try { EstructuraRender.rehacer(); }
+      catch(e2){ EST_VIGENTE = EST_ARCHIVO; EST_PLAT = null; window.ESTRUCTURA_TOBE = EST_ARCHIVO; EstructuraRender.rehacer(); }
+    }
+    try {
+      if(a==='premisas') EstructuraRender.premisas(b);
+      else if(a) EstructuraRender.abrir(a);
+      else EstructuraRender.cerrar();
+    } catch(e){ EstructuraRender.cerrar(); }
+    decorarEstructura();
   }
-  function salirEstructura(){ estSec.hidden = true; }
+  function salirEstructura(){
+    estSec.hidden = true;
+    var h = document.querySelector('.eo-hist'); if(h) h.remove();
+    // Salir de la estructura cierra la vista previa: al volver, montar() dibuja la vigente.
+    if(EST_PREVIA){ EST_PREVIA = null; window.ESTRUCTURA_TOBE = EST_VIGENTE; }
+  }
 
   // ---------- enrutador ----------
   function router(){
@@ -2347,6 +2425,8 @@
     estados: {},         // proceso → fila de v_estado_tobe
     proc: {},            // como|proceso → {val, notas, cargando, error}
     comp: {},            // proceso|sección → borrador de nota (fuera del DOM: el router repinta)
+    pub: {},             // proceso → {notas publicadas del comité con su autor, actividad}
+    histTodo: {},        // proceso → true si se pidió ver el historial entero
     actual: null, error: '', ocupado: false, dictando: null
   };
   var VT_SEC = {
@@ -2398,11 +2478,202 @@
     });
   }
 
-  /** Huella del To-Be del proceso: dice sobre qué versión del contenido se anotó. */
-  function vtHuella(pref, cod){
-    var c = CONT[String(pref)], s = JSON.stringify((c && c.procesos && c.procesos[cod]) || {}), h = 5381;
+  // ---------- flujos del To-Be publicados en la plataforma (agente IA, 25-oct-2026) ----------
+  // Cada flujo que alguien aprobó desde el agente es una versión en `flujos_tobe`.
+  // La última de cada proceso (v_flujos_vigentes) se pinta por encima del flujo de
+  // manual-contenido.js, para todos los lectores. FLUJO_ARCHIVO guarda el del
+  // archivo: con él se reconoce la versión del archivo en el historial.
+  var FLUJO_ARCHIVO = {};   // proceso → flujo tal como viene del archivo
+  var FLUJO_PLAT = {};      // proceso → {version, autor, fecha, resumen} de la versión vigente
+
+  function cargarFlujos(){
+    if(!(window.rowerSesion && rowerSesion.tokenVivo && rowerSesion.viva && rowerSesion.viva())) return Promise.resolve(false);
+    return sb('v_flujos_vigentes?select=*').then(function(rows){
+      var cambio = false;
+      (rows || []).forEach(function(r){
+        var c = CONT[String(r.proceso).split('.')[0]], pr = c && c.procesos && c.procesos[r.proceso];
+        if(!pr || !flujoSano(r.flujo)) return;
+        if(!(r.proceso in FLUJO_ARCHIVO)) FLUJO_ARCHIVO[r.proceso] = pr.flujo;
+        // Si el archivo cambió después de publicar la versión (el equipo la pasó al repo, o
+        // incorporó otros cambios), manda el archivo. Igual que tobeVigente() de la función agente.
+        if(r.archivo && r.archivo !== huellaDe(Object.assign({}, pr, {flujo: FLUJO_ARCHIVO[r.proceso]}))) return;
+        if(FLUJO_PLAT[r.proceso] && FLUJO_PLAT[r.proceso].version === r.version) return;
+        pr.flujo = r.flujo;       // misma posición de la clave: la huella se calcula igual que en el servidor
+        FLUJO_PLAT[r.proceso] = {version: r.version, autor: r.autor_nombre, fecha: r.creado_en, resumen: r.resumen};
+        cambio = true;
+      });
+      return cambio;
+    }).catch(function(){ return false; });
+  }
+
+  /** Forma mínima de un flujo antes de pintarlo encima del archivo (la función ya lo validó). */
+  function flujoSano(f){
+    var d = f && f.diagrama, txt = function(x){ return typeof x === 'string'; };
+    if(!f || !Array.isArray(f.actividades) || !d || !Array.isArray(d.carriles) || !Array.isArray(d.nodos) || !Array.isArray(d.aristas)) return false;
+    return f.actividades.every(function(a){ return a && txt(a.id) && txt(a.rol) && txt(a.texto); }) &&
+           d.carriles.every(txt) &&
+           d.nodos.every(function(n){ return n && txt(n.id) && txt(n.n) && txt(n.carril) && /^(inicio|tarea|decision|fin)$/.test(n.tipo) &&
+                                             (n.sistemas === undefined || (Array.isArray(n.sistemas) && n.sistemas.every(txt))); }) &&
+           d.aristas.every(function(a){ return a && txt(a.de) && txt(a.a) && (a.etq === undefined || txt(a.etq)); });
+  }
+
+  // ---------- la estructura organizativa en la plataforma (agente IA, 25-oct-2026) ----------
+  // Cada estructura aplicada desde el agente es una versión entera en `estructura_tobe`. La
+  // última (v_estructura_vigente) reemplaza a window.ESTRUCTURA_TOBE para todo lector, mientras
+  // estructura-tobe-datos.js siga siendo el archivo sobre el que se publicó. Una propuesta del
+  // agente se puede ver dibujada antes de aplicarla (EST_PREVIA), sin tocar nada.
+  var EST_ARCHIVO = window.ESTRUCTURA_TOBE || null;
+  var EST_VIGENTE = EST_ARCHIVO;     // la que se pinta fuera de la vista previa
+  var EST_PLAT = null;               // {version, autor, fecha, resumen} si la vigente viene de la plataforma
+  var EST_PREVIA = null;             // {datos} mientras se mira una propuesta
+
+  function estructuraSana(d){
+    return !!(d && d.CEO && typeof d.CEO === 'object' && ['GOBIERNO','CONSEJOS','STAFF','DIRECCIONES','COMITES','PAISES'].every(function(k){ return Array.isArray(d[k]); }) &&
+              d.ESTADOS && typeof d.ESTADOS === 'object');
+  }
+
+  function cargarEstructura(){
+    if(!EST_ARCHIVO || !(window.rowerSesion && rowerSesion.viva && rowerSesion.viva())) return Promise.resolve(false);
+    return sb('v_estructura_vigente?select=*').then(function(rows){
+      var r = rows && rows[0];
+      if(!r || !estructuraSana(r.datos) || (r.archivo && r.archivo !== huellaDe(EST_ARCHIVO))) return false;
+      if(EST_PLAT && EST_PLAT.version === r.version) return false;
+      EST_VIGENTE = ordenarComo(r.datos, EST_ARCHIVO);
+      EST_PLAT = {version: r.version, autor: r.autor_nombre, fecha: r.creado_en, resumen: r.resumen};
+      if(!EST_PREVIA) window.ESTRUCTURA_TOBE = EST_VIGENTE;
+      return true;
+    }).catch(function(){ return false; });
+  }
+
+  // jsonb devuelve las claves de los objetos en otro orden (p. ej. ESTADOS, que da el orden de la
+  // leyenda): se reordenan como en el archivo, y las claves nuevas van al final.
+  function ordenarComo(x, modelo){
+    if(Array.isArray(x)) return x.map(function(v, i){ return ordenarComo(v, Array.isArray(modelo) ? (modelo[i] || modelo[0]) : null); });
+    if(!x || typeof x !== 'object') return x;
+    var out = {}, m = (modelo && typeof modelo === 'object' && !Array.isArray(modelo)) ? modelo : {};
+    Object.keys(m).forEach(function(k){ if(Object.prototype.hasOwnProperty.call(x, k)) out[k] = ordenarComo(x[k], m[k]); });
+    Object.keys(x).forEach(function(k){ if(!(k in out)) out[k] = ordenarComo(x[k], null); });
+    return out;
+  }
+
+  function estructuraVisible(){ return !$('#estructura').hidden; }
+  /** Con la estructura a la vista, se redibuja ya; oculta, la redibuja montar() al volver (si cambió el dato). */
+  function rehacerEstructura(){
+    if(!window.EstructuraRender || !estructuraVisible()) return;
+    try { EstructuraRender.rehacer(); }
+    catch(e){
+      // Una versión que el motor no sabe pintar no tumba la página: vuelve el archivo.
+      EST_PREVIA = null; EST_VIGENTE = EST_ARCHIVO; EST_PLAT = null; window.ESTRUCTURA_TOBE = EST_ARCHIVO;
+      EstructuraRender.rehacer();
+    }
+    router();
+  }
+
+  /** Dibuja una propuesta sin aplicarla. Devuelve false si no se pudo dibujar (y vuelve a la vigente). */
+  function previsualizarEstructura(datos){
+    if(!estructuraSana(datos)) return false;
+    EST_PREVIA = {datos: ordenarComo(datos, EST_ARCHIVO)};
+    window.ESTRUCTURA_TOBE = EST_PREVIA.datos;
+    if(location.hash.indexOf('#/estructura') !== 0) location.hash = '#/estructura';
+    router();               // activarEstructura → montar: rehace con la propuesta, ya visible
+    if(!EST_PREVIA) return false;   // activarEstructura no la pudo pintar y volvió a la vigente
+    decorarEstructura();
+    return true;
+  }
+  function salirPreviaEstructura(){
+    if(!EST_PREVIA) return;
+    EST_PREVIA = null; window.ESTRUCTURA_TOBE = EST_VIGENTE;
+    rehacerEstructura(); decorarEstructura();
+  }
+
+  /** El aviso en la barra de la estructura: vista previa, o la versión vigente y su historial. */
+  function decorarEstructura(){
+    var bar = document.querySelector('#estructura .eo-bar'); if(!bar) return;
+    var viejo = bar.querySelector('.eo-plat'); if(viejo) viejo.remove();
+    var el = document.createElement('div'); el.className = 'eo-plat';
+    var tut = '<button type="button" class="mp-btn eo-tutbtn" data-est="tutorial" title="Video tutorial: cómo leer la estructura y cambiarla con el Agente IA">▶ Tutorial</button>';
+    if(EST_PREVIA){
+      el.classList.add('previa');
+      el.innerHTML = '<b>Vista previa de una propuesta · no aplicada</b>' +
+                     '<button type="button" class="mp-btn" data-est="agente">Volver a la propuesta</button>' +
+                     '<button type="button" class="mp-btn" data-est="salir">Salir de la vista previa</button>';
+    } else if(EST_PLAT){
+      el.innerHTML = '<button type="button" class="mp-btn" data-est="historial" aria-expanded="false" title="' + esc(EST_PLAT.resumen || '') + '">' +
+                     'Versión ' + esc(String(EST_PLAT.version)) + ' · ' + esc(EST_PLAT.autor || '') + ' · ' + esc(vtDia(EST_PLAT.fecha)) + '</button>' + tut;
+    } else el.innerHTML = tut;
+    var sp = bar.querySelector('.mp-sp'); bar.insertBefore(el, sp ? sp.nextSibling : null);
+  }
+
+  function historialEstructura(boton){
+    var abierto = document.querySelector('.eo-hist');
+    if(abierto){ abierto.remove(); boton.setAttribute('aria-expanded', 'false'); return; }
+    boton.setAttribute('aria-expanded', 'true');
+    var pop = document.createElement('div'); pop.className = 'eo-hist'; pop.innerHTML = '<div class="vt-cargando">Cargando el historial…</div>';
+    document.querySelector('#estructura').appendChild(pop);
+    sb('estructura_tobe?select=version,resumen,cambios,autor_nombre,creado_en&order=version.desc&limit=30').then(function(rows){
+      pop.innerHTML = '<div class="vt-rot">Historial de la estructura</div>' +
+        '<ol class="vt-tl">' + (rows || []).map(function(v){
+          return '<li class="vt-tl-ver"><div class="vt-tl-cab"><b>Versión ' + esc(String(v.version)) + '</b>' +
+                 (EST_PLAT && v.version === EST_PLAT.version ? '<span class="vt-chip vt-c-valida">Vigente</span>' : '') +
+                 '<span class="vt-tl-f">' + esc(vtFecha(v.creado_en)) + '</span></div>' +
+                 '<div class="vt-tl-det"><b>' + esc(v.autor_nombre || '') + '</b> · ' + esc(v.resumen) + '</div>' +
+                 ((v.cambios || []).length ? '<ul class="eo-hist-c">' + v.cambios.map(function(c){ return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' : '') + '</li>';
+        }).join('') + '<li class="vt-tl-ver"><div class="vt-tl-cab"><b>Archivo del manual</b><span class="vt-tl-f">' + esc((EST_ARCHIVO && EST_ARCHIVO.corte) || '') + '</span></div>' +
+        '<div class="vt-tl-det">La estructura de estructura-tobe-datos.js, sobre la que se publicaron las versiones.</div></li></ol>';
+    }).catch(function(e){ pop.innerHTML = '<div class="vt-error">No se pudo cargar el historial: ' + esc(e.message) + '</div>'; });
+  }
+
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-est]'); if(!b) return;
+    var a = b.getAttribute('data-est');
+    if(a === 'salir') salirPreviaEstructura();
+    else if(a === 'agente' && window.RowerAgente) window.RowerAgente.abrir();
+    else if(a === 'historial') historialEstructura(b);
+    else if(a === 'tutorial') vtTutorial('estructura');
+  });
+
+  /** Vuelve a pintar la ruta actual sin perder la posición de lectura. */
+  function repintar(){ var y = main.scrollTop; router(); main.scrollTop = y; }
+
+  // Lo que usa el agente flotante (agente.js): recargar tras aplicar un cambio.
+  window.F2Manual = {
+    recargarFlujos: function(){ return cargarFlujos().then(function(c){ if(c) repintar(); return c; }); },
+    recargarEstructura: function(){
+      EST_PREVIA = null;
+      return cargarEstructura().then(function(c){ window.ESTRUCTURA_TOBE = EST_VIGENTE; rehacerEstructura(); decorarEstructura(); return c; });
+    },
+    previsualizarEstructura: function(datos){ return previsualizarEstructura(datos); },
+    salirPreviaEstructura: function(){ salirPreviaEstructura(); }
+  };
+
+  function avisoFlujoPlat(cod){
+    var f = FLUJO_PLAT[cod]; if(!f) return '';
+    return '<div class="f2-plat"><b>Flujo actualizado en la plataforma · versión ' + esc(String(f.version)) + '</b>' +
+           '<span>' + esc(f.autor || 'Un integrante') + ' · ' + esc(vtDia(f.fecha)) + '</span>' +
+           (f.resumen ? '<p>' + esc(f.resumen) + '</p>' : '') + '</div>';
+  }
+
+  /** Huella de un contenido: djb2 sobre su JSON + el largo. Ignora las claves que
+      empiezan por «_»: flujo-render.js guarda en los nodos de decisión su maquetación
+      (_rls, _rw, _rh) y con ellas la huella cambiaba al pintar el flujograma.
+      La misma regla en scripts/generar-versiones-tobe.js y en la Edge Function agente. */
+  function huellaDe(obj){
+    var s = JSON.stringify(obj || {}, function(k, v){ return k.charAt(0) === '_' ? undefined : v; }), h = 5381;
     for(var i = 0; i < s.length; i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
     return (h >>> 0).toString(16) + '-' + s.length;
+  }
+
+  /** Huella del To-Be del proceso: dice sobre qué versión del contenido se anotó. */
+  function vtHuella(pref, cod){
+    var c = CONT[String(pref)];
+    return huellaDe((c && c.procesos && c.procesos[cod]) || {});
+  }
+
+  /** La misma huella, pero con el flujo del archivo: así se ubica en manual-versiones.js. */
+  function vtHuellaArchivo(pref, cod){
+    if(!(cod in FLUJO_ARCHIVO)) return vtHuella(pref, cod);
+    var c = CONT[String(pref)], p = c && c.procesos && c.procesos[cod];
+    return huellaDe(Object.assign({}, p, {flujo: FLUJO_ARCHIVO[cod]}));
   }
 
   function vtCargar(){
@@ -2468,6 +2739,7 @@
     VT.actual = {cod: cod, pref: pref};
     VT.error = '';
     vtBotonesAnotar(cod, pref);
+    vtCargarPub(cod).then(function(){ if(VT.actual && VT.actual.cod === cod) vtPintar(); });
     if(!VT.como){ vtPintar(); return; }
     var k = vtClave(cod);
     if(VT.proc[k] && !VT.proc[k].error && !VT.proc[k].cargando){
@@ -2480,6 +2752,20 @@
     VT.proc[k] = {cargando: true, val: null, notas: []};
     vtPintar();
     vtRecargar(cod).then(function(){ vtPintar(); });
+  }
+
+  /** Lo publicado del proceso: las notas enviadas de todo el comité (con su autor)
+      y la línea de tiempo. Lo ven los integrantes habilitados y la secretaría. */
+  function vtCargarPub(cod){
+    var pc = encodeURIComponent(cod);
+    return Promise.all([
+      sb('rpc/notas_publicadas_tobe', {method: 'POST', body: {p_proceso: cod}}),
+      sb('actividad_tobe?select=*&proceso=eq.' + pc + '&order=creado_en.desc,id.desc')
+    ]).then(function(r){
+      VT.pub[cod] = {notas: r[0] || [], actividad: r[1] || []};
+    }).catch(function(err){
+      VT.pub[cod] = {notas: [], actividad: [], error: err.message};
+    });
   }
 
   function vtRecargar(cod){
@@ -2536,6 +2822,7 @@
       if(p) p.innerHTML = vtPanelHtml(cod, s.id);
     });
     var cierre = doc.querySelector('#vtCierre'); if(cierre) cierre.innerHTML = vtCierreHtml(cod);
+    var hist = doc.querySelector('#vtHist'); if(hist) hist.innerHTML = vtHistHtml(cod);
     var ed = vtEditable();
     doc.querySelectorAll('.vt-anotar').forEach(function(b){ b.hidden = !ed; });
     vtMarcarAnclas();
@@ -2577,7 +2864,10 @@
                     (ver[s.id] ? ' · ' + VT_VER[ver[s.id]] : ' · sin veredicto') + '" aria-label="Ir a ' + esc(s.n) + '"></button>';
            }).join('') + '</div><div class="vt-prog-t"><span>' + n + ' de 6 secciones con veredicto</span><b>' + vtEstadoRot(val) + '</b></div></div>';
       h += '<div class="vt-acc"><button type="button" class="vt-btn" data-vt="cierre">Cierre y envío ↓</button>' +
-           '<a class="vt-btn" href="instructivo-comite.html#como-validar">Instructivo</a></div>';
+           '<button type="button" class="vt-btn" data-vt="historial">Historial ↓</button>' +
+           '<a class="vt-btn" href="instructivo-comite.html#como-validar">Instructivo</a>' + '<button type="button" class="vt-btn vt-tutbtn" data-vt="tutorial" title="Cómo validar, paso a paso, y cómo usar el Agente IA">▶ Video tutorial</button>' + '</div>';
+    } else if(!VT.como){
+      h += '<div class="vt-acc"><button type="button" class="vt-btn" data-vt="historial">Historial ↓</button>' + '<button type="button" class="vt-btn vt-tutbtn" data-vt="tutorial" title="Cómo validar, paso a paso, y cómo usar el Agente IA">▶ Video tutorial</button>' + '</div>';
     }
     h += '</div>';
     h += '<div class="vt-aviso">Lo que anotes no cambia el manual. El equipo consultor revisa cada nota, la incorpora al To-Be y te pide confirmarla antes de dar el proceso por validado. El As-Is no se toca.</div>';
@@ -2596,17 +2886,24 @@
     return 'En revisión';
   }
 
-  function vtNotaHtml(n, editable){
-    var anc = '';
-    if(n.tipo === 'consulta') anc = esc(n.proceso) + ' · consulta';
-    else anc = esc(n.proceso) + ' · ' + VT_CORTO[n.seccion] + (n.ancla_n ? ' · ' + (n.seccion === 'flujo' ? 'actividad ' : n.seccion === 'riesgos' ? 'riesgo ' : 'indicador ') + n.ancla_n : '');
-    var h = '<div class="vt-nota"><div class="vt-nota-meta"><span class="vt-ancla">' + anc + '</span>' +
+  function vtUbic(n){
+    if(n.tipo === 'consulta') return 'consulta' + (n.consulta_a ? ' a ' + n.consulta_a : '');
+    return (VT_CORTO[n.seccion] || n.seccion || '') + (n.ancla_n ? ' · ' + (n.seccion === 'flujo' ? 'actividad ' : n.seccion === 'riesgos' ? 'riesgo ' : 'indicador ') + n.ancla_n : '');
+  }
+
+  /** conAutor: la nota es de otro integrante (llega de notas_publicadas_tobe, con nombres). */
+  function vtNotaHtml(n, editable, conAutor){
+    var anc = esc(n.proceso) + ' · ' + esc(vtUbic(n));
+    var h = '<div class="vt-nota"><div class="vt-nota-meta">' + (conAutor ? '<span class="vt-autor">' + esc(n.autor || 'Integrante del comité') + '</span>' : '') +
+            '<span class="vt-ancla">' + anc + '</span>' +
             '<span class="vt-tipo">' + ({escrita:'Escrita', voz:'Dictada', consulta:'Consulta'})[n.tipo] + '</span>' +
-            '<span>' + vtFecha(n.creado_en) + '</span><span class="vt-est vt-n-' + n.estado + '">' + VT_NOTA[n.estado] + '</span></div>';
+            '<span>' + (n.publicada_en ? 'Publicada el ' + vtFecha(n.publicada_en) : vtFecha(n.creado_en)) + '</span><span class="vt-est vt-n-' + n.estado + '">' + VT_NOTA[n.estado] + '</span></div>';
     if(n.tipo === 'consulta') h += '<blockquote><b>' + esc(n.consulta_a) + '</b> · ' + esc(n.texto) + ' → ' + esc(n.consulta_respuesta) + '</blockquote>';
     else h += '<blockquote>' + esc(n.texto) + '</blockquote>';
-    if(n.ancla_texto && n.tipo !== 'consulta') h += '<div class="vt-leyo">Leíste: «' + esc(n.ancla_texto.length > 140 ? n.ancla_texto.slice(0, 140) + '…' : n.ancla_texto) + '»</div>';
-    if(n.respuesta) h += '<div class="vt-resp"><b>Secretaría técnica:</b> ' + esc(n.respuesta) + '</div>';
+    if(n.ancla_texto && n.tipo !== 'consulta') h += '<div class="vt-leyo">' + (conAutor ? 'Leyó' : 'Leíste') + ': «' + esc(n.ancla_texto.length > 140 ? n.ancla_texto.slice(0, 140) + '…' : n.ancla_texto) + '»</div>';
+    if(conAutor && n.registrado_por && n.registrado_por !== n.perfil_id && n.registrado_nombre) h += '<div class="vt-leyo">Registrada por ' + esc(n.registrado_nombre) + ', de la secretaría técnica.</div>';
+    h += vtNotaVersion(n);
+    if(n.respuesta) h += '<div class="vt-resp"><b>Secretaría técnica' + (n.respondido_nombre ? ' · ' + esc(n.respondido_nombre) : '') + ':</b> ' + esc(n.respuesta) + '</div>';
     if(editable && n.estado === 'borrador') h += '<button type="button" class="vt-link" data-vt="quitar" data-id="' + esc(n.id) + '">Quitar nota</button>';
     return h + '</div>';
   }
@@ -2616,8 +2913,18 @@
     return VT.comp[k] || (VT.comp[k] = {abierto: false, ancla: '', texto: '', tipo: 'escrita'});
   }
 
+  /** Las notas que el resto del comité ya publicó sobre esta sección, con su autor. */
+  function vtOtrasHtml(cod, sec){
+    var p = VT.pub[cod];
+    if(!p || !p.notas) return '';
+    var ns = p.notas.filter(function(n){ return n.seccion === sec && n.tipo !== 'consulta' && n.perfil_id !== VT.como; });
+    if(!ns.length) return '';
+    return '<div class="vt-otras"><div class="vt-sub">' + (VT.como ? 'Publicadas por el resto del comité' : 'Notas publicadas por el comité') + ' · ' + ns.length + '</div>' +
+           '<div class="vt-notas">' + ns.map(function(n){ return vtNotaHtml(n, false, true); }).join('') + '</div></div>';
+  }
+
   function vtPanelHtml(cod, sec){
-    if(!VT.como) return '';
+    if(!VT.como) return vtOtrasHtml(cod, sec);
     var e = vtEstado();
     if(!e || e.cargando) return '<div class="vt-cargando">Cargando tu validación…</div>';
     if(e.error) return '';
@@ -2637,6 +2944,7 @@
       if(c.abierto || falta) h += vtCompHtml(cod, sec, c, v);
       else h += '<button type="button" class="vt-mas" data-vt="abrir" data-sec="' + sec + '">+ Añadir una nota</button>';
     }
+    h += vtOtrasHtml(cod, sec);
     var i = D.seccionesN1.map(function(s){ return s.id; }).indexOf(sec), sig = D.seccionesN1[i + 1];
     if(v && sig) h += '<div class="vt-sig"><button type="button" class="vt-link" data-vt="ir" data-sec="' + sig.id + '">Siguiente: ' + esc(cod + '.' + (i + 2) + ' ' + sig.n) + ' →</button></div>';
     else if(v && !sig) h += '<div class="vt-sig"><button type="button" class="vt-link" data-vt="cierre">Ir al cierre y envío →</button></div>';
@@ -2723,6 +3031,164 @@
     return h;
   }
 
+  // ---- historial del proceso: versiones del To-Be + lo que hizo el comité ----
+  // Las versiones salen de manual-versiones.js (GENERADO desde git por
+  // scripts/generar-versiones-tobe.js); la actividad, de `actividad_tobe`.
+  function vtVersiones(cod){
+    var V = window.MANUAL_VERSIONES, l = V && V.procesos && V.procesos[cod];
+    return (l || []).map(function(v, i){
+      var c = V.commits[v[0]] || [];
+      return {n: i + 1, fecha: c[0], hash: c[1], huella: v[1], cambio: v[2] || []};
+    });
+  }
+  function vtVersionDe(cod, huella){ return vtVersiones(cod).filter(function(v){ return v.huella === huella; })[0] || null; }
+  function vtDia(t){ return t ? new Date(t).toLocaleDateString('es', {day: 'numeric', month: 'short', year: 'numeric'}) : ''; }
+
+  /** Avisa si la nota se escribió sobre un To-Be que ya cambió. */
+  function vtNotaVersion(n){
+    if(!n.version || !VT.actual || n.proceso !== VT.actual.cod) return '';
+    if(n.version === vtHuella(VT.actual.pref, n.proceso)) return '';
+    var v = vtVersionDe(n.proceso, n.version);
+    return '<div class="vt-verant">Se anotó sobre ' + (v ? 'la versión ' + v.n + ' del To-Be (' + vtDia(v.fecha) + ')' : 'una versión anterior del To-Be') +
+           '. El texto cambió después.</div>';
+  }
+
+  function vtSecNombres(l){
+    var nom = {}; D.seccionesN1.forEach(function(s){ nom[s.id] = s.n; });
+    return l.map(function(k){ return nom[k] || 'otros datos'; });
+  }
+
+  function vtVeredictosRes(ver){
+    var c = {valida: 0, ajustes: 0, no: 0};
+    Object.keys(ver || {}).forEach(function(k){ if(c[ver[k]] !== undefined) c[ver[k]]++; });
+    return '<div class="vt-tl-verds">' + ['valida','ajustes','no'].filter(function(x){ return c[x]; }).map(function(x){
+      return '<span class="vt-chip vt-c-' + x + '">' + c[x] + ' ' + VT_VER[x].toLowerCase() + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function vtHistItem(it, cod){
+    var a = it.a, h = '';
+    if(it.k === 'vigente'){
+      return '<li class="vt-tl-ver"><div class="vt-tl-cab"><b>Versión vigente del To-Be</b><span class="vt-chip vt-c-valida">Vigente</span></div>' +
+             '<div class="vt-tl-det">Todavía no está registrada en el historial de versiones: se registra al publicar el cambio.</div></li>';
+    }
+    if(it.k === 'version'){
+      var v = it.v, notas = ((VT.pub[cod] && VT.pub[cod].notas) || []).filter(function(n){ return n.version === v.huella; }).length;
+      h = '<li class="vt-tl-ver"><div class="vt-tl-cab"><b>' + (v.n === 1 ? 'Primera versión del To-Be' : 'Versión ' + v.n + ' del To-Be') + '</b>' +
+          (it.vigente ? '<span class="vt-chip vt-c-valida">Vigente</span>' : '') + '<span class="vt-tl-f">' + vtFecha(v.fecha) + '</span></div>';
+      if(v.cambio.length) h += '<div class="vt-tl-det">Cambió: ' + esc(vtSecNombres(v.cambio).join(' · ')) + '</div>';
+      if(notas) h += '<div class="vt-tl-det">' + notas + (notas === 1 ? ' nota publicada' : ' notas publicadas') + ' sobre esta versión.</div>';
+      if(VT.secretaria && v.hash) h += '<div class="vt-tl-det vt-tl-git" title="El commit del repositorio: su mensaje se ve con git show">commit ' + esc(v.hash) + '</div>';
+      return h + '</li>';
+    }
+    var quien = esc(a.integrante || 'Un integrante'), por = a.actor && a.actor !== a.perfil_id && a.actor_nombre ? esc(a.actor_nombre) : '';
+    var d = a.detalle || {}, cab = '', det = '', cls = 'vt-tl-act';
+    if(a.tipo === 'enviada'){ cab = '<b>' + quien + '</b> envió su validación'; det = vtVeredictosRes(d.veredictos); }
+    else if(a.tipo === 'validada'){ cab = '<b>' + quien + '</b> dio el proceso por validado'; cls = 'vt-tl-ok'; }
+    else if(a.tipo === 'reabierta'){ cab = por ? '<b>' + por + '</b> reabrió la validación de ' + quien : '<b>' + quien + '</b> reabrió su validación'; por = ''; }
+    else if(a.tipo === 'nota_publicada'){
+      cab = '<b>' + quien + '</b> publicó una nota <span class="vt-ancla">' + esc(vtUbic(d)) + '</span>'; cls = 'vt-tl-nota';
+      det = '<blockquote>' + esc(d.tipo === 'consulta' ? d.texto + ' → ' + (d.consulta_respuesta || '') : d.texto) + '</blockquote>';
+      por = d.registrado_por && d.registrado_por !== a.perfil_id && d.registrado_nombre ? esc(d.registrado_nombre) : '';
+    }
+    else if(a.tipo === 'nota_respondida'){
+      cab = '<b>Secretaría técnica' + (a.actor_nombre ? ' · ' + esc(a.actor_nombre) : '') + '</b> respondió una nota de ' + quien +
+            ' <span class="vt-est vt-n-' + esc(d.estado) + '">' + (VT_NOTA[d.estado] || '') + '</span>';
+      det = (d.respuesta ? '<div class="vt-resp">' + esc(d.respuesta) + '</div>' : '') +
+            '<div class="vt-tl-det">Sobre: «' + esc((d.texto || '').length > 140 ? d.texto.slice(0, 140) + '…' : (d.texto || '')) + '»</div>';
+      por = '';
+    }
+    else if(a.tipo === 'flujo_cambiado'){
+      cab = '<b>' + quien + '</b> cambió el flujo de actividades con el agente · versión ' + esc(String(d.version || '')) + ' en la plataforma' +
+            (it.vigente ? ' <span class="vt-chip vt-c-valida">Vigente</span>' : '');
+      det = d.resumen ? '<div class="vt-tl-det">' + esc(d.resumen) + '</div>' : '';
+      cls = 'vt-tl-ver'; por = '';
+    }
+    else if(a.tipo === 'nota_retirada'){ cab = '<b>' + (a.actor_nombre ? esc(a.actor_nombre) : 'La secretaría técnica') + '</b> retiró una nota de ' + quien; por = ''; }
+    h = '<li class="' + cls + '"><div class="vt-tl-cab"><span>' + cab + '</span><span class="vt-tl-f">' + vtFecha(a.creado_en) + '</span></div>' + det;
+    if(por) h += '<div class="vt-tl-det">Registrada por ' + por + ', de la secretaría técnica.</div>';
+    return h + '</li>';
+  }
+
+  function vtHistHtml(cod){
+    if(!VT.actual) return '';
+    var p = VT.pub[cod], act = vtHuellaArchivo(VT.actual.pref, cod), vers = vtVersiones(cod), items = [], plat = FLUJO_PLAT[cod];
+    vers.forEach(function(v, i){ items.push({t: Date.parse(v.fecha) || 0, k: 'version', v: v, vigente: !plat && v.huella === act && i === vers.length - 1}); });
+    ((p && p.actividad) || []).forEach(function(a){
+      items.push({t: Date.parse(a.creado_en) || 0, k: 'act', a: a,
+                  vigente: a.tipo === 'flujo_cambiado' && plat && a.detalle && a.detalle.version === plat.version});
+    });
+    items.sort(function(x, y){ return y.t - x.t; });
+    if(!vers.length || vers[vers.length - 1].huella !== act) items.unshift({k: 'vigente'});
+    var h = '<div class="vt-rot">Historial</div><h2 class="vt-h2">Cómo ha cambiado ' + esc(cod) + '</h2>' +
+            '<p class="vt-tenue">Las versiones del To-Be y lo que el comité publicó sobre cada una, de lo más reciente a lo más antiguo. Lo ven los integrantes del comité y la secretaría técnica.</p>';
+    if(!p) h += '<div class="vt-cargando">Cargando la actividad del comité…</div>';
+    else if(p.error) h += '<div class="vt-error" role="alert">No se pudo cargar la actividad del comité: ' + esc(p.error) + '</div>';
+    var tope = VT.histTodo[cod] ? items.length : 12;
+    h += '<ol class="vt-tl">' + items.slice(0, tope).map(function(it){ return vtHistItem(it, cod); }).join('') + '</ol>';
+    if(items.length > tope) h += '<button type="button" class="vt-link" data-vt="hist-todo">Ver ' + (items.length - tope) + ' más antiguos</button>';
+    return h;
+  }
+
+  // ---- videos tutoriales (tutorial/<nombre>.mp4): validación y estructura ----
+  // Los graban scripts/tutorial/grabar_<nombre>.py sobre el manual real, con narración; ver CLAUDE.md.
+  var TUTORIALES = {
+    'validacion-tobe': {titulo: 'Cómo validar el To-Be y usar el Agente IA',
+      pie: 'Veredictos y notas · Anotar sobre una actividad · Cierre y envío · Historial · Agente IA para dudas y para cambiar el flujo.'},
+    'estructura': {titulo: 'Cómo leer la estructura organizativa y cambiarla con el Agente IA',
+      pie: 'Leer el organigrama · Unidades, países y ocupantes · Comités, capas y premisas · Agente IA para entenderla y proponer cambios.'}
+  };
+  function vtTutorial(nombre){
+    nombre = TUTORIALES[nombre] ? nombre : 'validacion-tobe';
+    var t = TUTORIALES[nombre], previo = document.activeElement;
+    var f = document.createElement('div');
+    f.className = 'vt-tut-fondo vt-ui';
+    f.setAttribute('role', 'dialog'); f.setAttribute('aria-modal', 'true'); f.setAttribute('aria-label', 'Video tutorial: ' + t.titulo);
+    f.innerHTML = '<div class="vt-tut-caja"><div class="vt-tut-cab"><div><span class="vt-rot">Video tutorial</span>' +
+                  '<b>' + esc(t.titulo) + '</b></div>' +
+                  '<button type="button" class="vt-btn" data-tut="cerrar" aria-label="Cerrar el video">✕ Cerrar</button></div>' +
+                  '<div class="vt-tut-vid"><video controls playsinline preload="none" poster="tutorial/' + nombre + '.jpg">Tu navegador no reproduce el video.</video>' +
+                  '<div class="vt-tut-carga" role="status"><span>Cargando el video…</span><i><b></b></i></div></div>' +
+                  '<p class="vt-tenue">' + esc(t.pie) + '</p></div>';
+    document.body.appendChild(f);
+    var v = f.querySelector('video');
+    function cerrar(){ v.pause(); f.remove(); document.removeEventListener('keydown', tecla); if(previo && previo.focus) previo.focus(); }
+    function tecla(e){ if(e.key === 'Escape') cerrar(); }
+    f.addEventListener('click', function(e){ if(e.target === f || (e.target.closest && e.target.closest('[data-tut="cerrar"]'))) cerrar(); });
+    document.addEventListener('keydown', tecla);
+    f.querySelector('[data-tut="cerrar"]').focus();
+    vtTutCargar(f, v, nombre);
+  }
+
+  // El sitio (Cloudflare Workers) no atiende pedidos por rangos, y sin ellos el navegador no
+  // deja adelantar ni retroceder el video. Por eso se baja entero una vez, con su barra de
+  // avance, y se reproduce desde memoria; si la descarga falla, se reproduce directo.
+  var VT_TUT_URL = {};
+  function vtTutCargar(f, v, nombre){
+    var carga = f.querySelector('.vt-tut-carga'), barra = carga.querySelector('b'), rot = carga.querySelector('span');
+    var src = 'tutorial/' + nombre + '.mp4';
+    function listo(url){
+      if(!f.isConnected) return;
+      carga.hidden = true; v.src = url;
+      var pr = v.play && v.play(); if(pr && pr.catch) pr.catch(function(){});
+    }
+    if(VT_TUT_URL[nombre]) return listo(VT_TUT_URL[nombre]);
+    fetch(src).then(function(r){
+      if(!r.ok || !r.body) throw new Error('HTTP ' + r.status);
+      var total = Number(r.headers.get('Content-Length')) || 0, leido = 0, partes = [], lector = r.body.getReader();
+      function paso(){
+        return lector.read().then(function(x){
+          if(x.done) return new Blob(partes, {type: 'video/mp4'});
+          partes.push(x.value); leido += x.value.length;
+          if(total){ barra.style.width = Math.round(leido / total * 100) + '%'; rot.textContent = 'Cargando el video… ' + Math.round(leido / total * 100) + ' %'; }
+          return paso();
+        });
+      }
+      return paso();
+    }).then(function(blob){ VT_TUT_URL[nombre] = URL.createObjectURL(blob); listo(VT_TUT_URL[nombre]); })
+      .catch(function(){ listo(src); });
+  }
+
   // ---- escritura ----
   function vtFallo(err){ VT.error = (err && err.message) || String(err); VT.ocupado = false; vtPintar(); }
 
@@ -2741,7 +3207,7 @@
 
   function vtTrasCambio(cod){
     VT.error = ''; VT.ocupado = false;
-    return vtRecargar(cod).then(function(){ vtPintar(); return vtRefrescarEstados(); });
+    return Promise.all([vtRecargar(cod), vtCargarPub(cod)]).then(function(){ vtPintar(); return vtRefrescarEstados(); });
   }
 
   function vtAccion(b){
@@ -2754,6 +3220,9 @@
       return;
     }
     if(accion === 'cierre'){ var ci = doc.querySelector('#vtCierre'); if(ci) ci.scrollIntoView({block: 'start', behavior: 'smooth'}); return; }
+    if(accion === 'historial'){ var hi = doc.querySelector('#vtHist'); if(hi) hi.scrollIntoView({block: 'start', behavior: 'smooth'}); return; }
+    if(accion === 'hist-todo'){ VT.histTodo[cod] = true; vtPintar(); return; }
+    if(accion === 'tutorial'){ vtTutorial('validacion-tobe'); return; }
     if(!e || VT.ocupado) return;
     if(accion === 'veredicto'){
       var v = b.getAttribute('data-v');
@@ -2878,6 +3347,8 @@
   pintarNav();
   window.addEventListener('hashchange', router);
   router();
+  cargarFlujos().then(function(c){ if(c) repintar(); });
+  cargarEstructura().then(function(c){ if(c){ rehacerEstructura(); decorarEstructura(); } });
   vtCargar().then(function(){
     if(!vtActivo()) return;
     vtPintarNav();

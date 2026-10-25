@@ -27,12 +27,15 @@
 // Vista «Capas» (#/estructura/capas): la lógica de conformación sin unidades
 // ni ocupantes, para explicarla antes del organigrama. Sale de E.CAPAS.
 //
-// API: EstructuraRender.montar(section) · .abrir(id) · .premisas(pestaña) · .capas() · .cerrar()
+// API: EstructuraRender.montar(section) · .abrir(id) · .premisas(pestaña) · .capas() · .cerrar() · .rehacer()
 (function(){
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
   var E = null, host = null, vp = null, world = null, lienzo = null, svg = null;
   var panel = null, pcuerpo = null, cogob = null, montado = false;
+  var globales = false;   // los oyentes de document/window se ponen una sola vez, aunque se rehaga
+  var leyOyente = false, leyActual = null;   // el de la leyenda, igual: apunta a la leyenda vigente
+  var barObs = null;       // mide la barra: si se parte en dos filas, los flotantes bajan con ella
   var NODOS = {};          // id -> {d: dato, padre: id, dir: id de la dirección, el: caja}
   var ARISTAS = [];        // {de, a, tipo:'linea'|'punteada'|'bus'}
   var cam = {x:0, y:0, s:1};
@@ -272,10 +275,14 @@
 
   // --------------------------------------------------------------- montaje
   function montar(section){
-    E = window.ESTRUCTURA_TOBE;
-    if(!E) return;
+    var datos = window.ESTRUCTURA_TOBE;
+    if(!datos) return;
     host = section;
-    if(montado){ requestAnimationFrame(trazar); return; }
+    // Si cambió la estructura (versión de la plataforma o vista previa), se rehace entero:
+    // conservar el dibujo con datos nuevos mezclaría las dos versiones.
+    if(montado && datos === E){ requestAnimationFrame(trazar); return; }
+    E = datos;
+    montado = false;
     montado = true;
     indexar();
     var pref = leerPref();
@@ -326,6 +333,7 @@
     });
     montarLeyenda(pref);
     montarCogob(pref);
+    medirBarra();
 
     // preferencias de vista
     aplicarToggle("eoOcup", pref.ocupantes !== false, "eo-sinocup", true);
@@ -355,12 +363,15 @@
       var t = e.target.closest("[data-tab]");
       if(t){ location.hash = "#/estructura/premisas/" + t.getAttribute("data-tab"); }
     });
-    document.addEventListener("keydown", function(e){
-      if(e.key === "Escape" && !host.hidden && !panel.hidden) location.hash = "#/estructura";
-    });
+    if(!globales){
+      globales = true;
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape" && !host.hidden && !panel.hidden) location.hash = "#/estructura";
+      });
+      window.addEventListener("resize", function(){ if(!host.hidden) ajustar(); });
+    }
 
     camara();
-    window.addEventListener("resize", function(){ if(!host.hidden) ajustar(); });
     requestAnimationFrame(function(){ trazar(); ajustar(); });
     // Las fuentes web cambian el alto de las cajas: volver a trazar al cargar.
     if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ trazar(); });
@@ -424,7 +435,21 @@
       e.preventDefault(); ley.style.left = (ley.offsetLeft + d[0]) + "px"; ley.style.top = (ley.offsetTop + d[1]) + "px"; encajar();
       var p = leerPref(); p.ley = {x:ley.offsetLeft, y:ley.offsetTop}; guardarPref(p);
     });
-    window.addEventListener("resize", function(){ if(!ley.hidden) encajar(); });
+    leyActual = { ley: ley, encajar: encajar };
+    if(!leyOyente){ leyOyente = true; window.addEventListener("resize", function(){ if(leyActual && !leyActual.ley.hidden) leyActual.encajar(); }); }
+  }
+
+  // La barra se parte en dos filas en pantallas angostas o cuando el manual le añade botones
+  // (versión, tutorial). Su alto va a --eo-bar-h, que usan los flotantes, y la leyenda se reencaja.
+  function medirBarra(){
+    var bar = host.querySelector(".eo-bar"); if(!bar) return;
+    function fijar(){
+      host.style.setProperty("--eo-bar-h", bar.offsetHeight + "px");
+      if(leyActual && !leyActual.ley.hidden) leyActual.encajar();
+    }
+    if(barObs) barObs.disconnect();
+    if(window.ResizeObserver){ barObs = new ResizeObserver(fijar); barObs.observe(bar); }
+    fijar();
   }
 
   // Consejos y comités: flotante desplegable en la parte superior de la vista.
@@ -1094,6 +1119,9 @@
     premisas: premisas,
     capas: capas,
     cerrar: cerrar,
-    retrazar: function(){ if(montado) trazar(); }
+    retrazar: function(){ if(montado) trazar(); },
+    // Vuelve a montar con lo que haya ahora en window.ESTRUCTURA_TOBE: lo usa el manual para
+    // pintar la versión de la plataforma o la vista previa de una propuesta del agente.
+    rehacer: function(){ if(!host) return; var h = host; montado = false; E = null; montar(h); }
   };
 })();

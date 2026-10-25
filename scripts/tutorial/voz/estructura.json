@@ -1,0 +1,117 @@
+[
+ {
+  "id": "portada",
+  "voz": "En este video vas a ver cómo leer la estructura organizativa propuesta, y cómo usar el Agente IA para entenderla y, si tienes el permiso, cambiarla.",
+  "listo": true
+ },
+ {
+  "id": "entrar",
+  "voz": "La estructura se abre desde la barra superior del manual, con el enlace Estructura.",
+  "listo": true
+ },
+ {
+  "id": "lectura",
+  "voz": "Arriba está la Presidencia. A la izquierda, en naranja, las unidades de staff que apoyan al comité directivo. A la derecha, en verde, las unidades de negocio, en el orden de la cadena de valor: compra, logística y venta.",
+  "listo": true
+ },
+ {
+  "id": "bandas",
+  "voz": "Cada lado tiene dos bandas: arriba la capa corporativa, que existe una sola vez para todo el grupo, y abajo, rayada, la capa país, que se repite en Panamá, Venezuela y Colombia.",
+  "listo": true
+ },
+ {
+  "id": "navegar",
+  "voz": "Con la rueda del mouse acercas y alejas, arrastrando te mueves, y con estos botones ajustas la vista a la pantalla.",
+  "listo": true
+ },
+ {
+  "id": "unidad",
+  "voz": "Un clic en cualquier caja abre su ficha: quién la ocupa y en qué estado, sus funciones, de quién depende y en qué comités participa.",
+  "listo": true
+ },
+ {
+  "id": "paises",
+  "voz": "Las gerencias país se dibujan como una pila, una hoja por país. Al abrirla, ves una caja por país con su ocupante.",
+  "listo": true
+ },
+ {
+  "id": "leyenda",
+  "voz": "La leyenda explica los colores del ocupante: titular actual, propuesto, por validar, vacante o por definir. Resaltar abiertas marca las posiciones que faltan por cubrir.",
+  "listo": true
+ },
+ {
+  "id": "comites",
+  "voz": "Arriba, el desplegable de consejos y comités muestra las instancias de cogobierno, quién las lidera y quiénes las integran.",
+  "listo": true
+ },
+ {
+  "id": "capas",
+  "voz": "El botón Capas explica la lógica de la estructura sin nombres, nivel por nivel, antes de entrar al detalle.",
+  "listo": true
+ },
+ {
+  "id": "premisas",
+  "voz": "Y en Premisas del diseño están los principios, qué se conserva y qué cambia, y los pendientes.",
+  "listo": true
+ },
+ {
+  "id": "agente",
+  "voz": "Ahora, el Agente IA. Conoce toda la estructura vigente y responde con ella.",
+  "listo": true
+ },
+ {
+  "id": "abrir",
+  "voz": "Abre el agente con su botón. Sabe que estás en la estructura, así que puedes preguntar directamente.",
+  "listo": true
+ },
+ {
+  "id": "pregunta",
+  "voz": "El agente lee la estructura antes de responder.",
+  "listo": true
+ },
+ {
+  "id": "respuesta",
+  "voz": "Responde con la estructura vigente: dependencias, ocupantes y comités. Úsalo para entenderla o para preparar una conversación.",
+  "listo": true
+ },
+ {
+  "id": "permiso",
+  "voz": "Cambiarla requiere un permiso aparte, el interruptor Estructura de tu cuenta. Si no lo tienes, el agente te explica qué cambiaría y a quién pedírselo.",
+  "listo": true
+ },
+ {
+  "id": "pedir",
+  "voz": "Pídele el cambio en tus palabras. El agente lo arma, revisa que ningún comité quede nombrando una unidad que ya no existe, y te lo propone.",
+  "listo": true
+ },
+ {
+  "id": "tarjeta",
+  "voz": "Llega una tarjeta con los cambios en frases. Antes de decidir, mira cómo quedaría con Ver vista previa.",
+  "listo": true
+ },
+ {
+  "id": "previa",
+  "voz": "La vista previa dibuja la estructura completa con el cambio, marcada como no aplicada. Nada cambia hasta que lo apliques.",
+  "listo": true
+ },
+ {
+  "id": "aplicar",
+  "voz": "Vuelve a la propuesta y pulsa Aplicar. Se publica como una versión nueva, firmada con tu nombre.",
+  "listo": true
+ },
+ {
+  "id": "version",
+  "voz": "Todos la ven al instante. La barra muestra la versión vigente y, al pulsarla, el historial con lo que cambió en cada versión.",
+  "listo": true
+ },
+ {
+  "id": "aviso",
+  "voz": "Un cambio en la estructura no cambia solo los cargos que nombran los procesos del manual. El agente te lo recuerda en cada propuesta.",
+  "listo": true
+ },
+ {
+  "id": "cierre",
+  "voz": "En resumen: recorre la estructura, abre las unidades, consulta al agente y, con el permiso, propón, revisa la vista previa y aplica.",
+  "listo": true
+ }
+]

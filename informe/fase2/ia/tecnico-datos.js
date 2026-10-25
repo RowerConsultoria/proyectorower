@@ -2122,7 +2122,7 @@ window.IA_DOC = {
       "**Cuentas nominales:** una por persona, nunca compartidas, y se dan de baja al cerrar la relación.",
       "**Un subdominio por audiencia** (por ejemplo `clientes.`, `socios.`, `proveedores.`) sobre el mismo proyecto de Auth.",
       "Con SMTP propio, Supabase limita a 30 los correos de Auth por hora: hay que subir ese límite.",
-      "**Formularios públicos sin cuenta**, como la postulación del [[doc:prototipos/p2|prototipo 2]]: Turnstile, una Edge Function que valida y una URL firmada para subir el archivo directo a Storage.",
+      "**Formularios públicos sin cuenta**, como la postulación del [[doc:prototipos/reclutamiento|candidato de reclutamiento]]: Turnstile, una Edge Function que valida y una URL firmada para subir el archivo directo a Storage.",
       "Quedan por confirmar el doble factor para usuarios externos y la región de alojamiento."
      ]
     },
@@ -3356,7 +3356,7 @@ window.IA_DOC = {
       {
        "t": "Buzón de sell-out de clientes",
        "entregable": "Un buzón de correo y un portal donde los clientes dejan su reporte, y `core.sell_out` normalizado por cliente, tienda y SKU, visible para el vendedor y el KAM.",
-       "como": "Cada archivo entra a Storage, se ingiere una vez por *hash* y se rechaza si no trae el formato declarado. El agente reconoce el formato y propone el mapeo de columnas (techo nivel 2); los SKU del cliente se resuelven contra el catálogo y lo que no llega al 95 % de confianza va a excepciones con dueño. El lote cuadra contra el reporte del cliente y queda certificado. El agente prepara el pedido de lo que falta y lo envía el vendedor. Es la base del prototipo [[doc:prototipos/p3|P3]].",
+       "como": "Cada archivo entra a Storage, se ingiere una vez por *hash* y se rechaza si no trae el formato declarado. El agente reconoce el formato y propone el mapeo de columnas (techo nivel 2); los SKU del cliente se resuelven contra el catálogo y lo que no llega al 95 % de confianza va a excepciones con dueño. El lote cuadra contra el reporte del cliente y queda certificado. El agente prepara el pedido de lo que falta y lo envía el vendedor. Es la base del candidato a prototipo [[doc:prototipos/sellout|normalizador del sell-out]].",
        "depende": "Catálogo único; la lista de clientes con país, periodicidad y formato (Ola 0); el portal por invitación ([[sec:front|sección 9]]).",
        "acepta": "Los clientes de la lista reportan por el buzón o por el portal; cada lote queda certificado o en excepción con dueño y plazo; se publica por cliente el porcentaje de filas con SKU reconocido; el Excel que se actualiza a mano cada lunes deja de hacerse; 90 % o más de lotes certificados a la primera, la meta de [[proc:15.2]].",
        "rol": "Ingeniería de datos; dueño: Ventas Mayor (cuentas clave).",
@@ -4263,7 +4263,7 @@ window.IA_DOC = {
       {
        "t": "Reclutamiento y lector de CV",
        "entregable": "La base de candidatos, el pipeline por etapas, las entrevistas y la oferta, con el lector de CV.",
-       "como": "El agente lee cada CV, lo compara con el perfil con criterios explícitos y ordena a los candidatos con el porqué (nivel 1); nunca descarta solo. Postulación pública con Turnstile y subida firmada a Storage. Es el prototipo [[doc:prototipos/p2|P2]].",
+       "como": "El agente lee cada CV, lo compara con el perfil con criterios explícitos y ordena a los candidatos con el porqué (nivel 1); nunca descarta solo. Postulación pública con Turnstile y subida firmada a Storage. Es uno de los candidatos a prototipo ([[doc:prototipos/reclutamiento|reclutamiento con IA]]).",
        "depende": "Vacantes y requisiciones; consentimiento de los candidatos (decisión 8).",
        "acepta": "Toda puntuación muestra su porqué; ningún candidato sale del proceso sin una decisión humana registrada; cada postulación guarda su consentimiento.",
        "rol": "Equipo de plataforma; dueño: Talento Humano.",

@@ -1835,7 +1835,10 @@ async function renderUsuarios(){
         <div class="sobretitulo">accesos · quién entra al panel</div>
         <div class="titulo-seccion" style="margin-top:4px">usuarios</div>
       </div>
-      <button class="btn btn-marca" id="usNuevo">＋ nuevo usuario</button>
+      <div class="fila" style="gap:8px;align-items:center">
+        <button class="acc st-toggle" id="usAgenteGlobal" title="Interruptor general del Agente IA del manual: apagado, nadie lo ve" hidden></button>
+        <button class="btn btn-marca" id="usNuevo">＋ nuevo usuario</button>
+      </div>
     </div>
     <div class="rejilla rejilla-4 gap-12" id="usKpis" style="margin-bottom:20px"></div>
     <div class="toolbar">
@@ -1850,6 +1853,7 @@ async function renderUsuarios(){
     <div class="modal-fondo" id="usModalFondo"><div class="modal-caja" id="usModalCaja"></div></div>`;
 
   $('#usNuevo').addEventListener('click', ()=> abrirModalUsuario(null));
+  $('#usAgenteGlobal').addEventListener('click', alternarAgenteGlobal);
   $('#qu').addEventListener('input', pintarUsuarios);
   $('#fuRol').addEventListener('change', pintarUsuarios);
   $('#fuEstado').addEventListener('change', pintarUsuarios);
@@ -1873,6 +1877,7 @@ async function recargarUsuarios(){
     setConn('ok','Conectado · Supabase');
     const ops = rolesLista.map(r=>`<option value="${esc(r.clave)}">${esc(r.nombre)}</option>`).join('');
     $('#fuRol').innerHTML = '<option value="">Todos los roles</option>' + ops;
+    await cargarAgenteUsuarios();
     pintarKpisUsuarios();
     pintarUsuarios();
   }catch(e){
@@ -1894,8 +1899,77 @@ function pintarKpisUsuarios(){
 
 const colsUsuarios = [
   {col:'correo', label:'Correo'}, {col:'nombre', label:'Nombre'}, {label:'Rol'},
-  {label:'Estado'}, {label:'Último acceso'},
+  {label:'Estado'}, {label:'Agente IA'}, {label:'Último acceso'},
 ];
+
+/* ---- Agente IA del manual (25-oct-2026) ----
+   Lo tienen los integrantes habilitados del comité (validadores_tobe, desde la
+   Secretaría técnica) y las cuentas con el interruptor de esta tabla
+   (agente_cuentas). El interruptor general (config_plataforma 'agente_ia') lo
+   apaga para todos. La regla vive en puede_usar_agente(). */
+let agenteCuentas = {};   // perfil → {por_comite, por_cuenta}
+let agenteGlobal = null;  // true | false | null (no se pudo leer)
+
+async function cargarAgenteUsuarios(){
+  const [ac, cf] = await Promise.all([
+    db.rpc('agente_cuentas_admin'),
+    db.from('config_plataforma').select('valor').eq('clave','agente_ia').maybeSingle(),
+  ]);
+  agenteCuentas = {};
+  (ac.data || []).forEach(x=> agenteCuentas[x.perfil_id] = x);
+  agenteGlobal = cf.error ? null : !!(cf.data && cf.data.valor && cf.data.valor.activo);
+  const b = $('#usAgenteGlobal'); if(!b) return;
+  b.hidden = agenteGlobal === null;
+  b.classList.toggle('on', !!agenteGlobal);
+  b.setAttribute('aria-pressed', String(!!agenteGlobal));
+  b.textContent = agenteGlobal ? 'Agente IA: encendido' : 'Agente IA: apagado';
+}
+
+async function alternarAgenteGlobal(){
+  const b = $('#usAgenteGlobal'); b.disabled = true;
+  const res = await db.from('config_plataforma').update({ valor:{ activo: !agenteGlobal }, actualizado_por: PERFIL && PERFIL.id }).eq('clave','agente_ia');
+  b.disabled = false;
+  if(res.error){ toast(res.error.message, true); return; }
+  toast(!agenteGlobal ? 'Agente IA encendido para quien lo tenga activado' : 'Agente IA apagado para todos');
+  await cargarAgenteUsuarios(); pintarUsuarios();
+}
+
+function celdaAgente(u){
+  const a = agenteCuentas[u.id] || {};
+  const comite = a.por_comite ? ' <span class="chip" title="Lo tiene por estar habilitada para validar el To-Be (Secretaría técnica)">comité</span>' : '';
+  return `<button class="acc st-toggle ${a.por_cuenta?'on':''}" data-ag-cuenta="${esc(u.id)}" aria-pressed="${!!a.por_cuenta}"${u.activo?'':' disabled'}
+            title="${a.por_cuenta ? 'Quitar el agente a esta cuenta' : 'Activar el agente: la cuenta podrá leer las notas publicadas del comité (con autor) y proponer cambios al flujo del To-Be'}">${a.por_cuenta ? 'Activado' : 'Activar'}</button>${comite}
+          <button class="acc st-toggle ${a.estructura?'on':''}" data-ag-estructura="${esc(u.id)}" aria-pressed="${!!a.estructura}"${u.activo && (a.por_cuenta || a.por_comite || a.estructura) ? '' : ' disabled'}
+            title="${a.estructura ? 'Quitar el permiso de cambiar la estructura' : 'Puede cambiar la estructura organizativa con el agente (unidades, ocupantes, comités, premisas). Necesita tener el agente.'}">${a.estructura ? 'Estructura ✓' : 'Estructura'}</button>`;
+}
+
+async function alternarEstructuraCuenta(id, b){
+  const a = agenteCuentas[id] || {};
+  // Mientras guarda, los dos interruptores de la fila quedan quietos: no se cruzan.
+  const fila = b.closest('tr'); fila && fila.querySelectorAll('[data-ag-cuenta],[data-ag-estructura]').forEach(x=> x.disabled = true);
+  // Solo el permiso de la estructura: si la fila existe se actualiza ese campo; si no, se crea
+  // con el agente apagado (`activo`), que es lo que había. Nada de reescribir `activo` desde la caché.
+  let res = await db.from('agente_cuentas').update({ estructura: !a.estructura }).eq('perfil_id', id).select('perfil_id');
+  if(!res.error && !(res.data||[]).length){
+    res = await db.from('agente_cuentas').insert({ perfil_id:id, activo:false, estructura:true, habilitado_por: PERFIL && PERFIL.id });
+  }
+  if(res.error){ fila && fila.querySelectorAll('[data-ag-cuenta],[data-ag-estructura]').forEach(x=> x.disabled = false); toast(res.error.message, true); return; }
+  const u = usuarios.find(x=> x.id===id) || {};
+  toast((u.nombre || u.correo || 'La cuenta') + (a.estructura ? ' ya no puede cambiar la estructura' : ' puede cambiar la estructura con el agente'));
+  await cargarAgenteUsuarios(); pintarUsuarios();
+}
+
+async function alternarAgenteCuenta(id, b){
+  const a = agenteCuentas[id] || {};
+  const fila = b.closest('tr'); fila && fila.querySelectorAll('[data-ag-cuenta],[data-ag-estructura]').forEach(x=> x.disabled = true);
+  const res = a.por_cuenta
+    ? await db.from('agente_cuentas').update({ activo:false }).eq('perfil_id', id)
+    : await db.from('agente_cuentas').upsert({ perfil_id:id, activo:true, habilitado_por: PERFIL && PERFIL.id, habilitado_en: new Date().toISOString() }, { onConflict:'perfil_id' });
+  if(res.error){ fila && fila.querySelectorAll('[data-ag-cuenta],[data-ag-estructura]').forEach(x=> x.disabled = false); toast(res.error.message, true); return; }
+  const u = usuarios.find(x=> x.id===id) || {};
+  toast((u.nombre || u.correo || 'La cuenta') + (a.por_cuenta ? (a.por_comite ? ' conserva el agente por el comité' : ' ya no tiene el agente') : ' tiene el agente'));
+  await cargarAgenteUsuarios(); pintarUsuarios();
+}
 
 function pintarUsuarios(){
   const q = ($('#qu')?.value || '').trim().toLowerCase();
@@ -1927,6 +2001,7 @@ function pintarUsuarios(){
       <td class="tenue">${esc(u.nombre || '—')}</td>
       <td><span class="chip">${esc(u.rol_nombre)}</span></td>
       <td><span class="marca-estado ${u.activo?'e-ok':'e-riesgo'}"><i class="punto"></i>${u.activo?'activa':'de baja'}</span></td>
+      <td>${celdaAgente(u)}</td>
       <td class="tenue">${cuando(u.ultimo_acceso)}</td>
     </tr>`;
 
@@ -1936,7 +2011,13 @@ function pintarUsuarios(){
   </table></div>`;
   bindOrd($('#usWrap thead'), ordUsuarios, pintarUsuarios);
   bindGrupos($('#usWrap'));
-  $$('#usWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', ()=> abrirModalUsuario(usuarios.find(x=>x.id===tr.dataset.id))));
+  $$('#usWrap tbody tr:not(.fila-grupo)').forEach(tr=> tr.addEventListener('click', (e)=>{
+    const b = e.target.closest('[data-ag-cuenta]');
+    if(b){ e.stopPropagation(); alternarAgenteCuenta(b.dataset.agCuenta, b); return; }
+    const be = e.target.closest('[data-ag-estructura]');
+    if(be){ e.stopPropagation(); alternarEstructuraCuenta(be.dataset.agEstructura, be); return; }
+    abrirModalUsuario(usuarios.find(x=>x.id===tr.dataset.id));
+  }));
 }
 
 /* ---------- Modal: crear / editar usuario (+ reponer clave, sin prompt/alert) ---------- */

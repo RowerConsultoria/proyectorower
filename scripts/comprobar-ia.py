@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Comprobaciones de la sección de IA de la Fase 2 (#/arquitectura).
 
-La sección tiene un submenú: la órbita (Propuesta) y cuatro documentos que se
+La sección tiene un submenú: la órbita (Propuesta) y cinco documentos que se
 pintan con informe/fase2/ia/ia-doc.js en el mismo marco #aqMarco:
-#/arquitectura/tecnico|politica|casos|prototipos[/<sección>].
+#/arquitectura/tecnico|politica|perfil|casos|prototipos[/<sección>].
 
 Verifica: que cada pestaña cargue su página y quede marcada, que el índice y
 las secciones coincidan con el dato, los enlaces profundos a una sección, que
@@ -35,7 +35,7 @@ BASE = os.environ.get('ROWER_BASE', 'http://localhost:8080')
 MANUAL = BASE + '/informe/fase2/informe-fase2.html'
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIR_IA = os.path.join(RAIZ, 'informe', 'fase2', 'ia')
-DOCS = ['tecnico', 'politica', 'casos', 'prototipos']
+DOCS = ['tecnico', 'politica', 'perfil', 'casos', 'prototipos']
 fallos = []
 
 

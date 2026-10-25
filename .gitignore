@@ -35,3 +35,6 @@ supabase/.temp/
 !.dev.vars.example
 !.env.example
 .borradores-fase2-macros1-5/
+
+# Crudos de los videos tutoriales (scripts/tutorial/grabar_*.py)
+scripts/tutorial/_trabajo/
