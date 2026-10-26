@@ -65,6 +65,18 @@
    Finanzas le reportan directo. La gerencia de unidad de negocio de la PMO pasa
    a gerencia país (Arani González, en Venezuela); en la capa corporativa queda
    solo la gerencia corporativa de la PMO.
+   Revisión del 26-oct-2026 (lo que quedó pendiente de la reunión con la
+   Presidencia del 16-oct): las tres unidades país de TI son coordinaciones y la
+   inteligencia de negocio pasa a Gobierno de IA. Finanzas suma la coordinación
+   corporativa de Planificación y Control Financiero, y la contabilidad dentro
+   de cada país. Compras suma la coordinación de Compras Internas (procura),
+   que asume la compra interna que hasta entonces hacía Finanzas. Ventas gana
+   la unidad de Planificación de la Demanda y Nuevos Mercados, sobre su línea.
+   Retail, E-commerce y Postventa suman «Otros países» (Guatemala, Costa Rica y
+   las franquicias), y E-commerce, gerencia en Panamá y Colombia. Experiencia
+   del Cliente pasa a llamarse Experiencia del Cliente · Visual y lleva un
+   brand manager por marca; Experiencia Digital y Creativa y Diseño trabajan
+   solo para Cubitt.
 
    Lo pinta estructura-render.js. Editar la estructura = editar SOLO este
    archivo: el dibujo, el panel de detalle y las premisas se derivan de aquí.
@@ -76,7 +88,10 @@
      atiende: [ids] — gerencia país que atiende los lineamientos de esas gerencias de unidad
        de negocio (hermanas suyas): el dibujo baja una línea de cada una hasta ella
      ocupante: {nombre, estado, nota}            — unidad de una sola cabeza
-     paises:   {PA|VE|CO|US: {nombre, estado, cargo}} — unidad que se replica por país
+     paises:   {PA|VE|CO|US|OT: {nombre, estado, cargo}} — unidad que se replica por país
+     enLinea: true — unidad que cuelga de la línea de su dirección o de su gerencia
+       corporativa, a un costado, sin ocupar columna
+     etiqueta: rótulo de nivel propio, en vez del que da el nivel
      funciones: [...]  · interna: [...] (lo que cuelga dentro, sin dibujar)
      nota: texto de diseño · hijos: [...] (solo gerencias corporativas)
    En DIRECCIONES, un nodo con nivel:'n2' es una gerencia corporativa que
@@ -89,7 +104,7 @@
    Los nombres se escriben como figuran en el censo de personal (Supabase).
    ============================================================================ */
 window.ESTRUCTURA_TOBE = {
-  corte: '15-oct-2026',
+  corte: '26-oct-2026',
   titulo: 'Estructura organizativa To-Be',
   bajada: 'Borrador del equipo consultor para validar con el liderazgo. Tres niveles: direcciones corporativas, gerencias corporativas y gerencias país. Lo corporativo fija la línea rectora; cada país la ejecuta con su marco normativo y sus recursos.',
   // Rótulo del contenedor del staff (acuerdo del 05-oct: apoya al Comité Directivo, no solo a la Presidencia)
@@ -98,7 +113,7 @@ window.ESTRUCTURA_TOBE = {
   NIVELES: [
     {id:'n1', n:'Direcciones corporativas', d:'Una por gran función del grupo. Fijan la línea rectora, verifican y orientan; su operatividad debe ser baja.'},
     {id:'n2', n:'Gerencias corporativas',   d:'Nivel intermedio con alcance regional: especialidades que se gobiernan una sola vez para todo el grupo. En el staff, tres reportan directo a la Presidencia.'},
-    {id:'n3', n:'Gerencias país',           d:'Espejo de la línea rectora en cada operación propia (Panamá, Venezuela, Colombia): ejecutan con el marco normativo y los recursos del país. Estados Unidos (Kenex USA) tiene solo las posiciones que su operación necesita.'}
+    {id:'n3', n:'Gerencias país',           d:'Espejo de la línea rectora en cada operación propia (Panamá, Venezuela, Colombia): ejecutan con el marco normativo y los recursos del país. Estados Unidos (Kenex USA) tiene solo las posiciones que su operación necesita. «Otros países» agrupa los mercados que se atienden sin el espejo completo, como Guatemala, Costa Rica y las franquicias.'}
   ],
 
   PAISES: [
@@ -106,7 +121,10 @@ window.ESTRUCTURA_TOBE = {
     {id:'VE', n:'Venezuela'},
     {id:'CO', n:'Colombia'},
     // parcial: no replica el espejo completo; solo aparece donde una unidad la nombra
-    {id:'US', n:'Estados Unidos', parcial:true}
+    {id:'US', n:'Estados Unidos', parcial:true},
+    // Guatemala (operación tercerizada con country manager propio), Costa Rica (socio),
+    // las franquicias y los mercados que se abran: una sola caja mientras no tengan espejo
+    {id:'OT', n:'Otros países', parcial:true}
   ],
 
   ESTADOS: {
@@ -197,17 +215,19 @@ window.ESTRUCTURA_TOBE = {
       funciones:[
         'Dueño de la mercancía de punta a punta: compra a fábrica, importación, almacén principal y distribución a todos los países.',
         'Concentra toda la compra de producto de todas las marcas —Casio, Cubitt y las que vengan—, repuestos incluidos.',
-        'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.'
+        'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.',
+        'Dicta la política de compra de toda la organización: lo que compra cada área sigue las mismas reglas de proveedores, cotizaciones y aprobación.'
       ],
-      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. La compra interna de la organización (servicios, insumos) sigue en la Dirección de Finanzas. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística».',
+      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí, en la coordinación de Compras Internas: las políticas de compra salen de esta dirección y la Dirección de Finanzas paga. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística».',
       hijos:[
         {id:'compras', n:'Compras', nivel:'n2',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
          funciones:[
            'Compra estratégica de todas las marcas: la hoja de pedido y la asignación con Casio, las órdenes a fábrica de Cubitt y los repuestos.',
-           'Negocia las condiciones y sigue cada orden hasta el embarque.'
+           'Negocia las condiciones y sigue cada orden hasta el embarque.',
+           'La compra interna de toda la organización, a través de su coordinación de Compras Internas.'
          ],
-         nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas.',
+         nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera coordinación, la de Compras Internas, compra todo lo que no es producto para la venta.',
          hijos:[
            {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
             ocupante:{nombre:'Por definir', estado:'pordefinir'},
@@ -222,7 +242,15 @@ window.ESTRUCTURA_TOBE = {
               'La compra de Cubitt, marca propia: las órdenes a las fábricas, con las muestras y especificaciones que aprueba Innovación y Desarrollo de Productos.',
               'Los repuestos de la marca.',
               'Sigue cada orden en producción y hasta el embarque.'
-            ]}
+            ]},
+           {id:'compinternas', n:'Compras Internas · Procura', nivel:'ccorp',
+            ocupante:{nombre:'Por definir', estado:'pordefinir'},
+            funciones:[
+              'Toda compra de la organización que no es producto para la venta: insumos y material de oficina, material POP, mobiliario, equipos como las laptops, y los servicios y contratistas que sostienen sedes, tiendas y bodegas.',
+              'Aplica la política de compra que fija la dirección: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba cada solicitud y en cuánto tiempo.',
+              'Mantiene proveedores calificados por rubro y negocia acuerdos para todo el grupo, en lugar de que cada área compre por su lado.'
+            ],
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026. Hoy cada área compra lo suyo, sin una política común, y la compra de insumos recae en personas de Recursos Humanos o de Administración. Va junto a las coordinaciones de compra de Casio y de Cubitt porque las líneas de compra de la organización salen de una sola dirección. La Dirección de Finanzas sigue pagando lo que se compra.'}
          ]},
         {id:'oplcorp', n:'Operaciones y Logística', nivel:'n2',
          ocupante:{nombre:'Fernando Alvarado', estado:'propuesto'},
@@ -261,7 +289,7 @@ window.ESTRUCTURA_TOBE = {
                  'Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.',
                  'Coordina a los contratistas de mantenimiento y limpieza y verifica su trabajo.'
                ],
-               nota:'Es la única unidad de la que se dibuja la estructura interna, para resaltar que debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Responde a la gerencia país de Operaciones y Logística, que ya opera las bodegas y conoce lo que piden las instalaciones; Administración y Finanzas conserva la compra interna y el pago de esos servicios. Hasta el 12-oct-2026 era una coordinación de Administración y Finanzas.'}
+               nota:'Es la única unidad de la que se dibuja la estructura interna, para resaltar que debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Responde a la gerencia país de Operaciones y Logística, que ya opera las bodegas y conoce lo que piden las instalaciones. La compra de esos servicios la hace Compras Internas y el pago, Administración y Finanzas. Hasta el 12-oct-2026 era una coordinación de Administración y Finanzas.'}
             ]}
          ]}
       ]
@@ -283,6 +311,16 @@ window.ESTRUCTURA_TOBE = {
            'Su operatividad debe ser baja: hoy está absorbido por tareas de tienda —como formar a los encargados— que corresponden a las gerencias país.'
          ],
          hijos:[
+           // sobre la línea que baja de Ventas a sus canales: puede apoyar a cualquiera de los cuatro
+           {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', etiqueta:'Apoyo a Ventas', enLinea:true,
+            ocupante:{nombre:'Ricardo Baltodano', estado:'validar', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
+            funciones:[
+              'Planifica la demanda con los datos de venta de todos los canales y países: cuánto se venderá, por qué canal y de qué marca.',
+              'Estudia los mercados nuevos —países y canales donde el grupo aún no vende— y prepara la entrada, como se hizo en Colombia, que empezó con grandes superficies y pasó luego a tiendas propias.',
+              'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
+              'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
+            ],
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             sub:'Una por marca actual: Cubitt y Casio',
             marcas:[
@@ -318,7 +356,9 @@ window.ESTRUCTURA_TOBE = {
                paises:{
                  PA:{nombre:'Blas García', estado:'propuesto'},
                  VE:{nombre:'Por definir', estado:'pordefinir'},
-                 CO:{nombre:'Por definir', estado:'pordefinir'}
+                 CO:{nombre:'Por definir', estado:'pordefinir'},
+                 OT:{nombre:'Por definir', estado:'pordefinir',
+                     nota:'Las tiendas de Guatemala, que opera un tercero con un country manager del grupo, y la supervisión de las tiendas franquiciadas de Casio y de Cubitt en Centroamérica. Más adelante puede agruparse en un clúster de países.'}
                },
                funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']}
             ]},
@@ -332,11 +372,15 @@ window.ESTRUCTURA_TOBE = {
               {id:'ecommercepais', n:'E-commerce', nivel:'n3',
                sub:'Puede haber coordinaciones que se asocien por marca.',
                paises:{
+                 PA:{nombre:'Por definir', estado:'pordefinir'},
                  VE:{nombre:'Jesmir Flores', estado:'actual', nota:'Hoy es la gerente de Ventas Web de Venezuela. Fuentes: E-16 y E-41.'},
+                 CO:{nombre:'Por definir', estado:'pordefinir'},
                  US:{nombre:'Isabella Roizental', estado:'propuesto',
-                     nota:'La venta en línea de Kenex USA, que hoy lleva sin una denominación formal de cargo: los marketplaces de Estados Unidos —unos quince, de Amazon a Whatnot— y la web propia, con Shopify, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web. Fuentes: E-30, E-06 y E-01.'}
+                     nota:'La venta en línea de Kenex USA, que hoy lleva sin una denominación formal de cargo: los marketplaces de Estados Unidos —unos quince, de Amazon a Whatnot— y la web propia, con Shopify, las ventas en vivo, las promociones y la publicidad con las agencias que apoyan Amazon y la web. Fuentes: E-30, E-06 y E-01.'},
+                 OT:{nombre:'Por definir', estado:'pordefinir', nota:'La venta en línea de Guatemala, que se acaba de abrir, y de los mercados que se sumen.'}
                },
-               funciones:['La venta en línea del país: web propia, marketplaces, validación de pagos y despacho de los pedidos web, con la línea de la gerencia de E-commerce.']}
+               funciones:['La venta en línea del país: web propia, marketplaces, validación de pagos y despacho de los pedidos web, con la línea de la gerencia de E-commerce.'],
+               nota:'Desde el 16-oct-2026 cada país tiene su gerencia de E-commerce; antes solo Venezuela y Estados Unidos.'}
             ]},
            {id:'postventacorp', n:'Postventa', nivel:'gun',
             ocupante:{nombre:'Patrick Corujo', estado:'actual', nota:'Hoy es el gerente de soporte técnico y servicio al cliente; dejó E-commerce en septiembre de 2026 para concentrarse en esta área. Fuentes: E-24, SC-06 y E-58.'},
@@ -351,7 +395,8 @@ window.ESTRUCTURA_TOBE = {
                paises:{
                  PA:{nombre:'Jesús Arratia', estado:'propuesto', nota:'Hoy es el coordinador de soporte técnico de Panamá.'},
                  VE:{nombre:'Juseth González', estado:'actual', nota:'Hoy es el gerente de Servicio Técnico de Venezuela.'},
-                 CO:{nombre:'Gabriel Otamendi', estado:'propuesto', nota:'Hoy es el líder de servicio al cliente de Colombia.'}
+                 CO:{nombre:'Gabriel Otamendi', estado:'propuesto', nota:'Hoy es el líder de servicio al cliente de Colombia.'},
+                 OT:{nombre:'Por definir', estado:'pordefinir', nota:'La postventa de Guatemala, Costa Rica y las franquicias, con los criterios de la gerencia de Postventa.'}
                },
                funciones:['Garantías, devoluciones, servicio técnico y atención al cliente del país, con los criterios que fija la gerencia de Postventa.'],
                interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
@@ -366,33 +411,40 @@ window.ESTRUCTURA_TOBE = {
            'Acompaña cada producto desde el concepto, que define Innovación y Desarrollo de Productos, hasta que está en la calle: recibe el producto listo para lanzar y define cómo se vende —campaña, canal y mensaje—.',
            'Mantiene en casa el diseño gráfico y el video, en Creativa y Diseño, y supervisa lo que se terceriza: la producción de material y las productoras.'
          ],
-         nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en dos frentes, Experiencia del Cliente y Experiencia Digital, y una gerencia de Creativa y Diseño que produce para los dos. La planificación y la medición de la marca no forman una unidad: son el centro del trabajo de la gerencia corporativa, porque hoy las campañas se evalúan sin cifras de inversión ni de retorno (reunión con la Junta del 09-oct). Desarrollo de Producto pasa a Innovación y Desarrollo de Productos; la inteligencia de mercado, que ya llevaba la gerencia de Mercadeo, se queda aquí como insumo de esa planificación. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
+         nota:'Hoy mercadeo está sobredimensionado y la comunicación entre sus piezas —visual merchandising, contenido, desarrollo de producto— pasa por varias instancias a la vez. Se reordena en dos frentes, Experiencia del Cliente · Visual y Experiencia Digital, y una gerencia de Creativa y Diseño que produce para los dos. La planificación y la medición de la marca no forman una unidad: son el centro del trabajo de la gerencia corporativa, porque hoy las campañas se evalúan sin cifras de inversión ni de retorno (reunión con la Junta del 09-oct). Desarrollo de Producto pasa a Innovación y Desarrollo de Productos; la inteligencia de mercado, que ya llevaba la gerencia de Mercadeo, se queda aquí como insumo de esa planificación. Donde los ritmos de Casio y Cubitt lo exijan, se separan coordinaciones por marca, no gerencias.',
          hijos:[
-           {id:'experiencia', n:'Experiencia del Cliente', nivel:'gun',
-            sub:'Puede haber coordinaciones que se asocien por marca.',
+           {id:'experiencia', n:'Experiencia del Cliente · Visual', nivel:'gun',
+            sub:'Un brand manager por marca: Cubitt y Casio.',
             ocupante:{nombre:'Reyna Barraza', estado:'propuesto'},
             funciones:[
               'La experiencia en vivo del cliente en la tienda propia, en la del mayorista y en los eventos.',
               'Absorbe el visual merchandising: diseño y montaje de tienda con las normas de la marca, hoy separado de mercadeo.',
-              'Trabaja con Desarrollo Corporativo la cultura de marca hacia dentro: el cliente interno también vive la marca.'
-            ]},
+              'Trabaja con Desarrollo Corporativo la cultura de marca hacia dentro: el cliente interno también vive la marca.',
+              'Lleva las dos marcas, cada una con su brand manager. El de Casio recibe la línea de la casa matriz, la adapta a cada mercado, la ejecuta y mide su resultado; el de Cubitt crea la marca y sus campañas. Es la única gerencia de Mercadeo que atiende a Casio.'
+            ],
+            interna:[
+              'Brand manager de Cubitt.',
+              'Brand manager de Casio.'
+            ],
+            nota:'Hasta el 16-oct-2026 se llamaba Experiencia del Cliente; la Presidencia pidió sumar «Visual» para que se lea que el visual merchandising está aquí. Ese día se acordó también que dentro de ella haya un brand manager por marca: el de mercadeo, distinto del brand manager de Ventas al Mayor, que vende la marca.'},
            {id:'digital', n:'Experiencia Digital', nivel:'gun',
-            sub:'Puede haber coordinaciones que se asocien por marca.',
+            sub:'Solo Cubitt.',
             ocupante:{nombre:'Anabel Roizental', estado:'propuesto'},
             funciones:[
               'Contenido, redes sociales y página web de todas las marcas y países, con una alineación visual única; supervisa a los terceros que los producen.',
               'La pauta digital y la presencia de las marcas en la tienda en línea y en los marketplaces: el contenido y la campaña. La venta y la operación en línea siguen en E-commerce, dentro de Ventas.',
               'Las relaciones con creadores de contenido, embajadores y marcas aliadas.'
-            ]},
+            ],
+            nota:'Trabaja solo para Cubitt, la marca propia, que crea su imagen y sus campañas. En Casio la marca la define la casa matriz y la ejecuta cada país, con la línea del brand manager de Casio en Experiencia del Cliente · Visual (acuerdo del 16-oct-2026).'},
            {id:'creativa', n:'Creativa y Diseño', nivel:'gun',
-            sub:'Puede haber coordinaciones que se asocien por marca.',
+            sub:'Solo Cubitt.',
             ocupante:{nombre:'Por definir', estado:'pordefinir'},
             funciones:[
               'El concepto y el tono de cada campaña a partir del brief: territorio visual y dirección de arte.',
-              'El estudio interno de diseño gráfico, fotografía, video y producción con IA, al servicio de Experiencia del Cliente, Experiencia Digital y los países.',
+              'El estudio interno de diseño gráfico, fotografía, video y producción con IA, al servicio de Experiencia del Cliente · Visual, Experiencia Digital y los países.',
               'Recibe por una sola vía los pedidos de material creativo de todas las áreas, los asigna y entrega las piezas aprobadas.'
             ],
-            nota:'Reúne dos de las cuatro cabezas en que se repartió el cargo de la gerencia anterior —la creativa y la de arte y diseño—, como lo describió la Dirección Comercial en la reunión con la Junta del 09-oct. Las otras dos, redes sociales y e-commerce, quedan en Experiencia Digital.'},
+            nota:'Reúne dos de las cuatro cabezas en que se repartió el cargo de la gerencia anterior —la creativa y la de arte y diseño—, como lo describió la Dirección Comercial en la reunión con la Junta del 09-oct. Las otras dos, redes sociales y e-commerce, quedan en Experiencia Digital. Funciona como la agencia interna del grupo y trabaja solo para Cubitt (acuerdo del 16-oct-2026).'},
            {id:'mercadeopais', n:'Mercadeo', nivel:'n3',
             sub:'Puede haber coordinaciones que se asocien por marca, y por procesos asociados a las gerencias de unidad de negocio.',
             atiende:['experiencia', 'digital', 'creativa'],
@@ -407,7 +459,7 @@ window.ESTRUCTURA_TOBE = {
               'Trafficker de campañas.',
               'Activaciones presenciales y eventos.'
             ],
-            nota:'Reporta a la gerencia corporativa de Mercadeo y atiende los lineamientos de sus tres gerencias de unidad de negocio: Experiencia del Cliente, Experiencia Digital y Creativa y Diseño.'}
+            nota:'Reporta a la gerencia corporativa de Mercadeo y atiende los lineamientos de sus tres gerencias de unidad de negocio: Experiencia del Cliente · Visual, Experiencia Digital y Creativa y Diseño.'}
          ]}
       ]
     },
@@ -420,10 +472,18 @@ window.ESTRUCTURA_TOBE = {
         'Lleva la relación con los bancos, las líneas de crédito y la colocación de las inversiones.',
         'Prepara para el Comité de Finanzas y Riesgos lo que sube a la Junta Directiva y a la Presidencia.',
         'Desarrolla negocios nuevos para el grupo.',
-        'Incluye las compras internas de la organización (no las de producto).'
+        'Paga las compras internas de la organización, que desde el 16-oct-2026 hace la coordinación de Compras Internas, en Compras y Cadena de Suministro.'
       ],
-      nota:'Hasta el 15-oct-2026 se llamó Finanzas y Negocios; desde el 16-oct no tiene gerencia corporativa intermedia: va la dirección y, debajo, sus gerencias por país. Ricardo Roizental participa en el gobierno del grupo desde la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva. Su relación con la Junta Directiva y con la Presidencia se dibuja en el funcionamiento —el Comité de Finanzas y Riesgos—, no en la línea de mando: el organigrama muestra de quién depende cada unidad, no con quién despacha.',
+      nota:'Hasta el 15-oct-2026 se llamó Finanzas y Negocios; desde el 16-oct no tiene gerencia corporativa intermedia: va la dirección, su coordinación corporativa de Planificación y Control Financiero y, debajo, sus gerencias por país. Ricardo Roizental participa en el gobierno del grupo desde la Junta Directiva y el Consejo de Familia, no en la línea ejecutiva. Su relación con la Junta Directiva y con la Presidencia se dibuja en el funcionamiento —el Comité de Finanzas y Riesgos—, no en la línea de mando: el organigrama muestra de quién depende cada unidad, no con quién despacha.',
       hijos:[
+        {id:'planfin', n:'Planificación y Control Financiero', nivel:'ccorp',
+         ocupante:{nombre:'Vacante', estado:'vacante', nota:'La Dirección de Finanzas está buscando a quien la ocupe.'},
+         funciones:[
+           'La planificación financiera del grupo por semestre: pide a cada área su plan de gastos y a Ventas su estimado de venta, y arma la estimación consolidada de ingresos y gastos que la dirección presenta a la Junta Directiva.',
+           'El presupuesto de todos los países con un solo método.',
+           'El control presupuestario y de gestión: sigue lo ejecutado contra lo planificado, las órdenes internas y la inversión y el gasto (CAPEX y OPEX).'
+         ],
+         nota:'Acordada en la reunión con la Presidencia del 16-oct-2026. Es corporativa porque la planificación y el presupuesto se hacen igual en todos los países; la operación financiera —tesorería, cobranza, contabilidad— sigue en cada país. Puede empezar con una sola persona y sumar después las subdivisiones.'},
         {id:'finpais', n:'Administración y Finanzas', nivel:'n3',
          paises:{
            PA:{nombre:'Vacante', estado:'vacante'},
@@ -432,9 +492,9 @@ window.ESTRUCTURA_TOBE = {
          },
          funciones:[
            'La operación financiera del país, con el marco fiscal local.',
-           'La compra interna y el pago de los servicios que sostienen sedes, tiendas y bodegas.'
+           'El pago de las compras internas y de los servicios que sostienen sedes, tiendas y bodegas.'
          ],
-         interna:['Cuentas por pagar.', 'Cuentas por cobrar.', 'Tesorería y conciliación.', 'Asuntos fiscales.']}
+         interna:['Tesorería y conciliación.', 'Cobranza y cuentas por cobrar.', 'Cuentas por pagar.', 'Contabilidad.', 'Asuntos fiscales.']}
       ]
     },
     {
@@ -465,26 +525,28 @@ window.ESTRUCTURA_TOBE = {
       id:'tgr', n:'Tecnología, Gobernanza del Dato y Cumplimiento', caracter:'staff', nivel:'n2',
       ocupante:{nombre:'Mariela Castro', estado:'validar', nota:'Hoy es gerente de TI de Panamá; su paso a la gerencia corporativa queda por validar.'},
       funciones:[
-        'Conduce la tecnología de información de todos los países: las gerencias país de TI le reportan directamente.',
+        'Conduce la tecnología de información de todos los países: las coordinaciones país de TI le reportan directamente.',
         'Conduce la gobernanza, el riesgo y el cumplimiento de la tecnología: los controles de acceso y de seguridad de la información, la continuidad y los respaldos, las licencias y los contratos con proveedores, y la protección de datos de cada país.',
         'Los sistemas del grupo —el Odoo de cada país, EBS y Lark—, sus configuraciones y su integración, para que el dato fluya entre áreas y países.',
         'La gobernanza del dato: el catálogo de los datos maestros, su calidad y los permisos de acceso, con lo que decide el Comité de Gobierno del Dato e IA.',
         'Los desarrollos internos y la conducción de los desarrolladores externos; homologa los procesos de TI entre países.',
         'Implanta y opera los agentes que aprueba el Comité de Gobierno del Dato e IA, y le presenta su registro, sus riesgos y sus incidentes.'
       ],
-      nota:'Antes era la dirección Gobierno de IA y TI, con una gerencia corporativa y dos coordinaciones corporativas (Datos e IA, Sistemas y Desarrollo). Se suprime el nivel intermedio: lo que hacían las coordinaciones queda en esta unidad y las gerencias de TI de cada país le reportan directo. Fue dirección de staff hasta el 12-oct-2026; desde entonces es gerencia corporativa, reporta directo a la Presidencia y cambia «Riesgo» por «Cumplimiento» en su denominación, a sugerencia de Máximo Dolman de no usar la palabra «riesgo». El riesgo de la tecnología sigue en su alcance. El 16-oct-2026 suma «del Dato» a su denominación: lleva la gobernanza del dato en la operación —catálogo, calidad y accesos—. La aprobación de los usos de la IA queda fuera, en la Gerencia Corporativa de Gobierno de IA, a su lado, para que quien implanta un sistema o un agente no sea también quien lo aprueba.',
+      nota:'Antes era la dirección Gobierno de IA y TI, con una gerencia corporativa y dos coordinaciones corporativas (Datos e IA, Sistemas y Desarrollo). Se suprime el nivel intermedio: lo que hacían las coordinaciones queda en esta unidad y las coordinaciones de TI de cada país le reportan directo. Fue dirección de staff hasta el 12-oct-2026; desde entonces es gerencia corporativa, reporta directo a la Presidencia y cambia «Riesgo» por «Cumplimiento» en su denominación, a sugerencia de Máximo Dolman de no usar la palabra «riesgo». El riesgo de la tecnología sigue en su alcance. El 16-oct-2026 suma «del Dato» a su denominación: lleva la gobernanza del dato en la operación —catálogo, calidad y accesos—. La aprobación de los usos de la IA queda fuera, en la Gerencia Corporativa de Gobierno de IA, a su lado, para que quien implanta un sistema o un agente no sea también quien lo aprueba. La inteligencia de negocio (BI) va también en Gobierno de IA: esta gerencia asegura que el dato llegue controlado, seguro y fluido, y Gobierno de IA lo convierte en información.',
       hijos:[
         {id:'ti', n:'Tecnología de Información', nivel:'n3',
          paises:{
-           PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Gerencia', nota:'Mariela Castro, que la ocupaba, se propone para la gerencia corporativa.'},
+           PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Mariela Castro, que la ocupaba, se propone para la gerencia corporativa.'},
            VE:{nombre:'José Rafael Herrera', estado:'actual', cargo:'Coordinación'},
            CO:{nombre:'Vacante', estado:'vacante', cargo:'Coordinación'}
          },
          funciones:[
-           'Redes, conexiones, equipos, sistemas y soporte de cada operación.',
+           'Los sistemas locales —el Odoo del país— y sus datos bien conectados, para que el dato fluya.',
+           'La red local, los equipos, las conexiones a Internet y el soporte de cada operación.',
+           'La ciberseguridad de la red y de los sistemas del país.',
            'Ejecuta en su país los lineamientos y los controles que fija la gerencia corporativa.'
          ],
-         nota:'Reporta directo a la gerencia corporativa, sin nivel intermedio. Lo que se gobierna una sola vez sube a la gerencia corporativa; la operación queda en cada país. Donde la operación es menor (Colombia, y hoy Venezuela) basta una coordinación.'}
+         nota:'Reporta directo a la gerencia corporativa, sin nivel intermedio. Lo que se gobierna una sola vez sube a la gerencia corporativa; la operación queda en cada país. Desde el 16-oct-2026 es coordinación en los tres países, Panamá incluido: la gerencia de la función es la corporativa.'}
       ]
     },
     {
@@ -494,7 +556,8 @@ window.ESTRUCTURA_TOBE = {
         'Fija los lineamientos de uso de la IA en todo el grupo y la política que los recoge.',
         'Lidera y convoca el Comité de Gobierno del Dato e IA, que decide qué dato es oficial y quién responde por él.',
         'Aprueba, con ese comité, los usos de la IA en los procesos y el nivel de autonomía de cada uno.',
-        'Vela por que ningún agente trabaje sobre un dato sin certificar: el dato antes que el agente.'
+        'Vela por que ningún agente trabaje sobre un dato sin certificar: el dato antes que el agente.',
+        'La inteligencia de negocio (BI) del grupo: convierte el dato que la tecnología entrega controlado y homologado en tableros e información para decidir, de forma transversal a todas las áreas y países.'
       ],
       nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza del Dato y Cumplimiento. Hasta el 07-oct-2026 iba dentro de la dirección Gobierno de IA y TI; entre el 07 y el 16-oct fue unidad de la Presidencia, sobre su línea. Baja a la capa corporativa de staff para quedar al lado de la tecnología sin depender de ella: quien aprueba los usos de la IA no es quien los implanta, que es la gerencia de tecnología. Es la unidad de gobierno de IA que el proyecto comprometió desde el arranque.'
     },
@@ -505,7 +568,7 @@ window.ESTRUCTURA_TOBE = {
         'Gobierna la cartera de proyectos de todo el grupo y la presenta al Comité Directivo.',
         'Es la oficina de método: fija cómo se gestiona un proyecto en toda la organización.',
         'Lleva el equipo de gerentes de proyecto que atiende a toda la corporación: aperturas, remodelaciones y cierres de tienda; proyectos de innovación de producto; proyectos de transformación organizacional. Los distribuye según la demanda y en los picos subcontrata por proyecto, con principio y fin.',
-        'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras y Cadena de Suministro en la mercancía inicial y el mobiliario, Experiencia del Cliente en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
+        'En cada apertura coordina a quienes intervienen: Servicios Generales en la obra, Compras y Cadena de Suministro en la mercancía inicial y el mobiliario, Experiencia del Cliente · Visual en el montaje, TI en los sistemas y Recursos Humanos en el personal.',
         'Rinde cuentas a la Presidencia y al Comité Directivo.'
       ],
       nota:'Gerencia corporativa de staff que reporta directo a la Presidencia, junto a Tecnología, Gobernanza del Dato y Cumplimiento. Salió de Desarrollo Corporativo como dirección de staff, como pidió la Presidencia en la reunión del 05-oct, y el 12-oct-2026 pasó a gerencia corporativa. Es una ubicación de transición: hoy la cartera incluye tareas que, con las áreas más maduras, pasarán a cada una. Más adelante podría reportar a Desarrollo Corporativo o convertirse en una gerencia de innovación. Desde el 16-oct-2026 lleva ella misma el equipo de gerentes de proyecto —antes en una gerencia de unidad de negocio— y tiene una gerencia país en Venezuela.',
@@ -639,7 +702,7 @@ window.ESTRUCTURA_TOBE = {
 
   PRINCIPIOS: [
     {n:'Especialización y división del trabajo',
-     como:'Mercadeo se abre en dos frentes (experiencia del cliente, experiencia digital) y una gerencia creativa que produce para los dos, Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística dentro de Compras y Cadena de Suministro. Cada responsable deja de saltar entre tareas dispares.',
+     como:'Mercadeo se abre en dos frentes (experiencia del cliente y visual, experiencia digital) y una gerencia creativa que produce para los dos, Ventas se ordena por canal (tienda, mayor, comercio electrónico, postventa) y la compra se separa de la operación logística dentro de Compras y Cadena de Suministro. Cada responsable deja de saltar entre tareas dispares.',
      tension:'La PMO se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
     {n:'Unidad de mando',
      como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; contenido digital y visual merchandising en Mercadeo.',
@@ -651,14 +714,14 @@ window.ESTRUCTURA_TOBE = {
      como:'Comercial reúne venta y mercadeo: quien responde por el resultado controla también la demanda que lo produce. Postventa queda bajo Ventas: quien concede una garantía o un descuento responde por el margen. Quien compra responde también por que la mercancía llegue, y quien decide abrir una tienda, por que abra a tiempo.',
      tension:'La amplitud del cargo comercial exige un perfil muy completo, con visión regional de importación, marca y venta.'},
     {n:'Homogeneidad operativa',
-     como:'Compras y Cadena de Suministro es el único dueño de la mercancía: compra, bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto, de todas las marcas, se concentra ahí.',
+     como:'Compras y Cadena de Suministro es el único dueño de la mercancía: compra, bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto, de todas las marcas, se concentra ahí, y la compra interna de la organización también, con una sola política de compra.',
      tension:'Innovación y Desarrollo de Productos decide qué producto y Compras y Cadena de Suministro lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
     {n:'Flexibilidad y adaptabilidad (híbrida)',
      como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y mercadeo separa coordinaciones por marca solo cuando el ritmo lo exige.',
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce, Postventa) y de Mercadeo (Experiencia del Cliente · Visual, Experiencia Digital, Creativa y Diseño) añaden un escalón en Comercial.'}
   ],
 
   CAMBIOS: {
@@ -678,7 +741,7 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Desarrollo Corporativo como dirección corporativa de staff y la PMO como gerencia corporativa de staff que reporta directo a la Presidencia.',
        porque:'Desarrollo Corporativo da a la función de talento un alcance estratégico. La PMO queda aparte mientras esa función se transforma, para no dispersar su foco.'},
       {antes:'Transformación Tecnológica y Soporte, con la TI y la IA juntas.',
-       ahora:'Dos gerencias corporativas de staff, una al lado de la otra, que reportan directo a la Presidencia: Gobierno de IA, y Tecnología, Gobernanza del Dato y Cumplimiento, a la que reportan directo las gerencias de TI de cada país.',
+       ahora:'Dos gerencias corporativas de staff, una al lado de la otra, que reportan directo a la Presidencia: Gobierno de IA, que suma la inteligencia de negocio, y Tecnología, Gobernanza del Dato y Cumplimiento, a la que reportan directo las coordinaciones de TI de cada país.',
        porque:'Quien aprueba los usos de la IA no es quien los implanta. La TI gana una cabeza regional que homologa sus procesos sin un nivel intermedio, y la operación de sistemas se queda cerca de cada país.'},
       {antes:'Experiencia de Marcas como gerencia híbrida separada de Comercial.',
        ahora:'Mercadeo dentro de Comercial.',
@@ -689,9 +752,12 @@ window.ESTRUCTURA_TOBE = {
       {antes:'La compra de producto repartida: cada marca compraba por su lado y los repuestos de una se compraban desde otra área.',
        ahora:'Toda la compra de producto en Compras y Cadena de Suministro, junto a la logística.',
        porque:'Comprar es el primer paso de la cadena: quien compra responde también por que la mercancía llegue.'},
+      {antes:'La compra interna dispersa: cada área compraba lo suyo, sin una política común, y la compra de insumos recaía en Recursos Humanos o en Administración.',
+       ahora:'Una coordinación de Compras Internas en Compras y Cadena de Suministro, junto a las de Casio y Cubitt; Finanzas paga.',
+       porque:'Todo el que compra en la organización pasa por las mismas reglas de proveedores, cotización y aprobación, y el grupo negocia una sola vez lo que hoy compra cada área por su lado.'},
       {antes:'Mantenimiento y Servicios como gerencia corporativa.',
        ahora:'Servicios Generales como coordinación de Operaciones y Logística en cada país.',
-       porque:'El mantenimiento de sedes, tiendas y bodegas se resuelve en cada país, y es donde hoy falta un responsable. Junto a quien opera las bodegas del país, la función gana un dueño claro; la compra y el pago de esos servicios siguen en Administración y Finanzas.'},
+       porque:'El mantenimiento de sedes, tiendas y bodegas se resuelve en cada país, y es donde hoy falta un responsable. Junto a quien opera las bodegas del país, la función gana un dueño claro; la compra de esos servicios la hace Compras Internas y el pago, Administración y Finanzas.'},
       {antes:'Dirección de Servicio Técnico.',
        ahora:'Postventa como gerencia de unidad de negocio bajo Ventas, con una gerencia por país.',
        porque:'Garantías, devoluciones y descuentos tocan el margen: tienen que verse desde la venta.'},
@@ -702,13 +768,13 @@ window.ESTRUCTURA_TOBE = {
        ahora:'Una gerencia corporativa de PMO con un equipo de gerentes de proyecto asignado por demanda, y una gerencia país donde la cartera lo pide (hoy Venezuela).',
        porque:'El mismo perfil atiende todas las clases de proyecto, y así no quedan capacidades ociosas en un ala mientras la otra se satura.'},
       {antes:'Sin estas piezas.',
-       ahora:'La Dirección de Finanzas con sus gerencias de Administración y Finanzas por país, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
+       ahora:'La Dirección de Finanzas con su coordinación de Planificación y Control Financiero y sus gerencias de Administración y Finanzas por país, Planificación de la Demanda y Nuevos Mercados en Ventas, Consultoría Jurídica, Gobierno de IA, Formación y la Asistencia Ejecutiva a la Presidencia y el Consejo de Familia entre las instancias de cogobierno.',
        porque:'Funciones que hoy se reparten entre personas sin cargo, asesores externos o nadie, e instancias de la familia que existen pero no figuraban en la estructura.'}
     ]
   },
 
   PENDIENTES: [
-    {t:'Gerencia corporativa de Compras', d:'Definir quién la ocupa, y quiénes llevan sus coordinaciones de Compras Casio y Compras Cubitt.'},
+    {t:'Gerencia corporativa de Compras', d:'Definir quién la ocupa, y quiénes llevan sus coordinaciones de Compras Casio, Compras Cubitt y Compras Internas.'},
     {t:'Gerencias por marca en Innovación y Desarrollo de Productos', d:'Hoy la dirección trabaja para Cubitt. Cuando entre una marca o un producto nuevo, decidir si se abre una gerencia corporativa o una por país.'},
     {t:'Kenex USA', d:'Confirmar a Isabella Roizental en sus dos posiciones de Estados Unidos: las gerencias país de Operaciones y Logística y de E-commerce. Aclarar si en Estados Unidos se vende también Casio.'},
     {t:'Gerencia corporativa de Mercadeo', d:'Vacante clave: definir perfil y titular.'},
@@ -720,7 +786,10 @@ window.ESTRUCTURA_TOBE = {
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
     {t:'Calidad y Mejora Continua', d:'Se planteó una persona dedicada a partir de 2027, apoyada por Desarrollo Corporativo y la PMO. Hasta entonces la conduce el comité con el equipo actual.'},
     {t:'Ventas al mayor', d:'Trazar la frontera entre la cartera corporativa (países sin operación propia) y la de cada país, con quien encabece Comercial.'},
-    {t:'Gerencias país por cubrir', d:'Administración y Finanzas en los tres países y TI en Panamá quedan abiertas al subir sus titulares a lo corporativo; decidir si alguien cubre más de un país mientras tanto.'},
+    {t:'Gerencias país por cubrir', d:'Administración y Finanzas en los tres países y la coordinación de TI en Panamá quedan abiertas al subir sus titulares a lo corporativo; decidir si alguien cubre más de un país mientras tanto.'},
+    {t:'Planificación de la Demanda y Nuevos Mercados', d:'Confirmar a Ricardo Baltodano, decidir si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos, y fijar el nivel del cargo.'},
+    {t:'Otros países', d:'Retail, E-commerce y Postventa tienen una caja para Guatemala, Costa Rica y las franquicias. Falta la información de esas operaciones para decidir si cada una tendrá su espejo o si se agrupan en un clúster.'},
+    {t:'Brand managers de Mercadeo', d:'Definir quiénes son los brand managers de Cubitt y de Casio en Experiencia del Cliente · Visual.'},
     {t:'Gerencias país: denominación y cabeza', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país; y cuándo una gerencia país basta como coordinación.'},
     {t:'La familia en la estructura', d:'Para la reunión familiar del 23-oct, cada familiar que trabaja en el grupo debe verse en su caja. Falta revisar las posiciones de familiares que no ocupan una dirección ni una gerencia corporativa.'},
     {t:'Denominaciones', d:'Nombre definitivo de Desarrollo Corporativo, y si la primera línea se llama Dirección o Vicepresidencia.'},

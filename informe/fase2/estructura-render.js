@@ -87,7 +87,7 @@
     // con sus gerencias de unidad de negocio debajo, y sus gerencias país abajo.
     if(dr.nivel === "n2"){
       var g = {n2:[dr], n3:[]};
-      (dr.hijos || []).forEach(function(k){ if(k.nivel !== "coord") (k.nivel === "n3" ? g.n3 : g.n2).push(k); });
+      (dr.hijos || []).forEach(function(k){ if(k.nivel !== "coord" && !k.enLinea) (k.nivel === "n3" ? g.n3 : g.n2).push(k); });
       return [g];
     }
     var out = [];
@@ -102,13 +102,13 @@
           out.push({n2:[], n3:(g.hijos || []).filter(function(k){ return k.nivel === "n3"; }), rama:g, cabeza:i === 0 ? h : null, span:rs.length,
                     comun:com.length ? com : null});
         });
-        var resto = (h.hijos || []).filter(function(k){ return rs.indexOf(k) < 0 && com.indexOf(k) < 0 && k.nivel !== "coord"; });
+        var resto = (h.hijos || []).filter(function(k){ return rs.indexOf(k) < 0 && com.indexOf(k) < 0 && k.nivel !== "coord" && !k.enLinea; });
         if(resto.length) out.push({n2:resto.filter(function(k){ return k.nivel !== "n3"; }), n3:resto.filter(function(k){ return k.nivel === "n3"; })});
         return;
       }
       var sc = h.nivel === "n3" ? {n2:[], n3:[h]} : {n2:[h], n3:[]};
       (h.nivel === "n3" ? [] : (h.hijos || [])).forEach(function(k){
-        if(k.nivel === "coord") return;
+        if(k.nivel === "coord" || k.enLinea) return;
         (k.nivel === "n3" ? sc.n3 : sc.n2).push(k);
       });
       out.push(sc);
@@ -138,7 +138,7 @@
   function celdaRamas(sc, k, fila, col){
     var cab = sc[k].cabeza, n = sc[k].span;
     var h = '<div class="eo-celda eo-c2 eo-ramas" style="grid-row:' + fila + ';grid-column:' + col + ' / span ' + n + '">' +
-            '<div class="eo-rcab">' + caja(cab, "eo-c-n2 eo-c-jefe", tagNivel(cab)) + '</div>';
+            '<div class="eo-rcab' + (lateral(cab).length ? ' eo-rcab-lat' : '') + '">' + caja(cab, "eo-c-n2 eo-c-jefe", tagNivel(cab)) + enLineaDir(cab) + '</div>';
     for(var i = 0; i < n; i++){
       var g = sc[k + i].rama;
       h += '<div class="eo-rama" style="grid-column:' + (i + 1) + '">' + caja(g, "eo-c-n2", tagNivel(g)) + '</div>';
@@ -146,9 +146,11 @@
     return h + '</div>';
   }
 
-  // Unidades que cuelgan de la línea que baja de una dirección (enLinea), a un costado
+  // Unidades que cuelgan de la línea que baja de una dirección o de una gerencia
+  // corporativa abierta en ramas (enLinea), a un costado
+  function lateral(dr){ return (dr.hijos || []).filter(function(h){ return h.enLinea; }); }
   function enLineaDir(dr){
-    var hs = (dr.hijos || []).filter(function(h){ return h.enLinea; });
+    var hs = lateral(dr);
     return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return caja(h, "eo-c-n2", tagNivel(h)); }).join("") + '</div>' : '';
   }
 
@@ -163,6 +165,7 @@
   var CORTO = {"Coordinación":"Coord.", "Jefatura":"Jef."};
   function tagNivel(d, esDir){
     if(esDir) return "Dirección corporativa";
+    if(d.etiqueta !== undefined && d.nivel !== "staff") return d.etiqueta;
     if(d.nivel === "n2") return "Gerencia corporativa";
     if(d.nivel === "n3") return "Gerencia país";
     if(d.nivel === "coord") return "Coordinación país";
@@ -738,7 +741,7 @@
       }
       var px = pa.x + pa.w / 2, y0 = pa.y + pa.h, y1 = y0 + 13, tx = pb.x + pb.w / 2;
       var lat = A.parentNode.querySelector(".eo-dirlinea");
-      if(lat && A.parentNode.contains(A) && A.classList.contains("eo-c-dir")){ var cl = caja2(lat); y1 = cl.y + cl.h + 13; }
+      if(lat && (A.classList.contains("eo-c-dir") || A.parentNode.classList.contains("eo-rcab"))){ var cl = caja2(lat); y1 = cl.y + cl.h + 13; }
       if(!cruza(px, y1, tx, y1, [A, B]) && !cruza(tx, y1, tx, pb.y, [A, B])){
         ruta("M" + px + "," + y0 + " V" + y1 + " H" + tx + " V" + pb.y, "eo-h-linea");
         return;
