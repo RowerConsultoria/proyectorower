@@ -747,4 +747,4 @@ Verificado de punta a punta con la sesión de la cuenta de QA: el asistente lee 
 - **P1:** «Prototipo 1: listo y en operación», con «Cómo se usa», la tabla de lo que está listo y cifras al día (95 sesiones, 615 documentos, 469 personas activas, 6 funciones; antes 91, 462, 436 y 5).
 - **Candidatos:** los ocho llevan su nota «Alcance de este prototipo» (país y área, qué entra, qué sale, qué queda fuera). Cartera ya no entra como módulo de la conciliación: si se eligen las dos, son P2 y P3. En conciliación y marca, «del país elegido».
 - **Motor:** el bloque `nota` acepta `items` y el tipo `limite` (rojo); `asistente_fase2.py` aplana los `items`. `CLAUDE.md` al día.
-- ⚠️ **Pendiente:** Kenex elige P2 y P3, y el país de cada uno. **Verificado:** `comprobar-ia.py` y `validar-html.py` en verde; capturas en claro y oscuro.
+- ⚠️ **Pendiente:** Kenex elige P2 y P3, y el país de cada uno. **Verificado:** `comprobar-ia.py` (también contra producción) y `validar-html.py` en verde; capturas en claro y oscuro. Asistente sincronizado (615 documentos).
