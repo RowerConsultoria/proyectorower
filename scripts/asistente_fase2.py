@@ -90,6 +90,7 @@ def ia_bloques(lst, out, fichas):
                                            (' (' + extra + ')') if extra else ''))
         elif tipo == 'nota':
             out.append('Nota%s: %s' % ((' · ' + ia_linea(b['titulo'])) if b.get('titulo') else '', ia_linea(b.get('x'))))
+            out += ['  · ' + ia_linea(i) for i in b.get('items') or []]
         elif tipo == 'codigo':
             out.append(str(b.get('x') or ''))
         elif tipo == 'fig':

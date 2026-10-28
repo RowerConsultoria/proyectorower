@@ -7,10 +7,10 @@
 window.IA_DOC = {
  "id": "prototipos",
  "titulo": "Prototipos de IA",
- "lede": "Los tres prototipos funcionales comprometidos: el primero ya opera; los otros dos se eligen entre ocho candidatos que amplían este mismo sistema.",
+ "lede": "Los tres prototipos funcionales comprometidos: el primero está listo y opera; los otros dos se eligen entre ocho candidatos y cada uno resuelve una sola funcionalidad, con alcance acotado.",
  "estado": "borrador",
- "version": "0.2",
- "corte": "25-oct-2026",
+ "version": "0.3",
+ "corte": "28-oct-2026",
  "secciones": [
   {
    "id": "compromiso",
@@ -18,16 +18,16 @@ window.IA_DOC = {
    "titulo": "El compromiso",
    "estado": "borrador",
    "bloques": [
-    "La Fase 1 comprometió para la Fase 2 **un mínimo de tres prototipos funcionales de IA**. Un prototipo funcional no es una maqueta: corre sobre datos reales, con usuarios reales, y deja medir si sirve antes de escalarlo a toda la plataforma.",
-    "El primero es este mismo sistema ([[sec:p1|P1]]), que ya opera: el manual, la estructura y los agentes que los leen y los cambian. Los otros dos se eligen entre **ocho candidatos**. Todos son **ampliaciones de esta plataforma**: arrancan con los archivos que el área ya produce (Excel, reportes, fotos, PDF), sin conectarse a Odoo ni a EBS; alivian una operación real desde el primer día, y tienen su módulo en la [[orbita:inicio|arquitectura propuesta]] para conectarse a los sistemas cuando llegue el espejo. Lo que se construya ahora es ya parte del futuro sistema Kenex.",
+    "La Fase 1 comprometió para la Fase 2 **un mínimo de tres prototipos funcionales de IA**. Un prototipo funcional no es una maqueta: corre sobre datos reales de Kenex, cargados por archivo, con usuarios reales, y deja medir si sirve antes de convertirlo en un módulo completo.",
+    "El primero, [[sec:p1|P1]], **está listo y opera** desde julio de 2026: es este mismo aplicativo. Los otros dos, P2 y P3, se eligen entre **ocho candidatos**. Cada uno resuelve **una funcionalidad concreta de un área** con los archivos que esa área ya produce (Excel, reportes, fotos, PDF), sin conectarse a Odoo, a EBS ni a ninguna otra plataforma. Al terminar queda funcionando dentro de esta misma plataforma, junto al informe, y es el punto de partida del módulo completo que le corresponde en la [[orbita:inicio|arquitectura propuesta]].",
     {
      "t": "tarjetas",
      "items": [
       {
        "titulo": "P1 · Este sistema",
-       "x": "Conocimiento, manual, estructura y agentes, con permisos por rol.",
+       "x": "Conocimiento, informe, manual, estructura y agentes, con permisos por rol.",
        "chips": [
-        "En operación"
+        "Listo · en operación"
        ]
       },
       {
@@ -48,6 +48,21 @@ window.IA_DOC = {
     },
     {
      "t": "nota",
+     "tipo": "limite",
+     "titulo": "Qué es y qué no es un prototipo (P2 y P3)",
+     "x": "Un prototipo resuelve **una sola funcionalidad** de un área. Sirve para comprobar con datos reales que la IA alivia esa tarea antes de invertir en el módulo completo. **No es el módulo ni el sistema completo.**",
+     "items": [
+      "**Alcance:** un país y un área, con los usuarios de esa área.",
+      "**Tiempo:** dos semanas de construcción y dos semanas de pruebas con el área.",
+      "**Datos:** reales, cargados por archivo (Excel, reporte, foto o PDF). Sin conexión ni API con Odoo, EBS, bancos ni otras plataformas.",
+      "**No registra ni ejecuta en los sistemas de registro:** no postea, no paga, no aprueba. Una persona revisa y registra.",
+      "**Ajustes:** dos rondas durante las pruebas. Lo que se pida más allá de la funcionalidad elegida se anota para el módulo completo, en su ola.",
+      "**No incluye:** el módulo completo, otros países u otras áreas, conexiones entre sistemas, migración de históricos, reportes a medida ni aplicación móvil.",
+      "**Al terminar:** queda funcionando en esta plataforma, junto al informe. Llevarlo a módulo completo es un paso aparte, con su propio alcance."
+     ]
+    },
+    {
+     "t": "nota",
      "titulo": "Las maquetas",
      "x": "Cada candidato tiene una maqueta de diseño con datos de ejemplo, enlazada en su sección. Muestra la pantalla principal tal como quedaría dentro del sistema."
     }
@@ -56,30 +71,31 @@ window.IA_DOC = {
   {
    "id": "p1",
    "num": "P1",
-   "titulo": "El aplicativo del proyecto",
+   "titulo": "Prototipo 1: listo y en operación",
    "estado": "borrador",
    "que": [
-    "El aplicativo donde vive este informe es, en sí mismo, el primer prototipo: una plataforma pequeña construida con la misma arquitectura que se propone para Kenex, que **ya opera** con usuarios reales desde julio de 2026.",
-    "Reúne todo el conocimiento levantado en el proyecto —entrevistas, sesiones de trabajo, documentos del grupo, el diagnóstico, el manual de procesos, el circuito y esta arquitectura— y permite consultarlo en lenguaje natural, con la fuente de cada respuesta. Sobre esa base corren también la validación del modelo por el comité, el censo de personal y la recolección de fichas, cada uno con sus permisos."
+    "El aplicativo donde vive este informe es el primer prototipo, y **ya está listo**: una plataforma pequeña construida con la misma arquitectura que se propone para Kenex, que opera con usuarios reales desde julio de 2026.",
+    "Reúne todo el conocimiento levantado en el proyecto —entrevistas, sesiones de trabajo, documentos del grupo, el diagnóstico, el manual de procesos, el circuito, la estructura y esta arquitectura— y permite consultarlo en lenguaje natural, con la fuente de cada respuesta.",
+    "**Cómo se usa:** cada persona entra con su cuenta por una sola puerta y ve lo que su rol le permite. La Junta, la Presidencia y el equipo consultor leen el informe de la Fase 1 y el manual de la Fase 2. El comité valida el modelo To-Be proceso por proceso y, con el Agente IA, resuelve dudas y propone cambios al flujo y a la estructura. El equipo consultor carga entrevistas y documentos, que la plataforma indexa sola. Talento reparte las fichas de actualización de perfil por enlace, sin crear cuentas."
    ],
    "como": [
     {
      "t": "kpis",
      "items": [
       {
-       "v": "91",
-       "x": "entrevistas y sesiones indexadas para el asistente"
+       "v": "95",
+       "x": "entrevistas y sesiones cargadas e indexadas para el asistente"
       },
       {
-       "v": "462",
+       "v": "615",
        "x": "documentos de la Fase 2 consultables por código"
       },
       {
-       "v": "436",
-       "x": "personas en el censo, con fichas por enlace"
+       "v": "469",
+       "x": "personas activas en el censo, con fichas por enlace"
       },
       {
-       "v": "5",
+       "v": "6",
        "x": "funciones de servidor en operación"
       }
      ]
@@ -87,39 +103,64 @@ window.IA_DOC = {
     {
      "t": "tabla",
      "cab": [
-      "Pieza",
+      "Lo que está listo",
       "Qué hace",
+      "Quién lo usa",
       "IA"
      ],
      "filas": [
       [
+       "Informe de la Fase 1",
+       "El diagnóstico navegable, con el organigrama, el mapa de procesos, la presentación y la torre de la arquitectura.",
+       "La Junta, la Presidencia y el equipo consultor.",
+       "—"
+      ],
+      [
+       "Manual de procesos de la Fase 2",
+       "Los 182 procesos en As-Is y To-Be, el circuito del negocio, la estructura To-Be y esta arquitectura con sus documentos.",
+       "La Junta, la Presidencia y el equipo consultor.",
+       "—"
+      ],
+      [
+       "Validación del comité",
+       "El comité valida el To-Be proceso por proceso, con notas escritas o dictadas por voz, historial de versiones y una secretaría técnica que consolida.",
+       "El comité ejecutivo y la secretaría técnica.",
+       "Dictado por voz del navegador; sin IA generativa."
+      ],
+      [
+       "Agente IA del manual",
+       "Responde dudas sobre el proceso que se está leyendo y propone cambios al flujo de actividades y a la estructura, que la persona aplica o descarta.",
+       "Los integrantes del comité y las cuentas habilitadas.",
+       "Claude, con las herramientas de la plataforma y los permisos de quien escribe."
+      ],
+      [
        "Asistente IA",
        "Responde preguntas sobre todo el conocimiento del proyecto, cita la fuente y lee el documento completo cuando hace falta.",
+       "Las cuentas con acceso al panel.",
        "Claude por API, con la síntesis del conocimiento en caché y búsqueda de texto completo en español."
       ],
       [
        "Indexación automática",
        "Cada entrevista o archivo que se carga se extrae, se trocea y se resume solo, en segundos.",
+       "Funciona sola al cargar.",
        "Claude resume y extrae."
       ],
       [
        "Extracción de entrevistas",
        "Convierte una transcripción en una ficha estructurada.",
+       "El equipo consultor.",
        "Claude con salida estructurada."
-      ],
-      [
-       "Validación del comité",
-       "El comité valida el modelo To-Be proceso por proceso, con notas escritas o dictadas por voz, y la secretaría técnica consolida.",
-       "Dictado por voz del navegador; sin IA generativa."
       ],
       [
        "Acceso y permisos",
        "Una sola puerta de entrada; roles y permisos aplicados en la base de datos, no en la pantalla.",
+       "Los administradores del proyecto.",
        "—"
       ],
       [
        "Censo y fichas",
        "Censo de personal y fichas de actualización por enlace, sin cuenta para quien la llena.",
+       "Talento, y cada colaborador con su enlace.",
        "—"
       ]
      ]
@@ -130,7 +171,8 @@ window.IA_DOC = {
      "titulo": "Lo que P1 no demuestra",
      "x": "No lee Odoo ni EBS: trabaja sobre conocimiento del proyecto, no sobre transacciones. El espejo de los sistemas de registro es la primera obra de la Ola 1 de la plataforma; los candidatos a P2 y P3 que trabajan con archivos son el primer paso hacia él."
     }
-   ]
+   ],
+   "intro": "Este mismo aplicativo, en uso desde julio de 2026, con una cuenta por persona y permisos por rol."
   },
   {
    "id": "matriz",
@@ -346,7 +388,7 @@ window.IA_DOC = {
       ],
       [
        "Quién lo usa",
-       "Contabilidad y Tesorería de Venezuela y Colombia, con la Dirección de Finanzas."
+       "Contabilidad y Tesorería del país elegido, con la Dirección de Finanzas. Venezuela y Colombia, cuando sea módulo completo."
       ],
       [
        "En la plataforma",
@@ -356,6 +398,18 @@ window.IA_DOC = {
        "Cómo se conecta después",
        "Conectores a las plataformas y a los bancos en lugar del archivo, y el espejo de Odoo en lugar de la exportación. Sus cifras conciliadas alimentan la lectura del cierre."
       ]
+     ]
+    },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Contabilidad de un país con una plataforma y un banco; por ejemplo, Venezuela con Cashea.",
+      "**Entra:** el reporte de la plataforma, el extracto del banco y la exportación de Odoo, por archivo.",
+      "**Sale:** las partidas emparejadas, cada diferencia explicada y el borrador del asiento, que Contabilidad registra en Odoo.",
+      "**Queda fuera:** los demás países, plataformas y bancos; la conexión a esas plataformas, a los bancos y a Odoo, y el registro automático del asiento."
      ]
     },
     "**Puntaje: 36 de 40.** [[url:https://claude.ai/artifact/Y4BMi9iZLgXJrikJN31cGh|Ver la maqueta de diseño]]"
@@ -401,6 +455,18 @@ window.IA_DOC = {
       ]
      ]
     },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Ventas al mayor de un país, con los clientes que ya reportan su venta.",
+      "**Entra:** los archivos de esos clientes, en su formato, y una exportación del maestro de productos.",
+      "**Sale:** el sell-out normalizado y las equivalencias de códigos propuestas, que una persona confirma.",
+      "**Queda fuera:** el portal para que los clientes suban sus archivos solos, el catálogo único y el pronóstico."
+     ]
+    },
     "**Puntaje: 32 de 40.** [[url:https://claude.ai/artifact/PiuqgBPMjz6w39BkKzfScu|Ver la maqueta de diseño]]"
    ]
   },
@@ -444,6 +510,18 @@ window.IA_DOC = {
       ]
      ]
     },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Finanzas de un país, con su cierre mensual.",
+      "**Entra:** el Excel de cierre de ese país.",
+      "**Sale:** el tablero del mes y las respuestas de la IA, en solo lectura.",
+      "**Queda fuera:** el consolidado del grupo, la eliminación entre empresas, el espejo de Odoo y todo lo fiscal."
+     ]
+    },
     "**Puntaje: 31 de 40.** [[url:https://claude.ai/artifact/3oA1j6WitN23thTAWf3WQz|Ver la maqueta de diseño]]"
    ]
   },
@@ -475,7 +553,7 @@ window.IA_DOC = {
       ],
       [
        "Quién lo usa",
-       "El equipo creativo central y el mercadeo de cada país. Solo Cubitt: Casio trae su material cerrado."
+       "El equipo creativo central y el mercadeo del país elegido. Solo Cubitt: Casio trae su material cerrado."
       ],
       [
        "En la plataforma",
@@ -485,6 +563,18 @@ window.IA_DOC = {
        "Cómo se conecta después",
        "Con [[mod:m-mercadeo-con-datos|Mercadeo con datos]], el brief mira el inventario y empuja lo que hay; con las plataformas de pauta, mide el resultado de cada pieza."
       ]
+     ]
+    },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Mercadeo de un país, una promoción a la vez.",
+      "**Entra:** el manual de marca, el banco de imágenes, la grilla mensual y el archivo de promociones y precios.",
+      "**Sale:** el brief, los textos y las piezas base, que Mercadeo aprueba.",
+      "**Queda fuera:** publicar en redes o en plataformas de pauta, medir el resultado de cada pieza y los demás países."
      ]
     },
     "**Puntaje: 30 de 40.** [[url:https://claude.ai/artifact/2ksmbGpBMBXCto7oA4sxnL|Ver la maqueta de diseño]]"
@@ -526,8 +616,20 @@ window.IA_DOC = {
       ],
       [
        "Cómo se conecta después",
-       "Bancos y correo en lugar del archivo y la carga manual. Comparte insumos y usuarios con la conciliación: puede entrar como módulo del mismo prototipo."
+       "Bancos y correo en lugar del archivo y la carga manual. Comparte insumos y usuarios con la conciliación, pero es un prototipo aparte: si se eligen los dos, uno es P2 y el otro P3."
       ]
+     ]
+    },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Cuentas por cobrar del mayor en un país.",
+      "**Entra:** la exportación diaria de cuentas por cobrar y los comprobantes que mandan los clientes, por archivo.",
+      "**Sale:** la aplicación propuesta de cada pago y la lista priorizada de cobranza, que el área valida.",
+      "**Queda fuera:** leer los bancos y el correo, registrar el pago en Odoo y escribirle al cliente."
      ]
     },
     "**Puntaje: 30 de 40.** [[url:https://claude.ai/artifact/WLgnv9HPaNWGnAayGijyWs|Ver la maqueta de diseño]]"
@@ -573,6 +675,18 @@ window.IA_DOC = {
       ]
      ]
     },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Postventa de un país.",
+      "**Entra:** las fotos del caso y el manual regional de postventa.",
+      "**Sale:** el expediente del caso y la resolución propuesta, que decide el técnico.",
+      "**Queda fuera:** la serialización del producto, el stock de reemplazos, la calidad por lote y la comunicación con el cliente."
+     ]
+    },
     "**Puntaje: 30 de 40.** [[url:https://claude.ai/artifact/Q5J9V81UuzGTCfAYdcj6cJ|Ver la maqueta de diseño]]"
    ]
   },
@@ -616,6 +730,18 @@ window.IA_DOC = {
       ]
      ]
     },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. Es un área corporativa: la categoría se fija al elegirlo.",
+     "items": [
+      "**Un área:** Innovación y desarrollo de productos, con una categoría de la línea.",
+      "**Entra:** el sell-out de la categoría, las garantías por modelo, los reportes de tendencias y el catálogo, por archivo.",
+      "**Sale:** la ficha de cada idea, sus variantes y el acta del comité de producto.",
+      "**Queda fuera:** el seguimiento de muestras con las fábricas y el sell-out normalizado de todo el grupo."
+     ]
+    },
     "**Puntaje: 29 de 40.** [[url:https://claude.ai/artifact/1JLTHY1UZyQLYRNTEKiJM3|Ver la maqueta de diseño]]"
    ]
   },
@@ -657,6 +783,18 @@ window.IA_DOC = {
        "Cómo se conecta después",
        "Con las descripciones de cargo y el repositorio de fichas del colaborador. El aplicativo de evaluación de perfiles es además un entregable de la Fase 4."
       ]
+     ]
+    },
+    {
+     "t": "nota",
+     "tipo": "limite",
+     "titulo": "Alcance de este prototipo",
+     "x": "Dos semanas de construcción y dos de pruebas, con dos rondas de ajustes. El país se fija al elegirlo.",
+     "items": [
+      "**Un país y un área:** Talento de un país, con sus vacantes abiertas.",
+      "**Entra:** la descripción del cargo y los CV, por archivo.",
+      "**Sale:** el resumen de cada CV y el orden propuesto con criterios explícitos; Talento decide a quién entrevistar.",
+      "**Queda fuera:** publicar las vacantes, contactar a los candidatos y la evaluación de perfiles, que es entregable de la Fase 4."
      ]
     },
     "**Puntaje: 23 de 40.** [[url:https://claude.ai/artifact/DUcLc1su4ocWFrT1AMvu9t|Ver la maqueta de diseño]]"

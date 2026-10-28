@@ -97,8 +97,10 @@
             (dl ? '<dl>' + dl + '</dl>' : '') + '</li>';
         }).join('') + '</ol>';
       case 'nota':
+        // `items` añade una lista bajo el texto (el aviso de límites de los prototipos).
         return '<div class="nota' + (b.tipo ? ' ' + esc(b.tipo) : '') + '">' +
-          (b.titulo ? '<span class="nota-t">' + linea(b.titulo) + '</span>' : '') + linea(b.x) + '</div>';
+          (b.titulo ? '<span class="nota-t">' + linea(b.titulo) + '</span>' : '') + (b.x ? linea(b.x) : '') +
+          (b.items ? '<ul>' + b.items.map(function(i){ return '<li>' + linea(i) + '</li>'; }).join('') + '</ul>' : '') + '</div>';
       case 'codigo': return '<pre class="codigo">' + esc(b.x) + '</pre>';
       case 'fig': return '<figure class="fig">' + b.svg + (b.pie ? '<figcaption>' + linea(b.pie) + '</figcaption>' : '') + '</figure>';
       case 'kpis':
