@@ -65,10 +65,10 @@
       (function baja(padre, hijos){
         (hijos || []).forEach(function(h){
           NODOS[h.id] = {d:h, padre:padre, dir:dr.id};
-          // con atiende, la línea le llega desde las gerencias de unidad de negocio cuyos
-          // lineamientos atiende, no directo desde su gerencia corporativa
-          ARISTAS.push({de:padre, a:h.id, tipo:h.enLinea ? "lateral-dir" : h.atiende ? "oculta" : "linea"});
-          (h.atiende || []).forEach(function(g){ ARISTAS.push({de:g, a:h.id, tipo:"atiende"}); });
+          // con atiende, la unidad recibe norma o servicio de esas gerencias de unidad de
+          // negocio, pero su línea de mando sigue bajando de su gerencia corporativa
+          // (modelo de red de Mercadeo, 29-oct-2026): atiende no dibuja línea
+          ARISTAS.push({de:padre, a:h.id, tipo:h.enLinea ? "lateral-dir" : "linea"});
           baja(h.id, h.hijos);
         });
       })(dr.id, dr.hijos);
@@ -121,12 +121,13 @@
   // cada canal con la de cada país). Si las hay, la gerencia corporativa se abre en
   // columnas, una por rama, para que se lea que la gerencia país reporta a la de su
   // canal y no a la gerencia corporativa.
-  // También se abre si una gerencia país suya atiende los lineamientos de esas
-  // gerencias de unidad de negocio (atiende): en Mercadeo, la gerencia país va debajo
-  // de las tres y recibe una línea de cada una.
+  // También se abre si una gerencia país suya recibe norma o servicio de esas
+  // gerencias de unidad de negocio (atiende): en Mercadeo, la gerencia país va centrada
+  // debajo de las tres, y su línea baja de la gerencia corporativa por el hueco entre
+  // dos de ellas.
   function ramas(h){
     var gs = (h.hijos || []).filter(function(k){
-      return k.nivel === "gun" && (k.hijos || []).some(function(x){ return x.nivel === "n3"; });
+      return k.nivel === "gun" && (k._conN3 || (k.hijos || []).some(function(x){ return x.nivel === "n3"; }));
     });
     if(gs.length) return gs;
     if(comunes(h).length) gs = (h.hijos || []).filter(function(k){ return k.nivel === "gun"; });
@@ -208,6 +209,11 @@
   // Abierta (EXP[id]): una caja por país, con su ocupante, sus coordinaciones y una
   // línea que baja sin caja: el equipo del país queda por desarrollar.
   var EXP = {};
+  // Despliegue por niveles (29-oct-2026): de entrada solo se ve la Presidencia; cada unidad
+  // con reportes lleva un botón que muestra (o vuelve a ocultar) su nivel siguiente.
+  // DESP[id] = true: la unidad tiene desplegados sus reportes directos. No se guarda:
+  // cada visita arranca desde la Presidencia, que es como se presenta.
+  var DESP = {};
   var ANCHO_PAIS = 178, HUECO_PAIS = 12;
   function paisesDe(k){ return E.PAISES.filter(function(p){ return k.paises && k.paises[p.id]; }); }
   function anchoAbierta(k){ var n = paisesDe(k).length; return n * ANCHO_PAIS + (n - 1) * HUECO_PAIS; }
@@ -295,7 +301,10 @@
            '<a class="mp-btn" href="#/">‹ Índice</a>' +
            '<div class="mp-tit">' + esc(E.titulo) + ' <span class="eo-corte">borrador · ' + esc(E.corte) + '</span></div>' +
            '<div class="mp-sp"></div>' +
-           '<a class="mp-btn" id="eoCapasBtn" href="#/estructura/capas" aria-pressed="false">Capas</a>' +
+           // «Capas y Funcionamiento» (29-oct-2026) reemplaza al botón «Capas»: la vista #/estructura/capas
+           // sigue existiendo por su ruta, pero la barra lleva a la página de capas y modelos de funcionamiento
+           '<a class="mp-btn" id="eoCapasBtn" href="estructura-funcionamiento.html">Capas y Funcionamiento</a>' +
+           '<button class="mp-btn" id="eoNivBtn" aria-pressed="false" title="Mostrar todos los niveles, o volver a dejar solo la Presidencia">Desplegar todo</button>' +
            '<button class="mp-btn" id="eoLeyBtn" aria-pressed="true" aria-controls="eoLey">Leyenda</button>' +
            '<button class="mp-btn" id="eoOcup" aria-pressed="true">Ocupantes</button>' +
            '<button class="mp-btn" id="eoVac" aria-pressed="false">Resaltar abiertas</button>' +
@@ -334,6 +343,12 @@
       var p = leerPref(); p.expandidas = Object.keys(EXP); guardarPref(p);
       remaquetar(); ajustar(); actualizarTodas();
     });
+    host.querySelector("#eoNivBtn").addEventListener("click", function(){
+      if(todosDesplegados()) DESP = {};
+      else Object.keys(NODOS).forEach(function(id){ if(reportes(id).length) DESP[id] = true; });
+      remaquetar(); botonTodo(); ajustarVisible(true);
+    });
+    botonTodo();
     montarLeyenda(pref);
     montarCogob(pref);
     medirBarra();
@@ -354,6 +369,8 @@
     // clic en cajas
     lienzo.addEventListener("click", function(e){
       if(arrastro) return;
+      var nv = e.target.closest("[data-niv]");
+      if(nv){ e.stopPropagation(); alternarNivel(nv.getAttribute("data-niv")); return; }
       var x = e.target.closest("[data-exp]");
       if(x){ alternar(x.getAttribute("data-exp")); return; }
       var c = e.target.closest(".eo-card,.eo-comite");
@@ -375,7 +392,7 @@
     }
 
     camara();
-    requestAnimationFrame(function(){ trazar(); ajustar(); });
+    requestAnimationFrame(function(){ trazar(); ajustarVisible(false, focoInicial); });
     // Las fuentes web cambian el alto de las cajas: volver a trazar al cargar.
     if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ trazar(); });
   }
@@ -495,7 +512,40 @@
     cogob.querySelectorAll("[data-id]").forEach(function(x){ x.classList.toggle("eo-sel", x.getAttribute("data-id") === id); });
   }
 
+  // Lo que no está desplegado no se maqueta: la estructura crece a medida que se abre.
+  // podar() copia el dato dejando solo lo visible; la gerencia de unidad de negocio con
+  // gerencia país propia conserva la marca _conN3, para que su gerencia corporativa siga
+  // abierta en ramas aunque la rama aún no esté desplegada.
+  function podar(F){
+    var c = {}; for(var k in F) c[k] = F[k];
+    var abre = !!DESP[F.CEO.id];
+    function u(x){
+      var y = {}; for(var k in x) y[k] = x[k];
+      if(x.hijos){
+        if(x.hijos.some(function(h){ return h.nivel === "n3"; })) y._conN3 = true;
+        y.hijos = DESP[x.id] ? x.hijos.map(u) : [];
+      }
+      return y;
+    }
+    c.DIRECCIONES = abre ? F.DIRECCIONES.map(u) : [];
+    c.STAFF = abre ? F.STAFF : [];
+    c.GOBIERNO = abre ? F.GOBIERNO : [];
+    return c;
+  }
+  var PREV = null;
+  var focoInicial = null;   // la unidad que abrió la ruta: el primer encuadre va sobre ella   // unidades a la vista en la maquetación anterior: lo nuevo aparece con un fundido
   function maquetar(){
+    var full = E; E = podar(full);
+    try{ maquetarVisible(); } finally { E = full; }
+    var ahora = {};
+    Object.keys(NODOS).forEach(function(id){
+      var el = NODOS[id].el; if(!el || !lienzo.contains(el)) return;
+      ahora[id] = true;
+      if(PREV && !PREV[id]) (el.closest(".eo-pexpand") || el.closest(".eo-pwrap") || el).classList.add("eo-aparece");
+    });
+    PREV = ahora;
+  }
+  function maquetarVisible(){
     // Dos contenedores lado a lado, a la misma altura: el staff a la izquierda de la
     // línea que baja de la Presidencia y las unidades de negocio a la derecha, en el
     // orden de la cadena de valor. Dentro de cada contenedor, un recuadro agrupa los
@@ -508,7 +558,7 @@
     NEG.forEach(function(dr){ var sc = subcolumnas(dr); cols.push(sc); total += sc.length; });
     // staff: una columna por dirección, en el orden del dato salvo la de más
     // dependencias, que va al final, junto a la línea de la Presidencia
-    var cuantas = function(d){ var n = 0; (function k(hs){ (hs || []).forEach(function(x){ n++; k(x.hijos); }); })(d.hijos); return n; };
+    var cuantas = function(d){ var n = 0, f = NODOS[d.id] ? NODOS[d.id].d : d; (function k(hs){ (hs || []).forEach(function(x){ n++; k(x.hijos); }); })(f.hijos); return n; };
     var mayor = STF.slice().sort(function(a, b){ return cuantas(b) - cuantas(a); })[0];
     STF = STF.filter(function(d){ return d !== mayor; }).concat(mayor ? [mayor] : []);
     var colsS = STF.map(subcolumnas), nS = 0;
@@ -668,8 +718,84 @@
     while(n && n !== lienzo){ x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
     return {x:x, y:y, w:el.offsetWidth, h:el.offsetHeight};
   }
+  // Un nivel se lee como fila: todas las gerencias corporativas con la misma altura
+  // de caja, y las gerencias de unidad de negocio de todas las ramas (Ventas,
+  // Mercadeo) arrancando a la misma altura, aunque una gerencia corporativa lleve
+  // una unidad sobre su línea que empuja sus ramas hacia abajo.
+  function igualarNiveles(){
+    var n2 = [].filter.call(lienzo.querySelectorAll(".eo-card:not([data-pais])"), function(el){
+      var n = NODOS[el.getAttribute("data-id")]; return n && n.d.nivel === "n2";
+    });
+    n2.forEach(function(el){ el.style.minHeight = ""; });
+    var alto = Math.max.apply(null, n2.map(function(el){ return el.offsetHeight; }).concat([0]));
+    n2.forEach(function(el){ el.style.minHeight = alto + "px"; });
+    var ramas = [].slice.call(lienzo.querySelectorAll(".eo-rama"));
+    ramas.forEach(function(r){ r.style.marginTop = ""; });
+    var tope = Math.max.apply(null, ramas.map(function(r){ return caja2(r).y; }).concat([0]));
+    ramas.forEach(function(r){ var d = tope - caja2(r).y; if(d > 0) r.style.marginTop = d + "px"; });
+  }
+  // ---------------------------------------------------------- niveles
+  function reportes(id){
+    if(id === E.CEO.id) return E.DIRECCIONES.concat(E.STAFF);
+    var n = NODOS[id]; return n && !n.comite && !n.consejo ? (n.d.hijos || []) : [];
+  }
+  function visible(id){
+    if(id === E.CEO.id) return true;
+    var n = NODOS[id]; if(!n) return false;
+    if(n.gob) return !!DESP[E.CEO.id];          // la Junta aparece con el primer nivel
+    if(n.comite || n.consejo || !n.padre) return true;
+    return !!DESP[n.padre] && visible(n.padre);
+  }
+  // Abre la cadena de mando hasta una unidad: así una ficha enlazada siempre se ve
+  function revelar(id){
+    var n = NODOS[id];
+    if(n && n.gob){ DESP[E.CEO.id] = true; return; }
+    while(n && n.padre){ DESP[n.padre] = true; n = NODOS[n.padre]; }
+  }
+  function plegarDesde(id){ reportes(id).forEach(function(h){ delete DESP[h.id]; plegarDesde(h.id); }); }
+  function alternarNivel(id){
+    if(DESP[id]){ delete DESP[id]; plegarDesde(id); } else DESP[id] = true;
+    remaquetar(); botonTodo(); ajustarVisible(true, id);
+  }
+  function todosDesplegados(){
+    return Object.keys(NODOS).every(function(id){ return !reportes(id).length || DESP[id]; });
+  }
+  function botonTodo(){
+    var b = host && host.querySelector("#eoNivBtn"); if(!b) return;
+    var todo = todosDesplegados();
+    b.textContent = todo ? "Plegar a la Presidencia" : "Desplegar todo";
+    b.setAttribute("aria-pressed", todo);
+  }
+  function aplicarNiveles(){
+    // la banda país de cada contenedor aparece cuando hay algo en ella
+    ["staff", "negocio"].forEach(function(car){
+      var hay = Object.keys(NODOS).some(function(id){
+        var n = NODOS[id], d = n.d, el = n.el;
+        if(!(d.nivel === "n3" || d.nivel === "coord") || !el || !lienzo.contains(el)) return false;
+        var dr = E.DIRECCIONES.filter(function(x){ return x.id === n.dir; })[0];
+        return dr && (dr.caracter === "staff") === (car === "staff");
+      });
+      lienzo.classList.toggle("eo-sin-pais-" + car, !hay);
+    });
+  }
+  function botonesNivel(){
+    var capa = lienzo.querySelector(".eo-niveles");
+    if(!capa){ capa = document.createElement("div"); capa.className = "eo-niveles"; lienzo.appendChild(capa); }
+    var h = "";
+    Object.keys(NODOS).forEach(function(id){
+      var el = NODOS[id].el, n = reportes(id).length;
+      if(!el || !n || !lienzo.contains(el) || !visible(id)) return;
+      var b = caja2(el), ab = !!DESP[id], nom = NODOS[id].d.n;
+      h += '<button type="button" class="eo-nivbtn' + (ab ? ' abierto' : '') + '" data-niv="' + esc(id) + '" aria-expanded="' + ab + '"' +
+           ' title="' + esc((ab ? "Ocultar los reportes de " : "Mostrar los reportes de ") + nom) + '"' +
+           ' style="left:' + Math.round(b.x + b.w / 2) + 'px;top:' + Math.round(b.y + b.h) + 'px">' + (ab ? '−' : '+ ' + n) + '</button>';
+    });
+    capa.innerHTML = h;
+  }
   function trazar(){
     if(!svg || host.hidden) return;
+    igualarNiveles();
+    aplicarNiveles();
     centrarCima();
     var W = lienzo.scrollWidth, H = lienzo.scrollHeight;
     svg.setAttribute("width", W); svg.setAttribute("height", H);
@@ -680,10 +806,10 @@
     // La línea de mando baja de la Presidencia por la columna libre entre los dos
     // contenedores y se abre en un bus: a la izquierda el staff, a la derecha el negocio.
     var sx = C.x + C.w / 2;
-    var cajas = E.DIRECCIONES.map(function(d){ return {car:d.caracter, b:caja2(NODOS[d.id].el)}; });
-    var busY = Math.min.apply(null, cajas.map(function(k){ return k.b.y; })) - 22;
-    ruta("M" + sx + "," + (C.y + C.h) + " V" + busY, "eo-h-linea eo-h-bus");
-    [["staff", "eo-h-linea eo-h-staff"], ["negocio", "eo-h-linea eo-h-negocio"]].forEach(function(g){
+    var cajas = DESP[E.CEO.id] ? E.DIRECCIONES.filter(function(d){ return NODOS[d.id].el; }).map(function(d){ return {car:d.caracter, b:caja2(NODOS[d.id].el)}; }) : [];
+    var busY = cajas.length ? Math.min.apply(null, cajas.map(function(k){ return k.b.y; })) - 22 : 0;
+    if(cajas.length) ruta("M" + sx + "," + (C.y + C.h) + " V" + busY, "eo-h-linea eo-h-bus");
+    if(cajas.length) [["staff", "eo-h-linea eo-h-staff"], ["negocio", "eo-h-linea eo-h-negocio"]].forEach(function(g){
       var de = cajas.filter(function(k){ return g[0] === "staff" ? k.car === "staff" : k.car !== "staff"; });
       if(!de.length) return;
       var xs = de.map(function(k){ return k.b.x + k.b.w / 2; });
@@ -708,6 +834,7 @@
 
     ARISTAS.forEach(function(a){
       var A = NODOS[a.de].el, B = NODOS[a.a].el; if(!A || !B) return;
+      if(!visible(a.de) || !visible(a.a)) return;
       var pa = caja2(A), pb = caja2(B);
       if(a.tipo === "punteada"){          // gobierno -> Presidencia
         var y = pa.y + pa.h / 2, x0 = pa.x + (pa.x < C.x ? pa.w : 0), x1 = pa.x < C.x ? C.x : C.x + C.w;
@@ -727,11 +854,6 @@
         ruta("M" + (pa.x + pa.w / 2) + "," + (pb.y + pb.h / 2) + " H" + pb.x, "eo-h-linea");
         return;
       }
-      if(a.tipo === "atiende"){          // gerencia de unidad de negocio -> gerencia país que atiende sus lineamientos
-        var ax = pa.x + pa.w / 2, bx = pb.x + pb.w / 2, ay = pb.y - 13;
-        ruta("M" + ax + "," + (pa.y + pa.h) + " V" + ay + " H" + bx + " V" + pb.y, "eo-h-linea");
-        return;
-      }
       if(a.tipo !== "linea") return;
       if(NODOS[a.a].d.nivel === "coord" && !B.hasAttribute("data-ancla")){
         // la coordinación cuelga con sangría justo debajo: baja recta a su borde superior
@@ -745,6 +867,22 @@
       if(!cruza(px, y1, tx, y1, [A, B]) && !cruza(tx, y1, tx, pb.y, [A, B])){
         ruta("M" + px + "," + y0 + " V" + y1 + " H" + tx + " V" + pb.y, "eo-h-linea");
         return;
+      }
+      // gerencia país común a las ramas (atiende): baja por el hueco entre las dos
+      // gerencias de unidad de negocio más cercanas al centro, sin tocarlas
+      if(B.closest(".eo-comun") && A.parentNode.classList.contains("eo-rcab")){
+        var rs = [].map.call(A.parentNode.parentNode.querySelectorAll(".eo-rama > .eo-card"), caja2)
+                   .sort(function(p, q){ return p.x - q.x; });
+        var hueco = null;
+        for(var i = 1; i < rs.length; i++){
+          var mx = (rs[i - 1].x + rs[i - 1].w + rs[i].x) / 2;
+          if(hueco === null || Math.abs(mx - tx) < Math.abs(hueco - tx)) hueco = mx;
+        }
+        if(hueco !== null){
+          var yb = pb.y - 13;
+          ruta("M" + px + "," + y0 + " V" + y1 + " H" + hueco + " V" + yb + " H" + tx + " V" + pb.y, "eo-h-linea");
+          return;
+        }
       }
       // riel al margen izquierdo de la subcolumna del hijo; entra por el hueco de encima
       var cc = caja2(B.parentNode), rail = cc.x + 10, ya = pb.y - 13;
@@ -769,6 +907,7 @@
         for(var i = 1; i < cs.length; i++){ var b = caja2(cs[i]); ruta("M" + (b.x + 28) + "," + (g.y + g.h) + " V" + b.y, "eo-h-linea"); }
       });
     });
+    botonesNivel();
   }
   function ruta(d, clase){ svgEl("path", {d:d, "class":clase}, svg); }
 
@@ -779,6 +918,32 @@
     var W = lienzo.scrollWidth, r = vp.getBoundingClientRect();
     cam.s = Math.max(.2, Math.min(1, (r.width - 32) / W));
     cam.x = Math.max(16, (r.width - W * cam.s) / 2); cam.y = 58;
+    aplicar();
+  }
+  // Encuadra lo que está a la vista (como mucho a tamaño real), con un desplazamiento suave.
+  // Si todo cabe a un tamaño legible, todo; si no, la unidad que se acaba de abrir con su
+  // nivel nuevo: la cámara acompaña lo que se despliega en vez de alejarse sin fin.
+  function ajustarVisible(suave, foco){
+    var r = vp.getBoundingClientRect(), W = lienzo.scrollWidth, H = lienzo.scrollHeight;
+    // con la ficha abierta, el encuadre va en la parte que el panel deja libre
+    if(panel && !panel.hidden && panel.offsetWidth < r.width * .8) r = {width: r.width - panel.offsetWidth - 16, height: r.height};
+    var sTodo = Math.min(1, (r.width - 48) / W, (r.height - 120) / H);
+    var x0 = 0, y0 = 0, bw = W, bh = H;
+    if(sTodo < .6 && foco && NODOS[foco] && NODOS[foco].el){
+      // la unidad, su jefe (para no perder de dónde cuelga) y su nivel nuevo
+      var jefe = NODOS[foco].padre && NODOS[NODOS[foco].padre] ? NODOS[NODOS[foco].padre].el : null;
+      var bs = [NODOS[foco].el, jefe].concat(reportes(foco).map(function(h){ return NODOS[h.id] && NODOS[h.id].el; }))
+                 .filter(Boolean).map(function(el){ return caja2(el.closest(".eo-pexpand") || el.closest(".eo-pwrap") || el); });
+      x0 = Math.min.apply(null, bs.map(function(b){ return b.x; })) - 40; y0 = Math.min.apply(null, bs.map(function(b){ return b.y; })) - 40;
+      bw = Math.max.apply(null, bs.map(function(b){ return b.x + b.w; })) + 40 - x0; bh = Math.max.apply(null, bs.map(function(b){ return b.y + b.h; })) + 40 - y0;
+    }
+    cam.s = Math.max(.25, Math.min(1, (r.width - 48) / bw, (r.height - 120) / bh));
+    cam.x = (r.width - bw * cam.s) / 2 - x0 * cam.s; cam.y = 70 - y0 * cam.s;
+    var quieto = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(suave && !quieto){
+      world.style.transition = "transform .45s ease";
+      clearTimeout(ajustarVisible.t); ajustarVisible.t = setTimeout(function(){ world.style.transition = ""; }, 500);
+    }
     aplicar();
   }
   function zoomEn(f, cx, cy){
@@ -899,6 +1064,8 @@
     if(id === "capas") return capas();
     ocultarCapas();
     var n = NODOS[id]; if(!n) return cerrar();
+    focoInicial = id;
+    if(!visible(id)){ revelar(id); remaquetar(); botonTodo(); ajustarVisible(true, id); }
     lienzo.querySelectorAll(".eo-sel").forEach(function(x){ x.classList.remove("eo-sel"); });
     var d = n.d, h = '';
     actual = id;
@@ -946,17 +1113,22 @@
     }
     if(d.funciones && d.funciones.length) h += '<div class="eo-bloque"><h4>Qué hace</h4>' + lista(d.funciones) + '</div>';
     if(d.interna && d.interna.length) h += '<div class="eo-bloque"><h4>Dentro de la unidad</h4>' + lista(d.interna) + '</div>';
+    // modelo: enlace a la página que explica cómo funciona la unidad; solo un .html de
+    // esta carpeta, porque el dato también lo puede proponer el agente
+    if(d.modelo && /^[a-z0-9-]+\.html(#[a-z0-9-]*)?$/i.test(d.modelo.href || ''))
+      h += '<div class="eo-bloque eo-modelo"><h4>Modelo de funcionamiento</h4>' + (d.modelo.d ? '<p>' + esc(d.modelo.d) + '</p>' : '') +
+           '<p><a class="btn btn-marca" href="' + esc(d.modelo.href) + '">' + esc(d.modelo.t || 'Ver el modelo') + ' →</a></p></div>';
     var hijos = d.hijos || (id === E.CEO.id ? E.DIRECCIONES.concat(E.STAFF) : null);
     if(hijos && hijos.length){
       h += '<div class="eo-bloque"><h4>' + (id === E.CEO.id ? 'Reportes directos' : 'Le reportan') + '</h4><ul class="eo-lista eo-hijos">' +
            hijos.map(function(k){ return '<li>' + enlace(k.id) + '</li>'; }).join("") + '</ul></div>';
     }
     if(d.atiende && d.atiende.length)
-      h += '<div class="eo-bloque"><h4>Atiende los lineamientos de</h4><ul class="eo-lista eo-hijos">' +
+      h += '<div class="eo-bloque"><h4>Recibe norma o servicio de · sin línea de mando</h4><ul class="eo-lista eo-hijos">' +
            d.atiende.map(function(g){ return '<li>' + enlace(g) + '</li>'; }).join("") + '</ul></div>';
     var orienta = Object.keys(NODOS).filter(function(x){ var a = NODOS[x].d.atiende; return a && a.indexOf(id) >= 0; });
     if(orienta.length)
-      h += '<div class="eo-bloque"><h4>Da lineamientos a</h4><ul class="eo-lista eo-hijos">' +
+      h += '<div class="eo-bloque"><h4>Le da norma o servicio a · sin línea de mando</h4><ul class="eo-lista eo-hijos">' +
            orienta.map(function(x){ return '<li>' + enlace(x) + ' <span class="eo-tenue">· gerencia país</span></li>'; }).join("") + '</ul></div>';
     var lid = E.COMITES.filter(function(k){ return k.lidera === id; });
     if(lid.length) h += '<div class="eo-bloque"><h4>Lidera y convoca</h4><ul class="eo-lista eo-hijos">' + lid.map(function(k){ return '<li>' + enlace(k.id) + '</li>'; }).join("") + '</ul></div>';
@@ -1106,13 +1278,11 @@
     if(!v.firstChild) v.innerHTML = capasHtml();
     v.hidden = false; v.scrollTop = 0;
     host.classList.add("eo-modo-capas");
-    host.querySelector("#eoCapasBtn").setAttribute("aria-pressed", "true");
   }
   function ocultarCapas(){
     if(!host) return;
     var v = host.querySelector("#eoCapas"); if(!v || v.hidden) return;
     v.hidden = true; host.classList.remove("eo-modo-capas");
-    host.querySelector("#eoCapasBtn").setAttribute("aria-pressed", "false");
     requestAnimationFrame(trazar);
   }
 

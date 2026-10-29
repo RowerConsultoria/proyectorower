@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Red de Mercadeo — Fase 2 | Proyecto Rower</title>
+<!-- Modelo de funcionamiento de Mercadeo en la estructura To-Be: una sola línea de mando por
+     gerencia país; lo demás es norma, servicio o misión. Vino del artefacto «Red de Mercadeo»
+     (29-oct-2026) y desde entonces vive aquí y se edita a mano. Lo enlaza la ficha de la gerencia
+     corporativa de Mercadeo (campo `modelo` de estructura-tobe-datos.js). Sin ocupantes, a propósito:
+     si cambian las unidades de Mercadeo en el dato, revisar NODOS, CASOS y la matriz de más abajo. -->
+<script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<!-- Tema: el del manual de Fase 2 (rower.tema), claro por defecto. -->
+<script>(function(){var m='claro';try{m=localStorage.getItem('rower.tema')==='oscuro'?'oscuro':'claro';}catch(e){}
+document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');})();</script>
+<style>
+/* Layout: una columna de lectura de ~72ch con el diagrama de la red a ancho completo y su ficha al lado */
+:root{
+  --bg:#F5F7FA; --surface:#FFFFFF; --fg:#17233A; --muted:#5B6778; --line:#D6DDE7; --soft:#EAF0F7;
+  --head:#1F3864; --mando:#1F3864; --norma:#2E75B6; --servicio:#B26A00; --mision:#2E7D32; --hoy:#C00000;
+  --band:#EEF3F9; --sel:#2E75B6;
+  --f-body:Calibri,"Segoe UI",Carlito,system-ui,sans-serif;
+  --f-data:"Segoe UI",Calibri,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1522; --surface:#152036; --fg:#E5EBF4; --muted:#9BA8BB; --line:#2A3A55; --soft:#1B2944;
+  --head:#BFD3F2; --mando:#A9C3EE; --norma:#6FAAE4; --servicio:#E3A24E; --mision:#71C277; --hoy:#F27A7A;
+  --band:#12203A; --sel:#6FAAE4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1522; --surface:#152036; --fg:#E5EBF4; --muted:#9BA8BB; --line:#2A3A55; --soft:#1B2944;
+  --head:#BFD3F2; --mando:#A9C3EE; --norma:#6FAAE4; --servicio:#E3A24E; --mision:#71C277; --hoy:#F27A7A;
+  --band:#12203A; --sel:#6FAAE4; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.w{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+.lect{max-width:74ch}
+.volver a{font-family:var(--f-data);font-size:.88rem;color:var(--norma);text-decoration:none}
+.volver a:hover{text-decoration:underline}
+h1,h2,h3{color:var(--head);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:2.3rem;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.ceja{font-family:var(--f-data);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.estado{display:inline-block;font-family:var(--f-data);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.cab{display:flex;flex-direction:column;gap:12px}
+.lede{font-size:1.15rem;color:var(--fg)}
+.sec{display:flex;flex-direction:column;gap:16px}
+.mut{color:var(--muted)}
+
+/* premisa */
+.tesis{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:18px}
+.tesis-frase{font-size:1.35rem;font-weight:700;color:var(--head);text-wrap:balance}
+.preg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.preg>div{display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:3px solid var(--c)}
+.preg b{font-size:.98rem}
+.preg span{font-size:.92rem;color:var(--muted)}
+.c-mando{--c:var(--mando)} .c-norma{--c:var(--norma)} .c-servicio{--c:var(--servicio)} .c-mision{--c:var(--mision)} .c-hoy{--c:var(--hoy)}
+.tipo{font-family:var(--f-data);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+
+/* diagrama */
+.barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:.9rem;border:0;background:transparent;color:var(--fg);padding:7px 14px;cursor:pointer;min-height:34px}
+.seg button[aria-pressed="true"]{background:var(--head);color:var(--surface)}
+.capas{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.85rem;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);
+  color:var(--fg);border-radius:999px;padding:5px 12px;cursor:pointer;min-height:32px}
+.chip i{display:inline-block;width:22px;height:0;border-top:2px solid var(--c)}
+.chip.dash i{border-top-style:dashed} .chip.dot i{border-top-style:dotted;border-top-width:3px}
+.chip[aria-pressed="false"]{opacity:.45}
+.chip:disabled{cursor:default}
+button:focus-visible,.nodo:focus-visible{outline:2px solid var(--sel);outline-offset:2px}
+.lienzo{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.marco{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow-x:auto}
+.marco svg{display:block;width:100%;min-width:760px;height:auto}
+.pie{font-size:.88rem;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
+.ficha{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ficha dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.ficha dt{font-family:var(--f-data);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ficha dd{margin:0;font-size:.94rem}
+
+svg text{font-family:var(--f-body);fill:var(--fg)}
+svg .t1{font-size:14px;font-weight:700;fill:var(--head)}
+svg .t2{font-size:11.5px;fill:var(--muted)}
+svg .t3{font-size:10.5px;fill:var(--muted)}
+svg .eti{font-family:var(--f-data);font-size:10px;letter-spacing:.05em;text-transform:uppercase}
+.nodo rect{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.nodo{cursor:pointer}
+.nodo:hover rect{stroke:var(--sel)}
+.nodo.sel rect{stroke:var(--sel);stroke-width:3}
+.nodo.hub rect{fill:var(--soft);stroke:var(--mando);stroke-width:2}
+.nodo.ext rect{stroke-dasharray:5 4}
+.nodo.tenue rect{fill:var(--bg)}
+.banda{fill:var(--band);stroke:var(--line);stroke-width:1}
+.l{fill:none;stroke-width:2}
+.mando{stroke:var(--mando);stroke-width:2.4}
+.norma{stroke:var(--norma);stroke-dasharray:7 5}
+.servicio{stroke:var(--servicio);stroke-dasharray:1.5 5;stroke-linecap:round;stroke-width:3}
+.hoy{stroke:var(--hoy);stroke-width:2.4}
+.e-mando{fill:var(--mando)} .e-norma{fill:var(--norma)} .e-servicio{fill:var(--servicio)} .e-hoy{fill:var(--hoy)}
+.mk-norma{fill:var(--norma)} .mk-servicio{fill:var(--servicio)} .mk-hoy{fill:var(--hoy)}
+#red .g-norma,#red .g-servicio,#red .g-hoy{display:none}
+#red.ver-norma .g-norma,#red.ver-servicio .g-servicio{display:inline}
+#red.ver-mando-off .g-mando{display:none}
+#red.modo-hoy .g-norma,#red.modo-hoy .g-servicio{display:none}
+#red.modo-hoy .g-hoy{display:inline}
+
+/* protocolo */
+.reglas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.regla{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.regla p{font-size:.95rem}
+
+/* casos */
+.pestanas{display:flex;flex-wrap:wrap;gap:8px}
+.pestanas button{font:inherit;font-size:.92rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:7px 14px;cursor:pointer;min-height:34px}
+.pestanas button[aria-selected="true"]{border-color:var(--head);box-shadow:inset 0 -3px 0 var(--head);font-weight:700}
+.caso{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.pasos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;counter-reset:p}
+.pasos li{counter-increment:p;display:grid;grid-template-columns:34px minmax(0,1fr) 112px;gap:12px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line)}
+.pasos li::before{content:counter(p);font-family:var(--f-data);font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted)}
+.pasos .tipo{text-align:right}
+.caso .moraleja{font-size:.95rem;border-left:3px solid var(--head);padding-left:12px}
+
+/* matriz */
+.tabla{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.92rem}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font-family:var(--f-data);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.k{text-align:center;font-family:var(--f-data);font-weight:700;width:96px}
+tbody tr:last-child td{border-bottom:0}
+.k-D{color:var(--mando)} .k-N{color:var(--norma)} .k-S{color:var(--servicio)} .k-E{color:var(--fg)} .k-C{color:var(--muted);font-weight:400}
+.leyenda-k{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem;color:var(--muted)}
+.leyenda-k b{font-family:var(--f-data)}
+
+/* cierre */
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.col ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+.fuentes{font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.fuentes a{color:var(--norma)}
+
+@media (max-width:900px){
+  .lienzo{grid-template-columns:minmax(0,1fr)}
+  .preg{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tres{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:620px){
+  h1{font-size:1.8rem}
+  .preg,.reglas{grid-template-columns:minmax(0,1fr)}
+  .pasos li{grid-template-columns:28px minmax(0,1fr)}
+  .pasos .tipo{grid-column:2;text-align:left}
+}
+@media (prefers-reduced-motion:no-preference){.nodo rect{transition:stroke .15s}}
+</style>
+
+</head>
+<body>
+<div class="w">
+<nav class="volver"><a href="informe-fase2.html#/estructura/mercadeo">‹ Estructura To-Be · Mercadeo</a></nav>
+
+<header class="cab lect">
+  <span class="ceja">Fase 2 · Estructura To-Be · Mercadeo</span>
+  <h1>Red de Mercadeo</h1>
+  <p class="lede">El modelo de funcionamiento de Mercadeo en la estructura To-Be: cada gerencia país tiene una sola línea de reporte hacia la capa corporativa. Hasta el 29-oct le llegaban cuatro.</p>
+  <span><span class="estado">Aplicado a la estructura To-Be el 29-oct-2026 · por validar</span></span>
+</header>
+
+<section class="tesis" aria-labelledby="t-premisa">
+  <span class="ceja" id="t-premisa">La premisa</span>
+  <p class="tesis-frase">Una sola línea de mando. Todo lo demás, que antes se dibujaba como línea, es norma, servicio o misión.</p>
+  <p class="lect">El multirreporte aparece cuando una sola línea mezcla cuatro preguntas distintas. La red las separa, y cada una tiene su propia respuesta:</p>
+  <div class="preg">
+    <div class="c-mando"><span class="tipo">Mando</span><b>¿Quién me dirige?</b><span>Asigna, evalúa y desarrolla. Es siempre una sola persona.</span></div>
+    <div class="c-norma"><span class="tipo">Norma</span><b>¿Con qué reglas trabajo?</b><span>El estándar de la marca y del oficio. Lo fija un nodo de excelencia y obliga sin mandar.</span></div>
+    <div class="c-servicio"><span class="tipo">Servicio</span><b>¿Para quién produzco o a quién le pido?</b><span>Un pedido entra por una sola vía, con un brief y en el orden del calendario.</span></div>
+    <div class="c-mision"><span class="tipo">Misión</span><b>¿En qué equipo temporal estoy?</b><span>Un lanzamiento con dueño, fecha de cierre y miembros prestados. Nadie cambia de jefe.</span></div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-red">
+  <div class="lect"><h2 id="t-red">La red</h2></div>
+  <div class="barra">
+    <div class="seg" role="group" aria-label="Vista">
+      <button type="button" id="b-hoy" aria-pressed="false">Antes del 29-oct</button>
+      <button type="button" id="b-red" aria-pressed="true">Red</button>
+    </div>
+    <div class="capas" role="group" aria-label="Capas">
+      <button type="button" class="chip c-mando" id="ch-mando" aria-pressed="true"><i></i>Mando</button>
+      <button type="button" class="chip c-norma dash" id="ch-norma" aria-pressed="true"><i></i>Norma</button>
+      <button type="button" class="chip c-servicio dot" id="ch-servicio" aria-pressed="true"><i></i>Servicio</button>
+    </div>
+  </div>
+  <div class="lienzo">
+    <div class="marco">
+      <svg id="red" class="ver-norma ver-servicio" viewBox="0 0 1000 610" role="img" aria-labelledby="red-tit">
+        <title id="red-tit">Red de Mercadeo: la gerencia corporativa como centro, tres nodos de excelencia y los nodos país</title>
+        <defs>
+          <marker id="m-norma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk-norma" d="M0 0 L10 5 L0 10 z"/></marker>
+          <marker id="m-servicio" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk-servicio" d="M0 0 L10 5 L0 10 z"/></marker>
+          <marker id="m-hoy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk-hoy" d="M0 0 L10 5 L0 10 z"/></marker>
+        </defs>
+
+        <rect class="banda" x="40" y="440" width="920" height="150" rx="8"/>
+        <text class="t2 eti" x="60" y="462">Nodos país</text>
+
+        <g class="g-mando">
+          <path class="l mando" d="M500 50 V80"/>
+          <path class="l mando" d="M500 150 V190 M170 190 H830 M170 190 V230 M500 190 V230 M830 190 V230"/>
+          <path class="l mando" d="M335 190 V470 M205 470 H795 M205 470 V488 M500 470 V488 M795 470 V488"/>
+          <text class="eti e-mando" x="343" y="410">una sola línea</text>
+        </g>
+
+        <g class="g-norma">
+          <path class="l norma" d="M105 70 V228" marker-end="url(#m-norma)"/>
+          <path class="l norma" d="M150 326 V438" marker-end="url(#m-norma)"/>
+          <path class="l norma" d="M560 326 V438" marker-end="url(#m-norma)"/>
+          <path class="l norma" d="M790 326 V438" marker-end="url(#m-norma)"/>
+          <text class="eti e-norma" x="112" y="160">línea Casio</text>
+          <text class="eti e-norma" x="158" y="400">norma visual</text>
+          <text class="eti e-norma" x="568" y="400">norma digital</text>
+          <text class="eti e-norma" x="736" y="420">arte</text>
+        </g>
+
+        <g class="g-servicio">
+          <path class="l servicio" d="M705 270 H629" marker-end="url(#m-servicio)"/>
+          <path class="l servicio" d="M760 326 V370 H250 V330" marker-end="url(#m-servicio)"/>
+          <path class="l servicio" d="M900 326 V438" marker-end="url(#m-servicio)"/>
+          <text class="eti e-servicio" x="420" y="386">piezas por brief</text>
+          <text class="eti e-servicio" x="908" y="400">brief</text>
+        </g>
+
+        <g class="g-hoy">
+          <path class="l hoy" d="M150 326 V438" marker-end="url(#m-hoy)"/>
+          <path class="l hoy" d="M560 326 V438" marker-end="url(#m-hoy)"/>
+          <path class="l hoy" d="M790 326 V438" marker-end="url(#m-hoy)"/>
+          <text class="eti e-hoy" x="158" y="400">lineamiento</text>
+          <text class="eti e-hoy" x="568" y="400">lineamiento</text>
+          <text class="eti e-hoy" x="798" y="400">lineamiento</text>
+        </g>
+
+        <g class="nodo tenue" data-id="dircom" tabindex="0" role="button" aria-label="Dirección Comercial">
+          <rect x="400" y="12" width="200" height="38" rx="6"/>
+          <text class="t1" x="500" y="36" text-anchor="middle">Dirección Comercial</text>
+        </g>
+        <g class="nodo ext" data-id="casio" tabindex="0" role="button" aria-label="Casio, casa matriz">
+          <rect x="20" y="20" width="170" height="50" rx="6"/>
+          <text class="t1" x="105" y="41" text-anchor="middle">Casio · casa matriz</text>
+          <text class="t3" x="105" y="58" text-anchor="middle">externo</text>
+        </g>
+        <g class="nodo hub" data-id="hub" tabindex="0" role="button" aria-label="Gerencia corporativa de Mercadeo">
+          <rect x="330" y="80" width="340" height="70" rx="8"/>
+          <text class="t1" x="500" y="108" text-anchor="middle">Gerencia corporativa de Mercadeo</text>
+          <text class="t2" x="500" y="128" text-anchor="middle">Centro de la red · plan, presupuesto, calendario, medición</text>
+        </g>
+        <g class="nodo" data-id="experiencia" tabindex="0" role="button" aria-label="Experiencia del Cliente · Visual">
+          <rect x="45" y="230" width="250" height="96" rx="8"/>
+          <text class="eti" x="170" y="252" text-anchor="middle" fill="currentColor">Nodo de excelencia</text>
+          <text class="t1" x="170" y="274" text-anchor="middle">Experiencia del Cliente · Visual</text>
+          <text class="t2" x="170" y="294" text-anchor="middle">Ambas marcas</text>
+          <text class="t3" x="170" y="311" text-anchor="middle">brand manager Casio · brand manager Cubitt</text>
+        </g>
+        <g class="nodo" data-id="digital" tabindex="0" role="button" aria-label="Experiencia Digital">
+          <rect x="375" y="230" width="250" height="96" rx="8"/>
+          <text class="eti" x="500" y="252" text-anchor="middle">Nodo de excelencia</text>
+          <text class="t1" x="500" y="274" text-anchor="middle">Experiencia Digital</text>
+          <text class="t2" x="500" y="294" text-anchor="middle">Solo Cubitt</text>
+          <text class="t3" x="500" y="311" text-anchor="middle">contenido · redes · web · pauta · creadores</text>
+        </g>
+        <g class="nodo" data-id="creativa" tabindex="0" role="button" aria-label="Creativa y Diseño">
+          <rect x="705" y="230" width="250" height="96" rx="8"/>
+          <text class="eti" x="830" y="252" text-anchor="middle">Nodo de excelencia</text>
+          <text class="t1" x="830" y="274" text-anchor="middle">Creativa y Diseño</text>
+          <text class="t2" x="830" y="294" text-anchor="middle">Agencia interna · solo Cubitt</text>
+          <text class="t3" x="830" y="311" text-anchor="middle">concepto · arte · foto · video · IA</text>
+        </g>
+        <g class="nodo" data-id="PA" tabindex="0" role="button" aria-label="Mercadeo Panamá">
+          <rect x="75" y="488" width="260" height="86" rx="8"/>
+          <text class="t1" x="205" y="512" text-anchor="middle">Mercadeo Panamá</text>
+          <text class="t2" x="205" y="532" text-anchor="middle">Gerencia · por definir</text>
+          <text class="t3" x="205" y="556" text-anchor="middle">creativos · trafficker · activaciones · visual</text>
+        </g>
+        <g class="nodo" data-id="VE" tabindex="0" role="button" aria-label="Mercadeo Venezuela">
+          <rect x="370" y="488" width="260" height="86" rx="8"/>
+          <text class="t1" x="500" y="512" text-anchor="middle">Mercadeo Venezuela</text>
+          <text class="t2" x="500" y="532" text-anchor="middle">Gerencia · titular actual</text>
+          <text class="t3" x="500" y="556" text-anchor="middle">creativos · trafficker · activaciones · visual</text>
+        </g>
+        <g class="nodo" data-id="CO" tabindex="0" role="button" aria-label="Mercadeo Colombia">
+          <rect x="665" y="488" width="260" height="86" rx="8"/>
+          <text class="t1" x="795" y="512" text-anchor="middle">Mercadeo Colombia</text>
+          <text class="t2" x="795" y="532" text-anchor="middle">Gerencia · por definir</text>
+          <text class="t3" x="795" y="556" text-anchor="middle">creativos · trafficker · activaciones · visual</text>
+        </g>
+      </svg>
+      <p class="pie" id="pie"></p>
+    </div>
+    <aside class="ficha" id="ficha" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-proto">
+  <div class="lect" style="display:flex;flex-direction:column;gap:8px">
+    <h2 id="t-proto">El protocolo de la red</h2>
+    <p class="mut">Sin estas reglas, una red se vuelve una matriz con otro nombre. Son las que deciden quién gana cuando dos nodos tiran en direcciones distintas.</p>
+  </div>
+  <div class="reglas">
+    <div class="regla c-mando"><span class="tipo">Mando</span><h3>En el organigrama solo hay líneas llenas</h3><p>Cada gerencia país reporta a la gerencia corporativa de Mercadeo, y nada más. Los creativos, el trafficker y el equipo de activaciones de cada país reportan a su gerente país. El organigrama deja de dibujar líneas punteadas: lo que hoy es «atiende lineamientos» se dibuja como norma o servicio.</p></div>
+    <div class="regla c-norma"><span class="tipo">Norma</span><h3>La norma decide el qué; el país decide el cuándo y el cómo local</h3><p>Cada nodo de excelencia publica su estándar: el visual y de tienda, el digital, la dirección de arte. Un estándar es un documento, no una orden de trabajo. El país lo cumple y adapta el lenguaje a su mercado, pero no lo cambia.</p></div>
+    <div class="regla c-norma"><span class="tipo">Norma</span><h3>La línea de Casio entra por una sola puerta</h3><p>Lo que manda la casa matriz llega al brand manager de Casio, en Experiencia del Cliente · Visual. Él lo adapta a cada mercado y lo publica como norma para los países. Ningún país recibe la línea de Casio por otra vía, y Digital y Creativa no atienden Casio.</p></div>
+    <div class="regla c-servicio"><span class="tipo">Servicio</span><h3>Todo pedido creativo entra por una sola vía</h3><p>Ventas, los países y los otros nodos piden con un brief y por la vía única de Creativa y Diseño, no a un diseñador por cercanía. El orden lo pone el calendario de la gerencia corporativa. Lo que es solo local lo produce el equipo del país.</p></div>
+    <div class="regla c-mision"><span class="tipo">Misión</span><h3>Un lanzamiento es una misión con dueño y fecha de cierre</h3><p>La abre la gerencia corporativa desde el calendario. La dirige el brand manager de la marca y reúne gente prestada de los nodos y del país. Al cerrar, con la retrospectiva de costo contra venta, cada quien vuelve a su trabajo. La misión no crea una línea de reporte.</p></div>
+    <div class="regla c-mando"><span class="tipo">Mando</span><h3>El jefe evalúa, la red opina por escrito</h3><p>El gerente país evalúa a su equipo. Los nodos que fijan su norma o le prestan servicio, y el dueño de cada misión en la que estuvo, dejan su opinión formal en esa evaluación. Así la norma tiene peso sin crear un segundo jefe.</p></div>
+    <div class="regla c-mando"><span class="tipo">Arbitraje</span><h3>Un desacuerdo tiene un solo árbitro y un plazo</h3><p>Si la norma y el país no se ponen de acuerdo, decide la gerencia corporativa de Mercadeo en un plazo fijo. Si el desacuerdo toca la venta o el margen, sube al Comité Comercial. Si la gerencia corporativa arbitra lo mismo una y otra vez, el problema está en cómo se escribió la norma.</p></div>
+    <div class="regla c-mando"><span class="tipo">Medición</span><h3>Cada nodo responde por un tramo del mismo árbol de indicadores</h3><p>La gerencia corporativa responde por el retorno de la inversión. Los nodos de excelencia, por la calidad de su norma y de su servicio, medida por quienes la usan. El país, por la ejecución y por cumplir la norma, que verifica Experiencia del Cliente en sitio.</p></div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-casos">
+  <div class="lect"><h2 id="t-casos">Cuatro casos recorridos</h2></div>
+  <div class="pestanas" role="tablist" aria-label="Casos" id="pestanas"></div>
+  <div class="caso" id="caso" role="tabpanel"></div>
+</section>
+
+<section class="sec" aria-labelledby="t-matriz">
+  <div class="lect" style="display:flex;flex-direction:column;gap:8px">
+    <h2 id="t-matriz">Quién decide qué</h2>
+    <div class="leyenda-k"><span><b class="k-D">D</b> decide</span><span><b class="k-N">N</b> fija la norma</span><span><b class="k-S">S</b> presta el servicio</span><span><b class="k-E">E</b> ejecuta</span><span><b class="k-C">C</b> opina antes</span></div>
+  </div>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Decisión</th><th>Gerencia corporativa</th><th>Experiencia del Cliente · Visual</th><th>Experiencia Digital</th><th>Creativa y Diseño</th><th>Mercadeo país</th></tr></thead>
+      <tbody id="matriz"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-cierre">
+  <div class="lect"><h2 id="t-cierre">Lo que resuelve, lo que arriesga y lo que falta decidir</h2></div>
+  <div class="tres">
+    <div class="col">
+      <h3>Lo que resolvió de los pendientes del 26-oct</h3>
+      <ul>
+        <li><b>Las líneas de Mercadeo país.</b> Queda una sola línea, a la gerencia corporativa. Las tres gerencias de unidad de negocio llegan como norma o servicio, no como reporte.</li>
+        <li><b>El doble reporte de los creativos locales.</b> Reportan a su gerente país. Creativa y Diseño les fija la dirección de arte y opina en su evaluación.</li>
+        <li><b>El nivel de Mercadeo país.</b> Los tres países tienen gerencia. Según crezca la operación, puede decidirse mantener una coordinación, y diferenciarla por marca. El tamaño del nodo no cambia el protocolo: ninguna conexión se redibuja.</li>
+        <li><b>Los brand managers.</b> Su papel queda definido: cada uno es dueño de la norma de su marca y de las misiones de lanzamiento.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Riesgos y cómo se cubren</h3>
+      <ul>
+        <li><b>Una norma sin mando se ignora.</b> Cumplirla entra en los indicadores del país, y Experiencia del Cliente la verifica en tienda.</li>
+        <li><b>La vía única se vuelve cuello de botella.</b> Plazos de entrega acordados, prioridad del calendario, y lo local se queda en el país.</li>
+        <li><b>La gerencia corporativa se satura arbitrando.</b> Plazo de arbitraje, y al Comité Comercial solo lo que toca venta o margen.</li>
+        <li><b>Los nodos de excelencia pierden fuerza sin equipo propio en los países.</b> Su opinión formal en la evaluación y la comunidad de oficio que encabeza Creativa.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Lo que tiene que decidir el equipo</h3>
+      <ul>
+        <li>Si la regla de una sola línea, ya aplicada en Mercadeo, se extiende a Ventas, donde cada gerencia país cuelga de la gerencia de su canal.</li>
+        <li>Si los creativos locales se quedan en el país, como propone el modelo, o pasan a Creativa y Diseño.</li>
+        <li>Los plazos del servicio creativo y del arbitraje.</li>
+        <li>Cuánto pesa la opinión de la red en la evaluación del equipo país.</li>
+        <li>Cuántas misiones puede haber abiertas a la vez, para no saturar a Mercadeo.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec fuentes" aria-labelledby="t-fuentes">
+  <h3 id="t-fuentes">De dónde sale</h3>
+  <p>De la estructura To-Be vigente en el manual de Fase 2 (gerencia corporativa de Mercadeo, sus tres gerencias de unidad de negocio y Mercadeo país, que hasta el 29-oct «atendía los lineamientos» de las tres) y de la mesa de trabajo con la Presidencia del 16-oct, donde se plantearon las líneas desde Experiencia del Cliente y el doble reporte de los creativos locales.</p>
+  <p>El modelo de red sigue el esquema de centro y nodos de excelencia de las organizaciones de mercadeo en red. Un estudio de la ANA asoció las estructuras en red con más crecimiento que las matrices de silos con reportes punteados: <a href="https://www.marketingdive.com/news/ana-siloed-marketing-structures-hamper-growth/506661" target="_blank" rel="noopener">Marketing Dive, sobre el estudio de la ANA</a> · <a href="https://agencyanalytics.com/blog/hub-and-spoke-model" target="_blank" rel="noopener">el modelo de centro y radios con centro de excelencia</a>.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+const NODOS={
+  hub:{t:'Gerencia corporativa de Mercadeo',r:'Centro de la red',
+    manda:'Las tres gerencias de unidad de negocio y las gerencias país de Mercadeo.',
+    hace:'El plan anual y el presupuesto por marca, país y canal; el calendario único de lanzamientos; el árbol de indicadores y el retorno de la inversión; la inteligencia de mercado. Abre las misiones y arbitra los desacuerdos.',
+    recibe:'La línea de la Dirección Comercial.',
+    mide:'Retorno de la inversión de mercadeo y cumplimiento del calendario.'},
+  experiencia:{t:'Experiencia del Cliente · Visual',r:'Nodo de excelencia · ambas marcas',
+    manda:'Su propio equipo y los dos brand managers. No manda sobre los equipos país.',
+    hace:'Norma visual y de tienda, y de la experiencia en eventos. El brand manager de Casio traduce la línea de la casa matriz a cada mercado; el de Cubitt cuida su marca. Sus brand managers dirigen las misiones de lanzamiento.',
+    recibe:'La línea de la gerencia corporativa y, para Casio, la de la casa matriz.',
+    mide:'Cumplimiento de la norma en tienda, verificado en sitio, y la calidad de su servicio según los países.'},
+  digital:{t:'Experiencia Digital',r:'Nodo de excelencia · solo Cubitt',
+    manda:'Su propio equipo. No manda sobre los equipos país.',
+    hace:'Norma de contenido, redes y web, con una alineación visual única. Presta el contenido central, la pauta digital y la relación con creadores y embajadores.',
+    recibe:'La línea de la gerencia corporativa y las piezas de Creativa y Diseño.',
+    mide:'Alcance y conversión digital de Cubitt.'},
+  creativa:{t:'Creativa y Diseño',r:'Nodo de excelencia · agencia interna · solo Cubitt',
+    manda:'El estudio interno: diseño gráfico, fotografía, video y producción con IA.',
+    hace:'Recibe por una sola vía los pedidos creativos de todas las áreas, con brief. Fija la dirección de arte y encabeza la comunidad de oficio de los creativos de los países.',
+    recibe:'La línea de la gerencia corporativa; el orden de los pedidos lo pone el calendario.',
+    mide:'Plazo y calidad de entrega, según quien pidió.'},
+  PA:{t:'Mercadeo Panamá',r:'Nodo país · gerencia por definir'},
+  VE:{t:'Mercadeo Venezuela',r:'Nodo país · gerencia con titular actual'},
+  CO:{t:'Mercadeo Colombia',r:'Nodo país · gerencia por definir'},
+  casio:{t:'Casio · casa matriz',r:'Externo',
+    manda:'Nada dentro de Kenex.',
+    hace:'Define la marca Casio y su línea global.',
+    recibe:'—',
+    mide:'Su línea entra por un solo punto: el brand manager de Casio, que la adapta a cada mercado y la publica como norma.'},
+  dircom:{t:'Dirección Comercial',r:'Por encima de la red',
+    manda:'La gerencia corporativa de Mercadeo, junto con Ventas.',
+    hace:'Une la venta y la demanda que la produce. Lo que en Mercadeo toca la venta o el margen se decide en el Comité Comercial.',
+    recibe:'La línea de la Presidencia.',
+    mide:'El resultado comercial.'}
+};
+const PAIS={manda:'Su equipo local: creativos, trafficker, activaciones y eventos, y la verificación de tienda en sitio.',
+  hace:'Ejecuta el plan en su mercado, con su lenguaje: campañas y activaciones. Produce lo local y pide las piezas madre de Cubitt por la vía única.',
+  recibe:'Una sola línea, la de la gerencia corporativa. Además, tres normas (para Casio, solo la de Experiencia del Cliente), servicio de Creativa por brief, y misiones.',
+  mide:'Ejecución local del plan, cumplimiento de la norma y la venta que mueven sus campañas.'};
+['PA','VE','CO'].forEach(k=>Object.assign(NODOS[k],PAIS,{extra:'Según crezca la operación del país, puede decidirse mantener una coordinación de mercadeo en lugar de la gerencia, y diferenciarla por marca. El protocolo de la red no cambia.'},NODOS[k]));
+
+const svg=document.getElementById('red'), ficha=document.getElementById('ficha'), pie=document.getElementById('pie');
+let sel='VE', modo='red';
+const CAPAS={mando:true,norma:true,servicio:true};
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function pintarFicha(){
+  const n=NODOS[sel];
+  ficha.innerHTML='<span class="ceja">'+esc(n.r)+'</span><h3>'+esc(n.t)+'</h3><dl>'+
+    '<div><dt>Manda sobre</dt><dd>'+esc(n.manda)+'</dd></div>'+
+    '<div><dt>Qué hace en la red</dt><dd>'+esc(n.hace)+'</dd></div>'+
+    '<div><dt>Qué recibe</dt><dd>'+esc(n.recibe)+'</dd></div>'+
+    '<div><dt>'+(sel==='casio'?'Cómo entra':'Se mide por')+'</dt><dd>'+esc(n.mide)+'</dd></div>'+
+    (n.extra?'<div><dt>Nota</dt><dd>'+esc(n.extra)+'</dd></div>':'')+'</dl>';
+  svg.querySelectorAll('.nodo').forEach(g=>g.classList.toggle('sel',g.dataset.id===sel));
+}
+function pintarRed(){
+  svg.classList.toggle('modo-hoy',modo==='hoy');
+  svg.classList.toggle('ver-norma',modo==='red'&&CAPAS.norma);
+  svg.classList.toggle('ver-servicio',modo==='red'&&CAPAS.servicio);
+  svg.classList.toggle('ver-mando-off',!CAPAS.mando);
+  document.getElementById('b-hoy').setAttribute('aria-pressed',modo==='hoy');
+  document.getElementById('b-red').setAttribute('aria-pressed',modo==='red');
+  ['mando','norma','servicio'].forEach(k=>{
+    const b=document.getElementById('ch-'+k);
+    const off=modo==='hoy'&&k!=='mando';
+    b.disabled=off; b.setAttribute('aria-pressed',off?'false':String(CAPAS[k]));
+  });
+  pie.textContent=modo==='hoy'
+    ? 'Antes del 29-oct: cada gerencia país colgaba de la gerencia corporativa y, además, «atendía los lineamientos» de las tres gerencias de unidad de negocio. Eran cuatro líneas, y en la mesa del 16-oct se planteó sumar un doble reporte para los creativos locales.'
+    : 'Red: la única línea que llega a cada país es la de la gerencia corporativa. Lo que bajaba de las tres gerencias de unidad de negocio llega como norma (lo que se cumple) o como servicio (lo que se pide). Toca un nodo para ver su papel.';
+}
+document.getElementById('b-hoy').onclick=()=>{modo='hoy';pintarRed()};
+document.getElementById('b-red').onclick=()=>{modo='red';pintarRed()};
+['mando','norma','servicio'].forEach(k=>{document.getElementById('ch-'+k).onclick=()=>{CAPAS[k]=!CAPAS[k];pintarRed()}});
+svg.querySelectorAll('.nodo').forEach(g=>{
+  const ir=()=>{sel=g.dataset.id;pintarFicha()};
+  g.addEventListener('click',ir);
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();ir()}});
+});
+
+const CASOS=[
+  {t:'Lanzamiento Cubitt en Venezuela',pasos:[
+    ['mando','La gerencia corporativa fija la fecha en el calendario único y el presupuesto del lanzamiento.'],
+    ['mision','Se abre la misión. La dirige el brand manager de Cubitt y reúne a Experiencia Digital, Creativa y Diseño, Mercadeo Venezuela y un enlace de Ventas.'],
+    ['servicio','Creativa y Diseño recibe el brief por la vía única y produce el concepto y las piezas madre.'],
+    ['mando','Mercadeo Venezuela adapta y ejecuta con sus creativos locales, que siguen reportando a su gerente país.'],
+    ['norma','Experiencia Digital pauta y mide; Experiencia del Cliente verifica el montaje en tienda contra la norma.'],
+    ['mision','La misión cierra con la retrospectiva de costo contra venta. Cada quien vuelve a su trabajo, y el brand manager deja su opinión en la evaluación de cada miembro.']],
+    m:'Seis personas de tres unidades trabajan juntas durante semanas, y ninguna cambia de jefe.'},
+  {t:'Campaña Casio en Panamá',pasos:[
+    ['norma','La casa matriz envía su línea global. Llega solo al brand manager de Casio.'],
+    ['norma','El brand manager la adapta al mercado panameño y la publica como norma para el país.'],
+    ['mando','Mercadeo Panamá produce y ejecuta con su equipo local. Digital y Creativa no atienden Casio.'],
+    ['norma','Experiencia del Cliente verifica la tienda; el brand manager mide el resultado y lo reporta a la casa matriz junto con la gerencia corporativa.']],
+    m:'Casio tiene un solo punto de entrada. El país no recibe la línea de la casa matriz por dos vías.'},
+  {t:'Pieza urgente para Ventas al Mayor',pasos:[
+    ['servicio','Ventas al Mayor de Colombia pide la pieza a Mercadeo Colombia, no directo a un diseñador.'],
+    ['servicio','Si es una pieza local, la hace el equipo del país. Si es una pieza madre de Cubitt, entra por la vía única de Creativa y Diseño.'],
+    ['mando','Si choca con el calendario, decide la gerencia corporativa. Nadie se salta la fila por cercanía.'],
+    ['mando','Si el desacuerdo toca la venta o el margen, sube al Comité Comercial.']],
+    m:'La urgencia se resuelve con prioridad explícita, no con quien grita más cerca del diseñador.'},
+  {t:'¿A quién le hace caso un creativo?',pasos:[
+    ['mando','La gerente de Mercadeo Venezuela le pide a un diseñador local una pieza para el sábado.'],
+    ['norma','Creativa y Diseño advierte que la pieza no cumple la dirección de arte de Cubitt.'],
+    ['norma','La norma decide el qué: la pieza se corrige para cumplirla. El país decide el cuándo: la fecha del sábado se mantiene.'],
+    ['mando','Si no hay acuerdo, decide la gerencia corporativa en el plazo fijado, y el caso le dice si la norma necesita reescribirse.']],
+    m:'El diseñador tiene una sola jefa. La norma le dice cómo debe verse lo que entrega.'}
+];
+const ROT={mando:'Mando',norma:'Norma',servicio:'Servicio',mision:'Misión'};
+const pest=document.getElementById('pestanas'), caso=document.getElementById('caso');
+let ci=0;
+function pintarCaso(){
+  pest.querySelectorAll('button').forEach((b,i)=>{b.setAttribute('aria-selected',i===ci);b.tabIndex=i===ci?0:-1});
+  const c=CASOS[ci];
+  caso.innerHTML='<h3>'+esc(c.t)+'</h3><ol class="pasos">'+c.pasos.map(p=>'<li><span>'+esc(p[1])+'</span><span class="tipo c-'+p[0]+'">'+ROT[p[0]]+'</span></li>').join('')+'</ol><p class="moraleja">'+esc(c.m)+'</p>';
+}
+CASOS.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.role='tab';b.id='caso-'+i;b.textContent=c.t;
+  b.onclick=()=>{ci=i;pintarCaso()};
+  b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ci=(ci+(e.key==='ArrowRight'?1:CASOS.length-1))%CASOS.length;pintarCaso();pest.children[ci].focus()}};
+  pest.appendChild(b)});
+
+const M=[
+  ['Plan anual y presupuesto de mercadeo','D','C','C','','C'],
+  ['Calendario único de lanzamientos','D','C','C','C','C'],
+  ['Orden de los pedidos creativos','D','','','E','C'],
+  ['Estándar visual y de tienda','','N','','','E'],
+  ['Línea de Casio en cada mercado','','N','','','E'],
+  ['Contenido, redes y pauta de Cubitt','','','N · S','','E'],
+  ['Dirección de arte y piezas madre de Cubitt','','','C','N · S','C'],
+  ['Campaña y activación local','C','N','N','','D · E'],
+  ['Contratar, asignar y evaluar al equipo país','','C','C','C','D'],
+  ['Desacuerdo entre una norma y un país','D','C','C','C','C']
+];
+document.getElementById('matriz').innerHTML=M.map(r=>'<tr><td>'+esc(r[0])+'</td>'+r.slice(1).map(v=>'<td class="k k-'+(v?v[0]:'')+'">'+(v?esc(v):'<span class="mut">·</span>')+'</td>').join('')+'</tr>').join('');
+
+pintarRed(); pintarFicha(); pintarCaso();
+})();
+</script>
+</body>
+</html>

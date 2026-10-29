@@ -2,14 +2,15 @@
 // Vuelca el dato de la Fase 2 tal como lo pinta el sitio, para que
 // sincronizar-asistente.py arme con él el conocimiento del Asistente IA:
 // el manual (To-Be y As-Is), el circuito, la estructura To-Be, la madurez
-// documental, los funcionamientos, la arquitectura de IA (la órbita) y los
+// documental, los modelos de funcionamiento de las gerencias corporativas, la arquitectura de IA (la órbita) y los
 // documentos de IA (técnico, política, perfil, casos de uso y prototipos).
 // Solo lee archivos del repositorio; no escribe nada.
 const fs = require("fs"), path = require("path");
 const F2 = path.join(__dirname, "..", "informe", "fase2");
 global.window = {};
 for (const f of ["manual-procesos-datos.js", "manual-contenido.js", "manual-asis.js",
-                 "circuito-datos.js", "estructura-tobe-datos.js", "madurez-datos.js"]) {
+                 "circuito-datos.js", "estructura-tobe-datos.js", "madurez-datos.js",
+                 "gerencias-modelo-datos.js"]) {
   eval(fs.readFileSync(path.join(F2, f), "utf8"));
 }
 
@@ -38,7 +39,6 @@ for (const d of ["tecnico", "politica", "perfil", "casos", "prototipos"]) {
   IA[d] = window.IA_DOC;
 }
 
-const func = fs.readFileSync(path.join(F2, "estructura-funcionamiento.html"), "utf8");
 const arq = fs.readFileSync(path.join(F2, "arquitectura-ia.html"), "utf8");
 
 process.stdout.write(JSON.stringify({
@@ -48,7 +48,7 @@ process.stdout.write(JSON.stringify({
   circuito: window.CIRCUITO,
   estructura: window.ESTRUCTURA_TOBE,
   madurez: window.MADUREZ,
-  funcionamiento: { nodos: literal(func, "NODOS"), func: literal(func, "FUNC") },
+  modelos: window.MODELOS_GERENCIAS,
   orbita: literal(arq, "D"),
   ia: IA,
 }));

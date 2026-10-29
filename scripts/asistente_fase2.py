@@ -498,21 +498,32 @@ def generar():
         es.append('\nVISTA «CAPAS» (#/estructura/capas): ' + t(CAP.get('bajada')))
         for c in CAP.get('lista') or []:
             es.append('  · %s — %s: %s' % (c.get('n', c.get('id')), c.get('verbo', ''), corto(c.get('d'), 300)))
-    FU = D['funcionamiento']
-    nodos = FU['nodos']
-    es.append('\nFUNCIONAMIENTOS (página «Capas y funcionamiento»: dinámicas entre unidades, sacadas de los flujogramas To-Be).'
-              ' Paso a paso: leer_documento(«DOC-FUNCIONAMIENTO»).')
-    fl = ['FUNCIONAMIENTOS ENTRE UNIDADES DE LA ESTRUCTURA TO-BE (estructura-funcionamiento.html)',
-          'Unidades: ' + ' · '.join('%s=%s' % (k, (v.get('n') if isinstance(v, dict) else v)) for k, v in nodos.items())]
-    for f in FU['func']:
-        es.append('  · %s — %s' % (f['t'], corto(f.get('r'), 220)))
-        fl.append('\n### %s\n%s' % (f['t'], t(f.get('r'))))
-        for i, p in enumerate(f.get('pasos') or [], 1):
-            dec = ('  [decisión: %s — decide %s]' % (t(p['dec'].get('q')), p['dec'].get('por'))) if p.get('dec') else ''
-            fl.append('%d. %s: %s%s (procesos %s)' % (i, p['t'], t(p.get('d')), dec, ', '.join(p.get('p') or [])))
+    MG = D['modelos']
+    ROT = MG['ROT']
+    es.append('\nMODELOS DE FUNCIONAMIENTO DE LAS GERENCIAS CORPORATIVAS (página «Capas y Funcionamiento», pestaña'
+              ' Funcionamiento): una sola línea de mando por caja; lo demás es norma, servicio, misión o decisión de un comité.'
+              ' Mercadeo está aplicado en la estructura; las otras ocho son propuesta. Detalle: leer_documento(«DOC-FUNCIONAMIENTO»).')
+    fl = ['MODELOS DE FUNCIONAMIENTO DE LAS GERENCIAS CORPORATIVAS DE LA ESTRUCTURA TO-BE (estructura-funcionamiento.html,'
+          ' corte %s). Protocolo común: una sola línea de mando por caja; norma = estándar que obliga sin mandar; servicio ='
+          ' pedido por una sola vía con plazo; misión = equipo temporal con dueño y fecha de cierre, sin cambiar de jefe;'
+          ' decide = un comité decide sin mandar sobre nadie. El jefe evalúa y la red opina por escrito; un desacuerdo sube'
+          ' un escalón con plazo.' % MG.get('corte', '')]
+    for g in MG['gerencias']:
+        est = 'aplicado a la estructura' if g.get('aplicado') else 'propuesta'
+        es.append('  · %s (%s, %s) — %s' % (g['n'], g['red'], est, corto(g.get('premisa'), 220)))
+        fl.append('\n### %s · reporta a %s · %s (%s)' % (g['n'], g['dir'], g['red'], est))
+        fl.append('Premisa: %s\nDilema: %s\nCómo lo resuelve: %s\nCapa país: %s' % (t(g['premisa']), t(g['dilema']), t(g['resuelve']), t(g['capa'])))
+        for c in g.get('conex') or []:
+            fl.append('  - %s (%s) con %s: %s' % (ROT[c['t']], c['dir'], c['con'], t(c['que'])))
+        for r in g.get('reglas') or []:
+            fl.append('  Regla [%s] %s: %s' % (ROT[r[0]], r[1], t(r[2])))
+        fl.append('  Caso: %s' % g['caso']['t'])
+        for i, p in enumerate(g['caso']['pasos'], 1):
+            fl.append('    %d. [%s] %s' % (i, ROT[p[0]], t(p[1])))
+        fl.append('  Por decidir: ' + ' | '.join(t(x) for x in g.get('decidir') or []))
     CONTEXTO.append(('fase2-estructura', 'Fase 2 · la estructura organizativa To-Be: unidades, ocupantes, comités y funcionamientos', '\n'.join(es)))
     DETALLE.append(('DOC-ESTRUCTURA', 'Estructura organizativa To-Be (Fase 2)', '\n'.join(es)))
-    DETALLE.append(('DOC-FUNCIONAMIENTO', 'Funcionamientos entre unidades de la estructura To-Be', '\n'.join(fl)))
+    DETALLE.append(('DOC-FUNCIONAMIENTO', 'Modelos de funcionamiento de las gerencias corporativas (estructura To-Be)', '\n'.join(fl)))
 
     # ── madurez documental, presentación de validación e instructivo del comité
     M = D['madurez']

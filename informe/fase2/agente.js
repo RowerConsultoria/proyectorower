@@ -270,7 +270,7 @@
   function textos() {
     if (pagina().vista === 'estructura') return {
       vacio: (st.puedeEst ? 'Pregúntame por la estructura organizativa, o pídeme cambiarla.' : 'Pregúntame por la estructura organizativa: unidades, ocupantes, comités y premisas.') + ' Por ejemplo:',
-      ejemplos: ['¿De quién depende la gerencia de Mercadeo y en qué comités participa?', '¿Qué posiciones están vacantes o por definir?', '¿Qué pendientes tiene la estructura?'],
+      ejemplos: ['¿De quién depende la gerencia de Mercadeo y en qué comités participa?', '¿Qué posiciones están por definir?', '¿Qué pendientes tiene la estructura?'],
       campo: st.puedeEst ? 'Pregunta o pide un cambio a la estructura…' : 'Pregunta por la estructura…',
       nota: st.puedeEst ? 'Los cambios a la estructura se aplican solo cuando pulsas «Aplicar».' : 'Cambiar la estructura pide el permiso «Estructura» de tu cuenta; preguntar, no.'
     };

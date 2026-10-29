@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Capas y funcionamiento — Fase 2 | Proyecto Rower</title>
-<!-- Estructura organizativa To-Be: las capas (pila) y once funcionamientos paso a paso.
-     Vino del artefacto «Estructura To-Be Kenex» (02-oct-2026); desde entonces vive aquí y se edita a mano. Actualizada el 06-oct-2026 con la estructura revisada con la Presidencia.
-     Los pasos resumen los flujogramas To-Be de manual-contenido.js y las unidades son las de
-     estructura-tobe-datos.js: si cambia alguno de los dos, revisar FUNC y NODOS más abajo.
-     Sin ocupantes, a propósito. -->
+<title>Capas y Funcionamiento — Fase 2 | Proyecto Rower</title>
+<!-- Estructura organizativa To-Be: las capas (pila) y el modelo de funcionamiento de cada
+     gerencia corporativa. Las capas vinieron del artefacto «Estructura To-Be Kenex» (02-oct-2026)
+     y se editan a mano aquí. La pestaña «Funcionamiento» pinta gerencias-modelo-datos.js (fuente
+     única, del artefacto «Red de Gerencias Corporativas», 29-oct-2026); hasta ese día mostraba
+     once dinámicas entre unidades sacadas de los flujogramas To-Be (FUNC y NODOS), retiradas.
+     Hash: #capas · #funcionamiento · #<gerencia> (ventas, operaciones, compras, producto,
+     innovacion, tecnologia, gobierno-ia, pmo, mercadeo). #funcionamientos y #f1…#f11, las rutas
+     viejas, abren la pestaña. Sin ocupantes, a propósito. -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
 <!-- Tema: el del manual de Fase 2 (rower.tema), claro por defecto. -->
 <script>(function(){var m='claro';try{m=localStorage.getItem('rower.tema')==='oscuro'?'oscuro':'claro';}catch(e){}
@@ -17,8 +20,8 @@ document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
 <style>
-/* Layout: cabecera con dos vistas (Capas · Funcionamientos). Funcionamientos = mapa de
-   unidades a la izquierda y, al elegir uno, panel paso a paso en la mitad derecha. */
+/* Layout: cabecera con dos vistas (Capas · Funcionamiento). Funcionamiento = protocolo común,
+   resumen de las nueve gerencias corporativas y, por gerencia, su diagrama con su red al lado. */
 :root{
   --bg:#F4F6F9; --surface:#FFFFFF; --surface-2:#EEF2F7; --ink:#14213A; --ink-2:#4A566A; --ink-3:#6B7586;
   --line:#D8DEE7; --line-2:#E6EAF0;
@@ -112,88 +115,107 @@ button{font:inherit;color:inherit}
 .cruza .fila{margin-top:8px}
 .chip.comite{border-color:color-mix(in srgb,var(--comite) 45%,transparent);background:var(--comite-soft)}
 
-/* ---------- funcionamientos ---------- */
-.func{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
-.mapa-caja{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;overflow-x:auto}
-.mapa-caja svg{display:block;width:100%;height:auto;min-width:640px}
-.tarjetas{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
-.tarjeta{display:flex;flex-direction:column;gap:6px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer}
-.tarjeta:hover{border-color:var(--flow)}
-.tarjeta .tn{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.tarjeta h3{font-size:17px;line-height:1.25}
-.tarjeta p{margin:0;font-size:13.5px;color:var(--ink-2)}
-.tarjeta .pie{margin-top:auto;padding-top:6px;font-size:12.5px;color:var(--ink-3)}
-.supuestos{font-size:13px;color:var(--ink-3);background:var(--surface-2);border-radius:10px;padding:10px 14px;max-width:none}
-.supuestos b{color:var(--ink-2)}
-
-/* mapa svg */
-.m-nodo rect{stroke-width:1.4}
-.m-nodo text{font-family:var(--f-body);font-size:13.5px;fill:var(--ink);pointer-events:none}
-.m-nodo.k-gob rect,.m-nodo.k-pres rect{fill:var(--navy);stroke:var(--navy)} .m-nodo.k-gob text,.m-nodo.k-pres text{fill:var(--navy-ink);font-weight:600}
-.m-nodo.k-neg rect{fill:var(--neg-soft);stroke:var(--neg)} .m-nodo.k-apo rect{fill:var(--apo-soft);stroke:var(--apo);stroke-dasharray:4 3}
-.m-nodo.k-dir text{font-weight:700}
-.m-nodo.k-com rect{fill:var(--comite-soft);stroke:var(--comite)}
-.m-nodo.k-ext rect{fill:var(--surface);stroke:var(--ext);stroke-dasharray:3 3} .m-nodo.k-ext text{fill:var(--ink-2)}
-.m-nodo.k-gen rect{fill:var(--surface-2);stroke:var(--ink-3)}
-.m-nodo.k-staff rect{fill:var(--surface);stroke:var(--navy);stroke-dasharray:4 3}
-.m-nodo.k-cab rect{fill:var(--surface);stroke:var(--ink-3);stroke-dasharray:4 3}
-.m-banda{fill:var(--surface-2)}
-.m-rot{font-family:var(--f-body);font-size:11px;font-weight:700;letter-spacing:.12em;fill:var(--ink-3);text-transform:uppercase}
-.m-estr{stroke:var(--line);stroke-width:1.2;fill:none}
-.m-div{stroke:var(--ink-3);stroke-dasharray:3 4;opacity:.6}
-svg.activo .m-nodo{opacity:.22;transition:opacity .2s}
-svg.activo .m-nodo.on{opacity:1}
-svg.activo .m-estr{opacity:.25}
-.m-nodo.on rect{stroke:var(--flow);stroke-width:2.4}
-.m-nodo.k-gob.on rect,.m-nodo.k-pres.on rect{stroke:var(--flow)}
-.m-nodo.decide rect{stroke:var(--decide);stroke-width:3}
-.m-flecha{fill:none;stroke:var(--flow);stroke-width:2.2}
-.m-rombo{fill:var(--decide)}
-.m-rombo-txt{font-family:var(--f-body);font-size:10.5px;font-weight:700;fill:var(--decide)}
-@media (prefers-reduced-motion: reduce){ svg.activo .m-nodo{transition:none} }
-
-/* panel paso a paso: mitad derecha */
-.panel{position:fixed;top:0;right:0;bottom:0;width:50vw;background:var(--surface);border-left:1px solid var(--line);box-shadow:-12px 0 32px rgba(10,20,40,.10);display:flex;flex-direction:column;z-index:20;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.panel header{display:flex;gap:12px;align-items:flex-start;padding:18px 22px 12px;border-bottom:1px solid var(--line-2)}
-.panel header .ptit{flex:1;min-width:0}
-.panel header h2{font-size:24px;line-height:1.15;margin-top:4px}
-.cerrar{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px;line-height:1;flex:none}
-.pcuerpo{flex:1;overflow-y:auto;padding:16px 22px 24px}
-.presumen{margin:0 0 12px;color:var(--ink-2)}
-.pdecide{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--ink-3);margin-bottom:14px}
-.pasos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.paso{border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-.paso > button{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;width:100%;background:none;border:0;text-align:left;padding:12px 14px;cursor:pointer}
-.paso .pn{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink-2)}
-.paso .pt{font-weight:600}
-.paso.actual{border-color:var(--flow);box-shadow:0 0 0 1px var(--flow)}
-.paso.actual .pn{background:var(--flow);color:#fff}
-.paso .det{padding:0 14px 14px 54px;display:flex;flex-direction:column;gap:10px}
-.paso .det p{margin:0;color:var(--ink-2)}
-.actores{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
-.actores .flechita{color:var(--flow);font-weight:700}
-.dec{display:flex;gap:10px;align-items:flex-start;background:color-mix(in srgb,var(--decide) 9%,transparent);border-radius:10px;padding:8px 12px;font-size:14px}
-.dec .rombo{flex:none;width:12px;height:12px;background:var(--decide);transform:rotate(45deg);margin-top:5px}
-.dec b{color:var(--ink)}
-.procs{display:flex;flex-wrap:wrap;gap:6px}
-.proc{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border-radius:6px;padding:3px 8px}
-.proc b{font-variant-numeric:tabular-nums;color:var(--ink)}
-.pnav{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:12px 22px;border-top:1px solid var(--line-2)}
-.pnav button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 16px;font-weight:600;cursor:pointer}
-.pnav button.prim{background:var(--navy);border-color:var(--navy);color:var(--navy-ink)}
-.pnav button:disabled{opacity:.4;cursor:default}
-.pnav .cuenta{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
-
-body.con-panel .envoltura{max-width:none;margin:0;width:50vw;padding-inline:20px}
-body.con-panel .tarjetas,body.con-panel .cab p,body.con-panel .supuestos{display:none}
-body.con-panel .mapa-caja{position:sticky;top:12px}
+/* ---------- funcionamiento: modelos de las gerencias corporativas (gerencias-modelo-datos.js) ---------- */
+#vFunc{--fg:var(--ink);--muted:var(--ink-2);--soft:var(--surface-2);--band:var(--surface-2);
+  --head:#1F3864;--mando:#1F3864;--norma:#2E75B6;--servicio:#B26A00;--mision:#2E7D32;
+  display:flex;flex-direction:column;gap:36px}
+:root[data-theme="dark"] #vFunc{--head:#BFD3F2;--mando:#A9C3EE;--norma:#6FAAE4;--servicio:#E3A24E;--mision:#71C277}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) #vFunc{--head:#BFD3F2;--mando:#A9C3EE;--norma:#6FAAE4;--servicio:#E3A24E;--mision:#71C277} }
+#vFunc p{margin:0}
+#vFunc h2{font-size:24px;color:var(--head)} #vFunc h3{font-size:17px;color:var(--head)}
+#vFunc .lect{max-width:74ch}
+#vFunc .lede{font-size:16.5px}
+#vFunc .mut{color:var(--muted)}
+#vFunc .sec{display:flex;flex-direction:column;gap:14px}
+#vFunc .estado{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+#vFunc .estado.ok{border-color:var(--mision);color:var(--mision)}
+#vFunc .c-mando{--c:var(--mando)} #vFunc .c-norma{--c:var(--norma)} #vFunc .c-servicio{--c:var(--servicio)} #vFunc .c-mision{--c:var(--mision)} #vFunc .c-decide{--c:var(--decide)}
+#vFunc .tipo{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--c)}
+#vFunc .tesis{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;display:flex;flex-direction:column;gap:16px}
+#vFunc .tesis-frase{font-family:var(--f-display);font-size:21px;font-weight:600;color:var(--head);text-wrap:balance}
+#vFunc .preg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#vFunc .preg>div{display:flex;flex-direction:column;gap:5px;padding-top:12px;border-top:3px solid var(--c)}
+#vFunc .preg span:last-child{font-size:14px;color:var(--muted)}
+#vFunc .comunes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#vFunc .comunes>div{display:flex;flex-direction:column;gap:5px;font-size:14px}
+#vFunc .tabla{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+#vFunc table{border-collapse:collapse;width:100%;font-size:14px}
+#vFunc th,#vFunc td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+#vFunc thead th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+#vFunc tbody tr:last-child td{border-bottom:0}
+#vFunc .t-res{min-width:860px}
+#vFunc .t-res button{color:var(--norma);background:none;border:0;padding:0;cursor:pointer;text-align:left;font-weight:700}
+#vFunc .t-res button:hover{text-decoration:underline}
+#vFunc .selector{display:flex;flex-wrap:wrap;gap:8px}
+#vFunc .selector button{font-size:14px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 12px;cursor:pointer;min-height:36px}
+#vFunc .selector button[aria-selected="true"]{border-color:var(--head);box-shadow:inset 0 -3px 0 var(--head);font-weight:700}
+#vFunc .ger{display:flex;flex-direction:column;gap:22px}
+#vFunc .ger-cab{display:flex;flex-direction:column;gap:10px}
+#vFunc .ger-cab .fila{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#vFunc .ger-cab a{color:var(--norma);font-weight:600;font-size:14px}
+#vFunc .dilema{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--head);border-radius:var(--r);padding:16px 18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+#vFunc .dilema>div{display:flex;flex-direction:column;gap:6px}
+#vFunc .gbarra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+#vFunc .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+#vFunc .seg button{font-size:14px;border:0;background:transparent;padding:7px 14px;cursor:pointer;min-height:34px}
+#vFunc .seg button[aria-pressed="true"]{background:var(--navy);color:var(--navy-ink)}
+#vFunc .seg button:disabled{opacity:.45;cursor:default}
+#vFunc .ley{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+#vFunc .ley span{display:inline-flex;align-items:center;gap:7px}
+#vFunc .ley i{display:inline-block;width:22px;border-top:2px solid var(--c)}
+#vFunc .ley .dash i{border-top-style:dashed} #vFunc .ley .dot i{border-top-style:dotted;border-top-width:3px}
+#vFunc .lienzo{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+#vFunc .marco{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto}
+#vFunc .marco svg{display:block;width:100%;min-width:760px;height:auto}
+#vFunc .pie{font-size:13px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
+#vFunc .conex{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+#vFunc .conex ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+#vFunc .conex li{display:flex;flex-direction:column;gap:3px;padding-left:12px;border-left:3px solid var(--c)}
+#vFunc .conex li span:last-child{font-size:13.5px;color:var(--muted)}
+#vFunc svg text{font-family:var(--f-body);fill:var(--fg)}
+#vFunc svg .t1{font-size:13.5px;font-weight:700;fill:var(--head)}
+#vFunc svg .t2{font-size:11px;fill:var(--muted)}
+#vFunc svg .eti{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;fill:var(--muted)}
+#vFunc svg .caja{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+#vFunc svg .caja.hub{fill:var(--soft);stroke:var(--mando);stroke-width:2}
+#vFunc svg .caja.ext{stroke-dasharray:5 4}
+#vFunc svg .banda{fill:var(--band);stroke:var(--line)}
+#vFunc svg .l{fill:none;stroke-width:2}
+#vFunc svg .mando{stroke:var(--mando);stroke-width:2.4}
+#vFunc svg .norma{stroke:var(--norma);stroke-dasharray:7 5}
+#vFunc svg .servicio{stroke:var(--servicio);stroke-dasharray:1.5 5;stroke-linecap:round;stroke-width:3}
+#vFunc svg .mision{stroke:var(--mision);stroke-dasharray:10 4 2 4}
+#vFunc svg .decide{stroke:var(--decide);stroke-dasharray:3 3}
+#vFunc svg .mk-norma,#vFunc svg .tt-norma{fill:var(--norma)} #vFunc svg .mk-servicio,#vFunc svg .tt-servicio{fill:var(--servicio)}
+#vFunc svg .mk-mision,#vFunc svg .tt-mision{fill:var(--mision)} #vFunc svg .mk-decide,#vFunc svg .tt-decide{fill:var(--decide)}
+#vFunc .reglas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#vFunc .regla{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 17px;display:flex;flex-direction:column;gap:6px}
+#vFunc .regla p{font-size:14px}
+#vFunc .caso{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+#vFunc .gpasos{list-style:none;margin:0;padding:0;counter-reset:p}
+#vFunc .gpasos li{counter-increment:p;display:grid;grid-template-columns:30px minmax(0,1fr) 104px;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line)}
+#vFunc .gpasos li::before{content:counter(p);font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted)}
+#vFunc .gpasos .tipo{text-align:right}
+#vFunc .moraleja{font-size:14.5px;border-left:3px solid var(--head);padding-left:12px}
+#vFunc .t-mat{min-width:700px}
+#vFunc td.k{text-align:center;font-weight:700;width:108px}
+#vFunc .k-D{color:var(--mando)} #vFunc .k-N{color:var(--norma)} #vFunc .k-S{color:var(--servicio)} #vFunc .k-C{color:var(--muted);font-weight:400}
+#vFunc .leyenda-k{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+#vFunc .decidir{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+#vFunc .decidir ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+#vFunc .fuentes{font-size:13px;color:var(--muted)}
+@media (max-width:980px){
+  #vFunc .lienzo,#vFunc .dilema,#vFunc .comunes{grid-template-columns:minmax(0,1fr)}
+  #vFunc .preg{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  #vFunc .preg,#vFunc .reglas{grid-template-columns:minmax(0,1fr)}
+  #vFunc .gpasos li{grid-template-columns:26px minmax(0,1fr)}
+  #vFunc .gpasos .tipo{grid-column:2;text-align:left}
+}
 
 @media (max-width:980px){
   .capa{grid-template-columns:minmax(0,1fr)}
-}
-@media (max-width:900px){
-  .panel{width:100%}
-  body.con-panel .envoltura{width:auto}
 }
 @media (max-width:640px){
   .envoltura{padding-inline:16px}
@@ -209,10 +231,10 @@ body.con-panel .mapa-caja{position:sticky;top:12px}
   <header class="cab">
     <div class="ceja"><a class="volver" href="informe-fase2.html#/estructura">← Manual de procesos · Fase 2</a> · borrador para validar con el liderazgo</div>
     <h1>Estructura organizativa To-Be</h1>
-    <p>Cómo se compone la estructura propuesta y cómo se mueven entre sus unidades las decisiones y la operación. Muestra unidades y roles, sin ocupantes. Las capas se ven en pila; en Funcionamientos, cada tarjeta abre su paso a paso.</p>
+    <p>Cómo se compone la estructura propuesta y cómo funciona cada gerencia corporativa. Muestra unidades y roles, sin ocupantes. Las capas se ven en pila; en Funcionamiento, cada gerencia corporativa tiene su modelo: una sola línea de mando por caja, y lo demás como norma, servicio, misión o decisión de un comité.</p>
     <nav class="pestanas" role="tablist" aria-label="Vistas">
       <button role="tab" id="tabCapas" aria-selected="true" aria-controls="vCapas">Capas</button>
-      <button role="tab" id="tabFunc" aria-selected="false" aria-controls="vFunc">Funcionamientos</button>
+      <button role="tab" id="tabFunc" aria-selected="false" aria-controls="vFunc">Funcionamiento</button>
     </nav>
   </header>
 
@@ -229,222 +251,166 @@ body.con-panel .mapa-caja{position:sticky;top:12px}
   </section>
 
   <section class="vista" id="vFunc" role="tabpanel" aria-labelledby="tabFunc" hidden>
-    <div class="func">
-      <p class="supuestos" id="supuestos"></p>
-      <div class="mapa-caja"><svg id="mapa" viewBox="0 0 1240 560" role="img" aria-label="Mapa de unidades de la estructura To-Be"></svg></div>
-      <div class="tarjetas" id="tarjetas"></div>
+    <div class="sec lect">
+      <h2>El modelo de funcionamiento de cada gerencia corporativa</h2>
+      <p class="lede">El mismo ejercicio para las nueve gerencias corporativas de la estructura: cada caja tiene una sola línea de mando, y lo demás que la une con el resto del grupo es norma, servicio o misión. Mercadeo ya está aplicado en la estructura; las otras ocho son propuesta para discusión.</p>
     </div>
+
+    <div class="tesis" aria-labelledby="t-comun">
+      <span class="ceja" id="t-comun">El protocolo común a las nueve</span>
+      <p class="tesis-frase">Una sola línea de mando por caja. Lo que la estructura no dibuja como línea se nombra como norma, servicio o misión, y cada desacuerdo tiene un árbitro.</p>
+      <div class="preg">
+        <div class="c-mando"><span class="tipo">Mando</span><b>¿Quién me dirige?</b><span>Asigna, evalúa y desarrolla. Siempre es una sola persona.</span></div>
+        <div class="c-norma"><span class="tipo">Norma</span><b>¿Con qué reglas trabajo?</b><span>Un estándar o una política. La fija quien es dueño del tema y obliga sin mandar.</span></div>
+        <div class="c-servicio"><span class="tipo">Servicio</span><b>¿Para quién trabajo o a quién le pido?</b><span>Un pedido entra por una sola vía, con plazo, en el orden de un plan.</span></div>
+        <div class="c-mision"><span class="tipo">Misión</span><b>¿En qué equipo temporal estoy?</b><span>Un proyecto o un lanzamiento con dueño y fecha de cierre. Nadie cambia de jefe.</span></div>
+      </div>
+      <div class="comunes">
+        <div><b>El jefe evalúa; la red opina por escrito.</b><span class="mut">Quien fija una norma, presta un servicio o dirige una misión deja su opinión formal en la evaluación. Así su papel pesa sin crear un segundo jefe.</span></div>
+        <div><b>Un desacuerdo sube un escalón, con plazo.</b><span class="mut">Primero la gerencia corporativa; si cruza gerencias, su dirección; si cruza direcciones, el comité que corresponde.</span></div>
+        <div><b><span class="tipo c-decide">Decide</span> también es una conexión.</b><span class="mut">Un comité decide sin mandar sobre nadie. En los diagramas va en rojo punteado, para distinguirlo de la línea.</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>Las nueve de un vistazo</h3>
+      <div class="tabla"><table class="t-res">
+        <thead><tr><th>Gerencia corporativa</th><th>Reporta a</th><th>Tipo de red</th><th>Capa país</th><th>Dónde estaría el doble reporte</th></tr></thead>
+        <tbody id="gResumen"></tbody>
+      </table></div>
+    </div>
+
+    <div class="sec">
+      <h3 id="gTitMod">El modelo de cada una</h3>
+      <div class="selector" role="tablist" aria-label="Gerencias corporativas" id="gSelector"></div>
+      <div class="ger" id="gModelo" role="tabpanel"></div>
+    </div>
+
+    <p class="fuentes">Las unidades, sus funciones y sus notas salen de la estructura To-Be (corte 29-oct-2026); los comités, de su formato principal y ampliado. Las reglas, los casos y las matrices son propuesta del equipo consultor, con el mismo protocolo que el modelo de red de Mercadeo. Finanzas y Desarrollo Corporativo son direcciones sin gerencia corporativa y no entran en este ejercicio.</p>
   </section>
 </div>
 
-<aside class="panel" id="panel" aria-label="Funcionamiento paso a paso" hidden>
-  <header>
-    <div class="ptit"><div class="ceja" id="pCeja"></div><h2 id="pTit"></h2></div>
-    <button type="button" class="cerrar" id="pCerrar" aria-label="Cerrar el panel">✕</button>
-  </header>
-  <div class="pcuerpo" id="pCuerpo"></div>
-  <div class="pnav">
-    <button type="button" id="pAnt">← Anterior</button>
-    <span class="cuenta" id="pCuenta"></span>
-    <button type="button" class="prim" id="pSig">Siguiente →</button>
-  </div>
-</aside>
+<script src="gerencias-modelo-datos.js"></script>
+<script>
+/* Pestaña «Funcionamiento»: pinta gerencias-modelo-datos.js. Expone ModelosGerencias
+   {ids, pintar(id, conHash)} para el enrutador de la página, más abajo. */
+(function(){
+"use strict";
+var M = window.MODELOS_GERENCIAS; if(!M) return;
+var G = M.gerencias, ROT = M.ROT;
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function partir(t, max){ var ws = String(t).split(" "), ls = [], l = ""; ws.forEach(function(w){ if((l + " " + w).trim().length > max && l){ ls.push(l); l = w; } else l = (l + " " + w).trim(); }); if(l) ls.push(l); return ls; }
+function caja(x, y, w, h, t, s, cls, eti){
+  var o = '<rect class="caja ' + (cls || "") + '" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="7"/>';
+  var ls = partir(t, Math.floor(w / 7.4)).slice(0, 2), ty = y + (eti ? 30 : 22);
+  if(eti) o += '<text class="eti" x="' + (x + w / 2) + '" y="' + (y + 15) + '" text-anchor="middle">' + esc(eti) + '</text>';
+  ls.forEach(function(l, i){ o += '<text class="t1" x="' + (x + w / 2) + '" y="' + (ty + i * 16) + '" text-anchor="middle">' + esc(l) + '</text>'; });
+  if(s) o += '<text class="t2" x="' + (x + w / 2) + '" y="' + (ty + ls.length * 16 + 2) + '" text-anchor="middle">' + esc(s) + '</text>';
+  return o;
+}
+function marcadores(){ return '<defs>' + ["norma","servicio","mision","decide"].map(function(k){ return '<marker id="gm-' + k + '" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-' + k + '" d="M0 0 L10 5 L0 10 z"/></marker>'; }).join("") + '</defs>'; }
 
+// vista de mando: jerarquía con una sola línea por caja
+function svgMando(g){
+  var D = g.mando, W = 1000, out = [], y = 18, hw = 360, hx = (W - hw) / 2, hh = 64;
+  var nodos = D.nodos || [], k = nodos.length;
+  var bus = y + hh + (D.lado ? 72 : 44), yN = bus + 26, hN = 74;
+  var wN = k ? Math.min(220, (940 - (k - 1) * 18) / k) : 0, totN = k * wN + (k - 1) * 18, x0 = (W - totN) / 2;
+  var tienePaisN = nodos.some(function(n){ return n.pais; }), yP = (k ? yN + hN : y + hh) + (k ? 78 : 70), hP = 70;
+  var hayPais = tienePaisN || D.pais, ySub = yP + hP + 44, hSub = 60;
+  var H = (D.pais && D.pais.sub) ? ySub + hSub + 24 : (hayPais ? yP + hP + 28 : (k ? yN + hN + 26 : y + hh + 30));
+  var cx = W / 2, xs = nodos.map(function(n, i){ return x0 + i * (wN + 18) + wN / 2; });
+  if(hayPais) out.push('<rect class="banda" x="20" y="' + (yP - 30) + '" width="960" height="' + (H - (yP - 30) - 10) + '" rx="8"/><text class="eti" x="36" y="' + (yP - 12) + '">Capa país</text>');
+  if(k){
+    out.push('<path class="l mando" d="M' + cx + ' ' + (y + hh) + ' V' + bus + '"/>');
+    if(k > 1) out.push('<path class="l mando" d="M' + Math.min.apply(null, xs.concat([cx])) + ' ' + bus + ' H' + Math.max.apply(null, xs.concat([cx])) + '"/>');
+    xs.forEach(function(x){ out.push('<path class="l mando" d="M' + x + ' ' + bus + ' V' + yN + '"/>'); });
+    nodos.forEach(function(n, i){ if(n.pais) out.push('<path class="l mando" d="M' + xs[i] + ' ' + (yN + hN) + ' V' + yP + '"/>'); });
+    if(D.pais){
+      // la gerencia país directa baja por el hueco entre dos nodos, el más cercano al centro
+      var gx = null; for(var i = 1; i < k; i++){ var m = x0 + i * (wN + 18) - 9; if(gx === null || Math.abs(m - cx) < Math.abs(gx - cx)) gx = m; }
+      if(gx === null) gx = x0 + totN + 30;
+      out.push('<path class="l mando" d="M' + cx + ' ' + bus + ' H' + gx + ' V' + (yP - 14) + ' H' + cx + ' V' + yP + '"/>');
+    }
+  } else if(D.pais) out.push('<path class="l mando" d="M' + cx + ' ' + (y + hh) + ' V' + yP + '"/>');
+  if(D.pais && D.pais.sub) out.push('<path class="l mando" d="M' + cx + ' ' + (yP + hP) + ' V' + ySub + '"/>');
+  if(D.lado){ var lx = hx + hw + 30, ly = y + hh + 12; out.push('<path class="l mando" d="M' + cx + ' ' + (ly + 22) + ' H' + lx + '"/>'); out.push(caja(lx, ly, 250, 44, D.lado, "", "", "Sobre la línea · apoya a los cuatro")); }
+  out.push(caja(hx, y, hw, hh, D.hub, "Reporta a " + g.dir, "hub"));
+  nodos.forEach(function(n, i){ var x = x0 + i * (wN + 18); out.push(caja(x, yN, wN, hN, n.t, n.s, "")); if(n.pais) out.push(caja(x, yP, wN, hP, n.pais.t, n.pais.p, "", "Gerencia país")); });
+  if(D.pais){ out.push(caja(cx - 150, yP, 300, hP, D.pais.t, D.pais.p, "", D.pais.eti || "Gerencia país")); if(D.pais.sub) out.push(caja(cx - 130, ySub, 260, hSub, D.pais.sub.t, D.pais.sub.p, "", "Coordinación país")); }
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Línea de mando de ' + esc(g.n) + '">' + marcadores() + out.join("") + '</svg>';
+}
+// vista de red: la gerencia al centro y sus conexiones alrededor
+function svgRed(g){
+  var W = 1000, H = 520, cx = W / 2, cy = H / 2, rx = 370, ry = 190, n = g.conex.length, out = [], cajas = [], hw = 280, hh = 62;
+  g.conex.forEach(function(c, i){
+    var a = -Math.PI / 2 + i * 2 * Math.PI / n, bx = cx + rx * Math.cos(a), by = cy + ry * Math.sin(a), bw = 210, bh = 54;
+    var dx = bx - cx, dy = by - cy, t1 = Math.min(hw / 2 / Math.abs(dx || 1e-6), hh / 2 / Math.abs(dy || 1e-6)), t2 = Math.min(bw / 2 / Math.abs(dx || 1e-6), bh / 2 / Math.abs(dy || 1e-6));
+    var ax = cx + dx * t1, ay = cy + dy * t1, ex = bx - dx * t2, ey = by - dy * t2;
+    var mk = c.dir === "da" ? ' marker-end="url(#gm-' + c.t + ')"' : c.dir === "recibe" ? ' marker-start="url(#gm-' + c.t + ')"' : ' marker-start="url(#gm-' + c.t + ')" marker-end="url(#gm-' + c.t + ')"';
+    out.push('<path class="l ' + c.t + '" d="M' + ax.toFixed(1) + ' ' + ay.toFixed(1) + ' L' + ex.toFixed(1) + ' ' + ey.toFixed(1) + '"' + mk + '/>');
+    cajas.push(caja(bx - bw / 2, by - bh / 2, bw, bh, c.con, "", c.con.indexOf("casa matriz") >= 0 ? "ext" : "", ROT[c.t]).replace('class="eti"', 'class="eti tt-' + c.t + '"'));
+  });
+  out = out.concat(cajas);
+  out.push(caja(cx - hw / 2, cy - hh / 2, hw, hh, g.n, "Gerencia corporativa", "hub"));
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Red de conexiones de ' + esc(g.n) + '">' + marcadores() + out.join("") + '</svg>';
+}
+
+var sel = document.getElementById("gSelector"), cont = document.getElementById("gModelo"), actual = null, vista = "mando";
+function pintar(id, conHash){
+  var g = G.filter(function(x){ return x.id === id; })[0] || G[0]; actual = g.id;
+  [].forEach.call(sel.querySelectorAll("button"), function(b){ var on = b.getAttribute("data-id") === g.id; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+  var sinMando = !(g.mando.nodos || g.mando.pais), v = sinMando ? "red" : vista;
+  cont.innerHTML =
+    '<div class="ger-cab"><div class="fila"><span class="ceja">Reporta a ' + esc(g.dir) + ' · ' + esc(g.red) + '</span>' +
+      (g.aplicado ? '<span class="estado ok">Aplicado a la estructura</span>' : '<span class="estado">Propuesta</span>') +
+      '<a href="informe-fase2.html#/estructura/' + encodeURIComponent(g.unidad) + '">Ver su ficha en la estructura →</a>' +
+      (g.enlace ? '<a href="' + esc(g.enlace.href) + '">' + esc(g.enlace.t) + ' →</a>' : '') + '</div>' +
+      '<h2>' + esc(g.n) + '</h2><p class="lede lect">' + esc(g.premisa) + '</p></div>' +
+    '<div class="dilema"><div><span class="ceja">El dilema</span><p>' + esc(g.dilema) + '</p></div><div><span class="ceja">Cómo lo resuelve la red</span><p>' + esc(g.resuelve) + '</p></div></div>' +
+    '<div class="gbarra"><div class="seg" role="group" aria-label="Vista del diagrama"><button type="button" data-v="mando" aria-pressed="' + (v === "mando") + '"' + (sinMando ? ' disabled title="No tiene unidades a cargo en la estructura"' : '') + '>Línea de mando</button><button type="button" data-v="red" aria-pressed="' + (v === "red") + '">Red de conexiones</button></div>' +
+      '<div class="ley">' + (v === "mando" ? '<span class="c-mando"><i></i>Mando: una sola línea por caja</span>' : '<span class="c-norma dash"><i></i>Norma</span><span class="c-servicio dot"><i></i>Servicio</span><span class="c-mision dash"><i></i>Misión</span><span class="c-decide dash"><i></i>Decide</span><span>La flecha va hacia quien recibe</span>') + '</div></div>' +
+    '<div class="lienzo"><div class="marco">' + (v === "mando" ? svgMando(g) : svgRed(g)) +
+      '<p class="pie">' + (v === "mando" ? 'Capa país: ' + esc(g.capa) + '.' : (sinMando ? 'No tiene unidades a cargo en la estructura: su trabajo es la red. ' : '') + 'Ninguna de estas conexiones es una línea de reporte.') + '</p></div>' +
+      '<aside class="conex"><span class="ceja">Con quién se conecta sin mando</span><ul>' +
+      g.conex.map(function(c){ return '<li class="c-' + c.t + '"><span class="tipo">' + ROT[c.t] + (c.dir === "da" ? " · da" : c.dir === "recibe" ? " · recibe" : " · comparte") + '</span><b>' + esc(c.con) + '</b><span>' + esc(c.que) + '</span></li>'; }).join("") + '</ul></aside></div>' +
+    '<div class="sec"><h3>Las reglas de esta red</h3><div class="reglas">' + g.reglas.map(function(r){ return '<div class="regla c-' + r[0] + '"><span class="tipo">' + ROT[r[0]] + '</span><h3>' + esc(r[1]) + '</h3><p>' + esc(r[2]) + '</p></div>'; }).join("") + '</div></div>' +
+    '<div class="caso"><span class="ceja">Un caso recorrido</span><h3>' + esc(g.caso.t) + '</h3><ol class="gpasos">' + g.caso.pasos.map(function(p){ return '<li><span>' + esc(p[1]) + '</span><span class="tipo c-' + p[0] + '">' + ROT[p[0]] + '</span></li>'; }).join("") + '</ol><p class="moraleja">' + esc(g.caso.m) + '</p></div>' +
+    '<div class="sec"><h3>Quién decide qué</h3><div class="leyenda-k"><span><b class="k-D">D</b> decide</span><span><b class="k-N">N</b> fija la norma</span><span><b class="k-S">S</b> presta el servicio</span><span><b>E</b> ejecuta</span><span><b class="k-C">C</b> opina antes</span></div>' +
+      '<div class="tabla"><table class="t-mat"><thead><tr><th>Decisión</th>' + g.matriz.cols.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr></thead><tbody>' +
+      g.matriz.filas.map(function(f){ return '<tr><td>' + esc(f[0]) + '</td>' + f.slice(1).map(function(x){ return '<td class="k k-' + (x ? x[0] : '') + '">' + (x ? esc(x) : '<span class="mut">·</span>') + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table></div></div>' +
+    '<div class="decidir"><h3>Lo que falta decidir</h3><ul>' + g.decidir.map(function(d){ return '<li>' + esc(d) + '</li>'; }).join("") + '</ul></div>';
+  [].forEach.call(cont.querySelectorAll(".seg button"), function(b){ b.onclick = function(){ vista = b.getAttribute("data-v"); pintar(actual, true); }; });
+  if(conHash && location.hash !== "#" + g.id) history.replaceState(null, "", "#" + g.id);
+}
+G.forEach(function(g){
+  var b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("data-id", g.id); b.textContent = g.n;
+  b.onclick = function(){ vista = "mando"; pintar(g.id, true); };
+  b.onkeydown = function(e){
+    if(e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    var i = G.map(function(x){ return x.id; }).indexOf(actual), j = (i + (e.key === "ArrowRight" ? 1 : G.length - 1)) % G.length;
+    vista = "mando"; pintar(G[j].id, true); sel.children[j].focus();
+  };
+  sel.appendChild(b);
+});
+document.getElementById("gResumen").innerHTML = G.map(function(g){
+  return '<tr><td><button type="button" data-ir="' + esc(g.id) + '">' + esc(g.n) + '</button></td><td>' + esc(g.dir) + '</td><td>' + esc(g.red) + (g.aplicado ? ' <span class="estado ok">aplicado</span>' : '') + '</td><td>' + esc(g.capa) + '</td><td>' + esc(g.riesgo) + '</td></tr>';
+}).join("");
+document.getElementById("gResumen").addEventListener("click", function(e){
+  var b = e.target.closest("[data-ir]"); if(!b) return;
+  vista = "mando"; pintar(b.getAttribute("data-ir"), true);
+  document.getElementById("gTitMod").scrollIntoView({behavior:"smooth", block:"start"});
+});
+window.ModelosGerencias = {ids: G.map(function(g){ return g.id; }), pintar: pintar};
+})();
+</script>
 <script>
 (function(){
 "use strict";
 
-/* ================================================================ datos */
-// Unidades de la estructura To-Be (estructura-tobe-datos.js del manual de Fase 2,
-// revisada con la Presidencia el 05/06-oct-2026; el 12-oct la PMO y la de tecnología
-// pasan a gerencias corporativas de staff que reportan directo a la Presidencia, el
-// 15-oct Desarrollo Corporativo vuelve a ser dirección, y el 16-oct Gobierno de IA
-// pasa a gerencia corporativa de staff junto a Tecnología, Gobernanza del Dato y
-// Cumplimiento). El mapa muestra las unidades que
-// intervienen en los funcionamientos; las coordinaciones corporativas y las gerencias
-// de unidad de negocio que no aparecen en ningún paso no se dibujan.
-var NODOS = {
-  "junta":   {l:["Junta Directiva"], k:"gob", x:620, y:34, w:150},
-  "pres":    {l:["Presidencia"], k:"pres", x:620, y:100, w:120},
-  "asist":   {l:["Asistencia Ejecutiva","a la Presidencia"], k:"staff", x:835, y:100, w:156},
-  "jur":     {l:["Consultoría","Jurídica"], k:"staff", x:420, y:100, w:120},
-  "ccom":  {l:["Comité Comercial"], k:"com", x:150, y:168, w:164},
-  "cfin":  {l:["Comité de Finanzas","y Riesgos"], k:"com", x:385, y:168, w:164},
-  "cdato": {l:["Comité de Gobierno","del Dato e IA"], k:"com", x:620, y:168, w:164},
-  "ccal":  {l:["Comité de Calidad","y Mejora Continua"], k:"com", x:855, y:168, w:164},
-  "ccult": {l:["Comité de Cultura","Organizacional"], k:"com", x:1090, y:168, w:164},
-  "id":  {l:["Innovación y Des.","de Productos"], k:"neg dir", x:75, y:246, w:134},
-  "cs":  {l:["Compras y Cadena","de Suministro"], k:"neg dir", x:237, y:246, w:130},
-  "com": {l:["Comercial"], k:"neg dir", x:500, y:246, w:104},
-  "fin": {l:["Dirección","de Finanzas"], k:"apo dir", x:745, y:246, w:104},
-  "dc":  {l:["Desarrollo","Corporativo"], k:"apo dir", x:860, y:246, w:104},
-  // gerencias corporativas de staff: reportan directo a la Presidencia
-  "pmo": {l:["PMO"], k:"apo", x:930, y:318, w:70},
-  "ia":  {l:["Gobierno","de IA"], k:"apo", x:1046, y:318, w:96},
-  "tgr": {l:["Tecnología, Gob.","del Dato y Cumpl."], k:"apo", x:1170, y:318, w:132},
-  "prod":    {l:["Intel. Mercado","y Productos"], k:"neg", x:63, y:318, w:112},
-  "compras": {l:["Compras","Casio · Cubitt"], k:"neg", x:181, y:318, w:106},
-  "opl":     {l:["Operaciones","y Logística"], k:"neg", x:294, y:318, w:102},
-  "ventas":  {l:["Ventas"], k:"neg", x:398, y:318, w:86},
-  "ecom":    {l:["E-commerce"], k:"neg", x:500, y:318, w:98},
-  "merc":    {l:["Mercadeo"], k:"neg", x:605, y:318, w:92},
-  "p-cab":  {l:["Cabeza","país *"], k:"cab", x:60, y:420, w:108},
-  "p-opl":  {l:["Operaciones","y Logística"], k:"neg", x:180, y:420, w:108},
-  "p-ssgg": {l:["Serv. Generales","(coordinación)"], k:"neg", x:302, y:420, w:112},
-  "p-may":  {l:["Ventas","al Mayor"], k:"neg", x:424, y:420, w:108},
-  "p-ret":  {l:["Retail","· tiendas"], k:"neg", x:544, y:420, w:108},
-  "p-post": {l:["Postventa"], k:"neg", x:664, y:420, w:108},
-  "p-merc": {l:["Mercadeo"], k:"neg", x:784, y:420, w:108},
-  "p-fin":  {l:["Adm. y","Finanzas"], k:"apo", x:920, y:420, w:108},
-  "p-rrhh": {l:["Recursos","Humanos"], k:"apo", x:1040, y:420, w:108},
-  "p-ti":   {l:["Tecnología","(TI)"], k:"apo", x:1160, y:420, w:108},
-  "ext-fab": {l:["Fábricas","y licenciantes"], k:"ext", x:160, y:514, w:170},
-  "ext-cli": {l:["Clientes"], k:"ext", x:440, y:514, w:170},
-  "area":    {l:["Cualquier gerencia","(la que solicita)"], k:"gen", x:780, y:514, w:170},
-  "ext-ter": {l:["Bancos, aduanas","y asesores externos"], k:"ext", x:1080, y:514, w:170}
-};
-var NOMBRE = {
-  "junta":"Junta Directiva","pres":"Presidencia","asist":"Asistencia Ejecutiva a la Presidencia","jur":"Consultoría Jurídica","ia":"Gobierno de IA",
-  "ccom":"Comité Comercial","cfin":"Comité de Finanzas y Riesgos","cdato":"Comité de Gobierno del Dato e IA","ccal":"Comité de Calidad y Mejora Continua","ccult":"Comité de Cultura",
-  "id":"Innovación y Desarrollo de Productos","cs":"Compras y Cadena de Suministro","com":"Comercial","fin":"Dirección de Finanzas","dc":"Desarrollo Corporativo","pmo":"PMO (gerencia corporativa)","tgr":"Tecnología, Gobernanza del Dato y Cumplimiento",
-  "prod":"Desarrollo y Calidad de Productos","compras":"Compras (Casio · Cubitt)","opl":"Operaciones y Logística","ventas":"Ventas","ecom":"E-commerce","merc":"Mercadeo",
-  "p-cab":"Cabeza país","p-opl":"Operaciones y Logística país","p-may":"Ventas al Mayor país","p-ret":"Retail país","p-post":"Postventa país","p-merc":"Mercadeo país","p-fin":"Administración y Finanzas país","p-rrhh":"Recursos Humanos país","p-ti":"TI país","p-ssgg":"Servicios Generales país · coordinación de Operaciones y Logística",
-  "ext-fab":"Fábricas y licenciantes","ext-cli":"Clientes","area":"Gerencia solicitante","ext-ter":"Bancos, aduanas y asesores"
-};
-// Líneas de reporte (tenues, de fondo).
-var ESTR = [["pres","id"],["pres","cs"],["pres","com"],["pres","fin"],["pres","dc"],["pres","pmo"],["pres","ia"],["pres","tgr"],
-  ["id","prod"],["cs","compras"],["cs","opl"],["com","ventas"],["com","merc"],["ventas","ecom"],
-  ["opl","p-opl"],["ventas","p-may"],["ventas","p-ret"],["ventas","p-post"],["merc","p-merc"],["fin","p-fin"],["dc","p-rrhh"],["tgr","p-ti"]];
-
-var PROC = {"1.1":"Formulación y revisión del plan estratégico del grupo","1.2":"Despliegue de objetivos e indicadores de gestión","1.3":"Preparación y conducción de las sesiones de los órganos de gobierno","2.1":"Inteligencia de mercado y análisis competitivo","2.2":"Construcción y aprobación del forecast comercial regional","2.3":"Política de precios y de márgenes por mercado","2.7":"Consolidación del desempeño comercial y ajuste del plan","3.1":"Generación y evaluación de oportunidades de producto","3.2":"Sourcing y homologación de fábricas","3.4":"Gestión de muestras y aprobación del producto","3.6":"Gestión de licencias de marca de terceros","4.1":"Recepción, categorización y evaluación de solicitudes","4.5":"Seguimiento del portafolio y reportería a la Junta","4.7":"Gestión del presupuesto de proyecto","5.1":"Gobierno de la adopción de IA y de la información","5.2":"Casos de uso de IA y automatización","6.1":"Planificación de demanda y S&OP","6.3":"Compra internacional a marca representada","6.4":"Compra internacional a marca propia","6.5":"Compra local de bienes y servicios por país","6.7":"Reposición a punto de venta","6.9":"Devoluciones y no conformidades a proveedor","7.1":"Recepción de mercancía importada y costeo en destino","7.2":"Gestión y control de inventarios","7.4":"Facturación logística y transferencia a despacho","7.5":"Despacho y última milla","7.6":"Tráfico e importaciones","7.7":"Logística inversa: garantías y devoluciones","8.2":"Segmentación de clientes y política comercial","8.5":"Aprobación comercial del pedido","8.12":"Prospección y apertura de nuevo cliente","8.17":"Reportería comercial y decisión basada en data","9.3":"Reposición de tiendas y kioscos","9.7":"Supervisión y visitas a tiendas","11.3":"Casos técnicos y reporte de calidad con fábrica","11.4":"Servicio técnico y reparación","11.5":"Repuestos y accesorios de servicio","11.7":"Escalamiento y recuperación del cliente insatisfecho","12.3":"Conciliación bancaria y de plataformas de recaudo","12.5":"Facturación fiscal","13.4":"Financiamiento bancario","14.2":"Requerimientos y evolución funcional del ERP","15.1":"Captación y normalización de datos de origen","15.2":"Control de calidad y fuente de la verdad","17.1":"Atracción, selección y contratación","18.2":"Ciclo de vida contractual","19.1":"Mantenimiento de infraestructura e instalaciones","20.3":"Publicación, versionado y control de cambios","20.4":"Iniciativas de mejora"};
-
-var DIRS = ["id","cs","com","fin","dc","pmo","ia","tgr"];
-
-// Funcionamientos: cada paso dice quién pasa qué a quién (e), quién más participa (n),
-// la decisión del paso si la hay (dec) y los procesos To-Be que lo respaldan (p).
-var FUNC = [
- {t:"Rumbo y despliegue", r:"Cómo el rumbo que fija la Junta llega a cada país convertido en metas, y cómo vuelve el resultado.",
-  decide:["junta","fin"], pasos:[
-  {t:"La Presidencia convoca la sesión estratégica", d:"Una vez al año, en enero. Cada dirección y cada gerencia corporativa de staff prepara el cierre de su área: resultados frente a lo planificado, lo que funcionó y las prioridades que propone.", e:[["pres","id"],["pres","cs"],["pres","com"],["pres","fin"],["pres","dc"],["pres","pmo"],["pres","tgr"]], p:["1.1"]},
-  {t:"Finanzas pone la cifra sobre la mesa", d:"Presenta el cierre financiero del grupo, la proyección del año y la capacidad de inversión y de endeudamiento.", e:[["fin","junta"]], p:["1.1"]},
-  {t:"La Junta fija el rumbo", d:"Define los objetivos a tres años y los focos del año, por marca, país y canal, con un responsable por objetivo.", e:[["junta","pres"]], dec:{q:"¿Qué objetivos y focos tiene el grupo?", por:"junta"}, p:["1.1"]},
-  {t:"Cada objetivo pasa por Finanzas", d:"Si un objetivo no tiene respaldo financiero, vuelve a la Junta para ajustarlo al escenario posible.", e:[["fin","junta"]], dec:{q:"¿Objetivos con respaldo financiero?", por:"fin"}, p:["1.1"]},
-  {t:"Las direcciones y las gerencias de staff traducen el plan a metas", d:"Cada una propone un cuadro corto de indicadores de su área, con fórmula, fuente oficial del dato y responsable. La Junta aprueba el cuadro y las metas.", e:[["id","junta"],["cs","junta"],["com","junta"],["fin","junta"],["dc","junta"],["pmo","junta"],["tgr","junta"]], dec:{q:"¿Cada indicador tiene fuente oficial?", por:"dirs"}, p:["1.2"]},
-  {t:"Las metas bajan a cada país", d:"Con el mismo formato, cada dirección o gerencia de staff despliega sus metas a las gerencias país, a través de sus gerencias corporativas cuando las tiene.", e:[["cs","p-opl"],["com","p-ret"],["com","p-may"],["fin","p-fin"],["dc","p-rrhh"],["tgr","p-ti"]], p:["1.2"]},
-  {t:"El resultado sube con cifras cerradas", d:"Cada mes la Dirección de Finanzas consolida lo real contra la meta con las cifras cerradas por contabilidad, no con reportes paralelos, y lo lleva a la Junta.", e:[["p-fin","fin"],["fin","junta"]], p:["1.2"]},
-  {t:"La Junta corrige el rumbo", d:"Decide la acción correctiva de cada desvío fuera de tolerancia, con responsable y fecha. En la revisión semestral decide si el plan se mantiene o se ajusta.", e:[["junta","pres"],["pres","com"],["pres","cs"]], dec:{q:"¿Desvío fuera de tolerancia? ¿El plan requiere ajuste?", por:"junta"}, p:["1.1","1.2"]}
- ]},
- {t:"Línea rectora y espejo país", r:"La regla de toda la estructura: lo corporativo fija cómo se hace y cada país lo ejecuta con su marco y sus recursos.",
-  decide:["dirs","p-cab"], pasos:[
-  {t:"Lo corporativo fija el estándar", d:"La dirección y su gerencia corporativa dictan cómo debe funcionar su función en todo el grupo: cómo opera una bodega, cómo se ve y se atiende una tienda.", e:[["opl","p-opl"],["com","p-ret"]], p:["7.1","9.7"]},
-  {t:"Lo que funciona en un país se vuelve estándar", d:"Operaciones y Logística replica en las demás bodegas las prácticas ya probadas en Colón.", e:[["p-opl","opl"],["opl","p-opl"]], p:["7.1"]},
-  {t:"El país ejecuta con su marco", d:"La gerencia país opera con el marco normativo, los recursos y la operación de su país. No hay que pedir permiso para ejecutar lo que el estándar ya prevé.", n:["p-opl","p-ret","p-fin"], p:["1.2"]},
-  {t:"El país corrige en el sitio", d:"En la visita a tienda, una desviación sencilla se corrige en el momento; la que exige gestión queda como observación formal con responsable.", n:["p-ret"], dec:{q:"¿Se detecta una desviación del estándar?", por:"p-ret"}, p:["9.7"]},
-  {t:"Lo que excede su facultad sube", d:"Un ajuste de inventario por encima del umbral de valor lo autoriza la dirección. La cabeza del país firma dentro de su facultad y eleva lo que la excede.", e:[["p-opl","cs"],["p-cab","junta"]], dec:{q:"¿Supera el umbral de firma del país?", por:"p-cab"}, p:["7.2","18.2"]},
-  {t:"Los indicadores suben y el corporativo orienta", d:"El país reporta con el mismo formato. Lo corporativo recibe, verifica y orienta; si se hunde en la operación, deja de supervisar.", e:[["p-opl","opl"],["p-ret","com"],["p-fin","fin"]], p:["1.2"]}
- ]},
- {t:"De la demanda al plan de suministro", r:"Cómo el dato del mercado se convierte en un solo forecast, unos precios y un plan de compra aprobados en un mismo lugar.",
-  decide:["ccom"], pasos:[
-  {t:"El dato se certifica antes de usarse", d:"La venta propia y el sell-out de los clientes pasan controles de completitud y validez. Lo que no pasa vuelve a su responsable con plazo.", e:[["ext-cli","tgr"],["p-may","tgr"]], dec:{q:"¿El lote pasa los controles?", por:"tgr"}, p:["15.2","2.1"]},
-  {t:"Cada canal arma su forecast", d:"Mercado por mercado, cliente por cliente y tienda por tienda. Operaciones aporta la necesidad del país de mayor volumen.", e:[["p-may","ventas"],["p-ret","ventas"],["ecom","ventas"],["p-opl","ventas"]], p:["2.2"]},
-  {t:"Ventas consolida un solo forecast regional", d:"Por marca, país, canal, familia y mes, con versión fechada y la explicación de cada diferencia.", e:[["ventas","ccom"]], p:["2.2"]},
-  {t:"El Comité Comercial aprueba el forecast", d:"Lo aprueba o pide ajustes con su motivo, que vuelven a Ventas como una nueva versión.", e:[["ccom","ventas"]], dec:{q:"¿Forecast aprobado?", por:"ccom"}, p:["2.2"]},
-  {t:"Los precios se fijan con el margen a la vista", d:"Comercial propone listas y márgenes por canal; Finanzas analiza la rentabilidad por país y el efecto cambiario. Las excepciones quedan documentadas con fecha de revisión.", e:[["com","ccom"],["fin","ccom"]], dec:{q:"¿Sostiene el margen mínimo?", por:"ccom"}, p:["2.3"]},
-  {t:"El plan de suministro reúne cuatro insumos", d:"La demanda estimada, el inventario y el tránsito, el forecast de los canales y el techo presupuestario, que llega antes de decidir y no después.", e:[["tgr","ccom"],["opl","ccom"],["ventas","ccom"],["fin","ccom"]], p:["6.1"]},
-  {t:"Un solo plan, separado por marca", d:"El Comité compone y aprueba el plan por marca y país. Si la demanda excede el techo, prioriza por cobertura y rotación y deja constancia de lo que quedó fuera. Compras recibe la parte de cada marca, en su coordinación de Casio o de Cubitt.", e:[["ccom","compras"]], dec:{q:"¿Qué entra en el plan del ciclo?", por:"ccom"}, p:["6.1"]}
- ]},
- {t:"Abastecimiento y entrega", r:"El recorrido físico y financiero de la mercancía: de la orden a la fábrica hasta el punto de venta.",
-  decide:["compras","opl","fin"], pasos:[
-  {t:"Compras compra", d:"La coordinación de cada marca compone la compra con el plan aprobado y el sugerido del modelo de datos, y coloca la orden con la fábrica.", e:[["tgr","compras"],["compras","ext-fab"]], p:["6.3","6.4"]},
-  {t:"Finanzas paga contra orden y calendario", d:"Compras instruye el pago según el calendario acordado; la Dirección de Finanzas verifica que corresponda a una orden colocada y que encaje en la caja del mes.", e:[["compras","fin"],["fin","ext-fab"]], p:["6.3"]},
-  {t:"Operaciones contrata el flete", d:"Pide la cotización con el número de contenedores y su contenido. Compras la aprueba o pide ajustes.", e:[["opl","compras"]], dec:{q:"¿Se aprueba la cotización del flete?", por:"compras"}, p:["6.3"]},
-  {t:"Importación y aduana", d:"Operaciones arma el expediente; el agente aduanal declara y liquida; Finanzas paga los tributos.", e:[["opl","ext-ter"],["ext-ter","fin"]], p:["7.6"]},
-  {t:"Recepción en Colón por tramos", d:"Cada tramo se verifica contra el aviso de embarque mientras se ubica, sin esperar al final, y se libera su disponibilidad.", e:[["ext-fab","opl"]], dec:{q:"¿El tramo cuadra?", por:"opl"}, p:["7.1"]},
-  {t:"Disponibilidad y costo en destino", d:"Operaciones avisa la disponibilidad a la fuerza comercial y carga el costo en destino. Un margen fuera de rango se remite a Comercial.", e:[["opl","ventas"],["opl","com"]], p:["7.1"]},
-  {t:"Reparto a países y canales", d:"Cada país recibe el traslado y lo concilia; un faltante se busca antes de cerrar.", e:[["opl","p-opl"],["p-opl","p-ret"],["p-opl","ecom"]], dec:{q:"¿Coincide con el traslado?", por:"p-ret"}, p:["6.7","9.3"]},
-  {t:"Lo que llega mal se reclama", d:"Operaciones reclama al responsable de la avería o la pérdida, y Finanzas registra la recuperación o la pérdida.", e:[["opl","ext-ter"],["opl","fin"]], dec:{q:"¿A quién se reclama?", por:"opl"}, p:["6.9"]}
- ]},
- {t:"Producto y colección", r:"Cómo una oportunidad del mercado llega a ser un producto aprobado, fabricado y en el calendario de lanzamientos.",
-  decide:["ccom","id"], pasos:[
-  {t:"El mercado trae las oportunidades", d:"Ventas trae lo que piden los clientes y los huecos de precio; Mercadeo aporta la inteligencia de mercado —tendencias de consumo, competencia y venta de terceros— y Desarrollo y Calidad de Productos, las tendencias de diseño y color.", e:[["ventas","prod"],["merc","prod"]], p:["3.1"]},
-  {t:"Se decide qué se desarrolla", d:"Desarrollo y Calidad de Productos evalúa encaje, viabilidad técnica, costo y margen. La decisión queda registrada con su motivo, también la del descarte.", e:[["prod","ccom"]], dec:{q:"¿Se desarrolla la oportunidad?", por:"ccom"}, p:["3.1"]},
-  {t:"Innovación y Desarrollo de Productos homologa la fábrica", d:"Busca, evalúa muestras y capacidad técnica y decide si la fábrica entra a la cartera.", e:[["id","ext-fab"],["ext-fab","id"]], dec:{q:"¿Se homologa la fábrica?", por:"id"}, p:["3.2"]},
-  {t:"Jurídica formaliza", d:"Confidencialidad y contrato: propiedad de diseños y moldes, calidad esperada, plazos.", e:[["jur","ext-fab"]], p:["3.2"]},
-  {t:"La muestra se prueba y se aprueba", d:"La fábrica envía; Innovación y Desarrollo de Productos prueba con una lista de verificación y Ventas reúne la opinión comercial en un solo documento. Se congela la especificación.", e:[["ext-fab","id"],["ventas","id"]], dec:{q:"¿La muestra es conforme?", por:"id"}, p:["3.4"]},
-  {t:"En licencias, aprueba el licenciante", d:"Mercadeo prepara el arte según la guía y ninguna pieza se produce sin aprobación escrita.", e:[["merc","ext-fab"]], dec:{q:"¿Aprobado por el licenciante?", por:"ext-fab"}, p:["3.6"]},
-  {t:"El Comité Comercial fija colección y calendario", d:"Decide la colección, el calendario de lanzamientos sin saturar a Mercadeo, y el reparto entre canales y países.", e:[["ccom","prod"],["ccom","merc"],["ccom","ventas"]], p:["3.1"]}
- ]},
- {t:"Venta, crédito y cobro", r:"Cómo un pedido pasa por margen, crédito, preparación, factura, despacho y cobro, con cada firma en su sitio.",
-  decide:["ccom","p-may","p-fin"], pasos:[
-  {t:"La política comercial del ciclo", d:"Ventas al Mayor revisa la segmentación y propone listas, descuentos y crédito por mercado; Finanzas contrasta el margen y fija las condiciones de crédito.", e:[["p-may","ventas"],["ventas","fin"]], p:["8.2"]},
-  {t:"El Comité aprueba la política como un solo cuerpo", d:"Segmentación, listas, descuento y crédito, y comisiones. Incluye la matriz que dice hasta qué descuento decide cada nivel.", e:[["fin","ccom"],["ccom","p-may"]], dec:{q:"¿Aprueba la política del ciclo?", por:"ccom"}, p:["8.2"]},
-  {t:"Cliente nuevo con riesgo evaluado", d:"Ventas califica al cliente; Administración y Finanzas evalúa su riesgo y firma el documento de crédito; Ventas crea el código con la lista asignada.", e:[["ext-cli","p-may"],["p-may","p-fin"],["p-fin","p-may"]], p:["8.12"]},
-  {t:"Aprobación del pedido", d:"El gerente del país revisa margen, descuento, cartera y existencia. Los pedidos internacionales y de cuenta regional los decide la gerencia regional.", e:[["p-may","ventas"]], dec:{q:"¿Supera el umbral local?", por:"p-may"}, p:["8.5"]},
-  {t:"Preparación", d:"Con la autorización de trabajar, Operaciones prepara el pedido; con la de facturar, sigue a factura y despacho.", e:[["p-may","p-opl"]], p:["8.5"]},
-  {t:"Antes de facturar, el estado del cliente", d:"Si el cliente tiene retención o crédito vencido, el pedido se retiene y el gerente comercial lo libera, ajusta o devuelve con su motivo.", e:[["p-opl","p-fin"],["p-fin","p-may"]], dec:{q:"¿El cliente puede recibir?", por:"p-fin"}, p:["7.4","12.5"]},
-  {t:"Despacho con responsabilidad que cambia de manos", d:"Por flota propia, agencia o retiro; se cuenta e inspecciona en cada traspaso y el cliente firma la entrega.", e:[["p-opl","ext-cli"]], dec:{q:"¿Por qué vía sale el pedido?", por:"p-opl"}, p:["7.5"]},
-  {t:"Cobro y conciliación", d:"Administración y Finanzas registra el pago, concilia bancos y plataformas, y la cartera vuelve a alimentar la revisión de crédito.", e:[["ext-cli","p-fin"],["p-fin","fin"]], p:["12.3"]}
- ]},
- {t:"Escalera de firma", r:"Quién puede decidir cuánto. Un compromiso sube de nivel según su monto o su plazo, y baja con su registro.",
-  decide:["p-cab","dirs","cfin","junta"], pasos:[
-  {t:"El compromiso nace en un área", d:"Una compra local, un ajuste de inventario, un pedido grande, un contrato o una deuda: cada uno trae su monto y su plazo.", n:["area"], p:["6.5","18.2"]},
-  {t:"Dentro del umbral, decide el país", d:"Administración y Finanzas aprueba la compra local con proveedor habitual; la cabeza del país firma los contratos dentro de su facultad.", e:[["area","p-fin"],["area","p-cab"]], dec:{q:"¿Está dentro del umbral del país?", por:"p-cab"}, p:["6.5","9.3","11.5","18.2"]},
-  {t:"Lo que excede sube a la dirección", d:"La dirección corporativa de la función decide lo que el país no puede: un ajuste de inventario sobre el umbral, un pedido de cuenta regional.", e:[["p-opl","cs"],["p-may","ventas"]], dec:{q:"¿Supera el umbral de firma?", por:"dirs"}, p:["7.2","8.5","4.7"]},
-  {t:"Los compromisos grandes pasan por el Comité de Finanzas y Riesgos", d:"Da el visto bueno a lo que compromete la caja del grupo, como las compras a fábrica, y prepara lo que sube a la Junta.", e:[["compras","cfin"],["cs","cfin"],["com","cfin"],["fin","cfin"]], dec:{q:"¿Compromete la caja del grupo?", por:"cfin"}, p:["6.3","13.4"]},
-  {t:"Lo reservado lo aprueba la Junta", d:"Endeudamiento, sistemas o gastos nuevos, y contratos sobre el umbral de delegación, según la matriz de gobierno del grupo.", e:[["cfin","junta"],["p-cab","junta"]], dec:{q:"¿El monto o plazo requiere aprobación de la Junta?", por:"junta"}, p:["13.4","14.2","18.2"]},
-  {t:"La decisión baja con su registro", d:"Quién decidió, cuándo y por qué. Los montos de cada umbral están por fijar: es una de las decisiones pendientes de la validación.", e:[["junta","fin"],["fin","p-fin"]], p:["1.3"]}
- ]},
- {t:"Postventa y retorno al ciclo", r:"Lo que pasa cuando un producto vuelve: el cliente se atiende y la falla regresa a quien puede evitarla.",
-  decide:["p-post"], pasos:[
-  {t:"El cliente vuelve a la tienda", d:"Se abre la orden de servicio con el producto y su comprobante, y pasa a Postventa.", e:[["ext-cli","p-ret"],["p-ret","p-post"]], p:["11.4"]},
-  {t:"Valoración técnica", d:"Si la falla está en garantía, se repara; si no, se presupuesta y se cobra antes de reparar.", e:[["p-post","ext-cli"]], dec:{q:"¿La falla está cubierta por la garantía?", por:"p-post"}, p:["11.4"]},
-  {t:"Repuestos con umbral", d:"Postventa consolida lo que falta y lo pide a la marca o a la fábrica; sobre el umbral, lo aprueba la cabeza del país.", e:[["p-post","p-cab"],["p-post","ext-fab"]], dec:{q:"¿Supera el umbral de aprobación del país?", por:"p-post"}, p:["11.5"]},
-  {t:"Cada devolución tiene un desenlace", d:"La unidad llega a la bodega de garantías y Postventa decide: vuelve a la venta, se repara, se reemplaza o va a desecho.", e:[["p-post","p-opl"]], dec:{q:"¿Cuál es el desenlace?", por:"p-post"}, p:["7.7"]},
-  {t:"Reemplazo y baja", d:"Operaciones traslada la unidad de reemplazo; Administración y Finanzas registra la baja de lo que se desecha.", e:[["p-opl","ext-cli"],["p-opl","p-fin"]], p:["7.7"]},
-  {t:"La falla recurrente vuelve al origen", d:"Cada mes se consolidan los casos por producto y lote. Un defecto recurrente vuelve a Innovación y Desarrollo de Productos, que lo trata con la fábrica.", e:[["p-post","id"],["id","ext-fab"]], dec:{q:"¿El patrón indica un defecto recurrente por lote?", por:"p-post"}, p:["11.3"]},
-  {t:"Las excepciones suben", d:"Una solución fuera de la política de garantía, como un cambio de generación o un reembolso, la aprueba Mercadeo.", e:[["p-post","merc"]], dec:{q:"¿Requiere una excepción a la política?", por:"merc"}, p:["11.7"]}
- ]},
- {t:"El apoyo como proveedor interno", r:"Cómo una gerencia obtiene lo que no hace ella misma: el apoyo filtra, resuelve y escala lo que excede su competencia.",
-  decide:["pmo","p-rrhh","p-ti","p-ssgg","junta"], pasos:[
-  {t:"Una gerencia necesita algo que no hace", d:"Un proyecto, una persona, un sistema, un contrato o una reparación. Siempre entra por el canal formal de la unidad de apoyo.", n:["area"], p:["4.1","17.1","14.2","18.2","19.1"]},
-  {t:"Proyectos", d:"La gerencia corporativa de la PMO evalúa viabilidad y duplicidad, categoriza (tarea, iniciativa o proyecto) y lo eleva; la Junta aprueba lo que compromete recursos.", e:[["area","pmo"],["pmo","junta"]], dec:{q:"¿Viable y sin duplicar?", por:"pmo"}, p:["4.1"]},
-  {t:"Personas", d:"Recursos Humanos confirma el perfil, recluta y entrega una terna; el gerente entrevista y decide. Las posiciones gerenciales o clave las decide la Presidencia, a propuesta de Desarrollo Corporativo.", e:[["area","p-rrhh"],["p-rrhh","area"],["p-rrhh","dc"],["dc","pres"]], dec:{q:"¿Cargo gerencial o posición clave?", por:"p-rrhh"}, p:["17.1"]},
-  {t:"Sistemas", d:"TI del país clasifica el pedido y la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento valida que responda a una necesidad del negocio y decide la vía. Un sistema o gasto nuevo lo aprueba la Junta.", e:[["area","p-ti"],["p-ti","tgr"],["tgr","junta"]], dec:{q:"¿Requiere sistema o gasto nuevo?", por:"tgr"}, p:["14.2"]},
-  {t:"Contratos", d:"El área redacta, Consultoría Jurídica revisa y los bufetes locales opinan sobre la norma del país. Firma la cabeza del país dentro de su facultad.", e:[["area","jur"],["jur","ext-ter"],["area","p-cab"]], dec:{q:"¿Dentro de la facultad de firma?", por:"p-cab"}, p:["18.2"]},
-  {t:"Instalaciones", d:"Servicios Generales resuelve lo que está en su competencia y contrata lo que la excede.", e:[["area","p-ssgg"],["p-ssgg","ext-ter"]], dec:{q:"¿Dentro de la competencia interna?", por:"p-ssgg"}, p:["19.1"]},
-  {t:"El apoyo rinde cuentas de su cola", d:"Lo abierto, lo resuelto y lo descartado con su motivo, cada mes. La PMO reporta el portafolio a la Junta.", e:[["pmo","junta"],["p-ti","tgr"]], p:["4.5","14.2"]}
- ]},
- {t:"El dato antes que el agente", r:"Cómo el grupo llega a una sola cifra oficial y cómo se aprueba poner IA sobre ella.",
-  decide:["ia","cdato"], pasos:[
-  {t:"Cada fuente nueva se mapea", d:"Contra el catálogo del grupo: se decide si vive en el ERP o llega por la vía de captación, y qué equivalencias necesita. Lo lleva la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento.", e:[["area","tgr"]], dec:{q:"¿Es una fuente nueva?", por:"tgr"}, p:["15.1"]},
-  {t:"Controles sobre cada lote", d:"Completitud, validez, moneda y tasa fechada. El defecto vuelve a su responsable con plazo; si no llega, la fuente se marca como no certificada.", e:[["tgr","area"],["area","tgr"]], dec:{q:"¿El lote pasa los controles?", por:"tgr"}, p:["15.2"]},
-  {t:"Las medidas tienen dueño", d:"La definición de cada indicador la aprueba el dueño de su dominio antes de entrar al diccionario, para que signifique lo mismo en todos los países.", e:[["ventas","tgr"]], p:["15.2"]},
-  {t:"Una sola cifra oficial", d:"Solo lo certificado alimenta los tableros. Los equipos leen su desempeño con la misma cifra.", e:[["tgr","ventas"],["tgr","p-ret"],["tgr","p-may"]], p:["2.7","8.17"]},
-  {t:"Cada caso de uso de IA se registra", d:"La PMO verifica que otra área no lo haya resuelto ya; la Gerencia Corporativa de Tecnología, Gobernanza del Dato y Cumplimiento evalúa qué datos toca, qué credenciales necesita, cómo se integra y qué riesgo trae.", e:[["area","pmo"],["pmo","tgr"]], p:["5.2"]},
-  {t:"El Comité aprueba y asigna", d:"Gobierno de IA lo lleva al Comité, que lo prioriza por valor y riesgo, lo aprueba o descarta con su motivo, fija el nivel de autonomía y decide quién lo construye: TI o la propia área con una herramienta autorizada. Quien lo implanta no es quien lo aprueba.", e:[["tgr","ia"],["ia","cdato"],["cdato","area"]], dec:{q:"¿Se aprueba el caso de uso?", por:"cdato"}, p:["5.2","5.1"]},
-  {t:"Validación y medición", d:"Tecnología, Gobernanza del Dato y Cumplimiento valida todo desarrollo antes de producción, con credenciales de mínimo privilegio. A los 90 días el área mide el beneficio real contra el esperado.", e:[["tgr","area"]], p:["5.2","5.1"]}
- ]},
- {t:"Mejora continua y vida de los manuales", r:"Cómo una mejora se evalúa, se implanta y termina escrita en el manual, que parte de la base de conocimiento.",
-  decide:["pmo","ccal"], pasos:[
-  {t:"Un dueño de proceso detecta una mejora", d:"Un hallazgo de auditoría, un dolor reportado, un indicador fuera de rango o una idea propia.", n:["area"], p:["20.4"]},
-  {t:"La PMO la evalúa y la planifica", d:"Si no es viable tal como se presentó, la devuelve con observaciones. Finanzas valida el presupuesto cuando lo hay.", e:[["area","pmo"],["pmo","fin"]], dec:{q:"¿Es viable tal como se presentó?", por:"pmo"}, p:["20.4"]},
-  {t:"El dato y el sistema acompañan", d:"Tecnología, Gobernanza del Dato y Cumplimiento aporta la línea base del indicador y su seguimiento, y habilita la herramienta o el ajuste.", e:[["tgr","pmo"],["tgr","area"]], p:["20.4"]},
-  {t:"Las áreas implantan y se verifica", d:"Las áreas ejecutan el cambio con acompañamiento en los primeros ciclos; la PMO reporta a la Junta y compara contra la situación inicial.", e:[["pmo","area"],["pmo","junta"]], p:["20.4"]},
-  {t:"El cambio entra por la base de conocimiento", d:"El dueño actualiza el proceso mediante el control de cambios; se publica la versión nueva, se retira la anterior y Recursos Humanos actualiza la inducción si hace falta.", e:[["area","dc"],["dc","p-rrhh"]], p:["20.3"]},
-  {t:"El Comité de Calidad revisa el estándar", d:"Revisa políticas y manuales, verifica el cumplimiento de las buenas prácticas y orienta hacia certificaciones.", e:[["dc","ccal"]], dec:{q:"¿El estándar debe revisarse?", por:"ccal"}, p:["20.3"]}
- ]}
-];
-
 /* ================================================================ utilidades */
 var $ = function(s){ return document.querySelector(s); };
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-var NS = "http://www.w3.org/2000/svg";
-function el(tag, at, padre, txt){ var n = document.createElementNS(NS, tag); for(var k in at) n.setAttribute(k, at[k]); if(txt != null) n.textContent = txt; if(padre) padre.appendChild(n); return n; }
-function nombre(id){ return id === "dirs" ? "Cada dirección o gerencia de staff" : (NOMBRE[id] || id); }
-function chipUnidad(id){
-  var k = id === "dirs" ? "" : (NODOS[id] ? NODOS[id].k.split(" ")[0] : "");
-  return '<span class="chip ' + (k === "gob" || k === "pres" ? "gob" : "") + '">' + esc(nombre(id)) + '</span>';
-}
 
 /* ================================================================ capas: pila */
 function pila(){
@@ -492,171 +458,27 @@ function pila(){
   $("#pila").innerHTML = h;
 }
 
-/* ================================================================ mapa de unidades */
-var mapa = $("#mapa");
-var capaFlechas;
-function dibujarMapa(){
-  mapa.innerHTML = "";
-  var defs = el("defs", {}, mapa);
-  var mk = el("marker", {id:"punta", viewBox:"0 0 10 10", refX:"9", refY:"5", markerWidth:"7", markerHeight:"7", orient:"auto-start-reverse"}, defs);
-  el("path", {d:"M0 0L10 5L0 10z", fill:"var(--flow)"}, mk);
-  el("rect", {x:4, y:382, width:1232, height:74, rx:12, "class":"m-banda"}, mapa);
-  el("text", {x:12, y:376, "class":"m-rot"}, mapa, "Gerencias país · el mismo espejo en PA · VE · CO");
-  el("text", {x:12, y:482, "class":"m-rot"}, mapa, "Fuera de la estructura y solicitantes");
-  el("text", {x:16, y:212, "class":"m-rot"}, mapa, "Unidades de negocio");
-  // entre las líneas que bajan a la PMO y a Tecnología, para que ninguna lo cruce
-  el("text", {x:1058, y:212, "class":"m-rot", "text-anchor":"middle"}, mapa, "Unidades de apoyo");
-  el("line", {x1:668, y1:220, x2:668, y2:344, "class":"m-div"}, mapa);
-  var gE = el("g", {}, mapa);
-  ESTR.forEach(function(s){
-    var a = NODOS[s[0]], b = NODOS[s[1]];
-    // hacia la fila de países, el tramo horizontal va por el hueco bajo las gerencias corporativas
-    var mid = b.y >= 400 ? 366 : s[0] === "pres" ? 173 : (a.y + b.y) / 2;
-    el("path", {d:"M"+a.x+" "+(a.y+20)+" V"+mid+" H"+b.x+" V"+(b.y-20), "class":"m-estr"}, gE);
-  });
-  // Junta → Presidencia (gobierno, sin mando) y las dos unidades de la Presidencia
-  el("path", {d:"M620 54 V80", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
-  el("path", {d:"M680 100 H757", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
-  el("path", {d:"M560 100 H480", "class":"m-estr", "stroke-dasharray":"3 3"}, gE);
-  // Servicios Generales: coordinación dentro de Operaciones y Logística del país
-  el("path", {d:"M180 440 V449 H302 V440", "class":"m-estr"}, gE);
-  capaFlechas = el("g", {}, mapa);
-  Object.keys(NODOS).forEach(function(id){
-    var n = NODOS[id], w = n.w, hh = 40;
-    var cls = "m-nodo " + n.k.split(" ").map(function(k){ return "k-" + k; }).join(" ");
-    var g = el("g", {"class":cls, "data-id":id}, mapa);
-    el("rect", {x:n.x - w/2, y:n.y - hh/2, width:w, height:hh, rx:7}, g);
-    var t = el("text", {x:n.x, y:n.y + (n.l.length > 1 ? -3 : 5), "text-anchor":"middle"}, g);
-    n.l.forEach(function(l, i){ el("tspan", {x:n.x, dy: i ? 15 : 0}, t, l); });
-    el("title", {}, g, NOMBRE[id]);
-  });
-}
-function borde(n, tx, ty){
-  var dx = tx - n.x, dy = ty - n.y, hw = n.w / 2 + 3, hh = 23;
-  if(!dx && !dy) return [n.x, n.y];
-  var s = Math.min(hw / Math.abs(dx || 1e-9), hh / Math.abs(dy || 1e-9));
-  return [n.x + dx * s, n.y + dy * s];
-}
-function marcarPaso(paso){
-  capaFlechas.innerHTML = "";
-  mapa.querySelectorAll(".m-nodo").forEach(function(g){ g.classList.remove("on","decide"); });
-  if(!paso){ mapa.classList.remove("activo"); return; }
-  mapa.classList.add("activo");
-  var on = {};
-  (paso.e || []).forEach(function(p){ on[p[0]] = on[p[1]] = 1; });
-  (paso.n || []).forEach(function(id){ on[id] = 1; });
-  var dec = paso.dec ? (paso.dec.por === "dirs" ? DIRS : [paso.dec.por]) : [];
-  dec.forEach(function(id){ on[id] = 1; });
-  Object.keys(on).forEach(function(id){ var g = mapa.querySelector('[data-id="' + id + '"]'); if(g) g.classList.add("on"); });
-  dec.forEach(function(id){ var g = mapa.querySelector('[data-id="' + id + '"]'); if(g) g.classList.add("decide"); });
-  (paso.e || []).forEach(function(p){
-    var a = NODOS[p[0]], b = NODOS[p[1]]; if(!a || !b) return;
-    var s = borde(a, b.x, b.y), t = borde(b, a.x, a.y);
-    var mx = (s[0] + t[0]) / 2, my = (s[1] + t[1]) / 2, dx = t[0] - s[0], dy = t[1] - s[1], L = Math.hypot(dx, dy) || 1;
-    var k = Math.min(40, L * .18), c = [mx - dy / L * k, my + dx / L * k];
-    el("path", {d:"M"+s[0]+" "+s[1]+" Q"+c[0]+" "+c[1]+" "+t[0]+" "+t[1], "class":"m-flecha", "marker-end":"url(#punta)"}, capaFlechas);
-  });
-  dec.forEach(function(id){
-    var n = NODOS[id]; if(!n) return;
-    var x = n.x + n.w / 2 - 2, y = n.y - 20;
-    el("path", {d:"M"+x+" "+(y-7)+" L"+(x+7)+" "+y+" L"+x+" "+(y+7)+" L"+(x-7)+" "+y+" Z", "class":"m-rombo"}, capaFlechas);
-  });
-}
-
-/* ================================================================ tarjetas y panel */
-var actual = {f:-1, p:0};
-function tarjetas(){
-  $("#supuestos").innerHTML = '<b>De dónde sale.</b> Cada funcionamiento resume lo que dicen los flujogramas To-Be del manual de procesos (182 procesos): quién le pasa trabajo a quién y quién decide en cada rombo. ' +
-    '<b>Supuestos de lectura.</b> Los procesos usan los cargos del patrón; aquí se ubican en la unidad de la estructura a la que pertenecen. «Cabeza país» (*) es la figura que los procesos llaman Country Manager y que la estructura aún no define. El mapa muestra las unidades que intervienen en los pasos: las coordinaciones corporativas (Compras Casio y Compras Cubitt) se leen dentro de su gerencia. Los comités de I+D, de IA y de Estrategia Comercial que nombran algunos procesos se leen como el Comité Comercial y el Comité de Gobierno del Dato e IA.';
-  $("#tarjetas").innerHTML = FUNC.map(function(f, i){
-    var procs = {}; f.pasos.forEach(function(p){ (p.p || []).forEach(function(c){ procs[c] = 1; }); });
-    return '<button type="button" class="tarjeta" data-f="' + i + '"><span class="tn">' + String(i + 1).padStart(2, "0") + '</span><h3>' + esc(f.t) + '</h3><p>' + esc(f.r) + '</p>' +
-      '<span class="pie">' + f.pasos.length + ' pasos · decide ' + f.decide.map(nombre).join(", ").replace(/, ([^,]*)$/, " y $1") + ' · ' + Object.keys(procs).length + ' procesos</span></button>';
-  }).join("");
-  $("#tarjetas").addEventListener("click", function(e){ var b = e.target.closest(".tarjeta"); if(b) abrir(+b.getAttribute("data-f"), 0); });
-}
-function pintarPanel(){
-  var f = FUNC[actual.f];
-  $("#pCeja").textContent = "Funcionamiento " + (actual.f + 1) + " de " + FUNC.length;
-  $("#pTit").textContent = f.t;
-  var h = '<p class="presumen">' + esc(f.r) + '</p>';
-  h += '<div class="pdecide">Deciden: ' + f.decide.map(chipUnidad).join("") + '</div>';
-  h += '<ol class="pasos">';
-  f.pasos.forEach(function(p, i){
-    var cur = i === actual.p;
-    h += '<li class="paso' + (cur ? " actual" : "") + '"><button type="button" data-p="' + i + '" aria-expanded="' + cur + '"><span class="pn">' + (i + 1) + '</span><span class="pt">' + esc(p.t) + '</span></button>';
-    if(cur){
-      h += '<div class="det"><p>' + esc(p.d) + '</p>';
-      if(p.e && p.e.length){
-        var de = [], a = [];
-        p.e.forEach(function(x){ if(de.indexOf(x[0]) < 0) de.push(x[0]); if(a.indexOf(x[1]) < 0) a.push(x[1]); });
-        h += '<div class="actores">' + de.map(chipUnidad).join("") + '<span class="flechita" aria-label="pasa a">→</span>' + a.map(chipUnidad).join("") + '</div>';
-      } else if(p.n){
-        h += '<div class="actores">' + p.n.map(chipUnidad).join("") + '</div>';
-      }
-      if(p.dec) h += '<div class="dec"><span class="rombo" aria-hidden="true"></span><span><b>' + esc(p.dec.q) + '</b><br>Decide: ' + esc(nombre(p.dec.por)) + '</span></div>';
-      if(p.p) h += '<div class="procs">' + p.p.map(function(c){ return '<span class="proc"><b>' + c + '</b> ' + esc(PROC[c] || "") + '</span>'; }).join("") + '</div>';
-      h += '</div>';
-    }
-    h += '</li>';
-  });
-  h += '</ol>';
-  $("#pCuerpo").innerHTML = h;
-  $("#pCuenta").textContent = "Paso " + (actual.p + 1) + " de " + f.pasos.length;
-  $("#pAnt").disabled = actual.p === 0;
-  $("#pSig").disabled = actual.p === f.pasos.length - 1;
-  var cur = $("#pCuerpo .paso.actual"); if(cur && cur.scrollIntoView) cur.scrollIntoView({block:"nearest"});
-  marcarPaso(f.pasos[actual.p]);
-}
-function abrir(fi, pi){
-  actual = {f:fi, p:pi || 0};
-  $("#panel").hidden = false; document.body.classList.add("con-panel");
-  pintarPanel();
-  if(location.hash !== "#f" + (fi + 1)) history.replaceState(null, "", "#f" + (fi + 1));
-  window.scrollTo({top:0});
-  $("#pCerrar").focus({preventScroll:true});
-}
-function cerrar(){
-  if($("#panel").hidden) return;
-  var fi = actual.f;
-  $("#panel").hidden = true; document.body.classList.remove("con-panel");
-  actual = {f:-1, p:0}; marcarPaso(null);
-  history.replaceState(null, "", "#funcionamientos");
-  var b = document.querySelector('.tarjeta[data-f="' + fi + '"]'); if(b) b.focus();
-}
-$("#pCuerpo").addEventListener("click", function(e){ var b = e.target.closest("[data-p]"); if(b){ actual.p = +b.getAttribute("data-p"); pintarPanel(); } });
-$("#pAnt").addEventListener("click", function(){ if(actual.p > 0){ actual.p--; pintarPanel(); } });
-$("#pSig").addEventListener("click", function(){ if(actual.p < FUNC[actual.f].pasos.length - 1){ actual.p++; pintarPanel(); } });
-$("#pCerrar").addEventListener("click", cerrar);
-document.addEventListener("keydown", function(e){
-  if($("#panel").hidden) return;
-  if(e.key === "Escape") cerrar();
-  else if(e.key === "ArrowRight" || e.key === "ArrowDown"){ if(/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return; e.preventDefault(); $("#pSig").click(); }
-  else if(e.key === "ArrowLeft" || e.key === "ArrowUp"){ if(/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return; e.preventDefault(); $("#pAnt").click(); }
-});
-mapa.addEventListener("click", function(e){
-  var g = e.target.closest(".m-nodo"); if(!g || actual.f >= 0) return;
-  var id = g.getAttribute("data-id");
-  var fi = FUNC.findIndex(function(f){ return f.pasos.some(function(p){ return (p.e || []).some(function(x){ return x[0] === id || x[1] === id; }); }); });
-  if(fi >= 0) abrir(fi, FUNC[fi].pasos.findIndex(function(p){ return (p.e || []).some(function(x){ return x[0] === id || x[1] === id; }); }));
-});
-
-/* ================================================================ pestañas y modos */
+/* ================================================================ pestañas */
+var MG = window.ModelosGerencias;
 function vista(cual){
   var capas = cual === "capas";
   $("#tabCapas").setAttribute("aria-selected", capas); $("#tabFunc").setAttribute("aria-selected", !capas);
   $("#vCapas").hidden = !capas; $("#vFunc").hidden = capas;
-  if(capas) cerrar();
 }
 $("#tabCapas").addEventListener("click", function(){ vista("capas"); history.replaceState(null, "", "#capas"); });
-$("#tabFunc").addEventListener("click", function(){ vista("func"); history.replaceState(null, "", "#funcionamientos"); });
+$("#tabFunc").addEventListener("click", function(){ vista("func"); history.replaceState(null, "", "#funcionamiento"); });
 
-pila(); dibujarMapa(); tarjetas();
-var h0 = location.hash.replace("#", "");
-var mf = /^f(\d+)$/.exec(h0);
-if(mf && FUNC[+mf[1] - 1]){ vista("func"); abrir(+mf[1] - 1, 0); }
-else if(h0 === "funcionamientos"){ vista("func"); }
-else vista("capas");
+pila();
+// #<gerencia> abre su modelo; #funcionamiento, y las rutas viejas #funcionamientos y #fN, la pestaña
+function enrutar(){
+  var h0 = location.hash.replace("#", "");
+  if(MG && MG.ids.indexOf(h0) >= 0){ vista("func"); MG.pintar(h0, false); window.scrollTo({top:0}); }
+  else if(/^(funcionamientos?|f\d+)$/.test(h0)){ vista("func"); }
+  else vista("capas");
+}
+if(MG) MG.pintar(MG.ids[0], false);
+enrutar();
+window.addEventListener("hashchange", enrutar);
 })();
 </script>
 </body>
