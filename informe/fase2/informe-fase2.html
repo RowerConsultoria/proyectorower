@@ -296,6 +296,19 @@
   .md-pie{margin:6px 0 18px;font-size:11.5px;line-height:1.6;color:var(--tinta-tenue);max-width:100ch}
   .md-pie a{color:var(--cian)}
 
+  /* ── política de uso del manual (#/politica-manual) ── datos en politica-manual-datos.js ── */
+  .pm-capa{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-tenue);margin:14px 0 2px}
+  .pm-capa:first-child{margin-top:2px}
+  .pm-lista{margin:6px 0 14px;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+  .pm-lista li{font-size:13px;line-height:1.55;color:var(--tinta)}
+  .pm-sec a.pm-ref,.f2-sec a.pm-ref{color:var(--cian);text-decoration:none;border-bottom:1px dotted currentColor}
+  .pm-sec a.pm-ref:hover,.f2-sec a.pm-ref:hover{border-bottom-style:solid}
+  .pm-nota{margin:4px 0 14px;padding:12px 16px;border-radius:var(--r-tarjeta);font-size:13px;line-height:1.6;
+    background:var(--realce);border:1px solid var(--borde);border-left:5px solid var(--cian);color:var(--tinta)}
+  .pm-nota b.pm-nota-t{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-media);margin-bottom:4px}
+  table.pm-matriz td:not(:first-child),table.pm-matriz th:not(:first-child){text-align:center}
+  table.pm-matriz td:first-child{min-width:190px}
+
   /* ── flujograma embebido ── */
   .fx-marco{position:relative;margin:6px 0 16px;border:1px solid var(--borde);border-radius:var(--r-tarjeta);background:var(--panel);overflow:hidden}
   .fx-scroll{overflow:auto;padding:10px}
@@ -1375,6 +1388,7 @@
 <script src="manual-asis.js"></script>
 <script src="mapa-procesos-flujos.js"></script>
 <script src="madurez-datos.js"></script>
+<script src="politica-manual-datos.js"></script>
 <script src="flujo-render.js"></script>
 <script src="agente.js"></script>
 <script src="circuito-datos.js"></script>
@@ -1473,7 +1487,7 @@
   }
 
   // ---------- sidenav ----------
-  // Puntos desplegables del índice (1, 2 y 2.3): abiertos salvo que el usuario los haya cerrado
+  // Puntos desplegables del índice (1, 2 y 2.4): abiertos salvo que el usuario los haya cerrado
   function ixId(k){ return 'navix-' + k.replace('.', '-'); }
   function ixAbierta(k){ return leerAbiertos()['ix:'+k] !== false; }
   function ixBoton(k, texto, cls){
@@ -1498,7 +1512,8 @@
     h += '<div class="f2-ix-sec">' + ixBoton('2', 'Procesos', 'f2-ix-tit') + ixCuerpo('2', '');
     h += '<a class="f2-navhome f2-navtemporal" href="#/madurez" id="navMadurez"><span class="f2-ix-num">2.1</span>Madurez documental</a>';
     h += '<a class="f2-navhome f2-navtemporal" href="#/circuito" id="navCircuito"><span class="f2-ix-num">2.2</span>Circuito del negocio «As-Is»</a>';
-    h += ixBoton('2.3', 'Manual de procesos', 'f2-ix-sub') + ixCuerpo('2.3', 'f2-ix-manual');
+    h += '<a class="f2-navhome f2-navtemporal" href="#/politica-manual" id="navPolitica"><span class="f2-ix-num">2.3</span>Política de uso del Manual de Procesos</a>';
+    h += ixBoton('2.4', 'Manual de procesos', 'f2-ix-sub') + ixCuerpo('2.4', 'f2-ix-manual');
     h += '<a class="f2-navhome" href="#/mapa" id="navMapa">Mapa de procesos</a>';
     D.categorias.forEach(function(cat){
       var ms = D.macros.filter(function(m){return m.cat===cat.id;});
@@ -1527,8 +1542,8 @@
       });
       h += '</div></div>';
     });
-    h += '</div>';   // cierra 2.3 Manual de procesos
-    h += '<a class="f2-navhome f2-navtemporal" href="instructivo-comite.html" id="navInstructivo"><span class="f2-ix-num">2.4</span>Instructivo para el comité de validación de procesos</a></div></div>';
+    h += '</div>';   // cierra 2.4 Manual de procesos
+    h += '<a class="f2-navhome f2-navtemporal" href="instructivo-comite.html" id="navInstructivo"><span class="f2-ix-num">2.5</span>Instructivo para el comité de validación de procesos</a></div></div>';
     h += '<div class="f2-ix-sec"><a class="f2-ix-tit" href="#/arquitectura" id="navArquitectura"><span class="f2-ix-num">3</span>Arquitectura de IA</a></div>';
     nav.innerHTML = h;
 
@@ -1575,7 +1590,7 @@
   }
 
   function abrirBandaDe(m){
-    ['2', '2.3'].forEach(function(k){
+    ['2', '2.4'].forEach(function(k){
       if(leerAbiertos()['ix:'+k] !== undefined) return;
       var b = nav.querySelector('.f2-ix-btn[data-ix="'+k+'"]'), body = $('#'+ixId(k));
       if(body) body.hidden = false; if(b) b.setAttribute('aria-expanded', true);
@@ -1592,6 +1607,7 @@
     nav.querySelectorAll('.f2-msub a.on').forEach(function(n){n.classList.remove('on');});
     $('#navInicio').classList.toggle('on', tipo==='inicio');
     var nm = $('#navMadurez'); if(nm) nm.classList.toggle('on', tipo==='madurez');
+    var np = $('#navPolitica'); if(np) np.classList.toggle('on', tipo==='politica');
     if(tipo==='macro'){
       var r = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(id)+'"]');
       if(r) r.classList.add('on');
@@ -1792,6 +1808,64 @@
     document.title = 'Madurez documental — Fase 2 | Proyecto Rower';
     if(spy) spy.disconnect();
     main.scrollTop = 0;
+  }
+  // ---------- vista: política de uso del manual (#/politica-manual[/<artículo>]) ----------
+  // Declaración, artículos con dos capas (qué establece · cómo se cumple) y anexos.
+  // El contenido vive en politica-manual-datos.js; los artículos se pliegan como
+  // las secciones del manual (clave 'pol:<id>').
+  function polLinea(s){
+    return negrita(esc(s)).replace(/\[\[(\w+):([^\]|]+)(?:\|([^\]]+))?\]\]/g, function(_, tipo, id, txt){
+      id = id.trim(); txt = txt && txt.trim();
+      var ruta = { proc:'#/tobe/'+id, macro:'#/m/'+id, sec:'#/politica-manual/'+id }[tipo];
+      var texto = txt || (tipo==='proc' ? 'proceso '+id : id);
+      return ruta ? '<a class="pm-ref" href="'+esc(ruta)+'">'+texto+'</a>' : texto;   // doc: se nombra, sin enlace
+    });
+  }
+  function polBloque(b){
+    if(typeof b === 'string') return '<p class="f2-prosa">'+polLinea(b)+'</p>';
+    switch(b.t){
+      case 'p': return '<p class="f2-prosa">'+polLinea(b.x)+'</p>';
+      case 'h': return '<div class="f2-subtit">'+polLinea(b.x)+'</div>';
+      case 'lista':
+        var tag = b.num ? 'ol' : 'ul';
+        return '<'+tag+' class="pm-lista">'+b.items.map(function(i){ return '<li>'+polLinea(i)+'</li>'; }).join('')+'</'+tag+'>';
+      case 'tabla':
+        return '<div class="f2-tabla-wrap"><table class="f2-tabla'+(b.cab.length>3?' pm-matriz':'')+'"><thead><tr>'+
+          b.cab.map(function(c){ return '<th>'+polLinea(c)+'</th>'; }).join('')+'</tr></thead><tbody>'+
+          b.filas.map(function(f){ return '<tr>'+f.map(function(c, i){ return '<td>'+(i===0?'<b>'+polLinea(c)+'</b>':polLinea(c))+'</td>'; }).join('')+'</tr>'; }).join('')+
+          '</tbody></table></div>';
+      case 'nota':
+        return '<div class="pm-nota">'+(b.titulo?'<b class="pm-nota-t">'+polLinea(b.titulo)+'</b>':'')+polLinea(b.x||'')+'</div>';
+    }
+    return '';
+  }
+  function vistaPolitica(secId){
+    var P = window.POLITICA_MANUAL;
+    if(!P) return vistaInicio();
+    var rotulo = function(s){ return s.num ? 'Art. '+s.num : s.titulo; };
+    var h = '<div class="f2-kicker">Grupo Kenex · Fase 2 · Procesos</div>';
+    h += '<h1 class="f2-h1">'+siglas(esc(P.titulo))+'</h1>';
+    h += '<p class="f2-lead">'+polLinea(P.lede)+'</p>';
+    h += '<div class="f2-meta"><span class="chip" style="cursor:default">Versión '+esc(P.version)+' · '+esc(P.corte)+'</span>'+
+         '<span class="chip" style="cursor:default">Para aprobación de la Junta Directiva</span></div>';
+    h += '<div class="f2-riel">'+P.secciones.map(function(s){
+      return '<a href="#sec-'+esc(s.id)+'" title="'+esc((s.num?'Artículo '+s.num+'. ':'')+s.titulo)+'">'+esc(rotulo(s))+'</a>';
+    }).join('')+'</div>';
+    P.secciones.forEach(function(s){
+      h += secAbre('pol', s.id, '', (s.num ? 'Artículo '+s.num+'. ' : '')+s.titulo);
+      if(s.bloques) h += s.bloques.map(polBloque).join('');
+      else {
+        h += '<div class="pm-capa">'+esc(P.capas.que)+'</div>'+s.que.map(polBloque).join('');
+        h += '<div class="pm-capa">'+esc(P.capas.como)+'</div>'+s.como.map(polBloque).join('');
+      }
+      h += SEC_CIERRA;
+    });
+    h += '<div style="margin:18px 0 20px;display:flex;flex-wrap:wrap;gap:8px"><a class="btn btn-marca" href="#/m/20">Ver el macroproceso 20 · Gestión de Procesos y Mejora Continua →</a></div>';
+    doc.innerHTML = h;
+    marcarNav('politica');
+    document.title = P.titulo+' — Fase 2 | Proyecto Rower';
+    activarSpy();
+    irASeccion(secId);
   }
   function kpi(v,r,p,cls){return '<div class="f2-kpi'+(cls?' '+cls:'')+'"><div class="kr">'+esc(r)+'</div><div class="kv">'+esc(v)+'</div>'+(p?'<div class="kp">'+esc(p)+'</div>':'')+'</div>';}
   function est(o){return (o&&o.estado)||'pendiente';}
@@ -2434,6 +2508,7 @@
     salirMapa();
     if(!parts.length) return vistaInicio();
     if(parts[0]==='madurez') return vistaMadurez();
+    if(parts[0]==='politica-manual') return vistaPolitica(parts[1]);
     if(parts[0]==='m') return vistaMacro(parts[1], parts[2]);
     if(parts[0]==='p'){
       // Con As-Is, entrar al proceso ofrece elegir versión. Un enlace con sección
