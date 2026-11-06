@@ -273,6 +273,25 @@
   .f2-subtit{font-size:12px;font-weight:700;color:var(--tinta-media);margin:16px 0 4px;text-transform:uppercase;letter-spacing:.06em}
   .f2-subtit:first-child{margin-top:2px}
 
+  /* ── decisiones pendientes en la estructura (#/decisiones-estructura) ── */
+  .dp-kpis{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 14px}
+  .dp-kpis a{display:flex;flex-direction:column;gap:2px;min-width:170px;padding:10px 14px;border:1px solid var(--borde);border-radius:12px;
+    background:var(--panel);color:var(--tinta-media);font-size:12.5px;text-decoration:none}
+  .dp-kpis a:hover{border-color:var(--riesgo)}
+  .dp-kpis b{font-size:24px;line-height:1.1;color:var(--riesgo)}
+  .dp-h2{margin:30px 0 8px;font-size:17px;color:var(--tinta)}
+  .dp-h2 small{display:block;margin-top:2px;font-size:12px;font-weight:500;color:var(--tinta-tenue)}
+  .dp-h3{margin:18px 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .dp-item{margin:0 0 10px;padding:10px 14px;border:1px solid var(--borde);border-left:3px solid var(--riesgo);border-radius:10px;background:var(--panel)}
+  .dp-item.dp-gen{border-left-color:var(--alerta)}
+  .dp-cab{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:14px;font-weight:650}
+  .dp-niv{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-tenue)}
+  .dp-rep{font-size:12px;font-weight:400;color:var(--tinta-tenue)}
+  .dp-item ul{margin:6px 0 0;padding-left:18px}
+  .dp-item li,.dp-item p{margin:3px 0 0;font-size:13.5px;line-height:1.5;color:var(--tinta)}
+  .dp-tabla td small{display:block;font-size:11px;color:var(--tinta-tenue)}
+  .eo-declink{font-size:12.5px;font-weight:600;color:var(--riesgo)}
+  .eo-dech{margin:16px 0 6px;color:var(--riesgo)}
   /* ── madurez documental (#/madurez) ── datos en madurez-datos.js ── */
   .md-premisa{margin:4px 0 16px;padding:12px 16px;border-radius:var(--r-tarjeta);font-size:13px;line-height:1.6;
     background:rgba(255,201,74,.08);border:1px solid rgba(255,201,74,.3);border-left:5px solid var(--alerta);color:var(--tinta)}
@@ -666,6 +685,17 @@
     transition:border-color var(--rapido) var(--curva),box-shadow var(--rapido) var(--curva),opacity var(--rapido) var(--curva);
   }
   .eo-card:hover{border-color:var(--tinta-tenue)}
+  /* decisión por tomar (06-nov-2026): borde y distintivo rojos; el detalle va en la ficha */
+  .eo-card.eo-decide{border-color:var(--riesgo);box-shadow:0 0 0 1px var(--riesgo),var(--sombra)}
+  .eo-card.eo-decide.eo-sel{box-shadow:0 0 0 2px var(--cian),0 0 0 4px var(--riesgo),var(--sombra)}
+  .eo-dec{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;margin-bottom:3px;padding:1px 7px 1px 2px;
+    border-radius:var(--r-pildora);border:1px solid var(--riesgo);color:var(--riesgo);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .eo-dec i{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;
+    background:var(--riesgo);color:var(--panel);font-style:normal;font-size:10px;letter-spacing:0}
+  .eo-c-ceo .eo-dec{align-self:center}
+  .eo-decbloque{border-left:3px solid var(--riesgo);padding-left:10px}
+  .eo-decbloque > h4{color:var(--riesgo)}
+  .eo-lsw.eo-sw-dec{height:10px;width:16px;border-radius:3px;background:transparent;border:2px solid var(--riesgo)}
   .eo-card:focus-visible,.eo-comite:focus-visible{outline:2px solid var(--cian);outline-offset:2px}
   .eo-card.eo-sel{border-color:var(--cian);box-shadow:0 0 0 2px var(--cian),var(--sombra)}
   .eo-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-tenue)}
@@ -937,6 +967,11 @@
   .eo-c-n3.eo-pila-4{box-shadow:5px 5px 0 -1px var(--panel-alto),5px 5px 0 0 var(--borde),10px 10px 0 -1px var(--panel-alto),10px 10px 0 0 var(--borde),15px 15px 0 -1px var(--panel-alto),15px 15px 0 0 var(--borde),var(--sombra)}
   .eo-c-n3.eo-sel{box-shadow:0 0 0 2px var(--cian),var(--sombra)}
   .eo-pwrap + .eo-c-coord,.eo-pwrap-coord{margin-top:2px}
+  /* dos o más coordinaciones país: en fila debajo de su gerencia país (06-nov-2026) */
+  .eo-pcoords{display:flex;gap:14px;align-items:flex-start;justify-content:center;margin-top:22px}
+  .eo-pcoords > .eo-pwrap-coord{flex:none;width:196px;max-width:none;margin-top:0}
+  .eo-pcoords .eo-c-coord{width:100%;margin:0}
+  .eo-pcoords > .eo-pexpand{flex:none}
   .eo-c-n3 .eo-pcod{width:auto;min-width:19px;padding:0 4px;border-radius:4px;background:var(--realce);color:var(--tinta);text-align:center}
   @media (max-width:820px){
     .eo-panel{left:0;right:0;top:auto;bottom:0;width:100%;max-width:none;max-height:62%;border-radius:18px 18px 0 0}
@@ -1508,11 +1543,12 @@
     h += '<p class="f2-ix-nota"><i aria-hidden="true"></i><span>Los puntos en naranja son transitorios mientras el equipo consultor consolida la entrega y las validaciones de los productos.</span></p>';
     h += '<a class="f2-navhome f2-navtemporal" href="presentacion-validacion.html" id="navPresentacion">Presentación validación de la estructura organizacional y procesos</a>';
     h += '<div class="f2-ix-sec">' + ixBoton('1', 'Estructura organizativa', 'f2-ix-tit') + ixCuerpo('1', '') +
-         '<a class="f2-navhome" href="#/estructura" id="navEstructura"><span class="f2-ix-num">1.1</span>Estructura organizativa To-Be</a></div></div>';
+         '<a class="f2-navhome" href="#/estructura" id="navEstructura"><span class="f2-ix-num">1.1</span>Estructura organizativa To-Be</a>' +
+         '<a class="f2-navhome f2-navtemporal" href="#/decisiones-estructura" id="navDecisiones"><span class="f2-ix-num">1.2</span>Decisiones pendientes en estructura To-Be</a></div></div>';
     h += '<div class="f2-ix-sec">' + ixBoton('2', 'Procesos', 'f2-ix-tit') + ixCuerpo('2', '');
     h += '<a class="f2-navhome f2-navtemporal" href="#/madurez" id="navMadurez"><span class="f2-ix-num">2.1</span>Madurez documental</a>';
     h += '<a class="f2-navhome f2-navtemporal" href="#/circuito" id="navCircuito"><span class="f2-ix-num">2.2</span>Circuito del negocio «As-Is»</a>';
-    h += '<a class="f2-navhome f2-navtemporal" href="#/politica-manual" id="navPolitica"><span class="f2-ix-num">2.3</span>Política de uso del Manual de Procesos</a>';
+    h += '<a class="f2-navhome" href="#/politica-manual" id="navPolitica"><span class="f2-ix-num">2.3</span>Política de uso del Manual de Procesos</a>';
     h += ixBoton('2.4', 'Manual de procesos', 'f2-ix-sub') + ixCuerpo('2.4', 'f2-ix-manual');
     h += '<a class="f2-navhome" href="#/mapa" id="navMapa">Mapa de procesos</a>';
     D.categorias.forEach(function(cat){
@@ -1607,6 +1643,7 @@
     nav.querySelectorAll('.f2-msub a.on').forEach(function(n){n.classList.remove('on');});
     $('#navInicio').classList.toggle('on', tipo==='inicio');
     var nm = $('#navMadurez'); if(nm) nm.classList.toggle('on', tipo==='madurez');
+    var nd = $('#navDecisiones'); if(nd) nd.classList.toggle('on', tipo==='decisiones');
     var np = $('#navPolitica'); if(np) np.classList.toggle('on', tipo==='politica');
     if(tipo==='macro'){
       var r = nav.querySelector('.f2-mrow[data-pref="'+CSS.escape(id)+'"]');
@@ -1772,6 +1809,86 @@
     });
   }
 
+  // ---------- vista: decisiones pendientes en la estructura To-Be (#/decisiones-estructura) ----------
+  // Punto 1.2 del índice (06-nov-2026). Todo sale del dato de la estructura vigente: las
+  // decisiones de cada unidad (campo «decisiones», marcadas en rojo en el organigrama), las
+  // generales (PENDIENTES, sin caja propia) y las posiciones «Por definir», que también piden
+  // decidir: dejarlas en espera, salir a buscar a quien las ocupe o cubrirlas con alguien del grupo.
+  function vistaDecisionesEstructura(){
+    var E = window.ESTRUCTURA_TOBE;
+    if(!E) return vistaInicio();
+    var NIV = {n2:'Gerencia corporativa', n3:'Gerencia país', coord:'Coordinación país', ccorp:'Coordinación corporativa', gun:'Gerencia de unidad de negocio'};
+    var paisN = {}; (E.PAISES || []).forEach(function(p){ paisN[p.id] = p.n; });
+    var lnk = function(u){ return '<a href="#/estructura/'+encodeURIComponent(u.id)+'">'+esc(u.n)+'</a>'; };
+    var nivelDe = function(u, esDir){
+      if(u === E.CEO) return 'Presidencia';
+      if(esDir) return u.nivel === 'n2' ? 'Gerencia corporativa · staff' : 'Dirección corporativa';
+      if(u.etiqueta) return u.etiqueta;
+      return NIV[u.nivel] || '';
+    };
+    var grupos = [], vacantes = [];
+    var anota = function(u, padre, esDir, g){
+      var pd = function(o, donde){ if(o && o.estado === 'pordefinir') vacantes.push({u:u, donde:donde, padre:padre, grupo:g.t}); };
+      pd(u.ocupante, '');
+      (u.ocupantes || []).forEach(function(o){ pd(o, ''); });
+      (u.marcas || []).forEach(function(o){ pd(o, o.marca); });
+      if(u.paises) Object.keys(u.paises).forEach(function(p){ pd(u.paises[p], paisN[p] || p); });
+      if(u.decisiones && u.decisiones.length) g.items.push({u:u, padre:padre, esDir:esDir});
+    };
+    var gCima = {t:'Presidencia y sus unidades', items:[]};
+    anota(E.CEO, null, false, gCima);
+    (E.STAFF || []).forEach(function(u){ anota(u, E.CEO, false, gCima); });
+    grupos.push(gCima);
+    (E.DIRECCIONES || []).forEach(function(dr){
+      var g = {t:dr.n, items:[]};
+      (function baja(u, padre, esDir){
+        anota(u, padre, esDir, g);
+        (u.hijos || []).forEach(function(h){ baja(h, u, false); });
+      })(dr, E.CEO, true);
+      grupos.push(g);
+    });
+    var nU = 0, nD = 0;
+    grupos.forEach(function(g){ g.items.forEach(function(it){ nU++; nD += it.u.decisiones.length; }); });
+    var gen = E.PENDIENTES || [];
+
+    var h = '<div class="f2-kicker">Grupo Kenex · Fase 2 · estructura organizativa · corte '+esc(E.corte || '')+'</div>';
+    h += '<h1 class="f2-h1">decisiones pendientes en estructura to-be</h1>';
+    h += '<p class="f2-prosa">Lo que el liderazgo tiene que decidir antes de dar la estructura por cerrada. Se reúne aquí para llevarlo a la reunión con la Presidencia y luego a la Junta Directiva. '+
+         'Las decisiones de una unidad van marcadas en rojo en su caja del organigrama; las generales no tienen una caja propia; y cada posición «Por definir» pide también una decisión.</p>';
+    h += '<div class="dp-kpis">'+
+           '<a href="#dp-unidades"><b>'+nD+'</b>decisiones en '+nU+' unidades</a>'+
+           '<a href="#dp-generales"><b>'+gen.length+'</b>decisiones generales</a>'+
+           '<a href="#dp-vacantes"><b>'+vacantes.length+'</b>posiciones por definir</a>'+
+         '</div>';
+    h += '<p><a class="btn btn-marca" href="#/estructura">Ver el organigrama →</a></p>';
+
+    h += '<h2 class="dp-h2" id="dp-unidades">1 · En las unidades <small>marcadas en rojo en el organigrama</small></h2>';
+    grupos.forEach(function(g){
+      if(!g.items.length) return;
+      h += '<h3 class="dp-h3">'+esc(g.t)+'</h3>';
+      g.items.forEach(function(it){
+        h += '<div class="dp-item"><div class="dp-cab"><span class="dp-niv">'+esc(nivelDe(it.u, it.esDir))+'</span>'+lnk(it.u)+
+             (it.padre ? '<span class="dp-rep">reporta a '+esc(it.padre.n)+'</span>' : '')+'</div>'+
+             '<ul>'+it.u.decisiones.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul></div>';
+      });
+    });
+
+    h += '<h2 class="dp-h2" id="dp-generales">2 · Generales <small>sin una caja propia en el organigrama</small></h2>';
+    gen.forEach(function(p){ h += '<div class="dp-item dp-gen"><div class="dp-cab"><b>'+esc(p.t)+'</b></div><p>'+esc(p.d)+'</p></div>'; });
+
+    h += '<h2 class="dp-h2" id="dp-vacantes">3 · Posiciones por definir <small>dejar en espera · salir a buscar · cubrir con alguien del grupo</small></h2>';
+    h += '<p class="f2-prosa">Cada posición sin titular confirmado pide una de tres decisiones: dejarla en espera mientras no haga falta, salir a buscar a quien la ocupe o cubrirla con alguien del grupo. En el organigrama se resaltan con el botón «Resaltar abiertas».</p>';
+    h += '<div class="f2-tabla-wrap"><table class="f2-tabla dp-tabla"><thead><tr><th>Posición</th><th>País o marca</th><th>Reporta a</th><th>Área</th></tr></thead><tbody>';
+    vacantes.forEach(function(v){
+      h += '<tr><td>'+lnk(v.u)+'<small>'+esc(nivelDe(v.u, (E.DIRECCIONES || []).indexOf(v.u) >= 0))+'</small></td><td>'+esc(v.donde || '—')+'</td><td>'+esc(v.padre ? v.padre.n : '—')+'</td><td>'+esc(v.grupo)+'</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    doc.innerHTML = h;
+    marcarNav('decisiones');
+    document.title = 'Decisiones pendientes en estructura To-Be — Fase 2 | Proyecto Rower';
+    if(spy) spy.disconnect();
+    main.scrollTop = 0;
+  }
   // ---------- vista: madurez documental (#/madurez) ----------
   // El punto de partida de la validación: sostiene la premisa central de la
   // lámina 2 de la presentación. El contenido vive en madurez-datos.js.
@@ -2508,6 +2625,7 @@
     salirMapa();
     if(!parts.length) return vistaInicio();
     if(parts[0]==='madurez') return vistaMadurez();
+    if(parts[0]==='decisiones-estructura') return vistaDecisionesEstructura();
     if(parts[0]==='politica-manual') return vistaPolitica(parts[1]);
     if(parts[0]==='m') return vistaMacro(parts[1], parts[2]);
     if(parts[0]==='p'){

@@ -6,8 +6,9 @@ Proyecto Rower — UCAB Consultores para Grupo Kenex.
 Entrada  : Insumos/mapa-procesos-kennex-v18.json   (mapa validado, N0 + N1, sin N2)
 Salida   : informe/fase2/manual-procesos-datos.js  (fuente única del módulo)
 
-El guion NO inventa contenido: proyecta el árbol del mapa (20 macroprocesos /
-182 procesos) al esquema que consume el módulo, deja la ficha de cada proceso
+El guion NO inventa contenido: proyecta el árbol del mapa (20 macroprocesos;
+186 procesos desde el 06-nov-2026, cuando el macro 16 sumó los cuatro de Diseño y
+Marca) al esquema que consume el módulo, deja la ficha de cada proceso
 tal como viene del mapa (estado «semilla») y marca todo lo demás «pendiente».
 El contenido real de cada sección lo llenará después el pipeline de manuales.
 
@@ -193,7 +194,8 @@ def main():
     cab = (
         "// Fuente única del módulo «Fase 2 — Procesos» del aplicativo.\n"
         "// GENERADO por scripts/generar-armazon-fase2.py desde el mapa v18 — NO editar a mano.\n"
-        "// El árbol (20 macroprocesos / 182 procesos) y la ficha de cada proceso vienen\n"
+        "// El árbol (%d macroprocesos / %d procesos) y la ficha de cada proceso vienen\n"
+        % (datos["meta"]["totales"]["macroprocesos"], datos["meta"]["totales"]["procesos"]) +
         "// del mapa validado; el contenido de las secciones lo llena el pipeline de manuales.\n"
         "window.MANUAL_FASE2 = "
     )

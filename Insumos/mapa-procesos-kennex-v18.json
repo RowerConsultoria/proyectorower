@@ -6,7 +6,7 @@
     "niveles": "N0 (macroprocesos) y N1 (procesos). No incluye N2 (procedimientos): quedaron fuera del alcance de Fase 2.",
     "totales": {
       "macroprocesos": 20,
-      "procesos": 182,
+      "procesos": 186,
       "porCategoria": {
         "estrategico": {
           "macroprocesos": 5,
@@ -18,15 +18,16 @@
         },
         "soporte": {
           "macroprocesos": 9,
-          "procesos": 70
+          "procesos": 74
         }
       },
       "porMadurez": {
         "híbrido": 90,
-        "to-be": 35,
+        "to-be": 39,
         "as-is": 57
       }
-    }
+    },
+    "revision": "06-nov-2026: macro 16 «Gestión de Mercadeo, Marca y Comunicaciones» con cuatro procesos nuevos de la Dirección de Diseño y Marca (16.9 a 16.12) y fichas alineadas a la estructura To-Be."
   },
   "macroprocesos": [
     {
@@ -210,7 +211,7 @@
           "participantes": [
             "Especialista de Marketing / Brand (rol en constitución)",
             "Coordinador(a) Comercial",
-            "Gerente Regional de Marketing",
+            "Analista de Insights y ROI",
             "Gerente Regional Comercial / Retail",
             "Especialista de Producto / Proyecto",
             "proveedor externo de data de sell-out (actor externo)"
@@ -286,7 +287,7 @@
           "alcance": "Construcción del calendario comercial del año: temporadas fuertes, ventanas de descuento por cambio de línea, campañas de alto volumen con cadenas, lanzamientos de producto y activaciones conjuntas con los clientes ancla de cada mercado, con la reserva de inventario y el presupuesto de apoyo que cada acción requiere.",
           "dueno": "Gerente Regional Comercial / Retail",
           "participantes": [
-            "Gerente Regional de Marketing",
+            "Gerente Corporativo(a) de Mercadeo",
             "Gerente Regional Comercial / Retail",
             "Gerente Regional Comercial / Retail",
             "Gerente de E-commerce / Ventas Web",
@@ -349,7 +350,7 @@
           "codigo": "3.1",
           "nombre": "Generación y evaluación de oportunidades de producto",
           "alcance": "Captación de la idea de producto desde sus tres fuentes —retroalimentación del equipo comercial en la calle, inteligencia de mercado y propuestas espontáneas de las fábricas—, evaluación preliminar de su encaje en el ecosistema de la marca y de su viabilidad técnica y comercial, y decisión colegiada de perseguirla, aplazarla o descartarla.",
-          "dueno": "Gerente Regional de Marketing",
+          "dueno": "Gerente Corporativo(a) de Mercadeo",
           "participantes": [
             "Especialista de Producto / Proyecto",
             "Gerente Regional Comercial / Retail",
@@ -386,13 +387,13 @@
           "codigo": "3.3",
           "nombre": "Diseño y especificación del producto",
           "alcance": "Traducción del brief en un producto especificado: diseño industrial propio o adaptación de la propuesta de la fábrica, definición de las especificaciones técnicas y de materiales, selección de colores y variantes con criterio de tendencia de temporada, y cierre del paquete de diseño que se envía a fábrica para muestra.",
-          "dueno": "Gerente Regional de Marketing",
+          "dueno": "Gerente de Diseño Industrial (Diseño y Marca)",
           "participantes": [
-            "Diseñador(a) / Analista de Contenido",
+            "Gerente de Diseño Industrial (Diseño y Marca)",
             "Especialista de Producto / Proyecto",
             "Especialista de Producto / Proyecto",
             "Gerente de Operaciones y Logística y Logística",
-            "Gerente Regional de Marketing (identidad de marca)",
+            "Gerente de Diseño Industrial (Diseño y Marca) (identidad de marca)",
             "fábrica (actor externo)"
           ],
           "cadencia": "Por producto; ciclo de tres meses o más entre el diseño cerrado y la salida al mercado",
@@ -444,10 +445,10 @@
           "alcance": "Ciclo de las colecciones bajo licencia de propiedad intelectual de terceros: selección de la licencia y de los personajes con base en el desempeño de las colecciones anteriores, propuesta de modelos y arte al licenciante, obtención de la aprobación, control de las condiciones de uso durante la producción, y tratamiento del producto que no obtiene aprobación.",
           "dueno": "Especialista de Producto / Proyecto",
           "participantes": [
-            "Gerente Regional de Marketing",
+            "Gerente Corporativo(a) de Mercadeo",
             "Coordinador(a) Comercial (desempeño de colecciones previas)",
-            "Diseñador(a) / Analista de Contenido",
-            "Gerente Regional de Marketing",
+            "Diseñador(a) (Diseño y Marca)",
+            "Gerente Corporativo(a) de Mercadeo",
             "Asesor(a) Jurídico(a) Externo(a) del Grupo",
             "licenciante (actor externo)"
           ],
@@ -521,10 +522,10 @@
           "dueno": "Gerente de Proyectos",
           "participantes": [
             "Gerente de Proyectos (PMO)",
-            "Gerente Regional de Marketing",
+            "Gerente Corporativo(a) de Mercadeo",
             "Especialista de Producto / Proyecto",
-            "Gerente Regional de Marketing",
-            "Gerente Regional de Visual Merchandising",
+            "Gerente Corporativo(a) de Mercadeo",
+            "Gerente de Visual Merchandising",
             "Gerente Regional Comercial / Retail",
             "Gerente Regional Comercial / Retail",
             "Subgerente de Servicio Técnico"
@@ -947,7 +948,7 @@
           "dueno": "Auxiliar / Ayudante de Bodega y Tráfico",
           "participantes": [
             "Supervisor(a) de Bodega / Despacho",
-            "Coordinador(a) de Marca (solicitante frecuente)",
+            "Coordinador(a) de Marca (país) (solicitante frecuente)",
             "Subgerente de Servicio Técnico (solicitante frecuente)",
             "Supervisor de Ventas (solicitante para urgencias)",
             "Gerente de Operaciones y Logística y Logística (aprobación para traslados entre tiendas)"
@@ -1109,7 +1110,7 @@
           "dueno": "Coordinador(a) de Ventas Mayor país con línea a Casio (en VE hoy lo atiende Coordinador Ventas)",
           "participantes": [
             "Franquiciado (dueño de la tienda)",
-            "Gerente Regional de Marketing (a contratar)",
+            "Gerente Corporativo(a) de Mercadeo (a contratar)",
             "Marketing y Visual (materiales)",
             "Legal (contrato)",
             "Casio (aprobación de presupuestos de apoyo)"
@@ -1160,7 +1161,7 @@
           "codigo": "8.11",
           "nombre": "Gestión de línea blanca / marca privada",
           "alcance": "Cliente (Reebok, La Baza, Drija) solicita fabricación de audífono, headphone, termo o bocina con su propia marca; se le diseña y muestra el producto, se aprueba la muestra, firma proforma, se produce, se le vende y despacha. Flujo completo desde brief comercial hasta entrega, con involucramiento intensivo del área de desarrollo de producto por el lado de sourcing. Facturación año pasado aproximadamente 2M USD (siete cifras). Es un negocio de costado que se trae al portafolio.",
-          "dueno": "Gerente Regional Comercial / Retail como generador y cerrador; Gerente Regional de Marketing como responsable del componente de desarrollo de producto y sourcing en China",
+          "dueno": "Gerente Regional Comercial / Retail como generador y cerrador; Gerente de Diseño Industrial (Diseño y Marca) como responsable del componente de desarrollo de producto y sourcing en China",
           "participantes": [
             "Cliente marca-blanca",
             "Desarrollo de producto (diseño, muestra)",
@@ -1420,8 +1421,8 @@
             "Gerente Regional Comercial / Retail",
             "Supervisor de Ventas (PA)",
             "Gerente Comercial (País / Canal) al Detal (País) (País) (País) (VE)",
-            "Gerente Regional de Visual Merchandising",
-            "Coordinador(a) de Visual Merchandising",
+            "Gerente de Visual Merchandising",
+            "Coordinador(a) de Visual Merchandising (país)",
             "Arquitecto (proveedor externo)",
             "Gerente de Recursos Humanos",
             "Coordinador(a) de Tesorería / Cobranzas / Cobranzas",
@@ -1440,7 +1441,7 @@
           "alcance": "Adecuación planificada de puntos de venta existentes: cambio de iluminación blanca/azul a cálida, cambio de paneles, incorporación de mobiliario boutique Casio, intervención de piso o vitrinas dañadas, alineación con nuevo estándar visual regional. Se agrupan intervenciones múltiples para no intervenir dos veces la misma sala. Proveedor de aperturas suele ejecutar remodelaciones.",
           "dueno": "Gerente Regional Comercial / Retail (define estándar y prioriza cola)",
           "participantes": [
-            "Gerente Regional de Visual Merchandising",
+            "Gerente de Producción (Diseño y Marca)",
             "Gerente Comercial (País / Canal) al Detal (País) (País) (País) (por país)",
             "Supervisor de Ventas",
             "Arquitecto/Proveedor de Remodelación",
@@ -1460,7 +1461,7 @@
           "participantes": [
             "Gerente Regional Comercial / Retail",
             "Gerente Regional Comercial / Retail (mantiene compra y negociación bajo estándares regionales)",
-            "Gerente Regional de Visual Merchandising",
+            "Gerente de Visual Merchandising",
             "Coordinador(a) de Recursos Humanos",
             "Legal Corporativo",
             "Planificador Financiero"
@@ -1481,7 +1482,7 @@
             "Gerente Regional Comercial / Retail",
             "Planificador Financiero",
             "Analista de Sistemas / Datos",
-            "Gerente Regional de Visual Merchandising"
+            "Gerente de Visual Merchandising"
           ],
           "cadencia": "Mensual (revisión P&L por tienda-partner); trimestral (revisión de acuerdos comerciales)",
           "disparador": "Cierre mensual de P&L; señal negativa en KPIs de tienda-partner que dispara renegociación; oportunidad de expansión con nuevo partner",
@@ -1632,7 +1633,7 @@
           "participantes": [
             "Gerente Regional Comercial / Retail",
             "Planificador Financiero",
-            "Gerente Regional de Marketing (planificación de pauta digital)",
+            "Gerente Corporativo(a) de Mercadeo (planificación de pauta digital)",
             "Supervisor(a) de Operaciones E-commerce (Colombia)",
             "Analista de Sistemas / Datos"
           ],
@@ -1650,9 +1651,9 @@
           "participantes": [
             "Gerente Comercial (País / Canal) (Marca Propia para Cubitt USA",
             "Comercial Regional para LATAM)",
-            "Gerente Regional de Marketing",
+            "Gerente Corporativo(a) de Mercadeo",
             "Agencia externa especializada (Amazon growth agency contratada por Kenex USA)",
-            "Diseñador(a) / Analista de Contenido (Cintia en Colombia",
+            "Analista de Contenido (E-commerce y Growth) (Cintia en Colombia",
             "equivalentes por país)"
           ],
           "cadencia": "Por evento (nueva plataforma identificada); revisión periódica de marketplaces subactivos para reactivación",
@@ -1667,7 +1668,7 @@
           "alcance": "Operación diaria de las webs propias de Cubitt y Casio por país (Cubitt VE, Casio VE, Cubitt Deltadir CO, Cubitt Kenex USA, y equivalentes en otros países): actualización de inventario y precios, publicación de productos nuevos (Cintia en Colombia carga masiva a todas las webs desde Odoo), cambio de banners y contenido visual coordinado con Marketing, activación de nuevos métodos de pago (Cubitt VE agregó Cachea como método de pago en la web hace un mes; también pago móvil, tarjetas débito/crédito Banco Plaza), integración con MRW y Zoom para generación automática de guía, monitoreo de disponibilidad, precios y reglas de envío. Incluye la migración pendiente de todos estos métodos a las webs de Casio.",
           "dueno": "Gerente de E-commerce / Ventas Web (por país); Gerente de E-commerce / Ventas Web (en formación)",
           "participantes": [
-            "Diseñador(a) / Analista de Contenido (Cintia global en Colombia)",
+            "Analista de Contenido (E-commerce y Growth) (Cintia global en Colombia)",
             "Supervisor(a) de Operaciones E-commerce (Colombia — Tatiana)",
             "Marketing (banners, campañas visuales)",
             "Coordinador(a) de Sistemas",
@@ -1960,7 +1961,7 @@
           "participantes": [
             "Gerente de Servicio Técnico",
             "Especialista de Producto / Proyecto (interlocución con fábricas)",
-            "Gerente Regional de Marketing (decisión final sobre el producto)",
+            "Gerente de Postventa (corporativo) (decisión final sobre el producto)",
             "Asesor(a) de Servicio al Cliente",
             "fábrica (actor externo)"
           ],
@@ -2032,7 +2033,7 @@
             "Gerente de Servicio Técnico (por país)",
             "Gerente de Tienda / Supervisor de Ventas / Supervisor de Ventas",
             "Asesor(a) de Servicio al Cliente",
-            "Gerente Regional de Marketing para excepciones de alto impacto"
+            "Gerente de Postventa (corporativo) para excepciones de alto impacto"
           ],
           "cadencia": "Por evento",
           "disparador": "Caso marcado como crítico por el agente, la tienda o el gerente del país (reincidencia del producto, cliente molesto, reclamo público)",
@@ -2561,7 +2562,7 @@
           "participantes": [
             "Gerente de Tecnología / Sistemas",
             "Analista de Sistemas / Datos",
-            "Gerente Regional de Marketing (solicitud de nuevos dominios y sitios)",
+            "Gerente de E-commerce y Growth (solicitud de nuevos dominios y sitios)",
             "Coordinador(a) de Recursos Humanos (altas y bajas de personal)",
             "asesor externo de seguridad de la información (actor externo)"
           ],
@@ -2743,21 +2744,24 @@
     },
     {
       "prefijo": "16",
-      "nombre": "Gestión de Mercadeo y Comunicaciones",
+      "nombre": "Gestión de Mercadeo, Marca y Comunicaciones",
       "categoria": "soporte",
       "procesos": [
         {
           "codigo": "16.1",
           "nombre": "Planificación del plan anual de mercadeo y del presupuesto",
           "alcance": "Recepción del presupuesto anual aprobado, mapeo del calendario de campañas fijas de temporada por marca y por país, distribución de la inversión entre canales digitales y fuera de línea, y articulación del plan con el calendario comercial y con el de lanzamientos de producto.",
-          "dueno": "Gerente Regional de Marketing",
+          "dueno": "Gerente Corporativo(a) de Mercadeo",
           "participantes": [
-            "Gerente de Marketing",
-            "Gerente de Marketing",
-            "Planificador Financiero (aprobación del presupuesto)",
+            "Junta Directiva",
+            "Casio Brasil",
+            "Brand Manager de Casio",
+            "Brand Manager de Cubitt",
+            "Gerente de Mercadeo (país)",
+            "Director(a) de Diseño y Marca",
+            "Gerente de E-commerce y Growth",
             "Gerente Regional Comercial / Retail",
-            "Gerente Regional de Marketing",
-            "Gerente de Proyectos"
+            "Gerente de Proyectos (PMO)"
           ],
           "cadencia": "Anual (construcción del plan y del presupuesto); revisión trimestral; seguimiento semanal de ejecución",
           "disparador": "Aprobación del presupuesto del ejercicio e inicio del ciclo anual de planificación",
@@ -2769,15 +2773,18 @@
           "codigo": "16.2",
           "nombre": "Desarrollo y ejecución de campañas",
           "alcance": "Ciclo de la campaña desde el concepto: bajada de la idea creativa, construcción de los recursos visuales y del tono de la comunicación, definición de la mezcla de canales en línea y fuera de línea, producción de las piezas, despliegue coordinado entre países y cierre con la medición de resultados de la campaña.",
-          "dueno": "Gerente Regional de Marketing",
+          "dueno": "Gerente Corporativo(a) de Mercadeo",
           "participantes": [
-            "Gerente de Marketing",
-            "Coordinador(a) de Marca",
-            "equipo creativo y de diseño gráfico",
-            "Gerente de Marketing",
-            "Gerente Regional de Visual Merchandising",
-            "Gerente Regional Comercial / Retail",
-            "Gerente de Proyectos"
+            "Brand Manager (Cubitt o Casio)",
+            "Director(a) Creativo(a) · Gerencia de Marca",
+            "Diseñador(a) (Diseño y Marca)",
+            "Director(a) de Diseño y Marca",
+            "Junta Directiva (lanzamientos y alto alcance de Cubitt)",
+            "Casio Brasil (campañas de Casio)",
+            "Trafficker de campañas (Mercadeo)",
+            "Gerente de Visual Merchandising",
+            "Gerente de E-commerce y Growth",
+            "Gerente de Cuentas Clave y Trade"
           ],
           "cadencia": "Por campaña; concentración en las temporadas fijas del calendario y en los lanzamientos",
           "disparador": "Campaña prevista en el calendario anual, lanzamiento de producto confirmado, o acción comercial acordada con un cliente ancla",
@@ -2788,13 +2795,12 @@
         {
           "codigo": "16.3",
           "nombre": "Gestión de solicitudes y tráfico creativo",
-          "alcance": "Canalización de toda solicitud de material a través del formulario único, clasificación y priorización del pedido, asignación al recurso creativo disponible, seguimiento del avance y entrega del recurso al solicitante, con trazabilidad del tráfico y de los tiempos de respuesta.",
-          "dueno": "Coordinador(a) de Marca",
+          "alcance": "Canalización de toda solicitud de diseño a la Dirección de Diseño y Marca por el formulario único, clasificación y priorización contra el calendario común y la capacidad del mes, asignación al diseñador interno o freelance, seguimiento del avance y entrega al solicitante, con trazabilidad del tráfico y de los tiempos de respuesta.",
+          "dueno": "Coordinador(a) de Arte y Diseño",
           "participantes": [
-            "Gerente Regional de Marketing",
-            "Gerente de Marketing",
-            "diseñadores gráficos y editores de video",
-            "áreas solicitantes (comercial, retail, ventas web, visual, servicio al cliente)"
+            "Director(a) de Diseño y Marca (revisión mensual de capacidad)",
+            "Diseñador(a) (Diseño y Marca) y freelancers",
+            "áreas solicitantes (mercadeo, comercial, retail, visual merchandising, e-commerce, producto, servicio al cliente)"
           ],
           "cadencia": "Continua; asignación y seguimiento diarios",
           "disparador": "Solicitud de material creativo levantada por un área a través del formulario",
@@ -2806,13 +2812,13 @@
           "codigo": "16.4",
           "nombre": "Adaptación local y despliegue por país de la comunicación regional",
           "alcance": "Recepción del paquete regional de campaña con sus recursos y lineamientos, adaptación a los canales, formatos y condiciones comerciales de cada mercado —incluidos los marketplaces locales que exigen piezas propias—, publicación en los canales del país y devolución de la evidencia de despliegue al equipo regional.",
-          "dueno": "Coordinador(a) de Marca",
+          "dueno": "Coordinador(a) de Marca (país)",
           "participantes": [
-            "Gerente Regional de Marketing (emite el paquete regional)",
-            "Gerente de Marketing",
-            "equipo creativo local",
-            "Gerente de E-commerce / Ventas Web (por país)",
-            "Gerente Regional de Visual Merchandising"
+            "Gerente Corporativo(a) de Mercadeo (publica el paquete)",
+            "Gerente de Mercadeo (país)",
+            "Diseñador(a) creativo(a) local (Mercadeo país)",
+            "Gerente de E-commerce (país)",
+            "Coordinador(a) de Visual Merchandising (país)"
           ],
           "cadencia": "Por campaña; continua para las adaptaciones de canal recurrentes",
           "disparador": "Publicación del paquete regional de una campaña, o necesidad de una adaptación específica de un canal local",
@@ -2824,13 +2830,16 @@
           "codigo": "16.5",
           "nombre": "Gestión de contenido, redes sociales y comunidad",
           "alcance": "Construcción del calendario de contenido del período por marca y país, producción y publicación en los canales sociales propios, gestión de la conversación con la comunidad y derivación de las consultas comerciales o de postventa al canal correspondiente, y monitoreo de la reputación digital de la marca.",
-          "dueno": "Coordinador(a) de Marca",
+          "dueno": "Coordinador(a) de Social y Contenido (país)",
           "participantes": [
-            "Líder de Marketing",
-            "Gerente Regional de Marketing",
-            "equipo creativo local",
-            "Gerente de E-commerce / Ventas Web (por país)",
-            "Coordinador(a) de Soporte / Servicio al Cliente (derivación de consultas)"
+            "Gerente de Social y Contenido",
+            "Gerente de Mercadeo (país)",
+            "Creador(a) de contenido (Social y Contenido)",
+            "Analista de Social y Contenido (comunidad)",
+            "Diseñador(a) (Diseño y Marca)",
+            "Brand Manager de Casio",
+            "Gerente de E-commerce (país)",
+            "Coordinador(a) de Soporte / Servicio al Cliente"
           ],
           "cadencia": "Continua (publicación y conversación); mensual (construcción del calendario de contenido)",
           "disparador": "Inicio del ciclo mensual de contenido, o mensaje entrante de un usuario en un canal social",
@@ -2842,13 +2851,15 @@
           "codigo": "16.6",
           "nombre": "Gestión de influencers, embajadores y alianzas de marca",
           "alcance": "Identificación y selección de creadores de contenido, embajadores y equipos de atletas por mercado, negociación de la contraprestación y del alcance del acuerdo, coordinación del calendario de publicaciones y activaciones, y medición del retorno de cada relación.",
-          "dueno": "Gerente de Marketing",
+          "dueno": "Gerente de Mercadeo (país)",
           "participantes": [
-            "Gerente Regional de Marketing",
-            "Gerente de Marketing",
-            "Gerente de Marketing",
-            "Country Manager (embajadores de alto perfil)",
-            "creadores, embajadores y agencias (actores externos)"
+            "Analista de Influencers (Social y Contenido)",
+            "Coordinador(a) de Social y Contenido (país)",
+            "Gerente de Cuentas Clave y Trade",
+            "Junta Directiva (embajadores de alto perfil)",
+            "Director(a) Comercial Mayorista (Cubitt)",
+            "Gerente Corporativo(a) de Mercadeo",
+            "creadores, embajadores, atletas y agencias (actores externos)"
           ],
           "cadencia": "Continua (relación y publicaciones); por evento (campaña, lanzamiento o apertura de mercado)",
           "disparador": "Campaña o lanzamiento que requiere vocería externa, o apertura de un mercado que exige construir comunidad",
@@ -2860,14 +2871,16 @@
           "codigo": "16.7",
           "nombre": "Visual merchandising y ejecución de la imagen en punto de venta",
           "alcance": "Definición del estándar visual de cada marca y su implantación en el punto de venta: montaje visual de aperturas y remodelaciones, mantenimiento del estándar en la red de tiendas propias, y provisión de mobiliario de exhibición y material de punto de venta al canal mayorista y a las grandes superficies.",
-          "dueno": "Gerente Regional de Visual Merchandising",
+          "dueno": "Gerente de Visual Merchandising",
           "participantes": [
+            "Coordinador(a) de Visual Merchandising (país)",
             "Ejecutivo(a) de Visual Merchandising",
-            "Gerente Regional de Marketing",
+            "Gerente de Producción (Diseño y Marca)",
+            "Diseñador(a) (Diseño y Marca)",
             "Gerente Regional Comercial / Retail",
-            "Gerente Comercial (País / Canal) al Detal (País) por país",
-            "Gerente Regional Comercial / Retail y Key Account Manager (material para el canal)",
-            "Gerente de Proyectos (aperturas)",
+            "Analista/Ejecutivo(a) Comercial",
+            "Gerente de Cuentas Clave y Trade",
+            "Compras Internas · Procura del país",
             "proveedores de mobiliario y producción gráfica (actores externos)"
           ],
           "cadencia": "Continua (mantenimiento del estándar en tienda); por proyecto (apertura o remodelación); por solicitud (material para el canal)",
@@ -2880,20 +2893,96 @@
           "codigo": "16.8",
           "nombre": "Reportería de mercadeo y medición del desempeño de marca",
           "alcance": "Definición y seguimiento de los indicadores de mercadeo por marca y país —alcance, interacción, tráfico, conversión, inversión y retorno—, atención de la reportería exigida por la casa matriz de la marca representada, y presentación del avance en la instancia mensual de reporte a la dirección.",
-          "dueno": "Gerente Regional de Marketing",
+          "dueno": "Gerente Corporativo(a) de Mercadeo",
           "participantes": [
-            "Gerente de Marketing",
-            "Gerente de Marketing",
+            "Analista de Insights y ROI",
+            "Gerente de Mercadeo (país)",
+            "Brand Manager de Casio",
+            "Gerente de E-commerce y Growth",
             "Analista de Sistemas / Datos",
-            "Gerente Regional Comercial / Retail",
-            "Junta Directiva (destinataria del reporte)",
-            "casa matriz de la marca representada (actor externo)"
+            "Junta Directiva (destinataria del tablero mensual)",
+            "Casio Brasil (destinataria de los reportes de Casio)"
           ],
           "cadencia": "Semanal (estatus con los equipos de país); mensual (reporte a la dirección y a la casa matriz de la marca representada)",
           "disparador": "Cierre del período de campaña o del mes, o requerimiento de reportería de la casa matriz de la marca representada",
           "output": "Reporte de desempeño de mercadeo por marca y país entregado a la dirección y a la casa matriz cuando corresponde",
           "madurez": "híbrido",
           "fuentes": "E-49 Sofiana PA F2 (2026-08-13) — línea 45; E-22 Natasha Betancourt F1 (2026-07-07) — línea 43; E-01 F1 (2026-06-16) — líneas 171-175"
+        },
+        {
+          "codigo": "16.9",
+          "nombre": "Gestión de la identidad y del sistema de marca",
+          "alcance": "Posicionamiento de cada marca construido con Mercadeo y aprobado por la Presidencia, manual de marca y sistema de diseño gráfico y digital como fuente única, biblioteca de activos con versión vigente, derechos y vencimiento, inducción de equipos y proveedores, y auditoría semestral de coherencia de la marca en todos los canales.",
+          "dueno": "Director(a) de Diseño y Marca",
+          "participantes": [
+            "Gerente Corporativo(a) de Mercadeo",
+            "Presidencia",
+            "Director(a) Creativo(a) · Gerencia de Marca",
+            "Coordinador(a) de Arte y Diseño",
+            "Gerente de Diseño de Producto Digital",
+            "Gerente de Visual Merchandising",
+            "equipos, proveedores, franquiciados y socios que producen piezas"
+          ],
+          "cadencia": "Revisión anual del posicionamiento y del manual; auditoría semestral; biblioteca continua",
+          "disparador": "Renovación de la marca, revisión anual o hallazgo de una auditoría",
+          "output": "Manual de marca y sistema de diseño aprobados y publicados, biblioteca depurada y auditoría con sus correcciones",
+          "madurez": "to-be",
+          "fuentes": "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026) — descripción del cargo de Director de Marca y Diseño y «Cómo nos coordinamos»; Rol y Estructura CDO; reunión de estructura del 04-nov-2026"
+        },
+        {
+          "codigo": "16.10",
+          "nombre": "Producción central de contenido visual",
+          "alcance": "Foto de producto y de campaña, video principal, renders 3D y animación de las campañas y lanzamientos aprobados: brief de producción, decisión entre equipo propio y freelance, sesiones con dirección de arte, revisión contra la ficha técnica, aprobación de calidad y archivo con derechos en la biblioteca de activos.",
+          "dueno": "Gerente de Producción (Diseño y Marca)",
+          "participantes": [
+            "Gerente de Campañas (Diseño y Marca)",
+            "Director(a) de Diseño y Marca",
+            "Coordinador(a) de Arte y Diseño",
+            "Director(a) Creativo(a) · Gerencia de Marca",
+            "fotógrafos, productoras y freelancers de 3D y motion",
+            "Logística (reserva del producto)"
+          ],
+          "cadencia": "Por campaña o lanzamiento, con plan trimestral de producción",
+          "disparador": "Campaña o lanzamiento aprobado que necesita contenido central",
+          "output": "Contenido central aprobado en la biblioteca de activos, con derechos registrados y costo cerrado",
+          "madurez": "to-be",
+          "fuentes": "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026) — descripción del cargo de Director de Marca y Diseño y «Cómo nos coordinamos»; Rol y Estructura CDO; reunión de estructura del 04-nov-2026"
+        },
+        {
+          "codigo": "16.11",
+          "nombre": "Diseño de espacios comerciales y estándares de exhibición",
+          "alcance": "Concepto de tienda y de shop-in-shop, layout, mobiliario tipo e interiores con agencia externa, material POP, señalética y guía de exhibición por canal y por campaña; piloto de los conceptos nuevos, publicación del estándar y su actualización con las auditorías de punto de venta.",
+          "dueno": "Gerente de Producción (Diseño y Marca)",
+          "participantes": [
+            "Retail, Ventas al Mayor, PMO y Mercadeo (solicitantes)",
+            "agencia de interiores",
+            "Director(a) de Diseño y Marca",
+            "Junta Directiva (GO de nuevos espacios)",
+            "Gerente de Visual Merchandising"
+          ],
+          "cadencia": "Por proyecto y por campaña; revisión del estándar con las auditorías semestrales",
+          "disparador": "Concepto nuevo, apertura o remodelación, campaña que necesita guía de exhibición o hallazgo de auditoría",
+          "output": "Estándar del espacio y guía de exhibición publicados y verificados en el punto de venta",
+          "madurez": "to-be",
+          "fuentes": "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026) — descripción del cargo de Director de Marca y Diseño y «Cómo nos coordinamos»; Rol y Estructura CDO; reunión de estructura del 04-nov-2026"
+        },
+        {
+          "codigo": "16.12",
+          "nombre": "Diseño de producto digital (webs, correos y app)",
+          "alcance": "Experiencia e interfaz de las webs y tiendas en línea, los correos y la app: requisitos a partir del contexto de uso, prototipo, prueba con usuarios, aprobación de calidad y de negocio, entrega a Tecnología o a Innovación y Desarrollo de Productos, verificación de la implementación y mantenimiento del sistema de diseño digital.",
+          "dueno": "Gerente de Diseño de Producto Digital",
+          "participantes": [
+            "Gerente de E-commerce y Growth (webs)",
+            "Innovación y Desarrollo de Productos (app)",
+            "Diseñador(a) digital (freelance)",
+            "Director(a) de Diseño y Marca",
+            "Especialista de Tecnología (Web/Infraestructura)"
+          ],
+          "cadencia": "Por solicitud priorizada; revisión trimestral del sistema de diseño",
+          "disparador": "Necesidad de una web, un flujo, un correo o una pantalla de la app, con objetivo medible",
+          "output": "Diseño implementado, verificado y medido, con el sistema de diseño actualizado",
+          "madurez": "to-be",
+          "fuentes": "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026) — descripción del cargo de Director de Marca y Diseño y «Cómo nos coordinamos»; Rol y Estructura CDO; reunión de estructura del 04-nov-2026"
         }
       ]
     },
@@ -3058,7 +3147,7 @@
             "Gerente de Recursos Humanos",
             "Coordinador(a) de Recursos Humanos",
             "Asistente Administrativo(a) / Servicios Generales",
-            "Gerente Regional de Marketing (comunicación interna de las actividades)",
+            "Gerente Corporativo(a) de Mercadeo (comunicación interna de las actividades)",
             "gerentes de área"
           ],
           "cadencia": "Anual (programa y presupuesto); continua (ejecución de actividades); anual o bienal (medición del clima)",
@@ -3154,9 +3243,9 @@
           "alcance": "Registro y mantenimiento de las marcas propias en los mercados donde el grupo opera o proyecta operar, control del uso correcto de la marca por parte de franquiciados, socios y distribuidores, administración de las licencias de propiedad intelectual de terceros y de sus condiciones de uso, y atención de los casos de uso indebido o de producto no autorizado en circulación.",
           "dueno": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
           "participantes": [
-            "Gerente Regional de Marketing",
+            "Gerente de Marca (Diseño y Marca)",
             "Especialista de Producto / Proyecto",
-            "Gerente Regional de Marketing",
+            "Gerente de Marca (Diseño y Marca)",
             "Gerente Regional Comercial / Retail (franquiciados y distribuidores)",
             "licenciantes y agentes de propiedad industrial (actores externos)"
           ],
@@ -3176,7 +3265,7 @@
             "Gerente de Contabilidad / Administración (fiscalización tributaria)",
             "Gerente de Recursos Humanos (fiscalización laboral)",
             "Coordinador(a) de Logística y Bodega (permisología de producto)",
-            "Gerente Regional de Marketing (normativa de protección al consumidor)",
+            "Gerente Corporativo(a) de Mercadeo (normativa de protección al consumidor)",
             "entes reguladores (actores externos)"
           ],
           "cadencia": "Continua (seguimiento de vigencias); por evento (visita o requerimiento de un ente)",

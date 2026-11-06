@@ -300,7 +300,7 @@ def generar():
         n0a = (ASIS.get(pref) or {}).get('n0') or {}
         if n0a:
             DETALLE.append(('MACRO-%s-ASIS' % pref, 'Manual Fase 2 · N0 As-Is del macroproceso %s %s' % (pref, m['n']), texto_n0(m, n0a, 'As-Is')))
-    CONTEXTO.append(('fase2-manual-indice', 'Fase 2 · índice de los 182 procesos del manual, con dueños y versiones', '\n'.join(idx)))
+    CONTEXTO.append(('fase2-manual-indice', 'Fase 2 · índice de los %d procesos del manual, con dueños y versiones' % n_proc, '\n'.join(idx)))
     CONTEXTO.append(('fase2-manual-agendas', 'Fase 2 · propósito y agenda de mejora de cada macroproceso', '\n'.join(agenda)))
 
     # ── circuito del negocio
@@ -438,7 +438,8 @@ def generar():
     _nombres(E.get('DIRECCIONES'))
 
     def unidad(u, nivel_txt, sangria):
-        L = ['%s%s · %s%s' % (sangria, nivel_txt, u['n'], (' — ' + ocup(u.get('ocupante'))) if u.get('ocupante') else '')]
+        L = ['%s%s · %s%s' % (sangria, nivel_txt, u['n'], (' — ' + ocup(u.get('ocupante'))) if u.get('ocupante') else
+                                (' — ' + ' y '.join(ocup(o) for o in u['ocupantes'])) if u.get('ocupantes') else '')]
         if u.get('paises'):
             L.append(sangria + '    países: ' + ' · '.join('%s %s%s' % (k, ocup(v), (' [' + v['cargo'] + ']') if v.get('cargo') else '')
                                                      for k, v in u['paises'].items()))
@@ -452,6 +453,8 @@ def generar():
             L.append(sangria + '    - ' + t(f))
         if u.get('nota'):
             L.append(sangria + '    nota: ' + t(u['nota']))
+        for x in u.get('decisiones') or []:
+            L.append(sangria + '    DECISIÓN POR TOMAR: ' + t(x))
         for h in u.get('hijos') or []:
             L += unidad(h, 'Gerencia país' if h.get('nivel') == 'n3' else 'Gerencia corporativa', sangria + '  ')
         return L

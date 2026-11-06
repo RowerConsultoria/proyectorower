@@ -125,15 +125,27 @@
   // gerencias de unidad de negocio (atiende): en Mercadeo, la gerencia país va centrada
   // debajo de las tres, y su línea baja de la gerencia corporativa por el hueco entre
   // dos de ellas.
-  function ramas(h){
-    var gs = (h.hijos || []).filter(function(k){
+  // Desde el 06-nov-2026 también se abre en columnas la gerencia corporativa con dos o más
+  // coordinaciones corporativas o gerencias de unidad de negocio sin gerencia país propia
+  // (Compras, Mercadeo): las hermanas van lado a lado, no apiladas, y sus gerencias país
+  // quedan centradas debajo, con la línea que baja de la gerencia corporativa.
+  function conPais(h){
+    return (h.hijos || []).filter(function(k){
       return k.nivel === "gun" && (k._conN3 || (k.hijos || []).some(function(x){ return x.nivel === "n3"; }));
     });
-    if(gs.length) return gs;
-    if(comunes(h).length) gs = (h.hijos || []).filter(function(k){ return k.nivel === "gun"; });
-    return gs.length ? gs : null;
   }
-  function comunes(h){ return (h.hijos || []).filter(function(k){ return k.nivel === "n3" && k.atiende && k.atiende.length; }); }
+  function hermanas(h){ return (h.hijos || []).filter(function(k){ return (k.nivel === "gun" || k.nivel === "ccorp") && !k.enLinea; }); }
+  function conAtiende(h){ return (h.hijos || []).filter(function(k){ return k.nivel === "n3" && k.atiende && k.atiende.length; }); }
+  function ramas(h){
+    var gs = conPais(h);
+    if(gs.length) return gs;
+    gs = hermanas(h);
+    return (gs.length >= 2 || (gs.length && conAtiende(h).length)) ? gs : null;
+  }
+  function comunes(h){
+    if(conPais(h).length) return conAtiende(h);
+    return ramas(h) ? (h.hijos || []).filter(function(k){ return k.nivel === "n3" && !k.enLinea; }) : [];
+  }
   // Celda de la gerencia corporativa abierta en ramas: ella arriba, centrada sobre sus
   // columnas (subgrid), y cada gerencia de unidad de negocio en la suya.
   function celdaRamas(sc, k, fila, col){
@@ -175,8 +187,14 @@
     if(d.nivel === "staff") return d.etiqueta !== undefined ? d.etiqueta : "Staff de la Presidencia";
     return "";
   }
+  // decisiones por tomar (06-nov-2026): la caja se marca en rojo y lleva un distintivo
+  function decide(d){ return !!(d && d.decisiones && d.decisiones.length); }
+  function marcaDecide(d){
+    return decide(d) ? '<span class="eo-dec" title="' + esc(d.decisiones.join(" · ")) + '"><i aria-hidden="true">!</i>Decisión por tomar</span>' : '';
+  }
   function caja(d, clase, extraTag){
-    var h = '<button type="button" class="eo-card ' + clase + '" data-id="' + esc(d.id) + '" aria-haspopup="dialog">';
+    var h = '<button type="button" class="eo-card ' + clase + (decide(d) ? ' eo-decide' : '') + '" data-id="' + esc(d.id) + '" aria-haspopup="dialog">';
+    h += marcaDecide(d);
     h += '<span class="eo-tag">' + esc(extraTag || "") + '</span>';
     h += '<span class="eo-ttl">' + esc(d.n) + '</span>';
     if(d.sub) h += '<span class="eo-sub">' + esc(d.sub) + '</span>';
@@ -199,6 +217,8 @@
                '<b class="eo-pcod eo-mcod">' + esc(o.marca) + '</b>' + punto(o.estado) +
                '<span class="eo-onom eo-ocup">' + esc(o.nombre) + '</span></span>';
       }).join("") + '</span>';
+    } else if(d.ocupantes && d.ocupantes.length){
+      h += d.ocupantes.map(lineaOcupante).join("");
     } else h += lineaOcupante(d.ocupante);
     return h + '</button>';
   }
@@ -224,6 +244,10 @@
     var h = '<div class="eo-pwrap">' + caja(k, "eo-c-n3 eo-pila-" + Math.min(np, 4), "Gerencia país · " + np + (np === 1 ? " país" : " países")) +
             (np > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(k.id) + '" aria-expanded="false" title="Ver una caja por país">' +
                       '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
+    // Dos o más coordinaciones país (06-nov-2026, Mercadeo país): van en fila debajo de
+    // la gerencia país, cada una con su línea desde ella, y no apiladas con sangría.
+    var fila = coords.length > 1;
+    if(fila) h += '<div class="eo-pcoords">';
     coords.forEach(function(x){
       var px = paisesDe(x);
       if(EXP[x.id] && px.length){ h += cajaPaisAbierta(x, px, [], true); return; }
@@ -231,7 +255,15 @@
            (px.length > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(x.id) + '" aria-expanded="false" title="Ver una caja por país">' +
                             '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
     });
+    if(fila) h += '</div>';
     return h;
+  }
+  // Ancho que pide la fila de coordinaciones de una gerencia país plegada
+  var ANCHO_COORD = 196, HUECO_COORD = 14;
+  function anchoCoords(k){
+    var cs = (k.hijos || []).filter(function(x){ return x.nivel === "coord"; });
+    if(cs.length < 2 || EXP[k.id]) return 0;
+    return cs.reduce(function(w, x){ return w + (EXP[x.id] && paisesDe(x).length ? anchoAbierta(x) : ANCHO_COORD); }, 0) + (cs.length - 1) * HUECO_COORD;
   }
   function cargoPais(o){ return o.cargo && o.cargo !== "Gerencia" ? o.cargo + " país" : "Gerencia país"; }
   function cajaPaisAbierta(k, ps, coords, esCoord){
@@ -413,6 +445,7 @@
          '<span><i class="eo-lsw eo-sw-staff"></i>Staff</span>' +
          '<span><i class="eo-lsw eo-sw-pun"></i>Gobierno y staff: sin mando</span>' +
          '<span><i class="eo-lsw eo-sw-stub"></i>Línea sin caja: equipo por desarrollar</span>' +
+         '<span><i class="eo-lsw eo-sw-dec"></i>Decisión por tomar</span>' +
          '</div>';
   }
   function montarLeyenda(pref){
@@ -573,6 +606,7 @@
       var w = 0;
       unidades.forEach(function(k){
         if(EXP[k.id] && paisesDe(k).length) w = Math.max(w, anchoAbierta(k) + 22);
+        else if(anchoCoords(k)) w = Math.max(w, anchoCoords(k) + 22);
         else (k.hijos || []).forEach(function(x){ if(x.nivel === "coord" && EXP[x.id] && paisesDe(x).length) w = Math.max(w, anchoAbierta(x) + 22); });
       });
       var hay = 0; for(var i = 0; i < span; i++) hay += anchos[col + i]; hay += (span - 1) * GAP;
@@ -855,6 +889,12 @@
         return;
       }
       if(a.tipo !== "linea") return;
+      if(B.closest(".eo-pcoords")){
+        // coordinaciones en fila: peine desde el centro de la gerencia país
+        var qx = pa.x + pa.w / 2, qy = pb.y - 13, ux = pb.x + pb.w / 2;
+        ruta("M" + qx + "," + (pa.y + pa.h) + " V" + qy + " H" + ux + " V" + pb.y, "eo-h-linea");
+        return;
+      }
       if(NODOS[a.a].d.nivel === "coord" && !B.hasAttribute("data-ancla")){
         // la coordinación cuelga con sangría justo debajo: baja recta a su borde superior
         var kx = Math.max(pa.x, pb.x) + 28;
@@ -1089,10 +1129,18 @@
                     : (id === E.CEO.id ? "Presidencia" : tagNivel(d));
     if(d.sub) h += '<p class="eo-sub">' + esc(d.sub) + '</p>';
     if(n.padre) h += '<div class="eo-reporta">Reporta a ' + enlace(n.padre) + '</div>';
+    if(decide(d)) h += '<div class="eo-bloque eo-decbloque"><h4>Decisión por tomar</h4>' + lista(d.decisiones) +
+                       '<p><a class="eo-declink" href="#/decisiones-estructura">Ver todas las decisiones pendientes de la estructura →</a></p></div>';
 
     if(d.ocupante){
       h += '<div class="eo-bloque"><h4>Ocupante</h4><div class="eo-ofila"><span class="eo-onomg">' + esc(d.ocupante.nombre) + '</span>' + pill(d.ocupante.estado) + '</div>' +
            (d.ocupante.nota ? '<p class="eo-tenue">' + esc(d.ocupante.nota) + '</p>' : '') + '</div>';
+    }
+    if(d.ocupantes && d.ocupantes.length){
+      h += '<div class="eo-bloque"><h4>Ocupantes</h4>' + d.ocupantes.map(function(o){
+        return '<div class="eo-ofila"><span class="eo-onomg">' + esc(o.nombre) + '</span>' + pill(o.estado) + '</div>' +
+               (o.nota ? '<p class="eo-tenue">' + esc(o.nota) + '</p>' : '');
+      }).join("") + '</div>';
     }
     if(d.marcas){
       h += '<div class="eo-bloque"><h4>Ocupante por marca</h4><table class="eo-tpais"><tbody>' + d.marcas.map(function(o){
@@ -1159,11 +1207,12 @@
     {id:"comites",        n:"Consejos y comités"},
     {id:"julio",          n:"Frente al borrador de julio"},
     {id:"patron",         n:"Estructura patrón"},
-    {id:"pendientes",     n:"Pendientes"}
+    {id:"decisiones",     n:"Decisiones pendientes"}
   ];
   function premisas(tab){
     if(!montado) return;
     cerrar();
+    if(tab === "pendientes") tab = "decisiones";   // pestaña fundida el 06-nov-2026
     tab = TABS.some(function(t){ return t.id === tab; }) ? tab : "funcionamiento";
     var h = '<p class="eo-bajada">' + esc(E.bajada) + '</p>';
     h += '<div class="eo-tabs" role="tablist">' + TABS.map(function(t){
@@ -1193,8 +1242,14 @@
     } else if(tab === "patron"){
       h += '<p class="eo-tenue">La escalera de cargos común a toda la organización. Cada unidad usa solo los escalones que necesita: una bodega, por ejemplo, se sostiene con tres (gerente, jefe o supervisor, operario).</p>';
       h += '<ol class="eo-patron">' + E.PATRON.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("") + '</ol>';
-    } else if(tab === "pendientes"){
-      h += '<p class="eo-tenue">Lo que queda abierto para la validación con el liderazgo.</p>';
+    } else if(tab === "decisiones"){
+      var conDec = Object.keys(NODOS).filter(function(x){ return !NODOS[x].comite && !NODOS[x].consejo && decide(NODOS[x].d); });
+      h += '<p class="eo-tenue">Lo que el liderazgo tiene que decidir antes de dar la estructura por cerrada. Las de una unidad van marcadas en rojo en su caja; ' +
+           'las generales no tienen una caja propia. El listado completo, con las posiciones por definir, está en el punto 1.2 del índice.</p>' +
+           '<p><a class="btn btn-marca" href="#/decisiones-estructura">Ver el listado completo →</a></p>';
+      h += '<h4 class="eo-dech">En las unidades · ' + conDec.length + '</h4>';
+      conDec.forEach(function(x){ h += '<div class="eo-bloque eo-pend eo-decbloque"><h4>' + enlace(x) + '</h4>' + lista(NODOS[x].d.decisiones) + '</div>'; });
+      h += '<h4 class="eo-dech">Generales · ' + E.PENDIENTES.length + '</h4>';
       E.PENDIENTES.forEach(function(p){ h += '<div class="eo-bloque eo-pend"><h4>' + esc(p.t) + '</h4><p>' + esc(p.d) + '</p></div>'; });
     }
     abrirPanel("Premisas del diseño", E.titulo, h);

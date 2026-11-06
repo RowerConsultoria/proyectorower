@@ -3637,7 +3637,7 @@ $('#sesSalir').addEventListener('click', ()=>{
    El modelo To-Be lo valida un comité ejecutivo (instructivo-comite.html).
    Cada integrante entra con su cuenta al manual y valida en el To-Be de cada
    proceso; aquí llega todo lo que anotan. Tres vistas:
-     · Procesos: el estado de los 182 (sin validar · en validación · validado)
+     · Procesos: el estado de cada uno (sin validar · en validación · validado)
        y, por proceso, la matriz de veredictos, sus notas y el documento de
        observaciones para el equipo consultor.
      · Notas: la bandeja de lo que falta responder.
@@ -4019,7 +4019,7 @@ function pintarTablaValidadoresST(){
   const hab = D.usuarios.filter(u=> u.habilitado).length;
   $('#stConteo').textContent = `${hab} habilitados · ${us.length} cuentas`;
   $('#stWrap').innerHTML = `
-    <p class="tenue" style="margin:0 0 10px;font-size:12.5px;max-width:90ch">Habilitar una cuenta le muestra la capa de validación en el To-Be de los 182 procesos. Para abrir el manual su rol necesita además <code>ver.informe</code>; el rol se cambia en el módulo Usuarios.</p>
+    <p class="tenue" style="margin:0 0 10px;font-size:12.5px;max-width:90ch">Habilitar una cuenta le muestra la capa de validación en el To-Be de todos los procesos. Para abrir el manual su rol necesita además <code>ver.informe</code>; el rol se cambia en el módulo Usuarios.</p>
     <div class="densa" data-densidad="${esc(valDensidad)}"><div class="tabla-envoltura"><table class="tabla">
       <colgroup><col><col style="width:22%"><col style="width:120px"><col style="width:150px"><col style="width:110px"><col style="width:120px"></colgroup>
       <thead><tr><th>Cuenta</th><th>Rol</th><th>Abre el manual</th><th>Validación</th><th>Procesos</th><th>Desde</th></tr></thead>

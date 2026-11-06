@@ -270,6 +270,15 @@
 // archivo solo aporta el contenido de las secciones. Ver checklist de
 // scripts/prompt-tobe-fase2.md §9 antes de dar por cerrada una revisión.
 
+//
+// Revisión del 06-nov-2026 (estructura To-Be: Dirección de Diseño y Marca y Mercadeo).
+// Macro 16 pasa a «Gestión de Mercadeo, Marca y Comunicaciones»: los ocho procesos se
+// reasignan a la estructura nueva y se suman cuatro de Diseño y Marca (16.9 a 16.12),
+// sin As-Is. Se alinean además los To-Be tocados en otros macros (2.1, 2.5, 3.1, 3.3,
+// 3.6, 4.4, 6.3, 7.8, 8.7 a 8.13, 9.8 a 9.11, 10.1 a 10.4, 11.3, 11.7, 14.4, 17.9,
+// 18.4 y 18.5). Fuentes: documento de la Dirección Comercial del 29-oct, «Rol y
+// Estructura CDO», reunión del 04-nov y las buenas prácticas citadas en el N0 del 16.
+
 window.MANUAL_CONTENIDO = {
  "9": {
   "n0": {
@@ -318,7 +327,7 @@ window.MANUAL_CONTENIDO = {
      ["Gestión de Datos e Inteligencia de Negocio", "Coordinación", "Pronóstico de demanda y consolidación de KPI en la torre de control."],
      ["Contabilidad", "Salida", "Cierre de caja diario por punto de venta; conciliación de valija de efectivo y documentos."],
      ["Gestión del Talento Humano", "Coordinación", "Dotación, código de vestimenta, esquema de comisiones e incentivos, selección de personal de tienda."],
-     ["Gestión de Mercadeo y Comunicaciones", "Entrada", "Campañas, material POP y lanzamientos que impactan la exhibición y el pedido de reposición."],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Entrada", "Campañas, material POP y lanzamientos que impactan la exhibición y el pedido de reposición."],
      ["Gestión Legal y Cumplimiento", "Coordinación", "Patentes y permisología municipal por punto de venta; contratos de franquicia."]
     ]
    },
@@ -423,8 +432,8 @@ window.MANUAL_CONTENIDO = {
      ["9.6 Operación diaria de tienda", "Gerente de Tienda", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "—"],
      ["9.7 Supervisión y visitas a tienda", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)", "Gerente de Tienda", "Gerente Regional de Retail"],
      ["9.8 Apertura de tienda o kiosco", "Gerente de Proyectos (PMO)", "Gerente Regional de Retail", "Planificador Financiero · Arquitecto", "Junta / Comité Directivo"],
-     ["9.9 Remodelación de tienda", "Coordinador(a) de Visual Merchandising", "Gerente Regional de Retail", "Arquitecto / Proveedor de Remodelación", "Gerente de Proyectos (PMO)"],
-     ["9.10 Gestión de franquicias Cubitt", "Gerente Regional de Retail", "Junta / Comité Directivo", "Franquiciado", "Gerente Regional de Visual Merchandising"],
+     ["9.9 Remodelación de tienda", "Coordinador(a) de Visual Merchandising (país)", "Gerente Regional de Retail", "Arquitecto / Proveedor de Remodelación", "Gerente de Proyectos (PMO)"],
+     ["9.10 Gestión de franquicias Cubitt", "Gerente Regional de Retail", "Junta / Comité Directivo", "Franquiciado", "Gerente de Visual Merchandising"],
      ["9.11 Socios y partners regionales", "Gerente Regional de Retail", "Gerente Regional de Retail", "Planificador Financiero · Analista de Sistemas / Datos", "Junta / Comité Directivo"],
      ["9.12 Auditoría y autoauditoría de tienda", "Gerente de Tienda", "Gerente Regional de Retail", "Gerente de Ventas al Detal (País)", "Gerente de Ventas al Detal (País)"],
      ["9.13 Garantías y servicio postventa", "Gerente de Tienda", "Gerente de Servicio Técnico", "Técnico(a) de Servicio / Relojero(a) · Especialista de Producto", "Cliente"],
@@ -449,7 +458,7 @@ window.MANUAL_CONTENIDO = {
      ["Gestión de Datos e Inteligencia de Negocio", "Consolidación en la torre de control", "Pronóstico de demanda, KPI consolidados"],
      ["Contabilidad", "Cierre de caja diario", "Reporte condensado, comprobantes físicos, efectivo depositado"],
      ["Gestión del Talento Humano", "Circuito de nómina y dotación", "Novedades de personal, headcount por talla/género, incidencias disciplinarias"],
-     ["Gestión de Mercadeo y Comunicaciones", "Lanzamiento de campaña", "Material POP, calendario de campaña"],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Lanzamiento de campaña", "Material POP, calendario de campaña"],
      ["Gestión Legal y Cumplimiento", "Contrato de franquicia o permiso de apertura", "Contrato estandarizado, permisos vigentes"]
     ],
     "docs_lark": [
@@ -880,31 +889,36 @@ window.MANUAL_CONTENIDO = {
    },
 
    "9.8": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el ciclo completo de abrir una tienda o kiosco propio, desde la identificación del local y su análisis financiero hasta la inauguración y el cierre del proyecto en la PMO. No incluye la apertura de una franquicia (proceso 9.10), que sigue un contrato y un modelo distintos, ni la remodelación de un punto ya existente (proceso 9.9)."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el ciclo completo de abrir una tienda o kiosco propio, desde la identificación del local y su análisis financiero hasta la inauguración y el cierre del proyecto en la PMO. No incluye la apertura de una franquicia (proceso 9.10), que sigue un contrato y un modelo distintos, ni la remodelación de un punto ya existente (proceso 9.9)."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Recibe o detecta la oportunidad de local y decide si vale la pena estudiarla. Llega por varias vías —la propuesta de un centro comercial, la gerencia del país que ve una plaza desatendida, un corredor inmobiliario, o la propia estrategia de expansión de la marca— y la primera criba es de criterio comercial, no financiera: tránsito, perfil del público y presencia de la competencia."},
+      {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Recibe o detecta la oportunidad de local y decide si vale la pena estudiarla. Llega por varias vías —la propuesta de un centro comercial, la gerencia del país que ve una plaza desatendida, un corredor inmobiliario, o la propia estrategia de expansión de la marca— y la primera criba es de criterio comercial, no financiera: tránsito, perfil del público y presencia de la competencia."},
       {"id": "a2", "rol": "Gerente de Contabilidad / Administración / Asesoría Legal", "texto": "Elabora el ACP —análisis de conveniencia del proyecto— del local candidato: proyección de ventas, gastos de operación, inversión inicial, margen y período de recuperación."},
       {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Revisa el ACP y decide. Si el negocio no se sostiene, el local se descarta aquí, antes de comprometer ningún gasto y antes de negociar nada."},
       {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Negocia con el centro comercial o el propietario las condiciones del espacio: canon o precio de compra, plazo, metros y ubicación dentro del centro, aporte a remodelación y fecha de entrega del local. Es donde el ACP se confirma o se cae, porque hasta aquí el costo del espacio era un supuesto."},
       {"id": "a5", "rol": "Gerente de Contabilidad / Administración / Asesoría Legal", "texto": "Formaliza el contrato de arrendamiento o compraventa con las condiciones cerradas y lo incorpora al ACP como costo en firme."},
       {"id": "a6", "rol": "Gerente de Proyectos (PMO)", "texto": "Abre el proyecto de apertura en la PMO con su fecha objetivo, su presupuesto y sus responsables, y es quien lo gobierna de aquí al cierre. Sin apertura formal, el montaje avanza por empuje de cada área y nadie responde por la fecha."},
-      {"id": "a7", "rol": "Arquitecto (proveedor externo)", "texto": "Diseña el layout del local y lo ajusta en rondas de render con Visual Merchandising y la operación del país hasta que queda aprobado."},
+      {"id": "a7", "rol": "Arquitecto (proveedor externo)", "texto": "Diseña el layout del local con el concepto de tienda vigente de Diseño y Marca (proceso 16.11) y lo ajusta en rondas de render con Diseño y Marca, Visual Merchandising y la operación del país hasta que queda aprobado."},
       {"id": "a8", "rol": "Gerente de Proyectos (PMO)", "texto": "Gestiona los permisos que exige el local —alcaldía, bomberos, patente municipal, publicidad de fachada— en paralelo al montaje físico, porque son los que fijan la fecha real de apertura."},
       {"id": "a9", "rol": "Gerente de Ventas al Detal (País)", "texto": "Dimensiona la plantilla por turno respetando el límite legal de horas, coordina con Recursos Humanos la selección del personal y su formación en producto y protocolo antes de abrir."},
-      {"id": "a10", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Monta la tienda según el estándar de la marca: mobiliario, exhibición por línea, iluminación, señalética y materiales de marca, con el layout aprobado como referencia."},
+      {"id": "a10", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Monta la tienda según el estándar de la marca: mobiliario, exhibición por línea, iluminación, señalética y materiales de marca, con el layout aprobado como referencia."},
       {"id": "a11", "rol": "Coordinador(a) de Sistemas", "texto": "Habilita la infraestructura del punto: punto de venta y su conexión al sistema, red y conectividad, cámaras y control de acceso. Es trabajo de sistemas, no de visual: lo que visual monta es la tienda, no la instalación técnica."},
       {"id": "a12", "rol": "Gerente Regional de Retail", "texto": "Inspecciona el punto antes del lanzamiento y da el visto bueno: que la exhibición cumpla el estándar, que el surtido inicial esté completo y bien presentado, que el personal esté formado y que la infraestructura funcione. Es el último filtro antes de abrir al público."},
       {"id": "a13", "rol": "Gerente de Proyectos (PMO)", "texto": "Ejecuta la inauguración y cierra el proyecto, dejando el ACP archivado como línea base para medir después el retorno real contra el proyectado."}
-      ],
+     ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Retail", "Gerente de Contabilidad / Administración / Asesoría Legal", "Gerente de Proyectos (PMO)", "Arquitecto (proveedor externo)", "Gerente de Ventas al Detal (País)", "Coordinador(a) de Visual Merchandising", "Coordinador(a) de Sistemas"],
+      "carriles": [
+       "Gerente Regional de Retail",
+       "Gerente de Contabilidad / Administración / Asesoría Legal",
+       "Gerente de Proyectos (PMO)",
+       "Arquitecto (proveedor externo)",
+       "Gerente de Ventas al Detal (País)",
+       "Coordinador(a) de Visual Merchandising (país)",
+       "Coordinador(a) de Sistemas"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Oportunidad de local"},
        {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Valorar si la oportunidad merece estudio"},
@@ -917,7 +931,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n7", "carril": "Arquitecto (proveedor externo)", "tipo": "tarea", "n": "Diseñar el layout y ajustarlo en render"},
        {"id": "n8", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Seguir el cumplimiento de las permisologías"},
        {"id": "n9", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Dimensionar, contratar y formar la plantilla"},
-       {"id": "n10", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Montar la tienda al estándar de marca"},
+       {"id": "n10", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Montar la tienda al estándar de marca"},
        {"id": "n11", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Habilitar punto de venta, red y cámaras"},
        {"id": "n12", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Listo para abrir?"},
        {"id": "n12alt", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Cerrar los pendientes del punto"},
@@ -925,11 +939,22 @@ window.MANUAL_CONTENIDO = {
        {"id": "n14", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Tienda operativa, ACP como línea base"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
-       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
-       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"},
-       {"de": "n12", "a": "n13", "etq": "Sí"}, {"de": "n12", "a": "n12alt", "etq": "No"}, {"de": "n12alt", "a": "n13"},
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"},
+       {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13", "etq": "Sí"},
+       {"de": "n12", "a": "n12alt", "etq": "No"},
+       {"de": "n12alt", "a": "n13"},
        {"de": "n13", "a": "n14"}
       ]
      }
@@ -937,51 +962,98 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Cronograma depende de disponibilidad de personal entrenado", "Cuando coinciden varias aperturas, se resuelve moviendo gerentes experimentados entre países caso por caso.", "Media", "Medio", "Planificar el entrenamiento con antelación cuando hay más de una apertura en curso."],
-      ["No existe manual de apertura escrito", "El conocimiento vive en las personas que ya han abierto varias tiendas.", "Alta", "Alto", "Documentar un checklist mínimo de apertura antes de delegarla a alguien sin esa experiencia."],
-      ["Imprevistos de montaje sin registro de lecciones aprendidas", "Correcciones \"en caliente\" (nivel de piso, medidas) no quedan documentadas para la siguiente apertura.", "Alta", "Bajo", "Registrar por escrito cada imprevisto resuelto en montaje."],
-      ["Coincidencia con eventos externos imprevistos", "Un caso real de apertura coincidió con un terremoto, sin plan de contingencia para el personal en entrenamiento.", "Baja", "Alto", "Prever un plan de contingencia mínimo para el personal nuevo durante la semana de apertura."]
+      [
+       "Cronograma depende de disponibilidad de personal entrenado",
+       "Cuando coinciden varias aperturas, se resuelve moviendo gerentes experimentados entre países caso por caso.",
+       "Media",
+       "Medio",
+       "Planificar el entrenamiento con antelación cuando hay más de una apertura en curso."
+      ],
+      [
+       "No existe manual de apertura escrito",
+       "El conocimiento vive en las personas que ya han abierto varias tiendas.",
+       "Alta",
+       "Alto",
+       "Documentar un checklist mínimo de apertura antes de delegarla a alguien sin esa experiencia."
+      ],
+      [
+       "Imprevistos de montaje sin registro de lecciones aprendidas",
+       "Correcciones \"en caliente\" (nivel de piso, medidas) no quedan documentadas para la siguiente apertura.",
+       "Alta",
+       "Bajo",
+       "Registrar por escrito cada imprevisto resuelto en montaje."
+      ],
+      [
+       "Coincidencia con eventos externos imprevistos",
+       "Un caso real de apertura coincidió con un terremoto, sin plan de contingencia para el personal en entrenamiento.",
+       "Baja",
+       "Alto",
+       "Prever un plan de contingencia mínimo para el personal nuevo durante la semana de apertura."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Payback real vs. proyectado en el ACP", "Payback real ÷ payback proyectado, a los 3 años", "Anual (al cumplirse el plazo)", "Gerente Regional de Retail", "Dentro de ±15% del ACP"],
-      ["Tiempo de apertura desde aprobación hasta inauguración", "Fecha de inauguración − fecha de aprobación", "Por proyecto", "Gerente de Proyectos (PMO)", "Según cronograma aprobado"],
-      ["Permisos vigentes al día de la inauguración", "Permisos obtenidos ÷ permisos requeridos", "Por proyecto", "Gerente de Proyectos (PMO)", "100%"]
+      [
+       "Payback real vs. proyectado en el ACP",
+       "Payback real ÷ payback proyectado, a los 3 años",
+       "Anual (al cumplirse el plazo)",
+       "Gerente Regional de Retail",
+       "Dentro de ±15% del ACP"
+      ],
+      [
+       "Tiempo de apertura desde aprobación hasta inauguración",
+       "Fecha de inauguración − fecha de aprobación",
+       "Por proyecto",
+       "Gerente de Proyectos (PMO)",
+       "Según cronograma aprobado"
+      ],
+      [
+       "Permisos vigentes al día de la inauguración",
+       "Permisos obtenidos ÷ permisos requeridos",
+       "Por proyecto",
+       "Gerente de Proyectos (PMO)",
+       "100%"
+      ]
      ]
     }
    },
 
    "9.9": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la renovación planificada de un punto de venta existente —imagen, mobiliario o estructura— desde que se detecta la necesidad hasta el cierre del proyecto. No incluye la apertura de una tienda nueva (proceso 9.8), aunque comparte proveedor y criterios de estándar visual, ni la reparación puntual de una incidencia urgente de infraestructura (proceso 9.18)."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la renovación planificada de un punto de venta existente —imagen, mobiliario o estructura— desde que se detecta la necesidad hasta el cierre del proyecto. No incluye la apertura de una tienda nueva (proceso 9.8), aunque comparte proveedor y criterios de estándar visual, ni la reparación puntual de una incidencia urgente de infraestructura (proceso 9.18)."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Registra la necesidad de renovación —imagen envejecida, mobiliario dañado o un estándar de marca nuevo— en el plan de renovaciones del año y la prioriza frente a las demás pendientes, agrupando en una sola intervención lo que haya que hacer en el mismo punto para no cerrarlo dos veces."},
+      {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Registra la necesidad de renovación —imagen envejecida, mobiliario dañado o un estándar de marca nuevo— en el plan de renovaciones del año y la prioriza frente a las demás pendientes, agrupando en una sola intervención lo que haya que hacer en el mismo punto para no cerrarlo dos veces."},
       {"id": "a1b", "rol": "Comité Comercial", "texto": "Revisa la cola de renovaciones del ciclo y valida su prioridad contra el plan comercial de la región: qué puntos entran, en qué orden y cuáles esperan. Es la instancia que evita que la renovación se decida punto por punto y fuera de cualquier plan."},
-      {"id": "a2", "rol": "Gerente Regional de Visual Merchandising", "texto": "Fija el estándar al que tiene que llegar el punto: qué versión de la imagen de marca aplica, qué mobiliario y qué señalética corresponden, y qué se conserva de lo que ya hay."},
-      {"id": "a3", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Prepara la propuesta y el render de la intervención con el proveedor que ejecuta las aperturas, y la costea."},
+      {"id": "a2", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Fija el estándar al que tiene que llegar el punto según el concepto de tienda vigente (proceso 16.11): qué versión de la imagen de marca aplica, qué mobiliario y qué señalética corresponden, y qué se conserva de lo que ya hay."},
+      {"id": "a3", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Prepara la propuesta y el render de la intervención con el proveedor que ejecuta las aperturas, y la costea."},
       {"id": "a4", "rol": "Gerente de Ventas al Detal (País)", "texto": "Valida el impacto en la operación del punto: en qué ventana se puede intervenir, cuántos días queda cerrado o a media capacidad, y qué venta se deja de hacer. Una renovación mal calendarizada cuesta más en venta perdida que en obra."},
       {"id": "a5", "rol": "Gerente Regional de Retail", "texto": "Aprueba el presupuesto y la ventana de ejecución antes de que el proveedor arranque el trabajo físico."},
       {"id": "a6", "rol": "Gerente de Proyectos (PMO)", "texto": "Abre el proyecto de renovación con su alcance, su presupuesto y su fecha, y lo gobierna hasta el cierre. Sin apertura formal nadie responde por la fecha de reapertura, que es lo que la tienda necesita saber."},
       {"id": "a7", "rol": "Arquitecto / Proveedor de Remodelación", "texto": "Ejecuta la intervención —iluminación, paneles, mobiliario o reparación estructural— dentro de la ventana acordada."},
       {"id": "a8", "rol": "Gerente de Ventas al Detal (País)", "texto": "Recibe el punto renovado y confirma que quedó operativo: exhibición montada, surtido repuesto y personal en sitio para reabrir."},
       {"id": "a9", "rol": "Gerente de Proyectos (PMO)", "texto": "Cierra el proyecto una vez verificado que el punto quedó conforme al estándar visual y funcional, con el costo final contra el presupuesto aprobado."}
-      ],
+     ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Retail", "Comité Comercial", "Gerente Regional de Visual Merchandising", "Coordinador(a) de Visual Merchandising", "Gerente de Ventas al Detal (País)", "Gerente de Proyectos (PMO)", "Arquitecto / Proveedor de Remodelación"],
+      "carriles": [
+       "Gerente Regional de Retail",
+       "Comité Comercial",
+       "Gerente de Producción (Diseño y Marca)",
+       "Coordinador(a) de Visual Merchandising (país)",
+       "Gerente de Ventas al Detal (País)",
+       "Gerente de Proyectos (PMO)",
+       "Arquitecto / Proveedor de Remodelación"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Necesidad de renovación"},
        {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Registrar y priorizar en el plan de renovaciones"},
        {"id": "n1b", "carril": "Comité Comercial", "tipo": "tarea", "n": "Validar la prioridad de la cola del ciclo"},
-       {"id": "n2", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Fijar el estándar al que debe llegar el punto"},
-       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Preparar propuesta, render y costeo"},
+       {"id": "n2", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Fijar el estándar al que debe llegar el punto"},
+       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Preparar propuesta, render y costeo"},
        {"id": "n4", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Validar la ventana y el impacto en la venta"},
        {"id": "n5", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Aprueba presupuesto y ventana?"},
        {"id": "n5alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Dejar en cola hasta material o presupuesto"},
@@ -992,53 +1064,102 @@ window.MANUAL_CONTENIDO = {
        {"id": "n10", "carril": "Gerente de Proyectos (PMO)", "tipo": "fin", "n": "Punto renovado al estándar vigente"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1b"}, {"de": "n1b", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n1b"},
+       {"de": "n1b", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5alt", "etq": "No"},
+       {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Sin manual de remodelación escrito", "Cada intervención se coordina con el criterio informal de quien ya la ha hecho antes.", "Media", "Medio", "Documentar el checklist mínimo de remodelación una vez estabilizado el proceso de apertura (9.8)."],
-      ["Cola sin criterio de priorización escrito", "Se prioriza \"cuando llegue el material\", sin una regla explícita.", "Media", "Bajo", "Definir un criterio simple de priorización (antigüedad, tráfico, urgencia del daño)."],
-      ["Dependencia de un proveedor único", "El mismo proveedor que ejecuta las aperturas también hace las remodelaciones, sin alternativa si no está disponible.", "Baja", "Medio", "Calificar un segundo proveedor de respaldo para picos de demanda."],
-      ["Intervención parcial deja imagen mixta", "La tienda puede quedar con parte renovada y parte antigua mientras se espera el resto del material.", "Media", "Bajo", "Comunicar al cliente y al personal el cronograma de finalización cuando la intervención queda incompleta."]
+      [
+       "Sin manual de remodelación escrito",
+       "Cada intervención se coordina con el criterio informal de quien ya la ha hecho antes.",
+       "Media",
+       "Medio",
+       "Documentar el checklist mínimo de remodelación una vez estabilizado el proceso de apertura (9.8)."
+      ],
+      [
+       "Cola sin criterio de priorización escrito",
+       "Se prioriza \"cuando llegue el material\", sin una regla explícita.",
+       "Media",
+       "Bajo",
+       "Definir un criterio simple de priorización (antigüedad, tráfico, urgencia del daño)."
+      ],
+      [
+       "Dependencia de un proveedor único",
+       "El mismo proveedor que ejecuta las aperturas también hace las remodelaciones, sin alternativa si no está disponible.",
+       "Baja",
+       "Medio",
+       "Calificar un segundo proveedor de respaldo para picos de demanda."
+      ],
+      [
+       "Intervención parcial deja imagen mixta",
+       "La tienda puede quedar con parte renovada y parte antigua mientras se espera el resto del material.",
+       "Media",
+       "Bajo",
+       "Comunicar al cliente y al personal el cronograma de finalización cuando la intervención queda incompleta."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiendas en cola vs. tiendas renovadas en el período", "Tiendas renovadas ÷ tiendas en cola", "Trimestral", "Gerente Regional de Retail", "Cola decreciente o estable"],
-      ["Desviación de presupuesto ejecutado vs. aprobado", "Presupuesto ejecutado ÷ presupuesto aprobado", "Por proyecto", "Gerente de Proyectos (PMO)", "≤ 10%"],
-      ["Tiempo en cola antes de iniciar la intervención", "Fecha de inicio − fecha de ingreso a la cola", "Por tienda", "Gerente Regional de Retail", "Referencia de gestión"]
+      [
+       "Tiendas en cola vs. tiendas renovadas en el período",
+       "Tiendas renovadas ÷ tiendas en cola",
+       "Trimestral",
+       "Gerente Regional de Retail",
+       "Cola decreciente o estable"
+      ],
+      [
+       "Desviación de presupuesto ejecutado vs. aprobado",
+       "Presupuesto ejecutado ÷ presupuesto aprobado",
+       "Por proyecto",
+       "Gerente de Proyectos (PMO)",
+       "≤ 10%"
+      ],
+      [
+       "Tiempo en cola antes de iniciar la intervención",
+       "Fecha de inicio − fecha de ingreso a la cola",
+       "Por tienda",
+       "Gerente Regional de Retail",
+       "Referencia de gestión"
+      ]
      ]
     }
    },
 
    "9.10": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el diseño y la operación del modelo de franquicia Cubitt —contrato, fee, reportería y auditoría— que el grupo construye desde cero, distinto del modelo de franquicia Casio que ya existía. No incluye la gestión de los socios y partners que operan bajo una figura distinta a la franquicia estándar (proceso 9.11)."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el diseño y la operación del modelo de franquicia Cubitt —contrato, fee, reportería y auditoría— que el grupo construye desde cero, distinto del modelo de franquicia Casio que ya existía. No incluye la gestión de los socios y partners que operan bajo una figura distinta a la franquicia estándar (proceso 9.11)."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-       {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Evalúa la oportunidad del mercado y define el fee del contrato, homologado con los casos ya en curso para que el modelo sea comparable entre franquicias."},
+      {"id": "a1", "rol": "Gerente Regional de Retail", "texto": "Evalúa la oportunidad del mercado y define el fee del contrato, homologado con los casos ya en curso para que el modelo sea comparable entre franquicias."},
       {"id": "a1b", "rol": "Gerente Regional de Retail", "texto": "Decide si se avanza con ese franquiciado. Si el mercado, el operador o las condiciones no sostienen el modelo, la conversación se cierra antes de comprometer contrato ni estándar de marca."},
       {"id": "a2", "rol": "Gerente Regional de Retail", "texto": "Cierra el contrato de franquicia sobre el modelo estandarizado que el grupo construye desde cero para la marca propia: fee, plazo, territorio, estándar de imagen exigible y obligación de reportar. ⚠️ El patrón de cargos no contempla ninguna función jurídica que redacte o haga cumplir este contrato; queda como riesgo de estructura."},
       {"id": "a3", "rol": "Gerente Regional de Retail", "texto": "Define el protocolo de reportería obligatoria —qué entrega la franquicia, con qué frecuencia y en qué formato— para que su operación alimente el tablero regional como una tienda más."},
       {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Transfiere las herramientas de gestión comercial: cuadro de metas, seguimiento de cumplimiento y esquema de comisiones, que son las que hacen que la franquicia opere con el mismo lenguaje que la operación propia."},
-      {"id": "a5", "rol": "Gerente Regional de Visual Merchandising", "texto": "Transfiere el estándar de imagen y exhibición, y acompaña el montaje inicial del punto para que abra con la marca bien puesta. Es lo propio de visual en este proceso: la imagen, no las metas."},
+      {"id": "a5", "rol": "Gerente de Visual Merchandising", "texto": "Transfiere el estándar de imagen y exhibición de Diseño y Marca, y acompaña el montaje inicial del punto para que abra con la marca bien puesta. Es lo propio de visual en este proceso: la imagen, no las metas."},
       {"id": "a6", "rol": "Franquiciado", "texto": "Inicia operaciones: abre el punto, opera bajo el contrato y entrega la reportería acordada. Es el actor que ejecuta el modelo, y sin su operación en marcha no hay nada que evaluar."},
       {"id": "a7", "rol": "Gerente Regional de Retail", "texto": "Verifica que la franquicia cumpla la reportería y el estándar acordado; si no, escala el incumplimiento y define un plan de corrección con plazo."},
       {"id": "a8", "rol": "Gerente Regional de Retail", "texto": "Ejecuta la auditoría integral anual de cumplimiento del contrato y del estándar de marca, que es la que sostiene la renovación o la salida."}
-      ],
+     ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Retail", "Gerente Regional de Visual Merchandising", "Franquiciado"],
+      "carriles": ["Gerente Regional de Retail", "Gerente de Visual Merchandising", "Franquiciado"],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional de Retail", "tipo": "inicio", "n": "Interés de franquiciado en un mercado"},
        {"id": "n1", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Evaluar la oportunidad y definir el fee"},
@@ -1047,7 +1168,7 @@ window.MANUAL_CONTENIDO = {
        {"id": "n2", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Cerrar el contrato de franquicia"},
        {"id": "n3", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Definir el protocolo de reportería"},
        {"id": "n4", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Transferir las herramientas de gestión"},
-       {"id": "n5", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Transferir el estándar de imagen y acompañar el montaje"},
+       {"id": "n5", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Transferir el estándar de imagen y acompañar el montaje"},
        {"id": "n6", "carril": "Franquiciado", "tipo": "tarea", "n": "Iniciar operaciones y reportar"},
        {"id": "n7", "carril": "Gerente Regional de Retail", "tipo": "decision", "n": "¿Cumple lo acordado?"},
        {"id": "n7alt", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Escalar y fijar plan de corrección"},
@@ -1055,51 +1176,108 @@ window.MANUAL_CONTENIDO = {
        {"id": "n9", "carril": "Gerente Regional de Retail", "tipo": "fin", "n": "Franquicia operando y reportando"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n1b"}, {"de": "n1b", "a": "n2", "etq": "Sí"}, {"de": "n1b", "a": "n1alt", "etq": "No"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
-       {"de": "n7", "a": "n8", "etq": "Sí"}, {"de": "n7", "a": "n7alt", "etq": "No"}, {"de": "n7alt", "a": "n8"}, {"de": "n8", "a": "n9"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n1b"},
+       {"de": "n1b", "a": "n2", "etq": "Sí"},
+       {"de": "n1b", "a": "n1alt", "etq": "No"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8", "etq": "Sí"},
+       {"de": "n7", "a": "n7alt", "etq": "No"},
+       {"de": "n7alt", "a": "n8"},
+       {"de": "n8", "a": "n9"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Modelo en construcción sin trayectoria previa", "El contrato de franquicia Cubitt se está probando por primera vez en varios mercados a la vez.", "Alta", "Medio", "Tratar Nicaragua como piloto formal y documentar ajustes antes de replicar a nuevos mercados."],
-      ["Reportería depende de compatibilidad con la torre de control", "Sin un formato exigido, la información de la franquicia se normaliza a mano.", "Media", "Medio", "Exigir por contrato un formato mínimo de entrega de datos."],
-      ["Sin checkpoint intermedio entre la firma y la auditoría anual", "El primer año de una franquicia nueva pasa sin una revisión formal antes de la auditoría anual.", "Media", "Medio", "Agregar un checkpoint semestral ligero, sobre todo el primer año."],
-      ["Transferencia de herramientas sin acompañamiento continuo", "El estándar de marca puede diluirse en el franquiciado sin seguimiento cercano.", "Baja", "Medio", "Definir una cadencia mínima de acompañamiento durante el primer año."]
+      [
+       "Modelo en construcción sin trayectoria previa",
+       "El contrato de franquicia Cubitt se está probando por primera vez en varios mercados a la vez.",
+       "Alta",
+       "Medio",
+       "Tratar Nicaragua como piloto formal y documentar ajustes antes de replicar a nuevos mercados."
+      ],
+      [
+       "Reportería depende de compatibilidad con la torre de control",
+       "Sin un formato exigido, la información de la franquicia se normaliza a mano.",
+       "Media",
+       "Medio",
+       "Exigir por contrato un formato mínimo de entrega de datos."
+      ],
+      [
+       "Sin checkpoint intermedio entre la firma y la auditoría anual",
+       "El primer año de una franquicia nueva pasa sin una revisión formal antes de la auditoría anual.",
+       "Media",
+       "Medio",
+       "Agregar un checkpoint semestral ligero, sobre todo el primer año."
+      ],
+      [
+       "Transferencia de herramientas sin acompañamiento continuo",
+       "El estándar de marca puede diluirse en el franquiciado sin seguimiento cercano.",
+       "Baja",
+       "Medio",
+       "Definir una cadencia mínima de acompañamiento durante el primer año."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Franquicias reportando en formato compatible", "Franquicias con reportería compatible ÷ total de franquicias activas", "Mensual", "Gerente Regional de Retail", "100%"],
-      ["Cumplimiento del estándar en la auditoría anual", "Hallazgos críticos por auditoría", "Anual", "Gerente Regional de Retail", "Sin hallazgos críticos"],
-      ["Tiempo desde interés hasta firma del contrato", "Fecha de firma − fecha de interés", "Por caso", "Gerente Regional de Retail", "Referencia de gestión"]
+      [
+       "Franquicias reportando en formato compatible",
+       "Franquicias con reportería compatible ÷ total de franquicias activas",
+       "Mensual",
+       "Gerente Regional de Retail",
+       "100%"
+      ],
+      [
+       "Cumplimiento del estándar en la auditoría anual",
+       "Hallazgos críticos por auditoría",
+       "Anual",
+       "Gerente Regional de Retail",
+       "Sin hallazgos críticos"
+      ],
+      [
+       "Tiempo desde interés hasta firma del contrato",
+       "Fecha de firma − fecha de interés",
+       "Por caso",
+       "Gerente Regional de Retail",
+       "Referencia de gestión"
+      ]
      ]
     }
    },
 
    "9.11": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la coordinación con las unidades retail que no son propiedad plena ni franquicia estándar —socios, operadores con fee, la boutique del aeropuerto— incluida la revisión de su P&L y la renegociación cuando corresponde. No incluye la gestión de las franquicias Cubitt bajo contrato estandarizado (proceso 9.10), que sigue un modelo contractual distinto."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la coordinación con las unidades retail que no son propiedad plena ni franquicia estándar —socios, operadores con fee, la boutique del aeropuerto— incluida la revisión de su P&L y la renegociación cuando corresponde. No incluye la gestión de las franquicias Cubitt bajo contrato estandarizado (proceso 9.10), que sigue un modelo contractual distinto."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-       {"id": "a1", "rol": "Socio / Operador del punto", "texto": "Entrega su venta y su inventario en el formato y la frecuencia que el acuerdo fija. Es la contraparte del modelo: sin su reporte no hay P&L que revisar ni conversación que tener."},
+      {"id": "a1", "rol": "Socio / Operador del punto", "texto": "Entrega su venta y su inventario en el formato y la frecuencia que el acuerdo fija. Es la contraparte del modelo: sin su reporte no hay P&L que revisar ni conversación que tener."},
       {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Consolida la información de cada punto operado por un socio y la deja comparable con la de la operación propia, sin lo cual el P&L de uno y otro no se pueden poner al lado."},
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Revisa el P&L de cada punto al cierre del mes contra el mismo estándar que se aplica a la tienda propia, para que un socio no se evalúe con una vara distinta."},
       {"id": "a4", "rol": "Gerente Regional de Retail", "texto": "Cuando el punto cierra en rojo, abre la renegociación comercial con el socio —condiciones, aporte de cada parte, surtido o alcance— en vez de dejar que la pérdida se acumule mes a mes."},
       {"id": "a5", "rol": "Socio / Operador del punto", "texto": "Negocia las condiciones nuevas y se compromete con el plan que se acuerde, o plantea su salida del acuerdo."},
       {"id": "a6", "rol": "Comité Directivo", "texto": "Decide cuando la renegociación toca el acuerdo mismo: cambiar el modelo, reducir el alcance o terminar la relación. Un socio compromete la presencia de la marca en un mercado y su salida deja una plaza descubierta, así que la decisión no cabe en la gerencia que la negocia."},
       {"id": "a7", "rol": "Gerente Regional de Retail", "texto": "Traslada al socio los estándares de gestión comercial —metas, seguimiento y esquema de comisiones— para que el punto opere con el mismo lenguaje que la operación propia."},
-      {"id": "a8", "rol": "Gerente Regional de Visual Merchandising", "texto": "Audita la imagen y la exhibición del punto contra el estándar de la marca, que es lo que el cliente ve y lo que no puede diferir entre una tienda propia y una operada por un socio."}
-      ],
+      {"id": "a8", "rol": "Gerente de Visual Merchandising", "texto": "Audita la imagen y la exhibición del punto contra el estándar de Diseño y Marca, que es lo que el cliente ve y lo que no puede diferir entre una tienda propia y una operada por un socio."}
+     ],
      "diagrama": {
-      "carriles": ["Socio / Operador del punto", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente Regional de Retail", "Comité Directivo", "Gerente Regional de Visual Merchandising"],
+      "carriles": [
+       "Socio / Operador del punto",
+       "Analista de Sistemas / Datos",
+       "Gerente de Contabilidad / Administración",
+       "Gerente Regional de Retail",
+       "Comité Directivo",
+       "Gerente de Visual Merchandising"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Socio / Operador del punto", "tipo": "inicio", "n": "Cierre mensual del punto"},
        {"id": "n1", "carril": "Socio / Operador del punto", "tipo": "tarea", "n": "Entregar venta e inventario del punto"},
@@ -1111,33 +1289,83 @@ window.MANUAL_CONTENIDO = {
        {"id": "n7", "carril": "Comité Directivo", "tipo": "decision", "n": "¿Se mantiene el acuerdo?"},
        {"id": "n7alt", "carril": "Comité Directivo", "tipo": "tarea", "n": "Decidir el cambio de modelo o la salida"},
        {"id": "n8", "carril": "Gerente Regional de Retail", "tipo": "tarea", "n": "Trasladar los estándares de gestión comercial"},
-       {"id": "n9", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Auditar imagen y exhibición del punto"},
-       {"id": "n10", "carril": "Gerente Regional de Visual Merchandising", "tipo": "fin", "n": "Punto revisado y con acciones abiertas"}
+       {"id": "n9", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Auditar imagen y exhibición del punto"},
+       {"id": "n10", "carril": "Gerente de Visual Merchandising", "tipo": "fin", "n": "Punto revisado y con acciones abiertas"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n5", "etq": "Sí"}, {"de": "n4", "a": "n8", "etq": "No"},
-       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"},
-       {"de": "n7", "a": "n8", "etq": "Sí"}, {"de": "n7", "a": "n7alt", "etq": "No"}, {"de": "n7alt", "a": "n8"},
-       {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5", "etq": "Sí"},
+       {"de": "n4", "a": "n8", "etq": "No"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8", "etq": "Sí"},
+       {"de": "n7", "a": "n7alt", "etq": "No"},
+       {"de": "n7alt", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Figuras legales distintas por partner", "Cada partner tiene su propia figura (socio 50/50, operador con fee, franquicia informal), sin un único procedimiento de acceso a datos.", "Alta", "Medio", "Documentar el mecanismo de consulta específico por partner como parte del acuerdo comercial."],
-      ["Renegociación reactiva tras la pérdida", "Un cambio de operador logístico en Guatemala costó USD 12.000 en un mes y dejó la operación en rojo antes de renegociar.", "Media", "Alto", "Fijar un umbral de alerta temprana en el P&L mensual que dispare la revisión antes del cierre en rojo."],
-      ["Adopción desigual de estándares regionales", "La antigüedad de la relación con cada partner influye en qué tanto adopta el estándar.", "Media", "Medio", "Incluir la adopción del estándar como parte de la revisión trimestral del acuerdo."],
-      ["Escalamiento sin protocolo escrito", "La resolución de desviaciones depende de la relación personal del Gerente Regional con cada partner.", "Baja", "Medio", "Documentar el criterio de cuándo una desviación amerita renegociación formal."]
+      [
+       "Figuras legales distintas por partner",
+       "Cada partner tiene su propia figura (socio 50/50, operador con fee, franquicia informal), sin un único procedimiento de acceso a datos.",
+       "Alta",
+       "Medio",
+       "Documentar el mecanismo de consulta específico por partner como parte del acuerdo comercial."
+      ],
+      [
+       "Renegociación reactiva tras la pérdida",
+       "Un cambio de operador logístico en Guatemala costó USD 12.000 en un mes y dejó la operación en rojo antes de renegociar.",
+       "Media",
+       "Alto",
+       "Fijar un umbral de alerta temprana en el P&L mensual que dispare la revisión antes del cierre en rojo."
+      ],
+      [
+       "Adopción desigual de estándares regionales",
+       "La antigüedad de la relación con cada partner influye en qué tanto adopta el estándar.",
+       "Media",
+       "Medio",
+       "Incluir la adopción del estándar como parte de la revisión trimestral del acuerdo."
+      ],
+      [
+       "Escalamiento sin protocolo escrito",
+       "La resolución de desviaciones depende de la relación personal del Gerente Regional con cada partner.",
+       "Baja",
+       "Medio",
+       "Documentar el criterio de cuándo una desviación amerita renegociación formal."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiendas-partner en rojo vs. total", "Tiendas-partner en rojo ÷ total de tiendas-partner", "Mensual", "Planificador Financiero", "Tendencia descendente"],
-      ["Tiempo entre alerta de P&L negativo y renegociación", "Fecha de apertura de renegociación − fecha de alerta", "Por caso", "Gerente Regional de Retail", "≤ 1 mes"],
-      ["Partners con estándar regional completo", "Partners con metas, follow up, comisiones y visual homologados ÷ total de partners", "Trimestral", "Gerente Regional de Visual Merchandising", "Creciente hasta 100%"]
+      [
+       "Tiendas-partner en rojo vs. total",
+       "Tiendas-partner en rojo ÷ total de tiendas-partner",
+       "Mensual",
+       "Planificador Financiero",
+       "Tendencia descendente"
+      ],
+      [
+       "Tiempo entre alerta de P&L negativo y renegociación",
+       "Fecha de apertura de renegociación − fecha de alerta",
+       "Por caso",
+       "Gerente Regional de Retail",
+       "≤ 1 mes"
+      ],
+      [
+       "Partners con estándar regional completo",
+       "Partners con metas, follow up, comisiones y visual homologados ÷ total de partners",
+       "Trimestral",
+       "Gerente de Visual Merchandising",
+       "Creciente hasta 100%"
+      ]
      ]
     }
    },
@@ -1537,7 +1765,7 @@ window.MANUAL_CONTENIDO = {
     "alcance": "Desde la consolidación de demanda (S&OP) hasta la orden de compra confirmada, su seguimiento hasta el arribo al hub regional de Kenex Panamá, y la reposición desde ese hub hacia cada país y hacia el punto de venta. No incluye la nacionalización aduanera ni el despacho físico desde el hub (macro 7, Logística y Operaciones), aunque este manual documenta hasta el punto en que Compras entrega el pedido aprobado a Logística. Tampoco incluye el pronóstico de venta por tienda que usa como insumo (macro 2, Planeación Comercial) ni el ajuste comercial y la recepción en el punto de venta (macro 9, Ventas Retail, proceso 9.3), con el que este manual se cruza a propósito en el proceso 6.7.",
     "audiencia": [
      "Gerente Regional Comercial / Retail",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Coordinador(a) de Logística y Bodega",
      "Analista/Ejecutivo(a) Comercial (KAM Casio, Mayor)",
      "Asistente Administrativo(a) / Servicios Generales (por país)",
@@ -1551,7 +1779,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "ubicacion": "Compras y Abastecimiento es la bisagra entre la demanda que consolidan Planeación Comercial y los canales de venta, y la oferta que llega de las dos marcas del grupo: Casio, representada bajo cuota territorial exclusiva de la casa matriz japonesa, y Cubitt, marca propia fabricada en China. No existe hoy un departamento de compras formalmente estructurado: la compra internacional de cada marca la decide una sola persona con apoyo de un comité informal, sin backup documentado. Toda la mercancía —de ambas marcas y de todos los países— converge primero en la bodega central de Zona Libre de Colón, Panamá (5.000 m²), antes de redistribuirse a cada país; desde ahí también opera el pequeño almacén de Obarrio para el detal panameño, y aparte el almacén de Rower en Venezuela. La planificación de demanda se apoya en una reunión mensual de S&OP que cruza inventario, sell-in y sell-out por SKU/país/canal, y en un módulo de sugerido en Power BI que la gerencia comercial ajusta con criterio experto antes de confirmar la compra.",
     "duenos": [
-     ["Estratégico / marca", "Gerente Regional Comercial / Retail (Casio) · Gerente Regional de Marketing (Cubitt, con comité colegiado)", "Decide qué y cuánto comprar de cada marca; sin backup formal documentado hoy."],
+     ["Estratégico / marca", "Gerente Regional Comercial / Retail (Casio) · Gerente Corporativo(a) de Mercadeo (Cubitt, con comité colegiado)", "Decide qué y cuánto comprar de cada marca; sin backup formal documentado hoy."],
      ["Operativo regional", "Coordinador(a) de Logística y Bodega", "Dueño operativo de la planificación (S&OP), la reposición inter-compañía y a punto de venta, y del ciclo de vida del proveedor."],
      ["País", "Asistente Administrativo(a) / Servicios Generales (por país)", "Ejecuta la compra local de urgencia y la registra en el ERP de su país."]
     ],
@@ -1584,14 +1812,14 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "actores": [
      ["Gerente Regional Comercial / Retail", "Regional — marca Casio", "Decide la compra internacional de Casio; participa en S&OP, en la aprobación de allocation y en el comité informal de Cubitt.", "Ajustes de cantidad dentro de la cuota confirmada; decisiones de allocation entre países.", "Sin backup documentado hoy — una ausencia detiene la decisión de compra Casio."],
-     ["Gerente Regional de Marketing", "Regional — marca Cubitt", "Encabeza el comité informal de Cubitt; decide sourcing, muestras y modo de envío junto con el comité.", "Decisiones de producto y lanzamiento dentro del presupuesto aprobado.", "Compras que exceden el presupuesto de lanzamiento escalan a la Junta."],
+     ["Gerente Corporativo(a) de Mercadeo", "Regional — marca Cubitt", "Encabeza el comité informal de Cubitt; decide sourcing, muestras y modo de envío junto con el comité.", "Decisiones de producto y lanzamiento dentro del presupuesto aprobado.", "Compras que exceden el presupuesto de lanzamiento escalan a la Junta."],
      ["Coordinador(a) de Logística y Bodega", "Regional — operación", "Dueño operativo de la planificación de demanda, la reposición inter-compañía y a punto de venta, y de la homologación de proveedores.", "Ajuste del sugerido de reposición dentro del criterio experto ya validado.", "Cantidades finales de reposición inter-compañía escalan al Gerente Regional Comercial / Retail."],
      ["Asistente Administrativo(a) / Servicios Generales (país)", "País", "Ejecuta la compra local de urgencia y la registra en el ERP.", "Compras puntuales de bajo monto, dentro del criterio local.", "Compras que exceden el criterio local escalan al Country Manager."],
      ["Comité informal de compras Cubitt", "Regional — colegiado", "Revisa la necesidad, decide con la fábrica china y confirma el modo de envío.", "Decisión colegiada dentro del ciclo de lanzamiento.", "Sin backup formal si dos de sus integrantes no están disponibles a la vez."]
     ],
     "comites": [
-     ["Reunión mensual de S&OP", "Consolidar inventario, sell-in, sell-out y forecast para producir el plan de suministro del mes.", "Mensual", "Coordinador(a) de Logística y Bodega · Gerente Regional Comercial / Retail · Gerente Regional de Marketing · Planificador Financiero · Analista de Sistemas / Datos", "Plan de suministro por SKU/país/canal", "Inventario, sell-in/sell-out, forecast, sugerido de Power BI", "Plan de suministro aprobado y propuesta de reposición"],
-     ["Comité informal de compras Cubitt", "Decidir la compra internacional de la marca propia, sin estructura ni acta formal.", "Por evento (lanzamiento o necesidad)", "Gerente Regional de Marketing · Gerente Regional Comercial / Retail · Director(a) Ventas Regional Cubitt", "Decisión de compra, sourcing y modo de envío", "Necesidad detectada, disponibilidad de la fábrica, sell-in/sell-out", "Orden de compra Cubitt confirmada"],
+     ["Reunión mensual de S&OP", "Consolidar inventario, sell-in, sell-out y forecast para producir el plan de suministro del mes.", "Mensual", "Coordinador(a) de Logística y Bodega · Gerente Regional Comercial / Retail · Gerente Corporativo(a) de Mercadeo · Planificador Financiero · Analista de Sistemas / Datos", "Plan de suministro por SKU/país/canal", "Inventario, sell-in/sell-out, forecast, sugerido de Power BI", "Plan de suministro aprobado y propuesta de reposición"],
+     ["Comité informal de compras Cubitt", "Decidir la compra internacional de la marca propia, sin estructura ni acta formal.", "Por evento (lanzamiento o necesidad)", "Gerente Corporativo(a) de Mercadeo · Gerente Regional Comercial / Retail · Director(a) Ventas Regional Cubitt", "Decisión de compra, sourcing y modo de envío", "Necesidad detectada, disponibilidad de la fábrica, sell-in/sell-out", "Orden de compra Cubitt confirmada"],
      ["Comité de finanzas", "Revisar el flujo de caja y las compras pendientes de aprobación financiera.", "Quincenal", "Contabilidad · Junta · asesores externos", "Aprobación de pagos y anticipos a proveedores", "Estado de cuentas por pagar, compras en curso", "Pagos autorizados y prioridades de caja"]
     ]
    },
@@ -1659,7 +1887,7 @@ window.MANUAL_CONTENIDO = {
      ["6.1 Planificación de demanda y S&OP", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Analista de Sistemas / Datos · Planificador Financiero", "Junta / Comité Directivo"],
      ["6.2 Gestión del ciclo de vida del proveedor (SRM)", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Gerente de Contabilidad / Administración", "Planificador Financiero"],
      ["6.3 Compra internacional a marca representada (Casio)", "Analista/Ejecutivo(a) Comercial (KAM Casio)", "Gerente Regional Comercial / Retail", "Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
-     ["6.4 Compra internacional a marca propia (Cubitt)", "Sourcing en China", "Gerente Regional de Marketing", "Director(a) Ventas Regional Cubitt · Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail"],
+     ["6.4 Compra internacional a marca propia (Cubitt)", "Sourcing en China", "Gerente Corporativo(a) de Mercadeo", "Director(a) Ventas Regional Cubitt · Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail"],
      ["6.5 Compra local de bienes y servicios por país", "Asistente Administrativo(a) / Servicios Generales", "Country Manager", "Coordinador(a) de Logística y Bodega", "—"],
      ["6.6 Gestión de reposición inter-compañía (país-hub)", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Coordinador(a) Comercial", "—"],
      ["6.7 Gestión de reposición a punto de venta", "Coordinador(a) de Logística y Bodega", "Gerente Regional Comercial / Retail", "Supervisor de Ventas · Analista/Ejecutivo(a) Comercial (Mayor)", "Gerente de Ventas al Detal (País)"],
@@ -1890,30 +2118,9 @@ window.MANUAL_CONTENIDO = {
    },
 
    "6.3": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre cómo se compone y se coloca cada mes la compra internacional de la marca representada: la recepción de la oferta mensual de la fábrica, la preparación del archivo de compras que cruza venta histórica, inventario y tránsito, la decisión de qué pedir de esa oferta, la colocación de la orden, la instrucción del pago según el calendario de la fábrica, la aprobación del flete y la reconciliación posterior. El pago va dentro del proceso porque condiciona el embarque: el flete se arma después de pagar, no antes. No incluye la recepción física ni la nacionalización (macro 7, Logística y Operaciones); ni la distribución a cada país (procesos 6.6 y 6.7); ni la ejecución del pago y la consecución de los fondos, que son 13.1 (cuentas por pagar a proveedores) y 13.2 (flujo de caja y ejecución de pagos)."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros",
-     "participantes": [
-      "Comité Comercial / Director de Compras y Cadena de Suministros — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.",
-      "Analista de Compras — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.",
-      "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.",
-      "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.",
-      "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.",
-      "Especialista de Marketing / Brand (Casio) — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."
-     ],
-    },
-    "disparador": {
-     "estado": "borrador",
-     "disparador": "Recepción mensual del «order sheet» de la fábrica: la lista de mercancía que tiene disponible y que el grupo puede pedir. ⚠️ No es una cuota asignada ni un allocation por país — es una oferta, y la compra se compone a partir de ella decidiendo qué interesa pedir.",
-     "cadencia": "Mensual, en días fijos del mes.",
-     "output": "Orden de compra colocada con la fábrica, cotización de flete aprobada y archivo de compras del mes actualizado.",
-     "evidencia": ["E-08", "E-10"],
-     "notas": "La compra se coloca para la bodega de Zona Libre, donde converge toda la mercancía del grupo antes de redistribuirse; no se compra por país. El sugerido del modelo acompaña la decisión pero no la sustituye: la composición final es criterio experto."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre cómo se compone y se coloca cada mes la compra internacional de la marca representada: la recepción de la oferta mensual de la fábrica, la preparación del archivo de compras que cruza venta histórica, inventario y tránsito, la decisión de qué pedir de esa oferta, la colocación de la orden, la instrucción del pago según el calendario de la fábrica, la aprobación del flete y la reconciliación posterior. El pago va dentro del proceso porque condiciona el embarque: el flete se arma después de pagar, no antes. No incluye la recepción física ni la nacionalización (macro 7, Logística y Operaciones); ni la distribución a cada país (procesos 6.6 y 6.7); ni la ejecución del pago y la consecución de los fondos, que son 13.1 (cuentas por pagar a proveedores) y 13.2 (flujo de caja y ejecución de pagos)."},
+    "dueno": {"estado": "borrador", "dueno": "Comité Comercial / Director de Compras y Cadena de Suministros", "participantes": ["Comité Comercial / Director de Compras y Cadena de Suministros — compone y coloca la compra de la marca representada, es el único contacto con la fábrica y aprueba la cotización del flete. Lo atiende el director que lleva esta marca; interviene como instancia de gobierno, no porque exista una unidad de compras que lo respalde.", "Analista de Compras — prepara cada mes el archivo de compras: la venta del año mes a mes, el inventario en stock, la mercancía en tránsito y la oferta recibida de la fábrica. No forma parte de la plantilla.", "Analista de Sistemas / Datos — mantiene el modelo que produce el sugerido de pedido con el que se contrasta la decisión.", "Gerente de Contabilidad / Administración — recibe la instrucción de pago, verifica que corresponda a una orden colocada y que encaje en el ciclo de caja del mes, y lo ejecuta contra 13.2. Es la entidad que paga; el proceso de compra no mueve dinero por su cuenta.", "Gerente de Operaciones y Logística — solicita la cotización del flete a la fábrica, ejecuta el embarque una vez aprobado y da seguimiento hasta el hub de Zona Libre.", "Brand Manager de Casio — incorporado recientemente para la marca representada; todavía no asume la relación con la fábrica, y es la vía prevista para que deje de depender de una sola persona."]},
+    "disparador": {"estado": "borrador", "disparador": "Recepción mensual del «order sheet» de la fábrica: la lista de mercancía que tiene disponible y que el grupo puede pedir. ⚠️ No es una cuota asignada ni un allocation por país — es una oferta, y la compra se compone a partir de ella decidiendo qué interesa pedir.", "cadencia": "Mensual, en días fijos del mes.", "output": "Orden de compra colocada con la fábrica, cotización de flete aprobada y archivo de compras del mes actualizado.", "evidencia": ["E-08", "E-10"], "notas": "La compra se coloca para la bodega de Zona Libre, donde converge toda la mercancía del grupo antes de redistribuirse; no se compra por país. El sugerido del modelo acompaña la decisión pero no la sustituye: la composición final es criterio experto."},
     "flujo": {
      "estado": "borrador",
      "evidencia": ["E-08", "E-10", "E-03"],
@@ -1931,7 +2138,13 @@ window.MANUAL_CONTENIDO = {
       {"id": "a9", "rol": "Analista de Compras", "texto": "Actualiza el archivo de compras con lo efectivamente confirmado y reconcilia lo pedido contra la venta real del período."}
      ],
      "diagrama": {
-      "carriles": ["Comité Comercial / Director de Compras y Cadena de Suministros", "Analista de Compras", "Analista de Sistemas / Datos", "Gerente de Contabilidad / Administración", "Gerente de Operaciones y Logística"],
+      "carriles": [
+       "Comité Comercial / Director de Compras y Cadena de Suministros",
+       "Analista de Compras",
+       "Analista de Sistemas / Datos",
+       "Gerente de Contabilidad / Administración",
+       "Gerente de Operaciones y Logística"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Comité Comercial / Director de Compras y Cadena de Suministros", "tipo": "inicio", "n": "Llega la oferta mensual de la fábrica"},
        {"id": "n1", "carril": "Analista de Compras", "tipo": "tarea", "n": "Preparar el archivo de compras del mes", "sistemas": ["Archivo de compras (Excel)"]},
@@ -1966,23 +2179,95 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-08", "E-10", "E-03"],
      "filas": [
-      ["Toda la compra de la marca representada en una sola persona", "El mismo responsable recibe la oferta, compone la compra, coloca la orden y aprueba el flete, y es además el único contacto con la fábrica. No hay segregación entre quien decide y quien compromete, ni respaldo si falta.", "Alta", "Alto", "Completar la incorporación del perfil de marca ya contratado a la relación con la fábrica y al armado de la compra, y documentar el método para que no dependa de una persona."],
-      ["El archivo de compras lo prepara alguien fuera de la plantilla", "La pieza que sostiene la decisión mensual la construye una persona que no es personal propio, sin respaldo ni continuidad formal prevista.", "Alta", "Alto", "Definir el encaje de esa función en la estructura y formar un respaldo interno que pueda armar el archivo."],
-      ["El archivo de compras es enteramente manual", "Se arma a mano cada mes cruzando venta, stock, tránsito y oferta. Una herramienta de apoyo que se probó se retiró por costo y por no reducir el trabajo, y el equipo estuvo varios meses sin nada.", "Alta", "Medio", "Automatizar el cruce a partir del sugerido del modelo, midiendo antes cuánto trabajo evita para no repetir el intento fallido."],
-      ["Sin criterio escrito de qué pedir de la oferta", "La composición de la compra descansa en criterio experto sobre venta pasada, inventario y tránsito; el sugerido del modelo acompaña pero no hay regla escrita de cuándo apartarse de él.", "Media", "Alto", "Documentar el criterio ya usado de facto y dejar constancia de los apartamientos del sugerido y su motivo."],
-      ["Logística depende del comprador para saber qué viene", "La información del embarque baja por la vía del comprador; el hub llega a enterarse con días de margen, lo que altera la planificación de recepción.", "Alta", "Medio", "Que la colocación de la orden dispare el aviso a Logística con mercancía, contenedores y fecha estimada."],
-      ["La relación con la fábrica consume la agenda del dueño", "El contacto con la casa matriz de la marca es semanal y con viajes frecuentes, y recae en la misma persona que compone la compra: la operativa compite con la relación comercial.", "Media", "Medio", "Separar la relación institucional con la marca de la ejecución mensual de la compra al incorporar el perfil de marca."],
-      ["Reconciliación posterior manual y sin trazabilidad", "El cruce entre lo pedido, lo confirmado y la venta real se rehace a mano cada mes sobre el mismo archivo, sin dejar registro de versiones.", "Media", "Medio", "Versionar el archivo por mes y dejar el resultado de la reconciliación como dato consultable, no como hoja de cálculo."]
+      [
+       "Toda la compra de la marca representada en una sola persona",
+       "El mismo responsable recibe la oferta, compone la compra, coloca la orden y aprueba el flete, y es además el único contacto con la fábrica. No hay segregación entre quien decide y quien compromete, ni respaldo si falta.",
+       "Alta",
+       "Alto",
+       "Completar la incorporación del perfil de marca ya contratado a la relación con la fábrica y al armado de la compra, y documentar el método para que no dependa de una persona."
+      ],
+      [
+       "El archivo de compras lo prepara alguien fuera de la plantilla",
+       "La pieza que sostiene la decisión mensual la construye una persona que no es personal propio, sin respaldo ni continuidad formal prevista.",
+       "Alta",
+       "Alto",
+       "Definir el encaje de esa función en la estructura y formar un respaldo interno que pueda armar el archivo."
+      ],
+      [
+       "El archivo de compras es enteramente manual",
+       "Se arma a mano cada mes cruzando venta, stock, tránsito y oferta. Una herramienta de apoyo que se probó se retiró por costo y por no reducir el trabajo, y el equipo estuvo varios meses sin nada.",
+       "Alta",
+       "Medio",
+       "Automatizar el cruce a partir del sugerido del modelo, midiendo antes cuánto trabajo evita para no repetir el intento fallido."
+      ],
+      [
+       "Sin criterio escrito de qué pedir de la oferta",
+       "La composición de la compra descansa en criterio experto sobre venta pasada, inventario y tránsito; el sugerido del modelo acompaña pero no hay regla escrita de cuándo apartarse de él.",
+       "Media",
+       "Alto",
+       "Documentar el criterio ya usado de facto y dejar constancia de los apartamientos del sugerido y su motivo."
+      ],
+      [
+       "Logística depende del comprador para saber qué viene",
+       "La información del embarque baja por la vía del comprador; el hub llega a enterarse con días de margen, lo que altera la planificación de recepción.",
+       "Alta",
+       "Medio",
+       "Que la colocación de la orden dispare el aviso a Logística con mercancía, contenedores y fecha estimada."
+      ],
+      [
+       "La relación con la fábrica consume la agenda del dueño",
+       "El contacto con la casa matriz de la marca es semanal y con viajes frecuentes, y recae en la misma persona que compone la compra: la operativa compite con la relación comercial.",
+       "Media",
+       "Medio",
+       "Separar la relación institucional con la marca de la ejecución mensual de la compra al incorporar el perfil de marca."
+      ],
+      [
+       "Reconciliación posterior manual y sin trazabilidad",
+       "El cruce entre lo pedido, lo confirmado y la venta real se rehace a mano cada mes sobre el mismo archivo, sin dejar registro de versiones.",
+       "Media",
+       "Medio",
+       "Versionar el archivo por mes y dejar el resultado de la reconciliación como dato consultable, no como hoja de cálculo."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de ciclo de la compra mensual", "Fecha de colocación de la orden − fecha de recepción de la oferta", "Mensual", "Comité Comercial / Director de Compras y Cadena de Suministros", "Referencia de seguimiento"],
-      ["Cierre del archivo de compras dentro del mes", "Archivos cerrados antes de la fecha de pedido ÷ meses del período", "Mensual", "Analista de Compras", "100%"],
-      ["Apego al sugerido del modelo", "Líneas pedidas que coinciden con el sugerido ÷ líneas pedidas", "Mensual", "Analista de Sistemas / Datos", "Referencia — mide cuánto aporta el modelo, no cuánto se le obedece"],
-      ["Órdenes con aviso anticipado a Logística", "Órdenes notificadas al hub antes del embarque ÷ total de órdenes", "Mensual", "Gerente de Operaciones y Logística", "100%"],
-      ["Contenedores recibidos en la ventana estimada", "Contenedores llegados dentro de la ventana ÷ total del período", "Mensual", "Gerente de Operaciones y Logística", "A la alza"]
+      [
+       "Tiempo de ciclo de la compra mensual",
+       "Fecha de colocación de la orden − fecha de recepción de la oferta",
+       "Mensual",
+       "Comité Comercial / Director de Compras y Cadena de Suministros",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Cierre del archivo de compras dentro del mes",
+       "Archivos cerrados antes de la fecha de pedido ÷ meses del período",
+       "Mensual",
+       "Analista de Compras",
+       "100%"
+      ],
+      [
+       "Apego al sugerido del modelo",
+       "Líneas pedidas que coinciden con el sugerido ÷ líneas pedidas",
+       "Mensual",
+       "Analista de Sistemas / Datos",
+       "Referencia — mide cuánto aporta el modelo, no cuánto se le obedece"
+      ],
+      [
+       "Órdenes con aviso anticipado a Logística",
+       "Órdenes notificadas al hub antes del embarque ÷ total de órdenes",
+       "Mensual",
+       "Gerente de Operaciones y Logística",
+       "100%"
+      ],
+      [
+       "Contenedores recibidos en la ventana estimada",
+       "Contenedores llegados dentro de la ventana ÷ total del período",
+       "Mensual",
+       "Gerente de Operaciones y Logística",
+       "A la alza"
+      ]
      ]
     }
    },
@@ -2578,7 +2863,7 @@ window.MANUAL_CONTENIDO = {
     "alcance": "Desde la planificación comercial anual y la segmentación de clientes hasta la toma del pedido, su aprobación, la cobranza y las devoluciones comerciales — incluidas las líneas de negocio no orgánicas (venta corporativa, promociones de alto volumen, marca privada) y la gestión de cuentas clave y franquicias. No incluye la venta al detal en tienda propia (macro 9, Ventas Retail) ni el comercio electrónico (macro 10, Ventas Web), aunque los tres canales comparten catálogo, inventario y, en el caso de grandes cuentas, calendario de campañas. Tampoco incluye la compra internacional que provee el inventario (macro 6, Compras y Abastecimiento) ni la preparación y despacho físico del pedido (macro 7, Logística y Operaciones).",
     "audiencia": [
      "Gerente Regional Comercial (Mayoreo)",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Gerente Comercial (País / Canal)",
      "Coordinador(a) Comercial",
      "Analista/Ejecutivo(a) Comercial",
@@ -2592,7 +2877,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "ubicacion": "Ventas Mayor es, junto con Ventas Retail y Ventas Web, uno de los tres canales de venta de la cadena de valor operativa — y el de mayor peso histórico en la facturación del grupo. Recibe la mercancía ya nacionalizada y asignada por Compras y Logística, y la coloca en distribuidores, cadenas, grandes superficies, franquiciados y clientes corporativos de toda la región, además de dos líneas de negocio propias de alto volumen: la venta puntual inorgánica (campañas masivas de corta duración) y la fabricación de producto de marca privada para terceros. Hoy no existe un departamento de compras equivalente en estructura para el mayor: la conducción comercial de cada marca —Casio y Cubitt— recae en una sola persona con equipo de apoyo creciente, sin backup pleno documentado. La reportería comercial se apoya en un dashboard propio, construido fuera de Lark y Odoo pero cruzado con su data de cierre diario, con seguimiento semanal por vendedor y por país hasta la Junta.",
     "duenos": [
-     ["Estratégico / marca", "Gerente Regional Comercial (Mayoreo) (transversal a Casio y Cubitt) · Gerente Regional de Marketing (venta inorgánica y marca privada Cubitt)", "Conduce la estrategia comercial regional, el forecast, la política de precios y comisiones."],
+     ["Estratégico / marca", "Gerente Regional Comercial (Mayoreo) (transversal a Casio y Cubitt) · Gerente Corporativo(a) de Mercadeo (venta inorgánica y marca privada Cubitt)", "Conduce la estrategia comercial regional, el forecast, la política de precios y comisiones."],
      ["País / canal", "Gerente Comercial (País / Canal)", "Ejecuta la estrategia local: aprobación de pedidos, cobranza, comisiones y relación con cuentas clave del país."],
      ["Cuenta / cliente", "Analista/Ejecutivo(a) Comercial · Coordinador(a) Comercial (cuentas clave)", "Gestiona la cartera asignada: pedido, cobranza, devoluciones y seguimiento del punto de venta del cliente."]
     ],
@@ -2614,7 +2899,7 @@ window.MANUAL_CONTENIDO = {
     "interfaces": [
      ["Compras y Abastecimiento", "Entrada", "Mercancía nacionalizada y asignada; visibilidad de tránsito para responder brechas de disponibilidad."],
      ["Logística y Operaciones", "Salida", "Pedido aprobado para preparación y despacho; certificación de transportadora en grandes cadenas."],
-     ["Gestión de Mercadeo y Comunicaciones", "Coordinación", "Calendario de campaña por canal, apoyo a cuentas clave, piezas de lanzamiento."],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Coordinación", "Calendario de campaña por canal, apoyo a cuentas clave, piezas de lanzamiento."],
      ["Contabilidad", "Salida", "Facturación, aplicación de cobranza, notas de crédito por devolución."],
      ["Gestión Legal y Cumplimiento", "Coordinación", "Contratos de franquicia, documento de crédito, proforma de marca privada."],
      ["Administración y Finanzas", "Coordinación", "Business case de rentabilidad para inversión en mobiliario o apertura."],
@@ -2626,15 +2911,15 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "actores": [
      ["Gerente Regional Comercial (Mayoreo)", "Regional — transversal a marcas", "Conduce la estrategia comercial, el forecast y la política de precios/comisiones; participa en el comité de estrategia de precios.", "Ajustes de forecast y de política dentro de lo aprobado; aprobación de pedidos internacionales de alto monto.", "Decisiones de inversión (apertura, remodelación) y campañas de gran cadena escalan a la Junta / Comité Directivo."],
-     ["Gerente Regional de Marketing", "Regional — venta inorgánica y marca privada Cubitt", "Conduce las líneas de venta puntual de alto volumen y marca privada; comparte el comité de estrategia de precios.", "Decisiones de producto, sourcing y campaña dentro del presupuesto aprobado.", "Compromisos de volumen o presupuesto mayores escalan a la Junta."],
+     ["Gerente Corporativo(a) de Mercadeo", "Regional — venta inorgánica y marca privada Cubitt", "Conduce las líneas de venta puntual de alto volumen y marca privada; comparte el comité de estrategia de precios.", "Decisiones de producto, sourcing y campaña dentro del presupuesto aprobado.", "Compromisos de volumen o presupuesto mayores escalan a la Junta."],
      ["Gerente Comercial (País / Canal)", "País", "Aprueba pedidos locales, cobranza semanal por vendedor, comisiones del país, relación con cuentas clave locales.", "Aprobación de pedido dentro del criterio y monto local.", "Pedidos internacionales o de cuentas top regionales escalan a la Gerencia Regional Comercial / Retail."],
      ["Coordinador(a) Comercial", "Cuentas clave regionales", "Gestiona el acuerdo comercial anual, el calendario de campañas y el dashboard de inventario por cadena.", "Ajustes operativos del acuerdo vigente.", "Renegociación del acuerdo o nuevas condiciones escalan al Gerente Regional Comercial (Mayoreo)."],
      ["Analista/Ejecutivo(a) Comercial", "Cartera de clientes", "Ejecuta la toma del pedido, la cobranza diaria y la relación directa con el cliente asignado.", "Envío de disponibilidad, montaje de pedido dentro de lista vigente.", "Aprobación del pedido y excepciones de crédito escalan al Gerente Comercial (País / Canal)."]
     ],
     "comites": [
-     ["Comité de estrategia de precios y producto", "Definir estrategia de precio por mercado, portafolio y respuesta a competencia.", "Continua / por oportunidad", "Gerente Regional Comercial (Mayoreo) · Gerente Regional de Marketing · Planificador Financiero · Coordinador(a) Comercial", "Ajustes de precio, portafolio y lanzamiento por mercado", "Data de venta por cliente, benchmark de competencia", "Estrategia de precio vigente por mercado"],
+     ["Comité de estrategia de precios y producto", "Definir estrategia de precio por mercado, portafolio y respuesta a competencia.", "Continua / por oportunidad", "Gerente Regional Comercial (Mayoreo) · Gerente Corporativo(a) de Mercadeo · Planificador Financiero · Coordinador(a) Comercial", "Ajustes de precio, portafolio y lanzamiento por mercado", "Data de venta por cliente, benchmark de competencia", "Estrategia de precio vigente por mercado"],
      ["Reporte semanal de cobranza y venta (por país)", "Revisar deuda vigente por cliente y avance de venta contra meta.", "Semanal", "Gerente Comercial (País / Canal) · Analista/Ejecutivo(a) Comercial", "Ajustes de prioridad de cobranza y de pedido", "Reporte de cobranza y dashboard comercial", "Reporte semanal a la Gerencia Regional Comercial / Retail"],
-     ["Comité directivo de campañas de alto volumen", "Aprobar campañas inorgánicas y acuerdos con cadenas que comprometen volumen o presupuesto mayor.", "Por evento (2-3 veces al año)", "Gerente Regional de Marketing · Gerente Regional Comercial (Mayoreo) · Junta / Comité Directivo", "Aprobación de la campaña por monto", "Propuesta de la cadena, proyección de venta y margen", "Acuerdo firmado y campaña autorizada"]
+     ["Comité directivo de campañas de alto volumen", "Aprobar campañas inorgánicas y acuerdos con cadenas que comprometen volumen o presupuesto mayor.", "Por evento (2-3 veces al año)", "Gerente Corporativo(a) de Mercadeo · Gerente Regional Comercial (Mayoreo) · Junta / Comité Directivo", "Aprobación de la campaña por monto", "Propuesta de la cadena, proyección de venta y margen", "Acuerdo firmado y campaña autorizada"]
     ]
    },
 
@@ -2713,18 +2998,18 @@ window.MANUAL_CONTENIDO = {
     ],
     "raci": [
      ["8.1 Planificación comercial anual y trimestral", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)", "Planificador Financiero · Coordinador(a) de Logística y Bodega", "Junta / Comité Directivo"],
-     ["8.2 Segmentación de clientes y gobierno de política comercial", "Gerente Regional Comercial (Mayoreo)", "Country Manager", "Planificador Financiero · Gerente de Contabilidad / Administración", "Gerente Regional de Marketing"],
-     ["8.3 Envío de disponibilidad y oferta comercial recurrente", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
+     ["8.2 Segmentación de clientes y gobierno de política comercial", "Gerente Regional Comercial (Mayoreo)", "Country Manager", "Planificador Financiero · Gerente de Contabilidad / Administración", "Gerente Corporativo(a) de Mercadeo"],
+     ["8.3 Envío de disponibilidad y oferta comercial recurrente", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "Gerente Corporativo(a) de Mercadeo"],
      ["8.4 Toma y montaje del pedido en Odoo", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega", "—"],
      ["8.5 Aprobación comercial del pedido", "Gerente Comercial (País / Canal)", "Gerente Regional Comercial (Mayoreo)", "Analista/Ejecutivo(a) Comercial", "—"],
      ["8.6 Gestión de preventa contra tránsito y demanda no cumplida", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Coordinador(a) de Logística y Bodega (macro 6, S&OP)"],
-     ["8.7 Gestión de cuentas clave y grandes superficies (KAM)", "Coordinador(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Analista/Ejecutivo(a) Comercial · Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
-     ["8.8 Gestión de franquicias Casio", "Gerente Comercial (País / Canal)", "Gerente Regional de Marketing", "Legal Corporativo · Coordinador(a) de Visual Merchandising", "—"],
-     ["8.9 Gestión de venta corporativa", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing · Gerente de Contabilidad / Administración", "—"],
-     ["8.10 Gestión de venta puntual de alto volumen y promociones tácticas", "Gerente Regional Comercial (Mayoreo)", "Junta / Comité Directivo", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
-     ["8.11 Gestión de línea blanca / marca privada", "Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing", "Sourcing en China · Gerente de Contabilidad / Administración", "—"],
+     ["8.7 Gestión de cuentas clave y grandes superficies (KAM)", "Coordinador(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Analista/Ejecutivo(a) Comercial · Coordinador(a) de Logística y Bodega", "Gerente Corporativo(a) de Mercadeo"],
+     ["8.8 Gestión de franquicias Casio", "Gerente Comercial (País / Canal)", "Gerente Corporativo(a) de Mercadeo", "Legal Corporativo · Coordinador(a) de Visual Merchandising (país)", "—"],
+     ["8.9 Gestión de venta corporativa", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente Corporativo(a) de Mercadeo · Gerente de Contabilidad / Administración", "—"],
+     ["8.10 Gestión de venta puntual de alto volumen y promociones tácticas", "Gerente Regional Comercial (Mayoreo)", "Junta / Comité Directivo", "Coordinador(a) de Logística y Bodega", "Gerente Corporativo(a) de Mercadeo"],
+     ["8.11 Gestión de línea blanca / marca privada", "Gerente Regional Comercial (Mayoreo)", "Gerente Corporativo(a) de Mercadeo", "Sourcing en China · Gerente de Contabilidad / Administración", "—"],
      ["8.12 Prospección y apertura de nuevo cliente", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Legal Corporativo", "—"],
-     ["8.13 Gestión de mobiliario, POP y activaciones en punto de venta", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Visual Merchandising · Planificador Financiero", "—"],
+     ["8.13 Gestión de mobiliario, POP y activaciones en punto de venta", "Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Visual Merchandising (país) · Planificador Financiero", "—"],
      ["8.14 Cálculo, aprobación y pago de comisiones", "Gerente Comercial (País / Canal)", "Country Manager", "Gerente de Contabilidad / Administración", "Coordinador(a) de Tesorería / Cobranzas"],
      ["8.15 Cobranza comercial y conciliación multi-instrumento", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Tesorería / Cobranzas", "—"],
      ["8.16 Devoluciones y notas de crédito comerciales", "Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Coordinador(a) de Logística y Bodega · Gerente de Contabilidad / Administración", "—"],
@@ -2741,7 +3026,7 @@ window.MANUAL_CONTENIDO = {
     "interfaces_detalle": [
      ["Compras y Abastecimiento", "Visibilidad de tránsito y disponibilidad", "Inventario disponible, tránsito confirmado, allocation por SKU"],
      ["Logística y Operaciones", "Handoff del pedido aprobado", "Orden de venta con flag para preparación; certificación de transportadora en cadenas"],
-     ["Gestión de Mercadeo y Comunicaciones", "Calendario de campaña y apoyo a cuentas clave", "Piezas de campaña, material POP, coordinación de lanzamiento"],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Calendario de campaña y apoyo a cuentas clave", "Piezas de campaña, material POP, coordinación de lanzamiento"],
      ["Contabilidad", "Facturación y cobranza", "Factura, nota de crédito, conciliación de pago"],
      ["Gestión Legal y Cumplimiento", "Contratos y documentos de crédito", "Contrato de franquicia, documento de crédito, proforma de marca privada"]
     ],
@@ -3281,33 +3566,9 @@ window.MANUAL_CONTENIDO = {
    },
 
    "8.7": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el ciclo de gestión de las cuentas de alto volumen o alto reconocimiento —grandes superficies, cadenas con varios puntos y clientes de los clústeres A y B—: la tipificación de la cartera con su nivel de atención, la preparación y negociación del acuerdo comercial del año con su calendario de campañas por canal, el despliegue del plan acordado en los puntos del cliente, el seguimiento de su venta e inventario, la acción sobre lo que ese seguimiento revela y la revisión trimestral del acuerdo. No incluye el pedido puntual (proceso 8.4), la campaña masiva de alto volumen (proceso 8.10) ni la venta corporativa (proceso 8.9).",
-     "nota_estado": "Este proceso es híbrido: el modelo está construido y funcionando en un mercado —con tipificación por frecuencia de atención, calendario por canal negociado cuenta por cuenta y tablero de venta, inventario y semanas de cobertura por punto— y apenas empieza a extenderse a los demás. Lo que sostiene el modelo no es una herramienta corporativa sino el trabajo de una persona sobre su propia hoja."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Analista/Ejecutivo(a) Comercial",
-     "participantes": [
-      "Analista/Ejecutivo(a) Comercial — es el ejecutivo de cuenta y lleva el ciclo completo: tipifica la cartera, prepara y negocia el acuerdo, despliega el plan en los puntos del cliente, sigue su venta y su cobertura, y actúa sobre ellas.",
-      "Cliente — cuenta clave — acuerda las condiciones y el calendario por su lado, y comparte la data de venta e inventario de sus puntos. Es una contraparte, no un destinatario: sin su data el seguimiento no existe.",
-      "Gerente Comercial (País / Canal) — aprueba el acuerdo antes de firmarlo, porque compromete margen, apoyos y mercancía de asignación limitada por fuera del pedido corriente, y lo revisa cada trimestre contra el desempeño real.",
-      "Líder de Punto de Venta / Impulsadores — función de apoyo que el ejecutivo de cuenta convoca: ejecuta la promotoría en los puntos donde el plan la ubica.",
-      "Coordinador(a) de Visual Merchandising — función de apoyo: provee el mobiliario propio y la exhibición comprometidos en el acuerdo, con el estándar de marca vigente."
-     ],
-     "evidencia": ["E-14", "E-35", "E-63", "E-05"],
-     "notas": "⚠️ Cambia el cargo que lleva la cuenta. El armazón lo atribuía al Coordinador(a) Comercial; el cargo real de quien ejecuta este proceso —KAM de cadenas— corresponde a Analista/Ejecutivo(a) Comercial en el patrón V4, y lo mismo ocurre con quien se incorporó en otro mercado para atender cadenas y grandes superficies. El nivel de gerencia entra donde tiene que entrar: aprobando el acuerdo, no negociándolo. ⚠️ El flujo se estructura como el ciclo de gestión de una cuenta —preparar, negociar, aprobar, desplegar, seguir, actuar, revisar— y no como una cadena de entregas entre áreas. Por eso la promotoría y el visual figuran como funciones de apoyo que el ejecutivo convoca al desplegar el plan, y no como carriles con paso propio: no son etapas del ciclo comercial, son recursos que ese ciclo despliega. El armazón anterior, además, concentraba las tres funciones distintas —piezas de campaña, mobiliario y exhibición, y promotoría— en un solo «Gerente Regional de Marketing».",
-     "sin_evidencia": "No consta un acuerdo comercial escrito y homologado entre mercados: lo que consta es la práctica de negociarlo cuenta por cuenta. Tampoco consta una regla de asignación que proteja la mercancía comprometida con una cuenta clave frente a la reposición corriente, más allá de la intención de reservar una parte del inventario para los clientes preferentes."
-    },
-    "disparador": {
-     "estado": "borrador",
-     "disparador": "Arranque del ciclo comercial de la cuenta, con el acuerdo del año por negociar o renovar. Dentro del año lo reabren el mes que arranca en el calendario del canal, la solicitud puntual del cliente y el lanzamiento de un producto que entra en esa cuenta.",
-     "cadencia": "Acuerdo anual con revisión trimestral. Seguimiento semanal de venta y cobertura por punto, y reunión semanal del equipo para alinear y salir a la calle. El calendario de cada mes se trabaja con un mes de anticipación.",
-     "output": "Acuerdo comercial vigente por cuenta —márgenes, condiciones y apoyos comprometidos— con su calendario de campañas por canal; nivel de atención definido por tipología; tablero de venta, inventario y semanas de cobertura por punto; y las acciones de reposición, movimiento entre puntos y venta cruzada que ese tablero dispara.",
-     "evidencia": ["E-14", "E-63"],
-     "notas": "El mes de anticipación no es holgura: es el tiempo que necesita el cliente para incorporar la campaña a su propio calendario y el que necesita el grupo para tener el producto en el punto."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el ciclo de gestión de las cuentas de alto volumen o alto reconocimiento —grandes superficies, cadenas con varios puntos y clientes de los clústeres A y B—: la tipificación de la cartera con su nivel de atención, la preparación y negociación del acuerdo comercial del año con su calendario de campañas por canal, el despliegue del plan acordado en los puntos del cliente, el seguimiento de su venta e inventario, la acción sobre lo que ese seguimiento revela y la revisión trimestral del acuerdo. No incluye el pedido puntual (proceso 8.4), la campaña masiva de alto volumen (proceso 8.10) ni la venta corporativa (proceso 8.9).", "nota_estado": "Este proceso es híbrido: el modelo está construido y funcionando en un mercado —con tipificación por frecuencia de atención, calendario por canal negociado cuenta por cuenta y tablero de venta, inventario y semanas de cobertura por punto— y apenas empieza a extenderse a los demás. Lo que sostiene el modelo no es una herramienta corporativa sino el trabajo de una persona sobre su propia hoja."},
+    "dueno": {"estado": "borrador", "dueno": "Analista/Ejecutivo(a) Comercial", "participantes": ["Analista/Ejecutivo(a) Comercial — es el ejecutivo de cuenta y lleva el ciclo completo: tipifica la cartera, prepara y negocia el acuerdo, despliega el plan en los puntos del cliente, sigue su venta y su cobertura, y actúa sobre ellas.", "Cliente — cuenta clave — acuerda las condiciones y el calendario por su lado, y comparte la data de venta e inventario de sus puntos. Es una contraparte, no un destinatario: sin su data el seguimiento no existe.", "Gerente Comercial (País / Canal) — aprueba el acuerdo antes de firmarlo, porque compromete margen, apoyos y mercancía de asignación limitada por fuera del pedido corriente, y lo revisa cada trimestre contra el desempeño real.", "Líder de Punto de Venta / Impulsadores — función de apoyo que el ejecutivo de cuenta convoca: ejecuta la promotoría en los puntos donde el plan la ubica.", "Coordinador(a) de Visual Merchandising (país) — función de apoyo: provee el mobiliario propio y la exhibición comprometidos en el acuerdo, con el estándar de marca vigente."], "evidencia": ["E-14", "E-35", "E-63", "E-05"], "notas": "⚠️ Cambia el cargo que lleva la cuenta. El armazón lo atribuía al Coordinador(a) Comercial; el cargo real de quien ejecuta este proceso —KAM de cadenas— corresponde a Analista/Ejecutivo(a) Comercial en el patrón V4, y lo mismo ocurre con quien se incorporó en otro mercado para atender cadenas y grandes superficies. El nivel de gerencia entra donde tiene que entrar: aprobando el acuerdo, no negociándolo. ⚠️ El flujo se estructura como el ciclo de gestión de una cuenta —preparar, negociar, aprobar, desplegar, seguir, actuar, revisar— y no como una cadena de entregas entre áreas. Por eso la promotoría y el visual figuran como funciones de apoyo que el ejecutivo convoca al desplegar el plan, y no como carriles con paso propio: no son etapas del ciclo comercial, son recursos que ese ciclo despliega. El armazón anterior, además, concentraba las tres funciones distintas —piezas de campaña, mobiliario y exhibición, y promotoría— en un solo «Gerente Corporativo(a) de Mercadeo».", "sin_evidencia": "No consta un acuerdo comercial escrito y homologado entre mercados: lo que consta es la práctica de negociarlo cuenta por cuenta. Tampoco consta una regla de asignación que proteja la mercancía comprometida con una cuenta clave frente a la reposición corriente, más allá de la intención de reservar una parte del inventario para los clientes preferentes."},
+    "disparador": {"estado": "borrador", "disparador": "Arranque del ciclo comercial de la cuenta, con el acuerdo del año por negociar o renovar. Dentro del año lo reabren el mes que arranca en el calendario del canal, la solicitud puntual del cliente y el lanzamiento de un producto que entra en esa cuenta.", "cadencia": "Acuerdo anual con revisión trimestral. Seguimiento semanal de venta y cobertura por punto, y reunión semanal del equipo para alinear y salir a la calle. El calendario de cada mes se trabaja con un mes de anticipación.", "output": "Acuerdo comercial vigente por cuenta —márgenes, condiciones y apoyos comprometidos— con su calendario de campañas por canal; nivel de atención definido por tipología; tablero de venta, inventario y semanas de cobertura por punto; y las acciones de reposición, movimiento entre puntos y venta cruzada que ese tablero dispara.", "evidencia": ["E-14", "E-63"], "notas": "El mes de anticipación no es holgura: es el tiempo que necesita el cliente para incorporar la campaña a su propio calendario y el que necesita el grupo para tener el producto en el punto."},
     "flujo": {
      "estado": "borrador",
      "evidencia": ["E-14", "E-35", "E-63"],
@@ -3341,10 +3602,19 @@ window.MANUAL_CONTENIDO = {
        {"id": "n10", "carril": "Gerente Comercial (País / Canal)", "tipo": "fin", "n": "Cuenta gestionada con acuerdo vigente"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n8alt", "etq": "No"}, {"de": "n8alt", "a": "n9"},
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5alt", "etq": "No"},
+       {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "Sí"},
+       {"de": "n8", "a": "n8alt", "etq": "No"},
+       {"de": "n8alt", "a": "n9"},
        {"de": "n9", "a": "n10"}
       ]
      }
@@ -3353,58 +3623,124 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-14", "E-35", "E-63"],
      "filas": [
-      ["El modelo vive en la hoja de una persona", "El tablero que sostiene la cuenta —venta, inventario y cobertura por punto— lo construyó y lo actualiza quien lleva las cuentas clave, con sus propias fórmulas. Funciona muy bien y no es de la empresa: si esa persona falta, la cuenta se queda sin instrumento.", "Alta", "Alto", "Llevar el tablero a una herramienta corporativa con su fuente de datos declarada, y dejar documentado cómo se construye antes de extenderlo a otros mercados."],
-      ["El modelo de cuenta clave no está extendido a la región", "Está construido y probado en un mercado; en los demás la cuenta grande se atiende como un cliente más, sin acuerdo formal ni seguimiento de cobertura.", "Alta", "Alto", "Documentar el modelo como estándar regional y replicarlo mercado por mercado, empezando por las cuentas de mayor volumen."],
-      ["La data del punto de venta la tiene el cliente, no el grupo", "El seguimiento depende de que cada cuenta entregue su venta y su inventario. Si deja de hacerlo, o si lo hace tarde o incompleto, el tablero se apaga y la cuenta vuelve a gestionarse a ciegas.", "Alta", "Alto", "Incluir la entrega periódica de la data en el propio acuerdo comercial, con formato y frecuencia, y medir su cumplimiento como una condición más."],
-      ["La mercancía comprometida con la cuenta compite con la reposición corriente", "Lo que se aparta para una cuenta clave sale del mismo inventario que atiende al resto de la cartera, y la asignación de las referencias más vendidas no da para las dos cosas.", "Alta", "Alto", "Declarar en la política comercial qué parte del inventario se reserva a cuentas preferentes y aplicar el orden de precedencia del reparto en escasez cuando no alcance."],
-      ["La promotoría puede quedar desplegada donde no hay inventario", "La promotoría se ubica con el plan y la existencia de cada punto cambia después. Un punto sin producto con promotoría es costo puro, y el punto que sí lo tiene queda sin atender.", "Alta", "Medio", "Revisar la ubicación de la promotoría contra la cobertura de cada punto dentro del mismo ciclo semanal de seguimiento."],
-      ["El despacho depende del transportista que la cuenta aprueba", "Las grandes superficies exigen entregar con su transportista certificado. Un problema con ese único proveedor detiene la entrega sin alternativa inmediata.", "Media", "Alto", "Acordar con cada cuenta al menos una alternativa certificada y dejarla prevista en el acuerdo."],
-      ["La campaña necesita un mes de anticipación y el material no siempre llega", "El calendario se trabaja con un mes de antelación porque la cuenta debe incorporarlo al suyo. Cuando el material de campaña o la exhibición llegan tarde, la fecha ya está comprometida con el cliente.", "Media", "Medio", "Fijar la fecha de entrega del material y del mobiliario como hito del calendario del canal, y no como una solicitud a las áreas de apoyo."],
-      ["Las cuentas de tipo C pesan en la venta y no tienen atención definida", "Se agrupan porque son muchas y compran poco cada una, pero juntas sostienen una parte relevante de la venta. Sin una forma de atención propia, se atienden cuando queda tiempo.", "Media", "Medio", "Definir un modelo de atención diferenciado para el grupo —envío de disponibilidad, campaña y contacto periódico— en vez de dejarlo a la capacidad sobrante del equipo."]
+      [
+       "El modelo vive en la hoja de una persona",
+       "El tablero que sostiene la cuenta —venta, inventario y cobertura por punto— lo construyó y lo actualiza quien lleva las cuentas clave, con sus propias fórmulas. Funciona muy bien y no es de la empresa: si esa persona falta, la cuenta se queda sin instrumento.",
+       "Alta",
+       "Alto",
+       "Llevar el tablero a una herramienta corporativa con su fuente de datos declarada, y dejar documentado cómo se construye antes de extenderlo a otros mercados."
+      ],
+      [
+       "El modelo de cuenta clave no está extendido a la región",
+       "Está construido y probado en un mercado; en los demás la cuenta grande se atiende como un cliente más, sin acuerdo formal ni seguimiento de cobertura.",
+       "Alta",
+       "Alto",
+       "Documentar el modelo como estándar regional y replicarlo mercado por mercado, empezando por las cuentas de mayor volumen."
+      ],
+      [
+       "La data del punto de venta la tiene el cliente, no el grupo",
+       "El seguimiento depende de que cada cuenta entregue su venta y su inventario. Si deja de hacerlo, o si lo hace tarde o incompleto, el tablero se apaga y la cuenta vuelve a gestionarse a ciegas.",
+       "Alta",
+       "Alto",
+       "Incluir la entrega periódica de la data en el propio acuerdo comercial, con formato y frecuencia, y medir su cumplimiento como una condición más."
+      ],
+      [
+       "La mercancía comprometida con la cuenta compite con la reposición corriente",
+       "Lo que se aparta para una cuenta clave sale del mismo inventario que atiende al resto de la cartera, y la asignación de las referencias más vendidas no da para las dos cosas.",
+       "Alta",
+       "Alto",
+       "Declarar en la política comercial qué parte del inventario se reserva a cuentas preferentes y aplicar el orden de precedencia del reparto en escasez cuando no alcance."
+      ],
+      [
+       "La promotoría puede quedar desplegada donde no hay inventario",
+       "La promotoría se ubica con el plan y la existencia de cada punto cambia después. Un punto sin producto con promotoría es costo puro, y el punto que sí lo tiene queda sin atender.",
+       "Alta",
+       "Medio",
+       "Revisar la ubicación de la promotoría contra la cobertura de cada punto dentro del mismo ciclo semanal de seguimiento."
+      ],
+      [
+       "El despacho depende del transportista que la cuenta aprueba",
+       "Las grandes superficies exigen entregar con su transportista certificado. Un problema con ese único proveedor detiene la entrega sin alternativa inmediata.",
+       "Media",
+       "Alto",
+       "Acordar con cada cuenta al menos una alternativa certificada y dejarla prevista en el acuerdo."
+      ],
+      [
+       "La campaña necesita un mes de anticipación y el material no siempre llega",
+       "El calendario se trabaja con un mes de antelación porque la cuenta debe incorporarlo al suyo. Cuando el material de campaña o la exhibición llegan tarde, la fecha ya está comprometida con el cliente.",
+       "Media",
+       "Medio",
+       "Fijar la fecha de entrega del material y del mobiliario como hito del calendario del canal, y no como una solicitud a las áreas de apoyo."
+      ],
+      [
+       "Las cuentas de tipo C pesan en la venta y no tienen atención definida",
+       "Se agrupan porque son muchas y compran poco cada una, pero juntas sostienen una parte relevante de la venta. Sin una forma de atención propia, se atienden cuando queda tiempo.",
+       "Media",
+       "Medio",
+       "Definir un modelo de atención diferenciado para el grupo —envío de disponibilidad, campaña y contacto periódico— en vez de dejarlo a la capacidad sobrante del equipo."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Puntos por debajo de la cobertura objetivo", "Puntos con cobertura bajo el objetivo ÷ puntos de la cuenta", "Semanal", "Analista/Ejecutivo(a) Comercial", "A la baja"],
-      ["Semanas de cobertura por cuenta clave", "Existencia del punto ÷ venta promedio semanal de las últimas cuatro semanas", "Semanal", "Analista/Ejecutivo(a) Comercial", "Dentro del objetivo acordado"],
-      ["Cumplimiento del calendario acordado con la cuenta", "Campañas ejecutadas en su mes ÷ campañas del calendario", "Trimestral", "Analista/Ejecutivo(a) Comercial", "100%"],
-      ["Cuentas con data de venta entregada y al día", "Cuentas que entregan su data en la frecuencia acordada ÷ cuentas clave", "Mensual", "Gerente Comercial (País / Canal)", "100%"],
-      ["Nivel de atención cumplido por tipología", "Contactos realizados ÷ contactos previstos por tipología", "Mensual", "Analista/Ejecutivo(a) Comercial", "100%"],
-      ["Venta por punto con promotoría frente a punto sin promotoría", "Venta promedio de puntos con promotoría ÷ venta promedio de puntos sin ella, con moneda y tasa fechada", "Trimestral", "Analista/Ejecutivo(a) Comercial", "Referencia — dimensiona la inversión en promotoría"],
-      ["Cumplimiento del acuerdo comercial", "Venta ejecutada ÷ venta comprometida en el acuerdo, con moneda y tasa fechada", "Trimestral", "Gerente Comercial (País / Canal)", "A la alza"]
+      [
+       "Puntos por debajo de la cobertura objetivo",
+       "Puntos con cobertura bajo el objetivo ÷ puntos de la cuenta",
+       "Semanal",
+       "Analista/Ejecutivo(a) Comercial",
+       "A la baja"
+      ],
+      [
+       "Semanas de cobertura por cuenta clave",
+       "Existencia del punto ÷ venta promedio semanal de las últimas cuatro semanas",
+       "Semanal",
+       "Analista/Ejecutivo(a) Comercial",
+       "Dentro del objetivo acordado"
+      ],
+      [
+       "Cumplimiento del calendario acordado con la cuenta",
+       "Campañas ejecutadas en su mes ÷ campañas del calendario",
+       "Trimestral",
+       "Analista/Ejecutivo(a) Comercial",
+       "100%"
+      ],
+      [
+       "Cuentas con data de venta entregada y al día",
+       "Cuentas que entregan su data en la frecuencia acordada ÷ cuentas clave",
+       "Mensual",
+       "Gerente Comercial (País / Canal)",
+       "100%"
+      ],
+      [
+       "Nivel de atención cumplido por tipología",
+       "Contactos realizados ÷ contactos previstos por tipología",
+       "Mensual",
+       "Analista/Ejecutivo(a) Comercial",
+       "100%"
+      ],
+      [
+       "Venta por punto con promotoría frente a punto sin promotoría",
+       "Venta promedio de puntos con promotoría ÷ venta promedio de puntos sin ella, con moneda y tasa fechada",
+       "Trimestral",
+       "Analista/Ejecutivo(a) Comercial",
+       "Referencia — dimensiona la inversión en promotoría"
+      ],
+      [
+       "Cumplimiento del acuerdo comercial",
+       "Venta ejecutada ÷ venta comprometida en el acuerdo, con moneda y tasa fechada",
+       "Trimestral",
+       "Gerente Comercial (País / Canal)",
+       "A la alza"
+      ]
      ]
     }
    },
 
    "8.8": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el ciclo de vida de una franquicia de la marca representada: la captación y evaluación del prospecto contra los criterios de la marca, la firma del contrato con su royalty y sus condiciones, el acondicionamiento del local al estándar, la entrega del paquete de activación —imagen, mobiliario, surtido inicial y formación del personal—, la solicitud a la marca del presupuesto de apoyo a la apertura, y la reevaluación al vencimiento para decidir si el contrato se renueva. Aplica solo a la marca representada, no a la marca propia.",
-     "nota_estado": "Este proceso es «to-be» en su totalidad y conviene leerlo así: hoy no ocurre ninguno de sus pasos. El modelo se abandonó con el tiempo, la red pasó de treinta y nueve franquicias a dos, no hay contrato vigente que defina el royalty ni las condiciones, y el punto se atiende como una tienda cualquiera que llega, pide mercancía y se va. Se está retomando, con el contrato en elaboración y una persona del equipo asignada a sostener la relación. Por eso el proceso se documenta como el ciclo de activación que hay que poner en marcha, y no como la descripción de una rutina que no existe."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Coordinador(a) Comercial",
-     "participantes": [
-      "Coordinador(a) Comercial — capta y evalúa al prospecto, entrega el paquete de activación, forma al personal del punto, sube a la marca la necesidad de apoyo y sostiene después el ciclo de atención.",
-      "Gerente Comercial (País / Canal) — decide si el prospecto califica, negocia y firma el contrato con su royalty, y reevalúa al vencimiento si se renueva.",
-      "Franquiciado — es el dueño del punto: acondiciona el local al estándar de la marca, invierte en el surtido inicial y se obliga por contrato a reportar su venta.",
-      "Marca representada — fija los criterios que un punto debe cumplir para llevar su imagen y resuelve el presupuesto de apoyo a la apertura.",
-      "Coordinador(a) de Visual Merchandising — define el estándar de imagen del punto y el material que compone el paquete de activación."
-     ],
-     "evidencia": ["E-35"],
-     "notas": "⚠️ Se aparta del armazón anterior en el encuadre, no en un detalle. Aquel describía la atención periódica de una franquicia ya existente —visitar, enviar material, subir necesidades—, que es una rutina razonable pero no sirve para lo que hace falta: el modelo está apagado y lo que se quiere es volver a encenderlo. Este proceso documenta el ciclo de vida completo, que es donde están las decisiones: a quién se le da una franquicia, con qué contrato, qué se le entrega para arrancar y con qué criterio se le renueva o no. ⚠️ Sale «Legal Corporativo»: ese cargo no existe en el patrón V4 —que no tiene ninguna función jurídica— y la evidencia no menciona a nadie de legal. El contrato queda donde puede quedar hoy, en la gerencia comercial del país, y la ausencia de cobertura jurídica se documenta como riesgo, porque es un hallazgo de estructura. ⚠️ Entran el franquiciado y la marca como actores con carril propio: sin el primero no hay local ni data de venta, y sin la segunda no hay presupuesto de apoyo. Son los dos puntos donde este proceso depende de alguien que no está en la nómina.",
-     "sin_evidencia": "Nada de este ciclo ocurre hoy: la evidencia describe con precisión lo que debería suceder y afirma que no sucede. No constan los criterios con los que se evalúa a un prospecto —ubicación, inversión mínima, compra mínima, experiencia—, ni el plazo del contrato, ni cómo se calcula y cobra el royalty, ni el plazo en que la marca resuelve un presupuesto de apoyo, ni el reparto del costo del acondicionamiento entre el grupo y el dueño del punto. Tampoco consta qué se hace con la imagen de marca cuando una franquicia cierra. Todo eso hay que fijarlo antes de abrir la primera."
-    },
-    "disparador": {
-     "estado": "borrador",
-     "disparador": "Aparición de un prospecto de franquicia: un comerciante interesado, un punto de la red anterior que se quiera reactivar, o una plaza que la marca quiera cubrir. Dentro del ciclo, lo reabre el vencimiento del contrato de una franquicia activa.",
-     "cadencia": "Por evento para la activación. La reevaluación sigue el plazo del contrato; el ciclo de atención de la franquicia ya activa es periódico y se describe en el propio proceso.",
-     "output": "Franquicia activa con contrato firmado, local al estándar de imagen, paquete de activación entregado y personal formado; o prospecto devuelto con su motivo. Al vencimiento, contrato renovado o punto cerrado con su imagen recuperada.",
-     "evidencia": ["E-35"],
-     "notas": "El disparador más probable a corto plazo no es un prospecto nuevo sino la reactivación de un punto de la red anterior, que es donde está la oportunidad inmediata: treinta y siete puntos que llevaron la marca y dejaron de hacerlo."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el ciclo de vida de una franquicia de la marca representada: la captación y evaluación del prospecto contra los criterios de la marca, la firma del contrato con su royalty y sus condiciones, el acondicionamiento del local al estándar, la entrega del paquete de activación —imagen, mobiliario, surtido inicial y formación del personal—, la solicitud a la marca del presupuesto de apoyo a la apertura, y la reevaluación al vencimiento para decidir si el contrato se renueva. Aplica solo a la marca representada, no a la marca propia.", "nota_estado": "Este proceso es «to-be» en su totalidad y conviene leerlo así: hoy no ocurre ninguno de sus pasos. El modelo se abandonó con el tiempo, la red pasó de treinta y nueve franquicias a dos, no hay contrato vigente que defina el royalty ni las condiciones, y el punto se atiende como una tienda cualquiera que llega, pide mercancía y se va. Se está retomando, con el contrato en elaboración y una persona del equipo asignada a sostener la relación. Por eso el proceso se documenta como el ciclo de activación que hay que poner en marcha, y no como la descripción de una rutina que no existe."},
+    "dueno": {"estado": "borrador", "dueno": "Coordinador(a) Comercial", "participantes": ["Coordinador(a) Comercial — capta y evalúa al prospecto, entrega el paquete de activación, forma al personal del punto, sube a la marca la necesidad de apoyo y sostiene después el ciclo de atención.", "Gerente Comercial (País / Canal) — decide si el prospecto califica, negocia y firma el contrato con su royalty, y reevalúa al vencimiento si se renueva.", "Franquiciado — es el dueño del punto: acondiciona el local al estándar de la marca, invierte en el surtido inicial y se obliga por contrato a reportar su venta.", "Marca representada — fija los criterios que un punto debe cumplir para llevar su imagen y resuelve el presupuesto de apoyo a la apertura.", "Coordinador(a) de Visual Merchandising (país) — monta la imagen del punto con el estándar de Diseño y Marca y el material que compone el paquete de activación."], "evidencia": ["E-35"], "notas": "⚠️ Se aparta del armazón anterior en el encuadre, no en un detalle. Aquel describía la atención periódica de una franquicia ya existente —visitar, enviar material, subir necesidades—, que es una rutina razonable pero no sirve para lo que hace falta: el modelo está apagado y lo que se quiere es volver a encenderlo. Este proceso documenta el ciclo de vida completo, que es donde están las decisiones: a quién se le da una franquicia, con qué contrato, qué se le entrega para arrancar y con qué criterio se le renueva o no. ⚠️ Sale «Legal Corporativo»: ese cargo no existe en el patrón V4 —que no tiene ninguna función jurídica— y la evidencia no menciona a nadie de legal. El contrato queda donde puede quedar hoy, en la gerencia comercial del país, y la ausencia de cobertura jurídica se documenta como riesgo, porque es un hallazgo de estructura. ⚠️ Entran el franquiciado y la marca como actores con carril propio: sin el primero no hay local ni data de venta, y sin la segunda no hay presupuesto de apoyo. Son los dos puntos donde este proceso depende de alguien que no está en la nómina.", "sin_evidencia": "Nada de este ciclo ocurre hoy: la evidencia describe con precisión lo que debería suceder y afirma que no sucede. No constan los criterios con los que se evalúa a un prospecto —ubicación, inversión mínima, compra mínima, experiencia—, ni el plazo del contrato, ni cómo se calcula y cobra el royalty, ni el plazo en que la marca resuelve un presupuesto de apoyo, ni el reparto del costo del acondicionamiento entre el grupo y el dueño del punto. Tampoco consta qué se hace con la imagen de marca cuando una franquicia cierra. Todo eso hay que fijarlo antes de abrir la primera."},
+    "disparador": {"estado": "borrador", "disparador": "Aparición de un prospecto de franquicia: un comerciante interesado, un punto de la red anterior que se quiera reactivar, o una plaza que la marca quiera cubrir. Dentro del ciclo, lo reabre el vencimiento del contrato de una franquicia activa.", "cadencia": "Por evento para la activación. La reevaluación sigue el plazo del contrato; el ciclo de atención de la franquicia ya activa es periódico y se describe en el propio proceso.", "output": "Franquicia activa con contrato firmado, local al estándar de imagen, paquete de activación entregado y personal formado; o prospecto devuelto con su motivo. Al vencimiento, contrato renovado o punto cerrado con su imagen recuperada.", "evidencia": ["E-35"], "notas": "El disparador más probable a corto plazo no es un prospecto nuevo sino la reactivación de un punto de la red anterior, que es donde está la oportunidad inmediata: treinta y siete puntos que llevaron la marca y dejaron de hacerlo."},
     "flujo": {
      "estado": "borrador",
      "evidencia": ["E-35"],
@@ -3439,10 +3775,19 @@ window.MANUAL_CONTENIDO = {
        {"id": "n10", "carril": "Coordinador(a) Comercial", "tipo": "fin", "n": "Prospecto no activado o punto cerrado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
-       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n10"},
-       {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n9", "etq": "Sí"}, {"de": "n8", "a": "n8alt", "etq": "No"}, {"de": "n8alt", "a": "n10"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n10"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "Sí"},
+       {"de": "n8", "a": "n8alt", "etq": "No"},
+       {"de": "n8alt", "a": "n10"}
       ]
      }
     },
@@ -3450,40 +3795,157 @@ window.MANUAL_CONTENIDO = {
      "estado": "borrador",
      "evidencia": ["E-35"],
      "filas": [
-      ["No hay contrato vigente, así que no hay relación de franquicia", "Sin un contrato que defina el royalty y las condiciones no se pueden imponer condiciones, no hay derecho a la data de venta del punto y no hay base para donar material. La franquicia existe de nombre y opera como un cliente que compra.", "Alta", "Alto", "Cerrar el contrato en elaboración y firmarlo con las franquicias vigentes antes de activar ninguna nueva: sin contrato no se abre."],
-      ["No están fijados los criterios de entrada", "Nada define qué debe cumplir un punto para llevar la marca —ubicación, superficie, inversión, compra mínima, experiencia—. Sin filtro, la red vuelve a poblarse de puntos que no la sostienen, que es como se llegó de treinta y nueve a dos.", "Alta", "Alto", "Escribir los criterios de calificación con su umbral antes de evaluar el primer prospecto, y dejar el motivo de cada rechazo registrado."],
-      ["La red pasó de treinta y nueve franquicias a dos", "Es la medida de cuánto se abandonó el modelo. Cada punto cerrado es un punto de venta de la marca que dejó de existir sin que nadie lo registrara como pérdida ni recuperara su imagen.", "Alta", "Alto", "Levantar el estado de la red original, decidir qué puntos se reactivan y fijar una meta de activación con responsable y plazo."],
-      ["No existe función jurídica en la estructura para sostener el contrato", "El patrón de cargos no contempla ninguna función legal. Un contrato de franquicia con royalty, condiciones de imagen y acceso a data necesita alguien que lo redacte, lo actualice y lo haga cumplir.", "Alta", "Alto", "Resolver la cobertura jurídica —interna o externa contratada— como decisión de estructura, y no dejarla implícita en la gerencia comercial."],
-      ["La renovación por inercia devuelve el problema", "Si al vencimiento no se contrasta la venta, la compra mínima, el royalty y la imagen, el contrato se renueva solo y el punto se deteriora dentro de la red en vez de fuera.", "Alta", "Alto", "Hacer de la reevaluación un hito con fecha y criterios medibles, y admitir el cierre como resultado legítimo del proceso."],
-      ["El paquete de activación no está definido ni costeado", "No consta qué se entrega al abrir —imagen, mobiliario, surtido inicial, formación— ni cuánto cuesta ni quién lo paga. Sin eso, cada apertura se negocia desde cero y ninguna es comparable.", "Alta", "Medio", "Definir el paquete estándar con su costo y el reparto con el franquiciado, y presupuestarlo por apertura."],
-      ["Sin data de venta del punto no se puede dimensionar ni justificar nada", "No se sabe qué vende el franquiciado, así que ni la reposición se dimensiona, ni el apoyo ante la marca se sustenta con un caso, ni la renovación se puede decidir con un número.", "Alta", "Alto", "Hacer de la entrega periódica de la venta una condición del contrato, con formato y frecuencia, y no un favor que se pide."],
-      ["El presupuesto de apoyo de la marca no se pide y por tanto no llega", "La marca destina asignaciones a sostener su presencia en estos puntos. Si nadie las solicita con el caso documentado, la apertura se sostiene con lo que el franquiciado pueda poner.", "Alta", "Medio", "Calendarizar la solicitud con el ciclo de presupuestos de la marca y llevar el caso con el plan de venta del punto como respaldo."],
-      ["Toda la relación depende de una sola persona", "El modelo se retoma asignando a una persona del equipo. Si esa persona cambia de rol, el proceso vuelve al punto en que estaba, que es donde ya estuvo.", "Alta", "Medio", "Dejar documentado el ciclo y el expediente de cada franquicia, de modo que la relación sobreviva al relevo."],
-      ["El royalty no tiene circuito de cobro", "El contrato en elaboración lo define y nada dice quién lo calcula, quién lo factura ni cuándo se cobra. Un derecho que no se factura no se cobra.", "Media", "Medio", "Definir el circuito de facturación y cobro del royalty con administración antes de firmar el contrato, no después."],
-      ["Al cerrar un punto la imagen de marca se queda ahí", "Nada define qué pasa con la marquesina, el mobiliario y el material cuando una franquicia termina. Un local que ya no representa a la marca puede seguir exhibiéndola.", "Media", "Medio", "Incluir en el contrato la obligación de devolver o retirar la imagen al terminar, y verificarla en el cierre."]
+      [
+       "No hay contrato vigente, así que no hay relación de franquicia",
+       "Sin un contrato que defina el royalty y las condiciones no se pueden imponer condiciones, no hay derecho a la data de venta del punto y no hay base para donar material. La franquicia existe de nombre y opera como un cliente que compra.",
+       "Alta",
+       "Alto",
+       "Cerrar el contrato en elaboración y firmarlo con las franquicias vigentes antes de activar ninguna nueva: sin contrato no se abre."
+      ],
+      [
+       "No están fijados los criterios de entrada",
+       "Nada define qué debe cumplir un punto para llevar la marca —ubicación, superficie, inversión, compra mínima, experiencia—. Sin filtro, la red vuelve a poblarse de puntos que no la sostienen, que es como se llegó de treinta y nueve a dos.",
+       "Alta",
+       "Alto",
+       "Escribir los criterios de calificación con su umbral antes de evaluar el primer prospecto, y dejar el motivo de cada rechazo registrado."
+      ],
+      [
+       "La red pasó de treinta y nueve franquicias a dos",
+       "Es la medida de cuánto se abandonó el modelo. Cada punto cerrado es un punto de venta de la marca que dejó de existir sin que nadie lo registrara como pérdida ni recuperara su imagen.",
+       "Alta",
+       "Alto",
+       "Levantar el estado de la red original, decidir qué puntos se reactivan y fijar una meta de activación con responsable y plazo."
+      ],
+      [
+       "No existe función jurídica en la estructura para sostener el contrato",
+       "El patrón de cargos no contempla ninguna función legal. Un contrato de franquicia con royalty, condiciones de imagen y acceso a data necesita alguien que lo redacte, lo actualice y lo haga cumplir.",
+       "Alta",
+       "Alto",
+       "Resolver la cobertura jurídica —interna o externa contratada— como decisión de estructura, y no dejarla implícita en la gerencia comercial."
+      ],
+      [
+       "La renovación por inercia devuelve el problema",
+       "Si al vencimiento no se contrasta la venta, la compra mínima, el royalty y la imagen, el contrato se renueva solo y el punto se deteriora dentro de la red en vez de fuera.",
+       "Alta",
+       "Alto",
+       "Hacer de la reevaluación un hito con fecha y criterios medibles, y admitir el cierre como resultado legítimo del proceso."
+      ],
+      [
+       "El paquete de activación no está definido ni costeado",
+       "No consta qué se entrega al abrir —imagen, mobiliario, surtido inicial, formación— ni cuánto cuesta ni quién lo paga. Sin eso, cada apertura se negocia desde cero y ninguna es comparable.",
+       "Alta",
+       "Medio",
+       "Definir el paquete estándar con su costo y el reparto con el franquiciado, y presupuestarlo por apertura."
+      ],
+      [
+       "Sin data de venta del punto no se puede dimensionar ni justificar nada",
+       "No se sabe qué vende el franquiciado, así que ni la reposición se dimensiona, ni el apoyo ante la marca se sustenta con un caso, ni la renovación se puede decidir con un número.",
+       "Alta",
+       "Alto",
+       "Hacer de la entrega periódica de la venta una condición del contrato, con formato y frecuencia, y no un favor que se pide."
+      ],
+      [
+       "El presupuesto de apoyo de la marca no se pide y por tanto no llega",
+       "La marca destina asignaciones a sostener su presencia en estos puntos. Si nadie las solicita con el caso documentado, la apertura se sostiene con lo que el franquiciado pueda poner.",
+       "Alta",
+       "Medio",
+       "Calendarizar la solicitud con el ciclo de presupuestos de la marca y llevar el caso con el plan de venta del punto como respaldo."
+      ],
+      [
+       "Toda la relación depende de una sola persona",
+       "El modelo se retoma asignando a una persona del equipo. Si esa persona cambia de rol, el proceso vuelve al punto en que estaba, que es donde ya estuvo.",
+       "Alta",
+       "Medio",
+       "Dejar documentado el ciclo y el expediente de cada franquicia, de modo que la relación sobreviva al relevo."
+      ],
+      [
+       "El royalty no tiene circuito de cobro",
+       "El contrato en elaboración lo define y nada dice quién lo calcula, quién lo factura ni cuándo se cobra. Un derecho que no se factura no se cobra.",
+       "Media",
+       "Medio",
+       "Definir el circuito de facturación y cobro del royalty con administración antes de firmar el contrato, no después."
+      ],
+      [
+       "Al cerrar un punto la imagen de marca se queda ahí",
+       "Nada define qué pasa con la marquesina, el mobiliario y el material cuando una franquicia termina. Un local que ya no representa a la marca puede seguir exhibiéndola.",
+       "Media",
+       "Medio",
+       "Incluir en el contrato la obligación de devolver o retirar la imagen al terminar, y verificarla en el cierre."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Prospectos evaluados contra criterios escritos", "Prospectos con evaluación registrada ÷ prospectos recibidos", "Trimestral", "Coordinador(a) Comercial", "100%"],
-      ["Tiempo de activación de una franquicia", "Fecha de apertura − fecha de firma del contrato", "Por activación", "Coordinador(a) Comercial", "Dentro del plazo que se fije"],
-      ["Franquicias activas con contrato vigente", "Franquicias con contrato firmado y al día ÷ franquicias activas", "Trimestral", "Gerente Comercial (País / Canal)", "100%"],
-      ["Franquicias que reportan su venta", "Franquicias que entregan su venta en la frecuencia acordada ÷ franquicias activas", "Mensual", "Coordinador(a) Comercial", "100%"],
-      ["Puntos con imagen de marca al estándar vigente", "Franquicias con visual al día ÷ franquicias activas", "Semestral", "Coordinador(a) de Visual Merchandising", "100%"],
-      ["Presupuesto de apoyo aprobado sobre el solicitado", "Monto aprobado por la marca ÷ monto solicitado, con moneda y tasa fechada", "Por ciclo de presupuestos", "Coordinador(a) Comercial", "A la alza"],
-      ["Franquicias activadas en el período", "Puntos incorporados a la red con contrato firmado y paquete entregado", "Anual", "Gerente Comercial (País / Canal)", "Según la meta de activación que se fije"],
-      ["Renovaciones decididas con evaluación documentada", "Renovaciones o cierres con evaluación registrada ÷ contratos vencidos", "Anual", "Gerente Comercial (País / Canal)", "100%"],
-      ["Royalty facturado sobre el devengado", "Royalty facturado ÷ royalty devengado según contrato, con moneda y tasa fechada", "Mensual", "Gerente de Contabilidad / Administración", "100%"]
+      [
+       "Prospectos evaluados contra criterios escritos",
+       "Prospectos con evaluación registrada ÷ prospectos recibidos",
+       "Trimestral",
+       "Coordinador(a) Comercial",
+       "100%"
+      ],
+      [
+       "Tiempo de activación de una franquicia",
+       "Fecha de apertura − fecha de firma del contrato",
+       "Por activación",
+       "Coordinador(a) Comercial",
+       "Dentro del plazo que se fije"
+      ],
+      [
+       "Franquicias activas con contrato vigente",
+       "Franquicias con contrato firmado y al día ÷ franquicias activas",
+       "Trimestral",
+       "Gerente Comercial (País / Canal)",
+       "100%"
+      ],
+      [
+       "Franquicias que reportan su venta",
+       "Franquicias que entregan su venta en la frecuencia acordada ÷ franquicias activas",
+       "Mensual",
+       "Coordinador(a) Comercial",
+       "100%"
+      ],
+      [
+       "Puntos con imagen de marca al estándar vigente",
+       "Franquicias con visual al día ÷ franquicias activas",
+       "Semestral",
+       "Coordinador(a) de Visual Merchandising (país)",
+       "100%"
+      ],
+      [
+       "Presupuesto de apoyo aprobado sobre el solicitado",
+       "Monto aprobado por la marca ÷ monto solicitado, con moneda y tasa fechada",
+       "Por ciclo de presupuestos",
+       "Coordinador(a) Comercial",
+       "A la alza"
+      ],
+      [
+       "Franquicias activadas en el período",
+       "Puntos incorporados a la red con contrato firmado y paquete entregado",
+       "Anual",
+       "Gerente Comercial (País / Canal)",
+       "Según la meta de activación que se fije"
+      ],
+      [
+       "Renovaciones decididas con evaluación documentada",
+       "Renovaciones o cierres con evaluación registrada ÷ contratos vencidos",
+       "Anual",
+       "Gerente Comercial (País / Canal)",
+       "100%"
+      ],
+      [
+       "Royalty facturado sobre el devengado",
+       "Royalty facturado ÷ royalty devengado según contrato, con moneda y tasa fechada",
+       "Mensual",
+       "Gerente de Contabilidad / Administración",
+       "100%"
+      ]
      ]
     }
    },
 
    "8.9": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la venta a empresas que compran para consumo propio o para dispersar entre sus clientes con marca propia o co-branding: cotización especial a costo con margen negociado, customización y grabado del producto, coordinación con marcas patrocinantes cuando hay co-branding, y facturación con condiciones especiales. No incluye la fabricación de producto completo con la marca del cliente (proceso 8.11, línea blanca), que es un negocio de mayor escala y compromiso."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la venta a empresas que compran para consumo propio o para dispersar entre sus clientes con marca propia o co-branding: cotización especial a costo con margen negociado, customización y grabado del producto, coordinación con marcas patrocinantes cuando hay co-branding, y facturación con condiciones especiales. No incluye la fabricación de producto completo con la marca del cliente (proceso 8.11, línea blanca), que es un negocio de mayor escala y compromiso."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -3492,55 +3954,106 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Recibe el contacto del cliente corporativo, por primer contacto o por cuenta recurrente."},
       {"id": "a2", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Elabora la cotización fuera de las listas corrientes: la venta corporativa se cotiza sobre el precio de referencia al público con el descuento que se negocie, porque el comprador no revende sino que consume o regala el producto."},
       {"id": "a3", "rol": "Gerente Comercial (País / Canal)", "texto": "Aprueba la cotización antes de que salga al cliente. Un precio fuera de lista es una excepción a la política comercial y compromete margen: pasa por la misma autoridad que aprueba cualquier otra excepción, y escala a la gerencia regional cuando supera el umbral del país."},
-      {"id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Coordina el arte del producto personalizado y lo lleva a aprobación de cada marca patrocinante. ⚠️ Aquí no aprobamos nosotros: cuando el pedido lleva varias marcas invitadas, cada una aprueba su color, su forma y su aplicación por separado. Es lo que alarga y complica esta venta, y es la parte del plazo que no controlamos."},
+      {"id": "a4", "rol": "Gerente de Campañas (Diseño y Marca)", "texto": "Prepara el arte del producto personalizado con el manual de marca y lo lleva a aprobación de cada marca patrocinante. ⚠️ Aquí no aprobamos nosotros: cuando el pedido lleva varias marcas invitadas, cada una aprueba su color, su forma y su aplicación por separado. Es lo que alarga y complica esta venta, y es la parte del plazo que no controlamos."},
       {"id": "a5", "rol": "Proveedor de personalización", "texto": "Ejecuta el grabado, la personalización o el empaque especial del producto según el arte aprobado."},
       {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Factura la venta con las condiciones corporativas acordadas."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Comercial (País / Canal)", "Gerente Regional de Marketing", "Proveedor de personalización", "Gerente de Contabilidad / Administración"],
+      "carriles": [
+       "Analista/Ejecutivo(a) Comercial",
+       "Gerente Comercial (País / Canal)",
+       "Gerente de Campañas (Diseño y Marca)",
+       "Proveedor de personalización",
+       "Gerente de Contabilidad / Administración"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Contacto de cliente corporativo (nuevo o recurrente)"},
        {"id": "n1", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Elaborar la cotización"},
        {"id": "n2", "carril": "Gerente Comercial (País / Canal)", "tipo": "decision", "n": "¿Aprueba el precio?"},
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la cotización con el cliente"},
-       {"id": "n3", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Lleva marcas invitadas?"},
-       {"id": "n3alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Llevar el arte a cada marca patrocinante"},
+       {"id": "n3", "carril": "Gerente de Campañas (Diseño y Marca)", "tipo": "decision", "n": "¿Lleva marcas invitadas?"},
+       {"id": "n3alt", "carril": "Gerente de Campañas (Diseño y Marca)", "tipo": "tarea", "n": "Llevar el arte a cada marca patrocinante"},
        {"id": "n4", "carril": "Proveedor de personalización", "tipo": "tarea", "n": "Grabar o personalizar el producto"},
        {"id": "n5", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar con condiciones corporativas"},
        {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Venta corporativa entregada y facturada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
-       {"de": "n2", "a": "n3", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
-       {"de": "n3", "a": "n3alt", "etq": "Sí"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3alt", "a": "n4"},
-       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n3"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3", "a": "n4", "etq": "No"},
+       {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Margen de cotización especial sin criterio único", "El margen negociado a costo depende de quien atiende al cliente, sin un mínimo de referencia.", "Media", "Alto", "Definir un margen mínimo de referencia para la cotización corporativa, con excepción documentada."],
-      ["Coordinación con múltiples marcas patrocinantes sin responsable único", "Un pedido de co-branding con varias marcas puede quedar sin un solo responsable de coordinar los tiempos.", "Media", "Medio", "Asignar un responsable único de coordinación por pedido de co-branding."],
-      ["Plazos de producción especial sin holgura documentada", "El grabado o customización puede tomar más tiempo del esperado sin que el cliente lo sepa a tiempo.", "Baja", "Medio", "Documentar el plazo de referencia de producción especial por tipo de customización."],
-      ["Dependencia de contactos personales para el primer acercamiento", "El correo estándar de calificación corporativa complementa, pero buena parte de las cuentas más grandes llegan por relación personal.", "Baja", "Bajo", "Mantener el correo estándar como canal formal de entrada, sin depender solo de la relación personal."]
+      [
+       "Margen de cotización especial sin criterio único",
+       "El margen negociado a costo depende de quien atiende al cliente, sin un mínimo de referencia.",
+       "Media",
+       "Alto",
+       "Definir un margen mínimo de referencia para la cotización corporativa, con excepción documentada."
+      ],
+      [
+       "Coordinación con múltiples marcas patrocinantes sin responsable único",
+       "Un pedido de co-branding con varias marcas puede quedar sin un solo responsable de coordinar los tiempos.",
+       "Media",
+       "Medio",
+       "Asignar un responsable único de coordinación por pedido de co-branding."
+      ],
+      [
+       "Plazos de producción especial sin holgura documentada",
+       "El grabado o customización puede tomar más tiempo del esperado sin que el cliente lo sepa a tiempo.",
+       "Baja",
+       "Medio",
+       "Documentar el plazo de referencia de producción especial por tipo de customización."
+      ],
+      [
+       "Dependencia de contactos personales para el primer acercamiento",
+       "El correo estándar de calificación corporativa complementa, pero buena parte de las cuentas más grandes llegan por relación personal.",
+       "Baja",
+       "Bajo",
+       "Mantener el correo estándar como canal formal de entrada, sin depender solo de la relación personal."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Margen promedio de la venta corporativa", "Margen aplicado ÷ margen mínimo de referencia", "Mensual", "Gerente Regional Comercial (Mayoreo)", "≥ margen mínimo de referencia"],
-      ["Tiempo de entrega de producto customizado", "Fecha de entrega − fecha de aprobación de arte", "Por pedido", "Producción", "Según plazo de referencia por tipo"],
-      ["Clientes corporativos recurrentes", "Clientes con más de un ciclo de compra ÷ total de clientes corporativos", "Anual", "Analista/Ejecutivo(a) Comercial", "Referencia de seguimiento"]
+      [
+       "Margen promedio de la venta corporativa",
+       "Margen aplicado ÷ margen mínimo de referencia",
+       "Mensual",
+       "Gerente Regional Comercial (Mayoreo)",
+       "≥ margen mínimo de referencia"
+      ],
+      [
+       "Tiempo de entrega de producto customizado",
+       "Fecha de entrega − fecha de aprobación de arte",
+       "Por pedido",
+       "Producción",
+       "Según plazo de referencia por tipo"
+      ],
+      [
+       "Clientes corporativos recurrentes",
+       "Clientes con más de un ciclo de compra ÷ total de clientes corporativos",
+       "Anual",
+       "Analista/Ejecutivo(a) Comercial",
+       "Referencia de seguimiento"
+      ]
      ]
     }
    },
 
    "8.10": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre las campañas de alto volumen y corta duración —producto en manos de una masa amplia a precio agresivo, típicamente con una cadena de retail masivo— que salen del ciclo comercial regular: negociación puntual, reserva de inventario específica y coordinación de despacho concentrado. No incluye la venta orgánica sembrada con forecast a 12 meses (proceso 8.1) ni la corporativa de consumo propio (proceso 8.9)."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre las campañas de alto volumen y corta duración —producto en manos de una masa amplia a precio agresivo, típicamente con una cadena de retail masivo— que salen del ciclo comercial regular: negociación puntual, reserva de inventario específica y coordinación de despacho concentrado. No incluye la venta orgánica sembrada con forecast a 12 meses (proceso 8.1) ni la corporativa de consumo propio (proceso 8.9)."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -3550,100 +4063,204 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Negocia directamente el acuerdo con la cadena — no delegable a nivel país."},
       {"id": "a3", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Reserva el volumen específico comprometido, más un colchón adicional para clientes preferentes."},
       {"id": "a4", "rol": "Comité Comercial", "texto": "Aprueba la campaña por el volumen y el monto que compromete. Es el mismo órgano que aprueba el plan comercial y la política de precios, y no la Junta: lo que se decide aquí es comercial —cuánta mercancía se compromete a qué precio— y cabe dentro del gobierno de la dirección comercial."},
-      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina con la cadena la comunicación de la promoción: la pieza, el material en el punto y la mecánica que verá el comprador. Entra cuando la campaña ya está aprobada, porque lo que comunica es un acuerdo cerrado, no una intención."},
+      {"id": "a5", "rol": "Gerente de Cuentas Clave y Trade", "texto": "Coordina con la cadena la comunicación de la promoción: la pieza —que produce Diseño y Marca—, el material en el punto —que monta visual merchandising— y la mecánica que verá el comprador. Entra cuando la campaña ya está aprobada, porque lo que comunica es un acuerdo cerrado, no una intención."},
       {"id": "a6", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Coordina la concentración del despacho para el volumen comprometido y su entrega en la ventana acordada con la cadena."},
       {"id": "a7", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Sigue la salida real de la campaña contra lo comprometido y la cierra: cuánto se facturó, cuánto se vendió al público y qué quedó en el punto. Es el dato que dice si la siguiente campaña se dimensiona igual."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Coordinador(a) de Logística y Bodega", "Comité Comercial", "Gerente Regional de Marketing"],
+      "carriles": [
+       "Gerente Regional Comercial (Mayoreo)",
+       "Coordinador(a) de Logística y Bodega",
+       "Comité Comercial",
+       "Gerente de Cuentas Clave y Trade"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Oportunidad de volumen"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Dimensionar y negociar la campaña"},
        {"id": "n2", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Reservar el volumen y el colchón preferente"},
        {"id": "n3", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Aprueba la campaña?"},
        {"id": "n3alt", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Renegociar volumen y condiciones"},
-       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar la comunicación con la cadena"},
+       {"id": "n4", "carril": "Gerente de Cuentas Clave y Trade", "tipo": "tarea", "n": "Coordinar la comunicación con la cadena"},
        {"id": "n5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Coordinar el despacho concentrado"},
        {"id": "n6", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Seguir la salida real y cerrar la campaña"},
        {"id": "n7", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "fin", "n": "Campaña ejecutada y reportada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"},
-       {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n4"},
-       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"},
+       {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Reserva de campaña en tensión con la reposición regular", "El volumen reservado para la campaña compite con el inventario que necesita la venta orgánica y las cuentas clave.", "Alta", "Alto", "Definir el criterio de prioridad entre la reserva de campaña y la reposición regular antes de la próxima campaña grande."],
-      ["Negociación concentrada en una sola persona a nivel regional", "El acuerdo con la cadena no es delegable a nivel país, así que depende de una sola persona.", "Media", "Alto", "Documentar el criterio de negociación para poder delegarlo en un respaldo entrenado."],
-      ["Despacho concentrado sin margen de contingencia logística", "Un volumen alto en un plazo corto deja poco margen si la transportadora o el hub tienen un imprevisto.", "Media", "Medio", "Coordinar con Logística un margen de contingencia para el despacho concentrado."],
-      ["Impacto en el posicionamiento de precio de la marca", "Una promoción muy agresiva puede afectar la percepción de precio de la marca en otros canales.", "Baja", "Medio", "Evaluar el impacto de posicionamiento antes de aprobar el descuento de la campaña."]
+      [
+       "Reserva de campaña en tensión con la reposición regular",
+       "El volumen reservado para la campaña compite con el inventario que necesita la venta orgánica y las cuentas clave.",
+       "Alta",
+       "Alto",
+       "Definir el criterio de prioridad entre la reserva de campaña y la reposición regular antes de la próxima campaña grande."
+      ],
+      [
+       "Negociación concentrada en una sola persona a nivel regional",
+       "El acuerdo con la cadena no es delegable a nivel país, así que depende de una sola persona.",
+       "Media",
+       "Alto",
+       "Documentar el criterio de negociación para poder delegarlo en un respaldo entrenado."
+      ],
+      [
+       "Despacho concentrado sin margen de contingencia logística",
+       "Un volumen alto en un plazo corto deja poco margen si la transportadora o el hub tienen un imprevisto.",
+       "Media",
+       "Medio",
+       "Coordinar con Logística un margen de contingencia para el despacho concentrado."
+      ],
+      [
+       "Impacto en el posicionamiento de precio de la marca",
+       "Una promoción muy agresiva puede afectar la percepción de precio de la marca en otros canales.",
+       "Baja",
+       "Medio",
+       "Evaluar el impacto de posicionamiento antes de aprobar el descuento de la campaña."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cumplimiento del volumen comprometido", "Unidades vendidas ÷ unidades comprometidas con la cadena", "Por campaña", "Gerente Regional de Marketing", "≥80%"],
-      ["Campañas de alto volumen ejecutadas en el año", "Conteo de campañas", "Anual", "Gerente Regional Comercial (Mayoreo)", "2-3 al año (referencia histórica)"],
-      ["Tiempo entre cierre del acuerdo y despacho", "Fecha de despacho − fecha de firma del acuerdo", "Por campaña", "Coordinador(a) de Logística y Bodega", "Referencia de seguimiento"]
+      [
+       "Cumplimiento del volumen comprometido",
+       "Unidades vendidas ÷ unidades comprometidas con la cadena",
+       "Por campaña",
+       "Gerente de Cuentas Clave y Trade",
+       "≥80%"
+      ],
+      [
+       "Campañas de alto volumen ejecutadas en el año",
+       "Conteo de campañas",
+       "Anual",
+       "Gerente Regional Comercial (Mayoreo)",
+       "2-3 al año (referencia histórica)"
+      ],
+      [
+       "Tiempo entre cierre del acuerdo y despacho",
+       "Fecha de despacho − fecha de firma del acuerdo",
+       "Por campaña",
+       "Coordinador(a) de Logística y Bodega",
+       "Referencia de seguimiento"
+      ]
      ]
     }
    },
 
    "8.11": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el flujo completo de fabricar producto de marca privada para un cliente —diseño, muestra, aprobación, proforma, producción y entrega— con involucramiento del área de desarrollo de producto por el lado de sourcing. No incluye la customización puntual de un producto ya existente para venta corporativa (proceso 8.9), que es de menor escala y compromiso."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el flujo completo de fabricar producto de marca privada para un cliente —diseño, muestra, aprobación, proforma, producción y entrega— con involucramiento del área de desarrollo de producto por el lado de sourcing. No incluye la customización puntual de un producto ya existente para venta corporativa (proceso 8.9), que es de menor escala y compromiso."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
       {"id": "a1", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Recibe el interés del cliente en fabricar un producto (audífono, termo, bocina) con su propia marca."},
-      {"id": "a2", "rol": "Gerente Regional de Marketing", "texto": "Coordina con desarrollo de producto el diseño y la muestra inicial."},
+      {"id": "a2", "rol": "Gerente de Diseño Industrial (Diseño y Marca)", "texto": "Diseña con desarrollo de producto la línea de marca privada y acompaña la muestra inicial."},
       {"id": "a3", "rol": "Sourcing en China", "texto": "Gestiona con el proveedor chino la producción de la muestra aprobada."},
       {"id": "a4", "rol": "Gerente Regional Comercial (Mayoreo)", "texto": "Cierra la proforma firmada con el cliente una vez aprobada la muestra."},
       {"id": "a5", "rol": "Sourcing en China", "texto": "Libera la producción del pedido con el proveedor chino."},
       {"id": "a6", "rol": "Gerente de Contabilidad / Administración", "texto": "Factura la entrega del pedido con las condiciones acordadas en la proforma."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial (Mayoreo)", "Gerente Regional de Marketing", "Sourcing en China", "Gerente de Contabilidad / Administración"],
+      "carriles": [
+       "Gerente Regional Comercial (Mayoreo)",
+       "Gerente de Diseño Industrial (Diseño y Marca)",
+       "Sourcing en China",
+       "Gerente de Contabilidad / Administración"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "inicio", "n": "Cliente interesado en marca privada (handshake o red de contactos)"},
-       {"id": "n1", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar diseño y muestra con desarrollo de producto"},
+       {"id": "n1", "carril": "Gerente de Diseño Industrial (Diseño y Marca)", "tipo": "tarea", "n": "Coordinar diseño y muestra con desarrollo de producto"},
        {"id": "n2", "carril": "Sourcing en China", "tipo": "tarea", "n": "Gestionar producción de la muestra con el proveedor"},
        {"id": "n3", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "decision", "n": "¿Cliente aprueba la muestra?"},
-       {"id": "n3alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Ajustar diseño y reintentar la muestra"},
+       {"id": "n3alt", "carril": "Gerente de Diseño Industrial (Diseño y Marca)", "tipo": "tarea", "n": "Ajustar diseño y reintentar la muestra"},
        {"id": "n4", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Cerrar proforma firmada con el cliente"},
        {"id": "n5", "carril": "Sourcing en China", "tipo": "tarea", "n": "Liberar producción del pedido"},
        {"id": "n6", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Facturar la entrega según proforma"},
        {"id": "n7", "carril": "Gerente de Contabilidad / Administración", "tipo": "fin", "n": "Pedido de marca privada entregado y facturado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "Sí"}, {"de": "n3", "a": "n3alt", "etq": "No"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"},
+       {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Negocio de siete cifras sin flujo documentado propio", "La línea de marca privada creció hasta cerca de dos millones de dólares de facturación sin un proceso escrito propio.", "Alta", "Alto", "Documentar el flujo completo (brief, muestra, proforma, producción, entrega) como proceso propio."],
-      ["Dependencia de un solo enlace de sourcing en China", "La coordinación con el proveedor chino depende de un solo punto de contacto.", "Alta", "Alto", "Formar un respaldo o un segundo contacto de sourcing para esta línea."],
-      ["Ciclos largos de producción (2-6 meses) sin colchón de tiempo documentado", "El plazo entre proforma y entrega varía según el origen de producción, sin un colchón estándar comunicado al cliente.", "Media", "Medio", "Documentar el plazo de referencia por origen de producción para fijar expectativas con el cliente."],
-      ["Concentración comercial y de producto en las mismas dos personas", "El cierre comercial y el componente de desarrollo de producto dependen de las mismas dos personas.", "Media", "Alto", "Formar un segundo responsable que pueda cerrar un pedido de marca privada de principio a fin."]
+      [
+       "Negocio de siete cifras sin flujo documentado propio",
+       "La línea de marca privada creció hasta cerca de dos millones de dólares de facturación sin un proceso escrito propio.",
+       "Alta",
+       "Alto",
+       "Documentar el flujo completo (brief, muestra, proforma, producción, entrega) como proceso propio."
+      ],
+      [
+       "Dependencia de un solo enlace de sourcing en China",
+       "La coordinación con el proveedor chino depende de un solo punto de contacto.",
+       "Alta",
+       "Alto",
+       "Formar un respaldo o un segundo contacto de sourcing para esta línea."
+      ],
+      [
+       "Ciclos largos de producción (2-6 meses) sin colchón de tiempo documentado",
+       "El plazo entre proforma y entrega varía según el origen de producción, sin un colchón estándar comunicado al cliente.",
+       "Media",
+       "Medio",
+       "Documentar el plazo de referencia por origen de producción para fijar expectativas con el cliente."
+      ],
+      [
+       "Concentración comercial y de producto en las mismas dos personas",
+       "El cierre comercial y el componente de desarrollo de producto dependen de las mismas dos personas.",
+       "Media",
+       "Alto",
+       "Formar un segundo responsable que pueda cerrar un pedido de marca privada de principio a fin."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Facturación de la línea de marca privada", "Monto facturado en el período", "Anual", "Gerente Regional Comercial (Mayoreo)", "Referencia de seguimiento (crecimiento)"],
-      ["Tiempo de ciclo proforma → entrega", "Fecha de entrega − fecha de firma de proforma", "Por proyecto", "Sourcing en China", "Según origen de producción (2-6 meses)"],
-      ["Proyectos de marca privada con muestra aprobada en el primer intento", "Aprobados al primer intento ÷ total de proyectos", "Anual", "Gerente Regional de Marketing", "Referencia de seguimiento"]
+      [
+       "Facturación de la línea de marca privada",
+       "Monto facturado en el período",
+       "Anual",
+       "Gerente Regional Comercial (Mayoreo)",
+       "Referencia de seguimiento (crecimiento)"
+      ],
+      [
+       "Tiempo de ciclo proforma → entrega",
+       "Fecha de entrega − fecha de firma de proforma",
+       "Por proyecto",
+       "Sourcing en China",
+       "Según origen de producción (2-6 meses)"
+      ],
+      [
+       "Proyectos de marca privada con muestra aprobada en el primer intento",
+       "Aprobados al primer intento ÷ total de proyectos",
+       "Anual",
+       "Gerente de Diseño Industrial (Diseño y Marca)",
+       "Referencia de seguimiento"
+      ]
      ]
     }
    },
@@ -3709,11 +4326,7 @@ window.MANUAL_CONTENIDO = {
    },
 
    "8.13": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la solicitud de mobiliario de exhibición, material POP, habladores, vallas y activaciones en punto de venta, su evaluación contra el plan de compras del cliente o el retorno esperado, la producción, la entrega y el seguimiento del rendimiento post-instalación. No incluye la exhibición dentro de tienda propia (macro 9, Ventas Retail), que sigue su propio proceso de visual merchandising.",
-     "nota_estado": "Este proceso es «to-be»: la aprobación con business case de rentabilidad ya se practica en un país, pero no está extendida ni documentada como estándar regional, y el flujo de aprobación puede tardar semanas cuando se aplica sin distinguir urgencia."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la solicitud de mobiliario de exhibición, material POP, habladores, vallas y activaciones en punto de venta, su evaluación contra el plan de compras del cliente o el retorno esperado, la producción, la entrega y el seguimiento del rendimiento post-instalación. No incluye la exhibición dentro de tienda propia (macro 9, Ventas Retail), que sigue el proceso 16.7 de visual merchandising.", "nota_estado": "Este proceso es «to-be»: la aprobación con business case de rentabilidad ya se practica en un país, pero no está extendida ni documentada como estándar regional, y el flujo de aprobación puede tardar semanas cuando se aplica sin distinguir urgencia."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -3724,12 +4337,18 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Contrasta la inversión contra el retorno que el plan de venta proyecta y aprueba o devuelve según la matriz de aprobación vigente (proceso 8.2)."},
       {"id": "a4", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Reajusta la propuesta con el cliente cuando el retorno no da: sube el compromiso de compra, reduce el alcance del mobiliario, cambia el material por una alternativa más barata o reparte el costo con el punto. Una solicitud que no cuadra a la primera es una negociación abierta, no una oportunidad perdida."},
       {"id": "a5", "rol": "Gerente de Contabilidad / Administración", "texto": "Vuelve a evaluar la propuesta reajustada con los números nuevos. Solo si tampoco así se sostiene, la solicitud se cierra — y se cierra con el motivo escrito, para que el vendedor sepa qué tendría que cambiar la próxima vez."},
-      {"id": "a5b", "rol": "Gerente Regional de Visual Merchandising", "texto": "Valida el diseño aprobado contra el estándar de marca —materiales, medidas, artes y coherencia con lo que ya está montado en la región— antes de mandarlo a producir. Una pieza que se sostiene en números puede no sostenerse en marca, y rehacerla después cuesta lo mismo que hacerla."},
-      {"id": "a6", "rol": "Coordinador(a) de Visual Merchandising", "texto": "Produce el mueble o material aprobado y coordina la entrega y el montaje en el punto de venta."},
+      {"id": "a5b", "rol": "Gerente de Visual Merchandising", "texto": "Valida el diseño aprobado contra el estándar de marca que fija Diseño y Marca —materiales, medidas, artes y coherencia con lo que ya está montado en la región— antes de mandarlo a producir. Una pieza que se sostiene en números puede no sostenerse en marca, y rehacerla después cuesta lo mismo que hacerla."},
+      {"id": "a6", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Gestiona la producción del mueble o material aprobado con la política de compra de la organización y coordina la entrega y el montaje en el punto de venta, como servicio a Ventas al Mayor con el plazo acordado."},
       {"id": "a7", "rol": "Analista/Ejecutivo(a) Comercial", "texto": "Da seguimiento al rendimiento del punto tras la instalación, para saber si la inversión devolvió lo que el plan de venta prometía."}
      ],
      "diagrama": {
-      "carriles": ["Analista/Ejecutivo(a) Comercial", "Gerente Regional Comercial (Mayoreo)", "Gerente de Contabilidad / Administración", "Gerente Regional de Visual Merchandising", "Coordinador(a) de Visual Merchandising"],
+      "carriles": [
+       "Analista/Ejecutivo(a) Comercial",
+       "Gerente Regional Comercial (Mayoreo)",
+       "Gerente de Contabilidad / Administración",
+       "Gerente de Visual Merchandising",
+       "Coordinador(a) de Visual Merchandising (país)"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "inicio", "n": "Solicitud de mueble, POP o activación del vendedor o KAM"},
        {"id": "n1", "carril": "Gerente Regional Comercial (Mayoreo)", "tipo": "tarea", "n": "Evaluar contra plan de compras o retorno proyectado"},
@@ -3737,37 +4356,86 @@ window.MANUAL_CONTENIDO = {
        {"id": "n2alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Reajustar la propuesta con el cliente"},
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "decision", "n": "¿Aprueba lo reajustado?"},
        {"id": "n3alt", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Cerrar la solicitud con su motivo"},
-       {"id": "n3b", "carril": "Gerente Regional de Visual Merchandising", "tipo": "tarea", "n": "Validar el diseño contra el estándar de marca"},
-       {"id": "n4", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Producir el mueble o el material"},
-       {"id": "n5", "carril": "Coordinador(a) de Visual Merchandising", "tipo": "tarea", "n": "Entregar y montar en el punto de venta"},
+       {"id": "n3b", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Validar el diseño contra el estándar de marca"},
+       {"id": "n4", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Producir el mueble o el material"},
+       {"id": "n5", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Entregar y montar en el punto de venta"},
        {"id": "n6", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "tarea", "n": "Seguir el rendimiento tras la instalación"},
        {"id": "n7", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Activación instalada y con seguimiento"},
        {"id": "n8", "carril": "Analista/Ejecutivo(a) Comercial", "tipo": "fin", "n": "Solicitud cerrada con motivo"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"},
-       {"de": "n2", "a": "n3b", "etq": "Sí"}, {"de": "n2", "a": "n2alt", "etq": "No"}, {"de": "n2alt", "a": "n3"},
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3b", "etq": "Sí"},
+       {"de": "n2", "a": "n2alt", "etq": "No"},
+       {"de": "n2alt", "a": "n3"},
        {"de": "n3", "a": "n3b", "etq": "Sí"},
-       {"de": "n3b", "a": "n4"}, {"de": "n3", "a": "n3alt", "etq": "No"}, {"de": "n3alt", "a": "n8"},
-       {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n3b", "a": "n4"},
+       {"de": "n3", "a": "n3alt", "etq": "No"},
+       {"de": "n3alt", "a": "n8"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Aprobación por business case no extendida a toda la región", "Solo un país exige de forma consistente el respaldo de rentabilidad antes de aprobar mobiliario.", "Alta", "Alto", "Extender el criterio de aprobación por rentabilidad a toda la región."],
-      ["Flujo de aprobación largo sin diferenciar urgencia", "El circuito de aprobación puede tomar varias semanas incluso para solicitudes de bajo monto o alta urgencia comercial.", "Alta", "Medio", "Diferenciar un circuito corto para solicitudes de bajo monto o alta urgencia."],
-      ["Gobernanza de aprobación ambigua entre roles regionales y locales", "No siempre está claro si el monto de una solicitud lo aprueba el rol regional o el KAM del cliente.", "Media", "Medio", "Aclarar en la matriz de aprobación (proceso 8.2) quién aprueba cada rango de monto de mobiliario."],
-      ["Seguimiento post-instalación no siempre documentado", "El rendimiento del punto tras instalar el mueble o material no siempre se registra de forma sistemática.", "Baja", "Medio", "Documentar el seguimiento de sellout post-instalación como parte del cierre de la solicitud."]
+      [
+       "Aprobación por business case no extendida a toda la región",
+       "Solo un país exige de forma consistente el respaldo de rentabilidad antes de aprobar mobiliario.",
+       "Alta",
+       "Alto",
+       "Extender el criterio de aprobación por rentabilidad a toda la región."
+      ],
+      [
+       "Flujo de aprobación largo sin diferenciar urgencia",
+       "El circuito de aprobación puede tomar varias semanas incluso para solicitudes de bajo monto o alta urgencia comercial.",
+       "Alta",
+       "Medio",
+       "Diferenciar un circuito corto para solicitudes de bajo monto o alta urgencia."
+      ],
+      [
+       "Gobernanza de aprobación ambigua entre roles regionales y locales",
+       "No siempre está claro si el monto de una solicitud lo aprueba el rol regional o el KAM del cliente.",
+       "Media",
+       "Medio",
+       "Aclarar en la matriz de aprobación (proceso 8.2) quién aprueba cada rango de monto de mobiliario."
+      ],
+      [
+       "Seguimiento post-instalación no siempre documentado",
+       "El rendimiento del punto tras instalar el mueble o material no siempre se registra de forma sistemática.",
+       "Baja",
+       "Medio",
+       "Documentar el seguimiento de sellout post-instalación como parte del cierre de la solicitud."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Solicitudes aprobadas con business case documentado", "Con business case ÷ total de solicitudes aprobadas", "Trimestral", "Planificador Financiero", "100%"],
-      ["Tiempo de aprobación de la solicitud", "Fecha de aprobación − fecha de solicitud", "Por solicitud", "Gerente Regional Comercial (Mayoreo)", "Diferenciado por circuito (corto/largo)"],
-      ["Sellout post-instalación vs. proyectado", "Venta real ÷ venta proyectada en el business case", "Trimestral", "Analista/Ejecutivo(a) Comercial", "≥80% de lo proyectado"]
+      [
+       "Solicitudes aprobadas con business case documentado",
+       "Con business case ÷ total de solicitudes aprobadas",
+       "Trimestral",
+       "Planificador Financiero",
+       "100%"
+      ],
+      [
+       "Tiempo de aprobación de la solicitud",
+       "Fecha de aprobación − fecha de solicitud",
+       "Por solicitud",
+       "Gerente Regional Comercial (Mayoreo)",
+       "Diferenciado por circuito (corto/largo)"
+      ],
+      [
+       "Sellout post-instalación vs. proyectado",
+       "Venta real ÷ venta proyectada en el business case",
+       "Trimestral",
+       "Analista/Ejecutivo(a) Comercial",
+       "≥80% de lo proyectado"
+      ]
      ]
     }
    },
@@ -3993,7 +4661,7 @@ window.MANUAL_CONTENIDO = {
     "audiencia": [
      "Gerente de E-commerce / Ventas Web (por país)",
      "Gerente Regional Comercial / Retail",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Supervisor(a) de Operaciones E-commerce",
      "Asesor(a) de Ventas Web",
      "Supervisor(a) de Bodega / Despacho",
@@ -4006,7 +4674,7 @@ window.MANUAL_CONTENIDO = {
     "estado": "borrador",
     "ubicacion": "Ventas Web es, junto con Ventas Retail y Ventas Mayor, uno de los tres canales de venta de la cadena de valor operativa, y el que crece más rápido: en Venezuela la venta por WhatsApp llegó a superar a la web propia en un mes, y el volumen de órdenes se ha multiplicado varias veces en pocos años. Opera con un almacén propio, separado del almacén principal, que funciona \"como una tienda\" con su propio inventario sincronizado en tiempo real entre sitios propios y marketplaces para evitar la sobreventa. El área está en transición organizacional: hoy el liderazgo de e-commerce vive repartido entre Marketing (de donde salió históricamente) y Ventas Web propiamente, con un rol regional propio todavía en formación. La venta de marca propia (Cubitt) en Estados Unidos opera en 15 marketplaces distintos bajo una compañía hermana dedicada casi exclusivamente a Amazon.",
     "duenos": [
-     ["Estratégico / regional", "Gerente Regional Comercial / Retail · Gerente Regional de Marketing (rol de e-commerce regional en formación)", "Aprueba decisiones de impacto en caja (p. ej. bajada inicial de un marketplace) y la estrategia de expansión a nuevos canales."],
+     ["Estratégico / regional", "Gerente Regional Comercial / Retail · Gerente Corporativo(a) de Mercadeo (rol de e-commerce regional en formación)", "Aprueba decisiones de impacto en caja (p. ej. bajada inicial de un marketplace) y la estrategia de expansión a nuevos canales."],
      ["País", "Gerente de E-commerce / Ventas Web (por país)", "Opera el canal digital completo del país como una unidad casi autónoma: venta, almacén, chat, pagos y reposición."],
      ["Estados Unidos (marca propia)", "Gerente de E-commerce / Ventas Web (USA)", "Opera los 15 marketplaces de Cubitt en EE. UU., con apoyo de una agencia externa especializada y de una compañía hermana dedicada a Amazon."]
     ],
@@ -4030,7 +4698,7 @@ window.MANUAL_CONTENIDO = {
     "interfaces": [
      ["Compras y Abastecimiento", "Entrada", "Reposición del almacén web desde el almacén principal, o directo de fábrica (China) para Estados Unidos."],
      ["Logística y Operaciones", "Coordinación", "Almacén principal como respaldo de inventario; couriers nacionales (MRW, Zoom) para última milla."],
-     ["Gestión de Mercadeo y Comunicaciones", "Coordinación", "Banners, campañas, contenido de redes sociales, coordinación de lanzamientos y del rol regional de e-commerce."],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Coordinación", "Banners, campañas, contenido de redes sociales, coordinación de lanzamientos y del rol regional de e-commerce."],
      ["Contabilidad", "Salida", "Facturación fiscal del pedido, notas de crédito por devolución, destino natural de la validación de pagos."],
      ["Servicio Técnico y Postventa", "Salida", "Escalamiento de reclamos de garantía técnica que no son de retracto ni de daño en tránsito."],
      ["Gestión del Talento Humano", "Coordinación", "Contratación de personal temporal para temporada alta (chat y almacén)."]
@@ -4042,12 +4710,12 @@ window.MANUAL_CONTENIDO = {
     "actores": [
      ["Gerente de E-commerce / Ventas Web (por país)", "País", "Opera el canal digital completo: venta, almacén web, chat, validación de pagos y reposición.", "Decide reposición del almacén web, activa o desactiva delivery propio, define personal temporal.", "Decisiones con impacto en caja (bajada inicial de marketplace) escalan al nivel regional o a la Junta."],
      ["Gerente Regional Comercial / Retail", "Regional", "Aprueba decisiones de impacto en caja y participa en la reunión informal de promociones.", "Ajustes de presupuesto de pauta y metas del canal digital.", "Sin instancia formal de reportería regional de e-commerce — hoy informal país por país."],
-     ["Gerente Regional de Marketing", "Regional — rol de e-commerce en formación", "Encabeza la transición del e-commerce de Marketing hacia un departamento propio; aprueba campañas y banners.", "Ajustes de campaña y contenido visual.", "La estructura regional de e-commerce todavía no está formalmente constituida."],
+     ["Gerente Corporativo(a) de Mercadeo", "Regional — rol de e-commerce en formación", "Encabeza la transición del e-commerce de Marketing hacia un departamento propio; aprueba campañas y banners.", "Ajustes de campaña y contenido visual.", "La estructura regional de e-commerce todavía no está formalmente constituida."],
      ["Supervisor(a) de Operaciones E-commerce", "Colombia — referencia regional", "Lidera marketplaces y sitio propio en el país más desarrollado en e-commerce del grupo.", "Gestión operativa de marketplaces y sitio propio.", "Aporta buenas prácticas a otros países sin instancia formal de réplica."],
      ["Asesor(a) de Ventas Web", "Operativo", "Atiende chats, monta pedidos, valida disponibilidad, ejecuta la venta asistida.", "Cotización y montaje de pedido dentro de la lista vigente.", "Casos complejos de reclamo o garantía escalan a Servicio Técnico."]
     ],
     "comites": [
-     ["Reunión informal de promociones", "Decidir el alcance, el descuento y el inventario disponible de una promoción de marketplace o de campaña.", "Por evento (varias veces al año)", "Gerente de E-commerce / Ventas Web · Gerente de Operaciones y Logística · Analista de Logística · Gestión de Mercadeo y Comunicaciones · Gerente Regional Comercial / Retail (aprobación final)", "Aprobación de la promoción por porcentaje y alcance", "Inventario disponible, rotación histórica, calendario comercial", "Promoción aprobada con inventario asegurado para reponer"],
+     ["Reunión informal de promociones", "Decidir el alcance, el descuento y el inventario disponible de una promoción de marketplace o de campaña.", "Por evento (varias veces al año)", "Gerente de E-commerce / Ventas Web · Gerente de Operaciones y Logística · Analista de Logística · Gestión de Mercadeo, Marca y Comunicaciones · Gerente Regional Comercial / Retail (aprobación final)", "Aprobación de la promoción por porcentaje y alcance", "Inventario disponible, rotación histórica, calendario comercial", "Promoción aprobada con inventario asegurado para reponer"],
      ["Reunión mensual P&L Kenex USA", "Revisar el resultado financiero mensual de la operación en Estados Unidos.", "Mensual", "Gerente de E-commerce / Ventas Web (USA) · Junta / Comité Directivo · Contabilidad", "Ajustes de inversión en pauta y aprobación de gasto", "P&L sobre QuickBooks, reporte de ventas por marketplace", "Reporte mensual cerrado y acciones correctivas"],
      ["Planificación anual de temporada alta", "Dimensionar la capacidad de personal, espacio e inventario para los picos comerciales del año.", "Anual, por país (revisión previa a cada pico)", "Gerente de E-commerce / Ventas Web · Coordinador(a) de Recursos Humanos · Analista de Logística · Planificador Financiero", "Plan de capacidad aprobado con headcount y presupuesto", "Proyección de volumen (histórico + IA), calendario de picos", "Plan de capacidad ejecutado antes del pico"]
     ]
@@ -4124,11 +4792,11 @@ window.MANUAL_CONTENIDO = {
      ["WMS (almacén web)", "Aplicación en tablet que recibe el comando de preparación desde Odoo y guía al preparador dentro del almacén web."]
     ],
     "raci": [
-     ["10.1 Planificación comercial de e-commerce y forecast por canal", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Planificador Financiero · Gerente Regional de Marketing", "Junta / Comité Directivo"],
-     ["10.2 Onboarding y expansión de marketplaces", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Diseñador(a) / Analista de Contenido · Agencia externa especializada", "—"],
-     ["10.3 Gestión operativa de sitios propios Shopify", "Diseñador(a) / Analista de Contenido", "Gerente de E-commerce / Ventas Web", "Gestión de Mercadeo y Comunicaciones · Coordinador(a) de Sistemas", "—"],
+     ["10.1 Planificación comercial de e-commerce y forecast por canal", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Planificador Financiero · Gerente Corporativo(a) de Mercadeo", "Junta / Comité Directivo"],
+     ["10.2 Onboarding y expansión de marketplaces", "Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Analista de Contenido (E-commerce y Growth) · Agencia externa especializada", "—"],
+     ["10.3 Gestión operativa de sitios propios Shopify", "Analista de Contenido (E-commerce y Growth)", "Gerente de E-commerce / Ventas Web", "Gestión de Mercadeo, Marca y Comunicaciones · Coordinador(a) de Sistemas", "—"],
      ["10.4 Gestión operativa de marketplaces LATAM", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Supervisor(a) de Operaciones E-commerce", "—"],
-     ["10.5 Gestión operativa de marketplaces USA", "Gerente de E-commerce / Ventas Web (USA)", "Gerente Regional de Marketing", "Agencia externa especializada · Asistente de E-commerce / Almacén Web", "Junta / Comité Directivo"],
+     ["10.5 Gestión operativa de marketplaces USA", "Gerente de E-commerce / Ventas Web (USA)", "Gerente Corporativo(a) de Mercadeo", "Agencia externa especializada · Asistente de E-commerce / Almacén Web", "Junta / Comité Directivo"],
      ["10.6 Venta asistida por chat multiplataforma", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "—"],
      ["10.7 Toma y montaje del pedido en Odoo/WMS", "Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Supervisor(a) de Bodega / Despacho", "—"],
      ["10.8 Validación de pagos y conciliación multi-instrumento", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Analista de Cuentas por Cobrar · Contabilidad", "Coordinador(a) de Tesorería / Cobranzas"],
@@ -4139,7 +4807,7 @@ window.MANUAL_CONTENIDO = {
      ["10.13 Servicio al cliente digital pre y postventa", "Asesor(a) de Ventas Web", "Coordinador(a) de Soporte / Servicio al Cliente", "Gerente de Servicio Técnico", "—"],
      ["10.14 Devoluciones y logística inversa e-commerce", "Supervisor(a) de Bodega / Despacho", "Gerente de E-commerce / Ventas Web", "Gerente de Servicio Técnico · Contabilidad", "Coordinador(a) de Sistemas"],
      ["10.15 Planificación de temporadas altas y capacidad operativa", "Gerente de E-commerce / Ventas Web", "Gerente de E-commerce / Ventas Web", "Coordinador(a) de Recursos Humanos · Analista de Logística", "Planificador Financiero"],
-     ["10.16 Reportería y KPIs de e-commerce", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Regional de Marketing · Planificador Financiero", "Junta / Comité Directivo"]
+     ["10.16 Reportería y KPIs de e-commerce", "Analista de Sistemas / Datos", "Gerente Regional Comercial / Retail", "Gerente Corporativo(a) de Mercadeo · Planificador Financiero", "Junta / Comité Directivo"]
     ],
     "catalogo_sistemas": [
      ["Odoo / WMS", "Montaje del pedido, tablet de preparación, facturación", "10.7 · 10.9 · 10.10 · 10.12", "Coordinador(a) de Sistemas"],
@@ -4152,7 +4820,7 @@ window.MANUAL_CONTENIDO = {
     "interfaces_detalle": [
      ["Compras y Abastecimiento", "Reposición del almacén web", "Traslado desde almacén principal, pedido directo a fábrica (EE. UU.)"],
      ["Logística y Operaciones", "Última milla y respaldo de inventario", "Guía de despacho, disponibilidad del almacén principal"],
-     ["Gestión de Mercadeo y Comunicaciones", "Banners, campañas y contenido", "Piezas gráficas, calendario de campaña, aprobación de lanzamiento"],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Banners, campañas y contenido", "Piezas gráficas, calendario de campaña, aprobación de lanzamiento"],
      ["Contabilidad", "Facturación y conciliación de pagos", "Factura fiscal, nota de crédito, conciliación mensual de marketplace"],
      ["Servicio Técnico y Postventa", "Escalamiento de garantía", "Caso derivado con evidencia del reclamo del cliente"]
     ],
@@ -4175,11 +4843,7 @@ window.MANUAL_CONTENIDO = {
   "procesos": {
 
    "10.1": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la construcción del forecast anual y trimestral por canal digital (sitios propios, marketplaces LATAM, marketplaces USA, WhatsApp, venta en vivo), la asignación de presupuesto de pauta digital y la comunicación de metas al equipo de e-commerce por país. No incluye la operación diaria de cada canal (procesos 10.3 a 10.6), que ejecuta el plan aprobado aquí.",
-     "nota_estado": "Este proceso es híbrido: hoy opera de forma informal, con una meta anual que baja como un incremento único sobre el año previo, sin desglose por canal ni línea de negocio, y sin reportería estructurada al cierre de mes que permita verificar el cumplimiento."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la construcción del forecast anual y trimestral por canal digital (sitios propios, marketplaces LATAM, marketplaces USA, WhatsApp, venta en vivo), la asignación de presupuesto de pauta digital y la comunicación de metas al equipo de e-commerce por país. No incluye la operación diaria de cada canal (procesos 10.3 a 10.6), que ejecuta el plan aprobado aquí.", "nota_estado": "Este proceso es híbrido: hoy opera de forma informal, con una meta anual que baja como un incremento único sobre el año previo, sin desglose por canal ni línea de negocio, y sin reportería estructurada al cierre de mes que permita verificar el cumplimiento."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -4189,53 +4853,105 @@ window.MANUAL_CONTENIDO = {
       {"id": "a2", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Construye el forecast del país por canal digital, con el histórico de venta y de chats como base."},
       {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Aporta el histórico de venta y de chats por canal para dimensionar la proyección."},
       {"id": "a4", "rol": "Gerente de Contabilidad / Administración", "texto": "Valida el presupuesto de pauta digital asignado a cada país."},
-      {"id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Coordina la asignación de pauta digital con el plan de campañas regional."},
+      {"id": "a5", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Coordina la pauta de marca —awareness y lanzamientos— del plan de campañas con la pauta de performance de e-commerce, para que Finanzas consolide las dos sin contar doble."},
       {"id": "a5b", "rol": "Comité Comercial", "texto": "Revisa el forecast del canal digital junto con el del resto de los canales y lo aprueba o lo devuelve para ajuste. Es la misma instancia que aprueba el plan comercial del grupo: el canal digital deja de fijar su meta por su cuenta."},
       {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Comunica las metas al equipo de e-commerce del país."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional Comercial / Retail", "Comité Comercial", "Gerente de E-commerce / Ventas Web", "Gerente de Contabilidad / Administración", "Gerente Regional de Marketing"],
+      "carriles": [
+       "Gerente Regional Comercial / Retail",
+       "Comité Comercial",
+       "Gerente de E-commerce / Ventas Web",
+       "Gerente de Contabilidad / Administración",
+       "Gerente Corporativo(a) de Mercadeo"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Arranca la planificación anual del canal"},
        {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir incremento esperado sobre el año anterior"},
        {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Construir el forecast por canal digital"},
        {"id": "n3", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Validar presupuesto de pauta digital"},
-       {"id": "n4", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Coordinar pauta digital con el plan de campañas"},
+       {"id": "n4", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Coordinar pauta digital con el plan de campañas"},
        {"id": "n5", "carril": "Comité Comercial", "tipo": "decision", "n": "¿Se aprueba el forecast?"},
        {"id": "n5alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ajustar el forecast y re-presentar"},
        {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Comunicar metas al equipo del país"},
        {"id": "n7", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Forecast vigente y comunicado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6", "etq": "Sí"}, {"de": "n5", "a": "n5alt", "etq": "No"}, {"de": "n5alt", "a": "n6"}, {"de": "n6", "a": "n7"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5alt", "etq": "No"},
+       {"de": "n5alt", "a": "n6"},
+       {"de": "n6", "a": "n7"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Meta sin desglose por canal ni línea de negocio", "El forecast se define como un incremento único, sin distinguir sitio propio, marketplace, WhatsApp o venta corporativa.", "Alta", "Alto", "Formalizar el desglose por canal digital y línea de negocio antes del próximo ciclo."],
-      ["Sin reportería estructurada al cierre de mes", "No hay un reporte formal que permita verificar el cumplimiento del forecast mes a mes.", "Alta", "Medio", "Construir el reporte mensual estructurado (proceso 10.16) antes de fijar la siguiente meta."],
-      ["Meta grupal en vez de individual para el equipo de chat", "El equipo de venta por chat no tiene metas por persona, solo del departamento.", "Media", "Medio", "Evaluar metas diferenciadas por perfil dentro del equipo de e-commerce."],
-      ["Presupuesto de pauta digital coordinado caso por caso, sin calendario formal", "La asignación de pauta se conversa según necesidad, sin un calendario acordado de antemano.", "Media", "Bajo", "Formalizar el calendario de asignación de pauta digital junto con el de campañas."]
+      [
+       "Meta sin desglose por canal ni línea de negocio",
+       "El forecast se define como un incremento único, sin distinguir sitio propio, marketplace, WhatsApp o venta corporativa.",
+       "Alta",
+       "Alto",
+       "Formalizar el desglose por canal digital y línea de negocio antes del próximo ciclo."
+      ],
+      [
+       "Sin reportería estructurada al cierre de mes",
+       "No hay un reporte formal que permita verificar el cumplimiento del forecast mes a mes.",
+       "Alta",
+       "Medio",
+       "Construir el reporte mensual estructurado (proceso 10.16) antes de fijar la siguiente meta."
+      ],
+      [
+       "Meta grupal en vez de individual para el equipo de chat",
+       "El equipo de venta por chat no tiene metas por persona, solo del departamento.",
+       "Media",
+       "Medio",
+       "Evaluar metas diferenciadas por perfil dentro del equipo de e-commerce."
+      ],
+      [
+       "Presupuesto de pauta digital coordinado caso por caso, sin calendario formal",
+       "La asignación de pauta se conversa según necesidad, sin un calendario acordado de antemano.",
+       "Media",
+       "Bajo",
+       "Formalizar el calendario de asignación de pauta digital junto con el de campañas."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Precisión del forecast por canal", "Venta real ÷ forecast, por canal digital", "Trimestral", "Gerente de E-commerce / Ventas Web", "±20%"],
-      ["Presupuesto de pauta ejecutado ÷ asignado", "Proporción del gasto real sobre el presupuesto de pauta digital", "Mensual", "Gerente de Contabilidad / Administración", "90%-110%"],
-      ["Metas comunicadas antes del inicio del ciclo", "Equipos notificados a tiempo ÷ total de equipos de país", "Anual", "Gerente de E-commerce / Ventas Web", "100%"]
+      [
+       "Precisión del forecast por canal",
+       "Venta real ÷ forecast, por canal digital",
+       "Trimestral",
+       "Gerente de E-commerce / Ventas Web",
+       "±20%"
+      ],
+      [
+       "Presupuesto de pauta ejecutado ÷ asignado",
+       "Proporción del gasto real sobre el presupuesto de pauta digital",
+       "Mensual",
+       "Gerente de Contabilidad / Administración",
+       "90%-110%"
+      ],
+      [
+       "Metas comunicadas antes del inicio del ciclo",
+       "Equipos notificados a tiempo ÷ total de equipos de país",
+       "Anual",
+       "Gerente de E-commerce / Ventas Web",
+       "100%"
+      ]
      ]
     }
    },
 
    "10.2": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la decisión de entrar a un marketplace nuevo, la postulación y aceptación, la subida de listings con los requisitos específicos de cada plataforma, la integración con Shopify y la activación del canal de servicio al cliente correspondiente, hasta la operación estable. Incluye la reactivación de cuentas suspendidas. No incluye la operación diaria una vez el marketplace está activo (procesos 10.4 y 10.5)."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la decisión de entrar a un marketplace nuevo, la postulación y aceptación, la subida de listings con los requisitos específicos de cada plataforma, la integración con Shopify y la activación del canal de servicio al cliente correspondiente, hasta la operación estable. Incluye la reactivación de cuentas suspendidas. No incluye la operación diaria una vez el marketplace está activo (procesos 10.4 y 10.5)."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -4244,107 +4960,204 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Identifica la oportunidad de un marketplace nuevo o la necesidad de reactivar una cuenta suspendida."},
       {"id": "a2", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba la entrada al marketplace o la reactivación de la cuenta."},
       {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Completa la postulación y gestiona la aceptación del marketplace."},
-      {"id": "a4", "rol": "Diseñador(a) / Analista de Contenido", "texto": "Sube todos los listings con los campos específicos que exige el marketplace."},
+      {"id": "a4", "rol": "Analista de Contenido (E-commerce y Growth)", "texto": "Sube todos los listings con los campos específicos que exige el marketplace."},
       {"id": "a5", "rol": "Coordinador(a) de Sistemas", "texto": "Conecta la cuenta bancaria y la integración con Shopify."},
       {"id": "a6", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Ejecuta pruebas de flujo end-to-end antes de declarar el marketplace operativo."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de E-commerce / Ventas Web", "Gerente Regional Comercial / Retail", "Diseñador(a) / Analista de Contenido", "Coordinador(a) de Sistemas"],
+      "carriles": [
+       "Gerente de E-commerce / Ventas Web",
+       "Gerente Regional Comercial / Retail",
+       "Analista de Contenido (E-commerce y Growth)",
+       "Coordinador(a) de Sistemas"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "inicio", "n": "Marketplace nuevo o por reactivar"},
        {"id": "n1", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Entrada o reactivación aprobada?"},
        {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Descartar o posponer la oportunidad"},
        {"id": "n2", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Completar postulación y gestionar aceptación"},
-       {"id": "n3", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Subir listings con los campos específicos del marketplace"},
+       {"id": "n3", "carril": "Analista de Contenido (E-commerce y Growth)", "tipo": "tarea", "n": "Subir listings con los campos específicos del marketplace"},
        {"id": "n4", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Conectar cuenta bancaria e integración con Shopify"},
        {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Ejecutar pruebas de flujo end-to-end"},
        {"id": "n1fin", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Oportunidad descartada o diferida"},
        {"id": "n6", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Marketplace operativo con primer pedido procesado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Sí"}, {"de": "n1", "a": "n1alt", "etq": "No"}, {"de": "n1alt", "a": "n1fin"},
-       {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2", "etq": "Sí"},
+       {"de": "n1", "a": "n1alt", "etq": "No"},
+       {"de": "n1alt", "a": "n1fin"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Cada marketplace exige campos distintos, sin plantilla única", "No existe un Excel único que sirva para subir listings a todos los marketplaces por igual.", "Alta", "Medio", "Documentar una plantilla base por tipo de marketplace, aunque cada uno requiera ajustes."],
-      ["Reactivación de cuenta depende de agencia externa especializada", "La reapertura de una cuenta suspendida (p. ej. Amazon) recae en el apoyo de una agencia contratada.", "Media", "Alto", "Documentar el criterio de reactivación para no depender solo de la agencia."],
-      ["Pruebas end-to-end no siempre cubren todos los métodos de pago del marketplace", "El flujo se valida antes de operar, pero no siempre con cada método de pago habilitado.", "Media", "Medio", "Ampliar el checklist de pruebas a todos los métodos de pago habilitados."],
-      ["Sin criterio de priorización entre marketplaces candidatos", "La elección de a qué marketplace entrar depende de la oportunidad detectada, sin un criterio comparativo escrito.", "Baja", "Bajo", "Definir un criterio de priorización (volumen potencial, costo de entrada) para elegir el próximo marketplace."]
+      [
+       "Cada marketplace exige campos distintos, sin plantilla única",
+       "No existe un Excel único que sirva para subir listings a todos los marketplaces por igual.",
+       "Alta",
+       "Medio",
+       "Documentar una plantilla base por tipo de marketplace, aunque cada uno requiera ajustes."
+      ],
+      [
+       "Reactivación de cuenta depende de agencia externa especializada",
+       "La reapertura de una cuenta suspendida (p. ej. Amazon) recae en el apoyo de una agencia contratada.",
+       "Media",
+       "Alto",
+       "Documentar el criterio de reactivación para no depender solo de la agencia."
+      ],
+      [
+       "Pruebas end-to-end no siempre cubren todos los métodos de pago del marketplace",
+       "El flujo se valida antes de operar, pero no siempre con cada método de pago habilitado.",
+       "Media",
+       "Medio",
+       "Ampliar el checklist de pruebas a todos los métodos de pago habilitados."
+      ],
+      [
+       "Sin criterio de priorización entre marketplaces candidatos",
+       "La elección de a qué marketplace entrar depende de la oportunidad detectada, sin un criterio comparativo escrito.",
+       "Baja",
+       "Bajo",
+       "Definir un criterio de priorización (volumen potencial, costo de entrada) para elegir el próximo marketplace."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de onboarding de un marketplace nuevo", "Fecha de operación estable − fecha de postulación", "Por evento", "Gerente de E-commerce / Ventas Web", "Referencia de seguimiento"],
-      ["Marketplaces activos sobre candidatos identificados", "Marketplaces activos ÷ total de candidatos evaluados", "Anual", "Gerente Regional Comercial / Retail", "Referencia de avance"],
-      ["Cuentas reactivadas exitosamente", "Reactivaciones logradas ÷ intentadas", "Por evento", "Gerente de E-commerce / Ventas Web (USA)", "100% de las intentadas"]
+      [
+       "Tiempo de onboarding de un marketplace nuevo",
+       "Fecha de operación estable − fecha de postulación",
+       "Por evento",
+       "Gerente de E-commerce / Ventas Web",
+       "Referencia de seguimiento"
+      ],
+      [
+       "Marketplaces activos sobre candidatos identificados",
+       "Marketplaces activos ÷ total de candidatos evaluados",
+       "Anual",
+       "Gerente Regional Comercial / Retail",
+       "Referencia de avance"
+      ],
+      [
+       "Cuentas reactivadas exitosamente",
+       "Reactivaciones logradas ÷ intentadas",
+       "Por evento",
+       "Gerente de E-commerce / Ventas Web (USA)",
+       "100% de las intentadas"
+      ]
      ]
     }
    },
 
    "10.3": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre la operación diaria de las webs propias por marca y país: actualización de inventario y precios, publicación de producto nuevo, banners, activación de métodos de pago e integración con couriers para la generación automática de guía. No incluye el montaje del pedido del cliente en Odoo (proceso 10.7), que es el paso siguiente una vez el cliente compra en el sitio.",
-     "nota_estado": "Este proceso es híbrido: la operación de Cubitt ya tiene métodos de pago modernos activos (Cachea, pago móvil, tarjetas), pero la migración de esos mismos métodos a las webs de Casio todavía está pendiente."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre la operación diaria de las webs propias por marca y país: actualización de inventario y precios, publicación de producto nuevo, banners, activación de métodos de pago e integración con couriers para la generación automática de guía. No incluye el montaje del pedido del cliente en Odoo (proceso 10.7), que es el paso siguiente una vez el cliente compra en el sitio.", "nota_estado": "Este proceso es híbrido: la operación de Cubitt ya tiene métodos de pago modernos activos (Cachea, pago móvil, tarjetas), pero la migración de esos mismos métodos a las webs de Casio todavía está pendiente."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Diseñador(a) / Analista de Contenido", "texto": "Carga masivamente el producto nuevo a todas las webs desde Odoo."},
-      {"id": "a2", "rol": "Gestión de Mercadeo y Comunicaciones", "texto": "Actualiza banners y contenido visual según la campaña activa."},
+      {"id": "a1", "rol": "Analista de Contenido (E-commerce y Growth)", "texto": "Carga masivamente el producto nuevo a todas las webs desde Odoo."},
+      {"id": "a2", "rol": "Diseñador(a) creativo(a) local (Mercadeo país)", "texto": "Adapta y actualiza los banners y el contenido visual de la web según la campaña activa, con las piezas de Diseño y Marca y su sistema de diseño (procesos 16.4 y 16.12)."},
       {"id": "a3", "rol": "Coordinador(a) de Sistemas", "texto": "Activa nuevos métodos de pago y las integraciones de envío (MRW, Zoom)."},
       {"id": "a4", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Monitorea disponibilidad, precios y reglas de envío vigentes."},
       {"id": "a5", "rol": "Gerente de Proyectos (PMO)", "texto": "Coordina la implementación de integraciones nuevas cuando lo requieren."}
      ],
      "diagrama": {
-      "carriles": ["Diseñador(a) / Analista de Contenido", "Gestión de Mercadeo y Comunicaciones", "Coordinador(a) de Sistemas", "Gerente de E-commerce / Ventas Web"],
+      "carriles": [
+       "Analista de Contenido (E-commerce y Growth)",
+       "Diseñador(a) creativo(a) local (Mercadeo país)",
+       "Coordinador(a) de Sistemas",
+       "Gerente de E-commerce / Ventas Web"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "inicio", "n": "Mercancía nueva o campaña"},
-       {"id": "n1", "carril": "Diseñador(a) / Analista de Contenido", "tipo": "tarea", "n": "Cargar producto nuevo en la web"},
-       {"id": "n2", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Actualizar banners y contenido visual"},
+       {"id": "n0", "carril": "Analista de Contenido (E-commerce y Growth)", "tipo": "inicio", "n": "Mercancía nueva o campaña"},
+       {"id": "n1", "carril": "Analista de Contenido (E-commerce y Growth)", "tipo": "tarea", "n": "Cargar producto nuevo en la web"},
+       {"id": "n2", "carril": "Diseñador(a) creativo(a) local (Mercadeo país)", "tipo": "tarea", "n": "Actualizar banners y contenido visual"},
        {"id": "n3", "carril": "Coordinador(a) de Sistemas", "tipo": "decision", "n": "¿Hay método de pago nuevo?"},
        {"id": "n3alt", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Activar el método de pago o la integración"},
        {"id": "n4", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Monitorear disponibilidad, precios y reglas de envío"},
        {"id": "n5", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "fin", "n": "Web al día"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4", "etq": "No"}, {"de": "n3", "a": "n3alt", "etq": "Sí"},
-       {"de": "n3alt", "a": "n4"}, {"de": "n4", "a": "n5"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "No"},
+       {"de": "n3", "a": "n3alt", "etq": "Sí"},
+       {"de": "n3alt", "a": "n4"},
+       {"de": "n4", "a": "n5"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Métodos de pago modernos sin migrar a Casio", "Cachea, pago móvil y tarjetas ya operan en Cubitt pero no en las webs de Casio.", "Alta", "Medio", "Completar la migración de métodos de pago a las webs de Casio en todos los países."],
-      ["Carga masiva depende de una sola persona a nivel regional", "La publicación de producto nuevo en todas las webs recae en una sola persona.", "Media", "Alto", "Documentar el proceso de carga masiva y formar un respaldo."],
-      ["Incidencia técnica en pasarela de pago sin protocolo de escalamiento documentado", "Una falla de pago no siempre tiene un camino claro de a quién escalar primero.", "Media", "Medio", "Documentar el protocolo de escalamiento ante una falla de pasarela."],
-      ["Reglas de envío no siempre actualizadas al mismo ritmo en todos los países", "El ajuste de reglas de envío (tiempos, zonas) se hace país por país sin revisión periódica coordinada.", "Baja", "Bajo", "Revisar periódicamente las reglas de envío vigentes por país."]
+      [
+       "Métodos de pago modernos sin migrar a Casio",
+       "Cachea, pago móvil y tarjetas ya operan en Cubitt pero no en las webs de Casio.",
+       "Alta",
+       "Medio",
+       "Completar la migración de métodos de pago a las webs de Casio en todos los países."
+      ],
+      [
+       "Carga masiva depende de una sola persona a nivel regional",
+       "La publicación de producto nuevo en todas las webs recae en una sola persona.",
+       "Media",
+       "Alto",
+       "Documentar el proceso de carga masiva y formar un respaldo."
+      ],
+      [
+       "Incidencia técnica en pasarela de pago sin protocolo de escalamiento documentado",
+       "Una falla de pago no siempre tiene un camino claro de a quién escalar primero.",
+       "Media",
+       "Medio",
+       "Documentar el protocolo de escalamiento ante una falla de pasarela."
+      ],
+      [
+       "Reglas de envío no siempre actualizadas al mismo ritmo en todos los países",
+       "El ajuste de reglas de envío (tiempos, zonas) se hace país por país sin revisión periódica coordinada.",
+       "Baja",
+       "Bajo",
+       "Revisar periódicamente las reglas de envío vigentes por país."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo de publicación de producto nuevo", "Fecha de publicación − fecha de llegada de la mercancía", "Por producto", "Diseñador(a) / Analista de Contenido", "≤48 horas"],
-      ["Métodos de pago activos por marca y país", "Métodos activos ÷ métodos aprobados", "Mensual", "Coordinador(a) de Sistemas", "100%"],
-      ["Incidencias de pasarela de pago resueltas dentro del SLA", "Incidencias resueltas a tiempo ÷ total de incidencias", "Mensual", "Coordinador(a) de Sistemas", "≥90%"]
+      [
+       "Tiempo de publicación de producto nuevo",
+       "Fecha de publicación − fecha de llegada de la mercancía",
+       "Por producto",
+       "Analista de Contenido (E-commerce y Growth)",
+       "≤48 horas"
+      ],
+      [
+       "Métodos de pago activos por marca y país",
+       "Métodos activos ÷ métodos aprobados",
+       "Mensual",
+       "Coordinador(a) de Sistemas",
+       "100%"
+      ],
+      [
+       "Incidencias de pasarela de pago resueltas dentro del SLA",
+       "Incidencias resueltas a tiempo ÷ total de incidencias",
+       "Mensual",
+       "Coordinador(a) de Sistemas",
+       "≥90%"
+      ]
      ]
     }
    },
 
    "10.4": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el monitoreo de pedidos entrantes de marketplaces LATAM (como Cachea), el cruce manual entre la data del marketplace y Odoo, la participación en promociones estructurales del marketplace y el monitoreo del tiempo de respuesta como KPI. No incluye el montaje formal del pedido en Odoo una vez cruzado (proceso 10.7).",
-     "nota_estado": "Este proceso es híbrido: la integración con el marketplace ya trae los pedidos a Odoo, pero incluye los cancelados, por lo que el cruce que distingue lo realmente vendible sigue siendo manual — una mejora ya conversada con el propio marketplace para que solo entregue lo efectivamente pagado."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el monitoreo de pedidos entrantes de marketplaces LATAM (como Cachea), el cruce manual entre la data del marketplace y Odoo, la participación en promociones estructurales del marketplace y el monitoreo del tiempo de respuesta como KPI. No incluye el montaje formal del pedido en Odoo una vez cruzado (proceso 10.7).", "nota_estado": "Este proceso es híbrido: la integración con el marketplace ya trae los pedidos a Odoo, pero incluye los cancelados, por lo que el cruce que distingue lo realmente vendible sigue siendo manual — una mejora ya conversada con el propio marketplace para que solo entregue lo efectivamente pagado."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -4353,41 +5166,93 @@ window.MANUAL_CONTENIDO = {
       {"id": "a1", "rol": "Asesor(a) de Ventas Web", "texto": "Monitorea los pedidos entrantes del marketplace durante el horario operativo."},
       {"id": "a2", "rol": "Asesor(a) de Ventas Web", "texto": "Registra el pedido a procesar en la base de Lark del marketplace (en Venezuela, «Cachea Cubitt» o «Cachea Casio», según marca) y lo cruza manualmente contra Odoo para descartar los cancelados."},
       {"id": "a3", "rol": "Gerente de E-commerce / Ventas Web", "texto": "Evalúa la participación en una promoción estructural anunciada por el marketplace."},
-      {"id": "a4", "rol": "Gestión de Mercadeo y Comunicaciones", "texto": "Coordina la comunicación asociada a la promoción del marketplace."},
+      {"id": "a4", "rol": "Gerente de Mercadeo (país)", "texto": "Coordina la comunicación asociada a la promoción del marketplace."},
       {"id": "a5", "rol": "Supervisor(a) de Operaciones E-commerce", "texto": "Da seguimiento al KPI de tiempo de respuesta exigido por el marketplace."}
      ],
      "diagrama": {
-      "carriles": ["Asesor(a) de Ventas Web", "Gerente de E-commerce / Ventas Web", "Gestión de Mercadeo y Comunicaciones", "Supervisor(a) de Operaciones E-commerce"],
+      "carriles": [
+       "Asesor(a) de Ventas Web",
+       "Gerente de E-commerce / Ventas Web",
+       "Gerente de Mercadeo (país)",
+       "Supervisor(a) de Operaciones E-commerce"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Asesor(a) de Ventas Web", "tipo": "inicio", "n": "Pedido o promoción del marketplace"},
        {"id": "n1", "carril": "Asesor(a) de Ventas Web", "tipo": "decision", "n": "¿Pedido o promoción?"},
        {"id": "n1alt", "carril": "Gerente de E-commerce / Ventas Web", "tipo": "tarea", "n": "Evaluar participación en la promoción estructural"},
        {"id": "n2", "carril": "Asesor(a) de Ventas Web", "tipo": "tarea", "n": "Registrar en la base de Lark del marketplace y cruzar contra Odoo", "sistemas": ["Lark (Cachea Cubitt / Cachea Casio)"]},
-       {"id": "n3", "carril": "Gestión de Mercadeo y Comunicaciones", "tipo": "tarea", "n": "Coordinar comunicación de la promoción cuando aplica"},
+       {"id": "n3", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Coordinar comunicación de la promoción cuando aplica"},
        {"id": "n4", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "tarea", "n": "Dar seguimiento al KPI de tiempo de respuesta"},
        {"id": "n5", "carril": "Supervisor(a) de Operaciones E-commerce", "tipo": "fin", "n": "Pedido cruzado o promoción ejecutada"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2", "etq": "Pedido"}, {"de": "n1", "a": "n1alt", "etq": "Promoción"},
-       {"de": "n2", "a": "n4"}, {"de": "n1alt", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2", "etq": "Pedido"},
+       {"de": "n1", "a": "n1alt", "etq": "Promoción"},
+       {"de": "n2", "a": "n4"},
+       {"de": "n1alt", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Cruce manual dependiente de una persona dedicada", "El cruce diario entre lo que reporta el marketplace y Odoo recae en una sola persona.", "Alta", "Alto", "Formalizar con el marketplace la entrega de solo pedidos pagados, ya conversada."],
-      ["Datos de contacto del cliente incompletos desde el marketplace", "El marketplace no siempre entrega teléfono o correo completos, lo que complica la trazabilidad.", "Media", "Medio", "Solicitar formalmente al marketplace los campos de contacto completos."],
-      ["Participación en promoción sin inventario suficiente", "Sumarse a una promoción estructural sin confirmar disponibilidad puede generar quiebre de stock.", "Media", "Alto", "Confirmar disponibilidad con Compras/Logística antes de confirmar la participación."],
-      ["Picos de volumen (hasta 350 pedidos/día) sin escalamiento de personal automático", "El volumen puede triplicarse en campaña sin que la dotación se ajuste con la misma velocidad.", "Media", "Alto", "Vincular la planificación de temporada alta (proceso 10.15) con el calendario de promociones del marketplace."]
+      [
+       "Cruce manual dependiente de una persona dedicada",
+       "El cruce diario entre lo que reporta el marketplace y Odoo recae en una sola persona.",
+       "Alta",
+       "Alto",
+       "Formalizar con el marketplace la entrega de solo pedidos pagados, ya conversada."
+      ],
+      [
+       "Datos de contacto del cliente incompletos desde el marketplace",
+       "El marketplace no siempre entrega teléfono o correo completos, lo que complica la trazabilidad.",
+       "Media",
+       "Medio",
+       "Solicitar formalmente al marketplace los campos de contacto completos."
+      ],
+      [
+       "Participación en promoción sin inventario suficiente",
+       "Sumarse a una promoción estructural sin confirmar disponibilidad puede generar quiebre de stock.",
+       "Media",
+       "Alto",
+       "Confirmar disponibilidad con Compras/Logística antes de confirmar la participación."
+      ],
+      [
+       "Picos de volumen (hasta 350 pedidos/día) sin escalamiento de personal automático",
+       "El volumen puede triplicarse en campaña sin que la dotación se ajuste con la misma velocidad.",
+       "Media",
+       "Alto",
+       "Vincular la planificación de temporada alta (proceso 10.15) con el calendario de promociones del marketplace."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Pedidos cruzados correctamente sobre el total recibido", "Pedidos cruzados sin error ÷ total de pedidos entrantes", "Diaria", "Asesor(a) de Ventas Web", "≥98%"],
-      ["Tiempo de respuesta del marketplace", "Tiempo promedio de primera respuesta al chat del marketplace", "Diaria", "Supervisor(a) de Operaciones E-commerce", "Según meta del marketplace"],
-      ["Cumplimiento de inventario en promociones estructurales", "Inventario disponible ÷ inventario comprometido en la promoción", "Por evento", "Gerente de E-commerce / Ventas Web", "100% de lo comprometido"]
+      [
+       "Pedidos cruzados correctamente sobre el total recibido",
+       "Pedidos cruzados sin error ÷ total de pedidos entrantes",
+       "Diaria",
+       "Asesor(a) de Ventas Web",
+       "≥98%"
+      ],
+      [
+       "Tiempo de respuesta del marketplace",
+       "Tiempo promedio de primera respuesta al chat del marketplace",
+       "Diaria",
+       "Supervisor(a) de Operaciones E-commerce",
+       "Según meta del marketplace"
+      ],
+      [
+       "Cumplimiento de inventario en promociones estructurales",
+       "Inventario disponible ÷ inventario comprometido en la promoción",
+       "Por evento",
+       "Gerente de E-commerce / Ventas Web",
+       "100% de lo comprometido"
+      ]
      ]
     }
    },
@@ -6592,7 +7457,7 @@ window.MANUAL_CONTENIDO = {
      "Especialista de Producto / Proyecto",
      "Supervisor(a) de Bodega / Despacho",
      "Coordinador(a) de Logística y Bodega",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Junta Directiva"
     ]
    },
@@ -6745,7 +7610,7 @@ window.MANUAL_CONTENIDO = {
       "Casos fuera de política o clientes molestos escalan al Gerente de Servicio Técnico (por país)."
      ],
      [
-      "Gerente Regional de Marketing",
+      "Gerente Corporativo(a) de Mercadeo",
       "Regional",
       "Decide sobre defectos de producto confirmados con fábrica y aprueba excepciones de alto impacto al cliente.",
       "Aprobación de cobertura de garantía extendida o retiro de lote.",
@@ -6926,7 +7791,7 @@ window.MANUAL_CONTENIDO = {
       "Especialista de Producto / Proyecto",
       "Subgerente de Servicio Técnico",
       "Asesor(a) de Servicio al Cliente · fábrica",
-      "Gerente Regional de Marketing"
+      "Gerente Corporativo(a) de Mercadeo"
      ],
      [
       "11.4 Servicio técnico y reparación de marca representada",
@@ -6939,7 +7804,7 @@ window.MANUAL_CONTENIDO = {
       "11.5 Gestión de repuestos y accesorios de servicio",
       "Gerente de Servicio Técnico (por país)",
       "Country Manager",
-      "Técnico(a) de Servicio / Relojero(a) · Gerente Regional de Marketing",
+      "Técnico(a) de Servicio / Relojero(a) · Gerente Corporativo(a) de Mercadeo",
       "Gerente de Servicio Técnico de otros países"
      ],
      [
@@ -6953,7 +7818,7 @@ window.MANUAL_CONTENIDO = {
       "11.7 Escalamiento y recuperación del cliente insatisfecho",
       "Gerente de Servicio Técnico (por país)",
       "Gerente de Servicio Técnico",
-      "Gerente Regional de Marketing",
+      "Gerente Corporativo(a) de Mercadeo",
       "Asesor(a) de Servicio al Cliente"
      ],
      [
@@ -7245,64 +8110,107 @@ window.MANUAL_CONTENIDO = {
   }
  },
  "11.3": {
-  "proposito": {
-   "estado": "borrador",
-   "texto": "Cubre la clasificación del caso diagnosticado como falla de software (carga en la tabla compartida con la fábrica, ciclo de corrección de siete días vía actualización remota, prueba y devolución al cliente sin reemplazo) y la consolidación de defectos recurrentes por producto, serial y lote para el reporte formal a la fábrica —incluida la apertura preventiva de todo el stock de una referencia cuando se detecta un defecto, como ya ocurrió con la referencia CT-PWANC1—, con el fin de obtener cobertura de garantía extendida o el retiro de un lote defectuoso. No incluye el reemplazo directo del producto (proceso 11.2), del que este proceso es la alternativa cuando la falla es corregible por software.",
-   "nota_estado": "Híbrido: la tabla compartida con la fábrica y el ciclo de siete días ya operan de forma consistente; la trazabilidad por serial y lote es reciente —recién entró en producción— y todavía no cubre todos los países ni todos los productos con el mismo nivel de detalle."
-  },
-  "dueno": { "estado": "borrador" },
-  "disparador": { "estado": "borrador" },
+  "proposito": {"estado": "borrador", "texto": "Cubre la clasificación del caso diagnosticado como falla de software (carga en la tabla compartida con la fábrica, ciclo de corrección de siete días vía actualización remota, prueba y devolución al cliente sin reemplazo) y la consolidación de defectos recurrentes por producto, serial y lote para el reporte formal a la fábrica —incluida la apertura preventiva de todo el stock de una referencia cuando se detecta un defecto, como ya ocurrió con la referencia CT-PWANC1—, con el fin de obtener cobertura de garantía extendida o el retiro de un lote defectuoso. No incluye el reemplazo directo del producto (proceso 11.2), del que este proceso es la alternativa cuando la falla es corregible por software.", "nota_estado": "Híbrido: la tabla compartida con la fábrica y el ciclo de siete días ya operan de forma consistente; la trazabilidad por serial y lote es reciente —recién entró en producción— y todavía no cubre todos los países ni todos los productos con el mismo nivel de detalle."},
+  "dueno": {"estado": "borrador"},
+  "disparador": {"estado": "borrador"},
   "flujo": {
    "estado": "borrador",
    "actividades": [
-    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe un caso ya diagnosticado como falla de software (pantalla, sensor, notificaciones) y lo carga en la tabla compartida con la fábrica con el archivo de diagnóstico del dispositivo." },
-    { "id": "a2", "rol": "Especialista de Producto / Proyecto", "texto": "Da seguimiento a la tabla y coordina con el agente de la fábrica la revisión del archivo y el envío de la actualización correctiva al dispositivo." },
-    { "id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Mantiene el producto en espera hasta siete días, aplica la actualización cuando llega y prueba el dispositivo antes de devolverlo al cliente sin reemplazo." },
-    { "id": "a4", "rol": "Subgerente de Servicio Técnico", "texto": "Consolida mensualmente los casos de reemplazo por producto, serial y lote, y detecta patrones de falla recurrente en una misma referencia o lote de fabricación." },
-    { "id": "a5", "rol": "Gerente Regional de Marketing", "texto": "Revisa el reporte de defecto recurrente con la fábrica y decide, junto con el Especialista de Producto / Proyecto, si procede la cobertura de garantía extendida, el retiro del lote o la revisión preventiva de todo el stock de la referencia." }
+    {"id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Recibe un caso ya diagnosticado como falla de software (pantalla, sensor, notificaciones) y lo carga en la tabla compartida con la fábrica con el archivo de diagnóstico del dispositivo."},
+    {"id": "a2", "rol": "Especialista de Producto / Proyecto", "texto": "Da seguimiento a la tabla y coordina con el agente de la fábrica la revisión del archivo y el envío de la actualización correctiva al dispositivo."},
+    {"id": "a3", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Mantiene el producto en espera hasta siete días, aplica la actualización cuando llega y prueba el dispositivo antes de devolverlo al cliente sin reemplazo."},
+    {"id": "a4", "rol": "Subgerente de Servicio Técnico", "texto": "Consolida mensualmente los casos de reemplazo por producto, serial y lote, y detecta patrones de falla recurrente en una misma referencia o lote de fabricación."},
+    {"id": "a5", "rol": "Gerente de Postventa (corporativo)", "texto": "Revisa el reporte de defecto recurrente con la fábrica y decide, junto con el Especialista de Producto / Proyecto, si procede la cobertura de garantía extendida, el retiro del lote o la revisión preventiva de todo el stock de la referencia."}
    ],
    "diagrama": {
-    "carriles": ["Asesor(a) de Servicio al Cliente", "Especialista de Producto / Proyecto", "Subgerente de Servicio Técnico"],
+    "carriles": [
+     "Asesor(a) de Servicio al Cliente",
+     "Especialista de Producto / Proyecto",
+     "Subgerente de Servicio Técnico",
+     "Gerente de Postventa (corporativo)"
+    ],
     "nodos": [
-     { "id": "n0", "carril": "Subgerente de Servicio Técnico", "tipo": "inicio", "n": "Falla de software o patrón de fallas en un lote" },
-     { "id": "n1", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Es un caso individual de falla de software?" },
-     { "id": "n1alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar en el reporte mensual de defectos por lote" },
-     { "id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Cargar el caso y el diagnóstico en la tabla de la fábrica" },
-     { "id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Coordinar con la fábrica la actualización correctiva" },
-     { "id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Aplicar la actualización, probar y devolver al cliente" },
-     { "id": "n5", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Defecto recurrente por lote?" },
-     { "id": "n5alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Solicitar la revisión preventiva o el retiro del lote a la fábrica" },
-     { "id": "n6", "carril": "Subgerente de Servicio Técnico", "tipo": "fin", "n": "Caso cerrado o defecto reportado a fábrica" }
+     {"id": "n0", "carril": "Subgerente de Servicio Técnico", "tipo": "inicio", "n": "Falla de software o patrón de fallas en un lote"},
+     {"id": "n1", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Es un caso individual de falla de software?"},
+     {"id": "n1alt", "carril": "Subgerente de Servicio Técnico", "tipo": "tarea", "n": "Consolidar en el reporte mensual de defectos por lote"},
+     {"id": "n2", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Cargar el caso y el diagnóstico en la tabla de la fábrica"},
+     {"id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Coordinar con la fábrica la actualización correctiva"},
+     {"id": "n4", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Aplicar la actualización, probar y devolver al cliente"},
+     {"id": "n5", "carril": "Subgerente de Servicio Técnico", "tipo": "decision", "n": "¿Defecto recurrente por lote?"},
+     {"id": "n5alt", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Decidir la cobertura, el retiro o la revisión del lote"},
+     {"id": "n6", "carril": "Subgerente de Servicio Técnico", "tipo": "fin", "n": "Caso cerrado o defecto reportado a fábrica"}
     ],
     "aristas": [
-     { "de": "n0", "a": "n1" },
-     { "de": "n1", "a": "n2", "etq": "Sí" },
-     { "de": "n1", "a": "n1alt", "etq": "No" },
-     { "de": "n1alt", "a": "n5" },
-     { "de": "n2", "a": "n3" },
-     { "de": "n3", "a": "n4" },
-     { "de": "n4", "a": "n6" },
-     { "de": "n5", "a": "n6", "etq": "No" },
-     { "de": "n5", "a": "n5alt", "etq": "Sí" },
-     { "de": "n5alt", "a": "n6" }
+     {"de": "n0", "a": "n1"},
+     {"de": "n1", "a": "n2", "etq": "Sí"},
+     {"de": "n1", "a": "n1alt", "etq": "No"},
+     {"de": "n1alt", "a": "n5"},
+     {"de": "n2", "a": "n3"},
+     {"de": "n3", "a": "n4"},
+     {"de": "n4", "a": "n6"},
+     {"de": "n5", "a": "n6", "etq": "No"},
+     {"de": "n5", "a": "n5alt", "etq": "Sí"},
+     {"de": "n5alt", "a": "n6"}
     ]
    }
   },
   "riesgos": {
    "estado": "borrador",
    "filas": [
-    ["Trazabilidad por serial y lote incompleta entre países", "La serialización y lotificación recién entró en producción y no todos los países la registran con el mismo nivel de detalle.", "Alta", "Alto", "Homologar el registro de serial y lote en el formulario de garantías en todos los países."],
-    ["Ciclo de siete días de corrección sin alerta de vencimiento", "El seguimiento del plazo depende del especialista de producto sin una alerta automática de vencimiento.", "Media", "Medio", "Implementar una alerta automática al cumplirse el plazo del ciclo."],
-    ["Reporte de defecto a fábrica sin evidencia fotográfica sistemática", "El reporte depende de que el agente adjunte fotos de forma consistente en el formulario.", "Media", "Medio", "Reforzar el checklist de auditoría del formulario de garantías."],
-    ["Decisión de cobertura de garantía extendida concentrada en una sola persona", "La aprobación final de cobertura extendida o retiro de lote depende de un único aprobador (Gerente Regional de Marketing).", "Media", "Alto", "Definir un segundo aprobador de respaldo para esta decisión."]
+    [
+     "Trazabilidad por serial y lote incompleta entre países",
+     "La serialización y lotificación recién entró en producción y no todos los países la registran con el mismo nivel de detalle.",
+     "Alta",
+     "Alto",
+     "Homologar el registro de serial y lote en el formulario de garantías en todos los países."
+    ],
+    [
+     "Ciclo de siete días de corrección sin alerta de vencimiento",
+     "El seguimiento del plazo depende del especialista de producto sin una alerta automática de vencimiento.",
+     "Media",
+     "Medio",
+     "Implementar una alerta automática al cumplirse el plazo del ciclo."
+    ],
+    [
+     "Reporte de defecto a fábrica sin evidencia fotográfica sistemática",
+     "El reporte depende de que el agente adjunte fotos de forma consistente en el formulario.",
+     "Media",
+     "Medio",
+     "Reforzar el checklist de auditoría del formulario de garantías."
+    ],
+    [
+     "Decisión de cobertura de garantía extendida concentrada en una sola persona",
+     "La aprobación final de cobertura extendida o retiro de lote depende de un único aprobador (Gerente de Postventa).",
+     "Media",
+     "Alto",
+     "Definir un segundo aprobador de respaldo para esta decisión."
+    ]
    ]
   },
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Casos de software resueltos dentro del ciclo de 7 días", "Casos resueltos a tiempo ÷ total de casos de software", "Mensual", "Especialista de Producto / Proyecto", "≥ 90%"],
-    ["Referencias con defecto de lote reportadas a fábrica", "Conteo de reportes de defecto de lote enviados a fábrica", "Mensual", "Subgerente de Servicio Técnico", "Referencia de gestión"],
-    ["% de garantías por causa de software vs. hardware", "Casos de software ÷ total de casos de garantía", "Mensual", "Subgerente de Servicio Técnico", "Referencia de análisis de causa raíz"]
+    [
+     "Casos de software resueltos dentro del ciclo de 7 días",
+     "Casos resueltos a tiempo ÷ total de casos de software",
+     "Mensual",
+     "Especialista de Producto / Proyecto",
+     "≥ 90%"
+    ],
+    [
+     "Referencias con defecto de lote reportadas a fábrica",
+     "Conteo de reportes de defecto de lote enviados a fábrica",
+     "Mensual",
+     "Subgerente de Servicio Técnico",
+     "Referencia de gestión"
+    ],
+    [
+     "% de garantías por causa de software vs. hardware",
+     "Casos de software ÷ total de casos de garantía",
+     "Mensual",
+     "Subgerente de Servicio Técnico",
+     "Referencia de análisis de causa raíz"
+    ]
    ]
   }
  },
@@ -7485,60 +8393,102 @@ window.MANUAL_CONTENIDO = {
   }
  },
  "11.7": {
-  "proposito": {
-   "estado": "borrador",
-   "texto": "Cubre el tratamiento de los casos que exceden la capacidad de resolución del agente de primer contacto: la clasificación del caso por nivel de escalamiento (según el estándar de colores desarrollado en Panamá: crítico, intermedio y de primera línea), la intervención del coordinador o del gerente del país, la revisión del historial del cliente y del producto, y el acuerdo de una solución excepcional —cambio de generación de producto, reembolso o compensación— cuando la solución estándar de garantía ya no satisface al cliente.",
-   "nota_estado": "Híbrido: existe un archivo de clasificación por niveles ya desarrollado en Panamá (rojo, naranja, amarillo), pero es un desarrollo local todavía sin extender a todos los países, y la efectividad del escalamiento depende en buena medida del criterio y la disposición personal del gerente que atiende el caso."
-  },
-  "dueno": { "estado": "borrador" },
-  "disparador": { "estado": "borrador" },
+  "proposito": {"estado": "borrador", "texto": "Cubre el tratamiento de los casos que exceden la capacidad de resolución del agente de primer contacto: la clasificación del caso por nivel de escalamiento (según el estándar de colores desarrollado en Panamá: crítico, intermedio y de primera línea), la intervención del coordinador o del gerente del país, la revisión del historial del cliente y del producto, y el acuerdo de una solución excepcional —cambio de generación de producto, reembolso o compensación— cuando la solución estándar de garantía ya no satisface al cliente.", "nota_estado": "Híbrido: existe un archivo de clasificación por niveles ya desarrollado en Panamá (rojo, naranja, amarillo), pero es un desarrollo local todavía sin extender a todos los países, y la efectividad del escalamiento depende en buena medida del criterio y la disposición personal del gerente que atiende el caso."},
+  "dueno": {"estado": "borrador"},
+  "disparador": {"estado": "borrador"},
   "flujo": {
    "estado": "borrador",
    "actividades": [
-    { "id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Identifica un caso crítico (reincidencia del producto, cliente visiblemente molesto o con exposición pública) y lo clasifica según el nivel de escalamiento." },
-    { "id": "a2", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Revisa el historial completo del cliente y del producto (número de cambios previos, antigüedad de la compra) antes de intervenir directamente." },
-    { "id": "a3", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Contacta al cliente de forma personal (llamada o atención presencial) para explicar la situación y ofrecer las opciones disponibles." },
-    { "id": "a4", "rol": "Gerente Regional de Marketing", "texto": "Evalúa y aprueba la solución excepcional cuando implica cambio de generación de producto, reembolso o compensación fuera de la política estándar de garantía." },
-    { "id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el caso con la solución acordada y registra el acuerdo excepcional en el historial del cliente." }
+    {"id": "a1", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Identifica un caso crítico (reincidencia del producto, cliente visiblemente molesto o con exposición pública) y lo clasifica según el nivel de escalamiento."},
+    {"id": "a2", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Revisa el historial completo del cliente y del producto (número de cambios previos, antigüedad de la compra) antes de intervenir directamente."},
+    {"id": "a3", "rol": "Gerente de Servicio Técnico (por país)", "texto": "Contacta al cliente de forma personal (llamada o atención presencial) para explicar la situación y ofrecer las opciones disponibles."},
+    {"id": "a4", "rol": "Gerente de Postventa (corporativo)", "texto": "Evalúa y aprueba la solución excepcional cuando implica cambio de generación de producto, reembolso o compensación fuera de la política estándar de garantía."},
+    {"id": "a5", "rol": "Asesor(a) de Servicio al Cliente", "texto": "Cierra el caso con la solución acordada y registra el acuerdo excepcional en el historial del cliente."}
    ],
    "diagrama": {
-    "carriles": ["Asesor(a) de Servicio al Cliente", "Gerente de Servicio Técnico (por país)", "Gerente Regional de Marketing"],
+    "carriles": [
+     "Asesor(a) de Servicio al Cliente",
+     "Gerente de Servicio Técnico (por país)",
+     "Gerente de Postventa (corporativo)"
+    ],
     "nodos": [
-     { "id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Caso crítico por reincidencia o reclamo" },
-     { "id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el caso según el nivel de escalamiento" },
-     { "id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Revisar el historial del cliente y del producto" },
-     { "id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Contactar al cliente y presentar las opciones" },
-     { "id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿Requiere una excepción a la política?" },
-     { "id": "n4alt", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Evaluar y aprobar la solución excepcional" },
-     { "id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso cerrado y solución registrada" },
-     { "id": "n6", "carril": "Gerente Regional de Marketing", "tipo": "fin", "n": "Excepción aprobada y caso cerrado" }
+     {"id": "n0", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "inicio", "n": "Caso crítico por reincidencia o reclamo"},
+     {"id": "n1", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "tarea", "n": "Clasificar el caso según el nivel de escalamiento"},
+     {"id": "n2", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Revisar el historial del cliente y del producto"},
+     {"id": "n3", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "tarea", "n": "Contactar al cliente y presentar las opciones"},
+     {"id": "n4", "carril": "Gerente de Servicio Técnico (por país)", "tipo": "decision", "n": "¿Requiere una excepción a la política?"},
+     {"id": "n4alt", "carril": "Gerente de Postventa (corporativo)", "tipo": "tarea", "n": "Evaluar y aprobar la solución excepcional"},
+     {"id": "n5", "carril": "Asesor(a) de Servicio al Cliente", "tipo": "fin", "n": "Caso cerrado y solución registrada"},
+     {"id": "n6", "carril": "Gerente de Postventa (corporativo)", "tipo": "fin", "n": "Excepción aprobada y caso cerrado"}
     ],
     "aristas": [
-     { "de": "n0", "a": "n1" },
-     { "de": "n1", "a": "n2" },
-     { "de": "n2", "a": "n3" },
-     { "de": "n3", "a": "n4" },
-     { "de": "n4", "a": "n5", "etq": "No" },
-     { "de": "n4", "a": "n4alt", "etq": "Sí" },
-     { "de": "n4alt", "a": "n6" }
+     {"de": "n0", "a": "n1"},
+     {"de": "n1", "a": "n2"},
+     {"de": "n2", "a": "n3"},
+     {"de": "n3", "a": "n4"},
+     {"de": "n4", "a": "n5", "etq": "No"},
+     {"de": "n4", "a": "n4alt", "etq": "Sí"},
+     {"de": "n4alt", "a": "n6"}
     ]
    }
   },
   "riesgos": {
    "estado": "borrador",
    "filas": [
-    ["Estándar de niveles de escalamiento sin extender a todos los países", "El archivo de clasificación por colores (rojo/naranja/amarillo) es un desarrollo local de Panamá, sin réplica formal en los demás países.", "Media", "Medio", "Formalizar y replicar el estándar de niveles de escalamiento a los demás países."],
-    ["Efectividad del escalamiento dependiente del criterio personal del gerente", "No hay un guion escrito de las opciones que se pueden ofrecer a un cliente escalado (cambio, reembolso, compensación).", "Media", "Medio", "Documentar el guion de opciones como parte del gobierno del modelo de servicio (proceso 11.10)."],
-    ["Sin registro centralizado de acuerdos excepcionales", "Cada acuerdo excepcional queda en el criterio de quien lo resuelve, sin un registro único consultable entre países.", "Media", "Alto", "Centralizar el registro de excepciones en la tabla de garantías."],
-    ["Casos que llegan directamente a la alta gerencia sin pasar por el primer nivel de atención", "Un cliente muy molesto puede saltarse el canal regular y llegar directo a la gerencia regional.", "Baja", "Medio", "Reforzar la visibilidad del canal de escalamiento con el equipo de primera línea."]
+    [
+     "Estándar de niveles de escalamiento sin extender a todos los países",
+     "El archivo de clasificación por colores (rojo/naranja/amarillo) es un desarrollo local de Panamá, sin réplica formal en los demás países.",
+     "Media",
+     "Medio",
+     "Formalizar y replicar el estándar de niveles de escalamiento a los demás países."
+    ],
+    [
+     "Efectividad del escalamiento dependiente del criterio personal del gerente",
+     "No hay un guion escrito de las opciones que se pueden ofrecer a un cliente escalado (cambio, reembolso, compensación).",
+     "Media",
+     "Medio",
+     "Documentar el guion de opciones como parte del gobierno del modelo de servicio (proceso 11.10)."
+    ],
+    [
+     "Sin registro centralizado de acuerdos excepcionales",
+     "Cada acuerdo excepcional queda en el criterio de quien lo resuelve, sin un registro único consultable entre países.",
+     "Media",
+     "Alto",
+     "Centralizar el registro de excepciones en la tabla de garantías."
+    ],
+    [
+     "Casos que llegan directamente a la alta gerencia sin pasar por el primer nivel de atención",
+     "Un cliente muy molesto puede saltarse el canal regular y llegar directo a la gerencia regional.",
+     "Baja",
+     "Medio",
+     "Reforzar la visibilidad del canal de escalamiento con el equipo de primera línea."
+    ]
    ]
   },
   "indicadores": {
    "estado": "borrador",
    "filas": [
-    ["Casos escalados por nivel de criticidad", "Conteo de casos por nivel (rojo/naranja/amarillo)", "Mensual", "Gerente de Servicio Técnico", "Referencia de gestión"],
-    ["Tiempo de resolución de un caso escalado", "Fecha de cierre − fecha de escalamiento", "Por caso", "Gerente de Servicio Técnico (por país)", "≤ 48 horas"],
-    ["Reincidencia de escalamiento por el mismo cliente o producto", "Casos repetidos ÷ total de casos escalados", "Trimestral", "Gerente Regional de Marketing", "Tendencia a la baja"]
+    [
+     "Casos escalados por nivel de criticidad",
+     "Conteo de casos por nivel (rojo/naranja/amarillo)",
+     "Mensual",
+     "Gerente de Servicio Técnico",
+     "Referencia de gestión"
+    ],
+    [
+     "Tiempo de resolución de un caso escalado",
+     "Fecha de cierre − fecha de escalamiento",
+     "Por caso",
+     "Gerente de Servicio Técnico (por país)",
+     "≤ 48 horas"
+    ],
+    [
+     "Reincidencia de escalamiento por el mismo cliente o producto",
+     "Casos repetidos ÷ total de casos escalados",
+     "Trimestral",
+     "Gerente de Postventa (corporativo)",
+     "Tendencia a la baja"
+    ]
    ]
   }
  },
@@ -7935,7 +8885,7 @@ window.MANUAL_CONTENIDO = {
       "La orientación estratégica y los valores de la organización con que debe vincularse la política de adopción de inteligencia artificial."
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Salida / coordinación",
       "Mensaje institucional y material de identidad para su difusión."
      ],
@@ -8385,7 +9335,7 @@ window.MANUAL_CONTENIDO = {
       "Estrategia y valores de la organización para vincular la política de adopción de IA"
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Mensaje institucional",
       "Comunicado, material de identidad y difusión"
      ],
@@ -11278,7 +12228,7 @@ window.MANUAL_CONTENIDO = {
      "Gerente Comercial (País / Canal)",
      "Coordinador(a) de Logística y Bodega",
      "Analista de Sistemas / Datos",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Director(a) de Marca Propia (Cubitt)",
      "Gerentes Regionales/Gerentes Corporativos"
     ]
@@ -11400,7 +12350,7 @@ window.MANUAL_CONTENIDO = {
       "Listas, calendario, promociones y asignación; devuelven sell-out, desempeño y retroalimentación de clientes."
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Salida",
       "Calendario y brief de promociones para su ejecución en comunicación."
      ],
@@ -11455,7 +12405,7 @@ window.MANUAL_CONTENIDO = {
       "A la gerencia regional comercial y a sistemas."
      ],
      [
-      "Gerente Regional de Marketing",
+      "Gerente Corporativo(a) de Mercadeo",
       "Regional",
       "Aporta tendencias y ejecuta la comunicación de campañas y promociones.",
       "Plan de comunicación y presupuesto de marketing.",
@@ -11627,7 +12577,7 @@ window.MANUAL_CONTENIDO = {
       "2.1 Inteligencia de mercado y análisis competitivo",
       "Gerente Regional Comercial / Retail",
       "Comité de Estrategia Comercial",
-      "Gerente Comercial (País / Canal) · Analista de Sistemas / Datos · Gerente Regional de Marketing",
+      "Gerente Comercial (País / Canal) · Analista de Sistemas / Datos · Gerente Corporativo(a) de Mercadeo",
       "Director(a) de Marca Propia (Cubitt)"
      ],
      [
@@ -11655,7 +12605,7 @@ window.MANUAL_CONTENIDO = {
       "2.5 Calendario promocional y campañas",
       "Gerente Regional Comercial / Retail",
       "Director(a) Comercial del Grupo",
-      "Gerente Regional de Marketing · Director(a) Comercial Mayorista (Cubitt) · Coordinador(a) de Logística y Bodega",
+      "Gerente Corporativo(a) de Mercadeo · Director(a) Comercial Mayorista (Cubitt) · Coordinador(a) de Logística y Bodega",
       "Canales"
      ],
      [
@@ -11722,7 +12672,7 @@ window.MANUAL_CONTENIDO = {
       "Listas de precio, promociones, calendario y asignación; retorno de sell-out y desempeño"
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Ejecución",
       "Brief de promociones y calendario de campañas"
      ],
@@ -11772,231 +12722,61 @@ window.MANUAL_CONTENIDO = {
   },
   "procesos": {
    "2.1": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Reúne y ordena la información de mercado que necesitan las decisiones comerciales: el sell-out que reportan los clientes, la data de terceros que se compra por categoría y país, los precios y propuestas de la competencia y las tendencias de consumo, y la convierte en un informe periódico de oportunidades para el comité de estrategia comercial.",
-     "nota_estado": "Proceso en transición: ya existe una tabla normalizada de sell-out de unos cuarenta clientes, se compra data de mercado por categoría y país, y los directores comerciales traen la lectura de la competencia. Lo que se incorpora es un responsable de recibir la data con fecha fija y un informe trimestral que llegue a la mesa de decisión."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente Regional Comercial / Retail",
-     "participantes": [
-      "Gerente Comercial (País / Canal) — los vendedores y ejecutivos de cuenta recogen el sell-out de sus clientes y los precios de la competencia en el punto de venta.",
-      "Analista de Sistemas / Datos — normaliza el sell-out en la tabla única y valida su calidad.",
-      "Gerente Regional de Marketing — aporta las tendencias de consumo y de comunicación que observa marketing; no decide sobre producto ni cantidades.",
-      "Comité de Estrategia Comercial — recibe el informe y decide qué oportunidades pasan a precio, portafolio o desarrollo de producto."
-     ],
-     "evidencia": [
-      "E-18",
-      "E-63",
-      "E-60",
-      "SC-10",
-      "E-22"
-     ],
-     "notas": "La Presidencia precisó que el estudio de mercado lo hace hoy el área comercial y que marketing aporta tendencias, no la detección de la necesidad de compra."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Reúne y ordena la información de mercado que necesitan las decisiones comerciales: el sell-out que reportan los clientes, la data de terceros que se compra por categoría y país, los precios y propuestas de la competencia y las tendencias de consumo, y la convierte en un informe periódico de oportunidades para el comité de estrategia comercial.", "nota_estado": "Proceso en transición: ya existe una tabla normalizada de sell-out de unos cuarenta clientes, se compra data de mercado por categoría y país, y los directores comerciales traen la lectura de la competencia. Lo que se incorpora es un responsable de recibir la data con fecha fija y un informe trimestral que llegue a la mesa de decisión."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Regional Comercial / Retail", "participantes": ["Gerente Comercial (País / Canal) — los vendedores y ejecutivos de cuenta recogen el sell-out de sus clientes y los precios de la competencia en el punto de venta.", "Analista de Sistemas / Datos — normaliza el sell-out en la tabla única y valida su calidad.", "Analista de Insights y ROI — aporta la lectura del consumidor y las tendencias de consumo que estudia mercadeo; no decide sobre producto ni cantidades.", "Comité de Estrategia Comercial — recibe el informe y decide qué oportunidades pasan a precio, portafolio o desarrollo de producto."], "evidencia": ["E-18", "E-63", "E-60", "SC-10", "E-22"], "notas": "La Presidencia precisó que el estudio de mercado lo hace hoy el área comercial y que marketing aporta tendencias, no la detección de la necesidad de compra."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
-     "evidencia": [
-      "E-10",
-      "E-18",
-      "E-22",
-      "E-60",
-      "E-63",
-      "E-66",
-      "SC-10"
-     ],
+     "evidencia": ["E-10", "E-18", "E-22", "E-60", "E-63", "E-66", "SC-10"],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Define el calendario de insumos de mercado del año: qué clientes reportan sell-out y en qué fecha, qué data de terceros se compra por categoría y país, y qué precios de la competencia se levantan cada mes."
-      },
-      {
-       "id": "a2",
-       "rol": "Gerente Comercial (País / Canal)",
-       "texto": "Recogen cada mes el sell-out y el inventario de sus clientes, en el formato que cada cliente ya maneja, y registran los precios y promociones de la competencia observados en los puntos de venta de su mercado."
-      },
-      {
-       "id": "a3",
-       "rol": "Analista de Sistemas / Datos",
-       "texto": "Normaliza el sell-out en la tabla única del grupo —país, fecha, cliente, tienda, producto y unidades— y revisa ceros, faltantes, productos sin homologar y valores atípicos."
-      },
-      {
-       "id": "a4",
-       "rol": "Analista de Sistemas / Datos",
-       "texto": "Cuando la data de un cliente llega incompleta o fuera de fecha, marca el faltante en la tabla y lo avisa al responsable de la cuenta, en lugar de completar el dato por estimación sin dejar constancia."
-      },
-      {
-       "id": "a5",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Analiza la participación de la marca, el ticket promedio por categoría y país, los rangos de precio con más volumen y los huecos donde la competencia vende y el grupo no tiene producto."
-      },
-      {
-       "id": "a6",
-       "rol": "Gerente Regional de Marketing",
-       "texto": "Aporta las tendencias de consumo, de color y de comunicación que marketing detecta en sus canales, como insumo de la lectura de mercado y no como decisión de producto."
-      },
-      {
-       "id": "a7",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Consolida cada trimestre el informe de inteligencia de mercado con las oportunidades priorizadas por valor esperado, y lo presenta en el comité de estrategia comercial."
-      },
-      {
-       "id": "a8",
-       "rol": "Comité de Estrategia Comercial",
-       "texto": "Decide qué oportunidades se trabajan y a qué proceso pasan: ajuste de precio, cambio de surtido o evaluación de un producto nuevo con la dirección de marca propia."
-      }
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Define el calendario de insumos de mercado del año: qué clientes reportan sell-out y en qué fecha, qué data de terceros se compra por categoría y país, y qué precios de la competencia se levantan cada mes."},
+      {"id": "a2", "rol": "Gerente Comercial (País / Canal)", "texto": "Recogen cada mes el sell-out y el inventario de sus clientes, en el formato que cada cliente ya maneja, y registran los precios y promociones de la competencia observados en los puntos de venta de su mercado."},
+      {"id": "a3", "rol": "Analista de Sistemas / Datos", "texto": "Normaliza el sell-out en la tabla única del grupo —país, fecha, cliente, tienda, producto y unidades— y revisa ceros, faltantes, productos sin homologar y valores atípicos."},
+      {"id": "a4", "rol": "Analista de Sistemas / Datos", "texto": "Cuando la data de un cliente llega incompleta o fuera de fecha, marca el faltante en la tabla y lo avisa al responsable de la cuenta, en lugar de completar el dato por estimación sin dejar constancia."},
+      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Analiza la participación de la marca, el ticket promedio por categoría y país, los rangos de precio con más volumen y los huecos donde la competencia vende y el grupo no tiene producto."},
+      {"id": "a6", "rol": "Analista de Insights y ROI", "texto": "Aporta la lectura del consumidor —tendencias de consumo y de comunicación, investigación y la data de la app y de ventas— que Insights y ROI produce para mercadeo, como insumo de la lectura de mercado y no como decisión de producto."},
+      {"id": "a7", "rol": "Gerente Regional Comercial / Retail", "texto": "Consolida cada trimestre el informe de inteligencia de mercado con las oportunidades priorizadas por valor esperado, y lo presenta en el comité de estrategia comercial."},
+      {"id": "a8", "rol": "Comité de Estrategia Comercial", "texto": "Decide qué oportunidades se trabajan y a qué proceso pasan: ajuste de precio, cambio de surtido o evaluación de un producto nuevo con la dirección de marca propia."}
      ],
      "diagrama": {
       "carriles": [
        "Gerente Regional Comercial / Retail",
        "Gerente Comercial (País / Canal)",
        "Analista de Sistemas / Datos",
-       "Gerente Regional de Marketing",
+       "Analista de Insights y ROI",
        "Comité de Estrategia Comercial"
       ],
       "nodos": [
-       {
-        "id": "i",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "inicio",
-        "n": "Ciclo trimestral o movimiento relevante del mercado"
-       },
-       {
-        "id": "t1",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Definir el calendario de insumos de mercado"
-       },
-       {
-        "id": "t2",
-        "carril": "Gerente Comercial (País / Canal)",
-        "tipo": "tarea",
-        "n": "Recoger sell-out y precios de competencia",
-        "sistemas": [
-         "Excel"
-        ]
-       },
-       {
-        "id": "t3",
-        "carril": "Analista de Sistemas / Datos",
-        "tipo": "tarea",
-        "n": "Normalizar el sell-out en la tabla única",
-        "sistemas": [
-         "Power BI"
-        ]
-       },
-       {
-        "id": "d1",
-        "carril": "Analista de Sistemas / Datos",
-        "tipo": "decision",
-        "n": "¿Data completa y validada?"
-       },
-       {
-        "id": "t4",
-        "carril": "Analista de Sistemas / Datos",
-        "tipo": "tarea",
-        "n": "Marcar el faltante y avisar al responsable"
-       },
-       {
-        "id": "t5",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Analizar participación, precios y huecos",
-        "sistemas": [
-         "Power BI"
-        ]
-       },
-       {
-        "id": "t6",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Aportar tendencias de consumo"
-       },
-       {
-        "id": "t7",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Consolidar el informe trimestral"
-       },
-       {
-        "id": "t8",
-        "carril": "Comité de Estrategia Comercial",
-        "tipo": "tarea",
-        "n": "Decidir qué oportunidades se trabajan"
-       },
-       {
-        "id": "f1",
-        "carril": "Comité de Estrategia Comercial",
-        "tipo": "fin",
-        "n": "Oportunidades asignadas a precio, surtido o producto"
-       }
+       {"id": "i", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Ciclo trimestral o movimiento relevante del mercado"},
+       {"id": "t1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Definir el calendario de insumos de mercado"},
+       {"id": "t2", "carril": "Gerente Comercial (País / Canal)", "tipo": "tarea", "n": "Recoger sell-out y precios de competencia", "sistemas": ["Excel"]},
+       {"id": "t3", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Normalizar el sell-out en la tabla única", "sistemas": ["Power BI"]},
+       {"id": "d1", "carril": "Analista de Sistemas / Datos", "tipo": "decision", "n": "¿Data completa y validada?"},
+       {"id": "t4", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Marcar el faltante y avisar al responsable"},
+       {"id": "t5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Analizar participación, precios y huecos", "sistemas": ["Power BI"]},
+       {"id": "t6", "carril": "Analista de Insights y ROI", "tipo": "tarea", "n": "Aportar tendencias de consumo"},
+       {"id": "t7", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Consolidar el informe trimestral"},
+       {"id": "t8", "carril": "Comité de Estrategia Comercial", "tipo": "tarea", "n": "Decidir qué oportunidades se trabajan"},
+       {"id": "f1", "carril": "Comité de Estrategia Comercial", "tipo": "fin", "n": "Oportunidades asignadas a precio, surtido o producto"}
       ],
       "aristas": [
-       {
-        "de": "i",
-        "a": "t1"
-       },
-       {
-        "de": "t1",
-        "a": "t2"
-       },
-       {
-        "de": "t2",
-        "a": "t3"
-       },
-       {
-        "de": "t3",
-        "a": "d1"
-       },
-       {
-        "de": "d1",
-        "a": "t5",
-        "etq": "Sí"
-       },
-       {
-        "de": "d1",
-        "a": "t4",
-        "etq": "No"
-       },
-       {
-        "de": "t4",
-        "a": "t5"
-       },
-       {
-        "de": "t5",
-        "a": "t6"
-       },
-       {
-        "de": "t6",
-        "a": "t7"
-       },
-       {
-        "de": "t7",
-        "a": "t8"
-       },
-       {
-        "de": "t8",
-        "a": "f1"
-       }
+       {"de": "i", "a": "t1"},
+       {"de": "t1", "a": "t2"},
+       {"de": "t2", "a": "t3"},
+       {"de": "t3", "a": "d1"},
+       {"de": "d1", "a": "t5", "etq": "Sí"},
+       {"de": "d1", "a": "t4", "etq": "No"},
+       {"de": "t4", "a": "t5"},
+       {"de": "t5", "a": "t6"},
+       {"de": "t6", "a": "t7"},
+       {"de": "t7", "a": "t8"},
+       {"de": "t8", "a": "f1"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-10",
-      "E-18",
-      "E-22",
-      "E-60",
-      "E-63",
-      "E-66",
-      "SC-10"
-     ],
+     "evidencia": ["E-10", "E-18", "E-22", "E-60", "E-63", "E-66", "SC-10"],
      "filas": [
       [
        "Sell-out incompleto y sin responsable",
@@ -13001,254 +13781,65 @@ window.MANUAL_CONTENIDO = {
     }
    },
    "2.5": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Construye el calendario comercial del año —temporadas, lanzamientos, campañas con cadenas ancla y ventanas de descuento— y gobierna las promociones mensuales de cada país: quién las propone con base en el inventario, con qué margen mínimo se aprueban sin escalar, quién es el único aprobador cuando no, y cómo se mide su resultado.",
-     "nota_estado": "Proceso en transición: marketing ya mapea al inicio del año las campañas de temporada y en Venezuela hay una sesión mensual de promociones con planificación, retail y tiendas. Lo que se incorpora es un calendario único acordado con el mayor, un margen mínimo que evite escalar cada promoción y un solo aprobador por encima de ese umbral."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente Regional Comercial / Retail",
-     "participantes": [
-      "Gerente Regional de Marketing — mapea las campañas de comunicación sobre el calendario y ejecuta las piezas; no define las promociones ni decide sobre el stock.",
-      "Director(a) Comercial Mayorista (Cubitt) — incorpora al calendario las campañas con las cadenas ancla de cada mercado y la reserva de mercancía que requieren.",
-      "Comité de Estrategia Comercial — aprueba el calendario anual.",
-      "Coordinador(a) de Logística y Bodega — detecta el inventario que necesita rotación y propone las promociones del mes en cada país.",
-      "Director(a) Comercial del Grupo — único aprobador de las promociones que no cumplen el margen mínimo."
-     ],
-     "evidencia": [
-      "E-22",
-      "E-42",
-      "E-16",
-      "E-40",
-      "E-63",
-      "E-08"
-     ],
-     "notas": "Hoy una misma promoción puede recibir aprobaciones contradictorias de distintos directores; el área de mercadeo de Venezuela pidió expresamente que un solo miembro de la dirección sea el responsable de aprobar."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Construye el calendario comercial del año —temporadas, lanzamientos, campañas con cadenas ancla y ventanas de descuento— y gobierna las promociones mensuales de cada país: quién las propone con base en el inventario, con qué margen mínimo se aprueban sin escalar, quién es el único aprobador cuando no, y cómo se mide su resultado.", "nota_estado": "Proceso en transición: marketing ya mapea al inicio del año las campañas de temporada y en Venezuela hay una sesión mensual de promociones con planificación, retail y tiendas. Lo que se incorpora es un calendario único acordado con el mayor, un margen mínimo que evite escalar cada promoción y un solo aprobador por encima de ese umbral."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Regional Comercial / Retail", "participantes": ["Gerente Corporativo(a) de Mercadeo — mapea las campañas de comunicación sobre el calendario y encarga las piezas a Diseño y Marca; no define las promociones ni decide sobre el stock.", "Director(a) Comercial Mayorista (Cubitt) — incorpora al calendario las campañas con las cadenas ancla de cada mercado y la reserva de mercancía que requieren.", "Comité de Estrategia Comercial — aprueba el calendario anual.", "Coordinador(a) de Logística y Bodega — detecta el inventario que necesita rotación y propone las promociones del mes en cada país.", "Director(a) Comercial del Grupo — único aprobador de las promociones que no cumplen el margen mínimo."], "evidencia": ["E-22", "E-42", "E-16", "E-40", "E-63", "E-08"], "notas": "Hoy una misma promoción puede recibir aprobaciones contradictorias de distintos directores; el área de mercadeo de Venezuela pidió expresamente que un solo miembro de la dirección sea el responsable de aprobar."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
-     "evidencia": [
-      "E-08",
-      "E-14",
-      "E-16",
-      "E-22",
-      "E-40",
-      "E-42",
-      "E-49",
-      "E-60",
-      "E-63"
-     ],
+     "evidencia": ["E-08", "E-14", "E-16", "E-22", "E-40", "E-42", "E-49", "E-60", "E-63"],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Arma a inicio de año el calendario comercial: temporadas fuertes, fechas especiales por país, la grilla anual de lanzamientos de producto y las ventanas de descuento por cambio de línea, sin que dos lanzamientos compitan entre sí."
-      },
-      {
-       "id": "a2",
-       "rol": "Gerente Regional de Marketing",
-       "texto": "Mapea sobre ese calendario las campañas de comunicación y su presupuesto por canal, y señala los plazos mínimos que necesita el equipo creativo para cada una."
-      },
-      {
-       "id": "a3",
-       "rol": "Director(a) Comercial Mayorista (Cubitt)",
-       "texto": "Incorpora las campañas con las cadenas ancla de cada mercado y la reserva de mercancía para ellas antes del lanzamiento, de modo que el mayor participe desde el inicio y no se entere después."
-      },
-      {
-       "id": "a4",
-       "rol": "Comité de Estrategia Comercial",
-       "texto": "Aprueba el calendario anual y resuelve los conflictos de fecha entre canales —por ejemplo, entre lanzar en el primer trimestre o en la temporada de fin de año— con el criterio de clasificación de lanzamientos."
-      },
-      {
-       "id": "a5",
-       "rol": "Coordinador(a) de Logística y Bodega",
-       "texto": "Cada mes, en la sesión de promociones de cada país con retail, tiendas y comercio electrónico, propone las promociones sobre el inventario que necesita rotar, con su margen resultante."
-      },
-      {
-       "id": "a6",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Aprueba directamente las promociones que respetan el margen mínimo escrito y el stock disponible, y verifica los permisos regulatorios que exige cada país antes de publicarlas."
-      },
-      {
-       "id": "a7",
-       "rol": "Director(a) Comercial del Grupo",
-       "texto": "Aprueba o rechaza, como único aprobador, las promociones por debajo del margen mínimo, en un plazo máximo de dos días hábiles y sin reabrir las ya aprobadas."
-      },
-      {
-       "id": "a8",
-       "rol": "Gerente Regional de Marketing",
-       "texto": "Ejecuta la comunicación de la promoción aprobada en los canales del país, con el brief que recibe de comercial y sin cambios a mitad de la campaña salvo quiebre de stock."
-      },
-      {
-       "id": "a9",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Mide el resultado de cada promoción —venta en el período frente a un período comparable sin promoción— y lo lleva a la sesión siguiente para ajustar las próximas."
-      }
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Arma a inicio de año el calendario comercial: temporadas fuertes, fechas especiales por país, la grilla anual de lanzamientos de producto y las ventanas de descuento por cambio de línea, sin que dos lanzamientos compitan entre sí."},
+      {"id": "a2", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Mapea sobre ese calendario las campañas de comunicación y su presupuesto por canal, y señala los plazos mínimos que necesita Diseño y Marca para producir cada una."},
+      {"id": "a3", "rol": "Director(a) Comercial Mayorista (Cubitt)", "texto": "Incorpora las campañas con las cadenas ancla de cada mercado y la reserva de mercancía para ellas antes del lanzamiento, de modo que el mayor participe desde el inicio y no se entere después."},
+      {"id": "a4", "rol": "Comité de Estrategia Comercial", "texto": "Aprueba el calendario anual y resuelve los conflictos de fecha entre canales —por ejemplo, entre lanzar en el primer trimestre o en la temporada de fin de año— con el criterio de clasificación de lanzamientos."},
+      {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Cada mes, en la sesión de promociones de cada país con retail, tiendas y comercio electrónico, propone las promociones sobre el inventario que necesita rotar, con su margen resultante."},
+      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Aprueba directamente las promociones que respetan el margen mínimo escrito y el stock disponible, y verifica los permisos regulatorios que exige cada país antes de publicarlas."},
+      {"id": "a7", "rol": "Director(a) Comercial del Grupo", "texto": "Aprueba o rechaza, como único aprobador, las promociones por debajo del margen mínimo, en un plazo máximo de dos días hábiles y sin reabrir las ya aprobadas."},
+      {"id": "a8", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Ejecuta la comunicación de la promoción aprobada en los canales del país —las piezas las produce Diseño y Marca y las adapta cada Mercadeo país— con el brief que recibe de comercial y sin cambios a mitad de la campaña salvo quiebre de stock."},
+      {"id": "a9", "rol": "Gerente Regional Comercial / Retail", "texto": "Mide el resultado de cada promoción —venta en el período frente a un período comparable sin promoción— y lo lleva a la sesión siguiente para ajustar las próximas."}
      ],
      "diagrama": {
       "carriles": [
        "Gerente Regional Comercial / Retail",
-       "Gerente Regional de Marketing",
+       "Gerente Corporativo(a) de Mercadeo",
        "Director(a) Comercial Mayorista (Cubitt)",
        "Comité de Estrategia Comercial",
        "Coordinador(a) de Logística y Bodega",
        "Director(a) Comercial del Grupo"
       ],
       "nodos": [
-       {
-        "id": "i",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "inicio",
-        "n": "Inicio del año o sesión mensual de promociones"
-       },
-       {
-        "id": "t1",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Armar el calendario comercial anual"
-       },
-       {
-        "id": "t2",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Mapear campañas y presupuesto de comunicación"
-       },
-       {
-        "id": "t3",
-        "carril": "Director(a) Comercial Mayorista (Cubitt)",
-        "tipo": "tarea",
-        "n": "Incorporar campañas con cadenas ancla"
-       },
-       {
-        "id": "t4",
-        "carril": "Comité de Estrategia Comercial",
-        "tipo": "tarea",
-        "n": "Aprobar el calendario y resolver conflictos"
-       },
-       {
-        "id": "t5",
-        "carril": "Coordinador(a) de Logística y Bodega",
-        "tipo": "tarea",
-        "n": "Proponer las promociones del mes",
-        "sistemas": [
-         "Odoo",
-         "Excel"
-        ]
-       },
-       {
-        "id": "d1",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "decision",
-        "n": "¿Respeta el margen mínimo?"
-       },
-       {
-        "id": "t6",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Aprobar y verificar permisos"
-       },
-       {
-        "id": "t7",
-        "carril": "Director(a) Comercial del Grupo",
-        "tipo": "tarea",
-        "n": "Aprobar como único aprobador"
-       },
-       {
-        "id": "t8",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Ejecutar la comunicación de la promoción",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t9",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Medir el resultado de la promoción",
-        "sistemas": [
-         "Power BI"
-        ]
-       },
-       {
-        "id": "f1",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "fin",
-        "n": "Promoción ejecutada y medida"
-       }
+       {"id": "i", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Inicio del año o sesión mensual de promociones"},
+       {"id": "t1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Armar el calendario comercial anual"},
+       {"id": "t2", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Mapear campañas y presupuesto de comunicación"},
+       {"id": "t3", "carril": "Director(a) Comercial Mayorista (Cubitt)", "tipo": "tarea", "n": "Incorporar campañas con cadenas ancla"},
+       {"id": "t4", "carril": "Comité de Estrategia Comercial", "tipo": "tarea", "n": "Aprobar el calendario y resolver conflictos"},
+       {"id": "t5", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Proponer las promociones del mes", "sistemas": ["Odoo", "Excel"]},
+       {"id": "d1", "carril": "Gerente Regional Comercial / Retail", "tipo": "decision", "n": "¿Respeta el margen mínimo?"},
+       {"id": "t6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Aprobar y verificar permisos"},
+       {"id": "t7", "carril": "Director(a) Comercial del Grupo", "tipo": "tarea", "n": "Aprobar como único aprobador"},
+       {"id": "t8", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Ejecutar la comunicación de la promoción", "sistemas": ["Lark"]},
+       {"id": "t9", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Medir el resultado de la promoción", "sistemas": ["Power BI"]},
+       {"id": "f1", "carril": "Gerente Regional Comercial / Retail", "tipo": "fin", "n": "Promoción ejecutada y medida"}
       ],
       "aristas": [
-       {
-        "de": "i",
-        "a": "t1"
-       },
-       {
-        "de": "t1",
-        "a": "t2"
-       },
-       {
-        "de": "t2",
-        "a": "t3"
-       },
-       {
-        "de": "t3",
-        "a": "t4"
-       },
-       {
-        "de": "t4",
-        "a": "t5"
-       },
-       {
-        "de": "t5",
-        "a": "d1"
-       },
-       {
-        "de": "d1",
-        "a": "t6",
-        "etq": "Sí"
-       },
-       {
-        "de": "d1",
-        "a": "t7",
-        "etq": "No"
-       },
-       {
-        "de": "t6",
-        "a": "t8"
-       },
-       {
-        "de": "t7",
-        "a": "t8"
-       },
-       {
-        "de": "t8",
-        "a": "t9"
-       },
-       {
-        "de": "t9",
-        "a": "f1"
-       }
+       {"de": "i", "a": "t1"},
+       {"de": "t1", "a": "t2"},
+       {"de": "t2", "a": "t3"},
+       {"de": "t3", "a": "t4"},
+       {"de": "t4", "a": "t5"},
+       {"de": "t5", "a": "d1"},
+       {"de": "d1", "a": "t6", "etq": "Sí"},
+       {"de": "d1", "a": "t7", "etq": "No"},
+       {"de": "t6", "a": "t8"},
+       {"de": "t7", "a": "t8"},
+       {"de": "t8", "a": "t9"},
+       {"de": "t9", "a": "f1"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-08",
-      "E-14",
-      "E-16",
-      "E-22",
-      "E-40",
-      "E-42",
-      "E-49",
-      "E-60",
-      "E-63"
-     ],
+     "evidencia": ["E-08", "E-14", "E-16", "E-22", "E-40", "E-42", "E-49", "E-60", "E-63"],
      "filas": [
       [
        "Aprobaciones contradictorias",
@@ -13308,7 +13899,7 @@ window.MANUAL_CONTENIDO = {
        "Promociones modificadas en curso",
        "Promociones cambiadas después de publicadas ÷ promociones publicadas",
        "Mensual",
-       "Gerente Regional de Marketing",
+       "Gerente Corporativo(a) de Mercadeo",
        "≤ 10 %"
       ],
       [
@@ -13886,9 +14477,9 @@ window.MANUAL_CONTENIDO = {
      "Director(a) de Marca Propia (Cubitt)",
      "Especialista de Producto / Proyecto",
      "Encargado(a) de Sourcing (China)",
-     "Diseñador(a) / Analista de Contenido",
+     "Gerente de Diseño Industrial (Diseño y Marca)",
      "Gerente Regional Comercial / Retail",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Gerente de Servicio Técnico"
     ]
    },
@@ -13976,7 +14567,7 @@ window.MANUAL_CONTENIDO = {
       "Producto aprobado con fecha objetivo para el lanzamiento."
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Salida / coordinación",
       "Información del producto para empaque, manual y campaña; recibe tendencias."
      ],
@@ -14024,7 +14615,7 @@ window.MANUAL_CONTENIDO = {
       "A la dirección de marca propia."
      ],
      [
-      "Gerente Regional de Marketing",
+      "Gerente Corporativo(a) de Mercadeo",
       "Regional",
       "Aporta tendencias y diseña empaque y campaña.",
       "Empaque y comunicación.",
@@ -14171,7 +14762,7 @@ window.MANUAL_CONTENIDO = {
       "3.1 Generación y evaluación de oportunidades",
       "Especialista de Producto / Proyecto",
       "Comité de R&D (Cubitt)",
-      "Gerente Regional Comercial / Retail · Gerente Regional de Marketing",
+      "Gerente Regional Comercial / Retail · Gerente Corporativo(a) de Mercadeo",
       "Director(a) de Marca Propia (Cubitt)"
      ],
      [
@@ -14183,9 +14774,9 @@ window.MANUAL_CONTENIDO = {
      ],
      [
       "3.3 Diseño y especificación",
-      "Diseñador(a) / Analista de Contenido · Especialista de Producto / Proyecto",
+      "Gerente de Diseño Industrial (Diseño y Marca) · Especialista de Producto / Proyecto",
       "Director(a) de Marca Propia (Cubitt)",
-      "Gerente Regional de Marketing",
+      "Gerente Corporativo(a) de Mercadeo",
       "Compras · PMO"
      ],
      [
@@ -14207,7 +14798,7 @@ window.MANUAL_CONTENIDO = {
       "Especialista de Producto / Proyecto",
       "Director(a) de Marca Propia (Cubitt)",
       "Gerente Regional Comercial / Retail · Asesor(a) Jurídico(a) Externo(a) del Grupo",
-      "Diseñador(a) / Analista de Contenido"
+      "Gerente de Diseño Industrial (Diseño y Marca)"
      ]
     ],
     "catalogo_sistemas": [
@@ -14287,207 +14878,57 @@ window.MANUAL_CONTENIDO = {
   },
   "procesos": {
    "3.1": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Capta las ideas de producto de sus tres fuentes —lo que piden los clientes y detecta el área comercial, la lectura de mercado y las propuestas de las fábricas—, las registra, evalúa su encaje en el ecosistema de la marca y su viabilidad técnica y comercial, y decide en comité si se desarrollan, se aplazan o se descartan.",
-     "nota_estado": "Proceso en transición: las ideas ya llegan de los comerciales, de las fábricas y de tendencias, y se discuten entre la dirección de marca propia y los directores comerciales. Lo que se incorpora es un registro de oportunidades, una evaluación con datos de mercado y la decisión documentada del comité."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Director(a) de Marca Propia (Cubitt)",
-     "participantes": [
-      "Comité de R&D (Cubitt) — dirección de marca propia, directores comerciales y planificación comercial; decide desarrollar, aplazar o descartar.",
-      "Gerente Regional Comercial / Retail — trae las oportunidades que piden los clientes y las que surgen del análisis de mercado, con volumen y precio objetivo.",
-      "Gerente Regional de Marketing — aporta tendencias de consumo, color y comunicación; no decide sobre producto.",
-      "Especialista de Producto / Proyecto — registra las oportunidades y las propuestas de las fábricas y prepara su ficha."
-     ],
-     "evidencia": [
-      "SC-10",
-      "E-60",
-      "E-64",
-      "E-63",
-      "E-06"
-     ],
-     "notas": "La Presidencia corrigió expresamente que marketing no detecta la necesidad de producto, no aprueba muestras ni confirma órdenes: esas decisiones son de la dirección de marca propia con el área comercial. Marketing acompaña con tendencias y con el empaque y la campaña."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Capta las ideas de producto de sus tres fuentes —lo que piden los clientes y detecta el área comercial, la lectura de mercado y las propuestas de las fábricas—, las registra, evalúa su encaje en el ecosistema de la marca y su viabilidad técnica y comercial, y decide en comité si se desarrollan, se aplazan o se descartan.", "nota_estado": "Proceso en transición: las ideas ya llegan de los comerciales, de las fábricas y de tendencias, y se discuten entre la dirección de marca propia y los directores comerciales. Lo que se incorpora es un registro de oportunidades, una evaluación con datos de mercado y la decisión documentada del comité."},
+    "dueno": {"estado": "borrador", "dueno": "Director(a) de Marca Propia (Cubitt)", "participantes": ["Comité de R&D (Cubitt) — dirección de marca propia, directores comerciales y planificación comercial; decide desarrollar, aplazar o descartar.", "Gerente Regional Comercial / Retail — trae las oportunidades que piden los clientes y las que surgen del análisis de mercado, con volumen y precio objetivo.", "Gerente Corporativo(a) de Mercadeo — aporta la lectura del consumidor y el brief de consumidor; no decide sobre producto.", "Especialista de Producto / Proyecto — registra las oportunidades y las propuestas de las fábricas y prepara su ficha.", "Director(a) de Diseño y Marca — entra desde la ideación con las tendencias de color, estética y experiencia de uso."], "evidencia": ["SC-10", "E-60", "E-64", "E-63", "E-06"], "notas": "La Presidencia corrigió expresamente que marketing no detecta la necesidad de producto, no aprueba muestras ni confirma órdenes: esas decisiones son de la dirección de marca propia con el área comercial. Marketing acompaña con tendencias y con el empaque y la campaña."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
-     "evidencia": [
-      "E-06",
-      "E-60",
-      "E-63",
-      "E-64",
-      "E-66",
-      "SC-10"
-     ],
+     "evidencia": ["E-06", "E-60", "E-63", "E-64", "E-66", "SC-10"],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Trae las oportunidades que surgen de los clientes y del análisis de mercado —un producto a cierto precio, una categoría con hueco— con el volumen y el precio objetivo que el mercado sostiene."
-      },
-      {
-       "id": "a2",
-       "rol": "Gerente Regional de Marketing",
-       "texto": "Aporta las tendencias de consumo y de color que marketing detecta, como insumo de la evaluación y no como decisión de qué producto desarrollar."
-      },
-      {
-       "id": "a3",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Registra cada oportunidad y cada propuesta recibida de las fábricas en la base de oportunidades, con una ficha común: categoría, fuente, precio y volumen objetivo, y fecha de llegada."
-      },
-      {
-       "id": "a4",
-       "rol": "Director(a) de Marca Propia (Cubitt)",
-       "texto": "Evalúa cada oportunidad: encaje con el ecosistema de la marca, viabilidad técnica con las fábricas, costo estimado incluidos moldes y muestras, y margen esperado frente al precio objetivo."
-      },
-      {
-       "id": "a5",
-       "rol": "Comité de R&D (Cubitt)",
-       "texto": "Decide en su sesión si la oportunidad se desarrolla, se aplaza o se descarta, con la evaluación a la vista, y deja registrada la decisión con su motivo."
-      },
-      {
-       "id": "a6",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Registra el aplazamiento o el descarte con su motivo en la base, para que la oportunidad no se vuelva a discutir desde cero ni se pierda si cambian las condiciones."
-      },
-      {
-       "id": "a7",
-       "rol": "Director(a) de Marca Propia (Cubitt)",
-       "texto": "Para cada oportunidad aprobada emite el brief inicial y la ubica en la grilla anual de lanzamientos, para que no compita con otro lanzamiento ni sature a los equipos de marketing y retail."
-      }
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Trae las oportunidades que surgen de los clientes y del análisis de mercado —un producto a cierto precio, una categoría con hueco— con el volumen y el precio objetivo que el mercado sostiene."},
+      {"id": "a2", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Aporta la lectura del consumidor y el brief de consumidor —para quién es, qué necesita y a qué precio— que firma mercadeo, como insumo de la evaluación y no como decisión de qué producto desarrollar; Diseño y Marca entra desde esta ideación con las tendencias de color y estética."},
+      {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Registra cada oportunidad y cada propuesta recibida de las fábricas en la base de oportunidades, con una ficha común: categoría, fuente, precio y volumen objetivo, y fecha de llegada."},
+      {"id": "a4", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Evalúa cada oportunidad: encaje con el ecosistema de la marca, viabilidad técnica con las fábricas, costo estimado incluidos moldes y muestras, y margen esperado frente al precio objetivo."},
+      {"id": "a5", "rol": "Comité de R&D (Cubitt)", "texto": "Decide en su sesión si la oportunidad se desarrolla, se aplaza o se descarta, con la evaluación a la vista, y deja registrada la decisión con su motivo."},
+      {"id": "a6", "rol": "Especialista de Producto / Proyecto", "texto": "Registra el aplazamiento o el descarte con su motivo en la base, para que la oportunidad no se vuelva a discutir desde cero ni se pierda si cambian las condiciones."},
+      {"id": "a7", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Para cada oportunidad aprobada emite el brief inicial y la ubica en la grilla anual de lanzamientos, para que no compita con otro lanzamiento ni sature a los equipos de marketing y retail."}
      ],
      "diagrama": {
       "carriles": [
        "Gerente Regional Comercial / Retail",
-       "Gerente Regional de Marketing",
+       "Gerente Corporativo(a) de Mercadeo",
        "Especialista de Producto / Proyecto",
        "Director(a) de Marca Propia (Cubitt)",
        "Comité de R&D (Cubitt)"
       ],
       "nodos": [
-       {
-        "id": "i",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "inicio",
-        "n": "Idea de producto o propuesta de fábrica"
-       },
-       {
-        "id": "t1",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Traer oportunidades de clientes y mercado"
-       },
-       {
-        "id": "t2",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Aportar tendencias de consumo"
-       },
-       {
-        "id": "t3",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Registrar la oportunidad con su ficha",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t4",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "tarea",
-        "n": "Evaluar encaje, viabilidad y margen"
-       },
-       {
-        "id": "d1",
-        "carril": "Comité de R&D (Cubitt)",
-        "tipo": "decision",
-        "n": "¿Se desarrolla la oportunidad?"
-       },
-       {
-        "id": "t5",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Registrar aplazamiento o descarte",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t6",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "tarea",
-        "n": "Emitir el brief y ubicarlo en la grilla"
-       },
-       {
-        "id": "f1",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "fin",
-        "n": "Oportunidad aprobada con brief"
-       },
-       {
-        "id": "f2",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "fin",
-        "n": "Oportunidad aplazada o descartada"
-       }
+       {"id": "i", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Idea de producto o propuesta de fábrica"},
+       {"id": "t1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Traer oportunidades de clientes y mercado"},
+       {"id": "t2", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Aportar tendencias de consumo"},
+       {"id": "t3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Registrar la oportunidad con su ficha", "sistemas": ["Lark"]},
+       {"id": "t4", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Evaluar encaje, viabilidad y margen"},
+       {"id": "d1", "carril": "Comité de R&D (Cubitt)", "tipo": "decision", "n": "¿Se desarrolla la oportunidad?"},
+       {"id": "t5", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Registrar aplazamiento o descarte", "sistemas": ["Lark"]},
+       {"id": "t6", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Emitir el brief y ubicarlo en la grilla"},
+       {"id": "f1", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "fin", "n": "Oportunidad aprobada con brief"},
+       {"id": "f2", "carril": "Especialista de Producto / Proyecto", "tipo": "fin", "n": "Oportunidad aplazada o descartada"}
       ],
       "aristas": [
-       {
-        "de": "i",
-        "a": "t1"
-       },
-       {
-        "de": "t1",
-        "a": "t2"
-       },
-       {
-        "de": "t2",
-        "a": "t3"
-       },
-       {
-        "de": "t3",
-        "a": "t4"
-       },
-       {
-        "de": "t4",
-        "a": "d1"
-       },
-       {
-        "de": "d1",
-        "a": "t6",
-        "etq": "Sí"
-       },
-       {
-        "de": "d1",
-        "a": "t5",
-        "etq": "No"
-       },
-       {
-        "de": "t6",
-        "a": "f1"
-       },
-       {
-        "de": "t5",
-        "a": "f2"
-       }
+       {"de": "i", "a": "t1"},
+       {"de": "t1", "a": "t2"},
+       {"de": "t2", "a": "t3"},
+       {"de": "t3", "a": "t4"},
+       {"de": "t4", "a": "d1"},
+       {"de": "d1", "a": "t6", "etq": "Sí"},
+       {"de": "d1", "a": "t5", "etq": "No"},
+       {"de": "t6", "a": "f1"},
+       {"de": "t5", "a": "f2"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-06",
-      "E-60",
-      "E-63",
-      "E-64",
-      "E-66",
-      "SC-10"
-     ],
+     "evidencia": ["E-06", "E-60", "E-63", "E-64", "E-66", "SC-10"],
      "filas": [
       [
        "Decisiones por intuición",
@@ -14849,207 +15290,56 @@ window.MANUAL_CONTENIDO = {
     }
    },
    "3.3": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Convierte el brief aprobado en un producto especificado: diseño propio o adaptación de la propuesta de la fábrica, especificaciones técnicas y de materiales, colores y variantes con criterio de tendencia, empaque e información de producto, decisión sobre moldes, creación del código del producto y envío del paquete a la fábrica con el calendario de la muestra.",
-     "nota_estado": "Proceso en transición: la marca propia empezó a diseñar con una diseñadora industrial recién incorporada y define materiales y colores con las fábricas; hasta ahora dependía de los diseños de las fábricas. Lo que se incorpora es un paquete de diseño cerrado, una decisión explícita sobre moldes con presupuesto y un calendario de muestra con cuenta regresiva."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Director(a) de Marca Propia (Cubitt)",
-     "participantes": [
-      "Diseñador(a) / Analista de Contenido — en su función de diseño industrial: diseña el producto o adapta la propuesta de la fábrica, con colores y variantes.",
-      "Especialista de Producto / Proyecto — define las especificaciones técnicas y funcionales y crea los códigos del producto.",
-      "Gerente Regional de Marketing — recibe la información del producto y diseña el empaque y los argumentos de venta."
-     ],
-     "evidencia": [
-      "E-60",
-      "E-06",
-      "E-22",
-      "E-64",
-      "SC-10"
-     ],
-     "notas": "La diseñadora industrial figura hoy bajo marketing; la propia dirección de marketing considera que el desarrollo de producto no debería pertenecerle. El manual la ubica en el proceso de marca propia sin decidir su dependencia jerárquica."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Convierte el brief aprobado en un producto especificado: diseño propio o adaptación de la propuesta de la fábrica, especificaciones técnicas y de materiales, colores y variantes con criterio de tendencia, empaque e información de producto, decisión sobre moldes, creación del código del producto y envío del paquete a la fábrica con el calendario de la muestra.", "nota_estado": "Proceso en transición: la marca propia empezó a diseñar con una diseñadora industrial recién incorporada y define materiales y colores con las fábricas; hasta ahora dependía de los diseños de las fábricas. Lo que se incorpora es un paquete de diseño cerrado, una decisión explícita sobre moldes con presupuesto y un calendario de muestra con cuenta regresiva."},
+    "dueno": {"estado": "borrador", "dueno": "Director(a) de Marca Propia (Cubitt)", "participantes": ["Especialista de Producto / Proyecto — define las especificaciones técnicas y funcionales y crea los códigos del producto.", "Gerente de Diseño Industrial (Diseño y Marca) — diseña el producto o adapta la propuesta de la fábrica, con colores, materiales, acabados y variantes, y diseña el empaque y el manual.", "Brand Manager de la marca (Mercadeo) — define los argumentos de venta y valida el empaque con el brief de consumidor."], "evidencia": ["E-60", "E-06", "E-22", "E-64", "SC-10"], "notas": "La diseñadora industrial figura hoy bajo marketing; la propia dirección de marketing considera que el desarrollo de producto no debería pertenecerle. El manual la ubica en el proceso de marca propia sin decidir su dependencia jerárquica."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
-     "evidencia": [
-      "E-06",
-      "E-22",
-      "E-60",
-      "E-64",
-      "SC-10"
-     ],
+     "evidencia": ["E-06", "E-22", "E-60", "E-64", "SC-10"],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Director(a) de Marca Propia (Cubitt)",
-       "texto": "Asigna el brief aprobado al equipo de diseño y de producto, con el precio objetivo, la fecha de la grilla de lanzamientos y el presupuesto de muestras y moldes disponible."
-      },
-      {
-       "id": "a2",
-       "rol": "Diseñador(a) / Analista de Contenido",
-       "texto": "Diseña el producto desde cero o adapta la propuesta de la fábrica, y define colores, estampados y variantes con base en las tendencias de temporada y en lo que ya se vende de la familia."
-      },
-      {
-       "id": "a3",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Define las especificaciones técnicas y funcionales —materiales, batería, sensores, conectividad y compatibilidad con la aplicación— y las valida con la fábrica que producirá la muestra."
-      },
-      {
-       "id": "a4",
-       "rol": "Gerente Regional de Marketing",
-       "texto": "Recibe del equipo de producto la información detallada y diseña el empaque, el manual y los argumentos de venta, con el plazo que exige la producción del empaque."
-      },
-      {
-       "id": "a5",
-       "rol": "Director(a) de Marca Propia (Cubitt)",
-       "texto": "Decide si el producto requiere molde propio; cuando lo requiere, aprueba la inversión con su presupuesto y la cláusula de propiedad del molde, en lugar de decidirlo sin cuantificar."
-      },
-      {
-       "id": "a6",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Crea los códigos del producto y sus variantes —referencia interna y código de barras— y la ficha maestra que usarán compras, logística y los canales."
-      },
-      {
-       "id": "a7",
-       "rol": "Director(a) de Marca Propia (Cubitt)",
-       "texto": "Cierra el paquete de diseño y lo envía a la fábrica con el calendario de la muestra en cuenta regresiva, de modo que la orden pueda colocarse al menos tres meses antes del lanzamiento."
-      }
+      {"id": "a1", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Asigna el brief aprobado al equipo de diseño y de producto, con el precio objetivo, la fecha de la grilla de lanzamientos y el presupuesto de muestras y moldes disponible."},
+      {"id": "a2", "rol": "Gerente de Diseño Industrial (Diseño y Marca)", "texto": "Diseña el producto desde cero o adapta la propuesta de la fábrica: forma, ergonomía, colores, materiales y acabados, estampados y variantes, con base en las tendencias de temporada, en lo que ya se vende de la familia y en el manual de marca."},
+      {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Define las especificaciones técnicas y funcionales —materiales, batería, sensores, conectividad y compatibilidad con la aplicación— y las valida con la fábrica que producirá la muestra."},
+      {"id": "a4", "rol": "Gerente de Diseño Industrial (Diseño y Marca)", "texto": "Recibe del equipo de producto la información detallada y diseña el empaque y el manual, con los argumentos de venta que define el brand manager de la marca en mercadeo y con el plazo que exige la producción del empaque."},
+      {"id": "a5", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Decide si el producto requiere molde propio; cuando lo requiere, aprueba la inversión con su presupuesto y la cláusula de propiedad del molde, en lugar de decidirlo sin cuantificar."},
+      {"id": "a6", "rol": "Especialista de Producto / Proyecto", "texto": "Crea los códigos del producto y sus variantes —referencia interna y código de barras— y la ficha maestra que usarán compras, logística y los canales."},
+      {"id": "a7", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Cierra el paquete de diseño y lo envía a la fábrica con el calendario de la muestra en cuenta regresiva, de modo que la orden pueda colocarse al menos tres meses antes del lanzamiento."}
      ],
      "diagrama": {
       "carriles": [
        "Director(a) de Marca Propia (Cubitt)",
-       "Diseñador(a) / Analista de Contenido",
-       "Especialista de Producto / Proyecto",
-       "Gerente Regional de Marketing"
+       "Gerente de Diseño Industrial (Diseño y Marca)",
+       "Especialista de Producto / Proyecto"
       ],
       "nodos": [
-       {
-        "id": "i",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "inicio",
-        "n": "Oportunidad aprobada con brief"
-       },
-       {
-        "id": "t1",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "tarea",
-        "n": "Asignar el brief al equipo"
-       },
-       {
-        "id": "t2",
-        "carril": "Diseñador(a) / Analista de Contenido",
-        "tipo": "tarea",
-        "n": "Diseñar o adaptar el producto y sus variantes"
-       },
-       {
-        "id": "t3",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Definir especificaciones técnicas"
-       },
-       {
-        "id": "t4",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Diseñar empaque y argumentos de venta"
-       },
-       {
-        "id": "d1",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "decision",
-        "n": "¿Requiere molde propio?"
-       },
-       {
-        "id": "t5",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "tarea",
-        "n": "Aprobar la inversión del molde"
-       },
-       {
-        "id": "t6",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Crear códigos y ficha maestra",
-        "sistemas": [
-         "Odoo"
-        ]
-       },
-       {
-        "id": "t7",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "tarea",
-        "n": "Enviar el paquete con calendario de muestra",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "f1",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "fin",
-        "n": "Paquete de diseño enviado a fábrica"
-       }
+       {"id": "i", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "inicio", "n": "Oportunidad aprobada con brief"},
+       {"id": "t1", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Asignar el brief al equipo"},
+       {"id": "t2", "carril": "Gerente de Diseño Industrial (Diseño y Marca)", "tipo": "tarea", "n": "Diseñar o adaptar el producto y sus variantes"},
+       {"id": "t3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Definir especificaciones técnicas"},
+       {"id": "t4", "carril": "Gerente de Diseño Industrial (Diseño y Marca)", "tipo": "tarea", "n": "Diseñar empaque y argumentos de venta"},
+       {"id": "d1", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "decision", "n": "¿Requiere molde propio?"},
+       {"id": "t5", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Aprobar la inversión del molde"},
+       {"id": "t6", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Crear códigos y ficha maestra", "sistemas": ["Odoo"]},
+       {"id": "t7", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Enviar el paquete con calendario de muestra", "sistemas": ["Lark"]},
+       {"id": "f1", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "fin", "n": "Paquete de diseño enviado a fábrica"}
       ],
       "aristas": [
-       {
-        "de": "i",
-        "a": "t1"
-       },
-       {
-        "de": "t1",
-        "a": "t2"
-       },
-       {
-        "de": "t2",
-        "a": "t3"
-       },
-       {
-        "de": "t3",
-        "a": "t4"
-       },
-       {
-        "de": "t4",
-        "a": "d1"
-       },
-       {
-        "de": "d1",
-        "a": "t5",
-        "etq": "Sí"
-       },
-       {
-        "de": "d1",
-        "a": "t6",
-        "etq": "No"
-       },
-       {
-        "de": "t5",
-        "a": "t6"
-       },
-       {
-        "de": "t6",
-        "a": "t7"
-       },
-       {
-        "de": "t7",
-        "a": "f1"
-       }
+       {"de": "i", "a": "t1"},
+       {"de": "t1", "a": "t2"},
+       {"de": "t2", "a": "t3"},
+       {"de": "t3", "a": "t4"},
+       {"de": "t4", "a": "d1"},
+       {"de": "d1", "a": "t5", "etq": "Sí"},
+       {"de": "d1", "a": "t6", "etq": "No"},
+       {"de": "t5", "a": "t6"},
+       {"de": "t6", "a": "t7"},
+       {"de": "t7", "a": "f1"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-06",
-      "E-22",
-      "E-60",
-      "E-64",
-      "SC-10"
-     ],
+     "evidencia": ["E-06", "E-22", "E-60", "E-64", "SC-10"],
      "filas": [
       [
        "Diseño dependiente de la fábrica",
@@ -15067,10 +15357,10 @@ window.MANUAL_CONTENIDO = {
       ],
       [
        "Empaque tardío",
-       "Marketing recibe la información del producto cuando el desarrollo ya avanzó y el empaque se vuelve la ruta crítica del lanzamiento.",
+       "Diseño y Marca recibe la información del producto cuando el desarrollo ya avanzó y el empaque se vuelve la ruta crítica del lanzamiento.",
        "Media",
        "Medio",
-       "Información del producto a marketing en cuanto se cierran las especificaciones."
+       "Diseño y Marca entra desde la ideación (3.1) y recibe la información del producto en cuanto se cierran las especificaciones."
       ],
       [
        "Colores por intuición",
@@ -15713,223 +16003,63 @@ window.MANUAL_CONTENIDO = {
     }
    },
    "3.6": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Gestiona las colecciones bajo licencia de marcas de terceros: la selección de personajes y modelos según el desempeño de las colecciones anteriores, la aprobación interna, el arte conforme a la guía del licenciante, la aprobación del licenciante, el control de las condiciones de uso durante la producción y la vigencia del contrato.",
-     "nota_estado": "Proceso en transición: el grupo lleva dos años de colecciones bajo licencia y desde agosto de 2026 la gestiona la coordinación de producto, con retroalimentación comercial de qué funcionó. Lo que se incorpora es la aprobación interna del volumen, el control de vigencia del contrato y el tratamiento de lo que el licenciante no aprueba."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Especialista de Producto / Proyecto",
-     "participantes": [
-      "Gerente Regional Comercial / Retail — analiza el desempeño de las colecciones anteriores por modelo y personaje.",
-      "Director(a) de Marca Propia (Cubitt) — aprueba la colección y su volumen.",
-      "Diseñador(a) / Analista de Contenido — prepara el arte según la guía del licenciante.",
-      "Licenciante (actor externo) — aprueba el arte y las muestras.",
-      "Asesor(a) Jurídico(a) Externo(a) del Grupo — controla la vigencia y las condiciones del contrato de licencia."
-     ],
-     "evidencia": [
-      "E-60",
-      "E-22"
-     ],
-     "notas": "La gestión de licencias la llevó antes el área de cuentas clave de marketing y pasó a producto; la dirección de marketing considera que no le corresponde."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Gestiona las colecciones bajo licencia de marcas de terceros: la selección de personajes y modelos según el desempeño de las colecciones anteriores, la aprobación interna, el arte conforme a la guía del licenciante, la aprobación del licenciante, el control de las condiciones de uso durante la producción y la vigencia del contrato.", "nota_estado": "Proceso en transición: el grupo lleva dos años de colecciones bajo licencia y desde agosto de 2026 la gestiona la coordinación de producto, con retroalimentación comercial de qué funcionó. Lo que se incorpora es la aprobación interna del volumen, el control de vigencia del contrato y el tratamiento de lo que el licenciante no aprueba."},
+    "dueno": {"estado": "borrador", "dueno": "Especialista de Producto / Proyecto", "participantes": ["Gerente Regional Comercial / Retail — analiza el desempeño de las colecciones anteriores por modelo y personaje.", "Director(a) de Marca Propia (Cubitt) — aprueba la colección y su volumen.", "Diseñador(a) (Diseño y Marca) — prepara el arte según la guía del licenciante.", "Licenciante (actor externo) — aprueba el arte y las muestras.", "Asesor(a) Jurídico(a) Externo(a) del Grupo — controla la vigencia y las condiciones del contrato de licencia."], "evidencia": ["E-60", "E-22"], "notas": "La gestión de licencias la llevó antes el área de cuentas clave de marketing y pasó a producto; la dirección de marketing considera que no le corresponde."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
-     "evidencia": [
-      "E-22",
-      "E-60"
-     ],
+     "evidencia": ["E-22", "E-60"],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Analiza el desempeño de las colecciones licenciadas anteriores —qué modelo y qué personaje vendió, cuáles merecen reedición— y lo entrega como insumo de la colección siguiente."
-      },
-      {
-       "id": "a2",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Propone la colección: personajes, modelos, variantes y cantidades, con el calendario que exige la aprobación del licenciante y la producción."
-      },
-      {
-       "id": "a3",
-       "rol": "Director(a) de Marca Propia (Cubitt)",
-       "texto": "Aprueba la colección y su volumen, verificando que encaje en la grilla anual de lanzamientos y en el presupuesto del período."
-      },
-      {
-       "id": "a4",
-       "rol": "Diseñador(a) / Analista de Contenido",
-       "texto": "Prepara el arte de cada pieza conforme a la guía del licenciante, cuidando el uso correcto de los logos y personajes."
-      },
-      {
-       "id": "a5",
-       "rol": "Licenciante (actor externo)",
-       "texto": "Revisa el arte y las muestras conforme a su guía de uso de marca, y aprueba por escrito o pide cambios dentro de sus plazos de revisión."
-      },
-      {
-       "id": "a6",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Cuando el licenciante no aprueba, corrige el arte y lo vuelve a someter; ninguna pieza con marca licenciada se produce ni circula sin aprobación escrita."
-      },
-      {
-       "id": "a7",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Libera a producción la colección aprobada, controla que la fábrica respete las condiciones de uso y registra las aprobaciones en el expediente de la licencia."
-      },
-      {
-       "id": "a8",
-       "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
-       "texto": "Controla la vigencia del contrato de licencia, sus condiciones y su renovación, y avisa con anticipación a la coordinación de producto antes de su vencimiento."
-      }
+      {"id": "a1", "rol": "Gerente Regional Comercial / Retail", "texto": "Analiza el desempeño de las colecciones licenciadas anteriores —qué modelo y qué personaje vendió, cuáles merecen reedición— y lo entrega como insumo de la colección siguiente."},
+      {"id": "a2", "rol": "Especialista de Producto / Proyecto", "texto": "Propone la colección: personajes, modelos, variantes y cantidades, con el calendario que exige la aprobación del licenciante y la producción."},
+      {"id": "a3", "rol": "Director(a) de Marca Propia (Cubitt)", "texto": "Aprueba la colección y su volumen, verificando que encaje en la grilla anual de lanzamientos y en el presupuesto del período."},
+      {"id": "a4", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Prepara el arte de cada pieza conforme a la guía del licenciante, cuidando el uso correcto de los logos y personajes."},
+      {"id": "a5", "rol": "Licenciante (actor externo)", "texto": "Revisa el arte y las muestras conforme a su guía de uso de marca, y aprueba por escrito o pide cambios dentro de sus plazos de revisión."},
+      {"id": "a6", "rol": "Especialista de Producto / Proyecto", "texto": "Cuando el licenciante no aprueba, corrige el arte y lo vuelve a someter; ninguna pieza con marca licenciada se produce ni circula sin aprobación escrita."},
+      {"id": "a7", "rol": "Especialista de Producto / Proyecto", "texto": "Libera a producción la colección aprobada, controla que la fábrica respete las condiciones de uso y registra las aprobaciones en el expediente de la licencia."},
+      {"id": "a8", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Controla la vigencia del contrato de licencia, sus condiciones y su renovación, y avisa con anticipación a la coordinación de producto antes de su vencimiento."}
      ],
      "diagrama": {
       "carriles": [
        "Gerente Regional Comercial / Retail",
        "Especialista de Producto / Proyecto",
        "Director(a) de Marca Propia (Cubitt)",
-       "Diseñador(a) / Analista de Contenido",
+       "Diseñador(a) (Diseño y Marca)",
        "Licenciante (actor externo)",
        "Asesor(a) Jurídico(a) Externo(a) del Grupo"
       ],
       "nodos": [
-       {
-        "id": "i",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "inicio",
-        "n": "Nueva colección o renovación de la licencia"
-       },
-       {
-        "id": "t1",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Analizar el desempeño de colecciones previas",
-        "sistemas": [
-         "Power BI"
-        ]
-       },
-       {
-        "id": "t2",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Proponer la colección"
-       },
-       {
-        "id": "t3",
-        "carril": "Director(a) de Marca Propia (Cubitt)",
-        "tipo": "tarea",
-        "n": "Aprobar la colección y su volumen"
-       },
-       {
-        "id": "t4",
-        "carril": "Diseñador(a) / Analista de Contenido",
-        "tipo": "tarea",
-        "n": "Preparar el arte según la guía"
-       },
-       {
-        "id": "t5",
-        "carril": "Licenciante (actor externo)",
-        "tipo": "tarea",
-        "n": "Revisar el arte y las muestras"
-       },
-       {
-        "id": "d1",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "decision",
-        "n": "¿Aprobado por el licenciante?"
-       },
-       {
-        "id": "t6",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Corregir y volver a someter"
-       },
-       {
-        "id": "t7",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Liberar a producción y registrar",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t8",
-        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
-        "tipo": "tarea",
-        "n": "Controlar vigencia y renovación"
-       },
-       {
-        "id": "f1",
-        "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo",
-        "tipo": "fin",
-        "n": "Colección producida con licencia vigente"
-       },
-       {
-        "id": "f2",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "fin",
-        "n": "Arte en corrección"
-       }
+       {"id": "i", "carril": "Gerente Regional Comercial / Retail", "tipo": "inicio", "n": "Nueva colección o renovación de la licencia"},
+       {"id": "t1", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Analizar el desempeño de colecciones previas", "sistemas": ["Power BI"]},
+       {"id": "t2", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Proponer la colección"},
+       {"id": "t3", "carril": "Director(a) de Marca Propia (Cubitt)", "tipo": "tarea", "n": "Aprobar la colección y su volumen"},
+       {"id": "t4", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Preparar el arte según la guía"},
+       {"id": "t5", "carril": "Licenciante (actor externo)", "tipo": "tarea", "n": "Revisar el arte y las muestras"},
+       {"id": "d1", "carril": "Especialista de Producto / Proyecto", "tipo": "decision", "n": "¿Aprobado por el licenciante?"},
+       {"id": "t6", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Corregir y volver a someter"},
+       {"id": "t7", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Liberar a producción y registrar", "sistemas": ["Lark"]},
+       {"id": "t8", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Controlar vigencia y renovación"},
+       {"id": "f1", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "fin", "n": "Colección producida con licencia vigente"},
+       {"id": "f2", "carril": "Especialista de Producto / Proyecto", "tipo": "fin", "n": "Arte en corrección"}
       ],
       "aristas": [
-       {
-        "de": "i",
-        "a": "t1"
-       },
-       {
-        "de": "t1",
-        "a": "t2"
-       },
-       {
-        "de": "t2",
-        "a": "t3"
-       },
-       {
-        "de": "t3",
-        "a": "t4"
-       },
-       {
-        "de": "t4",
-        "a": "t5"
-       },
-       {
-        "de": "t5",
-        "a": "d1"
-       },
-       {
-        "de": "d1",
-        "a": "t7",
-        "etq": "Sí"
-       },
-       {
-        "de": "d1",
-        "a": "t6",
-        "etq": "No"
-       },
-       {
-        "de": "t6",
-        "a": "f2"
-       },
-       {
-        "de": "t7",
-        "a": "t8"
-       },
-       {
-        "de": "t8",
-        "a": "f1"
-       }
+       {"de": "i", "a": "t1"},
+       {"de": "t1", "a": "t2"},
+       {"de": "t2", "a": "t3"},
+       {"de": "t3", "a": "t4"},
+       {"de": "t4", "a": "t5"},
+       {"de": "t5", "a": "d1"},
+       {"de": "d1", "a": "t7", "etq": "Sí"},
+       {"de": "d1", "a": "t6", "etq": "No"},
+       {"de": "t6", "a": "f2"},
+       {"de": "t7", "a": "t8"},
+       {"de": "t8", "a": "f1"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-22",
-      "E-60"
-     ],
+     "evidencia": ["E-22", "E-60"],
      "filas": [
       [
        "Producto licenciado sin aprobación",
@@ -17319,264 +17449,68 @@ window.MANUAL_CONTENIDO = {
     }
    },
    "4.4": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Conduce cada lanzamiento de producto como un proyecto transversal: su clasificación según sea producto nuevo, mejora o variante de color, el cronograma por país con marketing, comercial, visual, logística y soporte, la verificación de que todas las áreas estén listas, la salida al mercado y el cierre al tercer mes con su venta y su costo.",
-     "nota_estado": "Proceso en transición: la oficina de proyectos ya clasifica los lanzamientos en tres categorías, los sigue por trimestre y la coordinación de producto avisa cuándo llega cada producto. Lo que se incorpora es la verificación de preparación de todas las áreas antes de salir y el cierre al tercer mes como práctica de todos los lanzamientos."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente de Proyectos (PMO)",
-     "participantes": [
-      "Especialista de Producto / Proyecto — coordinación de producto: avisa la llegada del producto y conduce el cierre del lanzamiento con su venta y su costo.",
-      "Gerente Regional de Marketing — campaña, empaque y contenido del lanzamiento.",
-      "Gerente Regional Comercial / Retail — plan comercial: preventa, reservas para cadenas y reparto a tiendas.",
-      "Gerente de Servicio Técnico — manuales, formación del personal y soporte listos antes de la salida.",
-      "Director(a) de Proyectos (PMO) — aprueba la reprogramación de una fecha de lanzamiento."
-     ],
-     "evidencia": [
-      "E-09",
-      "E-04",
-      "E-60",
-      "E-63",
-      "E-22"
-     ],
-     "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Conduce cada lanzamiento de producto como un proyecto transversal: su clasificación según sea producto nuevo, mejora o variante de color, el cronograma por país con marketing, comercial, visual, logística y soporte, la verificación de que todas las áreas estén listas, la salida al mercado y el cierre al tercer mes con su venta y su costo.", "nota_estado": "Proceso en transición: la oficina de proyectos ya clasifica los lanzamientos en tres categorías, los sigue por trimestre y la coordinación de producto avisa cuándo llega cada producto. Lo que se incorpora es la verificación de preparación de todas las áreas antes de salir y el cierre al tercer mes como práctica de todos los lanzamientos."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Proyectos (PMO)", "participantes": ["Especialista de Producto / Proyecto — coordinación de producto: avisa la llegada del producto y conduce el cierre del lanzamiento con su venta y su costo.", "Gerente Corporativo(a) de Mercadeo — brief y campaña del lanzamiento; Diseño y Marca produce las piezas, el empaque y la guía de exhibición.", "Gerente Regional Comercial / Retail — plan comercial: preventa, reservas para cadenas y reparto a tiendas.", "Gerente de Servicio Técnico — manuales, formación del personal y soporte listos antes de la salida.", "Director(a) de Proyectos (PMO) — aprueba la reprogramación de una fecha de lanzamiento."], "evidencia": ["E-09", "E-04", "E-60", "E-63", "E-22"], "notas": "La oficina de proyectos distingue dos roles, como lo dibujan sus propios flujos de trabajo: la dirección de proyectos, que evalúa, prioriza y aprueba, y los gerentes de proyecto, que planifican y ejecutan."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
-     "evidencia": [
-      "E-04",
-      "E-09",
-      "E-22",
-      "E-42",
-      "E-60",
-      "E-63",
-      "E-64"
-     ],
+     "evidencia": ["E-04", "E-09", "E-22", "E-42", "E-60", "E-63", "E-64"],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Avisa a la oficina de proyectos y a las áreas que un producto aprobado está en producción, con su fecha estimada de llegada, para que el lanzamiento se planifique con anticipación y no cuando ya llegó."
-      },
-      {
-       "id": "a2",
-       "rol": "Gerente de Proyectos (PMO)",
-       "texto": "Clasifica el lanzamiento: producto nuevo, con salida simultánea en todos los países; mejora de un producto existente; o variante de color, que es sobre todo trabajo de marketing y no exige simultaneidad."
-      },
-      {
-       "id": "a3",
-       "rol": "Gerente de Proyectos (PMO)",
-       "texto": "Arma el cronograma por país con los hitos de cada área —campaña, empaque, exhibición, preventa, llegada a tiendas, soporte— dentro de la grilla anual de lanzamientos."
-      },
-      {
-       "id": "a4",
-       "rol": "Gerente Regional de Marketing",
-       "texto": "Prepara la campaña, el contenido y el material de punto de venta con los argumentos de venta del producto y los plazos que acordó en el cronograma."
-      },
-      {
-       "id": "a5",
-       "rol": "Gerente Regional Comercial / Retail",
-       "texto": "Prepara el plan comercial: preventa con clientes, reserva de mercancía para cadenas, reparto a tiendas y comunicación a la fuerza de venta."
-      },
-      {
-       "id": "a6",
-       "rol": "Gerente de Servicio Técnico",
-       "texto": "Deja listos los manuales, la formación del personal de venta y de soporte, y las respuestas a las consultas frecuentes antes de la salida."
-      },
-      {
-       "id": "a7",
-       "rol": "Gerente de Proyectos (PMO)",
-       "texto": "Verifica antes de la fecha que todas las áreas estén listas; cuando alguna no lo está, la dirección de proyectos decide si se reprograma la fecha o se sale con un alcance reducido."
-      },
-      {
-       "id": "a8",
-       "rol": "Director(a) de Proyectos (PMO)",
-       "texto": "Aprueba la reprogramación de la fecha o del alcance cuando un área no llega, y la comunica a todas las áreas y países involucrados."
-      },
-      {
-       "id": "a9",
-       "rol": "Gerente de Proyectos (PMO)",
-       "texto": "Ejecuta la salida al mercado según el cronograma y registra la desviación de fecha frente al plan en cada país."
-      },
-      {
-       "id": "a10",
-       "rol": "Especialista de Producto / Proyecto",
-       "texto": "Conduce al tercer mes el cierre del lanzamiento con planificación comercial: venta al cliente y al consumidor, costo total —campaña, fletes aéreos, moldes, licencias— y tiempos, y lo presenta a la Junta."
-      }
+      {"id": "a1", "rol": "Especialista de Producto / Proyecto", "texto": "Avisa a la oficina de proyectos y a las áreas que un producto aprobado está en producción, con su fecha estimada de llegada, para que el lanzamiento se planifique con anticipación y no cuando ya llegó."},
+      {"id": "a2", "rol": "Gerente de Proyectos (PMO)", "texto": "Clasifica el lanzamiento: producto nuevo, con salida simultánea en todos los países; mejora de un producto existente; o variante de color, que es sobre todo trabajo de marketing y no exige simultaneidad."},
+      {"id": "a3", "rol": "Gerente de Proyectos (PMO)", "texto": "Arma el cronograma por país con los hitos de cada área —campaña, empaque, exhibición, preventa, llegada a tiendas, soporte— dentro de la grilla anual de lanzamientos."},
+      {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Hace el brief del lanzamiento y coordina su campaña con los plazos del cronograma: Diseño y Marca produce el concepto, el key visual, las piezas, el empaque y la guía de exhibición, y visual merchandising monta el material de punto de venta, con los argumentos de venta de la ficha del producto."},
+      {"id": "a5", "rol": "Gerente Regional Comercial / Retail", "texto": "Prepara el plan comercial: preventa con clientes, reserva de mercancía para cadenas, reparto a tiendas y comunicación a la fuerza de venta."},
+      {"id": "a6", "rol": "Gerente de Servicio Técnico", "texto": "Deja listos los manuales, la formación del personal de venta y de soporte, y las respuestas a las consultas frecuentes antes de la salida."},
+      {"id": "a7", "rol": "Gerente de Proyectos (PMO)", "texto": "Verifica antes de la fecha que todas las áreas estén listas; cuando alguna no lo está, la dirección de proyectos decide si se reprograma la fecha o se sale con un alcance reducido."},
+      {"id": "a8", "rol": "Director(a) de Proyectos (PMO)", "texto": "Aprueba la reprogramación de la fecha o del alcance cuando un área no llega, y la comunica a todas las áreas y países involucrados."},
+      {"id": "a9", "rol": "Gerente de Proyectos (PMO)", "texto": "Ejecuta la salida al mercado según el cronograma y registra la desviación de fecha frente al plan en cada país."},
+      {"id": "a10", "rol": "Especialista de Producto / Proyecto", "texto": "Conduce al tercer mes el cierre del lanzamiento con planificación comercial: venta al cliente y al consumidor, costo total —campaña, fletes aéreos, moldes, licencias— y tiempos, y lo presenta a la Junta."}
      ],
      "diagrama": {
       "carriles": [
        "Especialista de Producto / Proyecto",
        "Gerente de Proyectos (PMO)",
-       "Gerente Regional de Marketing",
+       "Gerente Corporativo(a) de Mercadeo",
        "Gerente Regional Comercial / Retail",
        "Gerente de Servicio Técnico",
        "Director(a) de Proyectos (PMO)"
       ],
       "nodos": [
-       {
-        "id": "i",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "inicio",
-        "n": "Producto aprobado en producción"
-       },
-       {
-        "id": "t1",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Avisar la llegada estimada del producto",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t2",
-        "carril": "Gerente de Proyectos (PMO)",
-        "tipo": "tarea",
-        "n": "Clasificar el lanzamiento"
-       },
-       {
-        "id": "t3",
-        "carril": "Gerente de Proyectos (PMO)",
-        "tipo": "tarea",
-        "n": "Armar el cronograma por país",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t4",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Preparar campaña y contenido"
-       },
-       {
-        "id": "t5",
-        "carril": "Gerente Regional Comercial / Retail",
-        "tipo": "tarea",
-        "n": "Preparar preventa, reservas y reparto"
-       },
-       {
-        "id": "t6",
-        "carril": "Gerente de Servicio Técnico",
-        "tipo": "tarea",
-        "n": "Preparar manuales, formación y soporte"
-       },
-       {
-        "id": "d1",
-        "carril": "Gerente de Proyectos (PMO)",
-        "tipo": "decision",
-        "n": "¿Todas las áreas listas?"
-       },
-       {
-        "id": "t7",
-        "carril": "Director(a) de Proyectos (PMO)",
-        "tipo": "tarea",
-        "n": "Reprogramar fecha o alcance"
-       },
-       {
-        "id": "t8",
-        "carril": "Gerente de Proyectos (PMO)",
-        "tipo": "tarea",
-        "n": "Ejecutar la salida y medir la fecha",
-        "sistemas": [
-         "Lark"
-        ]
-       },
-       {
-        "id": "t9",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "tarea",
-        "n": "Cerrar el lanzamiento al tercer mes",
-        "sistemas": [
-         "Power BI"
-        ]
-       },
-       {
-        "id": "f1",
-        "carril": "Especialista de Producto / Proyecto",
-        "tipo": "fin",
-        "n": "Lanzamiento cerrado y presentado"
-       }
+       {"id": "i", "carril": "Especialista de Producto / Proyecto", "tipo": "inicio", "n": "Producto aprobado en producción"},
+       {"id": "t1", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Avisar la llegada estimada del producto", "sistemas": ["Lark"]},
+       {"id": "t2", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Clasificar el lanzamiento"},
+       {"id": "t3", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Armar el cronograma por país", "sistemas": ["Lark"]},
+       {"id": "t4", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Preparar campaña y contenido"},
+       {"id": "t5", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Preparar preventa, reservas y reparto"},
+       {"id": "t6", "carril": "Gerente de Servicio Técnico", "tipo": "tarea", "n": "Preparar manuales, formación y soporte"},
+       {"id": "d1", "carril": "Gerente de Proyectos (PMO)", "tipo": "decision", "n": "¿Todas las áreas listas?"},
+       {"id": "t7", "carril": "Director(a) de Proyectos (PMO)", "tipo": "tarea", "n": "Reprogramar fecha o alcance"},
+       {"id": "t8", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Ejecutar la salida y medir la fecha", "sistemas": ["Lark"]},
+       {"id": "t9", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Cerrar el lanzamiento al tercer mes", "sistemas": ["Power BI"]},
+       {"id": "f1", "carril": "Especialista de Producto / Proyecto", "tipo": "fin", "n": "Lanzamiento cerrado y presentado"}
       ],
       "aristas": [
-       {
-        "de": "i",
-        "a": "t1"
-       },
-       {
-        "de": "t1",
-        "a": "t2"
-       },
-       {
-        "de": "t2",
-        "a": "t3"
-       },
-       {
-        "de": "t3",
-        "a": "t4"
-       },
-       {
-        "de": "t3",
-        "a": "t5"
-       },
-       {
-        "de": "t3",
-        "a": "t6"
-       },
-       {
-        "de": "t4",
-        "a": "d1"
-       },
-       {
-        "de": "t5",
-        "a": "d1"
-       },
-       {
-        "de": "t6",
-        "a": "d1"
-       },
-       {
-        "de": "d1",
-        "a": "t8",
-        "etq": "Sí"
-       },
-       {
-        "de": "d1",
-        "a": "t7",
-        "etq": "No"
-       },
-       {
-        "de": "t7",
-        "a": "t8"
-       },
-       {
-        "de": "t8",
-        "a": "t9"
-       },
-       {
-        "de": "t9",
-        "a": "f1"
-       }
+       {"de": "i", "a": "t1"},
+       {"de": "t1", "a": "t2"},
+       {"de": "t2", "a": "t3"},
+       {"de": "t3", "a": "t4"},
+       {"de": "t3", "a": "t5"},
+       {"de": "t3", "a": "t6"},
+       {"de": "t4", "a": "d1"},
+       {"de": "t5", "a": "d1"},
+       {"de": "t6", "a": "d1"},
+       {"de": "d1", "a": "t8", "etq": "Sí"},
+       {"de": "d1", "a": "t7", "etq": "No"},
+       {"de": "t7", "a": "t8"},
+       {"de": "t8", "a": "t9"},
+       {"de": "t9", "a": "f1"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-04",
-      "E-09",
-      "E-22",
-      "E-42",
-      "E-60",
-      "E-63",
-      "E-64"
-     ],
+     "evidencia": ["E-04", "E-09", "E-22", "E-42", "E-60", "E-63", "E-64"],
      "filas": [
       [
        "Lanzamientos fuera de fecha",
@@ -20377,12 +20311,8 @@ window.MANUAL_CONTENIDO = {
    },
 
    "17.9": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el diseño y la ejecución del programa de bienestar y de las actividades de clima con su presupuesto asignado, la medición periódica del clima y de la experiencia del colaborador, y la canalización de las iniciativas de bienestar que proponen los propios equipos.",
-     "nota_estado": "Es un proceso a implementar. Panamá tiene un código de cultura escrito que se entrega a cada ingreso, programa sus actividades en un plan semestral con presupuesto aprobado y las alinea con un tema del año —inclusión, salud, educación—; la encuesta de clima se ha hecho de forma irregular, con el apoyo de practicantes universitarios de psicología, y sin indicadores. En Venezuela las actividades se concentran en las fechas especiales y en acciones puntuales —como las charlas con psicólogos tras el terremoto—, con una metodología que el propio equipo reconoce que no se ha ajustado al tamaño actual de la empresa, y no hay medición de clima. El flujo de esta ficha recoge el procedimiento de encuesta anual documentado en Panamá para llevarlo, una vez revisado, a la práctica en todo el grupo."
-    },
-    "dueno": {"estado":"borrador","participantes":["Gerente de Recursos Humanos","Coordinador(a) de Recursos Humanos","Asistente Administrativo(a) / Servicios Generales","Gerente Regional de Marketing","Gerentes de área","Comité de Cultura Organizacional (clima y orgullo de pertenencia)"]},
+    "proposito": {"estado": "borrador", "texto": "Cubre el diseño y la ejecución del programa de bienestar y de las actividades de clima con su presupuesto asignado, la medición periódica del clima y de la experiencia del colaborador, y la canalización de las iniciativas de bienestar que proponen los propios equipos.", "nota_estado": "Es un proceso a implementar. Panamá tiene un código de cultura escrito que se entrega a cada ingreso, programa sus actividades en un plan semestral con presupuesto aprobado y las alinea con un tema del año —inclusión, salud, educación—; la encuesta de clima se ha hecho de forma irregular, con el apoyo de practicantes universitarios de psicología, y sin indicadores. En Venezuela las actividades se concentran en las fechas especiales y en acciones puntuales —como las charlas con psicólogos tras el terremoto—, con una metodología que el propio equipo reconoce que no se ha ajustado al tamaño actual de la empresa, y no hay medición de clima. El flujo de esta ficha recoge el procedimiento de encuesta anual documentado en Panamá para llevarlo, una vez revisado, a la práctica en todo el grupo."},
+    "dueno": {"estado": "borrador", "participantes": ["Gerente de Recursos Humanos", "Coordinador(a) de Recursos Humanos", "Asistente Administrativo(a) / Servicios Generales", "Gerente Corporativo(a) de Mercadeo", "Gerentes de área", "Comité de Cultura Organizacional (clima y orgullo de pertenencia)"]},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
@@ -20396,12 +20326,18 @@ window.MANUAL_CONTENIDO = {
       {"id": "a7", "rol": "Gerente de Recursos Humanos", "texto": "Elabora, junto con cada gerente de área, un plan de acción específico según las necesidades particulares de su equipo."},
       {"id": "a8", "rol": "gerentes de área", "texto": "Comunica a su equipo los resultados generales y las acciones que se van a implementar para fortalecer el bienestar y el clima laboral."},
       {"id": "a9", "rol": "Asistente Administrativo(a) / Servicios Generales", "texto": "Organiza la logística de las actividades de bienestar del cronograma —insumos, espacios, proveedores— bajo la coordinación de Recursos Humanos."},
-      {"id": "a10", "rol": "Gerente Regional de Marketing", "texto": "Apoya la comunicación interna de las actividades de bienestar y clima hacia toda la organización."},
+      {"id": "a10", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Apoya la comunicación interna de las actividades de bienestar y clima hacia toda la organización, con piezas de Diseño y Marca. Quién lleva la comunicación interna está por decidir."},
       {"id": "a11", "rol": "gerentes de área", "texto": "Da seguimiento a las acciones de su plan y reporta las mejoras a Recursos Humanos dentro de los dos meses siguientes a la encuesta."},
       {"id": "a12", "rol": "Gerente de Recursos Humanos", "texto": "Da seguimiento al cumplimiento del plan de acción y archiva la documentación del ciclo."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Recursos Humanos", "Coordinador(a) de Recursos Humanos", "gerentes de área", "Asistente Administrativo(a) / Servicios Generales", "Gerente Regional de Marketing"],
+      "carriles": [
+       "Gerente de Recursos Humanos",
+       "Coordinador(a) de Recursos Humanos",
+       "gerentes de área",
+       "Asistente Administrativo(a) / Servicios Generales",
+       "Gerente Corporativo(a) de Mercadeo"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Gerente de Recursos Humanos", "tipo": "inicio", "n": "Aprobación del programa de bienestar, o iniciativa propuesta por un equipo"},
        {"id": "n1", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elaborar el cronograma anual"},
@@ -20413,32 +20349,85 @@ window.MANUAL_CONTENIDO = {
        {"id": "n7", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Elaborar el plan de acción con cada gerencia"},
        {"id": "n8", "carril": "gerentes de área", "tipo": "tarea", "n": "Comunicar los resultados y las acciones al equipo"},
        {"id": "n9", "carril": "Asistente Administrativo(a) / Servicios Generales", "tipo": "tarea", "n": "Organizar la logística de las actividades de bienestar"},
-       {"id": "n10", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Apoyar la comunicación interna de las actividades"},
+       {"id": "n10", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Apoyar la comunicación interna de las actividades"},
        {"id": "n11", "carril": "gerentes de área", "tipo": "tarea", "n": "Dar seguimiento y reportar las mejoras"},
        {"id": "n12", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento al cumplimiento y archivar"},
        {"id": "n13", "carril": "Gerente de Recursos Humanos", "tipo": "fin", "n": "Actividad ejecutada con participación registrada y resultado de clima disponible"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"}, {"de": "n5", "a": "n6"},
-       {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"}, {"de": "n8", "a": "n9"}, {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}, {"de": "n11", "a": "n12"}, {"de": "n12", "a": "n13"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Medición de clima poco frecuente y sin indicadores", "La medición de clima no es sistemática y no tiene indicadores que orienten hacia un plan concreto.", "Alta", "Medio", "Formalizar la encuesta anual de clima con los indicadores definidos en esta ficha."],
-      ["Actividades sin ajustar al tamaño actual de la empresa", "La metodología de las actividades de bienestar no se ha ajustado al tamaño actual de la organización.", "Media", "Medio", "Rediseñar el catálogo de actividades de bienestar al tamaño y la dispersión geográfica actual de la organización."],
-      ["Sin presupuesto propio para bienestar", "Mientras en Panamá hay un presupuesto semestral preaprobado, en Venezuela hay actividades aisladas cuyo presupuesto se aprueba en cada ocasión.", "Media", "Medio", "Aprobar un presupuesto anual de bienestar como parte del presupuesto del área."],
-      ["Resultados de clima sin cierre visible", "No se diseña ni documenta un plan de acción resultante ni su seguimiento hasta el cierre.", "Media", "Medio", "Cerrar siempre el ciclo con el plan de acción, su seguimiento y su archivo."]
+      [
+       "Medición de clima poco frecuente y sin indicadores",
+       "La medición de clima no es sistemática y no tiene indicadores que orienten hacia un plan concreto.",
+       "Alta",
+       "Medio",
+       "Formalizar la encuesta anual de clima con los indicadores definidos en esta ficha."
+      ],
+      [
+       "Actividades sin ajustar al tamaño actual de la empresa",
+       "La metodología de las actividades de bienestar no se ha ajustado al tamaño actual de la organización.",
+       "Media",
+       "Medio",
+       "Rediseñar el catálogo de actividades de bienestar al tamaño y la dispersión geográfica actual de la organización."
+      ],
+      [
+       "Sin presupuesto propio para bienestar",
+       "Mientras en Panamá hay un presupuesto semestral preaprobado, en Venezuela hay actividades aisladas cuyo presupuesto se aprueba en cada ocasión.",
+       "Media",
+       "Medio",
+       "Aprobar un presupuesto anual de bienestar como parte del presupuesto del área."
+      ],
+      [
+       "Resultados de clima sin cierre visible",
+       "No se diseña ni documenta un plan de acción resultante ni su seguimiento hasta el cierre.",
+       "Media",
+       "Medio",
+       "Cerrar siempre el ciclo con el plan de acción, su seguimiento y su archivo."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Participación en la encuesta de clima", "Colaboradores que responden la encuesta ÷ total de colaboradores activos", "Anual", "Coordinador(a) de Recursos Humanos", "Por definir — no hay línea base hoy"],
-      ["Cumplimiento del plan de acción por departamento", "Acciones del plan reportadas como cumplidas ÷ total de acciones acordadas por departamento", "Semestral", "gerentes de área", "Por definir — no hay línea base hoy"],
-      ["Frecuencia de la medición de clima", "Mediciones de clima realizadas en el año ÷ mediciones planificadas en el cronograma", "Anual", "Gerente de Recursos Humanos", "1 medición al año, como mínimo"]
+      [
+       "Participación en la encuesta de clima",
+       "Colaboradores que responden la encuesta ÷ total de colaboradores activos",
+       "Anual",
+       "Coordinador(a) de Recursos Humanos",
+       "Por definir — no hay línea base hoy"
+      ],
+      [
+       "Cumplimiento del plan de acción por departamento",
+       "Acciones del plan reportadas como cumplidas ÷ total de acciones acordadas por departamento",
+       "Semestral",
+       "gerentes de área",
+       "Por definir — no hay línea base hoy"
+      ],
+      [
+       "Frecuencia de la medición de clima",
+       "Mediciones de clima realizadas en el año ÷ mediciones planificadas en el cronograma",
+       "Anual",
+       "Gerente de Recursos Humanos",
+       "1 medición al año, como mínimo"
+      ]
      ]
     }
    },
@@ -20710,7 +20699,7 @@ window.MANUAL_CONTENIDO = {
     "duenos": [
      ["Macroproceso", "Country Manager", "Encarga y revisa las piezas jurídicas de mayor impacto —política jurídica, estructura societaria, cumplimiento regulatorio y contingencias— y firma dentro de su facultad de firma."],
      ["Función", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Redacta, revisa y administra el marco jurídico corporativo: contratos, propiedad intelectual, licencias y la coordinación con los bufetes locales; hoy en comunicación casi exclusiva con el Country Manager."],
-     ["Área", "Gerente Regional de Marketing", "Origina y en la práctica redacta hoy buena parte de los contratos comerciales de licencia, influencer y patrocinio, sin una validación jurídica centralizada obligatoria."],
+     ["Área", "Gerente Corporativo(a) de Mercadeo", "Origina y en la práctica redacta hoy buena parte de los contratos comerciales de licencia, influencer y patrocinio, sin una validación jurídica centralizada obligatoria."],
      ["Área", "Gerente de Recursos Humanos", "Da seguimiento a los permisos de trabajo de personal extranjero y participa en la evaluación de una contingencia de naturaleza laboral, hoy negociando de forma directa antes de escalar."],
      ["Grupo", "Junta Directiva", "Aprueba la política jurídica del grupo, la constitución o modificación de una sociedad y la estrategia de un caso de impacto material."]
     ],
@@ -20731,7 +20720,7 @@ window.MANUAL_CONTENIDO = {
      ["Gestión del Talento Humano", "Coordinación", "Coordina los permisos de trabajo de personal extranjero, la exigencia de confidencialidad al personal y la evaluación de una contingencia de naturaleza laboral."],
      ["Contabilidad", "Coordinación", "Coordina el registro contable y fiscal de cada sociedad del grupo y recibe la exposición financiera de una contingencia legal para su provisión."],
      ["Administración y Finanzas", "Entrada", "El Planificador Financiero valida los umbrales de aprobación y cuantifica la exposición de un compromiso o de una contingencia."],
-     ["Gestión de Mercadeo y Comunicaciones", "Coordinación", "Coordina el registro de marca, la administración de licencias de terceros y la revisión de los contratos con influencers, licenciantes y agencias."],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Coordinación", "Coordina el registro de marca, la administración de licencias de terceros y la revisión de los contratos con influencers, licenciantes y agencias."],
      ["Compras y Abastecimiento / Ventas Mayor / Ventas Retail", "Entrada", "Elevan a consulta jurídica los contratos con fábricas, proveedores, distribuidores y franquiciados antes de firmarlos."]
     ]
    },
@@ -20742,7 +20731,7 @@ window.MANUAL_CONTENIDO = {
      ["Country Manager", "Grupo", "Encarga y revisa las piezas jurídicas de mayor impacto, firma dentro de su facultad y escala a la Junta lo que la excede.", "Qué compromiso firma directamente y cuál eleva a la Junta.", "A la Junta Directiva cuando el compromiso excede su facultad de firma o compromete la estructura patrimonial del grupo."],
      ["Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Grupo", "Redacta y mantiene la política jurídica, revisa y administra los contratos, la estructura societaria, la propiedad intelectual y las contingencias; coordina a los bufetes locales.", "El criterio jurídico aplicable a cada caso y la vía de defensa o negociación de una contingencia.", "Al Country Manager y, en casos de impacto material, a la Junta Directiva."],
      ["bufetes locales por país y asesoría laboral externa (actores externos)", "País", "Aportan el criterio jurídico local en materia societaria, contractual, laboral y regulatoria de su jurisdicción.", "El criterio técnico de la norma local aplicable.", "Al asesor jurídico corporativo."],
-     ["Gerente Regional de Marketing", "Función", "Origina contratos de licencia, influencer y patrocinio y gestiona las marcas y su uso; hoy redacta con apoyo informal de un comercial con formación jurídica.", "El contenido comercial del contrato antes de la revisión jurídica.", "Al asesor jurídico corporativo antes de firmar."],
+     ["Gerente Corporativo(a) de Mercadeo", "Función", "Origina contratos de licencia, influencer y patrocinio y gestiona las marcas y su uso; hoy redacta con apoyo informal de un comercial con formación jurídica.", "El contenido comercial del contrato antes de la revisión jurídica.", "Al asesor jurídico corporativo antes de firmar."],
      ["Gerente de Contabilidad / Administración", "Función", "Actualiza el registro contable y fiscal de cada sociedad y da seguimiento a la vigencia de las obligaciones fiscales no tributarias.", "Sin decisión jurídica propia; ejecuta el registro.", "Al asesor jurídico corporativo o al Country Manager según el caso."],
      ["Gerente de Recursos Humanos", "Función", "Da seguimiento a los permisos de trabajo de personal extranjero y participa en la evaluación de una contingencia laboral; hoy negocia directamente con el colaborador antes de escalar.", "La negociación directa de un reclamo laboral antes de escalarlo.", "Al asesor jurídico corporativo cuando la negociación directa no resuelve el caso."],
      ["Planificador Financiero", "Función", "Valida los umbrales de aprobación y cuantifica la exposición financiera de un compromiso o de una contingencia.", "El monto de la provisión y la exposición que se reporta a Finanzas.", "Sin escalamiento propio; informa a Finanzas."],
@@ -20816,8 +20805,8 @@ window.MANUAL_CONTENIDO = {
      ["18.1 Gobierno de la política jurídica del grupo", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Junta Directiva", "Planificador Financiero · Gerente de Recursos Humanos · bufetes locales", "Country Manager"],
      ["18.2 Gestión del ciclo de vida contractual", "Gerente del área que origina la relación", "Country Manager / Junta Directiva según el umbral", "Asesor(a) Jurídico(a) Externo(a) del Grupo · bufetes locales", "Gerente de Contabilidad / Administración"],
      ["18.3 Gestión de la estructura societaria y de las representaciones legales", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Junta Directiva", "Gerente de Contabilidad / Administración · Planificador Financiero · bufete corporativo de la jurisdicción", "Country Manager"],
-     ["18.4 Protección de la propiedad intelectual y de la marca", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Gerente Regional de Marketing", "Especialista de Producto / Proyecto · licenciantes y agentes de propiedad industrial", "Gerente Regional Comercial / Retail"],
-     ["18.5 Cumplimiento regulatorio y atención de fiscalizaciones", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Country Manager", "Gerente de Contabilidad / Administración · Gerente de Recursos Humanos · Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing"],
+     ["18.4 Protección de la propiedad intelectual y de la marca", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Gerente Corporativo(a) de Mercadeo", "Especialista de Producto / Proyecto · licenciantes y agentes de propiedad industrial", "Gerente Regional Comercial / Retail"],
+     ["18.5 Cumplimiento regulatorio y atención de fiscalizaciones", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Country Manager", "Gerente de Contabilidad / Administración · Gerente de Recursos Humanos · Coordinador(a) de Logística y Bodega", "Gerente Corporativo(a) de Mercadeo"],
      ["18.6 Gestión de contingencias, litigios y asesoría legal especializada", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Junta Directiva (casos de impacto material) / Country Manager (los demás)", "asesoría laboral externa y bufetes especializados · Planificador Financiero", "Gerente de Recursos Humanos"]
     ],
     "catalogo_sistemas": [
@@ -20833,7 +20822,7 @@ window.MANUAL_CONTENIDO = {
      ["Gestión del Talento Humano", "Coordinación laboral", "Permisos de trabajo de extranjeros, confidencialidad del personal y contingencias laborales"],
      ["Contabilidad", "Registro societario", "Registro contable y fiscal de cada sociedad y provisión de la exposición de una contingencia"],
      ["Administración y Finanzas", "Validación financiera", "Umbrales de aprobación y cuantificación de la exposición de un compromiso o contingencia"],
-     ["Gestión de Mercadeo y Comunicaciones", "Marca y contratos comerciales", "Registro de marca, administración de licencias y revisión de contratos con influencers y licenciantes"],
+     ["Gestión de Mercadeo, Marca y Comunicaciones", "Marca y contratos comerciales", "Registro de marca, administración de licencias y revisión de contratos con influencers y licenciantes"],
      ["Compras y Abastecimiento / Ventas Mayor / Ventas Retail", "Revisión contractual", "Contratos con fábricas, proveedores, distribuidores y franquiciados elevados a consulta jurídica"]
     ],
     "variaciones_pais": [
@@ -21041,31 +21030,33 @@ window.MANUAL_CONTENIDO = {
    },
 
    "18.4": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Cubre el registro y mantenimiento de las marcas propias en los mercados donde el grupo opera o proyecta operar, el control del uso correcto de la marca por parte de franquiciados, socios y distribuidores, la administración de las licencias de propiedad intelectual de terceros, y la atención de los casos de uso indebido o de producto no autorizado en circulación.",
-     "nota_estado": "Es un proceso a implementar: hoy no hay un registro consolidado de las marcas propias por país ni una administración jurídica formal de las licencias de terceros —una licencia de personaje se gestiona hoy con la propuesta comercial de la temporada, no con el seguimiento de un contrato de licencia—, y el propio equipo directivo reconoce como brecha estratégica que la aplicación de software asociada a un producto propio la desarrolla un tercero externo sin que la propiedad de ese desarrollo sea del grupo. La brecha es específicamente con terceros externos, no con el personal propio: el acuerdo que firma el personal de Venezuela ya cede a la empresa, de forma automática y perpetua, la propiedad de cualquier desarrollo tecnológico o intelectual que un empleado cree durante la relación laboral —la misma protección no existe hoy frente a un contratista o proveedor externo, como el desarrollador de la aplicación del reloj."
-    },
+    "proposito": {"estado": "borrador", "texto": "Cubre el registro y mantenimiento de las marcas propias en los mercados donde el grupo opera o proyecta operar, el control del uso correcto de la marca por parte de franquiciados, socios y distribuidores, la administración de las licencias de propiedad intelectual de terceros, y la atención de los casos de uso indebido o de producto no autorizado en circulación.", "nota_estado": "Es un proceso a implementar: hoy no hay un registro consolidado de las marcas propias por país ni una administración jurídica formal de las licencias de terceros —una licencia de personaje se gestiona hoy con la propuesta comercial de la temporada, no con el seguimiento de un contrato de licencia—, y el propio equipo directivo reconoce como brecha estratégica que la aplicación de software asociada a un producto propio la desarrolla un tercero externo sin que la propiedad de ese desarrollo sea del grupo. La brecha es específicamente con terceros externos, no con el personal propio: el acuerdo que firma el personal de Venezuela ya cede a la empresa, de forma automática y perpetua, la propiedad de cualquier desarrollo tecnológico o intelectual que un empleado cree durante la relación laboral —la misma protección no existe hoy frente a un contratista o proveedor externo, como el desarrollador de la aplicación del reloj."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id": "a1", "rol": "Gerente Regional de Marketing", "texto": "Identifica la necesidad de proteger un activo de propiedad intelectual —la entrada a un mercado nuevo, el desarrollo de una colección bajo licencia de un tercero, o la detección de un uso indebido de la marca o de producto no autorizado en circulación— y lo traslada al asesor jurídico corporativo."},
+      {"id": "a1", "rol": "Gerente de Marca (Diseño y Marca)", "texto": "Identifica la necesidad de proteger un activo de propiedad intelectual —la entrada a un mercado nuevo, el desarrollo de una colección bajo licencia de un tercero, o la detección de un uso indebido de la marca o de producto no autorizado en circulación— y lo traslada al asesor jurídico corporativo."},
       {"id": "a2", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Evalúa si el activo requiere el registro de una marca, la administración de una licencia de un tercero, o la atención de una infracción, y define la vía correspondiente."},
       {"id": "a3", "rol": "Especialista de Producto / Proyecto", "texto": "Aporta el detalle técnico del producto o de la colección bajo licencia —características, mercado de destino y desarrollos de terceros involucrados, como el software asociado al producto— que el registro o la licencia deben cubrir."},
       {"id": "a4", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Tramita el registro de la marca propia ante la autoridad de propiedad industrial del país, o negocia con el licenciante las condiciones de uso de la licencia de un tercero."},
       {"id": "a5", "rol": "licenciantes y agentes de propiedad industrial (actores externos)", "texto": "Formalizan el registro de la marca o las condiciones de la licencia, incluida la titularidad de los desarrollos derivados —como una aplicación de software vinculada al producto— cuando corresponde."},
       {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Comunica a franquiciados y distribuidores las condiciones de uso correcto de la marca y de la licencia vigente."},
-      {"id": "a7", "rol": "Gerente Regional de Marketing", "texto": "Da seguimiento al uso de la marca por parte de franquiciados, socios y distribuidores, y reporta al asesor jurídico corporativo cualquier caso de uso indebido o de producto no autorizado en circulación."},
+      {"id": "a7", "rol": "Gerente de Marca (Diseño y Marca)", "texto": "Da seguimiento al uso de la marca por parte de franquiciados, socios y distribuidores, y reporta al asesor jurídico corporativo cualquier caso de uso indebido o de producto no autorizado en circulación."},
       {"id": "a8", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Atiende el caso de uso indebido —con el licenciante, el agente de propiedad industrial o el canal legal correspondiente— hasta su cierre."},
       {"id": "a9", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "texto": "Revisa anualmente el portafolio de marcas registradas y de licencias vigentes, y actualiza su estado."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Marketing", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Especialista de Producto / Proyecto", "licenciantes y agentes de propiedad industrial (actores externos)", "Gerente Regional Comercial / Retail"],
+      "carriles": [
+       "Gerente de Marca (Diseño y Marca)",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
+       "Especialista de Producto / Proyecto",
+       "licenciantes y agentes de propiedad industrial (actores externos)",
+       "Gerente Regional Comercial / Retail"
+      ],
       "nodos": [
-       {"id": "n0", "carril": "Gerente Regional de Marketing", "tipo": "inicio", "n": "Mercado nuevo, licencia de un tercero o uso indebido detectado"},
-       {"id": "n1", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Trasladar el caso al asesor jurídico corporativo"},
+       {"id": "n0", "carril": "Gerente de Marca (Diseño y Marca)", "tipo": "inicio", "n": "Mercado nuevo, licencia de un tercero o uso indebido detectado"},
+       {"id": "n1", "carril": "Gerente de Marca (Diseño y Marca)", "tipo": "tarea", "n": "Trasladar el caso al asesor jurídico corporativo"},
        {"id": "n2", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Evaluar la vía: registro, licencia o infracción"},
        {"id": "n3", "carril": "Especialista de Producto / Proyecto", "tipo": "tarea", "n": "Aportar el detalle técnico del producto o la colección"},
        {"id": "n4", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "decision", "n": "¿Es un registro de marca propia o una licencia de un tercero?"},
@@ -21073,17 +21064,27 @@ window.MANUAL_CONTENIDO = {
        {"id": "n4b", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Negociar las condiciones de la licencia con el licenciante"},
        {"id": "n5", "carril": "licenciantes y agentes de propiedad industrial (actores externos)", "tipo": "tarea", "n": "Formalizar el registro o las condiciones de la licencia"},
        {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Comunicar las condiciones de uso a franquiciados y distribuidores"},
-       {"id": "n7", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Dar seguimiento al uso de la marca"},
-       {"id": "n8", "carril": "Gerente Regional de Marketing", "tipo": "decision", "n": "¿Se detecta uso indebido o producto no autorizado?"},
+       {"id": "n7", "carril": "Gerente de Marca (Diseño y Marca)", "tipo": "tarea", "n": "Dar seguimiento al uso de la marca"},
+       {"id": "n8", "carril": "Gerente de Marca (Diseño y Marca)", "tipo": "decision", "n": "¿Se detecta uso indebido o producto no autorizado?"},
        {"id": "n8alt", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Atender el caso hasta su cierre"},
        {"id": "n9", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "tarea", "n": "Revisar anualmente el portafolio de marcas y licencias"},
        {"id": "n10", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "tipo": "fin", "n": "Marca registrada y vigente, o licencia administrada dentro de las condiciones acordadas"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"},
-       {"de": "n4", "a": "n4a", "etq": "Registro"}, {"de": "n4", "a": "n4b", "etq": "Licencia"}, {"de": "n4a", "a": "n5"}, {"de": "n4b", "a": "n5"},
-       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n8alt", "etq": "Sí"}, {"de": "n8", "a": "n9", "etq": "No"}, {"de": "n8alt", "a": "n9"},
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n4a", "etq": "Registro"},
+       {"de": "n4", "a": "n4b", "etq": "Licencia"},
+       {"de": "n4a", "a": "n5"},
+       {"de": "n4b", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n8alt", "etq": "Sí"},
+       {"de": "n8", "a": "n9", "etq": "No"},
+       {"de": "n8alt", "a": "n9"},
        {"de": "n9", "a": "n10"}
       ]
      }
@@ -21091,29 +21092,73 @@ window.MANUAL_CONTENIDO = {
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Desarrollo de un tercero sobre un producto propio sin titularidad del grupo", "La aplicación de software de un producto propio la desarrolla un proveedor externo, sin que el grupo tenga la propiedad de ese desarrollo —el propio equipo directivo advierte que, sin eso, la marca no vale lo que debería. El grupo ya tiene, para su propio personal, una cláusula de cesión de propiedad intelectual madura; hoy no existe su equivalente para un contratista o proveedor externo.", "Alta", "Alto", "Adaptar al contrato con el desarrollador externo una cláusula de cesión de propiedad intelectual equivalente a la que ya rige para el personal interno, o internalizar el desarrollo."],
-      ["Licencias de terceros administradas de forma comercial, sin gestión jurídica formal", "Una licencia de personaje se gestiona hoy con la propuesta comercial de la temporada, sin que el asesor jurídico corporativo administre sus condiciones y su vigencia como licencia.", "Media", "Alto", "Incorporar cada licencia vigente al portafolio administrado por el asesor jurídico corporativo, con sus condiciones y vigencia."],
-      ["Sin registro consolidado de marcas por país", "No existe un registro único de qué marcas propias están registradas y vigentes en cada país donde el grupo opera.", "Alta", "Medio", "Consolidar el registro de marcas propias vigentes por país y por línea de producto."],
-      ["Sin protocolo de atención a uso indebido o producto no autorizado", "No hay un protocolo definido para detectar, escalar y cerrar un caso de uso indebido de la marca o de producto no autorizado en circulación.", "Media", "Alto", "Definir el protocolo de atención, desde la detección hasta el cierre, con el canal legal correspondiente para cada tipo de caso."],
-      ["Franquiciados y distribuidores sin comunicación formal de las condiciones de marca", "Las condiciones de uso correcto de la marca no siempre quedan explícitas en el contrato de franquicia o de distribución.", "Media", "Medio", "Incluir la condición de uso de marca en el contrato de franquicia o distribución (relacionado con 18.2)."]
+      [
+       "Desarrollo de un tercero sobre un producto propio sin titularidad del grupo",
+       "La aplicación de software de un producto propio la desarrolla un proveedor externo, sin que el grupo tenga la propiedad de ese desarrollo —el propio equipo directivo advierte que, sin eso, la marca no vale lo que debería. El grupo ya tiene, para su propio personal, una cláusula de cesión de propiedad intelectual madura; hoy no existe su equivalente para un contratista o proveedor externo.",
+       "Alta",
+       "Alto",
+       "Adaptar al contrato con el desarrollador externo una cláusula de cesión de propiedad intelectual equivalente a la que ya rige para el personal interno, o internalizar el desarrollo."
+      ],
+      [
+       "Licencias de terceros administradas de forma comercial, sin gestión jurídica formal",
+       "Una licencia de personaje se gestiona hoy con la propuesta comercial de la temporada, sin que el asesor jurídico corporativo administre sus condiciones y su vigencia como licencia.",
+       "Media",
+       "Alto",
+       "Incorporar cada licencia vigente al portafolio administrado por el asesor jurídico corporativo, con sus condiciones y vigencia."
+      ],
+      [
+       "Sin registro consolidado de marcas por país",
+       "No existe un registro único de qué marcas propias están registradas y vigentes en cada país donde el grupo opera.",
+       "Alta",
+       "Medio",
+       "Consolidar el registro de marcas propias vigentes por país y por línea de producto."
+      ],
+      [
+       "Sin protocolo de atención a uso indebido o producto no autorizado",
+       "No hay un protocolo definido para detectar, escalar y cerrar un caso de uso indebido de la marca o de producto no autorizado en circulación.",
+       "Media",
+       "Alto",
+       "Definir el protocolo de atención, desde la detección hasta el cierre, con el canal legal correspondiente para cada tipo de caso."
+      ],
+      [
+       "Franquiciados y distribuidores sin comunicación formal de las condiciones de marca",
+       "Las condiciones de uso correcto de la marca no siempre quedan explícitas en el contrato de franquicia o de distribución.",
+       "Media",
+       "Medio",
+       "Incluir la condición de uso de marca en el contrato de franquicia o distribución (relacionado con 18.2)."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Marcas propias registradas y vigentes", "Marcas registradas y vigentes ÷ marcas propias en operación por país", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
-      ["Licencias de terceros con condiciones administradas", "Licencias vigentes con condiciones de uso documentadas y con seguimiento ÷ total de licencias vigentes", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "100%"],
-      ["Tiempo de cierre de un caso de uso indebido", "Fecha de cierre del caso − fecha de detección, en días", "Por caso", "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)", "Por definir — no hay línea base hoy"]
+      [
+       "Marcas propias registradas y vigentes",
+       "Marcas registradas y vigentes ÷ marcas propias en operación por país",
+       "Anual",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
+       "100%"
+      ],
+      [
+       "Licencias de terceros con condiciones administradas",
+       "Licencias vigentes con condiciones de uso documentadas y con seguimiento ÷ total de licencias vigentes",
+       "Anual",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
+       "100%"
+      ],
+      [
+       "Tiempo de cierre de un caso de uso indebido",
+       "Fecha de cierre del caso − fecha de detección, en días",
+       "Por caso",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo (General Counsel)",
+       "Por definir — no hay línea base hoy"
+      ]
      ]
     }
    },
 
    "18.5": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Mantiene el inventario de obligaciones regulatorias no tributarias que aplican a la operación en cada país —permisología de importación y certificación de producto, normas de protección al consumidor, permisos de trabajo de personal extranjero, licencias de funcionamiento y normativa de seguridad de las sedes—, da seguimiento a su vigencia, y coordina la respuesta cuando un ente fiscalizador se presenta o requiere información.",
-     "nota_estado": "Es un proceso a implementar: cada área cumple sus propias obligaciones regulatorias por su cuenta —Recursos Humanos ante el Seguro Social y el Ministerio del Trabajo, Mercadeo ante los entes de protección al consumidor de cada país— pero no existe un inventario único que las consolide ni un punto de coordinación jurídica corporativo. El marco de protección al consumidor, por ejemplo, se resuelve hoy consultando de forma informal al Country Manager de cada país en vez de con un criterio jurídico documentado, y al menos un informe periódico ante un ente laboral no está al día."
-    },
+    "proposito": {"estado": "borrador", "texto": "Mantiene el inventario de obligaciones regulatorias no tributarias que aplican a la operación en cada país —permisología de importación y certificación de producto, normas de protección al consumidor, permisos de trabajo de personal extranjero, licencias de funcionamiento y normativa de seguridad de las sedes—, da seguimiento a su vigencia, y coordina la respuesta cuando un ente fiscalizador se presenta o requiere información.", "nota_estado": "Es un proceso a implementar: cada área cumple sus propias obligaciones regulatorias por su cuenta —Recursos Humanos ante el Seguro Social y el Ministerio del Trabajo, Mercadeo ante los entes de protección al consumidor de cada país— pero no existe un inventario único que las consolide ni un punto de coordinación jurídica corporativo. El marco de protección al consumidor, por ejemplo, se resuelve hoy consultando de forma informal al Country Manager de cada país en vez de con un criterio jurídico documentado, y al menos un informe periódico ante un ente laboral no está al día."},
     "dueno": {"estado": "borrador"},
     "disparador": {"estado": "borrador"},
     "flujo": {
@@ -21124,21 +21169,29 @@ window.MANUAL_CONTENIDO = {
       {"id": "a3", "rol": "Gerente de Contabilidad / Administración", "texto": "Da seguimiento a la vigencia de las obligaciones fiscales no tributarias y a la documentación que Contabilidad debe mantener al día ante una fiscalización."},
       {"id": "a4", "rol": "Gerente de Recursos Humanos", "texto": "Da seguimiento a la vigencia de los contratos de trabajo, los permisos de trabajo de personal extranjero y el registro del personal ante los entes de seguridad social y del trabajo."},
       {"id": "a5", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a la permisología de importación y a la certificación de producto vigente en cada país."},
-      {"id": "a6", "rol": "Gerente Regional de Marketing", "texto": "Consulta al Country Manager del país el marco de protección al consumidor vigente antes de lanzar una comunicación o promoción con riesgo de ambigüedad regulatoria."},
+      {"id": "a6", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Consulta al Country Manager del país el marco de protección al consumidor vigente antes de lanzar una comunicación o promoción con riesgo de ambigüedad regulatoria."},
       {"id": "a7", "rol": "entes reguladores (actores externos)", "texto": "Notifican o se presentan para una visita o un requerimiento de información sobre una obligación regulatoria."},
       {"id": "a8", "rol": "Country Manager", "texto": "Recibe la notificación o la visita del ente fiscalizador y activa al área responsable de la obligación en cuestión."},
       {"id": "a9", "rol": "Country Manager", "texto": "Solicita el apoyo del asesor jurídico corporativo cuando el caso lo requiere, y remite la respuesta o la documentación al ente dentro del plazo establecido."},
       {"id": "a10", "rol": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "texto": "Da seguimiento al hallazgo hasta su cierre y actualiza el inventario de obligaciones regulatorias con lo aprendido del caso."}
      ],
      "diagrama": {
-      "carriles": ["Country Manager", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "Gerente de Contabilidad / Administración", "Gerente de Recursos Humanos", "Coordinador(a) de Logística y Bodega", "Gerente Regional de Marketing", "entes reguladores (actores externos)"],
+      "carriles": [
+       "Country Manager",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "Gerente de Contabilidad / Administración",
+       "Gerente de Recursos Humanos",
+       "Coordinador(a) de Logística y Bodega",
+       "Gerente Corporativo(a) de Mercadeo",
+       "entes reguladores (actores externos)"
+      ],
       "nodos": [
        {"id": "n0", "carril": "Country Manager", "tipo": "inicio", "n": "Obligación regulatoria identificada, o visita/requerimiento de un ente"},
        {"id": "n1", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "tarea", "n": "Consolidar el inventario de obligaciones regulatorias del país"},
        {"id": "n2", "carril": "Gerente de Contabilidad / Administración", "tipo": "tarea", "n": "Dar seguimiento a la vigencia fiscal no tributaria"},
        {"id": "n3", "carril": "Gerente de Recursos Humanos", "tipo": "tarea", "n": "Dar seguimiento a permisos de trabajo y registro laboral"},
        {"id": "n4", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Dar seguimiento a la permisología de importación y certificación"},
-       {"id": "n5", "carril": "Gerente Regional de Marketing", "tipo": "tarea", "n": "Consultar el marco de protección al consumidor antes de una comunicación de riesgo"},
+       {"id": "n5", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Consultar el marco de protección al consumidor antes de una comunicación de riesgo"},
        {"id": "n6", "carril": "entes reguladores (actores externos)", "tipo": "tarea", "n": "Notificar o presentarse para una visita o un requerimiento"},
        {"id": "n7", "carril": "Country Manager", "tipo": "tarea", "n": "Recibir la notificación y activar al área responsable"},
        {"id": "n8", "carril": "Country Manager", "tipo": "decision", "n": "¿El caso requiere apoyo del asesor jurídico corporativo?"},
@@ -21148,29 +21201,86 @@ window.MANUAL_CONTENIDO = {
        {"id": "n11", "carril": "Asesor(a) Jurídico(a) Externo(a) del Grupo", "tipo": "fin", "n": "Obligación vigente y documentada, o fiscalización atendida con el hallazgo cerrado"}
       ],
       "aristas": [
-       {"de": "n0", "a": "n1"}, {"de": "n1", "a": "n2"}, {"de": "n2", "a": "n3"}, {"de": "n3", "a": "n4"}, {"de": "n4", "a": "n5"},
-       {"de": "n5", "a": "n6"}, {"de": "n6", "a": "n7"}, {"de": "n7", "a": "n8"},
-       {"de": "n8", "a": "n9", "etq": "No"}, {"de": "n8", "a": "n8alt", "etq": "Sí"}, {"de": "n8alt", "a": "n9"},
-       {"de": "n9", "a": "n10"}, {"de": "n10", "a": "n11"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "No"},
+       {"de": "n8", "a": "n8alt", "etq": "Sí"},
+       {"de": "n8alt", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Sin inventario único de obligaciones regulatorias por país", "Recursos Humanos, Contabilidad y Logística dan seguimiento cada uno a sus propias obligaciones regulatorias, sin una vista consolidada a cargo del asesor jurídico corporativo.", "Alta", "Alto", "Consolidar el inventario de obligaciones regulatorias por país bajo un único responsable jurídico."],
-      ["Marco de protección al consumidor resuelto de forma informal, país por país", "Mercadeo consulta al Country Manager de cada país antes de una comunicación con riesgo regulatorio, en vez de apoyarse en un criterio jurídico documentado por país.", "Media", "Alto", "Documentar el marco de protección al consumidor vigente en cada país donde el grupo opera, con el asesor jurídico corporativo como responsable."],
-      ["Informe periódico ante un ente laboral desactualizado", "Al menos un informe periódico de obligación laboral no está al día ante el ente correspondiente en uno de los países.", "Media", "Medio", "Ponerse al día con el informe pendiente y calendarizar su presentación periódica."],
-      ["Obligaciones regulatorias sin documentación escrita, dependientes de la práctica", "Un área reconoce que sus obligaciones regulatorias no están escritas ni plasmadas en ningún lugar, aunque las cumple en la práctica.", "Alta", "Medio", "Documentar por escrito las obligaciones regulatorias de cada área como parte del inventario consolidado."],
-      ["Sin protocolo único de atención a una visita o requerimiento de un ente", "No hay un protocolo definido de principio a fin para atender la visita o el requerimiento de un ente fiscalizador, más allá de la práctica de cada área.", "Media", "Alto", "Definir el protocolo de atención, con el asesor jurídico corporativo como punto de apoyo formal desde el primer contacto."]
+      [
+       "Sin inventario único de obligaciones regulatorias por país",
+       "Recursos Humanos, Contabilidad y Logística dan seguimiento cada uno a sus propias obligaciones regulatorias, sin una vista consolidada a cargo del asesor jurídico corporativo.",
+       "Alta",
+       "Alto",
+       "Consolidar el inventario de obligaciones regulatorias por país bajo un único responsable jurídico."
+      ],
+      [
+       "Marco de protección al consumidor resuelto de forma informal, país por país",
+       "Mercadeo consulta al Country Manager de cada país antes de una comunicación con riesgo regulatorio, en vez de apoyarse en un criterio jurídico documentado por país.",
+       "Media",
+       "Alto",
+       "Documentar el marco de protección al consumidor vigente en cada país donde el grupo opera, con el asesor jurídico corporativo como responsable."
+      ],
+      [
+       "Informe periódico ante un ente laboral desactualizado",
+       "Al menos un informe periódico de obligación laboral no está al día ante el ente correspondiente en uno de los países.",
+       "Media",
+       "Medio",
+       "Ponerse al día con el informe pendiente y calendarizar su presentación periódica."
+      ],
+      [
+       "Obligaciones regulatorias sin documentación escrita, dependientes de la práctica",
+       "Un área reconoce que sus obligaciones regulatorias no están escritas ni plasmadas en ningún lugar, aunque las cumple en la práctica.",
+       "Alta",
+       "Medio",
+       "Documentar por escrito las obligaciones regulatorias de cada área como parte del inventario consolidado."
+      ],
+      [
+       "Sin protocolo único de atención a una visita o requerimiento de un ente",
+       "No hay un protocolo definido de principio a fin para atender la visita o el requerimiento de un ente fiscalizador, más allá de la práctica de cada área.",
+       "Media",
+       "Alto",
+       "Definir el protocolo de atención, con el asesor jurídico corporativo como punto de apoyo formal desde el primer contacto."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cobertura del inventario de obligaciones regulatorias", "Obligaciones regulatorias documentadas en el inventario ÷ obligaciones regulatorias identificadas por país", "Anual", "Asesor(a) Jurídico(a) Externo(a) del Grupo", "100%"],
-      ["Fiscalizaciones atendidas dentro del plazo", "Fiscalizaciones respondidas dentro del plazo del ente ÷ total de fiscalizaciones recibidas", "Por evento", "Country Manager", "100%"],
-      ["Vigencia de permisos y certificaciones", "Permisos y certificaciones vigentes ÷ total de permisos y certificaciones requeridos por país", "Trimestral", "Coordinador(a) de Logística y Bodega", "100%"]
+      [
+       "Cobertura del inventario de obligaciones regulatorias",
+       "Obligaciones regulatorias documentadas en el inventario ÷ obligaciones regulatorias identificadas por país",
+       "Anual",
+       "Asesor(a) Jurídico(a) Externo(a) del Grupo",
+       "100%"
+      ],
+      [
+       "Fiscalizaciones atendidas dentro del plazo",
+       "Fiscalizaciones respondidas dentro del plazo del ente ÷ total de fiscalizaciones recibidas",
+       "Por evento",
+       "Country Manager",
+       "100%"
+      ],
+      [
+       "Vigencia de permisos y certificaciones",
+       "Permisos y certificaciones vigentes ÷ total de permisos y certificaciones requeridos por país",
+       "Trimestral",
+       "Coordinador(a) de Logística y Bodega",
+       "100%"
+      ]
      ]
     }
    },
@@ -21249,1045 +21359,2732 @@ window.MANUAL_CONTENIDO = {
 
  "16": {
   "n0": {
-   "introduccion": {
-    "estado": "borrador",
-    "proposito": "Este manual documenta cómo Grupo Kenex planifica, produce, adapta por país y mide la comunicación de sus dos marcas —Cubitt, marca propia, y Casio, marca representada que opera bajo los lineamientos y la aprobación de Casio Brasil— y cómo esa comunicación se convierte en imagen de marca en cada punto de venta. Recorre la cadena completa del área: del plan anual y el presupuesto a las campañas, el tráfico creativo, la adaptación local, las redes sociales, los influencers y las alianzas, el visual merchandising y el reporte de resultados a la dirección.",
-    "alcance": "Aplica al equipo regional de mercadeo con sede en Panamá y a los equipos de Cubitt Panamá y Cubitt Studio Café Panamá, Venezuela y Colombia; al equipo regional de Casio, que cubre Panamá, Guatemala, El Salvador, Ecuador y otros mercados; al equipo de cuentas clave, que atiende siete mercados; y al departamento regional de visual merchandising con sus equipos de país. Costa Rica participa como socio: su equipo de mercadeo es propio, pero las piezas de Cubitt se aprueban desde la regional. No incluye el desarrollo de producto ni de empaque (macroproceso 3), la operación de las webs y marketplaces ni la venta en línea (macroproceso 10), la definición de promociones, precios y surtido (macroprocesos 2, 8 y 9 —mercadeo las comunica, no las decide—), la compra de mercancía (macroproceso 6), la atención de garantías (macroproceso 11) ni el pago a proveedores (macroproceso 13).",
-    "audiencia": ["Gerente Regional de Marketing","Gerente de Marketing (país) y Líder de Marketing (Colombia)","Gerente de Marketing (Casio Regional)","Gerente de Marketing (Cuentas Clave)","Gerente de Marketing (Dirección Creativa y Dirección de Arte)","Gerente de Marketing (Paid Media)","Coordinador(a) de Marca","Especialista de Marketing / Brand","Diseñador(a) / Analista de Contenido","Asistente de Marketing","Gerente Regional de Visual Merchandising","Coordinador(a) de Visual Merchandising","Ejecutivo(a) de Visual Merchandising","Junta Directiva (aprobación del plan y reporte mensual)"]
-   },
+   "introduccion": {"estado": "borrador", "proposito": "Este manual documenta cómo Grupo Kenex planifica, crea, produce, adapta por país y mide la comunicación de sus dos marcas —Cubitt, marca propia, y Casio, marca representada que opera bajo los lineamientos y la aprobación de Casio Brasil—, cómo define y custodia cómo se ven y se sienten esas marcas en cada producto, canal y espacio, y cómo esa comunicación se convierte en imagen de marca en cada punto de venta. Recorre la cadena completa: del plan anual y el presupuesto a las campañas, el tráfico creativo, la adaptación local, las redes sociales, los influencers y las alianzas, el visual merchandising y el reporte de resultados a la dirección; y, desde la revisión de la estructura del 06-nov-2026, los cuatro procesos de la Dirección de Diseño y Marca: la identidad y el sistema de marca, la producción central de contenido visual, el diseño de los espacios comerciales y el diseño de producto digital.", "alcance": "Aplica a la gerencia corporativa de Mercadeo —Brand Management, Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising— y a la gerencia de Mercadeo de cada país con sus coordinaciones (Panamá, Venezuela, Colombia y Costa Rica); y a la Dirección de Diseño y Marca —Arte y Diseño y las gerencias corporativas de Marca, Diseño Industrial, Campañas, Diseño de Producto Digital y Producción—. Costa Rica participa como socio: su equipo de mercadeo es propio, pero las piezas de Cubitt se aprueban desde lo corporativo. No incluye el desarrollo técnico del producto (macroproceso 3: el diseño industrial y el empaque se hacen allí, en el proceso 3.3, con Diseño y Marca), la operación de las webs y marketplaces, la pauta de performance ni la venta en línea (macroproceso 10, de E-commerce y Growth: su diseño sí está aquí, en 16.12), la definición de promociones, precios y surtido (macroprocesos 2, 8 y 9 —mercadeo las comunica, no las decide—), la compra de mercancía (macroproceso 6), la atención de garantías (macroproceso 11) ni el pago a proveedores (macroproceso 13).", "audiencia": ["Gerente Corporativo(a) de Mercadeo", "Brand Managers de Cubitt y de Casio", "Analista de Insights y ROI", "Gerente de Social y Contenido", "Gerente de Cuentas Clave y Trade", "Gerente de Visual Merchandising", "Gerente de Mercadeo (país) y sus coordinaciones (Marca, Social y Contenido, Trade y Activaciones, Visual Merchandising)", "Director(a) de Diseño y Marca", "Director(a) Creativo(a) · Gerencia de Marca", "Coordinador(a) de Arte y Diseño", "Gerentes de Diseño Industrial, Campañas, Diseño de Producto Digital y Producción", "Diseñadores internos y freelance", "Gerente de E-commerce y Growth (pauta de performance y webs)", "Junta Directiva y Presidencia (aprobación del plan, del posicionamiento y reporte mensual)"]},
    "contexto": {
     "estado": "borrador",
-    "ubicacion": "Mercadeo es un macroproceso híbrido entre soporte y negocio: no vende, pero sostiene con campañas, contenido, pauta digital, influencers e imagen en tienda la demanda de los tres canales de venta —tiendas, mayor y web—. Gestiona dos marcas con gobiernos distintos. Casio trabaja sobre un plan semestral, de octubre a marzo y de abril a septiembre, cuyo presupuesto y acciones aprueba Casio Brasil, representante regional de la marca, al que se rinde un reporte mensual y un cierre semestral detallado. Cubitt, la marca propia, se planifica sobre un presupuesto anual asignado por la dirección y un calendario de campañas fijas, lanzamientos y eventos, y sus campañas de mayor alcance las aprueba la Junta Directiva.\n\nLa gerencia regional, con sede en Panamá, coordina un equipo de alrededor de cincuenta personas: los equipos de país de Panamá, Venezuela y Colombia; el equipo regional de Casio; el de cuentas clave, que trabaja el crecimiento de marca y los planes con clientes en siete mercados; la dirección creativa y de arte con su equipo de diseño, fotografía y video, que atiende a toda la región; la gestión regional de redes sociales y de influencers; y el equipo de pauta digital y email marketing, que en septiembre de 2026 pasó a la gerencia de e-commerce regional y sigue operando la pauta de Cubitt y de Casio en coordinación con mercadeo. La empresa decidió producir su comunicación con equipo propio en lugar de agencias de publicidad; Casio recurre a agencia externa para alianzas e influencers en Guatemala y Ecuador.\n\nVisual merchandising nació en 2021 como departamento regional para Cubitt. Organizacionalmente se ubica junto a mercadeo, pero opera como departamento propio con una gerencia regional, coordinadoras regionales, coordinadores y ejecutivos de país, y atiende tanto las tiendas propias como a los clientes del canal mayorista; Casio está formando su propio equipo de visual. Todo el trabajo del macroproceso —solicitudes, tráfico creativo, calendarios, presupuesto, reportes y aprobaciones— se gestiona en Lark, y las piezas finales se almacenan en repositorios compartidos.",
+    "ubicacion": "Mercadeo es un macroproceso híbrido entre soporte y negocio: no vende, pero sostiene con campañas, contenido, pauta digital, influencers e imagen en tienda la demanda de los tres canales de venta —tiendas, mayor y web—. Gestiona dos marcas con gobiernos distintos. Casio trabaja sobre un plan semestral, de octubre a marzo y de abril a septiembre, cuyo presupuesto y acciones aprueba Casio Brasil, representante regional de la marca, al que se rinde un reporte mensual y un cierre semestral detallado. Cubitt, la marca propia, se planifica sobre un presupuesto anual asignado por la dirección y un calendario de campañas fijas, lanzamientos y eventos, y sus campañas de mayor alcance las aprueba la Junta Directiva.\n\nLa gerencia regional, con sede en Panamá, coordina un equipo de alrededor de cincuenta personas: los equipos de país de Panamá, Venezuela y Colombia; el equipo regional de Casio; el de cuentas clave, que trabaja el crecimiento de marca y los planes con clientes en siete mercados; la dirección creativa y de arte con su equipo de diseño, fotografía y video, que atiende a toda la región; la gestión regional de redes sociales y de influencers; y el equipo de pauta digital y email marketing, que en septiembre de 2026 pasó a la gerencia de e-commerce regional y sigue operando la pauta de Cubitt y de Casio en coordinación con mercadeo. La empresa decidió producir su comunicación con equipo propio en lugar de agencias de publicidad; Casio recurre a agencia externa para alianzas e influencers en Guatemala y Ecuador.\n\nVisual merchandising nació en 2021 como departamento regional para Cubitt. Organizacionalmente se ubica junto a mercadeo, pero opera como departamento propio con una gerencia regional, coordinadoras regionales, coordinadores y ejecutivos de país, y atiende tanto las tiendas propias como a los clientes del canal mayorista; Casio está formando su propio equipo de visual. Todo el trabajo del macroproceso —solicitudes, tráfico creativo, calendarios, presupuesto, reportes y aprobaciones— se gestiona en Lark, y las piezas finales se almacenan en repositorios compartidos.\n\nEl modelo To-Be (revisión de la estructura del 06-nov-2026) separa tres preguntas que hoy responde una sola área. Mercadeo, gerencia corporativa dentro de la Dirección Comercial, decide qué necesita el consumidor, qué se le dice y dónde se invierte: es dueño del brief, de la inversión y de su retorno, y se organiza en Brand Management —un brand manager por marca—, Insights y ROI, Social y Contenido, Cuentas Clave y Trade y Visual Merchandising, más una gerencia de Mercadeo en cada país con sus coordinaciones. La Dirección de Diseño y Marca, que reporta a la Presidencia, decide cómo se ven y se sienten las marcas: identidad, manual de marca y sistema de diseño, concepto y piezas de campaña, producción central de foto, video y 3D, diseño industrial y de empaque, diseño de webs, correos y app, y estándares de espacios y de material POP; trabaja con un equipo mixto de personal interno, freelancers y una agencia de interiores. E-commerce y Growth, dentro de Ventas, es dueño de la venta en línea y de la pauta de performance. La regla común: cada proyecto tiene un solo aprobador de negocio definido en el brief, Diseño y Marca aprueba la calidad y no hay doble aprobación por pieza; los desacuerdos de prioridad suben con impacto y alternativas y los decide la Dirección.",
     "duenos": [
-     ["Directivo","Junta Directiva","Aprueba el presupuesto anual de Cubitt, las campañas de lanzamiento y de alto alcance, los embajadores de alto perfil, las alianzas con marcas que no son clientes y el GO de los nuevos espacios de tienda; recibe el reporte mensual."],
-     ["Regional","Gerente Regional de Marketing","Define la estrategia de ambas marcas, reparte el presupuesto por país, rubro y canal, conduce la planificación regional y presenta los resultados a la dirección."],
-     ["Regional — Casio","Gerente de Marketing (Casio Regional)","Ejecuta el plan semestral de Casio en los mercados a su cargo y atiende la reportería que exige Casio Brasil."],
-     ["Regional — cuentas clave","Gerente de Marketing (Cuentas Clave)","Lleva los planes de crecimiento de marca y de marketing con clientes en los mercados sin operación propia de mercadeo, y coordina las alianzas con marcas."],
-     ["Regional — creatividad","Gerente de Marketing (Dirección Creativa)","Define concepto, territorio visual y dirección de arte de las campañas, dirige al equipo creativo y cuida el estándar de calidad de las piezas."],
-     ["Regional — pauta digital","Gerente de Marketing (Paid Media)","Reparte el presupuesto digital, monta y optimiza la pauta en Meta y Google y el email marketing, y consolida el reporte mensual de inversión y resultados."],
-     ["País","Gerente de Marketing (país)","Ejecuta la estrategia en su país, gestiona su presupuesto y su equipo, adapta las campañas regionales y responde por los resultados locales; en Colombia el rol lo ejerce la Líder de Marketing."],
-     ["Regional — visual merchandising","Gerente Regional de Visual Merchandising","Define el estándar visual de la marca en punto de venta, aprueba producciones, presupuesto y layouts, y dirige a las coordinaciones regionales y de país."]
+     [
+      "Directivo",
+      "Junta Directiva",
+      "Aprueba el presupuesto anual de Cubitt, las campañas de lanzamiento y de alto alcance, los embajadores de alto perfil, las alianzas con marcas que no son clientes y el GO de los nuevos espacios; recibe el tablero mensual de marca e inversión."
+     ],
+     [
+      "Directivo",
+      "Presidencia",
+      "Aprueba el posicionamiento de cada marca y resuelve los desacuerdos de prioridad entre Mercadeo y Diseño y Marca."
+     ],
+     [
+      "Corporativo — mercadeo",
+      "Gerente Corporativo(a) de Mercadeo",
+      "Dueño de la inversión de mercadeo y de su retorno: conduce el plan, reparte el presupuesto por marca, país y canal, aprueba que cada concepto cumpla su brief y presenta los resultados a la Junta."
+     ],
+     [
+      "Corporativo — marcas",
+      "Brand Managers de Cubitt y de Casio",
+      "El plan de cada marca, su portafolio y sus lanzamientos; en Casio, el plan semestral y la coinversión con la casa matriz."
+     ],
+     [
+      "Corporativo — medición",
+      "Analista de Insights y ROI",
+      "Investigación del consumidor, medición del retorno incremental y salud de marca."
+     ],
+     [
+      "Corporativo — contenido",
+      "Gerente de Social y Contenido",
+      "Línea editorial, comunidad, creadores, influencers y relaciones públicas."
+     ],
+     [
+      "Corporativo — cuentas",
+      "Gerente de Cuentas Clave y Trade",
+      "Planes de mercadeo con cada cuenta clave: trade, activaciones y coinversión."
+     ],
+     [
+      "Corporativo — punto de venta",
+      "Gerente de Visual Merchandising",
+      "Montaje y mantenimiento de la imagen en tiendas y clientes del mayor, como servicio a Retail y a Ventas al Mayor."
+     ],
+     [
+      "País",
+      "Gerente de Mercadeo (país)",
+      "Ejecuta el plan y el presupuesto de su país con sus coordinaciones de marca, contenido, trade y visual, y responde por los resultados locales."
+     ],
+     [
+      "Dirección — diseño y marca",
+      "Director(a) de Diseño y Marca",
+      "Máximo responsable de la marca y de todo el diseño: identidad, manual y sistema de diseño, aprobación de la calidad de las piezas clave, presupuesto y capacidad del área."
+     ],
+     [
+      "Diseño y Marca — gerencias",
+      "Director(a) Creativo(a) · Gerencia de Marca · Gerentes de Campañas, Producción, Diseño Industrial y Diseño de Producto Digital",
+      "Concepto y piezas de campaña, producción central, espacios y POP, producto físico y empaque, y diseño digital, cada uno en su disciplina."
+     ]
     ],
     "entidades": [
-     ["Kenex Trading, S.A.","Panamá","Sede regional","Emplea a la gerencia regional de visual merchandising, a la gerencia de Casio regional, a la de cuentas clave y a la de pauta digital."],
-     ["Casiolandia (Panamá), S.A.","Panamá","Operación propia","Emplea a los equipos de mercadeo de Cubitt Panamá y Cubitt Studio Café, a la dirección creativa y de arte con su equipo de diseño, y a las coordinadoras y ejecutivas de visual merchandising de Panamá."],
-     ["Distribuidora Rower, C.A.","Venezuela","Operación propia","Mercadeo de ambas marcas en Venezuela, con coordinadores de marca por marca, y equipo local de visual merchandising; desde 2026 trata directamente con Casio Brasil el plan de Casio del país."],
-     ["Deltadir S.A.S.","Colombia","Operación propia","Mercadeo y visual merchandising de Cubitt en Colombia —la entidad no comercializa Casio—; el equipo local reporta funcionalmente a la gerencia regional de mercadeo y al Gerente/Director(a) General País en lo operativo."],
-     ["Importbel, S.A.","Costa Rica","Socio distribuidor","Tiene su propio equipo de mercadeo multimarca; las piezas de Cubitt las envía o aprueba la regional y el socio participa en las reuniones de planificación y reporte."],
-     ["Casio Brasil","Brasil","Representante regional de la marca Casio","Aprueba el plan semestral, el presupuesto y las acciones de Casio de cada país y recibe sus reportes. La razón social de la entidad no figura en las entrevistas ni en la documentación revisada."],
-     ["Socio comercial de Nicaragua","Nicaragua","Socio que apoya la operación en punto de venta","Facilita la implementación de visual merchandising en las tiendas del país junto con la ejecutiva regional. La razón social no figura en la documentación revisada: solo se le menciona por su nombre comercial."]
+     [
+      "Kenex Trading, S.A.",
+      "Panamá",
+      "Sede regional",
+      "Emplea a la gerencia regional de visual merchandising, a la gerencia de Casio regional, a la de cuentas clave y a la de pauta digital."
+     ],
+     [
+      "Casiolandia (Panamá), S.A.",
+      "Panamá",
+      "Operación propia",
+      "Emplea a los equipos de mercadeo de Cubitt Panamá y Cubitt Studio Café, a la dirección creativa y de arte con su equipo de diseño, y a las coordinadoras y ejecutivas de visual merchandising de Panamá."
+     ],
+     [
+      "Distribuidora Rower, C.A.",
+      "Venezuela",
+      "Operación propia",
+      "Mercadeo de ambas marcas en Venezuela, con coordinadores de marca por marca, y equipo local de visual merchandising; desde 2026 trata directamente con Casio Brasil el plan de Casio del país."
+     ],
+     [
+      "Deltadir S.A.S.",
+      "Colombia",
+      "Operación propia",
+      "Mercadeo y visual merchandising de Cubitt en Colombia —la entidad no comercializa Casio—; el equipo local reporta funcionalmente a la gerencia regional de mercadeo y al Gerente/Director(a) General País en lo operativo."
+     ],
+     [
+      "Importbel, S.A.",
+      "Costa Rica",
+      "Socio distribuidor",
+      "Tiene su propio equipo de mercadeo multimarca; las piezas de Cubitt las envía o aprueba la regional y el socio participa en las reuniones de planificación y reporte."
+     ],
+     [
+      "Casio Brasil",
+      "Brasil",
+      "Representante regional de la marca Casio",
+      "Aprueba el plan semestral, el presupuesto y las acciones de Casio de cada país y recibe sus reportes. La razón social de la entidad no figura en las entrevistas ni en la documentación revisada."
+     ],
+     [
+      "Socio comercial de Nicaragua",
+      "Nicaragua",
+      "Socio que apoya la operación en punto de venta",
+      "Facilita la implementación de visual merchandising en las tiendas del país junto con la ejecutiva regional. La razón social no figura en la documentación revisada: solo se le menciona por su nombre comercial."
+     ]
     ],
     "sistemas": [
-     ["Lark (bases, formularios, Messenger, correo y aprobaciones)","Canal único de solicitudes y aprobaciones del área: solicitudes de marketing, de artes para visual y de web; tráfico creativo; calendario regional y de país; presupuesto; cuadro de pauta; base de influencers; base de inversión y resultados; bases de visual merchandising (clientes, cronogramas, inventario de material, gastos, proyectos y propuestas de mejora); solicitudes de pago y de mercancía.","16.1 a 16.8"],
-     ["Google Ads, Google Merchant Center y Google Analytics","Pauta de búsqueda y Performance Max, catálogo de productos y medición del tráfico y la conversión de las webs.","16.2 · 16.8"],
-     ["Meta Business Suite y Ads Manager","Pauta en Facebook, Instagram y WhatsApp y catálogo de productos de Meta.","16.2 · 16.8"],
-     ["AdRoll y TikTok Ads","Canales de pauta adicionales que se incluyen en el cálculo de la inversión mensual.","16.2 · 16.8"],
-     ["ActiveCampaign","Email marketing: automatizaciones de bienvenida, carrito abandonado, cumpleaños y posventa, y envíos por promoción o lanzamiento, con listas separadas por país y por marca.","16.2 · 16.8"],
-     ["Redes sociales propias (Instagram, TikTok, Facebook, YouTube) y Strava","Publicación de contenido y conversación con la comunidad por marca y país; en Strava, un club de la marca con grupos por país para la comunidad deportiva.","16.5 · 16.6"],
-     ["Metricool","Consolidación y análisis de las métricas de redes y de las quejas recurrentes.","16.5 · 16.8"],
-     ["Tablero de inversión y resultados de mercadeo","Reúne en una vista la inversión en pauta y los resultados de e-commerce, redes y email. Lo construyó el propio equipo de pauta con apoyo de IA generativa; la herramienta en que está construido y dónde se aloja no están documentados.","16.8"],
-     ["Odoo","Consulta de ventas e inventario para planificar y medir, y pedidos de mercancía para marketing con salida desde la bodega de marketing; en Panamá la solicitud de Lark genera el pedido en Odoo.","16.1 · 16.6 · 16.7 · 16.8"],
-     ["Shopify","Webs de cada país; mercadeo no las opera, pide la activación de campañas y promociones por la solicitud de web.","16.4"],
-     ["Dropbox y Google Drive","Repositorio de piezas madre, artes finales, fotografías, videos y material regional.","16.2 · 16.3 · 16.4"],
-     ["Herramientas de diseño e IA generativa","Producción de piezas, imágenes, video y voces, y apoyo a textos, investigación y reportes; el equipo creativo mantiene el criterio final sobre lo que se publica.","16.2 · 16.3 · 16.5"]
+     [
+      "Lark (bases, formularios, Messenger, correo y aprobaciones)",
+      "Canal único de solicitudes y aprobaciones del área: solicitudes de marketing, de artes para visual y de web; tráfico creativo; calendario regional y de país; presupuesto; cuadro de pauta; base de influencers; base de inversión y resultados; bases de visual merchandising (clientes, cronogramas, inventario de material, gastos, proyectos y propuestas de mejora); solicitudes de pago y de mercancía.",
+      "16.1 a 16.8"
+     ],
+     [
+      "Google Ads, Google Merchant Center y Google Analytics",
+      "Pauta de búsqueda y Performance Max, catálogo de productos y medición del tráfico y la conversión de las webs.",
+      "16.2 · 16.8"
+     ],
+     [
+      "Meta Business Suite y Ads Manager",
+      "Pauta en Facebook, Instagram y WhatsApp y catálogo de productos de Meta.",
+      "16.2 · 16.8"
+     ],
+     [
+      "AdRoll y TikTok Ads",
+      "Canales de pauta adicionales que se incluyen en el cálculo de la inversión mensual.",
+      "16.2 · 16.8"
+     ],
+     [
+      "ActiveCampaign",
+      "Email marketing: automatizaciones de bienvenida, carrito abandonado, cumpleaños y posventa, y envíos por promoción o lanzamiento, con listas separadas por país y por marca.",
+      "16.2 · 16.8"
+     ],
+     [
+      "Redes sociales propias (Instagram, TikTok, Facebook, YouTube) y Strava",
+      "Publicación de contenido y conversación con la comunidad por marca y país; en Strava, un club de la marca con grupos por país para la comunidad deportiva.",
+      "16.5 · 16.6"
+     ],
+     ["Metricool", "Consolidación y análisis de las métricas de redes y de las quejas recurrentes.", "16.5 · 16.8"],
+     [
+      "Tablero de inversión y resultados de mercadeo",
+      "Reúne en una vista la inversión en pauta y los resultados de e-commerce, redes y email. Lo construyó el propio equipo de pauta con apoyo de IA generativa; la herramienta en que está construido y dónde se aloja no están documentados.",
+      "16.8"
+     ],
+     [
+      "Odoo",
+      "Consulta de ventas e inventario para planificar y medir, y pedidos de mercancía para marketing con salida desde la bodega de marketing; en Panamá la solicitud de Lark genera el pedido en Odoo.",
+      "16.1 · 16.6 · 16.7 · 16.8"
+     ],
+     [
+      "Shopify",
+      "Webs de cada país; mercadeo no las opera, pide la activación de campañas y promociones por la solicitud de web.",
+      "16.4"
+     ],
+     [
+      "Dropbox y Google Drive",
+      "Repositorio de piezas madre, artes finales, fotografías, videos y material regional.",
+      "16.2 · 16.3 · 16.4"
+     ],
+     [
+      "Herramientas de diseño e IA generativa",
+      "Producción de piezas, imágenes, video y voces, y apoyo a textos, investigación y reportes; el equipo creativo mantiene el criterio final sobre lo que se publica.",
+      "16.2 · 16.3 · 16.5"
+     ],
+     [
+      "Biblioteca única de activos de marca",
+      "Versión vigente de cada pieza, manual y plantilla, con campaña, mercado, derechos de uso y fecha de vencimiento; reemplaza a las carpetas dispersas. La herramienta la elige Tecnología.",
+      "16.2 · 16.3 · 16.4 · 16.9 · 16.10 · 16.11"
+     ],
+     [
+      "Herramienta de diseño y prototipado de interfaces",
+      "Sistema de diseño digital, prototipos navegables y especificaciones para Tecnología.",
+      "16.12"
+     ]
     ],
     "interfaces": [
-     ["1 · Dirección y Gobierno Corporativo","Entrada / salida","Presupuesto anual y objetivos de marca; aprobación de campañas de alto alcance, embajadores, alianzas y nuevos espacios; reporte mensual de resultados."],
-     ["2 · Planeación Comercial","Entrada","Calendario comercial, promociones del mes por país y canal —incluidas las que nacen del sobrestock que detecta compras— y productos que necesitan rotación; el descuento y el margen de cada promoción los decide comercial, no mercadeo."],
-     ["3 · R&D y Desarrollo de Producto (Cubitt)","Entrada","Calendario de lanzamientos, especificaciones, argumentos de venta, fotografías y empaque de cada producto nuevo; fichas técnicas como fuente de lo que se afirma del producto; resultado de las pruebas previas al lanzamiento, cuya aprobación final da la Junta Directiva."],
-     ["4 · Gobierno de Portafolio (PMO)","Coordinación","Lanzamientos y aperturas gestionados como proyectos, con fechas de llegada y estado de cada producto; las iniciativas de mercadeo que involucran a otras áreas —web, tableros, aperturas— se solicitan por el formulario de proyectos de la PMO con la firma de la gerencia."],
-     ["6 · Compras y Abastecimiento","Coordinación","Disponibilidad de producto para campañas y lanzamientos y compra de material que exige una campaña."],
-     ["7 · Logística y Operaciones","Coordinación","Pedidos de mercancía para eventos, influencers y producciones, que salen como traslado documentado —en Venezuela, por el flujo de traslados de marketing de almacén y despacho—; despacho de material de punto de venta y mobiliario."],
-     ["8 · Ventas Mayor","Coordinación","Planes de marketing con clientes clave, alianzas, material y mobiliario para el canal mayorista."],
-     ["9 · Ventas Retail","Coordinación","Promociones de tienda, aperturas y remodelaciones, implementación de campañas en tiendas propias; ajustes de exhibición que la gestión regional de retail pide para mover inventario de baja rotación; etiquetas de precio que la tienda imprime desde Odoo."],
-     ["10 · Ventas Web (E-Commerce)","Coordinación","Activación de campañas y promociones en webs y marketplaces, pauta digital y email marketing, datos de clientes para campañas; asesores de venta en línea que atienden las consultas derivadas y deben conocer las promociones vigentes."],
-     ["11 · Postventa y Experiencia de Cliente","Entrada / salida","Salen hacia postventa las consultas de garantía y soporte recibidas por redes y correo; entran las respuestas oficiales de la marca, las guías de soporte por producto, los avisos de fallas de una referencia y el estándar de personalización de productos para clientes corporativos."],
-     ["13 · Administración y Finanzas","Salida","Solicitudes de pago según la matriz de aprobación de finanzas, alta de proveedores nuevos, facturas, legalización mensual de la tarjeta corporativa, notas de crédito por apoyos de mercadeo o visual a clientes y facturación de lo vendido en eventos."],
-     ["15 · Gestión de Datos e Inteligencia de Negocio","Entrada","Ventas por país, canal y producto para medir campañas y promociones."],
-     ["17 · Gestión del Talento Humano","Coordinación","Incorporación de perfiles creativos y capacitación en producto y marca; las comunicaciones internas al personal las emite talento humano por Lark, y mercadeo apoya con el diseño de piezas como el código de cultura."],
-     ["18 · Gestión Legal y Cumplimiento","Coordinación","Acuerdos con influencers, uso de imagen, cesión de derechos y contratación de medios; permisos de publicidad y presentación de promociones ante la autoridad del consumidor; autorización de datos personales para envíos de marketing."]
+     [
+      "1 · Dirección y Gobierno Corporativo",
+      "Entrada / salida",
+      "Presupuesto anual y objetivos de marca; aprobación del posicionamiento (Presidencia), de campañas de alto alcance, embajadores, alianzas y nuevos espacios (Junta); tablero mensual de marca e inversión."
+     ],
+     [
+      "2 · Planeación Comercial",
+      "Entrada",
+      "Calendario comercial, promociones del mes por país y canal y productos que necesitan rotación; el descuento y el margen de cada promoción los decide comercial, no mercadeo."
+     ],
+     [
+      "3 · R&D y Desarrollo de Producto (Cubitt)",
+      "Entrada / salida",
+      "Entra el calendario de lanzamientos, la ficha técnica y las pruebas previas; sale el brief de consumidor de Mercadeo y, desde Diseño y Marca, el diseño industrial, los colores, materiales y acabados y el empaque (proceso 3.3) desde la ideación."
+     ],
+     [
+      "4 · Gobierno de Portafolio (PMO)",
+      "Coordinación",
+      "Lanzamientos y aperturas gestionados como proyectos; el concepto del espacio (16.11) y el montaje (16.7) son hitos de cada apertura."
+     ],
+     [
+      "6 · Compras y Abastecimiento",
+      "Coordinación",
+      "Disponibilidad de producto para campañas y lanzamientos; compra del mobiliario y del material POP por Compras Internas · Procura de cada país, según la política de compra."
+     ],
+     [
+      "7 · Logística y Operaciones",
+      "Coordinación",
+      "Mercancía para eventos, influencers y producciones como traslado documentado; despacho de material de punto de venta y mobiliario."
+     ],
+     [
+      "8 · Ventas Mayor",
+      "Servicio",
+      "Planes de mercadeo con clientes clave y montaje de exhibición, mobiliario y POP en los clientes del mayor, como servicio con plazo acordado."
+     ],
+     [
+      "9 · Ventas Retail",
+      "Servicio",
+      "Implementación de campañas en tiendas propias, aperturas y remodelaciones con el concepto de Diseño y Marca y el montaje de visual merchandising; la tienda mantiene la exhibición día a día."
+     ],
+     [
+      "10 · Ventas Web (E-Commerce)",
+      "Coordinación",
+      "E-commerce y Growth opera las webs y la pauta de performance; Diseño y Marca diseña las webs y los correos (16.12); Mercadeo coordina las campañas con su plan digital y Finanzas consolida las dos pautas."
+     ],
+     [
+      "11 · Postventa y Experiencia de Cliente",
+      "Entrada / salida",
+      "Salen las consultas de garantía y soporte recibidas por redes; entran las respuestas oficiales de la marca, las guías de soporte y los avisos de fallas de una referencia."
+     ],
+     [
+      "13 · Administración y Finanzas",
+      "Salida",
+      "Solicitudes de pago, alta de proveedores —incluidos freelancers y agencias—, consolidación de la pauta de marca y la de performance, y notas de crédito por apoyos a clientes."
+     ],
+     [
+      "14 · Gestión de Tecnología de Información",
+      "Servicio",
+      "Implementación de las webs y de los cambios diseñados en 16.12, y la biblioteca de activos."
+     ],
+     [
+      "15 · Gestión de Datos e Inteligencia de Negocio",
+      "Entrada",
+      "Ventas por país, canal y producto para medir campañas, promociones y retorno incremental."
+     ],
+     [
+      "17 · Gestión del Talento Humano",
+      "Coordinación",
+      "Incorporación de perfiles creativos y de diseño; la comunicación interna al personal la emite talento humano —quién la lidera está por decidir— con piezas de Diseño y Marca."
+     ],
+     [
+      "18 · Gestión Legal y Cumplimiento",
+      "Coordinación",
+      "Acuerdos con influencers, freelancers, modelos y agencias con cesión de derechos; registro y protección de la marca; permisos de publicidad y presentación de promociones."
+     ]
     ]
    },
    "gobernanza": {
     "estado": "borrador",
     "actores": [
-     ["Junta Directiva","Corporativo","Aprueba el presupuesto anual y los objetivos de marca de Cubitt, las campañas de lanzamiento y de alto alcance, los embajadores de alto perfil, las alianzas con marcas que no son clientes y el GO de nuevos espacios; recibe el reporte mensual.","La aprobación final de lo anterior, por escrito.","—"],
-     ["Gerente Regional de Marketing","Regional — ambas marcas","Conduce la planificación regional, reparte el presupuesto, presenta las campañas a la Junta, integra el reporte mensual y supervisa a los equipos de país, Casio, cuentas clave, creatividad y redes.","Calendario regional, reparto del presupuesto aprobado entre países y rubros, campañas y piezas dentro del plan aprobado.","Presupuesto adicional, campañas de alto alcance y cambios de estrategia, a la Junta Directiva."],
-     ["Gerente de Marketing (Casio Regional)","Regional — Casio","Ejecuta y reporta el plan semestral de Casio en los mercados a su cargo y coordina con los países que tratan directamente con la marca.","Acciones y piezas dentro del plan semestral aprobado.","Toda acción o gasto fuera del plan, a Casio Brasil."],
-     ["Gerente de Marketing (Dirección Creativa)","Regional — creatividad","Define concepto, territorio visual y dirección de arte; recibe los briefs, asigna el trabajo creativo y controla la calidad.","Criterio creativo, rechazo de briefs incompletos y aprobación técnica de piezas.","La campaña completa, a la gerencia regional para su presentación al aprobador."],
-     ["Gerente de Marketing (Paid Media)","Regional — pauta digital","Reparte el presupuesto digital, aprueba las creatividades que se pautan, monta, optimiza y reporta la pauta y el email marketing.","Pausar, escalar y reasignar la pauta dentro del presupuesto del mes; no pautar una campaña con registro incompleto.","Cambios de presupuesto de pauta, a la gerencia regional."],
-     ["Gerente de Marketing (país)","País","Ejecuta la estrategia y el presupuesto de su país, adapta las campañas, aprueba las piezas locales, los influencers de campaña y los eventos.","Piezas y acciones locales dentro del presupuesto y los lineamientos.","Movimientos entre rubros, campañas fuera del plan y embajadores, a la gerencia regional."],
-     ["Especialista de Marketing / Brand (Social Media)","Regional — redes","Construye los calendarios de contenido y dirige la gestión de redes y comunidad.","La aprobación del contenido orgánico del día a día.","Contenido de campaña o sensible, a la dirección creativa y a la gerencia del país."],
-     ["Gerente Regional de Visual Merchandising","Regional — visual","Define el estándar visual, aprueba campañas de punto de venta, renders, mobiliario, artes, presupuesto y layouts, y reporta a la Junta.","Todo lo que tenga impacto en marca o presupuesto del área, según su matriz de autorización.","Nuevos espacios y remodelaciones, a la Junta Directiva."],
-     ["Gerente/Director(a) General País","País (Colombia y Guatemala)","Lidera la operación del país; en Colombia aprueba el gasto de eventos dentro del presupuesto asignado por la regional y en Guatemala fija las prioridades de punto de venta.","Prioridades comerciales del país y gasto dentro de lo asignado.","Conflictos con la línea regional, a la gerencia regional y a la dirección."],
-     ["Casio Brasil","Externo — Casio","Aprueba el plan semestral, el presupuesto y las acciones de Casio y recibe sus reportes.","Lo que puede hacerse con la marca Casio.","—"]
+     [
+      "Junta Directiva",
+      "Corporativo",
+      "Aprueba el presupuesto anual y los objetivos de marca de Cubitt, las campañas de lanzamiento y de alto alcance, los embajadores de alto perfil, las alianzas con marcas que no son clientes y el GO de nuevos espacios; recibe el tablero mensual.",
+      "La aprobación final de lo anterior, por escrito.",
+      "—"
+     ],
+     [
+      "Presidencia",
+      "Corporativo",
+      "Aprueba el posicionamiento de cada marca y resuelve los desacuerdos de prioridad entre áreas.",
+      "Posicionamiento y prioridades en conflicto.",
+      "—"
+     ],
+     [
+      "Gerente Corporativo(a) de Mercadeo",
+      "Corporativo — mercadeo",
+      "Conduce el plan y el presupuesto, aprueba que cada concepto cumpla su brief, integra el tablero mensual y dirige a Brand Management, Insights y ROI, Social y Contenido, Cuentas Clave y Trade, Visual Merchandising y los países.",
+      "Reparto del presupuesto aprobado, campañas dentro del plan y aprobación de negocio cuando el brief no nombra a otro.",
+      "Presupuesto adicional, campañas de alto alcance y cambios de estrategia, a la Junta Directiva."
+     ],
+     [
+      "Brand Manager de Casio",
+      "Corporativo — Casio",
+      "Lleva el plan semestral de Casio, la coinversión con la casa matriz y la reportería a Casio Brasil.",
+      "Acciones y piezas dentro del plan semestral aprobado.",
+      "Toda acción o gasto fuera del plan, a Casio Brasil."
+     ],
+     [
+      "Director(a) de Diseño y Marca",
+      "Dirección — diseño y marca",
+      "Define y custodia la identidad, aprueba la calidad de las piezas clave —producto, campañas, web, app y espacios—, gestiona el presupuesto y la capacidad del área y decide qué se hace en casa y qué se contrata.",
+      "Calidad de las piezas, manual de marca y sistema de diseño, asignación de capacidad.",
+      "Posicionamiento y desacuerdos de prioridad, a la Presidencia."
+     ],
+     [
+      "Director(a) Creativo(a) · Gerencia de Marca",
+      "Diseño y Marca — marca",
+      "Concepto, territorio visual y copy de las campañas, en dupla con Arte y Diseño; manual de marca y auditorías de coherencia.",
+      "Criterio creativo y rechazo de briefs incompletos.",
+      "Lo que excede el presupuesto o la capacidad, a la Dirección de Diseño y Marca."
+     ],
+     [
+      "Gerente de Visual Merchandising",
+      "Corporativo — punto de venta",
+      "Monta y mantiene la imagen en tiendas y clientes del mayor con el estándar de Diseño y Marca, aprueba presupuestos de montaje y reporta la ejecución.",
+      "Gasto de montaje según su matriz de autorización y prioridad entre montajes del mismo plazo.",
+      "Conflictos de prioridad entre canales, a la gerencia corporativa de Mercadeo."
+     ],
+     [
+      "Gerente de Mercadeo (país)",
+      "País",
+      "Ejecuta la estrategia y el presupuesto de su país con sus coordinaciones, adapta las campañas, aprueba las piezas locales, los influencers de campaña y los eventos.",
+      "Piezas y acciones locales dentro del presupuesto y del manual de marca.",
+      "Movimientos entre rubros, campañas fuera del plan y embajadores, a la gerencia corporativa."
+     ],
+     [
+      "Coordinador(a) de Social y Contenido (país)",
+      "País — contenido",
+      "Construye el calendario de contenido del país y dirige la gestión de redes y comunidad.",
+      "La aprobación del contenido orgánico del día a día.",
+      "Contenido de campaña o sensible, a la gerencia del país y a Diseño y Marca."
+     ],
+     [
+      "Casio Brasil",
+      "Externo — Casio",
+      "Aprueba el plan semestral, el presupuesto y las acciones de Casio y recibe sus reportes.",
+      "Lo que puede hacerse con la marca Casio.",
+      "—"
+     ]
     ],
     "comites": [
-     ["Reunión regional mensual de planificación","Alinear las campañas y acciones del mes siguiente en cada país","Mensual","Gerente Regional de Marketing · gerencias de marketing de cada país · Casio Regional · Cuentas Clave · socio de Costa Rica","Calendario del mes siguiente por país y requerimientos al equipo creativo","Fechas locales, lanzamientos y promociones de cada país","Plan mensual por país en la base de Lark"],
-     ["Reunión regional mensual de resultados","Revisar lo ejecutado en el mes y sus aprendizajes","Mensual","Gerente Regional de Marketing · gerencias de marketing de cada país · Paid Media","Qué se repite, qué se ajusta","Base de inversión y resultados y reportes de país","Aprendizajes y ajustes registrados"],
-     ["Estatus semanal por país","Seguir la ejecución de campañas y resolver bloqueos","Semanal (30 minutos)","Gerente Regional de Marketing · Gerente de Marketing (país)","Prioridades de la semana","Campañas en curso","Acuerdos registrados en Lark"],
-     ["Estatus y tráfico creativo","Priorizar campañas, diseño y activaciones del equipo regional y de Panamá","Semanal (lunes)","Gerente Regional de Marketing · dirección creativa y de arte · Gerente de Marketing (Panamá)","Orden de atención del tráfico creativo","Base de tráfico creativo","Prioridades de la semana"],
-     ["Reporte mensual de mercadeo a la Junta Directiva","Rendir cuentas de resultados e inversión y aprobar lo que requiera a la dirección","Mensual","Gerente Regional de Marketing · Junta Directiva","Ajustes de presupuesto, prioridades y campañas","Plan mensual con resultados contra forecast y objetivos","Decisiones registradas"],
-     ["Comité interno de país (Colombia)","Coordinar mercadeo con comercial, retail y marketplaces","Mensual","Gerente/Director(a) General País · Líder de Marketing · comercial · retail · marketplaces","Acciones del mes siguiente y promociones coordinadas con las cadenas","Plan comercial del mes","Plan del mes siguiente"],
-     ["Sincronización semanal de visual merchandising","Aprobar y dar retroalimentación a los países de forma ordenada","Semanal (lunes, con cierre los viernes)","Gerente Regional de Visual Merchandising · coordinadoras regionales","Aprobaciones de la semana y prioridades","Resumen consolidado por país","Prioridades y compromisos de la semana"],
-     ["Revisión semestral con Casio Brasil","Cerrar el semestre y aprobar el siguiente plan de Casio","Semestral","Gerente de Marketing (Casio Regional) · gerencias de país · Casio Brasil","Aprobación del plan y del presupuesto del semestre","Rendición del presupuesto y resultados","Plan semestral aprobado"]
+     [
+      "Reunión semanal de operación",
+      "Un solo plan de trabajo para Mercadeo, Diseño y Marca y E-commerce y Growth",
+      "Semanal",
+      "Gerente Corporativo(a) de Mercadeo · Director(a) de Diseño y Marca · Gerente de E-commerce y Growth · Producto · Comercial; Retail y Operaciones según agenda",
+      "Calendario común: Mercadeo consolida el brief, E-commerce y Growth aporta lo digital y Diseño y Marca estima costo, capacidad y fechas",
+      "Campañas y lanzamientos en curso",
+      "Un responsable por cada presupuesto y cada entregable"
+     ],
+     [
+      "Revisión mensual de capacidad de Diseño y Marca",
+      "Ajustar la carga del área a lo comprometido",
+      "Mensual",
+      "Director(a) de Diseño y Marca · gerencias de Diseño y Marca · Gerente Corporativo(a) de Mercadeo",
+      "Toda urgencia muestra qué compromiso desplaza; qué se contrata con freelancers",
+      "Horas comprometidas y disponibles, solicitudes abiertas",
+      "Capacidad del mes siguiente aprobada"
+     ],
+     [
+      "Reunión regional mensual de planificación",
+      "Alinear las campañas y acciones del mes siguiente en cada país",
+      "Mensual",
+      "Gerente Corporativo(a) de Mercadeo · gerencias de Mercadeo de cada país · Brand Manager de Casio · Cuentas Clave y Trade · socio de Costa Rica",
+      "Calendario del mes siguiente por país y requerimientos al equipo creativo",
+      "Fechas locales, lanzamientos y promociones de cada país",
+      "Plan mensual por país en la base de Lark"
+     ],
+     [
+      "Reunión regional mensual de resultados",
+      "Revisar lo ejecutado en el mes y sus aprendizajes",
+      "Mensual",
+      "Gerente Corporativo(a) de Mercadeo · gerencias de Mercadeo de cada país · Insights y ROI · E-commerce y Growth",
+      "Qué se repite, qué se ajusta",
+      "Base de inversión y resultados y reportes de país",
+      "Aprendizajes y ajustes registrados"
+     ],
+     [
+      "Estatus semanal por país",
+      "Seguir la ejecución de campañas y resolver bloqueos",
+      "Semanal (30 minutos)",
+      "Gerente Corporativo(a) de Mercadeo · Gerente de Mercadeo (país)",
+      "Prioridades de la semana",
+      "Campañas en curso",
+      "Acuerdos registrados en Lark"
+     ],
+     [
+      "Estatus y tráfico creativo",
+      "Priorizar la cola de Diseño y Marca contra el calendario común",
+      "Semanal (lunes)",
+      "Coordinador(a) de Arte y Diseño · Director(a) Creativo(a) · Gerencia de Marca · gerencias de Diseño y Marca",
+      "Orden de atención del tráfico creativo",
+      "Base de tráfico creativo",
+      "Prioridades de la semana"
+     ],
+     [
+      "Reporte mensual de mercadeo a la Junta Directiva",
+      "Rendir cuentas de resultados e inversión y aprobar lo que requiera a la dirección",
+      "Mensual",
+      "Gerente Corporativo(a) de Mercadeo · Junta Directiva",
+      "Ajustes de presupuesto, prioridades y campañas",
+      "Plan mensual con resultados contra forecast y objetivos",
+      "Decisiones registradas"
+     ],
+     [
+      "Comité interno de país (Colombia)",
+      "Coordinar mercadeo con comercial, retail y marketplaces",
+      "Mensual",
+      "Gerente/Director(a) General País · Líder de Marketing · comercial · retail · marketplaces",
+      "Acciones del mes siguiente y promociones coordinadas con las cadenas",
+      "Plan comercial del mes",
+      "Plan del mes siguiente"
+     ],
+     [
+      "Sincronización semanal de visual merchandising",
+      "Aprobar y dar retroalimentación a los países de forma ordenada",
+      "Semanal (lunes, con cierre los viernes)",
+      "Gerente de Visual Merchandising · coordinadoras regionales",
+      "Aprobaciones de la semana y prioridades",
+      "Resumen consolidado por país",
+      "Prioridades y compromisos de la semana"
+     ],
+     [
+      "Revisión semestral con Casio Brasil",
+      "Cerrar el semestre y aprobar el siguiente plan de Casio",
+      "Semestral",
+      "Brand Manager de Casio · gerencias de país · Casio Brasil",
+      "Aprobación del plan y del presupuesto del semestre",
+      "Rendición del presupuesto y resultados",
+      "Plan semestral aprobado"
+     ],
+     [
+      "Auditoría semestral de marca",
+      "Medir la coherencia de la marca en todos los canales",
+      "Semestral",
+      "Director(a) de Diseño y Marca · Director(a) Creativo(a) · Gerencia de Marca · Gerente de Visual Merchandising · Gerente Corporativo(a) de Mercadeo",
+      "Correcciones por área y revisión del manual",
+      "Auditoría con puntaje por canal y país",
+      "Correcciones con responsable y fecha"
+     ]
     ]
    },
-   "marco": {
-    "estado": "borrador",
-    "principios": ["Toda solicitud de trabajo al área entra por el canal formal de Lark y con la información completa; lo que llega por otra vía se registra antes de atenderse.","Las aprobaciones quedan por escrito en Lark o en el correo; los grupos de mensajería coordinan, pero no aprueban.","Cada nivel resuelve lo que le corresponde según su ámbito de autoridad y solo escala lo que lo supera.","La comunicación de cada marca es reconocible y coherente en todos los países y canales: Cubitt bajo su guía de marca, Casio bajo los lineamientos de la marca.","Lo que se comunica acompaña lo que se vende: el contenido, las campañas y las promociones se planifican con la información de ventas y de inventario de cada país."],
-    "politicas": ["Ninguna campaña pasa a producción sin un brief completo: objetivo, fecha real de salida, formatos, referencias y responsable de aprobación.","El trabajo creativo de un producto nuevo inicia al menos ocho semanas antes de su lanzamiento, con la información mínima obligatoria del producto.","La aprobación de las campañas y entregables principales se gestiona como mínimo 48 horas antes de su salida; un retraso en la aprobación mueve la fecha de entrega.","Una promoción o un lanzamiento se pauta solo si su registro en el cuadro de pauta de Lark está completo; el presupuesto digital se reparte con una base de referencia de 70 % en Meta y 30 % en Google y, con presupuesto bajo, se concentra en una sola campaña.","Las promociones regionales se informan a mercadeo y a visual merchandising entre los días 1 y 10 del mes anterior a su vigencia.","Las acciones de Casio se ejecutan dentro del plan semestral aprobado por Casio Brasil, y su presupuesto se rinde factura por factura.","Ningún gasto de visual merchandising se ejecuta sin la aprobación de la gerencia regional del área, y el reporte mensual de gastos es obligatorio y auditable.","Todo diseño o modificación de layout y mobiliario de tienda requiere la aprobación de visual merchandising regional, y los proyectos de nuevos espacios requieren el GO final de la Junta Directiva."],
-    "normativo": ["Normativa de protección al consumidor de cada país: precio visible y correcto en el punto de venta y presentación de las promociones ante la autoridad cuando corresponde (en Venezuela, la SUNDDE, con un plazo de quince días hábiles; en Panamá, la ACODECO; en México y Colombia, organismos con fiscalización intensa). Las dudas se consultan con el Gerente/Director(a) General País del país.","En Panamá, la Ley 45 de 2007 (artículos 58 a 64) obliga a que toda oferta, promoción o descuento indique claramente sus condiciones y su duración o el número mínimo de unidades ofertadas, hace vinculante lo anunciado y considera engañoso atribuir al producto características o beneficios que no tiene; la ACODECO la aplica también a la publicidad en línea.","Permisos municipales de publicidad para cajas de luz, avisos, pantallas y presencia de marca en activaciones y eventos no registrados.","Uso de imagen de modelos, talentos y creadores de contenido, que se formaliza por escrito antes de publicar. El acuerdo de confidencialidad y propiedad intelectual del personal declara el material de mercadeo, los planes comerciales y los diseños como información y propiedad de la empresa; los acuerdos con proveedores creativos y creadores deben ceder los derechos de lo que producen para la marca.","Autorización de los contactos para recibir correos de marketing y atención de las bajas. En Colombia, la Ley 1581 de 2012 exige autorización previa, expresa e informada, con la finalidad declarada, antes de tratar datos personales —también para enviar publicidad—, y la vigila la Superintendencia de Industria y Comercio.","Afiliación del personal que trabaja fuera de la oficina en eventos a la cobertura de riesgos laborales (ARL, en Colombia).","Publicidad con influenciadores: en Colombia, la Guía de buenas prácticas en la publicidad a través de influenciadores de la Superintendencia de Industria y Comercio (2020) pide al anunciante una política de transparencia, participar en la construcción del mensaje, exigir que se revele la relación comercial y, en videos y transmisiones en vivo, mantener la etiqueta de publicidad durante toda la pieza.","Buena práctica de briefing (IPA y BetterBriefs, «The best way for a client to brief an agency»): un brief resuelve un solo problema, parte de un público, un posicionamiento y un objetivo medible, y declara desde el inicio el criterio con que se evaluará el trabajo; en la investigación que dio origen a la guía, los anunciantes estimaron en 26 % el presupuesto que se pierde por briefs deficientes. Se incorpora al brief de 16.2 y al formulario de 16.3.","Buena práctica de planificación presupuestaria (Gartner, CMO Spend Survey 2025): los presupuestos de mercadeo se mantienen en torno al 7,7 % de los ingresos y los directores de mercadeo priorizan la productividad —medir con datos y reasignar lo que no rinde— antes que el aumento de la partida. Se incorpora a 16.1 como peso de la inversión sobre la venta fijado en el plan y revisión trimestral para reasignar.","Buena práctica de divulgación en publicidad con creadores (FTC, Guías de Endorsements actualizadas en 2023): la relación comercial se revela de forma clara y difícil de pasar por alto —la etiqueta de la plataforma por sí sola no basta y, en video, se dice dentro del video—, y el anunciante debe instruir a sus creadores y vigilar que cumplan. Se incorpora a 16.6 en el acuerdo y en el seguimiento mensual.","Buena práctica de atención en redes (Sprout Social Index 2025): el 73 % de los consumidores espera respuesta en 24 horas o menos y el tiempo promedio de las marcas ronda las cuatro a cinco horas frente a una expectativa inferior a una hora; el 73 % comprará a la competencia si la marca no responde. Sustenta el tiempo máximo de respuesta de 16.5.","Buena práctica de comunicación de crisis en redes (CIPR, Crisis Communication and Social Media, 2024): un plan de crisis define qué es una crisis, quién responde, una matriz de escalamiento con tiempos, declaraciones de espera preaprobadas —reconocer, mostrar preocupación, informar lo que se hace y comprometer una actualización— y una revisión posterior. Se incorpora a 16.5 como protocolo de escalamiento.","Buena práctica de auditoría de ejecución en punto de venta (guías sectoriales de retail execution): la visita se audita contra el planograma y el estándar con fotografía fechada, que convierte una opinión en un registro verificable, y se miden disponibilidad en exhibición, cumplimiento del planograma, exactitud del precio y material promocional vigente. Se incorpora a 16.7.","Buena práctica de medición (IAB e IAB Europe, Guidelines for Incremental Measurement, 2025): la atribución de plataforma se contrasta con pruebas de incrementalidad con grupo de control y, cuando hay historia suficiente, con modelos de mezcla de medios; ninguno basta solo. Se incorpora a 16.8 como prueba periódica sobre el canal de mayor inversión.","Buena práctica de gobierno de activos de marca (guías de gestión de activos digitales): una sola biblioteca con la versión aprobada vigente, historial de versiones y retiro de las piezas vencidas evita que material desactualizado llegue al cliente. Se incorpora al repositorio de 16.3 y 16.4.","Buena práctica de evaluación de eventos y patrocinios (guías de medición de patrocinios): el objetivo y sus indicadores se fijan antes del evento, se miden durante y después, y el informe se entrega en las dos o tres semanas siguientes. Se incorpora a 16.8."]
-   },
+   "marco": {"estado": "borrador", "principios": ["Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve; Comercial es dueño de la venta y del margen.", "Cada proyecto tiene un solo aprobador de negocio, definido en el brief; Diseño y Marca aprueba la calidad. No hay doble aprobación por pieza.", "Toda solicitud de trabajo entra por el canal formal de Lark y con la información completa; lo que llega por otra vía se registra antes de atenderse. Las aprobaciones quedan por escrito; los grupos de mensajería coordinan, pero no aprueban.", "La comunicación de cada marca es reconocible y coherente en todos los países, canales y espacios: Cubitt bajo su manual de marca, Casio bajo los lineamientos de la marca. El país adapta formatos; no cambia el estándar.", "Lo que se comunica acompaña lo que se vende: el contenido, las campañas y las promociones se planifican con la información de ventas y de inventario de cada país.", "Los desacuerdos de prioridad suben con impacto y alternativas, y los decide la Dirección."], "politicas": ["Ninguna campaña pasa a producción sin un brief completo: objetivo, fecha real de salida, formatos, referencias y responsable de aprobación.", "El trabajo creativo de un producto nuevo inicia al menos ocho semanas antes de su lanzamiento, con la información mínima obligatoria del producto.", "La aprobación de las campañas y entregables principales se gestiona como mínimo 48 horas antes de su salida; un retraso en la aprobación mueve la fecha de entrega.", "Una promoción o un lanzamiento se pauta solo si su registro en el cuadro de pauta de Lark está completo. La pauta de marca —awareness y lanzamientos— la planifica Mercadeo y la de performance E-commerce y Growth; Finanzas consolida las dos para no contar doble.", "Las promociones regionales se informan a mercadeo y a visual merchandising entre los días 1 y 10 del mes anterior a su vigencia.", "Las acciones de Casio se ejecutan dentro del plan semestral aprobado por Casio Brasil, y su presupuesto se rinde factura por factura.", "Ningún gasto de visual merchandising se ejecuta sin la aprobación de su gerencia, y el reporte mensual de gastos es obligatorio y auditable.", "Todo concepto de espacio, layout, mobiliario y material POP sigue el estándar de Diseño y Marca (16.11) y lo monta visual merchandising (16.7); los proyectos de nuevos espacios requieren el GO final de la Junta Directiva.", "Toda solicitud de diseño entra por el formulario único de Diseño y Marca, con brief y aprobador de negocio; la capacidad se revisa cada mes y toda urgencia muestra qué compromiso desplaza.", "Ninguna pieza, empaque, web o espacio sale con una versión del manual de marca que no esté aprobada y publicada en la biblioteca de activos.", "Todo contrato con freelancers, modelos, productoras y agencias incluye la cesión de derechos de lo que producen para la marca, que se registra con su vencimiento."], "normativo": ["Normativa de protección al consumidor de cada país: precio visible y correcto en el punto de venta y presentación de las promociones ante la autoridad cuando corresponde (en Venezuela, la SUNDDE, con un plazo de quince días hábiles; en Panamá, la ACODECO; en México y Colombia, organismos con fiscalización intensa). Las dudas se consultan con el Gerente/Director(a) General País del país.", "En Panamá, la Ley 45 de 2007 (artículos 58 a 64) obliga a que toda oferta, promoción o descuento indique claramente sus condiciones y su duración o el número mínimo de unidades ofertadas, hace vinculante lo anunciado y considera engañoso atribuir al producto características o beneficios que no tiene; la ACODECO la aplica también a la publicidad en línea.", "Permisos municipales de publicidad para cajas de luz, avisos, pantallas y presencia de marca en activaciones y eventos no registrados.", "Uso de imagen de modelos, talentos y creadores de contenido, que se formaliza por escrito antes de publicar. El acuerdo de confidencialidad y propiedad intelectual del personal declara el material de mercadeo, los planes comerciales y los diseños como información y propiedad de la empresa; los acuerdos con proveedores creativos y creadores deben ceder los derechos de lo que producen para la marca.", "Autorización de los contactos para recibir correos de marketing y atención de las bajas. En Colombia, la Ley 1581 de 2012 exige autorización previa, expresa e informada, con la finalidad declarada, antes de tratar datos personales —también para enviar publicidad—, y la vigila la Superintendencia de Industria y Comercio.", "Afiliación del personal que trabaja fuera de la oficina en eventos a la cobertura de riesgos laborales (ARL, en Colombia).", "Publicidad con influenciadores: en Colombia, la Guía de buenas prácticas en la publicidad a través de influenciadores de la Superintendencia de Industria y Comercio (2020) pide al anunciante una política de transparencia, participar en la construcción del mensaje, exigir que se revele la relación comercial y, en videos y transmisiones en vivo, mantener la etiqueta de publicidad durante toda la pieza.", "Buena práctica de briefing (IPA y BetterBriefs, «The best way for a client to brief an agency»): un brief resuelve un solo problema, parte de un público, un posicionamiento y un objetivo medible, y declara desde el inicio el criterio con que se evaluará el trabajo; en la investigación que dio origen a la guía, los anunciantes estimaron en 26 % el presupuesto que se pierde por briefs deficientes. Se incorpora al brief de 16.2 y al formulario de 16.3.", "Buena práctica de planificación presupuestaria (Gartner, CMO Spend Survey 2025): los presupuestos de mercadeo se mantienen en torno al 7,7 % de los ingresos y los directores de mercadeo priorizan la productividad —medir con datos y reasignar lo que no rinde— antes que el aumento de la partida. Se incorpora a 16.1 como peso de la inversión sobre la venta fijado en el plan y revisión trimestral para reasignar.", "Buena práctica de divulgación en publicidad con creadores (FTC, Guías de Endorsements actualizadas en 2023): la relación comercial se revela de forma clara y difícil de pasar por alto —la etiqueta de la plataforma por sí sola no basta y, en video, se dice dentro del video—, y el anunciante debe instruir a sus creadores y vigilar que cumplan. Se incorpora a 16.6 en el acuerdo y en el seguimiento mensual.", "Buena práctica de atención en redes (Sprout Social Index 2025): el 73 % de los consumidores espera respuesta en 24 horas o menos y el tiempo promedio de las marcas ronda las cuatro a cinco horas frente a una expectativa inferior a una hora; el 73 % comprará a la competencia si la marca no responde. Sustenta el tiempo máximo de respuesta de 16.5.", "Buena práctica de comunicación de crisis en redes (CIPR, Crisis Communication and Social Media, 2024): un plan de crisis define qué es una crisis, quién responde, una matriz de escalamiento con tiempos, declaraciones de espera preaprobadas —reconocer, mostrar preocupación, informar lo que se hace y comprometer una actualización— y una revisión posterior. Se incorpora a 16.5 como protocolo de escalamiento.", "Buena práctica de auditoría de ejecución en punto de venta (guías sectoriales de retail execution): la visita se audita contra el planograma y el estándar con fotografía fechada, que convierte una opinión en un registro verificable, y se miden disponibilidad en exhibición, cumplimiento del planograma, exactitud del precio y material promocional vigente. Se incorpora a 16.7.", "Buena práctica de medición (IAB e IAB Europe, Guidelines for Incremental Measurement, 2025): la atribución de plataforma se contrasta con pruebas de incrementalidad con grupo de control y, cuando hay historia suficiente, con modelos de mezcla de medios; ninguno basta solo. Se incorpora a 16.8 como prueba periódica sobre el canal de mayor inversión.", "Buena práctica de gobierno de activos de marca (guías de gestión de activos digitales): una sola biblioteca con la versión aprobada vigente, historial de versiones y retiro de las piezas vencidas evita que material desactualizado llegue al cliente. Se incorpora al repositorio de 16.3 y 16.4.", "Buena práctica de evaluación de eventos y patrocinios (guías de medición de patrocinios): el objetivo y sus indicadores se fijan antes del evento, se miden durante y después, y el informe se entrega en las dos o tres semanas siguientes. Se incorpora a 16.8.", "Buena práctica de proceso de diseño (Design Council, Double Diamond y Framework for Innovation, 2019): el trabajo de diseño alterna dos fases de abrir y cerrar —descubrir y definir el problema, desarrollar y entregar la solución—, con las personas en el centro, colaboración, comunicación visual e iteración. Se incorpora a 16.11 y 16.12, que definen el problema con un brief y prueban antes de extender.", "Buena práctica sobre el valor del diseño (McKinsey, The Business Value of Design, 2018): las empresas que mejor rinden tratan el diseño como tema de la alta dirección medido con la misma disciplina que ingresos y costos, con equipos multifuncionales, iteración continua y foco en la experiencia completa, física y digital. Sustenta que la Dirección de Diseño y Marca reporte a la Presidencia y que el área tenga indicadores propios.", "Norma de diseño centrado en las personas (ISO 9241-210:2019): el diseño de sistemas interactivos parte del contexto de uso, especifica los requisitos de los usuarios, produce soluciones y las evalúa contra esos requisitos, en ciclos. Se incorpora a 16.12 como requisitos previos, prototipo y prueba con usuarios.", "Buena práctica de briefing creativo (ANA, Better Creative Briefs, 2017 y 2025): un brief excelente sigue siendo el principal factor de un trabajo creativo eficaz, y se debilita cuando intenta cubrir varios objetivos a la vez. Refuerza el brief de un solo objetivo de 16.2 y el formulario único de 16.3.", "Buena práctica de gestión estratégica de marca (Keller y Swaminathan, Strategic Brand Management): el valor de la marca se gestiona con auditorías de marca —inventario de lo que la empresa comunica y exploración de lo que el consumidor percibe— y estudios de seguimiento periódicos con las mismas preguntas. Se incorpora a la auditoría semestral de 16.9 y a la medición de salud de marca de 16.8.", "Buena práctica de operación de equipos de diseño (DesignOps, Nielsen Norman Group): orquestar personas, procesos y oficio para escalar el valor del diseño —ingreso único de solicitudes, priorización, planificación de capacidad, gobierno del sistema de diseño, revisión y entrega—. Se incorpora a 16.3 y a la revisión mensual de capacidad.", "Buena práctica de gestión de activos digitales: una biblioteca única con la versión aprobada vigente, historial de versiones, metadatos de campaña y mercado, y derechos de uso con fecha de vencimiento y aviso previo, que retira el material vencido. Se incorpora a 16.9 y 16.10.", "Buena práctica de diseño de espacios comerciales (guías de diseño y despliegue de tiendas): el concepto se prueba en un piloto antes de extenderlo, se documenta como estándar que puedan seguir los equipos de montaje y contratistas, y se audita con fotografía contra el estándar. Se incorpora a 16.11.", "Madurez del uso del diseño (Danish Design Centre, Design Ladder): las empresas avanzan de no usar diseño, a usarlo como estética, como proceso y como estrategia. El modelo To-Be lleva a Kenex del diseño como estética de piezas sueltas al diseño como proceso y estrategia, con una dirección propia."]},
    "agenda": {
     "estado": "borrador",
-    "nota": "Ninguno de los ocho procesos es nuevo: dos ya operan como están documentados (16.3 y 16.5) y seis son híbridos. La agenda se concentra en formalizar los híbridos y en cerrar las brechas de los vigentes, más cinco brechas transversales que no pertenecen a un solo proceso; dos de ellas —lo que se afirma del producto y el gobierno de mercadeo en Colombia— salen de la documentación de otras áreas, no de las entrevistas de mercadeo.",
-    "por_implementar": [],
+    "nota": "La revisión de la estructura del 06-nov-2026 suma cuatro procesos nuevos de la Dirección de Diseño y Marca (16.9 a 16.12) y reasigna los ocho existentes a la estructura nueva: el tráfico creativo pasa a Diseño y Marca, la medición tiene dueño propio en Insights y ROI, el contenido y los influencers en Social y Contenido, y visual merchandising queda como servicio a los canales. La agenda se concentra en implementar los procesos nuevos, formalizar los híbridos y cerrar las brechas de los vigentes, más las brechas transversales que no pertenecen a un solo proceso.",
+    "por_implementar": [
+     [
+      "16.9 Gestión de la identidad y del sistema de marca",
+      "Cubitt no tiene un manual de marca ni un sistema de diseño vigentes y publicados; la comunicación es inconsistente entre países y canales.",
+      "Renovar la marca y su manual como primera fase de la dirección, abrir la biblioteca de activos y hacer la primera auditoría de coherencia."
+     ],
+     [
+      "16.10 Producción central de contenido visual",
+      "La producción de foto, video y 3D se decide campaña por campaña, sin plan ni biblioteca común.",
+      "Plan trimestral de producción, contratos con cesión de derechos y archivo en la biblioteca de activos."
+     ],
+     [
+      "16.11 Diseño de espacios comerciales y estándares de exhibición",
+      "El estándar de espacios y de POP vive en manuales de visual merchandising y en el arquitecto de cada apertura.",
+      "Traspasar los manuales de producción a Diseño y Marca, contratar la agencia de interiores por brief y publicar el estándar por canal."
+     ],
+     [
+      "16.12 Diseño de producto digital",
+      "El diseño de las webs y de la app no tiene dueño y los cambios se piden directamente al desarrollador.",
+      "Sistema de diseño digital, prueba con usuarios en los flujos de compra y verificación de la implementación."
+     ]
+    ],
     "por_formalizar": [
-     ["16.1 Planificación del plan anual de mercadeo y del presupuesto","Cubitt se planifica sin objetivos ni indicadores anuales por marca y país, y parte de la inversión se aprueba fuera del presupuesto asignado.","Definir con la Junta Directiva los objetivos anuales junto con el presupuesto y registrar toda inversión adicional contra la misma partida."],
-     ["16.2 Desarrollo y ejecución de campañas","Las campañas de Cubitt no tienen un aprobador único y reciben opiniones cruzadas de la dirección y de otras áreas; los plazos del manual creativo no se respetan en la práctica.","Publicar la matriz de aprobación por tipo de campaña con ventanas de respuesta, y aplicar el brief obligatorio, las ocho semanas y la regla de 48 horas."],
-     ["16.4 Adaptación local y despliegue por país","El paquete regional llega con poco margen para adaptar y tramitar permisos, y el material producido en cada país no se comparte.","Fijar en el calendario regional una anticipación mínima por tipo de campaña, tramitar los permisos en paralelo y usar un repositorio común en ambos sentidos."],
-     ["16.6 Gestión de influencers, embajadores y alianzas de marca","Acuerdos sin revisión legal en varios países, resultado de cada relación sin medir y sin previsión de terminación anticipada.","Plantilla de acuerdo revisada por legal con cláusula de terminación y registro del resultado de cada relación en la base de influencers."],
-     ["16.7 Visual merchandising y ejecución de la imagen en punto de venta","Equipos pequeños frente a redes de tiendas y clientes en crecimiento, y decisiones de exhibición que se toman fuera del departamento.","Dimensionar los equipos por puntos de venta y categoría de cliente y comunicar a comercial y retail los límites de decisión del área."],
-     ["16.8 Reportería de mercadeo y medición del desempeño de marca","El reporte a la dirección es reciente, se arma a mano y no cruza de forma sistemática la inversión con la venta de tienda, eventos e influencers.","Extender el tablero de pauta a todo el mercadeo, con entrega mensual de ventas por parte de inteligencia de negocio."]
+     [
+      "16.1 Planificación del plan anual de mercadeo y del presupuesto",
+      "Cubitt se planifica sin objetivos ni indicadores anuales por marca y país, y parte de la inversión se aprueba fuera del presupuesto asignado.",
+      "Definir con la Junta Directiva los objetivos anuales junto con el presupuesto y registrar toda inversión adicional contra la misma partida."
+     ],
+     [
+      "16.2 Desarrollo y ejecución de campañas",
+      "Las campañas de Cubitt no tienen un aprobador único y reciben opiniones cruzadas de la dirección y de otras áreas; los plazos del manual creativo no se respetan en la práctica.",
+      "Publicar la matriz de aprobación por tipo de campaña con ventanas de respuesta, y aplicar el brief obligatorio, las ocho semanas y la regla de 48 horas."
+     ],
+     [
+      "16.4 Adaptación local y despliegue por país",
+      "El paquete regional llega con poco margen para adaptar y tramitar permisos, y el material producido en cada país no se comparte.",
+      "Fijar en el calendario regional una anticipación mínima por tipo de campaña, tramitar los permisos en paralelo y usar un repositorio común en ambos sentidos."
+     ],
+     [
+      "16.6 Gestión de influencers, embajadores y alianzas de marca",
+      "Acuerdos sin revisión legal en varios países, resultado de cada relación sin medir y sin previsión de terminación anticipada.",
+      "Plantilla de acuerdo revisada por legal con cláusula de terminación y registro del resultado de cada relación en la base de influencers."
+     ],
+     [
+      "16.7 Visual merchandising y ejecución de la imagen en punto de venta",
+      "Equipos pequeños frente a redes de tiendas y clientes en crecimiento, y decisiones de exhibición que se toman fuera del departamento.",
+      "Dimensionar los equipos por puntos de venta y categoría de cliente y comunicar a comercial y retail los límites de decisión del área."
+     ],
+     [
+      "16.8 Reportería de mercadeo y medición del desempeño de marca",
+      "El reporte a la dirección es reciente, se arma a mano y no cruza de forma sistemática la inversión con la venta de tienda, eventos e influencers.",
+      "Extender el tablero de pauta a todo el mercadeo, con entrega mensual de ventas por parte de inteligencia de negocio."
+     ]
     ],
     "brechas": [
-     ["16.3 Gestión de solicitudes y tráfico creativo","Solicitudes y cambios que llegan por canales informales y sin tiempos mínimos por tipo de pieza.","Atender solo lo registrado en Lark y publicar tiempos mínimos de solicitud por tipo de pieza."],
-     ["16.5 Gestión de contenido, redes sociales y comunidad","La atención de mensajes directos compite con la gestión de contenido y las respuestas se demoran en temporada alta.","Separar el rol de atención de la comunidad, fijar un tiempo máximo de respuesta y seguir los casos derivados hasta su cierre."],
-     ["Transversal · alcance del área","Mercadeo asume tareas de otras áreas: pago a proveedores, contratos, permisos, eventos internos y comunicaciones al personal.","Documentar el alcance del área y trasladar esas tareas a sus dueños (macroprocesos 13, 17 y 18)."],
-     ["Transversal · mercancía para marketing","No hay un proceso ni una reserva de mercancía para eventos, influencers y lanzamientos, y los pedidos urgentes interrumpen la bodega.","Solicitud y reserva de mercancía para marketing con salida desde la bodega de marketing en el ERP (macroproceso 7)."],
-     ["Transversal · información de lanzamientos","Las fechas de llegada y la disponibilidad de los productos nuevos no se comunican de forma centralizada a mercadeo; en Cubitt el aviso de llegada suele llegar tarde.","Aviso automático de llegada de producto y calendario de lanzamientos compartido con PMO y compras (macroprocesos 3, 4 y 6)."],
-     ["Transversal · lo que se afirma del producto","Postventa advierte que los relojes Cubitt no miden la presión arterial de forma certificada y que la variabilidad cardíaca sirve para tendencias, no para diagnóstico; no hay una fuente única de atributos aprobados para las piezas.","Usar la ficha técnica y las guías de soporte como fuente única de atributos y revisar toda afirmación de salud o desempeño antes de publicarla (macroprocesos 3 y 11)."],
-     ["Transversal · gobierno de mercadeo en Colombia","Doble línea de reporte —funcional a la regional y geográfica al Gerente/Director(a) General País— sin reglas escritas, y visual merchandising sin cobertura fuera de Bogotá.","Matriz RACI por decisión de mercadeo entre regional y país, y modelo de cobertura de visual para las cadenas de otras ciudades (macroproceso 1)."]
+     [
+      "16.3 Gestión de solicitudes y tráfico creativo",
+      "El tráfico creativo lo ordena hoy el coordinador de marca de cada país, con solicitudes por canales informales y sin tiempos mínimos por tipo de pieza.",
+      "Formulario único de Diseño y Marca, tiempos mínimos por tipo de pieza y revisión mensual de capacidad."
+     ],
+     [
+      "16.5 Gestión de contenido, redes sociales y comunidad",
+      "La atención de mensajes directos compite con la gestión de contenido y las respuestas se demoran en temporada alta.",
+      "Separar el rol de atención de la comunidad, fijar un tiempo máximo de respuesta y seguir los casos derivados hasta su cierre."
+     ],
+     [
+      "Transversal · alcance del área",
+      "Mercadeo asume tareas de otras áreas: pago a proveedores, contratos, permisos, eventos internos y comunicaciones al personal.",
+      "Documentar el alcance del área y trasladar esas tareas a sus dueños (macroprocesos 13, 17 y 18)."
+     ],
+     [
+      "Transversal · mercancía para marketing",
+      "No hay un proceso ni una reserva de mercancía para eventos, influencers y lanzamientos, y los pedidos urgentes interrumpen la bodega.",
+      "Solicitud y reserva de mercancía para marketing con salida desde la bodega de marketing en el ERP (macroproceso 7)."
+     ],
+     [
+      "Transversal · información de lanzamientos",
+      "Las fechas de llegada y la disponibilidad de los productos nuevos no se comunican de forma centralizada a mercadeo; en Cubitt el aviso de llegada suele llegar tarde.",
+      "Aviso automático de llegada de producto y calendario de lanzamientos compartido con PMO y compras (macroprocesos 3, 4 y 6)."
+     ],
+     [
+      "Transversal · lo que se afirma del producto",
+      "Postventa advierte que los relojes Cubitt no miden la presión arterial de forma certificada y que la variabilidad cardíaca sirve para tendencias, no para diagnóstico; no hay una fuente única de atributos aprobados para las piezas.",
+      "Usar la ficha técnica y las guías de soporte como fuente única de atributos y revisar toda afirmación de salud o desempeño antes de publicarla (macroprocesos 3 y 11)."
+     ],
+     [
+      "Transversal · gobierno de mercadeo en Colombia",
+      "Doble línea de reporte —funcional a la regional y geográfica al Gerente/Director(a) General País— sin reglas escritas, y visual merchandising sin cobertura fuera de Bogotá.",
+      "Matriz RACI por decisión de mercadeo entre regional y país, y modelo de cobertura de visual para las cadenas de otras ciudades (macroproceso 1)."
+     ],
+     [
+      "Transversal · activaciones y eventos",
+      "Las activaciones y los eventos no tienen un proceso propio: solo aparecen dentro del plan anual (16.1), del reporte (16.8) y del 8.13; la coordinación de Trade y Activaciones de cada país no tiene un flujo que seguir.",
+      "Decidir si se documenta un proceso de eventos y activaciones de marca (está en las decisiones pendientes de la estructura)."
+     ],
+     [
+      "Transversal · comunicación interna",
+      "El macroproceso nombra la comunicación interna y mercadeo la apoya (17.9), pero ninguna unidad de la estructura To-Be la tiene a cargo.",
+      "Decidir si la lleva Social y Contenido o Recursos Humanos (está en las decisiones pendientes de la estructura)."
+     ],
+     [
+      "Transversal · compra de mobiliario y material POP",
+      "Visual merchandising cotiza y compra hoy su material, mientras la política de compra del To-Be asigna esa compra a Compras Internas · Procura de cada país.",
+      "Definir quién cotiza y quién compra (está en las decisiones pendientes de la estructura)."
+     ]
     ]
    },
    "anexos": {
     "estado": "borrador",
     "glosario": [
-     ["Brief","Documento breve con objetivo, público, oferta, formatos, fecha de salida, referencias y responsable de aprobación con el que se solicita una campaña o una pieza."],
-     ["Territorio visual","Ruta creativa que propone luz, color, composición y tono para una campaña; se presentan tres antes de definir el concepto."],
-     ["Bajada táctica","Traducción del concepto de una campaña en las piezas que necesita cada canal."],
-     ["Key visual","Pieza principal de una campaña a partir de la cual se adaptan todas las demás."],
-     ["Always-on","Campaña de pauta que corre de forma continua con la información de la web, sin pasar por el cuadro de promociones."],
-     ["ROAS","Retorno de la inversión en pauta: venta web ÷ inversión."],
-     ["CAC","Costo de adquirir un cliente nuevo: inversión ÷ clientes nuevos."],
-     ["CR","Tasa de conversión de la web: pedidos ÷ sesiones."],
-     ["AOV","Ticket promedio por pedido: venta web ÷ pedidos."],
-     ["% Forecast","Cumplimiento de la meta de venta: venta ÷ forecast del período."],
-     ["UGC","Contenido generado por clientes o creadores que la marca reutiliza en sus canales."],
-     ["Media kit","Documento con audiencia, alcance y tarifas de un creador de contenido."],
-     ["Grilla","Calendario mensual de publicaciones de una cuenta de redes sociales."],
-     ["Material POP","Material de punto de venta: habladores, cenefas, vinilos, displays, señalética de precio y piezas de temporada."],
-     ["Planograma","Esquema de cómo se ordena el producto en un exhibidor o una vitrina."],
-     ["Shop-in-shop","Espacio de la marca dentro de la tienda de un cliente."],
-     ["Resumen consolidado","Correo diario por país con las solicitudes que requieren decisión de la gerencia regional de visual merchandising."],
-     ["Plan semestral de Casio","Plan de acciones y presupuesto de Casio por país y semestre, aprobado por Casio Brasil."]
+     [
+      "Brief",
+      "Documento breve con objetivo, público, oferta, formatos, fecha de salida, referencias y responsable de aprobación con el que se solicita una campaña o una pieza."
+     ],
+     [
+      "Territorio visual",
+      "Ruta creativa que propone luz, color, composición y tono para una campaña; se presentan tres antes de definir el concepto."
+     ],
+     ["Bajada táctica", "Traducción del concepto de una campaña en las piezas que necesita cada canal."],
+     ["Key visual", "Pieza principal de una campaña a partir de la cual se adaptan todas las demás."],
+     [
+      "Always-on",
+      "Campaña de pauta que corre de forma continua con la información de la web, sin pasar por el cuadro de promociones."
+     ],
+     ["ROAS", "Retorno de la inversión en pauta: venta web ÷ inversión."],
+     ["CAC", "Costo de adquirir un cliente nuevo: inversión ÷ clientes nuevos."],
+     ["CR", "Tasa de conversión de la web: pedidos ÷ sesiones."],
+     ["AOV", "Ticket promedio por pedido: venta web ÷ pedidos."],
+     ["% Forecast", "Cumplimiento de la meta de venta: venta ÷ forecast del período."],
+     ["UGC", "Contenido generado por clientes o creadores que la marca reutiliza en sus canales."],
+     ["Media kit", "Documento con audiencia, alcance y tarifas de un creador de contenido."],
+     ["Grilla", "Calendario mensual de publicaciones de una cuenta de redes sociales."],
+     [
+      "Material POP",
+      "Material de punto de venta: habladores, cenefas, vinilos, displays, señalética de precio y piezas de temporada."
+     ],
+     ["Planograma", "Esquema de cómo se ordena el producto en un exhibidor o una vitrina."],
+     ["Shop-in-shop", "Espacio de la marca dentro de la tienda de un cliente."],
+     [
+      "Resumen consolidado",
+      "Correo diario por país con las solicitudes que requieren decisión de la gerencia regional de visual merchandising."
+     ],
+     [
+      "Plan semestral de Casio",
+      "Plan de acciones y presupuesto de Casio por país y semestre, aprobado por Casio Brasil."
+     ],
+     [
+      "Manual de marca",
+      "Documento aprobado por la Dirección de Diseño y Marca con logotipo, color, tipografía, fotografía, tono y usos correctos e incorrectos de una marca."
+     ],
+     [
+      "Sistema de diseño",
+      "Conjunto de componentes, estilos y reglas documentados con que se construyen las webs, los correos y la app."
+     ],
+     [
+      "Biblioteca de activos",
+      "Repositorio único de piezas, plantillas y manuales con su versión vigente, derechos de uso y vencimiento."
+     ],
+     [
+      "Aprobador de negocio",
+      "La única persona que, según el brief, aprueba que una pieza o un proyecto cumple su objetivo; distinta de la aprobación de calidad de Diseño y Marca."
+     ],
+     [
+      "Brief de producción",
+      "Encargo de una sesión de foto, video, 3D o animación con usos, canales, formatos, fechas y presupuesto."
+     ],
+     [
+      "Concepto de tienda",
+      "Diseño del espacio de la marca —layout, mobiliario, materiales, iluminación y señalética— que se replica como estándar."
+     ],
+     [
+      "Guía de exhibición",
+      "Instrucción de cómo se monta una campaña o una línea en el punto de venta, por canal."
+     ],
+     [
+      "Prueba con usuarios",
+      "Sesión en la que personas reales intentan completar tareas en un prototipo, para evaluar el diseño contra sus requisitos."
+     ],
+     ["CMF", "Colores, materiales y acabados de un producto físico."],
+     [
+      "Retorno incremental",
+      "Venta que una campaña produjo y que no habría ocurrido sin ella, medida con grupo de control."
+     ]
     ],
     "raci": [
-     ["16.1 Planificación del plan anual de mercadeo y del presupuesto","Gerente Regional de Marketing","Junta Directiva (Cubitt) · Casio Brasil (Casio)","Gerente de Marketing (país) · Gerente Regional Comercial / Retail · Gerente de Proyectos (PMO) · Gerente de Marketing (Paid Media)","Gerente de Marketing (Casio Regional) · Gerente de Marketing (Cuentas Clave)"],
-     ["16.2 Desarrollo y ejecución de campañas","Gerente de Marketing (Dirección Creativa) · Coordinador(a) de Marca","Gerente Regional de Marketing · Junta Directiva (lanzamientos y alto alcance) · Casio Brasil (Casio)","Gerente de Marketing (Paid Media) · Gerente Regional de Visual Merchandising · Director(a) Comercial Mayorista (Cubitt)","Gerente Regional Comercial / Retail · gerencias de país"],
-     ["16.3 Gestión de solicitudes y tráfico creativo","Coordinador(a) de Marca · Diseñador(a) / Analista de Contenido","Gerente de Marketing (Dirección de Arte)","Área solicitante","Gerente de Marketing (país)"],
-     ["16.4 Adaptación local y despliegue por país de la comunicación regional","Coordinador(a) de Marca","Gerente de Marketing (país)","Gerente Regional de Marketing · Gerente de E-commerce / Ventas Web · Coordinador(a) de Visual Merchandising","Gerente Regional Comercial / Retail"],
-     ["16.5 Gestión de contenido, redes sociales y comunidad","Especialista de Marketing / Brand (Social Media) · Diseñador(a) / Analista de Contenido","Gerente de Marketing (país)","Coordinador(a) de Soporte / Servicio al Cliente · Gerente de E-commerce / Ventas Web","Gerente Regional de Marketing"],
-     ["16.6 Gestión de influencers, embajadores y alianzas de marca","Diseñador(a) / Analista de Contenido (Influencer Marketing) · Gerente de Marketing (Cuentas Clave) en alianzas","Gerente de Marketing (país) · Junta Directiva (embajadores)","Especialista de Marketing / Brand (Social Media) · Director(a) Comercial Mayorista (Cubitt) · Gestión Legal","Gerente Regional de Marketing"],
-     ["16.7 Visual merchandising y ejecución de la imagen en punto de venta","Coordinador(a) de Visual Merchandising · Ejecutivo(a) de Visual Merchandising","Gerente Regional de Visual Merchandising · Junta Directiva (nuevos espacios)","Gerente Regional Comercial / Retail · Analista/Ejecutivo(a) Comercial · Gerente/Director(a) General País","Gerente Regional de Marketing"],
-     ["16.8 Reportería de mercadeo y medición del desempeño de marca","Gerente de Marketing (Paid Media) · Gerente de Marketing (país)","Gerente Regional de Marketing","Analista de Sistemas / Datos · Gerente de Marketing (Casio Regional)","Junta Directiva · Casio Brasil"]
+     [
+      "16.1 Planificación del plan anual de mercadeo y del presupuesto",
+      "Gerente Corporativo(a) de Mercadeo",
+      "Junta Directiva (Cubitt) · Casio Brasil (Casio)",
+      "Gerente de Mercadeo (país) · Director(a) de Diseño y Marca · Gerente de E-commerce y Growth · Gerente Regional Comercial / Retail · Gerente de Proyectos (PMO)",
+      "Brand Manager de Casio · Brand Manager de Cubitt"
+     ],
+     [
+      "16.2 Desarrollo y ejecución de campañas",
+      "Brand Manager (Cubitt o Casio) · Director(a) Creativo(a) · Gerencia de Marca · Diseñador(a) (Diseño y Marca)",
+      "Gerente Corporativo(a) de Mercadeo (negocio) · Director(a) de Diseño y Marca (calidad) · Junta Directiva (alto alcance) · Casio Brasil (Casio)",
+      "Trafficker de campañas (Mercadeo) · Gerente de Visual Merchandising · Gerente de E-commerce y Growth · Gerente de Cuentas Clave y Trade",
+      "Gerente Regional Comercial / Retail · gerencias de país"
+     ],
+     [
+      "16.3 Gestión de solicitudes y tráfico creativo",
+      "Coordinador(a) de Arte y Diseño · Diseñador(a) (Diseño y Marca)",
+      "Director(a) de Diseño y Marca",
+      "Área solicitante",
+      "Gerente de Mercadeo (país)"
+     ],
+     [
+      "16.4 Adaptación local y despliegue por país de la comunicación regional",
+      "Coordinador(a) de Marca (país) · Diseñador(a) creativo(a) local (Mercadeo país)",
+      "Gerente de Mercadeo (país)",
+      "Gerente Corporativo(a) de Mercadeo · Gerente de E-commerce (país) · Coordinador(a) de Visual Merchandising (país)",
+      "Gerente Regional Comercial / Retail"
+     ],
+     [
+      "16.5 Gestión de contenido, redes sociales y comunidad",
+      "Coordinador(a) de Social y Contenido (país) · Creador(a) de contenido (Social y Contenido) · Analista de Social y Contenido (comunidad)",
+      "Gerente de Mercadeo (país)",
+      "Coordinador(a) de Soporte / Servicio al Cliente · Gerente de E-commerce (país) · Diseñador(a) (Diseño y Marca)",
+      "Gerente de Social y Contenido"
+     ],
+     [
+      "16.6 Gestión de influencers, embajadores y alianzas de marca",
+      "Analista de Influencers (Social y Contenido) · Gerente de Cuentas Clave y Trade en alianzas",
+      "Gerente de Mercadeo (país) · Junta Directiva (embajadores)",
+      "Coordinador(a) de Social y Contenido (país) · Director(a) Comercial Mayorista (Cubitt) · Gestión Legal",
+      "Gerente Corporativo(a) de Mercadeo"
+     ],
+     [
+      "16.7 Visual merchandising y ejecución de la imagen en punto de venta",
+      "Coordinador(a) de Visual Merchandising (país) · Ejecutivo(a) de Visual Merchandising",
+      "Gerente de Visual Merchandising",
+      "Gerente de Producción (Diseño y Marca) · Gerente Regional Comercial / Retail · Analista/Ejecutivo(a) Comercial · Compras Internas · Procura",
+      "Gerente Corporativo(a) de Mercadeo"
+     ],
+     [
+      "16.8 Reportería de mercadeo y medición del desempeño de marca",
+      "Analista de Insights y ROI · Gerente de Mercadeo (país)",
+      "Gerente Corporativo(a) de Mercadeo",
+      "Analista de Sistemas / Datos · Brand Manager de Casio · Gerente de E-commerce y Growth",
+      "Junta Directiva · Casio Brasil"
+     ],
+     [
+      "16.9 Gestión de la identidad y del sistema de marca",
+      "Director(a) Creativo(a) · Gerencia de Marca · Coordinador(a) de Arte y Diseño",
+      "Director(a) de Diseño y Marca · Presidencia (posicionamiento)",
+      "Gerente Corporativo(a) de Mercadeo · Gerente de Diseño de Producto Digital · Gerente de Visual Merchandising",
+      "Equipos, proveedores, franquiciados y socios"
+     ],
+     [
+      "16.10 Producción central de contenido visual",
+      "Gerente de Producción (Diseño y Marca) · Coordinador(a) de Arte y Diseño · freelancers",
+      "Director(a) de Diseño y Marca (plan) · Director(a) Creativo(a) · Gerencia de Marca (calidad)",
+      "Gerente de Campañas (Diseño y Marca) · Logística",
+      "Áreas solicitantes"
+     ],
+     [
+      "16.11 Diseño de espacios comerciales y estándares de exhibición",
+      "Gerente de Producción (Diseño y Marca) · agencia de interiores",
+      "Director(a) de Diseño y Marca · Junta Directiva (GO de nuevos espacios)",
+      "Gerente de Visual Merchandising · Retail · Cuentas Clave y Trade",
+      "PMO"
+     ],
+     [
+      "16.12 Diseño de producto digital",
+      "Gerente de Diseño de Producto Digital · Diseñador(a) digital (freelance)",
+      "Director(a) de Diseño y Marca (calidad) · área solicitante (negocio)",
+      "Especialista de Tecnología (Web/Infraestructura) · Innovación y Desarrollo de Productos",
+      "Gerente de E-commerce y Growth"
+     ]
     ],
     "catalogo_sistemas": [
-     ["Lark","Solicitudes, tráfico, calendarios, presupuesto, cuadro de pauta, influencers, reportes, aprobaciones y bases de visual merchandising","16.1 a 16.8","Gerente Regional de Marketing · Gerente Regional de Visual Merchandising"],
-     ["Google Ads · Merchant Center · Analytics","Pauta de búsqueda y Performance Max, catálogo y medición web","16.2 · 16.8","Gerente de Marketing (Paid Media)"],
-     ["Meta Business Suite · Ads Manager","Pauta en Facebook, Instagram y WhatsApp","16.2 · 16.8","Gerente de Marketing (Paid Media)"],
-     ["AdRoll · TikTok Ads","Pauta complementaria","16.2 · 16.8","Gerente de Marketing (Paid Media)"],
-     ["ActiveCampaign","Email marketing por país y marca","16.2 · 16.8","Gerente de Marketing (Paid Media)"],
-     ["Instagram · TikTok · Facebook · YouTube · Strava","Contenido y comunidad","16.5 · 16.6","Especialista de Marketing / Brand (Social Media)"],
-     ["Metricool","Análisis de redes y quejas recurrentes","16.5 · 16.8","Especialista de Marketing / Brand (Social Media)"],
-     ["Tablero de inversión y resultados","Vista integrada de pauta, e-commerce, redes y email; herramienta y alojamiento no documentados","16.8","Gerente de Marketing (Paid Media)"],
-     ["Odoo","Ventas, inventario y pedidos de mercancía para marketing","16.1 · 16.6 · 16.7 · 16.8","Gerente de Tecnología / Sistemas (macroproceso 14)"],
-     ["Dropbox · Google Drive","Repositorio de piezas y material de campaña","16.2 · 16.3 · 16.4","Gerente de Marketing (Dirección de Arte)"]
+     [
+      "Lark",
+      "Solicitudes, tráfico, calendarios, presupuesto, cuadro de pauta, influencers, reportes, aprobaciones y bases de visual merchandising",
+      "16.1 a 16.8",
+      "Gerente Corporativo(a) de Mercadeo · Gerente de Visual Merchandising"
+     ],
+     [
+      "Google Ads · Merchant Center · Analytics",
+      "Pauta de búsqueda y Performance Max, catálogo y medición web",
+      "16.2 · 16.8",
+      "Analista de Insights y ROI · Gerente de E-commerce y Growth"
+     ],
+     [
+      "Meta Business Suite · Ads Manager",
+      "Pauta en Facebook, Instagram y WhatsApp",
+      "16.2 · 16.8",
+      "Analista de Insights y ROI · Gerente de E-commerce y Growth"
+     ],
+     [
+      "AdRoll · TikTok Ads",
+      "Pauta complementaria",
+      "16.2 · 16.8",
+      "Analista de Insights y ROI · Gerente de E-commerce y Growth"
+     ],
+     [
+      "ActiveCampaign",
+      "Email marketing por país y marca",
+      "16.2 · 16.8",
+      "Analista de Insights y ROI · Gerente de E-commerce y Growth"
+     ],
+     [
+      "Instagram · TikTok · Facebook · YouTube · Strava",
+      "Contenido y comunidad",
+      "16.5 · 16.6",
+      "Gerente de Social y Contenido"
+     ],
+     ["Metricool", "Análisis de redes y quejas recurrentes", "16.5 · 16.8", "Gerente de Social y Contenido"],
+     [
+      "Tablero de inversión y resultados",
+      "Vista integrada de pauta, e-commerce, redes y email; herramienta y alojamiento no documentados",
+      "16.8",
+      "Analista de Insights y ROI · Gerente de E-commerce y Growth"
+     ],
+     [
+      "Odoo",
+      "Ventas, inventario y pedidos de mercancía para marketing",
+      "16.1 · 16.6 · 16.7 · 16.8",
+      "Gerente de Tecnología / Sistemas (macroproceso 14)"
+     ],
+     [
+      "Dropbox · Google Drive",
+      "Repositorio de piezas y material de campaña",
+      "16.2 · 16.3 · 16.4",
+      "Coordinador(a) de Arte y Diseño"
+     ],
+     [
+      "Biblioteca de activos de marca",
+      "Versión vigente, derechos y vencimiento de piezas, plantillas y manuales",
+      "16.2 · 16.3 · 16.4 · 16.9 · 16.10 · 16.11",
+      "Coordinador(a) de Arte y Diseño"
+     ],
+     [
+      "Herramienta de diseño y prototipado",
+      "Sistema de diseño digital, prototipos y especificaciones",
+      "16.12",
+      "Gerente de Diseño de Producto Digital"
+     ]
     ],
     "interfaces_detalle": [
-     ["1 · Dirección y Gobierno Corporativo","Aprobación del plan anual, de campañas de alto alcance y de nuevos espacios; reunión mensual de reporte","Presupuesto, objetivos, aprobaciones escritas y reporte mensual"],
-     ["2 · Planeación Comercial","Listado de promociones entre los días 1 y 10 del mes anterior","Promociones con productos, vigencia y condiciones"],
-     ["3 · R&D y Desarrollo de Producto (Cubitt)","Ocho semanas antes del lanzamiento; aprobación del lanzamiento por la Junta Directiva tras las pruebas previas","Nombre, ficha técnica, fotografías, fecha y disponibilidad por país, argumentos de venta y límites de lo que puede afirmarse del producto"],
-     ["4 · Gobierno de Portafolio (PMO)","Formulario de solicitud de proyecto en Lark, firmado por la gerencia del área","Objetivo, alcance, entregables, fechas, recursos, presupuesto, riesgos y prioridad de la iniciativa"],
-     ["7 · Logística y Operaciones","Solicitud de mercancía para marketing como traslado documentado, y despacho de material","Producto para eventos e influencers con su documento de salida, material POP y mobiliario"],
-     ["8 · Ventas Mayor","Formulario de solicitud de visita, arte o mobiliario del vendedor; plan de marketing por cliente","Necesidad del cliente, historial de compras, piezas para las redes del cliente"],
-     ["9 · Ventas Retail","Reunión de acciones comerciales y aviso de promociones","Productos de baja rotación que requieren refuerzo de exhibición; precio promocional cargado en Odoo antes de imprimir las etiquetas de tienda"],
-     ["10 · Ventas Web (E-Commerce)","Solicitud de web y cuadro de pauta","Activación de promociones y productos, pauta y email por país; promociones vigentes comunicadas a los asesores de venta en línea"],
-     ["11 · Postventa y Experiencia de Cliente","Derivación desde la atención de redes; aviso de falla de una referencia","Consulta del cliente con sus datos, número de orden y canal de origen; respuestas oficiales de la marca y guías de soporte por producto; producto afectado cuya comunicación debe pausarse"],
-     ["13 · Administración y Finanzas","Solicitud de pago en Lark —en Panamá, hasta USD 1.000 la aprueba la gerencia del área y por encima también la dirección comercial o de finanzas—, alta de proveedor y cierre mensual de gastos","Cotización, factura, comprobante y soportes; nota de crédito cuando el apoyo a un cliente se carga al gasto de mercadeo o de visual; lo vendido en un evento para su facturación posterior"],
-     ["17 · Gestión del Talento Humano","Comunicaciones internas por Lark","Piezas de comunicación interna y de marca empleadora que talento humano solicita a mercadeo"],
-     ["18 · Gestión Legal y Cumplimiento","Antes de firmar un acuerdo o publicar una promoción","Acuerdos con creadores y medios con cesión de derechos y obligación de identificar la publicidad, permisos y presentación de promociones"]
+     [
+      "1 · Dirección y Gobierno Corporativo",
+      "Aprobación del plan anual, de campañas de alto alcance y de nuevos espacios; reunión mensual de reporte",
+      "Presupuesto, objetivos, aprobaciones escritas y reporte mensual"
+     ],
+     [
+      "2 · Planeación Comercial",
+      "Listado de promociones entre los días 1 y 10 del mes anterior",
+      "Promociones con productos, vigencia y condiciones"
+     ],
+     [
+      "3 · R&D y Desarrollo de Producto (Cubitt)",
+      "Ocho semanas antes del lanzamiento; aprobación del lanzamiento por la Junta Directiva tras las pruebas previas",
+      "Nombre, ficha técnica, fotografías, fecha y disponibilidad por país, argumentos de venta y límites de lo que puede afirmarse del producto"
+     ],
+     [
+      "4 · Gobierno de Portafolio (PMO)",
+      "Formulario de solicitud de proyecto en Lark, firmado por la gerencia del área",
+      "Objetivo, alcance, entregables, fechas, recursos, presupuesto, riesgos y prioridad de la iniciativa"
+     ],
+     [
+      "7 · Logística y Operaciones",
+      "Solicitud de mercancía para marketing como traslado documentado, y despacho de material",
+      "Producto para eventos e influencers con su documento de salida, material POP y mobiliario"
+     ],
+     [
+      "8 · Ventas Mayor",
+      "Formulario de solicitud de visita, arte o mobiliario del vendedor; plan de marketing por cliente",
+      "Necesidad del cliente, historial de compras, piezas para las redes del cliente"
+     ],
+     [
+      "9 · Ventas Retail",
+      "Reunión de acciones comerciales y aviso de promociones",
+      "Productos de baja rotación que requieren refuerzo de exhibición; precio promocional cargado en Odoo antes de imprimir las etiquetas de tienda"
+     ],
+     [
+      "10 · Ventas Web (E-Commerce)",
+      "Solicitud de web y cuadro de pauta",
+      "Activación de promociones y productos, pauta y email por país; promociones vigentes comunicadas a los asesores de venta en línea"
+     ],
+     [
+      "11 · Postventa y Experiencia de Cliente",
+      "Derivación desde la atención de redes; aviso de falla de una referencia",
+      "Consulta del cliente con sus datos, número de orden y canal de origen; respuestas oficiales de la marca y guías de soporte por producto; producto afectado cuya comunicación debe pausarse"
+     ],
+     [
+      "13 · Administración y Finanzas",
+      "Solicitud de pago en Lark —en Panamá, hasta USD 1.000 la aprueba la gerencia del área y por encima también la dirección comercial o de finanzas—, alta de proveedor y cierre mensual de gastos",
+      "Cotización, factura, comprobante y soportes; nota de crédito cuando el apoyo a un cliente se carga al gasto de mercadeo o de visual; lo vendido en un evento para su facturación posterior"
+     ],
+     [
+      "17 · Gestión del Talento Humano",
+      "Comunicaciones internas por Lark",
+      "Piezas de comunicación interna y de marca empleadora que talento humano solicita a mercadeo"
+     ],
+     [
+      "18 · Gestión Legal y Cumplimiento",
+      "Antes de firmar un acuerdo o publicar una promoción",
+      "Acuerdos con creadores y medios con cesión de derechos y obligación de identificar la publicidad, permisos y presentación de promociones"
+     ],
+     [
+      "3 · R&D y Desarrollo de Producto (Cubitt)",
+      "Desde la ideación (proceso 3.1) y en el diseño y la especificación (3.3)",
+      "Brief de consumidor de Mercadeo; diseño industrial, colores, materiales, acabados y empaque de Diseño y Marca; claims técnicos validados por Producto"
+     ],
+     [
+      "14 · Gestión de Tecnología de Información",
+      "Entrega de especificaciones de diseño y verificación antes de publicar",
+      "Diseños, prototipos y componentes del sistema de diseño; implementación y biblioteca de activos"
+     ]
     ],
     "docs_lark": [
-     ["Manual de Procesos Creativos (Dirección Creativa, Cubitt)","Regional","Rol de la dirección creativa, flujo de campañas, productos nuevos, video, aprobaciones, control de calidad e indicadores","16.2 · 16.3"],
-     ["Procesos del departamento de Marketing — Casio / Kenex","Regional (Casio)","Estructura del equipo de Casio, flujos de campañas, contenido, trade marketing, proveedores, reportería y presupuesto; cuellos de botella y mejoras","16.1 · 16.2 · 16.5 · 16.7 · 16.8"],
-     ["Marketing Panamá — Manual de procesos y procedimientos vigentes","Panamá","Perfil de la gerencia de país, planificación de campañas, asignaciones de redes, asistente de marketing, solicitudes internas, aprobaciones y promociones","16.1 · 16.2 · 16.3 · 16.5"],
-     ["SOPs, instructivos y flujos — Marketing Cubitt Panamá","Panamá","Solicitud de piezas, aprobación de artes, publicación en redes, promociones, eventos y reporte de resultados","16.2 · 16.3 · 16.5 · 16.8"],
-     ["KPIs vigentes — Marketing Cubitt Panamá","Panamá","Indicadores de redes, producción, eventos, comerciales y financieros con su responsable y frecuencia","16.1 · 16.5 · 16.8"],
-     ["Cuellos de botella y propuestas de mejora — Marketing Cubitt Panamá","Panamá","Matriz de cuellos de botella con propuesta, estado y dueño sugerido","16.3"],
-     ["Manuales 01 a 05 de Paid Media & Performance Marketing","Regional (Cubitt y Casio)","Montaje de campañas, optimización, reportería, accesos y medición, email marketing","16.1 · 16.2 · 16.8"],
-     ["Áreas de mejora y propuesta de solución — Marketing Venezuela","Venezuela","Coordinación entre áreas, mercancía para marketing, aprobaciones, estructura, indicadores y carga del área","16.1 · 16.2 · 16.4"],
-     ["Manual de procesos vigente y Diagramas de flujo y KPIs — Marketing Venezuela","Venezuela","Índice de procesos y de bases regionales; el detalle vive en las bases enlazadas","16.1 · 16.6 · 16.8"],
-     ["Manual de Operación Regional de Visual Merchandising","Regional","Estructura de cuatro niveles, matriz de autorización, protocolo de comunicación y ritmo semanal","16.7"],
-     ["Manual de Inducción de Visual Merchandising 2026","Regional","Lark, cronogramas, reportes de visita, exhibición, propuestas de mejora, proveedores, material POP y escalamiento","16.7"],
-     ["Manuales de Producción (canal retail y clientes del mayor)","Regional","Estándar técnico de mobiliario, señalización, iluminación y exhibición; aprobación de layouts","16.7"],
-     ["Flujos de visual merchandising: promociones regionales, artes de tiendas, artes del mayor, proyectos retail y presupuesto mensual","Regional","Pasos, responsables y aprobaciones de cada flujo","16.2 · 16.4 · 16.7"],
-     ["Estructuras operativas de visual merchandising (Colombia, Venezuela, Panamá, Nicaragua, Guatemala)","Por país","Niveles, responsabilidades, protocolo de comunicación y relación con el Gerente/Director(a) General País","16.7"],
-     ["KPIs de Visual Merchandising 2026","Regional","Tablero mensual por país y persona: cronograma, gastos, base de clientes, inventario de material, seguimientos y tareas","16.7"],
-     ["Procesos de Visual Merchandising — Venezuela","Venezuela","Procesos operativos del equipo local, flujos de presupuesto, proyectos y artes, y cuellos de botella","16.7"],
-     ["Manual de Cuentas por Pagar (Contabilidad)","Panamá","Solicitud de pago en Lark y matriz de aprobación por monto; legalización mensual de tarjetas corporativas por centro de gasto","16.6 · 16.7"],
-     ["Manual de Cuentas por Cobrar y plantilla de notas de crédito (Contabilidad)","Panamá","Apoyos de mercadeo o visual a clientes registrados como gasto del departamento","16.7"],
-     ["Manual de Facturación v1 (Contabilidad)","Panamá","Facturación de lo vendido en eventos presenciales después del evento, con verificación de bodega","16.8"],
-     ["Manual de Inventario (Contabilidad)","Panamá","Alta de productos nuevos y carpeta de SKU y catálogos compartida con ventas y mercadeo","16.2 · 16.4"],
-     ["Formulario y flujo de solicitud de proyectos (PMO)","Regional","Qué iniciativas pasan por la PMO y con qué información","16.1"],
-     ["Manual de pruebas previas al lanzamiento (Servicio al Cliente)","Panamá","Pruebas del producto, informe con evidencia y aprobación del lanzamiento por la Junta Directiva","16.2"],
-     ["Manual Regional de Postventa y guías de soporte Cubitt por categoría","Regional","Respuestas oficiales de la marca, plantillas por canal, registro del canal de origen de la queja y límites de lo que se afirma sobre las mediciones de salud","16.2 · 16.5"],
-     ["Estandarización de la rotulación láser de termos (Servicio al Cliente)","Panamá","Áreas rotulables y parámetros de diseño para personalizar productos de clientes corporativos","16.6"],
-     ["Blueprint de Odoo 16 — Kenex Trading (Sistemas)","Panamá","Integración de Odoo con Shopify, Lark y ActiveCampaign (clientes y precios)","16.5 · 16.8"],
-     ["Flujo logístico de almacén: traslados de marketing (Logística)","Venezuela","Salida de mercancía para marketing por almacén y despacho","16.6"],
-     ["Levantamiento de compras y planificación (Compras)","Venezuela","Coordinación de las promociones del mes con mercadeo y aprobación del descuento caso por caso","16.4"],
-     ["Descripciones de cargo de asesores de ventas web (Talento Humano)","Venezuela","Tiempo máximo de respuesta por WhatsApp y obligación de conocer las promociones vigentes","16.4 · 16.5"],
-     ["Etiquetas de precio en Odoo (Ventas Retail)","Venezuela","La tienda imprime la etiqueta de precio para los acrílicos desde Odoo","16.4 · 16.7"],
-     ["Acuerdo de confidencialidad, propiedad intelectual y uso de activos (Legal)","Venezuela","Material de mercadeo y diseños como información y propiedad de la empresa","16.2 · 16.6"],
-     ["Descripciones de cargo y cuellos de botella de Cubitt Colombia (Talento Humano)","Colombia","Autoridad de la líder de mercadeo, marketplaces, diseño, influencer marketing y visual; doble línea de reporte y cobertura de visual","16.1 · 16.6 · 16.7"],
-     ["Guía de procesos de retail regional (Ventas)","Regional","Marketing, visual y experiencia como palancas de la gestión de tiendas; respuesta a sobrestock con exhibición y venta cruzada","16.1 · 16.7"]
+     [
+      "Manual de Procesos Creativos (Dirección Creativa, Cubitt)",
+      "Regional",
+      "Rol de la dirección creativa, flujo de campañas, productos nuevos, video, aprobaciones, control de calidad e indicadores",
+      "16.2 · 16.3"
+     ],
+     [
+      "Procesos del departamento de Marketing — Casio / Kenex",
+      "Regional (Casio)",
+      "Estructura del equipo de Casio, flujos de campañas, contenido, trade marketing, proveedores, reportería y presupuesto; cuellos de botella y mejoras",
+      "16.1 · 16.2 · 16.5 · 16.7 · 16.8"
+     ],
+     [
+      "Marketing Panamá — Manual de procesos y procedimientos vigentes",
+      "Panamá",
+      "Perfil de la gerencia de país, planificación de campañas, asignaciones de redes, asistente de marketing, solicitudes internas, aprobaciones y promociones",
+      "16.1 · 16.2 · 16.3 · 16.5"
+     ],
+     [
+      "SOPs, instructivos y flujos — Marketing Cubitt Panamá",
+      "Panamá",
+      "Solicitud de piezas, aprobación de artes, publicación en redes, promociones, eventos y reporte de resultados",
+      "16.2 · 16.3 · 16.5 · 16.8"
+     ],
+     [
+      "KPIs vigentes — Marketing Cubitt Panamá",
+      "Panamá",
+      "Indicadores de redes, producción, eventos, comerciales y financieros con su responsable y frecuencia",
+      "16.1 · 16.5 · 16.8"
+     ],
+     [
+      "Cuellos de botella y propuestas de mejora — Marketing Cubitt Panamá",
+      "Panamá",
+      "Matriz de cuellos de botella con propuesta, estado y dueño sugerido",
+      "16.3"
+     ],
+     [
+      "Manuales 01 a 05 de Paid Media & Performance Marketing",
+      "Regional (Cubitt y Casio)",
+      "Montaje de campañas, optimización, reportería, accesos y medición, email marketing",
+      "16.1 · 16.2 · 16.8"
+     ],
+     [
+      "Áreas de mejora y propuesta de solución — Marketing Venezuela",
+      "Venezuela",
+      "Coordinación entre áreas, mercancía para marketing, aprobaciones, estructura, indicadores y carga del área",
+      "16.1 · 16.2 · 16.4"
+     ],
+     [
+      "Manual de procesos vigente y Diagramas de flujo y KPIs — Marketing Venezuela",
+      "Venezuela",
+      "Índice de procesos y de bases regionales; el detalle vive en las bases enlazadas",
+      "16.1 · 16.6 · 16.8"
+     ],
+     [
+      "Manual de Operación Regional de Visual Merchandising",
+      "Regional",
+      "Estructura de cuatro niveles, matriz de autorización, protocolo de comunicación y ritmo semanal",
+      "16.7"
+     ],
+     [
+      "Manual de Inducción de Visual Merchandising 2026",
+      "Regional",
+      "Lark, cronogramas, reportes de visita, exhibición, propuestas de mejora, proveedores, material POP y escalamiento",
+      "16.7"
+     ],
+     [
+      "Manuales de Producción (canal retail y clientes del mayor)",
+      "Regional",
+      "Estándar técnico de mobiliario, señalización, iluminación y exhibición; aprobación de layouts",
+      "16.7"
+     ],
+     [
+      "Flujos de visual merchandising: promociones regionales, artes de tiendas, artes del mayor, proyectos retail y presupuesto mensual",
+      "Regional",
+      "Pasos, responsables y aprobaciones de cada flujo",
+      "16.2 · 16.4 · 16.7"
+     ],
+     [
+      "Estructuras operativas de visual merchandising (Colombia, Venezuela, Panamá, Nicaragua, Guatemala)",
+      "Por país",
+      "Niveles, responsabilidades, protocolo de comunicación y relación con el Gerente/Director(a) General País",
+      "16.7"
+     ],
+     [
+      "KPIs de Visual Merchandising 2026",
+      "Regional",
+      "Tablero mensual por país y persona: cronograma, gastos, base de clientes, inventario de material, seguimientos y tareas",
+      "16.7"
+     ],
+     [
+      "Procesos de Visual Merchandising — Venezuela",
+      "Venezuela",
+      "Procesos operativos del equipo local, flujos de presupuesto, proyectos y artes, y cuellos de botella",
+      "16.7"
+     ],
+     [
+      "Manual de Cuentas por Pagar (Contabilidad)",
+      "Panamá",
+      "Solicitud de pago en Lark y matriz de aprobación por monto; legalización mensual de tarjetas corporativas por centro de gasto",
+      "16.6 · 16.7"
+     ],
+     [
+      "Manual de Cuentas por Cobrar y plantilla de notas de crédito (Contabilidad)",
+      "Panamá",
+      "Apoyos de mercadeo o visual a clientes registrados como gasto del departamento",
+      "16.7"
+     ],
+     [
+      "Manual de Facturación v1 (Contabilidad)",
+      "Panamá",
+      "Facturación de lo vendido en eventos presenciales después del evento, con verificación de bodega",
+      "16.8"
+     ],
+     [
+      "Manual de Inventario (Contabilidad)",
+      "Panamá",
+      "Alta de productos nuevos y carpeta de SKU y catálogos compartida con ventas y mercadeo",
+      "16.2 · 16.4"
+     ],
+     [
+      "Formulario y flujo de solicitud de proyectos (PMO)",
+      "Regional",
+      "Qué iniciativas pasan por la PMO y con qué información",
+      "16.1"
+     ],
+     [
+      "Manual de pruebas previas al lanzamiento (Servicio al Cliente)",
+      "Panamá",
+      "Pruebas del producto, informe con evidencia y aprobación del lanzamiento por la Junta Directiva",
+      "16.2"
+     ],
+     [
+      "Manual Regional de Postventa y guías de soporte Cubitt por categoría",
+      "Regional",
+      "Respuestas oficiales de la marca, plantillas por canal, registro del canal de origen de la queja y límites de lo que se afirma sobre las mediciones de salud",
+      "16.2 · 16.5"
+     ],
+     [
+      "Estandarización de la rotulación láser de termos (Servicio al Cliente)",
+      "Panamá",
+      "Áreas rotulables y parámetros de diseño para personalizar productos de clientes corporativos",
+      "16.6"
+     ],
+     [
+      "Blueprint de Odoo 16 — Kenex Trading (Sistemas)",
+      "Panamá",
+      "Integración de Odoo con Shopify, Lark y ActiveCampaign (clientes y precios)",
+      "16.5 · 16.8"
+     ],
+     [
+      "Flujo logístico de almacén: traslados de marketing (Logística)",
+      "Venezuela",
+      "Salida de mercancía para marketing por almacén y despacho",
+      "16.6"
+     ],
+     [
+      "Levantamiento de compras y planificación (Compras)",
+      "Venezuela",
+      "Coordinación de las promociones del mes con mercadeo y aprobación del descuento caso por caso",
+      "16.4"
+     ],
+     [
+      "Descripciones de cargo de asesores de ventas web (Talento Humano)",
+      "Venezuela",
+      "Tiempo máximo de respuesta por WhatsApp y obligación de conocer las promociones vigentes",
+      "16.4 · 16.5"
+     ],
+     [
+      "Etiquetas de precio en Odoo (Ventas Retail)",
+      "Venezuela",
+      "La tienda imprime la etiqueta de precio para los acrílicos desde Odoo",
+      "16.4 · 16.7"
+     ],
+     [
+      "Acuerdo de confidencialidad, propiedad intelectual y uso de activos (Legal)",
+      "Venezuela",
+      "Material de mercadeo y diseños como información y propiedad de la empresa",
+      "16.2 · 16.6"
+     ],
+     [
+      "Descripciones de cargo y cuellos de botella de Cubitt Colombia (Talento Humano)",
+      "Colombia",
+      "Autoridad de la líder de mercadeo, marketplaces, diseño, influencer marketing y visual; doble línea de reporte y cobertura de visual",
+      "16.1 · 16.6 · 16.7"
+     ],
+     [
+      "Guía de procesos de retail regional (Ventas)",
+      "Regional",
+      "Marketing, visual y experiencia como palancas de la gestión de tiendas; respuesta a sobrestock con exhibición y venta cruzada",
+      "16.1 · 16.7"
+     ],
+     [
+      "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)",
+      "Regional",
+      "Quién es dueño de qué entre Mercadeo, Diseño y Marca y E-commerce y Growth; descripciones de cargo del Director(a) de Marketing y del Director de Marca y Diseño; de producto a campaña; cómo se coordinan",
+      "16.1 a 16.12"
+     ],
+     [
+      "Rol y Estructura CDO",
+      "Regional",
+      "Ubicación del CDO, estructura interna por pilares, relación con Mercadeo e Innovación y matriz de gobernanza",
+      "16.9 a 16.12 · 3.3"
+     ]
     ],
     "variaciones_pais": [
-     ["Venezuela","Mercadeo gestiona ambas marcas con un solo equipo y trata directamente con Casio Brasil el plan de Casio; adapta todas las campañas al marketplace local de pago a plazos, a los precios con y sin IVA (Margarita) y a la presentación de promociones ante la autoridad del consumidor.","Condiciones de mercado, fiscales y regulatorias propias del país."],
-     ["Colombia","El equipo local es pequeño y concentra su esfuerzo en eventos y en la web, que es el canal que más crece por la extensión del país; el Gerente/Director(a) General País aprueba el gasto de cada evento dentro del presupuesto asignado por la regional, y los pagos a organizadores se pactan mitad antes y mitad después del evento. El diagnóstico interno del país señala dos tensiones: mercadeo reporta funcionalmente a la regional con poca visibilidad del Gerente/Director(a) General País, y visual merchandising —dos personas que reportan al Gerente/Director(a) General País— se concentra en Bogotá, de modo que la exhibición en las cadenas de otras ciudades depende de las propias cadenas o de las impulsadoras. La coordinadora de marketplaces está dentro de mercadeo.","Geografía, peso del canal web y estructura legal de la entidad local."],
-     ["Panamá","El país alberga al equipo regional y a un equipo local creado en 2026, que además gestiona la marca Cubitt Studio Café; visual merchandising opera en co-gestión transitoria con la coordinación regional mientras no exista coordinación de país.","Concentración de funciones regionales y locales en la misma sede."],
-     ["Guatemala, El Salvador, Ecuador, México y otros mercados sin equipo local de mercadeo","El marketing lo llevan el equipo de cuentas clave (Cubitt) y el equipo regional de Casio; en Guatemala y Ecuador Casio trabaja alianzas e influencers con agencia externa; en Guatemala las prioridades de punto de venta las fija el Gerente/Director(a) General País.","Mercados atendidos a través de distribuidores, operadores o clientes, sin estructura propia."],
-     ["Casio (todos los países)","Plan semestral, presupuesto, acciones y exhibición sujetos a la aprobación de Casio Brasil, con reportes mensuales y cierre semestral.","Condición contractual de marca representada; no aplica a Cubitt."]
+     [
+      "Venezuela",
+      "Mercadeo gestiona ambas marcas con un solo equipo y trata directamente con Casio Brasil el plan de Casio; adapta todas las campañas al marketplace local de pago a plazos, a los precios con y sin IVA (Margarita) y a la presentación de promociones ante la autoridad del consumidor.",
+      "Condiciones de mercado, fiscales y regulatorias propias del país."
+     ],
+     [
+      "Colombia",
+      "El equipo local es pequeño y concentra su esfuerzo en eventos y en la web, que es el canal que más crece por la extensión del país; el Gerente/Director(a) General País aprueba el gasto de cada evento dentro del presupuesto asignado por la regional, y los pagos a organizadores se pactan mitad antes y mitad después del evento. El diagnóstico interno del país señala dos tensiones: mercadeo reporta funcionalmente a la regional con poca visibilidad del Gerente/Director(a) General País, y visual merchandising —dos personas que reportan al Gerente/Director(a) General País— se concentra en Bogotá, de modo que la exhibición en las cadenas de otras ciudades depende de las propias cadenas o de las impulsadoras. La coordinadora de marketplaces está dentro de mercadeo.",
+      "Geografía, peso del canal web y estructura legal de la entidad local."
+     ],
+     [
+      "Panamá",
+      "El país alberga al equipo regional y a un equipo local creado en 2026, que además gestiona la marca Cubitt Studio Café; visual merchandising opera en co-gestión transitoria con la coordinación regional mientras no exista coordinación de país.",
+      "Concentración de funciones regionales y locales en la misma sede."
+     ],
+     [
+      "Guatemala, El Salvador, Ecuador, México y otros mercados sin equipo local de mercadeo",
+      "El marketing lo llevan el equipo de cuentas clave (Cubitt) y el equipo regional de Casio; en Guatemala y Ecuador Casio trabaja alianzas e influencers con agencia externa; en Guatemala las prioridades de punto de venta las fija el Gerente/Director(a) General País.",
+      "Mercados atendidos a través de distribuidores, operadores o clientes, sin estructura propia."
+     ],
+     [
+      "Casio (todos los países)",
+      "Plan semestral, presupuesto, acciones y exhibición sujetos a la aprobación de Casio Brasil, con reportes mensuales y cierre semestral.",
+      "Condición contractual de marca representada; no aplica a Cubitt."
+     ]
     ]
    }
   },
   "procesos": {
    "16.1": {
-    "proposito": {"estado":"borrador","texto":"Define cada año con qué campañas, fechas, canales y presupuesto se sostendrán Cubitt y Casio en cada país, y contra qué objetivos se medirá la inversión. Parte del presupuesto aprobado y del forecast de ventas, mapea el calendario de campañas fijas, lanzamientos y eventos, reparte la inversión por país, rubro y canal, y se revisa cada mes y cada trimestre para reasignar lo que no rinde.","nota_estado":"Casio ya opera de este modo: plan semestral —de octubre a marzo y de abril a septiembre— con presupuesto y acciones aprobados por Casio Brasil. En Cubitt el presupuesto se asigna a inicio de año y se reparte con la gerencia regional por rubro, y las campañas fijas del calendario están mapeadas, pero los equipos de país trabajan sin objetivos ni indicadores anuales formalizados, y conviven el presupuesto asignado con aprobaciones puntuales de la dirección fuera de él. El flujo incorpora los objetivos anuales por marca y una sola partida presupuestaria."},
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente Regional de Marketing",
-     "participantes": ["Junta Directiva (aprueba el presupuesto y el plan de Cubitt)","Casio Brasil (aprueba el plan semestral de Casio)","Gerente de Marketing (Casio Regional)","Gerente de Marketing (país)","Gerente de Marketing (Cuentas Clave)","Gerente de Marketing (Paid Media)","Gerente Regional Comercial / Retail","Gerente de Proyectos (PMO) (calendario de lanzamientos)"],
-     "evidencia": ["E-22","E-49","E-42","E-56","E-09","Manual 01 de Paid Media (Lark)"]
-    },
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Define cada año con qué campañas, fechas, canales y presupuesto se sostendrán Cubitt y Casio en cada país, y contra qué objetivos se medirá la inversión. Parte del presupuesto aprobado y del forecast de ventas, mapea el calendario de campañas fijas, lanzamientos y eventos, reparte la inversión de mercadeo por marca, país, rubro y canal —con el retorno esperado de cada inversión—, recoge la capacidad y el costo de producción que estima Diseño y Marca y la pauta de performance de E-commerce y Growth, y se revisa cada mes y cada trimestre para reasignar lo que no rinde.", "nota_estado": "Casio ya opera de este modo: plan semestral —de octubre a marzo y de abril a septiembre— con presupuesto y acciones aprobados por Casio Brasil. En Cubitt el presupuesto se asigna a inicio de año y se reparte con la gerencia por rubro, pero los equipos de país trabajan sin objetivos ni indicadores anuales formalizados y conviven el presupuesto asignado con aprobaciones puntuales fuera de él. Desde la revisión de la estructura del 06-nov-2026 el plan lo conduce la gerencia corporativa de Mercadeo, dueña de la inversión y de su retorno; Diseño y Marca estima costo, capacidad y fechas de lo que hay que producir, y la pauta de performance la planifica E-commerce y Growth. Finanzas consolida las dos pautas para no contar doble."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Junta Directiva — aprueba el presupuesto y el plan de Cubitt.", "Casio Brasil — aprueba el plan semestral de Casio.", "Brand Manager de Casio — consolida y somete el plan semestral de Casio.", "Brand Manager de Cubitt — aporta el plan de marca, el portafolio y los lanzamientos.", "Gerente de Mercadeo (país) — propone el plan de su país con un objetivo por acción.", "Director(a) de Diseño y Marca — estima el costo de producción de diseño, la capacidad y las fechas del calendario.", "Gerente de E-commerce y Growth — planifica la pauta de performance y la consolida con la de marca.", "Gerente Regional Comercial / Retail — alinea el plan con el calendario comercial y de promociones.", "Gerente de Proyectos (PMO) — comparte el calendario anual de lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-09", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Junta Directiva","texto":"Aprueba al inicio del año el presupuesto de mercadeo de Cubitt a partir del forecast de ventas anual y fija los objetivos de marca del año —crecimiento, venta, reconocimiento y lanzamientos clave— contra los que se medirá el plan de cada país."},
-      {"id":"a2","rol":"Gerente de Marketing (Casio Regional)","texto":"Consolida con cada país el plan semestral de Casio —acciones, presupuesto y metas de venta por cliente y por tienda propia— y lo somete a Casio Brasil; una vez aprobado, lo incorpora al calendario regional como marco fijo de la marca."},
-      {"id":"a3","rol":"Gerente de Proyectos (PMO)","texto":"Comparte el calendario anual de lanzamientos con la categoría de cada producto —nuevo, mejora de uno existente o color nuevo— y su fecha estimada de llegada por país, para que las campañas se preparen con al menos ocho semanas de anticipación."},
-      {"id":"a4","rol":"Gerente Regional de Marketing","texto":"Mapea el calendario anual por marca y país: campañas fijas de temporada y efemérides, lanzamientos, eventos y patrocinios seleccionados y acciones con clientes clave, cuidando que varios lanzamientos no coincidan en el mismo mes."},
-      {"id":"a5","rol":"Gerente de Marketing (país)","texto":"Propone el plan de su país sobre ese calendario: acciones por mes, eventos, influencers y atletas, vallas y producciones, con el presupuesto de cada rubro y un objetivo medible para cada acción."},
-      {"id":"a6","rol":"Gerente Regional Comercial / Retail","texto":"Revisa que el plan acompañe el calendario comercial y de promociones de cada canal, señala los meses de mayor venta para concentrar lanzamientos y las categorías de baja rotación que conviene reforzar con exhibición."},
-      {"id":"a7","rol":"Gerente de Marketing (Paid Media)","texto":"Reparte el presupuesto de pauta digital del año en montos mensuales por país según historial, efemérides, campañas especiales y lanzamientos, con una base de referencia de 70 % en Meta y 30 % en Google."},
-      {"id":"a8","rol":"Gerente Regional de Marketing","texto":"Consolida el plan regional —calendario, presupuesto por país, rubro y canal, objetivos por marca y el peso de la inversión sobre la venta esperada— y lo presenta a la Junta Directiva para su aprobación."},
-      {"id":"a9","rol":"Junta Directiva","texto":"Aprueba el plan anual o lo devuelve con observaciones por escrito; las acciones que surjan durante el año fuera del plan se aprueban contra el mismo presupuesto y no como una partida paralela."},
-      {"id":"a10","rol":"Gerente Regional de Marketing","texto":"Publica el plan aprobado en las bases de calendario y presupuesto de Lark, lo baja a cada país en la reunión regional mensual y lo revisa cada trimestre contra los objetivos para reasignar la inversión."},
-      {"id":"a11","rol":"Gerente de Marketing (país)","texto":"Controla cada mes la ejecución del presupuesto por rubro, justifica ante la gerencia regional cualquier movimiento entre rubros y, al cierre del año, reporta cada inversión con el resultado que produjo."}
+      {"id": "a1", "rol": "Junta Directiva", "texto": "Aprueba al inicio del año el presupuesto de mercadeo de Cubitt a partir del forecast de ventas anual y fija los objetivos de marca del año —crecimiento, venta, reconocimiento y lanzamientos clave— contra los que se medirá el plan de cada país."},
+      {"id": "a2", "rol": "Brand Manager de Casio", "texto": "Consolida con cada país el plan semestral de Casio —acciones, presupuesto y metas de venta por cliente y por tienda propia— y lo somete a Casio Brasil; una vez aprobado, lo incorpora al calendario como marco fijo de la marca."},
+      {"id": "a3", "rol": "Gerente de Proyectos (PMO)", "texto": "Comparte el calendario anual de lanzamientos con la categoría de cada producto —nuevo, mejora de uno existente o color nuevo— y su fecha estimada de llegada por país, para que las campañas se preparen con al menos ocho semanas de anticipación."},
+      {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Mapea con los brand managers el calendario anual por marca y país: campañas fijas de temporada y efemérides, lanzamientos, eventos y patrocinios seleccionados y acciones con clientes clave, cuidando que varios lanzamientos no coincidan en el mismo mes."},
+      {"id": "a5", "rol": "Gerente de Mercadeo (país)", "texto": "Propone el plan de su país sobre ese calendario: acciones por mes, eventos y activaciones, influencers y atletas, vallas, trade con clientes y montajes de visual merchandising, con el presupuesto de cada rubro y un objetivo medible para cada acción."},
+      {"id": "a6", "rol": "Gerente Regional Comercial / Retail", "texto": "Revisa que el plan acompañe el calendario comercial y de promociones de cada canal, señala los meses de mayor venta para concentrar lanzamientos y las categorías de baja rotación que conviene reforzar con exhibición."},
+      {"id": "a7", "rol": "Director(a) de Diseño y Marca", "texto": "Estima para el calendario el costo de producción de diseño, la capacidad del equipo interno y de los freelancers y las fechas de entrega de cada campaña y lanzamiento, y señala lo que no cabe para que se reprograme o se contrate."},
+      {"id": "a8", "rol": "Gerente de E-commerce y Growth", "texto": "Planifica la pauta de performance del año por país y mes —adquisición, audiencias y remarketing para vender en línea— y la cruza con la pauta de marca que propone mercadeo (awareness y lanzamientos), para que Finanzas consolide las dos sin contar doble."},
+      {"id": "a9", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Consolida el plan —calendario, inversión por marca, país, rubro y canal con su retorno esperado, objetivos por marca, presupuesto de producción de diseño y el peso de la inversión sobre la venta— y lo presenta a la Junta Directiva para su aprobación."},
+      {"id": "a10", "rol": "Junta Directiva", "texto": "Aprueba el plan anual o lo devuelve con observaciones por escrito; las acciones que surjan durante el año fuera del plan se aprueban contra el mismo presupuesto y no como una partida paralela."},
+      {"id": "a11", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Publica el plan aprobado en las bases de calendario y presupuesto de Lark, lo baja a cada país en la reunión mensual y lo revisa cada trimestre contra los objetivos para reasignar la inversión hacia los países, canales y productos con mejor retorno."},
+      {"id": "a12", "rol": "Gerente de Mercadeo (país)", "texto": "Controla cada mes la ejecución del presupuesto por rubro, justifica ante la gerencia corporativa cualquier movimiento entre rubros y, al cierre del año, reporta cada inversión con el resultado que produjo."}
      ],
      "diagrama": {
-      "carriles": ["Junta Directiva","Gerente de Marketing (Casio Regional)","Gerente de Proyectos (PMO)","Gerente Regional de Marketing","Gerente de Marketing (país)","Gerente Regional Comercial / Retail","Gerente de Marketing (Paid Media)"],
+      "carriles": [
+       "Junta Directiva",
+       "Brand Manager de Casio",
+       "Gerente de Proyectos (PMO)",
+       "Gerente Corporativo(a) de Mercadeo",
+       "Gerente de Mercadeo (país)",
+       "Gerente Regional Comercial / Retail",
+       "Director(a) de Diseño y Marca",
+       "Gerente de E-commerce y Growth"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Junta Directiva","tipo":"inicio","n":"Inicio del ciclo anual de planificación"},
-       {"id":"n1","carril":"Junta Directiva","tipo":"tarea","n":"Aprobar presupuesto y objetivos anuales de marca"},
-       {"id":"n2","carril":"Gerente de Marketing (Casio Regional)","tipo":"tarea","n":"Consolidar y someter el plan semestral de Casio"},
-       {"id":"n3","carril":"Gerente de Proyectos (PMO)","tipo":"tarea","n":"Compartir el calendario de lanzamientos"},
-       {
-        "id": "n4",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Mapear el calendario anual por marca y país",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n5","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Proponer el plan del país con objetivos por acción"},
-       {"id":"n6","carril":"Gerente Regional Comercial / Retail","tipo":"tarea","n":"Revisar la alineación con el calendario comercial"},
-       {"id":"n7","carril":"Gerente de Marketing (Paid Media)","tipo":"tarea","n":"Repartir la pauta por mes y país"},
-       {"id":"n8","carril":"Gerente Regional de Marketing","tipo":"tarea","n":"Consolidar y presentar el plan regional"},
-       {"id":"n9","carril":"Junta Directiva","tipo":"decision","n":"¿Plan aprobado?"},
-       {"id":"n9b","carril":"Junta Directiva","tipo":"fin","n":"Plan devuelto con observaciones"},
-       {
-        "id": "n10",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Publicar el plan y revisarlo cada trimestre",
-        "sistemas": ["Lark"]
-       },
-       {
-        "id": "n11",
-        "carril": "Gerente de Marketing (país)",
-        "tipo": "tarea",
-        "n": "Controlar la ejecución mensual por rubro",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n12","carril":"Gerente de Marketing (país)","tipo":"fin","n":"Plan anual aprobado y en ejecución"}
+       {"id": "n0", "carril": "Junta Directiva", "tipo": "inicio", "n": "Inicio del ciclo anual de planificación"},
+       {"id": "n1", "carril": "Junta Directiva", "tipo": "tarea", "n": "Aprobar presupuesto y objetivos anuales de marca"},
+       {"id": "n2", "carril": "Brand Manager de Casio", "tipo": "tarea", "n": "Consolidar y someter el plan semestral de Casio"},
+       {"id": "n3", "carril": "Gerente de Proyectos (PMO)", "tipo": "tarea", "n": "Compartir el calendario de lanzamientos"},
+       {"id": "n4", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Mapear el calendario anual por marca y país", "sistemas": ["Lark"]},
+       {"id": "n5", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Proponer el plan del país con objetivos por acción"},
+       {"id": "n6", "carril": "Gerente Regional Comercial / Retail", "tipo": "tarea", "n": "Revisar la alineación con el calendario comercial"},
+       {"id": "n7", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Estimar costo, capacidad y fechas de producción"},
+       {"id": "n7b", "carril": "Gerente de E-commerce y Growth", "tipo": "tarea", "n": "Planificar la pauta de performance"},
+       {"id": "n8", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Consolidar y presentar el plan"},
+       {"id": "n9", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Plan aprobado?"},
+       {"id": "n9b", "carril": "Junta Directiva", "tipo": "fin", "n": "Plan devuelto con observaciones"},
+       {"id": "n10", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Publicar el plan y revisarlo cada trimestre", "sistemas": ["Lark"]},
+       {"id": "n11", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Controlar la ejecución mensual por rubro", "sistemas": ["Lark"]},
+       {"id": "n12", "carril": "Gerente de Mercadeo (país)", "tipo": "fin", "n": "Plan anual aprobado y en ejecución"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n1","a":"n3"},
-       {"de":"n2","a":"n4"},
-       {"de":"n3","a":"n4"},
-       {"de":"n4","a":"n5"},
-       {"de":"n4","a":"n7"},
-       {"de":"n5","a":"n6"},
-       {"de":"n6","a":"n8"},
-       {"de":"n7","a":"n8"},
-       {"de":"n8","a":"n9"},
-       {"de":"n9","a":"n10","etq":"Sí"},
-       {"de":"n9","a":"n9b","etq":"No"},
-       {"de":"n10","a":"n11"},
-       {"de":"n11","a":"n12"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n1", "a": "n3"},
+       {"de": "n2", "a": "n4"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n4", "a": "n7"},
+       {"de": "n4", "a": "n7b"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n8"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n7b", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10", "etq": "Sí"},
+       {"de": "n9", "a": "n9b", "etq": "No"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Plan de Cubitt sin objetivos medibles","Sin metas anuales de crecimiento, venta o reconocimiento, cada país planifica sobre la marcha y al cierre no hay contra qué evaluar la inversión.","Alta","Alto","Fijar los objetivos anuales por marca y país junto con el presupuesto y exigir un objetivo medible por acción en el plan del país."],
-      ["Presupuesto que corre por dos vías","Las acciones aprobadas puntualmente fuera del presupuesto asignado impiden conocer la inversión real y distorsionan el control por rubro.","Media","Alto","Registrar toda acción adicional contra la misma partida en la base de presupuesto, con su aprobación documentada."],
-      ["Lanzamientos acumulados en un mismo mes","Varios lanzamientos en pocas semanas saturan al equipo creativo y se restan visibilidad entre sí: un producto pierde su campaña frente a otro.","Alta","Medio","Planificar el calendario anual de lanzamientos con producto y PMO y resolver los choques en la revisión trimestral."],
-      ["Directrices de Casio y de la dirección local que se contradicen","En tiendas y promociones compartidas, lo que exige Casio Brasil puede no coincidir con lo que pide la dirección local.","Media","Medio","Incorporar el plan semestral aprobado de Casio como marco fijo del calendario regional y comunicarlo a la dirección y a retail."],
-      ["Iniciativas multiárea fuera de la PMO","Una web, un tablero o una apertura que involucra a varias áreas se arranca desde mercadeo sin pasar por la PMO y queda sin recursos, fechas ni dueño compartido.","Media","Medio","Solicitar esas iniciativas por el formulario de proyectos de la PMO con la firma de la gerencia al aprobarse el plan."],
-      ["Presupuesto que no refleja los costos de cada país","Un presupuesto fijado desde la regional sin cotizaciones locales se agota antes de tiempo en los países con costos más altos o inflación.","Media","Medio","Construir el presupuesto de cada país con cotizaciones locales y revisarlo cada trimestre."]
+      [
+       "Plan de Cubitt sin objetivos medibles",
+       "Sin metas anuales de crecimiento, venta o reconocimiento, cada país planifica sobre la marcha y al cierre no hay contra qué evaluar la inversión.",
+       "Alta",
+       "Alto",
+       "Fijar los objetivos anuales por marca y país junto con el presupuesto y exigir un objetivo medible por acción en el plan del país."
+      ],
+      [
+       "Presupuesto que corre por dos vías",
+       "Las acciones aprobadas puntualmente fuera del presupuesto asignado impiden conocer la inversión real y distorsionan el control por rubro.",
+       "Media",
+       "Alto",
+       "Registrar toda acción adicional contra la misma partida en la base de presupuesto, con su aprobación documentada."
+      ],
+      [
+       "Pauta contada dos veces",
+       "La pauta de marca de mercadeo y la de performance de E-commerce y Growth se suman como inversiones distintas sobre las mismas ventas, y el retorno de las dos queda inflado.",
+       "Media",
+       "Alto",
+       "Planificar las dos pautas en el mismo calendario y que Finanzas las consolide con una sola regla de atribución."
+      ],
+      [
+       "Calendario que no cabe en la capacidad de diseño",
+       "Lanzamientos y campañas que coinciden en las mismas semanas desbordan al equipo de Diseño y Marca y una campaña sale tarde o sin calidad.",
+       "Alta",
+       "Medio",
+       "Que Diseño y Marca estime capacidad y fechas antes de cerrar el plan, y resolver los choques en la revisión trimestral."
+      ],
+      [
+       "Directrices de Casio y de la dirección local que se contradicen",
+       "En tiendas y promociones compartidas, lo que exige Casio Brasil puede no coincidir con lo que pide la dirección local.",
+       "Media",
+       "Medio",
+       "Incorporar el plan semestral aprobado de Casio como marco fijo del calendario y comunicarlo a la dirección y a retail."
+      ],
+      [
+       "Presupuesto que no refleja los costos de cada país",
+       "Un presupuesto fijado desde lo corporativo sin cotizaciones locales se agota antes de tiempo en los países con costos más altos o inflación.",
+       "Media",
+       "Medio",
+       "Construir el presupuesto de cada país con cotizaciones locales y revisarlo cada trimestre."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Ejecución del presupuesto","Presupuesto ejecutado ÷ presupuesto aprobado, por país y rubro","Mensual","Gerente de Marketing (país)","Entre 95 % y 105 % al cierre del año"],
-      ["Cumplimiento del calendario de campañas","Campañas ejecutadas en su fecha ÷ campañas planificadas","Trimestral","Gerente Regional de Marketing","≥ 90 %"],
-      ["Acciones con objetivo y resultado registrados","Acciones del plan con objetivo y resultado en Lark ÷ acciones ejecutadas","Trimestral","Gerente Regional de Marketing","100 %"],
-      ["Inversión fuera del plan","Inversión aprobada fuera del plan anual ÷ presupuesto aprobado","Trimestral","Gerente Regional de Marketing","Tendencia a la baja; referencia ≤ 10 %"]
+      [
+       "Ejecución del presupuesto",
+       "Presupuesto ejecutado ÷ presupuesto aprobado, por país y rubro",
+       "Mensual",
+       "Gerente de Mercadeo (país)",
+       "Entre 95 % y 105 % al cierre del año"
+      ],
+      [
+       "Cumplimiento del calendario de campañas",
+       "Campañas ejecutadas en su fecha ÷ campañas planificadas",
+       "Trimestral",
+       "Gerente Corporativo(a) de Mercadeo",
+       "≥ 90 %"
+      ],
+      [
+       "Acciones con objetivo y resultado registrados",
+       "Acciones del plan con objetivo y resultado en Lark ÷ acciones ejecutadas",
+       "Trimestral",
+       "Gerente Corporativo(a) de Mercadeo",
+       "100 %"
+      ],
+      [
+       "Inversión fuera del plan",
+       "Inversión aprobada fuera del plan anual ÷ presupuesto aprobado",
+       "Trimestral",
+       "Gerente Corporativo(a) de Mercadeo",
+       "Tendencia a la baja; referencia ≤ 10 %"
+      ],
+      [
+       "Reasignación por retorno",
+       "Inversión movida en la revisión trimestral hacia países, canales o productos de mejor retorno ÷ inversión revisada",
+       "Trimestral",
+       "Gerente Corporativo(a) de Mercadeo",
+       "Referencia de seguimiento"
+      ]
      ]
     }
    },
    "16.2": {
-    "proposito": {"estado":"borrador","texto":"Lleva cada campaña desde el brief hasta su medición: define concepto y tono, los traduce en piezas para cada canal —redes, web, email, pauta, tiendas, medios exteriores—, obtiene la aprobación que corresponde, coordina la producción y el despliegue entre países y cierra con el resultado contra el objetivo. Cubre las campañas fijas del calendario, los lanzamientos de producto y las acciones acordadas con clientes clave.","nota_estado":"La dirección creativa y la pauta digital ya trabajan con procedimientos escritos —brief obligatorio, ocho semanas de anticipación para productos nuevos, aprobación documentada y cuadro de pauta en Lark—, pero muchas campañas siguen llegando con poco tiempo, la aprobación de las de Cubitt recoge opiniones de varios miembros de la dirección y de otras áreas sin un aprobador único, y las de Casio siguen los tiempos de Casio Brasil. El flujo fija un aprobador por tipo de campaña y protege los plazos."},
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente Regional de Marketing",
-     "participantes": ["Coordinador(a) de Marca","Gerente de Marketing (Dirección Creativa)","Diseñador(a) / Analista de Contenido (diseño, fotografía, video y producción con IA)","Junta Directiva (lanzamientos y campañas de alto alcance de Cubitt)","Casio Brasil (campañas de Casio)","Gerente de Marketing (Paid Media)","Gerente Regional de Visual Merchandising","Director(a) Comercial Mayorista (Cubitt) (participación de clientes clave en lanzamientos)"],
-     "evidencia": ["E-22","E-49","E-42","E-56","E-63","Manual de Procesos Creativos (Lark)","Manual 01 de Paid Media (Lark)"]
-    },
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Lleva cada campaña desde el brief hasta su medición: mercadeo define el objetivo, el público y el mensaje; Diseño y Marca convierte el brief en concepto, copy, key visual y piezas para cada canal —redes, web, email, pauta, tiendas, medios exteriores—; se obtiene la única aprobación de negocio que fija el brief, se produce, se despliega entre países y se cierra con el resultado contra el objetivo. Cubre las campañas fijas del calendario, los lanzamientos de producto y las acciones acordadas con clientes clave.", "nota_estado": "La dirección creativa y la pauta digital ya trabajan con procedimientos escritos —brief obligatorio, ocho semanas de anticipación para productos nuevos, aprobación documentada y cuadro de pauta en Lark—, pero muchas campañas siguen llegando con poco tiempo y la aprobación de las de Cubitt recoge opiniones de varias personas sin un aprobador único. Desde la revisión de la estructura del 06-nov-2026 el concepto, el key visual y las piezas son de la Dirección de Diseño y Marca, que aprueba su calidad; mercadeo es dueño del brief y aprueba que el concepto lo cumpla. Cada proyecto tiene un solo aprobador de negocio, definido en el brief, y no hay doble aprobación por pieza."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Brand Manager (Cubitt o Casio) — levanta el brief y cierra la campaña con su resultado.", "Director(a) Creativo(a) · Gerencia de Marca — concepto, territorio visual y copy, con Arte y Diseño.", "Diseñador(a) (Diseño y Marca) — key visual, adaptaciones y piezas; la foto, el video principal y el 3D se encargan por el proceso 16.10.", "Director(a) de Diseño y Marca — aprueba la calidad de las piezas clave antes de su salida.", "Junta Directiva — aprueba los lanzamientos y las campañas de alto alcance de Cubitt.", "Casio Brasil — aprueba las campañas de Casio.", "Trafficker de campañas (Mercadeo) — monta y optimiza la pauta de marca.", "Gerente de Visual Merchandising — lleva la campaña al punto de venta (proceso 16.7).", "Gerente de E-commerce y Growth — su plan digital y la pauta de performance del lanzamiento.", "Director(a) Comercial Mayorista (Cubitt) y Gerente de Cuentas Clave y Trade — participación de clientes clave en los lanzamientos."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-63", "Manual de Procesos Creativos (Lark)", "Manual 01 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Coordinador(a) de Marca","texto":"Levanta el brief en Lark —un solo objetivo medible y el criterio con que se evaluará, público, oferta, mercados, formatos, fecha real de salida, presupuesto y aprobador— desde el calendario anual, un lanzamiento aprobado o una acción con cliente clave."},
-      {"id":"a2","rol":"Gerente de Marketing (Dirección Creativa)","texto":"Verifica que el brief esté completo —si falta información no pasa a producción—, investiga la categoría y la competencia y presenta tres territorios visuales con referencias de color, luz, composición y tono."},
-      {"id":"a3","rol":"Gerente de Marketing (Dirección Creativa)","texto":"Define con el equipo el concepto, el titular y los textos base, y la bajada por canal: pieza principal, estáticas, reels, video, email, banners y material de tienda, en fases de expectativa, lanzamiento y sostenimiento."},
-      {"id":"a4","rol":"Gerente Regional de Marketing","texto":"Revisa la propuesta contra el objetivo y el presupuesto y la presenta a quien la aprueba: la Junta Directiva en los lanzamientos y campañas de alto alcance de Cubitt, Casio Brasil en las campañas de Casio."},
-      {"id":"a5","rol":"Junta Directiva","texto":"Aprueba la campaña o la devuelve con observaciones por escrito en el canal oficial; una observación que llega por otra vía se documenta antes de ejecutarse, y un cambio de alcance se trata como una solicitud nueva con nueva fecha."},
-      {"id":"a6","rol":"Diseñador(a) / Analista de Contenido","texto":"Produce piezas y videos —en estudio, con producción externa o con IA— según la guía de marca, controla textos, precios, medidas y logotipo, contrasta cada atributo con la ficha técnica y archiva los finales en el repositorio."},
-      {"id":"a7","rol":"Gerente Regional de Marketing","texto":"Comparte con los países el paquete de la campaña —piezas, lineamientos, enlaces y fechas— con el tiempo que exige su adaptación local, que sigue el proceso 16.4."},
-      {"id":"a8","rol":"Gerente de Marketing (Paid Media)","texto":"Monta la pauta con el registro completo en el cuadro de Lark —texto, pieza, landing, llamado a la acción, presupuesto y fechas—, verifica que la medición de conversiones funcione y activa las campañas en Meta y Google."},
-      {"id":"a9","rol":"Gerente Regional de Visual Merchandising","texto":"Recibe la pieza principal aprobada y coordina la adaptación, producción e instalación del material de punto de venta para que esté en tiendas y clientes el día de salida, según el proceso 16.7."},
-      {"id":"a10","rol":"Gerente de Marketing (Paid Media)","texto":"Sigue el rendimiento durante la campaña —cada día en las plataformas y cada semana por campaña—, pausa lo que no rinde, escala con cuidado lo que sí y rota las piezas desgastadas."},
-      {"id":"a11","rol":"Coordinador(a) de Marca","texto":"Cierra la campaña con el resultado contra su objetivo —venta, alcance, tráfico e inversión—, identifica las piezas que mejor funcionaron y registra los aprendizajes en Lark para el siguiente ciclo."}
+      {"id": "a1", "rol": "Brand Manager (Cubitt o Casio)", "texto": "Levanta el brief en Lark —un solo objetivo medible y el criterio con que se evaluará, público, insight, mensaje, oferta, mercados, formatos, fecha real de salida, presupuesto y el único aprobador de negocio— desde el calendario anual, un lanzamiento aprobado o una acción con cliente clave."},
+      {"id": "a2", "rol": "Director(a) Creativo(a) · Gerencia de Marca", "texto": "Verifica que el brief esté completo —si falta información no pasa a producción—, investiga la categoría y la competencia y presenta, con Arte y Diseño, tres territorios visuales con referencias de color, luz, composición y tono."},
+      {"id": "a3", "rol": "Director(a) Creativo(a) · Gerencia de Marca", "texto": "Define el concepto, el tagline, el copy y la primera expresión visual —el concepto y su arte se presentan juntos— y la bajada por canal: pieza principal, estáticas, reels, video, email, banners y material de punto de venta, en fases de expectativa, lanzamiento y sostenimiento."},
+      {"id": "a4", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Revisa que el concepto cumpla el brief y el presupuesto —es el aprobador de negocio salvo que el brief nombre otro— y, en los lanzamientos y campañas de alto alcance de Cubitt, lo presenta a la Junta Directiva; las campañas de Casio, a Casio Brasil."},
+      {"id": "a5", "rol": "Junta Directiva", "texto": "Aprueba la campaña o la devuelve con observaciones por escrito en el canal oficial; una observación que llega por otra vía se documenta antes de ejecutarse, y un cambio de alcance se trata como una solicitud nueva con nueva fecha."},
+      {"id": "a6", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Produce el key visual, las adaptaciones y las piezas según el manual de marca —la foto, el video principal y el 3D por el proceso 16.10—, controla textos, precios, medidas y logotipo, contrasta cada atributo con la ficha técnica y archiva los finales en la biblioteca de activos."},
+      {"id": "a7", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba la calidad de las piezas clave antes de su salida; Producto valida los atributos técnicos que se afirman. La aprobación de calidad no reabre el concepto ya aprobado por el negocio."},
+      {"id": "a8", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Comparte con los países el paquete de la campaña —piezas, lineamientos, enlaces y fechas— con el tiempo que exige su adaptación local, que sigue el proceso 16.4, y coordina el lanzamiento: Cuentas Clave y Trade activa las cuentas, E-commerce y Growth la web y la pauta de performance."},
+      {"id": "a9", "rol": "Trafficker de campañas (Mercadeo)", "texto": "Monta la pauta de marca con el registro completo en el cuadro de Lark —texto, pieza, landing, llamado a la acción, presupuesto y fechas—, verifica que la medición funcione y activa las campañas en Meta y Google."},
+      {"id": "a10", "rol": "Gerente de Visual Merchandising", "texto": "Recibe la pieza principal aprobada y la guía de exhibición de Diseño y Marca, y coordina la producción e instalación del material de punto de venta para que esté en tiendas y clientes del mayor el día de salida, según el proceso 16.7."},
+      {"id": "a11", "rol": "Trafficker de campañas (Mercadeo)", "texto": "Sigue el rendimiento durante la campaña —cada día en las plataformas y cada semana por campaña—, pausa lo que no rinde, escala con cuidado lo que sí y pide a Diseño y Marca la rotación de las piezas desgastadas."},
+      {"id": "a12", "rol": "Brand Manager (Cubitt o Casio)", "texto": "Cierra la campaña con el resultado contra su objetivo —venta, alcance, tráfico, inversión y, con Insights y ROI, la venta incremental—, identifica las piezas que mejor funcionaron y registra los aprendizajes en Lark para el siguiente ciclo."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Marca","Gerente de Marketing (Dirección Creativa)","Gerente Regional de Marketing","Junta Directiva","Diseñador(a) / Analista de Contenido","Gerente de Marketing (Paid Media)","Gerente Regional de Visual Merchandising"],
+      "carriles": [
+       "Brand Manager (Cubitt o Casio)",
+       "Director(a) Creativo(a) · Gerencia de Marca",
+       "Gerente Corporativo(a) de Mercadeo",
+       "Junta Directiva",
+       "Diseñador(a) (Diseño y Marca)",
+       "Director(a) de Diseño y Marca",
+       "Trafficker de campañas (Mercadeo)",
+       "Gerente de Visual Merchandising"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Coordinador(a) de Marca","tipo":"inicio","n":"Campaña del calendario, lanzamiento o acción con cliente"},
-       {
-        "id": "n1",
-        "carril": "Coordinador(a) de Marca",
-        "tipo": "tarea",
-        "n": "Levantar el brief de la campaña",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n2","carril":"Gerente de Marketing (Dirección Creativa)","tipo":"decision","n":"¿Brief completo?"},
-       {"id":"n2b","carril":"Gerente de Marketing (Dirección Creativa)","tipo":"fin","n":"Brief devuelto para completarse"},
-       {"id":"n3","carril":"Gerente de Marketing (Dirección Creativa)","tipo":"tarea","n":"Investigar y presentar tres territorios visuales"},
-       {"id":"n4","carril":"Gerente de Marketing (Dirección Creativa)","tipo":"tarea","n":"Definir concepto, textos y piezas por canal"},
-       {"id":"n5","carril":"Gerente Regional de Marketing","tipo":"tarea","n":"Presentar la campaña a quien la aprueba"},
-       {"id":"n6","carril":"Junta Directiva","tipo":"decision","n":"¿Campaña aprobada?"},
-       {"id":"n6b","carril":"Junta Directiva","tipo":"fin","n":"Campaña devuelta con observaciones"},
-       {
-        "id": "n7",
-        "carril": "Diseñador(a) / Analista de Contenido",
-        "tipo": "tarea",
-        "n": "Producir piezas y videos con control de calidad",
-        "sistemas": ["Dropbox / Drive"]
-       },
-       {"id":"n8","carril":"Gerente Regional de Marketing","tipo":"tarea","n":"Compartir el paquete con los países"},
-       {
-        "id": "n9",
-        "carril": "Gerente de Marketing (Paid Media)",
-        "tipo": "tarea",
-        "n": "Montar y activar la pauta",
-        "sistemas": ["Lark","Meta Ads Manager","Google Ads"]
-       },
-       {"id":"n10","carril":"Gerente Regional de Visual Merchandising","tipo":"tarea","n":"Coordinar el material de punto de venta"},
-       {"id":"n11","carril":"Gerente de Marketing (Paid Media)","tipo":"tarea","n":"Optimizar la pauta durante la campaña"},
-       {
-        "id": "n12",
-        "carril": "Coordinador(a) de Marca",
-        "tipo": "tarea",
-        "n": "Medir el resultado y registrar aprendizajes",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n13","carril":"Coordinador(a) de Marca","tipo":"fin","n":"Campaña desplegada y medida"}
+       {"id": "n0", "carril": "Brand Manager (Cubitt o Casio)", "tipo": "inicio", "n": "Campaña del calendario, lanzamiento o acción con cliente"},
+       {"id": "n1", "carril": "Brand Manager (Cubitt o Casio)", "tipo": "tarea", "n": "Levantar el brief de la campaña", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "decision", "n": "¿Brief completo?"},
+       {"id": "n2b", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "fin", "n": "Brief devuelto para completarse"},
+       {"id": "n3", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "tarea", "n": "Investigar y presentar tres territorios visuales"},
+       {"id": "n4", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "tarea", "n": "Definir concepto, copy y piezas por canal"},
+       {"id": "n5", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Aprobar que el concepto cumpla el brief"},
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "decision", "n": "¿Campaña aprobada?"},
+       {"id": "n6b", "carril": "Junta Directiva", "tipo": "fin", "n": "Campaña devuelta con observaciones"},
+       {"id": "n7", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Producir key visual y piezas", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n7b", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Aprobar la calidad de las piezas clave"},
+       {"id": "n8", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Compartir el paquete y coordinar el lanzamiento"},
+       {"id": "n9", "carril": "Trafficker de campañas (Mercadeo)", "tipo": "tarea", "n": "Montar y activar la pauta de marca", "sistemas": ["Lark", "Meta Ads Manager", "Google Ads"]},
+       {"id": "n10", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Coordinar el material de punto de venta"},
+       {"id": "n11", "carril": "Trafficker de campañas (Mercadeo)", "tipo": "tarea", "n": "Optimizar la pauta durante la campaña"},
+       {"id": "n12", "carril": "Brand Manager (Cubitt o Casio)", "tipo": "tarea", "n": "Medir el resultado y registrar aprendizajes", "sistemas": ["Lark"]},
+       {"id": "n13", "carril": "Brand Manager (Cubitt o Casio)", "tipo": "fin", "n": "Campaña desplegada y medida"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n2","a":"n3","etq":"Sí"},
-       {"de":"n2","a":"n2b","etq":"No"},
-       {"de":"n3","a":"n4"},
-       {"de":"n4","a":"n5"},
-       {"de":"n5","a":"n6"},
-       {"de":"n6","a":"n7","etq":"Sí"},
-       {"de":"n6","a":"n6b","etq":"No"},
-       {"de":"n7","a":"n8"},
-       {"de":"n8","a":"n9"},
-       {"de":"n8","a":"n10"},
-       {"de":"n9","a":"n11"},
-       {"de":"n10","a":"n12"},
-       {"de":"n11","a":"n12"},
-       {"de":"n12","a":"n13"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n2", "a": "n2b", "etq": "No"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"},
+       {"de": "n6", "a": "n6b", "etq": "No"},
+       {"de": "n7", "a": "n7b"},
+       {"de": "n7b", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n8", "a": "n10"},
+       {"de": "n9", "a": "n11"},
+       {"de": "n10", "a": "n12"},
+       {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Aprobación sin un dueño único","Una misma campaña de Cubitt recibe opiniones de varios miembros de la dirección y de otras áreas, a veces contradictorias o posteriores a su publicación, lo que genera retrabajo y retrasos.","Alta","Alto","Fijar un aprobador por tipo de campaña, con una ventana de observaciones por escrito y un cierre documentado."],
-      ["Campañas en plazos de emergencia","Solicitudes y cambios de último minuto obligan a producir sin brief completo ni control de calidad, y la creatividad se reduce a lo que alcanza a hacerse.","Alta","Medio","Aplicar el brief obligatorio, las ocho semanas para productos nuevos y la regla de 48 horas; un cambio de alcance es una solicitud nueva con fecha nueva."],
-      ["Campaña sin producto que la respalde","Se comunica un producto con pocas unidades o que aún no ha llegado; la pauta y los creadores quedan detenidos y el cliente no encuentra lo que se anuncia.","Media","Alto","Confirmar con planificación y comercial la disponibilidad por país antes de fijar la fecha de salida."],
-      ["Medición distorsionada","Una conversión mal configurada o la atribución inflada de Performance Max hacen creer que una campaña rinde cuando no lo hace.","Media","Alto","Verificar la medición contra las ventas reales antes de lanzar y durante la campaña."],
-      ["Afirmación de producto sin respaldo","Una pieza atribuye al producto una medición o un beneficio que no tiene —por ejemplo, presión arterial certificada en un reloj—, lo que la normativa de consumo trata como publicidad engañosa.","Media","Alto","Contrastar cada atributo con la ficha técnica y las guías de soporte y lanzar solo productos con las pruebas previas aprobadas."],
-      ["Canal mayorista fuera de los lanzamientos","Las campañas de lanzamiento llegan al canal mayorista cuando ya están cerradas y no incluyen a las cadenas y clientes clave que podrían amplificarlas.","Media","Medio","Incluir a la dirección comercial mayorista y a cuentas clave en el brief de los lanzamientos para definir la participación de clientes."]
+      [
+       "Aprobación sin un dueño único",
+       "Una misma campaña recibe opiniones de varias personas de la dirección y de otras áreas, a veces contradictorias o posteriores a su publicación, lo que genera retrabajo y retrasos.",
+       "Alta",
+       "Alto",
+       "Un solo aprobador de negocio nombrado en el brief, con una ventana de observaciones por escrito; Diseño y Marca aprueba la calidad y no hay doble aprobación por pieza."
+      ],
+      [
+       "Campañas en plazos de emergencia",
+       "Solicitudes y cambios de último minuto obligan a producir sin brief completo ni control de calidad, y la creatividad se reduce a lo que alcanza a hacerse.",
+       "Alta",
+       "Medio",
+       "Aplicar el brief obligatorio, las ocho semanas para productos nuevos y la regla de 48 horas; un cambio de alcance es una solicitud nueva con fecha nueva y muestra qué compromiso desplaza."
+      ],
+      [
+       "Frontera difusa entre el brief y el concepto",
+       "Mercadeo rediseña piezas o Diseño y Marca cambia el mensaje, y la campaña se discute dos veces.",
+       "Media",
+       "Medio",
+       "Mercadeo decide qué se dice y a quién; Diseño y Marca decide cómo se ve. El desacuerdo de prioridad sube con impacto y alternativas y decide la Dirección."
+      ],
+      [
+       "Campaña sin producto que la respalde",
+       "Se comunica un producto con pocas unidades o que aún no ha llegado; la pauta y los creadores quedan detenidos y el cliente no encuentra lo que se anuncia.",
+       "Media",
+       "Alto",
+       "Confirmar con planificación y comercial la disponibilidad por país antes de fijar la fecha de salida."
+      ],
+      [
+       "Afirmación de producto sin respaldo",
+       "Una pieza atribuye al producto una medición o un beneficio que no tiene —por ejemplo, presión arterial certificada en un reloj—, lo que la normativa de consumo trata como publicidad engañosa.",
+       "Media",
+       "Alto",
+       "Contrastar cada atributo con la ficha técnica y las guías de soporte, con validación de Producto, y lanzar solo productos con las pruebas previas aprobadas."
+      ],
+      [
+       "Canal mayorista fuera de los lanzamientos",
+       "Las campañas de lanzamiento llegan al canal mayorista cuando ya están cerradas y no incluyen a las cadenas y clientes clave que podrían amplificarlas.",
+       "Media",
+       "Medio",
+       "Incluir a la dirección comercial mayorista y a Cuentas Clave y Trade en el brief de los lanzamientos."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Campañas publicadas en fecha","Campañas publicadas en la fecha comprometida ÷ campañas planificadas","Mensual","Gerente de Marketing (Dirección Creativa)","≥ 90 %"],
-      ["Tasa de retrabajo creativo","Piezas con más de una ronda de cambios ÷ piezas entregadas","Mensual","Gerente de Marketing (Dirección Creativa)","Tendencia a la baja"],
-      ["ROAS por campaña","Venta web atribuida ÷ inversión en pauta","Por campaña y mensual","Gerente de Marketing (Paid Media)","Según la meta del forecast de cada país"],
-      ["Resultado contra objetivo","Resultado logrado ÷ objetivo del brief","Por campaña","Coordinador(a) de Marca","≥ 100 %"]
+      [
+       "Campañas publicadas en fecha",
+       "Campañas publicadas en la fecha comprometida ÷ campañas planificadas",
+       "Mensual",
+       "Gerente Corporativo(a) de Mercadeo",
+       "≥ 90 %"
+      ],
+      [
+       "Tasa de retrabajo creativo",
+       "Piezas con más de una ronda de cambios ÷ piezas entregadas",
+       "Mensual",
+       "Director(a) Creativo(a) · Gerencia de Marca",
+       "Tendencia a la baja"
+      ],
+      [
+       "Campañas con un solo aprobador de negocio",
+       "Campañas cuyo brief nombra un aprobador y se aprobaron sin segunda ronda de opiniones ÷ campañas del período",
+       "Trimestral",
+       "Director(a) de Diseño y Marca",
+       "100 %"
+      ],
+      [
+       "Resultado contra objetivo",
+       "Resultado logrado ÷ objetivo del brief",
+       "Por campaña",
+       "Brand Manager (Cubitt o Casio)",
+       "≥ 100 %"
+      ]
      ]
     }
    },
    "16.3": {
-    "proposito": {"estado":"borrador","texto":"Canaliza todo pedido de material creativo —de mercadeo, comercial, retail, visual merchandising, ventas web o servicio al cliente— por un formulario único en Lark, lo asigna al diseñador o editor que atiende el país, controla su avance y lo entrega aprobado al solicitante, dejando registrado el volumen de solicitudes y el tiempo de atención de cada una."},
-    "dueno": {"estado":"borrador"},
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Canaliza todo pedido de diseño a la Dirección de Diseño y Marca —de mercadeo, comercial, retail, visual merchandising, e-commerce, producto o servicio al cliente— por un formulario único en Lark, lo prioriza contra el calendario común y la capacidad del área, lo asigna al diseñador interno o freelance que corresponde, controla su avance y lo entrega aprobado al solicitante, dejando registrado el volumen de solicitudes y el tiempo de atención de cada una.", "nota_estado": "Hoy el tráfico creativo lo ordena el coordinador de marca de cada país y lo asigna la dirección de arte dentro de mercadeo. Desde la revisión de la estructura del 06-nov-2026 todo lo creativo y de diseño queda en la Dirección de Diseño y Marca, que fija procesos de brief, revisión y entrega comunes a todas las áreas; el tráfico pasa a esa dirección y se revisa cada mes contra su capacidad, de modo que toda urgencia muestre qué compromiso desplaza."},
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Área solicitante","texto":"Registra el pedido en el formulario de Lark que corresponde —solicitudes de mercadeo, de artes para visual o de web— con objetivo, piezas, medidas, textos, llamado a la acción, fecha requerida y prioridad."},
-      {"id":"a2","rol":"Coordinador(a) de Marca","texto":"Revisa que la solicitud traiga la información completa y la prioriza contra el calendario del país; si falta información, la aclara en el mismo hilo de Lark antes de pasarla a diseño."},
-      {"id":"a3","rol":"Gerente de Marketing (Dirección de Arte)","texto":"Asigna la solicitud en la base de tráfico creativo al diseñador o editor que atiende el país, según su carga, y fija la fecha de entrega: de tres a cinco días hábiles en las piezas para visual merchandising."},
-      {"id":"a4","rol":"Diseñador(a) / Analista de Contenido","texto":"Desarrolla la pieza según los lineamientos de la marca —Cubitt o Casio—, reutiliza cuando aplica piezas de campañas anteriores de otros países y la presenta para revisión en el hilo de la solicitud."},
-      {"id":"a5","rol":"Coordinador(a) de Marca","texto":"Revisa ortografía, precios, condiciones, vigencia o unidades ofertadas de cada promoción y coherencia visual, y confirma la aprobación del solicitante o del área responsable; todo cambio se pide por escrito en la solicitud."},
-      {"id":"a6","rol":"Diseñador(a) / Analista de Contenido","texto":"Aplica los ajustes pedidos en la solicitud y entrega la versión final con nombre, formato, peso y medidas correctos, archivada en el repositorio de la campaña para su reutilización."},
-      {"id":"a7","rol":"Coordinador(a) de Marca","texto":"Cierra la solicitud en Lark, con lo que quedan registrados el tiempo de atención y el volumen atendido, y entrega al solicitante el enlace de la versión final."},
-      {"id":"a8","rol":"Área solicitante","texto":"Produce o publica la pieza con el enlace final y, cuando se trata de material de punto de venta, comparte en la solicitud la fotografía de la instalación como evidencia."}
+      {"id": "a1", "rol": "Área solicitante", "texto": "Registra el pedido en el formulario único de Diseño y Marca en Lark —piezas para campañas, artes para visual, web o redes— con objetivo, piezas, medidas, textos, llamado a la acción, fecha requerida, prioridad y quién lo aprueba por el negocio."},
+      {"id": "a2", "rol": "Coordinador(a) de Arte y Diseño", "texto": "Revisa que la solicitud traiga la información completa y la prioriza contra el calendario común y la capacidad del mes; si falta información, la aclara en el mismo hilo de Lark antes de pasarla a diseño. Una urgencia se acepta mostrando qué compromiso desplaza."},
+      {"id": "a3", "rol": "Coordinador(a) de Arte y Diseño", "texto": "Asigna la solicitud en la base de tráfico creativo al diseñador interno o freelance que corresponde, según su carga y la disciplina, y fija la fecha de entrega: de tres a cinco días hábiles en las piezas para visual merchandising."},
+      {"id": "a4", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Desarrolla la pieza según el manual de marca —Cubitt o los lineamientos de Casio—, reutiliza cuando aplica piezas de la biblioteca de activos y la presenta para revisión en el hilo de la solicitud."},
+      {"id": "a5", "rol": "Coordinador(a) de Arte y Diseño", "texto": "Revisa la coherencia visual y la calidad contra el manual y pide al solicitante que confirme por escrito en la solicitud precios, condiciones, vigencia o unidades ofertadas de cada promoción; todo cambio se pide por escrito."},
+      {"id": "a6", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Aplica los ajustes pedidos y entrega la versión final con nombre, formato, peso y medidas correctos, archivada en la biblioteca de activos con su campaña, mercado y vigencia para su reutilización."},
+      {"id": "a7", "rol": "Coordinador(a) de Arte y Diseño", "texto": "Cierra la solicitud en Lark, con lo que quedan registrados el tiempo de atención y el volumen atendido, y entrega al solicitante el enlace de la versión final. Con ese registro se hace la revisión mensual de capacidad de la dirección."},
+      {"id": "a8", "rol": "Área solicitante", "texto": "Produce o publica la pieza con el enlace final y, cuando se trata de material de punto de venta, comparte en la solicitud la fotografía de la instalación como evidencia."}
      ],
      "diagrama": {
-      "carriles": ["Área solicitante","Coordinador(a) de Marca","Gerente de Marketing (Dirección de Arte)","Diseñador(a) / Analista de Contenido"],
+      "carriles": ["Área solicitante", "Coordinador(a) de Arte y Diseño", "Diseñador(a) (Diseño y Marca)"],
       "nodos": [
-       {"id":"n0","carril":"Área solicitante","tipo":"inicio","n":"Necesidad de material creativo"},
-       {
-        "id": "n1",
-        "carril": "Área solicitante",
-        "tipo": "tarea",
-        "n": "Registrar la solicitud en el formulario",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n2","carril":"Coordinador(a) de Marca","tipo":"decision","n":"¿Solicitud completa?"},
-       {
-        "id": "n2b",
-        "carril": "Coordinador(a) de Marca",
-        "tipo": "tarea",
-        "n": "Aclarar la información faltante",
-        "sistemas": ["Lark"]
-       },
-       {
-        "id": "n3",
-        "carril": "Gerente de Marketing (Dirección de Arte)",
-        "tipo": "tarea",
-        "n": "Asignar al diseñador y fijar la entrega",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n4","carril":"Diseñador(a) / Analista de Contenido","tipo":"tarea","n":"Desarrollar la pieza"},
-       {"id":"n5","carril":"Coordinador(a) de Marca","tipo":"tarea","n":"Revisar textos, precios y condiciones"},
-       {"id":"n6","carril":"Coordinador(a) de Marca","tipo":"decision","n":"¿Requiere ajustes?"},
-       {
-        "id": "n7",
-        "carril": "Diseñador(a) / Analista de Contenido",
-        "tipo": "tarea",
-        "n": "Ajustar y entregar la versión final",
-        "sistemas": ["Dropbox / Drive"]
-       },
-       {
-        "id": "n8",
-        "carril": "Coordinador(a) de Marca",
-        "tipo": "tarea",
-        "n": "Cerrar la solicitud y entregar el enlace",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n9","carril":"Área solicitante","tipo":"tarea","n":"Producir o publicar y compartir evidencia"},
-       {"id":"n10","carril":"Área solicitante","tipo":"fin","n":"Pieza entregada y solicitud cerrada"}
+       {"id": "n0", "carril": "Área solicitante", "tipo": "inicio", "n": "Necesidad de una pieza de diseño"},
+       {"id": "n1", "carril": "Área solicitante", "tipo": "tarea", "n": "Registrar la solicitud en el formulario único", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "decision", "n": "¿Solicitud completa?"},
+       {"id": "n2b", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "tarea", "n": "Aclarar la información faltante", "sistemas": ["Lark"]},
+       {"id": "n3", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "tarea", "n": "Priorizar, asignar y fijar la entrega", "sistemas": ["Lark"]},
+       {"id": "n4", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Desarrollar la pieza"},
+       {"id": "n5", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "tarea", "n": "Revisar calidad y confirmar textos y precios"},
+       {"id": "n6", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "decision", "n": "¿Requiere ajustes?"},
+       {"id": "n7", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Ajustar y entregar la versión final", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n8", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "tarea", "n": "Cerrar la solicitud y entregar el enlace", "sistemas": ["Lark"]},
+       {"id": "n9", "carril": "Área solicitante", "tipo": "tarea", "n": "Producir o publicar y compartir evidencia"},
+       {"id": "n10", "carril": "Área solicitante", "tipo": "fin", "n": "Pieza entregada y solicitud cerrada"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n2","a":"n3","etq":"Sí"},
-       {"de":"n2","a":"n2b","etq":"No"},
-       {"de":"n2b","a":"n3"},
-       {"de":"n3","a":"n4"},
-       {"de":"n4","a":"n5"},
-       {"de":"n5","a":"n6"},
-       {"de":"n6","a":"n7","etq":"Sí"},
-       {"de":"n6","a":"n8","etq":"No"},
-       {"de":"n7","a":"n8"},
-       {"de":"n8","a":"n9"},
-       {"de":"n9","a":"n10"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n2", "a": "n2b", "etq": "No"},
+       {"de": "n2b", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7", "etq": "Sí"},
+       {"de": "n6", "a": "n8", "etq": "No"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Solicitudes sin información suficiente","Pedidos sin objetivo, medidas o textos definidos generan retrasos, reprocesos y piezas incompletas.","Alta","Medio","Mantener el formato de brief obligatorio y no asignar ninguna solicitud hasta completarla."],
-      ["Pedidos por canales informales","Solicitudes y cambios que llegan por mensajería o en persona se pierden entre mensajes, no quedan registrados y el tiempo real de atención no se mide.","Alta","Medio","Atender solo lo registrado en el formulario; lo que llegue por otro canal se registra en Lark antes de asignarse."],
-      ["Picos de demanda sin capacidad","Lanzamientos, promociones de varios países y pedidos de clientes coinciden en las mismas semanas y la cola del diseñador de cada país se desborda.","Alta","Alto","Publicar tiempos mínimos de solicitud por tipo de pieza y hacer visible la priorización semanal para las áreas solicitantes."],
-      ["Error de precio o de condiciones en una pieza","Un precio, una fecha o una condición mal escrita llega a imprimirse o publicarse, con costo de reimpresión y riesgo ante la autoridad de protección al consumidor.","Media","Alto","Revisar precios, vigencia y condiciones contra la información vigente de comercial antes de aprobar."],
-      ["Material disperso","Artes y versiones finales repartidos en distintas carpetas y canales se pierden y no se reutilizan.","Media","Bajo","Repositorio único organizado por campaña, fecha y mercado, con la versión aprobada vigente marcada y las piezas vencidas retiradas."]
+      [
+       "Solicitudes sin información suficiente",
+       "Pedidos sin objetivo, medidas o textos definidos generan retrasos, reprocesos y piezas incompletas.",
+       "Alta",
+       "Medio",
+       "Mantener el formato de brief obligatorio y no asignar ninguna solicitud hasta completarla."
+      ],
+      [
+       "Pedidos por canales informales",
+       "Solicitudes y cambios que llegan por mensajería o en persona se pierden entre mensajes, no quedan registrados y el tiempo real de atención no se mide.",
+       "Alta",
+       "Medio",
+       "Atender solo lo registrado en el formulario único; lo que llegue por otro canal se registra en Lark antes de asignarse."
+      ],
+      [
+       "Picos de demanda sin capacidad",
+       "Lanzamientos, promociones de varios países y pedidos de clientes coinciden en las mismas semanas y la cola de diseño se desborda.",
+       "Alta",
+       "Alto",
+       "Revisión mensual de capacidad con el calendario común, tiempos mínimos por tipo de pieza y freelancers previstos para los picos."
+      ],
+      [
+       "Error de precio o de condiciones en una pieza",
+       "Un precio, una fecha o una condición mal escrita llega a imprimirse o publicarse, con costo de reimpresión y riesgo ante la autoridad de protección al consumidor.",
+       "Media",
+       "Alto",
+       "Confirmación escrita del solicitante sobre precios, vigencia y condiciones antes de cerrar la pieza."
+      ],
+      [
+       "Material disperso",
+       "Artes y versiones finales repartidos en distintas carpetas y canales se pierden y no se reutilizan.",
+       "Media",
+       "Bajo",
+       "Biblioteca única de activos organizada por campaña, fecha y mercado, con la versión vigente marcada y las piezas vencidas retiradas (proceso 16.9)."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Tiempo promedio de entrega de piezas","Fecha de entrega − fecha de solicitud, en días hábiles","Mensual","Gerente de Marketing (Dirección de Arte)","≤ 5 días hábiles en piezas estándar"],
-      ["Solicitudes entregadas en plazo","Solicitudes entregadas en la fecha fijada ÷ solicitudes cerradas","Mensual","Gerente de Marketing (Dirección de Arte)","≥ 90 %"],
-      ["Solicitudes que requirieron aclaración","Solicitudes devueltas por información incompleta ÷ solicitudes recibidas","Mensual","Coordinador(a) de Marca","Tendencia a la baja"],
-      ["Rondas de ajuste por pieza","Rondas de ajuste solicitadas ÷ piezas entregadas","Mensual","Coordinador(a) de Marca","≤ 1"]
+      [
+       "Tiempo promedio de entrega de piezas",
+       "Fecha de entrega − fecha de solicitud, en días hábiles",
+       "Mensual",
+       "Coordinador(a) de Arte y Diseño",
+       "≤ 5 días hábiles en piezas estándar"
+      ],
+      [
+       "Solicitudes entregadas en plazo",
+       "Solicitudes entregadas en la fecha fijada ÷ solicitudes cerradas",
+       "Mensual",
+       "Coordinador(a) de Arte y Diseño",
+       "≥ 90 %"
+      ],
+      [
+       "Solicitudes que requirieron aclaración",
+       "Solicitudes devueltas por información incompleta ÷ solicitudes recibidas",
+       "Mensual",
+       "Coordinador(a) de Arte y Diseño",
+       "Tendencia a la baja"
+      ],
+      [
+       "Uso de la capacidad",
+       "Horas comprometidas ÷ horas disponibles del equipo interno, por mes",
+       "Mensual",
+       "Director(a) de Diseño y Marca",
+       "Entre 75 % y 90 %"
+      ]
      ]
     }
    },
    "16.4": {
-    "proposito": {"estado":"borrador","texto":"Convierte la campaña regional en la campaña de cada país: adapta piezas, textos, precios y condiciones a los canales y exigencias locales —incluidos los marketplaces y las promociones propias del mercado—, tramita los permisos que correspondan, publica en los canales del país y devuelve al equipo regional la evidencia del despliegue y el material nuevo que pueda servir a otros países.","nota_estado":"Hoy el paquete regional de las campañas fijas llega a los países con unas dos semanas de anticipación y deja cerca de una semana para adaptar, producir, instalar y tramitar permisos, lo que en Venezuela ha llevado a publicar promociones sin el permiso correspondiente; además, el material que produce cada país no siempre se comparte con los demás. El flujo adelanta la entrega del paquete, tramita los permisos en paralelo y agrega la devolución en ambos sentidos."},
-    "dueno": {"estado":"borrador"},
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Convierte la campaña regional en la campaña de cada país: adapta piezas, textos, precios y condiciones a los canales y exigencias locales —incluidos los marketplaces y las promociones propias del mercado— sin salirse del manual de marca, tramita los permisos que correspondan, publica en los canales del país y devuelve la evidencia del despliegue y el material nuevo que pueda servir a otros países.", "nota_estado": "Hoy el paquete regional de las campañas fijas llega a los países con unas dos semanas de anticipación y deja cerca de una semana para adaptar, producir, instalar y tramitar permisos, lo que en Venezuela ha llevado a publicar promociones sin el permiso correspondiente; además, el material que produce cada país no siempre se comparte. Desde la revisión de la estructura del 06-nov-2026 el paquete lo produce Diseño y Marca y cada Mercadeo país lo adapta con su diseño creativo local: el país adapta formatos y produce contenido rápido, pero no cambia el estándar."},
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Gerente Regional de Marketing","texto":"Publica el paquete regional de la campaña —piezas madre, lineamientos, textos, enlaces y fechas— con la anticipación que permite adaptar y tramitar permisos en cada país, y lo presenta en la reunión regional mensual."},
-      {"id":"a2","rol":"Coordinador(a) de Marca","texto":"Identifica lo que debe adaptarse en su país —tono, precios, moneda e impuestos, fechas locales, promociones propias, formatos de marketplaces y de tiendas— y lo registra como solicitud en Lark."},
-      {"id":"a3","rol":"Coordinador(a) de Marca","texto":"Inicia en paralelo los permisos que exige la campaña —presentación de la promoción ante la autoridad de protección al consumidor o permisos municipales de publicidad— con el plazo que requiere cada trámite."},
-      {"id":"a4","rol":"Diseñador(a) / Analista de Contenido","texto":"Adapta las piezas a los formatos y condiciones del país sin salirse de los lineamientos regionales; lo que cambie el concepto o la identidad de la campaña se consulta antes con la gerencia regional."},
-      {"id":"a5","rol":"Gerente de Marketing (país)","texto":"Aprueba las piezas adaptadas y, cuando la campaña incluye una promoción o un descuento local, confirma que cuenta con la aprobación comercial y con el permiso vigente antes de fijar la salida."},
-      {"id":"a6","rol":"Coordinador(a) de Marca","texto":"Publica o activa la campaña en los canales del país: redes, email y pauta a través de sus responsables, web y marketplaces mediante la solicitud de web, y tiendas mediante visual merchandising."},
-      {"id":"a7","rol":"Gerente de E-commerce / Ventas Web","texto":"Activa en la web y los marketplaces las piezas, promociones y productos en la fecha acordada, informa la promoción a los asesores de venta en línea y avisa si un producto no está disponible o la mecánica no cabe."},
-      {"id":"a8","rol":"Coordinador(a) de Visual Merchandising","texto":"Instala el material de la campaña en tiendas y clientes, confirma que el precio promocional esté cargado en Odoo antes de que la tienda imprima sus etiquetas y registra en Lark la fotografía de cada punto de venta."},
-      {"id":"a9","rol":"Coordinador(a) de Marca","texto":"Reporta al equipo regional la evidencia del despliegue y comparte en el repositorio común el material nuevo producido en el país, para que otros mercados lo reutilicen."}
+      {"id": "a1", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Publica el paquete de la campaña que produjo Diseño y Marca —piezas madre, lineamientos, textos, enlaces y fechas— con la anticipación que permite adaptar y tramitar permisos en cada país, y lo presenta en la reunión mensual."},
+      {"id": "a2", "rol": "Coordinador(a) de Marca (país)", "texto": "Identifica lo que debe adaptarse en su país —tono, precios, moneda e impuestos, fechas locales, promociones propias, formatos de marketplaces, de tiendas y de clientes del mayor— y lo registra como solicitud en Lark."},
+      {"id": "a3", "rol": "Coordinador(a) de Marca (país)", "texto": "Inicia en paralelo los permisos que exige la campaña —presentación de la promoción ante la autoridad de protección al consumidor o permisos municipales de publicidad— con el plazo que requiere cada trámite."},
+      {"id": "a4", "rol": "Diseñador(a) creativo(a) local (Mercadeo país)", "texto": "Adapta las piezas a los formatos y condiciones del país sin salirse del manual de marca —banners, pauta en redes, vallas—; lo que cambie el concepto o la identidad de la campaña se consulta antes con Diseño y Marca."},
+      {"id": "a5", "rol": "Gerente de Mercadeo (país)", "texto": "Aprueba las piezas adaptadas y, cuando la campaña incluye una promoción o un descuento local, confirma que cuenta con la aprobación comercial y con el permiso vigente antes de fijar la salida."},
+      {"id": "a6", "rol": "Coordinador(a) de Marca (país)", "texto": "Publica o activa la campaña en los canales del país: redes con Social y Contenido, pauta con el trafficker, web y marketplaces con e-commerce, y tiendas y clientes del mayor con visual merchandising."},
+      {"id": "a7", "rol": "Gerente de E-commerce (país)", "texto": "Activa en la web y los marketplaces las piezas, promociones y productos en la fecha acordada, informa la promoción a los asesores de venta en línea y avisa si un producto no está disponible o la mecánica no cabe."},
+      {"id": "a8", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Instala el material de la campaña en tiendas y clientes del mayor, confirma que el precio promocional esté cargado en Odoo antes de que la tienda imprima sus etiquetas y registra en Lark la fotografía de cada punto de venta."},
+      {"id": "a9", "rol": "Coordinador(a) de Marca (país)", "texto": "Reporta la evidencia del despliegue y sube a la biblioteca de activos el material nuevo producido en el país, para que otros mercados lo reutilicen."}
      ],
      "diagrama": {
-      "carriles": ["Gerente Regional de Marketing","Coordinador(a) de Marca","Diseñador(a) / Analista de Contenido","Gerente de Marketing (país)","Gerente de E-commerce / Ventas Web","Coordinador(a) de Visual Merchandising"],
+      "carriles": [
+       "Gerente Corporativo(a) de Mercadeo",
+       "Coordinador(a) de Marca (país)",
+       "Diseñador(a) creativo(a) local (Mercadeo país)",
+       "Gerente de Mercadeo (país)",
+       "Gerente de E-commerce (país)",
+       "Coordinador(a) de Visual Merchandising (país)"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Gerente Regional de Marketing","tipo":"inicio","n":"Campaña regional aprobada"},
-       {
-        "id": "n1",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Publicar el paquete regional",
-        "sistemas": ["Lark","Dropbox / Drive"]
-       },
-       {
-        "id": "n2",
-        "carril": "Coordinador(a) de Marca",
-        "tipo": "tarea",
-        "n": "Identificar las adaptaciones del país",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n3","carril":"Coordinador(a) de Marca","tipo":"tarea","n":"Iniciar los permisos requeridos"},
-       {"id":"n4","carril":"Diseñador(a) / Analista de Contenido","tipo":"tarea","n":"Adaptar las piezas al país"},
-       {"id":"n5","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Aprobar las piezas adaptadas"},
-       {"id":"n6","carril":"Gerente de Marketing (país)","tipo":"decision","n":"¿Lista para salir?"},
-       {"id":"n7","carril":"Coordinador(a) de Marca","tipo":"tarea","n":"Reprogramar la fecha de salida"},
-       {"id":"n8","carril":"Coordinador(a) de Marca","tipo":"tarea","n":"Publicar en los canales del país"},
-       {
-        "id": "n9",
-        "carril": "Gerente de E-commerce / Ventas Web",
-        "tipo": "tarea",
-        "n": "Activar web y marketplaces",
-        "sistemas": ["Shopify"]
-       },
-       {
-        "id": "n10",
-        "carril": "Coordinador(a) de Visual Merchandising",
-        "tipo": "tarea",
-        "n": "Instalar el material en tiendas",
-        "sistemas": ["Lark"]
-       },
-       {
-        "id": "n11",
-        "carril": "Coordinador(a) de Marca",
-        "tipo": "tarea",
-        "n": "Reportar evidencia y compartir material",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n12","carril":"Coordinador(a) de Marca","tipo":"fin","n":"Campaña desplegada en el país"}
+       {"id": "n0", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "inicio", "n": "Campaña aprobada y producida"},
+       {"id": "n1", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Publicar el paquete de la campaña", "sistemas": ["Lark", "Biblioteca de activos"]},
+       {"id": "n2", "carril": "Coordinador(a) de Marca (país)", "tipo": "tarea", "n": "Identificar las adaptaciones del país", "sistemas": ["Lark"]},
+       {"id": "n3", "carril": "Coordinador(a) de Marca (país)", "tipo": "tarea", "n": "Iniciar los permisos requeridos"},
+       {"id": "n4", "carril": "Diseñador(a) creativo(a) local (Mercadeo país)", "tipo": "tarea", "n": "Adaptar las piezas al país"},
+       {"id": "n5", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Aprobar las piezas adaptadas"},
+       {"id": "n6", "carril": "Gerente de Mercadeo (país)", "tipo": "decision", "n": "¿Lista para salir?"},
+       {"id": "n7", "carril": "Coordinador(a) de Marca (país)", "tipo": "tarea", "n": "Reprogramar la fecha de salida"},
+       {"id": "n8", "carril": "Coordinador(a) de Marca (país)", "tipo": "tarea", "n": "Publicar en los canales del país"},
+       {"id": "n9", "carril": "Gerente de E-commerce (país)", "tipo": "tarea", "n": "Activar web y marketplaces", "sistemas": ["Shopify"]},
+       {"id": "n10", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Instalar el material en tiendas y clientes", "sistemas": ["Lark"]},
+       {"id": "n11", "carril": "Coordinador(a) de Marca (país)", "tipo": "tarea", "n": "Reportar evidencia y compartir material", "sistemas": ["Lark", "Biblioteca de activos"]},
+       {"id": "n12", "carril": "Coordinador(a) de Marca (país)", "tipo": "fin", "n": "Campaña desplegada en el país"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n2","a":"n3"},
-       {"de":"n2","a":"n4"},
-       {"de":"n4","a":"n5"},
-       {"de":"n3","a":"n6"},
-       {"de":"n5","a":"n6"},
-       {"de":"n6","a":"n8","etq":"Sí"},
-       {"de":"n6","a":"n7","etq":"No"},
-       {"de":"n7","a":"n8"},
-       {"de":"n8","a":"n9"},
-       {"de":"n8","a":"n10"},
-       {"de":"n9","a":"n11"},
-       {"de":"n10","a":"n11"},
-       {"de":"n11","a":"n12"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n2", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n3", "a": "n6"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n8", "etq": "Sí"},
+       {"de": "n6", "a": "n7", "etq": "No"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n8", "a": "n10"},
+       {"de": "n9", "a": "n11"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Paquete regional tardío","Cuando el paquete llega pocos días antes de la salida, el país no alcanza a adaptar, producir, instalar y tramitar permisos con calidad.","Alta","Alto","Fijar en el calendario regional una anticipación mínima de entrega por tipo de campaña."],
-      ["Promoción publicada sin permiso","Si la aprobación de una promoción llega tarde, el plazo del permiso ante la autoridad del consumidor no alcanza y la campaña sale sin él, expuesta a multa.","Media","Alto","Tramitar el permiso en paralelo a la adaptación y no publicar promociones sin permiso vigente."],
-      ["Producto de la campaña inactivo en la web","El producto está en bodega pero no activo en la web o en el marketplace, y la campaña lleva tráfico a algo que no se puede comprar.","Media","Medio","Confirmar con e-commerce la activación de cada producto de la campaña antes de la fecha de salida."],
-      ["Material local que no se comparte","Lo que produce un país para una campaña no llega a los demás, que vuelven a producirlo desde cero.","Media","Bajo","Subir el material adaptado al repositorio común como parte del cierre del despliegue."],
-      ["Adaptación que se sale de la identidad","Un tono, un humor o una pieza que funciona en un país no se acepta en otro, o se aparta de los lineamientos de Casio.","Baja","Medio","Consultar con la gerencia regional los cambios de concepto y revisar los lineamientos de Casio antes de aprobar."]
+      [
+       "Paquete regional tardío",
+       "Cuando el paquete llega pocos días antes de la salida, el país no alcanza a adaptar, producir, instalar y tramitar permisos con calidad.",
+       "Alta",
+       "Alto",
+       "Fijar en el calendario común una anticipación mínima de entrega por tipo de campaña."
+      ],
+      [
+       "Promoción publicada sin permiso",
+       "Si la aprobación de una promoción llega tarde, el plazo del permiso ante la autoridad del consumidor no alcanza y la campaña sale sin él, expuesta a multa.",
+       "Media",
+       "Alto",
+       "Tramitar el permiso en paralelo a la adaptación y no publicar promociones sin permiso vigente."
+      ],
+      [
+       "Producto de la campaña inactivo en la web",
+       "El producto está en bodega pero no activo en la web o en el marketplace, y la campaña lleva tráfico a algo que no se puede comprar.",
+       "Media",
+       "Medio",
+       "Confirmar con e-commerce la activación de cada producto de la campaña antes de la fecha de salida."
+      ],
+      [
+       "Material local que no se comparte",
+       "Lo que produce un país para una campaña no llega a los demás, que vuelven a producirlo desde cero.",
+       "Media",
+       "Bajo",
+       "Subir el material adaptado a la biblioteca de activos como parte del cierre del despliegue."
+      ],
+      [
+       "Adaptación que se sale de la identidad",
+       "Un tono, un humor o una pieza que funciona en un país se aparta del manual de marca o de los lineamientos de Casio.",
+       "Baja",
+       "Medio",
+       "El país adapta formatos y no cambia el estándar; los cambios de concepto se consultan con Diseño y Marca."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Anticipación del paquete regional","Fecha de salida − fecha de publicación del paquete, en días hábiles","Por campaña","Gerente Regional de Marketing","≥ 15 días hábiles en campañas fijas"],
-      ["Campañas desplegadas en fecha","Campañas publicadas en la fecha regional ÷ campañas del período","Mensual","Gerente de Marketing (país)","≥ 95 %"],
-      ["Promociones publicadas con permiso vigente","Promociones con permiso ÷ promociones que lo requieren","Mensual","Gerente de Marketing (país)","100 %"],
-      ["Despliegues con evidencia registrada","Campañas con evidencia en Lark ÷ campañas desplegadas","Mensual","Coordinador(a) de Marca","100 %"]
+      [
+       "Anticipación del paquete",
+       "Fecha de salida − fecha de publicación del paquete, en días hábiles",
+       "Por campaña",
+       "Gerente Corporativo(a) de Mercadeo",
+       "≥ 15 días hábiles en campañas fijas"
+      ],
+      [
+       "Campañas desplegadas en fecha",
+       "Campañas publicadas en la fecha regional ÷ campañas del período",
+       "Mensual",
+       "Gerente de Mercadeo (país)",
+       "≥ 95 %"
+      ],
+      [
+       "Promociones publicadas con permiso vigente",
+       "Promociones con permiso ÷ promociones que lo requieren",
+       "Mensual",
+       "Gerente de Mercadeo (país)",
+       "100 %"
+      ],
+      [
+       "Despliegues con evidencia registrada",
+       "Campañas con evidencia en Lark ÷ campañas desplegadas",
+       "Mensual",
+       "Coordinador(a) de Marca (país)",
+       "100 %"
+      ]
      ]
     }
    },
    "16.5": {
-    "proposito": {"estado":"borrador","texto":"Planifica, produce y publica el contenido de las redes sociales de cada marca y país, atiende la conversación con la comunidad y deriva a su canal las consultas de compra y de posventa. Se apoya en la información de ventas, lanzamientos, promociones y eventos de cada país para que lo que se publica acompañe lo que se quiere vender."},
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Especialista de Marketing / Brand (Social Media)",
-     "participantes": ["Gerente de Marketing (país)","Diseñador(a) / Analista de Contenido (creación de contenido, edición y atención de la comunidad)","Gerente de Marketing (Casio Regional) (redes de Casio)","Gerente de E-commerce / Ventas Web (consultas de compra)","Coordinador(a) de Soporte / Servicio al Cliente (consultas de garantía y soporte)"],
-     "evidencia": ["E-49","E-56","E-42","E-22","SOP 03 de Marketing Cubitt Panamá (Lark)"]
-    },
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Planifica, produce y publica el contenido de las redes sociales de cada marca y país, atiende la conversación con la comunidad y deriva a su canal las consultas de compra y de posventa. Sigue la línea editorial y el calendario que fija la gerencia de Social y Contenido, se apoya en la información de ventas, lanzamientos, promociones y eventos de cada país y usa las artes derivadas del key visual que produce Diseño y Marca; el contenido ágil lo produce el propio equipo de Social y Contenido."},
+    "dueno": {"estado": "borrador", "dueno": "Coordinador(a) de Social y Contenido (país)", "participantes": ["Gerente de Social y Contenido — fija la línea editorial, el calendario regional y la estrategia de comunidad, creadores y relaciones públicas.", "Gerente de Mercadeo (país) — entrega las prioridades de venta del país y activa el protocolo de crisis.", "Creador(a) de contenido (Social y Contenido) — produce el contenido ágil: fotografías, reels y coberturas.", "Analista de Social y Contenido (comunidad) — atiende mensajes y comentarios y deriva los casos.", "Diseñador(a) (Diseño y Marca) — artes derivadas del key visual y línea estética, por el formulario único (16.3).", "Brand Manager de Casio — lineamientos de las redes de Casio.", "Gerente de E-commerce (país) — consultas de compra.", "Coordinador(a) de Soporte / Servicio al Cliente — consultas de garantía y soporte."], "evidencia": ["E-49", "E-56", "E-42", "E-22", "SOP 03 de Marketing Cubitt Panamá (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Gerente de Marketing (país)","texto":"Antes de que se construya el calendario del mes siguiente, entrega a la gestión de redes qué se vendió y qué no rota, y los lanzamientos, promociones, eventos y fechas locales que el contenido debe acompañar."},
-      {"id":"a2","rol":"Especialista de Marketing / Brand (Social Media)","texto":"Construye, unos quince días antes del inicio del mes, el calendario de contenido por marca y país en Lark, combinando las campañas regionales con las necesidades locales, y lo revisa con la gerencia del país."},
-      {"id":"a3","rol":"Especialista de Marketing / Brand (Social Media)","texto":"Solicita a diseño y a producción las piezas y grabaciones del calendario por los formularios de Lark, con formato, idea, textos y fecha de entrega de cada una."},
-      {"id":"a4","rol":"Diseñador(a) / Analista de Contenido (producción)","texto":"Produce fotografías, reels y piezas —en sesiones de grabación programadas o con creadores de contenido— y las entrega para revisión con los textos y etiquetas propuestos."},
-      {"id":"a5","rol":"Especialista de Marketing / Brand (Social Media)","texto":"Aprueba el contenido orgánico del día a día —el de campaña ya viene aprobado por el proceso 16.2— y programa las publicaciones en los horarios de mejor desempeño de cada red."},
-      {"id":"a6","rol":"Diseñador(a) / Analista de Contenido (comunidad)","texto":"Atiende mensajes y comentarios con las respuestas oficiales del manual regional de postventa; deriva con los datos del cliente y el canal de origen la consulta de compra al canal de venta y la de garantía a servicio al cliente."},
-      {"id":"a6b","rol":"Diseñador(a) / Analista de Contenido (comunidad)","texto":"Cuando un reclamo público crece, involucra la seguridad del producto o una falla de una referencia, lo escala en menos de una hora a la gerencia del país y deja de publicar contenido sobre ese producto."},
-      {"id":"a6c","rol":"Gerente de Marketing (país)","texto":"Activa el protocolo de crisis: publica la declaración de espera preaprobada, coordina con postventa y la gerencia regional la respuesta de fondo y, cerrado el caso, registra qué se aprende para el protocolo."},
-      {"id":"a7","rol":"Coordinador(a) de Soporte / Servicio al Cliente","texto":"Atiende por su canal los casos derivados desde las redes y avisa a la gestión de la comunidad cuando quedan resueltos, sobre todo si el reclamo se hizo en público."},
-      {"id":"a8","rol":"Especialista de Marketing / Brand (Social Media)","texto":"Monitorea el desempeño y la conversación —alcance, interacción, seguidores y quejas recurrentes— y prepara el reporte mensual de contenido, que la gerencia del país completa con el efecto en ventas."},
-      {"id":"a9","rol":"Gerente de Marketing (país)","texto":"Revisa el reporte con la gestión de redes, lo cruza con la venta del país y define qué contenidos, formatos y horarios se repiten o se ajustan en el calendario siguiente."}
+      {"id": "a1", "rol": "Gerente de Mercadeo (país)", "texto": "Antes de que se construya el calendario del mes siguiente, entrega a Social y Contenido qué se vendió y qué no rota, y los lanzamientos, promociones, eventos y fechas locales que el contenido debe acompañar."},
+      {"id": "a2", "rol": "Coordinador(a) de Social y Contenido (país)", "texto": "Construye, unos quince días antes del inicio del mes, el calendario de contenido por marca y país en Lark sobre la línea editorial y el calendario regional de la gerencia de Social y Contenido, y lo revisa con la gerencia del país."},
+      {"id": "a3", "rol": "Coordinador(a) de Social y Contenido (país)", "texto": "Pide a Diseño y Marca por el formulario único las artes derivadas del key visual y al creador de contenido las grabaciones del calendario, con formato, idea, textos y fecha de entrega de cada una."},
+      {"id": "a4", "rol": "Creador(a) de contenido (Social y Contenido)", "texto": "Produce el contenido ágil —fotografías, reels y coberturas en sesiones programadas o con creadores— dentro de la línea estética de la marca, y lo entrega para revisión con los textos y etiquetas propuestos. Las producciones grandes de foto, video y 3D se piden a Diseño y Marca (16.10)."},
+      {"id": "a5", "rol": "Coordinador(a) de Social y Contenido (país)", "texto": "Aprueba el contenido orgánico del día a día —el de campaña ya viene aprobado por el proceso 16.2— y programa las publicaciones en los horarios de mejor desempeño de cada red."},
+      {"id": "a6", "rol": "Analista de Social y Contenido (comunidad)", "texto": "Atiende mensajes y comentarios con las respuestas oficiales del manual regional de postventa; deriva con los datos del cliente y el canal de origen la consulta de compra al canal de venta y la de garantía a servicio al cliente."},
+      {"id": "a6b", "rol": "Analista de Social y Contenido (comunidad)", "texto": "Cuando un reclamo público crece, involucra la seguridad del producto o una falla de una referencia, lo escala en menos de una hora a la gerencia del país y deja de publicar contenido sobre ese producto."},
+      {"id": "a6c", "rol": "Gerente de Mercadeo (país)", "texto": "Activa el protocolo de crisis: publica la declaración de espera preaprobada, coordina con postventa y la gerencia corporativa la respuesta de fondo y, cerrado el caso, registra qué se aprende para el protocolo."},
+      {"id": "a7", "rol": "Coordinador(a) de Soporte / Servicio al Cliente", "texto": "Atiende por su canal los casos derivados desde las redes y avisa a la gestión de la comunidad cuando quedan resueltos, sobre todo si el reclamo se hizo en público."},
+      {"id": "a8", "rol": "Coordinador(a) de Social y Contenido (país)", "texto": "Monitorea el desempeño y la conversación —alcance, interacción, seguidores y quejas recurrentes— y prepara el reporte mensual de contenido, que la gerencia del país completa con el efecto en ventas."},
+      {"id": "a9", "rol": "Gerente de Mercadeo (país)", "texto": "Revisa el reporte con Social y Contenido, lo cruza con la venta del país y define qué contenidos, formatos y horarios se repiten o se ajustan en el calendario siguiente."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Marketing (país)","Especialista de Marketing / Brand (Social Media)","Diseñador(a) / Analista de Contenido (producción)","Diseñador(a) / Analista de Contenido (comunidad)","Coordinador(a) de Soporte / Servicio al Cliente"],
+      "carriles": [
+       "Gerente de Mercadeo (país)",
+       "Coordinador(a) de Social y Contenido (país)",
+       "Creador(a) de contenido (Social y Contenido)",
+       "Analista de Social y Contenido (comunidad)",
+       "Coordinador(a) de Soporte / Servicio al Cliente"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Gerente de Marketing (país)","tipo":"inicio","n":"Inicio del ciclo mensual de contenido"},
-       {"id":"n1","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Entregar ventas, lanzamientos y fechas del mes"},
-       {
-        "id": "n2",
-        "carril": "Especialista de Marketing / Brand (Social Media)",
-        "tipo": "tarea",
-        "n": "Construir el calendario de contenido",
-        "sistemas": ["Lark"]
-       },
-       {
-        "id": "n3",
-        "carril": "Especialista de Marketing / Brand (Social Media)",
-        "tipo": "tarea",
-        "n": "Solicitar piezas y grabaciones",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n4","carril":"Diseñador(a) / Analista de Contenido (producción)","tipo":"tarea","n":"Producir fotografías, reels y piezas"},
-       {
-        "id": "n5",
-        "carril": "Especialista de Marketing / Brand (Social Media)",
-        "tipo": "tarea",
-        "n": "Aprobar y programar las publicaciones",
-        "sistemas": ["Instagram","TikTok","Facebook"]
-       },
-       {"id":"n6","carril":"Diseñador(a) / Analista de Contenido (comunidad)","tipo":"tarea","n":"Atender mensajes y comentarios"},
-       {"id":"n7","carril":"Diseñador(a) / Analista de Contenido (comunidad)","tipo":"decision","n":"¿Tipo de caso?"},
-       {"id":"n7c","carril":"Diseñador(a) / Analista de Contenido (comunidad)","tipo":"tarea","n":"Escalar el caso y pausar el contenido"},
-       {"id":"n7d","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Activar el protocolo de crisis"},
-       {"id":"n8","carril":"Diseñador(a) / Analista de Contenido (comunidad)","tipo":"tarea","n":"Derivar el caso con los datos del cliente"},
-       {"id":"n9","carril":"Coordinador(a) de Soporte / Servicio al Cliente","tipo":"tarea","n":"Atender el caso derivado"},
-       {
-        "id": "n10",
-        "carril": "Especialista de Marketing / Brand (Social Media)",
-        "tipo": "tarea",
-        "n": "Monitorear y preparar el reporte mensual",
-        "sistemas": ["Metricool"]
-       },
-       {"id":"n11","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Revisar el reporte y ajustar el calendario"},
-       {"id":"n12","carril":"Gerente de Marketing (país)","tipo":"fin","n":"Contenido publicado y comunidad atendida"}
+       {"id": "n0", "carril": "Gerente de Mercadeo (país)", "tipo": "inicio", "n": "Inicio del ciclo mensual de contenido"},
+       {"id": "n1", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Entregar ventas, lanzamientos y fechas del mes"},
+       {"id": "n2", "carril": "Coordinador(a) de Social y Contenido (país)", "tipo": "tarea", "n": "Construir el calendario de contenido", "sistemas": ["Lark"]},
+       {"id": "n3", "carril": "Coordinador(a) de Social y Contenido (país)", "tipo": "tarea", "n": "Pedir artes y grabaciones", "sistemas": ["Lark"]},
+       {"id": "n4", "carril": "Creador(a) de contenido (Social y Contenido)", "tipo": "tarea", "n": "Producir el contenido ágil"},
+       {"id": "n5", "carril": "Coordinador(a) de Social y Contenido (país)", "tipo": "tarea", "n": "Aprobar y programar las publicaciones", "sistemas": ["Instagram", "TikTok", "Facebook"]},
+       {"id": "n6", "carril": "Analista de Social y Contenido (comunidad)", "tipo": "tarea", "n": "Atender mensajes y comentarios"},
+       {"id": "n7", "carril": "Analista de Social y Contenido (comunidad)", "tipo": "decision", "n": "¿Tipo de caso?"},
+       {"id": "n7c", "carril": "Analista de Social y Contenido (comunidad)", "tipo": "tarea", "n": "Escalar el caso y pausar el contenido"},
+       {"id": "n7d", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Activar el protocolo de crisis"},
+       {"id": "n8", "carril": "Analista de Social y Contenido (comunidad)", "tipo": "tarea", "n": "Derivar el caso con los datos del cliente"},
+       {"id": "n9", "carril": "Coordinador(a) de Soporte / Servicio al Cliente", "tipo": "tarea", "n": "Atender el caso derivado"},
+       {"id": "n10", "carril": "Coordinador(a) de Social y Contenido (país)", "tipo": "tarea", "n": "Monitorear y preparar el reporte mensual", "sistemas": ["Metricool"]},
+       {"id": "n11", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Revisar el reporte y ajustar el calendario"},
+       {"id": "n12", "carril": "Gerente de Mercadeo (país)", "tipo": "fin", "n": "Contenido publicado y comunidad atendida"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n2","a":"n3"},
-       {"de":"n3","a":"n4"},
-       {"de":"n4","a":"n5"},
-       {"de":"n5","a":"n6"},
-       {"de":"n6","a":"n7"},
-       {"de":"n7","a":"n8","etq":"Compra o soporte"},
-       {"de":"n7","a":"n7c","etq":"Riesgo de reputación"},
-       {"de":"n7","a":"n10","etq":"Resuelto en redes"},
-       {"de":"n7c","a":"n7d"},
-       {"de":"n7d","a":"n10"},
-       {"de":"n8","a":"n9"},
-       {"de":"n9","a":"n10"},
-       {"de":"n10","a":"n11"},
-       {"de":"n11","a":"n12"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8", "etq": "Compra o soporte"},
+       {"de": "n7", "a": "n7c", "etq": "Riesgo de reputación"},
+       {"de": "n7", "a": "n10", "etq": "Resuelto en redes"},
+       {"de": "n7c", "a": "n7d"},
+       {"de": "n7d", "a": "n10"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Respuesta tardía en mensajes directos","Instagram es el canal donde más escriben los clientes; una demora de horas, sobre todo en temporada alta, se traduce en ventas perdidas y en reclamos públicos.","Alta","Alto","Mantener la atención de la comunidad separada de la gestión de contenido y fijar un tiempo máximo de respuesta, con refuerzo en temporada alta."],
-      ["Contenido desalineado con la venta","Se promociona en redes un modelo o un color distinto del que hay en inventario o del que necesita rotar.","Media","Medio","Entregar ventas e inventario del país antes de construir el calendario y revisarlo con la gerencia del país."],
-      ["Casos derivados sin cierre","Una consulta derivada a servicio al cliente no se resuelve o no se confirma, y el cliente vuelve a reclamar en público.","Media","Alto","Seguir cada caso derivado hasta que servicio al cliente confirme su cierre."],
-      ["Crisis de reputación sin protocolo","Un reclamo viral o una falla de producto se responde tarde o con improvisación, y el silencio se lee como desinterés u ocultamiento.","Baja","Alto","Protocolo de crisis con matriz de escalamiento, declaraciones de espera preaprobadas y pausa del contenido del producto afectado."],
-      ["Aprobaciones lentas para el contenido de tendencia","Si el contenido del día a día necesita varias aprobaciones, la tendencia pasa antes de que se publique.","Media","Medio","Mantener en la gestión de redes la aprobación del contenido orgánico, dentro de los lineamientos de la marca."]
+      [
+       "Respuesta tardía en mensajes directos",
+       "Instagram es el canal donde más escriben los clientes; una demora de horas, sobre todo en temporada alta, se traduce en ventas perdidas y en reclamos públicos.",
+       "Alta",
+       "Alto",
+       "Mantener la atención de la comunidad separada de la gestión de contenido y fijar un tiempo máximo de respuesta, con refuerzo en temporada alta."
+      ],
+      [
+       "Contenido desalineado con la venta",
+       "Se promociona en redes un modelo o un color distinto del que hay en inventario o del que necesita rotar.",
+       "Media",
+       "Medio",
+       "Entregar ventas e inventario del país antes de construir el calendario y revisarlo con la gerencia del país."
+      ],
+      [
+       "Contenido ágil fuera de la línea estética",
+       "Lo que se produce rápido en el país se aparta del manual de marca y la cuenta pierde coherencia con la campaña.",
+       "Media",
+       "Medio",
+       "Trabajar con las artes derivadas del key visual y la guía de estilo de Diseño y Marca, y revisarlo en la auditoría de marca (16.9)."
+      ],
+      [
+       "Casos derivados sin cierre",
+       "Una consulta derivada a servicio al cliente no se resuelve o no se confirma, y el cliente vuelve a reclamar en público.",
+       "Media",
+       "Alto",
+       "Seguir cada caso derivado hasta que servicio al cliente confirme su cierre."
+      ],
+      [
+       "Crisis de reputación sin protocolo",
+       "Un reclamo viral o una falla de producto se responde tarde o con improvisación, y el silencio se lee como desinterés u ocultamiento.",
+       "Baja",
+       "Alto",
+       "Protocolo de crisis con matriz de escalamiento, declaraciones de espera preaprobadas y pausa del contenido del producto afectado."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Publicaciones ejecutadas contra lo planificado","Publicaciones realizadas ÷ publicaciones del calendario","Mensual","Especialista de Marketing / Brand (Social Media)","≥ 95 %"],
-      ["Tasa de interacción","Interacciones ÷ alcance, por cuenta","Mensual","Especialista de Marketing / Brand (Social Media)","Según la línea base de cada cuenta"],
-      ["Tiempo de primera respuesta en mensajes directos","Promedio de tiempo entre el mensaje del cliente y la primera respuesta","Semanal","Diseñador(a) / Analista de Contenido (comunidad)","Referencia ≤ 1 hora en horario laboral"],
-      ["Crecimiento de seguidores","(Seguidores al cierre − seguidores al inicio) ÷ seguidores al inicio","Mensual","Especialista de Marketing / Brand (Social Media)","Según el objetivo anual de la marca"]
+      [
+       "Publicaciones ejecutadas contra lo planificado",
+       "Publicaciones realizadas ÷ publicaciones del calendario",
+       "Mensual",
+       "Coordinador(a) de Social y Contenido (país)",
+       "≥ 95 %"
+      ],
+      [
+       "Tasa de interacción",
+       "Interacciones ÷ alcance, por cuenta",
+       "Mensual",
+       "Coordinador(a) de Social y Contenido (país)",
+       "Según la línea base de cada cuenta"
+      ],
+      [
+       "Tiempo de primera respuesta en mensajes directos",
+       "Promedio de tiempo entre el mensaje del cliente y la primera respuesta",
+       "Semanal",
+       "Analista de Social y Contenido (comunidad)",
+       "Referencia ≤ 1 hora en horario laboral"
+      ],
+      [
+       "Crecimiento de seguidores",
+       "(Seguidores al cierre − seguidores al inicio) ÷ seguidores al inicio",
+       "Mensual",
+       "Coordinador(a) de Social y Contenido (país)",
+       "Según el objetivo anual de la marca"
+      ]
      ]
     }
    },
    "16.6": {
-    "proposito": {"estado":"borrador","texto":"Gestiona las relaciones con creadores de contenido, embajadores, equipos de atletas y marcas aliadas: selección del perfil, negociación de la contraprestación, acuerdo por escrito, envío de producto, calendario de publicaciones y activaciones, medición del resultado y renovación o cierre de cada relación.","nota_estado":"Hoy la relación con los influencers de Cubitt la coordina una persona regional en Panamá junto con la gestión de redes, y cada país tramita el pago y el producto; los embajadores de alto perfil los elige la dirección. Los acuerdos se redactan sobre una plantilla y, en Venezuela y Colombia, sin revisión legal; el resultado de cada relación no se mide de forma sistemática y la terminación anticipada de un acuerdo no está prevista. Casio trabaja las alianzas y los influencers de algunos países con agencia externa."},
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente de Marketing (país)",
-     "participantes": ["Diseñador(a) / Analista de Contenido (Influencer Marketing regional)","Especialista de Marketing / Brand (Social Media)","Gerente de Marketing (Cuentas Clave) (alianzas con clientes y marcas en sus mercados)","Junta Directiva (embajadores de alto perfil y alianzas con marcas que no son clientes)","Director(a) Comercial Mayorista (Cubitt) (alianzas que cierra comercial)","Gerente Regional de Marketing","creadores, embajadores, atletas y agencias (actores externos)"],
-     "evidencia": ["E-49","E-56","E-42","E-12","E-22","E-39"]
-    },
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Gestiona las relaciones con creadores de contenido, embajadores, equipos de atletas y marcas aliadas: selección del perfil, negociación de la contraprestación, acuerdo por escrito, envío de producto, calendario de publicaciones y activaciones, medición del resultado y renovación o cierre de cada relación.", "nota_estado": "Hoy la relación con los influencers de Cubitt la coordina una persona regional junto con la gestión de redes, y cada país tramita el pago y el producto; los embajadores de alto perfil los elige la dirección. Los acuerdos se redactan sobre una plantilla y, en Venezuela y Colombia, sin revisión legal; el resultado de cada relación no se mide de forma sistemática. Desde la revisión de la estructura del 06-nov-2026 los creadores, los influencers y las relaciones públicas son de la gerencia de Social y Contenido, y las alianzas con clientes y marcas, de Cuentas Clave y Trade."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Mercadeo (país)", "participantes": ["Analista de Influencers (Social y Contenido) — busca, negocia, formaliza y mide cada relación.", "Coordinador(a) de Social y Contenido (país) — integra las publicaciones al calendario de contenido.", "Gerente de Cuentas Clave y Trade — alianzas con clientes y marcas en sus mercados.", "Junta Directiva — embajadores de alto perfil y alianzas con marcas que no son clientes.", "Director(a) Comercial Mayorista (Cubitt) — alianzas que cierra comercial.", "Gerente Corporativo(a) de Mercadeo — presupuesto y criterio común entre países.", "Creadores, embajadores, atletas y agencias (actores externos)."], "evidencia": ["E-49", "E-56", "E-42", "E-12", "E-22", "E-39", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Gerente de Marketing (país)","texto":"Define qué relaciones necesita el plan —embajador, influencers de campaña, envíos continuos de producto, equipo de atletas o alianza con otra marca— con su objetivo y el presupuesto disponible para cada una."},
-      {"id":"a2","rol":"Gerente de Marketing (Cuentas Clave)","texto":"Cuando la relación es una alianza con otra marca o con un cliente, alinea con el equipo de marketing del socio lo negociable —logos, colores, mensajes y piezas— y el presupuesto de marketing asociado a lo vendido en la alianza."},
-      {"id":"a3","rol":"Diseñador(a) / Analista de Contenido (Influencer Marketing)","texto":"Busca y propone perfiles por mercado, solicita su media kit, revisa su trayectoria y su reputación pública y registra cada candidato con su estado en la base de influencers de Lark."},
-      {"id":"a4","rol":"Junta Directiva","texto":"Elige entre los perfiles propuestos al embajador de alto perfil y aprueba la inversión, en acuerdos de seis meses a un año con pago recurrente."},
-      {"id":"a5","rol":"Gerente de Marketing (país)","texto":"Aprueba los influencers de campaña y los intercambios dentro del presupuesto y define con comercial qué producto se entrega cuando la contraprestación es en especie, priorizando referencias de baja rotación."},
-      {"id":"a6","rol":"Diseñador(a) / Analista de Contenido (Influencer Marketing)","texto":"Negocia contraprestación y entregables y formaliza el acuerdo sobre la plantilla vigente —con cesión de derechos y obligación de identificar la publicidad, en video durante toda la pieza—, con revisión legal si hay pago recurrente o uso de imagen."},
-      {"id":"a7","rol":"Diseñador(a) / Analista de Contenido (Influencer Marketing)","texto":"Tramita el producto como traslado documentado con logística y el pago con el creador dado de alta como proveedor, y le entrega el brief, la guía de contenido y de identificación de la publicidad y su calendario de publicaciones."},
-      {"id":"a8","rol":"Especialista de Marketing / Brand (Social Media)","texto":"Coordina que las publicaciones de cada creador acompañen el calendario de contenido y las campañas, y las comparte o reutiliza en las redes de la marca."},
-      {"id":"a9","rol":"Diseñador(a) / Analista de Contenido (Influencer Marketing)","texto":"Sigue cada mes lo publicado, verifica que cada pieza identifique la relación comercial y pide corregir la que no, y mide alcance, interacción y, cuando es posible, ventas o contactos, registrándolo en la base de influencers."},
-      {"id":"a10","rol":"Gerente de Marketing (país)","texto":"Decide al vencimiento de cada acuerdo si se renueva o se cierra, con base en el resultado medido, y lo comunica al creador con anticipación."}
+      {"id": "a1", "rol": "Gerente de Mercadeo (país)", "texto": "Define qué relaciones necesita el plan —embajador, influencers de campaña, envíos continuos de producto, equipo de atletas o alianza con otra marca— con su objetivo y el presupuesto disponible para cada una."},
+      {"id": "a2", "rol": "Gerente de Cuentas Clave y Trade", "texto": "Cuando la relación es una alianza con otra marca o con un cliente, alinea con el equipo de marketing del socio lo negociable —logos, colores, mensajes y piezas, dentro del manual de marca— y el presupuesto de marketing asociado a lo vendido en la alianza."},
+      {"id": "a3", "rol": "Analista de Influencers (Social y Contenido)", "texto": "Busca y propone perfiles por mercado, solicita su media kit, revisa su trayectoria y su reputación pública y registra cada candidato con su estado en la base de influencers de Lark."},
+      {"id": "a4", "rol": "Junta Directiva", "texto": "Elige entre los perfiles propuestos al embajador de alto perfil y aprueba la inversión, en acuerdos de seis meses a un año con pago recurrente."},
+      {"id": "a5", "rol": "Gerente de Mercadeo (país)", "texto": "Aprueba los influencers de campaña y los intercambios dentro del presupuesto y define con comercial qué producto se entrega cuando la contraprestación es en especie, priorizando referencias de baja rotación."},
+      {"id": "a6", "rol": "Analista de Influencers (Social y Contenido)", "texto": "Negocia contraprestación y entregables y formaliza el acuerdo sobre la plantilla vigente —con cesión de derechos y obligación de identificar la publicidad, en video durante toda la pieza—, con revisión legal si hay pago recurrente o uso de imagen."},
+      {"id": "a7", "rol": "Analista de Influencers (Social y Contenido)", "texto": "Tramita el producto como traslado documentado con logística y el pago con el creador dado de alta como proveedor, y le entrega el brief, la guía de contenido y de identificación de la publicidad y su calendario de publicaciones."},
+      {"id": "a8", "rol": "Coordinador(a) de Social y Contenido (país)", "texto": "Coordina que las publicaciones de cada creador acompañen el calendario de contenido y las campañas, y las comparte o reutiliza en las redes de la marca con los derechos cedidos."},
+      {"id": "a9", "rol": "Analista de Influencers (Social y Contenido)", "texto": "Sigue cada mes lo publicado, verifica que cada pieza identifique la relación comercial y pide corregir la que no, y mide alcance, interacción y, cuando es posible, ventas o contactos, registrándolo en la base de influencers."},
+      {"id": "a10", "rol": "Gerente de Mercadeo (país)", "texto": "Decide al vencimiento de cada acuerdo si se renueva o se cierra, con base en el resultado medido, y lo comunica al creador con anticipación."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Marketing (país)","Gerente de Marketing (Cuentas Clave)","Diseñador(a) / Analista de Contenido (Influencer Marketing)","Junta Directiva","Especialista de Marketing / Brand (Social Media)"],
+      "carriles": [
+       "Gerente de Mercadeo (país)",
+       "Gerente de Cuentas Clave y Trade",
+       "Analista de Influencers (Social y Contenido)",
+       "Junta Directiva",
+       "Coordinador(a) de Social y Contenido (país)"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Gerente de Marketing (país)","tipo":"inicio","n":"Campaña, lanzamiento o mercado que requiere vocería"},
-       {"id":"n1","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Definir relaciones, objetivo y presupuesto"},
-       {"id":"n2","carril":"Gerente de Marketing (país)","tipo":"decision","n":"¿Alianza con otra marca?"},
-       {"id":"n3","carril":"Gerente de Marketing (Cuentas Clave)","tipo":"tarea","n":"Alinear la alianza con el socio"},
-       {
-        "id": "n4",
-        "carril": "Diseñador(a) / Analista de Contenido (Influencer Marketing)",
-        "tipo": "tarea",
-        "n": "Buscar y evaluar perfiles",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n5","carril":"Diseñador(a) / Analista de Contenido (Influencer Marketing)","tipo":"decision","n":"¿Embajador de alto perfil?"},
-       {"id":"n6","carril":"Junta Directiva","tipo":"tarea","n":"Elegir al embajador y aprobar la inversión"},
-       {"id":"n7","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Aprobar influencers e intercambios"},
-       {"id":"n8","carril":"Diseñador(a) / Analista de Contenido (Influencer Marketing)","tipo":"tarea","n":"Negociar y formalizar el acuerdo"},
-       {
-        "id": "n9",
-        "carril": "Diseñador(a) / Analista de Contenido (Influencer Marketing)",
-        "tipo": "tarea",
-        "n": "Tramitar producto y pago y entregar el brief",
-        "sistemas": ["Lark","Odoo"]
-       },
-       {"id":"n10","carril":"Especialista de Marketing / Brand (Social Media)","tipo":"tarea","n":"Integrar las publicaciones al calendario"},
-       {
-        "id": "n11",
-        "carril": "Diseñador(a) / Analista de Contenido (Influencer Marketing)",
-        "tipo": "tarea",
-        "n": "Medir el resultado de la relación",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n12","carril":"Gerente de Marketing (país)","tipo":"tarea","n":"Renovar o cerrar al vencimiento"},
-       {"id":"n13","carril":"Gerente de Marketing (país)","tipo":"fin","n":"Relación medida y renovada o cerrada"}
+       {"id": "n0", "carril": "Gerente de Mercadeo (país)", "tipo": "inicio", "n": "Campaña, lanzamiento o mercado que requiere vocería"},
+       {"id": "n1", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Definir relaciones, objetivo y presupuesto"},
+       {"id": "n2", "carril": "Gerente de Mercadeo (país)", "tipo": "decision", "n": "¿Alianza con otra marca?"},
+       {"id": "n3", "carril": "Gerente de Cuentas Clave y Trade", "tipo": "tarea", "n": "Alinear la alianza con el socio"},
+       {"id": "n4", "carril": "Analista de Influencers (Social y Contenido)", "tipo": "tarea", "n": "Buscar y evaluar perfiles", "sistemas": ["Lark"]},
+       {"id": "n5", "carril": "Analista de Influencers (Social y Contenido)", "tipo": "decision", "n": "¿Embajador de alto perfil?"},
+       {"id": "n6", "carril": "Junta Directiva", "tipo": "tarea", "n": "Elegir al embajador y aprobar la inversión"},
+       {"id": "n7", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Aprobar influencers e intercambios"},
+       {"id": "n8", "carril": "Analista de Influencers (Social y Contenido)", "tipo": "tarea", "n": "Negociar y formalizar el acuerdo"},
+       {"id": "n9", "carril": "Analista de Influencers (Social y Contenido)", "tipo": "tarea", "n": "Tramitar producto y pago y entregar el brief", "sistemas": ["Lark", "Odoo"]},
+       {"id": "n10", "carril": "Coordinador(a) de Social y Contenido (país)", "tipo": "tarea", "n": "Integrar las publicaciones al calendario"},
+       {"id": "n11", "carril": "Analista de Influencers (Social y Contenido)", "tipo": "tarea", "n": "Medir el resultado de la relación", "sistemas": ["Lark"]},
+       {"id": "n12", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Renovar o cerrar al vencimiento"},
+       {"id": "n13", "carril": "Gerente de Mercadeo (país)", "tipo": "fin", "n": "Relación medida y renovada o cerrada"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n2","a":"n3","etq":"Sí"},
-       {"de":"n2","a":"n4","etq":"No"},
-       {"de":"n4","a":"n5"},
-       {"de":"n5","a":"n6","etq":"Sí"},
-       {"de":"n5","a":"n7","etq":"No"},
-       {"de":"n6","a":"n8"},
-       {"de":"n7","a":"n8"},
-       {"de":"n8","a":"n9"},
-       {"de":"n9","a":"n10"},
-       {"de":"n3","a":"n11"},
-       {"de":"n10","a":"n11"},
-       {"de":"n11","a":"n12"},
-       {"de":"n12","a":"n13"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n2", "a": "n4", "etq": "No"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n7", "etq": "No"},
+       {"de": "n6", "a": "n8"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n3", "a": "n11"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Acuerdos sin revisión legal","Acuerdos con creadores y embajadores redactados sin revisión legal pueden dejar sin cubrir el uso de imagen, los entregables o la terminación.","Media","Alto","Plantilla de acuerdo revisada por legal y revisión legal obligatoria en los acuerdos con pago recurrente o uso de imagen."],
-      ["Reputación del creador","Un perfil con antecedentes o asociaciones cuestionables compromete la imagen de la marca en cuanto se publica.","Baja","Alto","Revisar la trayectoria y la reputación pública de cada candidato antes de proponerlo."],
-      ["Relaciones sin medición","Se envía producto o se paga sin medir lo que devuelve cada relación, y no hay base para renovarla o cerrarla.","Alta","Medio","Registrar el resultado de cada relación en la base de influencers y usarlo en la decisión de renovación."],
-      ["Publicidad no identificada","Un creador publica contenido pagado o con producto entregado sin revelar la relación con la marca, lo que las autoridades de consumo tratan como publicidad engañosa atribuible también al anunciante.","Media","Alto","Obligación de identificar la publicidad en el acuerdo y verificación mensual de cada publicación."],
-      ["Negociación sin conocimiento local","Negociar desde la regional sin conocer las condiciones cambiarias, las formas de pago y el contexto de cada país encarece o frena los acuerdos.","Media","Medio","Validar con la gerencia del país las condiciones de cada acuerdo antes de cerrarlo."],
-      ["Producto no disponible para la relación","El embajador o el creador no puede publicar porque el producto de la campaña está agotado en el país.","Media","Medio","Reservar producto para las relaciones activas al planificar los lanzamientos."]
+      [
+       "Acuerdos sin revisión legal",
+       "Acuerdos con creadores y embajadores redactados sin revisión legal pueden dejar sin cubrir el uso de imagen, los entregables o la terminación.",
+       "Media",
+       "Alto",
+       "Plantilla de acuerdo revisada por legal y revisión legal obligatoria en los acuerdos con pago recurrente o uso de imagen."
+      ],
+      [
+       "Reputación del creador",
+       "Un perfil con antecedentes o asociaciones cuestionables compromete la imagen de la marca en cuanto se publica.",
+       "Baja",
+       "Alto",
+       "Revisar la trayectoria y la reputación pública de cada candidato antes de proponerlo."
+      ],
+      [
+       "Relaciones sin medición",
+       "Se envía producto o se paga sin medir lo que devuelve cada relación, y no hay base para renovarla o cerrarla.",
+       "Alta",
+       "Medio",
+       "Registrar el resultado de cada relación en la base de influencers y usarlo en la decisión de renovación."
+      ],
+      [
+       "Publicidad no identificada",
+       "Un creador publica contenido pagado o con producto entregado sin revelar la relación con la marca, lo que las autoridades de consumo tratan como publicidad engañosa atribuible también al anunciante.",
+       "Media",
+       "Alto",
+       "Obligación de identificar la publicidad en el acuerdo y verificación mensual de cada publicación."
+      ],
+      [
+       "Negociación sin conocimiento local",
+       "Negociar desde la regional sin conocer las condiciones cambiarias, las formas de pago y el contexto de cada país encarece o frena los acuerdos.",
+       "Media",
+       "Medio",
+       "Validar con la gerencia del país las condiciones de cada acuerdo antes de cerrarlo."
+      ],
+      [
+       "Producto no disponible para la relación",
+       "El embajador o el creador no puede publicar porque el producto de la campaña está agotado en el país.",
+       "Media",
+       "Medio",
+       "Reservar producto para las relaciones activas al planificar los lanzamientos."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Alcance por relación","Alcance de las publicaciones del creador en el período","Mensual","Diseñador(a) / Analista de Contenido (Influencer Marketing)","Según el objetivo de cada campaña"],
-      ["Costo por mil impresiones de influencers","(Inversión en influencers ÷ impresiones) × 1.000","Mensual","Diseñador(a) / Analista de Contenido (Influencer Marketing)","Tendencia a la baja"],
-      ["Relaciones con acuerdo escrito vigente","Relaciones activas con acuerdo firmado ÷ relaciones activas","Trimestral","Gerente de Marketing (país)","100 %"],
-      ["Relaciones con resultado medido","Relaciones con resultado registrado en la base ÷ relaciones activas","Mensual","Diseñador(a) / Analista de Contenido (Influencer Marketing)","100 %"],
-      ["Publicaciones pagadas correctamente identificadas","Publicaciones de creadores que revelan la relación comercial ÷ publicaciones verificadas","Mensual","Diseñador(a) / Analista de Contenido (Influencer Marketing)","100 %"]
+      [
+       "Alcance por relación",
+       "Alcance de las publicaciones del creador en el período",
+       "Mensual",
+       "Analista de Influencers (Social y Contenido)",
+       "Según el objetivo de cada campaña"
+      ],
+      [
+       "Costo por mil impresiones de influencers",
+       "(Inversión en influencers ÷ impresiones) × 1.000",
+       "Mensual",
+       "Analista de Influencers (Social y Contenido)",
+       "Tendencia a la baja"
+      ],
+      [
+       "Relaciones con acuerdo escrito vigente",
+       "Relaciones activas con acuerdo firmado ÷ relaciones activas",
+       "Trimestral",
+       "Gerente de Mercadeo (país)",
+       "100 %"
+      ],
+      [
+       "Relaciones con resultado medido",
+       "Relaciones con resultado registrado en la base ÷ relaciones activas",
+       "Mensual",
+       "Analista de Influencers (Social y Contenido)",
+       "100 %"
+      ],
+      [
+       "Publicaciones pagadas correctamente identificadas",
+       "Publicaciones de creadores que revelan la relación comercial ÷ publicaciones verificadas",
+       "Mensual",
+       "Analista de Influencers (Social y Contenido)",
+       "100 %"
+      ]
      ]
     }
    },
    "16.7": {
-    "proposito": {"estado":"borrador","texto":"Mantiene la imagen de cada marca en el punto de venta conforme a su estándar visual: implementa el material de campañas y promociones, atiende las necesidades de exhibición y mobiliario de los clientes del canal mayorista, acompaña las aperturas y remodelaciones de tiendas propias, y controla la producción, el presupuesto y la evidencia de cada intervención.","nota_estado":"Visual merchandising de Cubitt ya opera con manuales escritos de operación, producción, inducción y aprobación de presupuesto, y registra su trabajo en Lark; su brecha es de capacidad y de límites con otras áreas. Equipos de dos o tres personas cubren redes de más de veinte tiendas y cientos de clientes mayoristas, algunas decisiones de exhibición se toman fuera del departamento y, en Venezuela, aprobaciones locales no siempre llegan a la gerencia regional. Casio está formando su propio equipo de visual."},
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente Regional de Visual Merchandising",
-     "participantes": ["Coordinador(a) de Visual Merchandising (regional y de país)","Ejecutivo(a) de Visual Merchandising","Asistente de Visual Merchandising","Diseñador(a) / Analista de Contenido (artes para visual)","Gerente Regional Comercial / Retail","Analista/Ejecutivo(a) Comercial (solicitudes de clientes del mayor)","Junta Directiva (GO de nuevos espacios y remodelaciones)","Gerente/Director(a) General País (prioridades de punto de venta de su país)","proveedores de mobiliario y producción gráfica (actores externos)"],
-     "evidencia": ["E-50","E-31","E-39","E-56","E-11","Manual de Operación Regional de VM (Lark)","Proceso de aprobación de presupuesto de VM (Lark)","Estructura VM–Gerencia General País Guatemala (Lark)"]
-    },
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Lleva la imagen de cada marca al punto de venta conforme a los estándares visuales, el material POP y la guía de exhibición que fija Diseño y Marca: implementa el material de campañas y promociones, atiende las necesidades de exhibición y mobiliario de los clientes del canal mayorista, monta las aperturas y remodelaciones de tiendas propias con el concepto aprobado, y controla la producción, el presupuesto y la evidencia de cada intervención. Es un servicio a los canales —Retail y Ventas al Mayor— con plazos acordados por canal.", "nota_estado": "Visual merchandising de Cubitt ya opera con manuales escritos de operación, producción, inducción y aprobación de presupuesto, y registra su trabajo en Lark; su brecha es de capacidad y de límites con otras áreas. Desde la revisión de la estructura del 06-nov-2026 es una gerencia de unidad de negocio de Mercadeo con una coordinación en cada Mercadeo país: los estándares y el concepto de los espacios son de Diseño y Marca (16.11) y el montaje es de visual merchandising, que no manda sobre el personal de tienda. Que quede en Mercadeo o en Retail, y quién cotiza y compra el mobiliario y el material POP, siguen en revisión."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Visual Merchandising", "participantes": ["Coordinador(a) de Visual Merchandising (país) — recibe las necesidades, cotiza, sigue la producción y reporta el país.", "Ejecutivo(a) de Visual Merchandising — instala y audita cada visita.", "Gerente de Producción (Diseño y Marca) — fija los estándares visuales, el POP, el concepto de los espacios y la guía de exhibición (16.11).", "Diseñador(a) (Diseño y Marca) — artes para visual, por el formulario único (16.3).", "Gerente Regional Comercial / Retail — prioridades de exhibición de las tiendas propias.", "Analista/Ejecutivo(a) Comercial — solicitudes de clientes del mayor.", "Gerente de Cuentas Clave y Trade — plan de exhibición con cada cuenta clave.", "Compras Internas · Procura del país — compra del mobiliario y del material POP según la política de compra.", "Proveedores de mobiliario y producción gráfica (actores externos)."], "evidencia": ["E-50", "E-31", "E-39", "E-56", "E-11", "Manual de Operación Regional de VM (Lark)", "Proceso de aprobación de presupuesto de VM (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Coordinador(a) de Visual Merchandising","texto":"Recibe la necesidad —campaña o promoción por implementar, solicitud de un cliente del mayor por formulario, hallazgo de una visita o proyecto de apertura— y la registra en Lark con el punto de venta, los espacios disponibles y sus medidas."},
-      {"id":"a2","rol":"Coordinador(a) de Visual Merchandising","texto":"Cuando la solicitud es de un cliente del mayor, evalúa con el vendedor si justifica la inversión —antigüedad, compras del año, pagos al día y espacio disponible—; al cliente que aún compra poco se le atiende primero con material de bajo costo."},
-      {"id":"a3","rol":"Gerente Regional de Visual Merchandising","texto":"En aperturas y remodelaciones revisa con la gerencia regional de retail la propuesta del arquitecto contra el estándar de la marca y presenta la propuesta final a la Junta Directiva por correo."},
-      {"id":"a4","rol":"Junta Directiva","texto":"Da el GO final a la propuesta del nuevo espacio o la devuelve con los ajustes requeridos; sin ese GO el proyecto no se ejecuta."},
-      {"id":"a5","rol":"Diseñador(a) / Analista de Contenido","texto":"Desarrolla o adapta los artes pedidos por el formulario de artes para visual en un plazo de tres a cinco días hábiles y los presenta a visual merchandising para revisar medidas y detalles."},
-      {"id":"a6","rol":"Coordinador(a) de Visual Merchandising","texto":"Solicita por correo de Lark al menos dos cotizaciones a proveedores —descripción, cantidad, especificaciones del manual de producción y fecha de entrega— y prepara la solicitud de presupuesto."},
-      {"id":"a7","rol":"Gerente Regional de Visual Merchandising","texto":"Aprueba el presupuesto por monto —coordinación regional lo corriente, gerencia regional lo nuevo o costoso—; la solicitud de pago sigue la matriz de finanzas y el apoyo a un cliente del mayor se liquida como nota de crédito."},
-      {"id":"a8","rol":"Coordinador(a) de Visual Merchandising","texto":"Sigue la producción, verifica la calidad contra el arte y las especificaciones aprobadas antes de firmar conformidad, y coordina el despacho a las tiendas y clientes."},
-      {"id":"a9","rol":"Ejecutivo(a) de Visual Merchandising","texto":"Instala el material o mobiliario según el manual, retira el material vencido y audita la visita contra el planograma —exhibición, precio visible y material vigente— con fotografías fechadas del antes y el después en Lark."},
-      {"id":"a10","rol":"Coordinador(a) de Visual Merchandising","texto":"Registra el gasto real con factura, comprobante y fotografías, y consolida el reporte mensual de gastos y de ejecución del país para la gerencia regional."}
+      {"id": "a1", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Recibe la necesidad —campaña o promoción por implementar, solicitud de un cliente del mayor por formulario, hallazgo de una visita o apertura con concepto aprobado— y la registra en Lark con el canal que la pide, el punto de venta, los espacios disponibles, sus medidas y el plazo acordado con ese canal."},
+      {"id": "a2", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Cuando la solicitud es de un cliente del mayor, evalúa con el vendedor y con el plan de Cuentas Clave y Trade si justifica la inversión —antigüedad, compras del año, pagos al día y espacio disponible—; al cliente que aún compra poco se le atiende primero con material de bajo costo."},
+      {"id": "a3", "rol": "Gerente de Visual Merchandising", "texto": "En aperturas y remodelaciones recibe de Diseño y Marca el concepto del espacio y la guía de exhibición aprobados (16.11) y planifica con retail y la PMO el montaje, el mobiliario y las fechas."},
+      {"id": "a4", "rol": "Diseñador(a) (Diseño y Marca)", "texto": "Desarrolla o adapta los artes pedidos por el formulario único (16.3) en un plazo de tres a cinco días hábiles y los presenta a visual merchandising para revisar medidas y detalles."},
+      {"id": "a5", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Pide al menos dos cotizaciones a proveedores —descripción, cantidad, especificaciones del estándar de Diseño y Marca y fecha de entrega—, con la política de compra de la organización, y prepara la solicitud de presupuesto."},
+      {"id": "a6", "rol": "Gerente de Visual Merchandising", "texto": "Aprueba el presupuesto por monto —la coordinación lo corriente, la gerencia lo nuevo o costoso—; la solicitud de pago sigue la matriz de finanzas y el apoyo a un cliente del mayor se liquida como nota de crédito."},
+      {"id": "a7", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Sigue la producción, verifica la calidad contra el arte y el estándar aprobados antes de firmar conformidad, y coordina el despacho a las tiendas y clientes."},
+      {"id": "a8", "rol": "Ejecutivo(a) de Visual Merchandising", "texto": "Instala el material o mobiliario según el estándar, retira el material vencido y audita la visita contra el planograma —exhibición, precio visible y material vigente— con fotografías fechadas del antes y el después en Lark; la tienda mantiene la exhibición día a día."},
+      {"id": "a9", "rol": "Coordinador(a) de Visual Merchandising (país)", "texto": "Registra el gasto real con factura, comprobante y fotografías, y consolida el reporte mensual de gastos, de ejecución y de cumplimiento del estándar del país para la gerencia, que comparte los hallazgos con Diseño y Marca."}
      ],
      "diagrama": {
-      "carriles": ["Coordinador(a) de Visual Merchandising","Gerente Regional de Visual Merchandising","Junta Directiva","Diseñador(a) / Analista de Contenido","Ejecutivo(a) de Visual Merchandising"],
+      "carriles": [
+       "Coordinador(a) de Visual Merchandising (país)",
+       "Gerente de Visual Merchandising",
+       "Diseñador(a) (Diseño y Marca)",
+       "Ejecutivo(a) de Visual Merchandising"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Coordinador(a) de Visual Merchandising","tipo":"inicio","n":"Campaña, solicitud de cliente, visita o apertura"},
-       {
-        "id": "n1",
-        "carril": "Coordinador(a) de Visual Merchandising",
-        "tipo": "tarea",
-        "n": "Registrar la necesidad con espacios y medidas",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n2","carril":"Coordinador(a) de Visual Merchandising","tipo":"decision","n":"¿Tipo de necesidad?"},
-       {"id":"n3","carril":"Coordinador(a) de Visual Merchandising","tipo":"tarea","n":"Evaluar al cliente con el vendedor"},
-       {"id":"n3d","carril":"Coordinador(a) de Visual Merchandising","tipo":"decision","n":"¿Justifica la inversión?"},
-       {"id":"n3f","carril":"Coordinador(a) de Visual Merchandising","tipo":"fin","n":"Atendido con material de bajo costo"},
-       {"id":"n4","carril":"Gerente Regional de Visual Merchandising","tipo":"tarea","n":"Revisar la propuesta del arquitecto y presentarla"},
-       {"id":"n5","carril":"Junta Directiva","tipo":"decision","n":"¿GO final?"},
-       {"id":"n5f","carril":"Junta Directiva","tipo":"fin","n":"Propuesta devuelta con ajustes"},
-       {
-        "id": "n6",
-        "carril": "Diseñador(a) / Analista de Contenido",
-        "tipo": "tarea",
-        "n": "Desarrollar o adaptar los artes",
-        "sistemas": ["Lark"]
-       },
-       {
-        "id": "n7",
-        "carril": "Coordinador(a) de Visual Merchandising",
-        "tipo": "tarea",
-        "n": "Solicitar cotizaciones a proveedores",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n8","carril":"Gerente Regional de Visual Merchandising","tipo":"decision","n":"¿Presupuesto aprobado?"},
-       {"id":"n8f","carril":"Gerente Regional de Visual Merchandising","tipo":"fin","n":"Solicitud devuelta sin ejecutar"},
-       {"id":"n9","carril":"Coordinador(a) de Visual Merchandising","tipo":"tarea","n":"Producir y verificar la calidad"},
-       {
-        "id": "n10",
-        "carril": "Ejecutivo(a) de Visual Merchandising",
-        "tipo": "tarea",
-        "n": "Instalar y registrar la visita con fotos",
-        "sistemas": ["Lark"]
-       },
-       {
-        "id": "n11",
-        "carril": "Coordinador(a) de Visual Merchandising",
-        "tipo": "tarea",
-        "n": "Registrar el gasto y reportar el mes",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n12","carril":"Coordinador(a) de Visual Merchandising","tipo":"fin","n":"Punto de venta implementado según estándar"}
+       {"id": "n0", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "inicio", "n": "Campaña, solicitud de cliente, visita o apertura"},
+       {"id": "n1", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Registrar la necesidad con espacios, medidas y plazo", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "decision", "n": "¿Tipo de necesidad?"},
+       {"id": "n3", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Evaluar al cliente con el vendedor"},
+       {"id": "n3d", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "decision", "n": "¿Justifica la inversión?"},
+       {"id": "n3f", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "fin", "n": "Atendido con material de bajo costo"},
+       {"id": "n4", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Recibir el concepto y la guía aprobados"},
+       {"id": "n5", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Planificar montaje y fechas con retail y la PMO"},
+       {"id": "n6", "carril": "Diseñador(a) (Diseño y Marca)", "tipo": "tarea", "n": "Desarrollar o adaptar los artes", "sistemas": ["Lark"]},
+       {"id": "n7", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Solicitar cotizaciones", "sistemas": ["Lark"]},
+       {"id": "n8", "carril": "Gerente de Visual Merchandising", "tipo": "decision", "n": "¿Presupuesto aprobado?"},
+       {"id": "n8f", "carril": "Gerente de Visual Merchandising", "tipo": "fin", "n": "Solicitud devuelta sin ejecutar"},
+       {"id": "n9", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Producir y verificar la calidad"},
+       {"id": "n10", "carril": "Ejecutivo(a) de Visual Merchandising", "tipo": "tarea", "n": "Instalar y registrar la visita con fotos", "sistemas": ["Lark"]},
+       {"id": "n11", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "tarea", "n": "Registrar el gasto y reportar el mes", "sistemas": ["Lark"]},
+       {"id": "n12", "carril": "Coordinador(a) de Visual Merchandising (país)", "tipo": "fin", "n": "Punto de venta implementado según estándar"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n1","a":"n2"},
-       {"de":"n2","a":"n6","etq":"Campaña o promoción"},
-       {"de":"n2","a":"n3","etq":"Cliente del mayor"},
-       {"de":"n2","a":"n4","etq":"Apertura o remodelación"},
-       {"de":"n3","a":"n3d"},
-       {"de":"n3d","a":"n6","etq":"Sí"},
-       {"de":"n3d","a":"n3f","etq":"No"},
-       {"de":"n4","a":"n5"},
-       {"de":"n5","a":"n6","etq":"Sí"},
-       {"de":"n5","a":"n5f","etq":"No"},
-       {"de":"n6","a":"n7"},
-       {"de":"n7","a":"n8"},
-       {"de":"n8","a":"n9","etq":"Sí"},
-       {"de":"n8","a":"n8f","etq":"No"},
-       {"de":"n9","a":"n10"},
-       {"de":"n10","a":"n11"},
-       {"de":"n11","a":"n12"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n6", "etq": "Campaña o promoción"},
+       {"de": "n2", "a": "n3", "etq": "Cliente del mayor"},
+       {"de": "n2", "a": "n4", "etq": "Apertura o remodelación"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n3", "a": "n3d"},
+       {"de": "n3d", "a": "n6", "etq": "Sí"},
+       {"de": "n3d", "a": "n3f", "etq": "No"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9", "etq": "Sí"},
+       {"de": "n8", "a": "n8f", "etq": "No"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Capacidad insuficiente frente a la red","Equipos de dos o tres personas no alcanzan a mantener tiendas propias y clientes mayoristas; las visitas al mayor se espacian meses y se pierde el seguimiento y la confianza del cliente.","Alta","Alto","Dimensionar los equipos por número de puntos de venta y categoría de cliente, con una frecuencia mínima de visita por categoría."],
-      ["Decisiones de exhibición fuera del departamento","Otras áreas cambian exhibiciones, piden mobiliario o producen material de tienda sin pasar por visual, y los errores terminan atribuidos al área.","Alta","Medio","Hacer cumplir la aprobación de layouts y materiales por visual regional y comunicar los límites de decisión a comercial y retail."],
-      ["Material con error o fuera de vigencia","Un precio desactualizado, un producto equivocado o material de una campaña vencida en tienda expone a la marca y a una multa.","Media","Alto","Verificar precio, producto y vigencia antes de imprimir y retirar el material vencido en cada visita."],
-      ["Mobiliario que no recupera la inversión","Un mueble o una exhibición costosa instalada en un cliente que compra poco queda a medio llenar y no genera venta.","Media","Medio","Evaluar al cliente antes de invertir y exigir un plan de compra detrás de cada solicitud de mobiliario."],
-      ["Gastos aprobados localmente sin visibilidad regional","Pagos y producciones aprobados en el país sin pasar por la gerencia regional agotan el presupuesto sin control.","Media","Medio","Ningún gasto sin aprobación registrada en Lark y reporte mensual obligatorio de presupuesto contra ejecutado."],
-      ["Dependencia de pocos proveedores","Un retraso de un proveedor único detiene la implementación de toda una campaña en el país.","Media","Medio","Mantener un directorio de proveedores evaluados por producción y al menos dos cotizaciones por trabajo."]
+      [
+       "Capacidad insuficiente frente a la red",
+       "Equipos de dos o tres personas no alcanzan a mantener tiendas propias y clientes mayoristas; las visitas al mayor se espacian meses y se pierde el seguimiento y la confianza del cliente.",
+       "Alta",
+       "Alto",
+       "Dimensionar los equipos por número de puntos de venta y categoría de cliente, con una frecuencia mínima de visita por categoría."
+      ],
+      [
+       "Servicio sin plazos entre canales",
+       "Retail y Ventas al Mayor piden montajes para las mismas fechas y, sin plazos acordados, cada uno trata a visual como si fuera su equipo.",
+       "Media",
+       "Medio",
+       "Plazo acordado por canal y prioridad que fija el plan de campaña; si no alcanza, decide la gerencia corporativa de Mercadeo."
+      ],
+      [
+       "Decisiones de exhibición fuera del estándar",
+       "Otras áreas cambian exhibiciones, piden mobiliario o producen material de tienda sin pasar por el estándar, y los errores terminan atribuidos al área.",
+       "Alta",
+       "Medio",
+       "El estándar es de Diseño y Marca y el montaje de visual; comunicar esos límites a comercial y retail."
+      ],
+      [
+       "Material con error o fuera de vigencia",
+       "Un precio desactualizado, un producto equivocado o material de una campaña vencida en tienda expone a la marca y a una multa.",
+       "Media",
+       "Alto",
+       "Verificar precio, producto y vigencia antes de imprimir y retirar el material vencido en cada visita."
+      ],
+      [
+       "Mobiliario que no recupera la inversión",
+       "Un mueble o una exhibición costosa instalada en un cliente que compra poco queda a medio llenar y no genera venta.",
+       "Media",
+       "Medio",
+       "Evaluar al cliente antes de invertir y exigir un plan de compra detrás de cada solicitud de mobiliario."
+      ],
+      [
+       "Compra de material sin una sola vía",
+       "Visual cotiza y compra por su cuenta mientras la política de compra pide que lo haga Compras Internas, y nadie compara proveedores ni precios.",
+       "Media",
+       "Medio",
+       "Definir quién cotiza y compra el mobiliario y el POP, y mantener un directorio de proveedores evaluados con al menos dos cotizaciones por trabajo."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Cobertura de visitas","Puntos de venta visitados ÷ puntos de venta programados en el cronograma","Mensual","Coordinador(a) de Visual Merchandising","≥ 90 %; ningún cliente de categoría A más de dos meses sin visita"],
-      ["Campañas implementadas en fecha","Puntos de venta con material instalado el día de salida ÷ puntos de venta de la campaña","Por campaña","Coordinador(a) de Visual Merchandising","≥ 90 %"],
-      ["Cumplimiento del planograma en auditoría","Puntos auditados que cumplen el planograma y el estándar ÷ puntos auditados, por canal: tienda propia, shop-in-shop y mayor","Mensual","Gerente Regional de Visual Merchandising","≥ 85 %, referencia de las guías sectoriales de ejecución en tienda"],
-      ["Ejecución del presupuesto de visual","Gasto ejecutado ÷ presupuesto aprobado, por país","Mensual","Coordinador(a) de Visual Merchandising","≤ 100 %"],
-      ["Cumplimiento de los registros operativos","Puntaje de cronograma, gastos, base de clientes, inventario de material y tareas","Mensual","Coordinador(a) de Visual Merchandising (regional)","≥ 90 %"]
+      [
+       "Cobertura de visitas",
+       "Puntos de venta visitados ÷ puntos de venta programados en el cronograma",
+       "Mensual",
+       "Coordinador(a) de Visual Merchandising (país)",
+       "≥ 90 %; ningún cliente de categoría A más de dos meses sin visita"
+      ],
+      [
+       "Campañas implementadas en fecha",
+       "Puntos de venta con material instalado el día de salida ÷ puntos de venta de la campaña",
+       "Por campaña",
+       "Coordinador(a) de Visual Merchandising (país)",
+       "≥ 90 %"
+      ],
+      [
+       "Cumplimiento del estándar en auditoría",
+       "Puntos auditados que cumplen el planograma y el estándar ÷ puntos auditados, por canal: tienda propia, shop-in-shop y mayor",
+       "Mensual",
+       "Gerente de Visual Merchandising",
+       "≥ 85 %, referencia de las guías sectoriales de ejecución en tienda"
+      ],
+      [
+       "Ejecución del presupuesto de visual",
+       "Gasto ejecutado ÷ presupuesto aprobado, por país",
+       "Mensual",
+       "Coordinador(a) de Visual Merchandising (país)",
+       "≤ 100 %"
+      ],
+      [
+       "Montajes en el plazo acordado por canal",
+       "Montajes entregados en el plazo acordado ÷ montajes solicitados, por canal",
+       "Mensual",
+       "Gerente de Visual Merchandising",
+       "≥ 90 %"
+      ]
      ]
     }
    },
    "16.8": {
-    "proposito": {"estado":"borrador","texto":"Mide cada mes el desempeño de mercadeo por marca y país —alcance, interacción, tráfico, conversión, inversión y retorno— contra el forecast y los objetivos, atiende la reportería que exige Casio Brasil y presenta a la dirección los resultados, los aprendizajes y las acciones del mes siguiente.","nota_estado":"La pauta digital ya consolida su reporte mensual en una base de Lark entre los días 1 y 5 de cada mes, y Casio exige un reporte mensual y un cierre semestral detallado factura por factura. La presentación mensual a la dirección, en cambio, es reciente y se arma a mano: la venta de tienda, las activaciones, los eventos y los influencers no se cruzan de forma sistemática con la inversión, y en Cubitt no hay objetivos anuales contra los que comparar."},
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente Regional de Marketing",
-     "participantes": ["Gerente de Marketing (Paid Media)","Gerente de Marketing (país)","Gerente de Marketing (Casio Regional)","Gerente de Marketing (Cuentas Clave)","Analista de Sistemas / Datos (ventas por país, canal y producto)","Junta Directiva (destinataria del reporte mensual)","Casio Brasil (destinataria de los reportes de Casio)"],
-     "evidencia": ["E-22","E-49","E-42","E-56","E-10","Manual 03 de Paid Media (Lark)"]
-    },
-    "disparador": {"estado":"borrador"},
+    "proposito": {"estado": "borrador", "texto": "Mide cada mes el desempeño de mercadeo por marca y país —inversión, alcance, interacción, tráfico, venta y retorno incremental— contra el forecast y los objetivos, sigue la salud de las marcas más allá de la venta —reconocimiento, consideración y recompra—, atiende la reportería que exige Casio Brasil y presenta a la Junta Directiva un tablero de marca e inversión con los resultados, los aprendizajes y las acciones del mes siguiente.", "nota_estado": "La pauta digital ya consolida su reporte mensual en una base de Lark y Casio exige un reporte mensual y un cierre semestral detallado factura por factura. La presentación mensual a la dirección, en cambio, es reciente y se arma a mano, y la venta de tienda, las activaciones, los eventos y los influencers no se cruzan de forma sistemática con la inversión. Desde la revisión de la estructura del 06-nov-2026 la medición tiene dueño propio en Mercadeo, Insights y ROI, que mide el retorno y la incrementalidad de cada campaña; la venta en línea y la pauta de performance las reporta E-commerce y Growth."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente Corporativo(a) de Mercadeo", "participantes": ["Analista de Insights y ROI — consolida la inversión y los resultados, mide el retorno incremental y la salud de marca.", "Gerente de Mercadeo (país) — consolida las actividades del país con su resultado.", "Brand Manager de Casio — reportería para Casio Brasil.", "Gerente de E-commerce y Growth — venta en línea, conversión y pauta de performance.", "Analista de Sistemas / Datos — ventas por país, canal y producto.", "Junta Directiva — destinataria del tablero mensual.", "Casio Brasil — destinataria de los reportes de Casio."], "evidencia": ["E-22", "E-49", "E-42", "E-56", "E-10", "Manual 03 de Paid Media (Lark)", "Nueva estructura: Marketing, Diseño y Marca y E-commerce y Growth (Dirección Comercial, 29-oct-2026)", "Rol y Estructura CDO (propuesta de la Dirección de Diseño y Marca)", "Reunión de estructura del 04-nov-2026"]},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "actividades": [
-      {"id":"a1","rol":"Gerente de Marketing (Paid Media)","texto":"Entre los días 1 y 5 de cada mes registra por país, en la base de inversión y resultados de Lark, la inversión de cada canal, la venta web, los pedidos, los clientes nuevos y los indicadores de redes, email y comunidad."},
-      {"id":"a2","rol":"Analista de Sistemas / Datos","texto":"Entrega a mercadeo la venta del mes por país y canal —tiendas, web y mayor— y la de los productos y promociones de cada campaña, para cruzarla con la inversión."},
-      {"id":"a3","rol":"Gerente de Marketing (país)","texto":"Consolida campañas, eventos, activaciones, influencers y clientes clave del mes con su inversión y resultado contra el objetivo fijado antes de ejecutarlos —cada evento, con informe en las dos semanas siguientes— y redacta los aprendizajes."},
-      {"id":"a4","rol":"Gerente de Marketing (Casio Regional)","texto":"Prepara el reporte mensual que exige Casio Brasil —acciones, resultados y próximas acciones— y, al cierre de cada semestre, la rendición del presupuesto factura por factura con su tasa de cambio, con cifras coherentes con lo reportado antes."},
-      {"id":"a5","rol":"Gerente Regional de Marketing","texto":"Integra el reporte regional en la plantilla del plan mensual: resultado contra forecast y objetivos por marca y país, qué funcionó, qué no y qué se ajusta el mes siguiente."},
-      {"id":"a6","rol":"Junta Directiva","texto":"Revisa el reporte en la reunión mensual de mercadeo, pregunta por las desviaciones contra la meta y decide los ajustes de presupuesto, prioridades o campañas que requieren su aprobación."},
-      {"id":"a7","rol":"Gerente Regional de Marketing","texto":"Registra en Lark las decisiones y los aprendizajes y los lleva a la planificación del mes siguiente y a la revisión trimestral del plan anual."}
+      {"id": "a1", "rol": "Analista de Insights y ROI", "texto": "Entre los días 1 y 5 de cada mes consolida por país, en la base de inversión y resultados de Lark, la inversión de cada canal —la pauta de marca de mercadeo y la de performance que reporta E-commerce y Growth, sin contar doble— y los indicadores de redes, email y comunidad."},
+      {"id": "a2", "rol": "Analista de Sistemas / Datos", "texto": "Entrega a mercadeo la venta del mes por país y canal —tiendas, web y mayor— y la de los productos y promociones de cada campaña, para cruzarla con la inversión."},
+      {"id": "a3", "rol": "Gerente de Mercadeo (país)", "texto": "Consolida campañas, eventos, activaciones, influencers y clientes clave del mes con su inversión y resultado contra el objetivo fijado antes de ejecutarlos —cada evento, con informe en las dos semanas siguientes— y redacta los aprendizajes."},
+      {"id": "a4", "rol": "Brand Manager de Casio", "texto": "Prepara el reporte mensual que exige Casio Brasil —acciones, resultados y próximas acciones— y, al cierre de cada semestre, la rendición del presupuesto factura por factura con su tasa de cambio, con cifras coherentes con lo reportado antes."},
+      {"id": "a5", "rol": "Analista de Insights y ROI", "texto": "Calcula el retorno y la venta incremental de las campañas principales —con pruebas de grupo de control en el canal de mayor inversión— y, cada semestre, la salud de marca con el estudio de seguimiento: reconocimiento, consideración y recompra."},
+      {"id": "a6", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Integra el tablero de marca e inversión: resultado contra forecast y objetivos por marca y país, retorno incremental, salud de marca, qué funcionó, qué no y qué se ajusta el mes siguiente."},
+      {"id": "a7", "rol": "Junta Directiva", "texto": "Revisa el tablero en la reunión mensual de mercadeo, pregunta por las desviaciones contra la meta y decide los ajustes de presupuesto, prioridades o campañas que requieren su aprobación."},
+      {"id": "a8", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Registra en Lark las decisiones y los aprendizajes y los lleva a la planificación del mes siguiente y a la revisión trimestral del plan anual."}
      ],
      "diagrama": {
-      "carriles": ["Gerente de Marketing (Paid Media)","Analista de Sistemas / Datos","Gerente de Marketing (país)","Gerente de Marketing (Casio Regional)","Gerente Regional de Marketing","Junta Directiva"],
+      "carriles": [
+       "Analista de Insights y ROI",
+       "Analista de Sistemas / Datos",
+       "Gerente de Mercadeo (país)",
+       "Brand Manager de Casio",
+       "Gerente Corporativo(a) de Mercadeo",
+       "Junta Directiva"
+      ],
       "nodos": [
-       {"id":"n0","carril":"Gerente de Marketing (Paid Media)","tipo":"inicio","n":"Cierre del mes"},
-       {
-        "id": "n1",
-        "carril": "Gerente de Marketing (Paid Media)",
-        "tipo": "tarea",
-        "n": "Registrar inversión y resultados digitales",
-        "sistemas": ["Lark","Google Ads","Meta Ads Manager","ActiveCampaign"]
-       },
-       {
-        "id": "n2",
-        "carril": "Analista de Sistemas / Datos",
-        "tipo": "tarea",
-        "n": "Entregar la venta del mes por país y canal",
-        "sistemas": ["Odoo"]
-       },
-       {
-        "id": "n3",
-        "carril": "Gerente de Marketing (país)",
-        "tipo": "tarea",
-        "n": "Consolidar actividades, resultados y aprendizajes",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n4","carril":"Gerente de Marketing (Casio Regional)","tipo":"tarea","n":"Preparar el reporte para Casio Brasil"},
-       {"id":"n5","carril":"Gerente Regional de Marketing","tipo":"tarea","n":"Integrar el reporte regional contra objetivos"},
-       {"id":"n6","carril":"Junta Directiva","tipo":"tarea","n":"Revisar resultados y decidir ajustes"},
-       {
-        "id": "n7",
-        "carril": "Gerente Regional de Marketing",
-        "tipo": "tarea",
-        "n": "Registrar decisiones y llevarlas al plan",
-        "sistemas": ["Lark"]
-       },
-       {"id":"n8","carril":"Gerente Regional de Marketing","tipo":"fin","n":"Reporte presentado y decisiones registradas"}
+       {"id": "n0", "carril": "Analista de Insights y ROI", "tipo": "inicio", "n": "Cierre del mes"},
+       {"id": "n1", "carril": "Analista de Insights y ROI", "tipo": "tarea", "n": "Consolidar inversión y resultados por canal", "sistemas": ["Lark", "Google Ads", "Meta Ads Manager", "ActiveCampaign"]},
+       {"id": "n2", "carril": "Analista de Sistemas / Datos", "tipo": "tarea", "n": "Entregar la venta del mes por país y canal", "sistemas": ["Odoo"]},
+       {"id": "n3", "carril": "Gerente de Mercadeo (país)", "tipo": "tarea", "n": "Consolidar actividades, resultados y aprendizajes", "sistemas": ["Lark"]},
+       {"id": "n4", "carril": "Brand Manager de Casio", "tipo": "tarea", "n": "Preparar el reporte para Casio Brasil"},
+       {"id": "n5", "carril": "Analista de Insights y ROI", "tipo": "tarea", "n": "Medir retorno incremental y salud de marca"},
+       {"id": "n6", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Integrar el tablero de marca e inversión"},
+       {"id": "n7", "carril": "Junta Directiva", "tipo": "tarea", "n": "Revisar resultados y decidir ajustes"},
+       {"id": "n8", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Registrar decisiones y llevarlas al plan", "sistemas": ["Lark"]},
+       {"id": "n9", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "fin", "n": "Reporte presentado y decisiones registradas"}
       ],
       "aristas": [
-       {"de":"n0","a":"n1"},
-       {"de":"n0","a":"n2"},
-       {"de":"n2","a":"n3"},
-       {"de":"n2","a":"n4"},
-       {"de":"n1","a":"n5"},
-       {"de":"n3","a":"n5"},
-       {"de":"n4","a":"n5"},
-       {"de":"n5","a":"n6"},
-       {"de":"n6","a":"n7"},
-       {"de":"n7","a":"n8"}
+       {"de": "n0", "a": "n1"},
+       {"de": "n0", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n2", "a": "n4"},
+       {"de": "n1", "a": "n5"},
+       {"de": "n3", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n4", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
      "filas": [
-      ["Reporte sin punto de comparación","Sin objetivos anuales ni metas por acción, el reporte describe lo hecho pero no dice si el mes fue bueno o malo.","Alta","Alto","Reportar siempre contra el forecast y contra los objetivos fijados en el plan anual."],
-      ["Retorno inflado por datos mal cruzados","Mezclar venta web con venta de tienda u omitir un canal de inversión infla el retorno y lleva a decisiones equivocadas.","Media","Alto","Aplicar las reglas del manual de reportería —venta web y de tienda en columnas separadas y todos los canales de inversión incluidos— y contrastar cada semestre la atribución del canal de mayor inversión con una prueba de incrementalidad con grupo de control."],
-      ["Ventas que no llegan a mercadeo","Si la información de ventas por producto y campaña no se entrega, el efecto de las campañas y las promociones no se puede medir.","Media","Medio","Formalizar la entrega mensual de ventas de inteligencia de negocio a mercadeo."],
-      ["Consolidación manual y dispersa","Reunir datos de varios mercados y plataformas sin plantilla ni tablero común consume días de trabajo y produce errores.","Alta","Medio","Extender el tablero de inversión y resultados a todo el mercadeo, con una plantilla única por país."],
-      ["Cifras incoherentes con lo reportado a Casio","Reportar a Casio en una convención cifras distintas de las enviadas durante el año debilita la relación con la marca.","Baja","Alto","Usar una sola fuente de cifras para todo lo que se reporta a Casio."]
+      [
+       "Reporte sin punto de comparación",
+       "Sin objetivos anuales ni metas por acción, el reporte describe lo hecho pero no dice si el mes fue bueno o malo.",
+       "Alta",
+       "Alto",
+       "Reportar siempre contra el forecast y contra los objetivos fijados en el plan anual."
+      ],
+      [
+       "Retorno inflado por datos mal cruzados",
+       "Mezclar venta web con venta de tienda, contar dos veces la pauta de marca y la de performance u omitir un canal de inversión infla el retorno y lleva a decisiones equivocadas.",
+       "Media",
+       "Alto",
+       "Venta web y de tienda en columnas separadas, todos los canales de inversión incluidos una sola vez y prueba de incrementalidad con grupo de control en el canal de mayor inversión."
+      ],
+      [
+       "Ventas que no llegan a mercadeo",
+       "Si la información de ventas por producto y campaña no se entrega, el efecto de las campañas y las promociones no se puede medir.",
+       "Media",
+       "Medio",
+       "Formalizar la entrega mensual de ventas de inteligencia de negocio a mercadeo."
+      ],
+      [
+       "Marca medida solo por la venta del mes",
+       "Sin seguimiento de reconocimiento y consideración, una campaña que construye marca parece no rendir y se recorta.",
+       "Media",
+       "Medio",
+       "Estudio semestral de salud de marca con las mismas preguntas y la misma muestra, para comparar en el tiempo."
+      ],
+      [
+       "Cifras incoherentes con lo reportado a Casio",
+       "Reportar a Casio en una convención cifras distintas de las enviadas durante el año debilita la relación con la marca.",
+       "Baja",
+       "Alto",
+       "Usar una sola fuente de cifras para todo lo que se reporta a Casio."
+      ]
      ]
     },
     "indicadores": {
      "estado": "borrador",
      "filas": [
-      ["Reporte mensual en plazo","Reportes completados dentro de los primeros cinco días del mes ÷ reportes del mes","Mensual","Gerente Regional de Marketing","100 %"],
-      ["ROAS","Venta web ÷ inversión en pauta, por país","Mensual","Gerente de Marketing (Paid Media)","Según la meta del forecast de cada país"],
-      ["Cumplimiento del forecast web","Venta web ÷ forecast web, por país","Mensual","Gerente de Marketing (Paid Media)","≥ 100 %"],
-      ["Acciones con resultado medido","Acciones del mes con resultado registrado ÷ acciones ejecutadas","Mensual","Gerente de Marketing (país)","≥ 90 %"],
-      ["Peso de la inversión sobre la venta","Inversión en mercadeo ÷ venta del período, por país","Mensual","Gerente Regional de Marketing","Dentro del rango definido en el plan anual"]
+      [
+       "Reporte mensual en plazo",
+       "Reportes completados dentro de los primeros cinco días del mes ÷ reportes del mes",
+       "Mensual",
+       "Gerente Corporativo(a) de Mercadeo",
+       "100 %"
+      ],
+      [
+       "Campañas principales con retorno incremental medido",
+       "Campañas principales con venta incremental medida ÷ campañas principales",
+       "Trimestral",
+       "Analista de Insights y ROI",
+       "100 %"
+      ],
+      [
+       "Salud de marca",
+       "Reconocimiento, consideración y recompra por marca y país, del estudio de seguimiento",
+       "Semestral",
+       "Analista de Insights y ROI",
+       "Según los objetivos del plan anual"
+      ],
+      [
+       "Acciones con resultado medido",
+       "Acciones del mes con resultado registrado ÷ acciones ejecutadas",
+       "Mensual",
+       "Gerente de Mercadeo (país)",
+       "≥ 90 %"
+      ],
+      [
+       "Peso de la inversión sobre la venta",
+       "Inversión en mercadeo ÷ venta del período, por país",
+       "Mensual",
+       "Gerente Corporativo(a) de Mercadeo",
+       "Dentro del rango definido en el plan anual"
+      ]
+     ]
+    }
+   },
+   "16.9": {
+    "proposito": {"estado": "borrador", "texto": "Define, publica y custodia la identidad de las marcas del grupo: el posicionamiento de cada marca, que se construye con Mercadeo y aprueba la Presidencia; el manual de marca y el sistema de diseño gráfico y digital, fuente única para todos los equipos, proveedores, franquiciados y socios; la biblioteca de activos con la versión vigente de cada pieza, sus derechos de uso y su vencimiento; y la auditoría periódica de coherencia de la marca en todos los canales. En Casio, marca representada, el proceso regula la aplicación local de los lineamientos de la casa matriz, no la identidad.", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy no hay un manual de marca ni un sistema de diseño vigentes y publicados para Cubitt: en la reunión del 04-nov se señaló la inconsistencia de las comunicaciones —la marca «tiene una identidad, pero no una identidad visual»— y la primera fase de la dirección es la renovación de la marca y su manual."},
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente Corporativo(a) de Mercadeo", "texto": "Entrega la lectura del consumidor y del mercado —investigación, encuestas y la data de la app y de ventas, de Insights y ROI— y propone a quién le habla cada marca y qué promete."},
+      {"id": "a2", "rol": "Director(a) de Diseño y Marca", "texto": "Construye con Mercadeo el posicionamiento de cada marca y lo traduce en identidad: personalidad, tono, territorio visual y principios de diseño que deben verse en lo físico, lo digital y lo presencial."},
+      {"id": "a3", "rol": "Presidencia", "texto": "Aprueba el posicionamiento o lo devuelve con observaciones por escrito; los desacuerdos entre Mercadeo y Diseño y Marca llegan con impacto y alternativas."},
+      {"id": "a4", "rol": "Director(a) Creativo(a) · Gerencia de Marca", "texto": "Desarrolla el manual de marca —logotipo, color, tipografía, fotografía, tono, usos correctos e incorrectos con ejemplos— y, con Diseño de Producto Digital, el sistema de diseño digital; lo prueba en piezas reales de cada canal antes de cerrarlo."},
+      {"id": "a5", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba el manual y el sistema de diseño, y cada revisión posterior, y registra la versión y su fecha; una versión no aprobada no se distribuye."},
+      {"id": "a6", "rol": "Director(a) Creativo(a) · Gerencia de Marca", "texto": "Publica el manual en la biblioteca única de activos con plantillas listas para usar, lo da a conocer a los equipos, proveedores, franquiciados y socios, e induce a quienes producen piezas, dentro y fuera del grupo."},
+      {"id": "a7", "rol": "Coordinador(a) de Arte y Diseño", "texto": "Mantiene la biblioteca de activos: cada pieza con su campaña, mercado, versión, derechos de uso y fecha de vencimiento; avisa antes de que un derecho venza y retira las versiones y piezas vencidas."},
+      {"id": "a8", "rol": "Director(a) Creativo(a) · Gerencia de Marca", "texto": "Audita cada semestre la coherencia de la marca en una muestra de piezas, webs, redes, empaques, tiendas, clientes del mayor y franquicias, con fotografía fechada y puntaje contra el manual; Visual Merchandising aporta las auditorías de punto de venta (16.7)."},
+      {"id": "a9", "rol": "Director(a) de Diseño y Marca", "texto": "Presenta a la dirección el resultado de la auditoría con las correcciones por área y decide si el manual necesita una revisión, que entra al ciclo siguiente."}
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente Corporativo(a) de Mercadeo",
+       "Director(a) de Diseño y Marca",
+       "Presidencia",
+       "Director(a) Creativo(a) · Gerencia de Marca",
+       "Coordinador(a) de Arte y Diseño"
+      ],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "inicio", "n": "Renovación de la marca o revisión anual"},
+       {"id": "n1", "carril": "Gerente Corporativo(a) de Mercadeo", "tipo": "tarea", "n": "Entregar la lectura del consumidor y del mercado"},
+       {"id": "n2", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Construir el posicionamiento y la identidad"},
+       {"id": "n3", "carril": "Presidencia", "tipo": "decision", "n": "¿Posicionamiento aprobado?"},
+       {"id": "n3b", "carril": "Presidencia", "tipo": "fin", "n": "Posicionamiento devuelto con observaciones"},
+       {"id": "n4", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "tarea", "n": "Desarrollar el manual y el sistema de diseño"},
+       {"id": "n5", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Aprobar y registrar la versión"},
+       {"id": "n6", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "tarea", "n": "Publicar el manual e inducir a los equipos", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n7", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "tarea", "n": "Mantener la biblioteca y retirar lo vencido", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n8", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "tarea", "n": "Auditar la coherencia en todos los canales"},
+       {"id": "n9", "carril": "Director(a) de Diseño y Marca", "tipo": "decision", "n": "¿Hace falta revisar el manual?"},
+       {"id": "n10", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Programar la revisión del manual"},
+       {"id": "n11", "carril": "Director(a) de Diseño y Marca", "tipo": "fin", "n": "Marca publicada, custodiada y auditada"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"},
+       {"de": "n3", "a": "n3b", "etq": "No"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10", "etq": "Sí"},
+       {"de": "n9", "a": "n11", "etq": "No"},
+       {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Manual que nadie usa",
+       "Un manual publicado como documento y sin plantillas termina ignorado: cada equipo y cada proveedor sigue con sus propias piezas.",
+       "Alta",
+       "Alto",
+       "Plantillas listas para usar en la biblioteca, inducción a quienes producen piezas y auditoría semestral que mide su adopción."
+      ],
+      [
+       "Posicionamiento sin datos",
+       "Una identidad definida por gusto y no por el consumidor no se sostiene frente a la venta y se discute en cada campaña.",
+       "Media",
+       "Alto",
+       "Construir el posicionamiento sobre la lectura del consumidor de Insights y ROI y aprobarlo en la Presidencia."
+      ],
+      [
+       "Piezas con derechos vencidos",
+       "Una foto de modelo, una tipografía o una música se sigue usando después de vencer su licencia y expone a la marca a un reclamo.",
+       "Media",
+       "Alto",
+       "Registrar derechos y vencimiento de cada activo, avisar antes de que venza y retirarlo de la biblioteca al vencer."
+      ],
+      [
+       "Marca que diverge por país o canal",
+       "Lo que cada país adapta o produce rápido se aparta del estándar, y la marca se ve distinta en la web, la tienda y las redes.",
+       "Media",
+       "Medio",
+       "Auditoría semestral con puntaje por canal y país, y correcciones con responsable y fecha."
+      ],
+      [
+       "Cambios al manual sin control",
+       "Versiones del manual que circulan sin aprobar dejan a proveedores y equipos trabajando con reglas distintas.",
+       "Baja",
+       "Medio",
+       "Solo la versión aprobada y registrada se publica; las anteriores quedan archivadas y marcadas como vencidas."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Coherencia de marca en auditoría",
+       "Piezas y puntos auditados que cumplen el manual ÷ piezas y puntos auditados, por canal y país",
+       "Semestral",
+       "Director(a) Creativo(a) · Gerencia de Marca",
+       "≥ 90 %"
+      ],
+      [
+       "Adopción del manual",
+       "Disciplinas, equipos y proveedores que trabajan con la versión vigente ÷ total",
+       "Semestral",
+       "Director(a) de Diseño y Marca",
+       "100 %"
+      ],
+      [
+       "Activos con derechos y vencimiento registrados",
+       "Activos de la biblioteca con derechos y fecha de vencimiento ÷ activos de la biblioteca",
+       "Trimestral",
+       "Coordinador(a) de Arte y Diseño",
+       "100 %"
+      ],
+      [
+       "Correcciones de auditoría cerradas en plazo",
+       "Correcciones cerradas en la fecha acordada ÷ correcciones abiertas",
+       "Semestral",
+       "Director(a) de Diseño y Marca",
+       "≥ 90 %"
+      ]
+     ]
+    }
+   },
+   "16.10": {
+    "proposito": {"estado": "borrador", "texto": "Produce el contenido visual central de las marcas —la foto de producto y de campaña, el video principal, los renders 3D y la animación— a partir de las campañas y los lanzamientos aprobados, con dirección de arte, control de calidad y fidelidad al producto real, y lo entrega a la biblioteca de activos con sus derechos registrados para que lo usen todos los canales y países. El contenido ágil para redes y creadores no entra aquí: lo produce Social y Contenido (16.5).", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy la producción de foto y video vive en el equipo creativo de mercadeo y se decide campaña por campaña. Desde el 06-nov la producción central queda en Diseño y Marca, que decide qué se hace en casa y qué con freelancers o productoras —motion y 3D se cubren con freelancers— según volumen y costo."},
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Gerente de Campañas (Diseño y Marca)", "texto": "Consolida las necesidades de producción de las campañas y lanzamientos aprobados —fotos de producto, video principal, renders 3D y motion— en un brief de producción con usos, canales, formatos, fechas y presupuesto."},
+      {"id": "a2", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Planifica la producción: decide qué se hace en casa y qué con freelancers o productora, cotiza, arma el calendario de sesiones y reserva con logística el producto que se va a fotografiar o filmar, como traslado documentado."},
+      {"id": "a3", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba el plan y el presupuesto de producción; lo que excede el presupuesto aprobado en el plan anual se ajusta en alcance antes de contratar."},
+      {"id": "a4", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Ajusta el alcance —menos piezas, reutilización de activos de la biblioteca o cambio de formato— hasta que el plan cabe en el presupuesto."},
+      {"id": "a5", "rol": "Coordinador(a) de Arte y Diseño", "texto": "Dirige cada sesión con la lista de tomas, la dirección de arte y el estilo del manual de marca, y cuida que color, materiales y funciones del producto se vean como son."},
+      {"id": "a6", "rol": "Fotógrafo(a), productor(a) o freelance de 3D y motion (actor externo)", "texto": "Ejecuta la sesión, los renders o la animación según la dirección de arte y entrega los archivos con la cesión de derechos acordada."},
+      {"id": "a7", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Revisa los entregables contra el brief y la ficha técnica —fidelidad del color, de las funciones y de lo que se afirma del producto— y pide los ajustes."},
+      {"id": "a8", "rol": "Director(a) Creativo(a) · Gerencia de Marca", "texto": "Aprueba la calidad final de las piezas principales; Mercadeo ya aprobó el concepto en la campaña y no se reabre."},
+      {"id": "a9", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Archiva los finales en la biblioteca de activos con producto, campaña, usos, derechos de imagen y vencimiento, los entrega a los solicitantes y cierra con el costo real contra el presupuesto."}
+     ],
+     "diagrama": {
+      "carriles": [
+       "Gerente de Campañas (Diseño y Marca)",
+       "Gerente de Producción (Diseño y Marca)",
+       "Director(a) de Diseño y Marca",
+       "Coordinador(a) de Arte y Diseño",
+       "Fotógrafo(a), productor(a) o freelance de 3D y motion (actor externo)",
+       "Director(a) Creativo(a) · Gerencia de Marca"
+      ],
+      "nodos": [
+       {"id": "n0", "carril": "Gerente de Campañas (Diseño y Marca)", "tipo": "inicio", "n": "Campaña o lanzamiento aprobado"},
+       {"id": "n1", "carril": "Gerente de Campañas (Diseño y Marca)", "tipo": "tarea", "n": "Consolidar el brief de producción", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Planificar, cotizar y reservar producto", "sistemas": ["Lark", "Odoo"]},
+       {"id": "n3", "carril": "Director(a) de Diseño y Marca", "tipo": "decision", "n": "¿Plan dentro del presupuesto?"},
+       {"id": "n3b", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Ajustar el alcance de la producción"},
+       {"id": "n4", "carril": "Coordinador(a) de Arte y Diseño", "tipo": "tarea", "n": "Dirigir la sesión con el manual de marca"},
+       {"id": "n5", "carril": "Fotógrafo(a), productor(a) o freelance de 3D y motion (actor externo)", "tipo": "tarea", "n": "Ejecutar sesión, renders o animación"},
+       {"id": "n6", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Revisar contra el brief y la ficha técnica"},
+       {"id": "n7", "carril": "Director(a) Creativo(a) · Gerencia de Marca", "tipo": "tarea", "n": "Aprobar la calidad final"},
+       {"id": "n8", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Archivar con derechos y cerrar el costo", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n9", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "fin", "n": "Contenido central disponible para todos los canales"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4", "etq": "Sí"},
+       {"de": "n3", "a": "n3b", "etq": "No"},
+       {"de": "n3b", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Producto no disponible para la sesión",
+       "La muestra o la mercancía no llega a tiempo y la producción se cancela o se hace con un producto que no es el final.",
+       "Media",
+       "Alto",
+       "Reservar el producto con logística al planificar y confirmar la llegada de la muestra antes de contratar la sesión."
+      ],
+      [
+       "Imagen que no refleja el producto real",
+       "Un color, un acabado o una función que se ve distinta en la foto genera devoluciones y reclamos por publicidad engañosa.",
+       "Media",
+       "Alto",
+       "Revisar cada entregable contra la ficha técnica y con validación de Producto en lo que se afirma."
+      ],
+      [
+       "Derechos de imagen sin ceder",
+       "Fotos con modelos, locaciones o música sin cesión de derechos por escrito no se pueden usar en todos los canales o países.",
+       "Media",
+       "Alto",
+       "Cesión de derechos en todo contrato con freelancers, modelos y productoras, registrada en la biblioteca con su vencimiento."
+      ],
+      [
+       "Sobrecosto de producción",
+       "Producciones decididas campaña por campaña, sin plan, se contratan con urgencia y a mayor costo.",
+       "Media",
+       "Medio",
+       "Plan de producción por trimestre con presupuesto aprobado y reutilización de activos antes de producir de nuevo."
+      ],
+      [
+       "Producciones duplicadas entre países",
+       "Cada país vuelve a fotografiar el mismo producto porque no encuentra lo que ya existe.",
+       "Media",
+       "Bajo",
+       "Biblioteca única con búsqueda por producto y uso, y consulta obligatoria antes de producir."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Producciones entregadas en fecha",
+       "Producciones entregadas en la fecha del brief ÷ producciones planificadas",
+       "Mensual",
+       "Gerente de Producción (Diseño y Marca)",
+       "≥ 90 %"
+      ],
+      [
+       "Costo real contra presupuesto",
+       "Costo real de producción ÷ presupuesto aprobado",
+       "Trimestral",
+       "Gerente de Producción (Diseño y Marca)",
+       "≤ 100 %"
+      ],
+      [
+       "Reutilización de activos",
+       "Activos centrales usados en dos o más canales o países ÷ activos producidos",
+       "Trimestral",
+       "Gerente de Producción (Diseño y Marca)",
+       "Tendencia al alza"
+      ],
+      [
+       "Activos con derechos registrados",
+       "Activos producidos con derechos y vencimiento en la biblioteca ÷ activos producidos",
+       "Mensual",
+       "Coordinador(a) de Arte y Diseño",
+       "100 %"
+      ]
+     ]
+    }
+   },
+   "16.11": {
+    "proposito": {"estado": "borrador", "texto": "Diseña cómo se ven las marcas en los espacios físicos: el concepto de tienda y de shop-in-shop, el layout, el mobiliario tipo, los interiores —con una agencia externa, por brief y aprobación—, el material POP y la guía de exhibición por canal y por campaña. Prueba los conceptos nuevos en un piloto, los publica como estándar y los entrega a Visual Merchandising para su montaje (16.7) y a la PMO para las aperturas y remodelaciones (9.8 y 9.9), y los actualiza con lo que muestran las auditorías.", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy el estándar visual de tiendas y del canal mayorista lo fija la gerencia regional de visual merchandising, con manuales de producción y un arquitecto externo para aperturas. Desde el 06-nov los estándares de espacios, el POP y los interiores son de Diseño y Marca, y el montaje en el punto de venta es de Visual Merchandising."},
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Área solicitante", "texto": "Plantea la necesidad —concepto de tienda nuevo, apertura o remodelación (9.8 y 9.9), guía de exhibición de una campaña (16.2) o hallazgo de una auditoría— con su objetivo comercial, el canal y la fecha. Lo plantean Retail, Ventas al Mayor, la PMO o Mercadeo."},
+      {"id": "a2", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Levanta el brief del espacio con retail y visual merchandising: objetivo comercial, tráfico, surtido por línea, medidas reales, presupuesto, restricciones del local o del cliente y plazos."},
+      {"id": "a3", "rol": "Agencia de interiores (actor externo)", "texto": "Desarrolla el concepto, el layout y los renders de los interiores a partir del brief, y los ajusta en rondas hasta su aprobación."},
+      {"id": "a4", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Define con el diseñador de experiencia el mobiliario tipo, el material POP, la señalética y la guía de exhibición o planograma por canal, y valida con visual merchandising que se pueda montar y mantener al costo previsto."},
+      {"id": "a5", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba que el concepto exprese la marca y sea coherente entre lo físico, lo digital y lo presencial."},
+      {"id": "a6", "rol": "Junta Directiva", "texto": "Da el GO final a los nuevos espacios y a las remodelaciones; sin ese GO el proyecto no se ejecuta. Las guías de exhibición de campaña no pasan por la Junta."},
+      {"id": "a7", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Cuando el concepto es nuevo, lo prueba en un piloto en un punto de venta, mide con retail cómo responde el cliente y ajusta antes de extenderlo."},
+      {"id": "a8", "rol": "Gerente de Producción (Diseño y Marca)", "texto": "Publica el estándar —manual de espacios, mobiliario tipo, POP y guía de exhibición por canal: tienda propia, shop-in-shop y cliente del mayor— en la biblioteca de activos y lo entrega a visual merchandising y a la PMO."},
+      {"id": "a9", "rol": "Gerente de Visual Merchandising", "texto": "Verifica el cumplimiento del estándar en cada montaje y en las auditorías de punto de venta, y devuelve a Diseño y Marca lo que no funciona en los locales reales para que el estándar se actualice."}
+     ],
+     "diagrama": {
+      "carriles": [
+       "Área solicitante",
+       "Gerente de Producción (Diseño y Marca)",
+       "Agencia de interiores (actor externo)",
+       "Director(a) de Diseño y Marca",
+       "Junta Directiva",
+       "Gerente de Visual Merchandising"
+      ],
+      "nodos": [
+       {"id": "n0", "carril": "Área solicitante", "tipo": "inicio", "n": "Concepto, apertura, campaña o hallazgo"},
+       {"id": "n1", "carril": "Área solicitante", "tipo": "tarea", "n": "Plantear la necesidad del espacio", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Levantar el brief del espacio"},
+       {"id": "n3", "carril": "Agencia de interiores (actor externo)", "tipo": "tarea", "n": "Desarrollar concepto, layout y renders"},
+       {"id": "n4", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Definir mobiliario, POP y guía de exhibición"},
+       {"id": "n5", "carril": "Director(a) de Diseño y Marca", "tipo": "decision", "n": "¿Concepto aprobado?"},
+       {"id": "n5b", "carril": "Director(a) de Diseño y Marca", "tipo": "fin", "n": "Concepto devuelto con observaciones"},
+       {"id": "n6", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "decision", "n": "¿Nuevo espacio o remodelación?"},
+       {"id": "n7", "carril": "Junta Directiva", "tipo": "decision", "n": "¿GO final?"},
+       {"id": "n7b", "carril": "Junta Directiva", "tipo": "fin", "n": "Proyecto devuelto con ajustes"},
+       {"id": "n8", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "decision", "n": "¿Concepto nuevo?"},
+       {"id": "n9", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Probar el concepto en un piloto"},
+       {"id": "n10", "carril": "Gerente de Producción (Diseño y Marca)", "tipo": "tarea", "n": "Publicar el estándar y entregarlo", "sistemas": ["Biblioteca de activos"]},
+       {"id": "n11", "carril": "Gerente de Visual Merchandising", "tipo": "tarea", "n": "Verificar el cumplimiento y devolver hallazgos", "sistemas": ["Lark"]},
+       {"id": "n12", "carril": "Gerente de Visual Merchandising", "tipo": "fin", "n": "Estándar del espacio vigente y verificado"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5b", "etq": "No"},
+       {"de": "n6", "a": "n7", "etq": "Sí"},
+       {"de": "n6", "a": "n10", "etq": "No"},
+       {"de": "n7", "a": "n8", "etq": "Sí"},
+       {"de": "n7", "a": "n7b", "etq": "No"},
+       {"de": "n8", "a": "n9", "etq": "Sí"},
+       {"de": "n8", "a": "n10", "etq": "No"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"},
+       {"de": "n11", "a": "n12"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Concepto que no cabe en los locales reales",
+       "Un concepto diseñado en render no se adapta a las medidas, la estructura o el presupuesto de cada local y se improvisa en el montaje.",
+       "Media",
+       "Alto",
+       "Brief con medidas reales, validación de visual merchandising antes de aprobar y piloto en los conceptos nuevos."
+      ],
+      [
+       "Mobiliario que no recupera su costo",
+       "Un estándar costoso se replica en todos los puntos, aunque algunos no venden lo suficiente para pagarlo.",
+       "Media",
+       "Medio",
+       "Versiones del estándar por categoría de punto de venta y costo validado con retail y Cuentas Clave y Trade."
+      ],
+      [
+       "Estándar que no llega al país",
+       "El manual de espacios queda en la sede y cada país monta a su manera.",
+       "Media",
+       "Medio",
+       "Publicarlo en la biblioteca de activos, entregarlo a cada coordinación de visual y auditar su cumplimiento."
+      ],
+      [
+       "Agencia sin brief claro",
+       "La agencia de interiores trabaja sin objetivo ni presupuesto, y las rondas de render se multiplican.",
+       "Media",
+       "Medio",
+       "Brief obligatorio antes de contratar y un número máximo de rondas en el acuerdo con la agencia."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Aperturas y remodelaciones con estándar verificado",
+       "Puntos abiertos o remodelados que cumplen el estándar al inaugurar ÷ puntos abiertos o remodelados",
+       "Trimestral",
+       "Gerente de Producción (Diseño y Marca)",
+       "100 %"
+      ],
+      [
+       "Tiempo de brief a GO",
+       "Fecha del GO − fecha del brief, en días hábiles",
+       "Por proyecto",
+       "Gerente de Producción (Diseño y Marca)",
+       "Según el cronograma del proyecto"
+      ],
+      [
+       "Cumplimiento del estándar en el punto de venta",
+       "Puntos que cumplen el estándar en la auditoría de visual ÷ puntos auditados",
+       "Semestral",
+       "Director(a) de Diseño y Marca",
+       "≥ 85 %"
+      ],
+      [
+       "Costo real del espacio contra presupuesto",
+       "Costo real del proyecto ÷ presupuesto aprobado",
+       "Por proyecto",
+       "Gerente de Producción (Diseño y Marca)",
+       "≤ 100 %"
+      ]
+     ]
+    }
+   },
+   "16.12": {
+    "proposito": {"estado": "borrador", "texto": "Diseña la experiencia y la interfaz de los productos digitales de las marcas —las webs y tiendas en línea, los correos y la app—: entiende a quién se diseña y para qué, prototipa, prueba con usuarios, aprueba la calidad, entrega a Tecnología para su implementación y verifica que lo publicado sea lo diseñado. Mantiene el sistema de diseño digital. E-commerce y Growth prioriza y opera las webs, Innovación y Desarrollo de Productos desarrolla la app y Tecnología implementa.", "nota_estado": "Proceso nuevo, de la Dirección de Diseño y Marca creada en la revisión de la estructura del 06-nov-2026. Hoy el diseño de las webs y de la app no tiene un dueño definido y los cambios se piden directamente al desarrollador. Desde el 06-nov el diseño de web, correos y app es de la gerencia de Diseño de Producto Digital, con diseñadores digitales freelance."},
+    "dueno": {"estado": "borrador"},
+    "disparador": {"estado": "borrador"},
+    "flujo": {
+     "estado": "borrador",
+     "actividades": [
+      {"id": "a1", "rol": "Área solicitante", "texto": "Plantea la necesidad —una web o un flujo nuevo, una mejora de conversión, una plantilla de correo o una pantalla de la app— con un objetivo medible y su prioridad. La plantean E-commerce y Growth, para las webs, e Innovación y Desarrollo de Productos, para la app."},
+      {"id": "a2", "rol": "Gerente de Diseño de Producto Digital", "texto": "Entiende el contexto de uso: la analítica y las pruebas de conversión previas, las quejas de clientes y, cuando hace falta, entrevistas o pruebas con usuarios; define los requisitos y los criterios con que se evaluará el diseño."},
+      {"id": "a3", "rol": "Diseñador(a) digital (freelance)", "texto": "Diseña los flujos y las pantallas sobre el sistema de diseño y arma un prototipo navegable."},
+      {"id": "a4", "rol": "Gerente de Diseño de Producto Digital", "texto": "Prueba el prototipo con usuarios contra los requisitos —que completen la tarea, en cuánto tiempo y con qué errores—, incluida la accesibilidad."},
+      {"id": "a5", "rol": "Diseñador(a) digital (freelance)", "texto": "Ajusta el diseño con los hallazgos de la prueba."},
+      {"id": "a6", "rol": "Director(a) de Diseño y Marca", "texto": "Aprueba la calidad y la coherencia con la marca de las piezas clave: una web, la app o un flujo de compra."},
+      {"id": "a7", "rol": "Área solicitante", "texto": "Aprueba el diseño por el negocio —es el único aprobador que fija la solicitud— y lo prioriza en la cola de desarrollo."},
+      {"id": "a8", "rol": "Especialista de Tecnología (Web/Infraestructura)", "texto": "Implementa el diseño con las especificaciones entregadas; la app la desarrolla Innovación y Desarrollo de Productos con las mismas especificaciones."},
+      {"id": "a9", "rol": "Gerente de Diseño de Producto Digital", "texto": "Verifica antes de publicar que lo implementado sea lo diseñado y suma al sistema de diseño los componentes nuevos, con su documentación."},
+      {"id": "a10", "rol": "Área solicitante", "texto": "Mide después del lanzamiento la conversión o el uso contra el objetivo y devuelve los hallazgos para la siguiente iteración."}
+     ],
+     "diagrama": {
+      "carriles": [
+       "Área solicitante",
+       "Gerente de Diseño de Producto Digital",
+       "Diseñador(a) digital (freelance)",
+       "Director(a) de Diseño y Marca",
+       "Especialista de Tecnología (Web/Infraestructura)"
+      ],
+      "nodos": [
+       {"id": "n0", "carril": "Área solicitante", "tipo": "inicio", "n": "Necesidad en web, correo o app"},
+       {"id": "n1", "carril": "Área solicitante", "tipo": "tarea", "n": "Plantear la necesidad con objetivo medible", "sistemas": ["Lark"]},
+       {"id": "n2", "carril": "Gerente de Diseño de Producto Digital", "tipo": "tarea", "n": "Entender el contexto y definir requisitos", "sistemas": ["Analítica web"]},
+       {"id": "n3", "carril": "Diseñador(a) digital (freelance)", "tipo": "tarea", "n": "Diseñar flujos y prototipo", "sistemas": ["Herramienta de diseño"]},
+       {"id": "n4", "carril": "Gerente de Diseño de Producto Digital", "tipo": "tarea", "n": "Probar el prototipo con usuarios"},
+       {"id": "n5", "carril": "Gerente de Diseño de Producto Digital", "tipo": "decision", "n": "¿Cumple los requisitos?"},
+       {"id": "n5b", "carril": "Diseñador(a) digital (freelance)", "tipo": "tarea", "n": "Ajustar el diseño con los hallazgos"},
+       {"id": "n6", "carril": "Director(a) de Diseño y Marca", "tipo": "tarea", "n": "Aprobar calidad y coherencia de marca"},
+       {"id": "n7", "carril": "Área solicitante", "tipo": "tarea", "n": "Aprobar por el negocio y priorizar"},
+       {"id": "n8", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "tarea", "n": "Implementar el diseño", "sistemas": ["Shopify"]},
+       {"id": "n9", "carril": "Gerente de Diseño de Producto Digital", "tipo": "tarea", "n": "Verificar la implementación y actualizar el sistema"},
+       {"id": "n10", "carril": "Área solicitante", "tipo": "tarea", "n": "Medir el resultado tras el lanzamiento", "sistemas": ["Analítica web"]},
+       {"id": "n11", "carril": "Área solicitante", "tipo": "fin", "n": "Diseño publicado y medido"}
+      ],
+      "aristas": [
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n5", "a": "n6", "etq": "Sí"},
+       {"de": "n5", "a": "n5b", "etq": "No"},
+       {"de": "n5b", "a": "n6"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n8"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11"}
+      ]
+     }
+    },
+    "riesgos": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Diseño sin evidencia de usuarios",
+       "Un flujo diseñado por gusto o por opinión de la dirección baja la conversión y se descubre tarde.",
+       "Media",
+       "Alto",
+       "Requisitos y criterios de evaluación antes de diseñar, y prueba con usuarios en los flujos de compra y en la app."
+      ],
+      [
+       "Implementación que se aparta del diseño",
+       "Lo que se publica no es lo aprobado: componentes improvisados, textos cambiados o pantallas sin adaptar al móvil.",
+       "Media",
+       "Medio",
+       "Especificaciones completas en la entrega y verificación de diseño antes de publicar."
+      ],
+      [
+       "Sistema de diseño desactualizado",
+       "Cada web y cada pantalla crea sus propios componentes y la experiencia se fragmenta entre países.",
+       "Media",
+       "Medio",
+       "Sumar al sistema cada componente nuevo, con su documentación, como parte del cierre."
+      ],
+      [
+       "Dependencia de freelancers",
+       "El conocimiento del diseño digital queda en personas externas y se pierde al cambiar de proveedor.",
+       "Media",
+       "Medio",
+       "Archivos fuente y documentación en la biblioteca de la empresa y cesión de derechos en cada contrato."
+      ]
+     ]
+    },
+    "indicadores": {
+     "estado": "borrador",
+     "filas": [
+      [
+       "Éxito de tareas en prueba con usuarios",
+       "Tareas completadas sin ayuda ÷ tareas probadas",
+       "Por proyecto",
+       "Gerente de Diseño de Producto Digital",
+       "≥ 80 %"
+      ],
+      [
+       "Diseños medidos tras el lanzamiento",
+       "Cambios con resultado medido contra su objetivo ÷ cambios publicados",
+       "Trimestral",
+       "Gerente de Diseño de Producto Digital",
+       "100 %"
+      ],
+      [
+       "Desvíos de implementación",
+       "Desvíos detectados en la verificación de diseño ÷ pantallas verificadas",
+       "Por proyecto",
+       "Gerente de Diseño de Producto Digital",
+       "Tendencia a la baja"
+      ],
+      [
+       "Componentes documentados en el sistema de diseño",
+       "Componentes en uso documentados ÷ componentes en uso",
+       "Trimestral",
+       "Gerente de Diseño de Producto Digital",
+       "100 %"
+      ]
      ]
     }
    }
@@ -25992,97 +27789,26 @@ window.MANUAL_CONTENIDO = {
    }
   },
   "7.8": {
-   "proposito": {
-    "estado": "borrador",
-    "texto": "Mueve mercancía entre bodegas o hacia un área de la organización cuando no hay una venta detrás: material para Marketing, unidades para Servicio Técnico, urgencias entre tiendas de la misma plaza, retornos de tienda a bodega central y reorganizaciones internas.\n\nEs el proceso más informal del macroproceso y el de mayor riesgo silencioso: mueve inventario sin que medie factura, de modo que un traslado mal hecho no lo detecta nadie hasta el conteo. El cambio que propone este To-Be es que **todo traslado nazca de una solicitud registrada y que el que consume salga a costo**, que es justo lo que hoy no ocurre.\n\nNo incluye la reposición inter-compañía entre países (6.6) ni el despacho al cliente (7.5)."
-   },
-   "dueno": {
-    "estado": "borrador",
-    "dueno": "Coordinador(a) de Logística y Bodega",
-    "participantes": [
-     "Coordinador(a) de Logística y Bodega — dueño del proceso: recibe la solicitud, comprueba que tenga aprobación cuando le corresponde y autoriza el movimiento.",
-     "Auxiliar / Ayudante de Bodega y Tráfico — ejecuta el traslado físico y lo registra.",
-     "Supervisor(a) de Bodega / Despacho — entrega la mercancía al área destino contra constancia.",
-     "Coordinador(a) de Marca — solicitante frecuente para material promocional y entregas a terceros.",
-     "Subgerente de Servicio Técnico — solicitante frecuente para unidades de reemplazo y repuestos.",
-     "Gerente de Ventas al Detal (País) — aprueba los traslados entre tiendas de la misma plaza.",
-     "Coordinador(a) Contable — registra la salida a costo de la mercancía que se consume y no vuelve al inventario vendible."
-    ],
-    "evidencia": [
-     "E-34",
-     "E-51",
-     "Lark: flujo logistico.xlsx — hojas Traslados Marketing y Traslados Solicitudes (VE)"
-    ],
-    "notas": "⚠️ El mapa v18 nombra «Supervisor de Ventas» como aprobador de los traslados entre tiendas; ese cargo no existe en el patrón V4. Se usa **Gerente de Ventas al Detal (País)**, que sí existe y es la equivalencia ya adoptada en el macro 9. El mapa atribuye además el proceso al auxiliar que lo ejecuta; la titularidad se sitúa en la coordinación, que es quien autoriza."
-   },
-   "disparador": {
-    "estado": "borrador",
-    "disparador": "Solicitud de traslado del área requirente, registrada por el canal formal con el destino, el motivo y el uso previsto de la mercancía.",
-    "cadencia": "Continua, a lo largo de la jornada.",
-    "output": "Mercancía trasladada al destino con el movimiento registrado, y salida a costo aplicada cuando el material se consume.",
-    "evidencia": [
-     "E-34",
-     "Lark: flujo logistico.xlsx — hojas de traslados (VE)"
-    ],
-    "notas": "El registro de la solicitud es un cambio respecto de hoy: buena parte de los traslados urgentes se piden de viva voz y se ejecutan antes de que exista constancia."
-   },
+   "proposito": {"estado": "borrador", "texto": "Mueve mercancía entre bodegas o hacia un área de la organización cuando no hay una venta detrás: material para Marketing, unidades para Servicio Técnico, urgencias entre tiendas de la misma plaza, retornos de tienda a bodega central y reorganizaciones internas.\n\nEs el proceso más informal del macroproceso y el de mayor riesgo silencioso: mueve inventario sin que medie factura, de modo que un traslado mal hecho no lo detecta nadie hasta el conteo. El cambio que propone este To-Be es que **todo traslado nazca de una solicitud registrada y que el que consume salga a costo**, que es justo lo que hoy no ocurre.\n\nNo incluye la reposición inter-compañía entre países (6.6) ni el despacho al cliente (7.5)."},
+   "dueno": {"estado": "borrador", "dueno": "Coordinador(a) de Logística y Bodega", "participantes": ["Coordinador(a) de Logística y Bodega — dueño del proceso: recibe la solicitud, comprueba que tenga aprobación cuando le corresponde y autoriza el movimiento.", "Auxiliar / Ayudante de Bodega y Tráfico — ejecuta el traslado físico y lo registra.", "Supervisor(a) de Bodega / Despacho — entrega la mercancía al área destino contra constancia.", "Coordinador(a) de Marca (país) — solicitante frecuente para material promocional y entregas a terceros.", "Subgerente de Servicio Técnico — solicitante frecuente para unidades de reemplazo y repuestos.", "Gerente de Ventas al Detal (País) — aprueba los traslados entre tiendas de la misma plaza.", "Coordinador(a) Contable — registra la salida a costo de la mercancía que se consume y no vuelve al inventario vendible."], "evidencia": ["E-34", "E-51", "Lark: flujo logistico.xlsx — hojas Traslados Marketing y Traslados Solicitudes (VE)"], "notas": "⚠️ El mapa v18 nombra «Supervisor de Ventas» como aprobador de los traslados entre tiendas; ese cargo no existe en el patrón V4. Se usa **Gerente de Ventas al Detal (País)**, que sí existe y es la equivalencia ya adoptada en el macro 9. El mapa atribuye además el proceso al auxiliar que lo ejecuta; la titularidad se sitúa en la coordinación, que es quien autoriza."},
+   "disparador": {"estado": "borrador", "disparador": "Solicitud de traslado del área requirente, registrada por el canal formal con el destino, el motivo y el uso previsto de la mercancía.", "cadencia": "Continua, a lo largo de la jornada.", "output": "Mercancía trasladada al destino con el movimiento registrado, y salida a costo aplicada cuando el material se consume.", "evidencia": ["E-34", "Lark: flujo logistico.xlsx — hojas de traslados (VE)"], "notas": "El registro de la solicitud es un cambio respecto de hoy: buena parte de los traslados urgentes se piden de viva voz y se ejecutan antes de que exista constancia."},
    "flujo": {
     "estado": "borrador",
-    "evidencia": [
-     "E-34",
-     "E-51",
-     "Lark: flujo logistico.xlsx — hojas Traslados Marketing y Traslados Solicitudes (VE)"
-    ],
+    "evidencia": ["E-34", "E-51", "Lark: flujo logistico.xlsx — hojas Traslados Marketing y Traslados Solicitudes (VE)"],
     "actividades": [
-     {
-      "id": "a1",
-      "rol": "Coordinador(a) de Marca",
-      "texto": "Registra la solicitud de traslado indicando destino, motivo y si la mercancía se consume o retorna."
-     },
-     {
-      "id": "a2",
-      "rol": "Coordinador(a) de Logística y Bodega",
-      "texto": "Comprueba si el traslado requiere aprobación previa por su destino o su valor."
-     },
-     {
-      "id": "a3",
-      "rol": "Gerente de Ventas al Detal (País)",
-      "texto": "Aprueba los traslados entre tiendas de la misma plaza, que mueven inventario entre puntos con responsables distintos."
-     },
-     {
-      "id": "a4",
-      "rol": "Coordinador(a) de Logística y Bodega",
-      "texto": "Autoriza el movimiento y lo asigna a la cuadrilla, indicando la bodega de origen y la de destino."
-     },
-     {
-      "id": "a5",
-      "rol": "Auxiliar / Ayudante de Bodega y Tráfico",
-      "texto": "Ejecuta el traslado físico y registra el movimiento entre ubicaciones en el sistema."
-     },
-     {
-      "id": "a6",
-      "rol": "Supervisor(a) de Bodega / Despacho",
-      "texto": "Entrega la mercancía al área destino contra constancia de quien la recibe."
-     },
-     {
-      "id": "a7",
-      "rol": "Coordinador(a) de Logística y Bodega",
-      "texto": "Determina si la mercancía se consume —material promocional entregado, unidad usada como reemplazo— o si retorna al inventario vendible."
-     },
-     {
-      "id": "a8",
-      "rol": "Coordinador(a) Contable",
-      "texto": "Registra la salida a costo de la mercancía consumida, con la periodicidad acordada, de modo que deje de figurar como existencia."
-     },
-     {
-      "id": "a9",
-      "rol": "Coordinador(a) de Logística y Bodega",
-      "texto": "Da seguimiento a los traslados con retorno previsto que no han vuelto y los reclama al área destino."
-     }
+     {"id": "a1", "rol": "Coordinador(a) de Marca (país)", "texto": "Registra la solicitud de traslado indicando destino, motivo y si la mercancía se consume o retorna."},
+     {"id": "a2", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Comprueba si el traslado requiere aprobación previa por su destino o su valor."},
+     {"id": "a3", "rol": "Gerente de Ventas al Detal (País)", "texto": "Aprueba los traslados entre tiendas de la misma plaza, que mueven inventario entre puntos con responsables distintos."},
+     {"id": "a4", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Autoriza el movimiento y lo asigna a la cuadrilla, indicando la bodega de origen y la de destino."},
+     {"id": "a5", "rol": "Auxiliar / Ayudante de Bodega y Tráfico", "texto": "Ejecuta el traslado físico y registra el movimiento entre ubicaciones en el sistema."},
+     {"id": "a6", "rol": "Supervisor(a) de Bodega / Despacho", "texto": "Entrega la mercancía al área destino contra constancia de quien la recibe."},
+     {"id": "a7", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Determina si la mercancía se consume —material promocional entregado, unidad usada como reemplazo— o si retorna al inventario vendible."},
+     {"id": "a8", "rol": "Coordinador(a) Contable", "texto": "Registra la salida a costo de la mercancía consumida, con la periodicidad acordada, de modo que deje de figurar como existencia."},
+     {"id": "a9", "rol": "Coordinador(a) de Logística y Bodega", "texto": "Da seguimiento a los traslados con retorno previsto que no han vuelto y los reclama al área destino."}
     ],
     "diagrama": {
      "carriles": [
-      "Coordinador(a) de Marca",
+      "Coordinador(a) de Marca (país)",
       "Coordinador(a) de Logística y Bodega",
       "Gerente de Ventas al Detal (País)",
       "Auxiliar / Ayudante de Bodega y Tráfico",
@@ -26090,117 +27816,32 @@ window.MANUAL_CONTENIDO = {
       "Coordinador(a) Contable"
      ],
      "nodos": [
-      {
-       "id": "n0",
-       "carril": "Coordinador(a) de Marca",
-       "tipo": "inicio",
-       "n": "Registrar la solicitud de traslado"
-      },
-      {
-       "id": "n1",
-       "carril": "Coordinador(a) de Logística y Bodega",
-       "tipo": "decision",
-       "n": "¿Requiere aprobación previa?"
-      },
-      {
-       "id": "n2",
-       "carril": "Gerente de Ventas al Detal (País)",
-       "tipo": "tarea",
-       "n": "Aprobar el traslado entre tiendas"
-      },
-      {
-       "id": "n3",
-       "carril": "Coordinador(a) de Logística y Bodega",
-       "tipo": "tarea",
-       "n": "Autorizar y asignar el movimiento"
-      },
-      {
-       "id": "n4",
-       "carril": "Auxiliar / Ayudante de Bodega y Tráfico",
-       "tipo": "tarea",
-       "n": "Ejecutar y registrar el traslado",
-       "sistemas": [
-        "WMS"
-       ]
-      },
-      {
-       "id": "n5",
-       "carril": "Supervisor(a) de Bodega / Despacho",
-       "tipo": "tarea",
-       "n": "Entregar contra constancia"
-      },
-      {
-       "id": "n6",
-       "carril": "Coordinador(a) de Logística y Bodega",
-       "tipo": "decision",
-       "n": "¿La mercancía se consume?"
-      },
-      {
-       "id": "n7",
-       "carril": "Coordinador(a) Contable",
-       "tipo": "fin",
-       "n": "Salida a costo registrada",
-       "sistemas": [
-        "ERP"
-       ]
-      },
-      {
-       "id": "n8",
-       "carril": "Coordinador(a) de Logística y Bodega",
-       "tipo": "fin",
-       "n": "Retorno pendiente en seguimiento"
-      }
+      {"id": "n0", "carril": "Coordinador(a) de Marca (país)", "tipo": "inicio", "n": "Registrar la solicitud de traslado"},
+      {"id": "n1", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿Requiere aprobación previa?"},
+      {"id": "n2", "carril": "Gerente de Ventas al Detal (País)", "tipo": "tarea", "n": "Aprobar el traslado entre tiendas"},
+      {"id": "n3", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "tarea", "n": "Autorizar y asignar el movimiento"},
+      {"id": "n4", "carril": "Auxiliar / Ayudante de Bodega y Tráfico", "tipo": "tarea", "n": "Ejecutar y registrar el traslado", "sistemas": ["WMS"]},
+      {"id": "n5", "carril": "Supervisor(a) de Bodega / Despacho", "tipo": "tarea", "n": "Entregar contra constancia"},
+      {"id": "n6", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "decision", "n": "¿La mercancía se consume?"},
+      {"id": "n7", "carril": "Coordinador(a) Contable", "tipo": "fin", "n": "Salida a costo registrada", "sistemas": ["ERP"]},
+      {"id": "n8", "carril": "Coordinador(a) de Logística y Bodega", "tipo": "fin", "n": "Retorno pendiente en seguimiento"}
      ],
      "aristas": [
-      {
-       "de": "n0",
-       "a": "n1"
-      },
-      {
-       "de": "n1",
-       "a": "n2",
-       "etq": "Sí"
-      },
-      {
-       "de": "n1",
-       "a": "n3",
-       "etq": "No"
-      },
-      {
-       "de": "n2",
-       "a": "n3"
-      },
-      {
-       "de": "n3",
-       "a": "n4"
-      },
-      {
-       "de": "n4",
-       "a": "n5"
-      },
-      {
-       "de": "n5",
-       "a": "n6"
-      },
-      {
-       "de": "n6",
-       "a": "n7",
-       "etq": "Sí"
-      },
-      {
-       "de": "n6",
-       "a": "n8",
-       "etq": "No"
-      }
+      {"de": "n0", "a": "n1"},
+      {"de": "n1", "a": "n2", "etq": "Sí"},
+      {"de": "n1", "a": "n3", "etq": "No"},
+      {"de": "n2", "a": "n3"},
+      {"de": "n3", "a": "n4"},
+      {"de": "n4", "a": "n5"},
+      {"de": "n5", "a": "n6"},
+      {"de": "n6", "a": "n7", "etq": "Sí"},
+      {"de": "n6", "a": "n8", "etq": "No"}
      ]
     }
    },
    "riesgos": {
     "estado": "borrador",
-    "evidencia": [
-     "E-34",
-     "E-51"
-    ],
+    "evidencia": ["E-34", "E-51"],
     "filas": [
      [
       "La salida a costo no se ejecuta",
@@ -26604,7 +28245,7 @@ window.MANUAL_CONTENIDO = {
      "Coordinador(a) de Recursos Humanos",
      "Gerente de Operaciones y Logística",
      "Gerente de E-commerce / Ventas Web",
-     "Gerente Regional de Marketing",
+     "Gerente Corporativo(a) de Mercadeo",
      "Gerente de Tienda",
      "Country Manager",
      "Junta Directiva"
@@ -26793,7 +28434,7 @@ window.MANUAL_CONTENIDO = {
       "Este macroproceso entrega las interfaces, los puntos de conexión y los maestros sincronizados entre países; la captación, la normalización y la calidad del dato analítico son del macroproceso de datos. Quién ve qué en los tableros lo define ese macroproceso y aquí se ejecuta."
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Entrada",
       "Solicitud de dominios y sitios web por país, y accesos a las plataformas del área."
      ],
@@ -27257,7 +28898,7 @@ window.MANUAL_CONTENIDO = {
       "Interfaces y credenciales de servicio para la captación (15.1); maestros replicados entre países; ejecución de las altas y bajas que define 15.5"
      ],
      [
-      "Gestión de Mercadeo y Comunicaciones",
+      "Gestión de Mercadeo, Marca y Comunicaciones",
       "Solicitud de dominio o sitio",
       "País, marca y fecha de lanzamiento; accesos del desarrollador por tiempo definido"
      ],
@@ -28518,43 +30159,9 @@ window.MANUAL_CONTENIDO = {
     }
    },
    "14.4": {
-    "proposito": {
-     "estado": "borrador",
-     "texto": "Asegura que cada persona y cada sistema entren solo a lo que necesitan, que el acceso se retire el día en que deja de corresponder, que los dominios y sitios del grupo estén inventariados, que un incidente de seguridad se contenga y se avise dentro del plazo legal de cada país, y que los usuarios conozcan las prácticas seguras.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **El acceso sigue al movimiento de personal.** Recursos Humanos notifica ingresos, cambios de rol y salidas por un solo formulario, y la baja se ejecuta el mismo día en todas las plataformas donde se dio el alta. Hoy hay salidas que el resto de la organización conoce por el pasillo.\n2. **Lo privilegiado se trata aparte.** Administración, producción y conexiones por API solo en cuentas dedicadas, con doble factor y por tiempo definido; ningún usuario de negocio trabaja con perfil de administrador.\n3. **El incidente tiene procedimiento.** Registro, contención, preservación de evidencia, clasificación y aviso legal por país. Hoy no consta un procedimiento de respuesta a incidentes.\n\nQuedan fuera la definición de quién ve qué en los tableros y productos analíticos (15.5), que este proceso ejecuta pero no decide; la política de uso de la inteligencia artificial y su licenciamiento (5.1), y la seguridad física de las sedes (19.5).",
-     "nota_estado": "Proceso en transición: las altas, las bajas y la revisión recurrente de la consola de seguridad ya operan, y hay un plan de auditoría externa en curso; la matriz de perfiles, el tratamiento aparte de los accesos privilegiados y la respuesta a incidentes están por instalarse."
-    },
-    "dueno": {
-     "estado": "borrador",
-     "dueno": "Gerente de Tecnología / Sistemas",
-     "participantes": [
-      "Gerente de Tecnología / Sistemas — dueño del proceso: autoriza los accesos privilegiados, conduce la respuesta a incidentes y el aviso legal, y responde por el plan de seguridad.",
-      "Especialista de Tecnología (Web/Infraestructura) — ejecuta altas, cambios y bajas en todas las plataformas, custodia las credenciales, revisa la consola de seguridad y administra dominios y sitios.",
-      "Coordinador(a) de Sistemas — suplente en la ejecución de accesos en Venezuela y primer receptor, por el canal de soporte, del reporte de un posible incidente.",
-      "Coordinador(a) de Recursos Humanos — notifica cada ingreso, cambio de rol y salida con su fecha efectiva.",
-      "gerente del área del colaborador — define el perfil de acceso de su equipo con la matriz de perfiles por cargo.",
-      "Gerente Regional de Marketing — solicita los dominios y sitios nuevos por país.",
-      "Asesoría jurídica del grupo y asesor externo de seguridad (actores de apoyo) — acompañan el aviso legal de un incidente y la auditoría periódica."
-     ],
-     "evidencia": [
-      "E-52",
-      "SC-04",
-      "E-07",
-      "E-37",
-      "E-54",
-      "E-42",
-      "E-12",
-      "E-24",
-      "E-56",
-      "Lark: Procesos.pdf — Dpto. de TI (regional)",
-      "Lark: Política corporativa de desvinculación (VE)",
-      "Lark: Acuerdo de confidencialidad de empleados (VE)",
-      "Lark: Manual 04 · Setup técnico y accesos (marketing regional)"
-     ],
-     "sin_evidencia": "La titularidad de la gerencia, con el cargo especializado como ejecutor, es una propuesta: hoy la ejecución y la responsabilidad de las cuentas recaen en el cargo especializado de seguridad. No constan una matriz de perfiles por cargo ni un procedimiento de respuesta a incidentes."
-    },
-    "disparador": {
-     "estado": "borrador"
-    },
+    "proposito": {"estado": "borrador", "texto": "Asegura que cada persona y cada sistema entren solo a lo que necesitan, que el acceso se retire el día en que deja de corresponder, que los dominios y sitios del grupo estén inventariados, que un incidente de seguridad se contenga y se avise dentro del plazo legal de cada país, y que los usuarios conozcan las prácticas seguras.\n\n**Tres cambios respecto de cómo opera hoy** (ver la versión As-Is de este proceso):\n\n1. **El acceso sigue al movimiento de personal.** Recursos Humanos notifica ingresos, cambios de rol y salidas por un solo formulario, y la baja se ejecuta el mismo día en todas las plataformas donde se dio el alta. Hoy hay salidas que el resto de la organización conoce por el pasillo.\n2. **Lo privilegiado se trata aparte.** Administración, producción y conexiones por API solo en cuentas dedicadas, con doble factor y por tiempo definido; ningún usuario de negocio trabaja con perfil de administrador.\n3. **El incidente tiene procedimiento.** Registro, contención, preservación de evidencia, clasificación y aviso legal por país. Hoy no consta un procedimiento de respuesta a incidentes.\n\nQuedan fuera la definición de quién ve qué en los tableros y productos analíticos (15.5), que este proceso ejecuta pero no decide; la política de uso de la inteligencia artificial y su licenciamiento (5.1), y la seguridad física de las sedes (19.5).", "nota_estado": "Proceso en transición: las altas, las bajas y la revisión recurrente de la consola de seguridad ya operan, y hay un plan de auditoría externa en curso; la matriz de perfiles, el tratamiento aparte de los accesos privilegiados y la respuesta a incidentes están por instalarse."},
+    "dueno": {"estado": "borrador", "dueno": "Gerente de Tecnología / Sistemas", "participantes": ["Gerente de Tecnología / Sistemas — dueño del proceso: autoriza los accesos privilegiados, conduce la respuesta a incidentes y el aviso legal, y responde por el plan de seguridad.", "Especialista de Tecnología (Web/Infraestructura) — ejecuta altas, cambios y bajas en todas las plataformas, custodia las credenciales, revisa la consola de seguridad y administra dominios y sitios.", "Coordinador(a) de Sistemas — suplente en la ejecución de accesos en Venezuela y primer receptor, por el canal de soporte, del reporte de un posible incidente.", "Coordinador(a) de Recursos Humanos — notifica cada ingreso, cambio de rol y salida con su fecha efectiva.", "gerente del área del colaborador — define el perfil de acceso de su equipo con la matriz de perfiles por cargo.", "Gerente de E-commerce y Growth — prioriza y solicita los dominios y sitios nuevos por país.", "Asesoría jurídica del grupo y asesor externo de seguridad (actores de apoyo) — acompañan el aviso legal de un incidente y la auditoría periódica."], "evidencia": ["E-52", "SC-04", "E-07", "E-37", "E-54", "E-42", "E-12", "E-24", "E-56", "Lark: Procesos.pdf — Dpto. de TI (regional)", "Lark: Política corporativa de desvinculación (VE)", "Lark: Acuerdo de confidencialidad de empleados (VE)", "Lark: Manual 04 · Setup técnico y accesos (marketing regional)"], "sin_evidencia": "La titularidad de la gerencia, con el cargo especializado como ejecutor, es una propuesta: hoy la ejecución y la responsabilidad de las cuentas recaen en el cargo especializado de seguridad. No constan una matriz de perfiles por cargo ni un procedimiento de respuesta a incidentes."},
+    "disparador": {"estado": "borrador"},
     "flujo": {
      "estado": "borrador",
      "evidencia": [
@@ -28571,61 +30178,17 @@ window.MANUAL_CONTENIDO = {
       "Lark: Acuerdo de confidencialidad de empleados (VE)"
      ],
      "actividades": [
-      {
-       "id": "a1",
-       "rol": "Coordinador(a) de Recursos Humanos",
-       "texto": "Notifica a TI por el formulario de accesos cada ingreso, cambio de rol y salida, con el cargo y la fecha efectiva; la salida se avisa antes o el mismo día, nunca después, para que la baja no dependa de enterarse por el pasillo."
-      },
-      {
-       "id": "a2",
-       "rol": "gerente del área del colaborador",
-       "texto": "Define el perfil de acceso que requiere el cargo a partir de la matriz de perfiles por cargo y justifica por escrito lo que se salga de ella; quién ve qué en los tableros lo decide el proceso de tableros (15.5)."
-      },
-      {
-       "id": "a3",
-       "rol": "Especialista de Tecnología (Web/Infraestructura)",
-       "texto": "Ejecuta el alta, el cambio o la baja en todas las plataformas del grupo —correo, colaboración, ERP, tiendas web, tableros— con cuenta nominal y mínimo privilegio; en la baja deshabilita en lugar de borrar, para conservar el rastro, y gestiona la recuperación del equipo."
-      },
-      {
-       "id": "a4",
-       "rol": "Gerente de Tecnología / Sistemas",
-       "texto": "Autoriza los accesos privilegiados —administración, producción, conexiones por API— solo en cuentas dedicadas, con doble factor y por tiempo definido; toda herramienta de un área se conecta con credencial de servicio, nunca con la cuenta de una persona."
-      },
-      {
-       "id": "a5",
-       "rol": "Especialista de Tecnología (Web/Infraestructura)",
-       "texto": "Revisa con una frecuencia fija, al menos semanal, la consola de seguridad de los equipos y los filtros, y cada trimestre recorre con cada gerente la lista de cuentas activas de su área para deshabilitar las que ya no corresponden."
-      },
-      {
-       "id": "a6",
-       "rol": "Especialista de Tecnología (Web/Infraestructura)",
-       "texto": "Administra los dominios y sitios de cada país como activos inventariados, con dueño, fecha de renovación y credencial en custodia; configura el sitio nuevo que pide Mercadeo y da acceso al desarrollador externo por tiempo definido."
-      },
-      {
-       "id": "a7",
-       "rol": "Coordinador(a) de Sistemas",
-       "texto": "Recibe por el canal de soporte el reporte o la alerta de un posible incidente de seguridad, lo registra, contiene el daño —bloquea la cuenta, aísla el equipo— y preserva la evidencia y los registros para su análisis."
-      },
-      {
-       "id": "a8",
-       "rol": "Gerente de Tecnología / Sistemas",
-       "texto": "Clasifica el incidente por gravedad y determina si comprometió datos personales y de qué país; si es así, activa el aviso legal con la asesoría jurídica del grupo (18.5), y si el incidente vino de un proveedor, le exige su informe según el contrato."
-      },
-      {
-       "id": "a9",
-       "rol": "Gerente de Tecnología / Sistemas",
-       "texto": "Avisa dentro del plazo legal de cada país: en Panamá, de inmediato a la autoridad y en 72 horas a los titulares; en Colombia, a la SIC en 15 días hábiles; en Florida, a los afectados en 30 días; en Costa Rica, plazo por verificar."
-      },
-      {
-       "id": "a10",
-       "rol": "Gerente de Tecnología / Sistemas",
-       "texto": "Documenta cada incidente —fecha, causa, hechos, datos afectados y medidas— y lo cierra con sus acciones correctivas; una vez al año prueba la recuperación de los sistemas críticos y revisa el avance del plan de la auditoría de seguridad."
-      },
-      {
-       "id": "a11",
-       "rol": "Especialista de Tecnología (Web/Infraestructura)",
-       "texto": "Difunde las prácticas seguras —información confidencial solo por el canal corporativo, cuentas de la empresa para las herramientas de IA, credenciales que no se comparten— y las refuerza en la inducción (17.2) y después de cada incidente."
-      }
+      {"id": "a1", "rol": "Coordinador(a) de Recursos Humanos", "texto": "Notifica a TI por el formulario de accesos cada ingreso, cambio de rol y salida, con el cargo y la fecha efectiva; la salida se avisa antes o el mismo día, nunca después, para que la baja no dependa de enterarse por el pasillo."},
+      {"id": "a2", "rol": "gerente del área del colaborador", "texto": "Define el perfil de acceso que requiere el cargo a partir de la matriz de perfiles por cargo y justifica por escrito lo que se salga de ella; quién ve qué en los tableros lo decide el proceso de tableros (15.5)."},
+      {"id": "a3", "rol": "Especialista de Tecnología (Web/Infraestructura)", "texto": "Ejecuta el alta, el cambio o la baja en todas las plataformas del grupo —correo, colaboración, ERP, tiendas web, tableros— con cuenta nominal y mínimo privilegio; en la baja deshabilita en lugar de borrar, para conservar el rastro, y gestiona la recuperación del equipo."},
+      {"id": "a4", "rol": "Gerente de Tecnología / Sistemas", "texto": "Autoriza los accesos privilegiados —administración, producción, conexiones por API— solo en cuentas dedicadas, con doble factor y por tiempo definido; toda herramienta de un área se conecta con credencial de servicio, nunca con la cuenta de una persona."},
+      {"id": "a5", "rol": "Especialista de Tecnología (Web/Infraestructura)", "texto": "Revisa con una frecuencia fija, al menos semanal, la consola de seguridad de los equipos y los filtros, y cada trimestre recorre con cada gerente la lista de cuentas activas de su área para deshabilitar las que ya no corresponden."},
+      {"id": "a6", "rol": "Especialista de Tecnología (Web/Infraestructura)", "texto": "Administra los dominios y sitios de cada país como activos inventariados, con dueño, fecha de renovación y credencial en custodia; configura el sitio nuevo que pide E-commerce y Growth y da acceso al desarrollador externo por tiempo definido."},
+      {"id": "a7", "rol": "Coordinador(a) de Sistemas", "texto": "Recibe por el canal de soporte el reporte o la alerta de un posible incidente de seguridad, lo registra, contiene el daño —bloquea la cuenta, aísla el equipo— y preserva la evidencia y los registros para su análisis."},
+      {"id": "a8", "rol": "Gerente de Tecnología / Sistemas", "texto": "Clasifica el incidente por gravedad y determina si comprometió datos personales y de qué país; si es así, activa el aviso legal con la asesoría jurídica del grupo (18.5), y si el incidente vino de un proveedor, le exige su informe según el contrato."},
+      {"id": "a9", "rol": "Gerente de Tecnología / Sistemas", "texto": "Avisa dentro del plazo legal de cada país: en Panamá, de inmediato a la autoridad y en 72 horas a los titulares; en Colombia, a la SIC en 15 días hábiles; en Florida, a los afectados en 30 días; en Costa Rica, plazo por verificar."},
+      {"id": "a10", "rol": "Gerente de Tecnología / Sistemas", "texto": "Documenta cada incidente —fecha, causa, hechos, datos afectados y medidas— y lo cierra con sus acciones correctivas; una vez al año prueba la recuperación de los sistemas críticos y revisa el avance del plan de la auditoría de seguridad."},
+      {"id": "a11", "rol": "Especialista de Tecnología (Web/Infraestructura)", "texto": "Difunde las prácticas seguras —información confidencial solo por el canal corporativo, cuentas de la empresa para las herramientas de IA, credenciales que no se comparten— y las refuerza en la inducción (17.2) y después de cada incidente."}
      ],
      "diagrama": {
       "carriles": [
@@ -28636,179 +30199,42 @@ window.MANUAL_CONTENIDO = {
        "Gerente de Tecnología / Sistemas"
       ],
       "nodos": [
-       {
-        "id": "n0",
-        "carril": "Coordinador(a) de Recursos Humanos",
-        "tipo": "inicio",
-        "n": "Ingreso, cambio de rol o salida notificado"
-       },
-       {
-        "id": "n1",
-        "carril": "gerente del área del colaborador",
-        "tipo": "tarea",
-        "n": "Definir el perfil según la matriz"
-       },
-       {
-        "id": "n2",
-        "carril": "Especialista de Tecnología (Web/Infraestructura)",
-        "tipo": "decision",
-        "n": "¿Pide acceso privilegiado?"
-       },
-       {
-        "id": "n3",
-        "carril": "Gerente de Tecnología / Sistemas",
-        "tipo": "tarea",
-        "n": "Autorizar cuenta dedicada con doble factor"
-       },
-       {
-        "id": "n4",
-        "carril": "Especialista de Tecnología (Web/Infraestructura)",
-        "tipo": "tarea",
-        "n": "Ejecutar el alta, el cambio o la baja",
-        "sistemas": [
-         "Correo",
-         "Lark",
-         "ERP",
-         "Tableros"
-        ]
-       },
-       {
-        "id": "n5",
-        "carril": "Especialista de Tecnología (Web/Infraestructura)",
-        "tipo": "fin",
-        "n": "Acceso vigente o retirado, con registro"
-       },
-       {
-        "id": "n6",
-        "carril": "Especialista de Tecnología (Web/Infraestructura)",
-        "tipo": "inicio",
-        "n": "Revisión trimestral de cuentas activas"
-       },
-       {
-        "id": "n7",
-        "carril": "Especialista de Tecnología (Web/Infraestructura)",
-        "tipo": "tarea",
-        "n": "Recorrer las cuentas con cada gerente",
-        "sistemas": [
-         "Custodia de credenciales"
-        ]
-       },
-       {
-        "id": "n8",
-        "carril": "Coordinador(a) de Sistemas",
-        "tipo": "inicio",
-        "n": "Alerta o reporte de posible incidente"
-       },
-       {
-        "id": "n9",
-        "carril": "Coordinador(a) de Sistemas",
-        "tipo": "tarea",
-        "n": "Registrar, contener y preservar evidencia",
-        "sistemas": [
-         "Registro de soporte"
-        ]
-       },
-       {
-        "id": "n10",
-        "carril": "Gerente de Tecnología / Sistemas",
-        "tipo": "decision",
-        "n": "¿Compromete datos personales?"
-       },
-       {
-        "id": "n11",
-        "carril": "Gerente de Tecnología / Sistemas",
-        "tipo": "tarea",
-        "n": "Avisar según el plazo legal del país"
-       },
-       {
-        "id": "n12",
-        "carril": "Gerente de Tecnología / Sistemas",
-        "tipo": "tarea",
-        "n": "Documentar causa y medidas correctivas"
-       },
-       {
-        "id": "n13",
-        "carril": "Gerente de Tecnología / Sistemas",
-        "tipo": "fin",
-        "n": "Incidente contenido, avisado y documentado"
-       }
+       {"id": "n0", "carril": "Coordinador(a) de Recursos Humanos", "tipo": "inicio", "n": "Ingreso, cambio de rol o salida notificado"},
+       {"id": "n1", "carril": "gerente del área del colaborador", "tipo": "tarea", "n": "Definir el perfil según la matriz"},
+       {"id": "n2", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "decision", "n": "¿Pide acceso privilegiado?"},
+       {"id": "n3", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Autorizar cuenta dedicada con doble factor"},
+       {"id": "n4", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "tarea", "n": "Ejecutar el alta, el cambio o la baja", "sistemas": ["Correo", "Lark", "ERP", "Tableros"]},
+       {"id": "n5", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "fin", "n": "Acceso vigente o retirado, con registro"},
+       {"id": "n6", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "inicio", "n": "Revisión trimestral de cuentas activas"},
+       {"id": "n7", "carril": "Especialista de Tecnología (Web/Infraestructura)", "tipo": "tarea", "n": "Recorrer las cuentas con cada gerente", "sistemas": ["Custodia de credenciales"]},
+       {"id": "n8", "carril": "Coordinador(a) de Sistemas", "tipo": "inicio", "n": "Alerta o reporte de posible incidente"},
+       {"id": "n9", "carril": "Coordinador(a) de Sistemas", "tipo": "tarea", "n": "Registrar, contener y preservar evidencia", "sistemas": ["Registro de soporte"]},
+       {"id": "n10", "carril": "Gerente de Tecnología / Sistemas", "tipo": "decision", "n": "¿Compromete datos personales?"},
+       {"id": "n11", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Avisar según el plazo legal del país"},
+       {"id": "n12", "carril": "Gerente de Tecnología / Sistemas", "tipo": "tarea", "n": "Documentar causa y medidas correctivas"},
+       {"id": "n13", "carril": "Gerente de Tecnología / Sistemas", "tipo": "fin", "n": "Incidente contenido, avisado y documentado"}
       ],
       "aristas": [
-       {
-        "de": "n0",
-        "a": "n1"
-       },
-       {
-        "de": "n1",
-        "a": "n2"
-       },
-       {
-        "de": "n2",
-        "a": "n3",
-        "etq": "Sí"
-       },
-       {
-        "de": "n2",
-        "a": "n4",
-        "etq": "No"
-       },
-       {
-        "de": "n3",
-        "a": "n4"
-       },
-       {
-        "de": "n4",
-        "a": "n5"
-       },
-       {
-        "de": "n6",
-        "a": "n7"
-       },
-       {
-        "de": "n7",
-        "a": "n4"
-       },
-       {
-        "de": "n8",
-        "a": "n9"
-       },
-       {
-        "de": "n9",
-        "a": "n10"
-       },
-       {
-        "de": "n10",
-        "a": "n11",
-        "etq": "Sí"
-       },
-       {
-        "de": "n10",
-        "a": "n12",
-        "etq": "No"
-       },
-       {
-        "de": "n11",
-        "a": "n12"
-       },
-       {
-        "de": "n12",
-        "a": "n13"
-       }
+       {"de": "n0", "a": "n1"},
+       {"de": "n1", "a": "n2"},
+       {"de": "n2", "a": "n3", "etq": "Sí"},
+       {"de": "n2", "a": "n4", "etq": "No"},
+       {"de": "n3", "a": "n4"},
+       {"de": "n4", "a": "n5"},
+       {"de": "n6", "a": "n7"},
+       {"de": "n7", "a": "n4"},
+       {"de": "n8", "a": "n9"},
+       {"de": "n9", "a": "n10"},
+       {"de": "n10", "a": "n11", "etq": "Sí"},
+       {"de": "n10", "a": "n12", "etq": "No"},
+       {"de": "n11", "a": "n12"},
+       {"de": "n12", "a": "n13"}
       ]
      }
     },
     "riesgos": {
      "estado": "borrador",
-     "evidencia": [
-      "E-42",
-      "E-52",
-      "SC-04",
-      "E-12",
-      "E-24",
-      "SC-12",
-      "E-37",
-      "Lark: Plantilla de offboarding (PA)"
-     ],
+     "evidencia": ["E-42", "E-52", "SC-04", "E-12", "E-24", "SC-12", "E-37", "Lark: Plantilla de offboarding (PA)"],
      "filas": [
       [
        "Accesos que sobreviven a la salida",

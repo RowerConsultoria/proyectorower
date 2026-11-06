@@ -37,7 +37,7 @@ window.MAPA_FASE2_FLUJOS = {
     "13": { x: 505,  y: 1150, corto: "Administración y Finanzas" },
     "14": { x: 850,  y: 1150, corto: "Tecnología (TI)" },
     "15": { x: 1195, y: 1150, corto: "Datos e Inteligencia" },
-    "16": { x: 1540, y: 1150, corto: "Mercadeo y Comunicaciones" },
+    "16": { x: 1540, y: 1150, corto: "Mercadeo, Marca y Comunicaciones" },
     "17": { x: 1885, y: 1150, corto: "Talento Humano" },
     "18": { x: 2230, y: 1150, corto: "Legal y Cumplimiento" },
     "19": { x: 2575, y: 1150, corto: "Servicios Generales" },
