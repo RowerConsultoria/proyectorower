@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Descripciones de cargo — Fase 3 | Proyecto Rower</title>
+<!-- Fase 3 · Descripciones de cargo. Fuente única: descripciones-datos.js (se edita a mano).
+     Cada descripción sigue el «Esquema_Descripcion_de_Cargo» v0.2; lo automático (organigrama, cláusula final,
+     texto de la Sección V y control del documento) lo pone esta página. Rutas: #/ (inicio), #/c/<id>.
+     Diseño elegido el 07-nov-2026 frente a una versión «clásica» de menú lateral, que se retiró. -->
+<script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
+<script>(function(){var m='claro';try{m=localStorage.getItem('rower.tema')==='oscuro'?'oscuro':'claro';}catch(e){}
+document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6FB; --surface:#FFFFFF; --surface2:#F8FAFD; --fg:#14213A; --muted:#5D6A7E; --line:#DCE3EE; --soft:#EAF1FA;
+  --navy:#1F3864; --blue:#2E75B6; --sky:#5BA3E0; --ok:#2E7D32; --warn:#B26A00; --risk:#C00000;
+  --chip:#E6EEF9; --chipfg:#1F3864; --shadow:0 1px 2px rgba(20,33,58,.06),0 8px 24px rgba(20,33,58,.07);
+  --hero1:#1F3864; --hero2:#2E75B6; --herofg:#FFFFFF; --r:14px;
+  --f:"DM Sans",Calibri,"Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1220; --surface:#121C2E; --surface2:#16223A; --fg:#E6ECF5; --muted:#9AA8BC; --line:#25344E; --soft:#182640;
+  --navy:#BFD3F2; --blue:#6FAAE4; --sky:#8CC0EE; --ok:#71C277; --warn:#E3A24E; --risk:#F27A7A;
+  --chip:#1C2D4A; --chipfg:#CFE0F7; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  --hero1:#12264A; --hero2:#1E4F86; --herofg:#EAF2FC; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1220; --surface:#121C2E; --surface2:#16223A; --fg:#E6ECF5; --muted:#9AA8BC; --line:#25344E; --soft:#182640;
+  --navy:#BFD3F2; --blue:#6FAAE4; --sky:#8CC0EE; --ok:#71C277; --warn:#E3A24E; --risk:#F27A7A;
+  --chip:#1C2D4A; --chipfg:#CFE0F7; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  --hero1:#12264A; --hero2:#1E4F86; --herofg:#EAF2FC; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+button{font:inherit}
+
+/* barra superior */
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;padding:10px clamp(16px,3vw,32px);
+  background:color-mix(in srgb,var(--surface) 86%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-weight:700}
+.marca i{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--sky),var(--navy) 70%);box-shadow:0 0 0 3px var(--soft)}
+.marca small{display:block;font-weight:500;color:var(--muted);font-size:.75rem;line-height:1}
+.fasesel{position:relative;margin-left:8px}
+.fasesel>button{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.86rem;cursor:pointer}
+.fasesel .menu{display:none;position:absolute;left:0;top:calc(100% + 6px);min-width:270px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.fasesel.open .menu{display:block}
+.fasesel .menu a{display:block;padding:10px 14px;text-decoration:none;color:var(--fg);font-weight:600;font-size:.9rem;border-bottom:1px solid var(--line)}
+.fasesel .menu a:last-child{border-bottom:0}
+.fasesel .menu a.actual{background:var(--soft)}
+.fasesel .menu small{display:block;color:var(--muted);font-weight:400;font-size:.78rem}
+.top .sp{flex:1}
+.pill{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 14px;font-size:.84rem;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap}
+.pill:hover{border-color:var(--blue)}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 72px}
+
+/* portada */
+.hero{margin:22px 0 26px;border-radius:22px;padding:clamp(24px,4vw,44px);color:var(--herofg);
+  background:radial-gradient(1200px 400px at 85% -20%,rgba(91,163,224,.45),transparent 60%),linear-gradient(135deg,var(--hero1),var(--hero2));
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;bottom:-80px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,255,255,.07)}
+.hero .k{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.hero h1{font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.1;margin:8px 0 10px;letter-spacing:-.02em}
+.hero p{max-width:66ch;opacity:.9;margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px}
+.stat b{display:block;font-size:1.8rem;line-height:1.1}
+.stat span{font-size:.84rem;opacity:.85}
+.progreso{margin-top:18px;position:relative;z-index:1}
+.progreso .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.progreso .bar i{display:block;height:100%;background:linear-gradient(90deg,#9FD1FF,#FFFFFF);border-radius:99px}
+.progreso small{display:block;margin-top:6px;opacity:.85;font-size:.82rem}
+
+.tit2{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:30px 0 12px}
+.tit2 h2{margin:0;font-size:1.2rem;letter-spacing:-.01em}
+.tit2 span{color:var(--muted);font-size:.88rem}
+.buscar{width:100%;max-width:360px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:9px 16px;font:inherit}
+.fams{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;align-items:start}
+.famc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.famc.piloto{border-color:color-mix(in srgb,var(--warn) 55%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--warn) 7%,var(--surface)),var(--surface) 60%)}
+.famc h3{margin:0;font-size:1rem;line-height:1.25}
+.famc .u{color:var(--muted);font-size:.82rem}
+.famc .cargos{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.famc .cargos a,.famc .cargos span{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:10px;background:var(--surface2);text-decoration:none;color:var(--fg);font-size:.9rem;border:1px solid transparent}
+.famc .cargos a:hover{border-color:var(--blue);background:var(--soft)}
+.famc .cargos a::after{content:"→";color:var(--blue);font-weight:700}
+.famc .cargos span{color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.02em;white-space:nowrap}
+.badge.piloto{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.badge.pend{background:var(--chip);color:var(--muted)}
+.badge.borr{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.famc .pie{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.82rem;margin-top:auto}
+
+/* ficha */
+.ficha{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;margin-top:22px}
+.riel{position:sticky;top:76px;align-self:start;display:flex;flex-direction:column;gap:2px}
+.riel .volver{font-size:.86rem;font-weight:600;text-decoration:none;margin-bottom:12px}
+.riel a.s{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500}
+.riel a.s b{display:inline-flex;width:24px;height:24px;border-radius:7px;align-items:center;justify-content:center;background:var(--chip);color:var(--chipfg);font-size:.72rem}
+.riel a.s.on,.riel a.s:hover{background:var(--surface);color:var(--fg);box-shadow:var(--shadow)}
+.riel a.s.on b{background:var(--navy);color:var(--surface)}
+.riel .otros{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+.riel .otros p{margin:0 0 6px;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.riel .otros a{display:block;padding:5px 10px;font-size:.84rem;text-decoration:none;color:var(--fg);border-radius:8px}
+.riel .otros a.on{color:var(--blue);font-weight:600}
+
+.cab{border-radius:20px;padding:clamp(20px,3vw,34px);color:var(--herofg);background:radial-gradient(900px 300px at 90% -30%,rgba(91,163,224,.45),transparent 60%),linear-gradient(135deg,var(--hero1),var(--hero2));box-shadow:var(--shadow)}
+.cab .k{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cab .k .badge{background:rgba(255,255,255,.16);color:#fff}
+.cab h1{margin:8px 0 14px;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.12;letter-spacing:-.02em}
+.cab .datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.cab .dato{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 14px}
+.cab .dato small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.cab .dato b{font-weight:600;font-size:.94rem}
+.objetivo{margin:18px 0 0;font-size:1.04rem;line-height:1.6;background:rgba(255,255,255,.08);border-left:3px solid #9FD1FF;padding:12px 16px;border-radius:0 12px 12px 0}
+
+.bloque{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.6vw,28px);margin-top:18px;box-shadow:var(--shadow);scroll-margin-top:84px}
+.bloque>h2{display:flex;align-items:center;gap:12px;margin:0 0 4px;font-size:1.15rem;letter-spacing:-.01em}
+.bloque>h2 b{display:inline-flex;min-width:34px;height:34px;padding:0 8px;border-radius:10px;align-items:center;justify-content:center;background:var(--navy);color:var(--surface);font-size:.86rem}
+.bloque>.sub{color:var(--muted);margin:0 0 16px 46px;font-size:.88rem}
+h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:20px 0 10px}
+
+/* organigrama */
+.org{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;overflow-x:auto}
+.nodo{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 16px;text-align:center;font-size:.9rem;font-weight:600;min-width:180px;max-width:280px;box-shadow:var(--shadow)}
+.nodo small{display:block;font-weight:500;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.nodo.yo{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;border-color:transparent}
+.nodo.yo small{color:rgba(255,255,255,.8)}
+.v{width:2px;height:20px;background:var(--line)}
+.hijos{display:flex;gap:14px;position:relative;padding-top:20px}
+.hijos::before{content:"";position:absolute;top:0;left:var(--l);right:var(--r);height:2px;background:var(--line)}
+.hijos>div{position:relative;display:flex;flex-direction:column;align-items:center}
+.hijos>div::before{content:"";position:absolute;top:-20px;left:50%;width:2px;height:20px;background:var(--line)}
+.unidadorg{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin:4px 0 8px}
+
+/* responsabilidades */
+.procs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.proc{border:1px solid var(--line);border-radius:14px;padding:14px 16px 6px;background:var(--surface2)}
+.proc header{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-bottom:6px}
+.proc header span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.proc header h4{margin:2px 0 0;font-size:.98rem;line-height:1.3}
+.proc header em{font-style:normal;flex:0 0 auto;font-size:.75rem;font-weight:700;color:var(--chipfg);background:var(--chip);border-radius:999px;padding:3px 9px}
+.proc.otras{background:var(--surface);border-style:dashed}
+.proc ul{list-style:none;margin:0;padding:0}
+.proc li{position:relative;padding:7px 0 7px 22px;border-top:1px solid var(--line);font-size:.92rem}
+.proc li:first-child{border-top:0}
+.proc li::before{content:"";position:absolute;left:4px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.clausula{margin:14px 2px 0;color:var(--muted);font-style:italic;font-size:.9rem}
+.matiz{margin-top:18px;border-radius:16px;padding:16px;background:color-mix(in srgb,var(--blue) 6%,var(--surface));border:1px solid color-mix(in srgb,var(--blue) 30%,var(--line))}
+.matiz>h3{margin:0 0 12px;font-size:1rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* competencias */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--chip);color:var(--chipfg);border-radius:999px;padding:6px 13px;font-size:.86rem;font-weight:600}
+.chip.alt{background:transparent;border:1.5px solid var(--blue);color:var(--blue)}
+.nivel{display:inline-flex;gap:4px;margin-left:6px;vertical-align:middle}
+.nivel i{width:18px;height:6px;border-radius:3px;background:var(--line)}
+.nivel i.on{background:var(--blue)}
+.perfil{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.tarjeta{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface2)}
+.tarjeta small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
+.tarjeta p{margin:0;font-size:.93rem}
+.lista2{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 18px}
+.lista2 li{padding-left:20px;position:relative;font-size:.92rem}
+.lista2 li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+
+/* factores */
+.factores{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.factor{border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:var(--surface2)}
+.factor small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.factor b{display:block;font-size:.95rem;margin:2px 0 8px}
+.escala{display:flex;gap:4px}
+.escala i{flex:1;height:7px;border-radius:4px;background:var(--line)}
+.escala i.on{background:linear-gradient(90deg,var(--blue),var(--sky))}
+.sino{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.sino i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.sino.si i{background:var(--ok)}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+
+/* riesgos */
+.riesgos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:6px 0 16px}
+.rg{border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;background:var(--surface2);opacity:.55}
+.rg.on{opacity:1;border-color:color-mix(in srgb,var(--risk) 45%,var(--line));background:color-mix(in srgb,var(--risk) 6%,var(--surface))}
+.rg .ic{font-size:1.4rem;line-height:1}
+.rg b{display:block;font-size:.88rem;margin-top:4px}
+.rg span{font-size:.74rem;color:var(--muted)}
+.rgdet{display:grid;gap:8px}
+.rgdet div{border-left:3px solid var(--risk);padding:6px 12px;background:var(--surface2);border-radius:0 10px 10px 0;font-size:.92rem}
+
+.control{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.control div{border:1px dashed var(--line);border-radius:12px;padding:12px 14px;min-height:78px}
+.control small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.control span{color:var(--muted);font-size:.88rem}
+.notas{margin-top:18px;border-radius:16px;padding:16px 18px;background:color-mix(in srgb,var(--warn) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--warn) 40%,var(--line))}
+.notas h3{margin:0 0 8px;font-size:.95rem;color:var(--warn)}
+.notas ul{margin:0;padding-left:20px}
+.notas li{margin:4px 0;font-size:.92rem}
+
+@media (max-width:960px){
+  .ficha{grid-template-columns:1fr}
+  .riel{position:static;flex-direction:row;flex-wrap:wrap;gap:6px}
+  .riel .otros{display:none}
+  .riel a.s{padding:6px 10px;background:var(--surface);border:1px solid var(--line)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .procs{grid-template-columns:1fr}
+  .riesgos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .marca small{display:none}
+}
+@media (max-width:640px){
+  .hijos{flex-direction:column;gap:10px;padding-top:0}
+  .hijos::before{display:none}
+  .hijos>div::before{top:-10px;height:10px}
+}
+@media (max-width:560px){
+  .top{flex-wrap:wrap}
+  .control{grid-template-columns:1fr}
+  .fasesel{margin-left:0}
+}
+@media print{
+  .top,.riel,.notas,.buscar{display:none!important}
+  body{background:#fff} .wrap{padding:0;max-width:none} .ficha{display:block}
+  .bloque,.cab,.nodo,.proc,.factor,.rg{box-shadow:none;break-inside:avoid}
+  .cab,.nodo.yo,.bloque>h2 b,.escala i.on{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="marca" href="#/"><i aria-hidden="true"></i><span>Descripciones de cargo<small>Proyecto Rower · Fase 3</small></span></a>
+  <div class="fasesel" id="faseSel"><button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 3 — Talento ▾</button><div class="menu">
+    <a href="../fase1/informe-diagnostico-fase1.html">Fase 1 — Diagnóstico<small>Informe maestro (12 secciones + anexos)</small></a>
+    <a href="../fase2/informe-fase2.html">Fase 2 — Procesos<small>Manual de procesos y estructura</small></a>
+    <a class="actual" href="#/">Fase 3 — Talento<small>Descripciones de cargo · piloto</small></a></div></div>
+  <span class="sp"></span>
+  <button class="pill" type="button" id="btnImprimir" hidden>Imprimir</button>
+  <button class="pill" type="button" id="btnTema" title="Cambiar tema">◐ Tema</button>
+</div>
+<div class="wrap" id="vista"></div>
+
+<script src="descripciones-datos.js"></script>
+<script>
+(function(){
+  var D = window.DESCRIPCIONES_CARGO, M = D.meta;
+  var $ = function(s){ return document.querySelector(s); };
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  var POR_NOMBRE = {}; Object.keys(D.descripciones).forEach(function(id){ POR_NOMBRE[D.descripciones[id].denominacion] = id; });
+  var TOTAL = new Set(); D.familias.forEach(function(f){ f.cargos.forEach(function(c){ TOTAL.add(c); }); });
+
+  // Escalas de la Sección IV (de menor a mayor), para pintar dónde cae cada grado
+  var GRADOS = {
+    'Dinero y bienes': ['Ninguna', 'Manejo general de bienes', 'Administración presupuestaria', 'Manejo financiero e inversiones'],
+    'Equipos': ['Simple', 'Media', 'Alta'],
+    'Gestión de procesos': ['Auxiliares', 'Profesionales', 'De supervisión y coordinación', 'Gerenciales'],
+    'Personas': ['Ninguna', 'Un número determinado de personas', 'Un equipo responsable de una función', 'Equipos responsables de un subproceso', 'Equipos de un área o dirección'],
+    'Atención a clientes': ['Simple entrega', 'Esmero con el cliente', 'Atención especial', 'Excepcional']
+  };
+  var ICONO = { 'Biológicos': '🦠', 'Físicos': '💡', 'Químicos': '🧪', 'Mecánicos': '⚙️', 'Psicosociales': '🧠', 'Disergonómicos': '🪑' };
+
+  function inicio(){
+    var hechas = Object.keys(D.descripciones).length, pct = Math.round(hechas / TOTAL.size * 100);
+    var h = '<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Descripciones de cargo</h1>' +
+      '<p>Una por cargo de la estructura To-Be: qué asegura cada cargo, de qué procesos responde, qué perfil exige y a qué riesgos está expuesto. ' +
+      'Parten del manual de procesos To-Be y pasan por la validación del equipo antes de darse por definitivas.</p>' +
+      '<div class="stats"><div class="stat"><b>' + TOTAL.size + '</b><span>descripciones previstas</span></div><div class="stat"><b>' + D.familias.length + '</b><span>familias de cargos</span></div>' +
+      '<div class="stat"><b>' + hechas + '</b><span>en borrador</span></div><div class="stat"><b>0</b><span>validadas</span></div></div>' +
+      '<div class="progreso"><div class="bar"><i style="width:' + Math.max(pct, 2) + '%"></i></div><small>' + pct + ' % redactado · piloto en curso: Servicios Generales</small></div></section>';
+    h += '<div class="tit2"><h2>Familias de cargos</h2><input class="buscar" id="buscar" type="search" placeholder="Buscar familia o cargo…" aria-label="Buscar familia o cargo"></div><div class="fams" id="fams">';
+    var orden = D.familias.slice().sort(function(a, b){ return (b.piloto ? 1 : 0) - (a.piloto ? 1 : 0); });
+    orden.forEach(function(f){
+      // una descripción compartida solo cuenta en la familia cuyos matices ya están redactados
+      var listos = f.cargos.filter(function(c){ var d = D.descripciones[POR_NOMBRE[c]];
+        return d && (!d.matices || d.matices.some(function(m){ return m.codigos_v5.some(function(x){ return x.indexOf(f.id + '-') === 0; }); })); }).length;
+      h += '<article class="famc' + (f.piloto ? ' piloto' : '') + '" data-q="' + esc((f.nombre + ' ' + f.unidad + ' ' + f.cargos.join(' ')).toLowerCase()) + '">' +
+        '<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h3>' + esc(f.nombre) + '</h3><div class="u">' + esc(f.unidad) + '</div></div>' +
+        (f.piloto ? '<span class="badge piloto">● Piloto</span>' : '<span class="badge pend">Pendiente</span>') + '</div>';
+      if (f.piloto) h += '<div class="cargos">' + f.cargos.map(function(c){ var id = POR_NOMBRE[c];
+        return id ? '<a href="#/c/' + id + '">' + esc(c) + '</a>' : '<span>' + esc(c) + '</span>'; }).join('') + '</div>';
+      h += '<div class="pie"><span>' + f.cargos.length + (f.cargos.length === 1 ? ' cargo' : ' cargos') + '</span><span>' + listos + ' en borrador</span></div></article>';
+    });
+    return h + '</div>';
+  }
+
+  function org(sup, yo, subs, unidad){
+    var h = '<div class="org">' + (unidad ? '<div class="unidadorg">' + esc(unidad) + '</div>' : '') +
+      '<div class="nodo"><small>Reporta a</small>' + esc(sup) + '</div><div class="v"></div><div class="nodo yo"><small>Este cargo</small>' + esc(yo) + '</div>';
+    if (subs.length){
+      var p = 50 / subs.length;
+      h += '<div class="v"></div><div class="hijos" style="--l:' + p + '%;--r:' + p + '%">' + subs.map(function(s){ return '<div><div class="nodo"><small>Supervisa</small>' + esc(s) + '</div></div>'; }).join('') + '</div>';
+    }
+    return h + '</div>';
+  }
+  function procs(rs){
+    return '<div class="procs">' + rs.map(function(g){
+      return '<section class="proc' + (g.proceso ? '' : ' otras') + '"><header><div><span>' + (g.proceso ? 'Asociadas al proceso de' : 'Responsabilidades') + '</span><h4>' + esc(g.proceso || g.titulo) + '</h4></div><em>' + g.items.length + '</em></header><ul>' +
+        g.items.map(function(i){ return '<li>' + esc(i) + '</li>'; }).join('') + '</ul></section>';
+    }).join('') + '</div>';
+  }
+  function nivel(n){ var h = '<span class="nivel" title="Nivel exigido: ' + n + ' de 4">'; for (var i = 1; i <= 4; i++) h += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return h + '</span>'; }
+  function factor(nombre, valor){
+    var g = GRADOS[nombre];
+    if (!g) return '<div class="factor"><small>' + esc(nombre) + '</small><b class="sino' + (valor === 'Sí' ? ' si' : '') + '"><i></i>' + esc(valor) + '</b></div>';
+    var idx = g.findIndex(function(x){ return valor.indexOf(x) === 0; });
+    return '<div class="factor"><small>' + esc(nombre) + '</small><b>' + esc(valor) + '</b><div class="escala" title="Grado ' + (idx + 1) + ' de ' + g.length + '">' +
+      g.map(function(_, i){ return '<i class="' + (i <= idx ? 'on' : '') + '"></i>'; }).join('') + '</div></div>';
+  }
+
+  function cargo(id){
+    var c = D.descripciones[id]; if (!c) return '<p>No existe esa descripción.</p>';
+    var hermanos = D.familias.filter(function(f){ return f.piloto; })[0];
+    var compartida = c.matices && c.matices.length, co = c.competencias, t = c.tecnicas;
+    var SECS = [['s1', 'I', 'Información del cargo'], ['s2', 'II', 'Responsabilidades'], ['s3', 'III', 'Competencias y perfil'], ['s4', 'IV', 'Información importante'], ['s5', 'V', 'Riesgos laborales'], ['s6', '✎', 'Control y notas']];
+    var h = '<div class="ficha"><nav class="riel" id="riel"><a class="volver" href="#/">← Todas las familias</a>' +
+      SECS.map(function(s){ return '<a class="s" href="#' + s[0] + '" data-s="' + s[0] + '"><b>' + s[1] + '</b>' + s[2] + '</a>'; }).join('') +
+      (hermanos ? '<div class="otros"><p>' + esc(hermanos.nombre) + '</p>' + hermanos.cargos.map(function(n){ var i = POR_NOMBRE[n];
+        return i ? '<a class="' + (i === id ? 'on' : '') + '" href="#/c/' + i + '">' + esc(n) + '</a>' : ''; }).join('') + '</div>' : '') + '</nav><div>';
+
+    h += '<header class="cab"><div class="k">Descripción de Cargo/Rol <span class="badge">' + esc(M.estado) + '</span></div><h1>' + esc(c.denominacion) + '</h1><div class="datos">' +
+      '<div class="dato"><small>Unidad</small><b>' + esc(c.unidad) + '</b></div><div class="dato"><small>Reporta a</small><b>' + esc(c.reporta_a) + '</b></div>' +
+      '<div class="dato"><small>Código</small><b>' + esc(c.codigo || 'Por definir') + ' · V5 ' + esc(c.codigos_v5.length > 3 ? c.codigos_v5.length + ' códigos' : c.codigos_v5.join(' · ')) + '</b></div>' +
+      '<div class="dato"><small>Situación</small><b>' + esc(c.situacion) + '</b></div></div><p class="objetivo">' + esc(c.objetivo) + '</p></header>';
+
+    h += '<section class="bloque" id="s1"><h2><b>I</b>Información del cargo/rol</h2><p class="sub">Posición en la organización y líneas de reporte.</p>';
+    if (compartida) c.matices.forEach(function(m){ h += org(m.reporta_a, c.denominacion, c.supervisa_a, m.unidad); });
+    else h += org(c.reporta_a, c.denominacion, c.supervisa_a);
+    h += '<p style="text-align:center;color:var(--muted);font-size:.9rem;margin:10px 0 0">Supervisa a: ' + (c.supervisa_a.length ? esc(c.supervisa_a.join(' · ')) : 'no aplica') + '</p></section>';
+
+    var nItems = c.responsabilidades.reduce(function(a, g){ return a + g.items.length; }, 0);
+    h += '<section class="bloque" id="s2"><h2><b>II</b>Responsabilidad por procesos</h2><p class="sub">' + nItems + ' responsabilidades' + (compartida ? ' comunes' : '') + ', agrupadas por el proceso del manual To-Be al que pertenecen.</p>' + procs(c.responsabilidades);
+    if (compartida) c.matices.forEach(function(m){ h += '<div class="matiz"><h3>Matices de ' + esc(m.unidad) + ' <span class="badge pend">' + esc(m.codigos_v5.join(' · ')) + '</span></h3>' + procs(m.responsabilidades) + '</div>'; });
+    h += '<p class="clausula">' + esc(M.clausula) + '</p></section>';
+
+    h += '<section class="bloque" id="s3"><h2><b>III</b>Perfil de competencias exigidas</h2><p class="sub">Propuesta de diccionario de la Fase 3 · tramo ' + esc(co.tramo) + '.</p>' +
+      '<h3 class="m">Competencias genéricas · nivel exigido ' + nivel(co.nivel.genericas) + '</h3><div class="chips">' + M.genericas.map(function(g){ return '<span class="chip">' + esc(g) + '</span>'; }).join('') + '</div>' +
+      '<h3 class="m">Competencias del cargo/rol · nivel exigido ' + nivel(co.nivel.del_cargo) + '</h3><div class="chips">' + co.del_cargo.map(function(g){ return '<span class="chip alt">' + esc(g) + '</span>'; }).join('') + '</div>' +
+      '<h3 class="m">Competencias técnicas</h3><div class="perfil"><div class="tarjeta"><small>🎓 Formación</small><p>' + esc(t.formacion) + '</p></div><div class="tarjeta"><small>⏱ Experiencia</small><p>' + esc(t.experiencia) + '</p></div></div>' +
+      '<h3 class="m">Habilidades y destrezas</h3><ul class="lista2">' + t.habilidades.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>';
+
+    h += '<section class="bloque" id="s4"><h2><b>IV</b>Información importante a considerar</h2><p class="sub">Responsabilidades específicas: dónde cae el cargo en cada factor.</p><div class="factores">' +
+      M.factores.map(function(f){ return factor(f, c.especificas[f]); }).join('') + '</div>' +
+      '<div class="rel" style="margin-top:6px"><div><h3 class="m">Relaciones internas</h3><ul class="lista2" style="grid-template-columns:1fr">' + c.relaciones.internas.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+      '<div><h3 class="m">Relaciones externas</h3><ul class="lista2" style="grid-template-columns:1fr">' + c.relaciones.externas.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+      '<div><h3 class="m">Marco normativo</h3><ul class="lista2" style="grid-template-columns:1fr">' + c.marco_normativo.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div></div></section>';
+
+    h += '<section class="bloque" id="s5"><h2><b>V</b>Riesgos laborales asociados</h2><p class="sub">' + esc(M.intro_riesgos) + '</p><div class="riesgos">' +
+      M.riesgos.map(function(r){ var on = !!c.riesgos_laborales[r]; return '<div class="rg' + (on ? ' on' : '') + '"><div class="ic" aria-hidden="true">' + ICONO[r] + '</div><b>' + esc(r) + '</b><span>' + (on ? 'Aplica' : 'No aplica') + '</span></div>'; }).join('') + '</div><div class="rgdet">' +
+      M.riesgos.filter(function(r){ return c.riesgos_laborales[r]; }).map(function(r){ return '<div><b>' + esc(r) + ':</b> ' + esc(c.riesgos_laborales[r]) + '</div>'; }).join('') + '</div>' +
+      (c.riesgos_nota ? '<p style="color:var(--muted);font-size:.86rem;margin:10px 0 0">' + esc(c.riesgos_nota) + '</p>' : '') + '</section>';
+
+    h += '<section class="bloque" id="s6"><h2><b>✎</b>Control del documento</h2><p class="sub">Se completa en la validación.</p><div class="control">' +
+      ['Elaborado por', 'Revisado por', 'Aprobado por'].map(function(x){ return '<div><small>' + x + '</small><span>Pendiente de validación</span></div>'; }).join('') + '</div>' +
+      (c.notas && c.notas.length ? '<div class="notas"><h3>Notas para la validación del equipo</h3><ul>' + c.notas.map(function(n){ return '<li>' + esc(n) + '</li>'; }).join('') + '</ul></div>' : '') + '</section>';
+    return h + '</div></div>';
+  }
+
+  var espia = null;
+  function router(){
+    var r = (location.hash || '#/').replace(/^#/, ''), m = r.match(/^\/c\/([\w-]+)/);
+    if (/^s\d$/.test(r)) return;   // anclas del riel: no rehacer la vista
+    $('#vista').innerHTML = m ? cargo(m[1]) : inicio();
+    $('#btnImprimir').hidden = !m;
+    window.scrollTo(0, 0);
+    document.title = (m && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — ' : '') + 'Descripciones de cargo — Fase 3 | Proyecto Rower';
+    if (espia) espia.disconnect();
+    if (m){
+      // el riel navega con scroll, sin tocar el hash de la ruta
+      document.querySelectorAll('#riel a.s').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById(a.dataset.s).scrollIntoView({ behavior: 'smooth' }); }); });
+      espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#riel a.s').forEach(function(a){ a.classList.toggle('on', a.dataset.s === e.target.id); }); }); }, { rootMargin: '-30% 0px -60% 0px' });
+      document.querySelectorAll('.bloque').forEach(function(b){ espia.observe(b); });
+    } else {
+      var q = $('#buscar');
+      if (q) q.addEventListener('input', function(){ var v = q.value.trim().toLowerCase();
+        document.querySelectorAll('.famc').forEach(function(f){ f.style.display = !v || f.dataset.q.indexOf(v) >= 0 ? '' : 'none'; }); });
+    }
+  }
+  var fs = $('#faseSel'), fb = $('#faseBtn');
+  fb.addEventListener('click', function(e){ e.stopPropagation(); fs.classList.toggle('open'); fb.setAttribute('aria-expanded', fs.classList.contains('open')); });
+  document.addEventListener('click', function(){ fs.classList.remove('open'); fb.setAttribute('aria-expanded', 'false'); });
+  $('#btnImprimir').addEventListener('click', function(){ window.print(); });
+  $('#btnTema').addEventListener('click', function(){
+    var oscuro = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', oscuro ? 'dark' : 'light');
+    try { localStorage.setItem('rower.tema', oscuro ? 'oscuro' : 'claro'); } catch(e){}
+  });
+  window.addEventListener('hashchange', router);
+  router();
+})();
+</script>
+</body>
+</html>
