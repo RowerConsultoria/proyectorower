@@ -134,7 +134,7 @@
    Los nombres se escriben como figuran en el censo de personal (Supabase).
    ============================================================================ */
 window.ESTRUCTURA_TOBE = {
-  corte: '06-nov-2026',
+  corte: '09-nov-2026',
   titulo: 'Estructura organizativa To-Be',
   bajada: 'Borrador del equipo consultor para validar con el liderazgo. Tres niveles: direcciones corporativas, gerencias corporativas y gerencias país. Lo corporativo fija la línea rectora; cada país la ejecuta con su marco normativo y sus recursos.',
   // Rótulo del contenedor del staff (acuerdo del 05-oct: apoya al Comité Directivo, no solo a la Presidencia)
@@ -235,7 +235,10 @@ window.ESTRUCTURA_TOBE = {
            'Crea los códigos de producto y conduce el lanzamiento hasta la llegada: avisa a Comercial para abrir la preventa, que es lo que desata los procesos de venta.',
            'Propone cada año el plan de productos nuevos y sus fechas, sobre el que Mercadeo arma el calendario de lanzamientos, y cierra cada lanzamiento con una retrospectiva: lo que costó el desarrollo contra lo que se vendió.'
          ],
-         nota:'Lleva lo que hace nacer el producto y cuida que llegue al mercado como se aprobó: diseño, muestras, licencias, códigos y calidad de cada lote. La denominación sigue lo que hoy hace su titular. El desarrollo de producto estaba antes bajo Mercadeo y queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct. Desde el 06-nov-2026 el diseño industrial —forma, colores, materiales, accesorios y empaque— pasa a la Dirección de Diseño y Marca: esta gerencia define cómo funciona y se fabrica el producto, y aquella cómo se ve. La inteligencia de mercado, que hasta el 13-oct compartía esta gerencia, pasa a Mercadeo: quien planifica y mide la marca lee también el mercado, y entrega a esta gerencia dónde está la oportunidad y qué pide el consumidor.'},
+         nota:'Lleva lo que hace nacer el producto y cuida que llegue al mercado como se aprobó: diseño, muestras, licencias, códigos y calidad de cada lote. La denominación sigue lo que hoy hace su titular. El desarrollo de producto estaba antes bajo Mercadeo y queda en Innovación y Desarrollo de Productos, como pidió la Presidencia en la reunión del 05-oct. Desde el 06-nov-2026 el diseño industrial —forma, colores, materiales, accesorios y empaque— pasa a la Dirección de Diseño y Marca: esta gerencia define cómo funciona y se fabrica el producto, y aquella cómo se ve. La inteligencia de mercado, que hasta el 13-oct compartía esta gerencia, pasa a Mercadeo: quien planifica y mide la marca lee también el mercado, y entrega a esta gerencia dónde está la oportunidad y qué pide el consumidor.',
+          hijos:[
+            {id:'eq-prdesp', n:'Especialista de producto', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'1 persona', estado:'actual'}}
+          ]},
         {id:'innotec', n:'Innovación y Tecnología de Productos', nivel:'n2',
          decisiones:[
            'El perfil de CTO de producto, y si se contrata o se forma dentro del grupo.'
@@ -278,13 +281,20 @@ window.ESTRUCTURA_TOBE = {
            'La dirección de arte de toda pieza: la primera expresión visual de cada concepto.',
            'Trabaja en dupla con el director creativo: el concepto y su expresión visual se presentan juntos.'
          ],
-         nota:'Reporta directo a la dirección, sobre su línea, como lo plantea la Dirección Comercial.'},
+         nota:'Reporta directo a la dirección, sobre su línea, como lo plantea la Dirección Comercial.',
+          hijos:[
+            {id:'eq-arsen', n:'Diseñador(a) senior', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'2 personas', estado:'actual'}},
+            {id:'eq-ardis', n:'Diseñador(a)', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'7 personas', estado:'actual'}}
+          ]},
         {id:'marcacrea', n:'Marca', nivel:'n2',
          ocupante:{nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá. Es la mano derecha de la dirección.'},
          funciones:[
            'Creatividad: el concepto de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
            'Sistema: el manual de marca y las guías de uso, para todas las marcas y canales.'
-         ]},
+         ],
+          hijos:[
+            {id:'eq-mcprod', n:'Producción y creatividad', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'4 personas', estado:'actual'}}
+          ]},
         {id:'disind', n:'Diseño Industrial', nivel:'n2',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
          funciones:[
@@ -293,7 +303,10 @@ window.ESTRUCTURA_TOBE = {
            'Empaque: cajas e impresos, con Mercadeo.'
          ],
          interna:['Diseñador industrial y diseñador gráfico: personal interno.'],
-         nota:'Viene de Desarrollo y Calidad de Productos, donde estaba la diseñadora industrial. Innovación y Desarrollo de Productos sigue a cargo de la factibilidad, las especificaciones, la fábrica y la calidad.'},
+         nota:'Viene de Desarrollo y Calidad de Productos, donde estaba la diseñadora industrial. Innovación y Desarrollo de Productos sigue a cargo de la factibilidad, las especificaciones, la fábrica y la calidad.',
+          hijos:[
+            {id:'eq-didis', n:'Diseñador(a) industrial', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'1 persona', estado:'actual'}}
+          ]},
         {id:'campanas', n:'Campañas', nivel:'n2',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
          funciones:[
@@ -337,7 +350,7 @@ window.ESTRUCTURA_TOBE = {
       hijos:[
         {id:'compras', n:'Compras', nivel:'n2',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Nadie compra por su cuenta. Todo pedido de compra entra por una sola vía a la coordinación que le toca, con la política de la dirección.', href:'estructura-funcionamiento.html#compras'},
-         ocupante:{nombre:'Por definir', estado:'pordefinir'},
+         ocupante:{nombre:'Roberto Roizental', estado:'propuesto', nota:'Asume la gerencia de Compras además de dirigir Compras y Cadena de Suministro y coordinar Compras Cubitt.'},
          funciones:[
            'Compra estratégica de todas las marcas: la hoja de pedido y la asignación con Casio, las órdenes a fábrica de Cubitt y los repuestos.',
            'Negocia las condiciones y sigue cada orden hasta el embarque.',
@@ -345,9 +358,6 @@ window.ESTRUCTURA_TOBE = {
            'La política de compra interna de toda la organización, que ejecuta en cada país su coordinación de Compras Internas.'
          ],
          nota:'Separa la decisión de compra de la operación logística, dentro de la misma dirección. Tiene una coordinación por marca, porque Casio y Cubitt compran a fábrica con ritmos y reglas distintos: la de Casio con la casa matriz, la de Cubitt con las fábricas. Una tercera, la de Planificación, Despacho e Inventarios, compra a Panamá lo que necesita cada país y lo reparte (04-nov-2026). La compra interna, lo que no es producto para la venta, se hace en cada país con la política que fija esta gerencia.',
-         decisiones:[
-           'Quién ocupa la gerencia corporativa de Compras.'
-         ],
          hijos:[
            {id:'compcasio', n:'Compras Casio', nivel:'ccorp',
             ocupante:{nombre:'Vera Gavizon', estado:'actual', nota:'Hoy lleva la compra de Casio (reunión del 04-nov-2026).'},
@@ -383,8 +393,15 @@ window.ESTRUCTURA_TOBE = {
               'Aplica la política de compra que fija la gerencia corporativa de Compras: cuántos proveedores se cotizan, qué muestras se piden, quién aprueba cada solicitud y en cuánto tiempo.',
               'Mantiene proveedores calificados por rubro, en lugar de que cada área compre por su lado.'
             ],
+            decisiones:[
+              'Validar con Compras el equipo de cada país: un coordinador con un analista. Hoy nadie tiene ese cargo: en Venezuela la compra de insumos la hace una asistente de Cuentas por Pagar, Alicia Durán, y en Panamá la centraliza Recursos Humanos.',
+              'Si un país pequeño como Colombia necesita la coordinación completa o le basta un responsable que comparta otra función.'
+            ],
             interna:['Un coordinador con un analista.'],
-            nota:'Acordada como coordinación corporativa en la reunión con la Presidencia del 16-oct-2026; desde el 04-nov-2026 es una coordinación por país, porque cada país compra sus insumos con sus proveedores. Lo corporativo es la política de compra, que fija la gerencia de Compras. Hoy cada área compra lo suyo y la compra de insumos recae en Recursos Humanos o en Administración. La Dirección de Finanzas sigue pagando lo que se compra.'}
+            nota:'Acordada como coordinación corporativa en la reunión con la Presidencia del 16-oct-2026; desde el 04-nov-2026 es una coordinación por país, porque cada país compra sus insumos con sus proveedores. Lo corporativo es la política de compra, que fija la gerencia de Compras. Hoy cada área compra lo suyo y la compra de insumos recae en Recursos Humanos o en Administración. La Dirección de Finanzas sigue pagando lo que se compra.',
+             hijos:[
+               {id:'eq-ciana', n:'Analista de Compras Internas', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'Por definir', estado:'pordefinir'}, VE:{nombre:'Por definir', estado:'pordefinir'}, CO:{nombre:'Por definir', estado:'pordefinir'}}}
+             ]}
          ]},
         {id:'oplcorp', n:'Operaciones y Logística', nivel:'n2',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'La gerencia país de Operaciones y Logística tiene una sola línea, la corporativa. Los canales del país son sus clientes: le piden por servicio y no le dan órdenes.', href:'estructura-funcionamiento.html#operaciones'},
@@ -418,7 +435,10 @@ window.ESTRUCTURA_TOBE = {
             ]},
            {id:'oplpais', n:'Operaciones y Logística', nivel:'n3',
             decisiones:[
-              'Confirmar a Isabella Roizental en la gerencia de Operaciones y Logística de Estados Unidos, que suma a la de E-commerce, y aclarar si en Estados Unidos se vende también Casio.'
+              'Confirmar a Isabella Roizental en la gerencia de Operaciones y Logística de Estados Unidos, que suma a la de E-commerce, y aclarar si en Estados Unidos se vende también Casio.',
+              'Validar con Fernando Alvarado el equipo propuesto para cada país: jefatura de Bodega y Despacho, jefatura de Tráfico y coordinación de Servicios Generales, y por debajo supervisores y operarios.',
+              'Dónde queda José Vladimir Castillo, hoy gerente de Operaciones y Logística de Venezuela: la caja país se propone para Elvis Badillo, hoy gerente de almacén y que le reporta.',
+              'En Colombia, Brayan Muñoz lleva la coordinación del país y además el tráfico internacional: si sigue así mientras el volumen no pida una jefatura aparte.'
             ],
             paises:{
               PA:{nombre:'Fernando Alvarado', estado:'propuesto', cargo:'Gerencia', nota:'La lleva el mismo gerente corporativo.'},
@@ -437,8 +457,48 @@ window.ESTRUCTURA_TOBE = {
               'Supervisores, operarios, ayudantes y choferes. Tres perfiles bastan: gerente, jefe o supervisor, operario.'
             ],
             hijos:[
-              // Única unidad con estructura interna dibujada: debe existir, con responsables definidos.
+              {id:'opdespacho', n:'Bodega y Despacho', nivel:'coord', etiqueta:'Jefatura país',
+               decisiones:[
+                 'Panamá tiene dos bodegas con responsable propio: France Field, con Ricardo Mayers, y Obarrio, con Isabel Álvarez. Decidir si es una jefatura con dos sedes o dos jefaturas, sobre todo ahora que Edgar Claros, coordinador de despacho de Obarrio, se propone para la coordinación corporativa de Despacho.',
+                 'Cuántos supervisores por bodega. En France Field ya se trabaja con tres: entrada e inventario, preparación de pedidos y despacho. La sesión de estructura del 26-sep fijó el criterio de tres perfiles: gerente, jefe o supervisor, y operario.'
+               ],
+               paises:{
+                 PA:{nombre:'Ricardo Mayers', estado:'actual', cargo:'Jefatura', nota:'Hoy es jefe de la bodega de France Field. Isabel Álvarez coordina la de Obarrio.'},
+                 VE:{nombre:'Segundo Márquez', estado:'actual', cargo:'Jefatura', nota:'Hoy es jefe de despacho.'},
+                 CO:{nombre:'Miguel Grisales', estado:'actual', cargo:'Jefatura', nota:'Hoy es líder de bodega y logística.'}
+               },
+               funciones:['Recepción, almacenamiento, preparación y despacho de la mercancía del país, con los inventarios de la bodega al día.'],
+               nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026, los carriles del To-Be (macros 6 y 7: coordinación de logística y bodega, supervisión de bodega y despacho, auxiliares) y las sesiones de estructura del 26-sep y de levantamiento. Fuentes: SC-17, E-34 y E-69.',
+                hijos:[
+                  {id:'eq-opcoord', n:'Coordinación de bodega', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{PA:{nombre:'1 persona', estado:'actual'}}},
+                  {id:'eq-opsup', n:'Supervisor(a) de bodega y despacho', nivel:'coord', puesto:'sup', etiqueta:'Supervisión', paises:{PA:{nombre:'3 personas', estado:'actual'}, VE:{nombre:'2 personas', estado:'actual'}},
+                   hijos:[
+                    {id:'eq-opaux', n:'Auxiliar de bodega', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'3 personas', estado:'actual'}}},
+                    {id:'eq-opayud', n:'Ayudante de bodega', nivel:'coord', puesto:'ope', etiqueta:'Operario', paises:{PA:{nombre:'22 personas', estado:'actual'}, VE:{nombre:'11 personas', estado:'actual'}}},
+                    {id:'eq-opcond', n:'Conductor(a)', nivel:'coord', puesto:'ope', etiqueta:'Operario', paises:{PA:{nombre:'3 personas', estado:'actual'}, VE:{nombre:'4 personas', estado:'actual'}}}
+                   ]},
+                  {id:'eq-opana', n:'Analista de logística', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{VE:{nombre:'1 persona', estado:'actual'}}},
+                  {id:'eq-opasist', n:'Asistente de bodega', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{CO:{nombre:'1 persona', estado:'actual'}}}
+                ]},
+              {id:'optrafico', n:'Tráfico', nivel:'coord', etiqueta:'Jefatura país',
+               decisiones:[
+                 'Si Venezuela necesita una jefatura de Tráfico propia: recibe la mercancía desde Panamá y hoy esa tarea la lleva la gerencia del país.',
+                 'Tráfico de Panamá atiende también las exportaciones al resto de los países: si esa parte debe ir en una función corporativa y no en la caja del país.'
+               ],
+               paises:{
+                 PA:{nombre:'Yanilka Martínez', estado:'actual', cargo:'Jefatura', nota:'Hoy es jefa de tráfico.'},
+                 VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Jefatura'}
+               },
+               funciones:['La importación y la exportación del país: contenedores, documentos, liquidaciones y permisos.'],
+               nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026. En Colombia el tráfico internacional lo lleva hoy la coordinación del país. Fuentes: SC-17 y E-70.',
+                hijos:[
+                  {id:'eq-trasist', n:'Asistente de tráfico', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'4 personas', estado:'actual'}}}
+                ]},
               {id:'ssgg', n:'Servicios Generales', nivel:'coord',
+               decisiones:[
+                 'Quién responde por Servicios Generales en Panamá y en Colombia.',
+                 'Qué pasa a esta coordinación en Venezuela: la recepción y la mensajería hoy reportan a la Gerencia de Administración, y los vigilantes, a los gerentes de las tiendas donde trabajan.'
+               ],
                paises:{
                  PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
                  VE:{nombre:'Williams Porras', estado:'actual', cargo:'Coordinación', nota:'Hoy ejerce como jefatura de Servicios Generales.'},
@@ -448,7 +508,13 @@ window.ESTRUCTURA_TOBE = {
                  'Mantenimiento de sedes, tiendas y bodegas, y los servicios que las sostienen.',
                  'Coordina a los contratistas de mantenimiento y limpieza y verifica su trabajo.'
                ],
-               nota:'Es la única unidad de la que se dibuja la estructura interna, para resaltar que debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Responde a la gerencia país de Operaciones y Logística, que ya opera las bodegas y conoce lo que piden las instalaciones. La compra de esos servicios la hace Compras Internas y el pago, Administración y Finanzas. Hasta el 12-oct-2026 era una coordinación de Administración y Finanzas.'}
+               nota:'Debe existir en cada país con un responsable claramente definido. Hoy no es así: en Venezuela la sostiene una sola persona y en Panamá la cubre Recursos Humanos sin un cargo propio. Responde a la gerencia país de Operaciones y Logística, que ya opera las bodegas y conoce lo que piden las instalaciones. La compra de esos servicios la hace Compras Internas y el pago, Administración y Finanzas. Hasta el 12-oct-2026 era una coordinación de Administración y Finanzas.',
+                hijos:[
+                  {id:'eq-sgasist', n:'Asistente de Servicios Generales', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'2 personas', estado:'actual'}}},
+                  {id:'eq-sgrecep', n:'Recepción', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'1 persona', estado:'actual'}}},
+                  {id:'eq-sgmens', n:'Mensajero(a)', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'1 persona', estado:'actual'}}},
+                  {id:'eq-sgvig', n:'Vigilante', nivel:'coord', puesto:'ope', etiqueta:'Operario', paises:{VE:{nombre:'3 personas', estado:'actual'}}}
+                ]}
             ]}
          ]}
       ]
@@ -494,7 +560,10 @@ window.ESTRUCTURA_TOBE = {
               'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.',
               'Félix Almendral planifica la demanda de Casio y, por el tamaño de la marca, conserva por ahora sus funciones de brand manager. Falta decidir si el brand manager de Casio queda en Comercial o en Mercadeo, donde la Dirección Comercial lo ubica en Brand Management.'
             ],
-            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'},
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.',
+             hijos:[
+               {id:'eq-pdkam', n:'Key account manager', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'1 persona', estado:'actual'}}
+             ]},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
             funciones:[
@@ -514,8 +583,45 @@ window.ESTRUCTURA_TOBE = {
                  VE:{nombre:'Andrés Márquez', estado:'actual'},
                  CO:{nombre:'Santiago Ramírez', estado:'actual'}
                },
-               funciones:['Mayoristas y cadenas del país donde el grupo tiene operación propia.']}
-            ]},
+               decisiones:[
+                 'Validar con Andrés Márquez, Edumar Escalona y Santiago Ramírez el equipo propuesto para su país.',
+                 'Si las coordinaciones de Ventas al Mayor se organizan por marca, por tipo de cliente (cadenas, mayor informal, corporativo) o por zona: hoy cada país lo hace distinto.',
+                 'Quién cobra: los vendedores del mayor hacen hoy la cobranza además de la venta. El To-Be la deja en Cobranza y Cuentas por Cobrar, de Administración y Finanzas.'
+               ],
+               funciones:['Mayoristas y cadenas del país donde el grupo tiene operación propia.'],
+               hijos:[
+                 {id:'maycom', n:'Coordinación Comercial', nivel:'coord',
+                  decisiones:[
+                    'Si Panamá y Colombia necesitan esta coordinación con sus equipos actuales, de dos a cuatro personas, o si la gerencia país lleva a los ejecutivos directamente.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy los ejecutivos reportan directo a la gerencia de Ventas al Mayor.'},
+                    VE:{nombre:'Henry Lucena', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador de ventas al mayor.'},
+                    CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy el gerente lleva además las cadenas.'}
+                  },
+                  funciones:['Conduce a los ejecutivos de ventas al mayor: cartera, pedidos y negociaciones especiales, con el plan comercial del país.'],
+                  nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 8: coordinación comercial, analista o ejecutivo comercial). Los ejecutivos de ventas internacionales de Panamá atienden a varios países y quedan fuera de esta caja. Fuentes: E-14, E-36 y E-39.',
+                   hijos:[
+                     {id:'eq-maejec', n:'Ejecutivo(a) de ventas al mayor', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'2 personas', estado:'actual'}, VE:{nombre:'5 personas', estado:'actual'}, CO:{nombre:'2 personas', estado:'actual'}}},
+                     {id:'eq-maasist', n:'Asistente de ventas', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}}}
+                   ]},
+                 {id:'maypromo', n:'Promotoría', nivel:'coord',
+                  decisiones:[
+                    'Dónde queda la promotoría: en Ventas al Mayor, porque vende en el punto de venta de los clientes, o en Retail, porque es venta asistida al consumidor.',
+                    'Si el modelo de promotoría de Colombia se replica en otros países.'
+                  ],
+                  paises:{
+                    CO:{nombre:'Harwin Castiblanco', estado:'actual', cargo:'Coordinación', nota:'Hoy es líder de impulsadores.'}
+                  },
+                  funciones:['Conduce a los promotores que asesoran y venden Cubitt en los puntos de venta de los clientes.'],
+                  nota:'Existe solo en Colombia. Propuesta sobre el censo y las fichas de personal al 09-nov-2026. Fuentes: E-11 y E-14.',
+                   hijos:[
+                     {id:'eq-promo', n:'Promotor(a)', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{CO:{nombre:'20 personas', estado:'actual'}}}
+                   ]}
+               ]},
+               {id:'eq-macint', n:'Ejecutivo(a) de ventas internacionales', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'3 personas', estado:'actual'}},
+               {id:'eq-macasi', n:'Asistente comercial', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', ocupante:{nombre:'1 persona', estado:'actual'}}
+             ]},
            {id:'retailcorp', n:'Retail', nivel:'gun',
             ocupante:{nombre:'Handani Mora', estado:'propuesto'},
             funciones:[
@@ -534,7 +640,69 @@ window.ESTRUCTURA_TOBE = {
                  OT:{nombre:'Por definir', estado:'pordefinir',
                      nota:'Las tiendas de Guatemala, que opera un tercero con un country manager del grupo, y la supervisión de las tiendas franquiciadas de Casio y de Cubitt en Centroamérica. Más adelante puede agruparse en un clúster de países.'}
                },
-               funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.']}
+               decisiones:[
+                 'Validar con Handani Mora y cada gerencia de Retail el equipo propuesto; sigue pendiente la sesión dedicada de Tiendas.',
+                 'Quién ocupa la gerencia país de Venezuela y la de Colombia. Hoy María Eugenia Villegas es gerente de ventas al detal de Venezuela, y Andrés Sequera, líder de tiendas de Colombia.',
+                 'El patrón de la tienda: Venezuela trabaja con gerente, subgerente, asesores y cajeros; Panamá, con encargado, que también cobra, y vendedores. Decidir si hay un solo patrón o uno por formato, kiosco o tienda.',
+                 'Si las tiendas que combinen Casio y Cubitt en un mismo local cambian la supervisión por marca.',
+                 'Dónde queda Cubitt Café en Panamá: hoy su administradora reporta a la Dirección Comercial y sus vendedores, a Postventa.'
+               ],
+               funciones:['Las tiendas del país: encargados, vendedores, cajeros. Cada gerencia estructura su equipo de tienda.'],
+               hijos:[
+                 {id:'retcasio', n:'Supervisión de Tiendas Casio', nivel:'coord', etiqueta:'Supervisión país',
+                  decisiones:[
+                    'Si la supervisión va por marca, como en Venezuela, o por zona. En Panamá hoy Blas García supervisa solo los once puntos, y al pasar a la gerencia país hay que cubrir esa tarea con una o dos personas.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Supervisión', nota:'Hoy la lleva Blas García.'},
+                    VE:{nombre:'Carlos Velásquez', estado:'actual', cargo:'Supervisión', nota:'Hoy es supervisor de Casio.'}
+                  },
+                  funciones:['Visita y supervisa las tiendas de la marca: cumplimiento de metas, personal, exhibición, inventario y seguridad, con el estándar de la gerencia de Retail.'],
+                  nota:'En el To-Be el gerente de tienda es quien más actividades ejecuta en el macro 9. La estructura patrón lo ubica como coordinación, aunque el cargo se llame gerente. Propuesta sobre el censo y las fichas de personal al 09-nov-2026. Fuentes: E-47, E-53 y SC-02.',
+                   hijos:[
+                     {id:'eq-rcger', n:'Gerente o encargado(a) de tienda', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{PA:{nombre:'3 personas', estado:'actual'}, VE:{nombre:'8 personas', estado:'actual'}}, nota:'Tiendas de Panamá: Casio Albrook, Casio Multiplaza, Showroom Zl. Tiendas de Venezuela: Casio Barquisimeto, Casio Ccct, Casio Feria, Casio La Candelaria, Casio Lider, Casio Recreo, Casio Rower.',
+                      hijos:[
+                       {id:'eq-rcsub', n:'Asistente de encargado(a)', nivel:'coord', puesto:'sup', etiqueta:'Supervisión', paises:{PA:{nombre:'1 persona', estado:'actual'}}},
+                       {id:'eq-rcase', n:'Asesor(a) de ventas', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'8 personas', estado:'actual'}, VE:{nombre:'23 personas', estado:'actual'}}},
+                       {id:'eq-rccaj', n:'Cajero(a)', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'8 personas', estado:'actual'}}}
+                      ]}
+                   ]},
+                 {id:'retcubitt', n:'Supervisión de Tiendas Cubitt', nivel:'coord', etiqueta:'Supervisión país',
+                  decisiones:[
+                    'Confirmar a Andrés Sequera como supervisión en Colombia, o en la gerencia país mientras el país tenga pocas tiendas; la expansión de tiendas prevista puede cambiar la respuesta.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Supervisión', nota:'Hoy la lleva Blas García.'},
+                    VE:{nombre:'Carlos Márquez', estado:'actual', cargo:'Supervisión', nota:'Hoy es supervisor de Cubitt.'},
+                    CO:{nombre:'Andrés Sequera', estado:'propuesto', cargo:'Supervisión', nota:'Hoy es líder de tiendas.'}
+                  },
+                  funciones:['Visita y supervisa las tiendas de la marca: cumplimiento de metas, personal, exhibición, inventario y seguridad, con el estándar de la gerencia de Retail.'],
+                  nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026. Fuentes: E-47, E-11 y E-51.',
+                   hijos:[
+                     {id:'eq-ruger', n:'Gerente o encargado(a) de tienda', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{PA:{nombre:'7 personas', estado:'actual'}, VE:{nombre:'12 personas', estado:'actual'}}, nota:'Tiendas de Panamá: Cubitt Alta Plaza, Cubitt Carrusel, Cubitt Metromall, Cubitt Tigre, Cubitt Weestland, Tienda Cubitt Los Andes 2. Tiendas de Venezuela: Cubitt Acuario, Cubitt Boleita, Cubitt Ccct Mini, Cubitt Feria, Cubitt La Candelaria 1, Cubitt La Candelaria 2, Cubitt Maracaibo, Cubitt Margarita, Cubitt Recreo, Cubitt Sambil, Cubitt Valencia 2.',
+                      hijos:[
+                       {id:'eq-rusub', n:'Subgerente de tienda', nivel:'coord', puesto:'sup', etiqueta:'Supervisión', paises:{VE:{nombre:'8 personas', estado:'actual'}}},
+                       {id:'eq-ruase', n:'Asesor(a) de ventas', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'12 personas', estado:'actual'}, VE:{nombre:'50 personas', estado:'actual'}}},
+                       {id:'eq-rucaj', n:'Cajero(a)', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'18 personas', estado:'actual'}}}
+                      ]},
+                     {id:'eq-rucolas', n:'Asesor(a) de ventas', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{CO:{nombre:'8 personas', estado:'actual'}}}
+                   ]},
+                 {id:'retinv', n:'Control de Inventario de Tiendas', nivel:'coord',
+                  decisiones:[
+                    'A quién reporta: a la gerencia de Retail del país, o a la coordinación corporativa de Inventario, para que quien cuenta no dependa de quien vende. Venezuela ya tiene el cargo; Panamá y Colombia, no.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+                    VE:{nombre:'Rosa Caraballo', estado:'actual', cargo:'Coordinación', nota:'Hoy es supervisora de inventario, en Ventas al Detal.'},
+                    CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
+                  },
+                  funciones:['Planifica y revisa los inventarios selectivos y generales de las tiendas, e investiga las diferencias.'],
+                  nota:'En la mesa de trabajo de estructura con la Presidencia se señaló como un equipo por desarrollar. Propuesta sobre el censo y las fichas de personal al 09-nov-2026. Fuentes: E-47 y E-36.'},
+                  {id:'eq-rcafe', n:'Administración de Cubitt Café', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{PA:{nombre:'1 persona', estado:'actual'}},
+                   hijos:[
+                    {id:'eq-rcafev', n:'Asesor(a) de ventas', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'2 personas', estado:'actual'}}}
+                   ]}
+                ]}
             ]},
            {id:'ecommerce', n:'E-commerce y Growth', nivel:'gun',
             ocupante:{nombre:'Clara Arosemena', estado:'actual', nota:'Nombrada gerente regional de e-commerce en septiembre de 2026, en sustitución de Patrick Corujo, que pasa a soporte técnico y servicio al cliente. Venía de Mercadeo, donde lideraba la pauta digital. Fuentes: E-24, SC-06 y SC-13.'},
@@ -549,7 +717,9 @@ window.ESTRUCTURA_TOBE = {
             hijos:[
               {id:'ecommercepais', n:'E-commerce', nivel:'n3',
                decisiones:[
-                 'Confirmar a Isabella Roizental en la gerencia de E-commerce de Estados Unidos, que suma a la de Operaciones y Logística.'
+                 'Confirmar a Isabella Roizental en la gerencia de E-commerce de Estados Unidos, que suma a la de Operaciones y Logística.',
+                 'Validar con Clara Arosemena y Jesmir Flores el equipo propuesto para cada país.',
+                 'Quién cubre la gerencia en Panamá y en Colombia, o si con sus equipos actuales basta una coordinación.'
                ],
                sub:'Puede haber coordinaciones que se asocien por marca.',
                paises:{
@@ -561,8 +731,44 @@ window.ESTRUCTURA_TOBE = {
                  OT:{nombre:'Por definir', estado:'pordefinir', nota:'La venta en línea de Guatemala, que se acaba de abrir, y de los mercados que se sumen.'}
                },
                funciones:['La venta en línea del país: web propia, marketplaces, validación de pagos y despacho de los pedidos web, con la línea de la gerencia de E-commerce.'],
-               nota:'Desde el 16-oct-2026 cada país tiene su gerencia de E-commerce; antes solo Venezuela y Estados Unidos.'}
-            ]},
+               nota:'Desde el 16-oct-2026 cada país tiene su gerencia de E-commerce; antes solo Venezuela y Estados Unidos.',
+               hijos:[
+                 {id:'ecoperaciones', n:'Operaciones E-commerce', nivel:'coord', etiqueta:'Supervisión país',
+                  decisiones:[
+                    'Si la preparación y el despacho de los pedidos web quedan aquí, como en Venezuela, o en Operaciones y Logística, como en Panamá, donde esa tarea la llevan personas de la bodega de Obarrio.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Supervisión', nota:'Hoy Dafnne Pimentel coordina los despachos de e-commerce, en Operaciones y Logística.'},
+                    VE:{nombre:'Ricardo Castillo', estado:'actual', cargo:'Supervisión', nota:'Hoy es supervisor de operaciones y logística de Ventas Web.'},
+                    CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Supervisión'}
+                  },
+                  funciones:['El almacén web, la preparación de pedidos, los envíos con agencias y las entregas locales.'],
+                  nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 10: supervisión de operaciones de e-commerce, asistente de almacén web). Fuentes: E-16 y E-41.',
+                   hijos:[
+                     {id:'eq-ecayud', n:'Ayudante de almacén', nivel:'coord', puesto:'ope', etiqueta:'Operario', paises:{VE:{nombre:'3 personas', estado:'actual'}}},
+                     {id:'eq-ecasist', n:'Asistente de operaciones y almacén', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'2 personas', estado:'actual'}, VE:{nombre:'2 personas', estado:'actual'}}}
+                   ]},
+                 {id:'ecventas', n:'Ventas Web y Marketplaces', nivel:'coord',
+                  decisiones:[
+                    'Si hace falta esta coordinación en Venezuela, donde siete asesores reportan hoy directo a la gerencia.',
+                    'En Panamá los asesores web reportan hoy a Postventa: pasarlos aquí, como separa el To-Be la venta de la atención.',
+                    'Confirmar a Tatiana Rodríguez en Colombia: hoy lleva los marketplaces y reporta a la gerencia corporativa de E-commerce y Growth.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+                    VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+                    CO:{nombre:'Tatiana Rodríguez', estado:'propuesto', cargo:'Coordinación', nota:'Hoy lleva los marketplaces.'}
+                  },
+                  funciones:['La venta por la web propia y los marketplaces del país: la atención previa a la compra, los pedidos y su seguimiento.'],
+                  nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 10: asesor de ventas web). Fuentes: E-41 y SC-03.',
+                   hijos:[
+                     {id:'eq-ecase', n:'Asesor(a) de ventas web', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'2 personas', estado:'actual'}, VE:{nombre:'7 personas', estado:'actual'}}},
+                     {id:'eq-ecfact', n:'Analista de facturación web', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{VE:{nombre:'1 persona', estado:'actual'}}},
+                     {id:'eq-ecasis', n:'Asistente de e-commerce', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}}}
+                   ]}
+               ]},
+               {id:'eq-ecpauta', n:'Especialista de pauta digital', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'1 persona', estado:'actual'}}
+             ]},
            {id:'postventacorp', n:'Postventa', nivel:'gun',
             decisiones:[
               'Si la atención al cliente digital necesita incorporar a alguien con experiencia en la atención por WhatsApp y redes y en sus plataformas, antes de volver a elegir herramienta.',
@@ -585,7 +791,45 @@ window.ESTRUCTURA_TOBE = {
                  OT:{nombre:'Por definir', estado:'pordefinir', nota:'La postventa de Guatemala, Costa Rica y las franquicias, con los criterios de la gerencia de Postventa.'}
                },
                funciones:['Garantías, devoluciones, servicio técnico y atención al cliente del país, con los criterios que fija la gerencia de Postventa.'],
-               interna:['Relojeros y técnicos: cada gerencia estructura su equipo.']}
+               decisiones:[
+                 'Validar con Patrick Corujo el equipo propuesto para cada país.',
+                 'Quién ocupa la gerencia país de Venezuela. Hoy Juseth González es gerente de servicio técnico.',
+                 'De quién dependen los relojeros y técnicos que trabajan en las tiendas: hoy reportan al gerente de la tienda, y la función de garantías es de Postventa.',
+                 'Dónde queda la rotulación y personalización de productos, que hoy está en Postventa en los tres países.'
+               ],
+               interna:['Relojeros y técnicos: cada gerencia estructura su equipo.'],
+               hijos:[
+                 {id:'pvtecnico', n:'Servicio Técnico', nivel:'coord',
+                  decisiones:[
+                    'Si Panamá necesita esta coordinación o la lleva directamente la gerencia país, que hoy es quien coordina el soporte técnico.'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+                    VE:{nombre:'Gilbert Vargas', estado:'actual', cargo:'Coordinación', nota:'Hoy es subgerente de servicio técnico.'}
+                  },
+                  funciones:['El taller y las reparaciones, los repuestos, y el control de lo que entra y sale por garantía.'],
+                  nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 11: gerente y subgerente de servicio técnico, técnico o relojero). Fuentes: E-51, E-64 y SC-03.',
+                   hijos:[
+                     {id:'eq-pvrot', n:'Rotulación y personalización', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'2 personas', estado:'actual'}, VE:{nombre:'1 persona', estado:'actual'}}},
+                     {id:'eq-pvtec', n:'Técnico(a) relojero(a)', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'2 personas', estado:'actual'}, VE:{nombre:'9 personas', estado:'actual'}}},
+                     {id:'eq-pvasist', n:'Asistente administrativo(a)', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'2 personas', estado:'actual'}}}
+                   ]},
+                 {id:'pvatencion', n:'Atención al Cliente', nivel:'coord',
+                  decisiones:[
+                    'Si los equipos actuales justifican una coordinación en Panamá y en Colombia, de una persona cada uno, o si atiende directamente la gerencia país.',
+                    'Cómo se reparte en Venezuela con los asesores web, que hoy atienden también la postventa (ver la decisión de la gerencia de Postventa).'
+                  ],
+                  paises:{
+                    PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+                    VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'},
+                    CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
+                  },
+                  funciones:['Atiende a los clientes por todos los canales, con el estándar de atención de la gerencia de Postventa, y abre y sigue cada caso de garantía.'],
+                  nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 11: asesor de servicio al cliente). Fuentes: E-51 y E-64.',
+                   hijos:[
+                     {id:'eq-pvate', n:'Asesor(a) de soporte y atención', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'3 personas', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}}
+                   ]}
+               ]}
             ]}
          ]},
         {id:'mercadeo', n:'Mercadeo', nivel:'n2',
@@ -636,7 +880,10 @@ window.ESTRUCTURA_TOBE = {
             decisiones:[
               'Quién lidera Social y Contenido: la Dirección Comercial propone a Macarena Bachor; en la propuesta anterior las redes iban en Experiencia Digital, con Anabel Roizental.',
               'Quién lleva la comunicación interna, que el macroproceso 16 (Gestión de Mercadeo, Marca y Comunicaciones) nombra y ninguna unidad tiene hoy: esta gerencia o Recursos Humanos.'
-            ]},
+            ],
+             hijos:[
+               {id:'eq-soana', n:'Analista de comunidad e influencers', nivel:'coord', puesto:'ana', etiqueta:'Analista', ocupante:{nombre:'2 personas', estado:'actual'}}
+             ]},
            {id:'cuentasclave', n:'Cuentas Clave y Trade', nivel:'gun',
             ocupante:{nombre:'Ivonne de la Guardia', estado:'actual', nota:'Hoy es la gerente de cuentas clave, con equipo en varios países.'},
             funciones:[
@@ -644,7 +891,10 @@ window.ESTRUCTURA_TOBE = {
               'Desarrolla la marca en el canal mayorista con estrategias propias para ese canal; no negocia compras ni ventas, que son de Comercial.',
               'El plan de exhibición, mobiliario y material POP con cada cuenta clave; el montaje lo hace Visual Merchandising, con los estándares de Diseño y Marca.'
             ],
-            nota:'El trade queda en Mercadeo y la venta al mayorista en Comercial: Mercadeo desarrolla la estrategia de marca para el canal que vende Comercial.'},
+            nota:'El trade queda en Mercadeo y la venta al mayorista en Comercial: Mercadeo desarrolla la estrategia de marca para el canal que vende Comercial.',
+             hijos:[
+               {id:'eq-ccasi', n:'Asistente de cuentas clave', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', ocupante:{nombre:'1 persona', estado:'actual'}}
+             ]},
            {id:'visual', n:'Visual Merchandising', nivel:'gun',
             decisiones:[
               'Dónde queda el visual merchandising. Podría ir en Retail, como propone la Dirección Comercial, pero Ventas al Mayor también usa este servicio: la exhibición en los clientes mayoristas, además de las tiendas propias. Por eso se dibuja en Mercadeo, como plantea la propuesta del CDO: así es un servicio transversal a los canales. Hoy está repartido: en Panamá, una gerencia regional con su equipo y una coordinación visual en Marketing; en Venezuela, dentro de Ventas al Mayor; en Colombia, con el country manager.',
@@ -679,6 +929,7 @@ window.ESTRUCTURA_TOBE = {
             ],
             hijos:[
               {id:'mpcubitt', n:'Marca Cubitt', nivel:'coord',
+               decisiones:['Confirmar a los ocupantes propuestos con el gerente de mercadeo de cada país, y quién cubre Colombia.'],
                paises:{
                  PA:{nombre:'Gabriela Vidales', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es coordinadora de marketing regional, con la gerencia de mercadeo de Cubitt en Panamá.'},
                  VE:{nombre:'Caroly Salazar', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinadora de marca Cubitt.'},
@@ -692,14 +943,21 @@ window.ESTRUCTURA_TOBE = {
                  VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy hay dos coordinadores de marca Casio: Walter Méndez y Joyce Camacho.'},
                  CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
                },
-               funciones:['Ejecuta en el país el plan anual de Casio que fija Brand Management, con la línea de la casa matriz y la coinversión con Casio Japón.']},
+               funciones:['Ejecuta en el país el plan anual de Casio que fija Brand Management, con la línea de la casa matriz y la coinversión con Casio Japón.'],
+                hijos:[
+                  {id:'eq-mccoord', n:'Coordinador(a) de marca Casio', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{VE:{nombre:'2 personas', estado:'actual'}}}
+                ]},
               {id:'mpsocial', n:'Social y Contenido', nivel:'coord',
+               decisiones:['Confirmar a los ocupantes propuestos con el gerente de mercadeo de cada país, y quién cubre Colombia.'],
                paises:{
                  PA:{nombre:'Karla Quayle', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es social media manager con la gerencia de mercadeo de Cubitt en Panamá.'},
                  VE:{nombre:'Yudileth Colmenares', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es coordinadora de influencers.'},
                  CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy Valeria Roizental lleva influencer marketing y alianzas en Colombia.'}
                },
-               funciones:['Redes, comunidad, creadores e influencers del país, con el calendario editorial de Social y Contenido.']},
+               funciones:['Redes, comunidad, creadores e influencers del país, con el calendario editorial de Social y Contenido.'],
+                hijos:[
+                  {id:'eq-msana', n:'Analista de comunidad y canales', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'1 persona', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}}
+                ]},
               {id:'mptrade', n:'Trade y Activaciones', nivel:'coord',
                decisiones:['Si las activaciones y los eventos tienen un proceso propio en el manual: hoy solo aparecen dentro del plan anual (16.1), del reporte (16.8) y de la gestión de mobiliario, POP y activaciones del canal mayorista (8.13).'],
                paises:{
@@ -709,13 +967,23 @@ window.ESTRUCTURA_TOBE = {
                },
                funciones:['El trade con los clientes del país, las activaciones presenciales y los eventos y su producción, con el plan de Cuentas Clave y Trade.']},
               {id:'mpvisual', n:'Visual Merchandising', nivel:'coord',
+               decisiones:['Confirmar a los ocupantes con la gerencia de Visual Merchandising, y si este equipo va en Mercadeo o en Retail (ver la decisión de la gerencia de Visual Merchandising).'],
                paises:{
                  PA:{nombre:'Débora Baroni', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinadora de visual merchandising, con tres ejecutivas y una asistente. En Marketing de Panamá hay además una coordinadora visual, Madelyne Ortega, que se integra a este equipo.'},
                  VE:{nombre:'José Rodolfo Medina', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador visual, con dos asistentes, dentro de Ventas al Mayor.'},
                  CO:{nombre:'Gabriel Ávila', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador visual, con un visual merchandiser, y reporta al country manager.'}
                },
-               funciones:['Monta y mantiene la exhibición en las tiendas propias y en los clientes mayoristas del país, con la forma común de la gerencia de Visual Merchandising y los estándares de Diseño y Marca.']}
-            ]}
+               funciones:['Monta y mantiene la exhibición en las tiendas propias y en los clientes mayoristas del país, con la forma común de la gerencia de Visual Merchandising y los estándares de Diseño y Marca.'],
+                hijos:[
+                  {id:'eq-mvcoord', n:'Coordinación visual', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{PA:{nombre:'1 persona', estado:'actual'}}},
+                  {id:'eq-mveje', n:'Ejecutivo(a) de visual merchandising', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'3 personas', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}},
+                  {id:'eq-mvasi', n:'Asistente de visual merchandising', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'2 personas', estado:'actual'}}}
+                ]},
+               {id:'eq-mpdep', n:'Coordinación de marketing deportivo', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{VE:{nombre:'1 persona', estado:'actual'}}},
+               {id:'eq-mpdis', n:'Diseño creativo local', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'3 personas', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}},
+               {id:'eq-mpasi', n:'Asistente de mercadeo', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'2 personas', estado:'actual'}, VE:{nombre:'4 personas', estado:'actual'}}},
+               {id:'eq-mptraf', n:'Trafficker de campañas', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'Por definir', estado:'pordefinir'}, VE:{nombre:'Por definir', estado:'pordefinir'}, CO:{nombre:'Por definir', estado:'pordefinir'}}}
+             ]}
          ]}
       ]
     },
@@ -745,7 +1013,10 @@ window.ESTRUCTURA_TOBE = {
          nota:'Acordada en la reunión con la Presidencia del 16-oct-2026. Es corporativa porque la planificación y el presupuesto se hacen igual en todos los países; la operación financiera —tesorería, cobranza, contabilidad— sigue en cada país. Puede empezar con una sola persona y sumar después las subdivisiones.'},
         {id:'finpais', n:'Administración y Finanzas', nivel:'n3',
          decisiones:[
-           'Quién cubre la gerencia de Administración y Finanzas de cada país, la de Venezuela incluida, que deja Jaime González al subir a la dirección; y si alguien cubre más de un país mientras tanto.'
+           'Quién cubre la gerencia de Administración y Finanzas de cada país, la de Venezuela incluida, que deja Jaime González al subir a la dirección; y si alguien cubre más de un país mientras tanto.',
+           'Validar con Jaime González el equipo propuesto para cada país.',
+           'Panamá y Venezuela tienen hoy dos gerencias de área cada uno: Tesorería y Contabilidad en Panamá, y Administración (Aida Mejías) y Contabilidad (Víctor Padovani) en Venezuela. La estructura tiene una caja país: decidir quién la ocupa y cómo quedan los demás. En Colombia, Marcela Ramírez lidera hoy el área contable y administrativa.',
+           'Qué pasa con la administración de Colombia, que hoy lleva Lisseth Masutier junto con la nómina y las importaciones, y con los cuatro aprendices de Venezuela.'
          ],
          paises:{
            PA:{nombre:'Por definir', estado:'pordefinir'},
@@ -756,7 +1027,73 @@ window.ESTRUCTURA_TOBE = {
            'La operación financiera del país, con el marco fiscal local.',
            'El pago de las compras internas y de los servicios que sostienen sedes, tiendas y bodegas.'
          ],
-         interna:['Tesorería y conciliación.', 'Cobranza y cuentas por cobrar.', 'Cuentas por pagar.', 'Contabilidad.', 'Asuntos fiscales.']}
+         interna:['Tesorería y conciliación.', 'Cobranza y cuentas por cobrar.', 'Cuentas por pagar.', 'Contabilidad.', 'Asuntos fiscales.'],
+         hijos:[
+           {id:'fintesoreria', n:'Tesorería y Conciliación', nivel:'coord',
+            decisiones:[
+              'Cómo queda Norman Vanegas, hoy gerente de tesorería de Panamá: en esta caja, o en la gerencia país que está por definir.',
+              'Si Colombia necesita esta coordinación o le basta un auxiliar con la gerencia del país.'
+            ],
+            paises:{
+              PA:{nombre:'Norman Vanegas', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es gerente de tesorería.'},
+              VE:{nombre:'Alí Carmona', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador de tesorería.'},
+              CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
+            },
+            funciones:['El flujo de caja del país, los pagos, los saldos de las cuentas y la conciliación bancaria.'],
+            nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macros 12 y 13). Fuentes: E-43 y E-44.',
+             hijos:[
+               {id:'eq-ftas', n:'Asistente o auxiliar de tesorería', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'3 personas', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}}
+             ]},
+           {id:'fincobranza', n:'Cobranza y Cuentas por Cobrar', nivel:'coord',
+            decisiones:[
+              'Si la cobranza del mayor pasa de los vendedores a esta coordinación, como plantea el To-Be, y con cuánta gente: hoy el equipo es de una a dos personas por país.'
+            ],
+            paises:{
+              PA:{nombre:'Noel Correa', estado:'actual', cargo:'Coordinación', nota:'Hoy es supervisor y coordinador de cuentas por cobrar.'},
+              VE:{nombre:'Yajaira Cortorreal', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinadora de cuentas por cobrar.'},
+              CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
+            },
+            funciones:['La cartera de clientes, la gestión de cobro y el registro de los ingresos.'],
+            nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 13). Fuentes: E-39, E-48 y E-62.',
+             hijos:[
+               {id:'eq-fcan', n:'Analista de cuentas por cobrar', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'1 persona', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}},
+               {id:'eq-fcas', n:'Asistente de cuentas por cobrar', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'1 persona', estado:'actual'}}}
+             ]},
+           {id:'fincxp', n:'Cuentas por Pagar', nivel:'coord',
+            decisiones:[
+              'Si Panamá y Colombia necesitan esta coordinación aparte o si sigue dentro de Tesorería y de Contabilidad, respectivamente, como hoy.'
+            ],
+            paises:{
+              PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy los pagos los lleva Tesorería.'},
+              VE:{nombre:'Andrés Largo', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador de cuentas por pagar.'},
+              CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy los lleva un auxiliar contable.'}
+            },
+            funciones:['El cronograma de pagos a proveedores, incluidas las compras internas y los servicios de sedes, tiendas y bodegas.'],
+            nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026. Fuentes: E-43 y E-65.',
+             hijos:[
+               {id:'eq-fpas', n:'Asistente o auxiliar de cuentas por pagar', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}, VE:{nombre:'1 persona', estado:'actual'}, CO:{nombre:'1 persona', estado:'actual'}}}
+             ]},
+           {id:'fincontable', n:'Contabilidad y Asuntos Fiscales', nivel:'coord',
+            decisiones:[
+              'Cómo queda Ian Chen, hoy gerente de contabilidad de Panamá: en esta caja, o en la gerencia país que está por definir.',
+              'Si los asuntos fiscales llevan un responsable aparte. Hoy los lleva Contabilidad, y solo Venezuela tiene un asistente de impuestos.'
+            ],
+            paises:{
+              PA:{nombre:'Ian Chen', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es gerente de contabilidad.'},
+              VE:{nombre:'Luis Gutiérrez', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador contable.'},
+              CO:{nombre:'Raúl Rodríguez', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinador contable, con la contadora interna como líder del área.'}
+            },
+            funciones:['Los registros y los cierres contables, los estados financieros y las obligaciones fiscales del país.'],
+            nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 12). Fuentes: E-38, E-44 y E-46.',
+             hijos:[
+               {id:'eq-fccont', n:'Contador(a)', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{PA:{nombre:'2 personas', estado:'actual'}}},
+               {id:'eq-fcana', n:'Analista contable', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{VE:{nombre:'1 persona', estado:'actual'}}},
+               {id:'eq-fcasi', n:'Asistente contable', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'4 personas', estado:'actual'}}},
+               {id:'eq-fcimp', n:'Asistente de impuestos', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'1 persona', estado:'actual'}}},
+               {id:'eq-fcaux', n:'Auxiliar contable', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'3 personas', estado:'actual'}}}
+             ]},
+            {id:'eq-finapr', n:'Aprendiz', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'4 personas', estado:'actual'}}}
+          ]}
       ]
     },
     {
@@ -783,7 +1120,28 @@ window.ESTRUCTURA_TOBE = {
            CO:{nombre:'Por definir', estado:'pordefinir'}
          },
          funciones:['Gestión del talento con el marco laboral de cada país: el especialista local que la normativa exige.'],
-         interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.']}
+         decisiones:[
+           'Validar con María Elvira Sabal el equipo propuesto para cada país.',
+           'Colombia, donde la nómina está tercerizada: si su gerencia país es una persona que acompaña al negocio, en lugar de un área completa.'
+         ],
+         interna:['Coordinaciones híbridas, no una por subespecialidad: evitar áreas separadas de nómina, desarrollo y compensación.'],
+         hijos:[
+           {id:'rhcoord', n:'Coordinación de Recursos Humanos', nivel:'coord',
+            decisiones:[
+              'Confirmar la coordinación híbrida en cada país, que lleva nómina, selección y clima, en lugar de una por subespecialidad.'
+            ],
+            paises:{
+              PA:{nombre:'Catherine Jiménez', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinadora de recursos humanos.'},
+              VE:{nombre:'Mayari Cizmania', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinadora de recursos humanos.'},
+              CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy la administración de personal la lleva Lisseth Masutier, con la nómina en un tercero.'}
+            },
+            funciones:['La administración de personal, la nómina y la selección del país, con el marco laboral local.'],
+            nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 17: coordinación y analista de recursos humanos). Fuentes: E-37, E-46 y E-54.',
+             hijos:[
+               {id:'eq-rhana', n:'Analista de Recursos Humanos o nómina', nivel:'coord', puesto:'ana', etiqueta:'Analista', paises:{VE:{nombre:'2 personas', estado:'actual'}}},
+               {id:'eq-rhasi', n:'Asistente de Recursos Humanos', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{PA:{nombre:'1 persona', estado:'actual'}}}
+             ]}
+         ]}
       ]
     },
     {
@@ -805,7 +1163,8 @@ window.ESTRUCTURA_TOBE = {
       hijos:[
         {id:'ti', n:'Tecnología de Información', nivel:'n3',
          decisiones:[
-           'Quién cubre las coordinaciones de TI de Panamá, que deja Mariela Castro al subir a la gerencia corporativa, y de Colombia.'
+           'Quién cubre las coordinaciones de TI de Panamá, que deja Mariela Castro al subir a la gerencia corporativa, y de Colombia.',
+           'Validar con Mariela Castro el equipo propuesto para cada país. Colombia no tiene hoy a nadie de sistemas en el censo.'
          ],
          paises:{
            PA:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Mariela Castro, que la ocupaba, se propone para la gerencia corporativa.'},
@@ -818,7 +1177,24 @@ window.ESTRUCTURA_TOBE = {
            'La ciberseguridad de la red y de los sistemas del país.',
            'Ejecuta en su país los lineamientos y los controles que fija la gerencia corporativa.'
          ],
-         nota:'Reporta directo a la gerencia corporativa, sin nivel intermedio. Lo que se gobierna una sola vez sube a la gerencia corporativa; la operación queda en cada país. Desde el 16-oct-2026 es coordinación en los tres países, Panamá incluido: la gerencia de la función es la corporativa.'}
+         nota:'Reporta directo a la gerencia corporativa, sin nivel intermedio. Lo que se gobierna una sola vez sube a la gerencia corporativa; la operación queda en cada país. Desde el 16-oct-2026 es coordinación en los tres países, Panamá incluido: la gerencia de la función es la corporativa.',
+         hijos:[
+           {id:'tisoporte', n:'Soporte e Infraestructura', nivel:'coord', etiqueta:'Especialista país',
+            decisiones:[
+              'Si Panamá reúne aquí la infraestructura y la web, que hoy llevan dos especialistas (Rafael Tejada y César Rivodo), y quién da el soporte en Colombia.'
+            ],
+            paises:{
+              PA:{nombre:'Rafael Tejada', estado:'actual', cargo:'Especialista', nota:'Hoy es encargado de redes y soporte técnico.'},
+              VE:{nombre:'Héctor Zapata', estado:'actual', cargo:'Especialista', nota:'Hoy es técnico de sistemas.'},
+              CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Especialista'}
+            },
+            funciones:['El soporte a los usuarios y a las tiendas, la red, los equipos y las conexiones del país.'],
+            nota:'Propuesta sobre el censo y las fichas de personal al 09-nov-2026 y los carriles del To-Be (macro 14: especialista de tecnología, analista de sistemas). Fuentes: E-32 y E-52.',
+             hijos:[
+               {id:'eq-tiaux', n:'Auxiliar técnico', nivel:'coord', puesto:'aux', etiqueta:'Auxiliar', paises:{VE:{nombre:'1 persona', estado:'actual'}}}
+             ]},
+            {id:'eq-tiweb', n:'Especialista web', nivel:'coord', puesto:'sup', etiqueta:'Supervisión', paises:{PA:{nombre:'1 persona', estado:'actual'}}}
+          ]}
       ]
     },
     {
@@ -855,13 +1231,17 @@ window.ESTRUCTURA_TOBE = {
       hijos:[
         {id:'pmopais', n:'PMO', nivel:'n3',
          decisiones:[
-           'Confirmar a Arani González en Venezuela, y decidir si Panamá y Colombia necesitan su propia gerencia país.'
+           'Confirmar a Arani González en Venezuela, y decidir si Panamá y Colombia necesitan su propia gerencia país.',
+           'Si el coordinador de proyectos de Venezuela, Fabián Yndriago, reporta a esta gerencia país o sigue con la gerencia corporativa, como hoy.'
          ],
          paises:{
            VE:{nombre:'Arani González', estado:'propuesto', nota:'Hoy es gerente de proyectos de la PMO y lleva los proyectos de Venezuela.'}
          },
          funciones:['Los proyectos del país, con el método y la cartera que fija la gerencia corporativa de la PMO.'],
-         nota:'Gerencia país desde el 16-oct-2026; antes, gerencia de unidad de negocio. Hoy solo Venezuela la tiene: en los demás países los proyectos los atiende el equipo corporativo.'}
+         nota:'Gerencia país desde el 16-oct-2026; antes, gerencia de unidad de negocio. Hoy solo Venezuela la tiene: en los demás países los proyectos los atiende el equipo corporativo.',
+          hijos:[
+            {id:'eq-pmocoord', n:'Coordinador(a) de proyectos', nivel:'coord', puesto:'coord', etiqueta:'Coordinación', paises:{VE:{nombre:'1 persona', estado:'actual'}}}
+          ]}
       ]
     }
   ],
@@ -1056,6 +1436,8 @@ window.ESTRUCTURA_TOBE = {
   },
 
   PENDIENTES: [
+    {t:'Equipos de las gerencias país', d:'El 09-nov-2026 se dibujó por primera vez la estructura debajo de cada gerencia país, sobre el censo, las fichas de personal, el manual To-Be y las entrevistas. Todo es propuesta y va marcado en rojo: cada dueño de la función valida su equipo, porque en la sesión de estructura del 26-sep se acordó que cada líder estructura el suyo. Falta el criterio común: desde qué tamaño de equipo se justifica una coordinación, que hoy es la duda en Panamá y en Colombia, y el nombre de cada escalón. Las cajas de equipo son los cargos de hoy, con cuántas personas los ocupan y sin nombres; no es una plantilla aprobada.'},
+    {t:'Cargos de hoy sin caja en la propuesta', d:'Quedan sin caja los country managers de Colombia y de Guatemala, la dirección de mercadeo saliente, la gerencia de mercadeo de Casio, la dirección comercial regional de Cubitt, la asistencia de gerencia de Panamá, y los gerentes de área de Venezuela y los líderes de Colombia cuya caja país está por definir. Decidir el lugar de cada uno: es lo que falta para que toda la plantilla actual tenga caja.'},
     {t:'Gerencias país: cabeza país y tamaño', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país, y cuándo una gerencia país basta como coordinación.'},
     {t:'Primera línea: Dirección o Vicepresidencia', d:'Si las direcciones corporativas se denominan Dirección o Vicepresidencia.'},
     {t:'Denominaciones de la estructura patrón', d:'Elegir las denominaciones estándar de los escalones: coordinador, jefe o líder; supervisor o especialista, según se gestione gente o se valore el conocimiento técnico; y si hacen falta los tres niveles de analista. Se trabaja con Desarrollo Corporativo en la reclasificación de cargos.'},

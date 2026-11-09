@@ -16,8 +16,12 @@
 //
 // Gerencias país y coordinaciones país: plegadas son una caja que resume los países
 // (dibujada como una pila, una hoja por país); con «Por país» se abren en una caja por
-// país, con su ocupante y una línea que baja sin caja: el equipo del país queda por
-// desarrollar. Las abiertas se recuerdan en rower.fase2.estructura (expandidas).
+// país, con su ocupante y debajo su equipo; donde no hay equipo, una línea que baja sin caja
+// («equipo por desarrollar»). Las abiertas se recuerdan en rower.fase2.estructura (expandidas).
+//
+// Equipos (09-nov-2026): unidades nivel 'coord' con puesto:'coord|sup|ana|aux|ope': el cargo de
+// hoy y cuántas personas lo ocupan. Cuelgan en árbol de su jefe (arbolDe) y heredan sus
+// decisiones (listaDec).
 // La rueda del mouse acerca y aleja; para moverse se arrastra.
 //
 // Consejos y comités: no se dibujan en el lienzo (al pie se perdían de vista). Van en
@@ -26,6 +30,12 @@
 //
 // Vista «Capas» (#/estructura/capas): la lógica de conformación sin unidades
 // ni ocupantes, para explicarla antes del organigrama. Sale de E.CAPAS.
+//
+// Panel de capas (09-nov-2026): acoplado a la izquierda del lienzo, dice en qué capa está
+// quien recorre el mapa: la de la caja más cercana al centro de la pantalla. Se recalcula
+// con cada movimiento de la cámara y, al pulsar una capa, la cámara va a ella. Se define
+// aquí y no en el dato a propósito: tocar estructura-tobe-datos.js cambia su huella y deja
+// sin efecto las versiones de la estructura publicadas en la plataforma.
 //
 // API: EstructuraRender.montar(section) · .abrir(id) · .premisas(pestaña) · .capas() · .cerrar() · .rehacer()
 (function(){
@@ -154,7 +164,7 @@
             '<div class="eo-rcab' + (lateral(cab).length ? ' eo-rcab-lat' : '') + '">' + caja(cab, "eo-c-n2 eo-c-jefe", tagNivel(cab)) + enLineaDir(cab) + '</div>';
     for(var i = 0; i < n; i++){
       var g = sc[k + i].rama;
-      h += '<div class="eo-rama" style="grid-column:' + (i + 1) + '">' + caja(g, "eo-c-n2", tagNivel(g)) + '</div>';
+      h += '<div class="eo-rama" style="grid-column:' + (i + 1) + '">' + caja(g, "eo-c-n2", tagNivel(g)) + arbolDe(g) + '</div>';
     }
     return h + '</div>';
   }
@@ -164,7 +174,7 @@
   function lateral(dr){ return (dr.hijos || []).filter(function(h){ return h.enLinea; }); }
   function enLineaDir(dr){
     var hs = lateral(dr);
-    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return caja(h, "eo-c-n2", tagNivel(h)); }).join("") + '</div>' : '';
+    return hs.length ? '<div class="eo-dirlinea">' + hs.map(function(h){ return '<div class="eo-dlcol">' + caja(h, "eo-c-n2", tagNivel(h)) + arbolDe(h) + '</div>'; }).join("") + '</div>' : '';
   }
 
   // ------------------------------------------------------------------ cajas
@@ -187,13 +197,41 @@
     if(d.nivel === "staff") return d.etiqueta !== undefined ? d.etiqueta : "Staff de la Presidencia";
     return "";
   }
-  // decisiones por tomar (06-nov-2026): la caja se marca en rojo y lleva un distintivo
-  function decide(d){ return !!(d && d.decisiones && d.decisiones.length); }
+  // decisiones por tomar (06-nov-2026): la caja lleva un distintivo rojo
+  // Una caja de equipo (puesto) no lleva decisiones propias salvo que las tenga: hereda las de
+  // la unidad de la que cuelga, que es quien decide cómo se arma ese equipo.
+  function listaDec(d){
+    if(!d) return [];
+    if(d.decisiones && d.decisiones.length) return d.decisiones;
+    var n = NODOS[d.id];
+    if(n && n.d.puesto){ var p = NODOS[n.padre]; while(p){ if(p.d.decisiones && p.d.decisiones.length) return p.d.decisiones; p = NODOS[p.padre]; } }
+    return [];
+  }
+  function decide(d){ return listaDec(d).length > 0; }
+  // Aprobación (09-nov-2026): la aureola de la caja dice si esa parte de la estructura ya se
+  // aprobó. Va por capa: las direcciones y las gerencias corporativas sí; lo que está debajo,
+  // no. También están aprobadas las unidades de la Presidencia (Asistencia Ejecutiva y
+  // Consultoría Jurídica). Las direcciones de RAMAS_SIN_APROBAR aún no, con todo lo que cuelga
+  // de ellas. La Presidencia y la Junta no llevan aureola. Se define aquí y no en el dato para
+  // no cambiar la huella de estructura-tobe-datos.js. Cuando se apruebe otra capa, se añade su
+  // nivel a CAPAS_APROBADAS; cuando se apruebe una rama, se quita de RAMAS_SIN_APROBAR.
+  var CAPAS_APROBADAS = ["n2"];
+  var RAMAS_SIN_APROBAR = ["marca"];
+  function aprobacion(d){
+    var n = d && NODOS[d.id];
+    if(!n) return "";
+    if(!n.dir) return n.padre === E.CEO.id ? "si" : "";
+    if(RAMAS_SIN_APROBAR.indexOf(n.dir) >= 0) return "no";
+    return n.dir === d.id || CAPAS_APROBADAS.indexOf(d.nivel) >= 0 ? "si" : "no";
+  }
+  var TXT_APROB = {si:"Esta parte de la estructura ya está aprobada", no:"Esta parte de la estructura aún no está aprobada"};
+  function claseAprob(d){ var a = aprobacion(d); return a ? " eo-ap-" + a : ""; }
   function marcaDecide(d){
-    return decide(d) ? '<span class="eo-dec" title="' + esc(d.decisiones.join(" · ")) + '"><i aria-hidden="true">!</i>Decisión por tomar</span>' : '';
+    return decide(d) ? '<span class="eo-dec" title="' + esc(listaDec(d).join(" · ")) + '"><i aria-hidden="true">!</i>Decisión por tomar</span>' : '';
   }
   function caja(d, clase, extraTag){
-    var h = '<button type="button" class="eo-card ' + clase + (decide(d) ? ' eo-decide' : '') + '" data-id="' + esc(d.id) + '" aria-haspopup="dialog">';
+    var a = aprobacion(d);
+    var h = '<button type="button" class="eo-card ' + clase + (decide(d) ? ' eo-decide' : '') + claseAprob(d) + '" data-id="' + esc(d.id) + '" aria-haspopup="dialog"' + (a ? ' title="' + esc(TXT_APROB[a]) + '"' : '') + '>';
     h += marcaDecide(d);
     h += '<span class="eo-tag">' + esc(extraTag || "") + '</span>';
     h += '<span class="eo-ttl">' + esc(d.n) + '</span>';
@@ -240,23 +278,35 @@
   function cajaPais(k){
     var ps = paisesDe(k), np = ps.length;
     var coords = (k.hijos || []).filter(function(x){ return x.nivel === "coord"; });
-    if(EXP[k.id] && np) return cajaPaisAbierta(k, ps, coords);
+    if(EXP[k.id] && np) return cajaPaisAbierta(k, ps);
     var h = '<div class="eo-pwrap">' + caja(k, "eo-c-n3 eo-pila-" + Math.min(np, 4), "Gerencia país · " + np + (np === 1 ? " país" : " países")) +
             (np > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(k.id) + '" aria-expanded="false" title="Ver una caja por país">' +
                       '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
     // Dos o más coordinaciones país (06-nov-2026, Mercadeo país): van en fila debajo de
     // la gerencia país, cada una con su línea desde ella, y no apiladas con sangría.
+    // Debajo de cada una, su equipo en árbol (arbolDe).
     var fila = coords.length > 1;
     if(fila) h += '<div class="eo-pcoords">';
     coords.forEach(function(x){
-      var px = paisesDe(x);
-      if(EXP[x.id] && px.length){ h += cajaPaisAbierta(x, px, [], true); return; }
-      h += '<div class="eo-pwrap eo-pwrap-coord">' + caja(x, "eo-c-n3 eo-c-coord eo-pila-" + Math.min(px.length, 4), "Coordinación país") +
+      var px = paisesDe(x), item;
+      if(x.puesto) item = caja(x, "eo-c-puesto", x.etiqueta || "") + arbolDe(x);
+      else if(EXP[x.id] && px.length) item = cajaPaisAbierta(x, px, true);
+      else item = '<div class="eo-pwrap eo-pwrap-coord">' + caja(x, "eo-c-n3 eo-c-coord eo-pila-" + Math.min(px.length, 4), x.etiqueta || "Coordinación país") +
            (px.length > 1 ? '<button type="button" class="eo-pexp" data-exp="' + esc(x.id) + '" aria-expanded="false" title="Ver una caja por país">' +
-                            '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>';
+                            '<i aria-hidden="true">⊞</i>Por país</button>' : '') + '</div>' + arbolDe(x);
+      h += fila ? '<div class="eo-eqcol">' + item + '</div>' : item;
     });
     if(fila) h += '</div>';
     return h;
+  }
+  // El equipo de una unidad (09-nov-2026): los cargos de hoy, cada uno con su caja, colgando de
+  // quien corresponde. En el dato son unidades con puesto:'sup|ana|aux|ope|coord'.
+  function arbolDe(n){
+    var hs = (n.hijos || []).filter(function(x){ return x.puesto; });
+    if(!hs.length) return "";
+    return '<div class="eo-arbol">' + hs.map(function(x){
+      return '<div class="eo-arbol-n">' + caja(x, "eo-c-puesto", x.etiqueta || "") + arbolDe(x) + '</div>';
+    }).join("") + '</div>';
   }
   // Ancho que pide la fila de coordinaciones de una gerencia país plegada
   var ANCHO_COORD = 196, HUECO_COORD = 14;
@@ -266,26 +316,35 @@
     return cs.reduce(function(w, x){ return w + (EXP[x.id] && paisesDe(x).length ? anchoAbierta(x) : ANCHO_COORD); }, 0) + (cs.length - 1) * HUECO_COORD;
   }
   function cargoPais(o){ return o.cargo && o.cargo !== "Gerencia" ? o.cargo + " país" : "Gerencia país"; }
-  function cajaPaisAbierta(k, ps, coords, esCoord){
+  // Una caja por país: la unidad y, debajo, su equipo en ese país, con más sangría a cada nivel.
+  function cajaEnPais(x, pais, prof){
+    var c = x.paises && x.paises[pais]; if(!c) return "";
+    var mg = 26 + (prof - 1) * 14;
+    var h = '<button type="button" class="eo-card eo-c-n3 eo-c-pp ' + (x.puesto ? 'eo-c-puesto' : 'eo-c-coord') + (decide(x) ? ' eo-decide' : '') + claseAprob(x) +
+            '" style="margin-left:' + mg + 'px;width:calc(100% - ' + mg + 'px)" data-id="' + esc(x.id) + '" data-pais="' + esc(pais) + '" aria-haspopup="dialog">' +
+            marcaDecide(x) + '<span class="eo-tag">' + esc(x.etiqueta || "Coordinación país") + '</span><span class="eo-ttl">' + esc(x.n) + '</span>' + lineaOcupante(c) + '</button>';
+    (x.hijos || []).forEach(function(k){ if(k.nivel === "coord") h += cajaEnPais(k, pais, prof + 1); });
+    return h;
+  }
+  function cajaPaisAbierta(k, ps, esCoord){
     var h = '<div class="eo-pexpand' + (esCoord ? ' eo-pexpand-coord' : '') + '" style="width:' + anchoAbierta(k) + 'px">' +
-            '<button type="button" class="eo-pcab" data-exp="' + esc(k.id) + '" data-ancla="' + esc(k.id) + '" aria-expanded="true" title="Volver a una sola caja">' +
+            '<button type="button" class="eo-pcab' + claseAprob(k) + '" data-exp="' + esc(k.id) + '" data-ancla="' + esc(k.id) + '" aria-expanded="true" title="Volver a una sola caja">' +
               '<b>' + esc(k.n) + '</b><span>' + ps.length + (esCoord ? ' coordinaciones país' : ' gerencias país') + '</span><i aria-hidden="true">⊟</i></button>' +
             '<div class="eo-pfila">';
     ps.forEach(function(p){
       var o = k.paises[p.id];
       h += '<div class="eo-pcol">' +
-             '<button type="button" class="eo-card eo-c-n3 eo-c-pp' + (esCoord ? ' eo-c-pcoord' : '') + '" data-id="' + esc(k.id) + '" data-pais="' + esc(p.id) + '" aria-haspopup="dialog" title="' + esc(p.n + " — " + o.nombre) + '">' +
-               '<span class="eo-tag">' + esc(esCoord ? "Coordinación país" : cargoPais(o)) + '</span>' +
+             '<button type="button" class="eo-card eo-c-n3 eo-c-pp' + (esCoord ? ' eo-c-pcoord' : '') + (decide(k) ? ' eo-decide' : '') + claseAprob(k) + '" data-id="' + esc(k.id) + '" data-pais="' + esc(p.id) + '" aria-haspopup="dialog" title="' + esc(p.n + " — " + o.nombre) + '">' +
+               marcaDecide(k) +
+               '<span class="eo-tag">' + esc(esCoord ? (k.etiqueta || "Coordinación país") : cargoPais(o)) + '</span>' +
                '<span class="eo-ttl">' + esc(k.n) + '</span>' +
                '<span class="eo-ppais"><b class="eo-pcod">' + esc(p.id) + '</b>' + esc(p.n) + '</span>' +
                lineaOcupante(o) +
              '</button>';
-      coords.forEach(function(x){
-        var c = x.paises && x.paises[p.id]; if(!c) return;
-        h += '<button type="button" class="eo-card eo-c-n3 eo-c-coord eo-c-pp" data-id="' + esc(x.id) + '" data-pais="' + esc(p.id) + '" aria-haspopup="dialog">' +
-               '<span class="eo-tag">Coordinación país</span><span class="eo-ttl">' + esc(x.n) + '</span>' + lineaOcupante(c) + '</button>';
-      });
-      h += '<span class="eo-pstub" aria-hidden="true"></span><span class="eo-pstubtxt">equipo por desarrollar</span></div>';
+      var dentro = "";
+      (k.hijos || []).forEach(function(x){ if(x.nivel === "coord") dentro += cajaEnPais(x, p.id, 1); });
+      h += dentro || '<span class="eo-pstub" aria-hidden="true"></span><span class="eo-pstubtxt">equipo por desarrollar</span>';
+      h += '</div>';
     });
     return h + '</div></div>';
   }
@@ -306,7 +365,7 @@
     maquetar(); trazar();
     if(!panel.hidden && actual) marcar(actual);
   }
-  function unidadesPais(){ return Object.keys(NODOS).filter(function(id){ var d = NODOS[id].d; return (d.nivel === "n3" || d.nivel === "coord") && paisesDe(d).length > 1; }); }
+  function unidadesPais(){ return Object.keys(NODOS).filter(function(id){ var d = NODOS[id].d; return (d.nivel === "n3" || d.nivel === "coord") && !d.puesto && paisesDe(d).length > 1; }); }
   function actualizarTodas(){
     var b = host.querySelector("#eoExpTodas"); if(!b) return;
     var todas = unidadesPais(), abiertas = todas.filter(function(id){ return EXP[id]; }).length;
@@ -345,6 +404,7 @@
          '</div>';
     h += '<div class="eo-capas" id="eoCapas" hidden></div>';
     h += '<div class="eo-vp" id="eoVp"><div class="eo-world" id="eoWorld"><div class="eo-lienzo" id="eoLienzo"></div></div></div>';
+    h += capasPanelHtml();
     h += '<div class="mp-zoom eo-zoom">' +
            '<button id="eoZin" aria-label="Acercar">+</button>' +
            '<button id="eoZout" aria-label="Alejar">−</button>' +
@@ -384,6 +444,7 @@
     montarLeyenda(pref);
     montarCogob(pref);
     medirBarra();
+    montarCapasPanel(pref);
 
     // preferencias de vista
     aplicarToggle("eoOcup", pref.ocupantes !== false, "eo-sinocup", true);
@@ -445,11 +506,14 @@
          '<span><i class="eo-lsw eo-sw-staff"></i>Staff</span>' +
          '<span><i class="eo-lsw eo-sw-pun"></i>Gobierno y staff: sin mando</span>' +
          '<span><i class="eo-lsw eo-sw-stub"></i>Línea sin caja: equipo por desarrollar</span>' +
+         '<span><i class="eo-lsw eo-sw-ap-si"></i>Estructura aprobada</span>' +
+         '<span><i class="eo-lsw eo-sw-ap-no"></i>Estructura aún sin aprobar</span>' +
          '<span><i class="eo-lsw eo-sw-dec"></i>Decisión por tomar</span>' +
          '</div>';
   }
   function montarLeyenda(pref){
     var ley = host.querySelector("#eoLey"), asa = host.querySelector("#eoLeyAsa"), btn = host.querySelector("#eoLeyBtn");
+    var movida = !!pref.ley;   // quien la movió manda; si no, sigue la posición por defecto
     function ver(on){
       ley.hidden = !on; btn.setAttribute("aria-pressed", String(on));
       var p = leerPref(); p.leyOculta = !on; guardarPref(p);
@@ -458,9 +522,13 @@
     // dentro de la vista, bajo la barra; nunca fuera de lo visible
     function encajar(){
       var bar = host.querySelector(".eo-bar"), top0 = bar ? bar.offsetHeight + 8 : 8;
-      var maxX = Math.max(8, host.clientWidth - ley.offsetWidth - 8), maxY = Math.max(top0, host.clientHeight - ley.offsetHeight - 8);
-      var x = Math.min(Math.max(8, parseFloat(ley.style.left) || 16), maxX);
-      var y = Math.min(Math.max(top0, parseFloat(ley.style.top) || top0 + 8), maxY);
+      // el panel de capas ocupa el costado izquierdo: la leyenda no se mete debajo. Sin una
+      // posición elegida va bajo la fila de «Consejos y comités», para no chocar a ningún ancho.
+      var minX = (vp ? vp.offsetLeft : 0) + 8;
+      if(!movida){ ley.style.left = ""; ley.style.top = ""; }
+      var maxX = Math.max(minX, host.clientWidth - ley.offsetWidth - 8), maxY = Math.max(top0, host.clientHeight - ley.offsetHeight - 8);
+      var x = Math.min(Math.max(minX, parseFloat(ley.style.left) || minX + 8), maxX);
+      var y = Math.min(Math.max(top0, parseFloat(ley.style.top) || top0 + 46), maxY);
       ley.style.left = x + "px"; ley.style.top = y + "px";
     }
     if(pref.ley){ ley.style.left = pref.ley.x + "px"; ley.style.top = pref.ley.y + "px"; }
@@ -470,7 +538,7 @@
     var arr = null;
     asa.addEventListener("pointerdown", function(e){
       if(e.target.closest("button")) return;
-      arr = {x:e.clientX - ley.offsetLeft, y:e.clientY - ley.offsetTop};
+      arr = {x:e.clientX - ley.offsetLeft, y:e.clientY - ley.offsetTop}; movida = true;
       asa.setPointerCapture(e.pointerId); ley.classList.add("eo-ley-arrastra"); e.preventDefault();
     });
     asa.addEventListener("pointermove", function(e){
@@ -485,7 +553,7 @@
     // con el teclado: flechas sobre la cabecera la mueven
     asa.addEventListener("keydown", function(e){
       var d = {ArrowLeft:[-20,0], ArrowRight:[20,0], ArrowUp:[0,-20], ArrowDown:[0,20]}[e.key]; if(!d) return;
-      e.preventDefault(); ley.style.left = (ley.offsetLeft + d[0]) + "px"; ley.style.top = (ley.offsetTop + d[1]) + "px"; encajar();
+      e.preventDefault(); movida = true; ley.style.left = (ley.offsetLeft + d[0]) + "px"; ley.style.top = (ley.offsetTop + d[1]) + "px"; encajar();
       var p = leerPref(); p.ley = {x:ley.offsetLeft, y:ley.offsetTop}; guardarPref(p);
     });
     leyActual = { ley: ley, encajar: encajar };
@@ -503,6 +571,173 @@
     if(barObs) barObs.disconnect();
     if(window.ResizeObserver){ barObs = new ResizeObserver(fijar); barObs.observe(bar); }
     fijar();
+  }
+
+  // ------------------------------------------------------ panel de capas
+  // Las capas tal como se ven de arriba abajo en el mapa, con los dos rótulos que el propio
+  // lienzo usa. Son más que las siete de la vista «Capas» porque las cajas de coordinación
+  // llevan ese rótulo y el panel tiene que coincidir con lo que dice la caja.
+  var CN_GRUPOS = [
+    {capas:["gobierno", "presidencia"]},
+    {t:"Capa corporativa", capas:["n1", "n2", "gun", "ccorp"]},
+    {t:"Capa país", capas:["n3", "coord"]},
+    {t:"Equipos", capas:["sup", "ana", "aux", "ope", "equipos"]}
+  ];
+  var CN_PROPIAS = {
+    ccorp:{n:"Coordinaciones corporativas", verbo:"Llevan una especialidad dentro de su gerencia"},
+    coord:{n:"Coordinaciones y jefaturas", verbo:"Conducen cada función"},
+    sup:{n:"Supervisores y especialistas", verbo:"Lideran un turno o una especialidad"},
+    ana:{n:"Analistas", verbo:"Hacen el trabajo técnico y profesional"},
+    aux:{n:"Auxiliares", verbo:"Apoyan y atienden: asesores, cajeros, asistentes"},
+    ope:{n:"Operarios", verbo:"Hacen el trabajo físico"},
+    equipos:{n:"Equipos por desarrollar", verbo:"Aún sin dibujar"}
+  };
+  var CN_SIN = "Aún no se ve en el mapa: despliégala con el botón + de las cajas.";
+  var CN_SIN_EQUIPOS = "Se ve al abrir una unidad «Por país» donde ese país aún no tiene equipo dibujado.";
+  var cnCajas = [], cnClave = null, cnPend = false;
+
+  function capaInfo(id){
+    if(CN_PROPIAS[id]) return CN_PROPIAS[id];
+    var c = ((E.CAPAS && E.CAPAS.lista) || []).filter(function(x){ return x.id === id; })[0] || {};
+    var nv = (E.NIVELES || []).filter(function(x){ return x.id === id; })[0];
+    var FIJOS = {gobierno:"Gobierno", presidencia:"Presidencia", n1:"Direcciones corporativas", n2:"Gerencias corporativas",
+                 gun:"Gerencias de unidad de negocio", n3:"Gerencias país", equipos:"Equipos"};
+    return {n:c.n || (nv && nv.n) || FIJOS[id], verbo:c.verbo || ""};
+  }
+  // La capa de una unidad. La que va sobre la línea de su jefe se lee en la fila de él: es
+  // donde está dibujada, y así el panel nunca salta hacia atrás al ir bajando.
+  function capaDe(id){
+    var n = NODOS[id]; if(!n || n.comite || n.consejo) return null;
+    if(n.d.puesto) return n.d.puesto;
+    if(n.gob) return "gobierno";
+    if(id === E.CEO.id || !n.dir) return "presidencia";
+    if(n.d.enLinea) return capaDe(n.padre);
+    if(n.dir === id) return n.d.nivel === "n2" ? "n2" : "n1";
+    return CN_GRUPOS.some(function(g){ return g.capas.indexOf(n.d.nivel) >= 0; }) ? n.d.nivel : null;
+  }
+  function capasPanelHtml(){
+    var h = '<nav class="eo-cn" id="eoCn" aria-label="Capas de la estructura">' +
+            '<div class="eo-cncab"><div class="eo-cnest" aria-live="off"><span class="eo-cnrot">Estás en</span>' +
+            '<b id="eoCnNom"></b><span class="eo-cnverbo" id="eoCnVerbo"></span></div>' +
+            '<button type="button" class="eo-cnx" id="eoCnX"></button></div><div class="eo-cnlista">';
+    CN_GRUPOS.forEach(function(g){
+      if(g.t) h += '<div class="eo-cngrupo">' + esc(g.t) + '</div>';
+      g.capas.forEach(function(id){
+        h += '<button type="button" class="eo-cnfila" data-capa="' + id + '"><i class="eo-cndot" aria-hidden="true"></i>' +
+             '<span class="eo-cnnom">' + esc(capaInfo(id).n) + '</span></button>';
+      });
+    });
+    return h + '</div></nav><div class="eo-cnchip" id="eoCnChip" aria-hidden="true"></div>';
+  }
+  function montarCapasPanel(pref){
+    var x = host.querySelector("#eoCnX");
+    cnCajas = []; cnClave = null;
+    compactarCapas(pref.capasCompacto !== undefined ? pref.capasCompacto : !!(window.matchMedia && matchMedia("(max-width:820px)").matches));
+    x.addEventListener("click", function(){
+      var on = !host.classList.contains("eo-cn-compacto");
+      compactarCapas(on);
+      var p = leerPref(); p.capasCompacto = on; guardarPref(p);
+      pedirCapas();
+    });
+    host.querySelector("#eoCn").addEventListener("click", function(e){
+      var f = e.target.closest("[data-capa]");
+      if(f && f.getAttribute("aria-disabled") !== "true") irACapa(f.getAttribute("data-capa"));
+    });
+  }
+  // El mapa se queda donde está en la pantalla aunque el panel cambie de ancho.
+  function compactarCapas(on){
+    var antes = vp.getBoundingClientRect().left;
+    host.classList.toggle("eo-cn-compacto", on);
+    var x = host.querySelector("#eoCnX");
+    x.textContent = on ? "›" : "‹";
+    x.setAttribute("aria-expanded", String(!on));
+    x.setAttribute("aria-label", on ? "Expandir el panel de capas" : "Contraer el panel de capas");
+    x.title = x.getAttribute("aria-label");
+    cam.x += antes - vp.getBoundingClientRect().left;
+    aplicar();
+    if(leyActual && !leyActual.ley.hidden) leyActual.encajar();
+  }
+  // Se mide al trazar, que es cuando cambia lo dibujado; moverse solo necesita la cámara.
+  function medirCapas(){
+    cnCajas = [];
+    lienzo.querySelectorAll(".eo-card,[data-ancla],.eo-pstub").forEach(function(el){
+      var capa = el.classList.contains("eo-pstub") ? "equipos" : capaDe(el.getAttribute("data-ancla") || el.getAttribute("data-id"));
+      if(!capa) return;
+      var b = caja2(el); b.capa = capa; cnCajas.push(b);
+    });
+    cnClave = null;
+    pintarCapas();
+  }
+  function pedirCapas(){
+    if(cnPend) return;
+    cnPend = true;
+    requestAnimationFrame(function(){ cnPend = false; pintarCapas(); });
+  }
+  // lo que deja libre la ficha, en coordenadas de la pantalla del mapa
+  function vistaLibre(){
+    var w = vp.clientWidth, h = vp.clientHeight;
+    if(panel && !panel.hidden && panel.offsetWidth < w * .8) w -= panel.offsetWidth + 16;
+    return {w:w, h:h};
+  }
+  function pintarCapas(){
+    if(!host || host.hidden || !vp || !vp.clientWidth || !cnCajas.length) return;
+    var v = vistaLibre(), s = cam.s;
+    var x0 = -cam.x / s, x1 = (v.w - cam.x) / s, y0 = -cam.y / s, y1 = (v.h - cam.y) / s;
+    var cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    var hay = {}, vista = {}, mejor = null, mejorV = null, cerca = null;
+    cnCajas.forEach(function(b){
+      hay[b.capa] = true;
+      // manda la altura: se pregunta por qué tan abajo se está, no por qué columna. Una caja a la
+      // altura del centro gana a la de la columna en que se está si esa queda más arriba.
+      var dy = Math.max(0, b.y - cy, cy - (b.y + b.h)), dx = Math.max(0, b.x - cx, cx - (b.x + b.w)), d = dy * 50 + dx;
+      if(!mejor || d < mejor.d) mejor = {capa:b.capa, d:d};
+      if(b.x < x1 && b.x + b.w > x0 && b.y < y1 && b.y + b.h > y0){
+        vista[b.capa] = true;
+        if(!mejorV || d < mejorV.d) mejorV = {capa:b.capa, d:d};
+        // en el hueco entre dos cajas de la columna en que se está, sigue contando esa columna:
+        // si no, una caja de otra columna a esa altura hace parpadear el panel
+        if(dx <= 130 && dy <= 44 && (!cerca || d < cerca.d)) cerca = {capa:b.capa, d:d};
+      }
+    });
+    var actualCapa = (cerca || mejorV || mejor).capa;
+    var clave = actualCapa + "|" + Object.keys(hay).sort().join() + "|" + Object.keys(vista).sort().join();
+    if(clave === cnClave) return;
+    cnClave = clave;
+    host.querySelectorAll(".eo-cnfila").forEach(function(f){
+      var id = f.getAttribute("data-capa"), sin = !hay[id], info = capaInfo(id);
+      f.classList.toggle("es-actual", id === actualCapa);
+      f.classList.toggle("es-vista", !!vista[id]);
+      f.classList.toggle("es-sin", sin);
+      if(id === actualCapa) f.setAttribute("aria-current", "true"); else f.removeAttribute("aria-current");
+      f.setAttribute("aria-disabled", String(sin));
+      f.title = sin ? info.n + ". " + (id === "equipos" ? CN_SIN_EQUIPOS : CN_SIN) : "Ir a " + info.n + (info.verbo ? ". " + info.verbo : "");
+    });
+    // en una pantalla baja la lista se desplaza para que la fila activa nunca quede fuera de vista
+    var lista = host.querySelector(".eo-cnlista"), fa = host.querySelector(".eo-cnfila.es-actual");
+    if(lista && fa){
+      var lr = lista.getBoundingClientRect(), fr = fa.getBoundingClientRect();
+      if(fr.bottom > lr.bottom) lista.scrollTop += fr.bottom - lr.bottom + 8;
+      else if(fr.top < lr.top) lista.scrollTop -= lr.top - fr.top + 8;
+    }
+    var ac = capaInfo(actualCapa);
+    host.querySelector("#eoCnNom").textContent = ac.n;
+    host.querySelector("#eoCnVerbo").textContent = ac.verbo;
+    host.querySelector("#eoCnChip").textContent = ac.n;
+  }
+  // Va a la caja de esa capa más cercana a la columna en que se está, a un tamaño legible.
+  function irACapa(capa){
+    var v = vistaLibre(), cx = (v.w / 2 - cam.x) / cam.s, cy = (v.h / 2 - cam.y) / cam.s, b = null, mejor = Infinity;
+    cnCajas.forEach(function(k){
+      if(k.capa !== capa) return;
+      var d = Math.abs(k.x + k.w / 2 - cx) + Math.abs(k.y + k.h / 2 - cy) * .2;
+      if(d < mejor){ mejor = d; b = k; }
+    });
+    if(!b) return;
+    cam.s = Math.max(cam.s, .7);
+    cam.x = v.w / 2 - (b.x + b.w / 2) * cam.s;
+    cam.y = v.h / 2 - (b.y + b.h / 2) * cam.s;
+    suavizarCamara();
+    aplicar();
   }
 
   // Consejos y comités: flotante desplegable en la parte superior de la vista.
@@ -552,15 +787,17 @@
   function podar(F){
     var c = {}; for(var k in F) c[k] = F[k];
     var abre = !!DESP[F.CEO.id];
-    function u(x){
+    // abrir una unidad por país muestra su equipo completo en cada país
+    function u(x, abierta){
       var y = {}; for(var k in x) y[k] = x[k];
+      abierta = abierta || !!EXP[x.id];
       if(x.hijos){
         if(x.hijos.some(function(h){ return h.nivel === "n3"; })) y._conN3 = true;
-        y.hijos = DESP[x.id] ? x.hijos.map(u) : [];
+        y.hijos = (DESP[x.id] || abierta) ? x.hijos.map(function(h){ return u(h, abierta); }) : [];
       }
       return y;
     }
-    c.DIRECCIONES = abre ? F.DIRECCIONES.map(u) : [];
+    c.DIRECCIONES = abre ? F.DIRECCIONES.map(function(d){ return u(d, false); }) : [];
     c.STAFF = abre ? F.STAFF : [];
     c.GOBIERNO = abre ? F.GOBIERNO : [];
     return c;
@@ -591,7 +828,7 @@
     NEG.forEach(function(dr){ var sc = subcolumnas(dr); cols.push(sc); total += sc.length; });
     // staff: una columna por dirección, en el orden del dato salvo la de más
     // dependencias, que va al final, junto a la línea de la Presidencia
-    var cuantas = function(d){ var n = 0, f = NODOS[d.id] ? NODOS[d.id].d : d; (function k(hs){ (hs || []).forEach(function(x){ n++; k(x.hijos); }); })(f.hijos); return n; };
+    var cuantas = function(d){ var n = 0, f = NODOS[d.id] ? NODOS[d.id].d : d; (function k(hs){ (hs || []).forEach(function(x){ if(x.puesto) return; n++; k(x.hijos); }); })(f.hijos); return n; };
     var mayor = STF.slice().sort(function(a, b){ return cuantas(b) - cuantas(a); })[0];
     STF = STF.filter(function(d){ return d !== mayor; }).concat(mayor ? [mayor] : []);
     var colsS = STF.map(subcolumnas), nS = 0;
@@ -601,7 +838,9 @@
     // por país y no cabe; esa columna (la última de su celda) se ensancha.
     var COL = parseFloat(getComputedStyle(host).getPropertyValue("--eo-col")) || 236, GAP = 14;
     var anchos = [];
-    for(var ci = 1; ci < nFin; ci++) anchos[ci] = ci === hueco ? 64 : COL;
+    // sin nada desplegado la Presidencia va sola: el eje tiene que dar cabida a su caja
+    var soloCima = !nS && !total;
+    for(var ci = 1; ci < nFin; ci++) anchos[ci] = ci === hueco ? (soloCima ? 420 : 64) : COL;
     var pide = function(unidades, col, span){
       var w = 0;
       unidades.forEach(function(k){
@@ -667,7 +906,7 @@
         h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">' +
                s.n2.map(function(n, j){
                  if(n === dr) return caja(n, "eo-c-n2 eo-c-gstaff" + (n.hijos && n.hijos.length ? " eo-c-jefe" : ""), "Staff · Gerencia corporativa");
-                 return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n));
+                 return caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (j === 0 && n.hijos && n.hijos.length ? " eo-c-jefe" : ""), tagNivel(n)) + arbolDe(n);
                }).join("") + '</div>';
         pide(s.n3, c + k, 1);
         h += '<div class="eo-celda eo-c3" style="grid-row:' + R.n3 + ';grid-column:' + (c + k) + '">' +
@@ -690,7 +929,7 @@
           h += '<div class="eo-celda eo-c2" style="grid-row:' + R.n2 + ';grid-column:' + (c + k) + '">';
           s.n2.forEach(function(n, j){
             var jefe = (j === 0 && n.hijos && n.hijos.length);
-            h += caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (jefe ? " eo-c-jefe" : ""), tagNivel(n));
+            h += caja(n, "eo-c-n2" + (n.nivel === "ccorp" ? " eo-c-ccorp" : "") + (jefe ? " eo-c-jefe" : ""), tagNivel(n)) + arbolDe(n);
           });
           h += '</div>';
         }
@@ -889,10 +1128,16 @@
         return;
       }
       if(a.tipo !== "linea") return;
-      if(B.closest(".eo-pcoords")){
+      if(B.closest(".eo-pcoords") && NODOS[a.de].d.nivel === "n3"){
         // coordinaciones en fila: peine desde el centro de la gerencia país
         var qx = pa.x + pa.w / 2, qy = pb.y - 13, ux = pb.x + pb.w / 2;
         ruta("M" + qx + "," + (pa.y + pa.h) + " V" + qy + " H" + ux + " V" + pb.y, "eo-h-linea");
+        return;
+      }
+      if(NODOS[a.a].d.puesto){
+        // equipo en árbol: un riel por el margen izquierdo del jefe, que entra por el costado
+        var rx = pa.x + 9, my = pb.y + pb.h / 2;
+        ruta("M" + rx + "," + (pa.y + pa.h) + " V" + my + " H" + pb.x, "eo-h-linea");
         return;
       }
       if(NODOS[a.a].d.nivel === "coord" && !B.hasAttribute("data-ancla")){
@@ -943,17 +1188,28 @@
       xs.forEach(function(x, i){ ruta("M" + x + "," + by + " V" + tops[i].y, "eo-h-linea"); });
       [].forEach.call(cols, function(col){
         var cs = col.querySelectorAll(".eo-card"); if(cs.length < 2) return;
-        var g = caja2(cs[0]);
-        for(var i = 1; i < cs.length; i++){ var b = caja2(cs[i]); ruta("M" + (b.x + 28) + "," + (g.y + g.h) + " V" + b.y, "eo-h-linea"); }
+        // cada caja cuelga de su jefe dentro de la columna de su país
+        for(var i = 1; i < cs.length; i++){
+          var nd = NODOS[cs[i].getAttribute("data-id")], jefe = null;
+          for(var q = i - 1; q >= 0 && !jefe; q--) if(nd && cs[q].getAttribute("data-id") === nd.padre) jefe = cs[q];
+          var g = caja2(jefe || cs[0]), b = caja2(cs[i]);
+          ruta("M" + (g.x + 9) + "," + (g.y + g.h) + " V" + (b.y + b.h / 2) + " H" + b.x, "eo-h-linea");
+        }
       });
     });
     botonesNivel();
+    medirCapas();
   }
   function ruta(d, clase){ svgEl("path", {d:d, "class":clase}, svg); }
 
   // ---------------------------------------------------------------- cámara
   var arrastro = false;
-  function aplicar(){ world.style.transform = "translate(" + cam.x + "px," + cam.y + "px) scale(" + cam.s + ")"; }
+  function aplicar(){ world.style.transform = "translate(" + cam.x + "px," + cam.y + "px) scale(" + cam.s + ")"; pedirCapas(); }
+  function suavizarCamara(){
+    if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    world.style.transition = "transform .45s ease";
+    clearTimeout(suavizarCamara.t); suavizarCamara.t = setTimeout(function(){ world.style.transition = ""; }, 500);
+  }
   function ajustar(){
     var W = lienzo.scrollWidth, r = vp.getBoundingClientRect();
     cam.s = Math.max(.2, Math.min(1, (r.width - 32) / W));
@@ -979,11 +1235,7 @@
     }
     cam.s = Math.max(.25, Math.min(1, (r.width - 48) / bw, (r.height - 120) / bh));
     cam.x = (r.width - bw * cam.s) / 2 - x0 * cam.s; cam.y = 70 - y0 * cam.s;
-    var quieto = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if(suave && !quieto){
-      world.style.transition = "transform .45s ease";
-      clearTimeout(ajustarVisible.t); ajustarVisible.t = setTimeout(function(){ world.style.transition = ""; }, 500);
-    }
+    if(suave) suavizarCamara();
     aplicar();
   }
   function zoomEn(f, cx, cy){
@@ -1024,6 +1276,7 @@
     host.querySelector("#eoPtit").textContent = titulo;
     pcuerpo.innerHTML = html; pcuerpo.scrollTop = 0;
     panel.hidden = false; host.classList.add("eo-con-panel");
+    pedirCapas();
   }
   var actual = null;
   // resalta la unidad y, si está abierta por país, sus cajas por país
@@ -1037,6 +1290,7 @@
     panel.hidden = true; host.classList.remove("eo-con-panel");
     lienzo.querySelectorAll(".eo-sel").forEach(function(x){ x.classList.remove("eo-sel"); });
     marcarCogob(null);
+    pedirCapas();
   }
   function lista(arr){ return '<ul class="eo-lista">' + arr.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>'; }
   function pill(estado){ var e = E.ESTADOS[estado] || {n:estado}; return '<span class="eo-pill eo-e-' + esc(estado) + '">' + punto(estado) + esc(e.n) + '</span>'; }
@@ -1129,7 +1383,8 @@
                     : (id === E.CEO.id ? "Presidencia" : tagNivel(d));
     if(d.sub) h += '<p class="eo-sub">' + esc(d.sub) + '</p>';
     if(n.padre) h += '<div class="eo-reporta">Reporta a ' + enlace(n.padre) + '</div>';
-    if(decide(d)) h += '<div class="eo-bloque eo-decbloque"><h4>Decisión por tomar</h4>' + lista(d.decisiones) +
+    if(aprobacion(d)) h += '<div class="eo-aprob eo-aprob-' + aprobacion(d) + '"><i aria-hidden="true"></i>' + esc(TXT_APROB[aprobacion(d)]) + '</div>';
+    if(decide(d)) h += '<div class="eo-bloque eo-decbloque"><h4>Decisión por tomar</h4>' + lista(listaDec(d)) +
                        '<p><a class="eo-declink" href="#/decisiones-estructura">Ver todas las decisiones pendientes de la estructura →</a></p></div>';
 
     if(d.ocupante){
@@ -1159,6 +1414,7 @@
       });
       h += '</tbody></table></div>';
     }
+    if(d.puesto) h += '<div class="eo-bloque"><p class="eo-tenue">Cargo de hoy y cuántas personas lo ocupan, según el censo y las fichas de personal. No es una plantilla aprobada.</p></div>';
     if(d.funciones && d.funciones.length) h += '<div class="eo-bloque"><h4>Qué hace</h4>' + lista(d.funciones) + '</div>';
     if(d.interna && d.interna.length) h += '<div class="eo-bloque"><h4>Dentro de la unidad</h4>' + lista(d.interna) + '</div>';
     // modelo: enlace a la página que explica cómo funciona la unidad; solo un .html de
