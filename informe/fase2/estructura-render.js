@@ -208,13 +208,17 @@
   // de ellas. La Presidencia y la Junta no llevan aureola. Se define aquí y no en el dato para
   // no cambiar la huella de estructura-tobe-datos.js. Cuando se apruebe otra capa, se añade su
   // nivel a CAPAS_APROBADAS; cuando se apruebe una rama, se quita de RAMAS_SIN_APROBAR.
+  // UNIDADES_SIN_APROBAR: unidades sueltas que se crearon o se movieron después de aprobar su
+  // capa (Brand Management pasó de Mercadeo a gerencia corporativa de Comercial el 10-nov-2026).
+  // Se quitan de la lista cuando se aprueba su nueva ubicación.
   var CAPAS_APROBADAS = ["n2"];
   var RAMAS_SIN_APROBAR = ["marca"];
+  var UNIDADES_SIN_APROBAR = ["brandmgmt"];
   function aprobacion(d){
     var n = d && NODOS[d.id];
     if(!n) return "";
     if(!n.dir) return n.padre === E.CEO.id ? "si" : "";
-    if(RAMAS_SIN_APROBAR.indexOf(n.dir) >= 0) return "no";
+    if(RAMAS_SIN_APROBAR.indexOf(n.dir) >= 0 || UNIDADES_SIN_APROBAR.indexOf(d.id) >= 0) return "no";
     return n.dir === d.id || CAPAS_APROBADAS.indexOf(d.nivel) >= 0 ? "si" : "no";
   }
   var TXT_APROB = {si:"Esta parte de la estructura ya está aprobada", no:"Esta parte de la estructura aún no está aprobada"};

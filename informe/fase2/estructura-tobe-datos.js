@@ -265,74 +265,71 @@ window.ESTRUCTURA_TOBE = {
         'Fija los estándares visuales de tiendas, material POP e interiores; el montaje en el punto de venta es de Visual Merchandising, en Mercadeo.',
         'Lleva el presupuesto de producción de diseño y decide qué capacidades se internalizan y cuáles se contratan: el equipo es mixto, con personal interno, freelancers y una agencia para interiores.'
       ],
-      nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, el diseño quedaría supeditado a las campañas de corto plazo. Todo lo creativo y de diseño sale de Mercadeo y queda aquí. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. De Innovación y Desarrollo de Productos la separa otra: aquella define cómo funciona y se fabrica el producto. La dirección de arte va directo a la dirección; el director creativo es su mano derecha y trabaja en dupla con ella.',
+      nota:'Acordada en la reunión del 04-nov-2026 y descrita por la Dirección Comercial el 29-oct. Es dirección corporativa y reporta a la Presidencia, al nivel de las demás unidades de negocio: si dependiera de Comercial o de Mercadeo, el diseño quedaría supeditado a las campañas de corto plazo. Todo lo creativo y de diseño sale de Mercadeo y queda aquí. La regla que la separa de Mercadeo: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. De Innovación y Desarrollo de Productos la separa otra: aquella define cómo funciona y se fabrica el producto. Desde el 10-nov-2026 se organiza en tres gerencias por contraparte y ritmo de trabajo, y no en una por disciplina: Marca y Creatividad trabaja con Mercadeo al ritmo de las campañas; Diseño de Producto, con Innovación y Desarrollo de Productos al ritmo del desarrollo; y Producción y Espacios, con los proveedores y los canales al ritmo de la producción. Es el modelo de alianza centralizada de las organizaciones de diseño: un solo equipo de diseño con cada parte alineada a un socio del negocio. El tramo de la dirección baja de seis reportes a tres y las diez disciplinas siguen cubiertas. El director creativo, que lidera Marca y Creatividad, es la mano derecha de la dirección.',
       decisiones:[
         'Confirmar a Jack Roizental en la dirección.',
         'Qué parte del equipo creativo actual pasa a la dirección: el estudio de diseño gráfico y de producción de Mercadeo y la dirección de arte. El visual merchandising se dibuja en Mercadeo, como servicio a los canales.',
-        'Cuáles de sus diez disciplinas se cubren con personal interno y cuáles con freelancers o agencias.'
+        'Cuáles de sus diez disciplinas se cubren con personal interno y cuáles con freelancers o agencias.',
+        'Escenario de transición de corto plazo: la dirección arranca solo con Marca y Creatividad, mientras Diseño de Producto se mantiene en la Dirección de Innovación y Desarrollo de Productos y Producción y Espacios bajo la gerencia corporativa de Mercadeo. Falta decidir si se adopta, cuánto dura y qué condición dispara el paso de cada gerencia a esta dirección.'
       ],
       hijos:[
-        {id:'arte', n:'Arte y Diseño', nivel:'ccorp', etiqueta:'Directo a la dirección', enLinea:true,
-         ocupante:{nombre:'María Romero', estado:'actual', nota:'Hoy es la directora de arte, en Mercadeo de Panamá.'},
-         funciones:[
-           'La dirección de arte de toda pieza: la primera expresión visual de cada concepto.',
-           'Trabaja en dupla con el director creativo: el concepto y su expresión visual se presentan juntos.'
-         ],
-         nota:'Reporta directo a la dirección, sobre su línea, como lo plantea la Dirección Comercial.'},
-        {id:'marcacrea', n:'Marca', nivel:'n2',
+        {id:'marcacrea', n:'Marca y Creatividad', nivel:'n2',
+         sub:'Sistema de marca, concepto, arte y campañas',
          ocupante:{nombre:'Kevin Sarmiento', estado:'actual', nota:'Hoy es el director creativo, en Mercadeo de Panamá. Es la mano derecha de la dirección.'},
          funciones:[
-           'Creatividad: el concepto de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
-           'Sistema: el manual de marca y las guías de uso, para todas las marcas y canales.'
+           'Sistema de marca: la identidad, el manual de marca y las guías de uso de todas las marcas y canales, fuente única para equipos y proveedores. El posicionamiento lo construye la dirección con Mercadeo.',
+           'Creatividad: el concepto, el copy y el key visual de cada campaña y lanzamiento, a partir del brief de Mercadeo.',
+           'Dirección de arte: la primera expresión visual de cada concepto. El director creativo y la dirección de arte trabajan en dupla y presentan juntos.',
+           'Piezas de campaña: los impresos y las artes para redes que se derivan del key visual. El calendario editorial y el contenido ágil son de Mercadeo.'
+         ],
+         interna:['Director creativo, director(a) de arte y diseñadores gráficos: personal interno.'],
+         nota:'Reúne lo que el 06-nov eran tres unidades —Marca, Campañas y Arte y Diseño—, porque las tres trabajan para el mismo socio (Mercadeo), con el mismo insumo (el brief) y al mismo ritmo (el calendario de campañas): separadas, el concepto, su expresión visual y las piezas de una misma campaña pasaban por tres jefaturas. La dirección de arte, hoy a cargo de María Romero, directora de arte en Mercadeo de Panamá, queda dentro, en dupla con el director creativo.',
+         decisiones:[
+           'Si la dirección de arte queda dentro de Marca y Creatividad, en dupla con el director creativo, o sigue directo a la dirección, como la planteó la Dirección Comercial el 29-oct.',
+           'Escenario de transición de corto plazo: sería la única gerencia de la Dirección de Diseño y Marca mientras Diseño de Producto sigue en Innovación y Desarrollo de Productos y Producción y Espacios en Mercadeo. Falta decidir si se adopta.'
          ]},
-        {id:'disind', n:'Diseño Industrial', nivel:'n2',
+        {id:'disprod', n:'Diseño de Producto', nivel:'n2',
+         sub:'Físico y digital',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
          funciones:[
-           'Producto: forma, colores, materiales y acabados de relojes y audio.',
-           'Accesorios: correas, termos y demás complementos.',
-           'Empaque: cajas e impresos, con Mercadeo.'
+           'Producto físico: forma, colores, materiales y acabados de relojes y audio, y de sus accesorios (correas, termos y demás complementos).',
+           'Empaque: cajas e impresos, con el sistema de marca y con Mercadeo.',
+           'Producto digital: la experiencia y la interfaz (UX/UI) de la web, los correos, la app y el reloj, y el sistema de diseño digital, alineado con el manual de marca.',
+           'Entra desde la ideación de cada producto con Innovación y Desarrollo de Productos, que sigue a cargo de la factibilidad, las especificaciones, la fábrica, la calidad y el desarrollo de la app. E-commerce y Growth prioriza y opera las webs; Tecnología las implementa.'
          ],
-         interna:['Diseñador industrial y diseñador gráfico: personal interno.'],
-         nota:'Viene de Desarrollo y Calidad de Productos, donde estaba la diseñadora industrial. Innovación y Desarrollo de Productos sigue a cargo de la factibilidad, las especificaciones, la fábrica y la calidad.'},
-        {id:'campanas', n:'Campañas', nivel:'n2',
-         ocupante:{nombre:'Por definir', estado:'pordefinir'},
-         funciones:[
-           'Publicidad: key visual y piezas impresas de cada campaña.',
-           'Artes para redes, derivadas del key visual y de la línea estética. El calendario editorial y el contenido ágil son de Mercadeo.'
-         ],
-         interna:['Director de arte y diseñador gráfico: personal interno.']},
-        {id:'techdesign', n:'Diseño de Producto Digital', nivel:'n2',
-         sub:'Tech product design',
-         ocupante:{nombre:'Por definir', estado:'pordefinir'},
-         funciones:[
-           'Web y correos: experiencia e interfaz (UX/UI) y el sistema de diseño digital.',
-           'App y reloj: su diseño. El desarrollo de la app es de Innovación y Desarrollo de Productos, y E-commerce y Growth prioriza y opera las webs; Tecnología las implementa.'
-         ],
-         interna:['Diseñador digital: freelance.']},
-        {id:'produccion', n:'Producción', nivel:'n2',
+         interna:['Diseñador industrial y diseñador gráfico: personal interno.', 'Diseñador digital: freelance.'],
+         nota:'Reúne Diseño Industrial y Diseño de Producto Digital. Un producto de Kenex es físico y digital a la vez —el reloj, su app y su empaque se lanzan juntos—, y las dos disciplinas tienen la misma contraparte, Innovación y Desarrollo de Productos, y el mismo calendario, el del desarrollo de producto. La diseñadora industrial viene de Desarrollo y Calidad de Productos.',
+         decisiones:['Escenario de transición de corto plazo: se mantendría en la Dirección de Innovación y Desarrollo de Productos y pasaría a Diseño y Marca más adelante. Falta decidir si se adopta y cuándo pasa.']},
+        {id:'produccion', n:'Producción y Espacios', nivel:'n2',
+         sub:'Estudio de producción y punto de venta',
          ocupante:{nombre:'Por definir', estado:'pordefinir'},
          funciones:[
            'Foto y video: la producción central de campaña y de producto, y el video principal.',
            'Motion y 3D: animaciones y renders de producto.',
-           'Experiencia: material POP, estándares visuales de tienda, eventos y activaciones.',
-           'Interiores: el concepto de los espacios, con una agencia externa por brief y aprobación.'
+           'Espacios: el concepto de tiendas e interiores con una agencia externa, por brief y aprobación; los estándares visuales de tienda, el material POP, los eventos y las activaciones.',
+           'El estudio: contrata y programa a los freelancers y las agencias de producción, ejecuta el presupuesto de producción que fija la dirección y lleva la biblioteca única de piezas y fotos aprobadas.'
          ],
-         interna:['Motion y 3D: freelance.', 'Experiencia: diseñador gráfico interno.', 'Interiores: agencia externa.'],
-         nota:'Las producciones grandes de foto, video y 3D se hacen aquí; el contenido ágil para redes y creadores queda en Social y Contenido, en Mercadeo.'}
+         interna:['Motion y 3D: freelance.', 'Espacios: diseñador gráfico interno y agencia externa de interiores.'],
+         nota:'Concentra lo que se produce con proveedores: una sola gerencia contrata, programa y paga a freelancers y agencias, y guarda lo producido. Las producciones grandes de foto, video y 3D se hacen aquí; el contenido ágil para redes y creadores queda en Social y Contenido, en Mercadeo. El montaje en el punto de venta es de Visual Merchandising, en Mercadeo.',
+         decisiones:['Escenario de transición de corto plazo: se mantendría bajo la gerencia corporativa de Mercadeo y pasaría a Diseño y Marca más adelante. Falta decidir si se adopta y cuándo pasa.']}
       ]
     },
     {
       id:'opl', n:'Compras y Cadena de Suministro', caracter:'negocio',
-      ocupante:{nombre:'Roberto Roizental', estado:'propuesto'},
+      ocupantes:[
+        {nombre:'Roberto Roizental', estado:'propuesto', nota:'Lleva el lado de Compras, del que es especialista: dirige además la gerencia de Compras y la coordinación de Compras Cubitt. Codirige también Comercial.'},
+        {nombre:'Andrés Roizental', estado:'propuesto', nota:'Lleva el lado de Operaciones y Logística, del que es especialista: ordenó la bodega y el almacén con esa gerencia. Codirige también Comercial y lleva la gerencia corporativa de Ventas.'}
+      ],
       funciones:[
+        'La codirigen Roberto y Andrés Roizental, cada uno en la parte de la que es especialista: Roberto, Compras; Andrés, Operaciones y Logística.',
         'Dueño de la mercancía de punta a punta: compra a fábrica, importación, almacén principal y distribución a todos los países.',
         'Concentra toda la compra de producto de todas las marcas —Casio, Cubitt y las que vengan—, repuestos incluidos.',
         'Fija cómo debe funcionar una bodega y replica en las demás las prácticas que ya probó en Colón.',
         'Dicta la política de compra de toda la organización: lo que compra cada área sigue las mismas reglas de proveedores, cotizaciones y aprobación.'
       ],
-      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí, en la coordinación de Compras Internas: las políticas de compra salen de esta dirección y la Dirección de Finanzas paga. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística». En la socialización del 04-nov-2026 con Roberto y Andrés Roizental se planteó, como transición, una sola dirección de Compras, Logística y Comercial con los dos al frente; se mantienen dos direcciones y el reparto entre ellos se resuelve en el modelo de funcionamiento.',
+      nota:'Comprar es el primer paso de la cadena, como en las empresas de consumo masivo y de retail: por eso la compra deja la antigua Investigación y Desarrollo y se une a la logística. Roberto Roizental, que hoy lleva la compra de Casio, encabeza la dirección; la operación logística queda en la gerencia corporativa de Operaciones y Logística. Desde el 16-oct-2026 también la compra interna de la organización (insumos, material POP, mobiliario, equipos y servicios) pasa por aquí, en la coordinación de Compras Internas: las políticas de compra salen de esta dirección y la Dirección de Finanzas paga. La denominación deja a la vista que la compra es el primer paso de la cadena; en la reunión se había hablado de «Supply Chain» y de «Compras y Logística». En la socialización del 04-nov-2026 con Roberto y Andrés Roizental se planteó, como transición, una sola dirección de Compras, Logística y Comercial con los dos al frente; se mantienen dos direcciones y el reparto entre ellos se resuelve en el modelo de funcionamiento. Desde el 10-nov-2026 los dos codirigen también esta dirección, como Comercial, y cada uno lleva la subdivisión de la que es especialista: Roberto, Compras; Andrés, Operaciones y Logística. Es una excepción que solo se admite entre familiares y en una dirección corporativa; debajo, cada gerencia conserva una sola línea de mando.',
       decisiones:[
-        'Roberto Roizental dirige Compras y Cadena de Suministro, codirige Comercial y lleva la coordinación de Compras Cubitt: confirmar ese reparto mientras dure la transición. La bodega y el almacén los ordenó Andrés Roizental con la gerencia de Operaciones y Logística; en la socialización se planteó una dirección única de Compras, Logística y Comercial con los dos al frente.'
+        'Cómo se reparten la dirección Roberto y Andrés Roizental: Roberto lleva Compras (y con ella la gerencia de Compras y la coordinación de Compras Cubitt) y Andrés, Operaciones y Logística. Falta acordar qué decide cada uno por su lado y qué deciden juntos mientras dure la transición.'
       ],
       hijos:[
         {id:'compras', n:'Compras', nivel:'n2',
@@ -453,14 +450,14 @@ window.ESTRUCTURA_TOBE = {
     {
       id:'comercial', n:'Comercial', caracter:'negocio',
       decisiones:[
-        'Cómo se reparten la dirección Andrés y Roberto Roizental: qué parte de lo comercial lleva cada uno. Andrés lleva además la gerencia corporativa de Ventas; Roberto, la Dirección de Compras y Cadena de Suministro y la coordinación de Compras Cubitt.'
+        'Cómo se reparten la dirección Andrés y Roberto Roizental: qué parte de lo comercial lleva cada uno. Andrés lleva además la gerencia corporativa de Ventas; Roberto, la coordinación de Compras Cubitt. Los dos codirigen también Compras y Cadena de Suministro.'
       ],
       ocupantes:[
-        {nombre:'Andrés Roizental', estado:'propuesto', nota:'La propuesta formaliza el alcance que ya ejerce de hecho: la visión que une mercadeo y venta. Lleva además la gerencia corporativa de Ventas.'},
-        {nombre:'Roberto Roizental', estado:'propuesto', nota:'Se suma a la dirección desde el 06-nov-2026: lleva hoy parte de lo comercial. Dirige también Compras y Cadena de Suministro y lleva la coordinación de Compras Cubitt.'}
+        {nombre:'Andrés Roizental', estado:'propuesto', nota:'La propuesta formaliza el alcance que ya ejerce de hecho: la visión que une mercadeo y venta. Lleva además la gerencia corporativa de Ventas y codirige Compras y Cadena de Suministro, en la parte de Operaciones y Logística.'},
+        {nombre:'Roberto Roizental', estado:'propuesto', nota:'Se suma a la dirección desde el 06-nov-2026: lleva hoy parte de lo comercial. Codirige también Compras y Cadena de Suministro, en la parte de Compras, y lleva la coordinación de Compras Cubitt.'}
       ],
       funciones:[
-        'Una sola cabeza para la venta y para la demanda que la produce: dirige Ventas y Mercadeo. La codirigen Andrés y Roberto Roizental; Andrés lleva además la gerencia corporativa de Ventas.',
+        'Una sola cabeza para la venta y para la demanda que la produce: dirige Ventas, Mercadeo y Brand Management, que lleva lo que la casa matriz define para Casio. La codirigen Andrés y Roberto Roizental; Andrés lleva además la gerencia corporativa de Ventas.',
         'Distribuye la venta en sus canales —tienda, mayor y comercio electrónico— y responde por el resultado de ambas marcas.',
         'Decide qué tiendas se abren; la PMO gestiona cada apertura.'
       ],
@@ -476,22 +473,19 @@ window.ESTRUCTURA_TOBE = {
          hijos:[
            // sobre la línea que baja de Ventas a sus canales: puede apoyar a cualquiera de los cuatro
            {id:'plandemanda', n:'Planificación de la Demanda y Nuevos Mercados', nivel:'ccorp', etiqueta:'Apoyo a Ventas', enLinea:true,
-            sub:'Una por marca: Cubitt y Casio',
-            marcas:[
-              {marca:'Cubitt', nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
-              {marca:'Casio', nombre:'Félix Almendral', estado:'propuesto', nota:'Hoy es brand manager regional de Casio; se incorporó en agosto de 2026. Por el tamaño de la marca conserva por ahora esas funciones. Fuentes: E-42 y E-49.'}
-            ],
+            sub:'Cubitt; la demanda de Casio la planifica Brand Management',
+            ocupante:{nombre:'Ricardo Baltodano', estado:'propuesto', nota:'Hoy es el gerente regional de Cubitt en Panamá, dentro del equipo de Ventas al Mayor: lleva los datos comerciales de la marca y planifica la venta al mayor. En la reunión con la Presidencia del 16-oct-2026 se planteó que esta es la posición que le corresponde.'},
             funciones:[
-              'Planifica la demanda con los datos de venta de todos los canales y países: cuánto se venderá, por qué canal y de qué marca.',
+              'Planifica la demanda de Cubitt con los datos de venta de todos los canales y países: cuánto se venderá, por qué canal y en qué país.',
+              'Consolida el plan de demanda del grupo: suma al de Cubitt el de Casio, que planifica Brand Management.',
               'Estudia los mercados nuevos —países y canales donde el grupo aún no vende— y prepara la entrada, como se hizo en Colombia, que empezó con grandes superficies y pasó luego a tiendas propias.',
               'Contrata y lee las fuentes externas de inteligencia de mercado que la venta necesita, con Mercadeo.',
               'Apoya a cualquiera de los cuatro canales de Ventas sin dirigir a ninguno.'
             ],
             decisiones:[
-              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.',
-              'Félix Almendral planifica la demanda de Casio y, por el tamaño de la marca, conserva por ahora sus funciones de brand manager. Falta decidir si el brand manager de Casio queda en Comercial o en Mercadeo, donde la Dirección Comercial lo ubica en Brand Management.'
+              'Si la planificación de la demanda y los mercados nuevos van en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'
             ],
-            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'},
+            nota:'Acordada en la reunión con la Presidencia del 16-oct-2026, con nombre provisional. En la reunión del 04-nov-2026 se confirmó una por marca: Ricardo Baltodano para Cubitt y Félix Almendral para Casio. Desde el 10-nov-2026 la demanda de Casio la planifica Félix Almendral desde Brand Management, gerencia corporativa de Comercial, y esta unidad queda con Cubitt, los mercados nuevos y el plan consolidado. Va sobre la línea que baja de la gerencia corporativa de Ventas a sus canales, como la Consultoría Jurídica sobre la de la Presidencia: le reporta directo y puede apoyar a los cuatro. Falta decidir si la planificación de la demanda y los mercados nuevos quedan en una sola unidad o en dos, y el nivel del cargo, que se fija en la descripción de cargos.'},
            {id:'mayorcorp', n:'Ventas al Mayor', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Gerente regional de ventas al mayor de todos los países: hoy la posición no existe.'},
             funciones:[
@@ -593,8 +587,7 @@ window.ESTRUCTURA_TOBE = {
            'Construye con Diseño y Marca el posicionamiento de cada marca y país; hace el brief de cada campaña y aprueba que el concepto lo cumpla.',
            'Lidera la pauta de marca (awareness y lanzamientos), el contenido de redes, los creadores, los influencers y las relaciones públicas; coordina las campañas con E-commerce y Growth, que lleva la pauta de performance.',
            'Mide la salud de la marca más allá de la venta —awareness, consideración y recompra— y reporta cada mes un tablero de marca e inversión.',
-           'Maneja la relación y la coinversión con Casio Japón.',
-           'Genera todo el mercadeo de Cubitt con sus unidades: el plan de marca, el portafolio y los lanzamientos. Casio pasa por Brand Management, porque la mayor parte de su mercadeo lo define la casa matriz.'
+           'Genera todo el mercadeo de Cubitt con sus unidades: el plan de marca, el portafolio y los lanzamientos. El de Casio lo estructura Brand Management, gerencia corporativa de Comercial, porque la mayor parte lo define la casa matriz; Mercadeo lo ejecuta en los países con sus coordinaciones de Marca Casio.'
          ],
          nota:'Desde el 06-nov-2026 Mercadeo deja de crear para planificar, invertir y medir: todo lo creativo y de diseño pasa a la Dirección de Diseño y Marca, y la pauta de performance a E-commerce y Growth. Es la propuesta de la Dirección Comercial del 29-oct, que incorpora la contrapropuesta de la gerencia de mercadeo saliente. La regla: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. No maneja vendedores ni fija precios ni márgenes, que son de Comercial: genera la demanda que Comercial convierte en venta. Sigue dentro de Comercial, como gerencia corporativa. La propuesta del 29-oct la plantea como dirección con un cargo nuevo, Director(a) de Marketing; su nivel y su denominación se fijan en la descripción de cargos. Se retiran Experiencia del Cliente · Visual, Experiencia Digital y Creativa y Diseño, y el modelo de red del 29-oct.',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve, y Comercial es dueño de la venta y del margen.', href:'estructura-funcionamiento.html#mercadeo'},
@@ -602,17 +595,6 @@ window.ESTRUCTURA_TOBE = {
            'El titular de la gerencia: perfil y si se sale a buscarlo.'
          ],
          hijos:[
-           {id:'brandmgmt', n:'Brand Management', nivel:'gun',
-            sub:'Solo Casio',
-            ocupante:{nombre:'Félix Almendral', estado:'actual', nota:'Hoy es brand manager regional de Casio: el plan anual y la coinversión con Casio Japón. Desde el 04-nov-2026 planifica además la demanda de Casio, en Ventas.'},
-            funciones:[
-              'Recibe lo que define la casa matriz de Casio y lo estructura como el mercadeo de la marca para la región: el plan anual y la coinversión con Casio Japón.',
-              'Genera las normas y las indicaciones de gestión de Casio para los países, que ejecuta en cada uno su coordinación de Marca Casio.'
-            ],
-            nota:'Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo lo define la casa matriz, y hace falta una unidad corporativa que lo estructure y lo baje a los países como norma. Cubitt no la necesita, porque genera todo su mercadeo: su plan de marca lo lleva la propia gerencia de Mercadeo con sus unidades. Es el brand manager de mercadeo, que planifica la marca; no el de Ventas, que la vende.',
-            decisiones:[
-              'Félix Almendral lleva el brand management de Casio, en Mercadeo, y la planificación de la demanda de Casio, en Ventas: confirmar los dos roles mientras dure la transición, o decidir en cuál de las dos gerencias queda.'
-            ]},
            {id:'insights', n:'Insights y ROI', nivel:'gun',
             ocupante:{nombre:'Por definir', estado:'pordefinir', nota:'Cargo nuevo: un analista.'},
             funciones:[
@@ -710,7 +692,16 @@ window.ESTRUCTURA_TOBE = {
                },
                funciones:['Monta y mantiene la exhibición en las tiendas propias y en los clientes mayoristas del país, con la forma común de la gerencia de Visual Merchandising y los estándares de Diseño y Marca.']}
             ]}
-         ]}
+         ]},
+        {id:'brandmgmt', n:'Brand Management', nivel:'n2',
+         sub:'Solo Casio',
+         ocupante:{nombre:'Félix Almendral', estado:'actual', nota:'Hoy es brand manager regional de Casio: el plan anual y la coinversión con Casio Japón. Desde el 04-nov-2026 planifica además la demanda de Casio, y desde el 10-nov-2026 esa planificación es parte de esta gerencia.'},
+         funciones:[
+           'Recibe lo que define la casa matriz de Casio y lo estructura como el mercadeo de la marca para la región: el plan anual y la coinversión con Casio Japón.',
+           'Genera las normas y las indicaciones de gestión de Casio para los países, que ejecuta en cada uno su coordinación de Marca Casio, en Mercadeo país.',
+           'Planifica la demanda de Casio: cuánto se venderá de cada modelo, por canal y por país. Es el proceso de planificación de la demanda de Ventas, que para Casio lleva esta gerencia; Planificación de la Demanda y Nuevos Mercados lo suma al plan de Cubitt en el plan consolidado del grupo.'
+         ],
+         nota:'Desde el 10-nov-2026 es una gerencia corporativa que reporta directo a la Dirección Comercial, y ya no una unidad de Mercadeo. Reúne en una sola cabeza lo que la casa matriz define para Casio: el mercadeo de la marca y la planificación de su demanda, que es un proceso de ventas. Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo y de su catálogo lo define la casa matriz, y hace falta una unidad que lo estructure y lo baje a los países como norma. Cubitt no la necesita: su mercadeo lo genera Mercadeo y su demanda la planifica Planificación de la Demanda y Nuevos Mercados. Con Mercadeo se relaciona por norma: las coordinaciones de Marca Casio siguen en Mercadeo país y aplican sus indicaciones. Es el brand manager que planifica la marca, no quien la vende.'}
       ]
     },
     {
@@ -983,7 +974,7 @@ window.ESTRUCTURA_TOBE = {
      tension:'La PMO se diseña a propósito como un equipo generalista: la especialización está en el perfil de gerente de proyecto, no en el tipo de proyecto.'},
     {n:'Unidad de mando',
      como:'Cada gerencia país reporta en línea a una sola gerencia o dirección corporativa. Las figuras que hoy responden a varias instancias quedan con una sola línea de reporte: desarrollo de producto en Innovación y Desarrollo de Productos; diseño, dirección de arte y estándares visuales en Diseño y Marca; redes y contenido ágil en Mercadeo.',
-     tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes).'},
+     tension:'Falta decidir si hay una dirección general por país y qué relación tiene con las gerencias país (ver Pendientes). Hay una excepción declarada: dos familiares pueden codirigir una dirección corporativa cuando cada uno es especialista en una subdivisión distinta, como en Comercial y en Compras y Cadena de Suministro. No se admite en ningún otro nivel.'},
     {n:'Optimización del tramo de control',
      como:'La Presidencia tiene nueve reportes directos —seis direcciones corporativas (cuatro de negocio, Finanzas y Desarrollo Corporativo) y tres gerencias corporativas de staff— y dos unidades de staff propias.',
      tension:'Con Diseño y Marca y tres gerencias de staff que le reportan directo, el tramo de la Presidencia pasa a nueve, dos por encima del rango de 4 a 7. Si satura, lo primero es agrupar dos de ellas, por ejemplo la PMO bajo Desarrollo Corporativo, como ya se previó. Ventas concentra muchos reportes: cuatro canales y una unidad de apoyo, cada canal con sus gerencias país; y Mercadeo, cuatro unidades corporativas y sus gerencias país. Son los primeros a revisar si el tramo satura.'},
@@ -994,11 +985,11 @@ window.ESTRUCTURA_TOBE = {
      como:'Compras y Cadena de Suministro es el único dueño de la mercancía: compra, bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto, de todas las marcas, se concentra ahí, y la compra interna de la organización también, con una sola política de compra.',
      tension:'Innovación y Desarrollo de Productos decide qué producto y Compras y Cadena de Suministro lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
     {n:'Flexibilidad y adaptabilidad (híbrida)',
-     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Mercadeo separa por marca solo donde el funcionamiento de la marca lo exige: hoy, un brand manager para Casio, cuyo mercadeo define en su mayor parte la casa matriz.',
+     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Comercial separa por marca solo donde el funcionamiento de la marca lo exige: hoy, una gerencia de Brand Management para Casio, cuyo mercadeo y cuyo catálogo define en su mayor parte la casa matriz.',
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
-     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce y Growth, Postventa) y de Mercadeo (Brand Management, Insights y ROI, Social y Contenido, Cuentas Clave y Trade) añaden un escalón en Comercial.'}
+     tension:'Las gerencias de unidad de negocio dentro de Ventas (Ventas al Mayor, Retail, E-commerce y Growth, Postventa) y de Mercadeo (Insights y ROI, Social y Contenido, Cuentas Clave y Trade, Visual Merchandising) añaden un escalón en Comercial.'}
   ],
 
   CAMBIOS: {
@@ -1053,7 +1044,7 @@ window.ESTRUCTURA_TOBE = {
     {t:'Gerencias país: cabeza país y tamaño', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país, y cuándo una gerencia país basta como coordinación.'},
     {t:'Primera línea: Dirección o Vicepresidencia', d:'Si las direcciones corporativas se denominan Dirección o Vicepresidencia.'},
     {t:'Denominaciones de la estructura patrón', d:'Elegir las denominaciones estándar de los escalones: coordinador, jefe o líder; supervisor o especialista, según se gestione gente o se valore el conocimiento técnico; y si hacen falta los tres niveles de analista. Se trabaja con Desarrollo Corporativo en la reclasificación de cargos.'},
-    {t:'Roles compartidos de la familia', d:'Los familiares que trabajan en el grupo pueden llevar más de un rol mientras dure la transición, pero esos roles compartidos no se replican hacia abajo: debajo de cada uno, una sola línea. Revisar también las posiciones de los familiares que no ocupan una dirección ni una gerencia corporativa.'},
+    {t:'Roles compartidos de la familia', d:'Los familiares que trabajan en el grupo pueden llevar más de un rol mientras dure la transición, pero esos roles compartidos no se replican hacia abajo: debajo de cada uno, una sola línea. La codirección es una excepción que solo se admite entre familiares y en una dirección corporativa, cuando cada uno es especialista en una subdivisión distinta: hoy Comercial y Compras y Cadena de Suministro (Roberto Roizental en Compras, Andrés Roizental en Operaciones y Logística). Revisar también las posiciones de los familiares que no ocupan una dirección ni una gerencia corporativa.'},
     {t:'Otros países', d:'Retail, E-commerce y Postventa tienen una caja para Guatemala, Costa Rica y las franquicias. Falta la información de esas operaciones para decidir si cada una tendrá su espejo o si se agrupan en un clúster.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},
     {t:'Calidad y Mejora Continua', d:'Se planteó una persona dedicada a partir de 2027, apoyada por Desarrollo Corporativo y la PMO. Hasta entonces la conduce el comité con el equipo actual.'},
