@@ -593,7 +593,8 @@ window.ESTRUCTURA_TOBE = {
            'Construye con Diseño y Marca el posicionamiento de cada marca y país; hace el brief de cada campaña y aprueba que el concepto lo cumpla.',
            'Lidera la pauta de marca (awareness y lanzamientos), el contenido de redes, los creadores, los influencers y las relaciones públicas; coordina las campañas con E-commerce y Growth, que lleva la pauta de performance.',
            'Mide la salud de la marca más allá de la venta —awareness, consideración y recompra— y reporta cada mes un tablero de marca e inversión.',
-           'Maneja la relación y la coinversión con Casio Japón.'
+           'Maneja la relación y la coinversión con Casio Japón.',
+           'Genera todo el mercadeo de Cubitt con sus unidades: el plan de marca, el portafolio y los lanzamientos. Casio pasa por Brand Management, porque la mayor parte de su mercadeo lo define la casa matriz.'
          ],
          nota:'Desde el 06-nov-2026 Mercadeo deja de crear para planificar, invertir y medir: todo lo creativo y de diseño pasa a la Dirección de Diseño y Marca, y la pauta de performance a E-commerce y Growth. Es la propuesta de la Dirección Comercial del 29-oct, que incorpora la contrapropuesta de la gerencia de mercadeo saliente. La regla: Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve. No maneja vendedores ni fija precios ni márgenes, que son de Comercial: genera la demanda que Comercial convierte en venta. Sigue dentro de Comercial, como gerencia corporativa. La propuesta del 29-oct la plantea como dirección con un cargo nuevo, Director(a) de Marketing; su nivel y su denominación se fijan en la descripción de cargos. Se retiran Experiencia del Cliente · Visual, Experiencia Digital y Creativa y Diseño, y el modelo de red del 29-oct.',
          modelo:{t:'Ver su modelo en Capas y Funcionamiento', d:'Mercadeo decide qué necesita el consumidor, qué le decimos y dónde invertimos; Diseño y Marca decide cómo se ve, y Comercial es dueño de la venta y del margen.', href:'estructura-funcionamiento.html#mercadeo'},
@@ -602,18 +603,14 @@ window.ESTRUCTURA_TOBE = {
          ],
          hijos:[
            {id:'brandmgmt', n:'Brand Management', nivel:'gun',
-            sub:'Un brand manager por marca',
-            marcas:[
-              {marca:'Cubitt', nombre:'Por definir', estado:'pordefinir', nota:'Cargo nuevo: plan de marca, portafolio y lanzamientos.'},
-              {marca:'Casio', nombre:'Félix Almendral', estado:'actual', nota:'Hoy es brand manager regional de Casio: el plan anual y la coinversión con Casio Japón. Desde el 04-nov-2026 planifica además la demanda de Casio, en Ventas.'}
-            ],
+            sub:'Solo Casio',
+            ocupante:{nombre:'Félix Almendral', estado:'actual', nota:'Hoy es brand manager regional de Casio: el plan anual y la coinversión con Casio Japón. Desde el 04-nov-2026 planifica además la demanda de Casio, en Ventas.'},
             funciones:[
-              'Cubitt: el plan de marca, el portafolio y los lanzamientos.',
-              'Casio: el plan anual y la coinversión con Casio Japón, con la línea de la casa matriz.'
+              'Recibe lo que define la casa matriz de Casio y lo estructura como el mercadeo de la marca para la región: el plan anual y la coinversión con Casio Japón.',
+              'Genera las normas y las indicaciones de gestión de Casio para los países, que ejecuta en cada uno su coordinación de Marca Casio.'
             ],
-            nota:'Es el brand manager de mercadeo, que planifica la marca; no el de Ventas, que la vende.',
+            nota:'Existe solo para Casio, por cómo funciona la marca: la mayor parte de su mercadeo lo define la casa matriz, y hace falta una unidad corporativa que lo estructure y lo baje a los países como norma. Cubitt no la necesita, porque genera todo su mercadeo: su plan de marca lo lleva la propia gerencia de Mercadeo con sus unidades. Es el brand manager de mercadeo, que planifica la marca; no el de Ventas, que la vende.',
             decisiones:[
-              'Quién es el brand manager de Cubitt.',
               'Félix Almendral lleva el brand management de Casio, en Mercadeo, y la planificación de la demanda de Casio, en Ventas: confirmar los dos roles mientras dure la transición, o decidir en cuál de las dos gerencias queda.'
             ]},
            {id:'insights', n:'Insights y ROI', nivel:'gun',
@@ -681,7 +678,7 @@ window.ESTRUCTURA_TOBE = {
                  VE:{nombre:'Caroly Salazar', estado:'actual', cargo:'Coordinación', nota:'Hoy es coordinadora de marca Cubitt.'},
                  CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
                },
-               funciones:['Ejecuta en el país el plan de marca de Cubitt que fija Brand Management: lanzamientos, campañas y presupuesto local de la marca.']},
+               funciones:['Ejecuta en el país el plan de marca de Cubitt que fija la gerencia corporativa de Mercadeo: lanzamientos, campañas y presupuesto local de la marca.']},
               {id:'mpcasio', n:'Marca Casio', nivel:'coord',
                decisiones:['Quién coordina la marca Casio en Venezuela: hoy Walter Méndez y Joyce Camacho tienen el mismo cargo, coordinador de marca Casio.'],
                paises:{
@@ -689,7 +686,7 @@ window.ESTRUCTURA_TOBE = {
                  VE:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación', nota:'Hoy hay dos coordinadores de marca Casio: Walter Méndez y Joyce Camacho.'},
                  CO:{nombre:'Por definir', estado:'pordefinir', cargo:'Coordinación'}
                },
-               funciones:['Ejecuta en el país el plan anual de Casio que fija Brand Management, con la línea de la casa matriz y la coinversión con Casio Japón.']},
+               funciones:['Ejecuta en el país el plan anual de Casio con las normas e indicaciones de gestión que emite Brand Management, a partir de lo que define la casa matriz.']},
               {id:'mpsocial', n:'Social y Contenido', nivel:'coord',
                paises:{
                  PA:{nombre:'Karla Quayle', estado:'propuesto', cargo:'Coordinación', nota:'Hoy es social media manager con la gerencia de mercadeo de Cubitt en Panamá.'},
@@ -997,7 +994,7 @@ window.ESTRUCTURA_TOBE = {
      como:'Compras y Cadena de Suministro es el único dueño de la mercancía: compra, bodega, despacho, tráfico e inventario bajo una misma línea. Toda la compra de producto, de todas las marcas, se concentra ahí, y la compra interna de la organización también, con una sola política de compra.',
      tension:'Innovación y Desarrollo de Productos decide qué producto y Compras y Cadena de Suministro lo compra: el traspaso entre los dos —qué, cuánto y cuándo— pasa por el Comité Comercial.'},
     {n:'Flexibilidad y adaptabilidad (híbrida)',
-     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Mercadeo separa por marca solo donde el ritmo lo exige: un brand manager para cada una.',
+     como:'El modelo corporativo-país permite abrir un país nuevo replicando el espejo de gerencias. Compras y Cadena de Suministro compra cualquier marca con el mismo proceso, Innovación y Desarrollo de Productos puede abrir gerencias por marca o por producto, y Mercadeo separa por marca solo donde el funcionamiento de la marca lo exige: hoy, un brand manager para Casio, cuyo mercadeo define en su mayor parte la casa matriz.',
      tension:'Donde la operación es pequeña, la gerencia país se reduce a una coordinación, y eso debe quedar explícito en cada caso.'},
     {n:'Escalabilidad y canales claros',
      como:'Tres niveles de dirección antes de la coordinación y una estructura patrón de ocho escalones para toda la organización. La capa corporativa no duplica la operación del país.',
