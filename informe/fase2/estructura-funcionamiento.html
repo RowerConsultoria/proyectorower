@@ -481,7 +481,7 @@ function pila(){
        '<div class="grupo apo"><div class="gtit">Unidades de apoyo</div><div class="fila"><span class="chip">Administración y Finanzas</span><span class="chip">Recursos Humanos</span><span class="chip">Tecnología (TI) · coordinación</span><span class="chip">PMO · hoy solo VE</span></div></div>' +
        '<div class="grupo neutro"><div class="gtit">En cada país</div><div class="fila"><span class="chip paises">PA</span><span class="chip paises">VE</span><span class="chip paises">CO</span><span class="chip sub">Otros países · Retail, E-commerce y Postventa</span></div></div>'},
     {n:"Equipos", v:"Operan", d:"Los escalones de la estructura patrón, iguales en toda la organización; cada unidad usa los que necesita.",
-     c:'<ol class="escalera"><li>Coordinador(a) / Jefe(a)</li><li>Supervisor(a) / Especialista</li><li>Analista III · II · I</li><li>Auxiliar</li><li>Operario(a)</li></ol>'}
+     c:'<ol class="escalera"><li>Coordinador(a)</li><li>Supervisor(a) / Especialista</li><li>Analista III · II · I</li><li>Auxiliar</li><li>Operario(a)</li></ol>'}
   ];
   capas.forEach(function(c, i){
     h += '<section class="capa" style="grid-row:' + (i + 1) + '"><div class="rot"><div class="num">Capa ' + (i + 1) + '</div><h3>' + c.n + '</h3><div class="verbo">' + c.v + '</div><div class="desc">' + c.d + '</div></div><div class="cuerpo">' + c.c + '</div></section>';

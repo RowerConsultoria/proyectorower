@@ -944,7 +944,7 @@ window.ESTRUCTURA_TOBE = {
        d:'Solo existen donde una especialidad conviene llevarla una vez para todos los países.'},
       {id:'gun', n:'Gerencias de unidad de negocio', verbo:'Llevan un canal o un frente', escalon:'Gerente de unidad de negocio',
        d:'Dentro de una gerencia corporativa, cada una lleva un canal, un frente o una especialidad para todo el grupo: los canales de venta y los frentes de mercadeo. No se replican por país: la ejecución local sigue en las gerencias país.'},
-      {id:'n3', nivel:'n3', verbo:'Ejecutan en cada país', escalon:'Gerente (país)',
+      {id:'n3', nivel:'n3', verbo:'Ejecutan en cada país', escalon:'Gerente país',
        d:'Cada país reproduce el mismo espejo; abrir un país nuevo es replicarlo.'},
       {id:'equipos', n:'Equipos', verbo:'Operan', escalon:'De coordinador(a) a operario(a)',
        d:'Debajo de cada gerencia, los escalones de la estructura patrón, iguales en toda la organización. Cada unidad usa solo los que necesita.'}
@@ -957,11 +957,15 @@ window.ESTRUCTURA_TOBE = {
     ]
   },
 
+  /* Estructura patrón de cargos: niveles de CARGO, no de la estructura (10-nov-2026). «Corporativo» y
+     «país» son niveles de la estructura: el cargo los toma como apellido según dónde está la posición
+     (Gerente corporativo de Compras, Coordinador país de Servicios Generales). Detalle de cada escalón
+     en la Fase 3, punto 1 (informe/fase3/descripciones-cargo.html). */
   PATRON: [
-    'Director(a) corporativo(a)',
-    'Gerente corporativo(a)',
-    'Gerente (país)',
-    'Coordinador(a) / Jefe(a)',
+    'Director(a)',
+    'Gerente',
+    'Gerente de unidad de negocio',
+    'Coordinador(a)',
     'Supervisor(a) / Especialista',
     'Analista III · II · I',
     'Auxiliar',
@@ -1043,7 +1047,7 @@ window.ESTRUCTURA_TOBE = {
   PENDIENTES: [
     {t:'Gerencias país: cabeza país y tamaño', d:'Precisar si cada país tiene además una dirección general y cómo se relaciona con las gerencias país, y cuándo una gerencia país basta como coordinación.'},
     {t:'Primera línea: Dirección o Vicepresidencia', d:'Si las direcciones corporativas se denominan Dirección o Vicepresidencia.'},
-    {t:'Denominaciones de la estructura patrón', d:'Elegir las denominaciones estándar de los escalones: coordinador, jefe o líder; supervisor o especialista, según se gestione gente o se valore el conocimiento técnico; y si hacen falta los tres niveles de analista. Se trabaja con Desarrollo Corporativo en la reclasificación de cargos.'},
+    {t:'Denominaciones de la estructura patrón', d:'Confirmar si supervisor y especialista son dos trayectorias del mismo escalón, según se gestione gente o se valore el conocimiento técnico, y si hacen falta los tres niveles de analista. «Corporativo» y «país» no son escalones: son el apellido que toma el cargo según dónde está la posición. Se trabaja con Desarrollo Corporativo en la reclasificación de cargos.'},
     {t:'Roles compartidos de la familia', d:'Los familiares que trabajan en el grupo pueden llevar más de un rol mientras dure la transición, pero esos roles compartidos no se replican hacia abajo: debajo de cada uno, una sola línea. La codirección es una excepción que solo se admite entre familiares y en una dirección corporativa, cuando cada uno es especialista en una subdivisión distinta: hoy Comercial y Compras y Cadena de Suministro (Roberto Roizental en Compras, Andrés Roizental en Operaciones y Logística). Revisar también las posiciones de los familiares que no ocupan una dirección ni una gerencia corporativa.'},
     {t:'Otros países', d:'Retail, E-commerce y Postventa tienen una caja para Guatemala, Costa Rica y las franquicias. Falta la información de esas operaciones para decidir si cada una tendrá su espejo o si se agrupan en un clúster.'},
     {t:'Dos comités de finanzas', d:'Deslindar el Comité de Finanzas y Riesgos (ejecutivo) del Comité de Finanzas del gobierno familiar, para que no decidan lo mismo dos veces.'},

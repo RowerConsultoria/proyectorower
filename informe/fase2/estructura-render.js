@@ -1467,7 +1467,7 @@
       });
       h += '</div>';
     } else if(tab === "patron"){
-      h += '<p class="eo-tenue">La escalera de cargos común a toda la organización. Cada unidad usa solo los escalones que necesita: una bodega, por ejemplo, se sostiene con tres (gerente, jefe o supervisor, operario).</p>';
+      h += '<p class="eo-tenue">La escalera de cargos común a toda la organización. Son niveles de cargo, distintos de los niveles de la estructura: según dónde esté la posición, el cargo toma como apellido «corporativo» o «país» (Gerente corporativo de Compras, Coordinador país de Servicios Generales). Cada unidad usa solo los escalones que necesita: una bodega, por ejemplo, se sostiene con tres (gerente, coordinador o supervisor, operario). El detalle de cada escalón está en la Fase 3, punto 1.</p>';
       h += '<ol class="eo-patron">' + E.PATRON.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("") + '</ol>';
     } else if(tab === "decisiones"){
       var conDec = Object.keys(NODOS).filter(function(x){ return !NODOS[x].comite && !NODOS[x].consejo && decide(NODOS[x].d); });

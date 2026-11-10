@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Descripciones de cargo — Fase 3 | Proyecto Rower</title>
-<!-- Fase 3 · Descripciones de cargo. Fuente única: descripciones-datos.js (se edita a mano).
-     Cada descripción sigue el «Esquema_Descripcion_de_Cargo» v0.2; lo automático (organigrama, cláusula final,
-     texto de la Sección V y control del documento) lo pone esta página. Rutas: #/ (inicio), #/c/<id>.
-     Diseño elegido el 07-nov-2026 frente a una versión «clásica» de menú lateral, que se retiró. -->
+<title>Talento — Fase 3 | Proyecto Rower</title>
+<!-- Fase 3 · Talento. Índice a la izquierda con dos puntos:
+     1 Estructura patrón de cargos (#/ o #/patron[/<sección>]): HTML en <template id="tplPatron">, con sus estilos
+       bajo .ep. Vino del artefacto «Escalones de la estructura patrón» (10-nov-2026) y se edita a mano aquí.
+     2 Descripciones de cargo (#/descripciones y #/c/<id>). Fuente única: descripciones-datos.js (se edita a mano).
+       Cada descripción sigue el «Esquema_Descripcion_de_Cargo» v0.2; lo automático (organigrama, cláusula final,
+       texto de la Sección V y control del documento) lo pone esta página.
+     Los enlaces #<id> dentro de una vista se desplazan sin cambiar la ruta (delegado de clics al final). -->
 <script src="../../supabase/sesion.js" data-proteger data-permiso="ver.informe"></script>
 <script>(function(){var m='claro';try{m=localStorage.getItem('rower.tema')==='oscuro'?'oscuro':'claro';}catch(e){}
 document.documentElement.setAttribute('data-theme',m==='oscuro'?'dark':'light');})();</script>
@@ -221,6 +224,176 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
   .control{grid-template-columns:1fr}
   .fasesel{margin-left:0}
 }
+
+/* índice de la Fase 3 (izquierda) */
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:28px;max-width:1500px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.shell>.wrap{max-width:none;margin:0;padding:0 0 72px;min-width:0}
+.ix{position:sticky;top:60px;align-self:start;max-height:calc(100vh - 70px);overflow:auto;padding:22px 0 24px;display:flex;flex-direction:column;gap:2px}
+.ix-fase{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px 10px;font-weight:700}
+.ix-p{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:10px;text-decoration:none;color:var(--fg);font-weight:600;font-size:.92rem;line-height:1.3}
+.ix-p b{display:inline-flex;min-width:24px;height:24px;border-radius:7px;align-items:center;justify-content:center;background:var(--chip);color:var(--chipfg);font-size:.75rem;flex:none}
+.ix-p:hover{background:var(--surface)}
+.ix-p.on{background:var(--surface);box-shadow:var(--shadow)}
+.ix-p.on b{background:var(--navy);color:var(--surface)}
+.ix-sub{display:none;flex-direction:column;margin:4px 0 10px 22px;border-left:1px solid var(--line)}
+.ix-sub.abierto{display:flex}
+.ix-sub a{padding:5px 12px;font-size:.84rem;color:var(--muted);text-decoration:none;margin-left:-1px;border-left:2px solid transparent;line-height:1.35}
+.ix-sub a:hover{color:var(--fg)}
+.ix-sub a.on{color:var(--blue);border-left-color:var(--blue);font-weight:600}
+@media (max-width:960px){
+  .shell{grid-template-columns:1fr;gap:0}
+  .ix{position:static;max-height:none;padding:14px 0 0}
+  .ix-sub{display:none!important}
+}
+@media print{ .ix{display:none!important} .shell{display:block;padding:0} }
+
+/* 1 · Estructura patrón de cargos (vino del artefacto «Escalones de la estructura patrón»; todo bajo .ep) */
+.ep{--ink:var(--fg);--head:var(--navy);--accent:var(--blue);--accent-soft:var(--soft);
+  --warn-soft:color-mix(in srgb,var(--warn) 12%,var(--surface));
+  --fs-body:1rem;--fs-small:.875rem;--fs-xs:.78rem;--fs-h1:2rem;--fs-h2:1.4rem;--fs-h3:1.2rem;
+  --e1:#E4EDF8; --e1-ink:#1F3864;
+  --e2:#CCDDF0; --e2-ink:#1F3864;
+  --e3:#ABC9E9; --e3-ink:#13284A;
+  --e4:#86B1DE; --e4-ink:#0F2340;
+  --e5:#3570B0; --e5-ink:#FFFFFF;
+  --e6:#2B63A0; --e6-ink:#FFFFFF;
+  --e7:#24578F; --e7-ink:#FFFFFF;
+  --e8:#224C80; --e8-ink:#FFFFFF;
+  --e9:#1F3864; --e9-ink:#FFFFFF;
+  font-size:var(--fs-body);line-height:1.55;color:var(--fg)}
+:root[data-theme="dark"] .ep{--e1:#1A2740; --e1-ink:#CFE0F5;
+  --e2:#1F3150; --e2-ink:#D6E5F7;
+  --e3:#253D62; --e3-ink:#E2ECF8;
+  --e4:#2D4B77; --e4-ink:#EAF1FA;
+  --e5:#3A6AA6; --e5-ink:#FFFFFF;
+  --e6:#5A8CC8; --e6-ink:#0E1524;
+  --e7:#7AA5D8; --e7-ink:#0E1524;
+  --e8:#97BAE4; --e8-ink:#0E1524;
+  --e9:#B8D1F0; --e9-ink:#0E1524;}
+.ep h1,.ep h2,.ep h3,.ep h4{color:var(--head);line-height:1.2;text-wrap:balance;margin:0}
+.ep h1{font-size:var(--fs-h1);font-weight:700;letter-spacing:-.01em}
+.ep h2{font-size:var(--fs-h2);font-weight:700}
+.ep h3{font-size:var(--fs-h3);font-weight:700}
+.ep h4{font-size:1rem;font-weight:700}
+.ep p{margin:0}
+.ep a{color:var(--accent)}
+.ep a:focus-visible,.ep .pel a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.ep .eyebrow{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+.ep .mut{color:var(--muted)}
+.ep .num{font-variant-numeric:tabular-nums}
+.ep .aviso{display:flex;gap:10px;align-items:flex-start;background:var(--warn-soft);color:var(--ink);border-radius:8px;padding:10px 14px;font-size:var(--fs-small);max-width:78ch}
+.ep .aviso b{color:var(--warn)}
+.ep section.blk{padding-block:40px 8px;display:grid;gap:16px;scroll-margin-top:16px}
+.ep .blk > .intro{max-width:68ch;display:grid;gap:10px}
+.ep .fig-wrap{overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.ep .escalera{display:grid;grid-template-columns:repeat(9,minmax(92px,1fr));gap:8px;align-items:end;min-width:900px}
+.ep .pel{display:flex;flex-direction:column;justify-content:flex-end;gap:6px;min-width:0}
+.ep .pel-n{font-weight:700;font-size:.95rem;color:var(--head);line-height:1.15}
+.ep .pel-n small{display:block;font-weight:400;color:var(--muted);font-size:var(--fs-xs)}
+.ep .pel-blk{border-radius:6px 6px 0 0;height:calc(var(--h) * 24px + 30px);display:flex;flex-direction:column;justify-content:flex-end;padding:8px;font-size:var(--fs-xs);line-height:1.3}
+.ep .pel a{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px;justify-content:flex-end;height:100%}
+.ep .pel a:hover .pel-blk{filter:brightness(1.06)}
+.ep .k1 .pel-blk{background:var(--e1);color:var(--e1-ink)}
+.ep .k2 .pel-blk{background:var(--e2);color:var(--e2-ink)}
+.ep .k3 .pel-blk{background:var(--e3);color:var(--e3-ink)}
+.ep .k4 .pel-blk{background:var(--e4);color:var(--e4-ink)}
+.ep .k5 .pel-blk{background:var(--e5);color:var(--e5-ink)}
+.ep .k6 .pel-blk{background:var(--e6);color:var(--e6-ink)}
+.ep .k7 .pel-blk{background:var(--e7);color:var(--e7-ink)}
+.ep .k8 .pel-blk{background:var(--e8);color:var(--e8-ink)}
+.ep .k9 .pel-blk{background:var(--e9);color:var(--e9-ink)}
+.ep .grados{display:grid;gap:3px;margin-bottom:6px}
+.ep .grados span{display:block;border-top:1px solid currentColor;opacity:.75;padding-top:2px;font-weight:700}
+.ep .doble{display:grid;grid-template-columns:1fr 1fr;gap:4px;align-items:end}
+.ep .doble .pel-n{font-size:.86rem}
+.ep .techo{display:flex;justify-content:flex-end;min-width:900px;margin-bottom:10px}
+.ep .techo span{font-size:var(--fs-xs);color:var(--muted);border:1.5px dashed var(--line);border-radius:6px;padding:4px 10px}
+.ep .suelo{display:grid;grid-template-columns:repeat(9,minmax(92px,1fr));gap:8px;min-width:900px;border-top:2px solid var(--head);padding-top:8px;font-size:var(--fs-xs);color:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.ep .suelo .c7{grid-column:1 / span 5}
+.ep .suelo span:not(.c7){border-left:1px solid var(--line);padding-left:6px}
+.ep .leyenda-fig{font-size:var(--fs-small);color:var(--muted);max-width:78ch}
+.ep .principios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.ep .pr{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:8px;align-content:start;min-width:0}
+.ep .pr h3{font-size:1.05rem}
+.ep .pr p{font-size:.98rem}
+.ep .cita{font-size:var(--fs-small);color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.ep .cita q{font-style:italic;color:var(--ink)}
+.ep .fichas{display:grid;gap:0}
+.ep .esc{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;padding-block:28px;border-top:1px solid var(--line);scroll-margin-top:16px}
+.ep .esc.resalta{background:var(--accent-soft);border-radius:8px;padding-inline:14px}
+.ep .esc-lado{display:grid;gap:10px;align-content:start}
+.ep .esc-tit{display:flex;gap:10px;align-items:center}
+.ep .sw{width:18px;height:18px;border-radius:4px;flex:none}
+.ep .sw.k1{background:var(--e1);box-shadow:inset 0 0 0 1px var(--line)}
+.ep .sw.k2{background:var(--e2)}
+.ep .sw.k3{background:var(--e3)}
+.ep .sw.k4{background:var(--e4)}
+.ep .sw.k5{background:var(--e5)}
+.ep .sw.k6{background:var(--e6)}
+.ep .sw.k7{background:var(--e7)}
+.ep .sw.k8{background:var(--e8)}
+.ep .sw.k9{background:var(--e9)}
+.ep .sec-sub{padding-top:28px;border-top:2px solid var(--head);margin-top:12px}
+.ep .prop{font-size:1.05rem}
+.ep .meta{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:var(--fs-small);margin:0}
+.ep .meta dt{color:var(--muted)}
+.ep .meta dd{margin:0;font-weight:700}
+.ep .esc-cuerpo{display:grid;gap:14px;min-width:0}
+.ep .hay{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ep .hay > div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:4px;align-content:start}
+.ep .hay h4{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ep .hay p{font-size:.96rem}
+.ep .par b{color:var(--head)}
+.ep .fuentes{font-size:var(--fs-small);color:var(--muted)}
+.ep .fuentes a{white-space:nowrap}
+.ep .grados-tab{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ep .grados-tab > div{border-top:3px solid var(--e3);padding-top:8px;display:grid;gap:4px;align-content:start}
+.ep .grados-tab b{color:var(--head)}
+.ep .grados-tab p{font-size:.96rem}
+.ep .dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ep .via{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.ep .via h4{font-size:1.1rem;color:var(--head)}
+.ep .via dl{margin:0;display:grid;gap:8px}
+.ep .via dt{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.ep .via dd{margin:0;font-size:.96rem}
+.ep .criterio{background:var(--accent-soft);border-radius:8px;padding:12px 14px;display:grid;gap:6px;font-size:.98rem}
+.ep .criterio ol{margin:0;padding-left:1.2em;display:grid;gap:2px}
+.ep .tabla-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.ep table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:820px}
+.ep th,.ep td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+.ep thead th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--bg);position:sticky;top:0}
+.ep tbody tr:last-child td,.ep tbody tr:last-child th{border-bottom:none}
+.ep tbody th{color:var(--head);white-space:nowrap}
+.ep td .mut{display:block;font-size:var(--fs-xs)}
+.ep .nota-tabla{font-size:var(--fs-small);color:var(--muted);max-width:80ch}
+.ep .reglas{display:grid;gap:0;counter-reset:r}
+.ep .regla{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;padding-block:16px;border-top:1px solid var(--line)}
+.ep .regla h3{font-size:1.08rem}
+.ep .regla .que{display:grid;gap:6px}
+.ep .decisiones{display:grid;gap:12px}
+.ep .dec{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:8px}
+.ep .dec h3{font-size:1.05rem}
+.ep .dec .opc{display:flex;flex-wrap:wrap;gap:6px}
+.ep .epchip{font-size:var(--fs-xs);border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink);background:var(--bg)}
+.ep .dec .crit{font-size:.96rem}
+.ep .dec .crit b{color:var(--head)}
+.ep .refs{margin:0;padding:0;list-style:none;display:grid;gap:10px;max-width:90ch}
+.ep .refs li{font-size:.95rem;padding-left:1.4em;text-indent:-1.4em;scroll-margin-top:16px}
+.ep .refs li.resalta{background:var(--accent-soft);border-radius:6px}
+.ep .refs .uso{display:block;text-indent:0;color:var(--muted);font-size:var(--fs-small)}
+.ep .pie{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:var(--fs-small);color:var(--muted)}
+@media (max-width:820px){
+.ep .esc{grid-template-columns:1fr;gap:16px}
+.ep .hay,.ep .grados-tab{grid-template-columns:1fr}
+.ep .dos{grid-template-columns:1fr}
+.ep .regla{grid-template-columns:1fr;gap:8px}}
+.ep section.blk,.ep .esc,.ep .via,.ep .refs li{scroll-margin-top:80px}
+.ep .resalta{background:var(--accent-soft);border-radius:8px}
+/* la columna doble (Supervisor · Especialista) necesita más ancho que las demás con esta tipografía */
+.ep .escalera,.ep .suelo{grid-template-columns:repeat(3,minmax(92px,1fr)) minmax(170px,1.7fr) repeat(4,minmax(92px,1fr));min-width:900px}
+.ep .techo{min-width:900px}
+.ep .pel-blk{font-size:.74rem}
+
 @media print{
   .top,.riel,.notas,.buscar{display:none!important}
   body{background:#fff} .wrap{padding:0;max-width:none} .ficha{display:block}
@@ -231,16 +404,464 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
 </head>
 <body>
 <div class="top">
-  <a class="marca" href="#/"><i aria-hidden="true"></i><span>Descripciones de cargo<small>Proyecto Rower · Fase 3</small></span></a>
+  <a class="marca" href="#/"><i aria-hidden="true"></i><span>Talento y cargos<small>Proyecto Rower · Fase 3</small></span></a>
   <div class="fasesel" id="faseSel"><button type="button" id="faseBtn" aria-haspopup="true" aria-expanded="false">Fase 3 — Talento ▾</button><div class="menu">
     <a href="../fase1/informe-diagnostico-fase1.html">Fase 1 — Diagnóstico<small>Informe maestro (12 secciones + anexos)</small></a>
     <a href="../fase2/informe-fase2.html">Fase 2 — Procesos<small>Manual de procesos y estructura</small></a>
-    <a class="actual" href="#/">Fase 3 — Talento<small>Descripciones de cargo · piloto</small></a></div></div>
+    <a class="actual" href="#/">Fase 3 — Talento<small>Estructura patrón y descripciones de cargo</small></a></div></div>
   <span class="sp"></span>
   <button class="pill" type="button" id="btnImprimir" hidden>Imprimir</button>
   <button class="pill" type="button" id="btnTema" title="Cambiar tema">◐ Tema</button>
 </div>
-<div class="wrap" id="vista"></div>
+<div class="shell">
+<aside class="ix" id="ix" aria-label="Índice de la Fase 3">
+  <div class="ix-fase">Fase 3 · Talento</div>
+  <a class="ix-p" data-v="patron" href="#/patron"><b>1</b>Estructura patrón de cargos</a>
+  <div class="ix-sub" id="ixPatron"></div>
+  <a class="ix-p" data-v="desc" href="#/descripciones"><b>2</b>Descripciones de cargo</a>
+  <div class="ix-sub" id="ixDesc"></div>
+</aside>
+<main class="wrap" id="vista"></main>
+</div>
+<template id="tplPatron">
+<section class="hero"><div class="k">Fase 3 · Talento · Grupo Kenex</div><h1>Estructura patrón de cargos</h1><p>Los niveles de cargo de la organización, del operario al director, iguales para todas las áreas. Son atemporales y flexibles: piezas de trabajo con las que se arman las áreas, que no cambian cuando cambia la estructura. Para cada escalón: qué hace, qué tiene que saber, qué resuelve, de qué responde, cuánta experiencia se estima y en qué se distingue del vecino. Es la base de la reclasificación y de las descripciones de cargo (punto 2).</p></section>
+<div class="ep">
+<p class="aviso"><span><b>Borrador del equipo consultor</b> para revisar con Desarrollo Corporativo. Las denominaciones de los escalones siguen abiertas en las decisiones pendientes de la estructura To-Be, y los ejemplos de Kenex son orientativos: dónde queda cada cargo lo dice la reclasificación, no esta página.</span></p>
+<section class="blk" id="escalera">
+  <div class="intro">
+    <h2>La escalera</h2>
+    <p>Del operario al director hay ocho escalones. Son niveles de cargo, y no hay que confundirlos con los niveles de la estructura. La estructura tiene los suyos: lo corporativo, que sirve a todo el grupo, y lo de cada país. La escalera vale en los dos: cuando hace falta, el cargo toma el nivel de la estructura como apellido, según dónde está la posición. Así, un mismo escalón da un Gerente corporativo de Compras o un Gerente país de Administración y Finanzas, un Coordinador corporativo de Formación o un Coordinador país de Servicios Generales. La escalera es atemporal y flexible: sus escalones son piezas de trabajo con las que se arman las áreas, y cada área toma las que necesita. Se leen de abajo arriba, porque cada escalón se define por lo que suma al anterior: más conocimiento, problemas menos previsibles, más años de experiencia y, desde el cuarto, personas a cargo.</p>
+  </div>
+  <div class="fig-wrap">
+    <div class="techo"><span>Por encima: Presidencia y Junta Directiva, fuera del patrón</span></div>
+    <div class="escalera" role="img" aria-label="Escalera de ocho escalones: Operario, Auxiliar, Analista I, II y III, Supervisor o Especialista, Coordinador, Gerente de unidad de negocio, Gerente y Director.">
+      <div class="pel k1" style="--h:1"><a href="#operario"><span class="pel-n">Operario(a)</span><span class="pel-blk">0 a 1 año<br>nivel OIT 1–2</span></a></div>
+      <div class="pel k2" style="--h:2"><a href="#auxiliar"><span class="pel-n">Auxiliar</span><span class="pel-blk">6 meses a 2 años<br>nivel OIT 2</span></a></div>
+      <div class="pel k3" style="--h:3"><a href="#analista"><span class="pel-n">Analista <small>I · II · III</small></span><span class="pel-blk"><span class="grados"><span>III</span><span>II</span><span>I</span></span>0 a 6 años<br>nivel OIT 3–4</span></a></div>
+      <div class="pel k4 doble" style="--h:4">
+        <a href="#supervisor"><span class="pel-n">Supervisor(a)</span><span class="pel-blk">dirige un equipo<br>3 a 5 años</span></a>
+        <a href="#especialista"><span class="pel-n">Especialista</span><span class="pel-blk">autoridad en una materia<br>6 a 10 años</span></a>
+      </div>
+      <div class="pel k5" style="--h:5"><a href="#coordinador"><span class="pel-n">Coordinador(a)</span><span class="pel-blk">dirige un área<br>5 a 8 años</span></a></div>
+      <div class="pel k6" style="--h:6"><a href="#gerente-un"><span class="pel-n">Gerente de unidad de negocio</span><span class="pel-blk">un canal o un frente<br>8 a 12 años</span></a></div>
+      <div class="pel k8" style="--h:7"><a href="#gerente"><span class="pel-n">Gerente</span><span class="pel-blk">dirige una función<br>10 a 15 años</span></a></div>
+      <div class="pel k9" style="--h:8"><a href="#director"><span class="pel-n">Director(a)</span><span class="pel-blk">una gran función<br>más de 15 años</span></a></div>
+    </div>
+    <div class="suelo"><span class="c7" style="grid-column:1/-1">Escalones de cargo · cada área toma los que necesita</span></div>
+  </div>
+  <p class="leyenda-fig">Los años son la experiencia relacionada que se estima para ocupar el cargo. El nivel OIT es el nivel de competencias de la Clasificación Internacional Uniforme de Ocupaciones (CIUO-08), de 1 a 4. Supervisor(a) y Especialista comparten escalón: son dos trayectorias del mismo nivel. Cada área toma los escalones que necesita. Toque un escalón para ir a su ficha.</p>
+</section>
+
+<section class="blk" id="leer">
+  <div class="intro">
+    <h2>Cómo leer un escalón</h2>
+    <p>Seis ideas ordenan la sección. Las cuatro vienen de los marcos de referencia y coinciden con las premisas que el equipo fijó el 10-nov para desarrollar la capa país.</p>
+  </div>
+  <div class="principios">
+    <div class="pr">
+      <h3>Nivel de cargo y nivel de estructura: el apellido</h3>
+      <p>La estructura tiene dos niveles: lo corporativo, que sirve a todo el grupo, y lo de cada país. La escalera no los repite: sus escalones valen en los dos. Cuando hace falta, el cargo toma el nivel de la estructura como apellido, según dónde está la posición: Gerente corporativo, Gerente país, Coordinador corporativo. El escalón es el mismo; el apellido dice dónde se ejerce, y el mayor alcance se refleja en el grado.</p>
+      <p class="cita">WTW gradúa cada cargo, entre otros factores, por el <q>área de impacto</q>: dónde se siente lo que hace. <a href="#r-wtw">WTW, 2024, p. 18</a></p>
+    </div>
+    <div class="pr">
+      <h3>La escalera es atemporal y flexible</h3>
+      <p>Los escalones no dependen de cómo esté armada hoy la estructura. Son piezas de trabajo con las que se arman las áreas: cada área toma las que necesita y, si la estructura cambia, la escalera sigue siendo la misma.</p>
+      <p class="cita">WTW dice de su sistema de grados que <q>se puede aplicar a una organización de cualquier tamaño y de cualquier industria</q>. <a href="#r-wtw">WTW, 2024, p. 2</a></p>
+    </div>
+    <div class="pr">
+      <h3>El escalón clasifica el cargo, no a la persona</h3>
+      <p>Un escalón dice qué exige el trabajo, no qué títulos o qué antigüedad tiene quien lo ocupa. Por eso la estructura patrón va antes que la reclasificación, y los equipos se arman después de las dos.</p>
+      <p class="cita">OIT: <q>la entidad que se clasifica es el empleo, no la persona que lo desempeña</q>. <a href="#r-oit">CIUO-08, p. 14</a>. El método Hay mira la naturaleza y las exigencias del cargo, no la formación ni las características de quien lo ocupa. <a href="#r-uwo">UWO, 2007</a></p>
+    </div>
+    <div class="pr">
+      <h3>Un escalón es un nivel, no un nombre de cargo</h3>
+      <p>Cada familia pone el nombre: «Asesor(a) de ventas», «Diseñador(a)» o «Ejecutivo(a) de cuenta» pueden estar en un mismo escalón. Así no se crea un tipo de cargo por cada proceso u ocupante: los escalones son pocos y comunes.</p>
+      <p class="cita">WTW ubica primero cada cargo en una banda, según cómo contribuye, y después le asigna el grado con siete factores. <a href="#r-wtw">WTW, 2024, pp. 5–6</a></p>
+    </div>
+    <div class="pr">
+      <h3>Tres preguntas: saber, resolver, responder</h3>
+      <p>Cada ficha responde qué hay que saber, qué tipo de problema hay que resolver y de qué resultado se responde. A esas tres se suma la experiencia estimada: cuántos años de práctica relacionada suele tener quien ocupa el cargo.</p>
+      <p class="cita">Hay: <q>el conocimiento que se requiere para resolver el problema y entregar el resultado del que el cargo responde</q>. <a href="#r-hay">Hay, 2014, p. 1</a>. La SVP mide la experiencia como el tiempo que un trabajador típico necesita para <q>alcanzar un desempeño promedio</q> en el cargo. <a href="#r-svp">DOL</a></p>
+    </div>
+    <div class="pr">
+      <h3>Desde el cuarto escalón, dos caminos</h3>
+      <p>Se puede subir dirigiendo personas o profundizando en una materia. Las dos trayectorias tienen el mismo nivel, para que nadie tenga que dejar su especialidad y asumir un equipo solo para subir.</p>
+      <p class="cita">El árbol de bandas de WTW separa la trayectoria de gestión de la de contribución individual con la pregunta <q>¿gestionar personas es el foco?</q> <a href="#r-wtw">WTW, 2024, p. 17</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="equipos" aria-labelledby="t-fichas">
+  <div class="intro">
+    <h2 id="t-fichas">Del operario al coordinador</h2>
+    <p>De abajo arriba. Cada ficha cierra con lo que distingue al escalón de su vecino, ejemplos orientativos de Kenex y las fuentes que la sostienen.</p>
+  </div>
+
+  <div class="fichas">
+
+    <!-- OPERARIO -->
+    <article class="esc" id="operario">
+      <div class="esc-lado">
+        <div class="eyebrow">Base de la escalera</div>
+        <div class="esc-tit"><span class="sw k1" aria-hidden="true"></span><h3>Operario(a)</h3></div>
+        <p class="prop">Hace el trabajo físico de la operación con métodos ya definidos: recibe, mueve, almacena, prepara, instala, mantiene o entrega.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>0 a 1 año</dd>
+          <dt>Personas a cargo</dt><dd>Ninguna</dd>
+          <dt>Nivel OIT</dt><dd>1 a 2</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>Un oficio que se aprende en el puesto o con formación técnica corta. Manejo seguro de equipos y herramientas, y lectura de instrucciones, etiquetas y órdenes de trabajo.</p></div>
+          <div><h4>Resolver</h4><p>Sigue el procedimiento. Ante lo que no encaja, como mercancía dañada, una diferencia de conteo o un equipo que falla, se detiene y avisa: no decide la excepción.</p></div>
+          <div><h4>Responder</h4><p>Por la tarea bien hecha, a tiempo y sin accidentes. El resultado se ve al cerrar el turno.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del auxiliar</b> en el objeto del trabajo: el operario actúa sobre cosas (mercancía, equipos, espacios) y el auxiliar sobre información (documentos, registros, solicitudes). Cuando un cargo combina las dos, se clasifica por la tarea que exige más, siempre que sea parte estable del cargo y no algo ocasional.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> recepción, almacenamiento y despacho en bodega; mantenimiento de sedes, tiendas y bodegas en Servicios Generales; montaje de exhibiciones en tienda.</p>
+        <p class="fuentes">Fuentes: la OIT describe el nivel 1 como <q>tareas físicas o manuales simples y rutinarias</q> y pone en el nivel 2 operar maquinaria y conducir vehículos (<a href="#r-oit">CIUO-08, pp. 12–13</a>). WTW, banda 1 «Manual» (<a href="#r-wtw">2024, p. 12</a>). Experiencia: SVP 2 a 5, de un mes a un año (<a href="#r-svp">DOL</a>), y O*NET, zonas 1–2, de unos días a un año de entrenamiento en el puesto (<a href="#r-onet">Job Zones</a>). Mintzberg lo ubica en el núcleo de operaciones, que produce los bienes y servicios (<a href="#r-mintzberg">1979</a>).</p>
+      </div>
+    </article>
+
+    <!-- AUXILIAR -->
+    <article class="esc" id="auxiliar">
+      <div class="esc-lado">
+        <div class="eyebrow">Sostiene el proceso</div>
+        <div class="esc-tit"><span class="sw k2" aria-hidden="true"></span><h3>Auxiliar</h3></div>
+        <p class="prop">Sostiene el proceso con el registro, el trámite y la atención: carga y verifica datos, emite y archiva documentos, atiende solicitudes y sigue lo pendiente.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>6 meses a 2 años</dd>
+          <dt>Personas a cargo</dt><dd>Ninguna</dd>
+          <dt>Nivel OIT</dt><dd>2</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>Secundaria completa y, a menudo, formación técnica corta. Manejo de los sistemas del proceso (Odoo, Lark), redacción clara y cálculos sencillos.</p></div>
+          <div><h4>Resolver</h4><p>Aplica reglas conocidas y resuelve las variaciones que ya tienen respuesta. Lo que no está en la regla lo pasa al analista o al supervisor, con el caso documentado.</p></div>
+          <div><h4>Responder</h4><p>Por que el dato y el documento estén completos, correctos y a tiempo, porque de ellos depende el paso siguiente del proceso.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del analista</b> en que registra y tramita según la regla, mientras el analista interpreta la información, encuentra la causa y propone. <b>Del operario</b>, en que trabaja sobre información y no sobre cosas.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> apoyo administrativo en compras, cuentas por pagar y por cobrar, y documentación de despacho. La atención al cliente en tienda está en el mismo nivel de competencias según la OIT; si se nombra «Asesor(a)» dentro de este escalón es una de las decisiones abiertas.</p>
+        <p class="fuentes">Fuentes: para el nivel 2, la OIT exige <q>leer información como instrucciones de seguridad, llevar registros escritos del trabajo realizado y hacer con exactitud cálculos aritméticos simples</q>, y pone allí al personal de apoyo administrativo (gran grupo 4) y a los vendedores de tienda (gran grupo 5) (<a href="#r-oit">CIUO-08, pp. 12 y 14</a>). WTW, banda 2 «Clerical/Administrative» (<a href="#r-wtw">2024, p. 12</a>). O*NET, zonas 1–2: de unos días a un año de entrenamiento en el puesto (<a href="#r-onet">Job Zones</a>). Experiencia: SVP 4 a 6, de tres meses a dos años (<a href="#r-svp">DOL</a>).</p>
+      </div>
+    </article>
+
+    <!-- ANALISTA -->
+    <article class="esc" id="analista">
+      <div class="esc-lado">
+        <div class="eyebrow">Primer escalón profesional</div>
+        <div class="esc-tit"><span class="sw k3" aria-hidden="true"></span><h3>Analista I · II · III</h3></div>
+        <p class="prop">Convierte información en análisis, propuestas y control dentro de una especialidad: concilia, calcula, proyecta, diagnostica, diseña y reporta.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>I: 0 a 2 · II: 2 a 4 · III: 4 a 6 años</dd>
+          <dt>Personas a cargo</dt><dd>Ninguna formal</dd>
+          <dt>Nivel OIT</dt><dd>3 a 4</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>Formación técnica superior o universitaria en la especialidad, más el conocimiento del negocio que da la práctica. Es el primer escalón donde la teoría de una disciplina es requisito.</p></div>
+          <div><h4>Resolver</h4><p>Problemas que no traen la respuesta escrita: elige el método, cruza fuentes, explica una desviación y propone qué hacer.</p></div>
+          <div><h4>Responder</h4><p>Por la calidad del análisis y por su uso: que la cifra sea confiable, que la recomendación se sostenga y que llegue a tiempo para decidir.</p></div>
+        </div>
+        <p class="par">Los tres grados hacen el mismo tipo de trabajo. Cambia cuánta guía necesitan y qué tan nuevos son los casos que resuelven.</p>
+        <div class="grados-tab">
+          <div><b>Analista I · entrada · 0 a 2 años</b><p>Aplica métodos establecidos a problemas definidos. Su trabajo se revisa paso a paso. Está aprendiendo la especialidad y el negocio.</p></div>
+          <div><b>Analista II · pleno · 2 a 4 años</b><p>Trabaja con independencia en los casos habituales de su área. Se le revisa el resultado, no cada paso. Puede guiar a un analista I en el día a día.</p></div>
+          <div><b>Analista III · referencia · 4 a 6 años</b><p>Resuelve los casos no rutinarios y propone mejoras al método. Es la referencia técnica de su equipo y revisa el trabajo de otros, sin tener personas a cargo.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del auxiliar</b> en que interpreta y propone. <b>Del especialista</b>, en el alcance: el analista III es referencia en su equipo; el especialista lo es para toda la organización en una materia y responde por el criterio que otros aplican.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> planificación de compras e inventario, precios, cuentas por cobrar y conciliaciones, inteligencia de negocio, diseño gráfico y ejecutivos de cuenta en el mayor. Según dónde trabaje, el analista está en el núcleo de operaciones o en lo que Mintzberg llama tecnoestructura: quienes diseñan los planes, estándares y controles con que trabajan los demás.</p>
+        <p class="fuentes">Fuentes: OIT, nivel 3 (<q>tareas técnicas y prácticas complejas</q> que requieren amplio conocimiento técnico y de procedimiento) y nivel 4 (<q>resolución de problemas complejos, toma de decisiones y creatividad</q> sobre conocimiento teórico), grandes grupos 3 y 2 (<a href="#r-oit">CIUO-08, p. 13</a>). WTW, banda 3IC «Professional»: su árbol pregunta si el cargo tiene <q>independencia para aplicar el conocimiento profesional</q> (<a href="#r-wtw">2024, p. 17</a>). O*NET, zonas 3–4 (<a href="#r-onet">Job Zones</a>). Experiencia: SVP 7 a 8, de 2 a 10 años de preparación contando la formación específica (<a href="#r-svp">DOL</a>). Katz: en los escalones de base pesa sobre todo la habilidad técnica (<a href="#r-katz">1955</a>). Mintzberg, tecnoestructura (<a href="#r-mintzberg">1979</a>).</p>
+      </div>
+    </article>
+
+    <!-- SUPERVISOR / ESPECIALISTA -->
+    <article class="esc" id="supervisor">
+      <div class="esc-lado">
+        <div class="eyebrow">Mismo escalón, dos trayectorias</div>
+        <div class="esc-tit"><span class="sw k4" aria-hidden="true"></span><h3>Supervisor(a) / Especialista</h3></div>
+        <p class="prop">Aquí el patrón abre dos caminos del mismo nivel. La diferencia no es de tamaño sino de cómo contribuye el cargo: dirigiendo a otros o siendo la autoridad en una materia.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>Supervisor: 3 a 5 años · Especialista: 6 a 10</dd>
+          <dt>Nivel OIT</dt><dd>2–3 (supervisor) · 4 (especialista)</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="dos">
+          <div class="via">
+            <h4>Supervisor(a)</h4>
+            <p>Primera línea de mando. Organiza el trabajo de un turno, una tienda, una cuadrilla o un equipo operativo, y hace que salga como se planificó.</p>
+            <dl>
+              <dt>Saber</dt><dd>El oficio que supervisa, bien aprendido (suele venir de él), y lo que el oficio no enseña: programar, delegar, enseñar en el puesto, dar retroalimentación y manejar conflictos.</dd>
+              <dt>Resolver</dt><dd>Reparte tareas y turnos, reasigna cuando falta alguien, resuelve las incidencias del día y decide qué escala. Ajusta el cómo; el qué y el cuánto los fija el coordinador.</dd>
+              <dt>Responder</dt><dd>Por el cumplimiento, la calidad y la seguridad del trabajo de su equipo en el periodo. No por el presupuesto ni por la unidad completa.</dd>
+              <dt>Personas a cargo</dt><dd>Sí: operarios, auxiliares o analistas de un mismo proceso.</dd>
+            </dl>
+          </div>
+          <div class="via" id="especialista">
+            <h4>Especialista</h4>
+            <p>Autoridad técnica de la organización en una materia crítica. Fija el criterio que otros aplican, resuelve los casos más difíciles y representa la materia ante terceros.</p>
+            <dl>
+              <dt>Saber</dt><dd>Dominio profundo y al día de la materia, normalmente con grado o posgrado y varios años de práctica, y de cómo esa materia toca el negocio.</dd>
+              <dt>Resolver</dt><dd>Los casos que un analista III no puede cerrar, y la pregunta de cómo debe hacerse: escribe la norma técnica, el método o el estándar.</dd>
+              <dt>Responder</dt><dd>Por la solidez del criterio que la organización usa en su materia y por sus consecuencias.</dd>
+              <dt>Personas a cargo</dt><dd>No, o solo de forma funcional dentro de un proyecto.</dd>
+            </dl>
+          </div>
+        </div>
+        <p class="par"><b>Se distinguen</b> en de qué responden: el supervisor, de lo que hace su equipo; el especialista, del criterio con que trabaja la organización en su materia. Ninguna de las dos es paso obligado hacia la otra. <b>Del analista III</b>, el supervisor se distingue por tener personas a cargo y el especialista por su alcance, que es toda la organización y no un equipo.</p>
+        <div class="criterio">
+          <b>Cuándo abrir un cargo de Especialista</b>
+          <ol>
+            <li>La materia es crítica para el negocio o para el cumplimiento.</li>
+            <li>Hace falta una referencia para todo el grupo, no para un equipo.</li>
+            <li>Su criterio se puede describir y evaluar.</li>
+          </ol>
+          <span>Si falta alguna de las tres, el cargo es Analista III. El especialista no es una salida para subir de nivel a quien no tiene equipo.</span>
+        </div>
+        <p class="par"><b>En Kenex, por ejemplo:</b> supervisión de turno en bodega y despacho, de tienda o de un equipo de atención; especialistas en comercio exterior y aduanas, datos maestros y catálogo, garantías o la configuración funcional de Odoo.</p>
+        <p class="fuentes">Fuentes: para la OIT, la diferencia crítica es que <q>los supervisores responden solo de supervisar las actividades de otros trabajadores</q>, mientras los gerentes tienen la responsabilidad general de una unidad; además, crea grupos propios de supervisores solo donde sus tareas difieren de las de los supervisados, como oficina (3341), tienda (5222) y manufactura (3122) (<a href="#r-oit">CIUO-08, pp. 24–25 y 40</a>). Experiencia: SVP 7 a 8; la escala cuenta como preparación <q>la experiencia en cargos de menor responsabilidad que conducen</q> al cargo, que es de donde suele venir un supervisor (<a href="#r-svp">DOL</a>). Charan, Drotter y Noel: es la primera transición, pasar de producir resultados uno mismo a producirlos a través de otros (<a href="#r-pipeline">2001</a>). WTW, bandas 3M «Supervisor» y 4IC «Subject Matter Expert» (<a href="#r-wtw">2024, pp. 12 y 17</a>). Allen y Katz sobre la doble escalera (<a href="#r-allen">1986</a>).</p>
+      </div>
+    </article>
+
+    <!-- COORDINADOR -->
+    <article class="esc" id="coordinador">
+      <div class="esc-lado">
+        <div class="eyebrow">Dirige un área</div>
+        <div class="esc-tit"><span class="sw k5" aria-hidden="true"></span><h3>Coordinador(a)</h3></div>
+        <p class="prop">Responde por un área de trabajo completa dentro de una gerencia: sus resultados, sus recursos y su gente. Es el primer escalón que dirige una unidad y no solo un equipo.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>5 a 8 años, 1 o 2 conduciendo equipos</dd>
+          <dt>Personas a cargo</dt><dd>Sí, directas o a través de supervisores</dd>
+          <dt>Nivel OIT</dt><dd>3 a 4, en el gran grupo 1 si dirige la unidad</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>La especialidad del área y la gestión: planificación, presupuesto del área, indicadores, selección y evaluación de personas, y mejora de procedimientos.</p></div>
+          <div><h4>Resolver</h4><p>Prioriza entre demandas que compiten, asigna recursos, rehace el procedimiento cuando no funciona y negocia con otras áreas. Propone cambios de política, pero no los aprueba.</p></div>
+          <div><h4>Responder</h4><p>Por los indicadores del área en el año, por el uso de sus recursos y por el desarrollo de su gente. Rinde cuentas a su gerente o a su director.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del supervisor</b> en el alcance: el supervisor responde por la ejecución de un equipo en el periodo; el coordinador, por la unidad entera, con presupuesto, indicadores y personas. <b>Del gerente</b>, en que no fija la política de la función ni la representa. Si le reportan supervisores, dirige a quienes dirigen, que es la segunda transición de Charan, Drotter y Noel.</p>
+        <p class="par"><b>Apellido.</b> Según dónde esté la posición, el cargo se llama coordinador país o coordinador corporativo: es el mismo escalón.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> las coordinaciones que la estructura To-Be ya dibuja. Con apellido país: Servicios Generales, las cinco de Mercadeo, Compras Internas y Tecnología. Con apellido corporativo: Compras Casio; Compras Cubitt; Planificación, Despacho e Inventarios; Despacho; Inventario y Precios; Planificación y Control Financiero; y Formación. De forma orientativa, también la coordinación de una tienda.</p>
+        <p class="fuentes">Fuentes: OIT: los gerentes tienen <q>la responsabilidad general de las operaciones de una empresa o de una unidad organizativa</q>, y gerentes y supervisores por igual <q>planifican, organizan, coordinan, controlan y dirigen el trabajo de otros</q> (<a href="#r-oit">CIUO-08, p. 40</a>). Mintzberg: es la base de la línea media, entre la cúpula y el núcleo de operaciones (<a href="#r-mintzberg">1979</a>). Katz: a medida que se sube, la habilidad humana se mantiene y crece la conceptual (<a href="#r-katz">1955</a>). WTW, entre las bandas 3M «Supervisor» y 4M «Middle Management» (<a href="#r-wtw">2024, p. 12</a>). Experiencia: SVP 8, de más de 4 a 10 años (<a href="#r-svp">DOL</a>). Charan, Drotter y Noel (<a href="#r-pipeline">2001</a>).</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="blk" id="direccion" aria-labelledby="t-dir">
+  <div class="intro sec-sub">
+    <h2 id="t-dir">Gerentes y director</h2>
+    <p>Los tres escalones de dirección. Del coordinador al gerente de unidad de negocio, de este al gerente y del gerente al director lo que sube ya no es el conocimiento técnico sino el alcance: un canal o un frente, una función, una gran función con varias funciones. Dónde se ejerce, en un país o para todo el grupo, es el apellido que pone la estructura.</p>
+    <p>Un aviso sobre las fuentes: la OIT clasifica a todos los gerentes en su gran grupo 1, por la función que dirigen (finanzas, ventas, abastecimiento, comercio), y no distingue niveles jerárquicos entre ellos. En estas fichas la OIT describe la naturaleza del cargo; el nivel lo dan Charan, Drotter y Noel, y WTW, y la experiencia, la escala SVP.</p>
+  </div>
+
+  <div class="fichas">
+
+    <!-- GERENTE DE UNIDAD DE NEGOCIO -->
+    <article class="esc" id="gerente-un">
+      <div class="esc-lado">
+        <div class="eyebrow">Lleva un canal o un frente</div>
+        <div class="esc-tit"><span class="sw k6" aria-hidden="true"></span><h3>Gerente de unidad de negocio</h3></div>
+        <p class="prop">Lleva un canal de venta o un frente de mercadeo para todo el grupo, dentro de una gerencia: define cómo se trabaja ese canal en todos los países y responde por su resultado consolidado.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>8 a 12 años, con el canal en más de un país</dd>
+          <dt>Personas a cargo</dt><dd>Quienes llevan el canal en cada país, o un equipo propio</dd>
+          <dt>Nivel OIT</dt><dd>4, unidad 1221</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>El canal o el frente a fondo y en varios mercados: su modelo de negocio, su cliente, sus márgenes, su operación y lo que hace la competencia.</p></div>
+          <div><h4>Resolver</h4><p>Fija los estándares del canal para todos los países, ordena sus prioridades, arbitra entre países del mismo canal y propone a su gerente dónde invertir.</p></div>
+          <div><h4>Responder</h4><p>Por el resultado consolidado del canal en el grupo (venta, margen, servicio) o del frente de mercadeo, y por que el canal funcione igual en todos los países.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del coordinador</b> en que lleva un canal o un frente completo, en todos los países, y no un área. <b>Del gerente</b>, en que no lleva toda la función (Ventas o Mercadeo, por ejemplo) sino un canal o un frente dentro de ella. Se usa donde hay un canal o un frente que llevar igual en todos los países.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> en Ventas, Ventas al Mayor, Retail, E-commerce y Growth, Postventa, y Planificación de la Demanda y Nuevos Mercados como apoyo. En Mercadeo, Insights y ROI, Social y Contenido, Cuentas Clave y Trade, y Visual Merchandising.</p>
+        <p class="fuentes">Fuentes: experiencia, SVP 8 a 9 (<a href="#r-svp">DOL</a>). Jaques, con su regla de que cada capa resuelve lo que la de abajo no puede: aquí, que el canal sea uno solo en todos los países, algo que ninguna gerencia país puede asegurar sola (<a href="#r-go">GO Society</a>). La OIT describe a los gerentes de ventas y mercadeo como quienes <q>planifican, dirigen y coordinan las actividades de ventas y mercadeo</q>, incluidas las listas de precios, los descuentos y las campañas (unidad 1221, nivel 4) (<a href="#r-oit">CIUO-08, p. 95</a>). WTW, banda 4M (<a href="#r-wtw">2024, p. 12</a>).</p>
+      </div>
+    </article>
+
+    <!-- GERENTE -->
+    <article class="esc" id="gerente">
+      <div class="esc-lado">
+        <div class="eyebrow">Dirige una función</div>
+        <div class="esc-tit"><span class="sw k8" aria-hidden="true"></span><h3>Gerente</h3></div>
+        <p class="prop">Dirige una función o un conjunto de áreas: convierte la línea que le da su dirección en la política y los planes de la función, conduce a los coordinadores que la ejecutan y responde por su resultado.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>10 a 15 años, 5 o más dirigiendo áreas</dd>
+          <dt>Personas a cargo</dt><dd>Gerentes de unidad de negocio y coordinadores</dd>
+          <dt>Nivel OIT</dt><dd>3 a 4, gran grupo 1</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>La función completa y cómo toca a las demás: qué necesita de ellas y qué les entrega. Gestión de presupuesto, de indicadores y de equipos de varios niveles, y el marco normativo en que opera la función.</p></div>
+          <div><h4>Resolver</h4><p>Decide la política y los procesos de su función dentro de la línea de su dirección, reparte recursos y personas entre sus áreas, arbitra entre ellas y lleva a su dirección o al comité lo que cruza con otras funciones.</p></div>
+          <div><h4>Responder</h4><p>Por los indicadores de la función en el año, su presupuesto, el cumplimiento de las normas que la rigen y la formación de sus coordinadores.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del gerente de unidad de negocio</b> en que lleva la función completa y no un canal o un frente dentro de ella; <b>del coordinador</b>, en que dirige varias áreas y responde por la función con su presupuesto. <b>Del director</b>, en que lleva una función y no una gran función con varias, y no fija la línea rectora. Es la segunda y la tercera transición de Charan, Drotter y Noel: dirigir a quienes dirigen y, después, dirigir una función, que obliga a valorar funciones que uno nunca ejerció.</p>
+        <p class="par"><b>Apellido.</b> Un gerente puede llevar su función en un país o para todo el grupo. El escalón es el mismo; cuando hace falta, el cargo toma el apellido de la estructura, como Gerente país de Administración y Finanzas o Gerente corporativo de Compras, y el mayor alcance se refleja en el grado, como hace WTW con su factor «área de impacto». Por eso la experiencia va de 10 a 15 años: el extremo alto corresponde a los alcances mayores.</p>
+        <p class="par"><b>En Kenex, por ejemplo:</b> con apellido país, las gerencias de Operaciones y Logística, Retail, E-commerce, Postventa, Mercadeo, Administración y Finanzas, y Recursos Humanos; con apellido corporativo, Ventas, Mercadeo, Brand Management, Compras, Operaciones y Logística, las tres de Diseño y Marca, PMO, Gobierno de IA y Tecnología, Gobernanza del Dato y Cumplimiento.</p>
+        <p class="fuentes">Fuentes: la OIT describe a los gerentes de servicios administrativos y comerciales como quienes <q>formulan y administran la asesoría de políticas y la planificación estratégica y financiera</q> (subgrupo 12, nivel 4), a los de ventas y mercadeo como quienes <q>planifican, dirigen y coordinan las actividades de ventas y mercadeo</q> (unidad 1221) y a los de comercio al por menor como responsables de <q>los presupuestos, la dotación de personal y la dirección estratégica y operativa</q> (unidad 1420, nivel 3) (<a href="#r-oit">CIUO-08, pp. 92, 95 y 107</a>). Charan, Drotter y Noel, segunda y tercera transición (<a href="#r-pipeline">2001</a>). WTW, banda 4M «Middle Management», y 5BS cuando influye en la estrategia (<a href="#r-wtw">2024, pp. 12 y 17</a>). Experiencia: SVP 9, más de 10 años (<a href="#r-svp">DOL</a>); O*NET pone a los gerentes de ventas en la zona 4, que pide <q>varios años</q> de experiencia relacionada (<a href="#r-onet">Job Zones</a>). Mintzberg: línea media (<a href="#r-mintzberg">1979</a>).</p>
+      </div>
+    </article>
+
+    <!-- DIRECTOR -->
+    <article class="esc" id="director">
+      <div class="esc-lado">
+        <div class="eyebrow">Fija la línea rectora</div>
+        <div class="esc-tit"><span class="sw k9" aria-hidden="true"></span><h3>Director(a)</h3></div>
+        <p class="prop">Conduce una gran función del grupo y fija su línea rectora: hacia dónde va, con qué prioridades, recursos e indicadores. Su operatividad es baja: verifica y orienta.</p>
+        <dl class="meta">
+          <dt>Experiencia</dt><dd>Más de 15 años, 5 o más en dirección</dd>
+          <dt>Personas a cargo</dt><dd>Gerentes</dd>
+          <dt>Reporta a</dt><dd>La Presidencia; integra el Comité Directivo</dd>
+        </dl>
+      </div>
+      <div class="esc-cuerpo">
+        <div class="hay">
+          <div><h4>Saber</h4><p>El negocio completo y su industria, las finanzas del negocio y cómo se integran las especialidades de su función entre sí y con las demás direcciones.</p></div>
+          <div><h4>Resolver</h4><p>La estrategia de su función dentro de la del grupo: reparte el presupuesto entre sus gerencias, arbitra entre ellas, decide con sus pares en los comités lo que cruza direcciones y propone a la Presidencia y a la Junta.</p></div>
+          <div><h4>Responder</h4><p>Por el resultado de su gran función ante la Presidencia y por los indicadores que la Junta recibe de las direcciones; también por el desarrollo y la sucesión de sus gerentes.</p></div>
+        </div>
+        <p class="par"><b>Se distingue del gerente</b> en que integra varias funciones y fija la dirección, en vez de llevar una. <b>De la Presidencia</b>, en que conduce una función y no el grupo. Jaques lo dice así: el director tiene que dejar el trabajo de los gerentes que le reportan y diseñar los sistemas con que ellos trabajan. En la estructura To-Be, eso es la <b>baja operatividad</b> que se le pide a las direcciones.</p>
+        <p class="par"><b>En Kenex:</b> seis direcciones, todas con apellido corporativo. Cuatro de negocio, en el orden de la cadena de valor: Innovación y Desarrollo de Productos, Diseño y Marca, Compras y Cadena de Suministro, y Comercial. Dos de apoyo: Finanzas y Desarrollo Corporativo. Comercial y Compras y Cadena de Suministro las codirigen dos familiares, cada uno en la subdivisión de la que es especialista; es una excepción que solo se admite entre familiares y en este escalón, y debajo cada gerencia conserva una sola línea de mando. Si la primera línea se llama Dirección o Vicepresidencia es una decisión pendiente de la estructura.</p>
+        <p class="fuentes">Fuentes: experiencia, SVP 9, más de 10 años (<a href="#r-svp">DOL</a>). Lee, sobre Jaques: <q>los directores deben dejar de hacer el trabajo</q> del nivel de abajo (<a href="#r-lee">Lee, 2017</a>). La OIT dice que el máximo ejecutivo dirige <q>con el apoyo de otros gerentes</q>, dentro de las pautas de un directorio ante el que responde (unidad 1120); esos gerentes son este escalón (<a href="#r-oit">CIUO-08, p. 91</a>). Charan, Drotter y Noel, cuarta transición: de la función al negocio (<a href="#r-pipeline">2001</a>). WTW, banda 5BS, que su árbol asigna a quien <q>fija o influye significativamente en la estrategia del negocio</q> (<a href="#r-wtw">2024, p. 17</a>). Katz: en la cima pesa sobre todo la habilidad conceptual (<a href="#r-katz">1955</a>). Mintzberg: con la Presidencia, la cúpula estratégica (<a href="#r-mintzberg">1979</a>).</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="blk" id="equivalencias">
+  <div class="intro">
+    <h2>Equivalencias con los marcos de referencia</h2>
+    <p>La misma escalera leída con cada marco. Sirve para dos cosas: comparar los cargos de Kenex con las encuestas salariales del mercado, que usan bandas como las de WTW, y discutir la reclasificación con un lenguaje común.</p>
+  </div>
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th scope="col">Escalón</th><th scope="col">Experiencia estimada · SVP</th><th scope="col">CIUO-08 · OIT</th><th scope="col">Banda · WTW</th><th scope="col">Zona · O*NET</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Director(a)</th><td>Más de 15 años<span class="mut">SVP 9</span></td><td>Gran grupo 1, subgrupos 12 y 13<span class="mut">nivel 4</span></td><td>5BS Top Management</td><td class="num">4–5</td></tr>
+        <tr><th scope="row">Gerente</th><td>10 a 15 años<span class="mut">SVP 9</span></td><td>Gran grupo 1, según la función (subgrupos 12 a 14)<span class="mut">niveles 3–4</span></td><td>4M Middle Management; 5BS si influye en la estrategia</td><td class="num">4</td></tr>
+        <tr><th scope="row">Gerente de unidad de negocio</th><td>8 a 12 años<span class="mut">SVP 8 a 9</span></td><td>Unidad 1221, ventas y mercadeo<span class="mut">nivel 4</span></td><td>4M Middle Management</td><td class="num">4</td></tr>
+        <tr><th scope="row">Coordinador(a)</th><td>5 a 8 años<span class="mut">SVP 8</span></td><td>Gran grupo 1 si dirige la unidad<span class="mut">niveles 3–4</span></td><td>3M Supervisor a 4M Middle Management</td><td class="num">4</td></tr>
+        <tr><th scope="row">Supervisor(a)</th><td>3 a 5 años<span class="mut">SVP 7 a 8</span></td><td>Grupos de supervisión (3341, 5222, 3122) o el de los supervisados<span class="mut">niveles 2–3</span></td><td>3M Supervisor</td><td class="num">3–4</td></tr>
+        <tr><th scope="row">Especialista</th><td>6 a 10 años<span class="mut">SVP 8</span></td><td>Gran grupo 2, profesionales<span class="mut">nivel 4</span></td><td>4IC Subject Matter Expert</td><td class="num">4–5</td></tr>
+        <tr><th scope="row">Analista III</th><td>4 a 6 años<span class="mut">SVP 8</span></td><td>Grandes grupos 2 y 3<span class="mut">niveles 3–4</span></td><td>3IC Professional, grado alto</td><td class="num">4</td></tr>
+        <tr><th scope="row">Analista II</th><td>2 a 4 años<span class="mut">SVP 7 a 8</span></td><td>Grandes grupos 2 y 3<span class="mut">niveles 3–4</span></td><td>3IC Professional</td><td class="num">4</td></tr>
+        <tr><th scope="row">Analista I</th><td>0 a 2 años después del título<span class="mut">SVP 7</span></td><td>Gran grupo 3, técnicos<span class="mut">nivel 3</span></td><td>3IC Professional, entrada</td><td class="num">3–4</td></tr>
+        <tr><th scope="row">Auxiliar</th><td>6 meses a 2 años<span class="mut">SVP 4 a 6</span></td><td>Grandes grupos 4 y 5<span class="mut">nivel 2</span></td><td>2 Clerical/Administrative</td><td class="num">1–2</td></tr>
+        <tr><th scope="row">Operario(a)</th><td>0 a 1 año<span class="mut">SVP 2 a 5</span></td><td>Grandes grupos 7, 8 y 9<span class="mut">niveles 1–2</span></td><td>1 Manual</td><td class="num">1–2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota-tabla">Son equivalencias orientativas, para conversar. En la OIT, los tres escalones de dirección caen en el mismo gran grupo 1, porque clasifica por función y no por jerarquía. Ninguna equivalencia sustituye la evaluación del cargo: la SVP estima el tiempo típico de preparación, no el de una persona concreta; en la OIT se clasifica por las tareas principales y en WTW la banda sale de un árbol de decisión y el grado de siete factores (conocimiento funcional, conocimiento del negocio, liderazgo, solución de problemas, naturaleza del impacto, área de impacto y habilidades interpersonales).</p>
+</section>
+
+<section class="blk" id="reglas">
+  <div class="intro">
+    <h2>Reglas de diseño que se desprenden</h2>
+    <p>Lo que dicen los marcos sobre cómo usar la escalera. Cada regla va con la premisa de Kenex que refuerza.</p>
+  </div>
+  <div class="reglas">
+    <div class="regla">
+      <div class="que"><h3>Un escalón de mando solo existe si resuelve lo que el de abajo no puede</h3><p class="cita">Jaques: <q>cada capa superior debe poder resolver los problemas de trabajo que la capa inferior no puede resolver</q>. <a href="#r-go">GO Society, FAQ</a></p></div>
+      <p>Un coordinador sobre un supervisor sobre un equipo solo se justifica si el coordinador resuelve lo que el supervisor no puede: planificar el área, su presupuesto y sus indicadores del año. Si los dos hacen lo mismo, repartir y vigilar el trabajo del día, sobra uno. En las áreas pequeñas basta uno de los dos. Refuerza la <b>premisa 1</b>: no crecer a lo alto.</p>
+    </div>
+    <div class="regla">
+      <div class="que"><h3>Contar los niveles de mando de cada línea</h3><p class="cita">Es la misma regla de Jaques aplicada a una línea entera: cada escalón de mando tiene que agregar algo que el de abajo no puede resolver. <a href="#r-go">GO Society, FAQ</a></p></div>
+      <p>La línea más larga es Comercial: Presidencia, Dirección Comercial, Ventas, Retail, Retail país y, debajo, la coordinación y la supervisión de tienda. Son siete niveles de mando antes de llegar al asesor; en Operaciones y Logística, con el mismo tipo de trabajo, son cinco. Para que cada uno se justifique, cada uno tiene que decidir algo distinto. Esa es la línea a revisar primero, como ya advierte la estructura al decir que las gerencias de unidad de negocio añaden un escalón en Comercial. Refuerza la <b>premisa 1</b>.</p>
+    </div>
+    <div class="regla">
+      <div class="que"><h3>El escalón lo da el alcance, no a quién se reporta</h3><p class="cita">WTW gradúa cada cargo por siete factores, entre ellos la naturaleza y el área de su impacto, no por su línea de reporte. <a href="#r-wtw">WTW, 2024, p. 18</a></p></div>
+      <p>Las gerencias de PMO, Gobierno de IA y Tecnología, Gobernanza del Dato y Cumplimiento reportan a la Presidencia, y las de Administración y Finanzas de cada país, a la Dirección de Finanzas: en todos los casos el escalón es gerente. Reportar más arriba no sube el escalón; lo que cambia es el apellido, corporativo o país, y el alcance se refleja en el grado.</p>
+    </div>
+    <div class="regla">
+      <div class="que"><h3>Nadie del equipo por encima de su jefe</h3><p class="cita">Hay llama <i>sorethumbing</i> a revisar las anomalías, como <q>un miembro del equipo evaluado al mismo nivel o por encima de su jefe</q>. <a href="#r-hay">Hay, 2014</a></p></div>
+      <p>Un especialista no reporta a un supervisor: su criterio vale para toda la organización y su escalón es el mismo. Reporta al coordinador o al gerente. Lo mismo vale para un analista III bajo un supervisor de su mismo proceso: hay que mirar si el supervisor está bien nivelado.</p>
+    </div>
+    <div class="regla">
+      <div class="que"><h3>La trayectoria técnica tiene que valer lo mismo</h3><p class="cita">Allen y Katz estudiaron la doble escalera en organizaciones de investigación y desarrollo, y titularon su trabajo con una pregunta: <q>¿solución motivacional o ilusión gerencial?</q> <a href="#r-allen">1986</a></p></div>
+      <p>Si el especialista gana menos, decide menos o se ve como un premio de consuelo, la gente buena elegirá el mando para subir, y la organización pierde a la vez un buen técnico y gana un jefe por obligación. Por eso el patrón los pone en el mismo escalón y exige criterios para abrir un especialista.</p>
+    </div>
+    <div class="regla">
+      <div class="que"><h3>Un grado que nadie percibe no es un grado</h3><p class="cita">Hay construye su escala sobre la <q>diferencia apenas perceptible</q> entre dos puestos, un paso del 15 %. <a href="#r-hay">Hay, 2014, p. 2</a></p></div>
+      <p>Los tres grados de analista solo se usan donde la familia muestra diferencias que se pueden observar en el trabajo: guía, independencia, casos nuevos. Si en una familia el II y el III no se distinguen, se usan dos. Refuerza la <b>premisa 2</b>: no crear tipos de cargo de más.</p>
+    </div>
+    <div class="regla">
+      <div class="que"><h3>Se clasifica por la tarea que más exige</h3><p class="cita">OIT: cuando las tareas requieren competencias de distinto nivel, el empleo se clasifica <q>según las tareas que exigen el mayor nivel de competencias</q>. <a href="#r-oit">CIUO-08, p. 39</a></p></div>
+      <p>Un auxiliar que además concilia cuentas cada semana es analista I; uno que lo hace una vez al año sigue siendo auxiliar. La tarea cuenta si es parte estable del cargo. Refuerza la <b>premisa 3</b>: el patrón se aplica al cargo, en la reclasificación, no a partir del censo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="decisiones">
+  <div class="intro">
+    <h2>Decisiones abiertas</h2>
+    <p>Tres ya están en las decisiones pendientes de la estructura To-Be: la primera línea, la cabeza país y las denominaciones de la estructura patrón, que abarcan la pareja supervisor o especialista y los grados de analista. Las otras salen de esta descripción. Las que tocan la estructura las toma el liderazgo; las de los escalones, Desarrollo Corporativo con el equipo consultor, en la reclasificación.</p>
+  </div>
+  <div class="decisiones">
+    <div class="dec">
+      <h3>Gerencias país bajo una gerencia de unidad de negocio</h3>
+      <div class="opc"><span class="epchip">Escalón de gerente de unidad de negocio, apellido país</span><span class="epchip">Escalón de coordinador, apellido país</span><span class="epchip">Escalón de gerente, apellido país</span></div>
+      <p class="crit"><b>Criterio:</b> en Ventas y Mercadeo, las gerencias país reportan a una gerencia de unidad de negocio (Retail país a Retail, por ejemplo). En el cruce, su titular no puede quedar en un escalón más alto que el de su jefe, así que no le corresponde el de gerente. Falta decidir si toma el de gerente de unidad de negocio o el de coordinador, según el tamaño de la operación del país.</p>
+    </div>
+    <div class="dec">
+      <h3>Primera línea: Dirección o Vicepresidencia</h3>
+      <div class="opc"><span class="epchip">Dirección</span><span class="epchip">Vicepresidencia</span></div>
+      <p class="crit"><b>Criterio:</b> «Dirección» se entiende igual en los tres países y es como la estructura nombra hoy esta capa. «Vicepresidencia» separa con claridad el escalón si más adelante hay una dirección general por país, porque evita dos «directores» en niveles distintos. Conviene decidirla junto con la siguiente.</p>
+    </div>
+    <div class="dec">
+      <h3>Cabeza país y tamaño de la gerencia país</h3>
+      <div class="opc"><span class="epchip">Sin cabeza país</span><span class="epchip">Dirección general por país</span><span class="epchip">Gerencia país que baja a coordinación</span></div>
+      <p class="crit"><b>Criterio:</b> con la regla de Jaques, una cabeza país se justifica si resuelve algo que sus gerentes país no pueden, como integrar entre sí las funciones del país; si solo los reúne, es una capa de más. En el otro sentido, una gerencia país que dirige un área y no tiene coordinaciones debajo trabaja como una coordinación, y así debería quedar escrito.</p>
+    </div>
+    <div class="dec">
+      <h3>Supervisor(a) y Especialista en el mismo escalón</h3>
+      <div class="opc"><span class="epchip">Un escalón, dos trayectorias</span><span class="epchip">Dos escalones distintos</span></div>
+      <p class="crit"><b>Criterio:</b> la pendiente de la estructura los separa por si se gestiona gente o se valora el conocimiento técnico. Los marcos los ponen al mismo nivel con bandas distintas. Falta confirmar los tres criterios para abrir un especialista y que su retribución sea equivalente.</p>
+    </div>
+    <div class="dec">
+      <h3>Tres grados de analista o dos</h3>
+      <div class="opc"><span class="epchip">I · II · III en todas las familias</span><span class="epchip">Según la familia</span><span class="epchip">I · II</span></div>
+      <p class="crit"><b>Criterio:</b> un grado se justifica si su diferencia con el vecino se observa en el trabajo. La recomendación es definirlo por familia: tres donde haya casos simples, habituales y complejos claramente distintos, dos donde no.</p>
+    </div>
+    <div class="dec">
+      <h3>Dónde quedan el asesor de tienda y el técnico de servicio</h3>
+      <div class="opc"><span class="epchip">Asesor(a) en Auxiliar</span><span class="epchip">Técnico(a) en Operario o Analista I</span></div>
+      <p class="crit"><b>Criterio:</b> son dos denominaciones frecuentes en la base de la escalera. La OIT pone a los vendedores de tienda en el nivel 2, el mismo del auxiliar. A los técnicos los ubica según la tarea: reparación en el nivel 2, soporte informático en el 3.</p>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="referencias">
+  <div class="intro"><h2>Referencias</h2><p>Las citas en español son traducción del equipo; las páginas son las de la edición original.</p></div>
+  <ol class="refs">
+    <li id="r-oit">Organización Internacional del Trabajo (2012). <i>International Standard Classification of Occupations, ISCO-08. Volume 1: Structure, group definitions and correspondence tables</i>. Ginebra: OIT. En español, CIUO-08. <a href="https://www.ilo.org/publications/international-standard-classification-occupations-2008-isco-08-structure">ilo.org</a><span class="uso">Niveles de competencias (pp. 11–14), grupos de supervisores (pp. 24–25), reglas de clasificación y diferencia entre gerentes y supervisores (pp. 39–40), gran grupo 1 de gerentes y sus unidades 1120, 1221, 1324 y 1420 (pp. 87–107).</span></li>
+    <li id="r-wtw">WTW (2024). <i>Teacher Job Levelling – Final</i>. Informe para la Office of Manpower Economics y el School Teachers' Review Body del Reino Unido, marzo de 2024. <a href="https://assets.publishing.service.gov.uk/media/66a370440808eaf43b50d7b2/WTW_OME-STRB_Job_Levelling_FOR_PUBLICATION.pdf">gov.uk</a><span class="uso">Global Grading System: bandas por trayectoria (p. 12), árbol de bandas (p. 17) y siete factores de grado (p. 18).</span></li>
+    <li id="r-hay">Hay Group (2014). <i>The Hay Group Guide Chart-Profile method of job evaluation</i>. Hay Group, hoy Korn Ferry. <a href="https://professionals.lincolnshire.gov.uk/downloads/file/576/hay-group-je-method">copia pública</a><span class="uso">Conocimiento, solución de problemas y responsabilidad; diferencia apenas perceptible del 15 %; revisión de anomalías.</span></li>
+    <li id="r-uwo">University of Western Ontario (2007). <i>Overview of the Hay Method</i>. <a href="https://www.uwo.ca/humanresources/wjec/docs/hay_method_overview.pdf">uwo.ca</a><span class="uso">El método evalúa la naturaleza y las exigencias del cargo, no a la persona.</span></li>
+    <li id="r-jaques">Jaques, E. (1989). <i>Requisite Organization: The CEO's Guide to Creative Structure and Leadership</i>. Arlington: Cason Hall. 2.ª ed., 1996.<span class="uso">Niveles de complejidad del trabajo y regla de que cada escalón de mando resuelve lo que el de abajo no puede.</span></li>
+    <li id="r-lee">Lee, N. (2017). <i>The Practice of Managerial Leadership</i>, 2.ª ed. Condensación de la Global Organization Design Society. <a href="https://globalro.org/article/practice-managerial-leadership-condensation-15-book/3838">globalro.org</a><span class="uso">Aplicación de Jaques a los directores: dejar el trabajo del nivel de abajo.</span></li>
+    <li id="r-go">Craddock, K. y Koplowitz, H. <i>Frequently Asked Questions about Requisite Organization</i>. Global Organization Design Society. <a href="https://globalro.org/article/frequently-asked-questions-faq-about-requisite-organization/2360">globalro.org</a><span class="uso">Regla de que cada capa resuelve lo que la de abajo no puede.</span></li>
+    <li id="r-pipeline">Charan, R., Drotter, S. y Noel, J. (2001). <i>The Leadership Pipeline: How to Build the Leadership-Powered Company</i>. San Francisco: Jossey-Bass. 2.ª ed., 2011.<span class="uso">Seis transiciones de liderazgo; aquí se usan las cuatro primeras: dirigir a otros, dirigir a quienes dirigen, dirigir una función y dirigir un negocio.</span></li>
+    <li id="r-svp">Departamento de Trabajo de EE. UU., Employment and Training Administration. <i>An Explanation of SVP</i>, a partir del apéndice C del <i>Dictionary of Occupational Titles</i>, 4.ª ed. revisada, 1991. <a href="https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/An%20Explanation%20of%20SVP.pdf">dol.gov</a><span class="uso">Definición de la preparación vocacional específica, qué incluye (formación, entrenamiento y experiencia en cargos de menor responsabilidad) y sus nueve tramos: 1 solo una demostración; 2 hasta 1 mes; 3 de 1 a 3 meses; 4 de 3 a 6 meses; 5 de 6 meses a 1 año; 6 de 1 a 2 años; 7 de 2 a 4 años; 8 de 4 a 10 años; 9 más de 10 años.</span></li>
+    <li id="r-katz">Katz, R. L. (1955). Skills of an effective administrator. <i>Harvard Business Review</i>, 33(1), 33–42.<span class="uso">Habilidades técnica, humana y conceptual, y su peso según el nivel.</span></li>
+    <li id="r-mintzberg">Mintzberg, H. (1979). <i>The Structuring of Organizations</i>. Englewood Cliffs: Prentice-Hall. En español: <i>La estructuración de las organizaciones</i>, Ariel.<span class="uso">Núcleo de operaciones, línea media y tecnoestructura.</span></li>
+    <li id="r-allen">Allen, T. J. y Katz, R. (1986). The dual ladder: motivational solution or managerial delusion? <i>R&amp;D Management</i>, 16(2), 185–197.<span class="uso">Doble escalera, técnica y de gestión, y sus condiciones.</span></li>
+    <li id="r-onet">O*NET Resource Center, Departamento de Trabajo de EE. UU. <i>Job Zones</i>. <a href="https://www.onetonline.org/help/online/zones">onetonline.org</a><span class="uso">Cinco zonas según la preparación que exige la ocupación, con su tramo SVP: zonas 1–2 por debajo de SVP 6; zona 3, SVP 6 a 7; zona 4, SVP 7 a 8 (<q>varios años</q> de experiencia, por ejemplo gerentes de ventas y directores de arte); zona 5, SVP 8 o más (<q>muchas piden más de cinco años</q>).</span></li>
+  </ol>
+  <p class="pie">Fuentes internas: estructura To-Be de Kenex al 10-nov-2026 (capas, niveles, unidades, estructura patrón, principios y decisiones pendientes). Las premisas citadas son las fijadas el 10-nov-2026 para desarrollar la capa país.</p>
+</section>
+</div>
+</template>
 
 <script src="descripciones-datos.js"></script>
 <script>
@@ -314,7 +935,7 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     var hermanos = D.familias.filter(function(f){ return f.piloto; })[0];
     var compartida = c.matices && c.matices.length, co = c.competencias, t = c.tecnicas;
     var SECS = [['s1', 'I', 'Información del cargo'], ['s2', 'II', 'Responsabilidades'], ['s3', 'III', 'Competencias y perfil'], ['s4', 'IV', 'Información importante'], ['s5', 'V', 'Riesgos laborales'], ['s6', '✎', 'Control y notas']];
-    var h = '<div class="ficha"><nav class="riel" id="riel"><a class="volver" href="#/">← Todas las familias</a>' +
+    var h = '<div class="ficha"><nav class="riel" id="riel"><a class="volver" href="#/descripciones">← Todas las familias</a>' +
       SECS.map(function(s){ return '<a class="s" href="#' + s[0] + '" data-s="' + s[0] + '"><b>' + s[1] + '</b>' + s[2] + '</a>'; }).join('') +
       (hermanos ? '<div class="otros"><p>' + esc(hermanos.nombre) + '</p>' + hermanos.cargos.map(function(n){ var i = POR_NOMBRE[n];
         return i ? '<a class="' + (i === id ? 'on' : '') + '" href="#/c/' + i + '">' + esc(n) + '</a>' : ''; }).join('') + '</div>' : '') + '</nav><div>';
@@ -357,26 +978,69 @@ h3.m{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu
     return h + '</div></div>';
   }
 
-  var espia = null;
-  function router(){
-    var r = (location.hash || '#/').replace(/^#/, ''), m = r.match(/^\/c\/([\w-]+)/);
-    if (/^s\d$/.test(r)) return;   // anclas del riel: no rehacer la vista
-    $('#vista').innerHTML = m ? cargo(m[1]) : inicio();
-    $('#btnImprimir').hidden = !m;
-    window.scrollTo(0, 0);
-    document.title = (m && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — ' : '') + 'Descripciones de cargo — Fase 3 | Proyecto Rower';
-    if (espia) espia.disconnect();
-    if (m){
-      // el riel navega con scroll, sin tocar el hash de la ruta
-      document.querySelectorAll('#riel a.s').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById(a.dataset.s).scrollIntoView({ behavior: 'smooth' }); }); });
+  var VISTA = null, espia = null;
+  var PATRON_SECS = [['escalera', 'La escalera'], ['leer', 'Cómo leer un escalón'], ['equipos', 'Del operario al coordinador'], ['direccion', 'Gerentes y director'],
+    ['equivalencias', 'Equivalencias con los marcos'], ['reglas', 'Reglas de diseño'], ['decisiones', 'Decisiones abiertas'], ['referencias', 'Referencias']];
+  function armarIndice(){
+    var piloto = D.familias.filter(function(f){ return f.piloto; })[0];
+    $('#ixPatron').innerHTML = PATRON_SECS.map(function(s){ return '<a href="#/patron/' + s[0] + '" data-a="' + s[0] + '">' + s[1] + '</a>'; }).join('');
+    $('#ixDesc').innerHTML = '<a href="#/descripciones" data-a="familias">Familias de cargos</a>' + (piloto ? piloto.cargos.map(function(n){ var i = POR_NOMBRE[n];
+      return i ? '<a href="#/c/' + i + '" data-c="' + i + '">' + esc(n) + '</a>' : ''; }).join('') : '');
+  }
+  function marcarIndice(vista, id){
+    document.querySelectorAll('.ix-p').forEach(function(a){ a.classList.toggle('on', a.dataset.v === (vista === 'patron' ? 'patron' : 'desc')); });
+    $('#ixPatron').classList.toggle('abierto', vista === 'patron');
+    $('#ixDesc').classList.toggle('abierto', vista !== 'patron');
+    document.querySelectorAll('#ixDesc a').forEach(function(a){ a.classList.toggle('on', vista === 'cargo' ? a.dataset.c === id : a.dataset.a === 'familias'); });
+  }
+  function irA(id){
+    var el = document.getElementById(id); if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.resalta').forEach(function(x){ x.classList.remove('resalta'); });
+    if (el.matches('section.blk, .bloque')) return;   // una sección entera no se resalta: solo fichas y referencias
+    el.classList.add('resalta'); setTimeout(function(){ el.classList.remove('resalta'); }, 1800);
+  }
+  function montar(vista){
+    if (espia){ espia.disconnect(); espia = null; }
+    if (vista === 'cargo'){
       espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#riel a.s').forEach(function(a){ a.classList.toggle('on', a.dataset.s === e.target.id); }); }); }, { rootMargin: '-30% 0px -60% 0px' });
       document.querySelectorAll('.bloque').forEach(function(b){ espia.observe(b); });
+    } else if (vista === 'patron'){
+      espia = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) document.querySelectorAll('#ixPatron a').forEach(function(a){ a.classList.toggle('on', a.dataset.a === e.target.id); }); }); }, { rootMargin: '-20% 0px -70% 0px' });
+      document.querySelectorAll('.ep section.blk[id]').forEach(function(b){ espia.observe(b); });
     } else {
       var q = $('#buscar');
       if (q) q.addEventListener('input', function(){ var v = q.value.trim().toLowerCase();
         document.querySelectorAll('.famc').forEach(function(f){ f.style.display = !v || f.dataset.q.indexOf(v) >= 0 ? '' : 'none'; }); });
     }
   }
+  function router(){
+    var r = (location.hash || '#/').replace(/^#/, '');
+    if (r.charAt(0) !== '/') return;   // anclas sueltas: no rehacer la vista
+    var m = r.match(/^\/c\/([\w-]+)/), pa = r.match(/^\/patron\/([\w-]+)/);
+    var vista = m ? 'cargo' : /^\/descripciones/.test(r) ? 'desc' : 'patron';
+    var clave = vista + (m ? ':' + m[1] : '');
+    if (clave !== VISTA){
+      $('#vista').innerHTML = vista === 'cargo' ? cargo(m[1]) : vista === 'desc' ? inicio() : $('#tplPatron').innerHTML;
+      VISTA = clave;
+      if (!pa) window.scrollTo(0, 0);
+      montar(vista);
+    }
+    marcarIndice(vista, m && m[1]);
+    $('#btnImprimir').hidden = vista !== 'cargo';
+    document.title = (vista === 'cargo' && D.descripciones[m[1]] ? D.descripciones[m[1]].denominacion + ' — Descripciones de cargo' : vista === 'desc' ? 'Descripciones de cargo' : 'Estructura patrón de cargos') + ' — Fase 3 | Proyecto Rower';
+    if (pa) setTimeout(function(){ irA(pa[1]); }, 40);
+  }
+  // Enlaces a #<id> dentro de la vista: se desplazan sin tocar la ruta del hash.
+  // Un enlace del índice a la sección en la que ya se está tampoco cambia el hash: se desplaza.
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null; if (!a) return;
+    var h = a.getAttribute('href'), pa = h.match(/^#\/patron\/([\w-]+)$/);
+    if (pa && h === location.hash){ e.preventDefault(); irA(pa[1]); return; }
+    if (h.charAt(1) === '/' || !document.getElementById(h.slice(1))) return;
+    e.preventDefault(); irA(h.slice(1));
+  });
+  armarIndice();
   var fs = $('#faseSel'), fb = $('#faseBtn');
   fb.addEventListener('click', function(e){ e.stopPropagation(); fs.classList.toggle('open'); fb.setAttribute('aria-expanded', fs.classList.contains('open')); });
   document.addEventListener('click', function(){ fs.classList.remove('open'); fb.setAttribute('aria-expanded', 'false'); });
