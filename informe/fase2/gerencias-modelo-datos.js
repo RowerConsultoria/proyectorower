@@ -167,12 +167,12 @@ window.MODELOS_GERENCIAS = {
   {t:'norma',con:'Innovación y Tecnología de Productos',dir:'recibe',que:'Las especificaciones técnicas de cada desarrollo.'},
   {t:'norma',con:'Compras Cubitt',dir:'da',que:'Las muestras y especificaciones aprobadas con las que se ordena a fábrica.'},
   {t:'servicio',con:'Postventa',dir:'recibe',que:'Los casos de falla por lote, consolidados por la gerencia de Postventa.'},
-  {t:'mision',con:'Mercadeo y Comercial',dir:'mutuo',que:'Cada lanzamiento: hasta la llegada lo conduce esta gerencia; desde la preventa, el brand manager y Ventas.'},
+  {t:'mision',con:'Mercadeo y Comercial',dir:'mutuo',que:'Cada lanzamiento: hasta la llegada lo conduce esta gerencia; desde la preventa, Mercadeo y Ventas.'},
   {t:'decide',con:'Comité Comercial',dir:'recibe',que:'Decide la colección y los colores de temporada.'}],
  reglas:[
   ['norma','Una sola dueña de la especificación','Especificaciones, variantes, códigos y calidad los firma esta gerencia; la forma, los colores, los materiales y el empaque, Diseño y Marca. Compras, Mercadeo o Ventas pueden pedir un cambio, no hacerlo.'],
   ['servicio','La falla llega por una sola vía','La Postventa de cada país registra los casos, la gerencia de Postventa los consolida y esta gerencia decide qué se lleva a la fábrica.'],
-  ['mision','El lanzamiento tiene un relevo','Hasta la llegada del producto, la misión la dirige Desarrollo y Calidad. Con el aviso para abrir la preventa, pasa al brand manager de Mercadeo y a Ventas. La retrospectiva de costo contra venta la cierran juntos.'],
+  ['mision','El lanzamiento tiene un relevo','Hasta la llegada del producto, la misión la dirige Desarrollo y Calidad. Con el aviso para abrir la preventa, pasa a Mercadeo y a Ventas. La retrospectiva de costo contra venta la cierran juntos.'],
   ['decide','La colección se decide en comité','La gerencia propone el plan anual de productos; el Comité Comercial decide la colección.']],
  caso:{t:'Un lote de relojes Cubitt llega con una falla repetida',pasos:[
   ['servicio','La Postventa de cada país registra los casos.'],
